@@ -35,19 +35,37 @@ const UINT16 _mvc2_supp_const [] =
 
 	0x01 |  SUPP_START, //Zangief
 		//Node, Start, Increment	//, Copy
+		
+		// 0x17-0x19 are the mashed tint for FAB
 		SUPP_NODE, 0x17, 3,
 			//Type, Pal Index Start, Pal Index Amt
-			MOD_TINT, 1, 15,
+			MOD_TINT, 1, 7,
 		SUPP_NODE, 0x18, 3,
-			MOD_TINT, 1, 15,  
+			MOD_TINT, 1, 7,  
 		SUPP_NODE, 0x19, 3,
-			MOD_TINT, 1, 15,
+			MOD_TINT, 1, 7,
+		// the boots!
+		SUPP_NODE, 0x17, 3,
+			MOD_COPY, 8, 8, 8,
+		SUPP_NODE, 0x18, 3,
+			MOD_COPY, 8, 8, 8,
+		SUPP_NODE, 0x19, 3,
+			MOD_COPY, 8, 8, 8,
+		// 0x29-0x2 are the mashed tint for FAB for mecha Zangief.  mecha zangief is 11 Extra, 12 Extra, 13 Extra, etc
 		SUPP_NODE, 0x29, 3,
-			MOD_TINT, 1, 15,
+			MOD_TINT, 1, 7,
 		SUPP_NODE, 0x2A, 3,
-			MOD_TINT, 1, 15,
+			MOD_TINT, 1, 7,
 		SUPP_NODE, 0x2B, 3,
-			MOD_TINT, 1, 15,
+			MOD_TINT, 1, 7,
+		// also the boots!  just the mechaboots!
+			// BUGBUG: This is copying from base gief not mecha gief (11 Extra)!
+		SUPP_NODE, 0x29, 3,
+			MOD_COPY, 8, 8, 8,
+		SUPP_NODE, 0x2A, 3,
+			MOD_COPY, 8, 8, 8,
+		SUPP_NODE, 0x2B, 3,
+			MOD_COPY, 8, 8, 8,
 
 	0x03 | SUPP_START, //Morrigan
 		//SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
@@ -166,7 +184,10 @@ const UINT16 _mvc2_supp_const [] =
 			*/
 
 	0x0C | SUPP_START, //Spider-Man
-		SUPP_NODE, 0x09, 16,
+		// 01 ABS: Taunt balloon
+		// 02 ABS: spider-sense intro
+		// 0x09 through 0x10 are for the Intro animation
+		SUPP_NODE, 0x09, 16, 
 			MOD_LUM, 01, 11, NEG + 29,
 			MOD_LUM, 15, 2, NEG + 29,
 		SUPP_NODE, 0x0A, 16,
@@ -190,6 +211,8 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x10, 16,
 			MOD_LUM, 01, 11, NEG + 3,
 			MOD_LUM, 15, 2, NEG + 3,
+		// 11/12, 20/21, 31,32, etc are the spider signal pairs, I believe
+	    // 11 is (12 - 18LUM) or so. I don't necessarily follow the correlation from those to the main palette.
 
 	0x0F | SUPP_START, //Dr. Doom
 		SUPP_NODE, 0x09, 28,
@@ -597,3 +620,4 @@ void supp_copy_palette(UINT16 char_id, UINT16 dst_pal, UINT16 src_pal);
 void supp_copy_index(UINT16 char_id, UINT16 src_pal, UINT16 dst_pal, UINT8 dst_index, UINT8 src_index, UINT8 index_amt);
 void supp_mod_white(UINT16 char_id, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc);
 void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc);
+

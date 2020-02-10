@@ -40,8 +40,6 @@ public:
 	//Normal functions
 	CDescTree * GetMainTree();
 
-	
-
 	BOOL LoadFile(CFile * LoadedFile, int nUnitId);
 	BOOL SaveFile(CFile * SaveFile, int nUnitId);
 

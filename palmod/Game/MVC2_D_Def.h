@@ -1,13 +1,13 @@
 #pragma once
 #include "Default.h"
 
-#define MVC2_D_NUMUNIT 59
-#define MVC2_D_PALSZ 16
+constexpr UINT16 MVC2_D_NUMUNIT = 59;
+constexpr UINT16 MVC2_D_PALSZ = 16;
 
-#define EXTRA_START 0x0F00
-#define EXTRA_END 0xFFFF
+constexpr UINT16 EXTRA_START = 0x0F00;
+constexpr UINT16 EXTRA_END = 0xFFFF;
 
-#define EXTRA_OMNI (8 * 6) - 1
+constexpr UINT16 EXTRA_OMNI = 47; //  (8 * 6) - 1;
 
 const UINT32 MVC2_D_FILESZ[0x3B] = {
 

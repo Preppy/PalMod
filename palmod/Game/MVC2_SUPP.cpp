@@ -166,7 +166,7 @@ void proc_supp(int char_no, int pal_no)
 					{
 						case MOD_TINT:
 							{
-								//Tint not supported
+								// Tint not supported
 	                          
 								index_ctr += 3;
 								break;
@@ -294,6 +294,4 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 dst_pal, 
 		dst_16[i] |= CurrMVC2->ConvCol(HLStoRGB(src_h, src_l, src_s));
 	}
 }
-
-
 

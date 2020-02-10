@@ -231,7 +231,6 @@ void CGame_MVC2_D::InitExtraRg()
 		{
 			rgExtraChrLoc[(MVC2_D_EXTRADEF[i] & 0x00FF)] = i;
 			i += 8;
-
 		}
 		else
 		{
@@ -279,8 +278,6 @@ int CGame_MVC2_D::CountExtraRg(int nUnitId, BOOL bOmniExtra)
 				
 				return nRetVal;
 			}
-
-
 		}
 		else
 		{
@@ -317,8 +314,6 @@ sFileRule CGame_MVC2_D::GetRule(int nRuleId)
 
 sFileRule CGame_MVC2_D::GetNextRule()
 {
-	
-
 	sFileRule NewFileRule = GetRule(uRuleCtr);
 
 	uRuleCtr++;
@@ -388,7 +383,6 @@ BOOL CGame_MVC2_D::LoadFile(CFile * LoadedFile, int nUnitId)
 		{
 			return FALSE;
 		}
-
 		
 		ppDataBuffer[nUnitId] = new UINT16[nDataSz / 2];
 		
@@ -402,7 +396,7 @@ BOOL CGame_MVC2_D::LoadFile(CFile * LoadedFile, int nUnitId)
 		return TRUE;
 	}
 
-	return FALSE;
+	return FALSE; // not reachable
 }
 
 BOOL CGame_MVC2_D::SaveFile(CFile * SaveFile, int nUnitId)
@@ -432,7 +426,7 @@ BOOL CGame_MVC2_D::SaveFile(CFile * SaveFile, int nUnitId)
 		return TRUE;
 	}
 
-	return FALSE;
+	return FALSE; // not reachable
 }
 
 COLORREF * CGame_MVC2_D::CreatePal(int nUnitId, int nPalId)
@@ -453,7 +447,6 @@ void CGame_MVC2_D::CreateDefPal(sDescNode * srcNode, int nSepId)
 	int nUnitId = srcNode->uUnitId;
 	int nPalId = srcNode->uPalId;
 				
-
 	BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), MVC2_D_PALSZ, nUnitId, nPalId);
 	BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, MVC2_D_PALSZ);
 }
@@ -501,8 +494,6 @@ BOOL CGame_MVC2_D::CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc,
 
 	return FALSE;
 }
-
-
 
 void CGame_MVC2_D::UpdatePalData()
 {

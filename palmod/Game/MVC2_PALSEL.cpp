@@ -18,8 +18,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	//Reset the extra amount
 	nExtraAmt = 6;
 
-	
-
 	int nSpecOffs;
 	bLoadDefPal = TRUE;
 
@@ -42,9 +40,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 	switch(uUnitId)
 	{
-	case 0x01: //Zangeif
+	case 0x01: //Zangief
 		{
-			if(uPalId >= (0x11 + EXTRA_OMNI) && uPalId <= (0x16 + EXTRA_OMNI))
+			if (uPalId >= (0x11 + EXTRA_OMNI) && uPalId <= (0x16 + EXTRA_OMNI))
 			{
 				SetExtraImg(11, uUnitId, uPalId);
 				break;
@@ -118,8 +116,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 				SetSourcePal(0, uUnitId, 0, 6, 8);
 				SetSourcePal(1, uUnitId, 1, 6, 8);
-				
-
 			
 				break;
 			}
@@ -201,8 +197,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 				break;
 			}
 
-			
-
 			break;
 		}
 
@@ -226,7 +220,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 			}
 
 			break;
-
 		}
 	
 	case 0x10: //Tron
@@ -256,7 +249,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 				SetSourcePal(1, uUnitId, 1, 6, 8);
 
 				break;
-				
 			}
 
 			nExtraAmt = 1;
@@ -313,9 +305,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 				SetSourcePal(0, uUnitId, 0, 6, 8);
 				SetSourcePal(1, uUnitId, 1, 6, 8);
-				
-
-			
 			}
 			
 			break;
@@ -352,7 +341,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	case 0x15: //Amingo
 		{
 			nExtraAmt = 1;
-
 		
 			if(
 				CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11)
@@ -444,7 +432,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 			if(CreateExtraPal(uUnitId, uPalId, 0x19, 1, 15))
 				break;
 			
-
 			break;
 		}
 	case 0x2C:
@@ -504,7 +491,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 			if(uPalId >= (0x09 + EXTRA_OMNI))
 			{
 				SetExtraImg(0, uUnitId, uPalId);
-				
 			}
 			
 			break;
@@ -557,7 +543,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 				break;
 			}
 
-
 			nExtraAmt = 4;
 
 			if(CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11))
@@ -575,7 +560,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 				|| CreateExtraPal(uUnitId, uPalId, 0x0F, 2, 14)
 				)
 				break;		
-
 
 			break;
 		}
@@ -603,12 +587,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 				SetSourcePal(0, uUnitId, 0, 6, 8);
 				SetSourcePal(1, uUnitId, 1, 6, 8);
-				
 			}
 
 			break;
 		}
-		
 	}
 
 	if(bLoadDefPal)
