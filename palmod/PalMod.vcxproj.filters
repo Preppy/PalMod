@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CustomCtrl">
+      <UniqueIdentifier>{a890215f-af46-44d0-9b41-aadeafbc8ac5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{4aa59c2b-fa46-4634-8464-096e8cf028f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Palette">
+      <UniqueIdentifier>{7fdafb55-ac78-4bab-90e9-d0be816ef08f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MVC2_D">
+      <UniqueIdentifier>{c47d5fd9-40eb-476c-a684-36e1af154e95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SFIII3_A">
+      <UniqueIdentifier>{55f08cbc-ae87-4c23-9fa3-17aaf7c5d28a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Default">
+      <UniqueIdentifier>{1a9ec6e6-71d3-4e4c-9226-6c7d87f549fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Image">
+      <UniqueIdentifier>{6e60247b-4b6c-431e-bdb5-8523533818d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MVC2_P">
+      <UniqueIdentifier>{2de3a788-3bf5-43af-9f2a-1463e9a9f9ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SSF2T_A">
+      <UniqueIdentifier>{41cb4112-4692-4932-907c-e998223278a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SFA3_A">
+      <UniqueIdentifier>{e9729bd6-5628-4cad-965a-7d633274dda6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\XMVSF_A">
+      <UniqueIdentifier>{812aa4e2-7390-40c1-b4d8-aec28480193d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MVC_A">
+      <UniqueIdentifier>{4efce5e0-fe0e-4919-aa24-a0017a01bbcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SFIII3_D">
+      <UniqueIdentifier>{b3d84418-feea-4a1e-b762-1e50d11de0f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Files">
+      <UniqueIdentifier>{2c52f1e6-5791-4801-876e-4b6c27abaccd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main DLG/APP">
+      <UniqueIdentifier>{38e8a575-4a1c-4f5d-a025-b560493eeb30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main DLG/APP\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Main DLG/APP\Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Main DLG/APP\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Main DLG/APP\Registry">
+      <UniqueIdentifier>{c831fe95-260e-4e62-964e-d490b0df1703}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main DLG/APP\UndoRedo">
+      <UniqueIdentifier>{858b99b1-77bf-4de0-a42c-561c33d7d05b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DownClass">
+      <UniqueIdentifier>{d9e3525e-2640-4d02-9220-4737de46858b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ImgDisp.cpp">
+      <Filter>CustomCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="Junk.cpp">
+      <Filter>CustomCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="PalTool.cpp">
+      <Filter>CustomCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ColorScale.cpp">
+      <Filter>Game\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\PalGroup.cpp">
+      <Filter>Game\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ShellSort.cpp">
+      <Filter>Game\Palette</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MVC2_D.cpp">
+      <Filter>Game\MVC2_D</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\MVC2_PALSEL.cpp">
+      <Filter>Game\MVC2_D</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\MVC2_SUPP.cpp">
+      <Filter>Game\MVC2_D</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII3_A.cpp">
+      <Filter>Game\SFIII3_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_SFIII3_A_EXTRA.cpp">
+      <Filter>Game\SFIII3_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\DescTree.cpp">
+      <Filter>Game\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameClass.cpp">
+      <Filter>Game\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameLoad.cpp">
+      <Filter>Game\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgDat.cpp">
+      <Filter>Game\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MVC2_P.cpp">
+      <Filter>Game\MVC2_P</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SSF2T_A.cpp">
+      <Filter>Game\SSF2T_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFA3_A.cpp">
+      <Filter>Game\SFA3_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_XMVSF_A.cpp">
+      <Filter>Game\XMVSF_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MVC_A.cpp">
+      <Filter>Game\MVC_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII3_D.cpp">
+      <Filter>Game\SFIII3_D</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgDumpBmp.cpp">
+      <Filter>Additional Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgOutDlg.cpp">
+      <Filter>Additional Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalMod.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_Color.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_Config.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_Debug.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_Edit.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_File.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_General.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PalModDlg_Menu.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PreviewDlg.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SettDlg.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegProc.cpp">
+      <Filter>Main DLG/APP\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="UndoRedo.cpp">
+      <Filter>Main DLG/APP\UndoRedo</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ImgDisp.h">
+      <Filter>CustomCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="Junk.h">
+      <Filter>CustomCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="JunkC.h">
+      <Filter>CustomCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="PalTool.h">
+      <Filter>CustomCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ColorScale.h">
+      <Filter>Game\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PalGroup.h">
+      <Filter>Game\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ShellSort.h">
+      <Filter>Game\Palette</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MVC2_D.h">
+      <Filter>Game\MVC2_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MVC2_D_Def.h">
+      <Filter>Game\MVC2_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\mvc2_supp.h">
+      <Filter>Game\MVC2_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII3_A.h">
+      <Filter>Game\SFIII3_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFIII3_A_DEF.h">
+      <Filter>Game\SFIII3_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Default.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DescTree.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClass.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameDef.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameLoad.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ImgTicket.h">
+      <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgDat.h">
+      <Filter>Game\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MVC2_P.h">
+      <Filter>Game\MVC2_P</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SSF2T_A.h">
+      <Filter>Game\SSF2T_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SSF2T_A_DEF.h">
+      <Filter>Game\SSF2T_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFA3_A.h">
+      <Filter>Game\SFA3_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFA3_A_DEF.h">
+      <Filter>Game\SFA3_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_XMVSF_A.h">
+      <Filter>Game\XMVSF_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\XMVSF_A_DEF.h">
+      <Filter>Game\XMVSF_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MVC_A.h">
+      <Filter>Game\MVC_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MVC_A_DEF.h">
+      <Filter>Game\MVC_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII3_D.h">
+      <Filter>Game\SFIII3_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFIII3_D_DEF.h">
+      <Filter>Game\SFIII3_D</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgDumpBmp.h">
+      <Filter>Additional Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgOutDlg.h">
+      <Filter>Additional Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PalMod.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PalModDlg.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PreviewDlg.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SettDlg.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Main DLG/APP\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegProc.h">
+      <Filter>Main DLG/APP\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="UndoRedo.h">
+      <Filter>Main DLG/APP\UndoRedo</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bgbmp.bmp">
+      <Filter>Main DLG/APP\Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap1.bmp">
+      <Filter>Main DLG/APP\Resource Files</Filter>
+    </Image>
+    <Image Include="res\PalMod.ico">
+      <Filter>Main DLG/APP\Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PalMod.rc">
+      <Filter>Main DLG/APP\Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\PalMod.rc2">
+      <Filter>Main DLG/APP\Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Notes.txt" />
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\palmod_.manifest" />
+  </ItemGroup>
+</Project>

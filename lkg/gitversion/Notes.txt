@@ -1,0 +1,5 @@
+Set gouki's offset correctly on SSF2T
+Get portraits for the new games
+test out each game's palettes
+add fixed up a  past eerror between games and alpha flags
+
