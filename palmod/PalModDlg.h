@@ -194,10 +194,10 @@ public:
 	afx_msg void OnKillFocusEditBL();
 	afx_msg void OnKillFocusEditA();
 	
-	CString m_EditRHDesc = _T("A");
+	CString m_EditRHDesc = _T("");
 	CString m_EditGSDesc = _T("");
 	CString m_EditBLDesc = _T("");
-	CString m_EditADesc = _T("");
+	CString m_EditADesc = _T("A");
 	afx_msg void OnBnNewCol();
 	afx_msg void OnBnSetCol();
 	afx_msg void OnBnSettings();

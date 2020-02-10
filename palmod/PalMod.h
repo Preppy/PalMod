@@ -11,8 +11,6 @@
 
 #include "resource.h"		// main symbols
 
-
-
 #include "PreviewDlg.h"
 
 #include "Game\GameLoad.h"
@@ -20,11 +18,11 @@
 
 #include "PalModDlg.h"
 
-
-
 // CPalModApp:
 // See PalMod.cpp for the implementation of this class
 //
+
+CString GetAppName();
 
 class CPalModApp : public CWinApp
 {
@@ -40,9 +38,6 @@ private:
 
 	CPalModDlg * PalModDlg;
 	CPreviewDlg * PreviewDlg;
-
-	
-	
 	
 public:
 	CPalModApp();
@@ -61,7 +56,6 @@ public:
 	BOOL IsImgLoaded(){return bImgLoaded;};
 
 	void ClearGameClass();
-
 	
 // Overrides
 	public:

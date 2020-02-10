@@ -848,7 +848,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
 	}
 	else
 	{
-		MessageBox("Error Creating Menu", "PalMod", MB_ICONERROR);
+		// MessageBox("Error Creating Menu", "PalMod", MB_ICONERROR);
 	}*/
 
 	CWnd::OnRButtonDown(nFlags, point);

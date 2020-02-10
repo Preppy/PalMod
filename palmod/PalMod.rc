@@ -413,7 +413,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod v1.23"
+    IDS_CURRENTAPPNAME      "PalMod 1.23"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't load img.dat from '%s': previews will not work."
     IDS_ERROR_NO_IMAGES     "No images available."
@@ -421,6 +421,8 @@ BEGIN
     IDS_ERROR_PARAMETERS    "Invalid parameters."
     IDS_ERROR_LOADING_ACT_FILE "Error loading ACT file."
     IDS_ERROR_SAVING_ACT_FILE "Error saving ACT file."
+    IDS_SAVE_PALETTE_CHANGES "Update palette changes?"
+    IDS_SAVE_FILE_CHANGES   "Save changes?"
 END
 
 STRINGTABLE

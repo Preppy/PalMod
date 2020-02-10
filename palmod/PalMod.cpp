@@ -8,9 +8,6 @@
 #define new DEBUG_NEW
 #endif
 
-
-
-
 CString ImgStr;
 HACCEL m_hAccelTable;
 
@@ -20,6 +17,14 @@ BEGIN_MESSAGE_MAP(CPalModApp, CWinApp)
 	ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
 END_MESSAGE_MAP()
 
+CString GetAppName()
+{
+	CString strAppName;
+	strAppName.LoadString(IDS_CURRENTAPPNAME);
+	strAppName += " (" __DATE__ ")";
+
+	return strAppName;
+}
 
 // CPalModApp construction
 
@@ -33,11 +38,9 @@ BasePal(NULL)
 	CleanUp();
 }
 
-
 // The one and only CPalModApp object
 
 CPalModApp theApp;
-
 
 // CPalModApp initialization
 
@@ -111,11 +114,9 @@ void CPalModApp::SetGameClass(CGameClass * NewGame)
 
 	if (!bImgLoaded)
 	{
-		CString strAppName;
 		CString strMessage;
 		strMessage.Format(IDS_ERROR_LOADING_IMG_DAT_FORMAT, ImgStr);
-		strAppName.LoadString(IDS_CURRENTAPPNAME);
-		MessageBox(nullptr, strMessage.GetBuffer(), strAppName.GetBuffer(), MB_ICONERROR);
+		MessageBox(nullptr, strMessage, GetAppName(), MB_ICONERROR);
 	}
 }
 

@@ -21,11 +21,9 @@ void CPalModDlg::LoadGameDir(int nGameFlag, CHAR * szLoadDir)
 	}
 	else
 	{
-		CString strAppName;
-		strAppName.LoadString(IDS_CURRENTAPPNAME);
 		CString strError;
 		strError.LoadString(IDS_ERROR_LOADING_GAME);
-		MessageBox(strError, strAppName, MB_ICONERROR);
+		MessageBox(strError, GetAppName(), MB_ICONERROR);
 	}
 	
 	//Since we loaded a DIR, show status of load
@@ -173,11 +171,9 @@ void CPalModDlg::LoadLastDir()
 		{
 			if(nLastUsedGFlag  > NUM_GAMES || nLastUsedGFlag < 0)
 			{
-				CString strAppName;
-				strAppName.LoadString(IDS_CURRENTAPPNAME);
 				CString strError;
 				strError.LoadString(IDS_ERROR_PARAMETERS);
-				MessageBox(strError.GetBuffer(), strAppName.GetBuffer(), MB_ICONERROR);
+				MessageBox(strError, GetAppName(), MB_ICONERROR);
 				return;
 			}
 			else
@@ -378,11 +374,9 @@ void CPalModDlg::LoadGameFile(int nGameFlag, CHAR * szFile)
 	}
 	else
 	{
-		CString strAppName;
-		strAppName.LoadString(IDS_CURRENTAPPNAME);
 		CString strError;
 		strError.LoadString(IDS_ERROR_LOADING_GAME);
-		MessageBox(strError.GetBuffer(), strAppName.GetBuffer(), MB_ICONERROR);
+		MessageBox(strError, GetAppName(), MB_ICONERROR);
 	}
 	
 	//Since we loaded a DIR, show status of load
@@ -441,11 +435,9 @@ void CPalModDlg::OnLoadAct()
 			}
 			else
 			{
-				CString strAppName;
-				strAppName.LoadString(IDS_CURRENTAPPNAME);
 				CString strError;
 				strError.LoadString(IDS_ERROR_LOADING_ACT_FILE);
-				MessageBox(strError.GetBuffer(), strAppName.GetBuffer(), MB_ICONERROR);
+				MessageBox(strError, GetAppName(), MB_ICONERROR);
 			}
 		}
 	}
@@ -475,7 +467,6 @@ void CPalModDlg::OnSaveAct()
 				pAct[i * 3] = pPal[i * 4];
 				pAct[i * 3 + 1] = pPal[i * 4 + 1];
 				pAct[i * 3 + 2] = pPal[i * 4 + 2];
-
 			}
 
 			ActFile.Write(pAct, nActSz);
@@ -485,11 +476,9 @@ void CPalModDlg::OnSaveAct()
 		}
 		else
 		{
-			CString strAppName;
-			strAppName.LoadString(IDS_CURRENTAPPNAME);
 			CString strError;
 			strError.LoadString(IDS_ERROR_SAVING_ACT_FILE);
-			MessageBox(strError.GetBuffer(), strAppName.GetBuffer(), MB_ICONERROR);
+			MessageBox(strError, GetAppName(), MB_ICONERROR);
 		}
 	}	
 }

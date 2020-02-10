@@ -18,7 +18,6 @@ void CPalModDlg::OnBnClickedBEidrian2()
 			(int)round(m_RHSlider.GetPos()*nRMul),
 			(int)round(m_GSSlider.GetPos()*nGMul),
 			(int)round(m_BLSlider.GetPos()*nBMul)) | (UINT32)((m_ASlider.GetPos() * 17) << 24));
-			
 	}
 
 	UpdateData(FALSE);

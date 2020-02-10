@@ -13,11 +13,8 @@ void CPalModDlg::OnLDMVC2DCUSA()
 		{
 			LoadGameDir(MVC2_D, szGet.GetBuffer());
 		}
-
-		
 	}
 }
-
 
 void CPalModDlg::OnLdMVC2PS2USA()
 {
@@ -29,11 +26,8 @@ void CPalModDlg::OnLdMVC2PS2USA()
 		{
 			LoadGameDir(MVC2_P, szGet.GetBuffer());
 		}
-
-		
 	}
 }
-
 
 void CPalModDlg::OnLdsfiii3dcall()
 {
@@ -45,12 +39,8 @@ void CPalModDlg::OnLdsfiii3dcall()
 		{
 			LoadGameDir(SFIII3_D, szGet.GetBuffer());
 		}
-
-		
 	}
 }
-
-
 
 void CPalModDlg::OnBnSettings()
 {
@@ -75,7 +65,6 @@ void CPalModDlg::OnBnSettings()
 		trackPt.y = rBtn.bottom;
 	}
 
-
 	SettMenu.LoadMenuA(IDR_COLSETT);
 	PopupMenu = SettMenu.GetSubMenu(0);
 
@@ -84,13 +73,10 @@ void CPalModDlg::OnBnSettings()
 	PopupMenu->CheckMenuItem(ID_AUTOSETCOL, MF_CHECKED * bAutoSetCol);
 	
 	PopupMenu->TrackPopupMenu(NULL, trackPt.x, trackPt.y, this);
-
-
 }
 
 void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 {
-	
 	CDialog::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);
 	// TODO: Add your message handler code here
 
@@ -130,6 +116,4 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 			i++;
 		}
 	}
-	
-	
 }

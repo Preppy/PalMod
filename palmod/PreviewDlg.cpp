@@ -141,7 +141,7 @@ void CPreviewDlg::OnSetBGImage()
 			strAppName.LoadString(IDS_CURRENTAPPNAME);
 			CString strError;
 			strError.LoadString(IDS_ERROR_LOADING_BITMAP_BG);
-			MessageBox(strError.GetBuffer(), strAppName.GetBuffer(), MB_ICONERROR);
+			MessageBox(strError, strAppName, MB_ICONERROR);
 		}
 	}
 }
@@ -294,7 +294,7 @@ void CPreviewDlg::OnFileExportImg()
 		CString strError;
 		strError.LoadString(IDS_ERROR_NO_IMAGES);
 
-		MessageBox(strError.GetBuffer(), strAppName.GetBuffer(), MB_ICONEXCLAMATION);
+		MessageBox(strError, strAppName, MB_ICONEXCLAMATION);
 	}
 }
 

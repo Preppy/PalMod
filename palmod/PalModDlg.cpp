@@ -197,6 +197,7 @@ BOOL CPalModDlg::OnInitDialog()
 		AfxMessageBox("AfxOleInit Error!");
 		bOleInit = FALSE;	
 	}
+
 	//Create and attach the status bar
 	m_StatusBar.Create(this);
 
@@ -212,11 +213,14 @@ BOOL CPalModDlg::OnInitDialog()
 	//Load the settings
 	LoadSettings();
 
-	//Set the contols state
+	//Set the controls state
 	UpdateEnableCtrls();
 
 	//Set the slider descriptions
 	SetSliderDescEdit();
+
+	// Use the dynamic appname description instead of the hardcoded RC value
+	SetWindowText(GetAppName());
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -334,7 +338,7 @@ BOOL CPalModDlg::SetLoadDir(CString * szOut)
 		bi.hwndOwner        =   GetSafeHwnd();
 		bi.pidlRoot         =   NULL;
 		bi.pszDisplayName   =   pszBuffer;
-		bi.lpszTitle        =   _T("Select a target Directory"); //bugbug
+		bi.lpszTitle        =   _T("Select a target Directory"); //bugbug: hard-coded string
 		bi.ulFlags          =   BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
 		bi.lpfn             =   OnBrowseDialog;
 		bi.lParam           =   0;
@@ -418,7 +422,6 @@ BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
 	return CDialog::PreTranslateMessage(pMsg);
 }
 
-
 BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 {
 	switch(eType)
@@ -427,8 +430,10 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 		{
 			if(bPalChanged)
 			{
-				// bugbug
-				switch(MessageBox("Update Palette Changes?", "PalMod", MB_YESNOCANCEL | MB_ICONEXCLAMATION))
+				CString strQuestion;
+				strQuestion.LoadString(IDS_SAVE_PALETTE_CHANGES);
+
+				switch(MessageBox(strQuestion, GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
 				{
 				case IDYES:
 					{
@@ -464,8 +469,10 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 		{
 			if (bFileChanged)
 			{
-				//bugbug
-				switch (MessageBox("Save Changes?", "PalMod", MB_YESNOCANCEL | MB_ICONEXCLAMATION))
+				CString strQuestion;
+				strQuestion.LoadString(IDS_SAVE_FILE_CHANGES);
+
+				switch (MessageBox(strQuestion, GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
 				{
 				case IDYES:
 					{
