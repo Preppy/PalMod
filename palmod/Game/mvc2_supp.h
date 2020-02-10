@@ -7,11 +7,13 @@
 #define SUPP_NODE			0x4000
 //SUPP_NODE_EX, Dest Start, Dest Inc, Src Start, Src Amt, Dst Index
 #define SUPP_NODE_EX		0x4001
+//SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
 #define SUPP_NODE_ABSOL		0x4002
 #define SUPP_NODE_NOCOPY	0x4004
 
 
 #define MOD_COPY			0xA010
+// MOD_TINT is not implemented
 #define MOD_TINT			0xA030
 
 #define TINT_R				0xA031
@@ -22,7 +24,7 @@
 #define MOD_SAT				0xA041
 #define MOD_WHITE			0xA042
 
-#define ID_MOD			47 //Index mod
+#define ID_MOD			47 //Index mod - this is also EXTRA_OMNI
 #define NEG			0x8000
 #define MOD_ABS		0x8000
 
@@ -31,7 +33,7 @@ const UINT16 _mvc2_supp_const [] =
 	//Special copy:
 	//Cyclops
 	//Chun-Li
-	0,
+	0, // Ryu: Ryu is fine.
 
 	0x01 |  SUPP_START, //Zangief
 		//Node, Start, Increment	//, Copy
@@ -39,11 +41,11 @@ const UINT16 _mvc2_supp_const [] =
 		// 0x17-0x19 are the mashed tint for FAB
 		SUPP_NODE, 0x17, 3,
 			//Type, Pal Index Start, Pal Index Amt
-			MOD_TINT, 1, 7,
-		SUPP_NODE, 0x18, 3,
-			MOD_TINT, 1, 7,  
+			MOD_TINT, 1, 7, // 15% tint
+		SUPP_NODE, 0x18, 3, 
+			MOD_TINT, 1, 7, // 35% tint
 		SUPP_NODE, 0x19, 3,
-			MOD_TINT, 1, 7,
+			MOD_TINT, 1, 7, // 75% tint
 		// the boots!
 		SUPP_NODE, 0x17, 3,
 			MOD_COPY, 8, 8, 8,
@@ -53,11 +55,11 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_COPY, 8, 8, 8,
 		// 0x29-0x2 are the mashed tint for FAB for mecha Zangief.  mecha zangief is 11 Extra, 12 Extra, 13 Extra, etc
 		SUPP_NODE, 0x29, 3,
-			MOD_TINT, 1, 7,
-		SUPP_NODE, 0x2A, 3,
-			MOD_TINT, 1, 7,
+			MOD_TINT, 1, 7, // 15% tint
+		SUPP_NODE, 0x2A, 3, 
+			MOD_TINT, 1, 7, // 35% tint
 		SUPP_NODE, 0x2B, 3,
-			MOD_TINT, 1, 7,
+			MOD_TINT, 1, 7, // 75% tint
 		// also the boots!  just the mechaboots!
 			// BUGBUG: This is copying from base gief not mecha gief (11 Extra)!
 		SUPP_NODE, 0x29, 3,
@@ -93,6 +95,7 @@ const UINT16 _mvc2_supp_const [] =
 	0x06 | SUPP_START, //Cyclops
 		//SUPP_NODE_ABSOL | SUPP_NODE_EX, Dest Start, Dest Inc, Src Pal Start, Src Pal Inc, Src Index Start, Src Index Amt, Dst Index
 
+		// sHK swing effect
 		SUPP_NODE_EX, 1 | MOD_ABS, 8, 1, 5, 9,
 		SUPP_NODE_ABSOL | SUPP_NODE_EX, 1 | MOD_ABS, 8, 1 | MOD_ABS, 8, 13, 1, 14,
 			MOD_LUM, 14, 1, NEG + 5,
@@ -104,6 +107,7 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE_ABSOL | SUPP_NODE_EX, 1 | MOD_ABS, 8, 1 | MOD_ABS, 8, 2, 1, 1,
 			MOD_LUM, 1, 1, 9,
 
+		// there are 8 intro frames
 		SUPP_NODE, 0x29, 8,
 			MOD_LUM, 1, 15, NEG + 3,
 		SUPP_NODE, 0x2A, 8,
@@ -120,7 +124,9 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_LUM, 1, 15, NEG + 33,
 		SUPP_NODE, 0x30, 8,
 			MOD_LUM, 1, 15, NEG + 39,
+		// default color
 		SUPP_NODE, 0x59, 2,
+		// default color with red tint
 		SUPP_NODE, 0x5A, 2,
 			MOD_TINT, 1, 15,
 
@@ -141,6 +147,7 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE_EX, 0x04 | MOD_ABS, 8, 1, 85, 1,
 		// Iceballs
 		SUPP_NODE, 0x05 | MOD_ABS, 8,
+		// 7 shine frames, but the second (0x22) is pure white
 		SUPP_NODE, 0x21, 7,
 		SUPP_NODE, 0x23, 7,
 			MOD_COPY, 11, 1, 9,
@@ -158,6 +165,7 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_COPY, 11, 1, 2,
 
 	0x0A | SUPP_START, //Rogue
+		// Dash shadows
 		SUPP_NODE, 0x04 | MOD_ABS, 8,
 			MOD_LUM, 1, 15, NEG + 8,
 		SUPP_NODE, 0x05 | MOD_ABS, 8,
@@ -215,6 +223,7 @@ const UINT16 _mvc2_supp_const [] =
 	    // 11 is (12 - 18LUM) or so. I don't necessarily follow the correlation from those to the main palette.
 
 	0x0F | SUPP_START, //Dr. Doom
+		// LP intro
 		SUPP_NODE, 0x09, 28,
 
 	0x14 | SUPP_START, // Sonson
@@ -243,6 +252,7 @@ const UINT16 _mvc2_supp_const [] =
 		//	MOD_LUM, 11, 1, NEG + 7,
 
 	0x1C | SUPP_START, // MegaMan
+		// intro animation is frames 0xb-0x13
 		SUPP_NODE, 0x0B, 56,
 			MOD_LUM, 01, 15, NEG + 21,
 		SUPP_NODE, 0x0C, 56,
@@ -258,6 +268,12 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_LUM, 01, 15, 21,
 		SUPP_NODE, 0x12, 56,
 			MOD_LUM, 01, 15, 35,
+		// 0x14-1c: rush
+		// 0x1d-25: beat
+		// 0x26-23: beat plane
+		// 0x2f-37: charging
+		// 0x38-40: rush drill
+		// 0x4c-54: hyper megaman
 		SUPP_NODE, 0x4C, 56,
 			MOD_LUM, 01, 15, NEG + 21,
 		SUPP_NODE, 0x4D, 56,
@@ -273,23 +289,63 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_LUM, 01, 15, 21,
 		SUPP_NODE, 0x53, 56,
 			MOD_LUM, 01, 15, 35,
+		// 0x56-5d: hyper megaman switching back
 
-	0x1D | SUPP_START, // Roll
+	0x1D | SUPP_START, // Roll: Identical to Megaman...
+		// intro animation is frames 0xb-0x13
+		SUPP_NODE, 0x0B, 56,
+			MOD_LUM, 01, 15, NEG + 21,
+		SUPP_NODE, 0x0C, 56,
+			MOD_LUM, 01, 15, NEG + 13,
+		SUPP_NODE, 0x0D, 56,
+			MOD_LUM, 01, 15, NEG + 5,
+		SUPP_NODE, 0x0E, 56,
+		SUPP_NODE, 0x0F, 56,
+			MOD_LUM, 01, 15, 5,
+		SUPP_NODE, 0x10, 56,
+			MOD_LUM, 01, 15, 13,
+		SUPP_NODE, 0x11, 56,
+			MOD_LUM, 01, 15, 21,
+		SUPP_NODE, 0x12, 56,
+			MOD_LUM, 01, 15, 35,
+		// 0x14-1c: rush
+		// 0x1d-25: beat
+		// 0x26-23: beat plane
+		// 0x2f-37: charging
+		// 0x38-40: rush drill
+		// 0x4c-54: hyper roll
+		SUPP_NODE, 0x4C, 56,
+			MOD_LUM, 01, 15, NEG + 21,
+		SUPP_NODE, 0x4D, 56,
+			MOD_LUM, 01, 15, NEG + 13,
+		SUPP_NODE, 0x4E, 56,
+			MOD_LUM, 01, 15, NEG + 5,
+		SUPP_NODE, 0x4F, 56,
+		SUPP_NODE, 0x50, 56,
+			MOD_LUM, 01, 15, 5,
+		SUPP_NODE, 0x51, 56,
+			MOD_LUM, 01, 15, 13,
+		SUPP_NODE, 0x52, 56,
+			MOD_LUM, 01, 15, 21,
+		SUPP_NODE, 0x53, 56,
+			MOD_LUM, 01, 15, 35,
+		// 0x56-5d: hyper roll switching back
 
 	0x24 | SUPP_START, //Cammy
+		// 0x9-0x10 are the counter flash
 		SUPP_NODE, 0x0A, 9,
-			MOD_TINT, 1, 15,
-		SUPP_NODE, 0x0B, 9,
-			MOD_TINT, 1, 15,
+			MOD_TINT, 1, 15, // blue +14
+		SUPP_NODE, 0x0B, 9, 
+			MOD_TINT, 1, 15, // blue + 10
 		SUPP_NODE, 0x0C, 9,
-			MOD_TINT, 1, 15,
+			MOD_TINT, 1, 15, // blue + 7
 		SUPP_NODE, 0x0D, 9,
-			MOD_TINT, 1, 15,
-		SUPP_NODE, 0x0E, 9,
+			MOD_TINT, 1, 15, // blue + 3
+		SUPP_NODE, 0x0E, 9,  // xcopy
 		SUPP_NODE, 0x0F, 9,
-			MOD_TINT, 1, 15,
+			MOD_TINT, 1, 15, // dark blue + 3
 		SUPP_NODE, 0x10, 9,
-			MOD_TINT, 1, 15,
+			MOD_TINT, 1, 15, // dak blue + 5
 
 	0x25 | SUPP_START, //Dhalsim
 		SUPP_NODE, 0x09, 5,

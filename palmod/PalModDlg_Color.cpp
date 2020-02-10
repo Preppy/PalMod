@@ -761,6 +761,8 @@ void CPalModDlg::SetSliderDescEdit()
 		m_EditBLDesc = "L";
 	}
 
+	m_EditADesc = "A";
+
 	UpdateData(FALSE);
 }
 

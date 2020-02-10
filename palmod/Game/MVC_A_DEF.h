@@ -55,7 +55,6 @@ const char MVC_A_UNITDESC[MVC_A_NUMUNIT][32] =
 	"Shadow Lady",
 	"Alt-Morrigan",
 	"Gambit"
-
 };
 
 const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
@@ -108,8 +107,4 @@ const UINT16 MVC_A_IMGREDIR[MVC_A_NUMUNIT] = {
 	0x1B,
 	0x03,
 	0x28
-
-
-
-
 };
