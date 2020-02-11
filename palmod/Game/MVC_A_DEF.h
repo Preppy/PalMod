@@ -52,12 +52,12 @@ const char MVC_A_UNITDESC[MVC_A_NUMUNIT][32] =
 	"Megaman",
 	"Morrigan",
 	"Onslaught",
-	"Alt-Venom",
-	"Alt-Hulk",
-	"Golden War-Machine",
+	"Red Venom",
+	"Orange Hulk",
+	"Gold War Machine",
 	"Shadow Lady Part 1",
 	"Shadow Lady Part 2",
-	"Alt-Morrigan",
+	"Lilith",
 	"Gambit"
 };
 
@@ -85,7 +85,7 @@ const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
 	0x06,
 	0x06,
 	0x06,
-	0x08
+	0x06
 };
 
 const UINT16 MVC_A_IMGREDIR[MVC_A_NUMUNIT] = {
