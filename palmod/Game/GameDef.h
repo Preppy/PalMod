@@ -10,14 +10,15 @@
 
 
 
-#define MVC2_D 0
-#define SFIII3_A 1
-#define MVC2_P 2
-#define SSF2T_A 3
-#define SFA3_A 4
-#define XMVSF_A 5
-#define MVC_A 6
-#define SFIII3_D 7
+constexpr auto MVC2_D = 0;
+constexpr auto SFIII3_A = 1;
+constexpr auto MVC2_P = 2;
+constexpr auto SSF2T_A = 3;
+constexpr auto SFA3_A = 4;
+constexpr auto XMVSF_A = 5;
+constexpr auto MVC_A = 6;
+constexpr auto SFIII3_D = 7;
+constexpr auto JOJO_A = 8;
 
 //Images
 

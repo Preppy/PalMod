@@ -296,70 +296,61 @@ void CGameLoad::SaveGame(CGameClass * CurrGame)
 	CHAR * szDir = CurrGame->GetLoadDir();
 	UINT8 * rgUnitRedir = CurrGame->rgUnitRedir;
 
-	switch(CurrGame->GetIsDir())
+	if(CurrGame->GetIsDir())
 	{
-	case TRUE:
+		for(int nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
 		{
-
-
-
-			for(int nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
+			if(rgChanged[nFileCtr])
 			{
-				if(rgChanged[nFileCtr])
+				nSaveLoadCount++;
+
+				CString szLoad;
+
+				szLoad.Format("%s\\%s", szDir, GetRule(nFileCtr + 0xFF00).szFileName);
+
+				if(FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary))
 				{
-					nSaveLoadCount++;
-
-					CString szLoad;
-
-					szLoad.Format("%s\\%s", szDir, GetRule(nFileCtr + 0xFF00).szFileName);
-
-					if(FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary))
+					if(CurrGame->SaveFile(&FileSave, nFileCtr))
 					{
-						if(CurrGame->SaveFile(&FileSave, nFileCtr))
-						{
-							rgChanged[nFileCtr] = FALSE;
+						rgChanged[nFileCtr] = FALSE;
 
-							nSaveLoadSucc++;
-						}
-						else
-						{
-							nSaveLoadErr++;
-						}
-
-						FileSave.Abort();
+						nSaveLoadSucc++;
 					}
 					else
 					{
 						nSaveLoadErr++;
-					}
-				}
-			}
-			break;
-
-		}
-	case FALSE:
-		{
-			if(rgChanged[0])
-			{
-				nSaveLoadCount = 1;
-
-				if(FileSave.Open(szDir, CFile::modeReadWrite | CFile::typeBinary))
-				{
-					if(CurrGame->SaveFile(&FileSave, 0))
-					{
-						rgChanged[0] = FALSE;
-
-						nSaveLoadSucc++;
 					}
 
 					FileSave.Abort();
 				}
 				else
 				{
-					nSaveLoadErr = 1;
+					nSaveLoadErr++;
 				}
 			}
-			break;
+		}
+	}
+	else
+	{
+		if(rgChanged[0])
+		{
+			nSaveLoadCount = 1;
+
+			if(FileSave.Open(szDir, CFile::modeReadWrite | CFile::typeBinary))
+			{
+				if(CurrGame->SaveFile(&FileSave, 0))
+				{
+					rgChanged[0] = FALSE;
+
+					nSaveLoadSucc++;
+				}
+
+				FileSave.Abort();
+			}
+			else
+			{
+				nSaveLoadErr = 1;
+			}
 		}
 	}
 

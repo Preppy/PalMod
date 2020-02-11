@@ -97,7 +97,6 @@ void CPalModDlg::OnGetCol()
 
 	//Enable/Disable get color button
 	GetDlgItem(IDC_BNEWCOL)->EnableWindow(bGetCol * !bAutoSetCol);
-
 }
 
 void CPalModDlg::OnAutoSetCol()
@@ -312,11 +311,15 @@ void CPalModDlg::OnFileOpen()
 {
 	CString szGameFileDef = "";
 
+	// BUGBUG... maybe remember their last selection?
 	szGameFileDef.Append("SFIII3 51 Rom (51)|*51*|"); //SFIII3
 	szGameFileDef.Append("SSF2T sfxe.04a (*.04a)|*.04a|"); //SSF2T
 	szGameFileDef.Append("SFA3 sz3.09c (*.09c )|*.09c|"); //SSF2T
 	szGameFileDef.Append("XMVSF xvs.05a (*.05a )|*.05a|"); //XMVSF
 	szGameFileDef.Append("MVC mvc.06 (*.06 )|*.06|"); //MVC
+#ifdef DEBUG // This code being debug-only locks the rest of the code out from working until we're ready.  Sweet.
+	szGameFileDef.Append("Jojo's 51 (51)|*.51|"); //MVC
+#endif
 
 	szGameFileDef.Append("|"); //End
 
@@ -347,6 +350,9 @@ void CPalModDlg::OnFileOpen()
 			break;
 		case 5:
 			LoadGameFile(MVC_A, (CHAR *)ofn.lpstrFile);
+			break;
+		case 6:
+			LoadGameFile(JOJO_A, (CHAR*)ofn.lpstrFile);
 			break;
 		}
 	}

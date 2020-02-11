@@ -71,8 +71,6 @@ CDescTree * CGame_MVC_A::GetMainTree()
 
 CDescTree CGame_MVC_A::InitDescTree()
 {
-	
-
 	sDescTreeNode * NewDescTree = new sDescTreeNode;
 
 	sDescTreeNode * UnitNode;
@@ -214,7 +212,6 @@ BOOL CGame_MVC_A::LoadFile(CFile * LoadedFile, int nUnitId)
 			LoadedFile->Seek(nCurrPalOffs, CFile::begin);
 			
 			LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
-			
 		}
 	}
 
@@ -227,13 +224,11 @@ int CGame_MVC_A::GetPalCt(int nUnitId)
 {
 	return MVC_A_PALAMT[nUnitId];
 }
+
 BOOL CGame_MVC_A::SaveFile(CFile * SaveFile, int nUnitId)
 {
-	
-
 	for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 	{
-
 		int nPalAmt = GetPalCt(nUnitCtr);
 
 		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -243,7 +238,6 @@ BOOL CGame_MVC_A::SaveFile(CFile * SaveFile, int nUnitId)
 			SaveFile->Seek(nCurrPalOffs, CFile::begin);
 			
 			SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
-			
 		}
 	}
 
@@ -261,7 +255,6 @@ void CGame_MVC_A::CreateDefPal(sDescNode * srcNode, int nSepId)
 	BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, nCurrPalSz);
 }
 
-
 BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
 	//Reset palette sources
@@ -274,8 +267,6 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 	UINT8 uUnitId;
 	UINT16 uPalId;
-
-	
 
 	sDescNode * NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
@@ -303,7 +294,6 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	CreateDefPal(NodeGet, 0);
 
 	SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
-	
 
 	return TRUE;
 }
@@ -326,7 +316,6 @@ COLORREF * CGame_MVC_A::CreatePal(int nUnitId, int nPalId)
 
 void CGame_MVC_A::UpdatePalData()
 {
-
 	for(int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
 	{
 		sPalDef * srcDef = BasePalGroup.GetPalDef(nPalCtr);
