@@ -126,6 +126,7 @@
     <ClCompile Include="Game\MVC2_SUPP.cpp" />
     <ClCompile Include="Game\PalGroup.cpp" />
     <ClCompile Include="Game\ShellSort.cpp" />
+    <ClCompile Include="Game_MVC_A_EXTRA.cpp" />
     <ClCompile Include="Game_SFIII3_A_EXTRA.cpp" />
     <ClCompile Include="ImgDat.cpp" />
     <ClCompile Include="ImgDisp.cpp" />

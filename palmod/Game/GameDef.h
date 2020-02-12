@@ -8,8 +8,6 @@
 //Game Definitions
 #define NUM_GAMES 8
 
-
-
 constexpr auto MVC2_D = 0;
 constexpr auto SFIII3_A = 1;
 constexpr auto MVC2_P = 2;
@@ -18,7 +16,6 @@ constexpr auto SFA3_A = 4;
 constexpr auto XMVSF_A = 5;
 constexpr auto MVC_A = 6;
 constexpr auto SFIII3_D = 7;
-constexpr auto JOJO_A = 8;
 
 //Images
 
@@ -71,4 +68,16 @@ const CHAR DEF_DESCPRISEC[3][16] =
 const CHAR DEF_DESCSFA3[6][16] = 
 {
 	"Primary", "Secondary", "Primary", "Secondary", "Primary", "Secondary"
+};
+
+struct stExtraDef
+{
+	UINT8 uUnitN;
+	CHAR szDesc[32];
+	UINT32 uOffset;
+	UINT16 uPalSz;
+	UINT8 bInvisible;
+
+	UINT16 uReserved;
+	UINT8 uReserved2;
 };

@@ -82,7 +82,7 @@ CAPTION "About PalMod"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
-    LTEXT           "PalMod, Version 1.23",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "PalMod, Version 1.24",IDC_STATIC,42,14,114,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2020",IDC_STATIC,24,79,65,8
     DEFPUSHBUTTON   "OK",IDOK,121,90,50,14,WS_GROUP
     LTEXT           "Credits",IDC_STATIC,41,28,125,8
@@ -413,7 +413,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.23"
+    IDS_CURRENTAPPNAME      "PalMod 1.24"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't load img.dat from '%s': previews will not work."
     IDS_ERROR_NO_IMAGES     "No images available."

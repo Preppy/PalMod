@@ -5,18 +5,6 @@
 
 #define SFIII3_A_EXTRALOC SFIII3_A_NUMUNIT
 
-struct stExtraDef
-{
-	UINT8 uUnitN;
-	CHAR szDesc[32];
-	UINT32 uOffset;
-	UINT16 uPalSz;
-	UINT8 bInvisible;
-
-	UINT16 uReserved;
-	UINT8 uReserved2;
-};
-
 const char SFIII3_A_UNITDESC[SFIII3_A_NUMUNIT][16] = 
 {
 	//"Gill",		//0x
@@ -66,7 +54,6 @@ const UINT8 SFIII3_A_UNITSORT[SFIII3_A_NUMUNIT + 1] = //Plus 1 for the extra pal
 	0x02,
 
 	SFIII3_A_EXTRALOC //Extra palettes
-
 };
 
 const stExtraDef SFIII3_A_EXTRA[] = 
