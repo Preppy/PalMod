@@ -35,7 +35,11 @@ const UINT16 SFA3_A_IMGREDIR[SFA3_A_NUMUNIT] =
 	SFA3_A_IMGSTART + 0x0F,
 	SFA3_A_IMGSTART + 0x10,
 	SFA3_A_IMGSTART + 0x11,
+};
 
+const CHAR DEF_BUTTONLABEL6_SFA3[6][20] =
+{
+	"X-Ism Punch", "X-Ism Kick", "A-Ism Punch", "A-Ism Kick", "V-Ism 1", "V-Ism 2"
 };
 
 const CHAR SFA3_A_UNITDESC[SFA3_A_NUMUNIT][16] = 
@@ -68,6 +72,4 @@ const CHAR SFA3_A_UNITDESC[SFA3_A_NUMUNIT][16] =
 	"Karin",
 	"Juni",
 	"Juli"
-	
-
 };

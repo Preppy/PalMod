@@ -4,8 +4,6 @@
 
 #include "Game\ColorScale.h"
 
-
-
 void CPalModDlg::EnableSlider(int RH, int GS, int BL)
 {
 	GetDlgItem(IDC_EDIT_RH)->EnableWindow(RH);
@@ -16,7 +14,6 @@ void CPalModDlg::EnableSlider(int RH, int GS, int BL)
 
 	GetDlgItem(IDC_EDIT_BL)->EnableWindow(BL);
 	m_BLSlider.EnableWindow(BL);
-
 }
 
 void CPalModDlg::ResetSlider(BOOL bSetZero)
@@ -30,7 +27,6 @@ void CPalModDlg::ResetSlider(BOOL bSetZero)
 
 	if(bSetZero)
 	{
-		
 		m_Edit_RH = 0;
 		m_Edit_GS = 0;
 		m_Edit_BL = 0;
@@ -47,7 +43,6 @@ void CPalModDlg::ResetSlider(BOOL bSetZero)
 
 void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 {
-	
 	static int nRangeFlag = 0xFFFF;
 	static int bSliderEnabled = TRUE;
 	static int bAlphaEnabled = TRUE;
@@ -74,7 +69,6 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 		}
 		else if (nPalSelAmt == 1 || !bAutoSetCol)
 		{
-
 			bEnableSlider = TRUE;
 			bEnableAlpha = TRUE * nAAmt;
 
@@ -160,7 +154,6 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 
 		ResetSlider();
 	}
-
 	
 	GetDlgItem(IDC_BNEWCOL)->EnableWindow(nPalSelAmt + !bAutoSetCol);
 
@@ -176,7 +169,6 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 		GetDlgItem(IDC_EDIT_A)->EnableWindow(bEnableAlpha);
 
 		bAlphaEnabled = bEnableAlpha;
-		
 	}
 }
 
@@ -279,7 +271,6 @@ void CPalModDlg::SetColMode(int nColMode)
 			UpdateData();
 			if(nColMode) //HLStoRGB
 			{
-				
 				dH = ((double)(m_Edit_RH)/360.0f);
 				dS = ((double)(m_Edit_GS)/255.0f);
 				dL = ((double)(m_Edit_BL)/100.0f);
@@ -289,7 +280,6 @@ void CPalModDlg::SetColMode(int nColMode)
 				m_Edit_RH = (int)round(GetRValue(crRGBVal)/nTRMul);
 				m_Edit_GS = (int)round(GetGValue(crRGBVal)/nTGMul);
 				m_Edit_BL = (int)round(GetBValue(crRGBVal)/nTBMul);
-
 			}
 			else //RGBtoHLS
 			{

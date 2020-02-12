@@ -25,7 +25,6 @@ void CDescTree::FlushRootTree()
 
 void CDescTree::FlushTree(sDescTreeNode * CurrTree)
 {
-	
 	int nChildAmt = CurrTree->uChildAmt;
 
 	if(CurrTree)
@@ -51,8 +50,6 @@ void CDescTree::FlushTree(sDescTreeNode * CurrTree)
 			break;
 		}
 	}
-
-	
 }
 
 sDescTreeNode * CDescTree::GetDescTree(int nChildId, ...)
@@ -104,8 +101,6 @@ sDescNode * CDescTree::GetDescNode(int nChildId, ...)
 
 	while(!bFoundNode && nCurrId != -1)
 	{
-		
-
 		switch(CurrTree->uChildType)
 		{
 			case DESC_NODETYPE_NODE:
@@ -135,6 +130,4 @@ sDescNode * CDescTree::GetDescNode(int nChildId, ...)
 	va_end(args);
 
 	return OutNode;
-
-
 }

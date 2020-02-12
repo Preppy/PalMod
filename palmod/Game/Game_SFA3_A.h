@@ -2,7 +2,6 @@
 #include "gameclass.h"
 #include "SFA3_A_DEF.h"
 
-
 class CGame_SFA3_A : public CGameClass
 {
 private:
@@ -56,6 +55,4 @@ public:
 
 	void FlushUnitFile(){if(bFileChanged){delete bFileChanged; bFileChanged = NULL;}};
 	void PrepUnitFile(){if(!bFileChanged){ bFileChanged = new UINT8;}};
-
-
 };

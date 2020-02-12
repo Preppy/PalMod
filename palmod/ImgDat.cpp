@@ -17,8 +17,6 @@ CImgDat::~CImgDat(void)
 {
 	FlushImageBuffer();
 	CloseImgFile();
-
-	
 }
 
 sImgDef * CImgDat::GetImageDef(UINT8 uUnitId, UINT8 uImgId)
@@ -62,7 +60,6 @@ void CImgDat::FlushImageBuffer()
 			}
 
 			delete [] ppImgData[nUnitCtr];
-
 		}
 
 		delete [] ppImgData;
@@ -129,7 +126,6 @@ UINT8 * CImgDat::GetImgData(sImgDef * pCurrImg)
 			uReadBPP);
 
 		delete [] pTmpData;
-
 	}
 
 	if(bOnTheFly)
@@ -139,7 +135,6 @@ UINT8 * CImgDat::GetImgData(sImgDef * pCurrImg)
 	}
 	
 	pCurrImg->pImgData = pNewImgData;
-	
 
 	return pNewImgData;
 }
@@ -165,8 +160,6 @@ void CImgDat::PrepImageBuffer(UINT8 uUnitAmt, UINT8 uImgAmt)
 			ppImgData[nUnitCtr][nImgCtr] = NULL;
 		}
 	}
-
-	
 }
 
 void CImgDat::CloseImgFile()
@@ -288,11 +281,9 @@ BOOL CImgDat::LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT8 uUnitAmt, UI
 
 UINT8 * CImgDat::DecodeImg(UINT8 * pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP)
 {
-	
 	UINT8 * output_data = new UINT8[uiImgWidth * uiImgHeight];
 
 	memset(output_data, NULL, sizeof(UINT8) * uiImgWidth * uiImgHeight);
-	
 
 	int bit_ctr = 0;
 	int data_ctr = 0;
@@ -336,12 +327,9 @@ UINT8 * CImgDat::DecodeImg(UINT8 * pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWid
 			data_ctr++;
 		}
 		else if(bit_ctr < (uiDataSz*8))
-		{
-
-			
+		{	
 			zero_data = 0;
 			uZeroPos = 0;
-
 			
 			while(uZeroPos < zero_get_amt)
 			{
@@ -355,15 +343,11 @@ UINT8 * CImgDat::DecodeImg(UINT8 * pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWid
 				{
 					uGetAmt = zero_get_amt - uZeroPos;
 				}
-
-				
 			
 				zero_data |= (((UINT16)(pSrcImgData[bit_ctr/8] >> uExtraAmt) & (0xFF >> 8 - uGetAmt)) << (uZeroPos));
 				
 				uZeroPos += uGetAmt;
 				bit_ctr += uGetAmt;
-
-				
 			}
 			
 			//memcpy(&zero_data, &pSrcImgData[bit_ctr/8], 0x02);

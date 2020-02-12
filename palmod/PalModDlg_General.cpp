@@ -59,17 +59,13 @@ void CPalModDlg::UpdateCombo()
 
 	//
 	nCurrUnitSel = m_CBUnitSel.GetCurSel();
-	
 
 	if(nCurrUnitSel != nPrevUnitSel)
 	{
-		
 		sDescTreeNode * ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], -1);
 		
 		//Clear the 1st child list
 		while(m_CBChildSel1.DeleteString(0) >= 0) NULL;
-
-		
 
 		for(int nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
 		{
@@ -82,7 +78,6 @@ void CPalModDlg::UpdateCombo()
 
 		//Reset the next list
 		nPrevChildSel1 = 0xFFFF;
-		
 	}
 	
 	//
