@@ -6,7 +6,7 @@ Shadow Nash P2
 0x512E4
 0x51304
 
-StormP1
+Storm P1
 0x50BA4
 0x50C04
 

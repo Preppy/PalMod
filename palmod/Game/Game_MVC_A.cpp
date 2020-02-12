@@ -213,7 +213,19 @@ CDescTree CGame_MVC_A::InitDescTree()
 
 					ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr]; //We only have 1
 
-					if (nChildCtr < ARRAYSIZE(MVC_A_IMGDESC))
+					if (iUnitCtr == 7) // Ryu
+					{
+						sprintf(ChildNode->szDesc, MVC_A_RYU_PALETTES[nChildCtr].szPaletteName);
+					}
+					else if (iUnitCtr == 11) // Gief
+					{
+						sprintf(ChildNode->szDesc, MVC_A_GIEF_PALETTES[nChildCtr].szPaletteName);
+					}
+					else if (iUnitCtr == 23) // Assists
+					{
+						sprintf(ChildNode->szDesc, MVC_A_ASSIST_PALETTES[nChildCtr].szPaletteName);
+					}
+					else if (nChildCtr < ARRAYSIZE(MVC_A_IMGDESC)) // For the first 6 palettes we have a stock list of text to display.
 					{
 						sprintf(ChildNode->szDesc, MVC_A_IMGDESC[nChildCtr]);
 					}
@@ -340,6 +352,7 @@ void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
 {
 	if (nUnitId == MVC_A_NUMUNIT)
 	{
+		// This is where we handle all the palettes added in via Extra.
 		int nBasicPos = GetBasicAmt(nUnitId);
 		int nPortPos = nBasicPos * 2;
 		int nExPos = 2 + nPortPos;
@@ -362,7 +375,30 @@ void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
 	}
 	else
 	{
-		nCurrPalOffs = MVC_A_UNITLOC[nUnitId] + (nPalId * 0x20);
+		switch (nUnitId)
+		{
+			case 7: // Ryu
+			{
+				nCurrPalOffs = MVC_A_RYU_PALETTES[nPalId].nPaletteOffset;
+				break;
+			}
+			case 11: // Gief
+			{
+				nCurrPalOffs = MVC_A_GIEF_PALETTES[nPalId].nPaletteOffset;
+				break;
+			}
+			case 23: // Assists
+			{
+				nCurrPalOffs = MVC_A_ASSIST_PALETTES[nPalId].nPaletteOffset;
+				break;
+			}
+			default:
+			{
+				// This is all the base palettes.
+				nCurrPalOffs = MVC_A_UNITLOC[nUnitId] + (nPalId * 0x20);
+				break;
+			}
+		};
 		nCurrPalSz = 16;
 	}
 }

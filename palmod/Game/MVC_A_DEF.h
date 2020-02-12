@@ -1,13 +1,10 @@
 #pragma once
 
-// constexpr auto MVC_A_NUMUNIT = 23;
-constexpr auto MVC_A_NUMUNIT = 26;
-#define MVC2_A_PALSZ 16
-
 #define MVC_A_IMGSTART (0x3B + 0x11 + 0x11 + 0x01) //MVC2, then SSF2T, then SFA3, then XMVSF
 
 #define MVC_A_EXTRALOC MVC_A_NUMUNIT
 
+constexpr auto MVC_A_NUMUNIT = 24;
 
 // These are the base offsets for a character.
 const UINT32 MVC_A_UNITLOC[MVC_A_NUMUNIT] =
@@ -35,9 +32,115 @@ const UINT32 MVC_A_UNITLOC[MVC_A_NUMUNIT] =
 	0x4FF64, // Shadow Lady Part 2
 	0x493A4, // Lilith
 	0x484c4, // Gambit
-	0x4EC44, // Ryuken
-	0x4ED04, // Ryukuma
-	0x48C84, // MechaGief
+	0x0, // Assists: Special
+};
+
+struct sMVC_PaletteDataset
+{
+	LPCSTR szPaletteName;
+	int nPaletteOffset;
+};
+
+const sMVC_PaletteDataset MVC_A_RYU_PALETTES[] =
+{
+	{ "Ryu P1", 0x487C4 },
+	{ "Ryu P1 Hadouken", 0x487E4 },
+	{ "Ryu P1 Shoryuken", 0x48804 },
+	{ "Ryu P2", 0x48824 },
+	{ "Ryu P2 Hadouken", 0x48844 },
+	{ "Ryu P2 Shoryuken", 0x48864 },
+
+	{ "Ken P1", 0x4EC44 },
+	{ "Ken P1 Hakouken", 0x4EC64 },
+	{ "Ken P1 Shoryuken", 0x4EC84 },
+	{ "Ken P2", 0x4ECA4 },
+	{ "Ken P2 Hadouken", 0x4ECC4 },
+	{ "Ken P2 Shoryuken", 0x4ECE4 },
+
+	{ "Akuma P1", 0x4ED04 },
+	{ "Akuma P1 Hadouken", 0x4ED24 },
+	{ "Akuma P1 Shoryuken", 0x4ED44 },
+	{ "Akuma P2", 0x4ED64 },
+	{ "Akuma P2 Hadouken", 0x4ED84 },
+	{ "Akuma P2 Shoyuken", 0x4EDA4 },
+};
+
+const sMVC_PaletteDataset MVC_A_GIEF_PALETTES[] =
+{
+	{ "Zangief P1", 0x48AC4 },
+	{ "Palette 2",  0x48AE4 },
+	{ "Palette 3",  0x48B04 },
+	{ "Zangief P2", 0x48B24 },
+	{ "Palette 5",  0x48B44 },
+	{ "Palette 6",  0x48B64 },
+
+	{ "Mecha Zangief P1", 0x48C84 },
+	{ "Palette 14",		  0x48CA4 },
+	{ "Palette 15",		  0x48CC4 },
+	{ "Mecha Zangief P2", 0x48CE4 },
+	{ "Palette 17",		  0x48D04 },
+	{ "Palette 18",		  0x48D24 },
+};
+
+const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
+{
+	{ "Colossus P1", 0x505C4 },
+	{ "Colossus P2", 0x50624 },
+
+	{ "Cyclops P1", 0x50504 },
+	{ "Cyclops P2", 0x50564 },
+	{ "Cyclops Optic Blast 1", 0x508C4 },
+	{ "Cyclops Optic Blast 2", 0x508E4 },
+	{ "Cyclops Optic Blast 3", 0x50904 },
+	{ "Cyclops Optic Blast 4", 0x50924 },
+	{ "Cyclops Optic Blast 5", 0x50944 },
+
+	{ "Iceman P1", 0x50D64 },
+	{ "Iceman P1 Extra 1", 0x50D84 },
+	{ "Iceman P1 Extra 2", 0x50DA4 },
+	{ "Iceman P2", 0x50DC4 },
+	{ "Iceman P2 Extra 1", 0x50DE4 },
+	{ "Iceman P1 Extra 2", 0x50E04 },
+
+	{ "Juggernaut P1", 0x502C4 },
+	{ "Juggernaut P2", 0x50324 },
+
+	{ "Magneto P1", 0x50384 },
+	{ "Magneto P2", 0x503E4 },
+
+	{ "Psylocke P1", 0x50444 },
+	{ "Psylocke P2", 0x504A4 },
+
+	{ "Rogue P1", 0x50CA4 },
+	{ "Rogue P2", 0x50D04 },
+
+	{ "Sentinel P1", 0x51344 },
+	{ "Sentinel P2", 0x513A4 },
+
+	{ "Storm P1", 0x50BA4 },
+	{ "Storm P2", 0x50C04 },
+
+	{ "Thor P1", 0x50AE4 },
+	{ "Thor P2", 0x50B44 },
+
+	{ "US Agent P1", 0x50EE4 },  // BUGBUG: We could actually use the CapAm sprite for display...
+	{ "US Agent P1 Shield", 0x50F04 },
+	{ "US Agent P1 Palette 3", 0x50F24 },
+	{ "US Agent P2", 0x50F84 },
+	{ "US Agent P2 Shield", 0x50FA4 },
+	{ "US Agent P2 Palette 3", 0x50FC4 },
+	
+	{ "Lou P1", 0x50204 },
+	{ "Lou P2", 0x50264 },
+
+	{ "Saki P1", 0x50964 },
+	{ "Saki P2", 0x509C4 },
+
+	{ "Shadow Nash P1", 0x51284 },
+	{ "Shadow Nash P2", 0x512E4 },
+
+	{ "Unknown Soldier P1", 0x50684 },
+	{ "Unknown Soldier P2", 0x506E4 },
 };
 
 const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
@@ -66,8 +169,6 @@ const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
 	0x15,
 	0x16,
 	0x17,
-	0x18,
-	0x19,
 
 	MVC_A_EXTRALOC //Extra palettes
 };
@@ -107,9 +208,7 @@ const char MVC_A_UNITDESC[MVC_A_NUMUNIT][32] =
 	"Shadow Lady Part 2",
 	"Lilith",
 	"Gambit",
-	"Ryuken",
-	"Ryukuma",
-	"Mecha Zangief"
+	"Assists",
 };
 
 const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
@@ -121,11 +220,11 @@ const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
 	0x06, // Venom
 	0x06, // Spidey
 	0x06, // Roll
-	0x06, // Ryu
+	ARRAYSIZE(MVC_A_RYU_PALETTES), // Ryu
 	0x06, // Capcom
 	0x06, // Chun
 	0x06, // Jin
-	0x06, // Gief MECHGIEF
+	ARRAYSIZE(MVC_A_GIEF_PALETTES), // Gief & MechaGief
 	0x06, // Strider
 	0x06, // Megaman
 	0x05, // Morrigan
@@ -137,9 +236,7 @@ const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
 	0x06, // Shadow Lady Part 2...?
 	0x06, // Lilith
 	0x06, // Gambit
-	0x06, // ryuken
-	0x06, // ryukuma
-	0x06, // mechagief
+	ARRAYSIZE(MVC_A_ASSIST_PALETTES), // Assists
 };
 
 const UINT16 MVC_A_IMGREDIR[MVC_A_NUMUNIT] = {
@@ -154,7 +251,7 @@ const UINT16 MVC_A_IMGREDIR[MVC_A_NUMUNIT] = {
 	0x00, // Ryu
 	0x38, // Capcom
 	0x1B, // Chun
-	0x37, // JIn
+	0x37, // Jin
 	0x01, // gieeeeef
 	0x05, // strider
 	0x1C, // megaman
@@ -167,13 +264,10 @@ const UINT16 MVC_A_IMGREDIR[MVC_A_NUMUNIT] = {
 	0x1B, // shadow layd 2
 	0x03, // lilith
 	0x28, // gambit
-	0x00, // ryuken
-	0x00, //ryukuma
-	0x01 // mechakuma
-
+	0xFF, // :( Assists ... we don't have anything. 
 };
 
-//bugbug bogus: but what if make it work!
+//bugbug bogus: but what if we make it work!
 const stExtraDef MVC_A_EXTRA[] =
 {
 	//Start
