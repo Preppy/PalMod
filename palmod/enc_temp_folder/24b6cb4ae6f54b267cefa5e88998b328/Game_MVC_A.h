@@ -12,6 +12,8 @@ private:
 
 	//Used for image selection
 	int nTargetImgId = 0;
+	//int nNormalPalAmt;
+
 	//Used for GetPalOffset
 
 	int nCurrPalOffs = 0;

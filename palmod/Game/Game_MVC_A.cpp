@@ -135,7 +135,7 @@ CGame_MVC_A::CGame_MVC_A(void)
 CGame_MVC_A::~CGame_MVC_A(void)
 { 
 	//Get rid of the file changed flag
-	if(bFileChanged)
+	if (bFileChanged)
 	{
 		delete bFileChanged;
 	}
@@ -213,7 +213,14 @@ CDescTree CGame_MVC_A::InitDescTree()
 
 					ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr]; //We only have 1
 
-					sprintf(ChildNode->szDesc, "Palette %02X", nChildCtr);
+					if (nChildCtr < ARRAYSIZE(MVC_A_IMGDESC))
+					{
+						sprintf(ChildNode->szDesc, MVC_A_IMGDESC[nChildCtr]);
+					}
+					else
+					{
+						sprintf(ChildNode->szDesc, "Palette %02X", nChildCtr);
+					}
 
 					ChildNode->uUnitId = iUnitCtr;
 					ChildNode->uPalId = nChildCtr;
