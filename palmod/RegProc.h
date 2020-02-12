@@ -7,6 +7,15 @@
 #define RECT_STRSZ		256
 
 #define BGBMPFILE "bgbmp.bmp"
+constexpr auto c_badWindowPosValue = -512;
+
+constexpr auto c_mainDefaultGetColor = TRUE;
+constexpr auto c_mainDefaultAlphaTrans = TRUE;
+constexpr auto c_mainDefaultShowAs32 = FALSE;
+constexpr auto c_mainDefaultProcSupp = TRUE;
+constexpr auto c_mainDefaultAutoSetCol = TRUE;
+
+constexpr auto c_AppRegistryRoot = _T("Software\\knarxed\\PalMod");
 
 class CRegProc
 {
@@ -18,26 +27,21 @@ public:
 	void SaveReg(int src);
 
 	//Main
-	
-	RECT main_szpos;
 
-	//CString main_lastdirdir;
-	//CString main_lastfiledir;
+	RECT main_szpos = { c_badWindowPosValue };
 
-	BOOL main_bGetColor;
-	BOOL main_bAlphaTrans;
-	BOOL main_bShow32;
-	BOOL main_bProcSupp;
-
-	BOOL bAutoSetCol;
+	BOOL main_bGetColor = c_mainDefaultGetColor;
+	BOOL main_bAlphaTrans = c_mainDefaultAlphaTrans;
+	BOOL main_bShow32 = c_mainDefaultShowAs32;
+	BOOL main_bProcSupp = c_mainDefaultProcSupp;
+	BOOL main_bAutoSetCol = c_mainDefaultAutoSetCol;
 
 	//Preview
-	
-	RECT prev_szpos;
+
+	RECT prev_szpos = { c_badWindowPosValue };
 
 	COLORREF prev_bgcol;
 	COLORREF prev_blinkcol;
-	float prev_zoom;
 
 	CHAR szPrevBGLoc[MAX_PATH];
 	int nBGXOffs;
@@ -47,7 +51,7 @@ public:
 
 	//New Image
 
-	RECT imgout_szpos;
+	RECT imgout_szpos = { c_badWindowPosValue };
 	COLORREF imgout_bgcol;
 	DWORD imgout_border;
 	DWORD imgout_zoomindex;

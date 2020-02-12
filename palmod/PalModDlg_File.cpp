@@ -4,6 +4,10 @@
 
 #include "Game\GameDef.h"
 
+constexpr auto c_AppRegistryRoot = _T("Software\\knarxed\\PalMod"); 
+constexpr auto c_strLastUsedPath = _T("LastUsedPath");
+constexpr auto c_strLastUsedGFlag = _T("LastUsedGFlag");
+
 void CPalModDlg::LoadGameDir(int nGameFlag, CHAR * szLoadDir)
 {
 	CGameClass * GameGet = GetHost()->GetLoader()->LoadDir(nGameFlag, szLoadDir);//szGet.GetBuffer());
@@ -223,10 +227,10 @@ void SetLastUsedDirectory( LPCTSTR ptszPath, int nGameFlag )
         HKEY hKey = NULL;
 
 		//Set the directory / Game Flag
-        if( ERROR_SUCCESS == RegCreateKeyEx( HKEY_CURRENT_USER, _T("Software\\knarxed\\PalMod"), 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE|KEY_SET_VALUE, NULL, &hKey, NULL ) )
+        if( ERROR_SUCCESS == RegCreateKeyEx( HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE|KEY_SET_VALUE, NULL, &hKey, NULL ) )
         {
-            RegSetValueEx( hKey, _T("LastUsedPath"), 0, REG_SZ, (LPBYTE)ptszPath, (DWORD)( _tcslen( ptszPath ) + 1 ) * sizeof(TCHAR) );
-			RegSetValueEx( hKey, _T("LastUsedGFlag"), 0, REG_DWORD, (LPBYTE)&nGameFlag, (DWORD)sizeof(int));
+            RegSetValueEx( hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)ptszPath, (DWORD)( _tcslen( ptszPath ) + 1 ) * sizeof(TCHAR) );
+			RegSetValueEx( hKey, c_strLastUsedGFlag, 0, REG_DWORD, (LPBYTE)&nGameFlag, (DWORD)sizeof(int));
 
             RegCloseKey( hKey );
         }
@@ -240,14 +244,14 @@ BOOL GetLastUsedDirectory( LPTSTR ptszPath, DWORD cbSize, int * nGameFlag, BOOL 
     BOOL fFound = FALSE;
     HKEY hKey = NULL;
 
-    if( ERROR_SUCCESS == RegOpenKeyEx( HKEY_CURRENT_USER, _T("Software\\knarxed\\PalMod"), 0, KEY_QUERY_VALUE, &hKey ) )
+    if( ERROR_SUCCESS == RegOpenKeyEx( HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey ) )
     {
         DWORD dwRegType = REG_SZ;
         TCHAR szPath[MAX_PATH];
         DWORD cbDataSize = sizeof( szPath );
 		
 		//Get the directory
-        if(   ( ERROR_SUCCESS == RegQueryValueEx( hKey, _T("LastUsedPath"), 0, &dwRegType, (LPBYTE)szPath, &cbDataSize ) )
+        if(   ( ERROR_SUCCESS == RegQueryValueEx( hKey, c_strLastUsedPath, 0, &dwRegType, (LPBYTE)szPath, &cbDataSize ) )
             &&( REG_SZ == dwRegType ) )
         {
 			if(bCheck)
@@ -263,7 +267,6 @@ BOOL GetLastUsedDirectory( LPTSTR ptszPath, DWORD cbSize, int * nGameFlag, BOOL 
 					if(bIsDir)
 					{
 						//Check to see if it's actually a file without an extension
-
 						*bIsDir = (( dwAttribs & FILE_ATTRIBUTE_DIRECTORY ) ? TRUE : FALSE);
 					}
 
@@ -281,7 +284,7 @@ BOOL GetLastUsedDirectory( LPTSTR ptszPath, DWORD cbSize, int * nGameFlag, BOOL 
 			dwRegType = REG_DWORD;
 			cbDataSize = sizeof(int);
 
-			if((ERROR_SUCCESS == RegQueryValueEx( hKey, _T("LastUsedGFlag"), 0, &dwRegType, (LPBYTE)nGameFlag, &cbDataSize)))
+			if((ERROR_SUCCESS == RegQueryValueEx( hKey, c_strLastUsedGFlag, 0, &dwRegType, (LPBYTE)nGameFlag, &cbDataSize)))
 			{
 				//fFound = TRUE;
 			}
@@ -317,9 +320,6 @@ void CPalModDlg::OnFileOpen()
 	szGameFileDef.Append("SFA3 sz3.09c (*.09c )|*.09c|"); //SSF2T
 	szGameFileDef.Append("XMVSF xvs.05a (*.05a )|*.05a|"); //XMVSF
 	szGameFileDef.Append("MVC mvc.06 (*.06 )|*.06|"); //MVC
-#ifdef DEBUG // This code being debug-only locks the rest of the code out from working until we're ready.  Sweet.
-	szGameFileDef.Append("Jojo's 51 (51)|*.51|"); //MVC
-#endif
 
 	szGameFileDef.Append("|"); //End
 
@@ -350,9 +350,6 @@ void CPalModDlg::OnFileOpen()
 			break;
 		case 5:
 			LoadGameFile(MVC_A, (CHAR *)ofn.lpstrFile);
-			break;
-		case 6:
-			LoadGameFile(JOJO_A, (CHAR*)ofn.lpstrFile);
 			break;
 		}
 	}

@@ -437,10 +437,8 @@ COLORREF *** CGameClass::CreateImgOutPal()
 
 BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16 * pData, int nExclusion, COLORREF ** pNewPal, int * nNewPalSz)
 {
-
 	UINT32 * pMulRg = new UINT32[nIndexAmt];
 	int nNewPalSzCpy = 0;
-
 
 	memset(pMulRg, 0xFF, nIndexAmt * sizeof(UINT32));
 
@@ -526,7 +524,4 @@ BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16 * pData, int 
 
 		return FALSE;
 	}
-
-		
-	return FALSE;
 }

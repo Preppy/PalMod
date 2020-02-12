@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 void CGame_SFIII3_A::LoadExtraFile()
 {
 	ifstream extraFile;
@@ -34,8 +33,6 @@ void CGame_SFIII3_A::LoadExtraFile()
 		pCurrDef = const_cast<stExtraDef *>(&SFIII3_A_EXTRA[nExtraCtr]);
 	}
 
-	//nExtraCtr--;
-
 	memcpy(rgTempExtraBuffer, SFIII3_A_EXTRA, nExtraCtr * sizeof(stExtraDef));
 
 	GetModuleFileName(NULL, szTargetFile, (DWORD)MAX_PATH * sizeof(CHAR));
@@ -50,7 +47,6 @@ void CGame_SFIII3_A::LoadExtraFile()
 
 		while(!extraFile.eof())
 		{
-
 			extraFile.getline(szCurrLine, 1000);
 
 			szFinalLine = szCurrLine;
@@ -63,8 +59,6 @@ void CGame_SFIII3_A::LoadExtraFile()
 			if( strlen(szFinalLine) )
 			{
 				int nPrevAmt = 0;
-
-
 
 				switch(nCtr%3)
 				{
@@ -82,17 +76,14 @@ void CGame_SFIII3_A::LoadExtraFile()
 						{
 							nCurrStart = 0;
 						}
-						
 					}
 					break;
 				case 2:
 					{
-						
 						int nPalCt = 0;
 						int nDiff;
 						int nValue;
 						int nPos = 0;
-
 
 						nCurrEnd = strtol(szFinalLine, NULL, 16);
 
@@ -100,7 +91,6 @@ void CGame_SFIII3_A::LoadExtraFile()
 					
 						while(nDiff > 0)
 						{
-
 							if(nPos)
 							{
 								nCtr += 3;
@@ -126,32 +116,19 @@ void CGame_SFIII3_A::LoadExtraFile()
 							pCurrDef->uPalSz = nValue * 2 ;
 
 							nPos++;
-
-							
 						}
-
-						
-
 					}
 					break;
 				}
-				
 
 				nCtr++;
-
-				
 			}
 		}
-		
 	}
-
 
 	SFIII3_A_EXTRA_CUSTOM = new stExtraDef[nExtraCtr + 1 + (nCtr / 3)];
 
 	memcpy(SFIII3_A_EXTRA_CUSTOM, rgTempExtraBuffer, (nExtraCtr + (nCtr / 3) ) * sizeof(stExtraDef));
 
 	SFIII3_A_EXTRA_CUSTOM[nExtraCtr + (nCtr / 3)].uUnitN = 0xFF;
-
-
-
 }

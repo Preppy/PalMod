@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "PalMod.h"
+#include "regproc.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -22,6 +23,10 @@ CString GetAppName()
 	CString strAppName;
 	strAppName.LoadString(IDS_CURRENTAPPNAME);
 	strAppName += " (" __DATE__ ")";
+
+#ifdef DEBUG
+	strAppName += " DEBUG build";
+#endif
 
 	return strAppName;
 }

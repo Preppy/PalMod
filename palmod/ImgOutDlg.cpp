@@ -342,14 +342,11 @@ void CImgOutDlg::OnSettingsSetbackgroundcolor32847()
 
 void CImgOutDlg::LoadSett()
 {
-	
 	CRegProc sett;
 
 	sett.LoadReg(REG_IMGOUT);
-
 	
 	m_DumpBmp.crBGCol = sett.imgout_bgcol;
-	
 	
 	m_CB_Zoom.SetCurSel(sett.imgout_zoomindex);
 
@@ -364,23 +361,19 @@ void CImgOutDlg::LoadSett()
 
 	window_rect = sett.imgout_szpos;
 
+	// BUGBUG: ... why is this turned off?
 	/*
-	if(window_rect.top != -512)
+	if(window_rect.top != c_badWindowPosValue)
 	{
 		MoveWindow(&window_rect);
 		ResizeBmp();
 	}
 	*/
-
-	
 }
-
 
 void CImgOutDlg::SaveSett()
 {
-	
 	CRegProc sett;
-
 	
 	sett.imgout_bgcol = m_DumpBmp.crBGCol;
 	
@@ -394,7 +387,6 @@ void CImgOutDlg::SaveSett()
 	sett.imgout_szpos = window_rect;
 
 	sett.SaveReg(REG_IMGOUT);
-	
 }
 
 void CImgOutDlg::ResizeBmp()

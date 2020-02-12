@@ -601,7 +601,7 @@ void CGame_MVC2_D::ForEidrian(int nFlag, COLORREF crCol)
 
 	for(int nUnitCtr = 0; nUnitCtr < MVC2_D_NUMUNIT; nUnitCtr++)
 	{
-		for(int nPalCtr = 0; nPalCtr < MVC2_D_PALDATASZ[nUnitCtr]/32; nPalCtr++)
+		for(UINT32 nPalCtr = 0; nPalCtr < MVC2_D_PALDATASZ[nUnitCtr]/32; nPalCtr++)
 		{
 			if(ppDataBuffer[nUnitCtr])
 			{

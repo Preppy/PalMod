@@ -15,8 +15,6 @@
 class CGame_SFIII3_A : public CGameClass
 {
 private:
-
-
 	BOOL bUsingFileExtra;
 
 	//Used for image selection
@@ -36,6 +34,7 @@ private:
 	void ClearDataBuffer();
 
 	static stExtraDef * SFIII3_A_EXTRA_CUSTOM;
+
 public:
 	CGame_SFIII3_A(void);
 	~CGame_SFIII3_A(void);
@@ -73,6 +72,4 @@ public:
 
 	void FlushUnitFile(){if(bFileChanged){delete bFileChanged; bFileChanged = NULL;}};
 	void PrepUnitFile(){if(!bFileChanged){ bFileChanged = new UINT8;}};
-
-
 };

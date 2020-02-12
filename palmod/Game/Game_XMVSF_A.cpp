@@ -337,7 +337,6 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	CreateDefPal(NodeGet, 0);
 
 	SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
-	
 
 	return TRUE;
 }
@@ -359,8 +358,6 @@ COLORREF * CGame_XMVSF_A::CreatePal(int nUnitId, int nPalId)
 	}
 	else
 	{
-
-
 		bUsesHybrid = FALSE;
 
 		NewPal = new COLORREF[nCurrPalSz];
@@ -379,15 +376,12 @@ COLORREF * CGame_XMVSF_A::CreatePal(int nUnitId, int nPalId)
 
 void CGame_XMVSF_A::UpdatePalData()
 {
-
 	for(int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
 	{
 		sPalDef * srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
 		if(srcDef->bAvail )
 		{
-			
-
 			int nIndexStart = 1;
 
 			COLORREF * crSrc;
@@ -402,13 +396,10 @@ void CGame_XMVSF_A::UpdatePalData()
 
 				for(int nPICtr = 0; nPICtr < nCurrPalSz; nPICtr++)
 				{
-					
 					if(pIndexRedir[nPICtr])
 					{
 						pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = (ConvCol(crSrc[pIndexRedir[nPICtr]]) & 0x0FFF);
 					}
-					
-
 				}
 
 				delete [] crSrc;

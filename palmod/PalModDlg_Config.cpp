@@ -14,7 +14,16 @@ void CPalModDlg::LoadSettings()
 	CGame_MVC2_D::bAlphaTrans = RegSett.main_bAlphaTrans;
 	bShow32	= RegSett.main_bShow32;
 	CGameClass::bPostSetPalProc	= RegSett.main_bProcSupp;
-	bAutoSetCol = RegSett.bAutoSetCol;
+	bAutoSetCol = RegSett.main_bAutoSetCol;
+
+	RECT window_rect;
+	window_rect = RegSett.main_szpos;
+	if (window_rect.top != c_badWindowPosValue)
+	{
+		// Do we want this?  I kind of like it.  At the same time it makes having multiple copies open at once a PITA.
+		// Might be more interesting to just force PREV to a known offset.
+		MoveWindow(&window_rect);
+	}
 }
 
 void CPalModDlg::SaveSettings()
@@ -25,7 +34,12 @@ void CPalModDlg::SaveSettings()
 	RegSett.main_bAlphaTrans	= CGame_MVC2_D::bAlphaTrans;
 	RegSett.main_bShow32		= bShow32;
 	RegSett.main_bProcSupp		= CGameClass::bPostSetPalProc;
-	RegSett.bAutoSetCol = bAutoSetCol;
+	RegSett.main_bAutoSetCol    = bAutoSetCol;
+
+	RECT window_rect;
+
+	GetWindowRect(&window_rect);
+	RegSett.main_szpos = window_rect;
 
 	RegSett.SaveReg(REG_MAIN);
 }

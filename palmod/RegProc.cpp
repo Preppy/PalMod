@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "regproc.h"
 
+constexpr auto c_previewWndPos = "prev_wndpos";
+constexpr auto c_mainWndPos = "main_wndpos";
+
 CRegProc::CRegProc(int nSrcType)
 {
 	if (nSrcType != -1)
@@ -21,7 +24,7 @@ void CRegProc::LoadReg(int src)
 
 	CString conv_str;
 
-	if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("Software\\knarxed\\PalMod"), 0, KEY_READ, &hKey) == ERROR_SUCCESS)
+	if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_READ, &hKey) == ERROR_SUCCESS)
 	{
 		switch(src)
 		{
@@ -30,31 +33,37 @@ void CRegProc::LoadReg(int src)
 				RegType = REG_DWORD;
 				GetSz = sizeof( BOOL );
 
-				if(RegQueryValueEx(hKey, "main_getcolor", 0, &RegType, (BYTE *)&main_bGetColor, &GetSz)  != ERROR_SUCCESS)
-					main_bGetColor = TRUE;
+				if(RegQueryValueEx(hKey, "main_getcolor", 0, &RegType, (BYTE *)&main_bGetColor, &GetSz) != ERROR_SUCCESS)
+					main_bGetColor = c_mainDefaultGetColor;
 
-				if(RegQueryValueEx(hKey, "main_alphatrans", 0, &RegType, (BYTE *)&main_bAlphaTrans, &GetSz)  != ERROR_SUCCESS)
-					main_bAlphaTrans = TRUE;
+				if(RegQueryValueEx(hKey, "main_alphatrans", 0, &RegType, (BYTE *)&main_bAlphaTrans, &GetSz) != ERROR_SUCCESS)
+					main_bAlphaTrans = c_mainDefaultAlphaTrans;
 
-				if(RegQueryValueEx(hKey, "main_show32", 0, &RegType, (BYTE *)&main_bShow32, &GetSz)  != ERROR_SUCCESS)
-					main_bShow32 = FALSE;
+				if(RegQueryValueEx(hKey, "main_show32", 0, &RegType, (BYTE *)&main_bShow32, &GetSz) != ERROR_SUCCESS)
+					main_bShow32 = c_mainDefaultShowAs32;
 
-				if(RegQueryValueEx(hKey, "main_procsupps", 0, &RegType, (BYTE *)&main_bProcSupp, &GetSz)  != ERROR_SUCCESS)
-					main_bProcSupp = TRUE;
+				if(RegQueryValueEx(hKey, "main_procsupps", 0, &RegType, (BYTE *)&main_bProcSupp, &GetSz) != ERROR_SUCCESS)
+					main_bProcSupp = c_mainDefaultProcSupp;
 
-				if(RegQueryValueEx(hKey, "AutoSetColor", 0, &RegType, (BYTE *)&bAutoSetCol, &GetSz)  != ERROR_SUCCESS)
-					bAutoSetCol = TRUE;
+				if(RegQueryValueEx(hKey, "AutoSetColor", 0, &RegType, (BYTE *)&main_bAutoSetCol, &GetSz) != ERROR_SUCCESS)
+					main_bAutoSetCol = c_mainDefaultAutoSetCol;
 
 				RegType = REG_SZ;
 				GetSz = RECT_STRSZ;
 
-				if(RegQueryValueEx(hKey, "main_szpos", 0, &RegType, (BYTE *)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
+				if(RegQueryValueEx(hKey, c_mainWndPos, 0, &RegType, (BYTE *)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
 				{
 					main_szpos = StrToRect(conv_str);
+					// This good faith check doesn't seem to do anything meaningful. 
+					// Maybe I'm overthinking issues with multiple monitors and such.
+					if (MonitorFromRect(&main_szpos, MONITOR_DEFAULTTONULL) == nullptr)
+					{
+						main_szpos.top = c_badWindowPosValue;
+					}
 				}
 				else
 				{
-					main_szpos.top = -512;
+					main_szpos.top = c_badWindowPosValue;
 				}
 			}
 			break;
@@ -82,21 +91,22 @@ void CRegProc::LoadReg(int src)
 				if(RegQueryValueEx(hKey, "UseBGCol", 0, &RegType, (BYTE *)&bUseBGCol, &GetSz) != ERROR_SUCCESS)
 					bUseBGCol = TRUE;
 
-				GetSz = sizeof( float );
-
-				if(RegQueryValueEx(hKey, "prev_zoom", 0, &RegType, (BYTE *)&prev_zoom, &GetSz) != ERROR_SUCCESS)
-					prev_zoom = 2.0f;
-
 				RegType = REG_SZ;
 				GetSz = RECT_STRSZ;
 
-				if(RegQueryValueEx(hKey, "prev_szpos", 0, &RegType, (BYTE *)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
+				if(RegQueryValueEx(hKey, c_previewWndPos, 0, &RegType, (BYTE *)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
 				{
 					prev_szpos = StrToRect(conv_str);
+					// This good faith check doesn't seem to do anything meaningful. 
+					// Maybe I'm overthinking issues with multiple monitors and such.
+					if (MonitorFromRect(&prev_szpos, MONITOR_DEFAULTTONULL) == nullptr)
+					{
+						prev_szpos.top = c_badWindowPosValue;
+					}
 				}
 				else
 				{
-					prev_szpos.top = -512;
+					prev_szpos.top = c_badWindowPosValue;
 				}
 
 				//Reset get size 
@@ -136,7 +146,7 @@ void CRegProc::LoadReg(int src)
 				}
 				else
 				{
-					imgout_szpos.top = -512;
+					imgout_szpos.top = c_badWindowPosValue;
 				}
 
 			}
@@ -153,7 +163,7 @@ void CRegProc::SaveReg(int src)
 
 	CString conv_str;
 
-	if(RegCreateKeyEx(HKEY_CURRENT_USER, _T("Software\\knarxed\\PalMod"), 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
+	if(RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
 		== ERROR_SUCCESS)
 	{
 		switch(src)
@@ -164,11 +174,11 @@ void CRegProc::SaveReg(int src)
 				RegSetValueEx(hKey, "main_alphatrans", 0, REG_DWORD, (BYTE *)&main_bAlphaTrans, sizeof( BOOL ));
 				RegSetValueEx(hKey, "main_show32", 0, REG_DWORD, (BYTE *)&main_bShow32, sizeof( BOOL ));
 				RegSetValueEx(hKey, "main_procsupps", 0, REG_DWORD, (BYTE *)&main_bProcSupp, sizeof( BOOL ));
-				RegSetValueEx(hKey, "AutoSetColor", 0, REG_DWORD, (BYTE *)&bAutoSetCol, sizeof( BOOL ));
+				RegSetValueEx(hKey, "AutoSetColor", 0, REG_DWORD, (BYTE *)&main_bAutoSetCol, sizeof( BOOL ));
 
 				conv_str = RectToStr(main_szpos);
 
-				RegSetValueEx(hKey, "main_szpos", 0, REG_SZ, (BYTE *)conv_str.GetBuffer(), conv_str.GetLength() + 1);
+				RegSetValueEx(hKey, c_mainWndPos, 0, REG_SZ, (BYTE *)conv_str.GetBuffer(), conv_str.GetLength() + 1);
 			}
 			break;
 
@@ -176,11 +186,10 @@ void CRegProc::SaveReg(int src)
 			{
 				RegSetValueEx(hKey, "prev_bgCol", 0, REG_DWORD, (BYTE *)&prev_bgcol, sizeof( COLORREF ));
 				RegSetValueEx(hKey, "prev_blinkCol", 0, REG_DWORD, (BYTE *)&prev_blinkcol, sizeof( COLORREF ));
-				RegSetValueEx(hKey, "prev_zoom", 0, REG_DWORD, (BYTE *)&prev_zoom, sizeof( float ));
 
 				conv_str = RectToStr(prev_szpos);
 
-				RegSetValueEx(hKey, "prev_szpos", 0, REG_SZ, (BYTE *)conv_str.GetBuffer(), conv_str.GetLength() + 1);
+				RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, (BYTE *)conv_str.GetBuffer(), conv_str.GetLength() + 1);
 				RegSetValueEx(hKey, "PreviewBGFile", 0, REG_SZ, (BYTE *)szPrevBGLoc, (DWORD)( (strlen( szPrevBGLoc ) + 1) * sizeof(CHAR) ));
 				RegSetValueEx(hKey, "PreviewTiledBG", 0, REG_DWORD, (BYTE *)&bTileBG, sizeof(BOOL));
 				RegSetValueEx(hKey, "PreviewBGXOffset", 0, REG_DWORD, (BYTE *)&nBGXOffs, sizeof(int));

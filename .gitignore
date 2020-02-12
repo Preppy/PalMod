@@ -394,3 +394,8 @@ palmod/Debug/jojoba_japan_nocd.29f400.u2
 *.zip
 palmod/Debug/sfiii3e.txt
 palmod/Release/sfiii3e.txt
+*.xml
+*.sarif
+*.lastcodeanalysissucceeded
+*.pchast
+*.06

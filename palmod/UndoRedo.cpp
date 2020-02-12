@@ -68,29 +68,32 @@ void CUndoRedo::Delete(CUndoNode **start, CUndoNode **tail)
 
 void CUndoRedo::DeleteTail(CUndoNode **start, CUndoNode **tail)
 {
-	CUndoNode * delnode;
-	CUndoNode * delnodenext;
-
 	if(*start == *tail)
 	{
-
 		delete *tail;
 		*start = NULL;
 		*tail = NULL;
 
 		return;
 	}
-	else if(*tail == NULL)
+	else if (*tail == NULL)
+	{
 		return;
+	}
 
-	delnodenext = *start;
+	CUndoNode* delnodenext = *start;
+	CUndoNode* delnode = nullptr;
+
 	while(delnodenext != *tail)
 	{
 		delnode = delnodenext;
 		delnodenext = delnodenext->next;
 	}
 
-	delnode->next = NULL;
+	if (delnode)
+	{
+		delnode->next = NULL;
+	}
 
 	delete *tail;
 	*tail = delnode;
@@ -98,8 +101,6 @@ void CUndoRedo::DeleteTail(CUndoNode **start, CUndoNode **tail)
 
 CUndoNode * CUndoRedo::Pop(CUndoNode **start, CUndoNode **tail)
 {
-	CUndoNode *popnode;
-
 	if(*start)
 	{
 		if(*start == *tail)
@@ -108,12 +109,14 @@ CUndoNode * CUndoRedo::Pop(CUndoNode **start, CUndoNode **tail)
 			*tail = NULL;
 		}
 
-		popnode = *start;
+		CUndoNode* popnode = *start;
 		*start = popnode->next;
 		return popnode;
 	}
 	else
+	{
 		return NULL;
+	}
 }
 
 

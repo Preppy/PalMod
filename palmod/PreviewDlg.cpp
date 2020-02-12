@@ -137,11 +137,9 @@ void CPreviewDlg::OnSetBGImage()
 		}
 		else
 		{
-			CString strAppName;
-			strAppName.LoadString(IDS_CURRENTAPPNAME);
 			CString strError;
 			strError.LoadString(IDS_ERROR_LOADING_BITMAP_BG);
-			MessageBox(strError, strAppName, MB_ICONERROR);
+			MessageBox(strError, GetAppName(), MB_ICONERROR);
 		}
 	}
 }
@@ -162,6 +160,13 @@ void CPreviewDlg::LoadSettings()
 	m_ImgDisp.SetBGYOffs(LoadSett.nBGYOffs);
 	m_ImgDisp.SetUseBGCol(LoadSett.bUseBGCol);
 
+	RECT window_rect;
+	window_rect = LoadSett.prev_szpos;
+	if(window_rect.top != c_badWindowPosValue)
+	{
+		MoveWindow(&window_rect);
+	}
+
 	if(bImgDispInit)
 	{
 		m_ImgDisp.UpdateCtrl();
@@ -179,6 +184,11 @@ void CPreviewDlg::SaveSettings()
 	SaveSett.nBGXOffs = m_ImgDisp.GetBGXOffs();
 	SaveSett.nBGYOffs = m_ImgDisp.GetBGYOffs();
 	SaveSett.bUseBGCol = m_ImgDisp.IsUsingBGCol();
+
+	RECT window_rect;
+
+	GetWindowRect(&window_rect);
+	SaveSett.prev_szpos = window_rect;
 
 	SaveSett.SaveReg(REG_PREV);
 }

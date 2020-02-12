@@ -150,22 +150,12 @@ void CImgDumpBmp::OnSize(UINT nType,int cx,int cy )
 int CImgDumpBmp::ScrollBounds(int in_val, BOOL horiz)
 {
 	int min = 0;
-	int max;
-
-	switch(horiz)
-	{
-	case FALSE:
-			max = clip_bottom;
-		break;
-	case TRUE:
-			max = clip_right;
-		break;
-	}
+	int max = horiz ? clip_right : clip_bottom;
 
 	if (in_val < min)
 		return min;
 
-	if(in_val > max)
+	if (in_val > max)
 		return max;
 
 	return in_val;
@@ -210,7 +200,6 @@ void CImgDumpBmp::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
 	if(curr_pos != old_pos)
 		m_VScroll.SetScrollPos(curr_pos);
-
 
 	UpdateBltRect();
 	UpdateCtrl();
@@ -539,19 +528,15 @@ void CImgDumpBmp::ClearCtrlBG()
 
 void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8 * pDstData)
 {
-
 	ClearCtrlBG();
 
 	MainDC.FillSolidRect(CRect(0, 0, nMainW, nMainH), crBGCol);
 
-
 	int row_ctr = 0;
-	int nPal;
-
-	int nXOffs;
-	int nYOffs;
-
-	int nTargetX, nTargetY;
+	int nPal = 0;
+	int nXOffs = 0;
+	int nYOffs = 0;
+	int nTargetX = 0, nTargetY = 0;
 	
 	UINT8 * pMainData;
 
@@ -799,8 +784,11 @@ int CImgDumpBmp::GetOutputW()
 	case 7:
 		w_mul = 4;
 		break;
+	default:
+		OutputDebugString("Bogus argument to GetOutputW");
+		DebugBreak();
+		break;
 	}
-
 
 	nMainW = ( ( w_mul  * border_sz)  + border_sz) + ((blt_w * zoom) * w_mul);
 		
