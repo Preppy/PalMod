@@ -43,6 +43,7 @@ private:
 	
 public:
 	CPalModApp();
+	~CPalModApp();
 
 	CGameLoad * GetLoader(){return &GameLoader;};
 	CGameClass * GetCurrGame(){return CurrGame;};

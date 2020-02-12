@@ -63,6 +63,8 @@ BOOL CPalModApp::InitInstance()
 
 	CWinApp::InitInstance();
 
+	CoInitialize(nullptr);
+
 	//AfxEnableControlContainer();
 
 	// Standard initialization
@@ -94,6 +96,11 @@ BOOL CPalModApp::InitInstance()
 	ImgStr = ImgStr.Left(ImgStr.ReverseFind('\\') + 1) + IMGDATFILE;	
 	
 	return TRUE;
+}
+
+CPalModApp::~CPalModApp()
+{
+	CoUninitialize();
 }
 
 CPalModApp * GetHost()
