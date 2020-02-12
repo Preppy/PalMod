@@ -56,7 +56,7 @@ void CGame_SFIII3_A::LoadExtraFile()
 			//	szFinalLine = szModLine;
 			//}
 
-			if( strlen(szFinalLine) )
+			if (strlen(szFinalLine) && (szFinalLine[0] != ';'))
 			{
 				int nPrevAmt = 0;
 

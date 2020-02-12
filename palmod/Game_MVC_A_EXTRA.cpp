@@ -53,7 +53,8 @@ void CGame_MVC_A::LoadExtraFile()
 
 			szFinalLine = szCurrLine;
 
-			if( strlen(szFinalLine) )
+			// Ignore blank lines and comments.
+			if (strlen(szFinalLine) && (szFinalLine[0] != ';'))
 			{
 				int nPrevAmt = 0;
 
