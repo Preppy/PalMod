@@ -381,40 +381,6 @@ void CImgDisp::ModifyClRect()
 	GetClientRect(&rCtrlRct);
 }
 
-//void CImgDisp::FillIndexes(int nIndex)
-//{
-//
-//	
-//	sImgNode * currImg = pImgBuffer[nIndex];
-//	sImgIndex * currIndex = &currImg->ImgIndex;
-//	UINT8 * pData = currImg->pImgData;
-//	UINT8 uCurrData;
-//	UINT16 uImgW = currImg->uImgW, uImgH = currImg->uImgH;
-//
-//
-//	UINT32 * pIndexAmt = currIndex->pIndexAmt;
-//
-//	for(int nYCtr = uImgH - 1; nYCtr > 0; nYCtr--)
-//	{
-//		for(int nXCtr = 0; nXCtr < uImgW; nXCtr++)
-//		{
-//			uCurrData = pData[uImgW * nYCtr + nXCtr];
-//
-//			if(uCurrData)
-//			{
-//				
-//				currIndex->ppIndexes[uCurrData][pIndexAmt[uCurrData]].x = nXCtr;
-//				currIndex->ppIndexes[uCurrData][pIndexAmt[uCurrData]].y = (uImgH - 1) - nYCtr;
-//
-//				pIndexAmt[uCurrData]++;
-//			}
-//		}
-//
-//		
-//	}
-//
-//}
-
 void CImgDisp::DrawMainBG()
 {
 	bTileBGBmp * bBGAvail * !bUseBGCol ? MainDC->FillRect(CRect(0, 0, MAIN_W, MAIN_H), &BGBrush ) : MainDC->FillSolidRect(CRect(0, 0, MAIN_W, MAIN_H), crBGCol );
@@ -446,9 +412,6 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
 	int nWidth = 0;
 	int nHeight = 0;
 
-	//RECT rDstBlt;
-	//RECT rSrcBlt;
-
 	//Clear the background
 	DrawMainBG();
 
@@ -471,8 +434,6 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
 			//Draw the img
 			CustomBlt(
 				nImgCtr, 
-				//(MAIN_W / 2) - (nWidth / 2) + nXOffs, 
-				//(MAIN_H / 2) - (nHeight / 2) + nYOffs,
 				ptOffs[nImgCtr].x + rImgRct.left + abs(nXOffsTop),
 				ptOffs[nImgCtr].y + rImgRct.top + abs(nYOffsTop),
 				(nAltPalIndex == nImgCtr ? TRUE : FALSE)

@@ -88,9 +88,7 @@ void CPalModDlg::UpdateCombo()
 		sDescTreeNode * ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], nCurrChildSel1,  -1);
 		
 		//Clear the 1st child list
-		while(m_CBChildSel2.DeleteString(0) >= 0) NULL;
-
-		
+		while (m_CBChildSel2.DeleteString(0) >= 0) { NULL; }
 
 		for(int nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
 		{
@@ -103,9 +101,6 @@ void CPalModDlg::UpdateCombo()
 
 		//Reset the next selection
 		nPrevChildSel2 = 0xFFFF;
-
-		
-		
 	}
 
 	nCurrChildSel2 = m_CBChildSel2.GetCurSel();
@@ -180,26 +175,25 @@ void CPalModDlg::PostPalSel()
 		}
 
 		//Fill the image control
-		if(ImgFile)
+		if (ImgFile)
 		{
-
 			if(CurrTicket != NULL)
 			{
+				// This is where we load our images from img.dat .
+				// nUnitId is the character/palette index.
+				// nImgId is the extra offset for that character.
 				int nImgKey  = (UINT16)(CurrTicket->nUnitId << 8) | (UINT8)CurrTicket->nImgId;
 
 				CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
 
 				if(nPrevImgIndex[nImgIndexCtr] != nImgKey || bForceImg)
 				{
-
 					if(nImgIndexCtr == 0)
 					{
 						ImgDispCtrl->ClearUsed();
 
 						//Get and flush the image ctrl
-
 						ImgFile->FlushLastImg();
-						
 					}
 
 					if(CurrImgDef)

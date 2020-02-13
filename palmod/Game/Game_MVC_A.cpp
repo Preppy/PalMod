@@ -199,35 +199,86 @@ CDescTree CGame_MVC_A::InitDescTree()
 
 					ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr]; //We only have 1
 
+
 					// Update this if you need new characters/palette lists
-					if (iUnitCtr == indexRyu)
+					switch (iUnitCtr)
 					{
+					case indexWarMachine:
+						sprintf(ChildNode->szDesc, MVC_A_WARMACHINE_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexCaptainAmerica:
+						sprintf(ChildNode->szDesc, MVC_A_CAPAM_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexHulk:
+						sprintf(ChildNode->szDesc, MVC_A_HULK_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexWolverine:
+						sprintf(ChildNode->szDesc, MVC_A_WOLVERINE_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexVenom:
+						sprintf(ChildNode->szDesc, MVC_A_VENOM_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexSpiderman:
+						sprintf(ChildNode->szDesc, MVC_A_SPIDEY_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexRyu:
 						sprintf(ChildNode->szDesc, MVC_A_RYU_PALETTES[nChildCtr].szPaletteName);
-					}
-					else if (iUnitCtr == indexGief)
-					{
+						break;
+					case indexCapCom:
+						sprintf(ChildNode->szDesc, MVC_A_CAPCOM_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexChun:
+						sprintf(ChildNode->szDesc, MVC_A_CHUNLI_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexJin:
+						sprintf(ChildNode->szDesc, MVC_A_JIN_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexGief:
 						sprintf(ChildNode->szDesc, MVC_A_GIEF_PALETTES[nChildCtr].szPaletteName);
-					}
-					else if (iUnitCtr == indexMegaman)
-					{
+						break;
+					case indexStrider:
+						sprintf(ChildNode->szDesc, MVC_A_STRIDER_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexMegaman:
 						sprintf(ChildNode->szDesc, MVC_A_MEGAMAN_PALETTES[nChildCtr].szPaletteName);
-					}
-					else if (iUnitCtr == indexShadowLady)
-					{
+						break;
+					case indexMorrigan:
+						sprintf(ChildNode->szDesc, MVC_A_MORRIGAN_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexHyperVenom:
+						sprintf(ChildNode->szDesc, MVC_A_HYPERVENOM_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexOrangeHulk:
+						sprintf(ChildNode->szDesc, MVC_A_ORANGEHULK_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexGWM:
+						sprintf(ChildNode->szDesc, MVC_A_GOLDWARMACHINE_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexShadowLady:
 						sprintf(ChildNode->szDesc, MVC_A_SHADOWLADY_PALETTES[nChildCtr].szPaletteName);
-					}
-					else if (iUnitCtr == indexAssists)
-					{
+						break;
+					case indexLilith:
+						sprintf(ChildNode->szDesc, MVC_A_LILITH_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexGambit:
+						sprintf(ChildNode->szDesc, MVC_A_GAMBIT_PALETTES[nChildCtr].szPaletteName);
+						break;
+					case indexAssists:
 						sprintf(ChildNode->szDesc, MVC_A_ASSIST_PALETTES[nChildCtr].szPaletteName);
-					}
-					else if (nChildCtr < ARRAYSIZE(MVC_A_IMGDESC)) // For the first 6 palettes we have a stock list of text to display.
-					{
-						sprintf(ChildNode->szDesc, MVC_A_IMGDESC[nChildCtr]);
-					}
-					else
-					{
-						sprintf(ChildNode->szDesc, "Palette %02X", nChildCtr);
-					}
+						break;
+					case indexOnslaught:
+					case indexRoll:
+					default:
+						if (nChildCtr < ARRAYSIZE(MVC_A_IMGDESC)) // For the first 6 palettes we have a stock list of text to display.
+						{
+							sprintf(ChildNode->szDesc, MVC_A_IMGDESC[nChildCtr]);
+						}
+						else
+						{
+							sprintf(ChildNode->szDesc, "Palette %02X", nChildCtr);
+						}
+						break;
+					};
 
 					ChildNode->uUnitId = iUnitCtr;
 					ChildNode->uPalId = nChildCtr;
@@ -347,26 +398,66 @@ void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
 	// Update this if you need new characters/palette lists
 	switch (nUnitId)
 	{
+		case indexWarMachine:
+			nCurrPalOffs = MVC_A_WARMACHINE_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexCaptainAmerica:
+			nCurrPalOffs = MVC_A_CAPAM_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexHulk:
+			nCurrPalOffs = MVC_A_HULK_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexWolverine:
+			nCurrPalOffs = MVC_A_WOLVERINE_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexVenom:
+			nCurrPalOffs = MVC_A_VENOM_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexSpiderman:
+			nCurrPalOffs = MVC_A_SPIDEY_PALETTES[nPalId].nPaletteOffset;
+			break;
 		case indexRyu:
-		{
 			nCurrPalOffs = MVC_A_RYU_PALETTES[nPalId].nPaletteOffset;
 			break;
-		}
+		case indexCapCom:
+			nCurrPalOffs = MVC_A_CAPCOM_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexChun:
+			nCurrPalOffs = MVC_A_CHUNLI_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexJin:
+			nCurrPalOffs = MVC_A_JIN_PALETTES[nPalId].nPaletteOffset;
+			break;
 		case indexGief:
-		{
 			nCurrPalOffs = MVC_A_GIEF_PALETTES[nPalId].nPaletteOffset;
 			break;
-		}
+		case indexStrider:
+			nCurrPalOffs = MVC_A_STRIDER_PALETTES[nPalId].nPaletteOffset;
+			break;
 		case indexMegaman:
-		{
 			nCurrPalOffs = MVC_A_MEGAMAN_PALETTES[nPalId].nPaletteOffset;
 			break;
-		}
+		case indexMorrigan:
+			nCurrPalOffs = MVC_A_MORRIGAN_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexHyperVenom:
+			nCurrPalOffs = MVC_A_HYPERVENOM_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexOrangeHulk:
+			nCurrPalOffs = MVC_A_ORANGEHULK_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexGWM:
+			nCurrPalOffs = MVC_A_GOLDWARMACHINE_PALETTES[nPalId].nPaletteOffset;
+			break;
 		case indexShadowLady:
-		{
 			nCurrPalOffs = MVC_A_SHADOWLADY_PALETTES[nPalId].nPaletteOffset;
 			break;
-		}
+		case indexLilith:
+			nCurrPalOffs = MVC_A_LILITH_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexGambit:
+			nCurrPalOffs = MVC_A_GAMBIT_PALETTES[nPalId].nPaletteOffset;
+			break;
 		case indexAssists: // Assists
 		{
 			nCurrPalOffs = MVC_A_ASSIST_PALETTES[nPalId].nPaletteOffset;
@@ -396,6 +487,8 @@ void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
 			nCurrPalSz = nPalSz / 2;
 			break;
 		}
+		case indexRoll:
+		case indexOnslaught:
 		default:
 		{
 			// This is all the base palettes.
@@ -493,17 +586,95 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	nTargetImgId = 0;
 	int nImgUnitId = 0xFF;
 	
+	const sMVC_PaletteDataset *paletteDataSet = nullptr;
+
 	switch (uUnitId)
 	{
 	case indexAssists:
-		nImgUnitId = MVC_A_ASSIST_PALETTES[uPalId].indexImgToUse;
+		paletteDataSet = &MVC_A_ASSIST_PALETTES[uPalId];
 		break;
-	case indexLast : // MVC_A_EXTRALOC
+	case indexWarMachine:
+		paletteDataSet = &MVC_A_WARMACHINE_PALETTES[uPalId];
+		break;
+	case indexCaptainAmerica:
+		paletteDataSet = &MVC_A_CAPAM_PALETTES[uPalId];
+		break;
+	case indexHulk:
+		paletteDataSet = &MVC_A_HULK_PALETTES[uPalId];
+		break;
+	case indexWolverine:
+		paletteDataSet = &MVC_A_WOLVERINE_PALETTES[uPalId];
+		break;
+	case indexVenom:
+		paletteDataSet = &MVC_A_VENOM_PALETTES[uPalId];
+		break;
+	case indexSpiderman:
+		paletteDataSet = &MVC_A_SPIDEY_PALETTES[uPalId];
+		break;
+	case indexRyu:
+		paletteDataSet = &MVC_A_RYU_PALETTES[uPalId];
+		break;
+	case indexCapCom:
+		paletteDataSet = &MVC_A_CAPCOM_PALETTES[uPalId];
+		break;
+	case indexChun:
+		paletteDataSet = &MVC_A_CHUNLI_PALETTES[uPalId];
+		break;
+	case indexJin:
+		paletteDataSet = &MVC_A_JIN_PALETTES[uPalId];
+		break;
+	case indexGief:
+		paletteDataSet = &MVC_A_GIEF_PALETTES[uPalId];
+		break;
+	case indexStrider:
+		paletteDataSet = &MVC_A_STRIDER_PALETTES[uPalId];
+		break;
+	case indexMegaman:
+		// Megaman is a mess.
+		nImgUnitId = MVC_A_MEGAMAN_PALETTES[uPalId].indexImgToUse;
+
+		if (nImgUnitId == 0xFF)
+		{
+			// Forcibly Megaman all the things, since we only have two Roll sprites to use right now.
+			nImgUnitId = MVC_A_IMGREDIR[uUnitId];
+		}
+		nTargetImgId = MVC_A_MEGAMAN_PALETTES[uPalId].indexOffsetToUse;
+		break;
+	case indexMorrigan:
+		paletteDataSet = &MVC_A_MORRIGAN_PALETTES[uPalId];
+		break;
+	case indexHyperVenom:
+		paletteDataSet = &MVC_A_HYPERVENOM_PALETTES[uPalId];
+		break;
+	case indexOrangeHulk:
+		paletteDataSet = &MVC_A_ORANGEHULK_PALETTES[uPalId];
+		break;
+	case indexGWM:
+		paletteDataSet = &MVC_A_GOLDWARMACHINE_PALETTES[uPalId];
+		break;
+	case indexLast: // MVC_A_EXTRALOC: We don't have anything for these right now.
 		nImgUnitId = 0xFF;
 		break;
-	default:
+	case indexGambit:
+		paletteDataSet = &MVC_A_GAMBIT_PALETTES[uPalId];
+		break;
+	case indexShadowLady:
+		paletteDataSet = &MVC_A_SHADOWLADY_PALETTES[uPalId];
+		break;
+	case indexLilith:
+		paletteDataSet = &MVC_A_LILITH_PALETTES[uPalId];
+		break;
+	case indexOnslaught:
+	case indexRoll:
+	default: // just use the listed options
 		nImgUnitId = MVC_A_IMGREDIR[uUnitId];
 		break;
+	}
+
+	if (paletteDataSet)
+	{
+		nImgUnitId = paletteDataSet->indexImgToUse;
+		nTargetImgId = paletteDataSet->indexOffsetToUse;
 	}
 
 	int nSrcStart = 0;

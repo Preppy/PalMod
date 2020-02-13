@@ -96,7 +96,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
 		UnitNode = &((sDescTreeNode *)NewDescTree->ChildNodes)[iUnitCtr];
 		//Set each description
 		sprintf(UnitNode->szDesc, "%s", MVC2_D_UNITDESC[iUnitCtr]);
-
+		
 		//Init each character to have all 6 basic buttons + extra
 		UnitNode->ChildNodes = new sDescTreeNode[BUTTON6 + (nNumExtra ? 1 : 0)];	
 
@@ -225,10 +225,14 @@ void CGame_MVC2_D::InitExtraRg()
 	//Clear the extra buffer
 	memset(CGame_MVC2_D::rgExtraChrLoc, 0, sizeof(UINT16) * MVC2_D_NUMUNIT);
 
-	while(MVC2_D_EXTRADEF[i] != EXTRA_END)
+	// Set up the 
+	while (MVC2_D_EXTRADEF[i] != EXTRA_END)
 	{
-		if((MVC2_D_EXTRADEF[i] & EXTRA_START) == EXTRA_START)
+		if ((MVC2_D_EXTRADEF[i] & EXTRA_START) == EXTRA_START)
 		{
+			// This is associating each character's starting point in the EXTRADEF table to the corresponding index in rgExtraChrLoc.
+			// So 0x0 is set to Ryu offset 0x0, then Ryu has eight extra slots available, then 0x1 is set to 0xa for 0x1 Gief,
+			// 0x2 is set to 0x14 for 0x2 Guile, and so forth.  Look at MVC2_D_EXTRADEF and this should be easy to follow.
 			rgExtraChrLoc[(MVC2_D_EXTRADEF[i] & 0x00FF)] = i;
 			i += 8;
 		}
@@ -239,11 +243,11 @@ void CGame_MVC2_D::InitExtraRg()
 	}
 }
 
+// Returns a count of the extra sprites available for a given unit/character
 int CGame_MVC2_D::CountExtraRg(int nUnitId, BOOL bOmniExtra)
 {
 	//(MVC2_D_PALDATASZ[nUnitId] - (8 * 6 * 32)) / 32;
-
-	if(!rgExtraChrLoc[nUnitId])
+	if (!rgExtraChrLoc[nUnitId])
 	{
 		return (bOmniExtra ? ((MVC2_D_PALDATASZ[nUnitId] - (8 * 6 * 32)) / 32) : 7);
 	}
@@ -257,13 +261,13 @@ int CGame_MVC2_D::CountExtraRg(int nUnitId, BOOL bOmniExtra)
 
 			UINT16 * pCurrVal = const_cast<UINT16 *>(&MVC2_D_EXTRADEF[nStart]);
 
-			if(pCurrVal[0] == 0x00)
+			if (pCurrVal[0] == 0x00)
 			{
 				return 0;
 			}
 			else
 			{
-				while((pCurrVal[0] & 0x0F00) != EXTRA_START)
+				while((pCurrVal[0] & EXTRA_START) != EXTRA_START)
 				{
 					nRetVal += (pCurrVal[1] + 1) - pCurrVal[0];
 
@@ -286,7 +290,7 @@ int CGame_MVC2_D::CountExtraRg(int nUnitId, BOOL bOmniExtra)
 
 			for(int i = 0; i < 7; i++)
 			{
-				if(1)//MVC2_D_EXTRADEF[nStart + i])
+				//if(1)//MVC2_D_EXTRADEF[nStart + i])
 				{
 					nRetVal++;
 				}

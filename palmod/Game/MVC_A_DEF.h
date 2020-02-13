@@ -1,12 +1,14 @@
 #pragma once
 
+#include "mvc2_d_def.h" //bugbug
+
 #define MVC_A_IMGSTART (0x3B + 0x11 + 0x11 + 0x01) //MVC2, then SSF2T, then SFA3, then XMVSF
 
 // To add characters or palette lists:
 // * Update the SupportedPaletteListIndex with the new index name.
 // * Add an array below along the line sof MVC_A_RYU_PALETTES. 
 // * Update every array using MVC_A_NUMUNIT below
-// * Update the two index lookups in Game_MVC_A_.cpp that are marked - look for usage of indexRyu to find them
+// * Update the three index lookups in Game_MVC_A_.cpp that are marked - look for usage of indexRyu to find them
 // That should be it.  Good luck.
 
 enum SupportedPaletteListIndex
@@ -73,65 +75,86 @@ struct sMVC_PaletteDataset
 {
 	LPCSTR szPaletteName;
 	int nPaletteOffset;
-	UINT16 indexImgToUse = 0xFF;
+	UINT16 indexImgToUse = 0xFF; // the major character/collection index
+	UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
 };
 
 const sMVC_PaletteDataset MVC_A_RYU_PALETTES[] =
 {
-	{ "Ryu P1", 0x487C4 },
-	{ "Ryu P1 Hadouken", 0x487E4 },
-	{ "Ryu P1 Shoryuken", 0x48804 },
-	{ "Ryu P2", 0x48824 },
-	{ "Ryu P2 Hadouken", 0x48844 },
-	{ "Ryu P2 Shoryuken", 0x48864 },
+	{ "Ryu P1", 0x487C4, 0x00 },
+	{ "Ryu P1 Hadouken", 0x487E4, 0x00, 1 },
+	{ "Ryu P1 Shoryuken", 0x48804, 0x27, 2 },
+	{ "Ryu P2", 0x48824, 0x00 },
+	{ "Ryu P2 Hadouken", 0x48844, 0x00, 1 },
+	{ "Ryu P2 Shoryuken", 0x48864, 0x27, 2 },
 
-	{ "Ken P1", 0x4EC44 },
-	{ "Ken P1 Hakouken", 0x4EC64 },
-	{ "Ken P1 Shoryuken", 0x4EC84 },
-	{ "Ken P2", 0x4ECA4 },
-	{ "Ken P2 Hadouken", 0x4ECC4 },
-	{ "Ken P2 Shoryuken", 0x4ECE4 },
+	{ "Ken P1", 0x4EC44, 0x00 },
+	{ "Ken P1 Hakouken", 0x4EC64, 0x00, 1 },
+	{ "Ken P1 Shoryuken", 0x4EC84, 0x27, 2 },
+	{ "Ken P2", 0x4ECA4, 0x00 },
+	{ "Ken P2 Hadouken", 0x4ECC4, 0x00, 1 },
+	{ "Ken P2 Shoryuken", 0x4ECE4, 0x27, 2 },
 
-	{ "Akuma P1", 0x4ED04 },
-	{ "Akuma P1 Hadouken", 0x4ED24 },
-	{ "Akuma P1 Shoryuken", 0x4ED44 },
-	{ "Akuma P2", 0x4ED64 },
-	{ "Akuma P2 Hadouken", 0x4ED84 },
-	{ "Akuma P2 Shoyuken", 0x4EDA4 },
+	{ "Akuma P1", 0x4ED04, 0x00 },
+	{ "Akuma P1 Hadouken", 0x4ED24, 0x1E, 1 },
+	{ "Akuma P1 Shoryuken", 0x4ED44, 0x27, 2 },
+	{ "Akuma P2", 0x4ED64, 0x00 },
+	{ "Akuma P2 Hadouken", 0x4ED84, 0x1E, 1 },
+	{ "Akuma P2 Shoryuken", 0x4EDA4, 0x27, 2 },
 };
 
 const sMVC_PaletteDataset MVC_A_GIEF_PALETTES[] =
 {
-	{ "Zangief P1", 0x48AC4 },
-	{ "Palette 2",  0x48AE4 },
-	{ "Palette 3",  0x48B04 },
-	{ "Zangief P2", 0x48B24 },
-	{ "Palette 5",  0x48B44 },
-	{ "Palette 6",  0x48B64 },
+	{ "Zangief P1", 0x48AC4, 0x01 },
+	{ "P1 Banishing Fist",  0x48AE4, 0x01, 1 },
+	{ "Palette 3",  0x48B04, 0xFF },
+	{ "Zangief P2", 0x48B24, 0x01 },
+	{ "P2 Banishing Fist",  0x48B44, 0x01, 1 },
+	{ "Palette 6",  0x48B64, 0xFF },
 
-	{ "Mecha Zangief P1", 0x48C84 },
-	{ "Palette 14",		  0x48CA4 },
-	{ "Palette 15",		  0x48CC4 },
-	{ "Mecha Zangief P2", 0x48CE4 },
-	{ "Palette 17",		  0x48D04 },
-	{ "Palette 18",		  0x48D24 },
+	{ "Mecha Zangief P1", 0x48C84, 0x01 },
+	{ "P1 Yoga Flame",	  0x48CA4, 0x01, 0x3 },
+	{ "Palette 15",		  0x48CC4, 0xFF },
+	{ "Mecha Zangief P2", 0x48CE4, 0x01 },
+	{ "P2 Yoga Flame",    0x48D04, 0x01, 0x3 },
+	{ "Palette 18",		  0x48D24, 0xFF  },
 };
 
 const sMVC_PaletteDataset MVC_A_SHADOWLADY_PALETTES[] =
 {
-	{ "P1 Color", 0x492E4 },
-	{ "P1 Glimmer 1", 0x4FF64 },
-	{ "P1 Glimmer 2", 0x4FF84 },
-	{ "P1 Glimmer 3", 0x4FFA4 },
+	{ "P1 Color", 0x492E4, 0x1b },
+	{ "P1 Glimmer 1", 0x4FF64, 0x1b },
+	{ "P1 Glimmer 2", 0x4FF84, 0x1b },
+	{ "P1 Glimmer 3", 0x4FFA4, 0x1b },
 	{ "P1 Extra 1", 0x49304 },
 	{ "P1 Extra 2", 0x49324 },
 
-	{ "P2 Color", 0x49344 },
-	{ "P2 Glimmer 1", 0x4FFC4 },
-	{ "P2 Glimmer 2", 0x4FFE4 },
-	{ "P2 Glimmer 3", 0x50004 },
+	{ "P2 Color", 0x49344, 0x1b },
+	{ "P2 Glimmer 1", 0x4FFC4, 0x1b },
+	{ "P2 Glimmer 2", 0x4FFE4, 0x1b },
+	{ "P2 Glimmer 3", 0x50004, 0x1b },
 	{ "P2 Extra 1", 0x49364 },
 	{ "P2 Extra 2", 0x49384 },
+};
+
+const sMVC_PaletteDataset MVC_A_CHUNLI_PALETTES[] =
+{
+	{ "P1 Color", 0x48944, 0x1b },
+	{ "P1 leg flash", 0x48964, 0x1b, 1 },
+	{ "P1 Kikosho", 0x48984, 0x1b, 2 },
+	{ "P2 Color", 0x489A4, 0x1b },
+	{ "P2 leg flash", 0x489C4, 0x1b, 1 },
+	{ "P2 Kikosho", 0x489E4, 0x1b, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_JIN_PALETTES[] =
+{
+	{ "P1 Color",		 0x48A04, 0x37 },
+	{ "P1 Blodia FX",	 0x48A24, 0x37, 1 },
+	{ "P1 Blodia Punch", 0x48A44, 0x37, 2 },
+	{ "P2 Color",		 0x48A64, 0x37 },
+	{ "P2 Blodia FX",	 0x48A84, 0x37, 1 },
+	{ "P2 Blodia Punch", 0x48AA4, 0x37, 2 },
 };
 
 const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
@@ -228,7 +251,7 @@ const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
 
 	{ "P1 Beat Extras", 0x4C9C4 },
 
-	{ "P1 Roll Win Pose", 0x4CAE4 },
+	{ "P1 Roll Win Pose", 0x4CAE4, 0x1d }, // bugbug: not actually used here yet
 	{ "P1 Magnetic Megaman", 0x4CB04 },
 	{ "P1 Extras 1", 0x4DE64 },
 	{ "P1 Extras 2", 0x4DE84 },
@@ -329,14 +352,168 @@ const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
 
 	{ "P2 Beat Extras", 0x4D4A4 },
 
-	{ "P2 Roll Win Pose", 0x4D5C4 },
+	{ "P2 Roll Win Pose", 0x4D5C4, 0x1d }, // bugbug: not used yet.  we only override sprite for assists right now
 	{ "P2 Magnetic Megaman", 0x4D5E4 },
 	{ "P2 Megaman Extra", 0x4EB84 },
 	{ "P2 Magnetic Megaman", 0x4EBA4 },
 };
 
+const sMVC_PaletteDataset MVC_A_WARMACHINE_PALETTES[] =
+{
+	{ "P1 Color",		  0x481C4, 0x33 },
+	{ "P1 Proton Cannon", 0x481E4, 0x33, 1 }, // same sprites as iron man
+	{ "P1 Proton Laser",  0x48204, 0x33, 2 },
+	{ "P2 Color",		  0x48224, 0x33 },
+	{ "P2 Proton Cannon", 0x48244, 0x33, 1 },
+	{ "P2 Proton Laser",  0x48264, 0x33, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES[] =
+{
+	{ "P1 Color",		  0x49224, 0x33 },
+	{ "P1 Proton Cannon", 0x49244, 0x33, 1 }, // same sprites as iron man
+	{ "P1 Proton Laser",  0x49264, 0x33, 2 },
+	{ "P2 Color",		  0x49284, 0x33 },
+	{ "P2 Proton Cannon", 0x492a4, 0x33, 1 },
+	{ "P2 Proton Laser",  0x492c4, 0x33, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_CAPAM_PALETTES[] =
+{
+	{ "P1 Color",		0x48284, 0xb },
+	{ "P1 Shield",		0x482A4, 0xb, 1 },
+	{ "P1 Charging Star", 0x482C4, 0xb, 2 },
+	{ "P2 Color",		 0x482E4, 0xb },
+	{ "P2 Shield",		0x48304, 0xb, 1 },
+	{ "P2 Charging Star", 0x48324, 0xb, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_HULK_PALETTES[] =
+{
+	{ "P1 Color",		0x48344, 0xD },
+	{ "P1 Charge",		0x48364, 0xD, 1 },
+	{ "P1 Gamma Quake", 0x48384, 0xD, 2 },
+	{ "P2 Color",		0x483A4, 0xD },
+	{ "P2 Charge",		0x483C4, 0xD, 1 },
+	{ "P2 Gamma Quake", 0x483E4, 0xD, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_ORANGEHULK_PALETTES[] =
+{
+	{ "P1 Color",		0x49164, 0xD },
+	{ "P1 Charge",		0x49184, 0xD, 1 },
+	{ "P1 Gamma Quake", 0x491A4, 0xD, 2 },
+	{ "P2 Color",		0x491C4, 0xD },
+	{ "P2 Charge",		0x491E4, 0xD, 1 },
+	{ "P2 Gamma Quake", 0x49204, 0xD, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_WOLVERINE_PALETTES[] =
+{
+	{ "P1 Color",		 0x48404, 0x7 },
+	{ "P1 Claws",		 0x48424, 0x7, 1 },
+	{ "P1 Berserker FX", 0x48444, 0x7, 2 },
+	{ "P2 Color",		 0x48464, 0x7 },
+	{ "P2 Claws",		 0x48484, 0x7, 1 },
+	{ "P2 Berserker FX", 0x484A4, 0x7, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_VENOM_PALETTES[] =
+{
+	{ "P1 Color",	0x48584, 0xe },
+	{ "P1 Taunt",	0x485A4, 0xe, 1 },
+	{ "P1 Web",		0x485C4, 0xe, 2 },
+	{ "P2 Color",	0x485E4, 0xe },
+	{ "P2 Taunt",	0x48604, 0xe, 1 },
+	{ "P2 Web",		0x48624, 0xe, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_HYPERVENOM_PALETTES[] =
+{
+	{ "P1 Color",	0x490A4, 0xe },
+	{ "P1 Taunt",	0x490C4, 0xe, 1 },
+	{ "P1 Web",		0x490E4, 0xe, 2 },
+	{ "P2 Color",	0x49104, 0xe },
+	{ "P2 Taunt",	0x49124, 0xe, 1 },
+	{ "P2 Web",		0x49144, 0xe, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_SPIDEY_PALETTES[] =
+{
+	{ "P1 Color",		0x48644, 0xc },
+	{ "P1 Extra 1",	0x48664 },
+	{ "P1 Web",			0x48684, 0xc, 2 },
+	{ "P2 Color",		0x486A4, 0xc },
+	{ "P2 Extra 1",	0x486C4},
+	{ "P2 Web",			0x486E4, 0xc, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_CAPCOM_PALETTES[] =
+{
+	{ "P1 Color",  0x48884, 0x38 },
+	{ "P1 Ninjas", 0x488A4, 0x38, 1 },
+	{ "P1 Hoover", 0x488C4, 0x38, 2 },
+	{ "P2 Color",  0x488E4, 0x38 },
+	{ "P2 Ninjas", 0x48904, 0x38, 1 },
+	{ "P2 Hoover", 0x48924, 0x38, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_MORRIGAN_PALETTES[] =
+{
+	{ "P1 Color",  0x48ec4, 0x3 },
+	{ "P1 Lilith", 0x48eE4, 0x3, 1 },
+	{ "P1 Extra 2", 0x48f04, 0x3, 2 },
+	{ "P2 Color",  0x48f24, 0x3 },
+	{ "P2 Lilith", 0x48f44, 0x3, 1 },
+	{ "P2 Extra 2", 0x48f64, 0x3, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_LILITH_PALETTES[] =
+{
+	{ "P1 Color",  0x493A4, 0x3 },
+	{ "P1 Extra 1", 0x493C4, 0x3, 1 },
+	{ "P1 Extra 2", 0x493E4, 0x3, 2 },
+	{ "P2 Color",  0x49404, 0x3 },
+	{ "P2 Extra 1", 0x49424, 0x3, 1 },
+	{ "P2 Extra 2", 0x49444, 0x3, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_STRIDER_PALETTES[] =
+{
+	{ "P1 Color",  0x48E04, 0x05 },
+	{ "P1 FX", 0x48E24, 0x05, 1 },
+	{ "P1 Mech", 0x48E44, 0x05, 2 },
+	{ "P2 Color",  0x48E64, 0x05 },
+	{ "P2 FX", 0x48E84, 0x05, 1 },
+	{ "P2 Mech", 0x48EA4, 0x05, 2 },
+};
+
+const sMVC_PaletteDataset MVC_A_GAMBIT_PALETTES[] =
+{
+	{ "P1 Color",  0x484c4, 0x28 },
+	{ "P1 Extra 1", 0x484E4, 0x28, 1 },
+	{ "P1 Extra 2", 0x48504, 0x28, 2 },
+	{ "P2 Color",  0x48524, 0x28 },
+	{ "P2 Extra 1", 0x48544, 0x28, 1 },
+	{ "P2 Extra 2", 0x48564, 0x28, 2 },
+};
+
 const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 {
+	{ "Anita P1", 0x50FA4 },
+	{ "Anita P1 Extra 1", 0x50FC4 },
+	{ "Anita P1 Extra 2", 0x50FE4 },
+	{ "Anita P2", 0x51004 },
+	{ "Anita P2 Extra 1", 0x51024 },
+	{ "Anita P2 Extra 2", 0x51044 },
+
+	{ "Arthur P1", 0x50804 },
+	{ "Arthur P1 Extra 1", 0x50824 },
+	{ "Arthur P1 Extra 2", 0x50844 },
+	{ "Arthur P2", 0x50864 },
+	{ "Arthur P2 Extra 1", 0x50884 },
+	{ "Arthur P2 Extra 2", 0x508A4 },
+
 	{ "Colossus P1", 0x505C4, 0x32 },
 	{ "Colossus P2", 0x50624, 0x32 },
 
@@ -348,6 +525,17 @@ const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 	{ "Cyclops Optic Blast 4", 0x50924 },
 	{ "Cyclops Optic Blast 5", 0x50944 },
 
+	{ "Devilot P1", 0x510C4 },
+	{ "Devilot P1 Extra 1", 0x510E4 },
+	{ "Devilot P1 Extra 2", 0x51104 },
+	{ "Devilot P1 Extra 3", 0x51184 },
+	{ "Devilot P1 Extra 4", 0x511A4 },
+	{ "Devilot P2", 0x51124 },
+	{ "Devilot P2 Extra 1", 0x51144 },
+	{ "Devilot P2 Extra 2", 0x51164 },
+	{ "Devilot P2 Extra 3", 0x511C4 },
+	{ "Devilot P2 Extra 4", 0x511E4 },
+
 	{ "Iceman P1", 0x50D64, 0x9 },
 	{ "Iceman P1 Extra 1", 0x50D84, 0x9 },
 	{ "Iceman P1 Extra 2", 0x50DA4, 0x9 },
@@ -355,46 +543,87 @@ const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 	{ "Iceman P2 Extra 1", 0x50DE4, 0x9 },
 	{ "Iceman P1 Extra 2", 0x50E04, 0x9 },
 
+	{ "Jubilee P1", 0x51204 },
+	{ "Jubilee P1", 0x51264 },
+
 	{ "Juggernaut P1", 0x502C4, 0x29 },
+	{ "Juggernaut P1 Extra 1", 0x50304, 0x29, 2 },
 	{ "Juggernaut P2", 0x50324, 0x29 },
+	{ "Juggernaut P2 Extra 1", 0x50364, 0x29, 2 },
+
+	{ "Lou P1", 0x50204 },
+	{ "Lou P1 Extra", 0x50224 },
+	{ "Lou P2", 0x50264 },
+	{ "Lou P2 Extra", 0x50284 },
 
 	{ "Magneto P1", 0x50384, 0x2c },
+	{ "Magneto P1 Extra", 0x503A4, 0x2c, 1 },
 	{ "Magneto P2", 0x503E4, 0x2c },
+	{ "Magneto P2 Extra", 0x50404, 0x2c, 1 },
+
+	{ "Michelle Heart P1", 0x50A24 },
+	{ "Michelle Heart P1 Extra", 0x50A44 },
+	{ "Michelle Heart P2", 0x50A84 },
+	{ "Michelle Heart P2 Extra", 0x50AA4 },
 
 	{ "Psylocke P1", 0x50444, 0x8 },
+	{ "Psylocke P1 Extra", 0x50464, 0x8, 2 },
 	{ "Psylocke P2", 0x504A4, 0x8 },
+	{ "Psylocke P2 Extra", 0x504C4, 0x8, 2 },
+
+	{ "Pure & Fur P1", 0x50E24 },
+	{ "Pure & Fur P1 Extra 1", 0x50E44 },
+	{ "Pure & Fur P1 Extra 2", 0x50E64 },
+	{ "Pure & Fur P2", 0x50E84 },
+	{ "Pure & Fur P2 Extra 1", 0x50EA4 },
+	{ "Pure & Fur P2 Extra 2", 0x50EC4 },
 
 	{ "Rogue P1", 0x50CA4, 0xa },
 	{ "Rogue P2", 0x50D04, 0xa },
 
+	{ "Saki P1", 0x50964 },
+	{ "Saki P1 Extra", 0x50984 },
+	{ "Saki P2", 0x509C4 },
+	{ "Saki P2 Extra", 0x509E4 },
+
 	{ "Sentinel P1", 0x51344, 0x34 },
 	{ "Sentinel P2", 0x513A4, 0x34 },
 
+	{ "Shadow Nash P1", 0x51284, 0x21 },
+	{ "Shadow Nash P1 Extra", 0x512C4, 0x21, 2 },
+	{ "Shadow Nash P2", 0x512E4, 0x21 },
+	{ "Shadow Nash P2 Extra", 0x51324, 0x21, 2 },
+
 	{ "Storm P1", 0x50BA4, 0x2a },
+	{ "Storm P1 Extra", 0x50C64, 0x2a, 0xc },
 	{ "Storm P2", 0x50C04, 0x2a },
+	{ "Storm P2 Extra", 0x50C84, 0x2a, 0xc },
+
+	{ "Ton-Pooh P1", 0x50744 },
+	{ "Ton-Pooh P1 Extra 1", 0x50764 },
+	{ "Ton-Pooh P1 Extra 2", 0x50784 },
+	{ "Ton-Pooh P2", 0x507A4 },
+	{ "Ton-Pooh P2 Extra 1", 0x507C4 },
+	{ "Ton-Pooh P2 Extra 2", 0x507E4 },
 
 	{ "Thor P1", 0x50AE4 },
+	{ "Thor P1 Extra", 0x50B04 },
 	{ "Thor P2", 0x50B44 },
-
-	{ "US Agent P1", 0x50EE4, 0x0B },
-	{ "US Agent P1 Shield", 0x50F04 },
-	{ "US Agent P1 Palette 3", 0x50F24 },
-	{ "US Agent P2", 0x50F44, 0x0B },
-	{ "US Agent P2 Shield", 0x50F64 },
-	{ "US Agent P2 Palette 3", 0x50F84 },
-	
-	{ "Lou P1", 0x50204 },
-	{ "Lou P2", 0x50264 },
-
-	{ "Saki P1", 0x50964 },
-	{ "Saki P2", 0x509C4 },
-
-	{ "Shadow Nash P1", 0x51284, 0x21 },
-	{ "Shadow Nash P2", 0x512E4, 0x21 },
+	{ "Thor P2 Extra", 0x50B64 },
 
 	{ "Unknown Soldier P1", 0x50684 },
+	{ "Unknown Soldier P1 Extra", 0x506A4 },
 	{ "Unknown Soldier P2", 0x506E4 },
+	{ "Unknown Soldier P2 Extra", 0x50704 },
+
+	{ "US Agent P1", 0x50EE4, 0xb },
+	{ "US Agent P1 Shield", 0x50F04, 0xb, 1 },
+	{ "US Agent P1 Charging Star", 0x50F24, 0xb, 2 },
+	{ "US Agent P2", 0x50F44, 0xb },
+	{ "US Agent P2 Shield", 0x50F64, 0xb, 1 },
+	{ "US Agent P2 Charging Star", 0x50F84, 0xb, 2 },
 };
+
 
 const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
 {
@@ -464,28 +693,28 @@ const char MVC_A_UNITDESC[MVC_A_NUMUNIT][32] =
 
 const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
 
-	0x06, // WM
-	0x06, // CapAm
-	0x06, // Hulk
-	0x06, // Wolvie
-	0x06, // Venom
-	0x06, // Spidey
+	ARRAYSIZE(MVC_A_WARMACHINE_PALETTES), // WM
+	ARRAYSIZE(MVC_A_CAPAM_PALETTES), // CapAm
+	ARRAYSIZE(MVC_A_HULK_PALETTES), // Hulk
+	ARRAYSIZE(MVC_A_WOLVERINE_PALETTES), // Wolvie
+	ARRAYSIZE(MVC_A_VENOM_PALETTES), // Venom
+	ARRAYSIZE(MVC_A_SPIDEY_PALETTES), // Spidey
 	0x06, // Roll
 	ARRAYSIZE(MVC_A_RYU_PALETTES), // Ryu
-	0x06, // Capcom
-	0x06, // Chun
-	0x06, // Jin
+	ARRAYSIZE(MVC_A_CAPCOM_PALETTES), // Capcom
+	ARRAYSIZE(MVC_A_CHUNLI_PALETTES), // Chun
+	ARRAYSIZE(MVC_A_JIN_PALETTES), // Jin
 	ARRAYSIZE(MVC_A_GIEF_PALETTES), // Gief & MechaGief
-	0x06, // Strider
+	ARRAYSIZE(MVC_A_STRIDER_PALETTES), // Strider	
 	ARRAYSIZE(MVC_A_MEGAMAN_PALETTES), // Megaman
-	0x05, // Morrigan
+	ARRAYSIZE(MVC_A_MORRIGAN_PALETTES), // Morrigan
 	0x03, // Onslaught
-	0x06, // Red Venom
-	0x06, // Orange Hulk
-	0x06, // Gold War Machine
+	ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES), // Red Venom
+	ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES), // Orange Hulk
+	ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES), // Gold War Machine
 	ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES), // Shadow Lady
-	0x06, // Lilith
-	0x06, // Gambit
+	ARRAYSIZE(MVC_A_LILITH_PALETTES), // Lilith
+	ARRAYSIZE(MVC_A_GAMBIT_PALETTES), // Gambit
 	ARRAYSIZE(MVC_A_ASSIST_PALETTES), // Assists
 };
 
