@@ -2,9 +2,44 @@
 
 #define MVC_A_IMGSTART (0x3B + 0x11 + 0x11 + 0x01) //MVC2, then SSF2T, then SFA3, then XMVSF
 
-#define MVC_A_EXTRALOC MVC_A_NUMUNIT
+// To add characters or palette lists:
+// * Update the SupportedPaletteListIndex with the new index name.
+// * Add an array below along the line sof MVC_A_RYU_PALETTES. 
+// * Update every array using MVC_A_NUMUNIT below
+// * Update the two index lookups in Game_MVC_A_.cpp that are marked - look for usage of indexRyu to find them
+// That should be it.  Good luck.
 
-constexpr auto MVC_A_NUMUNIT = 24;
+enum SupportedPaletteListIndex
+{
+	indexWarMachine = 0,
+	indexCaptainAmerica,
+	indexHulk,
+	indexWolverine,
+	indexVenom,
+	indexSpiderman,
+	indexRoll,
+	indexRyu,
+	indexCapCom,
+	indexChun,
+	indexJin,
+	indexGief,
+	indexStrider,
+	indexMegaman,
+	indexMorrigan,
+	indexOnslaught,
+	indexHyperVenom,
+	indexOrangeHulk,
+	indexGWM,
+	indexShadowLady,
+	indexLilith,
+	indexGambit,
+	indexAssists,
+	indexLast
+};
+
+constexpr auto MVC_A_NUMUNIT = indexLast;
+
+#define MVC_A_EXTRALOC MVC_A_NUMUNIT
 
 // These are the base offsets for a character.
 const UINT32 MVC_A_UNITLOC[MVC_A_NUMUNIT] =
@@ -25,11 +60,10 @@ const UINT32 MVC_A_UNITLOC[MVC_A_NUMUNIT] =
 	0x48F84, // Megaman
 	0x48ec4, // Fixed Morrigan
 	0x49044, // Onslaught
-	0x490A4, // Alt-Venom
-	0x49164, // Alt-Hulk
+	0x490A4, // Hyper Venom
+	0x49164, // Orange Hulk
 	0x49224, // GWM
-	0x492E4, // Shadow Lady.  This is "shadow lady part 1". IDK what the parts mean, but hey.
-	0x4FF64, // Shadow Lady Part 2
+	0x492E4, // Shadow Lady.
 	0x493A4, // Lilith
 	0x484c4, // Gambit
 	0x0, // Assists: Special
@@ -80,6 +114,224 @@ const sMVC_PaletteDataset MVC_A_GIEF_PALETTES[] =
 	{ "Mecha Zangief P2", 0x48CE4 },
 	{ "Palette 17",		  0x48D04 },
 	{ "Palette 18",		  0x48D24 },
+};
+
+const sMVC_PaletteDataset MVC_A_SHADOWLADY_PALETTES[] =
+{
+	{ "P1 Color", 0x492E4 },
+	{ "P1 Glimmer 1", 0x4FF64 },
+	{ "P1 Glimmer 2", 0x4FF84 },
+	{ "P1 Glimmer 3", 0x4FFA4 },
+	{ "P1 Extra 1", 0x49304 },
+	{ "P1 Extra 2", 0x49324 },
+
+	{ "P2 Color", 0x49344 },
+	{ "P2 Glimmer 1", 0x4FFC4 },
+	{ "P2 Glimmer 2", 0x4FFE4 },
+	{ "P2 Glimmer 3", 0x50004 },
+	{ "P2 Extra 1", 0x49364 },
+	{ "P2 Extra 2", 0x49384 },
+};
+
+const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
+{
+	{ "Megaman P1", 0x48F84 },
+	{ "P1 Rush/Eddie",  0x48FA4 },
+	{ "P1 Beat",  0x48FC4 },
+	{ "Megaman P2", 0x48FE4 },
+	{ "P2 Rush/Eddie",  0x49004 },
+	{ "P2 Beat",  0x49024 },
+
+	{ "P1 Intro", 0x4C064 },
+	{ "P1 Extra 1", 0x4C084 },
+	{ "P1 Extra 2", 0x4C0A4 },
+	{ "P1 Extra 3", 0x4C0C4 },
+	{ "P1 Extra 4", 0x4C0E4 },
+	{ "P1 Extra 5", 0x4C104 },
+	{ "P1 Extra 6", 0x4C124 },
+	{ "P1 Extra 7", 0x4C144 },
+	{ "P1 Extra 8", 0x4C164 },
+	{ "P1 Extra 9", 0x4C184 },
+
+	{ "P1 Rush/Eddie Extras 1", 0x4C1A4 },
+	{ "P1 Rush/Eddie Extras 2", 0x4C1C4 },
+	{ "P1 Rush/Eddie Extras 3", 0x4C1E4 },
+	{ "P1 Rush/Eddie Extras 4", 0x4C204 },
+	{ "P1 Rush/Eddie Extras 5", 0x4C224 },
+	{ "P1 Rush/Eddie Extras 6", 0x4C244 },
+	{ "P1 Rush/Eddie Extras 7", 0x4C264 },
+	{ "P1 Rush/Eddie Extras 8", 0x4C284 },
+	{ "P1 Rush/Eddie Extras 9", 0x4C2A4 },
+
+	{ "P1 Beat Extras 1", 0x4C2C4 },
+	{ "P1 Beat Extras 2", 0x4C2E4 },
+	{ "P1 Beat Extras 3", 0x4C304 },
+	{ "P1 Beat Extras 4", 0x4C324 },
+	{ "P1 Beat Extras 5", 0x4C344 },
+	{ "P1 Beat Extras 6", 0x4C364 },
+	{ "P1 Beat Extras 7", 0x4C384 },
+	{ "P1 Beat Extras 8", 0x4C3A4 },
+	{ "P1 Beat Extras 9", 0x4C3C4 },
+
+	{ "P1 Beat Plane Extras 1", 0x4C3E4  },
+	{ "P1 Beat Plane Extras 2", 0x4C404 },
+	{ "P1 Beat Plane Extras 3", 0x4C424 },
+	{ "P1 Beat Plane Extras 4", 0x4C444 },
+	{ "P1 Beat Plane Extras 5", 0x4C464 },
+	{ "P1 Beat Plane Extras 6", 0x4C484 },
+	{ "P1 Beat Plane Extras 7", 0x4C4A4 },
+	{ "P1 Beat Plane Extras 8", 0x4C4C4 },
+	{ "P1 Beat Plane Extras 9", 0x4C4E4 },
+
+	{ "P1 Charged HP 1", 0x4C504 },
+	{ "P1 Charged HP 2", 0x4C524 },
+	{ "P1 Charged HP 3", 0x4C544 },
+	{ "P1 Charged HP 4", 0x4C564 },
+	{ "P1 Charged HP 5", 0x4C584 },
+	{ "P1 Charged HP 6", 0x4C5A4 },
+	{ "P1 Charged HP 7", 0x4C5C4 },
+	{ "P1 Charged HP 8", 0x4C5E4 },
+	{ "P1 Charged HP 9", 0x4C604 },
+
+	{ "P1 Rush Extras 1", 0x4C624 },
+	{ "P1 Rush Extras 2", 0x4C644 },
+	{ "P1 Rush Extras 3", 0x4C664 },
+	{ "P1 Rush Extras 4", 0x4C684 },
+	{ "P1 Rush Extras 5", 0x4C6A4 },
+	{ "P1 Rush Extras 6", 0x4C6C4 },
+	{ "P1 Rush Extras 7", 0x4C6E4 },
+	{ "P1 Rush Extras 8", 0x4C704 },
+	{ "P1 Rush Extras 9", 0x4C724 },
+
+	{ "P1 Intro", 0x4C744 },
+
+	{ "P1 Rush Extra 1", 0x4C784 },
+	{ "P1 Rush Extra 2", 0x4C7A4 },
+	{ "P1 Rush Extra 3", 0x4C7C4 },
+	{ "P1 Rush Extra 4", 0x4C7E4 },
+	{ "P1 Rush Extra 5", 0x4C804 },
+	{ "P1 Rush Extra 6", 0x4C824 },
+	{ "P1 Rush Extra 7", 0x4C844 },
+	{ "P1 Rush Extra 8", 0x4C864 },
+	{ "P1 Rush Extra 9", 0x4C884 },
+
+	{ "P1 Hyper Megaman 1", 0x4C8A4 },
+	{ "P1 Hyper Megaman 2", 0x4C8C4 },
+	{ "P1 Hyper Megaman 3", 0x4C8E4 },
+	{ "P1 Hyper Megaman 4", 0x4C904 },
+	{ "P1 Hyper Megaman 5", 0x4C924 },
+	{ "P1 Hyper Megaman 6", 0x4C944 },
+	{ "P1 Hyper Megaman 7", 0x4C964 },
+	{ "P1 Hyper Megaman 8", 0x4C984 },
+	{ "P1 Hyper Megaman 9", 0x4C9A4 },
+
+	{ "P1 Beat Extras", 0x4C9C4 },
+
+	{ "P1 Roll Win Pose", 0x4CAE4 },
+	{ "P1 Magnetic Megaman", 0x4CB04 },
+	{ "P1 Extras 1", 0x4DE64 },
+	{ "P1 Extras 2", 0x4DE84 },
+	{ "P1 Extras 3", 0x4DEA4 },
+	{ "P1 Extras 4", 0x4DEC4 },
+	{ "P1 Extras 5", 0x4DEE4 },
+	{ "P1 Extras 6", 0x4DF04 },
+	{ "P1 Extras 7", 0x4DF24 },
+	{ "P1 Extras 8", 0x4DF44 },
+	{ "P1 Extras 9", 0x4DF64 },
+
+	{ "P1 Beat Extra", 0x4DF84 },
+	{ "P1 Megaman Extra", 0x4E0A4 },
+	{ "P1 Magnetic Megaman", 0x4E0C4 },
+
+	{ "P2 Intro", 0x4CB44 },
+	{ "P2 Extra 1", 0x4CB64 },
+	{ "P2 Extra 2", 0x4CB84 },
+	{ "P2 Extra 3", 0x4CBA4 },
+	{ "P2 Extra 4", 0x4CBC4 },
+	{ "P2 Extra 5", 0x4CBE4 },
+	{ "P2 Extra 6", 0x4CC04 },
+	{ "P2 Extra 7", 0x4CC24 },
+	{ "P2 Extra 8", 0x4CC44 },
+	{ "P2 Extra 9", 0x4CC64 },
+
+	{ "P2 Rush/Eddie Extras 1", 0x4CC84 },
+	{ "P2 Rush/Eddie Extras 2", 0x4CCA4 },
+	{ "P2 Rush/Eddie Extras 3", 0x4CCC4 },
+	{ "P2 Rush/Eddie Extras 4", 0x4CCE4 },
+	{ "P2 Rush/Eddie Extras 5", 0x4CD04 },
+	{ "P2 Rush/Eddie Extras 6", 0x4CD24 },
+	{ "P2 Rush/Eddie Extras 7", 0x4CD44 },
+	{ "P2 Rush/Eddie Extras 8", 0x4CD64 },
+	{ "P2 Rush/Eddie Extras 9", 0x4CD84 },
+
+	{ "P2 Beat Extras 1", 0x4CDA4 },
+	{ "P2 Beat Extras 2", 0x4CDC4 },
+	{ "P2 Beat Extras 3", 0x4CDE4 },
+	{ "P2 Beat Extras 4", 0x4CE04 },
+	{ "P2 Beat Extras 5", 0x4CE24 },
+	{ "P2 Beat Extras 6", 0x4CE44 },
+	{ "P2 Beat Extras 7", 0x4CE64 },
+	{ "P2 Beat Extras 8", 0x4CE84 },
+	{ "P2 Beat Extras 9", 0x4CEA4 },
+
+	{ "P2 Beat Plane Extras 1", 0x4CEC4 },
+	{ "P2 Beat Plane Extras 2", 0x4CEE4 },
+	{ "P2 Beat Plane Extras 3", 0x4CF04 },
+	{ "P2 Beat Plane Extras 4", 0x4CF24 },
+	{ "P2 Beat Plane Extras 5", 0x4CF44 },
+	{ "P2 Beat Plane Extras 6", 0x4CF64 },
+	{ "P2 Beat Plane Extras 7", 0x4CF84 },
+	{ "P2 Beat Plane Extras 8", 0x4CFA4 },
+	{ "P2 Beat Plane Extras 9", 0x4CFC4 },
+
+	{ "P2 Charged HP 1", 0x4CFE4 },
+	{ "P2 Charged HP 2", 0x4D004 },
+	{ "P2 Charged HP 3", 0x4D024 },
+	{ "P2 Charged HP 4", 0x4D044 },
+	{ "P2 Charged HP 5", 0x4D064 },
+	{ "P2 Charged HP 6", 0x4D084 },
+	{ "P2 Charged HP 7", 0x4D0A4 },
+	{ "P2 Charged HP 8", 0x4D0C4 },
+	{ "P2 Charged HP 9", 0x4D0E4 },
+
+	{ "P2 Rush Extras 1", 0x4D104 },
+	{ "P2 Rush Extras 2", 0x4D124 },
+	{ "P2 Rush Extras 3", 0x4D144 },
+	{ "P2 Rush Extras 4", 0x4D164 },
+	{ "P2 Rush Extras 5", 0x4D184 },
+	{ "P2 Rush Extras 6", 0x4D1A4 },
+	{ "P2 Rush Extras 7", 0x4D1C4 },
+	{ "P2 Rush Extras 8", 0x4D1E4 },
+	{ "P2 Rush Extras 9", 0x4D204 },
+
+	{ "P2 Intro", 0x4D224 },
+
+	{ "P2 Rush Extra 1", 0x4D264 },
+	{ "P2 Rush Extra 2", 0x4D284 },
+	{ "P2 Rush Extra 3", 0x4D2A4 },
+	{ "P2 Rush Extra 4", 0x4D2C4 },
+	{ "P2 Rush Extra 5", 0x4D2E4 },
+	{ "P2 Rush Extra 6", 0x4D304 },
+	{ "P2 Rush Extra 7", 0x4D324 },
+	{ "P2 Rush Extra 8", 0x4D344 },
+	{ "P2 Rush Extra 9", 0x4D364 },
+
+	{ "P2 Hyper Megaman 1", 0x4D384 },
+	{ "P2 Hyper Megaman 2", 0x4D3A4 },
+	{ "P2 Hyper Megaman 3", 0x4D3C4 },
+	{ "P2 Hyper Megaman 4", 0x4D3E4 },
+	{ "P2 Hyper Megaman 5", 0x4D404 },
+	{ "P2 Hyper Megaman 6", 0x4D424 },
+	{ "P2 Hyper Megaman 7", 0x4D444 },
+	{ "P2 Hyper Megaman 8", 0x4D464 },
+	{ "P2 Hyper Megaman 9", 0x4D484 },
+
+	{ "P2 Beat Extras", 0x4D4A4 },
+
+	{ "P2 Roll Win Pose", 0x4D5C4 },
+	{ "P2 Magnetic Megaman", 0x4D5E4 },
+	{ "P2 Megaman Extra", 0x4EB84 },
+	{ "P2 Magnetic Megaman", 0x4EBA4 },
 };
 
 const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
@@ -145,30 +397,29 @@ const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 
 const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
 {
-	0x00, 
-	0x01,
-	0x02,
-	0x03,
-	0x04,
-	0x05,
-	0x06,
-	0x07,
-	0x08,
-	0x09,
-	0x0A,
-	0x0B,
-	0x0C,
-	0x0D,
-	0x0E,
-	0x0F,
-	0x10,
-	0x11,
-	0x12,
-	0x13,
-	0x14,
-	0x15,
-	0x16,
-	0x17,
+	indexWarMachine,
+	indexCaptainAmerica,
+	indexHulk,
+	indexWolverine,
+	indexVenom,
+	indexSpiderman,
+	indexRoll,
+	indexRyu,
+	indexCapCom,
+	indexChun,
+	indexJin,
+	indexGief,
+	indexStrider,
+	indexMegaman,
+	indexMorrigan,
+	indexOnslaught,
+	indexHyperVenom,
+	indexOrangeHulk,
+	indexGWM,
+	indexShadowLady,
+	indexLilith,
+	indexGambit,
+	indexAssists,
 
 	MVC_A_EXTRALOC //Extra palettes
 };
@@ -204,8 +455,7 @@ const char MVC_A_UNITDESC[MVC_A_NUMUNIT][32] =
 	"Red Venom",
 	"Orange Hulk",
 	"Gold War Machine",
-	"Shadow Lady Part 1",
-	"Shadow Lady Part 2",
+	"Shadow Lady",
 	"Lilith",
 	"Gambit",
 	"Assists",
@@ -226,14 +476,13 @@ const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
 	0x06, // Jin
 	ARRAYSIZE(MVC_A_GIEF_PALETTES), // Gief & MechaGief
 	0x06, // Strider
-	0x06, // Megaman
+	ARRAYSIZE(MVC_A_MEGAMAN_PALETTES), // Megaman
 	0x05, // Morrigan
 	0x03, // Onslaught
 	0x06, // Red Venom
 	0x06, // Orange Hulk
 	0x06, // Gold War Machine
-	0x06, // Shadow Lady Part 1...?
-	0x06, // Shadow Lady Part 2...?
+	ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES), // Shadow Lady
 	0x06, // Lilith
 	0x06, // Gambit
 	ARRAYSIZE(MVC_A_ASSIST_PALETTES), // Assists
@@ -260,41 +509,18 @@ const UINT16 MVC_A_IMGREDIR[MVC_A_NUMUNIT] = {
 	0x0E, // red venom
 	0x0D, // orange hulk
 	0x33, // gwm
-	0x1B, // shadow lady 1
-	0x1B, // shadow layd 2
+	0x1B, // shadow lady
 	0x03, // lilith
 	0x28, // gambit
 	0xFF, // :( Assists ... we don't have anything. 
 };
 
-//bugbug bogus: but what if we make it work!
+// We extend this array with data groveled from the mvce.txt extensible extras file, if any.
 const stExtraDef MVC_A_EXTRA[] =
 {
 	//Start
 
 	{ 0x80 },
-
-	// Megaman
-//	{ 0x13, "Intro", 0x4C064, 0x20},
-	//Ken
-//	{ 0x0A, "Hadouken", 0x00706400, 30 * 2, 1},
-//	{ 0x0A, "Shoryuken Flames", 0x00706560, 16 * 2},
-
-	//Oro
-//	{ 0x08, "Tengu Stones", 0x00763100, 0x80},
-//	{ 0x08, "Bricks", 0x00763180, 0x20, 1},
-
-//	//Urien
-//	{ 0x0C, "Intro", 0x00706600, 0x80 },
-//	{ 0x0C, "Morph", 0x00706680, 0x80, 1 },
-
-	//{ SFIII3_A_EXTRALOC, "Check", 0x00706580, 0x80 },
-
-	//{ SFIII3_A_EXTRALOC, "Check Tengu", 0x00763180, 0x80 },
-
-	//{ SFIII3_A_EXTRALOC, "Elena's Stage", 0x740B80, 0x2E00 },
-
-	//Extra
 
 	{ 0xFF }
 };

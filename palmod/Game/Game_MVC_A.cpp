@@ -70,23 +70,9 @@ int CGame_MVC_A::GetExtraLoc(int nUnitId)
 	return rgExtraLoc[nUnitId];
 }
 
-//int CGame_MVC_A::GetBasicAmt(int nUnitId)
-//{
-//	return 1;
-//}
-
 int CGame_MVC_A::GetBasicAmt(int nUnitId)
 {
-	// probably bugbug
-	switch (nUnitId)
-	{
-//	case 0x0E:
-	//	return 2;
-	//case MVC_A_EXTRALOC:
-		//return 1;
-	default:
-		return 1; // 7;
-	}
+	return 1;
 }
 
 CGame_MVC_A::CGame_MVC_A(void)
@@ -213,15 +199,24 @@ CDescTree CGame_MVC_A::InitDescTree()
 
 					ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr]; //We only have 1
 
-					if (iUnitCtr == 7) // Ryu
+					// Update this if you need new characters/palette lists
+					if (iUnitCtr == indexRyu)
 					{
 						sprintf(ChildNode->szDesc, MVC_A_RYU_PALETTES[nChildCtr].szPaletteName);
 					}
-					else if (iUnitCtr == 11) // Gief
+					else if (iUnitCtr == indexGief)
 					{
 						sprintf(ChildNode->szDesc, MVC_A_GIEF_PALETTES[nChildCtr].szPaletteName);
 					}
-					else if (iUnitCtr == 23) // Assists
+					else if (iUnitCtr == indexMegaman)
+					{
+						sprintf(ChildNode->szDesc, MVC_A_MEGAMAN_PALETTES[nChildCtr].szPaletteName);
+					}
+					else if (iUnitCtr == indexShadowLady)
+					{
+						sprintf(ChildNode->szDesc, MVC_A_SHADOWLADY_PALETTES[nChildCtr].szPaletteName);
+					}
+					else if (iUnitCtr == indexAssists)
 					{
 						sprintf(ChildNode->szDesc, MVC_A_ASSIST_PALETTES[nChildCtr].szPaletteName);
 					}
@@ -375,19 +370,30 @@ void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
 	}
 	else
 	{
+		// Update this if you need new characters/palette lists
 		switch (nUnitId)
 		{
-			case 7: // Ryu
+			case indexRyu:
 			{
 				nCurrPalOffs = MVC_A_RYU_PALETTES[nPalId].nPaletteOffset;
 				break;
 			}
-			case 11: // Gief
+			case indexGief:
 			{
 				nCurrPalOffs = MVC_A_GIEF_PALETTES[nPalId].nPaletteOffset;
 				break;
 			}
-			case 23: // Assists
+			case indexMegaman:
+			{
+				nCurrPalOffs = MVC_A_MEGAMAN_PALETTES[nPalId].nPaletteOffset;
+				break;
+			}
+			case indexShadowLady:
+			{
+				nCurrPalOffs = MVC_A_SHADOWLADY_PALETTES[nPalId].nPaletteOffset;
+				break;
+			}
+			case indexAssists: // Assists
 			{
 				nCurrPalOffs = MVC_A_ASSIST_PALETTES[nPalId].nPaletteOffset;
 				break;
@@ -487,7 +493,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 	//Change the image id if we need to
 	nTargetImgId = 0;
-	int nImgUnitId = MVC_A_IMGREDIR[uUnitId];
+	int nImgUnitId = (uUnitId == MVC_A_EXTRALOC ) ? 0xFF : MVC_A_IMGREDIR[uUnitId];
 
 	int nSrcStart = 0;
 	int nSrcAmt = 1;//GetBasicAmt(uUnitId);
