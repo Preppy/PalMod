@@ -58,12 +58,12 @@ const UINT32 MVC_A_UNITLOC[MVC_A_NUMUNIT] =
 	0x48AC4, // Gief
 	0x48E04, // Strider
 	0x48F84, // Megaman
-	0x48ec4, // Fixed Morrigan
+	0x48ec4, // Morrigan
 	0x49044, // Onslaught
 	0x490A4, // Hyper Venom
 	0x49164, // Orange Hulk
 	0x49224, // GWM
-	0x492E4, // Shadow Lady.
+	0x492E4, // Shadow Lady
 	0x493A4, // Lilith
 	0x484c4, // Gambit
 	0x0, // Assists: Special
@@ -73,6 +73,7 @@ struct sMVC_PaletteDataset
 {
 	LPCSTR szPaletteName;
 	int nPaletteOffset;
+	UINT16 indexImgToUse = 0xFF;
 };
 
 const sMVC_PaletteDataset MVC_A_RYU_PALETTES[] =
@@ -375,12 +376,12 @@ const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 	{ "Thor P1", 0x50AE4 },
 	{ "Thor P2", 0x50B44 },
 
-	{ "US Agent P1", 0x50EE4 },  // BUGBUG: We could actually use the CapAm sprite for display...
+	{ "US Agent P1", 0x50EE4, 0x0B },
 	{ "US Agent P1 Shield", 0x50F04 },
 	{ "US Agent P1 Palette 3", 0x50F24 },
-	{ "US Agent P2", 0x50F84 },
-	{ "US Agent P2 Shield", 0x50FA4 },
-	{ "US Agent P2 Palette 3", 0x50FC4 },
+	{ "US Agent P2", 0x50F44, 0x0B },
+	{ "US Agent P2 Shield", 0x50F64 },
+	{ "US Agent P2 Palette 3", 0x50F84 },
 	
 	{ "Lou P1", 0x50204 },
 	{ "Lou P2", 0x50264 },

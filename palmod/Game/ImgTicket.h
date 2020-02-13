@@ -2,8 +2,6 @@
 
 struct sImgTicket
 {
-	
-
 	int nUnitId;
 	int nImgId;
 	

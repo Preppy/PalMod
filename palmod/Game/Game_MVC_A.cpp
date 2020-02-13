@@ -262,7 +262,6 @@ CDescTree CGame_MVC_A::InitDescTree()
 
 			for (int nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
 			{
-
 				ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
 				pCurrDef = GetExtraDefForMVC(nExtraPos + nCurrExtra);
@@ -345,68 +344,67 @@ void CGame_MVC_A::ClearDataBuffer()
 
 void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
 {
-	if (nUnitId == MVC_A_NUMUNIT)
+	// Update this if you need new characters/palette lists
+	switch (nUnitId)
 	{
-		// This is where we handle all the palettes added in via Extra.
-		int nBasicPos = GetBasicAmt(nUnitId);
-		int nPortPos = nBasicPos * 2;
-		int nExPos = 2 + nPortPos;
-		int nExtraPos = 8 + nExPos;
-
-		int nOffset, nPalSz;
-
-		BOOL bUseExtra = FALSE;	
-		
-		nExtraPos = 0;
-		bUseExtra = TRUE;
-
-		stExtraDef* pCurrDef = GetExtraDefForMVC(GetExtraLoc(nUnitId) + (nPalId - nExtraPos));
-
-		nOffset = pCurrDef->uOffset;
-		nPalSz = pCurrDef->uPalSz;
-
-		nCurrPalOffs = nOffset;
-		nCurrPalSz = nPalSz / 2;
-	}
-	else
-	{
-		// Update this if you need new characters/palette lists
-		switch (nUnitId)
+		case indexRyu:
 		{
-			case indexRyu:
-			{
-				nCurrPalOffs = MVC_A_RYU_PALETTES[nPalId].nPaletteOffset;
-				break;
-			}
-			case indexGief:
-			{
-				nCurrPalOffs = MVC_A_GIEF_PALETTES[nPalId].nPaletteOffset;
-				break;
-			}
-			case indexMegaman:
-			{
-				nCurrPalOffs = MVC_A_MEGAMAN_PALETTES[nPalId].nPaletteOffset;
-				break;
-			}
-			case indexShadowLady:
-			{
-				nCurrPalOffs = MVC_A_SHADOWLADY_PALETTES[nPalId].nPaletteOffset;
-				break;
-			}
-			case indexAssists: // Assists
-			{
-				nCurrPalOffs = MVC_A_ASSIST_PALETTES[nPalId].nPaletteOffset;
-				break;
-			}
-			default:
-			{
-				// This is all the base palettes.
-				nCurrPalOffs = MVC_A_UNITLOC[nUnitId] + (nPalId * 0x20);
-				break;
-			}
-		};
-		nCurrPalSz = 16;
-	}
+			nCurrPalOffs = MVC_A_RYU_PALETTES[nPalId].nPaletteOffset;
+			break;
+		}
+		case indexGief:
+		{
+			nCurrPalOffs = MVC_A_GIEF_PALETTES[nPalId].nPaletteOffset;
+			break;
+		}
+		case indexMegaman:
+		{
+			nCurrPalOffs = MVC_A_MEGAMAN_PALETTES[nPalId].nPaletteOffset;
+			break;
+		}
+		case indexShadowLady:
+		{
+			nCurrPalOffs = MVC_A_SHADOWLADY_PALETTES[nPalId].nPaletteOffset;
+			break;
+		}
+		case indexAssists: // Assists
+		{
+			nCurrPalOffs = MVC_A_ASSIST_PALETTES[nPalId].nPaletteOffset;
+			break;
+		}
+		case indexLast: // MVC_A_NUMUNIT
+		{
+			// This is where we handle all the palettes added in via Extra.
+			int nBasicPos = GetBasicAmt(nUnitId);
+			int nPortPos = nBasicPos * 2;
+			int nExPos = 2 + nPortPos;
+			int nExtraPos = 8 + nExPos;
+
+			int nOffset, nPalSz;
+
+			BOOL bUseExtra = FALSE;
+
+			nExtraPos = 0;
+			bUseExtra = TRUE;
+
+			stExtraDef* pCurrDef = GetExtraDefForMVC(GetExtraLoc(nUnitId) + (nPalId - nExtraPos));
+
+			nOffset = pCurrDef->uOffset;
+			nPalSz = pCurrDef->uPalSz;
+
+			nCurrPalOffs = nOffset;
+			nCurrPalSz = nPalSz / 2;
+			break;
+		}
+		default:
+		{
+			// This is all the base palettes.
+			nCurrPalOffs = MVC_A_UNITLOC[nUnitId] + (nPalId * 0x20);
+			break;
+		}
+	};
+
+	nCurrPalSz = 16;
 }
 
 BOOL CGame_MVC_A::LoadFile(CFile * LoadedFile, int nUnitId)
@@ -493,7 +491,20 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 	//Change the image id if we need to
 	nTargetImgId = 0;
-	int nImgUnitId = (uUnitId == MVC_A_EXTRALOC ) ? 0xFF : MVC_A_IMGREDIR[uUnitId];
+	int nImgUnitId = 0xFF;
+	
+	switch (uUnitId)
+	{
+	case indexAssists:
+		nImgUnitId = MVC_A_ASSIST_PALETTES[uPalId].indexImgToUse;
+		break;
+	case indexLast : // MVC_A_EXTRALOC
+		nImgUnitId = 0xFF;
+		break;
+	default:
+		nImgUnitId = MVC_A_IMGREDIR[uUnitId];
+		break;
+	}
 
 	int nSrcStart = 0;
 	int nSrcAmt = 1;//GetBasicAmt(uUnitId);

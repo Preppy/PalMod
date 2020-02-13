@@ -489,7 +489,7 @@ void CPalTool::UpdateEveryCtrl()
 void CPalTool::OnDeltaposSpin(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
-	int nAdd = pNMUpDown->iDelta;//(~pNMUpDown->iDelta) + 1;;
+	int nAdd = pNMUpDown->iDelta;//(~pNMUpDown->iDelta) + 1;
 
 	if(nAdd + nCurrPage <= nPageAmt && nAdd + nCurrPage >= 1)
 	{

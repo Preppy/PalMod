@@ -150,7 +150,7 @@ void CPalModDlg::PostPalSel()
 	sPalDef * CurrPalDef;
 	sPalSep * CurrSep;
 
-	sImgTicket * CurrTicket = CurrGame->GetImgTicket();;
+	sImgTicket * CurrTicket = CurrGame->GetImgTicket();
 	
 	int nPalAmt = MainPalGroup->GetPalAmt();
 	int nPalIndexCtr = 0;
