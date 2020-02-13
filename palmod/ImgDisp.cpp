@@ -146,9 +146,6 @@ void CImgDisp::CreateImgBitmap(int nIndex, int nWidth, int nHeight)
 	currInfo->bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 
 	*currBmp = CreateDIBSection(ImageDC->GetSafeHdc(), currInfo, DIB_RGB_COLORS, (void **)&pImgBuffer[nIndex]->pBmpData, NULL, 0);
-
-
-
 }
 */
 

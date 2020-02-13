@@ -88,6 +88,7 @@ void CGameClass::ClearSrcPal()
 	memset(nSrcPalAmt, -1, sizeof(int) * MAX_PAL);
 	memset(nSrcPalInc, -1, sizeof(int) * MAX_PAL);
 }
+
 BOOL CGameClass::SpecSel(int * nVarSet, int nPalId, int nStart, int nInc, int nAmt, int nMax)
 {
 	int nOffset = nPalId - nStart;

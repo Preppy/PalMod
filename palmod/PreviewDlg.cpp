@@ -299,12 +299,10 @@ void CPreviewDlg::OnFileExportImg()
 	}
 	else
 	{
-		CString strAppName;
-		strAppName.LoadString(IDS_CURRENTAPPNAME);
 		CString strError;
 		strError.LoadString(IDS_ERROR_NO_IMAGES);
 
-		MessageBox(strError, strAppName, MB_ICONEXCLAMATION);
+		MessageBox(strError, GetAppName(), MB_ICONEXCLAMATION);
 	}
 }
 

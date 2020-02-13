@@ -42,7 +42,7 @@ public:
 	afx_msg void OnZoom1x(){m_ImgDisp.SetZoom(1.0f);};
 	afx_msg void OnZoom2x(){m_ImgDisp.SetZoom(2.0f);};
 	afx_msg void OnZoom3x(){m_ImgDisp.SetZoom(3.0f);};
-	afx_msg void OnZoom4x(){m_ImgDisp.SetZoom(4.0f);;};
+	afx_msg void OnZoom4x(){m_ImgDisp.SetZoom(4.0f);};
 	afx_msg void OnSetBGCol();
 	afx_msg void OnSetBlinkCol();
 	afx_msg void OnSetBGImage();

@@ -337,41 +337,41 @@ const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
 
 const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 {
-	{ "Colossus P1", 0x505C4 },
-	{ "Colossus P2", 0x50624 },
+	{ "Colossus P1", 0x505C4, 0x32 },
+	{ "Colossus P2", 0x50624, 0x32 },
 
-	{ "Cyclops P1", 0x50504 },
-	{ "Cyclops P2", 0x50564 },
+	{ "Cyclops P1", 0x50504, 0x6 },
+	{ "Cyclops P2", 0x50564, 0x6 },
 	{ "Cyclops Optic Blast 1", 0x508C4 },
 	{ "Cyclops Optic Blast 2", 0x508E4 },
 	{ "Cyclops Optic Blast 3", 0x50904 },
 	{ "Cyclops Optic Blast 4", 0x50924 },
 	{ "Cyclops Optic Blast 5", 0x50944 },
 
-	{ "Iceman P1", 0x50D64 },
-	{ "Iceman P1 Extra 1", 0x50D84 },
-	{ "Iceman P1 Extra 2", 0x50DA4 },
-	{ "Iceman P2", 0x50DC4 },
-	{ "Iceman P2 Extra 1", 0x50DE4 },
-	{ "Iceman P1 Extra 2", 0x50E04 },
+	{ "Iceman P1", 0x50D64, 0x9 },
+	{ "Iceman P1 Extra 1", 0x50D84, 0x9 },
+	{ "Iceman P1 Extra 2", 0x50DA4, 0x9 },
+	{ "Iceman P2", 0x50DC4, 0x9 },
+	{ "Iceman P2 Extra 1", 0x50DE4, 0x9 },
+	{ "Iceman P1 Extra 2", 0x50E04, 0x9 },
 
-	{ "Juggernaut P1", 0x502C4 },
-	{ "Juggernaut P2", 0x50324 },
+	{ "Juggernaut P1", 0x502C4, 0x29 },
+	{ "Juggernaut P2", 0x50324, 0x29 },
 
-	{ "Magneto P1", 0x50384 },
-	{ "Magneto P2", 0x503E4 },
+	{ "Magneto P1", 0x50384, 0x2c },
+	{ "Magneto P2", 0x503E4, 0x2c },
 
-	{ "Psylocke P1", 0x50444 },
-	{ "Psylocke P2", 0x504A4 },
+	{ "Psylocke P1", 0x50444, 0x8 },
+	{ "Psylocke P2", 0x504A4, 0x8 },
 
-	{ "Rogue P1", 0x50CA4 },
-	{ "Rogue P2", 0x50D04 },
+	{ "Rogue P1", 0x50CA4, 0xa },
+	{ "Rogue P2", 0x50D04, 0xa },
 
-	{ "Sentinel P1", 0x51344 },
-	{ "Sentinel P2", 0x513A4 },
+	{ "Sentinel P1", 0x51344, 0x34 },
+	{ "Sentinel P2", 0x513A4, 0x34 },
 
-	{ "Storm P1", 0x50BA4 },
-	{ "Storm P2", 0x50C04 },
+	{ "Storm P1", 0x50BA4, 0x2a },
+	{ "Storm P2", 0x50C04, 0x2a },
 
 	{ "Thor P1", 0x50AE4 },
 	{ "Thor P2", 0x50B44 },
@@ -389,8 +389,8 @@ const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 	{ "Saki P1", 0x50964 },
 	{ "Saki P2", 0x509C4 },
 
-	{ "Shadow Nash P1", 0x51284 },
-	{ "Shadow Nash P2", 0x512E4 },
+	{ "Shadow Nash P1", 0x51284, 0x21 },
+	{ "Shadow Nash P2", 0x512E4, 0x21 },
 
 	{ "Unknown Soldier P1", 0x50684 },
 	{ "Unknown Soldier P2", 0x506E4 },

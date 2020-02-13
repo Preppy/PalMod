@@ -19,7 +19,6 @@
 
 struct sImgIndex
 {
-	
 	UINT32 * pIndexAmt;
 	POINT ** ppIndexes;
 };
@@ -96,7 +95,6 @@ private:
 	CScrollBar m_HScroll;
 	CScrollBar m_VScroll;
 
-
 	BOOL bLButtonDown;
 	BOOL bCtrlDown;
 
@@ -120,8 +118,6 @@ private:
 
 	int MAIN_W, MAIN_H;
 
-	
-	
 public:
 	CImgDisp();
 	~CImgDisp();
