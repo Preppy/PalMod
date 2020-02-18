@@ -20,7 +20,7 @@ const char SFIII3_D_UNITDESC[SFIII3_D_NUMUNIT][16] =
 	"Sean",			//0x0B
 	"Urien",		//0x0C
 	"Gouki",		//0x0D
-	"Shin-Gouki",	//0x0E
+	"Shin-Gouki",	//0x0E  // Shin-Gouki is not present on the Dreamcast
 	"Chun-Li",		//0x0F
 	"Makoto",		//0x10
 	"Q",			//0x11
@@ -45,10 +45,10 @@ const UINT8 SFIII3_D_UNITSORT[SFIII3_D_NUMUNIT] = //Plus 1 for the extra palette
 	0x13, 
 	0x01, 
 	0x0B, 
-	0x0E, 
+	// BUGBUG: This glitch results in Alex showing twice.
+	0x0E,  // Shin-Gouki is not present nor available on DC.
 	0x12, 
 	0x0C, 
 	0x09, 
 	0x02
-
 };

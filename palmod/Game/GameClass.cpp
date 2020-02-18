@@ -106,6 +106,8 @@ BOOL CGameClass::SpecSel(int * nVarSet, int nPalId, int nStart, int nInc, int nA
 	{
 		return FALSE;
 	}
+
+	return TRUE;
 }
 
 sImgTicket * CGameClass::CreateImgTicket(int nUnitId, int nImgId, sImgTicket * NextTicket, int nXOffs, int nYOffs)

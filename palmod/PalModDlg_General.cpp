@@ -314,7 +314,8 @@ void CPalModDlg::OnTimer(UINT_PTR nIDEvent)
 	{
 	case TIMER_STATUS:
 		{
-			m_StatusBar.SetPaneText(0, DEFAULT_STATUS_TEXT);
+			// Why would we reset this and stomp data?
+			//m_StatusBar.SetPaneText(0, DEFAULT_STATUS_TEXT);
 			KillTimer(TIMER_STATUS);
 		}
 		break;

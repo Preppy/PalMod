@@ -16,10 +16,6 @@ CGame_MVC2_P::~CGame_MVC2_P(void)
 	//~CGame_MVC2_D();
 }
 
-
-
-
-
 sFileRule CGame_MVC2_P::GetRule(int nRuleId)
 {
 	sFileRule NewFileRule;
@@ -35,8 +31,6 @@ sFileRule CGame_MVC2_P::GetRule(int nRuleId)
 
 sFileRule CGame_MVC2_P::GetNextRule()
 {
-	
-
 	sFileRule NewFileRule = GetRule(uRuleCtr);
 
 	uRuleCtr++;

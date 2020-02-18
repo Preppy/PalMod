@@ -10,6 +10,9 @@
 #include "Game_MVC_A.h"
 #include "Game_SFIII3_D.h"
 
+#include "..\resource.h"
+#include "..\palmod.h"
+
 CGameLoad::CGameLoad(void)
 :szLoadSaveStr(_T("")),
 nSaveLoadCount(0),
@@ -90,8 +93,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 	}
 	
 	return FALSE;
-
-
 }
 
 CGameClass * CGameLoad::CreateGame(int nGameFlag)
@@ -156,19 +157,15 @@ CGameClass * CGameLoad::LoadFile(int nGameFlag, CHAR * szLoadFile)
 	
 	CurrRule = GetRule(0);
 	
-		
 	if(CurrFile.Open(szLoadFile, CFile::modeRead | CFile::typeBinary))
 	{
 		if((short int)CurrRule.uVerifyVar == -1 || CurrFile.GetLength() == CurrRule.uVerifyVar)
 		{
-			
 			OutGame = CreateGame(nGameFlag);
 			OutGame->SetLoadDir(szLoadFile);
 			
-
 			if(OutGame->LoadFile(&CurrFile, 0))
 			{
-
 				OutGame->SetIsDir(FALSE);
 				OutGame->SetLoadDir(szLoadFile);
 				//nSaveLoadSucc++;
@@ -218,7 +215,6 @@ CGameClass * CGameLoad::LoadDir(int nGameFlag, CHAR * szLoadDir)
 		return NULL;
 	}
 
-
 	ResetRuleCtr();
 	
 	nCurrRuleCtr = GetRuleCtr();
@@ -231,7 +227,6 @@ CGameClass * CGameLoad::LoadDir(int nGameFlag, CHAR * szLoadDir)
 
 		szCurrFile.Format("%s\\%s", szLoadDir, CurrRule.szFileName);
 
-		
 		if(CurrFile.Open(szCurrFile, CFile::modeRead | CFile::typeBinary))
 		{
 			if((short int)CurrRule.uVerifyVar == -1 || CurrFile.GetLength() == CurrRule.uVerifyVar)
@@ -246,7 +241,6 @@ CGameClass * CGameLoad::LoadDir(int nGameFlag, CHAR * szLoadDir)
 
 				if(OutGame->LoadFile(&CurrFile, CurrRule.uUnitId))
 				{
-
 					nSaveLoadSucc++;
 
 					//Increase the sort counter
@@ -262,7 +256,15 @@ CGameClass * CGameLoad::LoadDir(int nGameFlag, CHAR * szLoadDir)
 		}
 		else
 		{
-			nSaveLoadErr++;
+			if ((nGameFlag == SFIII3_D) && (nCurrRuleCtr == 0xE))
+			{
+				OutputDebugString("CGameLoad::LoadDir : Gouki doesn't exist for SF3-DC: skipping.\n");
+				nSaveLoadSucc++;
+			}
+			else
+			{
+				nSaveLoadErr++;
+			}
 		}
 
 		nCurrRuleCtr = GetRuleCtr();
@@ -276,10 +278,10 @@ CGameClass * CGameLoad::LoadDir(int nGameFlag, CHAR * szLoadDir)
 
 	szLoadSaveStr.Format("%d of %d files loaded successfully (%d error%s)", nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? "" : "s" );
 
-	return OutGame;
+	// Perhaps we could be less strict here, but -- we also will crash elsewhere if we don't have the full PL set.
+	return (nSaveLoadErr == 0) ? OutGame : nullptr;
 
 }
-
 
 void CGameLoad::SaveGame(CGameClass * CurrGame)
 {
@@ -295,6 +297,8 @@ void CGameLoad::SaveGame(CGameClass * CurrGame)
 	UINT8 * rgChanged = CurrGame->GetChangeRg();
 	CHAR * szDir = CurrGame->GetLoadDir();
 	UINT8 * rgUnitRedir = CurrGame->rgUnitRedir;
+	bool isAnythingReadOnly = false;
+	CString strROFile;
 
 	if(CurrGame->GetIsDir())
 	{
@@ -325,6 +329,9 @@ void CGameLoad::SaveGame(CGameClass * CurrGame)
 				}
 				else
 				{
+					isAnythingReadOnly = true;
+					OutputDebugString("CGameLoad::SaveGame : Destination is read-only.\n");
+					strROFile = szLoad;
 					nSaveLoadErr++;
 				}
 			}
@@ -349,9 +356,19 @@ void CGameLoad::SaveGame(CGameClass * CurrGame)
 			}
 			else
 			{
+				isAnythingReadOnly = true;
+				strROFile = szDir;
+				OutputDebugString("CGameLoad::SaveGame : Destination is read-only.\n");
 				nSaveLoadErr = 1;
 			}
 		}
+	}
+
+	if (isAnythingReadOnly)
+	{
+		CString strError;
+		strError.Format(IDS_ERROR_NOTWRITABLE_FORMAT, strROFile);
+		MessageBox(nullptr, strError, GetAppName(), MB_ICONERROR);
 	}
 
 	szLoadSaveStr.Format("%d of %d files patched successfully (%d error%s)", nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? "" : "s" );

@@ -2,11 +2,9 @@
 #include "Game_SFIII3_D.h"
 #include "GameDef.h"
 
-
 CDescTree CGame_SFIII3_D::MainDescTree = CGame_SFIII3_D::InitDescTree();
 
 UINT8 CGame_SFIII3_D::uRuleCtr = 0;
-
 
 CGame_SFIII3_D::CGame_SFIII3_D(void)
 :
@@ -74,8 +72,6 @@ CDescTree * CGame_SFIII3_D::GetMainTree()
 
 CDescTree CGame_SFIII3_D::InitDescTree()
 {
-	
-
 	sDescTreeNode * NewDescTree = new sDescTreeNode;
 
 	sDescTreeNode * UnitNode;
@@ -85,13 +81,13 @@ CDescTree CGame_SFIII3_D::InitDescTree()
 	//Create the main character tree
 	NewDescTree->ChildNodes = new sDescTreeNode[SFIII3_D_NUMUNIT];
 	NewDescTree->uChildAmt = SFIII3_D_NUMUNIT;
+
 	//All units have tree children
 	NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
 	//Go through each character
 	for(int iUnitCtr = 0; iUnitCtr < SFIII3_D_NUMUNIT; iUnitCtr++)
 	{
-
 		UnitNode = &((sDescTreeNode *)NewDescTree->ChildNodes)[iUnitCtr];
 		//Set each description
 		sprintf(UnitNode->szDesc, "%s", SFIII3_D_UNITDESC[iUnitCtr]);
@@ -105,7 +101,6 @@ CDescTree CGame_SFIII3_D::InitDescTree()
 
 		for(int iButtonCtr = 0; iButtonCtr < 1; iButtonCtr++)
 		{
-
 			int nCurrChildAmt = GetPalCt(iUnitCtr); // 1 for each button for now
 			
 			ButtonNode = &((sDescTreeNode *)UnitNode->ChildNodes)[iButtonCtr];
@@ -121,7 +116,6 @@ CDescTree CGame_SFIII3_D::InitDescTree()
 
 			for(int nChildCtr = 0; nChildCtr < nCurrChildAmt; nChildCtr++)
 			{
-
 				ChildNode = &((sDescNode *)ButtonNode->ChildNodes)[nChildCtr];
 
 				ChildNode->uUnitId = iUnitCtr;
@@ -152,11 +146,7 @@ CDescTree CGame_SFIII3_D::InitDescTree()
 				}
 
 				*/
-				
-
-				
 			}
-
 		}
 	}
 
@@ -167,7 +157,11 @@ sFileRule CGame_SFIII3_D::GetRule(int nUnitId)
 {	
 	sFileRule NewFileRule;
 
-	sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "PL%02dPL.BIN", nUnitId+1);
+	// Optimal code is just (nUnitId & 0xFF) + 1, but I'm leaving this awkward code in in case
+	// we come back to 0xFF00 mattering.
+	UINT8 nRuleId = ((nUnitId & 0xFF00) ? (nUnitId & 0x00FF) : nUnitId ) + 1;
+
+	sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "PL%02dPL.BIN", nRuleId);
 
 	NewFileRule.uUnitId = nUnitId;
 	NewFileRule.uVerifyVar = -1;
@@ -177,8 +171,6 @@ sFileRule CGame_SFIII3_D::GetRule(int nUnitId)
 
 sFileRule CGame_SFIII3_D::GetNextRule()
 {
-	
-
 	sFileRule NewFileRule = GetRule(uRuleCtr);
 
 	uRuleCtr++;
@@ -213,11 +205,9 @@ void CGame_SFIII3_D::ClearDataBuffer()
 	{
 		for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 		{
-			
 			if(pppDataBuffer[nUnitCtr])
 			{
 				int nPalAmt = GetPalCt(nUnitCtr);
-
 
 				for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 				{
@@ -229,7 +219,6 @@ void CGame_SFIII3_D::ClearDataBuffer()
 
 				delete [] pppDataBuffer[nUnitCtr];
 			}
-			
 		}
 
 		delete [] pppDataBuffer;
@@ -259,7 +248,6 @@ BOOL CGame_SFIII3_D::LoadFile(CFile * LoadedFile, int nUnitId)
 		LoadedFile->Seek(nCurrPalOffs, CFile::begin);
 		
 		LoadedFile->Read(pppDataBuffer[nUnitId][nPalCtr], nCurrPalSz*2);
-		
 	}
 
 	return TRUE;
@@ -267,8 +255,6 @@ BOOL CGame_SFIII3_D::LoadFile(CFile * LoadedFile, int nUnitId)
 
 BOOL CGame_SFIII3_D::SaveFile(CFile * SaveFile, int nUnitId)
 {
-	
-
 	int nPalAmt = GetPalCt(nUnitId);
 
 	for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -278,7 +264,6 @@ BOOL CGame_SFIII3_D::SaveFile(CFile * SaveFile, int nUnitId)
 		SaveFile->Seek(nCurrPalOffs, CFile::begin);
 		
 		SaveFile->Write(pppDataBuffer[nUnitId][nPalCtr], nCurrPalSz*2);
-		
 	}
 
 	return TRUE;
@@ -295,7 +280,6 @@ void CGame_SFIII3_D::CreateDefPal(sDescNode * srcNode, int nSepId)
 	BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, nCurrPalSz);
 }
 
-
 BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
 	//Reset palette sources
@@ -308,8 +292,6 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
 	UINT8 uUnitId;
 	UINT16 uPalId;
-
-	
 
 	sDescNode * NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
@@ -337,7 +319,6 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 	CreateDefPal(NodeGet, 0);
 
 	SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
-	
 
 	return TRUE;
 }
@@ -371,7 +352,6 @@ void CGame_SFIII3_D::UpdatePalData()
 			for(int nPICtr = 1; nPICtr < uAmt; nPICtr++)
 			{
 				pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = (ConvCol(crSrc[nPICtr]) | 0x8000);
-
 			}
 
 			srcDef->bChanged = FALSE;

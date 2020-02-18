@@ -423,6 +423,8 @@ BEGIN
     IDS_ERROR_SAVING_ACT_FILE "Error saving ACT file."
     IDS_SAVE_PALETTE_CHANGES "Update palette changes?"
     IDS_SAVE_FILE_CHANGES   "Save changes?"
+    IDS_ERROR_NOTWRITABLE_FORMAT 
+                            "Save failed: output file '%s' is not writable."
 END
 
 STRINGTABLE

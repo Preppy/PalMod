@@ -18,6 +18,7 @@
 #define IDS_ERROR_SAVING_ACT_FILE       108
 #define IDS_SAVE_PALETTE_CHANGES        109
 #define IDS_SAVE_FILE_CHANGES           110
+#define IDS_ERROR_NOTWRITABLE_FORMAT    111
 #define IDR_MAINFRAME                   128
 #define IDR_MENUMAIN                    129
 #define IDD_PREVIEW_DIALOG              130

@@ -41,11 +41,9 @@ void CPalModDlg::PostGameLoad()
 	//Get the game's palette display width
 	nPalWMax = ProgHost->GetCurrGame()->GetPalDisplayW();
 
-
 	CString strDebugInfo;
 	strDebugInfo.Format("CPalModDlg::PostGameLoad : Successfully loaded files for '%s'\n", g_GameFriendlyName[ProgHost->GetCurrGame()->GetGameFlag()]);
 	OutputDebugString(strDebugInfo);
-	
 
 	//Set pal, img, and img ctrl pointers
 	MainPalGroup = ProgHost->GetBasePal();

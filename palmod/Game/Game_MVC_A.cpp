@@ -690,7 +690,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	}
 
 	int nSrcStart = 0;
-	int nSrcAmt = 1;//GetBasicAmt(uUnitId);
+	int nSrcAmt = 1; //GetBasicAmt(uUnitId);
 
 	//Get rid of any palettes if there are any
 	BasePalGroup.FlushPalAll();	
