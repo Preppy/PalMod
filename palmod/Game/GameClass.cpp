@@ -106,7 +106,6 @@ BOOL CGameClass::SpecSel(int * nVarSet, int nPalId, int nStart, int nInc, int nA
 	{
 		return FALSE;
 	}
-	return TRUE;
 }
 
 sImgTicket * CGameClass::CreateImgTicket(int nUnitId, int nImgId, sImgTicket * NextTicket, int nXOffs, int nYOffs)
@@ -149,6 +148,7 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
 
 	CString strDebugInfo;
 	strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", (NewMode == COLMODE_12A) ? "COLMOD_12A" : (NewMode == COLMODE_15) ? "COLMODE_15" : "COLDMODE_15ALT");
+	OutputDebugString(strDebugInfo);
 
 	switch(NewMode)
 	{
