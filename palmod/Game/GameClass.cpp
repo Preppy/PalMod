@@ -6,20 +6,7 @@ BOOL CGameClass::bPostSetPalProc = TRUE;
 CGameClass::CGameClass(void)
 	:
 	ConvPal(NULL),
-	ConvCol(NULL),
-	CurrImgTicket(NULL),
-	szDir(NULL),
-	szUnitFile(NULL),
-	bFileChanged(NULL),
-	bIsDir(FALSE),
-	nFileAmt(0),
-	rgUnitRedir(0),
-	nRedirCtr(0),
-	nImgUnitAmt(0),
-	bUsesHybrid(FALSE),
-	pIndexRedir(NULL),
-	nHybridSz(0),
-	nDefPalSz(0)
+	ConvCol(NULL)
 {
 }
 
@@ -141,7 +128,6 @@ void CGameClass::ClearSetImgTicket(sImgTicket * NewImgTicket)
 	}
 
 	CurrImgTicket = NewImgTicket;
-	
 }
 
 BOOL CGameClass::SetColMode(ColMode NewMode)
@@ -149,7 +135,7 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
 	CurrColMode = NewMode;
 
 	CString strDebugInfo;
-	strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", (NewMode == COLMODE_12A) ? "COLMOD_12A" : (NewMode == COLMODE_15) ? "COLMODE_15" : "COLDMODE_15ALT");
+	strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", (NewMode == COLMODE_12A) ? "COLMOD_12A" : (NewMode == COLMODE_15) ? "COLMODE_15" : "COLMODE_15ALT (RGB555)");
 	OutputDebugString(strDebugInfo);
 
 	switch(NewMode)
@@ -316,10 +302,10 @@ UINT16 CGameClass::CONV_32_15ALT(UINT32 inCol)
 
 UINT16 CGameClass::SWAP_16(UINT16 palv)
 {
-       UINT16 aux = 0; 
-       aux |= palv << 8;
-       aux |= palv >> 8;
-       return aux;
+	UINT16 aux = 0; 
+	aux |= palv << 8;
+	aux |= palv >> 8;
+	return aux;
 }
 
 BOOL CGameClass::SetLoadDir(CHAR * szNewDir)
@@ -455,7 +441,6 @@ BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16 * pData, int 
 		}
 		
 		//Create the redirect
-
 		pIndexRedir = new UINT16[nIndexAmt];
 
 		for(int nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)

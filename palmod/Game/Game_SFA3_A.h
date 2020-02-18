@@ -50,6 +50,6 @@ public:
 
 	void UpdatePalData();
 
-	void FlushUnitFile(){if(bFileChanged){delete bFileChanged; bFileChanged = NULL;}};
-	void PrepUnitFile(){if(!bFileChanged){ bFileChanged = new UINT8;}};
+	void FlushUnitFile(){if(rgFileChanged){delete rgFileChanged; rgFileChanged = NULL;}};
+	void PrepUnitFile(){if(!rgFileChanged){ rgFileChanged = new UINT8;}};
 };

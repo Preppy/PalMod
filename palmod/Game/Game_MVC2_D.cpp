@@ -15,6 +15,9 @@ UINT16 CGame_MVC2_D::rgExtraChrLoc[MVC2_D_NUMUNIT];
 CGame_MVC2_D::CGame_MVC2_D(void)
 : ppDataBuffer(NULL)
 {
+	// InitDataBuffer uses this value so make sure to set first
+	nUnitAmt = MVC2_D_NUMUNIT;
+
 	InitDataBuffer();
 
 	//Set color mode
@@ -27,7 +30,6 @@ CGame_MVC2_D::CGame_MVC2_D(void)
 	nGameFlag = MVC2_D;
 	nImgGameFlag = IMG4;
 	nImgUnitAmt = MVC2_D_NUMUNIT;
-	nUnitAmt = MVC2_D_NUMUNIT;
 	nDisplayW = 8;
 	nFileAmt = MVC2_D_NUMUNIT;
 
@@ -512,7 +514,6 @@ void CGame_MVC2_D::UpdatePalData()
 			for(int nPICtr = 0; nPICtr < uAmt; nPICtr++)
 			{
 				ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ConvCol(crSrc[nPICtr]);
-
 			}
 
 			if(bAlphaTrans)
@@ -522,7 +523,7 @@ void CGame_MVC2_D::UpdatePalData()
 			}
 
 			srcDef->bChanged = FALSE;
-			bFileChanged[srcDef->uUnitId] = TRUE;
+			rgFileChanged[srcDef->uUnitId] = TRUE;
 
 			//Perform supplement palettes
 			if(bPostSetPalProc)
@@ -550,10 +551,10 @@ void CGame_MVC2_D::FlushUnitFile()
 		szUnitFile = NULL;
 	}
 
-	if(bFileChanged)
+	if(rgFileChanged)
 	{
-		delete [] bFileChanged;
-		bFileChanged = NULL;
+		delete [] rgFileChanged;
+		rgFileChanged = NULL;
 	}
 }
 
@@ -567,13 +568,13 @@ void CGame_MVC2_D::PrepUnitFile()
 	szUnitFile = new CHAR * [MVC2_D_NUMUNIT];
 	memset(szUnitFile, NULL, sizeof(CHAR *) * MVC2_D_NUMUNIT);
 
-	bFileChanged = new UINT8[MVC2_D_NUMUNIT];
-	memset(bFileChanged, NULL, sizeof(UINT8) * MVC2_D_NUMUNIT);
+	rgFileChanged = new UINT8[MVC2_D_NUMUNIT];
+	memset(rgFileChanged, NULL, sizeof(UINT8) * MVC2_D_NUMUNIT);
 }
 
 void CGame_MVC2_D::ResetChangeFlag(int nUnitId)
 {
-	bFileChanged[nUnitId] = FALSE;
+	rgFileChanged[nUnitId] = FALSE;
 }
 
 void CGame_MVC2_D::PostSetPal(int nUnitId, int nPalId)
@@ -616,7 +617,7 @@ void CGame_MVC2_D::ForEidrian(int nFlag, COLORREF crCol)
 					nFlag ? (ppDataBuffer[nUnitCtr][nPalCtr * 16 + nPICtr] & 0x0FFF) : ConvCol(crCol);
 				}
 				
-				bFileChanged[nUnitCtr] = TRUE;
+				rgFileChanged[nUnitCtr] = TRUE;
 			}
 		}
 	}

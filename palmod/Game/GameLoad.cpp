@@ -280,7 +280,6 @@ CGameClass * CGameLoad::LoadDir(int nGameFlag, CHAR * szLoadDir)
 
 	// Perhaps we could be less strict here, but -- we also will crash elsewhere if we don't have the full PL set.
 	return (nSaveLoadErr == 0) ? OutGame : nullptr;
-
 }
 
 void CGameLoad::SaveGame(CGameClass * CurrGame)
@@ -316,6 +315,7 @@ void CGameLoad::SaveGame(CGameClass * CurrGame)
 				{
 					if(CurrGame->SaveFile(&FileSave, nFileCtr))
 					{
+						// Mark as clean so we don't save it out until it gets dirtied again.
 						rgChanged[nFileCtr] = FALSE;
 
 						nSaveLoadSucc++;

@@ -2,11 +2,9 @@
 #include "gameclass.h"
 #include "SSF2T_A_DEF.h"
 
-
 class CGame_SSF2T_A : public CGameClass
 {
 private:
-
 	//Used for image selection
 	int nTargetImgId;
 	int nNormalPalAmt;
@@ -44,8 +42,6 @@ public:
 	//Normal functions
 	CDescTree * GetMainTree();
 
-	
-
 	void CreateDefPal(sDescNode * srcNode, int nSepId);
 	BOOL LoadFile(CFile * LoadedFile, int nUnitId = 0);
 	BOOL SaveFile(CFile * SaveFile, int nUnitId = 0);
@@ -55,8 +51,6 @@ public:
 
 	void UpdatePalData();
 
-	void FlushUnitFile(){if(bFileChanged){delete bFileChanged; bFileChanged = NULL;}};
-	void PrepUnitFile(){if(!bFileChanged){ bFileChanged = new UINT8;}};
-
-
+	void FlushUnitFile(){if(rgFileChanged){delete rgFileChanged; rgFileChanged = NULL;}};
+	void PrepUnitFile(){if(!rgFileChanged){ rgFileChanged = new UINT8;}};
 };

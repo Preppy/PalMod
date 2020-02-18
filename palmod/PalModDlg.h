@@ -49,7 +49,7 @@ public:
 	BOOL bRGB = TRUE;
 	BOOL bCopyFromBase = FALSE;
 
-	BOOL bFileChanged = FALSE;
+	BOOL fFileChanged = FALSE;
 	BOOL bPalChanged = FALSE;
 
 	BOOL bGetSliderUndo = TRUE;

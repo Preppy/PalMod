@@ -18,7 +18,7 @@ enum ColMode
 {
 	COLMODE_12A,
 	COLMODE_15,
-	COLMODE_15ALT
+	COLMODE_15ALT	// RGB555
 };
 
 enum ColFlag
@@ -33,14 +33,14 @@ class CGameClass
 {
 protected:
 
-	CHAR * szDir;
-	CHAR ** szUnitFile;
-	UINT8 * bFileChanged;
-	int nFileAmt;
+	CHAR * szDir = nullptr;
+	CHAR ** szUnitFile = nullptr;
+	UINT8 * rgFileChanged = nullptr;
+	int nFileAmt = 0;
 
-	BOOL bIsDir;
+	BOOL bIsDir = FALSE;
 
-	int nDefPalSz;
+	int nDefPalSz = 0;
 
 	int nRIndexAmt;
 	int nGIndexAmt;
@@ -56,7 +56,7 @@ protected:
 	int nGameFlag;
 	int nImgGameFlag;
 	int nDisplayW;
-	int nImgUnitAmt;
+	int nImgUnitAmt = 0;
 
 	//Values used for image out
 	int nSrcPalUnit[MAX_PAL];
@@ -65,15 +65,15 @@ protected:
 	int nSrcPalInc[MAX_PAL];
 
 	ColMode CurrColMode;
-	sImgTicket * CurrImgTicket;
+	sImgTicket * CurrImgTicket = nullptr;
 	CPalGroup BasePalGroup;
 
 	eDispType DisplayType;
 	CHAR * pButtonLabel;
 	
-	BOOL bUsesHybrid;
-	UINT16 * pIndexRedir;
-	int nHybridSz;
+	BOOL bUsesHybrid = FALSE;
+	UINT16 * pIndexRedir = nullptr;
+	int nHybridSz = 0;
 
 	static UINT16 CONV_32_12A(UINT32 inCol);
 	static UINT32 CONV_12A_32(UINT16 inCol);
@@ -89,8 +89,8 @@ public:
 
 	static BOOL bPostSetPalProc;
 
-	UINT8 * rgUnitRedir;
-	int nRedirCtr;
+	UINT8 * rgUnitRedir = nullptr;
+	int nRedirCtr = 0;
 
 	UINT16 (*ConvCol)(UINT32 inCol);
 	UINT32 (*ConvPal)(UINT16 inCol);
@@ -115,7 +115,7 @@ public:
 	CPalGroup * GetPalGroup(){return &BasePalGroup;};
 
 	int GetFileAmt(){return nFileAmt;};
-	UINT8 * GetChangeRg(){return bFileChanged;};
+	UINT8 * GetChangeRg(){return rgFileChanged;};
 
 	void SetIsDir(BOOL bNewIsDir = TRUE){bIsDir = bNewIsDir;};
 	BOOL GetIsDir(){return bIsDir;};

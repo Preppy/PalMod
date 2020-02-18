@@ -94,7 +94,7 @@ void CPalModDlg::OnFilePatch()
 
 	if(!GetHost()->GetLoader()->GetErrCt())
 	{
-		bFileChanged = FALSE;
+		fFileChanged = FALSE;
 	}
 }
 
@@ -136,7 +136,7 @@ void CPalModDlg::ProcChange(BOOL bReset)
 		UndoProc.DeleteRedoList();
 		NewUndoData();
 
-		bFileChanged = TRUE;
+		fFileChanged = TRUE;
 		bPalChanged = TRUE;
 	}
 }

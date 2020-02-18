@@ -467,7 +467,7 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 		break;
 	case VM_FILECHANGE:
 		{
-			if (bFileChanged)
+			if (fFileChanged)
 			{
 				CString strQuestion;
 				strQuestion.LoadString(IDS_SAVE_FILE_CHANGES);
@@ -482,7 +482,7 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 					break;
 				case IDNO:
 					{
-						bFileChanged = FALSE;
+						fFileChanged = FALSE;
 						bPalChanged = FALSE;
 						return TRUE;
 					}
@@ -595,7 +595,6 @@ void CPalModDlg::SetStatusText(CString szText)
 	//Set timer
 	SetTimer(TIMER_STATUS, TIMER_ELAPSE, NULL);
 }
-
 
 void CPalModDlg::OnAboutAboutpalmod()
 {

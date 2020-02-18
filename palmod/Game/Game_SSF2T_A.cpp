@@ -40,7 +40,7 @@ nCurrPalOffs(0)
 	memset(rgUnitRedir, NULL, sizeof(UINT8) * nUnitAmt);
 
 	//Create the file changed flag
-	bFileChanged = new UINT8;
+	rgFileChanged = new UINT8;
 
 	nRIndexAmt = 15;
 	nGIndexAmt = 15;
@@ -56,9 +56,9 @@ nCurrPalOffs(0)
 CGame_SSF2T_A::~CGame_SSF2T_A(void)
 { 
 	//Get rid of the file changed flag
-	if(bFileChanged)
+	if(rgFileChanged)
 	{
-		delete bFileChanged;
+		delete rgFileChanged;
 	}
 }
 
@@ -349,7 +349,7 @@ void CGame_SSF2T_A::UpdatePalData()
 			}
 
 			srcDef->bChanged = FALSE;
-			bFileChanged[0] = TRUE;
+			rgFileChanged[0] = TRUE;
 		}
 	}
 }

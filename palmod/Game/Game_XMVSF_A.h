@@ -45,8 +45,8 @@ public:
 
 	void UpdatePalData();
 
-	void FlushUnitFile(){if(bFileChanged){delete bFileChanged; bFileChanged = NULL;}};
-	void PrepUnitFile(){if(!bFileChanged){ bFileChanged = new UINT8;}};
+	void FlushUnitFile(){if(rgFileChanged){delete rgFileChanged; rgFileChanged = NULL;}};
+	void PrepUnitFile(){if(!rgFileChanged){ rgFileChanged = new UINT8;}};
 
 	int GetLocalAmt(int nUnitId){return (XMVSF_A_UNITLOC[nUnitId + 1] - XMVSF_A_UNITLOC[nUnitId]) / 0x20;};
 };

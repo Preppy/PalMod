@@ -7,9 +7,6 @@ CDescTree CGame_SFIII3_D::MainDescTree = CGame_SFIII3_D::InitDescTree();
 UINT8 CGame_SFIII3_D::uRuleCtr = 0;
 
 CGame_SFIII3_D::CGame_SFIII3_D(void)
-:
-nCurrPalSz(0),
-nCurrPalOffs(0)
 {
 	//We need the proper unit amt before we init the main buffer
 	nUnitAmt = SFIII3_D_NUMUNIT;
@@ -28,7 +25,7 @@ nCurrPalOffs(0)
 	nImgUnitAmt = nUnitAmt;
 	
 	nDisplayW = 8;
-	nFileAmt = 1;
+	nFileAmt = SFIII3_D_NUMUNIT;
 
 	//Prepare the file list
 	//PrepUnitFile();
@@ -41,14 +38,14 @@ nCurrPalOffs(0)
 	rgUnitRedir = new UINT8[nUnitAmt + 1];
 	memset(rgUnitRedir, NULL, sizeof(UINT8) * nUnitAmt);
 
-	//Create the file changed flag
-	bFileChanged = new UINT8;
+	//Create the file changed flag array
+	rgFileChanged = new UINT8[SFIII3_D_NUMUNIT];
+	memset(rgFileChanged, NULL, sizeof(UINT8) * SFIII3_D_NUMUNIT);
 
 	nRIndexAmt = 31;
 	nGIndexAmt = 31;
 	nBIndexAmt = 31;
 	nAIndexAmt = 0;
-
 	
 	nRIndexMul = 8.225;
 	nGIndexMul = 8.225;
@@ -58,10 +55,11 @@ nCurrPalOffs(0)
 
 CGame_SFIII3_D::~CGame_SFIII3_D(void)
 { 
-	//Get rid of the file changed flag
-	if(bFileChanged)
+	//Get rid of the file changed flag array
+	if(rgFileChanged)
 	{
-		delete bFileChanged;
+		delete [] rgFileChanged;
+		rgFileChanged = nullptr;
 	}
 }
 
@@ -157,9 +155,8 @@ sFileRule CGame_SFIII3_D::GetRule(int nUnitId)
 {	
 	sFileRule NewFileRule;
 
-	// Optimal code is just (nUnitId & 0xFF) + 1, but I'm leaving this awkward code in in case
-	// we come back to 0xFF00 mattering.
-	UINT8 nRuleId = ((nUnitId & 0xFF00) ? (nUnitId & 0x00FF) : nUnitId ) + 1;
+	// We get extra data from GameClass that we don't want: clear the lead 0xFF00 flag if present.
+	const UINT8 nRuleId = (nUnitId & 0x00FF) + 1;
 
 	sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "PL%02dPL.BIN", nRuleId);
 
@@ -337,14 +334,13 @@ COLORREF * CGame_SFIII3_D::CreatePal(int nUnitId, int nPalId)
 	return NewPal;
 }
 
+// Update the specific changed palettes for this character.
 void CGame_SFIII3_D::UpdatePalData()
 {
-
 	for(int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
 	{
 		sPalDef * srcDef = BasePalGroup.GetPalDef(nPalCtr);
-
-		if(srcDef->bAvail )
+		if (srcDef->bAvail)
 		{
 			COLORREF * crSrc = srcDef->pPal;
 			UINT16 uAmt = srcDef->uPalSz;
@@ -355,7 +351,7 @@ void CGame_SFIII3_D::UpdatePalData()
 			}
 
 			srcDef->bChanged = FALSE;
-			bFileChanged[0] = TRUE;
+			rgFileChanged[srcDef->uUnitId] = TRUE;
 		}
 	}
 }
