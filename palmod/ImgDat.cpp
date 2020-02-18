@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ImgDat.h"
+#include "game\gamedef.h"
 
 CImgDat::CImgDat(void)
 :
@@ -92,8 +93,11 @@ void CImgDat::FlushLastImg()
 
 UINT8 * CImgDat::GetImgData(sImgDef * pCurrImg)
 {
-	if(pCurrImg->pImgData)
+	if (pCurrImg->pImgData)
 	{
+		CString strDebugInfo;
+		strDebugInfo.Format("CimgData::GetImgData : Image at position '0x%x' is already loaded.\n", pCurrImg->uThisImgLoc);
+		OutputDebugString(strDebugInfo);
 		return pCurrImg->pImgData;
 	}
 
@@ -174,7 +178,13 @@ BOOL CImgDat::LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT8 uUnitAmt, UI
 {
 	UINT8 uNumGames;
 
-	if(uGameFlag == (int)nCurrGFlag)
+	CString strDebugInfo;
+	strDebugInfo.Format("CimgData::LoadImage : Opening image file '%s'\n", lpszLoadFile);
+	OutputDebugString(strDebugInfo);
+	strDebugInfo.Format("CimgData::LoadImage : Game image flag is '%u'.  Reading %u bytes at index %u.\n", uGameFlag, uUnitAmt, uImgAmt);
+	OutputDebugString(strDebugInfo);
+
+	if (uGameFlag == (int)nCurrGFlag)
 	{
 		return TRUE;
 	}

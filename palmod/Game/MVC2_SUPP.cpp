@@ -27,6 +27,11 @@ void prep_supp()
 	_mvc2_data = (UINT8 **)(CurrMVC2->GetDataBuffer());
 }
 
+inline UINT16* get_pal_16(int char_id, int pal_no)
+{
+	return (UINT16*)&_mvc2_data[char_id][pal_no * 32];
+}
+
 void proc_supp(int char_no, int pal_no)
 {
 	if(!rgSuppLoc[char_no] || !_mvc2_data)
@@ -166,7 +171,12 @@ void proc_supp(int char_no, int pal_no)
 					{
 						case MOD_TINT:
 							{
-								// Tint not supported
+								// Tint not actually supported yet: supp_mod_tint is no-op'd for release
+
+								if (supp_basic || supp_extra)
+								{
+									supp_mod_tint(char_no, dst_pal, pi_start, pi_amt, 15);
+								}
 	                          
 								index_ctr += 3;
 								break;
@@ -207,11 +217,6 @@ void proc_supp(int char_no, int pal_no)
 			}
 		}
 	}
-}
-
-inline UINT16 * get_pal_16(int char_id, int pal_no)
-{
-	return (UINT16 *)&_mvc2_data[char_id][pal_no * 32];
 }
 
 void supp_copy_palette(UINT16 char_id, UINT16 dst_pal, UINT16 src_pal)
@@ -294,4 +299,63 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 dst_pal, 
 		dst_16[i] |= CurrMVC2->ConvCol(HLStoRGB(src_h, src_l, src_s));
 	}
 }
+
+void supp_mod_tint(UINT16 char_id, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc, UINT8 tint_factor)
+{
+
+#ifdef DEBUG
+	// THESE CALCULATIONS ARE EXPERIMENTAL IN NATURE AND DO NOT DO WHAT WE WOULD LIKE.
+	// IGNORE THEM AND REPLACE WITH BETTER LOGIC IF ANY.
+	// After trying these and not liking the results, I have started writing an applet to concentrate
+	// on getting better tinting logic, if any is available.  This code will be updated when and if 
+	// I find a solution I like.
+
+	UINT16* dst_16;
+
+	COLORREF input_col;
+
+	dst_16 = get_pal_16(char_id, dst_pal);
+
+	for (int i = index_start; i < index_start + index_inc; i++)
+	{
+		CString strresults;
+
+		BYTE newR, newG, newB;
+
+		input_col = CurrMVC2->ConvPal(dst_16[i]);
+
+		strresults.Format("Source: r %lu g %lu b %lu\n", GetRValue(input_col), GetGValue(input_col), GetBValue(input_col));
+		OutputDebugString(strresults);
+
+		newR = GetRValue(input_col) + (255 - GetRValue(input_col)) * tint_factor;
+		newG = GetGValue(input_col) + (255 - GetGValue(input_col)) * tint_factor;
+		newB = GetBValue(input_col) + (255 - GetBValue(input_col)) * tint_factor;
+
+		strresults.Format("Color convert 15: r %lu g %lu b %lu\n", newR, newG, newB);
+		OutputDebugString(strresults);
+
+		tint_factor = 35;
+		newR = GetRValue(input_col) + (255 - GetRValue(input_col)) * tint_factor;
+		newG = GetGValue(input_col) + (255 - GetGValue(input_col)) * tint_factor;
+		newB = GetBValue(input_col) + (255 - GetBValue(input_col)) * tint_factor;
+
+		strresults.Format("Color convert 35: r %lu g %lu b %lu\n", newR, newG, newB);
+		OutputDebugString(strresults);
+
+		tint_factor = 75;
+		newR = GetRValue(input_col) + (255 - GetRValue(input_col)) * tint_factor;
+		newG = GetGValue(input_col) + (255 - GetGValue(input_col)) * tint_factor;
+		newB = GetBValue(input_col) + (255 - GetBValue(input_col)) * tint_factor;
+
+		strresults.Format("Color convert 75 r %lu g %lu b %lu\n", newR, newG, newB);
+		OutputDebugString(strresults);
+
+		// Save back out
+		// bugbug: note that this isn't changing RGB: figure that out.
+		dst_16[i] &= 0xF000;
+		dst_16[i] |= CurrMVC2->ConvCol(MakeRGB((BYTE)(newR), (BYTE)(newG), (BYTE)(newB)));
+	}
+#endif
+}
+
 

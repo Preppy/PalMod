@@ -3,8 +3,6 @@
 #define MAX_GAMES 4
 #define MAX_IMAGE 16
 
-
-
 struct sImgDef
 {
 	UINT16 uImgWidth;
@@ -14,9 +12,6 @@ struct sImgDef
 	UINT32 uDataSize;
 	UINT32 uThisImgLoc;
 	UINT8 * pImgData;
-
-
-
 };
 
 class CImgDat
@@ -56,6 +51,4 @@ public:
 
 	void CloseImgFile();
 	void FlushLastImg();
-
-	
 };

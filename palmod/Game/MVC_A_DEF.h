@@ -2,6 +2,7 @@
 
 #include "mvc2_d_def.h" //bugbug
 
+// Note that we only look up Onslaught from this section, and we don't have a sprite(?)
 #define MVC_A_IMGSTART (0x3B + 0x11 + 0x11 + 0x01) //MVC2, then SSF2T, then SFA3, then XMVSF
 
 // To add characters or palette lists:
@@ -157,6 +158,8 @@ const sMVC_PaletteDataset MVC_A_JIN_PALETTES[] =
 	{ "P2 Blodia Punch", 0x48AA4, 0x37, 2 },
 };
 
+// Note that since this is eleventy palettes, the code is substituting the default Megaman sprite when 0xff is supplied.  
+// To unwind that we would want to specify the correct sprites to use everywhere.  MM is 0x1C .
 const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
 {
 	{ "Megaman P1", 0x48F84 },
@@ -251,7 +254,7 @@ const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
 
 	{ "P1 Beat Extras", 0x4C9C4 },
 
-	{ "P1 Roll Win Pose", 0x4CAE4, 0x1d }, // bugbug: not actually used here yet
+	{ "P1 Roll Win Pose", 0x4CAE4, 0x1d },
 	{ "P1 Magnetic Megaman", 0x4CB04 },
 	{ "P1 Extras 1", 0x4DE64 },
 	{ "P1 Extras 2", 0x4DE84 },
@@ -352,10 +355,28 @@ const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
 
 	{ "P2 Beat Extras", 0x4D4A4 },
 
-	{ "P2 Roll Win Pose", 0x4D5C4, 0x1d }, // bugbug: not used yet.  we only override sprite for assists right now
+	{ "P2 Roll Win Pose", 0x4D5C4, 0x1d },
 	{ "P2 Magnetic Megaman", 0x4D5E4 },
 	{ "P2 Megaman Extra", 0x4EB84 },
 	{ "P2 Magnetic Megaman", 0x4EBA4 },
+};
+
+const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
+{
+	{ "P1 Color",		0x48704, 0x1d },
+	{ "P1 Rush/Eddie",	0x48724 },
+	{ "P1 Beat",		0x48744 },
+	{ "P2 Color",		0x48764, 0x1d },
+	{ "P2 Rush/Eddie",	0x48784 },
+	{ "P2 Beat",		0x487A4 },
+	// TODO: There are a lot more palettes that can be edited.
+};
+
+const sMVC_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
+{
+	{ "Palette 1",	0x49044 },
+	{ "Palette 2",	0x49064 },
+	{ "Palette 3",	0x49084 },
 };
 
 const sMVC_PaletteDataset MVC_A_WARMACHINE_PALETTES[] =
@@ -440,12 +461,12 @@ const sMVC_PaletteDataset MVC_A_HYPERVENOM_PALETTES[] =
 
 const sMVC_PaletteDataset MVC_A_SPIDEY_PALETTES[] =
 {
-	{ "P1 Color",		0x48644, 0xc },
+	{ "P1 Color",	0x48644, 0xc },
 	{ "P1 Extra 1",	0x48664 },
-	{ "P1 Web",			0x48684, 0xc, 2 },
-	{ "P2 Color",		0x486A4, 0xc },
+	{ "P1 Web",		0x48684, 0xc, 2 },
+	{ "P2 Color",	0x486A4, 0xc },
 	{ "P2 Extra 1",	0x486C4},
-	{ "P2 Web",			0x486E4, 0xc, 2 },
+	{ "P2 Web",		0x486E4, 0xc, 2 },
 };
 
 const sMVC_PaletteDataset MVC_A_CAPCOM_PALETTES[] =
@@ -624,31 +645,30 @@ const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 	{ "US Agent P2 Charging Star", 0x50F84, 0xb, 2 },
 };
 
-
 const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
 {
-	indexWarMachine,
 	indexCaptainAmerica,
-	indexHulk,
-	indexWolverine,
-	indexVenom,
-	indexSpiderman,
-	indexRoll,
-	indexRyu,
 	indexCapCom,
 	indexChun,
+	indexGambit,
+	indexHulk,
 	indexJin,
-	indexGief,
-	indexStrider,
+	indexLilith,
 	indexMegaman,
 	indexMorrigan,
 	indexOnslaught,
-	indexHyperVenom,
 	indexOrangeHulk,
-	indexGWM,
+	indexRoll,
+	indexRyu,
 	indexShadowLady,
-	indexLilith,
-	indexGambit,
+	indexSpiderman,
+	indexStrider,
+	indexVenom,
+	indexHyperVenom,
+	indexWarMachine,
+	indexGWM,
+	indexWolverine,
+	indexGief,
 	indexAssists,
 
 	MVC_A_EXTRALOC //Extra palettes
@@ -699,7 +719,7 @@ const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
 	ARRAYSIZE(MVC_A_WOLVERINE_PALETTES), // Wolvie
 	ARRAYSIZE(MVC_A_VENOM_PALETTES), // Venom
 	ARRAYSIZE(MVC_A_SPIDEY_PALETTES), // Spidey
-	0x06, // Roll
+	ARRAYSIZE(MVC_A_ROLL_PALETTES), // Roll
 	ARRAYSIZE(MVC_A_RYU_PALETTES), // Ryu
 	ARRAYSIZE(MVC_A_CAPCOM_PALETTES), // Capcom
 	ARRAYSIZE(MVC_A_CHUNLI_PALETTES), // Chun
@@ -708,7 +728,7 @@ const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
 	ARRAYSIZE(MVC_A_STRIDER_PALETTES), // Strider	
 	ARRAYSIZE(MVC_A_MEGAMAN_PALETTES), // Megaman
 	ARRAYSIZE(MVC_A_MORRIGAN_PALETTES), // Morrigan
-	0x03, // Onslaught
+	ARRAYSIZE(MVC_A_ONSLAUGHT_PALETTES), // Onslaught
 	ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES), // Red Venom
 	ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES), // Orange Hulk
 	ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES), // Gold War Machine

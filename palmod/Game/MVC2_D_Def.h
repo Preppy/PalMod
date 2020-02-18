@@ -325,7 +325,6 @@ const UINT16 MVC2_D_0x31_EXTRAREDIR[] =
 	0x35, 0,
 	0x36, 0
 
-
 };
 
 // For these entries we use the EXTRA_START offset.

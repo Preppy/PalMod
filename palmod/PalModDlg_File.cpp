@@ -41,6 +41,12 @@ void CPalModDlg::PostGameLoad()
 	//Get the game's palette display width
 	nPalWMax = ProgHost->GetCurrGame()->GetPalDisplayW();
 
+
+	CString strDebugInfo;
+	strDebugInfo.Format("CPalModDlg::PostGameLoad : Successfully loaded files for '%s'\n", g_GameFriendlyName[ProgHost->GetCurrGame()->GetGameFlag()]);
+	OutputDebugString(strDebugInfo);
+	
+
 	//Set pal, img, and img ctrl pointers
 	MainPalGroup = ProgHost->GetBasePal();
 	ImgDispCtrl = ProgHost->GetImgDispCtrl();
@@ -65,7 +71,6 @@ void CPalModDlg::PostGameLoad()
 
 	//Enable the program
 	Enable(TRUE);
-
 
 	//Update the combo selection
 	UpdateCombo();
@@ -357,14 +362,14 @@ void CPalModDlg::OnFileOpen()
 
 void CPalModDlg::LoadGameFile(int nGameFlag, CHAR * szFile)
 {
-	if(!VerifyMsg(VM_FILECHANGE))
+	if (!VerifyMsg(VM_FILECHANGE))
 	{
 		return;
 	}
 
 	CGameClass * GameGet = GetHost()->GetLoader()->LoadFile(nGameFlag, szFile);//szGet.GetBuffer());
 
-	if(GameGet)
+	if (GameGet)
 	{
 		ClearGameVar();
 		GetHost()->SetGameClass(GameGet);

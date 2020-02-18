@@ -5,9 +5,6 @@
 CDescTree CGame_SFA3_A::MainDescTree = CGame_SFA3_A::InitDescTree();
 
 CGame_SFA3_A::CGame_SFA3_A(void)
-:
-nCurrPalSz(0),
-nCurrPalOffs(0)
 {
 	//We need the proper unit amt before we init the main buffer
 	nUnitAmt = SFA3_A_NUMUNIT;
@@ -27,9 +24,6 @@ nCurrPalOffs(0)
 	
 	nDisplayW = 8;
 	nFileAmt = 1;
-
-	//Prepare the file list
-	//PrepUnitFile();
 
 	//Set the image out display type
 	DisplayType = DISP_DEF;
@@ -267,7 +261,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	uUnitId = NodeGet->uUnitId;
 	uPalId = NodeGet->uPalId;
 
-	//Change the image id if we need to
+	// Make sure to reset the image id (currently not relevant, just sanity at this point)
 	nTargetImgId = 0;
 	int nImgUnitId = SFA3_A_IMGREDIR[uUnitId];
 

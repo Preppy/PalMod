@@ -6,7 +6,6 @@
 //P = Playstation 2
 
 //Game Definitions
-#define NUM_GAMES 8
 
 constexpr auto MVC2_D = 0;
 constexpr auto SFIII3_A = 1;
@@ -16,6 +15,19 @@ constexpr auto SFA3_A = 4;
 constexpr auto XMVSF_A = 5;
 constexpr auto MVC_A = 6;
 constexpr auto SFIII3_D = 7;
+#define NUM_GAMES 8
+
+const CHAR g_GameFriendlyName[NUM_GAMES][16] =
+{
+	"MvC2_D",
+	"SFIII3_A",
+	"MVC2_P",
+	"SSF2T_A",
+	"SFA3_A",
+	"XVSF_A",
+	"MVC_A",
+	"SFIII3_D"
+};
 
 //Images
 
@@ -25,7 +37,7 @@ constexpr auto SFIII3_D = 7;
 //Size of image per image game flag
 const int IMGAMT[2] =
 {
-	0x3B + 0x11,
+	0x3B + 0x11, // 0x4C / 0n76
 	0x14
 };
 

@@ -2,9 +2,7 @@
 #include "Game_SSF2T_A.h"
 #include "GameDef.h"
 
-
 CDescTree CGame_SSF2T_A::MainDescTree = CGame_SSF2T_A::InitDescTree();
-
 
 CGame_SSF2T_A::CGame_SSF2T_A(void)
 :
@@ -266,7 +264,6 @@ void CGame_SSF2T_A::CreateDefPal(sDescNode * srcNode, int nSepId)
 	BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, nCurrPalSz);
 }
 
-
 BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
 	//Reset palette sources
@@ -279,8 +276,6 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 	UINT8 uUnitId;
 	UINT16 uPalId;
-
-	
 
 	sDescNode * NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
@@ -351,7 +346,6 @@ void CGame_SSF2T_A::UpdatePalData()
 			for(int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
 			{
 				pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = (ConvCol(crSrc[nPICtr]) & 0x0FFF);
-
 			}
 
 			srcDef->bChanged = FALSE;

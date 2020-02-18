@@ -106,7 +106,6 @@ BOOL CGameClass::SpecSel(int * nVarSet, int nPalId, int nStart, int nInc, int nA
 	{
 		return FALSE;
 	}
-
 	return TRUE;
 }
 
@@ -148,6 +147,9 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
 {
 	CurrColMode = NewMode;
 
+	CString strDebugInfo;
+	strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", (NewMode == COLMODE_12A) ? "COLMOD_12A" : (NewMode == COLMODE_15) ? "COLMODE_15" : "COLDMODE_15ALT");
+
 	switch(NewMode)
 	{
 	case COLMODE_12A:
@@ -186,8 +188,6 @@ UINT16 CGameClass::CONV_32_12A(UINT32 inCol)
 	auxr = (auxr > 15*17 ? auxr = 15*17 : auxr);
 	auxg = (auxg > 15*17 ? auxg = 15*17 : auxg);
 	auxb = (auxb > 15*17 ? auxb = 15*17 : auxb);
-
-
 
 	auxr /= 17; 
 	auxg /= 17;
@@ -368,35 +368,6 @@ void CGameClass::Revert(int nPalId)
 
 	delete [] pTempPal;
 }
-
-/*
-
-void CGameClass::Invert(int nPalId)
-{
-	sPalRedir * RedirIndex = &BasePalGroup.GetRedir()[nPalId];
-
-	sPalDef * CurrPalDef = BasePalGroup.GetPalDef(RedirIndex->nDefIndex);
-	sPalSep * CurrPalSep = CurrPalDef->SepList[RedirIndex->nSepIndex];
-
-	COLORREF * pTempPal = CreatePal(CurrPalDef->uUnitId, CurrPalDef->uPalId);
-
-	int nStart = CurrPalSep->nStart;
-	int nAmt = CurrPalSep->nAmt;
-
-	COLORREF crPalVal;
-
-	for(int i = nStart; i < nStart + nAmt; i++)
-	{
-		crPalVal = (0x00FFFFFF & ~pTempPal[i]) | (pTempPal[i] & 0xFF000000);
-
-		CurrPalDef->pPal[i] = crPalVal;
-		CurrPalDef->pBasePal[i] = crPalVal;
-	}
-
-	delete [] pTempPal;
-}
-
-*/
 
 COLORREF *** CGameClass::CreateImgOutPal()
 {

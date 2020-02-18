@@ -199,7 +199,6 @@ CDescTree CGame_MVC_A::InitDescTree()
 
 					ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr]; //We only have 1
 
-
 					// Update this if you need new characters/palette lists
 					switch (iUnitCtr)
 					{
@@ -267,7 +266,11 @@ CDescTree CGame_MVC_A::InitDescTree()
 						sprintf(ChildNode->szDesc, MVC_A_ASSIST_PALETTES[nChildCtr].szPaletteName);
 						break;
 					case indexOnslaught:
+						sprintf(ChildNode->szDesc, MVC_A_ONSLAUGHT_PALETTES[nChildCtr].szPaletteName);
+						break;
 					case indexRoll:
+						sprintf(ChildNode->szDesc, MVC_A_ROLL_PALETTES[nChildCtr].szPaletteName);
+						break;
 					default:
 						if (nChildCtr < ARRAYSIZE(MVC_A_IMGDESC)) // For the first 6 palettes we have a stock list of text to display.
 						{
@@ -458,6 +461,12 @@ void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
 		case indexGambit:
 			nCurrPalOffs = MVC_A_GAMBIT_PALETTES[nPalId].nPaletteOffset;
 			break;
+		case indexOnslaught:
+			nCurrPalOffs = MVC_A_ONSLAUGHT_PALETTES[nPalId].nPaletteOffset;
+			break;
+		case indexRoll:
+			nCurrPalOffs = MVC_A_ROLL_PALETTES[nPalId].nPaletteOffset;
+			break;
 		case indexAssists: // Assists
 		{
 			nCurrPalOffs = MVC_A_ASSIST_PALETTES[nPalId].nPaletteOffset;
@@ -473,6 +482,7 @@ void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
 
 			int nOffset, nPalSz;
 
+			// bugbug: Use of bUseExtra here is nonsensical: remove?
 			BOOL bUseExtra = FALSE;
 
 			nExtraPos = 0;
@@ -487,8 +497,6 @@ void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
 			nCurrPalSz = nPalSz / 2;
 			break;
 		}
-		case indexRoll:
-		case indexOnslaught:
 		default:
 		{
 			// This is all the base palettes.
@@ -510,7 +518,7 @@ BOOL CGame_MVC_A::LoadFile(CFile * LoadedFile, int nUnitId)
 
 		pppDataBuffer[nUnitCtr] = new UINT16 *[nPalAmt];
 
-		rgUnitRedir[nUnitCtr] = MVC_A_UNITSORT[nUnitCtr]; //Fix later for unit sort
+		rgUnitRedir[nUnitCtr] = MVC_A_UNITSORT[nUnitCtr];
 
 		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 		{
@@ -582,7 +590,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	uUnitId = NodeGet->uUnitId;
 	uPalId = NodeGet->uPalId;
 
-	//Change the image id if we need to
+	// Make sure to reset the image id
 	nTargetImgId = 0;
 	int nImgUnitId = 0xFF;
 	
@@ -665,7 +673,11 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 		paletteDataSet = &MVC_A_LILITH_PALETTES[uPalId];
 		break;
 	case indexOnslaught:
+		paletteDataSet = &MVC_A_ONSLAUGHT_PALETTES[uPalId];
+		break;
 	case indexRoll:
+		paletteDataSet = &MVC_A_ROLL_PALETTES[uPalId];
+		break;
 	default: // just use the listed options
 		nImgUnitId = MVC_A_IMGREDIR[uUnitId];
 		break;

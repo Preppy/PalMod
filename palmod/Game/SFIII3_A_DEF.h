@@ -84,29 +84,3 @@ const stExtraDef SFIII3_A_EXTRA[] =
 
 	{ 0xFF }
 };
-
-//
-//const stExtraDef SFIII3_A_EXTRA[] = 
-//{
-//	//Start
-//
-//	{ 0x80 },
-//
-//	
-//
-//	//Extra
-//
-//	/*
-//
-//	{ SFIII3_A_EXTRALOC, "Check Tengu", 0x00763000, 0x80 },
-//	{ SFIII3_A_EXTRALOC, "Check Tengu", 0x00763080, 0x80 },
-//	{ SFIII3_A_EXTRALOC, "Check Tengu", 0x00763100, 0x80 },
-//	{ SFIII3_A_EXTRALOC, "Check Tengu", 0x00763180, 0x80 },
-//
-//	*/
-//
-//	//End
-//
-//	{ 0xFF }
-//};
-

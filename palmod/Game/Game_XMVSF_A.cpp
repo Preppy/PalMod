@@ -2,14 +2,32 @@
 #include "Game_XMVSF_A.h"
 #include "GameDef.h"
 
-
 CDescTree CGame_XMVSF_A::MainDescTree = CGame_XMVSF_A::InitDescTree();
 
+const sXMVSF_PaletteDataset* xmvsfDataset[] =
+{
+	XMVSF_A_Wolverine_PALETTES,
+	XMVSF_A_Cyclops_PALETTES,
+	XMVSF_A_Storm_PALETTES,
+	XMVSF_A_Rogue_PALETTES,
+	XMVSF_A_Gambit_PALETTES,
+	XMVSF_A_Sabretooth_PALETTES,
+	XMVSF_A_Juggernaut_PALETTES,
+	XMVSF_A_Magneto_PALETTES,
+	XMVSF_A_Apocalypse_PALETTES,
+	XMVSF_A_Ryu_PALETTES,
+	XMVSF_A_Ken_PALETTES,
+	XMVSF_A_ChunLi_PALETTES,
+	XMVSF_A_Dhalsim_PALETTES,
+	XMVSF_A_Zangief_PALETTES,
+	XMVSF_A_MBison_PALETTES,
+	XMVSF_A_Gouki_PALETTES,
+	XMVSF_A_Charlie_PALETTES,
+	XMVSF_A_Cammy_PALETTES,
+	XMVSF_A_ChunLiSFA_PALETTES
+};
 
 CGame_XMVSF_A::CGame_XMVSF_A(void)
-:
-nCurrPalSz(0),
-nCurrPalOffs(0)
 {
 	//We need the proper unit amt before we init the main buffer
 	nUnitAmt = XMVSF_A_NUMUNIT;
@@ -29,9 +47,6 @@ nCurrPalOffs(0)
 	
 	nDisplayW = 8;
 	nFileAmt = 1;
-
-	//Prepare the file list
-	//PrepUnitFile();
 
 	//Set the image out display type
 	DisplayType = DISP_DEF;
@@ -71,8 +86,6 @@ CDescTree * CGame_XMVSF_A::GetMainTree()
 
 CDescTree CGame_XMVSF_A::InitDescTree()
 {
-	
-
 	sDescTreeNode * NewDescTree = new sDescTreeNode;
 
 	sDescTreeNode * UnitNode;
@@ -88,15 +101,14 @@ CDescTree CGame_XMVSF_A::InitDescTree()
 	//Go through each character
 	for(int iUnitCtr = 0; iUnitCtr < XMVSF_A_NUMUNIT; iUnitCtr++)
 	{
-
 		UnitNode = &((sDescTreeNode *)NewDescTree->ChildNodes)[iUnitCtr];
-		//Set each description
+		//Set each character name
 		sprintf(UnitNode->szDesc, "%s", XMVSF_A_UNITDESC[iUnitCtr]);
 
-		//XMVSF uses only 2 colors, but sorted in an unknown order. Adding in 1 category
+		//XMVSF uses only 2 colors, but sorted in an unknown order. Lump into one category, Palettes.
 		UnitNode->ChildNodes = new sDescTreeNode[1];	
 
-		//All children have button tree's
+		//All children have button trees
 		UnitNode->uChildType = DESC_NODETYPE_TREE;
 		UnitNode->uChildAmt = 1;
 
@@ -104,9 +116,7 @@ CDescTree CGame_XMVSF_A::InitDescTree()
 
 		for(int iButtonCtr = 0; iButtonCtr < 1; iButtonCtr++)
 		{
-
 			 // 1 for each button for now
-
 			ButtonNode = &((sDescTreeNode *)UnitNode->ChildNodes)[iButtonCtr];
 
 			//Set each button data
@@ -120,26 +130,15 @@ CDescTree CGame_XMVSF_A::InitDescTree()
 
 			//Set each button's node
 			///////////////////////////////////////////////////////////////////////
-
 			for(int nChildCtr = 0; nChildCtr < nCurrChildAmt; nChildCtr++)
 			{
 				ChildNode = &((sDescNode *)ButtonNode->ChildNodes)[nChildCtr]; 
 
-				if(!(nChildCtr >= nCurrChildAmt - 1))
-				{
-
-					sprintf(ChildNode->szDesc, "Palette (%02X)", nChildCtr);
-
-				}
-				else
-				{
-					sprintf(ChildNode->szDesc, "Portrait (%02X)", nChildCtr - nCurrChildAmt + 1);
-				}
+				sprintf(ChildNode->szDesc, (xmvsfDataset[iUnitCtr])[nChildCtr].szPaletteName);
 
 				ChildNode->uUnitId = iUnitCtr;
 				ChildNode->uPalId = (iButtonCtr * nCurrChildAmt) + nChildCtr;
 			}
-
 		}
 	}
 
@@ -165,6 +164,10 @@ int CGame_XMVSF_A::GetBasicAmt(int nUnitId)
 
 int CGame_XMVSF_A::GetPalCt(int nUnitId)
 {
+	// Return all palettes within the region from this character to the start of the next character
+	// plus one for portrait
+
+	//BUGBUG: This is out of sync with the transition to sXMVSF_PaletteDataset.
 	return ((XMVSF_A_UNITLOC[nUnitId + 1] - XMVSF_A_UNITLOC[nUnitId]) / 0x20) + 1; //1 = Portrait 
 }
 
@@ -180,11 +183,9 @@ void CGame_XMVSF_A::ClearDataBuffer()
 	{
 		for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 		{
-			
 			if(pppDataBuffer[nUnitCtr])
 			{
 				int nPalAmt = GetPalCt(nUnitCtr);
-
 
 				for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 				{
@@ -196,7 +197,6 @@ void CGame_XMVSF_A::ClearDataBuffer()
 
 				delete [] pppDataBuffer[nUnitCtr];
 			}
-			
 		}
 
 		delete [] pppDataBuffer;
@@ -229,7 +229,7 @@ BOOL CGame_XMVSF_A::LoadFile(CFile * LoadedFile, int nUnitId)
 
 		pppDataBuffer[nUnitCtr] = new UINT16 *[nPalAmt];
 
-		rgUnitRedir[nUnitCtr] = nUnitCtr; //Fix later for unit sort
+		rgUnitRedir[nUnitCtr] = XMVSF_A_UNITSORT[nUnitCtr];
 
 		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 		{
@@ -240,7 +240,6 @@ BOOL CGame_XMVSF_A::LoadFile(CFile * LoadedFile, int nUnitId)
 			LoadedFile->Seek(nCurrPalOffs, CFile::begin);
 			
 			LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
-			
 		}
 	}
 
@@ -251,11 +250,8 @@ BOOL CGame_XMVSF_A::LoadFile(CFile * LoadedFile, int nUnitId)
 
 BOOL CGame_XMVSF_A::SaveFile(CFile * SaveFile, int nUnitId)
 {
-	
-
 	for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 	{
-		
 		int nPalAmt = GetPalCt(nUnitId);
 
 		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -265,7 +261,6 @@ BOOL CGame_XMVSF_A::SaveFile(CFile * SaveFile, int nUnitId)
 			SaveFile->Seek(nCurrPalOffs, CFile::begin);
 			
 			SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
-			
 		}
 	}
 
@@ -295,7 +290,6 @@ void CGame_XMVSF_A::CreateDefPal(sDescNode * srcNode, int nSepId)
 	}
 }
 
-
 BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
 	//Reset palette sources
@@ -309,8 +303,6 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	UINT8 uUnitId;
 	UINT16 uPalId;
 
-	
-
 	sDescNode * NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
 	if(NodeGet == NULL)
@@ -321,9 +313,8 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	uUnitId = NodeGet->uUnitId;
 	uPalId = NodeGet->uPalId;
 
-	//Change the image id if we need to
-	nTargetImgId = 0;
-	int nImgUnitId = XMVSF_A_IMGREDIR[uUnitId];
+	const int nImgUnitId = (xmvsfDataset[uUnitId])[uPalId].indexImgToUse;
+	const int nTargetImgId = (xmvsfDataset[uUnitId])[uPalId].indexOffsetToUse;
 
 	int nSrcStart = 0;
 	int nSrcAmt = GetBasicAmt(uUnitId);
@@ -353,7 +344,6 @@ COLORREF * CGame_XMVSF_A::CreatePal(int nUnitId, int nPalId)
 		
 		//16 = Size of portrait image
 		//15 = Unused index
-
 		CreateHybridPal(nCurrPalSz, 16, pppDataBuffer[nUnitId][nPalId], 15, &NewPal, &nHybridSz);	
 	}
 	else
@@ -368,7 +358,6 @@ COLORREF * CGame_XMVSF_A::CreatePal(int nUnitId, int nPalId)
 		}
 
 		NewPal[0] = 0xFF000000;
-
 	}
 
 	return NewPal;

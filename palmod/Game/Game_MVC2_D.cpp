@@ -132,17 +132,17 @@ CDescTree CGame_MVC2_D::InitDescTree()
 			}
 
 			//Set each button's extra nodes
-			for(int nButtonExtra = 0; nButtonExtra < 8; nButtonExtra++)
+			for (int nButtonExtra = 0; nButtonExtra < 8; nButtonExtra++)
 			{
 				bSetInfo = FALSE;
 				ChildNode = &((sDescNode *)ButtonNode->ChildNodes)[nExtraPos];
 
-				if(nButtonExtra == 0)
+				if (nButtonExtra == 0)
 				{
 					sprintf(ChildNode->szDesc, "%s Main", DEF_BUTTONLABEL6ALT[iButtonCtr]);
 					bSetInfo = TRUE;
 				}
-				else if(!nBasicStart || 1)//MVC2_D_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
+				else if (!nBasicStart || 1)//MVC2_D_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
 				{
 					sprintf(ChildNode->szDesc, "%02X %s (Extra - %02X)", nExtraPos, DEF_BUTTONLABEL6ALT[iButtonCtr],
 						(iButtonCtr * 8) + nExtraPos + 1);

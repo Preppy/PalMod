@@ -6,19 +6,11 @@
 class CGame_XMVSF_A : public CGameClass
 {
 private:
-
-	//Used for image selection
-	int nTargetImgId;
-	int nNormalPalAmt;
-
 	//Used for GetPalOffset
-
-	int nCurrPalOffs;
-	int nCurrPalSz;
+	int nCurrPalOffs = 0;
+	int nCurrPalSz = 0;
 
 	UINT16 ***pppDataBuffer;
-
-
 
 	void GetPalOffsSz(int nUnitId, int nPalId);
 
@@ -32,9 +24,7 @@ public:
 	//Static functions / variables
 	static CDescTree MainDescTree;
 
-//	static CDescTree * GetMainTree();
 	static CDescTree InitDescTree();
-	//static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
 	static sFileRule GetRule(int nUnitId);
 
 	//Extra palette function
@@ -59,6 +49,4 @@ public:
 	void PrepUnitFile(){if(!bFileChanged){ bFileChanged = new UINT8;}};
 
 	int GetLocalAmt(int nUnitId){return (XMVSF_A_UNITLOC[nUnitId + 1] - XMVSF_A_UNITLOC[nUnitId]) / 0x20;};
-
-
 };

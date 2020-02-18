@@ -677,3 +677,7 @@ void supp_copy_index(UINT16 char_id, UINT16 src_pal, UINT16 dst_pal, UINT8 dst_i
 void supp_mod_white(UINT16 char_id, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc);
 void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc);
 
+const UINT8 c_tintDefault = 10;
+void supp_mod_tint(UINT16 char_id, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc, UINT8 tint_factor);
+
+

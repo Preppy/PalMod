@@ -5,15 +5,12 @@
 class CGame_SFA3_A : public CGameClass
 {
 private:
-
 	//Used for image selection
-	int nTargetImgId;
-	int nNormalPalAmt;
+	int nTargetImgId = 0;
 
 	//Used for GetPalOffset
-
-	int nCurrPalOffs;
-	int nCurrPalSz;
+	int nCurrPalOffs = 0;
+	int nCurrPalSz = 0;
 
 	UINT16 ***pppDataBuffer;
 
