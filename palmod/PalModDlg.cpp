@@ -39,8 +39,6 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 END_MESSAGE_MAP()
 
-// CPalModDlg dialog
-
 static UINT BASED_CODE indicators [] = 
 {
 	ID_INDICATOR_MAIN,
@@ -49,11 +47,13 @@ static UINT BASED_CODE indicators [] =
 
 CString szPasteStr = _T("");
 
+// CPalModDlg dialog
 CPalModDlg::CPalModDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CPalModDlg::IDD, pParent)
 	, MainPalGroup(NULL)
 	, ImgDispCtrl(NULL)
 	, ImgFile(NULL)
+	, CurrPalCtrl(nullptr)
 	, CurrPalDef(NULL)
 	, CurrPalSep(NULL)
 	, pTempPalCopy(NULL)
@@ -83,6 +83,7 @@ void CPalModDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_ADESC, m_EditADesc);
 }
 
+// CPalModDlg message handlers
 BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
@@ -154,9 +155,6 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
 	ON_WM_GETMINMAXINFO()
 	ON_COMMAND(ID_LDSFIII3DCALL, &CPalModDlg::OnLdsfiii3dcall)
 END_MESSAGE_MAP()
-
-
-// CPalModDlg message handlers
 
 BOOL CPalModDlg::OnInitDialog()
 {
@@ -502,8 +500,6 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 		}
 		break;
 	default:
-		{
-		}
 		break;
 	}
 

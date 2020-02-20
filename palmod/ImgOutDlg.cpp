@@ -4,26 +4,17 @@
 #include "stdafx.h"
 #include "PalMod.h"
 #include "ImgOutDlg.h"
-#include ".\imgoutdlg.h"
 #include "atlimage.h"
 #include "gdiplus.h"
 #include "RegProc.h"
 
 using namespace Gdiplus;
 
-
 // CImgOutDlg dialog
 
 IMPLEMENT_DYNAMIC(CImgOutDlg, CDialog)
 CImgOutDlg::CImgOutDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CImgOutDlg::IDD, pParent)
-	, border_sz(0)
-	, outline_sz(0)
-	, m_amt(0)
-	, m_pal(0)
-	, m_zoom(0)
-	, bCanSize(FALSE)
-	, bDlgInit(FALSE)
 {
 }
 
@@ -67,10 +58,14 @@ BOOL CImgOutDlg::OnInitDialog( )
 
 	nPalAmt = m_DumpBmp.nPalAmt;
 	
-	switch(nPalAmt)
+	m_CB_Amt.AddString("1");
+
+	switch (nPalAmt)
 	{
 	case 1:
+	default:
 		{
+			// By default, we export out only the one sprite
 			m_CB_Amt.EnableWindow(FALSE);
 
 			//FillPalCombo();
@@ -81,12 +76,10 @@ BOOL CImgOutDlg::OnInitDialog( )
 	case 6:
 	case 7:
 		{
-			//Fill amt combo
-			m_CB_Amt.AddString("1");
+			// Allow the user to export either the solitary sprite or to export
+			// the entire sprite set.
 			m_CB_Amt.AddString("6");
-
 			nPalAmt == 7 ? m_CB_Amt.AddString("7") : NULL;
-
 			break;
 		}
 	}
@@ -185,7 +178,6 @@ BEGIN_MESSAGE_MAP(CImgOutDlg, CDialog)
 	ON_WM_INITMENUPOPUP()
 END_MESSAGE_MAP()
 
-
 // CImgOutDlg message handlers
 
 void CImgOutDlg::OnShowWindow(BOOL bShow, UINT nStatus)
@@ -208,7 +200,7 @@ void CImgOutDlg::UpdImgVar(BOOL bResize)
 
 	double fpTargetZoom;
 
-	if(m_zoom == 15)
+	if (m_zoom == 15)
 	{
 		fpTargetZoom = 4.0;
 	}
@@ -218,15 +210,17 @@ void CImgOutDlg::UpdImgVar(BOOL bResize)
 		fpTargetZoom += (0.2 * ((m_zoom)%5));
 	}
 
-	m_DumpBmp.zoom = fpTargetZoom;
+	m_DumpBmp.zoom = (float)fpTargetZoom;
 	m_DumpBmp.outline_sz = outline_sz;
 	m_DumpBmp.border_sz = border_sz;
 
 	m_DumpBmp.GetOutputW();
 	m_DumpBmp.GetOutputH();
 
-	if(bResize)
+	if (bResize)
+	{
 		m_DumpBmp.ResizeMainBmp();
+	}
 
 	UpdateData(FALSE);
 
@@ -265,6 +259,7 @@ void CImgOutDlg::FillPalCombo()
 	switch(nPalAmt)
 	{
 	case 1:
+	default:
 		{
 			m_CB_Pal.AddString("Selected");
 			break;
@@ -282,8 +277,6 @@ void CImgOutDlg::FillPalCombo()
 	}
 
 	m_CB_Pal.SetCurSel(0);
-
-	//m_CB_Pal.AddString("Current");
 }
 
 void CImgOutDlg::OnCbnSelchangePal()
@@ -316,7 +309,6 @@ void CImgOutDlg::OnEnChangeSpcsz()
 void CImgOutDlg::OnDeltaposBdrspn(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
-	// TODO: Add your control notification handler code here
 
 	m_BdrSpn.SetPos(pNMUpDown->iPos);
 	
@@ -327,17 +319,13 @@ void CImgOutDlg::OnDeltaposBdrspn(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CImgOutDlg::OnSettingsSetbackgroundcolor32847()
 {
-	// TODO: Add your command handler code here
-
 	CColorDialog c_dlg(m_DumpBmp.crBGCol);
-	
 	
 	if(c_dlg.DoModal() == IDOK)
 	{
 		m_DumpBmp.SetBG(c_dlg.GetColor());
 		UpdateImg();
 	}
-
 }
 
 void CImgOutDlg::LoadSett()
@@ -414,27 +402,20 @@ void CImgOutDlg::OnFileSave()
 		"PNG Image (*.png)|*.png|GIF Image (*.gif)|*.GIF|BMP Image (*.bmp)|*.BMP|JPEG Image (*.jpg)|*.jpg||"
 		);
 
-
 	if(sfd.DoModal() == IDOK)
 	{
 		int output_width = m_DumpBmp.GetOutputW();
 		int output_height = m_DumpBmp.GetOutputH();
 
-		CString save_str;
-		CString output_str;
-		CString output_ext;
+		CString output_ext = ".png";
+		GUID img_format = ImageFormatPNG;
 
-		CImage out_img;
-		GUID img_format;
-
-		
 		switch(sfd.GetOFN().nFilterIndex)
 		{
 		case 1:
 			{
 				img_format = ImageFormatPNG;
 				output_ext = ".png";
-
 				break;
 			}
 		case 2:
@@ -455,15 +436,9 @@ void CImgOutDlg::OnFileSave()
 				output_ext = ".jpg";
 				break;
 			}
-
 		}
 
-		
-		
-
-		
-
-
+		CImage out_img;
 		out_img.Create( output_width, output_height, 32, CImage::createAlphaChannel * bTransPNG * (sfd.GetOFN().nFilterIndex == 1) );
 
 		void * pPixelPos = out_img.GetPixelAddress(0, (output_height - 1));
@@ -483,6 +458,9 @@ void CImgOutDlg::OnFileSave()
 		
 		OPENFILENAME sfd_ofn = sfd.GetOFN();
 
+		CString save_str;
+		CString output_str;
+
 		save_str = sfd_ofn.lpstrFile;
 
 		if(save_str.Find(output_ext) == save_str.GetLength() - 4)
@@ -490,7 +468,9 @@ void CImgOutDlg::OnFileSave()
 			output_str = save_str;
 		}
 		else
+		{
 			output_str.Format("%s%s", sfd_ofn.lpstrFile, output_ext);
+		}
 		
 		out_img.Save(output_str, img_format);
 
@@ -513,6 +493,7 @@ void CImgOutDlg::OnClose()
 
 	CDialog::OnClose();
 }
+
 void CImgOutDlg::OnEnChangeEditBdrsz()
 {
 	// TODO:  If this is a RICHEDIT control, the control will not
@@ -524,8 +505,10 @@ void CImgOutDlg::OnEnChangeEditBdrsz()
 
 	static BOOL bFirstSet = TRUE;
 
-	if(bFirstSet)
-		bFirstSet=FALSE;
+	if (bFirstSet)
+	{
+		bFirstSet = FALSE;
+	}
 	else
 	{
 		UpdateData();
@@ -533,14 +516,10 @@ void CImgOutDlg::OnEnChangeEditBdrsz()
 		UpdateData(FALSE);
 		UpdateImg();
 	}
-
-	
 }
 
 BOOL CImgOutDlg::PreTranslateMessage(MSG* pMsg)
 {
-	// TODO: Add your specialized code here and/or call the base class
-
 	if (m_hAccelTable) 
 	{
 		if (::TranslateAccelerator(GetSafeHwnd(), m_hAccelTable, pMsg)) 
@@ -549,20 +528,19 @@ BOOL CImgOutDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 
-	if(pMsg->message == WM_KEYDOWN)
+	if (pMsg->message == WM_KEYDOWN)
 	{
-		if(pMsg->wParam==VK_RETURN || pMsg->wParam==VK_ESCAPE)
-			pMsg->wParam=NULL ;
-
+		if (pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
+		{
+			pMsg->wParam = NULL;
+		}
 	}
 
-	
 	return CDialog::PreTranslateMessage(pMsg);
 }
+
 void CImgOutDlg::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
 {
-	// TODO: Add your message handler code here and/or call default
-
 	if(bDlgInit)
 	{
 		RECT rDummy;
@@ -586,7 +564,7 @@ void CImgOutDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 
 	CMenu * SettMenu = GetMenu()->GetSubMenu(1); //1 == Settings Menu
 
-	if( pPopupMenu == SettMenu )
+	if (pPopupMenu == SettMenu)
 	{
 		pPopupMenu->CheckMenuItem( ID_SETTINGS_USETRANSPARENTPNG, MF_CHECKED * bTransPNG );
 	}

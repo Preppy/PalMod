@@ -147,7 +147,7 @@ public:
 	int GetBGYOffs(){return nBGYOffs;};
 
 	sImgNode ** GetImgBuffer(){return pImgBuffer;};
-	CRect GetImgRct(){return rImgRct;};
+	CRect GetImgRct(){return rImgRct;}; // currently unused: commented out in imgdumpbmp.cpp
 
 	void UpdateImgPalette(int nIndex, COLORREF * pPalette, int nPalSz);
 

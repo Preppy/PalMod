@@ -96,8 +96,12 @@ UINT8 * CImgDat::GetImgData(sImgDef * pCurrImg)
 	if (pCurrImg->pImgData)
 	{
 		CString strDebugInfo;
-		strDebugInfo.Format("CimgData::GetImgData : Image at position '0x%x' is already loaded.\n", pCurrImg->uThisImgLoc);
+		strDebugInfo.Format("CImgData::GetImgData : Image at position '0x%x' is already loaded.\n", pCurrImg->uThisImgLoc);
 		OutputDebugString(strDebugInfo);
+
+		strDebugInfo.Format(" W: 0x%x, H: 0x%x, compressed: %u , size 0x%x, offset 0x%x to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
+		OutputDebugString(strDebugInfo);
+
 		return pCurrImg->pImgData;
 	}
 

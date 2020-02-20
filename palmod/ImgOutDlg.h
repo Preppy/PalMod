@@ -18,14 +18,11 @@ public:
 	enum { IDD = IDD_IMGDDLG };
 
 //Img Data
-	
-
 	CImgDumpBmp m_DumpBmp;
 
-	int img_amt;
+	int img_amt = 0;
 
-	RECT rct_dummy;
-
+	RECT rct_dummy = {};
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -34,28 +31,29 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 
-	BOOL bDlgInit;
+	BOOL bDlgInit = FALSE;
 
 	CComboBox m_CB_Amt;
 	CComboBox m_CB_Pal;
 	CComboBox m_CB_Zoom;
 
-	BOOL bCanSize;
+	BOOL bCanSize = FALSE;
 
-	BOOL bTransPNG;
+	BOOL bTransPNG = FALSE;
 
 	CHAR * pButtonLabel;
 
-	int nPalAmt;
+	int nPalAmt = 0;
 
-	int m_amt;
-	int m_pal;
-	int m_zoom;
-	int border_sz;
-	int outline_sz;
+	// BUGBUG: m_amt seems wholly unused
+	int m_amt = 0;
+	int m_pal = 0;
+	int m_zoom = 0;
+	int border_sz = 0;
+	int outline_sz = 0;
 
-	int nZoomMin;
-	int nZoomMax;
+	int nZoomMin = 0;
+	int nZoomMax = 0;
 
 	void UpdImgVar(BOOL bResize = TRUE);
 	void FillPalCombo();

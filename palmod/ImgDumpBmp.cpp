@@ -10,11 +10,11 @@
 
 IMPLEMENT_DYNAMIC(CImgDumpBmp, CWnd)
 CImgDumpBmp::CImgDumpBmp()
-		:CanSizeScroll(FALSE)
-		,LButtonDown(FALSE)
-		,VScroll_Enabled(FALSE)
-		,HScroll_Enabled(FALSE)
-		,nPalIndex(0)
+		: CanSizeScroll(FALSE)
+		, LButtonDown(FALSE)
+		, VScroll_Enabled(FALSE)
+		, HScroll_Enabled(FALSE)
+		, nPalIndex(0)
 {
 	RegisterWndClass();
 
@@ -75,7 +75,6 @@ BOOL CImgDumpBmp::RegisterWndClass()
 
 void CImgDumpBmp::InitImgData()
 {
-
 	rgSrcImg = pMainImgCtrl->GetImgBuffer();
 	img_amt = pMainImgCtrl->GetImgAmt();
 	//rImgRct = pMainImgCtrl->GetImgRct();
@@ -123,9 +122,6 @@ void CImgDumpBmp::InitImgData()
 	GetOutputH();
 
 	ResizeMainBmp();
-	
-
-	
 }
 
 
@@ -153,10 +149,14 @@ int CImgDumpBmp::ScrollBounds(int in_val, BOOL horiz)
 	int max = horiz ? clip_right : clip_bottom;
 
 	if (in_val < min)
+	{
 		return min;
+	}
 
 	if (in_val > max)
+	{
 		return max;
+	}
 
 	return in_val;
 }
@@ -198,8 +198,10 @@ void CImgDumpBmp::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
 	curr_pos = ScrollBounds(curr_pos, FALSE);
 
-	if(curr_pos != old_pos)
+	if (curr_pos != old_pos)
+	{
 		m_VScroll.SetScrollPos(curr_pos);
+	}
 
 	UpdateBltRect();
 	UpdateCtrl();
@@ -244,8 +246,10 @@ void CImgDumpBmp::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
 	curr_pos = ScrollBounds(curr_pos, TRUE);
 
-	if(curr_pos != old_pos)
+	if (curr_pos != old_pos)
+	{
 		m_HScroll.SetScrollPos(curr_pos);
+	}
 
 	UpdateBltRect();
 	UpdateCtrl();
@@ -262,7 +266,6 @@ void CImgDumpBmp::UpdateBltRect(BOOL reset_flag)
 	//main_blt.bottom = cl_height + scroll_h;
 
 	main_blt.left = 0 + (scroll_w * reset_flag);
-
 
 	if(!reset_flag)
 	{
@@ -300,18 +303,12 @@ void CImgDumpBmp::OnMouseMove(UINT nFlags, CPoint point)
 {
 	CWnd::OnMouseMove(nFlags, point);
 
-	
-
 	if(LButtonDown)
 	{
 		POINT diff;
 
-		
-
 		diff.x = point.x - old_pt.x;
 		diff.y = point.y - old_pt.y;
-
-		
 
 		if(diff.x || diff.y)
 		{
@@ -321,11 +318,15 @@ void CImgDumpBmp::OnMouseMove(UINT nFlags, CPoint point)
 			hscroll_pos -= diff.x;
 			vscroll_pos -= diff.y;
 
-			if(HScroll_Enabled)
+			if (HScroll_Enabled)
+			{
 				m_HScroll.SetScrollPos(hscroll_pos);
+			}
 			
-			if(VScroll_Enabled)
+			if (VScroll_Enabled)
+			{
 				m_VScroll.SetScrollPos(vscroll_pos);
+			}
 
 			UpdateBltRect();
 
@@ -334,7 +335,6 @@ void CImgDumpBmp::OnMouseMove(UINT nFlags, CPoint point)
 			Draw();
 			//UpdateCtrl();
 		}
-
 	}
 }
 
@@ -371,7 +371,6 @@ void CImgDumpBmp::OnPaint()
 		//Get the control size
 		SetClientSize();
 
-
 		SetBG(crBGCol);
 
 		//Create the scroll bars. Why are they here???????????????????
@@ -398,22 +397,16 @@ void CImgDumpBmp::OnPaint()
 	
 	Draw();
 
-	
 	CWnd::OnPaint();
-	
-	
 }
 
 BOOL CImgDumpBmp::OnEraseBkgnd(CDC* pDC)
 {
-
 	return TRUE;//CWnd::OnEraseBkgnd(pDC);
 }
 
-
 void CImgDumpBmp::SizeScroll(BOOL resize)
 {
-
 	v_rect.top = ctrl_rect.top; v_rect.bottom = cl_height;
 	v_rect.left = cl_width; v_rect.right = ctrl_rect.right;
 
@@ -425,14 +418,12 @@ void CImgDumpBmp::SizeScroll(BOOL resize)
 		m_HScroll.MoveWindow(&h_rect);
 		m_VScroll.MoveWindow(&v_rect);
 	}
-
 }
 
 /*
 void CImgDumpBmp::DrawSource()
 {
 	POINT out_pt;
-
 
 	SrcDC.Rectangle(0, 0, blt_w * nPalAmt, blt_h);
 
@@ -452,7 +443,6 @@ void CImgDumpBmp::DrawSource()
 	case DISP_DEF:	
 		add_amt = 1;
 		break;
-		
 	}
 
 	for(int img_ctr = 0; img_ctr < img_amt; img_ctr++)
@@ -466,9 +456,6 @@ void CImgDumpBmp::DrawSource()
 
 		for(int amt_ctr = 0; amt_ctr < (nPalAmt) ; amt_ctr+=add_amt)
 		{
-			
-			
-
 			for(int index = 0; index < nCurrPalSz; index++)
 			{
 				COLORREF crCol = pppPalettes[img_ctr][amt_ctr][index];
@@ -483,7 +470,6 @@ void CImgDumpBmp::DrawSource()
 				}
 			}
 
-
 			if(DispType == DISP_ALT)
 			{
 				if(add_amt == 2)
@@ -496,15 +482,13 @@ void CImgDumpBmp::DrawSource()
 				}
 			}
 
-			
-
 			img_index++;
 
 		}
 	}
 }
-
 */
+
 void CImgDumpBmp::SetBG(COLORREF new_crBGCol)
 {
 	crBGCol = new_crBGCol;
@@ -540,28 +524,29 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8 * pDstData)
 	
 	UINT8 * pMainData;
 
-	if(pDstData)
+	if (pDstData)
 	{
 		pMainData = (UINT8 *)pMainBmpData;
 		pMainBmpData = (UINT32 *)pDstData;
 	}
 
-	for(int i = 0; i < amt; i++)
+	for (int i = 0; i < amt; i++)
 	{
 		nPal = amt > 1 ? i : nPalIndex;
 
-		if(DispType == DISP_DEF)
+		if (DispType == DISP_DEF)
 		{
-			if( i >= 3)
+			if (i >= 3)
 			{
 				row_ctr = 1;
 			}
 
 			nTargetX = (i - (row_ctr * 3)) ;
 		}
-		if(DispType == DISP_ALT)
+
+		if (DispType == DISP_ALT)
 		{
-			if(i % 2)
+			if (i % 2)
 			{
 				row_ctr = 1;
 			}
@@ -575,7 +560,7 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8 * pDstData)
 
 		//pMainBmpData[0] = 0x00FFFFFF;
 
-		for(int nImgCtr = 0; nImgCtr < img_amt; nImgCtr++)
+		for (int nImgCtr = 0; nImgCtr < img_amt; nImgCtr++)
 		{
 			nXOffs = rgSrcImg[nImgCtr]->nXOffs;
 			nYOffs = rgSrcImg[nImgCtr]->nYOffs;
@@ -599,6 +584,7 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8 * pDstData)
 	{
 		pMainBmpData = (UINT32 *)pMainData;
 	}
+
 	bDraw ? Draw(): NULL;
 	UpdateClip();
 }
@@ -657,7 +643,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
 	if(bTransBG)
 	{
-		double fpAdd = 0.0f;
+		double fpAdd = 0.0;
 
 		for(int y = 0; y < (nBltH); y++)
 		{
@@ -675,7 +661,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
 				if(uIndex)
 				{
-					fpAdd = ((double) pCurrPal[(uIndex * 4) + 3] / 255.0f);
+					fpAdd = ((double) pCurrPal[(uIndex * 4) + 3] / 255.0);
 
 					nDstPos = nStartRow + x;
 
@@ -686,8 +672,6 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 					pDstBmpData[nDstPos] = pDstBmpData[nDstPos] ? pDstBmpData[nDstPos] + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd) : pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2];
 				}
 			}
-			
-
 		}
 	}
 	else
@@ -702,9 +686,8 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 			nStartRow = (rBltRct.top + (((nBltH - 1) - y))) * (nMainW*4) + (rBltRct.left*4);
 			nSrcStartRow = ((nYCtr + nSrcY) * nWidth) + nSrcX;
 
-			for(int x = 0; x < nBltW*4; x+=4)
+			for (int x = 0; x < nBltW * 4; x+=4)
 			{
-				
 				nXCtr = (int)((double)x * fpXDiff);
 
 				uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
@@ -713,27 +696,22 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 				{
 					nDstPos = nStartRow + x;
 
-					fpDstA2 = (1.0f - (pCurrPal[(uIndex * 4) + 3]) / 255.0f);
-					fpDstA1 = 1.0f - fpDstA2;
+					fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
+					fpDstA1 = 1.0 - fpDstA2;
 
 					uDstR = &pDstBmpData[nDstPos + 2];
 					uDstG = &pDstBmpData[nDstPos + 1];
 					uDstB = &pDstBmpData[nDstPos];
 
-					
 					*uDstR = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4)]), (fpDstA2 * (double)*uDstR));
 					*uDstG = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 1]),  (fpDstA2 * (double)*uDstG));
 					*uDstB = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 2]), (fpDstA2 * (double)*uDstB));
 				}
 			}
-			
-
 		}
 	}
 
 	return TRUE;
-
-
 }
 
 void CImgDumpBmp::Draw()
@@ -766,12 +744,11 @@ void CImgDumpBmp::CleanUp()
 
 	DeleteObject(MainHBmp);
 	//Clean main image data
-	
 }
 
 int CImgDumpBmp::GetOutputW()
 {
-	int w_mul;
+	int w_mul = 0;
 
 	switch(amt)
 	{
@@ -806,13 +783,8 @@ int CImgDumpBmp::GetOutputH()
 
 void CImgDumpBmp::OnTimer(UINT nIDEvent)
 {
-	// TODO: Add your message handler code here and/or call default
-
-	//CPoint mouse_pos;
-
 	CWnd::OnTimer(nIDEvent);
 }
-
 
 void CImgDumpBmp::ResizeMainBmp()
 {

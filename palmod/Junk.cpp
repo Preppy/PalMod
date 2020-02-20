@@ -147,7 +147,7 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF * rgNewPal)
 
 void CJunk::CleanUp()
 {
-	//Remove Selected, SelView and Highligted
+	//Remove Selected, SelView and Highlighted
 
 	if(Selected)
 	{

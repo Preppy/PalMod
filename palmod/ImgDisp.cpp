@@ -510,15 +510,9 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int x, int y, int bAltPal)
 	int nBltW, nBltH;
 	int nSrcX = 0, nSrcY = 0;
 
-	UINT8 uIndex;
-
 	UINT8 * pCurrPal = (UINT8 *)(bAltPal ? pImgBuffer[nSrcIndex]->pAltPal : pImgBuffer[nSrcIndex]->pPalette);
 	UINT8 * pImgData = (UINT8 *)pImgBuffer[nSrcIndex]->pImgData;
 	UINT8 * pDstBmpData = (UINT8 *)pBmpData;
-
-	int nStartRow;
-	int nSrcStartRow;
-	int nDstPos;
 
 	double fpDstA1, fpDstA2;
 
@@ -555,26 +549,26 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int x, int y, int bAltPal)
 
 	for(int y = 0; y < nBltH; y++)
 	{
-		nStartRow = (rBltRct.top + ((nBltH - 1) - y)) * (MAIN_W*4) + (rBltRct.left*4);
-		nSrcStartRow = ((y + nSrcY) * nWidth) + nSrcX;
+		int nStartRow = (rBltRct.top + ((nBltH - 1) - y)) * (MAIN_W*4) + (rBltRct.left*4);
+		int nSrcStartRow = ((y + nSrcY) * nWidth) + nSrcX;
 
 		for(int x = 0; x < nBltW*4; x+=4)
 		{
-			uIndex = pImgData[nSrcStartRow + (x / 4)];
+			UINT8 uIndex = pImgData[nSrcStartRow + (x / 4)];
 
 			if(uIndex)
 			{
-				nDstPos = nStartRow + x;
+				int nDstPos = nStartRow + x;
 
-				fpDstA2 = (1.0f - (pCurrPal[(uIndex * 4) + 3]) / 255.0f);
-				fpDstA1 = 1.0f - fpDstA2;
+				fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
+				fpDstA1 = 1.0 - fpDstA2;
 
 				uDstR = &pDstBmpData[nDstPos + 2];
 				uDstG = &pDstBmpData[nDstPos + 1];
 				uDstB = &pDstBmpData[nDstPos];
 				
 				*uDstR = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4)]), (fpDstA2 * (double)*uDstR));
-				*uDstG = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 1]),  (fpDstA2 * (double)*uDstG));
+				*uDstG = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 1]), (fpDstA2 * (double)*uDstG));
 				*uDstB = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 2]), (fpDstA2 * (double)*uDstB));
 			}
 		}

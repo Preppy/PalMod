@@ -589,19 +589,19 @@ void CGame_MVC2_D::PostSetPal(int nUnitId, int nPalId)
 
 void CGame_MVC2_D::ForEidrian(int nFlag, COLORREF crCol)
 {
-	int nPalAmt;
+	int nPalAmt = 1;
 	switch(nFlag)
 	{
-	case 0:
-		{
-			nPalAmt = 1;
-		}
-		break;
-	case 1:
-		{
-			nPalAmt = 16;
-		}
-		break;
+		case 0:
+			{
+				nPalAmt = 1;
+			}
+			break;
+		case 1:
+			{
+				nPalAmt = 16;
+			}
+			break;
 	}
 
 	for(int nUnitCtr = 0; nUnitCtr < MVC2_D_NUMUNIT; nUnitCtr++)
