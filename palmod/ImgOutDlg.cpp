@@ -16,6 +16,7 @@ IMPLEMENT_DYNAMIC(CImgOutDlg, CDialog)
 CImgOutDlg::CImgOutDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CImgOutDlg::IDD, pParent)
 {
+	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CImgOutDlg::~CImgOutDlg()
@@ -46,12 +47,16 @@ BOOL CImgOutDlg::OnInitDialog( )
 
 	//Set dialog data
 	pButtonLabel = CurrGame->GetButtonDesc();
+
 	//Set the image controls data
-	
 	m_DumpBmp.pMainImgCtrl = &GetHost()->GetPreviewDlg()->m_ImgDisp;
 	m_DumpBmp.pppPalettes = CurrGame->CreateImgOutPal();
 	m_DumpBmp.nPalAmt = CurrGame->GetImgOutPalAmt();
 	m_DumpBmp.DispType = CurrGame->GetImgDispType();
+
+	// Set the icon
+	SetIcon(m_hIcon, TRUE);			// Set big icon
+	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	CString tmp_str;
 	UpdateData();
@@ -133,7 +138,7 @@ BOOL CImgOutDlg::OnInitDialog( )
 
 	bCanSize = TRUE;
 
-	LoadSett();
+	LoadSettings();
 	UpdateData(FALSE);
 	
 	UpdImgVar(FALSE);
@@ -328,7 +333,7 @@ void CImgOutDlg::OnSettingsSetbackgroundcolor32847()
 	}
 }
 
-void CImgOutDlg::LoadSett()
+void CImgOutDlg::LoadSettings()
 {
 	CRegProc sett;
 
@@ -345,21 +350,21 @@ void CImgOutDlg::LoadSett()
 	
 	UpdateData(FALSE);
 
+	// This logic is turned off because it causes the imgdumpbmp code to redraw before the
+	// sprite is loaded, which results in all bad.
+	/*
 	RECT window_rect;
 
 	window_rect = sett.imgout_szpos;
 
-	// BUGBUG: ... why is this turned off?
-	/*
 	if(window_rect.top != c_badWindowPosValue)
 	{
 		MoveWindow(&window_rect);
 		ResizeBmp();
-	}
-	*/
+	} */
 }
 
-void CImgOutDlg::SaveSett()
+void CImgOutDlg::SaveSettings()
 {
 	CRegProc sett;
 	
@@ -379,7 +384,7 @@ void CImgOutDlg::SaveSett()
 
 void CImgOutDlg::ResizeBmp()
 {
-	if(bCanSize)
+	if (bCanSize)
 	{
 		RECT new_sz;
 		GetClientRect(&new_sz);
@@ -484,12 +489,11 @@ void CImgOutDlg::OnFileSave()
 		}
 
 	}
-	// TODO: Add your command handler code here
 }
 
 void CImgOutDlg::OnClose()
 {
-	SaveSett();
+	SaveSettings();
 
 	CDialog::OnClose();
 }

@@ -143,6 +143,11 @@ void CRegProc::LoadReg(int src)
 				if(RegQueryValueEx(hKey, "imgout_szpos", 0, &RegType, (BYTE *)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
 				{
 					imgout_szpos = StrToRect(conv_str);
+
+					if (MonitorFromRect(&imgout_szpos, MONITOR_DEFAULTTONULL) == nullptr)
+					{
+						imgout_szpos.top = c_badWindowPosValue;
+					}
 				}
 				else
 				{

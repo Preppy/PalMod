@@ -25,6 +25,8 @@ public:
 	RECT rct_dummy = {};
 
 protected:
+	HICON m_hIcon;
+
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 
@@ -77,8 +79,8 @@ public:
 
 	int re5(int re_val){return re_val%5;};
 
-	void LoadSett();
-	void SaveSett();
+	void LoadSettings();
+	void SaveSettings();
 
 	void ResizeBmp();
 	afx_msg void OnEnChangeEditBdrsz();

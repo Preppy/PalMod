@@ -10,16 +10,8 @@
 
 IMPLEMENT_DYNAMIC(CImgDumpBmp, CWnd)
 CImgDumpBmp::CImgDumpBmp()
-		: CanSizeScroll(FALSE)
-		, LButtonDown(FALSE)
-		, VScroll_Enabled(FALSE)
-		, HScroll_Enabled(FALSE)
-		, nPalIndex(0)
 {
 	RegisterWndClass();
-
-	FirstRun = TRUE;
-	PaintDC = NULL;
 
 	//Fix later
 	crBGCol = RGB(0, 0, 0);
@@ -83,7 +75,7 @@ void CImgDumpBmp::InitImgData()
 
 	rImgRct.SetRect(0, 0, 0, 0);
 
-	for(int nImgCtr = 0; nImgCtr < img_amt; nImgCtr++)
+	for (int nImgCtr = 0; nImgCtr < img_amt; nImgCtr++)
 	{
 		int nXOffs = rgSrcImg[nImgCtr]->nXOffs;
 		int nYOffs = rgSrcImg[nImgCtr]->nYOffs;
@@ -123,8 +115,6 @@ void CImgDumpBmp::InitImgData()
 
 	ResizeMainBmp();
 }
-
-
 
 void CImgDumpBmp::OnSize(UINT nType,int cx,int cy )
 {

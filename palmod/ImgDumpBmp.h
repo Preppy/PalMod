@@ -24,75 +24,74 @@ public:
 
 	BITMAPINFO MainBmpi; 
 	HBITMAP MainHBmp;
-	UINT32 * pMainBmpData;
+	UINT32 * pMainBmpData = nullptr;
 
 	//Main preview image control
-	CImgDisp * pMainImgCtrl;
-	sImgNode ** rgSrcImg;
+	CImgDisp * pMainImgCtrl = nullptr;
+	sImgNode ** rgSrcImg = nullptr;
 
-	BOOL LButtonDown;
+	BOOL LButtonDown = FALSE;
 
-	BOOL HScroll_Enabled;
-	BOOL VScroll_Enabled;
+	BOOL HScroll_Enabled = FALSE;
+	BOOL VScroll_Enabled = FALSE;
 
-	BOOL FirstRun;
-	BOOL CanSizeScroll;
+	BOOL FirstRun = TRUE;
+	BOOL CanSizeScroll = FALSE;
 
 	POINT ptOffs[MAX_IMG];
-	CRect rImgRct;
+	CRect rImgRct = {};
 
-	CPaintDC *PaintDC;
+	CPaintDC *PaintDC = nullptr;
 
-	CDC		MainDC;
+	CDC	MainDC;
 	//CBitmap MainBmp;
 
-	COLORREF ***pppPalettes;
+	COLORREF ***pppPalettes = nullptr;
 	
-	COLORREF crBGCol;
+	COLORREF crBGCol = RGB(0, 0, 0);
 
 	POINT old_pt;
 
-	int complete_w;
-	int complete_h;
+	int complete_w = 0;
+	int complete_h = 0;
 
-	RECT ctrl_rect;
-	RECT blt_rct;
+	RECT ctrl_rect = {};
+	RECT blt_rct = {};
 
-	RECT main_blt;
+	RECT main_blt = {};
 
-	int clip_right, clip_bottom;
+	int clip_right = 0, clip_bottom = 0;
 
-	int	blt_w, blt_h;
+	int	blt_w = 0, blt_h = 0;
 
-	int nPalAmt;
-	int img_amt;
+	int nPalAmt = 0;
+	int img_amt = 0;
 
-	int amt;
-	int nPalIndex;
-	float zoom;
-	int border_sz;
-	int outline_sz;
+	int amt = 0;
+	int nPalIndex = 0;
+	float zoom = 0.0f;
+	int border_sz = 0;
+	int outline_sz = 0;
 
-	int output_width;
-	int output_height;
+	int output_width = 0;
+	int output_height = 0;
 
-	int cl_width, cl_height;
+	int cl_width = 0, cl_height = 0;
 
 	void UpdateCtrl(BOOL bDraw = TRUE, UINT8 * pDstData = NULL);
 	void UpdateClip();
 
 	void ClearCtrlBG();
 
-	int nMainW, nMainH;
+	int nMainW = 0, nMainH = 0;
 
 	CScrollBar m_HScroll;
 	CScrollBar m_VScroll;
 
-	RECT h_rect;
-	RECT v_rect;
+	RECT h_rect = {};
+	RECT v_rect = {};
 
 	eDispType DispType;
-
 
 protected:
 	DECLARE_MESSAGE_MAP()
@@ -130,8 +129,6 @@ public:
 	BOOL CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, double fpZoom, BOOL bTransBG = FALSE);
 
 	void ResizeMainBmp();
-	
-
 };
 
 
