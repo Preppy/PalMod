@@ -128,8 +128,10 @@ void CRegProc::LoadReg(int src)
 
 				if(RegQueryValueEx(hKey, "imgout_bgcol", 0, &RegType, (BYTE *)&imgout_bgcol, &GetSz) != ERROR_SUCCESS)
 					imgout_bgcol = RGB(0, 0, 0);
+
 				if(RegQueryValueEx(hKey, "imgout_border", 0, &RegType, (BYTE *)&imgout_border, &GetSz) != ERROR_SUCCESS)
 					imgout_border = 0;
+
 				if(RegQueryValueEx(hKey, "imgout_zoomindex", 0, &RegType, (BYTE *)&imgout_zoomindex, &GetSz) != ERROR_SUCCESS)
 					imgout_zoomindex = 0;
 

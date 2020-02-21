@@ -76,6 +76,9 @@ void CPreviewDlg::OnShowWindow(BOOL bShow, UINT nStatus)
 	{
 		InitDispCtrl();
 	}
+
+	CMenu* pSettMenu = GetMenu()->GetSubMenu(2); //2 = zoom menu
+	pSettMenu->CheckMenuItem(ID_ZOOM_1X, MF_CHECKED);
 }
 
 void CPreviewDlg::OnSize(UINT nType, int cx, int cy)
@@ -204,7 +207,9 @@ void CPreviewDlg::OnDestroy()
 int CPreviewDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CDialog::OnCreate(lpCreateStruct) == -1)
+	{
 		return -1;
+	}
 	
 	LoadSettings();
 
@@ -315,9 +320,9 @@ void CPreviewDlg::AddZoom()
 {
 	double fpCurrZoom = m_ImgDisp.GetZoom();
 
-	if(fpCurrZoom < 4.0f)
+	if(fpCurrZoom < 4.0)
 	{
-		m_ImgDisp.SetZoom(fpCurrZoom + 1.0f);
+		m_ImgDisp.SetZoom(fpCurrZoom + 1.0);
 	}
 }
 
@@ -325,10 +330,21 @@ void CPreviewDlg::SubZoom()
 {
 	double fpCurrZoom = m_ImgDisp.GetZoom();
 
-	if(fpCurrZoom > 1.0f)
+	if(fpCurrZoom > 1.0)
 	{
-		m_ImgDisp.SetZoom(fpCurrZoom - 1.0f);
+		m_ImgDisp.SetZoom(fpCurrZoom - 1.0);
 	}
+}
+
+void  CPreviewDlg::UpdateZoomSetting(double fpNewZoom)
+{
+	m_ImgDisp.SetZoom(fpNewZoom);
+
+	CMenu* pSettMenu = GetMenu()->GetSubMenu(2); //2 = zoom menu
+	pSettMenu->CheckMenuItem(ID_ZOOM_1X, MF_BYCOMMAND | (fpNewZoom == 1.0) ? MF_CHECKED : MF_UNCHECKED);
+	pSettMenu->CheckMenuItem(ID_ZOOM_2X, MF_BYCOMMAND | (fpNewZoom == 2.0) ? MF_CHECKED : MF_UNCHECKED);
+	pSettMenu->CheckMenuItem(ID_ZOOM_3X, MF_BYCOMMAND | (fpNewZoom == 3.0) ? MF_CHECKED : MF_UNCHECKED);
+	pSettMenu->CheckMenuItem(ID_ZOOM_4X, MF_BYCOMMAND | (fpNewZoom == 4.0) ? MF_CHECKED : MF_UNCHECKED);
 }
 
 void CPreviewDlg::OnSettingsUsebgcolor()
