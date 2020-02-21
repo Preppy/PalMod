@@ -34,8 +34,10 @@ inline UINT16* get_pal_16(int char_id, int pal_no)
 
 void proc_supp(int char_no, int pal_no)
 {
-	if(!rgSuppLoc[char_no] || !_mvc2_data)
+	if (!rgSuppLoc[char_no] || !_mvc2_data)
+	{
 		return;
+	}
 	
 	UINT8 add = 0;
 	UINT8 tint_ctr= 0;
@@ -79,10 +81,14 @@ void proc_supp(int char_no, int pal_no)
 
 			UINT16 in_start = curr_data[index_ctr + 1];
 			
-			if(in_start & MOD_ABS)
+			if (in_start & MOD_ABS)
+			{
 				node_start = in_start & 0x7FFF;
+			}
 			else
+			{
 				node_start = in_start + ID_MOD;
+			}
 
 			node_inc = curr_data[index_ctr + 2];
 
@@ -93,10 +99,14 @@ void proc_supp(int char_no, int pal_no)
 			{
 				base_start = curr_data[index_ctr + 3];
 
-				if(base_start & MOD_ABS)
+				if (base_start & MOD_ABS)
+				{
 					base_start = base_start & 0x7FFF;
+				}
 				else
+				{
 					base_start = base_start + ID_MOD;
+				}
 
 				base_inc = curr_data[index_ctr + 4];
 
@@ -129,7 +139,6 @@ void proc_supp(int char_no, int pal_no)
 			{
 				//Set the absolute source palette
 				src_pal = base_start + (base_inc * pal_ctr);
-
 			}
 
 			//Set the counter past the indexes
@@ -138,7 +147,7 @@ void proc_supp(int char_no, int pal_no)
 
 			if((index_data & SUPP_NODE_EX) == SUPP_NODE_EX)
 			{
-				add= 3;
+				add = 3;
 			}
 			
 			if(supp_basic)
@@ -154,6 +163,7 @@ void proc_supp(int char_no, int pal_no)
 					copy_dst = curr_data[index_ctr + 2];
 				}
 					
+				// This is odd.  We default to Copy, which means MOD_COPY reads like a no-op and just gets in the way. ?
 				if(index_data != SUPP_NODE_NOCOPY)
 				{
 					supp_copy_index(char_no, src_pal, dst_pal, copy_dst, copy_start, copy_amt);
@@ -171,24 +181,26 @@ void proc_supp(int char_no, int pal_no)
 					{
 						case MOD_TINT:
 							{
-								// Tint not actually supported yet: supp_mod_tint is no-op'd for release
-
 								if (supp_basic || supp_extra)
 								{
-									supp_mod_tint(char_no, dst_pal, pi_start, pi_amt, 15);
+									supp_mod_tint(char_no, pal_no, dst_pal, curr_data[index_ctr + 3], pi_start, pi_amt, 
+												curr_data[index_ctr + 4], curr_data[index_ctr + 5], curr_data[index_ctr + 6]);
 								}
 	                          
-								index_ctr += 3;
+								index_ctr += 7;
 								break;
 							}
 						case MOD_WHITE:
 							{
 								if(supp_basic || supp_extra)
+								{
 									supp_mod_white(char_no, dst_pal, pi_start, pi_amt);
+								}
 
 								index_ctr += 3;
 								break;
 							}
+
 						case MOD_COPY:
 							{
 								supp_copy_index(char_no, pal_no, dst_pal, curr_data[index_ctr + 3], pi_start, pi_amt);
@@ -196,6 +208,7 @@ void proc_supp(int char_no, int pal_no)
 								index_ctr += 4;
 								break;
 							}
+
 						case MOD_LUM:
 						case MOD_SAT:
 							{
@@ -300,62 +313,44 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 dst_pal, 
 	}
 }
 
-void supp_mod_tint(UINT16 char_id, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc, UINT8 tint_factor)
+void supp_mod_tint(UINT16 char_id, UINT16 src_pal, UINT16 dst_pal, UINT8 dst_index, UINT8 src_index, UINT8 index_amt, 
+				int tint_factor_r, int tint_factor_g, int tint_factor_b)
 {
+	UINT16* src_16 = get_pal_16(char_id, src_pal);
+	UINT16* dst_16 = get_pal_16(char_id, dst_pal);
 
-#ifdef DEBUG
-	// THESE CALCULATIONS ARE EXPERIMENTAL IN NATURE AND DO NOT DO WHAT WE WOULD LIKE.
-	// IGNORE THEM AND REPLACE WITH BETTER LOGIC IF ANY.
-	// After trying these and not liking the results, I have started writing an applet to concentrate
-	// on getting better tinting logic, if any is available.  This code will be updated when and if 
-	// I find a solution I like.
-
-	UINT16* dst_16;
-
-	COLORREF input_col;
-
-	dst_16 = get_pal_16(char_id, dst_pal);
-
-	for (int i = index_start; i < index_start + index_inc; i++)
+	if (tint_factor_r > NEG)
 	{
-		CString strresults;
-
-		BYTE newR, newG, newB;
-
-		input_col = CurrMVC2->ConvPal(dst_16[i]);
-
-		strresults.Format("Source: r %lu g %lu b %lu\n", GetRValue(input_col), GetGValue(input_col), GetBValue(input_col));
-		OutputDebugString(strresults);
-
-		newR = GetRValue(input_col) + (255 - GetRValue(input_col)) * tint_factor;
-		newG = GetGValue(input_col) + (255 - GetGValue(input_col)) * tint_factor;
-		newB = GetBValue(input_col) + (255 - GetBValue(input_col)) * tint_factor;
-
-		strresults.Format("Color convert 15: r %lu g %lu b %lu\n", newR, newG, newB);
-		OutputDebugString(strresults);
-
-		tint_factor = 35;
-		newR = GetRValue(input_col) + (255 - GetRValue(input_col)) * tint_factor;
-		newG = GetGValue(input_col) + (255 - GetGValue(input_col)) * tint_factor;
-		newB = GetBValue(input_col) + (255 - GetBValue(input_col)) * tint_factor;
-
-		strresults.Format("Color convert 35: r %lu g %lu b %lu\n", newR, newG, newB);
-		OutputDebugString(strresults);
-
-		tint_factor = 75;
-		newR = GetRValue(input_col) + (255 - GetRValue(input_col)) * tint_factor;
-		newG = GetGValue(input_col) + (255 - GetGValue(input_col)) * tint_factor;
-		newB = GetBValue(input_col) + (255 - GetBValue(input_col)) * tint_factor;
-
-		strresults.Format("Color convert 75 r %lu g %lu b %lu\n", newR, newG, newB);
-		OutputDebugString(strresults);
-
-		// Save back out
-		// bugbug: note that this isn't changing RGB: figure that out.
-		dst_16[i] &= 0xF000;
-		dst_16[i] |= CurrMVC2->ConvCol(MakeRGB((BYTE)(newR), (BYTE)(newG), (BYTE)(newB)));
+		tint_factor_r -= NEG;
+		tint_factor_r *= -1;
 	}
-#endif
+
+	if (tint_factor_g > NEG)
+	{
+		tint_factor_g -= NEG;
+		tint_factor_g *= -1;
+	}
+
+	if (tint_factor_b > NEG)
+	{
+		tint_factor_b -= NEG;
+		tint_factor_b *= -1;
+	}
+
+	for (UINT8 offset = 0; offset < index_amt; offset++)
+	{
+		COLORREF input_col = CurrMVC2->ConvPal(src_16[offset + src_index]);
+
+		BYTE newR = min(255, max(0, (int)GetRValue(input_col) + ((int)17 * tint_factor_r)));
+		BYTE newG = min(255, max(0, (int)GetGValue(input_col) + ((int)17 * tint_factor_g)));
+		BYTE newB = min(255, max(0, (int)GetBValue(input_col) + ((int)17 * tint_factor_b)));
+
+		newR /= 17;
+		newG /= 17;
+		newB /= 17;
+
+		dst_16[offset + dst_index] = 0xF000 | (newR << 8) | (newG << 4) | newB;
+	}
 }
 
 

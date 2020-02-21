@@ -11,14 +11,16 @@
 #define SUPP_NODE_ABSOL		0x4002
 #define SUPP_NODE_NOCOPY	0x4004
 
-
+// MOD_COPY is largely used implicitly outside of Jin
 #define MOD_COPY			0xA010
-// MOD_TINT is not implemented
+// MOD_TINT is form: start_pos, length_of_copy, dest_pos, r_tint, g_tint, b_tint
+// to get negative tinting just use NEG + %val%
 #define MOD_TINT			0xA030
 
-#define TINT_R				0xA031
-#define TINT_G				0xA032
-#define TINT_B				0xA033
+// These definitions are unused and can safely be removed.
+//#define TINT_R				0xA031
+//#define TINT_G				0xA032
+//#define TINT_B				0xA033
 
 #define MOD_LUM				0xA040
 #define MOD_SAT				0xA041
@@ -39,20 +41,23 @@ const UINT16 _mvc2_supp_const [] =
 		//Node, Start, Increment	//, Copy
 		
 		// 0x17-0x19 are the mashed tint for FAB
-		SUPP_NODE, 0x17, 3,
 			//Type, Pal Index Start, Pal Index Amt
-			MOD_TINT, 1, 7, // 15% tint
-		SUPP_NODE, 0x18, 3, 
-			MOD_TINT, 1, 7, // 35% tint
-		SUPP_NODE, 0x19, 3,
-			MOD_TINT, 1, 7, // 75% tint
-		// the boots!
 		SUPP_NODE, 0x17, 3,
-			MOD_COPY, 8, 8, 8,
-		SUPP_NODE, 0x18, 3,
-			MOD_COPY, 8, 8, 8,
+			MOD_TINT, 1, 7, 1, 2, NEG + 2,  NEG + 2, // ~15% tint
+		SUPP_NODE, 0x18, 3, 
+			MOD_TINT, 1, 7, 1, 4, NEG + 4, NEG + 4, // ~35% tint
 		SUPP_NODE, 0x19, 3,
-			MOD_COPY, 8, 8, 8,
+			MOD_TINT, 1, 7, 1, 7, NEG + 6, NEG + 6, // ~75% tint
+
+		// the boots!
+		SUPP_NODE_EX, 0x17, 3,
+			8, 8, 8,
+		SUPP_NODE_EX, 0x18, 3,
+			8, 8, 8,
+		SUPP_NODE_EX, 0x19, 3,
+			8, 8, 8,
+
+#ifdef NEED_TO_PULL_FROM_MECH_GIEF_NOT_GIEF_GIEF
 		// 0x29-0x2 are the mashed tint for FAB for mecha Zangief.  mecha zangief is 11 Extra, 12 Extra, 13 Extra, etc
 		SUPP_NODE, 0x29, 3,
 			MOD_TINT, 1, 7, // 15% tint
@@ -60,14 +65,16 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_TINT, 1, 7, // 35% tint
 		SUPP_NODE, 0x2B, 3,
 			MOD_TINT, 1, 7, // 75% tint
+
 		// also the boots!  just the mechaboots!
 			// BUGBUG: This is copying from base gief not mecha gief (11 Extra)!
-		SUPP_NODE, 0x29, 3,
-			MOD_COPY, 8, 8, 8,
-		SUPP_NODE, 0x2A, 3,
-			MOD_COPY, 8, 8, 8,
-		SUPP_NODE, 0x2B, 3,
-			MOD_COPY, 8, 8, 8,
+		SUPP_NODE_EX, 0x29, 3,
+			8, 8, 8,
+		SUPP_NODE_EX, 0x2A, 3,
+			8, 8, 8,
+		SUPP_NODE_EX, 0x2B, 3,
+			8, 8, 8,
+#endif
 
 	0x03 | SUPP_START, //Morrigan
 		//SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
@@ -128,7 +135,7 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x59, 2,
 		// default color with red tint
 		SUPP_NODE, 0x5A, 2,
-			MOD_TINT, 1, 15,
+			MOD_TINT, 1, 15, 1, 3, NEG + 1, NEG + 1,
 
 
 	0x09 | SUPP_START, //Iceman
@@ -149,20 +156,25 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x05 | MOD_ABS, 8,
 		// 7 shine frames, but the second (0x22) is pure white
 		SUPP_NODE, 0x21, 7,
-		SUPP_NODE, 0x23, 7,
-			MOD_COPY, 11, 1, 9,
-			MOD_COPY, 11, 1, 10,
-		SUPP_NODE, 0x24, 7,
-			MOD_COPY, 11, 1, 7,
-			MOD_COPY, 11, 1, 8,
-		SUPP_NODE, 0x25, 7,
-			MOD_COPY, 1, 2, 5,
-		SUPP_NODE, 0x26, 7,
-			MOD_COPY, 11, 1, 3,
-			MOD_COPY, 11, 1, 4,
-		SUPP_NODE, 0x27, 7,
-			MOD_COPY, 11, 1, 1,
-			MOD_COPY, 11, 1, 2,
+		// We need to duplicate some pixels here
+		SUPP_NODE_EX, 0x23, 7,
+			11, 1, 9,
+		SUPP_NODE_EX, 0x23, 7,
+			11, 1, 10,
+		SUPP_NODE_EX, 0x24, 7,
+			11, 1, 7,
+		SUPP_NODE_EX, 0x24, 7,
+			11, 1, 8,
+		SUPP_NODE_EX, 0x25, 7,
+			1, 2, 5,
+		SUPP_NODE_EX, 0x26, 7,
+			11, 1, 3,
+		SUPP_NODE_EX, 0x26, 7,
+			11, 1, 4,
+		SUPP_NODE_EX, 0x27, 7,
+			11, 1, 1,
+		SUPP_NODE_EX, 0x27, 7,
+			11, 1, 2,
 
 	0x0A | SUPP_START, //Rogue
 		// Dash shadows
@@ -332,20 +344,24 @@ const UINT16 _mvc2_supp_const [] =
 		// 0x56-5d: hyper roll switching back
 
 	0x24 | SUPP_START, //Cammy
-		// 0x9-0x10 are the counter flash
+		// 0x9-0x11 are the counter flash
+		SUPP_NODE, 0x09, 9,
+			MOD_TINT, 1, 15, 1, 0, 8, 15, // blue +15
 		SUPP_NODE, 0x0A, 9,
-			MOD_TINT, 1, 15, // blue +14
+			MOD_TINT, 1, 15, 1, 0, 6, 14, // blue +14
 		SUPP_NODE, 0x0B, 9, 
-			MOD_TINT, 1, 15, // blue + 10
+			MOD_TINT, 1, 15, 1, 0, 4, 10, // blue + 10
 		SUPP_NODE, 0x0C, 9,
-			MOD_TINT, 1, 15, // blue + 7
+			MOD_TINT, 1, 15, 1, 0, 2, 7, // blue + 7
 		SUPP_NODE, 0x0D, 9,
-			MOD_TINT, 1, 15, // blue + 3
+			MOD_TINT, 1, 15, 1, 0, 0, 4, // blue + 3
 		SUPP_NODE, 0x0E, 9,  // xcopy
 		SUPP_NODE, 0x0F, 9,
-			MOD_TINT, 1, 15, // dark blue + 3
+			MOD_TINT, 1, 15, 1, NEG + 1, NEG + 1, 3, // dark blue + 3
 		SUPP_NODE, 0x10, 9,
-			MOD_TINT, 1, 15, // dak blue + 5
+			MOD_TINT, 1, 15, 1, NEG + 2, NEG + 2, 5, // dark blue + 5
+		SUPP_NODE, 0x11, 9,
+			MOD_TINT, 1, 15, 1, NEG + 4, NEG + 4, 7, // dark blue + 7
 
 	0x25 | SUPP_START, //Dhalsim
 		SUPP_NODE, 0x09, 5,
@@ -488,12 +504,12 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x09, 8,
 		SUPP_NODE, 0x0A, 8,
 			MOD_LUM, 8, 15, 10 + NEG,
-		SUPP_NODE, 0x0B, 8,
-			MOD_COPY, 8, 3, 14,
-		SUPP_NODE, 0x0C, 8,
-			MOD_COPY, 8, 3, 12,
-		SUPP_NODE, 0x0D, 8,
-			MOD_COPY, 8, 3, 10,
+		SUPP_NODE_EX, 0x0B, 8,
+			8, 3, 14,
+		SUPP_NODE_EX, 0x0C, 8,
+			8, 3, 12,
+		SUPP_NODE_EX, 0x0D, 8,
+			8, 3, 10,
 		SUPP_NODE, 0x0E, 8,
 		SUPP_NODE, 0x0F, 8,
 			MOD_LUM, 01, 15, 5 + NEG,
@@ -558,20 +574,20 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x0F, 32,
 		SUPP_NODE, 0x10, 32,
 			MOD_WHITE, 2, 6,
-		SUPP_NODE, 0x11, 32,
-			MOD_COPY, 3, 2, 6,
-		SUPP_NODE, 0x12, 32,
-			MOD_COPY, 2, 2, 4,
+		SUPP_NODE_EX, 0x11, 32,
+			3, 2, 6,
+		SUPP_NODE_EX, 0x12, 32,
+			2, 2, 4,
 		SUPP_NODE, 0x13, 32,
 			MOD_WHITE, 3, 1,
-		SUPP_NODE, 0x14, 32,
-			MOD_COPY, 4, 1, 7,
-		SUPP_NODE, 0x15, 32,
-			MOD_COPY, 3, 1, 6,
-		SUPP_NODE, 0x16, 32,
-			MOD_COPY, 2, 1, 5,
-		SUPP_NODE, 0x17, 32,
-			MOD_COPY, 2, 1, 4,
+		SUPP_NODE_EX, 0x14, 32,
+			4, 1, 7,
+		SUPP_NODE_EX, 0x15, 32,
+			3, 1, 6,
+		SUPP_NODE_EX, 0x16, 32,
+			2, 1, 5,
+		SUPP_NODE_EX, 0x17, 32,
+			2, 1, 4,
 		SUPP_NODE, 0x18, 32,
 			MOD_LUM, 01, 15, 31,
 		SUPP_NODE, 0x19, 32,
@@ -621,8 +637,6 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_SAT, 07, 1, 50,
 		SUPP_NODE, 0x28, 32,
 
-
-
 	0x34 | SUPP_START, //Sentinel
 		SUPP_NODE, 0x01 | MOD_ABS, 8,
 
@@ -637,8 +651,10 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_LUM, 01, 15, 21,
 
 		//SUPP_NODE_EX, Dest Start, Dest Inc, Src Start, Src Amt, Dst Index
+		// 0x51 are the "player" hands for blodia vulcan
 		SUPP_NODE_EX, 0x51, 3, 6, 10, 6,
 			MOD_LUM, 6, 11, 21,
+		// these are for the towel taunt
 		SUPP_NODE_EX, 0x63, 6, 6, 10, 6,
 			MOD_COPY, 8, 3, 10,
 		SUPP_NODE_EX, 0x64, 6, 6, 10, 6,
@@ -678,6 +694,8 @@ void supp_mod_white(UINT16 char_id, UINT16 dst_pal, UINT8 index_start, UINT8 ind
 void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc);
 
 const UINT8 c_tintDefault = 10;
-void supp_mod_tint(UINT16 char_id, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc, UINT8 tint_factor);
+void supp_mod_tint(UINT16 char_id, UINT16 src_pal, UINT16 dst_pal, UINT8 dst_index, UINT8 src_index, UINT8 index_amt, 
+				int tint_factor_r, int tint_factor_g, int tint_factor_b);
+
 
 
