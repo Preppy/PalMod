@@ -581,10 +581,20 @@ void CGame_MVC2_D::PostSetPal(int nUnitId, int nPalId)
 {
 	int nBasicOffset = GetBasicOffset(nPalId);
 
-	if(nBasicOffset == 0)
+#ifndef EXPERIMENTAL_EXTRAS
+	if (nBasicOffset == 0) 
 	{
+#endif
 		proc_supp(nUnitId, nPalId);
+#ifndef EXPERIMENTAL_EXTRAS
 	}
+	else
+	{
+		CString strMessage;
+		strMessage.Format("CGame_MVC2_D::GetBasicOffset : Palette %u updated, but it's an Extras palette so we don't process supplements\n", nPalId);
+		OutputDebugString(strMessage);
+	}
+#endif
 }
 
 void CGame_MVC2_D::ForEidrian(int nFlag, COLORREF crCol)

@@ -57,29 +57,32 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE_EX, 0x19, 3,
 			8, 8, 8,
 
-#ifdef NEED_TO_PULL_FROM_MECH_GIEF_NOT_GIEF_GIEF
+#ifdef MECHAGIEF_EXTRAS_REQUIRE_US_TO_PROC_SUPPP_FOR_EXTRA_PALETTES
 		// 0x29-0x2 are the mashed tint for FAB for mecha Zangief.  mecha zangief is 11 Extra, 12 Extra, 13 Extra, etc
 		SUPP_NODE, 0x29, 3,
-			MOD_TINT, 1, 7, // 15% tint
-		SUPP_NODE, 0x2A, 3, 
-			MOD_TINT, 1, 7, // 35% tint
+			MOD_TINT, 1, 7, 1, 2, NEG + 2,  NEG + 2, // ~15% tint
+		SUPP_NODE, 0x2A, 3,
+			MOD_TINT, 1, 7, 1, 4, NEG + 4, NEG + 4, // ~35% tint
 		SUPP_NODE, 0x2B, 3,
-			MOD_TINT, 1, 7, // 75% tint
+			MOD_TINT, 1, 7, 1, 7, NEG + 6, NEG + 6, // ~75% tint
 
 		// also the boots!  just the mechaboots!
-			// BUGBUG: This is copying from base gief not mecha gief (11 Extra)!
 		SUPP_NODE_EX, 0x29, 3,
 			8, 8, 8,
 		SUPP_NODE_EX, 0x2A, 3,
 			8, 8, 8,
 		SUPP_NODE_EX, 0x2B, 3,
 			8, 8, 8,
+
+		// Test:
+			// copy from 0x11 extra to 0x29 extras  // 0x29 is the first frame of mechagief FAB rage tinting
+			//SUPP_NODE_EX, 0x29, 0x11, 8, 8, 8,
 #endif
 
 	0x03 | SUPP_START, //Morrigan
 		//SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
-		SUPP_NODE_ABSOL,  0x4B, 9, MOD_ABS | 0x01, 8, 
-		SUPP_NODE_ABSOL,  0x4C, 9, MOD_ABS | 0x01, 8, 
+		SUPP_NODE_ABSOL, 0x4B, 9, MOD_ABS | 0x01, 8, 
+		SUPP_NODE_ABSOL, 0x4C, 9, MOD_ABS | 0x01, 8, 
 			MOD_WHITE, 1, 1,
 		SUPP_NODE, 0x4D, 9,
 		SUPP_NODE, 0x4E, 9,
@@ -136,7 +139,6 @@ const UINT16 _mvc2_supp_const [] =
 		// default color with red tint
 		SUPP_NODE, 0x5A, 2,
 			MOD_TINT, 1, 15, 1, 3, NEG + 1, NEG + 1,
-
 
 	0x09 | SUPP_START, //Iceman
 		// Stance Frame
@@ -237,12 +239,12 @@ const UINT16 _mvc2_supp_const [] =
 
 	0x14 | SUPP_START, // Sonson
 		//SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
-		SUPP_NODE,  0x0F, 1,
-		SUPP_NODE_ABSOL,  0x17, 1, 0x0F, 1,
+		SUPP_NODE, 0x0F, 1,
+		SUPP_NODE_ABSOL, 0x17, 1, 0x0F, 1,
 			MOD_LUM, 1, 15, 10,
-		SUPP_NODE_ABSOL,  0x1D, 1, 0x0F, 1,
+		SUPP_NODE_ABSOL, 0x1D, 1, 0x0F, 1,
 			MOD_LUM, 1, 15, 5,
-		SUPP_NODE_ABSOL,  0x1E, 1, 0x0F, 1,
+		SUPP_NODE_ABSOL, 0x1E, 1, 0x0F, 1,
 			MOD_LUM, 1, 15, NEG + 12,
 
 	0x1B | SUPP_START, //Chun-Li
@@ -476,13 +478,11 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x60, 0x38, 0x60, 2, 1, 8,
 			MOD_LUM, 3, 2, 4,
 			MOD_LUM, 6, 1, 8,
-
 		
 		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3E, 0x60, 0x3C, 0x60, 2, 7, 2,
 			MOD_LUM, 2, 7, 4,
 		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3E, 0x60, 0x3C, 0x60, 9, 2, 9,
 			MOD_LUM, 9, 2, 4,
-
 
 		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x37, 0x60, 0x36, 0x60, 1, 8, 1,
 		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x39, 0x60, 0x38, 0x60, 1, 8, 1,

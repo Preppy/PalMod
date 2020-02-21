@@ -34,8 +34,14 @@ inline UINT16* get_pal_16(int char_id, int pal_no)
 
 void proc_supp(int char_no, int pal_no)
 {
+	CString strDebugInfo;
+
+	strDebugInfo.Format("proc_supp: Processing supplemental palettes for character 0x%x, palette number 0x%x\n", char_no, pal_no);
+	OutputDebugString(strDebugInfo);
+
 	if (!rgSuppLoc[char_no] || !_mvc2_data)
 	{
+		OutputDebugString("proc_supp: Not applicable here\n");
 		return;
 	}
 	
@@ -48,6 +54,7 @@ void proc_supp(int char_no, int pal_no)
 
 	BOOL supp_basic = FALSE, supp_extra = FALSE;
 
+	// Load the supplemental data for this character
 	UINT16 *curr_data = const_cast<UINT16 *>(&_mvc2_supp_const[rgSuppLoc[char_no]]);
 	UINT16 index_data;
 	UINT16 index_ctr = 1; //1 to skip the count
@@ -66,18 +73,19 @@ void proc_supp(int char_no, int pal_no)
 	//Check to see if we are modifying any basic palettes
 	index_data = curr_data[index_ctr];
 
-	while((index_data & 0xF000) != SUPP_START)
+	while((index_data & 0xF000) != SUPP_START) // SUPP_START marks the beginning of the next character
 	{
 		supp_basic = FALSE;
 		supp_extra = FALSE;
 
+		// If the current position is SUPP_NODE or SUPP_NODE_*, that indicates the beginning of a new modifier array
+			//Possible sources = SUPP_NODE, SUPP_NODE_EX, SUPP_NODE_ABSOL, SUPP_NODE_EX | SUPP_NODE_NOCOPY, SUPP_NODE_EX | SUPP_NODE_ABSOL
 		if((index_data & 0xF000) == SUPP_NODE) //&& index_ctr < index_sz)
 		{
-			//Possible sources = SUPP_NODE, SUPP_NODE_EX, SUPP_NODE_ABSOL, SUPP_NODE_EX | SUPP_NODE_NOCOPY, SUPP_NODE_EX | SUPP_NODE_ABSOL
-			
-			//Fix later
+			OutputDebugString("proc_supp: New node encountered\n");
 
-			add = 3; //SUPP_NODE
+			//Fix later
+			add = 3; //count of data provided for a SUPP_NODE entry, which is the minimum.
 
 			UINT16 in_start = curr_data[index_ctr + 1];
 			
@@ -94,7 +102,7 @@ void proc_supp(int char_no, int pal_no)
 
 			//Set the source palette
 			src_pal = pal_no;
-			
+
 			if ((index_data & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
 			{
 				base_start = curr_data[index_ctr + 3];
@@ -119,17 +127,25 @@ void proc_supp(int char_no, int pal_no)
 				}
 				*/
 
-				add+= 2;
+				add += 2;
 			}
 			else
 			{
 				base_start = 0;
 				base_inc = 8;
 			}
-				
+
+			// Ensure that this palette comes from one of the first BUTTON_COUNT * NORMAL_PALETTE_COUNT (8 * 6)
 			if((pal_no / 8) < 6 && (pal_no % 8) == 0)
 			{
 				supp_basic = TRUE;
+			}
+			else
+			{
+
+				//so the problem with just commenting this area out is that we end up processing BASIC actions against the EXTRAS 
+				// so we do random things to other palettes because we thought it was the right thing to do.
+				OutputDebugString("We don't support non-basic supplements yet, your usage is broken\n");
 			}
 			
 			pal_ctr = pal_no / base_inc;
@@ -145,12 +161,12 @@ void proc_supp(int char_no, int pal_no)
 			index_ctr += add;
 			add = 0;
 
-			if((index_data & SUPP_NODE_EX) == SUPP_NODE_EX)
+			if ((index_data & SUPP_NODE_EX) == SUPP_NODE_EX)
 			{
 				add = 3;
 			}
 			
-			if(supp_basic)
+			if (supp_basic)
 			{
 				int copy_start = 0;
 				int copy_amt = 16;
@@ -162,7 +178,10 @@ void proc_supp(int char_no, int pal_no)
 					copy_amt = curr_data[index_ctr + 1];
 					copy_dst = curr_data[index_ctr + 2];
 				}
-					
+
+				strDebugInfo.Format("proc_supp: Preparing to copy from 0x%x to 0x%x\n", src_pal, dst_pal);
+				OutputDebugString(strDebugInfo);
+
 				// This is odd.  We default to Copy, which means MOD_COPY reads like a no-op and just gets in the way. ?
 				if(index_data != SUPP_NODE_NOCOPY)
 				{
@@ -174,6 +193,8 @@ void proc_supp(int char_no, int pal_no)
 
 				while((index_data & 0xF000) != SUPP_NODE && (index_data & 0xF000) != SUPP_START)
 				{
+					OutputDebugString("proc_supp: Processing FX for this node\n");
+
 					pi_start = curr_data[index_ctr+1];
 					pi_amt = curr_data[index_ctr+2];
 
@@ -228,22 +249,30 @@ void proc_supp(int char_no, int pal_no)
 					index_data = curr_data[index_ctr];
 				}
 			}
+			else
+			{
+				// The palette being passed in was not a basic (<8*6) palette, so we can't process it correctly yet.
+				OutputDebugString("proc_supp: About to infinite loop, bailing. We do not process Extra palettes at this time.\n");
+				break;
+			}
 		}
 	}
 }
 
 void supp_copy_palette(UINT16 char_id, UINT16 dst_pal, UINT16 src_pal)
 {
-	UINT8 *src, *dst;
+	OutputDebugString("\tsupp_copy_palette being applied\n");
 
-	src = &_mvc2_data[char_id][src_pal * 32];
-	dst = &_mvc2_data[char_id][dst_pal * 32];
+	UINT8 *src = &_mvc2_data[char_id][src_pal * 32];
+	UINT8 *dst = &_mvc2_data[char_id][dst_pal * 32];
 
 	memcpy(dst, src, 32);
 }
 
 void supp_copy_index(UINT16 char_id, UINT16 src_pal, UINT16 dst_pal, UINT8 dst_index, UINT8 src_index, UINT8 index_amt)
 {
+	OutputDebugString("\tsupp_copy_index being applied\n");
+
 	UINT16 *src_16, *dst_16;
 
 	src_16 = get_pal_16(char_id, src_pal);
@@ -254,9 +283,9 @@ void supp_copy_index(UINT16 char_id, UINT16 src_pal, UINT16 dst_pal, UINT8 dst_i
 
 void supp_mod_white(UINT16 char_id, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc)
 {
-	UINT16 *dst_16;
+	OutputDebugString("\tsupp_mod_white being applied\n");
 
-	dst_16 = get_pal_16(char_id, dst_pal);
+	UINT16 *dst_16 = get_pal_16(char_id, dst_pal);
 
 	for(int i = index_start; i < index_start + index_inc; i++)
 	{
@@ -266,13 +295,13 @@ void supp_mod_white(UINT16 char_id, UINT16 dst_pal, UINT8 index_start, UINT8 ind
 
 void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc)
 {
-	UINT16 *dst_16;
+	OutputDebugString("\tsupp_mod_hsl being applied\n");
 
 	COLORREF input_col;
 
 	double src_h, src_s, src_l, /* add_h ,*/ add_s = 0.0, add_l = 0.0;
 	
-	dst_16 = get_pal_16(char_id, dst_pal);
+	UINT16 *dst_16 = get_pal_16(char_id, dst_pal);
 
 	if(mod_amt > NEG) //Is it negative?
 	{
@@ -316,8 +345,10 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 dst_pal, 
 void supp_mod_tint(UINT16 char_id, UINT16 src_pal, UINT16 dst_pal, UINT8 dst_index, UINT8 src_index, UINT8 index_amt, 
 				int tint_factor_r, int tint_factor_g, int tint_factor_b)
 {
-	UINT16* src_16 = get_pal_16(char_id, src_pal);
-	UINT16* dst_16 = get_pal_16(char_id, dst_pal);
+	OutputDebugString("\tsupp_mod_tint being applied\n");
+
+	UINT16 *src_16 = get_pal_16(char_id, src_pal);
+	UINT16 *dst_16 = get_pal_16(char_id, dst_pal);
 
 	if (tint_factor_r > NEG)
 	{
