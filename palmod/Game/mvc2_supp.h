@@ -8,8 +8,12 @@
 //SUPP_NODE_EX, Dest Start, Dest Inc, Src Start, Src Amt, Dst Index
 #define SUPP_NODE_EX		0x4001
 //SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
+// SUPP_NODE_ABSOL adds two values: the starting palette and the number of colors to include.
 #define SUPP_NODE_ABSOL		0x4002
 #define SUPP_NODE_NOCOPY	0x4004
+
+// These are palettes wholly located within the Extra nodes.  
+#define EXTRA_NODE_ONLY     0x4008
 
 // MOD_COPY is largely used implicitly outside of Jin
 #define MOD_COPY			0xA010
@@ -26,9 +30,13 @@
 #define MOD_SAT				0xA041
 #define MOD_WHITE			0xA042
 
-#define ID_MOD			47 //Index mod - this is also EXTRA_OMNI
+// Normally we offset at ID_MOD unless MOD_ABS is specified.  If MOD_ABS is specified we use the 
+// raw palette ID.
+#define ID_MOD			47 // Index mod - this is also EXTRA_OMNI
+#define MOD_ABS		0x8000 
 #define NEG			0x8000
-#define MOD_ABS		0x8000
+
+constexpr auto k_mvc2_character_coloroption_count = 6;
 
 const UINT16 _mvc2_supp_const [] =
 {
@@ -38,6 +46,11 @@ const UINT16 _mvc2_supp_const [] =
 	0, // Ryu: Ryu is fine.
 
 	0x01 |  SUPP_START, //Zangief
+
+		// For Zangief we want to do two things:
+		// * Handle his increasing rage during FAB when the user mashes.  Apply tint to certain colors.
+		// * Handle his non-modified boots also used during those frames.  This is autocopied.
+
 		//Node, Start, Increment	//, Copy
 		
 		// 0x17-0x19 are the mashed tint for FAB
@@ -49,41 +62,24 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x19, 3,
 			MOD_TINT, 1, 7, 1, 7, NEG + 6, NEG + 6, // ~75% tint
 
-		// the boots!
-		SUPP_NODE_EX, 0x17, 3,
-			8, 8, 8,
-		SUPP_NODE_EX, 0x18, 3,
-			8, 8, 8,
-		SUPP_NODE_EX, 0x19, 3,
-			8, 8, 8,
-
-#ifdef MECHAGIEF_EXTRAS_REQUIRE_US_TO_PROC_SUPPP_FOR_EXTRA_PALETTES
 		// 0x29-0x2 are the mashed tint for FAB for mecha Zangief.  mecha zangief is 11 Extra, 12 Extra, 13 Extra, etc
-		SUPP_NODE, 0x29, 3,
-			MOD_TINT, 1, 7, 1, 2, NEG + 2,  NEG + 2, // ~15% tint
-		SUPP_NODE, 0x2A, 3,
+		SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x29, 3, 0x11, 1,
+			MOD_TINT, 1, 7, 1, 2, NEG + 2, NEG + 2, // ~15% tint
+		SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x2A, 3, 0x11, 1,
 			MOD_TINT, 1, 7, 1, 4, NEG + 4, NEG + 4, // ~35% tint
-		SUPP_NODE, 0x2B, 3,
+		SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x2B, 3, 0x11, 1,
 			MOD_TINT, 1, 7, 1, 7, NEG + 6, NEG + 6, // ~75% tint
 
-		// also the boots!  just the mechaboots!
-		SUPP_NODE_EX, 0x29, 3,
-			8, 8, 8,
-		SUPP_NODE_EX, 0x2A, 3,
-			8, 8, 8,
-		SUPP_NODE_EX, 0x2B, 3,
-			8, 8, 8,
-
-		// Test:
-			// copy from 0x11 extra to 0x29 extras  // 0x29 is the first frame of mechagief FAB rage tinting
-			//SUPP_NODE_EX, 0x29, 0x11, 8, 8, 8,
-#endif
 
 	0x03 | SUPP_START, //Morrigan
 		//SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
-		SUPP_NODE_ABSOL, 0x4B, 9, MOD_ABS | 0x01, 8, 
-		SUPP_NODE_ABSOL, 0x4C, 9, MOD_ABS | 0x01, 8, 
+
+		// Lilith
+		SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x4B, 9, MOD_ABS | 0x01, 8,
+		SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x4C, 9, MOD_ABS | 0x01, 8,
 			MOD_WHITE, 1, 1,
+
+		// Morrigan phase-in intro
 		SUPP_NODE, 0x4D, 9,
 		SUPP_NODE, 0x4E, 9,
 			MOD_WHITE, 1, 1,
@@ -95,6 +91,8 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_LUM, 1, 15, 7,
 		SUPP_NODE, 0x53, 9,
 		//	MOD_LUM, 0, 16, 0
+		
+		// pose sprite
 		SUPP_NODE, 0x84, 1,
 
 	0x04 | SUPP_START, //Anakaris
@@ -685,13 +683,13 @@ extern int rgSuppLoc[MVC2_D_NUMUNIT];
 
 void prep_supp();
 void proc_supp(int char_no, int pal_no);
-void supp_copy_palette(UINT16 char_id, UINT16 dst_pal, UINT16 src_pal);
-void supp_copy_index(UINT16 char_id, UINT16 src_pal, UINT16 dst_pal, UINT8 dst_index, UINT8 src_index, UINT8 index_amt);
-void supp_mod_white(UINT16 char_id, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc);
-void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 dst_pal, UINT8 index_start, UINT8 index_inc);
+void supp_copy_palette(UINT16 char_id, UINT16 destination_palette, UINT16 source_palette);
+void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt);
+void supp_mod_white(UINT16 char_id, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc);
+void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc);
 
 const UINT8 c_tintDefault = 10;
-void supp_mod_tint(UINT16 char_id, UINT16 src_pal, UINT16 dst_pal, UINT8 dst_index, UINT8 src_index, UINT8 index_amt, 
+void supp_mod_tint(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
 				int tint_factor_r, int tint_factor_g, int tint_factor_b);
 
 

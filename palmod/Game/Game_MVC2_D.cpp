@@ -172,7 +172,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
 
 			ButtonNode->ChildNodes = (sDescTreeNode *)(new sDescTreeNode[nNumExtra]);
 
-			if(nNumExtra == (MVC2_D_PALDATASZ[iUnitCtr] - (8 * 6 * 32)) / 32)
+			if(nNumExtra == (MVC2_D_PALDATASZ[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32)
 			{
 				for(int nExtraCtr = 0; nExtraCtr < nNumExtra; nExtraCtr++)
 				{
@@ -181,7 +181,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
 					sprintf(ChildNode->szDesc, "(%02X Extra)", nExtraCtr + 1);
 
 					ChildNode->uUnitId = iUnitCtr;
-					ChildNode->uPalId = (8 * 6) + nExtraCtr;
+					ChildNode->uPalId = (8 * k_mvc2_character_coloroption_count) + nExtraCtr;
 				}
 			}
 			else
@@ -204,7 +204,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
 						sprintf(ChildNode->szDesc, "(%02X Extra)", (pCurrVal[0] + nRangeCtr));
 
 						ChildNode->uUnitId = iUnitCtr;
-						ChildNode->uPalId = (8 * 6) + (pCurrVal[0] + nRangeCtr) - 1;
+						ChildNode->uPalId = (8 * k_mvc2_character_coloroption_count) + (pCurrVal[0] + nRangeCtr) - 1;
 
 						nExtraCtr++;
 					}
@@ -248,10 +248,10 @@ void CGame_MVC2_D::InitExtraRg()
 // Returns a count of the extra sprites available for a given unit/character
 int CGame_MVC2_D::CountExtraRg(int nUnitId, BOOL bOmniExtra)
 {
-	//(MVC2_D_PALDATASZ[nUnitId] - (8 * 6 * 32)) / 32;
+	//(MVC2_D_PALDATASZ[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32;
 	if (!rgExtraChrLoc[nUnitId])
 	{
-		return (bOmniExtra ? ((MVC2_D_PALDATASZ[nUnitId] - (8 * 6 * 32)) / 32) : 7);
+		return (bOmniExtra ? ((MVC2_D_PALDATASZ[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32) : 7);
 	}
 	else
 	{
@@ -279,7 +279,7 @@ int CGame_MVC2_D::CountExtraRg(int nUnitId, BOOL bOmniExtra)
 
 				if(!nRetVal)
 				{
-					return ((MVC2_D_PALDATASZ[nUnitId] - (8 * 6 * 32)) / 32);
+					return ((MVC2_D_PALDATASZ[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32);
 				}
 				
 				return nRetVal;
@@ -356,12 +356,16 @@ void CGame_MVC2_D::ClearDataBuffer()
 
 int CGame_MVC2_D::GetBasicOffset(int nPalId)
 {
-	if(nPalId >= (8 * 6))
+	// Each character by default gets 6 buttons worth of 8 palettes.  
+	if (nPalId >= (8 * k_mvc2_character_coloroption_count))
 	{
+		// This palette is in the Extra group for this character
 		return -1;
 	}
 	else
 	{
+		// This is a stock palette entry for this character: return the MOD so we know the 
+		// particular offset within this button group.
 		return (nPalId % 8);
 	}
 }
@@ -487,7 +491,6 @@ BOOL CGame_MVC2_D::CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc,
 		
 		if(nExtraAmt == 6)
 		{
-
 			SetSourcePal(0, nUnitId, nStart + (nPalId - nStart)%nAmt, 6, nInc);
 		}
 		else
@@ -581,20 +584,11 @@ void CGame_MVC2_D::PostSetPal(int nUnitId, int nPalId)
 {
 	int nBasicOffset = GetBasicOffset(nPalId);
 
-#ifndef EXPERIMENTAL_EXTRAS
-	if (nBasicOffset == 0) 
-	{
-#endif
-		proc_supp(nUnitId, nPalId);
-#ifndef EXPERIMENTAL_EXTRAS
-	}
-	else
-	{
-		CString strMessage;
-		strMessage.Format("CGame_MVC2_D::GetBasicOffset : Palette %u updated, but it's an Extras palette so we don't process supplements\n", nPalId);
-		OutputDebugString(strMessage);
-	}
-#endif
+	CString strMessage;
+	strMessage.Format("CGame_MVC2_D::GetBasicOffset : Palette %u updated.  This palette is %s.\n", nPalId, (nBasicOffset == 0) ? "basic" : "Extra");
+	OutputDebugString(strMessage);
+
+	proc_supp(nUnitId, nPalId);
 }
 
 void CGame_MVC2_D::ForEidrian(int nFlag, COLORREF crCol)
