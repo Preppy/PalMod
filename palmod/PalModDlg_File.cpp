@@ -451,7 +451,7 @@ void CPalModDlg::OnLoadAct()
 
 void CPalModDlg::OnSaveAct()
 {
-	CFileDialog ActSave(FALSE, ".ACT", NULL, 4 | 2, "ACT Palette (*.ACT)| *.ACT|| All Files (*.*)| *.*||");
+	CFileDialog ActSave(FALSE, ".act", NULL, 4 | 2, "ACT Palette (*.ACT)| *.act|| All Files (*.*)| *.*||");
 
 	if(ActSave.DoModal() == IDOK)
 	{
@@ -461,6 +461,11 @@ void CPalModDlg::OnSaveAct()
 
 		if(ActFile.Open(ActSave.GetOFN().lpstrFile, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
 		{
+			// We are writing this file in accordance with the spec as found here--
+			//   https://www.adobe.com/devnet-apps/photoshop/fileformatashtml/#50577411_pgfId-1070626
+			// In theory we should be able to just write a 768 byte file, but there's a bug in PhotoShop's
+			// ACT import wherein they mangle the parse for 768b files.  Thus we are forcibly using 772b here.
+			
 			int nActSz = 256 * 3;
 			UINT8 * pAct = new UINT8[nActSz];
 			UINT8 * pPal = (UINT8 *)CurrPalCtrl->GetBasePal();
@@ -476,6 +481,14 @@ void CPalModDlg::OnSaveAct()
 			}
 
 			ActFile.Write(pAct, nActSz);
+
+			// Add 4 bytes per the 772b file syntax...
+			DWORD finalWord;
+			// HIWORD here is the number of useful colors in the file.
+			finalWord = nWorkingAmt << 8;
+			// LOWORD here is be the index to use for the transparency color.  This is 0 in all the games we care about.
+			ActFile.Write(&finalWord, 4);
+
 			ActFile.Close();
 			
 			SetStatusText(CString("Act file saved succesfully!"));
