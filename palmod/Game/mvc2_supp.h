@@ -5,11 +5,12 @@
 #define SUPP_END			0xFFFF
 
 #define SUPP_NODE			0x4000
-//SUPP_NODE_EX, Dest Start, Dest Inc, Src Start, Src Amt, Dst Index
+//Syntax: SUPP_NODE_EX, Dest Palette, Dest Increment, Src Start Index, Number of Items to Copy, Dest Index
 #define SUPP_NODE_EX		0x4001
 //SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
 // SUPP_NODE_ABSOL adds two values: the starting palette and the number of colors to include.
 #define SUPP_NODE_ABSOL		0x4002
+// All processing does a full copy of the palette first unless you include this flag.
 #define SUPP_NODE_NOCOPY	0x4004
 
 // These are palettes wholly located within the Extra nodes.  
@@ -62,7 +63,7 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x19, 3,
 			MOD_TINT, 1, 7, 1, 7, NEG + 6, NEG + 6, // ~75% tint
 
-		// 0x29-0x2 are the mashed tint for FAB for mecha Zangief.  mecha zangief is 11 Extra, 12 Extra, 13 Extra, etc
+		// 0x29-0x2b are the mashed tint for FAB for mecha Zangief.  mecha zangief is 11 Extra, 12 Extra, 13 Extra, etc
 		SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x29, 3, 0x11, 1,
 			MOD_TINT, 1, 7, 1, 2, NEG + 2, NEG + 2, // ~15% tint
 		SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x2A, 3, 0x11, 1,
@@ -92,12 +93,24 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x53, 9,
 		//	MOD_LUM, 0, 16, 0
 		
-		// pose sprite
-		SUPP_NODE, 0x84, 1,
+		// pose sprite: full copy and then we manually tweak further.
+		SUPP_NODE, 0x81, 1,
+
+		// pose sprite sleeves
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x81, 1, 10, 1, 10,
+			MOD_LUM, 10, 1, NEG + 21,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x81, 1, 10, 1, 11,
+			MOD_LUM, 11, 1, NEG + 13,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x81, 1, 10, 1, 12,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x81, 1, 11, 1, 13,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x81, 1, 12, 1, 14,
+
 
 	0x04 | SUPP_START, //Anakaris
+		// Upward hands
 		SUPP_NODE, 0x02 | MOD_ABS, 8,
 			MOD_LUM, 1, 15, NEG + 6,
+		// Super body
 		SUPP_NODE, 0x04 | MOD_ABS, 8,
 
 	0x06 | SUPP_START, //Cyclops
@@ -179,10 +192,38 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_LUM, 1, 15, NEG + 8,
 		SUPP_NODE, 0x05 | MOD_ABS, 8,
 			MOD_LUM, 1, 15, NEG + 12,
-		SUPP_NODE, 0x11, 2,
-			MOD_LUM, 1, 15, NEG + 8,
-		SUPP_NODE, 0x12, 2,
-			MOD_LUM, 1, 15, NEG + 12,
+		
+		// Taunt sprite,	
+		// skin: 1-7, 8: hair & boots, 9-15: boots and clothes
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 1, 7, 1,
+
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 3, 1, 3,
+			MOD_LUM, 3, 1, 13,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 4, 1, 4,
+			MOD_LUM, 4, 1, 25,
+
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 7, 1, 7,
+			MOD_LUM, 7, 1, NEG + 25,
+
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 8, 1, 8,
+			MOD_LUM, 8, 1, NEG + 25,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 9, 1, 9,
+			MOD_LUM, 9, 1, NEG + 13,
+
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 12, 1, 10,
+			MOD_LUM, 10, 1, 25,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 13, 1, 11,
+			MOD_LUM, 11, 1, 25,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 14, 1, 12,
+			MOD_LUM, 12, 1, 25,
+
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 13,
+			MOD_LUM, 13, 1, 38,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 14,
+			MOD_LUM, 14, 1, 25,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 15,
+			MOD_LUM, 15, 1, 13,
+
 
 			/*
 	0x0B | SUPP_START, //Captain America
@@ -228,8 +269,42 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x10, 16,
 			MOD_LUM, 01, 11, NEG + 3,
 			MOD_LUM, 15, 2, NEG + 3,
-		// 11/12, 20/21, 31,32, etc are the spider signal pairs, I believe
-	    // 11 is (12 - 18LUM) or so. I don't necessarily follow the correlation from those to the main palette.
+
+		// 11/12, 20/21, 31,32, etc are the spider signal pairs
+	    // 11 is (12 - 18LUM) or so of main.
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 1, 1, 1,
+			MOD_LUM, 1, 1, 55,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 1, 1, 2,
+			MOD_LUM, 2, 1, 40,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 1, 1, 3,
+			MOD_LUM, 3, 1, 30,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 2, 1, 4,
+			MOD_LUM, 4, 1, 30,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 3, 1, 5,
+			MOD_LUM, 5, 1, 20,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 4, 1, 6,
+			MOD_LUM, 6, 1, 20,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 5, 1, 7,
+			MOD_LUM, 7, 1, 20,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x11, 16, 6, 1, 8,
+			MOD_LUM, 8, 1, 20,
+
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 1, 1, 1,
+			MOD_LUM, 1, 1, 40,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 1, 1, 2,
+			MOD_LUM, 2, 1, 25,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 1, 1, 3,
+			MOD_LUM, 3, 1, 15,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 2, 1, 4,
+			MOD_LUM, 4, 1, 15,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 3, 1, 5,
+			MOD_LUM, 5, 1, 10,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 4, 1, 6,
+			MOD_LUM, 6, 1, 10,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 5, 1, 7,
+			MOD_LUM, 7, 1, 10,
+		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x12, 16, 6, 1, 8,
+			MOD_LUM, 8, 1, 10,
 
 	0x0F | SUPP_START, //Dr. Doom
 		// LP intro

@@ -463,7 +463,7 @@ void CPalModDlg::OnSaveAct()
 		{
 			// We are writing this file in accordance with the spec as found here--
 			//   https://www.adobe.com/devnet-apps/photoshop/fileformatashtml/#50577411_pgfId-1070626
-			// In theory we should be able to just write a 768 byte file, but there's a bug in PhotoShop's
+			// In theory we should be able to just write a 768 byte file, but there appears to be a bug in PhotoShop's
 			// ACT import wherein they mangle the parse for 768b files.  Thus we are forcibly using 772b here.
 			
 			int nActSz = 256 * 3;

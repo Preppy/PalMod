@@ -147,7 +147,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
 				else if (!nBasicStart || 1)//MVC2_D_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
 				{
 					sprintf(ChildNode->szDesc, "%02X %s (Extra - %02X)", nExtraPos, DEF_BUTTONLABEL6ALT[iButtonCtr],
-						(iButtonCtr * 8) + nExtraPos + 1);
+							(iButtonCtr * 8) + nExtraPos + 1);
 
 					bSetInfo = TRUE;
 				}

@@ -146,7 +146,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 		}
 	case 0x0A: //Rogue
 		{
-			if(uPalId > 0x1D + EXTRA_OMNI && uPalId <= 0x22 + EXTRA_OMNI)
+			if(uPalId >= 0x1D + EXTRA_OMNI && uPalId <= 0x22 + EXTRA_OMNI)
 			{
 				SetExtraImg(11, uUnitId, uPalId);
 				break;
@@ -596,10 +596,17 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	if(bLoadDefPal)
 	{
 		int nBasicOffset = GetBasicOffset(uPalId);
+
+		// bugbug: 
+		if ((nImgUnitId == 0xA) && (nBasicOffset == 5))
+		{
+			// Rogue's darkened dash sprite is missing a sprite association in img.dat, so just reuse the normal dash sprite
+			nBasicOffset = 4;
+		}
+
 		ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId ? (nTargetImgId & 0x000F) : nBasicOffset));
 
 		CreateDefPal(NodeGet, 0);
-
 
 		if(nBasicOffset != -1)
 		{

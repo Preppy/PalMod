@@ -248,15 +248,23 @@ void proc_supp(int char_no, int pal_no)
 				index_ctr += add;	
 				index_data = curr_data[index_ctr];
 
-				while ((index_data & 0xF000) != SUPP_NODE && (index_data & 0xF000) != SUPP_START)
+				int iNodeBeingProcessed = 0x0;
+
+				while (((index_data & 0xF000) != SUPP_NODE) && ((index_data & 0xF000) != SUPP_START))
 				{
 					if (shouldProcessEffectsForThisNode)
 					{
 						OutputDebugString("proc_supp: Processing FX for this node\n");
 					}
 
-					pi_start = curr_data[index_ctr+1];
-					pi_amt = curr_data[index_ctr+2];
+					if (iNodeBeingProcessed > 200)
+					{
+						// This character node is corrupt and needs to be fixed.
+						DebugBreak();
+					}
+
+					pi_start = curr_data[index_ctr + 1];
+					pi_amt = curr_data[index_ctr + 2];
 
 					switch (index_data)
 					{
@@ -344,7 +352,18 @@ void supp_copy_palette(UINT16 char_id, UINT16 destination_palette, UINT16 source
 
 void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt)
 {
-	OutputDebugString("\tsupp_copy_index being applied\n");
+	CString strDebugInfo;
+	if ((src_index == 0) && (index_amt == 0x10))
+	{
+		strDebugInfo.Format("\tsupp_copy_index being applied: full copy of source palette 0x%x to destination palette 0x%x\n",
+							source_palette, destination_palette);
+	}
+	else
+	{
+		strDebugInfo.Format("\tsupp_copy_index being applied: copying from source palette 0x%x at index 0x%x to destination palette 0x%x at index 0x%x for 0x%x colors\n",
+							source_palette, src_index, destination_palette, dst_index, index_amt);
+	}
+	OutputDebugString(strDebugInfo);
 
 	UINT16 *src_16, *dst_16;
 
@@ -368,8 +387,6 @@ void supp_mod_white(UINT16 char_id, UINT16 destination_palette, UINT8 index_star
 
 void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc)
 {
-	OutputDebugString("\tsupp_mod_hsl being applied\n");
-
 	COLORREF input_col;
 
 	double src_h, src_s, src_l, /* add_h ,*/ add_s = 0.0, add_l = 0.0;
@@ -377,6 +394,10 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destinati
 	UINT16 *dst_16 = get_pal_16(char_id, destination_palette);
 
 	mod_amt = AdjustNumberForPossibleNegation(mod_amt);
+
+	CString strDebugInfo;
+	strDebugInfo.Format("\tsupp_mod_hsl being applied : applying %s at %i to palette 0x%x starting at 0x%x for 0x%x colors\n", (mod_type == MOD_LUM) ? "MOD_LUM" : "MOD_SAT", mod_amt, destination_palette, index_start, index_inc);
+	OutputDebugString(strDebugInfo);
 
 	switch(mod_type)
 	{
@@ -414,14 +435,17 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destinati
 void supp_mod_tint(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt,
 				int tint_factor_r, int tint_factor_g, int tint_factor_b)
 {
-	OutputDebugString("\tsupp_mod_tint being applied\n");
-
 	UINT16 *src_16 = get_pal_16(char_id, source_palette);
 	UINT16 *dst_16 = get_pal_16(char_id, destination_palette);
 
 	tint_factor_r = AdjustNumberForPossibleNegation(tint_factor_r);
 	tint_factor_g = AdjustNumberForPossibleNegation(tint_factor_g);
 	tint_factor_b = AdjustNumberForPossibleNegation(tint_factor_b);
+
+	CString strDebugInfo;
+	strDebugInfo.Format("\tsupp_mod_tint being applied : applying tint(%i, %i, %i) from source palette 0x%x at 0x%x to palette 0x%x at 0x%x for 0x%x colors\n",
+						tint_factor_r, tint_factor_g, tint_factor_b, source_palette, src_index, destination_palette, dst_index, index_amt);
+	OutputDebugString(strDebugInfo);
 
 	for (UINT8 offset = 0; offset < index_amt; offset++)
 	{

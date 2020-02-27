@@ -371,8 +371,8 @@ const UINT16 MVC2_D_EXTRADEF[] =
     1, 1, 1, 1, 1, 0, 0, // glow, taunt, iceballs, big ice balls
     0x09, 0x0C, 0x21, 0x4A, // ice beam, various glows
     EXTRA_START | 0x0A, // Rogue
-    1, 1, 1, 1, 0, 0, 0, // heart, dust cloud, forward dash, ?
-    0x1D, 0x22, // taunt, taunt?
+    1, 1, 0, 1, 1, 0, 0, // heart, dust cloud, ?, forward dash, forward dash, ?, ?
+    0x1D, 0x22, // taunt and win pose
     EXTRA_START | 0x0B, // Captain America
     1, 1, 1, 0, 0, 0, 0, // shield, charging star / shield throw, eagle, 
 	0,
