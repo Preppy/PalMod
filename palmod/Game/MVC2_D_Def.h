@@ -288,6 +288,7 @@ const UINT16 MVC2_D_EXTRADEF[] =
 
 */
 
+// This is all for Spiral's Metamorphosis super....
 const UINT16 MVC2_D_0x31_EXTRAREDIR[] = 
 {
 	0x06, 0,
@@ -324,7 +325,6 @@ const UINT16 MVC2_D_0x31_EXTRAREDIR[] =
 	0x34, 2,
 	0x35, 0,
 	0x36, 0
-
 };
 
 // For these entries we use the EXTRA_START offset.

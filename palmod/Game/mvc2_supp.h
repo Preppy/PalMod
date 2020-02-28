@@ -595,6 +595,8 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_LUM, 01, 15, 5 + NEG,
 
 	0x31 | SUPP_START, //Spiral
+
+		// 2D-32 Power-Up Enhance
 		SUPP_NODE, 0x2D, 28,
 		SUPP_NODE, 0x2E, 28,
 			MOD_SAT, 1, 1, 60,
@@ -602,6 +604,8 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x2F, 28,
 			MOD_SAT, 2, 4, NEG + 80,
 			MOD_LUM, 2, 4, NEG + 8,
+		
+		// 33-38 Speed-up Enhance
 		SUPP_NODE, 0x33, 28,
 		SUPP_NODE, 0x34, 28,
 			MOD_LUM, 1, 15, 5,
@@ -613,7 +617,10 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_LUM, 1, 15, 23,
 		SUPP_NODE, 0x38, 28,
 			MOD_LUM, 1, 15, 40,
+		
+		// 38-46 Metamorphosis Dance
 		SUPP_NODE, 0x3B, 28,
+			// bugbug: probably should be handling this chunk too
 		SUPP_NODE, 0x46, 28,
 
 	0x32 | SUPP_START, // Colossus
@@ -758,6 +765,7 @@ extern int rgSuppLoc[MVC2_D_NUMUNIT];
 
 void prep_supp();
 void proc_supp(int char_no, int pal_no);
+void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette);
 void supp_copy_palette(UINT16 char_id, UINT16 destination_palette, UINT16 source_palette);
 void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt);
 void supp_mod_white(UINT16 char_id, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc);

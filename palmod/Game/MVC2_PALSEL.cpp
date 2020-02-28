@@ -44,12 +44,14 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 		{
 			if (uPalId >= (0x11 + EXTRA_OMNI) && uPalId <= (0x16 + EXTRA_OMNI))
 			{
+				// MechaGief
 				SetExtraImg(11, uUnitId, uPalId);
 				break;
 			}
 
 			if(uPalId >= (0x17 + EXTRA_OMNI) && uPalId <= (0x3A + EXTRA_OMNI))
 			{
+				// atomic suplex sprite
 				SetExtraImg(12, uUnitId, uPalId);
 				break;
 			}
@@ -464,9 +466,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 		}
 	case 0x31: //Spiral
 		{
-
 			if(uPalId >= (0x09 + EXTRA_OMNI) && uPalId <= (0x2A + EXTRA_OMNI))
 			{
+				// Metamorphosis super
 				int nOffs = (uPalId - (0x09 + EXTRA_OMNI)) * 2;
 
 				nImgUnitId = MVC2_D_0x31_EXTRAREDIR[nOffs];
@@ -542,7 +544,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 				break;
 			}
-
 
 			nExtraAmt = 4;
 

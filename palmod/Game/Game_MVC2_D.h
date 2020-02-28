@@ -60,6 +60,4 @@ public:
 	BOOL CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc, int nImgId, int nSepId = 0, int nAmt = 1);
 	void ResetChangeFlag(int nUnitId);
 	void ForEidrian(int nFlag, COLORREF crCol = 0);
-
-	
 };

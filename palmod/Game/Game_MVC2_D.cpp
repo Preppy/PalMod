@@ -485,7 +485,6 @@ BOOL CGame_MVC2_D::CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc,
 
 		//CreateDefPal(nUnitId, nTargetPal, nSepId);
 
-
 		nTargetImgId = nImgId | 0xFF00;
 		nImgUnitId = nUnitId;
 		
