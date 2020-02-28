@@ -24,7 +24,7 @@ void CJunk::ClearSelView()
 {
 	int i;
 
-	for(i=0; i<iWorkingAmt; i++)
+	for (i = 0; i < iWorkingAmt; i++)
 	{
 		SelView[i] = FALSE;
 	}
@@ -50,9 +50,9 @@ void CJunk::ClearHighlighted()
 {
 	int i;
 
-	for(i=0; i<iWorkingAmt; i++)
+	for (i = 0; i < iWorkingAmt; i++)
 	{
-			Highlighted[i] = 0;
+		Highlighted[i] = 0;
 	}
 
 	//iHLAmt = 0;
@@ -60,9 +60,9 @@ void CJunk::ClearHighlighted()
 
 void CJunk::LoadDefaultPal()
 {
-	for (int i = 0; i<iPalH*iPalW; i++)
+	for (int i = 0; i < iPalH * iPalW; i++)
 	{
-		BasePal[i] = RGB((F_R+1)*i/13,(F_G+1)*i/13,(F_B+1)*i/13);
+		BasePal[i] = RGB((F_R + 1) * i / 13, (F_G + 1) * i / 13, (F_B + 1) * i / 13);
 	}
 }
 
@@ -182,8 +182,9 @@ void CJunk::NotifyParent(int iCustomMessage)
 {	
 	static NMHDR myhdr;
      
+	//MessageBox("fuck", "fuck", 0);
     myhdr.hwndFrom = GetSafeHwnd();
-	myhdr.idFrom = 0; // GetDlgCtrlID();  // THIS CTRLID IS NOT THE INDEX BUGBUG
+	myhdr.idFrom = nArrayIndex; // 1; // GetDlgCtrlID();  // THIS CTRLID IS NOT THE INDEX BUGBUG BUGBUG
     myhdr.code = iCustomMessage;
 
     GetParent()->PostMessage(WM_NOTIFY, 0, (LPARAM)&myhdr);
@@ -219,28 +220,6 @@ BOOL CJunk::InitPen()
 }
 
 CJunk::CJunk()
-	:
-	bFirstInit(TRUE),
-	bEnabled(TRUE),
-	bOverControl(FALSE),
-	LButtonDown(FALSE),
-	bInCtrl(FALSE),
-	xHLOld(0),
-	yHLOld(0),
-	xInSelStart(0),
-	yInSelOld(0),
-	iHighlightx(0),
-	iHighlighty(0),
-	iHighlightIndex(0),
-	SingleSelect(0),
-	iSelAmt(0),
-	iHLAmt(0),
-	iPalW(0),
-	iPalH(0),
-	iWorkingAmt(0),
-	bFirstDCInit(TRUE),
-	pBmpData(NULL),
-	nCurrAmt(-1)
 {
 	RegisterWindowClass();
 }
@@ -806,7 +785,6 @@ void CJunk::OnTimer(UINT nIDEvent)
     // Check the mouse is inside the control
     if (!rect.PtInRect(p))
     {
-
         // if not then stop looking...
 		bOverControl = FALSE;
         KillTimer(10);

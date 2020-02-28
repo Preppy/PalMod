@@ -65,11 +65,8 @@ private:
 	ePalType PalMode;
 
 	void InitPal();
-
 	
 	BOOL FlushPal(int nIndex);
-
-	
 
 public:
 	CPalGroup(void);
@@ -109,10 +106,6 @@ public:
 	sPalRedir * GetRedir(){return rgRedir;};
 
 	void FlushPalAll();
-
-	
-
-
 };
 
 extern int LimitVal(int nVal, int nHI, int nLO);

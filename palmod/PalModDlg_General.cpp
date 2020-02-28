@@ -271,11 +271,8 @@ void CPalModDlg::OnPalSelChange(int nCtrlId)
 	UpdateMultiEdit();
 
 	//Fill the current palette info
-	// BUGBUG: This is not an index value -- 
-	// nCurSelPal = nCtrlId;
-	// Setting to null for now
-	nCurrSelPal = 0;
-	CurrPalCtrl = m_PalHost.GetPalCtrl(0); // nCtrlId);
+	nCurrSelPal = nCtrlId;
+	CurrPalCtrl = m_PalHost.GetPalCtrl(nCurrSelPal);
 	CurrPalDef = MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex);
 	CurrPalSep = CurrPalDef->SepList[MainPalGroup->GetRedir()[nCurrSelPal].nSepIndex];
 	nPalImgIndex = MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex;

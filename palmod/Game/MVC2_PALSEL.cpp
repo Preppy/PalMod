@@ -516,7 +516,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 		}
 	case 0x38: //CapCom
 		{
-			if(SpecSel(&nSpecOffs, uPalId, 1, 8) || SpecSel(&nSpecOffs, uPalId, 2, 8))
+			if (SpecSel(&nSpecOffs, uPalId, 1, 8) || SpecSel(&nSpecOffs, uPalId, 2, 8))
 			{
 				bLoadDefPal = FALSE;
 
@@ -542,6 +542,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 				break;
 			}
+
 
 			nExtraAmt = 4;
 

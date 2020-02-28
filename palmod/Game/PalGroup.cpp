@@ -35,7 +35,6 @@ void CPalGroup::InitPal()
 
 void CPalGroup::FlushPalAll()
 {
-
 	for(int i = 0; i < MAX_PAL; i++)
 	{
 		FlushPal(i);
@@ -76,15 +75,9 @@ BOOL CPalGroup::FlushPal(int nIndex)
 	for(int i = 0; i < rgPalettes[nIndex].uSepAmt; i++)
 	{
 		delete rgPalettes[nIndex].SepList[i];
-		
-		
 	}
-
-	
 	
 	memset(&rgPalettes[nIndex], NULL, sizeof(sPalDef));
-	
-	
 
 	return TRUE;
 }
@@ -113,7 +106,6 @@ BOOL CPalGroup::SetMode(ePalType NewPalMode)
 
 BOOL CPalGroup::AddPal(COLORREF * pPal, UINT16 uPalSz, UINT8 uUnitId, UINT16 uPalId)
 {
-
 	if(nCurrPalAmt >= MAX_PAL || !pPal || !uPalSz)
 	{
 		return FALSE;
@@ -158,7 +150,6 @@ void CPalGroup::SetHLSA(COLORREF * crTarget, double dH, double dL, double dS, UI
 
 void CPalGroup::SetAddHLSA(COLORREF crSrc, COLORREF * crTarget, double fpAddH, double fpAddL, double fpAddS, int uAddA)
 {
-
 	double modH, modL, modS;
 
 	RGBtoHLS(crSrc, &modH, &modL, &modS);
@@ -187,13 +178,11 @@ void CPalGroup::SetAddRGBA(COLORREF crSrc, COLORREF * crTarget, int uAddR, int u
 
 BOOL CPalGroup::AddSep(int nIndex, CHAR * szDesc, int nStart, int nAmt)
 {
-
 	if(rgPalettes[nIndex].uSepAmt >= MAX_SEP || nStart + nAmt > rgPalettes[nIndex].uPalSz)
 	{
 		return FALSE;
 
 	}
-
 	
 	sPalSep * NewSep = new sPalSep;
 
@@ -202,7 +191,6 @@ BOOL CPalGroup::AddSep(int nIndex, CHAR * szDesc, int nStart, int nAmt)
 	NewSep->nAmt = nAmt;
 
 	rgPalettes[nIndex].SepList[rgPalettes[nIndex].uSepAmt] = NewSep;
-	
 
 	//Set a redir node
 	rgRedir[nRedirCtr].nDefIndex = nIndex;
@@ -291,10 +279,6 @@ void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)
 		pHSLArray[i] += fpPage;
 	}
 	
-	/*
-    */
-	
-
 	//for(int i = 0; i < nPalSz; i++)
 	//{
 	//	COLORREF crCol = rgPalettes[nIndex].pPal[i];
@@ -325,8 +309,6 @@ void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)
 	}
 
 	delete [] pHSLArray;
-	
-	
 }
 
 COLORREF * CPalGroup::GetUnsortedPal(int nIndex)

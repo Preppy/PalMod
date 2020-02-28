@@ -134,6 +134,7 @@ void CPalTool::Init()
 	for(int i = 0; i < MAX_PALETTE; i++)
 	{
 		pPalEntry[i].PaletteCtrl = new CJunk;
+		pPalEntry[i].PaletteCtrl->SetArrayIndex(i);
 		pPalEntry[i].bAvail = FALSE;
 	}
 }

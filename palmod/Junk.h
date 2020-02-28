@@ -51,13 +51,13 @@ private:
 	void LoadDefaultPal();
 
 	//Default variables
-	BOOL LButtonDown;
-	BOOL bFirstDCInit;
-	BOOL bFirstInit;
+	BOOL LButtonDown = FALSE;
+	BOOL bFirstDCInit = TRUE;
+	BOOL bFirstInit = TRUE;
 
-	BOOL bEnabled;
-	BOOL bOverControl;
-	BOOL bInCtrl;
+	BOOL bEnabled = TRUE;
+	BOOL bOverControl = FALSE;
+	BOOL bInCtrl = FALSE;
 
 	//Draw variables
 	RECT rIndexRect;
@@ -66,7 +66,7 @@ private:
 
 	HBITMAP hBmp;
 	BITMAPINFO Bmpi;
-	UINT32 * pBmpData;
+	UINT32 * pBmpData = nullptr;
 	CDC dcBaseDC;
 
 	CBitmap FaceBitmap;
@@ -79,13 +79,13 @@ private:
 	static CPen PIndexMHL;
 	static CPen PIndexBG;
 
-	int nCurrAmt;
+	int nCurrAmt = -1;
 
 	int iBaseW;
 	int iBaseH;
 
-	int iPalW;
-	int iPalH;
+	int iPalW = 0;
+	int iPalH = 0;
 	int iSqSz;
 	int iSqBdrSz;
 	int iBdrSz;
@@ -101,27 +101,27 @@ private:
 	UCHAR * Selected;
 	UCHAR * SelView;
 
-	int iHLAmt;
-	int iWorkingAmt;
+	int iHLAmt = 0;
+	int iWorkingAmt = 0;
 
-	int iHighlightx;
-	int iHighlighty;
+	int iHighlightx = 0;
+	int iHighlighty = 0;
 
-	int SingleSelect;
-	int iSelAmt;
+	int SingleSelect = 0;
+	int iSelAmt = 0;
 
 	BOOL bSingleSel;
 
-	int xHLOld;
-	int yHLOld;
+	int xHLOld = 0;
+	int yHLOld = 0;
 
-	int xInSelStart;
-	int yInSelStart;
+	int xInSelStart = 0;
+	int yInSelStart = 0;
 
 	int xInSelOld;
 	int yInSelOld;
 
-	int iHighlightIndex;
+	int iHighlightIndex = 0;
 	int nArrayIndex = 0;
 
 	//Main palette
@@ -158,6 +158,7 @@ public:
 
 	int GetSelAmt() {return iSelAmt;};
 	int GetHLAmt() {return iHLAmt;};
+	void SetArrayIndex(int nIndex) { nArrayIndex = nIndex; };
 	void UpdateIndex(int nIndex);
 	void UpdateIndexAll();
 
