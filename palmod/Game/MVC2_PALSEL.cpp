@@ -479,8 +479,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 			}
 
 			if(
-				CreateExtraPal(uUnitId, uPalId, 0x2D, 0x1C, 11, 0, 6)
-				|| CreateExtraPal(uUnitId, uPalId, 0x33, 0x1C, 12, 0, 6)
+				CreateExtraPal(uUnitId, uPalId, 0x2D, 0x1C, 11, 0, 6) // power enhance
+				|| CreateExtraPal(uUnitId, uPalId, 0x33, 0x1C, 12, 0, 6) // speed enhance
+				|| CreateExtraPal(uUnitId, uPalId, 0x3B, 0x1C, 12, 0, 12) // metamorphosis
 				)
 			{
 				break;

@@ -35,7 +35,7 @@ inline UINT16* get_pal_16(int char_id, int pal_no)
 
 void HandleSpiralCopies(int char_no, int pal_no)
 {
-	// This should generally work, except for sentinel FX which is itself modified by sentinel.  most handle post-proc?
+	// This should generally work, except for sentinel FX which is itself modified by sentinel.  handled post-proc below
 	if      ((char_no == 0x06) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x38); } // cyke
 	else if ((char_no == 0x07) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x39); } // wolvie
 	else if ((char_no == 0x07) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x3A); } // wolvie claws
@@ -50,16 +50,16 @@ void HandleSpiralCopies(int char_no, int pal_no)
 	else if ((char_no == 0x0F) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x43); } // dr doom
 	else if ((char_no == 0x0F) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x44); } // dr doom fx
 	else if ((char_no == 0x16) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x45); } // marrow
- // else if ((char_no == 0x6) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x46); } // UNUSED
+ // else if ((char_no == 0xFF) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x46); } // UNUSED
 	else if ((char_no == 0x17) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x47); } // cable
- // else if ((char_no == 0x6) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x48); } // UNUSED
+ // else if ((char_no == 0xFF) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x48); } // UNUSED
 	else if ((char_no == 0x28) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x49); } // gambit
 	else if ((char_no == 0x29) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4A); } // juggernaut
 	else if ((char_no == 0x2A) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4B); } // storm
-	else if ((char_no == 0x2A) && (pal_no == 13)) { supp_copy_spiral(char_no, pal_no, 0x4C); } // storm glow
+	else if ((char_no == 0x2A) && (pal_no == 0x42)) { supp_copy_spiral(char_no, pal_no, 0x4C); } // storm lightning FX
 	else if ((char_no == 0x2B) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4D); } // sabe
 	else if ((char_no == 0x2C) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4E); } // magnus
- // else if ((char_no == 0x6) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4F); } // UNUSED
+ // else if ((char_no == 0xFF) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4F); } // UNUSED
 	else if ((char_no == 0x2D) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x50); } // shuma
 	else if ((char_no == 0x2E) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x51); } // war machine
 	else if ((char_no == 0x2F) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x52); } // silver samurai
@@ -67,9 +67,15 @@ void HandleSpiralCopies(int char_no, int pal_no)
 	else if ((char_no == 0x32) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x54); } // colossus
 	else if ((char_no == 0x33) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x55); } // iron man
 	else if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x56); } // sentinel
-	else if ((char_no == 0x34) && (pal_no == 2)) { supp_copy_spiral(char_no, pal_no, 0x57); } // sentinel FX
+	else if ((char_no == 0x34) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x57); } // sentinel FX
 	else if ((char_no == 0x35) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x58); } // blackheart
-	else if ((char_no == 0x36) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x59); } // colossus
+	else if ((char_no == 0x36) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x59); } // thanos
+}
+
+// This handles palettes that are modified as part of modifying a primary palette
+void HandleSpiralCopies_ForSupplementedPalettes(int char_no, int pal_no)
+{
+	if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, 0x01, 0x57); } // copy sentinel FX
 }
 
 void proc_supp(int char_no, int pal_no)
@@ -364,6 +370,9 @@ void proc_supp(int char_no, int pal_no)
 		}
 	}
 
+	// We catch indirectly updated palettes here.
+	HandleSpiralCopies_ForSupplementedPalettes(char_no, pal_no);
+
 	strDebugInfo.Format("proc_supp: Finished processing supplemental palettes for character 0x%x, palette number 0x%x\n\n", char_no, pal_no);
 	OutputDebugString(strDebugInfo);
 }
@@ -394,7 +403,7 @@ void supp_copy_palette(UINT16 char_id, UINT16 destination_palette, UINT16 source
 void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette)
 {
 	CString strDebugInfo;
-	strDebugInfo.Format("\supp_copy_spiral being applied: full copy of source palette 0x%x to destination palette 0x%x\n", source_palette, destination_palette);
+	strDebugInfo.Format("\tsupp_copy_spiral being applied: This sprite is used in Spiral's super.  Copying source palette 0x%x to destination palette 0x%x\n", source_palette, destination_palette);
 	OutputDebugString(strDebugInfo);
 
 	UINT16* src_16 = get_pal_16(char_id, source_palette);

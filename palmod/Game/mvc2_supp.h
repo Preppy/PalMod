@@ -151,6 +151,16 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x5A, 2,
 			MOD_TINT, 1, 15, 1, 3, NEG + 1, NEG + 1,
 
+	0x07 | SUPP_START, // Wolverine (adm).  If you link palette 0 and 1 please update HandleSpiralCopies_ForSupplementedPalettes
+		// his berserker barrage trails a bit of his costume.
+		SUPP_NODE | SUPP_NODE_NOCOPY, 2 | MOD_ABS, 8,
+			MOD_COPY, 2, 1, 12,
+			MOD_COPY, 11, 1, 13,
+			MOD_COPY, 10, 1, 14,
+			MOD_COPY,  9, 1, 15,
+
+	// 0x08 -- psylocke:  no changes needed.  If you link palette 0 and 1 please update HandleSpiralCopies_ForSupplementedPalettes
+
 	0x09 | SUPP_START, //Iceman
 		// Stance Frame
 		SUPP_NODE, 0x02 | MOD_ABS, 8,
@@ -224,7 +234,6 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 15,
 			MOD_LUM, 15, 1, 13,
 
-
 			/*
 	0x0B | SUPP_START, //Captain America
 		SUPP_NODE_EX, 1 | MOD_ABS, 8, 1, 3, 1,
@@ -238,7 +247,6 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_LUM, 9, 1, 11,
 		SUPP_NODE_EX, 1 | MOD_ABS, 8, 8, 1, 10,
 			MOD_LUM, 10, 1, 5,
-
 			*/
 
 	0x0C | SUPP_START, //Spider-Man
@@ -307,6 +315,7 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_LUM, 8, 1, 10,
 
 	0x0F | SUPP_START, //Dr. Doom
+		// If you link palette 0 and 1 please update HandleSpiralCopies_ForSupplementedPalettes
 		// LP intro
 		SUPP_NODE, 0x09, 28,
 
@@ -474,9 +483,13 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x12, 10,
 
 	0x2A | SUPP_START, //Storm
+		// the 0x09-0x11 lightning super effect is SHARED for all 6 colors, so no you don't really want to touch it
+
+		//  lightning effect
 		SUPP_NODE, 0x19, 3,
 		SUPP_NODE, 0x1A, 3,
 			MOD_LUM, 01, 15, 7,
+		// hail storm
 		SUPP_NODE, 0x1B, 3,
 			MOD_LUM, 01, 15, 17,
 
@@ -604,7 +617,23 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x2F, 28,
 			MOD_SAT, 2, 4, NEG + 80,
 			MOD_LUM, 2, 4, NEG + 8,
-		
+		SUPP_NODE, 0x30, 28,
+			MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2,
+			MOD_TINT, 6, 3, 6, 2, 0, 0,
+			MOD_TINT, 14, 2, 14, 2, 0, 0,
+			MOD_TINT, 10, 4, 10, 8, 0, 0,
+		SUPP_NODE, 0x31, 28,
+			MOD_TINT, 2, 4, 2, 6, 0, 0,
+			MOD_TINT, 6, 3, 6, 4, 0, 0,
+			MOD_TINT, 14, 2, 14, 4, 0, 0,
+			MOD_TINT, 10, 4, 10, 8, NEG + 2, NEG + 2,
+		SUPP_NODE, 0x32, 28,
+			MOD_TINT, 2, 4, 2, 5, NEG + 1, NEG + 1,
+			MOD_TINT, 6, 3, 6, 2, 0, 0,
+			MOD_TINT, 14, 2, 14, 2, 0, 0,
+			MOD_TINT, 10, 4, 10, 10, 0, 0,
+
+
 		// 33-38 Speed-up Enhance
 		SUPP_NODE, 0x33, 28,
 		SUPP_NODE, 0x34, 28,
@@ -620,7 +649,58 @@ const UINT16 _mvc2_supp_const [] =
 		
 		// 38-46 Metamorphosis Dance
 		SUPP_NODE, 0x3B, 28,
-			// bugbug: probably should be handling this chunk too
+
+		SUPP_NODE, 0x3C, 28,
+			MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2,
+			MOD_TINT, 6, 3, 6, 4, 0, 0,
+			MOD_TINT, 14, 2, 14, 4, 0, 0,
+			MOD_TINT, 10, 4, 10, 2, 2, 4,
+		SUPP_NODE, 0x3D, 28,
+			MOD_TINT, 2, 4, 2, 6, 0, 0,
+			MOD_TINT, 6, 3, 6, 2, 0, 0,
+			MOD_TINT, 14, 2, 14, 2, 0, 0,
+			MOD_TINT, 10, 4, 10, 3, 5, NEG + 3,
+		SUPP_NODE, 0x3E, 28,
+			MOD_TINT, 2, 4, 2, 5, NEG + 1, NEG + 1,
+			MOD_TINT, 6, 3, 6, 4, 0, 0,
+			MOD_TINT, 14, 2, 14, 4, 0, 0,
+			MOD_TINT, 10, 4, 10, 5, 5, NEG + 3,
+		SUPP_NODE, 0x3F, 28,
+			MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2,
+			MOD_TINT, 6, 3, 6, 2, 0, 0,
+			MOD_TINT, 14, 2, 14, 2, 0, 0,
+			MOD_TINT, 10, 4, 10, 5, 5, NEG + 6,
+		SUPP_NODE, 0x40, 28,
+			MOD_TINT, 2, 4, 2, 6, 0, 0,
+			MOD_TINT, 6, 3, 6, 4, 0, 0,
+			MOD_TINT, 14, 2, 14, 4, 0, 0,
+			MOD_TINT, 10, 4, 10, 5, 4, NEG + 4,
+		SUPP_NODE, 0x41, 28,
+			MOD_TINT, 2, 4, 2, 5, NEG + 1, NEG + 1,
+			MOD_TINT, 6, 3, 6, 2, 0, 0,
+			MOD_TINT, 14, 2, 14, 2, 0, 0,
+			MOD_TINT, 10, 4, 10, 7, NEG + 1, NEG + 4,
+		SUPP_NODE, 0x42, 28,
+			MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2,
+			MOD_TINT, 6, 3, 6, 4, 0, 0,
+			MOD_TINT, 14, 2, 14, 4, 0, 0,
+			MOD_TINT, 10, 4, 10, 10, NEG + 2, NEG + 2,
+		SUPP_NODE, 0x43, 28,
+			MOD_TINT, 2, 4, 2, 6, 0, 0,
+			MOD_TINT, 6, 3, 6, 2, 0, 0,
+			MOD_TINT, 14, 2, 14, 2, 0, 0,
+			MOD_TINT, 10, 4, 10, 10, 0, 0,
+		SUPP_NODE, 0x44, 28,
+			MOD_TINT, 2, 4, 2, 5, NEG + 1, NEG + 1,
+			MOD_TINT, 6, 3, 6, 4, 0, 0,
+			MOD_TINT, 14, 2, 14, 4, 0, 0,
+			MOD_TINT, 10, 4, 10, 2, NEG + 1, 9,
+		SUPP_NODE, 0x45, 28,
+			MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2,
+			MOD_TINT, 6, 3, 6, 2, 0, 0,
+			MOD_TINT, 14, 2, 14, 2, 0, 0,
+			MOD_TINT, 10, 4, 10, 2, 2, 13,
+
 		SUPP_NODE, 0x46, 28,
 
 	0x32 | SUPP_START, // Colossus
@@ -715,7 +795,8 @@ const UINT16 _mvc2_supp_const [] =
 		SUPP_NODE, 0x28, 32,
 
 	0x34 | SUPP_START, //Sentinel
-		SUPP_NODE, 0x01 | MOD_ABS, 8,
+		SUPP_NODE | SUPP_NODE_NOCOPY, 0x01 | MOD_ABS, 8,
+			MOD_COPY, 1, 7, 1,
 
 	0x37 | SUPP_START, //Jin
 		SUPP_NODE, 0x2E, 6,
@@ -744,6 +825,14 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_COPY, 8, 3, 10,
 		SUPP_NODE_EX, 0x68, 6, 6, 10, 6,
 			MOD_COPY, 8, 3, 10,
+
+	0x39 | SUPP_START, // Bonerine
+		// his berserker barrage trails a bit of his costume.
+		SUPP_NODE | SUPP_NODE_NOCOPY, 2 | MOD_ABS, 8,
+			MOD_COPY, 2, 1, 12,
+			MOD_COPY, 11, 1, 13,
+			MOD_COPY, 10, 1, 14,
+			MOD_COPY,  9, 1, 15,
 			
 	0x3A | SUPP_START, //Kobun
 		SUPP_NODE, 0x09, 5, 
