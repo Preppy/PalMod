@@ -67,7 +67,7 @@ void HandleSpiralCopies(int char_no, int pal_no)
 	else if ((char_no == 0x32) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x54); } // colossus
 	else if ((char_no == 0x33) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x55); } // iron man
 	else if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x56); } // sentinel
-	else if ((char_no == 0x34) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x57); } // sentinel FX
+	else if ((char_no == 0x34) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x57, 1, 1, 7); } // sentinel FX
 	else if ((char_no == 0x35) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x58); } // blackheart
 	else if ((char_no == 0x36) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x59); } // thanos
 }
@@ -75,7 +75,7 @@ void HandleSpiralCopies(int char_no, int pal_no)
 // This handles palettes that are modified as part of modifying a primary palette
 void HandleSpiralCopies_ForSupplementedPalettes(int char_no, int pal_no)
 {
-	if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, 0x01, 0x57); } // copy sentinel FX
+	if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, 0x01, 0x57, 1, 1, 7); } // copy sentinel FX
 }
 
 void proc_supp(int char_no, int pal_no)
@@ -96,9 +96,9 @@ void proc_supp(int char_no, int pal_no)
 	UINT8 add = 0;
 	UINT8 tint_ctr = 0;
 
-	UINT8 source_palette;
+	UINT16 source_palette;
 	UINT8 pal_ctr;
-	UINT8 destination_palette;
+	UINT16 destination_palette;
 
 	BOOL isCurrentPaletteABasicPalette = FALSE, isCurrentPaletteAnExtraPalette = FALSE;
 
@@ -400,7 +400,7 @@ void supp_copy_palette(UINT16 char_id, UINT16 destination_palette, UINT16 source
 	memcpy(dst, src, 32);
 }
 
-void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette)
+void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 source_index, UINT8 destination_index, UINT8 copy_amount)
 {
 	CString strDebugInfo;
 	strDebugInfo.Format("\tsupp_copy_spiral being applied: This sprite is used in Spiral's super.  Copying source palette 0x%x to destination palette 0x%x\n", source_palette, destination_palette);
@@ -409,7 +409,7 @@ void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_
 	UINT16* src_16 = get_pal_16(char_id, source_palette);
 	UINT16* dst_16 = get_pal_16(0x31 /*spiral*/, destination_palette);
 
-	memcpy(&dst_16[0], &src_16[0], 0x10 * sizeof(UINT16));
+	memcpy(&dst_16[destination_index], &src_16[source_index], copy_amount * sizeof(UINT16));
 }
 
 void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt)

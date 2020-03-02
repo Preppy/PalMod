@@ -498,7 +498,7 @@ void CImgDisp::OnSize(UINT nType, int cx, int cy)
 	// TODO: Add your message handler code here
 }
 
-BOOL CImgDisp::CustomBlt(int nSrcIndex, int x, int y, int bAltPal)
+BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
 {
 	if(MAIN_W <= 0 || MAIN_H <= 0)
 	{
@@ -516,18 +516,18 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int x, int y, int bAltPal)
 
 	double fpDstA1, fpDstA2;
 
-	CRect rBltRct(x, y, x + nWidth, y + nHeight);
+	CRect rBltRct(xWidth, yHeight, xWidth + nWidth, yHeight + nHeight);
 
-	if(x < 0)
+	if (xWidth < 0)
 	{
 		rBltRct.left = 0;
-		nSrcX = abs(x);
+		nSrcX = abs(xWidth);
 	}
 
-	if(y < 0)
+	if (yHeight < 0)
 	{
 		rBltRct.top = 0;
-		nSrcY = abs(y);
+		nSrcY = abs(yHeight);
 	}
 
 	if(rBltRct.right > MAIN_W)
@@ -547,18 +547,18 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int x, int y, int bAltPal)
 
 	UINT8 * uDstR, * uDstG, * uDstB;
 
-	for(int y = 0; y < nBltH; y++)
+	for(int yIndex = 0; yIndex < nBltH; yIndex++)
 	{
-		int nStartRow = (rBltRct.top + ((nBltH - 1) - y)) * (MAIN_W*4) + (rBltRct.left*4);
-		int nSrcStartRow = ((y + nSrcY) * nWidth) + nSrcX;
+		int nStartRow = (rBltRct.top + ((nBltH - 1) - yIndex)) * (MAIN_W*4) + (rBltRct.left*4);
+		int nSrcStartRow = ((yIndex + nSrcY) * nWidth) + nSrcX;
 
-		for(int x = 0; x < nBltW*4; x+=4)
+		for(int xIndex = 0; xIndex < nBltW*4; xIndex += 4)
 		{
-			UINT8 uIndex = pImgData[nSrcStartRow + (x / 4)];
+			UINT8 uIndex = pImgData[nSrcStartRow + (xIndex / 4)];
 
 			if(uIndex)
 			{
-				int nDstPos = nStartRow + x;
+				int nDstPos = nStartRow + xIndex;
 
 				fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
 				fpDstA1 = 1.0 - fpDstA2;
@@ -579,8 +579,6 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int x, int y, int bAltPal)
 
 void CImgDisp::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	// TODO: Add your message handler code here and/or call default
-
 	bLButtonDown = TRUE;
 	bCtrlDown = (GetAsyncKeyState(VK_CONTROL) & 0x8000) ? TRUE : FALSE;
 	SetCapture();

@@ -417,6 +417,7 @@ void CImgOutDlg::OnFileSave()
 
 		switch(sfd.GetOFN().nFilterIndex)
 		{
+		default:
 		case 1:
 			{
 				img_format = ImageFormatPNG;
@@ -446,8 +447,9 @@ void CImgOutDlg::OnFileSave()
 		CImage out_img;
 		out_img.Create( output_width, output_height, 32, CImage::createAlphaChannel * bTransPNG * (sfd.GetOFN().nFilterIndex == 1) );
 
-		void * pPixelPos = out_img.GetPixelAddress(0, (output_height - 1));
-		void * pStartArray = out_img.GetBits();
+		// unused
+		//void * pPixelPos = out_img.GetPixelAddress(0, (output_height - 1));
+		//void * pStartArray = out_img.GetBits();
 
 		if(bTransPNG)
 		{
@@ -487,7 +489,6 @@ void CImgOutDlg::OnFileSave()
 		{
 			m_DumpBmp.UpdateCtrl();
 		}
-
 	}
 }
 

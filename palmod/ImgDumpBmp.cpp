@@ -286,7 +286,6 @@ void CImgDumpBmp::UpdateClip()
 
 	m_HScroll.EnableWindow(HScroll_Enabled);
 	m_VScroll.EnableWindow(VScroll_Enabled);
-	
 }
 
 void CImgDumpBmp::OnMouseMove(UINT nFlags, CPoint point)
@@ -644,7 +643,6 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
 			for(int x = 0; x < nBltW*4; x+=4)
 			{
-				
 				nXCtr = (int)((double)x * fpXDiff);
 
 				uIndex = pImgData[nSrcStartRow + (nXCtr / 4)];
@@ -792,7 +790,6 @@ void CImgDumpBmp::ResizeMainBmp()
 		MainBmpi.bmiHeader.biCompression = BI_RGB;
 		MainBmpi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 
-		
 		MainHBmp = CreateDIBSection(MainDC.GetSafeHdc(), &MainBmpi, DIB_RGB_COLORS, (void **)&pMainBmpData, NULL, 0);
 
 		if(!FirstRun)

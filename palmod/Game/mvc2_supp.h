@@ -854,7 +854,7 @@ extern int rgSuppLoc[MVC2_D_NUMUNIT];
 
 void prep_supp();
 void proc_supp(int char_no, int pal_no);
-void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette);
+void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 source_index = 0, UINT8 destination_index = 0, UINT8 copy_amount = 0x10);
 void supp_copy_palette(UINT16 char_id, UINT16 destination_palette, UINT16 source_palette);
 void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt);
 void supp_mod_white(UINT16 char_id, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc);
