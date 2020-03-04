@@ -530,16 +530,19 @@ void CGame_MVC2_D::UpdatePalData()
 				PostSetPal(srcDef->uUnitId, srcDef->uPalId);
 
 #ifdef DEBUG
-				// We probably want to move this to an actual button or something.
-				// Right now we're just hacking the Update button as we work on this proof of concept.
-				// TODO: Need Spiral cross copies, ensure PATCH is available, and a Check/Patch button/option.
-				// Or we could just auto-run it for the first time they start PalMod, but that seems painful.
-				OutputDebugString("*****************************Temporary code do not ship************************\n");
-
 				CheckMixColors();
 
-				// Not needed right now: this was used to generate the giant stock validation database.
-				//DumpAllPalettes();
+				// BUGBUG HACK HACK
+				static bool fonce = true;
+				if (fonce)
+				{
+					OutputDebugString("*****************************Temporary code do not ship************************\n");
+					fonce = false;
+					//DumpAllPalettes();
+				
+//					FixMixColors();
+	//				CheckMixColors();
+				}
 #endif
 			}
 		}
@@ -549,6 +552,11 @@ void CGame_MVC2_D::UpdatePalData()
 void CGame_MVC2_D::CheckMixColors()
 {
 	ValidateAllPalettes(rgFileChanged);
+}
+
+void CGame_MVC2_D::FixMixColors()
+{
+	FixAllProblemPalettes(rgFileChanged);
 }
 
 void CGame_MVC2_D::FlushUnitFile()

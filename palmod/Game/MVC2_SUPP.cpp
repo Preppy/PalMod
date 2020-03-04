@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MVC2_SUPP.h"
 #include "ColorScale.h"
+#include "mvc2_validate.h"
 
 CGame_MVC2_D * CurrMVC2 = NULL;
 int rgSuppLoc[MVC2_D_NUMUNIT];
@@ -82,7 +83,7 @@ void proc_supp(int char_no, int pal_no)
 {
 	CString strDebugInfo;
 
-	strDebugInfo.Format("proc_supp: Processing supplemental palettes for character 0x%x, palette number 0x%x\n", char_no, pal_no);
+	strDebugInfo.Format("proc_supp: Processing supplemental palettes for character 0x%x (%s), palette number 0x%x\n", char_no, MVC2_D_UNITDESC[char_no], pal_no);
 	OutputDebugString(strDebugInfo);
 
 	HandleSpiralCopies(char_no, pal_no);
@@ -94,7 +95,6 @@ void proc_supp(int char_no, int pal_no)
 	}
 	
 	UINT8 add = 0;
-	UINT8 tint_ctr = 0;
 
 	UINT16 source_palette;
 	UINT8 pal_ctr;
@@ -116,12 +116,6 @@ void proc_supp(int char_no, int pal_no)
 	// Base_Start: which palette to be copying from if it isn't the main BUTTON palette
 	// Base_inc: the number of palettes to increment on the copy side.
 	UINT16 node_start = 0, node_inc = 0, base_start = 0, base_inc = 1;
-
-	//pi = palette index
-	UINT16 pi_start, pi_amt;
-
-	//MOD
-	UINT16 mod_type, mod_amt;
 
 	//Check to see if we are modifying any basic palettes
 	index_data = curr_data[index_ctr];
@@ -283,6 +277,14 @@ void proc_supp(int char_no, int pal_no)
 
 				OutputDebugString(strDebugInfo);
 
+#ifdef SPECIAL_PALETTE_DUMP_MODE
+				// I needed to hook into the supplemental palette processing to figure out what we're actually touching so injected this
+				// and the related SPECIAL_PALETTE_DUMP_MODE .  Hopefully we never need to do that again as it was awful.
+
+				shouldProcessEffectsForThisNode = false;
+				dump_palettes(char_no, source_palette, char_no, destination_palette);
+#endif				
+
 				// Unless we get told otherwise, we do a copy first and then worry about modifying values.
 				if (index_data != SUPP_NODE_NOCOPY)
 				{
@@ -310,8 +312,9 @@ void proc_supp(int char_no, int pal_no)
 						DebugBreak();
 					}
 
-					pi_start = curr_data[index_ctr + 1];
-					pi_amt = curr_data[index_ctr + 2];
+					//pi = palette index - value should be from 0-15.
+					UINT8 pi_start = (UINT8)curr_data[index_ctr + 1];
+					UINT8 pi_amt = (UINT8)curr_data[index_ctr + 2];
 
 					switch (index_data)
 					{
@@ -319,7 +322,7 @@ void proc_supp(int char_no, int pal_no)
 							{
 								if (shouldProcessEffectsForThisNode)
 								{
-									supp_mod_tint(char_no, pal_no, destination_palette, curr_data[index_ctr + 3], pi_start, pi_amt,
+									supp_mod_tint(char_no, pal_no, destination_palette, (UINT8)curr_data[index_ctr + 3], pi_start, pi_amt,
 												curr_data[index_ctr + 4], curr_data[index_ctr + 5], curr_data[index_ctr + 6]);
 								}
 	                          
@@ -341,7 +344,7 @@ void proc_supp(int char_no, int pal_no)
 							{
 								if (shouldProcessEffectsForThisNode)
 								{
-									supp_copy_index(char_no, pal_no, destination_palette, curr_data[index_ctr + 3], pi_start, pi_amt);
+									supp_copy_index(char_no, pal_no, destination_palette, (UINT8)curr_data[index_ctr + 3], pi_start, pi_amt);
 								}
 
 								index_ctr += 4;
@@ -353,8 +356,8 @@ void proc_supp(int char_no, int pal_no)
 							{
 								if (shouldProcessEffectsForThisNode)
 								{
-									mod_type = curr_data[index_ctr];
-									mod_amt = curr_data[index_ctr + 3];
+									UINT16 mod_type = curr_data[index_ctr];
+									UINT16 mod_amt = curr_data[index_ctr + 3];
 
 									supp_mod_hsl(char_no, mod_type, mod_amt, destination_palette, pi_start, pi_amt);
 								}
@@ -390,16 +393,6 @@ int AdjustNumberForPossibleNegation(int nPossiblyNegativeNumber)
 	return nPossiblyNegativeNumber;
 }
 
-void supp_copy_palette(UINT16 char_id, UINT16 destination_palette, UINT16 source_palette)
-{
-	OutputDebugString("\tsupp_copy_palette being applied\n");
-
-	UINT8 *src = &_mvc2_data[char_id][source_palette * 32];
-	UINT8 *dst = &_mvc2_data[char_id][destination_palette * 32];
-
-	memcpy(dst, src, 32);
-}
-
 void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 source_index, UINT8 destination_index, UINT8 copy_amount)
 {
 	CString strDebugInfo;
@@ -427,10 +420,8 @@ void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_p
 	}
 	OutputDebugString(strDebugInfo);
 
-	UINT16 *src_16, *dst_16;
-
-	src_16 = get_pal_16(char_id, source_palette);
-	dst_16 = get_pal_16(char_id, destination_palette);
+	UINT16 *src_16 = get_pal_16(char_id, source_palette);
+	UINT16* dst_16 = get_pal_16(char_id, destination_palette);
 
 	memcpy(&dst_16[dst_index], &src_16[src_index], index_amt * sizeof(UINT16));
 }

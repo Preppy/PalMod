@@ -183,6 +183,9 @@
     <ClCompile Include="Game_MVC_A_EXTRA.cpp">
       <Filter>Game\MVC_A</Filter>
     </ClCompile>
+    <ClCompile Include="Game\mvc2_validate.cpp">
+      <Filter>Game\MVC2_D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImgDisp.h">

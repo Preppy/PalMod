@@ -318,7 +318,7 @@ void CGame_SFA3_A::UpdatePalData()
 			int nIndexStart = 1;
 
 			COLORREF * crSrc = srcDef->pPal;
-			UINT8 uAmt = srcDef->uPalSz;
+			UINT16 uAmt = srcDef->uPalSz;
 
 			for(int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
 			{

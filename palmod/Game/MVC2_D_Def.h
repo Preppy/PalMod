@@ -191,7 +191,7 @@ const CHAR MVC2_D_UNITDESC [MVC2_D_NUMUNIT][MAX_DESC] =
 	"Colossus",
 	"Iron-Man",
 	"Sentinel",
-	"Black Heart",
+	"Blackheart",
 	"Thanos",
 	"Jin",
 	"Captain Commando",
@@ -497,7 +497,7 @@ const UINT16 MVC2_D_EXTRADEF[] =
     EXTRA_START | 0x34, // Sentinel
     1, 1, 1, 0, 0, 0, 0,
     0x12, 0x13,
-    EXTRA_START | 0x35, // Black Heart
+    EXTRA_START | 0x35, // Blackheart
     0, 0, 0, 0, 0, 0, 0,
     0x09, 0x0D, 0x0E, 0x10, 0x12, 0x14, 0x19, 0x1B,
     EXTRA_START | 0x36, // Thanos

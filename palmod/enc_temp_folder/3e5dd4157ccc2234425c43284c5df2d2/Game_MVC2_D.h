@@ -44,6 +44,7 @@ public:
 	BOOL SaveFile(CFile * SaveFile, int nUnitId);
 
 	void CheckMixColors();
+	void FixMixColors();
 
 	COLORREF * CreatePal(int nUnitId, int nPalId);
 	BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);

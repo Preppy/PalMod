@@ -494,92 +494,104 @@ const UINT16 _mvc2_supp_const [] =
 			MOD_LUM, 01, 15, 17,
 
 	0x2D | SUPP_START, //Shuma Gorath
+		// Dash/Guard: Extra 01
 		SUPP_NODE_EX, 0x01 | MOD_ABS, 8, 1, 8, 1,
-		SUPP_NODE_EX, 0x16, 0x60, 9, 3, 9,
-		SUPP_NODE, 0x17, 0x60,
+
+		// Stance (after FP): 11-15
+		SUPP_NODE_EX, 0x11, 0x30, 2, 7, 2,
+		SUPP_NODE_EX, 0x12, 0x30, 2, 7, 2,
+		SUPP_NODE_EX, 0x13, 0x30, 2, 7, 2,
+		SUPP_NODE_EX, 0x14, 0x30, 2, 7, 2,
+		SUPP_NODE_EX, 0x15, 0x30, 2, 7, 2,
+
+		// Stone Drop (d+HK): 16-1A
+		SUPP_NODE_EX, 0x16, 0x30, 9, 3, 9,
+		SUPP_NODE, 0x17, 0x30,
 			MOD_SAT, 1, 8, 155,
 			MOD_LUM, 1, 8, 5,
-		SUPP_NODE, 0x18, 0x60,
+		SUPP_NODE, 0x18, 0x30,
 			MOD_SAT, 1, 8, 55,
 			MOD_LUM, 1, 8, 5,
-		SUPP_NODE, 0x19, 0x60,
+		SUPP_NODE, 0x19, 0x30,
 			MOD_SAT, 1, 8, 30,
 			MOD_LUM, 1, 8, 5,
-		SUPP_NODE, 0x1A, 0x60,
+		SUPP_NODE, 0x1A, 0x30,
 
-		SUPP_NODE_EX, 0x2F, 0x60, 2, 7, 2,
-		SUPP_NODE_EX, 0x2F, 0x60, 9, 3, 9,
+		// HP Flash frames: 2F-35
+		SUPP_NODE_EX, 0x2F, 0x30, 2, 7, 2,
+		SUPP_NODE_EX, 0x2F, 0x30, 9, 3, 9,
 
-		SUPP_NODE_EX, 0x30, 0x60, 2, 7, 2,
-		SUPP_NODE_EX, 0x30, 0x60, 9, 3, 9,
+		SUPP_NODE_EX, 0x30, 0x30, 2, 7, 2,
+		SUPP_NODE_EX, 0x30, 0x30, 9, 3, 9,
 
-		SUPP_NODE_EX, 0x31, 0x60, 2, 7, 2,
-		SUPP_NODE_EX, 0x31, 0x60, 9, 3, 9,
+		SUPP_NODE_EX, 0x31, 0x30, 2, 7, 2,
+		SUPP_NODE_EX, 0x31, 0x30, 9, 3, 9,
 
-		SUPP_NODE_EX, 0x32, 0x60, 2, 7, 2,
-		SUPP_NODE_EX, 0x32, 0x60, 9, 3, 9,
+		SUPP_NODE_EX, 0x32, 0x30, 2, 7, 2,
+		SUPP_NODE_EX, 0x32, 0x30, 9, 3, 9,
 
-		SUPP_NODE_EX, 0x33, 0x60, 2, 7, 2,
-		SUPP_NODE_EX, 0x33, 0x60, 9, 3, 9,
+		SUPP_NODE_EX, 0x33, 0x30, 2, 7, 2,
+		SUPP_NODE_EX, 0x33, 0x30, 9, 3, 9,
 
-		SUPP_NODE_EX, 0x34, 0x60, 2, 7, 2,
-		SUPP_NODE_EX, 0x34, 0x60, 9, 3, 9,
+		SUPP_NODE_EX, 0x34, 0x30, 2, 7, 2,
+		SUPP_NODE_EX, 0x34, 0x30, 9, 3, 9,
 
-		SUPP_NODE_EX, 0x35, 0x60, 2, 7, 2,
-		SUPP_NODE_EX, 0x35, 0x60, 9, 3, 9,
+		SUPP_NODE_EX, 0x35, 0x30, 2, 7, 2,
+		SUPP_NODE_EX, 0x35, 0x30, 9, 3, 9,
 
-		SUPP_NODE_EX, 0x36, 0x60, 1, 11, 1,
+		// Chaos Dimension: 0x36-3F
+		SUPP_NODE_EX, 0x36, 0x30, 1, 11, 1,
 			MOD_SAT, 2, 7, NEG + 65,
 			MOD_LUM, 2, 7, 17,
 			MOD_SAT, 9, 3, NEG + 25,
 			MOD_LUM, 9, 3, 10,
 
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x38, 0x60, 0x36, 0x60, 1, 15, 1,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x38, 0x30, 0x36, 0x30, 1, 15, 1,
 
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x38, 0x60, 0x38, 0x60, 6, 1, 7,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x38, 0x60, 0x38, 0x60, 6, 1, 8,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x38, 0x30, 0x38, 0x30, 6, 1, 7,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x38, 0x30, 0x38, 0x30, 6, 1, 8,
 			MOD_LUM, 7, 1, 10,
 			MOD_LUM, 8, 1, 15,
 			MOD_SAT, 2, 5, NEG + 30,
 			MOD_LUM, 9, 3, 10,
 			MOD_SAT, 9, 3, NEG + 10,
 
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x60, 0x38, 0x60, 2, 7, 2,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x60, 0x3A, 0x60, 7, 1, 2,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x60, 0x3A, 0x60, 7, 1, 5,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x38, 0x30, 2, 7, 2,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x3A, 0x30, 7, 1, 2,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x3A, 0x30, 7, 1, 5,
 			MOD_LUM, 7, 1, 5,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x60, 0x38, 0x60, 10, 1, 10,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x60, 0x38, 0x60, 11, 1, 9,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x60, 0x38, 0x60, 11, 1, 11,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x38, 0x30, 10, 1, 10,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x38, 0x30, 11, 1, 9,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3A, 0x30, 0x38, 0x30, 11, 1, 11,
 
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x60, 0x38, 0x60, 11, 1, 9,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x60, 0x38, 0x60, 10, 1, 10,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x60, 0x38, 0x60, 9, 1, 11,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x60, 0x38, 0x60, 6, 1, 2,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x60, 0x38, 0x60, 6, 1, 3,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x60, 0x38, 0x60, 5, 1, 4,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x60, 0x38, 0x60, 4, 1, 5,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x60, 0x38, 0x60, 3, 1, 6,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x60, 0x38, 0x60, 2, 1, 7,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x60, 0x38, 0x60, 2, 1, 8,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 11, 1, 9,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 10, 1, 10,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 9, 1, 11,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 6, 1, 2,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 6, 1, 3,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 5, 1, 4,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 4, 1, 5,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 3, 1, 6,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 2, 1, 7,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3C, 0x30, 0x38, 0x30, 2, 1, 8,
 			MOD_LUM, 3, 2, 4,
 			MOD_LUM, 6, 1, 8,
 		
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3E, 0x60, 0x3C, 0x60, 2, 7, 2,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3E, 0x30, 0x3C, 0x30, 2, 7, 2,
 			MOD_LUM, 2, 7, 4,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3E, 0x60, 0x3C, 0x60, 9, 2, 9,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3E, 0x30, 0x3C, 0x30, 9, 2, 9,
 			MOD_LUM, 9, 2, 4,
 
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x37, 0x60, 0x36, 0x60, 1, 8, 1,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x39, 0x60, 0x38, 0x60, 1, 8, 1,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3B, 0x60, 0x3A, 0x60, 1, 8, 1,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3D, 0x60, 0x3C, 0x60, 1, 8, 1,
-		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3F, 0x60, 0x3E, 0x60, 1, 8, 1,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x37, 0x30, 0x36, 0x30, 1, 8, 1,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x39, 0x30, 0x38, 0x30, 1, 8, 1,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3B, 0x30, 0x3A, 0x30, 1, 8, 1,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3D, 0x30, 0x3C, 0x30, 1, 8, 1,
+		SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x3F, 0x30, 0x3E, 0x30, 1, 8, 1,
 
-		SUPP_NODE, 0x40, 0x60,
+		// Mystic Smash Shadows
+		SUPP_NODE, 0x40, 0x30,
 			MOD_LUM, 1, 15, NEG + 50,
 			MOD_LUM, 1, 15, NEG + 10,
-			
 
 	0x2F | SUPP_START, //Silver Samurai
 		SUPP_NODE, 0x01 | MOD_ABS, 8,
@@ -852,10 +864,11 @@ const UINT16 _mvc2_supp_const [] =
 extern CGame_MVC2_D * CurrMVC2;
 extern int rgSuppLoc[MVC2_D_NUMUNIT];
 
+inline UINT16* get_pal_16(int char_id, int pal_no);
+
 void prep_supp();
 void proc_supp(int char_no, int pal_no);
 void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 source_index = 0, UINT8 destination_index = 0, UINT8 copy_amount = 0x10);
-void supp_copy_palette(UINT16 char_id, UINT16 destination_palette, UINT16 source_palette);
 void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt);
 void supp_mod_white(UINT16 char_id, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc);
 void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc);

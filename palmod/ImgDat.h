@@ -22,8 +22,8 @@ private:
 	sImgDef * pLastImg[MAX_IMAGE];
 	int nLastImgCt;
 
-	UINT8 uCurrUnitAmt;
-	UINT8 uCurrImgAmt;
+	UINT16 uCurrUnitAmt;
+	UINT16 uCurrImgAmt;
 
 	UINT8 uReadGameFlag, uReadBPP;
 	UINT16 uReadNumImgs;
@@ -31,7 +31,7 @@ private:
 
 	int nCurrGFlag;
 
-	void PrepImageBuffer(UINT8 uUnitAmt, UINT8 uImgAmt);
+	void PrepImageBuffer(UINT16 uUnitAmt, UINT16 uImgAmt);
 
 	CFile ImgDatFile;
 
@@ -41,7 +41,7 @@ public:
 	CImgDat(void);
 	~CImgDat(void);
 
-	BOOL LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT8 uUnitAmt, UINT16 uImgAmt = MAX_IMAGE, BOOL bLoadAll = TRUE);
+	BOOL LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UINT16 uImgAmt = MAX_IMAGE, BOOL bLoadAll = TRUE);
 	sImgDef * GetImageDef(UINT8 uUnitId, UINT8 uImgId);
 	void FlushImageBuffer();
 	UINT8 * DecodeImg(UINT8 * pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);

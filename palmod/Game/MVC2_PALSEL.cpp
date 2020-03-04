@@ -19,7 +19,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	nExtraAmt = 6;
 
 	int nSpecOffs;
-	bLoadDefPal = TRUE;
+	BOOL bLoadDefPal = TRUE;
 
 	sDescNode * NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
@@ -436,7 +436,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 			
 			break;
 		}
-	case 0x2C:
+	case 0x2C: // Magneto
 		{
 			if(uPalId == 0x09 + EXTRA_OMNI)
 			{
@@ -445,6 +445,17 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 			break;
 		}
+
+	case 0x2D: // Shuma Gorath
+	{
+		// Everything he has works great with the default sprite
+		if (uPalId >= (0x11 + EXTRA_OMNI) && uPalId <= (0x130 + EXTRA_OMNI))
+		{
+			SetExtraImg(0, uUnitId, uPalId);
+		}
+
+		break;
+	}
 		
 	case 0x2F: //Silver Samurai
 		{

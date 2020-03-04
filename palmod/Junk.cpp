@@ -182,9 +182,8 @@ void CJunk::NotifyParent(int iCustomMessage)
 {	
 	static NMHDR myhdr;
      
-	//MessageBox("fuck", "fuck", 0);
     myhdr.hwndFrom = GetSafeHwnd();
-	myhdr.idFrom = nArrayIndex; // 1; // GetDlgCtrlID();  // THIS CTRLID IS NOT THE INDEX BUGBUG BUGBUG
+	myhdr.idFrom = nArrayIndex;
     myhdr.code = iCustomMessage;
 
     GetParent()->PostMessage(WM_NOTIFY, 0, (LPARAM)&myhdr);

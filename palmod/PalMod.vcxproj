@@ -124,6 +124,7 @@
     <ClCompile Include="Game\Game_XMVSF_A.cpp" />
     <ClCompile Include="Game\MVC2_PALSEL.cpp" />
     <ClCompile Include="Game\MVC2_SUPP.cpp" />
+    <ClCompile Include="Game\mvc2_validate.cpp" />
     <ClCompile Include="Game\PalGroup.cpp" />
     <ClCompile Include="Game\ShellSort.cpp" />
     <ClCompile Include="Game_MVC_A_EXTRA.cpp" />

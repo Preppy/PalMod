@@ -197,7 +197,7 @@ void CImgDisp::FlushUnused()
 	}
 }
 
-void CImgDisp::AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8 * pImgData, COLORREF * pPalette, UINT8 uPalSz, int nXOffs, int nYOffs)
+void CImgDisp::AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8 * pImgData, COLORREF * pPalette, int uPalSz, int nXOffs, int nYOffs)
 {
 	sImgNode * pNewNode = new sImgNode;
 

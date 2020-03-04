@@ -147,7 +147,7 @@ UINT8 * CImgDat::GetImgData(sImgDef * pCurrImg)
 	return pNewImgData;
 }
 
-void CImgDat::PrepImageBuffer(UINT8 uUnitAmt, UINT8 uImgAmt)
+void CImgDat::PrepImageBuffer(UINT16 uUnitAmt, UINT16 uImgAmt)
 {
 	if(ppImgData)
 	{
@@ -178,7 +178,7 @@ void CImgDat::CloseImgFile()
 	}
 }
 
-BOOL CImgDat::LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT8 uUnitAmt, UINT16 uImgAmt, BOOL bLoadAll)
+BOOL CImgDat::LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UINT16 uImgAmt, BOOL bLoadAll)
 {
 	UINT8 uNumGames;
 

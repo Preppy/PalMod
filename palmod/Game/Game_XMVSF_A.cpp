@@ -374,7 +374,7 @@ void CGame_XMVSF_A::UpdatePalData()
 			int nIndexStart = 1;
 
 			COLORREF * crSrc;
-			UINT8 uAmt = srcDef->uPalSz;
+			UINT16 uAmt = srcDef->uPalSz;
 
 			if(bUsesHybrid)
 			{

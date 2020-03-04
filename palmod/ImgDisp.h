@@ -33,7 +33,7 @@ struct sImgNode
 
 	UINT8 * pImgData;
 	
-	UINT8 uPalSz;
+	int uPalSz;
 	COLORREF * pPalette;
 	COLORREF * pAltPal;
 };
@@ -122,7 +122,7 @@ public:
 	CImgDisp();
 	~CImgDisp();
 
-	void AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8 * pImgData, COLORREF * pPalette, UINT8 uPalSz, int nXOffs, int nYOffs);
+	void AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8 * pImgData, COLORREF * pPalette, int uPalSz, int nXOffs, int nYOffs);
 	void FlushImageNode(int nIndex);
 	void FlushImages();
 	void UpdateCtrl(BOOL bRedraw = TRUE, BOOL bUseAltPal = FALSE);

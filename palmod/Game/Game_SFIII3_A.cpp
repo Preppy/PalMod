@@ -710,7 +710,7 @@ void CGame_SFIII3_A::UpdatePalData()
 			int nIndexStart = 0;
 
 			COLORREF * crSrc = srcDef->pPal;
-			UINT8 uAmt = srcDef->uPalSz;
+			UINT16 uAmt = srcDef->uPalSz;
 			int nBasicAmt = GetBasicAmt(srcDef->uUnitId);
 
 			if(srcDef->uPalId >= nBasicAmt && srcDef->uPalId  < nBasicAmt*2 && srcDef->uUnitId != SFIII3_A_EXTRALOC)//Portrait

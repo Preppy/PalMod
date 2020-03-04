@@ -336,7 +336,7 @@ void CGame_SSF2T_A::UpdatePalData()
 			int nIndexStart = 0;
 
 			COLORREF * crSrc = srcDef->pPal;
-			UINT8 uAmt = srcDef->uPalSz;
+			UINT16 uAmt = srcDef->uPalSz;
 
 			if(srcDef->uPalId < GetBasicAmt(srcDef->uUnitId))
 			{
