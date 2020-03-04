@@ -50,13 +50,6 @@ CString szPasteStr = _T("");
 // CPalModDlg dialog
 CPalModDlg::CPalModDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CPalModDlg::IDD, pParent)
-	, MainPalGroup(NULL)
-	, ImgDispCtrl(NULL)
-	, ImgFile(NULL)
-	, CurrPalCtrl(nullptr)
-	, CurrPalDef(NULL)
-	, CurrPalSep(NULL)
-	, pTempPalCopy(NULL)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -141,6 +134,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
 	ON_WM_ACTIVATE()
 	ON_COMMAND(ID_LDMVC2PS2USA, &CPalModDlg::OnLdMVC2PS2USA)
 	ON_COMMAND(ID_FILE_OPEN, &CPalModDlg::OnFileOpen)
+	ON_BN_CLICKED(IDC_BCHECKMIX, &CPalModDlg::OnButtonClickCheckEdits)
 	ON_BN_CLICKED(IDC_BEIDRIAN1, &CPalModDlg::OnBnClickedBEidrian1)
 	ON_BN_CLICKED(IDC_BEIDRIAN2, &CPalModDlg::OnBnClickedBEidrian2)
 	ON_BN_CLICKED(IDC_BREVERT, &CPalModDlg::OnBnRevert)
@@ -511,6 +505,8 @@ void CPalModDlg::OnClose()
 	if (VerifyMsg(VM_FILECHANGE))
 	{
 		SaveSettings();
+
+		m_PalHost.CleanUp();
 
 		CDialog::OnClose();
 

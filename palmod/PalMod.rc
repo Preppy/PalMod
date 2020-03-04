@@ -82,7 +82,7 @@ CAPTION "About PalMod"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
-    LTEXT           "PalMod, Version 1.29",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "PalMod, Version 1.30",IDC_STATIC,42,14,114,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2020",IDC_STATIC,24,79,65,8
     DEFPUSHBUTTON   "OK",IDOK,121,90,50,14,WS_GROUP
     LTEXT           "Credits",IDC_STATIC,41,28,125,8
@@ -117,8 +117,9 @@ BEGIN
     PUSHBUTTON      "Set Color",IDC_BSETCOL,59,95,49,11
     PUSHBUTTON      "Get Color",IDC_BNEWCOL,32,130,49,13
     PUSHBUTTON      "Settings",IDC_BSETTINGS,90,130,49,13
-    PUSHBUTTON      "Make All Invis",IDC_BEIDRIAN1,2,151,64,11,NOT WS_VISIBLE
-    PUSHBUTTON      "Set All 0 Index",IDC_BEIDRIAN2,2,162,64,11,NOT WS_VISIBLE
+    PUSHBUTTON      "Check My Edits",IDC_BCHECKMIX,2,151,64,13,NOT WS_VISIBLE
+    PUSHBUTTON      "Make All Invis",IDC_BEIDRIAN1,2,164,64,13,NOT WS_VISIBLE
+    PUSHBUTTON      "Set All 0 Index",IDC_BEIDRIAN2,2,177,64,13,NOT WS_VISIBLE
     GROUPBOX        "Palette View",IDC_SSPC,159,2,98,116
     CONTROL         "Custom1",IDC_PALHOST,"CPalTool",WS_TABSTOP,162,11,92,105
     PUSHBUTTON      "Blink",IDC_BBLINK,263,13,37,11
@@ -147,7 +148,7 @@ BEGIN
     GROUPBOX        "Settings",IDC_STATIC,6,6,193,95
     CONTROL         "Keep ID:00 transparent (Recommended) (MVC2)",IDC_CALPHATRANS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,26,169,11
-    CONTROL         "Process Supplement Palettes (Recommended) (ex: Cyclops HK, Spider-man win poses, etc)",IDC_CUPDSUPP,
+    CONTROL         "Process Supplement Palettes (Recommended) (ex: Cyclops HK, Spider-Man win poses, etc)",IDC_CUPDSUPP,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,39,168,30
     PUSHBUTTON      "OK",IDOK,52,82,43,14
     PUSHBUTTON      "Cancel",IDCANCEL,96,82,43,14
@@ -184,8 +185,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,29
- PRODUCTVERSION 1,0,0,29
+ FILEVERSION 1,0,30,0
+ PRODUCTVERSION 1,0,30,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -202,12 +203,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.0.29"
+            VALUE "FileVersion", "1.0.30.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.0.29"
+            VALUE "ProductVersion", "1.0.30.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -413,7 +414,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.29"
+    IDS_CURRENTAPPNAME      "PalMod 1.30"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't load img.dat from '%s': previews will not work."
     IDS_ERROR_NO_IMAGES     "No images available."

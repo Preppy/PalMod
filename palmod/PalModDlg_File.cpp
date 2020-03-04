@@ -49,7 +49,7 @@ void CPalModDlg::PostGameLoad()
 	MainPalGroup = ProgHost->GetBasePal();
 	ImgDispCtrl = ProgHost->GetImgDispCtrl();
 	
-	if(ProgHost->IsImgLoaded())
+	if (ProgHost->IsImgLoaded())
 	{
 		ImgFile = ProgHost->GetImgFile();
 	}
@@ -72,6 +72,8 @@ void CPalModDlg::PostGameLoad()
 
 	//Update the combo selection
 	UpdateCombo();
+
+	GetDlgItem(IDC_BCHECKMIX)->ShowWindow((ProgHost->GetCurrGame()->GetGameFlag() == MVC2_D ) ? SW_SHOW : SW_HIDE);
 }
 
 void CPalModDlg::OnBnUpdate()
@@ -79,6 +81,11 @@ void CPalModDlg::OnBnUpdate()
 	GetHost()->GetCurrGame()->UpdatePalData();
 
 	bPalChanged = FALSE;
+}
+
+void CPalModDlg::OnButtonClickCheckEdits()
+{
+	GetHost()->GetCurrGame()->ValidateMixExtraColors(&fFileChanged);
 }
 
 void CPalModDlg::OnFilePatch()

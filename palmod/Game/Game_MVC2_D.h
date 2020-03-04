@@ -43,7 +43,7 @@ public:
 	BOOL LoadFile(CFile * LoadedFile, int nUnitId);
 	BOOL SaveFile(CFile * SaveFile, int nUnitId);
 
-	void CheckMixColors();
+	void ValidateMixExtraColors(BOOL *pfChangesWereMade);
 
 	COLORREF * CreatePal(int nUnitId, int nPalId);
 	BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);

@@ -536,7 +536,8 @@ void CGame_MVC2_D::UpdatePalData()
 				// Or we could just auto-run it for the first time they start PalMod, but that seems painful.
 				OutputDebugString("*****************************Temporary code do not ship************************\n");
 
-				CheckMixColors();
+				BOOL fChanges = FALSE;
+				ValidateMixExtraColors(&fChanges);
 
 				// Not needed right now: this was used to generate the giant stock validation database.
 				//DumpAllPalettes();
@@ -546,9 +547,9 @@ void CGame_MVC2_D::UpdatePalData()
 	}
 }
 
-void CGame_MVC2_D::CheckMixColors()
+void CGame_MVC2_D::ValidateMixExtraColors(BOOL *pfChangesWereMade)
 {
-	ValidateAllPalettes(rgFileChanged);
+	ValidateAllPalettes(pfChangesWereMade, rgFileChanged);
 }
 
 void CGame_MVC2_D::FlushUnitFile()

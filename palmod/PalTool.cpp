@@ -13,14 +13,6 @@ CPalTool::CPalTool(void)
 {
 	Init();
 
-	//Set the base font
-	LOGFONT lf;
-	HFONT hf = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
-	GetObject(hf, sizeof(lf), &lf);
-	
-	lf.lfWeight = FW_BOLD;
-	BaseFont.CreateFontIndirect(&lf);
-
 	RegisterWindowClass();
 }
 
@@ -137,6 +129,14 @@ void CPalTool::Init()
 		pPalEntry[i].PaletteCtrl->SetArrayIndex(i);
 		pPalEntry[i].bAvail = FALSE;
 	}
+
+	//Set the base font
+	LOGFONT lf;
+	HFONT hf = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
+	GetObject(hf, sizeof(lf), &lf);
+
+	lf.lfWeight = FW_BOLD;
+	BaseFont.CreateFontIndirect(&lf);
 }
 
 void CPalTool::CleanUp()

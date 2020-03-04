@@ -34,9 +34,9 @@ class CPalModDlg : public CDialog
 public:
 	
 	//Program variables
-	CPalGroup * MainPalGroup;
-	CImgDisp * ImgDispCtrl;
-	CImgDat * ImgFile;
+	CPalGroup * MainPalGroup = nullptr;
+	CImgDisp * ImgDispCtrl = nullptr;
+	CImgDat * ImgFile = nullptr;
 
 	BOOL bOleInit = TRUE;
 	BOOL bEnabled = FALSE;
@@ -54,12 +54,12 @@ public:
 
 	BOOL bGetSliderUndo = TRUE;
 
-	sPalDef * CurrPalDef;
-	sPalSep * CurrPalSep;
-	CJunk * CurrPalCtrl;
+	sPalDef * CurrPalDef = nullptr;
+	sPalSep * CurrPalSep = nullptr;
+	CJunk * CurrPalCtrl = nullptr;
 
 	BOOL bCanBlink = TRUE;
-	COLORREF * pTempPalCopy;
+	COLORREF * pTempPalCopy = nullptr;
 
 	BOOL bForceImg = FALSE; 
 	int nCurrSelPal = 0;
@@ -104,7 +104,6 @@ public:
 	void UpdateSliderSel(BOOL bModeChange = FALSE, BOOL bResetRF = FALSE);
 	void SetColMode(int nColMode);
 	void GetPlaneData();
-	void SetShow32(BOOL bNewMode);
 	void UpdatePalSel(BOOL bSetSingleCol = FALSE);
 
 	void Blink();
@@ -116,7 +115,6 @@ public:
 
 	void NewUndoData(BOOL bUndo = TRUE);
 	void DoUndoRedo(BOOL bUndo);
-	void ClearUndoRedo();
 	void ProcChange(BOOL bReset = FALSE);
 
 	void PerformBlink();
@@ -148,10 +146,8 @@ public:
 	void SetStatusText(CString szText);
 	void StopBlink();
 
-
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
-	
 
 // Implementation
 protected:
@@ -163,6 +159,7 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+
 public:
 	afx_msg void OnLDMVC2DCUSA();
 	CComboBox m_CBUnitSel;
@@ -225,6 +222,7 @@ public:
 	afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
 	afx_msg void OnLdMVC2PS2USA();
 	afx_msg void OnFileOpen();
+	afx_msg void OnButtonClickCheckEdits();
 	afx_msg void OnBnClickedBEidrian1();
 	afx_msg void OnBnClickedBEidrian2();
 	afx_msg void OnBnRevert();

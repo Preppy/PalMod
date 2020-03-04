@@ -100,7 +100,7 @@ public:
 	CHAR * GetLoadDir(){return szDir;};
 	BOOL SetLoadDir(CHAR * szNewDir);
 
-	ColMode GetColMode(){return CurrColMode;};
+	ColMode GetColMode() {return CurrColMode;};
 	BOOL SetColMode (ColMode NewMode);
 
 	BOOL SpecSel(int * nVarSet, int nPalId, int nStart, int nInc, int nAmt = 1, int nMax = 6);
@@ -150,6 +150,7 @@ public:
 	virtual void UpdatePalData() = 0;
 	virtual void FlushUnitFile() = 0;
 	virtual void PrepUnitFile() = 0;
+	virtual void ValidateMixExtraColors(BOOL* pfChangesWereMade) {};
 
 	COLORREF *** CreateImgOutPal();
 	

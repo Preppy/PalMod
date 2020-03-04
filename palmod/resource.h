@@ -71,6 +71,7 @@
 #define IDC_BREVERT                     1030
 #define IDC_BBLINK                      1031
 #define IDC_BINVERT                     1032
+#define IDC_BCHECKMIX                   1033
 #define IDC_DUMMY1                      1036
 #define IDC_DUMMY2                      1039
 #define IDC_DUMMY3                      1040

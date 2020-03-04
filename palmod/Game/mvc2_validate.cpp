@@ -3113,7 +3113,7 @@ bool IsPaletteOutOfSync(UINT16 char_id, UINT16 source_palette, UINT16 compare_ch
 	return paletteChangesAreOutOfSync;
 }
 
-void ValidateAllPalettes(UINT8* rgPaletteChangeArray)
+void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT8* rgPaletteChangeArray)
 {
 	// Reset the validation...
 	for (palette_validation paletteToCheck : char_val_array)
@@ -3122,6 +3122,7 @@ void ValidateAllPalettes(UINT8* rgPaletteChangeArray)
 	}
 
 	g_haveValidationData = true;
+	*pfChangesWereMade = false;
 
 	for (palette_validation paletteToCheck : char_val_array)
 	{
@@ -3184,7 +3185,7 @@ void ValidateAllPalettes(UINT8* rgPaletteChangeArray)
 	}
 #endif
 
-	CString strUserMessage = "Everything is great, nice mix";
+	CString strUserMessage;
 	int issueCount = 0;
 
 	// Simple list of the characters with issues.  Doesn't account Spiral copying paletes, though: it will show the *source* as well as Spiral.
@@ -3217,6 +3218,9 @@ void ValidateAllPalettes(UINT8* rgPaletteChangeArray)
 		case IDYES:
 		{
 			FixAllProblemPalettes(rgPaletteChangeArray);
+			*pfChangesWereMade = true;
+			strUserMessage = "Auto-modifications complete.\n\nIf you like the changes, make sure to Save/Patch them.";
+			MessageBox(nullptr, strUserMessage, GetAppName(), MB_ICONINFORMATION);
 			break;
 		}
 		default:
@@ -3225,6 +3229,7 @@ void ValidateAllPalettes(UINT8* rgPaletteChangeArray)
 	}
 	else
 	{
+		strUserMessage = "The color edits seem to match correctly: nice work.";
 		MessageBox(nullptr, strUserMessage, GetAppName(), MB_ICONINFORMATION);
 	}
 }
@@ -3236,7 +3241,8 @@ void FixAllProblemPalettes(UINT8* rgPaletteChangeArray)
 
 	if (!g_haveValidationData)
 	{
-		ValidateAllPalettes(rgPaletteChangeArray);
+		BOOL fChangesWereMade = FALSE;
+		ValidateAllPalettes(&fChangesWereMade, rgPaletteChangeArray);
 	}
 
 	for (palette_validation paletteToCheck : char_val_array)
