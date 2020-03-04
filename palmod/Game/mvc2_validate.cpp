@@ -2887,7 +2887,7 @@ const palette_validation char_val_array[] =
 #endif
 };
 
-const palette_validation char_val_array_spiral_copies[] =
+const palette_validation char_val_array_spiral[] =
 {
 	// This is the stock data for all the palettes used in Spiral's metamorphosis super.
 	{ 0x6 /* Cyclops */, 0x0, { 0x0, 0xf07f, 0xf22f, 0xf22d, 0xf229, 0xf226, 0xfff2, 0xffe2, 0xffb2, 0xfb71, 0xf950, 0xffeb, 0xfec9, 0xfca7, 0xff22, 0xf222, },
@@ -3113,16 +3113,38 @@ bool IsPaletteOutOfSync(UINT16 char_id, UINT16 source_palette, UINT16 compare_ch
 	return paletteChangesAreOutOfSync;
 }
 
-void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT8* rgPaletteChangeArray)
+bool IsSpiralPaletteOutOfSync(UINT16 char_id, UINT16 source_palette, UINT16 compare_char, UINT16 destination_palette)
 {
-	// Reset the validation...
-	for (palette_validation paletteToCheck : char_val_array)
+	bool paletteChangesAreOutOfSync = false;
+
+	for (int nValIndex = 0; nValIndex < ARRAYSIZE(char_val_array_spiral); nValIndex++)
 	{
-		g_rgfCharacterHasIssues[paletteToCheck.character_number] = false;
+		bool colorsAreMismatched = false;
+
+		// These sprites should match.
+		UINT16* source_colors = get_pal_16(char_id, source_palette);
+		UINT16* destination_colors = get_pal_16(compare_char, destination_palette);
+		for (UINT16 nIndex = 0; nIndex < 16; nIndex++)
+		{
+			if (source_colors[nIndex] != destination_colors[nIndex])
+			{
+				colorsAreMismatched = true;
+				break;
+			}
+		}
+
+		if (colorsAreMismatched)
+		{
+			paletteChangesAreOutOfSync = true;
+		}
 	}
 
-	g_haveValidationData = true;
-	*pfChangesWereMade = false;
+	return paletteChangesAreOutOfSync;
+}
+
+bool AreEditsOutOfSync()
+{
+	bool editsAreOutofSync = false;
 
 	for (palette_validation paletteToCheck : char_val_array)
 	{
@@ -3144,6 +3166,7 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT8* rgPaletteChangeArray)
 
 			if (fHaveMessage)
 			{
+				editsAreOutofSync = true;
 				CString strMessage;
 				strMessage.Format("Issues found: %s at 0x%x is not in sync with %s at 0x%x\n", MVC2_D_UNITDESC[paletteToCheck.character_number], paletteToCheck.source_palette,
 					MVC2_D_UNITDESC[paletteToCheck.compare_character], paletteToCheck.destination_palette);
@@ -3154,77 +3177,87 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT8* rgPaletteChangeArray)
 		}
 	}
 
-#ifdef STILL_NEED_TO_FIX_SPIRAL
-	for (palette_validation paletteToCheck : char_val_array_spiral_copies)
+	for (palette_validation paletteToCheck : char_val_array_spiral)
 	{
-		if (IsPaletteOutOfSync(paletteToCheck.character_number, paletteToCheck.source_palette, paletteToCheck.compare_character, paletteToCheck.destination_palette))
+		if (IsSpiralPaletteOutOfSync(paletteToCheck.character_number, paletteToCheck.source_palette, paletteToCheck.compare_character, paletteToCheck.destination_palette))
 		{
-			bool fHaveMessage = false;
-			if (!g_rgfCharacterHasIssues[paletteToCheck.character_number])
-			{
-				fHaveMessage = true;
-				g_rgfCharacterHasIssues[paletteToCheck.character_number] = true;
-			}
-
-			if (!g_rgfCharacterHasIssues[paletteToCheck.compare_character])
-			{
-				fHaveMessage = true;
-				g_rgfCharacterHasIssues[paletteToCheck.compare_character] = true;
-			}
-
-			if (fHaveMessage)
-			{
-				CString strMessage;
-				strMessage.Format("Issues found: %s at 0x%x is not in sync with %s at 0x%x\n", MVC2_D_UNITDESC[paletteToCheck.character_number], paletteToCheck.source_palette,
-					MVC2_D_UNITDESC[paletteToCheck.compare_character], paletteToCheck.destination_palette);
-				OutputDebugString(strMessage);
-			}
-
-			//dump_palettes(char_id, source_palette, compare_char, destination_palette);
-		}
-	}
-#endif
-
-	CString strUserMessage;
-	int issueCount = 0;
-
-	// Simple list of the characters with issues.  Doesn't account Spiral copying paletes, though: it will show the *source* as well as Spiral.
-	for (int nIndex = 0; nIndex < ARRAYSIZE(g_rgfCharacterHasIssues); nIndex++)
-	{
-		if (g_rgfCharacterHasIssues[nIndex])
-		{
-			if (issueCount == 0)
-			{
-				strUserMessage = "Issues were found with the colors for: ";
-			}
-			else
-			{
-				strUserMessage.Append(", ");
-			}
-			strUserMessage.Append(MVC2_D_UNITDESC[nIndex]);
-			issueCount++;
+			// Spiral is out of sync: we can stop there.
+			g_rgfCharacterHasIssues[0x31] = true;
+			editsAreOutofSync = true;
 
 			CString strMessage;
-			strMessage.Format("Please fix %s (0x%x)\n", MVC2_D_UNITDESC[nIndex], nIndex);
+			strMessage.Format("Issues found: %s at 0x%x is not in sync with %s at 0x%x\n", MVC2_D_UNITDESC[paletteToCheck.character_number], paletteToCheck.source_palette,
+				MVC2_D_UNITDESC[paletteToCheck.compare_character], paletteToCheck.destination_palette);
 			OutputDebugString(strMessage);
+
+			//dump_palettes(char_id, source_palette, compare_char, destination_palette);
+			break;
 		}
 	}
 
-	if (issueCount)
+	return editsAreOutofSync;
+}
+
+void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT8* rgPaletteChangeArray)
+{
+	// Reset the validation...
+	for (palette_validation paletteToCheck : char_val_array)
 	{
+		g_rgfCharacterHasIssues[paletteToCheck.character_number] = false;
+	}
+
+	g_haveValidationData = true;
+	*pfChangesWereMade = false;
+
+	CString strUserMessage;
+
+	if (AreEditsOutOfSync())
+	{
+		int issueCount = 0;
+
+		// Simple list of the characters with issues.  Doesn't account Spiral copying paletes, though: it will show the *source* as well as Spiral.
+		for (int nIndex = 0; nIndex < ARRAYSIZE(g_rgfCharacterHasIssues); nIndex++)
+		{
+			if (g_rgfCharacterHasIssues[nIndex])
+			{
+				if (issueCount == 0)
+				{
+					strUserMessage = "Issues were found with the colors for: ";
+				}
+				else
+				{
+					strUserMessage.Append(", ");
+				}
+				strUserMessage.Append(MVC2_D_UNITDESC[nIndex]);
+				issueCount++;
+
+				CString strMessage;
+				strMessage.Format("Please fix %s (0x%x)\n", MVC2_D_UNITDESC[nIndex], nIndex);
+				OutputDebugString(strMessage);
+			}
+		}
+
 		strUserMessage.Append(".\n\nDo you want PalMod to try to fix that for you?");
 		switch (MessageBox(nullptr, strUserMessage, GetAppName(),  MB_YESNO | MB_ICONERROR))
 		{
-		case IDYES:
-		{
-			FixAllProblemPalettes(rgPaletteChangeArray);
-			*pfChangesWereMade = true;
-			strUserMessage = "Auto-modifications complete.\n\nIf you like the changes, make sure to Save/Patch them.";
-			MessageBox(nullptr, strUserMessage, GetAppName(), MB_ICONINFORMATION);
-			break;
-		}
-		default:
-			break;
+			case IDYES:
+			{
+				FixAllProblemPalettes(rgPaletteChangeArray);
+				*pfChangesWereMade = true;
+				
+				if (AreEditsOutOfSync())
+				{
+					strUserMessage = "Unable to fix the edits, sorry.";
+				}
+				else
+				{
+					strUserMessage = "Auto-modifications complete.\n\nIf you like the changes, make sure to Save/Patch them.";
+				}
+				MessageBox(nullptr, strUserMessage, GetAppName(), MB_ICONINFORMATION);
+				break;
+			}
+			default:
+				break;
 		}
 	}
 	else
@@ -3284,6 +3317,17 @@ void FixAllProblemPalettes(UINT8* rgPaletteChangeArray)
 		}
 	}
 
+	// Spiral logic... just bulk copy if we have a problem, since it's a flat copy instead of tinting or anything special.
+	if (g_rgfCharacterHasIssues[0x31])
+	{
+		for (palette_validation paletteToCheck : char_val_array_spiral)
+		{
+			supp_copy_spiral(paletteToCheck.character_number, paletteToCheck.source_palette, paletteToCheck.destination_palette);
+		}
+
+		rgPaletteChangeArray[0x31] = TRUE;
+	}
+
 	for (palette_validation paletteToCheck : char_val_array)
 	{
 		g_rgfCharacterHasIssues[paletteToCheck.character_number] = false;
@@ -3292,23 +3336,5 @@ void FixAllProblemPalettes(UINT8* rgPaletteChangeArray)
 	g_haveValidationData = false;
 
 	OutputDebugString("Complete!\n");
-
-//	lastFixedCharacter = 0xFFFF;
-	//lastFixedPalette = 0xFFFF;
-
-	//for (palette_validation paletteToCheck : char_val_array_spiral_copies)
-	{
-	}
-	/*
-	for (int nIndex = 0; nIndex < ARRAYSIZE(g_rgfCharacterHasIssues); nIndex++)
-	{
-		if (g_rgfCharacterHasIssues[nIndex])
-		{
-			CString strMessage;
-			strMessage.Format("Please fix %s \n", MVC2_D_UNITDESC[nIndex]);
-			OutputDebugString(strMessage);
-		}
-	}
-	*/
 }
 

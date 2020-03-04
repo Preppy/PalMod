@@ -72,10 +72,10 @@ public:
 	int nPrevChildSel1 = 0xffff;
 	int nPrevChildSel2 = 0xffff;
 
-	int nRAmt, nGAmt, nBAmt, nAAmt;
+	int nRAmt = 0, nGAmt = 0, nBAmt = 0, nAAmt = 0;
 
-	double nRMul = 0, nGMul = 0, nBMul = 0, nAMul = 0;
-	double nTRMul = 0, nTGMul = 0, nTBMul = 0, nTAMul = 0;
+	double nRMul = 1.0, nGMul = 1.0, nBMul = 1.0, nAMul = 1.0;
+	double nTRMul = 1.0, nTGMul = 1.0, nTBMul = 1.0, nTAMul = 1.0;
 
 	CUndoRedo UndoProc;
 
