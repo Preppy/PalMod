@@ -100,6 +100,18 @@ BOOL CPalModApp::InitInstance()
 
 CPalModApp::~CPalModApp()
 {
+	if (PreviewDlg)
+	{
+		delete PreviewDlg;
+		PreviewDlg = nullptr;
+	}
+
+	if (PalModDlg)
+	{
+		delete PalModDlg;
+		PalModDlg = nullptr;
+	}
+
 	CoUninitialize();
 }
 

@@ -44,39 +44,39 @@ class CImgDisp : public CWnd
 {
 private:
 	sImgNode * pImgBuffer[MAX_IMG];
-	int nImgAmt;
+	int nImgAmt = 0;
 
-	CPaintDC * PaintDC;
-	CDC * MainDC;
-	CDC * ImageDC;
+	CPaintDC * PaintDC = nullptr;
+	CDC * MainDC = nullptr;
+	CDC * ImageDC = nullptr;
 
 	CBitmap BGBitmap;
 	HBITMAP hBGBitmap;
 	CBrush BGBrush;
 	
-	UINT32 * pBmpData;
+	UINT32 * pBmpData = nullptr;
 
-	int nBGBmpW;
-	int nBGBmpH;
-	int nBGXOffs;
-	int nBGYOffs;
+	int nBGBmpW = 0;
+	int nBGBmpH = 0;
+	int nBGXOffs = 0;
+	int nBGYOffs = 0;
 
 	BITMAPINFO Bmpi;
 	HBITMAP hBmp;
 
-	BOOL bBGAvail;
-	//BOOL bFillBGBmp;
-	BOOL bTileBGBmp;
-	BOOL bUseBGCol;
+	BOOL bBGAvail = FALSE;
+	//BOOL bFillBGBmp = FALSE;
+	BOOL bTileBGBmp = FALSE;
+	BOOL bUseBGCol = FALSE;
 
 	RECT rBlt;
 
-	BOOL bFirstInit;
+	BOOL bFirstInit = TRUE;
 	BOOL bFirstImage;
 
-	COLORREF crBGCol;
-	COLORREF crBlinkCol;
-	double fpZoom;
+	COLORREF crBGCol = 0x00FF0000;
+	COLORREF crBlinkCol = 0x00FFFFFF;
+	double fpZoom = DEF_ZOOM;
 
 	void InitDC();
 	void ResizeCtrlBMP();
@@ -95,19 +95,19 @@ private:
 	CScrollBar m_HScroll;
 	CScrollBar m_VScroll;
 
-	BOOL bLButtonDown;
-	BOOL bCtrlDown;
+	BOOL bLButtonDown = FALSE;
+	BOOL bCtrlDown = FALSE;
 
-	double fpPrevX, fpPrevY;
-	double fpDiffX, fpDiffY;
+	double fpPrevX = 0.0, fpPrevY = 0.0;
+	double fpDiffX = 0.0, fpDiffY = 0.0;
 
 	CRect rCtrlRct;
 	CRect rCtrlSrcRct;
 	CRect rSrcRct;
 	CRect rImgRct;
 
-	int nImgRctW;
-	int nImgRctH;
+	int nImgRctW = 0;
+	int nImgRctH = 0;
 
 	UINT8 bUsed[MAX_IMG];
 
@@ -116,7 +116,7 @@ private:
 	int nXOffsTop;
 	int nYOffsTop;
 
-	int MAIN_W, MAIN_H;
+	int MAIN_W = 0, MAIN_H = 0;
 
 public:
 	CImgDisp();

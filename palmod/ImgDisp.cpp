@@ -9,33 +9,6 @@
 // CImgDisp
 
 CImgDisp::CImgDisp()
-	: crBGCol(0x00FF0000)
-	, crBlinkCol(0x00FFFFFF)
-	, PaintDC(NULL)
-	, MainDC(NULL)
-	, ImageDC(NULL)
-	, pBmpData(NULL)
-	, fpZoom(DEF_ZOOM)
-	, bFirstInit(TRUE)
-	//, bFillBGBmp(FALSE)
-	, bBGAvail(FALSE)
-	, bLButtonDown(FALSE)
-	, bCtrlDown(FALSE)
-	, fpPrevX(0.0f)
-	, fpPrevY(0.0f)
-	, fpDiffX(0.0f)
-	, fpDiffY(0.0f)
-	, bTileBGBmp(FALSE)
-	, nBGXOffs(0)
-	, nBGYOffs(0)
-	, nBGBmpW(0)
-	, nBGBmpH(0)
-	, nImgAmt(0)
-	, MAIN_W(0)
-	, MAIN_H(0)
-	, bUseBGCol(0)
-	, nImgRctW(0)
-	, nImgRctH(0)
 {
 	InitImgBuffer();
 
@@ -48,17 +21,20 @@ CImgDisp::~CImgDisp()
 
 	if(PaintDC)
 	{
-		delete PaintDC;
+		OutputDebugString("BUGBUG: Deliberate leak of ONE CPaintDC until I sort out the assert.\n");
+		//delete PaintDC;
 	}
 
 	if(MainDC)
 	{
 		delete MainDC;
+		MainDC = nullptr;
 	}
 
 	if(ImageDC)
 	{
 		delete ImageDC;
+		ImageDC = nullptr;
 	}
 
 	DeleteObject(hBmp);

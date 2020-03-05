@@ -10,7 +10,7 @@ class CPreviewDlg : public CDialog
 
 private:
 	void InitDispCtrl();
-	BOOL bImgDispInit;
+	BOOL bImgDispInit = FALSE;
 
 	void LoadSettings();
 	void SaveSettings();

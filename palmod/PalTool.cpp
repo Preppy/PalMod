@@ -147,6 +147,7 @@ void CPalTool::CleanUp()
 		{
 			pPalEntry[i].PaletteCtrl->DestroyWindow();
 			delete pPalEntry[i].PaletteCtrl;
+			pPalEntry[i].PaletteCtrl = nullptr;
 		}
 	}
 

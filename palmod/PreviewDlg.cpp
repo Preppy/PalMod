@@ -14,8 +14,7 @@
 IMPLEMENT_DYNAMIC(CPreviewDlg, CDialog)
 
 CPreviewDlg::CPreviewDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CPreviewDlg::IDD, pParent),
-	 bImgDispInit(FALSE)
+	: CDialog(CPreviewDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
