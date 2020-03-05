@@ -150,7 +150,7 @@ const CHAR MVC2_D_UNITDESC [MVC2_D_NUMUNIT][MAX_DESC] =
 	"Ice-Man",
 	"Rogue",
 	"Captain America",
-	"Spider-man",
+	"Spider-Man",
 	"Hulk",
 	"Venom",
 	"Dr. Doom",
@@ -185,11 +185,11 @@ const CHAR MVC2_D_UNITDESC [MVC2_D_NUMUNIT][MAX_DESC] =
 	"Magneto",
 	"Shuma-Gorath",
 	"War Machine",
-	"Silver-Samurai",
+	"Silver Samurai",
 	"Omega Red",
 	"Spiral",
 	"Colossus",
-	"Iron-Man",
+	"Iron Man",
 	"Sentinel",
 	"Blackheart",
 	"Thanos",
@@ -322,7 +322,7 @@ const UINT16 MVC2_D_0x31_EXTRAREDIR[] =
 	0x32, 0,
 	0x33, 0,
 	0x34, 0,
-	0x34, 2,
+	0x34, 1, // Sentinel FX
 	0x35, 0,
 	0x36, 0
 };
@@ -504,7 +504,7 @@ const UINT16 MVC2_D_EXTRADEF[] =
     1, 0, 1, 0, 1, 1, 1,
     0x09, 0x0B, 0x0E, 0x0E, 0x11, 0x12, 0x14, 0x1F,
     EXTRA_START | 0x37, // Jin
-    1 ,1, 1, 0, 0, 0, 0,
+    1, 1, 1, 0, 0, 0, 0,
     0x09, 0x86,
     EXTRA_START | 0x38, // Captain Commando
     1, 1, 1, 1, 1, 0, 0, // ninjas, hoover, corridor, fireball, 

@@ -487,7 +487,7 @@ BOOL CGame_MVC2_D::CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc,
 		
 		if(nExtraAmt == 6)
 		{
-			SetSourcePal(0, nUnitId, nStart + (nPalId - nStart)%nAmt, 6, nInc);
+			SetSourcePal(0, nUnitId, nStart + (nPalId - nStart) % nAmt, 6, nInc);
 		}
 		else
 		{

@@ -26,7 +26,6 @@ enum eVerifyType
 	VM_FILECHANGE
 };
 
-
 #define DEFAULT_STATUS_TEXT "Always keep a backup of files!"
 // CPalModDlg dialog
 class CPalModDlg : public CDialog
@@ -148,6 +147,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
+	CToolTipCtrl m_ToolTip;
 
 // Implementation
 protected:

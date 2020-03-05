@@ -433,6 +433,11 @@ BEGIN
     IDS_ERROR_LOADING_BITMAP_BG "Error loading background bitmap"
 END
 
+STRINGTABLE
+BEGIN
+    IDS_BCHECKMIX_TOOLTIP   "Verifies that Extra edits were made: avoid flashing Storm and etc."
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 

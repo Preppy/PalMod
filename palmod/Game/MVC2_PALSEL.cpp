@@ -482,17 +482,18 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 				// Metamorphosis super
 				int nOffs = (uPalId - (0x09 + EXTRA_OMNI)) * 2;
 
+				// Ensure we're loading for the right character that Spiral is copying from.				
 				nImgUnitId = MVC2_D_0x31_EXTRAREDIR[nOffs];
 				nTargetImgId = 0xFF00 + MVC2_D_0x31_EXTRAREDIR[nOffs + 1];
 
-				SetExtraImg(0, uUnitId, uPalId);
+				SetSourcePal(0, nImgUnitId, uPalId, MVC2_D_0x31_EXTRAREDIR[nOffs + 1], 1);
 				break;
 			}
 
 			if(
-				CreateExtraPal(uUnitId, uPalId, 0x2D, 0x1C, 11, 0, 6) // power enhance
-				|| CreateExtraPal(uUnitId, uPalId, 0x33, 0x1C, 12, 0, 6) // speed enhance
-				|| CreateExtraPal(uUnitId, uPalId, 0x3B, 0x1C, 12, 0, 12) // metamorphosis
+				CreateExtraPal(uUnitId, uPalId, 0x2D, 0x1C, 11, 0, 6) || // power enhance
+				CreateExtraPal(uUnitId, uPalId, 0x33, 0x1C, 12, 0, 6) || // speed enhance
+				CreateExtraPal(uUnitId, uPalId, 0x3B, 0x1C, 12, 0, 12)   // metamorphosis
 				)
 			{
 				break;
@@ -530,6 +531,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 		}
 	case 0x38: //CapCom
 		{
+			// Handle the joined ninja sprites
 			if (SpecSel(&nSpecOffs, uPalId, 1, 8) || SpecSel(&nSpecOffs, uPalId, 2, 8))
 			{
 				bLoadDefPal = FALSE;

@@ -202,6 +202,12 @@ BOOL CPalModDlg::OnInitDialog()
 
 	m_StatusBar.SetPaneText(0, DEFAULT_STATUS_TEXT);
 
+	if (m_ToolTip.Create(this))
+	{
+		m_ToolTip.AddTool(GetDlgItem(IDC_BCHECKMIX), IDS_BCHECKMIX_TOOLTIP);
+		m_ToolTip.Activate(TRUE);
+	}
+
 	//Load the settings
 	LoadSettings();
 
@@ -357,6 +363,8 @@ BOOL CPalModDlg::SetLoadDir(CString * szOut)
 
 BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
 {
+	m_ToolTip.RelayEvent(pMsg);
+
 	if (m_hAccelTable) 
 	{
 		if (::TranslateAccelerator(GetSafeHwnd(), m_hAccelTable, pMsg)) 
@@ -369,9 +377,9 @@ BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
 	{
 	case WM_KEYDOWN:
 		{
-			if(pMsg->wParam==VK_RETURN || pMsg->wParam==VK_ESCAPE)
+			if (pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
 			{
-				pMsg->wParam=NULL;
+				pMsg->wParam = NULL;
 			}
 		}
 		break;
