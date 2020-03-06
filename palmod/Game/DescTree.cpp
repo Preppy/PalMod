@@ -1,9 +1,7 @@
 #include "StdAfx.h"
 #include "DescTree.h"
 
-
-CDescTree::CDescTree(sDescTreeNode * InputTree)
-:RootTree(NULL)
+CDescTree::CDescTree(sDescTreeNode* InputTree)
 {
 	SetRootTree(InputTree);
 }
@@ -15,7 +13,7 @@ CDescTree::~CDescTree(void)
 
 void CDescTree::FlushRootTree()
 {
-	if(RootTree)
+	if (RootTree)
 	{
 		FlushTree(RootTree);
 
@@ -23,41 +21,42 @@ void CDescTree::FlushRootTree()
 	}
 }
 
-void CDescTree::FlushTree(sDescTreeNode * CurrTree)
+void CDescTree::FlushTree(sDescTreeNode* CurrTree)
 {
 	int nChildAmt = CurrTree->uChildAmt;
 
-	if(CurrTree)
+	if (CurrTree)
 	{
-
-		switch(CurrTree->uChildType)
+		switch (CurrTree->uChildType)
 		{
 		case DESC_NODETYPE_TREE:
+		{
+			for (int nChildCtr = 0; nChildCtr < nChildAmt; nChildCtr++)
 			{
-				for(int nChildCtr = 0; nChildCtr < nChildAmt; nChildCtr++)
-				{
-					FlushTree(&((sDescTreeNode *)CurrTree->ChildNodes)[nChildCtr]);
-				}
-
-				delete [] (sDescTreeNode *)(CurrTree->ChildNodes);
+				FlushTree(&((sDescTreeNode*)CurrTree->ChildNodes)[nChildCtr]);
 			}
-			break;
+
+			delete[](sDescTreeNode*)(CurrTree->ChildNodes);
+		}
+		break;
 
 		case DESC_NODETYPE_NODE:
-			{
-				delete [] (sDescNode *)(CurrTree->ChildNodes);
-			}
-			break;
+		{
+			delete[](sDescNode*)(CurrTree->ChildNodes);
+		}
+		break;
 		}
 	}
 }
 
-sDescTreeNode * CDescTree::GetDescTree(int nChildId, ...)
+sDescTreeNode* CDescTree::GetDescTree(int nChildId, ...)
 {
-	if(nChildId == -1)
+	if (nChildId == -1)
+	{
 		return RootTree;
+	}
 
-	sDescTreeNode * OutTree = RootTree;
+	sDescTreeNode* OutTree = RootTree;
 	BOOL bChildIsNode = FALSE;
 
 	int nCurrId = nChildId;
@@ -65,15 +64,15 @@ sDescTreeNode * CDescTree::GetDescTree(int nChildId, ...)
 
 	va_start(args, nChildId);
 
-	while(nCurrId != -1 && !bChildIsNode)
+	while (nCurrId != -1 && !bChildIsNode)
 	{
-		switch(RootTree->uChildType)
+		switch (RootTree->uChildType)
 		{
 		case DESC_NODETYPE_NODE:
 			bChildIsNode = TRUE;
 			break;
 		case DESC_NODETYPE_TREE:
-			OutTree = &((sDescTreeNode *) OutTree->ChildNodes)[nCurrId];
+			OutTree = &((sDescTreeNode*)OutTree->ChildNodes)[nCurrId];
 			break;
 		}
 
@@ -85,10 +84,10 @@ sDescTreeNode * CDescTree::GetDescTree(int nChildId, ...)
 	return OutTree;
 }
 
-sDescNode * CDescTree::GetDescNode(int nChildId, ...)
+sDescNode* CDescTree::GetDescNode(int nChildId, ...)
 {
-	sDescTreeNode * CurrTree = RootTree;
-	sDescNode * OutNode = NULL;
+	sDescTreeNode* CurrTree = RootTree;
+	sDescNode* OutNode = NULL;
 
 	int nCurrId = 0;
 	BOOL bFoundNode = FALSE;
@@ -99,29 +98,29 @@ sDescNode * CDescTree::GetDescNode(int nChildId, ...)
 
 	nCurrId = nChildId;
 
-	while(!bFoundNode && nCurrId != -1)
+	while (!bFoundNode && nCurrId != -1)
 	{
-		switch(CurrTree->uChildType)
+		switch (CurrTree->uChildType)
 		{
-			case DESC_NODETYPE_NODE:
-				{
-					bFoundNode = TRUE;
+		case DESC_NODETYPE_NODE:
+		{
+			bFoundNode = TRUE;
 
-					if(nCurrId < CurrTree->uChildAmt)
-					{
-						OutNode =  &((sDescNode *)CurrTree->ChildNodes)[nCurrId];
-					}
-				}
-				break;
+			if (nCurrId < CurrTree->uChildAmt)
+			{
+				OutNode = &((sDescNode*)CurrTree->ChildNodes)[nCurrId];
+			}
+		}
+		break;
 
-			case DESC_NODETYPE_TREE:
-				{
-					if(nCurrId < CurrTree->uChildAmt)
-					{
-						CurrTree =  &((sDescTreeNode *)CurrTree->ChildNodes)[nCurrId];
-					}
-				}
-				break;
+		case DESC_NODETYPE_TREE:
+		{
+			if (nCurrId < CurrTree->uChildAmt)
+			{
+				CurrTree = &((sDescTreeNode*)CurrTree->ChildNodes)[nCurrId];
+			}
+		}
+		break;
 		}
 
 		nCurrId = va_arg(args, int);

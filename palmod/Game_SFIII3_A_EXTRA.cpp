@@ -128,7 +128,6 @@ void CGame_SFIII3_A::LoadExtraFile()
 
 	if (SFIII3_A_EXTRA_CUSTOM == nullptr)
 	{
-		// BUGBUG: This is leaked.
 		SFIII3_A_EXTRA_CUSTOM = new stExtraDef[nExtraCtr + 1 + (nCtr / 3)];
 
 		memcpy(SFIII3_A_EXTRA_CUSTOM, rgTempExtraBuffer, (nExtraCtr + (nCtr / 3)) * sizeof(stExtraDef));

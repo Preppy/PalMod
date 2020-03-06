@@ -21,21 +21,22 @@ struct sDescTreeNode
 	CHAR szDesc[MAX_DESC];
 
 	UINT8 uChildType;
-	void * ChildNodes;
+	void* ChildNodes = nullptr;
 	UINT16 uChildAmt;
 };
 
 class CDescTree
 {
 private:
-	sDescTreeNode * RootTree;
+	sDescTreeNode* RootTree = nullptr;
+
 public:
-	CDescTree(sDescTreeNode * InputTree = NULL);
+	CDescTree(sDescTreeNode* InputTree = NULL);
 	~CDescTree(void);
 
-	void SetRootTree(sDescTreeNode * NewTree){ RootTree = NewTree;};
-	void FlushTree(sDescTreeNode * CurrTree);
+	void SetRootTree(sDescTreeNode* NewTree) { RootTree = NewTree; };
+	void FlushTree(sDescTreeNode* CurrTree);
 	void FlushRootTree();
-	sDescNode * GetDescNode(int nChildId, ...);
-	sDescTreeNode * GetDescTree(int nChildId, ...);
+	sDescNode* GetDescNode(int nChildId, ...);
+	sDescTreeNode* GetDescTree(int nChildId, ...);
 };

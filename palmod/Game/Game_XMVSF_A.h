@@ -2,7 +2,6 @@
 #include "gameclass.h"
 #include "XMVSF_A_DEF.h"
 
-
 class CGame_XMVSF_A : public CGameClass
 {
 private:
@@ -10,7 +9,7 @@ private:
 	int nCurrPalOffs = 0;
 	int nCurrPalSz = 0;
 
-	UINT16 ***pppDataBuffer;
+	UINT16*** pppDataBuffer = nullptr;
 
 	void GetPalOffsSz(int nUnitId, int nPalId);
 
@@ -34,19 +33,19 @@ public:
 	static void LoadExtraFile();
 
 	//Normal functions
-	CDescTree * GetMainTree();
+	CDescTree* GetMainTree();
 
-	void CreateDefPal(sDescNode * srcNode, int nSepId);
-	BOOL LoadFile(CFile * LoadedFile, int nUnitId = 0);
-	BOOL SaveFile(CFile * SaveFile, int nUnitId = 0);
+	void CreateDefPal(sDescNode* srcNode, int nSepId);
+	BOOL LoadFile(CFile* LoadedFile, int nUnitId = 0);
+	BOOL SaveFile(CFile* SaveFile, int nUnitId = 0);
 	BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-	COLORREF * CreatePal(int nUnitId, int nPalId);
+	COLORREF* CreatePal(int nUnitId, int nPalId);
 
 	void UpdatePalData();
 
-	void FlushUnitFile(){if(rgFileChanged){delete rgFileChanged; rgFileChanged = NULL;}};
-	void PrepUnitFile(){if(!rgFileChanged){ rgFileChanged = new UINT8;}};
+	void FlushUnitFile() { safe_delete(rgFileChanged); };
+	void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT8; } };
 
-	int GetLocalAmt(int nUnitId){return (XMVSF_A_UNITLOC[nUnitId + 1] - XMVSF_A_UNITLOC[nUnitId]) / 0x20;};
+	int GetLocalAmt(int nUnitId) { return (XMVSF_A_UNITLOC[nUnitId + 1] - XMVSF_A_UNITLOC[nUnitId]) / 0x20; };
 };

@@ -15,25 +15,21 @@
 class CGame_SFIII3_A : public CGameClass
 {
 private:
-	BOOL bUsingFileExtra;
-
 	//Used for image selection
-	int nTargetImgId;
-	int nNormalPalAmt;
+	int nTargetImgId = 0;
+	int nNormalPalAmt = 0;
 
 	//Used for GetPalOffset
 
-	int nCurrPalOffs;
-	int nCurrPalSz;
+	int nCurrPalOffs = 0;
+	int nCurrPalSz = 0;
 
-	UINT16 ***pppDataBuffer;
+	UINT16*** pppDataBuffer = nullptr;
 
 	void GetPalOffsSz(int nUnitId, int nPalId);
 
 	void InitDataBuffer();
 	void ClearDataBuffer();
-
-	static stExtraDef * SFIII3_A_EXTRA_CUSTOM;
 
 public:
 	CGame_SFIII3_A(void);
@@ -42,7 +38,7 @@ public:
 	//Static functions / variables
 	static CDescTree MainDescTree;
 
-//	static CDescTree * GetMainTree();
+	//	static CDescTree * GetMainTree();
 	static CDescTree InitDescTree();
 	//static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
 	static sFileRule GetRule(int nUnitId);
@@ -55,21 +51,23 @@ public:
 	static void LoadExtraFile();
 
 	//Normal functions
-	CDescTree * GetMainTree();
+	CDescTree* GetMainTree();
 
 	int GetBasicImgId(int nUnitId, int nPalId);
 	int GetPalCt(int nUnitId);
 
-	void CreateDefPal(sDescNode * srcNode, int nSepId);
-	BOOL LoadFile(CFile * LoadedFile, int nUnitId = 0);
-	BOOL SaveFile(CFile * SaveFile, int nUnitId = 0);
+	void CreateDefPal(sDescNode* srcNode, int nSepId);
+	BOOL LoadFile(CFile* LoadedFile, int nUnitId = 0);
+	BOOL SaveFile(CFile* SaveFile, int nUnitId = 0);
 	BOOL CGame_SFIII3_A::UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-	COLORREF * CreatePal(int nUnitId, int nPalId);
+	COLORREF* CreatePal(int nUnitId, int nPalId);
 	BOOL CreateExtraPal(int nUnitId, int nPalId);
 
 	void UpdatePalData();
 
-	void FlushUnitFile(){if(rgFileChanged){delete rgFileChanged; rgFileChanged = NULL;}};
-	void PrepUnitFile(){if(!rgFileChanged){ rgFileChanged = new UINT8;}};
+	void FlushUnitFile() { safe_delete(rgFileChanged); };
+	void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT8; } };
+
+	static stExtraDef* SFIII3_A_EXTRA_CUSTOM;
 };

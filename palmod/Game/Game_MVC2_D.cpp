@@ -63,6 +63,10 @@ CGame_MVC2_D::CGame_MVC2_D(void)
 
 CGame_MVC2_D::~CGame_MVC2_D(void)
 {
+	ClearDataBuffer();
+	//Get rid of the file changed flag
+	safe_delete_array(rgFileChanged);
+
 	CurrMVC2 = NULL;
 }
 
@@ -73,7 +77,6 @@ CDescTree* CGame_MVC2_D::GetMainTree()
 
 CDescTree CGame_MVC2_D::InitDescTree()
 {
-	// BUGBUG: allocations here and in the other InitDescTrees are leaked.
 	//Initialize extra range
 	InitExtraRg();
 
@@ -344,13 +347,10 @@ void CGame_MVC2_D::ClearDataBuffer()
 	{
 		for (int i = 0; i < MVC2_D_NUMUNIT; i++)
 		{
-			if (ppDataBuffer[i])
-			{
-				delete[] ppDataBuffer[i];
-			}
+			safe_delete_array(ppDataBuffer[i]);
 		}
 
-		delete[] ppDataBuffer;
+		safe_delete_array(ppDataBuffer);
 	}
 }
 

@@ -2,25 +2,25 @@
 #include "Game_SFIII3_A.h"
 #include "GameDef.h"
 
-stExtraDef * CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM = NULL;
+stExtraDef* CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM = NULL;
 
 CDescTree CGame_SFIII3_A::MainDescTree = CGame_SFIII3_A::InitDescTree();
 
 int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bVisible)
 {
-	static int rgExtraCtDef[SFIII3_A_NUMUNIT + 1] = {-1};
-	static int rgExtraCtAlt[SFIII3_A_NUMUNIT + 1] = {-1}; //Fix later
+	static int rgExtraCtDef[SFIII3_A_NUMUNIT + 1] = { -1 };
+	static int rgExtraCtAlt[SFIII3_A_NUMUNIT + 1] = { -1 }; //Fix later
 
-	int * rgExtraCt = bVisible ? (int *)rgExtraCtAlt : (int *)rgExtraCtDef;
+	int* rgExtraCt = bVisible ? (int*)rgExtraCtAlt : (int*)rgExtraCtDef;
 
 	if (rgExtraCt[0] == -1)
 	{
 		int nDefCtr = 0;
 		memset(rgExtraCt, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
 
-		stExtraDef * pCurrDef = GetExtraDef(0);
+		stExtraDef* pCurrDef = GetExtraDef(0);
 
-		while (pCurrDef->uUnitN != 0xFF )
+		while (pCurrDef->uUnitN != 0xFF)
 		{
 			if (pCurrDef->bInvisible != 1 || !bVisible)
 			{
@@ -44,19 +44,19 @@ int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bVisible)
 
 int CGame_SFIII3_A::GetExtraLoc(int nUnitId)
 {
-	static int rgExtraLoc[SFIII3_A_NUMUNIT + 1] = {-1};
+	static int rgExtraLoc[SFIII3_A_NUMUNIT + 1] = { -1 };
 
-	if(rgExtraLoc[0] == -1)
+	if (rgExtraLoc[0] == -1)
 	{
 		int nDefCtr = 0;
 		int nCurrUnit = 0x80;
 		memset(rgExtraLoc, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
 
-		stExtraDef * pCurrDef = GetExtraDef(0);
+		stExtraDef* pCurrDef = GetExtraDef(0);
 
-		while(pCurrDef->uUnitN != 0xFF)
+		while (pCurrDef->uUnitN != 0xFF)
 		{
-			if(pCurrDef->uUnitN != nCurrUnit)
+			if (pCurrDef->uUnitN != nCurrUnit)
 			{
 				rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
 				nCurrUnit = pCurrDef->uUnitN;
@@ -67,12 +67,12 @@ int CGame_SFIII3_A::GetExtraLoc(int nUnitId)
 		}
 	}
 
-	return rgExtraLoc[nUnitId];	
+	return rgExtraLoc[nUnitId];
 }
 
 int CGame_SFIII3_A::GetBasicAmt(int nUnitId)
 {
-	switch(nUnitId)
+	switch (nUnitId)
 	{
 	case 0x0E:
 		return 2;
@@ -84,9 +84,6 @@ int CGame_SFIII3_A::GetBasicAmt(int nUnitId)
 }
 
 CGame_SFIII3_A::CGame_SFIII3_A(void)
-									:
-									nCurrPalSz(0),
-									nCurrPalOffs(0)
 {
 	//We need the proper unit amt before we init the main buffer
 	nUnitAmt = SFIII3_A_NUMUNIT + (GetExtraCt(SFIII3_A_EXTRALOC) ? 1 : 0);
@@ -103,13 +100,13 @@ CGame_SFIII3_A::CGame_SFIII3_A(void)
 	nGameFlag = SFIII3_A;
 	nImgGameFlag = IMG5;
 	nImgUnitAmt = nUnitAmt;
-	
+
 	nDisplayW = 8;
 	nFileAmt = 1;
 
 	//Set the image out display type
 	DisplayType = DISP_DEF;
-	pButtonLabel = const_cast<CHAR *>((CHAR *)DEF_BUTTONLABEL7);
+	pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL7);
 
 	//Create the redirect buffer
 	rgUnitRedir = new UINT8[nUnitAmt + 1];
@@ -130,15 +127,13 @@ CGame_SFIII3_A::CGame_SFIII3_A(void)
 }
 
 CGame_SFIII3_A::~CGame_SFIII3_A(void)
-{ 
+{
 	//Get rid of the file changed flag
-	if(rgFileChanged)
-	{
-		delete rgFileChanged;
-	}
+	ClearDataBuffer();
+	safe_delete(rgFileChanged);
 }
 
-CDescTree * CGame_SFIII3_A::GetMainTree()
+CDescTree* CGame_SFIII3_A::GetMainTree()
 {
 	return &CGame_SFIII3_A::MainDescTree;
 }
@@ -154,11 +149,11 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 
 	int nUnitCt = SFIII3_A_NUMUNIT + (GetExtraCt(SFIII3_A_EXTRALOC) ? 1 : 0);
 
-	sDescTreeNode * NewDescTree = new sDescTreeNode;
+	sDescTreeNode* NewDescTree = new sDescTreeNode;
 
-	sDescTreeNode * UnitNode;
-	sDescTreeNode * ButtonNode;
-	sDescNode * ChildNode;
+	sDescTreeNode* UnitNode;
+	sDescTreeNode* ButtonNode;
+	sDescNode* ChildNode;
 
 	//Create the main character tree
 	NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
@@ -167,7 +162,7 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 	NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
 	//Go through each character
-	for(int iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+	for (int iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
 	{
 		//Use this for the Extra support
 		int nSuppAmt = 0;
@@ -179,9 +174,9 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 		int nMainChildAmt = nButtonAmt + 1 + bUseExtra;
 
 		//int nChildAmt = (iUnitCtr == 0x0E ? 2 : BUTTON7) + 7 + 2 + 8;
-		UnitNode = &((sDescTreeNode *)NewDescTree->ChildNodes)[iUnitCtr];
+		UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-		if(iUnitCtr < SFIII3_A_EXTRALOC)
+		if (iUnitCtr < SFIII3_A_EXTRALOC)
 		{
 			//Set each description
 			sprintf(UnitNode->szDesc, "%s", SFIII3_A_UNITDESC[iUnitCtr]);
@@ -193,9 +188,9 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 			UnitNode->uChildAmt = nMainChildAmt;
 
 			//Set each button data
-			for(int iButtonCtr = 0; iButtonCtr < nButtonAmt; iButtonCtr++)
+			for (int iButtonCtr = 0; iButtonCtr < nButtonAmt; iButtonCtr++)
 			{
-				ButtonNode = &((sDescTreeNode *)UnitNode->ChildNodes)[iButtonCtr];
+				ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
 				//Set each button data
 				sprintf(ButtonNode->szDesc, "%s", DEF_BUTTONLABEL7[iButtonCtr]);
@@ -204,32 +199,32 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 				ButtonNode->uChildType = DESC_NODETYPE_NODE;
 				ButtonNode->uChildAmt = 2; //Extra / Portrait
 
-				ButtonNode->ChildNodes = (sDescTreeNode *)new sDescNode[2];
+				ButtonNode->ChildNodes = (sDescTreeNode*)new sDescNode[2];
 
 				//Set each button's extra nodes
-				for(int nBasicCtr = 0; nBasicCtr < 2; nBasicCtr++)
+				for (int nBasicCtr = 0; nBasicCtr < 2; nBasicCtr++)
 				{
-					
-					ChildNode = &((sDescNode *)ButtonNode->ChildNodes)[nBasicCtr];
 
-					if(nBasicCtr == 0)
+					ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nBasicCtr];
+
+					if (nBasicCtr == 0)
 					{
 						sprintf(ChildNode->szDesc, "%s Main", DEF_BUTTONLABEL7[iButtonCtr]);
 					}
 					else //It's 1
 					{
-						sprintf(ChildNode->szDesc, "%s Portrait", DEF_BUTTONLABEL7[iButtonCtr]);	
+						sprintf(ChildNode->szDesc, "%s Portrait", DEF_BUTTONLABEL7[iButtonCtr]);
 					}
 
 					ChildNode->uUnitId = iUnitCtr;
-					ChildNode->uPalId = nBasicCtr ? (nButtonAmt + iButtonCtr) : iButtonCtr; 
+					ChildNode->uPalId = nBasicCtr ? (nButtonAmt + iButtonCtr) : iButtonCtr;
 				}
 			}
 
 			//Set up support nodes
 			nSuppAmt = 2 + 8;
 
-			ButtonNode = &((sDescTreeNode *)UnitNode->ChildNodes)[nButtonAmt]; //Support node
+			ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[nButtonAmt]; //Support node
 			sprintf(ButtonNode->szDesc, "Support");
 
 			ButtonNode->ChildNodes = new sDescTreeNode[nSuppAmt];
@@ -237,21 +232,21 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 			ButtonNode->uChildType = DESC_NODETYPE_NODE;
 			ButtonNode->uChildAmt = nSuppAmt; //EX + Extra
 
-			for(int nExtraCtr = 0; nExtraCtr < nSuppAmt; nExtraCtr++)
+			for (int nExtraCtr = 0; nExtraCtr < nSuppAmt; nExtraCtr++)
 			{
-				ChildNode = &((sDescNode *)ButtonNode->ChildNodes)[nExtraCtr];
+				ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
-				if(nExtraCtr < 2)
+				if (nExtraCtr < 2)
 				{
 					sprintf(ChildNode->szDesc, "EX Attack (%d)", nExtraCtr + 1);
 				}
-				else if(nExtraCtr < nSuppAmt)
+				else if (nExtraCtr < nSuppAmt)
 				{
 					sprintf(ChildNode->szDesc, "????");
 				}
 
 				ChildNode->uUnitId = iUnitCtr;
-				ChildNode->uPalId = (nButtonAmt*2) + nExtraCtr;
+				ChildNode->uPalId = (nButtonAmt * 2) + nExtraCtr;
 			}
 		}
 		else
@@ -310,7 +305,7 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 }
 
 sFileRule CGame_SFIII3_A::GetRule(int nUnitId)
-{	
+{
 	sFileRule NewFileRule;
 
 	sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "51");
@@ -323,20 +318,20 @@ sFileRule CGame_SFIII3_A::GetRule(int nUnitId)
 
 int CGame_SFIII3_A::GetPalCt(int nUnitId)
 {
-	if(nUnitId == SFIII3_A_EXTRALOC)
+	if (nUnitId == SFIII3_A_EXTRALOC)
 	{
 		return GetExtraCt(nUnitId);
 	}
 	else
 	{
-		return (GetBasicAmt(nUnitId)*2) + (2 + 8) + GetExtraCt(nUnitId);
+		return (GetBasicAmt(nUnitId) * 2) + (2 + 8) + GetExtraCt(nUnitId);
 	}
 }
 
 void CGame_SFIII3_A::InitDataBuffer()
 {
-	pppDataBuffer = new UINT16 **[nUnitAmt];
-	memset(pppDataBuffer, NULL, sizeof(UINT16 **) * nUnitAmt);
+	pppDataBuffer = new UINT16 * *[nUnitAmt];
+	memset(pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
 }
 
 void CGame_SFIII3_A::ClearDataBuffer()
@@ -351,17 +346,14 @@ void CGame_SFIII3_A::ClearDataBuffer()
 
 				for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 				{
-					if (pppDataBuffer[nUnitCtr][nPalCtr])
-					{
-						delete[] pppDataBuffer[nUnitCtr][nPalCtr];
-					}
+					safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
 				}
 
-				delete[] pppDataBuffer[nUnitCtr];
+				safe_delete_array(pppDataBuffer[nUnitCtr]);
 			}
 		}
 
-		delete[] pppDataBuffer;
+		safe_delete_array(pppDataBuffer);
 	}
 }
 
@@ -378,40 +370,40 @@ void CGame_SFIII3_A::GetPalOffsSz(int nUnitId, int nPalId)
 
 	BOOL bUseExtra = FALSE;
 
-	if(nUnitId == SFIII3_A_EXTRALOC)
+	if (nUnitId == SFIII3_A_EXTRALOC)
 	{
 		nExtraPos = 0;
 		bUseExtra = TRUE;
 	}
-	else if(nPalId >= nExtraPos)
+	else if (nPalId >= nExtraPos)
 	{
 		bUseExtra = TRUE;
 	}
 
-	if(!bUseExtra)
+	if (!bUseExtra)
 	{
-		if(nPalId >= 0 && nPalId < nBasicPos) //Basic palettes
+		if (nPalId >= 0 && nPalId < nBasicPos) //Basic palettes
 		{
 			nOffset = (nUnitId * 0x80 * 7) + (nPalId * 0x80) + 0x700600;
 
-			if(nUnitId > 0x0E)
+			if (nUnitId > 0x0E)
 				nOffset -= (5 * 0x80);
 
 			nPalSz = 0x80;
 		}
-		else if(nPalId < nPortPos) //Portraits
+		else if (nPalId < nPortPos) //Portraits
 		{
 			nOffset = (nUnitId * (0x20 * 7) + ((nPalId - nBasicPos) * 0x20)) + 0x763BE0;
 			nPalSz = 0x20;
 		}
-		else if(nPalId < nExPos)
+		else if (nPalId < nExPos)
 		{
 			int nOffStart = (nPalId - nPortPos ? 0x76AE00 : 0x764E00);
 
-			nOffset = nOffStart + (nUnitId * 0x80) ;
+			nOffset = nOffStart + (nUnitId * 0x80);
 			nPalSz = 0x80;
 		}
-		else if(nPalId < nExtraPos) //Extra Palettes
+		else if (nPalId < nExtraPos) //Extra Palettes
 		{
 			nOffset = 0x765C00 + (nUnitId * 0x400) + ((nPalId - nExPos) * 0x80);
 			nPalSz = 0x80;
@@ -419,37 +411,37 @@ void CGame_SFIII3_A::GetPalOffsSz(int nUnitId, int nPalId)
 	}
 	else//Extra Palette
 	{
-		stExtraDef * pCurrDef = GetExtraDef(GetExtraLoc(nUnitId) + (nPalId - nExtraPos));
+		stExtraDef* pCurrDef = GetExtraDef(GetExtraLoc(nUnitId) + (nPalId - nExtraPos));
 
 		nOffset = pCurrDef->uOffset;
-		nPalSz= pCurrDef->uPalSz;
+		nPalSz = pCurrDef->uPalSz;
 	}
 
 	nCurrPalOffs = nOffset;
-	nCurrPalSz = nPalSz/2;
+	nCurrPalSz = nPalSz / 2;
 }
 
-BOOL CGame_SFIII3_A::LoadFile(CFile * LoadedFile, int nUnitId)
+BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, int nUnitId)
 {
 	int nPalAmt;
 
-	for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+	for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 	{
 		nPalAmt = GetPalCt(nUnitCtr); //Fix later for extras
 
-		pppDataBuffer[nUnitCtr] = new UINT16 *[nPalAmt];
+		pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
 		rgUnitRedir[nUnitCtr] = SFIII3_A_UNITSORT[nUnitCtr];
 
-		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+		for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 		{
 			GetPalOffsSz(nUnitCtr, nPalCtr);
 
-			pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16 [nCurrPalSz];
-			
+			pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[nCurrPalSz];
+
 			LoadedFile->Seek(nCurrPalOffs, CFile::begin);
-			
-			LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
+
+			LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
 		}
 	}
 
@@ -458,28 +450,28 @@ BOOL CGame_SFIII3_A::LoadFile(CFile * LoadedFile, int nUnitId)
 	return TRUE;
 }
 
-BOOL CGame_SFIII3_A::SaveFile(CFile * SaveFile, int nUnitId)
+BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, int nUnitId)
 {
 	int nPalAmt;
 
-	for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+	for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 	{
 		nPalAmt = GetPalCt(nUnitCtr);
 
-		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+		for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 		{
 			GetPalOffsSz(nUnitCtr, nPalCtr);
-			
+
 			SaveFile->Seek(nCurrPalOffs, CFile::begin);
-			
-			SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
+
+			SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
 		}
 	}
 
 	return TRUE;
 }
 
-void CGame_SFIII3_A::CreateDefPal(sDescNode * srcNode, int nSepId)
+void CGame_SFIII3_A::CreateDefPal(sDescNode* srcNode, int nSepId)
 {
 	int nUnitId = srcNode->uUnitId;
 	int nPalId = srcNode->uPalId;
@@ -494,83 +486,83 @@ BOOL CGame_SFIII3_A::CreateExtraPal(int nUnitId, int nPalId)
 {
 	int nExtra = nPalId - nNormalPalAmt;
 
-	if(nExtra >= 0)
+	if (nExtra >= 0)
 	{
-		switch(nUnitId)
+		switch (nUnitId)
 		{
 		case 0x08: //Oro
+		{
+			switch (nExtra)
 			{
-				switch(nExtra)
-				{
-				case 0: //Tengu Stone (1)
-					{
-						GetPalOffsSz(nUnitId, nPalId);
+			case 0: //Tengu Stone (1)
+			{
+				GetPalOffsSz(nUnitId, nPalId);
 
-						BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
-						
-						BasePalGroup.AddSep(0, "Concrete", 0, 16);
-						//BasePalGroup.AddSep(0, "", 16, 16); 
-						BasePalGroup.AddSep(0, "Dinosaur / Stone", 32, 16);
-						BasePalGroup.AddSep(0, "Rocket", 48, 16);
+				BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
 
-						GetPalOffsSz(nUnitId, nPalId + 1);
+				BasePalGroup.AddSep(0, "Concrete", 0, 16);
+				//BasePalGroup.AddSep(0, "", 16, 16); 
+				BasePalGroup.AddSep(0, "Dinosaur / Stone", 32, 16);
+				BasePalGroup.AddSep(0, "Rocket", 48, 16);
 
-						BasePalGroup.AddPal(CreatePal(nUnitId, nPalId + 1), nCurrPalSz, nUnitId, nPalId + 1);
-						
-						BasePalGroup.AddSep(1, "Brick", 0, 16);
+				GetPalOffsSz(nUnitId, nPalId + 1);
 
-						ClearSetImgTicket(
-							CreateImgTicket(nUnitId, 2,
-								CreateImgTicket(nUnitId, 3, NULL, -2, 129)
-							)
-						);
+				BasePalGroup.AddPal(CreatePal(nUnitId, nPalId + 1), nCurrPalSz, nUnitId, nPalId + 1);
 
-						SetSourcePal(0, nUnitId, nPalId, 1, 1);
-						SetSourcePal(1, nUnitId, nPalId + 1, 1, 1);
+				BasePalGroup.AddSep(1, "Brick", 0, 16);
 
-						return TRUE;
-					}
-				}
-				break;
+				ClearSetImgTicket(
+					CreateImgTicket(nUnitId, 2,
+						CreateImgTicket(nUnitId, 3, NULL, -2, 129)
+					)
+				);
+
+				SetSourcePal(0, nUnitId, nPalId, 1, 1);
+				SetSourcePal(1, nUnitId, nPalId + 1, 1, 1);
+
+				return TRUE;
 			}
-		case 0x0C: //Urien
-			{
-				switch(nExtra)
-				{
-				case 0:
-					{
-						GetPalOffsSz(nUnitId, nPalId);
-
-						BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
-						BasePalGroup.AddSep(0, "Morph", 0, 64);
-
-						GetPalOffsSz(nUnitId, nPalId + 1);
-
-						BasePalGroup.AddPal(CreatePal(nUnitId, nPalId + 1), nCurrPalSz, nUnitId, nPalId + 1);
-						BasePalGroup.AddSep(1, "Suit", 0, 64);
-
-						ClearSetImgTicket(
-							CreateImgTicket(nUnitId, 2,
-								CreateImgTicket(nUnitId, 3, NULL, 0, 0)
-							)
-						);
-
-						SetSourcePal(0, nUnitId, nPalId, 1, 1);
-						SetSourcePal(1, nUnitId, nPalId + 1, 1, 1);
-
-						return TRUE;
-					}
-					break;
-				}
-				
-				break;
-			}
-		default:
-			{
-				nTargetImgId = nExtra + 2;
-				return FALSE;
 			}
 			break;
+		}
+		case 0x0C: //Urien
+		{
+			switch (nExtra)
+			{
+			case 0:
+			{
+				GetPalOffsSz(nUnitId, nPalId);
+
+				BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
+				BasePalGroup.AddSep(0, "Morph", 0, 64);
+
+				GetPalOffsSz(nUnitId, nPalId + 1);
+
+				BasePalGroup.AddPal(CreatePal(nUnitId, nPalId + 1), nCurrPalSz, nUnitId, nPalId + 1);
+				BasePalGroup.AddSep(1, "Suit", 0, 64);
+
+				ClearSetImgTicket(
+					CreateImgTicket(nUnitId, 2,
+						CreateImgTicket(nUnitId, 3, NULL, 0, 0)
+					)
+				);
+
+				SetSourcePal(0, nUnitId, nPalId, 1, 1);
+				SetSourcePal(1, nUnitId, nPalId + 1, 1, 1);
+
+				return TRUE;
+			}
+			break;
+			}
+
+			break;
+		}
+		default:
+		{
+			nTargetImgId = nExtra + 2;
+			return FALSE;
+		}
+		break;
 		}
 	}
 
@@ -582,7 +574,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 	//Reset palette sources
 	ClearSrcPal();
 
-	if(Node01 == -1)
+	if (Node01 == -1)
 	{
 		return FALSE;
 	}
@@ -590,9 +582,9 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 	UINT8 uUnitId;
 	UINT16 uPalId;
 
-	sDescNode * NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+	sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
-	if(NodeGet == NULL)
+	if (NodeGet == NULL)
 	{
 		return FALSE;
 	}
@@ -613,35 +605,35 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 	//Get rid of any palettes if there are any
 	BasePalGroup.FlushPalAll();
 
-	switch(uUnitId)
+	switch (uUnitId)
 	{
 	case 0x0E: //Shin Gouki
-		{
-			nImgUnitId = 0x0D;
-		}
-		break;
+	{
+		nImgUnitId = 0x0D;
+	}
+	break;
 	}
 
 	//Select the image
-	nNormalPalAmt = ((GetBasicAmt(uUnitId)*2)+10);
+	nNormalPalAmt = ((GetBasicAmt(uUnitId) * 2) + 10);
 
-	if(SFIII3_A_EXTRALOC > uUnitId)
+	if (SFIII3_A_EXTRALOC > uUnitId)
 	{
-		if(uPalId >= nBasicAmt && uPalId < nBasicAmt * 2)
+		if (uPalId >= nBasicAmt && uPalId < nBasicAmt * 2)
 		{
 			nTargetImgId = 0x01; //Portrait Image
 			nSrcStart = nBasicAmt;
 		}
-		else if(uPalId >= nBasicAmt*2 && uPalId < nNormalPalAmt)
+		else if (uPalId >= nBasicAmt * 2 && uPalId < nNormalPalAmt)
 		{
 			nSrcStart = uPalId;
 			nSrcAmt = 1;
 		}
-		else if(uPalId >= nNormalPalAmt)
+		else if (uPalId >= nNormalPalAmt)
 		{
 			bCreateBasicPal = !(CreateExtraPal(uUnitId, uPalId));
 
-			if(bCreateBasicPal)
+			if (bCreateBasicPal)
 			{
 				nSrcStart = uPalId;
 				nSrcAmt = 1;
@@ -651,8 +643,8 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 	else
 	{
 	}
-	
-	if(bCreateBasicPal)
+
+	if (bCreateBasicPal)
 	{
 		//Create the default palette
 		ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
@@ -668,9 +660,9 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 int CGame_SFIII3_A::GetBasicImgId(int nUnitId, int nPalId)
 {
 	int nBasicAmt = GetBasicAmt(nUnitId);
-	if(nPalId > nBasicAmt)
+	if (nPalId > nBasicAmt)
 	{
-		if(nPalId > (7 + nBasicAmt))
+		if (nPalId > (7 + nBasicAmt))
 		{
 			return 0;
 		}
@@ -685,14 +677,14 @@ int CGame_SFIII3_A::GetBasicImgId(int nUnitId, int nPalId)
 	}
 }
 
-COLORREF * CGame_SFIII3_A::CreatePal(int nUnitId, int nPalId)
+COLORREF* CGame_SFIII3_A::CreatePal(int nUnitId, int nPalId)
 {
 	GetPalOffsSz(nUnitId, nPalId);
 	//We get this from create def pal
 
-	COLORREF * NewPal = new COLORREF[nCurrPalSz];
+	COLORREF* NewPal = new COLORREF[nCurrPalSz];
 
-	for(int i = 0; i < nCurrPalSz; i++)
+	for (int i = 0; i < nCurrPalSz; i++)
 	{
 		NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
 	}
@@ -702,23 +694,23 @@ COLORREF * CGame_SFIII3_A::CreatePal(int nUnitId, int nPalId)
 
 void CGame_SFIII3_A::UpdatePalData()
 {
-	for(int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+	for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
 	{
-		sPalDef * srcDef = BasePalGroup.GetPalDef(nPalCtr);
-		if(srcDef->bAvail )
+		sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
+		if (srcDef->bAvail)
 		{
 			int nIndexStart = 0;
 
-			COLORREF * crSrc = srcDef->pPal;
+			COLORREF* crSrc = srcDef->pPal;
 			UINT16 uAmt = srcDef->uPalSz;
 			int nBasicAmt = GetBasicAmt(srcDef->uUnitId);
 
-			if(srcDef->uPalId >= nBasicAmt && srcDef->uPalId  < nBasicAmt*2 && srcDef->uUnitId != SFIII3_A_EXTRALOC)//Portrait
+			if (srcDef->uPalId >= nBasicAmt && srcDef->uPalId < nBasicAmt * 2 && srcDef->uUnitId != SFIII3_A_EXTRALOC)//Portrait
 			{
 				nIndexStart = 3; //Skip surrounding portrait indexes
 			}
 
-			for(int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
+			for (int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
 			{
 				pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = ConvCol(crSrc[nPICtr]);
 

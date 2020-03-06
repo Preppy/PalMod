@@ -49,6 +49,7 @@ CGame_SFA3_A::CGame_SFA3_A(void)
 
 CGame_SFA3_A::~CGame_SFA3_A(void)
 {
+	ClearDataBuffer();
 	//Get rid of the file changed flag
 	safe_delete(rgFileChanged);
 }
@@ -151,17 +152,14 @@ void CGame_SFA3_A::ClearDataBuffer()
 
 				for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 				{
-					if (pppDataBuffer[nUnitCtr][nPalCtr])
-					{
-						delete[] pppDataBuffer[nUnitCtr][nPalCtr];
-					}
+					safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
 				}
 
-				delete[] pppDataBuffer[nUnitCtr];
+				safe_delete_array(pppDataBuffer[nUnitCtr]);
 			}
 		}
 
-		delete[] pppDataBuffer;
+		safe_delete_array(pppDataBuffer);
 	}
 }
 

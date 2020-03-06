@@ -126,7 +126,6 @@ void CGame_MVC_A::LoadExtraFile()
 
 	if (MVC_A_EXTRA_CUSTOM == nullptr)
 	{
-		// BUGBUG: This is leaked.
 		MVC_A_EXTRA_CUSTOM = new stExtraDef[nExtraCtr + 1 + (nCtr / 3)];
 
 		memcpy(MVC_A_EXTRA_CUSTOM, rgTempExtraBuffer, (nExtraCtr + (nCtr / 3)) * sizeof(stExtraDef));

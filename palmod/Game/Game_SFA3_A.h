@@ -12,7 +12,7 @@ private:
 	int nCurrPalOffs = 0;
 	int nCurrPalSz = 0;
 
-	UINT16*** pppDataBuffer;
+	UINT16*** pppDataBuffer = nullptr;
 
 	void GetPalOffsSz(int nUnitId, int nPalId);
 

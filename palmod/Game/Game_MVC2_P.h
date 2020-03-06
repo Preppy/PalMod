@@ -11,8 +11,8 @@ public:
 	//Static functions
 	static UINT8 uRuleCtr;
 
-	static UINT8 GetRuleCtr(){return uRuleCtr;};
-	static void ResetRuleCtr(){uRuleCtr = 0;};
+	static UINT8 GetRuleCtr() { return uRuleCtr; };
+	static void ResetRuleCtr() { uRuleCtr = 0; };
 
 	static sFileRule GetNextRule();
 	static sFileRule GetRule(int nRuleId);

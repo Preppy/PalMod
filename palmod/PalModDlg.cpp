@@ -5,10 +5,6 @@
 #include "PalMod.h"
 #include "PalModDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 // CAboutDlg dialog used for App About
 
 class CAboutDlg : public CDialog
@@ -16,10 +12,10 @@ class CAboutDlg : public CDialog
 public:
 	CAboutDlg();
 
-// Dialog Data
+	// Dialog Data
 	enum { IDD = IDD_ABOUTBOX };
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 // Implementation
@@ -39,7 +35,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 END_MESSAGE_MAP()
 
-static UINT BASED_CODE indicators [] = 
+static UINT BASED_CODE indicators[] =
 {
 	ID_INDICATOR_MAIN,
 	ID_INDICATOR_EXTRA
@@ -187,7 +183,7 @@ BOOL CPalModDlg::OnInitDialog()
 	if (!AfxOleInit())
 	{
 		AfxMessageBox("AfxOleInit Error!");
-		bOleInit = FALSE;	
+		bOleInit = FALSE;
 	}
 
 	//Create and attach the status bar
@@ -195,10 +191,10 @@ BOOL CPalModDlg::OnInitDialog()
 
 	m_StatusBar.SetIndicators(indicators, 2);
 	m_StatusBar.SetPaneInfo(0, ID_INDICATOR_MAIN, 0, rClient.Width() - 55);
-	
+
 	m_StatusBar.SetPaneInfo(1, ID_INDICATOR_EXTRA, 0, 55);
 
-	RepositionBars(AFX_IDW_CONTROLBAR_FIRST,AFX_IDW_CONTROLBAR_LAST,ID_INDICATOR_MAIN);
+	RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, ID_INDICATOR_MAIN);
 
 	m_StatusBar.SetPaneText(0, DEFAULT_STATUS_TEXT);
 
@@ -294,7 +290,7 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
 {
 	int nId = GetWindowLong(hwnd, GWL_ID);
 
-	switch(nId)
+	switch (nId)
 	{
 	case IDC_RH_SLIDER:
 	case IDC_GS_SLIDER:
@@ -307,40 +303,40 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
 	case IDC_SHOWPREVIEW:
 		break;
 	case IDC_BNEWCOL:
-		{
-			EnableWindow(hwnd, ((CPalModDlg *)lParam)->bEnabled * !((CPalModDlg *)lParam)->bAutoSetCol);
-		}
-		break;
+	{
+		EnableWindow(hwnd, ((CPalModDlg*)lParam)->bEnabled * !((CPalModDlg*)lParam)->bAutoSetCol);
+	}
+	break;
 
 	default:
-		{
-			EnableWindow(hwnd, ((CPalModDlg *)lParam)->bEnabled);
-		}
-		break;
+	{
+		EnableWindow(hwnd, ((CPalModDlg*)lParam)->bEnabled);
+	}
+	break;
 	}
 
 	return TRUE;
 }
 
-BOOL CPalModDlg::SetLoadDir(CString * szOut)
+BOOL CPalModDlg::SetLoadDir(CString* szOut)
 {
 	LPMALLOC pMalloc;
 
-	if(::SHGetMalloc(&pMalloc) == NOERROR)
+	if (::SHGetMalloc(&pMalloc) == NOERROR)
 	{
 		BROWSEINFO      bi;
 		char            pszBuffer[MAX_PATH];
 		LPITEMIDLIST    pidl;
 
-		bi.hwndOwner        =   GetSafeHwnd();
-		bi.pidlRoot         =   NULL;
-		bi.pszDisplayName   =   pszBuffer;
-		bi.lpszTitle        =   _T("Select a target Directory"); //bugbug: hard-coded string
-		bi.ulFlags          =   BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-		bi.lpfn             =   OnBrowseDialog;
-		bi.lParam           =   0;
+		bi.hwndOwner = GetSafeHwnd();
+		bi.pidlRoot = NULL;
+		bi.pszDisplayName = pszBuffer;
+		bi.lpszTitle = _T("Select a target Directory"); //bugbug: hard-coded string
+		bi.ulFlags = BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+		bi.lpfn = OnBrowseDialog;
+		bi.lParam = 0;
 
-		if(pidl = ::SHBrowseForFolder(&bi))
+		if (pidl = ::SHBrowseForFolder(&bi))
 		{
 			if (::SHGetPathFromIDList(pidl, pszBuffer))
 			{
@@ -354,7 +350,7 @@ BOOL CPalModDlg::SetLoadDir(CString * szOut)
 			return FALSE;
 		}
 
-		pMalloc->Release();    
+		pMalloc->Release();
 	}
 
 	return TRUE;
@@ -364,58 +360,58 @@ BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_ToolTip.RelayEvent(pMsg);
 
-	if (m_hAccelTable) 
+	if (m_hAccelTable)
 	{
-		if (::TranslateAccelerator(GetSafeHwnd(), m_hAccelTable, pMsg)) 
+		if (::TranslateAccelerator(GetSafeHwnd(), m_hAccelTable, pMsg))
 		{
 			return(TRUE);
 		}
 	}
 
-	switch(pMsg->message)
+	switch (pMsg->message)
 	{
 	case WM_KEYDOWN:
+	{
+		if (pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
 		{
-			if (pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
-			{
-				pMsg->wParam = NULL;
-			}
+			pMsg->wParam = NULL;
+		}
+	}
+	break;
+
+	case WM_NOTIFY:
+	{
+		CJunk* pCtrl = (CJunk*)CWnd::FromHandle(((LPNMHDR)pMsg->lParam)->hwndFrom);
+
+		switch (((LPNMHDR)pMsg->lParam)->code)
+		{
+		case CUSTOM_SS:
+		case CUSTOM_MS:
+		{
+			OnPalSelChange(((LPNMHDR)pMsg->lParam)->idFrom);
+		}
+		break;
+		case CUSTOM_HLCHANGE:
+		{
+			OnPalHLChange(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom);
+		}
+		break;
+		case CUSTOM_SELHLCHANGE:
+		{
+			//OnPalMHL(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom);
 		}
 		break;
 
-	case WM_NOTIFY:
+		case CUSTOM_COPY:
+		case CUSTOM_PASTE:
+		case CUSTOM_SALL:
+		case CUSTOM_SNONE:
 		{
-			CJunk * pCtrl = (CJunk *)CWnd::FromHandle(((LPNMHDR)pMsg->lParam)->hwndFrom);
-
-			switch(((LPNMHDR)pMsg->lParam)->code)
-			{
-			case CUSTOM_SS:
-			case CUSTOM_MS:
-				{
-					OnPalSelChange(((LPNMHDR)pMsg->lParam)->idFrom);
-				}
-				break;
-			case CUSTOM_HLCHANGE:
-				{
-					OnPalHLChange(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom);
-				}
-				break;
-			case CUSTOM_SELHLCHANGE:
-				{
-					//OnPalMHL(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom);
-				}
-				break;
-
-			case CUSTOM_COPY:
-			case CUSTOM_PASTE:
-			case CUSTOM_SALL:
-			case CUSTOM_SNONE:
-				{
-					CustomEditProc(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
-				}
-				break;
-			}
+			CustomEditProc(pCtrl, ((LPNMHDR)pMsg->lParam)->idFrom, ((LPNMHDR)pMsg->lParam)->code);
 		}
+		break;
+		}
+	}
 	}
 
 	return CDialog::PreTranslateMessage(pMsg);
@@ -423,83 +419,83 @@ BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
 
 BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 {
-	switch(eType)
+	switch (eType)
 	{
 	case VM_PALCHANGE:
+	{
+		if (bPalChanged)
 		{
-			if(bPalChanged)
-			{
-				CString strQuestion;
-				strQuestion.LoadString(IDS_SAVE_PALETTE_CHANGES);
+			CString strQuestion;
+			strQuestion.LoadString(IDS_SAVE_PALETTE_CHANGES);
 
-				switch(MessageBox(strQuestion, GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
-				{
-				case IDYES:
-					{
-						OnBnUpdate();
-						return TRUE;
-					}
-					break;
-				case IDNO:
-					{
-						bPalChanged  = FALSE;
-						return TRUE;
-					}
-					break;
-				case IDCANCEL:
-					{
-						nPrevUnitSel != m_CBUnitSel.GetCurSel() ? m_CBUnitSel.SetCurSel(nPrevUnitSel) : NULL;
-						nPrevChildSel1 != m_CBChildSel1.GetCurSel() ? m_CBChildSel1.SetCurSel(nPrevChildSel1) : NULL;
-						nPrevChildSel2 != m_CBChildSel2.GetCurSel() ? m_CBChildSel2.SetCurSel(nPrevChildSel2) : NULL;
-						
-						return FALSE;
-					}
-					break;
-				}
-			}
-			else
+			switch (MessageBox(strQuestion, GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
 			{
+			case IDYES:
+			{
+				OnBnUpdate();
 				return TRUE;
 			}
+			break;
+			case IDNO:
+			{
+				bPalChanged = FALSE;
+				return TRUE;
+			}
+			break;
+			case IDCANCEL:
+			{
+				nPrevUnitSel != m_CBUnitSel.GetCurSel() ? m_CBUnitSel.SetCurSel(nPrevUnitSel) : NULL;
+				nPrevChildSel1 != m_CBChildSel1.GetCurSel() ? m_CBChildSel1.SetCurSel(nPrevChildSel1) : NULL;
+				nPrevChildSel2 != m_CBChildSel2.GetCurSel() ? m_CBChildSel2.SetCurSel(nPrevChildSel2) : NULL;
 
+				return FALSE;
+			}
+			break;
+			}
 		}
-		break;
+		else
+		{
+			return TRUE;
+		}
+
+	}
+	break;
 	case VM_FILECHANGE:
+	{
+		if (fFileChanged)
 		{
-			if (fFileChanged)
-			{
-				CString strQuestion;
-				strQuestion.LoadString(IDS_SAVE_FILE_CHANGES);
+			CString strQuestion;
+			strQuestion.LoadString(IDS_SAVE_FILE_CHANGES);
 
-				switch (MessageBox(strQuestion, GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
-				{
-				case IDYES:
-					{
-						OnFilePatch();
-						return TRUE;
-					}
-					break;
-				case IDNO:
-					{
-						fFileChanged = FALSE;
-						bPalChanged = FALSE;
-						return TRUE;
-					}
-					break;
-				case IDCANCEL:
-					{
-						
-						return FALSE;
-					}
-					break;
-				}
-			}
-			else
+			switch (MessageBox(strQuestion, GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
 			{
+			case IDYES:
+			{
+				OnFilePatch();
 				return TRUE;
 			}
+			break;
+			case IDNO:
+			{
+				fFileChanged = FALSE;
+				bPalChanged = FALSE;
+				return TRUE;
+			}
+			break;
+			case IDCANCEL:
+			{
+
+				return FALSE;
+			}
+			break;
+			}
 		}
-		break;
+		else
+		{
+			return TRUE;
+		}
+	}
+	break;
 	default:
 		break;
 	}
@@ -524,7 +520,7 @@ void CPalModDlg::OnClose()
 
 void CPalModDlg::CloseFileDir()
 {
-	if(bEnabled)
+	if (bEnabled)
 	{
 		ClearGameVar();
 
@@ -540,7 +536,7 @@ void CPalModDlg::ClearGameVar()
 	m_PalHost.EndSetPal();
 	m_PalHost.UpdateCtrl();
 
-	if(ImgDispCtrl)
+	if (ImgDispCtrl)
 	{
 		//Get rid of any images
 		ImgDispCtrl->FlushImages();
@@ -553,9 +549,9 @@ void CPalModDlg::ClearGameVar()
 	//}
 
 	//Clear each combo box
-	while(m_CBUnitSel.DeleteString(0) >= 0) NULL;
-	while(m_CBChildSel1.DeleteString(0) >= 0) NULL;
-	while(m_CBChildSel2.DeleteString(0) >= 0) NULL;
+	while (m_CBUnitSel.DeleteString(0) >= 0) NULL;
+	while (m_CBChildSel1.DeleteString(0) >= 0) NULL;
+	while (m_CBChildSel2.DeleteString(0) >= 0) NULL;
 
 	//Clear the game class
 	GetHost()->ClearGameClass();

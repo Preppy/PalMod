@@ -32,7 +32,6 @@ enum ColFlag
 class CGameClass
 {
 protected:
-
 	CHAR* szDir = nullptr;
 	CHAR** szUnitFile = nullptr;
 	UINT8* rgFileChanged = nullptr;
@@ -69,7 +68,7 @@ protected:
 	CPalGroup BasePalGroup;
 
 	eDispType DisplayType;
-	CHAR* pButtonLabel;
+	CHAR* pButtonLabel = nullptr;
 
 	BOOL bUsesHybrid = FALSE;
 	UINT16* pIndexRedir = nullptr;
@@ -85,7 +84,7 @@ protected:
 
 public:
 	CGameClass(void);
-	~CGameClass(void);
+	virtual ~CGameClass(void);
 
 	static BOOL bPostSetPalProc;
 

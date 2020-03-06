@@ -5,10 +5,6 @@
 #include "PalMod.h"
 #include "regproc.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
 CString ImgStr;
 HACCEL m_hAccelTable;
 HWND g_appHWnd = nullptr;

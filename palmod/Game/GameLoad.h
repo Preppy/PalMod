@@ -13,11 +13,12 @@ private:
 	sFileRule(*GetRule)(int);
 	CGameClass* CreateGame(int nGameFlag);
 
-	CString szLoadSaveStr;
+	CString szLoadSaveStr = "";
 
-	int nSaveLoadCount;
-	int nSaveLoadSucc;
-	int nSaveLoadErr;
+	int nSaveLoadCount = 0;
+	int nSaveLoadSucc = 0;
+	int nSaveLoadErr = 0;
+
 public:
 	CGameLoad(void);
 	~CGameLoad(void);

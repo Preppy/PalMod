@@ -8,8 +8,6 @@ constexpr auto EXTRA_FILENAME_MVC = "mvce.txt";
 class CGame_MVC_A : public CGameClass
 {
 private:
-	BOOL bUsingFileExtra = FALSE;
-
 	//Used for image selection
 	int nTargetImgId = 0;
 
@@ -17,14 +15,12 @@ private:
 	int nCurrPalOffs = 0;
 	int nCurrPalSz = 0;
 
-	UINT16*** pppDataBuffer;
-
 	void GetPalOffsSz(int nUnitId, int nPalId);
 
 	void InitDataBuffer();
 	void ClearDataBuffer();
-
-	static stExtraDef* MVC_A_EXTRA_CUSTOM;
+	
+	UINT16*** pppDataBuffer = nullptr;
 
 public:
 	CGame_MVC_A(void);
@@ -60,4 +56,6 @@ public:
 
 	void FlushUnitFile() { safe_delete(rgFileChanged); };
 	void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT8; } };
+
+	static stExtraDef* MVC_A_EXTRA_CUSTOM;
 };

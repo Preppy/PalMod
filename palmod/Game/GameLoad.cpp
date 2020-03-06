@@ -14,15 +14,14 @@
 #include "..\palmod.h"
 
 CGameLoad::CGameLoad(void)
-	:szLoadSaveStr(_T("")),
-	nSaveLoadCount(0),
-	nSaveLoadSucc(0),
-	nSaveLoadErr(0)
 {
 }
 
 CGameLoad::~CGameLoad(void)
 {
+	// Clean up static allocations.
+	safe_delete_array(CGame_MVC_A::MVC_A_EXTRA_CUSTOM);
+	safe_delete_array(CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM);
 }
 
 BOOL CGameLoad::SetGame(int nGameFlag)
@@ -199,7 +198,6 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, CHAR* szLoadDir)
 {
 	CGameClass* OutGame = NULL;
 	sFileRule CurrRule;
-	int nCurrRuleCtr;
 
 	CFile CurrFile;
 	CString szCurrFile;
@@ -216,7 +214,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, CHAR* szLoadDir)
 
 	ResetRuleCtr();
 
-	nCurrRuleCtr = GetRuleCtr();
+	int nCurrRuleCtr = GetRuleCtr();
 
 	while (nCurrRuleCtr != 0xFF)
 	{

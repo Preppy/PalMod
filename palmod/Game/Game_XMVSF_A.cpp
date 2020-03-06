@@ -72,6 +72,7 @@ CGame_XMVSF_A::CGame_XMVSF_A(void)
 
 CGame_XMVSF_A::~CGame_XMVSF_A(void)
 {
+	ClearDataBuffer();
 	//Get rid of the file changed flag
 	safe_delete(rgFileChanged);
 }
@@ -188,15 +189,15 @@ void CGame_XMVSF_A::ClearDataBuffer()
 				{
 					if (pppDataBuffer[nUnitCtr][nPalCtr])
 					{
-						delete[] pppDataBuffer[nUnitCtr][nPalCtr];
+						safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
 					}
 				}
 
-				delete[] pppDataBuffer[nUnitCtr];
+				safe_delete_array(pppDataBuffer[nUnitCtr]);
 			}
 		}
 
-		delete[] pppDataBuffer;
+		safe_delete_array(pppDataBuffer);
 	}
 }
 

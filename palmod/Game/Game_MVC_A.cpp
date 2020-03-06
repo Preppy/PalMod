@@ -120,11 +120,9 @@ CGame_MVC_A::CGame_MVC_A(void)
 
 CGame_MVC_A::~CGame_MVC_A(void)
 {
+	ClearDataBuffer();
 	//Get rid of the file changed flag
-	if (rgFileChanged)
-	{
-		delete rgFileChanged;
-	}
+	safe_delete(rgFileChanged);
 }
 
 CDescTree* CGame_MVC_A::GetMainTree()
@@ -382,17 +380,14 @@ void CGame_MVC_A::ClearDataBuffer()
 
 				for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 				{
-					if (pppDataBuffer[nUnitCtr][nPalCtr])
-					{
-						delete[] pppDataBuffer[nUnitCtr][nPalCtr];
-					}
+					safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
 				}
 
-				delete[] pppDataBuffer[nUnitCtr];
+				safe_delete_array(pppDataBuffer[nUnitCtr]);
 			}
 		}
 
-		delete[] pppDataBuffer;
+		safe_delete_array(pppDataBuffer);
 	}
 }
 
