@@ -82,8 +82,6 @@ public:
 
 	BOOL bCanMinMax = FALSE;
 
-	RECT rDefault = {0, 0, 0 ,0};
-	
 	//Program functions
 
 	void LoadGameDir(int nGameFlag, CHAR * szLoadDir);

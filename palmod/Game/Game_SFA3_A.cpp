@@ -21,13 +21,13 @@ CGame_SFA3_A::CGame_SFA3_A(void)
 	nGameFlag = SFA3_A;
 	nImgGameFlag = IMG4;
 	nImgUnitAmt = nUnitAmt;
-	
+
 	nDisplayW = 8;
 	nFileAmt = 1;
 
 	//Set the image out display type
 	DisplayType = DISP_DEF;
-	pButtonLabel = const_cast<CHAR *>((CHAR *)DEF_BUTTONLABEL6);
+	pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6);
 
 	//Create the redirect buffer
 	rgUnitRedir = new UINT8[nUnitAmt + 1];
@@ -48,26 +48,23 @@ CGame_SFA3_A::CGame_SFA3_A(void)
 }
 
 CGame_SFA3_A::~CGame_SFA3_A(void)
-{ 
+{
 	//Get rid of the file changed flag
-	if(rgFileChanged)
-	{
-		delete rgFileChanged;
-	}
+	safe_delete(rgFileChanged);
 }
 
-CDescTree * CGame_SFA3_A::GetMainTree()
+CDescTree* CGame_SFA3_A::GetMainTree()
 {
 	return &CGame_SFA3_A::MainDescTree;
 }
 
 CDescTree CGame_SFA3_A::InitDescTree()
 {
-	sDescTreeNode * NewDescTree = new sDescTreeNode;
+	sDescTreeNode* NewDescTree = new sDescTreeNode;
 
-	sDescTreeNode * UnitNode;
-	sDescTreeNode * ButtonNode;
-	sDescNode * ChildNode;
+	sDescTreeNode* UnitNode;
+	sDescTreeNode* ButtonNode;
+	sDescNode* ChildNode;
 
 	//Create the main character tree
 	NewDescTree->ChildNodes = new sDescTreeNode[SFA3_A_NUMUNIT];
@@ -76,24 +73,24 @@ CDescTree CGame_SFA3_A::InitDescTree()
 	NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
 	//Go through each character
-	for(int iUnitCtr = 0; iUnitCtr < SFA3_A_NUMUNIT; iUnitCtr++)
+	for (int iUnitCtr = 0; iUnitCtr < SFA3_A_NUMUNIT; iUnitCtr++)
 	{
-		UnitNode = &((sDescTreeNode *)NewDescTree->ChildNodes)[iUnitCtr];
+		UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 		//Set each description / character name
 		sprintf(UnitNode->szDesc, "%s", SFA3_A_UNITDESC[iUnitCtr]);
 
 		//Init each character to have all 6 basic buttons + extra
-		UnitNode->ChildNodes = new sDescTreeNode[BUTTON6];	
+		UnitNode->ChildNodes = new sDescTreeNode[BUTTON6];
 
 		//All children have button trees
 		UnitNode->uChildType = DESC_NODETYPE_TREE;
-		UnitNode->uChildAmt = BUTTON6;	
+		UnitNode->uChildAmt = BUTTON6;
 
-		for(int iButtonCtr = 0; iButtonCtr < BUTTON6; iButtonCtr++)
+		for (int iButtonCtr = 0; iButtonCtr < BUTTON6; iButtonCtr++)
 		{
 			int nCurrChildAmt = 1; // 1 for each button for now
 
-			ButtonNode = &((sDescTreeNode *)UnitNode->ChildNodes)[iButtonCtr];
+			ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
 			//Set each button data
 			sprintf(ButtonNode->szDesc, "%s", DEF_BUTTONLABEL6_SFA3[iButtonCtr]);
@@ -102,12 +99,12 @@ CDescTree CGame_SFA3_A::InitDescTree()
 			ButtonNode->uChildType = DESC_NODETYPE_NODE;
 			ButtonNode->uChildAmt = nCurrChildAmt;
 
-			ButtonNode->ChildNodes = (sDescTreeNode *)new sDescNode[nCurrChildAmt];
+			ButtonNode->ChildNodes = (sDescTreeNode*)new sDescNode[nCurrChildAmt];
 
 			//Set each button's node
 			///////////////////////////////////////////////////////////////////////
 
-			ChildNode = &((sDescNode *)ButtonNode->ChildNodes)[0]; //We only have 1
+			ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[0]; //We only have 1
 
 			sprintf(ChildNode->szDesc, "%s", DEF_BUTTONLABEL6_SFA3[iButtonCtr]);
 
@@ -120,7 +117,7 @@ CDescTree CGame_SFA3_A::InitDescTree()
 }
 
 sFileRule CGame_SFA3_A::GetRule(int nUnitId)
-{	
+{
 	sFileRule NewFileRule;
 
 	sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "sz3.09c");
@@ -138,33 +135,33 @@ int CGame_SFA3_A::GetBasicAmt(int nUnitId)
 
 void CGame_SFA3_A::InitDataBuffer()
 {
-	pppDataBuffer = new UINT16 **[nUnitAmt];
-	memset(pppDataBuffer, NULL, sizeof(UINT16 **) * nUnitAmt);
+	pppDataBuffer = new UINT16 * *[nUnitAmt];
+	memset(pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
 }
 
 void CGame_SFA3_A::ClearDataBuffer()
 {
-	if(pppDataBuffer)
+	if (pppDataBuffer)
 	{
-		for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+		for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 		{
-			if(pppDataBuffer[nUnitCtr])
+			if (pppDataBuffer[nUnitCtr])
 			{
 				int nPalAmt = GetPalCt(nUnitCtr);
 
-				for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+				for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 				{
-					if(pppDataBuffer[nUnitCtr][nPalCtr])
+					if (pppDataBuffer[nUnitCtr][nPalCtr])
 					{
-						delete [] pppDataBuffer[nUnitCtr][nPalCtr];
+						delete[] pppDataBuffer[nUnitCtr][nPalCtr];
 					}
 				}
 
-				delete [] pppDataBuffer[nUnitCtr];
+				delete[] pppDataBuffer[nUnitCtr];
 			}
 		}
 
-		delete [] pppDataBuffer;
+		delete[] pppDataBuffer;
 	}
 }
 
@@ -174,27 +171,27 @@ void CGame_SFA3_A::GetPalOffsSz(int nUnitId, int nPalId)
 	nCurrPalSz = 16;
 }
 
-BOOL CGame_SFA3_A::LoadFile(CFile * LoadedFile, int nUnitId)
+BOOL CGame_SFA3_A::LoadFile(CFile* LoadedFile, int nUnitId)
 {
 	int nPalAmt;
 
-	for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+	for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 	{
 		nPalAmt = GetPalCt(nUnitCtr);
 
-		pppDataBuffer[nUnitCtr] = new UINT16 *[nPalAmt];
+		pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
 		rgUnitRedir[nUnitCtr] = nUnitCtr; //Fix later for unit sort
 
-		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+		for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 		{
 			GetPalOffsSz(nUnitCtr, nPalCtr);
 
-			pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16 [nCurrPalSz];
-			
+			pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[nCurrPalSz];
+
 			LoadedFile->Seek(nCurrPalOffs, CFile::begin);
-			
-			LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
+
+			LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
 		}
 	}
 
@@ -208,26 +205,26 @@ int CGame_SFA3_A::GetPalCt(int nUnitId)
 	return 6;// 6 palettes in a unit
 }
 
-BOOL CGame_SFA3_A::SaveFile(CFile * SaveFile, int nUnitId)
+BOOL CGame_SFA3_A::SaveFile(CFile* SaveFile, int nUnitId)
 {
-	for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+	for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 	{
 		int nPalAmt = GetPalCt(nUnitCtr);
 
-		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+		for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 		{
 			GetPalOffsSz(nUnitCtr, nPalCtr);
-			
+
 			SaveFile->Seek(nCurrPalOffs, CFile::begin);
-			
-			SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
+
+			SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
 		}
 	}
 
 	return TRUE;
 }
 
-void CGame_SFA3_A::CreateDefPal(sDescNode * srcNode, int nSepId)
+void CGame_SFA3_A::CreateDefPal(sDescNode* srcNode, int nSepId)
 {
 	int nUnitId = srcNode->uUnitId;
 	int nPalId = srcNode->uPalId;
@@ -243,7 +240,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	//Reset palette sources
 	ClearSrcPal();
 
-	if(Node01 == -1)
+	if (Node01 == -1)
 	{
 		return FALSE;
 	}
@@ -251,9 +248,9 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	UINT8 uUnitId;
 	UINT16 uPalId;
 
-	sDescNode * NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+	sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
-	if(NodeGet == NULL)
+	if (NodeGet == NULL)
 	{
 		return FALSE;
 	}
@@ -269,8 +266,8 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	int nSrcAmt = GetBasicAmt(uUnitId);
 
 	//Get rid of any palettes if there are any
-	BasePalGroup.FlushPalAll();	
-	
+	BasePalGroup.FlushPalAll();
+
 	//Create the default palette
 	ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
@@ -281,25 +278,25 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	return TRUE;
 }
 
-COLORREF * CGame_SFA3_A::CreatePal(int nUnitId, int nPalId)
+COLORREF* CGame_SFA3_A::CreatePal(int nUnitId, int nPalId)
 {
 	GetPalOffsSz(nUnitId, nPalId);
 
 	int nOffs = 0;
 
-	COLORREF * NewPal = new COLORREF[nCurrPalSz];
+	COLORREF* NewPal = new COLORREF[nCurrPalSz];
 
-	if(1 && nCurrPalSz > 1)//Fix later for extra palettes
+	if (1 && nCurrPalSz > 1)//Fix later for extra palettes
 	{
 		nOffs = 1;
 	}
 
-	for(int i = nOffs; i < nCurrPalSz; i++)
+	for (int i = nOffs; i < nCurrPalSz; i++)
 	{
 		NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i - nOffs]) | 0xFF000000;
 	}
 
-	if(nOffs)
+	if (nOffs)
 	{
 		NewPal[0] = 0xFF000000;
 	}
@@ -309,18 +306,18 @@ COLORREF * CGame_SFA3_A::CreatePal(int nUnitId, int nPalId)
 
 void CGame_SFA3_A::UpdatePalData()
 {
-	for(int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+	for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
 	{
-		sPalDef * srcDef = BasePalGroup.GetPalDef(nPalCtr);
+		sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
-		if(srcDef->bAvail )
+		if (srcDef->bAvail)
 		{
 			int nIndexStart = 1;
 
-			COLORREF * crSrc = srcDef->pPal;
+			COLORREF* crSrc = srcDef->pPal;
 			UINT16 uAmt = srcDef->uPalSz;
 
-			for(int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
+			for (int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
 			{
 				pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr - 1] = (ConvCol(crSrc[nPICtr]) & 0x0FFF);
 			}

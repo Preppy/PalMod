@@ -97,9 +97,9 @@ private:
 
 	//Input variables
 
-	UCHAR * Highlighted;
-	UCHAR * Selected;
-	UCHAR * SelView;
+	UCHAR * Highlighted = nullptr;
+	UCHAR * Selected = nullptr;
+	UCHAR * SelView = nullptr;
 
 	int iHLAmt = 0;
 	int iWorkingAmt = 0;

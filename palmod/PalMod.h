@@ -4,11 +4,11 @@
 #pragma once
 
 #ifndef __AFXWIN_H__
-	#error "include 'stdafx.h' before including this file for PCH"
+#error "include 'stdafx.h' before including this file for PCH"
 #endif
 
 // IMG.dat contains all the sprites used for preview.
-// Magnetro ripped the sprites, eidrian used PSP to arrange them, and the suupabuu integrated them.
+// Magnetro ripped the sprites, eidrian used PSP to arrange them, and then suupabuu integrated them.
 #define IMGDATFILE "img.dat"
 
 #include "resource.h"		// main symbols
@@ -25,52 +25,53 @@
 //
 
 CString GetAppName();
+extern HWND g_appHWnd;
 
 class CPalModApp : public CWinApp
 {
 private:
 	CGameLoad GameLoader;
-	CGameClass * CurrGame;
+	CGameClass* CurrGame = nullptr;
 	CImgDat ImgBase;
 
 	void CleanUp();
-	CPalGroup * BasePal;
+	CPalGroup* BasePal = nullptr;
 
-	BOOL bImgLoaded;
+	BOOL bImgLoaded = FALSE;
 
-	CPalModDlg * PalModDlg;
-	CPreviewDlg * PreviewDlg;
-	
+	CPalModDlg* PalModDlg = nullptr;
+	CPreviewDlg* PreviewDlg = nullptr;
+
 public:
 	CPalModApp();
 	~CPalModApp();
 
-	CGameLoad * GetLoader(){return &GameLoader;};
-	CGameClass * GetCurrGame(){return CurrGame;};
-	void SetGameClass(CGameClass * NewGame);
+	CGameLoad* GetLoader() { return &GameLoader; };
+	CGameClass* GetCurrGame() { return CurrGame; };
+	void SetGameClass(CGameClass* NewGame);
 
-	CImgDat * GetImgFile(){return &ImgBase;};
-	CPalGroup * GetBasePal(){return BasePal;};
-	CImgDisp * GetImgDispCtrl(){return &PreviewDlg->m_ImgDisp;};
+	CImgDat* GetImgFile() { return &ImgBase; };
+	CPalGroup* GetBasePal() { return BasePal; };
+	CImgDisp* GetImgDispCtrl() { return &PreviewDlg->m_ImgDisp; };
 
-	CPalModDlg * GetPalModDlg(){return PalModDlg;};
-	CPreviewDlg * GetPreviewDlg(){return PreviewDlg;};
+	CPalModDlg* GetPalModDlg() { return PalModDlg; };
+	CPreviewDlg* GetPreviewDlg() { return PreviewDlg; };
 
-	BOOL IsImgLoaded(){return bImgLoaded;};
+	BOOL IsImgLoaded() { return bImgLoaded; };
 
 	void ClearGameClass();
-	
-// Overrides
-	public:
+
+	// Overrides
+public:
 	virtual BOOL InitInstance();
 
-// Implementation
+	// Implementation
 
 	DECLARE_MESSAGE_MAP()
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };
 
 extern CPalModApp theApp;
-extern CPalModApp * GetHost();
+extern CPalModApp* GetHost();
 
 extern HACCEL m_hAccelTable;

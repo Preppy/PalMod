@@ -20,23 +20,23 @@ void CPalModDlg::ResetSlider(BOOL bSetZero)
 {
 	UpdateData();
 
-	nTRMul = ((bShow32 && bRGB)? nRMul : 1);
-	nTGMul = ((bShow32 && bRGB)? nGMul : 1);
-	nTBMul = ((bShow32 && bRGB)? nBMul : 1);
-	nTAMul = ((bShow32 && bRGB)? (nAMul ? nAMul : 1) : 1);
+	nTRMul = ((bShow32 && bRGB) ? nRMul : 1);
+	nTGMul = ((bShow32 && bRGB) ? nGMul : 1);
+	nTBMul = ((bShow32 && bRGB) ? nBMul : 1);
+	nTAMul = ((bShow32 && bRGB) ? (nAMul ? nAMul : 1) : 1);
 
-	if(bSetZero)
+	if (bSetZero)
 	{
 		m_Edit_RH = 0;
 		m_Edit_GS = 0;
 		m_Edit_BL = 0;
 		m_Edit_A = 0;
 	}
-	
-	m_RHSlider.SetPos((int)(double)(round(m_Edit_RH/nTRMul)));
-	m_GSSlider.SetPos((int)(double)(round(m_Edit_GS/nTGMul)));
-	m_BLSlider.SetPos((int)(double)(round(m_Edit_BL/nTBMul)));
-	m_ASlider.SetPos((int)(double)(round(m_Edit_A/nTAMul)));
+
+	m_RHSlider.SetPos((int)(double)(round(m_Edit_RH / nTRMul)));
+	m_GSSlider.SetPos((int)(double)(round(m_Edit_GS / nTGMul)));
+	m_BLSlider.SetPos((int)(double)(round(m_Edit_BL / nTBMul)));
+	m_ASlider.SetPos((int)(double)(round(m_Edit_A / nTAMul)));
 
 	UpdateData(FALSE);
 }
@@ -47,7 +47,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 	static int bSliderEnabled = TRUE;
 	static int bAlphaEnabled = TRUE;
 
-	if(bResetRF)
+	if (bResetRF)
 	{
 		nRangeFlag = 0xFFFF;
 	}
@@ -55,17 +55,17 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 	BOOL bEnableSlider = FALSE;
 	BOOL bEnableAlpha = FALSE;
 
-	if(bEnabled && CurrPalCtrl)
+	if (bEnabled && CurrPalCtrl)
 	{
-		CGameClass * CurrGame = GetHost()->GetCurrGame();
+		CGameClass* CurrGame = GetHost()->GetCurrGame();
 		int nGameFlag = CurrGame->GetGameFlag();
-		
+
 		nPalSelAmt = CurrPalCtrl->GetSelAmt();
 
-		if(nPalSelAmt == 0)
+		if (nPalSelAmt == 0)
 		{
-				bEnableSlider = !bAutoSetCol;
-				bEnableAlpha = !bAutoSetCol * nAAmt;
+			bEnableSlider = !bAutoSetCol;
+			bEnableAlpha = !bAutoSetCol * nAAmt;
 		}
 		else if (nPalSelAmt == 1 || !bAutoSetCol)
 		{
@@ -86,7 +86,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 			}
 			else
 			{
-				if(nRangeFlag != 0xFF * 1 + nGameFlag)
+				if (nRangeFlag != 0xFF * 1 + nGameFlag)
 				{
 					m_RHSlider.SetRange(0, 360, TRUE);
 					m_GSSlider.SetRange(0, 255, TRUE);
@@ -97,7 +97,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 				}
 			}
 
-			if(bModeChange)
+			if (bModeChange)
 			{
 				ResetSlider(FALSE);
 			}
@@ -106,7 +106,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 				GetSetSingleCol();
 			}
 		}
-		else if(bAutoSetCol)
+		else if (bAutoSetCol)
 		{
 			bEnableSlider = TRUE;
 			bEnableAlpha = TRUE * nAAmt;
@@ -125,14 +125,14 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 			}
 			else
 			{
-				if(nRangeFlag != 0xFF * 3 + nGameFlag)
+				if (nRangeFlag != 0xFF * 3 + nGameFlag)
 				{
 					m_RHSlider.SetRange(0, 360, TRUE);
 					m_GSSlider.SetRange(-255, 255, TRUE);
 					m_BLSlider.SetRange(-100, 100, TRUE);
 					m_ASlider.SetRange(-nAAmt, nAAmt, TRUE);
 
-					nRangeFlag  = 0xFF * 3 + nGameFlag;
+					nRangeFlag = 0xFF * 3 + nGameFlag;
 				}
 			}
 
@@ -154,16 +154,16 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 
 		ResetSlider();
 	}
-	
+
 	GetDlgItem(IDC_BNEWCOL)->EnableWindow(nPalSelAmt + !bAutoSetCol);
 
-	if(bEnableSlider != bSliderEnabled)
+	if (bEnableSlider != bSliderEnabled)
 	{
 		EnableSlider(bEnableSlider, bEnableSlider, bEnableSlider);
 		bSliderEnabled = bEnableSlider;
-	}	
-	
-	if(bEnableAlpha != bAlphaEnabled)
+	}
+
+	if (bEnableAlpha != bAlphaEnabled)
 	{
 		m_ASlider.EnableWindow(bEnableAlpha);
 		GetDlgItem(IDC_EDIT_A)->EnableWindow(bEnableAlpha);
@@ -177,7 +177,7 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 	UpdateData();
 
 	//Update the slider undo data before changing
-	if(bAutoSetCol && bGetSliderUndo)
+	if (bAutoSetCol && bGetSliderUndo)
 	{
 		ProcChange();
 
@@ -185,43 +185,43 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 	}
 
 	//Update the edit control
-	int * editControl = &m_Edit_RH;
+	int* editControl = &m_Edit_RH;
 	double nMul = 0.0;
 	int nSliderId = pScrollBar->GetDlgCtrlID();
-	CSliderCtrl * SrcScroll = (CSliderCtrl *)pScrollBar;
+	CSliderCtrl* SrcScroll = (CSliderCtrl*)pScrollBar;
 
-	switch(nSliderId)
+	switch (nSliderId)
 	{
 	case IDC_RH_SLIDER:
-		{
-			editControl = &m_Edit_RH;
-			nMul = nRMul;
-		}
-		break;
+	{
+		editControl = &m_Edit_RH;
+		nMul = nRMul;
+	}
+	break;
 	case IDC_GS_SLIDER:
-		{
-			editControl = &m_Edit_GS;
-			nMul = nGMul;
-		}
-		break;
+	{
+		editControl = &m_Edit_GS;
+		nMul = nGMul;
+	}
+	break;
 	case IDC_BL_SLIDER:
-		{
-			editControl = &m_Edit_BL;
-			nMul = nBMul;
-		}
-		break;
+	{
+		editControl = &m_Edit_BL;
+		nMul = nBMul;
+	}
+	break;
 	case IDC_A_SLIDER:
-		{
-			editControl = &m_Edit_A;
-			nMul = nAMul;
-		}
-		break;
+	{
+		editControl = &m_Edit_A;
+		nMul = nAMul;
+	}
+	break;
 	default:
 		OutputDebugString("Bogus slider ID: bad things will happen");
 		return;
 	}
 
-	if(nSliderId == IDC_A_SLIDER)
+	if (nSliderId == IDC_A_SLIDER)
 	{
 		nMul = bShow32 ? nMul : 1;
 	}
@@ -236,7 +236,7 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
 	//Update the selected palette indexes
 	UpdatePalSel();
-	
+
 	CDialog::OnHScroll(nSBCode, nPos, pScrollBar);
 }
 
@@ -256,37 +256,37 @@ void CPalModDlg::OnRadioRGB()
 
 void CPalModDlg::SetColMode(int nColMode)
 {
-	if(bRGB != nColMode)
+	if (bRGB != nColMode)
 	{
 		BOOL bZeroSlider;
 
-		if(nPalSelAmt == 1 || !bAutoSetCol)
+		if (nPalSelAmt == 1 || !bAutoSetCol)
 		{
 			double dH, dS, dL;
 
-			nTRMul = (bShow32 ? 1: nRMul);
-			nTGMul = (bShow32 ? 1: nGMul);
-			nTBMul = (bShow32 ? 1: nBMul);
-			
+			nTRMul = (bShow32 ? 1 : nRMul);
+			nTGMul = (bShow32 ? 1 : nGMul);
+			nTBMul = (bShow32 ? 1 : nBMul);
+
 			UpdateData();
-			if(nColMode) //HLStoRGB
+			if (nColMode) //HLStoRGB
 			{
-				dH = ((double)(m_Edit_RH)/360.0f);
-				dS = ((double)(m_Edit_GS)/255.0f);
-				dL = ((double)(m_Edit_BL)/100.0f);
+				dH = ((double)(m_Edit_RH) / 360.0f);
+				dS = ((double)(m_Edit_GS) / 255.0f);
+				dL = ((double)(m_Edit_BL) / 100.0f);
 
 				COLORREF crRGBVal = HLStoRGB(dH, dL, dS);
 
-				m_Edit_RH = (int)round(GetRValue(crRGBVal)/nTRMul);
-				m_Edit_GS = (int)round(GetGValue(crRGBVal)/nTGMul);
-				m_Edit_BL = (int)round(GetBValue(crRGBVal)/nTBMul);
+				m_Edit_RH = (int)round(GetRValue(crRGBVal) / nTRMul);
+				m_Edit_GS = (int)round(GetGValue(crRGBVal) / nTGMul);
+				m_Edit_BL = (int)round(GetBValue(crRGBVal) / nTBMul);
 			}
 			else //RGBtoHLS
 			{
 				COLORREF crRGBVal = RGB(
-					(int)round(m_Edit_RH*nTRMul), 
-					(int)round(m_Edit_GS*nTGMul), 
-					(int)round(m_Edit_BL*nTBMul));
+					(int)round(m_Edit_RH * nTRMul),
+					(int)round(m_Edit_GS * nTGMul),
+					(int)round(m_Edit_BL * nTBMul));
 
 				RGBtoHLS(crRGBVal, &dH, &dL, &dS);
 
@@ -298,7 +298,7 @@ void CPalModDlg::SetColMode(int nColMode)
 			bZeroSlider = FALSE;
 			UpdateData(FALSE);
 		}
-		else if(nPalSelAmt > 1)
+		else if (nPalSelAmt > 1)
 		{
 			UpdateData();
 
@@ -316,7 +316,7 @@ void CPalModDlg::SetColMode(int nColMode)
 		bRGB = nColMode;
 
 		UpdateSliderSel(TRUE);
-		
+
 		SetSliderDescEdit();
 	}
 }
@@ -329,124 +329,124 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
 {
 	UpdateData();
 
-	int * editControl = &m_Edit_RH;
-	
+	int* editControl = &m_Edit_RH;
+
 	int nColMax = 0;
 	double nColMul = 0.0;
 	int nHLSHI = 0;
-	
-	CSliderCtrl * TargetSlider = &m_RHSlider;
+
+	CSliderCtrl* TargetSlider = &m_RHSlider;
 
 	int nSetFlag = nPalSelAmt;
 
-	switch(nCtrlId)
+	switch (nCtrlId)
 	{
 	case IDC_EDIT_RH:
-		{
-			editControl = &m_Edit_RH;
-			TargetSlider = &m_RHSlider;
-			nColMax = nRAmt;
-			nColMul = nRMul;
-			nHLSHI = 360;
-		}
-		break;
+	{
+		editControl = &m_Edit_RH;
+		TargetSlider = &m_RHSlider;
+		nColMax = nRAmt;
+		nColMul = nRMul;
+		nHLSHI = 360;
+	}
+	break;
 	case IDC_EDIT_GS:
-		{
-			editControl = &m_Edit_GS;
-			TargetSlider = &m_GSSlider;
-			
-			nColMax = nGAmt;
-			nColMul = nGMul;
+	{
+		editControl = &m_Edit_GS;
+		TargetSlider = &m_GSSlider;
 
-			nHLSHI = 255;
-		}
-		break;
+		nColMax = nGAmt;
+		nColMul = nGMul;
+
+		nHLSHI = 255;
+	}
+	break;
 	case IDC_EDIT_BL:
-		{
-			editControl = &m_Edit_BL;
-			TargetSlider = &m_BLSlider;
-			
-			nColMax = nBAmt;
-			nColMul = nBMul;
+	{
+		editControl = &m_Edit_BL;
+		TargetSlider = &m_BLSlider;
 
-			nHLSHI = 100;
-		}
-		break;
+		nColMax = nBAmt;
+		nColMul = nBMul;
+
+		nHLSHI = 100;
+	}
+	break;
 	case IDC_EDIT_A:
+	{
+		if (nAMul)
 		{
-			if(nAMul)
-			{
-				editControl = &m_Edit_A;
-				TargetSlider = &m_ASlider;
-				
-				nColMax = nAAmt;
-				nColMul = nAMul;
-				nHLSHI = nColMax;
-				nSetFlag = 1;
-			}
-			else
-			{
-				return;
-			}
+			editControl = &m_Edit_A;
+			TargetSlider = &m_ASlider;
+
+			nColMax = nAAmt;
+			nColMul = nAMul;
+			nHLSHI = nColMax;
+			nSetFlag = 1;
 		}
-		break;
+		else
+		{
+			return;
+		}
+	}
+	break;
 	default:
 		OutputDebugString("bogus edit control specified");
 		return;
 	}
-	
+
 	//Make sure the multiplier is set correctly
 	nColMul = bShow32 ? nColMul : 1;
 	nColMul = bRGB ? nColMul : 1;
 
-	switch(nSetFlag)
+	switch (nSetFlag)
 	{
 	case 0:
 		break;
 	case 1:
+	{
+		if (bRGB)
 		{
-			if(bRGB)
+			if (bShow32)
 			{
-				if(bShow32)
-				{
-					*editControl = MainPalGroup->ROUND(MainPalGroup->LimitRGB(*editControl));
-				}
-				else
-				{
-					*editControl = LimitVal(*editControl, nColMax, 0);
-				}
+				*editControl = MainPalGroup->ROUND(MainPalGroup->LimitRGB(*editControl));
 			}
 			else
 			{
-				*editControl = LimitVal(*editControl, nHLSHI, 0);
+				*editControl = LimitVal(*editControl, nColMax, 0);
 			}
 		}
-		break;
+		else
+		{
+			*editControl = LimitVal(*editControl, nHLSHI, 0);
+		}
+	}
+	break;
 	default:
+	{
+		if (bRGB)
 		{
-			if(bRGB)
+			BOOL bNeg = *editControl < 0 ? TRUE : FALSE;
+
+			if (bShow32)
 			{
-				BOOL bNeg = *editControl < 0 ? TRUE : FALSE;
 
-				if(bShow32)
-				{
-					
-					*editControl = MainPalGroup->ROUND(MainPalGroup->LimitRGB(abs(*editControl)));
+				*editControl = MainPalGroup->ROUND(MainPalGroup->LimitRGB(abs(*editControl)));
 
-					*editControl = bNeg ? *editControl - *editControl - *editControl : *editControl;
-				}
-				else
-				{
-					*editControl = LimitVal(*editControl, nColMax, -nColMax);
-				}
+				*editControl = bNeg ? *editControl - *editControl - *editControl : *editControl;
 			}
 			else
 			{
-				*editControl = LimitVal(*editControl, nHLSHI, -nHLSHI);
+				*editControl = LimitVal(*editControl, nColMax, -nColMax);
 			}
-
 		}
-		break;
+		else
+		{
+			*editControl = LimitVal(*editControl, nHLSHI, -nHLSHI);
+		}
+
+	}
+	break;
 	}
 
 	TargetSlider->SetPos((int)round(*editControl / nColMul));
@@ -483,35 +483,35 @@ void CPalModDlg::OnKillFocusEditA()
 
 void CPalModDlg::SetSliderCol(int nRH, int nGS, int nBL, int nA)
 {
-	nTRMul = (bShow32 ? 1: nRMul);
-	nTGMul = (bShow32 ? 1: nGMul);
-	nTBMul = (bShow32 ? 1: nBMul);
-	nTAMul = (bShow32 ? 1: nAMul);
+	nTRMul = (bShow32 ? 1 : nRMul);
+	nTGMul = (bShow32 ? 1 : nGMul);
+	nTBMul = (bShow32 ? 1 : nBMul);
+	nTAMul = (bShow32 ? 1 : nAMul);
 
-	if(!bRGB)
+	if (!bRGB)
 	{
 		double dH, dL, dS;
 
 		RGBtoHLS(RGB(nRH, nGS, nBL), &dH, &dL, &dS);
-		
+
 		nRH = (int)(dH * 360.0f);
 		nGS = (int)(dS * 255.0f);
 		nBL = (int)(dL * 100.0f);
 	}
 	else
 	{
-		nRH = (int)round(nRH/nTRMul);
-		nGS = (int)round(nGS/nTGMul);
-		nBL = (int)round(nBL/nTBMul);
+		nRH = (int)round(nRH / nTRMul);
+		nGS = (int)round(nGS / nTGMul);
+		nBL = (int)round(nBL / nTBMul);
 	}
-	
-	if(!nAMul)
+
+	if (!nAMul)
 	{
 		nA = 0;
 	}
 	else
 	{
-		nA = (int)round(nA/nTAMul);
+		nA = (int)round(nA / nTAMul);
 	}
 
 	UpdateData();
@@ -529,143 +529,143 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
 	int nAVal = nAMul ? m_ASlider.GetPos() : 0xFF;
 	nAVal = (int)round((double)nAVal * (nAMul ? nAMul : 1));
 
-	if(bAutoSetCol && CurrPalCtrl)
+	if (bAutoSetCol && CurrPalCtrl)
 	{
-		switch(nPalSelAmt)
+		switch (nPalSelAmt)
 		{
 		case 0:
-			{
-			}
-			break;
-		case 1:
-			{
-				int nSingleSel = CurrPalCtrl->GetSS();
-				COLORREF * crTarget = &CurrPalCtrl->GetBasePal()[nSingleSel];
-
-				if (bRGB)
-				{
-					MainPalGroup->SetRGBA(crTarget, 
-						(int)round(m_RHSlider.GetPos() * nRMul), 
-						(int)round(m_GSSlider.GetPos() * nGMul), 
-						(int)round(m_BLSlider.GetPos() * nBMul),
-						nAVal
-						);
-				}
-				else
-				{
-					MainPalGroup->SetHLSA(crTarget, 
-						(double)m_RHSlider.GetPos() / 360.0f, 
-						(double)m_BLSlider.GetPos() / 100.0f,
-						(double)m_GSSlider.GetPos() / 255.0f,
-						nAVal
-						);
-				}
-
-				CurrPalCtrl->UpdateIndex(nSingleSel);
-				CurrPalCtrl->UpdateCtrl();
-
-				ImgDispCtrl->UpdateCtrl();
-
-				//Update the change flag on the base palette
-				CurrPalDef->bChanged = TRUE;
-			}
-			break;
-		default:
-			{
-				COLORREF * crTarget = CurrPalCtrl->GetBasePal();
-				int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-				UCHAR * uSelBuffer = CurrPalCtrl->GetSelIndex();
-				COLORREF * crBasePal = &CurrPalDef->pBasePal[CurrPalSep->nStart];
-
-				if (bRGB)
-				{
-					for(int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
-					{
-						if(uSelBuffer[nICtr])
-						{
-							MainPalGroup->SetAddRGBA(crBasePal[nICtr], &crTarget[nICtr],
-								(int)round(m_RHSlider.GetPos() * nRMul), 
-								(int)round(m_GSSlider.GetPos() * nGMul), 
-								(int)round(m_BLSlider.GetPos() * nBMul),
-								nAVal
-								);
-								
-							CurrPalCtrl->UpdateIndex(nICtr);
-						}
-					}
-				}
-				else
-				{
-					for(int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
-					{
-						if(uSelBuffer[nICtr])
-						{
-								
-							MainPalGroup->SetAddHLSA(crBasePal[nICtr], &crTarget[nICtr],
-								(double)m_RHSlider.GetPos() / 360.0f, 
-								(double)m_BLSlider.GetPos() / 100.0f,
-								(double)m_GSSlider.GetPos() / 255.0f,
-								nAVal
-								);
-								
-							CurrPalCtrl->UpdateIndex(nICtr);
-						}
-					}
-				}
-
-				CurrPalCtrl->UpdateCtrl();
-				ImgDispCtrl->UpdateCtrl();
-
-				bCopyFromBase = TRUE;
-
-				//Update the change flag on the base palette
-				CurrPalDef->bChanged = TRUE;
-			}
-			break;
-		}
-	}
-	else if(bSetSingleCol && CurrPalCtrl)
-	{
-		if(nPalSelAmt)
 		{
-			//Get undo data based on current color
-			
-			ProcChange();
-
-			COLORREF * crTarget = CurrPalCtrl->GetBasePal();
-
-			int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-			UCHAR * uSelBuffer = CurrPalCtrl->GetSelIndex();
+		}
+		break;
+		case 1:
+		{
+			int nSingleSel = CurrPalCtrl->GetSS();
+			COLORREF* crTarget = &CurrPalCtrl->GetBasePal()[nSingleSel];
 
 			if (bRGB)
 			{
-				for(int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
-				{
-					if(uSelBuffer[nICtr])
-					{
-						MainPalGroup->SetRGBA(&crTarget[nICtr], 
-							(int)round(m_RHSlider.GetPos() * nRMul), 
-							(int)round(m_GSSlider.GetPos() * nGMul), 
-							(int)round(m_BLSlider.GetPos() * nBMul),
-							nAVal
-							);
-
-						CurrPalCtrl->UpdateIndex(nICtr);
-					}
-				}		
+				MainPalGroup->SetRGBA(crTarget,
+					(int)round(m_RHSlider.GetPos() * nRMul),
+					(int)round(m_GSSlider.GetPos() * nGMul),
+					(int)round(m_BLSlider.GetPos() * nBMul),
+					nAVal
+				);
 			}
 			else
 			{
-				for(int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
+				MainPalGroup->SetHLSA(crTarget,
+					(double)m_RHSlider.GetPos() / 360.0f,
+					(double)m_BLSlider.GetPos() / 100.0f,
+					(double)m_GSSlider.GetPos() / 255.0f,
+					nAVal
+				);
+			}
+
+			CurrPalCtrl->UpdateIndex(nSingleSel);
+			CurrPalCtrl->UpdateCtrl();
+
+			ImgDispCtrl->UpdateCtrl();
+
+			//Update the change flag on the base palette
+			CurrPalDef->bChanged = TRUE;
+		}
+		break;
+		default:
+		{
+			COLORREF* crTarget = CurrPalCtrl->GetBasePal();
+			int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+			UCHAR* uSelBuffer = CurrPalCtrl->GetSelIndex();
+			COLORREF* crBasePal = &CurrPalDef->pBasePal[CurrPalSep->nStart];
+
+			if (bRGB)
+			{
+				for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
 				{
-					if(uSelBuffer[nICtr])
+					if (uSelBuffer[nICtr])
 					{
-						MainPalGroup->SetHLSA(&crTarget[nICtr], 
-							(double)m_RHSlider.GetPos() / 360.0f, 
+						MainPalGroup->SetAddRGBA(crBasePal[nICtr], &crTarget[nICtr],
+							(int)round(m_RHSlider.GetPos() * nRMul),
+							(int)round(m_GSSlider.GetPos() * nGMul),
+							(int)round(m_BLSlider.GetPos() * nBMul),
+							nAVal
+						);
+
+						CurrPalCtrl->UpdateIndex(nICtr);
+					}
+				}
+			}
+			else
+			{
+				for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
+				{
+					if (uSelBuffer[nICtr])
+					{
+
+						MainPalGroup->SetAddHLSA(crBasePal[nICtr], &crTarget[nICtr],
+							(double)m_RHSlider.GetPos() / 360.0f,
 							(double)m_BLSlider.GetPos() / 100.0f,
 							(double)m_GSSlider.GetPos() / 255.0f,
 							nAVal
-							);
+						);
+
+						CurrPalCtrl->UpdateIndex(nICtr);
+					}
+				}
+			}
+
+			CurrPalCtrl->UpdateCtrl();
+			ImgDispCtrl->UpdateCtrl();
+
+			bCopyFromBase = TRUE;
+
+			//Update the change flag on the base palette
+			CurrPalDef->bChanged = TRUE;
+		}
+		break;
+		}
+	}
+	else if (bSetSingleCol && CurrPalCtrl)
+	{
+		if (nPalSelAmt)
+		{
+			//Get undo data based on current color
+
+			ProcChange();
+
+			COLORREF* crTarget = CurrPalCtrl->GetBasePal();
+
+			int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+			UCHAR* uSelBuffer = CurrPalCtrl->GetSelIndex();
+
+			if (bRGB)
+			{
+				for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
+				{
+					if (uSelBuffer[nICtr])
+					{
+						MainPalGroup->SetRGBA(&crTarget[nICtr],
+							(int)round(m_RHSlider.GetPos() * nRMul),
+							(int)round(m_GSSlider.GetPos() * nGMul),
+							(int)round(m_BLSlider.GetPos() * nBMul),
+							nAVal
+						);
+
+						CurrPalCtrl->UpdateIndex(nICtr);
+					}
+				}
+			}
+			else
+			{
+				for (int nICtr = 0; nICtr < nWorkingAmt; nICtr++)
+				{
+					if (uSelBuffer[nICtr])
+					{
+						MainPalGroup->SetHLSA(&crTarget[nICtr],
+							(double)m_RHSlider.GetPos() / 360.0f,
+							(double)m_BLSlider.GetPos() / 100.0f,
+							(double)m_GSSlider.GetPos() / 255.0f,
+							nAVal
+						);
 
 						CurrPalCtrl->UpdateIndex(nICtr);
 					}
@@ -683,7 +683,7 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
 
 void CPalModDlg::GetSetSingleCol()
 {
-	if(bGetCol && CurrPalCtrl)
+	if (bGetCol && CurrPalCtrl)
 	{
 		COLORREF crSrc = CurrPalCtrl->GetBasePal()[CurrPalCtrl->GetSS()];
 
@@ -694,7 +694,7 @@ void CPalModDlg::GetSetSingleCol()
 
 void CPalModDlg::UpdateMultiEdit(BOOL bForce)
 {
-	if(bCopyFromBase || bForce)
+	if (bCopyFromBase || bForce)
 	{
 		memcpy(CurrPalDef->pBasePal, CurrPalDef->pPal, CurrPalDef->uPalSz * sizeof(COLORREF));
 
@@ -706,7 +706,7 @@ void CPalModDlg::SetSliderDescEdit()
 {
 	UpdateData();
 
-	if(bRGB)
+	if (bRGB)
 	{
 		m_EditRHDesc = "R";
 		m_EditGSDesc = "G";
@@ -724,58 +724,58 @@ void CPalModDlg::SetSliderDescEdit()
 
 void CPalModDlg::OnBnNewCol()
 {
-	CColorDialog * ColorDlg = NULL;
+	CColorDialog* ColorDlg = NULL;
 	int nSelAmt = CurrPalCtrl->GetSelAmt();
 
 	UpdateData();
-	
+
 	int nAVal;
 
-	if(nAMul)
+	if (nAMul)
 	{
-		nTAMul = (bShow32 ? 1: nAMul);
+		nTAMul = (bShow32 ? 1 : nAMul);
 		nAVal = (int)round(m_Edit_A * nTAMul);
 	}
 	else
 	{
 		nAVal = 0xFF;
 	}
-	
-	if(nSelAmt > 1)
+
+	if (nSelAmt > 1)
 	{
-		ColorDlg = new CColorDialog( RGB( 255, 255, 255 ) );
+		ColorDlg = new CColorDialog(RGB(255, 255, 255));
 	}
 	else
 	{
-		if(bRGB)
+		if (bRGB)
 		{
-			nTRMul = (bShow32 ? 1: nRMul);
-			nTGMul = (bShow32 ? 1: nGMul);
-			nTBMul = (bShow32 ? 1: nBMul);
+			nTRMul = (bShow32 ? 1 : nRMul);
+			nTGMul = (bShow32 ? 1 : nGMul);
+			nTBMul = (bShow32 ? 1 : nBMul);
 
 			ColorDlg = new CColorDialog(RGB(
-				(int)round(m_Edit_RH*nTRMul),
-				(int)round(m_Edit_GS*nTGMul),
-				(int)round(m_Edit_BL*nTBMul)));
+				(int)round(m_Edit_RH * nTRMul),
+				(int)round(m_Edit_GS * nTGMul),
+				(int)round(m_Edit_BL * nTBMul)));
 		}
 		else
 		{
 			double dH, dS, dL;
-				
-			dH = ((double)(m_Edit_RH)/360.0f);
-			dS = ((double)(m_Edit_GS)/255.0f);
-			dL = ((double)(m_Edit_BL)/100.0f);
+
+			dH = ((double)(m_Edit_RH) / 360.0f);
+			dS = ((double)(m_Edit_GS) / 255.0f);
+			dL = ((double)(m_Edit_BL) / 100.0f);
 
 			ColorDlg = new CColorDialog(HLStoRGB(dH, dL, dS));
 		}
 	}
 
 	UpdateData(FALSE);
-	if(ColorDlg->DoModal() == IDOK)
+	if (ColorDlg->DoModal() == IDOK)
 	{
 		COLORREF crNewCol = ColorDlg->GetColor();
 
-		if(nSelAmt == 1 || !bAutoSetCol)
+		if (nSelAmt == 1 || !bAutoSetCol)
 		{
 			SetSliderCol(
 				GetRValue(crNewCol),
@@ -785,7 +785,7 @@ void CPalModDlg::OnBnNewCol()
 
 			ResetSlider(FALSE);
 
-			if(bAutoSetCol)
+			if (bAutoSetCol)
 			{
 				int nSelIndex = CurrPalCtrl->GetSS();
 				CurrPalCtrl->GetBasePal()[nSelIndex] = (crNewCol | ((COLORREF)nAVal << 24));
@@ -800,13 +800,13 @@ void CPalModDlg::OnBnNewCol()
 		}
 		else
 		{
-			UINT8 * rgSel = CurrPalCtrl->GetSelIndex();
+			UINT8* rgSel = CurrPalCtrl->GetSelIndex();
 			int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-			COLORREF * pPal = CurrPalCtrl->GetBasePal();
+			COLORREF* pPal = CurrPalCtrl->GetBasePal();
 
-			for(int i = 0; i < nWorkingAmt; i++)
+			for (int i = 0; i < nWorkingAmt; i++)
 			{
-				if(rgSel[i])
+				if (rgSel[i])
 				{
 					pPal[i] = (crNewCol | ((COLORREF)0xFF << 24));
 				}
@@ -825,10 +825,7 @@ void CPalModDlg::OnBnNewCol()
 		}
 	}
 
-	if(ColorDlg)
-	{
-		delete ColorDlg;
-	}
+	safe_delete(ColorDlg);
 }
 
 void CPalModDlg::OnBnSetCol()
@@ -843,7 +840,7 @@ void CPalModDlg::OnColSett()
 	nTAMul = (bShow32 ? nAMul : (nAMul == 0 ? 1 : nAMul));
 
 	UpdateData();
-	
+
 	if (bRGB)
 	{
 		if (bShow32)
@@ -867,9 +864,9 @@ void CPalModDlg::OnColSett()
 
 void CPalModDlg::Blink()
 {
-	if(bEnabled &&  bCanBlink && ImgDispCtrl->GetImgBuffer()[nPalImgIndex])
+	if (bEnabled && bCanBlink && ImgDispCtrl->GetImgBuffer()[nPalImgIndex])
 	{
-		sPalDef * srcDef = 
+		sPalDef* srcDef =
 			MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex);
 
 		pTempPalCopy = new COLORREF[srcDef->uPalSz];
@@ -896,63 +893,63 @@ void CPalModDlg::PerformBlink()
 	BOOL bRedraw = FALSE;
 	BOOL bSetTimer = FALSE;
 
-	UINT8 * rgSel = CurrPalCtrl->GetSelIndex();
+	UINT8* rgSel = CurrPalCtrl->GetSelIndex();
 	int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
 	int nOffs = MainPalGroup->GetSep(
 		MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex,
 		MainPalGroup->GetRedir()[nCurrSelPal].nSepIndex
-		)->nStart;
+	)->nStart;
 
-	if(nWorkingAmt)
+	if (nWorkingAmt)
 	{
-		switch(nBlinkState)
+		switch (nBlinkState)
 		{
 		case 3:
-			{
-				COLORREF * pPalette = 
-					MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex)->pPal;
+		{
+			COLORREF* pPalette =
+				MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex)->pPal;
 
-				for(int i = 0; i < nWorkingAmt; i++)
+			for (int i = 0; i < nWorkingAmt; i++)
+			{
+				if (rgSel[i])
 				{
-					if(rgSel[i])
-					{
-						pTempPalCopy[i + nOffs] = crBlinkCol;
-					}
-					else
-					{
-						pTempPalCopy[i + nOffs] = pPalette[i + nOffs];
-					}
-				}
-
-				bSetTimer = TRUE;
-				bRedraw = TRUE;
-				nBlinkState = 1;
-			}
-			break;
-		case 2:
-			{
-				nBlinkState = 1;
-			}
-
-			break;
-		case 1:
-			{
-				nBlinkCount --;
-
-				if(nBlinkCount)
-				{
-					nBlinkState = 2;
+					pTempPalCopy[i + nOffs] = crBlinkCol;
 				}
 				else
 				{
-					nBlinkState = 0;
+					pTempPalCopy[i + nOffs] = pPalette[i + nOffs];
 				}
 			}
-			break;
+
+			bSetTimer = TRUE;
+			bRedraw = TRUE;
+			nBlinkState = 1;
+		}
+		break;
+		case 2:
+		{
+			nBlinkState = 1;
+		}
+
+		break;
+		case 1:
+		{
+			nBlinkCount--;
+
+			if (nBlinkCount)
+			{
+				nBlinkState = 2;
+			}
+			else
+			{
+				nBlinkState = 0;
+			}
+		}
+		break;
 		}
 
 		ImgDispCtrl->UpdateCtrl(bRedraw, ((nBlinkState == 1 ? (nPalImgIndex | 0xFF00) : FALSE)));
-		
+
 
 		bSetTimer ? SetTimer(TIMER_BLINK, TIMER_BLINK_ELAPSE, NULL) : NULL;
 	}
@@ -964,7 +961,7 @@ void CPalModDlg::PerformBlink()
 
 void CPalModDlg::OnBnRevert()
 {
-	if(bEnabled)
+	if (bEnabled)
 	{
 		ProcChange();
 
@@ -982,19 +979,19 @@ void CPalModDlg::OnBnRevert()
 
 void CPalModDlg::OnBnClickedBinvert()
 {
-	if(bEnabled)
+	if (bEnabled)
 	{
 		ProcChange();
 
-		UINT8 * rgSel = (UINT8 *)CurrPalCtrl->GetSelIndex();
-		UINT8 * pCurrPal = (UINT8 *)CurrPalCtrl->GetBasePal();
+		UINT8* rgSel = (UINT8*)CurrPalCtrl->GetSelIndex();
+		UINT8* pCurrPal = (UINT8*)CurrPalCtrl->GetBasePal();
 		UINT8 nIndex;
 		BOOL bForce = !CurrPalCtrl->GetSelAmt();
 
 
-		for(int i = 0; i < CurrPalCtrl->GetWorkingAmt(); i++)
+		for (int i = 0; i < CurrPalCtrl->GetWorkingAmt(); i++)
 		{
-			if(rgSel[i] || bForce)
+			if (rgSel[i] || bForce)
 			{
 				nIndex = (i * 4);
 

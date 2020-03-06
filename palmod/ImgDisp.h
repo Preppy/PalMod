@@ -19,23 +19,23 @@
 
 struct sImgIndex
 {
-	UINT32 * pIndexAmt;
-	POINT ** ppIndexes;
+	UINT32* pIndexAmt = nullptr;
+	POINT** ppIndexes = nullptr;
 };
 
 struct sImgNode
 {
-	UINT16 uImgW;
-	UINT16 uImgH;
+	UINT16 uImgW = 0;
+	UINT16 uImgH = 0;
 
-	int nXOffs;
-	int nYOffs;
+	int nXOffs = 0;
+	int nYOffs = 0;
 
-	UINT8 * pImgData;
-	
-	int uPalSz;
-	COLORREF * pPalette;
-	COLORREF * pAltPal;
+	UINT8* pImgData = nullptr;
+
+	int uPalSz = 0;
+	COLORREF* pPalette = nullptr;
+	COLORREF* pAltPal = nullptr;
 };
 
 // CImgDisp
@@ -43,18 +43,18 @@ struct sImgNode
 class CImgDisp : public CWnd
 {
 private:
-	sImgNode * pImgBuffer[MAX_IMG];
+	sImgNode* pImgBuffer[MAX_IMG];
 	int nImgAmt = 0;
 
-	CPaintDC * PaintDC = nullptr;
-	CDC * MainDC = nullptr;
-	CDC * ImageDC = nullptr;
+	CPaintDC* PaintDC = nullptr;
+	CDC* MainDC = nullptr;
+	CDC* ImageDC = nullptr;
 
 	CBitmap BGBitmap;
 	HBITMAP hBGBitmap;
 	CBrush BGBrush;
-	
-	UINT32 * pBmpData = nullptr;
+
+	UINT32* pBmpData = nullptr;
 
 	int nBGBmpW = 0;
 	int nBGBmpH = 0;
@@ -122,34 +122,34 @@ public:
 	CImgDisp();
 	~CImgDisp();
 
-	void AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8 * pImgData, COLORREF * pPalette, int uPalSz, int nXOffs, int nYOffs);
+	void AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs);
 	void FlushImageNode(int nIndex);
 	void FlushImages();
 	void UpdateCtrl(BOOL bRedraw = TRUE, BOOL bUseAltPal = FALSE);
 	void Redraw();
-	void SetBGCol(COLORREF crNewCol){crBGCol = crNewCol;};
-	void SetBlinkCol(COLORREF crNewCol){crBlinkCol = crNewCol;};
-	COLORREF GetBGCol(){return crBGCol;};
-	COLORREF GetBlinkCol(){return crBlinkCol;};
-	void CenterImg(){ModifySrcRect();};
+	void SetBGCol(COLORREF crNewCol) { crBGCol = crNewCol; };
+	void SetBlinkCol(COLORREF crNewCol) { crBlinkCol = crNewCol; };
+	COLORREF GetBGCol() { return crBGCol; };
+	COLORREF GetBlinkCol() { return crBlinkCol; };
+	void CenterImg() { ModifySrcRect(); };
 
-	void SetAltPal(int nIndex, COLORREF * pAltPal);
+	void SetAltPal(int nIndex, COLORREF* pAltPal);
 
-	BOOL IsBGTiled(){return bTileBGBmp;};
-	BOOL IsUsingBGCol(){return bUseBGCol;};
-	void SetBGXOffs(int nOffs){nBGXOffs = nOffs;};
-	void SetBGYOffs(int nOffs){nBGYOffs = nOffs;};
-	void SetBGTiled(BOOL bTiled){bTileBGBmp = bTiled;};
-	void SetUseBGCol(BOOL bUse){bUseBGCol = bUse;};
-	int BGAvail(){return bBGAvail;};
+	BOOL IsBGTiled() { return bTileBGBmp; };
+	BOOL IsUsingBGCol() { return bUseBGCol; };
+	void SetBGXOffs(int nOffs) { nBGXOffs = nOffs; };
+	void SetBGYOffs(int nOffs) { nBGYOffs = nOffs; };
+	void SetBGTiled(BOOL bTiled) { bTileBGBmp = bTiled; };
+	void SetUseBGCol(BOOL bUse) { bUseBGCol = bUse; };
+	int BGAvail() { return bBGAvail; };
 
-	int GetBGXOffs(){return nBGXOffs;};
-	int GetBGYOffs(){return nBGYOffs;};
+	int GetBGXOffs() { return nBGXOffs; };
+	int GetBGYOffs() { return nBGYOffs; };
 
-	sImgNode ** GetImgBuffer(){return pImgBuffer;};
-	CRect GetImgRct(){return rImgRct;}; // currently unused: commented out in imgdumpbmp.cpp
+	sImgNode** GetImgBuffer() { return pImgBuffer; };
+	CRect GetImgRct() { return rImgRct; }; // currently unused: commented out in imgdumpbmp.cpp
 
-	void UpdateImgPalette(int nIndex, COLORREF * pPalette, int nPalSz);
+	void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
 	void SetZoom(double fpNewZoom)
 	{
@@ -158,12 +158,12 @@ public:
 		Redraw();
 	};
 
-	double GetZoom(){return fpZoom;};
+	double GetZoom() { return fpZoom; };
 
-	BOOL LoadBGBmp(CHAR * szBmpLoc);
+	BOOL LoadBGBmp(CHAR* szBmpLoc);
 	//void UseBGCol(){bFillBGBmp = FALSE;};
 
-	int GetImgAmt(){return nImgAmt;};
+	int GetImgAmt() { return nImgAmt; };
 
 	void ClearUsed();
 	void FlushUnused();

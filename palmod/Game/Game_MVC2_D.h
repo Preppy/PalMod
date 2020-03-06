@@ -8,7 +8,7 @@ private:
 	void InitDataBuffer();
 	void ClearDataBuffer();
 
-	UINT16 ** ppDataBuffer = nullptr;
+	UINT16** ppDataBuffer = nullptr;
 
 public:
 	CGame_MVC2_D(void);
@@ -23,8 +23,8 @@ public:
 	static UINT8 uRuleCtr;
 	static UINT16 rgExtraChrLoc[MVC2_D_NUMUNIT];
 
-	static UINT8 GetRuleCtr(){return uRuleCtr;};
-	static void ResetRuleCtr(){uRuleCtr = 0;};
+	static UINT8 GetRuleCtr() { return uRuleCtr; };
+	static void ResetRuleCtr() { uRuleCtr = 0; };
 
 	static CDescTree MainDescTree;
 
@@ -38,14 +38,14 @@ public:
 	static BOOL bAlphaTrans;
 
 	//Normal functions
-	CDescTree * GetMainTree();
+	CDescTree* GetMainTree();
 
-	BOOL LoadFile(CFile * LoadedFile, int nUnitId);
-	BOOL SaveFile(CFile * SaveFile, int nUnitId);
+	BOOL LoadFile(CFile* LoadedFile, int nUnitId);
+	BOOL SaveFile(CFile* SaveFile, int nUnitId);
 
-	void ValidateMixExtraColors(BOOL *pfChangesWereMade);
+	void ValidateMixExtraColors(BOOL* pfChangesWereMade);
 
-	COLORREF * CreatePal(int nUnitId, int nPalId);
+	COLORREF* CreatePal(int nUnitId, int nPalId);
 	BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 	int GetBasicOffset(int nPalId);
 
@@ -55,9 +55,9 @@ public:
 	void FlushUnitFile();
 	void PrepUnitFile();
 
-	UINT16 ** GetDataBuffer(){return ppDataBuffer;};
+	UINT16** GetDataBuffer() { return ppDataBuffer; };
 	void PostSetPal(int nUnitId, int nPalId);
-	void CreateDefPal(sDescNode * srcNode, int nSepId);
+	void CreateDefPal(sDescNode* srcNode, int nSepId);
 	void CreateDefPal(int nUnitId, int nPalId, int nSepId);
 	BOOL CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc, int nImgId, int nSepId = 0, int nAmt = 1);
 	void ResetChangeFlag(int nUnitId);

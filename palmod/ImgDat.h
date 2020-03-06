@@ -11,31 +11,31 @@ struct sImgDef
 	UINT8 bCompressed;
 	UINT32 uDataSize;
 	UINT32 uThisImgLoc;
-	UINT8 * pImgData;
+	UINT8 * pImgData = nullptr;
 };
 
 class CImgDat
 {
 private:
-	sImgDef *** ppImgData;
+	sImgDef *** ppImgData = nullptr;
 
 	sImgDef * pLastImg[MAX_IMAGE];
-	int nLastImgCt;
+	int nLastImgCt = 0;
 
-	UINT16 uCurrUnitAmt;
-	UINT16 uCurrImgAmt;
+	UINT16 uCurrUnitAmt = 0;
+	UINT16 uCurrImgAmt = 0;
 
 	UINT8 uReadGameFlag, uReadBPP;
 	UINT16 uReadNumImgs;
 	UINT32 uNextImgLoc;
 
-	int nCurrGFlag;
+	int nCurrGFlag = -1;
 
 	void PrepImageBuffer(UINT16 uUnitAmt, UINT16 uImgAmt);
 
 	CFile ImgDatFile;
 
-	BOOL bOnTheFly;
+	BOOL bOnTheFly = FALSE;
 
 public:
 	CImgDat(void);

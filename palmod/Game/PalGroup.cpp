@@ -5,9 +5,6 @@
 #include "math.h"
 
 CPalGroup::CPalGroup(void)
-	:nCurrPalAmt(0),
-	 nRedirCtr(0),
-	PalMode(PALTYPE_8)
 {
 	InitPal();
 }
@@ -19,7 +16,7 @@ CPalGroup::~CPalGroup(void)
 
 void CPalGroup::InitPal()
 {
-	for(int i = 0; i < MAX_PAL; i++)
+	for (int i = 0; i < MAX_PAL; i++)
 	{
 		rgPalettes[i].pPal = NULL;
 		rgPalettes[i].pBasePal = NULL;
@@ -35,7 +32,7 @@ void CPalGroup::InitPal()
 
 void CPalGroup::FlushPalAll()
 {
-	for(int i = 0; i < MAX_PAL; i++)
+	for (int i = 0; i < MAX_PAL; i++)
 	{
 		FlushPal(i);
 
@@ -49,34 +46,20 @@ void CPalGroup::FlushPalAll()
 
 BOOL CPalGroup::FlushPal(int nIndex)
 {
-	if(nIndex > MAX_PAL)
+	if (nIndex > MAX_PAL)
 	{
 		return FALSE;
 	}
 
-	if(rgPalettes[nIndex].pPal)
+	safe_delete_array(rgPalettes[nIndex].pPal);
+	safe_delete_array(rgPalettes[nIndex].pBasePal);
+	safe_delete_array(rgPalettes[nIndex].pSortTable);
+
+	for (int i = 0; i < rgPalettes[nIndex].uSepAmt; i++)
 	{
-		delete [] rgPalettes[nIndex].pPal;
-		//rgPalettes[nIndex].pPal = NULL;
+		safe_delete(rgPalettes[nIndex].SepList[i]);
 	}
 
-	if(rgPalettes[nIndex].pBasePal)
-	{
-		delete [] rgPalettes[nIndex].pBasePal;
-		//rgPalettes[nIndex].pBasePal = NULL;
-	}
-
-	if(rgPalettes[nIndex].pSortTable)
-	{
-		delete [] rgPalettes[nIndex].pSortTable;
-		rgPalettes[nIndex].pSortTable = NULL;
-	}
-
-	for(int i = 0; i < rgPalettes[nIndex].uSepAmt; i++)
-	{
-		delete rgPalettes[nIndex].SepList[i];
-	}
-	
 	memset(&rgPalettes[nIndex], NULL, sizeof(sPalDef));
 
 	return TRUE;
@@ -86,7 +69,7 @@ BOOL CPalGroup::SetMode(ePalType NewPalMode)
 {
 	PalMode = NewPalMode;
 
-	switch(PalMode)
+	switch (PalMode)
 	{
 	case PALTYPE_8:
 		ROUND = ROUND_R = ROUND_G = ROUND_B = &CPalGroup::ROUND_8;
@@ -104,14 +87,14 @@ BOOL CPalGroup::SetMode(ePalType NewPalMode)
 	return FALSE;
 }
 
-BOOL CPalGroup::AddPal(COLORREF * pPal, UINT16 uPalSz, UINT8 uUnitId, UINT16 uPalId)
+BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, UINT8 uUnitId, UINT16 uPalId)
 {
-	if(nCurrPalAmt >= MAX_PAL || !pPal || !uPalSz)
+	if (nCurrPalAmt >= MAX_PAL || !pPal || !uPalSz)
 	{
 		return FALSE;
 	}
 
-	sPalDef * CurrPal = &rgPalettes[nCurrPalAmt];
+	sPalDef* CurrPal = &rgPalettes[nCurrPalAmt];
 
 	//Init the basics of the palette
 	CurrPal->pPal = pPal;
@@ -135,56 +118,55 @@ BOOL CPalGroup::AddPal(COLORREF * pPal, UINT16 uPalSz, UINT8 uUnitId, UINT16 uPa
 	return TRUE;
 }
 
-void CPalGroup::SetRGBA(COLORREF * crTarget, UINT8 rVal, UINT8 gVal, UINT8 bVal, UINT8 aVal)
+void CPalGroup::SetRGBA(COLORREF* crTarget, UINT8 rVal, UINT8 gVal, UINT8 bVal, UINT8 aVal)
 {
 	*crTarget = RGB(ROUND_R(rVal), ROUND_G(gVal), ROUND_B(bVal));
 	*crTarget |= (COLORREF)aVal << 24;
 }
 
-void CPalGroup::SetHLSA(COLORREF * crTarget, double dH, double dL, double dS, UINT8 aVal)
+void CPalGroup::SetHLSA(COLORREF* crTarget, double dH, double dL, double dS, UINT8 aVal)
 {
 	*crTarget = HLStoRGB(LimitHLS(dH), LimitHLS(dL), LimitHLS(dS));
-	*crTarget = RGB(ROUND_R(GetRValue(*crTarget)),ROUND_G(GetGValue(*crTarget)),ROUND_B(GetBValue(*crTarget)));
+	*crTarget = RGB(ROUND_R(GetRValue(*crTarget)), ROUND_G(GetGValue(*crTarget)), ROUND_B(GetBValue(*crTarget)));
 	*crTarget |= (UINT32)aVal << 24;
 }
 
-void CPalGroup::SetAddHLSA(COLORREF crSrc, COLORREF * crTarget, double fpAddH, double fpAddL, double fpAddS, int uAddA)
+void CPalGroup::SetAddHLSA(COLORREF crSrc, COLORREF* crTarget, double fpAddH, double fpAddL, double fpAddS, int uAddA)
 {
 	double modH, modL, modS;
 
 	RGBtoHLS(crSrc, &modH, &modL, &modS);
 
 	*crTarget = HLStoRGB(
-		SubHLS(modH + fpAddH), 
-		LimitHLS(modL + fpAddL), 
+		SubHLS(modH + fpAddH),
+		LimitHLS(modL + fpAddL),
 		LimitHLS(modS + fpAddS)
-		 );
+	);
 
 	*crTarget = RGB(ROUND_R(GetRValue(*crTarget)), ROUND_G(GetGValue(*crTarget)), ROUND_B(GetBValue(*crTarget)));
 	*crTarget |= (UINT32)ROUND(LimitRGB(GetAValue(crSrc) + uAddA)) << 24;
 }
 
-void CPalGroup::SetAddRGBA(COLORREF crSrc, COLORREF * crTarget, int uAddR, int uAddG, int uAddB, int uAddA)
+void CPalGroup::SetAddRGBA(COLORREF crSrc, COLORREF* crTarget, int uAddR, int uAddG, int uAddB, int uAddA)
 {
 	*crTarget = RGB(
 		ROUND_R(LimitRGB(GetRValue(crSrc) + uAddR)),
 		ROUND_G(LimitRGB(GetGValue(crSrc) + uAddG)),
 		ROUND_B(LimitRGB(GetBValue(crSrc) + uAddB))
-		);
+	);
 
 	*crTarget = RGB(ROUND_R(GetRValue(*crTarget)), ROUND_G(GetGValue(*crTarget)), ROUND_B(GetBValue(*crTarget)));
 	*crTarget |= (UINT32)ROUND(LimitRGB(GetAValue(crSrc) + uAddA)) << 24;
 }
 
-BOOL CPalGroup::AddSep(int nIndex, CHAR * szDesc, int nStart, int nAmt)
+BOOL CPalGroup::AddSep(int nIndex, CHAR* szDesc, int nStart, int nAmt)
 {
-	if(rgPalettes[nIndex].uSepAmt >= MAX_SEP || nStart + nAmt > rgPalettes[nIndex].uPalSz)
+	if (rgPalettes[nIndex].uSepAmt >= MAX_SEP || nStart + nAmt > rgPalettes[nIndex].uPalSz)
 	{
 		return FALSE;
-
 	}
-	
-	sPalSep * NewSep = new sPalSep;
+
+	sPalSep* NewSep = new sPalSep;
 
 	sprintf(NewSep->szDesc, szDesc);
 	NewSep->nStart = nStart;
@@ -205,40 +187,37 @@ BOOL CPalGroup::AddSep(int nIndex, CHAR * szDesc, int nStart, int nAmt)
 void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)
 {
 
-	if(!rgPalettes[nIndex].bAvail)
+	if (!rgPalettes[nIndex].bAvail)
 	{
 		return; //Most likeley wont happen
 	}
 
-	double * pHSLArray;
+	double* pHSLArray;
 	int nPalSz = rgPalettes[nIndex].uPalSz;
-	
-	if(rgPalettes[nIndex].pSortTable)
-	{
-		delete [] rgPalettes[nIndex].pSortTable;
-	}
+
+	safe_delete_array(rgPalettes[nIndex].pSortTable);
 
 	pHSLArray = new double[nPalSz * 3];
 	rgPalettes[nIndex].pSortTable = new UINT16[nPalSz];
 
-	for(int i = 0; i < nPalSz; i++)
+	for (int i = 0; i < nPalSz; i++)
 	{
 		rgPalettes[nIndex].pSortTable[i] = (UINT16)i;
 
-		RGBtoHLS(rgPalettes[nIndex].pPal[i], &pHSLArray[i], &pHSLArray[i + nPalSz], &pHSLArray[i + (nPalSz*2)]);
-		
+		RGBtoHLS(rgPalettes[nIndex].pPal[i], &pHSLArray[i], &pHSLArray[i + nPalSz], &pHSLArray[i + (nPalSz * 2)]);
+
 		//pHSLArray[i] = (double)(rgPalettes[nIndex].pPal[i] & 0x00FFFFFF);
 	}
 
 	//Go through array again
-	for(int i = 0; i < nPalSz; i++)
-	{		
+	for (int i = 0; i < nPalSz; i++)
+	{
 		//pHSLArray[i] = pHSLArray[i] * pHSLArray[i + nPalSz] / pHSLArray[i + (nPalSz*2)];
 
 		double fpPage;
 		double fpPageSz = 20.0f;
 		double fpPageAmt;
-		
+
 		pHSLArray[i] *= 360.0f;
 
 		fpPageAmt = (double)((int)(pHSLArray[i] / fpPageSz));
@@ -249,7 +228,7 @@ void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)
 		fpPage = 4096.0 * fpPageAmt;
 
 		//pHSLArray[i] /=  fabs((pHSLArray[i + nPalSz * 2])-(pHSLArray[i + nPalSz]));
-		
+
 		//pHSLArray[i] /=  pHSLArray[i + nPalSz] + ((pHSLArray[i + (nPalSz * 2)]) / 3.0);
 		//pHSLArray[i] /= (double)(rgPalettes[nIndex].pPal[i] & 0x00FFFFFF);
 
@@ -258,27 +237,27 @@ void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)
 		//	pHSLArray[i] += pHSLArray[i + nPalSz];
 		//}
 
-		
+
 		COLORREF crCol = rgPalettes[nIndex].pPal[i];
-		double nR = (double)GetRValue(rgPalettes[nIndex].pPal[i])/255.0, 
-			nG = (double)GetGValue(rgPalettes[nIndex].pPal[i])/255.0, 
-			nB = (double)GetBValue(rgPalettes[nIndex].pPal[i])/255.0;
+		double nR = (double)GetRValue(rgPalettes[nIndex].pPal[i]) / 255.0,
+			nG = (double)GetGValue(rgPalettes[nIndex].pPal[i]) / 255.0,
+			nB = (double)GetBValue(rgPalettes[nIndex].pPal[i]) / 255.0;
 
 		double fpX, fpY, fpZ;
 
 		ccRGBtoXYZ(nR, nG, nB, &fpX, &fpY, &fpZ);
 
 		//pHSLArray[i] /= sqrt(sq(fpX) + sq(fpY) + sq(fpZ));
-		pHSLArray[i] /= sqrt(sq(nR - 0) + sq(nG - 0) + sq(nB- 0));
-	
+		pHSLArray[i] /= sqrt(sq(nR - 0) + sq(nG - 0) + sq(nB - 0));
+
 		//pHSLArray[i] /= 
 		//	pHSLArray[i + nPalSz] + ((pHSLArray[i + (nPalSz * 2)]) / 0.5) + sqrt(sq(nR - 0) + sq(nG - 0) + sq(nB- 0)) + fpX*4;
-		
-	
+
+
 
 		pHSLArray[i] += fpPage;
 	}
-	
+
 	//for(int i = 0; i < nPalSz; i++)
 	//{
 	//	COLORREF crCol = rgPalettes[nIndex].pPal[i];
@@ -292,34 +271,34 @@ void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)
 	//}
 	//Sort again
 
-	if((nSortFlag & SORT_HUE) == SORT_HUE)
+	if ((nSortFlag & SORT_HUE) == SORT_HUE)
 	{
-		for(int i = 0; i < 10; i++)
+		for (int i = 0; i < 10; i++)
 		{
 			ShellSort(
-				&pHSLArray[nStartIndex], 
-				
+				&pHSLArray[nStartIndex],
+
 				&pHSLArray[nStartIndex + nPalSz],
 				&pHSLArray[nStartIndex + (nPalSz * 2)],
-				(int *)&(rgPalettes[nIndex].pPal)[nStartIndex], 
-				(UINT16 *)&(rgPalettes[nIndex].pSortTable)[nStartIndex], 
-				nPalSz-nStartIndex
-				);
+				(int*)&(rgPalettes[nIndex].pPal)[nStartIndex],
+				(UINT16*)&(rgPalettes[nIndex].pSortTable)[nStartIndex],
+				nPalSz - nStartIndex
+			);
 		}
 	}
 
-	delete [] pHSLArray;
+	delete[] pHSLArray;
 }
 
-COLORREF * CPalGroup::GetUnsortedPal(int nIndex)
+COLORREF* CPalGroup::GetUnsortedPal(int nIndex)
 {
-	if(rgPalettes[nIndex].pSortTable)
+	if (rgPalettes[nIndex].pSortTable)
 	{
 		int nPalSz = rgPalettes[nIndex].uPalSz;
 
-		COLORREF * pNewPal = new COLORREF[nPalSz];
+		COLORREF* pNewPal = new COLORREF[nPalSz];
 
-		for(int i = 0; i < nPalSz; i++)
+		for (int i = 0; i < nPalSz; i++)
 		{
 			pNewPal[i] = rgPalettes[nIndex].pPal[rgPalettes[nIndex].pSortTable[i]];
 		}
@@ -337,30 +316,30 @@ UINT8 CPalGroup::ROUND_8(UINT8 rVal)
 {
 	int j;
 
-	if(rVal - (((rVal/8)*8)+(rVal/32)) >= 4)
+	if (rVal - (((rVal / 8) * 8) + (rVal / 32)) >= 4)
 		j = 1;
 	else
 		j = 0;
 
-	rVal = ((rVal/8) + j)*8;
+	rVal = ((rVal / 8) + j) * 8;
 
-    return rVal+(rVal/32);
-    
+	return rVal + (rVal / 32);
+
 }
 
 UINT8 CPalGroup::ROUND_17(UINT8 rVal)
 {
 	int j;
 
-	if(rVal - ((rVal/17)*17) >= 17/2)
+	if (rVal - ((rVal / 17) * 17) >= 17 / 2)
 		j = 1;
 	else
 		j = 0;
 
-    return ((rVal/17) + j)*17;
+	return ((rVal / 17) + j) * 17;
 }
 
 extern int LimitVal(int nVal, int nHI, int nLO)
 {
-	return (nVal > nHI ? nHI : (nVal < nLO ? nLO : nVal));	
+	return (nVal > nHI ? nHI : (nVal < nLO ? nLO : nVal));
 }

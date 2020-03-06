@@ -126,9 +126,13 @@ void CGame_SFIII3_A::LoadExtraFile()
 		}
 	}
 
-	SFIII3_A_EXTRA_CUSTOM = new stExtraDef[nExtraCtr + 1 + (nCtr / 3)];
+	if (SFIII3_A_EXTRA_CUSTOM == nullptr)
+	{
+		// BUGBUG: This is leaked.
+		SFIII3_A_EXTRA_CUSTOM = new stExtraDef[nExtraCtr + 1 + (nCtr / 3)];
 
-	memcpy(SFIII3_A_EXTRA_CUSTOM, rgTempExtraBuffer, (nExtraCtr + (nCtr / 3) ) * sizeof(stExtraDef));
+		memcpy(SFIII3_A_EXTRA_CUSTOM, rgTempExtraBuffer, (nExtraCtr + (nCtr / 3)) * sizeof(stExtraDef));
 
-	SFIII3_A_EXTRA_CUSTOM[nExtraCtr + (nCtr / 3)].uUnitN = 0xFF;
+		SFIII3_A_EXTRA_CUSTOM[nExtraCtr + (nCtr / 3)].uUnitN = 0xFF;
+	}
 }

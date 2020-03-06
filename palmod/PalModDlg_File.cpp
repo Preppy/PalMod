@@ -4,15 +4,15 @@
 
 #include "Game\GameDef.h"
 
-constexpr auto c_AppRegistryRoot = _T("Software\\knarxed\\PalMod"); 
+constexpr auto c_AppRegistryRoot = _T("Software\\knarxed\\PalMod");
 constexpr auto c_strLastUsedPath = _T("LastUsedPath");
 constexpr auto c_strLastUsedGFlag = _T("LastUsedGFlag");
 
-void CPalModDlg::LoadGameDir(int nGameFlag, CHAR * szLoadDir)
+void CPalModDlg::LoadGameDir(int nGameFlag, CHAR* szLoadDir)
 {
-	CGameClass * GameGet = GetHost()->GetLoader()->LoadDir(nGameFlag, szLoadDir);//szGet.GetBuffer());
+	CGameClass* GameGet = GetHost()->GetLoader()->LoadDir(nGameFlag, szLoadDir);//szGet.GetBuffer());
 
-	if(GameGet)
+	if (GameGet)
 	{
 		ClearGameVar();
 		GetHost()->SetGameClass(GameGet);
@@ -29,14 +29,14 @@ void CPalModDlg::LoadGameDir(int nGameFlag, CHAR * szLoadDir)
 		strError.LoadString(IDS_ERROR_LOADING_GAME);
 		MessageBox(strError, GetAppName(), MB_ICONERROR);
 	}
-	
+
 	//Since we loaded a DIR, show status of load
 	SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 }
 
 void CPalModDlg::PostGameLoad()
 {
-	CPalModApp * ProgHost = GetHost();
+	CPalModApp* ProgHost = GetHost();
 
 	//Get the game's palette display width
 	nPalWMax = ProgHost->GetCurrGame()->GetPalDisplayW();
@@ -48,7 +48,7 @@ void CPalModDlg::PostGameLoad()
 	//Set pal, img, and img ctrl pointers
 	MainPalGroup = ProgHost->GetBasePal();
 	ImgDispCtrl = ProgHost->GetImgDispCtrl();
-	
+
 	if (ProgHost->IsImgLoaded())
 	{
 		ImgFile = ProgHost->GetImgFile();
@@ -60,7 +60,7 @@ void CPalModDlg::PostGameLoad()
 
 	//Get color plane data
 	GetPlaneData();
-	
+
 	//Force the image to redisplay
 	bForceImg = TRUE;
 
@@ -73,7 +73,7 @@ void CPalModDlg::PostGameLoad()
 	//Update the combo selection
 	UpdateCombo();
 
-	GetDlgItem(IDC_BCHECKMIX)->ShowWindow((ProgHost->GetCurrGame()->GetGameFlag() == MVC2_D ) ? SW_SHOW : SW_HIDE);
+	GetDlgItem(IDC_BCHECKMIX)->ShowWindow((ProgHost->GetCurrGame()->GetGameFlag() == MVC2_D) ? SW_SHOW : SW_HIDE);
 }
 
 void CPalModDlg::OnBnUpdate()
@@ -90,7 +90,7 @@ void CPalModDlg::OnButtonClickCheckEdits()
 
 void CPalModDlg::OnFilePatch()
 {
-	if(bPalChanged)
+	if (bPalChanged)
 	{
 		OnBnUpdate();
 	}
@@ -99,7 +99,7 @@ void CPalModDlg::OnFilePatch()
 
 	SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 
-	if(!GetHost()->GetLoader()->GetErrCt())
+	if (!GetHost()->GetLoader()->GetErrCt())
 	{
 		fFileChanged = FALSE;
 	}
@@ -120,9 +120,9 @@ void CPalModDlg::OnAutoSetCol()
 	UpdateSliderSel();
 }
 
-void CPalModDlg::OnNMReleasedCaptureAll(NMHDR *pNMHDR, LRESULT *pResult)
+void CPalModDlg::OnNMReleasedCaptureAll(NMHDR* pNMHDR, LRESULT* pResult)
 {
-	if(!bGetSliderUndo)
+	if (!bGetSliderUndo)
 	{
 		bGetSliderUndo = TRUE;
 	}
@@ -132,7 +132,7 @@ void CPalModDlg::OnNMReleasedCaptureAll(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CPalModDlg::ProcChange(BOOL bReset)
 {
-	if(bReset)
+	if (bReset)
 	{
 		UndoProc.Clear();
 
@@ -155,7 +155,7 @@ void CPalModDlg::OnFileExit()
 
 void CPalModDlg::OnFileCloseFileDir()
 {
-	if(VerifyMsg(VM_FILECHANGE))
+	if (VerifyMsg(VM_FILECHANGE))
 	{
 		CloseFileDir();
 	}
@@ -163,8 +163,8 @@ void CPalModDlg::OnFileCloseFileDir()
 
 void CPalModDlg::OnBnShowPrev()
 {
-	CPreviewDlg * PreviewDlg = GetHost()->GetPreviewDlg();
-	if(!PreviewDlg->IsWindowVisible())
+	CPreviewDlg* PreviewDlg = GetHost()->GetPreviewDlg();
+	if (!PreviewDlg->IsWindowVisible())
 	{
 		PreviewDlg->ShowWindow(SW_SHOW);
 
@@ -178,11 +178,11 @@ void CPalModDlg::LoadLastDir()
 	BOOL bIsDir;
 	TCHAR szLastDir[MAX_PATH];
 
-	if(GetLastUsedDirectory( szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &bIsDir))
+	if (GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &bIsDir))
 	{
-		if(VerifyMsg(VM_FILECHANGE))
+		if (VerifyMsg(VM_FILECHANGE))
 		{
-			if(nLastUsedGFlag  > NUM_GAMES || nLastUsedGFlag < 0)
+			if (nLastUsedGFlag > NUM_GAMES || nLastUsedGFlag < 0)
 			{
 				CString strError;
 				strError.LoadString(IDS_ERROR_PARAMETERS);
@@ -191,7 +191,7 @@ void CPalModDlg::LoadLastDir()
 			}
 			else
 			{
-				if(bIsDir)
+				if (bIsDir)
 				{
 					LoadGameDir(nLastUsedGFlag, szLastDir);
 				}
@@ -201,7 +201,6 @@ void CPalModDlg::LoadLastDir()
 				}
 			}
 		}
-		
 	}
 	else
 	{
@@ -209,101 +208,101 @@ void CPalModDlg::LoadLastDir()
 	}
 }
 
-int CALLBACK OnBrowseDialog( HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData )
+int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData)
 {
 	switch (uMsg)
 	{
-		case BFFM_INITIALIZED:
-		{
-			TCHAR szPath[MAX_PATH];
+	case BFFM_INITIALIZED:
+	{
+		TCHAR szPath[MAX_PATH];
 
-			if (GetLastUsedDirectory(szPath, sizeof(szPath), NULL))
-			{
-				SendMessage(hwnd, BFFM_SETSELECTION, TRUE, (LPARAM)szPath);
-			}
-			break;
+		if (GetLastUsedDirectory(szPath, sizeof(szPath), NULL))
+		{
+			SendMessage(hwnd, BFFM_SETSELECTION, TRUE, (LPARAM)szPath);
 		}
-		default:
-			break;
+		break;
+	}
+	default:
+		break;
 	}
 
-    return 0;
+	return 0;
 }
 
-void SetLastUsedDirectory( LPCTSTR ptszPath, int nGameFlag )
+void SetLastUsedDirectory(LPCTSTR ptszPath, int nGameFlag)
 {
-    if( NULL != ptszPath )
-    {
-        HKEY hKey = NULL;
+	if (NULL != ptszPath)
+	{
+		HKEY hKey = NULL;
 
 		//Set the directory / Game Flag
-        if( ERROR_SUCCESS == RegCreateKeyEx( HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE|KEY_SET_VALUE, NULL, &hKey, NULL ) )
-        {
-            RegSetValueEx( hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)ptszPath, (DWORD)( _tcslen( ptszPath ) + 1 ) * sizeof(TCHAR) );
-			RegSetValueEx( hKey, c_strLastUsedGFlag, 0, REG_DWORD, (LPBYTE)&nGameFlag, (DWORD)sizeof(int));
+		if (ERROR_SUCCESS == RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_SET_VALUE, NULL, &hKey, NULL))
+		{
+			RegSetValueEx(hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)ptszPath, (DWORD)(_tcslen(ptszPath) + 1) * sizeof(TCHAR));
+			RegSetValueEx(hKey, c_strLastUsedGFlag, 0, REG_DWORD, (LPBYTE)&nGameFlag, (DWORD)sizeof(int));
 
-            RegCloseKey( hKey );
-        }
-    }
+			RegCloseKey(hKey);
+		}
+	}
 
-    return;
+	return;
 }
 
-BOOL GetLastUsedDirectory( LPTSTR ptszPath, DWORD cbSize, int * nGameFlag, BOOL bCheck, BOOL * bIsDir)
+BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bCheck, BOOL* bIsDir)
 {
-    BOOL fFound = FALSE;
-    HKEY hKey = NULL;
+	BOOL fFound = FALSE;
+	HKEY hKey = NULL;
 
-    if( ERROR_SUCCESS == RegOpenKeyEx( HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey ) )
-    {
-        DWORD dwRegType = REG_SZ;
-        TCHAR szPath[MAX_PATH];
-        DWORD cbDataSize = sizeof( szPath );
-		
+	if (ERROR_SUCCESS == RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey))
+	{
+		DWORD dwRegType = REG_SZ;
+		TCHAR szPath[MAX_PATH];
+		DWORD cbDataSize = sizeof(szPath);
+
 		//Get the directory
-        if(   ( ERROR_SUCCESS == RegQueryValueEx( hKey, c_strLastUsedPath, 0, &dwRegType, (LPBYTE)szPath, &cbDataSize ) )
-            &&( REG_SZ == dwRegType ) )
-        {
-			if(bCheck)
+		if ((ERROR_SUCCESS == RegQueryValueEx(hKey, c_strLastUsedPath, 0, &dwRegType, (LPBYTE)szPath, &cbDataSize))
+			&& (REG_SZ == dwRegType))
+		{
+			if (bCheck)
 			{
 				fFound = TRUE;
 			}
 			else
 			{
-				DWORD dwAttribs = GetFileAttributes( szPath );
+				DWORD dwAttribs = GetFileAttributes(szPath);
 
-				if( ( 0xFFFFFFFF != dwAttribs ) && (( dwAttribs & FILE_ATTRIBUTE_DIRECTORY ) || (dwAttribs & FILE_ATTRIBUTE_ARCHIVE)) )
+				if ((0xFFFFFFFF != dwAttribs) && ((dwAttribs & FILE_ATTRIBUTE_DIRECTORY) || (dwAttribs & FILE_ATTRIBUTE_ARCHIVE)))
 				{
-					if(bIsDir)
+					if (bIsDir)
 					{
 						//Check to see if it's actually a file without an extension
-						*bIsDir = (( dwAttribs & FILE_ATTRIBUTE_DIRECTORY ) ? TRUE : FALSE);
+						*bIsDir = ((dwAttribs & FILE_ATTRIBUTE_DIRECTORY) ? TRUE : FALSE);
 					}
 
-					_tcscpy( ptszPath, szPath );
+					_tcscpy(ptszPath, szPath);
 					fFound = TRUE;
 				}
 			}
-        }
+		}
 
 		//Grab the game flag
-		if(nGameFlag)
+		if (nGameFlag)
 		{
 			nGameFlag ? *nGameFlag = 0xFF : 0;
 
 			dwRegType = REG_DWORD;
 			cbDataSize = sizeof(int);
 
-			if((ERROR_SUCCESS == RegQueryValueEx( hKey, c_strLastUsedGFlag, 0, &dwRegType, (LPBYTE)nGameFlag, &cbDataSize)))
+			if ((ERROR_SUCCESS == RegQueryValueEx(hKey, c_strLastUsedGFlag, 0, &dwRegType, (LPBYTE)nGameFlag, &cbDataSize)))
 			{
 				//fFound = TRUE;
 			}
 		}
 
-        RegCloseKey( hKey );
-    }
+		RegCloseKey(hKey);
+	}
 
-    return( fFound );
+	return(fFound);
 }
 
 void CPalModDlg::OnSetFocus(CWnd* pOldWnd)
@@ -334,45 +333,45 @@ void CPalModDlg::OnFileOpen()
 	szGameFileDef.Append("|"); //End
 
 	CFileDialog OpenDialog(
-		TRUE, 
-		NULL, 
-		NULL, 
-		OFN_FILEMUSTEXIST | OFN_HIDEREADONLY, 
+		TRUE,
+		NULL,
+		NULL,
+		OFN_FILEMUSTEXIST | OFN_HIDEREADONLY,
 		szGameFileDef
-		);
+	);
 
-	if(OpenDialog.DoModal() == IDOK)
+	if (OpenDialog.DoModal() == IDOK)
 	{
 		OPENFILENAME ofn = OpenDialog.GetOFN();
-		switch(ofn.nFilterIndex)
+		switch (ofn.nFilterIndex)
 		{
 		case 1:
-			LoadGameFile(SFIII3_A, (CHAR *)ofn.lpstrFile);
+			LoadGameFile(SFIII3_A, (CHAR*)ofn.lpstrFile);
 			break;
 		case 2:
-			LoadGameFile(SSF2T_A, (CHAR *)ofn.lpstrFile);
+			LoadGameFile(SSF2T_A, (CHAR*)ofn.lpstrFile);
 			break;
 		case 3:
-			LoadGameFile(SFA3_A, (CHAR *)ofn.lpstrFile);
+			LoadGameFile(SFA3_A, (CHAR*)ofn.lpstrFile);
 			break;
 		case 4:
-			LoadGameFile(XMVSF_A, (CHAR *)ofn.lpstrFile);
+			LoadGameFile(XMVSF_A, (CHAR*)ofn.lpstrFile);
 			break;
 		case 5:
-			LoadGameFile(MVC_A, (CHAR *)ofn.lpstrFile);
+			LoadGameFile(MVC_A, (CHAR*)ofn.lpstrFile);
 			break;
 		}
 	}
 }
 
-void CPalModDlg::LoadGameFile(int nGameFlag, CHAR * szFile)
+void CPalModDlg::LoadGameFile(int nGameFlag, CHAR* szFile)
 {
 	if (!VerifyMsg(VM_FILECHANGE))
 	{
 		return;
 	}
 
-	CGameClass * GameGet = GetHost()->GetLoader()->LoadFile(nGameFlag, szFile);//szGet.GetBuffer());
+	CGameClass* GameGet = GetHost()->GetLoader()->LoadFile(nGameFlag, szFile);//szGet.GetBuffer());
 
 	if (GameGet)
 	{
@@ -391,7 +390,7 @@ void CPalModDlg::LoadGameFile(int nGameFlag, CHAR * szFile)
 		strError.LoadString(IDS_ERROR_LOADING_GAME);
 		MessageBox(strError, GetAppName(), MB_ICONERROR);
 	}
-	
+
 	//Since we loaded a DIR, show status of load
 	SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 }
@@ -403,19 +402,19 @@ void CPalModDlg::OnBnBlink()
 
 void CPalModDlg::OnLoadAct()
 {
-	if(bEnabled)
+	if (bEnabled)
 	{
 		CFileDialog ActLoad(TRUE, NULL, NULL, NULL, "ACT Palette (*.ACT)| *.ACT||");
 
-		if(ActLoad.DoModal() == IDOK)
+		if (ActLoad.DoModal() == IDOK)
 		{
 			CFile ActFile;
 
-			if(ActFile.Open(ActLoad.GetOFN().lpstrFile, CFile::modeRead | CFile::typeBinary))
+			if (ActFile.Open(ActLoad.GetOFN().lpstrFile, CFile::modeRead | CFile::typeBinary))
 			{
 				ProcChange();
-				
-				UINT8 * pPal = (UINT8 *)CurrPalCtrl->GetBasePal();
+
+				UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
 				int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
 				int nFileSz = (int)ActFile.GetLength();
 
@@ -423,14 +422,14 @@ void CPalModDlg::OnLoadAct()
 				{
 					nWorkingAmt = nFileSz / 3;
 				}
-				
-				UINT8 * pAct = new UINT8[nWorkingAmt * 3];
+
+				UINT8* pAct = new UINT8[nWorkingAmt * 3];
 				memset(pAct, 0, nWorkingAmt * 3);
 
 				ActFile.Read(pAct, nWorkingAmt * 3);
-				ActFile.Close();				
+				ActFile.Close();
 
-				for(int i = 0; i < nWorkingAmt; i++)
+				for (int i = 0; i < nWorkingAmt; i++)
 				{
 					pPal[i * 4] = MainPalGroup->ROUND_R(pAct[i * 3]);
 					pPal[i * 4 + 1] = MainPalGroup->ROUND_G(pAct[i * 3 + 1]);
@@ -442,8 +441,8 @@ void CPalModDlg::OnLoadAct()
 				ImgDispCtrl->UpdateCtrl();
 				CurrPalCtrl->UpdateCtrl();
 
-				delete [] pAct;
-				
+				delete[] pAct;
+
 				SetStatusText(CString("Act file Loaded succesfully!"));
 			}
 			else
@@ -460,27 +459,27 @@ void CPalModDlg::OnSaveAct()
 {
 	CFileDialog ActSave(FALSE, ".act", NULL, 4 | 2, "ACT Palette (*.ACT)| *.act|| All Files (*.*)| *.*||");
 
-	if(ActSave.DoModal() == IDOK)
+	if (ActSave.DoModal() == IDOK)
 	{
 		CFile ActFile;
 
 		CString szFile = ActSave.GetOFN().lpstrFile;
 
-		if(ActFile.Open(ActSave.GetOFN().lpstrFile, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+		if (ActFile.Open(ActSave.GetOFN().lpstrFile, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
 		{
 			// We are writing this file in accordance with the spec as found here--
 			//   https://www.adobe.com/devnet-apps/photoshop/fileformatashtml/#50577411_pgfId-1070626
 			// In theory we should be able to just write a 768 byte file, but there appears to be a bug in PhotoShop's
 			// ACT import wherein they mangle the parse for 768b files.  Thus we are forcibly using 772b here.
-			
+
 			int nActSz = 256 * 3;
-			UINT8 * pAct = new UINT8[nActSz];
-			UINT8 * pPal = (UINT8 *)CurrPalCtrl->GetBasePal();
+			UINT8* pAct = new UINT8[nActSz];
+			UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
 			int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
 
 			memset(pAct, 0, nActSz);
 
-			for(int i = 0; i < nWorkingAmt; i++)
+			for (int i = 0; i < nWorkingAmt; i++)
 			{
 				pAct[i * 3] = pPal[i * 4];
 				pAct[i * 3 + 1] = pPal[i * 4 + 1];
@@ -497,7 +496,9 @@ void CPalModDlg::OnSaveAct()
 			ActFile.Write(&finalWord, 4);
 
 			ActFile.Close();
-			
+
+			delete[] pAct;
+
 			SetStatusText(CString("Act file saved succesfully!"));
 		}
 		else
@@ -506,14 +507,14 @@ void CPalModDlg::OnSaveAct()
 			strError.LoadString(IDS_ERROR_SAVING_ACT_FILE);
 			MessageBox(strError, GetAppName(), MB_ICONERROR);
 		}
-	}	
+	}
 }
 
 void CPalModDlg::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
 {
 	// TODO: Add your message handler code here and/or call default
 
-	if(bCanMinMax)
+	if (bCanMinMax)
 	{
 		//lpMMI->ptMinTrackSize = r
 	}

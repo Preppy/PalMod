@@ -28,11 +28,7 @@
 
 #include <afxwin.h>         // MFC core and standard components
 #include <afxext.h>         // MFC extensions
-
-
 #include <afxdisp.h>        // MFC Automation classes
-
-
 
 #ifndef _AFX_NO_OLE_SUPPORT
 #include <afxdtctl.h>           // MFC support for Internet Explorer 4 Common Controls
@@ -41,13 +37,15 @@
 #include <afxcmn.h>                     // MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
+template<typename T> void safe_delete(T*& a) {
+    delete a;
+    a = nullptr;
+}
 
-
-
-
-
-
-
+template<typename T> void safe_delete_array(T*& a) {
+    delete [] a;
+    a = nullptr;
+}
 
 #ifdef _UNICODE
 #if defined _M_IX86

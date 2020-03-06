@@ -3,13 +3,6 @@
 #include "game\gamedef.h"
 
 CImgDat::CImgDat(void)
-:
-	ppImgData(NULL),
-	uCurrUnitAmt(0),
-	uCurrImgAmt(0),
-	nCurrGFlag(-1),
-	bOnTheFly(FALSE),
-	nLastImgCt(0)
 {
 	memset(pLastImg, 0, sizeof(sImgDef *) * MAX_IMAGE);
 }
@@ -22,16 +15,16 @@ CImgDat::~CImgDat(void)
 
 sImgDef * CImgDat::GetImageDef(UINT8 uUnitId, UINT8 uImgId)
 {
-	if(uUnitId >= uCurrUnitAmt || uImgId > uCurrImgAmt)
+	if (uUnitId >= uCurrUnitAmt || uImgId > uCurrImgAmt)
 	{
 		return NULL;
 	}
 
-	if(ppImgData)
+	if (ppImgData)
 	{
-		if(ppImgData[uUnitId])
+		if (ppImgData[uUnitId])
 		{
-			if(ppImgData[uUnitId][uImgId])
+			if (ppImgData[uUnitId][uImgId])
 			{
 				return ppImgData[uUnitId][uImgId];
 			}
@@ -43,28 +36,25 @@ sImgDef * CImgDat::GetImageDef(UINT8 uUnitId, UINT8 uImgId)
 
 void CImgDat::FlushImageBuffer()
 {
-	if(ppImgData)
+	if (ppImgData)
 	{
-		for(int nUnitCtr = 0; nUnitCtr < uCurrUnitAmt; nUnitCtr++)
+		for (int nUnitCtr = 0; nUnitCtr < uCurrUnitAmt; nUnitCtr++)
 		{
-			for(int nImgCtr = 0; nImgCtr < uCurrImgAmt; nImgCtr++)
+			for (int nImgCtr = 0; nImgCtr < uCurrImgAmt; nImgCtr++)
 			{
-				if(ppImgData[nUnitCtr][nImgCtr])
+				if (ppImgData[nUnitCtr][nImgCtr])
 				{
-					if(ppImgData[nUnitCtr][nImgCtr]->pImgData)
-					{
-						delete [] ppImgData[nUnitCtr][nImgCtr]->pImgData;
-					}
+					safe_delete_array(ppImgData[nUnitCtr][nImgCtr]->pImgData);
 
-					delete ppImgData[nUnitCtr][nImgCtr];
+					safe_delete(ppImgData[nUnitCtr][nImgCtr]);
 				}
 			}
 
-			delete [] ppImgData[nUnitCtr];
+			safe_delete_array(ppImgData[nUnitCtr]);
+
 		}
 
-		delete [] ppImgData;
-		ppImgData = NULL;
+		safe_delete_array(ppImgData);
 	}
 
 	nLastImgCt = 0;
@@ -80,8 +70,7 @@ void CImgDat::FlushLastImg()
 		{
 			if(pLastImg[i]->pImgData)
 			{
-				delete [] pLastImg[i]->pImgData;
-				pLastImg[i]->pImgData = NULL;
+				safe_delete_array(pLastImg[i]->pImgData);
 			}
 
 			pLastImg[i] = NULL;
@@ -133,10 +122,10 @@ UINT8 * CImgDat::GetImgData(sImgDef * pCurrImg)
 			pCurrImg->uImgHeight,
 			uReadBPP);
 
-		delete [] pTmpData;
+		safe_delete_array(pTmpData);
 	}
 
-	if(bOnTheFly)
+	if (bOnTheFly)
 	{
 		pLastImg[nLastImgCt] = pCurrImg;
 		nLastImgCt++;
@@ -201,7 +190,7 @@ BOOL CImgDat::LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, U
 	
 	FlushLastImg();
 
-	if(!ImgDatFile.Open(lpszLoadFile, CFile::modeRead | CFile::typeBinary))
+	if (!ImgDatFile.Open(lpszLoadFile, CFile::modeRead | CFile::typeBinary))
 	{
 		//Error loading
 		ImgDatFile.Abort();
@@ -215,20 +204,20 @@ BOOL CImgDat::LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, U
 	ImgDatFile.Read(&uNumGames, 0x01);
 	ImgDatFile.Seek(0x01, CFile::current);
 
-	if(uNumGames)
+	if (uNumGames)
 	{
-		for(int nGameCtr = 0; nGameCtr < uNumGames; nGameCtr++)
+		for (int nGameCtr = 0; nGameCtr < uNumGames; nGameCtr++)
 		{
 			ImgDatFile.Read(&uReadGameFlag, 0x01);
 			ImgDatFile.Read(&uReadBPP, 0x01);
 			ImgDatFile.Read(&uReadNumImgs, 0x02);
 			ImgDatFile.Read(&uNextImgLoc, 0x04);
 
-			if(uReadGameFlag == uGameFlag)
+			if (uReadGameFlag == uGameFlag)
 			{
 				PrepImageBuffer(uUnitAmt, uImgAmt);
 
-				while(uNextImgLoc != 0)
+				while (uNextImgLoc != 0)
 				{
 					ImgDatFile.Seek(uNextImgLoc, CFile::begin);
 
@@ -239,14 +228,14 @@ BOOL CImgDat::LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, U
 					ImgDatFile.Read(&uCurrImgId, 0x01);
 					
 					//Check if the img id is the unit id
-					if(uCurrUnitId == uCurrImgId)
+					if (uCurrUnitId == uCurrImgId)
 					{
 						//If it is, then the image id is 0
 						uCurrImgId = 0;
 					}
 					
 					//Remove 0x7F from additional images
-					if(uCurrImgId > 0x7F)
+					if (uCurrImgId > 0x7F)
 					{
 						uCurrImgId -= 0x7F;
 					}
@@ -267,7 +256,7 @@ BOOL CImgDat::LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, U
 					//Get the current image location
 					CurrImg->uThisImgLoc = ImgDatFile.GetPosition();
 
-					if(bLoadAll)
+					if (bLoadAll)
 					{
 						GetImgData(CurrImg);
 					}
@@ -280,7 +269,7 @@ BOOL CImgDat::LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, U
 		//ImgDatFile.Close();
 		nCurrGFlag = uGameFlag;
 		
-		if(bLoadAll)
+		if (bLoadAll)
 		{
 			ImgDatFile.Abort();
 		}

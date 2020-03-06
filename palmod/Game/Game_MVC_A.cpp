@@ -92,13 +92,13 @@ CGame_MVC_A::CGame_MVC_A(void)
 	nGameFlag = MVC_A;
 	nImgGameFlag = IMG4;
 	nImgUnitAmt = nUnitAmt;
-	
+
 	nDisplayW = 8;
 	nFileAmt = 1;
 
 	//Set the image out display type
 	DisplayType = DISP_DEF;
-	pButtonLabel = const_cast<CHAR *>((CHAR *)DEF_BUTTONLABEL6);
+	pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6);
 
 	//Create the redirect buffer
 	rgUnitRedir = new UINT8[nUnitAmt + 1];
@@ -119,7 +119,7 @@ CGame_MVC_A::CGame_MVC_A(void)
 }
 
 CGame_MVC_A::~CGame_MVC_A(void)
-{ 
+{
 	//Get rid of the file changed flag
 	if (rgFileChanged)
 	{
@@ -127,7 +127,7 @@ CGame_MVC_A::~CGame_MVC_A(void)
 	}
 }
 
-CDescTree * CGame_MVC_A::GetMainTree()
+CDescTree* CGame_MVC_A::GetMainTree()
 {
 	return &CGame_MVC_A::MainDescTree;
 }
@@ -139,11 +139,11 @@ CDescTree CGame_MVC_A::InitDescTree()
 
 	int nUnitCt = MVC_A_NUMUNIT + (GetExtraCt(MVC_A_EXTRALOC) ? 1 : 0);
 
-	sDescTreeNode * NewDescTree = new sDescTreeNode;
+	sDescTreeNode* NewDescTree = new sDescTreeNode;
 
-	sDescTreeNode * UnitNode;
-	sDescTreeNode * ButtonNode;
-	sDescNode * ChildNode;
+	sDescTreeNode* UnitNode;
+	sDescTreeNode* ButtonNode;
+	sDescNode* ChildNode;
 
 	//Create the main character tree
 	NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
@@ -152,7 +152,7 @@ CDescTree CGame_MVC_A::InitDescTree()
 	NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
 	//Go through each character
-	for(int iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+	for (int iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
 	{
 		//Use this for Extra support
 		int nSuppAmt = 0;
@@ -163,7 +163,7 @@ CDescTree CGame_MVC_A::InitDescTree()
 		int nButtonAmt = GetBasicAmt(iUnitCtr);
 		int nMainChildAmt = nButtonAmt + 1 + bUseExtra;
 
-		UnitNode = &((sDescTreeNode *)NewDescTree->ChildNodes)[iUnitCtr];
+		UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
 		if (iUnitCtr < MVC_A_EXTRALOC)
 		{
@@ -341,7 +341,7 @@ CDescTree CGame_MVC_A::InitDescTree()
 }
 
 sFileRule CGame_MVC_A::GetRule(int nUnitId)
-{	
+{
 	sFileRule NewFileRule;
 
 	sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "mvc.06");
@@ -366,8 +366,8 @@ int CGame_MVC_A::GetPalCt(int nUnitId)
 
 void CGame_MVC_A::InitDataBuffer()
 {
-	pppDataBuffer = new UINT16 **[nUnitAmt];
-	memset(pppDataBuffer, NULL, sizeof(UINT16 **) * nUnitAmt);
+	pppDataBuffer = new UINT16 * *[nUnitAmt];
+	memset(pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
 }
 
 void CGame_MVC_A::ClearDataBuffer()
@@ -401,134 +401,134 @@ void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
 	// Update this if you need new characters/palette lists
 	switch (nUnitId)
 	{
-		case indexWarMachine:
-			nCurrPalOffs = MVC_A_WARMACHINE_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexCaptainAmerica:
-			nCurrPalOffs = MVC_A_CAPAM_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexHulk:
-			nCurrPalOffs = MVC_A_HULK_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexWolverine:
-			nCurrPalOffs = MVC_A_WOLVERINE_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexVenom:
-			nCurrPalOffs = MVC_A_VENOM_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexSpiderman:
-			nCurrPalOffs = MVC_A_SPIDEY_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexRyu:
-			nCurrPalOffs = MVC_A_RYU_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexCapCom:
-			nCurrPalOffs = MVC_A_CAPCOM_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexChun:
-			nCurrPalOffs = MVC_A_CHUNLI_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexJin:
-			nCurrPalOffs = MVC_A_JIN_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexGief:
-			nCurrPalOffs = MVC_A_GIEF_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexStrider:
-			nCurrPalOffs = MVC_A_STRIDER_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexMegaman:
-			nCurrPalOffs = MVC_A_MEGAMAN_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexMorrigan:
-			nCurrPalOffs = MVC_A_MORRIGAN_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexHyperVenom:
-			nCurrPalOffs = MVC_A_HYPERVENOM_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexOrangeHulk:
-			nCurrPalOffs = MVC_A_ORANGEHULK_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexGWM:
-			nCurrPalOffs = MVC_A_GOLDWARMACHINE_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexShadowLady:
-			nCurrPalOffs = MVC_A_SHADOWLADY_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexLilith:
-			nCurrPalOffs = MVC_A_LILITH_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexGambit:
-			nCurrPalOffs = MVC_A_GAMBIT_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexOnslaught:
-			nCurrPalOffs = MVC_A_ONSLAUGHT_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexRoll:
-			nCurrPalOffs = MVC_A_ROLL_PALETTES[nPalId].nPaletteOffset;
-			break;
-		case indexAssists: // Assists
-		{
-			nCurrPalOffs = MVC_A_ASSIST_PALETTES[nPalId].nPaletteOffset;
-			break;
-		}
-		case indexLast: // MVC_A_NUMUNIT
-		{
-			// This is where we handle all the palettes added in via Extra.
-			int nBasicPos = GetBasicAmt(nUnitId);
-			int nPortPos = nBasicPos * 2;
-			int nExPos = 2 + nPortPos;
-			int nExtraPos = 8 + nExPos;
+	case indexWarMachine:
+		nCurrPalOffs = MVC_A_WARMACHINE_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexCaptainAmerica:
+		nCurrPalOffs = MVC_A_CAPAM_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexHulk:
+		nCurrPalOffs = MVC_A_HULK_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexWolverine:
+		nCurrPalOffs = MVC_A_WOLVERINE_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexVenom:
+		nCurrPalOffs = MVC_A_VENOM_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexSpiderman:
+		nCurrPalOffs = MVC_A_SPIDEY_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexRyu:
+		nCurrPalOffs = MVC_A_RYU_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexCapCom:
+		nCurrPalOffs = MVC_A_CAPCOM_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexChun:
+		nCurrPalOffs = MVC_A_CHUNLI_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexJin:
+		nCurrPalOffs = MVC_A_JIN_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexGief:
+		nCurrPalOffs = MVC_A_GIEF_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexStrider:
+		nCurrPalOffs = MVC_A_STRIDER_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexMegaman:
+		nCurrPalOffs = MVC_A_MEGAMAN_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexMorrigan:
+		nCurrPalOffs = MVC_A_MORRIGAN_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexHyperVenom:
+		nCurrPalOffs = MVC_A_HYPERVENOM_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexOrangeHulk:
+		nCurrPalOffs = MVC_A_ORANGEHULK_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexGWM:
+		nCurrPalOffs = MVC_A_GOLDWARMACHINE_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexShadowLady:
+		nCurrPalOffs = MVC_A_SHADOWLADY_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexLilith:
+		nCurrPalOffs = MVC_A_LILITH_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexGambit:
+		nCurrPalOffs = MVC_A_GAMBIT_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexOnslaught:
+		nCurrPalOffs = MVC_A_ONSLAUGHT_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexRoll:
+		nCurrPalOffs = MVC_A_ROLL_PALETTES[nPalId].nPaletteOffset;
+		break;
+	case indexAssists: // Assists
+	{
+		nCurrPalOffs = MVC_A_ASSIST_PALETTES[nPalId].nPaletteOffset;
+		break;
+	}
+	case indexLast: // MVC_A_NUMUNIT
+	{
+		// This is where we handle all the palettes added in via Extra.
+		int nBasicPos = GetBasicAmt(nUnitId);
+		int nPortPos = nBasicPos * 2;
+		int nExPos = 2 + nPortPos;
+		int nExtraPos = 8 + nExPos;
 
-			int nOffset, nPalSz;
+		int nOffset, nPalSz;
 
-			// bugbug: Use of bUseExtra here is nonsensical: remove?
-			BOOL bUseExtra = FALSE;
+		// bugbug: Use of bUseExtra here is nonsensical: remove?
+		BOOL bUseExtra = FALSE;
 
-			nExtraPos = 0;
-			bUseExtra = TRUE;
+		nExtraPos = 0;
+		bUseExtra = TRUE;
 
-			stExtraDef* pCurrDef = GetExtraDefForMVC(GetExtraLoc(nUnitId) + (nPalId - nExtraPos));
+		stExtraDef* pCurrDef = GetExtraDefForMVC(GetExtraLoc(nUnitId) + (nPalId - nExtraPos));
 
-			nOffset = pCurrDef->uOffset;
-			nPalSz = pCurrDef->uPalSz;
+		nOffset = pCurrDef->uOffset;
+		nPalSz = pCurrDef->uPalSz;
 
-			nCurrPalOffs = nOffset;
-			nCurrPalSz = nPalSz / 2;
-			break;
-		}
-		default:
-		{
-			// This is all the base palettes.
-			nCurrPalOffs = MVC_A_UNITLOC[nUnitId] + (nPalId * 0x20);
-			break;
-		}
+		nCurrPalOffs = nOffset;
+		nCurrPalSz = nPalSz / 2;
+		break;
+	}
+	default:
+	{
+		// This is all the base palettes.
+		nCurrPalOffs = MVC_A_UNITLOC[nUnitId] + (nPalId * 0x20);
+		break;
+	}
 	};
 
 	nCurrPalSz = 16;
 }
 
-BOOL CGame_MVC_A::LoadFile(CFile * LoadedFile, int nUnitId)
+BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, int nUnitId)
 {
 	int nPalAmt;
 
-	for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+	for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 	{
 		nPalAmt = GetPalCt(nUnitCtr);
 
-		pppDataBuffer[nUnitCtr] = new UINT16 *[nPalAmt];
+		pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
 		rgUnitRedir[nUnitCtr] = MVC_A_UNITSORT[nUnitCtr];
 
-		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+		for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 		{
 			GetPalOffsSz(nUnitCtr, nPalCtr);
 
-			pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16 [nCurrPalSz];
-			
+			pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[nCurrPalSz];
+
 			LoadedFile->Seek(nCurrPalOffs, CFile::begin);
-			
-			LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
+
+			LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
 		}
 	}
 
@@ -537,26 +537,26 @@ BOOL CGame_MVC_A::LoadFile(CFile * LoadedFile, int nUnitId)
 	return TRUE;
 }
 
-BOOL CGame_MVC_A::SaveFile(CFile * SaveFile, int nUnitId)
+BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, int nUnitId)
 {
-	for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+	for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 	{
 		int nPalAmt = GetPalCt(nUnitCtr);
 
-		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+		for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 		{
 			GetPalOffsSz(nUnitCtr, nPalCtr);
-			
+
 			SaveFile->Seek(nCurrPalOffs, CFile::begin);
-			
-			SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
+
+			SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
 		}
 	}
 
 	return TRUE;
 }
 
-void CGame_MVC_A::CreateDefPal(sDescNode * srcNode, int nSepId)
+void CGame_MVC_A::CreateDefPal(sDescNode* srcNode, int nSepId)
 {
 	int nUnitId = srcNode->uUnitId;
 	int nPalId = srcNode->uPalId;
@@ -572,7 +572,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	//Reset palette sources
 	ClearSrcPal();
 
-	if(Node01 == -1)
+	if (Node01 == -1)
 	{
 		return FALSE;
 	}
@@ -580,9 +580,9 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	UINT8 uUnitId;
 	UINT16 uPalId;
 
-	sDescNode * NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+	sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
-	if(NodeGet == NULL)
+	if (NodeGet == NULL)
 	{
 		return FALSE;
 	}
@@ -593,8 +593,8 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	// Make sure to reset the image id
 	nTargetImgId = 0;
 	int nImgUnitId = 0xFF;
-	
-	const sMVC_PaletteDataset *paletteDataSet = nullptr;
+
+	const sMVC_PaletteDataset* paletteDataSet = nullptr;
 
 	switch (uUnitId)
 	{
@@ -693,8 +693,8 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	int nSrcAmt = 1; //GetBasicAmt(uUnitId);
 
 	//Get rid of any palettes if there are any
-	BasePalGroup.FlushPalAll();	
-	
+	BasePalGroup.FlushPalAll();
+
 	//Create the default palette
 	ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
@@ -705,15 +705,15 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	return TRUE;
 }
 
-COLORREF * CGame_MVC_A::CreatePal(int nUnitId, int nPalId)
+COLORREF* CGame_MVC_A::CreatePal(int nUnitId, int nPalId)
 {
 	GetPalOffsSz(nUnitId, nPalId);
 
-	COLORREF * NewPal = new COLORREF[nCurrPalSz];
+	COLORREF* NewPal = new COLORREF[nCurrPalSz];
 
-	for(int i = 0; i < nCurrPalSz-1; i++)
+	for (int i = 0; i < nCurrPalSz - 1; i++)
 	{
-		NewPal[i+1] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
+		NewPal[i + 1] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
 	}
 
 	NewPal[0] = 0xFF000000;
@@ -723,18 +723,18 @@ COLORREF * CGame_MVC_A::CreatePal(int nUnitId, int nPalId)
 
 void CGame_MVC_A::UpdatePalData()
 {
-	for(int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+	for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
 	{
-		sPalDef * srcDef = BasePalGroup.GetPalDef(nPalCtr);
+		sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
-		if(srcDef->bAvail )
+		if (srcDef->bAvail)
 		{
 			int nIndexStart = 1;
 
-			COLORREF * crSrc = srcDef->pPal;
+			COLORREF* crSrc = srcDef->pPal;
 			UINT16 uAmt = srcDef->uPalSz;
 
-			for(int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
+			for (int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
 			{
 				pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr - nIndexStart] = (ConvCol(crSrc[nPICtr]) & 0x0FFF);
 			}

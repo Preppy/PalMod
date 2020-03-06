@@ -44,13 +44,13 @@ CGame_XMVSF_A::CGame_XMVSF_A(void)
 	nGameFlag = XMVSF_A;
 	nImgGameFlag = IMG4;
 	nImgUnitAmt = nUnitAmt;
-	
+
 	nDisplayW = 8;
 	nFileAmt = 1;
 
 	//Set the image out display type
 	DisplayType = DISP_DEF;
-	pButtonLabel = const_cast<CHAR *>((CHAR *)DEF_DESCPRISEC);
+	pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_DESCPRISEC);
 
 	//Create the redirect buffer
 	rgUnitRedir = new UINT8[nUnitAmt + 1];
@@ -71,26 +71,23 @@ CGame_XMVSF_A::CGame_XMVSF_A(void)
 }
 
 CGame_XMVSF_A::~CGame_XMVSF_A(void)
-{ 
+{
 	//Get rid of the file changed flag
-	if(rgFileChanged)
-	{
-		delete rgFileChanged;
-	}
+	safe_delete(rgFileChanged);
 }
 
-CDescTree * CGame_XMVSF_A::GetMainTree()
+CDescTree* CGame_XMVSF_A::GetMainTree()
 {
 	return &CGame_XMVSF_A::MainDescTree;
 }
 
 CDescTree CGame_XMVSF_A::InitDescTree()
 {
-	sDescTreeNode * NewDescTree = new sDescTreeNode;
+	sDescTreeNode* NewDescTree = new sDescTreeNode;
 
-	sDescTreeNode * UnitNode;
-	sDescTreeNode * ButtonNode;
-	sDescNode * ChildNode;
+	sDescTreeNode* UnitNode;
+	sDescTreeNode* ButtonNode;
+	sDescNode* ChildNode;
 
 	//Create the main character tree
 	NewDescTree->ChildNodes = new sDescTreeNode[XMVSF_A_NUMUNIT];
@@ -99,14 +96,14 @@ CDescTree CGame_XMVSF_A::InitDescTree()
 	NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
 	//Go through each character
-	for(int iUnitCtr = 0; iUnitCtr < XMVSF_A_NUMUNIT; iUnitCtr++)
+	for (int iUnitCtr = 0; iUnitCtr < XMVSF_A_NUMUNIT; iUnitCtr++)
 	{
-		UnitNode = &((sDescTreeNode *)NewDescTree->ChildNodes)[iUnitCtr];
+		UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 		//Set each character name
 		sprintf(UnitNode->szDesc, "%s", XMVSF_A_UNITDESC[iUnitCtr]);
 
 		//XMVSF uses only 2 colors, but sorted in an unknown order. Lump into one category, Palettes.
-		UnitNode->ChildNodes = new sDescTreeNode[1];	
+		UnitNode->ChildNodes = new sDescTreeNode[1];
 
 		//All children have button trees
 		UnitNode->uChildType = DESC_NODETYPE_TREE;
@@ -114,10 +111,10 @@ CDescTree CGame_XMVSF_A::InitDescTree()
 
 		int nCurrChildAmt = GetPalCt(iUnitCtr);
 
-		for(int iButtonCtr = 0; iButtonCtr < 1; iButtonCtr++)
+		for (int iButtonCtr = 0; iButtonCtr < 1; iButtonCtr++)
 		{
-			 // 1 for each button for now
-			ButtonNode = &((sDescTreeNode *)UnitNode->ChildNodes)[iButtonCtr];
+			// 1 for each button for now
+			ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
 			//Set each button data
 			sprintf(ButtonNode->szDesc, "Palettes");
@@ -126,13 +123,13 @@ CDescTree CGame_XMVSF_A::InitDescTree()
 			ButtonNode->uChildType = DESC_NODETYPE_NODE;
 			ButtonNode->uChildAmt = nCurrChildAmt;
 
-			ButtonNode->ChildNodes = (sDescTreeNode *)new sDescNode[nCurrChildAmt];
+			ButtonNode->ChildNodes = (sDescTreeNode*)new sDescNode[nCurrChildAmt];
 
 			//Set each button's node
 			///////////////////////////////////////////////////////////////////////
-			for(int nChildCtr = 0; nChildCtr < nCurrChildAmt; nChildCtr++)
+			for (int nChildCtr = 0; nChildCtr < nCurrChildAmt; nChildCtr++)
 			{
-				ChildNode = &((sDescNode *)ButtonNode->ChildNodes)[nChildCtr]; 
+				ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr];
 
 				sprintf(ChildNode->szDesc, (xmvsfDataset[iUnitCtr])[nChildCtr].szPaletteName);
 
@@ -146,7 +143,7 @@ CDescTree CGame_XMVSF_A::InitDescTree()
 }
 
 sFileRule CGame_XMVSF_A::GetRule(int nUnitId)
-{	
+{
 	sFileRule NewFileRule;
 
 	sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "xvs.05a");
@@ -173,41 +170,41 @@ int CGame_XMVSF_A::GetPalCt(int nUnitId)
 
 void CGame_XMVSF_A::InitDataBuffer()
 {
-	pppDataBuffer = new UINT16 **[nUnitAmt];
-	memset(pppDataBuffer, NULL, sizeof(UINT16 **) * nUnitAmt);
+	pppDataBuffer = new UINT16 * *[nUnitAmt];
+	memset(pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
 }
 
 void CGame_XMVSF_A::ClearDataBuffer()
 {
-	if(pppDataBuffer)
+	if (pppDataBuffer)
 	{
-		for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+		for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 		{
-			if(pppDataBuffer[nUnitCtr])
+			if (pppDataBuffer[nUnitCtr])
 			{
 				int nPalAmt = GetPalCt(nUnitCtr);
 
-				for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+				for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 				{
-					if(pppDataBuffer[nUnitCtr][nPalCtr])
+					if (pppDataBuffer[nUnitCtr][nPalCtr])
 					{
-						delete [] pppDataBuffer[nUnitCtr][nPalCtr];
+						delete[] pppDataBuffer[nUnitCtr][nPalCtr];
 					}
 				}
 
-				delete [] pppDataBuffer[nUnitCtr];
+				delete[] pppDataBuffer[nUnitCtr];
 			}
 		}
 
-		delete [] pppDataBuffer;
+		delete[] pppDataBuffer;
 	}
 }
 
 void CGame_XMVSF_A::GetPalOffsSz(int nUnitId, int nPalId)
 {
 	//0x5A0 = Primary Portrait Start
-	
-	if(GetLocalAmt(nUnitId) <= nPalId )
+
+	if (GetLocalAmt(nUnitId) <= nPalId)
 	{
 		nCurrPalOffs = (0xA0 * nUnitId) + 0x1BDFC;
 		nCurrPalSz = 0xA0 / 2;
@@ -219,27 +216,27 @@ void CGame_XMVSF_A::GetPalOffsSz(int nUnitId, int nPalId)
 	}
 }
 
-BOOL CGame_XMVSF_A::LoadFile(CFile * LoadedFile, int nUnitId)
+BOOL CGame_XMVSF_A::LoadFile(CFile* LoadedFile, int nUnitId)
 {
 	int nPalAmt;
 
-	for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+	for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 	{
 		nPalAmt = GetPalCt(nUnitCtr);
 
-		pppDataBuffer[nUnitCtr] = new UINT16 *[nPalAmt];
+		pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
 		rgUnitRedir[nUnitCtr] = XMVSF_A_UNITSORT[nUnitCtr];
 
-		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+		for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 		{
 			GetPalOffsSz(nUnitCtr, nPalCtr);
 
-			pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16 [nCurrPalSz];
-			
+			pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[nCurrPalSz];
+
 			LoadedFile->Seek(nCurrPalOffs, CFile::begin);
-			
-			LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
+
+			LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
 		}
 	}
 
@@ -248,35 +245,35 @@ BOOL CGame_XMVSF_A::LoadFile(CFile * LoadedFile, int nUnitId)
 	return TRUE;
 }
 
-BOOL CGame_XMVSF_A::SaveFile(CFile * SaveFile, int nUnitId)
+BOOL CGame_XMVSF_A::SaveFile(CFile* SaveFile, int nUnitId)
 {
-	for(int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+	for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
 	{
 		int nPalAmt = GetPalCt(nUnitId);
 
-		for(int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+		for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
 		{
 			GetPalOffsSz(nUnitCtr, nPalCtr);
-			
+
 			SaveFile->Seek(nCurrPalOffs, CFile::begin);
-			
-			SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz*2);
+
+			SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
 		}
 	}
 
 	return TRUE;
 }
 
-void CGame_XMVSF_A::CreateDefPal(sDescNode * srcNode, int nSepId)
+void CGame_XMVSF_A::CreateDefPal(sDescNode* srcNode, int nSepId)
 {
 	int nUnitId = srcNode->uUnitId;
 	int nPalId = srcNode->uPalId;
 
 	GetPalOffsSz(nUnitId, nPalId);
 
-	COLORREF * pNewPal = CreatePal(nUnitId, nPalId);
+	COLORREF* pNewPal = CreatePal(nUnitId, nPalId);
 
-	if(bUsesHybrid)
+	if (bUsesHybrid)
 	{
 		nCurrPalSz = nHybridSz;
 	}
@@ -284,7 +281,7 @@ void CGame_XMVSF_A::CreateDefPal(sDescNode * srcNode, int nSepId)
 	BasePalGroup.AddPal(pNewPal, nCurrPalSz, nUnitId, nPalId);
 	BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, nCurrPalSz);
 
-	if(bUsesHybrid)
+	if (bUsesHybrid)
 	{
 		BasePalGroup.SortPal(BasePalGroup.GetAddIndex(), 1, SORT_HUE);
 	}
@@ -295,7 +292,7 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	//Reset palette sources
 	ClearSrcPal();
 
-	if(Node01 == -1)
+	if (Node01 == -1)
 	{
 		return FALSE;
 	}
@@ -303,9 +300,9 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	UINT8 uUnitId;
 	UINT16 uPalId;
 
-	sDescNode * NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+	sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
-	if(NodeGet == NULL)
+	if (NodeGet == NULL)
 	{
 		return FALSE;
 	}
@@ -320,8 +317,8 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	int nSrcAmt = GetBasicAmt(uUnitId);
 
 	//Get rid of any palettes if there are any
-	BasePalGroup.FlushPalAll();	
-	
+	BasePalGroup.FlushPalAll();
+
 	//Create the default palette
 	ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
@@ -332,27 +329,27 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 	return TRUE;
 }
 
-COLORREF * CGame_XMVSF_A::CreatePal(int nUnitId, int nPalId)
+COLORREF* CGame_XMVSF_A::CreatePal(int nUnitId, int nPalId)
 {
 	GetPalOffsSz(nUnitId, nPalId);
-	
-	COLORREF * NewPal = NULL;
 
-	if(GetLocalAmt(nUnitId) <= nPalId)
+	COLORREF* NewPal = NULL;
+
+	if (GetLocalAmt(nUnitId) <= nPalId)
 	{
 		bUsesHybrid = TRUE;
-		
+
 		//16 = Size of portrait image
 		//15 = Unused index
-		CreateHybridPal(nCurrPalSz, 16, pppDataBuffer[nUnitId][nPalId], 15, &NewPal, &nHybridSz);	
+		CreateHybridPal(nCurrPalSz, 16, pppDataBuffer[nUnitId][nPalId], 15, &NewPal, &nHybridSz);
 	}
 	else
 	{
 		bUsesHybrid = FALSE;
 
 		NewPal = new COLORREF[nCurrPalSz];
-		
-		for(int i = 1; i < nCurrPalSz; i++)
+
+		for (int i = 1; i < nCurrPalSz; i++)
 		{
 			NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i - 1]) | 0xFF000000;
 		}
@@ -365,39 +362,39 @@ COLORREF * CGame_XMVSF_A::CreatePal(int nUnitId, int nPalId)
 
 void CGame_XMVSF_A::UpdatePalData()
 {
-	for(int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+	for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
 	{
-		sPalDef * srcDef = BasePalGroup.GetPalDef(nPalCtr);
+		sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
-		if(srcDef->bAvail )
+		if (srcDef->bAvail)
 		{
 			int nIndexStart = 1;
 
-			COLORREF * crSrc;
+			COLORREF* crSrc;
 			UINT16 uAmt = srcDef->uPalSz;
 
-			if(bUsesHybrid)
+			if (bUsesHybrid)
 			{
 				crSrc = srcDef->pPal;
 				crSrc = BasePalGroup.GetUnsortedPal(nPalCtr);
 
 				GetPalOffsSz(srcDef->uUnitId, srcDef->uPalId);
 
-				for(int nPICtr = 0; nPICtr < nCurrPalSz; nPICtr++)
+				for (int nPICtr = 0; nPICtr < nCurrPalSz; nPICtr++)
 				{
-					if(pIndexRedir[nPICtr])
+					if (pIndexRedir[nPICtr])
 					{
 						pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = (ConvCol(crSrc[pIndexRedir[nPICtr]]) & 0x0FFF);
 					}
 				}
 
-				delete [] crSrc;
+				delete[] crSrc;
 			}
 			else
 			{
 				crSrc = srcDef->pPal;
 
-				for(int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
+				for (int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
 				{
 					pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr - 1] = (ConvCol(crSrc[nPICtr]) & 0x0FFF);
 

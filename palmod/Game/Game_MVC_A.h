@@ -17,14 +17,14 @@ private:
 	int nCurrPalOffs = 0;
 	int nCurrPalSz = 0;
 
-	UINT16 ***pppDataBuffer;
+	UINT16*** pppDataBuffer;
 
 	void GetPalOffsSz(int nUnitId, int nPalId);
 
 	void InitDataBuffer();
 	void ClearDataBuffer();
 
-	static stExtraDef * MVC_A_EXTRA_CUSTOM;
+	static stExtraDef* MVC_A_EXTRA_CUSTOM;
 
 public:
 	CGame_MVC_A(void);
@@ -44,20 +44,20 @@ public:
 	static void LoadExtraFile();
 
 	//Normal functions
-	CDescTree * GetMainTree();
+	CDescTree* GetMainTree();
 
 	static int GetPalCt(int nUnitId);
 
-	void CreateDefPal(sDescNode * srcNode, int nSepId);
-	BOOL LoadFile(CFile * LoadedFile, int nUnitId = 0);
-	BOOL SaveFile(CFile * SaveFile, int nUnitId = 0);
+	void CreateDefPal(sDescNode* srcNode, int nSepId);
+	BOOL LoadFile(CFile* LoadedFile, int nUnitId = 0);
+	BOOL SaveFile(CFile* SaveFile, int nUnitId = 0);
 	BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-	COLORREF * CreatePal(int nUnitId, int nPalId);
+	COLORREF* CreatePal(int nUnitId, int nPalId);
 	BOOL CreateExtraPal(int nUnitId, int nPalId);
 
 	void UpdatePalData();
 
-	void FlushUnitFile(){if(rgFileChanged){delete rgFileChanged; rgFileChanged = NULL;}};
-	void PrepUnitFile(){if(!rgFileChanged){ rgFileChanged = new UINT8;}};
+	void FlushUnitFile() { safe_delete(rgFileChanged); };
+	void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT8; } };
 };

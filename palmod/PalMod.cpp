@@ -11,6 +11,7 @@
 
 CString ImgStr;
 HACCEL m_hAccelTable;
+HWND g_appHWnd = nullptr;
 
 // CPalModApp
 
@@ -34,8 +35,6 @@ CString GetAppName()
 // CPalModApp construction
 
 CPalModApp::CPalModApp()
-:	CurrGame(NULL),
-BasePal(NULL)
 {
 	// TODO: add construction code here,
 	// Place all significant initialization in InitInstance
@@ -71,17 +70,14 @@ BOOL CPalModApp::InitInstance()
 	// If you are not using these features and wish to reduce the size
 	// of your final executable, you should remove from the following
 	// the specific initialization routines you do not need
-	// Change the registry key under which our settings are stored
-	// TODO: You should modify this string to be something appropriate
-	// such as the name of your company or organization
-	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
 
 	//Create the main window
 	PalModDlg = new CPalModDlg();
-	((CPalModDlg * )PalModDlg)->Create(IDD_PALMOD_DIALOG);
+	((CPalModDlg*)PalModDlg)->Create(IDD_PALMOD_DIALOG);
 
 	m_pMainWnd = PalModDlg;
 	//m_pMainWnd->UpdateWindow();
+	g_appHWnd = m_pMainWnd->GetSafeHwnd();
 
 	//Create and show image dialog
 	PreviewDlg = new CPreviewDlg();
@@ -93,40 +89,29 @@ BOOL CPalModApp::InitInstance()
 
 	//Get the image dat file
 	GetModuleFileName(NULL, ImgStr.GetBufferSetLength(MAX_PATH), MAX_PATH);
-	ImgStr = ImgStr.Left(ImgStr.ReverseFind('\\') + 1) + IMGDATFILE;	
-	
+	ImgStr = ImgStr.Left(ImgStr.ReverseFind('\\') + 1) + IMGDATFILE;
+
 	return TRUE;
 }
 
 CPalModApp::~CPalModApp()
 {
-	if (PreviewDlg)
-	{
-		delete PreviewDlg;
-		PreviewDlg = nullptr;
-	}
-
-	if (PalModDlg)
-	{
-		delete PalModDlg;
-		PalModDlg = nullptr;
-	}
+	safe_delete(CurrGame);
+	safe_delete(PreviewDlg);
+	safe_delete(PalModDlg);
 
 	CoUninitialize();
 }
 
-CPalModApp * GetHost()
+CPalModApp* GetHost()
 {
 	return &theApp;
 }
 
-void CPalModApp::SetGameClass(CGameClass * NewGame)
+void CPalModApp::SetGameClass(CGameClass* NewGame)
 {
-	if(CurrGame)
-	{
-		delete CurrGame;
-		//ImgBase.FlushImageBuffer();
-	}
+	safe_delete(CurrGame);
+	//ImgBase.FlushImageBuffer();
 
 	//Set game 
 	CurrGame = NewGame;
@@ -140,31 +125,23 @@ void CPalModApp::SetGameClass(CGameClass * NewGame)
 	{
 		CString strMessage;
 		strMessage.Format(IDS_ERROR_LOADING_IMG_DAT_FORMAT, ImgStr);
-		MessageBox(nullptr, strMessage, GetAppName(), MB_ICONERROR);
+		MessageBox(g_appHWnd, strMessage, GetAppName(), MB_ICONERROR);
 	}
 }
 
 void CPalModApp::CleanUp()
 {
-	
+
 }
 
 void CPalModApp::ClearGameClass()
 {
-	if(CurrGame)
-	{
-		delete CurrGame;
-		CurrGame = NULL;
-
-		BasePal = NULL;
-	}
+	safe_delete(CurrGame);
+	BasePal = NULL;
 }
+
 BOOL CPalModApp::PreTranslateMessage(MSG* pMsg)
 {
 	// TODO: Add your specialized code here and/or call the base class
-
-	
-
-
 	return CWinApp::PreTranslateMessage(pMsg);
 }

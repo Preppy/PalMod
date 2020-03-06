@@ -37,7 +37,7 @@ CGame_MVC2_D::CGame_MVC2_D(void)
 
 	//Set the image out display type
 	DisplayType = DISP_ALT;
-	pButtonLabel = const_cast<CHAR *>((CHAR *)DEF_BUTTONLABEL6ALT);
+	pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6ALT);
 
 	//Set the MVC2 supp game
 	CurrMVC2 = this;
@@ -66,21 +66,22 @@ CGame_MVC2_D::~CGame_MVC2_D(void)
 	CurrMVC2 = NULL;
 }
 
-CDescTree * CGame_MVC2_D::GetMainTree()
+CDescTree* CGame_MVC2_D::GetMainTree()
 {
 	return &CGame_MVC2_D::MainDescTree;
 }
 
 CDescTree CGame_MVC2_D::InitDescTree()
 {
+	// BUGBUG: allocations here and in the other InitDescTrees are leaked.
 	//Initialize extra range
 	InitExtraRg();
 
-	sDescTreeNode * NewDescTree = new sDescTreeNode;
+	sDescTreeNode* NewDescTree = new sDescTreeNode;
 
-	sDescTreeNode * UnitNode;
-	sDescTreeNode * ButtonNode;
-	sDescNode * ChildNode;
+	sDescTreeNode* UnitNode;
+	sDescTreeNode* ButtonNode;
+	sDescNode* ChildNode;
 
 	//Create the main character tree
 	NewDescTree->ChildNodes = new sDescTreeNode[MVC2_D_NUMUNIT];
@@ -89,31 +90,31 @@ CDescTree CGame_MVC2_D::InitDescTree()
 	NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
 	//Go through each character
-	for(int iUnitCtr = 0; iUnitCtr < MVC2_D_NUMUNIT; iUnitCtr++)
+	for (int iUnitCtr = 0; iUnitCtr < MVC2_D_NUMUNIT; iUnitCtr++)
 	{
 		//Omni extra count
 		int nNumExtra = CountExtraRg(iUnitCtr, TRUE);
 
-		UnitNode = &((sDescTreeNode *)NewDescTree->ChildNodes)[iUnitCtr];
+		UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 		//Set each description
 		sprintf(UnitNode->szDesc, "%s", MVC2_D_UNITDESC[iUnitCtr]);
-		
+
 		//Init each character to have all 6 basic buttons + extra
-		UnitNode->ChildNodes = new sDescTreeNode[BUTTON6 + (nNumExtra ? 1 : 0)];	
+		UnitNode->ChildNodes = new sDescTreeNode[BUTTON6 + (nNumExtra ? 1 : 0)];
 
 		//All children have button trees
 		UnitNode->uChildType = DESC_NODETYPE_TREE;
-		UnitNode->uChildAmt = BUTTON6 + (nNumExtra ? 1 : 0);	
+		UnitNode->uChildAmt = BUTTON6 + (nNumExtra ? 1 : 0);
 
 		//Set each button data
 		int nButtonExtraCt = CountExtraRg(iUnitCtr, FALSE) + 1;
 		BOOL bSetInfo;
 
-		for(int iButtonCtr = 0; iButtonCtr < BUTTON6; iButtonCtr++)
+		for (int iButtonCtr = 0; iButtonCtr < BUTTON6; iButtonCtr++)
 		{
 			int nExtraPos = 0;
 
-			ButtonNode = &((sDescTreeNode *)UnitNode->ChildNodes)[iButtonCtr];
+			ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
 			//Set each button data
 			sprintf(ButtonNode->szDesc, "%s", DEF_BUTTONLABEL6ALT[iButtonCtr]);
@@ -122,12 +123,12 @@ CDescTree CGame_MVC2_D::InitDescTree()
 			ButtonNode->uChildType = DESC_NODETYPE_NODE;
 			ButtonNode->uChildAmt = nButtonExtraCt;
 
-			ButtonNode->ChildNodes = (sDescTreeNode *)new sDescNode[nButtonExtraCt];
+			ButtonNode->ChildNodes = (sDescTreeNode*)new sDescNode[nButtonExtraCt];
 
 			//Start of the basic extra node in the current character
 			int nBasicStart = 0;
 
-			if(rgExtraChrLoc[iUnitCtr])
+			if (rgExtraChrLoc[iUnitCtr])
 			{
 				nBasicStart = rgExtraChrLoc[iUnitCtr] + 1;
 			}
@@ -136,7 +137,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
 			for (int nButtonExtra = 0; nButtonExtra < 8; nButtonExtra++)
 			{
 				bSetInfo = FALSE;
-				ChildNode = &((sDescNode *)ButtonNode->ChildNodes)[nExtraPos];
+				ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraPos];
 
 				if (nButtonExtra == 0)
 				{
@@ -146,12 +147,12 @@ CDescTree CGame_MVC2_D::InitDescTree()
 				else if (!nBasicStart || 1)//MVC2_D_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
 				{
 					sprintf(ChildNode->szDesc, "%02X %s (Extra - %02X)", nExtraPos, DEF_BUTTONLABEL6ALT[iButtonCtr],
-							(iButtonCtr * 8) + nExtraPos + 1);
+						(iButtonCtr * 8) + nExtraPos + 1);
 
 					bSetInfo = TRUE;
 				}
 
-				if(bSetInfo)
+				if (bSetInfo)
 				{
 					ChildNode->uUnitId = iUnitCtr;
 					ChildNode->uPalId = (iButtonCtr * 8) + nExtraPos;
@@ -162,20 +163,20 @@ CDescTree CGame_MVC2_D::InitDescTree()
 		}
 
 		//Set extra data
-		if(nNumExtra)
+		if (nNumExtra)
 		{
-			ButtonNode = &((sDescTreeNode *)UnitNode->ChildNodes)[6]; //Extra data node
+			ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[6]; //Extra data node
 			strcpy(ButtonNode->szDesc, "Extra");
 			ButtonNode->uChildAmt = nNumExtra;
 			ButtonNode->uChildType = DESC_NODETYPE_NODE;
 
-			ButtonNode->ChildNodes = (sDescTreeNode *)(new sDescTreeNode[nNumExtra]);
+			ButtonNode->ChildNodes = (sDescTreeNode*)(new sDescTreeNode[nNumExtra]);
 
-			if(nNumExtra == (MVC2_D_PALDATASZ[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32)
+			if (nNumExtra == (MVC2_D_PALDATASZ[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32)
 			{
-				for(int nExtraCtr = 0; nExtraCtr < nNumExtra; nExtraCtr++)
+				for (int nExtraCtr = 0; nExtraCtr < nNumExtra; nExtraCtr++)
 				{
-					ChildNode = &((sDescNode *)ButtonNode->ChildNodes)[nExtraCtr];
+					ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
 					sprintf(ChildNode->szDesc, "(%02X Extra)", nExtraCtr + 1);
 
@@ -190,15 +191,15 @@ CDescTree CGame_MVC2_D::InitDescTree()
 				int nRangeAmt = 0;
 				int i = 0;
 
-				UINT16 * pCurrVal = const_cast<UINT16 *>(&MVC2_D_EXTRADEF[nStart]);
+				UINT16* pCurrVal = const_cast<UINT16*>(&MVC2_D_EXTRADEF[nStart]);
 
-				while((pCurrVal[0] & 0x0F00) != EXTRA_START)
+				while ((pCurrVal[0] & 0x0F00) != EXTRA_START)
 				{
 					nRangeAmt = (pCurrVal[1] + 1) - pCurrVal[0];
 
-					for(int nRangeCtr = 0; nRangeCtr < nRangeAmt; nRangeCtr++)
+					for (int nRangeCtr = 0; nRangeCtr < nRangeAmt; nRangeCtr++)
 					{
-						ChildNode = &((sDescNode *)ButtonNode->ChildNodes)[nExtraCtr];
+						ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
 						sprintf(ChildNode->szDesc, "(%02X Extra)", (pCurrVal[0] + nRangeCtr));
 
@@ -210,7 +211,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
 
 					i += 2;
 
-					pCurrVal = const_cast<UINT16 *>(&MVC2_D_EXTRADEF[nStart + i]);
+					pCurrVal = const_cast<UINT16*>(&MVC2_D_EXTRADEF[nStart + i]);
 				}
 			}
 		}
@@ -254,13 +255,13 @@ int CGame_MVC2_D::CountExtraRg(int nUnitId, BOOL bOmniExtra)
 	}
 	else
 	{
-		if(bOmniExtra)
+		if (bOmniExtra)
 		{
 			int nStart = rgExtraChrLoc[nUnitId] + 1 + 7;
 			int nRetVal = 0;
 			int i = 0;
 
-			UINT16 * pCurrVal = const_cast<UINT16 *>(&MVC2_D_EXTRADEF[nStart]);
+			UINT16* pCurrVal = const_cast<UINT16*>(&MVC2_D_EXTRADEF[nStart]);
 
 			if (pCurrVal[0] == 0x00)
 			{
@@ -268,28 +269,28 @@ int CGame_MVC2_D::CountExtraRg(int nUnitId, BOOL bOmniExtra)
 			}
 			else
 			{
-				while((pCurrVal[0] & EXTRA_START) != EXTRA_START)
+				while ((pCurrVal[0] & EXTRA_START) != EXTRA_START)
 				{
 					nRetVal += (pCurrVal[1] + 1) - pCurrVal[0];
 
 					i += 2;
-					pCurrVal = const_cast<UINT16 *>(&MVC2_D_EXTRADEF[nStart + i]);
+					pCurrVal = const_cast<UINT16*>(&MVC2_D_EXTRADEF[nStart + i]);
 				}
 
-				if(!nRetVal)
+				if (!nRetVal)
 				{
 					return ((MVC2_D_PALDATASZ[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32);
 				}
-				
+
 				return nRetVal;
 			}
 		}
 		else
 		{
-			int nStart = rgExtraChrLoc[nUnitId] + 1 ;
+			int nStart = rgExtraChrLoc[nUnitId] + 1;
 			int nRetVal = 0;
 
-			for(int i = 0; i < 7; i++)
+			for (int i = 0; i < 7; i++)
 			{
 				//if(1)//MVC2_D_EXTRADEF[nStart + i])
 				{
@@ -300,7 +301,7 @@ int CGame_MVC2_D::CountExtraRg(int nUnitId, BOOL bOmniExtra)
 			return nRetVal;
 		}
 	}
-	
+
 	return 0;
 }
 
@@ -323,7 +324,7 @@ sFileRule CGame_MVC2_D::GetNextRule()
 
 	uRuleCtr++;
 
-	if(uRuleCtr >= MVC2_D_NUMUNIT)
+	if (uRuleCtr >= MVC2_D_NUMUNIT)
 	{
 		uRuleCtr = 0xFF;
 	}
@@ -334,22 +335,22 @@ sFileRule CGame_MVC2_D::GetNextRule()
 void CGame_MVC2_D::InitDataBuffer()
 {
 	ppDataBuffer = new UINT16 * [MVC2_D_NUMUNIT];
-	memset(ppDataBuffer, NULL, sizeof(UINT16 *) * MVC2_D_NUMUNIT);
+	memset(ppDataBuffer, NULL, sizeof(UINT16*) * MVC2_D_NUMUNIT);
 }
 
 void CGame_MVC2_D::ClearDataBuffer()
 {
-	if(ppDataBuffer)
+	if (ppDataBuffer)
 	{
-		for(int i = 0; i < MVC2_D_NUMUNIT; i++)
+		for (int i = 0; i < MVC2_D_NUMUNIT; i++)
 		{
-			if(ppDataBuffer[i])
+			if (ppDataBuffer[i])
 			{
-				delete [] ppDataBuffer[i];
+				delete[] ppDataBuffer[i];
 			}
 		}
 
-		delete [] ppDataBuffer;
+		delete[] ppDataBuffer;
 	}
 }
 
@@ -369,9 +370,9 @@ int CGame_MVC2_D::GetBasicOffset(int nPalId)
 	}
 }
 
-BOOL CGame_MVC2_D::LoadFile(CFile * LoadedFile, int nUnitId)
+BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, int nUnitId)
 {
-	if(ppDataBuffer[nUnitId])
+	if (ppDataBuffer[nUnitId])
 	{
 		//This should always be NULL
 		return FALSE;
@@ -388,13 +389,13 @@ BOOL CGame_MVC2_D::LoadFile(CFile * LoadedFile, int nUnitId)
 
 		nDataSz = nEnd - nStart;
 
-		if(nDataSz != MVC2_D_PALDATASZ[nUnitId])
+		if (nDataSz != MVC2_D_PALDATASZ[nUnitId])
 		{
 			return FALSE;
 		}
-		
+
 		ppDataBuffer[nUnitId] = new UINT16[nDataSz / 2];
-		
+
 		LoadedFile->Seek(nStart, CFile::begin);
 
 		LoadedFile->Read(ppDataBuffer[nUnitId], nDataSz);
@@ -408,9 +409,9 @@ BOOL CGame_MVC2_D::LoadFile(CFile * LoadedFile, int nUnitId)
 	return FALSE; // not reachable
 }
 
-BOOL CGame_MVC2_D::SaveFile(CFile * SaveFile, int nUnitId)
+BOOL CGame_MVC2_D::SaveFile(CFile* SaveFile, int nUnitId)
 {
-	if(!ppDataBuffer[nUnitId])
+	if (!ppDataBuffer[nUnitId])
 	{
 		return FALSE;
 	}
@@ -424,7 +425,7 @@ BOOL CGame_MVC2_D::SaveFile(CFile * SaveFile, int nUnitId)
 
 		uPalSz = uPalSz - uPalPos;
 
-		if(uPalPos > SaveFile->GetLength())
+		if (uPalPos > SaveFile->GetLength())
 		{
 			return FALSE;
 		}
@@ -438,12 +439,12 @@ BOOL CGame_MVC2_D::SaveFile(CFile * SaveFile, int nUnitId)
 	return FALSE; // not reachable
 }
 
-COLORREF * CGame_MVC2_D::CreatePal(int nUnitId, int nPalId)
+COLORREF* CGame_MVC2_D::CreatePal(int nUnitId, int nPalId)
 {
 	//Create a new palette
-	COLORREF * NewPal = new COLORREF[MVC2_D_PALSZ];
+	COLORREF* NewPal = new COLORREF[MVC2_D_PALSZ];
 
-	for(int i = 0; i < MVC2_D_PALSZ; i++)
+	for (int i = 0; i < MVC2_D_PALSZ; i++)
 	{
 		NewPal[i] = ConvPal(ppDataBuffer[nUnitId][(nPalId * 16) + i]);
 	}
@@ -451,11 +452,11 @@ COLORREF * CGame_MVC2_D::CreatePal(int nUnitId, int nPalId)
 	return NewPal;
 }
 
-void CGame_MVC2_D::CreateDefPal(sDescNode * srcNode, int nSepId)
+void CGame_MVC2_D::CreateDefPal(sDescNode* srcNode, int nSepId)
 {
 	int nUnitId = srcNode->uUnitId;
 	int nPalId = srcNode->uPalId;
-				
+
 	BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), MVC2_D_PALSZ, nUnitId, nPalId);
 	BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, MVC2_D_PALSZ);
 }
@@ -473,7 +474,7 @@ BOOL CGame_MVC2_D::CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc,
 
 	nStart = EXTRA_OMNI + nStart;
 
-	if(SpecSel(&nSpecOffs, nPalId, nStart, nInc, nAmt, nExtraAmt))
+	if (SpecSel(&nSpecOffs, nPalId, nStart, nInc, nAmt, nExtraAmt))
 	{
 		//nTargetPal = (nSpecOffs * nInc);
 		//nTargetPal += ((nPalId - nStart - nTargetPal) % nAmt) + nStart;
@@ -484,8 +485,8 @@ BOOL CGame_MVC2_D::CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc,
 
 		nTargetImgId = nImgId | 0xFF00;
 		nImgUnitId = nUnitId;
-		
-		if(nExtraAmt == 6)
+
+		if (nExtraAmt == 6)
 		{
 			SetSourcePal(0, nUnitId, nStart + (nPalId - nStart) % nAmt, 6, nInc);
 		}
@@ -502,20 +503,20 @@ BOOL CGame_MVC2_D::CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc,
 
 void CGame_MVC2_D::UpdatePalData()
 {
-	for(int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+	for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
 	{
-		sPalDef * srcDef = BasePalGroup.GetPalDef(nPalCtr);
-		if(srcDef->bAvail )//&& srcDef->bChanged)
+		sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
+		if (srcDef->bAvail)//&& srcDef->bChanged)
 		{
-			COLORREF * crSrc = srcDef->pPal;
+			COLORREF* crSrc = srcDef->pPal;
 			UINT16 uAmt = srcDef->uPalSz;
 
-			for(int nPICtr = 0; nPICtr < uAmt; nPICtr++)
+			for (int nPICtr = 0; nPICtr < uAmt; nPICtr++)
 			{
 				ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ConvCol(crSrc[nPICtr]);
 			}
 
-			if(bAlphaTrans)
+			if (bAlphaTrans)
 			{
 				//0 out the 1st index alpha flag
 				ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16)] &= 0x0FFF;
@@ -525,7 +526,7 @@ void CGame_MVC2_D::UpdatePalData()
 			rgFileChanged[srcDef->uUnitId] = TRUE;
 
 			//Perform supplement palettes
-			if(bPostSetPalProc)
+			if (bPostSetPalProc)
 			{
 				PostSetPal(srcDef->uUnitId, srcDef->uPalId);
 			}
@@ -533,44 +534,35 @@ void CGame_MVC2_D::UpdatePalData()
 	}
 }
 
-void CGame_MVC2_D::ValidateMixExtraColors(BOOL *pfChangesWereMade)
+void CGame_MVC2_D::ValidateMixExtraColors(BOOL* pfChangesWereMade)
 {
 	ValidateAllPalettes(pfChangesWereMade, rgFileChanged);
 }
 
 void CGame_MVC2_D::FlushUnitFile()
 {
-	if(szUnitFile)
+	if (szUnitFile)
 	{
-		for(int i = 0; i < MVC2_D_NUMUNIT; i++)
+		for (int i = 0; i < MVC2_D_NUMUNIT; i++)
 		{
-			if(szUnitFile[i])
-			{
-				delete [] szUnitFile[i];
-			}
+			safe_delete_array(szUnitFile[i]);
 		}
 
-		delete [] szUnitFile;
-
-		szUnitFile = NULL;
+		safe_delete_array(szUnitFile);
 	}
 
-	if(rgFileChanged)
-	{
-		delete [] rgFileChanged;
-		rgFileChanged = NULL;
-	}
+	safe_delete(rgFileChanged);
 }
 
 void CGame_MVC2_D::PrepUnitFile()
 {
-	if(szUnitFile)
+	if (szUnitFile)
 	{
 		return;
 	}
-	
+
 	szUnitFile = new CHAR * [MVC2_D_NUMUNIT];
-	memset(szUnitFile, NULL, sizeof(CHAR *) * MVC2_D_NUMUNIT);
+	memset(szUnitFile, NULL, sizeof(CHAR*) * MVC2_D_NUMUNIT);
 
 	rgFileChanged = new UINT8[MVC2_D_NUMUNIT];
 	memset(rgFileChanged, NULL, sizeof(UINT8) * MVC2_D_NUMUNIT);
@@ -595,33 +587,33 @@ void CGame_MVC2_D::PostSetPal(int nUnitId, int nPalId)
 void CGame_MVC2_D::ForEidrian(int nFlag, COLORREF crCol)
 {
 	int nPalAmt = 1;
-	switch(nFlag)
+	switch (nFlag)
 	{
-		case 0:
-			{
-				nPalAmt = 1;
-			}
-			break;
-		case 1:
-			{
-				nPalAmt = 16;
-			}
-			break;
+	case 0:
+	{
+		nPalAmt = 1;
+	}
+	break;
+	case 1:
+	{
+		nPalAmt = 16;
+	}
+	break;
 	}
 
-	for(int nUnitCtr = 0; nUnitCtr < MVC2_D_NUMUNIT; nUnitCtr++)
+	for (int nUnitCtr = 0; nUnitCtr < MVC2_D_NUMUNIT; nUnitCtr++)
 	{
-		for(UINT32 nPalCtr = 0; nPalCtr < MVC2_D_PALDATASZ[nUnitCtr]/32; nPalCtr++)
+		for (UINT32 nPalCtr = 0; nPalCtr < MVC2_D_PALDATASZ[nUnitCtr] / 32; nPalCtr++)
 		{
-			if(ppDataBuffer[nUnitCtr])
+			if (ppDataBuffer[nUnitCtr])
 			{
-				for(int nPICtr = 0; nPICtr < nPalAmt; nPICtr++)
+				for (int nPICtr = 0; nPICtr < nPalAmt; nPICtr++)
 				{
 					ppDataBuffer[nUnitCtr][nPalCtr * 16 + nPICtr]
-					= 
-					nFlag ? (ppDataBuffer[nUnitCtr][nPalCtr * 16 + nPICtr] & 0x0FFF) : ConvCol(crCol);
+						=
+						nFlag ? (ppDataBuffer[nUnitCtr][nPalCtr * 16 + nPICtr] & 0x0FFF) : ConvCol(crCol);
 				}
-				
+
 				rgFileChanged[nUnitCtr] = TRUE;
 			}
 		}

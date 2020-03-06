@@ -13,16 +13,16 @@ int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bVisible)
 
 	int * rgExtraCt = bVisible ? (int *)rgExtraCtAlt : (int *)rgExtraCtDef;
 
-	if(rgExtraCt[0] == -1)
+	if (rgExtraCt[0] == -1)
 	{
 		int nDefCtr = 0;
 		memset(rgExtraCt, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
 
 		stExtraDef * pCurrDef = GetExtraDef(0);
 
-		while(pCurrDef->uUnitN != 0xFF )
+		while (pCurrDef->uUnitN != 0xFF )
 		{
-			if(pCurrDef->bInvisible != 1 || !bVisible)
+			if (pCurrDef->bInvisible != 1 || !bVisible)
 			{
 				rgExtraCt[pCurrDef->uUnitN]++;
 			}
@@ -32,7 +32,7 @@ int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bVisible)
 		}
 	}
 
-	if(bVisible)
+	if (bVisible)
 	{
 		return rgExtraCtAlt[nUnitId];
 	}

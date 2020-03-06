@@ -3250,7 +3250,7 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT8* rgPaletteChangeArray)
 		}
 
 		strUserMessage.Append(".\n\nDo you want PalMod to try to fix that for you?");
-		switch (MessageBox(nullptr, strUserMessage, GetAppName(),  MB_YESNO | MB_ICONERROR))
+		switch (MessageBox(g_appHWnd, strUserMessage, GetAppName(),  MB_YESNO | MB_ICONERROR))
 		{
 			case IDYES:
 			{
@@ -3265,7 +3265,7 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT8* rgPaletteChangeArray)
 				{
 					strUserMessage = "Auto-modifications complete.\n\nIf you like the changes, make sure to Save/Patch them.";
 				}
-				MessageBox(nullptr, strUserMessage, GetAppName(), MB_ICONINFORMATION);
+				MessageBox(g_appHWnd, strUserMessage, GetAppName(), MB_ICONINFORMATION);
 				break;
 			}
 			default:
@@ -3275,7 +3275,7 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT8* rgPaletteChangeArray)
 	else
 	{
 		strUserMessage = "The color edits seem to match correctly: nice work.";
-		MessageBox(nullptr, strUserMessage, GetAppName(), MB_ICONINFORMATION);
+		MessageBox(g_appHWnd, strUserMessage, GetAppName(), MB_ICONINFORMATION);
 	}
 }
 

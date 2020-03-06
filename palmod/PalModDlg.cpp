@@ -265,7 +265,6 @@ void CPalModDlg::OnPaint()
 	}
 
 	bCanMinMax = TRUE;
-	GetWindowRect(&rDefault); // bugbug: why is this here?  unused
 }
 
 // The system calls this function to obtain the cursor to display while the user drags

@@ -7,9 +7,9 @@
 #define EXTRA_FILENAME "sfiii3e.txt"
 
 #ifdef SFIII3_A_USEEXTRAFILE
-#define GetExtraDef(x)((stExtraDef *)&SFIII3_A_EXTRA_CUSTOM[x])
+#define GetExtraDef(x) ((stExtraDef *)&SFIII3_A_EXTRA_CUSTOM[x])
 #else
-#define GetExtraDef(x)(const_cast<stExtraDef *>(&SFIII3_A_EXTRA[x]))
+#define GetExtraDef(x) (const_cast<stExtraDef *>(&SFIII3_A_EXTRA[x]))
 #endif
 
 class CGame_SFIII3_A : public CGameClass
