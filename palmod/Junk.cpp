@@ -279,7 +279,7 @@ BOOL CJunk::ProcBaseBMP()
 {
 	if (!DeleteObject(hBmp))
 	{
-		int nBreakPoint = 0;
+		OutputDebugString("ERROR: Could not delete old hBmp\n");
 	}
 
 	Bmpi.bmiHeader.biWidth = iBaseW;
@@ -307,11 +307,7 @@ BOOL CJunk::ProcBaseBMP()
 
 void CJunk::ClearBaseBMP()
 {
-	if (pBmpData)
-	{
-		delete[] pBmpData;
-		pBmpData = NULL;
-	}
+	safe_delete_array(pBmpData);
 }
 
 void CJunk::InitDC()

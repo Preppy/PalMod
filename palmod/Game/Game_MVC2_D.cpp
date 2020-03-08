@@ -63,6 +63,7 @@ CGame_MVC2_D::CGame_MVC2_D(void)
 
 CGame_MVC2_D::~CGame_MVC2_D(void)
 {
+	FlushUnitFile();
 	ClearDataBuffer();
 	//Get rid of the file changed flag
 	safe_delete_array(rgFileChanged);

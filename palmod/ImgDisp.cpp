@@ -429,7 +429,6 @@ void CImgDisp::OnPaint()
 	Redraw();
 
 	CWnd::OnPaint();
-
 }
 
 BOOL CImgDisp::OnEraseBkgnd(CDC* pDC)
@@ -467,7 +466,6 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
 
 	int nWidth = pImgBuffer[nSrcIndex]->uImgW;
 	int nHeight = pImgBuffer[nSrcIndex]->uImgH;
-	int nBltW, nBltH;
 	int nSrcX = 0, nSrcY = 0;
 
 	UINT8* pCurrPal = (UINT8*)(bAltPal ? pImgBuffer[nSrcIndex]->pAltPal : pImgBuffer[nSrcIndex]->pPalette);
@@ -500,12 +498,10 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
 		rBltRct.bottom = MAIN_H;
 	}
 
-	nBltW = rBltRct.right - rBltRct.left;
-	nBltH = rBltRct.bottom - rBltRct.top;
+	int nBltW = rBltRct.right - rBltRct.left;
+	int nBltH = rBltRct.bottom - rBltRct.top;
 
 	int nRightBlt = rBltRct.right * 4;
-
-	UINT8* uDstR, * uDstG, * uDstB;
 
 	for (int yIndex = 0; yIndex < nBltH; yIndex++)
 	{
@@ -523,9 +519,9 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
 				fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
 				fpDstA1 = 1.0 - fpDstA2;
 
-				uDstR = &pDstBmpData[nDstPos + 2];
-				uDstG = &pDstBmpData[nDstPos + 1];
-				uDstB = &pDstBmpData[nDstPos];
+				UINT8* uDstR = &pDstBmpData[nDstPos + 2];
+				UINT8* uDstG = &pDstBmpData[nDstPos + 1];
+				UINT8* uDstB = &pDstBmpData[nDstPos];
 
 				*uDstR = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4)]), (fpDstA2 * (double)*uDstR));
 				*uDstG = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 1]), (fpDstA2 * (double)*uDstG));
@@ -582,8 +578,6 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 		{
 			while (fabs(fpDiffX) >= 1.0f)
 			{
-
-
 				rSrcRct.left += nAdd;
 				rSrcRct.right += nAdd;
 
