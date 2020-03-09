@@ -18,6 +18,8 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
+	BOOL OnInitDialog();
+
 // Implementation
 protected:
 	DECLARE_MESSAGE_MAP()
@@ -34,6 +36,20 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 END_MESSAGE_MAP()
+
+
+BOOL CAboutDlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	CString strAppName;
+	strAppName.LoadString(IDS_CURRENTAPPNAME);
+
+	GetDlgItem(IDC_ABOUTNAME)->SetWindowText(strAppName);
+
+
+	return TRUE;  // return TRUE  unless you set the focus to a control
+}
 
 static UINT BASED_CODE indicators[] =
 {
@@ -593,8 +609,6 @@ void CPalModDlg::SetStatusText(CString szText)
 
 void CPalModDlg::OnAboutAboutpalmod()
 {
-	// TODO: Add your command handler code here
-
 	CAboutDlg AboutDlg;
 	AboutDlg.DoModal();
 }

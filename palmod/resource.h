@@ -90,6 +90,7 @@
 #define IDC_SPCSPN2                     1066
 #define IDC_UPDATE                      1067
 #define IDC_EDIT3                       1069
+#define IDC_ABOUTNAME                   1070
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772
 #define ID_LDMVC2DCUSA                  32773
