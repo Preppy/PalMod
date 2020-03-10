@@ -11,7 +11,6 @@
 #include "Game\GameClass.h"
 #include "Game\Game_MVC2_D.h"
 
-
 void CPalModDlg::OnEditCopy()
 {
 	if (bEnabled)
@@ -74,7 +73,11 @@ void CPalModDlg::OnEditCopy()
 		sf.Write(CopyText, CopyText.GetLength());
 
 		HGLOBAL hMem = sf.Detach();
-		if (!hMem) return;
+		if (!hMem)
+		{
+			return;
+		}
+
 		pSource->CacheGlobalData(CF_TEXT, hMem);
 		pSource->SetClipboard();
 	}
@@ -83,7 +86,9 @@ void CPalModDlg::OnEditCopy()
 void CPalModDlg::OnEditPaste()
 {
 	if (!VerifyPaste())
+	{
 		return;
+	}
 
 	COleDataObject obj;
 
@@ -202,11 +207,11 @@ BOOL VerifyPaste()
 	COleDataObject obj;
 	BOOL bCanPaste = FALSE;
 
-	if (!obj.AttachClipboard())
+	if ((!obj.AttachClipboard()) ||
+		(!obj.IsDataAvailable(CF_TEXT)))
+	{
 		return FALSE;
-
-	if (!obj.IsDataAvailable(CF_TEXT))
-		return FALSE;
+	}
 
 	HGLOBAL hmem = obj.GetGlobalData(CF_TEXT);
 	CMemFile sf((BYTE*) ::GlobalLock(hmem), ::GlobalSize(hmem));
@@ -340,9 +345,15 @@ void CPalModDlg::CustomEditProc(void* pPalCtrl, int nCtrlId, int nMethod)
 	switch (nMethod)
 	{
 	case CUSTOM_COPY:
+		OnEditCopy();
+		break;
 	case CUSTOM_PASTE:
+		OnEditPaste();
+		break;
 	case CUSTOM_SALL:
+		OnEditSelectAll();
 	case CUSTOM_SNONE:
+		OnEditSelectNone();
 		break;
 	}
 }

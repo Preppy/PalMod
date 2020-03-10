@@ -22,9 +22,7 @@ UCHAR CJunk::Toggle(UCHAR& tVar)
 
 void CJunk::ClearSelView()
 {
-	int i;
-
-	for (i = 0; i < iWorkingAmt; i++)
+	for (int i = 0; i < iWorkingAmt; i++)
 	{
 		SelView[i] = FALSE;
 	}
@@ -34,9 +32,7 @@ void CJunk::ClearSelView()
 
 void CJunk::ClearSelected()
 {
-	int i;
-
-	for (i = 0; i < iWorkingAmt; i++)
+	for (int i = 0; i < iWorkingAmt; i++)
 	{
 		Selected[i] = FALSE;
 	}
@@ -48,9 +44,7 @@ void CJunk::ClearSelected()
 
 void CJunk::ClearHighlighted()
 {
-	int i;
-
-	for (i = 0; i < iWorkingAmt; i++)
+	for (int i = 0; i < iWorkingAmt; i++)
 	{
 		Highlighted[i] = 0;
 	}
@@ -791,33 +785,55 @@ void CJunk::OnTimer(UINT nIDEvent)
 	CWnd::OnTimer(nIDEvent);
 }
 
-
 void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
 {
-	// TODO: Add your message handler code here and/or call default
+	CMenu PopupMenu;
 
-
-	/*CMenu PopupMenu;
-
-	if(PopupMenu.CreatePopupMenu())
+	if (PopupMenu.CreatePopupMenu())
 	{
 		RECT rWnd; GetWindowRect(&rWnd);
 		point.x += rWnd.left;
 		point.y += rWnd.top;
 
-		PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_COPY, "&Copy");
-		PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_PASTE, "&Paste");
+		bool canCopyOrPaste = false;
+		for (int i = 0; i < iWorkingAmt; i++)
+		{
+			if (Selected[i])
+			{
+				canCopyOrPaste = true;
+				break;
+			}
+		}
+
+		PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_COPY, "&Copy");
+		PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTE, "&Paste");
 		PopupMenu.AppendMenu(MF_SEPARATOR, 0, "");
 		PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, "Select &All");
 		PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SNONE, "Select &None");
 
-		PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN, point.x, point.y, this, NULL);
+		int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, point.x, point.y, this, NULL);
 
+		switch (result)
+		{
+		case CUSTOM_COPY:
+		case CUSTOM_PASTE:
+			NotifyParent(result);
+			break;
+		case CUSTOM_SALL:
+			SelectAll();
+			UpdateCtrl();
+			break;
+		case CUSTOM_SNONE:
+			ClearSelected();
+			UpdateCtrl();
+			break;
+		}
 	}
 	else
 	{
+		OutputDebugString("ERROR: Couldn't create popup menu.\n");
 		// MessageBox("Error Creating Menu", "PalMod", MB_ICONERROR);
-	}*/
+	}
 
 	CWnd::OnRButtonDown(nFlags, point);
 }
