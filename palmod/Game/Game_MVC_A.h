@@ -8,54 +8,54 @@ constexpr auto EXTRA_FILENAME_MVC = "mvce.txt";
 class CGame_MVC_A : public CGameClass
 {
 private:
-	//Used for image selection
-	int nTargetImgId = 0;
+    //Used for image selection
+    int nTargetImgId = 0;
 
-	//Used for GetPalOffset
-	int nCurrPalOffs = 0;
-	int nCurrPalSz = 0;
+    //Used for GetPalOffset
+    int nCurrPalOffs = 0;
+    int nCurrPalSz = 0;
 
-	void GetPalOffsSz(int nUnitId, int nPalId);
+    void GetPalOffsSz(int nUnitId, int nPalId);
 
-	void InitDataBuffer();
-	void ClearDataBuffer();
-	
-	UINT16*** pppDataBuffer = nullptr;
+    void InitDataBuffer();
+    void ClearDataBuffer();
+    
+    UINT16*** pppDataBuffer = nullptr;
 
 public:
-	CGame_MVC_A(void);
-	~CGame_MVC_A(void);
+    CGame_MVC_A(void);
+    ~CGame_MVC_A(void);
 
-	//Static functions / variables
-	static CDescTree MainDescTree;
+    //Static functions / variables
+    static CDescTree MainDescTree;
 
-	static CDescTree InitDescTree();
-	static sFileRule GetRule(int nUnitId);
+    static CDescTree InitDescTree();
+    static sFileRule GetRule(int nUnitId);
 
-	//Extra palette function
-	static int GetExtraCt(int nUnitId, BOOL bVisible = FALSE);
-	static int GetExtraLoc(int nUnitId);
-	static int GetBasicAmt(int nUnitId);
+    //Extra palette function
+    static int GetExtraCt(int nUnitId, BOOL bVisible = FALSE);
+    static int GetExtraLoc(int nUnitId);
+    static int GetBasicAmt(int nUnitId);
 
-	static void LoadExtraFile();
+    static void LoadExtraFile();
 
-	//Normal functions
-	CDescTree* GetMainTree();
+    //Normal functions
+    CDescTree* GetMainTree();
 
-	static int GetPalCt(int nUnitId);
+    static int GetPalCt(int nUnitId);
 
-	void CreateDefPal(sDescNode* srcNode, int nSepId);
-	BOOL LoadFile(CFile* LoadedFile, int nUnitId = 0);
-	BOOL SaveFile(CFile* SaveFile, int nUnitId = 0);
-	BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+    void CreateDefPal(sDescNode* srcNode, int nSepId);
+    BOOL LoadFile(CFile* LoadedFile, int nUnitId = 0);
+    BOOL SaveFile(CFile* SaveFile, int nUnitId = 0);
+    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-	COLORREF* CreatePal(int nUnitId, int nPalId);
-	BOOL CreateExtraPal(int nUnitId, int nPalId);
+    COLORREF* CreatePal(int nUnitId, int nPalId);
+    BOOL CreateExtraPal(int nUnitId, int nPalId);
 
-	void UpdatePalData();
+    void UpdatePalData();
 
-	void FlushUnitFile() { safe_delete(rgFileChanged); };
-	void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT8; } };
+    void FlushUnitFile() { safe_delete(rgFileChanged); };
+    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT8; } };
 
-	static stExtraDef* MVC_A_EXTRA_CUSTOM;
+    static stExtraDef* MVC_A_EXTRA_CUSTOM;
 };

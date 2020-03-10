@@ -19,14 +19,14 @@ constexpr auto SFIII3_D = 7;
 
 const CHAR g_GameFriendlyName[NUM_GAMES][16] =
 {
-	"MvC2_D",
-	"SFIII3_A",
-	"MVC2_P",
-	"SSF2T_A",
-	"SFA3_A",
-	"XVSF_A",
-	"MVC_A",
-	"SFIII3_D"
+    "MvC2_D",
+    "SFIII3_A",
+    "MVC2_P",
+    "SSF2T_A",
+    "SFA3_A",
+    "XVSF_A",
+    "MVC_A",
+    "SFIII3_D"
 };
 
 //Images
@@ -37,15 +37,15 @@ const CHAR g_GameFriendlyName[NUM_GAMES][16] =
 //Size of image per image game flag
 const int IMGAMT[2] =
 {
-	0x3B + 0x11, // 0x4C / 0n76
-	0x14
+    0x3B + 0x11, // 0x4C / 0n76
+    0x14
 };
 
 //Display types (used for image out)
 enum eDispType
 {
-	DISP_DEF,
-	DISP_ALT
+    DISP_DEF,
+    DISP_ALT
 };
 
 //Basic button labels
@@ -54,17 +54,17 @@ enum eDispType
 
 const CHAR DEF_BUTTONLABEL6[6][3] =
 {
-	"LP", "MP", "HP", "LK", "MK", "HK"
+    "LP", "MP", "HP", "LK", "MK", "HK"
 };
 
 const CHAR DEF_BUTTONLABEL6ALT[6][3] = 
 {
-	"LP", "LK", "HP", "HK", "A1", "A2"
+    "LP", "LK", "HP", "HK", "A1", "A2"
 };
 
 const CHAR DEF_BUTTONLABEL7[7][3] = 
 {
-	"LP", "MP", "HP", "LK", "MK", "HK", "EX"
+    "LP", "MP", "HP", "LK", "MK", "HK", "EX"
 };
 
 #define DESC2 2
@@ -73,23 +73,23 @@ const CHAR DEF_BUTTONLABEL7[7][3] =
 
 const CHAR DEF_DESCPRISEC[3][16] = 
 {
-	"Primary", "Secondary"
+    "Primary", "Secondary"
 };
 
 //Street Fighter Alpha 3 descriptions
 const CHAR DEF_DESCSFA3[6][16] = 
 {
-	"Primary", "Secondary", "Primary", "Secondary", "Primary", "Secondary"
+    "Primary", "Secondary", "Primary", "Secondary", "Primary", "Secondary"
 };
 
 struct stExtraDef
 {
-	UINT8 uUnitN;
-	CHAR szDesc[32];
-	UINT32 uOffset;
-	UINT16 uPalSz;
-	UINT8 bInvisible;
+    UINT8 uUnitN;
+    CHAR szDesc[32];
+    UINT32 uOffset;
+    UINT16 uPalSz;
+    UINT8 bInvisible;
 
-	UINT16 uReserved;
-	UINT8 uReserved2;
+    UINT16 uReserved;
+    UINT8 uReserved2;
 };

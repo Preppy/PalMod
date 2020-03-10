@@ -6,26 +6,24 @@
 
 void CPalModDlg::OnBnClickedBEidrian2()
 {
-	// TODO: Add your control notification handler code here
+    // TODO: Add your control notification handler code here
 
-	UpdateData();
+    UpdateData();
 
-	if(bRGB)
-	{
+    if (bRGB)
+    {
 
-		((CGame_MVC2_D *)GetHost()->GetCurrGame())->ForEidrian(0, 
-			RGB(
-			(int)round(m_RHSlider.GetPos()*nRMul),
-			(int)round(m_GSSlider.GetPos()*nGMul),
-			(int)round(m_BLSlider.GetPos()*nBMul)) | (UINT32)((m_ASlider.GetPos() * 17) << 24));
-	}
+        ((CGame_MVC2_D*)GetHost()->GetCurrGame())->ForEidrian(0,
+            RGB(
+            (int)round(m_RHSlider.GetPos() * nRMul),
+                (int)round(m_GSSlider.GetPos() * nGMul),
+                (int)round(m_BLSlider.GetPos() * nBMul)) | (UINT32)((m_ASlider.GetPos() * 17) << 24));
+    }
 
-	UpdateData(FALSE);
+    UpdateData(FALSE);
 }
 
 void CPalModDlg::OnBnClickedBEidrian1()
 {
-	// TODO: Add your control notification handler code here
-
-	((CGame_MVC2_D *)GetHost()->GetCurrGame())->ForEidrian(1);
+    ((CGame_MVC2_D*)GetHost()->GetCurrGame())->ForEidrian(1);
 }

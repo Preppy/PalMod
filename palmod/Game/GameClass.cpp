@@ -4,476 +4,476 @@
 BOOL CGameClass::bPostSetPalProc = TRUE;
 
 CGameClass::CGameClass(void)
-	:
-	ConvPal(NULL),
-	ConvCol(NULL)
+    :
+    ConvPal(NULL),
+    ConvCol(NULL)
 {
 }
 
 CGameClass::~CGameClass(void)
 {
-	ClearSetImgTicket(NULL);
+    ClearSetImgTicket(NULL);
 
-	safe_delete(szDir);
+    safe_delete(szDir);
 
-	//Clear the redirect buffer
-	safe_delete_array(rgUnitRedir);
+    //Clear the redirect buffer
+    safe_delete_array(rgUnitRedir);
 
-	//Get rid of the redir index
-	safe_delete_array(pIndexRedir);
+    //Get rid of the redir index
+    safe_delete_array(pIndexRedir);
 }
 
 int CGameClass::GetPlaneAmt(ColFlag Flag)
 {
-	switch (Flag)
-	{
-	case COL_R:
-		return nRIndexAmt;
-		break;
-	case COL_G:
-		return nGIndexAmt;
-		break;
-	case COL_B:
-		return nBIndexAmt;
-		break;
-	case COL_A:
-		return nAIndexAmt;
-		break;
-	}
+    switch (Flag)
+    {
+    case COL_R:
+        return nRIndexAmt;
+        break;
+    case COL_G:
+        return nGIndexAmt;
+        break;
+    case COL_B:
+        return nBIndexAmt;
+        break;
+    case COL_A:
+        return nAIndexAmt;
+        break;
+    }
 
-	return 0;
+    return 0;
 }
 
 double CGameClass::GetPlaneMul(ColFlag Flag)
 {
-	switch (Flag)
-	{
-	case COL_R:
-		return nRIndexMul;
-		break;
-	case COL_G:
-		return nGIndexMul;
-		break;
-	case COL_B:
-		return nBIndexMul;
-		break;
-	case COL_A:
-		return nAIndexMul;
-		break;
-	}
+    switch (Flag)
+    {
+    case COL_R:
+        return nRIndexMul;
+        break;
+    case COL_G:
+        return nGIndexMul;
+        break;
+    case COL_B:
+        return nBIndexMul;
+        break;
+    case COL_A:
+        return nAIndexMul;
+        break;
+    }
 
-	return 0;
+    return 0;
 }
 
 void CGameClass::ClearSrcPal()
 {
-	//Values used for image out
-	memset(nSrcPalUnit, -1, sizeof(int) * MAX_PAL);
-	memset(nSrcPalStart, -1, sizeof(int) * MAX_PAL);
-	memset(nSrcPalAmt, -1, sizeof(int) * MAX_PAL);
-	memset(nSrcPalInc, -1, sizeof(int) * MAX_PAL);
+    //Values used for image out
+    memset(nSrcPalUnit, -1, sizeof(int) * MAX_PAL);
+    memset(nSrcPalStart, -1, sizeof(int) * MAX_PAL);
+    memset(nSrcPalAmt, -1, sizeof(int) * MAX_PAL);
+    memset(nSrcPalInc, -1, sizeof(int) * MAX_PAL);
 }
 
 BOOL CGameClass::SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt, int nMax)
 {
-	int nOffset = nPalId - nStart;
+    int nOffset = nPalId - nStart;
 
-	if (nPalId >= nStart && (nOffset) % nInc < nAmt)
-	{
-		*nVarSet = ((nOffset) / nInc);
+    if (nPalId >= nStart && (nOffset) % nInc < nAmt)
+    {
+        *nVarSet = ((nOffset) / nInc);
 
-		if (*nVarSet >= nMax)
-		{
-			return FALSE;
-		}
-	}
-	else
-	{
-		return FALSE;
-	}
+        if (*nVarSet >= nMax)
+        {
+            return FALSE;
+        }
+    }
+    else
+    {
+        return FALSE;
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 sImgTicket* CGameClass::CreateImgTicket(int nUnitId, int nImgId, sImgTicket* NextTicket, int nXOffs, int nYOffs)
 {
-	if (nImgId == -1)
-	{
-		return NULL;
-	}
+    if (nImgId == -1)
+    {
+        return NULL;
+    }
 
-	sImgTicket* NewTicket = new sImgTicket;
+    sImgTicket* NewTicket = new sImgTicket;
 
-	NewTicket->nUnitId = nUnitId;
-	NewTicket->nImgId = nImgId;
-	NewTicket->nXOffs = nXOffs;
-	NewTicket->nYOffs = nYOffs;
-	NewTicket->NextTicket = NextTicket;
+    NewTicket->nUnitId = nUnitId;
+    NewTicket->nImgId = nImgId;
+    NewTicket->nXOffs = nXOffs;
+    NewTicket->nYOffs = nYOffs;
+    NewTicket->NextTicket = NextTicket;
 
-	return NewTicket;
+    return NewTicket;
 }
 
 void CGameClass::ClearSetImgTicket(sImgTicket* NewImgTicket)
 {
-	sImgTicket* DelTicket = CurrImgTicket;
-	sImgTicket* NextTicket;
+    sImgTicket* DelTicket = CurrImgTicket;
+    sImgTicket* NextTicket;
 
-	while (DelTicket != NULL)
-	{
-		NextTicket = DelTicket->NextTicket;
-		delete DelTicket;
-		DelTicket = NextTicket;
-	}
+    while (DelTicket != NULL)
+    {
+        NextTicket = DelTicket->NextTicket;
+        delete DelTicket;
+        DelTicket = NextTicket;
+    }
 
-	CurrImgTicket = NewImgTicket;
+    CurrImgTicket = NewImgTicket;
 }
 
 BOOL CGameClass::SetColMode(ColMode NewMode)
 {
-	CurrColMode = NewMode;
+    CurrColMode = NewMode;
 
-	CString strDebugInfo;
-	strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", (NewMode == COLMODE_12A) ? "COLMOD_12A (ARGB444)" : (NewMode == COLMODE_15) ? "COLMODE_15 (BGR555)" : "COLMODE_15ALT (RGB555)");
-	OutputDebugString(strDebugInfo);
+    CString strDebugInfo;
+    strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", (NewMode == COLMODE_12A) ? "COLMOD_12A (ARGB444)" : (NewMode == COLMODE_15) ? "COLMODE_15 (BGR555)" : "COLMODE_15ALT (RGB555)");
+    OutputDebugString(strDebugInfo);
 
-	switch (NewMode)
-	{
-	case COLMODE_12A:
-		ConvPal = &CGameClass::CONV_12A_32;
-		ConvCol = &CGameClass::CONV_32_12A;
-		return TRUE;
-		break;
-	case COLMODE_15:
-		ConvPal = &CGameClass::CONV_15_32;
-		ConvCol = &CGameClass::CONV_32_15;
-		return TRUE;
-		break;
-	case COLMODE_15ALT:
-		ConvPal = &CGameClass::CONV_15ALT_32;
-		ConvCol = &CGameClass::CONV_32_15ALT;
-		return TRUE;
-		break;
-	default:
-		return FALSE;
-		break;
-	}
+    switch (NewMode)
+    {
+    case COLMODE_12A:
+        ConvPal = &CGameClass::CONV_12A_32;
+        ConvCol = &CGameClass::CONV_32_12A;
+        return TRUE;
+        break;
+    case COLMODE_15:
+        ConvPal = &CGameClass::CONV_15_32;
+        ConvCol = &CGameClass::CONV_32_15;
+        return TRUE;
+        break;
+    case COLMODE_15ALT:
+        ConvPal = &CGameClass::CONV_15ALT_32;
+        ConvCol = &CGameClass::CONV_32_15ALT;
+        return TRUE;
+        break;
+    default:
+        return FALSE;
+        break;
+    }
 }
 
 UINT16 CGameClass::CONV_32_12A(UINT32 inCol)
 {
-	UINT16 auxr = 0, auxg = 0, auxb = 0, auxa = 0;
+    UINT16 auxr = 0, auxg = 0, auxb = 0, auxa = 0;
 
-	//UINT16 swapped = SWAP_16(inCol);
+    //UINT16 swapped = SWAP_16(inCol);
 
-	auxa = ((inCol & 0xFF000000) >> 24);
-	auxb = ((inCol & 0x00FF0000) >> 16);
-	auxg = ((inCol & 0x0000FF00) >> 8);
-	auxr = ((inCol & 0x000000FF));
+    auxa = ((inCol & 0xFF000000) >> 24);
+    auxb = ((inCol & 0x00FF0000) >> 16);
+    auxg = ((inCol & 0x0000FF00) >> 8);
+    auxr = ((inCol & 0x000000FF));
 
-	auxa = (auxa > 15 * 17 ? auxa = 15 * 17 : auxa);
-	auxr = (auxr > 15 * 17 ? auxr = 15 * 17 : auxr);
-	auxg = (auxg > 15 * 17 ? auxg = 15 * 17 : auxg);
-	auxb = (auxb > 15 * 17 ? auxb = 15 * 17 : auxb);
+    auxa = (auxa > 15 * 17 ? auxa = 15 * 17 : auxa);
+    auxr = (auxr > 15 * 17 ? auxr = 15 * 17 : auxr);
+    auxg = (auxg > 15 * 17 ? auxg = 15 * 17 : auxg);
+    auxb = (auxb > 15 * 17 ? auxb = 15 * 17 : auxb);
 
-	auxr /= 17;
-	auxg /= 17;
-	auxb /= 17;
-	auxa /= 17;
+    auxr /= 17;
+    auxg /= 17;
+    auxb /= 17;
+    auxa /= 17;
 
-	//auxb = auxb;
-	auxg = auxg << (4);
-	auxr = auxr << (8);
-	auxa = auxa << (12);
+    //auxb = auxb;
+    auxg = auxg << (4);
+    auxr = auxr << (8);
+    auxa = auxa << (12);
 
-	return (auxb | auxg | auxr | auxa);
+    return (auxb | auxg | auxr | auxa);
 }
 
 UINT32 CGameClass::CONV_12A_32(UINT16 inCol)
 {
-	UINT32 auxr = 0, auxg = 0, auxb = 0, auxa = 0;
+    UINT32 auxr = 0, auxg = 0, auxb = 0, auxa = 0;
 
-	auxb = (inCol & 0xF);
-	auxg = (inCol & 0xF0) >> 4;
-	auxr = (inCol & 0xF00) >> 8;
-	auxa = (inCol & 0xF000) >> 12;
+    auxb = (inCol & 0xF);
+    auxg = (inCol & 0xF0) >> 4;
+    auxr = (inCol & 0xF00) >> 8;
+    auxa = (inCol & 0xF000) >> 12;
 
-	auxr *= 17;
-	auxg *= 17;
-	auxb *= 17;
-	auxa *= 17;
+    auxr *= 17;
+    auxg *= 17;
+    auxb *= 17;
+    auxa *= 17;
 
-	//auxr = auxr;
-	auxg = auxg << 8;
-	auxb = auxb << 16;
-	auxa = auxa << 24;
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
 
-	return (auxb | auxg | auxr | auxa);
+    return (auxb | auxg | auxr | auxa);
 }
 
 UINT32 CGameClass::CONV_15_32(UINT16 inCol)
 {
-	UINT32 auxr = 0, auxg = 0, auxb = 0;
+    UINT32 auxr = 0, auxg = 0, auxb = 0;
 
-	UINT16 swapped = SWAP_16(inCol);
+    UINT16 swapped = SWAP_16(inCol);
 
-	auxb = (swapped & 0x7C00) >> 10;
-	auxg = (swapped & 0x3E0) >> 5;
-	auxr = (swapped & 0x1F);
+    auxb = (swapped & 0x7C00) >> 10;
+    auxg = (swapped & 0x3E0) >> 5;
+    auxr = (swapped & 0x1F);
 
-	auxr = auxr << (3);
-	auxg = auxg << (3);
-	auxb = auxb << (3);
+    auxr = auxr << (3);
+    auxg = auxg << (3);
+    auxb = auxb << (3);
 
-	auxr += auxr / 32;
-	auxg += auxg / 32;
-	auxb += auxb / 32;
+    auxr += auxr / 32;
+    auxg += auxg / 32;
+    auxb += auxb / 32;
 
-	//auxr = auxr;
-	auxg = auxg << 8;
-	auxb = auxb << 16;
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
 
-	return (auxb | auxg | auxr | 0xFF000000);
+    return (auxb | auxg | auxr | 0xFF000000);
 }
 
 UINT16 CGameClass::CONV_32_15(UINT32 inCol)
 {
-	UINT16 auxr = 0, auxg = 0, auxb = 0;
+    UINT16 auxr = 0, auxg = 0, auxb = 0;
 
-	auxb = (inCol & 0x00FF0000) >> (16);
-	auxg = (inCol & 0x0000FF00) >> (8);
-	auxr = (inCol & 0x000000FF);
+    auxb = (inCol & 0x00FF0000) >> (16);
+    auxg = (inCol & 0x0000FF00) >> (8);
+    auxr = (inCol & 0x000000FF);
 
-	auxb /= 8;
-	auxg /= 8;
-	auxr /= 8;
+    auxb /= 8;
+    auxg /= 8;
+    auxr /= 8;
 
-	//auxr = auxr;
-	auxg = auxg << (5);
-	auxb = auxb << (10);
+    //auxr = auxr;
+    auxg = auxg << (5);
+    auxb = auxb << (10);
 
-	return SWAP_16(auxb | auxg | auxr);
+    return SWAP_16(auxb | auxg | auxr);
 }
 
 UINT32 CGameClass::CONV_15ALT_32(UINT16 inCol)
 {
-	UINT32 auxr = 0, auxg = 0, auxb = 0;
+    UINT32 auxr = 0, auxg = 0, auxb = 0;
 
-	UINT16 swapped = inCol;//SWAP_16(inCol);
+    UINT16 swapped = inCol;//SWAP_16(inCol);
 
-	auxr = (swapped & 0x7C00) >> 10;
-	auxg = (swapped & 0x3E0) >> 5;
-	auxb = (swapped & 0x1F);
+    auxr = (swapped & 0x7C00) >> 10;
+    auxg = (swapped & 0x3E0) >> 5;
+    auxb = (swapped & 0x1F);
 
-	auxr = auxr << (3);
-	auxg = auxg << (3);
-	auxb = auxb << (3);
+    auxr = auxr << (3);
+    auxg = auxg << (3);
+    auxb = auxb << (3);
 
-	auxr += auxr / 32;
-	auxg += auxg / 32;
-	auxb += auxb / 32;
+    auxr += auxr / 32;
+    auxg += auxg / 32;
+    auxb += auxb / 32;
 
-	//auxr = auxr;
-	auxg = auxg << 8;
-	auxb = auxb << 16;
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
 
-	return (auxb | auxg | auxr | 0xFF000000);
+    return (auxb | auxg | auxr | 0xFF000000);
 }
 
 UINT16 CGameClass::CONV_32_15ALT(UINT32 inCol)
 {
-	UINT16 auxr = 0, auxg = 0, auxb = 0;
+    UINT16 auxr = 0, auxg = 0, auxb = 0;
 
-	auxb = (inCol & 0x00FF0000) >> (16);
-	auxg = (inCol & 0x0000FF00) >> (8);
-	auxr = (inCol & 0x000000FF);
+    auxb = (inCol & 0x00FF0000) >> (16);
+    auxg = (inCol & 0x0000FF00) >> (8);
+    auxr = (inCol & 0x000000FF);
 
-	auxb /= 8;
-	auxg /= 8;
-	auxr /= 8;
+    auxb /= 8;
+    auxg /= 8;
+    auxr /= 8;
 
-	auxr = auxr << (10);
-	auxg = auxg << (5);
-	//auxb = auxb;
+    auxr = auxr << (10);
+    auxg = auxg << (5);
+    //auxb = auxb;
 
-	return auxb | auxg | auxr;
+    return auxb | auxg | auxr;
 }
 
 UINT16 CGameClass::SWAP_16(UINT16 palv)
 {
-	UINT16 aux = 0;
-	aux |= palv << 8;
-	aux |= palv >> 8;
-	return aux;
+    UINT16 aux = 0;
+    aux |= palv << 8;
+    aux |= palv >> 8;
+    return aux;
 }
 
 BOOL CGameClass::SetLoadDir(CHAR* szNewDir)
 {
-	if (!szDir)
-	{
-		szDir = new CHAR[strlen(szNewDir) + 1];
-		strcpy(szDir, szNewDir);
+    if (!szDir)
+    {
+        szDir = new CHAR[strlen(szNewDir) + 1];
+        strcpy(szDir, szNewDir);
 
-		return TRUE;
-	}
-	else
-	{
-		return FALSE;
-	}
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
 };
 
 void CGameClass::SetSourcePal(int nIndex, int nUnitId, int nStart, int nAmt, int nInc)
 {
-	if (nIndex >= 4)
-	{
-		return;
-	}
+    if (nIndex >= 4)
+    {
+        return;
+    }
 
-	nSrcPalUnit[nIndex] = nUnitId;
-	nSrcPalStart[nIndex] = nStart;
-	nSrcPalAmt[nIndex] = nAmt;
-	nSrcPalInc[nIndex] = nInc;
+    nSrcPalUnit[nIndex] = nUnitId;
+    nSrcPalStart[nIndex] = nStart;
+    nSrcPalAmt[nIndex] = nAmt;
+    nSrcPalInc[nIndex] = nInc;
 }
 
 void CGameClass::Revert(int nPalId)
 {
-	sPalRedir* RedirIndex = &BasePalGroup.GetRedir()[nPalId];
+    sPalRedir* RedirIndex = &BasePalGroup.GetRedir()[nPalId];
 
-	sPalDef* CurrPalDef = BasePalGroup.GetPalDef(RedirIndex->nDefIndex);
-	sPalSep* CurrPalSep = CurrPalDef->SepList[RedirIndex->nSepIndex];
+    sPalDef* CurrPalDef = BasePalGroup.GetPalDef(RedirIndex->nDefIndex);
+    sPalSep* CurrPalSep = CurrPalDef->SepList[RedirIndex->nSepIndex];
 
-	COLORREF* pTempPal = CreatePal(CurrPalDef->uUnitId, CurrPalDef->uPalId);
+    COLORREF* pTempPal = CreatePal(CurrPalDef->uUnitId, CurrPalDef->uPalId);
 
-	int nStart = CurrPalSep->nStart;
-	int nAmt = CurrPalSep->nAmt;
+    int nStart = CurrPalSep->nStart;
+    int nAmt = CurrPalSep->nAmt;
 
-	for (int i = nStart; i < nStart + nAmt; i++)
-	{
-		CurrPalDef->pPal[i] = pTempPal[i];
-		//CurrPalDef->pBasePal[i] = pTempPal[i];
-	}
+    for (int i = nStart; i < nStart + nAmt; i++)
+    {
+        CurrPalDef->pPal[i] = pTempPal[i];
+        //CurrPalDef->pBasePal[i] = pTempPal[i];
+    }
 
-	delete[] pTempPal;
+    delete[] pTempPal;
 }
 
 COLORREF*** CGameClass::CreateImgOutPal()
 {
-	COLORREF*** pppReturnPal;
+    COLORREF*** pppReturnPal;
 
-	if (nSrcPalStart[0] == -1)
-	{
-		return NULL;
-	}
-	else
-	{
-		int i = 0;
-		int nPalAmt = nSrcPalAmt[0];
+    if (nSrcPalStart[0] == -1)
+    {
+        return NULL;
+    }
+    else
+    {
+        int i = 0;
+        int nPalAmt = nSrcPalAmt[0];
 
-		while (nSrcPalStart[i] != -1 && i < 4)
-		{
-			i++;
-		}
+        while (nSrcPalStart[i] != -1 && i < 4)
+        {
+            i++;
+        }
 
-		pppReturnPal = new COLORREF * *[i];
+        pppReturnPal = new COLORREF * *[i];
 
-		//Pass 2
-		i = 0;
-		while (nSrcPalStart[i] != -1 && i < 4)
-		{
-			pppReturnPal[i] = new COLORREF * [nPalAmt];
+        //Pass 2
+        i = 0;
+        while (nSrcPalStart[i] != -1 && i < 4)
+        {
+            pppReturnPal[i] = new COLORREF * [nPalAmt];
 
-			for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-			{
-				pppReturnPal[i][nPalCtr] = CreatePal(nSrcPalUnit[i], nSrcPalStart[i] + (nPalCtr * nSrcPalInc[i]));
-			}
+            for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            {
+                pppReturnPal[i][nPalCtr] = CreatePal(nSrcPalUnit[i], nSrcPalStart[i] + (nPalCtr * nSrcPalInc[i]));
+            }
 
-			i++;
-		}
-	}
+            i++;
+        }
+    }
 
-	return pppReturnPal;
+    return pppReturnPal;
 }
 
 BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz)
 {
-	UINT32* pMulRg = new UINT32[nIndexAmt];
-	int nNewPalSzCpy = 0;
+    UINT32* pMulRg = new UINT32[nIndexAmt];
+    int nNewPalSzCpy = 0;
 
-	memset(pMulRg, 0xFF, nIndexAmt * sizeof(UINT32));
+    memset(pMulRg, 0xFF, nIndexAmt * sizeof(UINT32));
 
-	for (int nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
-	{
-		if (nPalSz - (nPICtr / nPalSz) * nPalSz == nExclusion)
-		{
-			nPICtr++;
-		}
+    for (int nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
+    {
+        if (nPalSz - (nPICtr / nPalSz) * nPalSz == nExclusion)
+        {
+            nPICtr++;
+        }
 
-		if (nPICtr < nIndexAmt)
-		{
-			int nMulCtr = 0;
+        if (nPICtr < nIndexAmt)
+        {
+            int nMulCtr = 0;
 
-			while (pMulRg[nMulCtr] != 0xFFFFFFFF)
-			{
-				if (pMulRg[nMulCtr] == pData[nPICtr])
-				{
-					break;
-				}
+            while (pMulRg[nMulCtr] != 0xFFFFFFFF)
+            {
+                if (pMulRg[nMulCtr] == pData[nPICtr])
+                {
+                    break;
+                }
 
-				nMulCtr++;
-			}
+                nMulCtr++;
+            }
 
-			if (nMulCtr == nNewPalSzCpy)
-			{
-				pMulRg[nNewPalSzCpy] = pData[nPICtr];
-				nNewPalSzCpy++;
-			}
-		}
-	}
+            if (nMulCtr == nNewPalSzCpy)
+            {
+                pMulRg[nNewPalSzCpy] = pData[nPICtr];
+                nNewPalSzCpy++;
+            }
+        }
+    }
 
-	if (nNewPalSzCpy)
-	{
-		//Delete the previous data
-		safe_delete_array(pIndexRedir);
+    if (nNewPalSzCpy)
+    {
+        //Delete the previous data
+        safe_delete_array(pIndexRedir);
 
-		//Create the redirect
-		pIndexRedir = new UINT16[nIndexAmt];
+        //Create the redirect
+        pIndexRedir = new UINT16[nIndexAmt];
 
-		for (int nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
-		{
-			if (nPalSz - (nPICtr / nPalSz) * nPalSz == nExclusion)
-			{
-				pIndexRedir[nPICtr] = 0;
-			}
-			else
-			{
-				for (int nMulCtr = 0; nMulCtr < nNewPalSzCpy; nMulCtr++)
-				{
-					if (pMulRg[nMulCtr] == pData[nPICtr])
-					{
-						pIndexRedir[nPICtr] = nMulCtr;
-						break;
-					}
-				}
-			}
-		}
+        for (int nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
+        {
+            if (nPalSz - (nPICtr / nPalSz) * nPalSz == nExclusion)
+            {
+                pIndexRedir[nPICtr] = 0;
+            }
+            else
+            {
+                for (int nMulCtr = 0; nMulCtr < nNewPalSzCpy; nMulCtr++)
+                {
+                    if (pMulRg[nMulCtr] == pData[nPICtr])
+                    {
+                        pIndexRedir[nPICtr] = nMulCtr;
+                        break;
+                    }
+                }
+            }
+        }
 
-		//Create the palette
-		UINT32 uAlpha = nAIndexAmt ? 0 : 0xFF000000;
+        //Create the palette
+        UINT32 uAlpha = nAIndexAmt ? 0 : 0xFF000000;
 
-		*pNewPal = new COLORREF[nNewPalSzCpy];
+        *pNewPal = new COLORREF[nNewPalSzCpy];
 
-		for (int nPICtr = 0; nPICtr < nNewPalSzCpy; nPICtr++)
-		{
-			(*pNewPal)[nPICtr] = ConvPal(pMulRg[nPICtr]) | uAlpha;
-		}
+        for (int nPICtr = 0; nPICtr < nNewPalSzCpy; nPICtr++)
+        {
+            (*pNewPal)[nPICtr] = ConvPal(pMulRg[nPICtr]) | uAlpha;
+        }
 
-		*nNewPalSz = nNewPalSzCpy;
+        *nNewPalSz = nNewPalSzCpy;
 
-		return TRUE;
-	}
-	else
-	{
-		safe_delete_array(pMulRg);
+        return TRUE;
+    }
+    else
+    {
+        safe_delete_array(pMulRg);
 
-		return FALSE;
-	}
+        return FALSE;
+    }
 }

@@ -8,92 +8,92 @@
 
 class CImgOutDlg : public CDialog
 {
-	DECLARE_DYNAMIC(CImgOutDlg)
+    DECLARE_DYNAMIC(CImgOutDlg)
 
 public:
-	CImgOutDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CImgOutDlg();
+    CImgOutDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CImgOutDlg();
 
-// Dialog Data
-	enum { IDD = IDD_IMGDDLG };
+    // Dialog Data
+    enum { IDD = IDD_IMGDDLG };
 
-//Img Data
-	CImgDumpBmp m_DumpBmp;
+    //Img Data
+    CImgDumpBmp m_DumpBmp;
 
-	int img_amt = 0;
+    int img_amt = 0;
 
-	RECT rct_dummy = {};
+    RECT rct_dummy = {};
 
 protected:
-	HICON m_hIcon;
+    HICON m_hIcon;
 
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 public:
 
-	BOOL bDlgInit = FALSE;
+    BOOL bDlgInit = FALSE;
 
-	CComboBox m_CB_Amt;
-	CComboBox m_CB_Pal;
-	CComboBox m_CB_Zoom;
+    CComboBox m_CB_Amt;
+    CComboBox m_CB_Pal;
+    CComboBox m_CB_Zoom;
 
-	BOOL bCanSize = FALSE;
+    BOOL bCanSize = FALSE;
 
-	BOOL bTransPNG = FALSE;
+    BOOL bTransPNG = FALSE;
 
-	CHAR * pButtonLabel;
+    CHAR* pButtonLabel;
 
-	int nPalAmt = 0;
+    int nPalAmt = 0;
 
-	// BUGBUG: m_amt seems wholly unused
-	int m_amt = 0;
-	int m_pal = 0;
-	int m_zoom = 0;
-	int border_sz = 0;
-	int outline_sz = 0;
+    // BUGBUG: m_amt seems wholly unused
+    int m_amt = 0;
+    int m_pal = 0;
+    int m_zoom = 0;
+    int border_sz = 0;
+    int outline_sz = 0;
 
-	int nZoomMin = 0;
-	int nZoomMax = 0;
+    int nZoomMin = 0;
+    int nZoomMax = 0;
 
-	void UpdImgVar(BOOL bResize = TRUE);
-	void FillPalCombo();
+    void UpdImgVar(BOOL bResize = TRUE);
+    void FillPalCombo();
 
-	afx_msg void OnSize(UINT nType,int cx,int cy );
-	afx_msg	void OnShowWindow(BOOL bShow, UINT nStatus);
-	
-	void UpdateImg();
-	afx_msg void OnCbnSelchangeAmt();
-	afx_msg void OnCbnSelchangePal();
-	afx_msg void OnCbnSelchangeZoom();
-	
-	afx_msg void OnEnChangeBdrsz();
-	afx_msg void OnEnChangeSpcsz();
-	afx_msg void OnDeltaposBdrspn(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnSize(UINT nType, int cx, int cy);
+    afx_msg    void OnShowWindow(BOOL bShow, UINT nStatus);
 
-	CSpinButtonCtrl m_BdrSpn;
-	afx_msg void OnSettingsSetbackgroundcolor32847();
-	afx_msg void OnFileSave();
-	afx_msg void OnClose( );
+    void UpdateImg();
+    afx_msg void OnCbnSelchangeAmt();
+    afx_msg void OnCbnSelchangePal();
+    afx_msg void OnCbnSelchangeZoom();
 
-	int re5(int re_val){return re_val%5;};
+    afx_msg void OnEnChangeBdrsz();
+    afx_msg void OnEnChangeSpcsz();
+    afx_msg void OnDeltaposBdrspn(NMHDR* pNMHDR, LRESULT* pResult);
 
-	void LoadSettings();
-	void SaveSettings();
+    CSpinButtonCtrl m_BdrSpn;
+    afx_msg void OnSettingsSetbackgroundcolor32847();
+    afx_msg void OnFileSave();
+    afx_msg void OnClose();
 
-	void ResizeBmp();
-	afx_msg void OnEnChangeEditBdrsz();
+    int re5(int re_val) { return re_val % 5; };
 
-	BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
-	afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
+    void LoadSettings();
+    void SaveSettings();
 
-	void AddZoom(){int nCurrZoom = m_CB_Zoom.GetCurSel() + 1; if(nCurrZoom <= nZoomMax)m_CB_Zoom.SetCurSel(nCurrZoom); UpdateImg();};
-	void SubZoom(){int nCurrZoom = m_CB_Zoom.GetCurSel() - 1; if(nCurrZoom >= nZoomMin)m_CB_Zoom.SetCurSel(nCurrZoom); UpdateImg();};
-	afx_msg void OnSettingsUsetransparentpng();
-	afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
+    void ResizeBmp();
+    afx_msg void OnEnChangeEditBdrsz();
+
+    BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
+    afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
+
+    void AddZoom() { int nCurrZoom = m_CB_Zoom.GetCurSel() + 1; if (nCurrZoom <= nZoomMax)m_CB_Zoom.SetCurSel(nCurrZoom); UpdateImg(); };
+    void SubZoom() { int nCurrZoom = m_CB_Zoom.GetCurSel() - 1; if (nCurrZoom >= nZoomMin)m_CB_Zoom.SetCurSel(nCurrZoom); UpdateImg(); };
+    afx_msg void OnSettingsUsetransparentpng();
+    afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
 };
 
-const int amt_val[] = {1, 6, 7};
+const int amt_val[] = { 1, 6, 7 };
 

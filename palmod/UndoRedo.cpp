@@ -3,148 +3,148 @@
 
 CUndoRedo::CUndoRedo()
 {
-	UndoStart = NULL;
-	RedoStart = NULL;
+    UndoStart = NULL;
+    RedoStart = NULL;
 
-	UndoTail = NULL;
-	RedoTail = NULL;
+    UndoTail = NULL;
+    RedoTail = NULL;
 }
 
 CUndoNode* CUndoRedo::NewNode(CUndoNode** start, CUndoNode** tail)
 {
-	if (GetCount(*start) >= UR_LIMIT)
-		DeleteTail(start, tail);
+    if (GetCount(*start) >= UR_LIMIT)
+        DeleteTail(start, tail);
 
-	CUndoNode* newnode;
+    CUndoNode* newnode;
 
-	BOOL bIsTail = *start == NULL ? TRUE : FALSE;
+    BOOL bIsTail = *start == NULL ? TRUE : FALSE;
 
-	newnode = new CUndoNode;
-	newnode->next = *start;
-	*start = newnode;
+    newnode = new CUndoNode;
+    newnode->next = *start;
+    *start = newnode;
 
-	if (bIsTail) *tail = *start;
+    if (bIsTail) *tail = *start;
 
-	return newnode;
+    return newnode;
 }
 
 void CUndoRedo::Insert(CUndoNode* newnode, CUndoNode** start, CUndoNode** tail)
 {
-	if (GetCount(*start) >= UR_LIMIT)
-		DeleteTail(start, tail);
+    if (GetCount(*start) >= UR_LIMIT)
+        DeleteTail(start, tail);
 
-	BOOL bIsTail = *start == NULL ? TRUE : FALSE;
+    BOOL bIsTail = *start == NULL ? TRUE : FALSE;
 
-	newnode->next = *start;
-	*start = newnode;
+    newnode->next = *start;
+    *start = newnode;
 
-	if (bIsTail) *tail = *start;
+    if (bIsTail) *tail = *start;
 }
 
 void CUndoRedo::Delete(CUndoNode** start, CUndoNode** tail)
 {
-	CUndoNode* delnode;
+    CUndoNode* delnode;
 
-	if (*start == *tail)
-	{
-		delete* start;
-		*start = NULL;
-		*tail = NULL;
+    if (*start == *tail)
+    {
+        delete* start;
+        *start = NULL;
+        *tail = NULL;
 
-		return;
-	}
+        return;
+    }
 
-	if (*start)
-	{
-		delnode = *start;
-		*start = delnode->next;
-		delete delnode;
-	}
+    if (*start)
+    {
+        delnode = *start;
+        *start = delnode->next;
+        delete delnode;
+    }
 }
 
 void CUndoRedo::DeleteTail(CUndoNode** start, CUndoNode** tail)
 {
-	if (*start == *tail)
-	{
-		delete* tail;
-		*start = NULL;
-		*tail = NULL;
+    if (*start == *tail)
+    {
+        delete* tail;
+        *start = NULL;
+        *tail = NULL;
 
-		return;
-	}
-	else if (*tail == NULL)
-	{
-		return;
-	}
+        return;
+    }
+    else if (*tail == NULL)
+    {
+        return;
+    }
 
-	CUndoNode* delnodenext = *start;
-	CUndoNode* delnode = nullptr;
+    CUndoNode* delnodenext = *start;
+    CUndoNode* delnode = nullptr;
 
-	while (delnodenext != *tail)
-	{
-		delnode = delnodenext;
-		delnodenext = delnodenext->next;
-	}
+    while (delnodenext != *tail)
+    {
+        delnode = delnodenext;
+        delnodenext = delnodenext->next;
+    }
 
-	if (delnode)
-	{
-		delnode->next = NULL;
-	}
+    if (delnode)
+    {
+        delnode->next = NULL;
+    }
 
-	delete* tail;
-	*tail = delnode;
+    delete* tail;
+    *tail = delnode;
 }
 
 CUndoNode* CUndoRedo::Pop(CUndoNode** start, CUndoNode** tail)
 {
-	if (*start)
-	{
-		if (*start == *tail)
-		{
+    if (*start)
+    {
+        if (*start == *tail)
+        {
 
-			*tail = NULL;
-		}
+            *tail = NULL;
+        }
 
-		CUndoNode* popnode = *start;
-		*start = popnode->next;
-		return popnode;
-	}
-	else
-	{
-		return NULL;
-	}
+        CUndoNode* popnode = *start;
+        *start = popnode->next;
+        return popnode;
+    }
+    else
+    {
+        return NULL;
+    }
 }
 
 int CUndoRedo::GetCount(CUndoNode* start)
 {
-	CUndoNode* countnode;
-	int i = 0;
+    CUndoNode* countnode;
+    int i = 0;
 
-	countnode = start;
+    countnode = start;
 
-	while (countnode)
-	{
-		i++;
+    while (countnode)
+    {
+        i++;
 
-		countnode = countnode->next;
-	}
+        countnode = countnode->next;
+    }
 
-	return i;
+    return i;
 }
 
 void CUndoRedo::DeleteList(CUndoNode** start)
 {
-	CUndoNode* delnode;
-	CUndoNode* delnodenext;
+    CUndoNode* delnode;
+    CUndoNode* delnodenext;
 
-	delnodenext = *start;
+    delnodenext = *start;
 
-	while (delnodenext)
-	{
-		delnode = delnodenext;
-		delnodenext = delnode->next;
-		delete delnode;
-	}
+    while (delnodenext)
+    {
+        delnode = delnodenext;
+        delnodenext = delnode->next;
+        delete delnode;
+    }
 
-	*start = NULL;
+    *start = NULL;
 }

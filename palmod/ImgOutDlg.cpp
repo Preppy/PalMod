@@ -14,9 +14,9 @@ using namespace Gdiplus;
 
 IMPLEMENT_DYNAMIC(CImgOutDlg, CDialog)
 CImgOutDlg::CImgOutDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CImgOutDlg::IDD, pParent)
+    : CDialog(CImgOutDlg::IDD, pParent)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+    m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CImgOutDlg::~CImgOutDlg()
@@ -25,552 +25,549 @@ CImgOutDlg::~CImgOutDlg()
 
 void CImgOutDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+    CDialog::DoDataExchange(pDX);
 
-	DDX_Control(pDX, IDC_IMGDBMP, m_DumpBmp);
-	DDX_Control(pDX, IDC_AMT, m_CB_Amt);
-	DDX_Control(pDX, IDC_PAL, m_CB_Pal);
-	DDX_Control(pDX, IDC_ZOOM, m_CB_Zoom);
-	DDX_Text(pDX, IDC_EDIT_BDRSZ, border_sz);
-	DDX_Text(pDX, IDC_EDIT_SPCSZ, outline_sz);
-	DDX_CBIndex(pDX, IDC_AMT, m_amt);
-	DDX_CBIndex(pDX, IDC_PAL, m_pal);
-	DDX_CBIndex(pDX, IDC_ZOOM, m_zoom);
-	DDX_Control(pDX, IDC_BDRSPN, m_BdrSpn);
+    DDX_Control(pDX, IDC_IMGDBMP, m_DumpBmp);
+    DDX_Control(pDX, IDC_AMT, m_CB_Amt);
+    DDX_Control(pDX, IDC_PAL, m_CB_Pal);
+    DDX_Control(pDX, IDC_ZOOM, m_CB_Zoom);
+    DDX_Text(pDX, IDC_EDIT_BDRSZ, border_sz);
+    DDX_Text(pDX, IDC_EDIT_SPCSZ, outline_sz);
+    DDX_CBIndex(pDX, IDC_AMT, m_amt);
+    DDX_CBIndex(pDX, IDC_PAL, m_pal);
+    DDX_CBIndex(pDX, IDC_ZOOM, m_zoom);
+    DDX_Control(pDX, IDC_BDRSPN, m_BdrSpn);
 }
 
-BOOL CImgOutDlg::OnInitDialog( )
+BOOL CImgOutDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
-	
-	CGameClass * CurrGame = GetHost()->GetCurrGame();
+    CDialog::OnInitDialog();
 
-	//Set dialog data
-	pButtonLabel = CurrGame->GetButtonDesc();
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
 
-	//Set the image controls data
-	m_DumpBmp.pMainImgCtrl = &GetHost()->GetPreviewDlg()->m_ImgDisp;
-	m_DumpBmp.pppPalettes = CurrGame->CreateImgOutPal();
-	m_DumpBmp.nPalAmt = CurrGame->GetImgOutPalAmt();
-	m_DumpBmp.DispType = CurrGame->GetImgDispType();
+    //Set dialog data
+    pButtonLabel = CurrGame->GetButtonDesc();
 
-	// Set the icon
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+    //Set the image controls data
+    m_DumpBmp.pMainImgCtrl = &GetHost()->GetPreviewDlg()->m_ImgDisp;
+    m_DumpBmp.pppPalettes = CurrGame->CreateImgOutPal();
+    m_DumpBmp.nPalAmt = CurrGame->GetImgOutPalAmt();
+    m_DumpBmp.DispType = CurrGame->GetImgDispType();
 
-	CString tmp_str;
-	UpdateData();
+    // Set the icon
+    SetIcon(m_hIcon, TRUE);            // Set big icon
+    SetIcon(m_hIcon, FALSE);        // Set small icon
 
-	nPalAmt = m_DumpBmp.nPalAmt;
-	
-	m_CB_Amt.AddString("1");
+    CString tmp_str;
+    UpdateData();
 
-	switch (nPalAmt)
-	{
-	case 1:
-	default:
-		{
-			// By default, we export out only the one sprite
-			m_CB_Amt.EnableWindow(FALSE);
+    nPalAmt = m_DumpBmp.nPalAmt;
 
-			//FillPalCombo();
+    m_CB_Amt.AddString("1");
 
-			break;
-		}
-		//Fix later.. if we have more games
-	case 6:
-	case 7:
-		{
-			// Allow the user to export either the solitary sprite or to export
-			// the entire sprite set.
-			m_CB_Amt.AddString("6");
-			nPalAmt == 7 ? m_CB_Amt.AddString("7") : NULL;
-			break;
-		}
-	}
-	
-	FillPalCombo();
+    switch (nPalAmt)
+    {
+    case 1:
+    default:
+    {
+        // By default, we export out only the one sprite
+        m_CB_Amt.EnableWindow(FALSE);
 
-	//Cannot get accurate remainder amount
+        //FillPalCombo();
 
-	//Populate Zoom combo box
-	//3.8 is the max zoom amt
+        break;
+    }
+    //Fix later.. if we have more games
+    case 6:
+    case 7:
+    {
+        // Allow the user to export either the solitary sprite or to export
+        // the entire sprite set.
+        m_CB_Amt.AddString("6");
+        nPalAmt == 7 ? m_CB_Amt.AddString("7") : NULL;
+        break;
+    }
+    }
 
-	int nTenth = 0;
+    FillPalCombo();
 
-	for(int i = 0; i < (3 * 5) + 1; i++)
-	{
-		if(i == 3*5)
-		{
-			tmp_str.Format("4.0x");
+    //Cannot get accurate remainder amount
 
-		}
-		else
-		{
-			nTenth = i/5;
-			tmp_str.Format("%d.%dx", 1 + (i/5), (i%5)*2);
-		}
-		
-		m_CB_Zoom.AddString(tmp_str);
-	}
+    //Populate Zoom combo box
+    //3.8 is the max zoom amt
 
-	nZoomMin = 0;
-	nZoomMax = (3 * 5);
+    for (int i = 0; i < (3 * 5) + 1; i++)
+    {
+        if (i == 3 * 5)
+        {
+            tmp_str.Format("4.0x");
 
-	/*
-	for(int i = 0; i < 4; i++)
-	{
-		tmp_str.Format("%dx", i+1);
+        }
+        else
+        {
+            tmp_str.Format("%d.%dx", 1 + (i / 5), (i % 5) * 2);
+        }
 
-		m_CB_Zoom.AddString(tmp_str);
-	}
-	*/
+        m_CB_Zoom.AddString(tmp_str);
+    }
 
-	//Change this if we ever decide to load a default image amount
-	img_amt = 1;
+    nZoomMin = 0;
+    nZoomMax = (3 * 5);
 
-	m_BdrSpn.SetRange(0, 999);
-	m_BdrSpn.SetBuddy(GetDlgItem(IDC_EDIT_BDRSZ));
+    /*
+    for (int i = 0; i < 4; i++)
+    {
+        tmp_str.Format("%dx", i+1);
 
-	//Get the size of the dummy rect
+        m_CB_Zoom.AddString(tmp_str);
+    }
+    */
 
-	GetDlgItem(IDC_DUMMY)->GetClientRect(&rct_dummy);
+    //Change this if we ever decide to load a default image amount
+    img_amt = 1;
 
-	bCanSize = TRUE;
+    m_BdrSpn.SetRange(0, 999);
+    m_BdrSpn.SetBuddy(GetDlgItem(IDC_EDIT_BDRSZ));
 
-	LoadSettings();
-	UpdateData(FALSE);
-	
-	UpdImgVar(FALSE);
-	
-	m_DumpBmp.InitImgData();
+    //Get the size of the dummy rect
 
-	//Get the rest of the data
-	bDlgInit = TRUE;
-	return TRUE;
+    GetDlgItem(IDC_DUMMY)->GetClientRect(&rct_dummy);
+
+    bCanSize = TRUE;
+
+    LoadSettings();
+    UpdateData(FALSE);
+
+    UpdImgVar(FALSE);
+
+    m_DumpBmp.InitImgData();
+
+    //Get the rest of the data
+    bDlgInit = TRUE;
+    return TRUE;
 }
 
-afx_msg void CImgOutDlg::OnSize(UINT nType,int cx,int cy )
+afx_msg void CImgOutDlg::OnSize(UINT nType, int cx, int cy)
 {
-	CDialog::OnSize(nType, cx, cy);
+    CDialog::OnSize(nType, cx, cy);
 
-	ResizeBmp();
+    ResizeBmp();
 }
 
 BEGIN_MESSAGE_MAP(CImgOutDlg, CDialog)
-	ON_WM_SHOWWINDOW()
-	ON_WM_SIZE()
-	ON_WM_CLOSE()
+    ON_WM_SHOWWINDOW()
+    ON_WM_SIZE()
+    ON_WM_CLOSE()
 
-	ON_BN_CLICKED(IDC_UPDATE, UpdateImg)
+    ON_BN_CLICKED(IDC_UPDATE, UpdateImg)
 
-	ON_CBN_SELCHANGE(IDC_AMT, OnCbnSelchangeAmt)
-	ON_CBN_SELCHANGE(IDC_PAL, UpdateImg)
-	ON_CBN_SELCHANGE(IDC_ZOOM, UpdateImg)
-	//ON_EN_CHANGE(IDC_EDIT_BDRSZ, UpdateImg)
-	ON_EN_CHANGE(IDC_EDIT_SPCSZ, UpdateImg)
-	//ON_COMMAND(REQ_VAR, UpdImgVar)
-	ON_NOTIFY(UDN_DELTAPOS, IDC_BDRSPN, OnDeltaposBdrspn)
-	ON_COMMAND(ID_SETTINGS_SETBACKGROUNDCOLOR32847, OnSettingsSetbackgroundcolor32847)
-	ON_COMMAND(ID_FILE_SAVE32850, OnFileSave)
-	ON_COMMAND(REQ_VAR, UpdateImg)
-	ON_EN_CHANGE(IDC_EDIT_BDRSZ, OnEnChangeEditBdrsz)
-	ON_WM_GETMINMAXINFO()
-	
-	ON_COMMAND(ID_ACC_ADDZOOM, &CImgOutDlg::AddZoom)
-	ON_COMMAND(ID_ACC_SUBZOOM, &CImgOutDlg::SubZoom)
-	ON_COMMAND(ID_SETTINGS_USETRANSPARENTPNG, &CImgOutDlg::OnSettingsUsetransparentpng)
-	ON_WM_INITMENUPOPUP()
+    ON_CBN_SELCHANGE(IDC_AMT, OnCbnSelchangeAmt)
+    ON_CBN_SELCHANGE(IDC_PAL, UpdateImg)
+    ON_CBN_SELCHANGE(IDC_ZOOM, UpdateImg)
+    //ON_EN_CHANGE(IDC_EDIT_BDRSZ, UpdateImg)
+    ON_EN_CHANGE(IDC_EDIT_SPCSZ, UpdateImg)
+    //ON_COMMAND(REQ_VAR, UpdImgVar)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_BDRSPN, OnDeltaposBdrspn)
+    ON_COMMAND(ID_SETTINGS_SETBACKGROUNDCOLOR32847, OnSettingsSetbackgroundcolor32847)
+    ON_COMMAND(ID_FILE_SAVE32850, OnFileSave)
+    ON_COMMAND(REQ_VAR, UpdateImg)
+    ON_EN_CHANGE(IDC_EDIT_BDRSZ, OnEnChangeEditBdrsz)
+    ON_WM_GETMINMAXINFO()
+
+    ON_COMMAND(ID_ACC_ADDZOOM, &CImgOutDlg::AddZoom)
+    ON_COMMAND(ID_ACC_SUBZOOM, &CImgOutDlg::SubZoom)
+    ON_COMMAND(ID_SETTINGS_USETRANSPARENTPNG, &CImgOutDlg::OnSettingsUsetransparentpng)
+    ON_WM_INITMENUPOPUP()
 END_MESSAGE_MAP()
 
 // CImgOutDlg message handlers
 
 void CImgOutDlg::OnShowWindow(BOOL bShow, UINT nStatus)
-{	
-	CDialog::OnShowWindow(bShow, nStatus);
+{
+    CDialog::OnShowWindow(bShow, nStatus);
 
-	m_CB_Amt.SetCurSel(0);
-	m_CB_Pal.SetCurSel(0);
-	//m_CB_Zoom.SetCurSel(0);
+    m_CB_Amt.SetCurSel(0);
+    m_CB_Pal.SetCurSel(0);
+    //m_CB_Zoom.SetCurSel(0);
 }
 
 void CImgOutDlg::UpdImgVar(BOOL bResize)
 {
-	UpdateData();
+    UpdateData();
 
-	m_DumpBmp.amt = img_amt;
-	m_DumpBmp.nPalIndex = m_pal;
+    m_DumpBmp.amt = img_amt;
+    m_DumpBmp.nPalIndex = m_pal;
 
-	//Remainder Problem
+    //Remainder Problem
 
-	double fpTargetZoom;
+    double fpTargetZoom;
 
-	if (m_zoom == 15)
-	{
-		fpTargetZoom = 4.0;
-	}
-	else
-	{
-		fpTargetZoom = ((m_zoom / 5) + 1);
-		fpTargetZoom += (0.2 * ((m_zoom)%5));
-	}
+    if (m_zoom == 15)
+    {
+        fpTargetZoom = 4.0;
+    }
+    else
+    {
+        fpTargetZoom = ((m_zoom / 5) + 1);
+        fpTargetZoom += (0.2 * ((m_zoom) % 5));
+    }
 
-	m_DumpBmp.zoom = (float)fpTargetZoom;
-	m_DumpBmp.outline_sz = outline_sz;
-	m_DumpBmp.border_sz = border_sz;
+    m_DumpBmp.zoom = (float)fpTargetZoom;
+    m_DumpBmp.outline_sz = outline_sz;
+    m_DumpBmp.border_sz = border_sz;
 
-	m_DumpBmp.GetOutputW();
-	m_DumpBmp.GetOutputH();
+    m_DumpBmp.GetOutputW();
+    m_DumpBmp.GetOutputH();
 
-	if (bResize)
-	{
-		m_DumpBmp.ResizeMainBmp();
-	}
+    if (bResize)
+    {
+        m_DumpBmp.ResizeMainBmp();
+    }
 
-	UpdateData(FALSE);
+    UpdateData(FALSE);
 
-	//m_DumpBmp.UpdateBltRect(FALSE);
+    //m_DumpBmp.UpdateBltRect(FALSE);
 }
 
 void CImgOutDlg::UpdateImg()
 {
-	UpdImgVar();
-	m_DumpBmp.UpdateBltRect(FALSE);
-	m_DumpBmp.UpdateClip();
-	m_DumpBmp.UpdateCtrl();
+    UpdImgVar();
+    m_DumpBmp.UpdateBltRect(FALSE);
+    m_DumpBmp.UpdateClip();
+    m_DumpBmp.UpdateCtrl();
 }
 
 void CImgOutDlg::OnCbnSelchangeAmt()
 {
-	UpdateData();
+    UpdateData();
 
-	img_amt = amt_val[m_CB_Amt.GetCurSel()];
-	m_CB_Pal.EnableWindow(img_amt == 1);
+    img_amt = amt_val[m_CB_Amt.GetCurSel()];
+    m_CB_Pal.EnableWindow(img_amt == 1);
 
-	//There's no member variable for the border size edit box
-	//But now I decided to just use border size instead of outline
+    //There's no member variable for the border size edit box
+    //But now I decided to just use border size instead of outline
 
-	//GetDlgItem(IDC_BDRSZ)->EnableWindow(!is_basic_amt);
+    //GetDlgItem(IDC_BDRSZ)->EnableWindow(!is_basic_amt);
 
-	UpdateData(FALSE);
+    UpdateData(FALSE);
 
-	//m_DumpBmp.UpdateBltRect(FALSE);
+    //m_DumpBmp.UpdateBltRect(FALSE);
 
-	UpdateImg();
+    UpdateImg();
 }
 
 void CImgOutDlg::FillPalCombo()
 {
-	switch(nPalAmt)
-	{
-	case 1:
-	default:
-		{
-			m_CB_Pal.AddString("Selected");
-			break;
-		}
-	case 6:
-	case 7:
-		{
-			for(int i = 0; i < nPalAmt; i++)
-			{
-				//Ugh... I wish I started making this program when I had more knowledge :\
-				//Fix later??
-				m_CB_Pal.AddString(&pButtonLabel[i * 3]);
-			}
-		}
-	}
+    switch (nPalAmt)
+    {
+    case 1:
+    default:
+    {
+        m_CB_Pal.AddString("Selected");
+        break;
+    }
+    case 6:
+    case 7:
+    {
+        for (int i = 0; i < nPalAmt; i++)
+        {
+            //Ugh... I wish I started making this program when I had more knowledge :\
+                //Fix later??
+            m_CB_Pal.AddString(&pButtonLabel[i * 3]);
+        }
+    }
+    }
 
-	m_CB_Pal.SetCurSel(0);
+    m_CB_Pal.SetCurSel(0);
 }
 
 void CImgOutDlg::OnCbnSelchangePal()
 {
-	// TODO: Add your control notification handler code here
+    // TODO: Add your control notification handler code here
 }
 
 void CImgOutDlg::OnCbnSelchangeZoom()
 {
-	// TODO: Add your control notification handler code here
+    // TODO: Add your control notification handler code here
 
-	UpdateImg();
+    UpdateImg();
 }
 
 void CImgOutDlg::OnEnChangeBdrsz()
 {
-	
+
 }
 
 void CImgOutDlg::OnEnChangeSpcsz()
 {
-	// TODO:  If this is a RICHEDIT control, the control will not
-	// send this notification unless you override the CDialog::OnInitDialog()
-	// function and call CRichEditCtrl().SetEventMask()
-	// with the ENM_CHANGE flag ORed into the mask.
+    // TODO:  If this is a RICHEDIT control, the control will not
+    // send this notification unless you override the CDialog::OnInitDialog()
+    // function and call CRichEditCtrl().SetEventMask()
+    // with the ENM_CHANGE flag ORed into the mask.
 
-	// TODO:  Add your control notification handler code here
+    // TODO:  Add your control notification handler code here
 }
 
-void CImgOutDlg::OnDeltaposBdrspn(NMHDR *pNMHDR, LRESULT *pResult)
+void CImgOutDlg::OnDeltaposBdrspn(NMHDR* pNMHDR, LRESULT* pResult)
 {
-	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
 
-	m_BdrSpn.SetPos(pNMUpDown->iPos);
-	
-	UpdateImg();
+    m_BdrSpn.SetPos(pNMUpDown->iPos);
 
-	*pResult = 0;
+    UpdateImg();
+
+    *pResult = 0;
 }
 
 void CImgOutDlg::OnSettingsSetbackgroundcolor32847()
 {
-	CColorDialog c_dlg(m_DumpBmp.crBGCol);
-	
-	if(c_dlg.DoModal() == IDOK)
-	{
-		m_DumpBmp.SetBG(c_dlg.GetColor());
-		UpdateImg();
-	}
+    CColorDialog c_dlg(m_DumpBmp.crBGCol);
+
+    if (c_dlg.DoModal() == IDOK)
+    {
+        m_DumpBmp.SetBG(c_dlg.GetColor());
+        UpdateImg();
+    }
 }
 
 void CImgOutDlg::LoadSettings()
 {
-	CRegProc sett;
+    CRegProc sett;
 
-	sett.LoadReg(REG_IMGOUT);
-	
-	m_DumpBmp.crBGCol = sett.imgout_bgcol;
-	
-	m_CB_Zoom.SetCurSel(sett.imgout_zoomindex);
+    sett.LoadReg(REG_IMGOUT);
 
-	UpdateData();
-	
-	bTransPNG = sett.bTransPNG;
-	border_sz = sett.imgout_border;
-	
-	UpdateData(FALSE);
+    m_DumpBmp.crBGCol = sett.imgout_bgcol;
 
-	// This logic is turned off because it causes the imgdumpbmp code to redraw before the
-	// sprite is loaded, which results in all bad.
-	/*
-	RECT window_rect;
+    m_CB_Zoom.SetCurSel(sett.imgout_zoomindex);
 
-	window_rect = sett.imgout_szpos;
+    UpdateData();
 
-	if(window_rect.top != c_badWindowPosValue)
-	{
-		MoveWindow(&window_rect);
-		ResizeBmp();
-	} */
+    bTransPNG = sett.bTransPNG;
+    border_sz = sett.imgout_border;
+
+    UpdateData(FALSE);
+
+    // This logic is turned off because it causes the imgdumpbmp code to redraw before the
+    // sprite is loaded, which results in all bad.
+    /*
+    RECT window_rect;
+
+    window_rect = sett.imgout_szpos;
+
+    if (window_rect.top != c_badWindowPosValue)
+    {
+        MoveWindow(&window_rect);
+        ResizeBmp();
+    } */
 }
 
 void CImgOutDlg::SaveSettings()
 {
-	CRegProc sett;
-	
-	sett.imgout_bgcol = m_DumpBmp.crBGCol;
-	
-	sett.imgout_border = border_sz;
-	sett.imgout_zoomindex = m_CB_Zoom.GetCurSel();
-	sett.bTransPNG = bTransPNG;
+    CRegProc sett;
 
-	RECT window_rect;
+    sett.imgout_bgcol = m_DumpBmp.crBGCol;
 
-	GetWindowRect(&window_rect);
-	sett.imgout_szpos = window_rect;
+    sett.imgout_border = border_sz;
+    sett.imgout_zoomindex = m_CB_Zoom.GetCurSel();
+    sett.bTransPNG = bTransPNG;
 
-	sett.SaveReg(REG_IMGOUT);
+    RECT window_rect;
+
+    GetWindowRect(&window_rect);
+    sett.imgout_szpos = window_rect;
+
+    sett.SaveReg(REG_IMGOUT);
 }
 
 void CImgOutDlg::ResizeBmp()
 {
-	if (bCanSize)
-	{
-		RECT new_sz;
-		GetClientRect(&new_sz);
+    if (bCanSize)
+    {
+        RECT new_sz;
+        GetClientRect(&new_sz);
 
-		new_sz.left += rct_dummy.right;
+        new_sz.left += rct_dummy.right;
 
-		GetDlgItem(IDC_IMGDBMP)->MoveWindow(&new_sz);
+        GetDlgItem(IDC_IMGDBMP)->MoveWindow(&new_sz);
 
-		UpdateImg();
-	}
+        UpdateImg();
+    }
 }
 
 void CImgOutDlg::OnFileSave()
 {
-	CFileDialog sfd(
-		FALSE,
-		NULL,
-		NULL,
-		OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY,
-		"PNG Image (*.png)|*.png|GIF Image (*.gif)|*.GIF|BMP Image (*.bmp)|*.BMP|JPEG Image (*.jpg)|*.jpg||"
-		);
+    CFileDialog sfd(
+        FALSE,
+        NULL,
+        NULL,
+        OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY,
+        "PNG Image (*.png)|*.png|GIF Image (*.gif)|*.GIF|BMP Image (*.bmp)|*.BMP|JPEG Image (*.jpg)|*.jpg||"
+    );
 
-	if(sfd.DoModal() == IDOK)
-	{
-		int output_width = m_DumpBmp.GetOutputW();
-		int output_height = m_DumpBmp.GetOutputH();
+    if (sfd.DoModal() == IDOK)
+    {
+        int output_width = m_DumpBmp.GetOutputW();
+        int output_height = m_DumpBmp.GetOutputH();
 
-		CString output_ext = ".png";
-		GUID img_format = ImageFormatPNG;
+        CString output_ext = ".png";
+        GUID img_format = ImageFormatPNG;
 
-		switch(sfd.GetOFN().nFilterIndex)
-		{
-		default:
-		case 1:
-			{
-				img_format = ImageFormatPNG;
-				output_ext = ".png";
-				break;
-			}
-		case 2:
-			{
-				img_format = ImageFormatGIF;
-				output_ext = ".gif";
-				break;
-			}
-		case 3:
-			{
-				img_format = ImageFormatBMP;
-				output_ext = ".bmp";
-				break;
-			}
-		case 4:
-			{
-				img_format = ImageFormatJPEG;
-				output_ext = ".jpg";
-				break;
-			}
-		}
+        switch (sfd.GetOFN().nFilterIndex)
+        {
+        default:
+        case 1:
+        {
+            img_format = ImageFormatPNG;
+            output_ext = ".png";
+            break;
+        }
+        case 2:
+        {
+            img_format = ImageFormatGIF;
+            output_ext = ".gif";
+            break;
+        }
+        case 3:
+        {
+            img_format = ImageFormatBMP;
+            output_ext = ".bmp";
+            break;
+        }
+        case 4:
+        {
+            img_format = ImageFormatJPEG;
+            output_ext = ".jpg";
+            break;
+        }
+        }
 
-		CImage out_img;
-		out_img.Create( output_width, output_height, 32, CImage::createAlphaChannel * bTransPNG * (sfd.GetOFN().nFilterIndex == 1) );
+        CImage out_img;
+        out_img.Create(output_width, output_height, 32, CImage::createAlphaChannel * bTransPNG * (sfd.GetOFN().nFilterIndex == 1));
 
-		// unused
-		//void * pPixelPos = out_img.GetPixelAddress(0, (output_height - 1));
-		//void * pStartArray = out_img.GetBits();
+        // unused
+        //void * pPixelPos = out_img.GetPixelAddress(0, (output_height - 1));
+        //void * pStartArray = out_img.GetBits();
 
-		if(bTransPNG)
-		{
-			m_DumpBmp.UpdateCtrl(FALSE, (UINT8 *)out_img.GetBits());
-		}
-		else
-		{	
-			CDC * output_DC;
+        if (bTransPNG)
+        {
+            m_DumpBmp.UpdateCtrl(FALSE, (UINT8*)out_img.GetBits());
+        }
+        else
+        {
+            CDC* output_DC;
 
-			output_DC = CDC::FromHandle(out_img.GetDC());
-			output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.MainDC, 0, 0, SRCCOPY);			
-		}
-		
-		OPENFILENAME sfd_ofn = sfd.GetOFN();
+            output_DC = CDC::FromHandle(out_img.GetDC());
+            output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.MainDC, 0, 0, SRCCOPY);
+        }
 
-		CString save_str;
-		CString output_str;
+        OPENFILENAME sfd_ofn = sfd.GetOFN();
 
-		save_str = sfd_ofn.lpstrFile;
+        CString save_str;
+        CString output_str;
 
-		if(save_str.Find(output_ext) == save_str.GetLength() - 4)
-		{
-			output_str = save_str;
-		}
-		else
-		{
-			output_str.Format("%s%s", sfd_ofn.lpstrFile, output_ext);
-		}
-		
-		out_img.Save(output_str, img_format);
+        save_str = sfd_ofn.lpstrFile;
 
-		if( !bTransPNG )
-		{
-			out_img.ReleaseDC();
-		}
-		else
-		{
-			m_DumpBmp.UpdateCtrl();
-		}
-	}
+        if (save_str.Find(output_ext) == save_str.GetLength() - 4)
+        {
+            output_str = save_str;
+        }
+        else
+        {
+            output_str.Format("%s%s", sfd_ofn.lpstrFile, output_ext);
+        }
+
+        out_img.Save(output_str, img_format);
+
+        if (!bTransPNG)
+        {
+            out_img.ReleaseDC();
+        }
+        else
+        {
+            m_DumpBmp.UpdateCtrl();
+        }
+    }
 }
 
 void CImgOutDlg::OnClose()
 {
-	SaveSettings();
+    SaveSettings();
 
-	CDialog::OnClose();
+    CDialog::OnClose();
 }
 
 void CImgOutDlg::OnEnChangeEditBdrsz()
 {
-	// TODO:  If this is a RICHEDIT control, the control will not
-	// send this notification unless you override the CDialog::OnInitDialog()
-	// function and call CRichEditCtrl().SetEventMask()
-	// with the ENM_CHANGE flag ORed into the mask.
+    // TODO:  If this is a RICHEDIT control, the control will not
+    // send this notification unless you override the CDialog::OnInitDialog()
+    // function and call CRichEditCtrl().SetEventMask()
+    // with the ENM_CHANGE flag ORed into the mask.
 
-	// TODO:  Add your control notification handler code here
+    // TODO:  Add your control notification handler code here
 
-	static BOOL bFirstSet = TRUE;
+    static BOOL bFirstSet = TRUE;
 
-	if (bFirstSet)
-	{
-		bFirstSet = FALSE;
-	}
-	else
-	{
-		UpdateData();
-		m_BdrSpn.SetPos(border_sz);
-		UpdateData(FALSE);
-		UpdateImg();
-	}
+    if (bFirstSet)
+    {
+        bFirstSet = FALSE;
+    }
+    else
+    {
+        UpdateData();
+        m_BdrSpn.SetPos(border_sz);
+        UpdateData(FALSE);
+        UpdateImg();
+    }
 }
 
 BOOL CImgOutDlg::PreTranslateMessage(MSG* pMsg)
 {
-	if (m_hAccelTable) 
-	{
-		if (::TranslateAccelerator(GetSafeHwnd(), m_hAccelTable, pMsg)) 
-		{
-			return(TRUE);
-		}
-	}
+    if (m_hAccelTable)
+    {
+        if (::TranslateAccelerator(GetSafeHwnd(), m_hAccelTable, pMsg))
+        {
+            return(TRUE);
+        }
+    }
 
-	if (pMsg->message == WM_KEYDOWN)
-	{
-		if (pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
-		{
-			pMsg->wParam = NULL;
-		}
-	}
+    if (pMsg->message == WM_KEYDOWN)
+    {
+        if (pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
+        {
+            pMsg->wParam = NULL;
+        }
+    }
 
-	return CDialog::PreTranslateMessage(pMsg);
+    return CDialog::PreTranslateMessage(pMsg);
 }
 
 void CImgOutDlg::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
 {
-	if(bDlgInit)
-	{
-		RECT rDummy;
-		GetDlgItem(IDC_DUMMY)->GetWindowRect(&rDummy);
+    if (bDlgInit)
+    {
+        RECT rDummy;
+        GetDlgItem(IDC_DUMMY)->GetWindowRect(&rDummy);
 
-		lpMMI->ptMinTrackSize.x = (rDummy.right - rDummy.left) + (SCROLL_W * 4);
-		lpMMI->ptMinTrackSize.y = (rDummy.bottom - rDummy.top) + (SCROLL_W * (2 + 1)) ;
-	}
+        lpMMI->ptMinTrackSize.x = (rDummy.right - rDummy.left) + (SCROLL_W * 4);
+        lpMMI->ptMinTrackSize.y = (rDummy.bottom - rDummy.top) + (SCROLL_W * (2 + 1));
+    }
 
-	CWnd::OnGetMinMaxInfo(lpMMI);
+    CWnd::OnGetMinMaxInfo(lpMMI);
 }
 
 void CImgOutDlg::OnSettingsUsetransparentpng()
 {
-	bTransPNG = !bTransPNG;
+    bTransPNG = !bTransPNG;
 }
 
 void CImgOutDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 {
-	CDialog::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);
+    CDialog::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);
 
-	CMenu * SettMenu = GetMenu()->GetSubMenu(1); //1 == Settings Menu
+    CMenu* SettMenu = GetMenu()->GetSubMenu(1); //1 == Settings Menu
 
-	if (pPopupMenu == SettMenu)
-	{
-		pPopupMenu->CheckMenuItem( ID_SETTINGS_USETRANSPARENTPNG, MF_CHECKED * bTransPNG );
-	}
+    if (pPopupMenu == SettMenu)
+    {
+        pPopupMenu->CheckMenuItem(ID_SETTINGS_USETRANSPARENTPNG, MF_CHECKED * bTransPNG);
+    }
 }

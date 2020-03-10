@@ -13,347 +13,347 @@
 
 void CPalModDlg::OnEditCopy()
 {
-	if (bEnabled)
-	{
-		CGameClass* CurrGame = GetHost()->GetCurrGame();
-		CJunk* CurrPal = m_PalHost.GetNotifyPal();
-		int nWorkingAmt = CurrPal->GetWorkingAmt();
-		UINT8* pSelIndex = CurrPal->GetSelIndex();
+    if (bEnabled)
+    {
+        CGameClass* CurrGame = GetHost()->GetCurrGame();
+        CJunk* CurrPal = m_PalHost.GetNotifyPal();
+        int nWorkingAmt = CurrPal->GetWorkingAmt();
+        UINT8* pSelIndex = CurrPal->GetSelIndex();
 
-		UINT8 uCopyFlag1;
-		UINT8 uCopyFlag2 = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + 33;
+        UINT8 uCopyFlag1;
+        UINT8 uCopyFlag2 = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + 33;
 
-		if (!bOleInit)
-		{
-			return;
-		}
+        if (!bOleInit)
+        {
+            return;
+        }
 
-		COleDataSource* pSource = new COleDataSource();
-		CSharedFile	sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
+        COleDataSource* pSource = new COleDataSource();
+        CSharedFile    sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
 
-		CString CopyText;
-		CString FormatTxt;
+        CString CopyText;
+        CString FormatTxt;
 
-		UINT16 uCurrData = 0;
-		BOOL bCopyAll = !CurrPal->GetSelAmt();
+        UINT16 uCurrData = 0;
+        BOOL bCopyAll = !CurrPal->GetSelAmt();
 
-		switch (CurrGame->GetGameFlag())
-		{
-		case MVC2_D:
-		case MVC2_P:
-			uCopyFlag1 = 2 + 33;
-			break;
-		case SFIII3_A:
-			uCopyFlag1 = 1 + 33;
-			break;
-		default:
-			uCopyFlag1 = CurrGame->GetGameFlag() + 33;
-			break;
-		}
+        switch (CurrGame->GetGameFlag())
+        {
+        case MVC2_D:
+        case MVC2_P:
+            uCopyFlag1 = 2 + 33;
+            break;
+        case SFIII3_A:
+            uCopyFlag1 = 1 + 33;
+            break;
+        default:
+            uCopyFlag1 = CurrGame->GetGameFlag() + 33;
+            break;
+        }
 
-		CopyText.Format("(%c%c", uCopyFlag1, uCopyFlag2);
+        CopyText.Format("(%c%c", uCopyFlag1, uCopyFlag2);
 
-		for (int i = 0; i < nWorkingAmt; i++)
-		{
-			if (pSelIndex[i] || bCopyAll)
-			{
-				uCurrData = CurrGame->ConvCol(CurrPal->GetBasePal()[i]);
+        for (int i = 0; i < nWorkingAmt; i++)
+        {
+            if (pSelIndex[i] || bCopyAll)
+            {
+                uCurrData = CurrGame->ConvCol(CurrPal->GetBasePal()[i]);
 
-				FormatTxt.Format("%04X", uCurrData);
+                FormatTxt.Format("%04X", uCurrData);
 
-				//Only changed:
-				//FormatTxt.Format("%04X", (UINT16)((uCurrData << 8) | (uCurrData >> 8) & (UINT16)0xFF0F));
+                //Only changed:
+                //FormatTxt.Format("%04X", (UINT16)((uCurrData << 8) | (uCurrData >> 8) & (UINT16)0xFF0F));
 
-				CopyText.Append(FormatTxt);
-			}
-		}
-	
-		CopyText.Append(")");
+                CopyText.Append(FormatTxt);
+            }
+        }
+    
+        CopyText.Append(")");
 
-		sf.Write(CopyText, CopyText.GetLength());
+        sf.Write(CopyText, CopyText.GetLength());
 
-		HGLOBAL hMem = sf.Detach();
-		if (!hMem)
-		{
-			return;
-		}
+        HGLOBAL hMem = sf.Detach();
+        if (!hMem)
+        {
+            return;
+        }
 
-		pSource->CacheGlobalData(CF_TEXT, hMem);
-		pSource->SetClipboard();
-	}
+        pSource->CacheGlobalData(CF_TEXT, hMem);
+        pSource->SetClipboard();
+    }
 }
 
 void CPalModDlg::OnEditPaste()
 {
-	if (!VerifyPaste())
-	{
-		return;
-	}
+    if (!VerifyPaste())
+    {
+        return;
+    }
 
-	COleDataObject obj;
+    COleDataObject obj;
 
-	char* szPasteBuff = szPasteStr.GetBuffer();
+    char* szPasteBuff = szPasteStr.GetBuffer();
 
-	// Do something with the data in 'buffer'
+    // Do something with the data in 'buffer'
 
-	char szFormatStr[] = "0x0000";
+    char szFormatStr[] = "0x0000";
 
-	UINT8 uPasteGFlag = szPasteBuff[1] - 33;
-	UINT8 uPasteAmt = szPasteBuff[2] - 33;
+    UINT8 uPasteGFlag = szPasteBuff[1] - 33;
+    UINT8 uPasteAmt = szPasteBuff[2] - 33;
 
-	switch (uPasteGFlag)
-	{
-		//case 3: //MVC2_P
-	case 2: //MVC2_D
-	default:
-		uPasteGFlag = 0;
-		break;
-	case 1: //SFIII3
-		uPasteGFlag = 1;
-		break;
-	}
+    switch (uPasteGFlag)
+    {
+        //case 3: //MVC2_P
+    case 2: //MVC2_D
+    default:
+        uPasteGFlag = 0;
+        break;
+    case 1: //SFIII3
+        uPasteGFlag = 1;
+        break;
+    }
 
-	if (uPasteAmt)
-	{
-		CGameClass* CurrGame = GetHost()->GetCurrGame();
-		UINT8 uCurrGFlag = CurrGame->GetGameFlag();
-		ColMode eCurrColMode = CurrGame->GetColMode();
+    if (uPasteAmt)
+    {
+        CGameClass* CurrGame = GetHost()->GetCurrGame();
+        UINT8 uCurrGFlag = CurrGame->GetGameFlag();
+        ColMode eCurrColMode = CurrGame->GetColMode();
 
-		COLORREF* rgPasteCol = new COLORREF[uPasteAmt];
+        COLORREF* rgPasteCol = new COLORREF[uPasteAmt];
 
-		int nIndexCtr = 0, nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+        int nIndexCtr = 0, nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
 
-		if (uCurrGFlag != uPasteGFlag)
-		{
-			switch (uPasteGFlag)
-			{
-			case SFIII3_A:
-			{
-				CurrGame->SetColMode(COLMODE_15);
-			}
-			break;
-			case MVC2_D:
-			case MVC2_P:
-			default:
-			{
-				CurrGame->SetColMode(COLMODE_12A);
-			}
-			break;
-			}
-		}
+        if (uCurrGFlag != uPasteGFlag)
+        {
+            switch (uPasteGFlag)
+            {
+            case SFIII3_A:
+            {
+                CurrGame->SetColMode(COLMODE_15);
+            }
+            break;
+            case MVC2_D:
+            case MVC2_P:
+            default:
+            {
+                CurrGame->SetColMode(COLMODE_12A);
+            }
+            break;
+            }
+        }
 
-		//Notify the change data
-		ProcChange();
+        //Notify the change data
+        ProcChange();
 
-		for (int i = 0; i < uPasteAmt; i++)
-		{
-			memcpy(&szFormatStr[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
+        for (int i = 0; i < uPasteAmt; i++)
+        {
+            memcpy(&szFormatStr[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
 
-			rgPasteCol[i] = CurrGame->ConvPal((UINT16)strtol(szFormatStr, NULL, 16));
-			((UINT8*)rgPasteCol)[i * 4 + 3] |= (0xFF * (nAMul == 0));
-		}
+            rgPasteCol[i] = CurrGame->ConvPal((UINT16)strtol(szFormatStr, NULL, 16));
+            ((UINT8*)rgPasteCol)[i * 4 + 3] |= (0xFF * (nAMul == 0));
+        }
 
-		if (uCurrGFlag != uPasteGFlag)
-		{
-			//Set the color mode back
-			//Round the values with the switched game flag
-			CurrGame->SetColMode(eCurrColMode);
+        if (uCurrGFlag != uPasteGFlag)
+        {
+            //Set the color mode back
+            //Round the values with the switched game flag
+            CurrGame->SetColMode(eCurrColMode);
 
-			for (int i = 0; i < uPasteAmt; i++)
-			{
-				rgPasteCol[i] = CurrGame->ConvPal(CurrGame->ConvCol(rgPasteCol[i]));
-			}
-		}
+            for (int i = 0; i < uPasteAmt; i++)
+            {
+                rgPasteCol[i] = CurrGame->ConvPal(CurrGame->ConvCol(rgPasteCol[i]));
+            }
+        }
 
-		if (!CurrPalCtrl->GetSelAmt())
-		{
-			int nCopyAmt = nWorkingAmt < uPasteAmt ? nWorkingAmt : uPasteAmt;
+        if (!CurrPalCtrl->GetSelAmt())
+        {
+            int nCopyAmt = nWorkingAmt < uPasteAmt ? nWorkingAmt : uPasteAmt;
 
-			memcpy(CurrPalCtrl->GetBasePal(), rgPasteCol, sizeof(COLORREF) * nCopyAmt);
-		}
-		else
-		{
-			UINT8* rgSelIndex = CurrPalCtrl->GetSelIndex();
-			COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
+            memcpy(CurrPalCtrl->GetBasePal(), rgPasteCol, sizeof(COLORREF) * nCopyAmt);
+        }
+        else
+        {
+            UINT8* rgSelIndex = CurrPalCtrl->GetSelIndex();
+            COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
 
-			for (int i = 0; i < nWorkingAmt; i++)
-			{
-				if (rgSelIndex[i])
-				{
-					crTargetPal[i] = rgPasteCol[nIndexCtr];
-					CurrPalDef->pBasePal[i + CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
+            for (int i = 0; i < nWorkingAmt; i++)
+            {
+                if (rgSelIndex[i])
+                {
+                    crTargetPal[i] = rgPasteCol[nIndexCtr];
+                    CurrPalDef->pBasePal[i + CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
 
-					nIndexCtr++;
+                    nIndexCtr++;
 
-					if (nIndexCtr >= uPasteAmt)
-					{
-						nIndexCtr = 0;
-					}
-				}
-			}
-		}
+                    if (nIndexCtr >= uPasteAmt)
+                    {
+                        nIndexCtr = 0;
+                    }
+                }
+            }
+        }
 
-		CurrPalCtrl->UpdateIndexAll();
+        CurrPalCtrl->UpdateIndexAll();
 
-		ImgDispCtrl->UpdateCtrl();
-		CurrPalCtrl->UpdateCtrl();
+        ImgDispCtrl->UpdateCtrl();
+        CurrPalCtrl->UpdateCtrl();
 
-		safe_delete_array(rgPasteCol);
-	}
+        safe_delete_array(rgPasteCol);
+    }
 }
 
 BOOL VerifyPaste()
 {
-	COleDataObject obj;
-	BOOL bCanPaste = FALSE;
+    COleDataObject obj;
+    BOOL bCanPaste = FALSE;
 
-	if ((!obj.AttachClipboard()) ||
-		(!obj.IsDataAvailable(CF_TEXT)))
-	{
-		return FALSE;
-	}
+    if ((!obj.AttachClipboard()) ||
+        (!obj.IsDataAvailable(CF_TEXT)))
+    {
+        return FALSE;
+    }
 
-	HGLOBAL hmem = obj.GetGlobalData(CF_TEXT);
-	CMemFile sf((BYTE*) ::GlobalLock(hmem), ::GlobalSize(hmem));
+    HGLOBAL hmem = obj.GetGlobalData(CF_TEXT);
+    CMemFile sf((BYTE*) ::GlobalLock(hmem), ::GlobalSize(hmem));
 
-	LPSTR szTempStr = szPasteStr.GetBufferSetLength(::GlobalSize(hmem));
-	sf.Read(szTempStr, ::GlobalSize(hmem));
-	::GlobalUnlock(hmem);
+    LPSTR szTempStr = szPasteStr.GetBufferSetLength(::GlobalSize(hmem));
+    sf.Read(szTempStr, ::GlobalSize(hmem));
+    ::GlobalUnlock(hmem);
 
-	szPasteStr.Remove(' ');
-	szPasteStr.Remove('\n');
+    szPasteStr.Remove(' ');
+    szPasteStr.Remove('\n');
 
-	if (szTempStr[0] == '(')
-	{
-		if (szTempStr[1] - 33 <= NUM_GAMES) //Gameflag
-		{
-			if (szTempStr[2] - 33 <= 64)
-			{
-				if ((szTempStr[((szTempStr[2] - 33) * 4) + 3] == ')'))
-				{
-					bCanPaste = TRUE;
-				}
-			}
-		}
-	}
+    if (szTempStr[0] == '(')
+    {
+        if (szTempStr[1] - 33 <= NUM_GAMES) //Gameflag
+        {
+            if (szTempStr[2] - 33 <= 64)
+            {
+                if ((szTempStr[((szTempStr[2] - 33) * 4) + 3] == ')'))
+                {
+                    bCanPaste = TRUE;
+                }
+            }
+        }
+    }
 
-	return bCanPaste;
+    return bCanPaste;
 }
 
 void CPalModDlg::NewUndoData(BOOL bUndo)
 {
-	CUndoNode* NewNode = bUndo ? UndoProc.NewUndo() : UndoProc.NewRedo();
+    CUndoNode* NewNode = bUndo ? UndoProc.NewUndo() : UndoProc.NewRedo();
 
-	sPalRedir* rgRedir = MainPalGroup->GetRedir();
-	sPalDef* srcDef = MainPalGroup->GetPalDef(rgRedir[nCurrSelPal].nDefIndex);
-	sPalSep* srcSep = MainPalGroup->GetSep(rgRedir[nCurrSelPal].nDefIndex, rgRedir[nCurrSelPal].nSepIndex);
+    sPalRedir* rgRedir = MainPalGroup->GetRedir();
+    sPalDef* srcDef = MainPalGroup->GetPalDef(rgRedir[nCurrSelPal].nDefIndex);
+    sPalSep* srcSep = MainPalGroup->GetSep(rgRedir[nCurrSelPal].nDefIndex, rgRedir[nCurrSelPal].nSepIndex);
 
-	int nPalSz = srcSep->nAmt;
+    int nPalSz = srcSep->nAmt;
 
-	NewNode->nPalIndex = nCurrSelPal;
-	NewNode->nPalSz = nPalSz;
+    NewNode->nPalIndex = nCurrSelPal;
+    NewNode->nPalSz = nPalSz;
 
-	NewNode->rgPalData = new COLORREF[nPalSz];
-	NewNode->rgBasePalData = new COLORREF[nPalSz];
+    NewNode->rgPalData = new COLORREF[nPalSz];
+    NewNode->rgBasePalData = new COLORREF[nPalSz];
 
-	memcpy(NewNode->rgPalData, &srcDef->pPal[srcSep->nStart], nPalSz * sizeof(COLORREF));
-	memcpy(NewNode->rgBasePalData, &srcDef->pBasePal[srcSep->nStart], nPalSz * sizeof(COLORREF));
+    memcpy(NewNode->rgPalData, &srcDef->pPal[srcSep->nStart], nPalSz * sizeof(COLORREF));
+    memcpy(NewNode->rgBasePalData, &srcDef->pBasePal[srcSep->nStart], nPalSz * sizeof(COLORREF));
 
-	//Clear Redo data on undo
-	//UndoProc.DeleteRedoList();
+    //Clear Redo data on undo
+    //UndoProc.DeleteRedoList();
 }
 
 void CPalModDlg::DoUndoRedo(BOOL bUndo)
 {
-	CUndoNode* PopNode = bUndo ? UndoProc.PopUndo() : UndoProc.PopRedo();
+    CUndoNode* PopNode = bUndo ? UndoProc.PopUndo() : UndoProc.PopRedo();
 
-	bUndo ? NewUndoData(FALSE) : NewUndoData();
+    bUndo ? NewUndoData(FALSE) : NewUndoData();
 
-	//Copy data to the program
-	sPalRedir* rgRedir = MainPalGroup->GetRedir();
-	sPalDef* srcDef = MainPalGroup->GetPalDef(rgRedir[PopNode->nPalIndex].nDefIndex);
-	sPalSep* srcSep = MainPalGroup->GetSep(rgRedir[PopNode->nPalIndex].nDefIndex, rgRedir[PopNode->nPalIndex].nSepIndex);
+    //Copy data to the program
+    sPalRedir* rgRedir = MainPalGroup->GetRedir();
+    sPalDef* srcDef = MainPalGroup->GetPalDef(rgRedir[PopNode->nPalIndex].nDefIndex);
+    sPalSep* srcSep = MainPalGroup->GetSep(rgRedir[PopNode->nPalIndex].nDefIndex, rgRedir[PopNode->nPalIndex].nSepIndex);
 
-	memcpy(&srcDef->pPal[srcSep->nStart], PopNode->rgPalData, srcSep->nAmt * sizeof(COLORREF));
-	memcpy(&srcDef->pBasePal[srcSep->nStart], PopNode->rgBasePalData, srcSep->nAmt * sizeof(COLORREF));
+    memcpy(&srcDef->pPal[srcSep->nStart], PopNode->rgPalData, srcSep->nAmt * sizeof(COLORREF));
+    memcpy(&srcDef->pBasePal[srcSep->nStart], PopNode->rgBasePalData, srcSep->nAmt * sizeof(COLORREF));
 
-	//Refresh slider selection
-	if (PopNode->nPalIndex == nCurrSelPal)
-	{
-		UpdateSliderSel();
-	}
+    //Refresh slider selection
+    if (PopNode->nPalIndex == nCurrSelPal)
+    {
+        UpdateSliderSel();
+    }
 
-	//Update the img/pal ctrls
-	m_PalHost.GetPalCtrl(PopNode->nPalIndex)->UpdateIndexAll();
+    //Update the img/pal ctrls
+    m_PalHost.GetPalCtrl(PopNode->nPalIndex)->UpdateIndexAll();
 
-	m_PalHost.GetPalCtrl(PopNode->nPalIndex)->UpdateCtrl();
-	ImgDispCtrl->UpdateCtrl();
+    m_PalHost.GetPalCtrl(PopNode->nPalIndex)->UpdateCtrl();
+    ImgDispCtrl->UpdateCtrl();
 }
 
 void CPalModDlg::OnSettingsSettings()
 {
-	CSettDlg SettDlg;
+    CSettDlg SettDlg;
 
-	SettDlg.m_bAlphaTrans = CGame_MVC2_D::bAlphaTrans;
-	SettDlg.m_bUpdSupp = CGameClass::bPostSetPalProc;
+    SettDlg.m_bAlphaTrans = CGame_MVC2_D::bAlphaTrans;
+    SettDlg.m_bUpdSupp = CGameClass::bPostSetPalProc;
 
-	if (SettDlg.DoModal() == IDOK)
-	{
-		CGame_MVC2_D::bAlphaTrans = SettDlg.m_bAlphaTrans;
-		CGameClass::bPostSetPalProc = SettDlg.m_bUpdSupp;
+    if (SettDlg.DoModal() == IDOK)
+    {
+        CGame_MVC2_D::bAlphaTrans = SettDlg.m_bAlphaTrans;
+        CGameClass::bPostSetPalProc = SettDlg.m_bUpdSupp;
 
-		//SaveSettings();
-	}
+        //SaveSettings();
+    }
 }
 
 void CPalModDlg::OnEditUndo()
 {
-	if (UndoProc.GetUndoCount())
-	{
-		DoUndoRedo(TRUE);
-	}
+    if (UndoProc.GetUndoCount())
+    {
+        DoUndoRedo(TRUE);
+    }
 }
 
 void CPalModDlg::OnEditRedo()
 {
-	if (UndoProc.GetRedoCount())
-	{
-		DoUndoRedo(FALSE);
-	}
+    if (UndoProc.GetRedoCount())
+    {
+        DoUndoRedo(FALSE);
+    }
 }
 
 void CPalModDlg::OnEditSelectAll()
 {
-	if (CurrPalCtrl)
-	{
-		CurrPalCtrl->SelectAll();
-		CurrPalCtrl->UpdateCtrl();
-	}
+    if (CurrPalCtrl)
+    {
+        CurrPalCtrl->SelectAll();
+        CurrPalCtrl->UpdateCtrl();
+    }
 }
 
 void CPalModDlg::OnEditSelectNone()
 {
-	if (CurrPalCtrl)
-	{
-		CurrPalCtrl->ClearSelected();
-		CurrPalCtrl->UpdateCtrl();
-	}
+    if (CurrPalCtrl)
+    {
+        CurrPalCtrl->ClearSelected();
+        CurrPalCtrl->UpdateCtrl();
+    }
 }
 
 void CPalModDlg::CustomEditProc(void* pPalCtrl, int nCtrlId, int nMethod)
 {
-	switch (nMethod)
-	{
-	case CUSTOM_COPY:
-		OnEditCopy();
-		break;
-	case CUSTOM_PASTE:
-		OnEditPaste();
-		break;
-	case CUSTOM_SALL:
-		OnEditSelectAll();
-	case CUSTOM_SNONE:
-		OnEditSelectNone();
-		break;
-	}
+    switch (nMethod)
+    {
+    case CUSTOM_COPY:
+        OnEditCopy();
+        break;
+    case CUSTOM_PASTE:
+        OnEditPaste();
+        break;
+    case CUSTOM_SALL:
+        OnEditSelectAll();
+    case CUSTOM_SNONE:
+        OnEditSelectNone();
+        break;
+    }
 }

@@ -4,368 +4,368 @@
 
 CImgDat::CImgDat(void)
 {
-	memset(pLastImg, 0, sizeof(sImgDef*) * MAX_IMAGE);
+    memset(pLastImg, 0, sizeof(sImgDef*) * MAX_IMAGE);
 }
 
 CImgDat::~CImgDat(void)
 {
-	FlushImageBuffer();
-	CloseImgFile();
+    FlushImageBuffer();
+    CloseImgFile();
 }
 
 sImgDef* CImgDat::GetImageDef(UINT8 uUnitId, UINT8 uImgId)
 {
-	if (uUnitId >= uCurrUnitAmt || uImgId > uCurrImgAmt)
-	{
-		return NULL;
-	}
+    if (uUnitId >= uCurrUnitAmt || uImgId > uCurrImgAmt)
+    {
+        return NULL;
+    }
 
-	if (ppImgData)
-	{
-		if (ppImgData[uUnitId])
-		{
-			if (ppImgData[uUnitId][uImgId])
-			{
-				return ppImgData[uUnitId][uImgId];
-			}
-		}
-	}
+    if (ppImgData)
+    {
+        if (ppImgData[uUnitId])
+        {
+            if (ppImgData[uUnitId][uImgId])
+            {
+                return ppImgData[uUnitId][uImgId];
+            }
+        }
+    }
 
-	return NULL;
+    return NULL;
 }
 
 void CImgDat::FlushImageBuffer()
 {
-	if (ppImgData)
-	{
-		for (int nUnitCtr = 0; nUnitCtr < uCurrUnitAmt; nUnitCtr++)
-		{
-			for (int nImgCtr = 0; nImgCtr < uCurrImgAmt; nImgCtr++)
-			{
-				if (ppImgData[nUnitCtr][nImgCtr])
-				{
-					safe_delete_array(ppImgData[nUnitCtr][nImgCtr]->pImgData);
+    if (ppImgData)
+    {
+        for (int nUnitCtr = 0; nUnitCtr < uCurrUnitAmt; nUnitCtr++)
+        {
+            for (int nImgCtr = 0; nImgCtr < uCurrImgAmt; nImgCtr++)
+            {
+                if (ppImgData[nUnitCtr][nImgCtr])
+                {
+                    safe_delete_array(ppImgData[nUnitCtr][nImgCtr]->pImgData);
 
-					safe_delete(ppImgData[nUnitCtr][nImgCtr]);
-				}
-			}
+                    safe_delete(ppImgData[nUnitCtr][nImgCtr]);
+                }
+            }
 
-			safe_delete_array(ppImgData[nUnitCtr]);
-		}
+            safe_delete_array(ppImgData[nUnitCtr]);
+        }
 
-		safe_delete_array(ppImgData);
-	}
+        safe_delete_array(ppImgData);
+    }
 
-	nLastImgCt = 0;
-	//Set the current game flag to -1
-	//nCurrGFlag = -1;
+    nLastImgCt = 0;
+    //Set the current game flag to -1
+    //nCurrGFlag = -1;
 }
 
 void CImgDat::FlushLastImg()
 {
-	for (int i = 0; i < nLastImgCt; i++)
-	{
-		if (pLastImg[i])
-		{
-			if (pLastImg[i]->pImgData)
-			{
-				safe_delete_array(pLastImg[i]->pImgData);
-			}
+    for (int i = 0; i < nLastImgCt; i++)
+    {
+        if (pLastImg[i])
+        {
+            if (pLastImg[i]->pImgData)
+            {
+                safe_delete_array(pLastImg[i]->pImgData);
+            }
 
-			pLastImg[i] = NULL;
-		}
-	}
+            pLastImg[i] = NULL;
+        }
+    }
 
-	nLastImgCt = 0;
+    nLastImgCt = 0;
 }
 
 UINT8* CImgDat::GetImgData(sImgDef* pCurrImg)
 {
-	if (pCurrImg->pImgData)
-	{
-		CString strDebugInfo;
-		strDebugInfo.Format("CImgDat::GetImgData : Image at position '0x%x' is already loaded.\n", pCurrImg->uThisImgLoc);
-		OutputDebugString(strDebugInfo);
+    if (pCurrImg->pImgData)
+    {
+        CString strDebugInfo;
+        strDebugInfo.Format("CImgDat::GetImgData : Image at position '0x%x' is already loaded.\n", pCurrImg->uThisImgLoc);
+        OutputDebugString(strDebugInfo);
 
-		strDebugInfo.Format(" W: 0x%x / %u, H: 0x%x / %u, compressed: %u, size 0x%x, offset 0x%x / %lu to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
-		OutputDebugString(strDebugInfo);
+        strDebugInfo.Format(" W: 0x%x / %u, H: 0x%x / %u, compressed: %u, size 0x%x, offset 0x%x / %lu to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
+        OutputDebugString(strDebugInfo);
 
-		return pCurrImg->pImgData;
-	}
+        return pCurrImg->pImgData;
+    }
 
-	/*
-	if(pLastImg && pLastImg != pCurrImg)
-	{
-		delete [] pLastImg->pImgData;
-		pLastImg->pImgData = NULL;
-	}
+    /*
+    if (pLastImg && pLastImg != pCurrImg)
+    {
+        delete [] pLastImg->pImgData;
+        pLastImg->pImgData = NULL;
+    }
 
-	*/
-	//Read the data
-	UINT8* pNewImgData = new UINT8[pCurrImg->uDataSize];
+    */
+    //Read the data
+    UINT8* pNewImgData = new UINT8[pCurrImg->uDataSize];
 
-	ImgDatFile.Seek(pCurrImg->uThisImgLoc, CFile::begin);
-	ImgDatFile.Read(pNewImgData, pCurrImg->uDataSize);
+    ImgDatFile.Seek(pCurrImg->uThisImgLoc, CFile::begin);
+    ImgDatFile.Read(pNewImgData, pCurrImg->uDataSize);
 
-	if (pCurrImg->bCompressed)
-	{
-		UINT8* pTmpData = pNewImgData;
+    if (pCurrImg->bCompressed)
+    {
+        UINT8* pTmpData = pNewImgData;
 
-		//pNewImgData = new UINT8[CurrImg->uImgWidth * CurrImg->uImgHeight];
+        //pNewImgData = new UINT8[CurrImg->uImgWidth * CurrImg->uImgHeight];
 
-		pNewImgData = DecodeImg(
-			pTmpData,
-			pCurrImg->uDataSize,
-			pCurrImg->uImgWidth,
-			pCurrImg->uImgHeight,
-			uReadBPP);
+        pNewImgData = DecodeImg(
+            pTmpData,
+            pCurrImg->uDataSize,
+            pCurrImg->uImgWidth,
+            pCurrImg->uImgHeight,
+            uReadBPP);
 
-		safe_delete_array(pTmpData);
-	}
+        safe_delete_array(pTmpData);
+    }
 
-	if (bOnTheFly)
-	{
-		pLastImg[nLastImgCt] = pCurrImg;
-		nLastImgCt++;
-	}
+    if (bOnTheFly)
+    {
+        pLastImg[nLastImgCt] = pCurrImg;
+        nLastImgCt++;
+    }
 
-	pCurrImg->pImgData = pNewImgData;
+    pCurrImg->pImgData = pNewImgData;
 
-	return pNewImgData;
+    return pNewImgData;
 }
 
 void CImgDat::PrepImageBuffer(UINT16 uUnitAmt, UINT16 uImgAmt)
 {
-	if (ppImgData)
-	{
-		FlushImageBuffer();
-	}
+    if (ppImgData)
+    {
+        FlushImageBuffer();
+    }
 
-	uCurrUnitAmt = uUnitAmt;
-	uCurrImgAmt = uImgAmt;
+    uCurrUnitAmt = uUnitAmt;
+    uCurrImgAmt = uImgAmt;
 
-	ppImgData = new sImgDef * *[uUnitAmt];
+    ppImgData = new sImgDef * *[uUnitAmt];
 
-	for (int nUnitCtr = 0; nUnitCtr < uUnitAmt; nUnitCtr++)
-	{
-		ppImgData[nUnitCtr] = new sImgDef * [uImgAmt];
+    for (int nUnitCtr = 0; nUnitCtr < uUnitAmt; nUnitCtr++)
+    {
+        ppImgData[nUnitCtr] = new sImgDef * [uImgAmt];
 
-		for (int nImgCtr = 0; nImgCtr < uImgAmt; nImgCtr++)
-		{
-			ppImgData[nUnitCtr][nImgCtr] = NULL;
-		}
-	}
+        for (int nImgCtr = 0; nImgCtr < uImgAmt; nImgCtr++)
+        {
+            ppImgData[nUnitCtr][nImgCtr] = NULL;
+        }
+    }
 }
 
 void CImgDat::CloseImgFile()
 {
-	if (bOnTheFly)
-	{
-		ImgDatFile.Abort();
-	}
+    if (bOnTheFly)
+    {
+        ImgDatFile.Abort();
+    }
 }
 
 BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UINT16 uImgAmt, BOOL bLoadAll)
 {
-	UINT8 uNumGames;
+    UINT8 uNumGames;
 
-	CString strDebugInfo;
-	strDebugInfo.Format("CimgData::LoadImage : Opening image file '%s'\n", lpszLoadFile);
-	OutputDebugString(strDebugInfo);
-	strDebugInfo.Format("CimgData::LoadImage : Game image flag is '%u'.  Reading %u bytes at index %u.\n", uGameFlag, uUnitAmt, uImgAmt);
-	OutputDebugString(strDebugInfo);
+    CString strDebugInfo;
+    strDebugInfo.Format("CimgData::LoadImage : Opening image file '%s'\n", lpszLoadFile);
+    OutputDebugString(strDebugInfo);
+    strDebugInfo.Format("CimgData::LoadImage : Game image flag is '%u'.  Reading %u bytes at index %u.\n", uGameFlag, uUnitAmt, uImgAmt);
+    OutputDebugString(strDebugInfo);
 
-	if (uGameFlag == (int)nCurrGFlag)
-	{
-		return TRUE;
-	}
-	else
-	{
-		FlushImageBuffer();
+    if (uGameFlag == (int)nCurrGFlag)
+    {
+        return TRUE;
+    }
+    else
+    {
+        FlushImageBuffer();
 
-		CloseImgFile();
-	}
+        CloseImgFile();
+    }
 
-	FlushLastImg();
+    FlushLastImg();
 
-	if (!ImgDatFile.Open(lpszLoadFile, CFile::modeRead | CFile::typeBinary))
-	{
-		//Error loading
-		ImgDatFile.Abort();
-		return FALSE;
-	}
+    if (!ImgDatFile.Open(lpszLoadFile, CFile::modeRead | CFile::typeBinary))
+    {
+        //Error loading
+        ImgDatFile.Abort();
+        return FALSE;
+    }
 
-	bOnTheFly = !bLoadAll;
+    bOnTheFly = !bLoadAll;
 
-	//Skip image verification
-	ImgDatFile.Seek(0x04, CFile::current);
-	ImgDatFile.Read(&uNumGames, 0x01);
-	ImgDatFile.Seek(0x01, CFile::current);
+    //Skip image verification
+    ImgDatFile.Seek(0x04, CFile::current);
+    ImgDatFile.Read(&uNumGames, 0x01);
+    ImgDatFile.Seek(0x01, CFile::current);
 
-	if (uNumGames)
-	{
-		for (int nGameCtr = 0; nGameCtr < uNumGames; nGameCtr++)
-		{
-			ImgDatFile.Read(&uReadGameFlag, 0x01);
-			ImgDatFile.Read(&uReadBPP, 0x01);
-			ImgDatFile.Read(&uReadNumImgs, 0x02);
-			ImgDatFile.Read(&uNextImgLoc, 0x04);
+    if (uNumGames)
+    {
+        for (int nGameCtr = 0; nGameCtr < uNumGames; nGameCtr++)
+        {
+            ImgDatFile.Read(&uReadGameFlag, 0x01);
+            ImgDatFile.Read(&uReadBPP, 0x01);
+            ImgDatFile.Read(&uReadNumImgs, 0x02);
+            ImgDatFile.Read(&uNextImgLoc, 0x04);
 
-			if (uReadGameFlag == uGameFlag)
-			{
-				PrepImageBuffer(uUnitAmt, uImgAmt);
+            if (uReadGameFlag == uGameFlag)
+            {
+                PrepImageBuffer(uUnitAmt, uImgAmt);
 
-				while (uNextImgLoc != 0)
-				{
-					ImgDatFile.Seek(uNextImgLoc, CFile::begin);
+                while (uNextImgLoc != 0)
+                {
+                    ImgDatFile.Seek(uNextImgLoc, CFile::begin);
 
-					sImgDef* CurrImg;
-					UINT8 uCurrUnitId, uCurrImgId;
+                    sImgDef* CurrImg;
+                    UINT8 uCurrUnitId, uCurrImgId;
 
-					ImgDatFile.Read(&uCurrUnitId, 0x01);
-					ImgDatFile.Read(&uCurrImgId, 0x01);
+                    ImgDatFile.Read(&uCurrUnitId, 0x01);
+                    ImgDatFile.Read(&uCurrImgId, 0x01);
 
-					//Check if the img id is the unit id
-					if (uCurrUnitId == uCurrImgId)
-					{
-						//If it is, then the image id is 0
-						uCurrImgId = 0;
-					}
+                    //Check if the img id is the unit id
+                    if (uCurrUnitId == uCurrImgId)
+                    {
+                        //If it is, then the image id is 0
+                        uCurrImgId = 0;
+                    }
 
-					//Remove 0x7F from additional images
-					if (uCurrImgId > 0x7F)
-					{
-						uCurrImgId -= 0x7F;
-					}
+                    //Remove 0x7F from additional images
+                    if (uCurrImgId > 0x7F)
+                    {
+                        uCurrImgId -= 0x7F;
+                    }
 
-					ppImgData[uCurrUnitId][uCurrImgId] = new sImgDef;
+                    ppImgData[uCurrUnitId][uCurrImgId] = new sImgDef;
 
-					CurrImg = ppImgData[uCurrUnitId][uCurrImgId];
+                    CurrImg = ppImgData[uCurrUnitId][uCurrImgId];
 
-					CurrImg->pImgData = NULL;
+                    CurrImg->pImgData = NULL;
 
-					ImgDatFile.Read(&CurrImg->uImgWidth, 0x02);
-					ImgDatFile.Read(&CurrImg->uImgHeight, 0x02);
-					ImgDatFile.Read(&CurrImg->bCompressed, 0x01);
-					ImgDatFile.Read(&CurrImg->uDataSize, 0x04);
+                    ImgDatFile.Read(&CurrImg->uImgWidth, 0x02);
+                    ImgDatFile.Read(&CurrImg->uImgHeight, 0x02);
+                    ImgDatFile.Read(&CurrImg->bCompressed, 0x01);
+                    ImgDatFile.Read(&CurrImg->uDataSize, 0x04);
 
-					ImgDatFile.Read(&uNextImgLoc, 0x04);
+                    ImgDatFile.Read(&uNextImgLoc, 0x04);
 
-					//Get the current image location
-					CurrImg->uThisImgLoc = ImgDatFile.GetPosition();
+                    //Get the current image location
+                    CurrImg->uThisImgLoc = ImgDatFile.GetPosition();
 
-					if (bLoadAll)
-					{
-						GetImgData(CurrImg);
-					}
-				}
+                    if (bLoadAll)
+                    {
+                        GetImgData(CurrImg);
+                    }
+                }
 
-				break;
-			}
-		}
+                break;
+            }
+        }
 
-		//ImgDatFile.Close();
-		nCurrGFlag = uGameFlag;
+        //ImgDatFile.Close();
+        nCurrGFlag = uGameFlag;
 
-		if (bLoadAll)
-		{
-			ImgDatFile.Abort();
-		}
+        if (bLoadAll)
+        {
+            ImgDatFile.Abort();
+        }
 
-		return TRUE;
-	}
-	else
-	{
-		return FALSE;
-	}
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
 }
 
 UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP)
 {
-	UINT8* output_data = new UINT8[uiImgWidth * uiImgHeight];
+    UINT8* output_data = new UINT8[uiImgWidth * uiImgHeight];
 
-	memset(output_data, NULL, sizeof(UINT8) * uiImgWidth * uiImgHeight);
+    memset(output_data, NULL, sizeof(UINT8) * uiImgWidth * uiImgHeight);
 
-	int bit_ctr = 0;
-	int data_ctr = 0;
-	int k = 0;
-	int src_ctr = 0;
-	int mod_amt = 0;
-	int up_amt = 0;
+    int bit_ctr = 0;
+    int data_ctr = 0;
+    int k = 0;
+    int src_ctr = 0;
+    int mod_amt = 0;
+    int up_amt = 0;
 
-	UINT8 uZeroPos;
-	UINT8 uExtraAmt;
-	UINT8 uGetAmt;
-	UINT8 curr_data;
-	UINT16 zero_ct = 0;
-	UINT16 zero_data;
-	int last_amt = ((uiDataSz - 1) * 8) % uiBPP;
-	int get_from_extra;
-	int zero_get_amt = 16 - uiBPP;
+    UINT8 uZeroPos;
+    UINT8 uExtraAmt;
+    UINT8 uGetAmt;
+    UINT8 curr_data;
+    UINT16 zero_ct = 0;
+    UINT16 zero_data;
+    int last_amt = ((uiDataSz - 1) * 8) % uiBPP;
+    int get_from_extra;
+    int zero_get_amt = 16 - uiBPP;
 
-	while (bit_ctr < (uiDataSz * 8))
-	{
-		if (8 - bit_ctr % 8 < uiBPP && bit_ctr / 8 != uiDataSz - 1)
-		{
-			get_from_extra = uiBPP - (8 - bit_ctr % 8);
-		}
-		else
-		{
-			get_from_extra = 0;
-		}
+    while (bit_ctr < (uiDataSz * 8))
+    {
+        if (8 - bit_ctr % 8 < uiBPP && bit_ctr / 8 != uiDataSz - 1)
+        {
+            get_from_extra = uiBPP - (8 - bit_ctr % 8);
+        }
+        else
+        {
+            get_from_extra = 0;
+        }
 
-		curr_data = (pSrcImgData[bit_ctr / 8] >> bit_ctr % 8);
+        curr_data = (pSrcImgData[bit_ctr / 8] >> bit_ctr % 8);
 
-		if (get_from_extra)
-		{
-			curr_data |= (pSrcImgData[(bit_ctr / 8) + 1] & (0xFF >> (8 - get_from_extra))) << (8 - bit_ctr % 8);
-		}
+        if (get_from_extra)
+        {
+            curr_data |= (pSrcImgData[(bit_ctr / 8) + 1] & (0xFF >> (8 - get_from_extra))) << (8 - bit_ctr % 8);
+        }
 
-		bit_ctr += uiBPP;
-		curr_data = curr_data & (0xFF >> (8 - uiBPP));
+        bit_ctr += uiBPP;
+        curr_data = curr_data & (0xFF >> (8 - uiBPP));
 
-		if (curr_data != 0)
-		{
-			output_data[data_ctr] = curr_data;
-			data_ctr++;
-		}
-		else if (bit_ctr < (uiDataSz * 8))
-		{
-			zero_data = 0;
-			uZeroPos = 0;
+        if (curr_data != 0)
+        {
+            output_data[data_ctr] = curr_data;
+            data_ctr++;
+        }
+        else if (bit_ctr < (uiDataSz * 8))
+        {
+            zero_data = 0;
+            uZeroPos = 0;
 
-			while (uZeroPos < zero_get_amt)
-			{
-				uExtraAmt = bit_ctr % 8;
+            while (uZeroPos < zero_get_amt)
+            {
+                uExtraAmt = bit_ctr % 8;
 
-				if (zero_get_amt - uZeroPos > 8)
-				{
-					uGetAmt = 8 - uExtraAmt;
-				}
-				else
-				{
-					uGetAmt = zero_get_amt - uZeroPos;
-				}
+                if (zero_get_amt - uZeroPos > 8)
+                {
+                    uGetAmt = 8 - uExtraAmt;
+                }
+                else
+                {
+                    uGetAmt = zero_get_amt - uZeroPos;
+                }
 
-				zero_data |= (((UINT16)(pSrcImgData[bit_ctr / 8] >> uExtraAmt)& (0xFF >> 8 - uGetAmt)) << (uZeroPos));
+                zero_data |= (((UINT16)(pSrcImgData[bit_ctr / 8] >> uExtraAmt)& (0xFF >> 8 - uGetAmt)) << (uZeroPos));
 
-				uZeroPos += uGetAmt;
-				bit_ctr += uGetAmt;
-			}
+                uZeroPos += uGetAmt;
+                bit_ctr += uGetAmt;
+            }
 
-			//memcpy(&zero_data, &pSrcImgData[bit_ctr/8], 0x02);
-			//zero_data = (zero_data >> bit_ctr%8) & (0xFFFF >> uiBPP);
+            //memcpy(&zero_data, &pSrcImgData[bit_ctr/8], 0x02);
+            //zero_data = (zero_data >> bit_ctr%8) & (0xFFFF >> uiBPP);
 
-			for (k = 0; k < zero_data; k++)
-			{
-				output_data[data_ctr + k] = 0;
-			}
+            for (k = 0; k < zero_data; k++)
+            {
+                output_data[data_ctr + k] = 0;
+            }
 
-			data_ctr += zero_data;
+            data_ctr += zero_data;
 
-			//bit_ctr += zero_get_amt;
-		}
-	}
+            //bit_ctr += zero_get_amt;
+        }
+    }
 
-	return output_data;
+    return output_data;
 }

@@ -4,344 +4,344 @@
 
 void CPalModDlg::GetPlaneData()
 {
-	CGameClass* CurrGame = GetHost()->GetCurrGame();
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
 
-	nRAmt = CurrGame->GetPlaneAmt(COL_R);
-	nGAmt = CurrGame->GetPlaneAmt(COL_G);
-	nBAmt = CurrGame->GetPlaneAmt(COL_B);
-	nAAmt = CurrGame->GetPlaneAmt(COL_A);
+    nRAmt = CurrGame->GetPlaneAmt(COL_R);
+    nGAmt = CurrGame->GetPlaneAmt(COL_G);
+    nBAmt = CurrGame->GetPlaneAmt(COL_B);
+    nAAmt = CurrGame->GetPlaneAmt(COL_A);
 
-	nRMul = CurrGame->GetPlaneMul(COL_R);
-	nGMul = CurrGame->GetPlaneMul(COL_G);
-	nBMul = CurrGame->GetPlaneMul(COL_B);
-	nAMul = CurrGame->GetPlaneMul(COL_A);
+    nRMul = CurrGame->GetPlaneMul(COL_R);
+    nGMul = CurrGame->GetPlaneMul(COL_G);
+    nBMul = CurrGame->GetPlaneMul(COL_B);
+    nAMul = CurrGame->GetPlaneMul(COL_A);
 }
 
 void CPalModDlg::OnCBUnitChildChange()
 {
-	if (VerifyMsg(VM_PALCHANGE))
-	{
-		UpdateCombo();
-	}
+    if (VerifyMsg(VM_PALCHANGE))
+    {
+        UpdateCombo();
+    }
 }
 
 void CPalModDlg::UpdateCombo()
 {
-	int nCurrUnitSel;
-	int nCurrChildSel1;
-	int nCurrChildSel2;
+    int nCurrUnitSel;
+    int nCurrChildSel1;
+    int nCurrChildSel2;
 
-	CGameClass* CurrGame = GetHost()->GetCurrGame();
-	UINT8* rgRedir = CurrGame->rgUnitRedir;
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
+    UINT8* rgRedir = CurrGame->rgUnitRedir;
 
-	if (bLoadUnit)
-	{
-		int nDescCtr = 0;
+    if (bLoadUnit)
+    {
+        int nDescCtr = 0;
 
-		//Grab the main tree
-		sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(-1);
+        //Grab the main tree
+        sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(-1);
 
-		//Clear the unit list
-		while (m_CBUnitSel.DeleteString(0) >= 0) NULL;
+        //Clear the unit list
+        while (m_CBUnitSel.DeleteString(0) >= 0) NULL;
 
-		//Add each unit
-		while (rgRedir[nDescCtr] != 0xFF)
-		{
-			m_CBUnitSel.AddString(((sDescTreeNode*)UnitTree->ChildNodes)[rgRedir[nDescCtr]].szDesc);
-			nDescCtr++;
-		}
+        //Add each unit
+        while (rgRedir[nDescCtr] != 0xFF)
+        {
+            m_CBUnitSel.AddString(((sDescTreeNode*)UnitTree->ChildNodes)[rgRedir[nDescCtr]].szDesc);
+            nDescCtr++;
+        }
 
-		//Since we just updated, set to 0
-		m_CBUnitSel.SetCurSel(0);
+        //Since we just updated, set to 0
+        m_CBUnitSel.SetCurSel(0);
 
-		bLoadUnit = FALSE;
-	}
+        bLoadUnit = FALSE;
+    }
 
-	//
-	nCurrUnitSel = m_CBUnitSel.GetCurSel();
+    //
+    nCurrUnitSel = m_CBUnitSel.GetCurSel();
 
-	if (nCurrUnitSel != nPrevUnitSel)
-	{
-		sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], -1);
+    if (nCurrUnitSel != nPrevUnitSel)
+    {
+        sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], -1);
 
-		//Clear the 1st child list
-		while (m_CBChildSel1.DeleteString(0) >= 0) NULL;
+        //Clear the 1st child list
+        while (m_CBChildSel1.DeleteString(0) >= 0) NULL;
 
-		for (int nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
-		{
-			m_CBChildSel1.AddString(((sDescTreeNode*)ChildTree->ChildNodes)[nDescCtr].szDesc);
-		}
+        for (int nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
+        {
+            m_CBChildSel1.AddString(((sDescTreeNode*)ChildTree->ChildNodes)[nDescCtr].szDesc);
+        }
 
-		//Set to 0 since update
-		m_CBChildSel1.SetCurSel(0);
-		nPrevUnitSel = nCurrUnitSel;
+        //Set to 0 since update
+        m_CBChildSel1.SetCurSel(0);
+        nPrevUnitSel = nCurrUnitSel;
 
-		//Reset the next list
-		nPrevChildSel1 = 0xFFFF;
-	}
+        //Reset the next list
+        nPrevChildSel1 = 0xFFFF;
+    }
 
-	//
-	nCurrChildSel1 = m_CBChildSel1.GetCurSel();
+    //
+    nCurrChildSel1 = m_CBChildSel1.GetCurSel();
 
-	if (nCurrChildSel1 != nPrevChildSel1)
-	{
-		sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], nCurrChildSel1, -1);
+    if (nCurrChildSel1 != nPrevChildSel1)
+    {
+        sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], nCurrChildSel1, -1);
 
-		//Clear the 1st child list
-		while (m_CBChildSel2.DeleteString(0) >= 0) { NULL; }
+        //Clear the 1st child list
+        while (m_CBChildSel2.DeleteString(0) >= 0) { NULL; }
 
-		for (int nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
-		{
-			m_CBChildSel2.AddString(((sDescNode*)ChildTree->ChildNodes)[nDescCtr].szDesc);
-		}
+        for (int nDescCtr = 0; nDescCtr < ChildTree->uChildAmt; nDescCtr++)
+        {
+            m_CBChildSel2.AddString(((sDescNode*)ChildTree->ChildNodes)[nDescCtr].szDesc);
+        }
 
-		//Set to 0 since update
-		m_CBChildSel2.SetCurSel(0);
-		nPrevChildSel1 = nCurrChildSel1;
+        //Set to 0 since update
+        m_CBChildSel2.SetCurSel(0);
+        nPrevChildSel1 = nCurrChildSel1;
 
-		//Reset the next selection
-		nPrevChildSel2 = 0xFFFF;
-	}
+        //Reset the next selection
+        nPrevChildSel2 = 0xFFFF;
+    }
 
-	nCurrChildSel2 = m_CBChildSel2.GetCurSel();
+    nCurrChildSel2 = m_CBChildSel2.GetCurSel();
 
-	if (nCurrChildSel2 != nPrevChildSel2)
-	{
-		//Clear the undo data
-		UndoProc.Clear();
+    if (nCurrChildSel2 != nPrevChildSel2)
+    {
+        //Clear the undo data
+        UndoProc.Clear();
 
-		//Get the selected palette
-		GetHost()->GetCurrGame()->UpdatePalImg(
-			rgRedir[nCurrUnitSel], nCurrChildSel1, nCurrChildSel2);
+        //Get the selected palette
+        GetHost()->GetCurrGame()->UpdatePalImg(
+            rgRedir[nCurrUnitSel], nCurrChildSel1, nCurrChildSel2);
 
-		PostPalSel();
+        PostPalSel();
 
-		nPrevChildSel2 = nCurrChildSel2;
+        nPrevChildSel2 = nCurrChildSel2;
 
-		//Select None
-		//OnEditSelectNone();
+        //Select None
+        //OnEditSelectNone();
 
-		//Update the display palette selection
-		int nNotifyIndex = m_PalHost.GetNotifyIndex();
+        //Update the display palette selection
+        int nNotifyIndex = m_PalHost.GetNotifyIndex();
 
-		if (m_PalHost.GetPalCtrl(nNotifyIndex))
-		{
-			OnPalSelChange(nNotifyIndex);
-		}
-		else
-		{
-			OnEditSelectNone();
-			OnPalSelChange(0);
-		}
-	}
+        if (m_PalHost.GetPalCtrl(nNotifyIndex))
+        {
+            OnPalSelChange(nNotifyIndex);
+        }
+        else
+        {
+            OnEditSelectNone();
+            OnPalSelChange(0);
+        }
+    }
 }
 
 void CPalModDlg::PostPalSel()
 {
-	static int nPrevImgIndex[MAX_IMG] = { -1, -1 };
-	//Update the host palette control
-	CGameClass* CurrGame = GetHost()->GetCurrGame();
-	sImgDef* CurrImgDef;
-	sPalDef* CurrPalDef;
-	sPalSep* CurrSep;
+    static int nPrevImgIndex[MAX_IMG] = { -1, -1 };
+    //Update the host palette control
+    CGameClass* CurrGame = GetHost()->GetCurrGame();
+    sImgDef* CurrImgDef;
+    sPalDef* CurrPalDef;
+    sPalSep* CurrSep;
 
-	sImgTicket* CurrTicket = CurrGame->GetImgTicket();
+    sImgTicket* CurrTicket = CurrGame->GetImgTicket();
 
-	int nPalAmt = MainPalGroup->GetPalAmt();
-	int nPalIndexCtr = 0;
-	int nImgIndexCtr = 0;
-	int nCurrSepAmt = 0;
+    int nPalAmt = MainPalGroup->GetPalAmt();
+    int nPalIndexCtr = 0;
+    int nImgIndexCtr = 0;
+    int nCurrSepAmt = 0;
 
-	BOOL bSameImg = FALSE;
+    BOOL bSameImg = FALSE;
 
-	StopBlink();
+    StopBlink();
 
-	//Flush the host pal ctrl
-	m_PalHost.BeginSetPal();
+    //Flush the host pal ctrl
+    m_PalHost.BeginSetPal();
 
-	for (int i = 0; i < nPalAmt; i++)
-	{
-		CurrPalDef = MainPalGroup->GetPalDef(i);
-		nCurrSepAmt = CurrPalDef->uSepAmt;
+    for (int i = 0; i < nPalAmt; i++)
+    {
+        CurrPalDef = MainPalGroup->GetPalDef(i);
+        nCurrSepAmt = CurrPalDef->uSepAmt;
 
-		//Fill the palette control
-		for (int nSepCtr = 0; nSepCtr < nCurrSepAmt; nSepCtr++)
-		{
-			CurrSep = MainPalGroup->GetSep(i, nSepCtr);
+        //Fill the palette control
+        for (int nSepCtr = 0; nSepCtr < nCurrSepAmt; nSepCtr++)
+        {
+            CurrSep = MainPalGroup->GetSep(i, nSepCtr);
 
-			m_PalHost.SetPal(nPalIndexCtr, CurrSep->nAmt, &CurrPalDef->pPal[CurrSep->nStart], CurrSep->szDesc);
+            m_PalHost.SetPal(nPalIndexCtr, CurrSep->nAmt, &CurrPalDef->pPal[CurrSep->nStart], CurrSep->szDesc);
 
-			nPalIndexCtr++;
-		}
+            nPalIndexCtr++;
+        }
 
-		//Fill the image control
-		if (ImgFile)
-		{
-			if (CurrTicket != NULL)
-			{
-				// This is where we load our images from img.dat .
-				// nUnitId is the character/palette index.
-				// nImgId is the extra offset for that character.
-				int nImgKey = (UINT16)(CurrTicket->nUnitId << 8) | (UINT8)CurrTicket->nImgId;
+        //Fill the image control
+        if (ImgFile)
+        {
+            if (CurrTicket != NULL)
+            {
+                // This is where we load our images from img.dat .
+                // nUnitId is the character/palette index.
+                // nImgId is the extra offset for that character.
+                int nImgKey = (UINT16)(CurrTicket->nUnitId << 8) | (UINT8)CurrTicket->nImgId;
 
-				CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
+                CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
 
-				if (nPrevImgIndex[nImgIndexCtr] != nImgKey || bForceImg)
-				{
-					if (nImgIndexCtr == 0)
-					{
-						ImgDispCtrl->ClearUsed();
+                if (nPrevImgIndex[nImgIndexCtr] != nImgKey || bForceImg)
+                {
+                    if (nImgIndexCtr == 0)
+                    {
+                        ImgDispCtrl->ClearUsed();
 
-						//Get and flush the image ctrl
-						ImgFile->FlushLastImg();
-					}
+                        //Get and flush the image ctrl
+                        ImgFile->FlushLastImg();
+                    }
 
-					if (CurrImgDef)
-					{
-						ImgDispCtrl->AddImageNode(
-							nImgIndexCtr,
-							CurrImgDef->uImgWidth,
-							CurrImgDef->uImgHeight,
-							ImgFile->GetImgData(CurrImgDef),
-							MainPalGroup->GetPalDef(i)->pPal,
-							MainPalGroup->GetPalDef(i)->uPalSz,
-							CurrTicket->nXOffs,
-							CurrTicket->nYOffs);
-					}
-				}
-				else
-				{
-					ImgDispCtrl->UpdateImgPalette(
-						nImgIndexCtr,
-						MainPalGroup->GetPalDef(i)->pPal,
-						MainPalGroup->GetPalDef(i)->uPalSz);
+                    if (CurrImgDef)
+                    {
+                        ImgDispCtrl->AddImageNode(
+                            nImgIndexCtr,
+                            CurrImgDef->uImgWidth,
+                            CurrImgDef->uImgHeight,
+                            ImgFile->GetImgData(CurrImgDef),
+                            MainPalGroup->GetPalDef(i)->pPal,
+                            MainPalGroup->GetPalDef(i)->uPalSz,
+                            CurrTicket->nXOffs,
+                            CurrTicket->nYOffs);
+                    }
+                }
+                else
+                {
+                    ImgDispCtrl->UpdateImgPalette(
+                        nImgIndexCtr,
+                        MainPalGroup->GetPalDef(i)->pPal,
+                        MainPalGroup->GetPalDef(i)->uPalSz);
 
-					bSameImg = TRUE;
-				}
+                    bSameImg = TRUE;
+                }
 
-				nPrevImgIndex[nImgIndexCtr] = nImgKey;
+                nPrevImgIndex[nImgIndexCtr] = nImgKey;
 
-				nImgIndexCtr++;
-			}
-		}
+                nImgIndexCtr++;
+            }
+        }
 
-		if (CurrTicket)
-		{
-			CurrTicket = CurrTicket->NextTicket;
-		}
-	}
+        if (CurrTicket)
+        {
+            CurrTicket = CurrTicket->NextTicket;
+        }
+    }
 
-	//No images
-	if (!nImgIndexCtr)
-	{
-		ImgDispCtrl->ClearUsed();
-	}
+    //No images
+    if (!nImgIndexCtr)
+    {
+        ImgDispCtrl->ClearUsed();
+    }
 
-	//Get rid of the unused images
-	if (!bSameImg)
-	{
-		ImgDispCtrl->FlushUnused();
-	}
+    //Get rid of the unused images
+    if (!bSameImg)
+    {
+        ImgDispCtrl->FlushUnused();
+    }
 
-	//Reset the prev indexes
-	memset(&nPrevImgIndex[nImgIndexCtr], -1, sizeof(int) * (MAX_IMG - nImgIndexCtr));
+    //Reset the prev indexes
+    memset(&nPrevImgIndex[nImgIndexCtr], -1, sizeof(int) * (MAX_IMG - nImgIndexCtr));
 
-	m_PalHost.EndSetPal();
+    m_PalHost.EndSetPal();
 
-	//Display the palettes
-	m_PalHost.UpdateCtrl();
+    //Display the palettes
+    m_PalHost.UpdateCtrl();
 
-	//Display the new images
-	//ImgDispCtrl->CenterImg();
-	ImgDispCtrl->UpdateCtrl();
+    //Display the new images
+    //ImgDispCtrl->CenterImg();
+    ImgDispCtrl->UpdateCtrl();
 
-	//Reset change flag
-	ProcChange(TRUE);
+    //Reset change flag
+    ProcChange(TRUE);
 
-	//Reset the palette focus 
-	//m_PalHost.ResetNotifyPal(0);
+    //Reset the palette focus 
+    //m_PalHost.ResetNotifyPal(0);
 
-	//If force img was set, unset it
-	bForceImg = FALSE;
+    //If force img was set, unset it
+    bForceImg = FALSE;
 }
 
 void CPalModDlg::OnPalSelChange(int nCtrlId)
 {
-	//Update the base palette if multi-edit
-	UpdateMultiEdit();
+    //Update the base palette if multi-edit
+    UpdateMultiEdit();
 
-	//Fill the current palette info
-	nCurrSelPal = nCtrlId;
-	CurrPalCtrl = m_PalHost.GetPalCtrl(nCurrSelPal);
-	CurrPalDef = MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex);
-	CurrPalSep = CurrPalDef->SepList[MainPalGroup->GetRedir()[nCurrSelPal].nSepIndex];
-	nPalImgIndex = MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex;
+    //Fill the current palette info
+    nCurrSelPal = nCtrlId;
+    CurrPalCtrl = m_PalHost.GetPalCtrl(nCurrSelPal);
+    CurrPalDef = MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex);
+    CurrPalSep = CurrPalDef->SepList[MainPalGroup->GetRedir()[nCurrSelPal].nSepIndex];
+    nPalImgIndex = MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex;
 
-	UpdateSliderSel();
+    UpdateSliderSel();
 }
 
 void CPalModDlg::OnPalHLChange(void* pPalCtrl, int nCtrlId)
 {
-	CJunk* pNotifyCtrl = (CJunk*)pPalCtrl;
-	int nHLAmt = pNotifyCtrl->GetHLAmt();
+    CJunk* pNotifyCtrl = (CJunk*)pPalCtrl;
+    int nHLAmt = pNotifyCtrl->GetHLAmt();
 
-	if (!nHLAmt)
-	{
-		m_StatusBar.SetPaneText(1, "");
-	}
-	else if (nHLAmt == 1)
-	{
-		CHAR szIndex[32];
-		// this is the status bar area text
-		sprintf(szIndex, "(%d: %d)", nCtrlId, pNotifyCtrl->GetHighlightIndex());
+    if (!nHLAmt)
+    {
+        m_StatusBar.SetPaneText(1, "");
+    }
+    else if (nHLAmt == 1)
+    {
+        CHAR szIndex[32];
+        // this is the status bar area text
+        sprintf(szIndex, "(%d: %d)", nCtrlId, pNotifyCtrl->GetHighlightIndex());
 
-		m_StatusBar.SetPaneText(1, szIndex);
-	}
-	else
-	{
-		m_StatusBar.SetPaneText(1, "--");
-	}
+        m_StatusBar.SetPaneText(1, szIndex);
+    }
+    else
+    {
+        m_StatusBar.SetPaneText(1, "--");
+    }
 }
 
 void CPalModDlg::OnTimer(UINT_PTR nIDEvent)
 {
-	switch (nIDEvent)
-	{
-	case TIMER_STATUS:
-	{
-		// Why would we reset this and stomp data?
-		//m_StatusBar.SetPaneText(0, DEFAULT_STATUS_TEXT);
-		KillTimer(TIMER_STATUS);
-	}
-	break;
-	case TIMER_BLINK:
-	{
-		PerformBlink();
+    switch (nIDEvent)
+    {
+    case TIMER_STATUS:
+    {
+        // Why would we reset this and stomp data?
+        //m_StatusBar.SetPaneText(0, DEFAULT_STATUS_TEXT);
+        KillTimer(TIMER_STATUS);
+    }
+    break;
+    case TIMER_BLINK:
+    {
+        PerformBlink();
 
-		if (!nBlinkState)
-		{
-			KillTimer(TIMER_BLINK);
+        if (!nBlinkState)
+        {
+            KillTimer(TIMER_BLINK);
 
-			bCanBlink = TRUE;
+            bCanBlink = TRUE;
 
-			safe_delete_array(pTempPalCopy);
-		}
+            safe_delete_array(pTempPalCopy);
+        }
 
-		ImgDispCtrl->Redraw();
+        ImgDispCtrl->Redraw();
 
-	}
-	break;
-	}
+    }
+    break;
+    }
 
-	CDialog::OnTimer(nIDEvent);
+    CDialog::OnTimer(nIDEvent);
 }
 
 void CPalModDlg::StopBlink()
 {
-	//Stop blinking
-	nBlinkState = 0;
-	KillTimer(TIMER_BLINK);
-	bCanBlink = TRUE;
+    //Stop blinking
+    nBlinkState = 0;
+    KillTimer(TIMER_BLINK);
+    bCanBlink = TRUE;
 
-	safe_delete_array(pTempPalCopy);
+    safe_delete_array(pTempPalCopy);
 }
