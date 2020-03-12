@@ -62,7 +62,7 @@ private:
     //Draw variables
     RECT rIndexRect;
 
-    CPaintDC* dcPaintDC;
+    CPaintDC* dcPaintDC = nullptr;
 
     HBITMAP hBmp = nullptr;
     BITMAPINFO Bmpi;
@@ -81,17 +81,14 @@ private:
 
     int nCurrAmt = -1;
 
-    int iBaseW;
-    int iBaseH;
+    int iBaseW = 0;
+    int iBaseH = 0;
 
     int iPalW = 0;
     int iPalH = 0;
-    int iSqSz;
-    int iSqBdrSz;
-    int iBdrSz;
-    int bUnused;
+    int bUnused = 0;
 
-    RECT rUnused;
+    RECT rUnused = {};
 
     static int nWidthMax;
 
@@ -110,22 +107,17 @@ private:
     int SingleSelect = 0;
     int iSelAmt = 0;
 
-    BOOL bSingleSel;
-
     int xHLOld = 0;
     int yHLOld = 0;
 
     int xInSelStart = 0;
     int yInSelStart = 0;
 
-    int xInSelOld;
-    int yInSelOld;
-
     int iHighlightIndex = 0;
     int nArrayIndex = 0;
 
     //Main palette
-    COLORREF* BasePal;
+    COLORREF* BasePal = nullptr;
 
     void UpdateFace();
 
@@ -136,7 +128,7 @@ public:
     void Enable(BOOL bEnableFlag = TRUE) { bEnabled = bEnableFlag; UpdateCtrl(); }
 
     BOOL InitNewSize(int nNewAmt, COLORREF* rgNewPal);
-    static BOOL    InitPen();
+    static BOOL InitPen();
 
     int GetBaseWidth() { return iBaseW; };
     int GetBaseHeight() { return iBaseH; };

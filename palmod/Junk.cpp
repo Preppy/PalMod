@@ -46,7 +46,7 @@ void CJunk::ClearHighlighted()
 {
     for (int i = 0; i < iWorkingAmt; i++)
     {
-        Highlighted[i] = 0;
+         Highlighted[i] = 0;
     }
 
     //iHLAmt = 0;
@@ -112,11 +112,8 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
         }
 
         //Create Selected, Highlighted and SelView
-        safe_delete(Highlighted);
         Highlighted = new UCHAR[iPalW * iPalH];
-        safe_delete(Selected);
         Selected = new UCHAR[iPalW * iPalH];
-        safe_delete(SelView);
         SelView = new UCHAR[iPalW * iPalH];
 
         ClearSelView();
@@ -145,19 +142,14 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
 void CJunk::CleanUp()
 {
     //Remove Selected, SelView and Highlighted
-
-    safe_delete(Selected);
-    safe_delete(SelView);
-    safe_delete(Highlighted);
+    safe_delete_array(Selected);
+    safe_delete_array(SelView);
+    safe_delete_array(Highlighted);
 
     //Remove palette
 
     /*
-    if (BasePal)
-    {
-        delete [] BasePal;
-        BasePal = NULL;
-    }
+    safe_delete_array(BasePal);
     */
 }
 
@@ -465,20 +457,16 @@ void CJunk::CustomFillRect(RECT* lpRect, UINT8* crSrcCol)
     int nSqW = lpRect->right - lpRect->left;
     int nSqH = lpRect->top - lpRect->bottom;
 
-    double fpDstA1, fpDstA2;
-
     UINT8* pDstImgData = (UINT8*)pBmpData;
 
-    UINT8* crDstCol;
-
-    fpDstA2 = (1.0f - ((double)crSrcCol[3]) / 255.0f);
-    fpDstA1 = 1.0f - fpDstA2;
+    double fpDstA2 = (1.0f - ((double)crSrcCol[3]) / 255.0f);
+    double fpDstA1 = 1.0f - fpDstA2;
 
     for (int y = lpRect->top * 4; y < lpRect->bottom * 4; y += 4)
     {
         for (int x = lpRect->left * 4; x < lpRect->right * 4; x += 4)
         {
-            crDstCol = const_cast<UINT8*>((UINT8*)&JUNK_BG[(y % JUNK_BG_H) * JUNK_BG_W + (x % JUNK_BG_W)]);
+            UINT8* crDstCol = const_cast<UINT8*>((UINT8*)&JUNK_BG[(y % JUNK_BG_H) * JUNK_BG_W + (x % JUNK_BG_W)]);
 
             pDstImgData[(y * iBaseW) + x + 2] = aaadd((fpDstA1 * (double)crSrcCol[0]), (fpDstA2 * (double)crDstCol[0]));
             pDstImgData[(y * iBaseW) + x + 1] = aaadd((fpDstA1 * (double)crSrcCol[1]), (fpDstA2 * (double)crDstCol[1]));
@@ -514,7 +502,7 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
         return;
     }
 
-    if (xHLOld + yHLOld >= 0)
+    if ((xHLOld != -1 ) && (yHLOld != -1))
     {
         Highlighted[(yHLOld * iPalW) + xHLOld] = FALSE;
     }
@@ -557,22 +545,22 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
         }
         else
         {
-            //Remove comment if not working
-
-            //if (yHLOld + xHLOld >= 0)
-            Highlighted[(yHLOld * iPalW) + xHLOld] = FALSE;
+            if ((xHLOld != -1) && (yHLOld != -1))
+            {
+                Highlighted[(yHLOld * iPalW) + xHLOld] = FALSE;
+            }
         }
     }
     else
     {
         if (ProcessHovered(point, PalIndex))
         {
-            if (yHLOld != PalIndex.y || xHLOld != PalIndex.x)
+            if ((yHLOld != PalIndex.y) || (xHLOld != PalIndex.x))
             {
                 //bMulHL = TRUE;
                 ClearSelView();
 
-                if (PalIndex.y == yInSelStart && PalIndex.x == xInSelStart)
+                if ((PalIndex.y == yInSelStart) && (PalIndex.x == xInSelStart))
                 {
                     Highlighted[(PalIndex.y * iPalW) + PalIndex.x] = TRUE;
                     iHLAmt = 1;
@@ -625,7 +613,6 @@ void CJunk::OnLButtonDown(UINT nFlags, CPoint point)
     SetCapture();
 
     LButtonDown = TRUE;
-    int nNewSingleSel;
 
     CPoint PalIndex;
 
@@ -634,7 +621,7 @@ void CJunk::OnLButtonDown(UINT nFlags, CPoint point)
         yInSelStart = PalIndex.y;
         xInSelStart = PalIndex.x;
 
-        nNewSingleSel = (yInSelStart * iPalW) + (xInSelStart);
+        int nNewSingleSel = (yInSelStart * iPalW) + (xInSelStart);
 
         if (!(nFlags & MK_CONTROL))
         {
@@ -676,16 +663,13 @@ void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
 
     LButtonDown = FALSE;
 
-    int ix;
-    int iy;
-
     if (bInCtrl)
     {
         if (iHLAmt > 1)
         {
-            for (iy = 0; iy < iPalH; iy++)
+            for (int iy = 0; iy < iPalH; iy++)
             {
-                for (ix = 0; ix < iPalW; ix++)
+                for (int ix = 0; ix < iPalW; ix++)
                 {
                     if (SelView[(iy * iPalW) + ix])
                     {
@@ -729,7 +713,6 @@ void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
 
 BOOL CJunk::ProcessHovered(CPoint hPoint, CPoint& PalPos)
 {
-
     int x = hPoint.x;
     int y = hPoint.y;
 
