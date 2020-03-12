@@ -149,8 +149,7 @@ void CPalTool::CleanUp()
         if (pPalEntry[i].PaletteCtrl)
         {
             pPalEntry[i].PaletteCtrl->DestroyWindow();
-            delete pPalEntry[i].PaletteCtrl;
-            pPalEntry[i].PaletteCtrl = nullptr;
+            safe_delete(pPalEntry[i].PaletteCtrl);
         }
     }
 

@@ -6,13 +6,10 @@
 
 void CPalModDlg::OnBnClickedBEidrian2()
 {
-    // TODO: Add your control notification handler code here
-
     UpdateData();
 
     if (bRGB)
     {
-
         ((CGame_MVC2_D*)GetHost()->GetCurrGame())->ForEidrian(0,
             RGB(
             (int)round(m_RHSlider.GetPos() * nRMul),

@@ -32,7 +32,7 @@ class CJunk :
 {
 private:
     void NotifyParent(int iCustomMessage);
-    UCHAR Toggle(UCHAR &tVar);
+    UCHAR Toggle(UCHAR& tVar);
 
     void CleanUp();
 
@@ -41,13 +41,13 @@ private:
     void DrawBG();
     BOOL ProcBaseBMP();
     void ClearBaseBMP();
-    
-    void SetIndexPen(int nIndex, int pFlag);    
 
-    void CustomFillRect(RECT * lpRect, UINT8 * crSrcCol);
+    void SetIndexPen(int nIndex, int pFlag);
+
+    void CustomFillRect(RECT* lpRect, UINT8* crSrcCol);
     //Input management
 
-    BOOL ProcessHovered(CPoint hPoint, CPoint &auxPos);
+    BOOL ProcessHovered(CPoint hPoint, CPoint& auxPos);
     void LoadDefaultPal();
 
     //Default variables
@@ -62,11 +62,11 @@ private:
     //Draw variables
     RECT rIndexRect;
 
-    CPaintDC *dcPaintDC;
+    CPaintDC* dcPaintDC;
 
     HBITMAP hBmp = nullptr;
     BITMAPINFO Bmpi;
-    UINT32 * pBmpData = nullptr;
+    UINT32* pBmpData = nullptr;
     CDC dcBaseDC;
 
     CBitmap FaceBitmap;
@@ -97,9 +97,9 @@ private:
 
     //Input variables
 
-    UCHAR * Highlighted = nullptr;
-    UCHAR * Selected = nullptr;
-    UCHAR * SelView = nullptr;
+    UCHAR* Highlighted = nullptr;
+    UCHAR* Selected = nullptr;
+    UCHAR* SelView = nullptr;
 
     int iHLAmt = 0;
     int iWorkingAmt = 0;
@@ -125,7 +125,7 @@ private:
     int nArrayIndex = 0;
 
     //Main palette
-    COLORREF * BasePal;
+    COLORREF* BasePal;
 
     void UpdateFace();
 
@@ -135,11 +135,11 @@ public:
 
     void Enable(BOOL bEnableFlag = TRUE) { bEnabled = bEnableFlag; UpdateCtrl(); }
 
-    BOOL InitNewSize(int nNewAmt, COLORREF * rgNewPal);
+    BOOL InitNewSize(int nNewAmt, COLORREF* rgNewPal);
     static BOOL    InitPen();
 
-    int GetBaseWidth() {return iBaseW;};
-    int GetBaseHeight() {return iBaseH;};
+    int GetBaseWidth() { return iBaseW; };
+    int GetBaseHeight() { return iBaseH; };
     BOOL UpdateCtrl(BOOL bUpdFace = TRUE);
 
     void ClearSelected();
@@ -148,16 +148,16 @@ public:
 
     void SelectAll();
 
-    int GetWorkingAmt() {return iWorkingAmt;};
-    UCHAR * GetSelIndex() {return Selected;};
+    int GetWorkingAmt() { return iWorkingAmt; };
+    UCHAR* GetSelIndex() { return Selected; };
 
-    int GetSS() {return SingleSelect;};
-    COLORREF * GetBasePal() {return BasePal;};
+    int GetSS() { return SingleSelect; };
+    COLORREF* GetBasePal() { return BasePal; };
 
-    int GetHighlightIndex() {return iHighlightIndex;};
+    int GetHighlightIndex() { return iHighlightIndex; };
 
-    int GetSelAmt() {return iSelAmt;};
-    int GetHLAmt() {return iHLAmt;};
+    int GetSelAmt() { return iSelAmt; };
+    int GetHLAmt() { return iHLAmt; };
     void SetArrayIndex(int nIndex) { nArrayIndex = nIndex; };
     void UpdateIndex(int nIndex);
     void UpdateIndexAll();
@@ -165,7 +165,7 @@ public:
     BOOL RegisterWindowClass();
 
     DECLARE_MESSAGE_MAP()
-    
+
     afx_msg void OnPaint();
     afx_msg BOOL OnEraseBkgnd(CDC* pDC);
     afx_msg void OnMouseMove(UINT nFlags, CPoint point);

@@ -186,10 +186,9 @@ BOOL CPalGroup::AddSep(int nIndex, CHAR* szDesc, int nStart, int nAmt)
 
 void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)
 {
-
     if (!rgPalettes[nIndex].bAvail)
     {
-        return; //Most likeley wont happen
+        return; //Most likely wont happen
     }
 
     double* pHSLArray;

@@ -158,7 +158,7 @@ const CHAR MVC2_D_UNITDESC [MVC2_D_NUMUNIT][MAX_DESC] =
     "Jill Valentine",
     "Hayato",
     "Ruby Heart",
-    "Son Son",
+    "SonSon",
     "Amingo",
     "Marrow",
     "Cable",

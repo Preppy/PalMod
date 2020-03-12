@@ -449,7 +449,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case 0x2D: // Shuma Gorath
     {
         // Everything he has works great with the default sprite
-        if (uPalId >= (0x11 + EXTRA_OMNI) && uPalId <= (0x130 + EXTRA_OMNI))
+        // If you want to show the default sprite for just the Extras, uncomment the following line
+        //if (uPalId >= (0x11 + EXTRA_OMNI) && uPalId <= (0x130 + EXTRA_OMNI))
         {
             SetExtraImg(0, uUnitId, uPalId);
         }

@@ -14,15 +14,14 @@
 
 struct sPalEntry
 {
-    CJunk * PaletteCtrl;
-    CHAR * szPalStr;
+    CJunk* PaletteCtrl = nullptr;
+    CHAR* szPalStr = nullptr;
     UCHAR bAvail;
 };
 
 class CPalTool : public CWnd
 {
 private:
-    void Test(){MessageBox("TEST");};
     sPalEntry pPalEntry[MAX_PALETTE];
     CSize PalSize[MAX_PALETTE];
 
@@ -46,18 +45,18 @@ private:
 
     int nPalViewH;
     UINT8 rgPalRedir[MAX_PALETTE + 1];
-    
+
     void Init();
 
     void SetFont();
-    void ClearBG(CPaintDC * PaintDC);
+    void ClearBG(CPaintDC* PaintDC);
     void DrawText();
 
     void OnPalSelChange(int nCtrlId, BOOL bCurrPage = TRUE);
     void OnPalHLChange(int nCtrlId);
     void OnPalMHL(int nCtrlId);
 
-    UINT8 * GetCurrPalSel();
+    UINT8* GetCurrPalSel();
 
     void SendPalMsg(int nCtrlId, int nType);
 
@@ -69,14 +68,14 @@ public:
 
     void BeginSetPal();
     void EndSetPal();
-    void SetPal(int nIndex, int nAmt, COLORREF * rgNewCol, CHAR * szNewPalStr);
-    int GetNotifyIndex() {return nNotifyCtrlIndex;};
-    CJunk * GetNotifyPal() {return pPalEntry[nNotifyCtrlIndex].PaletteCtrl;};
-    CJunk * GetPalCtrl(int nIndex) {return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].PaletteCtrl : NULL;};
+    void SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, CHAR* szNewPalStr);
+    int GetNotifyIndex() { return nNotifyCtrlIndex; };
+    CJunk* GetNotifyPal() { return pPalEntry[nNotifyCtrlIndex].PaletteCtrl; };
+    CJunk* GetPalCtrl(int nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].PaletteCtrl : NULL; };
 
-    void ResetNotifyIndex() {nNotifyCtrlIndex = 0;};
+    void ResetNotifyIndex() { nNotifyCtrlIndex = 0; };
 
-    BOOL CurrPalAvail() {return pPalEntry[nNotifyCtrlIndex].bAvail;};
+    BOOL CurrPalAvail() { return pPalEntry[nNotifyCtrlIndex].bAvail; };
     void ShowAvailPal();
     void UpdateCtrl();
 
@@ -87,7 +86,7 @@ public:
     DECLARE_MESSAGE_MAP()
     afx_msg void OnPaint();
     afx_msg BOOL OnEraseBkgnd(CDC* pDC);
-    afx_msg void OnDeltaposSpin(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnDeltaposSpin(NMHDR* pNMHDR, LRESULT* pResult);
     void SetNotifyFunc(int (*ExtPalSelChange)(int), int (*ExtPalHLChange)(int), int (*ExtPalMHL)(int));
 
 public:

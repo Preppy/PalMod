@@ -7,7 +7,7 @@
 #define SUPP_NODE            0x4000
 //Syntax: SUPP_NODE_EX, Dest Palette, Dest Increment, Src Start Index, Number of Items to Copy, Dest Index
 #define SUPP_NODE_EX        0x4001
-//SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
+//SUPP_NODE_ABSOL, Dest Start, Dest Increment, Src Start, Src Increment
 // SUPP_NODE_ABSOL adds two values: the starting palette and the number of colors to include.
 #define SUPP_NODE_ABSOL        0x4002
 // All processing does a full copy of the palette first unless you include this flag.
@@ -319,14 +319,28 @@ const UINT16 _mvc2_supp_const [] =
         // LP intro
         SUPP_NODE, 0x09, 28,
 
-    0x14 | SUPP_START, // Sonson
+    0x14 | SUPP_START, // SonSon
         //SUPP_NODE_ABSOL, Dest Start, Dest Inc, Src Start, Src Inc
-        SUPP_NODE, 0x0F, 1,
-        SUPP_NODE_ABSOL, 0x17, 1, 0x0F, 1,
+        SUPP_NODE, 0x1 | MOD_ABS, 8,
+#ifdef GIANTMONKEYMODIFY
+        SUPP_NODE | SUPP_NODE_NOCOPY, 0xF, 1,
+            // main bandana, extra bandana color plus hair accents
+            // While the following hews close to accuracy, these colors are entertwined elsewhere in her sprite so don't touch.
+            //MOD_COPY, 5, 1, 9,
+            //MOD_COPY, 5, 1, 10,
+            //MOD_LUM, 10, 1, 20,
+            // belt border
+            MOD_COPY, 6, 3, 11,
+            // suit to belt
+            MOD_COPY, 9, 2, 14,
+#endif
+
+        // Giant monkey super.
+        SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x17, 1, 0x0F, 1,
             MOD_LUM, 1, 15, 10,
-        SUPP_NODE_ABSOL, 0x1D, 1, 0x0F, 1,
+        SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x1D, 2, 0x0F, 1,
             MOD_LUM, 1, 15, 5,
-        SUPP_NODE_ABSOL, 0x1E, 1, 0x0F, 1,
+        SUPP_NODE_ABSOL | EXTRA_NODE_ONLY, 0x1E, 2, 0x0F, 1,
             MOD_LUM, 1, 15, NEG + 12,
 
     0x1B | SUPP_START, //Chun-Li

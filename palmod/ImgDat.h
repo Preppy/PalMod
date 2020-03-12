@@ -11,15 +11,15 @@ struct sImgDef
     UINT8 bCompressed;
     UINT32 uDataSize;
     UINT32 uThisImgLoc;
-    UINT8 * pImgData = nullptr;
+    UINT8* pImgData = nullptr;
 };
 
 class CImgDat
 {
 private:
-    sImgDef *** ppImgData = nullptr;
+    sImgDef*** ppImgData = nullptr;
 
-    sImgDef * pLastImg[MAX_IMAGE];
+    sImgDef* pLastImg[MAX_IMAGE];
     int nLastImgCt = 0;
 
     UINT16 uCurrUnitAmt = 0;
@@ -41,13 +41,13 @@ public:
     CImgDat(void);
     ~CImgDat(void);
 
-    BOOL LoadImage(CHAR * lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UINT16 uImgAmt = MAX_IMAGE, BOOL bLoadAll = TRUE);
-    sImgDef * GetImageDef(UINT8 uUnitId, UINT8 uImgId);
+    BOOL LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UINT16 uImgAmt = MAX_IMAGE, BOOL bLoadAll = TRUE);
+    sImgDef* GetImageDef(UINT8 uUnitId, UINT8 uImgId);
     void FlushImageBuffer();
-    UINT8 * DecodeImg(UINT8 * pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);
+    UINT8* DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);
 
-    int GetCurrGFlag(){return nCurrGFlag;};
-    UINT8 * GetImgData(sImgDef * pCurrImg);
+    int GetCurrGFlag() { return nCurrGFlag; };
+    UINT8* GetImgData(sImgDef* pCurrImg);
 
     void CloseImgFile();
     void FlushLastImg();
