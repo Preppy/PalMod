@@ -74,7 +74,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case 0x06: //Cyclops
     {
         if (CreateExtraPal(uUnitId, uPalId, 0x19, 1, 11))
+        {
             break;
+        }
 
         if (uPalId >= (0x29 + EXTRA_OMNI) && uPalId <= (0x58 + EXTRA_OMNI))
         {

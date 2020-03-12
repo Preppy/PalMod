@@ -22,7 +22,7 @@ int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bVisible)
 
         while (pCurrDef->uUnitN != 0xFF)
         {
-            if (pCurrDef->bInvisible != 1 || !bVisible)
+            if ((pCurrDef->bInvisible != 1) || !bVisible)
             {
                 rgExtraCt[pCurrDef->uUnitN]++;
             }
@@ -151,10 +151,6 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
-    sDescTreeNode* UnitNode;
-    sDescTreeNode* ButtonNode;
-    sDescNode* ChildNode;
-
     //Create the main character tree
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
@@ -164,6 +160,10 @@ CDescTree CGame_SFIII3_A::InitDescTree()
     //Go through each character
     for (int iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
+        sDescTreeNode* UnitNode = nullptr;
+        sDescTreeNode* ButtonNode = nullptr;
+        sDescNode* ChildNode = nullptr;
+
         //Use this for the Extra support
         int nSuppAmt = 0;
 
@@ -204,7 +204,6 @@ CDescTree CGame_SFIII3_A::InitDescTree()
                 //Set each button's extra nodes
                 for (int nBasicCtr = 0; nBasicCtr < 2; nBasicCtr++)
                 {
-
                     ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nBasicCtr];
 
                     if (nBasicCtr == 0)
@@ -265,9 +264,7 @@ CDescTree CGame_SFIII3_A::InitDescTree()
         if (bUseExtra)
         {
             int nExtraPos = GetExtraLoc(iUnitCtr);
-            int nCurrExtra = 0; nExtraPos;
-
-            stExtraDef* pCurrDef;
+            int nCurrExtra = 0;
 
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[SFIII3_A_EXTRALOC > iUnitCtr ? (nMainChildAmt - 1) : 0]; //Extra node
             sprintf(ButtonNode->szDesc, "Extra");
@@ -279,10 +276,9 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 
             for (int nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
-
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
-                pCurrDef = GetExtraDef(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDef(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->bInvisible == 1)
                 {
@@ -387,7 +383,9 @@ void CGame_SFIII3_A::GetPalOffsSz(int nUnitId, int nPalId)
             nOffset = (nUnitId * 0x80 * 7) + (nPalId * 0x80) + 0x700600;
 
             if (nUnitId > 0x0E)
+            {
                 nOffset -= (5 * 0x80);
+            }
 
             nPalSz = 0x80;
         }
@@ -423,11 +421,9 @@ void CGame_SFIII3_A::GetPalOffsSz(int nUnitId, int nPalId)
 
 BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, int nUnitId)
 {
-    int nPalAmt;
-
     for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        nPalAmt = GetPalCt(nUnitCtr); //Fix later for extras
+        int nPalAmt = GetPalCt(nUnitCtr); //Fix later for extras
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 

@@ -25,8 +25,10 @@ void CGame_SFIII3_A::LoadExtraFile()
 
     int nExtraCtr = 0;
 
+    // Before we load the Extra extension file, load our hardcoded known Extras list.
     pCurrDef = const_cast<stExtraDef*>(&SFIII3_A_EXTRA[nExtraCtr]);
 
+    // Check count to ensure correct offset of the file additions
     while (pCurrDef->uUnitN != 0xFF)
     {
         nExtraCtr++;
@@ -35,13 +37,14 @@ void CGame_SFIII3_A::LoadExtraFile()
 
     memcpy(rgTempExtraBuffer, SFIII3_A_EXTRA, nExtraCtr * sizeof(stExtraDef));
 
+    // Now we look for the Extra extension file.
     GetModuleFileName(NULL, szTargetFile, (DWORD)MAX_PATH * sizeof(CHAR));
     nSlashLoc = (int)((strrchr(szTargetFile, '\\') - szTargetFile));
     szTargetFile[nSlashLoc + 1] = '\0';
     strcat(szTargetFile, EXTRA_FILENAME);
 
     int nFileAttrib = GetFileAttributes(szTargetFile);
-    if (((nFileAttrib & FILE_ATTRIBUTE_ARCHIVE) == FILE_ATTRIBUTE_ARCHIVE && nFileAttrib != 0xFFFFFFFF))
+    if ((((nFileAttrib & FILE_ATTRIBUTE_ARCHIVE) == FILE_ATTRIBUTE_ARCHIVE) && (nFileAttrib != 0xFFFFFFFF)))
     {
         extraFile.open(szTargetFile, ios::in);
 
