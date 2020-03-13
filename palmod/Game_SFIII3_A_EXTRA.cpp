@@ -12,16 +12,16 @@ void CGame_SFIII3_A::LoadExtraFile()
 
     CHAR szTargetFile[MAX_PATH];
     CHAR szCurrLine[1000];
-    CHAR* szFinalLine;
+    CHAR* szFinalLine = nullptr;
     int nSlashLoc = 0;
     int nCtr = 0;
 
     CHAR szCurrDesc[32];
-    int nCurrStart;
-    int nCurrEnd;
+    int nCurrStart = 0;
+    int nCurrEnd = 0;
 
     stExtraDef rgTempExtraBuffer[1000];
-    stExtraDef* pCurrDef;
+    stExtraDef* pCurrDef = nullptr;
 
     int nExtraCtr = 0;
 
@@ -84,21 +84,25 @@ void CGame_SFIII3_A::LoadExtraFile()
                 case 2:
                 {
                     int nPalCt = 0;
-                    int nDiff;
-                    int nValue;
                     int nPos = 0;
 
                     nCurrEnd = strtol(szFinalLine, NULL, 16);
 
-                    nDiff = (nCurrEnd - nCurrStart) / 2;
+                    int nDiff = (nCurrEnd - nCurrStart) / 2;
 
                     while (nDiff > 0)
                     {
+                        int nValue = 0;
+
                         if (nPos)
                         {
+                            // Create a new extra node item if the range for this complete item is over 64.
                             nCtr += 3;
                         }
 
+                        // If you wanted to fit long palettes on one page you would need to remove this 
+                        // overflow check, add an Extra compatible version of CPalGroup::AddSep, and
+                        // call that from CGame_SFIII3_A::UpdatePalImg
                         if (nDiff > 64)
                         {
                             nValue = 64;
@@ -118,6 +122,7 @@ void CGame_SFIII3_A::LoadExtraFile()
                         pCurrDef->uOffset = nCurrStart + ((64 * 2) * nPos);
                         pCurrDef->uPalSz = nValue * 2;
 
+                        // Ensure that if we loop through here again we are using a new Extra node item
                         nPos++;
                     }
                 }

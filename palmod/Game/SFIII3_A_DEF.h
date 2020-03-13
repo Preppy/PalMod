@@ -73,12 +73,12 @@ const stExtraDef SFIII3_A_EXTRA[] =
 
     //Oro
     { 0x08, "Tengu Stones", 0x00763100, 0x80},
-    { 0x08, "Bricks", 0x00763180, 0x20},
+    // Bricks are folded into the Tengu Stones display
+    { 0x08, "Bricks", 0x00763180, 0x20, 1},
 
     //Urien
     { 0x0C, "Intro", 0x00706600, 0x80 },
     { 0x0C, "Morph", 0x00706680, 0x80 },
-
 
     //{ SFIII3_A_EXTRALOC, "Check", 0x00706580, 0x80 },
     

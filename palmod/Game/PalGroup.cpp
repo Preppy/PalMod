@@ -161,7 +161,7 @@ void CPalGroup::SetAddRGBA(COLORREF crSrc, COLORREF* crTarget, int uAddR, int uA
 
 BOOL CPalGroup::AddSep(int nIndex, CHAR* szDesc, int nStart, int nAmt)
 {
-    if (rgPalettes[nIndex].uSepAmt >= MAX_SEP || nStart + nAmt > rgPalettes[nIndex].uPalSz)
+    if ((rgPalettes[nIndex].uSepAmt >= MAX_SEP) || (nStart + nAmt > rgPalettes[nIndex].uPalSz))
     {
         return FALSE;
     }

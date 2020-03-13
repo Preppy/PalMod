@@ -615,12 +615,12 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     if (SFIII3_A_EXTRALOC > uUnitId)
     {
-        if (uPalId >= nBasicAmt && uPalId < nBasicAmt * 2)
+        if ((uPalId >= nBasicAmt) && (uPalId < nBasicAmt * 2))
         {
             nTargetImgId = 0x01; //Portrait Image
             nSrcStart = nBasicAmt;
         }
-        else if (uPalId >= nBasicAmt * 2 && uPalId < nNormalPalAmt)
+        else if ((uPalId >= nBasicAmt * 2) && (uPalId < nNormalPalAmt))
         {
             nSrcStart = uPalId;
             nSrcAmt = 1;
@@ -638,6 +638,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     }
     else
     {
+        // This handles palettes loaded from the Extras extension file
     }
 
     if (bCreateBasicPal)
