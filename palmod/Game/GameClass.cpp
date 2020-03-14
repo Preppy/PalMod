@@ -368,7 +368,7 @@ COLORREF*** CGameClass::CreateImgOutPal()
         int i = 0;
         int nPalAmt = nSrcPalAmt[0];
 
-        while (nSrcPalStart[i] != -1 && i < 4)
+        while ((nSrcPalStart[i] != -1) && (i < 4))
         {
             i++;
         }
@@ -377,7 +377,7 @@ COLORREF*** CGameClass::CreateImgOutPal()
 
         //Pass 2
         i = 0;
-        while (nSrcPalStart[i] != -1 && i < 4)
+        while ((nSrcPalStart[i] != -1) && (i < 4))
         {
             pppReturnPal[i] = new COLORREF * [nPalAmt];
 

@@ -91,6 +91,16 @@ void CRegProc::LoadReg(int src)
             if (RegQueryValueEx(hKey, "UseBGCol", 0, &RegType, (BYTE*)&bUseBGCol, &GetSz) != ERROR_SUCCESS)
                 bUseBGCol = TRUE;
 
+            int nTranslation = 0;
+            if (RegQueryValueEx(hKey, "PreviewZoom", 0, &RegType, (BYTE*)&nTranslation, &GetSz) == ERROR_SUCCESS)
+            {
+                dPreviewZoom = (double)nTranslation;
+            }
+            else
+            {
+                dPreviewZoom = 1.0;
+            }
+
             RegType = REG_SZ;
             GetSz = RECT_STRSZ;
 
@@ -202,6 +212,9 @@ void CRegProc::SaveReg(int src)
             RegSetValueEx(hKey, "PreviewBGXOffset", 0, REG_DWORD, (BYTE*)&nBGXOffs, sizeof(int));
             RegSetValueEx(hKey, "PreviewBGYOffset", 0, REG_DWORD, (BYTE*)&nBGYOffs, sizeof(int));
             RegSetValueEx(hKey, "UseBGCol", 0, REG_DWORD, (BYTE*)&bUseBGCol, sizeof(int));
+
+            int nTranslation = (int)dPreviewZoom;
+            RegSetValueEx(hKey, "PreviewZoom", 0, REG_DWORD, (BYTE*)&nTranslation, sizeof(int));
         }
         break;
 

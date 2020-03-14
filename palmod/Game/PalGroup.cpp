@@ -89,7 +89,7 @@ BOOL CPalGroup::SetMode(ePalType NewPalMode)
 
 BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, UINT8 uUnitId, UINT16 uPalId)
 {
-    if (nCurrPalAmt >= MAX_PAL || !pPal || !uPalSz)
+    if ((nCurrPalAmt >= MAX_PAL) || !pPal || !uPalSz)
     {
         return FALSE;
     }
@@ -236,7 +236,6 @@ void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)
         //    pHSLArray[i] += pHSLArray[i + nPalSz];
         //}
 
-
         COLORREF crCol = rgPalettes[nIndex].pPal[i];
         double nR = (double)GetRValue(rgPalettes[nIndex].pPal[i]) / 255.0,
             nG = (double)GetGValue(rgPalettes[nIndex].pPal[i]) / 255.0,
@@ -251,8 +250,6 @@ void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)
 
         //pHSLArray[i] /= 
         //    pHSLArray[i + nPalSz] + ((pHSLArray[i + (nPalSz * 2)]) / 0.5) + sqrt(sq(nR - 0) + sq(nG - 0) + sq(nB- 0)) + fpX*4;
-
-
 
         pHSLArray[i] += fpPage;
     }
@@ -276,7 +273,6 @@ void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)
         {
             ShellSort(
                 &pHSLArray[nStartIndex],
-
                 &pHSLArray[nStartIndex + nPalSz],
                 &pHSLArray[nStartIndex + (nPalSz * 2)],
                 (int*)&(rgPalettes[nIndex].pPal)[nStartIndex],
@@ -301,7 +297,6 @@ COLORREF* CPalGroup::GetUnsortedPal(int nIndex)
         {
             pNewPal[i] = rgPalettes[nIndex].pPal[rgPalettes[nIndex].pSortTable[i]];
         }
-
 
         return pNewPal;
     }

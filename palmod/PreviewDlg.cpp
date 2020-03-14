@@ -161,6 +161,7 @@ void CPreviewDlg::LoadSettings()
     m_ImgDisp.SetBGXOffs(LoadSett.nBGXOffs);
     m_ImgDisp.SetBGYOffs(LoadSett.nBGYOffs);
     m_ImgDisp.SetUseBGCol(LoadSett.bUseBGCol);
+    m_ImgDisp.SetZoom(LoadSett.dPreviewZoom);
 
     RECT window_rect;
     window_rect = LoadSett.prev_szpos;
@@ -186,6 +187,7 @@ void CPreviewDlg::SaveSettings()
     SaveSett.nBGXOffs = m_ImgDisp.GetBGXOffs();
     SaveSett.nBGYOffs = m_ImgDisp.GetBGYOffs();
     SaveSett.bUseBGCol = m_ImgDisp.IsUsingBGCol();
+    SaveSett.dPreviewZoom = m_ImgDisp.GetZoom();
 
     RECT window_rect;
 

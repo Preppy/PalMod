@@ -48,6 +48,7 @@ public:
     int nBGYOffs;
     BOOL bTileBG;
     BOOL bUseBGCol;
+    double dPreviewZoom = 0.0;
 
     //New Image
 

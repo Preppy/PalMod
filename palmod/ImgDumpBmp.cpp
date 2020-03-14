@@ -38,12 +38,10 @@ BOOL CImgDumpBmp::RegisterWndClass()
     WNDCLASS windowclass;
     HINSTANCE hInst = AfxGetInstanceHandle();
 
-    //Check weather the class is registerd already
-
+    //Check whether the class is registered already
     if (!(::GetClassInfo(hInst, IMGDUMPBMP, &windowclass)))
     {
         //If not then we have to register the new class
-
         windowclass.style = CS_DBLCLKS;// | CS_HREDRAW | CS_VREDRAW;
 
         windowclass.lpfnWndProc = ::DefWindowProc;
@@ -72,7 +70,6 @@ void CImgDumpBmp::InitImgData()
     //rImgRct = pMainImgCtrl->GetImgRct();
 
     //Init blit data here
-
     rImgRct.SetRect(0, 0, 0, 0);
 
     for (int nImgCtr = 0; nImgCtr < img_amt; nImgCtr++)

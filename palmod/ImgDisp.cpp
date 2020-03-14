@@ -409,17 +409,20 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
 
 void CImgDisp::Redraw()
 {
-    PaintDC->StretchBlt(
-        rCtrlRct.left,
-        rCtrlRct.top,
-        rCtrlRct.right,
-        rCtrlRct.bottom,
-        MainDC,
-        rSrcRct.left,
-        rSrcRct.top,
-        rSrcRct.right - rSrcRct.left,
-        rSrcRct.bottom - rSrcRct.top,
-        SRCCOPY);
+    if (PaintDC)
+    {
+        PaintDC->StretchBlt(
+            rCtrlRct.left,
+            rCtrlRct.top,
+            rCtrlRct.right,
+            rCtrlRct.bottom,
+            MainDC,
+            rSrcRct.left,
+            rSrcRct.top,
+            rSrcRct.right - rSrcRct.left,
+            rSrcRct.bottom - rSrcRct.top,
+            SRCCOPY);
+    }
 }
 
 void CImgDisp::OnPaint()
@@ -454,12 +457,11 @@ void CImgDisp::OnSize(UINT nType, int cx, int cy)
         UpdateCtrl();
         //Redraw();
     }
-    // TODO: Add your message handler code here
 }
 
 BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
 {
-    if (MAIN_W <= 0 || MAIN_H <= 0)
+    if ((MAIN_W <= 0) || (MAIN_H <= 0))
     {
         return TRUE;
     }
@@ -471,8 +473,6 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
     UINT8* pCurrPal = (UINT8*)(bAltPal ? pImgBuffer[nSrcIndex]->pAltPal : pImgBuffer[nSrcIndex]->pPalette);
     UINT8* pImgData = (UINT8*)pImgBuffer[nSrcIndex]->pImgData;
     UINT8* pDstBmpData = (UINT8*)pBmpData;
-
-    double fpDstA1, fpDstA2;
 
     CRect rBltRct(xWidth, yHeight, xWidth + nWidth, yHeight + nHeight);
 
@@ -516,8 +516,8 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
             {
                 int nDstPos = nStartRow + xIndex;
 
-                fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
-                fpDstA1 = 1.0 - fpDstA2;
+                double fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
+                double fpDstA1 = 1.0 - fpDstA2;
 
                 UINT8* uDstR = &pDstBmpData[nDstPos + 2];
                 UINT8* uDstG = &pDstBmpData[nDstPos + 1];
@@ -679,7 +679,6 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 
 void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
 {
-    // TODO: Add your message handler code here and/or call default
     bLButtonDown = FALSE;
     ReleaseCapture();
 
