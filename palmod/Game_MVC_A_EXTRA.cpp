@@ -12,21 +12,20 @@ void CGame_MVC_A::LoadExtraFile()
 
     CHAR szTargetFile[MAX_PATH];
     CHAR szCurrLine[1000];
-    CHAR* szFinalLine;
+    CHAR* szFinalLine = nullptr;
     int nSlashLoc = 0;
     int nCtr = 0;
 
     CHAR szCurrDesc[32];
-    int nCurrStart;
-    int nCurrEnd;
+    int nCurrStart = 0;
+    int nCurrEnd = 0;
 
     stExtraDef rgTempExtraBuffer[1000];
-    stExtraDef* pCurrDef;
 
     int nExtraCtr = 0;
 
     // First add in the already defined Extra palettes.
-    pCurrDef = const_cast<stExtraDef*>(&MVC_A_EXTRA[nExtraCtr]);
+    stExtraDef* pCurrDef = const_cast<stExtraDef*>(&MVC_A_EXTRA[nExtraCtr]);
 
     while (pCurrDef->uUnitN != 0xFF)
     {
@@ -97,8 +96,7 @@ void CGame_MVC_A::LoadExtraFile()
                         if (nDiff > 64) // We can only display a max of 64 entries right now
                         {
                             nValue = 64;
-
-                            nDiff -= 64; // ... Shouldn't we zero this out?
+                            nDiff -= 64;
                         }
                         else
                         {

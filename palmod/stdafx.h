@@ -40,6 +40,8 @@
 #ifdef DEBUG
 #define DEBUG_NEW new(__FILE__, __LINE__)
 #define new DEBUG_NEW
+
+#define USEJOJO 1
 #endif
 
 template<typename T> void safe_delete(T*& a) {

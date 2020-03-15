@@ -21,12 +21,11 @@ void CGame_SFIII3_A::LoadExtraFile()
     int nCurrEnd = 0;
 
     stExtraDef rgTempExtraBuffer[1000];
-    stExtraDef* pCurrDef = nullptr;
 
     int nExtraCtr = 0;
 
     // Before we load the Extra extension file, load our hardcoded known Extras list.
-    pCurrDef = const_cast<stExtraDef*>(&SFIII3_A_EXTRA[nExtraCtr]);
+    stExtraDef* pCurrDef = const_cast<stExtraDef*>(&SFIII3_A_EXTRA[nExtraCtr]);
 
     // Check count to ensure correct offset of the file additions
     while (pCurrDef->uUnitN != 0xFF)

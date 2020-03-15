@@ -13,10 +13,10 @@ private:
 
 	//Used for GetPalOffset
 
-	int nCurrPalOffs;
-	int nCurrPalSz;
+	int nCurrPalOffs = 0;
+	int nCurrPalSz = 0;
 
-	UINT16 ***pppDataBuffer;
+	UINT16 ***pppDataBuffer = nullptr;
 
 	void GetPalOffsSz(int nUnitId, int nPalId);
 
@@ -54,8 +54,6 @@ public:
 
 	void UpdatePalData();
 
-	void FlushUnitFile(){if(bFileChanged){delete bFileChanged; bFileChanged = NULL;}};
-	void PrepUnitFile(){if(!bFileChanged){ bFileChanged = new UINT8;}};
-
-
+	void FlushUnitFile() { if (bFileChanged){ delete bFileChanged; bFileChanged = NULL;} };
+	void PrepUnitFile() { if (!bFileChanged){ bFileChanged = new UINT8;} };
 };
