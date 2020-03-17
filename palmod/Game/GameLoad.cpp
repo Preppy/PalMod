@@ -9,6 +9,7 @@
 #include "Game_XMVSF_A.h"
 #include "Game_MVC_A.h"
 #include "Game_SFIII3_D.h"
+#include "Game_JOJOS_A.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
@@ -22,13 +23,14 @@ CGameLoad::~CGameLoad(void)
     // Clean up static allocations.
     safe_delete_array(CGame_MVC_A::MVC_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50);
+    safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);
 }
 
 BOOL CGameLoad::SetGame(int nGameFlag)
 {
     switch (nGameFlag)
     {
-
     case MVC2_D:
     {
         GetRuleCtr = &CGame_MVC2_D::GetRuleCtr;
@@ -86,6 +88,13 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_MVC_A::GetRule;
         return TRUE;
     }
+    case JOJOS_A:
+    {
+        GetRule = &CGame_JOJOS_A::GetRule;
+        return TRUE;
+    }
+    break;
+
     default:
         return FALSE;
         break;
@@ -94,7 +103,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     return FALSE;
 }
 
-CGameClass* CGameLoad::CreateGame(int nGameFlag)
+CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
 {
     switch (nGameFlag)
     {
@@ -134,12 +143,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag)
     {
         return new CGame_MVC_A;
     }
+    case JOJOS_A:
+    {
+        return new CGame_JOJOS_A(nExtraGameData);
+    }
     default:
         return NULL;
         break;
     }
-
-    return NULL;
 }
 
 CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
@@ -154,13 +165,27 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
         return NULL;
     }
 
-    CurrRule = GetRule(0);
+    int nGameRule = 0;
+
+    if (nGameFlag == JOJOS_A)
+    {
+        CHAR* pszFileName = strrchr(szLoadFile, '\\');
+        // Step forward to the filename
+        pszFileName++;
+
+        if (pszFileName)
+        {
+            nGameRule = ((strcmp(pszFileName, "50") == 0) ? 50 : 51);
+        }
+    }
+
+    CurrRule = GetRule(nGameRule);
 
     if (CurrFile.Open(szLoadFile, CFile::modeRead | CFile::typeBinary))
     {
-        if ((short int)CurrRule.uVerifyVar == -1 || CurrFile.GetLength() == CurrRule.uVerifyVar)
+        if (((short int)CurrRule.uVerifyVar == -1) || (CurrFile.GetLength() == CurrRule.uVerifyVar))
         {
-            OutGame = CreateGame(nGameFlag);
+            OutGame = CreateGame(nGameFlag, nGameRule);
             OutGame->SetLoadDir(szLoadFile);
 
             if (OutGame->LoadFile(&CurrFile, 0))
@@ -290,9 +315,9 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     SetGame(CurrGame->GetGameFlag());
 
     int nFileAmt = CurrGame->GetFileAmt();
-    UINT8* rgChanged = CurrGame->GetChangeRg();
+    UINT16* rgChanged = CurrGame->GetChangeRg();
     CHAR* szDir = CurrGame->GetLoadDir();
-    UINT8* rgUnitRedir = CurrGame->rgUnitRedir;
+    UINT16* rgUnitRedir = CurrGame->rgUnitRedir;
     bool isAnythingReadOnly = false;
     CString strROFile;
 

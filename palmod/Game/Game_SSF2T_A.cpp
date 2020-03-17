@@ -36,11 +36,11 @@ CGame_SSF2T_A::CGame_SSF2T_A(void)
     pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT8[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT8) * nUnitAmt);
+    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
 
     //Create the file changed flag
-    rgFileChanged = new UINT8;
+    rgFileChanged = new UINT16;
 
     nRIndexAmt = 15;
     nGIndexAmt = 15;
@@ -74,6 +74,7 @@ CDescTree CGame_SSF2T_A::InitDescTree()
     sDescNode* ChildNode;
 
     //Create the main character tree
+    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[SSF2T_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[SSF2T_A_NUMUNIT];
     NewDescTree->uChildAmt = SSF2T_A_NUMUNIT;
     //All units have tree children
@@ -90,7 +91,7 @@ CDescTree CGame_SSF2T_A::InitDescTree()
         //Init each character to have all 6 basic buttons + extra
         UnitNode->ChildNodes = new sDescTreeNode[10];
 
-        //All children have button tree's
+        //All children have button trees
         UnitNode->uChildType = DESC_NODETYPE_TREE;
         UnitNode->uChildAmt = 10;
 
@@ -260,7 +261,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    UINT8 uUnitId;
+    UINT16 uUnitId;
     UINT16 uPalId;
 
     sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);

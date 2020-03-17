@@ -34,7 +34,7 @@ class CGameClass
 protected:
     CHAR* szDir = nullptr;
     CHAR** szUnitFile = nullptr;
-    UINT8* rgFileChanged = nullptr;
+    UINT16* rgFileChanged = nullptr;
     int nFileAmt = 0;
 
     BOOL bIsDir = FALSE;
@@ -88,7 +88,7 @@ public:
 
     static BOOL bPostSetPalProc;
 
-    UINT8* rgUnitRedir = nullptr;
+    UINT16* rgUnitRedir = nullptr;
     int nRedirCtr = 0;
 
     UINT16(*ConvCol)(UINT32 inCol);
@@ -114,7 +114,7 @@ public:
     CPalGroup* GetPalGroup() { return &BasePalGroup; };
 
     int GetFileAmt() { return nFileAmt; };
-    UINT8* GetChangeRg() { return rgFileChanged; };
+    UINT16* GetChangeRg() { return rgFileChanged; };
 
     void SetIsDir(BOOL bNewIsDir = TRUE) { bIsDir = bNewIsDir; };
     BOOL GetIsDir() { return bIsDir; };

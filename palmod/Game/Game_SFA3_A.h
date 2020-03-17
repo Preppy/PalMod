@@ -51,5 +51,5 @@ public:
     void UpdatePalData();
 
     void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT8; } };
+    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 };

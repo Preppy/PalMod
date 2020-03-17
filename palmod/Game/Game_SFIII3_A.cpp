@@ -18,7 +18,7 @@ int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bVisible)
         int nDefCtr = 0;
         memset(rgExtraCt, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDef(0);
+        stExtraDef* pCurrDef = GetSF3ExtraDef(0);
 
         while (pCurrDef->uUnitN != 0xFF)
         {
@@ -28,7 +28,7 @@ int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bVisible)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDef(nDefCtr);
+            pCurrDef = GetSF3ExtraDef(nDefCtr);
         }
     }
 
@@ -52,7 +52,7 @@ int CGame_SFIII3_A::GetExtraLoc(int nUnitId)
         int nCurrUnit = 0x80;
         memset(rgExtraLoc, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDef(0);
+        stExtraDef* pCurrDef = GetSF3ExtraDef(0);
 
         while (pCurrDef->uUnitN != 0xFF)
         {
@@ -63,7 +63,7 @@ int CGame_SFIII3_A::GetExtraLoc(int nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDef(nDefCtr);
+            pCurrDef = GetSF3ExtraDef(nDefCtr);
         }
     }
 
@@ -109,11 +109,11 @@ CGame_SFIII3_A::CGame_SFIII3_A(void)
     pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL7);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT8[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT8) * nUnitAmt);
+    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
 
     //Create the file changed flag
-    rgFileChanged = new UINT8;
+    rgFileChanged = new UINT16;
 
     nRIndexAmt = 31;
     nGIndexAmt = 31;
@@ -152,6 +152,7 @@ CDescTree CGame_SFIII3_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
+    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[SFIII3_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -183,7 +184,7 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 
             //Init each character to have all 7 basic buttons (or 2 for ShinGouki) + portrait + ex + extra
             UnitNode->ChildNodes = new sDescTreeNode[nMainChildAmt];
-            //All children have button tree's
+            //All children have button trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nMainChildAmt;
 
@@ -278,13 +279,13 @@ CDescTree CGame_SFIII3_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDef(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetSF3ExtraDef(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->bInvisible == 1)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDef(nExtraPos + nCurrExtra);
+                    pCurrDef = GetSF3ExtraDef(nExtraPos + nCurrExtra);
                 }
 
                 sprintf(ChildNode->szDesc, pCurrDef->szDesc);
@@ -407,9 +408,9 @@ void CGame_SFIII3_A::GetPalOffsSz(int nUnitId, int nPalId)
             nPalSz = 0x80;
         }
     }
-    else//Extra Palette
+    else //Extra Palette
     {
-        stExtraDef* pCurrDef = GetExtraDef(GetExtraLoc(nUnitId) + (nPalId - nExtraPos));
+        stExtraDef* pCurrDef = GetSF3ExtraDef(GetExtraLoc(nUnitId) + (nPalId - nExtraPos));
 
         nOffset = pCurrDef->uOffset;
         nPalSz = pCurrDef->uPalSz;
@@ -575,7 +576,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         return FALSE;
     }
 
-    UINT8 uUnitId;
+    UINT16 uUnitId;
     UINT16 uPalId;
 
     sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);

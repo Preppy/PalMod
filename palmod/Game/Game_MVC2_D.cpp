@@ -8,7 +8,7 @@
 //Initialize the selection tree
 
 CDescTree CGame_MVC2_D::MainDescTree = CGame_MVC2_D::InitDescTree();
-UINT8 CGame_MVC2_D::uRuleCtr = 0;
+UINT16 CGame_MVC2_D::uRuleCtr = 0;
 BOOL CGame_MVC2_D::bAlphaTrans = 0;
 
 UINT16 CGame_MVC2_D::rgExtraChrLoc[MVC2_D_NUMUNIT];
@@ -45,8 +45,8 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     prep_supp();
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT8[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT8) * nUnitAmt);
+    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
 
     nDefPalSz = MVC2_D_PALSZ;
 
@@ -88,6 +88,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
     sDescNode* ChildNode;
 
     //Create the main character tree
+    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[MVC2_D]);
     NewDescTree->ChildNodes = new sDescTreeNode[MVC2_D_NUMUNIT];
     NewDescTree->uChildAmt = MVC2_D_NUMUNIT;
     //All units have tree children
@@ -565,8 +566,8 @@ void CGame_MVC2_D::PrepUnitFile()
     szUnitFile = new CHAR * [MVC2_D_NUMUNIT];
     memset(szUnitFile, NULL, sizeof(CHAR*) * MVC2_D_NUMUNIT);
 
-    rgFileChanged = new UINT8[MVC2_D_NUMUNIT];
-    memset(rgFileChanged, NULL, sizeof(UINT8) * MVC2_D_NUMUNIT);
+    rgFileChanged = new UINT16[MVC2_D_NUMUNIT];
+    memset(rgFileChanged, NULL, sizeof(UINT16) * MVC2_D_NUMUNIT);
 }
 
 void CGame_MVC2_D::ResetChangeFlag(int nUnitId)

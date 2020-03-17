@@ -45,7 +45,7 @@ public:
     void UpdatePalData();
 
     void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT8; } };
+    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     int GetLocalAmt(int nUnitId) { return (XMVSF_A_UNITLOC[nUnitId + 1] - XMVSF_A_UNITLOC[nUnitId]) / 0x20; };
 };

@@ -30,11 +30,11 @@ CGame_SFA3_A::CGame_SFA3_A(void)
     pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT8[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT8) * nUnitAmt);
+    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
 
     //Create the file changed flag
-    rgFileChanged = new UINT8;
+    rgFileChanged = new UINT16;
 
     nRIndexAmt = 15;
     nGIndexAmt = 15;
@@ -68,6 +68,7 @@ CDescTree CGame_SFA3_A::InitDescTree()
     sDescNode* ChildNode;
 
     //Create the main character tree
+    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[SFA3_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[SFA3_A_NUMUNIT];
     NewDescTree->uChildAmt = SFA3_A_NUMUNIT;
     //All units have tree children
@@ -243,7 +244,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    UINT8 uUnitId;
+    UINT16 uUnitId;
     UINT16 uPalId;
 
     sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);

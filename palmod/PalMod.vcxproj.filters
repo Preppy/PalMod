@@ -67,6 +67,9 @@
     <Filter Include="DownClass">
       <UniqueIdentifier>{d9e3525e-2640-4d02-9220-4737de46858b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\JOJOS_A">
+      <UniqueIdentifier>{9f70da93-a5b3-4a79-b773-89cda4e86c49}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -185,6 +188,12 @@
     </ClCompile>
     <ClCompile Include="Game\mvc2_validate.cpp">
       <Filter>Game\MVC2_D</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_JOJOS_A.cpp">
+      <Filter>Game\JOJOS_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_JOJOS_A_EXTRA.cpp">
+      <Filter>Game\JOJOS_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -310,6 +319,12 @@
     </ClInclude>
     <ClInclude Include="UndoRedo.h">
       <Filter>Main DLG/APP\UndoRedo</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_JOJOS_A.h">
+      <Filter>Game\JOJOS_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\JOJOS_A_DEF.h">
+      <Filter>Game\JOJOS_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

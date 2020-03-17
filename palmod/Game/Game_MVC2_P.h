@@ -9,9 +9,9 @@ public:
     ~CGame_MVC2_P(void);
 
     //Static functions
-    static UINT8 uRuleCtr;
+    static UINT16 uRuleCtr;
 
-    static UINT8 GetRuleCtr() { return uRuleCtr; };
+    static UINT16 GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     static sFileRule GetNextRule();

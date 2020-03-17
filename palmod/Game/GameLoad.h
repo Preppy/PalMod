@@ -7,11 +7,11 @@ class CGameLoad
 private:
     BOOL SetGame(int nGameFlag);
 
-    UINT8(*GetRuleCtr)(void);
+    UINT16(*GetRuleCtr)(void);
     void (*ResetRuleCtr)(void);
     sFileRule(*GetNextRule)(void);
     sFileRule(*GetRule)(int);
-    CGameClass* CreateGame(int nGameFlag);
+    CGameClass* CreateGame(int nGameFlag, int nExtraGameData = 0);
 
     CString szLoadSaveStr = "";
 

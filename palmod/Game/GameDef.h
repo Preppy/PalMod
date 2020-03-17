@@ -15,7 +15,8 @@ constexpr auto SFA3_A = 4;
 constexpr auto XMVSF_A = 5;
 constexpr auto MVC_A = 6;
 constexpr auto SFIII3_D = 7;
-#define NUM_GAMES 8
+constexpr auto JOJOS_A = 8;
+constexpr auto NUM_GAMES = 9;
 
 const CHAR g_GameFriendlyName[NUM_GAMES][16] =
 {
@@ -26,7 +27,8 @@ const CHAR g_GameFriendlyName[NUM_GAMES][16] =
     "SFA3_A",
     "XVSF_A",
     "MVC_A",
-    "SFIII3_D"
+    "SFIII3_D",
+    "JOJOS_A"
 };
 
 //Images
@@ -65,6 +67,11 @@ const CHAR DEF_BUTTONLABEL6ALT[6][3] =
 const CHAR DEF_BUTTONLABEL7[7][3] = 
 {
     "LP", "MP", "HP", "LK", "MK", "HK", "EX"
+};
+
+const CHAR DEF_NOBUTTONS[1][16] =
+{
+    "Special"
 };
 
 #define DESC2 2

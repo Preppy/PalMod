@@ -38,10 +38,12 @@
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
 #ifdef DEBUG
+#ifndef DEBUG_NEW
 #define DEBUG_NEW new(__FILE__, __LINE__)
+#endif
 #define new DEBUG_NEW
 
-#define USEJOJO 1
+#define USEJOJOS 1
 #endif
 
 template<typename T> void safe_delete(T*& a) {

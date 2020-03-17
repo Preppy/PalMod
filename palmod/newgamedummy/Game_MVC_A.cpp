@@ -2,9 +2,7 @@
 #include "Game_SSF2T_A.h"
 #include "GameDef.h"
 
-
 CDescTree CGame_SSF2T_A::MainDescTree = CGame_SSF2T_A::InitDescTree();
-
 
 CGame_SSF2T_A::CGame_SSF2T_A(void)
 {
@@ -72,6 +70,7 @@ CDescTree CGame_SSF2T_A::InitDescTree()
     sDescNode * ChildNode;
 
     //Create the main character tree
+    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[SSF2T_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[SSF2T_A_NUMUNIT];
     NewDescTree->uChildAmt = SSF2T_A_NUMUNIT;
     //All units have tree children
@@ -80,7 +79,6 @@ CDescTree CGame_SSF2T_A::InitDescTree()
     //Go through each character
     for (int iUnitCtr = 0; iUnitCtr < SSF2T_A_NUMUNIT; iUnitCtr++)
     {
-
         UnitNode = &((sDescTreeNode *)NewDescTree->ChildNodes)[iUnitCtr];
         //Set each description
         sprintf(UnitNode->szDesc, "%s", SSF2T_A_UNITDESC[iUnitCtr]);
@@ -94,7 +92,6 @@ CDescTree CGame_SSF2T_A::InitDescTree()
 
         for (int iButtonCtr = 0; iButtonCtr < BUTTON6; iButtonCtr++)
         {
-
             int nCurrChildAmt = 1; // 1 for each button for now
 
             ButtonNode = &((sDescTreeNode *)UnitNode->ChildNodes)[iButtonCtr];
@@ -305,7 +302,6 @@ COLORREF * CGame_SSF2T_A::CreatePal(int nUnitId, int nPalId)
 
 void CGame_SSF2T_A::UpdatePalData()
 {
-
     for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef * srcDef = BasePalGroup.GetPalDef(nPalCtr);

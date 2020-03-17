@@ -29,7 +29,7 @@ private:
     BOOL bSpinInit;
 
     CFont BaseFont;
-
+    bool m_fFontisBold = true;
     int nFontHeight;
 
     int nNotifyCtrlIndex;
@@ -44,21 +44,17 @@ private:
     int nPrevPalAmt;
 
     int nPalViewH;
-    UINT8 rgPalRedir[MAX_PALETTE + 1];
+    UINT16 rgPalRedir[MAX_PALETTE + 1];
 
     void Init();
 
-    void SetFont();
     void ClearBG(CPaintDC* PaintDC);
     void DrawText();
 
     void OnPalSelChange(int nCtrlId, BOOL bCurrPage = TRUE);
-    void OnPalHLChange(int nCtrlId);
-    void OnPalMHL(int nCtrlId);
-
-    UINT8* GetCurrPalSel();
 
     void SendPalMsg(int nCtrlId, int nType);
+    void SetFontToBold(bool beBold);
 
 public:
     CPalTool(void);

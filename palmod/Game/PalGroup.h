@@ -30,17 +30,17 @@ struct sPalDef
     COLORREF* pBasePal = nullptr;
     UINT16 uPalSz = 0;
 
-    UINT8 uUnitId = 0;
+    UINT16 uUnitId = 0;
     UINT16 uPalId = 0;
 
     sPalSep* SepList[MAX_SEP];
-    UINT8 uSepAmt = 0;
+    UINT16 uSepAmt = 0;
 
     BOOL bChanged = FALSE;
     BOOL bAvail = FALSE;
 
     UINT16* pSortTable = nullptr;
-    UINT8 uSortIndexStart = 0;
+    UINT16 uSortIndexStart = 0;
 };
 
 enum ePalType
@@ -87,8 +87,8 @@ public:
     BOOL SetMode(ePalType NewPalMode);
     int GetPalAmt() { return nCurrPalAmt; };
 
-    BOOL AddPal(COLORREF* pPal, UINT16 uPalSz, UINT8 uUnitId, UINT16 uPalId);
-    BOOL AddSep(int nIndex, CHAR* szDesc, int nStart, int nAmt);
+    BOOL AddPal(COLORREF* pPal, UINT16 uPalSz, UINT16 uUnitId, UINT16 uPalId);
+    BOOL AddSep(int nIndex, LPCSTR szDesc, int nStart, int nAmt);
 
     void SetRGBA(COLORREF* crTarget, UINT8 rVal, UINT8 gVal, UINT8 bVal, UINT8 aVal = 0);
     void SetHLSA(COLORREF* crTarget, double dH, double dL, double dS, UINT8 aVal);

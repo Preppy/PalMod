@@ -101,11 +101,11 @@ CGame_MVC_A::CGame_MVC_A(void)
     pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT8[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT8) * nUnitAmt);
+    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
 
     //Create the file changed flag
-    rgFileChanged = new UINT8;
+    rgFileChanged = new UINT16;
 
     nRIndexAmt = 15;
     nGIndexAmt = 15;
@@ -144,6 +144,7 @@ CDescTree CGame_MVC_A::InitDescTree()
     sDescNode* ChildNode;
 
     //Create the main character tree
+    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[MVC_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -470,27 +471,11 @@ void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
     case indexLast: // MVC_A_NUMUNIT
     {
         // This is where we handle all the palettes added in via Extra.
-        int nBasicPos = GetBasicAmt(nUnitId);
-        int nPortPos = nBasicPos * 2;
-        int nExPos = 2 + nPortPos;
-        int nExtraPos = 8 + nExPos;
+        stExtraDef* pCurrDef = GetExtraDefForMVC(GetExtraLoc(nUnitId) + nPalId);
 
-        int nOffset, nPalSz;
-
-        // bugbug: Use of bUseExtra here is nonsensical: remove?
-        BOOL bUseExtra = FALSE;
-
-        nExtraPos = 0;
-        bUseExtra = TRUE;
-
-        stExtraDef* pCurrDef = GetExtraDefForMVC(GetExtraLoc(nUnitId) + (nPalId - nExtraPos));
-
-        nOffset = pCurrDef->uOffset;
-        nPalSz = pCurrDef->uPalSz;
-
-        nCurrPalOffs = nOffset;
-        nCurrPalSz = nPalSz / 2;
-        break;
+        nCurrPalOffs = pCurrDef->uOffset;;
+        nCurrPalSz = pCurrDef->uPalSz;
+        return;
     }
     default:
     {
@@ -572,9 +557,6 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    UINT8 uUnitId;
-    UINT16 uPalId;
-
     sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == NULL)
@@ -582,8 +564,8 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    uUnitId = NodeGet->uUnitId;
-    uPalId = NodeGet->uPalId;
+    UINT16 uUnitId = NodeGet->uUnitId;
+    UINT16 uPalId = NodeGet->uPalId;
 
     // Make sure to reset the image id
     nTargetImgId = 0;

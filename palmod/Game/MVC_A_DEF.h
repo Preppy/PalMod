@@ -1,7 +1,5 @@
 #pragma once
 
-#include "mvc2_d_def.h" //bugbug
-
 // Note that we only look up Onslaught from this section, and we don't have a sprite(?)
 #define MVC_A_IMGSTART (0x3B + 0x11 + 0x11 + 0x01) //MVC2, then SSF2T, then SFA3, then XMVSF
 

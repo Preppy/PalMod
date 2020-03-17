@@ -67,6 +67,7 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
     {
         if (nNewAmt > PAL_MAXAMT)
         {
+            OutputDebugString("ERROR: Our color table can only show 64 colors!\n");
             return FALSE;
         }
 

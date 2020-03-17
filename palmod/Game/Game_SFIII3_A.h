@@ -7,9 +7,9 @@
 #define EXTRA_FILENAME "sfiii3e.txt"
 
 #ifdef SFIII3_A_USEEXTRAFILE
-#define GetExtraDef(x) ((stExtraDef *)&SFIII3_A_EXTRA_CUSTOM[x])
+#define GetSF3ExtraDef(x) ((stExtraDef *)&SFIII3_A_EXTRA_CUSTOM[x])
 #else
-#define GetExtraDef(x) (const_cast<stExtraDef *>(&SFIII3_A_EXTRA[x]))
+#define GetSF3ExtraDef(x) (const_cast<stExtraDef *>(&SFIII3_A_EXTRA[x]))
 #endif
 
 class CGame_SFIII3_A : public CGameClass
@@ -67,7 +67,7 @@ public:
     void UpdatePalData();
 
     void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT8; } };
+    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     static stExtraDef* SFIII3_A_EXTRA_CUSTOM;
 };

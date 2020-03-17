@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Game_MVC2_P.h"
 
-UINT8 CGame_MVC2_P::uRuleCtr = 0;
+UINT16 CGame_MVC2_P::uRuleCtr = 0;
 
 CGame_MVC2_P::CGame_MVC2_P(void)
 {

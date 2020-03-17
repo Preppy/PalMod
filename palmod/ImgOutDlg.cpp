@@ -260,22 +260,22 @@ void CImgOutDlg::FillPalCombo()
 {
     switch (nPalAmt)
     {
-    case 1:
-    default:
-    {
-        m_CB_Pal.AddString("Selected");
-        break;
-    }
-    case 6:
-    case 7:
-    {
-        for (int i = 0; i < nPalAmt; i++)
+        case 1:
+        default:
         {
-            //Ugh... I wish I started making this program when I had more knowledge :\
-                //Fix later??
-            m_CB_Pal.AddString(&pButtonLabel[i * 3]);
+            m_CB_Pal.AddString("Selected");
+            break;
         }
-    }
+        case 6:
+        case 7:
+        {
+            for (int i = 0; i < nPalAmt; i++)
+            {
+                //Ugh... I wish I started making this program when I had more knowledge :\
+                    //Fix later??
+                m_CB_Pal.AddString(&pButtonLabel[i * 3]);
+            }
+        }
     }
 
     m_CB_Pal.SetCurSel(0);

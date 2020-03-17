@@ -4,7 +4,7 @@
 
 CDescTree CGame_SFIII3_D::MainDescTree = CGame_SFIII3_D::InitDescTree();
 
-UINT8 CGame_SFIII3_D::uRuleCtr = 0;
+UINT16 CGame_SFIII3_D::uRuleCtr = 0;
 
 CGame_SFIII3_D::CGame_SFIII3_D(void)
 {
@@ -35,12 +35,12 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL7);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT8[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT8) * nUnitAmt);
+    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
 
     //Create the file changed flag array
-    rgFileChanged = new UINT8[SFIII3_D_NUMUNIT];
-    memset(rgFileChanged, NULL, sizeof(UINT8) * SFIII3_D_NUMUNIT);
+    rgFileChanged = new UINT16[SFIII3_D_NUMUNIT];
+    memset(rgFileChanged, NULL, sizeof(UINT16) * SFIII3_D_NUMUNIT);
 
     nRIndexAmt = 31;
     nGIndexAmt = 31;
@@ -74,6 +74,7 @@ CDescTree CGame_SFIII3_D::InitDescTree()
     sDescNode* ChildNode;
 
     //Create the main character tree
+    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[SFIII3_D]);
     NewDescTree->ChildNodes = new sDescTreeNode[SFIII3_D_NUMUNIT];
     NewDescTree->uChildAmt = SFIII3_D_NUMUNIT;
 
@@ -90,7 +91,7 @@ CDescTree CGame_SFIII3_D::InitDescTree()
         //Init each character to have all 6 basic buttons + extra
         UnitNode->ChildNodes = new sDescTreeNode[1];
 
-        //All children have button tree's
+        //All children have button trees
         UnitNode->uChildType = DESC_NODETYPE_TREE;
         UnitNode->uChildAmt = 1;
 
@@ -153,7 +154,7 @@ sFileRule CGame_SFIII3_D::GetRule(int nUnitId)
     sFileRule NewFileRule;
 
     // We get extra data from GameClass that we don't want: clear the lead 0xFF00 flag if present.
-    const UINT8 nRuleId = (nUnitId & 0x00FF) + 1;
+    const UINT16 nRuleId = (nUnitId & 0x00FF) + 1;
 
     sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "PL%02dPL.BIN", nRuleId);
 
@@ -281,7 +282,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         return FALSE;
     }
 
-    UINT8 uUnitId;
+    UINT16 uUnitId;
     UINT16 uPalId;
 
     sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);

@@ -32,12 +32,10 @@ void CPalModDlg::UpdateCombo()
     int nCurrChildSel2;
 
     CGameClass* CurrGame = GetHost()->GetCurrGame();
-    UINT8* rgRedir = CurrGame->rgUnitRedir;
+    UINT16* rgRedir = CurrGame->rgUnitRedir;
 
     if (bLoadUnit)
     {
-        int nDescCtr = 0;
-
         //Grab the main tree
         sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(-1);
 
@@ -45,6 +43,7 @@ void CPalModDlg::UpdateCombo()
         while (m_CBUnitSel.DeleteString(0) >= 0) NULL;
 
         //Add each unit
+        int nDescCtr = 0;
         while (rgRedir[nDescCtr] != 0xFF)
         {
             m_CBUnitSel.AddString(((sDescTreeNode*)UnitTree->ChildNodes)[rgRedir[nDescCtr]].szDesc);

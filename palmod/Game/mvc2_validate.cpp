@@ -9,10 +9,10 @@ bool g_haveValidationData = false;
 
 struct palette_validation
 {
-    UINT8 character_number;
+    UINT16 character_number;
     UINT16 source_palette;
     UINT16 sourceColors[16];
-    UINT8 compare_character;
+    UINT16 compare_character;
     UINT16 destination_palette;
     UINT16 destColors[16];
 };
@@ -2516,7 +2516,7 @@ void dump_palettes(UINT16 char_id, UINT16 source_palette, UINT16 compare_char, U
 void DumpAllPalettes()
 {
     // This part is for the main characters and normal copies only.
-    UINT8 characters_we_modify[] =
+    UINT16 characters_we_modify[] =
     {
         0x1, /* Zangief */
         0x3, /* Morrigan */
@@ -2547,7 +2547,7 @@ void DumpAllPalettes()
         0x3a, /* Kobun */
     };
 
-    for (UINT8 characterCode : characters_we_modify)
+    for (UINT16 characterCode : characters_we_modify)
     {
         for (UINT16 charPalette = 0; charPalette < 6; charPalette++)
         {
@@ -2799,7 +2799,7 @@ bool AreEditsOutOfSync()
     return editsAreOutofSync;
 }
 
-void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT8* rgPaletteChangeArray)
+void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT16* rgPaletteChangeArray)
 {
     // Reset the validation...
     for (palette_validation paletteToCheck : char_val_array)
@@ -2868,7 +2868,7 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT8* rgPaletteChangeArray)
     }
 }
 
-void FixAllProblemPalettes(UINT8* rgPaletteChangeArray)
+void FixAllProblemPalettes(UINT16* rgPaletteChangeArray)
 {
     UINT16 lastFixedCharacter = 0xFFFF;
     UINT16 lastFixedPalette = 0xFFFF;

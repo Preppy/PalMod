@@ -31,11 +31,11 @@ public:
     static CDescTree InitDescTree();
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
 
-    static UINT8 uRuleCtr;
+    static UINT16 uRuleCtr;
     static sFileRule GetNextRule();
     static sFileRule GetRule(int nUnitId);
 
-    static UINT8 GetRuleCtr() { return uRuleCtr; };
+    static UINT16 GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     //Extra palette function
@@ -58,5 +58,5 @@ public:
     void UpdatePalData();
 
     void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT8; } };
+    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 };

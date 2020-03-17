@@ -103,27 +103,6 @@ void CPalTool::OnPalSelChange(int nCtrlId, BOOL bCurrPage)
     Invalidate();
 }
 
-void CPalTool::OnPalHLChange(int nCtrlId)
-{
-    OutputDebugString("Dummy function called: consider culling.\n");
-}
-
-void CPalTool::OnPalMHL(int nCtrlId)
-{
-    OutputDebugString("Dummy function called: consider culling.\n");
-}
-
-UINT8* CPalTool::GetCurrPalSel()
-{
-    OutputDebugString("Dummy function called: consider culling.\n");
-    for (int i = 0; i < MAX_PALETTE; i++)
-    {
-        //if (pPalEntry[i].PaletteCtrl
-    }
-
-    return NULL;
-}
-
 void CPalTool::Init()
 {
     for (int i = 0; i < MAX_PALETTE; i++)
@@ -138,6 +117,7 @@ void CPalTool::Init()
     HFONT hf = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
     GetObject(hf, sizeof(lf), &lf);
 
+    // Default to bold since we will be in an unloaded state that we want the user to understand.
     lf.lfWeight = FW_BOLD;
     BaseFont.CreateFontIndirect(&lf);
 }
@@ -157,8 +137,24 @@ void CPalTool::CleanUp()
     BaseFont.Detach();
 }
 
-void CPalTool::SetFont()
+void CPalTool::SetFontToBold(bool beBold)
 {
+    if (m_fFontisBold != beBold)
+    {
+        m_fFontisBold = beBold;
+        BaseFont.Detach();
+
+        LOGFONT lf;
+        HFONT hf = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
+        GetObject(hf, sizeof(lf), &lf);
+
+        if (beBold)
+        {
+            lf.lfWeight = FW_BOLD;
+        }
+
+        BaseFont.CreateFontIndirect(&lf);
+    }
 }
 
 void CPalTool::ClearBG(CPaintDC* PaintDC)
@@ -186,6 +182,7 @@ void CPalTool::BeginSetPal()
 
 void CPalTool::SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, CHAR* szNewPalStr)
 {
+    SetFontToBold(false);
     //Set palette width/height/color
     pPalEntry[nIndex].PaletteCtrl->InitNewSize(nAmt, rgNewCol);
     pPalEntry[nIndex].szPalStr = szNewPalStr;
@@ -304,7 +301,9 @@ void CPalTool::ShowAvailPal()
         else
         {
             if (pPalEntry[i].PaletteCtrl->IsWindowVisible())
+            {
                 pPalEntry[i].PaletteCtrl->ShowWindow(SW_HIDE);
+            }
         }
     }
 }
@@ -371,8 +370,9 @@ void CPalTool::DrawText()
     }
     else
     {
+        //Draw bold text to show none are visible
+        SetFontToBold(true);
         dc.TextOutA(CurrPos.cx, CurrPos.cy, CString("No Palettes Loaded"));
-        //Draw text to show none are visible
     }
 }
 
@@ -398,7 +398,6 @@ void CPalTool::OnPaint()
 
     DrawText();
 
-    // TODO: Add your message handler code here
     // Do not call CWnd::OnPaint() for painting messages
 }
 

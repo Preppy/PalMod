@@ -44,6 +44,7 @@ void CPalModDlg::OnEditCopy()
             uCopyFlag1 = 2 + 33;
             break;
         case SFIII3_A:
+        case JOJOS_A:
             uCopyFlag1 = 1 + 33;
             break;
         default:
@@ -128,6 +129,7 @@ void CPalModDlg::OnEditPaste()
             switch (uPasteGFlag)
             {
             case SFIII3_A:
+            case JOJOS_A:
             {
                 CurrGame->SetColMode(COLMODE_15);
             }

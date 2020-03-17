@@ -74,6 +74,23 @@ void CPalModDlg::PostGameLoad()
     UpdateCombo();
 
     GetDlgItem(IDC_BCHECKMIX)->ShowWindow((ProgHost->GetCurrGame()->GetGameFlag() == MVC2_D) ? SW_SHOW : SW_HIDE);
+
+    BOOL areWeSadForJojos = (ProgHost->GetCurrGame()->GetGameFlag() == JOJOS_A);
+
+    GetDlgItem(IDC_SHOWPREVIEW)->EnableWindow(!areWeSadForJojos);
+    CPreviewDlg* PreviewDlg = GetHost()->GetPreviewDlg();
+    if (areWeSadForJojos)
+    {
+        if (PreviewDlg->IsWindowVisible())
+        {
+            PreviewDlg->ShowWindow(SW_HIDE);
+        }
+    }
+    else if (!PreviewDlg->IsWindowVisible())
+    {
+        PreviewDlg->ShowWindow(SW_SHOW);
+        PreviewDlg->m_ImgDisp.UpdateCtrl();
+    }
 }
 
 void CPalModDlg::OnBnUpdate()
@@ -324,11 +341,14 @@ void CPalModDlg::OnFileOpen()
     CString szGameFileDef = "";
 
     // BUGBUG... maybe remember their last selection?
-    szGameFileDef.Append("SFIII3 51 Rom (51)|*51*|"); //SFIII3
+    szGameFileDef.Append("SFIII3 51 Rom (51)|51|"); //SFIII3
     szGameFileDef.Append("SSF2T sfxe.04a (*.04a)|*.04a|"); //SSF2T
     szGameFileDef.Append("SFA3 sz3.09c (*.09c )|*.09c|"); //SSF2T
     szGameFileDef.Append("XMVSF xvs.05a (*.05a )|*.05a|"); //XMVSF
     szGameFileDef.Append("MVC mvc.06 (*.06 )|*.06|"); //MVC
+#ifdef USEJOJOS
+    szGameFileDef.Append("JOJOS 50/51 Rom|50;51|"); //Jojos
+#endif
 
     szGameFileDef.Append("|"); //End
 
@@ -359,6 +379,12 @@ void CPalModDlg::OnFileOpen()
             break;
         case 5:
             LoadGameFile(MVC_A, (CHAR*)ofn.lpstrFile);
+            break;
+        case 6:
+            LoadGameFile(JOJOS_A, (CHAR*)ofn.lpstrFile);
+            break;
+        default:
+            OutputDebugString("Error: game file not handled yet.\n");
             break;
         }
     }

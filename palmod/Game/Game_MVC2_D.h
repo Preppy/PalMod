@@ -20,10 +20,10 @@ public:
     int nImgUnitId = MVC2_D_NUMUNIT; //Unit Image Id
 
     //Static functions
-    static UINT8 uRuleCtr;
+    static UINT16 uRuleCtr;
     static UINT16 rgExtraChrLoc[MVC2_D_NUMUNIT];
 
-    static UINT8 GetRuleCtr() { return uRuleCtr; };
+    static UINT16 GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     static CDescTree MainDescTree;

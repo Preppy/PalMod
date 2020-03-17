@@ -83,14 +83,39 @@ BOOL CPalGroup::SetMode(ePalType NewPalMode)
         return FALSE;
         break;
     }
-
-    return FALSE;
 }
 
-BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, UINT8 uUnitId, UINT16 uPalId)
+BOOL CPalGroup::AddSep(int nIndex, LPCSTR szDesc, int nStart, int nAmt)
+{
+    // Separators enable us to have multiple groups of palettes within a palette display.
+    if ((rgPalettes[nIndex].uSepAmt >= MAX_SEP) || (nStart + nAmt > rgPalettes[nIndex].uPalSz))
+    {
+        return FALSE;
+    }
+
+    sPalSep* NewSep = new sPalSep;
+
+    sprintf(NewSep->szDesc, szDesc);
+    NewSep->nStart = nStart;
+    NewSep->nAmt = nAmt;
+
+    rgPalettes[nIndex].SepList[rgPalettes[nIndex].uSepAmt] = NewSep;
+
+    //Set a redir node
+    rgRedir[nRedirCtr].nDefIndex = nIndex;
+    rgRedir[nRedirCtr].nSepIndex = rgPalettes[nIndex].uSepAmt;
+    nRedirCtr++;
+
+    rgPalettes[nIndex].uSepAmt++;
+
+    return TRUE;
+}
+
+BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, UINT16 uUnitId, UINT16 uPalId)
 {
     if ((nCurrPalAmt >= MAX_PAL) || !pPal || !uPalSz)
     {
+        OutputDebugString("CPalGroup::AddPal: bogus argument supplied\n");
         return FALSE;
     }
 
@@ -157,31 +182,6 @@ void CPalGroup::SetAddRGBA(COLORREF crSrc, COLORREF* crTarget, int uAddR, int uA
 
     *crTarget = RGB(ROUND_R(GetRValue(*crTarget)), ROUND_G(GetGValue(*crTarget)), ROUND_B(GetBValue(*crTarget)));
     *crTarget |= (UINT32)ROUND(LimitRGB(GetAValue(crSrc) + uAddA)) << 24;
-}
-
-BOOL CPalGroup::AddSep(int nIndex, CHAR* szDesc, int nStart, int nAmt)
-{
-    if ((rgPalettes[nIndex].uSepAmt >= MAX_SEP) || (nStart + nAmt > rgPalettes[nIndex].uPalSz))
-    {
-        return FALSE;
-    }
-
-    sPalSep* NewSep = new sPalSep;
-
-    sprintf(NewSep->szDesc, szDesc);
-    NewSep->nStart = nStart;
-    NewSep->nAmt = nAmt;
-
-    rgPalettes[nIndex].SepList[rgPalettes[nIndex].uSepAmt] = NewSep;
-
-    //Set a redir node
-    rgRedir[nRedirCtr].nDefIndex = nIndex;
-    rgRedir[nRedirCtr].nSepIndex = rgPalettes[nIndex].uSepAmt;
-    nRedirCtr++;
-
-    rgPalettes[nIndex].uSepAmt++;
-
-    return TRUE;
 }
 
 void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)

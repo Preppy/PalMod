@@ -6,15 +6,15 @@
 
 #define aaadd(x, y) ((x)+(y) > 255 ? 255 : (x)+(y))
 
-#define CUSTOM_HLCHANGE        WM_USER    +1
-#define CUSTOM_SELHLCHANGE    WM_USER +2
-#define CUSTOM_SS            WM_USER    +3 // single select
-#define CUSTOM_MS            WM_USER +4 // multi select
+#define CUSTOM_HLCHANGE        WM_USER +1
+#define CUSTOM_SELHLCHANGE     WM_USER +2
+#define CUSTOM_SS              WM_USER +3 // single select
+#define CUSTOM_MS              WM_USER +4 // multi select
 
 #define CUSTOM_COPY            WM_USER +11
-#define CUSTOM_PASTE        WM_USER +12
+#define CUSTOM_PASTE           WM_USER +12
 #define CUSTOM_SALL            WM_USER +13
-#define CUSTOM_SNONE        WM_USER +14
+#define CUSTOM_SNONE           WM_USER +14
 
 #define PAL_MAXWIDTH 8
 #define PAL_MAXAMT 64
