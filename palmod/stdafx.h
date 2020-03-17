@@ -42,9 +42,9 @@
 #define DEBUG_NEW new(__FILE__, __LINE__)
 #endif
 #define new DEBUG_NEW
+#endif
 
 #define USEJOJOS 1
-#endif
 
 template<typename T> void safe_delete(T*& a) {
     delete a;

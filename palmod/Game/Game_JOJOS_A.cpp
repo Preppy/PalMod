@@ -184,6 +184,66 @@ CDescTree* CGame_JOJOS_A::GetMainTree()
     }
 }
 
+#ifdef NEED_TO_UPDATE_HEADERS
+void ExportTableToDebugger()
+{
+#ifndef USE_LARGE_PALETTES
+    OutputDebugString("FWIW: You want to define USE_LARGE_PALETTES so that you are working with the unsplit headers.\n");
+#endif
+
+    OutputDebugString("const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =\n{\n");
+    for (int iHeaderIndex = 0; iHeaderIndex < ARRAYSIZE(JOJOS_A_TIMESTOP_PALETTES); iHeaderIndex++)
+    {
+        CString strstr;
+
+        const int m_knMaxPalettePageSize = 2 * 64;
+        int nPaletteTotalSize = (JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffsetEnd - JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffset);
+        int nAdjust = 0;
+
+        if (nPaletteTotalSize % 2 == 1)
+        {
+            // Looks like random errors crept into the Jojo files people were passing around: fix and move on.
+            nPaletteTotalSize -= 1;
+            nAdjust = 1;
+        }
+
+        if (nPaletteTotalSize > (m_knMaxPalettePageSize + 1))
+        {
+            const int nTotalPagesNeeded = (int)ceil((double)nPaletteTotalSize / (double)m_knMaxPalettePageSize);
+            int nCurrentPaletteSectionLength = m_knMaxPalettePageSize;
+            int nTotalUnusedColors = nPaletteTotalSize;
+
+            OutputDebugString("#ifndef USE_LARGE_PALETTES\n");
+
+            for (int nCurrentPage = 0, nCurrentOffset = 0; nCurrentPage < nTotalPagesNeeded; nCurrentPage++)
+            {
+                strstr.Format("    { \"%s (%u/%u)\", 0x%07x, 0x%07x }, \n", JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].szPaletteName, nCurrentPage + 1, nTotalPagesNeeded,
+                                                                            JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffset + nCurrentOffset, 
+                                                                            JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffset + nCurrentOffset + nCurrentPaletteSectionLength);
+
+                nCurrentOffset += m_knMaxPalettePageSize;
+                nTotalUnusedColors -= nCurrentPaletteSectionLength;
+                nCurrentPaletteSectionLength = min(nTotalUnusedColors, m_knMaxPalettePageSize);
+                OutputDebugString(strstr);
+            }
+            OutputDebugString("#else\n");
+        }
+
+        strstr.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].szPaletteName,
+                                                            JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffset,
+                                                            JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffsetEnd - nAdjust);
+        OutputDebugString(strstr);
+
+        if (nPaletteTotalSize > (m_knMaxPalettePageSize + 1))
+        {
+            OutputDebugString("#endif\n");
+        }
+    }
+
+    OutputDebugString("};\n");
+}
+#endif
+
 CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 {
 #ifdef JOJOS_A_USEEXTRAFILE
@@ -233,9 +293,11 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nMainChildAmt;
 
+#ifdef DEBUG
             CString strMsg;
             strMsg.Format("Unit: %s, %u of %u, %u total children\n", JOJOS_A_UNITDESC_50[iUnitCtr], iUnitCtr, nUnitCt, nMainChildAmt);
             OutputDebugString(strMsg);
+#endif
 
             //Set data for each child group ("button")
             for (UINT16 iButtonCtr = 0; iButtonCtr < nButtonAmt; iButtonCtr++)
@@ -253,8 +315,10 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                 ButtonNode->uChildAmt = nListedOptionsCount;
                 ButtonNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedOptionsCount];
 
+#ifdef DEBUG
                 strMsg.Format("Button: %s, %u of %u, %u children\n", ButtonNode->szDesc, iButtonCtr, nButtonAmt, nListedOptionsCount);
                 OutputDebugString(strMsg);
+#endif
 
                 //Set each button's extra nodes
                 for (UINT16 nBasicCtr = 0; nBasicCtr < nListedOptionsCount; nBasicCtr++)
@@ -268,8 +332,10 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = nBasicCtr;
 
+#ifdef DEBUG
                     strMsg.Format("Palette: %s, %u of %u\n", ChildNode->szDesc, nBasicCtr, nListedOptionsCount);
                     OutputDebugString(strMsg);
+#endif
                 }
             }
         }
@@ -455,9 +521,11 @@ void CGame_JOJOS_A::GetPalOffsSz(int nUnitId, int nPalId)
         nOffset = paletteSetToUse->nPaletteOffset;
         nPalSz = max(0, (paletteSetToUse->nPaletteOffsetEnd - paletteSetToUse->nPaletteOffset));
 
-        if (nPalSz > 64)
+        if (nPalSz > (2 * 64))
         {
-            OutputDebugString("BUGBUG: This will be chopped.\n");
+            CString strError;
+            strError.Format("BUGBUG: \"%s\" will be chopped.\n", paletteSetToUse->szPaletteName);
+            OutputDebugString(strError);
         }
     }
     else //Extra Palettes
@@ -482,11 +550,11 @@ BOOL CGame_JOJOS_A::LoadFile(CFile* LoadedFile, int nUnitId)
 
         if (UsePaletteSetFor50())
         {
-            rgUnitRedir[nUnitCtr] = JOJOS_A_UNITSORT_50[nUnitCtr];
+            rgUnitRedir[nUnitCtr] = JOJOS_A_UNITS_DISPLAYSORT_50[nUnitCtr];
         }
         else
         {
-            rgUnitRedir[nUnitCtr] = JOJOS_A_UNITSORT_51[nUnitCtr];
+            rgUnitRedir[nUnitCtr] = JOJOS_A_UNITS_DISPLAYSORT_50[nUnitCtr];
         }
 
         for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
