@@ -69,5 +69,7 @@ public:
     void FlushUnitFile() { safe_delete(rgFileChanged); };
     void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
+    void CheckForJojoUsage(CFile* LoadedFile);
+
     static stExtraDef* SFIII3_A_EXTRA_CUSTOM;
 };

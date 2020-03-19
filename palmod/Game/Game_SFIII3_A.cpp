@@ -2,6 +2,7 @@
 #include "Game_SFIII3_A.h"
 #include "GameDef.h"
 #include "..\ExtraFile.h"
+#include "..\PalMod.h"
 
 stExtraDef* CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM = NULL;
 
@@ -422,8 +423,40 @@ void CGame_SFIII3_A::GetPalOffsSz(int nUnitId, int nPalId)
     nCurrPalSz = nPalSz / 2;
 }
 
+void CGame_SFIII3_A::CheckForJojoUsage(CFile* LoadedFile)
+{
+    const size_t nFileLengthToCheck = 32;
+    UINT16* prgFileStart = new UINT16[nFileLengthToCheck];
+    UINT16 rgActualThirdStrikeROMStart[nFileLengthToCheck] = { 0x0, 0x600, 0x4100, 0x4200, 0x4300, 0x4400, 0x4500, 0x4600, 0x4700, 0x4800, 0x4900, 0x4a00, 0x4b00, 0x4c00, 0x4d00, 0x7f00,
+                                                                0x6, 0x606, 0x4106, 0xa0a, 0xb0b, 0xa0c, 0xc0c, 0xd0c, 0xd, 0xa0d, 0xb0d, 0xc0d, 0xd0d, 0xe0d, 0xe, 0xc0e };
+
+    LoadedFile->Seek(0, CFile::begin);
+
+    LoadedFile->Read(prgFileStart, nFileLengthToCheck * 2);
+
+    bool isActuallyThirdStrike = true;
+
+    for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
+    {
+        if (prgFileStart[nIndex] != rgActualThirdStrikeROMStart[nIndex])
+        {
+            isActuallyThirdStrike = false;
+            break;
+        }
+    }
+
+    if (!isActuallyThirdStrike)
+    {
+        MessageBox(g_appHWnd, "This looks like a Jojos ROM. You may want to use the new File : Load File option to load this as a Jojos ROM instead of a Third Strike ROM.", GetAppName(), MB_ICONWARNING);
+    }
+
+    safe_delete_array(prgFileStart);
+}
+
 BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, int nUnitId)
 {
+    CheckForJojoUsage(LoadedFile);
+
     for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
         int nPalAmt = GetPalCt(nUnitCtr); //Fix later for extras
