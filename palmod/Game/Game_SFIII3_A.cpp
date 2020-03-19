@@ -32,7 +32,7 @@ int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bCountVisibleOnly)
         {
             rgExtraCountAll[pCurrDef->uUnitN]++;
 
-            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
+            if (!pCurrDef->isInvisible)
             {
                 rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
             }
@@ -170,6 +170,7 @@ CDescTree CGame_SFIII3_A::InitDescTree()
         int nSuppAmt = 0;
 
         int nExtraCt = GetExtraCt(iUnitCtr, TRUE);
+
         BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
 
         int nButtonAmt = GetBasicAmt(iUnitCtr);

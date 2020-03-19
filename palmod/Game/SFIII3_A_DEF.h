@@ -69,7 +69,7 @@ const stExtraDef SFIII3_A_EXTRA[] =
     //Oro
     { 0x08, "Tengu Stones", 0x00763100, 0x80},
     // Bricks are folded into the Tengu Stones display
-    { 0x08, "Bricks", 0x00763180, 0x20, 0}, // This should actually be invisible, but that code doesn't work fully.
+    { 0x08, "Bricks", 0x00763180, 0x20, 1},
 
     //Ken
     { 0x0A, "Hadouken", 0x00706400, 30 * 2},

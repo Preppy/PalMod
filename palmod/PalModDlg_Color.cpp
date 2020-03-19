@@ -155,7 +155,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
         ResetSlider();
     }
 
-    GetDlgItem(IDC_BNEWCOL)->EnableWindow(nPalSelAmt + !bAutoSetCol);
+    GetDlgItem(IDC_BNEWCOL)->EnableWindow(nPalSelAmt || !bAutoSetCol);
 
     if (bEnableSlider != bSliderEnabled)
     {

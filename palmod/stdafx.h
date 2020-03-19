@@ -34,7 +34,7 @@
 #include <afxdtctl.h>           // MFC support for Internet Explorer 4 Common Controls
 #endif
 #ifndef _AFX_NO_AFXCMN_SUPPORT
-#include <afxcmn.h>                     // MFC support for Windows Common Controls
+#include <afxcmn.h>             // MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
 #ifdef DEBUG
@@ -44,7 +44,8 @@
 #define new DEBUG_NEW
 #endif
 
-#define USEJOJOS 1
+// Special options...
+#define DUMP_DESRIPTION_TREE_ON_LOAD 0
 
 template<typename T> void safe_delete(T*& a) {
     delete a;

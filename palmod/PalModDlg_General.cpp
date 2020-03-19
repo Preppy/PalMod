@@ -27,10 +27,6 @@ void CPalModDlg::OnCBUnitChildChange()
 
 void CPalModDlg::UpdateCombo()
 {
-    int nCurrUnitSel;
-    int nCurrChildSel1;
-    int nCurrChildSel2;
-
     CGameClass* CurrGame = GetHost()->GetCurrGame();
     UINT16* rgRedir = CurrGame->rgUnitRedir;
 
@@ -39,7 +35,7 @@ void CPalModDlg::UpdateCombo()
         //Grab the main tree
         sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(-1);
 
-#ifdef WANT_TO_DUMP_TREE_HERE_YOU_GO
+#if DUMP_DESRIPTION_TREE_ON_LOAD
         // Added this in so I could see the active game tree easily.
         static bool s_fHaveDumped = false;
 
@@ -69,7 +65,7 @@ void CPalModDlg::UpdateCombo()
         bLoadUnit = FALSE;
     }
 
-    nCurrUnitSel = m_CBUnitSel.GetCurSel();
+    int nCurrUnitSel = m_CBUnitSel.GetCurSel();
 
     if (nCurrUnitSel != nPrevUnitSel)
     {
@@ -91,7 +87,7 @@ void CPalModDlg::UpdateCombo()
         nPrevChildSel1 = 0xFFFF;
     }
 
-    nCurrChildSel1 = m_CBChildSel1.GetCurSel();
+    int nCurrChildSel1 = m_CBChildSel1.GetCurSel();
 
     if (nCurrChildSel1 != nPrevChildSel1)
     {
@@ -113,7 +109,7 @@ void CPalModDlg::UpdateCombo()
         nPrevChildSel2 = 0xFFFF;
     }
 
-    nCurrChildSel2 = m_CBChildSel2.GetCurSel();
+    int nCurrChildSel2 = m_CBChildSel2.GetCurSel();
 
     if (nCurrChildSel2 != nPrevChildSel2)
     {

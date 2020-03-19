@@ -29,7 +29,7 @@ int CGame_MVC_A::GetExtraCt(int nUnitId, BOOL bCountVisibleOnly)
         {
             rgExtraCountAll[pCurrDef->uUnitN]++;
 
-            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
+            if (!pCurrDef->isInvisible)
             {
                 rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
             }

@@ -127,7 +127,7 @@ void CPalModDlg::OnGetCol()
     bGetCol = !bGetCol;
 
     //Enable/Disable get color button
-    GetDlgItem(IDC_BNEWCOL)->EnableWindow(bGetCol * !bAutoSetCol);
+    GetDlgItem(IDC_BNEWCOL)->EnableWindow(bGetCol && !bAutoSetCol);
 }
 
 void CPalModDlg::OnAutoSetCol()
@@ -346,9 +346,7 @@ void CPalModDlg::OnFileOpen()
     szGameFileDef.Append("SFA3 sz3.09c (*.09c )|*.09c|"); //SSF2T
     szGameFileDef.Append("XMVSF xvs.05a (*.05a )|*.05a|"); //XMVSF
     szGameFileDef.Append("MVC mvc.06 (*.06 )|*.06|"); //MVC
-#ifdef USEJOJOS
     szGameFileDef.Append("JOJOS 50/51 Rom|50;51|"); //Jojos
-#endif
 
     szGameFileDef.Append("|"); //End
 
