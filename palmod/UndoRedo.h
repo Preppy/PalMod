@@ -31,8 +31,8 @@ public:
     COLORREF* rgPalData = nullptr;
     COLORREF* rgBasePalData = nullptr;
 
-    int nPalSz;
-    int nPalIndex;
+    int nPalSz = 0;
+    int nPalIndex = 0;
 
     CUndoNode* next = nullptr;
 };
@@ -57,11 +57,11 @@ public:
     void    Clear() { DeleteUndoList(); DeleteRedoList(); }
 
 private:
-    CUndoNode* UndoStart;
-    CUndoNode* RedoStart;
+    CUndoNode* UndoStart = nullptr;
+    CUndoNode* RedoStart = nullptr;
 
-    CUndoNode* UndoTail;
-    CUndoNode* RedoTail;
+    CUndoNode* UndoTail = nullptr;
+    CUndoNode* RedoTail = nullptr;
 
     CUndoNode* NewNode(CUndoNode** start, CUndoNode** tail);
 
@@ -82,7 +82,7 @@ private:
     void    DeleteList(CUndoNode** start);
     void    DeleteUndoList() { DeleteList(&UndoStart); UndoTail = NULL; }
 
-    int        GetCount(CUndoNode* start);
+    int     GetCount(CUndoNode* start);
 };
 
 //  Hotkey Start

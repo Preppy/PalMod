@@ -39,7 +39,7 @@ void CPalModDlg::UpdateCombo()
         //Grab the main tree
         sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(-1);
 
-#ifdef WANT_TO_DUMP_THREE_HERE_YOU_GO
+#ifdef WANT_TO_DUMP_TREE_HERE_YOU_GO
         // Added this in so I could see the active game tree easily.
         static bool s_fHaveDumped = false;
 

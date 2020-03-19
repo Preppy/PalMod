@@ -66,15 +66,15 @@ const stExtraDef SFIII3_A_EXTRA[] =
     { 0x01, "Hadouken", 0x00704B00, 30 * 2},
     { 0x01, "Hadouken Impact", 0x00704BA0, 16},
 
+    //Oro
+    { 0x08, "Tengu Stones", 0x00763100, 0x80},
+    // Bricks are folded into the Tengu Stones display
+    { 0x08, "Bricks", 0x00763180, 0x20, 0}, // This should actually be invisible, but that code doesn't work fully.
+
     //Ken
     { 0x0A, "Hadouken", 0x00706400, 30 * 2},
     { 0x0A, "Shoryuken Flames", 0x00706560, 16 * 2},
     { 0x0A, "Hadouken Impact", 0x007064A0, 16},
-
-    //Oro
-    { 0x08, "Tengu Stones", 0x00763100, 0x80},
-    // Bricks are folded into the Tengu Stones display
-    { 0x08, "Bricks", 0x00763180, 0x20, 1},
 
     //Urien
     { 0x0C, "Intro", 0x00706600, 0x80 },

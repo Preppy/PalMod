@@ -4,7 +4,7 @@
 
 #define SFIII3_A_USEEXTRAFILE
 
-#define EXTRA_FILENAME "sfiii3e.txt"
+#define EXTRA_FILENAME_SF3 "sfiii3e.txt"
 
 #ifdef SFIII3_A_USEEXTRAFILE
 #define GetSF3ExtraDef(x) ((stExtraDef *)&SFIII3_A_EXTRA_CUSTOM[x])
@@ -25,6 +25,9 @@ private:
     int nCurrPalSz = 0;
 
     UINT16*** pppDataBuffer = nullptr;
+
+    static int rgExtraCountAll[SFIII3_A_NUMUNIT + 1];
+    static int rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1];
 
     void GetPalOffsSz(int nUnitId, int nPalId);
 

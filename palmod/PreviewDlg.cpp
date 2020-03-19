@@ -342,10 +342,10 @@ void  CPreviewDlg::UpdateZoomSetting(double fpNewZoom)
     m_ImgDisp.SetZoom(fpNewZoom);
 
     CMenu* pSettMenu = GetMenu()->GetSubMenu(2); //2 = zoom menu
-    pSettMenu->CheckMenuItem(ID_ZOOM_1X, MF_BYCOMMAND | (fpNewZoom == 1.0) ? MF_CHECKED : MF_UNCHECKED);
-    pSettMenu->CheckMenuItem(ID_ZOOM_2X, MF_BYCOMMAND | (fpNewZoom == 2.0) ? MF_CHECKED : MF_UNCHECKED);
-    pSettMenu->CheckMenuItem(ID_ZOOM_3X, MF_BYCOMMAND | (fpNewZoom == 3.0) ? MF_CHECKED : MF_UNCHECKED);
-    pSettMenu->CheckMenuItem(ID_ZOOM_4X, MF_BYCOMMAND | (fpNewZoom == 4.0) ? MF_CHECKED : MF_UNCHECKED);
+    pSettMenu->CheckMenuItem(ID_ZOOM_1X, MF_BYCOMMAND | ((fpNewZoom == 1.0) ? MF_CHECKED : MF_UNCHECKED));
+    pSettMenu->CheckMenuItem(ID_ZOOM_2X, MF_BYCOMMAND | ((fpNewZoom == 2.0) ? MF_CHECKED : MF_UNCHECKED));
+    pSettMenu->CheckMenuItem(ID_ZOOM_3X, MF_BYCOMMAND | ((fpNewZoom == 3.0) ? MF_CHECKED : MF_UNCHECKED));
+    pSettMenu->CheckMenuItem(ID_ZOOM_4X, MF_BYCOMMAND | ((fpNewZoom == 4.0) ? MF_CHECKED : MF_UNCHECKED));
 }
 
 void CPreviewDlg::OnSettingsUsebgcolor()

@@ -107,14 +107,10 @@ CGame_MVC_A::CGame_MVC_A(void)
     //Create the file changed flag
     rgFileChanged = new UINT16;
 
-    nRIndexAmt = 15;
-    nGIndexAmt = 15;
-    nBIndexAmt = 15;
+    nRGBIndexAmt = 15;
     nAIndexAmt = 0;
 
-    nRIndexMul = 17.0f;
-    nGIndexMul = 17.0f;
-    nBIndexMul = 17.0f;
+    nRGBIndexMul = 17.0f;
     nAIndexMul = 0.0f;
 }
 

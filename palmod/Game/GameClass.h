@@ -41,14 +41,10 @@ protected:
 
     int nDefPalSz = 0;
 
-    int nRIndexAmt;
-    int nGIndexAmt;
-    int nBIndexAmt;
+    int nRGBIndexAmt;
     int nAIndexAmt;
 
-    double nRIndexMul;
-    double nGIndexMul;
-    double nBIndexMul;
+    double nRGBIndexMul;
     double nAIndexMul;
 
     int nUnitAmt;

@@ -6,13 +6,13 @@
 
 stExtraDef* CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM = NULL;
 
+int CGame_SFIII3_A::rgExtraCountAll[SFIII3_A_NUMUNIT + 1] = { -1 };
+int CGame_SFIII3_A::rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1] = { -1 };
+
 CDescTree CGame_SFIII3_A::MainDescTree = CGame_SFIII3_A::InitDescTree();
 
 int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCountAll[SFIII3_A_NUMUNIT + 1] = { -1 };
-    static int rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1] = { -1 };
-
     int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
 
     static bool s_isInitialized = false;
@@ -25,6 +25,8 @@ int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bCountVisibleOnly)
         memset(rgExtraCt, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetSF3ExtraDef(0);
+
+        OutputDebugString(pCurrDef->szDesc);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -118,14 +120,10 @@ CGame_SFIII3_A::CGame_SFIII3_A(void)
     //Create the file changed flag
     rgFileChanged = new UINT16;
 
-    nRIndexAmt = 31;
-    nGIndexAmt = 31;
-    nBIndexAmt = 31;
+    nRGBIndexAmt = 31;
     nAIndexAmt = 0;
 
-    nRIndexMul = 8.225;
-    nGIndexMul = 8.225;
-    nBIndexMul = 8.225;
+    nRGBIndexMul = 8.225;
     nAIndexMul = 0;
 }
 
@@ -146,7 +144,7 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 #ifdef SFIII3_A_USEEXTRAFILE
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME, SFIII3_A_EXTRA, &SFIII3_A_EXTRA_CUSTOM, SFIII3_A_EXTRALOC);
+    LoadExtraFileForGame(EXTRA_FILENAME_SF3, SFIII3_A_EXTRA, &SFIII3_A_EXTRA_CUSTOM, SFIII3_A_EXTRALOC);
         
 #endif
 

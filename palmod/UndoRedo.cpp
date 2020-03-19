@@ -3,11 +3,6 @@
 
 CUndoRedo::CUndoRedo()
 {
-    UndoStart = NULL;
-    RedoStart = NULL;
-
-    UndoTail = NULL;
-    RedoTail = NULL;
 }
 
 CUndoNode* CUndoRedo::NewNode(CUndoNode** start, CUndoNode** tail)

@@ -42,14 +42,10 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     rgFileChanged = new UINT16[SFIII3_D_NUMUNIT];
     memset(rgFileChanged, NULL, sizeof(UINT16) * SFIII3_D_NUMUNIT);
 
-    nRIndexAmt = 31;
-    nGIndexAmt = 31;
-    nBIndexAmt = 31;
+    nRGBIndexAmt = 31;
     nAIndexAmt = 0;
 
-    nRIndexMul = 8.225;
-    nGIndexMul = 8.225;
-    nBIndexMul = 8.225;
+    nRGBIndexMul = 8.225;
     nAIndexMul = 0;
 }
 

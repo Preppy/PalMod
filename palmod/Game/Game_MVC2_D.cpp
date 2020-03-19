@@ -50,14 +50,10 @@ CGame_MVC2_D::CGame_MVC2_D(void)
 
     nDefPalSz = MVC2_D_PALSZ;
 
-    nRIndexAmt = 15;
-    nGIndexAmt = 15;
-    nBIndexAmt = 15;
+    nRGBIndexAmt = 15;
     nAIndexAmt = 15;
 
-    nRIndexMul = 17.0;
-    nGIndexMul = 17.0;
-    nBIndexMul = 17.0;
+    nRGBIndexMul = 17.0;
     nAIndexMul = 17.0;
 }
 

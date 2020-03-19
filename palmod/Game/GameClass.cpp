@@ -28,13 +28,9 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
     switch (Flag)
     {
     case COL_R:
-        return nRIndexAmt;
-        break;
     case COL_G:
-        return nGIndexAmt;
-        break;
     case COL_B:
-        return nBIndexAmt;
+        return nRGBIndexAmt;
         break;
     case COL_A:
         return nAIndexAmt;
@@ -49,13 +45,9 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
     switch (Flag)
     {
     case COL_R:
-        return nRIndexMul;
-        break;
     case COL_G:
-        return nGIndexMul;
-        break;
     case COL_B:
-        return nBIndexMul;
+        return nRGBIndexMul;
         break;
     case COL_A:
         return nAIndexMul;

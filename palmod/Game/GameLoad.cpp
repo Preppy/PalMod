@@ -169,12 +169,12 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
 
     if (nGameFlag == JOJOS_A)
     {
-        CHAR* pszFileName = strrchr(szLoadFile, '\\');
-        // Step forward to the filename
-        pszFileName++;
+        CHAR* pszFileName = strrchr(szLoadFile, '\\') ;
 
         if (pszFileName)
         {
+            // Step forward to the filename
+            pszFileName++;
             nGameRule = ((strcmp(pszFileName, "50") == 0) ? 50 : 51);
         }
     }

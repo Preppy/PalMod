@@ -155,14 +155,10 @@ CGame_JOJOS_A::CGame_JOJOS_A(int nGameData)
     //Create the file changed flag
     rgFileChanged = new UINT16;
 
-    nRIndexAmt = 31;
-    nGIndexAmt = 31;
-    nBIndexAmt = 31;
+    nRGBIndexAmt = 31;
     nAIndexAmt = 0;
 
-    nRIndexMul = 8.225;
-    nGIndexMul = 8.225;
-    nBIndexMul = 8.225;
+    nRGBIndexMul = 8.225;
     nAIndexMul = 0;
 }
 

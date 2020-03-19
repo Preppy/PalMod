@@ -11,24 +11,13 @@ constexpr auto MAX_PALETTE_SIZE = 64;
 void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart)
 {
     ifstream extraFile;
-
     CHAR szTargetFile[MAX_PATH];
-    CHAR szCurrLine[1000];
-    CHAR* szFinalLine = nullptr;
-    int nSlashLoc = 0;
-    int nCtr = 0;
-
-    CHAR szCurrDesc[MAX_DESCRIPTION_LENGTH];
-    int nCurrStart = 0;
-    int nCurrEnd = 0;
-
-    const int nMaxExtraBufferSize = 1000;
-    stExtraDef rgTempExtraBuffer[nMaxExtraBufferSize];
-
-    int nExtraCtr = 0;
+    int nTotalExtensionExtraLinesHandled = 0;
+    int nStockExtrasCount = 0;
+    int nArrayOffsetDesired = 0;
 
     // Before we load the Extra extension file, load our hardcoded known Extras list.
-    stExtraDef* pCurrDef = const_cast<stExtraDef*>(&pBaseExtraDefs[nExtraCtr]);
+    stExtraDef* pCurrDef = const_cast<stExtraDef*>(&pBaseExtraDefs[nStockExtrasCount]);
 
     if (pCurrDef->uUnitN == UNIT_START_VALUE)
     {
@@ -37,8 +26,8 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
         {
             if (strlen(pCurrDef->szDesc))
             {
-                nExtraCtr++;
-                pCurrDef = const_cast<stExtraDef*>(&pBaseExtraDefs[nExtraCtr]);
+                nStockExtrasCount++;
+                pCurrDef = const_cast<stExtraDef*>(&pBaseExtraDefs[nStockExtrasCount]);
             }
             else
             {
@@ -54,12 +43,15 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
         OutputDebugString("BUGBUG: MEMORY CORRUPTION!\n");
     }
 
-    memcpy(rgTempExtraBuffer, pBaseExtraDefs, nExtraCtr * sizeof(stExtraDef));
+    const int nMaxExtraBufferSize = 1000;
+    stExtraDef rgTempExtraBuffer[nMaxExtraBufferSize];
+    memcpy(rgTempExtraBuffer, pBaseExtraDefs, nStockExtrasCount * sizeof(stExtraDef));
 
     // Now we look for the Extra extension file.
     GetModuleFileName(nullptr, szTargetFile, (DWORD)MAX_PATH * sizeof(CHAR));
-    nSlashLoc = (int)((strrchr(szTargetFile, '\\') - szTargetFile));
-    szTargetFile[nSlashLoc + 1] = '\0';
+    CHAR* pszExeFileName = strrchr(szTargetFile, '\\') + 1;
+    pszExeFileName[0] = '\0';
+
     strcat(szTargetFile, pszExtraFileName);
 
     CString strOutputText;
@@ -69,11 +61,17 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
     int nFileAttrib = GetFileAttributes(szTargetFile);
     if (((nFileAttrib & FILE_ATTRIBUTE_ARCHIVE) == FILE_ATTRIBUTE_ARCHIVE) && (nFileAttrib != INVALID_FILE_ATTRIBUTES))
     {
+        CHAR szCurrLine[MAX_PATH];// arbitrary line length: in practice it should be MAX_DESCRIPTION_LENGTH + 1
+        CHAR szCurrDesc[MAX_DESCRIPTION_LENGTH];
+        CHAR* szFinalLine = nullptr;
+        int nCurrStart = 0;
+        int nCurrEnd = 0;
+
         extraFile.open(szTargetFile, ios::in);
 
         while (!extraFile.eof())
         {
-            extraFile.getline(szCurrLine, 1000);
+            extraFile.getline(szCurrLine, sizeof(szCurrLine));
 
             szFinalLine = szCurrLine;
 
@@ -81,7 +79,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
             {
                 int nPrevAmt = 0;
 
-                switch (nCtr % 3)
+                switch (nTotalExtensionExtraLinesHandled % 3)
                 {
                 case 0:
                 {
@@ -124,7 +122,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                         if (nPos)
                         {
                             // Create a new extra node item if the range for this complete item is over MAX_PALETTE_SIZE.
-                            nCtr += 3;
+                            nTotalExtensionExtraLinesHandled += 3;
                         }
 
                         // If you wanted to fit long palettes on one page you would need to remove this 
@@ -142,32 +140,22 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                             nDiff = 0;
                         }
 
-                        const int nArrayOffset = nExtraCtr + (nCtr / 3);
+                        nArrayOffsetDesired = nStockExtrasCount + (nTotalExtensionExtraLinesHandled / 3);
 
-                        if (nArrayOffset >= nMaxExtraBufferSize)
+                        if (nArrayOffsetDesired < nMaxExtraBufferSize)
                         {
-                            static bool s_fShownOnce = false;
-
-                            if (!s_fShownOnce)
-                            {
-                                strOutputText.Format("WARNING: The '%s' Extra file exceeds maximum palette count (%u).\n\nPalmod is aborting adding further Extra palettes.", pszExtraFileName, nMaxExtraBufferSize);
-                                // Note that this crash occurs so early we don't get to load strings.
-                                MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
-                                s_fShownOnce = true;
-                            }
-                        }
-                        else
-                        {
-                            pCurrDef = &rgTempExtraBuffer[nArrayOffset];
+                            pCurrDef = &rgTempExtraBuffer[nArrayOffsetDesired];
 
                             pCurrDef->uUnitN = nExtraUnitStart;
                             if (nTotalPagesNeeded > 1)
                             {
+                                //pCurrDef->isInvisible = (nCurrentPage == 1);
                                 snprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), "%s (%u/%u)", szCurrDesc, nCurrentPage++, nTotalPagesNeeded);
                             }
                             else
                             {
                                 strncpy(pCurrDef->szDesc, szCurrDesc, sizeof(pCurrDef->szDesc));
+                                //pCurrDef->isInvisible = false;
                             }
                             pCurrDef->uOffset = nCurrStart + ((MAX_PALETTE_SIZE * 2) * nPos);
                             pCurrDef->uPalSz = nValue * 2;
@@ -181,14 +169,22 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                 break;
                 }
 
-                nCtr++;
+                nTotalExtensionExtraLinesHandled++;
             }
         }
     }
 
+    
+    if (nArrayOffsetDesired >= nMaxExtraBufferSize)
+    {
+        strOutputText.Format("WARNING: The '%s' Extra file exceeds maximum palette count (%u defined).\n\nPalmod has added the first %u palettes.", pszExtraFileName, nArrayOffsetDesired, nMaxExtraBufferSize);
+        // Note that this crash occurs so early we don't get to load strings.
+        MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
+    }
+
     if (*pCompleteExtraDefs == nullptr)
     {
-        const int nExtraArraySize = min(nExtraCtr + (nCtr / 3), nMaxExtraBufferSize);
+        const int nExtraArraySize = min(nStockExtrasCount + (nTotalExtensionExtraLinesHandled / 3), nMaxExtraBufferSize);
 
         *pCompleteExtraDefs = new stExtraDef[nExtraArraySize + 1];
 
