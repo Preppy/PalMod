@@ -10,19 +10,19 @@
 
 struct sDescNode
 {
-    CHAR szDesc[MAX_DESC];
+    CHAR szDesc[MAX_DESC] = "uninit";
 
-    UINT8 uUnitId;
-    UINT16 uPalId;
+    UINT8 uUnitId = INVALID_UNIT_VALUE;
+    UINT16 uPalId = 0;
 };
 
 struct sDescTreeNode
 {
-    CHAR szDesc[MAX_DESC];
+    CHAR szDesc[MAX_DESC] = "uninit";
 
-    UINT8 uChildType;
+    UINT8 uChildType = DESC_NODETYPE_TREE;
     void* ChildNodes = nullptr;
-    UINT16 uChildAmt;
+    UINT16 uChildAmt = 0;
 };
 
 class CDescTree
@@ -35,6 +35,7 @@ public:
     ~CDescTree(void);
 
     void SetRootTree(sDescTreeNode* NewTree) { RootTree = NewTree; };
+    void DumpTree(const sDescTreeNode* pTreeOfInterest);
     void FlushTree(sDescTreeNode* CurrTree);
     void FlushRootTree();
     sDescNode* GetDescNode(int nChildId, ...);

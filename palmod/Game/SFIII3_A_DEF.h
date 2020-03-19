@@ -1,13 +1,13 @@
 #pragma once
 
-#define SFIII3_A_NUMUNIT 0x14
-#define SFIII3_A_PALSZ 64
+constexpr auto SFIII3_A_NUMUNIT = 0x14;
+constexpr auto SFIII3_A_PALETTESIZE = 64; // unused
 
 #define SFIII3_A_EXTRALOC SFIII3_A_NUMUNIT
 
 const char SFIII3_A_UNITDESC[SFIII3_A_NUMUNIT][16] = 
 {
-    //"Gill",        //0x
+    //"Gill",        //0x?
     "Alex",          //0x00 
     "Ryu",           //0x01
     "Yun",           //0x02
@@ -60,7 +60,7 @@ const stExtraDef SFIII3_A_EXTRA[] =
 {
     //Start
 
-    { 0x80 },
+    { UNIT_START_VALUE },
 
     //Ryu
     { 0x01, "Hadouken", 0x00704B00, 30 * 2},
@@ -88,5 +88,5 @@ const stExtraDef SFIII3_A_EXTRA[] =
 
     //Extra
 
-    { 0xFF }
+    { INVALID_UNIT_VALUE }
 };

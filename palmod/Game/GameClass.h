@@ -11,7 +11,7 @@ struct sFileRule
 {
     char szFileName[MAX_FILENAME];
     UINT32 uVerifyVar;
-    UINT8 uUnitId;
+    UINT8 uUnitId = INVALID_UNIT_VALUE;
 };
 
 enum ColMode

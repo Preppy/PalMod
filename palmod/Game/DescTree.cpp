@@ -17,7 +17,7 @@ void CDescTree::FlushRootTree()
     {
         FlushTree(RootTree);
 
-        delete RootTree;
+        safe_delete(RootTree);
     }
 }
 
@@ -36,16 +36,64 @@ void CDescTree::FlushTree(sDescTreeNode* CurrTree)
                 FlushTree(&((sDescTreeNode*)CurrTree->ChildNodes)[nChildCtr]);
             }
 
-            delete[](sDescTreeNode*)(CurrTree->ChildNodes);
+           safe_delete_array(CurrTree->ChildNodes);
         }
         break;
 
         case DESC_NODETYPE_NODE:
         {
-            delete[](sDescNode*)(CurrTree->ChildNodes);
+            safe_delete_array(CurrTree->ChildNodes);
         }
         break;
         }
+    }
+}
+
+// Debug functionality so you can see how a game is going to be presented.
+void CDescTree::DumpTree(const sDescTreeNode* pTreeOfInterest)
+{
+    const sDescTreeNode* pTreeToEnumerate = (pTreeOfInterest == nullptr) ? RootTree : pTreeOfInterest;
+
+    if (pTreeToEnumerate)
+    {
+        CString strOutput;
+
+        switch (pTreeToEnumerate->uChildType)
+        {
+        case DESC_NODETYPE_NODE:
+            strOutput.Format("\tButton '%s'.  It has 0x%x children.\n", pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
+            OutputDebugString(strOutput);
+
+            for (UINT16 iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
+            {
+                sDescNode* pChildNode = &((sDescNode*)pTreeToEnumerate->ChildNodes)[iPlaceInNode];
+
+                if (pChildNode)
+                {
+                    strOutput.Format("\t\tNode '%s'.  This is UnitId 0x%x, PaletteId 0x%x.\n", pChildNode->szDesc, pChildNode->uUnitId, pChildNode->uPalId);
+                    OutputDebugString(strOutput);
+                }
+            }
+            break;
+        case DESC_NODETYPE_TREE:
+            strOutput.Format("Entering unit '%s'. It has 0x%x child Buttons.\n", pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
+            OutputDebugString(strOutput);
+
+            for (UINT16 iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
+            {
+                sDescTreeNode* pChildTreeSet = &((sDescTreeNode*)pTreeToEnumerate->ChildNodes)[iPlaceInNode];
+
+                if (pChildTreeSet)
+                {
+                    DumpTree(pChildTreeSet);
+                }
+            }
+            break;
+        }
+    }
+    else
+    {
+        OutputDebugString("No tree loaded.\n");
     }
 }
 
@@ -64,9 +112,9 @@ sDescTreeNode* CDescTree::GetDescTree(int nChildId, ...)
 
     va_start(args, nChildId);
 
-    while (nCurrId != -1 && !bChildIsNode)
+    while ((nCurrId != -1) && !bChildIsNode)
     {
-        switch (RootTree->uChildType)
+        switch (RootTree->uChildType) //bugbug? OutTree vs RootTree
         {
         case DESC_NODETYPE_NODE:
             bChildIsNode = TRUE;
@@ -87,7 +135,7 @@ sDescTreeNode* CDescTree::GetDescTree(int nChildId, ...)
 sDescNode* CDescTree::GetDescNode(int nChildId, ...)
 {
     sDescTreeNode* CurrTree = RootTree;
-    sDescNode* OutNode = NULL;
+    sDescNode* OutNode = nullptr;
 
     int nCurrId = 0;
     BOOL bFoundNode = FALSE;
@@ -98,7 +146,7 @@ sDescNode* CDescTree::GetDescNode(int nChildId, ...)
 
     nCurrId = nChildId;
 
-    while (!bFoundNode && nCurrId != -1)
+    while (!bFoundNode && (nCurrId != -1))
     {
         switch (CurrTree->uChildType)
         {

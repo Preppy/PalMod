@@ -211,7 +211,7 @@ BOOL CGame_SSF2T_A::LoadFile(CFile* LoadedFile, int nUnitId)
         }
     }
 
-    rgUnitRedir[nUnitAmt] = 0xFF;
+    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     return TRUE;
 }

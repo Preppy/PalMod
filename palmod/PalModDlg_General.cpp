@@ -39,12 +39,25 @@ void CPalModDlg::UpdateCombo()
         //Grab the main tree
         sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(-1);
 
+#ifdef WANT_TO_DUMP_THREE_HERE_YOU_GO
+        // Added this in so I could see the active game tree easily.
+        static bool s_fHaveDumped = false;
+
+        if (!s_fHaveDumped)
+        {
+            s_fHaveDumped = true;
+
+            // dump active tree
+            CurrGame->GetMainTree()->DumpTree(nullptr);
+        }
+#endif
+
         //Clear the unit list
         while (m_CBUnitSel.DeleteString(0) >= 0) NULL;
 
         //Add each unit
         int nDescCtr = 0;
-        while (rgRedir[nDescCtr] != 0xFF)
+        while (rgRedir[nDescCtr] != INVALID_UNIT_VALUE)
         {
             m_CBUnitSel.AddString(((sDescTreeNode*)UnitTree->ChildNodes)[rgRedir[nDescCtr]].szDesc);
             nDescCtr++;
@@ -56,7 +69,6 @@ void CPalModDlg::UpdateCombo()
         bLoadUnit = FALSE;
     }
 
-    //
     nCurrUnitSel = m_CBUnitSel.GetCurSel();
 
     if (nCurrUnitSel != nPrevUnitSel)
@@ -79,7 +91,6 @@ void CPalModDlg::UpdateCombo()
         nPrevChildSel1 = 0xFFFF;
     }
 
-    //
     nCurrChildSel1 = m_CBChildSel1.GetCurSel();
 
     if (nCurrChildSel1 != nPrevChildSel1)

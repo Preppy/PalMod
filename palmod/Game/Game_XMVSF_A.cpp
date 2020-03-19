@@ -242,7 +242,7 @@ BOOL CGame_XMVSF_A::LoadFile(CFile* LoadedFile, int nUnitId)
         }
     }
 
-    rgUnitRedir[nUnitAmt] = 0xFF;
+    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     return TRUE;
 }

@@ -1,30 +1,37 @@
 #include "StdAfx.h"
 #include "Game_SFIII3_A.h"
 #include "GameDef.h"
+#include "..\ExtraFile.h"
 
 stExtraDef* CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM = NULL;
 
 CDescTree CGame_SFIII3_A::MainDescTree = CGame_SFIII3_A::InitDescTree();
 
-int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bVisible)
+int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCtDef[SFIII3_A_NUMUNIT + 1] = { -1 };
-    static int rgExtraCtAlt[SFIII3_A_NUMUNIT + 1] = { -1 }; //Fix later
+    static int rgExtraCountAll[SFIII3_A_NUMUNIT + 1] = { -1 };
+    static int rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1] = { -1 };
 
-    int* rgExtraCt = bVisible ? (int*)rgExtraCtAlt : (int*)rgExtraCtDef;
+    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
 
-    if (rgExtraCt[0] == -1)
+    static bool s_isInitialized = false;
+
+    if (!s_isInitialized)
     {
+        s_isInitialized = true;
+
         int nDefCtr = 0;
         memset(rgExtraCt, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetSF3ExtraDef(0);
 
-        while (pCurrDef->uUnitN != 0xFF)
+        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
-            if ((pCurrDef->bInvisible != 1) || !bVisible)
+            rgExtraCountAll[pCurrDef->uUnitN]++;
+
+            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
             {
-                rgExtraCt[pCurrDef->uUnitN]++;
+                rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
             }
 
             nDefCtr++;
@@ -32,14 +39,7 @@ int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bVisible)
         }
     }
 
-    if (bVisible)
-    {
-        return rgExtraCtAlt[nUnitId];
-    }
-    else
-    {
-        return rgExtraCtDef[nUnitId];
-    }
+    return rgExtraCt[nUnitId];
 }
 
 int CGame_SFIII3_A::GetExtraLoc(int nUnitId)
@@ -54,7 +54,7 @@ int CGame_SFIII3_A::GetExtraLoc(int nUnitId)
 
         stExtraDef* pCurrDef = GetSF3ExtraDef(0);
 
-        while (pCurrDef->uUnitN != 0xFF)
+        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
             if (pCurrDef->uUnitN != nCurrUnit)
             {
@@ -88,12 +88,14 @@ CGame_SFIII3_A::CGame_SFIII3_A(void)
     //We need the proper unit amt before we init the main buffer
     nUnitAmt = SFIII3_A_NUMUNIT + (GetExtraCt(SFIII3_A_EXTRALOC) ? 1 : 0);
 
+    OutputDebugString(GetExtraCt(SFIII3_A_EXTRALOC) ? "Loaded SF3_A with Extras.\n" : "Loaded SF3_A without Extras\n");
+
     InitDataBuffer();
 
     //Set color mode
     SetColMode(COLMODE_15);
 
-    //Set palette conversion mode
+    //Set palette conversion mode=
     BasePalGroup.SetMode(PALTYPE_8);
 
     //Set game information
@@ -143,8 +145,8 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 #ifdef SFIII3_A_USEEXTRAFILE
 
     //Load extra file if we're using it
-    LoadExtraFile();
-
+    LoadExtraFileForGame(EXTRA_FILENAME, SFIII3_A_EXTRA, &SFIII3_A_EXTRA_CUSTOM, SFIII3_A_EXTRALOC);
+        
 #endif
 
     int nUnitCt = SFIII3_A_NUMUNIT + (GetExtraCt(SFIII3_A_EXTRALOC) ? 1 : 0);
@@ -281,7 +283,7 @@ CDescTree CGame_SFIII3_A::InitDescTree()
 
                 stExtraDef* pCurrDef = GetSF3ExtraDef(nExtraPos + nCurrExtra);
 
-                while (pCurrDef->bInvisible == 1)
+                while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
@@ -442,7 +444,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, int nUnitId)
         }
     }
 
-    rgUnitRedir[nUnitAmt] = 0xFF;
+    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     return TRUE;
 }
@@ -703,7 +705,7 @@ void CGame_SFIII3_A::UpdatePalData()
             UINT16 uAmt = srcDef->uPalSz;
             int nBasicAmt = GetBasicAmt(srcDef->uUnitId);
 
-            if (srcDef->uPalId >= nBasicAmt && srcDef->uPalId < nBasicAmt * 2 && srcDef->uUnitId != SFIII3_A_EXTRALOC)//Portrait
+            if ((srcDef->uPalId >= nBasicAmt) && (srcDef->uPalId < nBasicAmt * 2) && (srcDef->uUnitId != SFIII3_A_EXTRALOC)) //Portrait
             {
                 nIndexStart = 3; //Skip surrounding portrait indexes
             }

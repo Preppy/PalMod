@@ -288,7 +288,7 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
             {
                 DWORD dwAttribs = GetFileAttributes(szPath);
 
-                if ((0xFFFFFFFF != dwAttribs) && ((dwAttribs & FILE_ATTRIBUTE_DIRECTORY) || (dwAttribs & FILE_ATTRIBUTE_ARCHIVE)))
+                if ((INVALID_FILE_ATTRIBUTES != dwAttribs) && ((dwAttribs & FILE_ATTRIBUTE_DIRECTORY) || (dwAttribs & FILE_ATTRIBUTE_ARCHIVE)))
                 {
                     if (bIsDir)
                     {
@@ -296,7 +296,7 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
                         *bIsDir = ((dwAttribs & FILE_ATTRIBUTE_DIRECTORY) ? TRUE : FALSE);
                     }
 
-                    _tcscpy(ptszPath, szPath);
+                    strcpy(ptszPath, szPath);
                     fFound = TRUE;
                 }
             }

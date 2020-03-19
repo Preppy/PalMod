@@ -209,7 +209,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
     if (OutGame)
     {
         //Set it to the end of the redirect list
-        //OutGame->rgUnitRedir[OutGame->nRedirCtr] = 0xFF;
+        //OutGame->rgUnitRedir[OutGame->nRedirCtr] = INVALID_UNIT_VALUE;
     }
 
     int nOut = OutGame ? 1 : 0;
@@ -241,7 +241,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, CHAR* szLoadDir)
 
     int nCurrRuleCtr = GetRuleCtr();
 
-    while (nCurrRuleCtr != 0xFF)
+    while (nCurrRuleCtr != INVALID_UNIT_VALUE)
     {
         nSaveLoadCount++;
 
@@ -295,7 +295,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, CHAR* szLoadDir)
     if (OutGame)
     {
         //Set it to the end of the redirect list
-        OutGame->rgUnitRedir[OutGame->nRedirCtr] = 0xFF;
+        OutGame->rgUnitRedir[OutGame->nRedirCtr] = INVALID_UNIT_VALUE;
     }
 
     szLoadSaveStr.Format("%d of %d files loaded successfully (%d error%s)", nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? "" : "s");

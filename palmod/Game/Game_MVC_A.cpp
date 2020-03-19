@@ -1,30 +1,37 @@
 #include "StdAfx.h"
 #include "Game_MVC_A.h"
 #include "GameDef.h"
+#include "..\ExtraFile.h"
 
 stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = NULL;
 
 CDescTree CGame_MVC_A::MainDescTree = CGame_MVC_A::InitDescTree();
 
-int CGame_MVC_A::GetExtraCt(int nUnitId, BOOL bVisible)
+int CGame_MVC_A::GetExtraCt(int nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCtDef[MVC_A_NUMUNIT + 1] = { -1 };
-    static int rgExtraCtAlt[MVC_A_NUMUNIT + 1] = { -1 }; //Fix later
+    static int rgExtraCountAll[MVC_A_NUMUNIT + 1] = { -1 };
+    static int rgExtraCountVisibleOnly[MVC_A_NUMUNIT + 1] = { -1 };
 
-    int* rgExtraCt = bVisible ? (int*)rgExtraCtAlt : (int*)rgExtraCtDef;
+    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
 
-    if (rgExtraCt[0] == -1)
+    static bool s_isInitialized = false;
+
+    if (!s_isInitialized)
     {
+        s_isInitialized = true;
+
         int nDefCtr = 0;
         memset(rgExtraCt, 0, (MVC_A_NUMUNIT + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetExtraDefForMVC(0);
 
-        while (pCurrDef->uUnitN != 0xFF)
+        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
-            if (pCurrDef->bInvisible != 1 || !bVisible)
+            rgExtraCountAll[pCurrDef->uUnitN]++;
+
+            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
             {
-                rgExtraCt[pCurrDef->uUnitN]++;
+                rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
             }
 
             nDefCtr++;
@@ -32,14 +39,7 @@ int CGame_MVC_A::GetExtraCt(int nUnitId, BOOL bVisible)
         }
     }
 
-    if (bVisible)
-    {
-        return rgExtraCtAlt[nUnitId];
-    }
-    else
-    {
-        return rgExtraCtDef[nUnitId];
-    }
+    return rgExtraCt[nUnitId];
 }
 
 int CGame_MVC_A::GetExtraLoc(int nUnitId)
@@ -54,7 +54,7 @@ int CGame_MVC_A::GetExtraLoc(int nUnitId)
 
         stExtraDef* pCurrDef = GetExtraDefForMVC(0);
 
-        while (pCurrDef->uUnitN != 0xFF)
+        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
             if (pCurrDef->uUnitN != nCurrUnit)
             {
@@ -133,7 +133,7 @@ CDescTree* CGame_MVC_A::GetMainTree()
 CDescTree CGame_MVC_A::InitDescTree()
 {
     //Load extra file if we're using it
-    LoadExtraFile();
+    LoadExtraFileForGame(EXTRA_FILENAME_MVC, MVC_A_EXTRA, &MVC_A_EXTRA_CUSTOM, MVC_A_EXTRALOC);
 
     int nUnitCt = MVC_A_NUMUNIT + (GetExtraCt(MVC_A_EXTRALOC) ? 1 : 0);
 
@@ -319,7 +319,7 @@ CDescTree CGame_MVC_A::InitDescTree()
 
                 pCurrDef = GetExtraDefForMVC(nExtraPos + nCurrExtra);
 
-                while (pCurrDef->bInvisible == 1)
+                while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
@@ -512,7 +512,7 @@ BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, int nUnitId)
         }
     }
 
-    rgUnitRedir[nUnitAmt] = 0xFF;
+    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     return TRUE;
 }
@@ -569,7 +569,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Make sure to reset the image id
     nTargetImgId = 0;
-    int nImgUnitId = 0xFF;
+    int nImgUnitId = INVALID_UNIT_VALUE;
 
     const sMVC_PaletteDataset* paletteDataSet = nullptr;
 
@@ -618,7 +618,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         // Megaman is a mess.
         nImgUnitId = MVC_A_MEGAMAN_PALETTES[uPalId].indexImgToUse;
 
-        if (nImgUnitId == 0xFF)
+        if (nImgUnitId == INVALID_UNIT_VALUE)
         {
             // Forcibly Megaman all the things, since we only have two Roll sprites to use right now.
             nImgUnitId = MVC_A_IMGREDIR[uUnitId];
@@ -638,7 +638,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         paletteDataSet = &MVC_A_GOLDWARMACHINE_PALETTES[uPalId];
         break;
     case indexLast: // MVC_A_EXTRALOC: We don't have anything for these right now.
-        nImgUnitId = 0xFF;
+        nImgUnitId = INVALID_UNIT_VALUE;
         break;
     case indexGambit:
         paletteDataSet = &MVC_A_GAMBIT_PALETTES[uPalId];

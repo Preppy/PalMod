@@ -672,7 +672,7 @@ const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
     MVC_A_EXTRALOC //Extra palettes
 };
 
-const char MVC_A_IMGDESC[6][32] =
+const char MVC_A_IMGDESC[6][MAX_DESCRIPTION_LENGTH] =
 {
     "P1 Color",
     "Palette 2",
@@ -682,7 +682,7 @@ const char MVC_A_IMGDESC[6][32] =
     "Palette 6"
 };
 
-const char MVC_A_UNITDESC[MVC_A_NUMUNIT][32] =
+const char MVC_A_UNITDESC[MVC_A_NUMUNIT][MAX_DESCRIPTION_LENGTH] =
 {
     "War Machine",
     "Captain America",
@@ -768,7 +768,7 @@ const stExtraDef MVC_A_EXTRA[] =
 {
     //Start
 
-    { 0x80 },
+    { UNIT_START_VALUE },
 
-    { 0xFF }
+    { INVALID_UNIT_VALUE }
 };

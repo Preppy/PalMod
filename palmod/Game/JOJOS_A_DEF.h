@@ -6,16 +6,16 @@ constexpr auto JOJOS_A_PALSZ = 64;
 
 const char JOJOS_A_UNITDESC_50[][16] =
 {
-    "HUD",
-    "Portraits",
-    "Stages",
+    "HUD",       // JOJOS_A_HUD_PALETTES
+    "Portraits", // JOJOS_A_HUD_PORTRAIT_PALETTES
+    "Stages",    // JOJOS_A_STAGE_PALETTES
 };
 
 const char JOJOS_A_UNITDESC_51[][16] =
 {
-    "Base",
-    "Timestop",
-    "Bonus",
+    "Base",     // JOJOS_A_CHARACTER_PALETTES
+    "Timestop", // JOJOS_A_TIMESTOP_PALETTES
+    "Bonus",    // JOJOS_A_BONUS_PALETTES
 };
 
 constexpr auto JOJOS_A_NUMUNIT_50 = ARRAYSIZE(JOJOS_A_UNITDESC_50);
@@ -3839,9 +3839,9 @@ const stExtraDef JOJOS_A_EXTRA[] =
 {
     //Start
 
-    { 0x80 },
+    { UNIT_START_VALUE },
 
     //Extra
 
-    { 0xFF }
+    { INVALID_UNIT_VALUE }
 };

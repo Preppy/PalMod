@@ -53,7 +53,7 @@ public:
     static sFileRule GetRule(int nUnitId);
 
     //Extra palette function
-    static int GetExtraCt(int nCurrentMode, int nUnitId, BOOL bVisible = FALSE);
+    static int GetExtraCt(int nCurrentMode, int nUnitId, BOOL bCountVisibleOnly = FALSE);
     static int GetExtraLoc(int nCurrentMode, int nUnitId);
     static int GetBasicAmt(int nUnitId);
 

@@ -89,14 +89,13 @@ const CHAR DEF_DESCSFA3[6][16] =
     "Primary", "Secondary", "Primary", "Secondary", "Primary", "Secondary"
 };
 
+constexpr auto MAX_DESCRIPTION_LENGTH = 48;
+
 struct stExtraDef
 {
-    UINT8 uUnitN;
-    CHAR szDesc[32];
-    UINT32 uOffset;
-    UINT16 uPalSz;
-    UINT8 bInvisible;
-
-    UINT16 uReserved;
-    UINT8 uReserved2;
+    UINT8 uUnitN = INVALID_UNIT_VALUE;
+    CHAR szDesc[MAX_DESCRIPTION_LENGTH] = "uninit";
+    UINT32 uOffset = 0;
+    UINT16 uPalSz = 0;
+    bool isInvisible = false;
 };

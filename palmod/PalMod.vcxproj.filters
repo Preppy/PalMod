@@ -102,9 +102,6 @@
     <ClCompile Include="Game\Game_SFIII3_A.cpp">
       <Filter>Game\SFIII3_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game_SFIII3_A_EXTRA.cpp">
-      <Filter>Game\SFIII3_A</Filter>
-    </ClCompile>
     <ClCompile Include="Game\DescTree.cpp">
       <Filter>Game\Default</Filter>
     </ClCompile>
@@ -183,17 +180,14 @@
     <ClCompile Include="UndoRedo.cpp">
       <Filter>Main DLG/APP\UndoRedo</Filter>
     </ClCompile>
-    <ClCompile Include="Game_MVC_A_EXTRA.cpp">
-      <Filter>Game\MVC_A</Filter>
-    </ClCompile>
     <ClCompile Include="Game\mvc2_validate.cpp">
       <Filter>Game\MVC2_D</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_JOJOS_A.cpp">
       <Filter>Game\JOJOS_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game_JOJOS_A_EXTRA.cpp">
-      <Filter>Game\JOJOS_A</Filter>
+    <ClCompile Include="ExtraFile.cpp">
+      <Filter>Game\Default</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -325,6 +319,9 @@
     </ClInclude>
     <ClInclude Include="Game\JOJOS_A_DEF.h">
       <Filter>Game\JOJOS_A</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtraFile.h">
+      <Filter>Game\Default</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

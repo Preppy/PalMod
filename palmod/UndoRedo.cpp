@@ -13,7 +13,9 @@ CUndoRedo::CUndoRedo()
 CUndoNode* CUndoRedo::NewNode(CUndoNode** start, CUndoNode** tail)
 {
     if (GetCount(*start) >= UR_LIMIT)
+    {
         DeleteTail(start, tail);
+    }
 
     CUndoNode* newnode;
 
@@ -31,7 +33,9 @@ CUndoNode* CUndoRedo::NewNode(CUndoNode** start, CUndoNode** tail)
 void CUndoRedo::Insert(CUndoNode* newnode, CUndoNode** start, CUndoNode** tail)
 {
     if (GetCount(*start) >= UR_LIMIT)
+    {
         DeleteTail(start, tail);
+    }
 
     BOOL bIsTail = *start == NULL ? TRUE : FALSE;
 

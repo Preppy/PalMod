@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "Game_JOJOS_A.h"
 #include "GameDef.h"
+#include "..\ExtraFile.h"
 
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50 = nullptr;
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51 = nullptr;
@@ -8,34 +9,34 @@ stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51 = nullptr;
 CDescTree CGame_JOJOS_A::MainDescTree_50 = CGame_JOJOS_A::InitDescTree(50);
 CDescTree CGame_JOJOS_A::MainDescTree_51 = CGame_JOJOS_A::InitDescTree(51);
 
-int CGame_JOJOS_A::GetExtraCt(int nCurrentMode, int nUnitId, BOOL bVisible)
+int CGame_JOJOS_A::GetExtraCt(int nCurrentMode, int nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCtDef_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
-    static int rgExtraCtAlt_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 }; //Fix later
-    static int rgExtraCtDef_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
-    static int rgExtraCtAlt_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 }; //Fix later
+    static int rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
+    static int rgExtraCountVisibleOnly_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 }; //Fix later
+    static int rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
+    static int rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 }; //Fix later
 
     int* rgExtraCt = nullptr;
     
-    if (bVisible)
+    if (bCountVisibleOnly)
     {
-        rgExtraCt = (nCurrentMode == 50) ? (int*)rgExtraCtAlt_50 : (int*)rgExtraCtAlt_51;
+        rgExtraCt = UsePaletteSetFor50(nCurrentMode) ? (int*)rgExtraCountVisibleOnly_50 : (int*)rgExtraCountVisibleOnly_51;
     }
     else
     {
-        rgExtraCt = (nCurrentMode == 50) ? (int*)rgExtraCtDef_50 : (int*)rgExtraCtDef_51;
+        rgExtraCt = UsePaletteSetFor50(nCurrentMode) ? (int*)rgExtraCountAll_50 : (int*)rgExtraCountAll_51;
     }
 
     if (rgExtraCt[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCt, 0, (((nCurrentMode == 50) ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51) + 1) * sizeof(int));
+        memset(rgExtraCt, 0, ((UsePaletteSetFor50(nCurrentMode) ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51) + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetJojosExtraDef(nCurrentMode, 0);
 
-        while (pCurrDef->uUnitN != 0xFF)
+        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
-            if ((pCurrDef->bInvisible != 1) || !bVisible)
+            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
             {
                 rgExtraCt[pCurrDef->uUnitN]++;
             }
@@ -63,7 +64,7 @@ int CGame_JOJOS_A::GetExtraLoc(int nPaletteSetToUse, int nUnitId)
 
             stExtraDef* pCurrDef = GetJojosExtraDef(50, 0);
 
-            while (pCurrDef->uUnitN != 0xFF)
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
                 if (pCurrDef->uUnitN != nCurrUnit)
                 {
@@ -88,7 +89,7 @@ int CGame_JOJOS_A::GetExtraLoc(int nPaletteSetToUse, int nUnitId)
 
             stExtraDef* pCurrDef = GetJojosExtraDef(51, 0);
 
-            while (pCurrDef->uUnitN != 0xFF)
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
                 if (pCurrDef->uUnitN != nCurrUnit)
                 {
@@ -247,10 +248,15 @@ void ExportTableToDebugger()
 CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 {
 #ifdef JOJOS_A_USEEXTRAFILE
-
     //Load extra file if we're using it
-    LoadExtraFile(nPaletteSetToUse);
-
+    if (UsePaletteSetFor50(nPaletteSetToUse))
+    {
+        LoadExtraFileForGame(EXTRA_FILENAME_50, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_50, JOJOS_A_EXTRALOC_50);
+    }
+    else
+    {
+        LoadExtraFileForGame(EXTRA_FILENAME_51, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_51, JOJOS_A_EXTRALOC_51);
+    }
 #endif
 
     int nUnitCt = UsePaletteSetFor50(nPaletteSetToUse) ? (JOJOS_A_NUMUNIT_50 + (GetExtraCt(50, JOJOS_A_EXTRALOC_50) ? 1 : 0)) :
@@ -293,7 +299,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nMainChildAmt;
 
-#ifdef DEBUG
+#ifdef JOJOS_DEBUG
             CString strMsg;
             strMsg.Format("Unit: %s, %u of %u, %u total children\n", JOJOS_A_UNITDESC_50[iUnitCtr], iUnitCtr, nUnitCt, nMainChildAmt);
             OutputDebugString(strMsg);
@@ -315,7 +321,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                 ButtonNode->uChildAmt = nListedOptionsCount;
                 ButtonNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedOptionsCount];
 
-#ifdef DEBUG
+#ifdef JOJOS_DEBUG
                 strMsg.Format("Button: %s, %u of %u, %u children\n", ButtonNode->szDesc, iButtonCtr, nButtonAmt, nListedOptionsCount);
                 OutputDebugString(strMsg);
 #endif
@@ -332,7 +338,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = nBasicCtr;
 
-#ifdef DEBUG
+#ifdef JOJOS_DEBUG
                     strMsg.Format("Palette: %s, %u of %u\n", ChildNode->szDesc, nBasicCtr, nListedOptionsCount);
                     OutputDebugString(strMsg);
 #endif
@@ -378,7 +384,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 
                 stExtraDef* pCurrDef = GetJojosExtraDef(nPaletteSetToUse, nExtraPos + nCurrExtra);
 
-                while (pCurrDef->bInvisible == 1)
+                while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
@@ -569,7 +575,7 @@ BOOL CGame_JOJOS_A::LoadFile(CFile* LoadedFile, int nUnitId)
         }
     }
 
-    rgUnitRedir[nUnitAmt] = 0xFF;
+    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     return TRUE;
 }
@@ -705,7 +711,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         // This handles palettes loaded from the Extras extension file
     }
 
-    nImgUnitId = 0xFF;
+    nImgUnitId = INVALID_UNIT_VALUE;
 
     if (bCreateBasicPal)
     {

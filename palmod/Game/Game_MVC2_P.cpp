@@ -36,7 +36,7 @@ sFileRule CGame_MVC2_P::GetNextRule()
 
     if (uRuleCtr >= MVC2_D_NUMUNIT)
     {
-        uRuleCtr = 0xFF;
+        uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
