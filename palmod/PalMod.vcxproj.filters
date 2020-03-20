@@ -64,9 +64,6 @@
     <Filter Include="Main DLG/APP\UndoRedo">
       <UniqueIdentifier>{858b99b1-77bf-4de0-a42c-561c33d7d05b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DownClass">
-      <UniqueIdentifier>{d9e3525e-2640-4d02-9220-4737de46858b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\JOJOS_A">
       <UniqueIdentifier>{9f70da93-a5b3-4a79-b773-89cda4e86c49}</UniqueIdentifier>
     </Filter>

@@ -59,7 +59,7 @@ int CGame_JOJOS_A::GetExtraLoc(int nPaletteSetToUse, int nUnitId)
         if (rgExtraLoc_50[0] == -1)
         {
             int nDefCtr = 0;
-            int nCurrUnit = 0x80;
+            int nCurrUnit = UNIT_START_VALUE;
             memset(rgExtraLoc_50, 0, (JOJOS_A_NUMUNIT_50 + 1) * sizeof(int));
 
             stExtraDef* pCurrDef = GetJojosExtraDef(50, 0);
@@ -84,7 +84,7 @@ int CGame_JOJOS_A::GetExtraLoc(int nPaletteSetToUse, int nUnitId)
         if (rgExtraLoc_51[0] == -1)
         {
             int nDefCtr = 0;
-            int nCurrUnit = 0x80;
+            int nCurrUnit = UNIT_START_VALUE;
             memset(rgExtraLoc_51, 0, (JOJOS_A_NUMUNIT_51 + 1) * sizeof(int));
 
             stExtraDef* pCurrDef = GetJojosExtraDef(51, 0);

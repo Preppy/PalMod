@@ -49,7 +49,7 @@ int CGame_MVC_A::GetExtraLoc(int nUnitId)
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
-        int nCurrUnit = 0x80;
+        int nCurrUnit = UNIT_START_VALUE;
         memset(rgExtraLoc, 0, (MVC_A_NUMUNIT + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetExtraDefForMVC(0);

@@ -52,7 +52,7 @@ int CGame_SFIII3_A::GetExtraLoc(int nUnitId)
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
-        int nCurrUnit = 0x80;
+        int nCurrUnit = UNIT_START_VALUE;
         memset(rgExtraLoc, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetSF3ExtraDef(0);
@@ -660,7 +660,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             nSrcStart = uPalId;
             nSrcAmt = 1;
         }
-        else if (uPalId >= nNormalPalAmt)
+        else if (uPalId >= nNormalPalAmt) // Handles extras loaded from the extension file.
         {
             bCreateBasicPal = !(CreateExtraPal(uUnitId, uPalId));
 
