@@ -114,11 +114,11 @@ CDescTree CGame_SFA3_A::InitDescTree()
     return CDescTree(NewDescTree);
 }
 
-sFileRule CGame_SFA3_A::GetRule(int nUnitId)
+sFileRule CGame_SFA3_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "sz3.09c");
+    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "sz3.09c");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = 0x80000;
@@ -126,7 +126,7 @@ sFileRule CGame_SFA3_A::GetRule(int nUnitId)
     return NewFileRule;
 }
 
-int CGame_SFA3_A::GetBasicAmt(int nUnitId)
+int CGame_SFA3_A::GetBasicAmt(UINT16 nUnitId)
 {
     return 6; // 6 for the 6 Ism-based colors
 }
@@ -160,25 +160,23 @@ void CGame_SFA3_A::ClearDataBuffer()
     }
 }
 
-void CGame_SFA3_A::GetPalOffsSz(int nUnitId, int nPalId)
+void CGame_SFA3_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
 {
     nCurrPalOffs = 0x2c0d4 + (0x3C0 * nUnitId) + (nPalId * 0xA0);
     nCurrPalSz = 16;
 }
 
-BOOL CGame_SFA3_A::LoadFile(CFile* LoadedFile, int nUnitId)
+BOOL CGame_SFA3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
-    int nPalAmt;
-
-    for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        nPalAmt = GetPalCt(nUnitCtr);
+        UINT16 nPalAmt = GetPalCt(nUnitCtr);
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         rgUnitRedir[nUnitCtr] = nUnitCtr; //Fix later for unit sort
 
-        for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             GetPalOffsSz(nUnitCtr, nPalCtr);
 
@@ -195,12 +193,12 @@ BOOL CGame_SFA3_A::LoadFile(CFile* LoadedFile, int nUnitId)
     return TRUE;
 }
 
-int CGame_SFA3_A::GetPalCt(int nUnitId)
+int CGame_SFA3_A::GetPalCt(UINT16 nUnitId)
 {
     return 6;// 6 palettes in a unit
 }
 
-BOOL CGame_SFA3_A::SaveFile(CFile* SaveFile, int nUnitId)
+BOOL CGame_SFA3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -219,10 +217,10 @@ BOOL CGame_SFA3_A::SaveFile(CFile* SaveFile, int nUnitId)
     return TRUE;
 }
 
-void CGame_SFA3_A::CreateDefPal(sDescNode* srcNode, int nSepId)
+void CGame_SFA3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
-    int nUnitId = srcNode->uUnitId;
-    int nPalId = srcNode->uPalId;
+    UINT16 nUnitId = srcNode->uUnitId;
+    UINT16 nPalId = srcNode->uPalId;
 
     GetPalOffsSz(nUnitId, nPalId);
 
@@ -240,9 +238,6 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    UINT16 uUnitId;
-    UINT16 uPalId;
-
     sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == NULL)
@@ -250,8 +245,8 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    uUnitId = NodeGet->uUnitId;
-    uPalId = NodeGet->uPalId;
+    UINT16 uUnitId = NodeGet->uUnitId;
+    UINT16 uPalId = NodeGet->uPalId;
 
     // Make sure to reset the image id (currently not relevant, just sanity at this point)
     nTargetImgId = 0;
@@ -273,7 +268,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-COLORREF* CGame_SFA3_A::CreatePal(int nUnitId, int nPalId)
+COLORREF* CGame_SFA3_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     GetPalOffsSz(nUnitId, nPalId);
 

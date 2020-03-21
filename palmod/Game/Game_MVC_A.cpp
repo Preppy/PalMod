@@ -7,7 +7,7 @@ stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = NULL;
 
 CDescTree CGame_MVC_A::MainDescTree = CGame_MVC_A::InitDescTree();
 
-int CGame_MVC_A::GetExtraCt(int nUnitId, BOOL bCountVisibleOnly)
+int CGame_MVC_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     static int rgExtraCountAll[MVC_A_NUMUNIT + 1] = { -1 };
     static int rgExtraCountVisibleOnly[MVC_A_NUMUNIT + 1] = { -1 };
@@ -42,7 +42,7 @@ int CGame_MVC_A::GetExtraCt(int nUnitId, BOOL bCountVisibleOnly)
     return rgExtraCt[nUnitId];
 }
 
-int CGame_MVC_A::GetExtraLoc(int nUnitId)
+int CGame_MVC_A::GetExtraLoc(UINT16 nUnitId)
 {
     static int rgExtraLoc[MVC_A_NUMUNIT + 1] = { -1 };
 
@@ -70,7 +70,7 @@ int CGame_MVC_A::GetExtraLoc(int nUnitId)
     return rgExtraLoc[nUnitId];
 }
 
-int CGame_MVC_A::GetBasicAmt(int nUnitId)
+int CGame_MVC_A::GetBasicAmt(UINT16 nUnitId)
 {
     return 1;
 }
@@ -335,11 +335,11 @@ CDescTree CGame_MVC_A::InitDescTree()
     return CDescTree(NewDescTree);
 }
 
-sFileRule CGame_MVC_A::GetRule(int nUnitId)
+sFileRule CGame_MVC_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "mvc.06");
+    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "mvc.06");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = 0x80000;
@@ -347,7 +347,7 @@ sFileRule CGame_MVC_A::GetRule(int nUnitId)
     return NewFileRule;
 }
 
-int CGame_MVC_A::GetPalCt(int nUnitId)
+int CGame_MVC_A::GetPalCt(UINT16 nUnitId)
 {
     if (nUnitId == MVC_A_EXTRALOC)
     {
@@ -388,7 +388,7 @@ void CGame_MVC_A::ClearDataBuffer()
     }
 }
 
-void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
+void CGame_MVC_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
 {
     // Update this if you need new characters/palette lists
     switch (nUnitId)
@@ -484,11 +484,11 @@ void CGame_MVC_A::GetPalOffsSz(int nUnitId, int nPalId)
     nCurrPalSz = 16;
 }
 
-BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, int nUnitId)
+BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     int nPalAmt;
 
-    for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
         nPalAmt = GetPalCt(nUnitCtr);
 
@@ -496,7 +496,7 @@ BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, int nUnitId)
 
         rgUnitRedir[nUnitCtr] = MVC_A_UNITSORT[nUnitCtr];
 
-        for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             GetPalOffsSz(nUnitCtr, nPalCtr);
 
@@ -513,13 +513,13 @@ BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, int nUnitId)
     return TRUE;
 }
 
-BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, int nUnitId)
+BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
-    for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        int nPalAmt = GetPalCt(nUnitCtr);
+        UINT16 nPalAmt = GetPalCt(nUnitCtr);
 
-        for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             GetPalOffsSz(nUnitCtr, nPalCtr);
 
@@ -532,10 +532,10 @@ BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, int nUnitId)
     return TRUE;
 }
 
-void CGame_MVC_A::CreateDefPal(sDescNode* srcNode, int nSepId)
+void CGame_MVC_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
-    int nUnitId = srcNode->uUnitId;
-    int nPalId = srcNode->uPalId;
+    UINT16 nUnitId = srcNode->uUnitId;
+    UINT16 nPalId = srcNode->uPalId;
 
     GetPalOffsSz(nUnitId, nPalId);
 
@@ -678,7 +678,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-COLORREF* CGame_MVC_A::CreatePal(int nUnitId, int nPalId)
+COLORREF* CGame_MVC_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     GetPalOffsSz(nUnitId, nPalId);
 

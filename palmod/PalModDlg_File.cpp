@@ -75,9 +75,12 @@ void CPalModDlg::PostGameLoad()
 
     GetDlgItem(IDC_BCHECKMIX)->ShowWindow((ProgHost->GetCurrGame()->GetGameFlag() == MVC2_D) ? SW_SHOW : SW_HIDE);
 
+    // We have no images for Jojos, so optimize the UI a little...
     BOOL areWeSadForJojos = (ProgHost->GetCurrGame()->GetGameFlag() == JOJOS_A);
 
     GetDlgItem(IDC_SHOWPREVIEW)->EnableWindow(!areWeSadForJojos);
+    GetDlgItem(IDC_BBLINK)->EnableWindow(!areWeSadForJojos);
+    
     CPreviewDlg* PreviewDlg = GetHost()->GetPreviewDlg();
     if (areWeSadForJojos)
     {

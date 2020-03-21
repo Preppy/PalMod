@@ -1,21 +1,33 @@
 #pragma once
 
-// Number of major palette units.
 // Color table size
 constexpr auto JOJOS_A_PALSZ = 64;
+constexpr auto JOJOS_EXTRA_COLLECTION = 0;
+
+struct sJOJOS_PaletteDataset
+{
+    LPCSTR szPaletteName;
+    int nPaletteOffset;
+    int nPaletteOffsetEnd;
+    bool isInvisible = false;
+};
+
+#ifdef NEED_TO_UPDATE_JOJO_HEADERS
+#define USE_LARGE_PALETTES
+#endif
 
 const char JOJOS_A_UNITDESC_50[][16] =
 {
-    "HUD",       // JOJOS_A_HUD_PALETTES
-    "Portraits", // JOJOS_A_HUD_PORTRAIT_PALETTES
-    "Stages",    // JOJOS_A_STAGE_PALETTES
+    "HUD",           // JOJOS_HUD_COLLECTION
+    "HUD Portraits", // JOJOS_A_HUD_PORTRAIT_COLLECTION
+    "Stages",        // JOJOS_A_STAGE_COLLECTION
 };
 
 const char JOJOS_A_UNITDESC_51[][16] =
 {
-    "Base",     // JOJOS_A_CHARACTER_PALETTES
+    "Base",     // JOJOS_CHARACTER_COLLECTION
     "Timestop", // JOJOS_A_TIMESTOP_PALETTES
-    "Bonus",    // JOJOS_A_BONUS_PALETTES
+    "Bonus",    // JOJOS_A_BONUS_COLLECTION
 };
 
 constexpr auto JOJOS_A_NUMUNIT_50 = ARRAYSIZE(JOJOS_A_UNITDESC_50);
@@ -27,18 +39,254 @@ constexpr auto JOJOS_A_NUMUNIT_51 = ARRAYSIZE(JOJOS_A_UNITDESC_51);
 // hud, portraits, stages: 50
 // characters, timestop, bonus: 51
 
-struct sJOJOS_PaletteDataset
+// Notes from Segata:
+// every character palette is separated by 0x14500 from a button to another
+// Jotaro A Star Breaker and Jotaro B Star Breaker are 0x14500 away and Star Breaker B is at the same distance as Star Breaker C
+// So you can just add the A version and create a function that multiples the value instead of writing everything manually
+// Also Characters are 0xC80 away, so Jotaro Aand Kakyoin A are just 0xC80, Kakyoin to Avdol is 0xC80 and etc
+
+
+#pragma region HUD_PORTRAITS
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_JOTARO_PALETTES[] =
 {
-    LPCSTR szPaletteName;
-    int nPaletteOffset;
-    int nPaletteOffsetEnd;
+    { "Jotaro A Life Bar Portrait", 0x07C0400, 0x07C0420 },
+    { "Jotaro B Life Bar Portrait", 0x07C0420, 0x07C0440 },
+    { "Jotaro C Life Bar Portrait", 0x07C0C00, 0x07C0C20 },
+    { "Jotaro S Life Bar Portrait", 0x07C0C20, 0x07C0C40 },
+    { "Jotaro Start Life Bar Portrait", 0x07C0C40, 0x07C0C60 },
 };
 
-#ifdef NEED_TO_UPDATE_HEADERS
-#define USE_LARGE_PALETTES
-#endif
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_KAKYOIN_PALETTES[] =
+{
+    { "Kakyoin A Life Bar Portrait", 0x07C0440, 0x07C0460 },
+    { "Kakyoin B Life Bar Portrait", 0x07C0460, 0x07C0480 },
+    { "Kakyoin C Life Bar Portrait", 0x07C0C60, 0x07C0C80 },
+    { "Kakyoin S Life Bar Portrait", 0x07C0C80, 0x07C0CA0 },
+    { "Kakyoin Start Life Bar Portrait", 0x07C0CA0, 0x07C0CC0 },
+};
 
-const sJOJOS_PaletteDataset JOJOS_A_HUD_PALETTES[] =
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_DIO_PALETTES[] =
+{
+    { "Dio A Life Bar Portrait", 0x07C0480, 0x07C04A0 },
+    { "Dio B Life Bar Portrait", 0x07C04A0, 0x07C04C0 },
+    { "Dio C Life Bar Portrait", 0x07C14C0, 0x07C14E0 },
+    { "Dio S Life Bar Portrait", 0x07C14E0, 0x07C1500 },
+    { "Dio Start Life Bar Portrait", 0x07C1500, 0x07C1520 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_CHAKA_PALETTES[] =
+{
+    { "Chaka A Life Bar Portrait", 0x07C04C0, 0x07C04E0 },
+    { "Chaka B Life Bar Portrait", 0x07C04E0, 0x07C0500 },
+    { "Chaka C Life Bar Portrait", 0x07C0F60, 0x07C0F80 },
+    { "Chaka S Life Bar Portrait", 0x07C0F80, 0x07C0FA0 },
+    { "Chaka Start Life Bar Portrait", 0x07C0FA0, 0x07C0FC0 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_IGGY_PALETTES[] =
+{
+    { "Iggy A Life Bar Portrait", 0x07C0500, 0x07C0520 },
+    { "Iggy B Life Bar Portrait", 0x07C0520, 0x07C0540 },
+    { "Iggy C Life Bar Portrait", 0x07C0DE0, 0x07C0E00 },
+    { "Iggy S Life Bar Portrait", 0x07C0E00, 0x07C0E20 },
+    { "Iggy Start Life Bar Portrait", 0x07C0E20, 0x07C0E40 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_PETSHOP_PALETTES[] =
+{
+    { "Petshop A Life Bar Portrait", 0x07C0540, 0x07C0560 },
+    { "Petshop B Life Bar Portrait", 0x07C0560, 0x07C0580 },
+    { "Petshop C Life Bar Portrait", 0x07C1800, 0x07C1820 },
+    { "Petshop S Life Bar Portrait", 0x07C1820, 0x07C1840 },
+    { "Petshop Start Life Bar Portrait", 0x07C1840, 0x07C1860 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_POLNAREFF_PALETTES[] =
+{
+    { "Polnareff A Life Bar Portrait", 0x07C0580, 0x07C05A0 },
+    { "Polnareff B Life Bar Portrait", 0x07C05A0, 0x07C05C0 },
+    { "Polnareff C Life Bar Portrait", 0x07C0D20, 0x07C0D40 },
+    { "Polnareff S Life Bar Portrait", 0x07C0D40, 0x07C0D60 },
+    { "Polnareff Start Life Bar Portrait", 0x07C0D60, 0x07C0D80 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_JOSEPH_PALETTES[] =
+{
+    { "Joseph A Life Bar Portrait", 0x07C05C0, 0x07C05E0 },
+    { "Joseph B Life Bar Portrait", 0x07C05E0, 0x07C0600 },
+    { "Joseph C Life Bar Portrait", 0x07C0D80, 0x07C0DA0 },
+    { "Joseph S Life Bar Portrait", 0x07C0DA0, 0x07C0DC0 },
+    { "Joseph Start Life Bar Portrait", 0x07C0DC0, 0x07C0DE0 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_ABDUL_PALETTES[] =
+{
+    { "Abdul A Life Bar Portrait", 0x07C0600, 0x07C0620 },
+    { "Abdul B Life Bar Portrait", 0x07C0620, 0x07C0640 },
+    { "Abdul C Life Bar Portrait", 0x07C0CC0, 0x07C0CE0 },
+    { "Abdul S Life Bar Portrait", 0x07C0CE0, 0x07C0D00 },
+    { "Abdul Start Life Bar Portrait", 0x07C0D00, 0x07C0D20 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_ALESSI_PALETTES[] =
+{
+    { "Alessi A Life Bar Portrait", 0x07C0640, 0x07C0660 },
+    { "Alessi B Life Bar Portrait", 0x07C0660, 0x07C0680 },
+    { "Alessi C Life Bar Portrait", 0x07C0F00, 0x07C0F20 },
+    { "Alessi S Life Bar Portrait", 0x07C0F20, 0x07C0F40 },
+    { "Alessi Start Life Bar Portrait", 0x07C0F40, 0x07C0F60 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_DEVO_PALETTES[] =
+{
+    { "Devo A Life Bar Portrait", 0x07C06C0, 0x07C06E0 },
+    { "Devo B Life Bar Portrait", 0x07C06E0, 0x07C0700 },
+    { "Devo C Life Bar Portrait", 0x07C1400, 0x07C1420 },
+    { "Devo S Life Bar Portrait", 0x07C1420, 0x07C1440 },
+    { "Devo Start Life Bar Portrait", 0x07C1440, 0x07C1460 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_VANILLA_PALETTES[] =
+{
+    { "Vanilla Ice A Life Bar Portrait", 0x07C0740, 0x07C0760 },
+    { "Vanilla Ice B Life Bar Portrait", 0x07C0760, 0x07C0780 },
+    { "Vanilla Ice C Life Bar Portrait", 0x07C1520, 0x07C1540 },
+    { "Vanilla Ice S Life Bar Portrait", 0x07C1540, 0x07C1560 },
+    { "Vanilla Ice Start Life Bar Portrait", 0x07C1560, 0x07C1580 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_HOL_PALETTES[] =
+{
+    { "Hol Horse A Life Bar Portrait", 0x07C0780, 0x07C07A0 },
+    { "Hol Horse B Life Bar Portrait", 0x07C07A0, 0x07C07C0 },
+    { "Hol Horse C Life Bar Portrait", 0x07C1640, 0x07C1660 },
+    { "Hol Horse S Life Bar Portrait", 0x07C1660, 0x07C1680 },
+    { "Hol Horse Start Life Bar Portrait", 0x07C1680, 0x07C16A0 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_MIDLER_PALETTES[] =
+{
+    { "Midler A Life Bar Portrait", 0x07C08C0, 0x07C08E0 },
+    { "Midler B Life Bar Portrait", 0x07C08E0, 0x07C0900 },
+    { "Midler C Life Bar Portrait", 0x07C1460, 0x07C1480 },
+    { "Midler S Life Bar Portrait", 0x07C1480, 0x07C14A0 },
+    { "Midler Start Life Bar Portrait", 0x07C14A0, 0x07C14C0 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_MARIAH_PALETTES[] =
+{
+    { "Mariah A Life Bar Portrait", 0x07C0900, 0x07C0920 },
+    { "Mariah B Life Bar Portrait", 0x07C0920, 0x07C0940 },
+    { "Mariah C Life Bar Portrait", 0x07C1860, 0x07C1880 },
+    { "Mariah S Life Bar Portrait", 0x07C1880, 0x07C18A0 },
+    { "Mariah Start Life Bar Portrait", 0x07C18A0, 0x07C18C0 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_YJOSEPH_PALETTES[] =
+{
+    { "Young Joseph A Life Bar Portrait", 0x07C0B60, 0x07C0B80 },
+    { "Young Joseph B Life Bar Portrait", 0x07C0B80, 0x07C0BA0 },
+    { "Young Joseph C Life Bar Portrait", 0x07C15E0, 0x07C1600 },
+    { "Young Joseph S Life Bar Portrait", 0x07C1600, 0x07C1620 },
+    { "Young Joseph Start Life Bar Portrait", 0x07C1620, 0x07C1640 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_SDIO_PALETTES[] =
+{
+    { "Shadow Dio A Life Bar Portrait", 0x07C0BA0, 0x07C0BC0 },
+    { "Shadow Dio B Life Bar Portrait", 0x07C0BC0, 0x07C0BE0 },
+    { "Shadow Dio C Life Bar Portrait", 0x07C1580, 0x07C15A0 },
+    { "Shadow Dio S Life Bar Portrait", 0x07C15A0, 0x07C15C0 },
+    { "Shadow Dio Start Life Bar Portrait", 0x07C15C0, 0x07C15E0 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_NKAKYOIN_PALETTES[] =
+{
+    { "New Kakyoin A / B / Start Life Bar Portrait", 0x07C16E0, 0x07C1700 },
+    { "New Kakyoin C Life Bar Portrait", 0x07C16A0, 0x07C16C0 },
+    { "New Kakyoin S Life Bar Portrait", 0x07C16C0, 0x07C16E0 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_APOL_PALETTES[] =
+{
+    { "Anubis Polnareff A Life Bar Portrait", 0x07C1700, 0x07C1720 },
+    { "Anubis Polnareff B Life Bar Portrait", 0x07C1720, 0x07C1740 },
+    { "Anubis Polnareff C Life Bar Portrait", 0x07C1740, 0x07C1760 },
+    { "Anubis Polnareff S Life Bar Portrait", 0x07C1760, 0x07C1780 },
+    { "Anubis Polnareff Start Life Bar Portrait", 0x07C1780, 0x07C17A0 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_HOLB_PALETTES[] =
+{
+    { "Hol & Boingo A Life Bar Portrait", 0x07C18C0, 0x07C18E0 },
+    { "Hol & Boingo B Life Bar Portrait", 0x07C18E0, 0x07C1900 },
+    { "Hol & Boingo C Life Bar Portrait", 0x07C1900, 0x07C1920 },
+    { "Hol & Boingo S Life Bar Portrait", 0x07C1920, 0x07C1940 },
+    { "Hol & Boingo Start Life Bar Portrait", 0x07C1940, 0x07C1960 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_RSOUL_PALETTES[] =
+{
+    { "Rubber Soul A Life Bar Portrait", 0x07C1960, 0x07C1980 },
+    { "Rubber Soul B Life Bar Portrait", 0x07C1980, 0x07C19A0 },
+    { "Rubber Soul C Life Bar Portrait", 0x07C19A0, 0x07C19C0 },
+    { "Rubber Soul S Life Bar Portrait", 0x07C19C0, 0x07C19E0 },
+    { "Rubber Soul Start Life Bar Portrait", 0x07C19E0, 0x07C1A00 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_KHAN_PALETTES[] =
+{
+    { "Khan A Life Bar Portrait", 0x07C1A00, 0x07C1A20 },
+    { "Khan B Life Bar Portrait", 0x07C1A20, 0x07C1A40 },
+    { "Khan C Life Bar Portrait", 0x07C1A40, 0x07C1A60 },
+    { "Khan S Life Bar Portrait", 0x07C1A60, 0x07C1A80 },
+    { "Khan Start Life Bar Portrait", 0x07C1A80, 0x07C1AA0 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_DEATH_PALETTES[] =
+{
+    { "Death 13 A Life Bar Portrait", 0x07C0800, 0x07C0820 },
+    { "Death 13 B Life Bar Portrait", 0x07C0820, 0x07C0840 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_NDOUL_PALETTES[] =
+{
+    { "N'Doul A Life Bar Portrait", 0x07C0840, 0x07C0860 },
+    { "N'Doul B Life Bar Portrait", 0x07C0860, 0x07C0880 },
+};
+
+const sDescTreeNode JOJOS_HUD_PORTRAIT_COLLECTION[]
+{
+    { "Jotaro", DESC_NODETYPE_TREE, (void *)JOJOS_A_HUD_PORTRAIT_JOTARO_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_JOTARO_PALETTES) },
+    { "Kakyoin", DESC_NODETYPE_TREE,(void*)JOJOS_A_HUD_PORTRAIT_KAKYOIN_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_KAKYOIN_PALETTES) },
+    { "Dio", DESC_NODETYPE_TREE,    (void*)JOJOS_A_HUD_PORTRAIT_DIO_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_DIO_PALETTES) },
+    { "Chaka", DESC_NODETYPE_TREE,  (void*)JOJOS_A_HUD_PORTRAIT_CHAKA_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_CHAKA_PALETTES) },
+    { "Iggy", DESC_NODETYPE_TREE,   (void*)JOJOS_A_HUD_PORTRAIT_IGGY_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_IGGY_PALETTES) },
+    { "Petshop", DESC_NODETYPE_TREE,(void*)JOJOS_A_HUD_PORTRAIT_PETSHOP_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_PETSHOP_PALETTES) },
+    { "Polnareff", DESC_NODETYPE_TREE,(void*)JOJOS_A_HUD_PORTRAIT_POLNAREFF_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_POLNAREFF_PALETTES) },
+    { "Joseph", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_JOSEPH_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_JOSEPH_PALETTES) },
+    { "Abdul", DESC_NODETYPE_TREE,  (void*)JOJOS_A_HUD_PORTRAIT_ABDUL_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_ABDUL_PALETTES) },
+    { "Alessi", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_ALESSI_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_ALESSI_PALETTES) },
+    { "Devo", DESC_NODETYPE_TREE,   (void*)JOJOS_A_HUD_PORTRAIT_DEVO_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_DEVO_PALETTES) },
+    { "Vanilla Ice", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_VANILLA_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_VANILLA_PALETTES) },
+    { "Hol Horse", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_HOL_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_HOL_PALETTES) },
+    { "Midler", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_MIDLER_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_MIDLER_PALETTES) },
+    { "Mariah", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_MARIAH_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_MARIAH_PALETTES) },
+    { "Young Joseph", DESC_NODETYPE_TREE,(void*)JOJOS_A_HUD_PORTRAIT_YJOSEPH_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_YJOSEPH_PALETTES) },
+    { "Shadow Dio", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_SDIO_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_SDIO_PALETTES) },
+    { "New Kakyoin", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_NKAKYOIN_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_NKAKYOIN_PALETTES) },
+    { "Anubis Polnareff", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_APOL_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_APOL_PALETTES) },
+    { "Hol & Boingo", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_HOLB_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_HOLB_PALETTES) },
+    { "Rubber Soul", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_RSOUL_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_RSOUL_PALETTES) },
+    { "Khan", DESC_NODETYPE_TREE,       (void*)JOJOS_A_HUD_PORTRAIT_KHAN_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_KHAN_PALETTES) },
+    { "Death 13", DESC_NODETYPE_TREE,   (void*)JOJOS_A_HUD_PORTRAIT_DEATH_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_DEATH_PALETTES) },
+    { "N'Doul",  DESC_NODETYPE_TREE,    (void*)JOJOS_A_HUD_PORTRAIT_NDOUL_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_NDOUL_PALETTES) },
+};
+
+#pragma endregion HUD Portraits
+
+#pragma region HUD
+const sJOJOS_PaletteDataset JOJOS_A_HUD_PALETTE_NODES[] =
 {
     { "Round Markers", 0x07C0160, 0x07C0180 },
     { "Timer", 0x07C00C0, 0x07C00E0 },
@@ -52,123 +300,15 @@ const sJOJOS_PaletteDataset JOJOS_A_HUD_PALETTES[] =
     { "Super Meter Bar", 0x07C03A0, 0x07C0400 },
 };
 
-const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_PALETTES[] = 
+const sDescTreeNode JOJOS_HUD_COLLECTION[]
 {
-    { "Jotaro A Life Bar Portrait", 0x07C0400, 0x07C0420 },
-    { "Jotaro B Life Bar Portrait", 0x07C0420, 0x07C0440 },
-    { "Jotaro C Life Bar Portrait", 0x07C0C00, 0x07C0C20 },
-    { "Jotaro S Life Bar Portrait", 0x07C0C20, 0x07C0C40 },
-    { "Jotaro Start Life Bar Portrait", 0x07C0C40, 0x07C0C60 },
-    { "Kakyoin A Life Bar Portrait", 0x07C0440, 0x07C0460 },
-    { "Kakyoin B Life Bar Portrait", 0x07C0460, 0x07C0480 },
-    { "Kakyoin C Life Bar Portrait", 0x07C0C60, 0x07C0C80 },
-    { "Kakyoin S Life Bar Portrait", 0x07C0C80, 0x07C0CA0 },
-    { "Kakyoin Start Life Bar Portrait", 0x07C0CA0, 0x07C0CC0 },
-    { "Dio A Life Bar Portrait", 0x07C0480, 0x07C04A0 },
-    { "Dio B Life Bar Portrait", 0x07C04A0, 0x07C04C0 },
-    { "Dio C Life Bar Portrait", 0x07C14C0, 0x07C14E0 },
-    { "Dio S Life Bar Portrait", 0x07C14E0, 0x07C1500 },
-    { "Dio Start Life Bar Portrait", 0x07C1500, 0x07C1520 },
-    { "Chaka A Life Bar Portrait", 0x07C04C0, 0x07C04E0 },
-    { "Chaka B Life Bar Portrait", 0x07C04E0, 0x07C0500 },
-    { "Chaka C Life Bar Portrait", 0x07C0F60, 0x07C0F80 },
-    { "Chaka S Life Bar Portrait", 0x07C0F80, 0x07C0FA0 },
-    { "Chaka Start Life Bar Portrait", 0x07C0FA0, 0x07C0FC0 },
-    { "Iggy A Life Bar Portrait", 0x07C0500, 0x07C0520 },
-    { "Iggy B Life Bar Portrait", 0x07C0520, 0x07C0540 },
-    { "Iggy C Life Bar Portrait", 0x07C0DE0, 0x07C0E00 },
-    { "Iggy S Life Bar Portrait", 0x07C0E00, 0x07C0E20 },
-    { "Iggy Start Life Bar Portrait", 0x07C0E20, 0x07C0E40 },
-    { "Petshop A Life Bar Portrait", 0x07C0540, 0x07C0560 },
-    { "Petshop B Life Bar Portrait", 0x07C0560, 0x07C0580 },
-    { "Petshop C Life Bar Portrait", 0x07C1800, 0x07C1820 },
-    { "Petshop S Life Bar Portrait", 0x07C1820, 0x07C1840 },
-    { "Petshop Start Life Bar Portrait", 0x07C1840, 0x07C1860 },
-    { "Polnareff A Life Bar Portrait", 0x07C0580, 0x07C05A0 },
-    { "Polnareff B Life Bar Portrait", 0x07C05A0, 0x07C05C0 },
-    { "Polnareff C Life Bar Portrait", 0x07C0D20, 0x07C0D40 },
-    { "Polnareff S Life Bar Portrait", 0x07C0D40, 0x07C0D60 },
-    { "Polnareff Start Life Bar Portrait", 0x07C0D60, 0x07C0D80 },
-    { "Joseph A Life Bar Portrait", 0x07C05C0, 0x07C05E0 },
-    { "Joseph B Life Bar Portrait", 0x07C05E0, 0x07C0600 },
-    { "Joseph C Life Bar Portrait", 0x07C0D80, 0x07C0DA0 },
-    { "Joseph S Life Bar Portrait", 0x07C0DA0, 0x07C0DC0 },
-    { "Joseph Start Life Bar Portrait", 0x07C0DC0, 0x07C0DE0 },
-    { "Abdul A Life Bar Portrait", 0x07C0600, 0x07C0620 },
-    { "Abdul B Life Bar Portrait", 0x07C0620, 0x07C0640 },
-    { "Abdul C Life Bar Portrait", 0x07C0CC0, 0x07C0CE0 },
-    { "Abdul S Life Bar Portrait", 0x07C0CE0, 0x07C0D00 },
-    { "Abdul Start Life Bar Portrait", 0x07C0D00, 0x07C0D20 },
-    { "Alessi A Life Bar Portrait", 0x07C0640, 0x07C0660 },
-    { "Alessi B Life Bar Portrait", 0x07C0660, 0x07C0680 },
-    { "Alessi C Life Bar Portrait", 0x07C0F00, 0x07C0F20 },
-    { "Alessi S Life Bar Portrait", 0x07C0F20, 0x07C0F40 },
-    { "Alessi Start Life Bar Portrait", 0x07C0F40, 0x07C0F60 },
-    { "Devo A Life Bar Portrait", 0x07C06C0, 0x07C06E0 },
-    { "Devo B Life Bar Portrait", 0x07C06E0, 0x07C0700 },
-    { "Devo C Life Bar Portrait", 0x07C1400, 0x07C1420 },
-    { "Devo S Life Bar Portrait", 0x07C1420, 0x07C1440 },
-    { "Devo Start Life Bar Portrait", 0x07C1440, 0x07C1460 },
-    { "Vanilla Ice A Life Bar Portrait", 0x07C0740, 0x07C0760 },
-    { "Vanilla Ice B Life Bar Portrait", 0x07C0760, 0x07C0780 },
-    { "Vanilla Ice C Life Bar Portrait", 0x07C1520, 0x07C1540 },
-    { "Vanilla Ice S Life Bar Portrait", 0x07C1540, 0x07C1560 },
-    { "Vanilla Ice Start Life Bar Portrait", 0x07C1560, 0x07C1580 },
-    { "Hol Horse A Life Bar Portrait", 0x07C0780, 0x07C07A0 },
-    { "Hol Horse B Life Bar Portrait", 0x07C07A0, 0x07C07C0 },
-    { "Hol Horse C Life Bar Portrait", 0x07C1640, 0x07C1660 },
-    { "Hol Horse S Life Bar Portrait", 0x07C1660, 0x07C1680 },
-    { "Hol Horse Start Life Bar Portrait", 0x07C1680, 0x07C16A0 },
-    { "Midler A Life Bar Portrait", 0x07C08C0, 0x07C08E0 },
-    { "Midler B Life Bar Portrait", 0x07C08E0, 0x07C0900 },
-    { "Midler C Life Bar Portrait", 0x07C1460, 0x07C1480 },
-    { "Midler S Life Bar Portrait", 0x07C1480, 0x07C14A0 },
-    { "Midler Start Life Bar Portrait", 0x07C14A0, 0x07C14C0 },
-    { "Mariah A Life Bar Portrait", 0x07C0900, 0x07C0920 },
-    { "Mariah B Life Bar Portrait", 0x07C0920, 0x07C0940 },
-    { "Mariah C Life Bar Portrait", 0x07C1860, 0x07C1880 },
-    { "Mariah S Life Bar Portrait", 0x07C1880, 0x07C18A0 },
-    { "Mariah Start Life Bar Portrait", 0x07C18A0, 0x07C18C0 },
-    { "Young Joseph A Life Bar Portrait", 0x07C0B60, 0x07C0B80 },
-    { "Young Joseph B Life Bar Portrait", 0x07C0B80, 0x07C0BA0 },
-    { "Young Joseph C Life Bar Portrait", 0x07C15E0, 0x07C1600 },
-    { "Young Joseph S Life Bar Portrait", 0x07C1600, 0x07C1620 },
-    { "Young Joseph Start Life Bar Portrait", 0x07C1620, 0x07C1640 },
-    { "Shadow Dio A Life Bar Portrait", 0x07C0BA0, 0x07C0BC0 },
-    { "Shadow Dio B Life Bar Portrait", 0x07C0BC0, 0x07C0BE0 },
-    { "Shadow Dio C Life Bar Portrait", 0x07C1580, 0x07C15A0 },
-    { "Shadow Dio S Life Bar Portrait", 0x07C15A0, 0x07C15C0 },
-    { "Shadow Dio Start Life Bar Portrait", 0x07C15C0, 0x07C15E0 },
-    { "New Kakyoin A / B / Start Life Bar Portrait", 0x07C16E0, 0x07C1700 },
-    { "New Kakyoin C Life Bar Portrait", 0x07C16A0, 0x07C16C0 },
-    { "New Kakyoin S Life Bar Portrait", 0x07C16C0, 0x07C16E0 },
-    { "Anubis Polnareff A Life Bar Portrait", 0x07C1700, 0x07C1720 },
-    { "Anubis Polnareff B Life Bar Portrait", 0x07C1720, 0x07C1740 },
-    { "Anubis Polnareff C Life Bar Portrait", 0x07C1740, 0x07C1760 },
-    { "Anubis Polnareff S Life Bar Portrait", 0x07C1760, 0x07C1780 },
-    { "Anubis Polnareff Start Life Bar Portrait", 0x07C1780, 0x07C17A0 },
-    { "Hol & Boingo A Life Bar Portrait", 0x07C18C0, 0x07C18E0 },
-    { "Hol & Boingo B Life Bar Portrait", 0x07C18E0, 0x07C1900 },
-    { "Hol & Boingo C Life Bar Portrait", 0x07C1900, 0x07C1920 },
-    { "Hol & Boingo S Life Bar Portrait", 0x07C1920, 0x07C1940 },
-    { "Hol & Boingo Start Life Bar Portrait", 0x07C1940, 0x07C1960 },
-    { "Rubber Soul A Life Bar Portrait", 0x07C1960, 0x07C1980 },
-    { "Rubber Soul B Life Bar Portrait", 0x07C1980, 0x07C19A0 },
-    { "Rubber Soul C Life Bar Portrait", 0x07C19A0, 0x07C19C0 },
-    { "Rubber Soul S Life Bar Portrait", 0x07C19C0, 0x07C19E0 },
-    { "Rubber Soul Start Life Bar Portrait", 0x07C19E0, 0x07C1A00 },
-    { "Khan A Life Bar Portrait", 0x07C1A00, 0x07C1A20 },
-    { "Khan B Life Bar Portrait", 0x07C1A20, 0x07C1A40 },
-    { "Khan C Life Bar Portrait", 0x07C1A40, 0x07C1A60 },
-    { "Khan S Life Bar Portrait", 0x07C1A60, 0x07C1A80 },
-    { "Khan Start Life Bar Portrait", 0x07C1A80, 0x07C1AA0 },
-    { "Death 13 A Life Bar Portrait", 0x07C0800, 0x07C0820 },
-    { "Death 13 B Life Bar Portrait", 0x07C0820, 0x07C0840 },
-    { "N'Doul A Life Bar Portrait", 0x07C0840, 0x07C0860 },
-    { "N'Doul B Life Bar Portrait", 0x07C0860, 0x07C0880 },
+    { "Palette", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PALETTE_NODES, ARRAYSIZE(JOJOS_A_HUD_PALETTE_NODES) },
 };
+#pragma endregion HUD
 
-const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
+#pragma region Stages
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_ALOCKUP[] =
 {
 #ifndef USE_LARGE_PALETTES
     { "A Lockup (1/27)", 0x07c3000, 0x07c3080 },
@@ -201,6 +341,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "A Lockup", 0x07c3000, 0x07c3d80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_AHEALTHROOM[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "A Health Room (1/22)", 0x07c3e00, 0x07c3e80 },
     { "A Health Room (2/22)", 0x07c3e80, 0x07c3f00 },
@@ -227,6 +371,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "A Health Room", 0x07c3e00, 0x07c4900 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_AIRPLANE[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "In A Airplane (1/67)", 0x07c4a00, 0x07c4a80 },
     { "In A Airplane (2/67)", 0x07c4a80, 0x07c4b00 },
@@ -298,6 +446,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "In A Airplane", 0x07c4a00, 0x07c6b80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_TGARDEN[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Tigerbaum Garden (1/44)", 0x07c6c00, 0x07c6c80 },
     { "Tigerbaum Garden (2/44)", 0x07c6c80, 0x07c6d00 },
@@ -346,6 +498,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Tigerbaum Garden", 0x07c6c00, 0x07c8200 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_HOTELD[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Hotel (Devil) (1/27)", 0x07c8300, 0x07c8380 },
     { "Hotel (Devil) (2/27)", 0x07c8380, 0x07c8400 },
@@ -377,6 +533,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Hotel (Devil)", 0x07c8300, 0x07c9080 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_REMAINS[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Remains (1/36)", 0x07c9f80, 0x07ca000 },
     { "Remains (2/36)", 0x07ca000, 0x07ca080 },
@@ -417,6 +577,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Remains", 0x07c9f80, 0x07cb180 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_HOTELJ[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Hotel (Justice) (1/29)", 0x07cc500, 0x07cc580 },
     { "Hotel (Justice) (2/29)", 0x07cc580, 0x07cc600 },
@@ -450,6 +614,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Hotel (Justice)", 0x07cc500, 0x07cd380 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_AMPARK[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Amusement Park (1/106)", 0x07cd400, 0x07cd480 },
     { "Amusement Park (2/106)", 0x07cd480, 0x07cd500 },
@@ -560,6 +728,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Amusement Park", 0x07cd400, 0x07d0900 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_SISLAND[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Small Island (1/24)", 0x07d0a00, 0x07d0a80 },
     { "Small Island (2/24)", 0x07d0a80, 0x07d0b00 },
@@ -588,6 +760,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Small Island", 0x07d0a00, 0x07d1600 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_DNOON[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Desert Noon (1/28)", 0x07d3100, 0x07d3180 },
     { "Desert Noon (2/28)", 0x07d3180, 0x07d3200 },
@@ -620,6 +796,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Desert Noon", 0x07d3100, 0x07d3f00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_RUIN[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Ruins (1/20)", 0x07d6d00, 0x07d6d80 },
     { "Ruins (2/20)", 0x07d6d80, 0x07d6e00 },
@@ -644,6 +824,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Ruins", 0x07d6d00, 0x07d7700 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_CTNOON[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Country Town Noon (1/83)", 0x07d8300, 0x07d8380 },
     { "Country Town Noon (2/83)", 0x07d8380, 0x07d8400 },
@@ -731,6 +915,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Country Town Noon", 0x07d8300, 0x07dac80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_UWATER[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Underground Water (1/32)", 0x07e0100, 0x07e0180 },
     { "Underground Water (2/32)", 0x07e0180, 0x07e0200 },
@@ -767,6 +955,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Underground Water", 0x07e0100, 0x07e1100 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_INHOUSE[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Inside House (1/30)", 0x07e2300, 0x07e2380 },
     { "Inside House (2/30)", 0x07e2380, 0x07e2400 },
@@ -801,6 +993,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Inside House", 0x07e2300, 0x07e3200 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_CROOM[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Coffin Room (1/22)", 0x07e4300, 0x07e4380 },
     { "Coffin Room (2/22)", 0x07e4380, 0x07e4400 },
@@ -827,6 +1023,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Coffin Room", 0x07e4300, 0x07e4e00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_CLOCK[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Clock Tower (1/12)", 0x07e5b00, 0x07e5b80 },
     { "Clock Tower (2/12)", 0x07e5b80, 0x07e5c00 },
@@ -843,6 +1043,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Clock Tower", 0x07e5b00, 0x07e6100 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Suburbs (1/87)", 0x07e6900, 0x07e6980 },
     { "Suburbs (2/87)", 0x07e6980, 0x07e6a00 },
@@ -934,6 +1138,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Suburbs", 0x07e6900, 0x07e9480 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_OTBRIDGE[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "On The Bridge (1/8)", 0x07eed00, 0x07eed80 },
     { "On The Bridge (2/8)", 0x07eed80, 0x07eee00 },
@@ -946,6 +1154,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "On The Bridge", 0x07eed00, 0x07ef100 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_CTTWILIGHT[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Country Town Twilight (1/83)", 0x07dad00, 0x07dad80 },
     { "Country Town Twilight (2/83)", 0x07dad80, 0x07dae00 },
@@ -1033,6 +1245,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Country Town Twilight", 0x07dad00, 0x07dd680 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_DMORNING[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Desert Morning (1/29)", 0x07d4000, 0x07d4080 },
     { "Desert Morning (2/29)", 0x07d4080, 0x07d4100 },
@@ -1066,6 +1282,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Desert Morning", 0x07d4000, 0x07d4e80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_DTWILIGHT[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Desert Twilight (1/29)", 0x07d5e00, 0x07d5e80 },
     { "Desert Twilight (2/29)", 0x07d5e80, 0x07d5f00 },
@@ -1099,6 +1319,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Desert Twilight", 0x07d5e00, 0x07d6c80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_DNIGHT[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Desert Night (1/29)", 0x07d4f00, 0x07d4f80 },
     { "Desert Night (2/29)", 0x07d4f80, 0x07d5000 },
@@ -1132,6 +1356,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Desert Night", 0x07d4f00, 0x07d5d80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_SISLANDJ[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Small Island (Joseph) (1/24)", 0x07d1700, 0x07d1780 },
     { "Small Island (Joseph) (2/24)", 0x07d1780, 0x07d1800 },
@@ -1160,6 +1388,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Small Island (Joseph)", 0x07d1700, 0x07d2300 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_CTNIGHT[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Country Town Night (1/83)", 0x07dd700, 0x07dd780 },
     { "Country Town Night (2/83)", 0x07dd780, 0x07dd800 },
@@ -1247,6 +1479,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Country Town Night", 0x07dd700, 0x07e0080 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB2[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Suburbs 2 (1/87)", 0x07e9500, 0x07e9580 },
     { "Suburbs 2 (2/87)", 0x07e9580, 0x07e9600 },
@@ -1338,6 +1574,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Suburbs 2", 0x07e9500, 0x07ec080 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB3[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Suburbs 3 (1/87)", 0x07ec100, 0x07ec180 },
     { "Suburbs 3 (2/87)", 0x07ec180, 0x07ec200 },
@@ -1429,6 +1669,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "Suburbs 3", 0x07ec100, 0x07eec80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_NEW1[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "New 1 (1/36)", 0x07cb280, 0x07cb300 },
     { "New 1 (2/36)", 0x07cb300, 0x07cb380 },
@@ -1469,6 +1713,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "New 1", 0x07cb280, 0x07cc480 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_NEW2[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "New 2 (1/27)", 0x07c9100, 0x07c9180 },
     { "New 2 (2/27)", 0x07c9180, 0x07c9200 },
@@ -1500,6 +1748,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "New 2", 0x07c9100, 0x07c9e80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_NEW3[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "New 3 (1/24)", 0x07d2400, 0x07d2480 },
     { "New 3 (2/24)", 0x07d2480, 0x07d2500 },
@@ -1528,6 +1780,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "New 3", 0x07d2400, 0x07d3000 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_NEW4[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "New 4 (1/20)", 0x07d7800, 0x07d7880 },
     { "New 4 (2/20)", 0x07d7880, 0x07d7900 },
@@ -1552,6 +1808,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "New 4", 0x07d7800, 0x07d8200 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_NEW5[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "New 5 (1/32)", 0x07e1200, 0x07e1280 },
     { "New 5 (2/32)", 0x07e1280, 0x07e1300 },
@@ -1588,6 +1848,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "New 5", 0x07e1200, 0x07e2200 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_NEW6[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "New 6 (1/30)", 0x07e3300, 0x07e3380 },
     { "New 6 (2/30)", 0x07e3380, 0x07e3400 },
@@ -1622,6 +1886,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "New 6", 0x07e3300, 0x07e4200 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_NEW7[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "New 7 (1/22)", 0x07e4f00, 0x07e4f80 },
     { "New 7 (2/22)", 0x07e4f80, 0x07e5000 },
@@ -1648,6 +1916,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "New 7", 0x07e4f00, 0x07e5a00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_NEW8[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "New 8 (1/12)", 0x07e6200, 0x07e6280 },
     { "New 8 (2/12)", 0x07e6280, 0x07e6300 },
@@ -1664,6 +1936,10 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #else
     { "New 8", 0x07e6200, 0x07e6800 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_STAGE_NODE_NEW9[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "New 9 (1/8)", 0x07ef200, 0x07ef280 },
     { "New 9 (2/8)", 0x07ef280, 0x07ef300 },
@@ -1678,7 +1954,50 @@ const sJOJOS_PaletteDataset JOJOS_A_STAGE_PALETTES[] =
 #endif
 };
 
-const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_PALETTES[] =
+const sDescTreeNode JOJOS_A_STAGE_COLLECTION[] =
+{
+    { "A Lockup", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_ALOCKUP, ARRAYSIZE(JOJOS_A_STAGE_NODE_ALOCKUP) },
+    { "A Health Room", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_AHEALTHROOM, ARRAYSIZE(JOJOS_A_STAGE_NODE_AHEALTHROOM) },
+    { "In A Airplane", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_AIRPLANE, ARRAYSIZE(JOJOS_A_STAGE_NODE_AIRPLANE) },
+    { "Tigerbaum Garden", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_TGARDEN, ARRAYSIZE(JOJOS_A_STAGE_NODE_TGARDEN) },
+    { "Hotel (Devil)", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_HOTELD, ARRAYSIZE(JOJOS_A_STAGE_NODE_HOTELD) },
+    { "Remains", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_REMAINS, ARRAYSIZE(JOJOS_A_STAGE_NODE_REMAINS) },
+    { "Hotel (Justice)", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_HOTELJ, ARRAYSIZE(JOJOS_A_STAGE_NODE_HOTELJ) },
+    { "Amusement Park", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_AMPARK, ARRAYSIZE(JOJOS_A_STAGE_NODE_AMPARK) },
+    { "Small Island", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_SISLAND, ARRAYSIZE(JOJOS_A_STAGE_NODE_SISLAND) },
+    { "Desert Noon", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_DNOON, ARRAYSIZE(JOJOS_A_STAGE_NODE_DNOON) },
+    { "Ruins", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_RUIN, ARRAYSIZE(JOJOS_A_STAGE_NODE_RUIN) },
+    { "Country Town Noon", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_CTNOON, ARRAYSIZE(JOJOS_A_STAGE_NODE_CTNOON) },
+    { "Underground Water", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_UWATER, ARRAYSIZE(JOJOS_A_STAGE_NODE_UWATER) },
+    { "Inside House", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_INHOUSE, ARRAYSIZE(JOJOS_A_STAGE_NODE_INHOUSE) },
+    { "Coffin Room", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_CROOM, ARRAYSIZE(JOJOS_A_STAGE_NODE_CROOM) },
+    { "Clock Tower", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_CLOCK, ARRAYSIZE(JOJOS_A_STAGE_NODE_CLOCK) },
+    { "Suburbs", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_SUBURB, ARRAYSIZE(JOJOS_A_STAGE_NODE_SUBURB) },
+    { "On The Bridge", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_OTBRIDGE, ARRAYSIZE(JOJOS_A_STAGE_NODE_OTBRIDGE) },
+    { "Country Town Twilight", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_CTTWILIGHT, ARRAYSIZE(JOJOS_A_STAGE_NODE_CTTWILIGHT) },
+    { "Desert Morning", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_DMORNING, ARRAYSIZE(JOJOS_A_STAGE_NODE_DMORNING) },
+    { "Desert Twilight", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_DTWILIGHT, ARRAYSIZE(JOJOS_A_STAGE_NODE_DTWILIGHT) },
+    { "Desert Night", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_DNIGHT, ARRAYSIZE(JOJOS_A_STAGE_NODE_DNIGHT) },
+    { "Small Island (Joseph)", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_SISLANDJ, ARRAYSIZE(JOJOS_A_STAGE_NODE_SISLANDJ) },
+    { "Country Town Night", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_CTNIGHT, ARRAYSIZE(JOJOS_A_STAGE_NODE_CTNIGHT) },
+    { "Suburbs 2", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_SUBURB2, ARRAYSIZE(JOJOS_A_STAGE_NODE_SUBURB2) },
+    { "Suburbs 3", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_SUBURB3, ARRAYSIZE(JOJOS_A_STAGE_NODE_SUBURB3) },
+    { "New 1", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_NEW1, ARRAYSIZE(JOJOS_A_STAGE_NODE_NEW1) },
+    { "New 2", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_NEW2, ARRAYSIZE(JOJOS_A_STAGE_NODE_NEW2) },
+    { "New 3", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_NEW3, ARRAYSIZE(JOJOS_A_STAGE_NODE_NEW3) },
+    { "New 4", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_NEW4, ARRAYSIZE(JOJOS_A_STAGE_NODE_NEW4) },
+    { "New 5", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_NEW5, ARRAYSIZE(JOJOS_A_STAGE_NODE_NEW5) },
+    { "New 6", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_NEW6, ARRAYSIZE(JOJOS_A_STAGE_NODE_NEW6) },
+    { "New 7", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_NEW7, ARRAYSIZE(JOJOS_A_STAGE_NODE_NEW7) },
+    { "New 8", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_NEW8, ARRAYSIZE(JOJOS_A_STAGE_NODE_NEW8) },
+    { "New 9", DESC_NODETYPE_TREE, (void*)JOJOS_A_STAGE_NODE_NEW9, ARRAYSIZE(JOJOS_A_STAGE_NODE_NEW9) },
+};
+
+#pragma endregion Stages
+
+#pragma region Characters
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 {
     { "Jotaro & Star Platinum A", 0x0336400, 0x0336480 },
     { "Star Breaker Super A", 0x0336d82, 0x0336d90 },
@@ -2971,7 +3290,15 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_PALETTES[] =
     { "Death 13 Start", 0x0391a80, 0x0391b00 },
 };
 
-const sJOJOS_PaletteDataset JOJOS_A_BONUS_PALETTES[] =
+const sDescTreeNode JOJOS_CHARACTER_COLLECTION[] =
+{
+    { "Characters", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODES, ARRAYSIZE(JOJOS_A_CHARACTER_NODES) },
+};
+
+#pragma endregion Jojo_Characters
+
+#pragma region Bonus
+const sJOJOS_PaletteDataset JOJOS_BONUS_PALETTES[] =
 {
     { "Super KO Background", 0x030d082, 0x030d102 },
     { "Round Start", 0x030ce00, 0x030ce60 },
@@ -2979,6 +3306,70 @@ const sJOJOS_PaletteDataset JOJOS_A_BONUS_PALETTES[] =
     { "Character Select Comic", 0x0310000, 0x0310080 },
     { "Selector Rings", 0x0310080, 0x03100c0 },
     { "Character Select Background", 0x0310100, 0x0310160 },
+    { "Title Screen Jotaro", 0x030c480, 0x030c500 },
+    { "Title Screen DIO", 0x030c500, 0x030c580 },
+    { "Title Screen DIO Manga", 0x030c900, 0x030c980 },
+    { "Title Screen Jotaro Manga", 0x030cb00, 0x030cb80 },
+    { "Menu Cards", 0x030db40, 0x030db80 },
+    { "Title Screen Logo", 0x030c680, 0x030c700 },
+    { "Title Screen Logo Ribbon", 0x030c700, 0x030c780 },
+    { "Mode Select Text", 0x0311a90, 0x0311aa0 },
+    { "Round 1,2,3 Text", 0x030ce00, 0x030ce60 },
+    { "Tandem Background", 0x030d900, 0x030d980 },
+    { "\"Fight\" & \"Down\" Text", 0x030cd80, 0x030ce00 },
+    { "Aja Stone", 0x0335800, 0x0335840 },
+    { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
+    { "Blocksparks", 0x03358d0, 0x03358e0 },
+    { "Super's Flash", 0x0335840, 0x0335850 },
+    { "TitleScreen Background", 0x030b0a0, 0x030b0b0 },
+    { "Mode Select Frame", 0x030d4e0, 0x030d500 },
+    { "Extra characters page arrows", 0x0310500, 0x0310540 },
+    { "Challenge & Story signs", 0x030d480, 0x030d4c0 },
+    { "Stand Clash Background", 0x030d100, 0x030d180 },
+    { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
+    { "Super KO Portrait", 0x030ce80, 0x030cec0 },
+    { "Win text(character)", 0x030cc40, 0x030cc60 },
+    { "Win text(WIN)", 0x030cca0, 0x030ccc0 },
+    { "Tandem Aura", 0x0335930, 0x0335940 },
+    { "Win screen Background", 0x0310200, 0x0310280 },
+    { "Vs screen Background", 0x030d000, 0x030d080 },
+    { "\"KO\"", 0x030cd20, 0x030cd40 },
+    { "Blood(Sdio grab,bpol grab,etc)", 0x0335878, 0x0335880 },
+    { "Blood(Bpol super,etc)", 0x03359c0, 0x03359e0 },
+    { "World Map", 0x0313780, 0x0313800 },
+    { "Hol horse intro Body", 0x030c600, 0x030c680 },
+    { "Hol horse intro Hand", 0x030c580, 0x030c600 },
+    { "Vanilla Ice intro", 0x030ba00, 0x030ba80 },
+    { "Cream intro", 0x030ba80, 0x030bb00 },
+    { "D'Arby", 0x0311a00, 0x0311a80 },
+    { "Game Over Text", 0x0311a80, 0x0311b00 },
+    { "Osiris Body", 0x0311b00, 0x0311b80 },
+    { "Osiris Arms", 0x0311b80, 0x0311c00 },
+    { "Darby Chips", 0x0311d00, 0x0311d80 },
+    { "Lisa Lisa & Caesar(Joseph 236aa)", 0x0335C00, 0x0335C80 },
+    { "Flash Back Manga Panels(Joseph 236aa)", 0x0335B80, 0x0335BC0 },
+    { "Mariah Level(Player 1 only)", 0x07C01A0, 0x07C01C0 },
+    //{ "Intro Manga Panels", 0x030B780, 0x030BA00 }, // BUGBUG fix next
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_BONUS_SUPERBACKGROUND[] =
+{
+#ifndef USE_LARGE_PALETTES
+    { "Super Screen Background (1/8)", 0x030d500, 0x030d580 },
+    { "Super Screen Background (2/8)", 0x030d580, 0x030d600 },
+    { "Super Screen Background (3/8)", 0x030d600, 0x030d680 },
+    { "Super Screen Background (4/8)", 0x030d680, 0x030d700 },
+    { "Super Screen Background (5/8)", 0x030d700, 0x030d780 },
+    { "Super Screen Background (6/8)", 0x030d780, 0x030d800 },
+    { "Super Screen Background (7/8)", 0x030d800, 0x030d880 },
+    { "Super Screen Background (8/8)", 0x030d880, 0x030d900 },
+#else
+    { "Super Screen Background", 0x030d500, 0x030d900 },
+#endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_BONUS_FADEBACKGROUND[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Fade Background(Challenge Screen / Demo) (1/29)", 0x030f080, 0x030f100 },
     { "Fade Background(Challenge Screen / Demo) (2/29)", 0x030f100, 0x030f180 },
@@ -3012,61 +3403,19 @@ const sJOJOS_PaletteDataset JOJOS_A_BONUS_PALETTES[] =
 #else
     { "Fade Background(Challenge Screen / Demo)", 0x030f080, 0x030ff00 },
 #endif
-    { "Title Screen Jotaro", 0x030c480, 0x030c500 },
-    { "Title Screen DIO", 0x030c500, 0x030c580 },
-    { "Title Screen DIO Manga", 0x030c900, 0x030c980 },
-    { "Title Screen Jotaro Manga", 0x030cb00, 0x030cb80 },
-    { "Menu Cards", 0x030db40, 0x030db80 },
-    { "Title Screen Logo", 0x030c680, 0x030c700 },
-    { "Title Screen Logo Ribbon", 0x030c700, 0x030c780 },
-    { "Mode Select Text", 0x0311a90, 0x0311aa0 },
-    { "Round 1,2,3 Text", 0x030ce00, 0x030ce60 },
-#ifndef USE_LARGE_PALETTES
-    { "Super Screen Background (1/8)", 0x030d500, 0x030d580 },
-    { "Super Screen Background (2/8)", 0x030d580, 0x030d600 },
-    { "Super Screen Background (3/8)", 0x030d600, 0x030d680 },
-    { "Super Screen Background (4/8)", 0x030d680, 0x030d700 },
-    { "Super Screen Background (5/8)", 0x030d700, 0x030d780 },
-    { "Super Screen Background (6/8)", 0x030d780, 0x030d800 },
-    { "Super Screen Background (7/8)", 0x030d800, 0x030d880 },
-    { "Super Screen Background (8/8)", 0x030d880, 0x030d900 },
-#else
-    { "Super Screen Background", 0x030d500, 0x030d900 },
-#endif
-    { "Tandem Background", 0x030d900, 0x030d980 },
-    { "\"Fight\" & \"Down\" Text", 0x030cd80, 0x030ce00 },
-    { "Aja Stone", 0x0335800, 0x0335840 },
-    { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
-    { "Blocksparks", 0x03358d0, 0x03358e0 },
-    { "Super's Flash", 0x0335840, 0x0335850 },
-    { "TitleScreen Background", 0x030b0a0, 0x030b0b0 },
-    { "Mode Select Frame", 0x030d4e0, 0x030d500 },
-    { "Extra characters page arrows", 0x0310500, 0x0310540 },
-    { "Challenge & Story signs", 0x030d480, 0x030d4c0 },
-    { "Stand Clash Background", 0x030d100, 0x030d180 },
-    { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
-    { "Super KO Portrait", 0x030ce80, 0x030cec0 },
-    { "Win text(character)", 0x030cc40, 0x030cc60 },
-    { "Win text(WIN)", 0x030cca0, 0x030ccc0 },
-    { "Tandem Aura", 0x0335930, 0x0335940 },
-    { "Win screen Background", 0x0310200, 0x0310280 },
-    { "Vs screen Background", 0x030d000, 0x030d080 },
-    { "\"KO\"", 0x030cd20, 0x030cd40 },
-    { "Blood(Sdio grab,bpol grab,etc)", 0x0335878, 0x0335880 },
-    { "Blood(Bpol super,etc)", 0x03359c0, 0x03359e0 },
-    { "World Map", 0x0313780, 0x0313800 },
-    { "Hol horse intro Body", 0x030c600, 0x030c680 },
-    { "Hol horse intro Hand", 0x030c580, 0x030c600 },
-    { "Vanilla Ice intro", 0x030ba00, 0x030ba80 },
-    { "Cream intro", 0x030ba80, 0x030bb00 },
-    { "D'Arby", 0x0311a00, 0x0311a80 },
-    { "Game Over Text", 0x0311a80, 0x0311b00 },
-    { "Osiris Body", 0x0311b00, 0x0311b80 },
-    { "Osiris Arms", 0x0311b80, 0x0311c00 },
-    { "Darby Chips", 0x0311d00, 0x0311d80 },
 };
 
-const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
+const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
+{
+    { "Bonus", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_PALETTES, ARRAYSIZE(JOJOS_BONUS_PALETTES) },
+    { "Super Screen Background", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_SUPERBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_SUPERBACKGROUND) },
+    { "Fade Background (Challenge Screen / Demo)", DESC_NODETYPE_TREE,(void*)JOJOS_A_BONUS_FADEBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_FADEBACKGROUND) },
+};
+
+#pragma endregion Bonus
+
+#pragma region Timestop
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_ALOCKUP[] =
 {
 #ifndef USE_LARGE_PALETTES
     { "A Lockup TS (1/27)", 0x02d0000, 0x02d0080 },
@@ -3099,6 +3448,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "A Lockup TS", 0x02d0000, 0x02d0d80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_HEALTH[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "A Health Room TS (1/22)", 0x02d0e00, 0x02d0e80 },
     { "A Health Room TS (2/22)", 0x02d0e80, 0x02d0f00 },
@@ -3125,6 +3478,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "A Health Room TS", 0x02d0e00, 0x02d1900 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_AIRPLANE[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "In A Airplane TS (1/67)", 0x02d1a00, 0x02d1a80 },
     { "In A Airplane TS (2/67)", 0x02d1a80, 0x02d1b00 },
@@ -3196,6 +3553,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "In A Airplane TS", 0x02d1a00, 0x02d3b80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_TIGERBAUM[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Tigerbaum Garden TS (1/44)", 0x02d3c00, 0x02d3c80 },
     { "Tigerbaum Garden TS (2/44)", 0x02d3c80, 0x02d3d00 },
@@ -3244,6 +3605,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Tigerbaum Garden TS", 0x02d3c00, 0x02d5200 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_HOTELD[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Hotel (Devil) / New 2 TS (1/26)", 0x02d5300, 0x02d5380 },
     { "Hotel (Devil) / New 2 TS (2/26)", 0x02d5380, 0x02d5400 },
@@ -3274,6 +3639,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Hotel (Devil) / New 2 TS", 0x02d5300, 0x02d6000 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_REMAINS[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Remains / New 1 TS (1/36)", 0x02d6100, 0x02d6180 },
     { "Remains / New 1 TS (2/36)", 0x02d6180, 0x02d6200 },
@@ -3314,6 +3683,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Remains / New 1 TS", 0x02d6100, 0x02d7300 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_HOTELJ[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Hotel (Justice) TS (1/29)", 0x02d7400, 0x02d7480 },
     { "Hotel (Justice) TS (2/29)", 0x02d7480, 0x02d7500 },
@@ -3347,6 +3720,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Hotel (Justice) TS", 0x02d7400, 0x02d8280 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_SISLAND[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Small Island / New 3 TS (1/24)", 0x02d8300, 0x02d8380 },
     { "Small Island / New 3 TS (2/24)", 0x02d8380, 0x02d8400 },
@@ -3375,6 +3752,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Small Island / New 3 TS", 0x02d8300, 0x02d8f00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_DNOON[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Desert Noon TS (1/28)", 0x02d9000, 0x02d9080 },
     { "Desert Noon TS (2/28)", 0x02d9080, 0x02d9100 },
@@ -3407,6 +3788,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Desert Noon TS", 0x02d9000, 0x02d9e00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_DMORN[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Desert Morning / Twilight (1/29)", 0x02d9f00, 0x02d9f80 },
     { "Desert Morning / Twilight (2/29)", 0x02d9f80, 0x02da000 },
@@ -3440,6 +3825,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Desert Morning / Twilight", 0x02d9f00, 0x02dad80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_DNIGHT[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Desert Night TS (1/29)", 0x02dae00, 0x02dae80 },
     { "Desert Night TS (2/29)", 0x02dae80, 0x02daf00 },
@@ -3473,6 +3862,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Desert Night TS", 0x02dae00, 0x02dbc80 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_RUINS[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Ruins / New 4 TS (1/20)", 0x02dbd00, 0x02dbd80 },
     { "Ruins / New 4 TS (2/20)", 0x02dbd80, 0x02dbe00 },
@@ -3497,6 +3890,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Ruins / New 4 TS", 0x02dbd00, 0x02dc700 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_CTOWN[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Country Town Noon / Twilight / Night TS (1/83)", 0x02dc800, 0x02dc880 },
     { "Country Town Noon / Twilight / Night TS (2/83)", 0x02dc880, 0x02dc900 },
@@ -3584,6 +3981,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Country Town Noon / Twilight / Night TS", 0x02dc800, 0x02df180 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_UWATER[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Underground Water / New 5 TS (1/32)", 0x02df200, 0x02df280 },
     { "Underground Water / New 5 TS (2/32)", 0x02df280, 0x02df300 },
@@ -3620,6 +4021,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Underground Water / New 5 TS", 0x02df200, 0x02e0200 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_INHOUSE[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Inside House / New 6 TS (1/30)", 0x02e0300, 0x02e0380 },
     { "Inside House / New 6 TS (2/30)", 0x02e0380, 0x02e0400 },
@@ -3654,6 +4059,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Inside House / New 6 TS", 0x02e0300, 0x02e1200 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_CROOM[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Coffin Room / New 7 TS (1/16)", 0x02e1300, 0x02e1380 },
     { "Coffin Room / New 7 TS (2/16)", 0x02e1380, 0x02e1400 },
@@ -3674,6 +4083,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Coffin Room / New 7 TS", 0x02e1300, 0x02e1b00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_CTOWER[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Clock Tower / New 8 TS (1/12)", 0x02e1c00, 0x02e1c80 },
     { "Clock Tower / New 8 TS (2/12)", 0x02e1c80, 0x02e1d00 },
@@ -3690,6 +4103,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Clock Tower / New 8 TS", 0x02e1c00, 0x02e2200 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_SUBURB[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "Surburbs 1 / 2 / 3 TS (1/88)", 0x02e2300, 0x02e2380 },
     { "Surburbs 1 / 2 / 3 TS (2/88)", 0x02e2380, 0x02e2400 },
@@ -3782,6 +4199,10 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #else
     { "Surburbs 1 / 2 / 3 TS", 0x02e2300, 0x02e4f00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_NODE_OBRIDGE[] =
+{
 #ifndef USE_LARGE_PALETTES
     { "On the Bridge TS (1/8)", 0x02e4f00, 0x02e4f80 },
     { "On the Bridge TS (2/8)", 0x02e4f80, 0x02e5000 },
@@ -3796,24 +4217,46 @@ const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =
 #endif
 };
 
-
-const UINT16 JOJOS_A_BUTTONSORT_50[JOJOS_A_NUMUNIT_50 + 1] = //Plus 1 for the extra palettes
+const sDescTreeNode JOJOS_TIMESTOP_COLLECTION[] =
 {
-    ARRAYSIZE(JOJOS_A_HUD_PALETTES),            // HUD
-    ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_PALETTES) ,  // HUD Portraits
-    ARRAYSIZE(JOJOS_A_STAGE_PALETTES),          // Stages 
-
-    JOJOS_A_EXTRALOC_50 //Extra palettes
+    { "A Lockup TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_ALOCKUP, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_ALOCKUP) },
+    { "A Health Room TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_HEALTH, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_HEALTH) },
+    { "In A Airplane TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_AIRPLANE, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_AIRPLANE) },
+    { "Tigerbaum Garden TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_TIGERBAUM, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_TIGERBAUM) },
+    { "Hotel (Devil) / New 2 TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_HOTELD, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_HOTELD) },
+    { "Remains / New 1 TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_REMAINS, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_REMAINS) },
+    { "Hotel (Justice) TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_HOTELJ, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_HOTELJ) },
+    { "Small Island / New 3 TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_SISLAND, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_SISLAND) },
+    { "Desert Morning TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_DMORN, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_DMORN) },
+    { "Desert Noon TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_DNOON, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_DNOON) },
+    { "Desert Night TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_DNIGHT, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_DNIGHT) },
+    { "Ruins / New 4 TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_RUINS, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_RUINS) },
+    { "Country Town Noon / Twilight / Night TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_CTOWN, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_CTOWN) },
+    { "Underground Water / New 5", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_UWATER, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_UWATER) },
+    { "Inside House / New 6", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_INHOUSE, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_INHOUSE) },
+    { "Coffin Room / New 7 TS", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_CROOM, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_CROOM) },
+    { "Clock Tower / New 8", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_CTOWER, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_CTOWER) },
+    { "Suburbs 1", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_SUBURB, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_SUBURB) },
+    { "On The Bridge", DESC_NODETYPE_TREE, (void*)JOJOS_A_TIMESTOP_NODE_OBRIDGE, ARRAYSIZE(JOJOS_A_TIMESTOP_NODE_OBRIDGE) },
 };
 
-const UINT16 JOJOS_A_BUTTONSORT_51[JOJOS_A_NUMUNIT_51 + 1] = //Plus 1 for the extra palettes
-{
-    ARRAYSIZE(JOJOS_A_CHARACTER_PALETTES),  // Base / characters
-    ARRAYSIZE(JOJOS_A_TIMESTOP_PALETTES),   // Timestop
-    ARRAYSIZE(JOJOS_A_BONUS_PALETTES),      // Bonus
+#pragma endregion Timestop
 
-    JOJOS_A_EXTRALOC_51 //Extra palettes
+const sDescTreeNode JOJOS_UNITS_50[] =
+{
+    { "HUD", DESC_NODETYPE_TREE,           (void*)JOJOS_HUD_COLLECTION, ARRAYSIZE(JOJOS_HUD_COLLECTION) },
+    { "HUD Portraits", DESC_NODETYPE_TREE, (void*)JOJOS_HUD_PORTRAIT_COLLECTION, ARRAYSIZE(JOJOS_HUD_PORTRAIT_COLLECTION) },
+    { "Stages", DESC_NODETYPE_TREE,        (void*)JOJOS_A_STAGE_COLLECTION, ARRAYSIZE(JOJOS_A_STAGE_COLLECTION) },
 };
+
+const sDescTreeNode JOJOS_UNITS_51[] =
+{
+    { "Base", DESC_NODETYPE_TREE,     (void*)JOJOS_CHARACTER_COLLECTION, ARRAYSIZE(JOJOS_CHARACTER_COLLECTION) },
+    { "Timestop", DESC_NODETYPE_TREE, (void*)JOJOS_TIMESTOP_COLLECTION, ARRAYSIZE(JOJOS_TIMESTOP_COLLECTION) },
+    { "Bonus", DESC_NODETYPE_TREE,    (void*)JOJOS_A_BONUS_COLLECTION, ARRAYSIZE(JOJOS_A_BONUS_COLLECTION) },
+};
+
+// bugbug: given the new layout we should just skip DISPLAYSORT and use the easily sorted table logic
 
 // These just handle display sort order for the UI.
 const UINT16 JOJOS_A_UNITS_DISPLAYSORT_50[JOJOS_A_NUMUNIT_50 + 1] = //Plus 1 for the extra palettes

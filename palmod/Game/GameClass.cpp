@@ -70,7 +70,7 @@ BOOL CGameClass::SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAm
 {
     int nOffset = nPalId - nStart;
 
-    if (nPalId >= nStart && (nOffset) % nInc < nAmt)
+    if ((nPalId >= nStart) && ((nOffset) % nInc < nAmt))
     {
         *nVarSet = ((nOffset) / nInc);
 
@@ -87,9 +87,9 @@ BOOL CGameClass::SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAm
     return TRUE;
 }
 
-sImgTicket* CGameClass::CreateImgTicket(int nUnitId, int nImgId, sImgTicket* NextTicket, int nXOffs, int nYOffs)
+sImgTicket* CGameClass::CreateImgTicket(UINT16 nUnitId, int nImgId, sImgTicket* NextTicket, int nXOffs, int nYOffs)
 {
-    if (nImgId == -1)
+    if (nImgId == INVALID_UNIT_VALUE)
     {
         return NULL;
     }
@@ -313,7 +313,7 @@ BOOL CGameClass::SetLoadDir(CHAR* szNewDir)
     }
 };
 
-void CGameClass::SetSourcePal(int nIndex, int nUnitId, int nStart, int nAmt, int nInc)
+void CGameClass::SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc)
 {
     if (nIndex >= 4)
     {
@@ -394,7 +394,7 @@ BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int n
 
     for (int nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
     {
-        if (nPalSz - (nPICtr / nPalSz) * nPalSz == nExclusion)
+        if ((nPalSz - (nPICtr / nPalSz) * nPalSz) == nExclusion)
         {
             nPICtr++;
         }
@@ -431,7 +431,7 @@ BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int n
 
         for (int nPICtr = 0; nPICtr < nIndexAmt; nPICtr++)
         {
-            if (nPalSz - (nPICtr / nPalSz) * nPalSz == nExclusion)
+            if ((nPalSz - (nPICtr / nPalSz) * nPalSz) == nExclusion)
             {
                 pIndexRedir[nPICtr] = 0;
             }

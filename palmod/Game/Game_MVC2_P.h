@@ -15,5 +15,5 @@ public:
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     static sFileRule GetNextRule();
-    static sFileRule GetRule(int nRuleId);
+    static sFileRule GetRule(UINT16 nRuleId);
 };

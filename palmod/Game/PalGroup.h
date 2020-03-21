@@ -19,7 +19,7 @@ struct sPalRedir
 
 struct sPalSep
 {
-    CHAR szDesc[MAX_DESC];
+    CHAR szDesc[MAX_DESCRIPTION_LENGTH];
     int nStart;
     int nAmt;
 };
@@ -31,6 +31,7 @@ struct sPalDef
     UINT16 uPalSz = 0;
 
     UINT16 uUnitId = 0;
+    UINT16 uCollectionId = 0;
     UINT16 uPalId = 0;
 
     sPalSep* SepList[MAX_SEP];

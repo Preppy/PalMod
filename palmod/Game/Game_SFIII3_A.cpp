@@ -11,7 +11,7 @@ int CGame_SFIII3_A::rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1] = { -1 };
 
 CDescTree CGame_SFIII3_A::MainDescTree = CGame_SFIII3_A::InitDescTree();
 
-int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bCountVisibleOnly)
+int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
 
@@ -25,8 +25,6 @@ int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bCountVisibleOnly)
         memset(rgExtraCt, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetSF3ExtraDef(0);
-
-        OutputDebugString(pCurrDef->szDesc);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -45,7 +43,7 @@ int CGame_SFIII3_A::GetExtraCt(int nUnitId, BOOL bCountVisibleOnly)
     return rgExtraCt[nUnitId];
 }
 
-int CGame_SFIII3_A::GetExtraLoc(int nUnitId)
+int CGame_SFIII3_A::GetExtraLoc(UINT16 nUnitId)
 {
     static int rgExtraLoc[SFIII3_A_NUMUNIT + 1] = { -1 };
 
@@ -73,7 +71,7 @@ int CGame_SFIII3_A::GetExtraLoc(int nUnitId)
     return rgExtraLoc[nUnitId];
 }
 
-int CGame_SFIII3_A::GetBasicAmt(int nUnitId)
+int CGame_SFIII3_A::GetBasicAmt(UINT16 nUnitId)
 {
     switch (nUnitId)
     {
@@ -303,11 +301,11 @@ CDescTree CGame_SFIII3_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_SFIII3_A::GetRule(int nUnitId)
+sFileRule CGame_SFIII3_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "51");
+    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "51");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = 0x800000;
@@ -315,7 +313,7 @@ sFileRule CGame_SFIII3_A::GetRule(int nUnitId)
     return NewFileRule;
 }
 
-int CGame_SFIII3_A::GetPalCt(int nUnitId)
+int CGame_SFIII3_A::GetPalCt(UINT16 nUnitId)
 {
     if (nUnitId == SFIII3_A_EXTRALOC)
     {
@@ -337,7 +335,7 @@ void CGame_SFIII3_A::ClearDataBuffer()
 {
     if (pppDataBuffer)
     {
-        for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (pppDataBuffer[nUnitCtr])
             {
@@ -356,7 +354,7 @@ void CGame_SFIII3_A::ClearDataBuffer()
     }
 }
 
-void CGame_SFIII3_A::GetPalOffsSz(int nUnitId, int nPalId)
+void CGame_SFIII3_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
 {
     int nBasicPos = GetBasicAmt(nUnitId);
     int nPortPos = nBasicPos * 2;
@@ -446,25 +444,25 @@ void CGame_SFIII3_A::CheckForJojoUsage(CFile* LoadedFile)
 
     if (!isActuallyThirdStrike)
     {
-        MessageBox(g_appHWnd, "This looks like a Jojos ROM. You may want to use the new File : Load File option to load this as a Jojos ROM instead of a Third Strike ROM.", GetAppName(), MB_ICONWARNING);
+        MessageBox(g_appHWnd, "This looks like a Jojos ROM. You may want to use the new Jojos mode.\n\nGo to File : Load File, and then use the option on the bottom right to load this as a Jojos ROM instead of a Third Strike ROM.", GetAppName(), MB_ICONWARNING);
     }
 
     safe_delete_array(prgFileStart);
 }
 
-BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, int nUnitId)
+BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     CheckForJojoUsage(LoadedFile);
 
-    for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        int nPalAmt = GetPalCt(nUnitCtr); //Fix later for extras
+        UINT16 nPalAmt = GetPalCt(nUnitCtr); //Fix later for extras
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         rgUnitRedir[nUnitCtr] = SFIII3_A_UNITSORT[nUnitCtr];
 
-        for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             GetPalOffsSz(nUnitCtr, nPalCtr);
 
@@ -481,15 +479,15 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, int nUnitId)
     return TRUE;
 }
 
-BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, int nUnitId)
+BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
-    int nPalAmt;
+    UINT16 nPalAmt;
 
-    for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
         nPalAmt = GetPalCt(nUnitCtr);
 
-        for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             GetPalOffsSz(nUnitCtr, nPalCtr);
 
@@ -502,10 +500,10 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, int nUnitId)
     return TRUE;
 }
 
-void CGame_SFIII3_A::CreateDefPal(sDescNode* srcNode, int nSepId)
+void CGame_SFIII3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
-    int nUnitId = srcNode->uUnitId;
-    int nPalId = srcNode->uPalId;
+    UINT16 nUnitId = srcNode->uUnitId;
+    UINT16 nPalId = srcNode->uPalId;
 
     GetPalOffsSz(nUnitId, nPalId);
 
@@ -513,9 +511,9 @@ void CGame_SFIII3_A::CreateDefPal(sDescNode* srcNode, int nSepId)
     BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, nCurrPalSz);
 }
 
-BOOL CGame_SFIII3_A::CreateExtraPal(int nUnitId, int nPalId)
+BOOL CGame_SFIII3_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
 {
-    int nExtra = nPalId - nNormalPalAmt;
+    UINT16 nExtra = nPalId - nNormalPalAmt;
 
     if (nExtra >= 0)
     {
@@ -610,9 +608,6 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         return FALSE;
     }
 
-    UINT16 uUnitId;
-    UINT16 uPalId;
-
     sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == NULL)
@@ -620,10 +615,10 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         return FALSE;
     }
 
-    uUnitId = NodeGet->uUnitId;
-    uPalId = NodeGet->uPalId;
+    UINT16 uUnitId = NodeGet->uUnitId;
+    UINT16 uPalId = NodeGet->uPalId;
 
-    int nBasicAmt = GetBasicAmt(uUnitId);
+    UINT16 nBasicAmt = GetBasicAmt(uUnitId);
 
     //Change the image id if we need to
     nTargetImgId = 0;
@@ -660,7 +655,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             nSrcStart = uPalId;
             nSrcAmt = 1;
         }
-        else if (uPalId >= nNormalPalAmt) // Handles extras loaded from the extension file.
+        else if (uPalId >= nNormalPalAmt) // This Extra is not associated to a known unit/character
         {
             bCreateBasicPal = !(CreateExtraPal(uUnitId, uPalId));
 
@@ -689,9 +684,9 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     return TRUE;
 }
 
-int CGame_SFIII3_A::GetBasicImgId(int nUnitId, int nPalId)
+int CGame_SFIII3_A::GetBasicImgId(UINT16 nUnitId, UINT16 nPalId)
 {
-    int nBasicAmt = GetBasicAmt(nUnitId);
+    UINT16 nBasicAmt = GetBasicAmt(nUnitId);
     if (nPalId > nBasicAmt)
     {
         if (nPalId > (7 + nBasicAmt))
@@ -709,7 +704,7 @@ int CGame_SFIII3_A::GetBasicImgId(int nUnitId, int nPalId)
     }
 }
 
-COLORREF* CGame_SFIII3_A::CreatePal(int nUnitId, int nPalId)
+COLORREF* CGame_SFIII3_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     GetPalOffsSz(nUnitId, nPalId);
     //We get this from create def pal
@@ -726,7 +721,7 @@ COLORREF* CGame_SFIII3_A::CreatePal(int nUnitId, int nPalId)
 
 void CGame_SFIII3_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
         if (srcDef->bAvail)
@@ -735,7 +730,7 @@ void CGame_SFIII3_A::UpdatePalData()
 
             COLORREF* crSrc = srcDef->pPal;
             UINT16 uAmt = srcDef->uPalSz;
-            int nBasicAmt = GetBasicAmt(srcDef->uUnitId);
+            UINT16 nBasicAmt = GetBasicAmt(srcDef->uUnitId);
 
             if ((srcDef->uPalId >= nBasicAmt) && (srcDef->uPalId < nBasicAmt * 2) && (srcDef->uUnitId != SFIII3_A_EXTRALOC)) //Portrait
             {

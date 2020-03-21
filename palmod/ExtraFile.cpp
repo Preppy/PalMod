@@ -44,6 +44,9 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
     }
 
     const int nMaxExtraBufferSize = 1000;
+    // I got a report that editing a palette wasn't saving.  Turns out it was also in their Extra file and the later unchanged palette
+    // was stomping over the changed palette when we saved out.
+    const int nPossibleDuplicateConcern = 100;
     stExtraDef rgTempExtraBuffer[nMaxExtraBufferSize];
     memcpy(rgTempExtraBuffer, pBaseExtraDefs, nStockExtrasCount * sizeof(stExtraDef));
 
@@ -174,11 +177,15 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
         }
     }
 
-    
     if (nArrayOffsetDesired >= nMaxExtraBufferSize)
     {
         strOutputText.Format("WARNING: The '%s' Extra file exceeds maximum palette count (%u defined).\n\nPalmod has added the first %u palettes.", pszExtraFileName, nArrayOffsetDesired, nMaxExtraBufferSize);
         // Note that this crash occurs so early we don't get to load strings.
+        MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
+    }
+    else if (nArrayOffsetDesired >= nPossibleDuplicateConcern)
+    {
+        strOutputText.Format("WARNING: The '%s' Extra file contains %u items.  Any item directly in PalMod and also in the Extras file can not be patched normally.\n\nPlease remove the duplicates from this Extras file - or don't use it.\n ", pszExtraFileName, nArrayOffsetDesired);
         MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
     }
 

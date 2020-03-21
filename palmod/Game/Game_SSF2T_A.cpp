@@ -122,11 +122,11 @@ CDescTree CGame_SSF2T_A::InitDescTree()
     return CDescTree(NewDescTree);
 }
 
-sFileRule CGame_SSF2T_A::GetRule(int nUnitId)
+sFileRule CGame_SSF2T_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "sfxe.04a");
+    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "sfxe.04a");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = 0x80000;
@@ -134,9 +134,9 @@ sFileRule CGame_SSF2T_A::GetRule(int nUnitId)
     return NewFileRule;
 }
 
-int CGame_SSF2T_A::GetBasicAmt(int nUnitId)
+int CGame_SSF2T_A::GetBasicAmt(UINT16 nUnitId)
 {
-    if (nUnitId == SSF2T_A_NUMUNIT - 1)
+    if (nUnitId == (SSF2T_A_NUMUNIT - 1))
     {
         return 2;
     }
@@ -158,13 +158,13 @@ void CGame_SSF2T_A::ClearDataBuffer()
 {
     if (pppDataBuffer)
     {
-        for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (pppDataBuffer[nUnitCtr])
             {
-                int nPalAmt = GetPalCt(nUnitCtr);
+                UINT16 nPalAmt = GetPalCt(nUnitCtr);
 
-                for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
@@ -177,25 +177,23 @@ void CGame_SSF2T_A::ClearDataBuffer()
     }
 }
 
-void CGame_SSF2T_A::GetPalOffsSz(int nUnitId, int nPalId)
+void CGame_SSF2T_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
 {
     nCurrPalOffs = 0x3FB2C + (0x66C * nUnitId) + (nPalId * (nUnitId == 2 ? 0xA0 : 0xA2)) - (nUnitId > 2 ? 0x10 : 0);
     nCurrPalSz = 16;
 }
 
-BOOL CGame_SSF2T_A::LoadFile(CFile* LoadedFile, int nUnitId)
+BOOL CGame_SSF2T_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
-    int nPalAmt;
-
-    for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        nPalAmt = GetPalCt(nUnitCtr);
+        UINT16 nPalAmt = GetPalCt(nUnitCtr);
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         rgUnitRedir[nUnitCtr] = nUnitCtr; //Fix later for unit sort
 
-        for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             GetPalOffsSz(nUnitCtr, nPalCtr);
 
@@ -212,18 +210,18 @@ BOOL CGame_SSF2T_A::LoadFile(CFile* LoadedFile, int nUnitId)
     return TRUE;
 }
 
-int CGame_SSF2T_A::GetPalCt(int nUnitId)
+int CGame_SSF2T_A::GetPalCt(UINT16 nUnitId)
 {
     return 10;// 6 palettes in a unit
 }
 
-BOOL CGame_SSF2T_A::SaveFile(CFile* SaveFile, int nUnitId)
+BOOL CGame_SSF2T_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
-    for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        int nPalAmt = GetPalCt(nUnitCtr);
+        UINT16 nPalAmt = GetPalCt(nUnitCtr);
 
-        for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             GetPalOffsSz(nUnitCtr, nPalCtr);
 
@@ -236,10 +234,10 @@ BOOL CGame_SSF2T_A::SaveFile(CFile* SaveFile, int nUnitId)
     return TRUE;
 }
 
-void CGame_SSF2T_A::CreateDefPal(sDescNode* srcNode, int nSepId)
+void CGame_SSF2T_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
-    int nUnitId = srcNode->uUnitId;
-    int nPalId = srcNode->uPalId;
+    UINT16 nUnitId = srcNode->uUnitId;
+    UINT16 nPalId = srcNode->uPalId;
 
     GetPalOffsSz(nUnitId, nPalId);
 
@@ -257,9 +255,6 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    UINT16 uUnitId;
-    UINT16 uPalId;
-
     sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == NULL)
@@ -267,8 +262,8 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    uUnitId = NodeGet->uUnitId;
-    uPalId = NodeGet->uPalId;
+    UINT16 uUnitId = NodeGet->uUnitId;
+    UINT16 uPalId = NodeGet->uPalId;
 
     //Change the image id if we need to
     nTargetImgId = 0;
@@ -291,7 +286,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-COLORREF* CGame_SSF2T_A::CreatePal(int nUnitId, int nPalId)
+COLORREF* CGame_SSF2T_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     GetPalOffsSz(nUnitId, nPalId);
 
@@ -309,7 +304,7 @@ COLORREF* CGame_SSF2T_A::CreatePal(int nUnitId, int nPalId)
 
 void CGame_SSF2T_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 

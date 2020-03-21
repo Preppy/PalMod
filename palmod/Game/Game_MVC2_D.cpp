@@ -247,7 +247,7 @@ void CGame_MVC2_D::InitExtraRg()
 }
 
 // Returns a count of the extra sprites available for a given unit/character
-int CGame_MVC2_D::CountExtraRg(int nUnitId, BOOL bOmniExtra)
+int CGame_MVC2_D::CountExtraRg(UINT16 nUnitId, BOOL bOmniExtra)
 {
     //(MVC2_D_PALDATASZ[nUnitId] - (8 * k_mvc2_character_coloroption_count * 32)) / 32;
     if (!rgExtraChrLoc[nUnitId])
@@ -306,12 +306,12 @@ int CGame_MVC2_D::CountExtraRg(int nUnitId, BOOL bOmniExtra)
     return 0;
 }
 
-sFileRule CGame_MVC2_D::GetRule(int nRuleId)
+sFileRule CGame_MVC2_D::GetRule(UINT16 nRuleId)
 {
     sFileRule NewFileRule;
 
     nRuleId = (nRuleId & 0xFF00) == 0xFF00 ? (nRuleId & 0x00FF) : MVC2_D_UNITSORT[nRuleId];
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "PL%02X_DAT.BIN", nRuleId);
+    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "PL%02X_DAT.BIN", nRuleId);
 
     NewFileRule.uUnitId = nRuleId;
     NewFileRule.uVerifyVar = MVC2_D_FILESZ[nRuleId];
@@ -352,7 +352,7 @@ void CGame_MVC2_D::ClearDataBuffer()
     }
 }
 
-int CGame_MVC2_D::GetBasicOffset(int nPalId)
+int CGame_MVC2_D::GetBasicOffset(UINT16 nPalId)
 {
     // Each character by default gets 6 buttons worth of 8 palettes.  
     if (nPalId >= (8 * k_mvc2_character_coloroption_count))
@@ -368,7 +368,7 @@ int CGame_MVC2_D::GetBasicOffset(int nPalId)
     }
 }
 
-BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, int nUnitId)
+BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     if (ppDataBuffer[nUnitId])
     {
@@ -377,7 +377,6 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, int nUnitId)
     }
     else
     {
-        int nDataSz;
         UINT32 nStart, nEnd;
 
         LoadedFile->Seek(0x08, CFile::begin);
@@ -385,7 +384,7 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, int nUnitId)
         LoadedFile->Read(&nStart, 0x04);
         LoadedFile->Read(&nEnd, 0x04);
 
-        nDataSz = nEnd - nStart;
+        int nDataSz = nEnd - nStart;
 
         if (nDataSz != MVC2_D_PALDATASZ[nUnitId])
         {
@@ -407,7 +406,7 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, int nUnitId)
     return FALSE; // not reachable
 }
 
-BOOL CGame_MVC2_D::SaveFile(CFile* SaveFile, int nUnitId)
+BOOL CGame_MVC2_D::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     if (!ppDataBuffer[nUnitId])
     {
@@ -437,12 +436,12 @@ BOOL CGame_MVC2_D::SaveFile(CFile* SaveFile, int nUnitId)
     return FALSE; // not reachable
 }
 
-COLORREF* CGame_MVC2_D::CreatePal(int nUnitId, int nPalId)
+COLORREF* CGame_MVC2_D::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     //Create a new palette
     COLORREF* NewPal = new COLORREF[MVC2_D_PALSZ];
 
-    for (int i = 0; i < MVC2_D_PALSZ; i++)
+    for (UINT16 i = 0; i < MVC2_D_PALSZ; i++)
     {
         NewPal[i] = ConvPal(ppDataBuffer[nUnitId][(nPalId * 16) + i]);
     }
@@ -450,22 +449,22 @@ COLORREF* CGame_MVC2_D::CreatePal(int nUnitId, int nPalId)
     return NewPal;
 }
 
-void CGame_MVC2_D::CreateDefPal(sDescNode* srcNode, int nSepId)
+void CGame_MVC2_D::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
-    int nUnitId = srcNode->uUnitId;
-    int nPalId = srcNode->uPalId;
+    UINT16 nUnitId = srcNode->uUnitId;
+    UINT16 nPalId = srcNode->uPalId;
 
     BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), MVC2_D_PALSZ, nUnitId, nPalId);
     BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, MVC2_D_PALSZ);
 }
 
-void CGame_MVC2_D::CreateDefPal(int nUnitId, int nPalId, int nSepId)
+void CGame_MVC2_D::CreateDefPal(UINT16 nUnitId, UINT16 nPalId, UINT16 nSepId)
 {
     BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), MVC2_D_PALSZ, nUnitId, nPalId);
     BasePalGroup.AddSep(nSepId, "Palette", 0, MVC2_D_PALSZ);
 }
 
-BOOL CGame_MVC2_D::CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc, int nImgId, int nSepId, int nAmt)
+BOOL CGame_MVC2_D::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId, int nStart, int nInc, int nImgId, int nSepId, int nAmt)
 {
     int nSpecOffs;
     //int nTargetPal;
@@ -501,7 +500,7 @@ BOOL CGame_MVC2_D::CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc,
 
 void CGame_MVC2_D::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
         if (srcDef->bAvail)//&& srcDef->bChanged)
@@ -541,7 +540,7 @@ void CGame_MVC2_D::FlushUnitFile()
 {
     if (szUnitFile)
     {
-        for (int i = 0; i < MVC2_D_NUMUNIT; i++)
+        for (UINT16 i = 0; i < MVC2_D_NUMUNIT; i++)
         {
             safe_delete_array(szUnitFile[i]);
         }
@@ -566,12 +565,12 @@ void CGame_MVC2_D::PrepUnitFile()
     memset(rgFileChanged, NULL, sizeof(UINT16) * MVC2_D_NUMUNIT);
 }
 
-void CGame_MVC2_D::ResetChangeFlag(int nUnitId)
+void CGame_MVC2_D::ResetChangeFlag(UINT16 nUnitId)
 {
     rgFileChanged[nUnitId] = FALSE;
 }
 
-void CGame_MVC2_D::PostSetPal(int nUnitId, int nPalId)
+void CGame_MVC2_D::PostSetPal(UINT16 nUnitId, UINT16 nPalId)
 {
     int nBasicOffset = GetBasicOffset(nPalId);
 
@@ -618,7 +617,7 @@ void CGame_MVC2_D::ForEidrian(int nFlag, COLORREF crCol)
     }
 }
 
-void CGame_MVC2_D::SetExtraImg(int nImgId, int nUnitId, int nPalId)
+void CGame_MVC2_D::SetExtraImg(UINT16 nImgId, UINT16 nUnitId, UINT16 nPalId)
 {
     nTargetImgId = nImgId + 0xFF00;
 

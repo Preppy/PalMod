@@ -9,9 +9,9 @@
 //File rule definition
 struct sFileRule
 {
-    char szFileName[MAX_FILENAME];
+    char szFileName[MAX_FILENAME_LENGTH];
     UINT32 uVerifyVar;
-    UINT8 uUnitId = INVALID_UNIT_VALUE;
+    UINT16 uUnitId = INVALID_UNIT_VALUE;
 };
 
 enum ColMode
@@ -47,7 +47,7 @@ protected:
     double nRGBIndexMul;
     double nAIndexMul;
 
-    int nUnitAmt;
+    UINT16 nUnitAmt;
     int nGameFlag;
     int nImgGameFlag;
     int nDisplayW;
@@ -90,8 +90,8 @@ public:
     UINT16(*ConvCol)(UINT32 inCol);
     UINT32(*ConvPal)(UINT16 inCol);
 
-    CHAR* GetUnitFile(int nUnitId) { return szUnitFile[nUnitId]; };
-    void SetUnitFile(int nUnitId, CHAR* szNewFile) { szUnitFile[nUnitId] = szNewFile; };
+    CHAR* GetUnitFile(UINT16 nUnitId) { return szUnitFile[nUnitId]; };
+    void SetUnitFile(UINT16 nUnitId, CHAR* szNewFile) { szUnitFile[nUnitId] = szNewFile; };
     CHAR* GetLoadDir() { return szDir; };
     BOOL SetLoadDir(CHAR* szNewDir);
 
@@ -119,7 +119,7 @@ public:
     double GetPlaneMul(ColFlag Flag);
 
     void ClearSetImgTicket(sImgTicket* NewImgTicket = NULL);
-    sImgTicket* CreateImgTicket(int nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0);
+    sImgTicket* CreateImgTicket(UINT16 nUnitId, int nImgId, sImgTicket* NextTicket = NULL, int nXOffs = 0, int nYOffs = 0);
 
     int GetImgOutPalAmt() { return nSrcPalAmt[0]; };
     void ClearSrcPal();
@@ -127,7 +127,7 @@ public:
     CHAR* GetButtonDesc() { return pButtonLabel; };
     eDispType GetImgDispType() { return DisplayType; };
 
-    void SetSourcePal(int nIndex, int nUnitId, int nStart, int nAmt, int nInc);
+    void SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc);
 
     void Revert(int nPalId);
 
@@ -138,10 +138,10 @@ public:
     //Public virtual
     virtual CDescTree* GetMainTree() = 0;
 
-    virtual BOOL LoadFile(CFile* LoadedFile, int nUnitId) = 0;
-    virtual BOOL SaveFile(CFile* SaveFile, int nUnitId) = 0;
+    virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId) = 0;
+    virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) = 0;
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
-    virtual COLORREF* CreatePal(int nUnitId, int nPalId) = 0;
+    virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId) = 0;
     virtual void UpdatePalData() = 0;
     virtual void FlushUnitFile() = 0;
     virtual void PrepUnitFile() = 0;

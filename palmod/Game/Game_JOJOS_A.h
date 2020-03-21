@@ -8,71 +8,70 @@ constexpr auto EXTRA_FILENAME_50 = "jojos50e.txt";
 constexpr auto EXTRA_FILENAME_51 = "jojos51e.txt";
 
 #ifdef JOJOS_A_USEEXTRAFILE
-#define GetJojosExtraDef(mode, x) (UsePaletteSetFor50(mode) ? ((stExtraDef *)&JOJOS_A_EXTRA_CUSTOM_50[x]) : ((stExtraDef *)&JOJOS_A_EXTRA_CUSTOM_51[x]))
+#define GetJojosExtraDef(x) (UsePaletteSetFor50() ? ((stExtraDef *)&JOJOS_A_EXTRA_CUSTOM_50[x]) : ((stExtraDef *)&JOJOS_A_EXTRA_CUSTOM_51[x]))
 #else
-#define GetJojosExtraDef(mode, x) (const_cast<stExtraDef *>(&JOJOS_A_EXTRA[x]))
+#define GetJojosExtraDef(x) (const_cast<stExtraDef *>(&JOJOS_A_EXTRA[x]))
 #endif
 
 class CGame_JOJOS_A : public CGameClass
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-    int nNormalPalAmt = 0;
-
-    //Used for GetPalOffset
-    int nCurrPalOffs = 0;
-    int nCurrPalSz = 0;
+    //Used for GetPalOffset BUGBUG but why?
+    int m_nCurrentPaletteROMLocation = 0;
+    int m_nCurrentPaletteSize = 0;
     const int m_knMaxPalettePageSize = 64;
 
-    UINT16*** pppDataBuffer = nullptr;
+    // This array holds all the actual color tables we use
+    UINT16*** m_pppDataBuffer = nullptr;
 
     // Jojos has two different ROMs of interest: handle here.
-    int nJojosMode = 50;
+    static int m_nJojosMode;
 
-    void GetPalOffsSz(int nUnitId, int nPalId);
+    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
 
     void InitDataBuffer();
     void ClearDataBuffer();
     
-    static const sJOJOS_PaletteDataset* GetPaletteSet(int nPaletteSetToUse, int nUnitId, int nPaletteId);
-    static bool UsePaletteSetFor50(int nPaletteSetToUse) { return (nPaletteSetToUse == 50); };
-    inline bool UsePaletteSetFor50() { return (nJojosMode == 50); };
+    static const sJOJOS_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
+    static bool UsePaletteSetFor50() { return (m_nJojosMode == 50); }
 
 public:
-    CGame_JOJOS_A(int nGameData);
+    CGame_JOJOS_A(int nJojosModeToLoad);
     ~CGame_JOJOS_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree_50;
     static CDescTree MainDescTree_51;
 
-    //    static CDescTree * GetMainTree();
+    // static CDescTree * GetMainTree();
     static CDescTree InitDescTree(int nPaletteSetToUse);
-    //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
-    static sFileRule GetRule(int nUnitId);
+    // static void SetExtraDesc(sDescTreeNode * srcNode, int nCollectionIndex);
+    static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function
-    static int GetExtraCt(int nCurrentMode, int nUnitId, BOOL bCountVisibleOnly = FALSE);
-    static int GetExtraLoc(int nCurrentMode, int nUnitId);
-    static int GetBasicAmt(int nUnitId);
+    static int GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static int GetExtraLoc(UINT16 nUnitId);
+    static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
+
+    // BUGBUG: just fold into one sDefExpoisjdfoiNode return...?
+    static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
 
     static void LoadExtraFile(int nPaletteSetToUse);
 
     //Normal functions
     CDescTree* GetMainTree();
 
-    int GetBasicImgId(int nUnitId, int nPalId);
-    int GetPalCt(int nUnitId);
+    int GetBasicImgId(UINT16 nUnitId, UINT16 nPalId);
+    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
-    void CreateDefPal(sDescNode* srcNode, int nSepId);
-    BOOL LoadFile(CFile* LoadedFile, int nUnitId = 0);
-    BOOL SaveFile(CFile* SaveFile, int nUnitId = 0);
+    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nFileId = 0);
+    BOOL SaveFile(CFile* SaveFile, UINT16 nFileId = 0);
     BOOL CGame_JOJOS_A::UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    COLORREF* CreatePal(int nUnitId, int nPalId);
-    COLORREF* CreatePal64WithOffset(int nUnitId, int nPalId, int nOffset);
-    BOOL CreateExtraPal(int nUnitId, int nPalId);
+    COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
+    BOOL CreateExtraPal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
 

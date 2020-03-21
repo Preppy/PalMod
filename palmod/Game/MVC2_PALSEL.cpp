@@ -12,9 +12,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    UINT8 uUnitId;
-    UINT16 uPalId;
-
     //Reset the extra amount
     nExtraAmt = 6;
 
@@ -28,8 +25,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    uUnitId = NodeGet->uUnitId;
-    uPalId = NodeGet->uPalId;
+    UINT16 uUnitId = NodeGet->uUnitId;
+    UINT16 uPalId = NodeGet->uPalId;
 
     //Change the image id if we need to
     nTargetImgId = 0;
@@ -42,14 +39,14 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
     case 0x01: //Zangief
     {
-        if (uPalId >= (0x11 + EXTRA_OMNI) && uPalId <= (0x16 + EXTRA_OMNI))
+        if ((uPalId >= (0x11 + EXTRA_OMNI)) && (uPalId <= (0x16 + EXTRA_OMNI)))
         {
             // MechaGief
             SetExtraImg(11, uUnitId, uPalId);
             break;
         }
 
-        if (uPalId >= (0x17 + EXTRA_OMNI) && uPalId <= (0x3A + EXTRA_OMNI))
+        if ((uPalId >= (0x17 + EXTRA_OMNI)) && (uPalId <= (0x3A + EXTRA_OMNI)))
         {
             // atomic suplex sprite
             SetExtraImg(12, uUnitId, uPalId);
@@ -150,7 +147,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x0A: //Rogue
     {
-        if (uPalId >= 0x1D + EXTRA_OMNI && uPalId <= 0x22 + EXTRA_OMNI)
+        if ((uPalId >= 0x1D + EXTRA_OMNI) && (uPalId <= 0x22 + EXTRA_OMNI))
         {
             SetExtraImg(11, uUnitId, uPalId);
             break;
@@ -330,7 +327,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case 0x14: //Son Son
+    case 0x14: //SonSon
     {
         if (
             CreateExtraPal(uUnitId, uPalId, 0x0F, 1, 11)
@@ -341,6 +338,47 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             break;
         }
         break;
+    }
+
+    case 0x1C: // MegaMan
+    {
+        if (((uPalId >= (0x0B + EXTRA_OMNI)) && (uPalId <= (0x13 + EXTRA_OMNI))) || // Megaman intros
+            ((uPalId >= (0x2F + EXTRA_OMNI)) && (uPalId <= (0x37 + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0x4C + EXTRA_OMNI)) && (uPalId <= (0x54 + EXTRA_OMNI))) || // Hyper MegaMan
+
+            ((uPalId >= (0x62 + EXTRA_OMNI)) && (uPalId <= (0x6A + EXTRA_OMNI))) || // Megaman intros
+            ((uPalId >= (0x86 + EXTRA_OMNI)) && (uPalId <= (0x8E + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0xA3 + EXTRA_OMNI)) && (uPalId <= (0xAB + EXTRA_OMNI))) || // Hyper MegaMan
+
+            ((uPalId >= (0xB9 + EXTRA_OMNI)) && (uPalId <= (0xC1 + EXTRA_OMNI))) || // Megaman intros
+            ((uPalId >= (0xDD + EXTRA_OMNI)) && (uPalId <= (0xE5 + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0xFA + EXTRA_OMNI)) && (uPalId <= (0x102 + EXTRA_OMNI))) ||  // Hyper MegaMan
+
+            ((uPalId >= (0x110 + EXTRA_OMNI)) && (uPalId <= (0x118 + EXTRA_OMNI))) || // Megaman intros
+            ((uPalId >= (0x134 + EXTRA_OMNI)) && (uPalId <= (0x13c + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0x151 + EXTRA_OMNI)) && (uPalId <= (0x159 + EXTRA_OMNI))) || // Hyper MegaMan
+
+            ((uPalId >= (0x167 + EXTRA_OMNI)) && (uPalId <= (0x16F + EXTRA_OMNI))) || // Megaman intros
+            ((uPalId >= (0x18B + EXTRA_OMNI)) && (uPalId <= (0x193 + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0x1A8 + EXTRA_OMNI)) && (uPalId <= (0x1B0 + EXTRA_OMNI))) || // Hyper MegaMan
+
+            ((uPalId >= (0x1BE + EXTRA_OMNI)) && (uPalId <= (0x1C6 + EXTRA_OMNI))) || // Megaman intros
+            ((uPalId >= (0x1E2 + EXTRA_OMNI)) && (uPalId <= (0x1EA + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0x1FF + EXTRA_OMNI)) && (uPalId <= (0x207 + EXTRA_OMNI))))  // Hyper MegaMan
+        {
+            SetExtraImg(0, uUnitId, uPalId);
+            break;
+        }
+
+        if ((uPalId == (0x5E + EXTRA_OMNI)) || // Roll
+            (uPalId == (0xB5 + EXTRA_OMNI)) ||
+            (uPalId == (0x10C + EXTRA_OMNI)) ||
+            (uPalId == (0x163 + EXTRA_OMNI)) ||
+            (uPalId == (0x1BA + EXTRA_OMNI)) ||
+            (uPalId == (0x211 + EXTRA_OMNI)))
+        {
+            // TODO
+        }
     }
     case 0x15: //Amingo
     {
@@ -368,7 +406,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case 0x24: //Cammy
     {
-        if (uPalId >= (0x09 + EXTRA_OMNI) && uPalId <= (0x3E + EXTRA_OMNI))
+        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x3E + EXTRA_OMNI)))
         {
             SetExtraImg(11, uUnitId, uPalId);
         }
@@ -376,7 +414,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x25: //Dhalsim
     {
-        if (uPalId >= (0x09 + EXTRA_OMNI) && uPalId <= (0x26 + EXTRA_OMNI))
+        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x26 + EXTRA_OMNI)))
         {
             SetExtraImg(11, uUnitId, uPalId);
         }
@@ -396,7 +434,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x28: //Gambit
     {
-        if (uPalId >= (0x09 + EXTRA_OMNI) && uPalId <= (0x26 + EXTRA_OMNI))
+        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x26 + EXTRA_OMNI)))
         {
             SetExtraImg(11, uUnitId, uPalId);
         }
@@ -404,7 +442,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x29: //Juggernaut
     {
-        if (uPalId >= (0x09 + EXTRA_OMNI) && uPalId <= (0x44 + EXTRA_OMNI))
+        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x44 + EXTRA_OMNI)))
         {
             SetExtraImg(11, uUnitId, uPalId);
         }
@@ -462,7 +500,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case 0x2F: //Silver Samurai
     {
-        if (uPalId >= (0x09 + EXTRA_OMNI) && uPalId <= (0x37 + EXTRA_OMNI))
+        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x37 + EXTRA_OMNI)))
         {
             SetExtraImg(0, uUnitId, uPalId);
         }
@@ -471,7 +509,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x30: //Omega Red
     {
-        if (uPalId >= (0x09 + EXTRA_OMNI) && uPalId <= (0x20 + EXTRA_OMNI))
+        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x20 + EXTRA_OMNI)))
         {
             SetExtraImg(11, uUnitId, uPalId);
         }
@@ -480,7 +518,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x31: //Spiral
     {
-        if (uPalId >= (0x09 + EXTRA_OMNI) && uPalId <= (0x2A + EXTRA_OMNI))
+        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x2A + EXTRA_OMNI)))
         {
             // Metamorphosis super
             int nOffs = (uPalId - (0x09 + EXTRA_OMNI)) * 2;
@@ -515,7 +553,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x37: //Jin
     {
-        if (uPalId >= (0x09 + EXTRA_OMNI) && uPalId <= (0x2C + EXTRA_OMNI))
+        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x2C + EXTRA_OMNI)))
         {
             SetExtraImg(0, uUnitId, uPalId);
             break;

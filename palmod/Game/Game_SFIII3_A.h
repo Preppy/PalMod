@@ -29,7 +29,7 @@ private:
     static int rgExtraCountAll[SFIII3_A_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1];
 
-    void GetPalOffsSz(int nUnitId, int nPalId);
+    void GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId);
 
     void InitDataBuffer();
     void ClearDataBuffer();
@@ -44,28 +44,28 @@ public:
     //    static CDescTree * GetMainTree();
     static CDescTree InitDescTree();
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
-    static sFileRule GetRule(int nUnitId);
+    static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function
-    static int GetExtraCt(int nUnitId, BOOL bCountVisibleOnly = FALSE);
-    static int GetExtraLoc(int nUnitId);
-    static int GetBasicAmt(int nUnitId);
+    static int GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static int GetExtraLoc(UINT16 nUnitId);
+    static int GetBasicAmt(UINT16 nUnitId);
 
     static void LoadExtraFile();
 
     //Normal functions
     CDescTree* GetMainTree();
 
-    int GetBasicImgId(int nUnitId, int nPalId);
-    int GetPalCt(int nUnitId);
+    int GetBasicImgId(UINT16 nUnitId, UINT16 nPalId);
+    int GetPalCt(UINT16 nUnitId);
 
-    void CreateDefPal(sDescNode* srcNode, int nSepId);
-    BOOL LoadFile(CFile* LoadedFile, int nUnitId = 0);
-    BOOL SaveFile(CFile* SaveFile, int nUnitId = 0);
+    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
+    BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId = 0);
     BOOL CGame_SFIII3_A::UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    COLORREF* CreatePal(int nUnitId, int nPalId);
-    BOOL CreateExtraPal(int nUnitId, int nPalId);
+    COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
+    BOOL CreateExtraPal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
 

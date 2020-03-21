@@ -1,8 +1,8 @@
 #pragma once
 #include "Default.h"
 
-#define DESC_NODETYPE_TREE 0
-#define DESC_NODETYPE_NODE 1
+constexpr auto DESC_NODETYPE_TREE = 0;
+constexpr auto DESC_NODETYPE_NODE = 1;
 
 #define DESC_ENDGET -1
 
@@ -10,15 +10,15 @@
 
 struct sDescNode
 {
-    CHAR szDesc[MAX_DESC] = "uninit";
+    CHAR szDesc[MAX_DESCRIPTION_LENGTH] = "uninit";
 
-    UINT8 uUnitId = INVALID_UNIT_VALUE;
+    UINT16 uUnitId = INVALID_UNIT_VALUE;
     UINT16 uPalId = 0;
 };
 
 struct sDescTreeNode
 {
-    CHAR szDesc[MAX_DESC] = "uninit";
+    CHAR szDesc[MAX_DESCRIPTION_LENGTH] = "uninit";
 
     UINT8 uChildType = DESC_NODETYPE_TREE;
     void* ChildNodes = nullptr;

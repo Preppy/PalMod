@@ -140,11 +140,11 @@ CDescTree CGame_XMVSF_A::InitDescTree()
     return CDescTree(NewDescTree);
 }
 
-sFileRule CGame_XMVSF_A::GetRule(int nUnitId)
+sFileRule CGame_XMVSF_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME, "xvs.05a");
+    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "xvs.05a");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = 0x80000;
@@ -152,12 +152,12 @@ sFileRule CGame_XMVSF_A::GetRule(int nUnitId)
     return NewFileRule;
 }
 
-int CGame_XMVSF_A::GetBasicAmt(int nUnitId)
+int CGame_XMVSF_A::GetBasicAmt(UINT16 nUnitId)
 {
     return 2; // 2 for now
 }
 
-int CGame_XMVSF_A::GetPalCt(int nUnitId)
+int CGame_XMVSF_A::GetPalCt(UINT16 nUnitId)
 {
     // Return all palettes within the region from this character to the start of the next character
     // plus one for portrait
@@ -176,13 +176,13 @@ void CGame_XMVSF_A::ClearDataBuffer()
 {
     if (pppDataBuffer)
     {
-        for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (pppDataBuffer[nUnitCtr])
             {
-                int nPalAmt = GetPalCt(nUnitCtr);
+                UINT16 nPalAmt = GetPalCt(nUnitCtr);
 
-                for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     if (pppDataBuffer[nUnitCtr][nPalCtr])
                     {
@@ -198,7 +198,7 @@ void CGame_XMVSF_A::ClearDataBuffer()
     }
 }
 
-void CGame_XMVSF_A::GetPalOffsSz(int nUnitId, int nPalId)
+void CGame_XMVSF_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
 {
     //0x5A0 = Primary Portrait Start
 
@@ -214,19 +214,17 @@ void CGame_XMVSF_A::GetPalOffsSz(int nUnitId, int nPalId)
     }
 }
 
-BOOL CGame_XMVSF_A::LoadFile(CFile* LoadedFile, int nUnitId)
+BOOL CGame_XMVSF_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
-    int nPalAmt;
-
     for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        nPalAmt = GetPalCt(nUnitCtr);
+        UINT16 nPalAmt = GetPalCt(nUnitCtr);
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         rgUnitRedir[nUnitCtr] = XMVSF_A_UNITSORT[nUnitCtr];
 
-        for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             GetPalOffsSz(nUnitCtr, nPalCtr);
 
@@ -243,13 +241,13 @@ BOOL CGame_XMVSF_A::LoadFile(CFile* LoadedFile, int nUnitId)
     return TRUE;
 }
 
-BOOL CGame_XMVSF_A::SaveFile(CFile* SaveFile, int nUnitId)
+BOOL CGame_XMVSF_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
-    for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        int nPalAmt = GetPalCt(nUnitId);
+        UINT16 nPalAmt = GetPalCt(nUnitId);
 
-        for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             GetPalOffsSz(nUnitCtr, nPalCtr);
 
@@ -262,10 +260,10 @@ BOOL CGame_XMVSF_A::SaveFile(CFile* SaveFile, int nUnitId)
     return TRUE;
 }
 
-void CGame_XMVSF_A::CreateDefPal(sDescNode* srcNode, int nSepId)
+void CGame_XMVSF_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
-    int nUnitId = srcNode->uUnitId;
-    int nPalId = srcNode->uPalId;
+    UINT16 nUnitId = srcNode->uUnitId;
+    UINT16 nPalId = srcNode->uPalId;
 
     GetPalOffsSz(nUnitId, nPalId);
 
@@ -327,7 +325,7 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-COLORREF* CGame_XMVSF_A::CreatePal(int nUnitId, int nPalId)
+COLORREF* CGame_XMVSF_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     GetPalOffsSz(nUnitId, nPalId);
 
@@ -360,7 +358,7 @@ COLORREF* CGame_XMVSF_A::CreatePal(int nUnitId, int nPalId)
 
 void CGame_XMVSF_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 

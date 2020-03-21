@@ -30,36 +30,36 @@ public:
 
     static CDescTree InitDescTree();
     static void InitExtraRg();
-    static int CountExtraRg(int nUnitId, BOOL bOmniExtra);
+    static int CountExtraRg(UINT16 nUnitId, BOOL bOmniExtra);
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
     static sFileRule GetNextRule();
-    static sFileRule GetRule(int nRuleId);
+    static sFileRule GetRule(UINT16 nRuleId);
 
     static BOOL bAlphaTrans;
 
     //Normal functions
     CDescTree* GetMainTree();
 
-    BOOL LoadFile(CFile* LoadedFile, int nUnitId);
-    BOOL SaveFile(CFile* SaveFile, int nUnitId);
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId);
+    BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
 
     void ValidateMixExtraColors(BOOL* pfChangesWereMade);
 
-    COLORREF* CreatePal(int nUnitId, int nPalId);
+    COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-    int GetBasicOffset(int nPalId);
+    int GetBasicOffset(UINT16 nPalId);
 
-    void SetExtraImg(int nImgId, int nUnitId, int nPalId);
+    void SetExtraImg(UINT16 nImgId, UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
     void FlushUnitFile();
     void PrepUnitFile();
 
     UINT16** GetDataBuffer() { return ppDataBuffer; };
-    void PostSetPal(int nUnitId, int nPalId);
-    void CreateDefPal(sDescNode* srcNode, int nSepId);
-    void CreateDefPal(int nUnitId, int nPalId, int nSepId);
-    BOOL CreateExtraPal(int nUnitId, int nPalId, int nStart, int nInc, int nImgId, int nSepId = 0, int nAmt = 1);
-    void ResetChangeFlag(int nUnitId);
+    void PostSetPal(UINT16 nUnitId, UINT16 nPalId);
+    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
+    void CreateDefPal(UINT16 nUnitId, UINT16 nPalId, UINT16 nSepId);
+    BOOL CreateExtraPal(UINT16 nUnitId, UINT16 nPalId, int nStart, int nInc, int nImgId, int nSepId = 0, int nAmt = 1);
+    void ResetChangeFlag(UINT16 nUnitId);
     void ForEidrian(int nFlag, COLORREF crCol = 0);
 };

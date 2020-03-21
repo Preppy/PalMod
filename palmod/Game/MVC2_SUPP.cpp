@@ -29,12 +29,12 @@ void prep_supp()
     _mvc2_data = (UINT8**)(CurrMVC2->GetDataBuffer());
 }
 
-inline UINT16* get_pal_16(int char_id, int pal_no)
+inline UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no)
 {
     return (UINT16*)&_mvc2_data[char_id][pal_no * 32];
 }
 
-void HandleSpiralCopies(int char_no, int pal_no)
+void HandleSpiralCopies(UINT16 char_no, UINT16 pal_no)
 {
     // This should generally work, except for sentinel FX which is itself modified by sentinel.  handled post-proc below
     if ((char_no == 0x06) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x38); } // cyke
@@ -74,12 +74,12 @@ void HandleSpiralCopies(int char_no, int pal_no)
 }
 
 // This handles palettes that are modified as part of modifying a primary palette
-void HandleSpiralCopies_ForSupplementedPalettes(int char_no, int pal_no)
+void HandleSpiralCopies_ForSupplementedPalettes(UINT16 char_no, UINT16 pal_no)
 {
     if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, 0x01, 0x57, 1, 1, 7); } // copy sentinel FX
 }
 
-void proc_supp(int char_no, int pal_no)
+void proc_supp(UINT16 char_no, UINT16 pal_no)
 {
     CString strDebugInfo;
 
