@@ -3306,11 +3306,12 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_PALETTES[] =
     { "Character Select Comic", 0x0310000, 0x0310080 },
     { "Selector Rings", 0x0310080, 0x03100c0 },
     { "Character Select Background", 0x0310100, 0x0310160 },
+    { "Menu Cards", 0x030db40, 0x030db80 },
     { "Title Screen Jotaro", 0x030c480, 0x030c500 },
     { "Title Screen DIO", 0x030c500, 0x030c580 },
     { "Title Screen DIO Manga", 0x030c900, 0x030c980 },
     { "Title Screen Jotaro Manga", 0x030cb00, 0x030cb80 },
-    { "Menu Cards", 0x030db40, 0x030db80 },
+    { "Title Screen Background", 0x030b0a0, 0x030b0b0 },
     { "Title Screen Logo", 0x030c680, 0x030c700 },
     { "Title Screen Logo Ribbon", 0x030c700, 0x030c780 },
     { "Mode Select Text", 0x0311a90, 0x0311aa0 },
@@ -3321,21 +3322,20 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_PALETTES[] =
     { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
     { "Blocksparks", 0x03358d0, 0x03358e0 },
     { "Super's Flash", 0x0335840, 0x0335850 },
-    { "TitleScreen Background", 0x030b0a0, 0x030b0b0 },
     { "Mode Select Frame", 0x030d4e0, 0x030d500 },
     { "Extra characters page arrows", 0x0310500, 0x0310540 },
     { "Challenge & Story signs", 0x030d480, 0x030d4c0 },
     { "Stand Clash Background", 0x030d100, 0x030d180 },
     { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
     { "Super KO Portrait", 0x030ce80, 0x030cec0 },
-    { "Win text(character)", 0x030cc40, 0x030cc60 },
-    { "Win text(WIN)", 0x030cca0, 0x030ccc0 },
+    { "Win text (character)", 0x030cc40, 0x030cc60 },
+    { "Win text (WIN)", 0x030cca0, 0x030ccc0 },
     { "Tandem Aura", 0x0335930, 0x0335940 },
     { "Win screen Background", 0x0310200, 0x0310280 },
     { "Vs screen Background", 0x030d000, 0x030d080 },
     { "\"KO\"", 0x030cd20, 0x030cd40 },
-    { "Blood(Sdio grab,bpol grab,etc)", 0x0335878, 0x0335880 },
-    { "Blood(Bpol super,etc)", 0x03359c0, 0x03359e0 },
+    { "Blood (Sdio grab, bpol grab,etc)", 0x0335878, 0x0335880 },
+    { "Blood (Bpol super, etc)", 0x03359c0, 0x03359e0 },
     { "World Map", 0x0313780, 0x0313800 },
     { "Hol horse intro Body", 0x030c600, 0x030c680 },
     { "Hol horse intro Hand", 0x030c580, 0x030c600 },
@@ -3346,10 +3346,9 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_PALETTES[] =
     { "Osiris Body", 0x0311b00, 0x0311b80 },
     { "Osiris Arms", 0x0311b80, 0x0311c00 },
     { "Darby Chips", 0x0311d00, 0x0311d80 },
-    { "Lisa Lisa & Caesar(Joseph 236aa)", 0x0335C00, 0x0335C80 },
-    { "Flash Back Manga Panels(Joseph 236aa)", 0x0335B80, 0x0335BC0 },
-    { "Mariah Level(Player 1 only)", 0x07C01A0, 0x07C01C0 },
-    //{ "Intro Manga Panels", 0x030B780, 0x030BA00 }, // BUGBUG fix next
+    { "Lisa Lisa & Caesar (Joseph 236aa)", 0x0335C00, 0x0335C80 },
+    { "Flash Back Manga Panels (Joseph 236aa)", 0x0335B80, 0x0335BC0 },
+    { "Mariah Level (Player 1 only)", 0x07C01A0, 0x07C01C0 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_BONUS_SUPERBACKGROUND[] =
@@ -3405,11 +3404,30 @@ const sJOJOS_PaletteDataset JOJOS_A_BONUS_FADEBACKGROUND[] =
 #endif
 };
 
+const sJOJOS_PaletteDataset JOJOS_BONUS_NODE_INTRO_MANGA[] =
+{
+#ifndef USE_LARGE_PALETTES
+    { "Intro Manga Panels (1/10)", 0x030b780, 0x030b7c0 },
+    { "Intro Manga Panels (2/10)", 0x030b7c0, 0x030b800 },
+    { "Intro Manga Panels (3/10)", 0x030b800, 0x030b840 },
+    { "Intro Manga Panels (4/10)", 0x030b840, 0x030b880 },
+    { "Intro Manga Panels (5/10)", 0x030b880, 0x030b8c0 },
+    { "Intro Manga Panels (6/10)", 0x030b8c0, 0x030b900 },
+    { "Intro Manga Panels (7/10)", 0x030b900, 0x030b940 },
+    { "Intro Manga Panels (8/10)", 0x030b940, 0x030b980 },
+    { "Intro Manga Panels (9/10)", 0x030b980, 0x030b9c0 },
+    { "Intro Manga Panels (10/10)", 0x030b9c0, 0x030ba00 }, 
+#else
+    { "Intro Manga Panels", 0x030B780, 0x030BA00 },
+#endif
+};
+
 const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
 {
     { "Bonus", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_PALETTES, ARRAYSIZE(JOJOS_BONUS_PALETTES) },
     { "Super Screen Background", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_SUPERBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_SUPERBACKGROUND) },
-    { "Fade Background (Challenge Screen / Demo)", DESC_NODETYPE_TREE,(void*)JOJOS_A_BONUS_FADEBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_FADEBACKGROUND) },
+    { "Fade Background (Challenge Screen / Demo)", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_FADEBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_FADEBACKGROUND) },
+    { "Intro Manga Panels", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_INTRO_MANGA, ARRAYSIZE(JOJOS_BONUS_NODE_INTRO_MANGA) },
 };
 
 #pragma endregion Bonus

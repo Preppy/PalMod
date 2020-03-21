@@ -603,8 +603,24 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         if (nPaletteSizeOnDisc > (2 * JOJOS_A_PALSZ))
         {
             CString strError;
-            strError.Format("BUGBUG: \"%s\" will be chopped.\n", paletteSetToUse[nPalId].szPaletteName);
+            strError.Format("BUGBUG: \"%s\" will be chopped.  Please use this instead:\n", paletteSetToUse[nPalId].szPaletteName);
             OutputDebugString(strError);
+
+            const int nTotalPagesNeeded = (int)ceil((double)nPaletteSizeOnDisc / (double)m_knMaxPalettePageSize);
+            int nCurrentPaletteSectionLength = m_knMaxPalettePageSize;
+            int nTotalUnusedColors = nPaletteSizeOnDisc;
+
+            for (int nCurrentPage = 0, nCurrentOffset = 0; nCurrentPage < nTotalPagesNeeded; nCurrentPage++)
+            {
+                strError.Format("    { \"%s (%u/%u)\", 0x%07x, 0x%07x }, \n", paletteSetToUse[nPalId].szPaletteName, nCurrentPage + 1, nTotalPagesNeeded,
+                                                                            paletteSetToUse[nPalId].nPaletteOffset + nCurrentOffset,
+                                                                            paletteSetToUse[nPalId].nPaletteOffset + nCurrentOffset + nCurrentPaletteSectionLength);
+
+                nCurrentOffset += m_knMaxPalettePageSize;
+                nTotalUnusedColors -= nCurrentPaletteSectionLength;
+                nCurrentPaletteSectionLength = min(nTotalUnusedColors, m_knMaxPalettePageSize);
+                OutputDebugString(strError);
+            }
         }
     }
     else //Extra Palettes
