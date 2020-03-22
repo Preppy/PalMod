@@ -31,6 +31,7 @@ private:
 
     void InitDataBuffer();
     void ClearDataBuffer();
+    void CheckExtrasFileForDuplication();
     
     static const sJOJOS_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static bool UsePaletteSetFor50() { return (m_nJojosMode == 50); }

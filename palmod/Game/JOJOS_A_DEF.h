@@ -1997,7 +1997,7 @@ const sDescTreeNode JOJOS_A_STAGE_COLLECTION[] =
 
 #pragma region Characters
 
-const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO[] =
 {
     { "Jotaro & Star Platinum A", 0x0336400, 0x0336480 },
     { "Star Breaker Super A", 0x0336d82, 0x0336d90 },
@@ -2049,6 +2049,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Jotaro Select/Winning Start", 0x0423900, 0x0423a00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT[] =
+{
     { "Kakyoin & Hierophant Green A", 0x0337080, 0x0337100 },
 #ifndef USE_LARGE_PALETTES
     { "Hierophant Changing Pal A (1/7)", 0x0337900, 0x0337980 },
@@ -2119,6 +2123,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #endif
     { "Hierophant Sparkles Start", 0x0389080, 0x03890a0 },
     { "Raging Demon Trail Start", 0x0388c00, 0x0388c80 },
+
     { "Kaykyoin Vs/Super A", 0x0410300, 0x0410380 },
     { "Kaykyoin Challenger A", 0x0410380, 0x0410400 },
 #ifndef USE_LARGE_PALETTES
@@ -2159,6 +2164,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Kaykyoin Select/Winning Start", 0x0423c00, 0x0423d00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL[] =
+{
     { "Avdol & Magician's Red A", 0x0337d00, 0x0337d80 },
     { "Avdol Fire A", 0x0338580, 0x03385c0 },
     { "Avdol & Magician's Red B", 0x034c200, 0x034c280 },
@@ -2214,6 +2223,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
     { "Avdol & MR Remote Activation C", 0x0360b80, 0x0360c00 },
     { "Avdol & MR Remote Activation S", 0x0375080, 0x0375100 },
     { "Avdol & MR Remote Activation Start", 0x0389580, 0x0389600 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL[] =
+{
     { "Pol Remote Activation Flash A", 0x0338e00, 0x0338e80 },
     { "Pol Remote Activation Flash B", 0x034d300, 0x034d380 },
     { "Pol Remote Activation Flash C", 0x0361800, 0x0361880 },
@@ -2274,6 +2287,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Polnareff Select / Winning Start", 0x0424200, 0x0424300 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH[] =
+{
     { "Joseph & Hermit Purple A", 0x0339600, 0x0339680 },
     { "Joseph Custom Combo A", 0x0339980, 0x0339a00 },
     { "Joseph & Hermit Purple B", 0x034db00, 0x034db80 },
@@ -2324,6 +2341,11 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Joseph Select / Winning Start", 0x0424500, 0x0424600 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY[] =
+{
+
     { "Iggy & The Fool A", 0x033a280, 0x033a300 },
 #ifndef USE_LARGE_PALETTES
     { "Raging Demon Trail A (1/3)", 0x033aa80, 0x033ab00 },
@@ -2404,6 +2426,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Iggy Select / Winning Start", 0x0424800, 0x0424900 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI[] =
+{
     { "Alessi & Sethan A", 0x033af00, 0x033af80 },
     { "Alessi Custom Combo A", 0x033b280, 0x033b300 },
     { "Alessi A Wave Attack", 0x033b780, 0x033b7c0 },
@@ -2464,6 +2490,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Alessi Select / Winning Start", 0x0424b00, 0x0424c00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA[] =
+{
     { "Chaka A", 0x033bb80, 0x033bc00 },
     { "Chaka A Super Trail", 0x033c400, 0x033c480 },
     { "Chaka Custom Combo & Counter A", 0x033bf00, 0x033bf80 },
@@ -2494,6 +2524,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
     { "Chaka Vs / Super Start", 0x0424d00, 0x0424d80 },
     { "Chaka Challenger Start", 0x0424d80, 0x0424e00 },
     { "Chaka Select / Winning Start", 0x0424e00, 0x0424e80 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY[] =
+{
     { "Devo & Ebony Devil A", 0x033c800, 0x033c880 },
     { "Ebony Devil Stand Off A", 0x033cf40, 0x033cf80 },
     { "Ebony Stand On Transition A", 0x033ce00, 0x033ce80 },
@@ -2589,6 +2623,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Devo Select / Winning Start", 0x0425100, 0x0425200 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER[] =
+{
     { "Midler & High Priestess A", 0x033e100, 0x033e180 },
 #ifndef USE_LARGE_PALETTES
     { "Midler's Super Cars A (1/4)", 0x033e980, 0x033ea00 },
@@ -2679,6 +2717,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Midler Select / Winning Start", 0x0425700, 0x0425800 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO[] =
+{
     { "DIO & The World A", 0x033ed80, 0x033ee00 },
     { "DIO Intro Stuff A", 0x033f700, 0x033f780 },
     { "The World's \"Bloody Summoning\" A", 0x033f800, 0x033f880 },
@@ -2754,6 +2796,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "DIO Select / Winning Start", 0x0425a00, 0x0425b00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO[] =
+{
     { "Shadow DIO A", 0x0341300, 0x0341380 },
     { "S.DIO Super trail A", 0x0341b80, 0x0341c00 },
     { "S.World's White Trail A", 0x0341ac0, 0x0341ae0 },
@@ -2799,6 +2845,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
     { "Shadow DIO Vs / Super Start", 0x0426200, 0x0426280 },
     { "Shadow DIO Challenger Start", 0x0426280, 0x0426300 },
     { "Shadow DIO Select / Winning Screen Start", 0x0426300, 0x0426380 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH[] =
+{
     { "Young Joseph A", 0x0341f80, 0x0342000 },
     { "Young Joseph B", 0x0356480, 0x0356500 },
     { "Young Joseph C", 0x036a980, 0x036aa00 },
@@ -2819,6 +2869,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
     { "Young Joseph Vs / Super Start", 0x0426500, 0x0426580 },
     { "Young Joseph Challenger Start", 0x0426580, 0x0426600 },
     { "Young Joseph Select / Winning Screen Start", 0x0426600, 0x0426680 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL[] =
+{
     { "Hol Horse A", 0x0342c00, 0x0342c80 },
     { "Hol's Super Bullets A", 0x0343556, 0x0343560 },
     { "Hol's Slow-mo Bullet Trail 1 A", 0x03435d6, 0x03435e0 },
@@ -2859,6 +2913,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
     { "Hol Horse Vs / Super Start", 0x0426800, 0x0426880 },
     { "Hol Horse Challenger Start", 0x0426880, 0x0426900 },
     { "Hol Horse Select / Winning Screen Start", 0x0426900, 0x0426980 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE[] =
+{
     { "Vanilla Ice & Cream A", 0x0343880, 0x0343900 },
     { "Vanilla Ice & Cream B", 0x0357d80, 0x0357e00 },
     { "Vanilla Ice & Cream C", 0x036c280, 0x036c300 },
@@ -2904,6 +2962,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Vanilla Ice Select / Winning Start", 0x0426c00, 0x0426d00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO[] =
+{
     { "New Kakyoin & Hierophant A", 0x0344500, 0x0344580 },
 #ifndef USE_LARGE_PALETTES
     { "New Hierophant Changing Pal A (1/7)", 0x0344d80, 0x0344e00 },
@@ -2974,6 +3036,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #endif
     { "New Hierophant Sparkles Start", 0x0396500, 0x0396520 },
     { "Raging Demon Trail Start", 0x03960a0, 0x0396120 },
+
     { "New Kakyoin Vs / Super A", 0x0413600, 0x0413680 },
     { "New Kakyoin Challenger A", 0x0413680, 0x0413700 },
 #ifndef USE_LARGE_PALETTES
@@ -2998,6 +3061,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
     { "New Kakyoin Challenger Start", 0x0426e80, 0x0426f00 },
     { "New Kakyoin Select / Winning Start", 0x0426f00, 0x0426f80 },
     { "New Hierophant Select / Winning Start", 0x0426f80, 0x0427000 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL[] =
+{
     { "Black Polnareff A", 0x0345180, 0x0345200 },
     { "Black Polnareff B", 0x0359680, 0x0359700 },
     { "Black Polnareff C", 0x036db80, 0x036dc00 },
@@ -3043,6 +3110,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Black Polnareff Select / Winning Start", 0x0427200, 0x0427300 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP[] =
+{
     { "Petshop A", 0x0345e00, 0x0345e80 },
     { "Eggshop A", 0x0346680, 0x03466c0 },
     { "Petshop B", 0x035a300, 0x035a380 },
@@ -3093,6 +3164,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Petshop Select / Winning Start", 0x0427500, 0x0427600 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH[] =
+{
     { "Mariah A", 0x0347700, 0x0347780 },
     { "Old Woman A", 0x0347f80, 0x0348000 },
 #ifndef USE_LARGE_PALETTES
@@ -3153,6 +3228,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
     { "Mariah Vs / Super Start", 0x0427a00, 0x0427a80 },
     { "Mariah Challenger Start", 0x0427a80, 0x0427b00 },
     { "Mariah Select / Winning Start", 0x0427b00, 0x0427b80 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO[] =
+{
     { "Hol & Boingo A", 0x0348380, 0x0348400 },
     { "Child Hol & Boingo A", 0x0348c00, 0x0348c80 },
     { "Hol & Boingo Super Bullets A", 0x0348cd6, 0x0348ce0 },
@@ -3208,6 +3287,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 #else
     { "Hol & Boingo Select / Winning Start", 0x0427e00, 0x0427f00 },
 #endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL[] =
+{
     { "Rubber Soul A", 0x0349000, 0x0349080 },
     { "Rubber Child TF A", 0x0349780, 0x0349800 },
     { "Rubber Soul B", 0x035d500, 0x035d580 },
@@ -3233,6 +3316,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
     { "Rubber Soul Vs / Super Start", 0x0428000, 0x0428080 },
     { "Rubber Soul Challenger Start", 0x0428080, 0x0428100 },
     { "Rubber Soul Select / Winning Start", 0x0428100, 0x0428180 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN[] =
+{
     { "Khan A", 0x0349c80, 0x0349d00 },
     { "Khan's Intro Anubis A", 0x034a600, 0x034a620 },
     { "Khan's Counter Anubis A", 0x034a780, 0x034a7a0 },
@@ -3273,16 +3360,28 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
     { "Khan Vs/Super Start", 0x0428300, 0x0428380 },
     { "Khan Challenger Start", 0x0428380, 0x0428400 },
     { "Khan Select/Winning Start", 0x0428400, 0x0428480 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL[] =
+{
     { "N'Doul & Geb A", 0x033d480, 0x033d500 },
     { "N'Doul & Geb B", 0x0351980, 0x0351a00 },
     { "N'Doul & Geb C", 0x0365e80, 0x0365f00 },
     { "N'Doul & Geb S", 0x037a380, 0x037a400 },
     { "N'Doul & Geb Start", 0x038e880, 0x038e900 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE[] =
+{
     { "Boss Ice A", 0x033fa00, 0x033fa80 },
     { "Boss Ice B", 0x0353f00, 0x0353f80 },
     { "Boss Ice C", 0x0368400, 0x0368480 },
     { "Boss Ice S", 0x037c900, 0x037c980 },
     { "Boss Ice Start", 0x0390e00, 0x0390e80 },
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13[] =
+{
     { "Death 13 A", 0x0340680, 0x0340700 },
     { "Death 13 B", 0x0354b80, 0x0354c00 },
     { "Death 13 C", 0x0369080, 0x0369100 },
@@ -3292,7 +3391,31 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODES[] =
 
 const sDescTreeNode JOJOS_CHARACTER_COLLECTION[] =
 {
-    { "Characters", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODES, ARRAYSIZE(JOJOS_A_CHARACTER_NODES) },
+   { "Jotaro", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_JOTARO, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_JOTARO) },
+   { "Kakyoin & Hierophant", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_HIEROPHANT, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_HIEROPHANT) },
+   { "Avdol", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_AVDOL, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_AVDOL) },
+   { "Polnareff", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_POL, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_POL) },
+   { "Joseph", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_JOSEPH, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_JOSEPH) },
+   { "Iggy", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_IGGY, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_IGGY) },
+   { "Alessi", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_ALESSI, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_ALESSI) },
+   { "Chaka", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_CHAKA, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_CHAKA) },
+   { "Devo and Ebony", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_DEVOEBONY, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_DEVOEBONY) },
+   { "Midler", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_MIDLER, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_MIDLER) },
+   { "Dio", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_DIO, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_DIO) },
+   { "Shadow Dio", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_SDIO, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_SDIO) },
+   { "Young Joseph", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_YJOSEPH, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_YJOSEPH) },
+   { "Hol ", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_HOL, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_HOL) },
+   { "Vanilla Ice", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_VICE, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_VICE) },
+   { "New Kakyoin & Hierophant", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_HIERO, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_HIERO) },
+   { "Black Polnareff", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_BPOL, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_BPOL) },
+   { "Petshop", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_SHOP, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_SHOP) },
+   { "Mariah", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_MARIAH, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_MARIAH) },
+   { "Hol and Boingo", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_HOLBOINGO, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_HOLBOINGO) },
+   { "Rubber Soul", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_RSOUL, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_RSOUL) },
+   { "Khan", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_KHAN, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_KHAN) },
+   { "N'Doul and Geb", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_NDOUL, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_NDOUL) },
+   { "Boss Ice", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_BICE, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_BICE) },
+   { "Death 13", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_DEATH13, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_DEATH13) }, 
 };
 
 #pragma endregion Jojo_Characters
@@ -3300,55 +3423,55 @@ const sDescTreeNode JOJOS_CHARACTER_COLLECTION[] =
 #pragma region Bonus
 const sJOJOS_PaletteDataset JOJOS_BONUS_PALETTES[] =
 {
-    { "Super KO Background", 0x030d082, 0x030d102 },
-    { "Round Start", 0x030ce00, 0x030ce60 },
-    { "D'Arby", 0x0311a00, 0x0311a40 },
-    { "Character Select Comic", 0x0310000, 0x0310080 },
-    { "Selector Rings", 0x0310080, 0x03100c0 },
-    { "Character Select Background", 0x0310100, 0x0310160 },
-    { "Menu Cards", 0x030db40, 0x030db80 },
-    { "Title Screen Jotaro", 0x030c480, 0x030c500 },
-    { "Title Screen DIO", 0x030c500, 0x030c580 },
-    { "Title Screen DIO Manga", 0x030c900, 0x030c980 },
-    { "Title Screen Jotaro Manga", 0x030cb00, 0x030cb80 },
-    { "Title Screen Background", 0x030b0a0, 0x030b0b0 },
-    { "Title Screen Logo", 0x030c680, 0x030c700 },
-    { "Title Screen Logo Ribbon", 0x030c700, 0x030c780 },
-    { "Mode Select Text", 0x0311a90, 0x0311aa0 },
-    { "Round 1,2,3 Text", 0x030ce00, 0x030ce60 },
-    { "Tandem Background", 0x030d900, 0x030d980 },
-    { "\"Fight\" & \"Down\" Text", 0x030cd80, 0x030ce00 },
-    { "Aja Stone", 0x0335800, 0x0335840 },
-    { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
-    { "Blocksparks", 0x03358d0, 0x03358e0 },
-    { "Super's Flash", 0x0335840, 0x0335850 },
-    { "Mode Select Frame", 0x030d4e0, 0x030d500 },
-    { "Extra characters page arrows", 0x0310500, 0x0310540 },
-    { "Challenge & Story signs", 0x030d480, 0x030d4c0 },
-    { "Stand Clash Background", 0x030d100, 0x030d180 },
-    { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
-    { "Super KO Portrait", 0x030ce80, 0x030cec0 },
-    { "Win text (character)", 0x030cc40, 0x030cc60 },
-    { "Win text (WIN)", 0x030cca0, 0x030ccc0 },
-    { "Tandem Aura", 0x0335930, 0x0335940 },
-    { "Win screen Background", 0x0310200, 0x0310280 },
-    { "Vs screen Background", 0x030d000, 0x030d080 },
-    { "\"KO\"", 0x030cd20, 0x030cd40 },
-    { "Blood (Sdio grab, bpol grab,etc)", 0x0335878, 0x0335880 },
-    { "Blood (Bpol super, etc)", 0x03359c0, 0x03359e0 },
-    { "World Map", 0x0313780, 0x0313800 },
-    { "Hol horse intro Body", 0x030c600, 0x030c680 },
-    { "Hol horse intro Hand", 0x030c580, 0x030c600 },
-    { "Vanilla Ice intro", 0x030ba00, 0x030ba80 },
-    { "Cream intro", 0x030ba80, 0x030bb00 },
-    { "D'Arby", 0x0311a00, 0x0311a80 },
-    { "Game Over Text", 0x0311a80, 0x0311b00 },
-    { "Osiris Body", 0x0311b00, 0x0311b80 },
-    { "Osiris Arms", 0x0311b80, 0x0311c00 },
-    { "Darby Chips", 0x0311d00, 0x0311d80 },
-    { "Lisa Lisa & Caesar (Joseph 236aa)", 0x0335C00, 0x0335C80 },
-    { "Flash Back Manga Panels (Joseph 236aa)", 0x0335B80, 0x0335BC0 },
-    { "Mariah Level (Player 1 only)", 0x07C01A0, 0x07C01C0 },
+   { "Aja Stone", 0x0335800, 0x0335840 },
+   { "Blocksparks", 0x03358d0, 0x03358e0 },
+   { "Blood (Bpol super, etc)", 0x03359c0, 0x03359e0 },
+   { "Blood (Sdio grab, bpol grab,etc)", 0x0335878, 0x0335880 },
+   { "Challenge & Story signs", 0x030d480, 0x030d4c0 },
+   { "Character Select Background", 0x0310100, 0x0310160 },
+   { "Character Select Comic", 0x0310000, 0x0310080 },
+   { "Cream intro", 0x030ba80, 0x030bb00 },
+   { "D'Arby", 0x0311a00, 0x0311a40 },
+   { "D'Arby", 0x0311a00, 0x0311a80 },
+   { "Darby Chips", 0x0311d00, 0x0311d80 },
+   { "Extra characters page arrows", 0x0310500, 0x0310540 },
+   { "Flash Back Manga Panels (Joseph 236aa)", 0x0335B80, 0x0335BC0 },
+   { "Game Over Text", 0x0311a80, 0x0311b00 },
+   { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
+   { "Hol horse intro Body", 0x030c600, 0x030c680 },
+   { "Hol horse intro Hand", 0x030c580, 0x030c600 },
+   { "Lisa Lisa & Caesar (Joseph 236aa)", 0x0335C00, 0x0335C80 },
+   { "Mariah Level (Player 1 only)", 0x07C01A0, 0x07C01C0 },
+   { "Menu Cards", 0x030db40, 0x030db80 },
+   { "Mode Select Frame", 0x030d4e0, 0x030d500 },
+   { "Mode Select Text", 0x0311a90, 0x0311aa0 },
+   { "Osiris Arms", 0x0311b80, 0x0311c00 },
+   { "Osiris Body", 0x0311b00, 0x0311b80 },
+   { "Round 1,2,3 Text", 0x030ce00, 0x030ce60 },
+   { "Round Start", 0x030ce00, 0x030ce60 },
+   { "Selector Rings", 0x0310080, 0x03100c0 },
+   { "Stand Clash Background", 0x030d100, 0x030d180 },
+   { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
+   { "Super's Flash", 0x0335840, 0x0335850 },
+   { "Super KO Background", 0x030d082, 0x030d102 },
+   { "Super KO Portrait", 0x030ce80, 0x030cec0 },
+   { "Tandem Aura", 0x0335930, 0x0335940 },
+   { "Tandem Background", 0x030d900, 0x030d980 },
+   { "Title Screen Background", 0x030b0a0, 0x030b0b0 },
+   { "Title Screen DIO Manga", 0x030c900, 0x030c980 },
+   { "Title Screen DIO", 0x030c500, 0x030c580 },
+   { "Title Screen Jotaro Manga", 0x030cb00, 0x030cb80 },
+   { "Title Screen Jotaro", 0x030c480, 0x030c500 },
+   { "Title Screen Logo Ribbon", 0x030c700, 0x030c780 },
+   { "Title Screen Logo", 0x030c680, 0x030c700 },
+   { "Vanilla Ice intro", 0x030ba00, 0x030ba80 },
+   { "Vs screen Background", 0x030d000, 0x030d080 },
+   { "Win screen Background", 0x0310200, 0x0310280 },
+   { "Win text (character)", 0x030cc40, 0x030cc60 },
+   { "Win text (WIN)", 0x030cca0, 0x030ccc0 },
+   { "World Map", 0x0313780, 0x0313800 },
+   { "\"Fight\" & \"Down\" Text", 0x030cd80, 0x030ce00 },
+   { "\"KO\"", 0x030cd20, 0x030cd40 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_BONUS_SUPERBACKGROUND[] =
@@ -3370,37 +3493,37 @@ const sJOJOS_PaletteDataset JOJOS_A_BONUS_SUPERBACKGROUND[] =
 const sJOJOS_PaletteDataset JOJOS_A_BONUS_FADEBACKGROUND[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { "Fade Background(Challenge Screen / Demo) (1/29)", 0x030f080, 0x030f100 },
-    { "Fade Background(Challenge Screen / Demo) (2/29)", 0x030f100, 0x030f180 },
-    { "Fade Background(Challenge Screen / Demo) (3/29)", 0x030f180, 0x030f200 },
-    { "Fade Background(Challenge Screen / Demo) (4/29)", 0x030f200, 0x030f280 },
-    { "Fade Background(Challenge Screen / Demo) (5/29)", 0x030f280, 0x030f300 },
-    { "Fade Background(Challenge Screen / Demo) (6/29)", 0x030f300, 0x030f380 },
-    { "Fade Background(Challenge Screen / Demo) (7/29)", 0x030f380, 0x030f400 },
-    { "Fade Background(Challenge Screen / Demo) (8/29)", 0x030f400, 0x030f480 },
-    { "Fade Background(Challenge Screen / Demo) (9/29)", 0x030f480, 0x030f500 },
-    { "Fade Background(Challenge Screen / Demo) (10/29)", 0x030f500, 0x030f580 },
-    { "Fade Background(Challenge Screen / Demo) (11/29)", 0x030f580, 0x030f600 },
-    { "Fade Background(Challenge Screen / Demo) (12/29)", 0x030f600, 0x030f680 },
-    { "Fade Background(Challenge Screen / Demo) (13/29)", 0x030f680, 0x030f700 },
-    { "Fade Background(Challenge Screen / Demo) (14/29)", 0x030f700, 0x030f780 },
-    { "Fade Background(Challenge Screen / Demo) (15/29)", 0x030f780, 0x030f800 },
-    { "Fade Background(Challenge Screen / Demo) (16/29)", 0x030f800, 0x030f880 },
-    { "Fade Background(Challenge Screen / Demo) (17/29)", 0x030f880, 0x030f900 },
-    { "Fade Background(Challenge Screen / Demo) (18/29)", 0x030f900, 0x030f980 },
-    { "Fade Background(Challenge Screen / Demo) (19/29)", 0x030f980, 0x030fa00 },
-    { "Fade Background(Challenge Screen / Demo) (20/29)", 0x030fa00, 0x030fa80 },
-    { "Fade Background(Challenge Screen / Demo) (21/29)", 0x030fa80, 0x030fb00 },
-    { "Fade Background(Challenge Screen / Demo) (22/29)", 0x030fb00, 0x030fb80 },
-    { "Fade Background(Challenge Screen / Demo) (23/29)", 0x030fb80, 0x030fc00 },
-    { "Fade Background(Challenge Screen / Demo) (24/29)", 0x030fc00, 0x030fc80 },
-    { "Fade Background(Challenge Screen / Demo) (25/29)", 0x030fc80, 0x030fd00 },
-    { "Fade Background(Challenge Screen / Demo) (26/29)", 0x030fd00, 0x030fd80 },
-    { "Fade Background(Challenge Screen / Demo) (27/29)", 0x030fd80, 0x030fe00 },
-    { "Fade Background(Challenge Screen / Demo) (28/29)", 0x030fe00, 0x030fe80 },
-    { "Fade Background(Challenge Screen / Demo) (29/29)", 0x030fe80, 0x030ff00 },
+    { "Fade Background (Challenge Screen / Demo) (1/29)", 0x030f080, 0x030f100 },
+    { "Fade Background (Challenge Screen / Demo) (2/29)", 0x030f100, 0x030f180 },
+    { "Fade Background (Challenge Screen / Demo) (3/29)", 0x030f180, 0x030f200 },
+    { "Fade Background (Challenge Screen / Demo) (4/29)", 0x030f200, 0x030f280 },
+    { "Fade Background (Challenge Screen / Demo) (5/29)", 0x030f280, 0x030f300 },
+    { "Fade Background (Challenge Screen / Demo) (6/29)", 0x030f300, 0x030f380 },
+    { "Fade Background (Challenge Screen / Demo) (7/29)", 0x030f380, 0x030f400 },
+    { "Fade Background (Challenge Screen / Demo) (8/29)", 0x030f400, 0x030f480 },
+    { "Fade Background (Challenge Screen / Demo) (9/29)", 0x030f480, 0x030f500 },
+    { "Fade Background (Challenge Screen / Demo) (10/29)", 0x030f500, 0x030f580 },
+    { "Fade Background (Challenge Screen / Demo) (11/29)", 0x030f580, 0x030f600 },
+    { "Fade Background (Challenge Screen / Demo) (12/29)", 0x030f600, 0x030f680 },
+    { "Fade Background (Challenge Screen / Demo) (13/29)", 0x030f680, 0x030f700 },
+    { "Fade Background (Challenge Screen / Demo) (14/29)", 0x030f700, 0x030f780 },
+    { "Fade Background (Challenge Screen / Demo) (15/29)", 0x030f780, 0x030f800 },
+    { "Fade Background (Challenge Screen / Demo) (16/29)", 0x030f800, 0x030f880 },
+    { "Fade Background (Challenge Screen / Demo) (17/29)", 0x030f880, 0x030f900 },
+    { "Fade Background (Challenge Screen / Demo) (18/29)", 0x030f900, 0x030f980 },
+    { "Fade Background (Challenge Screen / Demo) (19/29)", 0x030f980, 0x030fa00 },
+    { "Fade Background (Challenge Screen / Demo) (20/29)", 0x030fa00, 0x030fa80 },
+    { "Fade Background (Challenge Screen / Demo) (21/29)", 0x030fa80, 0x030fb00 },
+    { "Fade Background (Challenge Screen / Demo) (22/29)", 0x030fb00, 0x030fb80 },
+    { "Fade Background (Challenge Screen / Demo) (23/29)", 0x030fb80, 0x030fc00 },
+    { "Fade Background (Challenge Screen / Demo) (24/29)", 0x030fc00, 0x030fc80 },
+    { "Fade Background (Challenge Screen / Demo) (25/29)", 0x030fc80, 0x030fd00 },
+    { "Fade Background (Challenge Screen / Demo) (26/29)", 0x030fd00, 0x030fd80 },
+    { "Fade Background (Challenge Screen / Demo) (27/29)", 0x030fd80, 0x030fe00 },
+    { "Fade Background (Challenge Screen / Demo) (28/29)", 0x030fe00, 0x030fe80 },
+    { "Fade Background (Challenge Screen / Demo) (29/29)", 0x030fe80, 0x030ff00 },
 #else
-    { "Fade Background(Challenge Screen / Demo)", 0x030f080, 0x030ff00 },
+    { "Fade Background (Challenge Screen / Demo)", 0x030f080, 0x030ff00 },
 #endif
 };
 
@@ -3425,9 +3548,9 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_NODE_INTRO_MANGA[] =
 const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
 {
     { "Bonus", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_PALETTES, ARRAYSIZE(JOJOS_BONUS_PALETTES) },
-    { "Super Screen Background", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_SUPERBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_SUPERBACKGROUND) },
     { "Fade Background (Challenge Screen / Demo)", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_FADEBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_FADEBACKGROUND) },
     { "Intro Manga Panels", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_INTRO_MANGA, ARRAYSIZE(JOJOS_BONUS_NODE_INTRO_MANGA) },
+    { "Super Screen Background", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_SUPERBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_SUPERBACKGROUND) },
 };
 
 #pragma endregion Bonus
@@ -4269,9 +4392,9 @@ const sDescTreeNode JOJOS_UNITS_50[] =
 
 const sDescTreeNode JOJOS_UNITS_51[] =
 {
-    { "Base", DESC_NODETYPE_TREE,     (void*)JOJOS_CHARACTER_COLLECTION, ARRAYSIZE(JOJOS_CHARACTER_COLLECTION) },
-    { "Timestop", DESC_NODETYPE_TREE, (void*)JOJOS_TIMESTOP_COLLECTION, ARRAYSIZE(JOJOS_TIMESTOP_COLLECTION) },
-    { "Bonus", DESC_NODETYPE_TREE,    (void*)JOJOS_A_BONUS_COLLECTION, ARRAYSIZE(JOJOS_A_BONUS_COLLECTION) },
+    { "Characters", DESC_NODETYPE_TREE, (void*)JOJOS_CHARACTER_COLLECTION, ARRAYSIZE(JOJOS_CHARACTER_COLLECTION) },
+    { "Timestop", DESC_NODETYPE_TREE,   (void*)JOJOS_TIMESTOP_COLLECTION, ARRAYSIZE(JOJOS_TIMESTOP_COLLECTION) },
+    { "Bonus", DESC_NODETYPE_TREE,      (void*)JOJOS_A_BONUS_COLLECTION, ARRAYSIZE(JOJOS_A_BONUS_COLLECTION) },
 };
 
 // bugbug: given the new layout we should just skip DISPLAYSORT and use the easily sorted table logic

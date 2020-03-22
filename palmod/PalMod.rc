@@ -185,8 +185,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,32,0
- PRODUCTVERSION 1,0,32,0
+ FILEVERSION 1,0,33,0
+ PRODUCTVERSION 1,0,33,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -203,12 +203,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.32.0"
+            VALUE "FileVersion", "1.0.33.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.32.0"
+            VALUE "ProductVersion", "1.0.33.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -414,7 +414,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.32"
+    IDS_CURRENTAPPNAME      "PalMod 1.33"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't load img.dat from '%s': previews will not work."
     IDS_ERROR_NO_IMAGES     "No images available."

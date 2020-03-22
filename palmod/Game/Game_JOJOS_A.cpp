@@ -2,6 +2,7 @@
 #include "Game_JOJOS_A.h"
 #include "GameDef.h"
 #include "..\ExtraFile.h"
+#include "..\palmod.h"
 
 //#define JOJOS_DEBUG
 
@@ -219,6 +220,10 @@ CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
 
     nRGBIndexMul = 8.225;
     nAIndexMul = 0;
+
+    // This isn't a bad plan, but the problem is that there are overlapped regions within the Extras vs Main, so we can't really
+    // efficiently check everything.  Just comment out for now: bring back if it's useful.
+    //CheckExtrasFileForDuplication();
 }
 
 CGame_JOJOS_A::~CGame_JOJOS_A(void)
@@ -299,6 +304,71 @@ void ExportTableToDebugger()
     OutputDebugString("};\n");
 }
 #endif
+
+void CGame_JOJOS_A::CheckExtrasFileForDuplication()
+{
+    UINT16 nExtraLoc = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_NUMUNIT_51;
+    UINT16 nExtraCt = GetExtraCt(nExtraLoc, TRUE);
+    UINT32 nTotalPalettesChecked = 0;
+
+    if (nExtraCt > 0)
+    {
+        int nCollisionsFound = 0;
+
+        for (UINT16 nExtraIndex = 0; nExtraIndex < nExtraCt; nExtraIndex++)
+        {
+            LoadSpecificPaletteData(nExtraLoc, nExtraIndex);
+            int nExtraROMLocation = m_nCurrentPaletteROMLocation;
+            bool fCollisionFound = false;
+
+            for (INT16 nUnitCtr = 0; nUnitCtr < nExtraLoc; nUnitCtr++)
+            {
+                UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
+                for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+                {
+                    LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                    int nCurrentROMLocation = m_nCurrentPaletteROMLocation;
+
+                    nTotalPalettesChecked++;
+
+                    if (nCurrentROMLocation == nExtraROMLocation)
+                    {
+                        fCollisionFound = true;
+                        break;
+                    }
+                }
+
+                if (fCollisionFound)
+                {
+                    break;
+                }
+            }
+
+            if (fCollisionFound)
+            {
+                nCollisionsFound++;
+                fCollisionFound = false;
+            }
+            else
+            {
+                // We want to log non-collisions because they are very suspicious if we have a lot of full collisions.
+                // But most non-collisions are probably because one is a subset of the other: these are probably false negatives.
+                CString strstr;
+                strstr.Format("No collision found for 0x%x\n", nExtraROMLocation);
+                OutputDebugString(strstr);
+            }
+        }
+
+        CString strMsg;
+        strMsg.Format("Checked 0x%x total palettes for %u Jojos Extras: %u collisions found.\n", nTotalPalettesChecked, nExtraCt, nCollisionsFound);
+        OutputDebugString(strMsg);
+
+        strMsg.Format("Your jojos%u.txt Extras file contains %u Extras.  %u of these are already present in PalMod.  Please remove those from your Extras file.  Attempting to edit duplicate extras will not do anything.\n", m_nJojosMode, nExtraCt, nCollisionsFound);
+        MessageBox(g_appHWnd, strMsg, GetAppName(), MB_ICONERROR);
+        OutputDebugString(strMsg);
+    }
+}
 
 CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 {
