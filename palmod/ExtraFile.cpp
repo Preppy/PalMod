@@ -58,7 +58,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
     strcat(szTargetFile, pszExtraFileName);
 
     CString strOutputText;
-    strOutputText.Format("Loading extra file for '%s'\n", pszExtraFileName);
+    strOutputText.Format("Loading extra file for '%s'...\n", pszExtraFileName);
     OutputDebugString(strOutputText);
 
     int nFileAttrib = GetFileAttributes(szTargetFile);

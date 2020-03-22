@@ -113,61 +113,87 @@ int CGame_JOJOS_A::GetExtraLoc(UINT16 nUnitId)
 
 UINT16 CGame_JOJOS_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    switch (nUnitId)
+    if (UsePaletteSetFor50())
     {
-    default:
-        OutputDebugString("CGame_JOJOS_A::GetCollectionCount: ERROR: Bogus nUnitId supplied.\n");
-    case 0:
-    case 1:
-    case 2:
-        if (UsePaletteSetFor50())
+        if (nUnitId == JOJOS_A_EXTRALOC_50)
+        {
+            return 1;
+        }
+        else
         {
             return JOJOS_UNITS_50[nUnitId].uChildAmt;
+        }
+    }
+    else
+    {
+        if (nUnitId == JOJOS_A_EXTRALOC_51)
+        {
+            return 1;
         }
         else
         {
             return JOJOS_UNITS_51[nUnitId].uChildAmt;
         }
-    case 3:
-        return 1;
     }
 }
 
 UINT16 CGame_JOJOS_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    switch (nUnitId)
+    if (UsePaletteSetFor50())
     {
-        default:
-            OutputDebugString("CGame_JOJOS_A::GetCollectionCount: ERROR: Bogus nUnitId supplied.\n");
-        case 0:
-        case 1:
-        case 2:
+        if (nUnitId == JOJOS_A_EXTRALOC_50)
         {
-            const sDescTreeNode* pCompleteROMTree = UsePaletteSetFor50() ? JOJOS_UNITS_50 : JOJOS_UNITS_51;
-            const sDescTreeNode* pCollectionNode = (const sDescTreeNode * )(pCompleteROMTree[nUnitId].ChildNodes);
+            return GetExtraCt(JOJOS_A_EXTRALOC_50);
+        }
+        else
+        {
+            const sDescTreeNode* pCompleteROMTree = JOJOS_UNITS_50;
+            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
 
             return pCollectionNode[nCollectionId].uChildAmt;
         }
-        case 3:
-            return GetExtraCt(UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51);
+    }
+    else
+    {
+        if (nUnitId == JOJOS_A_EXTRALOC_51)
+        {
+            return GetExtraCt(JOJOS_A_EXTRALOC_51);
+        }
+        else
+        {
+            const sDescTreeNode* pCompleteROMTree = JOJOS_UNITS_51;
+            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
+
+            return pCollectionNode[nCollectionId].uChildAmt;
+        }
     }
 }
 
 LPCSTR CGame_JOJOS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    switch (nUnitId)
+    if (UsePaletteSetFor50())
     {
-        default:
-            OutputDebugString("CGame_JOJOS_A::GetCollectionCount: ERROR: Bogus nUnitId supplied.\n");
-        case 0:
-        case 1:
-        case 2:
+        if (nUnitId == JOJOS_A_EXTRALOC_50)
         {
-            const sDescTreeNode* pCollection = (const sDescTreeNode*)(UsePaletteSetFor50() ? JOJOS_UNITS_50[nUnitId].ChildNodes : JOJOS_UNITS_51[nUnitId].ChildNodes);
+            return "Palettes";
+        }
+        else
+        {
+            const sDescTreeNode* pCollection = (const sDescTreeNode*)JOJOS_UNITS_50[nUnitId].ChildNodes;
             return pCollection[nCollectionId].szDesc;
         }
-        case 3:
+    }
+    else
+    {
+        if (nUnitId == JOJOS_A_EXTRALOC_51)
+        {
             return "Palettes";
+        }
+        else
+        {
+            const sDescTreeNode* pCollection = (const sDescTreeNode*)JOJOS_UNITS_51[nUnitId].ChildNodes;
+            return pCollection[nCollectionId].szDesc;
+        }
     }
 }
 
@@ -372,6 +398,7 @@ void CGame_JOJOS_A::CheckExtrasFileForDuplication()
 
 CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 {
+    CString strMsg;
     UINT32 nTotalPaletteCount = 0;
 
     m_nJojosMode = nPaletteSetToUse;
@@ -400,6 +427,11 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
+#ifdef JOJOS_DEBUG
+    strMsg.Format("CGame_JOJOS_A::InitDescTree: Building desc tree for %u...\n", m_nJojosMode);
+    OutputDebugString(strMsg);
+#endif
+
     //Go through each character
     for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
@@ -427,8 +459,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             UnitNode->uChildAmt = nUnitChildCount;
 
 #ifdef JOJOS_DEBUG
-            CString strMsg;
-            strMsg.Format("Unit: %s, %u of %u, %u total children\n", JOJOS_UNITS_50[iUnitCtr].szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format("Unit: %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -537,8 +568,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
         }
     }
 
-    CString strMsg;
-    strMsg.Format("Loaded 0x%x palettes for Jojos\n", nTotalPaletteCount);
+    strMsg.Format("CGame_JOJOS_A::InitDescTree: Loaded %u palettes for Jojos\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     return NewDescTree;
@@ -614,37 +644,13 @@ const sJOJOS_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(UINT16 nUnitId, UINT16
 
     if (UsePaletteSetFor50())
     {
-        switch (nUnitId)
-        {
-        default:
-            OutputDebugString("ERROR: Bogus palette request\n");
-        case 0:
-            paletteSetToUse = ((sJOJOS_PaletteDataset*)(JOJOS_HUD_COLLECTION[nCollectionId].ChildNodes));
-            break;
-        case 1:
-            paletteSetToUse = ((sJOJOS_PaletteDataset *)(JOJOS_HUD_PORTRAIT_COLLECTION[nCollectionId].ChildNodes));
-            break;
-        case 2:
-            paletteSetToUse = ((sJOJOS_PaletteDataset*)(JOJOS_A_STAGE_COLLECTION[nCollectionId].ChildNodes));
-            break;
-        }
+        const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)JOJOS_UNITS_50[nUnitId].ChildNodes;
+        paletteSetToUse = ((sJOJOS_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
     }
     else
     {
-        switch (nUnitId)
-        {
-        default:
-            OutputDebugString("ERROR: Bogus palette request\n");
-        case 0:
-            paletteSetToUse = ((sJOJOS_PaletteDataset*)(JOJOS_CHARACTER_COLLECTION[nCollectionId].ChildNodes));
-            break;
-        case 1:
-            paletteSetToUse = ((sJOJOS_PaletteDataset*)(JOJOS_TIMESTOP_COLLECTION[nCollectionId].ChildNodes));
-            break;
-        case 2:
-            paletteSetToUse = ((sJOJOS_PaletteDataset*)(JOJOS_A_BONUS_COLLECTION[nCollectionId].ChildNodes));
-            break;
-        }
+        const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)JOJOS_UNITS_51[nUnitId].ChildNodes;
+        paletteSetToUse = ((sJOJOS_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
     }
 
     return paletteSetToUse;
@@ -893,14 +899,8 @@ BOOL CGame_JOJOS_A::LoadFile(CFile* LoadedFile, UINT16 nFileId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        if (UsePaletteSetFor50())
-        {
-            rgUnitRedir[nUnitCtr] = JOJOS_A_UNITS_DISPLAYSORT_50[nUnitCtr];
-        }
-        else
-        {
-            rgUnitRedir[nUnitCtr] = JOJOS_A_UNITS_DISPLAYSORT_50[nUnitCtr];
-        }
+        // Use a natural sort: no need to override the array layout
+        rgUnitRedir[nUnitCtr] = nUnitCtr; //  (UsePaletteSetFor50()) ? JOJOS_A_UNITS_DISPLAYSORT_50[nUnitCtr] : JOJOS_A_UNITS_DISPLAYSORT_51[nUnitCtr];
 
         for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {

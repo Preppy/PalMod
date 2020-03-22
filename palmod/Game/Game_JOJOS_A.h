@@ -54,7 +54,7 @@ public:
     static int GetExtraLoc(UINT16 nUnitId);
     static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
 
-    // BUGBUG: just fold into one sDefExpoisjdfoiNode return...?
+    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
 
