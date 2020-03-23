@@ -611,12 +611,19 @@ UINT16 CGame_JOJOS_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 void CGame_JOJOS_A::InitDataBuffer()
 {
+    m_nBufferJojosMode = m_nJojosMode;
     m_pppDataBuffer = new UINT16 * *[nUnitAmt];
     memset(m_pppDataBuffer, 0, sizeof(UINT16**) * nUnitAmt);
 }
 
 void CGame_JOJOS_A::ClearDataBuffer()
 {
+    // We walk the tree to clear it according to Jojos mode, but if you live switch games
+    // we would use the new mode incorrectly as we clear the old buffer.
+    int nCurrentJojosMode = m_nJojosMode;
+
+    m_nJojosMode = m_nBufferJojosMode;
+
     if (m_pppDataBuffer)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
@@ -636,6 +643,8 @@ void CGame_JOJOS_A::ClearDataBuffer()
 
         safe_delete_array(m_pppDataBuffer);
     }
+
+    m_nJojosMode = nCurrentJojosMode;
 }
 
 const sJOJOS_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)

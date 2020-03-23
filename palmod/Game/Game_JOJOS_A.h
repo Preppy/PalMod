@@ -23,6 +23,7 @@ private:
 
     // This array holds all the actual color tables we use
     UINT16*** m_pppDataBuffer = nullptr;
+    int m_nBufferJojosMode = 50;
 
     // Jojos has two different ROMs of interest: handle here.
     static int m_nJojosMode;

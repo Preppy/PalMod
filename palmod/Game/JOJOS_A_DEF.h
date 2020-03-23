@@ -3069,6 +3069,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_A[] =
     { "Young Joseph Vs / Super A", 0x0412d00, 0x0412d80 },
     { "Young Joseph Challenger A", 0x0412d80, 0x0412e00 },
     { "Young Joseph Select / Winning Screen A", 0x0412e00, 0x0412e80 },
+    { "Hamon Cola Flash A", 0x0342800, 0x0342880 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_B[] =
@@ -3077,6 +3078,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_B[] =
     { "Young Joseph Vs / Super B", 0x0417b00, 0x0417b80 },
     { "Young Joseph Challenger B", 0x0417b80, 0x0417c00 },
     { "Young Joseph Select / Winning B", 0x0417c00, 0x0417c80 },
+    { "Hamon Cola Flash B", 0x0356D00, 0x0356D80 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_C[] =
@@ -3085,6 +3087,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_C[] =
     { "Young Joseph Vs / Super C", 0x041c900, 0x041c980 },
     { "Young Joseph Challenger C", 0x041c980, 0x041ca00 },
     { "Young Joseph Select / Winning C", 0x041ca00, 0x041ca80 },
+    { "Hamon Cola Flash C", 0x036B200, 0x036B280 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_S[] =
@@ -3093,6 +3096,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_S[] =
     { "Young Joseph Vs / Super S", 0x0421700, 0x0421780 },
     { "Young Joseph Challenger S", 0x0421780, 0x0421800 },
     { "Young Joseph Select / Winning Screen S", 0x0421800, 0x0421880 },
+    { "Hamon Cola Flash S", 0x037F700, 0x037F780 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_Start[] =
@@ -3101,6 +3105,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_Start[] =
     { "Young Joseph Vs / Super Start", 0x0426500, 0x0426580 },
     { "Young Joseph Challenger Start", 0x0426580, 0x0426600 },
     { "Young Joseph Select / Winning Screen Start", 0x0426600, 0x0426680 },
+    { "Hamon Cola Flash Start", 0x0393C00, 0x0393C80 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_A[] =
@@ -4051,14 +4056,13 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_PALETTES[] =
    { "Challenge & Story signs", 0x030d480, 0x030d4c0 },
    { "Character Select Background", 0x0310100, 0x0310160 },
    { "Character Select Comic", 0x0310000, 0x0310080 },
-   { "Cream intro", 0x030ba80, 0x030bb00 },
-   { "D'Arby", 0x0311a00, 0x0311a40 },
    { "D'Arby", 0x0311a00, 0x0311a80 },
    { "Darby Chips", 0x0311d00, 0x0311d80 },
    { "Extra characters page arrows", 0x0310500, 0x0310540 },
    { "Flash Back Manga Panels (Joseph 236aa)", 0x0335B80, 0x0335BC0 },
    { "Game Over Text", 0x0311a80, 0x0311b00 },
    { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
+   { "Hol horse gun scene",  0x030C400, 0x030C480 },
    { "Hol horse intro Body", 0x030c600, 0x030c680 },
    { "Hol horse intro Hand", 0x030c580, 0x030c600 },
    { "Lisa Lisa & Caesar (Joseph 236aa)", 0x0335C00, 0x0335C80 },
@@ -4068,11 +4072,11 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_PALETTES[] =
    { "Mode Select Text", 0x0311a90, 0x0311aa0 },
    { "Osiris Arms", 0x0311b80, 0x0311c00 },
    { "Osiris Body", 0x0311b00, 0x0311b80 },
-   { "Round 1,2,3 Text", 0x030ce00, 0x030ce60 },
-   { "Round Start", 0x030ce00, 0x030ce60 },
+   { "Round 1,2,3 Text / Round Start", 0x030ce00, 0x030ce60 },
    { "Selector Rings", 0x0310080, 0x03100c0 },
    { "Stand Clash Background", 0x030d100, 0x030d180 },
    { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
+   { "Stand Crash Mask Frame 2", 0x030CF40, 0x030CF80 },
    { "Super's Flash", 0x0335840, 0x0335850 },
    { "Super KO Background", 0x030d082, 0x030d102 },
    { "Super KO Portrait", 0x030ce80, 0x030cec0 },
@@ -4086,92 +4090,95 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_PALETTES[] =
    { "Title Screen Logo Ribbon", 0x030c700, 0x030c780 },
    { "Title Screen Logo", 0x030c680, 0x030c700 },
    { "Vanilla Ice intro", 0x030ba00, 0x030ba80 },
+   { "Vice Cream intro", 0x030ba80, 0x030bb00 },
    { "Vs screen Background", 0x030d000, 0x030d080 },
    { "Win screen Background", 0x0310200, 0x0310280 },
    { "Win text (character)", 0x030cc40, 0x030cc60 },
    { "Win text (WIN)", 0x030cca0, 0x030ccc0 },
    { "World Map", 0x0313780, 0x0313800 },
+   { "Zap Effects", 0x0335840, 0x0335860 },
    { "\"Fight\" & \"Down\" Text", 0x030cd80, 0x030ce00 },
    { "\"KO\"", 0x030cd20, 0x030cd40 },
-};
-
-const sJOJOS_PaletteDataset JOJOS_A_BONUS_SUPERBACKGROUND[] =
-{
-#ifndef USE_LARGE_PALETTES
-    { "Super Screen Background (1/8)", 0x030d500, 0x030d580 },
-    { "Super Screen Background (2/8)", 0x030d580, 0x030d600 },
-    { "Super Screen Background (3/8)", 0x030d600, 0x030d680 },
-    { "Super Screen Background (4/8)", 0x030d680, 0x030d700 },
-    { "Super Screen Background (5/8)", 0x030d700, 0x030d780 },
-    { "Super Screen Background (6/8)", 0x030d780, 0x030d800 },
-    { "Super Screen Background (7/8)", 0x030d800, 0x030d880 },
-    { "Super Screen Background (8/8)", 0x030d880, 0x030d900 },
-#else
-    { "Super Screen Background", 0x030d500, 0x030d900 },
-#endif
-};
-
-const sJOJOS_PaletteDataset JOJOS_A_BONUS_FADEBACKGROUND[] =
-{
-#ifndef USE_LARGE_PALETTES
-    { "Fade Background (Challenge Screen / Demo) (1/29)", 0x030f080, 0x030f100 },
-    { "Fade Background (Challenge Screen / Demo) (2/29)", 0x030f100, 0x030f180 },
-    { "Fade Background (Challenge Screen / Demo) (3/29)", 0x030f180, 0x030f200 },
-    { "Fade Background (Challenge Screen / Demo) (4/29)", 0x030f200, 0x030f280 },
-    { "Fade Background (Challenge Screen / Demo) (5/29)", 0x030f280, 0x030f300 },
-    { "Fade Background (Challenge Screen / Demo) (6/29)", 0x030f300, 0x030f380 },
-    { "Fade Background (Challenge Screen / Demo) (7/29)", 0x030f380, 0x030f400 },
-    { "Fade Background (Challenge Screen / Demo) (8/29)", 0x030f400, 0x030f480 },
-    { "Fade Background (Challenge Screen / Demo) (9/29)", 0x030f480, 0x030f500 },
-    { "Fade Background (Challenge Screen / Demo) (10/29)", 0x030f500, 0x030f580 },
-    { "Fade Background (Challenge Screen / Demo) (11/29)", 0x030f580, 0x030f600 },
-    { "Fade Background (Challenge Screen / Demo) (12/29)", 0x030f600, 0x030f680 },
-    { "Fade Background (Challenge Screen / Demo) (13/29)", 0x030f680, 0x030f700 },
-    { "Fade Background (Challenge Screen / Demo) (14/29)", 0x030f700, 0x030f780 },
-    { "Fade Background (Challenge Screen / Demo) (15/29)", 0x030f780, 0x030f800 },
-    { "Fade Background (Challenge Screen / Demo) (16/29)", 0x030f800, 0x030f880 },
-    { "Fade Background (Challenge Screen / Demo) (17/29)", 0x030f880, 0x030f900 },
-    { "Fade Background (Challenge Screen / Demo) (18/29)", 0x030f900, 0x030f980 },
-    { "Fade Background (Challenge Screen / Demo) (19/29)", 0x030f980, 0x030fa00 },
-    { "Fade Background (Challenge Screen / Demo) (20/29)", 0x030fa00, 0x030fa80 },
-    { "Fade Background (Challenge Screen / Demo) (21/29)", 0x030fa80, 0x030fb00 },
-    { "Fade Background (Challenge Screen / Demo) (22/29)", 0x030fb00, 0x030fb80 },
-    { "Fade Background (Challenge Screen / Demo) (23/29)", 0x030fb80, 0x030fc00 },
-    { "Fade Background (Challenge Screen / Demo) (24/29)", 0x030fc00, 0x030fc80 },
-    { "Fade Background (Challenge Screen / Demo) (25/29)", 0x030fc80, 0x030fd00 },
-    { "Fade Background (Challenge Screen / Demo) (26/29)", 0x030fd00, 0x030fd80 },
-    { "Fade Background (Challenge Screen / Demo) (27/29)", 0x030fd80, 0x030fe00 },
-    { "Fade Background (Challenge Screen / Demo) (28/29)", 0x030fe00, 0x030fe80 },
-    { "Fade Background (Challenge Screen / Demo) (29/29)", 0x030fe80, 0x030ff00 },
-#else
-    { "Fade Background (Challenge Screen / Demo)", 0x030f080, 0x030ff00 },
-#endif
+   { "\"Perfect\"", 0X030CD40, 0X030CD60 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_BONUS_NODE_INTRO_MANGA[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { "Intro Manga Panels (1/10)", 0x030b780, 0x030b7c0 },
-    { "Intro Manga Panels (2/10)", 0x030b7c0, 0x030b800 },
-    { "Intro Manga Panels (3/10)", 0x030b800, 0x030b840 },
-    { "Intro Manga Panels (4/10)", 0x030b840, 0x030b880 },
-    { "Intro Manga Panels (5/10)", 0x030b880, 0x030b8c0 },
-    { "Intro Manga Panels (6/10)", 0x030b8c0, 0x030b900 },
-    { "Intro Manga Panels (7/10)", 0x030b900, 0x030b940 },
-    { "Intro Manga Panels (8/10)", 0x030b940, 0x030b980 },
-    { "Intro Manga Panels (9/10)", 0x030b980, 0x030b9c0 },
-    { "Intro Manga Panels (10/10)", 0x030b9c0, 0x030ba00 }, 
+    { "Intro Manga Panels (1/8)", 0x030d500, 0x030d580 },
+    { "Intro Manga Panels (2/8)", 0x030d580, 0x030d600 },
+    { "Intro Manga Panels (3/8)", 0x030d600, 0x030d680 },
+    { "Intro Manga Panels (4/8)", 0x030d680, 0x030d700 },
+    { "Intro Manga Panels (5/8)", 0x030d700, 0x030d780 },
+    { "Intro Manga Panels (6/8)", 0x030d780, 0x030d800 },
+    { "Intro Manga Panels (7/8)", 0x030d800, 0x030d880 },
+    { "Intro Manga Panels (8/8)", 0x030d880, 0x030d900 },
 #else
-    { "Intro Manga Panels", 0x030B780, 0x030BA00 },
+    { "Intro Manga Panels", 0x030d500, 0x030d900 },
+#endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_A_BONUS_NODE_SUPERBACKGROUND[] =
+{
+#ifndef USE_LARGE_PALETTES
+    { "Super Flash Background (Challenge Screen / Demo) (1/29)", 0x030f080, 0x030f100 },
+    { "Super Flash Background (Challenge Screen / Demo) (2/29)", 0x030f100, 0x030f180 },
+    { "Super Flash Background (Challenge Screen / Demo) (3/29)", 0x030f180, 0x030f200 },
+    { "Super Flash Background (Challenge Screen / Demo) (4/29)", 0x030f200, 0x030f280 },
+    { "Super Flash Background (Challenge Screen / Demo) (5/29)", 0x030f280, 0x030f300 },
+    { "Super Flash Background (Challenge Screen / Demo) (6/29)", 0x030f300, 0x030f380 },
+    { "Super Flash Background (Challenge Screen / Demo) (7/29)", 0x030f380, 0x030f400 },
+    { "Super Flash Background (Challenge Screen / Demo) (8/29)", 0x030f400, 0x030f480 },
+    { "Super Flash Background (Challenge Screen / Demo) (9/29)", 0x030f480, 0x030f500 },
+    { "Super Flash Background (Challenge Screen / Demo) (10/29)", 0x030f500, 0x030f580 },
+    { "Super Flash Background (Challenge Screen / Demo) (11/29)", 0x030f580, 0x030f600 },
+    { "Super Flash Background (Challenge Screen / Demo) (12/29)", 0x030f600, 0x030f680 },
+    { "Super Flash Background (Challenge Screen / Demo) (13/29)", 0x030f680, 0x030f700 },
+    { "Super Flash Background (Challenge Screen / Demo) (14/29)", 0x030f700, 0x030f780 },
+    { "Super Flash Background (Challenge Screen / Demo) (15/29)", 0x030f780, 0x030f800 },
+    { "Super Flash Background (Challenge Screen / Demo) (16/29)", 0x030f800, 0x030f880 },
+    { "Super Flash Background (Challenge Screen / Demo) (17/29)", 0x030f880, 0x030f900 },
+    { "Super Flash Background (Challenge Screen / Demo) (18/29)", 0x030f900, 0x030f980 },
+    { "Super Flash Background (Challenge Screen / Demo) (19/29)", 0x030f980, 0x030fa00 },
+    { "Super Flash Background (Challenge Screen / Demo) (20/29)", 0x030fa00, 0x030fa80 },
+    { "Super Flash Background (Challenge Screen / Demo) (21/29)", 0x030fa80, 0x030fb00 },
+    { "Super Flash Background (Challenge Screen / Demo) (22/29)", 0x030fb00, 0x030fb80 },
+    { "Super Flash Background (Challenge Screen / Demo) (23/29)", 0x030fb80, 0x030fc00 },
+    { "Super Flash Background (Challenge Screen / Demo) (24/29)", 0x030fc00, 0x030fc80 },
+    { "Super Flash Background (Challenge Screen / Demo) (25/29)", 0x030fc80, 0x030fd00 },
+    { "Super Flash Background (Challenge Screen / Demo) (26/29)", 0x030fd00, 0x030fd80 },
+    { "Super Flash Background (Challenge Screen / Demo) (27/29)", 0x030fd80, 0x030fe00 },
+    { "Super Flash Background (Challenge Screen / Demo) (28/29)", 0x030fe00, 0x030fe80 },
+    { "Super Flash Background (Challenge Screen / Demo) (29/29)", 0x030fe80, 0x030ff00 },
+#else
+    { "Super Flash Background (Challenge Screen / Demo)", 0x030f080, 0x030ff00 },
+#endif
+};
+
+const sJOJOS_PaletteDataset JOJOS_BONUS_NODE_FADEBACKGROUND[] =
+{
+#ifndef USE_LARGE_PALETTES
+    { "Fade Background (1/10)", 0x030b780, 0x030b7c0 },
+    { "Fade Background (2/10)", 0x030b7c0, 0x030b800 },
+    { "Fade Background (3/10)", 0x030b800, 0x030b840 },
+    { "Fade Background (4/10)", 0x030b840, 0x030b880 },
+    { "Fade Background (5/10)", 0x030b880, 0x030b8c0 },
+    { "Fade Background (6/10)", 0x030b8c0, 0x030b900 },
+    { "Fade Background (7/10)", 0x030b900, 0x030b940 },
+    { "Fade Background (8/10)", 0x030b940, 0x030b980 },
+    { "Fade Background (9/10)", 0x030b980, 0x030b9c0 },
+    { "Fade Background (10/10)", 0x030b9c0, 0x030ba00 },
+#else
+    { "Fade Background", 0x030B780, 0x030BA00 },
 #endif
 };
 
 const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
 {
     { "Bonus", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_PALETTES, ARRAYSIZE(JOJOS_BONUS_PALETTES) },
-    { "Fade Background (Challenge Screen / Demo)", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_FADEBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_FADEBACKGROUND) },
+    { "Fade Background (Challenge Screen / Demo)", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_FADEBACKGROUND, ARRAYSIZE(JOJOS_BONUS_NODE_FADEBACKGROUND) },
     { "Intro Manga Panels", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_INTRO_MANGA, ARRAYSIZE(JOJOS_BONUS_NODE_INTRO_MANGA) },
-    { "Super Screen Background", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_SUPERBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_SUPERBACKGROUND) },
+    { "Super Screen Background", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_NODE_SUPERBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_NODE_SUPERBACKGROUND) },
 };
 
 #pragma endregion Bonus
