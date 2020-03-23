@@ -9,7 +9,7 @@
 //File rule definition
 struct sFileRule
 {
-    char szFileName[MAX_FILENAME_LENGTH];
+    char szFileName[MAX_FILENAME_LENGTH] = "uninit";
     UINT32 uVerifyVar;
     UINT16 uUnitId = INVALID_UNIT_VALUE;
 };

@@ -428,6 +428,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
 #ifdef JOJOS_DEBUG
+    bool fHaveExtras = ((UsePaletteSetFor50() ? GetExtraCt(JOJOS_A_EXTRALOC_50) : GetExtraCt(JOJOS_A_EXTRALOC_51)) > 0);
     strMsg.Format("CGame_JOJOS_A::InitDescTree: Building desc tree for %u...\n", m_nJojosMode);
     OutputDebugString(strMsg);
 #endif
@@ -459,7 +460,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             UnitNode->uChildAmt = nUnitChildCount;
 
 #ifdef JOJOS_DEBUG
-            strMsg.Format("Unit: %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format("Unit: %s, %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, fHaveExtra ? "with extras" : "no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -507,12 +508,18 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
         }
         else
         {
+
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
             sprintf(UnitNode->szDesc, "Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
+
+#ifdef JOJOS_DEBUG
+            strMsg.Format("Unit: %s (Extras), %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
+            OutputDebugString(strMsg);
+#endif
         }
 
         //Set up extra nodes
@@ -605,6 +612,12 @@ UINT16 CGame_JOJOS_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
+#ifdef JOJOS_DEBUG
+        CString strMsg;
+        strMsg.Format("PaletteCount: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        OutputDebugString(strMsg);
+#endif
+
         return nCompleteCount;
     }
 }
@@ -667,7 +680,7 @@ const sJOJOS_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(UINT16 nUnitId, UINT16
 
 void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-    int nBasicPos = GetCollectionCountForUnit(nUnitId);
+    int nTotalCollections = GetCollectionCountForUnit(nUnitId);
     int nOffset = 0, nPaletteSizeOnDisc = 0;
     BOOL isPaletteFromExtensionsFile = FALSE;
 
@@ -679,34 +692,59 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
     if (!isPaletteFromExtensionsFile)
     {
-        int nCollectionId = 0;
-        const sJOJOS_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionId);
+        int nCollectionIndex = 0;
+        int nCurrentPaletteOffset = 0;
+        int nDistanceFromZero = nPalId;
+        const sJOJOS_PaletteDataset* paletteSetToUse = nullptr;
 
-        nOffset = paletteSetToUse[nPalId].nPaletteOffset;
-        nPaletteSizeOnDisc = max(0, (paletteSetToUse[nPalId].nPaletteOffsetEnd - paletteSetToUse[nPalId].nPaletteOffset));
+        for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+        {
+            paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
+            UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
+            if (nDistanceFromZero < nNodeCount)
+            {
+                nOffset = paletteSetToUse[nDistanceFromZero].nPaletteOffset;
+                nPaletteSizeOnDisc = max(0, (paletteSetToUse[nDistanceFromZero].nPaletteOffsetEnd - paletteSetToUse[nDistanceFromZero].nPaletteOffset));
+                break;
+            }
+
+            nDistanceFromZero -= nNodeCount;
+        }
+
+#ifdef JOJOS_DEBUG
         if (nPaletteSizeOnDisc > (2 * JOJOS_A_PALSZ))
         {
             CString strError;
-            strError.Format("BUGBUG: \"%s\" will be chopped.  Please use this instead:\n", paletteSetToUse[nPalId].szPaletteName);
+            strError.Format("BUGBUG: In unit %u collection %u palette %u (\"%s\") at offset 0x%u will be chopped.  Please use this instead:\n", nUnitId, nCollectionIndex, nPalId, paletteSetToUse[nPalId].szPaletteName, paletteSetToUse[nPalId].nPaletteOffset);
             OutputDebugString(strError);
 
             const int nTotalPagesNeeded = (int)ceil((double)nPaletteSizeOnDisc / (double)m_knMaxPalettePageSize);
-            int nCurrentPaletteSectionLength = m_knMaxPalettePageSize;
-            int nTotalUnusedColors = nPaletteSizeOnDisc;
-
-            for (int nCurrentPage = 0, nCurrentOffset = 0; nCurrentPage < nTotalPagesNeeded; nCurrentPage++)
+            if (nTotalPagesNeeded < 250)
             {
-                strError.Format("    { \"%s (%u/%u)\", 0x%07x, 0x%07x }, \n", paletteSetToUse[nPalId].szPaletteName, nCurrentPage + 1, nTotalPagesNeeded,
-                                                                            paletteSetToUse[nPalId].nPaletteOffset + nCurrentOffset,
-                                                                            paletteSetToUse[nPalId].nPaletteOffset + nCurrentOffset + nCurrentPaletteSectionLength);
+                int nCurrentPaletteSectionLength = m_knMaxPalettePageSize;
+                int nTotalUnusedColors = nPaletteSizeOnDisc;
 
-                nCurrentOffset += m_knMaxPalettePageSize;
-                nTotalUnusedColors -= nCurrentPaletteSectionLength;
-                nCurrentPaletteSectionLength = min(nTotalUnusedColors, m_knMaxPalettePageSize);
-                OutputDebugString(strError);
+                for (int nCurrentPage = 0, nCurrentOffset = 0; nCurrentPage < nTotalPagesNeeded; nCurrentPage++)
+                {
+                    strError.Format("    { \"%s (%u/%u)\", 0x%07x, 0x%07x }, \n", paletteSetToUse[nPalId].szPaletteName, nCurrentPage + 1, nTotalPagesNeeded,
+                                                                                    paletteSetToUse[nPalId].nPaletteOffset + nCurrentOffset,
+                                                                                    paletteSetToUse[nPalId].nPaletteOffset + nCurrentOffset + nCurrentPaletteSectionLength);
+
+                    nCurrentOffset += m_knMaxPalettePageSize;
+                    nTotalUnusedColors -= nCurrentPaletteSectionLength;
+                    nCurrentPaletteSectionLength = min(nTotalUnusedColors, m_knMaxPalettePageSize);
+                    OutputDebugString(strError);
+                }
+            }
+            else
+            {
+                // This won't be recoverable.
+                OutputDebugString("ERROR: Actually, something is wrong.  Don't use this palette.\n");
+                DebugBreak();
             }
         }
+#endif
     }
     else //Extra Palettes
     {
