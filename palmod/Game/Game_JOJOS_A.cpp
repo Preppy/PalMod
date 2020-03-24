@@ -278,13 +278,13 @@ void ExportTableToDebugger()
     OutputDebugString("FWIW: You want to define USE_LARGE_PALETTES so that you are working with the unsplit headers.\n");
 #endif
 
-    OutputDebugString("const sJOJOS_PaletteDataset JOJOS_A_TIMESTOP_PALETTES[] =\n{\n");
-    for (int iHeaderIndex = 0; iHeaderIndex < ARRAYSIZE(JOJOS_A_TIMESTOP_PALETTES); iHeaderIndex++)
+    OutputDebugString("const sJOJOS_PaletteDataset JOJOS_BONUS_NODE_INTRO_MANGA[] =\n{\n");
+    for (int iHeaderIndex = 0; iHeaderIndex < ARRAYSIZE(JOJOS_BONUS_NODE_INTRO_MANGA); iHeaderIndex++)
     {
         CString strstr;
 
-        const int m_knMaxPalettePageSize = 2 * 64;
-        int nPaletteTotalSize = (JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffsetEnd - JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffset);
+        const int knMaxPalettePageSizeOnDisc = 2 * 64;
+        int nPaletteTotalSize = (JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffsetEnd - JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffset);
         int nAdjust = 0;
 
         if (nPaletteTotalSize % 2 == 1)
@@ -294,34 +294,34 @@ void ExportTableToDebugger()
             nAdjust = 1;
         }
 
-        if (nPaletteTotalSize > (m_knMaxPalettePageSize + 1))
+        if (nPaletteTotalSize > (knMaxPalettePageSizeOnDisc + 1))
         {
-            const int nTotalPagesNeeded = (int)ceil((double)nPaletteTotalSize / (double)m_knMaxPalettePageSize);
-            int nCurrentPaletteSectionLength = m_knMaxPalettePageSize;
+            const int nTotalPagesNeeded = (int)ceil((double)nPaletteTotalSize / (double)knMaxPalettePageSizeOnDisc);
+            int nCurrentPaletteSectionLength = knMaxPalettePageSizeOnDisc;
             int nTotalUnusedColors = nPaletteTotalSize;
 
             OutputDebugString("#ifndef USE_LARGE_PALETTES\n");
 
             for (int nCurrentPage = 0, nCurrentOffset = 0; nCurrentPage < nTotalPagesNeeded; nCurrentPage++)
             {
-                strstr.Format("    { \"%s (%u/%u)\", 0x%07x, 0x%07x }, \n", JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].szPaletteName, nCurrentPage + 1, nTotalPagesNeeded,
-                                                                            JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffset + nCurrentOffset, 
-                                                                            JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffset + nCurrentOffset + nCurrentPaletteSectionLength);
+                strstr.Format("    { \"%s (%u/%u)\", 0x%07x, 0x%07x }, \n", JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].szPaletteName, nCurrentPage + 1, nTotalPagesNeeded,
+                                                                            JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffset + nCurrentOffset, 
+                                                                            JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffset + nCurrentOffset + nCurrentPaletteSectionLength);
 
-                nCurrentOffset += m_knMaxPalettePageSize;
+                nCurrentOffset += knMaxPalettePageSizeOnDisc;
                 nTotalUnusedColors -= nCurrentPaletteSectionLength;
-                nCurrentPaletteSectionLength = min(nTotalUnusedColors, m_knMaxPalettePageSize);
+                nCurrentPaletteSectionLength = min(nTotalUnusedColors, knMaxPalettePageSizeOnDisc);
                 OutputDebugString(strstr);
             }
             OutputDebugString("#else\n");
         }
 
-        strstr.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].szPaletteName,
-                                                            JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffset,
-                                                            JOJOS_A_TIMESTOP_PALETTES[iHeaderIndex].nPaletteOffsetEnd - nAdjust);
+        strstr.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].szPaletteName,
+                                                            JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffset,
+                                                            JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffsetEnd - nAdjust);
         OutputDebugString(strstr);
 
-        if (nPaletteTotalSize > (m_knMaxPalettePageSize + 1))
+        if (nPaletteTotalSize > (knMaxPalettePageSizeOnDisc + 1))
         {
             OutputDebugString("#endif\n");
         }
@@ -712,17 +712,20 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             nDistanceFromZero -= nNodeCount;
         }
 
-#ifdef JOJOS_DEBUG
-        if (nPaletteSizeOnDisc > (2 * JOJOS_A_PALSZ))
+#ifdef NEED_TO_UPDATE_JOJO_HEADERS
+
+        const int knMaxPalettePageSizeOnDisc = 2 * m_knMaxPalettePageSize;
+
+        if (nPaletteSizeOnDisc > knMaxPalettePageSizeOnDisc)
         {
             CString strError;
             strError.Format("BUGBUG: In unit %u collection %u palette %u (\"%s\") at offset 0x%u will be chopped.  Please use this instead:\n", nUnitId, nCollectionIndex, nPalId, paletteSetToUse[nPalId].szPaletteName, paletteSetToUse[nPalId].nPaletteOffset);
             OutputDebugString(strError);
 
-            const int nTotalPagesNeeded = (int)ceil((double)nPaletteSizeOnDisc / (double)m_knMaxPalettePageSize);
+            const int nTotalPagesNeeded = (int)ceil((double)nPaletteSizeOnDisc / (double)knMaxPalettePageSizeOnDisc);
             if (nTotalPagesNeeded < 250)
             {
-                int nCurrentPaletteSectionLength = m_knMaxPalettePageSize;
+                int nCurrentPaletteSectionLength = knMaxPalettePageSizeOnDisc;
                 int nTotalUnusedColors = nPaletteSizeOnDisc;
 
                 for (int nCurrentPage = 0, nCurrentOffset = 0; nCurrentPage < nTotalPagesNeeded; nCurrentPage++)
@@ -731,9 +734,9 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                                                                                     paletteSetToUse[nPalId].nPaletteOffset + nCurrentOffset,
                                                                                     paletteSetToUse[nPalId].nPaletteOffset + nCurrentOffset + nCurrentPaletteSectionLength);
 
-                    nCurrentOffset += m_knMaxPalettePageSize;
+                    nCurrentOffset += knMaxPalettePageSizeOnDisc;
                     nTotalUnusedColors -= nCurrentPaletteSectionLength;
-                    nCurrentPaletteSectionLength = min(nTotalUnusedColors, m_knMaxPalettePageSize);
+                    nCurrentPaletteSectionLength = min(nTotalUnusedColors, knMaxPalettePageSizeOnDisc);
                     OutputDebugString(strError);
                 }
             }
@@ -775,23 +778,24 @@ BOOL CGame_JOJOS_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
     // support for this, but it requires active coding to handle (ala the Oro palettes).  It'd be interesting
     // to make it automatic.
 
+#ifndef UNUSED_EXPERIMENTAL
     return FALSE;
-
-#ifdef UNUSED_EXPERIMENTAL
+#else
     // Check how many ARGB entries we have for this palette
     // const sJOJOS_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nPalId);
     // const sJOJOS_PaletteDataset* paletteSetToUse = GetExtraPalette(nUnitId, nPalId);
     const int nPaletteTotalSize = max(0, (paletteSetToUse->nPaletteOffsetEnd - paletteSetToUse->nPaletteOffset)) / 2;
+    const int knMaxPalettePageSizeOnDisc = 2 * m_knMaxPalettePageSize;
 
-    if (nPaletteTotalSize > m_knMaxPalettePageSize)
+    if (nPaletteTotalSize > knMaxPalettePageSizeOnDisc)
     {
         // This is experimental code that should either be fixed or deleted.  
         // I think the Invisible flag is a better path forward here.
         LoadSpecificPaletteData(nUnitId, nPalId);
 
         OutputDebugString("BUGBUG WARNING: This palette is being sliced: fix\n");
-        int nTotalPagesNeeded = (int)ceil((double)nPaletteTotalSize / (double)m_knMaxPalettePageSize);
-        int nCurrentPaletteSectionLength = m_knMaxPalettePageSize;
+        int nTotalPagesNeeded = (int)ceil((double)nPaletteTotalSize / (double)knMaxPalettePageSizeOnDisc);
+        int nCurrentPaletteSectionLength = knMaxPalettePageSizeOnDisc;
         int nTotalUnusedColors = nPaletteTotalSize;
        
         // We need to do this so that PalMod understands what palette to use.
@@ -809,9 +813,9 @@ BOOL CGame_JOJOS_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
             
             BasePalGroup.AddSep(nCurrentPage, strDisplayText, nCurrentOffset, nCurrentPaletteSectionLength);
 
-            nCurrentOffset += m_knMaxPalettePageSize;
+            nCurrentOffset += knMaxPalettePageSizeOnDisc;
             nTotalUnusedColors -= nCurrentPaletteSectionLength;
-            nCurrentPaletteSectionLength = min(nTotalUnusedColors, m_knMaxPalettePageSize);
+            nCurrentPaletteSectionLength = min(nTotalUnusedColors, knMaxPalettePageSizeOnDisc);
         }
 
         SetSourcePal(0, nUnitId, nPalId, 1, 1);

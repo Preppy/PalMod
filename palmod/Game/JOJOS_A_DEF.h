@@ -1,14 +1,10 @@
 #pragma once
 
-// Color table size
-constexpr auto JOJOS_A_PALSZ = 64;
-constexpr auto JOJOS_EXTRA_COLLECTION = 0;
-
 struct sJOJOS_PaletteDataset
 {
-    LPCSTR szPaletteName;
-    int nPaletteOffset;
-    int nPaletteOffsetEnd;
+    LPCSTR szPaletteName = "uninit";
+    int nPaletteOffset = 0;
+    int nPaletteOffsetEnd = 0;
     bool isInvisible = false;
 };
 
@@ -41,7 +37,7 @@ const char JOJOS_A_UNITDESC_51[][32] =
     "Hol ", // JOJOS_A_CHARACTER_COLLECTION_HOL
     "Vanilla Ice", // JOJOS_A_CHARACTER_COLLECTION_VICE
     "New Kakyoin & Hierophant", // JOJOS_A_CHARACTER_COLLECTION_HIERO
-    "Black Polnareff", // JOJOS_A_CHARACTER_COLLECTION_BPOL
+    "Anubis Polnareff", // JOJOS_A_CHARACTER_COLLECTION_BPOL
     "Petshop", // JOJOS_A_CHARACTER_COLLECTION_SHOP
     "Mariah", // JOJOS_A_CHARACTER_COLLECTION_MARIAH
     "Hol and Boingo", // JOJOS_A_CHARACTER_COLLECTION_HOLBOINGO
@@ -145,11 +141,11 @@ const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_JOSEPH_PALETTES[] =
 
 const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_ABDUL_PALETTES[] =
 {
-    { "Abdul A Life Bar Portrait", 0x07C0600, 0x07C0620 },
-    { "Abdul B Life Bar Portrait", 0x07C0620, 0x07C0640 },
-    { "Abdul C Life Bar Portrait", 0x07C0CC0, 0x07C0CE0 },
-    { "Abdul S Life Bar Portrait", 0x07C0CE0, 0x07C0D00 },
-    { "Abdul Start Life Bar Portrait", 0x07C0D00, 0x07C0D20 },
+    { "Avdol A Life Bar Portrait", 0x07C0600, 0x07C0620 },
+    { "Avdol B Life Bar Portrait", 0x07C0620, 0x07C0640 },
+    { "Avdol C Life Bar Portrait", 0x07C0CC0, 0x07C0CE0 },
+    { "Avdol S Life Bar Portrait", 0x07C0CE0, 0x07C0D00 },
+    { "Avdol Start Life Bar Portrait", 0x07C0D00, 0x07C0D20 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_HUD_PORTRAIT_ALESSI_PALETTES[] =
@@ -289,7 +285,7 @@ const sDescTreeNode JOJOS_HUD_PORTRAIT_COLLECTION[]
     { "Petshop", DESC_NODETYPE_TREE,(void*)JOJOS_A_HUD_PORTRAIT_PETSHOP_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_PETSHOP_PALETTES) },
     { "Polnareff", DESC_NODETYPE_TREE,(void*)JOJOS_A_HUD_PORTRAIT_POLNAREFF_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_POLNAREFF_PALETTES) },
     { "Joseph", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_JOSEPH_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_JOSEPH_PALETTES) },
-    { "Abdul", DESC_NODETYPE_TREE,  (void*)JOJOS_A_HUD_PORTRAIT_ABDUL_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_ABDUL_PALETTES) },
+    { "Avdol", DESC_NODETYPE_TREE,  (void*)JOJOS_A_HUD_PORTRAIT_ABDUL_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_ABDUL_PALETTES) },
     { "Alessi", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_ALESSI_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_ALESSI_PALETTES) },
     { "Devo", DESC_NODETYPE_TREE,   (void*)JOJOS_A_HUD_PORTRAIT_DEVO_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_DEVO_PALETTES) },
     { "Vanilla Ice", DESC_NODETYPE_TREE, (void*)JOJOS_A_HUD_PORTRAIT_VANILLA_PALETTES, ARRAYSIZE(JOJOS_A_HUD_PORTRAIT_VANILLA_PALETTES) },
@@ -2033,6 +2029,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_A[] =
 #else
     { "Jotaro Select/Winning A", 0x0410100, 0x0410200 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Jotaro Burning A", 0x0336480, 0x0336580 },
+#else
+    { "Jotaro Burning A (1/2)", 0x0336480, 0x0336500 },
+    { "Jotaro Burning A (2/2)", 0x0336500, 0x0336580 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
@@ -2046,6 +2048,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
     { "Jotaro Select/Winning B (2/2)", 0x0414f80, 0x0415000 },
 #else
     { "Jotaro Select/Winning B", 0x0414f00, 0x0415000 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Jotaro Burning B", 0x034a980, 0x034aa80 },
+#else
+    { "Jotaro Burning B (1/2)", 0x034a980, 0x034aa00 },
+    { "Jotaro Burning B (2/2)", 0x034aa00, 0x034aa80 },
 #endif
 };
 
@@ -2061,6 +2069,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_C[] =
 #else
     { "Jotaro Select/Winning C", 0x0419d00, 0x0419e00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Jotaro Burning C", 0x035ee80, 0x035ef80 },
+#else
+    { "Jotaro Burning C (1/2)", 0x035ee80, 0x035ef00 },
+    { "Jotaro Burning C (2/2)", 0x035ef00, 0x035ef80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
@@ -2075,6 +2089,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
 #else
     { "Jotaro Select/Winning S", 0x041eb00, 0x041ec00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Jotaro Burning S", 0x0373380, 0x0373480 },
+#else
+    { "Jotaro Burning S (1/2)", 0x0373380, 0x0373400 },
+    { "Jotaro Burning S (2/2)", 0x0373400, 0x0373480 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
@@ -2088,6 +2108,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
     { "Jotaro Select/Winning Start (2/2)", 0x0423980, 0x0423a00 },
 #else
     { "Jotaro Select/Winning Start", 0x0423900, 0x0423a00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Jotaro Burning Start", 0x0387880, 0x0387980 },
+#else
+    { "Jotaro Burning Start (1/2)", 0x0387880, 0x0387900 },
+    { "Jotaro Burning Start (2/2)", 0x0387900, 0x0387980 },
 #endif
 };
 
@@ -2116,6 +2142,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 #else
     { "Kaykyoin Select/Winning A", 0x0410400, 0x0410500 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Kakyoin Burning A", 0x0337100, 0x0337200 },
+#else
+    { "Kakyoin Burning A (1/2)", 0x0337100, 0x0337180 },
+    { "Kakyoin Burning A (2/2)", 0x0337180, 0x0337200 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
@@ -2141,6 +2173,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
     { "Kaykyoin Select/Winning B (2/2)", 0x0415280, 0x0415300 },
 #else
     { "Kaykyoin Select/Winning B", 0x0415200, 0x0415300 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Kakyoin Burning B", 0x034b600, 0x034b700 },
+#else
+    { "Kakyoin Burning B (1/2)", 0x034b600, 0x034b680 },
+    { "Kakyoin Burning B (2/2)", 0x034b680, 0x034b700 },
 #endif
 };
 
@@ -2169,6 +2207,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
 #else
     { "Kaykyoin Select/Winning C", 0x041a000, 0x041a100 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Kakyoin Burning C", 0x035fb00, 0x035fc00 },
+#else
+    { "Kakyoin Burning C (1/2)", 0x035fb00, 0x035fb80 },
+    { "Kakyoin Burning C (2/2)", 0x035fb80, 0x035fc00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
@@ -2194,6 +2238,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
     { "Kaykyoin Select/Winning S (2/2)", 0x041ee80, 0x041ef00 },
 #else
     { "Kaykyoin Select/Winning S", 0x041ee00, 0x041ef00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Kakyoin Burning S", 0x0374000, 0x0374100 },
+#else
+    { "Kakyoin Burning S (1/2)", 0x0374000, 0x0374080 },
+    { "Kakyoin Burning S (2/2)", 0x0374080, 0x0374100 },
 #endif
 };
 
@@ -2221,6 +2271,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_Start[] =
 #else
     { "Kaykyoin Select/Winning Start", 0x0423c00, 0x0423d00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Kakyoin Burning Start", 0x0388500, 0x0388600 },
+#else
+    { "Kakyoin Burning Start (1/2)", 0x0388500, 0x0388580 },
+    { "Kakyoin Burning Start (2/2)", 0x0388580, 0x0388600 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_A[] =
@@ -2236,6 +2292,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_A[] =
     { "Avdol Select / Winning A", 0x0410700, 0x0410800 },
 #endif
     { "Avdol & MR Remote Activation A", 0x0338180, 0x0338200 },
+#ifdef USE_LARGE_PALETTES
+    { "Avdol Burning A", 0x0337d80, 0x0337e80 },
+#else
+    { "Avdol Burning A (1/2)", 0x0337d80, 0x0337e00 },
+    { "Avdol Burning A (2/2)", 0x0337e00, 0x0337e80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_B[] =
@@ -2251,7 +2313,13 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_B[] =
     { "Avdol Select / Winning B", 0x0415500, 0x0415600 },
 #endif
     { "Avdol & MR Remote Activation B", 0x034c680, 0x034c700 },
-};
+#ifdef USE_LARGE_PALETTES
+    { "Avdol Burning B", 0x034c280, 0x034c380 },
+#else
+    { "Avdol Burning B (1/2)", 0x034c280, 0x034c300 },
+    { "Avdol Burning B (2/2)", 0x034c300, 0x034c380 },
+#endif
+    };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_C[] =
 {
@@ -2266,6 +2334,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_C[] =
     { "Avdol Select / Winning C", 0x041a300, 0x041a400 },
 #endif
     { "Avdol & MR Remote Activation C", 0x0360b80, 0x0360c00 },
+#ifdef USE_LARGE_PALETTES
+    { "Avdol Burning C", 0x0360780, 0x0360880 },
+#else
+    { "Avdol Burning C (1/2)", 0x0360780, 0x0360800 },
+    { "Avdol Burning C (2/2)", 0x0360800, 0x0360880 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_S[] =
@@ -2281,6 +2355,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_S[] =
     { "Avdol Select / Winning S", 0x041f100, 0x041f200 },
 #endif
     { "Avdol & MR Remote Activation S", 0x0375080, 0x0375100 },
+#ifdef USE_LARGE_PALETTES
+    { "Avdol Burning S", 0x0374c80, 0x0374d80 },
+#else
+    { "Avdol Burning S (1/2)", 0x0374c80, 0x0374d00 },
+    { "Avdol Burning S (2/2)", 0x0374d00, 0x0374d80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_Start[] =
@@ -2296,14 +2376,20 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_Start[] =
     { "Avdol Select / Winning Start", 0x0423f00, 0x0424000 },
 #endif
     { "Avdol & MR Remote Activation Start", 0x0389580, 0x0389600 },
+#ifdef USE_LARGE_PALETTES
+    { "Avdol Burning Start", 0x0389180, 0x0389280 },
+#else
+    { "Avdol Burning Start (1/2)", 0x0389180, 0x0389200 },
+    { "Avdol Burning Start (2/2)", 0x0389200, 0x0389280 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
 {
-    { "Pol Remote Activation Flash A", 0x0338e00, 0x0338e80 },
     { "Polnareff & Silver Chariot A", 0x0338980, 0x0338a00 },
     { "Chariot's Changing Pal A", 0x03392c0, 0x0339300 },
     { "Chariot's Changing Pal A", 0x0339340, 0x0339380 },
+    { "Pol Remote Activation Flash A", 0x0338e00, 0x0338e80 },
     { "Polnareff Vs / Super A", 0x0410900, 0x0410980 },
     { "Polnareff Challenger A", 0x0410980, 0x0410a00 },
 #ifndef USE_LARGE_PALETTES
@@ -2311,6 +2397,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
     { "Polnareff Select / Winning A (2/2)", 0x0410a80, 0x0410b00 },
 #else
     { "Polnareff Select / Winning A", 0x0410a00, 0x0410b00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Polnareff Burning A", 0x0338a00, 0x0338b00 },
+#else
+    { "Polnareff Burning A (1/2)", 0x0338a00, 0x0338a80 },
+    { "Polnareff Burning A (2/2)", 0x0338a80, 0x0338b00 },
 #endif
 };
 
@@ -2328,14 +2420,20 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
 #else
     { "Polnareff Select / Winning B", 0x0415800, 0x0415900 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Polnareff Burning B", 0x034cf00, 0x034d000 },
+#else
+    { "Polnareff Burning B (1/2)", 0x034cf00, 0x034cf80 },
+    { "Polnareff Burning B (2/2)", 0x034cf80, 0x034d000 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
 {
-    { "Pol Remote Activation Flash C", 0x0361800, 0x0361880 },
     { "Polnareff & Silver Chariot C", 0x0361380, 0x0361400 },
     { "Chariot's Changing Pal C", 0x0361cc0, 0x0361d00 },
     { "Chariot's Changing Pal C", 0x0361d40, 0x0361d80 },
+    { "Pol Remote Activation Flash C", 0x0361800, 0x0361880 },
     { "Polnareff Vs / Super C", 0x041a500, 0x041a580 },
     { "Polnareff Challenger C", 0x041a580, 0x041a600 },
 #ifndef USE_LARGE_PALETTES
@@ -2344,14 +2442,20 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
 #else
     { "Polnareff Select / Winning C", 0x041a600, 0x041a700 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Polnareff Burning C", 0x0361400, 0x0361500 },
+#else
+    { "Polnareff Burning C (1/2)", 0x0361400, 0x0361480 },
+    { "Polnareff Burning C (2/2)", 0x0361480, 0x0361500 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
 {
-    { "Pol Remote Activation Flash S", 0x0375d00, 0x0375d80 },
     { "Polnareff & Silver Chariot S", 0x0375880, 0x0375900 },
     { "Chariot's Changing Pal S", 0x03761c0, 0x0376200 },
     { "Chariot's Changing Pal S", 0x0376240, 0x0376280 },
+    { "Pol Remote Activation Flash S", 0x0375d00, 0x0375d80 },
     { "Polnareff Vs / Super S", 0x041f300, 0x041f380 },
     { "Polnareff Challenger S", 0x041f380, 0x041f400 },
 #ifndef USE_LARGE_PALETTES
@@ -2360,14 +2464,20 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
 #else
     { "Polnareff Select / Winning S", 0x041f400, 0x041f500 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Polnareff Burning S", 0x0375900, 0x0375a00 },
+#else
+    { "Polnareff Burning S (1/2)", 0x0375900, 0x0375980 },
+    { "Polnareff Burning S (2/2)", 0x0375980, 0x0375a00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
 {
-    { "Pol Remote Activation Flash Start", 0x038a200, 0x038a280 },
     { "Polnareff & Silver Chariot Start", 0x0389d80, 0x0389e00 },
     { "Chariot's Changing Pal Start", 0x038a6c0, 0x038a700 },
     { "Chariot's Changing Pal Start", 0x038a740, 0x038a780 },
+    { "Pol Remote Activation Flash Start", 0x038a200, 0x038a280 },
     { "Polnareff Vs / Super Start", 0x0424100, 0x0424180 },
     { "Polnareff Challenger Start", 0x0424180, 0x0424200 },
 #ifndef USE_LARGE_PALETTES
@@ -2375,6 +2485,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
     { "Polnareff Select / Winning Start (2/2)", 0x0424280, 0x0424300 },
 #else
     { "Polnareff Select / Winning Start", 0x0424200, 0x0424300 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Polnareff Burning Start", 0x0389e00, 0x0389f00 },
+#else
+    { "Polnareff Burning Start (1/2)", 0x0389e00, 0x0389e80 },
+    { "Polnareff Burning Start (2/2)", 0x0389e80, 0x0389f00 },
 #endif
 };
 
@@ -2390,8 +2506,14 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_A[] =
 #else
     { "Joseph Select / Winning A", 0x0410d00, 0x0410e00 },
 #endif
-   { "Flash Back Manga Panels (Joseph 236aa)", 0x0335B80, 0x0335BC0 }, // maybe move into Extra or something?  a little awkward here
-   { "Lisa Lisa & Caesar (Joseph 236aa)", 0x0335C00, 0x0335C80 },
+#ifdef USE_LARGE_PALETTES
+    { "Joseph Burning A", 0x0339680, 0x0339780 },
+#else
+    { "Joseph Burning A (1/2)", 0x0339680, 0x0339700 },
+    { "Joseph Burning A (2/2)", 0x0339700, 0x0339780 },
+#endif
+    { "Flash Back Manga Panels (Joseph 236aa)", 0x0335B80, 0x0335BC0 }, // maybe move into Extra or something?  a little awkward here
+    { "Lisa Lisa & Caesar (Joseph 236aa)", 0x0335C00, 0x0335C80 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_B[] =
@@ -2405,6 +2527,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_B[] =
     { "Joseph Select / Winning B (2/2)", 0x0415b80, 0x0415c00 },
 #else
     { "Joseph Select / Winning B", 0x0415b00, 0x0415c00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Joseph Burning B", 0x034db80, 0x034dc80 },
+#else
+    { "Joseph Burning B (1/2)", 0x034db80, 0x034dc00 },
+    { "Joseph Burning B (2/2)", 0x034dc00, 0x034dc80 },
 #endif
 };
 
@@ -2420,6 +2548,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_C[] =
 #else
     { "Joseph Select / Winning C", 0x041a900, 0x041aa00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Joseph Burning C", 0x0362080, 0x0362180 },
+#else
+    { "Joseph Burning C (1/2)", 0x0362080, 0x0362100 },
+    { "Joseph Burning C (2/2)", 0x0362100, 0x0362180 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_S[] =
@@ -2434,6 +2568,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_S[] =
 #else
     { "Joseph Select / Winning S", 0x041f700, 0x041f800 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Joseph Burning S", 0x0376580, 0x0376680 },
+#else
+    { "Joseph Burning S (1/2)", 0x0376580, 0x0376600 },
+    { "Joseph Burning S (2/2)", 0x0376600, 0x0376680 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_Start[] =
@@ -2447,6 +2587,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_Start[] =
     { "Joseph Select / Winning Start (2/2)", 0x0424580, 0x0424600 },
 #else
     { "Joseph Select / Winning Start", 0x0424500, 0x0424600 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Joseph Burning Start", 0x038aa80, 0x038ab80 },
+#else
+    { "Joseph Burning Start (1/2)", 0x038aa80, 0x038ab00 },
+    { "Joseph Burning Start (2/2)", 0x038ab00, 0x038ab80 },
 #endif
 };
 
@@ -2468,6 +2614,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_A[] =
 #else
     { "Iggy Select / Winning A", 0x0411000, 0x0411100 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Iggy Burning A", 0x033a300, 0x033a400 },
+#else
+    { "Iggy Burning A (1/2)", 0x033a300, 0x033a380 },
+    { "Iggy Burning A (2/2)", 0x033a380, 0x033a400 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_B[] =
@@ -2487,6 +2639,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_B[] =
     { "Iggy Select / Winning B (2/2)", 0x0415e80, 0x0415f00 },
 #else
     { "Iggy Select / Winning B", 0x0415e00, 0x0415f00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Iggy Burning B", 0x034e800, 0x034e900 },
+#else
+    { "Iggy Burning B (1/2)", 0x034e800, 0x034e880 },
+    { "Iggy Burning B (2/2)", 0x034e880, 0x034e900 },
 #endif
 };
 
@@ -2508,6 +2666,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_C[] =
 #else
     { "Iggy Select / Winning C", 0x041ac00, 0x041ad00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Iggy Burning C", 0x0362d00, 0x0362e00 },
+#else
+    { "Iggy Burning C (1/2)", 0x0362d00, 0x0362d80 },
+    { "Iggy Burning C (2/2)", 0x0362d80, 0x0362e00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_S[] =
@@ -2527,6 +2691,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_S[] =
     { "Iggy Select / Winning S (2/2)", 0x041fa80, 0x041fb00 },
 #else
     { "Iggy Select / Winning S", 0x041fa00, 0x041fb00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Iggy Burning S", 0x0377200, 0x0377300 },
+#else
+    { "Iggy Burning S (1/2)", 0x0377200, 0x0377280 },
+    { "Iggy Burning S (2/2)", 0x0377280, 0x0377300 },
 #endif
 };
 
@@ -2548,6 +2718,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_Start[] =
 #else
     { "Iggy Select / Winning Start", 0x0424800, 0x0424900 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Iggy Burning Start", 0x038b700, 0x038b800 },
+#else
+    { "Iggy Burning Start (1/2)", 0x038b700, 0x038b780 },
+    { "Iggy Burning Start (2/2)", 0x038b780, 0x038b800 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_A[] =
@@ -2563,6 +2739,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_A[] =
     { "Alessi Select / Winning A (2/2)", 0x0411380, 0x0411400 },
 #else
     { "Alessi Select / Winning A", 0x0411300, 0x0411400 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Alessi Burning A", 0x033af80, 0x033b080 },
+#else
+    { "Alessi Burning A (1/2)", 0x033af80, 0x033b000 },
+    { "Alessi Burning A (2/2)", 0x033b000, 0x033b080 },
 #endif
 };
 
@@ -2580,6 +2762,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_B[] =
 #else
     { "Alessi Select / Winning B", 0x0416100, 0x0416200 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Alessi Burning B", 0x034f480, 0x034f580 },
+#else
+    { "Alessi Burning B (1/2)", 0x034f480, 0x034f500 },
+    { "Alessi Burning B (2/2)", 0x034f500, 0x034f580 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_C[] =
@@ -2595,6 +2783,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_C[] =
     { "Alessi Select / Winning C (2/2)", 0x041af80, 0x041b000 },
 #else
     { "Alessi Select / Winning C", 0x041af00, 0x041b000 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Alessi Burning C", 0x0363980, 0x0363a80 },
+#else
+    { "Alessi Burning C (1/2)", 0x0363980, 0x0363a00 },
+    { "Alessi Burning C (2/2)", 0x0363a00, 0x0363a80 },
 #endif
 };
 
@@ -2612,6 +2806,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_S[] =
 #else
     { "Alessi Select / Winning S", 0x041fd00, 0x041fe00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Alessi Burning S", 0x0377e80, 0x0377f80 },
+#else
+    { "Alessi Burning S (1/2)", 0x0377e80, 0x0377f00 },
+    { "Alessi Burning S (2/2)", 0x0377f00, 0x0377f80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_Start[] =
@@ -2628,6 +2828,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_Start[] =
 #else
     { "Alessi Select / Winning Start", 0x0424b00, 0x0424c00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Alessi Burning Start", 0x038c380, 0x038c480 },
+#else
+    { "Alessi Burning Start (1/2)", 0x038c380, 0x038c400 },
+    { "Alessi Burning Start (2/2)", 0x038c400, 0x038c480 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_A[] =
@@ -2638,6 +2844,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_A[] =
     { "Chaka Vs / Super A", 0x0411500, 0x0411580 },
     { "Chaka Challenger A", 0x0411580, 0x0411600 },
     { "Chaka Select / Winning A", 0x0411600, 0x0411680 },
+#ifdef USE_LARGE_PALETTES
+    { "Chaka Burning A ", 0x033bc00, 0x033bd00 },
+#else
+    { "Chaka Burning A  (1/2)", 0x033bc00, 0x033bc80 },
+    { "Chaka Burning A  (2/2)", 0x033bc80, 0x033bd00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_B[] =
@@ -2648,6 +2860,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_B[] =
     { "Chaka Vs / Super B", 0x0416300, 0x0416380 },
     { "Chaka Challenger B", 0x0416380, 0x0416400 },
     { "Chaka Select / Winning B", 0x0416400, 0x0416480 },
+#ifdef USE_LARGE_PALETTES
+    { "Chaka Burning B ", 0x0350100, 0x0350200 },
+#else
+    { "Chaka Burning B  (1/2)", 0x0350100, 0x0350180 },
+    { "Chaka Burning B  (2/2)", 0x0350180, 0x0350200 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_C[] =
@@ -2658,6 +2876,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_C[] =
     { "Chaka Vs / Super C", 0x041b100, 0x041b180 },
     { "Chaka Challenger C", 0x041b180, 0x041b200 },
     { "Chaka Select / Winning C", 0x041b200, 0x041b280 },
+#ifdef USE_LARGE_PALETTES
+    { "Chaka Burning C", 0x0364600, 0x0364700 },
+#else
+    { "Chaka Burning C (1/2)", 0x0364600, 0x0364680 },
+    { "Chaka Burning C (2/2)", 0x0364680, 0x0364700 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_S[] =
@@ -2668,6 +2892,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_S[] =
     { "Chaka Vs / Super S", 0x041ff00, 0x041ff80 },
     { "Chaka Challenger S", 0x041ff80, 0x0420000 },
     { "Chaka Select / Winning S", 0x0420000, 0x0420080 },
+#ifdef USE_LARGE_PALETTES
+    { "Chaka Burning S", 0x0378b00, 0x0378c00 },
+#else
+    { "Chaka Burning S (1/2)", 0x0378b00, 0x0378b80 },
+    { "Chaka Burning S (2/2)", 0x0378b80, 0x0378c00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_Start[] =
@@ -2678,6 +2908,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_Start[] =
     { "Chaka Vs / Super Start", 0x0424d00, 0x0424d80 },
     { "Chaka Challenger Start", 0x0424d80, 0x0424e00 },
     { "Chaka Select / Winning Start", 0x0424e00, 0x0424e80 },
+#ifdef USE_LARGE_PALETTES
+    { "Chaka Burning Start", 0x038d000, 0x038d100 },
+#else
+    { "Chaka Burning Start (1/2)", 0x038d000, 0x038d080 },
+    { "Chaka Burning Start (2/2)", 0x038d080, 0x038d100 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_A[] =
@@ -2700,6 +2936,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_A[] =
     { "Devo Select / Winning A (2/2)", 0x0411980, 0x0411a00 },
 #else
     { "Devo Select / Winning A", 0x0411900, 0x0411a00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Devo & Ebony Devil Burning A", 0x033c880, 0x033c980 },
+#else
+    { "Devo & Ebony Devil Burning A (1/2)", 0x033c880, 0x033c900 },
+    { "Devo & Ebony Devil Burning A (2/2)", 0x033c900, 0x033c980 },
 #endif
 };
 
@@ -2724,6 +2966,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_B[] =
 #else
     { "Devo Select / Winning B", 0x0416700, 0x0416800 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Devo & Ebony Devil Burning B", 0x0350d80, 0x0350e80 },
+#else
+    { "Devo & Ebony Devil Burning B (1/2)", 0x0350d80, 0x0350e00 },
+    { "Devo & Ebony Devil Burning B (2/2)", 0x0350e00, 0x0350e80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_C[] =
@@ -2746,6 +2994,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_C[] =
     { "Devo Select / Winning C (2/2)", 0x041b580, 0x041b600 },
 #else
     { "Devo Select / Winning C", 0x041b500, 0x041b600 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Devo & Ebony Devil Burning C", 0x0365280, 0x0365380 },
+#else
+    { "Devo & Ebony Devil Burning C (1/2)", 0x0365280, 0x0365300 },
+    { "Devo & Ebony Devil Burning C (2/2)", 0x0365300, 0x0365380 },
 #endif
 };
 
@@ -2770,6 +3024,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_S[] =
 #else
     { "Devo Select / Winning S", 0x0420300, 0x0420400 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Devo & Ebony Devil Burning S", 0x0379780, 0x0379880 },
+#else
+    { "Devo & Ebony Devil Burning S (1/2)", 0x0379780, 0x0379800 },
+    { "Devo & Ebony Devil Burning S (2/2)", 0x0379800, 0x0379880 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_Start[] =
@@ -2793,6 +3053,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_Start[] =
 #else
     { "Devo Select / Winning Start", 0x0425100, 0x0425200 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Devo & Ebony Devil Burning Star", 0x038dc80, 0x038dd80 }, 
+#else
+    { "Devo & Ebony Devil Burning Star (1/2)", 0x038dc80, 0x038dd00 }, 
+    { "Devo & Ebony Devil Burning Star (2/2)", 0x038dd00, 0x038dd80 }, 
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_A[] =
@@ -2814,6 +3080,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_A[] =
     { "Midler Select / Winning A (2/2)", 0x0411f80, 0x0412000 },
 #else
     { "Midler Select / Winning A", 0x0411f00, 0x0412000 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Midler & Burning A", 0x033e180, 0x033e280 },
+#else
+    { "Midler & Burning A (1/2)", 0x033e180, 0x033e200 },
+    { "Midler & Burning A (2/2)", 0x033e200, 0x033e280 },
 #endif
 };
 
@@ -2837,6 +3109,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_B[] =
 #else
     { "Midler Select / Winning B", 0x0416d00, 0x0416e00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Midler & Burning B", 0x0352680, 0x0352780 },
+#else
+    { "Midler & Burning B (1/2)", 0x0352680, 0x0352700 },
+    { "Midler & Burning B (2/2)", 0x0352700, 0x0352780 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_C[] =
@@ -2858,6 +3136,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_C[] =
     { "Midler Select / Winning C (2/2)", 0x041bb80, 0x041bc00 },
 #else
     { "Midler Select / Winning C", 0x041bb00, 0x041bc00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Midler & Burning C", 0x0366b80, 0x0366c80 },
+#else
+    { "Midler & Burning C (1/2)", 0x0366b80, 0x0366c00 },
+    { "Midler & Burning C (2/2)", 0x0366c00, 0x0366c80 },
 #endif
 };
 
@@ -2881,6 +3165,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_S[] =
 #else
     { "Midler Select / Winning S", 0x0420900, 0x0420a00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Midler & Burning S", 0x037b080, 0x037b180 },
+#else
+    { "Midler & Burning S (1/2)", 0x037b080, 0x037b100 },
+    { "Midler & Burning S (2/2)", 0x037b100, 0x037b180 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
@@ -2903,6 +3193,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
 #else
     { "Midler Select / Winning Start", 0x0425700, 0x0425800 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Midler & Burning Start", 0x038f580, 0x038f680 },
+#else
+    { "Midler & Burning Start (1/2)", 0x038f580, 0x038f600 },
+    { "Midler & Burning Start (2/2)", 0x038f600, 0x038f680 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_A[] =
@@ -2921,6 +3217,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_A[] =
     { "DIO Select / Winning A (2/2)", 0x0412280, 0x0412300 },
 #else
     { "DIO Select / Winning A", 0x0412200, 0x0412300 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "DIO & The World Burning A", 0x033ee00, 0x033ef00 },
+#else
+    { "DIO & The World Burning A (1/2)", 0x033ee00, 0x033ee80 },
+    { "DIO & The World Burning A (2/2)", 0x033ee80, 0x033ef00 },
 #endif
 };
 
@@ -2941,6 +3243,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_B[] =
 #else
     { "DIO Select / Winning B", 0x0417000, 0x0417100 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "DIO & The World Burning B", 0x0353300, 0x0353400 },
+#else
+    { "DIO & The World Burning B (1/2)", 0x0353300, 0x0353380 },
+    { "DIO & The World Burning B (2/2)", 0x0353380, 0x0353400 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_C[] =
@@ -2959,6 +3267,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_C[] =
     { "DIO Select / Winning C (2/2)", 0x041be80, 0x041bf00 },
 #else
     { "DIO Select / Winning C", 0x041be00, 0x041bf00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "DIO & The World Burning C", 0x0367800, 0x0367900 },
+#else
+    { "DIO & The World Burning C (1/2)", 0x0367800, 0x0367880 },
+    { "DIO & The World Burning C (2/2)", 0x0367880, 0x0367900 },
 #endif
 };
 
@@ -2979,6 +3293,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_S[] =
 #else
     { "DIO Select / Winning S", 0x0420c00, 0x0420d00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "DIO & The World Burning S", 0x037bd00, 0x037be00 },
+#else
+    { "DIO & The World Burning S (1/2)", 0x037bd00, 0x037bd80 },
+    { "DIO & The World Burning S (2/2)", 0x037bd80, 0x037be00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_Start[] =
@@ -2998,71 +3318,107 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_Start[] =
 #else
     { "DIO Select / Winning Start", 0x0425a00, 0x0425b00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "DIO & The World Burning Start", 0x0390200, 0x0390300 },
+#else
+    { "DIO & The World Burning Start (1/2)", 0x0390200, 0x0390280 },
+    { "DIO & The World Burning Start (2/2)", 0x0390280, 0x0390300 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_A[] =
 {
     { "Shadow DIO A", 0x0341300, 0x0341380 },
-    { "S.DIO Super trail A", 0x0341b80, 0x0341c00 },
-    { "S.World's White Trail A", 0x0341ac0, 0x0341ae0 },
-    { "S.World's Pink Trail A", 0x0341ec0, 0x0341ee0 },
-    { "S.World's Blue Trail A", 0x0341b40, 0x0341b60 },
+    { "623aa trail A", 0x0341b80, 0x0341c00 },
+    { "5s trail A", 0x0341ac0, 0x0341ae0 },
+    { "236aa trail A", 0x0341ec0, 0x0341ee0 },
+    { "41236s trail A", 0x0341b40, 0x0341b60 },
     { "Wang Chan A", 0x0341d00, 0x0341d40 },
     { "Shadow DIO Vs / Super A", 0x0412a00, 0x0412a80 },
     { "Shadow DIO Challenger A", 0x0412a80, 0x0412b00 },
     { "Shadow DIO Select / Winning A", 0x0412b00, 0x0412b80 },
+#ifdef USE_LARGE_PALETTES
+    { "Shadow DIO Burning A", 0x0341380, 0x0341480 },
+#else
+    { "Shadow DIO Burning A (1/2)", 0x0341380, 0x0341400 },
+    { "Shadow DIO Burning A (2/2)", 0x0341400, 0x0341480 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_B[] =
 {
     { "Shadow DIO B", 0x0355800, 0x0355880 },
-    { "S.DIO Super trail B", 0x0356080, 0x0356100 },
-    { "S.World's White Trail B", 0x0355fc0, 0x0356000 },
-    { "S.World's Pink Trail B", 0x03563c0, 0x0356400 },
-    { "S.World's Blue Trail B", 0x0356040, 0x0356060 },
+    { "623aa trail B", 0x0356080, 0x0356100 },
+    { "5s trail B", 0x0355fc0, 0x0356000 },
+    { "236aa trail B", 0x03563c0, 0x0356400 },
+    { "41236s trail B", 0x0356040, 0x0356060 },
     { "Wang Chan B", 0x0356200, 0x0356240 },
     { "Shadow DIO Vs / Super B", 0x0417800, 0x0417880 },
     { "Shadow DIO Challenger B", 0x0417880, 0x0417900 },
     { "Shadow DIO Select / Winning B", 0x0417900, 0x0417980 },
+#ifdef USE_LARGE_PALETTES
+    { "Shadow DIO Burning B", 0x0355880, 0x0355980 },
+#else
+    { "Shadow DIO Burning B (1/2)", 0x0355880, 0x0355900 },
+    { "Shadow DIO Burning B (2/2)", 0x0355900, 0x0355980 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_C[] =
 {
     { "Shadow DIO C", 0x0369d00, 0x0369d80 },
-    { "S.DIO Super trail C", 0x036a580, 0x036a600 },
-    { "S.World's White Trail C", 0x036a4c0, 0x036a500 },
-    { "S.World's Pink Trail C", 0x036a8c0, 0x036a900 },
-    { "S.World's Blue Trail C", 0x036a540, 0x036a560 },
+    { "623aa trail C", 0x036a580, 0x036a600 },
+    { "5s trail C", 0x036a4c0, 0x036a500 },
+    { "236aa trail C", 0x036a8c0, 0x036a900 },
+    { "41236s trail C", 0x036a540, 0x036a560 },
     { "Wang Chan C", 0x036a700, 0x036a740 },
     { "Shadow DIO Vs / Super C", 0x041c600, 0x041c680 },
     { "Shadow DIO Challenger C", 0x041c680, 0x041c700 },
     { "Shadow DIO Select / Winning Screen C", 0x041c700, 0x041c780 },
+#ifdef USE_LARGE_PALETTES
+    { "Shadow DIO Burning C", 0x0369d80, 0x0369e80 },
+#else
+    { "Shadow DIO Burning C (1/2)", 0x0369d80, 0x0369e00 },
+    { "Shadow DIO Burning C (2/2)", 0x0369e00, 0x0369e80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_S[] =
 {
     { "Shadow DIO S", 0x037e200, 0x037e280 },
-    { "S.DIO Super trail S", 0x037ea80, 0x037eb00 },
-    { "S.World's White Trail S", 0x037e9c0, 0x037ea00 },
-    { "S.World's Pink Trail S", 0x037edc0, 0x037ee00 },
-    { "S.World's Blue Trail S", 0x037ea40, 0x037ea60 },
+    { "623aa trail S", 0x037ea80, 0x037eb00 },
+    { "5s trail S", 0x037e9c0, 0x037ea00 },
+    { "236aa trail S", 0x037edc0, 0x037ee00 },
+    { "41236s trail S", 0x037ea40, 0x037ea60 },
     { "Wang Chan S", 0x037ec00, 0x037ec40 },
     { "Shadow DIO Vs / Super S", 0x0421400, 0x0421480 },
     { "Shadow DIO Challenger S", 0x0421480, 0x0421500 },
     { "Shadow DIO Select / Winning Screen S", 0x0421500, 0x0421580 },
+#ifdef USE_LARGE_PALETTES
+    { "Shadow DIO Burning S", 0x037e280, 0x037e380 },
+#else
+    { "Shadow DIO Burning S (1/2)", 0x037e280, 0x037e300 },
+    { "Shadow DIO Burning S (2/2)", 0x037e300, 0x037e380 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_Start[] =
 {
     { "Shadow DIO Start", 0x0392700, 0x0392780 },
-    { "S.DIO Super trail Start", 0x0392f80, 0x0393000 },
-    { "S.World's White Trail Start", 0x0392ec0, 0x0392f00 },
-    { "S.World's Pink Trail Start", 0x03932c0, 0x0393300 },
-    { "S.World's Blue Trail Start", 0x0392f40, 0x0392f60 },
+    { "623aa trail Start", 0x0392f80, 0x0393000 },
+    { "5s trail Start", 0x0392ec0, 0x0392f00 },
+    { "236aa trail Start", 0x03932c0, 0x0393300 },
+    { "41236s trail Start", 0x0392f40, 0x0392f60 },
     { "Wang Chan Start", 0x0393100, 0x0393140 },
     { "Shadow DIO Vs / Super Start", 0x0426200, 0x0426280 },
     { "Shadow DIO Challenger Start", 0x0426280, 0x0426300 },
     { "Shadow DIO Select / Winning Screen Start", 0x0426300, 0x0426380 },
+#ifdef USE_LARGE_PALETTES
+    { "Shadow DIO Burning Start", 0x0392780, 0x0392880 },
+#else
+    { "Shadow DIO Burning Start (1/2)", 0x0392780, 0x0392800 },
+    { "Shadow DIO Burning Start (2/2)", 0x0392800, 0x0392880 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_A[] =
@@ -3072,6 +3428,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_A[] =
     { "Young Joseph Challenger A", 0x0412d80, 0x0412e00 },
     { "Young Joseph Select / Winning Screen A", 0x0412e00, 0x0412e80 },
     { "Hamon Cola Flash A", 0x0342800, 0x0342880 },
+#ifdef USE_LARGE_PALETTES
+    { "Young Joseph Burning A", 0x0342000, 0x0342100 },
+#else
+    { "Young Joseph Burning A (1/2)", 0x0342000, 0x0342080 },
+    { "Young Joseph Burning A (2/2)", 0x0342080, 0x0342100 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_B[] =
@@ -3081,6 +3443,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_B[] =
     { "Young Joseph Challenger B", 0x0417b80, 0x0417c00 },
     { "Young Joseph Select / Winning B", 0x0417c00, 0x0417c80 },
     { "Hamon Cola Flash B", 0x0356D00, 0x0356D80 },
+#ifdef USE_LARGE_PALETTES
+    { "Young Joseph Burning B", 0x0356500, 0x0356600 },
+#else
+    { "Young Joseph Burning B (1/2)", 0x0356500, 0x0356580 },
+    { "Young Joseph Burning B (2/2)", 0x0356580, 0x0356600 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_C[] =
@@ -3090,6 +3458,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_C[] =
     { "Young Joseph Challenger C", 0x041c980, 0x041ca00 },
     { "Young Joseph Select / Winning C", 0x041ca00, 0x041ca80 },
     { "Hamon Cola Flash C", 0x036B200, 0x036B280 },
+#ifdef USE_LARGE_PALETTES
+    { "Young Joseph Burning C", 0x036aa00, 0x036ab00 },
+#else
+    { "Young Joseph Burning C (1/2)", 0x036aa00, 0x036aa80 },
+    { "Young Joseph Burning C (2/2)", 0x036aa80, 0x036ab00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_S[] =
@@ -3099,6 +3473,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_S[] =
     { "Young Joseph Challenger S", 0x0421780, 0x0421800 },
     { "Young Joseph Select / Winning Screen S", 0x0421800, 0x0421880 },
     { "Hamon Cola Flash S", 0x037F700, 0x037F780 },
+#ifdef USE_LARGE_PALETTES
+    { "Young Joseph Burning S", 0x037ef00, 0x037f000 },
+#else
+    { "Young Joseph Burning S (1/2)", 0x037ef00, 0x037ef80 },
+    { "Young Joseph Burning S (2/2)", 0x037ef80, 0x037f000 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_Start[] =
@@ -3108,6 +3488,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_Start[] =
     { "Young Joseph Challenger Start", 0x0426580, 0x0426600 },
     { "Young Joseph Select / Winning Screen Start", 0x0426600, 0x0426680 },
     { "Hamon Cola Flash Start", 0x0393C00, 0x0393C80 },
+#ifdef USE_LARGE_PALETTES
+    { "Young Joseph Burning Start", 0x0393400, 0x0393500 },
+#else
+    { "Young Joseph Burning Start (1/2)", 0x0393400, 0x0393480 },
+    { "Young Joseph Burning Start (2/2)", 0x0393480, 0x0393500 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_A[] =
@@ -3120,6 +3506,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_A[] =
     { "Hol Horse Vs / Super A", 0x0413000, 0x0413080 },
     { "Hol Horse Challenger A", 0x0413080, 0x0413100 },
     { "Hol Horse Select / Winning A", 0x0413100, 0x0413180 },
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse Burning A", 0x0342c80, 0x0342d80 },
+#else
+    { "Hol Horse Burning A (1/2)", 0x0342c80, 0x0342d00 },
+    { "Hol Horse Burning A (2/2)", 0x0342d00, 0x0342d80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
@@ -3132,6 +3524,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
     { "Hol Horse Challenger B", 0x0417e80, 0x0417f00 },
     { "Hol Horse Select / Winning B", 0x0417f00, 0x0417f80 },
     { "Hol's Intro/Winpose Stuff+Boingo B", 0x0357980, 0x0357a00 },
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse Burning B", 0x0357180, 0x0357280 },
+#else
+    { "Hol Horse Burning B (1/2)", 0x0357180, 0x0357200 },
+    { "Hol Horse Burning B (2/2)", 0x0357200, 0x0357280 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_C[] =
@@ -3144,6 +3542,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_C[] =
     { "Hol Horse Vs / Super C", 0x041cc00, 0x041cc80 },
     { "Hol Horse Challenger C", 0x041cc80, 0x041cd00 },
     { "Hol Horse Select / Winning C", 0x041cd00, 0x041cd80 },
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse Burning C", 0x036b680, 0x036b780 },
+#else
+    { "Hol Horse Burning C (1/2)", 0x036b680, 0x036b700 },
+    { "Hol Horse Burning C (2/2)", 0x036b700, 0x036b780 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
@@ -3156,6 +3560,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
     { "Hol Horse Vs / Super S", 0x0421a00, 0x0421a80 },
     { "Hol Horse Challenger S", 0x0421a80, 0x0421b00 },
     { "Hol Horse Select / Winning S", 0x0421b00, 0x0421b80 },
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse Burning S", 0x037fb80, 0x037fc80 },
+#else
+    { "Hol Horse Burning S (1/2)", 0x037fb80, 0x037fc00 },
+    { "Hol Horse Burning S (2/2)", 0x037fc00, 0x037fc80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_Start[] =
@@ -3168,6 +3578,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_Start[] =
     { "Hol Horse Vs / Super Start", 0x0426800, 0x0426880 },
     { "Hol Horse Challenger Start", 0x0426880, 0x0426900 },
     { "Hol Horse Select / Winning Screen Start", 0x0426900, 0x0426980 },
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse Burning Start", 0x0394080, 0x0394180 },
+#else
+    { "Hol Horse Burning Start (1/2)", 0x0394080, 0x0394100 },
+    { "Hol Horse Burning Start (2/2)", 0x0394100, 0x0394180 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_A[] =
@@ -3180,6 +3596,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_A[] =
     { "Vanilla Ice Select / Winning A (2/2)", 0x0413480, 0x0413500 },
 #else
     { "Vanilla Ice Select / Winning A", 0x0413400, 0x0413500 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Vanilla Ice Burning A", 0x0343900, 0x0343a00 },
+#else
+    { "Vanilla Ice Burning A (1/2)", 0x0343900, 0x0343980 },
+    { "Vanilla Ice Burning A (2/2)", 0x0343980, 0x0343a00 },
 #endif
 };
 
@@ -3194,6 +3616,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_B[] =
 #else
     { "Vanilla Ice Select / Winning B", 0x0418200, 0x0418300 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Vanilla Ice Burning B", 0x0357e00, 0x0357f00 },
+#else
+    { "Vanilla Ice Burning B (1/2)", 0x0357e00, 0x0357e80 },
+    { "Vanilla Ice Burning B (2/2)", 0x0357e80, 0x0357f00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_C[] =
@@ -3206,6 +3634,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_C[] =
     { "Vanilla Ice Select / Winning C (2/2)", 0x041d080, 0x041d100 },
 #else
     { "Vanilla Ice Select / Winning C", 0x041d000, 0x041d100 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Vanilla Ice Burning C", 0x036c300, 0x036c400 },
+#else
+    { "Vanilla Ice Burning C (1/2)", 0x036c300, 0x036c380 },
+    { "Vanilla Ice Burning C (2/2)", 0x036c380, 0x036c400 },
 #endif
 };
 
@@ -3220,6 +3654,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_S[] =
 #else
     { "Vanilla Ice Select / Winning S", 0x0421e00, 0x0421f00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Vanilla Ice Burning S", 0x0380800, 0x0380900 },
+#else
+    { "Vanilla Ice Burning S (1/2)", 0x0380800, 0x0380880 },
+    { "Vanilla Ice Burning S (2/2)", 0x0380880, 0x0380900 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_Start[] =
@@ -3232,6 +3672,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_Start[] =
     { "Vanilla Ice Select / Winning Start (2/2)", 0x0426c80, 0x0426d00 },
 #else
     { "Vanilla Ice Select / Winning Start", 0x0426c00, 0x0426d00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Vanilla Ice Burning Start", 0x0394d00, 0x0394e00 },
+#else
+    { "Vanilla Ice Burning Start (1/2)", 0x0394d00, 0x0394d80 },
+    { "Vanilla Ice Burning Start (2/2)", 0x0394d80, 0x0394e00 },
 #endif
 };
 
@@ -3259,6 +3705,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_A[] =
 #else
     { "New Kakyoin Select / Winning A", 0x0413700, 0x0413800 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "New Kakyoin Burning A", 0x0344580, 0x0344680 },
+#else
+    { "New Kakyoin Burning A (1/2)", 0x0344580, 0x0344600 },
+    { "New Kakyoin Burning A (2/2)", 0x0344600, 0x0344680 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_B[] =
@@ -3281,6 +3733,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_B[] =
     { "New Kakyoin Challenger B", 0x0418480, 0x0418500 },
     { "New Kakyoin Select / Winning B", 0x0418500, 0x0418580 },
     { "New Hierophant Select / Winning B", 0x0418580, 0x0418600 },
+#ifdef USE_LARGE_PALETTES
+    { "New Kakyoin Burning B", 0x0358a80, 0x0358b80 },
+#else
+    { "New Kakyoin Burning B (1/2)", 0x0358a80, 0x0358b00 },
+    { "New Kakyoin Burning B (2/2)", 0x0358b00, 0x0358b80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_C[] =
@@ -3304,6 +3762,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_C[] =
 #endif
     { "New Hierophant Sparkles C", 0x036db00, 0x036db20 },
     { "New Hierophant Raging Demon Trail C", 0x036d6a0, 0x036d720 },
+#ifdef USE_LARGE_PALETTES
+    { "New Kakyoin Burning C", 0x036cf80, 0x036d080 },
+#else
+    { "New Kakyoin Burning C (1/2)", 0x036cf80, 0x036d000 },
+    { "New Kakyoin Burning C (2/2)", 0x036d000, 0x036d080 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_S[] =
@@ -3326,6 +3790,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_S[] =
 #endif
     { "New Hierophant Sparkles S", 0x0382000, 0x0382020 },
     { "Raging Demon Trail S", 0x0381ba0, 0x0381c20 },
+#ifdef USE_LARGE_PALETTES
+    { "New Kakyoin Burning S", 0x0381480, 0x0381580 },
+#else
+    { "New Kakyoin Burning S (1/2)", 0x0381480, 0x0381500 },
+    { "New Kakyoin Burning S (2/2)", 0x0381500, 0x0381580 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_Start[] =
@@ -3349,71 +3819,107 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_Start[] =
     { "New Kakyoin Challenger Start", 0x0426e80, 0x0426f00 },
     { "New Kakyoin Select / Winning Start", 0x0426f00, 0x0426f80 },
     { "New Hierophant Select / Winning Start", 0x0426f80, 0x0427000 },
+#ifdef USE_LARGE_PALETTES
+    { "New Kakyoin Burning Start", 0x0395980, 0x0395a80 },
+#else
+    { "New Kakyoin Burning Start (1/2)", 0x0395980, 0x0395a00 },
+    { "New Kakyoin Burning Start (2/2)", 0x0395a00, 0x0395a80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_A[] =
 {
-    { "Black Polnareff A", 0x0345180, 0x0345200 },
-    { "Black Polnareff Vs / Super A", 0x0413900, 0x0413980 },
-    { "Black Polnareff Challenger A", 0x0413980, 0x0413a00 },
+    { "Anubis Polnareff A", 0x0345180, 0x0345200 },
+    { "Anubis Polnareff Vs / Super A", 0x0413900, 0x0413980 },
+    { "Anubis Polnareff Challenger A", 0x0413980, 0x0413a00 },
 #ifndef USE_LARGE_PALETTES
-    { "Black Polnareff Select / Winning A (1/2)", 0x0413a00, 0x0413a80 },
-    { "Black Polnareff Select / Winning A (2/2)", 0x0413a80, 0x0413b00 },
+    { "Anubis Polnareff Select / Winning A (1/2)", 0x0413a00, 0x0413a80 },
+    { "Anubis Polnareff Select / Winning A (2/2)", 0x0413a80, 0x0413b00 },
 #else
-    { "Black Polnareff Select / Winning A", 0x0413a00, 0x0413b00 },
+    { "Anubis Polnareff Select / Winning A", 0x0413a00, 0x0413b00 },
 #endif
-   { "Blood (Bpol super, etc)", 0x03359c0, 0x03359e0 },
+#ifdef USE_LARGE_PALETTES
+    { "Anubis Polnareff Burning A", 0x0345200, 0x0345300 },
+#else
+    { "Anubis Polnareff Burning A (1/2)", 0x0345200, 0x0345280 },
+    { "Anubis Polnareff Burning A (2/2)", 0x0345280, 0x0345300 },
+#endif
+    { "Blood (Bpol super, etc)", 0x03359c0, 0x03359e0 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_B[] =
 {
-    { "Black Polnareff B", 0x0359680, 0x0359700 },
-    { "Black Polnareff Vs / Super B", 0x0418700, 0x0418780 },
-    { "Black Polnareff Challenger B", 0x0418780, 0x0418800 },
+    { "Anubis Polnareff B", 0x0359680, 0x0359700 },
+    { "Anubis Polnareff Vs / Super B", 0x0418700, 0x0418780 },
+    { "Anubis Polnareff Challenger B", 0x0418780, 0x0418800 },
 #ifndef USE_LARGE_PALETTES
-    { "Black Polnareff Select / Winning B (1/2)", 0x0418800, 0x0418880 },
-    { "Black Polnareff Select / Winning B (2/2)", 0x0418880, 0x0418900 },
+    { "Anubis Polnareff Select / Winning B (1/2)", 0x0418800, 0x0418880 },
+    { "Anubis Polnareff Select / Winning B (2/2)", 0x0418880, 0x0418900 },
 #else
-    { "Black Polnareff Select / Winning B", 0x0418800, 0x0418900 },
+    { "Anubis Polnareff Select / Winning B", 0x0418800, 0x0418900 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Anubis Polnareff Burning B", 0x0359700, 0x0359800 },
+#else
+    { "Anubis Polnareff Burning B (1/2)", 0x0359700, 0x0359780 },
+    { "Anubis Polnareff Burning B (2/2)", 0x0359780, 0x0359800 },
 #endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_C[] =
 {
-    { "Black Polnareff C", 0x036db80, 0x036dc00 },
-    { "Black Polnareff Vs / Super C", 0x041d500, 0x041d580 },
-    { "Black Polnareff Challenger C", 0x041d580, 0x041d600 },
+    { "Anubis Polnareff C", 0x036db80, 0x036dc00 },
+    { "Anubis Polnareff Vs / Super C", 0x041d500, 0x041d580 },
+    { "Anubis Polnareff Challenger C", 0x041d580, 0x041d600 },
 #ifndef USE_LARGE_PALETTES
-    { "Black Polnareff Select / Winning C (1/2)", 0x041d600, 0x041d680 },
-    { "Black Polnareff Select / Winning C (2/2)", 0x041d680, 0x041d700 },
+    { "Anubis Polnareff Select / Winning C (1/2)", 0x041d600, 0x041d680 },
+    { "Anubis Polnareff Select / Winning C (2/2)", 0x041d680, 0x041d700 },
 #else
-    { "Black Polnareff Select / Winning C", 0x041d600, 0x041d700 },
+    { "Anubis Polnareff Select / Winning C", 0x041d600, 0x041d700 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Anubis Polnareff Burning C", 0x036dc00, 0x036dd00 },
+#else
+    { "Anubis Polnareff Burning C (1/2)", 0x036dc00, 0x036dc80 },
+    { "Anubis Polnareff Burning C (2/2)", 0x036dc80, 0x036dd00 },
 #endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_S[] =
 {
-    { "Black Polnareff S", 0x0382080, 0x0382100 },
-    { "Black Polnareff Vs / Super S", 0x0422300, 0x0422380 },
-    { "Black Polnareff Challenger S", 0x0422380, 0x0422400 },
+    { "Anubis Polnareff S", 0x0382080, 0x0382100 },
+    { "Anubis Polnareff Vs / Super S", 0x0422300, 0x0422380 },
+    { "Anubis Polnareff Challenger S", 0x0422380, 0x0422400 },
 #ifndef USE_LARGE_PALETTES
-    { "Black Polnareff Select / Winning S (1/2)", 0x0422400, 0x0422480 },
-    { "Black Polnareff Select / Winning S (2/2)", 0x0422480, 0x0422500 },
+    { "Anubis Polnareff Select / Winning S (1/2)", 0x0422400, 0x0422480 },
+    { "Anubis Polnareff Select / Winning S (2/2)", 0x0422480, 0x0422500 },
 #else
-    { "Black Polnareff Select / Winning S", 0x0422400, 0x0422500 },
+    { "Anubis Polnareff Select / Winning S", 0x0422400, 0x0422500 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Anubis Polnareff Burning S", 0x0382100, 0x0382200 },
+#else
+    { "Anubis Polnareff Burning S (1/2)", 0x0382100, 0x0382180 },
+    { "Anubis Polnareff Burning S (2/2)", 0x0382180, 0x0382200 },
 #endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_Start[] =
 {
-    { "Black Polnareff Start", 0x0396580, 0x0396600 },
-    { "Black Polnareff Vs / Super Start", 0x0427100, 0x0427180 },
-    { "Black Polnareff Challenger Start", 0x0427180, 0x0427200 },
+    { "Anubis Polnareff Start", 0x0396580, 0x0396600 },
+    { "Anubis Polnareff Vs / Super Start", 0x0427100, 0x0427180 },
+    { "Anubis Polnareff Challenger Start", 0x0427180, 0x0427200 },
 #ifndef USE_LARGE_PALETTES
-    { "Black Polnareff Select / Winning Start (1/2)", 0x0427200, 0x0427280 },
-    { "Black Polnareff Select / Winning Start (2/2)", 0x0427280, 0x0427300 },
+    { "Anubis Polnareff Select / Winning Start (1/2)", 0x0427200, 0x0427280 },
+    { "Anubis Polnareff Select / Winning Start (2/2)", 0x0427280, 0x0427300 },
 #else
-    { "Black Polnareff Select / Winning Start", 0x0427200, 0x0427300 },
+    { "Anubis Polnareff Select / Winning Start", 0x0427200, 0x0427300 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Anubis Polnareff Burning Start", 0x0396600, 0x0396700 },
+#else
+    { "Anubis Polnareff Burning Start (1/2)", 0x0396600, 0x0396680 },
+    { "Anubis Polnareff Burning Start (2/2)", 0x0396680, 0x0396700 },
 #endif
 };
 
@@ -3429,6 +3935,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_A[] =
 #else
     { "Petshop Select / Winning A", 0x0413d00, 0x0413e00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Petshop Burning A", 0x0345e80, 0x0345f80 },
+#else
+    { "Petshop Burning A (1/2)", 0x0345e80, 0x0345f00 },
+    { "Petshop Burning A (2/2)", 0x0345f00, 0x0345f80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_B[] =
@@ -3442,6 +3954,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_B[] =
     { "Petshop Select / Winning B (2/2)", 0x0418b80, 0x0418c00 },
 #else
     { "Petshop Select / Winning B", 0x0418b00, 0x0418c00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Petshop Burning B", 0x035a380, 0x035a480 },
+#else
+    { "Petshop Burning B (1/2)", 0x035a380, 0x035a400 },
+    { "Petshop Burning B (2/2)", 0x035a400, 0x035a480 },
 #endif
 };
 
@@ -3457,6 +3975,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_C[] =
 #else
     { "Petshop Select / Winning C", 0x041d900, 0x041da00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Petshop Burning C", 0x036e880, 0x036e980 },
+#else
+    { "Petshop Burning C (1/2)", 0x036e880, 0x036e900 },
+    { "Petshop Burning C (2/2)", 0x036e900, 0x036e980 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_S[] =
@@ -3471,6 +3995,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_S[] =
 #else
     { "Petshop Select / Winning S", 0x0422700, 0x0422800 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Petshop Burning S", 0x0382d80, 0x0382e80 },
+#else
+    { "Petshop Burning S (1/2)", 0x0382d80, 0x0382e00 },
+    { "Petshop Burning S (2/2)", 0x0382e00, 0x0382e80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_Start[] =
@@ -3484,6 +4014,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_Start[] =
     { "Petshop Select / Winning Start (2/2)", 0x0427580, 0x0427600 },
 #else
     { "Petshop Select / Winning Start", 0x0427500, 0x0427600 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Petshop Burning Start", 0x0397280, 0x0397380 },
+#else
+    { "Petshop Burning Start (1/2)", 0x0397280, 0x0397300 },
+    { "Petshop Burning Start (2/2)", 0x0397300, 0x0397380 },
 #endif
 };
 
@@ -3501,6 +4037,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_A[] =
     { "Mariah Vs / Super A", 0x0414200, 0x0414280 },
     { "Mariah Challenger A", 0x0414280, 0x0414300 },
     { "Mariah Select / Winning A", 0x0414300, 0x0414380 },
+#ifdef USE_LARGE_PALETTES
+    { "Mariah Burning A", 0x0347780, 0x0347880 },
+#else
+    { "Mariah Burning A (1/2)", 0x0347780, 0x0347800 },
+    { "Mariah Burning A (2/2)", 0x0347800, 0x0347880 },
+#endif
     { "Mariah Level (Player 1 only)", 0x07C01A0, 0x07C01C0 },
 };
 
@@ -3518,6 +4060,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_B[] =
     { "Mariah Vs / Super B", 0x0419000, 0x0419080 },
     { "Mariah Challenger B", 0x0419080, 0x0419100 },
     { "Mariah Select / Winning B", 0x0419100, 0x0419180 },
+#ifdef USE_LARGE_PALETTES
+    { "Mariah Burning B", 0x035bc80, 0x035bd80 },
+#else
+    { "Mariah Burning B (1/2)", 0x035bc80, 0x035bd00 },
+    { "Mariah Burning B (2/2)", 0x035bd00, 0x035bd80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_C[] =
@@ -3534,6 +4082,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_C[] =
     { "Mariah Vs / Super C", 0x041de00, 0x041de80 },
     { "Mariah Challenger C", 0x041de80, 0x041df00 },
     { "Mariah Select / Winning C", 0x041df00, 0x041df80 },
+#ifdef USE_LARGE_PALETTES
+    { "Mariah Burning C", 0x0370180, 0x0370280 },
+#else
+    { "Mariah Burning C (1/2)", 0x0370180, 0x0370200 },
+    { "Mariah Burning C (2/2)", 0x0370200, 0x0370280 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_S[] =
@@ -3550,6 +4104,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_S[] =
     { "Mariah Vs / Super S", 0x0422c00, 0x0422c80 },
     { "Mariah Challenger S", 0x0422c80, 0x0422d00 },
     { "Mariah Select / Winning S", 0x0422d00, 0x0422d80 },
+#ifdef USE_LARGE_PALETTES
+    { "Mariah Burning S", 0x0384680, 0x0384780 },
+#else
+    { "Mariah Burning S (1/2)", 0x0384680, 0x0384700 },
+    { "Mariah Burning S (2/2)", 0x0384700, 0x0384780 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_Start[] =
@@ -3566,6 +4126,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_Start[] =
     { "Mariah Vs / Super Start", 0x0427a00, 0x0427a80 },
     { "Mariah Challenger Start", 0x0427a80, 0x0427b00 },
     { "Mariah Select / Winning Start", 0x0427b00, 0x0427b80 },
+#ifdef USE_LARGE_PALETTES
+    { "Mariah Burning Start", 0x0398b80, 0x0398c80 },
+#else
+    { "Mariah Burning Start (1/2)", 0x0398b80, 0x0398c00 },
+    { "Mariah Burning Start (2/2)", 0x0398c00, 0x0398c80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_A[] =
@@ -3580,6 +4146,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_A[] =
     { "Hol & Boingo Select / Winning A (2/2)", 0x0414680, 0x0414700 },
 #else
     { "Hol & Boingo Select / Winning A", 0x0414600, 0x0414700 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol & Boingo Burning A", 0x0348400, 0x0348500 },
+#else
+    { "Hol & Boingo Burning A (1/2)", 0x0348400, 0x0348480 },
+    { "Hol & Boingo Burning A (2/2)", 0x0348480, 0x0348500 },
 #endif
 };
 
@@ -3596,6 +4168,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_B[] =
 #else
     { "Hol & Boingo Select / Winning B", 0x0419400, 0x0419500 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol & Boingo Burning B", 0x035c900, 0x035ca00 },
+#else
+    { "Hol & Boingo Burning B (1/2)", 0x035c900, 0x035c980 },
+    { "Hol & Boingo Burning B (2/2)", 0x035c980, 0x035ca00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_C[] =
@@ -3610,6 +4188,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_C[] =
     { "Hol & Boingo Select / Winning C (2/2)", 0x041e280, 0x041e300 },
 #else
     { "Hol & Boingo Select / Winning C", 0x041e200, 0x041e300 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol & Boingo Burning C", 0x0370e00, 0x0370f00 },
+#else
+    { "Hol & Boingo Burning C (1/2)", 0x0370e00, 0x0370e80 },
+    { "Hol & Boingo Burning C (2/2)", 0x0370e80, 0x0370f00 },
 #endif
 };
 
@@ -3626,6 +4210,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_S[] =
 #else
     { "Hol & Boingo Select / Winning S", 0x0423000, 0x0423100 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol & Boingo Burning S", 0x0385300, 0x0385400 },
+#else
+    { "Hol & Boingo Burning S (1/2)", 0x0385300, 0x0385380 },
+    { "Hol & Boingo Burning S (2/2)", 0x0385380, 0x0385400 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_Start[] =
@@ -3641,6 +4231,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_Start[] =
 #else
     { "Hol & Boingo Select / Winning Start", 0x0427e00, 0x0427f00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol & Boingo Burning Start", 0x0399800, 0x0399900 },
+#else
+    { "Hol & Boingo Burning Start (1/2)", 0x0399800, 0x0399880 },
+    { "Hol & Boingo Burning Start (2/2)", 0x0399880, 0x0399900 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_A[] =
@@ -3650,6 +4246,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_A[] =
     { "Rubber Soul Vs / Super A", 0x0414800, 0x0414880 },
     { "Rubber Soul Challenger A", 0x0414880, 0x0414900 },
     { "Rubber Soul Select / Winning A", 0x0414900, 0x0414980 },
+#ifdef USE_LARGE_PALETTES
+    { "Rubber Soul Burning A", 0x0349080, 0x0349180 },
+#else
+    { "Rubber Soul Burning A (1/2)", 0x0349080, 0x0349100 },
+    { "Rubber Soul Burning A (2/2)", 0x0349100, 0x0349180 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_B[] =
@@ -3659,6 +4261,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_B[] =
     { "Rubber Soul Vs / Super B", 0x0419600, 0x0419680 },
     { "Rubber Soul Challenger B", 0x0419680, 0x0419700 },
     { "Rubber Soul Select / Winning B", 0x0419700, 0x0419780 },
+#ifdef USE_LARGE_PALETTES
+    { "Rubber Soul Burning B", 0x035d580, 0x035d680 },
+#else
+    { "Rubber Soul Burning B (1/2)", 0x035d580, 0x035d600 },
+    { "Rubber Soul Burning B (2/2)", 0x035d600, 0x035d680 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_C[] =
@@ -3668,6 +4276,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_C[] =
     { "Rubber Soul Vs / Super C", 0x041e400, 0x041e480 },
     { "Rubber Soul Challenger C", 0x041e480, 0x041e500 },
     { "Rubber Soul Select / Winning C", 0x041e500, 0x041e580 },
+#ifdef USE_LARGE_PALETTES
+    { "Rubber Soul Burning C", 0x0371a80, 0x0371b80 },
+#else
+    { "Rubber Soul Burning C (1/2)", 0x0371a80, 0x0371b00 },
+    { "Rubber Soul Burning C (2/2)", 0x0371b00, 0x0371b80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_S[] =
@@ -3677,6 +4291,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_S[] =
     { "Rubber Soul Vs / Super S", 0x0423200, 0x0423280 },
     { "Rubber Soul Challenger S", 0x0423280, 0x0423300 },
     { "Rubber Soul Select / Winning S", 0x0423300, 0x0423380 },
+#ifdef USE_LARGE_PALETTES
+    { "Rubber Soul Burning S", 0x0385f80, 0x0386080 },
+#else
+    { "Rubber Soul Burning S (1/2)", 0x0385f80, 0x0386000 },
+    { "Rubber Soul Burning S (2/2)", 0x0386000, 0x0386080 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_Start[] =
@@ -3686,6 +4306,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_Start[] =
     { "Rubber Soul Select / Winning Start", 0x0428100, 0x0428180 },
     { "Rubber Soul Start", 0x039a400, 0x039a480 },
     { "Rubber Child TF Start", 0x039ab80, 0x039ac00 },
+#ifdef USE_LARGE_PALETTES
+    { "Rubber Soul Burning Start", 0x039a480, 0x039a580 },
+#else
+    { "Rubber Soul Burning Start (1/2)", 0x039a480, 0x039a500 },
+    { "Rubber Soul Burning Start (2/2)", 0x039a500, 0x039a580 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_A[] =
@@ -3698,6 +4324,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_A[] =
     { "Khan Vs/Super A", 0x0414b00, 0x0414b80 },
     { "Khan Challenger A", 0x0414b80, 0x0414c00 },
     { "Khan Select/Winning A", 0x0414c00, 0x0414c80 },
+#ifdef USE_LARGE_PALETTES
+    { "Khan Burning A", 0x0349d00, 0x0349e00 },
+#else
+    { "Khan Burning A (1/2)", 0x0349d00, 0x0349d80 },
+    { "Khan Burning A (2/2)", 0x0349d80, 0x0349e00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_B[] =
@@ -3710,6 +4342,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_B[] =
     { "Khan Vs/Super B", 0x0419900, 0x0419980 },
     { "Khan Challenger B", 0x0419980, 0x0419a00 },
     { "Khan Select/Winning B", 0x0419a00, 0x0419a80 },
+#ifdef USE_LARGE_PALETTES
+    { "Khan Burning B", 0x035e200, 0x035e300 },
+#else
+    { "Khan Burning B (1/2)", 0x035e200, 0x035e280 },
+    { "Khan Burning B (2/2)", 0x035e280, 0x035e300 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_C[] =
@@ -3722,6 +4360,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_C[] =
     { "Khan Vs/Super C", 0x041e700, 0x041e780 },
     { "Khan Challenger C", 0x041e780, 0x041e800 },
     { "Khan Select/Winning C", 0x041e800, 0x041e880 },
+#ifdef USE_LARGE_PALETTES
+    { "Khan Burning C", 0x0372700, 0x0372800 },
+#else
+    { "Khan Burning C (1/2)", 0x0372700, 0x0372780 },
+    { "Khan Burning C (2/2)", 0x0372780, 0x0372800 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_S[] =
@@ -3734,6 +4378,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_S[] =
     { "Khan Vs/Super S", 0x0423500, 0x0423580 },
     { "Khan Challenger S", 0x0423580, 0x0423600 },
     { "Khan Select/Winning S", 0x0423600, 0x0423680 },
+#ifdef USE_LARGE_PALETTES
+    { "Khan Burning S", 0x0386c00, 0x0386d00 },
+#else
+    { "Khan Burning S (1/2)", 0x0386c00, 0x0386c80 },
+    { "Khan Burning S (2/2)", 0x0386c80, 0x0386d00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_Start[] =
@@ -3746,6 +4396,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_Start[] =
     { "Khan Vs/Super Start", 0x0428300, 0x0428380 },
     { "Khan Challenger Start", 0x0428380, 0x0428400 },
     { "Khan Select/Winning Start", 0x0428400, 0x0428480 },
+#ifdef USE_LARGE_PALETTES
+    { "Khan Burning Start", 0x039b100, 0x039b200 },
+#else
+    { "Khan Burning Start (1/2)", 0x039b100, 0x039b180 },
+    { "Khan Burning Start (2/2)", 0x039b180, 0x039b200 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_A[] =
@@ -4051,65 +4707,76 @@ const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_DEATH13[] =
 #pragma endregion Jojo_Characters
 
 #pragma region Bonus
+
+// Note that this is intentionally sorted: don't alphabetize
 const sJOJOS_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
 {
-    { "Challenge & Story signs", 0x030d480, 0x030d4c0 },
-    { "Character Select Background", 0x0310100, 0x0310160 },
-    { "Character Select Comic", 0x0310000, 0x0310080 },
-    { "D'Arby", 0x0311a00, 0x0311a80 },
-    { "Darby Chips", 0x0311d00, 0x0311d80 },
-    { "Extra characters page arrows", 0x0310500, 0x0310540 },
-    { "Game Over Text", 0x0311a80, 0x0311b00 },
-    { "Menu Cards", 0x030db40, 0x030db80 },
     { "Mode Select Frame", 0x030d4e0, 0x030d500 },
     { "Mode Select Text", 0x0311a90, 0x0311aa0 },
-    { "Osiris Arms", 0x0311b80, 0x0311c00 },
-    { "Osiris Body", 0x0311b00, 0x0311b80 },
+    { "Menu Cards", 0x030db40, 0x030db80 },
+    { "Challenge & Story signs", 0x030d480, 0x030d4c0 },
+    { "Character Select Background", 0x0310100, 0x0310160 },
     { "Selector Rings", 0x0310080, 0x03100c0 },
+    { "Character Select Comic", 0x0310000, 0x0310080 },
+    { "Extra characters page arrows", 0x0310500, 0x0310540 },
     { "Vs screen Background", 0x030d000, 0x030d080 },
     { "Win screen Background", 0x0310200, 0x0310280 },
+    { "D'Arby", 0x0311a00, 0x0311a80 },
+    { "Darby Chips", 0x0311d00, 0x0311d80 },
+    { "Osiris Arms", 0x0311b80, 0x0311c00 },
+    { "Osiris Body", 0x0311b00, 0x0311b80 },
+    { "Game Over Text", 0x0311a80, 0x0311b00 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
 {
-    { "Capcom Background 1",    0x030C320, 0x030C340 },
-    { "Hol horse gun scene",    0x030C400, 0x030C480 },
-    { "Hol horse intro Body",   0x030c600, 0x030c680 },
-    { "Hol horse intro Hand",   0x030c580, 0x030c600 },
-    { "Title Screen Background", 0x030b0a0, 0x030b0b0 },
-    { "Title Screen DIO Manga", 0x030c900, 0x030c980 },
-    { "Title Screen DIO",       0x030c500, 0x030c580 },
-    { "Title Screen Jotaro Manga", 0x030cb00, 0x030cb80 },
-    { "Title Screen Jotaro",    0x030c480, 0x030c500 },
-    { "Title Screen Logo Ribbon", 0x030c700, 0x030c780 },
-    { "Title Screen Logo",      0x030c680, 0x030c700 },
+    { "Capcom Backgrounds",     0x030C300, 0x030C340 },
+    { "Hol Horse intro Body",   0x030c600, 0x030c680 },
+    { "Hol Horse intro Hand",   0x030c580, 0x030c600 },
+    { "Hol Horse shoot scene",  0x030C400, 0x030C480 },
     { "Vanilla Ice intro",      0x030ba00, 0x030ba80 },
-    { "Vice Cream intro",       0x030ba80, 0x030bb00 },
+    { "Cream intro",            0x030ba80, 0x030bb00 },
+#ifndef USE_LARGE_PALETTES
+    { "Intro Manga Panels (1/5)", 0x030b780, 0x030b800 },
+    { "Intro Manga Panels (2/5)", 0x030b800, 0x030b880 },
+    { "Intro Manga Panels (3/5)", 0x030b880, 0x030b900 },
+    { "Intro Manga Panels (4/5)", 0x030b900, 0x030b980 },
+    { "Intro Manga Panels (5/5)", 0x030b980, 0x030ba00 },
+#else
+    { "Intro Manga Panels", 0x030b780, 0x030ba00 },
+#endif
+    { "Title Screen DIO",       0x030c500, 0x030c580 },
+    { "Title Screen DIO Manga", 0x030c900, 0x030c980 },
+    { "Title Screen Jotaro",    0x030c480, 0x030c500 },
+    { "Title Screen Jotaro Manga", 0x030cb00, 0x030cb80 },
+    { "Title Screen Logo",      0x030c680, 0x030c700 },
+    { "Title Screen Logo Ribbon", 0x030c700, 0x030c780 },
+    { "Title Screen Background", 0x030b0a0, 0x030b0b0 },
     { "World Map",              0x0313780, 0x0313800 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
 {
     { "Aja Stone", 0x0335800, 0x0335840 },
-    { "Blocksparks", 0x03358d0, 0x03358e0 },
     { "Blood (Sdio grab, bpol grab,etc)", 0x0335878, 0x0335880 },
+    { "Zap Effects", 0x0335840, 0x0335860 },
+    { "Blocksparks", 0x03358d0, 0x03358e0 },
     { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
-    { "Round 1,2,3 Text", 0x030ce00, 0x030ce60 },
-    { "Stand Clash Background", 0x030d100, 0x030d180 },
-    { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
-    { "Stand Crash Mask Frame 2", 0x030CF40, 0x030CF80 },
-    { "Super KO Background", 0x030d082, 0x030d102 },
-    { "Super KO Portrait", 0x030ce80, 0x030cec0 },
-    { "Super's Flash", 0x0335840, 0x0335850 },
+    { "Super Flash", 0x0335840, 0x0335850 },
     { "Tandem Aura", 0x0335930, 0x0335940 },
     { "Tandem Background", 0x030d900, 0x030d980 },
-    { "Win text (character)", 0x030cc40, 0x030cc60 },
-    { "Win text (WIN)", 0x030cca0, 0x030ccc0 },
-    { "Zap Effects", 0x0335840, 0x0335860 },
+    { "Stand Clash Background", 0x030d100, 0x030d180 },
+    { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
+    { "Stand Crash Mask Background 2", 0x030CF40, 0x030CF80 },
+    { "Super KO Background", 0x030d082, 0x030d102 },
+    { "Super KO Portrait", 0x030ce80, 0x030cec0 },
+    { "\"Round 1,2,3\" Text", 0x030ce00, 0x030ce60 },
     { "\"Fight\" & \"Down\" Text", 0x030cd80, 0x030ce00 },
     { "\"KO\"", 0x030cd20, 0x030cd40 },
-    { "\"Perfect\"", 0X030CD40, 0X030CD60 },
+    { "\"PERFECT\"", 0X030CD40, 0X030CD60 },
     { "\"Retired\"", 0x030CC20, 0x030CC40 },
+    { "Win text (character)", 0x030cc40, 0x030cc60 },
+    { "Win text (WIN)", 0x030cca0, 0x030ccc0 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_BONUS_NODE_SUPERBACKGROUND[] =
@@ -4168,18 +4835,13 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_NODE_FADEBACKGROUND[] =
 const sJOJOS_PaletteDataset JOJOS_BONUS_NODE_INTRO_MANGA[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { "Intro Manga Panels (1/10)", 0x030b780, 0x030b7c0 },
-    { "Intro Manga Panels (2/10)", 0x030b7c0, 0x030b800 },
-    { "Intro Manga Panels (3/10)", 0x030b800, 0x030b840 },
-    { "Intro Manga Panels (4/10)", 0x030b840, 0x030b880 },
-    { "Intro Manga Panels (5/10)", 0x030b880, 0x030b8c0 },
-    { "Intro Manga Panels (6/10)", 0x030b8c0, 0x030b900 },
-    { "Intro Manga Panels (7/10)", 0x030b900, 0x030b940 },
-    { "Intro Manga Panels (8/10)", 0x030b940, 0x030b980 },
-    { "Intro Manga Panels (9/10)", 0x030b980, 0x030b9c0 },
-    { "Intro Manga Panels (10/10)", 0x030b9c0, 0x030ba00 },
+    { "Intro Manga Panels (1/5)", 0x030b780, 0x030b800 },
+    { "Intro Manga Panels (2/5)", 0x030b800, 0x030b880 },
+    { "Intro Manga Panels (3/5)", 0x030b880, 0x030b900 },
+    { "Intro Manga Panels (4/5)", 0x030b900, 0x030b980 },
+    { "Intro Manga Panels (5/5)", 0x030b980, 0x030ba00 },
 #else
-    { "Intro Manga Panels", 0x030B780, 0x030BA00 },
+    { "Intro Manga Panels", 0x030b780, 0x030ba00 },
 #endif
 };
 
@@ -4188,8 +4850,9 @@ const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
     { "Intro", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_INTRO_PALETTES, ARRAYSIZE(JOJOS_BONUS_INTRO_PALETTES) },
     { "Menu", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_MENU_PALETTES, ARRAYSIZE(JOJOS_BONUS_MENU_PALETTES) },
     { "In Game", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_INGAME_PALETTES, ARRAYSIZE(JOJOS_BONUS_INGAME_PALETTES) },
-    //{ "Fade Background (Challenge Screen / Demo)", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_FADEBACKGROUND, ARRAYSIZE(JOJOS_BONUS_NODE_FADEBACKGROUND) },
-    { "Intro Manga Panels", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_INTRO_MANGA, ARRAYSIZE(JOJOS_BONUS_NODE_INTRO_MANGA) },
+    { "Fade Background (Challenge Screen / Demo)", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_FADEBACKGROUND, ARRAYSIZE(JOJOS_BONUS_NODE_FADEBACKGROUND) },
+    // Pushing these directly into INTRO
+    //{ "Intro Manga Panels", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_INTRO_MANGA, ARRAYSIZE(JOJOS_BONUS_NODE_INTRO_MANGA) },
     { "Super Screen Background", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_NODE_SUPERBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_NODE_SUPERBACKGROUND) },
 };
 
@@ -5048,7 +5711,7 @@ const sDescTreeNode JOJOS_UNITS_51[ARRAYSIZE(JOJOS_A_UNITDESC_51)] =
     { "Hol ", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_HOL, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_HOL) },
     { "Vanilla Ice", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_VICE, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_VICE) },
     { "New Kakyoin & Hierophant", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_HIERO, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_HIERO) },
-    { "Black Polnareff", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_BPOL, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_BPOL) },
+    { "Anubis Polnareff", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_BPOL, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_BPOL) },
     { "Petshop", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_SHOP, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_SHOP) },
     { "Mariah", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_MARIAH, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_MARIAH) },
     { "Hol and Boingo", DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_HOLBOINGO, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_HOLBOINGO) },

@@ -92,7 +92,6 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         pPopupMenu->EnableMenuItem(ID_FILE_CLOSEFILEDIR, !(UINT32)GetHost()->GetCurrGame());
         pPopupMenu->EnableMenuItem(ID_FILE_LOADLASTUSEDDIR, !GetLastUsedDirectory(NULL, NULL, NULL, TRUE));
     }
-
     else if (pPopupMenu == m_SubEditMenu)
     {
         pPopupMenu->EnableMenuItem(ID_EDIT_UNDO, !UndoProc.GetUndoCount());
@@ -104,7 +103,6 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         pPopupMenu->EnableMenuItem(ID_EDIT_SELECTALL, !m_PalHost.GetNotifyPal()->GetWorkingAmt());
         pPopupMenu->EnableMenuItem(ID_EDIT_SELECTNONE, !m_PalHost.GetNotifyPal()->GetWorkingAmt());
     }
-
     else if (pPopupMenu == m_SubToolMenu)
     {
         int i = 0, nMenuID;

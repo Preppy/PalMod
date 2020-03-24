@@ -118,6 +118,24 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                     const int nTotalPagesNeeded = (int)ceil((double)nDiff / (double)MAX_PALETTE_SIZE);
                     int nCurrentPage = 1;
 
+#ifdef DUMP_EXTRAS_ON_LOAD // You can use this to convert Extras file content into usable headers.
+                    CString strText;
+
+                    bool fPaletteUsesMultiplePages = (nDiff > MAX_PALETTE_SIZE);
+
+                    if (fPaletteUsesMultiplePages)
+                    {
+                        OutputDebugString("#ifdef USE_LARGE_PALETTES\n");
+                    }
+
+                    strText.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", szCurrDesc, nCurrStart, nCurrEnd);
+                    OutputDebugString(strText);
+                    if (fPaletteUsesMultiplePages)
+                    {
+                        OutputDebugString("#else\n");
+                    }
+#endif
+
                     while (nDiff > 0)
                     {
                         int nValue = 0;
@@ -165,9 +183,25 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                             pCurrDef->isInvisible = false;
                         }
 
+#ifdef DUMP_EXTRAS_ON_LOAD
+                        if (fPaletteUsesMultiplePages)
+                        {
+                            strText.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + pCurrDef->uPalSz);
+                            OutputDebugString(strText);
+                        }
+#endif
+
                         // Ensure that if we loop through here again we are using a new Extra node item
                         nPos++;
                     }
+
+#ifdef DUMP_EXTRAS_ON_LOAD
+                    if (fPaletteUsesMultiplePages)
+                    {
+                        OutputDebugString("#endif\n");
+                    }
+#endif
+
                 }
                 break;
                 }
