@@ -314,6 +314,10 @@ BEGIN
     POPUP "&File"
     BEGIN
         MENUITEM "Export Image",                ID_FILE_EXPORTIMAGE
+#ifdef DEBUG
+        MENUITEM "Load Sprite",                 ID_FILE_LOADSPRITE
+#endif
+
         MENUITEM SEPARATOR
         MENUITEM "&Close",                      ID_FILE_CLOSE
     END

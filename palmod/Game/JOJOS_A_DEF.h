@@ -317,7 +317,9 @@ const sJOJOS_PaletteDataset JOJOS_A_HUD_PALETTE_NODES[] =
     { "Combo Messages", 0x07C0220, 0x07C0240 },
     { "Text Above The Lifebars",  0x07C0280, 0x07C02A0 },
     { "Stand Crash / First Hit / Etc. Messages", 0x07C0340, 0x07C0360 },
+    { "Stand Meter / Near Stand Break", 0x07C0B20, 0x07C0B80 },
     { "Super Meter Bar", 0x07C03A0, 0x07C0400 },
+    { "Mariah Level (Player 1 only)", 0x07C01A0, 0x07C01C0 },
 };
 
 const sDescTreeNode JOJOS_HUD_COLLECTION[]
@@ -4043,7 +4045,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_A[] =
     { "Mariah Burning A (1/2)", 0x0347780, 0x0347800 },
     { "Mariah Burning A (2/2)", 0x0347800, 0x0347880 },
 #endif
-    { "Mariah Level (Player 1 only)", 0x07C01A0, 0x07C01C0 },
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_B[] =

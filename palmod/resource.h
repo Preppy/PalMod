@@ -154,6 +154,7 @@
 #define ID_SETTINGS_SETBACKGROUNDCOLOR32847 32847
 #define ID_FILE_SAVE32850               32850
 #define ID_Menu32851                    32851
+#define ID_FILE_LOADSPRITE              32852
 
 // Next default values for new objects
 // 

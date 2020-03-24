@@ -58,6 +58,7 @@ public:
     afx_msg void OnResetBGOffset();
     afx_msg void OnFileExportImg();
     afx_msg void OnSettingsUsebgcolor();
+    afx_msg void OnLoadCustomSprite();
 };
 
 

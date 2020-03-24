@@ -48,6 +48,7 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_WM_INITMENUPOPUP()
     ON_COMMAND(ID_SETTINGS_RESETBACKGROUNDOFFSET, &CPreviewDlg::OnResetBGOffset)
     ON_COMMAND(ID_FILE_EXPORTIMAGE, &CPreviewDlg::OnFileExportImg)
+    ON_COMMAND(ID_FILE_LOADSPRITE, &CPreviewDlg::OnLoadCustomSprite)
     ON_COMMAND(ID_SETTINGS_USEBGCOLOR, &CPreviewDlg::OnSettingsUsebgcolor)
 END_MESSAGE_MAP()
 
@@ -289,6 +290,11 @@ void CPreviewDlg::OnResetBGOffset()
     m_ImgDisp.SetBGYOffs(0);
 
     m_ImgDisp.UpdateCtrl();
+}
+
+void CPreviewDlg::OnLoadCustomSprite()
+{
+    // TODO of course.
 }
 
 void CPreviewDlg::OnFileExportImg()
