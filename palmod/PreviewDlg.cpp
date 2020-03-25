@@ -78,7 +78,12 @@ void CPreviewDlg::OnShowWindow(BOOL bShow, UINT nStatus)
     }
 
     CMenu* pSettMenu = GetMenu()->GetSubMenu(2); //2 = zoom menu
-    pSettMenu->CheckMenuItem(ID_ZOOM_1X, MF_CHECKED);
+
+    double fpCurrZoom = m_ImgDisp.GetZoom();
+    pSettMenu->CheckMenuItem(ID_ZOOM_1X, MF_BYCOMMAND | ((fpCurrZoom == 1.0) ? MF_CHECKED : MF_UNCHECKED));
+    pSettMenu->CheckMenuItem(ID_ZOOM_2X, MF_BYCOMMAND | ((fpCurrZoom == 2.0) ? MF_CHECKED : MF_UNCHECKED));
+    pSettMenu->CheckMenuItem(ID_ZOOM_3X, MF_BYCOMMAND | ((fpCurrZoom == 3.0) ? MF_CHECKED : MF_UNCHECKED));
+    pSettMenu->CheckMenuItem(ID_ZOOM_4X, MF_BYCOMMAND | ((fpCurrZoom == 4.0) ? MF_CHECKED : MF_UNCHECKED));
 }
 
 void CPreviewDlg::OnSize(UINT nType, int cx, int cy)
