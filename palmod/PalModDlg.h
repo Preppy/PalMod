@@ -97,6 +97,8 @@ public:
 
     void LoadSettings();
     void SaveSettings();
+    void UpdateSettingsMenuItems();
+
 
     void UpdateSliderSel(BOOL bModeChange = FALSE, BOOL bResetRF = FALSE);
     void SetColMode(int nColMode);
@@ -195,7 +197,6 @@ public:
     CString m_EditADesc = _T("A");
     afx_msg void OnBnNewCol();
     afx_msg void OnBnSetCol();
-    afx_msg void OnBnSettings();
     afx_msg void OnColSett();
     afx_msg void OnBnUpdate();
     afx_msg void OnFilePatch();

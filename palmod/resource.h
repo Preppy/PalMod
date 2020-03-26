@@ -23,7 +23,6 @@
 #define IDR_MAINFRAME                   128
 #define IDR_MENUMAIN                    129
 #define IDD_PREVIEW_DIALOG              130
-#define IDR_COLSETT                     131
 #define IDR_MENUPREV                    132
 #define IDD_SETT_DIALOG                 133
 #define IDR_PALMOD_ACC                  134

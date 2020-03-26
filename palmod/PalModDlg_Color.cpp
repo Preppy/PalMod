@@ -859,6 +859,10 @@ void CPalModDlg::OnColSett()
         }
     }
 
+    CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
+
+    pSettMenu->CheckMenuItem(ID_SHOW32BITRGB, bShow32 ? MF_CHECKED : MF_UNCHECKED);
+
     UpdateData(FALSE);
 }
 
@@ -987,7 +991,6 @@ void CPalModDlg::OnBnClickedBinvert()
         UINT8* pCurrPal = (UINT8*)CurrPalCtrl->GetBasePal();
         UINT8 nIndex;
         BOOL bForce = !CurrPalCtrl->GetSelAmt();
-
 
         for (int i = 0; i < CurrPalCtrl->GetWorkingAmt(); i++)
         {

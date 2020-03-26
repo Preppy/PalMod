@@ -42,39 +42,6 @@ void CPalModDlg::OnLdsfiii3dcall()
     }
 }
 
-void CPalModDlg::OnBnSettings()
-{
-    CMenu SettMenu;
-    CMenu* PopupMenu;
-    POINT mousePt;
-    POINT trackPt;
-    CRect rBtn;
-
-    GetDlgItem(IDC_BSETTINGS)->GetWindowRect(&rBtn);
-
-    GetCursorPos(&mousePt);
-
-    if (rBtn.PtInRect(mousePt))
-    {
-        trackPt.x = mousePt.x;
-        trackPt.y = mousePt.y;
-    }
-    else
-    {
-        trackPt.x = rBtn.left;
-        trackPt.y = rBtn.bottom;
-    }
-
-    SettMenu.LoadMenuA(IDR_COLSETT);
-    PopupMenu = SettMenu.GetSubMenu(0);
-
-    PopupMenu->CheckMenuItem(ID_SHOW32BITRGB, MF_CHECKED * bShow32);
-    PopupMenu->CheckMenuItem(ID_GETCOLORONSELECT, MF_CHECKED * bGetCol);
-    PopupMenu->CheckMenuItem(ID_AUTOSETCOL, MF_CHECKED * bAutoSetCol);
-
-    PopupMenu->TrackPopupMenu(NULL, trackPt.x, trackPt.y, this);
-}
-
 void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 {
     CDialog::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);

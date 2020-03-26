@@ -114,19 +114,23 @@ BEGIN
     EDITTEXT        IDC_EDIT_ADESC,24,76,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_EDIT_A,33,74,23,12,ES_AUTOHSCROLL
     CONTROL         "",IDC_A_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,60,74,81,12
-    PUSHBUTTON      "Set Color",IDC_BSETCOL,59,95,49,13
-    PUSHBUTTON      "Pick Color",IDC_BNEWCOL,32,130,49,13
-    PUSHBUTTON      "Settings",IDC_BSETTINGS,90,130,49,13
-    PUSHBUTTON      "Check My Edits",IDC_BCHECKMIX,2,151,64,13,NOT WS_VISIBLE
-    PUSHBUTTON      "Make All Invis",IDC_BEIDRIAN1,2,164,64,13,NOT WS_VISIBLE
     PUSHBUTTON      "Set All 0 Index",IDC_BEIDRIAN2,2,177,64,13,NOT WS_VISIBLE
+    PUSHBUTTON      "Set Color",IDC_BSETCOL,31,95,49,13
+    PUSHBUTTON      "Pick Color",IDC_BNEWCOL,87,95,49,13
+    PUSHBUTTON      "Check My Edits",IDC_BCHECKMIX,2,143,64,13,NOT WS_VISIBLE
+
+    PUSHBUTTON      "Make All Invis",IDC_BEIDRIAN1,2,156,64,13,NOT WS_VISIBLE
+
+    PUSHBUTTON      "Set All 0 Index",IDC_BEIDRIAN2,2,169,64,13,NOT WS_VISIBLE
     GROUPBOX        "Palette View",IDC_SSPC,159,2,98,116
-    CONTROL         "Custom1",IDC_PALHOST,"CPalTool",WS_TABSTOP,162,11,92,105
-    PUSHBUTTON      "Blink",IDC_BBLINK,263,13,37,12
+    CONTROL         "PalHost",IDC_PALHOST,"CPalTool",WS_TABSTOP,162,11,92,105
+    PUSHBUTTON      "Blink",IDC_BBLINK,264,13,37,12
     PUSHBUTTON      "Invert",IDC_BINVERT,264,28,37,12
     PUSHBUTTON      "Revert",IDC_BREVERT,264,43,37,12
     COMBOBOX        IDC_CHARCOMBO,159,129,130,147,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+
     COMBOBOX        IDC_CHILDCOMBO1,159,143,130,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+
     COMBOBOX        IDC_CHILDCOMBO2,159,157,130,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "Update",IDC_BUPDATE,180,173,39,12
     PUSHBUTTON      "Preview",IDC_SHOWPREVIEW,226,173,39,12
@@ -142,11 +146,11 @@ END
 
 IDD_SETT_DIALOG DIALOGEX 0, 0, 203, 106
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "PalMod Settings"
+CAPTION "MvC2 Settings"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Settings",IDC_STATIC,6,6,193,95
-    CONTROL         "Keep ID:00 transparent (Recommended) (MVC2)",IDC_CALPHATRANS,
+    CONTROL         "Keep ID:00 transparent (Recommended)",IDC_CALPHATRANS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,26,169,11
     CONTROL         "Process Supplement Palettes (Recommended) (ex: Cyclops HK, Spider-Man win poses, etc)",IDC_CUPDSUPP,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,39,168,30
@@ -160,7 +164,7 @@ CAPTION "Dump Image"
 MENU IDR_MENUIMGOUT
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "Custom1",IDC_IMGDBMP,"ImgDumpBmp",WS_TABSTOP,56,0,287,278
+    CONTROL         "ImgDumpBmp",IDC_IMGDBMP,"ImgDumpBmp",WS_TABSTOP,56,0,287,278
     LTEXT           "Amount",IDC_SAMT,4,18,39,11
     COMBOBOX        IDC_AMT,6,29,44,56,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Palette",IDC_SPAL,3,46,39,11
@@ -301,8 +305,12 @@ BEGIN
     END
     POPUP "&Settings"
     BEGIN
-        MENUITEM "&Settings...",                ID_SETTINGS_SETTINGS
+        MENUITEM "Show 32-bit values for 8-bit colors (will round!)", ID_SHOW32BITRGB
+        MENUITEM "Get Color On Select",         ID_GETCOLORONSELECT
+        MENUITEM "Auto-Set Color On Adjust",    ID_AUTOSETCOL
+        MENUITEM "MvC2 &Settings...",           ID_SETTINGS_SETTINGS
     END
+
     POPUP "&About"
     BEGIN
         MENUITEM "&About PalMod...",            ID_ABOUT_ABOUTPALMOD
@@ -316,7 +324,9 @@ BEGIN
         MENUITEM "Export Image",                ID_FILE_EXPORTIMAGE
 #ifdef DEBUG
 
+
         MENUITEM "Load Sprite",                 ID_FILE_LOADSPRITE
+
 
 #endif
         MENUITEM SEPARATOR
@@ -338,16 +348,6 @@ BEGIN
         MENUITEM "&2x",                         ID_ZOOM_2X
         MENUITEM "&3x",                         ID_ZOOM_3X
         MENUITEM "&4x",                         ID_ZOOM_4X
-    END
-END
-
-IDR_COLSETT MENU
-BEGIN
-    POPUP ""
-    BEGIN
-        MENUITEM "Show 32-bit values for 8-bit colors (will round!)", ID_SHOW32BITRGB
-        MENUITEM "Get Color On Select",         ID_GETCOLORONSELECT
-        MENUITEM "Auto-Set Color On Adjust",    ID_AUTOSETCOL
     END
 END
 
@@ -427,8 +427,8 @@ BEGIN
     IDS_ERROR_PARAMETERS    "Invalid parameters."
     IDS_ERROR_LOADING_ACT_FILE "Error loading ACT file."
     IDS_ERROR_SAVING_ACT_FILE "Error saving ACT file."
-    IDS_SAVE_PALETTE_CHANGES "Update palette changes?"
-    IDS_SAVE_FILE_CHANGES   "Save changes?"
+    IDS_SAVE_PALETTE_CHANGES "Update PalMod's palette memory with these changes?\n\nThe actual ROM/files will not be changed until you patch from the File menu or on exit."
+    IDS_SAVE_FILE_CHANGES   "Patch ROM/files with the current changes?"
     IDS_ERROR_NOTWRITABLE_FORMAT 
                             "Save failed: output file '%s' is not writable."
 END

@@ -47,7 +47,6 @@ BOOL CAboutDlg::OnInitDialog()
 
     GetDlgItem(IDC_ABOUTNAME)->SetWindowText(strAppName);
 
-
     return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -108,7 +107,6 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_EN_KILLFOCUS(IDC_EDIT_A, &CPalModDlg::OnKillFocusEditA)
     ON_BN_CLICKED(IDC_BNEWCOL, &CPalModDlg::OnBnNewCol)
     ON_BN_CLICKED(IDC_BSETCOL, &CPalModDlg::OnBnSetCol)
-    ON_BN_CLICKED(IDC_BSETTINGS, &CPalModDlg::OnBnSettings)
     ON_COMMAND(ID_SHOW32BITRGB, &CPalModDlg::OnColSett)
     ON_BN_CLICKED(IDC_BUPDATE, &CPalModDlg::OnBnUpdate)
     ON_COMMAND(ID_FILE_PATCH, &CPalModDlg::OnFilePatch)
@@ -229,10 +227,13 @@ BOOL CPalModDlg::OnInitDialog()
     //Set the slider descriptions
     SetSliderDescEdit();
 
+    // Set the settings checkmarks
+    UpdateSettingsMenuItems();
+
     // Use the dynamic appname description instead of the hardcoded RC value
     SetWindowText(GetAppName());
 
-    return TRUE;  // return TRUE  unless you set the focus to a control
+    return TRUE;  // return TRUE unless you set the focus to a control
 }
 
 void CPalModDlg::OnSysCommand(UINT nID, LPARAM lParam)

@@ -292,6 +292,15 @@ void CPalModDlg::DoUndoRedo(BOOL bUndo)
     ImgDispCtrl->UpdateCtrl();
 }
 
+void CPalModDlg::UpdateSettingsMenuItems()
+{
+    CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
+
+    pSettMenu->CheckMenuItem(ID_SHOW32BITRGB, bShow32 ? MF_CHECKED : MF_UNCHECKED);
+    pSettMenu->CheckMenuItem(ID_GETCOLORONSELECT, bGetCol ? MF_CHECKED : MF_UNCHECKED);
+    pSettMenu->CheckMenuItem(ID_AUTOSETCOL, bAutoSetCol ? MF_CHECKED : MF_UNCHECKED);
+}
+
 void CPalModDlg::OnSettingsSettings()
 {
     CSettDlg SettDlg;
