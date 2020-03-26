@@ -320,6 +320,7 @@ const sJOJOS_PaletteDataset JOJOS_A_HUD_PALETTE_NODES[] =
     { "Stand Meter / Near Stand Break", 0x07C0B20, 0x07C0B80 },
     { "Super Meter Bar", 0x07C03A0, 0x07C0400 },
     { "Mariah Level (Player 1 only)", 0x07C01A0, 0x07C01C0 },
+    { "Dev-menu Font Color", 0x07C0000, 0x07C0020 },
 };
 
 const sDescTreeNode JOJOS_HUD_COLLECTION[]
@@ -2136,13 +2137,14 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 #endif
     { "Hierophant Sparkles A", 0x0337c80, 0x0337ca0 },
     { "Raging Demon Trail A", 0x0337800, 0x0337880 },
-    { "Kaykyoin Vs/Super A", 0x0410300, 0x0410380 },
-    { "Kaykyoin Challenger A", 0x0410380, 0x0410400 },
+    { "Kakyoin Remote Mode Afterimage A", 0x0337500, 0x0337580 },
+    { "Kakyoin Vs/Super A", 0x0410300, 0x0410380 },
+    { "Kakyoin Challenger A", 0x0410380, 0x0410400 },
 #ifndef USE_LARGE_PALETTES
-    { "Kaykyoin Select/Winning A (1/2)", 0x0410400, 0x0410480 },
-    { "Kaykyoin Select/Winning A (2/2)", 0x0410480, 0x0410500 },
+    { "Kakyoin Select/Winning A (1/2)", 0x0410400, 0x0410480 },
+    { "Kakyoin Select/Winning A (2/2)", 0x0410480, 0x0410500 },
 #else
-    { "Kaykyoin Select/Winning A", 0x0410400, 0x0410500 },
+    { "Kakyoin Select/Winning A", 0x0410400, 0x0410500 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Burning A", 0x0337100, 0x0337200 },
@@ -2168,13 +2170,14 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
 #endif
     { "Hierophant Sparkles B", 0x034c180, 0x034c1a0 },
     { "Raging Demon Trail B", 0x034bd00, 0x034bd80 },
-    { "Kaykyoin Vs/Super B", 0x0415100, 0x0415180 },
-    { "Kaykyoin Challenger B", 0x0415180, 0x0415200 },
+    { "Kakyoin Remote Mode Afterimage B", 0x034BA00, 0x034BA80 },
+    { "Kakyoin Vs/Super B", 0x0415100, 0x0415180 },
+    { "Kakyoin Challenger B", 0x0415180, 0x0415200 },
 #ifndef USE_LARGE_PALETTES
-    { "Kaykyoin Select/Winning B (1/2)", 0x0415200, 0x0415280 },
-    { "Kaykyoin Select/Winning B (2/2)", 0x0415280, 0x0415300 },
+    { "Kakyoin Select/Winning B (1/2)", 0x0415200, 0x0415280 },
+    { "Kakyoin Select/Winning B (2/2)", 0x0415280, 0x0415300 },
 #else
-    { "Kaykyoin Select/Winning B", 0x0415200, 0x0415300 },
+    { "Kakyoin Select/Winning B", 0x0415200, 0x0415300 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Burning B", 0x034b600, 0x034b700 },
@@ -2186,7 +2189,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
 {
-
     { "Kakyoin & Hierophant Green C", 0x035fa80, 0x035fb00 },
 #ifndef USE_LARGE_PALETTES
     { "Hierophant Changing Pal C (1/7)", 0x0360300, 0x0360380 },
@@ -2201,13 +2203,14 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
 #endif
     { "Hierophant Sparkles C", 0x0360680, 0x03606a0 },
     { "Raging Demon Trail C", 0x0360200, 0x0360280 },
-    { "Kaykyoin Vs/Super C", 0x0419f00, 0x0419f80 },
-    { "Kaykyoin Challenger C", 0x0419f80, 0x041a000 },
+    { "Kakyoin Remote Mode Afterimage C", 0x035FF00, 0x035FF80 },
+    { "Kakyoin Vs/Super C", 0x0419f00, 0x0419f80 },
+    { "Kakyoin Challenger C", 0x0419f80, 0x041a000 },
 #ifndef USE_LARGE_PALETTES
-    { "Kaykyoin Select/Winning C (1/2)", 0x041a000, 0x041a080 },
-    { "Kaykyoin Select/Winning C (2/2)", 0x041a080, 0x041a100 },
+    { "Kakyoin Select/Winning C (1/2)", 0x041a000, 0x041a080 },
+    { "Kakyoin Select/Winning C (2/2)", 0x041a080, 0x041a100 },
 #else
-    { "Kaykyoin Select/Winning C", 0x041a000, 0x041a100 },
+    { "Kakyoin Select/Winning C", 0x041a000, 0x041a100 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Burning C", 0x035fb00, 0x035fc00 },
@@ -2233,13 +2236,14 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
 #endif
     { "Hierophant Sparkles S", 0x0374b80, 0x0374ba0 },
     { "Raging Demon Trail S", 0x0374700, 0x0374780 },
-    { "Kaykyoin Vs/Super S", 0x041ed00, 0x041ed80 },
-    { "Kaykyoin Challenger S", 0x041ed80, 0x041ee00 },
+    { "Kakyoin Remote Mode Afterimage S", 0x0374400, 0x0374480 },
+    { "Kakyoin Vs/Super S", 0x041ed00, 0x041ed80 },
+    { "Kakyoin Challenger S", 0x041ed80, 0x041ee00 },
 #ifndef USE_LARGE_PALETTES
-    { "Kaykyoin Select/Winning S (1/2)", 0x041ee00, 0x041ee80 },
-    { "Kaykyoin Select/Winning S (2/2)", 0x041ee80, 0x041ef00 },
+    { "Kakyoin Select/Winning S (1/2)", 0x041ee00, 0x041ee80 },
+    { "Kakyoin Select/Winning S (2/2)", 0x041ee80, 0x041ef00 },
 #else
-    { "Kaykyoin Select/Winning S", 0x041ee00, 0x041ef00 },
+    { "Kakyoin Select/Winning S", 0x041ee00, 0x041ef00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Burning S", 0x0374000, 0x0374100 },
@@ -2265,13 +2269,14 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_Start[] =
 #endif
     { "Hierophant Sparkles Start", 0x0389080, 0x03890a0 },
     { "Raging Demon Trail Start", 0x0388c00, 0x0388c80 },
-    { "Kaykyoin Vs/Super Start", 0x0423b00, 0x0423b80 },
-    { "Kaykyoin Challenger Start", 0x0423b80, 0x0423c00 },
+    { "Kakyoin Remote Mode Afterimage Start", 0x0388900, 0x0388980 },
+    { "Kakyoin Vs/Super Start", 0x0423b00, 0x0423b80 },
+    { "Kakyoin Challenger Start", 0x0423b80, 0x0423c00 },
 #ifndef USE_LARGE_PALETTES
-    { "Kaykyoin Select/Winning Start (1/2)", 0x0423c00, 0x0423c80 },
-    { "Kaykyoin Select/Winning Start (2/2)", 0x0423c80, 0x0423d00 },
+    { "Kakyoin Select/Winning Start (1/2)", 0x0423c00, 0x0423c80 },
+    { "Kakyoin Select/Winning Start (2/2)", 0x0423c80, 0x0423d00 },
 #else
-    { "Kaykyoin Select/Winning Start", 0x0423c00, 0x0423d00 },
+    { "Kakyoin Select/Winning Start", 0x0423c00, 0x0423d00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Burning Start", 0x0388500, 0x0388600 },
@@ -2389,8 +2394,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_Start[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
 {
     { "Polnareff & Silver Chariot A", 0x0338980, 0x0338a00 },
-    { "Chariot's Changing Pal A", 0x03392c0, 0x0339300 },
-    { "Chariot's Changing Pal A", 0x0339340, 0x0339380 },
+#ifdef USE_LARGE_PALETTES
+    { "Chariot's Changing Pal A", 0x0339280, 0x0339380 },
+#else
+    { "Chariot's Changing Pal A (1/2)", 0x0339280, 0x0339300 },
+    { "Chariot's Changing Pal A (2/2)", 0x0339300, 0x0339380 },
+#endif
     { "Pol Remote Activation Flash A", 0x0338e00, 0x0338e80 },
     { "Polnareff Vs / Super A", 0x0410900, 0x0410980 },
     { "Polnareff Challenger A", 0x0410980, 0x0410a00 },
@@ -2411,8 +2420,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
 {
     { "Polnareff & Silver Chariot B", 0x034ce80, 0x034cf00 },
-    { "Chariot's Changing Pal B", 0x034d7c0, 0x034d800 },
-    { "Chariot's Changing Pal B", 0x034d840, 0x034d880 },
+#ifdef USE_LARGE_PALETTES
+    { "Chariot's Changing Pal B", 0x034d780, 0x034d880 },
+#else
+    { "Chariot's Changing Pal B (1/2)", 0x034d780, 0x034d800 },
+    { "Chariot's Changing Pal B (2/2)", 0x034d800, 0x034d880 },
+#endif
     { "Pol Remote Activation Flash B", 0x034d300, 0x034d380 },
     { "Polnareff Vs / Super B", 0x0415700, 0x0415780 },
     { "Polnareff Challenger B", 0x0415780, 0x0415800 },
@@ -2433,8 +2446,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
 {
     { "Polnareff & Silver Chariot C", 0x0361380, 0x0361400 },
-    { "Chariot's Changing Pal C", 0x0361cc0, 0x0361d00 },
-    { "Chariot's Changing Pal C", 0x0361d40, 0x0361d80 },
+#ifdef USE_LARGE_PALETTES
+    { "Chariot's Changing Pal C", 0x0361c80, 0x0361d80 },
+#else
+    { "Chariot's Changing Pal C (1/2)", 0x0361c80, 0x0361d00 },
+    { "Chariot's Changing Pal C (2/2)", 0x0361d00, 0x0361d80 },
+#endif
     { "Pol Remote Activation Flash C", 0x0361800, 0x0361880 },
     { "Polnareff Vs / Super C", 0x041a500, 0x041a580 },
     { "Polnareff Challenger C", 0x041a580, 0x041a600 },
@@ -2455,8 +2472,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
 {
     { "Polnareff & Silver Chariot S", 0x0375880, 0x0375900 },
-    { "Chariot's Changing Pal S", 0x03761c0, 0x0376200 },
-    { "Chariot's Changing Pal S", 0x0376240, 0x0376280 },
+#ifdef USE_LARGE_PALETTES
+    { "Chariot's Changing Pal S", 0x0376180, 0x0376280 },
+#else
+    { "Chariot's Changing Pal S (1/2)", 0x0376180, 0x0376200 },
+    { "Chariot's Changing Pal S (2/2)", 0x0376200, 0x0376280 },
+#endif
     { "Pol Remote Activation Flash S", 0x0375d00, 0x0375d80 },
     { "Polnareff Vs / Super S", 0x041f300, 0x041f380 },
     { "Polnareff Challenger S", 0x041f380, 0x041f400 },
@@ -2477,8 +2498,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
 {
     { "Polnareff & Silver Chariot Start", 0x0389d80, 0x0389e00 },
-    { "Chariot's Changing Pal Start", 0x038a6c0, 0x038a700 },
-    { "Chariot's Changing Pal Start", 0x038a740, 0x038a780 },
+#ifdef USE_LARGE_PALETTES
+    { "Chariot's Changing Pal Start", 0x038a680, 0x038a780 },
+#else
+    { "Chariot's Changing Pal Start (1/2)", 0x038a680, 0x038a700 },
+    { "Chariot's Changing Pal Start (2/2)", 0x038a700, 0x038a780 },
+#endif
     { "Pol Remote Activation Flash Start", 0x038a200, 0x038a280 },
     { "Polnareff Vs / Super Start", 0x0424100, 0x0424180 },
     { "Polnareff Challenger Start", 0x0424180, 0x0424200 },

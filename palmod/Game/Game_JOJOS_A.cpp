@@ -5,6 +5,7 @@
 #include "..\palmod.h"
 
 //#define JOJOS_DEBUG
+//#define NEED_TO_UPDATE_JOJO_HEADERS
 
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50 = nullptr;
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51 = nullptr;
@@ -460,7 +461,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             UnitNode->uChildAmt = nUnitChildCount;
 
 #ifdef JOJOS_DEBUG
-            strMsg.Format("Unit: %s, %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, fHaveExtra ? "with extras" : "no extras", nUnitChildCount);
+            strMsg.Format("Unit: %s, %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -728,6 +729,15 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 int nCurrentPaletteSectionLength = knMaxPalettePageSizeOnDisc;
                 int nTotalUnusedColors = nPaletteSizeOnDisc;
 
+                OutputDebugString("#ifdef USE_LARGE_PALETTES\n");
+
+                strError.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", paletteSetToUse[nPalId].szPaletteName,
+                                                                      paletteSetToUse[nPalId].nPaletteOffset,
+                                                                      paletteSetToUse[nPalId].nPaletteOffsetEnd);
+                OutputDebugString(strError);
+
+                OutputDebugString("#else\n");
+
                 for (int nCurrentPage = 0, nCurrentOffset = 0; nCurrentPage < nTotalPagesNeeded; nCurrentPage++)
                 {
                     strError.Format("    { \"%s (%u/%u)\", 0x%07x, 0x%07x }, \n", paletteSetToUse[nPalId].szPaletteName, nCurrentPage + 1, nTotalPagesNeeded,
@@ -739,6 +749,8 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                     nCurrentPaletteSectionLength = min(nTotalUnusedColors, knMaxPalettePageSizeOnDisc);
                     OutputDebugString(strError);
                 }
+
+                OutputDebugString("#endif\n");
             }
             else
             {
