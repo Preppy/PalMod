@@ -160,7 +160,6 @@ void CPreviewDlg::LoadSettings()
 
     szBGLoc = LoadSett.szPrevBGLoc;
 
-    m_ImgDisp.LoadBGBmp(szBGLoc.GetBuffer());
     m_ImgDisp.SetBGCol(LoadSett.prev_bgcol);
     m_ImgDisp.SetBlinkCol(LoadSett.prev_blinkcol);
     m_ImgDisp.SetBGTiled(LoadSett.bTileBG);
@@ -168,6 +167,16 @@ void CPreviewDlg::LoadSettings()
     m_ImgDisp.SetBGYOffs(LoadSett.nBGYOffs);
     m_ImgDisp.SetUseBGCol(LoadSett.bUseBGCol);
     m_ImgDisp.SetZoom(LoadSett.dPreviewZoom);
+
+    if (LoadSett.bUseBGCol)
+    {
+        // Don't bother loading the image yet: just make sure the right path is in use.
+        m_ImgDisp.SetBGBmpPath(szBGLoc.GetBuffer());
+    }
+    else
+    {
+        m_ImgDisp.LoadBGBmp(szBGLoc.GetBuffer());
+    }
 
     RECT window_rect;
     window_rect = LoadSett.prev_szpos;
@@ -283,9 +292,9 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 
     if (pSettMenu == pPopupMenu)
     {
-        pSettMenu->CheckMenuItem(ID_SETTINGS_TILEIMAGEBACKGROUND, MF_CHECKED * m_ImgDisp.IsBGTiled());
+        pSettMenu->CheckMenuItem(ID_SETTINGS_TILEIMAGEBACKGROUND, m_ImgDisp.IsBGTiled() ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_USEBGCOLOR, m_ImgDisp.IsUsingBGCol() ? MF_CHECKED : MF_UNCHECKED);
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
-        pSettMenu->CheckMenuItem(ID_SETTINGS_USEBGCOLOR, MF_CHECKED * m_ImgDisp.IsUsingBGCol());
     }
 }
 
@@ -363,7 +372,7 @@ void CPreviewDlg::OnSettingsUsebgcolor()
 {
     m_ImgDisp.SetUseBGCol(!(m_ImgDisp.IsUsingBGCol()));
 
-    if (m_ImgDisp.BGAvail())
+    if (m_ImgDisp.CanForceBGBitmapAvailable())
     {
         m_ImgDisp.UpdateCtrl();
     }

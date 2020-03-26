@@ -115,7 +115,6 @@ void CImgDisp::ClearUsed()
 {
     memset(bUsed, 0, sizeof(UINT8) * MAX_IMG);
     rImgRct.SetRectEmpty();
-    bFirstImage = FALSE;
 
     nXOffsTop = 0;
     nYOffsTop = 0;
@@ -247,11 +246,16 @@ BOOL CImgDisp::LoadBGBmp(CHAR* szBmpLoc)
 {
     CImage backgroundImage;
 
-    if (SUCCEEDED(backgroundImage.Load(szBmpLoc)))
+    if (szBmpLoc != nullptr)
+    {
+        m_strBackgroundLoc = szBmpLoc;
+    }
+
+    if (SUCCEEDED(backgroundImage.Load(m_strBackgroundLoc)))
     {
         hBGBitmap = backgroundImage.Detach();
             
-        bBGAvail = TRUE;
+        m_bBGAvail = TRUE;
 
         BGBitmap.DeleteObject();
         BGBitmap.Attach(hBGBitmap);
@@ -272,11 +276,21 @@ BOOL CImgDisp::LoadBGBmp(CHAR* szBmpLoc)
     }
     else
     {
-        bBGAvail = FALSE;
+        m_bBGAvail = FALSE;
         bTileBGBmp = FALSE;
         return FALSE;
     }
 }
+
+BOOL CImgDisp::CanForceBGBitmapAvailable()
+{
+    if (!m_bBGAvail && (m_strBackgroundLoc.GetLength() > 8))
+    {
+        LoadBGBmp(nullptr);
+    }
+
+    return m_bBGAvail; 
+};
 
 void CImgDisp::InitDC()
 {
@@ -347,9 +361,16 @@ void CImgDisp::ModifyClRect()
 
 void CImgDisp::DrawMainBG()
 {
-    bTileBGBmp* bBGAvail * !bUseBGCol ? MainDC->FillRect(CRect(0, 0, MAIN_W, MAIN_H), &BGBrush) : MainDC->FillSolidRect(CRect(0, 0, MAIN_W, MAIN_H), crBGCol);
+    if (bTileBGBmp && CanForceBGBitmapAvailable() && !bUseBGCol)
+    {
+        MainDC->FillRect(CRect(0, 0, MAIN_W, MAIN_H), &BGBrush);
+    }
+    else
+    {
+        MainDC->FillSolidRect(CRect(0, 0, MAIN_W, MAIN_H), crBGCol);
+    }
 
-    if (!bTileBGBmp && bBGAvail && !bUseBGCol)
+    if (!bTileBGBmp && CanForceBGBitmapAvailable() && !bUseBGCol)
     {
         ImageDC->SelectObject(&BGBitmap);
 

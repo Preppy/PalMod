@@ -54,6 +54,11 @@ private:
     HBITMAP hBGBitmap;
     CBrush BGBrush;
 
+    BITMAPINFO Bmpi;
+    HBITMAP hBmp;
+
+    RECT rBlt;
+
     UINT32* pBmpData = nullptr;
 
     int nBGBmpW = 0;
@@ -61,26 +66,17 @@ private:
     int nBGXOffs = 0;
     int nBGYOffs = 0;
 
-    BITMAPINFO Bmpi;
-    HBITMAP hBmp;
-
-    BOOL bBGAvail = FALSE;
+    BOOL m_bBGAvail = FALSE;
     //BOOL bFillBGBmp = FALSE;
     BOOL bTileBGBmp = FALSE;
     BOOL bUseBGCol = FALSE;
-
-    RECT rBlt;
-
     BOOL bFirstInit = TRUE;
-    BOOL bFirstImage;
 
     COLORREF crBGCol = 0x00FF0000;
     COLORREF crBlinkCol = 0x00FFFFFF;
     double fpZoom = DEF_ZOOM;
 
     void InitDC();
-    void ResizeCtrlBMP();
-    //void FillIndexes(int nIndex);
     void DrawMainBG();
     void InitImgBuffer();
 
@@ -112,9 +108,11 @@ private:
     UINT8 bUsed[MAX_IMG];
 
     POINT ptOffs[MAX_IMG];
+    
+    CString m_strBackgroundLoc = "";
 
-    int nXOffsTop;
-    int nYOffsTop;
+    int nXOffsTop = 0;
+    int nYOffsTop = 0;
 
     int MAIN_W = 0, MAIN_H = 0;
 
@@ -141,7 +139,7 @@ public:
     void SetBGYOffs(int nOffs) { nBGYOffs = nOffs; };
     void SetBGTiled(BOOL bTiled) { bTileBGBmp = bTiled; };
     void SetUseBGCol(BOOL bUse) { bUseBGCol = bUse; };
-    int BGAvail() { return bBGAvail; };
+    BOOL CanForceBGBitmapAvailable();
 
     int GetBGXOffs() { return nBGXOffs; };
     int GetBGYOffs() { return nBGYOffs; };
@@ -161,16 +159,18 @@ public:
     double GetZoom() { return fpZoom; };
 
     BOOL LoadBGBmp(CHAR* szBmpLoc);
+    void SetBGBmpPath(CHAR* szBmpLoc) { m_strBackgroundLoc = szBmpLoc; };
     //void UseBGCol(){bFillBGBmp = FALSE;};
 
     int GetImgAmt() { return nImgAmt; };
 
     void ClearUsed();
     void FlushUnused();
+
 protected:
     BOOL RegisterWindowClass();
-protected:
     DECLARE_MESSAGE_MAP()
+
 public:
     afx_msg void OnPaint();
     afx_msg BOOL OnEraseBkgnd(CDC* pDC);
