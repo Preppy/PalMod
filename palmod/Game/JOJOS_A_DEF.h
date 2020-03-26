@@ -2026,6 +2026,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_A[] =
     { "Star Breaker Super A", 0x0336d82, 0x0336d90 },
     { "Jotaro Vs/Super A", 0x0410000, 0x0410080 },
     { "Jotaro Challenger A", 0x0410080, 0x0410100 },
+    { "Star Platinum Charging Flash A", 0x0336880, 0x0336900 },
 #ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning A (1/2)", 0x0410100, 0x0410180 },
     { "Jotaro Select/Winning A (2/2)", 0x0410180, 0x0410200 },
@@ -2046,6 +2047,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
     { "Star Breaker Super B", 0x034b282, 0x034b290 },
     { "Jotaro Vs/Super B", 0x0414e00, 0x0414e80 },
     { "Jotaro Challenger B", 0x0414e80, 0x0414f00 },
+    { "Star Platinum Charging Flash B", 0x034AD80, 0x034AE00 },
 #ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning B (1/2)", 0x0414f00, 0x0414f80 },
     { "Jotaro Select/Winning B (2/2)", 0x0414f80, 0x0415000 },
@@ -2066,6 +2068,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_C[] =
     { "Star Breaker Super C", 0x035f782, 0x035f790 },
     { "Jotaro Vs/Super C", 0x0419c00, 0x0419c80 },
     { "Jotaro Challenger C", 0x0419c80, 0x0419d00 },
+    { "Star Platinum Charging Flash C", 0x035F280, 0x035F300 },
 #ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning C (1/2)", 0x0419d00, 0x0419d80 },
     { "Jotaro Select/Winning C (2/2)", 0x0419d80, 0x0419e00 },
@@ -2086,6 +2089,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
     { "Star Breaker Super S", 0x0373c82, 0x0373c90 },
     { "Jotaro Vs/Super S", 0x041ea00, 0x041ea80 },
     { "Jotaro Challenger S", 0x041ea80, 0x041eb00 },
+    { "Star Platinum Charging Flash S", 0x0373780, 0x0373800 },
 #ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning S (1/2)", 0x041eb00, 0x041eb80 },
     { "Jotaro Select/Winning S (2/2)", 0x041eb80, 0x041ec00 },
@@ -2106,6 +2110,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
     { "Star Breaker Super Start", 0x0388182, 0x0388190 },
     { "Jotaro Vs/Super Start", 0x0423800, 0x0423880 },
     { "Jotaro Challenger Start", 0x0423880, 0x0423900 },
+    { "Star Platinum Charging Flash Start", 0x0387C80, 0x0387D00 },
 #ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning Start (1/2)", 0x0423900, 0x0423980 },
     { "Jotaro Select/Winning Start (2/2)", 0x0423980, 0x0423a00 },

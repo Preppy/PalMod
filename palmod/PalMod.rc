@@ -315,16 +315,17 @@ BEGIN
     BEGIN
         MENUITEM "Export Image",                ID_FILE_EXPORTIMAGE
 #ifdef DEBUG
-        MENUITEM "Load Sprite",                 ID_FILE_LOADSPRITE
-#endif
 
+        MENUITEM "Load Sprite",                 ID_FILE_LOADSPRITE
+
+#endif
         MENUITEM SEPARATOR
         MENUITEM "&Close",                      ID_FILE_CLOSE
     END
     POPUP "&Settings"
     BEGIN
         MENUITEM "Set Background Color",        ID_SETTINGS_SETBACKGROUNDCOLOR
-        MENUITEM "Set Background Bitmap",       ID_SETTINGS_SETBACKGROUNDIMAGE
+        MENUITEM "Set Background Image",        ID_SETTINGS_SETBACKGROUNDIMAGE
         MENUITEM "Set Blink Color",             ID_SETTINGS_SETBLINKCOLOR
         MENUITEM SEPARATOR
         MENUITEM "Tile Image Background",       ID_SETTINGS_TILEIMAGEBACKGROUND
@@ -434,7 +435,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ERROR_LOADING_BITMAP_BG "Error loading background bitmap"
+    IDS_ERROR_LOADING_BITMAP_BG "Error loading background image"
 END
 
 STRINGTABLE

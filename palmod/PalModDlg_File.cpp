@@ -349,7 +349,7 @@ void CPalModDlg::OnFileOpen()
     szGameFileDef.Append("SFA3 sz3.09c (*.09c )|*.09c|"); //SSF2T
     szGameFileDef.Append("XMVSF xvs.05a (*.05a )|*.05a|"); //XMVSF
     szGameFileDef.Append("MVC mvc.06 (*.06 )|*.06|"); //MVC
-    szGameFileDef.Append("JOJOS 50/51 Rom|50;51|"); //Jojos
+    szGameFileDef.Append("Jojos Roms|50; 51|"); //Jojos
 
     szGameFileDef.Append("|"); //End
 

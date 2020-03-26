@@ -5,6 +5,7 @@
 #include "ImgDisp.h"
 
 #include "resource.h"
+#include "atlimage.h"
 
 // CImgDisp
 
@@ -244,8 +245,12 @@ void CImgDisp::FlushImages()
 
 BOOL CImgDisp::LoadBGBmp(CHAR* szBmpLoc)
 {
-    if (hBGBitmap = (HBITMAP)::LoadImage(NULL, szBmpLoc, IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION))
+    CImage backgroundImage;
+
+    if (SUCCEEDED(backgroundImage.Load(szBmpLoc)))
     {
+        hBGBitmap = backgroundImage.Detach();
+            
         bBGAvail = TRUE;
 
         BGBitmap.DeleteObject();

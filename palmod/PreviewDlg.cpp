@@ -131,7 +131,7 @@ void CPreviewDlg::OnSetBlinkCol()
 
 void CPreviewDlg::OnSetBGImage()
 {
-    CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, "Bitmap Image (*.BMP)|*.bmp||", this);
+    CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, "Standard graphics files|*.bmp; *.png; *.gif; *.jpg; *.jpeg||", this);
 
     if (OpenDialog.DoModal() == IDOK)
     {
