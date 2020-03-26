@@ -24,7 +24,8 @@ void CRegProc::LoadReg(int src)
 
     CString conv_str;
 
-    if (RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_READ, &hKey) == ERROR_SUCCESS)
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE|KEY_READ, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
     {
         switch (src)
         {
