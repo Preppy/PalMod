@@ -50,7 +50,6 @@
 #define IDC_EDIT_RHDESC                 1017
 #define IDC_PALCOMBO                    1019
 #define IDC_CHILDCOMBO1                 1019
-#define IDC_REVERT                      1020
 #define IDC_CHILDCOMBO2                 1020
 #define IDC_CALPHATRANS                 1020
 #define IDC_BSETTINGS                   1021

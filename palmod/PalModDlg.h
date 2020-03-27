@@ -33,9 +33,9 @@ class CPalModDlg : public CDialog
 public:
     
     //Program variables
-    CPalGroup * MainPalGroup = nullptr;
-    CImgDisp * ImgDispCtrl = nullptr;
-    CImgDat * ImgFile = nullptr;
+    CPalGroup* MainPalGroup = nullptr;
+    CImgDisp* ImgDispCtrl = nullptr;
+    CImgDat* ImgFile = nullptr;
 
     BOOL bOleInit = TRUE;
     BOOL bEnabled = FALSE;
@@ -53,12 +53,12 @@ public:
 
     BOOL bGetSliderUndo = TRUE;
 
-    sPalDef * CurrPalDef = nullptr;
-    sPalSep * CurrPalSep = nullptr;
-    CJunk * CurrPalCtrl = nullptr;
+    sPalDef* CurrPalDef = nullptr;
+    sPalSep* CurrPalSep = nullptr;
+    CJunk* CurrPalCtrl = nullptr;
 
     BOOL bCanBlink = TRUE;
-    COLORREF * pTempPalCopy = nullptr;
+    COLORREF* pTempPalCopy = nullptr;
 
     BOOL bForceImg = FALSE; 
     int nCurrSelPal = 0;
@@ -163,8 +163,8 @@ protected:
 public:
     afx_msg void OnLDMVC2DCUSA();
     CComboBox m_CBUnitSel;
-    CComboBox m_CBChildSel2;
     CComboBox m_CBChildSel1;
+    CComboBox m_CBChildSel2;
     afx_msg void OnCBUnitChildChange();
     CPalTool m_PalHost;
     virtual BOOL PreTranslateMessage(MSG* pMsg);

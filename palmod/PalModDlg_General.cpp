@@ -35,7 +35,7 @@ void CPalModDlg::UpdateCombo()
         //Grab the main tree
         sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(-1);
 
-#if DUMP_DESRIPTION_TREE_ON_LOAD
+#if DUMP_DESCRIPTION_TREE_ON_LOAD
         // Added this in so I could see the active game tree easily.
         static bool s_fHaveDumped = false;
 
@@ -140,6 +140,14 @@ void CPalModDlg::UpdateCombo()
             OnPalSelChange(0);
         }
     }
+
+    sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], -1);
+    sDescTreeNode* ButtonTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], nCurrChildSel1, -1);
+    sDescNode PaletteNode = ((sDescNode * )(ButtonTree->ChildNodes))[nCurrChildSel2];
+
+    m_ToolTip.AddTool(GetDlgItem(IDC_CHARCOMBO), UnitTree->szDesc);
+    m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO1), ButtonTree->szDesc);
+    m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO2), PaletteNode.szDesc);
 }
 
 void CPalModDlg::PostPalSel()

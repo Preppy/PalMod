@@ -114,10 +114,12 @@ sDescTreeNode* CDescTree::GetDescTree(int nChildId, ...)
 
     while ((nCurrId != -1) && !bChildIsNode)
     {
-        switch (RootTree->uChildType) //bugbug? OutTree vs RootTree
+        switch (OutTree->uChildType)
         {
         case DESC_NODETYPE_NODE:
             bChildIsNode = TRUE;
+            // Caller needs to cast to sDescNode
+            OutTree = &((sDescTreeNode*)OutTree->ChildNodes)[nCurrId];
             break;
         case DESC_NODETYPE_TREE:
             OutTree = &((sDescTreeNode*)OutTree->ChildNodes)[nCurrId];
