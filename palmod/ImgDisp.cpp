@@ -361,7 +361,7 @@ void CImgDisp::ModifyClRect()
 
 void CImgDisp::DrawMainBG()
 {
-    if (bTileBGBmp && CanForceBGBitmapAvailable() && !bUseBGCol)
+    if (bTileBGBmp && !bUseBGCol && CanForceBGBitmapAvailable())
     {
         MainDC->FillRect(CRect(0, 0, MAIN_W, MAIN_H), &BGBrush);
     }
@@ -370,7 +370,7 @@ void CImgDisp::DrawMainBG()
         MainDC->FillSolidRect(CRect(0, 0, MAIN_W, MAIN_H), crBGCol);
     }
 
-    if (!bTileBGBmp && CanForceBGBitmapAvailable() && !bUseBGCol)
+    if (!bTileBGBmp && !bUseBGCol && CanForceBGBitmapAvailable())
     {
         ImageDC->SelectObject(&BGBitmap);
 
