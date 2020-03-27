@@ -2039,6 +2039,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_A[] =
     { "Jotaro Burning A (1/2)", 0x0336480, 0x0336500 },
     { "Jotaro Burning A (2/2)", 0x0336500, 0x0336580 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Jotaro Tech/Zap A", 0x0336780, 0x0336880 },
+#else
+    { "Jotaro Tech/Zap A (1/2)", 0x0336780, 0x0336800 },
+    { "Jotaro Tech/Zap A (2/2)", 0x0336800, 0x0336880 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
@@ -2059,6 +2065,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
 #else
     { "Jotaro Burning B (1/2)", 0x034a980, 0x034aa00 },
     { "Jotaro Burning B (2/2)", 0x034aa00, 0x034aa80 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Jotaro Tech/Zap B", 0x034ac80, 0x034ad80 },
+#else
+    { "Jotaro Tech/Zap B (1/2)", 0x034ac80, 0x034ad00 },
+    { "Jotaro Tech/Zap B (2/2)", 0x034ad00, 0x034ad80 },
 #endif
 };
 
@@ -2081,6 +2093,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_C[] =
     { "Jotaro Burning C (1/2)", 0x035ee80, 0x035ef00 },
     { "Jotaro Burning C (2/2)", 0x035ef00, 0x035ef80 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Jotaro Tech/Zap C", 0x035f180, 0x035f280 },
+#else
+    { "Jotaro Tech/Zap C (1/2)", 0x035f180, 0x035f200 },
+    { "Jotaro Tech/Zap C (2/2)", 0x035f200, 0x035f280 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
@@ -2101,6 +2119,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
 #else
     { "Jotaro Burning S (1/2)", 0x0373380, 0x0373400 },
     { "Jotaro Burning S (2/2)", 0x0373400, 0x0373480 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Jotaro Tech/Zap S", 0x0373680, 0x0373780 },
+#else
+    { "Jotaro Tech/Zap S (1/2)", 0x0373680, 0x0373700 },
+    { "Jotaro Tech/Zap S (2/2)", 0x0373700, 0x0373780 },
 #endif
 };
 
@@ -2123,8 +2147,13 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
     { "Jotaro Burning Start (1/2)", 0x0387880, 0x0387900 },
     { "Jotaro Burning Start (2/2)", 0x0387900, 0x0387980 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Jotaro Tech/Zap Start", 0x0387b80, 0x0387c80 },
+#else
+    { "Jotaro Tech/Zap Start (1/2)", 0x0387b80, 0x0387c00 },
+    { "Jotaro Tech/Zap Start (2/2)", 0x0387c00, 0x0387c80 },
+#endif
 };
-
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 {
@@ -2156,6 +2185,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 #else
     { "Kakyoin Burning A (1/2)", 0x0337100, 0x0337180 },
     { "Kakyoin Burning A (2/2)", 0x0337180, 0x0337200 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Kakyoin Tech/Zap A", 0x0337400, 0x0337500 },
+#else
+    { "Kakyoin Tech/Zap A (1/2)", 0x0337400, 0x0337480 },
+    { "Kakyoin Tech/Zap A (2/2)", 0x0337480, 0x0337500 },
 #endif
 };
 
@@ -2190,6 +2225,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
     { "Kakyoin Burning B (1/2)", 0x034b600, 0x034b680 },
     { "Kakyoin Burning B (2/2)", 0x034b680, 0x034b700 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Kakyoin Tech/Zap B", 0x034b900, 0x034ba00 },
+#else
+    { "Kakyoin Tech/Zap B (1/2)", 0x034b900, 0x034b980 },
+    { "Kakyoin Tech/Zap B (2/2)", 0x034b980, 0x034ba00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
@@ -2222,6 +2263,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
 #else
     { "Kakyoin Burning C (1/2)", 0x035fb00, 0x035fb80 },
     { "Kakyoin Burning C (2/2)", 0x035fb80, 0x035fc00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Kakyoin Tech/Zap C", 0x035fe00, 0x035ff00 },
+#else
+    { "Kakyoin Tech/Zap C (1/2)", 0x035fe00, 0x035fe80 },
+    { "Kakyoin Tech/Zap C (2/2)", 0x035fe80, 0x035ff00 },
 #endif
 };
 
@@ -2256,6 +2303,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
     { "Kakyoin Burning S (1/2)", 0x0374000, 0x0374080 },
     { "Kakyoin Burning S (2/2)", 0x0374080, 0x0374100 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Kakyoin Tech/Zap S", 0x0374300, 0x0374400 },
+#else
+    { "Kakyoin Tech/Zap S (1/2)", 0x0374300, 0x0374380 },
+    { "Kakyoin Tech/Zap S (2/2)", 0x0374380, 0x0374400 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_Start[] =
@@ -2289,6 +2342,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_Start[] =
     { "Kakyoin Burning Start (1/2)", 0x0388500, 0x0388580 },
     { "Kakyoin Burning Start (2/2)", 0x0388580, 0x0388600 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Kakyoin Tech/Zap Start", 0x0388800, 0x0388900 },
+#else
+    { "Kakyoin Tech/Zap Start (1/2)", 0x0388800, 0x0388880 },
+    { "Kakyoin Tech/Zap Start (2/2)", 0x0388880, 0x0388900 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_A[] =
@@ -2309,6 +2368,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_A[] =
 #else
     { "Avdol Burning A (1/2)", 0x0337d80, 0x0337e00 },
     { "Avdol Burning A (2/2)", 0x0337e00, 0x0337e80 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Avdol Tech/Zap A", 0x0338080, 0x0338180 },
+#else
+    { "Avdol Tech/Zap A (1/2)", 0x0338080, 0x0338100 },
+    { "Avdol Tech/Zap A (2/2)", 0x0338100, 0x0338180 },
 #endif
 };
 
@@ -2331,7 +2396,13 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_B[] =
     { "Avdol Burning B (1/2)", 0x034c280, 0x034c300 },
     { "Avdol Burning B (2/2)", 0x034c300, 0x034c380 },
 #endif
-    };
+#ifdef USE_LARGE_PALETTES
+    { "Avdol Tech/Zap B", 0x034c580, 0x034c680 },
+#else
+    { "Avdol Tech/Zap B (1/2)", 0x034c580, 0x034c600 },
+    { "Avdol Tech/Zap B (2/2)", 0x034c600, 0x034c680 },
+#endif
+};
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_C[] =
 {
@@ -2351,6 +2422,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_C[] =
 #else
     { "Avdol Burning C (1/2)", 0x0360780, 0x0360800 },
     { "Avdol Burning C (2/2)", 0x0360800, 0x0360880 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Avdol Tech/Zap C", 0x0360a80, 0x0360b80 },
+#else
+    { "Avdol Tech/Zap C (1/2)", 0x0360a80, 0x0360b00 },
+    { "Avdol Tech/Zap C (2/2)", 0x0360b00, 0x0360b80 },
 #endif
 };
 
@@ -2373,6 +2450,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_S[] =
     { "Avdol Burning S (1/2)", 0x0374c80, 0x0374d00 },
     { "Avdol Burning S (2/2)", 0x0374d00, 0x0374d80 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Avdol Tech/Zap S", 0x0374f80, 0x0375080 },
+#else
+    { "Avdol Tech/Zap S (1/2)", 0x0374f80, 0x0375000 },
+    { "Avdol Tech/Zap S (2/2)", 0x0375000, 0x0375080 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_Start[] =
@@ -2393,6 +2476,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_Start[] =
 #else
     { "Avdol Burning Start (1/2)", 0x0389180, 0x0389200 },
     { "Avdol Burning Start (2/2)", 0x0389200, 0x0389280 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Avdol Tech/Zap Start", 0x0389480, 0x0389580 },
+#else
+    { "Avdol Tech/Zap Start (1/2)", 0x0389480, 0x0389500 },
+    { "Avdol Tech/Zap Start (2/2)", 0x0389500, 0x0389580 },
 #endif
 };
 
@@ -2420,6 +2509,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
     { "Polnareff Burning A (1/2)", 0x0338a00, 0x0338a80 },
     { "Polnareff Burning A (2/2)", 0x0338a80, 0x0338b00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Polnareff Tech/Zap A", 0x0338d00, 0x0338e00 },
+#else
+    { "Polnareff Tech/Zap A (1/2)", 0x0338d00, 0x0338d80 },
+    { "Polnareff Tech/Zap A (2/2)", 0x0338d80, 0x0338e00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
@@ -2445,6 +2540,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
 #else
     { "Polnareff Burning B (1/2)", 0x034cf00, 0x034cf80 },
     { "Polnareff Burning B (2/2)", 0x034cf80, 0x034d000 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Polnareff Tech/Zap B", 0x034d200, 0x034d300 },
+#else
+    { "Polnareff Tech/Zap B (1/2)", 0x034d200, 0x034d280 },
+    { "Polnareff Tech/Zap B (2/2)", 0x034d280, 0x034d300 },
 #endif
 };
 
@@ -2472,6 +2573,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
     { "Polnareff Burning C (1/2)", 0x0361400, 0x0361480 },
     { "Polnareff Burning C (2/2)", 0x0361480, 0x0361500 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Polnareff Tech/Zap C", 0x0361700, 0x0361800 },
+#else
+    { "Polnareff Tech/Zap C (1/2)", 0x0361700, 0x0361780 },
+    { "Polnareff Tech/Zap C (2/2)", 0x0361780, 0x0361800 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
@@ -2497,6 +2604,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
 #else
     { "Polnareff Burning S (1/2)", 0x0375900, 0x0375980 },
     { "Polnareff Burning S (2/2)", 0x0375980, 0x0375a00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Polnareff Tech/Zap S", 0x0375c00, 0x0375d00 },
+#else
+    { "Polnareff Tech/Zap S (1/2)", 0x0375c00, 0x0375c80 },
+    { "Polnareff Tech/Zap S (2/2)", 0x0375c80, 0x0375d00 },
 #endif
 };
 
@@ -2524,6 +2637,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
     { "Polnareff Burning Start (1/2)", 0x0389e00, 0x0389e80 },
     { "Polnareff Burning Start (2/2)", 0x0389e80, 0x0389f00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Polnareff Tech/Zap Start", 0x038a100, 0x038a200 },
+#else
+    { "Polnareff Tech/Zap Start (1/2)", 0x038a100, 0x038a180 },
+    { "Polnareff Tech/Zap Start (2/2)", 0x038a180, 0x038a200 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_A[] =
@@ -2543,6 +2662,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_A[] =
 #else
     { "Joseph Burning A (1/2)", 0x0339680, 0x0339700 },
     { "Joseph Burning A (2/2)", 0x0339700, 0x0339780 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Joseph Tech/Zap/CC A", 0x034db00, 0x034dc00 },
+#else
+    { "Joseph Tech/Zap/CC A (1/2)", 0x034db00, 0x034db80 },
+    { "Joseph Tech/Zap/CC A (2/2)", 0x034db80, 0x034dc00 },
 #endif
     { "Flash Back Manga Panels (Joseph 236aa)", 0x0335B80, 0x0335BC0 }, // maybe move into Extra or something?  a little awkward here
     { "Lisa Lisa & Caesar (Joseph 236aa)", 0x0335C00, 0x0335C80 },
@@ -2566,6 +2691,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_B[] =
     { "Joseph Burning B (1/2)", 0x034db80, 0x034dc00 },
     { "Joseph Burning B (2/2)", 0x034dc00, 0x034dc80 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Joseph Tech/Zap/CC B", 0x0362000, 0x0362100 },
+#else
+    { "Joseph Tech/Zap/CC B (1/2)", 0x0362000, 0x0362080 },
+    { "Joseph Tech/Zap/CC B (2/2)", 0x0362080, 0x0362100 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_C[] =
@@ -2585,6 +2716,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_C[] =
 #else
     { "Joseph Burning C (1/2)", 0x0362080, 0x0362100 },
     { "Joseph Burning C (2/2)", 0x0362100, 0x0362180 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Joseph Tech/Zap/CC C", 0x0376500, 0x0376600 },
+#else
+    { "Joseph Tech/Zap/CC C (1/2)", 0x0376500, 0x0376580 },
+    { "Joseph Tech/Zap/CC C (2/2)", 0x0376580, 0x0376600 },
 #endif
 };
 
@@ -2606,6 +2743,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_S[] =
     { "Joseph Burning S (1/2)", 0x0376580, 0x0376600 },
     { "Joseph Burning S (2/2)", 0x0376600, 0x0376680 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Joseph Tech/Zap/CC S", 0x038aa00, 0x038ab00 },
+#else
+    { "Joseph Tech/Zap/CC S (1/2)", 0x038aa00, 0x038aa80 },
+    { "Joseph Tech/Zap/CC S (2/2)", 0x038aa80, 0x038ab00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_Start[] =
@@ -2626,6 +2769,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_Start[] =
     { "Joseph Burning Start (1/2)", 0x038aa80, 0x038ab00 },
     { "Joseph Burning Start (2/2)", 0x038ab00, 0x038ab80 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Joseph Tech/Zap/CC Start", 0x039ef00, 0x039f000 },
+#else
+    { "Joseph Tech/Zap/CC Start (1/2)", 0x039ef00, 0x039ef80 },
+    { "Joseph Tech/Zap/CC Start (2/2)", 0x039ef80, 0x039f000 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_A[] =
@@ -2638,6 +2787,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_A[] =
 #else
     { "Raging Demon Trail A", 0x033aa80, 0x033ac00 },
 #endif
+    { "Iggy Raging Demon Static (A / B / C / S / Start)", 0x030D300, 0x030D320 },
     { "Iggy Vs / Super A", 0x0410f00, 0x0410f80 },
     { "Iggy Challenger A", 0x0410f80, 0x0411000 },
 #ifndef USE_LARGE_PALETTES
@@ -2651,6 +2801,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_A[] =
 #else
     { "Iggy Burning A (1/2)", 0x033a300, 0x033a380 },
     { "Iggy Burning A (2/2)", 0x033a380, 0x033a400 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Iggy Tech/Zap A", 0x033a600, 0x033a700 },
+#else
+    { "Iggy Tech/Zap A (1/2)", 0x033a600, 0x033a680 },
+    { "Iggy Tech/Zap A (2/2)", 0x033a680, 0x033a700 },
 #endif
 };
 
@@ -2678,6 +2834,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_B[] =
     { "Iggy Burning B (1/2)", 0x034e800, 0x034e880 },
     { "Iggy Burning B (2/2)", 0x034e880, 0x034e900 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Iggy Tech/Zap B", 0x034eb00, 0x034ec00 },
+#else
+    { "Iggy Tech/Zap B (1/2)", 0x034eb00, 0x034eb80 },
+    { "Iggy Tech/Zap B (2/2)", 0x034eb80, 0x034ec00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_C[] =
@@ -2703,6 +2865,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_C[] =
 #else
     { "Iggy Burning C (1/2)", 0x0362d00, 0x0362d80 },
     { "Iggy Burning C (2/2)", 0x0362d80, 0x0362e00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Iggy Tech/Zap C", 0x0363000, 0x0363100 },
+#else
+    { "Iggy Tech/Zap C (1/2)", 0x0363000, 0x0363080 },
+    { "Iggy Tech/Zap C (2/2)", 0x0363080, 0x0363100 },
 #endif
 };
 
@@ -2730,6 +2898,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_S[] =
     { "Iggy Burning S (1/2)", 0x0377200, 0x0377280 },
     { "Iggy Burning S (2/2)", 0x0377280, 0x0377300 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Iggy Tech/Zap S", 0x0377500, 0x0377600 },
+#else
+    { "Iggy Tech/Zap S (1/2)", 0x0377500, 0x0377580 },
+    { "Iggy Tech/Zap S (2/2)", 0x0377580, 0x0377600 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_Start[] =
@@ -2756,6 +2930,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_Start[] =
     { "Iggy Burning Start (1/2)", 0x038b700, 0x038b780 },
     { "Iggy Burning Start (2/2)", 0x038b780, 0x038b800 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Iggy Tech/Zap Start", 0x038ba00, 0x038bb00 },
+#else
+    { "Iggy Tech/Zap Start (1/2)", 0x038ba00, 0x038ba80 },
+    { "Iggy Tech/Zap Start (2/2)", 0x038ba80, 0x038bb00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_A[] =
@@ -2777,6 +2957,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_A[] =
 #else
     { "Alessi Burning A (1/2)", 0x033af80, 0x033b000 },
     { "Alessi Burning A (2/2)", 0x033b000, 0x033b080 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Alessi Tech/Zap A", 0x033b280, 0x033b380 },
+#else
+    { "Alessi Tech/Zap A (1/2)", 0x033b280, 0x033b300 },
+    { "Alessi Tech/Zap A (2/2)", 0x033b300, 0x033b380 },
 #endif
 };
 
@@ -2800,6 +2986,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_B[] =
     { "Alessi Burning B (1/2)", 0x034f480, 0x034f500 },
     { "Alessi Burning B (2/2)", 0x034f500, 0x034f580 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Alessi Tech/Zap B", 0x034f780, 0x034f880 },
+#else
+    { "Alessi Tech/Zap B (1/2)", 0x034f780, 0x034f800 },
+    { "Alessi Tech/Zap B (2/2)", 0x034f800, 0x034f880 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_C[] =
@@ -2821,6 +3013,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_C[] =
 #else
     { "Alessi Burning C (1/2)", 0x0363980, 0x0363a00 },
     { "Alessi Burning C (2/2)", 0x0363a00, 0x0363a80 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Alessi Tech/Zap C", 0x0363c80, 0x0363d80 },
+#else
+    { "Alessi Tech/Zap C (1/2)", 0x0363c80, 0x0363d00 },
+    { "Alessi Tech/Zap C (2/2)", 0x0363d00, 0x0363d80 },
 #endif
 };
 
@@ -2844,6 +3042,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_S[] =
     { "Alessi Burning S (1/2)", 0x0377e80, 0x0377f00 },
     { "Alessi Burning S (2/2)", 0x0377f00, 0x0377f80 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Alessi Tech/Zap S", 0x0378180, 0x0378280 },
+#else
+    { "Alessi Tech/Zap S (1/2)", 0x0378180, 0x0378200 },
+    { "Alessi Tech/Zap S (2/2)", 0x0378200, 0x0378280 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_Start[] =
@@ -2866,6 +3070,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_Start[] =
     { "Alessi Burning Start (1/2)", 0x038c380, 0x038c400 },
     { "Alessi Burning Start (2/2)", 0x038c400, 0x038c480 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Alessi Tech/Zap Start", 0x038c680, 0x038c780 },
+#else
+    { "Alessi Tech/Zap Start (1/2)", 0x038c680, 0x038c700 },
+    { "Alessi Tech/Zap Start (2/2)", 0x038c700, 0x038c780 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_A[] =
@@ -2881,6 +3091,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_A[] =
 #else
     { "Chaka Burning A  (1/2)", 0x033bc00, 0x033bc80 },
     { "Chaka Burning A  (2/2)", 0x033bc80, 0x033bd00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Chaka Tech/Zap/CC/Counter A", 0x033bf00, 0x033c000 },
+#else
+    { "Chaka Tech/Zap/CC/Counter A (1/2)", 0x033bf00, 0x033bf80 },
+    { "Chaka Tech/Zap/CC/Counter A (2/2)", 0x033bf80, 0x033c000 },
 #endif
 };
 
@@ -2898,6 +3114,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_B[] =
     { "Chaka Burning B  (1/2)", 0x0350100, 0x0350180 },
     { "Chaka Burning B  (2/2)", 0x0350180, 0x0350200 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Chaka Tech/Zap/CC/Counter B", 0x0350400, 0x0350500 },
+#else
+    { "Chaka Tech/Zap/CC/Counter B (1/2)", 0x0350400, 0x0350480 },
+    { "Chaka Tech/Zap/CC/Counter B (2/2)", 0x0350480, 0x0350500 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_C[] =
@@ -2913,6 +3135,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_C[] =
 #else
     { "Chaka Burning C (1/2)", 0x0364600, 0x0364680 },
     { "Chaka Burning C (2/2)", 0x0364680, 0x0364700 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Chaka Tech/Zap/CC/Counter C", 0x0364900, 0x0364a00 },
+#else
+    { "Chaka Tech/Zap/CC/Counter C (1/2)", 0x0364900, 0x0364980 },
+    { "Chaka Tech/Zap/CC/Counter C (2/2)", 0x0364980, 0x0364a00 },
 #endif
 };
 
@@ -2930,6 +3158,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_S[] =
     { "Chaka Burning S (1/2)", 0x0378b00, 0x0378b80 },
     { "Chaka Burning S (2/2)", 0x0378b80, 0x0378c00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Chaka Tech/Zap/CC/Counter S", 0x0378e00, 0x0378f00 },
+#else
+    { "Chaka Tech/Zap/CC/Counter S (1/2)", 0x0378e00, 0x0378e80 },
+    { "Chaka Tech/Zap/CC/Counter S (2/2)", 0x0378e80, 0x0378f00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_Start[] =
@@ -2945,6 +3179,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_Start[] =
 #else
     { "Chaka Burning Start (1/2)", 0x038d000, 0x038d080 },
     { "Chaka Burning Start (2/2)", 0x038d080, 0x038d100 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Chaka Tech/Zap/CC/Counter Start", 0x038d300, 0x038d400 },
+#else
+    { "Chaka Tech/Zap/CC/Counter Start (1/2)", 0x038d300, 0x038d380 },
+    { "Chaka Tech/Zap/CC/Counter Start (2/2)", 0x038d380, 0x038d400 },
 #endif
 };
 
@@ -2975,6 +3215,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_A[] =
     { "Devo & Ebony Devil Burning A (1/2)", 0x033c880, 0x033c900 },
     { "Devo & Ebony Devil Burning A (2/2)", 0x033c900, 0x033c980 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Devo Tech/Zap A", 0x033cb80, 0x033cc80 },
+#else
+    { "Devo Tech/Zap A (1/2)", 0x033cb80, 0x033cc00 },
+    { "Devo Tech/Zap A (2/2)", 0x033cc00, 0x033cc80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_B[] =
@@ -3003,6 +3249,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_B[] =
 #else
     { "Devo & Ebony Devil Burning B (1/2)", 0x0350d80, 0x0350e00 },
     { "Devo & Ebony Devil Burning B (2/2)", 0x0350e00, 0x0350e80 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Devo Tech/Zap B", 0x0351080, 0x0351180 },
+#else
+    { "Devo Tech/Zap B (1/2)", 0x0351080, 0x0351100 },
+    { "Devo Tech/Zap B (2/2)", 0x0351100, 0x0351180 },
 #endif
 };
 
@@ -3033,6 +3285,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_C[] =
     { "Devo & Ebony Devil Burning C (1/2)", 0x0365280, 0x0365300 },
     { "Devo & Ebony Devil Burning C (2/2)", 0x0365300, 0x0365380 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Devo Tech/Zap C", 0x0365580, 0x0365680 },
+#else
+    { "Devo Tech/Zap C (1/2)", 0x0365580, 0x0365600 },
+    { "Devo Tech/Zap C (2/2)", 0x0365600, 0x0365680 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_S[] =
@@ -3061,6 +3319,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_S[] =
 #else
     { "Devo & Ebony Devil Burning S (1/2)", 0x0379780, 0x0379800 },
     { "Devo & Ebony Devil Burning S (2/2)", 0x0379800, 0x0379880 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Devo Tech/Zap S", 0x0379a80, 0x0379b80 },
+#else
+    { "Devo Tech/Zap S (1/2)", 0x0379a80, 0x0379b00 },
+    { "Devo Tech/Zap S (2/2)", 0x0379b00, 0x0379b80 },
 #endif
 };
 
@@ -3091,6 +3355,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_Start[] =
     { "Devo & Ebony Devil Burning Star (1/2)", 0x038dc80, 0x038dd00 }, 
     { "Devo & Ebony Devil Burning Star (2/2)", 0x038dd00, 0x038dd80 }, 
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Devo Tech/Zap Start", 0x038df80, 0x038e080 },
+#else
+    { "Devo Tech/Zap Start (1/2)", 0x038df80, 0x038e000 },
+    { "Devo Tech/Zap Start (2/2)", 0x038e000, 0x038e080 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_A[] =
@@ -3118,6 +3388,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_A[] =
 #else
     { "Midler & Burning A (1/2)", 0x033e180, 0x033e200 },
     { "Midler & Burning A (2/2)", 0x033e200, 0x033e280 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Midler Tech/Zap A", 0x033e480, 0x033e580 },
+#else
+    { "Midler Tech/Zap A (1/2)", 0x033e480, 0x033e500 },
+    { "Midler Tech/Zap A (2/2)", 0x033e500, 0x033e580 },
 #endif
 };
 
@@ -3147,6 +3423,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_B[] =
     { "Midler & Burning B (1/2)", 0x0352680, 0x0352700 },
     { "Midler & Burning B (2/2)", 0x0352700, 0x0352780 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Midler Tech/Zap B", 0x0352980, 0x0352a80 },
+#else
+    { "Midler Tech/Zap B (1/2)", 0x0352980, 0x0352a00 },
+    { "Midler Tech/Zap B (2/2)", 0x0352a00, 0x0352a80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_C[] =
@@ -3174,6 +3456,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_C[] =
 #else
     { "Midler & Burning C (1/2)", 0x0366b80, 0x0366c00 },
     { "Midler & Burning C (2/2)", 0x0366c00, 0x0366c80 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Midler Tech/Zap C", 0x0366e80, 0x0366f80 },
+#else
+    { "Midler Tech/Zap C (1/2)", 0x0366e80, 0x0366f00 },
+    { "Midler Tech/Zap C (2/2)", 0x0366f00, 0x0366f80 },
 #endif
 };
 
@@ -3203,6 +3491,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_S[] =
     { "Midler & Burning S (1/2)", 0x037b080, 0x037b100 },
     { "Midler & Burning S (2/2)", 0x037b100, 0x037b180 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Midler Tech/Zap S", 0x037b380, 0x037b480 },
+#else
+    { "Midler Tech/Zap S (1/2)", 0x037b380, 0x037b400 },
+    { "Midler Tech/Zap S (2/2)", 0x037b400, 0x037b480 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
@@ -3231,6 +3525,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
     { "Midler & Burning Start (1/2)", 0x038f580, 0x038f600 },
     { "Midler & Burning Start (2/2)", 0x038f600, 0x038f680 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Midler Tech/Zap Start", 0x038f880, 0x038f980 },
+#else
+    { "Midler Tech/Zap Start (1/2)", 0x038f880, 0x038f900 },
+    { "Midler Tech/Zap Start (2/2)", 0x038f900, 0x038f980 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_A[] =
@@ -3255,6 +3555,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_A[] =
 #else
     { "DIO & The World Burning A (1/2)", 0x033ee00, 0x033ee80 },
     { "DIO & The World Burning A (2/2)", 0x033ee80, 0x033ef00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "DIO Tech/Zap A", 0x033f100, 0x033f200 },
+#else
+    { "DIO Tech/Zap A (1/2)", 0x033f100, 0x033f180 },
+    { "DIO Tech/Zap A (2/2)", 0x033f180, 0x033f200 },
 #endif
 };
 
@@ -3281,6 +3587,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_B[] =
     { "DIO & The World Burning B (1/2)", 0x0353300, 0x0353380 },
     { "DIO & The World Burning B (2/2)", 0x0353380, 0x0353400 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "DIO Tech/Zap B", 0x0353600, 0x0353700 },
+#else
+    { "DIO Tech/Zap B (1/2)", 0x0353600, 0x0353680 },
+    { "DIO Tech/Zap B (2/2)", 0x0353680, 0x0353700 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_C[] =
@@ -3305,6 +3617,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_C[] =
 #else
     { "DIO & The World Burning C (1/2)", 0x0367800, 0x0367880 },
     { "DIO & The World Burning C (2/2)", 0x0367880, 0x0367900 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "DIO Tech/Zap C", 0x0367b00, 0x0367c00 },
+#else
+    { "DIO Tech/Zap C (1/2)", 0x0367b00, 0x0367b80 },
+    { "DIO Tech/Zap C (2/2)", 0x0367b80, 0x0367c00 },
 #endif
 };
 
@@ -3331,6 +3649,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_S[] =
     { "DIO & The World Burning S (1/2)", 0x037bd00, 0x037bd80 },
     { "DIO & The World Burning S (2/2)", 0x037bd80, 0x037be00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "DIO Tech/Zap S", 0x037c000, 0x037c100 },
+#else
+    { "DIO Tech/Zap S (1/2)", 0x037c000, 0x037c080 },
+    { "DIO Tech/Zap S (2/2)", 0x037c080, 0x037c100 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_Start[] =
@@ -3356,6 +3680,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_Start[] =
     { "DIO & The World Burning Start (1/2)", 0x0390200, 0x0390280 },
     { "DIO & The World Burning Start (2/2)", 0x0390280, 0x0390300 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "DIO Tech/Zap Start", 0x0390500, 0x0390600 },
+#else
+    { "DIO Tech/Zap Start (1/2)", 0x0390500, 0x0390580 },
+    { "DIO Tech/Zap Start (2/2)", 0x0390580, 0x0390600 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_A[] =
@@ -3374,6 +3704,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_A[] =
 #else
     { "Shadow DIO Burning A (1/2)", 0x0341380, 0x0341400 },
     { "Shadow DIO Burning A (2/2)", 0x0341400, 0x0341480 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Shadow DIO Tech/Zap A", 0x0341680, 0x0341780 },
+#else
+    { "Shadow DIO Tech/Zap A (1/2)", 0x0341680, 0x0341700 },
+    { "Shadow DIO Tech/Zap A (2/2)", 0x0341700, 0x0341780 },
 #endif
 };
 
@@ -3394,6 +3730,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_B[] =
     { "Shadow DIO Burning B (1/2)", 0x0355880, 0x0355900 },
     { "Shadow DIO Burning B (2/2)", 0x0355900, 0x0355980 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Shadow DIO Tech/Zap B", 0x0355b80, 0x0355c80 },
+#else
+    { "Shadow DIO Tech/Zap B (1/2)", 0x0355b80, 0x0355c00 },
+    { "Shadow DIO Tech/Zap B (2/2)", 0x0355c00, 0x0355c80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_C[] =
@@ -3412,6 +3754,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_C[] =
 #else
     { "Shadow DIO Burning C (1/2)", 0x0369d80, 0x0369e00 },
     { "Shadow DIO Burning C (2/2)", 0x0369e00, 0x0369e80 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Shadow DIO Tech/Zap C", 0x036a080, 0x036a180 },
+#else
+    { "Shadow DIO Tech/Zap C (1/2)", 0x036a080, 0x036a100 },
+    { "Shadow DIO Tech/Zap C (2/2)", 0x036a100, 0x036a180 },
 #endif
 };
 
@@ -3432,6 +3780,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_S[] =
     { "Shadow DIO Burning S (1/2)", 0x037e280, 0x037e300 },
     { "Shadow DIO Burning S (2/2)", 0x037e300, 0x037e380 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Shadow DIO Tech/Zap S", 0x037e580, 0x037e680 },
+#else
+    { "Shadow DIO Tech/Zap S (1/2)", 0x037e580, 0x037e600 },
+    { "Shadow DIO Tech/Zap S (2/2)", 0x037e600, 0x037e680 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_Start[] =
@@ -3451,6 +3805,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_Start[] =
     { "Shadow DIO Burning Start (1/2)", 0x0392780, 0x0392800 },
     { "Shadow DIO Burning Start (2/2)", 0x0392800, 0x0392880 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Shadow DIO Tech/Zap Start", 0x0392a80, 0x0392b80 },
+#else
+    { "Shadow DIO Tech/Zap Start (1/2)", 0x0392a80, 0x0392b00 },
+    { "Shadow DIO Tech/Zap Start (2/2)", 0x0392b00, 0x0392b80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_A[] =
@@ -3465,6 +3825,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_A[] =
 #else
     { "Young Joseph Burning A (1/2)", 0x0342000, 0x0342080 },
     { "Young Joseph Burning A (2/2)", 0x0342080, 0x0342100 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Youngseph Tech/Zap A", 0x0342300, 0x0342400 },
+#else
+    { "Youngseph Tech/Zap A (1/2)", 0x0342300, 0x0342380 },
+    { "Youngseph Tech/Zap A (2/2)", 0x0342380, 0x0342400 },
 #endif
 };
 
@@ -3481,6 +3847,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_B[] =
     { "Young Joseph Burning B (1/2)", 0x0356500, 0x0356580 },
     { "Young Joseph Burning B (2/2)", 0x0356580, 0x0356600 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Youngseph Tech/Zap B", 0x0356800, 0x0356900 },
+#else
+    { "Youngseph Tech/Zap B (1/2)", 0x0356800, 0x0356880 },
+    { "Youngseph Tech/Zap B (2/2)", 0x0356880, 0x0356900 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_C[] =
@@ -3495,6 +3867,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_C[] =
 #else
     { "Young Joseph Burning C (1/2)", 0x036aa00, 0x036aa80 },
     { "Young Joseph Burning C (2/2)", 0x036aa80, 0x036ab00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Youngseph Tech/Zap C", 0x036ad00, 0x036ae00 },
+#else
+    { "Youngseph Tech/Zap C (1/2)", 0x036ad00, 0x036ad80 },
+    { "Youngseph Tech/Zap C (2/2)", 0x036ad80, 0x036ae00 },
 #endif
 };
 
@@ -3511,6 +3889,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_S[] =
     { "Young Joseph Burning S (1/2)", 0x037ef00, 0x037ef80 },
     { "Young Joseph Burning S (2/2)", 0x037ef80, 0x037f000 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Youngseph Tech/Zap S", 0x037f200, 0x037f300 },
+#else
+    { "Youngseph Tech/Zap S (1/2)", 0x037f200, 0x037f280 },
+    { "Youngseph Tech/Zap S (2/2)", 0x037f280, 0x037f300 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_Start[] =
@@ -3525,6 +3909,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_Start[] =
 #else
     { "Young Joseph Burning Start (1/2)", 0x0393400, 0x0393480 },
     { "Young Joseph Burning Start (2/2)", 0x0393480, 0x0393500 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Youngseph Tech/Zap Start", 0x0393700, 0x0393800 },
+#else
+    { "Youngseph Tech/Zap Start (1/2)", 0x0393700, 0x0393780 },
+    { "Youngseph Tech/Zap Start (2/2)", 0x0393780, 0x0393800 },
 #endif
 };
 
@@ -3544,6 +3934,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_A[] =
     { "Hol Horse Burning A (1/2)", 0x0342c80, 0x0342d00 },
     { "Hol Horse Burning A (2/2)", 0x0342d00, 0x0342d80 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse Tech/Zap A", 0x0342f80, 0x0343080 },
+#else
+    { "Hol Horse Tech/Zap A (1/2)", 0x0342f80, 0x0343000 },
+    { "Hol Horse Tech/Zap A (2/2)", 0x0343000, 0x0343080 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
@@ -3561,6 +3957,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
 #else
     { "Hol Horse Burning B (1/2)", 0x0357180, 0x0357200 },
     { "Hol Horse Burning B (2/2)", 0x0357200, 0x0357280 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse Tech/Zap B", 0x0357480, 0x0357580 },
+#else
+    { "Hol Horse Tech/Zap B (1/2)", 0x0357480, 0x0357500 },
+    { "Hol Horse Tech/Zap B (2/2)", 0x0357500, 0x0357580 },
 #endif
 };
 
@@ -3580,6 +3982,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_C[] =
     { "Hol Horse Burning C (1/2)", 0x036b680, 0x036b700 },
     { "Hol Horse Burning C (2/2)", 0x036b700, 0x036b780 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse Tech/Zap C", 0x036b980, 0x036ba80 },
+#else
+    { "Hol Horse Tech/Zap C (1/2)", 0x036b980, 0x036ba00 },
+    { "Hol Horse Tech/Zap C (2/2)", 0x036ba00, 0x036ba80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
@@ -3598,6 +4006,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
     { "Hol Horse Burning S (1/2)", 0x037fb80, 0x037fc00 },
     { "Hol Horse Burning S (2/2)", 0x037fc00, 0x037fc80 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse Tech/Zap S", 0x037fe80, 0x037ff80 },
+#else
+    { "Hol Horse Tech/Zap S (1/2)", 0x037fe80, 0x037ff00 },
+    { "Hol Horse Tech/Zap S (2/2)", 0x037ff00, 0x037ff80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_Start[] =
@@ -3615,6 +4029,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_Start[] =
 #else
     { "Hol Horse Burning Start (1/2)", 0x0394080, 0x0394100 },
     { "Hol Horse Burning Start (2/2)", 0x0394100, 0x0394180 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse Tech/Zap Start", 0x0394380, 0x0394480 },
+#else
+    { "Hol Horse Tech/Zap Start (1/2)", 0x0394380, 0x0394400 },
+    { "Hol Horse Tech/Zap Start (2/2)", 0x0394400, 0x0394480 },
 #endif
 };
 
@@ -3635,6 +4055,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_A[] =
     { "Vanilla Ice Burning A (1/2)", 0x0343900, 0x0343980 },
     { "Vanilla Ice Burning A (2/2)", 0x0343980, 0x0343a00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Vanilla Ice Tech A", 0x0343c00, 0x0343d00 },
+#else
+    { "Vanilla Ice Tech A (1/2)", 0x0343c00, 0x0343c80 },
+    { "Vanilla Ice Tech A (2/2)", 0x0343c80, 0x0343d00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_B[] =
@@ -3653,6 +4079,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_B[] =
 #else
     { "Vanilla Ice Burning B (1/2)", 0x0357e00, 0x0357e80 },
     { "Vanilla Ice Burning B (2/2)", 0x0357e80, 0x0357f00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Vanilla Ice Tech B", 0x0358100, 0x0358200 },
+#else
+    { "Vanilla Ice Tech B (1/2)", 0x0358100, 0x0358180 },
+    { "Vanilla Ice Tech B (2/2)", 0x0358180, 0x0358200 },
 #endif
 };
 
@@ -3673,6 +4105,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_C[] =
     { "Vanilla Ice Burning C (1/2)", 0x036c300, 0x036c380 },
     { "Vanilla Ice Burning C (2/2)", 0x036c380, 0x036c400 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Vanilla Ice Tech C", 0x036c600, 0x036c700 },
+#else
+    { "Vanilla Ice Tech C (1/2)", 0x036c600, 0x036c680 },
+    { "Vanilla Ice Tech C (2/2)", 0x036c680, 0x036c700 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_S[] =
@@ -3692,6 +4130,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_S[] =
     { "Vanilla Ice Burning S (1/2)", 0x0380800, 0x0380880 },
     { "Vanilla Ice Burning S (2/2)", 0x0380880, 0x0380900 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Vanilla Ice Tech S", 0x0380b00, 0x0380c00 },
+#else
+    { "Vanilla Ice Tech S (1/2)", 0x0380b00, 0x0380b80 },
+    { "Vanilla Ice Tech S (2/2)", 0x0380b80, 0x0380c00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_Start[] =
@@ -3710,6 +4154,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_Start[] =
 #else
     { "Vanilla Ice Burning Start (1/2)", 0x0394d00, 0x0394d80 },
     { "Vanilla Ice Burning Start (2/2)", 0x0394d80, 0x0394e00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Vanilla Ice Tech Start", 0x0395000, 0x0395100 },
+#else
+    { "Vanilla Ice Tech Start (1/2)", 0x0395000, 0x0395080 },
+    { "Vanilla Ice Tech Start (2/2)", 0x0395080, 0x0395100 },
 #endif
 };
 
@@ -3743,6 +4193,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_A[] =
     { "New Kakyoin Burning A (1/2)", 0x0344580, 0x0344600 },
     { "New Kakyoin Burning A (2/2)", 0x0344600, 0x0344680 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "New Kakyoin Tech/Zap A", 0x0344880, 0x0344980 },
+#else
+    { "New Kakyoin Tech/Zap A (1/2)", 0x0344880, 0x0344900 },
+    { "New Kakyoin Tech/Zap A (2/2)", 0x0344900, 0x0344980 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_B[] =
@@ -3770,6 +4226,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_B[] =
 #else
     { "New Kakyoin Burning B (1/2)", 0x0358a80, 0x0358b00 },
     { "New Kakyoin Burning B (2/2)", 0x0358b00, 0x0358b80 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "New Kakyoin Tech/Zap B", 0x0358d80, 0x0358e80 },
+#else
+    { "New Kakyoin Tech/Zap B (1/2)", 0x0358d80, 0x0358e00 },
+    { "New Kakyoin Tech/Zap B (2/2)", 0x0358e00, 0x0358e80 },
 #endif
 };
 
@@ -3800,6 +4262,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_C[] =
     { "New Kakyoin Burning C (1/2)", 0x036cf80, 0x036d000 },
     { "New Kakyoin Burning C (2/2)", 0x036d000, 0x036d080 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "New Kakyoin Tech/Zap C", 0x036d280, 0x036d380 },
+#else
+    { "New Kakyoin Tech/Zap C (1/2)", 0x036d280, 0x036d300 },
+    { "New Kakyoin Tech/Zap C (2/2)", 0x036d300, 0x036d380 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_S[] =
@@ -3827,6 +4295,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_S[] =
 #else
     { "New Kakyoin Burning S (1/2)", 0x0381480, 0x0381500 },
     { "New Kakyoin Burning S (2/2)", 0x0381500, 0x0381580 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "New Kakyoin Tech/Zap S", 0x0381780, 0x0381880 },
+#else
+    { "New Kakyoin Tech/Zap S (1/2)", 0x0381780, 0x0381800 },
+    { "New Kakyoin Tech/Zap S (2/2)", 0x0381800, 0x0381880 },
 #endif
 };
 
@@ -3857,6 +4331,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_Start[] =
     { "New Kakyoin Burning Start (1/2)", 0x0395980, 0x0395a00 },
     { "New Kakyoin Burning Start (2/2)", 0x0395a00, 0x0395a80 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "New Kakyoin Tech/Zap Start", 0x0395c80, 0x0395d80 },
+#else
+    { "New Kakyoin Tech/Zap Start (1/2)", 0x0395c80, 0x0395d00 },
+    { "New Kakyoin Tech/Zap Start (2/2)", 0x0395d00, 0x0395d80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_A[] =
@@ -3875,6 +4355,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_A[] =
 #else
     { "Anubis Polnareff Burning A (1/2)", 0x0345200, 0x0345280 },
     { "Anubis Polnareff Burning A (2/2)", 0x0345280, 0x0345300 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Anubis Polnareff Tech/Zap A", 0x0345500, 0x0345600 },
+#else
+    { "Anubis Polnareff Tech/Zap A (1/2)", 0x0345500, 0x0345580 },
+    { "Anubis Polnareff Tech/Zap A (2/2)", 0x0345580, 0x0345600 },
 #endif
     { "Blood (Bpol super, etc)", 0x03359c0, 0x03359e0 },
 };
@@ -3896,6 +4382,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_B[] =
     { "Anubis Polnareff Burning B (1/2)", 0x0359700, 0x0359780 },
     { "Anubis Polnareff Burning B (2/2)", 0x0359780, 0x0359800 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Anubis Polnareff Tech/Zap B", 0x0359a00, 0x0359b00 },
+#else
+    { "Anubis Polnareff Tech/Zap B (1/2)", 0x0359a00, 0x0359a80 },
+    { "Anubis Polnareff Tech/Zap B (2/2)", 0x0359a80, 0x0359b00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_C[] =
@@ -3914,6 +4406,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_C[] =
 #else
     { "Anubis Polnareff Burning C (1/2)", 0x036dc00, 0x036dc80 },
     { "Anubis Polnareff Burning C (2/2)", 0x036dc80, 0x036dd00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Anubis Polnareff Tech/Zap C", 0x036df00, 0x036e000 },
+#else
+    { "Anubis Polnareff Tech/Zap C (1/2)", 0x036df00, 0x036df80 },
+    { "Anubis Polnareff Tech/Zap C (2/2)", 0x036df80, 0x036e000 },
 #endif
 };
 
@@ -3934,6 +4432,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_S[] =
     { "Anubis Polnareff Burning S (1/2)", 0x0382100, 0x0382180 },
     { "Anubis Polnareff Burning S (2/2)", 0x0382180, 0x0382200 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Anubis Polnareff Tech/Zap S", 0x0382400, 0x0382500 },
+#else
+    { "Anubis Polnareff Tech/Zap S (1/2)", 0x0382400, 0x0382480 },
+    { "Anubis Polnareff Tech/Zap S (2/2)", 0x0382480, 0x0382500 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_Start[] =
@@ -3952,6 +4456,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_Start[] =
 #else
     { "Anubis Polnareff Burning Start (1/2)", 0x0396600, 0x0396680 },
     { "Anubis Polnareff Burning Start (2/2)", 0x0396680, 0x0396700 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Anubis Polnareff Tech/Zap Start", 0x0396900, 0x0396a00 },
+#else
+    { "Anubis Polnareff Tech/Zap Start (1/2)", 0x0396900, 0x0396980 },
+    { "Anubis Polnareff Tech/Zap Start (2/2)", 0x0396980, 0x0396a00 },
 #endif
 };
 
@@ -3973,6 +4483,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_A[] =
     { "Petshop Burning A (1/2)", 0x0345e80, 0x0345f00 },
     { "Petshop Burning A (2/2)", 0x0345f00, 0x0345f80 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Petshop Tech/Zap A", 0x0346180, 0x0346280 },
+#else
+    { "Petshop Tech/Zap A (1/2)", 0x0346180, 0x0346200 },
+    { "Petshop Tech/Zap A (2/2)", 0x0346200, 0x0346280 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_B[] =
@@ -3992,6 +4508,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_B[] =
 #else
     { "Petshop Burning B (1/2)", 0x035a380, 0x035a400 },
     { "Petshop Burning B (2/2)", 0x035a400, 0x035a480 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Petshop Tech/Zap B ", 0x035a680, 0x035a780 },
+#else
+    { "Petshop Tech/Zap B  (1/2)", 0x035a680, 0x035a700 },
+    { "Petshop Tech/Zap B  (2/2)", 0x035a700, 0x035a780 },
 #endif
 };
 
@@ -4013,6 +4535,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_C[] =
     { "Petshop Burning C (1/2)", 0x036e880, 0x036e900 },
     { "Petshop Burning C (2/2)", 0x036e900, 0x036e980 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Petshop Tech/Zap C", 0x036eb80, 0x036ec80 },
+#else
+    { "Petshop Tech/Zap C (1/2)", 0x036eb80, 0x036ec00 },
+    { "Petshop Tech/Zap C (2/2)", 0x036ec00, 0x036ec80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_S[] =
@@ -4033,6 +4561,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_S[] =
     { "Petshop Burning S (1/2)", 0x0382d80, 0x0382e00 },
     { "Petshop Burning S (2/2)", 0x0382e00, 0x0382e80 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Petshop Tech/Zap S", 0x0383080, 0x0383180 },
+#else
+    { "Petshop Tech/Zap S (1/2)", 0x0383080, 0x0383100 },
+    { "Petshop Tech/Zap S (2/2)", 0x0383100, 0x0383180 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_Start[] =
@@ -4052,6 +4586,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_Start[] =
 #else
     { "Petshop Burning Start (1/2)", 0x0397280, 0x0397300 },
     { "Petshop Burning Start (2/2)", 0x0397300, 0x0397380 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Petshop Tech/Zap Start", 0x0397580, 0x0397680 },
+#else
+    { "Petshop Tech/Zap Start (1/2)", 0x0397580, 0x0397600 },
+    { "Petshop Tech/Zap Start (2/2)", 0x0397600, 0x0397680 },
 #endif
 };
 
@@ -4075,6 +4615,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_A[] =
     { "Mariah Burning A (1/2)", 0x0347780, 0x0347800 },
     { "Mariah Burning A (2/2)", 0x0347800, 0x0347880 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Mariah Tech/Zap A", 0x0347a80, 0x0347b80 },
+#else
+    { "Mariah Tech/Zap A (1/2)", 0x0347a80, 0x0347b00 },
+    { "Mariah Tech/Zap A (2/2)", 0x0347b00, 0x0347b80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_B[] =
@@ -4096,6 +4642,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_B[] =
 #else
     { "Mariah Burning B (1/2)", 0x035bc80, 0x035bd00 },
     { "Mariah Burning B (2/2)", 0x035bd00, 0x035bd80 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Mariah Tech/Zap B", 0x035bf80, 0x035c080 },
+#else
+    { "Mariah Tech/Zap B (1/2)", 0x035bf80, 0x035c000 },
+    { "Mariah Tech/Zap B (2/2)", 0x035c000, 0x035c080 },
 #endif
 };
 
@@ -4119,6 +4671,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_C[] =
     { "Mariah Burning C (1/2)", 0x0370180, 0x0370200 },
     { "Mariah Burning C (2/2)", 0x0370200, 0x0370280 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Mariah Tech/Zap C", 0x0370480, 0x0370580 },
+#else
+    { "Mariah Tech/Zap C (1/2)", 0x0370480, 0x0370500 },
+    { "Mariah Tech/Zap C (2/2)", 0x0370500, 0x0370580 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_S[] =
@@ -4140,6 +4698,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_S[] =
 #else
     { "Mariah Burning S (1/2)", 0x0384680, 0x0384700 },
     { "Mariah Burning S (2/2)", 0x0384700, 0x0384780 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Mariah Tech/Zap S", 0x0384980, 0x0384a80 },
+#else
+    { "Mariah Tech/Zap S (1/2)", 0x0384980, 0x0384a00 },
+    { "Mariah Tech/Zap S (2/2)", 0x0384a00, 0x0384a80 },
 #endif
 };
 
@@ -4163,6 +4727,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_Start[] =
     { "Mariah Burning Start (1/2)", 0x0398b80, 0x0398c00 },
     { "Mariah Burning Start (2/2)", 0x0398c00, 0x0398c80 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Mariah Tech/Zap Start", 0x0398e80, 0x0398f80 },
+#else
+    { "Mariah Tech/Zap Start (1/2)", 0x0398e80, 0x0398f00 },
+    { "Mariah Tech/Zap Start (2/2)", 0x0398f00, 0x0398f80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_A[] =
@@ -4183,6 +4753,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_A[] =
 #else
     { "Hol & Boingo Burning A (1/2)", 0x0348400, 0x0348480 },
     { "Hol & Boingo Burning A (2/2)", 0x0348480, 0x0348500 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol & Boingo Tech/Zap A", 0x0348700, 0x0348800 },
+#else
+    { "Hol & Boingo Tech/Zap A (1/2)", 0x0348700, 0x0348780 },
+    { "Hol & Boingo Tech/Zap A (2/2)", 0x0348780, 0x0348800 },
 #endif
 };
 
@@ -4205,6 +4781,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_B[] =
     { "Hol & Boingo Burning B (1/2)", 0x035c900, 0x035c980 },
     { "Hol & Boingo Burning B (2/2)", 0x035c980, 0x035ca00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol & Boingo Tech/Zap B", 0x035cc00, 0x035cd00 },
+#else
+    { "Hol & Boingo Tech/Zap B (1/2)", 0x035cc00, 0x035cc80 },
+    { "Hol & Boingo Tech/Zap B (2/2)", 0x035cc80, 0x035cd00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_C[] =
@@ -4225,6 +4807,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_C[] =
 #else
     { "Hol & Boingo Burning C (1/2)", 0x0370e00, 0x0370e80 },
     { "Hol & Boingo Burning C (2/2)", 0x0370e80, 0x0370f00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol & Boingo Tech/Zap C", 0x0371100, 0x0371200 },
+#else
+    { "Hol & Boingo Tech/Zap C (1/2)", 0x0371100, 0x0371180 },
+    { "Hol & Boingo Tech/Zap C (2/2)", 0x0371180, 0x0371200 },
 #endif
 };
 
@@ -4247,6 +4835,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_S[] =
     { "Hol & Boingo Burning S (1/2)", 0x0385300, 0x0385380 },
     { "Hol & Boingo Burning S (2/2)", 0x0385380, 0x0385400 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol & Boingo Tech/Zap S", 0x0385600, 0x0385700 },
+#else
+    { "Hol & Boingo Tech/Zap S (1/2)", 0x0385600, 0x0385680 },
+    { "Hol & Boingo Tech/Zap S (2/2)", 0x0385680, 0x0385700 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_Start[] =
@@ -4268,6 +4862,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_Start[] =
     { "Hol & Boingo Burning Start (1/2)", 0x0399800, 0x0399880 },
     { "Hol & Boingo Burning Start (2/2)", 0x0399880, 0x0399900 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol & Boingo Tech/Zap Start", 0x0399b00, 0x0399c00 },
+#else
+    { "Hol & Boingo Tech/Zap Start (1/2)", 0x0399b00, 0x0399b80 },
+    { "Hol & Boingo Tech/Zap Start (2/2)", 0x0399b80, 0x0399c00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_A[] =
@@ -4282,6 +4882,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_A[] =
 #else
     { "Rubber Soul Burning A (1/2)", 0x0349080, 0x0349100 },
     { "Rubber Soul Burning A (2/2)", 0x0349100, 0x0349180 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Rubber Soul Tech/Zap A", 0x035d880, 0x035d980 },
+#else
+    { "Rubber Soul Tech/Zap A (1/2)", 0x035d880, 0x035d900 },
+    { "Rubber Soul Tech/Zap A (2/2)", 0x035d900, 0x035d980 },
 #endif
 };
 
@@ -4298,6 +4904,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_B[] =
     { "Rubber Soul Burning B (1/2)", 0x035d580, 0x035d600 },
     { "Rubber Soul Burning B (2/2)", 0x035d600, 0x035d680 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Rubber Soul Tech/Zap B", 0x0371d80, 0x0371e80 },
+#else
+    { "Rubber Soul Tech/Zap B (1/2)", 0x0371d80, 0x0371e00 },
+    { "Rubber Soul Tech/Zap B (2/2)", 0x0371e00, 0x0371e80 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_C[] =
@@ -4312,6 +4924,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_C[] =
 #else
     { "Rubber Soul Burning C (1/2)", 0x0371a80, 0x0371b00 },
     { "Rubber Soul Burning C (2/2)", 0x0371b00, 0x0371b80 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Rubber Soul Tech/Zap C", 0x0386280, 0x0386380 },
+#else
+    { "Rubber Soul Tech/Zap C (1/2)", 0x0386280, 0x0386300 },
+    { "Rubber Soul Tech/Zap C (2/2)", 0x0386300, 0x0386380 },
 #endif
 };
 
@@ -4328,6 +4946,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_S[] =
     { "Rubber Soul Burning S (1/2)", 0x0385f80, 0x0386000 },
     { "Rubber Soul Burning S (2/2)", 0x0386000, 0x0386080 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Rubber Soul Tech/Zap S", 0x039a780, 0x039a880 },
+#else
+    { "Rubber Soul Tech/Zap S (1/2)", 0x039a780, 0x039a800 },
+    { "Rubber Soul Tech/Zap S (2/2)", 0x039a800, 0x039a880 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_Start[] =
@@ -4342,6 +4966,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_Start[] =
 #else
     { "Rubber Soul Burning Start (1/2)", 0x039a480, 0x039a500 },
     { "Rubber Soul Burning Start (2/2)", 0x039a500, 0x039a580 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Rubber Soul Tech/Zap Start", 0x03aec80, 0x03aed80 },
+#else
+    { "Rubber Soul Tech/Zap Start (1/2)", 0x03aec80, 0x03aed00 },
+    { "Rubber Soul Tech/Zap Start (2/2)", 0x03aed00, 0x03aed80 },
 #endif
 };
 
@@ -4361,6 +4991,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_A[] =
     { "Khan Burning A (1/2)", 0x0349d00, 0x0349d80 },
     { "Khan Burning A (2/2)", 0x0349d80, 0x0349e00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Khan Tech/Zap A", 0x034a000, 0x034a100 },
+#else
+    { "Khan Tech/Zap A (1/2)", 0x034a000, 0x034a080 },
+    { "Khan Tech/Zap A (2/2)", 0x034a080, 0x034a100 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_B[] =
@@ -4378,6 +5014,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_B[] =
 #else
     { "Khan Burning B (1/2)", 0x035e200, 0x035e280 },
     { "Khan Burning B (2/2)", 0x035e280, 0x035e300 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Khan Tech/Zap B", 0x035e500, 0x035e600 },
+#else
+    { "Khan Tech/Zap B (1/2)", 0x035e500, 0x035e580 },
+    { "Khan Tech/Zap B (2/2)", 0x035e580, 0x035e600 },
 #endif
 };
 
@@ -4397,6 +5039,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_C[] =
     { "Khan Burning C (1/2)", 0x0372700, 0x0372780 },
     { "Khan Burning C (2/2)", 0x0372780, 0x0372800 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Khan Tech/Zap C", 0x0372a00, 0x0372b00 },
+#else
+    { "Khan Tech/Zap C (1/2)", 0x0372a00, 0x0372a80 },
+    { "Khan Tech/Zap C (2/2)", 0x0372a80, 0x0372b00 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_S[] =
@@ -4415,6 +5063,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_S[] =
     { "Khan Burning S (1/2)", 0x0386c00, 0x0386c80 },
     { "Khan Burning S (2/2)", 0x0386c80, 0x0386d00 },
 #endif
+#ifdef USE_LARGE_PALETTES
+    { "Khan Tech/Zap S", 0x0386f00, 0x0387000 },
+#else
+    { "Khan Tech/Zap S (1/2)", 0x0386f00, 0x0386f80 },
+    { "Khan Tech/Zap S (2/2)", 0x0386f80, 0x0387000 },
+#endif
 };
 
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_Start[] =
@@ -4432,6 +5086,12 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_Start[] =
 #else
     { "Khan Burning Start (1/2)", 0x039b100, 0x039b180 },
     { "Khan Burning Start (2/2)", 0x039b180, 0x039b200 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Khan Tech/Zap Start", 0x039b400, 0x039b500 },
+#else
+    { "Khan Tech/Zap Start (1/2)", 0x039b400, 0x039b480 },
+    { "Khan Tech/Zap Start (2/2)", 0x039b480, 0x039b500 },
 #endif
 };
 

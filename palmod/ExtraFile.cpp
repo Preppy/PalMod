@@ -3,6 +3,9 @@
 
 #include "ExtraFile.h"
 
+// Uncomment this to have this file help convert an Extra file to our header style
+//#define DUMP_EXTRAS_ON_LOAD
+
 using namespace std;
 
 // This is the most we can currently display.
