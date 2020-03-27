@@ -115,7 +115,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_A,33,74,23,12,ES_AUTOHSCROLL
     CONTROL         "",IDC_A_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,60,74,81,12
     PUSHBUTTON      "Set All 0 Index",IDC_BEIDRIAN2,2,177,64,13,NOT WS_VISIBLE
-    PUSHBUTTON      "Set Color",IDC_BSETCOL,31,95,49,13
+    PUSHBUTTON      "Set Color",IDC_BSETCOL,31,95,49,13,NOT WS_VISIBLE
     PUSHBUTTON      "Pick Color",IDC_BNEWCOL,87,95,49,13
     PUSHBUTTON      "Check My Edits",IDC_BCHECKMIX,2,143,64,13,NOT WS_VISIBLE
     PUSHBUTTON      "Make All Invis",IDC_BEIDRIAN1,2,156,64,13,NOT WS_VISIBLE
@@ -125,9 +125,7 @@ BEGIN
     PUSHBUTTON      "Invert",IDC_BINVERT,264,28,37,12
     PUSHBUTTON      "Revert",IDC_BREVERT,264,43,37,12
     COMBOBOX        IDC_CHARCOMBO,159,129,130,147,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
-
     COMBOBOX        IDC_CHILDCOMBO1,159,143,130,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
-
     COMBOBOX        IDC_CHILDCOMBO2,159,157,130,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "Update",IDC_BUPDATE,180,173,39,12
     PUSHBUTTON      "Preview",IDC_SHOWPREVIEW,226,173,39,12
@@ -307,7 +305,6 @@ BEGIN
         MENUITEM "Auto-Set Color On Adjust",    ID_AUTOSETCOL
         MENUITEM "MvC2 &Settings...",           ID_SETTINGS_SETTINGS
     END
-
     POPUP "&About"
     BEGIN
         MENUITEM "&About PalMod...",            ID_ABOUT_ABOUTPALMOD
@@ -322,7 +319,9 @@ BEGIN
 #ifdef DEBUG
 
 
+
         MENUITEM "Load Sprite",                 ID_FILE_LOADSPRITE
+
 
 
 #endif
@@ -424,7 +423,8 @@ BEGIN
     IDS_ERROR_PARAMETERS    "Invalid parameters."
     IDS_ERROR_LOADING_ACT_FILE "Error loading ACT file."
     IDS_ERROR_SAVING_ACT_FILE "Error saving ACT file."
-    IDS_SAVE_PALETTE_CHANGES "Update PalMod's palette memory with these changes?\n\nThe actual ROM/files will not be changed until you patch from the File menu or on exit."
+    IDS_SAVE_PALETTE_CHANGES 
+                            "Update PalMod's palette memory with these changes?\n\nThe actual ROM/files will not be changed until you patch from the File menu or on exit."
     IDS_SAVE_FILE_CHANGES   "Patch ROM/files with the current changes?"
     IDS_ERROR_NOTWRITABLE_FORMAT 
                             "Save failed: output file '%s' is not writable."
@@ -438,6 +438,10 @@ END
 STRINGTABLE
 BEGIN
     IDS_BCHECKMIX_TOOLTIP   "Verifies that Extra edits were made: avoid flashing Storm and etc."
+    IDS_TOOLTIP_UPDATE      "Saves the current changes to memory.  ROM is only updated on patch."
+    IDS_TOOLTIP_REVERT      "Reverts to the last saved colors."
+    IDS_TOOLTIP_SETCOLOR    "If Auto-Set Color is off, updates the selected palette color."
+    IDS_TOOLTIP_GETCOLOR    "Use the color picker to update the selected palette color."
 END
 
 #endif    // English (United States) resources

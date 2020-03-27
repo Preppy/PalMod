@@ -215,6 +215,11 @@ BOOL CPalModDlg::OnInitDialog()
     if (m_ToolTip.Create(this))
     {
         m_ToolTip.AddTool(GetDlgItem(IDC_BCHECKMIX), IDS_BCHECKMIX_TOOLTIP);
+        m_ToolTip.AddTool(GetDlgItem(IDC_BUPDATE), IDS_TOOLTIP_UPDATE);
+        m_ToolTip.AddTool(GetDlgItem(IDC_BREVERT), IDS_TOOLTIP_REVERT);
+        m_ToolTip.AddTool(GetDlgItem(IDC_BSETCOL), IDS_TOOLTIP_SETCOLOR);
+        m_ToolTip.AddTool(GetDlgItem(IDC_BNEWCOL), IDS_TOOLTIP_GETCOLOR);
+
         m_ToolTip.Activate(TRUE);
     }
 

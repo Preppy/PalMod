@@ -80,7 +80,7 @@ void CPalModDlg::PostGameLoad()
 
     GetDlgItem(IDC_SHOWPREVIEW)->EnableWindow(!areWeSadForJojos);
     GetDlgItem(IDC_BBLINK)->EnableWindow(!areWeSadForJojos);
-    
+
     CPreviewDlg* PreviewDlg = GetHost()->GetPreviewDlg();
     if (areWeSadForJojos)
     {
@@ -131,7 +131,7 @@ void CPalModDlg::OnGetCol()
 
     CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
 
-    pSettMenu->CheckMenuItem(ID_GETCOLORONSELECT, MF_BYCOMMAND | bGetCol ? MF_CHECKED : MF_UNCHECKED);
+    pSettMenu->CheckMenuItem(ID_GETCOLORONSELECT, MF_BYCOMMAND | (bGetCol ? MF_CHECKED : MF_UNCHECKED));
 
     //Enable/Disable get color button
     GetDlgItem(IDC_BNEWCOL)->EnableWindow(bGetCol && !bAutoSetCol);
@@ -143,7 +143,7 @@ void CPalModDlg::OnAutoSetCol()
 
     CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
 
-    pSettMenu->CheckMenuItem(ID_AUTOSETCOL, MF_BYCOMMAND | bAutoSetCol ? MF_CHECKED : MF_UNCHECKED);
+    pSettMenu->CheckMenuItem(ID_AUTOSETCOL, MF_BYCOMMAND | (bAutoSetCol ? MF_CHECKED : MF_UNCHECKED));
 
     UpdateSliderSel();
 }

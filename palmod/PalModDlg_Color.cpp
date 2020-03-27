@@ -141,6 +141,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 
         //Enable/disable set color button
         GetDlgItem(IDC_BSETCOL)->EnableWindow(!bAutoSetCol);
+        GetDlgItem(IDC_BSETCOL)->ShowWindow(bAutoSetCol ? SW_HIDE : SW_SHOW);
     }
     else
     {

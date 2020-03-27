@@ -238,8 +238,8 @@ void CPalGroup::SortPal(int nIndex, int nStartIndex, int nSortFlag)
 
         COLORREF crCol = rgPalettes[nIndex].pPal[i];
         double nR = (double)GetRValue(rgPalettes[nIndex].pPal[i]) / 255.0,
-            nG = (double)GetGValue(rgPalettes[nIndex].pPal[i]) / 255.0,
-            nB = (double)GetBValue(rgPalettes[nIndex].pPal[i]) / 255.0;
+               nG = (double)GetGValue(rgPalettes[nIndex].pPal[i]) / 255.0,
+               nB = (double)GetBValue(rgPalettes[nIndex].pPal[i]) / 255.0;
 
         double fpX, fpY, fpZ;
 
@@ -311,9 +311,13 @@ UINT8 CPalGroup::ROUND_8(UINT8 rVal)
     int j;
 
     if (rVal - (((rVal / 8) * 8) + (rVal / 32)) >= 4)
+    {
         j = 1;
+    }
     else
+    {
         j = 0;
+    }
 
     rVal = ((rVal / 8) + j) * 8;
 
@@ -326,9 +330,13 @@ UINT8 CPalGroup::ROUND_17(UINT8 rVal)
     int j;
 
     if (rVal - ((rVal / 17) * 17) >= 17 / 2)
+    {
         j = 1;
+    }
     else
+    {
         j = 0;
+    }
 
     return ((rVal / 17) + j) * 17;
 }

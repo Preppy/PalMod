@@ -2,14 +2,6 @@
 #include ".\PalTool.h"
 
 CPalTool::CPalTool(void)
-    : nNotifyCtrlIndex(0),
-    bFirstPaint(TRUE),
-    bSpinInit(TRUE),
-    nCurrPage(0),
-    nPageAmt(0),
-    nPalViewH(0),
-    nCurrPalAmt(0),
-    nPrevPalAmt(-1)
 {
     Init();
 

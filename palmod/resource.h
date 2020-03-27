@@ -20,6 +20,10 @@
 #define IDS_SAVE_FILE_CHANGES           110
 #define IDS_ERROR_NOTWRITABLE_FORMAT    111
 #define IDS_BCHECKMIX_TOOLTIP           112
+#define IDS_TOOLTIP_UPDATE              113
+#define IDS_TOOLTIP_REVERT              114
+#define IDS_TOOLTIP_SETCOLOR            115
+#define IDS_TOOLTIP_GETCOLOR            116
 #define IDR_MAINFRAME                   128
 #define IDR_MENUMAIN                    129
 #define IDD_PREVIEW_DIALOG              130

@@ -25,25 +25,25 @@ private:
     sPalEntry pPalEntry[MAX_PALETTE];
     CSize PalSize[MAX_PALETTE];
 
-    BOOL bFirstPaint;
-    BOOL bSpinInit;
+    BOOL bFirstPaint = TRUE;
+    BOOL bSpinInit = TRUE;
 
     CFont BaseFont;
     bool m_fFontisBold = true;
-    int nFontHeight;
+    int nFontHeight = -1;
 
-    int nNotifyCtrlIndex;
+    int nNotifyCtrlIndex = 0;
 
     CSpinButtonCtrl m_PgSpin;
 
     CRect rClient;
 
-    int nCurrPage;
-    int nPageAmt;
-    int nCurrPalAmt;
-    int nPrevPalAmt;
+    int nCurrPage = 0;
+    int nPageAmt = 0;
+    int nCurrPalAmt = 0;
+    int nPrevPalAmt = -1;
 
-    int nPalViewH;
+    int nPalViewH = 0;
     UINT16 rgPalRedir[MAX_PALETTE + 1];
 
     void Init();
