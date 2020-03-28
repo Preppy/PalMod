@@ -39,6 +39,9 @@ void CPalModDlg::OnEditCopy()
 
         switch (CurrGame->GetGameFlag())
         {
+        case SFIII3_D:
+            uCopyFlag1 = SFIII3_D + 33;
+            break;
         case MVC2_D:
         case MVC2_P:
             uCopyFlag1 = 2 + 33;
@@ -104,13 +107,17 @@ void CPalModDlg::OnEditPaste()
 
     switch (uPasteGFlag)
     {
+    default:
+        OutputDebugString("CPalModDlg::OnEditPaste: BUGBUG: Unhandled paste flag!\n");
         //case 3: //MVC2_P
     case 2: //MVC2_D
-    default:
         uPasteGFlag = 0;
         break;
-    case 1: //SFIII3
+    case 1: //SFIII3_A
         uPasteGFlag = 1;
+        break;
+    case SFIII3_D: //SFIII3_D
+        uPasteGFlag = SFIII3_D;
         break;
     }
 
@@ -128,6 +135,11 @@ void CPalModDlg::OnEditPaste()
         {
             switch (uPasteGFlag)
             {
+            case SFIII3_D:
+            {
+                CurrGame->SetColMode(COLMODE_15ALT);
+            }
+            break;
             case SFIII3_A:
             case JOJOS_A:
             {

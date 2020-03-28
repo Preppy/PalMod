@@ -2664,10 +2664,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_A[] =
     { "Joseph Burning A (2/2)", 0x0339700, 0x0339780 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Joseph Tech/Zap/CC A", 0x034db00, 0x034dc00 },
+    { "Joseph Tech/Zap/CC A", 0x0339980, 0x0339a80 },
 #else
-    { "Joseph Tech/Zap/CC A (1/2)", 0x034db00, 0x034db80 },
-    { "Joseph Tech/Zap/CC A (2/2)", 0x034db80, 0x034dc00 },
+    { "Joseph Tech/Zap/CC A (1/2)", 0x0339980, 0x0339a00 },
+    { "Joseph Tech/Zap/CC A (2/2)", 0x0339a00, 0x0339a80 },
 #endif
     { "Flash Back Manga Panels (Joseph 236aa)", 0x0335B80, 0x0335BC0 }, // maybe move into Extra or something?  a little awkward here
     { "Lisa Lisa & Caesar (Joseph 236aa)", 0x0335C00, 0x0335C80 },
@@ -2692,10 +2692,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_B[] =
     { "Joseph Burning B (2/2)", 0x034dc00, 0x034dc80 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Joseph Tech/Zap/CC B", 0x0362000, 0x0362100 },
+    { "Joseph Tech/Zap/CC B", 0x034de80, 0x034df80 },
 #else
-    { "Joseph Tech/Zap/CC B (1/2)", 0x0362000, 0x0362080 },
-    { "Joseph Tech/Zap/CC B (2/2)", 0x0362080, 0x0362100 },
+    { "Joseph Tech/Zap/CC B (1/2)", 0x034de80, 0x034df00 },
+    { "Joseph Tech/Zap/CC B (2/2)", 0x034df00, 0x034df80 },
 #endif
 };
 
@@ -2718,10 +2718,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_C[] =
     { "Joseph Burning C (2/2)", 0x0362100, 0x0362180 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Joseph Tech/Zap/CC C", 0x0376500, 0x0376600 },
+    { "Joseph Tech/Zap/CC C", 0x0362380, 0x0362480 },
 #else
-    { "Joseph Tech/Zap/CC C (1/2)", 0x0376500, 0x0376580 },
-    { "Joseph Tech/Zap/CC C (2/2)", 0x0376580, 0x0376600 },
+    { "Joseph Tech/Zap/CC C (1/2)", 0x0362380, 0x0362400 },
+    { "Joseph Tech/Zap/CC C (2/2)", 0x0362400, 0x0362480 },
 #endif
 };
 
@@ -2744,10 +2744,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_S[] =
     { "Joseph Burning S (2/2)", 0x0376600, 0x0376680 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Joseph Tech/Zap/CC S", 0x038aa00, 0x038ab00 },
+    { "Joseph Tech/Zap/CC S", 0x0376880, 0x0376980 },
 #else
-    { "Joseph Tech/Zap/CC S (1/2)", 0x038aa00, 0x038aa80 },
-    { "Joseph Tech/Zap/CC S (2/2)", 0x038aa80, 0x038ab00 },
+    { "Joseph Tech/Zap/CC S (1/2)", 0x0376880, 0x0376900 },
+    { "Joseph Tech/Zap/CC S (2/2)", 0x0376900, 0x0376980 },
 #endif
 };
 
@@ -2770,10 +2770,10 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_Start[] =
     { "Joseph Burning Start (2/2)", 0x038ab00, 0x038ab80 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Joseph Tech/Zap/CC Start", 0x039ef00, 0x039f000 },
+    { "Joseph Tech/Zap/CC Start", 0x038ad80, 0x038ae80 },
 #else
-    { "Joseph Tech/Zap/CC Start (1/2)", 0x039ef00, 0x039ef80 },
-    { "Joseph Tech/Zap/CC Start (2/2)", 0x039ef80, 0x039f000 },
+    { "Joseph Tech/Zap/CC Start (1/2)", 0x038ad80, 0x038ae00 },
+    { "Joseph Tech/Zap/CC Start (2/2)", 0x038ae00, 0x038ae80 },
 #endif
 };
 
@@ -5427,6 +5427,7 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { "Hol Horse shoot scene",  0x030C400, 0x030C480 },
     { "Vanilla Ice intro",      0x030ba00, 0x030ba80 },
     { "Cream intro",            0x030ba80, 0x030bb00 },
+    { "Vice Intro Ender",       0x030c380, 0x030c400 },
 #ifndef USE_LARGE_PALETTES
     { "Intro Manga Panels (1/5)", 0x030b780, 0x030b800 },
     { "Intro Manga Panels (2/5)", 0x030b800, 0x030b880 },
