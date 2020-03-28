@@ -399,7 +399,6 @@ void CGame_JOJOS_A::CheckExtrasFileForDuplication()
 
 CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 {
-    CString strMsg;
     UINT32 nTotalPaletteCount = 0;
 
     m_nJojosMode = nPaletteSetToUse;
@@ -429,6 +428,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
 #ifdef JOJOS_DEBUG
+    CString strMsg;
     bool fHaveExtras = ((UsePaletteSetFor50() ? GetExtraCt(JOJOS_A_EXTRALOC_50) : GetExtraCt(JOJOS_A_EXTRALOC_51)) > 0);
     strMsg.Format("CGame_JOJOS_A::InitDescTree: Building desc tree for %u...\n", m_nJojosMode);
     OutputDebugString(strMsg);
@@ -576,8 +576,10 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
         }
     }
 
+#ifdef JOJOS_DEBUG
     strMsg.Format("CGame_JOJOS_A::InitDescTree: Loaded %u palettes for Jojos\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
+#endif
 
     return NewDescTree;
 }

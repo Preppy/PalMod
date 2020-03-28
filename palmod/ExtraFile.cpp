@@ -236,7 +236,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 
         (*pCompleteExtraDefs)[nExtraArraySize].uUnitN = INVALID_UNIT_VALUE;
 
-        strOutputText.Format("Added %u palettes from the '%s' Extra file.\n", nExtraArraySize, pszExtraFileName);
+        strOutputText.Format("\tAdded %u palettes from the '%s' Extra file.\n", nExtraArraySize, pszExtraFileName);
         OutputDebugString(strOutputText);
     }
 }
