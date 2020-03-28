@@ -83,7 +83,11 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         }
 
         CPalModApp* ProgHost = GetHost();
-        BOOL areWeSadForJojos = (ProgHost->GetCurrGame()->GetGameFlag() == JOJOS_A);
-        pPopupMenu->EnableMenuItem(ID_TOOLS_BLINK, areWeSadForJojos ? MF_DISABLED : MF_ENABLED);
+
+        if ((ProgHost != nullptr) && (ProgHost->GetCurrGame() != nullptr))
+        {
+            BOOL areWeSadForJojos = (ProgHost->GetCurrGame()->GetGameFlag() == JOJOS_A);
+            pPopupMenu->EnableMenuItem(ID_TOOLS_BLINK, areWeSadForJojos ? MF_DISABLED : MF_ENABLED);
+        }
     }
 }
