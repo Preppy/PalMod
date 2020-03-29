@@ -178,6 +178,8 @@ void CPalModDlg::PostPalSel()
         CurrPalDef = MainPalGroup->GetPalDef(i);
         nCurrSepAmt = CurrPalDef->uSepAmt;
 
+        ImgDispCtrl->AssignBackupPalette((UINT8 * )CurrPalDef->pPal);
+
         //Fill the palette control
         for (int nSepCtr = 0; nSepCtr < nCurrSepAmt; nSepCtr++)
         {
@@ -200,7 +202,7 @@ void CPalModDlg::PostPalSel()
 
                 CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
 
-                if (nPrevImgIndex[nImgIndexCtr] != nImgKey || bForceImg)
+                if ((nPrevImgIndex[nImgIndexCtr] != nImgKey) || bForceImg)
                 {
                     if (nImgIndexCtr == 0)
                     {

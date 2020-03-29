@@ -116,6 +116,12 @@ private:
 
     int MAIN_W = 0, MAIN_H = 0;
 
+
+    UINT8* m_pSpriteOverrideTexture = nullptr;
+    UINT8* m_pBackupPalette = nullptr;
+    int m_nTextureOverrideW = 0;
+    int m_nTextureOverrideH = 0;
+
 public:
     CImgDisp();
     ~CImgDisp();
@@ -148,6 +154,9 @@ public:
     CRect GetImgRct() { return rImgRct; }; // currently unused: commented out in imgdumpbmp.cpp
 
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
+
+    bool LoadExternalSprite(CHAR* szTextureLocation);
+    void AssignBackupPalette(UINT8* pBackupPalette) { m_pBackupPalette = pBackupPalette; };
 
     void SetZoom(double fpNewZoom)
     {

@@ -6,6 +6,7 @@
 
 #include "resource.h"
 #include "atlimage.h"
+#include "PalMod.h"
 
 // CImgDisp
 
@@ -22,6 +23,8 @@ CImgDisp::~CImgDisp()
 
     safe_delete(MainDC);
     safe_delete(ImageDC);
+
+    safe_delete_array(m_pSpriteOverrideTexture);
 
     DeleteObject(hBmp);
 }
@@ -120,6 +123,8 @@ void CImgDisp::ClearUsed()
     nYOffsTop = 0;
     nImgRctW = 0;
     nImgRctH = 0;
+
+    safe_delete_array(m_pSpriteOverrideTexture);
 }
 
 void CImgDisp::FlushUnused()
@@ -156,6 +161,8 @@ void CImgDisp::FlushUnused()
 
         ResizeMainBitmap();
     }
+
+    safe_delete_array(m_pSpriteOverrideTexture);
 }
 
 void CImgDisp::AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs)
@@ -406,6 +413,7 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
     int nAltPalIndex = (bUseAltPal ? (bUseAltPal & 0x00FF) : MAX_IMG);
 
     BOOL bFirst = TRUE;
+    bool fImageFound = false;
 
     for (int nImgCtr = 0; nImgCtr < MAX_IMG; nImgCtr++)
     {
@@ -423,6 +431,22 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
                 ptOffs[nImgCtr].y + rImgRct.top + abs(nYOffsTop),
                 (nAltPalIndex == nImgCtr ? TRUE : FALSE)
             );
+
+            fImageFound = true;
+        }
+    }
+
+    if (!fImageFound)
+    {
+        if (m_pSpriteOverrideTexture)
+        {
+            OutputDebugString("Trying to load alternate sprite for character with no sprite... this will fail at this point\n");
+
+            CustomBlt(
+                -1,
+                -1,
+                -1,
+                FALSE);
         }
     }
 
@@ -485,6 +509,78 @@ void CImgDisp::OnSize(UINT nType, int cx, int cy)
     }
 }
 
+bool  CImgDisp::LoadExternalSprite(CHAR* szTextureLocation)
+{
+    // BUGBUG TODO LIST:
+    //   * center images.  this may be the actual "empty sprite" issue
+    //   * look into CImage to RAW support...?
+
+    CFile TextureFile;
+
+    if (TextureFile.Open(szTextureLocation, CFile::modeRead | CFile::typeBinary))
+    {
+        int nSizeToRead = (int)TextureFile.GetLength();
+        safe_delete_array(m_pSpriteOverrideTexture);
+
+        // Filename of form: MvC2_D-offset-2230419-W-60-H-98
+        char* pszDataW = strstr(szTextureLocation, "-W-");
+        char* pszDataH = strstr(szTextureLocation, "-H-");
+        char* pszTermination = strstr(szTextureLocation, ".data");
+
+        if (pszTermination == nullptr)
+        {
+            pszTermination = strstr(szTextureLocation, ".raw");
+        }
+
+        if ((pszDataW != nullptr) && (pszDataH != nullptr) && (pszTermination != nullptr))
+        {
+            pszDataW += ARRAYSIZE("W-");
+            pszDataH[0] = '\0';
+            pszDataH += ARRAYSIZE("H-");
+            pszTermination[0] = '\0';
+
+            if (sscanf_s(pszDataW, "%u", &m_nTextureOverrideW) &&
+                sscanf_s(pszDataH, "%u", &m_nTextureOverrideH))
+            {
+                m_pSpriteOverrideTexture = new UINT8[nSizeToRead];
+
+                CString strstr;
+                strstr.Format("CImgDisp::LoadExternalSprite texture file is:  %u x %u\n", m_nTextureOverrideW, m_nTextureOverrideH);
+                OutputDebugString(strstr);
+
+                TextureFile.Seek(0, CFile::begin);
+                TextureFile.Read(m_pSpriteOverrideTexture, nSizeToRead);
+
+                TextureFile.Close();
+
+                return true;
+            }
+        }
+
+        // It's not a texture file... try it as a PNG/GIF/JPG/etc
+        
+        // THIS WON"T WORK: BUT IT WOULD IF WE CONVERT IT TO RAW!!!!
+
+        CImage imageExternalFile;
+
+        OutputDebugString(szTextureLocation);
+
+        HRESULT hr = imageExternalFile.Load(szTextureLocation);
+        if (SUCCEEDED(hr))
+        {
+            m_nTextureOverrideW = imageExternalFile.GetHeight();
+            m_nTextureOverrideH = imageExternalFile.GetWidth();
+
+            m_pSpriteOverrideTexture = new UINT8[m_nTextureOverrideW * m_nTextureOverrideH];
+            m_pSpriteOverrideTexture = (UINT8 *)imageExternalFile.GetBits();
+
+            return true;
+        }
+    }
+
+    return false;
+}
+
 BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
 {
     if ((MAIN_W <= 0) || (MAIN_H <= 0))
@@ -492,13 +588,51 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
         return TRUE;
     }
 
-    int nWidth = pImgBuffer[nSrcIndex]->uImgW;
-    int nHeight = pImgBuffer[nSrcIndex]->uImgH;
+    int nWidth = 0;
+    int nHeight = 0;
     int nSrcX = 0, nSrcY = 0;
+    UINT8* pImgData = nullptr;
+    UINT8* pCurrPal = nullptr;
 
-    UINT8* pCurrPal = (UINT8*)(bAltPal ? pImgBuffer[nSrcIndex]->pAltPal : pImgBuffer[nSrcIndex]->pPalette);
-    UINT8* pImgData = (UINT8*)pImgBuffer[nSrcIndex]->pImgData;
+    if (nSrcIndex != -1)
+    {
+        pImgData = (UINT8*)pImgBuffer[nSrcIndex]->pImgData;
+        pCurrPal = (UINT8*)(bAltPal ? pImgBuffer[nSrcIndex]->pAltPal : pImgBuffer[nSrcIndex]->pPalette);
+        nWidth = pImgBuffer[nSrcIndex]->uImgW;
+        nHeight = pImgBuffer[nSrcIndex]->uImgH;
+    }
+    else
+    {
+        if (m_pBackupPalette != nullptr)
+        {
+            pCurrPal = m_pBackupPalette; //bugbug probably
+        }
+        else
+        {
+            OutputDebugString("CImgDisp::CustomBlt: No image available and no backup palette available. No image will be loaded.\n");
+            return FALSE;
+        }
+    }
+
+    CString strstr;
+
+    if (m_pSpriteOverrideTexture != nullptr)
+    {
+        OutputDebugString("CImgDisp::CustomBlt: Loading alternate sprite.\n");
+        pImgData = m_pSpriteOverrideTexture;
+        nWidth = m_nTextureOverrideW;
+        nHeight = m_nTextureOverrideH;
+    }
+
     UINT8* pDstBmpData = (UINT8*)pBmpData;
+
+    strstr.Format("CImgDisp::CustomBlt %u x %u, nSrcIndex %u\n", nWidth, nHeight, nSrcIndex);
+    OutputDebugString(strstr);
+
+    if (pImgData == nullptr)
+    {
+        return FALSE;
+    }
 
     CRect rBltRct(xWidth, yHeight, xWidth + nWidth, yHeight + nHeight);
 
@@ -685,16 +819,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 
 #endif
 
-        if (bCtrlDown && !bTileBGBmp)
-        {
-            UpdateCtrl();
-        }
-        else
-        {
-            OutputDebugString("help");
-            UpdateCtrl();
-            //Redraw();
-        }
+        UpdateCtrl();
 
         fpPrevX = (double)point.x;
         fpPrevY = (double)point.y;

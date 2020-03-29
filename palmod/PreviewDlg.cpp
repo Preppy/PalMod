@@ -271,7 +271,7 @@ BOOL CPreviewDlg::OnInitDialog()
 
     // Set the icon for this dialog.  The framework does this automatically
     //  when the application's main window is not a dialog
-    SetIcon(m_hIcon, TRUE);            // Set big icon
+    SetIcon(m_hIcon, TRUE);          // Set big icon
     SetIcon(m_hIcon, FALSE);        // Set small icon
 
     return TRUE;  // return TRUE unless you set the focus to a control
@@ -308,7 +308,30 @@ void CPreviewDlg::OnResetBGOffset()
 
 void CPreviewDlg::OnLoadCustomSprite()
 {
-    // TODO of course.
+    if (GetHost()->GetCurrGame())
+    {
+        CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, "RAW Texture file|*-W-*-H-*.*||", this);
+
+        if (OpenDialog.DoModal() == IDOK)
+        {
+            if (m_ImgDisp.LoadExternalSprite(OpenDialog.GetPathName().GetBuffer()))
+            {
+                m_ImgDisp.UpdateCtrl();
+            }
+            else
+            {
+                CString strError;
+                strError.LoadString(IDS_ERROR_TEXTURE_LOAD);
+                MessageBox(strError, GetAppName(), MB_ICONERROR);
+            }
+        }
+    }
+    else
+    {
+        CString strError;
+        strError.LoadString(IDS_ERROR_TEXTURE_NOGAME);
+        MessageBox(strError, GetAppName(), MB_ICONEXCLAMATION);
+    }
 }
 
 void CPreviewDlg::OnFileExportImg()

@@ -81,13 +81,5 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 
             i++;
         }
-
-        CPalModApp* ProgHost = GetHost();
-
-        if ((ProgHost != nullptr) && (ProgHost->GetCurrGame() != nullptr))
-        {
-            BOOL areWeSadForJojos = (ProgHost->GetCurrGame()->GetGameFlag() == JOJOS_A);
-            pPopupMenu->EnableMenuItem(ID_TOOLS_BLINK, areWeSadForJojos ? MF_DISABLED : MF_ENABLED);
-        }
     }
 }

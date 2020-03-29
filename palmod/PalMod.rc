@@ -184,8 +184,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,33,0
- PRODUCTVERSION 1,0,33,0
+ FILEVERSION 1,0,34,0
+ PRODUCTVERSION 1,0,34,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -202,12 +202,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.33.0"
+            VALUE "FileVersion", "1.0.34.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.33.0"
+            VALUE "ProductVersion", "1.0.34.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -316,15 +316,7 @@ BEGIN
     POPUP "&File"
     BEGIN
         MENUITEM "Export Image",                ID_FILE_EXPORTIMAGE
-#ifdef DEBUG
-
-
-
-        MENUITEM "Load Sprite",                 ID_FILE_LOADSPRITE
-
-
-
-#endif
+        MENUITEM "Load Texture",                ID_FILE_LOADSPRITE
         MENUITEM SEPARATOR
         MENUITEM "&Close",                      ID_FILE_CLOSE
     END
@@ -415,7 +407,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.33"
+    IDS_CURRENTAPPNAME      "PalMod 1.34"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't load img.dat from '%s': previews will not work."
     IDS_ERROR_NO_IMAGES     "No images available."
@@ -442,6 +434,8 @@ BEGIN
     IDS_TOOLTIP_REVERT      "Reverts to the last saved colors."
     IDS_TOOLTIP_SETCOLOR    "If Auto-Set Color is off, updates the selected palette color."
     IDS_TOOLTIP_GETCOLOR    "Use the color picker to update the selected palette color."
+    IDS_ERROR_TEXTURE_LOAD  "Error loading RAW texture file.  Filename must be of form WHATEVER-W-width-H-height.data"
+    IDS_ERROR_TEXTURE_NOGAME "A game must be loaded first."
 END
 
 #endif    // English (United States) resources

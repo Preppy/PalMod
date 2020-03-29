@@ -24,6 +24,8 @@
 #define IDS_TOOLTIP_REVERT              114
 #define IDS_TOOLTIP_SETCOLOR            115
 #define IDS_TOOLTIP_GETCOLOR            116
+#define IDS_ERROR_TEXTURE_LOAD          117
+#define IDS_ERROR_TEXTURE_NOGAME        118
 #define IDR_MAINFRAME                   128
 #define IDR_MENUMAIN                    129
 #define IDD_PREVIEW_DIALOG              130

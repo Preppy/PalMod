@@ -722,7 +722,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         if (nPaletteSizeOnDisc > knMaxPalettePageSizeOnDisc)
         {
             CString strError;
-            strError.Format("BUGBUG: In unit %u collection %u palette %u (\"%s\") at offset 0x%u will be chopped.  Please use this instead:\n", nUnitId, nCollectionIndex, nPalId, paletteSetToUse[nPalId].szPaletteName, paletteSetToUse[nPalId].nPaletteOffset);
+            strError.Format("BUG: In unit %u collection %u palette %u (\"%s\") at offset 0x%u will be chopped.  Please use this instead:\n", nUnitId, nCollectionIndex, nPalId, paletteSetToUse[nPalId].szPaletteName, paletteSetToUse[nPalId].nPaletteOffset);
             OutputDebugString(strError);
 
             const int nTotalPagesNeeded = (int)ceil((double)nPaletteSizeOnDisc / (double)knMaxPalettePageSizeOnDisc);
@@ -807,7 +807,7 @@ BOOL CGame_JOJOS_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
         // I think the Invisible flag is a better path forward here.
         LoadSpecificPaletteData(nUnitId, nPalId);
 
-        OutputDebugString("BUGBUG WARNING: This palette is being sliced: fix\n");
+        OutputDebugString("BUG WARNING: This palette is being sliced: fix\n");
         int nTotalPagesNeeded = (int)ceil((double)nPaletteTotalSize / (double)knMaxPalettePageSizeOnDisc);
         int nCurrentPaletteSectionLength = knMaxPalettePageSizeOnDisc;
         int nTotalUnusedColors = nPaletteTotalSize;
@@ -893,15 +893,13 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     if (bCreateBasicPal)
     {
-        // We don't have any images to use, so don't bother.
-#ifdef JOJOS_HAS_IMAGES_SOMEHOW
-        int nTargetImgId = 0xFF;
-        int nImgUnitId = INVALID_UNIT_VALUE;
+        // Load Alex so that Load Texture works
+        int nTargetImgId = 0;
+        int nImgUnitId = 0;
+
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
         //Create the default palette
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-#endif
-
         CreateDefPal(NodeGet, 0);
 
         SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
