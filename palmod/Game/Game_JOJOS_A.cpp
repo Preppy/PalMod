@@ -893,11 +893,11 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     if (bCreateBasicPal)
     {
-        // Load Alex so that Load Texture works
-        int nTargetImgId = 0;
-        int nImgUnitId = 0;
+        // PalMod has no internal sprites for Jojos.  The user can use Load Texture if desired.
+        //int nTargetImgId = 0;
+        //int nImgUnitId = 0;
 
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+        //ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
         //Create the default palette
         CreateDefPal(NodeGet, 0);

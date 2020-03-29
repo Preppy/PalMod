@@ -350,15 +350,11 @@ void CImgDisp::ModifySrcRect()
     rSrcRct.bottom = rSrcRct.top + (int)((double)nCtrlH / fpZoom);
     rSrcRct.right = rSrcRct.left + (int)((double)nCtrlW / fpZoom);
 
-    rImgRct.left = -(nImgRctW / 2);
-    rImgRct.right = nImgRctW / 2;
-    rImgRct.top = -(nImgRctH / 2);
-    rImgRct.bottom = nImgRctH / 2;
+    rImgRct.left = -(nImgRctW / 2) + (MAIN_W / 2);
+    rImgRct.right = (nImgRctW / 2) + (MAIN_W / 2);
+    rImgRct.top = -(nImgRctH / 2) + (MAIN_H / 2);
+    rImgRct.bottom = (nImgRctH / 2) + (MAIN_H / 2);
 
-    rImgRct.left += MAIN_W / 2;
-    rImgRct.right += MAIN_W / 2;
-    rImgRct.top += MAIN_H / 2;
-    rImgRct.bottom += MAIN_H / 2;
 }
 
 void CImgDisp::ModifyClRect()
@@ -440,12 +436,12 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
     {
         if (m_pSpriteOverrideTexture)
         {
-            OutputDebugString("Trying to load alternate sprite for character with no sprite... this will fail at this point\n");
+            OutputDebugString("Trying to load alternate sprite for character with no sprite... \n");
 
             CustomBlt(
                 -1,
-                -1,
-                -1,
+                -1, // overriden 
+                -1, // overriden 
                 FALSE);
         }
     }
@@ -509,7 +505,7 @@ void CImgDisp::OnSize(UINT nType, int cx, int cy)
     }
 }
 
-bool  CImgDisp::LoadExternalSprite(CHAR* szTextureLocation)
+bool  CImgDisp::LoadExternalSprite(CHAR* pszTextureLocation)
 {
     // BUGBUG TODO LIST:
     //   * center images.  this may be the actual "empty sprite" issue
@@ -517,19 +513,20 @@ bool  CImgDisp::LoadExternalSprite(CHAR* szTextureLocation)
 
     CFile TextureFile;
 
-    if (TextureFile.Open(szTextureLocation, CFile::modeRead | CFile::typeBinary))
+    if (TextureFile.Open(pszTextureLocation, CFile::modeRead | CFile::typeBinary))
     {
         int nSizeToRead = (int)TextureFile.GetLength();
         safe_delete_array(m_pSpriteOverrideTexture);
 
         // Filename of form: MvC2_D-offset-2230419-W-60-H-98
-        char* pszDataW = strstr(szTextureLocation, "-W-");
-        char* pszDataH = strstr(szTextureLocation, "-H-");
-        char* pszTermination = strstr(szTextureLocation, ".data");
+        pszTextureLocation = _strlwr(pszTextureLocation);
+        char* pszDataW = strstr(pszTextureLocation, "-w-");
+        char* pszDataH = strstr(pszTextureLocation, "-h-");
+        char* pszTermination = strstr(pszTextureLocation, ".data");
 
         if (pszTermination == nullptr)
         {
-            pszTermination = strstr(szTextureLocation, ".raw");
+            pszTermination = strstr(pszTextureLocation, ".raw");
         }
 
         if ((pszDataW != nullptr) && (pszDataH != nullptr) && (pszTermination != nullptr))
@@ -542,30 +539,30 @@ bool  CImgDisp::LoadExternalSprite(CHAR* szTextureLocation)
             if (sscanf_s(pszDataW, "%u", &m_nTextureOverrideW) &&
                 sscanf_s(pszDataH, "%u", &m_nTextureOverrideH))
             {
-                m_pSpriteOverrideTexture = new UINT8[nSizeToRead];
+                if ((m_nTextureOverrideW > 0) && (m_nTextureOverrideW < 10000) &&
+                    (m_nTextureOverrideH > 0) && (m_nTextureOverrideH < 10000))
+                {
+                    m_pSpriteOverrideTexture = new UINT8[nSizeToRead];
 
-                CString strstr;
-                strstr.Format("CImgDisp::LoadExternalSprite texture file is:  %u x %u\n", m_nTextureOverrideW, m_nTextureOverrideH);
-                OutputDebugString(strstr);
+                    CString strstr;
+                    strstr.Format("CImgDisp::LoadExternalSprite texture file is: %u x %u\n", m_nTextureOverrideW, m_nTextureOverrideH);
+                    OutputDebugString(strstr);
 
-                TextureFile.Seek(0, CFile::begin);
-                TextureFile.Read(m_pSpriteOverrideTexture, nSizeToRead);
+                    TextureFile.Seek(0, CFile::begin);
+                    TextureFile.Read(m_pSpriteOverrideTexture, nSizeToRead);
 
-                TextureFile.Close();
+                    TextureFile.Close();
 
-                return true;
+                    return true;
+                }
             }
         }
 
         // It's not a texture file... try it as a PNG/GIF/JPG/etc
-        
-        // THIS WON"T WORK: BUT IT WOULD IF WE CONVERT IT TO RAW!!!!
-
+        // THIS WON'T WORK: BUT IT WOULD IF WE CONVERT IT TO RAW.....
         CImage imageExternalFile;
 
-        OutputDebugString(szTextureLocation);
-
-        HRESULT hr = imageExternalFile.Load(szTextureLocation);
+        HRESULT hr = imageExternalFile.Load(pszTextureLocation);
         if (SUCCEEDED(hr))
         {
             m_nTextureOverrideW = imageExternalFile.GetHeight();
@@ -593,6 +590,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
     int nSrcX = 0, nSrcY = 0;
     UINT8* pImgData = nullptr;
     UINT8* pCurrPal = nullptr;
+    UINT8* pDstBmpData = (UINT8*)pBmpData;
 
     if (nSrcIndex != -1)
     {
@@ -622,12 +620,17 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
         pImgData = m_pSpriteOverrideTexture;
         nWidth = m_nTextureOverrideW;
         nHeight = m_nTextureOverrideH;
+
+        // Reset the rect now that W/H have changed...
+        rImgRct.left = -(m_nTextureOverrideW / 2) + (MAIN_W / 2);
+        rImgRct.right = (m_nTextureOverrideW / 2) + (MAIN_W / 2);
+        rImgRct.top = -(m_nTextureOverrideH / 2) + (MAIN_H / 2);
+        rImgRct.bottom = (m_nTextureOverrideH / 2) + (MAIN_H / 2);
+
+        xWidth = rImgRct.left;
+        yHeight = rImgRct.top;
+
     }
-
-    UINT8* pDstBmpData = (UINT8*)pBmpData;
-
-    strstr.Format("CImgDisp::CustomBlt %u x %u, nSrcIndex %u\n", nWidth, nHeight, nSrcIndex);
-    OutputDebugString(strstr);
 
     if (pImgData == nullptr)
     {
