@@ -14,7 +14,7 @@ CUndoNode* CUndoRedo::NewNode(CUndoNode** start, CUndoNode** tail)
 
     CUndoNode* newnode;
 
-    BOOL bIsTail = *start == NULL ? TRUE : FALSE;
+    BOOL bIsTail = (*start == NULL);
 
     newnode = new CUndoNode;
     newnode->next = *start;
@@ -32,7 +32,7 @@ void CUndoRedo::Insert(CUndoNode* newnode, CUndoNode** start, CUndoNode** tail)
         DeleteTail(start, tail);
     }
 
-    BOOL bIsTail = *start == NULL ? TRUE : FALSE;
+    BOOL bIsTail = (*start == NULL);
 
     newnode->next = *start;
     *start = newnode;

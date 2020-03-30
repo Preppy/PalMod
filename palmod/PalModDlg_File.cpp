@@ -292,7 +292,7 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
                     if (bIsDir)
                     {
                         //Check to see if it's actually a file without an extension
-                        *bIsDir = ((dwAttribs & FILE_ATTRIBUTE_DIRECTORY) ? TRUE : FALSE);
+                        *bIsDir = (dwAttribs & FILE_ATTRIBUTE_DIRECTORY);
                     }
 
                     strcpy(ptszPath, szPath);

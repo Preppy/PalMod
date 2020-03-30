@@ -425,7 +425,7 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
                 nImgCtr,
                 ptOffs[nImgCtr].x + rImgRct.left + abs(nXOffsTop),
                 ptOffs[nImgCtr].y + rImgRct.top + abs(nYOffsTop),
-                (nAltPalIndex == nImgCtr ? TRUE : FALSE)
+                (nAltPalIndex == nImgCtr)
             );
 
             fImageFound = true;
@@ -442,7 +442,7 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
                 -1,
                 -1, // overriden 
                 -1, // overriden 
-                FALSE);
+                (nAltPalIndex == 0)); // We're the only live image.
         }
     }
 
@@ -504,6 +504,27 @@ void CImgDisp::OnSize(UINT nType, int cx, int cy)
         //Redraw();
     }
 }
+
+void CImgDisp::AssignBackupPalette(UINT8* pBackupPalette)
+{
+    m_pBackupPalette = (COLORREF*)pBackupPalette;
+    m_pBackupAltPalette = nullptr;
+};
+
+bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
+{
+    if (pImgBuffer && (pImgBuffer[nIndex]))
+    {
+        return true;
+    }
+    else if (m_pSpriteOverrideTexture)
+    {
+        return true;
+    }
+
+    return false;
+}
+
 
 bool  CImgDisp::LoadExternalSprite(CHAR* pszTextureLocation)
 {
@@ -578,7 +599,7 @@ bool  CImgDisp::LoadExternalSprite(CHAR* pszTextureLocation)
     return false;
 }
 
-BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
+BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal)
 {
     if ((MAIN_W <= 0) || (MAIN_H <= 0))
     {
@@ -595,7 +616,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
     if (nSrcIndex != -1)
     {
         pImgData = (UINT8*)pImgBuffer[nSrcIndex]->pImgData;
-        pCurrPal = (UINT8*)(bAltPal ? pImgBuffer[nSrcIndex]->pAltPal : pImgBuffer[nSrcIndex]->pPalette);
+        pCurrPal = (UINT8*)(fUseAltPal ? pImgBuffer[nSrcIndex]->pAltPal : pImgBuffer[nSrcIndex]->pPalette);
         nWidth = pImgBuffer[nSrcIndex]->uImgW;
         nHeight = pImgBuffer[nSrcIndex]->uImgH;
     }
@@ -603,7 +624,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
     {
         if (m_pBackupPalette != nullptr)
         {
-            pCurrPal = m_pBackupPalette; //bugbug probably
+            pCurrPal = (UINT8*)(fUseAltPal ? m_pBackupAltPalette : m_pBackupPalette);
         }
         else
         {
@@ -699,7 +720,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, int bAltPal)
 void CImgDisp::OnLButtonDown(UINT nFlags, CPoint point)
 {
     bLButtonDown = TRUE;
-    bCtrlDown = (GetAsyncKeyState(VK_CONTROL) & 0x8000) ? TRUE : FALSE;
+    bCtrlDown = (GetAsyncKeyState(VK_CONTROL) & 0x8000);
     SetCapture();
 
     fpPrevX = (double)point.x;
@@ -851,5 +872,10 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
 
 void CImgDisp::SetAltPal(int nIndex, COLORREF* pAltPal)
 {
-    pImgBuffer[nIndex]->pAltPal = pAltPal;
+    if (pImgBuffer[nIndex])
+    {
+        pImgBuffer[nIndex]->pAltPal = pAltPal;
+    }
+
+    m_pBackupAltPalette = pAltPal;
 }

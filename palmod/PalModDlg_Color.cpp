@@ -427,7 +427,7 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
     {
         if (bRGB)
         {
-            BOOL bNeg = *editControl < 0 ? TRUE : FALSE;
+            BOOL bNeg = (*editControl < 0);
 
             if (bShow32)
             {
@@ -869,22 +869,25 @@ void CPalModDlg::OnColSett()
 
 void CPalModDlg::Blink()
 {
-    if (bEnabled && bCanBlink && ImgDispCtrl->GetImgBuffer()[nPalImgIndex])
+    if (bEnabled && bCanBlink)
     {
-        sPalDef* srcDef =
-            MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex);
+        if (ImgDispCtrl->DoWeHaveImageForIndex(nPalImgIndex))
+        {
+            sPalDef* srcDef =
+                MainPalGroup->GetPalDef(MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex);
 
-        pTempPalCopy = new COLORREF[srcDef->uPalSz];
-        memcpy(pTempPalCopy, srcDef->pPal, srcDef->uPalSz * sizeof(COLORREF));
+            pTempPalCopy = new COLORREF[srcDef->uPalSz];
+            memcpy(pTempPalCopy, srcDef->pPal, srcDef->uPalSz * sizeof(COLORREF));
 
-        nBlinkCount = 2;
-        nBlinkState = 3; //Start of blink
-        bCanBlink = FALSE;
+            nBlinkCount = 2;
+            nBlinkState = 3; //Start of blink
+            bCanBlink = FALSE;
 
-        crBlinkCol = ImgDispCtrl->GetBlinkCol() | (0xFF000000);
+            crBlinkCol = ImgDispCtrl->GetBlinkCol() | (0xFF000000);
 
-        ImgDispCtrl->SetAltPal(nPalImgIndex, pTempPalCopy);
-        PerformBlink();
+            ImgDispCtrl->SetAltPal(nPalImgIndex, pTempPalCopy);
+            PerformBlink();
+        }
     }
 }
 

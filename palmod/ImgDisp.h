@@ -86,7 +86,7 @@ private:
     void ModifySrcRect();
     void ModifyClRect();
 
-    BOOL CustomBlt(int nSrcIndex, int x, int y, int bAltPal = 0);
+    BOOL CustomBlt(int nSrcIndex, int x, int y, bool fUseAltPal = false);
 
     CScrollBar m_HScroll;
     CScrollBar m_VScroll;
@@ -116,9 +116,10 @@ private:
 
     int MAIN_W = 0, MAIN_H = 0;
 
-
+    // This should be converted over to an sImageNode probably...
     UINT8* m_pSpriteOverrideTexture = nullptr;
-    UINT8* m_pBackupPalette = nullptr;
+    COLORREF* m_pBackupPalette = nullptr;
+    COLORREF* m_pBackupAltPalette = nullptr;
     int m_nTextureOverrideW = 0;
     int m_nTextureOverrideH = 0;
 
@@ -156,8 +157,9 @@ public:
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
     bool LoadExternalSprite(CHAR* szTextureLocation);
-    void AssignBackupPalette(UINT8* pBackupPalette) { m_pBackupPalette = pBackupPalette; };
-
+    void AssignBackupPalette(UINT8* pBackupPalette);
+    bool DoWeHaveImageForIndex(int nIndex);
+    
     void SetZoom(double fpNewZoom)
     {
         fpZoom = fpNewZoom;
