@@ -2024,9 +2024,9 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_A[] =
 {
     { "Jotaro & Star Platinum A", 0x0336400, 0x0336480 },
     { "Star Breaker Super A", 0x0336d82, 0x0336d90 },
+    { "Star Platinum Charging Flash A", 0x0336880, 0x0336900 },
     { "Jotaro Vs/Super A", 0x0410000, 0x0410080 },
     { "Jotaro Challenger A", 0x0410080, 0x0410100 },
-    { "Star Platinum Charging Flash A", 0x0336880, 0x0336900 },
 #ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning A (1/2)", 0x0410100, 0x0410180 },
     { "Jotaro Select/Winning A (2/2)", 0x0410180, 0x0410200 },
@@ -2051,9 +2051,9 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
 {
     { "Jotaro & Star Platinum B", 0x034a900, 0x034a980 },
     { "Star Breaker Super B", 0x034b282, 0x034b290 },
+    { "Star Platinum Charging Flash B", 0x034AD80, 0x034AE00 },
     { "Jotaro Vs/Super B", 0x0414e00, 0x0414e80 },
     { "Jotaro Challenger B", 0x0414e80, 0x0414f00 },
-    { "Star Platinum Charging Flash B", 0x034AD80, 0x034AE00 },
 #ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning B (1/2)", 0x0414f00, 0x0414f80 },
     { "Jotaro Select/Winning B (2/2)", 0x0414f80, 0x0415000 },
@@ -2078,9 +2078,9 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_C[] =
 {
     { "Jotaro & Star Platinum C", 0x035ee00, 0x035ee80 },
     { "Star Breaker Super C", 0x035f782, 0x035f790 },
+    { "Star Platinum Charging Flash C", 0x035F280, 0x035F300 },
     { "Jotaro Vs/Super C", 0x0419c00, 0x0419c80 },
     { "Jotaro Challenger C", 0x0419c80, 0x0419d00 },
-    { "Star Platinum Charging Flash C", 0x035F280, 0x035F300 },
 #ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning C (1/2)", 0x0419d00, 0x0419d80 },
     { "Jotaro Select/Winning C (2/2)", 0x0419d80, 0x0419e00 },
@@ -2105,9 +2105,9 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
 {
     { "Jotaro & Star Platinum S", 0x0373300, 0x0373380 },
     { "Star Breaker Super S", 0x0373c82, 0x0373c90 },
+    { "Star Platinum Charging Flash S", 0x0373780, 0x0373800 },
     { "Jotaro Vs/Super S", 0x041ea00, 0x041ea80 },
     { "Jotaro Challenger S", 0x041ea80, 0x041eb00 },
-    { "Star Platinum Charging Flash S", 0x0373780, 0x0373800 },
 #ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning S (1/2)", 0x041eb00, 0x041eb80 },
     { "Jotaro Select/Winning S (2/2)", 0x041eb80, 0x041ec00 },
@@ -2132,9 +2132,9 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
 {
     { "Jotaro & Star Platinum Start", 0x0387800, 0x0387880 },
     { "Star Breaker Super Start", 0x0388182, 0x0388190 },
+    { "Star Platinum Charging Flash Start", 0x0387C80, 0x0387D00 },
     { "Jotaro Vs/Super Start", 0x0423800, 0x0423880 },
     { "Jotaro Challenger Start", 0x0423880, 0x0423900 },
-    { "Star Platinum Charging Flash Start", 0x0387C80, 0x0387D00 },
 #ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning Start (1/2)", 0x0423900, 0x0423980 },
     { "Jotaro Select/Winning Start (2/2)", 0x0423980, 0x0423a00 },
@@ -2648,7 +2648,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_A[] =
 {
     { "Joseph & Hermit Purple A", 0x0339600, 0x0339680 },
-    { "Joseph Custom Combo A", 0x0339980, 0x0339a00 },
     { "Joseph Vs / Super A", 0x0410c00, 0x0410c80 },
     { "Joseph Challenger A", 0x0410c80, 0x0410d00 },
 #ifndef USE_LARGE_PALETTES
@@ -2676,7 +2675,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_A[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_B[] =
 {
     { "Joseph & Hermit Purple B", 0x034db00, 0x034db80 },
-    { "Joseph Custom Combo B", 0x034de80, 0x034df00 },
     { "Joseph Vs / Super B", 0x0415a00, 0x0415a80 },
     { "Joseph Challenger B", 0x0415a80, 0x0415b00 },
 #ifndef USE_LARGE_PALETTES
@@ -2702,7 +2700,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_B[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_C[] =
 {
     { "Joseph & Hermit Purple C", 0x0362000, 0x0362080 },
-    { "Joseph Custom Combo C", 0x0362380, 0x0362400 },
     { "Joseph Vs / Super C", 0x041a800, 0x041a880 },
     { "Joseph Challenger C", 0x041a880, 0x041a900 },
 #ifndef USE_LARGE_PALETTES
@@ -2728,7 +2725,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_C[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_S[] =
 {
     { "Joseph & Hermit Purple S", 0x0376500, 0x0376580 },
-    { "Joseph Custom Combo S", 0x0376880, 0x0376900 },
     { "Joseph Vs / Super S", 0x041f600, 0x041f680 },
     { "Joseph Challenger S", 0x041f680, 0x041f700 },
 #ifndef USE_LARGE_PALETTES
@@ -2754,7 +2750,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_S[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_Start[] =
 {
     { "Joseph & Hermit Purple Start", 0x038aa00, 0x038aa80 },
-    { "Joseph Custom Combo Start", 0x038ad80, 0x038ae00 },
     { "Joseph Vs / Super Start", 0x0424400, 0x0424480 },
     { "Joseph Challenger Start", 0x0424480, 0x0424500 },
 #ifndef USE_LARGE_PALETTES
@@ -2941,7 +2936,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_Start[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_A[] =
 {
     { "Alessi & Sethan A", 0x033af00, 0x033af80 },
-    { "Alessi Custom Combo A", 0x033b280, 0x033b300 },
     { "Alessi A Wave Attack", 0x033b780, 0x033b7c0 },
     { "Alessi Winpose A", 0x033b800, 0x033b880 },
     { "Alessi Vs / Super A", 0x0411200, 0x0411280 },
@@ -2969,7 +2963,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_A[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_B[] =
 {
     { "Alessi & Sethan B", 0x034f400, 0x034f480 },
-    { "Alessi Custom Combo B", 0x034f780, 0x034f800 },
     { "Alessi B Wave Attack", 0x034fc80, 0x034fcc0 },
     { "Alessi Winpose B", 0x034fd00, 0x034fd80 },
     { "Alessi Vs / Super B", 0x0416000, 0x0416080 },
@@ -2997,7 +2990,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_B[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_C[] =
 {
     { "Alessi & Sethan C", 0x0363900, 0x0363980 },
-    { "Alessi Custom Combo C", 0x0363c80, 0x0363d00 },
     { "Alessi C Wave Attack", 0x0364180, 0x03641c0 },
     { "Alessi Winpose C", 0x0364200, 0x0364280 },
     { "Alessi Vs / Super C", 0x041ae00, 0x041ae80 },
@@ -3025,7 +3017,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_C[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_S[] =
 {
     { "Alessi & Sethan S", 0x0377e00, 0x0377e80 },
-    { "Alessi Custom Combo S", 0x0378180, 0x0378200 },
     { "Alessi S Wave Attack", 0x0378680, 0x03786c0 },
     { "Alessi Winpose S", 0x0378700, 0x0378780 },
     { "Alessi Vs / Super S", 0x041fc00, 0x041fc80 },
@@ -3053,7 +3044,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_S[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_Start[] =
 {
     { "Alessi & Sethan Start", 0x038c300, 0x038c380 },
-    { "Alessi Custom Combo Start", 0x038c680, 0x038c700 },
     { "Alessi Start Wave Attack", 0x038cb80, 0x038cbc0 },
     { "Alessi Winpose Start", 0x038cc00, 0x038cc80 },
     { "Alessi Vs / Super Start", 0x0424a00, 0x0424a80 },
@@ -3082,7 +3072,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_A[] =
 {
     { "Chaka A", 0x033bb80, 0x033bc00 },
     { "Chaka A Super Trail", 0x033c400, 0x033c480 },
-    { "Chaka Custom Combo & Counter A", 0x033bf00, 0x033bf80 },
     { "Chaka Vs / Super A", 0x0411500, 0x0411580 },
     { "Chaka Challenger A", 0x0411580, 0x0411600 },
     { "Chaka Select / Winning A", 0x0411600, 0x0411680 },
@@ -3104,7 +3093,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_B[] =
 {
     { "Chaka B", 0x0350080, 0x0350100 },
     { "Chaka B Super Trail", 0x0350900, 0x0350980 },
-    { "Chaka Custom Combo & Counter B", 0x0350400, 0x0350480 },
     { "Chaka Vs / Super B", 0x0416300, 0x0416380 },
     { "Chaka Challenger B", 0x0416380, 0x0416400 },
     { "Chaka Select / Winning B", 0x0416400, 0x0416480 },
@@ -3126,7 +3114,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_C[] =
 {
     { "Chaka C", 0x0364580, 0x0364600 },
     { "Chaka C Super Trail", 0x0364e00, 0x0364e80 },
-    { "Chaka Custom Combo & Counter C", 0x0364900, 0x0364980 },
     { "Chaka Vs / Super C", 0x041b100, 0x041b180 },
     { "Chaka Challenger C", 0x041b180, 0x041b200 },
     { "Chaka Select / Winning C", 0x041b200, 0x041b280 },
@@ -3148,7 +3135,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_S[] =
 {
     { "Chaka S", 0x0378a80, 0x0378b00 },
     { "Chaka S Super Trail", 0x0379300, 0x0379380 },
-    { "Chaka Custom Combo & Counter S", 0x0378e00, 0x0378e80 },
     { "Chaka Vs / Super S", 0x041ff00, 0x041ff80 },
     { "Chaka Challenger S", 0x041ff80, 0x0420000 },
     { "Chaka Select / Winning S", 0x0420000, 0x0420080 },
@@ -3170,7 +3156,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_Start[] =
 {
     { "Chaka Start", 0x038cf80, 0x038d000 },
     { "Chaka Start Super Trail", 0x038d800, 0x038d880 },
-    { "Chaka Custom Combo & Counter Start", 0x038d300, 0x038d380 },
     { "Chaka Vs / Super Start", 0x0424d00, 0x0424d80 },
     { "Chaka Challenger Start", 0x0424d80, 0x0424e00 },
     { "Chaka Select / Winning Start", 0x0424e00, 0x0424e80 },
@@ -3540,7 +3525,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_A[] =
     { "The World's \"Bloody Summoning\" A", 0x033f800, 0x033f880 },
     { "DIO Tele Initial Flash A", 0x033f500, 0x033f580 },
     { "DIO Teleport A", 0x033f680, 0x033f700 },
-    { "DIO Teleport Afterimages A", 0x033f100, 0x033f180 },
     { "Nukesaku A", 0x033f780, 0x033f7c0 },
     { "DIO Vs / Super A", 0x0412100, 0x0412180 },
     { "DIO Challenger A", 0x0412180, 0x0412200 },
@@ -4468,7 +4452,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_Start[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_A[] =
 {
     { "Petshop A", 0x0345e00, 0x0345e80 },
-    { "Eggshop A", 0x0346680, 0x03466c0 },
+    { "Eggshop & Wealthy Begger A", 0X0346680, 0X0346700 },
     { "Petshop Vs / Super A", 0x0413c00, 0x0413c80 },
     { "Petshop Challenger A", 0x0413c80, 0x0413d00 },
 #ifndef USE_LARGE_PALETTES
@@ -4494,7 +4478,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_A[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_B[] =
 {
     { "Petshop B", 0x035a300, 0x035a380 },
-    { "Eggshop B", 0x035ab80, 0x035abc0 },
+    { "Eggshop & Wealthy Begger B", 0x035AB80, 0x035AC00 },
     { "Petshop Vs / Super B", 0x0418a00, 0x0418a80 },
     { "Petshop Challenger B", 0x0418a80, 0x0418b00 },
 #ifndef USE_LARGE_PALETTES
@@ -4520,7 +4504,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_B[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_C[] =
 {
     { "Petshop C", 0x036e800, 0x036e880 },
-    { "Eggshop C", 0x036f080, 0x036f0c0 },
+    { "Eggshop & Wealthy Begger C", 0x036F080, 0x036F100 },
     { "Petshop Vs / Super C", 0x041d800, 0x041d880 },
     { "Petshop Challenger C", 0x041d880, 0x041d900 },
 #ifndef USE_LARGE_PALETTES
@@ -4546,7 +4530,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_C[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_S[] =
 {
     { "Petshop S", 0x0382d00, 0x0382d80 },
-    { "Eggshop S", 0x0383580, 0x03835c0 },
+    { "Eggshop & Wealthy Begger S", 0x0383580, 0x0383600 },
     { "Petshop Vs / Super S", 0x0422600, 0x0422680 },
     { "Petshop Challenger S", 0x0422680, 0x0422700 },
 #ifndef USE_LARGE_PALETTES
@@ -4572,7 +4556,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_S[] =
 const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_Start[] =
 {
     { "Petshop Start", 0x0397200, 0x0397280 },
-    { "Eggshop Start", 0x0397a80, 0x0397ac0 },
+    { "Eggshop & Wealthy Begger Start", 0x0397A80, 0x0397B00 },
     { "Petshop Vs / Super Start", 0x0427400, 0x0427480 },
     { "Petshop Challenger Start", 0x0427480, 0x0427500 },
 #ifndef USE_LARGE_PALETTES
@@ -5421,12 +5405,55 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
 
 const sJOJOS_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
 {
+    { "Capcom Presents (text under intro logo)", 0x030b040, 0x030b060 },
+    { "Capcom logo", 0x030b080, 0x030b0a0 },
     { "Capcom Backgrounds",     0x030C300, 0x030C340 },
     { "Hol Horse intro Body",   0x030c600, 0x030c680 },
     { "Hol Horse intro Hand",   0x030c580, 0x030c600 },
     { "Hol Horse shoot scene",  0x030C400, 0x030C480 },
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse intro background", 0x030bb00, 0x030be00 },
+#else
+    { "Hol Horse intro background (1/6)", 0x030bb00, 0x030bb80 },
+    { "Hol Horse intro background (2/6)", 0x030bb80, 0x030bc00 },
+    { "Hol Horse intro background (3/6)", 0x030bc00, 0x030bc80 },
+    { "Hol Horse intro background (4/6)", 0x030bc80, 0x030bd00 },
+    { "Hol Horse intro background (5/6)", 0x030bd00, 0x030bd80 },
+    { "Hol Horse intro background (6/6)", 0x030bd80, 0x030be00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Hol Horse intro ender background", 0x030be00, 0x030c300 },
+#else
+    { "Hol Horse intro ender background (1/10)", 0x030be00, 0x030be80 },
+    { "Hol Horse intro ender background (2/10)", 0x030be80, 0x030bf00 },
+    { "Hol Horse intro ender background (3/10)", 0x030bf00, 0x030bf80 },
+    { "Hol Horse intro ender background (4/10)", 0x030bf80, 0x030c000 },
+    { "Hol Horse intro ender background (5/10)", 0x030c000, 0x030c080 },
+    { "Hol Horse intro ender background (6/10)", 0x030c080, 0x030c100 },
+    { "Hol Horse intro ender background (7/10)", 0x030c100, 0x030c180 },
+    { "Hol Horse intro ender background (8/10)", 0x030c180, 0x030c200 },
+    { "Hol Horse intro ender background (9/10)", 0x030c200, 0x030c280 },
+    { "Hol Horse intro ender background (10/10)", 0x030c280, 0x030c300 },
+#endif
     { "Vanilla Ice intro",      0x030ba00, 0x030ba80 },
     { "Cream intro",            0x030ba80, 0x030bb00 },
+#ifdef USE_LARGE_PALETTES
+    { "Vice intro background", 0x030b100, 0x030b780 },
+#else
+    { "Vice intro background (1/13)", 0x030b100, 0x030b180 },
+    { "Vice intro background (2/13)", 0x030b180, 0x030b200 },
+    { "Vice intro background (3/13)", 0x030b200, 0x030b280 },
+    { "Vice intro background (4/13)", 0x030b280, 0x030b300 },
+    { "Vice intro background (5/13)", 0x030b300, 0x030b380 },
+    { "Vice intro background (6/13)", 0x030b380, 0x030b400 },
+    { "Vice intro background (7/13)", 0x030b400, 0x030b480 },
+    { "Vice intro background (8/13)", 0x030b480, 0x030b500 },
+    { "Vice intro background (9/13)", 0x030b500, 0x030b580 },
+    { "Vice intro background (10/13)", 0x030b580, 0x030b600 },
+    { "Vice intro background (11/13)", 0x030b600, 0x030b680 },
+    { "Vice intro background (12/13)", 0x030b680, 0x030b700 },
+    { "Vice intro background (13/13)", 0x030b700, 0x030b780 },
+#endif
     { "Vice Intro Ender",       0x030c380, 0x030c400 },
 #ifndef USE_LARGE_PALETTES
     { "Intro Manga Panels (1/5)", 0x030b780, 0x030b800 },
@@ -5438,8 +5465,14 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { "Intro Manga Panels", 0x030b780, 0x030ba00 },
 #endif
     { "Title Screen DIO",       0x030c500, 0x030c580 },
+    { "Title Screen DIO Fade 1", 0x030C780, 0x030C800 },
+    { "Title Screen DIO Fade 2", 0x030C800, 0x030C880 },
+    { "Title Screen DIO Fade 3", 0x030C880, 0x030C900 },
     { "Title Screen DIO Manga", 0x030c900, 0x030c980 },
     { "Title Screen Jotaro",    0x030c480, 0x030c500 },
+    { "Title Screen Jotaro Fade 1", 0x030C980, 0x030CA00 },
+    { "Title Screen Jotaro Fade 2", 0x030CA00, 0x030CA80 },
+    { "Title Screen Jotaro Fade 3", 0x030CA80, 0x030CB00 },
     { "Title Screen Jotaro Manga", 0x030cb00, 0x030cb80 },
     { "Title Screen Logo",      0x030c680, 0x030c700 },
     { "Title Screen Logo Ribbon", 0x030c700, 0x030c780 },
@@ -5460,13 +5493,16 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { "Stand Clash Background", 0x030d100, 0x030d180 },
     { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
     { "Stand Crash Mask Background 2", 0x030CF40, 0x030CF80 },
+    { "Raging Demon Background", 0x030d1c0, 0x030d200 },
     { "Super KO Background", 0x030d082, 0x030d102 },
     { "Super KO Portrait", 0x030ce80, 0x030cec0 },
     { "\"Round 1,2,3\" Text", 0x030ce00, 0x030ce60 },
     { "\"Fight\" & \"Down\" Text", 0x030cd80, 0x030ce00 },
+    { "\"LOSE\"", 0x030cce0, 0x030cd00 },
     { "\"KO\"", 0x030cd20, 0x030cd40 },
     { "\"PERFECT\"", 0X030CD40, 0X030CD60 },
     { "\"Retired\"", 0x030CC20, 0x030CC40 },
+    { "VS screen text", 0x030d400, 0x030d440 },
     { "Win text (character)", 0x030cc40, 0x030cc60 },
     { "Win text (WIN)", 0x030cca0, 0x030ccc0 },
 };
