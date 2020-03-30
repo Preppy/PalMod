@@ -27,12 +27,17 @@ private:
 
     // Jojos has two different ROMs of interest: handle here.
     static int m_nJojosMode;
+    static UINT32 m_nTotalPaletteCount50;
+    static UINT32 m_nTotalPaletteCount51;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
 
     void InitDataBuffer();
     void ClearDataBuffer();
     void CheckExtrasFileForDuplication();
+    bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOffsetToCheck);
+    bool AreThereDupesInDataset();
+    void CheckForDupesInTables();
     
     static const sJOJOS_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static bool UsePaletteSetFor50() { return (m_nJojosMode == 50); }

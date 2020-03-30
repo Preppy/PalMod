@@ -8,7 +8,7 @@ struct sJOJOS_PaletteDataset
     bool isInvisible = false;
 };
 
-#ifdef NEED_TO_UPDATE_JOJO_HEADERS
+#if NEED_TO_UPDATE_JOJO_HEADERS
 #define USE_LARGE_PALETTES
 #endif
 
@@ -3555,7 +3555,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_B[] =
     { "The World's \"Bloody Summoning\" B", 0x0353d00, 0x0353d80 },
     { "DIO Tele Initial Flash B", 0x0353a00, 0x0353a80 },
     { "DIO Teleport B", 0x0353b80, 0x0353c00 },
-    { "DIO Teleport Afterimages B", 0x0353600, 0x0353680 },
     { "Nukesaku B", 0x0353c80, 0x0353cc0 },
     { "DIO Vs / Super B", 0x0416f00, 0x0416f80 },
     { "DIO Challenger B", 0x0416f80, 0x0417000 },
@@ -3586,7 +3585,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_C[] =
     { "The World's \"Bloody Summoning\" C", 0x0368200, 0x0368280 },
     { "DIO Tele Initial Flash C", 0x0367f00, 0x0367f80 },
     { "DIO Teleport C", 0x0368080, 0x0368100 },
-    { "DIO Teleport Afterimages C", 0x0367b00, 0x0367b80 },
     { "Nukesaku C", 0x0368180, 0x03681c0 },
     { "DIO Vs / Super C", 0x041bd00, 0x041bd80 },
     { "DIO Challenger C", 0x041bd80, 0x041be00 },
@@ -3617,7 +3615,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_S[] =
     { "The World's \"Bloody Summoning\" S", 0x037c700, 0x037c780 },
     { "DIO Tele Initial Flash S", 0x037c400, 0x037c480 },
     { "DIO Teleport S", 0x037c580, 0x037c600 },
-    { "DIO Teleport Afterimages S", 0x037c000, 0x037c080 },
     { "Nukesaku S", 0x037c680, 0x037c6c0 },
     { "DIO Vs / Super S", 0x0420b00, 0x0420b80 },
     { "DIO Challenger S", 0x0420b80, 0x0420c00 },
@@ -3648,7 +3645,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_Start[] =
     { "The World's \"Bloody Summoning\" Start", 0x0390c00, 0x0390c80 },
     { "DIO Tele Initial Flash Start", 0x0390900, 0x0390980 },
     { "DIO Teleport Start", 0x0390a80, 0x0390b00 },
-    { "DIO Teleport Afterimages Start", 0x0390500, 0x0390580 },
     { "Nukesaku Start", 0x0390b80, 0x0390bc0 },
     { "DIO Vs / Super Start", 0x0425900, 0x0425980 },
     { "DIO Challenger Start", 0x0425980, 0x0425a00 },
@@ -4964,7 +4960,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_A[] =
     { "Khan A", 0x0349c80, 0x0349d00 },
     { "Khan's Intro Anubis A", 0x034a600, 0x034a620 },
     { "Khan's Counter Anubis A", 0x034a780, 0x034a7a0 },
-    { "Khan's Normal Slash A", 0x034a000, 0x034a020 },
     { "Khan's Special Slash A", 0x034a700, 0x034a720 },
     { "Khan Vs/Super A", 0x0414b00, 0x0414b80 },
     { "Khan Challenger A", 0x0414b80, 0x0414c00 },
@@ -4988,7 +4983,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_B[] =
     { "Khan B", 0x035e180, 0x035e200 },
     { "Khan's Intro Anubis B", 0x035eb00, 0x035eb20 },
     { "Khan's Counter Anubis B", 0x035ec80, 0x035eca0 },
-    { "Khan's Normal Slash B", 0x035e500, 0x035e520 },
     { "Khan's Special Slash B", 0x035ec00, 0x035ec20 },
     { "Khan Vs/Super B", 0x0419900, 0x0419980 },
     { "Khan Challenger B", 0x0419980, 0x0419a00 },
@@ -5012,7 +5006,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_C[] =
     { "Khan C", 0x0372680, 0x0372700 },
     { "Khan's Intro Anubis C", 0x0373000, 0x0373020 },
     { "Khan's Counter Anubis C", 0x0373180, 0x03731a0 },
-    { "Khan's Normal Slash C", 0x0372a00, 0x0372a20 },
     { "Khan's Special Slash C", 0x0373100, 0x0373120 },
     { "Khan Vs/Super C", 0x041e700, 0x041e780 },
     { "Khan Challenger C", 0x041e780, 0x041e800 },
@@ -5036,7 +5029,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_S[] =
     { "Khan S", 0x0386b80, 0x0386c00 },
     { "Khan's Intro Anubis S", 0x0387500, 0x0387520 },
     { "Khan's Counter Anubis S", 0x0387680, 0x03876a0 },
-    { "Khan's Normal Slash S", 0x0386f00, 0x0386f20 },
     { "Khan's Special Slash S", 0x0387600, 0x0387620 },
     { "Khan Vs/Super S", 0x0423500, 0x0423580 },
     { "Khan Challenger S", 0x0423580, 0x0423600 },
@@ -5060,7 +5052,6 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_Start[] =
     { "Khan Start", 0x039b080, 0x039b100 },
     { "Khan's Intro Anubis Start", 0x039ba00, 0x039ba20 },
     { "Khan's Counter Anubis Start", 0x039bb80, 0x039bba0 },
-    { "Khan's Normal Slash Start", 0x039b400, 0x039b420 },
     { "Khan's Special Slash Start", 0x039bb00, 0x039bb20 },
     { "Khan Vs/Super Start", 0x0428300, 0x0428380 },
     { "Khan Challenger Start", 0x0428380, 0x0428400 },
@@ -5484,10 +5475,9 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
 {
     { "Aja Stone", 0x0335800, 0x0335840 },
     { "Blood (Sdio grab, bpol grab,etc)", 0x0335878, 0x0335880 },
-    { "Zap Effects", 0x0335840, 0x0335860 },
+    { "Super Flash / Zap Effects", 0x0335840, 0x0335860 },
     { "Blocksparks", 0x03358d0, 0x03358e0 },
     { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
-    { "Super Flash", 0x0335840, 0x0335850 },
     { "Tandem Aura", 0x0335930, 0x0335940 },
     { "Tandem Background", 0x030d900, 0x030d980 },
     { "Stand Clash Background", 0x030d100, 0x030d180 },

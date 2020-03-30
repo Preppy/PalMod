@@ -4,8 +4,9 @@
 #include "..\ExtraFile.h"
 #include "..\palmod.h"
 
-//#define JOJOS_DEBUG
-//#define NEED_TO_UPDATE_JOJO_HEADERS
+#define JOJOS_DEBUG                 0
+#define NEED_TO_UPDATE_JOJO_HEADERS 0
+#define JOJOS_CHECK_FOR_DUPES       0
 
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50 = nullptr;
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51 = nullptr;
@@ -14,6 +15,8 @@ CDescTree CGame_JOJOS_A::MainDescTree_50 = CGame_JOJOS_A::InitDescTree(50);
 CDescTree CGame_JOJOS_A::MainDescTree_51 = CGame_JOJOS_A::InitDescTree(51);
 
 int CGame_JOJOS_A::m_nJojosMode = 50;
+UINT32 CGame_JOJOS_A::m_nTotalPaletteCount50 = 0;
+UINT32 CGame_JOJOS_A::m_nTotalPaletteCount51 = 0;
 
 int CGame_JOJOS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
@@ -272,7 +275,7 @@ CDescTree* CGame_JOJOS_A::GetMainTree()
     }
 }
 
-#ifdef NEED_TO_UPDATE_JOJO_HEADERS
+#if NEED_TO_UPDATE_JOJO_HEADERS
 void ExportTableToDebugger()
 {
 #ifndef USE_LARGE_PALETTES
@@ -400,7 +403,6 @@ void CGame_JOJOS_A::CheckExtrasFileForDuplication()
 CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 {
     UINT32 nTotalPaletteCount = 0;
-
     m_nJojosMode = nPaletteSetToUse;
 
 #ifdef JOJOS_A_USEEXTRAFILE
@@ -427,12 +429,10 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-#ifdef JOJOS_DEBUG
     CString strMsg;
     bool fHaveExtras = ((UsePaletteSetFor50() ? GetExtraCt(JOJOS_A_EXTRALOC_50) : GetExtraCt(JOJOS_A_EXTRALOC_51)) > 0);
-    strMsg.Format("CGame_JOJOS_A::InitDescTree: Building desc tree for %u...\n", m_nJojosMode);
+    strMsg.Format("CGame_JOJOS_A::InitDescTree: Building desc tree for ROM  %u...\n", m_nJojosMode);
     OutputDebugString(strMsg);
-#endif
 
     //Go through each character
     for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
@@ -460,7 +460,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#ifdef JOJOS_DEBUG
+#if JOJOS_DEBUG
             strMsg.Format("Unit: %s, %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -482,7 +482,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#ifdef JOJOS_DEBUG
+#if JOJOS_DEBUG
                 strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -500,7 +500,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#ifdef JOJOS_DEBUG
+#if JOJOS_DEBUG
                     strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
 #endif
@@ -517,7 +517,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#ifdef JOJOS_DEBUG
+#if JOJOS_DEBUG
             strMsg.Format("Unit: %s (Extras), %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
             OutputDebugString(strMsg);
 #endif
@@ -576,10 +576,17 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
         }
     }
 
-#ifdef JOJOS_DEBUG
-    strMsg.Format("CGame_JOJOS_A::InitDescTree: Loaded %u palettes for Jojos\n", nTotalPaletteCount);
+    strMsg.Format("CGame_JOJOS_A::InitDescTree: Loaded %u palettes for Jojos ROM %u \n", nTotalPaletteCount, m_nJojosMode);
     OutputDebugString(strMsg);
-#endif
+
+    if (UsePaletteSetFor50())
+    {
+        m_nTotalPaletteCount50 = nTotalPaletteCount;
+    }
+    else
+    {
+        m_nTotalPaletteCount51 = nTotalPaletteCount;
+    }
 
     return NewDescTree;
 }
@@ -615,7 +622,7 @@ UINT16 CGame_JOJOS_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#ifdef JOJOS_DEBUG
+#if JOJOS_DEBUG
         CString strMsg;
         strMsg.Format("PaletteCount: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
@@ -661,6 +668,105 @@ void CGame_JOJOS_A::ClearDataBuffer()
     }
 
     m_nJojosMode = nCurrentJojosMode;
+}
+
+bool CGame_JOJOS_A::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOffsetToCheck)
+{
+    UINT32 nTotalDupesFound = 0;
+    UINT16 nTotalUnits = UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51;
+    CString strDupeText;
+
+    //Go through each character
+    for (INT16 nUnitCtr = 0; nUnitCtr < nTotalUnits; nUnitCtr++)
+    {
+        UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+        {
+            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+            if ((nOffsetToCheck == m_nCurrentPaletteROMLocation) &&
+                !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)))
+            {
+                nTotalDupesFound++;
+                strDupeText.Format("ERROR: Unit %u pal %u at offset 0x%07x is a duplicate of unit %u pal %u!\n", nUnitCtr, nPalCtr, nOffsetToCheck, nUnitId, nPalId);
+                OutputDebugString(strDupeText);
+                break;
+            }
+        }
+    }
+
+    return (nTotalDupesFound != 0);
+}
+
+bool CGame_JOJOS_A::AreThereDupesInDataset()
+{
+    UINT32 nTotalPalettesChecked = 0;
+    UINT32 nTotalDupesFound = 0;
+    UINT16 nTotalUnits = UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51;
+
+    CString strDupeText;
+    bool fCollisionFound = false;
+
+    //Go through each character
+    for (INT16 nUnitCtr = 0; nUnitCtr < nTotalUnits; nUnitCtr++)
+    {
+        UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+        {
+            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+            nTotalPalettesChecked++;
+
+            int nCurrentROMOffset = m_nCurrentPaletteROMLocation;
+
+            if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset))
+            {
+                fCollisionFound = true;
+                nTotalDupesFound++;
+            }
+        }
+
+        if (fCollisionFound)
+        {
+            fCollisionFound = false;
+        }
+    }
+
+    strDupeText.Format("CGame_JOJOS_A::AreThereDupesInDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
+    OutputDebugString(strDupeText);
+
+
+    return (nTotalDupesFound != 0);
+}
+
+void CGame_JOJOS_A::CheckForDupesInTables()
+{
+    const UINT32 nSafeCountFor50 = 1505;
+    const UINT32 nSafeCountFor51 = 2134;
+    const UINT32 nSafeCountForThisRom = UsePaletteSetFor50() ? nSafeCountFor50 : nSafeCountFor51;
+    const UINT32 nPaletteCountForRom = UsePaletteSetFor50() ? m_nTotalPaletteCount50 : m_nTotalPaletteCount51;
+
+    CString strText;
+    strText.Format("CGame_JOJOS_A::CheckForDupesInTables: Safe palette count for ROM %u is %u.  We found %u now.\n", m_nJojosMode, nSafeCountForThisRom, nPaletteCountForRom);
+    OutputDebugString(strText);
+
+    if (nPaletteCountForRom != nSafeCountForThisRom)
+    {
+        if (AreThereDupesInDataset())
+        {
+            strText.Format("WARNING: There are currently duplicates in the Jojo's tables.\n\nThis is a bug in PalMod.  Please report.");
+        }
+        else
+        {
+            strText.Format("Warning: The Jojos duplicate check count should be updated.\n\nNo duplicates were found thankfully.");
+        }
+
+        MessageBox(g_appHWnd, strText, GetAppName(), MB_ICONERROR);
+        OutputDebugString(strText);
+    }
+    else
+    {
+        OutputDebugString("\tCGame_JOJOS_A::CheckForDupesInTables: This matches the last known palette count: we're good.\n");
+    }
 }
 
 const sJOJOS_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
@@ -715,7 +821,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             nDistanceFromZero -= nNodeCount;
         }
 
-#ifdef NEED_TO_UPDATE_JOJO_HEADERS
+#if NEED_TO_UPDATE_JOJO_HEADERS
 
         const int knMaxPalettePageSizeOnDisc = 2 * m_knMaxPalettePageSize;
 
@@ -978,6 +1084,8 @@ BOOL CGame_JOJOS_A::LoadFile(CFile* LoadedFile, UINT16 nFileId)
     }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
+
+    CheckForDupesInTables();
 
     return TRUE;
 }
