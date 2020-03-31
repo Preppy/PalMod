@@ -5397,7 +5397,7 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
 const sJOJOS_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
 {
     { "Capcom Presents (text under intro logo)", 0x030b040, 0x030b060 },
-    { "Capcom logo", 0x030b080, 0x030b0a0 },
+    { "Capcom logo",            0x030b080, 0x030b0a0 },
     { "Capcom Backgrounds",     0x030C300, 0x030C340 },
     { "Hol Horse intro Body",   0x030c600, 0x030c680 },
     { "Hol Horse intro Hand",   0x030c580, 0x030c600 },

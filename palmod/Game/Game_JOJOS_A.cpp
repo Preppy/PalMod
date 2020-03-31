@@ -698,11 +698,12 @@ bool CGame_JOJOS_A::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOf
     return (nTotalDupesFound != 0);
 }
 
-bool CGame_JOJOS_A::AreThereDupesInDataset()
+int CGame_JOJOS_A::GetDupeCountInDataset()
 {
     UINT32 nTotalPalettesChecked = 0;
     UINT32 nTotalDupesFound = 0;
     UINT16 nTotalUnits = UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51;
+    UINT16 nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
 
     CString strDupeText;
     bool fCollisionFound = false;
@@ -710,6 +711,11 @@ bool CGame_JOJOS_A::AreThereDupesInDataset()
     //Go through each character
     for (INT16 nUnitCtr = 0; nUnitCtr < nTotalUnits; nUnitCtr++)
     {
+        if (nUnitCtr == nExtraUnit)
+        {
+            break;
+        }
+
         UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
         for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
         {
@@ -734,34 +740,75 @@ bool CGame_JOJOS_A::AreThereDupesInDataset()
     strDupeText.Format("CGame_JOJOS_A::AreThereDupesInDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
     OutputDebugString(strDupeText);
 
+    // Div 2 since each one will be matching another one internally here
+    return nTotalDupesFound / 2;
+}
 
-    return (nTotalDupesFound != 0);
+int CGame_JOJOS_A::GetDupeCountInExtrasDataset()
+{
+    UINT32 nTotalPalettesChecked = 0;
+    UINT32 nTotalDupesFound = 0;
+    UINT16 nTotalUnits = UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51;
+    UINT16 nExtraUnitToCheck = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
+
+    CString strDupeText;
+    bool fCollisionFound = false;
+
+    //Go through the Extras
+    UINT16 nPalCount = GetPaletteCountForUnit(nExtraUnitToCheck);
+    for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+    {
+        LoadSpecificPaletteData(nExtraUnitToCheck, nPalCtr);
+        nTotalPalettesChecked++;
+
+        int nCurrentROMOffset = m_nCurrentPaletteROMLocation;
+
+        if (IsROMOffsetDuplicated(nExtraUnitToCheck, nPalCtr, nCurrentROMOffset))
+        {
+            fCollisionFound = true;
+            nTotalDupesFound++;
+        }
+    }
+
+    strDupeText.Format("CGame_JOJOS_A::AreThereDupesInDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
+    OutputDebugString(strDupeText);
+
+    return nTotalDupesFound;
 }
 
 void CGame_JOJOS_A::CheckForDupesInTables()
 {
-    const UINT32 nSafeCountFor50 = 1505;
-    const UINT32 nSafeCountFor51 = 2134;
+    const UINT32 nSafeCountFor50 = 1491;
+    const UINT32 nSafeCountFor51 = 2100;
     const UINT32 nSafeCountForThisRom = UsePaletteSetFor50() ? nSafeCountFor50 : nSafeCountFor51;
-    const UINT32 nPaletteCountForRom = UsePaletteSetFor50() ? m_nTotalPaletteCount50 : m_nTotalPaletteCount51;
+    UINT16 nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
+    const UINT32 nPaletteCountForRom = (UsePaletteSetFor50() ? m_nTotalPaletteCount50 : m_nTotalPaletteCount51) - GetPaletteCountForUnit(nExtraUnit);
+    bool fShouldCheckExtras = (GetPaletteCountForUnit(nExtraUnit) != 0);
 
     CString strText;
     strText.Format("CGame_JOJOS_A::CheckForDupesInTables: Safe palette count for ROM %u is %u.  We found %u now.\n", m_nJojosMode, nSafeCountForThisRom, nPaletteCountForRom);
     OutputDebugString(strText);
 
-    if (nPaletteCountForRom != nSafeCountForThisRom)
+    int nDupeCount = (nPaletteCountForRom == nSafeCountForThisRom) ? 0 : GetDupeCountInDataset();
+    int nExtraDupeCount = fShouldCheckExtras ? GetDupeCountInExtrasDataset() : 0;
+
+    if (nDupeCount || nExtraDupeCount)
     {
-        if (AreThereDupesInDataset())
+        if (nExtraDupeCount)
         {
-            strText.Format("WARNING: There are currently duplicates in the Jojo's tables.\n\nThis is a bug in PalMod.  Please report.");
+            strText.Format("WARNING: The %s Extras file used has %u duplicate palettes (including splitting) that are already in PalMod.  They will not work correctly.  Please remove them.", UsePaletteSetFor50() ? EXTRA_FILENAME_50 : EXTRA_FILENAME_51, nExtraDupeCount);
+        }
+        else if (nDupeCount)
+        {
+            strText.Format("WARNING: There are currently %u duplicates in Jojo's hex tables.\n\nThis is a bug in PalMod.  Please report.", nDupeCount);
         }
         else
         {
             strText.Format("Warning: The Jojos duplicate check count should be updated.\n\nNo duplicates were found thankfully.");
         }
 
-        MessageBox(g_appHWnd, strText, GetAppName(), MB_ICONERROR);
         OutputDebugString(strText);
+        MessageBox(g_appHWnd, strText, GetAppName(), MB_ICONERROR);
     }
     else
     {

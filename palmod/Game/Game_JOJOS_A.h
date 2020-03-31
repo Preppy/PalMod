@@ -36,7 +36,8 @@ private:
     void ClearDataBuffer();
     void CheckExtrasFileForDuplication();
     bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOffsetToCheck);
-    bool AreThereDupesInDataset();
+    int GetDupeCountInDataset();
+    int GetDupeCountInExtrasDataset();
     void CheckForDupesInTables();
     
     static const sJOJOS_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
