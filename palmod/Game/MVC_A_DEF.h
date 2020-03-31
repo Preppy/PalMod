@@ -560,10 +560,10 @@ const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "Iceman P1 Extra 2", 0x50DA4, 0x9 },
     { "Iceman P2", 0x50DC4, 0x9 },
     { "Iceman P2 Extra 1", 0x50DE4, 0x9 },
-    { "Iceman P1 Extra 2", 0x50E04, 0x9 },
+    { "Iceman P2 Extra 2", 0x50E04, 0x9 },
 
     { "Jubilee P1", 0x51204 },
-    { "Jubilee P1", 0x51264 },
+    { "Jubilee P2", 0x51264 },
 
     { "Juggernaut P1", 0x502C4, 0x29 },
     { "Juggernaut P1 Extra 1", 0x50304, 0x29, 2 },

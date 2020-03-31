@@ -260,9 +260,7 @@ const UINT8 MVC2_D_UNITSORT[0x3C] =
     0x07,
     0x01,
     0xFF
-
 };
-
 
 /*
 const UINT16 MVC2_D_EXTRADEF[] = 
