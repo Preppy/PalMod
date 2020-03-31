@@ -3,7 +3,7 @@
 #define SFA3_A_NUMUNIT 28
 #define SFA3_A_PALSZ 16
 
-#define SFA3_A_IMGSTART 0x3B + 0x11
+#define SFA3_A_IMGSTART (0x3B + 0x11)
 
 const UINT16 SFA3_A_IMGREDIR[SFA3_A_NUMUNIT] =
 {

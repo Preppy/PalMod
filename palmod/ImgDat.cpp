@@ -79,7 +79,7 @@ void CImgDat::FlushLastImg()
     nLastImgCt = 0;
 }
 
-UINT8* CImgDat::GetImgData(sImgDef* pCurrImg)
+UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitId, int nCurrentImgId)
 {
     if (pCurrImg->pImgData)
     {
@@ -122,6 +122,53 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg)
 
         safe_delete_array(pTmpData);
     }
+
+#ifdef EXPORT_IMG_DAT_TO_DISK
+    static bool shouldExportItAll = true;
+    if (shouldExportItAll)
+    {
+        int uLengthToWrite = (pCurrImg->bCompressed) ? (pCurrImg->uImgHeight * pCurrImg->uImgWidth) : pCurrImg->uDataSize;
+
+        CString strThisGameName;
+        strThisGameName = g_GameFriendlyName[uGameFlag];
+
+        // We could use known CurrentUnitId offsets to get back to the friendly character name...
+        // We previously included the offset ( pCurrImg->uThisImgLoc ) in the filename, but that's probably not useful overall.
+        CString strFilePath;
+        strFilePath.Format(".\\Assets\\%s-unit-0x%02x-imgid-0x%02x-W-%i-H-%i.raw", strThisGameName, nCurrentUnitId, nCurrentImgId, pCurrImg->uImgWidth, pCurrImg->uImgHeight);
+
+        CString strDebugInfo;
+        strDebugInfo.Format("Special Export: Image '0x%x', H %u W %u for LEN %u to %s\n ", pCurrImg->uThisImgLoc, pCurrImg->uImgHeight, pCurrImg->uImgWidth, uLengthToWrite, strFilePath);
+        OutputDebugString(strDebugInfo);
+
+        HANDLE hFile = CreateFile(
+                                    strFilePath,
+                                    GENERIC_WRITE,
+                                    0,
+                                    NULL,
+                                    CREATE_ALWAYS,
+                                    FILE_ATTRIBUTE_NORMAL,
+                                    NULL);
+
+        if (hFile != INVALID_HANDLE_VALUE)
+        {
+            DWORD cbWritten = 0;
+
+            // write the file to disk
+            for (int nIndexMe = 0; nIndexMe < uLengthToWrite; nIndexMe++)
+            {
+                cbWritten = 0;
+                WriteFile(hFile, &(pNewImgData[nIndexMe]), 1, &cbWritten, nullptr);
+            }
+
+            CloseHandle(hFile);
+        }
+        else
+        {
+            OutputDebugString("Error exporting image file\n");
+        }
+    }
+#endif
 
     if (bOnTheFly)
     {
@@ -256,7 +303,7 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UI
 
                     if (bLoadAll)
                     {
-                        GetImgData(CurrImg);
+                        GetImgData(CurrImg, uReadGameFlag, uCurrUnitId, uCurrImgId);
                     }
                 }
 

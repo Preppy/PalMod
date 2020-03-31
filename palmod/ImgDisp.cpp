@@ -529,7 +529,6 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
 bool  CImgDisp::LoadExternalSprite(CHAR* pszTextureLocation)
 {
     // BUGBUG TODO LIST:
-    //   * center images.  this may be the actual "empty sprite" issue
     //   * look into CImage to RAW support...?
 
     CFile TextureFile;

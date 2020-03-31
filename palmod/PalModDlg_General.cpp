@@ -218,7 +218,7 @@ void CPalModDlg::PostPalSel()
                             nImgIndexCtr,
                             CurrImgDef->uImgWidth,
                             CurrImgDef->uImgHeight,
-                            ImgFile->GetImgData(CurrImgDef),
+                            ImgFile->GetImgData(CurrImgDef, CurrGame->GetGameFlag(), CurrTicket->nUnitId, CurrTicket->nImgId),
                             MainPalGroup->GetPalDef(i)->pPal,
                             MainPalGroup->GetPalDef(i)->uPalSz,
                             CurrTicket->nXOffs,

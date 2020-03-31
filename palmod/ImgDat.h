@@ -47,7 +47,7 @@ public:
     UINT8* DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);
 
     int GetCurrGFlag() { return nCurrGFlag; };
-    UINT8* GetImgData(sImgDef* pCurrImg);
+    UINT8* GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitId, int nCurrentImgId);
 
     void CloseImgFile();
     void FlushLastImg();

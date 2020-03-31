@@ -6,26 +6,26 @@
 const char SFIII3_D_UNITDESC[SFIII3_D_NUMUNIT][16] = 
 {
     //"Gill",        //0x
-    "Alex",            //0x00 
-    "Ryu",            //0x01
-    "Yun",            //0x02
+    "Alex",          //0x00 
+    "Ryu",           //0x01
+    "Yun",           //0x02
     "Dudley",        //0x03
-    "Necro",        //0x04
-    "Hugo",            //0x05
-    "Ibuki",        //0x06
-    "Elena",        //0x07
-    "Oro",            //0x08
-    "Yang",            //0x09
-    "Ken",            //0x0A
-    "Sean",            //0x0B
-    "Urien",        //0x0C
-    "Gouki",        //0x0D
+    "Necro",         //0x04
+    "Hugo",          //0x05
+    "Ibuki",         //0x06
+    "Elena",         //0x07
+    "Oro",           //0x08
+    "Yang",          //0x09
+    "Ken",           //0x0A
+    "Sean",          //0x0B
+    "Urien",         //0x0C
+    "Gouki",         //0x0D
     "Shin-Gouki",    //0x0E  // Shin-Gouki is not present on the Dreamcast
-    "Chun-Li",        //0x0F
+    "Chun-Li",       //0x0F
     "Makoto",        //0x10
-    "Q",            //0x11
+    "Q",             //0x11
     "Twelve",        //0x12
-    "Remy"            //0x13
+    "Remy"           //0x13
 };
 
 const UINT8 SFIII3_D_UNITSORT[SFIII3_D_NUMUNIT] = //Plus 1 for the extra palettes
