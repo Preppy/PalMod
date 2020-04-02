@@ -84,7 +84,7 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
     if (pCurrImg->pImgData)
     {
         CString strDebugInfo;
-        strDebugInfo.Format("CImgDat::GetImgData : Image at position '0x%x' is already loaded.\n", pCurrImg->uThisImgLoc);
+        strDebugInfo.Format("CImgDat::GetImgData : Image at position '0x%x' for unit 0x%02x img 0x%x is already loaded.\n", pCurrImg->uThisImgLoc, nCurrentUnitId, nCurrentImgId);
         OutputDebugString(strDebugInfo);
 
         strDebugInfo.Format(" W: 0x%x / %u, H: 0x%x / %u, compressed: %u, size 0x%x, offset 0x%x / %lu to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);

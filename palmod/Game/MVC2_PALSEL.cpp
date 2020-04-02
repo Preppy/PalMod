@@ -181,7 +181,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             SetSourcePal(0, uUnitId, 0, 6, 8);
             SetSourcePal(1, uUnitId, 1, 6, 8);
-
         }
         break;
     }
@@ -379,6 +378,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             // TODO
         }
+
+        break;
     }
     case 0x15: //Amingo
     {

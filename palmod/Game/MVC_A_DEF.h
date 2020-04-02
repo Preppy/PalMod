@@ -367,7 +367,206 @@ const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
     { "P2 Color",       0x48764, 0x1d },
     { "P2 Rush/Eddie",  0x48784 },
     { "P2 Beat",        0x487A4 },
-    // TODO: There are a lot more palettes that can be edited.
+
+    { "P1 Hair", 0x4D604 }, // 09 : these numbers align to the mvc2 extra ids as identified in the Palette Variant Full spreadsheet
+    { "P1 Intro / Death Animation", 0x4D624 },
+
+    { "P1 Intro 1", 0x4D644 },
+    { "P1 Intro 2", 0x4D664 },
+    { "P1 Intro 3", 0x4D684 },
+    { "P1 Intro 4", 0x4D6A4 },
+    { "P1 Intro 5", 0x4D6C4 },
+    { "P1 Intro 6", 0x4D6E4 },
+    { "P1 Intro 7", 0x4D704 },
+    { "P1 Intro 8", 0x4D724 },
+    { "P1 Intro 9", 0x4D744 }, // 13 
+
+    { "P1 Rush/Eddie 1", 0x4D764 },
+    { "P1 Rush/Eddie 2", 0x4D784 },
+    { "P1 Rush/Eddie 3", 0x4D7A4 },
+    { "P1 Rush/Eddie 4", 0x4D7C4 },
+    { "P1 Rush/Eddie 5", 0x4D7E4 },
+    { "P1 Rush/Eddie 6", 0x4D804 },
+    { "P1 Rush/Eddie 7", 0x4D824 },
+    { "P1 Rush/Eddie 8", 0x4D844 },
+    { "P1 Rush/Eddie 9", 0x4D864 }, // 1c
+
+    { "P1 Beat 1", 0x4D884 },
+    { "P1 Beat 2", 0x4D8A4 },
+    { "P1 Beat 3", 0x4D8C4 },
+    { "P1 Beat 4", 0x4D8E4 },
+    { "P1 Beat 5", 0x4D904 },
+    { "P1 Beat 6", 0x4D924 },
+    { "P1 Beat 7", 0x4D944 },
+    { "P1 Beat 8", 0x4D964 },
+    { "P1 Beat 9", 0x4D984 }, // 25
+
+    { "P1 Beat Plane 1", 0x4D9A4 },
+    { "P1 Beat Plane 2", 0x4D9C4 },
+    { "P1 Beat Plane 3", 0x4D9E4 },
+    { "P1 Beat Plane 4", 0x4DA04 },
+    { "P1 Beat Plane 5", 0x4DA24 },
+    { "P1 Beat Plane 6", 0x4DA44 },
+    { "P1 Beat Plane 7", 0x4DA64 },
+    { "P1 Beat Plane 8", 0x4DA84 },
+    { "P1 Beat Plane 9", 0x4DAA4 }, // 2e
+
+    { "P1 Charging Roll 1", 0x4DAC4 },
+    { "P1 Charging Roll 2", 0x4DAE4 },
+    { "P1 Charging Roll 3", 0x4DB04 },
+    { "P1 Charging Roll 4", 0x4DB24 },
+    { "P1 Charging Roll 5", 0x4DB44 },
+    { "P1 Charging Roll 6", 0x4DB64 },
+    { "P1 Charging Roll 7", 0x4DB84 },
+    { "P1 Charging Roll 8", 0x4DBA4 },
+    { "P1 Charging Roll 9", 0x4DBC4 }, // 37
+
+    { "P1 Rush Drill 1", 0x4DBE4 },
+    { "P1 Rush Drill 2", 0x4DC04 },
+    { "P1 Rush Drill 3", 0x4DC24 },
+    { "P1 Rush Drill 4", 0x4DC44 },
+    { "P1 Rush Drill 5", 0x4DC64 },
+    { "P1 Rush Drill 6", 0x4DC84 },
+    { "P1 Rush Drill 7", 0x4DCA4 },
+    { "P1 Rush Drill 8", 0x4DCC4 },
+    { "P1 Rush Drill 9", 0x4DCE4 }, // 40
+
+    { "P1 Teleport Intro", 0x4DD04 },
+    { "P1 Dr Light", 0x4DD24 },
+
+    { "P1 Hyper Roll Armor 1", 0x4DD44 },
+    { "P1 Hyper Roll Armor 2", 0x4DD64 },
+    { "P1 Hyper Roll Armor 3", 0x4DD84 },
+    { "P1 Hyper Roll Armor 4", 0x4DDA4 },
+    { "P1 Hyper Roll Armor 5", 0x4DDC4 },
+    { "P1 Hyper Roll Armor 6", 0x4DDE4 },
+    { "P1 Hyper Roll Armor 7", 0x4DE04 },
+    { "P1 Hyper Roll Armor 8", 0x4DE24 },
+    { "P1 Hyper Roll Armor 9", 0x4DE44 }, // 4b
+
+    { "P1 Megaman Intro 1", 0x4DE64 },
+    { "P1 Megaman Intro 2", 0x4DE84 },
+    { "P1 Megaman Intro 3", 0x4DEA4 },
+    { "P1 Megaman Intro 4", 0x4DEC4 },
+    { "P1 Megaman Intro 5", 0x4DEE4 },
+    { "P1 Megaman Intro 6", 0x4DF04 },
+    { "P1 Megaman Intro 7", 0x4DF24 },
+    { "P1 Megaman Intro 8", 0x4DF44 },
+    { "P1 Megaman Intro 9", 0x4DF64 }, // 54ish
+
+    { "P1 Hyper Roll Missiles", 0x4DF84 }, // 55
+
+    { "P1 Revert Hyper Roll 1", 0x4DFA4 },
+    { "P1 Revert Hyper Roll 2", 0x4DFC4 },
+    { "P1 Revert Hyper Roll 3", 0x4DFE4 },
+    { "P1 Revert Hyper Roll 4", 0x4E004 },
+    { "P1 Revert Hyper Roll 5", 0x4E024 },
+    { "P1 Revert Hyper Roll 6", 0x4E044 },
+    { "P1 Revert Hyper Roll 7", 0x4E064 },
+    { "P1 Revert Hyper Roll 8", 0x4E084 }, // 5d
+
+    { "P1 Megaman", 0x4E0a4 }, // 5e
+    { "P1 Magnetic Shockwave Megaman", 0x4E0c4 }, // 5f
+
+    { "P2 Hair ", 0x4E0e4 },
+    { "P2 Intro / Death Animation", 0x4E104 },
+
+    { "P2 Intro 1", 0x4E124 },
+    { "P2 Intro 2", 0x4E144 },
+    { "P2 Intro 3", 0x4E164 },
+    { "P2 Intro 4", 0x4E184 },
+    { "P2 Intro 5", 0x4E1A4 },
+    { "P2 Intro 6", 0x4E1C4 },
+    { "P2 Intro 7", 0x4E1E4 },
+    { "P2 Intro 8", 0x4E204 },
+    { "P2 Intro 9", 0x4E224 },
+
+    { "P2 Rush/Eddie 1", 0x4E244 },
+    { "P2 Rush/Eddie 2", 0x4E264 },
+    { "P2 Rush/Eddie 3", 0x4E284 },
+    { "P2 Rush/Eddie 4", 0x4E2A4 },
+    { "P2 Rush/Eddie 5", 0x4E2C4 },
+    { "P2 Rush/Eddie 6", 0x4E2E4 },
+    { "P2 Rush/Eddie 7", 0x4E304 },
+    { "P2 Rush/Eddie 8", 0x4E324 },
+    { "P2 Rush/Eddie 9", 0x4E344 },
+
+    { "P2 Beat 1", 0x4E364 },
+    { "P2 Beat 2", 0x4E384 },
+    { "P2 Beat 3", 0x4E3A4 },
+    { "P2 Beat 4", 0x4E3C4 },
+    { "P2 Beat 5", 0x4E3E4 },
+    { "P2 Beat 6", 0x4E404 },
+    { "P2 Beat 7", 0x4E424 },
+    { "P2 Beat 8", 0x4E444 },
+    { "P2 Beat 9", 0x4E464 },
+
+    { "P2 Beat Plane 1", 0x4E484 },
+    { "P2 Beat Plane 2", 0x4E4A4 },
+    { "P2 Beat Plane 3", 0x4E4C4 },
+    { "P2 Beat Plane 4", 0x4E4E4 },
+    { "P2 Beat Plane 5", 0x4E504 },
+    { "P2 Beat Plane 6", 0x4E524 },
+    { "P2 Beat Plane 7", 0x4E544 },
+    { "P2 Beat Plane 8", 0x4E564 },
+    { "P2 Beat Plane 9", 0x4E584 },
+
+    { "P2 Charging Roll 1", 0x4E5A4 },
+    { "P2 Charging Roll 2", 0x4E5C4 },
+    { "P2 Charging Roll 3", 0x4E5E4 },
+    { "P2 Charging Roll 4", 0x4E604 },
+    { "P2 Charging Roll 5", 0x4E624 },
+    { "P2 Charging Roll 6", 0x4E644 },
+    { "P2 Charging Roll 7", 0x4E664 },
+    { "P2 Charging Roll 8", 0x4E684 },
+    { "P2 Charging Roll 9", 0x4E6A4 },
+
+    { "P2 Rush Drill 1", 0x4E6C4 },
+    { "P2 Rush Drill 2", 0x4E6E4 },
+    { "P2 Rush Drill 3", 0x4E704 },
+    { "P2 Rush Drill 4", 0x4E724 },
+    { "P2 Rush Drill 5", 0x4E744 },
+    { "P2 Rush Drill 6", 0x4E764 },
+    { "P2 Rush Drill 7", 0x4E784 },
+    { "P2 Rush Drill 8", 0x4E7A4 },
+    { "P2 Rush Drill 9", 0x4E7C4 },
+
+    { "P2 Teleport Intro", 0x4E7E4 },
+    { "P2 Dr Light", 0x4E804 },
+
+    { "P2 Hyper Roll Armor 1", 0x4E824 },
+    { "P2 Hyper Roll Armor 2", 0x4E844 },
+    { "P2 Hyper Roll Armor 3", 0x4E864 },
+    { "P2 Hyper Roll Armor 4", 0x4E884 },
+    { "P2 Hyper Roll Armor 5", 0x4E8A4 },
+    { "P2 Hyper Roll Armor 6", 0x4E8C4 },
+    { "P2 Hyper Roll Armor 7", 0x4E8E4 },
+    { "P2 Hyper Roll Armor 8", 0x4E904 },
+    { "P2 Hyper Roll Armor 9", 0x4E924 },
+
+    { "P2 Megaman Intro 1", 0x4E944 },
+    { "P2 Megaman Intro 2", 0x4E964 },
+    { "P2 Megaman Intro 3", 0x4E984 },
+    { "P2 Megaman Intro 4", 0x4E9A4 },
+    { "P2 Megaman Intro 5", 0x4E9C4 },
+    { "P2 Megaman Intro 6", 0x4E9E4 },
+    { "P2 Megaman Intro 7", 0x4EA04 },
+    { "P2 Megaman Intro 8", 0x4EA24 },
+    { "P2 Megaman Intro 9", 0x4EA44 }, // 54ish
+
+    { "P2 Hyper Roll Missiles", 0x4EA64 }, // 55
+
+    { "P2 Revert Hyper Roll 1", 0x4EA84 },
+    { "P2 Revert Hyper Roll 2", 0x4EAA4 },
+    { "P2 Revert Hyper Roll 3", 0x4EAC4 },
+    { "P2 Revert Hyper Roll 4", 0x4EAE4 },
+    { "P2 Revert Hyper Roll 5", 0x4EB04 },
+    { "P2 Revert Hyper Roll 6", 0x4EB24 },
+    { "P2 Revert Hyper Roll 7", 0x4EB44 },
+    { "P2 Revert Hyper Roll 8", 0x4EB64 }, // 5d
+
+    { "P2 Megaman", 0x4EB84 }, // 5e
+    { "P2 Magnetic Shockwave Megaman", 0x4EBA4 }, // 5f
 };
 
 const sMVC_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
