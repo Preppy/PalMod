@@ -469,8 +469,8 @@ void CGame_MVC_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
         // This is where we handle all the palettes added in via Extra.
         stExtraDef* pCurrDef = GetExtraDefForMVC(GetExtraLoc(nUnitId) + nPalId);
 
-        nCurrPalOffs = pCurrDef->uOffset;;
-        nCurrPalSz = pCurrDef->uPalSz;
+        nCurrPalOffs = pCurrDef->uOffset;
+        nCurrPalSz = (pCurrDef->cbPaletteSize / 2);
         return;
     }
     default:

@@ -15,7 +15,7 @@ CImgDat::~CImgDat(void)
 
 sImgDef* CImgDat::GetImageDef(UINT8 uUnitId, UINT8 uImgId)
 {
-    if (uUnitId >= uCurrUnitAmt || uImgId > uCurrImgAmt)
+    if ((uUnitId >= uCurrUnitAmt) || (uImgId > uCurrImgAmt))
     {
         return NULL;
     }
@@ -352,7 +352,7 @@ UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth
 
     while (bit_ctr < (uiDataSz * 8))
     {
-        if (8 - bit_ctr % 8 < uiBPP && bit_ctr / 8 != uiDataSz - 1)
+        if ((8 - bit_ctr % 8 < uiBPP) && (bit_ctr / 8 != uiDataSz - 1))
         {
             get_from_extra = uiBPP - (8 - bit_ctr % 8);
         }

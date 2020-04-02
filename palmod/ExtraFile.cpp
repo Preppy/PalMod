@@ -116,9 +116,9 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 
                     nCurrEnd = strtol(szFinalLine, nullptr, 16);
 
-                    int nDiff = (nCurrEnd - nCurrStart) / 2;
+                    int cbDiff = (nCurrEnd - nCurrStart) / 2;
                     //int nTotalPalettesNeeded = 1;
-                    const int nTotalPagesNeeded = (int)ceil((double)nDiff / (double)MAX_PALETTE_SIZE);
+                    const int nTotalPagesNeeded = (int)ceil((double)cbDiff / (double)MAX_PALETTE_SIZE);
                     int nCurrentPage = 1;
 
 #ifdef DUMP_EXTRAS_ON_LOAD // You can use this to convert Extras file content into usable headers.
@@ -139,9 +139,11 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                     }
 #endif
 
-                    while (nDiff > 0)
+                    // I don't believe we care about color mode right here since we only support
+                    // COLMODE12 and COLMODE_15 right now.
+                    while (cbDiff > 0)
                     {
-                        int nValue = 0;
+                        int nCurrentPaletteEntries = 0;
 
                         if (nPos)
                         {
@@ -152,16 +154,16 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                         // If you wanted to fit long palettes on one page you would need to remove this 
                         // overflow check, add an Extra compatible version of CPalGroup::AddSep, and
                         // call that from CGame_*::UpdatePalImg
-                        if (nDiff > MAX_PALETTE_SIZE)
+                        if (cbDiff > MAX_PALETTE_SIZE)
                         {
-                            nValue = MAX_PALETTE_SIZE;
+                            nCurrentPaletteEntries = MAX_PALETTE_SIZE;
 
-                            nDiff -= MAX_PALETTE_SIZE;
+                            cbDiff -= MAX_PALETTE_SIZE;
                         }
                         else
                         {
-                            nValue = nDiff;
-                            nDiff = 0;
+                            nCurrentPaletteEntries = cbDiff;
+                            cbDiff = 0;
                         }
 
                         nArrayOffsetDesired = nStockExtrasCount + (nTotalExtensionExtraLinesHandled / 3);
@@ -182,7 +184,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                                 //pCurrDef->isInvisible = false;
                             }
                             pCurrDef->uOffset = nCurrStart + ((MAX_PALETTE_SIZE * 2) * nPos);
-                            pCurrDef->uPalSz = nValue * 2;
+                            pCurrDef->cbPaletteSize = nCurrentPaletteEntries * 2;
                             pCurrDef->isInvisible = false;
                         }
 

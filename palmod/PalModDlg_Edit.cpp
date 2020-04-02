@@ -108,12 +108,10 @@ void CPalModDlg::OnEditPaste()
     switch (uPasteGFlag)
     {
     default:
-        OutputDebugString("CPalModDlg::OnEditPaste: BUGBUG: Unhandled paste flag!\n");
-        //case 3: //MVC2_P
-    case 2: //MVC2_D
+    case 2: //MVC2_D & everything else
         uPasteGFlag = 0;
         break;
-    case 1: //SFIII3_A
+    case 1: //SFIII3_A / Jojos
         uPasteGFlag = 1;
         break;
     case SFIII3_D: //SFIII3_D

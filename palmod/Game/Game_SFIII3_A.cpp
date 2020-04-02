@@ -361,7 +361,7 @@ void CGame_SFIII3_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
     int nExPos = 2 + nPortPos;
     int nExtraPos = 8 + nExPos;
 
-    int nOffset = 0, nPalSz = 0;
+    int nOffset = 0, cbPalSz = 0;
 
     //nPortPos = nBasicPos + 7;
 
@@ -388,24 +388,24 @@ void CGame_SFIII3_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
                 nOffset -= (5 * 0x80);
             }
 
-            nPalSz = 0x80;
+            cbPalSz = 0x80;
         }
         else if (nPalId < nPortPos) //Portraits
         {
             nOffset = (nUnitId * (0x20 * 7) + ((nPalId - nBasicPos) * 0x20)) + 0x763BE0;
-            nPalSz = 0x20;
+            cbPalSz = 0x20;
         }
         else if (nPalId < nExPos)
         {
             int nOffStart = (nPalId - nPortPos ? 0x76AE00 : 0x764E00);
 
             nOffset = nOffStart + (nUnitId * 0x80);
-            nPalSz = 0x80;
+            cbPalSz = 0x80;
         }
         else if (nPalId < nExtraPos) //Extra Palettes
         {
             nOffset = 0x765C00 + (nUnitId * 0x400) + ((nPalId - nExPos) * 0x80);
-            nPalSz = 0x80;
+            cbPalSz = 0x80;
         }
     }
     else //Extra Palette
@@ -413,11 +413,11 @@ void CGame_SFIII3_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetSF3ExtraDef(GetExtraLoc(nUnitId) + (nPalId - nExtraPos));
 
         nOffset = pCurrDef->uOffset;
-        nPalSz = pCurrDef->uPalSz;
+        cbPalSz = pCurrDef->cbPaletteSize;
     }
 
     nCurrPalOffs = nOffset;
-    nCurrPalSz = nPalSz / 2;
+    nCurrPalSz = cbPalSz / 2;
 }
 
 void CGame_SFIII3_A::CheckForJojoUsage(CFile* LoadedFile)

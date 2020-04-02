@@ -361,11 +361,11 @@ const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
 
 const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
 {
-    { "P1 Color",        0x48704, 0x1d },
-    { "P1 Rush/Eddie",    0x48724 },
+    { "P1 Color",       0x48704, 0x1d },
+    { "P1 Rush/Eddie",  0x48724 },
     { "P1 Beat",        0x48744 },
-    { "P2 Color",        0x48764, 0x1d },
-    { "P2 Rush/Eddie",    0x48784 },
+    { "P2 Color",       0x48764, 0x1d },
+    { "P2 Rush/Eddie",  0x48784 },
     { "P2 Beat",        0x487A4 },
     // TODO: There are a lot more palettes that can be edited.
 };
@@ -379,27 +379,27 @@ const sMVC_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
 
 const sMVC_PaletteDataset MVC_A_WARMACHINE_PALETTES[] =
 {
-    { "P1 Color",          0x481C4, 0x33 },
+    { "P1 Color",         0x481C4, 0x33 },
     { "P1 Proton Cannon", 0x481E4, 0x33, 1 }, // same sprites as iron man
     { "P1 Proton Laser",  0x48204, 0x33, 2 },
-    { "P2 Color",          0x48224, 0x33 },
+    { "P2 Color",         0x48224, 0x33 },
     { "P2 Proton Cannon", 0x48244, 0x33, 1 },
     { "P2 Proton Laser",  0x48264, 0x33, 2 },
 };
 
 const sMVC_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES[] =
 {
-    { "P1 Color",          0x49224, 0x33 },
+    { "P1 Color",         0x49224, 0x33 },
     { "P1 Proton Cannon", 0x49244, 0x33, 1 }, // same sprites as iron man
     { "P1 Proton Laser",  0x49264, 0x33, 2 },
-    { "P2 Color",          0x49284, 0x33 },
+    { "P2 Color",         0x49284, 0x33 },
     { "P2 Proton Cannon", 0x492a4, 0x33, 1 },
     { "P2 Proton Laser",  0x492c4, 0x33, 2 },
 };
 
 const sMVC_PaletteDataset MVC_A_CAPAM_PALETTES[] =
 {
-    { "P1 Color",        0x48284, 0xb },
+    { "P1 Color",         0x48284, 0xb },
     { "P1 Shield",        0x482A4, 0xb, 1 },
     { "P1 Charging Star", 0x482C4, 0xb, 2 },
     { "P2 Color",         0x482E4, 0xb },
@@ -409,31 +409,31 @@ const sMVC_PaletteDataset MVC_A_CAPAM_PALETTES[] =
 
 const sMVC_PaletteDataset MVC_A_HULK_PALETTES[] =
 {
-    { "P1 Color",        0x48344, 0xD },
-    { "P1 Charge",        0x48364, 0xD, 1 },
+    { "P1 Color",       0x48344, 0xD },
+    { "P1 Charge",      0x48364, 0xD, 1 },
     { "P1 Gamma Quake", 0x48384, 0xD, 2 },
-    { "P2 Color",        0x483A4, 0xD },
-    { "P2 Charge",        0x483C4, 0xD, 1 },
+    { "P2 Color",       0x483A4, 0xD },
+    { "P2 Charge",      0x483C4, 0xD, 1 },
     { "P2 Gamma Quake", 0x483E4, 0xD, 2 },
 };
 
 const sMVC_PaletteDataset MVC_A_ORANGEHULK_PALETTES[] =
 {
-    { "P1 Color",        0x49164, 0xD },
-    { "P1 Charge",        0x49184, 0xD, 1 },
+    { "P1 Color",       0x49164, 0xD },
+    { "P1 Charge",      0x49184, 0xD, 1 },
     { "P1 Gamma Quake", 0x491A4, 0xD, 2 },
-    { "P2 Color",        0x491C4, 0xD },
-    { "P2 Charge",        0x491E4, 0xD, 1 },
+    { "P2 Color",       0x491C4, 0xD },
+    { "P2 Charge",      0x491E4, 0xD, 1 },
     { "P2 Gamma Quake", 0x49204, 0xD, 2 },
 };
 
 const sMVC_PaletteDataset MVC_A_WOLVERINE_PALETTES[] =
 {
-    { "P1 Color",         0x48404, 0x7 },
-    { "P1 Claws",         0x48424, 0x7, 1 },
+    { "P1 Color",        0x48404, 0x7 },
+    { "P1 Claws",        0x48424, 0x7, 1 },
     { "P1 Berserker FX", 0x48444, 0x7, 2 },
-    { "P2 Color",         0x48464, 0x7 },
-    { "P2 Claws",         0x48484, 0x7, 1 },
+    { "P2 Color",        0x48464, 0x7 },
+    { "P2 Claws",        0x48484, 0x7, 1 },
     { "P2 Berserker FX", 0x484A4, 0x7, 2 },
 };
 
@@ -441,30 +441,30 @@ const sMVC_PaletteDataset MVC_A_VENOM_PALETTES[] =
 {
     { "P1 Color",    0x48584, 0xe },
     { "P1 Taunt",    0x485A4, 0xe, 1 },
-    { "P1 Web",        0x485C4, 0xe, 2 },
+    { "P1 Web",      0x485C4, 0xe, 2 },
     { "P2 Color",    0x485E4, 0xe },
     { "P2 Taunt",    0x48604, 0xe, 1 },
-    { "P2 Web",        0x48624, 0xe, 2 },
+    { "P2 Web",      0x48624, 0xe, 2 },
 };
 
 const sMVC_PaletteDataset MVC_A_HYPERVENOM_PALETTES[] =
 {
     { "P1 Color",    0x490A4, 0xe },
     { "P1 Taunt",    0x490C4, 0xe, 1 },
-    { "P1 Web",        0x490E4, 0xe, 2 },
+    { "P1 Web",      0x490E4, 0xe, 2 },
     { "P2 Color",    0x49104, 0xe },
     { "P2 Taunt",    0x49124, 0xe, 1 },
-    { "P2 Web",        0x49144, 0xe, 2 },
+    { "P2 Web",      0x49144, 0xe, 2 },
 };
 
 const sMVC_PaletteDataset MVC_A_SPIDEY_PALETTES[] =
 {
     { "P1 Color",    0x48644, 0xc },
-    { "P1 Extra 1",    0x48664 },
-    { "P1 Web",        0x48684, 0xc, 2 },
+    { "P1 Extra 1",  0x48664 },
+    { "P1 Web",      0x48684, 0xc, 2 },
     { "P2 Color",    0x486A4, 0xc },
-    { "P2 Extra 1",    0x486C4},
-    { "P2 Web",        0x486E4, 0xc, 2 },
+    { "P2 Extra 1",  0x486C4},
+    { "P2 Web",      0x486E4, 0xc, 2 },
 };
 
 const sMVC_PaletteDataset MVC_A_CAPCOM_PALETTES[] =

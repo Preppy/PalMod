@@ -837,7 +837,7 @@ const sJOJOS_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(UINT16 nUnitId, UINT16
 void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
     int nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    int nOffset = 0, nPaletteSizeOnDisc = 0;
+    int nOffset = 0, cbPaletteSizeOnDisc = 0;
     BOOL isPaletteFromExtensionsFile = FALSE;
 
     if (UsePaletteSetFor50() ? (nUnitId == JOJOS_A_EXTRALOC_50) :
@@ -861,7 +861,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             if (nDistanceFromZero < nNodeCount)
             {
                 nOffset = paletteSetToUse[nDistanceFromZero].nPaletteOffset;
-                nPaletteSizeOnDisc = max(0, (paletteSetToUse[nDistanceFromZero].nPaletteOffsetEnd - paletteSetToUse[nDistanceFromZero].nPaletteOffset));
+                cbPaletteSizeOnDisc = max(0, (paletteSetToUse[nDistanceFromZero].nPaletteOffsetEnd - paletteSetToUse[nDistanceFromZero].nPaletteOffset));
                 break;
             }
 
@@ -921,11 +921,11 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetJojosExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
         nOffset = pCurrDef->uOffset;
-        nPaletteSizeOnDisc = pCurrDef->uPalSz;
+        cbPaletteSizeOnDisc = pCurrDef->cbPaletteSize;
     }
 
     m_nCurrentPaletteROMLocation = nOffset;
-    m_nCurrentPaletteSize = nPaletteSizeOnDisc / 2;
+    m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
 }
 
 void CGame_JOJOS_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)

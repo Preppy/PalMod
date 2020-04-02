@@ -125,6 +125,7 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
     CurrColMode = NewMode;
 
     CString strDebugInfo;
+    // See also MEDIASUBTYPE_555
     strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", (NewMode == COLMODE_12A) ? "COLMOD_12A (ARGB444)" : (NewMode == COLMODE_15) ? "COLMODE_15 (BGR555)" : "COLMODE_15ALT (RGB555)");
     OutputDebugString(strDebugInfo);
 

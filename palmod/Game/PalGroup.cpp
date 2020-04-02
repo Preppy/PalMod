@@ -322,7 +322,6 @@ UINT8 CPalGroup::ROUND_8(UINT8 rVal)
     rVal = ((rVal / 8) + j) * 8;
 
     return rVal + (rVal / 32);
-
 }
 
 UINT8 CPalGroup::ROUND_17(UINT8 rVal)

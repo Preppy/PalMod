@@ -94,6 +94,6 @@ struct stExtraDef
     UINT16 uUnitN = INVALID_UNIT_VALUE;
     CHAR szDesc[MAX_DESCRIPTION_LENGTH] = "uninit";
     UINT32 uOffset = 0;
-    UINT16 uPalSz = 0;
+    UINT16 cbPaletteSize = 0;
     bool isInvisible = false;
 };

@@ -10,7 +10,7 @@ constexpr auto c_strLastUsedGFlag = _T("LastUsedGFlag");
 
 void CPalModDlg::LoadGameDir(int nGameFlag, CHAR* szLoadDir)
 {
-    CGameClass* GameGet = GetHost()->GetLoader()->LoadDir(nGameFlag, szLoadDir);//szGet.GetBuffer());
+    CGameClass* GameGet = GetHost()->GetLoader()->LoadDir(nGameFlag, szLoadDir);
 
     if (GameGet)
     {
