@@ -74,7 +74,7 @@ struct sMVC_PaletteDataset
 {
     LPCSTR szPaletteName;
     int nPaletteOffset;
-    UINT16 indexImgToUse = 0xFF; // the major character/collection index
+    UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
     UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
 };
 
@@ -148,11 +148,11 @@ const sMVC_PaletteDataset MVC_A_CHUNLI_PALETTES[] =
 
 const sMVC_PaletteDataset MVC_A_JIN_PALETTES[] =
 {
-    { "P1 Color",         0x48A04, 0x37 },
-    { "P1 Blodia FX",     0x48A24, 0x37, 1 },
+    { "P1 Color",        0x48A04, 0x37 },
+    { "P1 Blodia FX",    0x48A24, 0x37, 1 },
     { "P1 Blodia Punch", 0x48A44, 0x37, 2 },
-    { "P2 Color",         0x48A64, 0x37 },
-    { "P2 Blodia FX",     0x48A84, 0x37, 1 },
+    { "P2 Color",        0x48A64, 0x37 },
+    { "P2 Blodia FX",    0x48A84, 0x37, 1 },
     { "P2 Blodia Punch", 0x48AA4, 0x37, 2 },
 };
 
@@ -161,10 +161,10 @@ const sMVC_PaletteDataset MVC_A_JIN_PALETTES[] =
 const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
 {
     { "Megaman P1", 0x48F84 },
-    { "P1 Rush/Eddie",  0x48FA4 },
+    { "P1 Rush/Eddie", 0x48FA4 },
     { "P1 Beat",  0x48FC4 },
     { "Megaman P2", 0x48FE4 },
-    { "P2 Rush/Eddie",  0x49004 },
+    { "P2 Rush/Eddie", 0x49004 },
     { "P2 Beat",  0x49024 },
 
     { "P1 Intro", 0x4C064 },
@@ -499,20 +499,20 @@ const sMVC_PaletteDataset MVC_A_LILITH_PALETTES[] =
 
 const sMVC_PaletteDataset MVC_A_STRIDER_PALETTES[] =
 {
-    { "P1 Color",  0x48E04, 0x05 },
-    { "P1 FX", 0x48E24, 0x05, 1 },
-    { "P1 Mech", 0x48E44, 0x05, 2 },
-    { "P2 Color",  0x48E64, 0x05 },
-    { "P2 FX", 0x48E84, 0x05, 1 },
-    { "P2 Mech", 0x48EA4, 0x05, 2 },
+    { "P1 Color", 0x48E04, 0x05 },
+    { "P1 FX",    0x48E24, 0x05, 1 },
+    { "P1 Mech",  0x48E44, 0x05, 2 },
+    { "P2 Color", 0x48E64, 0x05 },
+    { "P2 FX",    0x48E84, 0x05, 1 },
+    { "P2 Mech",  0x48EA4, 0x05, 2 },
 };
 
 const sMVC_PaletteDataset MVC_A_GAMBIT_PALETTES[] =
 {
-    { "P1 Color",  0x484c4, 0x28 },
+    { "P1 Color",   0x484c4, 0x28 },
     { "P1 Extra 1", 0x484E4, 0x28, 1 },
     { "P1 Extra 2", 0x48504, 0x28, 2 },
-    { "P2 Color",  0x48524, 0x28 },
+    { "P2 Color",   0x48524, 0x28 },
     { "P2 Extra 1", 0x48544, 0x28, 1 },
     { "P2 Extra 2", 0x48564, 0x28, 2 },
 };
