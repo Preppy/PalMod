@@ -371,15 +371,15 @@ const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
     { "P1 Hair", 0x4D604 }, // 09 : these numbers align to the mvc2 extra ids as identified in the Palette Variant Full spreadsheet
     { "P1 Intro / Death Animation", 0x4D624 },
 
-    { "P1 Intro 1", 0x4D644 },
-    { "P1 Intro 2", 0x4D664 },
-    { "P1 Intro 3", 0x4D684 },
-    { "P1 Intro 4", 0x4D6A4 },
-    { "P1 Intro 5", 0x4D6C4 },
-    { "P1 Intro 6", 0x4D6E4 },
-    { "P1 Intro 7", 0x4D704 },
-    { "P1 Intro 8", 0x4D724 },
-    { "P1 Intro 9", 0x4D744 }, // 13 
+    { "P1 Intro 1", 0x4D644, 0x1d },
+    { "P1 Intro 2", 0x4D664, 0x1d },
+    { "P1 Intro 3", 0x4D684, 0x1d },
+    { "P1 Intro 4", 0x4D6A4, 0x1d },
+    { "P1 Intro 5", 0x4D6C4, 0x1d },
+    { "P1 Intro 6", 0x4D6E4, 0x1d },
+    { "P1 Intro 7", 0x4D704, 0x1d },
+    { "P1 Intro 8", 0x4D724, 0x1d },
+    { "P1 Intro 9", 0x4D744, 0x1d }, // 13 
 
     { "P1 Rush/Eddie 1", 0x4D764 },
     { "P1 Rush/Eddie 2", 0x4D784 },
@@ -411,15 +411,15 @@ const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
     { "P1 Beat Plane 8", 0x4DA84 },
     { "P1 Beat Plane 9", 0x4DAA4 }, // 2e
 
-    { "P1 Charging Roll 1", 0x4DAC4 },
-    { "P1 Charging Roll 2", 0x4DAE4 },
-    { "P1 Charging Roll 3", 0x4DB04 },
-    { "P1 Charging Roll 4", 0x4DB24 },
-    { "P1 Charging Roll 5", 0x4DB44 },
-    { "P1 Charging Roll 6", 0x4DB64 },
-    { "P1 Charging Roll 7", 0x4DB84 },
-    { "P1 Charging Roll 8", 0x4DBA4 },
-    { "P1 Charging Roll 9", 0x4DBC4 }, // 37
+    { "P1 Charging Roll 1", 0x4DAC4, 0x1d },
+    { "P1 Charging Roll 2", 0x4DAE4, 0x1d },
+    { "P1 Charging Roll 3", 0x4DB04, 0x1d },
+    { "P1 Charging Roll 4", 0x4DB24, 0x1d },
+    { "P1 Charging Roll 5", 0x4DB44, 0x1d },
+    { "P1 Charging Roll 6", 0x4DB64, 0x1d },
+    { "P1 Charging Roll 7", 0x4DB84, 0x1d },
+    { "P1 Charging Roll 8", 0x4DBA4, 0x1d },
+    { "P1 Charging Roll 9", 0x4DBC4, 0x1d }, // 37
 
     { "P1 Rush Drill 1", 0x4DBE4 },
     { "P1 Rush Drill 2", 0x4DC04 },
@@ -444,15 +444,15 @@ const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
     { "P1 Hyper Roll Armor 8", 0x4DE24 },
     { "P1 Hyper Roll Armor 9", 0x4DE44 }, // 4b
 
-    { "P1 Megaman Intro 1", 0x4DE64 },
-    { "P1 Megaman Intro 2", 0x4DE84 },
-    { "P1 Megaman Intro 3", 0x4DEA4 },
-    { "P1 Megaman Intro 4", 0x4DEC4 },
-    { "P1 Megaman Intro 5", 0x4DEE4 },
-    { "P1 Megaman Intro 6", 0x4DF04 },
-    { "P1 Megaman Intro 7", 0x4DF24 },
-    { "P1 Megaman Intro 8", 0x4DF44 },
-    { "P1 Megaman Intro 9", 0x4DF64 }, // 54ish
+    { "P1 Megaman Intro 1", 0x4DE64, 0x1c },
+    { "P1 Megaman Intro 2", 0x4DE84, 0x1c },
+    { "P1 Megaman Intro 3", 0x4DEA4, 0x1c },
+    { "P1 Megaman Intro 4", 0x4DEC4, 0x1c },
+    { "P1 Megaman Intro 5", 0x4DEE4, 0x1c },
+    { "P1 Megaman Intro 6", 0x4DF04, 0x1c },
+    { "P1 Megaman Intro 7", 0x4DF24, 0x1c },
+    { "P1 Megaman Intro 8", 0x4DF44, 0x1c },
+    { "P1 Megaman Intro 9", 0x4DF64, 0x1c }, // 54ish
 
     { "P1 Hyper Roll Missiles", 0x4DF84 }, // 55
 
@@ -465,21 +465,21 @@ const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
     { "P1 Revert Hyper Roll 7", 0x4E064 },
     { "P1 Revert Hyper Roll 8", 0x4E084 }, // 5d
 
-    { "P1 Megaman", 0x4E0a4 }, // 5e
-    { "P1 Magnetic Shockwave Megaman", 0x4E0c4 }, // 5f
+    { "P1 Megaman", 0x4E0a4, 0x1c }, // 5e
+    { "P1 Magnetic Shockwave Megaman", 0x4E0c4, 0x1c }, // 5f
 
     { "P2 Hair ", 0x4E0e4 },
     { "P2 Intro / Death Animation", 0x4E104 },
 
-    { "P2 Intro 1", 0x4E124 },
-    { "P2 Intro 2", 0x4E144 },
-    { "P2 Intro 3", 0x4E164 },
-    { "P2 Intro 4", 0x4E184 },
-    { "P2 Intro 5", 0x4E1A4 },
-    { "P2 Intro 6", 0x4E1C4 },
-    { "P2 Intro 7", 0x4E1E4 },
-    { "P2 Intro 8", 0x4E204 },
-    { "P2 Intro 9", 0x4E224 },
+    { "P2 Intro 1", 0x4E124, 0x1d },
+    { "P2 Intro 2", 0x4E144, 0x1d },
+    { "P2 Intro 3", 0x4E164, 0x1d },
+    { "P2 Intro 4", 0x4E184, 0x1d },
+    { "P2 Intro 5", 0x4E1A4, 0x1d },
+    { "P2 Intro 6", 0x4E1C4, 0x1d },
+    { "P2 Intro 7", 0x4E1E4, 0x1d },
+    { "P2 Intro 8", 0x4E204, 0x1d },
+    { "P2 Intro 9", 0x4E224, 0x1d },
 
     { "P2 Rush/Eddie 1", 0x4E244 },
     { "P2 Rush/Eddie 2", 0x4E264 },
@@ -511,15 +511,15 @@ const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
     { "P2 Beat Plane 8", 0x4E564 },
     { "P2 Beat Plane 9", 0x4E584 },
 
-    { "P2 Charging Roll 1", 0x4E5A4 },
-    { "P2 Charging Roll 2", 0x4E5C4 },
-    { "P2 Charging Roll 3", 0x4E5E4 },
-    { "P2 Charging Roll 4", 0x4E604 },
-    { "P2 Charging Roll 5", 0x4E624 },
-    { "P2 Charging Roll 6", 0x4E644 },
-    { "P2 Charging Roll 7", 0x4E664 },
-    { "P2 Charging Roll 8", 0x4E684 },
-    { "P2 Charging Roll 9", 0x4E6A4 },
+    { "P2 Charging Roll 1", 0x4E5A4, 0x1d },
+    { "P2 Charging Roll 2", 0x4E5C4, 0x1d },
+    { "P2 Charging Roll 3", 0x4E5E4, 0x1d },
+    { "P2 Charging Roll 4", 0x4E604, 0x1d },
+    { "P2 Charging Roll 5", 0x4E624, 0x1d },
+    { "P2 Charging Roll 6", 0x4E644, 0x1d },
+    { "P2 Charging Roll 7", 0x4E664, 0x1d },
+    { "P2 Charging Roll 8", 0x4E684, 0x1d },
+    { "P2 Charging Roll 9", 0x4E6A4, 0x1d },
 
     { "P2 Rush Drill 1", 0x4E6C4 },
     { "P2 Rush Drill 2", 0x4E6E4 },
@@ -544,15 +544,15 @@ const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
     { "P2 Hyper Roll Armor 8", 0x4E904 },
     { "P2 Hyper Roll Armor 9", 0x4E924 },
 
-    { "P2 Megaman Intro 1", 0x4E944 },
-    { "P2 Megaman Intro 2", 0x4E964 },
-    { "P2 Megaman Intro 3", 0x4E984 },
-    { "P2 Megaman Intro 4", 0x4E9A4 },
-    { "P2 Megaman Intro 5", 0x4E9C4 },
-    { "P2 Megaman Intro 6", 0x4E9E4 },
-    { "P2 Megaman Intro 7", 0x4EA04 },
-    { "P2 Megaman Intro 8", 0x4EA24 },
-    { "P2 Megaman Intro 9", 0x4EA44 }, // 54ish
+    { "P2 Megaman Intro 1", 0x4E944, 0x1c },
+    { "P2 Megaman Intro 2", 0x4E964, 0x1c },
+    { "P2 Megaman Intro 3", 0x4E984, 0x1c },
+    { "P2 Megaman Intro 4", 0x4E9A4, 0x1c },
+    { "P2 Megaman Intro 5", 0x4E9C4, 0x1c },
+    { "P2 Megaman Intro 6", 0x4E9E4, 0x1c },
+    { "P2 Megaman Intro 7", 0x4EA04, 0x1c },
+    { "P2 Megaman Intro 8", 0x4EA24, 0x1c },
+    { "P2 Megaman Intro 9", 0x4EA44, 0x1c }, // 54ish
 
     { "P2 Hyper Roll Missiles", 0x4EA64 }, // 55
 
@@ -565,8 +565,8 @@ const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
     { "P2 Revert Hyper Roll 7", 0x4EB44 },
     { "P2 Revert Hyper Roll 8", 0x4EB64 }, // 5d
 
-    { "P2 Megaman", 0x4EB84 }, // 5e
-    { "P2 Magnetic Shockwave Megaman", 0x4EBA4 }, // 5f
+    { "P2 Megaman", 0x4EB84, 0x1c }, // 5e
+    { "P2 Magnetic Shockwave Megaman", 0x4EBA4, 0x1c }, // 5f
 };
 
 const sMVC_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
