@@ -340,7 +340,7 @@ void CPalModDlg::OnFileOpen()
     CString szGameFileDef = "";
 
     // BUGBUG... maybe remember their last selection?
-    szGameFileDef.Append("SFIII3 51 Rom (51)|51|"); //SFIII3
+    szGameFileDef.Append("SFIII3 51 Rom|51|"); //SFIII3
     szGameFileDef.Append("SSF2T sfxe.04a (*.04a)|*.04a|"); //SSF2T
     szGameFileDef.Append("SFA3 sz3.09c (*.09c )|*.09c|"); //SSF2T
     szGameFileDef.Append("XMVSF xvs.05a (*.05a )|*.05a|"); //XMVSF
