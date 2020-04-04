@@ -120,7 +120,7 @@ void CPalModApp::SetGameClass(CGameClass* NewGame)
     if (!bImgLoaded)
     {
         CString strMessage;
-        strMessage.Format(IDS_ERROR_LOADING_IMG_DAT_FORMAT, ImgStr);
+        strMessage.Format(IDS_ERROR_LOADING_IMG_DAT_FORMAT, IMGDATFILE, ImgStr);
         MessageBox(g_appHWnd, strMessage, GetAppName(), MB_ICONERROR);
     }
 }

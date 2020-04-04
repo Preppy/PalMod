@@ -38,7 +38,7 @@ sImgDef* CImgDat::GetImageDef(UINT8 uUnitId, UINT8 uImgId)
             }
         }
     }
-    strDebugInfo.Format("CImgDat::GetImageDef : ppImgData failed loading.\n");
+    strDebugInfo.Format("CImgDat::GetImageDef : No image available.\n");
     OutputDebugString(strDebugInfo);
     return NULL;
 }
@@ -102,7 +102,7 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
         return pCurrImg->pImgData;
     }
 
-    /*asas
+    /* Old path
     if (pLastImg && pLastImg != pCurrImg)
     {
         delete [] pLastImg->pImgData;
@@ -200,7 +200,7 @@ void CImgDat::PrepImageBuffer(UINT16 uUnitAmt, UINT16 uImgAmt)
     CString strDebugInfo;
     strDebugInfo.Format("CImgDat::PrepImageBuffer : Beginning on preparing ImageBuffer\n");
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format("CImgDat::PrepImageBuffer : Image amount = 0x % 02X / % u ; Unit amount = uUnitAmt 0x % 02X / % u \n", uImgAmt, uImgAmt, uUnitAmt, uUnitAmt);
+    strDebugInfo.Format("CImgDat::PrepImageBuffer : Image amount = 0x%02X (%u); Unit amount = uUnitAmt 0x%02X (%u) \n", uImgAmt, uImgAmt, uUnitAmt, uUnitAmt);
     OutputDebugString(strDebugInfo);
     
 
@@ -279,7 +279,7 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UI
             ImgDatFile.Read(&uReadNumImgs, 0x02);
             ImgDatFile.Read(&uNextImgLoc, 0x04);
 
-            strDebugInfo.Format("CimgData::LoadImage : Detected gameID 0x%X ; game has %u - imgs ; first imgLoc is 0x%X .\n", uReadGameFlag, uReadNumImgs, uNextImgLoc);
+            strDebugInfo.Format("CimgData::LoadImage : Detected gameID 0x%X ; game has %u imgs ; first imgLoc is 0x%X .\n", uReadGameFlag, uReadNumImgs, uNextImgLoc);
             OutputDebugString(strDebugInfo);
 
             if (uReadGameFlag == uGameFlag)
@@ -300,17 +300,13 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UI
 
                     ImgDatFile.Read(&uCurrUnitId, 0x01);
                     ImgDatFile.Read(&uCurrImgId, 0x01);
-
                   
                     strDebugInfo.Format("CimgData::LoadImage : Making ppImgData[0x%X][0x%X] \n", uCurrUnitId, uCurrImgId);
                     OutputDebugString(strDebugInfo);
 
-
-
                     ppImgData[uCurrUnitId][uCurrImgId] = new sImgDef;
 
                     CurrImg = ppImgData[uCurrUnitId][uCurrImgId];
-
 
                     CurrImg->pImgData = NULL;
 
