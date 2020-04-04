@@ -391,79 +391,83 @@ void CGame_MVC_A::ClearDataBuffer()
 void CGame_MVC_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
 {
     // Update this if you need new characters/palette lists
+    const sMVC_PaletteDataset* pMVCPalData = nullptr;
+
+    // Reset so we can guarantee fresh assignment
+    nCurrPalSz = 0;
+    nCurrPalOffs = 0;
+
     switch (nUnitId)
     {
     case indexWarMachine:
-        nCurrPalOffs = MVC_A_WARMACHINE_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_WARMACHINE_PALETTES;
         break;
     case indexCaptainAmerica:
-        nCurrPalOffs = MVC_A_CAPAM_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_CAPAM_PALETTES;
         break;
     case indexHulk:
-        nCurrPalOffs = MVC_A_HULK_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_HULK_PALETTES;
         break;
     case indexWolverine:
-        nCurrPalOffs = MVC_A_WOLVERINE_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_WOLVERINE_PALETTES;
         break;
     case indexVenom:
-        nCurrPalOffs = MVC_A_VENOM_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_VENOM_PALETTES;
         break;
     case indexSpiderman:
-        nCurrPalOffs = MVC_A_SPIDEY_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_SPIDEY_PALETTES;
         break;
     case indexRyu:
-        nCurrPalOffs = MVC_A_RYU_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_RYU_PALETTES;
         break;
     case indexCapCom:
-        nCurrPalOffs = MVC_A_CAPCOM_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_CAPCOM_PALETTES;
         break;
     case indexChun:
-        nCurrPalOffs = MVC_A_CHUNLI_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_CHUNLI_PALETTES;
         break;
     case indexJin:
-        nCurrPalOffs = MVC_A_JIN_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_JIN_PALETTES;
         break;
     case indexGief:
-        nCurrPalOffs = MVC_A_GIEF_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_GIEF_PALETTES;
         break;
     case indexStrider:
-        nCurrPalOffs = MVC_A_STRIDER_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_STRIDER_PALETTES;
         break;
     case indexMegaman:
-        nCurrPalOffs = MVC_A_MEGAMAN_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_MEGAMAN_PALETTES;
         break;
     case indexMorrigan:
-        nCurrPalOffs = MVC_A_MORRIGAN_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_MORRIGAN_PALETTES;
         break;
     case indexHyperVenom:
-        nCurrPalOffs = MVC_A_HYPERVENOM_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_HYPERVENOM_PALETTES;
         break;
     case indexOrangeHulk:
-        nCurrPalOffs = MVC_A_ORANGEHULK_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_ORANGEHULK_PALETTES;
         break;
     case indexGWM:
-        nCurrPalOffs = MVC_A_GOLDWARMACHINE_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_GOLDWARMACHINE_PALETTES;
         break;
     case indexShadowLady:
-        nCurrPalOffs = MVC_A_SHADOWLADY_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_SHADOWLADY_PALETTES;
         break;
     case indexLilith:
-        nCurrPalOffs = MVC_A_LILITH_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_LILITH_PALETTES;
         break;
     case indexGambit:
-        nCurrPalOffs = MVC_A_GAMBIT_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_GAMBIT_PALETTES;
         break;
     case indexOnslaught:
-        nCurrPalOffs = MVC_A_ONSLAUGHT_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_ONSLAUGHT_PALETTES;
         break;
     case indexRoll:
-        nCurrPalOffs = MVC_A_ROLL_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_ROLL_PALETTES;
         break;
     case indexAssists: // Assists
-    {
-        nCurrPalOffs = MVC_A_ASSIST_PALETTES[nPalId].nPaletteOffset;
+        pMVCPalData = MVC_A_ASSIST_PALETTES;
         break;
-    }
     case indexLast: // MVC_A_NUMUNIT
     {
         // This is where we handle all the palettes added in via Extra.
@@ -475,13 +479,19 @@ void CGame_MVC_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
     }
     default:
     {
-        // This is all the base palettes.
+        // These are all the base palettes.
+        OutputDebugString("WARNING: Asking for an unknown palette data set.\n");
         nCurrPalOffs = MVC_A_UNITLOC[nUnitId] + (nPalId * 0x20);
+        nCurrPalSz = 16;
         break;
     }
     };
 
-    nCurrPalSz = 16;
+    if (nCurrPalSz == 0)
+    {
+        nCurrPalOffs = pMVCPalData[nPalId].nPaletteOffset;
+        nCurrPalSz = pMVCPalData[nPalId].nPaletteOffsetEnd - pMVCPalData[nPalId].nPaletteOffset;
+    }    
 }
 
 BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
