@@ -707,9 +707,9 @@ void CGame_MVC_A::UpdatePalData()
 
             int nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
-            // Every 16 colors there is another counter byte to preserve.
+            // Every 16 colors there is another counter WORD (color length) to preserve.
             const UINT16 nMaxSafeColorsToWrite = 16;
-            const UINT16 iFixedCounterPosition = 0; //  The lead byte needs to be preserved.
+            const UINT16 iFixedCounterPosition = 0; // The lead 'color' is a counter and needs to be preserved.
 
             while (nTotalColorsRemaining > 0)
             {
