@@ -702,14 +702,32 @@ void CGame_MVC_A::UpdatePalData()
 
         if (srcDef->bAvail)
         {
-            int nIndexStart = 1;
 
             COLORREF* crSrc = srcDef->pPal;
-            UINT16 uAmt = srcDef->uPalSz;
 
-            for (int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
+            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nCurrentTotalWrites = 0;
+            // Every 16 colors there is another counter byte to preserve.
+            const UINT16 nMaxSafeColorsToWrite = 16;
+            const UINT16 iFixedCounterPosition = 0; //  The lead byte needs to be preserved.
+
+            while (nTotalColorsRemaining > 0)
             {
-                pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr - nIndexStart] = (ConvCol(crSrc[nPICtr]) & 0x0FFF);
+                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
+
+                for (int nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
+                {
+                    if (nPICtr == iFixedCounterPosition)
+                    {
+                        continue;
+                    }
+
+                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
+                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
+                }
+
+                nCurrentTotalWrites += nMaxSafeColorsToWrite;
+                nTotalColorsRemaining -= nMaxSafeColorsToWrite;
             }
 
             srcDef->bChanged = FALSE;
