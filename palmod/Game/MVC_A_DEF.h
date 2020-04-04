@@ -35,6 +35,7 @@ enum SupportedPaletteListIndex
     indexLilith,
     indexGambit,
     indexAssists,
+    indexVSPs,
     indexLast
 };
 
@@ -68,6 +69,7 @@ const UINT32 MVC_A_UNITLOC[MVC_A_NUMUNIT] =
     0x493A4, // Lilith
     0x484c4, // Gambit
     0x0, // Assists: Special
+    0x0, // Victory Screen Profiles
 };
 
 struct sMVC_PaletteDataset
@@ -798,6 +800,316 @@ const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "US Agent P2 Charging Star", 0x50f84, 0x50f94, 0x0b, 2 },
 };
 
+const sMVC_PaletteDataset MVC_A_VSP_PALETTES[] =
+{
+#ifdef USE_LARGE_PALETTES
+    { "War Machine P1 VSP", 0x0055d84, 0x0055e04 },
+#else
+    { "War Machine P1 VSP (1/2)", 0x0055d84, 0x0055dc4 },
+    { "War Machine P1 VSP (2/2)", 0x0055dc4, 0x0055e04 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Captain America P1 VSP", 0x0055e44, 0x0055f04 },
+#else
+    { "Captain America P1 VSP (1/3)", 0x0055e44, 0x0055e84 },
+    { "Captain America P1 VSP (2/3)", 0x0055e84, 0x0055ec4 },
+    { "Captain America P1 VSP (3/3)", 0x0055ec4, 0x0055f04 },
+#endif
+    { "Hulk P1 VSP", 0x0055f04, 0x0055f24 },
+#ifdef USE_LARGE_PALETTES
+    { "Wolverine P1 VSP", 0x0055fc4, 0x0056084 },
+#else
+    { "Wolverine P1 VSP (1/3)", 0x0055fc4, 0x0056004 },
+    { "Wolverine P1 VSP (2/3)", 0x0056004, 0x0056044 },
+    { "Wolverine P1 VSP (3/3)", 0x0056044, 0x0056084 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Gambit P1 VSP", 0x0056084, 0x0056144 },
+#else
+    { "Gambit P1 VSP (1/3)", 0x0056084, 0x00560c4 },
+    { "Gambit P1 VSP (2/3)", 0x00560c4, 0x0056104 },
+    { "Gambit P1 VSP (3/3)", 0x0056104, 0x0056144 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Venom P1 VSP", 0x0056144, 0x00561c4 },
+#else
+    { "Venom P1 VSP (1/2)", 0x0056144, 0x0056184 },
+    { "Venom P1 VSP (2/2)", 0x0056184, 0x00561c4 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Spider-Man P1 VSP", 0x0056204, 0x0056284 },
+#else
+    { "Spider-Man P1 VSP (1/2)", 0x0056204, 0x0056244 },
+    { "Spider-Man P1 VSP (2/2)", 0x0056244, 0x0056284 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Roll P1 VSP", 0x00562c4, 0x0056384 },
+#else
+    { "Roll P1 VSP (1/3)", 0x00562c4, 0x0056304 },
+    { "Roll P1 VSP (2/3)", 0x0056304, 0x0056344 },
+    { "Roll P1 VSP (3/3)", 0x0056344, 0x0056384 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Ryu P1 VSP", 0x0056384, 0x0056444 },
+#else
+    { "Ryu P1 VSP (1/3)", 0x0056384, 0x00563c4 },
+    { "Ryu P1 VSP (2/3)", 0x00563c4, 0x0056404 },
+    { "Ryu P1 VSP (3/3)", 0x0056404, 0x0056444 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Captain Commando P1 VSP", 0x0056444, 0x0056504 },
+#else
+    { "Captain Commando P1 VSP (1/3)", 0x0056444, 0x0056484 },
+    { "Captain Commando P1 VSP (2/3)", 0x0056484, 0x00564c4 },
+    { "Captain Commando P1 VSP (3/3)", 0x00564c4, 0x0056504 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Chun-Li P1 VSP", 0x0056504, 0x00565c4 },
+#else
+    { "Chun-Li P1 VSP (1/3)", 0x0056504, 0x0056544 },
+    { "Chun-Li P1 VSP (2/3)", 0x0056544, 0x0056584 },
+    { "Chun-Li P1 VSP (3/3)", 0x0056584, 0x00565c4 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Jin P1 VSP", 0x00565c4, 0x0056684 },
+#else
+    { "Jin P1 VSP (1/3)", 0x00565c4, 0x0056604 },
+    { "Jin P1 VSP (2/3)", 0x0056604, 0x0056644 },
+    { "Jin P1 VSP (3/3)", 0x0056644, 0x0056684 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Zangief P1 VSP", 0x0056684, 0x0056724 },
+#else
+    { "Zangief P1 VSP (1/3)", 0x0056684, 0x00566c4 },
+    { "Zangief P1 VSP (2/3)", 0x00566c4, 0x0056704 },
+    { "Zangief P1 VSP (3/3)", 0x0056704, 0x0056724 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Strider Hiryu P1 VSP", 0x0056744, 0x0056804 },
+#else
+    { "Strider Hiryu P1 VSP (1/3)", 0x0056744, 0x0056784 },
+    { "Strider Hiryu P1 VSP (2/3)", 0x0056784, 0x00567c4 },
+    { "Strider Hiryu P1 VSP (3/3)", 0x00567c4, 0x0056804 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Morrigan P1 VSP", 0x0056804, 0x00568c4 },
+#else
+    { "Morrigan P1 VSP (1/3)", 0x0056804, 0x0056844 },
+    { "Morrigan P1 VSP (2/3)", 0x0056844, 0x0056884 },
+    { "Morrigan P1 VSP (3/3)", 0x0056884, 0x00568c4 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Megaman P1 VSP", 0x00568c4, 0x0056944 },
+#else
+    { "Megaman P1 VSP (1/2)", 0x00568c4, 0x0056904 },
+    { "Megaman P1 VSP (2/2)", 0x0056904, 0x0056944 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Onslaught P1 VSP", 0x0056984, 0x00569e4 },
+#else
+    { "Onslaught P1 VSP (1/2)", 0x0056984, 0x00569c4 },
+    { "Onslaught P1 VSP (2/2)", 0x00569c4, 0x00569e4 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Red Venom P1 VSP", 0x0056a44, 0x0056ac4 },
+#else
+    { "Red Venom P1 VSP (1/2)", 0x0056a44, 0x0056a84 },
+    { "Red Venom P1 VSP (2/2)", 0x0056a84, 0x0056ac4 },
+#endif
+    { "Orange Hulk P1 VSP", 0x0056b04, 0x0056b24 },
+#ifdef USE_LARGE_PALETTES
+    { "Gold War Machine P1 VSP", 0x0056bc4, 0x0056c44 },
+#else
+    { "Gold War Machine P1 VSP (1/2)", 0x0056bc4, 0x0056c04 },
+    { "Gold War Machine P1 VSP (2/2)", 0x0056c04, 0x0056c44 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Shadow Lady P1 VSP", 0x0056c84, 0x0056d44 },
+#else
+    { "Shadow Lady P1 VSP (1/3)", 0x0056c84, 0x0056cc4 },
+    { "Shadow Lady P1 VSP (2/3)", 0x0056cc4, 0x0056d04 },
+    { "Shadow Lady P1 VSP (3/3)", 0x0056d04, 0x0056d44 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Lilith P1 VSP", 0x0056d44, 0x0056e04 },
+#else
+    { "Lilith P1 VSP (1/3)", 0x0056d44, 0x0056d84 },
+    { "Lilith P1 VSP (2/3)", 0x0056d84, 0x0056dc4 },
+    { "Lilith P1 VSP (3/3)", 0x0056dc4, 0x0056e04 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Ken P1 VSP", 0x0056e04, 0x0056ec4 },
+#else
+    { "Ken P1 VSP (1/3)", 0x0056e04, 0x0056e44 },
+    { "Ken P1 VSP (2/3)", 0x0056e44, 0x0056e84 },
+    { "Ken P1 VSP (3/3)", 0x0056e84, 0x0056ec4 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Gouki P1 VSP", 0x0056ec4, 0x0056f84 },
+#else
+    { "Gouki P1 VSP (1/3)", 0x0056ec4, 0x0056f04 },
+    { "Gouki P1 VSP (2/3)", 0x0056f04, 0x0056f44 },
+    { "Gouki P1 VSP (3/3)", 0x0056f44, 0x0056f84 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Mech-Zangief P1 VSP", 0x0056f84, 0x0057024 },
+#else
+    { "Mech-Zangief P1 VSP (1/3)", 0x0056f84, 0x0056fc4 },
+    { "Mech-Zangief P1 VSP (2/3)", 0x0056fc4, 0x0057004 },
+    { "Mech-Zangief P1 VSP (3/3)", 0x0057004, 0x0057024 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "War Machine P2 VSP", 0x0057044, 0x00570c4 },
+#else
+    { "War Machine P2 VSP (1/2)", 0x0057044, 0x0057084 },
+    { "War Machine P2 VSP (2/2)", 0x0057084, 0x00570c4 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Captain America P2 VSP", 0x0057104, 0x00571c4 },
+#else
+    { "Captain America P2 VSP (1/3)", 0x0057104, 0x0057144 },
+    { "Captain America P2 VSP (2/3)", 0x0057144, 0x0057184 },
+    { "Captain America P2 VSP (3/3)", 0x0057184, 0x00571c4 },
+#endif
+    { "Hulk P2 VSP", 0x00571c4, 0x00571e4 },
+#ifdef USE_LARGE_PALETTES
+    { "Wolverine P2 VSP", 0x0057284, 0x0057344 },
+#else
+    { "Wolverine P2 VSP (1/3)", 0x0057284, 0x00572c4 },
+    { "Wolverine P2 VSP (2/3)", 0x00572c4, 0x0057304 },
+    { "Wolverine P2 VSP (3/3)", 0x0057304, 0x0057344 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Gambit P2 VSP", 0x0057344, 0x0057404 },
+#else
+    { "Gambit P2 VSP (1/3)", 0x0057344, 0x0057384 },
+    { "Gambit P2 VSP (2/3)", 0x0057384, 0x00573c4 },
+    { "Gambit P2 VSP (3/3)", 0x00573c4, 0x0057404 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Venom P2 VSP", 0x0057404, 0x0057484 },
+#else
+    { "Venom P2 VSP (1/2)", 0x0057404, 0x0057444 },
+    { "Venom P2 VSP (2/2)", 0x0057444, 0x0057484 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Spider-Man P2 VSP", 0x00574c4, 0x0057544 },
+#else
+    { "Spider-Man P2 VSP (1/2)", 0x00574c4, 0x0057504 },
+    { "Spider-Man P2 VSP (2/2)", 0x0057504, 0x0057544 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Roll P2 VSP", 0x0057584, 0x0057644 },
+#else
+    { "Roll P2 VSP (1/3)", 0x0057584, 0x00575c4 },
+    { "Roll P2 VSP (2/3)", 0x00575c4, 0x0057604 },
+    { "Roll P2 VSP (3/3)", 0x0057604, 0x0057644 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Ryu P2 VSP", 0x0057644, 0x0057704 },
+#else
+    { "Ryu P2 VSP (1/3)", 0x0057644, 0x0057684 },
+    { "Ryu P2 VSP (2/3)", 0x0057684, 0x00576c4 },
+    { "Ryu P2 VSP (3/3)", 0x00576c4, 0x0057704 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Captain Commando P2 VSP", 0x0057704, 0x00577c4 },
+#else
+    { "Captain Commando P2 VSP (1/3)", 0x0057704, 0x0057744 },
+    { "Captain Commando P2 VSP (2/3)", 0x0057744, 0x0057784 },
+    { "Captain Commando P2 VSP (3/3)", 0x0057784, 0x00577c4 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Chun-Li P2 VSP", 0x00577c4, 0x0057884 },
+#else
+    { "Chun-Li P2 VSP (1/3)", 0x00577c4, 0x0057804 },
+    { "Chun-Li P2 VSP (2/3)", 0x0057804, 0x0057844 },
+    { "Chun-Li P2 VSP (3/3)", 0x0057844, 0x0057884 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Jin P2 VSP", 0x0057884, 0x0057944 },
+#else
+    { "Jin P2 VSP (1/3)", 0x0057884, 0x00578c4 },
+    { "Jin P2 VSP (2/3)", 0x00578c4, 0x0057904 },
+    { "Jin P2 VSP (3/3)", 0x0057904, 0x0057944 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Zangief P2 VSP", 0x0057944, 0x00579e4 },
+#else
+    { "Zangief P2 VSP (1/3)", 0x0057944, 0x0057984 },
+    { "Zangief P2 VSP (2/3)", 0x0057984, 0x00579c4 },
+    { "Zangief P2 VSP (3/3)", 0x00579c4, 0x00579e4 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Strider Hiryu P2 VSP", 0x0057a04, 0x0057ac4 },
+#else
+    { "Strider Hiryu P2 VSP (1/3)", 0x0057a04, 0x0057a44 },
+    { "Strider Hiryu P2 VSP (2/3)", 0x0057a44, 0x0057a84 },
+    { "Strider Hiryu P2 VSP (3/3)", 0x0057a84, 0x0057ac4 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Morrigan P2 VSP", 0x0057ac4, 0x0057b84 },
+#else
+    { "Morrigan P2 VSP (1/3)", 0x0057ac4, 0x0057b04 },
+    { "Morrigan P2 VSP (2/3)", 0x0057b04, 0x0057b44 },
+    { "Morrigan P2 VSP (3/3)", 0x0057b44, 0x0057b84 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Megaman P2 VSP", 0x0057b84, 0x0057c04 },
+#else
+    { "Megaman P2 VSP (1/2)", 0x0057b84, 0x0057bc4 },
+    { "Megaman P2 VSP (2/2)", 0x0057bc4, 0x0057c04 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Red Venom P2 VSP", 0x0057d04, 0x0057d84 },
+#else
+    { "Red Venom P2 VSP (1/2)", 0x0057d04, 0x0057d44 },
+    { "Red Venom P2 VSP (2/2)", 0x0057d44, 0x0057d84 },
+#endif
+    { "Orange Hulk P2 VSP", 0x0057dc4, 0x0057de4 },
+#ifdef USE_LARGE_PALETTES
+    { "Gold War Machine P2 VSP", 0x0057e84, 0x0057f04 },
+#else
+    { "Gold War Machine P2 VSP (1/2)", 0x0057e84, 0x0057ec4 },
+    { "Gold War Machine P2 VSP (2/2)", 0x0057ec4, 0x0057f04 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Shadow Lady P2 VSP", 0x0057f44, 0x0058004 },
+#else
+    { "Shadow Lady P2 VSP (1/3)", 0x0057f44, 0x0057f84 },
+    { "Shadow Lady P2 VSP (2/3)", 0x0057f84, 0x0057fc4 },
+    { "Shadow Lady P2 VSP (3/3)", 0x0057fc4, 0x0058004 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Lilith P2 VSP", 0x0058004, 0x00580c4 },
+#else
+    { "Lilith P2 VSP (1/3)", 0x0058004, 0x0058044 },
+    { "Lilith P2 VSP (2/3)", 0x0058044, 0x0058084 },
+    { "Lilith P2 VSP (3/3)", 0x0058084, 0x00580c4 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Ken P2 VSP", 0x00580c4, 0x0058184 },
+#else
+    { "Ken P2 VSP (1/3)", 0x00580c4, 0x0058104 },
+    { "Ken P2 VSP (2/3)", 0x0058104, 0x0058144 },
+    { "Ken P2 VSP (3/3)", 0x0058144, 0x0058184 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Gouki P2 VSP", 0x0058184, 0x0058244 },
+#else
+    { "Gouki P2 VSP (1/3)", 0x0058184, 0x00581c4 },
+    { "Gouki P2 VSP (2/3)", 0x00581c4, 0x0058204 },
+    { "Gouki P2 VSP (3/3)", 0x0058204, 0x0058244 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Mech-Zangief P2 VSP", 0x0058244, 0x00582e4 },
+#else
+    { "Mech-Zangief P2 VSP (1/3)", 0x0058244, 0x0058284 },
+    { "Mech-Zangief P2 VSP (2/3)", 0x0058284, 0x00582c4 },
+    { "Mech-Zangief P2 VSP (3/3)", 0x00582c4, 0x00582e4 },
+#endif
+};
+
 const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
 {
     indexCaptainAmerica,
@@ -823,6 +1135,7 @@ const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
     indexWolverine,
     indexGief,
     indexAssists,
+    indexVSPs,
 
     MVC_A_EXTRALOC //Extra palettes
 };
@@ -862,6 +1175,7 @@ const char MVC_A_UNITDESC[MVC_A_NUMUNIT][MAX_DESCRIPTION_LENGTH] =
     "Lilith",
     "Gambit",
     "Assists",
+    "Victory Screen Portraits",
 };
 
 const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
@@ -889,6 +1203,7 @@ const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
     ARRAYSIZE(MVC_A_LILITH_PALETTES), // Lilith
     ARRAYSIZE(MVC_A_GAMBIT_PALETTES), // Gambit
     ARRAYSIZE(MVC_A_ASSIST_PALETTES), // Assists
+    ARRAYSIZE(MVC_A_VSP_PALETTES), // VSPS
 };
 
 const UINT16 MVC_A_IMGREDIR[MVC_A_NUMUNIT] = {
@@ -916,6 +1231,7 @@ const UINT16 MVC_A_IMGREDIR[MVC_A_NUMUNIT] = {
     0x03, // lilith
     0x28, // gambit
     0xFF, // :( Assists ... we don't have anything. 
+    0xFF, // Victory Screen Portraits
 };
 
 // We extend this array with data groveled from the mvce.txt extensible extras file, if any.

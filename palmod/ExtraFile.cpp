@@ -116,7 +116,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 
                     nCurrEnd = strtol(szFinalLine, nullptr, 16);
 
-                    int cbDiff = (nCurrEnd - nCurrStart) / 2;
+                    int cbDiff = (nCurrEnd - nCurrStart);
                     //int nTotalPalettesNeeded = 1;
                     const int nTotalPagesNeeded = (int)ceil((double)cbDiff / (double)MAX_PALETTE_SIZE);
                     int nCurrentPage = 1;
@@ -124,7 +124,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 #ifdef DUMP_EXTRAS_ON_LOAD // You can use this to convert Extras file content into usable headers.
                     CString strText;
 
-                    bool fPaletteUsesMultiplePages = (nDiff > MAX_PALETTE_SIZE);
+                    bool fPaletteUsesMultiplePages = (cbDiff > MAX_PALETTE_SIZE);
 
                     if (fPaletteUsesMultiplePages)
                     {
@@ -183,7 +183,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                                 strncpy(pCurrDef->szDesc, szCurrDesc, sizeof(pCurrDef->szDesc));
                                 //pCurrDef->isInvisible = false;
                             }
-                            pCurrDef->uOffset = nCurrStart + ((MAX_PALETTE_SIZE * 2) * nPos);
+                            pCurrDef->uOffset = nCurrStart + (MAX_PALETTE_SIZE * nPos);
                             pCurrDef->cbPaletteSize = nCurrentPaletteEntries * 2;
                             pCurrDef->isInvisible = false;
                         }
@@ -191,7 +191,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 #ifdef DUMP_EXTRAS_ON_LOAD
                         if (fPaletteUsesMultiplePages)
                         {
-                            strText.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + pCurrDef->uPalSz);
+                            strText.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + (pCurrDef->cbPaletteSize / 2));
                             OutputDebugString(strText);
                         }
 #endif
