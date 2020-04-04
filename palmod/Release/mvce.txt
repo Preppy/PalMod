@@ -1,33 +1,200 @@
-; The syntax used is straight-forward:
-;  DISPLAY_NAME
-;  beginning_offset
-;  end_offset
+War Machine P1 Super
+0x53E24
+0x53EA4
 
+Gold War Machine P1 Super
+0x54A04
+0x54A84
 
-AAA Orange Hulk P2 VSP
-0x57DC4
-0x57DE4
+Captain America P1 Super
+0x53EC4
+0x53F64
 
-BBB Gold War Machine P2 VSP
-0x57E84
-0x57F04
+Hulk P1 Super
+0x53F64
+0x53F84
 
-CCC Shadow Lady P2 VSP
-0x57F44
-0x58004
+Orange Hulk P1 Super
+0x54964
+0x54984
 
-DDDLilith P2 VSP
-0x58004
-0x580C4
+Wolverine P1 Super
+0x54004
+0x54064
 
-Ken P2 VSP
-0x580C4
-0x58184
+Gambit P1 Super
+0x540A4
+0x54124
 
-Gouki P2 VSP
-0x58184
-0x58244
+Venom P1 Super
+0x54144
+0x541A4
 
-Mech-Zangief P2 VSP
-0x58244
-0x582E4
+Red Venom P1 Super
+0x548C4
+0x54924
+
+Spider-Man P1 Super
+0x541E4
+0x54244
+
+Roll P1 Super
+0x54284
+0x54324
+
+Ryu P1 Super
+0x54324
+0x543C4
+
+Ken P1 Super
+0x54BE4
+0x54C84
+
+Gouki P1 Super
+0x54C84
+0x54D24
+
+Captain Commando P1 Super
+0x543C4
+0x54464
+
+Chun-Li P1 Super
+0x54464
+0x54504
+
+Shadow Lady P1 Super
+0x54AA4
+0x54B44
+
+Jin P1 Super
+0x54504
+0x545A4
+
+Zangief P1 Super
+0x545A4
+0x54624
+
+Mech-Zangief P1 Super
+0x54D24
+0x54DA4
+
+Strider Hiryu P1 Super
+0x54644
+0x546E4
+
+Morrigan P1 Super
+0x546E4
+0x54784
+
+Lilith P1 Super
+0x54B44
+0x54BE4
+
+Megaman P1 Super
+0x54784
+0x54824
+
+Onslaught P1 Super
+0x54824
+0x548A4
+
+War Machine P2 Super
+0x54DC4
+0x54E44
+
+Golden War Machine P2 Super
+0x559A4
+0x55A24
+
+Captain America P2 Super
+0x54E64
+0x54F04
+
+Hulk P2 Super
+0x54F04
+0x54F24
+
+Orange Hulk P2 Super
+0x55904
+0x55924
+
+Wolverine P2 Super
+0x54FA4
+0x55004
+
+Gambit P2 Super
+0x55044
+0x550C4
+
+Venom P2 Super
+0x550E4
+0x55144
+
+Red Venom P2 Super
+0x55864
+0x558C4
+
+Spider-Man P2 Super
+0x55184
+0x551E4
+
+Roll P2 Super
+0x55224
+0x552C4
+
+Ryu P2 Super
+0x552C4
+0x55364
+
+Ken P2 Super
+0x55B84
+0x55C24
+
+Gouki P2 Super
+0x55C24
+0x55CC4
+
+Captain Commando P2 Super
+0x55364
+0x55404
+
+Chun-Li P2 Super
+0x55404
+0x554A4
+
+Shadow Lady P2 Super
+0x55A44
+0x55AE4
+
+Jin P2 Super
+0x554A4
+0x55544
+
+Zangief P2 Super
+0x55544
+0x555C4
+
+Mech-Zangief P2 Super
+0x55CC4
+0x55D44
+
+Strider Hiryu P2 Super
+0x555E4
+0x55684
+
+Morrigan P2 Super
+0x55684
+0x55724
+
+Lilith P2 Super
+0x55AE4
+0x55B84
+
+Megaman P2 Super
+0x55724
+0x557C4
+
+Onslaught P2 Super
+0x557C4
+0x55844
+

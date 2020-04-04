@@ -263,6 +263,15 @@ CDescTree CGame_MVC_A::InitDescTree()
                     case indexVSPs:
                         sprintf(ChildNode->szDesc, MVC_A_VSP_PALETTES[nChildCtr].szPaletteName);
                         break;                        
+                    case indexCSPs:
+                        sprintf(ChildNode->szDesc, MVC_A_CSP_PALETTES[nChildCtr].szPaletteName);
+                        break;
+                    case indexSuperPort:
+                        sprintf(ChildNode->szDesc, MVC_A_SUPERPORT_PALETTES[nChildCtr].szPaletteName);
+                        break;
+                    case indexCSIs:
+                        sprintf(ChildNode->szDesc, MVC_A_CSIS_PALETTES[nChildCtr].szPaletteName);
+                        break;                        
                     case indexOnslaught:
                         sprintf(ChildNode->szDesc, MVC_A_ONSLAUGHT_PALETTES[nChildCtr].szPaletteName);
                         break;
@@ -474,6 +483,15 @@ void CGame_MVC_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
     case indexVSPs: // VSPs
         pMVCPalData = MVC_A_VSP_PALETTES;
         break;
+    case indexCSPs: // CSPs
+        pMVCPalData = MVC_A_CSP_PALETTES;
+        break;
+    case indexSuperPort:
+        pMVCPalData = MVC_A_SUPERPORT_PALETTES;
+        break;
+    case indexCSIs:
+        pMVCPalData = MVC_A_CSIS_PALETTES;
+        break;        
     case indexLast: // MVC_A_NUMUNIT
     {
         // This is where we handle all the palettes added in via Extra.
@@ -496,7 +514,7 @@ void CGame_MVC_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
     if (nCurrPalSz == 0)
     {
         nCurrPalOffs = pMVCPalData[nPalId].nPaletteOffset;
-        nCurrPalSz = pMVCPalData[nPalId].nPaletteOffsetEnd - pMVCPalData[nPalId].nPaletteOffset;
+        nCurrPalSz = (pMVCPalData[nPalId].nPaletteOffsetEnd - pMVCPalData[nPalId].nPaletteOffset) / 2;
     }    
 }
 
@@ -670,6 +688,15 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case indexVSPs:
         paletteDataSet = &MVC_A_VSP_PALETTES[uPalId];
         break;
+    case indexCSPs:
+        paletteDataSet = &MVC_A_CSP_PALETTES[uPalId];
+        break;
+    case indexSuperPort:
+        paletteDataSet = &MVC_A_SUPERPORT_PALETTES[uPalId];
+        break;
+    case indexCSIs:
+        paletteDataSet = &MVC_A_CSIS_PALETTES[uPalId];
+        break;        
     default: // just use the listed options
         nImgUnitId = MVC_A_IMGREDIR[uUnitId];
         break;

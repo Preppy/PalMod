@@ -116,15 +116,14 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 
                     nCurrEnd = strtol(szFinalLine, nullptr, 16);
 
-                    int cbDiff = (nCurrEnd - nCurrStart);
-                    //int nTotalPalettesNeeded = 1;
-                    const int nTotalPagesNeeded = (int)ceil((double)cbDiff / (double)MAX_PALETTE_SIZE);
+                    int nColorsUsed = (nCurrEnd - nCurrStart) / 2; // 2 bytes per color.
+                    const int nTotalPagesNeeded = (int)ceil((double)nColorsUsed / (double)MAX_PALETTE_SIZE);
                     int nCurrentPage = 1;
 
 #ifdef DUMP_EXTRAS_ON_LOAD // You can use this to convert Extras file content into usable headers.
                     CString strText;
 
-                    bool fPaletteUsesMultiplePages = (cbDiff > MAX_PALETTE_SIZE);
+                    bool fPaletteUsesMultiplePages = (nColorsUsed > MAX_PALETTE_SIZE);
 
                     if (fPaletteUsesMultiplePages)
                     {
@@ -141,7 +140,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 
                     // I don't believe we care about color mode right here since we only support
                     // COLMODE12 and COLMODE_15 right now.
-                    while (cbDiff > 0)
+                    while (nColorsUsed > 0)
                     {
                         int nCurrentPaletteEntries = 0;
 
@@ -154,16 +153,16 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                         // If you wanted to fit long palettes on one page you would need to remove this 
                         // overflow check, add an Extra compatible version of CPalGroup::AddSep, and
                         // call that from CGame_*::UpdatePalImg
-                        if (cbDiff > MAX_PALETTE_SIZE)
+                        if (nColorsUsed > MAX_PALETTE_SIZE)
                         {
                             nCurrentPaletteEntries = MAX_PALETTE_SIZE;
 
-                            cbDiff -= MAX_PALETTE_SIZE;
+                            nColorsUsed -= MAX_PALETTE_SIZE;
                         }
                         else
                         {
-                            nCurrentPaletteEntries = cbDiff;
-                            cbDiff = 0;
+                            nCurrentPaletteEntries = nColorsUsed;
+                            nColorsUsed = 0;
                         }
 
                         nArrayOffsetDesired = nStockExtrasCount + (nTotalExtensionExtraLinesHandled / 3);
@@ -183,7 +182,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                                 strncpy(pCurrDef->szDesc, szCurrDesc, sizeof(pCurrDef->szDesc));
                                 //pCurrDef->isInvisible = false;
                             }
-                            pCurrDef->uOffset = nCurrStart + (MAX_PALETTE_SIZE * nPos);
+                            pCurrDef->uOffset = nCurrStart + (MAX_PALETTE_SIZE * 2 * nPos);
                             pCurrDef->cbPaletteSize = nCurrentPaletteEntries * 2;
                             pCurrDef->isInvisible = false;
                         }
@@ -191,7 +190,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 #ifdef DUMP_EXTRAS_ON_LOAD
                         if (fPaletteUsesMultiplePages)
                         {
-                            strText.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + (pCurrDef->cbPaletteSize / 2));
+                            strText.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + pCurrDef->cbPaletteSize);
                             OutputDebugString(strText);
                         }
 #endif
