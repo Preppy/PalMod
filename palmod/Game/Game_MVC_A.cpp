@@ -260,6 +260,9 @@ CDescTree CGame_MVC_A::InitDescTree()
                     case indexAssists:
                         sprintf(ChildNode->szDesc, MVC_A_ASSIST_PALETTES[nChildCtr].szPaletteName);
                         break;
+                    case indexAssistPorts:
+                        sprintf(ChildNode->szDesc, MVC_A_ASSISTPORT_PALETTES[nChildCtr].szPaletteName);
+                        break;
                     case indexVSPs:
                         sprintf(ChildNode->szDesc, MVC_A_VSP_PALETTES[nChildCtr].szPaletteName);
                         break;                        
@@ -480,6 +483,9 @@ void CGame_MVC_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
     case indexAssists: // Assists
         pMVCPalData = MVC_A_ASSIST_PALETTES;
         break;
+    case indexAssistPorts: // Assist portraits
+        pMVCPalData = MVC_A_ASSISTPORT_PALETTES;
+        break;
     case indexVSPs: // VSPs
         pMVCPalData = MVC_A_VSP_PALETTES;
         break;
@@ -684,6 +690,9 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     case indexAssists:
         paletteDataSet = &MVC_A_ASSIST_PALETTES[uPalId];
+        break;
+    case indexAssistPorts:
+        paletteDataSet = &MVC_A_ASSISTPORT_PALETTES[uPalId];
         break;
     case indexVSPs:
         paletteDataSet = &MVC_A_VSP_PALETTES[uPalId];

@@ -35,6 +35,7 @@ enum SupportedPaletteListIndex
     indexLilith,
     indexGambit,
     indexAssists,
+    indexAssistPorts,
     indexCSIs,
     indexCSPs,
     indexVSPs,
@@ -73,6 +74,7 @@ const UINT32 MVC_A_UNITLOC[MVC_A_NUMUNIT] =
     0x484c4, // Gambit
     0x0, // Character select icons
     0x0, // Assists: Special
+    0x0, // Assist Portraits
     0x0, // Victory Screen Profiles
     0x0, // Super Portraits
 };
@@ -805,6 +807,30 @@ const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "US Agent P2 Charging Star", 0x50f84, 0x50fa4, 0x0b, 2 },
 };
 
+const sMVC_PaletteDataset MVC_A_ASSISTPORT_PALETTES[] =
+{
+    { "Cyclops Portrait", 0x0047de4, 0x0047e04 },
+    { "Colossus Portrait", 0x0047e04, 0x0047e24 },
+    { "IceMan Portrait", 0x0047e64, 0x0047e84 },
+    { "Jubilee Portrait", 0x0047ea4, 0x0047ec4 },
+    { "Juggernaut Portrait", 0x0047d84, 0x0047da4 },
+    { "Magneto Portrait", 0x0047da4, 0x0047dc4 },
+    { "Psylocke Portrait", 0x0047dc4, 0x0047de4 },
+    { "Rogue Portrait", 0x0047e84, 0x0047ea4 },
+    { "Storm Portrait", 0x0047ec4, 0x0047ee4 },
+    { "Thor Portrait", 0x0047e24, 0x0047e44 },
+    { "U.S. Agent Portrait", 0x0047e44, 0x0047e64 },
+    { "Anita Portrait", 0x0047fc4, 0x0047fe4 },
+    { "Arthur Portrait", 0x0047f04, 0x0047f24 },
+    { "Devilot Portrait", 0x0048004, 0x0048024 },
+    { "Lou Portrait", 0x0047fa4, 0x0047fc4 },
+    { "Michelle Heart Portrait", 0x0047f24, 0x0047f44 },
+    { "Pure and Fur Portrait", 0x0047fe4, 0x0048004 },
+    { "Saki Portrait", 0x0047f64, 0x0047f84 },
+    { "Ton-Pooh Portrait", 0x0047f44, 0x0047f64 },
+    { "Unknown Soldier Portrait", 0x0047f84, 0x0047fa4 },
+};
+
 const sMVC_PaletteDataset MVC_A_VSP_PALETTES[] =
 {
     { "War Machine P1 VSP", 0x0055d84, 0x0055e04 },
@@ -1299,6 +1325,7 @@ const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
     indexWolverine,
     indexGief,
     indexAssists,
+    indexAssistPorts,
     indexCSIs,
     indexCSPs,
     indexVSPs,
@@ -1342,6 +1369,7 @@ const char MVC_A_UNITDESC[MVC_A_NUMUNIT][MAX_DESCRIPTION_LENGTH] =
     "Lilith",
     "Gambit",
     "Assists",
+    "Assist Portraits",
     "Character Select Icons",
     "Character Select Portraits",
     "Victory Screen Portraits",
@@ -1373,6 +1401,7 @@ const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
     ARRAYSIZE(MVC_A_LILITH_PALETTES), // Lilith
     ARRAYSIZE(MVC_A_GAMBIT_PALETTES), // Gambit
     ARRAYSIZE(MVC_A_ASSIST_PALETTES), // Assists
+    ARRAYSIZE(MVC_A_ASSISTPORT_PALETTES), // Assist portraits
     ARRAYSIZE(MVC_A_CSIS_PALETTES), // Character select icons
     ARRAYSIZE(MVC_A_CSP_PALETTES), // Character Select
     ARRAYSIZE(MVC_A_VSP_PALETTES), // Victory Screen
@@ -1404,6 +1433,7 @@ const UINT16 MVC_A_IMGREDIR[MVC_A_NUMUNIT] = {
     0x03, // lilith
     0x28, // gambit
     0xFF, // :( Assists ... we don't have anything. 
+    0xFF, // assist portraits
     0xFF, // Character select icons
     0xFF, // Character Select Portraits
     0xFF, // Victory Screen Portraits
