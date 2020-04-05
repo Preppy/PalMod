@@ -989,9 +989,9 @@ BOOL CGame_JOJOS_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
 
         return TRUE;
     }
-#endif
 
     return FALSE;
+#endif
 }
 
 BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)

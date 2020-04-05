@@ -15,7 +15,7 @@ private:
     int nCurrPalOffs = 0;
     int nCurrPalSz = 0;
 
-    void GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId);
+    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
 
     void InitDataBuffer();
     void ClearDataBuffer();
@@ -42,7 +42,7 @@ public:
     //Normal functions
     CDescTree* GetMainTree();
 
-    static int GetPalCt(UINT16 nUnitId);
+    static int GetPaletteCountForUnit(UINT16 nUnitId);
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
@@ -50,7 +50,6 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
-    BOOL CreateExtraPal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
 

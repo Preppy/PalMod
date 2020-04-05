@@ -7,7 +7,7 @@
 // * Update the SupportedPaletteListIndex with the new index name.
 // * Add an array below along the line sof MVC_A_RYU_PALETTES. 
 // * Update every array using MVC_A_NUMUNIT below
-// * Update the three index lookups in Game_MVC_A_.cpp that are marked - look for usage of indexRyu to find them
+// * Update the index lookups in Game_MVC_A_.cpp that is marked - look for usage of indexRyu to find them
 // That should be it.  Good luck.
 
 enum SupportedPaletteListIndex
@@ -1332,16 +1332,6 @@ const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
     indexSuperPort,
 
     MVC_A_EXTRALOC //Extra palettes
-};
-
-const char MVC_A_IMGDESC[6][MAX_DESCRIPTION_LENGTH] =
-{
-    "P1 Color",
-    "Palette 2",
-    "Palette 3",
-    "P2 Color",
-    "Palette 5",
-    "Palette 6"
 };
 
 const sDescTreeNode MVC_UNITS_51[MVC_A_NUMUNIT] =
