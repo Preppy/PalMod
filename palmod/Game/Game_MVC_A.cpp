@@ -163,7 +163,7 @@ CDescTree CGame_MVC_A::InitDescTree()
         if (iUnitCtr < MVC_A_EXTRALOC)
         {
             //Set each description
-            sprintf(UnitNode->szDesc, "%s", MVC_A_UNITDESC[iUnitCtr]);
+            sprintf(UnitNode->szDesc, "%s", MVC_UNITS_51[iUnitCtr].szDesc);
 
             //Init each character to have all 6 basic buttons + extra
             UnitNode->ChildNodes = new sDescTreeNode[1];
@@ -370,7 +370,27 @@ int CGame_MVC_A::GetPalCt(UINT16 nUnitId)
     }
     else
     {
-        return MVC_A_PALAMT[nUnitId];
+        UINT16 nCompleteCount = 0;
+        const sDescTreeNode* pCompleteROMTree = MVC_UNITS_51;
+#ifdef USE_BUTTONS
+        UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
+        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
+
+        for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+        {
+            nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
+        }
+#else
+        nCompleteCount += pCompleteROMTree[nUnitId].uChildAmt;
+#endif
+
+#if MVC_DEBUG
+        CString strMsg;
+        strMsg.Format("PaletteCount: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        OutputDebugString(strMsg);
+#endif
+
+        return nCompleteCount;
     }
 }
 

@@ -1344,68 +1344,36 @@ const char MVC_A_IMGDESC[6][MAX_DESCRIPTION_LENGTH] =
     "Palette 6"
 };
 
-const char MVC_A_UNITDESC[MVC_A_NUMUNIT][MAX_DESCRIPTION_LENGTH] =
+const sDescTreeNode MVC_UNITS_51[MVC_A_NUMUNIT] =
 {
-    "War Machine",
-    "Captain America",
-    "Hulk",
-    "Wolverine",
-    "Venom",
-    "Spider-Man",
-    "Roll",
-    "Ryu",
-    "Captain Commando",
-    "Chun-Li",
-    "Jin",
-    "Zangief",
-    "Strider",
-    "Megaman",
-    "Morrigan",
-    "Onslaught",
-    "Red Venom",
-    "Orange Hulk",
-    "Gold War Machine",
-    "Shadow Lady",
-    "Lilith",
-    "Gambit",
-    "Assists",
-    "Assist Portraits",
-    "Character Select Icons",
-    "Character Select Portraits",
-    "Victory Screen Portraits",
-    "Super Portraits",
-};
-
-const UINT16 MVC_A_PALAMT[MVC_A_NUMUNIT] = {
-
-    ARRAYSIZE(MVC_A_WARMACHINE_PALETTES), // WM
-    ARRAYSIZE(MVC_A_CAPAM_PALETTES), // CapAm
-    ARRAYSIZE(MVC_A_HULK_PALETTES), // Hulk
-    ARRAYSIZE(MVC_A_WOLVERINE_PALETTES), // Wolvie
-    ARRAYSIZE(MVC_A_VENOM_PALETTES), // Venom
-    ARRAYSIZE(MVC_A_SPIDEY_PALETTES), // Spidey
-    ARRAYSIZE(MVC_A_ROLL_PALETTES), // Roll
-    ARRAYSIZE(MVC_A_RYU_PALETTES), // Ryu
-    ARRAYSIZE(MVC_A_CAPCOM_PALETTES), // Capcom
-    ARRAYSIZE(MVC_A_CHUNLI_PALETTES), // Chun
-    ARRAYSIZE(MVC_A_JIN_PALETTES), // Jin
-    ARRAYSIZE(MVC_A_GIEF_PALETTES), // Gief & MechaGief
-    ARRAYSIZE(MVC_A_STRIDER_PALETTES), // Strider    
-    ARRAYSIZE(MVC_A_MEGAMAN_PALETTES), // Megaman
-    ARRAYSIZE(MVC_A_MORRIGAN_PALETTES), // Morrigan
-    ARRAYSIZE(MVC_A_ONSLAUGHT_PALETTES), // Onslaught
-    ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES), // Red Venom
-    ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES), // Orange Hulk
-    ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES), // Gold War Machine
-    ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES), // Shadow Lady
-    ARRAYSIZE(MVC_A_LILITH_PALETTES), // Lilith
-    ARRAYSIZE(MVC_A_GAMBIT_PALETTES), // Gambit
-    ARRAYSIZE(MVC_A_ASSIST_PALETTES), // Assists
-    ARRAYSIZE(MVC_A_ASSISTPORT_PALETTES), // Assist portraits
-    ARRAYSIZE(MVC_A_CSIS_PALETTES), // Character select icons
-    ARRAYSIZE(MVC_A_CSP_PALETTES), // Character Select
-    ARRAYSIZE(MVC_A_VSP_PALETTES), // Victory Screen
-    ARRAYSIZE(MVC_A_SUPERPORT_PALETTES), // Super portraits
+    { "War Machine",                  DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES,       ARRAYSIZE(MVC_A_WARMACHINE_PALETTES) },
+    { "Captain America",              DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES,            ARRAYSIZE(MVC_A_CAPAM_PALETTES) },
+    { "Hulk",                         DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES,             ARRAYSIZE(MVC_A_HULK_PALETTES) },
+    { "Wolverine",                    DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES,        ARRAYSIZE(MVC_A_WOLVERINE_PALETTES) },
+    { "Venom",                        DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES,            ARRAYSIZE(MVC_A_VENOM_PALETTES) },
+    { "Spider-Man",                   DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_PALETTES,           ARRAYSIZE(MVC_A_SPIDEY_PALETTES) },
+    { "Roll",                         DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_PALETTES,             ARRAYSIZE(MVC_A_ROLL_PALETTES) },
+    { "Ryu",                          DESC_NODETYPE_TREE, (void*)MVC_A_RYU_PALETTES,              ARRAYSIZE(MVC_A_RYU_PALETTES) },
+    { "Captain Commando",             DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES,           ARRAYSIZE(MVC_A_CAPCOM_PALETTES) },
+    { "Chun-Li",                      DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_PALETTES,           ARRAYSIZE(MVC_A_CHUNLI_PALETTES) },
+    { "Jin",                          DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES,              ARRAYSIZE(MVC_A_JIN_PALETTES) },
+    { "Zangief",                      DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_PALETTES,             ARRAYSIZE(MVC_A_GIEF_PALETTES) },
+    { "Strider",                      DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_PALETTES,          ARRAYSIZE(MVC_A_STRIDER_PALETTES) },
+    { "Megaman",                      DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_PALETTES,          ARRAYSIZE(MVC_A_MEGAMAN_PALETTES) },
+    { "Morrigan",                     DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES,         ARRAYSIZE(MVC_A_MORRIGAN_PALETTES) },
+    { "Onslaught",                    DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_PALETTES,        ARRAYSIZE(MVC_A_ONSLAUGHT_PALETTES) },
+    { "Red Venom",                    DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_PALETTES,       ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES) },
+    { "Orange Hulk",                  DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_PALETTES,       ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES) },
+    { "Gold War Machine",             DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES) },
+    { "Shadow Lady",                  DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES,       ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES) },
+    { "Lilith",                       DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_PALETTES,           ARRAYSIZE(MVC_A_LILITH_PALETTES) },
+    { "Gambit",                       DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES) },
+    { "Assists",                      DESC_NODETYPE_TREE, (void*)MVC_A_ASSIST_PALETTES,           ARRAYSIZE(MVC_A_ASSIST_PALETTES) },
+    { "Assist Portraits",             DESC_NODETYPE_TREE, (void*)MVC_A_ASSISTPORT_PALETTES,       ARRAYSIZE(MVC_A_ASSISTPORT_PALETTES) },
+    { "Character Select Icons",       DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_PALETTES,             ARRAYSIZE(MVC_A_CSIS_PALETTES) },
+    { "Character Select Portraits",   DESC_NODETYPE_TREE, (void*)MVC_A_CSP_PALETTES,              ARRAYSIZE(MVC_A_CSP_PALETTES) },
+    { "Victory Screen Portraits",     DESC_NODETYPE_TREE, (void*)MVC_A_VSP_PALETTES,              ARRAYSIZE(MVC_A_VSP_PALETTES) },
+    { "Super Portraits",              DESC_NODETYPE_TREE, (void*)MVC_A_SUPERPORT_PALETTES,        ARRAYSIZE(MVC_A_SUPERPORT_PALETTES) },
 };
 
 const UINT16 MVC_A_IMGREDIR[MVC_A_NUMUNIT] = {
