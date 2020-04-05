@@ -47,38 +47,6 @@ constexpr auto MVC_A_NUMUNIT = indexLast;
 
 #define MVC_A_EXTRALOC MVC_A_NUMUNIT
 
-// These are the base offsets for a character.
-const UINT32 MVC_A_UNITLOC[MVC_A_NUMUNIT] =
-{
-    0x481C4, // War Machine
-    0x48284, // Cap
-    0x48344, // Hulk
-    0x48404, // Wolvie
-    0x48584, // Venom
-    0x48644, // Spidey
-    0x48704, // Roll
-    0x487C4, // Ryu
-    0x48884, // CapCom
-    0x48944, // Chun
-    0x48A04, // Jin
-    0x48AC4, // Gief
-    0x48E04, // Strider
-    0x48F84, // Megaman
-    0x48ec4, // Morrigan
-    0x49044, // Onslaught
-    0x490A4, // Hyper Venom
-    0x49164, // Orange Hulk
-    0x49224, // GWM
-    0x492E4, // Shadow Lady
-    0x493A4, // Lilith
-    0x484c4, // Gambit
-    0x0, // Character select icons
-    0x0, // Assists: Special
-    0x0, // Assist Portraits
-    0x0, // Victory Screen Profiles
-    0x0, // Super Portraits
-};
-
 struct sMVC_PaletteDataset
 {
     LPCSTR szPaletteName;
