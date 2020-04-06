@@ -5483,7 +5483,7 @@ const sJOJOS_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { "Stand Clash Background", 0x030d100, 0x030d180 },
     { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
     { "Stand Crash Mask Background 2", 0x030CF40, 0x030CF80 },
-    { "Raging Demon Background", 0x030d1c0, 0x030d200 },
+    { "Raging Demon Background", 0x030d180, 0x030d200 },
     { "Super KO Background", 0x030d082, 0x030d102 },
     { "Super KO Portrait", 0x030ce80, 0x030cec0 },
     { "\"Round 1,2,3\" Text", 0x030ce00, 0x030ce60 },
