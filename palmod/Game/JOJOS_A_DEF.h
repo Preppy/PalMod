@@ -2668,7 +2668,7 @@ const sJOJOS_PaletteDataset JOJOS_A_CHARACTER_NODE_JOSEPH_A[] =
     { "Joseph Tech/Zap/CC A (1/2)", 0x0339980, 0x0339a00 },
     { "Joseph Tech/Zap/CC A (2/2)", 0x0339a00, 0x0339a80 },
 #endif
-    { "Flash Back Manga Panels (Joseph 236aa)", 0x0335B80, 0x0335BC0 }, // maybe move into Extra or something?  a little awkward here
+    { "Flash Back Manga Panels (Joseph 236aa)", 0x0335B80, 0x0335BC0 },
     { "Lisa Lisa & Caesar (Joseph 236aa)", 0x0335C00, 0x0335C80 },
 };
 

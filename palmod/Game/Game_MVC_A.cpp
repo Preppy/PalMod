@@ -3,7 +3,9 @@
 #include "GameDef.h"
 #include "..\ExtraFile.h"
 
-stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = NULL;
+#define MVC_DEBUG 0
+
+stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MVC_A::MainDescTree = CGame_MVC_A::InitDescTree();
 
@@ -128,16 +130,14 @@ CDescTree* CGame_MVC_A::GetMainTree()
 
 CDescTree CGame_MVC_A::InitDescTree()
 {
+    UINT32 nTotalPaletteCount = 0;
+
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_MVC, MVC_A_EXTRA, &MVC_A_EXTRA_CUSTOM, MVC_A_EXTRALOC);
 
-    int nUnitCt = MVC_A_NUMUNIT + (GetExtraCt(MVC_A_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = MVC_A_NUMUNIT + (GetExtraCt(MVC_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
-
-    sDescTreeNode* UnitNode;
-    sDescTreeNode* ButtonNode;
-    sDescNode* ChildNode;
 
     //Create the main character tree
     sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[MVC_A]);
@@ -146,91 +146,120 @@ CDescTree CGame_MVC_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    //Go through each character
-    for (int iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
-    {
-        //Use this for Extra support
-        int nSuppAmt = 0;
+    CString strMsg;
+    bool fHaveExtras = (GetExtraCt(MVC_A_EXTRALOC) > 0);
+    strMsg.Format("CGame_MVC_A::InitDescTree: Building desc tree for MVC %s extras...\n", fHaveExtras ? "with" : "without");
+    OutputDebugString(strMsg);
 
-        int nExtraCt = GetExtraCt(iUnitCtr, TRUE);
+    //Go through each character
+    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    {
+        sDescTreeNode* UnitNode = nullptr;
+        sDescTreeNode* CollectionNode = nullptr;
+        sDescNode* ChildNode = nullptr;
+
+        UINT16 nExtraCt = GetExtraCt(iUnitCtr, TRUE);
         BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
 
-        int nButtonAmt = GetBasicAmt(iUnitCtr);
-        int nMainChildAmt = nButtonAmt + 1 + bUseExtra;
+        UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
         if (iUnitCtr < MVC_A_EXTRALOC)
         {
             //Set each description
-            sprintf(UnitNode->szDesc, "%s", MVC_UNITS_51[iUnitCtr].szDesc);
-
-            //Init each character to have all 6 basic buttons + extra
-            UnitNode->ChildNodes = new sDescTreeNode[1];
-
-            //All children have button trees
+            sprintf(UnitNode->szDesc, "%s", MVC_UNITS[iUnitCtr].szDesc);
+            UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
+            //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = 1;
+            UnitNode->uChildAmt = nUnitChildCount;
 
-            for (int iButtonCtr = 0; iButtonCtr < 1; iButtonCtr++)
+#if MVC_DEBUG
+            strMsg.Format("Unit: %s, %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
+            OutputDebugString(strMsg);
+#endif
+            
+            UINT16 nTotalPalettesUsedInUnit = 0;
+
+            //Set data for each child group ("collection")
+            for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
-                int nCurrChildAmt = GetPaletteCountForUnit(iUnitCtr); // 1 for each button for now
+                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
-                ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
+                //Set each collection data
 
-                //Set each button data
-                sprintf(ButtonNode->szDesc, "Palettes");
+                // Default label, since these aren't associated to collections
+                sprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                //Collection children have nodes
+                UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
+                CollectionNode->uChildType = DESC_NODETYPE_NODE;
+                CollectionNode->uChildAmt = nListedChildrenCount;
+                CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-                //Button children have nodes
-                ButtonNode->uChildType = DESC_NODETYPE_NODE;
-                ButtonNode->uChildAmt = nCurrChildAmt;
+#if MVC_DEBUG
+                strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                OutputDebugString(strMsg);
+#endif
 
-                ButtonNode->ChildNodes = (sDescTreeNode*)new sDescNode[nCurrChildAmt];
+                const sMVC_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
 
-                for (int nChildCtr = 0; nChildCtr < nCurrChildAmt; nChildCtr++)
+                //Set each collection's extra nodes: convert the sMVC_PaletteDataset to sDescTreeNodes
+                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
                 {
-                    //Set each button's node
-                    ///////////////////////////////////////////////////////////////////////
-                    ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr]; //We only have 1
+                    ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    sprintf(ChildNode->szDesc, ((sMVC_PaletteDataset*)(MVC_UNITS_51[iUnitCtr].ChildNodes))[nChildCtr].szPaletteName);
+                    sprintf(ChildNode->szDesc, "%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
-                    ChildNode->uUnitId = iUnitCtr;
-                    ChildNode->uPalId = nChildCtr;
+                    ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
+                    ChildNode->uPalId = nTotalPalettesUsedInUnit++;
+                    nTotalPaletteCount++;
+
+#if MVC_DEBUG
+                    strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    OutputDebugString(strMsg);
+#endif
                 }
             }
         }
         else
         {
-            //Set each description
+            // This handles data loaded from the Extra extension file, which are treated
+            // each as their own separate node with one collection with everything under that.
             sprintf(UnitNode->szDesc, "Extra Palettes");
-            UnitNode->ChildNodes = new sDescTreeNode[1]; //Only 1 for now, "Extra"
-            //All children have button trees
+            UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = 1; //Only 1 for now, "Extra"
+            UnitNode->uChildAmt = 1;
+
+#if MVC_DEBUG
+            strMsg.Format("Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            OutputDebugString(strMsg);
+#endif
         }
 
         //Set up extra nodes
         if (bUseExtra)
         {
             int nExtraPos = GetExtraLoc(iUnitCtr);
-            int nCurrExtra = 0; nExtraPos;
+            int nCurrExtra = 0;
 
-            stExtraDef* pCurrDef;
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MVC_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            sprintf(CollectionNode->szDesc, "Extra");
 
-            ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[MVC_A_EXTRALOC > iUnitCtr ? (nMainChildAmt - 1) : 0]; //Extra node
-            sprintf(ButtonNode->szDesc, "Extra");
+            CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
-            ButtonNode->ChildNodes = new sDescTreeNode[nExtraCt];
+            CollectionNode->uChildType = DESC_NODETYPE_NODE;
+            CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-            ButtonNode->uChildType = DESC_NODETYPE_NODE;
-            ButtonNode->uChildAmt = nExtraCt; //EX + Extra
+#if MVC_DEBUG
+            strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            OutputDebugString(strMsg);
+#endif
 
-            for (int nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
+            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
-                ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
+                ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                pCurrDef = GetExtraDefForMVC(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForMVC(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
@@ -242,12 +271,21 @@ CDescTree CGame_MVC_A::InitDescTree()
                 sprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((MVC_A_EXTRALOC > iUnitCtr ? 1 : 0)* nButtonAmt * 2) + nSuppAmt) + nCurrExtra;
+                ChildNode->uPalId = (((MVC_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+
+#if MVC_DEBUG
+                strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                OutputDebugString(strMsg);
+#endif
 
                 nCurrExtra++;
+                nTotalPaletteCount++;
             }
         }
     }
+
+    strMsg.Format("CGame_MVC_A::InitDescTree: Loaded %u palettes for MVC1\n", nTotalPaletteCount);
+    OutputDebugString(strMsg);
 
     return CDescTree(NewDescTree);
 }
@@ -264,7 +302,46 @@ sFileRule CGame_MVC_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-int CGame_MVC_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_MVC_A::GetCollectionCountForUnit(UINT16 nUnitId)
+{
+    if (nUnitId == MVC_A_EXTRALOC)
+    {
+        return GetExtraCt(nUnitId);
+    }
+    else
+    {
+        return MVC_UNITS[nUnitId].uChildAmt;
+    }
+}
+
+UINT16 CGame_MVC_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+{
+    if (nUnitId == MVC_A_EXTRALOC)
+    {
+        return GetExtraCt(nUnitId);
+    }
+    else
+    {
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(MVC_UNITS[nUnitId].ChildNodes);
+
+        return pCollectionNode[nCollectionId].uChildAmt;
+    }
+}
+
+LPCSTR CGame_MVC_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+{
+    if (nUnitId == MVC_A_EXTRALOC)
+    {
+        return "Extra Palettes";
+    }
+    else
+    {
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)MVC_UNITS[nUnitId].ChildNodes;
+        return pCollection[nCollectionId].szDesc;
+    }
+}
+
+UINT16 CGame_MVC_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
     if (nUnitId == MVC_A_EXTRALOC)
     {
@@ -273,27 +350,52 @@ int CGame_MVC_A::GetPaletteCountForUnit(UINT16 nUnitId)
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = MVC_UNITS_51;
-#ifdef USE_BUTTONS
-        UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
-        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
+        UINT16 nCollectionCount = MVC_UNITS[nUnitId].uChildAmt;
+        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(MVC_UNITS[nUnitId].ChildNodes);
 
         for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
         {
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
-#else
-        nCompleteCount += pCompleteROMTree[nUnitId].uChildAmt;
-#endif
 
 #if MVC_DEBUG
         CString strMsg;
-        strMsg.Format("PaletteCount: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format("CGame_MVC_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
         return nCompleteCount;
     }
+}
+
+const sMVC_PaletteDataset* CGame_MVC_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+{
+    // Don't use this for Extra palettes.
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)MVC_UNITS[nUnitId].ChildNodes;
+    return ((sMVC_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+}
+
+const sMVC_PaletteDataset* CGame_MVC_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+{
+    // Don't use this for Extra palettes.
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sMVC_PaletteDataset* paletteToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sMVC_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+
+        if (nDistanceFromZero < nNodeCount)
+        {
+            paletteToUse = &paletteSetToUse[nDistanceFromZero];
+            break;
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+
+    return paletteToUse;
 }
 
 void CGame_MVC_A::InitDataBuffer()
@@ -329,11 +431,13 @@ void CGame_MVC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
     if (nUnitId != MVC_A_EXTRALOC)
     {
-        const sMVC_PaletteDataset* pMVCPalData = nullptr;
-        pMVCPalData = (sMVC_PaletteDataset*)MVC_UNITS_51[nUnitId].ChildNodes;
+        int cbPaletteSizeOnDisc = 0;
+        const sMVC_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
 
-        nCurrPalOffs = pMVCPalData[nPalId].nPaletteOffset;
-        nCurrPalSz = (pMVCPalData[nPalId].nPaletteOffsetEnd - pMVCPalData[nPalId].nPaletteOffset) / 2;
+        cbPaletteSizeOnDisc = max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
+
+        nCurrPalOffs = paletteData->nPaletteOffset;
+        nCurrPalSz = cbPaletteSizeOnDisc / 2;
 
         return;
     }
@@ -350,14 +454,13 @@ void CGame_MVC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
 BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
-    int nPalAmt;
-
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        int nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
+        // Use a sorted layout
         rgUnitRedir[nUnitCtr] = MVC_A_UNITSORT[nUnitCtr];
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -373,12 +476,16 @@ BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
+    
+    // BUGBUG: CheckForDupesInTables();
 
     return TRUE;
 }
 
 BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
+    UINT32 nTotalPalettesSaved = 0;
+
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
         UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
@@ -388,10 +495,14 @@ BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
             SaveFile->Seek(nCurrPalOffs, CFile::begin);
-
             SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
+            nTotalPalettesSaved++;
         }
     }
+
+    CString strMsg;
+    strMsg.Format("CGame_MVC_A::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, nUnitAmt);
+    OutputDebugString(strMsg);
 
     return TRUE;
 }
@@ -419,130 +530,36 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
-    if (NodeGet == NULL)
+    if (NodeGet == nullptr)
     {
         return FALSE;
     }
 
-    UINT16 uUnitId = NodeGet->uUnitId;
-    UINT16 uPalId = NodeGet->uPalId;
+    UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
+    
+    int nSrcStart = 0;
+    int nSrcAmt = nCollectionCount;
+
+    //Get rid of any palettes if there are any
+    BasePalGroup.FlushPalAll();
 
     // Make sure to reset the image id
     nTargetImgId = 0;
-    int nImgUnitId = INVALID_UNIT_VALUE;
+    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
 
-    const sMVC_PaletteDataset* paletteDataSet = nullptr;
-
-    switch (uUnitId)
+    if (MVC_A_EXTRALOC != NodeGet->uUnitId)
     {
-    case indexWarMachine:
-        paletteDataSet = &MVC_A_WARMACHINE_PALETTES[uPalId];
-        break;
-    case indexCaptainAmerica:
-        paletteDataSet = &MVC_A_CAPAM_PALETTES[uPalId];
-        break;
-    case indexHulk:
-        paletteDataSet = &MVC_A_HULK_PALETTES[uPalId];
-        break;
-    case indexWolverine:
-        paletteDataSet = &MVC_A_WOLVERINE_PALETTES[uPalId];
-        break;
-    case indexVenom:
-        paletteDataSet = &MVC_A_VENOM_PALETTES[uPalId];
-        break;
-    case indexSpiderman:
-        paletteDataSet = &MVC_A_SPIDEY_PALETTES[uPalId];
-        break;
-    case indexRyu:
-        paletteDataSet = &MVC_A_RYU_PALETTES[uPalId];
-        break;
-    case indexCapCom:
-        paletteDataSet = &MVC_A_CAPCOM_PALETTES[uPalId];
-        break;
-    case indexChun:
-        paletteDataSet = &MVC_A_CHUNLI_PALETTES[uPalId];
-        break;
-    case indexJin:
-        paletteDataSet = &MVC_A_JIN_PALETTES[uPalId];
-        break;
-    case indexGief:
-        paletteDataSet = &MVC_A_GIEF_PALETTES[uPalId];
-        break;
-    case indexStrider:
-        paletteDataSet = &MVC_A_STRIDER_PALETTES[uPalId];
-        break;
-    case indexMegaman:
-        // Megaman is a mess.
-        nImgUnitId = MVC_A_MEGAMAN_PALETTES[uPalId].indexImgToUse;
+        nSrcStart = NodeGet->uPalId;
+        nSrcAmt = 1;
 
-        if (nImgUnitId == INVALID_UNIT_VALUE)
+        const sMVC_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+
+        if (paletteDataSet)
         {
-            // Forcibly Megaman all the things, since we only have two Roll sprites to use right now.
-            nImgUnitId = MVC_A_IMGREDIR[uUnitId];
+            nImgUnitId = paletteDataSet->indexImgToUse;
+            nTargetImgId = paletteDataSet->indexOffsetToUse;
         }
-        nTargetImgId = MVC_A_MEGAMAN_PALETTES[uPalId].indexOffsetToUse;
-        break;
-    case indexMorrigan:
-        paletteDataSet = &MVC_A_MORRIGAN_PALETTES[uPalId];
-        break;
-    case indexHyperVenom:
-        paletteDataSet = &MVC_A_HYPERVENOM_PALETTES[uPalId];
-        break;
-    case indexOrangeHulk:
-        paletteDataSet = &MVC_A_ORANGEHULK_PALETTES[uPalId];
-        break;
-    case indexGWM:
-        paletteDataSet = &MVC_A_GOLDWARMACHINE_PALETTES[uPalId];
-        break;
-    case indexLast: // MVC_A_EXTRALOC: We don't have anything for these right now.
-        nImgUnitId = INVALID_UNIT_VALUE;
-        break;
-    case indexGambit:
-        paletteDataSet = &MVC_A_GAMBIT_PALETTES[uPalId];
-        break;
-    case indexShadowLady:
-        paletteDataSet = &MVC_A_SHADOWLADY_PALETTES[uPalId];
-        break;
-    case indexLilith:
-        paletteDataSet = &MVC_A_LILITH_PALETTES[uPalId];
-        break;
-    case indexOnslaught:
-        paletteDataSet = &MVC_A_ONSLAUGHT_PALETTES[uPalId];
-        break;
-    case indexRoll:
-        paletteDataSet = &MVC_A_ROLL_PALETTES[uPalId];
-        break;
-    case indexAssists:
-        paletteDataSet = &MVC_A_ASSIST_PALETTES[uPalId];
-        break;
-    case indexAssistPorts:
-        paletteDataSet = &MVC_A_ASSISTPORT_PALETTES[uPalId];
-        break;
-    case indexVSPs:
-        paletteDataSet = &MVC_A_VSP_PALETTES[uPalId];
-        break;
-    case indexCSPs:
-        paletteDataSet = &MVC_A_CSP_PALETTES[uPalId];
-        break;
-    case indexSuperPort:
-        paletteDataSet = &MVC_A_SUPERPORT_PALETTES[uPalId];
-        break;
-    case indexCSIs:
-        paletteDataSet = &MVC_A_CSIS_PALETTES[uPalId];
-        break;        
-    default: // just use the listed options
-        nImgUnitId = MVC_A_IMGREDIR[uUnitId];
-        break;
     }
-
-    if (paletteDataSet)
-    {
-        nImgUnitId = paletteDataSet->indexImgToUse;
-        nTargetImgId = paletteDataSet->indexOffsetToUse;
-    }
-
-    int nSrcStart = 0;
-    int nSrcAmt = 1; //GetBasicAmt(uUnitId);
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -552,7 +569,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     CreateDefPal(NodeGet, 0);
 
-    SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
+    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
 
     return TRUE;
 }

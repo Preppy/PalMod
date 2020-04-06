@@ -76,7 +76,7 @@ public:
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nFileId = 0);
     BOOL SaveFile(CFile* SaveFile, UINT16 nFileId = 0);
-    BOOL CGame_JOJOS_A::UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+    BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
     BOOL CreateExtraPal(UINT16 nUnitId, UINT16 nPalId);

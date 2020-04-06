@@ -115,92 +115,6 @@ int CGame_JOJOS_A::GetExtraLoc(UINT16 nUnitId)
     }
 }
 
-UINT16 CGame_JOJOS_A::GetCollectionCountForUnit(UINT16 nUnitId)
-{
-    if (UsePaletteSetFor50())
-    {
-        if (nUnitId == JOJOS_A_EXTRALOC_50)
-        {
-            return 1;
-        }
-        else
-        {
-            return JOJOS_UNITS_50[nUnitId].uChildAmt;
-        }
-    }
-    else
-    {
-        if (nUnitId == JOJOS_A_EXTRALOC_51)
-        {
-            return 1;
-        }
-        else
-        {
-            return JOJOS_UNITS_51[nUnitId].uChildAmt;
-        }
-    }
-}
-
-UINT16 CGame_JOJOS_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
-{
-    if (UsePaletteSetFor50())
-    {
-        if (nUnitId == JOJOS_A_EXTRALOC_50)
-        {
-            return GetExtraCt(JOJOS_A_EXTRALOC_50);
-        }
-        else
-        {
-            const sDescTreeNode* pCompleteROMTree = JOJOS_UNITS_50;
-            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
-
-            return pCollectionNode[nCollectionId].uChildAmt;
-        }
-    }
-    else
-    {
-        if (nUnitId == JOJOS_A_EXTRALOC_51)
-        {
-            return GetExtraCt(JOJOS_A_EXTRALOC_51);
-        }
-        else
-        {
-            const sDescTreeNode* pCompleteROMTree = JOJOS_UNITS_51;
-            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
-
-            return pCollectionNode[nCollectionId].uChildAmt;
-        }
-    }
-}
-
-LPCSTR CGame_JOJOS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
-{
-    if (UsePaletteSetFor50())
-    {
-        if (nUnitId == JOJOS_A_EXTRALOC_50)
-        {
-            return "Palettes";
-        }
-        else
-        {
-            const sDescTreeNode* pCollection = (const sDescTreeNode*)JOJOS_UNITS_50[nUnitId].ChildNodes;
-            return pCollection[nCollectionId].szDesc;
-        }
-    }
-    else
-    {
-        if (nUnitId == JOJOS_A_EXTRALOC_51)
-        {
-            return "Palettes";
-        }
-        else
-        {
-            const sDescTreeNode* pCollection = (const sDescTreeNode*)JOJOS_UNITS_51[nUnitId].ChildNodes;
-            return pCollection[nCollectionId].szDesc;
-        }
-    }
-}
-
 CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
 {
     //We need the proper unit amt before we init the main buffer
@@ -441,9 +355,6 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
         sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        //Use this for the Extra support
-        int nSuppAmt = 0;
-
         UINT16 nExtraCt = GetExtraCt(iUnitCtr, TRUE);
         BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
 
@@ -509,7 +420,6 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
         }
         else
         {
-
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
             sprintf(UnitNode->szDesc, "Extra Palettes");
@@ -531,11 +441,11 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 
             if (UsePaletteSetFor50())
             {
-                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[JOJOS_A_EXTRALOC_50 > iUnitCtr ? (nUnitChildCount - 1) : 0]; //Extra node
+                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(JOJOS_A_EXTRALOC_50 > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
             }
             else
             {
-                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[JOJOS_A_EXTRALOC_51 > iUnitCtr ? (nUnitChildCount - 1) : 0]; //Extra node
+                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(JOJOS_A_EXTRALOC_51 > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
             }
 
             sprintf(CollectionNode->szDesc, "Extra");
@@ -545,7 +455,12 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-            for (int nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
+#if JOJOS_DEBUG
+            strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            OutputDebugString(strMsg);
+#endif
+
+            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
@@ -563,12 +478,17 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                 ChildNode->uUnitId = iUnitCtr;
                 if (UsePaletteSetFor50())
                 {
-                    ChildNode->uPalId = (((JOJOS_A_EXTRALOC_50 > iUnitCtr ? 1 : 0) * nUnitChildCount * 2) + nSuppAmt) + nCurrExtra;
+                    ChildNode->uPalId = (((JOJOS_A_EXTRALOC_50 > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
                 }
                 else
                 {
-                    ChildNode->uPalId = (((JOJOS_A_EXTRALOC_51 > iUnitCtr ? 1 : 0) * nUnitChildCount * 2) + nSuppAmt) + nCurrExtra;
+                    ChildNode->uPalId = (((JOJOS_A_EXTRALOC_51 > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
                 }
+
+#if JOJOS_DEBUG
+                strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                OutputDebugString(strMsg);
+#endif
 
                 nCurrExtra++;
                 nTotalPaletteCount++;
@@ -603,6 +523,92 @@ sFileRule CGame_JOJOS_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
+UINT16 CGame_JOJOS_A::GetCollectionCountForUnit(UINT16 nUnitId)
+{
+    if (UsePaletteSetFor50())
+    {
+        if (nUnitId == JOJOS_A_EXTRALOC_50)
+        {
+            return 1;
+        }
+        else
+        {
+            return JOJOS_UNITS_50[nUnitId].uChildAmt;
+        }
+    }
+    else
+    {
+        if (nUnitId == JOJOS_A_EXTRALOC_51)
+        {
+            return 1;
+        }
+        else
+        {
+            return JOJOS_UNITS_51[nUnitId].uChildAmt;
+        }
+    }
+}
+
+UINT16 CGame_JOJOS_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+{
+    if (UsePaletteSetFor50())
+    {
+        if (nUnitId == JOJOS_A_EXTRALOC_50)
+        {
+            return GetExtraCt(JOJOS_A_EXTRALOC_50);
+        }
+        else
+        {
+            const sDescTreeNode* pCompleteROMTree = JOJOS_UNITS_50;
+            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
+
+            return pCollectionNode[nCollectionId].uChildAmt;
+        }
+    }
+    else
+    {
+        if (nUnitId == JOJOS_A_EXTRALOC_51)
+        {
+            return GetExtraCt(JOJOS_A_EXTRALOC_51);
+        }
+        else
+        {
+            const sDescTreeNode* pCompleteROMTree = JOJOS_UNITS_51;
+            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
+
+            return pCollectionNode[nCollectionId].uChildAmt;
+        }
+    }
+}
+
+LPCSTR CGame_JOJOS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+{
+    if (UsePaletteSetFor50())
+    {
+        if (nUnitId == JOJOS_A_EXTRALOC_50)
+        {
+            return "Palettes";
+        }
+        else
+        {
+            const sDescTreeNode* pCollection = (const sDescTreeNode*)JOJOS_UNITS_50[nUnitId].ChildNodes;
+            return pCollection[nCollectionId].szDesc;
+        }
+    }
+    else
+    {
+        if (nUnitId == JOJOS_A_EXTRALOC_51)
+        {
+            return "Palettes";
+        }
+        else
+        {
+            const sDescTreeNode* pCollection = (const sDescTreeNode*)JOJOS_UNITS_51[nUnitId].ChildNodes;
+            return pCollection[nCollectionId].szDesc;
+        }
+    }
+}
+
 UINT16 CGame_JOJOS_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
     if (UsePaletteSetFor50() ?  (nUnitId == JOJOS_A_EXTRALOC_50) :
@@ -624,7 +630,7 @@ UINT16 CGame_JOJOS_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if JOJOS_DEBUG
         CString strMsg;
-        strMsg.Format("PaletteCount: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format("CGame_JOJOS_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -848,7 +854,6 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
     if (!isPaletteFromExtensionsFile)
     {
-        int nCollectionIndex = 0;
         int nCurrentPaletteOffset = 0;
         int nDistanceFromZero = nPalId;
         const sJOJOS_PaletteDataset* paletteSetToUse = nullptr;
@@ -1009,15 +1014,12 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     sDescNode* NodeGet = (UsePaletteSetFor50() ? MainDescTree_50.GetDescNode(Node01, Node02, Node03, Node04) :
                                                  MainDescTree_51.GetDescNode(Node01, Node02, Node03, Node04));
 
-    if (NodeGet == NULL)
+    if (NodeGet == nullptr)
     {
         return FALSE;
     }
 
-    UINT16 uUnitId = NodeGet->uUnitId;
-    UINT16 uPalId = NodeGet->uPalId;
-
-    int nCollectionCount = GetCollectionCountForUnit(uUnitId);
+    UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
     BOOL bCreateBasicPal = TRUE;
 
     int nSrcStart = 0;
@@ -1027,16 +1029,16 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     BasePalGroup.FlushPalAll();
 
     //Select the image
-    int nNormalPalettesCount = ((GetCollectionCountForUnit(uUnitId) * 2) + 10);
+    int nNormalPalettesCount = ((GetCollectionCountForUnit(NodeGet->uUnitId) * 2) + 10);
 
-    if (UsePaletteSetFor50() ? (JOJOS_A_EXTRALOC_50 > uUnitId) : (JOJOS_A_EXTRALOC_51 > uUnitId))
+    if (UsePaletteSetFor50() ? (JOJOS_A_EXTRALOC_50 > NodeGet->uUnitId) : (JOJOS_A_EXTRALOC_51 > NodeGet->uUnitId))
 {
-        nSrcStart = uPalId;
+        nSrcStart = NodeGet->uPalId;
         nSrcAmt = 1;
 
-        if (uPalId >= nNormalPalettesCount)
+        if (NodeGet->uPalId >= nNormalPalettesCount)
         {
-            bCreateBasicPal = !(CreateExtraPal(uUnitId, uPalId));
+            bCreateBasicPal = !(CreateExtraPal(NodeGet->uUnitId, NodeGet->uPalId));
         }
     }
     else
@@ -1055,7 +1057,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         //Create the default palette
         CreateDefPal(NodeGet, 0);
 
-        SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
     }
 
     return TRUE;
@@ -1111,12 +1113,12 @@ BOOL CGame_JOJOS_A::LoadFile(CFile* LoadedFile, UINT16 nFileId)
 {
     for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        int nPalAmt = GetPaletteCountForUnit(nUnitCtr); //Fix later for extras
+        int nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         // Use a natural sort: no need to override the array layout
-        rgUnitRedir[nUnitCtr] = nUnitCtr; //  (UsePaletteSetFor50()) ? JOJOS_A_UNITS_DISPLAYSORT_50[nUnitCtr] : JOJOS_A_UNITS_DISPLAYSORT_51[nUnitCtr];
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -1141,6 +1143,7 @@ BOOL CGame_JOJOS_A::SaveFile(CFile* SaveFile, UINT16 nFileId)
 {
     UINT32 nTotalPalettesSaved = 0;
 
+    // We're walking this backwards in order to avoid conflicts with Extra files.
     for (INT16 nUnitCtr = (nUnitAmt - 1); nUnitCtr >= 0 ; nUnitCtr--)
     {
         UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
