@@ -8,6 +8,8 @@ constexpr auto EXTRA_FILENAME_MVC = "mvce.txt";
 class CGame_MVC_A : public CGameClass
 {
 private:
+    int m_nCurrentPaletteROMLocation = 0;
+
     //Used for image selection
     int nTargetImgId = 0;
 
@@ -15,11 +17,18 @@ private:
     int nCurrPalOffs = 0;
     int nCurrPalSz = 0;
 
+    static UINT32 m_nTotalPaletteCount;
+
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
 
     void InitDataBuffer();
     void ClearDataBuffer();
-    
+    void CheckExtrasFileForDuplication();
+    bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOffsetToCheck);
+    int GetDupeCountInDataset();
+    int GetDupeCountInExtrasDataset();
+    void CheckForDupesInTables();
+
     UINT16*** pppDataBuffer = nullptr;
 
 public:

@@ -694,7 +694,7 @@ bool CGame_JOJOS_A::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOf
                 !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)))
             {
                 nTotalDupesFound++;
-                strDupeText.Format("ERROR: Unit %u pal %u at offset 0x%07x is a duplicate of unit %u pal %u!\n", nUnitCtr, nPalCtr, nOffsetToCheck, nUnitId, nPalId);
+                strDupeText.Format("ERROR: Unit %u pal %u at offset 0x%06x is a duplicate of unit %u pal %u!\n", nUnitCtr, nPalCtr, nOffsetToCheck, nUnitId, nPalId);
                 OutputDebugString(strDupeText);
                 break;
             }
@@ -798,7 +798,7 @@ void CGame_JOJOS_A::CheckForDupesInTables()
     int nDupeCount = (nPaletteCountForRom == nSafeCountForThisRom) ? 0 : GetDupeCountInDataset();
     int nExtraDupeCount = fShouldCheckExtras ? GetDupeCountInExtrasDataset() : 0;
 
-    if (nDupeCount || nExtraDupeCount)
+    if (nDupeCount || nExtraDupeCount || (nSafeCountForThisRom != nPaletteCountForRom))
     {
         if (nExtraDupeCount)
         {

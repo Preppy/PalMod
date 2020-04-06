@@ -16,7 +16,6 @@ constexpr auto EXTRA_FILENAME_51 = "jojos51e.txt";
 class CGame_JOJOS_A : public CGameClass
 {
 private:
-    //Used for GetPalOffset BUGBUG but why?
     int m_nCurrentPaletteROMLocation = 0;
     int m_nCurrentPaletteSize = 0;
     const int m_knMaxPalettePageSize = 64;

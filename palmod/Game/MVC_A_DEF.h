@@ -236,7 +236,7 @@ const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
     { "P1 Hyper Megaman Revert 7", 0x4df24, 0x4df44, 0x1c },
     { "P1 Hyper Megaman Revert 8", 0x4df44, 0x4df64, 0x1c },
     { "P1 Hyper Megaman Revert 9", 0x4df64, 0x4df84, 0x1c },
-    { "P1 Beat Extra", 0x4df84, 0x4dfa4 },
+
     { "P1 Megaman Extra", 0x4e0a4, 0x4e0c4, 0x1c },
     { "P1 Magnetic Megaman", 0x4e0c4, 0x4e0e4, 0x1c },
 
