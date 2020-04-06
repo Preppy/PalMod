@@ -1,73 +1,63 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ImgDat.h"
 #include "game\gamedef.h"
 
+#define IMGDAT_DEBUG 0
+
 CImgDat::CImgDat(void)
 {
-    memset(pLastImg, 0, sizeof(sImgDef*) * MAX_IMAGE);
+    pLastImg = new sImgDef * [MAX_IMAGE];
 }
 
 CImgDat::~CImgDat(void)
-{
-    FlushImageBuffer();
+{   
+    if (!imageBufferFlushed)
+    {
+        FlushImageBuffer();
+        FlushLastImg();
+    }
     CloseImgFile();
 }
 
-sImgDef* CImgDat::GetImageDef(UINT8 uUnitId, UINT8 uImgId)
-{   
-    CString strDebugInfo;
-    strDebugInfo.Format("CImgDat::GetImageDef : Attempting to get ImageDef for unit 0x%02x img 0x%x.\n", uUnitId, uImgId);
-    OutputDebugString(strDebugInfo);
-
-    if ((uUnitId >= uCurrUnitAmt) || (uImgId > uCurrImgAmt))
-    {
-        strDebugInfo.Format("CImgDat::GetImageDef : Failed to get ImageDef for unit 0x%02x img 0x%x.\n", uUnitId, uImgId);
-        OutputDebugString(strDebugInfo);
-        strDebugInfo.Format("CImgDat::GetImageDef : (uUnitId:0x%02x  >= uCurrUnitAmt:0x%02x) || (uImgId:0x%x > uCurrImgAmt:0x%02x).\n", uUnitId, uCurrUnitAmt, uImgId, uCurrImgAmt);
-        OutputDebugString(strDebugInfo);
-        return NULL;
-    }
-
-    if (ppImgData)
-    {
-        if (ppImgData[uUnitId])
-        {
-            if (ppImgData[uUnitId][uImgId])
-            {
-                return ppImgData[uUnitId][uImgId];
-            }
-        }
-    }
-    strDebugInfo.Format("CImgDat::GetImageDef : No image available.\n");
-    OutputDebugString(strDebugInfo);
-    return NULL;
-}
-
-void CImgDat::FlushImageBuffer()
+bool CImgDat::FlushImageBuffer()
 {
+    if (imageBufferFlushed)
+    {
+        return imageBufferFlushed;
+    }
+
+    CString strDebugInfo;
     if (ppImgData)
     {
+#if IMGDAT_DEBUG
+        strDebugInfo.Format("CImgDat::FlushImageBuffer : ppImgData exists will try to delete.\n");
+        OutputDebugString(strDebugInfo);
+#endif
+
         for (int nUnitCtr = 0; nUnitCtr < uCurrUnitAmt; nUnitCtr++)
         {
-            for (int nImgCtr = 0; nImgCtr < uCurrImgAmt; nImgCtr++)
+            if (ppImgData[nUnitCtr])
             {
-                if (ppImgData[nUnitCtr][nImgCtr])
-                {
-                    safe_delete_array(ppImgData[nUnitCtr][nImgCtr]->pImgData);
-
-                    safe_delete(ppImgData[nUnitCtr][nImgCtr]);
-                }
+#if IMGDAT_DEBUG
+                strDebugInfo.Format("CImgDat::FlushImageBuffer : ppImgData[nUnitCtr] list exists will try to delete.\n");
+                OutputDebugString(strDebugInfo);
+#endif
+                delete ppImgData[nUnitCtr];
             }
 
-            safe_delete_array(ppImgData[nUnitCtr]);
-        }
+#if IMGDAT_DEBUG
+            strDebugInfo.Format("CImgDat::FlushImageBuffer : ppImgData[nUnitCtr] = nullptr \n");
+            OutputDebugString(strDebugInfo);
+#endif
+            ppImgData[nUnitCtr] = nullptr;
 
+        }
         safe_delete_array(ppImgData);
     }
 
-    nLastImgCt = 0;
-    //Set the current game flag to -1
-    //nCurrGFlag = -1;
+    imageBufferPrepped = false;
+    
+    return true;
 }
 
 void CImgDat::FlushLastImg()
@@ -78,14 +68,81 @@ void CImgDat::FlushLastImg()
         {
             if (pLastImg[i]->pImgData)
             {
-                safe_delete_array(pLastImg[i]->pImgData);
+                delete (pLastImg[i]->pImgData);
+                pLastImg[i] = nullptr;
+            }
+        }
+    }
+    safe_delete_array(pLastImg);
+    nLastImgCt = 0;
+}
+
+bool CImgDat::PrepImageBuffer(const UINT16 uUnitAmt)
+{
+    CString strDebugInfo;
+    strDebugInfo.Format("CImgDat::PrepImageBuffer : Beginning on preparing ImageBuffer\n");
+    OutputDebugString(strDebugInfo);
+    strDebugInfo.Format("CImgDat::PrepImageBuffer : Unit amount = uUnitAmt 0x%02X (%u) \n", uUnitAmt, uUnitAmt);
+    OutputDebugString(strDebugInfo);
+
+    if (!imageBufferFlushed)
+    {
+        imageBufferFlushed = FlushImageBuffer();
+    }
+
+    uCurrUnitAmt = uUnitAmt;
+    ppImgData = new ImgInfoList* [uUnitAmt];
+    for (UINT16 nUnitCtr = 0; nUnitCtr < uUnitAmt; nUnitCtr++)
+    {
+        ImgInfoList* newList = new ImgInfoList;
+        ppImgData[nUnitCtr] = newList;
+    }
+
+    imageBufferFlushed = false;
+    return true;
+}
+
+sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
+{   
+    CString strDebugInfo;
+    strDebugInfo.Format("CImgDat::GetImageDef : Attempting to get ImageDef for unit 0x%02x img 0x%x.\n", uUnitId, uImgId);
+    OutputDebugString(strDebugInfo);
+
+    //if ((uUnitId >= uCurrUnitAmt) || (uImgId > uCurrImgAmt))
+
+    if (ppImgData)
+    {
+        strDebugInfo.Format("CImgDat::GetImageDef : ppImgData exists \n");
+        OutputDebugString(strDebugInfo);
+        if (uUnitId > uCurrUnitAmt)
+        {
+            strDebugInfo.Format("CImgDat::GetImageDef : Failed to get ImageDef for unit 0x%02x img 0x%x.\n", uUnitId, uImgId);
+            OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::GetImageDef : (uUnitId:0x%02X  >= uCurrUnitAmt:0x%02X) || (uImgId:0x%02X > uCurrImgAmt:0x%02X).\n", uUnitId, uCurrUnitAmt, uImgId, uCurrImgAmt);
+            OutputDebugString(strDebugInfo);
+            return nullptr;
+        }
+
+        if (ppImgData[uUnitId])
+        {
+            ppImgData[uUnitId]->listAllImgIDs();
+            strDebugInfo.Format("CImgDat::GetImageDef : ppImgData[0x%02X] exists \n", uUnitId);
+            OutputDebugString(strDebugInfo);
+            if (ppImgData[uUnitId]->valueExists(uImgId))
+            {
+                strDebugInfo.Format("CImgDat::GetImageDef : Found imgID 0x%02X in list for unitID 0x%02X \n", uImgId, uUnitId);
+                OutputDebugString(strDebugInfo);
+                return ppImgData[uUnitId]->getImgDef(uImgId);
             }
 
-            pLastImg[i] = NULL;
+            strDebugInfo.Format("CImgDat::GetImageDef : Could not find imgID:0x%02X in list for unitID:0x%02X\n", uImgId, uUnitId);
+            OutputDebugString(strDebugInfo);
         }
     }
 
-    nLastImgCt = 0;
+    strDebugInfo.Format("CImgDat::GetImageDef : No image found \n");
+    OutputDebugString(strDebugInfo);
+    return nullptr;
 }
 
 UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitId, int nCurrentImgId)
@@ -96,27 +153,19 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
         strDebugInfo.Format("CImgDat::GetImgData : Image at position '0x%x' for unit 0x%02x img 0x%x is already loaded.\n", pCurrImg->uThisImgLoc, nCurrentUnitId, nCurrentImgId);
         OutputDebugString(strDebugInfo);
 
-        strDebugInfo.Format(" W: 0x%x / %u, H: 0x%x / %u, compressed: %u, size 0x%x, offset 0x%x / %lu to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
+        strDebugInfo.Format(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
         OutputDebugString(strDebugInfo);
 
         return pCurrImg->pImgData;
     }
-
-    /* Old path
-    if (pLastImg && pLastImg != pCurrImg)
-    {
-        delete [] pLastImg->pImgData;
-        pLastImg->pImgData = NULL;
-    }
-
-    */
+    
     //Read the data
-    UINT8* pNewImgData = new UINT8[pCurrImg->uDataSize];
 
+    UINT8* pNewImgData = new UINT8[pCurrImg->uDataSize];
 
     strDebugInfo.Format("CImgDat::GetImgData : Making pNewImgData for unitID:0x%X, imgID:0x%X .\n", nCurrentUnitId, nCurrentImgId);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format(" W: 0x%x / %u, H: 0x%x / %u, compressed: %u, size 0x%x, offset 0x%x / %lu to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
+    strDebugInfo.Format(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
     OutputDebugString(strDebugInfo);
     ImgDatFile.Seek(pCurrImg->uThisImgLoc, CFile::begin);
     ImgDatFile.Read(pNewImgData, pCurrImg->uDataSize);
@@ -195,36 +244,6 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
     return pNewImgData;
 }
 
-void CImgDat::PrepImageBuffer(UINT16 uUnitAmt, UINT16 uImgAmt)
-{
-    CString strDebugInfo;
-    strDebugInfo.Format("CImgDat::PrepImageBuffer : Beginning on preparing ImageBuffer\n");
-    OutputDebugString(strDebugInfo);
-    strDebugInfo.Format("CImgDat::PrepImageBuffer : Image amount = 0x%02X (%u); Unit amount = uUnitAmt 0x%02X (%u) \n", uImgAmt, uImgAmt, uUnitAmt, uUnitAmt);
-    OutputDebugString(strDebugInfo);
-    
-
-    if (ppImgData)
-    {
-        FlushImageBuffer();
-    }
-
-    uCurrUnitAmt = uUnitAmt;
-    uCurrImgAmt = uImgAmt;
-
-    ppImgData = new sImgDef * *[uUnitAmt];
-
-    for (int nUnitCtr = 0; nUnitCtr < uUnitAmt; nUnitCtr++)
-    {
-        ppImgData[nUnitCtr] = new sImgDef * [uImgAmt];
-
-        for (int nImgCtr = 0; nImgCtr < uImgAmt; nImgCtr++)
-        {
-            ppImgData[nUnitCtr][nImgCtr] = NULL;
-        }
-    }
-}
-
 void CImgDat::CloseImgFile()
 {
     if (bOnTheFly)
@@ -235,12 +254,13 @@ void CImgDat::CloseImgFile()
 
 BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UINT16 uImgAmt, BOOL bLoadAll)
 {
+    //uImgAmt = 0;
     UINT8 uNumGames = 0xF;
 
     CString strDebugInfo;
     strDebugInfo.Format("CimgData::LoadImage : Opening image file '%s'\n", lpszLoadFile);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format("CimgData::LoadImage : Game image flag is '%u'.  Reading 0x%x / %u units with  %u imgs.\n", uGameFlag, uUnitAmt, uUnitAmt, uImgAmt);
+    strDebugInfo.Format("CimgData::LoadImage : Game image flag is '%u'.  Reading 0x%x (%u) units with  %u imgs.\n", uGameFlag, uUnitAmt, uUnitAmt, uImgAmt);
     OutputDebugString(strDebugInfo);
 
     if (uGameFlag == (int)nCurrGFlag)
@@ -249,8 +269,13 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UI
     }
     else
     {
-        FlushImageBuffer();
-
+        strDebugInfo.Format("CimgData::LoadImage : New game being loaded 0x%02X, flushing image buffer.'\n", uGameFlag);
+        OutputDebugString(strDebugInfo);
+        imageBufferFlushed = false;
+        FlushLastImg();
+        imageBufferFlushed = FlushImageBuffer();
+        strDebugInfo.Format("CimgData::LoadImage : Image buffer has been flushed. imageBuffer: %s '\n", imageBufferPrepped);
+        OutputDebugString(strDebugInfo);
         CloseImgFile();
     }
 
@@ -258,11 +283,9 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UI
 
     if (!ImgDatFile.Open(lpszLoadFile, CFile::modeRead | CFile::typeBinary))
     {
-        //Error loading
-        ImgDatFile.Abort();
+        ImgDatFile.Abort();         //Error loading
         return FALSE;
     }
-
     bOnTheFly = !bLoadAll;
 
     //Skip image verification
@@ -283,46 +306,57 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UI
             OutputDebugString(strDebugInfo);
 
             if (uReadGameFlag == uGameFlag)
-            {   
+            {
+                uCurrImgAmt = uReadNumImgs;
                 strDebugInfo.Format("CimgData::LoadImage : Read matching gameID: 0x%X for current gameID: 0x%X \n", uReadGameFlag, uGameFlag);
                 OutputDebugString(strDebugInfo);
+               
+                if (!imageBufferFlushed)
+                {
+                    FlushLastImg();
+                    imageBufferFlushed = FlushImageBuffer();
+                }
 
-                uImgAmt = uReadNumImgs;
-                
-                PrepImageBuffer(uUnitAmt, uImgAmt);
-
+                imageBufferPrepped = PrepImageBuffer(uUnitAmt);
+               
                 while (uNextImgLoc != 0)
                 {
                     ImgDatFile.Seek(uNextImgLoc, CFile::begin);
 
-                    sImgDef* CurrImg;
                     UINT8 uCurrUnitId, uCurrImgId;
-
                     ImgDatFile.Read(&uCurrUnitId, 0x01);
                     ImgDatFile.Read(&uCurrImgId, 0x01);
-                  
-                    strDebugInfo.Format("CimgData::LoadImage : Making ppImgData[0x%X][0x%X] \n", uCurrUnitId, uCurrImgId);
+
+                    strDebugInfo.Format("CimgData::LoadImage : Inserting node[0x%X][0x%X] \n", uCurrUnitId, uCurrImgId);
                     OutputDebugString(strDebugInfo);
 
-                    ppImgData[uCurrUnitId][uCurrImgId] = new sImgDef;
+                    ppImgData[uCurrUnitId]->insertNode(uCurrImgId);
 
-                    CurrImg = ppImgData[uCurrUnitId][uCurrImgId];
+                    strDebugInfo.Format("CimgData::LoadImage : node[0x%X][0x%X] Inserted \n", uCurrUnitId, uCurrImgId);
+                    OutputDebugString(strDebugInfo);
+                    
+                    sImgDef* pCurrImg = ppImgData[uCurrUnitId]->getImgDef(uCurrImgId);
 
-                    CurrImg->pImgData = NULL;
+                    pCurrImg->pImgData = nullptr;
 
-                    ImgDatFile.Read(&CurrImg->uImgWidth, 0x02);
-                    ImgDatFile.Read(&CurrImg->uImgHeight, 0x02);
-                    ImgDatFile.Read(&CurrImg->bCompressed, 0x01);
-                    ImgDatFile.Read(&CurrImg->uDataSize, 0x04);
-
+                    ImgDatFile.Read(&pCurrImg->uImgWidth, 0x02);
+                    ImgDatFile.Read(&pCurrImg->uImgHeight, 0x02);
+                    ImgDatFile.Read(&pCurrImg->bCompressed, 0x01);
+                    ImgDatFile.Read(&pCurrImg->uDataSize, 0x04);
                     ImgDatFile.Read(&uNextImgLoc, 0x04);
+                    
+                    strDebugInfo.Format("CImgDat::LoadImage : Image info for unit 0x%02X img 0x%02X has been loaded.\n", uCurrUnitId, uCurrImgId);
+                    OutputDebugString(strDebugInfo);
+
+                    strDebugInfo.Format(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
+                    OutputDebugString(strDebugInfo);
 
                     //Get the current image location
-                    CurrImg->uThisImgLoc = (0xFFFFFFFF & ImgDatFile.GetPosition());
+                    pCurrImg->uThisImgLoc = (0xFFFFFFFF & ImgDatFile.GetPosition());
 
                     if (bLoadAll)
                     {
-                        GetImgData(CurrImg, uReadGameFlag, uCurrUnitId, uCurrImgId);
+                        GetImgData(pCurrImg, uReadGameFlag, uCurrUnitId, uCurrImgId);
                     }
                 }
 

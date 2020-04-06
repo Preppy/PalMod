@@ -132,6 +132,7 @@
     <ClCompile Include="ImgDat.cpp" />
     <ClCompile Include="ImgDisp.cpp" />
     <ClCompile Include="ImgDumpBmp.cpp" />
+    <ClCompile Include="ImgInfoList.cpp" />
     <ClCompile Include="ImgOutDlg.cpp" />
     <ClCompile Include="Junk.cpp" />
     <ClCompile Include="PalMod.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="ImgDat.h" />
     <ClInclude Include="ImgDisp.h" />
     <ClInclude Include="ImgDumpBmp.h" />
+    <ClInclude Include="ImgInfoList.h" />
     <ClInclude Include="ImgOutDlg.h" />
     <ClInclude Include="Junk.h" />
     <ClInclude Include="JunkC.h" />

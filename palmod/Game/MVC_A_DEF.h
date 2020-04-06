@@ -745,8 +745,8 @@ const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "Saki P2", 0x509c4, 0x509e4 },
     { "Saki P2 Extra", 0x509e4, 0x50a04 },
 
-    { "Sentinel P1", 0x51344, 0x51364, 0x44 },
-    { "Sentinel P2", 0x513a4, 0x513c4, 0x44 },
+    { "Sentinel P1", 0x51344, 0x51364, 0x34 },
+    { "Sentinel P2", 0x513a4, 0x513c4, 0x34 },
 
     { "Shadow Nash P1", 0x51284, 0x512a4, 0x21 },
     { "Shadow Nash P1 Extra", 0x512c4, 0x512e4, 0x21, 2 },

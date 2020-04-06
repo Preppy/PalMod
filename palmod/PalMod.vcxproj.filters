@@ -186,6 +186,9 @@
     <ClCompile Include="ExtraFile.cpp">
       <Filter>Game\Default</Filter>
     </ClCompile>
+    <ClCompile Include="ImgInfoList.cpp">
+      <Filter>Game\Image</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImgDisp.h">
@@ -319,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="ExtraFile.h">
       <Filter>Game\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgInfoList.h">
+      <Filter>Game\Image</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
