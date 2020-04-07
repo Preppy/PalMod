@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "PalMod.h"
 #include "PalModDlg.h"
+#include "palmod.h"
 
 #include "Game\ColorScale.h"
 
@@ -272,9 +273,18 @@ void CPalModDlg::SetColMode(int nColMode)
 
                 COLORREF crRGBVal = HLStoRGB(dH, dL, dS);
 
-                m_Edit_RH = (int)round(GetRValue(crRGBVal) / nTRGBMul);
-                m_Edit_GS = (int)round(GetGValue(crRGBVal) / nTRGBMul);
-                m_Edit_BL = (int)round(GetBValue(crRGBVal) / nTRGBMul);
+                if (bShow32)
+                {
+                    m_Edit_RH = GetHost()->GetCurrGame()->GetPalGroup()->ROUND_R((int)round(GetRValue(crRGBVal) / nTRGBMul));
+                    m_Edit_GS = GetHost()->GetCurrGame()->GetPalGroup()->ROUND_G((int)round(GetGValue(crRGBVal) / nTRGBMul));
+                    m_Edit_BL = GetHost()->GetCurrGame()->GetPalGroup()->ROUND_B((int)round(GetBValue(crRGBVal) / nTRGBMul));
+                }
+                else
+                {
+                    m_Edit_RH = (int)round(GetRValue(crRGBVal) / nTRGBMul);
+                    m_Edit_GS = (int)round(GetGValue(crRGBVal) / nTRGBMul);
+                    m_Edit_BL = (int)round(GetBValue(crRGBVal) / nTRGBMul);
+                }
             }
             else //RGBtoHLS
             {
