@@ -590,11 +590,11 @@ void CPalModDlg::ClearGameVar()
     m_Edit_RH = m_Edit_GS = m_Edit_BL = m_Edit_A = 0;
     UpdateData(FALSE);
     //Clear plane amt
-    nRAmt = nGAmt = nBAmt = nAAmt = 0;
+    nRGBAmt = nAAmt = 0;
     //Clear plane multiplier
-    nRMul = nGMul = nBMul = nAMul = 1.0;
+    nRGBMul = nAMul = 1.0;
     //Clear temporary plane multiplier
-    nTRMul = nTGMul = nTBMul = nTAMul = 1.0;
+    nTRGBMul = nTAMul = 1.0;
 
     bCopyFromBase = FALSE;
 

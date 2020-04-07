@@ -23,9 +23,7 @@ enum ColMode
 
 enum ColFlag
 {
-    COL_R,
-    COL_B,
-    COL_G,
+    COL_RGB,
     COL_A,
 };
 

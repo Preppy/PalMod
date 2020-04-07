@@ -20,9 +20,7 @@ void CPalModDlg::ResetSlider(BOOL bSetZero)
 {
     UpdateData();
 
-    nTRMul = ((bShow32 && bRGB) ? nRMul : 1);
-    nTGMul = ((bShow32 && bRGB) ? nGMul : 1);
-    nTBMul = ((bShow32 && bRGB) ? nBMul : 1);
+    nTRGBMul = ((bShow32 && bRGB) ? nRGBMul : 1);
     nTAMul = ((bShow32 && bRGB) ? (nAMul ? nAMul : 1) : 1);
 
     if (bSetZero)
@@ -33,9 +31,9 @@ void CPalModDlg::ResetSlider(BOOL bSetZero)
         m_Edit_A = 0;
     }
 
-    m_RHSlider.SetPos((int)(double)(round(m_Edit_RH / nTRMul)));
-    m_GSSlider.SetPos((int)(double)(round(m_Edit_GS / nTGMul)));
-    m_BLSlider.SetPos((int)(double)(round(m_Edit_BL / nTBMul)));
+    m_RHSlider.SetPos((int)(double)(round(m_Edit_RH / nTRGBMul)));
+    m_GSSlider.SetPos((int)(double)(round(m_Edit_GS / nTRGBMul)));
+    m_BLSlider.SetPos((int)(double)(round(m_Edit_BL / nTRGBMul)));
     m_ASlider.SetPos((int)(double)(round(m_Edit_A / nTAMul)));
 
     UpdateData(FALSE);
@@ -76,9 +74,9 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
             {
                 if (nRangeFlag != 0 + nGameFlag)
                 {
-                    m_RHSlider.SetRange(0, nRAmt, TRUE);
-                    m_GSSlider.SetRange(0, nGAmt, TRUE);
-                    m_BLSlider.SetRange(0, nBAmt, TRUE);
+                    m_RHSlider.SetRange(0, nRGBAmt, TRUE);
+                    m_GSSlider.SetRange(0, nRGBAmt, TRUE);
+                    m_BLSlider.SetRange(0, nRGBAmt, TRUE);
                     m_ASlider.SetRange(0, nAAmt, TRUE);
 
                     nRangeFlag = 0 + nGameFlag;
@@ -115,9 +113,9 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
             {
                 if (nRangeFlag != 0xFF * 2 + nGameFlag)
                 {
-                    m_RHSlider.SetRange(-nRAmt, nRAmt, TRUE);
-                    m_GSSlider.SetRange(-nGAmt, nGAmt, TRUE);
-                    m_BLSlider.SetRange(-nBAmt, nBAmt, TRUE);
+                    m_RHSlider.SetRange(-nRGBAmt, nRGBAmt, TRUE);
+                    m_GSSlider.SetRange(-nRGBAmt, nRGBAmt, TRUE);
+                    m_BLSlider.SetRange(-nRGBAmt, nRGBAmt, TRUE);
                     m_ASlider.SetRange(-nAAmt, nAAmt, TRUE);
 
                     nRangeFlag = 0xFF * 2 + nGameFlag;
@@ -196,19 +194,19 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
     case IDC_RH_SLIDER:
     {
         editControl = &m_Edit_RH;
-        nMul = nRMul;
+        nMul = nRGBMul;
     }
     break;
     case IDC_GS_SLIDER:
     {
         editControl = &m_Edit_GS;
-        nMul = nGMul;
+        nMul = nRGBMul;
     }
     break;
     case IDC_BL_SLIDER:
     {
         editControl = &m_Edit_BL;
-        nMul = nBMul;
+        nMul = nRGBMul;
     }
     break;
     case IDC_A_SLIDER:
@@ -259,15 +257,11 @@ void CPalModDlg::SetColMode(int nColMode)
 {
     if (bRGB != nColMode)
     {
-        BOOL bZeroSlider;
-
         if (nPalSelAmt == 1 || !bAutoSetCol)
         {
             double dH, dS, dL;
 
-            nTRMul = (bShow32 ? 1 : nRMul);
-            nTGMul = (bShow32 ? 1 : nGMul);
-            nTBMul = (bShow32 ? 1 : nBMul);
+            nTRGBMul = (bShow32 ? 1 : nRGBMul);
 
             UpdateData();
             if (nColMode) //HLStoRGB
@@ -278,16 +272,16 @@ void CPalModDlg::SetColMode(int nColMode)
 
                 COLORREF crRGBVal = HLStoRGB(dH, dL, dS);
 
-                m_Edit_RH = (int)round(GetRValue(crRGBVal) / nTRMul);
-                m_Edit_GS = (int)round(GetGValue(crRGBVal) / nTGMul);
-                m_Edit_BL = (int)round(GetBValue(crRGBVal) / nTBMul);
+                m_Edit_RH = (int)round(GetRValue(crRGBVal) / nTRGBMul);
+                m_Edit_GS = (int)round(GetGValue(crRGBVal) / nTRGBMul);
+                m_Edit_BL = (int)round(GetBValue(crRGBVal) / nTRGBMul);
             }
             else //RGBtoHLS
             {
                 COLORREF crRGBVal = RGB(
-                    (int)round(m_Edit_RH * nTRMul),
-                    (int)round(m_Edit_GS * nTGMul),
-                    (int)round(m_Edit_BL * nTBMul));
+                    (int)round(m_Edit_RH * nTRGBMul),
+                    (int)round(m_Edit_GS * nTRGBMul),
+                    (int)round(m_Edit_BL * nTRGBMul));
 
                 RGBtoHLS(crRGBVal, &dH, &dL, &dS);
 
@@ -296,7 +290,6 @@ void CPalModDlg::SetColMode(int nColMode)
                 m_Edit_BL = (int)(dL * 100.0f);
             }
 
-            bZeroSlider = FALSE;
             UpdateData(FALSE);
         }
         else if (nPalSelAmt > 1)
@@ -306,8 +299,6 @@ void CPalModDlg::SetColMode(int nColMode)
             m_Edit_RH = 0;
             m_Edit_GS = 0;
             m_Edit_BL = 0;
-
-            bZeroSlider = TRUE;
 
             UpdateData(FALSE);
 
@@ -346,8 +337,9 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
     {
         editControl = &m_Edit_RH;
         TargetSlider = &m_RHSlider;
-        nColMax = nRAmt;
-        nColMul = nRMul;
+
+        nColMax = nRGBAmt;
+        nColMul = nRGBMul;
         nHLSHI = 360;
     }
     break;
@@ -356,9 +348,8 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
         editControl = &m_Edit_GS;
         TargetSlider = &m_GSSlider;
 
-        nColMax = nGAmt;
-        nColMul = nGMul;
-
+        nColMax = nRGBAmt;
+        nColMul = nRGBMul;
         nHLSHI = 255;
     }
     break;
@@ -367,9 +358,8 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
         editControl = &m_Edit_BL;
         TargetSlider = &m_BLSlider;
 
-        nColMax = nBAmt;
-        nColMul = nBMul;
-
+        nColMax = nRGBAmt;
+        nColMul = nRGBMul;
         nHLSHI = 100;
     }
     break;
@@ -427,10 +417,9 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
     {
         if (bRGB)
         {
-            BOOL bNeg = (*editControl < 0);
-
             if (bShow32)
             {
+                BOOL bNeg = (*editControl < 0);
 
                 *editControl = MainPalGroup->ROUND(MainPalGroup->LimitRGB(abs(*editControl)));
 
@@ -484,9 +473,7 @@ void CPalModDlg::OnKillFocusEditA()
 
 void CPalModDlg::SetSliderCol(int nRH, int nGS, int nBL, int nA)
 {
-    nTRMul = (bShow32 ? 1 : nRMul);
-    nTGMul = (bShow32 ? 1 : nGMul);
-    nTBMul = (bShow32 ? 1 : nBMul);
+    nTRGBMul = (bShow32 ? 1 : nRGBMul);
     nTAMul = (bShow32 ? 1 : nAMul);
 
     if (!bRGB)
@@ -501,9 +488,9 @@ void CPalModDlg::SetSliderCol(int nRH, int nGS, int nBL, int nA)
     }
     else
     {
-        nRH = (int)round(nRH / nTRMul);
-        nGS = (int)round(nGS / nTGMul);
-        nBL = (int)round(nBL / nTBMul);
+        nRH = (int)round(nRH / nTRGBMul);
+        nGS = (int)round(nGS / nTRGBMul);
+        nBL = (int)round(nBL / nTRGBMul);
     }
 
     if (!nAMul)
@@ -546,9 +533,9 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
             if (bRGB)
             {
                 MainPalGroup->SetRGBA(crTarget,
-                    (int)round(m_RHSlider.GetPos() * nRMul),
-                    (int)round(m_GSSlider.GetPos() * nGMul),
-                    (int)round(m_BLSlider.GetPos() * nBMul),
+                    (int)round(m_RHSlider.GetPos() * nRGBMul),
+                    (int)round(m_GSSlider.GetPos() * nRGBMul),
+                    (int)round(m_BLSlider.GetPos() * nRGBMul),
                     nAVal
                 );
             }
@@ -585,9 +572,9 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
                     if (uSelBuffer[nICtr])
                     {
                         MainPalGroup->SetAddRGBA(crBasePal[nICtr], &crTarget[nICtr],
-                            (int)round(m_RHSlider.GetPos() * nRMul),
-                            (int)round(m_GSSlider.GetPos() * nGMul),
-                            (int)round(m_BLSlider.GetPos() * nBMul),
+                            (int)round(m_RHSlider.GetPos() * nRGBMul),
+                            (int)round(m_GSSlider.GetPos() * nRGBMul),
+                            (int)round(m_BLSlider.GetPos() * nRGBMul),
                             nAVal
                         );
 
@@ -645,9 +632,9 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
                     if (uSelBuffer[nICtr])
                     {
                         MainPalGroup->SetRGBA(&crTarget[nICtr],
-                            (int)round(m_RHSlider.GetPos() * nRMul),
-                            (int)round(m_GSSlider.GetPos() * nGMul),
-                            (int)round(m_BLSlider.GetPos() * nBMul),
+                            (int)round(m_RHSlider.GetPos() * nRGBMul),
+                            (int)round(m_GSSlider.GetPos() * nRGBMul),
+                            (int)round(m_BLSlider.GetPos() * nRGBMul),
                             nAVal
                         );
 
@@ -750,14 +737,12 @@ void CPalModDlg::OnBnNewCol()
     {
         if (bRGB)
         {
-            nTRMul = (bShow32 ? 1 : nRMul);
-            nTGMul = (bShow32 ? 1 : nGMul);
-            nTBMul = (bShow32 ? 1 : nBMul);
-
+            nTRGBMul = (bShow32 ? 1 : nRGBMul);
+            
             ColorDlg = new CColorDialog(RGB(
-                (int)round(m_Edit_RH * nTRMul),
-                (int)round(m_Edit_GS * nTGMul),
-                (int)round(m_Edit_BL * nTBMul)));
+                (int)round(m_Edit_RH * nTRGBMul),
+                (int)round(m_Edit_GS * nTRGBMul),
+                (int)round(m_Edit_BL * nTRGBMul)));
         }
         else
         {
@@ -846,16 +831,16 @@ void CPalModDlg::OnColSett()
     {
         if (bShow32)
         {
-            m_Edit_RH = (int)round(m_Edit_RH * nRMul);
-            m_Edit_GS = (int)round(m_Edit_GS * nGMul);
-            m_Edit_BL = (int)round(m_Edit_BL * nBMul);
+            m_Edit_RH = (int)round(m_Edit_RH * nRGBMul);
+            m_Edit_GS = (int)round(m_Edit_GS * nRGBMul);
+            m_Edit_BL = (int)round(m_Edit_BL * nRGBMul);
             m_Edit_A = (int)round(m_Edit_A * nTAMul);
         }
         else
         {
-            m_Edit_RH = (int)round(m_Edit_RH / nRMul);
-            m_Edit_GS = (int)round(m_Edit_GS / nGMul);
-            m_Edit_BL = (int)round(m_Edit_BL / nBMul);
+            m_Edit_RH = (int)round(m_Edit_RH / nRGBMul);
+            m_Edit_GS = (int)round(m_Edit_GS / nRGBMul);
+            m_Edit_BL = (int)round(m_Edit_BL / nRGBMul);
             m_Edit_A = (int)round(m_Edit_A / nTAMul);
         }
     }

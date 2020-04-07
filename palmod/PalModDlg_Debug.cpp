@@ -12,9 +12,9 @@ void CPalModDlg::OnBnClickedBEidrian2()
     {
         ((CGame_MVC2_D*)GetHost()->GetCurrGame())->ForEidrian(0,
             RGB(
-            (int)round(m_RHSlider.GetPos() * nRMul),
-                (int)round(m_GSSlider.GetPos() * nGMul),
-                (int)round(m_BLSlider.GetPos() * nBMul)) | (UINT32)((m_ASlider.GetPos() * 17) << 24));
+                (int)round(m_RHSlider.GetPos() * nRGBMul),
+                (int)round(m_GSSlider.GetPos() * nRGBMul),
+                (int)round(m_BLSlider.GetPos() * nRGBMul)) | (UINT32)((m_ASlider.GetPos() * 17) << 24));
     }
 
     UpdateData(FALSE);
