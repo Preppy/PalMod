@@ -1468,7 +1468,6 @@ const sDescTreeNode MVC_UNITS[MVC_A_NUMUNIT] =
 const stExtraDef MVC_A_EXTRA[] =
 {
     //Start
-
     { UNIT_START_VALUE },
 
     { INVALID_UNIT_VALUE }

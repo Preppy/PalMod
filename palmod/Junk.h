@@ -148,6 +148,8 @@ public:
 
     int GetHighlightIndex() { return iHighlightIndex; };
 
+    void UpdateSelAmt();
+
     int GetSelAmt() { return iSelAmt; };
     int GetHLAmt() { return iHLAmt; };
     void SetArrayIndex(int nIndex) { nArrayIndex = nIndex; };

@@ -75,7 +75,7 @@ int CGame_SFIII3_A::GetBasicAmt(UINT16 nUnitId)
 {
     switch (nUnitId)
     {
-    case 0x0E:
+    case 0x0E: // Shin-Gouki
         return 2;
     case SFIII3_A_EXTRALOC:
         return 1;

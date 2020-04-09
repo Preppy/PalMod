@@ -346,6 +346,8 @@ void CJunk::SelectAll()
             Selected[i] = TRUE;
         }
     }
+
+    UpdateSelAmt();
 }
 
 void CJunk::UpdateIndex(int index)
@@ -653,6 +655,22 @@ void CJunk::OnLButtonDown(UINT nFlags, CPoint point)
     CWnd::OnLButtonDown(nFlags, point);
 }
 
+void CJunk::UpdateSelAmt()
+{
+    iSelAmt = 0;
+
+    for (int iy = 0; iy < iPalH; iy++)
+    {
+        for (int ix = 0; ix < iPalW; ix++)
+        {
+            if (Selected[(iy * iPalW) + ix])
+            {
+                iSelAmt++;
+            }
+        }
+    }
+}
+
 void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
 {
     if (!bEnabled)
@@ -677,7 +695,6 @@ void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
                         if (!Selected[(iy * iPalW) + ix])
                         {
                             Selected[(iy * iPalW) + ix] = TRUE;
-                            iSelAmt++;
                         }
 
                         SelView[(iy * iPalW) + ix] = FALSE;
@@ -691,7 +708,6 @@ void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
         }
         else
         {
-
             if (Toggle(Selected[(yInSelStart * iPalW) + xInSelStart]))
             {
                 iSelAmt++;
@@ -705,6 +721,8 @@ void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
 
             NotifyParent(CUSTOM_SS);
         }
+
+        UpdateSelAmt();
     }
 
     UpdateCtrl();
@@ -722,14 +740,12 @@ BOOL CJunk::ProcessHovered(CPoint hPoint, CPoint& PalPos)
     int xIn = x / posmod;
     int yIn = y / posmod;
 
-    if (xIn >= iPalW)
+    if ((xIn >= iPalW) ||
+        (yIn >= iPalH) ||
+        ((yIn * iPalW) + xIn >= iWorkingAmt))
+    {
         return FALSE;
-
-    if (yIn >= iPalH)
-        return FALSE;
-
-    if ((yIn * iPalW) + xIn >= iWorkingAmt)
-        return FALSE;
+    }
 
     PalPos.x = xIn;
     PalPos.y = yIn;

@@ -30,16 +30,8 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
         // Check count to ensure correct offset of the file additions
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
-            if (strlen(pCurrDef->szDesc))
-            {
-                nStockExtrasCount++;
-                pCurrDef = const_cast<stExtraDef*>(&pBaseExtraDefs[nStockExtrasCount]);
-            }
-            else
-            {
-                OutputDebugString("BUGBUG: Unit has no description: please fix.\n");
-                break;
-            }
+            nStockExtrasCount++;
+            pCurrDef = const_cast<stExtraDef*>(&pBaseExtraDefs[nStockExtrasCount]);
         }
     }
     else
@@ -70,7 +62,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
     int nFileAttrib = GetFileAttributes(szTargetFile);
     if (((nFileAttrib & FILE_ATTRIBUTE_ARCHIVE) == FILE_ATTRIBUTE_ARCHIVE) && (nFileAttrib != INVALID_FILE_ATTRIBUTES))
     {
-        CHAR szCurrLine[MAX_PATH];// arbitrary line length: in practice it should be MAX_DESCRIPTION_LENGTH + 1
+        CHAR szCurrLine[MAX_PATH]; // arbitrary line length: in practice it should be MAX_DESCRIPTION_LENGTH + 1
         CHAR szCurrDesc[MAX_DESCRIPTION_LENGTH];
         CHAR* szFinalLine = nullptr;
         int nCurrStart = 0;
@@ -216,18 +208,23 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                 nTotalExtensionExtraLinesHandled++;
             }
         }
-    }
 
-    if (nArrayOffsetDesired >= nMaxExtraBufferSize)
-    {
-        strOutputText.Format("WARNING: The '%s' Extra file exceeds maximum palette count (%u defined).\n\nPalmod has added the first %u palettes.", pszExtraFileName, nArrayOffsetDesired, nMaxExtraBufferSize);
-        // Note that this crash occurs so early we don't get to load strings.
-        MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
+        if (nArrayOffsetDesired >= nMaxExtraBufferSize)
+        {
+            strOutputText.Format("WARNING: The '%s' Extra file exceeds maximum palette count (%u defined).\n\nPalmod has added the first %u palettes.", pszExtraFileName, nArrayOffsetDesired, nMaxExtraBufferSize);
+            // Note that this crash occurs so early we don't get to load strings.
+            MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
+        }
+        else if (nArrayOffsetDesired >= nPossibleDuplicateConcern)
+        {
+            strOutputText.Format("WARNING: The '%s' Extra file contains %u items.  Any item directly in PalMod and also in the Extras file can not be patched normally.\n\nPlease remove the duplicates from this Extras file - or don't use it.\n ", pszExtraFileName, nArrayOffsetDesired);
+            MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
+        }
     }
-    else if (nArrayOffsetDesired >= nPossibleDuplicateConcern)
+    else
     {
-        strOutputText.Format("WARNING: The '%s' Extra file contains %u items.  Any item directly in PalMod and also in the Extras file can not be patched normally.\n\nPlease remove the duplicates from this Extras file - or don't use it.\n ", pszExtraFileName, nArrayOffsetDesired);
-        MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
+        strOutputText.Format("\tExtras file '%s' does not exist. Skipping.\n", pszExtraFileName);
+        OutputDebugString(strOutputText);
     }
 
     if (*pCompleteExtraDefs == nullptr)
@@ -240,7 +237,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 
         (*pCompleteExtraDefs)[nExtraArraySize].uUnitN = INVALID_UNIT_VALUE;
 
-        strOutputText.Format("\tAdded %u palettes from the '%s' Extra file.\n", nExtraArraySize, pszExtraFileName);
+        strOutputText.Format("\tAdded %u palette Extras total, including the '%s' Extra file.\n", nExtraArraySize, pszExtraFileName);
         OutputDebugString(strOutputText);
     }
 }

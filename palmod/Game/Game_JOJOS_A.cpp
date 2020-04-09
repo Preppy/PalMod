@@ -137,7 +137,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
 
     m_nTotalInternalUnits = UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51;
     m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
-    m_nSafeCountForThisRom = UsePaletteSetFor50() ? nSafeCountFor50 : nSafeCountFor51;
+    m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
     m_pszExtraFilename = UsePaletteSetFor50() ? EXTRA_FILENAME_50 : EXTRA_FILENAME_51;
     m_nTotalPaletteCount = UsePaletteSetFor50() ? m_nTotalPaletteCount50 : m_nTotalPaletteCount51;
 
@@ -354,7 +354,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 
     CString strMsg;
     bool fHaveExtras = ((UsePaletteSetFor50() ? GetExtraCt(JOJOS_A_EXTRALOC_50) : GetExtraCt(JOJOS_A_EXTRALOC_51)) > 0);
-    strMsg.Format("CGame_JOJOS_A::InitDescTree: Building desc tree for ROM  %u...\n", m_nJojosMode);
+    strMsg.Format("CGame_JOJOS_A::InitDescTree: Building desc tree for ROM %u...\n", m_nJojosMode);
     OutputDebugString(strMsg);
 
     //Go through each character
