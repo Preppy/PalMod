@@ -39,7 +39,6 @@ public:
     //Extra palette function
     static int GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly = FALSE);
     static int GetExtraLoc(UINT16 nUnitId);
-    static int GetBasicAmt(UINT16 nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();

@@ -75,11 +75,6 @@ int CGame_MVC_A::GetExtraLoc(UINT16 nUnitId)
     return rgExtraLoc[nUnitId];
 }
 
-int CGame_MVC_A::GetBasicAmt(UINT16 nUnitId)
-{
-    return 1;
-}
-
 CGame_MVC_A::CGame_MVC_A(void)
 {
     //We need the proper unit amt before we init the main buffer
