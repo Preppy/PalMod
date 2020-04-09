@@ -10,6 +10,8 @@ stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MVC_A::MainDescTree = CGame_MVC_A::InitDescTree();
 
+UINT32 CGame_MVC_A::m_nTotalPaletteCountForMVC = 0;
+
 int CGame_MVC_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     static int rgExtraCountAll[MVC_A_NUMUNIT + 1] = { -1 };
@@ -83,11 +85,11 @@ CGame_MVC_A::CGame_MVC_A(void)
     //We need the proper unit amt before we init the main buffer
     nUnitAmt = MVC_A_NUMUNIT + (GetExtraCt(MVC_A_EXTRALOC) ? 1 : 0);
 
-    m_nCurrentPaletteROMLocation = 0;
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
     m_nSafeCountForThisRom = 827;
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
 
     InitDataBuffer();
 
@@ -294,7 +296,7 @@ CDescTree CGame_MVC_A::InitDescTree()
     strMsg.Format("CGame_MVC_A::InitDescTree: Loaded %u palettes for MVC1\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCount = nTotalPaletteCount;
+    m_nTotalPaletteCountForMVC = nTotalPaletteCount;
 
     return NewDescTree;
 }

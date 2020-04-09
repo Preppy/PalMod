@@ -15,9 +15,8 @@ protected:
     LPCSTR m_pszExtraFilename = nullptr;
 
 public:
-
-    CGameWithExtrasFile(void) {};
-    virtual ~CGameWithExtrasFile(void) {};
+    CGameWithExtrasFile() {};
+    virtual ~CGameWithExtrasFile() {};
 
     virtual void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId) {};
     virtual UINT16 GetPaletteCountForUnit(UINT16 nUnitId) { return INVALID_UNIT_VALUE; };

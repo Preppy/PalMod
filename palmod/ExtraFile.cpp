@@ -340,7 +340,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
         }
     }
 
-    strDupeText.Format("CGameWithExtrasFile::AreThereDupesInDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
+    strDupeText.Format("CGameWithExtrasFile::AreThereDupesInExtrasDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
     OutputDebugString(strDupeText);
 
     return nTotalDupesFound;
@@ -348,7 +348,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 
 void CGameWithExtrasFile::CheckForDupesInTables()
 {
-    const UINT32 nPaletteCountForRom = m_nTotalPaletteCount - GetPaletteCountForUnit(m_nExtraUnit);
+    const UINT32 nPaletteCountForRom = m_nTotalPaletteCount;
     bool fShouldCheckExtras = (GetPaletteCountForUnit(m_nExtraUnit) != 0);
 
     CString strText;

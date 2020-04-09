@@ -1,6 +1,7 @@
 #pragma once
 #include "gameclass.h"
 #include "JOJOS_A_DEF.h"
+#include "..\ExtraFile.h"
 
 #define JOJOS_A_USEEXTRAFILE
 
@@ -13,10 +14,9 @@ constexpr auto EXTRA_FILENAME_51 = "jojos51e.txt";
 #define GetJojosExtraDef(x) (const_cast<stExtraDef *>(&JOJOS_A_EXTRA[x]))
 #endif
 
-class CGame_JOJOS_A : public CGameClass
+class CGame_JOJOS_A : public CGameClass, public CGameWithExtrasFile
 {
 private:
-    int m_nCurrentPaletteROMLocation = 0;
     int m_nCurrentPaletteSize = 0;
     const int m_knMaxPalettePageSize = 64;
 
@@ -29,15 +29,12 @@ private:
     static UINT32 m_nTotalPaletteCount50;
     static UINT32 m_nTotalPaletteCount51;
 
+
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
 
     void InitDataBuffer();
     void ClearDataBuffer();
     void CheckExtrasFileForDuplication();
-    bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOffsetToCheck);
-    int GetDupeCountInDataset();
-    int GetDupeCountInExtrasDataset();
-    void CheckForDupesInTables();
     
     static const sJOJOS_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static bool UsePaletteSetFor50() { return (m_nJojosMode == 50); }
