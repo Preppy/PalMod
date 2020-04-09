@@ -3,6 +3,8 @@
 //#ifndef IMGINFOLIST_CPP
 //#define IMGINFOLIST_CPP
 
+#define IMGINFOLIST_DEBUG 0
+
 ImgInfoList::ImgInfoList()
 {   
 }
@@ -35,12 +37,12 @@ bool ImgInfoList::insertNode(UINT16 newImgID)
     if (valueExists(newImgID))
     {
         strDebugInfo.Format("ImgInfoList::insertNode : Will not insert node; node with imgID:0x%02X already exists.\n", newImgID);
-        OutputDebugString(strDebugInfo);
+        OutputDebugString_DebugOnly(strDebugInfo);
         return false;
     }
 
     strDebugInfo.Format("ImgInfoList::insertNode : Inserting node with imgID:0x%02X\n", newImgID);
-    OutputDebugString(strDebugInfo);
+    OutputDebugString_DebugOnly(strDebugInfo);
 
     ImgInfoNode* toAdd = makeNode(newImgID);
     toAdd->nextNode = headNode;
@@ -80,19 +82,19 @@ void ImgInfoList::listAllImgIDs()
 
     CString strDebugInfo;
     strDebugInfo.Format("\nImgInfoList::listAllImgIDs : Listing all imgIDs - [ ");
-    OutputDebugString(strDebugInfo);
+    OutputDebugString_DebugOnly(strDebugInfo);
     ImgInfoNode* currentNode = headNode;
     while (currentNode->nextNode != nullptr)
     {
         strDebugInfo.Format("0x%02X, ", currentNode->imgID);
-        OutputDebugString(strDebugInfo);
+        OutputDebugString_DebugOnly(strDebugInfo);
         currentNode = currentNode->nextNode;
     }
 
     if (currentNode->nextNode == nullptr)
     {
         strDebugInfo.Format("0x%02X ]\n\n", currentNode->imgID);
-        OutputDebugString(strDebugInfo);
+        OutputDebugString_DebugOnly(strDebugInfo);
     }
 }
 
@@ -102,7 +104,7 @@ ImgInfoNode* ImgInfoList::getToNode(UINT16 desiredImgID)
     if (isEmpty())
     {
         strDebugInfo.Format("ImgInfoList::getToNode : There are no nodes in this list.\n");
-        OutputDebugString(strDebugInfo);
+        OutputDebugString_DebugOnly(strDebugInfo);
         return nullptr;
     }
 
@@ -111,12 +113,12 @@ ImgInfoNode* ImgInfoList::getToNode(UINT16 desiredImgID)
     while (desiredImgID != currentNode->imgID)
     {
         strDebugInfo.Format("ImgInfoList::getToNode : Looking for imgID:0x%02X, Currently looking at imgID:0x%02X \n", desiredImgID, currentNode->imgID);
-        OutputDebugString(strDebugInfo);
+        OutputDebugString_DebugOnly(strDebugInfo);
 
         if (currentNode->nextNode == nullptr)
         {
             strDebugInfo.Format("ImgInfoList::getToNode : Search exhausted.\n");
-            OutputDebugString(strDebugInfo);
+            OutputDebugString_DebugOnly(strDebugInfo);
             break;
         }
         else
@@ -128,7 +130,7 @@ ImgInfoNode* ImgInfoList::getToNode(UINT16 desiredImgID)
     if (desiredImgID != currentNode->imgID)
     {
         strDebugInfo.Format("ImgInfoList::getToNode : Found imgID:0x%02X in list. \n", desiredImgID);
-        OutputDebugString(strDebugInfo);
+        OutputDebugString_DebugOnly(strDebugInfo);
     }
     return currentNode;
 }
@@ -141,7 +143,7 @@ bool ImgInfoList::valueExists(UINT16 desiredImgID)
     if (isEmpty())
     {
         strDebugInfo.Format("ImgInfoList::valueExists : There are no nodes in this list.\n");
-        OutputDebugString(strDebugInfo);
+        OutputDebugString_DebugOnly(strDebugInfo);
         return found;
     }
 
@@ -149,12 +151,12 @@ bool ImgInfoList::valueExists(UINT16 desiredImgID)
     while (!found && currentNode)
     {
         strDebugInfo.Format("ImgInfoList::valueExists : Looking for imgID:0x%02X, Currently looking at imgID:0x%02X \n", desiredImgID, currentNode->imgID);
-        OutputDebugString(strDebugInfo);
+        OutputDebugString_DebugOnly(strDebugInfo);
 
         if (currentNode->nextNode == nullptr)
         {
             strDebugInfo.Format("ImgInfoList::valueExists : Search exhausted.\n");
-            OutputDebugString(strDebugInfo);
+            OutputDebugString_DebugOnly(strDebugInfo);
             if (currentNode->imgID == desiredImgID)
             {
                 found = true;
@@ -166,7 +168,7 @@ bool ImgInfoList::valueExists(UINT16 desiredImgID)
         if (desiredImgID == currentNode->imgID)
         {
             strDebugInfo.Format("ImgInfoList::valueExists : Search success found imgID:0x%02X\n", desiredImgID);
-            OutputDebugString(strDebugInfo);
+            OutputDebugString_DebugOnly(strDebugInfo);
             return true;
         }
         else

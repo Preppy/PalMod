@@ -1,14 +1,14 @@
 #pragma once
 #include "gameclass.h"
 #include "MVC_A_DEF.h"
+#include "..\extrafile.h"
 
 constexpr auto EXTRA_FILENAME_MVC = "mvce.txt";
 #define GetExtraDefForMVC(x)((stExtraDef *)&MVC_A_EXTRA_CUSTOM[x])
 
-class CGame_MVC_A : public CGameClass
+class CGame_MVC_A : public CGameClass, public CGameWithExtrasFile
 {
 private:
-    int m_nCurrentPaletteROMLocation = 0;
 
     //Used for image selection
     int nTargetImgId = 0;
@@ -17,17 +17,11 @@ private:
     int nCurrPalOffs = 0;
     int nCurrPalSz = 0;
 
-    static UINT32 m_nTotalPaletteCount;
-
-    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
-
     void InitDataBuffer();
     void ClearDataBuffer();
-    void CheckExtrasFileForDuplication();
-    bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOffsetToCheck);
-    int GetDupeCountInDataset();
-    int GetDupeCountInExtrasDataset();
-    void CheckForDupesInTables();
+
+    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
+    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     UINT16*** pppDataBuffer = nullptr;
 
@@ -46,8 +40,6 @@ public:
     static int GetExtraLoc(UINT16 nUnitId);
     static int GetBasicAmt(UINT16 nUnitId);
 
-    static void LoadExtraFile();
-
     //Normal functions
     CDescTree* GetMainTree();
 
@@ -55,7 +47,6 @@ public:
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
     static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static const sMVC_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sMVC_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);

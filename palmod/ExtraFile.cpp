@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include <fstream>
+#include "PalMod.h"
 
 #include "ExtraFile.h"
 
@@ -10,6 +11,8 @@ using namespace std;
 
 // This is the most we can currently display.
 constexpr auto MAX_PALETTE_SIZE = 64;
+
+UINT32 CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 
 void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart)
 {
@@ -241,3 +244,142 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
         OutputDebugString(strOutputText);
     }
 }
+
+bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOffsetToCheck)
+{
+    UINT32 nTotalDupesFound = 0;
+    CString strDupeText;
+
+    //Go through each character
+    for (INT16 nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
+    {
+        UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+        {
+            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+            if ((nOffsetToCheck == m_nCurrentPaletteROMLocation) &&
+                !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)))
+            {
+                nTotalDupesFound++;
+                strDupeText.Format("ERROR: Unit %u pal %u at offset 0x%06x is a duplicate of unit %u pal %u!\n", nUnitCtr, nPalCtr, nOffsetToCheck, nUnitId, nPalId);
+                OutputDebugString(strDupeText);
+                break;
+            }
+        }
+    }
+
+    return (nTotalDupesFound != 0);
+}
+
+int CGameWithExtrasFile::GetDupeCountInDataset()
+{
+    UINT32 nTotalPalettesChecked = 0;
+    UINT32 nTotalDupesFound = 0;
+
+    CString strDupeText;
+    bool fCollisionFound = false;
+
+    //Go through each character
+    for (INT16 nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
+    {
+        if (nUnitCtr == m_nExtraUnit)
+        {
+            break;
+        }
+
+        UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+        {
+            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+            nTotalPalettesChecked++;
+
+            int nCurrentROMOffset = m_nCurrentPaletteROMLocation;
+
+            if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset))
+            {
+                fCollisionFound = true;
+                nTotalDupesFound++;
+            }
+        }
+
+        if (fCollisionFound)
+        {
+            fCollisionFound = false;
+        }
+    }
+
+    strDupeText.Format("CGameWithExtrasFile::AreThereDupesInDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
+    OutputDebugString(strDupeText);
+
+    // Div 2 since each one will be matching another one internally here
+    return nTotalDupesFound / 2;
+}
+
+int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
+{
+    UINT32 nTotalPalettesChecked = 0;
+    UINT32 nTotalDupesFound = 0;
+
+    CString strDupeText;
+    bool fCollisionFound = false;
+
+    //Go through the Extras
+    UINT16 nPalCount = GetPaletteCountForUnit(m_nExtraUnit);
+    for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
+    {
+        LoadSpecificPaletteData(m_nExtraUnit, nPalCtr);
+        nTotalPalettesChecked++;
+
+        int nCurrentROMOffset = m_nCurrentPaletteROMLocation;
+
+        if (IsROMOffsetDuplicated(m_nExtraUnit, nPalCtr, nCurrentROMOffset))
+        {
+            fCollisionFound = true;
+            nTotalDupesFound++;
+        }
+    }
+
+    strDupeText.Format("CGameWithExtrasFile::AreThereDupesInDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
+    OutputDebugString(strDupeText);
+
+    return nTotalDupesFound;
+}
+
+void CGameWithExtrasFile::CheckForDupesInTables()
+{
+    const UINT32 nPaletteCountForRom = m_nTotalPaletteCount - GetPaletteCountForUnit(m_nExtraUnit);
+    bool fShouldCheckExtras = (GetPaletteCountForUnit(m_nExtraUnit) != 0);
+
+    CString strText;
+    strText.Format("CGameWithExtrasFile::CheckForDupesInTables: Safe palette count for ROM is %u.  We found %u now.\n", m_nSafeCountForThisRom, nPaletteCountForRom);
+    OutputDebugString(strText);
+
+    int nDupeCount = (nPaletteCountForRom == m_nSafeCountForThisRom) ? 0 : GetDupeCountInDataset();
+    int nExtraDupeCount = fShouldCheckExtras ? GetDupeCountInExtrasDataset() : 0;
+
+    if (nDupeCount || nExtraDupeCount || (m_nSafeCountForThisRom != nPaletteCountForRom))
+    {
+        if (nExtraDupeCount)
+        {
+            strText.Format("WARNING: The %s Extras file used has %u duplicate palettes (including splitting) that are already in PalMod.  They will not work correctly.  Please remove them.", m_pszExtraFilename, nExtraDupeCount);
+        }
+        else if (nDupeCount)
+        {
+            strText.Format("WARNING: There are currently %u duplicates in the hex tables.\n\nThis is a bug in PalMod.  Please report.", nDupeCount);
+        }
+        else
+        {
+            strText.Format("Warning: This game's duplicate check count should be updated.\n\nNo duplicates were found thankfully.");
+        }
+
+        OutputDebugString(strText);
+        MessageBox(g_appHWnd, strText, GetAppName(), MB_ICONERROR);
+    }
+    else
+    {
+        OutputDebugString("\tCGameWithExtrasFile::CheckForDupesInTables: This matches the last known palette count: we're good.\n");
+    }
+}
+
+

@@ -64,8 +64,6 @@ public:
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
 
-    static void LoadExtraFile(int nPaletteSetToUse);
-
     //Normal functions
     CDescTree* GetMainTree();
 

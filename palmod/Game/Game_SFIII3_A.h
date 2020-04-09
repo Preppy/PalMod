@@ -51,8 +51,6 @@ public:
     static int GetExtraLoc(UINT16 nUnitId);
     static int GetBasicAmt(UINT16 nUnitId);
 
-    static void LoadExtraFile();
-
     //Normal functions
     CDescTree* GetMainTree();
 

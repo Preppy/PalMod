@@ -22,8 +22,8 @@ extern  COLORREF ColorScaleHSL3(const COLORREF Col1, const COLORREF Col2, const 
                     float Ratio1, float Ratio2, float Ratio3);
 
 
-  void     RGBtoHLS(const COLORREF rgb, double *H, double *L, double *S );
-  COLORREF    HLStoRGB(const double H, const double L, const double S );
+void     RGBtoHLS(const COLORREF rgb, double *H, double *L, double *S );
+COLORREF HLStoRGB(const double H, const double L, const double S );
 
 
 static double _HTemp, _LTemp, _STemp;

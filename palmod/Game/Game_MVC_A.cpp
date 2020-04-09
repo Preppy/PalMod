@@ -10,8 +10,6 @@ stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MVC_A::MainDescTree = CGame_MVC_A::InitDescTree();
 
-UINT32 CGame_MVC_A::m_nTotalPaletteCount = 0;
-
 int CGame_MVC_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     static int rgExtraCountAll[MVC_A_NUMUNIT + 1] = { -1 };
@@ -84,6 +82,12 @@ CGame_MVC_A::CGame_MVC_A(void)
 {
     //We need the proper unit amt before we init the main buffer
     nUnitAmt = MVC_A_NUMUNIT + (GetExtraCt(MVC_A_EXTRALOC) ? 1 : 0);
+
+    m_nCurrentPaletteROMLocation = 0;
+    m_nTotalInternalUnits = MVC_A_NUMUNIT;
+    m_nExtraUnit = MVC_A_EXTRALOC;
+    m_nSafeCountForThisRom = 827;
+    m_pszExtraFilename = EXTRA_FILENAME_MVC;
 
     InitDataBuffer();
 
@@ -454,150 +458,6 @@ void CGame_MVC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 
     m_nCurrentPaletteROMLocation = nCurrPalOffs;
-}
-
-bool CGame_MVC_A::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOffsetToCheck)
-{
-    UINT32 nTotalDupesFound = 0;
-    UINT16 nTotalUnits = MVC_A_NUMUNIT;
-    CString strDupeText;
-
-    //Go through each character
-    for (INT16 nUnitCtr = 0; nUnitCtr < nTotalUnits; nUnitCtr++)
-    {
-        UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
-        {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            if ((nOffsetToCheck == m_nCurrentPaletteROMLocation) &&
-                !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)))
-            {
-                nTotalDupesFound++;
-                strDupeText.Format("ERROR: Unit %u pal %u at offset 0x%06x is a duplicate of unit %u pal %u!\n", nUnitCtr, nPalCtr, nOffsetToCheck, nUnitId, nPalId);
-                OutputDebugString(strDupeText);
-                break;
-            }
-        }
-    }
-
-    return (nTotalDupesFound != 0);
-}
-
-int CGame_MVC_A::GetDupeCountInDataset()
-{
-    UINT32 nTotalPalettesChecked = 0;
-    UINT32 nTotalDupesFound = 0;
-    UINT16 nTotalUnits = MVC_A_NUMUNIT;
-    UINT16 nExtraUnit = MVC_A_EXTRALOC;
-
-    CString strDupeText;
-    bool fCollisionFound = false;
-
-    //Go through each character
-    for (INT16 nUnitCtr = 0; nUnitCtr < nTotalUnits; nUnitCtr++)
-    {
-        if (nUnitCtr == nExtraUnit)
-        {
-            break;
-        }
-
-        UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
-        {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-            nTotalPalettesChecked++;
-
-            int nCurrentROMOffset = m_nCurrentPaletteROMLocation;
-
-            if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset))
-            {
-                fCollisionFound = true;
-                nTotalDupesFound++;
-            }
-        }
-
-        if (fCollisionFound)
-        {
-            fCollisionFound = false;
-        }
-    }
-
-    strDupeText.Format("CGame_MVC_A::AreThereDupesInDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
-    OutputDebugString(strDupeText);
-
-    // Div 2 since each one will be matching another one internally here
-    return nTotalDupesFound / 2;
-}
-
-int CGame_MVC_A::GetDupeCountInExtrasDataset()
-{
-    UINT32 nTotalPalettesChecked = 0;
-    UINT32 nTotalDupesFound = 0;
-    UINT16 nTotalUnits = MVC_A_NUMUNIT;
-    UINT16 nExtraUnitToCheck = MVC_A_EXTRALOC;
-
-    CString strDupeText;
-    bool fCollisionFound = false;
-
-    //Go through the Extras
-    UINT16 nPalCount = GetPaletteCountForUnit(nExtraUnitToCheck);
-    for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
-    {
-        LoadSpecificPaletteData(nExtraUnitToCheck, nPalCtr);
-        nTotalPalettesChecked++;
-
-        int nCurrentROMOffset = m_nCurrentPaletteROMLocation;
-
-        if (IsROMOffsetDuplicated(nExtraUnitToCheck, nPalCtr, nCurrentROMOffset))
-        {
-            fCollisionFound = true;
-            nTotalDupesFound++;
-        }
-    }
-
-    strDupeText.Format("CGame_MVC_A::AreThereDupesInDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
-    OutputDebugString(strDupeText);
-
-    return nTotalDupesFound;
-}
-
-void CGame_MVC_A::CheckForDupesInTables()
-{
-    const UINT32 nSafeCountForThisRom = 827;
-    UINT16 nExtraUnit = MVC_A_EXTRALOC;
-    const UINT32 nPaletteCountForRom = m_nTotalPaletteCount - GetPaletteCountForUnit(nExtraUnit);
-    bool fShouldCheckExtras = (GetPaletteCountForUnit(nExtraUnit) != 0);
-
-    CString strText;
-    strText.Format("CGame_MVC_A::CheckForDupesInTables: Safe palette count for ROM is %u.  We found %u now.\n",  nSafeCountForThisRom, nPaletteCountForRom);
-    OutputDebugString(strText);
-
-    int nDupeCount = (nPaletteCountForRom == nSafeCountForThisRom) ? 0 : GetDupeCountInDataset();
-    int nExtraDupeCount = fShouldCheckExtras ? GetDupeCountInExtrasDataset() : 0;
-
-    if (nDupeCount || nExtraDupeCount || (nSafeCountForThisRom != nPaletteCountForRom))
-    {
-        if (nExtraDupeCount)
-        {
-            strText.Format("WARNING: The %s Extras file used has %u duplicate palettes (including splitting) that are already in PalMod.  They will not work correctly.  Please remove them.", EXTRA_FILENAME_MVC, nExtraDupeCount);
-        }
-        else if (nDupeCount)
-        {
-            strText.Format("WARNING: There are currently %u duplicates in MVC's hex tables.\n\nThis is a bug in PalMod.  Please report.", nDupeCount);
-        }
-        else
-        {
-            strText.Format("Warning: The MVC duplicate check count should be updated.\n\nNo duplicates were found thankfully.");
-        }
-
-        OutputDebugString(strText);
-        MessageBox(g_appHWnd, strText, GetAppName(), MB_ICONERROR);
-    }
-    else
-    {
-        OutputDebugString("\tCGame_MVC_A::CheckForDupesInTables: This matches the last known palette count: we're good.\n");
-    }
 }
 
 BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
