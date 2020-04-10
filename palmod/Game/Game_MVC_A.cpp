@@ -219,7 +219,9 @@ CDescTree CGame_MVC_A::InitDescTree()
                     nTotalPaletteCount++;
 
 #if MVC_DEBUG
-                    strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format("\t\tPalette: %s, %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    OutputDebugString(strMsg);
+                    strMsg.Format(" from 0x%06x to 0x%06x total %u\n", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset);
                     OutputDebugString(strMsg);
 #endif
                 }
@@ -490,6 +492,7 @@ BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
+    bool fShownOnce = false;
 
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -498,6 +501,14 @@ BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+            if (!fShownOnce && (nCurrPalOffs < 0x03e5ba)) // This magic number is the lowest known ROM location.
+            {
+                CString strMsg;
+                strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x06%x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
+                MessageBox(g_appHWnd, strMsg, GetAppName(), MB_ICONERROR);
+                fShownOnce = true;
+            }
 
             SaveFile->Seek(nCurrPalOffs, CFile::begin);
             SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);

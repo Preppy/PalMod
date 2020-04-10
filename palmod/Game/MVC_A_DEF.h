@@ -609,10 +609,10 @@ const sMVC_PaletteDataset MVC_A_SPIDEY_PALETTES[] =
 
 const sMVC_PaletteDataset MVC_A_CAPCOM_PALETTES[] =
 {
-    { "P1 Color", 0x48884, 0x488a4, 0x38 },
+    { "P1 Color",  0x48884, 0x488a4, 0x38 },
     { "P1 Ninjas", 0x488a4, 0x488c4, 0x38, 1 },
     { "P1 Hoover", 0x488c4, 0x488e4, 0x38, 2 },
-    { "P2 Color", 0x488e4, 0x48904, 0x38 },
+    { "P2 Color",  0x488e4, 0x48904, 0x38 },
     { "P2 Ninjas", 0x48904, 0x48924, 0x38, 1 },
     { "P2 Hoover", 0x48924, 0x48944, 0x38, 2 },
 };
@@ -649,10 +649,10 @@ const sMVC_PaletteDataset MVC_A_STRIDER_PALETTES[] =
 
 const sMVC_PaletteDataset MVC_A_GAMBIT_PALETTES[] =
 {
-    { "P1 Color", 0x484c4, 0x484e4, 0x28 },
+    { "P1 Color",   0x484c4, 0x484e4, 0x28 },
     { "P1 Extra 1", 0x484e4, 0x48504, 0x28, 1 },
     { "P1 Extra 2", 0x48504, 0x48524, 0x28, 2 },
-    { "P2 Color", 0x48524, 0x48544, 0x28 },
+    { "P2 Color",   0x48524, 0x48544, 0x28 },
     { "P2 Extra 1", 0x48544, 0x48564, 0x28, 1 },
     { "P2 Extra 2", 0x48564, 0x48584, 0x28, 2 },
 };

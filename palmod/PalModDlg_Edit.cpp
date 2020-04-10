@@ -373,6 +373,7 @@ void CPalModDlg::CustomEditProc(void* pPalCtrl, int nCtrlId, int nMethod)
         break;
     case CUSTOM_SALL:
         OnEditSelectAll();
+        break;
     case CUSTOM_SNONE:
         OnEditSelectNone();
         break;
