@@ -1278,7 +1278,7 @@ const sMVC_PaletteDataset MVC_A_CSIS_PALETTES[] =
 
 const sDescTreeNode MVC_A_WARMACHINE_COLLECTION[] =
 {
-    { "War Machine",                  DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES, ARRAYSIZE(MVC_A_WARMACHINE_PALETTES) },
+    { "War Machine",                  DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES,       ARRAYSIZE(MVC_A_WARMACHINE_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_CAPAM_COLLECTION[] =

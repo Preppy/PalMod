@@ -347,8 +347,11 @@ void CPalModDlg::OnEditSelectAll()
 {
     if (CurrPalCtrl)
     {
+        // Update the CJunk controls
         CurrPalCtrl->SelectAll();
         CurrPalCtrl->UpdateCtrl();
+        // Update the Edit Color options.
+        UpdateSliderSel();
     }
 }
 
@@ -356,8 +359,11 @@ void CPalModDlg::OnEditSelectNone()
 {
     if (CurrPalCtrl)
     {
+        // Update the CJunk controls
         CurrPalCtrl->ClearSelected();
         CurrPalCtrl->UpdateCtrl();
+        // Update the Edit Color options.
+        UpdateSliderSel();
     }
 }
 
