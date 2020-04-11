@@ -81,7 +81,7 @@ void CImgDisp::ResizeMainBitmap()
     DeleteObject(hBmp);
 
     Bmpi.bmiHeader.biWidth = MAIN_W;
-    Bmpi.bmiHeader.biHeight = -MAIN_H;
+    Bmpi.bmiHeader.biHeight = m_pSpriteOverrideTexture ? MAIN_H : -MAIN_H;
     Bmpi.bmiHeader.biPlanes = 1;
     Bmpi.bmiHeader.biBitCount = 32;
     Bmpi.bmiHeader.biCompression = BI_RGB;
@@ -568,10 +568,12 @@ bool  CImgDisp::LoadExternalSprite(CHAR* pszTextureLocation)
                     strstr.Format("CImgDisp::LoadExternalSprite texture file is: %u x %u\n", m_nTextureOverrideW, m_nTextureOverrideH);
                     OutputDebugString(strstr);
 
-                    TextureFile.Seek(0, CFile::begin);
+                    TextureFile.SeekToBegin();
                     TextureFile.Read(m_pSpriteOverrideTexture, nSizeToRead);
 
                     TextureFile.Close();
+
+                    ResizeMainBitmap();
 
                     return true;
                 }
