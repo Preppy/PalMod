@@ -260,7 +260,7 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT16 uUnitAmt, UI
     CString strDebugInfo;
     strDebugInfo.Format("CImgDat::LoadImage : Opening image file '%s'\n", lpszLoadFile);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format("CImgDat::LoadImage : Game image flag is '%u'.  Reading 0x%x (%u) units with  %u imgs.\n", uGameFlag, uUnitAmt, uUnitAmt, uImgAmt);
+    strDebugInfo.Format("CImgDat::LoadImage : Game image flag is '%u'.  Reading 0x%x (%u) units with %u imgs.\n", uGameFlag, uUnitAmt, uUnitAmt, uImgAmt);
     OutputDebugString(strDebugInfo);
 
     if (uGameFlag == (int)nCurrGFlag)

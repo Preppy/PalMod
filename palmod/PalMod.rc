@@ -263,7 +263,7 @@ IDR_MENUMAIN MENU
 BEGIN
     POPUP "&File"
     BEGIN
-        MENUITEM "L&oad File\tCtrl+O",          ID_FILE_OPEN
+        MENUITEM "L&oad ROM\tCtrl+O",           ID_FILE_OPEN
         POPUP "&Load Directory"
         BEGIN
             MENUITEM "MVC2 (DC)(USA)",              ID_LDMVC2DCUSA

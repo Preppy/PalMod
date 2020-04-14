@@ -169,6 +169,27 @@ void CPalModDlg::PostPalSel()
     //Flush the host pal ctrl
     m_PalHost.BeginSetPal();
 
+    CPreviewDlg* PreviewDlg = GetHost()->GetPreviewDlg();
+
+    if ((PreviewDlg != nullptr) && (CurrTicket != nullptr))
+    {
+        CString strInformation;
+        // Friendly name would be kind of nice.
+        if ((CurrTicket->nUnitId == 0xFFFF) || (CurrTicket->nUnitId == 0xFFFFFFFF))
+        {
+            strInformation.Format("Preview: unit (undefined), image id %u", CurrTicket->nImgId);
+        }
+        else if ((CurrTicket->nImgId == 0xFFFF) || (CurrTicket->nImgId == 0xFFFFFFFF))
+        {
+            strInformation.Format("Preview: unit %u, image id (undefined)", CurrTicket->nUnitId);
+        }
+        else
+        {
+            strInformation.Format("Preview: unit %u, image id %u", CurrTicket->nUnitId, CurrTicket->nImgId);
+        }
+        PreviewDlg->SetWindowCaption(strInformation);
+    }
+
     for (int i = 0; i < nPalAmt; i++)
     {
         CurrPalDef = MainPalGroup->GetPalDef(i);

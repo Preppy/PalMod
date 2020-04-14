@@ -64,6 +64,11 @@ void CPreviewDlg::InitDispCtrl()
     }
 }
 
+void CPreviewDlg::SetWindowCaption(LPCSTR pszCaption)
+{
+    SetWindowText(pszCaption);
+}
+
 void CPreviewDlg::OnShowWindow(BOOL bShow, UINT nStatus)
 {
     CDialog::OnShowWindow(bShow, nStatus);

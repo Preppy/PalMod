@@ -91,7 +91,7 @@ void CImgDisp::ResizeMainBitmap()
 
     if (!bFirstInit)
     {
-        MainDC->SelectObject(hBmp); //FIX LATER, we might not need this
+        MainDC->SelectObject(hBmp);
     }
 }
 
