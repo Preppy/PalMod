@@ -22,7 +22,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(void)
 
     //Set game information
     nGameFlag = SSF2T_A;
-    nImgGameFlag = IMG4;
+    nImgGameFlag = IMGDAT_SECTION_ST;
     nImgUnitAmt = nUnitAmt;
 
     nDisplayW = 8;
@@ -267,7 +267,6 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     //Change the image id if we need to
     nTargetImgId = 0;
-    int nImgUnitId = uUnitId + SSF2T_A_IMGOFFSET;
 
     int nSrcStart = 0;
     int nSrcAmt = GetBasicAmt(uUnitId);
@@ -276,7 +275,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     BasePalGroup.FlushPalAll();
 
     //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+    ClearSetImgTicket(CreateImgTicket(uUnitId, nTargetImgId));
 
     CreateDefPal(NodeGet, 0);
 

@@ -1278,112 +1278,112 @@ const sMVC_PaletteDataset MVC_A_CSIS_PALETTES[] =
 
 const sDescTreeNode MVC_A_WARMACHINE_COLLECTION[] =
 {
-    { "Palettes",                  DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES,       ARRAYSIZE(MVC_A_WARMACHINE_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES,       ARRAYSIZE(MVC_A_WARMACHINE_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_CAPAM_COLLECTION[] =
 {
-    { "Palettes",              DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES,            ARRAYSIZE(MVC_A_CAPAM_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES,            ARRAYSIZE(MVC_A_CAPAM_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_HULK_COLLECTION[] =
 {
-    { "Palettes",                         DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES,             ARRAYSIZE(MVC_A_HULK_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES,             ARRAYSIZE(MVC_A_HULK_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_WOLVERINE_COLLECTION[] =
 {
-    { "Palettes",                    DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES,        ARRAYSIZE(MVC_A_WOLVERINE_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES,        ARRAYSIZE(MVC_A_WOLVERINE_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_VENOM_COLLECTION[] =
 {
-    { "Palettes",                        DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES,            ARRAYSIZE(MVC_A_VENOM_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES,            ARRAYSIZE(MVC_A_VENOM_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_SPIDEY_COLLECTION[] =
 {
-    { "Palettes",                   DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_PALETTES,           ARRAYSIZE(MVC_A_SPIDEY_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_PALETTES,           ARRAYSIZE(MVC_A_SPIDEY_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_ROLL_COLLECTION[] =
 {
-    { "Palettes",                         DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_PALETTES,             ARRAYSIZE(MVC_A_ROLL_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_PALETTES,             ARRAYSIZE(MVC_A_ROLL_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_RYU_COLLECTION[] =
 {
-    { "Palettes",                          DESC_NODETYPE_TREE, (void*)MVC_A_RYU_PALETTES,              ARRAYSIZE(MVC_A_RYU_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_RYU_PALETTES,              ARRAYSIZE(MVC_A_RYU_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_CAPCOM_COLLECTION[] =
 {
-    { "Palettes",             DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES,           ARRAYSIZE(MVC_A_CAPCOM_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES,           ARRAYSIZE(MVC_A_CAPCOM_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_CHUNLI_COLLECTION[] =
 {
-    { "Palettes",                      DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_PALETTES,           ARRAYSIZE(MVC_A_CHUNLI_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_PALETTES,           ARRAYSIZE(MVC_A_CHUNLI_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_JIN_COLLECTION[] =
 {
-    { "Palettes",                          DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES,              ARRAYSIZE(MVC_A_JIN_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES,              ARRAYSIZE(MVC_A_JIN_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_GIEF_COLLECTION[] =
 {
-    { "Palettes",                      DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_PALETTES,             ARRAYSIZE(MVC_A_GIEF_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_PALETTES,             ARRAYSIZE(MVC_A_GIEF_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_STRIDER_COLLECTION[] =
 {
-    { "Palettes",                      DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_PALETTES,          ARRAYSIZE(MVC_A_STRIDER_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_PALETTES,          ARRAYSIZE(MVC_A_STRIDER_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_MEGAMAN_COLLECTION[] =
 {
-    { "Palettes",                      DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_PALETTES,          ARRAYSIZE(MVC_A_MEGAMAN_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_PALETTES,          ARRAYSIZE(MVC_A_MEGAMAN_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_MORRIGAN_COLLECTION[] =
 {
-    { "Palettes",                     DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES,         ARRAYSIZE(MVC_A_MORRIGAN_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES,         ARRAYSIZE(MVC_A_MORRIGAN_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_ONSLAUGHT_COLLECTION[] =
 {
-    { "Palettes",                    DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_PALETTES,        ARRAYSIZE(MVC_A_ONSLAUGHT_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_PALETTES,        ARRAYSIZE(MVC_A_ONSLAUGHT_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_HYPERVENOM_COLLECTION[] =
 {
-    { "Palettes",                    DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_PALETTES,       ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_PALETTES,       ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_ORANGEHULK_COLLECTION[] =
 {
-    { "Palettes",                  DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_PALETTES,       ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_PALETTES,       ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_GOLDWARMACHINE_COLLECTION[] =
 {
-    { "Palettes",             DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_SHADOWLADY_COLLECTION[] =
 {
-    { "Palettes",                  DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES,       ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES,       ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_LILITH_COLLECTION[] =
 {
-    { "Palettes",                       DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_PALETTES,           ARRAYSIZE(MVC_A_LILITH_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_PALETTES,           ARRAYSIZE(MVC_A_LILITH_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_GAMBIT_COLLECTION[] =
 {
-    { "Palettes",                       DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES) },
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_ASSIST_COLLECTION[] =

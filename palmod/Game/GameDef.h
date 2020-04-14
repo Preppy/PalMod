@@ -33,21 +33,24 @@ const CHAR g_GameFriendlyName[NUM_GAMES][16] =
 
 //Images
 
-#define IMG4 0 //Image Game Flag.  Used for MVC, MVC2, SFA3, SSF2T, XMVSF.
+#define IMG4 0 //Image Game Flag.  Used for MVC, MVC2, SFA3, XMVSF.
 #define IMG5 1 //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
+#define IMGDAT_SECTION_ST 2 //Image Game Flag.  Used for ST.
 
 // IMG4 ranges:
 //  * MVC2: 0x3b character units
-//  * SSF2T: 0x11 character units
 //  * SFA3: 0x11 character units
 //  * XMVSF: 0x1 character unit (Cyber Akuma)
 //  * MvC: 0x1 character unit (Onslaught)
 
+//  * SSF2T: 0x11 character units
+
 // Aggregate count of image units per game flag
-const int IMGAMT[2] =
+const int IMGAMT[3] =
 {
-    0x3B + 0x11 + 0x11 + 0x11 + 0x1 + 0x1,
-    0x14
+    0x3B + 0x11 + 0x11 + 0x1 + 0x1,
+    0x14,
+    0x11
 };
 
 //Display types (used for image out)
