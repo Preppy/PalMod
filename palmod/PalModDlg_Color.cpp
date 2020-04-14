@@ -724,6 +724,7 @@ void CPalModDlg::OnBnNewCol()
 {
     CColorDialog* ColorDlg = NULL;
     int nSelAmt = CurrPalCtrl->GetSelAmt();
+    DWORD colorFlags = CC_FULLOPEN | CC_RGBINIT;
 
     UpdateData();
 
@@ -741,7 +742,7 @@ void CPalModDlg::OnBnNewCol()
 
     if (nSelAmt > 1)
     {
-        ColorDlg = new CColorDialog(RGB(255, 255, 255));
+        ColorDlg = new CColorDialog(RGB(255, 255, 255), colorFlags);
     }
     else
     {
@@ -752,7 +753,8 @@ void CPalModDlg::OnBnNewCol()
             ColorDlg = new CColorDialog(RGB(
                 (int)round(m_Edit_RH * nTRGBMul),
                 (int)round(m_Edit_GS * nTRGBMul),
-                (int)round(m_Edit_BL * nTRGBMul)));
+                (int)round(m_Edit_BL * nTRGBMul)),
+                colorFlags);
         }
         else
         {
@@ -762,7 +764,7 @@ void CPalModDlg::OnBnNewCol()
             dS = ((double)(m_Edit_GS) / 255.0f);
             dL = ((double)(m_Edit_BL) / 100.0f);
 
-            ColorDlg = new CColorDialog(HLStoRGB(dH, dL, dS));
+            ColorDlg = new CColorDialog(HLStoRGB(dH, dL, dS), colorFlags);
         }
     }
 
