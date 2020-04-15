@@ -67,6 +67,9 @@
     <Filter Include="Game\JOJOS_A">
       <UniqueIdentifier>{9f70da93-a5b3-4a79-b773-89cda4e86c49}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\MSH_A">
+      <UniqueIdentifier>{fc8be4e5-bb36-4453-8d77-b8df802a3ad5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -188,6 +191,9 @@
     </ClCompile>
     <ClCompile Include="ImgInfoList.cpp">
       <Filter>Game\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MSH_A.cpp">
+      <Filter>Game\MSH_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -325,6 +331,12 @@
     </ClInclude>
     <ClInclude Include="ImgInfoList.h">
       <Filter>Game\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MSH_A.h">
+      <Filter>Game\MSH_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MSH_A_DEF.h">
+      <Filter>Game\MSH_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

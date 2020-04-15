@@ -346,6 +346,7 @@ void CPalModDlg::OnFileOpen()
     szGameFileDef.Append("XMVSF xvs.05a (*.05a )|*.05a|"); //XMVSF
     szGameFileDef.Append("MVC mvc.06 (*.06 )|*.06|"); //MVC
     szGameFileDef.Append("Jojos Roms|50; 51|"); //Jojos
+    szGameFileDef.Append("MSH msh.05|*.05|"); //Jojos
 
     szGameFileDef.Append("|"); //End
 
@@ -379,6 +380,9 @@ void CPalModDlg::OnFileOpen()
             break;
         case 6:
             LoadGameFile(JOJOS_A, (CHAR*)ofn.lpstrFile);
+            break;
+        case 7:
+            LoadGameFile(MSH_A, (CHAR*)ofn.lpstrFile);
             break;
         default:
             OutputDebugString("Error: game file not handled yet.\n");

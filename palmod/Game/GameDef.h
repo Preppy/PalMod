@@ -16,7 +16,8 @@ constexpr auto XMVSF_A = 5;
 constexpr auto MVC_A = 6;
 constexpr auto SFIII3_D = 7;
 constexpr auto JOJOS_A = 8;
-constexpr auto NUM_GAMES = 9;
+constexpr auto MSH_A = 9;
+constexpr auto NUM_GAMES = 10;
 
 const CHAR g_GameFriendlyName[NUM_GAMES][16] =
 {
@@ -28,7 +29,8 @@ const CHAR g_GameFriendlyName[NUM_GAMES][16] =
     "XVSF_A",
     "MVC_A",
     "SFIII3_D",
-    "JOJOS_A"
+    "JOJOS_A",
+    "MSH_A"
 };
 
 //Images

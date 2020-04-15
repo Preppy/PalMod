@@ -10,6 +10,7 @@
 #include "Game_MVC_A.h"
 #include "Game_SFIII3_D.h"
 #include "Game_JOJOS_A.h"
+#include "Game_MSH_A.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
@@ -93,9 +94,14 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_JOJOS_A::GetRule;
         return TRUE;
     }
-    break;
+    case MSH_A:
+    {
+        GetRule = &CGame_MSH_A::GetRule;
+        return TRUE;
+    }
 
     default:
+        OutputDebugString("BUGBUG: This game has not been added properly yet!\n");
         return FALSE;
         break;
     }
@@ -147,7 +153,12 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
     {
         return new CGame_JOJOS_A(nExtraGameData);
     }
+    case MSH_A:
+    {
+        return new CGame_MSH_A;
+    }
     default:
+        OutputDebugString("BUGBUG: New game has not been properly added yet.\n");
         return NULL;
         break;
     }

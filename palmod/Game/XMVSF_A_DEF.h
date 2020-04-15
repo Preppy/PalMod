@@ -132,7 +132,7 @@ struct sXMVSF_PaletteDataset
 {
     LPCSTR szPaletteName;
     int nPaletteOffset;
-    int nPaletteLength;
+    int nPaletteLength; // Note that this is LENGTH, whereas the newer dataset uses terminal offset
     UINT16 indexImgToUse = 0xFF; // the major character/collection index
     UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
 };
