@@ -112,8 +112,10 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
 
     if (ppImgData)
     {
+#if IMGDAT_DEBUG
         strDebugInfo.Format("CImgDat::GetImageDef : ppImgData exists \n");
         OutputDebugString(strDebugInfo);
+#endif
         if (uUnitId > uCurrUnitAmt)
         {
             strDebugInfo.Format("CImgDat::GetImageDef : Failed to get ImageDef for unit 0x%02x img 0x%x.\n", uUnitId, uImgId);
@@ -126,8 +128,10 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
         if (ppImgData[uUnitId])
         {
             ppImgData[uUnitId]->listAllImgIDs();
+#if IMGDAT_DEBUG
             strDebugInfo.Format("CImgDat::GetImageDef : ppImgData[0x%02X] exists \n", uUnitId);
             OutputDebugString(strDebugInfo);
+#endif
             if (ppImgData[uUnitId]->valueExists(uImgId))
             {
                 strDebugInfo.Format("CImgDat::GetImageDef : Found imgID 0x%02X in list for unitID 0x%02X \n", uImgId, uUnitId);

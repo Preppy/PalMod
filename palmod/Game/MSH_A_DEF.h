@@ -43,9 +43,9 @@ const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES[] =
 
 const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES[] =
 {
-    {"Captain America P1", 0x61CEE, 0x61D0E, 0x0B },
+    {"Captain America P1", 0x61CEE, 0x61D0E, 0x0B, 0, true },
     {"P1 Shield", 0x61D0E, 0x61D2E, 0x0B, 1 },
-    {"Captain America P2", 0x61D6E, 0x61D8E, 0x0B },
+    {"Captain America P2", 0x61D6E, 0x61D8E, 0x0B, 0, true },
     {"P2 Shield", 0x61D8E, 0x61DAE, 0x0B, 1 },
 };
 
@@ -133,10 +133,10 @@ const sGame_PaletteDataset MSH_A_THANOS_PALETTES[] =
 
 const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES[] =
 {
-    {"Wolverine P1", 0x61F8E, 0x61FAE, 0x07 },
+    {"Wolverine P1", 0x61F8E, 0x61FAE, 0x07, 0, true },
     {"P1 Claws", 0x61FAE, 0x61FCE, 0x07, 1 },
     {"P1 Berserker Barrage", 0x61FCE, 0x61FEE, 0x07, 2 },
-    {"Wolverine P2", 0x6200E, 0x6202E, 0x07 },
+    {"Wolverine P2", 0x6200E, 0x6202E, 0x07, 0, true },
     {"P2 Claws", 0x6202E, 0x6204E, 0x07, 1 },
     {"P2 Berserker Barrage", 0x6204E, 0x6206E, 0x07, 2 },
 };

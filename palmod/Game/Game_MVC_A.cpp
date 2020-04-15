@@ -505,7 +505,7 @@ BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             if (!fShownOnce && (nCurrPalOffs < 0x03e5ba)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
-                strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x06%x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
+                strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
                 MessageBox(g_appHWnd, strMsg, GetAppName(), MB_ICONERROR);
                 fShownOnce = true;
             }

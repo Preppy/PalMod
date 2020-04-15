@@ -129,5 +129,5 @@ struct sGame_PaletteDataset
     int nPaletteOffsetEnd = 0;
     UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
     UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
-    bool isInvisible = false; // unused right now: needed for palette joining
+    bool isJoinedPalette = false;
 };

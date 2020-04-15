@@ -389,6 +389,7 @@ const sGame_PaletteDataset* CGame_MSH_A::GetSpecificPalette(UINT16 nUnitId, UINT
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteToUse = nullptr;
     int nDistanceFromZero = nPaletteId;
+
     for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
@@ -505,7 +506,7 @@ BOOL CGame_MSH_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             if (!fShownOnce && (nCurrPalOffs < 0x03e5ba)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
-                strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x06%x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
+                strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
                 MessageBox(g_appHWnd, strMsg, GetAppName(), MB_ICONERROR);
                 fShownOnce = true;
             }
@@ -563,29 +564,78 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     nTargetImgId = 0;
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
 
+    bool fShouldUseAlternateLoadLogic = false;
+
+    // Only load images for internal units, since we don't currently have a methodology for associating
+    // external loads to internal sprites.
     if (MSH_A_EXTRALOC != NodeGet->uUnitId)
     {
+        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+
         nSrcStart = NodeGet->uPalId;
         nSrcAmt = 1;
-
-        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
         if (paletteDataSet)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
         }
+
+        if (paletteDataSet->isJoinedPalette)
+        {
+            const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
+
+            if (paletteDataSetToJoin)
+            {
+                int nXOffs, nYOffs;
+
+                if (NodeGet->uUnitId == indexMSHWolverine) // wolvie claws support
+                {
+                    nXOffs = 20;
+                    nYOffs = 4;
+                    fShouldUseAlternateLoadLogic = true;
+                }
+                else if (NodeGet->uUnitId == indexMSHCaptainAmerica)
+                {
+                    nXOffs = -22;
+                    nYOffs = -17;
+                    fShouldUseAlternateLoadLogic = true;
+                }
+
+                if (fShouldUseAlternateLoadLogic)
+                {
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                        )
+                    );
+
+                    //Set each palette
+                    sDescNode* JoinedNode[2] = {
+                        MainDescTree.GetDescNode(NodeGet->uUnitId, 0, 0, -1),
+                        MainDescTree.GetDescNode(NodeGet->uUnitId, 0, 1, -1)
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+
+                    SetSourcePal(0, NodeGet->uUnitId, 0, 6, 8);
+                    SetSourcePal(1, NodeGet->uUnitId, 1, 6, 8);
+                }
+            }
+        }
     }
+    
+    if (!fShouldUseAlternateLoadLogic)
+    {
+        //Create the default palette
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-    //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+        CreateDefPal(NodeGet, 0);
 
-    //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-    CreateDefPal(NodeGet, 0);
-
-    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
+    }
 
     return TRUE;
 }
