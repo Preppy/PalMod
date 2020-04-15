@@ -502,7 +502,7 @@ BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if (!fShownOnce && (nCurrPalOffs < 0x03e5ba)) // This magic number is the lowest known ROM location.
+            if (!fShownOnce && (nCurrPalOffs < m_uLowestKnownPaletteROMLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
                 strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
@@ -563,29 +563,85 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     nTargetImgId = 0;
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
 
+    bool fShouldUseAlternateLoadLogic = false;
+
+    // Only load images for internal units, since we don't currently have a methodology for associating
+    // external loads to internal sprites.
     if (MVC_A_EXTRALOC != NodeGet->uUnitId)
     {
+        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+
         nSrcStart = NodeGet->uPalId;
         nSrcAmt = 1;
-
-        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
         if (paletteDataSet)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
         }
+
+        if (paletteDataSet->isJoinedPalette)
+        {
+            const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
+
+            if (paletteDataSetToJoin)
+            {
+                int nXOffs, nYOffs;
+
+                if (NodeGet->uUnitId == indexMVCWolverine) // wolvie claws support
+                {
+                    nXOffs = 20;
+                    nYOffs = 4;
+                    fShouldUseAlternateLoadLogic = true;
+                }
+                else if ((NodeGet->uUnitId == indexMVCCaptainAmerica) || // Captain America shield
+                         (NodeGet->uUnitId == indexMVCAssists))          // US Agent's shield
+                {
+                    nXOffs = -22;
+                    nYOffs = -17;
+                    fShouldUseAlternateLoadLogic = true;
+                }
+                else if (NodeGet->uUnitId == indexMVCCapCom)  // Captain Commando ninjas
+                {
+                    nXOffs = 28;
+                    nYOffs = 4;
+                    fShouldUseAlternateLoadLogic = true;
+                }
+
+                if (fShouldUseAlternateLoadLogic)
+                {
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                        )
+                    );
+
+                    //Set each palette
+                    sDescNode* JoinedNode[2] = {
+                        MainDescTree.GetDescNode(NodeGet->uUnitId, 0, NodeGet->uPalId, -1),
+                        MainDescTree.GetDescNode(NodeGet->uUnitId, 0, NodeGet->uPalId + 1, -1)
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+
+                    SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 6, 8);
+                    SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 6, 8);
+                }
+            }
+        }
     }
 
-    //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
+    if (!fShouldUseAlternateLoadLogic)
+    {
+        //Create the default palette
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-    //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+        CreateDefPal(NodeGet, 0);
 
-    CreateDefPal(NodeGet, 0);
-
-    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
+    }
 
     return TRUE;
 }

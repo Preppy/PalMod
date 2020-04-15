@@ -26,6 +26,10 @@ private:
 
     UINT16*** pppDataBuffer = nullptr;
 
+    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+    const int m_uLowestKnownPaletteROMLocation = 0x03e5ba;
+
+
 public:
     CGame_MVC_A(void);
     ~CGame_MVC_A(void);

@@ -527,10 +527,10 @@ const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_CAPAM_PALETTES[] =
 {
-    { "P1 Color", 0x48284, 0x482a4, 0x0b },
+    { "P1 Color", 0x48284, 0x482a4, 0x0b, 0, true },
     { "P1 Shield", 0x482a4, 0x482c4, 0x0b, 1 },
     { "P1 Charging Star", 0x482c4, 0x482e4, 0x0b, 2 },
-    { "P2 Color", 0x482e4, 0x48304, 0x0b },
+    { "P2 Color", 0x482e4, 0x48304, 0x0b, 0, true },
     { "P2 Shield", 0x48304, 0x48324, 0x0b, 1 },
     { "P2 Charging Star", 0x48324, 0x48344, 0x0b, 2 },
 };
@@ -557,10 +557,10 @@ const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES[] =
 {
-    { "P1 Color", 0x48404, 0x48424, 0x07 },
+    { "P1 Color", 0x48404, 0x48424, 0x07,0, true },
     { "P1 Claws", 0x48424, 0x48444, 0x07, 1 },
     { "P1 Berserker FX", 0x48444, 0x48464, 0x07, 2 },
-    { "P2 Color", 0x48464, 0x48484, 0x07 },
+    { "P2 Color", 0x48464, 0x48484, 0x07, 0, true },
     { "P2 Claws", 0x48484, 0x484a4, 0x07, 1 },
     { "P2 Berserker FX", 0x484a4, 0x484c4, 0x07, 2 },
 };
@@ -598,10 +598,10 @@ const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES[] =
 const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES[] =
 {
     { "P1 Color",  0x48884, 0x488a4, 0x38 },
-    { "P1 Ninjas", 0x488a4, 0x488c4, 0x38, 1 },
+    { "P1 Ninjas", 0x488a4, 0x488c4, 0x38, 1, true },
     { "P1 Hoover", 0x488c4, 0x488e4, 0x38, 2 },
     { "P2 Color",  0x488e4, 0x48904, 0x38 },
-    { "P2 Ninjas", 0x48904, 0x48924, 0x38, 1 },
+    { "P2 Ninjas", 0x48904, 0x48924, 0x38, 1, true },
     { "P2 Hoover", 0x48924, 0x48944, 0x38, 2 },
 };
 
@@ -763,10 +763,10 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "Unknown Soldier P2", 0x506e4, 0x50704 },
     { "Unknown Soldier P2 Extra", 0x50704, 0x50724 },
 
-    { "US Agent P1", 0x50ee4, 0x50f04, 0x0b },
+    { "US Agent P1", 0x50ee4, 0x50f04, 0x0b, 0, true },
     { "US Agent P1 Shield", 0x50f04, 0x50f24, 0x0b, 1 },
     { "US Agent P1 Charging Star", 0x50f24, 0x50f44, 0x0b, 2 },
-    { "US Agent P2", 0x50f44, 0x50f64, 0x0b },
+    { "US Agent P2", 0x50f44, 0x50f64, 0x0b, 0, true },
     { "US Agent P2 Shield", 0x50f64, 0x50f84, 0x0b, 1 },
     { "US Agent P2 Charging Star", 0x50f84, 0x50fa4, 0x0b, 2 },
 };

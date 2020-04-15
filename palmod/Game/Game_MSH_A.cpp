@@ -503,7 +503,7 @@ BOOL CGame_MSH_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if (!fShownOnce && (nCurrPalOffs < 0x03e5ba)) // This magic number is the lowest known ROM location.
+            if (!fShownOnce && (nCurrPalOffs < m_uLowestKnownPaletteROMLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
                 strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
@@ -612,16 +612,16 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                     //Set each palette
                     sDescNode* JoinedNode[2] = {
-                        MainDescTree.GetDescNode(NodeGet->uUnitId, 0, 0, -1),
-                        MainDescTree.GetDescNode(NodeGet->uUnitId, 0, 1, -1)
+                        MainDescTree.GetDescNode(NodeGet->uUnitId, 0, NodeGet->uPalId, -1),
+                        MainDescTree.GetDescNode(NodeGet->uUnitId, 0, NodeGet->uPalId + 1, -1)
                     };
 
                     //Set each palette
                     CreateDefPal(JoinedNode[0], 0);
                     CreateDefPal(JoinedNode[1], 1);
 
-                    SetSourcePal(0, NodeGet->uUnitId, 0, 6, 8);
-                    SetSourcePal(1, NodeGet->uUnitId, 1, 6, 8);
+                    SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 6, 8);
+                    SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 6, 8);
                 }
             }
         }
