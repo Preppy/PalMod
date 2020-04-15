@@ -41,16 +41,7 @@ constexpr auto MVC_A_NUMUNIT = indexLast;
 
 #define MVC_A_EXTRALOC MVC_A_NUMUNIT
 
-struct sMVC_PaletteDataset
-{
-    LPCSTR szPaletteName;
-    int nPaletteOffset;
-    int nPaletteOffsetEnd;
-    UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
-    UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
-};
-
-const sMVC_PaletteDataset MVC_A_RYU_PALETTES[] =
+const sGame_PaletteDataset MVC_A_RYU_PALETTES[] =
 {
     { "Ryu P1", 0x487c4, 0x487e4, 0x00 },
     { "Ryu P1 Hadouken", 0x487e4, 0x48804, 0x00, 1 },
@@ -74,7 +65,7 @@ const sMVC_PaletteDataset MVC_A_RYU_PALETTES[] =
     { "Akuma P2 Shoryuken", 0x4eda4, 0x4edc4, 0x27, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_GIEF_PALETTES[] =
+const sGame_PaletteDataset MVC_A_GIEF_PALETTES[] =
 {
     { "P1 Color", 0x48ac4, 0x48ae4, 0x01 },
     { "P1 Banishing Fist", 0x48ae4, 0x48b04, 0x01, 1 },
@@ -90,7 +81,7 @@ const sMVC_PaletteDataset MVC_A_GIEF_PALETTES[] =
     { "Palette 18", 0x48d24, 0x48d44, 0xff },
 };
 
-const sMVC_PaletteDataset MVC_A_SHADOWLADY_PALETTES[] =
+const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES[] =
 {
     { "P1 Color", 0x492e4, 0x49304, 0x1b },
     { "P1 Glimmer 1", 0x4ff64, 0x4ff84, 0x1b },
@@ -106,7 +97,7 @@ const sMVC_PaletteDataset MVC_A_SHADOWLADY_PALETTES[] =
     { "P2 Extra 2", 0x49384, 0x493a4 },
 };
 
-const sMVC_PaletteDataset MVC_A_CHUNLI_PALETTES[] =
+const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES[] =
 {
     { "P1 Color", 0x48944, 0x48964, 0x1b },
     { "P1 leg flash", 0x48964, 0x48984, 0x1b, 1 },
@@ -116,7 +107,7 @@ const sMVC_PaletteDataset MVC_A_CHUNLI_PALETTES[] =
     { "P2 Kikosho", 0x489e4, 0x48a04, 0x1b, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_JIN_PALETTES[] =
+const sGame_PaletteDataset MVC_A_JIN_PALETTES[] =
 {
     { "P1 Color", 0x48a04, 0x48a24, 0x37 },
     { "P1 Blodia FX", 0x48a24, 0x48a44, 0x37, 1 },
@@ -128,7 +119,7 @@ const sMVC_PaletteDataset MVC_A_JIN_PALETTES[] =
 
 // Note that since this is eleventy palettes, the code is substituting the default Megaman sprite when 0xff is supplied.  
 // To unwind that we would want to specify the correct sprites to use everywhere.  MM is 0x1C .
-const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
+const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
 {
     { "Megaman P1", 0x48f84, 0x48fa4, 0x1c },
     { "P1 Rush/Eddie", 0x48fa4, 0x48fc4, 0x1c, 1 },
@@ -339,7 +330,7 @@ const sMVC_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
     { "P2 Magnetic Megaman", 0x4d5e4, 0x4d604, 0x1c },
 };
 
-const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
+const sGame_PaletteDataset MVC_A_ROLL_PALETTES[] =
 {
     { "P1 Color", 0x48704, 0x48724, 0x1d },
     { "P1 Rush/Eddie", 0x48724, 0x48744, 0x1c, 1 },
@@ -507,14 +498,14 @@ const sMVC_PaletteDataset MVC_A_ROLL_PALETTES[] =
     { "P2 Magnetic Shockwave Megaman", 0x4eba4, 0x4ebc4, 0x1c },
 };
 
-const sMVC_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
+const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
 {
     { "Palette 1", 0x49044, 0x49064 },
     { "Palette 2", 0x49064, 0x49084 },
     { "Palette 3", 0x49084, 0x490a4 },
 };
 
-const sMVC_PaletteDataset MVC_A_WARMACHINE_PALETTES[] =
+const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES[] =
 {
     { "P1 Color", 0x481c4, 0x481e4, 0x33 },
     { "P1 Proton Cannon", 0x481e4, 0x48204, 0x33, 1 },  // same sprites as iron man
@@ -524,7 +515,7 @@ const sMVC_PaletteDataset MVC_A_WARMACHINE_PALETTES[] =
     { "P2 Proton Laser", 0x48264, 0x48284, 0x33, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES[] =
+const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES[] =
 {
     { "P1 Color", 0x49224, 0x49244, 0x33 },
     { "P1 Proton Cannon", 0x49244, 0x49264, 0x33, 1 }, // same sprites as iron man
@@ -534,7 +525,7 @@ const sMVC_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES[] =
     { "P2 Proton Laser", 0x492c4, 0x492e4, 0x33, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_CAPAM_PALETTES[] =
+const sGame_PaletteDataset MVC_A_CAPAM_PALETTES[] =
 {
     { "P1 Color", 0x48284, 0x482a4, 0x0b },
     { "P1 Shield", 0x482a4, 0x482c4, 0x0b, 1 },
@@ -544,7 +535,7 @@ const sMVC_PaletteDataset MVC_A_CAPAM_PALETTES[] =
     { "P2 Charging Star", 0x48324, 0x48344, 0x0b, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_HULK_PALETTES[] =
+const sGame_PaletteDataset MVC_A_HULK_PALETTES[] =
 {
     { "P1 Color", 0x48344, 0x48364, 0x0d },
     { "P1 Charge", 0x48364, 0x48384, 0x0d, 1 },
@@ -554,7 +545,7 @@ const sMVC_PaletteDataset MVC_A_HULK_PALETTES[] =
     { "P2 Gamma Quake", 0x483e4, 0x48404, 0x0d, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_ORANGEHULK_PALETTES[] =
+const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES[] =
 {
     { "P1 Color", 0x49164, 0x49184, 0x0d },
     { "P1 Charge", 0x49184, 0x491a4, 0x0d, 1 },
@@ -564,7 +555,7 @@ const sMVC_PaletteDataset MVC_A_ORANGEHULK_PALETTES[] =
     { "P2 Gamma Quake", 0x49204, 0x49224, 0x0d, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_WOLVERINE_PALETTES[] =
+const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES[] =
 {
     { "P1 Color", 0x48404, 0x48424, 0x07 },
     { "P1 Claws", 0x48424, 0x48444, 0x07, 1 },
@@ -574,7 +565,7 @@ const sMVC_PaletteDataset MVC_A_WOLVERINE_PALETTES[] =
     { "P2 Berserker FX", 0x484a4, 0x484c4, 0x07, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_VENOM_PALETTES[] =
+const sGame_PaletteDataset MVC_A_VENOM_PALETTES[] =
 {
     { "P1 Color", 0x48584, 0x485a4, 0x0e },
     { "P1 Taunt", 0x485a4, 0x485c4, 0x0e, 1 },
@@ -584,7 +575,7 @@ const sMVC_PaletteDataset MVC_A_VENOM_PALETTES[] =
     { "P2 Web", 0x48624, 0x48644, 0x0e, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_HYPERVENOM_PALETTES[] =
+const sGame_PaletteDataset MVC_A_HYPERVENOM_PALETTES[] =
 {
     { "P1 Color", 0x490a4, 0x490c4, 0x0e },
     { "P1 Taunt", 0x490c4, 0x490e4, 0x0e, 1 },
@@ -594,7 +585,7 @@ const sMVC_PaletteDataset MVC_A_HYPERVENOM_PALETTES[] =
     { "P2 Web", 0x49144, 0x49164, 0x0e, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_SPIDEY_PALETTES[] =
+const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES[] =
 {
     { "P1 Color", 0x48644, 0x48664, 0x0c },
     { "P1 Extra 1", 0x48664, 0x48684 },
@@ -604,7 +595,7 @@ const sMVC_PaletteDataset MVC_A_SPIDEY_PALETTES[] =
     { "P2 Web", 0x486e4, 0x48704, 0x0c, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_CAPCOM_PALETTES[] =
+const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES[] =
 {
     { "P1 Color",  0x48884, 0x488a4, 0x38 },
     { "P1 Ninjas", 0x488a4, 0x488c4, 0x38, 1 },
@@ -614,7 +605,7 @@ const sMVC_PaletteDataset MVC_A_CAPCOM_PALETTES[] =
     { "P2 Hoover", 0x48924, 0x48944, 0x38, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_MORRIGAN_PALETTES[] =
+const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES[] =
 {
     { "P1 Color", 0x48ec4, 0x48ee4, 0x03 },
     { "P1 Lilith", 0x48ee4, 0x48f04, 0x03, 1 },
@@ -624,7 +615,7 @@ const sMVC_PaletteDataset MVC_A_MORRIGAN_PALETTES[] =
     { "P2 Extra 2", 0x48f64, 0x48f84, 0x03, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_LILITH_PALETTES[] =
+const sGame_PaletteDataset MVC_A_LILITH_PALETTES[] =
 {
     { "P1 Color", 0x493a4, 0x493c4, 0x03 },
     { "P1 Extra 1", 0x493c4, 0x493e4, 0x03, 1 },
@@ -634,7 +625,7 @@ const sMVC_PaletteDataset MVC_A_LILITH_PALETTES[] =
     { "P2 Extra 2", 0x49444, 0x49464, 0x03, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_STRIDER_PALETTES[] =
+const sGame_PaletteDataset MVC_A_STRIDER_PALETTES[] =
 {
     { "P1 Color", 0x48e04, 0x48e24, 0x05 },
     { "P1 FX", 0x48e24, 0x48e44, 0x05, 1 },
@@ -644,7 +635,7 @@ const sMVC_PaletteDataset MVC_A_STRIDER_PALETTES[] =
     { "P2 Mech", 0x48ea4, 0x48ec4, 0x05, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_GAMBIT_PALETTES[] =
+const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES[] =
 {
     { "P1 Color",   0x484c4, 0x484e4, 0x28 },
     { "P1 Extra 1", 0x484e4, 0x48504, 0x28, 1 },
@@ -654,7 +645,7 @@ const sMVC_PaletteDataset MVC_A_GAMBIT_PALETTES[] =
     { "P2 Extra 2", 0x48564, 0x48584, 0x28, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
+const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 {
     { "Anita P1", 0x50fa4, 0x50fc4 },
     { "Anita P1 Extra 1", 0x50fc4, 0x50fe4 },
@@ -780,7 +771,7 @@ const sMVC_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "US Agent P2 Charging Star", 0x50f84, 0x50fa4, 0x0b, 2 },
 };
 
-const sMVC_PaletteDataset MVC_A_ASSISTPORT_PALETTES[] =
+const sGame_PaletteDataset MVC_A_ASSISTPORT_PALETTES[] =
 {
     { "Cyclops Portrait", 0x0047de4, 0x0047e04 },
     { "Colossus Portrait", 0x0047e04, 0x0047e24 },
@@ -804,7 +795,7 @@ const sMVC_PaletteDataset MVC_A_ASSISTPORT_PALETTES[] =
     { "Unknown Soldier Portrait", 0x0047f84, 0x0047fa4 },
 };
 
-const sMVC_PaletteDataset MVC_A_VSP_PALETTES[] =
+const sGame_PaletteDataset MVC_A_VSP_PALETTES[] =
 {
     { "War Machine P1 VSP", 0x0055d84, 0x0055e04 },
     { "Gold War Machine P1 VSP", 0x0056bc4, 0x0056c44 },
@@ -1017,7 +1008,7 @@ const sMVC_PaletteDataset MVC_A_VSP_PALETTES[] =
     { "Megaman P2 VSP", 0x0057b84, 0x0057c04 },
 };
 
-const sMVC_PaletteDataset MVC_A_CSP_PALETTES[] =
+const sGame_PaletteDataset MVC_A_CSP_PALETTES[] =
 {
     { "War Machine P1 Duo/CSP", 0x0052a44, 0x0052a84 },
     { "Gold War Machine P1 Duo/CSP", 0x0053704, 0x0053744 },
@@ -1069,7 +1060,7 @@ const sMVC_PaletteDataset MVC_A_CSP_PALETTES[] =
     { "Megaman P2 Duo/CSP", 0x00535c4, 0x0053624 }, 
 };
 
-const sMVC_PaletteDataset MVC_A_SUPERPORT_PALETTES[] =
+const sGame_PaletteDataset MVC_A_SUPERPORT_PALETTES[] =
 {
     { "War Machine P1 Super", 0x0053e24, 0x0053ea4 },
     { "Gold War Machine P1 Super", 0x0054a04, 0x0054a84 },
@@ -1253,7 +1244,7 @@ const sMVC_PaletteDataset MVC_A_SUPERPORT_PALETTES[] =
     { "Onslaught P2 Super", 0x00557c4, 0x0055844 },
 };
 
-const sMVC_PaletteDataset MVC_A_CSIS_PALETTES[] =
+const sGame_PaletteDataset MVC_A_CSIS_PALETTES[] =
 {
     { "War Machine CS Icon", 0x003e5ba, 0x003e5da },
     { "Captain America CS Icon", 0x003e5da, 0x003e5fa },

@@ -48,8 +48,8 @@ public:
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sMVC_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
-    static const sMVC_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
+    static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);

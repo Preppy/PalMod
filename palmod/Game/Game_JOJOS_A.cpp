@@ -205,7 +205,7 @@ void ExportTableToDebugger()
     OutputDebugString("FWIW: You want to define USE_LARGE_PALETTES so that you are working with the unsplit headers.\n");
 #endif
 
-    OutputDebugString("const sJOJOS_PaletteDataset JOJOS_BONUS_NODE_INTRO_MANGA[] =\n{\n");
+    OutputDebugString("const sGame_PaletteDataset JOJOS_BONUS_NODE_INTRO_MANGA[] =\n{\n");
     for (int iHeaderIndex = 0; iHeaderIndex < ARRAYSIZE(JOJOS_BONUS_NODE_INTRO_MANGA); iHeaderIndex++)
     {
         CString strstr;
@@ -407,9 +407,9 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                 OutputDebugString(strMsg);
 #endif
 
-                const sJOJOS_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
+                const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
 
-                //Set each collection's extra nodes: convert the sJOJOS_PaletteDataset to sDescTreeNodes
+                //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
                 for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
@@ -685,19 +685,19 @@ void CGame_JOJOS_A::ClearDataBuffer()
     m_nJojosMode = nCurrentJojosMode;
 }
 
-const sJOJOS_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    const sJOJOS_PaletteDataset* paletteSetToUse = nullptr;
+    const sGame_PaletteDataset* paletteSetToUse = nullptr;
 
     if (UsePaletteSetFor50())
     {
         const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)JOJOS_UNITS_50[nUnitId].ChildNodes;
-        paletteSetToUse = ((sJOJOS_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+        paletteSetToUse = ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
     }
     else
     {
         const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)JOJOS_UNITS_51[nUnitId].ChildNodes;
-        paletteSetToUse = ((sJOJOS_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+        paletteSetToUse = ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
     }
 
     return paletteSetToUse;
@@ -719,7 +719,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     {
         int nCurrentPaletteOffset = 0;
         int nDistanceFromZero = nPalId;
-        const sJOJOS_PaletteDataset* paletteSetToUse = nullptr;
+        const sGame_PaletteDataset* paletteSetToUse = nullptr;
 
         for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
         {
@@ -817,8 +817,8 @@ BOOL CGame_JOJOS_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
     return FALSE;
 #else
     // Check how many ARGB entries we have for this palette
-    // const sJOJOS_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nPalId);
-    // const sJOJOS_PaletteDataset* paletteSetToUse = GetExtraPalette(nUnitId, nPalId);
+    // const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nPalId);
+    // const sGame_PaletteDataset* paletteSetToUse = GetExtraPalette(nUnitId, nPalId);
     const int nPaletteTotalSize = max(0, (paletteSetToUse->nPaletteOffsetEnd - paletteSetToUse->nPaletteOffset)) / 2;
     const int knMaxPalettePageSizeOnDisc = 2 * m_knMaxPalettePageSize;
 

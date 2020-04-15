@@ -205,9 +205,9 @@ CDescTree CGame_MVC_A::InitDescTree()
                 OutputDebugString(strMsg);
 #endif
 
-                const sMVC_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
+                const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
 
-                //Set each collection's extra nodes: convert the sMVC_PaletteDataset to sDescTreeNodes
+                //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
                 for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
@@ -376,22 +376,22 @@ UINT16 CGame_MVC_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sMVC_PaletteDataset* CGame_MVC_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_MVC_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)MVC_UNITS[nUnitId].ChildNodes;
-    return ((sMVC_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sMVC_PaletteDataset* CGame_MVC_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_MVC_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sMVC_PaletteDataset* paletteToUse = nullptr;
+    const sGame_PaletteDataset* paletteToUse = nullptr;
     int nDistanceFromZero = nPaletteId;
     for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
-        const sMVC_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
+        const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
@@ -440,7 +440,7 @@ void CGame_MVC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     if (nUnitId != MVC_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
-        const sMVC_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
+        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
 
         cbPaletteSizeOnDisc = max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
@@ -568,7 +568,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         nSrcStart = NodeGet->uPalId;
         nSrcAmt = 1;
 
-        const sMVC_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
         if (paletteDataSet)
         {

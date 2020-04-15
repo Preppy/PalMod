@@ -119,3 +119,13 @@ struct stExtraDef
     UINT16 cbPaletteSize = 0;
     bool isInvisible = false;
 };
+
+struct sGame_PaletteDataset
+{
+    LPCSTR szPaletteName = "uninit";
+    int nPaletteOffset = 0;
+    int nPaletteOffsetEnd = 0;
+    UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
+    UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
+    bool isInvisible = false; // unused right now: needed for palette joining
+};

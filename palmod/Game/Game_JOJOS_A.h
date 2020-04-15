@@ -29,14 +29,13 @@ private:
     static UINT32 m_nTotalPaletteCount50;
     static UINT32 m_nTotalPaletteCount51;
 
-
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
 
     void InitDataBuffer();
     void ClearDataBuffer();
     void CheckExtrasFileForDuplication();
     
-    static const sJOJOS_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static bool UsePaletteSetFor50() { return (m_nJojosMode == 50); }
 
 public:
