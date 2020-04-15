@@ -1,7 +1,6 @@
 #pragma once
 
 #define XMVSF_A_PALSZ 16
-#define XMVSF_A_IMGSTART (0x3B + 0x11 + 0x11) //MVC2, then SSF2T, then SFA3
 
 // Editor's note:
 // Some characters have more than P/K colors available.  Those don't appear to be used
@@ -46,7 +45,7 @@ const UINT8 XMVSF_A_IMGREDIR[XMVSF_A_NUMUNIT] =
     0x2B,
     0x29,
     0x2C,
-    XMVSF_A_IMGSTART, // Apocalypse: doesn't show up.  Maybe not in img.dat?
+    XMVSF_A_IMGSTART, // Apocalypse: no sprite available yet.
     0x00,
     0x27,
     0x1B,
@@ -56,7 +55,7 @@ const UINT8 XMVSF_A_IMGREDIR[XMVSF_A_NUMUNIT] =
     0x1E,
     0x21,
     0x24,
-    0x3B + 0x11 // Chun Li's image in SFA3 // not working
+    0x3B + 0x11 // Chun Li's image in SFA3 ... but we don't have that yet.
 };
 
 const CHAR XMVSF_A_UNITDESC[XMVSF_A_NUMUNIT][16] = 

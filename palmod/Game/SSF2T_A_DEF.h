@@ -1,6 +1,5 @@
 #pragma once
 
-#define SSF2T_A_NUMUNIT 17
 #define SSF2T_A_PALSZ 16
 
 const CHAR SSF2T_A_UNITDESC[SSF2T_A_NUMUNIT][16] = 

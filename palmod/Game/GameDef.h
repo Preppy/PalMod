@@ -32,15 +32,27 @@ const CHAR g_GameFriendlyName[NUM_GAMES][16] =
 };
 
 //Images
+constexpr auto MVC2_D_NUMUNIT = 59; 
+constexpr auto SSF2T_A_NUMUNIT = 17;
+constexpr auto SFIII3_A_NUMUNIT = 20;
+constexpr auto SFA3_A_NUMUNIT = 28;
 
-#define IMG4 0 //Image Game Flag.  Used for MVC, MVC2, SFA3, XMVSF.
+constexpr auto SFA3_A_UNIQUEUNITS = 17;
+constexpr auto XMVSF_A_UNIQUEUNITS = 1; // Apocalypse
+constexpr auto MVC_A_UNIQUEUNITS = 1; // Onslaught
+
+constexpr auto SFA3_A_IMGSTART = MVC2_D_NUMUNIT;
+constexpr auto XMVSF_A_IMGSTART = MVC2_D_NUMUNIT + SFA3_A_UNIQUEUNITS; // MVC2, then SFA3, then XMVSF
+constexpr auto MVC_A_IMGSTART = XMVSF_A_IMGSTART + XMVSF_A_UNIQUEUNITS; //MVC2, then SFA3, then XMVSF, then MVC
+
+#define IMG4 0 //Image Game Flag.  Used for MVC2, SFA3, XMVSF, MVC
 #define IMG5 1 //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
 #define IMGDAT_SECTION_ST 2 //Image Game Flag.  Used for ST.
 
 // IMG4 ranges:
 //  * MVC2: 0x3b character units
 //  * SFA3: 0x11 character units
-//  * XMVSF: 0x1 character unit (Cyber Akuma)
+//  * XMVSF: 0x1 character unit (Apocalypse)
 //  * MvC: 0x1 character unit (Onslaught)
 
 //  * SSF2T: 0x11 character units
@@ -48,9 +60,9 @@ const CHAR g_GameFriendlyName[NUM_GAMES][16] =
 // Aggregate count of image units per game flag
 const int IMGAMT[3] =
 {
-    0x3B + 0x11 + 0x11 + 0x1 + 0x1,
-    0x14,
-    0x11
+    MVC2_D_NUMUNIT + SFA3_A_UNIQUEUNITS + XMVSF_A_UNIQUEUNITS + MVC_A_UNIQUEUNITS,
+    SFIII3_A_NUMUNIT,
+    SSF2T_A_NUMUNIT
 };
 
 //Display types (used for image out)

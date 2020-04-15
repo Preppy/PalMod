@@ -1,6 +1,5 @@
 #pragma once
 
-constexpr auto SFIII3_A_NUMUNIT = 0x14;
 constexpr auto SFIII3_A_PALETTESIZE = 64; // unused
 
 #define SFIII3_A_EXTRALOC SFIII3_A_NUMUNIT

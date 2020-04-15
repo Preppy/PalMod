@@ -1,7 +1,6 @@
 #pragma once
 #include "Default.h"
 
-constexpr UINT16 MVC2_D_NUMUNIT = 59;
 constexpr UINT16 MVC2_D_PALSZ = 16;
 
 constexpr UINT16 EXTRA_START = 0x0F00;

@@ -1,8 +1,5 @@
 #pragma once
 
-// Note that we only look up Onslaught from this section, and we don't have a sprite(?)
-#define MVC_A_IMGSTART (0x3B + 0x11 + 0x11 + 0x01) //MVC2, then SSF2T, then SFA3, then XMVSF
-
 // To add characters or palette lists:
 // * Update the SupportedPaletteListIndex with the new index name.
 // * Add an array below along the line sof MVC_A_RYU_PALETTES. 
