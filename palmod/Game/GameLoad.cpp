@@ -23,6 +23,7 @@ CGameLoad::~CGameLoad(void)
 {
     // Clean up static allocations.
     safe_delete_array(CGame_MVC_A::MVC_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50);
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);

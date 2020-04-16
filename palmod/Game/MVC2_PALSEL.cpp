@@ -398,6 +398,25 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nTargetImgId = 1; // Rush
             break;
         }
+        else if ((uPalId == 0x2) || // Temporary fix to avoid pulling in MVC's CSPs
+                 (uPalId == 0xA) ||
+                 (uPalId == 0x12) ||
+                 (uPalId == 0x1A) ||
+                 (uPalId == 0x22) ||
+                 (uPalId == 0x2A))
+        {
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x1D;
+            nTargetImgId = INVALID_UNIT_VALUE; // We don't have Beat yet.
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+            break;
+        }
 
         break;
     }

@@ -1253,7 +1253,7 @@ const sGame_PaletteDataset MVC_A_CSIS_PALETTES[] =
     { "Gambit CS Icon", 0x003e63a, 0x003e65a },
     { "Venom CS Icon", 0x003e65a, 0x003e67a },
     { "Spider-Man CS Icon", 0x003e67a, 0x003e69a },
-    { "Roll? CS Icon", 0x003e69a, 0x003e6ba },
+    //{ "Roll? CS Icon", 0x003e69a, 0x003e6ba },
     { "Ryu CS Icon", 0x003e6ba, 0x003e6da },
     { "Captain Commando CS Icon", 0x003e6da, 0x003e6fa },
     { "Chun-Li CS Icon", 0x003e6fa, 0x003e71a },

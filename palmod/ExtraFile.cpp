@@ -231,6 +231,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
     {
         const int nExtraArraySize = min(nStockExtrasCount + (nTotalExtensionExtraLinesHandled / 3), nMaxExtraBufferSize);
 
+        // These allocations are cleaned up in CGameLoad::~CGameLoad
         *pCompleteExtraDefs = new stExtraDef[nExtraArraySize + 1];
 
         memcpy(*pCompleteExtraDefs, rgTempExtraBuffer, nExtraArraySize * sizeof(stExtraDef));
