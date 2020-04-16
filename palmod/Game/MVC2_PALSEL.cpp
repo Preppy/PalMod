@@ -368,15 +368,112 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             SetExtraImg(0, uUnitId, uPalId);
             break;
         }
-
-        if ((uPalId == (0x5E + EXTRA_OMNI)) || // Roll
-            (uPalId == (0xB5 + EXTRA_OMNI)) ||
-            (uPalId == (0x10C + EXTRA_OMNI)) ||
-            (uPalId == (0x163 + EXTRA_OMNI)) ||
-            (uPalId == (0x1BA + EXTRA_OMNI)) ||
-            (uPalId == (0x211 + EXTRA_OMNI)))
+        else if ((uPalId == (0x5E + EXTRA_OMNI)) || // Roll
+                 (uPalId == (0xB5 + EXTRA_OMNI)) ||
+                 (uPalId == (0x10C + EXTRA_OMNI)) ||
+                 (uPalId == (0x163 + EXTRA_OMNI)) ||
+                 (uPalId == (0x1BA + EXTRA_OMNI)) ||
+                 (uPalId == (0x211 + EXTRA_OMNI)))
         {
-            // TODO
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x1d;
+            nTargetImgId = 0;
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, 0));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+
+            break;
+        }
+        else if (((uPalId >= (0x14 + EXTRA_OMNI))  && (uPalId <= (0x1C + EXTRA_OMNI))) || // Rush
+                 ((uPalId >= (0x6B + EXTRA_OMNI))  && (uPalId <= (0x73 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xC2 + EXTRA_OMNI))  && (uPalId <= (0xCA + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x119 + EXTRA_OMNI)) && (uPalId <= (0x121 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x170 + EXTRA_OMNI)) && (uPalId <= (0x178 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1C7 + EXTRA_OMNI)) && (uPalId <= (0x1CF + EXTRA_OMNI))))
+        {
+            nTargetImgId = 1; // Rush
+            break;
+        }
+
+        break;
+    }
+    case 0x1D: // Roll
+    {
+        if (((uPalId >= (0x0B + EXTRA_OMNI)) && (uPalId <= (0x13 + EXTRA_OMNI))) || // Roll intros
+             ((uPalId >= (0x2F + EXTRA_OMNI)) && (uPalId <= (0x37 + EXTRA_OMNI))) || // Charging buster
+             ((uPalId >= (0x4C + EXTRA_OMNI)) && (uPalId <= (0x54 + EXTRA_OMNI))) || // Hyper Roll
+
+             ((uPalId >= (0x62 + EXTRA_OMNI)) && (uPalId <= (0x6A + EXTRA_OMNI))) || // Roll intros
+             ((uPalId >= (0x86 + EXTRA_OMNI)) && (uPalId <= (0x8E + EXTRA_OMNI))) || // Charging buster
+             ((uPalId >= (0xA3 + EXTRA_OMNI)) && (uPalId <= (0xAB + EXTRA_OMNI))) || // Hyper Roll
+
+             ((uPalId >= (0xB9 + EXTRA_OMNI)) && (uPalId <= (0xC1 + EXTRA_OMNI))) || // Roll intros
+             ((uPalId >= (0xDD + EXTRA_OMNI)) && (uPalId <= (0xE5 + EXTRA_OMNI))) || // Charging buster
+             ((uPalId >= (0xFA + EXTRA_OMNI)) && (uPalId <= (0x102 + EXTRA_OMNI))) ||  // Hyper Roll
+
+             ((uPalId >= (0x110 + EXTRA_OMNI)) && (uPalId <= (0x118 + EXTRA_OMNI))) || // Roll intros
+             ((uPalId >= (0x134 + EXTRA_OMNI)) && (uPalId <= (0x13c + EXTRA_OMNI))) || // Charging buster
+             ((uPalId >= (0x151 + EXTRA_OMNI)) && (uPalId <= (0x159 + EXTRA_OMNI))) || // Hyper Roll
+
+             ((uPalId >= (0x167 + EXTRA_OMNI)) && (uPalId <= (0x16F + EXTRA_OMNI))) || // Roll intros
+             ((uPalId >= (0x18B + EXTRA_OMNI)) && (uPalId <= (0x193 + EXTRA_OMNI))) || // Charging buster
+             ((uPalId >= (0x1A8 + EXTRA_OMNI)) && (uPalId <= (0x1B0 + EXTRA_OMNI))) || // Hyper Roll
+
+             ((uPalId >= (0x1BE + EXTRA_OMNI)) && (uPalId <= (0x1C6 + EXTRA_OMNI))) || // Roll intros
+             ((uPalId >= (0x1E2 + EXTRA_OMNI)) && (uPalId <= (0x1EA + EXTRA_OMNI))) || // Charging buster
+             ((uPalId >= (0x1FF + EXTRA_OMNI)) && (uPalId <= (0x207 + EXTRA_OMNI))))  // Hyper Roll
+        {
+            SetExtraImg(0, uUnitId, uPalId);
+            break;
+        }
+        else if ((uPalId == (0x5E + EXTRA_OMNI)) || // MegaMan
+                 (uPalId == (0xB5 + EXTRA_OMNI)) ||
+                 (uPalId == (0x10C + EXTRA_OMNI)) ||
+                 (uPalId == (0x163 + EXTRA_OMNI)) ||
+                 (uPalId == (0x1BA + EXTRA_OMNI)) ||
+                 (uPalId == (0x211 + EXTRA_OMNI)))
+        {
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x1C;
+            nTargetImgId = 0;
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+
+            break;
+        }
+        else if ((uPalId == 0x1) || // Button Extra 01: Reuse Megaman's Rush sprite
+                 (uPalId == 0x9) ||
+                 (uPalId == 0x11) ||
+                 (uPalId == 0x19) ||
+                 (uPalId == 0x21) ||
+                 (uPalId == 0x29) ||
+                 ((uPalId >= (0x14 + EXTRA_OMNI)) && (uPalId <= (0x1C + EXTRA_OMNI))) || // Rush extras
+                 ((uPalId >= (0x6B + EXTRA_OMNI)) && (uPalId <= (0x73 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xC2 + EXTRA_OMNI)) && (uPalId <= (0xCA + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x119 + EXTRA_OMNI)) && (uPalId <= (0x121 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x170 + EXTRA_OMNI)) && (uPalId <= (0x178 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1C7 + EXTRA_OMNI)) && (uPalId <= (0x1CF + EXTRA_OMNI))))
+        {
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x1C;
+            nTargetImgId = 1; // Rush
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+            break;
         }
 
         break;
