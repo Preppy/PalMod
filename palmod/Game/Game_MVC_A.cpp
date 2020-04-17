@@ -6,6 +6,7 @@
 
 #define MVC_DEBUG 0
 
+// Cleanup on this static allocation is handled in CGameLoad::~CGameLoad
 stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MVC_A::MainDescTree = CGame_MVC_A::InitDescTree();

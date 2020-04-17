@@ -6,6 +6,7 @@
 
 #define MSH_DEBUG 0
 
+// Cleanup on this static allocation is handled in CGameLoad::~CGameLoad
 stExtraDef* CGame_MSH_A::MSH_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_MSH_A::MainDescTree = CGame_MSH_A::InitDescTree();
