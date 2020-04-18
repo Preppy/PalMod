@@ -19,7 +19,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(void)
 
     m_nTotalInternalUnits = SSF2T_A_NUM_IND;
     m_nExtraUnit = SSF2T_A_EXTRALOC;
-    m_nSafeCountForThisRom = 162 + GetExtraCt(SSF2T_A_EXTRALOC);
+    m_nSafeCountForThisRom = 192 + GetExtraCt(SSF2T_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SSF2T;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSSF2T;
 

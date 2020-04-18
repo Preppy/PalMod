@@ -368,7 +368,7 @@ void CGameWithExtrasFile::CheckForDupesInTables()
         }
         else
         {
-            strText.Format("Warning: This game's duplicate check count should be updated.\n\nNo duplicates were found thankfully.");
+            strText.Format("Warning: This game's duplicate check count (m_nSafeCountForThisRom) should be updated.\n\nNo duplicates were found thankfully.");
         }
 
         OutputDebugString(strText);
