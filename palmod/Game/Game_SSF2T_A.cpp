@@ -6,82 +6,18 @@
 
 #define SSF2T_DEBUG 0
 
-// Cleanup on this static allocation is handled in CGameLoad::~CGameLoad
 stExtraDef* CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM = nullptr;
 
 CDescTree CGame_SSF2T_A::MainDescTree = CGame_SSF2T_A::InitDescTree();
 
 UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T = 0;
 
-int CGame_SSF2T_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
-{
-    static int rgExtraCountAll[SSF2T_A_NUMUNIT + 1] = { -1 };
-    static int rgExtraCountVisibleOnly[SSF2T_A_NUMUNIT + 1] = { -1 };
-
-    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
-
-    static bool s_isInitialized = false;
-
-    if (!s_isInitialized)
-    {
-        s_isInitialized = true;
-
-        int nDefCtr = 0;
-        memset(rgExtraCt, 0, (SSF2T_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            rgExtraCountAll[pCurrDef->uUnitN]++;
-
-            if (!pCurrDef->isInvisible)
-            {
-                rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForSSF2T(nDefCtr);
-        }
-    }
-
-    return rgExtraCt[nUnitId];
-}
-
-int CGame_SSF2T_A::GetExtraLoc(UINT16 nUnitId)
-{
-    static int rgExtraLoc[SSF2T_A_NUMUNIT + 1] = { -1 };
-
-    if (rgExtraLoc[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (SSF2T_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForSSF2T(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc[nUnitId];
-}
-
 CGame_SSF2T_A::CGame_SSF2T_A(void)
 {
     //We need the proper unit amt before we init the main buffer
-    nUnitAmt = SSF2T_A_NUMUNIT + (GetExtraCt(SSF2T_A_EXTRALOC) ? 1 : 0);
+    nUnitAmt = SSF2T_A_NUM_IND + (GetExtraCt(SSF2T_A_EXTRALOC) ? 1 : 0);
 
-    m_nTotalInternalUnits = SSF2T_A_NUMUNIT;
+    m_nTotalInternalUnits = SSF2T_A_NUM_IND;
     m_nExtraUnit = SSF2T_A_EXTRALOC;
     m_nSafeCountForThisRom = 162 + GetExtraCt(SSF2T_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SSF2T;
@@ -98,7 +34,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(void)
     //Set game information
     nGameFlag = SSF2T_A;
     nImgGameFlag = IMGDAT_SECTION_ST;
-    nImgUnitAmt = nUnitAmt;
+    nImgUnitAmt = SSF2T_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;
     nFileAmt = 1;
@@ -121,13 +57,76 @@ CGame_SSF2T_A::CGame_SSF2T_A(void)
     nAIndexMul = 0.0f;
 }
 
+int CGame_SSF2T_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+{
+    static int rgExtraCountAll[SSF2T_A_NUM_IND + 1] = { -1 };
+    static int rgExtraCountVisibleOnly[SSF2T_A_NUM_IND + 1] = { -1 };
+
+    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
+
+    static bool s_isInitialized = false;
+
+    if (!s_isInitialized)
+    {
+        s_isInitialized = true;
+
+        int nDefCtr = 0;
+        memset(rgExtraCt, 0, (SSF2T_A_NUM_IND + 1) * sizeof(int));
+
+        stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
+
+        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+        {
+            rgExtraCountAll[pCurrDef->uUnitN]++;
+
+            if (!pCurrDef->isInvisible)
+            {
+                rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
+            }
+
+            nDefCtr++;
+            pCurrDef = GetExtraDefForSSF2T(nDefCtr);
+        }
+    }
+
+    return rgExtraCt[nUnitId];
+}
+int CGame_SSF2T_A::GetExtraLoc(UINT16 nUnitId)
+{
+    static int rgExtraLoc[SSF2T_A_NUM_IND + 1] = { -1 };
+
+    if (rgExtraLoc[0] == -1)
+    {
+        int nDefCtr = 0;
+        int nCurrUnit = UNIT_START_VALUE;
+        memset(rgExtraLoc, 0, (SSF2T_A_NUM_IND + 1) * sizeof(int));
+
+        stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
+
+        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+        {
+            if (pCurrDef->uUnitN != nCurrUnit)
+            {
+                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
+                nCurrUnit = pCurrDef->uUnitN;
+            }
+
+            nDefCtr++;
+            pCurrDef = GetExtraDefForSSF2T(nDefCtr);
+        }
+    }
+
+    return rgExtraLoc[nUnitId];
+}
+
+
+
 CGame_SSF2T_A::~CGame_SSF2T_A(void)
 {
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
 }
-
 CDescTree* CGame_SSF2T_A::GetMainTree()
 {
     return &CGame_SSF2T_A::MainDescTree;
@@ -140,7 +139,7 @@ CDescTree CGame_SSF2T_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SSF2T, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM, SSF2T_A_EXTRALOC);
 
-    UINT16 nUnitCt = SSF2T_A_NUMUNIT + (GetExtraCt(SSF2T_A_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = SSF2T_A_NUM_IND + (GetExtraCt(SSF2T_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -173,7 +172,7 @@ CDescTree CGame_SSF2T_A::InitDescTree()
         if (iUnitCtr < SSF2T_A_EXTRALOC)
         {
             //Set each description
-            sprintf(UnitNode->szDesc, "%s", SSF2T_UNITS[iUnitCtr].szDesc);
+            sprintf(UnitNode->szDesc, "%s", SSF2T_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
@@ -183,7 +182,7 @@ CDescTree CGame_SSF2T_A::InitDescTree()
             strMsg.Format("Unit: %s, %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
-            
+
             UINT16 nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
@@ -220,16 +219,10 @@ CDescTree CGame_SSF2T_A::InitDescTree()
                     nTotalPaletteCount++;
 
 #if SSF2T_DEBUG
-#ifndef OUTPUT_AS_PALETTEDATASET
                     strMsg.Format("\t\tPalette: %s, %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(" from 0x%06x to 0x%06x total %u\n", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset);
                     OutputDebugString(strMsg);
-#else
-                    strMsg.Format("    {\"%s\", 0x%06x, 0x%06x, 0x%02x },\n", ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset - 2, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - 2,
-                                                                              paletteSetToUse[nNodeIndex].indexImgToUse);
-                    OutputDebugString(strMsg);
-#endif
 #endif
                 }
             }
@@ -297,7 +290,7 @@ CDescTree CGame_SSF2T_A::InitDescTree()
         }
     }
 
-    strMsg.Format("CGame_SSF2T_A::InitDescTree: Loaded %u palettes for SSF2T1\n", nTotalPaletteCount);
+    strMsg.Format("CGame_SSF2T_A::InitDescTree: Loaded %u palettes for SSF2T\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     m_nTotalPaletteCountForSSF2T = nTotalPaletteCount;
@@ -325,7 +318,7 @@ UINT16 CGame_SSF2T_A::GetCollectionCountForUnit(UINT16 nUnitId)
     }
     else
     {
-        return SSF2T_UNITS[nUnitId].uChildAmt;
+        return SSF2T_A_UNITS[nUnitId].uChildAmt;
     }
 }
 
@@ -337,7 +330,7 @@ UINT16 CGame_SSF2T_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(SSF2T_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(SSF2T_A_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
@@ -351,7 +344,7 @@ LPCSTR CGame_SSF2T_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollec
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)SSF2T_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)SSF2T_A_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
@@ -365,8 +358,8 @@ UINT16 CGame_SSF2T_A::GetPaletteCountForUnit(UINT16 nUnitId)
     else
     {
         UINT16 nCompleteCount = 0;
-        UINT16 nCollectionCount = SSF2T_UNITS[nUnitId].uChildAmt;
-        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(SSF2T_UNITS[nUnitId].ChildNodes);
+        UINT16 nCollectionCount = SSF2T_A_UNITS[nUnitId].uChildAmt;
+        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(SSF2T_A_UNITS[nUnitId].ChildNodes);
 
         for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
         {
@@ -386,7 +379,7 @@ UINT16 CGame_SSF2T_A::GetPaletteCountForUnit(UINT16 nUnitId)
 const sGame_PaletteDataset* CGame_SSF2T_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)SSF2T_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)SSF2T_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
@@ -471,12 +464,11 @@ BOOL CGame_SSF2T_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        int nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = SSF2T_A_UNITSORT[nUnitCtr];
+        rgUnitRedir[nUnitCtr] = nUnitCtr; //Fix later for unit sort
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -491,7 +483,7 @@ BOOL CGame_SSF2T_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-    
+
     CheckForDupesInTables();
 
     return TRUE;
@@ -560,7 +552,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
-    
+
     int nSrcStart = 0;
     int nSrcAmt = nCollectionCount;
 
@@ -570,6 +562,8 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     // Make sure to reset the image id
     nTargetImgId = 0;
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
+
+    bool fShouldUseAlternateLoadLogic = false;
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
@@ -586,13 +580,16 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nTargetImgId = paletteDataSet->indexOffsetToUse;
         }
     }
-    
-    //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-    CreateDefPal(NodeGet, 0);
+    if (!fShouldUseAlternateLoadLogic)
+    {
+        //Create the default palette
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
+        CreateDefPal(NodeGet, 0);
+
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
+    }
 
     return TRUE;
 }
@@ -603,10 +600,9 @@ COLORREF* CGame_SSF2T_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     COLORREF* NewPal = new COLORREF[nCurrPalSz];
 
-    // Skip past the transparency or counter byte.
-    for (int i = 1; i < nCurrPalSz; i++)
+    for (int i = 0; i < nCurrPalSz - 1; i++)
     {
-        NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
+        NewPal[i + 1] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
     }
 
     NewPal[0] = 0xFF000000;
@@ -622,26 +618,31 @@ void CGame_SSF2T_A::UpdatePalData()
 
         if (srcDef->bAvail)
         {
-            int nIndexStart = 0;
-            int nBasicPaletteCount = 10;
-
             COLORREF* crSrc = srcDef->pPal;
-            UINT16 uAmt = srcDef->uPalSz;
 
-            if (indexSSF2TGouki == srcDef->uUnitId)
-            {
-                nBasicPaletteCount = 2;
-            }
-            
-            if (srcDef->uPalId < nBasicPaletteCount)
-            {
-                // Preserve the first byte for all the basic palettes
-                nIndexStart = 1;
-            }
+            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nCurrentTotalWrites = 0;
+            // Every 16 colors there is another counter WORD (color length) to preserve.
+            const UINT16 nMaxSafeColorsToWrite = 16;
+            const UINT16 iFixedCounterPosition = 0; // The lead 'color' is a counter and needs to be preserved.
 
-            for (int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
+            while (nTotalColorsRemaining > 0)
             {
-                pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = (ConvCol(crSrc[nPICtr]) & 0x0FFF);
+                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
+
+                for (int nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
+                {
+                    if (nPICtr == iFixedCounterPosition)
+                    {
+                        continue;
+                    }
+
+                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
+                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
+                }
+
+                nCurrentTotalWrites += nMaxSafeColorsToWrite;
+                nTotalColorsRemaining -= nMaxSafeColorsToWrite;
             }
 
             srcDef->bChanged = FALSE;

@@ -1,402 +1,417 @@
 #pragma once
 
-// To add characters or palette lists:
-// * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of SSF2T_A_RYU_PALETTES. 
-// * Update every array using SSF2T_A_NUMUNIT below
-// * Update the index lookups in Game_SSF2T_A_.cpp that are marked - look for usage of indexSSF2TRyu to find them
-// That should be it.  Good luck.
-
-enum SupportedSSF2TPaletteListIndex
+enum Supported_SSF2T_PaletteListIndex
 {
-    indexSSF2TRyu,
-    indexSSF2TEHonda,
-    indexSSF2TBlanka,
-    indexSSF2TGuile,
-    indexSSF2TKen,
-    indexSSF2TChunLi,
-    indexSSF2TZangief,
-    indexSSF2TDhalsim,
-    indexSSF2TMBison,
-    indexSSF2TSagat,
-    indexSSF2TBalrog,
-    indexSSF2TVega,
-    indexSSF2TCammy,
-    indexSSF2TTHawk,
-    indexSSF2TFeiLong,
-    indexSSF2TDeeJay,
-    indexSSF2TGouki,
-    indexSSF2TLast
+    index_SSF2T_Balrog,
+    index_SSF2T_Blanka,
+    index_SSF2T_Cammy,
+    index_SSF2T_ChunLi,
+    index_SSF2T_DeeJay,
+    index_SSF2T_Dhalsim,
+    index_SSF2T_EHonda,
+    index_SSF2T_FeiLong,
+    index_SSF2T_Gouki,
+    index_SSF2T_Guile,
+    index_SSF2T_Ken,
+    index_SSF2T_MBison,
+    index_SSF2T_Ryu,
+    index_SSF2T_Sagat,
+    index_SSF2T_THawk,
+    index_SSF2T_Vega,
+    index_SSF2T_Zangief,
+    index_SSF2T_Last
 };
 
-#define SSF2T_A_EXTRALOC SSF2T_A_NUMUNIT
+constexpr auto SSF2T_A_NUM_IND = index_SSF2T_Last;
 
-const sGame_PaletteDataset SSF2T_A_RYU_PALETTES[] =
-{
-    {"Jab", 0x03fb2c, 0x03fb4c, 0x00 },
-    {"Strong", 0x03fbce, 0x03fbee, 0x00 },
-    {"Fierce", 0x03fc70, 0x03fc90, 0x00 },
-    {"Short", 0x03fd12, 0x03fd32, 0x00 },
-    {"Forward", 0x03fdb4, 0x03fdd4, 0x00 },
-    {"Roundhouse", 0x03fe56, 0x03fe76, 0x00 },
-    {"Start", 0x03fef8, 0x03ff18, 0x00 },
-    {"Hold", 0x03ff9a, 0x03ffba, 0x00 },
-    {"Old 1P", 0x04003c, 0x04005c, 0x00 },
-    {"Old 2P", 0x0400de, 0x0400fe, 0x00 },
-};
+#define SSF2T_A_EXTRALOC SSF2T_A_NUM_IND
 
-const sGame_PaletteDataset SSF2T_A_EHONDA_PALETTES[] =
+const UINT8 SSF2T_A_UNITSORT[SSF2T_A_NUM_IND + 1] = // Plus 1 for the extra palettes
 {
-    {"Jab", 0x040198, 0x0401b8, 0x01 },
-    {"Strong", 0x04023a, 0x04025a, 0x01 },
-    {"Fierce", 0x0402dc, 0x0402fc, 0x01 },
-    {"Short", 0x04037e, 0x04039e, 0x01 },
-    {"Forward", 0x040420, 0x040440, 0x01 },
-    {"Roundhouse", 0x0404c2, 0x0404e2, 0x01 },
-    {"Start", 0x040564, 0x040584, 0x01 },
-    {"Hold", 0x040606, 0x040626, 0x01 },
-    {"Old 1P", 0x0406a8, 0x0406c8, 0x01 },
-    {"Old 2P", 0x04074a, 0x04076a, 0x01 },
-};
-
-const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES[] =
-{
-    {"Jab", 0x040804, 0x040824, 0x02 },
-    {"Strong", 0x0408a4, 0x0408c4, 0x02 },
-    {"Fierce", 0x040944, 0x040964, 0x02 },
-    {"Short", 0x0409e4, 0x040a04, 0x02 },
-    {"Forward", 0x040a84, 0x040aa4, 0x02 },
-    {"Roundhouse", 0x040b24, 0x040b44, 0x02 },
-    {"Start", 0x040bc4, 0x040be4, 0x02 },
-    {"Hold", 0x040c64, 0x040c84, 0x02 },
-    {"Old 1P", 0x040d04, 0x040d24, 0x02 },
-    {"Old 2P", 0x040da6, 0x040dc6, 0x02 },
-};
-
-const sGame_PaletteDataset SSF2T_A_GUILE_PALETTES[] =
-{
-    {"Jab", 0x040e60, 0x040e80, 0x03 },
-    {"Strong", 0x040f02, 0x040f22, 0x03 },
-    {"Fierce", 0x040fa4, 0x040fc4, 0x03 },
-    {"Short", 0x041046, 0x041066, 0x03 },
-    {"Forward", 0x0410e8, 0x041108, 0x03 },
-    {"Roundhouse", 0x04118a, 0x0411aa, 0x03 },
-    {"Start", 0x04122c, 0x04124c, 0x03 },
-    {"Hold", 0x0412ce, 0x0412ee, 0x03 },
-    {"Old 1P", 0x041370, 0x041390, 0x03 },
-    {"Old 2P", 0x041412, 0x041432, 0x03 },
-};
-
-const sGame_PaletteDataset SSF2T_A_KEN_PALETTES[] =
-{
-    {"Jab", 0x0414cc, 0x0414ec, 0x04 },
-    {"Strong", 0x04156e, 0x04158e, 0x04 },
-    {"Fierce", 0x041610, 0x041630, 0x04 },
-    {"Short", 0x0416b2, 0x0416d2, 0x04 },
-    {"Forward", 0x041754, 0x041774, 0x04 },
-    {"Roundhouse", 0x0417f6, 0x041816, 0x04 },
-    {"Start", 0x041898, 0x0418b8, 0x04 },
-    {"Hold", 0x04193a, 0x04195a, 0x04 },
-    {"Old 1P", 0x0419dc, 0x0419fc, 0x04 },
-    {"Old 2P", 0x041a7e, 0x041a9e, 0x04 },
-};
-
-const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES[] =
-{
-    {"Jab", 0x041b38, 0x041b58, 0x05 },
-    {"Strong", 0x041bda, 0x041bfa, 0x05 },
-    {"Fierce", 0x041c7c, 0x041c9c, 0x05 },
-    {"Short", 0x041d1e, 0x041d3e, 0x05 },
-    {"Forward", 0x041dc0, 0x041de0, 0x05 },
-    {"Roundhouse", 0x041e62, 0x041e82, 0x05 },
-    {"Start", 0x041f04, 0x041f24, 0x05 },
-    {"Hold", 0x041fa6, 0x041fc6, 0x05 },
-    {"Old 1P", 0x042048, 0x042068, 0x05 },
-    {"Old 2P", 0x0420ea, 0x04210a, 0x05 },
-};
-
-const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES[] =
-{
-    {"Jab", 0x0421a4, 0x0421c4, 0x06 },
-    {"Strong", 0x042246, 0x042266, 0x06 },
-    {"Fierce", 0x0422e8, 0x042308, 0x06 },
-    {"Short", 0x04238a, 0x0423aa, 0x06 },
-    {"Forward", 0x04242c, 0x04244c, 0x06 },
-    {"Roundhouse", 0x0424ce, 0x0424ee, 0x06 },
-    {"Start", 0x042570, 0x042590, 0x06 },
-    {"Hold", 0x042612, 0x042632, 0x06 },
-    {"Old 1P", 0x0426b4, 0x0426d4, 0x06 },
-    {"Old 2P", 0x042756, 0x042776, 0x06 },
-};
-
-const sGame_PaletteDataset SSF2T_A_DHALSIM_PALETTES[] =
-{
-    {"Jab", 0x042810, 0x042830, 0x07 },
-    {"Strong", 0x0428b2, 0x0428d2, 0x07 },
-    {"Fierce", 0x042954, 0x042974, 0x07 },
-    {"Short", 0x0429f6, 0x042a16, 0x07 },
-    {"Forward", 0x042a98, 0x042ab8, 0x07 },
-    {"Roundhouse", 0x042b3a, 0x042b5a, 0x07 },
-    {"Start", 0x042bdc, 0x042bfc, 0x07 },
-    {"Hold", 0x042c7e, 0x042c9e, 0x07 },
-    {"Old 1P", 0x042d20, 0x042d40, 0x07 },
-    {"Old 2P", 0x042dc2, 0x042de2, 0x07 },
-};
-
-const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES[] =
-{
-    {"Jab", 0x042e7c, 0x042e9c, 0x08 },
-    {"Strong", 0x042f1e, 0x042f3e, 0x08 },
-    {"Fierce", 0x042fc0, 0x042fe0, 0x08 },
-    {"Short", 0x043062, 0x043082, 0x08 },
-    {"Forward", 0x043104, 0x043124, 0x08 },
-    {"Roundhouse", 0x0431a6, 0x0431c6, 0x08 },
-    {"Start", 0x043248, 0x043268, 0x08 },
-    {"Hold", 0x0432ea, 0x04330a, 0x08 },
-    {"Old 1P", 0x04338c, 0x0433ac, 0x08 },
-    {"Old 2P", 0x04342e, 0x04344e, 0x08 },
-};
-
-const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES[] =
-{
-    {"Jab", 0x0434e8, 0x043508, 0x09 },
-    {"Strong", 0x04358a, 0x0435aa, 0x09 },
-    {"Fierce", 0x04362c, 0x04364c, 0x09 },
-    {"Short", 0x0436ce, 0x0436ee, 0x09 },
-    {"Forward", 0x043770, 0x043790, 0x09 },
-    {"Roundhouse", 0x043812, 0x043832, 0x09 },
-    {"Start", 0x0438b4, 0x0438d4, 0x09 },
-    {"Hold", 0x043956, 0x043976, 0x09 },
-    {"Old 1P", 0x0439f8, 0x043a18, 0x09 },
-    {"Old 2P", 0x043a9a, 0x043aba, 0x09 },
-};
-
-const sGame_PaletteDataset SSF2T_A_BALROG_PALETTES[] =
-{
-    {"Jab", 0x043b54, 0x043b74, 0x0a },
-    {"Strong", 0x043bf6, 0x043c16, 0x0a },
-    {"Fierce", 0x043c98, 0x043cb8, 0x0a },
-    {"Short", 0x043d3a, 0x043d5a, 0x0a },
-    {"Forward", 0x043ddc, 0x043dfc, 0x0a },
-    {"Roundhouse", 0x043e7e, 0x043e9e, 0x0a },
-    {"Start", 0x043f20, 0x043f40, 0x0a },
-    {"Hold", 0x043fc2, 0x043fe2, 0x0a },
-    {"Old 1P", 0x044064, 0x044084, 0x0a },
-    {"Old 2P", 0x044106, 0x044126, 0x0a },
-};
-
-const sGame_PaletteDataset SSF2T_A_VEGA_PALETTES[] =
-{
-    {"Jab", 0x0441c0, 0x0441e0, 0x0b },
-    {"Strong", 0x044262, 0x044282, 0x0b },
-    {"Fierce", 0x044304, 0x044324, 0x0b },
-    {"Short", 0x0443a6, 0x0443c6, 0x0b },
-    {"Forward", 0x044448, 0x044468, 0x0b },
-    {"Roundhouse", 0x0444ea, 0x04450a, 0x0b },
-    {"Start", 0x04458c, 0x0445ac, 0x0b },
-    {"Hold", 0x04462e, 0x04464e, 0x0b },
-    {"Old 1P", 0x0446d0, 0x0446f0, 0x0b },
-    {"Old 2P", 0x044772, 0x044792, 0x0b },
-};
-
-const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES[] =
-{
-    {"Jab", 0x04482c, 0x04484c, 0x0c },
-    {"Strong", 0x0448ce, 0x0448ee, 0x0c },
-    {"Fierce", 0x044970, 0x044990, 0x0c },
-    {"Short", 0x044a12, 0x044a32, 0x0c },
-    {"Forward", 0x044ab4, 0x044ad4, 0x0c },
-    {"Roundhouse", 0x044b56, 0x044b76, 0x0c },
-    {"Start", 0x044bf8, 0x044c18, 0x0c },
-    {"Hold", 0x044c9a, 0x044cba, 0x0c },
-    {"Old 1P", 0x044d3c, 0x044d5c, 0x0c },
-    {"Old 2P", 0x044dde, 0x044dfe, 0x0c },
-};
-
-const sGame_PaletteDataset SSF2T_A_THAWK_PALETTES[] =
-{
-    {"Jab", 0x044e98, 0x044eb8, 0x0d },
-    {"Strong", 0x044f3a, 0x044f5a, 0x0d },
-    {"Fierce", 0x044fdc, 0x044ffc, 0x0d },
-    {"Short", 0x04507e, 0x04509e, 0x0d },
-    {"Forward", 0x045120, 0x045140, 0x0d },
-    {"Roundhouse", 0x0451c2, 0x0451e2, 0x0d },
-    {"Start", 0x045264, 0x045284, 0x0d },
-    {"Hold", 0x045306, 0x045326, 0x0d },
-    {"Old 1P", 0x0453a8, 0x0453c8, 0x0d },
-    {"Old 2P", 0x04544a, 0x04546a, 0x0d },
-};
-
-const sGame_PaletteDataset SSF2T_A_FEILONG_PALETTES[] =
-{
-    {"Jab", 0x045504, 0x045524, 0x0e },
-    {"Strong", 0x0455a6, 0x0455c6, 0x0e },
-    {"Fierce", 0x045648, 0x045668, 0x0e },
-    {"Short", 0x0456ea, 0x04570a, 0x0e },
-    {"Forward", 0x04578c, 0x0457ac, 0x0e },
-    {"Roundhouse", 0x04582e, 0x04584e, 0x0e },
-    {"Start", 0x0458d0, 0x0458f0, 0x0e },
-    {"Hold", 0x045972, 0x045992, 0x0e },
-    {"Old 1P", 0x045a14, 0x045a34, 0x0e },
-    {"Old 2P", 0x045ab6, 0x045ad6, 0x0e },
-};
-
-const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES[] =
-{
-    {"Jab", 0x045b70, 0x045b90, 0x0f },
-    {"Strong", 0x045c12, 0x045c32, 0x0f },
-    {"Fierce", 0x045cb4, 0x045cd4, 0x0f },
-    {"Short", 0x045d56, 0x045d76, 0x0f },
-    {"Forward", 0x045df8, 0x045e18, 0x0f },
-    {"Roundhouse", 0x045e9a, 0x045eba, 0x0f },
-    {"Start", 0x045f3c, 0x045f5c, 0x0f },
-    {"Hold", 0x045fde, 0x045ffe, 0x0f },
-    {"Old 1P", 0x046080, 0x0460a0, 0x0f },
-    {"Old 2P", 0x046122, 0x046142, 0x0f },
-};
-
-const sGame_PaletteDataset SSF2T_A_GOUKI_PALETTES[] =
-{
-    {"1P", 0x0461dc, 0x0461fc, 0x10 },
-    {"2P", 0x04627e, 0x04629e, 0x10 },
-    // These were used for PalMod 2008 but are clearly not for the Gouki sprite itself at least.
-    //{"Fierce", 0x046322, 0x046342, 0x10 },
-    //{"Short", 0x0463c4, 0x0463e4, 0x10 },
-    //{"Forward", 0x046466, 0x046486, 0x10 },
-    //{"Roundhouse", 0x046508, 0x046528, 0x10 },
-    //{"Start", 0x0465aa, 0x0465ca, 0x10 },
-    //{"Hold", 0x04664c, 0x04666c, 0x10 },
-    //{"Old 1P", 0x0466ee, 0x04670e, 0x10 },
-    //{"Old 2P", 0x046790, 0x0467b0, 0x10 },
-};
-
-const sDescTreeNode SSF2T_A_RYU_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_PALETTES, ARRAYSIZE(SSF2T_A_RYU_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_EHONDA_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_EHONDA_PALETTES, ARRAYSIZE(SSF2T_A_EHONDA_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_BLANKA_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_PALETTES, ARRAYSIZE(SSF2T_A_BLANKA_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_GUILE_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_GUILE_PALETTES, ARRAYSIZE(SSF2T_A_GUILE_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_KEN_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_PALETTES, ARRAYSIZE(SSF2T_A_KEN_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_CHUNLI_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_PALETTES, ARRAYSIZE(SSF2T_A_CHUNLI_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_ZANGIEF_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_PALETTES, ARRAYSIZE(SSF2T_A_ZANGIEF_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_DHALSIM_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_PALETTES, ARRAYSIZE(SSF2T_A_DHALSIM_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_MBISON_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_MBISON_PALETTES, ARRAYSIZE(SSF2T_A_MBISON_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_SAGAT_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_PALETTES, ARRAYSIZE(SSF2T_A_SAGAT_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_BALROG_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_PALETTES, ARRAYSIZE(SSF2T_A_BALROG_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_VEGA_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_PALETTES, ARRAYSIZE(SSF2T_A_VEGA_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_CAMMY_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_PALETTES, ARRAYSIZE(SSF2T_A_CAMMY_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_THAWK_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_PALETTES, ARRAYSIZE(SSF2T_A_THAWK_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_FEILONG_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_PALETTES, ARRAYSIZE(SSF2T_A_FEILONG_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_DEEJAY_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_PALETTES, ARRAYSIZE(SSF2T_A_DEEJAY_PALETTES) },
-};
-
-const sDescTreeNode SSF2T_A_GOUKI_COLLECTION[] =
-{
-    { "Palettes", DESC_NODETYPE_TREE, (void*)SSF2T_A_GOUKI_PALETTES, ARRAYSIZE(SSF2T_A_GOUKI_PALETTES) },
-};
-
-const UINT8 SSF2T_A_UNITSORT[SSF2T_A_NUMUNIT + 1] = // Plus 1 for the extra palettes
-{
-    indexSSF2TRyu,
-    indexSSF2TEHonda,
-    indexSSF2TBlanka,
-    indexSSF2TGuile,
-    indexSSF2TKen,
-    indexSSF2TChunLi,
-    indexSSF2TZangief,
-    indexSSF2TDhalsim,
-    indexSSF2TMBison,
-    indexSSF2TSagat,
-    indexSSF2TBalrog,
-    indexSSF2TVega,
-    indexSSF2TCammy,
-    indexSSF2TTHawk,
-    indexSSF2TFeiLong,
-    indexSSF2TDeeJay,
-    indexSSF2TGouki,
+    index_SSF2T_Balrog,
+    index_SSF2T_Blanka,
+    index_SSF2T_Cammy,
+    index_SSF2T_ChunLi,
+    index_SSF2T_DeeJay,
+    index_SSF2T_Dhalsim,
+    index_SSF2T_EHonda,
+    index_SSF2T_FeiLong,
+    index_SSF2T_Gouki,
+    index_SSF2T_Guile,
+    index_SSF2T_Ken,
+    index_SSF2T_MBison,
+    index_SSF2T_Ryu,
+    index_SSF2T_Sagat,
+    index_SSF2T_THawk,
+    index_SSF2T_Vega,
+    index_SSF2T_Zangief,
 
     SSF2T_A_EXTRALOC // Extra palettes
 };
 
-const sDescTreeNode SSF2T_UNITS[SSF2T_A_NUMUNIT] =
+const UINT16 SSF2T_A_IMGREDIR[SSF2T_A_NUM_IND] =
 {
-    { "Ryu", DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_COLLECTION, ARRAYSIZE(SSF2T_A_RYU_COLLECTION) },
-    { "E-Honda", DESC_NODETYPE_TREE, (void*)SSF2T_A_EHONDA_COLLECTION, ARRAYSIZE(SSF2T_A_EHONDA_COLLECTION) },
-    { "Blanka", DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_COLLECTION, ARRAYSIZE(SSF2T_A_BLANKA_COLLECTION) },
-    { "Guile", DESC_NODETYPE_TREE, (void*)SSF2T_A_GUILE_COLLECTION, ARRAYSIZE(SSF2T_A_GUILE_COLLECTION) },
-    { "Ken", DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_COLLECTION, ARRAYSIZE(SSF2T_A_KEN_COLLECTION) },
-    { "Chun-Li", DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_COLLECTION, ARRAYSIZE(SSF2T_A_CHUNLI_COLLECTION) },
-    { "Zangief", DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_COLLECTION, ARRAYSIZE(SSF2T_A_ZANGIEF_COLLECTION) },
-    { "Dhalsim", DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_COLLECTION, ARRAYSIZE(SSF2T_A_DHALSIM_COLLECTION) },
-    { "M.Bison", DESC_NODETYPE_TREE, (void*)SSF2T_A_MBISON_COLLECTION, ARRAYSIZE(SSF2T_A_MBISON_COLLECTION) },
-    { "Sagat", DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_COLLECTION, ARRAYSIZE(SSF2T_A_SAGAT_COLLECTION) },
-    { "Balrog", DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_COLLECTION, ARRAYSIZE(SSF2T_A_BALROG_COLLECTION) },
-    { "Vega", DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_COLLECTION, ARRAYSIZE(SSF2T_A_VEGA_COLLECTION) },
-    { "Cammy", DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_COLLECTION, ARRAYSIZE(SSF2T_A_CAMMY_COLLECTION) },
-    { "T-Hawk", DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_COLLECTION, ARRAYSIZE(SSF2T_A_THAWK_COLLECTION) },
-    { "Fei Long", DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_COLLECTION, ARRAYSIZE(SSF2T_A_FEILONG_COLLECTION) },
-    { "Dee Jay", DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_COLLECTION, ARRAYSIZE(SSF2T_A_DEEJAY_COLLECTION) },
-    { "Gouki", DESC_NODETYPE_TREE, (void*)SSF2T_A_GOUKI_COLLECTION, ARRAYSIZE(SSF2T_A_GOUKI_COLLECTION) },
+    0x00,
+    0x01,
+    0x02,
+    0x03,
+    0x04,
+    0x05,
+    0x06,
+    0x07,
+    0x08,
+    0x09,
+    0x0A,
+    0x0B,
+    0x0C,
+    0x0D,
+    0x0E,
+    0x0F,
+    0x10
+};
+
+const sGame_PaletteDataset SSF2T_A_RYU_PALETTES[] =
+{
+    {"Jab",        0x03FB2E, 0x03FB4E, 0x00},
+    {"Strong",        0x03FBD0, 0x03FBF0, 0x00},
+    {"Fierce",        0x03FC72, 0x03FC92, 0x00},
+    {"Short",        0x03FD14, 0x03FD34, 0x00},
+    {"Forward",        0x03FDB6, 0x03FDD6, 0x00},
+    {"Roundhouse",        0x03FE58, 0x03FE78, 0x00},
+    {"Start",        0x03FEFA, 0x03FF1A, 0x00},
+    {"Hold",        0x03FF9C, 0x03FFBC, 0x00},
+    {"Old 1P",        0x04003E, 0x04005E, 0x00},
+    {"Old 2P",        0x0400E0, 0x040100, 0x00},
+};
+
+const sGame_PaletteDataset SSF2T_A_EHONDA_PALETTES[] =
+{
+    {"Jab",        0x04019A, 0x0401BA, 0x01},
+    {"Strong",        0x04023C, 0x04025C, 0x01},
+    {"Fierce",        0x0402DE, 0x0402FE, 0x01},
+    {"Short",        0x040380, 0x0403A0, 0x01},
+    {"Forward",        0x040422, 0x040442, 0x01},
+    {"Roundhouse",        0x0404C4, 0x0404E4, 0x01},
+    {"Start",        0x040566, 0x040586, 0x01},
+    {"Hold",        0x040608, 0x040628, 0x01},
+    {"Old 1P",        0x0406AA, 0x0406CA, 0x01},
+    {"Old 2P",        0x04074C, 0x04076C, 0x01},
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_PALETTES[] =
+{
+    {"Jab",        0x040806, 0x040826, 0x02},
+    {"Strong",        0x0408A6, 0x0408C6, 0x02},
+    {"Fierce",        0x040946, 0x040966, 0x02},
+    {"Short",        0x0409E6, 0x040A06, 0x02},
+    {"Forward",        0x040A86, 0x040AA6, 0x02},
+    {"Roundhouse",        0x040B26, 0x040B46, 0x02},
+    {"Start",        0x040BC6, 0x040BE6, 0x02},
+    {"Hold",        0x040C66, 0x040C86, 0x02},
+    {"Old 1P",        0x040D06, 0x040D26, 0x02},
+    {"Old 2P",        0x040DA8, 0x040DC8, 0x02},
+};
+
+const sGame_PaletteDataset SSF2T_A_GUILE_PALETTES[] =
+{
+    {"Jab",        0x040E62, 0x040E82, 0x03},
+    {"Strong",        0x040F04, 0x040F24, 0x03},
+    {"Fierce",        0x040FA6, 0x040FC6, 0x03},
+    {"Short",        0x041048, 0x041068, 0x03},
+    {"Forward",        0x0410EA, 0x04110A, 0x03},
+    {"Roundhouse",        0x04118C, 0x0411AC, 0x03},
+    {"Start",        0x04122E, 0x04124E, 0x03},
+    {"Hold",        0x0412D0, 0x0412F0, 0x03},
+    {"Old 1P",        0x041372, 0x041392, 0x03},
+    {"Old 2P",        0x041414, 0x041434, 0x03},
+};
+
+const sGame_PaletteDataset SSF2T_A_KEN_PALETTES[] =
+{
+    {"Jab",        0x0414CE, 0x0414EE, 0x04},
+    {"Strong",        0x041570, 0x041590, 0x04},
+    {"Fierce",        0x041612, 0x041632, 0x04},
+    {"Short",        0x0416B4, 0x0416D4, 0x04},
+    {"Forward",        0x041756, 0x041776, 0x04},
+    {"Roundhouse",        0x0417F8, 0x041818, 0x04},
+    {"Start",        0x04189A, 0x0418BA, 0x04},
+    {"Hold",        0x04193C, 0x04195C, 0x04},
+    {"Old 1P",        0x0419DE, 0x0419FE, 0x04},
+    {"Old 2P",        0x041A80, 0x041AA0, 0x04},
+};
+
+const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES[] =
+{
+    {"Jab",        0x041B3A, 0x041B5A, 0x05},
+    {"Strong",        0x041BDC, 0x041BFC, 0x05},
+    {"Fierce",        0x041C7E, 0x041C9E, 0x05},
+    {"Short",        0x041D20, 0x041D40, 0x05},
+    {"Forward",        0x041DC2, 0x041DE2, 0x05},
+    {"Roundhouse",        0x041E64, 0x041E84, 0x05},
+    {"Start",        0x041F06, 0x041F26, 0x05},
+    {"Hold",        0x041FA8, 0x041FC8, 0x05},
+    {"Old 1P",        0x04204A, 0x04206A, 0x05},
+    {"Old 2P",        0x0420EC, 0x04210C, 0x05},
+};
+
+const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES[] =
+{
+    {"Jab",        0x0421A6, 0x0421C6, 0x06},
+    {"Strong",        0x042248, 0x042268, 0x06},
+    {"Fierce",        0x0422EA, 0x04230A, 0x06},
+    {"Short",        0x04238C, 0x0423AC, 0x06},
+    {"Forward",        0x04242E, 0x04244E, 0x06},
+    {"Roundhouse",        0x0424D0, 0x0424F0, 0x06},
+    {"Start",        0x042572, 0x042592, 0x06},
+    {"Hold",        0x042614, 0x042634, 0x06},
+    {"Old 1P",        0x0426B6, 0x0426D6, 0x06},
+    {"Old 2P",        0x042758, 0x042778, 0x06},
+};
+
+const sGame_PaletteDataset SSF2T_A_DHALSIM_PALETTES[] =
+{
+    {"Jab",        0x042812, 0x042832, 0x07},
+    {"Strong",        0x0428B4, 0x0428D4, 0x07},
+    {"Fierce",        0x042956, 0x042976, 0x07},
+    {"Short",        0x0429F8, 0x042A18, 0x07},
+    {"Forward",        0x042A9A, 0x042ABA, 0x07},
+    {"Roundhouse",        0x042B3C, 0x042B5C, 0x07},
+    {"Start",        0x042BDE, 0x042BFE, 0x07},
+    {"Hold",        0x042C80, 0x042CA0, 0x07},
+    {"Old 1P",        0x042D22, 0x042D42, 0x07},
+    {"Old 2P",        0x042DC4, 0x042DE4, 0x07},
+};
+
+const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES[] =
+{
+    {"Jab",        0x042E7E, 0x042E9E, 0x08},
+    {"Strong",        0x042F20, 0x042F40, 0x08},
+    {"Fierce",        0x042FC2, 0x042FE2, 0x08},
+    {"Short",        0x043064, 0x043084, 0x08},
+    {"Forward",        0x043106, 0x043126, 0x08},
+    {"Roundhouse",        0x0431A8, 0x0431C8, 0x08},
+    {"Start",        0x04324A, 0x04326A, 0x08},
+    {"Hold",        0x0432EC, 0x04330C, 0x08},
+    {"Old 1P",        0x04338E, 0x0433AE, 0x08},
+    {"Old 2P",        0x043430, 0x043450, 0x08},
+};
+
+const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES[] =
+{
+    {"Jab",        0x0434EA, 0x04350A, 0x09},
+    {"Strong",        0x04358C, 0x0435AC, 0x09},
+    {"Fierce",        0x04362E, 0x04364E, 0x09},
+    {"Short",        0x0436D0, 0x0436F0, 0x09},
+    {"Forward",        0x043772, 0x043792, 0x09},
+    {"Roundhouse",        0x043814, 0x043834, 0x09},
+    {"Start",        0x0438B6, 0x0438D6, 0x09},
+    {"Hold",        0x043958, 0x043978, 0x09},
+    {"Old 1P",        0x0439FA, 0x043A1A, 0x09},
+    {"Old 2P",        0x043A9C, 0x043ABC, 0x09},
+};
+
+const sGame_PaletteDataset SSF2T_A_BALROG_PALETTES[] =
+{
+    {"Jab",        0x043B56, 0x043B76, 0x0A},
+    {"Strong",        0x043BF8, 0x043C18, 0x0A},
+    {"Fierce",        0x043C9A, 0x043CBA, 0x0A},
+    {"Short",        0x043D3C, 0x043D5C, 0x0A},
+    {"Forward",        0x043DDE, 0x043DFE, 0x0A},
+    {"Roundhouse",        0x043E80, 0x043EA0, 0x0A},
+    {"Start",        0x043F22, 0x043F42, 0x0A},
+    {"Hold",        0x043FC4, 0x043FE4, 0x0A},
+    {"Old 1P",        0x044066, 0x044086, 0x0A},
+    {"Old 2P",        0x044108, 0x044128, 0x0A},
+};
+
+const sGame_PaletteDataset SSF2T_A_VEGA_PALETTES[] =
+{
+    {"Jab",        0x0441C2, 0x0441E2, 0x0B},
+    {"Strong",        0x044264, 0x044284, 0x0B},
+    {"Fierce",        0x044306, 0x044326, 0x0B},
+    {"Short",        0x0443A8, 0x0443C8, 0x0B},
+    {"Forward",        0x04444A, 0x04446A, 0x0B},
+    {"Roundhouse",        0x0444EC, 0x04450C, 0x0B},
+    {"Start",        0x04458E, 0x0445AE, 0x0B},
+    {"Hold",        0x044630, 0x044650, 0x0B},
+    {"Old 1P",        0x0446D2, 0x0446F2, 0x0B},
+    {"Old 2P",        0x044774, 0x044794, 0x0B},
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PALETTES[] =
+{
+    {"Jab",        0x04482E, 0x04484E, 0x0C},
+    {"Strong",        0x0448D0, 0x0448F0, 0x0C},
+    {"Fierce",        0x044972, 0x044992, 0x0C},
+    {"Short",        0x044A14, 0x044A34, 0x0C},
+    {"Forward",        0x044AB6, 0x044AD6, 0x0C},
+    {"Roundhouse",        0x044B58, 0x044B78, 0x0C},
+    {"Start",        0x044BFA, 0x044C1A, 0x0C},
+    {"Hold",        0x044C9C, 0x044CBC, 0x0C},
+    {"Old 1P",        0x044D3E, 0x044D5E, 0x0C},
+    {"Old 2P",        0x044DE0, 0x044E00, 0x0C},
+};
+
+const sGame_PaletteDataset SSF2T_A_THAWK_PALETTES[] =
+{
+    {"Jab",        0x044E9A, 0x044EBA, 0x0D},
+    {"Strong",        0x044F3C, 0x044F5C, 0x0D},
+    {"Fierce",        0x044FDE, 0x044FFE, 0x0D},
+    {"Short",        0x045080, 0x0450A0, 0x0D},
+    {"Forward",        0x045122, 0x045142, 0x0D},
+    {"Roundhouse",        0x0451C4, 0x0451E4, 0x0D},
+    {"Start",        0x045266, 0x045286, 0x0D},
+    {"Hold",        0x045308, 0x045328, 0x0D},
+    {"Old 1P",        0x0453AA, 0x0453CA, 0x0D},
+    {"Old 2P",        0x04544C, 0x04546C, 0x0D},
+};
+
+const sGame_PaletteDataset SSF2T_A_FEILONG_PALETTES[] =
+{
+    {"Jab",        0x045506, 0x045526, 0x0E},
+    {"Strong",        0x0455A8, 0x0455C8, 0x0E},
+    {"Fierce",        0x04564A, 0x04566A, 0x0E},
+    {"Short",        0x0456EC, 0x04570C, 0x0E},
+    {"Forward",        0x04578E, 0x0457AE, 0x0E},
+    {"Roundhouse",        0x045830, 0x045850, 0x0E},
+    {"Start",        0x0458D2, 0x0458F2, 0x0E},
+    {"Hold",        0x045974, 0x045994, 0x0E},
+    {"Old 1P",        0x045A16, 0x045A36, 0x0E},
+    {"Old 2P",        0x045AB8, 0x045AD8, 0x0E},
+};
+
+const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES[] =
+{
+    {"Jab",            0x045B72, 0x045B92, 0x0F},
+    {"Strong",        0x045C14, 0x045C34, 0x0F},
+    {"Fierce",        0x045CB6, 0x045CD6, 0x0F},
+    {"Short",        0x045D58, 0x045D78, 0x0F},
+    {"Forward",        0x045DFA, 0x045E1A, 0x0F},
+    {"Roundhouse",    0x045E9C, 0x045EBC, 0x0F},
+    {"Start",        0x045F3E, 0x045F5E, 0x0F},
+    {"Hold",        0x045FE0, 0x046000, 0x0F},
+    {"Old 1P",        0x046082, 0x0460A2, 0x0F},
+    {"Old 2P",        0x046124, 0x046144, 0x0F},
+};
+
+const sGame_PaletteDataset SSF2T_A_GOUKI_PALETTES[] =
+{
+    {"P1",        0x0461DE, 0x0461FE, 0x10},
+    {"P2",        0x046280, 0x0462A0, 0x10},
+    //{"Fierce",        0x046322, 0x046342, 0x10},
+    //{"Short",        0x0463C4, 0x0463E4, 0x10},
+    //{"Forward",        0x046466, 0x046486, 0x10},
+    //{"Roundhouse",        0x046508, 0x046528, 0x10},
+    //{"Start",        0x0465AA, 0x0465CA, 0x10},
+    //{"Hold",        0x04664C, 0x04666C, 0x10},
+    //{"Old 1P",        0x0466EE, 0x04670E, 0x10},
+    //{"Old 2P",        0x046790, 0x0467B0, 0x10},
+}; 
+
+const sDescTreeNode SSF2T_A_RYU_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_RYU_PALETTES,        ARRAYSIZE(SSF2T_A_RYU_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_EHONDA_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_EHONDA_PALETTES,        ARRAYSIZE(SSF2T_A_EHONDA_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_BLANKA_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_BLANKA_PALETTES,        ARRAYSIZE(SSF2T_A_BLANKA_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_GUILE_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_GUILE_PALETTES,        ARRAYSIZE(SSF2T_A_GUILE_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_KEN_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_KEN_PALETTES,        ARRAYSIZE(SSF2T_A_KEN_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_CHUNLI_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_CHUNLI_PALETTES,        ARRAYSIZE(SSF2T_A_CHUNLI_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_ZANGIEF_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_ZANGIEF_PALETTES,    ARRAYSIZE(SSF2T_A_ZANGIEF_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_DHALSIM_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_DHALSIM_PALETTES,    ARRAYSIZE(SSF2T_A_DHALSIM_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_MBISON_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_MBISON_PALETTES,        ARRAYSIZE(SSF2T_A_MBISON_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_SAGAT_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_SAGAT_PALETTES,        ARRAYSIZE(SSF2T_A_SAGAT_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_BALROG_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_BALROG_PALETTES,        ARRAYSIZE(SSF2T_A_BALROG_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_VEGA_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_VEGA_PALETTES,        ARRAYSIZE(SSF2T_A_VEGA_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_CAMMY_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_CAMMY_PALETTES,        ARRAYSIZE(SSF2T_A_CAMMY_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_THAWK_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_THAWK_PALETTES,        ARRAYSIZE(SSF2T_A_THAWK_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_FEILONG_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_FEILONG_PALETTES,    ARRAYSIZE(SSF2T_A_FEILONG_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_DEEJAY_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_DEEJAY_PALETTES,        ARRAYSIZE(SSF2T_A_DEEJAY_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_GOUKI_COLLECTION[] =
+{
+    { "Palettes",    DESC_NODETYPE_TREE,    (void*)SSF2T_A_GOUKI_PALETTES,        ARRAYSIZE(SSF2T_A_GOUKI_PALETTES) },
+};
+
+const sDescTreeNode SSF2T_A_UNITS[SSF2T_A_NUM_IND] =
+{
+    {"Balrog",        DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_COLLECTION,        ARRAYSIZE(SSF2T_A_BALROG_COLLECTION) },
+    {"Blanka",        DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_COLLECTION,        ARRAYSIZE(SSF2T_A_BLANKA_COLLECTION) },
+    {"Cammy",        DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_COLLECTION,        ARRAYSIZE(SSF2T_A_CAMMY_COLLECTION) },
+    {"Chun-Li",        DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_COLLECTION,        ARRAYSIZE(SSF2T_A_CHUNLI_COLLECTION) },
+    {"Dee Jay",        DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_COLLECTION,        ARRAYSIZE(SSF2T_A_DEEJAY_COLLECTION) },
+    {"Dhalsim",        DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_COLLECTION,        ARRAYSIZE(SSF2T_A_DHALSIM_COLLECTION) },
+    {"E. Honda",    DESC_NODETYPE_TREE, (void*)SSF2T_A_EHONDA_COLLECTION,        ARRAYSIZE(SSF2T_A_EHONDA_COLLECTION) },
+    {"Fei Long",    DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_COLLECTION,        ARRAYSIZE(SSF2T_A_FEILONG_COLLECTION) },
+    {"Gouki",        DESC_NODETYPE_TREE, (void*)SSF2T_A_GOUKI_COLLECTION,        ARRAYSIZE(SSF2T_A_GOUKI_COLLECTION) },
+    {"Guile",        DESC_NODETYPE_TREE, (void*)SSF2T_A_GUILE_COLLECTION,        ARRAYSIZE(SSF2T_A_GUILE_COLLECTION) },
+    {"Ken",            DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_COLLECTION,            ARRAYSIZE(SSF2T_A_KEN_COLLECTION) },
+    {"M. Bison",    DESC_NODETYPE_TREE, (void*)SSF2T_A_MBISON_COLLECTION,        ARRAYSIZE(SSF2T_A_MBISON_COLLECTION) },
+    {"Ryu",            DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_COLLECTION,            ARRAYSIZE(SSF2T_A_RYU_COLLECTION) },
+    {"Sagat",        DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_COLLECTION,        ARRAYSIZE(SSF2T_A_SAGAT_COLLECTION) },
+    {"T-Hawk",        DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_COLLECTION,        ARRAYSIZE(SSF2T_A_THAWK_COLLECTION) },
+    {"Vega",        DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_COLLECTION,            ARRAYSIZE(SSF2T_A_VEGA_COLLECTION) },
+    {"Zangief",        DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_COLLECTION,        ARRAYSIZE(SSF2T_A_ZANGIEF_COLLECTION) },
 };
 
 // We extend this array with data groveled from the SSF2Te.txt extensible extras file, if any.

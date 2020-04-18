@@ -1,7 +1,7 @@
 // PalMod.cpp : Defines the class behaviors for the application.
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "PalMod.h"
 #include "regproc.h"
 
@@ -115,8 +115,8 @@ void CPalModApp::SetGameClass(CGameClass* NewGame)
     BasePal = CurrGame->GetPalGroup();
 
     //Load the game's image
-    bImgLoaded = ImgBase.LoadImage(ImgStr.GetBuffer(), CurrGame->GetImgGameFlag(), CurrGame->GetImgCt());
-
+    bImgLoaded = ImgBase.LoadImage(ImgStr.GetBuffer(), CurrGame->GetGameFlag(), CurrGame->GetImgGameFlag(), CurrGame->GetImgUnitCt(), CurrGame->GetImgCt());
+                                                                                                              
     if (!bImgLoaded)
     {
         CString strMessage;
