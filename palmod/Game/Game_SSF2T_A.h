@@ -1,24 +1,33 @@
 #pragma once
 #include "gameclass.h"
 #include "SSF2T_A_DEF.h"
+#include "..\extrafile.h"
 
-class CGame_SSF2T_A : public CGameClass
+constexpr auto EXTRA_FILENAME_SSF2T = "SSF2Te.txt";
+#define GetExtraDefForSSF2T(x)((stExtraDef *)&SSF2T_A_EXTRA_CUSTOM[x])
+
+class CGame_SSF2T_A : public CGameClass, public CGameWithExtrasFile
 {
 private:
     //Used for image selection
-    int nTargetImgId;
-    int nNormalPalAmt;
+    int nTargetImgId = 0;
 
     //Used for GetPalOffset
-    int nCurrPalOffs;
-    int nCurrPalSz;
+    int nCurrPalOffs = 0;
+    int nCurrPalSz = 0;
 
-    UINT16*** pppDataBuffer = nullptr;
-
-    void GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId);
+    static UINT32 m_nTotalPaletteCountForSSF2T;
 
     void InitDataBuffer();
     void ClearDataBuffer();
+
+    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
+    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+
+    UINT16*** pppDataBuffer = nullptr;
+
+    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+    const int m_uLowestKnownPaletteROMLocation = 0x3fb2c;
 
 public:
     CGame_SSF2T_A(void);
@@ -27,17 +36,23 @@ public:
     //Static functions / variables
     static CDescTree MainDescTree;
 
-    //    static CDescTree * GetMainTree();
     static CDescTree InitDescTree();
-    //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function
-    static int GetBasicAmt(UINT16 nUnitId);
-    static int GetPalCt(UINT16 nUnitId);
+    static int GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly = FALSE);
+    static int GetExtraLoc(UINT16 nUnitId);
 
     //Normal functions
     CDescTree* GetMainTree();
+
+    static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
+
+    // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
+    static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
@@ -50,4 +65,6 @@ public:
 
     void FlushUnitFile() { safe_delete(rgFileChanged); };
     void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
+
+    static stExtraDef* SSF2T_A_EXTRA_CUSTOM;
 };
