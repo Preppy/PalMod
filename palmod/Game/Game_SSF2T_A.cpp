@@ -219,10 +219,15 @@ CDescTree CGame_SSF2T_A::InitDescTree()
                     nTotalPaletteCount++;
 
 #if SSF2T_DEBUG
+#if OUTPUT_AS_NODE
+                    strMsg.Format("    { \"%s\", 0x%06x, 0x%06x },\n", ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
+                    OutputDebugString(strMsg);
+#else
                     strMsg.Format("\t\tPalette: %s, %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(" from 0x%06x to 0x%06x total %u\n", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset);
                     OutputDebugString(strMsg);
+#endif
 #endif
                 }
             }

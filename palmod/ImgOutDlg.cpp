@@ -55,7 +55,7 @@ BOOL CImgOutDlg::OnInitDialog()
     m_DumpBmp.DispType = CurrGame->GetImgDispType();
 
     // Set the icon
-    SetIcon(m_hIcon, TRUE);            // Set big icon
+    SetIcon(m_hIcon, TRUE);         // Set big icon
     SetIcon(m_hIcon, FALSE);        // Set small icon
 
     CString tmp_str;
@@ -72,13 +72,10 @@ BOOL CImgOutDlg::OnInitDialog()
     {
         // By default, we export out only the one sprite
         m_CB_Amt.EnableWindow(FALSE);
-
-        //FillPalCombo();
-
         break;
     }
-    //Fix later.. if we have more games
-    case 6:
+    //Fix later... if we have more games
+    case 6: // MvC2, MvC
     case 7:
     {
         // Allow the user to export either the solitary sprite or to export
@@ -113,15 +110,6 @@ BOOL CImgOutDlg::OnInitDialog()
 
     nZoomMin = 0;
     nZoomMax = (3 * 5);
-
-    /*
-    for (int i = 0; i < 4; i++)
-    {
-        tmp_str.Format("%dx", i+1);
-
-        m_CB_Zoom.AddString(tmp_str);
-    }
-    */
 
     //Change this if we ever decide to load a default image amount
     img_amt = 1;
