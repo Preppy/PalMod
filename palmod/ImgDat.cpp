@@ -83,6 +83,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
     strDebugInfo.Format("CImgDat::PrepImageBuffer : Prepping Image Buffer \n");
     OutputDebugString(strDebugInfo);
 #endif
+
     /*
     MVC2_D = 0;
     SFIII3_A = 1;
@@ -227,7 +228,6 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
 
             return nullptr;
         }
-
         
         imgMapIter it = nImgMap->find(uUnitId);
         if (it != nImgMap->cend())
@@ -251,6 +251,7 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
 #endif
         }
     }
+
 #if IMGDAT_DEBUG
     strDebugInfo.Format("CImgDat::GetImageDef : No image found \n");
     OutputDebugString(strDebugInfo);
@@ -453,7 +454,7 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag,
                 }
 
                 imageBufferPrepped = PrepImageBuffer(uGameUnitAmt, uGameFlag);
-               
+
                 while (uReadNextImgLoc != 0)
                 {
                     ImgDatFile.Seek(uReadNextImgLoc, CFile::begin);
@@ -521,7 +522,9 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag,
         return thingsLoaded;
     }
     else
+    {
         return !thingsLoaded;
+    }
 }
 
 UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP)

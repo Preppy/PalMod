@@ -29,6 +29,8 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     //Set game information
     nGameFlag = MVC2_D;
     nImgGameFlag = IMG4;
+    nImgUnitAmt = nUnitAmt;
+
     nDisplayW = 8;
     nFileAmt = MVC2_D_NUMUNIT;
 
