@@ -181,8 +181,8 @@ CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
 
 CGame_JOJOS_A::~CGame_JOJOS_A(void)
 {
-    //Get rid of the file changed flag
     ClearDataBuffer();
+    //Get rid of the file changed flag
     safe_delete(rgFileChanged);
 }
 

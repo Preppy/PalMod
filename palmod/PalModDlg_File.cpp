@@ -287,13 +287,15 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
             {
                 DWORD dwAttribs = GetFileAttributes(szPath);
 
-                if ((INVALID_FILE_ATTRIBUTES != dwAttribs) && ((dwAttribs & FILE_ATTRIBUTE_DIRECTORY) || (dwAttribs & FILE_ATTRIBUTE_ARCHIVE)))
+                if (INVALID_FILE_ATTRIBUTES != dwAttribs)
                 {
                     if (bIsDir)
                     {
                         //Check to see if it's actually a file without an extension
                         *bIsDir = (dwAttribs & FILE_ATTRIBUTE_DIRECTORY);
                     }
+
+                    // This code used to be testing for (dwAttribs & FILE_ATTRIBUTE_ARCHIVE), but I don't think we need that currently.
 
                     strcpy(ptszPath, szPath);
                     fFound = TRUE;
@@ -340,8 +342,11 @@ void CPalModDlg::OnFileOpen()
     CString szGameFileDef = "";
 
     // BUGBUG... maybe remember their last selection?
+    
+    // NOTE: If you add a multiple-ROM option below, you will also need to update
+    // CGameLoad::LoadFile to pass the appropriate gameflag to that game.
     szGameFileDef.Append("SFIII3 51 Rom|51|"); //SFIII3
-    szGameFileDef.Append("SSF2T|*.04a|"); //SSF2T
+    szGameFileDef.Append("SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|"); //SSF2T
     szGameFileDef.Append("SFA3 sz3.09c|*.09c|"); //SSF2T
     szGameFileDef.Append("XMVSF xvs.05a|*.05a|"); //XMVSF
     szGameFileDef.Append("MVC mvc.06|*.06|"); //MVC

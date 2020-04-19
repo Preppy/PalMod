@@ -3,8 +3,10 @@
 #include "SSF2T_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SSF2T = "ssf2te.txt";
-#define GetExtraDefForSSF2T(x)((stExtraDef *)&SSF2T_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_SSF2T_3C = "ssf2t-3ce.txt";
+constexpr auto EXTRA_FILENAME_SSF2T_4A = "ssf2t-4ae.txt";
+
+#define GetExtraDefForSSF2T(x) (UsePaletteSetForPortraits() ? ((stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_3C[x]) : ((stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_4A[x]))
 
 class CGame_SSF2T_A : public CGameClass, public CGameWithExtrasFile
 {
@@ -16,7 +18,12 @@ private:
     int nCurrPalOffs = 0;
     int nCurrPalSz = 0;
 
-    static UINT32 m_nTotalPaletteCountForSSF2T;
+    // These handle per-ROM logic.
+    int m_nBufferSelectedRom = 3;
+    static int m_nSSF2TSelectedRom;
+    static UINT32 m_nTotalPaletteCountForSSF2T_3C;
+    static UINT32 m_nTotalPaletteCountForSSF2T_4A;
+    static bool UsePaletteSetForPortraits() { return (m_nSSF2TSelectedRom == 3); }
 
     void InitDataBuffer();
     void ClearDataBuffer();
@@ -27,16 +34,18 @@ private:
     UINT16*** pppDataBuffer = nullptr;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    const int m_uLowestKnownPaletteROMLocation = 0x3FB00;
+    const int m_uLowestKnownPaletteROMLocation_3C = 0x31c00;
+    const int m_uLowestKnownPaletteROMLocation_4A = 0x3FB00;
 
 public:
-    CGame_SSF2T_A(void);
+    CGame_SSF2T_A(int nSSF2TRomToLoad);
     ~CGame_SSF2T_A(void);
 
     //Static functions / variables
-    static CDescTree MainDescTree;
+    static CDescTree MainDescTree_3C;
+    static CDescTree MainDescTree_4A;
 
-    static CDescTree InitDescTree();
+    static CDescTree InitDescTree(int nROMPaletteSetToUse);
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function
@@ -65,5 +74,6 @@ public:
     void FlushUnitFile() { safe_delete(rgFileChanged); };
     void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
-    static stExtraDef* SSF2T_A_EXTRA_CUSTOM;
+    static stExtraDef* SSF2T_A_EXTRA_CUSTOM_3C;
+    static stExtraDef* SSF2T_A_EXTRA_CUSTOM_4A;
 };

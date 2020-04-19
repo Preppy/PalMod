@@ -26,7 +26,8 @@ CGameLoad::~CGameLoad(void)
     safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM);
-    safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_3C);
+    safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_4A);
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50);
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);
 }
@@ -138,7 +139,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
     break;
     case SSF2T_A:
     {
-        return new CGame_SSF2T_A;
+        return new CGame_SSF2T_A(nExtraGameData);
     }
     case SFA3_A:
     {
@@ -190,6 +191,18 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
             // Step forward to the filename
             pszFileName++;
             nGameRule = ((strcmp(pszFileName, "50") == 0) ? 50 : 51);
+        }
+    }
+    else if (nGameFlag == SSF2T_A)
+    {
+        CHAR* pszFileName = strrchr(szLoadFile, '\\');
+
+        if (pszFileName)
+        {
+            // Step forward to the filename
+            pszFileName++;
+            _strlwr(pszFileName);
+            nGameRule = ((strstr(pszFileName, ".03c") != nullptr) ? 3 : 4);
         }
     }
 

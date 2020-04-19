@@ -6,22 +6,92 @@
 
 #define SSF2T_DEBUG 0
 
-stExtraDef* CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_3C = nullptr;
+stExtraDef* CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_4A = nullptr;
 
-CDescTree CGame_SSF2T_A::MainDescTree = CGame_SSF2T_A::InitDescTree();
+CDescTree CGame_SSF2T_A::MainDescTree_3C = CGame_SSF2T_A::InitDescTree(3);
+CDescTree CGame_SSF2T_A::MainDescTree_4A = CGame_SSF2T_A::InitDescTree(4);
 
-UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T = 0;
+int CGame_SSF2T_A::m_nSSF2TSelectedRom = 4;
+UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_3C = 0;
+UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_4A = 0;
 
-CGame_SSF2T_A::CGame_SSF2T_A(void)
+int CGame_SSF2T_A::GetExtraLoc(UINT16 nUnitId)
 {
-    //We need the proper unit amt before we init the main buffer
-    nUnitAmt = SSF2T_A_NUM_IND + (GetExtraCt(SSF2T_A_EXTRALOC) ? 1 : 0);
+    static int rgExtraLoc_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
+    static int rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
 
-    m_nTotalInternalUnits = SSF2T_A_NUM_IND;
-    m_nExtraUnit = SSF2T_A_EXTRALOC;
-    m_nSafeCountForThisRom = 192 + GetExtraCt(SSF2T_A_EXTRALOC);
-    m_pszExtraFilename = EXTRA_FILENAME_SSF2T;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForSSF2T;
+    if (UsePaletteSetForPortraits())
+    {
+        if (rgExtraLoc_3C[0] == -1)
+        {
+            int nDefCtr = 0;
+            int nCurrUnit = UNIT_START_VALUE;
+            memset(rgExtraLoc_3C, 0, (SSF2T_A_NUM_IND_3C + 1) * sizeof(int));
+
+            stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            {
+                if (pCurrDef->uUnitN != nCurrUnit)
+                {
+                    rgExtraLoc_3C[pCurrDef->uUnitN] = nDefCtr;
+                    nCurrUnit = pCurrDef->uUnitN;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetExtraDefForSSF2T(nDefCtr);
+            }
+        }
+
+        return rgExtraLoc_3C[nUnitId];
+    }
+    else
+    {
+        if (rgExtraLoc_4A[0] == -1)
+        {
+            int nDefCtr = 0;
+            int nCurrUnit = UNIT_START_VALUE;
+            memset(rgExtraLoc_4A, 0, (SSF2T_A_NUM_IND_4A + 1) * sizeof(int));
+
+            stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            {
+                if (pCurrDef->uUnitN != nCurrUnit)
+                {
+                    rgExtraLoc_4A[pCurrDef->uUnitN] = nDefCtr;
+                    nCurrUnit = pCurrDef->uUnitN;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetExtraDefForSSF2T(nDefCtr);
+            }
+        }
+
+        return rgExtraLoc_4A[nUnitId];
+    }
+}
+
+CGame_SSF2T_A::CGame_SSF2T_A(int nSSF2TRomToLoad)
+{
+    m_nSSF2TSelectedRom = (nSSF2TRomToLoad == 3) ? 3 : 4;
+
+    CString strMessage;
+    strMessage.Format("CGame_SSF2T_A::CGame_SSF2T_A: Loading for the %s ROM\n", (m_nSSF2TSelectedRom == 3) ? "3C" : "4A");
+    OutputDebugString(strMessage);
+
+    m_nTotalInternalUnits = UsePaletteSetForPortraits() ? SSF2T_A_NUM_IND_3C : SSF2T_A_NUM_IND_4A;
+    m_nExtraUnit = UsePaletteSetForPortraits() ? SSF2T_A_EXTRALOC_3C : SSF2T_A_EXTRALOC_4A;
+
+    const UINT32 nSafeCountFor3C = 32;
+    const UINT32 nSafeCountFor4A = 192;
+
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForPortraits() ? nSafeCountFor3C : nSafeCountFor4A);
+    m_pszExtraFilename = UsePaletteSetForPortraits() ? EXTRA_FILENAME_SSF2T_3C : EXTRA_FILENAME_SSF2T_4A;
+    m_nTotalPaletteCount = UsePaletteSetForPortraits() ? m_nTotalPaletteCountForSSF2T_3C : m_nTotalPaletteCountForSSF2T_4A;
+
+    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
@@ -59,29 +129,25 @@ CGame_SSF2T_A::CGame_SSF2T_A(void)
 
 int CGame_SSF2T_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCountAll[SSF2T_A_NUM_IND + 1] = { -1 };
-    static int rgExtraCountVisibleOnly[SSF2T_A_NUM_IND + 1] = { -1 };
+    static int rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
+    static int rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
 
-    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
+    int* rgExtraCt = nullptr;
+   
+    rgExtraCt = UsePaletteSetForPortraits() ? (int*)rgExtraCountAll_3C : (int*)rgExtraCountAll_4A;
 
-    static bool s_isInitialized = false;
-
-    if (!s_isInitialized)
+    if (rgExtraCt[0] == -1)
     {
-        s_isInitialized = true;
-
         int nDefCtr = 0;
-        memset(rgExtraCt, 0, (SSF2T_A_NUM_IND + 1) * sizeof(int));
+        memset(rgExtraCt, 0, ((UsePaletteSetForPortraits() ? SSF2T_A_NUM_IND_3C : SSF2T_A_NUM_IND_4A) + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
-            rgExtraCountAll[pCurrDef->uUnitN]++;
-
-            if (!pCurrDef->isInvisible)
+            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
             {
-                rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
+                rgExtraCt[pCurrDef->uUnitN]++;
             }
 
             nDefCtr++;
@@ -91,35 +157,6 @@ int CGame_SSF2T_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
     return rgExtraCt[nUnitId];
 }
-int CGame_SSF2T_A::GetExtraLoc(UINT16 nUnitId)
-{
-    static int rgExtraLoc[SSF2T_A_NUM_IND + 1] = { -1 };
-
-    if (rgExtraLoc[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (SSF2T_A_NUM_IND + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForSSF2T(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForSSF2T(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc[nUnitId];
-}
-
-
 
 CGame_SSF2T_A::~CGame_SSF2T_A(void)
 {
@@ -127,19 +164,37 @@ CGame_SSF2T_A::~CGame_SSF2T_A(void)
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
 }
+
 CDescTree* CGame_SSF2T_A::GetMainTree()
 {
-    return &CGame_SSF2T_A::MainDescTree;
+    if (UsePaletteSetForPortraits())
+    {
+        return &CGame_SSF2T_A::MainDescTree_3C;
+    }
+    else
+    {
+        return &CGame_SSF2T_A::MainDescTree_4A;
+    }    
 }
 
-CDescTree CGame_SSF2T_A::InitDescTree()
+CDescTree CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
 {
     UINT32 nTotalPaletteCount = 0;
+    m_nSSF2TSelectedRom = nROMPaletteSetToUse;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SSF2T, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM, SSF2T_A_EXTRALOC);
 
-    UINT16 nUnitCt = SSF2T_A_NUM_IND + (GetExtraCt(SSF2T_A_EXTRALOC) ? 1 : 0);
+    if (UsePaletteSetForPortraits())
+    {
+        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_3C, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_3C, SSF2T_A_EXTRALOC_3C);
+    }
+    else
+    {
+        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_4A, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_4A, SSF2T_A_EXTRALOC_4A);
+    }
+
+    UINT16 nUnitCt = UsePaletteSetForPortraits() ? (SSF2T_A_NUM_IND_3C + (GetExtraCt(SSF2T_A_EXTRALOC_3C) ? 1 : 0)) :
+                                                   (SSF2T_A_NUM_IND_4A + (GetExtraCt(SSF2T_A_EXTRALOC_4A) ? 1 : 0));
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -151,8 +206,8 @@ CDescTree CGame_SSF2T_A::InitDescTree()
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(SSF2T_A_EXTRALOC) > 0);
-    strMsg.Format("CGame_SSF2T_A::InitDescTree: Building desc tree for SSF2T %s extras...\n", fHaveExtras ? "with" : "without");
+    bool fHaveExtras = UsePaletteSetForPortraits() ? (GetExtraCt(SSF2T_A_EXTRALOC_3C) > 0) : (GetExtraCt(SSF2T_A_EXTRALOC_4A) > 0);
+    strMsg.Format("CGame_SSF2T_A::InitDescTree: Building desc tree for SSF2T ROM...\n", UsePaletteSetForPortraits() ? "3C" : "4A" );
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -169,10 +224,10 @@ CDescTree CGame_SSF2T_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < SSF2T_A_EXTRALOC)
+        if (UsePaletteSetForPortraits() ? (iUnitCtr < SSF2T_A_EXTRALOC_3C) : (iUnitCtr < SSF2T_A_EXTRALOC_4A))
         {
             //Set each description
-            sprintf(UnitNode->szDesc, "%s", SSF2T_A_UNITS[iUnitCtr].szDesc);
+            sprintf(UnitNode->szDesc, "%s", UsePaletteSetForPortraits() ? SSF2T_A_UNITS_3C[iUnitCtr].szDesc : SSF2T_A_UNITS_4A[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
@@ -253,7 +308,15 @@ CDescTree CGame_SSF2T_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(SSF2T_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            if (UsePaletteSetForPortraits())
+            {
+                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(SSF2T_A_EXTRALOC_3C > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            }
+            else
+            {
+                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(SSF2T_A_EXTRALOC_4A > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            }
+
             sprintf(CollectionNode->szDesc, "Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
@@ -282,7 +345,14 @@ CDescTree CGame_SSF2T_A::InitDescTree()
                 sprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((SSF2T_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                if (UsePaletteSetForPortraits())
+                {
+                    ChildNode->uPalId = (((SSF2T_A_EXTRALOC_3C > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                }
+                else
+                {
+                    ChildNode->uPalId = (((SSF2T_A_EXTRALOC_4A > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                }
 
 #if SSF2T_DEBUG
                 strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
@@ -295,10 +365,17 @@ CDescTree CGame_SSF2T_A::InitDescTree()
         }
     }
 
-    strMsg.Format("CGame_SSF2T_A::InitDescTree: Loaded %u palettes for SSF2T\n", nTotalPaletteCount);
+    strMsg.Format("CGame_SSF2T_A::InitDescTree: Loaded %u palettes for SSF2T ROM %s\n", nTotalPaletteCount, (m_nSSF2TSelectedRom == 3) ? "3C" : "4A");
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForSSF2T = nTotalPaletteCount;
+    if (UsePaletteSetForPortraits())
+    {
+        m_nTotalPaletteCountForSSF2T_3C = nTotalPaletteCount;
+    }
+    else
+    {
+        m_nTotalPaletteCountForSSF2T_4A = nTotalPaletteCount;
+    }
 
     return NewDescTree;
 }
@@ -307,7 +384,7 @@ sFileRule CGame_SSF2T_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "sfxe.04a");
+    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 3) ? "sfxe.03c" : "sfxe.04a");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = 0x80000;
@@ -317,54 +394,101 @@ sFileRule CGame_SSF2T_A::GetRule(UINT16 nUnitId)
 
 UINT16 CGame_SSF2T_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == SSF2T_A_EXTRALOC)
+    if (UsePaletteSetForPortraits())
     {
-        return GetExtraCt(nUnitId);
+        if (nUnitId == SSF2T_A_EXTRALOC_3C)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            return SSF2T_A_UNITS_3C[nUnitId].uChildAmt;
+        }
     }
     else
     {
-        return SSF2T_A_UNITS[nUnitId].uChildAmt;
+        if (nUnitId == SSF2T_A_EXTRALOC_4A)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            return SSF2T_A_UNITS_4A[nUnitId].uChildAmt;
+        }
     }
 }
 
 UINT16 CGame_SSF2T_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == SSF2T_A_EXTRALOC)
+    if (UsePaletteSetForPortraits())
     {
-        return GetExtraCt(nUnitId);
+        if (nUnitId == SSF2T_A_EXTRALOC_3C)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(SSF2T_A_UNITS_3C[nUnitId].ChildNodes);
+
+            return pCollectionNode[nCollectionId].uChildAmt;
+        }
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(SSF2T_A_UNITS[nUnitId].ChildNodes);
+        if (nUnitId == SSF2T_A_EXTRALOC_4A)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(SSF2T_A_UNITS_4A[nUnitId].ChildNodes);
 
-        return pCollectionNode[nCollectionId].uChildAmt;
+            return pCollectionNode[nCollectionId].uChildAmt;
+        }
     }
 }
 
 LPCSTR CGame_SSF2T_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == SSF2T_A_EXTRALOC)
+    if (UsePaletteSetForPortraits())
     {
-        return "Extra Palettes";
+        if (nUnitId == SSF2T_A_EXTRALOC_3C)
+        {
+            return "Extra Palettes";
+        }
+        else
+        {
+            const sDescTreeNode* pCollection = (const sDescTreeNode*)SSF2T_A_UNITS_3C[nUnitId].ChildNodes;
+            return pCollection[nCollectionId].szDesc;
+        }
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)SSF2T_A_UNITS[nUnitId].ChildNodes;
-        return pCollection[nCollectionId].szDesc;
+        if (nUnitId == SSF2T_A_EXTRALOC_4A)
+        {
+            return "Extra Palettes";
+        }
+        else
+        {
+            const sDescTreeNode* pCollection = (const sDescTreeNode*)SSF2T_A_UNITS_4A[nUnitId].ChildNodes;
+            return pCollection[nCollectionId].szDesc;
+        }
     }
 }
 
 UINT16 CGame_SSF2T_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == SSF2T_A_EXTRALOC)
+    if (UsePaletteSetForPortraits() ? (nUnitId == SSF2T_A_EXTRALOC_3C) :
+                                      (nUnitId == SSF2T_A_EXTRALOC_4A))
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        UINT16 nCollectionCount = SSF2T_A_UNITS[nUnitId].uChildAmt;
-        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(SSF2T_A_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCompleteROMTree = UsePaletteSetForPortraits() ? SSF2T_A_UNITS_3C : SSF2T_A_UNITS_4A;
+        UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
+        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
 
         for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
         {
@@ -384,8 +508,16 @@ UINT16 CGame_SSF2T_A::GetPaletteCountForUnit(UINT16 nUnitId)
 const sGame_PaletteDataset* CGame_SSF2T_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)SSF2T_A_UNITS[nUnitId].ChildNodes;
-    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    if (UsePaletteSetForPortraits())
+    {
+        const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)SSF2T_A_UNITS_3C[nUnitId].ChildNodes;
+        return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    }
+    else
+    {
+        const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)SSF2T_A_UNITS_4A[nUnitId].ChildNodes;
+        return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    }
 }
 
 const sGame_PaletteDataset* CGame_SSF2T_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
@@ -414,12 +546,17 @@ const sGame_PaletteDataset* CGame_SSF2T_A::GetSpecificPalette(UINT16 nUnitId, UI
 
 void CGame_SSF2T_A::InitDataBuffer()
 {
+    m_nBufferSelectedRom = m_nSSF2TSelectedRom;
     pppDataBuffer = new UINT16 * *[nUnitAmt];
     memset(pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
 }
 
 void CGame_SSF2T_A::ClearDataBuffer()
 {
+    int nCurrentROMMode = m_nSSF2TSelectedRom;
+
+    m_nSSF2TSelectedRom = m_nBufferSelectedRom;
+
     if (pppDataBuffer)
     {
         for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
@@ -439,11 +576,14 @@ void CGame_SSF2T_A::ClearDataBuffer()
 
         safe_delete_array(pppDataBuffer);
     }
+
+    m_nSSF2TSelectedRom = nCurrentROMMode;
 }
 
 void CGame_SSF2T_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-    if (nUnitId != SSF2T_A_EXTRALOC)
+    if (UsePaletteSetForPortraits() ? (nUnitId != SSF2T_A_EXTRALOC_3C) :
+                                      (nUnitId != SSF2T_A_EXTRALOC_4A))
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -498,6 +638,7 @@ BOOL CGame_SSF2T_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
     bool fShownOnce = false;
+    const int nLowestROMLocationToTestFor = UsePaletteSetForPortraits() ? m_uLowestKnownPaletteROMLocation_3C : m_uLowestKnownPaletteROMLocation_4A;
 
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -507,7 +648,7 @@ BOOL CGame_SSF2T_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if (!fShownOnce && (nCurrPalOffs < m_uLowestKnownPaletteROMLocation)) // This magic number is the lowest known ROM location.
+            if (!fShownOnce && (nCurrPalOffs < nLowestROMLocationToTestFor)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
                 strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
@@ -549,7 +690,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = UsePaletteSetForPortraits() ? MainDescTree_3C.GetDescNode(Node01, Node02, Node03, Node04) : MainDescTree_4A.GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == nullptr)
     {
@@ -572,7 +713,8 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (SSF2T_A_EXTRALOC != NodeGet->uUnitId)
+    if (UsePaletteSetForPortraits() ? (SSF2T_A_EXTRALOC_3C != NodeGet->uUnitId) :
+                                      (SSF2T_A_EXTRALOC_4A != NodeGet->uUnitId))
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
