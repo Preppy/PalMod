@@ -17,7 +17,8 @@ constexpr auto MVC_A = 6;
 constexpr auto SFIII3_D = 7;
 constexpr auto JOJOS_A = 8;
 constexpr auto MSH_A = 9;
-constexpr auto NUM_GAMES = 10;
+constexpr auto MSHVSF_A = 10;
+constexpr auto NUM_GAMES = 11;
 
 const CHAR g_GameFriendlyName[NUM_GAMES][16] =
 {
@@ -30,7 +31,8 @@ const CHAR g_GameFriendlyName[NUM_GAMES][16] =
     "MVC_A",
     "SFIII3_D",
     "JOJOS_A",
-    "MSH_A"
+    "MSH_A",
+    "MSHVSF_A"
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -39,10 +41,14 @@ constexpr auto SFIII3_A_NUMUNIT = 20;
 constexpr auto SFA3_A_UNIQUE_IMG_UNITS = 17;
 constexpr auto XMVSF_A_UNIQUE_IMG_UNITS = 2; // Apocalypse
 constexpr auto MVC_A_UNIQUE_IMG_UNITS = 2;   // Onslaught
+constexpr auto MSH_A_UNIQUE_IMG_UNITS = 2;
+constexpr auto MSHVSF_A_UNIQUE_IMG_UNITS = 3;
 
-constexpr auto MVC_A_IMGSTART = MVC2_D_NUMUNIT;
-constexpr auto SFA3_A_IMGSTART = MVC_A_IMGSTART + MVC_A_UNIQUE_IMG_UNITS; // MVC2, then MVC1, then SFA3
-constexpr auto XMVSF_A_IMGSTART = SFA3_A_IMGSTART + SFA3_A_UNIQUE_IMG_UNITS;       // MVC2, then SFA3, then XMVSF
+constexpr auto MVC_A_IMGSTART = MVC2_D_NUMUNIT; // MVC2, then MVC1
+constexpr auto SFA3_A_IMGSTART = MVC_A_IMGSTART + MVC_A_UNIQUE_IMG_UNITS;  // MVC1, then SFA3
+constexpr auto XMVSF_A_IMGSTART = SFA3_A_IMGSTART + SFA3_A_UNIQUE_IMG_UNITS; // SFA3, then XMVSF
+constexpr auto MSH_A_IMGSTART = XMVSF_A_IMGSTART + XMVSF_A_UNIQUE_IMG_UNITS; // XMVSF, then MSH
+constexpr auto MSHVSF_A_IMGSTART = MSH_A_IMGSTART + MSH_A_UNIQUE_IMG_UNITS;  // MSH, then MSHVSF
 
 //Images
 constexpr auto MVC2_D_NUM_IMG_UNITS = 59;
@@ -52,8 +58,9 @@ constexpr auto SFA3_A_NUM_IMG_UNITS = 28;
 constexpr auto XMVSF_A_NUM_IMG_UNITS = 18;
 constexpr auto MVC_A_NUM_IMG_UNITS = 30;
 constexpr auto MSH_A_NUM_IMG_UNITS = 11;
+constexpr auto MSHVSF_A_NUM_IMG_UNITS = 23;
 
-#define IMG4 0 //Image Game Flag.  Used for MVC2, SFA3, XMVSF, MVC
+#define IMG4 0 //Image Game Flag.  Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
 #define IMG5 1 //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
 #define IMGDAT_SECTION_ST 2 //Image Game Flag.  Used for ST.
 
@@ -68,7 +75,7 @@ constexpr auto MSH_A_NUM_IMG_UNITS = 11;
 // Aggregate count of image units per game flag
 const int IMGAMT[3] =
 {
-    MVC2_D_NUM_IMG_UNITS + MVC_A_UNIQUE_IMG_UNITS + SFA3_A_NUM_IMG_UNITS + XMVSF_A_UNIQUE_IMG_UNITS,
+    MVC2_D_NUM_IMG_UNITS + MVC_A_UNIQUE_IMG_UNITS + SFA3_A_NUM_IMG_UNITS + XMVSF_A_UNIQUE_IMG_UNITS + MSH_A_UNIQUE_IMG_UNITS + MSHVSF_A_UNIQUE_IMG_UNITS,
     SFIII3_A_NUM_IMG_UNITS,
     SSF2T_A_NUM_IMG_UNITS
 };
@@ -112,7 +119,6 @@ const CHAR DEF_DESCPRISEC[3][16] =
 {
     "Primary", "Secondary"
 };
-
 
 struct stExtraDef
 {
@@ -373,4 +379,31 @@ const UINT8 MSH_A_IMG_UNITS[MSH_A_NUM_IMG_UNITS] =
     0x35, // Blackheart
     0x36  // Thanos
     //indexMSHAnita = 0,
+};
+
+const UINT8 MSHVSF_A_IMG_UNITS[MSHVSF_A_NUM_IMG_UNITS] =
+{
+    0x00, // Ryu
+    0x01, // Zangief & Mech Zangief
+    0x06, // Cyclops
+    0x07, // Wolverine
+    0x0B, // Captain America & U.S Agent
+    0x0C, // Spider-Man & Armored Spider-Man
+    0x0D, // Hulk
+    0x1E, // Gouki
+    0x1B, // Chun-Li
+    0x21, // Shadow
+    0x22, // Sakura
+    0x22, // Dark Sakura
+    0x23, // Dan
+    0x25, // Dhalsim
+    0x26, // M. Bison
+    0x27, // Ken
+    0x2D, // Shuma-Gorath
+    0x30, // Omega Red
+    0x35, // BlackHeart
+    0x35, // Mephisto
+    //0xZZ, // Apocalypse
+    //0xZZ, // Cyber Gouki
+    //0xZZ, // Norimaro
 };
