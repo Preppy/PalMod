@@ -417,7 +417,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     {
         CString strError;
         strError.Format(IDS_ERROR_NOTWRITABLE_FORMAT, strROFile);
-        MessageBox(g_appHWnd, strError, GetAppName(), MB_ICONERROR);
+        MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
     }
 
     szLoadSaveStr.Format("%d of %d files patched successfully (%d error%s)", nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? "" : "s");

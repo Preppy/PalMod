@@ -152,7 +152,7 @@ void CPreviewDlg::OnSetBGImage()
         {
             CString strError;
             strError.LoadString(IDS_ERROR_LOADING_BITMAP_BG);
-            MessageBox(strError, GetAppName(), MB_ICONERROR);
+            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
     }
 }
@@ -327,7 +327,7 @@ void CPreviewDlg::OnLoadCustomSprite()
             {
                 CString strError;
                 strError.LoadString(IDS_ERROR_TEXTURE_LOAD);
-                MessageBox(strError, GetAppName(), MB_ICONERROR);
+                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
             }
         }
     }
@@ -335,7 +335,7 @@ void CPreviewDlg::OnLoadCustomSprite()
     {
         CString strError;
         strError.LoadString(IDS_ERROR_TEXTURE_NOGAME);
-        MessageBox(strError, GetAppName(), MB_ICONEXCLAMATION);
+        MessageBox(strError, GetHost()->GetAppName(), MB_ICONEXCLAMATION);
     }
 }
 
@@ -356,7 +356,7 @@ void CPreviewDlg::OnFileExportImg()
         CString strError;
         strError.LoadString(IDS_ERROR_NO_IMAGES);
 
-        MessageBox(strError, GetAppName(), MB_ICONEXCLAMATION);
+        MessageBox(strError, GetHost()->GetAppName(), MB_ICONEXCLAMATION);
     }
 }
 

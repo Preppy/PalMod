@@ -27,7 +27,7 @@ void CPalModDlg::LoadGameDir(int nGameFlag, CHAR* szLoadDir)
     {
         CString strError;
         strError.LoadString(IDS_ERROR_LOADING_GAME);
-        MessageBox(strError, GetAppName(), MB_ICONERROR);
+        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
     }
 
     //Since we loaded a DIR, show status of load
@@ -82,6 +82,8 @@ void CPalModDlg::PostGameLoad()
         PreviewDlg->ShowWindow(SW_SHOW);
         PreviewDlg->m_ImgDisp.UpdateCtrl();
     }
+
+    UpdateAppTitle();
 }
 
 void CPalModDlg::OnBnUpdate()
@@ -202,7 +204,7 @@ void CPalModDlg::LoadLastDir()
             {
                 CString strError;
                 strError.LoadString(IDS_ERROR_PARAMETERS);
-                MessageBox(strError, GetAppName(), MB_ICONERROR);
+                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
                 return;
             }
             else
@@ -420,7 +422,7 @@ void CPalModDlg::LoadGameFile(int nGameFlag, CHAR* szFile)
     {
         CString strError;
         strError.LoadString(IDS_ERROR_LOADING_GAME);
-        MessageBox(strError, GetAppName(), MB_ICONERROR);
+        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
     }
 
     //Since we loaded a DIR, show status of load
@@ -481,7 +483,7 @@ void CPalModDlg::OnLoadAct()
             {
                 CString strError;
                 strError.LoadString(IDS_ERROR_LOADING_ACT_FILE);
-                MessageBox(strError, GetAppName(), MB_ICONERROR);
+                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
             }
         }
     }
@@ -537,7 +539,7 @@ void CPalModDlg::OnSaveAct()
         {
             CString strError;
             strError.LoadString(IDS_ERROR_SAVING_ACT_FILE);
-            MessageBox(strError, GetAppName(), MB_ICONERROR);
+            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
     }
 }

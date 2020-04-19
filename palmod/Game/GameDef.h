@@ -20,19 +20,19 @@ constexpr auto MSH_A = 9;
 constexpr auto MSHVSF_A = 10;
 constexpr auto NUM_GAMES = 11;
 
-const CHAR g_GameFriendlyName[NUM_GAMES][16] =
+const CHAR g_GameFriendlyName[NUM_GAMES][32] =
 {
-    "MvC2_D",
-    "SFIII3_A",
-    "MVC2_P",
-    "SSF2T_A",
-    "SFA3_A",
-    "XVSF_A",
-    "MVC_A",
-    "SFIII3_D",
-    "JOJOS_A",
-    "MSH_A",
-    "MSHVSF_A"
+    "MvC2 (Dreamcast)",
+    "SFIII3 (Arcade)",
+    "MVC2 (Playstation)",
+    "SSF2T (Arcade)",
+    "SFA3 (Arcade)",
+    "XVSF (Arcade)",
+    "MVC (Arcade)",
+    "SFIII3 (Dreamcast)",
+    "Jojo's",
+    "MSH (Arcade)",
+    "MSHVSF (Arcade)"
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;

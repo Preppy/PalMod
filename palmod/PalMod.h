@@ -24,7 +24,6 @@
 // See PalMod.cpp for the implementation of this class
 //
 
-CString GetAppName();
 extern HWND g_appHWnd;
 
 class CPalModApp : public CWinApp
@@ -53,6 +52,7 @@ public:
     CImgDat* GetImgFile() { return &ImgBase; };
     CPalGroup* GetBasePal() { return BasePal; };
     CImgDisp* GetImgDispCtrl() { return &PreviewDlg->m_ImgDisp; };
+    CString GetAppName();
 
     CPalModDlg* GetPalModDlg() { return PalModDlg; };
     CPreviewDlg* GetPreviewDlg() { return PreviewDlg; };

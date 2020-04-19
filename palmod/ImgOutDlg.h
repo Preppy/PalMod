@@ -47,8 +47,6 @@ public:
 
     int nPalAmt = 0;
 
-    // BUGBUG: m_amt seems wholly unused
-    int m_amt = 0;
     int m_pal = 0;
     int m_zoom = 0;
     int border_sz = 0;
@@ -61,7 +59,7 @@ public:
     void FillPalCombo();
 
     afx_msg void OnSize(UINT nType, int cx, int cy);
-    afx_msg    void OnShowWindow(BOOL bShow, UINT nStatus);
+    afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
 
     void UpdateImg();
     afx_msg void OnCbnSelchangeAmt();
@@ -94,6 +92,3 @@ public:
     afx_msg void OnSettingsUsetransparentpng();
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
 };
-
-const int amt_val[] = { 1, 6, 7 };
-

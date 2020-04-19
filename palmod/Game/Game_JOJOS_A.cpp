@@ -318,7 +318,7 @@ void CGame_JOJOS_A::CheckExtrasFileForDuplication()
         OutputDebugString(strMsg);
 
         strMsg.Format("Your jojos%u.txt Extras file contains %u Extras.  %u of these are already present in PalMod.  Please remove those from your Extras file.  Attempting to edit duplicate extras will not do anything.\n", m_nJojosMode, nExtraCt, nCollisionsFound);
-        MessageBox(g_appHWnd, strMsg, GetAppName(), MB_ICONERROR);
+        MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
         OutputDebugString(strMsg);
     }
 }

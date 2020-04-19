@@ -236,9 +236,14 @@ BOOL CPalModDlg::OnInitDialog()
     UpdateSettingsMenuItems();
 
     // Use the dynamic appname description instead of the hardcoded RC value
-    SetWindowText(GetAppName());
+    UpdateAppTitle();    
 
     return TRUE;  // return TRUE unless you set the focus to a control
+}
+
+void CPalModDlg::UpdateAppTitle()
+{
+    SetWindowText(GetHost()->GetAppName());
 }
 
 void CPalModDlg::OnSysCommand(UINT nID, LPARAM lParam)
@@ -450,7 +455,7 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
             CString strQuestion;
             strQuestion.LoadString(IDS_SAVE_PALETTE_CHANGES);
 
-            switch (MessageBox(strQuestion, GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
+            switch (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
             {
             case IDYES:
             {
@@ -489,7 +494,7 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
             CString strQuestion;
             strQuestion.LoadString(IDS_SAVE_FILE_CHANGES);
 
-            switch (MessageBox(strQuestion, GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
+            switch (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
             {
             case IDYES:
             {
@@ -599,6 +604,8 @@ void CPalModDlg::ClearGameVar()
     bCopyFromBase = FALSE;
 
     bEnabled = FALSE;
+
+    UpdateAppTitle();
 }
 
 void CPalModDlg::SetStatusText(CString szText)

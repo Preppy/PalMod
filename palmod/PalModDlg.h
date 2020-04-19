@@ -86,6 +86,7 @@ public:
 
     void LoadGameDir(int nGameFlag, CHAR * szLoadDir);
     BOOL SetLoadDir(CString * szOut);
+    void UpdateAppTitle();
 
     void LoadGameFile(int nGameFlag, CHAR * szFile);
 

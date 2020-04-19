@@ -372,7 +372,7 @@ void CGameWithExtrasFile::CheckForDupesInTables()
         }
 
         OutputDebugString(strText);
-        MessageBox(g_appHWnd, strText, GetAppName(), MB_ICONERROR);
+        MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
     }
     else
     {

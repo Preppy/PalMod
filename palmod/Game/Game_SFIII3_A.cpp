@@ -444,7 +444,7 @@ void CGame_SFIII3_A::CheckForJojoUsage(CFile* LoadedFile)
 
     if (!isActuallyThirdStrike)
     {
-        MessageBox(g_appHWnd, "This looks like a Jojos ROM. You may want to use the new Jojos mode.\n\nGo to File : Load ROM, and then use the option on the bottom right to load this as a Jojos ROM instead of a Third Strike ROM.", GetAppName(), MB_ICONWARNING);
+        MessageBox(g_appHWnd, "This looks like a Jojos ROM. You may want to use the new Jojos mode.\n\nGo to File : Load ROM, and then use the option on the bottom right to load this as a Jojos ROM instead of a Third Strike ROM.", GetHost()->GetAppName(), MB_ICONWARNING);
     }
 
     safe_delete_array(prgFileStart);

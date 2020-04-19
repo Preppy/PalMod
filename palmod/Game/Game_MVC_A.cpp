@@ -443,10 +443,18 @@ void CGame_MVC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
 
-        cbPaletteSizeOnDisc = max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
+        if (paletteData)
+        {
+            cbPaletteSizeOnDisc = max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
-        nCurrPalOffs = paletteData->nPaletteOffset;
-        nCurrPalSz = cbPaletteSizeOnDisc / 2;
+            nCurrPalOffs = paletteData->nPaletteOffset;
+            nCurrPalSz = cbPaletteSizeOnDisc / 2;
+        }
+        else
+        {
+            // A bogus palette was requested: this is unrecoverable.
+            DebugBreak();
+        }
     }
     else // MVC_A_EXTRALOC
     {
@@ -507,7 +515,7 @@ BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             {
                 CString strMsg;
                 strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
-                MessageBox(g_appHWnd, strMsg, GetAppName(), MB_ICONERROR);
+                MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                 fShownOnce = true;
             }
 

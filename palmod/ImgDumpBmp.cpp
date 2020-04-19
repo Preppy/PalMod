@@ -738,11 +738,17 @@ int CImgDumpBmp::GetOutputW()
     case 1:
         w_mul = 1;
         break;
+    case 2:
+        w_mul = 2;
+        break;
     case 6:
         w_mul = 3;
         break;
     case 7:
         w_mul = 4;
+        break;
+    case 10:
+        w_mul = 5;
         break;
     default:
         OutputDebugString("Bogus argument to GetOutputW");
@@ -757,7 +763,7 @@ int CImgDumpBmp::GetOutputW()
 
 int CImgDumpBmp::GetOutputH()
 {
-    int h_mul = (amt == 1 ? 1 : 2);
+    int h_mul = ((amt < 3) ? 1 : 2);
 
     nMainH = ((h_mul * border_sz) + border_sz) + ((blt_h * zoom) * h_mul);
 

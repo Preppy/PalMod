@@ -15,7 +15,7 @@ BEGIN_MESSAGE_MAP(CPalModApp, CWinApp)
     ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
 END_MESSAGE_MAP()
 
-CString GetAppName()
+CString CPalModApp::GetAppName()
 {
     CString strAppName;
     strAppName.LoadString(IDS_CURRENTAPPNAME);
@@ -24,6 +24,12 @@ CString GetAppName()
 #ifdef DEBUG
     strAppName += " DEBUG build";
 #endif
+
+    if (GetCurrGame())
+    {
+        strAppName += ": ";
+        strAppName += g_GameFriendlyName[GetCurrGame()->GetGameFlag()];
+    }
 
     return strAppName;
 }

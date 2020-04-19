@@ -33,7 +33,6 @@ void CImgOutDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_ZOOM, m_CB_Zoom);
     DDX_Text(pDX, IDC_EDIT_BDRSZ, border_sz);
     DDX_Text(pDX, IDC_EDIT_SPCSZ, outline_sz);
-    DDX_CBIndex(pDX, IDC_AMT, m_amt);
     DDX_CBIndex(pDX, IDC_PAL, m_pal);
     DDX_CBIndex(pDX, IDC_ZOOM, m_zoom);
     DDX_Control(pDX, IDC_BDRSPN, m_BdrSpn);
@@ -65,25 +64,43 @@ BOOL CImgOutDlg::OnInitDialog()
 
     m_CB_Amt.AddString("1");
 
+    tmp_str.Format("CImgOutDlg::OnInitDialog: preparing to show up to %u sprites\n", nPalAmt);
+    OutputDebugString(tmp_str);
+
+    //Fix later... as we add more games
     switch (nPalAmt)
     {
-    case 1:
     default:
-    {
+        OutputDebugString("WARNING BUGBUG: This palette count is not supported in CImgOutDlg::OnInitDialog: yet!\n");
+    case 1:
         // By default, we export out only the one sprite
         m_CB_Amt.EnableWindow(FALSE);
         break;
-    }
-    //Fix later... if we have more games
-    case 6: // MvC2, MvC
-    case 7:
-    {
+    case 2: // MSH, XMvSF
+        m_CB_Amt.AddString("2");
+        break;
+    case 6: // MvC, MvC2
+    case 7: // 3S
         // Allow the user to export either the solitary sprite or to export
         // the entire sprite set.
         m_CB_Amt.AddString("6");
         nPalAmt == 7 ? m_CB_Amt.AddString("7") : NULL;
         break;
+    case 10: // ST
+        m_CB_Amt.AddString("6");
+        m_CB_Amt.AddString("10");
+        break;
     }
+
+    int nGameFlag = CurrGame->GetGameFlag();
+
+    if ((nGameFlag != MVC2_D) &&
+        (nGameFlag != MVC2_P) &&
+        (nGameFlag != SFIII3_A) &&
+        (nGameFlag != SFIII3_D))
+    {
+        OutputDebugString("WARNING BUGBUG: We are deliberately disabling multisprite export for this game as it does not work yet.\n");
+        m_CB_Amt.EnableWindow(FALSE);
     }
 
     FillPalCombo();
@@ -229,19 +246,24 @@ void CImgOutDlg::OnCbnSelchangeAmt()
 {
     UpdateData();
 
-    img_amt = amt_val[m_CB_Amt.GetCurSel()];
-    m_CB_Pal.EnableWindow(img_amt == 1);
+    char szCount[32];
+    if (m_CB_Amt.GetLBText(m_CB_Amt.GetCurSel(), szCount) != CB_ERR)
+    {
+        sscanf_s(szCount, "%u", &img_amt);
 
-    //There's no member variable for the border size edit box
-    //But now I decided to just use border size instead of outline
+        m_CB_Pal.EnableWindow(img_amt == 1);
 
-    //GetDlgItem(IDC_BDRSZ)->EnableWindow(!is_basic_amt);
+        //There's no member variable for the border size edit box
+        //But now I decided to just use border size instead of outline
 
-    UpdateData(FALSE);
+        //GetDlgItem(IDC_BDRSZ)->EnableWindow(!is_basic_amt);
 
-    //m_DumpBmp.UpdateBltRect(FALSE);
+        UpdateData(FALSE);
 
-    UpdateImg();
+        //m_DumpBmp.UpdateBltRect(FALSE);
+
+        UpdateImg();
+    }
 }
 
 void CImgOutDlg::FillPalCombo()
