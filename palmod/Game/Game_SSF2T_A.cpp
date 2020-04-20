@@ -111,8 +111,8 @@ CGame_SSF2T_A::CGame_SSF2T_A(int nSSF2TRomToLoad)
 
     //Set the image out display type
     DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6);
-
+    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_ST10);
+    
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
     memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
@@ -520,6 +520,33 @@ const sGame_PaletteDataset* CGame_SSF2T_A::GetPaletteSet(UINT16 nUnitId, UINT16 
     }
 }
 
+
+UINT16 CGame_SSF2T_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+{
+    // Don't use this for Extra palettes.
+    UINT16 nNodeSize = 0;
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sGame_PaletteDataset* paletteSetToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+
+    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+
+        if (nDistanceFromZero < nNodeCount)
+        {
+            nNodeSize = nNodeCount;
+            break;
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+    
+    return nNodeSize;
+}
+
+
 const sGame_PaletteDataset* CGame_SSF2T_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
@@ -701,6 +728,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     int nSrcStart = 0;
     int nSrcAmt = nCollectionCount;
+    UINT16 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -719,13 +747,25 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
         nSrcStart = NodeGet->uPalId;
-        nSrcAmt = 1;
+
+        if (UsePaletteSetForPortraits())
+        {
+            // For portraits we don't have multisprite image export yet
+            nSrcAmt = 1;
+            nNodeIncrement = 1;
+        }
 
         if (paletteDataSet)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
         }
+    }
+    else
+    {
+        // We don't have multisprite export for Extras.
+        nSrcAmt = 1;
+        nNodeIncrement = 1;
     }
 
     if (!fShouldUseAlternateLoadLogic)
@@ -735,7 +775,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         CreateDefPal(NodeGet, 0);
 
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
     }
 
     return TRUE;

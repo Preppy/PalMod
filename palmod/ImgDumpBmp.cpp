@@ -406,74 +406,6 @@ void CImgDumpBmp::SizeScroll(BOOL resize)
     }
 }
 
-/*
-void CImgDumpBmp::DrawSource()
-{
-    POINT out_pt;
-
-    SrcDC.Rectangle(0, 0, blt_w * nPalAmt, blt_h);
-
-    int add_amt;
-    int img_index;
-
-    int nCurrW;
-    int nCurrH;
-    UINT32 * pImgData;
-    int nCurrPalSz;
-
-    switch(DispType)
-    {
-    case DISP_ALT:
-        add_amt = nPalAmt == 2 ? 1 : 2;
-        break;
-    case DISP_DEF:
-        add_amt = 1;
-        break;
-    }
-
-    for (int img_ctr = 0; img_ctr < img_amt; img_ctr++)
-    {
-        img_index = 0;
-
-        pImgData = pImgBmpData[img_ctr];
-        nCurrPalSz = rgSrcImg[img_ctr]->uPalSz;
-        nCurrW = rgSrcImg[img_ctr]->uImgW;
-        nCurrH = rgSrcImg[img_ctr]->uImgH;
-
-        for (int amt_ctr = 0; amt_ctr < (nPalAmt) ; amt_ctr+=add_amt)
-        {
-            for (int index = 0; index < nCurrPalSz; index++)
-            {
-                COLORREF crCol = pppPalettes[img_ctr][amt_ctr][index];
-
-                for (int i = 0; i < px_ctr[img_ctr][index]; i++)
-                {
-
-                    out_pt.x = px[img_ctr][index][i].x + (blt_w * img_index);
-                    out_pt.y = px[img_ctr][index][i].y;
-
-                    pImgData[nCurrW * out_pt.y + out_pt.x] = crCol & 0x00FFFFFF;
-                }
-            }
-
-            if (DispType == DISP_ALT)
-            {
-                if (add_amt == 2)
-                {
-                    if (amt_ctr == 4)
-                        amt_ctr = -1;
-
-                    if (amt_ctr == 5)
-                        add_amt = 1;
-                }
-            }
-
-            img_index++;
-        }
-    }
-}
-*/
-
 void CImgDumpBmp::SetBG(COLORREF new_crBGCol)
 {
     crBGCol = new_crBGCol;
@@ -521,15 +453,16 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
 
         if (DispType == DISP_DEF)
         {
-            if (i >= 3)
+            int nMaxImagesPerLine = max(3, ceil(amt / 2));
+
+            if (i >= nMaxImagesPerLine)
             {
                 row_ctr = 1;
             }
 
-            nTargetX = (i - (row_ctr * 3));
+            nTargetX = (i - (row_ctr * nMaxImagesPerLine));
         }
-
-        if (DispType == DISP_ALT)
+        else if (DispType == DISP_ALT)
         {
             if (i % 2)
             {
@@ -780,7 +713,7 @@ void CImgDumpBmp::ResizeMainBmp()
     static int nPrevW = 0;
     static int nPrevH = 0;
 
-    if (nMainW != nPrevW || nMainH != nPrevH)
+    if ((nMainW != nPrevW) || (nMainH != nPrevH))
     {
         DeleteObject(MainHBmp);
 

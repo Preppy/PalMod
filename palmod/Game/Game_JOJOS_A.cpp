@@ -151,7 +151,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
 
     //Set game information
     nGameFlag = JOJOS_A;
-    nImgGameFlag = IMG5;
+    nImgGameFlag = IMGDAT_SECTION_3S;
     nImgUnitAmt = nUnitAmt;
 
     nDisplayW = 8;

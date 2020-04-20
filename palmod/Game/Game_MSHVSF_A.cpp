@@ -33,7 +33,7 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(void)
 
     //Set game information
     nGameFlag = MSHVSF_A;
-    nImgGameFlag = IMGDAT_SECTION_ST;
+    nImgGameFlag = IMG4;
     nImgUnitAmt = MSHVSF_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;
@@ -382,6 +382,31 @@ const sGame_PaletteDataset* CGame_MSHVSF_A::GetPaletteSet(UINT16 nUnitId, UINT16
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
+UINT16 CGame_MSHVSF_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+{
+    // Don't use this for Extra palettes.
+    UINT16 nNodeSize = 0;
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sGame_PaletteDataset* paletteSetToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+
+    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+
+        if (nDistanceFromZero < nNodeCount)
+        {
+            nNodeSize = nNodeCount;
+            break;
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+
+    return nNodeSize;
+}
+
 const sGame_PaletteDataset* CGame_MSHVSF_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
@@ -554,6 +579,8 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     int nSrcStart = 0;
     int nSrcAmt = nCollectionCount;
+
+    OutputDebugString("Note: Multisprite display is not supported for MSHVSF yet as we need to handle Shared palettes\n");
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();

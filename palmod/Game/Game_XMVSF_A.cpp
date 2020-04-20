@@ -50,7 +50,7 @@ CGame_XMVSF_A::CGame_XMVSF_A(void)
 
     //Set the image out display type
     DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_DESCPRISEC);
+    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

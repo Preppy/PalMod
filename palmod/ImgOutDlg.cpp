@@ -94,12 +94,13 @@ BOOL CImgOutDlg::OnInitDialog()
 
     int nGameFlag = CurrGame->GetGameFlag();
 
-    if ((nGameFlag != MVC2_D) &&
-        (nGameFlag != MVC2_P) &&
-        (nGameFlag != SFIII3_A) &&
-        (nGameFlag != SFIII3_D))
+    if ((nGameFlag == MSH_A) ||
+        (nGameFlag == MVC_A) ||
+        (nGameFlag == MSHVSF_A) ||
+        (nGameFlag == XMVSF_A)
+        )
     {
-        OutputDebugString("WARNING BUGBUG: We are deliberately disabling multisprite export for this game as it does not work yet.\n");
+        OutputDebugString("WARNING: We are deliberately disabling multisprite export for this game as it does not work yet.\n");
         m_CB_Amt.EnableWindow(FALSE);
     }
 
@@ -268,24 +269,16 @@ void CImgOutDlg::OnCbnSelchangeAmt()
 
 void CImgOutDlg::FillPalCombo()
 {
-    switch (nPalAmt)
+    if ((nPalAmt != 1) && (pButtonLabel != nullptr))
     {
-        case 1:
-        default:
+        for (int nNodeIndex = 0; nNodeIndex < nPalAmt; nNodeIndex++)
         {
-            m_CB_Pal.AddString("Selected");
-            break;
+            m_CB_Pal.AddString(&pButtonLabel[nNodeIndex * 16]);
         }
-        case 6:
-        case 7:
-        {
-            for (int i = 0; i < nPalAmt; i++)
-            {
-                //Ugh... I wish I started making this program when I had more knowledge :\
-                    //Fix later??
-                m_CB_Pal.AddString(&pButtonLabel[i * 3]);
-            }
-        }
+    }
+    else
+    {
+        m_CB_Pal.AddString("Selected");
     }
 
     m_CB_Pal.SetCurSel(0);
@@ -453,10 +446,6 @@ void CImgOutDlg::OnFileSave()
 
         CImage out_img;
         out_img.Create(output_width, output_height, 32, CImage::createAlphaChannel * bTransPNG * (sfd.GetOFN().nFilterIndex == 1));
-
-        // unused
-        //void * pPixelPos = out_img.GetPixelAddress(0, (output_height - 1));
-        //void * pStartArray = out_img.GetBits();
 
         if (bTransPNG)
         {

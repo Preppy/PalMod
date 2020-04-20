@@ -351,28 +351,28 @@ COLORREF*** CGameClass::CreateImgOutPal()
     }
     else
     {
-        int i = 0;
+        int iIndex = 0;
         int nPalAmt = nSrcPalAmt[0];
 
-        while ((nSrcPalStart[i] != -1) && (i < 4))
+        while ((nSrcPalStart[iIndex] != -1) && (iIndex < 4))
         {
-            i++;
+            iIndex++;
         }
 
-        pppReturnPal = new COLORREF * *[i];
+        pppReturnPal = new COLORREF * *[iIndex];
 
         //Pass 2
-        i = 0;
-        while ((nSrcPalStart[i] != -1) && (i < 4))
+        iIndex = 0;
+        while ((nSrcPalStart[iIndex] != -1) && (iIndex < 4))
         {
-            pppReturnPal[i] = new COLORREF * [nPalAmt];
+            pppReturnPal[iIndex] = new COLORREF * [nPalAmt];
 
             for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
-                pppReturnPal[i][nPalCtr] = CreatePal(nSrcPalUnit[i], nSrcPalStart[i] + (nPalCtr * nSrcPalInc[i]));
+                pppReturnPal[iIndex][nPalCtr] = CreatePal(nSrcPalUnit[iIndex], nSrcPalStart[iIndex] + (nPalCtr * nSrcPalInc[iIndex]));
             }
 
-            i++;
+            iIndex++;
         }
     }
 

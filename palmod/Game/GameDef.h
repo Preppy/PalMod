@@ -60,9 +60,12 @@ constexpr auto MVC_A_NUM_IMG_UNITS = 30;
 constexpr auto MSH_A_NUM_IMG_UNITS = 11;
 constexpr auto MSHVSF_A_NUM_IMG_UNITS = 23;
 
-#define IMG4 0 //Image Game Flag.  Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
-#define IMG5 1 //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
-#define IMGDAT_SECTION_ST 2 //Image Game Flag.  Used for ST.
+enum eIMGDat_Sections
+{
+    IMG4 = 0,          //Image Game Flag.  Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
+    IMGDAT_SECTION_3S, //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
+    IMGDAT_SECTION_ST  //Image Game Flag.  Used for ST.
+};
 
 // IMG4 ranges:
 //  * MVC2: 0x3b character units
@@ -91,33 +94,41 @@ enum eDispType
 #define BUTTON6 6
 #define BUTTON7 7
 
-const CHAR DEF_BUTTONLABEL6[6][3] =
+// BUGBUG: Those should be legacy.
+// In the new world order, these probably should be done via node primary names(?)
+const CHAR DEF_BUTTONLABEL_2[2][16] =
+{
+    "P1", "P2"
+};
+
+const CHAR DEF_BUTTONLABEL6[6][16] =
 {
     "LP", "MP", "HP", "LK", "MK", "HK"
 };
 
-const CHAR DEF_BUTTONLABEL6ALT[6][3] = 
+const CHAR DEF_BUTTONLABEL_ISMS[6][16] =
+{
+    "X-Ism 1", "X-Ism 2", "A-Ism 1", "A-Ism 2", "V-Ism 1", "V-Ism 2"
+};
+
+const CHAR DEF_BUTTONLABEL6ALT[6][16] = 
 {
     "LP", "LK", "HP", "HK", "A1", "A2"
 };
 
-const CHAR DEF_BUTTONLABEL7[7][3] = 
+const CHAR DEF_BUTTONLABEL7[7][16] = 
 {
     "LP", "MP", "HP", "LK", "MK", "HK", "EX"
+};
+
+const CHAR DEF_BUTTONLABEL_ST10[10][16] =
+{
+    "Jab", "Strong", "Fierce", "Short", "Forward", "RH", "Start", "Hold", "Old 1P", "Old 2P"
 };
 
 const CHAR DEF_NOBUTTONS[1][16] =
 {
     "Special"
-};
-
-#define DESC2 2
-#define DESC6 6
-//Primary / Secondary descriptions
-
-const CHAR DEF_DESCPRISEC[3][16] = 
-{
-    "Primary", "Secondary"
 };
 
 struct stExtraDef

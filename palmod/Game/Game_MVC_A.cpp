@@ -98,7 +98,7 @@ CGame_MVC_A::CGame_MVC_A(void)
     //Set game information
     nGameFlag = MVC_A;
     nImgGameFlag = IMG4;
-    nImgUnitAmt = nUnitAmt;
+    nImgUnitAmt = MVC_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;
     nFileAmt = 1;
@@ -384,6 +384,31 @@ const sGame_PaletteDataset* CGame_MVC_A::GetPaletteSet(UINT16 nUnitId, UINT16 nC
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
+UINT16 CGame_MVC_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+{
+    // Don't use this for Extra palettes.
+    UINT16 nNodeSize = 0;
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sGame_PaletteDataset* paletteSetToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+
+    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+
+        if (nDistanceFromZero < nNodeCount)
+        {
+            nNodeSize = nNodeCount;
+            break;
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+
+    return nNodeSize;
+}
+
 const sGame_PaletteDataset* CGame_MVC_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
@@ -565,6 +590,8 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     int nSrcStart = 0;
     int nSrcAmt = nCollectionCount;
 
+    OutputDebugString("Note: Multisprite display is not supported for MVC yet as it needs to be retree'd to buttons\n");
+
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
@@ -635,8 +662,9 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     CreateDefPal(JoinedNode[0], 0);
                     CreateDefPal(JoinedNode[1], 1);
 
-                    SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 6, 8);
-                    SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 6, 8);
+                    // BUGBUG: This intentionally disables multisprite image export
+                    SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
+                    SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 1, 1);
                 }
             }
         }

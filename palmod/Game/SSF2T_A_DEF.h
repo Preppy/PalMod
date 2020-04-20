@@ -298,52 +298,52 @@ const sGame_PaletteDataset SSF2T_A_KEN_PALETTES_OLD2P[] =
 const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES_JAB[] =
 {
     { "Jab",        0x041B3A, 0x041B5A, 0x05},
-    { "Kikouken",   0x041b5a, 0x041b7a },
+    { "Kikouken",   0x041b5a, 0x041b7a, 0x05, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES_STRONG[] =
 {
     { "Strong",     0x041BDC, 0x041BFC, 0x05},
-    { "Kikouken",   0x041bfc, 0x041c1c },
+    { "Kikouken",   0x041bfc, 0x041c1c, 0x05, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES_FIERCE[] =
 {
     { "Fierce",     0x041C7E, 0x041C9E, 0x05},
-    { "Kikouken",   0x041c9e, 0x041cbe },
+    { "Kikouken",   0x041c9e, 0x041cbe, 0x05, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES_SHORT[] =
 {
     { "Short",      0x041D20, 0x041D40, 0x05},
-    { "Kikouken",   0x041d40, 0x041d60 },
+    { "Kikouken",   0x041d40, 0x041d60, 0x05, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES_FORWARD[] =
 {
     { "Forward",    0x041DC2, 0x041DE2, 0x05},
-    { "Kikouken",   0x041de2, 0x041e02 },
+    { "Kikouken",   0x041de2, 0x041e02, 0x05, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES_ROUNDHOUSE[] =
 {
     { "Roundhouse", 0x041E64, 0x041E84, 0x05},
-    { "Kikouken",   0x041e84, 0x041ea4 },
+    { "Kikouken",   0x041e84, 0x041ea4, 0x05, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES_START[] =
 {
     { "Start",      0x041F06, 0x041F26, 0x05},
-    { "Kikouken",   0x041f26, 0x041f46 },
+    { "Kikouken",   0x041f26, 0x041f46, 0x05, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES_HOLD[] =
 {
     { "Hold",       0x041FA8, 0x041FC8, 0x05},
-    { "Kikouken",   0x041fc8, 0x041fe8 },
+    { "Kikouken",   0x041fc8, 0x041fe8, 0x05, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES_OLD1P[] =
 {
     { "Old 1P",     0x04204A, 0x04206A, 0x05},
-    { "Kikouken",   0x04206a, 0x04208a },
+    { "Kikouken",   0x04206a, 0x04208a, 0x05, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_CHUNLI_PALETTES_OLD2P[] =
 {
     { "Old 2P",     0x0420EC, 0x04210C, 0x05},
-    { "Kikouken",   0x04210c, 0x04212c },
+    { "Kikouken",   0x04210c, 0x04212c, 0x05, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_JAB[] =
 {
@@ -708,52 +708,52 @@ const sGame_PaletteDataset SSF2T_A_FEILONG_PALETTES_OLD2P[] =
 const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES_JAB[] =
 {
     { "Jab",        0x045B72, 0x045B92, 0x0F},
-    { "Air Slasher", 0x045b92, 0x045bb2 },
+    { "Air Slasher", 0x045b92, 0x045bb2, 0x0F, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES_STRONG[] =
 {
     { "Strong",     0x045C14, 0x045C34, 0x0F},
-    { "Air Slasher", 0x045c34, 0x045c54 },
+    { "Air Slasher", 0x045c34, 0x045c54, 0x0F, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES_FIERCE[] =
 {
     { "Fierce",     0x045CB6, 0x045CD6, 0x0F},
-    { "Air Slasher", 0x045cd6, 0x045cf6 },
+    { "Air Slasher", 0x045cd6, 0x045cf6, 0x0F, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES_SHORT[] =
 {
     { "Short",      0x045D58, 0x045D78, 0x0F},
-    { "Air Slasher", 0x045d78, 0x045d98 },
+    { "Air Slasher", 0x045d78, 0x045d98, 0x0F, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES_FORWARD[] =
 {
     { "Forward",    0x045DFA, 0x045E1A, 0x0F},
-    { "Air Slasher", 0x045e1a, 0x045e3a },
+    { "Air Slasher", 0x045e1a, 0x045e3a, 0x0F, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES_ROUNDHOUSE[] =
 {
     { "Roundhouse", 0x045E9C, 0x045EBC, 0x0F},
-    { "Air Slasher", 0x045ebc, 0x045edc },
+    { "Air Slasher", 0x045ebc, 0x045edc, 0x0F, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES_START[] =
 {
     { "Start",      0x045F3E, 0x045F5E, 0x0F},
-    { "Air Slasher", 0x045f5e, 0x045f7e },
+    { "Air Slasher", 0x045f5e, 0x045f7e, 0x0F, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES_HOLD[] =
 {
     { "Hold",       0x045FE0, 0x046000, 0x0F},
-    { "Air Slasher", 0x046000, 0x046020 },
+    { "Air Slasher", 0x046000, 0x046020, 0x0F, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES_OLD1P[] =
 {
     { "Old 1P",     0x046082, 0x0460A2, 0x0F},
-    { "Air Slasher", 0x0460a2, 0x0460c2 },
+    { "Air Slasher", 0x0460a2, 0x0460c2, 0x0F, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_DEEJAY_PALETTES_OLD2P[] =
 {
     { "Old 2P",     0x046124, 0x046144, 0x0F},
-    { "Air Slasher", 0x046144, 0x046164 },
+    { "Air Slasher", 0x046144, 0x046164, 0x0F, 1 },
 };
 const sGame_PaletteDataset SSF2T_A_GOUKI_PALETTES_P1COLOR[] =
 {

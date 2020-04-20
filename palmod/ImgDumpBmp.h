@@ -62,7 +62,7 @@ public:
 
     int clip_right = 0, clip_bottom = 0;
 
-    int    blt_w = 0, blt_h = 0;
+    int blt_w = 0, blt_h = 0;
 
     int nPalAmt = 0;
     int img_amt = 0;
@@ -121,8 +121,6 @@ public:
     void SizeScroll(BOOL resize = FALSE);
 
     void CleanUp();
-
-    void CreateMainBitmap();
 
     void Draw();
 
