@@ -745,7 +745,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
-        nSrcStart = 0; // NodeGet->uPalId;
+        nSrcStart = NodeGet->uPalId;
 
         if (UsePaletteSetForPortraits())
         {
@@ -758,6 +758,12 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+            while (nSrcStart >= nNodeIncrement)
+            {
+                // The starting point is the absolute first palette for the sprite in question which is found in P1
+                nSrcStart -= nNodeIncrement;
+            }
         }
     }
     else
