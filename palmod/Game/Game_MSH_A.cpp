@@ -384,10 +384,10 @@ const sGame_PaletteDataset* CGame_MSH_A::GetPaletteSet(UINT16 nUnitId, UINT16 nC
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-UINT16 CGame_MSH_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+const sDescTreeNode* CGame_MSH_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
-    UINT16 nNodeSize = 0;
+    const sDescTreeNode* pCollectionNode = nullptr;
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
     int nDistanceFromZero = nPaletteId;
@@ -395,18 +395,44 @@ UINT16 CGame_MSH_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
     for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount;
 
-        if (nDistanceFromZero < nNodeCount)
+        if (nUnitId == MSH_A_EXTRALOC)
         {
-            nNodeSize = nNodeCount;
-            break;
+            nNodeCount = GetExtraCt(nUnitId);
+
+            if (nDistanceFromZero < nNodeCount)
+            {
+                pCollectionNode = nullptr;
+                break;
+            }
+        }
+        else
+        {
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(MSH_UNITS[nUnitId].ChildNodes);
+
+            nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
+
+            if (nDistanceFromZero < nNodeCount)
+            {
+                // We know it's within this group.  Now: is it basic?
+                if (fReturnBasicNodesOnly && (nCollectionIndex < 2)) // P1/P2
+                {
+                    pCollectionNode = pCollectionNodeToCheck;
+                }
+                else
+                {
+                    pCollectionNode = nullptr;
+                }
+
+                break;
+            }
         }
 
         nDistanceFromZero -= nNodeCount;
     }
 
-    return nNodeSize;
+    return pCollectionNode;
 }
 
 const sGame_PaletteDataset* CGame_MSH_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
@@ -586,12 +612,10 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
-    
+    // Default values for multisprite image display for Export
     int nSrcStart = 0;
-    int nSrcAmt = nCollectionCount;
-
-    OutputDebugString("Note: Multisprite display is not supported for MSH yet as it needs to be retree'd to buttons\n");
+    int nSrcAmt = 0;
+    UINT16 nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
@@ -615,50 +639,67 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
-        }
 
-        if (paletteDataSet->isJoinedPalette)
-        {
-            const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
+            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
 
-            if (paletteDataSetToJoin)
+            if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                int nXOffs, nYOffs;
-
-                if (NodeGet->uUnitId == indexMSHWolverine) // wolvie claws support
+                if ((_stricmp(pCurrentNode->szDesc, "P1") == 0) || (_stricmp(pCurrentNode->szDesc, "P2") == 0))
                 {
-                    nXOffs = 20;
-                    nYOffs = 4;
-                    fShouldUseAlternateLoadLogic = true;
+                    // We show 2 sprites (P1/P2) for export for all normal msh sprites
+                    nSrcAmt = 2;
+                    nNodeIncrement = pCurrentNode->uChildAmt;
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        nSrcStart -= nNodeIncrement;
+                    }
                 }
-                else if (NodeGet->uUnitId == indexMSHCaptainAmerica)
+            }
+
+            if (paletteDataSet->isJoinedPalette)
+            {
+                const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
+
+                if (paletteDataSetToJoin)
                 {
-                    nXOffs = -22;
-                    nYOffs = -17;
-                    fShouldUseAlternateLoadLogic = true;
-                }
+                    int nXOffs, nYOffs;
 
-                if (fShouldUseAlternateLoadLogic)
-                {
-                    ClearSetImgTicket(
-                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                        )
-                    );
+                    if (NodeGet->uUnitId == indexMSHWolverine) // wolvie claws support
+                    {
+                        nXOffs = 20;
+                        nYOffs = 4;
+                        fShouldUseAlternateLoadLogic = true;
+                    }
+                    else if (NodeGet->uUnitId == indexMSHCaptainAmerica)
+                    {
+                        nXOffs = -22;
+                        nYOffs = -17;
+                        fShouldUseAlternateLoadLogic = true;
+                    }
 
-                    //Set each palette
-                    sDescNode* JoinedNode[2] = {
-                        MainDescTree.GetDescNode(NodeGet->uUnitId, 0, NodeGet->uPalId, -1),
-                        MainDescTree.GetDescNode(NodeGet->uUnitId, 0, NodeGet->uPalId + 1, -1)
-                    };
+                    if (fShouldUseAlternateLoadLogic)
+                    {
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
 
-                    //Set each palette
-                    CreateDefPal(JoinedNode[0], 0);
-                    CreateDefPal(JoinedNode[1], 1);
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                            MainDescTree.GetDescNode(Node01, Node02, Node03 + 1, -1)
+                        };
 
-                    // BUGBUG: Deliberately turning off multisprite export for now.
-                    SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
-                    SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 1, 1);
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + 1, nSrcAmt, nNodeIncrement);
+                    }
                 }
             }
         }
@@ -671,13 +712,7 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         CreateDefPal(NodeGet, 0);
 
-        // BUGBUG: TODO.  
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
-
-        // The above line is wrong but just breaks multisprite image export.
-        // The below is correct for Blackheart only.
-        // We need to build in some support for sprite-linked palettes
-        //SetSourcePal(0, NodeGet->uUnitId, nSrcStart, 2, 4);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
     }
 
     return TRUE;

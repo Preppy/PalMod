@@ -435,31 +435,6 @@ const sDescTreeNode* CGame_MVC_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nP
     return pCollectionNode;
 }
 
-UINT16 CGame_MVC_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
-{
-    // Don't use this for Extra palettes.
-    UINT16 nNodeSize = 0;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
-
-    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
-
-        if (nDistanceFromZero < nNodeCount)
-        {
-            nNodeSize = nNodeCount;
-            break;
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return nNodeSize;
-}
-
 const sGame_PaletteDataset* CGame_MVC_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
@@ -635,9 +610,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
         return FALSE;
     }
-
-    UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
-    
+   
     // Default values for multisprite image display for Export
     int nSrcStart = 0;
     int nSrcAmt = 0;

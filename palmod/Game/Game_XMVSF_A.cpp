@@ -638,7 +638,6 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
     UINT16 uUnitId = NodeGet->uUnitId;
     UINT16 uPalId = NodeGet->uPalId;
 

@@ -546,7 +546,6 @@ UINT16 CGame_SSF2T_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId
     return nNodeSize;
 }
 
-
 const sGame_PaletteDataset* CGame_SSF2T_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.

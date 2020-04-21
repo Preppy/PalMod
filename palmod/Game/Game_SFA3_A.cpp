@@ -382,31 +382,6 @@ const sGame_PaletteDataset* CGame_SFA3_A::GetPaletteSet(UINT16 nUnitId, UINT16 n
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-UINT16 CGame_SFA3_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
-{
-    // Don't use this for Extra palettes.
-    UINT16 nNodeSize = 0;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
-
-    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
-
-        if (nDistanceFromZero < nNodeCount)
-        {
-            nNodeSize = nNodeCount;
-            break;
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return nNodeSize;
-}
-
 const sGame_PaletteDataset* CGame_SFA3_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
@@ -575,8 +550,6 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
-
     // Default values for multisprite image display for Export
     int nSrcStart = 0;
     int nSrcAmt = 1;
@@ -599,7 +572,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         nSrcStart = NodeGet->uPalId;
         // Right now SFA3 is all six palettes within one node.
-        nSrcAmt = 6; // functionally this should be about nCollectionCount
+        nSrcAmt = 6;
 
         while (nSrcStart >= nNodeIncrement)
         {

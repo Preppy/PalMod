@@ -382,31 +382,6 @@ const sGame_PaletteDataset* CGame_MSHVSF_A::GetPaletteSet(UINT16 nUnitId, UINT16
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-UINT16 CGame_MSHVSF_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
-{
-    // Don't use this for Extra palettes.
-    UINT16 nNodeSize = 0;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
-
-    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
-
-        if (nDistanceFromZero < nNodeCount)
-        {
-            nNodeSize = nNodeCount;
-            break;
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return nNodeSize;
-}
-
 const sGame_PaletteDataset* CGame_MSHVSF_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
