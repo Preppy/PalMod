@@ -13,6 +13,58 @@ CDescTree CGame_MVC_A::MainDescTree = CGame_MVC_A::InitDescTree();
 
 UINT32 CGame_MVC_A::m_nTotalPaletteCountForMVC = 0;
 
+CGame_MVC_A::CGame_MVC_A(void)
+{
+    //We need the proper unit amt before we init the main buffer
+    nUnitAmt = MVC_A_NUMUNIT + (GetExtraCt(MVC_A_EXTRALOC) ? 1 : 0);
+
+    m_nTotalInternalUnits = MVC_A_NUMUNIT;
+    m_nExtraUnit = MVC_A_EXTRALOC;
+    m_nSafeCountForThisRom = 826 + GetExtraCt(MVC_A_EXTRALOC);
+    m_pszExtraFilename = EXTRA_FILENAME_MVC;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
+
+    InitDataBuffer();
+
+    //Set color mode
+    SetColMode(COLMODE_12A);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(PALTYPE_17);
+
+    //Set game information
+    nGameFlag = MVC_A;
+    nImgGameFlag = IMG4;
+    nImgUnitAmt = MVC_A_NUM_IMG_UNITS;
+
+    nDisplayW = 8;
+    nFileAmt = 1;
+
+    //Set the image out display type
+    DisplayType = DISP_DEF;
+    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_2);
+
+    //Create the redirect buffer
+    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+
+    //Create the file changed flag
+    rgFileChanged = new UINT16;
+
+    nRGBIndexAmt = 15;
+    nAIndexAmt = 0;
+
+    nRGBIndexMul = 17.0f;
+    nAIndexMul = 0.0f;
+}
+
+CGame_MVC_A::~CGame_MVC_A(void)
+{
+    ClearDataBuffer();
+    //Get rid of the file changed flag
+    safe_delete(rgFileChanged);
+}
+
 int CGame_MVC_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     static int rgExtraCountAll[MVC_A_NUMUNIT + 1] = { -1 };
@@ -74,58 +126,6 @@ int CGame_MVC_A::GetExtraLoc(UINT16 nUnitId)
     }
 
     return rgExtraLoc[nUnitId];
-}
-
-CGame_MVC_A::CGame_MVC_A(void)
-{
-    //We need the proper unit amt before we init the main buffer
-    nUnitAmt = MVC_A_NUMUNIT + (GetExtraCt(MVC_A_EXTRALOC) ? 1 : 0);
-
-    m_nTotalInternalUnits = MVC_A_NUMUNIT;
-    m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = 826 + GetExtraCt(MVC_A_EXTRALOC);
-    m_pszExtraFilename = EXTRA_FILENAME_MVC;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
-
-    InitDataBuffer();
-
-    //Set color mode
-    SetColMode(COLMODE_12A);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_17);
-
-    //Set game information
-    nGameFlag = MVC_A;
-    nImgGameFlag = IMG4;
-    nImgUnitAmt = MVC_A_NUM_IMG_UNITS;
-
-    nDisplayW = 8;
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_2);
-
-    //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
-
-    //Create the file changed flag
-    rgFileChanged = new UINT16;
-
-    nRGBIndexAmt = 15;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 17.0f;
-    nAIndexMul = 0.0f;
-}
-
-CGame_MVC_A::~CGame_MVC_A(void)
-{
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    safe_delete(rgFileChanged);
 }
 
 CDescTree* CGame_MVC_A::GetMainTree()

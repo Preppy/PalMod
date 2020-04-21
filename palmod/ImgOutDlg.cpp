@@ -94,12 +94,6 @@ BOOL CImgOutDlg::OnInitDialog()
 
     int nGameFlag = CurrGame->GetGameFlag();
 
-    if (nGameFlag == MSHVSF_A)
-    {
-        OutputDebugString("WARNING: We are deliberately disabling multisprite export for this game as it does not work yet.\n");
-        m_CB_Amt.EnableWindow(FALSE);
-    }
-
     FillPalCombo();
 
     //Cannot get accurate remainder amount
