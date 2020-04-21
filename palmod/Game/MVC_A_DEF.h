@@ -41,47 +41,53 @@ constexpr auto MVC_A_NUMUNIT = indexMVCLast;
 
 #define MVC_A_EXTRALOC MVC_A_NUMUNIT
 
-const sGame_PaletteDataset MVC_A_RYU_PALETTES[] =
+const sGame_PaletteDataset MVC_A_RYU_PALETTES_P1[] =
 {
     { "Ryu P1", 0x487c4, 0x487e4, 0x00 },
     { "Ryu P1 Hadouken", 0x487e4, 0x48804, 0x00, 1 },
     { "Ryu P1 Shoryuken", 0x48804, 0x48824, 0x27, 2 },
-    { "Ryu P2", 0x48824, 0x48844, 0x00 },
-    { "Ryu P2 Hadouken", 0x48844, 0x48864, 0x00, 1 },
-    { "Ryu P2 Shoryuken", 0x48864, 0x48884, 0x27, 2 },
-
     { "Ken P1", 0x4ec44, 0x4ec64, 0x00 },
     { "Ken P1 Hakouken", 0x4ec64, 0x4ec84, 0x00, 1 },
     { "Ken P1 Shoryuken", 0x4ec84, 0x4eca4, 0x27, 2 },
-    { "Ken P2", 0x4eca4, 0x4ecc4, 0x00 },
-    { "Ken P2 Hadouken", 0x4ecc4, 0x4ece4, 0x00, 1 },
-    { "Ken P2 Shoryuken", 0x4ece4, 0x4ed04, 0x27, 2 },
-
     { "Akuma P1", 0x4ed04, 0x4ed24, 0x00 },
     { "Akuma P1 Hadouken", 0x4ed24, 0x4ed44, 0x1e, 1 },
     { "Akuma P1 Shoryuken", 0x4ed44, 0x4ed64, 0x27, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_RYU_PALETTES_P2[] =
+{
+    { "Ryu P2", 0x48824, 0x48844, 0x00 },
+    { "Ryu P2 Hadouken", 0x48844, 0x48864, 0x00, 1 },
+    { "Ryu P2 Shoryuken", 0x48864, 0x48884, 0x27, 2 },
+    { "Ken P2", 0x4eca4, 0x4ecc4, 0x00 },
+    { "Ken P2 Hadouken", 0x4ecc4, 0x4ece4, 0x00, 1 },
+    { "Ken P2 Shoryuken", 0x4ece4, 0x4ed04, 0x27, 2 },
     { "Akuma P2", 0x4ed64, 0x4ed84, 0x00 },
     { "Akuma P2 Hadouken", 0x4ed84, 0x4eda4, 0x1e, 1 },
     { "Akuma P2 Shoryuken", 0x4eda4, 0x4edc4, 0x27, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_GIEF_PALETTES[] =
+const sGame_PaletteDataset MVC_A_GIEF_PALETTES_P1[] =
 {
     { "P1 Color", 0x48ac4, 0x48ae4, 0x01 },
     { "P1 Banishing Fist", 0x48ae4, 0x48b04, 0x01, 1 },
     { "Palette 3", 0x48b04, 0x48b24, 0xff },
-    { "P2 Color", 0x48b24, 0x48b44, 0x01 },
-    { "P2 Banishing Fist", 0x48b44, 0x48b64, 0x01, 1 },
-    { "Palette 6", 0x48b64, 0x48b84, 0xff },
     { "Mecha Zangief P1", 0x48c84, 0x48ca4, 0x01 },
     { "P1 Yoga Flame", 0x48ca4, 0x48cc4, 0x01, 3 },
     { "Palette 15", 0x48cc4, 0x48ce4, 0xff },
+};
+
+const sGame_PaletteDataset MVC_A_GIEF_PALETTES_P2[] =
+{
+    { "P2 Color", 0x48b24, 0x48b44, 0x01 },
+    { "P2 Banishing Fist", 0x48b44, 0x48b64, 0x01, 1 },
+    { "Palette 6", 0x48b64, 0x48b84, 0xff },
     { "Mecha Zangief P2", 0x48ce4, 0x48d04, 0x01 },
     { "P2 Yoga Flame", 0x48d04, 0x48d24, 0x01, 3 },
     { "Palette 18", 0x48d24, 0x48d44, 0xff },
 };
 
-const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES[] =
+const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P1[] =
 {
     { "P1 Color", 0x492e4, 0x49304, 0x1b },
     { "P1 Glimmer 1", 0x4ff64, 0x4ff84, 0x1b },
@@ -89,6 +95,10 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES[] =
     { "P1 Glimmer 3", 0x4ffa4, 0x4ffc4, 0x1b },
     { "P1 Extra 1", 0x49304, 0x49324 },
     { "P1 Extra 2", 0x49324, 0x49344 },
+};
+
+const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P2[] =
+{
     { "P2 Color", 0x49344, 0x49364, 0x1b },
     { "P2 Glimmer 1", 0x4ffc4, 0x4ffe4, 0x1b },
     { "P2 Glimmer 2", 0x4ffe4, 0x50004, 0x1b },
@@ -97,21 +107,29 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES[] =
     { "P2 Extra 2", 0x49384, 0x493a4 },
 };
 
-const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES[] =
+const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_P1[] =
 {
     { "P1 Color", 0x48944, 0x48964, 0x1b },
     { "P1 leg flash", 0x48964, 0x48984, 0x1b, 1 },
     { "P1 Kikosho", 0x48984, 0x489a4, 0x1b, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_P2[] =
+{
     { "P2 Color", 0x489a4, 0x489c4, 0x1b },
     { "P2 leg flash", 0x489c4, 0x489e4, 0x1b, 1 },
     { "P2 Kikosho", 0x489e4, 0x48a04, 0x1b, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_JIN_PALETTES[] =
+const sGame_PaletteDataset MVC_A_JIN_PALETTES_P1[] =
 {
     { "P1 Color", 0x48a04, 0x48a24, 0x37 },
     { "P1 Blodia FX", 0x48a24, 0x48a44, 0x37, 1 },
     { "P1 Blodia Punch", 0x48a44, 0x48a64, 0x37, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_JIN_PALETTES_P2[] =
+{
     { "P2 Color", 0x48a64, 0x48a84, 0x37 },
     { "P2 Blodia FX", 0x48a84, 0x48aa4, 0x37, 1 },
     { "P2 Blodia Punch", 0x48aa4, 0x48ac4, 0x37, 2 },
@@ -119,14 +137,22 @@ const sGame_PaletteDataset MVC_A_JIN_PALETTES[] =
 
 // Note that since this is eleventy palettes, the code is substituting the default Megaman sprite when 0xff is supplied.  
 // To unwind that we would want to specify the correct sprites to use everywhere.  MM is 0x1C .
-const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
+const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
 {
     { "Megaman P1", 0x48f84, 0x48fa4, 0x1c },
     { "P1 Rush/Eddie", 0x48fa4, 0x48fc4, 0x1c, 1 },
     { "P1 Beat", 0x48fc4, 0x48fe4 },
+};
+
+const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
+{
     { "Megaman P2", 0x48fe4, 0x49004, 0x1c },
     { "P2 Rush/Eddie", 0x49004, 0x49024, 0x1c, 1 },
     { "P2 Beat", 0x49024, 0x49044 },
+};
+
+const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_EXTRAS[] =
+{
     { "P1 Hair", 0x4c044, 0x4c064 },
     { "P1 Teleport / Death Animation", 0x4c064, 0x4c084 },
     { "P1 Intro 1", 0x4c084, 0x4c0a4, 0x1c },
@@ -330,15 +356,22 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES[] =
     { "P2 Magnetic Megaman", 0x4d5e4, 0x4d604, 0x1c },
 };
 
-const sGame_PaletteDataset MVC_A_ROLL_PALETTES[] =
+const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P1[] =
 {
     { "P1 Color", 0x48704, 0x48724, 0x1d },
     { "P1 Rush/Eddie", 0x48724, 0x48744, 0x1c, 1 },
     { "P1 Beat", 0x48744, 0x48764 },
+};
+
+const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P2[] =
+{
     { "P2 Color", 0x48764, 0x48784, 0x1d },
     { "P2 Rush/Eddie", 0x48784, 0x487a4, 0x1c, 1 },
-
     { "P2 Beat", 0x487a4, 0x487c4 }, // 09 : these numbers align to the mvc2 extra ids as identified in the Palette Variant Full spreadsheet
+};
+
+const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
+{
     { "P1 Hair", 0x4d604, 0x4d624 },
     { "P1 Intro / Death Animation", 0x4d624, 0x4d644 },
     { "P1 Intro 1", 0x4d644, 0x4d664, 0x1d },
@@ -505,141 +538,197 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
     { "Palette 3", 0x49084, 0x490a4 },
 };
 
-const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES[] =
+const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_P1[] =
 {
     { "P1 Color", 0x481c4, 0x481e4, 0x33 },
     { "P1 Proton Cannon", 0x481e4, 0x48204, 0x33, 1 },  // same sprites as iron man
     { "P1 Proton Laser", 0x48204, 0x48224, 0x33, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_P2[] =
+{
     { "P2 Color", 0x48224, 0x48244, 0x33 },
     { "P2 Proton Cannon", 0x48244, 0x48264, 0x33, 1 },
     { "P2 Proton Laser", 0x48264, 0x48284, 0x33, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES[] =
+const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_P1[] =
 {
     { "P1 Color", 0x49224, 0x49244, 0x33 },
     { "P1 Proton Cannon", 0x49244, 0x49264, 0x33, 1 }, // same sprites as iron man
     { "P1 Proton Laser", 0x49264, 0x49284, 0x33, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_P2[] =
+{
     { "P2 Color", 0x49284, 0x492a4, 0x33 },
     { "P2 Proton Cannon", 0x492a4, 0x492c4, 0x33, 1 },
     { "P2 Proton Laser", 0x492c4, 0x492e4, 0x33, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_CAPAM_PALETTES[] =
+const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P1[] =
 {
     { "P1 Color", 0x48284, 0x482a4, 0x0b, 0, true },
     { "P1 Shield", 0x482a4, 0x482c4, 0x0b, 1 },
     { "P1 Charging Star", 0x482c4, 0x482e4, 0x0b, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P2[] =
+{
     { "P2 Color", 0x482e4, 0x48304, 0x0b, 0, true },
     { "P2 Shield", 0x48304, 0x48324, 0x0b, 1 },
     { "P2 Charging Star", 0x48324, 0x48344, 0x0b, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_HULK_PALETTES[] =
+const sGame_PaletteDataset MVC_A_HULK_PALETTES_P1[] =
 {
     { "P1 Color", 0x48344, 0x48364, 0x0d },
     { "P1 Charge", 0x48364, 0x48384, 0x0d, 1 },
     { "P1 Gamma Quake", 0x48384, 0x483a4, 0x0d, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_HULK_PALETTES_P2[] =
+{
     { "P2 Color", 0x483a4, 0x483c4, 0x0d },
     { "P2 Charge", 0x483c4, 0x483e4, 0x0d, 1 },
     { "P2 Gamma Quake", 0x483e4, 0x48404, 0x0d, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES[] =
+const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES_P1[] =
 {
     { "P1 Color", 0x49164, 0x49184, 0x0d },
     { "P1 Charge", 0x49184, 0x491a4, 0x0d, 1 },
     { "P1 Gamma Quake", 0x491a4, 0x491c4, 0x0d, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES_P2[] =
+{
     { "P2 Color", 0x491c4, 0x491e4, 0x0d },
     { "P2 Charge", 0x491e4, 0x49204, 0x0d, 1 },
     { "P2 Gamma Quake", 0x49204, 0x49224, 0x0d, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES[] =
+const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_P1[] =
 {
     { "P1 Color", 0x48404, 0x48424, 0x07,0, true },
     { "P1 Claws", 0x48424, 0x48444, 0x07, 1 },
     { "P1 Berserker FX", 0x48444, 0x48464, 0x07, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_P2[] =
+{
     { "P2 Color", 0x48464, 0x48484, 0x07, 0, true },
     { "P2 Claws", 0x48484, 0x484a4, 0x07, 1 },
     { "P2 Berserker FX", 0x484a4, 0x484c4, 0x07, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_VENOM_PALETTES[] =
+const sGame_PaletteDataset MVC_A_VENOM_PALETTES_P1[] =
 {
     { "P1 Color", 0x48584, 0x485a4, 0x0e },
     { "P1 Taunt", 0x485a4, 0x485c4, 0x0e, 1 },
     { "P1 Web", 0x485c4, 0x485e4, 0x0e, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_VENOM_PALETTES_P2[] =
+{
     { "P2 Color", 0x485e4, 0x48604, 0x0e },
     { "P2 Taunt", 0x48604, 0x48624, 0x0e, 1 },
     { "P2 Web", 0x48624, 0x48644, 0x0e, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_HYPERVENOM_PALETTES[] =
+const sGame_PaletteDataset MVC_A_HYPERVENOM_PALETTES_P1[] =
 {
     { "P1 Color", 0x490a4, 0x490c4, 0x0e },
     { "P1 Taunt", 0x490c4, 0x490e4, 0x0e, 1 },
     { "P1 Web", 0x490e4, 0x49104, 0x0e, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_HYPERVENOM_PALETTES_P2[] =
+{
     { "P2 Color", 0x49104, 0x49124, 0x0e },
     { "P2 Taunt", 0x49124, 0x49144, 0x0e, 1 },
     { "P2 Web", 0x49144, 0x49164, 0x0e, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES[] =
+const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P1[] =
 {
     { "P1 Color", 0x48644, 0x48664, 0x0c },
     { "P1 Extra 1", 0x48664, 0x48684 },
     { "P1 Web", 0x48684, 0x486a4, 0x0c, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P2[] =
+{
     { "P2 Color", 0x486a4, 0x486c4, 0x0c },
     { "P2 Extra 1", 0x486c4, 0x486e4 },
     { "P2 Web", 0x486e4, 0x48704, 0x0c, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES[] =
+const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P1[] =
 {
     { "P1 Color",  0x48884, 0x488a4, 0x38 },
     { "P1 Ninjas", 0x488a4, 0x488c4, 0x38, 1, true },
     { "P1 Hoover", 0x488c4, 0x488e4, 0x38, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P2[] =
+{
     { "P2 Color",  0x488e4, 0x48904, 0x38 },
     { "P2 Ninjas", 0x48904, 0x48924, 0x38, 1, true },
     { "P2 Hoover", 0x48924, 0x48944, 0x38, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES[] =
+const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P1[] =
 {
     { "P1 Color", 0x48ec4, 0x48ee4, 0x03 },
     { "P1 Lilith", 0x48ee4, 0x48f04, 0x03, 1 },
     { "P1 Extra 2", 0x48f04, 0x48f24, 0x03, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
+{
     { "P2 Color", 0x48f24, 0x48f44, 0x03 },
     { "P2 Lilith", 0x48f44, 0x48f64, 0x03, 1 },
     { "P2 Extra 2", 0x48f64, 0x48f84, 0x03, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_LILITH_PALETTES[] =
+const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =
 {
     { "P1 Color", 0x493a4, 0x493c4, 0x03 },
     { "P1 Extra 1", 0x493c4, 0x493e4, 0x03, 1 },
     { "P1 Extra 2", 0x493e4, 0x49404, 0x03, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P2[] =
+{
     { "P2 Color", 0x49404, 0x49424, 0x03 },
     { "P2 Extra 1", 0x49424, 0x49444, 0x03, 1 },
     { "P2 Extra 2", 0x49444, 0x49464, 0x03, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_STRIDER_PALETTES[] =
+const sGame_PaletteDataset MVC_A_STRIDER_PALETTES_P1[] =
 {
     { "P1 Color", 0x48e04, 0x48e24, 0x05 },
     { "P1 FX", 0x48e24, 0x48e44, 0x05, 1 },
     { "P1 Mech", 0x48e44, 0x48e64, 0x05, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_STRIDER_PALETTES_P2[] =
+{
     { "P2 Color", 0x48e64, 0x48e84, 0x05 },
     { "P2 FX", 0x48e84, 0x48ea4, 0x05, 1 },
     { "P2 Mech", 0x48ea4, 0x48ec4, 0x05, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES[] =
+const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P1[] =
 {
     { "P1 Color",   0x484c4, 0x484e4, 0x28 },
     { "P1 Extra 1", 0x484e4, 0x48504, 0x28, 1 },
     { "P1 Extra 2", 0x48504, 0x48524, 0x28, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P2[] =
+{
     { "P2 Color",   0x48524, 0x48544, 0x28 },
     { "P2 Extra 1", 0x48544, 0x48564, 0x28, 1 },
     { "P2 Extra 2", 0x48564, 0x48584, 0x28, 2 },
@@ -1266,77 +1355,94 @@ const sGame_PaletteDataset MVC_A_CSIS_PALETTES[] =
 
 const sDescTreeNode MVC_A_WARMACHINE_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES,       ARRAYSIZE(MVC_A_WARMACHINE_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_P1,       ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_P2,       ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_CAPAM_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES,            ARRAYSIZE(MVC_A_CAPAM_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_P1,            ARRAYSIZE(MVC_A_CAPAM_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_P2,            ARRAYSIZE(MVC_A_CAPAM_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_HULK_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES,             ARRAYSIZE(MVC_A_HULK_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES_P1,             ARRAYSIZE(MVC_A_HULK_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES_P2,             ARRAYSIZE(MVC_A_HULK_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_WOLVERINE_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES,        ARRAYSIZE(MVC_A_WOLVERINE_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES_P1,        ARRAYSIZE(MVC_A_WOLVERINE_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES_P2,        ARRAYSIZE(MVC_A_WOLVERINE_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_VENOM_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES,            ARRAYSIZE(MVC_A_VENOM_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES_P1,            ARRAYSIZE(MVC_A_VENOM_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES_P2,            ARRAYSIZE(MVC_A_VENOM_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_SPIDEY_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_PALETTES,           ARRAYSIZE(MVC_A_SPIDEY_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_PALETTES_P1,           ARRAYSIZE(MVC_A_SPIDEY_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_PALETTES_P2,           ARRAYSIZE(MVC_A_SPIDEY_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_ROLL_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_PALETTES,             ARRAYSIZE(MVC_A_ROLL_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_PALETTES_P1,             ARRAYSIZE(MVC_A_ROLL_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_PALETTES_P2,             ARRAYSIZE(MVC_A_ROLL_PALETTES_P2) },
+    { "Extras", DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_PALETTES_EXTRAS,             ARRAYSIZE(MVC_A_ROLL_PALETTES_EXTRAS) },
 };
 
 const sDescTreeNode MVC_A_RYU_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_RYU_PALETTES,              ARRAYSIZE(MVC_A_RYU_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_RYU_PALETTES_P1,              ARRAYSIZE(MVC_A_RYU_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_RYU_PALETTES_P2,              ARRAYSIZE(MVC_A_RYU_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_CAPCOM_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES,           ARRAYSIZE(MVC_A_CAPCOM_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES_P1,           ARRAYSIZE(MVC_A_CAPCOM_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES_P2,           ARRAYSIZE(MVC_A_CAPCOM_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_CHUNLI_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_PALETTES,           ARRAYSIZE(MVC_A_CHUNLI_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_PALETTES_P1,           ARRAYSIZE(MVC_A_CHUNLI_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_PALETTES_P2,           ARRAYSIZE(MVC_A_CHUNLI_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_JIN_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES,              ARRAYSIZE(MVC_A_JIN_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES_P1,              ARRAYSIZE(MVC_A_JIN_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES_P2,              ARRAYSIZE(MVC_A_JIN_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_GIEF_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_PALETTES,             ARRAYSIZE(MVC_A_GIEF_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_PALETTES_P1,             ARRAYSIZE(MVC_A_GIEF_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_PALETTES_P2,             ARRAYSIZE(MVC_A_GIEF_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_STRIDER_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_PALETTES,          ARRAYSIZE(MVC_A_STRIDER_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_PALETTES_P1,          ARRAYSIZE(MVC_A_STRIDER_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_PALETTES_P2,          ARRAYSIZE(MVC_A_STRIDER_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_MEGAMAN_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_PALETTES,          ARRAYSIZE(MVC_A_MEGAMAN_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_PALETTES_P1,          ARRAYSIZE(MVC_A_MEGAMAN_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_PALETTES_P2,          ARRAYSIZE(MVC_A_MEGAMAN_PALETTES_P2) },
+    { "Extras", DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_PALETTES_EXTRAS,          ARRAYSIZE(MVC_A_MEGAMAN_PALETTES_EXTRAS) },
 };
 
 const sDescTreeNode MVC_A_MORRIGAN_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES,         ARRAYSIZE(MVC_A_MORRIGAN_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES_P1,         ARRAYSIZE(MVC_A_MORRIGAN_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES_P2,         ARRAYSIZE(MVC_A_MORRIGAN_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_ONSLAUGHT_COLLECTION[] =
@@ -1346,32 +1452,38 @@ const sDescTreeNode MVC_A_ONSLAUGHT_COLLECTION[] =
 
 const sDescTreeNode MVC_A_HYPERVENOM_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_PALETTES,       ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_PALETTES_P1,       ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_PALETTES_P2,       ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_ORANGEHULK_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_PALETTES,       ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_PALETTES_P1,       ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_PALETTES_P2,       ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_GOLDWARMACHINE_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES_P1,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES_P2,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_SHADOWLADY_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES,       ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES_P1,       ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES_P2,       ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_LILITH_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_PALETTES,           ARRAYSIZE(MVC_A_LILITH_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_PALETTES_P1,           ARRAYSIZE(MVC_A_LILITH_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_PALETTES_P2,           ARRAYSIZE(MVC_A_LILITH_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_GAMBIT_COLLECTION[] =
 {
-    { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES_P1,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES_P2,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_ASSIST_COLLECTION[] =

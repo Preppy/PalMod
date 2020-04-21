@@ -95,7 +95,6 @@ BOOL CImgOutDlg::OnInitDialog()
     int nGameFlag = CurrGame->GetGameFlag();
 
     if ((nGameFlag == MSH_A) ||
-        (nGameFlag == MVC_A) ||
         (nGameFlag == MSHVSF_A)
         )
     {
