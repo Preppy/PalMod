@@ -1,7 +1,6 @@
 #include "StdAfx.h"
 #include "Game_SFA3_A.h"
 #include "GameDef.h"
-#include "..\ExtraFile.h"
 #include "..\PalMod.h"
 
 #define SFA3_DEBUG 0
@@ -57,6 +56,13 @@ CGame_SFA3_A::CGame_SFA3_A(void)
     nAIndexMul = 0.0f;
 }
 
+CGame_SFA3_A::~CGame_SFA3_A(void)
+{
+    ClearDataBuffer();
+    //Get rid of the file changed flag
+    safe_delete(rgFileChanged);
+}
+
 int CGame_SFA3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     static int rgExtraCountAll[SFA3_A_NUM_IND + 1] = { -1 };
@@ -91,6 +97,7 @@ int CGame_SFA3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
     return rgExtraCt[nUnitId];
 }
+
 int CGame_SFA3_A::GetExtraLoc(UINT16 nUnitId)
 {
     static int rgExtraLoc[SFA3_A_NUM_IND + 1] = { -1 };
@@ -119,13 +126,6 @@ int CGame_SFA3_A::GetExtraLoc(UINT16 nUnitId)
     return rgExtraLoc[nUnitId];
 }
 
-CGame_SFA3_A::~CGame_SFA3_A(void)
-{
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    safe_delete(rgFileChanged);
-}
-
 CDescTree* CGame_SFA3_A::GetMainTree()
 {
     return &CGame_SFA3_A::MainDescTree;
@@ -138,7 +138,8 @@ CDescTree CGame_SFA3_A::InitDescTree()
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SFA3, SFA3_A_EXTRA, &SFA3_A_EXTRA_CUSTOM, SFA3_A_EXTRALOC);
 
-    UINT16 nUnitCt = SFA3_A_NUM_IND + (GetExtraCt(SFA3_A_EXTRALOC) ? 1 : 0);
+    bool fHaveExtras = (GetExtraCt(SFA3_A_EXTRALOC) > 0);
+    UINT16 nUnitCt = SFA3_A_NUM_IND + (fHaveExtras ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -150,7 +151,6 @@ CDescTree CGame_SFA3_A::InitDescTree()
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(SFA3_A_EXTRALOC) > 0);
     strMsg.Format("CGame_SFA3_A::InitDescTree: Building desc tree for SFA3 %s extras...\n", fHaveExtras ? "with" : "without");
     OutputDebugString(strMsg);
 
@@ -441,13 +441,13 @@ void CGame_SFA3_A::ClearDataBuffer()
 {
     if (pppDataBuffer)
     {
-        for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (pppDataBuffer[nUnitCtr])
             {
-                int nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
@@ -472,7 +472,7 @@ void CGame_SFA3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         nCurrPalOffs = paletteData->nPaletteOffset;
         nCurrPalSz = cbPaletteSizeOnDisc / 2;
     }
-    else // MSH_A_EXTRALOC
+    else // SFA3_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
         stExtraDef* pCurrDef = GetExtraDefForSFA3(GetExtraLoc(nUnitId) + nPalId);
@@ -492,7 +492,7 @@ BOOL CGame_SFA3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        rgUnitRedir[nUnitCtr] = nUnitCtr; //Fix later for unit sort
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -577,9 +577,9 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
 
+    // Default values for multisprite image display for Export
     int nSrcStart = 0;
-    // Right now SFA3 is all six palettes within one node.
-    int nSrcAmt = 6; // nCollectionCount;
+    int nSrcAmt = 1;
     UINT16 nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
@@ -598,6 +598,14 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
         nSrcStart = NodeGet->uPalId;
+        // Right now SFA3 is all six palettes within one node.
+        nSrcAmt = 6; // functionally this should be about nCollectionCount
+
+        while (nSrcStart >= nNodeIncrement)
+        {
+            // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
+            nSrcStart -= nNodeIncrement;
+        }
 
         if (paletteDataSet)
         {

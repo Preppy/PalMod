@@ -1,5 +1,5 @@
 #pragma once
-#include "..\Game\GameClass.h"
+#include "GameClass.h"
 #include "SFA3_A_DEF.h"
 #include "..\ExtraFile.h"
 

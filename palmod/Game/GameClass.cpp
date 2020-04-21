@@ -314,6 +314,12 @@ void CGameClass::SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, 
         return;
     }
 
+    if ((nAmt > 1) && // If this game wants to allow multisprite export
+        (nStart > nInc)) // We can't have a starting point in the second or later node: that'll crash
+    {
+        OutputDebugString("CGameClass::SetSourcePal: Warning: invalid argument supplied.  Multisprite export will not work properly.\n");
+    }
+
     nSrcPalUnit[nIndex] = nUnitId;
     nSrcPalStart[nIndex] = nStart;
     nSrcPalAmt[nIndex] = nAmt;
@@ -362,7 +368,7 @@ COLORREF*** CGameClass::CreateImgOutPal()
         pppReturnPal = new COLORREF * *[iIndex];
 
         //Pass 2
-        iIndex = 0;
+        iIndex = 0; 
         while ((nSrcPalStart[iIndex] != -1) && (iIndex < 4))
         {
             pppReturnPal[iIndex] = new COLORREF * [nPalAmt];

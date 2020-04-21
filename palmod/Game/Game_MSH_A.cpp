@@ -656,8 +656,9 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     CreateDefPal(JoinedNode[0], 0);
                     CreateDefPal(JoinedNode[1], 1);
 
-                    SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 6, 8);
-                    SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 6, 8);
+                    // BUGBUG: Deliberately turning off multisprite export for now.
+                    SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
+                    SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 1, 1);
                 }
             }
         }

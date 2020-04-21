@@ -96,8 +96,7 @@ BOOL CImgOutDlg::OnInitDialog()
 
     if ((nGameFlag == MSH_A) ||
         (nGameFlag == MVC_A) ||
-        (nGameFlag == MSHVSF_A) ||
-        (nGameFlag == XMVSF_A)
+        (nGameFlag == MSHVSF_A)
         )
     {
         OutputDebugString("WARNING: We are deliberately disabling multisprite export for this game as it does not work yet.\n");
