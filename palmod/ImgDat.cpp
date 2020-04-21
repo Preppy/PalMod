@@ -95,7 +95,8 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
     SFIII3_D = 7;
     JOJOS_A = 8;
     MSH_A = 9;
-    NUM_GAMES = 10;
+    MSHVSF_A = 10;
+    NUM_GAMES = 11;
     */
     for (UINT16 nUnitCtr = 0; nUnitCtr < nCurGameUnitAmt; nUnitCtr++)
     {
@@ -186,6 +187,15 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
                 OutputDebugString(strDebugInfo);
 #endif
                 nImgMap->insert({ MSH_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+                break;
+            }
+            case MSHVSF_A:
+            {
+#if IMGDAT_DEBUG
+                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", MSHVSF_A_IMG_UNITS[nUnitCtr]);
+                OutputDebugString(strDebugInfo);
+#endif
+                nImgMap->insert({ MSHVSF_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
                 break;
             }
             default:

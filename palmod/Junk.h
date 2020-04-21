@@ -19,6 +19,7 @@
 #define PAL_MAXWIDTH 8
 #define PAL_MAXAMT 64
 
+// These values don't handle DPI correctly.
 #define PAL_SQ_SZ 15
 #define BDR_SZ 1
 

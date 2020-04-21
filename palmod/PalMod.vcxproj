@@ -219,7 +219,6 @@
     <None Include="res\PalMod.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Notes.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

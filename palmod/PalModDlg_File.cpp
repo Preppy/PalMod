@@ -353,7 +353,8 @@ void CPalModDlg::OnFileOpen()
     szGameFileDef.Append("XMVSF xvs.05a|*.05a|"); //XMVSF
     szGameFileDef.Append("MVC mvc.06|*.06|"); //MVC
     szGameFileDef.Append("Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|"); //Jojos
-    szGameFileDef.Append("MSH msh.05|*.05|"); //Jojos
+    szGameFileDef.Append("MSH msh.05|*.05|"); // MSH
+    szGameFileDef.Append("MSHVSF mvs.06a|*.06a|"); // MSHVSF // stuff is also in mvs.07b
 
     szGameFileDef.Append("|"); //End
 
@@ -390,6 +391,9 @@ void CPalModDlg::OnFileOpen()
             break;
         case 7:
             LoadGameFile(MSH_A, (CHAR*)ofn.lpstrFile);
+            break;
+        case 8:
+            LoadGameFile(MSHVSF_A, (CHAR*)ofn.lpstrFile);
             break;
         default:
             OutputDebugString("Error: game file not handled yet.\n");

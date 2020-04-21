@@ -11,6 +11,7 @@
 #include "Game_SFIII3_D.h"
 #include "Game_JOJOS_A.h"
 #include "Game_MSH_A.h"
+#include "Game_MSHVSF_A.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
@@ -24,12 +25,15 @@ CGameLoad::~CGameLoad(void)
     // Clean up static allocations.
     safe_delete_array(CGame_MVC_A::MVC_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_3C);
     safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_4A);
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50);
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);
+    safe_delete_array(CGame_XMVSF_A::XMVSF_A_EXTRA_CUSTOM);
+    
 }
 
 BOOL CGameLoad::SetGame(int nGameFlag)
@@ -103,6 +107,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_MSH_A::GetRule;
         return TRUE;
     }
+    case MSHVSF_A:
+    {
+        GetRule = &CGame_MSHVSF_A::GetRule;
+        return TRUE;
+    }
 
     default:
         OutputDebugString("BUGBUG: This game has not been added properly yet!\n");
@@ -161,10 +170,13 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
     {
         return new CGame_MSH_A;
     }
+    case MSHVSF_A:
+    {
+        return new CGame_MSHVSF_A;
+    }
     default:
         OutputDebugString("BUGBUG: New game has not been properly added yet.\n");
         return NULL;
-        break;
     }
 }
 

@@ -19,7 +19,7 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(void)
 
     m_nTotalInternalUnits = MSHVSF_A_NUM_IND;
     m_nExtraUnit = MSHVSF_A_EXTRALOC;
-    m_nSafeCountForThisRom = 53 + GetExtraCt(MSHVSF_A_EXTRALOC);
+    m_nSafeCountForThisRom = 229 + GetExtraCt(MSHVSF_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_MSHVSF;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMSHVSF;
 
@@ -657,6 +657,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         }
                     }
                 }
+
                 if (paletteDataSet->isJoinedPalette)
                 {
                     const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);

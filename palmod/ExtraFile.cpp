@@ -360,15 +360,15 @@ void CGameWithExtrasFile::CheckForDupesInTables()
     {
         if (nExtraDupeCount)
         {
-            strText.Format("WARNING: The %s Extras file used has %u duplicate palettes (including splitting) that are already in PalMod.  They will not work correctly.  Please remove them.", m_pszExtraFilename, nExtraDupeCount);
+            strText.Format("WARNING: The %s Extras file used has %u duplicate palettes (including splitting) that are already in PalMod.  They will not work correctly.  Please remove them.\n", m_pszExtraFilename, nExtraDupeCount);
         }
         else if (nDupeCount)
         {
-            strText.Format("WARNING: There are currently %u duplicates in the hex tables.\n\nThis is a bug in PalMod.  Please report.", nDupeCount);
+            strText.Format("WARNING: There are currently %u duplicates in the hex tables.\n\nThis is a bug in PalMod.  Please report.\n", nDupeCount);
         }
         else
         {
-            strText.Format("Warning: This game's duplicate check count (m_nSafeCountForThisRom) should be updated.\n\nNo duplicates were found thankfully.");
+            strText.Format("Warning: This game's duplicate check count (m_nSafeCountForThisRom) should be updated.\n\nNo duplicates were found thankfully.\n");
         }
 
         OutputDebugString(strText);
