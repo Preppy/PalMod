@@ -3,8 +3,10 @@
 #include "MSHVSF_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_MSHVSF = "mshvsfe.txt";
-#define GetExtraDefForMSHVSF(x)((stExtraDef *)&MSHVSF_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_MSHVSF_6A = "mshvsf-6ae.txt";
+constexpr auto EXTRA_FILENAME_MSHVSF_7B = "mshvsf-7be.txt";
+
+#define GetExtraDefForMSHVSF(x) (UsePaletteSetForCharacters() ? ((stExtraDef *)&MSHVSF_A_EXTRA_CUSTOM_6A[x]) : ((stExtraDef *)&MSHVSF_A_EXTRA_CUSTOM_7B[x]))
 
 class CGame_MSHVSF_A : public CGameClass, public CGameWithExtrasFile
 {
@@ -16,7 +18,12 @@ private:
     int nCurrPalOffs = 0;
     int nCurrPalSz = 0;
 
-    static UINT32 m_nTotalPaletteCountForMSHVSF;
+    // These handle per-ROM logic.
+    int m_nBufferSelectedRom = 6;
+    static int m_nMSHVSFSelectedRom;
+    static UINT32 m_nTotalPaletteCountForMSHVSF_6A;
+    static UINT32 m_nTotalPaletteCountForMSHVSF_7B;
+    static bool UsePaletteSetForCharacters() { return (m_nMSHVSFSelectedRom == 6); }
 
     void InitDataBuffer();
     void ClearDataBuffer();
@@ -27,16 +34,18 @@ private:
     UINT16*** pppDataBuffer = nullptr;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    const int m_uLowestKnownPaletteROMLocation = 0x3FB00;
+    const int m_uLowestKnownPaletteROMLocation_6A = 0x71f00;
+    const int m_uLowestKnownPaletteROMLocation_7B = 0; // This is an odd file, yes.
 
 public:
-    CGame_MSHVSF_A(void);
+    CGame_MSHVSF_A(int nMSHVSFRomToLoad);
     ~CGame_MSHVSF_A(void);
 
     //Static functions / variables
-    static CDescTree MainDescTree;
+    static CDescTree MainDescTree_6A;
+    static CDescTree MainDescTree_7B;
 
-    static CDescTree InitDescTree();
+    static CDescTree InitDescTree(int nROMPaletteSetToUse);
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function
@@ -67,5 +76,6 @@ public:
     void FlushUnitFile() { safe_delete(rgFileChanged); };
     void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
-    static stExtraDef* MSHVSF_A_EXTRA_CUSTOM;
+    static stExtraDef* MSHVSF_A_EXTRA_CUSTOM_6A;
+    static stExtraDef* MSHVSF_A_EXTRA_CUSTOM_7B;
 };

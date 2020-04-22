@@ -354,7 +354,7 @@ void CPalModDlg::OnFileOpen()
     szGameFileDef.Append("MVC mvc.06|*.06|"); //MVC
     szGameFileDef.Append("Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|"); //Jojos
     szGameFileDef.Append("MSH msh.05|*.05|"); // MSH
-    szGameFileDef.Append("MSHVSF mvs.06a|*.06a|"); // MSHVSF // stuff is also in mvs.07b
+    szGameFileDef.Append("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"); // MSHVSF // stuff is also in mvs.07b
 
     szGameFileDef.Append("|"); //End
 

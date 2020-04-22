@@ -16,6 +16,67 @@ int CGame_SSF2T_A::m_nSSF2TSelectedRom = 4;
 UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_3C = 0;
 UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_4A = 0;
 
+CGame_SSF2T_A::CGame_SSF2T_A(int nSSF2TRomToLoad)
+{
+    m_nSSF2TSelectedRom = (nSSF2TRomToLoad == 3) ? 3 : 4;
+
+    CString strMessage;
+    strMessage.Format("CGame_SSF2T_A::CGame_SSF2T_A: Loading for the %s ROM\n", (m_nSSF2TSelectedRom == 3) ? "3C" : "4A");
+    OutputDebugString(strMessage);
+
+    m_nTotalInternalUnits = UsePaletteSetForPortraits() ? SSF2T_A_NUM_IND_3C : SSF2T_A_NUM_IND_4A;
+    m_nExtraUnit = UsePaletteSetForPortraits() ? SSF2T_A_EXTRALOC_3C : SSF2T_A_EXTRALOC_4A;
+
+    const UINT32 nSafeCountFor3C = 32;
+    const UINT32 nSafeCountFor4A = 192;
+
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForPortraits() ? nSafeCountFor3C : nSafeCountFor4A);
+    m_pszExtraFilename = UsePaletteSetForPortraits() ? EXTRA_FILENAME_SSF2T_3C : EXTRA_FILENAME_SSF2T_4A;
+    m_nTotalPaletteCount = UsePaletteSetForPortraits() ? m_nTotalPaletteCountForSSF2T_3C : m_nTotalPaletteCountForSSF2T_4A;
+
+    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+
+    InitDataBuffer();
+
+    //Set color mode
+    SetColMode(COLMODE_12A);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(PALTYPE_17);
+
+    //Set game information
+    nGameFlag = SSF2T_A;
+    nImgGameFlag = IMGDAT_SECTION_ST;
+    nImgUnitAmt = SSF2T_A_NUM_IMG_UNITS;
+
+    nDisplayW = 8;
+    nFileAmt = 1;
+
+    //Set the image out display type
+    DisplayType = DISP_DEF;
+    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_ST10);
+    
+    //Create the redirect buffer
+    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+
+    //Create the file changed flag
+    rgFileChanged = new UINT16;
+
+    nRGBIndexAmt = 15;
+    nAIndexAmt = 0;
+
+    nRGBIndexMul = 17.0f;
+    nAIndexMul = 0.0f;
+}
+
+CGame_SSF2T_A::~CGame_SSF2T_A(void)
+{
+    ClearDataBuffer();
+    //Get rid of the file changed flag
+    safe_delete(rgFileChanged);
+}
+
 int CGame_SSF2T_A::GetExtraLoc(UINT16 nUnitId)
 {
     static int rgExtraLoc_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
@@ -73,68 +134,12 @@ int CGame_SSF2T_A::GetExtraLoc(UINT16 nUnitId)
     }
 }
 
-CGame_SSF2T_A::CGame_SSF2T_A(int nSSF2TRomToLoad)
-{
-    m_nSSF2TSelectedRom = (nSSF2TRomToLoad == 3) ? 3 : 4;
-
-    CString strMessage;
-    strMessage.Format("CGame_SSF2T_A::CGame_SSF2T_A: Loading for the %s ROM\n", (m_nSSF2TSelectedRom == 3) ? "3C" : "4A");
-    OutputDebugString(strMessage);
-
-    m_nTotalInternalUnits = UsePaletteSetForPortraits() ? SSF2T_A_NUM_IND_3C : SSF2T_A_NUM_IND_4A;
-    m_nExtraUnit = UsePaletteSetForPortraits() ? SSF2T_A_EXTRALOC_3C : SSF2T_A_EXTRALOC_4A;
-
-    const UINT32 nSafeCountFor3C = 32;
-    const UINT32 nSafeCountFor4A = 192;
-
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForPortraits() ? nSafeCountFor3C : nSafeCountFor4A);
-    m_pszExtraFilename = UsePaletteSetForPortraits() ? EXTRA_FILENAME_SSF2T_3C : EXTRA_FILENAME_SSF2T_4A;
-    m_nTotalPaletteCount = UsePaletteSetForPortraits() ? m_nTotalPaletteCountForSSF2T_3C : m_nTotalPaletteCountForSSF2T_4A;
-
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    InitDataBuffer();
-
-    //Set color mode
-    SetColMode(COLMODE_12A);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_17);
-
-    //Set game information
-    nGameFlag = SSF2T_A;
-    nImgGameFlag = IMGDAT_SECTION_ST;
-    nImgUnitAmt = SSF2T_A_NUM_IMG_UNITS;
-
-    nDisplayW = 8;
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_ST10);
-    
-    //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
-
-    //Create the file changed flag
-    rgFileChanged = new UINT16;
-
-    nRGBIndexAmt = 15;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 17.0f;
-    nAIndexMul = 0.0f;
-}
-
 int CGame_SSF2T_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     static int rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
     static int rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
 
-    int* rgExtraCt = nullptr;
-   
-    rgExtraCt = UsePaletteSetForPortraits() ? (int*)rgExtraCountAll_3C : (int*)rgExtraCountAll_4A;
+    int* rgExtraCt = UsePaletteSetForPortraits() ? (int*)rgExtraCountAll_3C : (int*)rgExtraCountAll_4A;
 
     if (rgExtraCt[0] == -1)
     {
@@ -156,13 +161,6 @@ int CGame_SSF2T_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
     }
 
     return rgExtraCt[nUnitId];
-}
-
-CGame_SSF2T_A::~CGame_SSF2T_A(void)
-{
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    safe_delete(rgFileChanged);
 }
 
 CDescTree* CGame_SSF2T_A::GetMainTree()
@@ -519,7 +517,6 @@ const sGame_PaletteDataset* CGame_SSF2T_A::GetPaletteSet(UINT16 nUnitId, UINT16 
         return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
     }
 }
-
 
 UINT16 CGame_SSF2T_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
 {
