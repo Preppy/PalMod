@@ -343,18 +343,56 @@ void CPalModDlg::OnFileOpen()
 {
     CString szGameFileDef = "";
 
-    // BUGBUG... maybe remember their last selection?
-    
+    struct sSupportedGameList
+    {
+        int nInternalGameIndex;
+        LPCSTR szGameFilterString;
+        int nListedGameIndex;
+    };
+
     // NOTE: If you add a multiple-ROM option below, you will also need to update
     // CGameLoad::LoadFile to pass the appropriate gameflag to that game.
-    szGameFileDef.Append("SFIII3 51 Rom|51|"); //SFIII3
-    szGameFileDef.Append("SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|"); //SSF2T
-    szGameFileDef.Append("SFA3 sz3.09c|*.09c|"); //SSF2T
-    szGameFileDef.Append("XMVSF xvs.05a|*.05a|"); //XMVSF
-    szGameFileDef.Append("MVC mvc.06|*.06|"); //MVC
-    szGameFileDef.Append("Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|"); //Jojos
-    szGameFileDef.Append("MSH msh.05|*.05|"); // MSH
-    szGameFileDef.Append("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"); // MSHVSF // stuff is also in mvs.07b
+    sSupportedGameList SupportedGameList[] =
+    {
+        { SFIII3_A, "SFIII3 51 Rom|51|", INVALID_UNIT_VALUE },
+        { SSF2T_A, "SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|", INVALID_UNIT_VALUE },
+        { SFA3_A, "SFA3 sz3.09c|*.09c|", INVALID_UNIT_VALUE },
+        { MSH_A, "MSH msh.05|*.05|", INVALID_UNIT_VALUE },
+        { MSHVSF_A, "MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", INVALID_UNIT_VALUE },
+        { MVC_A, "MVC mvc.06|*.06|", INVALID_UNIT_VALUE },
+        { XMVSF_A, "XMVSF xvs.05a|*.05a|", INVALID_UNIT_VALUE },
+        { JOJOS_A, "Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|", INVALID_UNIT_VALUE },
+    };
+
+    // The following logic ensures that their last used selection is the default filter view.
+    int nCurrentGameListIndex = 1; // 0 is for special data in OFN
+
+    {
+        int nLastUsedGFlag;
+        TCHAR szLastDir[MAX_PATH];
+
+        if (GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, nullptr))
+        {
+            for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
+            {
+                if (SupportedGameList[nArrayPosition].nInternalGameIndex == nLastUsedGFlag)
+                {
+                    szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
+                    SupportedGameList[nArrayPosition].nListedGameIndex = nCurrentGameListIndex++;
+                    break;
+                }
+            }
+        }
+    }
+
+    for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
+    {
+        if (SupportedGameList[nArrayPosition].nListedGameIndex == INVALID_UNIT_VALUE)
+        {
+            szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
+            SupportedGameList[nArrayPosition].nListedGameIndex = nCurrentGameListIndex++;
+        }
+    }
 
     szGameFileDef.Append("|"); //End
 
@@ -369,35 +407,13 @@ void CPalModDlg::OnFileOpen()
     if (OpenDialog.DoModal() == IDOK)
     {
         OPENFILENAME ofn = OpenDialog.GetOFN();
-        switch (ofn.nFilterIndex)
+
+        for (sSupportedGameList currentGame : SupportedGameList)
         {
-        case 1:
-            LoadGameFile(SFIII3_A, (CHAR*)ofn.lpstrFile);
-            break;
-        case 2:
-            LoadGameFile(SSF2T_A, (CHAR*)ofn.lpstrFile);
-            break;
-        case 3:
-            LoadGameFile(SFA3_A, (CHAR*)ofn.lpstrFile);
-            break;
-        case 4:
-            LoadGameFile(XMVSF_A, (CHAR*)ofn.lpstrFile);
-            break;
-        case 5:
-            LoadGameFile(MVC_A, (CHAR*)ofn.lpstrFile);
-            break;
-        case 6:
-            LoadGameFile(JOJOS_A, (CHAR*)ofn.lpstrFile);
-            break;
-        case 7:
-            LoadGameFile(MSH_A, (CHAR*)ofn.lpstrFile);
-            break;
-        case 8:
-            LoadGameFile(MSHVSF_A, (CHAR*)ofn.lpstrFile);
-            break;
-        default:
-            OutputDebugString("Error: game file not handled yet.\n");
-            break;
+            if (currentGame.nListedGameIndex == ofn.nFilterIndex)
+            {
+                LoadGameFile(currentGame.nInternalGameIndex, (CHAR*)ofn.lpstrFile);
+            }
         }
     }
 }

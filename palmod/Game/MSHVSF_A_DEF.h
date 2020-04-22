@@ -85,13 +85,12 @@ const sGame_PaletteDataset MSHVSF_A_MEPHISTO_PALETTES_P2COLOR_KICK[] =
 const sGame_PaletteDataset MSHVSF_A_BLACKHEART_MEPHISTO_PALETTES_SHARED[] =
 {
     //{ "P1 Extras 1?", 0x76BEE, 0x76C0E, }, // doesn't match mvc2 anything bugbug
-    //{ "P2 Extras 2?", 0x76BEE, 0x76C6E, }, // portrait // BUGBUG: this is duped which means it is forcibly wrong
     { "P1 HP/HK Demons", 0x769CE, 0x769EE, },
-    { "Blackheart P1 HP/HK Demons when damaged", 0x725CE, 0x725EE, },
-    { "Mephisto P1 HP/HK Demons when damaged", 0x7338E, 0x733AE },
+    { "Blackheart P1 HP/HK Demons (hurt)", 0x725CE, 0x725EE, },
+    { "Mephisto P1 HP/HK Demons (hurt)", 0x7338E, 0x733AE },
     { "P2 HP/HK Demons", 0x76B4E, 0x76B6E, },
-    { "Blackheart P2 HP/HK Demons when damaged", 0x7262E, 0x7264E },
-    { "Mephisto P2 HP/HK Demons when damaged", 0x733EE, 0x7340E },
+    { "Blackheart P2 HP/HK Demons (hurt)", 0x7262E, 0x7264E },
+    { "Mephisto P2 HP/HK Demons (hurt)", 0x733EE, 0x7340E },
     { "HCF+P Dark Thunder", 0x769EE, 0x76A0E },
     { "HCB+LP (Thunder Inferno)", 0x76A0E, 0x76A2E },
     { "HCB+MP (Ice Inferno)", 0x76A2E, 0x76A4E },
