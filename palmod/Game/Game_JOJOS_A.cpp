@@ -1,10 +1,9 @@
 #include "StdAfx.h"
 #include "Game_JOJOS_A.h"
 #include "GameDef.h"
-#include "..\ExtraFile.h"
 #include "..\palmod.h"
 
-#define JOJOS_DEBUG                 0
+#define JOJOS_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 #define NEED_TO_UPDATE_JOJO_HEADERS 0
 #define JOJOS_CHECK_FOR_DUPES       0
 

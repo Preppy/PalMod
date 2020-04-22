@@ -1,10 +1,9 @@
 #include "StdAfx.h"
 #include "Game_MVC_A.h"
 #include "GameDef.h"
-#include "..\ExtraFile.h"
 #include "..\PalMod.h"
 
-#define MVC_DEBUG 0
+#define MVC_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 // Cleanup on this static allocation is handled in CGameLoad::~CGameLoad
 stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = nullptr;

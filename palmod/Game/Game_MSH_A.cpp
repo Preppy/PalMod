@@ -1,10 +1,9 @@
 #include "StdAfx.h"
 #include "Game_MSH_A.h"
 #include "GameDef.h"
-#include "..\ExtraFile.h"
 #include "..\PalMod.h"
 
-#define MSH_DEBUG 0
+#define MSH_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 // Cleanup on this static allocation is handled in CGameLoad::~CGameLoad
 stExtraDef* CGame_MSH_A::MSH_A_EXTRA_CUSTOM = nullptr;

@@ -3,7 +3,7 @@
 #include "GameDef.h"
 #include "..\PalMod.h"
 
-#define SFA3_DEBUG 0
+#define SFA3_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 stExtraDef* CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM = nullptr;
 

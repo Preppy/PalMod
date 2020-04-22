@@ -3,7 +3,7 @@
 #include "GameDef.h"
 #include "..\palmod.h"
 
-#define XMVSF_DEBUG 0
+#define XMVSF_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 stExtraDef* CGame_XMVSF_A::XMVSF_A_EXTRA_CUSTOM = nullptr;
 

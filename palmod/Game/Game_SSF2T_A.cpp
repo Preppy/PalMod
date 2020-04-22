@@ -1,10 +1,9 @@
 #include "StdAfx.h"
 #include "Game_SSF2T_A.h"
 #include "GameDef.h"
-#include "..\ExtraFile.h"
 #include "..\PalMod.h"
 
-#define SSF2T_DEBUG 0
+#define SSF2T_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 stExtraDef* CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_3C = nullptr;
 stExtraDef* CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_4A = nullptr;
