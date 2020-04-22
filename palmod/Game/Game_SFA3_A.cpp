@@ -18,7 +18,7 @@ CGame_SFA3_A::CGame_SFA3_A(void)
 
     m_nTotalInternalUnits = SFA3_A_NUM_IND;
     m_nExtraUnit = SFA3_A_EXTRALOC;
-    m_nSafeCountForThisRom = 168 + GetExtraCt(SFA3_A_EXTRALOC);
+    m_nSafeCountForThisRom = 840 + GetExtraCt(SFA3_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SFA3;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
 

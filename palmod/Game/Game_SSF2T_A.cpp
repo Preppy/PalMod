@@ -744,22 +744,24 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         nSrcStart = NodeGet->uPalId;
 
-        if (UsePaletteSetForPortraits())
-        {
-            // For portraits we don't have multisprite image export yet
-            nSrcAmt = 1;
-            nNodeIncrement = 1;
-        }
-
         if (paletteDataSet)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
 
-            while (nSrcStart >= nNodeIncrement)
+            if (UsePaletteSetForPortraits())
             {
-                // The starting point is the absolute first palette for the sprite in question which is found in P1
-                nSrcStart -= nNodeIncrement;
+                // For portraits we don't have multisprite image export yet
+                nSrcAmt = 1;
+                nNodeIncrement = 1;
+            }
+            else
+            {
+                while (nSrcStart >= nNodeIncrement)
+                {
+                    // The starting point is the absolute first palette for the sprite in question which is found in P1
+                    nSrcStart -= nNodeIncrement;
+                }
             }
         }
     }
@@ -769,6 +771,11 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         nSrcAmt = 1;
         nNodeIncrement = 1;
     }
+
+
+    CString strStuff;
+    strStuff.Format("unit: %u, start %u, amt %u inc %u\n", NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+    OutputDebugString(strStuff);
 
     if (!fShouldUseAlternateLoadLogic)
     {
