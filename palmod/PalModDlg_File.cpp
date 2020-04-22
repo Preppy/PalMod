@@ -425,11 +425,12 @@ void CPalModDlg::LoadGameFile(int nGameFlag, CHAR* szFile)
         return;
     }
 
+    ClearGameVar();
+
     CGameClass* GameGet = GetHost()->GetLoader()->LoadFile(nGameFlag, szFile);//szGet.GetBuffer());
 
     if (GameGet)
     {
-        ClearGameVar();
         GetHost()->SetGameClass(GameGet);
 
         //Set the last used location
