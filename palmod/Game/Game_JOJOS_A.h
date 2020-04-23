@@ -17,14 +17,17 @@ constexpr auto EXTRA_FILENAME_51 = "jojos51e.txt";
 class CGame_JOJOS_A : public CGameClass, public CGameWithExtrasFile
 {
 private:
+    //Used for image selection
+    int nTargetImgId = 0;
+
     int m_nCurrentPaletteSize = 0;
     const int m_knMaxPalettePageSize = 64;
 
     // This array holds all the actual color tables we use
     UINT16*** m_pppDataBuffer = nullptr;
-    int m_nBufferJojosMode = 50;
 
     // Jojos has two different ROMs of interest: handle here.
+    int m_nBufferJojosMode = 50;
     static int m_nJojosMode;
     static UINT32 m_nTotalPaletteCount50;
     static UINT32 m_nTotalPaletteCount51;
@@ -35,7 +38,6 @@ private:
     void ClearDataBuffer();
     void CheckExtrasFileForDuplication();
     
-    static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static bool UsePaletteSetFor50() { return (m_nJojosMode == 50); }
 
 public:
@@ -46,24 +48,23 @@ public:
     static CDescTree MainDescTree_50;
     static CDescTree MainDescTree_51;
 
-    // static CDescTree * GetMainTree();
     static CDescTree InitDescTree(int nPaletteSetToUse);
-    // static void SetExtraDesc(sDescTreeNode * srcNode, int nCollectionIndex);
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function
     static int GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly = FALSE);
     static int GetExtraLoc(UINT16 nUnitId);
+
+    //Normal functions
+    CDescTree* GetMainTree();
     static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
+    static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
-    //Normal functions
-    CDescTree* GetMainTree();
-
-    int GetBasicImgId(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
@@ -72,7 +73,6 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
-    BOOL CreateExtraPal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
 

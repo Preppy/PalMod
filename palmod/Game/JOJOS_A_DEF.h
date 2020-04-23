@@ -2479,7 +2479,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
 {
-    { "Polnareff & Silver Chariot A", 0x0338980, 0x0338a00 },
+    { "Polnareff & Silver Chariot A", 0x0338980, 0x0338a00, 0x03, 0x00 },
 #ifdef USE_LARGE_PALETTES
     { "Chariot's Changing Pal A", 0x0339280, 0x0339380 },
 #else

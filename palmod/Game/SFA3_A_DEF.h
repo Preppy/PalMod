@@ -113,8 +113,6 @@ const sGame_PaletteDataset SFA3_A_RYU_PALETTES[] =
     { "V-Ism Shadows 2A", 0x32a14 + 0x2A0, 0x32a14 + 0x2C0, 0x00 },
     { "V-Ism Shadows 2C", 0x32a14 + 0x2C0, 0x32a14 + 0x2E0, 0x00 },
     { "V-Ism Shadows 2E", 0x32a14 + 0x2e0, 0x32a14 + 0x300, 0x00 },
-
-
 };
 
 const sGame_PaletteDataset SFA3_A_KEN_PALETTES[] =

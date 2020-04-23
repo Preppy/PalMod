@@ -17,6 +17,73 @@ int CGame_JOJOS_A::m_nJojosMode = 50;
 UINT32 CGame_JOJOS_A::m_nTotalPaletteCount50 = 0;
 UINT32 CGame_JOJOS_A::m_nTotalPaletteCount51 = 0;
 
+CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
+{
+    //We need the proper unit amt before we init the main buffer
+    m_nJojosMode = nJojosModeToLoad;
+
+    if (UsePaletteSetFor50())
+    {
+        OutputDebugString("CGame_JOJOS_A::CGame_JOJOS_A: Loading for the 50 ROM\n");
+        nUnitAmt = JOJOS_A_NUMUNIT_50 + (GetExtraCt(JOJOS_A_EXTRALOC_50) ? 1 : 0);
+    }
+    else
+    {
+        OutputDebugString("CGame_JOJOS_A::CGame_JOJOS_A: Loading for the 51 ROM\n");
+        nUnitAmt = JOJOS_A_NUMUNIT_51 + (GetExtraCt(JOJOS_A_EXTRALOC_51) ? 1 : 0);
+    }
+
+    m_nTotalInternalUnits = UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51;
+    m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
+
+    const UINT32 nSafeCountFor50 = 1491;
+    const UINT32 nSafeCountFor51 = 2100;
+
+    m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
+    m_pszExtraFilename = UsePaletteSetFor50() ? EXTRA_FILENAME_50 : EXTRA_FILENAME_51;
+    m_nTotalPaletteCount = UsePaletteSetFor50() ? m_nTotalPaletteCount50 : m_nTotalPaletteCount51;
+
+    InitDataBuffer();
+
+    //Set color mode
+    SetColMode(COLMODE_15);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(PALTYPE_8);
+
+    //Set game information
+    nGameFlag = JOJOS_A;
+    nImgGameFlag = IMGDAT_SECTION_3S;
+    nImgUnitAmt = nUnitAmt;
+
+    nDisplayW = 8;
+    nFileAmt = 1;
+
+    //Set the image out display type
+    DisplayType = DISP_DEF;
+    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_NOBUTTONS);
+
+    //Create the redirect buffer
+    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+
+    //Create the file changed flag
+    rgFileChanged = new UINT16;
+
+    nRGBIndexAmt = 31;
+    nAIndexAmt = 0;
+
+    nRGBIndexMul = 8.225;
+    nAIndexMul = 0;
+}
+
+CGame_JOJOS_A::~CGame_JOJOS_A(void)
+{
+    ClearDataBuffer();
+    //Get rid of the file changed flag
+    safe_delete(rgFileChanged);
+}
+
 int CGame_JOJOS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     static int rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
@@ -25,7 +92,7 @@ int CGame_JOJOS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
     static int rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 
     int* rgExtraCt = nullptr;
-    
+
     if (bCountVisibleOnly)
     {
         rgExtraCt = UsePaletteSetFor50() ? (int*)rgExtraCountVisibleOnly_50 : (int*)rgExtraCountVisibleOnly_51;
@@ -112,77 +179,6 @@ int CGame_JOJOS_A::GetExtraLoc(UINT16 nUnitId)
 
         return rgExtraLoc_51[nUnitId];
     }
-}
-
-CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
-{
-    //We need the proper unit amt before we init the main buffer
-
-    m_nJojosMode = nJojosModeToLoad;
-
-    if (UsePaletteSetFor50())
-    {
-        OutputDebugString("CGame_JOJOS_A::CGame_JOJOS_A: Loading for the 50 ROM\n");
-        nUnitAmt = JOJOS_A_NUMUNIT_50 + (GetExtraCt(JOJOS_A_EXTRALOC_50) ? 1 : 0);
-    }
-    else
-    {
-        OutputDebugString("CGame_JOJOS_A::CGame_JOJOS_A: Loading for the 51 ROM\n");
-        nUnitAmt = JOJOS_A_NUMUNIT_51 + (GetExtraCt(JOJOS_A_EXTRALOC_51) ? 1 : 0);
-    }
-
-    const UINT32 nSafeCountFor50 = 1491;
-    const UINT32 nSafeCountFor51 = 2100;
-
-    m_nTotalInternalUnits = UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51;
-    m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
-    m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
-    m_pszExtraFilename = UsePaletteSetFor50() ? EXTRA_FILENAME_50 : EXTRA_FILENAME_51;
-    m_nTotalPaletteCount = UsePaletteSetFor50() ? m_nTotalPaletteCount50 : m_nTotalPaletteCount51;
-
-    InitDataBuffer();
-
-    //Set color mode
-    SetColMode(COLMODE_15);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_8);
-
-    //Set game information
-    nGameFlag = JOJOS_A;
-    nImgGameFlag = IMGDAT_SECTION_3S;
-    nImgUnitAmt = nUnitAmt;
-
-    nDisplayW = 8;
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_NOBUTTONS);
-
-    //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
-
-    //Create the file changed flag
-    rgFileChanged = new UINT16;
-
-    nRGBIndexAmt = 31;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 8.225;
-    nAIndexMul = 0;
-
-    // This isn't a bad plan, but the problem is that there are overlapped regions within the Extras vs Main, so we can't really
-    // efficiently check everything.  Just comment out for now: bring back if it's useful.
-    //CheckExtrasFileForDuplication();
-}
-
-CGame_JOJOS_A::~CGame_JOJOS_A(void)
-{
-    ClearDataBuffer();
-    //Get rid of the file changed flag
-    safe_delete(rgFileChanged);
 }
 
 CDescTree* CGame_JOJOS_A::GetMainTree()
@@ -380,7 +376,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if JOJOS_DEBUG
-            strMsg.Format("Unit: %s, %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
+            strMsg.Format("Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -402,7 +398,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if JOJOS_DEBUG
-                strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format("\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -420,7 +416,19 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
                     nTotalPaletteCount++;
 
 #if JOJOS_DEBUG
-                    strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format("\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    OutputDebugString(strMsg);
+                    strMsg.Format(", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    OutputDebugString(strMsg);
+
+                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
+                    {
+                        strMsg.Format(" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                    }
+                    else
+                    {
+                        strMsg.Format(" no image available.\n");
+                    }
                     OutputDebugString(strMsg);
 #endif
                 }
@@ -436,7 +444,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             UnitNode->uChildAmt = 1;
 
 #if JOJOS_DEBUG
-            strMsg.Format("Unit: %s (Extras), %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
+            strMsg.Format("Unit: \"%s\" (Extras), %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
             OutputDebugString(strMsg);
 #endif
         }
@@ -464,7 +472,7 @@ CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if JOJOS_DEBUG
-            strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format("\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -646,6 +654,30 @@ UINT16 CGame_JOJOS_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
+const sGame_PaletteDataset* CGame_JOJOS_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+{
+    // Don't use this for Extra palettes.
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sGame_PaletteDataset* paletteToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+
+    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+
+        if (nDistanceFromZero < nNodeCount)
+        {
+            paletteToUse = &paletteSetToUse[nDistanceFromZero];
+            break;
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+
+    return paletteToUse;
+}
+
 void CGame_JOJOS_A::InitDataBuffer()
 {
     m_nBufferJojosMode = m_nJojosMode;
@@ -806,61 +838,6 @@ void CGame_JOJOS_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
 }
 
-BOOL CGame_JOJOS_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
-{
-    // TODO / BUGBUG: In theory we could slice up Extra palettes into multiple pages.  There's built-in limited
-    // support for this, but it requires active coding to handle (ala the Oro palettes).  It'd be interesting
-    // to make it automatic.
-
-#ifndef UNUSED_EXPERIMENTAL
-    return FALSE;
-#else
-    // Check how many ARGB entries we have for this palette
-    // const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nPalId);
-    // const sGame_PaletteDataset* paletteSetToUse = GetExtraPalette(nUnitId, nPalId);
-    const int nPaletteTotalSize = max(0, (paletteSetToUse->nPaletteOffsetEnd - paletteSetToUse->nPaletteOffset)) / 2;
-    const int knMaxPalettePageSizeOnDisc = 2 * m_knMaxPalettePageSize;
-
-    if (nPaletteTotalSize > knMaxPalettePageSizeOnDisc)
-    {
-        // This is experimental code that should either be fixed or deleted.  
-        // I think the Invisible flag is a better path forward here.
-        LoadSpecificPaletteData(nUnitId, nPalId);
-
-        OutputDebugString("BUG WARNING: This palette is being sliced: fix\n");
-        int nTotalPagesNeeded = (int)ceil((double)nPaletteTotalSize / (double)knMaxPalettePageSizeOnDisc);
-        int nCurrentPaletteSectionLength = knMaxPalettePageSizeOnDisc;
-        int nTotalUnusedColors = nPaletteTotalSize;
-       
-        // We need to do this so that PalMod understands what palette to use.
-        BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
-
-        for (int nCurrentPage = 0, nCurrentOffset = 0; nCurrentPage < nTotalPagesNeeded; nCurrentPage++)
-        {
-            CString strDisplayText;
-
-            strDisplayText.Format("Page %u of %u: from %u for %u of %u\n", nCurrentPage + 1, nTotalPagesNeeded, nCurrentOffset, nCurrentPaletteSectionLength, m_nCurrentPaletteSize);
-            OutputDebugString(strDisplayText);
-
-            //strDisplayText.Format("Page %u of %u", nCurrentPage + 1, nTotalPagesNeeded);
-            strDisplayText.Format("BETA: ONLY %u/%u PAGES", nCurrentPage + 1, nTotalPagesNeeded);
-            
-            BasePalGroup.AddSep(nCurrentPage, strDisplayText, nCurrentOffset, nCurrentPaletteSectionLength);
-
-            nCurrentOffset += knMaxPalettePageSizeOnDisc;
-            nTotalUnusedColors -= nCurrentPaletteSectionLength;
-            nCurrentPaletteSectionLength = min(nTotalUnusedColors, knMaxPalettePageSizeOnDisc);
-        }
-
-        SetSourcePal(0, nUnitId, nPalId, 1, 1);
-
-        return TRUE;
-    }
-
-    return FALSE;
-#endif
-}
-
 BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     // This loads the data and any image for the current selection.
@@ -881,26 +858,32 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
-    BOOL bCreateBasicPal = TRUE;
-
+    // Default values for multisprite image display for Export.
     int nSrcStart = 0;
-    int nSrcAmt = nCollectionCount;
+    int nSrcAmt = 0;
+    UINT16 nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
+
+    // Make sure to reset the image id
+    nTargetImgId = 0;
+    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
 
     //Select the image
     int nNormalPalettesCount = ((GetCollectionCountForUnit(NodeGet->uUnitId) * 2) + 10);
 
     if (UsePaletteSetFor50() ? (JOJOS_A_EXTRALOC_50 > NodeGet->uUnitId) : (JOJOS_A_EXTRALOC_51 > NodeGet->uUnitId))
-{
+    {
+        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+
         nSrcStart = NodeGet->uPalId;
         nSrcAmt = 1;
 
-        if (NodeGet->uPalId >= nNormalPalettesCount)
+        if (paletteDataSet)
         {
-            bCreateBasicPal = !(CreateExtraPal(NodeGet->uUnitId, NodeGet->uPalId));
+            nImgUnitId = paletteDataSet->indexImgToUse;
+            nTargetImgId = paletteDataSet->indexOffsetToUse;
         }
     }
     else
@@ -908,27 +891,14 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         // This handles palettes loaded from the Extras extension file
     }
 
-    if (bCreateBasicPal)
-    {
-        // PalMod has no internal sprites for Jojos.  The user can use Load Texture if desired.
-        //int nTargetImgId = 0;
-        //int nImgUnitId = 0;
+    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-        //ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+    //Create the default palette
+    CreateDefPal(NodeGet, 0);
 
-        //Create the default palette
-        CreateDefPal(NodeGet, 0);
-
-        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
-    }
+    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
 
     return TRUE;
-}
-
-int CGame_JOJOS_A::GetBasicImgId(UINT16 nUnitId, UINT16 nPalId)
-{
-    // We don't have images for Jojos.
-    return 0;
 }
 
 COLORREF* CGame_JOJOS_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)

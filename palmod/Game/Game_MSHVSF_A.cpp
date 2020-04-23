@@ -328,7 +328,7 @@ CDescTree CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if MSHVSF_DEBUG
-            strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format("\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -619,13 +619,13 @@ void CGame_MSHVSF_A::ClearDataBuffer()
 
     if (pppDataBuffer)
     {
-        for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (pppDataBuffer[nUnitCtr])
             {
-                int nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
