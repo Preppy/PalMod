@@ -2511,7 +2511,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
 {
-    { "Polnareff & Silver Chariot B", 0x034ce80, 0x034cf00 },
+    { "Polnareff & Silver Chariot B", 0x034ce80, 0x034cf00, 0x03 },
 #ifdef USE_LARGE_PALETTES
     { "Chariot's Changing Pal B", 0x034d780, 0x034d880 },
 #else
@@ -2543,7 +2543,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
 {
-    { "Polnareff & Silver Chariot C", 0x0361380, 0x0361400 },
+    { "Polnareff & Silver Chariot C", 0x0361380, 0x0361400, 0x03 },
 #ifdef USE_LARGE_PALETTES
     { "Chariot's Changing Pal C", 0x0361c80, 0x0361d80 },
 #else
@@ -2575,7 +2575,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
 {
-    { "Polnareff & Silver Chariot S", 0x0375880, 0x0375900 },
+    { "Polnareff & Silver Chariot S", 0x0375880, 0x0375900, 0x03 },
 #ifdef USE_LARGE_PALETTES
     { "Chariot's Changing Pal S", 0x0376180, 0x0376280 },
 #else
@@ -2607,7 +2607,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
 {
-    { "Polnareff & Silver Chariot Start", 0x0389d80, 0x0389e00 },
+    { "Polnareff & Silver Chariot Start", 0x0389d80, 0x0389e00, 0x03 },
 #ifdef USE_LARGE_PALETTES
     { "Chariot's Changing Pal Start", 0x038a680, 0x038a780 },
 #else
