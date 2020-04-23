@@ -327,24 +327,24 @@ const sXMVSF_PaletteDataset XMVSF_A_Ryu_PALETTES_P1[] =
 {
     { "P1 Punch Color", 0x1589c, 0x10, 0x0 },
     { "P1 fireballs", 0x158bc, 0x10, 0x0, 1 },
-    { "Palette (02)", 0x158dc, 0x10, 0x27, 2 },
+    { "P1 shoryuken", 0x158dc, 0x10, 0x27, 2 },
 };
 
 const sXMVSF_PaletteDataset XMVSF_A_Ryu_PALETTES_P2[] =
 {
     { "P2 Kick Color", 0x158fc, 0x10, 0x0 },
     { "P2 fireballs", 0x1591c, 0x10, 0x0, 1 },
-    { "Palette (05)", 0x1593c, 0x10, 0x27, 2 },
+    { "P2 shoryuken", 0x1593c, 0x10, 0x27, 2 },
 };
 
 const sXMVSF_PaletteDataset XMVSF_A_Ryu_PALETTES_Extras[] =
 {
     { "Palette (06)", 0x1595c, 0x10, 0x0 },
-    { "Palette (07)", 0x1597c, 0x10, 0x0, 1 },
-    { "Palette (08)", 0x1599c, 0x10, 0x27, 2 },
+    { "Palette (07) fireballs", 0x1597c, 0x10, 0x0, 1 },
+    { "Palette (08) shoryuken", 0x1599c, 0x10, 0x27, 2 },
     { "Palette (09)", 0x159bc, 0x10, 0x0 },
-    { "Palette (0A)", 0x159dc, 0x10, 0x0, 1 },
-    { "Palette (0B)", 0x159fc, 0x10, 0x27, 2 },
+    { "Palette (0A) fireballs", 0x159dc, 0x10, 0x0, 1 },
+    { "Palette (0B) shoryuken", 0x159fc, 0x10, 0x27, 2 },
     { "Portrait", 0x1c39c, 0x40 },
 };
 
@@ -384,11 +384,11 @@ const sXMVSF_PaletteDataset XMVSF_A_Ken_PALETTES_P2[] =
 const sXMVSF_PaletteDataset XMVSF_A_Ken_PALETTES_Extras[] =
 {
     { "Palette (06)", 0x15adc, 0x10, 0x27 },
-    { "Palette (07)", 0x15afc, 0x10 },
-    { "Palette (08)", 0x15b1c, 0x10 },
+    { "Palette (07) fireballs", 0x15afc, 0x10, 0x27, 1 },
+    { "Palette (08) shoryuken", 0x15b1c, 0x10, 0x27, 2 },
     { "Palette (09)", 0x15b3c, 0x10, 0x27 },
-    { "Palette (0A)", 0x15b5c, 0x10 },
-    { "Palette (0B)", 0x15b7c, 0x10 },
+    { "Palette (0A) fireballs", 0x15b5c, 0x10, 0x27, 1 },
+    { "Palette (0B) shoryuken", 0x15b7c, 0x10, 0x27, 2 },
     { "Portrait", 0x1c43c, 0x40 },
 };
 
@@ -430,16 +430,16 @@ const sXMVSF_PaletteDataset XMVSF_A_Zangief_PALETTES_P2[] =
 const sXMVSF_PaletteDataset XMVSF_A_Zangief_PALETTES_Extras[] =
 {
     { "Palette (06)", 0x15e1c, 0x10, 0x1 },
-    { "Palette (07)", 0x15e3c, 0x10, 0x1, 1 },
+    { "Palette (07) Banishing Fist", 0x15e3c, 0x10, 0x1, 1 },
     { "Palette (08)", 0x15e5c, 0x10 },
     { "Palette (09)", 0x15e7c, 0x10, 0x1 },
-    { "Palette (0A)", 0x15e9c, 0x10, 0x1, 1 },
+    { "Palette (0A) Banishing Fist", 0x15e9c, 0x10, 0x1, 1 },
     { "Palette (0B)", 0x15ebc, 0x10 },
     { "Palette (0C)", 0x15edc, 0x10, 0x1 },
-    { "Palette (0D)", 0x15efc, 0x10, 0x1, 1 },
+    { "Palette (0D) Banishing Fist", 0x15efc, 0x10, 0x1, 1 },
     { "Palette (0E)", 0x15f1c, 0x10 },
     { "Palette (0F)", 0x15f3c, 0x10, 0x1 },
-    { "Palette (10)", 0x15f5c, 0x10, 0x1, 1 },
+    { "Palette (10) Banishing Fist", 0x15f5c, 0x10, 0x1, 1 },
     { "Palette (11)", 0x15f7c, 0x10 },
     { "Palette (12)", 0x15f9c, 0x10 },
     { "Palette (13)", 0x15fbc, 0x10  },

@@ -56,7 +56,7 @@ constexpr auto SSF2T_A_NUM_IMG_UNITS = 17;
 constexpr auto SFIII3_A_NUM_IMG_UNITS = 20;
 constexpr auto SFA3_A_NUM_IMG_UNITS = 28;
 constexpr auto XMVSF_A_NUM_IMG_UNITS = 18;
-constexpr auto MVC_A_NUM_IMG_UNITS = 30;
+constexpr auto MVC_A_NUM_IMG_UNITS = 31;
 constexpr auto MSH_A_NUM_IMG_UNITS = 11;
 constexpr auto MSHVSF_A_NUM_IMG_UNITS = 23;
 
@@ -372,7 +372,8 @@ const UINT8 MVC_A_IMG_UNITS[MVC_A_NUM_IMG_UNITS] =
     0x2A, // Storm
     0x2C, // Magneto
     0x32, // Colossus
-    0x34  // Sentinel
+    0x34,  // Sentinel
+    0x33, // Iron Man
 };
 
 const UINT8 MSH_A_IMG_UNITS[MSH_A_NUM_IMG_UNITS] =

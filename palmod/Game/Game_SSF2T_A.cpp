@@ -231,7 +231,7 @@ CDescTree CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if SSF2T_DEBUG
-            strMsg.Format("Unit: %s, %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
+            strMsg.Format("Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -253,7 +253,7 @@ CDescTree CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if SSF2T_DEBUG
-                strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format("\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -275,9 +275,19 @@ CDescTree CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                     strMsg.Format("    { \"%s\", 0x%06x, 0x%06x },\n", ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
                     OutputDebugString(strMsg);
 #else
-                    strMsg.Format("\t\tPalette: %s, %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format("\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(" from 0x%06x to 0x%06x total %u\n", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset);
+                    strMsg.Format(", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    OutputDebugString(strMsg);
+
+                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
+                    {
+                        strMsg.Format(" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                    }
+                    else
+                    {
+                        strMsg.Format(" no image available.\n");
+                    }
                     OutputDebugString(strMsg);
 #endif
 #endif
@@ -770,11 +780,6 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         nSrcAmt = 1;
         nNodeIncrement = 1;
     }
-
-
-    CString strStuff;
-    strStuff.Format("unit: %u, start %u, amt %u inc %u\n", NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-    OutputDebugString(strStuff);
 
     if (!fShouldUseAlternateLoadLogic)
     {

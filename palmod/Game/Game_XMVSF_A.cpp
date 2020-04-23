@@ -177,7 +177,7 @@ CDescTree CGame_XMVSF_A::InitDescTree()
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if XMVSF_DEBUG
-            strMsg.Format("Unit: %s, %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
+            strMsg.Format("Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -199,7 +199,7 @@ CDescTree CGame_XMVSF_A::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if XMVSF_DEBUG
-                strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format("\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -217,9 +217,19 @@ CDescTree CGame_XMVSF_A::InitDescTree()
                     nTotalPaletteCount++;
 
 #if XMVSF_DEBUG
-                    strMsg.Format("\t\tPalette: %s, %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format("\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(" from 0x%06x to 0x%06x total %u\n", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffset + paletteSetToUse[nNodeIndex].nPaletteLength, paletteSetToUse[nNodeIndex].nPaletteLength);
+                    strMsg.Format(", 0x%06x to 0x%06x (%u colors)", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffset + paletteSetToUse[nNodeIndex].nPaletteLength, paletteSetToUse[nNodeIndex].nPaletteLength);
+                    OutputDebugString(strMsg);
+
+                    if (paletteSetToUse[nNodeIndex].indexImgToUse != 0xFF)
+                    {
+                        strMsg.Format(", image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                    }
+                    else
+                    {
+                        strMsg.Format(", no image available.\n");
+                    }
                     OutputDebugString(strMsg);
 #endif
                 }
