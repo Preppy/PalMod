@@ -388,9 +388,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             break;
         }
-        else if (((uPalId >= (0x14 + EXTRA_OMNI))  && (uPalId <= (0x1C + EXTRA_OMNI))) || // Rush
-                 ((uPalId >= (0x6B + EXTRA_OMNI))  && (uPalId <= (0x73 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0xC2 + EXTRA_OMNI))  && (uPalId <= (0xCA + EXTRA_OMNI))) ||
+        else if (((uPalId >= (0x14 + EXTRA_OMNI)) && (uPalId <= (0x1C + EXTRA_OMNI))) || // Rush
+                 ((uPalId >= (0x6B + EXTRA_OMNI)) && (uPalId <= (0x73 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xC2 + EXTRA_OMNI)) && (uPalId <= (0xCA + EXTRA_OMNI))) ||
                  ((uPalId >= (0x119 + EXTRA_OMNI)) && (uPalId <= (0x121 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x170 + EXTRA_OMNI)) && (uPalId <= (0x178 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x1C7 + EXTRA_OMNI)) && (uPalId <= (0x1CF + EXTRA_OMNI))))
@@ -423,28 +423,28 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case 0x1D: // Roll
     {
         if (((uPalId >= (0x0B + EXTRA_OMNI)) && (uPalId <= (0x13 + EXTRA_OMNI))) || // Roll intros
-             ((uPalId >= (0x2F + EXTRA_OMNI)) && (uPalId <= (0x37 + EXTRA_OMNI))) || // Charging buster
-             ((uPalId >= (0x4C + EXTRA_OMNI)) && (uPalId <= (0x54 + EXTRA_OMNI))) || // Hyper Roll
+            ((uPalId >= (0x2F + EXTRA_OMNI)) && (uPalId <= (0x37 + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0x4C + EXTRA_OMNI)) && (uPalId <= (0x54 + EXTRA_OMNI))) || // Hyper Roll
 
-             ((uPalId >= (0x62 + EXTRA_OMNI)) && (uPalId <= (0x6A + EXTRA_OMNI))) || // Roll intros
-             ((uPalId >= (0x86 + EXTRA_OMNI)) && (uPalId <= (0x8E + EXTRA_OMNI))) || // Charging buster
-             ((uPalId >= (0xA3 + EXTRA_OMNI)) && (uPalId <= (0xAB + EXTRA_OMNI))) || // Hyper Roll
+            ((uPalId >= (0x62 + EXTRA_OMNI)) && (uPalId <= (0x6A + EXTRA_OMNI))) || // Roll intros
+            ((uPalId >= (0x86 + EXTRA_OMNI)) && (uPalId <= (0x8E + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0xA3 + EXTRA_OMNI)) && (uPalId <= (0xAB + EXTRA_OMNI))) || // Hyper Roll
 
-             ((uPalId >= (0xB9 + EXTRA_OMNI)) && (uPalId <= (0xC1 + EXTRA_OMNI))) || // Roll intros
-             ((uPalId >= (0xDD + EXTRA_OMNI)) && (uPalId <= (0xE5 + EXTRA_OMNI))) || // Charging buster
-             ((uPalId >= (0xFA + EXTRA_OMNI)) && (uPalId <= (0x102 + EXTRA_OMNI))) ||  // Hyper Roll
+            ((uPalId >= (0xB9 + EXTRA_OMNI)) && (uPalId <= (0xC1 + EXTRA_OMNI))) || // Roll intros
+            ((uPalId >= (0xDD + EXTRA_OMNI)) && (uPalId <= (0xE5 + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0xFA + EXTRA_OMNI)) && (uPalId <= (0x102 + EXTRA_OMNI))) ||  // Hyper Roll
 
-             ((uPalId >= (0x110 + EXTRA_OMNI)) && (uPalId <= (0x118 + EXTRA_OMNI))) || // Roll intros
-             ((uPalId >= (0x134 + EXTRA_OMNI)) && (uPalId <= (0x13c + EXTRA_OMNI))) || // Charging buster
-             ((uPalId >= (0x151 + EXTRA_OMNI)) && (uPalId <= (0x159 + EXTRA_OMNI))) || // Hyper Roll
+            ((uPalId >= (0x110 + EXTRA_OMNI)) && (uPalId <= (0x118 + EXTRA_OMNI))) || // Roll intros
+            ((uPalId >= (0x134 + EXTRA_OMNI)) && (uPalId <= (0x13c + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0x151 + EXTRA_OMNI)) && (uPalId <= (0x159 + EXTRA_OMNI))) || // Hyper Roll
 
-             ((uPalId >= (0x167 + EXTRA_OMNI)) && (uPalId <= (0x16F + EXTRA_OMNI))) || // Roll intros
-             ((uPalId >= (0x18B + EXTRA_OMNI)) && (uPalId <= (0x193 + EXTRA_OMNI))) || // Charging buster
-             ((uPalId >= (0x1A8 + EXTRA_OMNI)) && (uPalId <= (0x1B0 + EXTRA_OMNI))) || // Hyper Roll
+            ((uPalId >= (0x167 + EXTRA_OMNI)) && (uPalId <= (0x16F + EXTRA_OMNI))) || // Roll intros
+            ((uPalId >= (0x18B + EXTRA_OMNI)) && (uPalId <= (0x193 + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0x1A8 + EXTRA_OMNI)) && (uPalId <= (0x1B0 + EXTRA_OMNI))) || // Hyper Roll
 
-             ((uPalId >= (0x1BE + EXTRA_OMNI)) && (uPalId <= (0x1C6 + EXTRA_OMNI))) || // Roll intros
-             ((uPalId >= (0x1E2 + EXTRA_OMNI)) && (uPalId <= (0x1EA + EXTRA_OMNI))) || // Charging buster
-             ((uPalId >= (0x1FF + EXTRA_OMNI)) && (uPalId <= (0x207 + EXTRA_OMNI))))  // Hyper Roll
+            ((uPalId >= (0x1BE + EXTRA_OMNI)) && (uPalId <= (0x1C6 + EXTRA_OMNI))) || // Roll intros
+            ((uPalId >= (0x1E2 + EXTRA_OMNI)) && (uPalId <= (0x1EA + EXTRA_OMNI))) || // Charging buster
+            ((uPalId >= (0x1FF + EXTRA_OMNI)) && (uPalId <= (0x207 + EXTRA_OMNI))))  // Hyper Roll
         {
             SetExtraImg(0, uUnitId, uPalId);
             break;
@@ -670,6 +670,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x37: //Jin
     {
+        // Power-up glow
         if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x2C + EXTRA_OMNI)))
         {
             SetExtraImg(0, uUnitId, uPalId);
@@ -763,6 +764,75 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             SetSourcePal(1, uUnitId, 1, 6, 8);
         }
 
+        break;
+    }
+    case 0x3A: // Kobun
+    {
+        if ((uPalId == 0x1) ||
+            (uPalId == 0x9) ||
+            (uPalId == 0x11) ||
+            (uPalId == 0x19) ||
+            (uPalId == 0x21) ||
+            (uPalId == 0x29))
+        {
+            // Tron Bonne body
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x10;
+            nTargetImgId = 1;
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+
+            break;
+        }
+        else if ((uPalId == 0x2) || 
+                 (uPalId == 0xA) ||
+                 (uPalId == 0x12) ||
+                 (uPalId == 0x1A) ||
+                 (uPalId == 0x22) ||
+                 (uPalId == 0x2A))
+        {
+            // Tron Bonne has a lunch sprite we can reuse here.
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x10;
+            nTargetImgId = 0x0C;
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+
+            break;
+        }
+        else if ((uPalId == 0x6) ||
+                 (uPalId == 0xE) ||
+                 (uPalId == 0x16) ||
+                 (uPalId == 0x1E) ||
+                 (uPalId == 0x26) ||
+                 (uPalId == 0x2E) ||
+                 (uPalId == 0x7) || 
+                 (uPalId == 0xF) ||
+                 (uPalId == 0x17) ||
+                 (uPalId == 0x1F) ||
+                 (uPalId == 0x27) ||
+                 (uPalId == 0x2F))
+        {
+            // Kobun assist sprites.
+            SetExtraImg(0, uUnitId, 0x0);
+            break;
+        }
+        else if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x26 + EXTRA_OMNI)))
+        {
+            // King Kobun.  Just reuse the Kobun core sprite for now. :(
+            SetExtraImg(0, uUnitId, uPalId);
+            break;
+        }
         break;
     }
     }
