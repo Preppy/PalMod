@@ -163,7 +163,7 @@ CDescTree CGame_MVC_A::InitDescTree()
         sDescNode* ChildNode = nullptr;
 
         UINT16 nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-        BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
+        BOOL bUseExtra = (iUnitCtr == MVC_A_EXTRALOC) ? (GetExtraLoc(iUnitCtr) != 0) : FALSE;
 
         UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
