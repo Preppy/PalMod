@@ -4,6 +4,8 @@
 constexpr auto c_previewWndPos = "prev_wndpos";
 constexpr auto c_mainWndPos = "main_wndpos";
 
+extern int GetDpiForScreen();
+
 CRegProc::CRegProc(int nSrcType)
 {
     if (nSrcType != -1)
@@ -52,7 +54,10 @@ void CRegProc::LoadReg(int src)
             RegType = REG_SZ;
             GetSz = RECT_STRSZ;
 
-            if (RegQueryValueEx(hKey, c_mainWndPos, 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
+            CString strPosAndDpi;
+            strPosAndDpi.Format("%s_%u", c_mainWndPos, GetDpiForScreen());
+
+            if (RegQueryValueEx(hKey, strPosAndDpi, 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
             {
                 main_szpos = StrToRect(conv_str);
                 // This good faith check doesn't seem to do anything meaningful. 
@@ -196,7 +201,10 @@ void CRegProc::SaveReg(int src)
 
             conv_str = RectToStr(main_szpos);
 
-            RegSetValueEx(hKey, c_mainWndPos, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), conv_str.GetLength() + 1);
+            CString strPosAndDpi;
+            strPosAndDpi.Format("%s_%u", c_mainWndPos, GetDpiForScreen());
+
+            RegSetValueEx(hKey, strPosAndDpi, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), conv_str.GetLength() + 1);
         }
         break;
 

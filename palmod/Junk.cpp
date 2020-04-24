@@ -13,6 +13,27 @@ int CJunk::nWidthMax = PAL_MAXWIDTH;
 
 BOOL bTest = CJunk::InitPen();
 
+int GetDpiForScreen()
+{
+    static int dpiX = -1;
+
+    if (dpiX == -1)
+    {
+        HDC screen = GetDC(0);
+
+        dpiX = GetDeviceCaps(screen, LOGPIXELSX);
+
+        ReleaseDC(0, screen);
+    }
+
+    return dpiX;
+}
+
+int CJunk::GetPaletteSquareSize()
+{
+    return (int)ceil((BASE_PALETTE_SQUARE_SIZE * GetDpiForScreen()) / 96);
+}
+
 UCHAR CJunk::Toggle(UCHAR& tVar)
 {
     tVar = !tVar;
@@ -93,8 +114,8 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
         }
 
         //Set control width/height
-        iBaseW = (iPalW * PAL_SQ_SZ) + ((iPalW * BDR_SZ) + BDR_SZ);
-        iBaseH = (iPalH * PAL_SQ_SZ) + ((iPalH * BDR_SZ) + BDR_SZ);
+        iBaseW = (iPalW * GetPaletteSquareSize()) + ((iPalW * BDR_SZ) + BDR_SZ);
+        iBaseH = (iPalH * GetPaletteSquareSize()) + ((iPalH * BDR_SZ) + BDR_SZ);
 
         //Set the working amount
         iWorkingAmt = nNewAmt;
@@ -106,10 +127,10 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
             int nSrcIndex = (iWorkingAmt % nWidthMax) + ((iPalH - 1) * nWidthMax);
             int nDstIndex = ((iPalH * nWidthMax) - 1);
 
-            rUnused.top = (BDR_SZ * ((nSrcIndex / iPalW) + 1)) + ((PAL_SQ_SZ) * (nSrcIndex / iPalW));
-            rUnused.left = (BDR_SZ * ((nSrcIndex % iPalW) + 1)) + ((PAL_SQ_SZ) * (nSrcIndex % iPalW));
-            rUnused.right = (BDR_SZ * ((nDstIndex % iPalW) + 2)) + (PAL_SQ_SZ * ((nDstIndex % iPalW) + 1));
-            rUnused.bottom = (BDR_SZ * ((nDstIndex / iPalW) + 2)) + (PAL_SQ_SZ * ((nDstIndex / iPalW) + 1));
+            rUnused.top = (BDR_SZ * ((nSrcIndex / iPalW) + 1)) + ((GetPaletteSquareSize()) * (nSrcIndex / iPalW));
+            rUnused.left = (BDR_SZ * ((nSrcIndex % iPalW) + 1)) + ((GetPaletteSquareSize()) * (nSrcIndex % iPalW));
+            rUnused.right = (BDR_SZ * ((nDstIndex % iPalW) + 2)) + (GetPaletteSquareSize() * ((nDstIndex % iPalW) + 1));
+            rUnused.bottom = (BDR_SZ * ((nDstIndex / iPalW) + 2)) + (GetPaletteSquareSize() * ((nDstIndex / iPalW) + 1));
         }
 
         //Create Selected, Highlighted and SelView
@@ -356,10 +377,10 @@ void CJunk::UpdateIndex(int index)
     {
         if (index < iWorkingAmt)
         {
-            rIndexRect.top = (BDR_SZ * ((index / iPalW) + 1)) + ((PAL_SQ_SZ) * (index / iPalW));
-            rIndexRect.left = (BDR_SZ * ((index % iPalW) + 1)) + ((PAL_SQ_SZ) * (index % iPalW));
-            rIndexRect.right = (BDR_SZ * ((index % iPalW) + 1)) + (PAL_SQ_SZ * ((index % iPalW) + 1));
-            rIndexRect.bottom = (BDR_SZ * ((index / iPalW) + 1)) + (PAL_SQ_SZ * ((index / iPalW) + 1));
+            rIndexRect.top = (BDR_SZ * ((index / iPalW) + 1)) + ((GetPaletteSquareSize()) * (index / iPalW));
+            rIndexRect.left = (BDR_SZ * ((index % iPalW) + 1)) + ((GetPaletteSquareSize()) * (index % iPalW));
+            rIndexRect.right = (BDR_SZ * ((index % iPalW) + 1)) + (GetPaletteSquareSize() * ((index % iPalW) + 1));
+            rIndexRect.bottom = (BDR_SZ * ((index / iPalW) + 1)) + (GetPaletteSquareSize() * ((index / iPalW) + 1));
 
             CustomFillRect(&rIndexRect, (UINT8*)&BasePal[index]);
         }
@@ -383,10 +404,10 @@ void CJunk::UpdateFace()
         {
             SetIndexPen(index, FLAG_DE);
 
-            rSqRct[index].top = (BDR_SZ * ((index / iPalW) + 1)) + ((PAL_SQ_SZ) * (index / iPalW));
-            rSqRct[index].left = (BDR_SZ * ((index % iPalW) + 1)) + ((PAL_SQ_SZ) * (index % iPalW));
-            rSqRct[index].right = (BDR_SZ * ((index % iPalW) + 1)) + (PAL_SQ_SZ * ((index % iPalW) + 1));
-            rSqRct[index].bottom = (BDR_SZ * ((index / iPalW) + 1)) + (PAL_SQ_SZ * ((index / iPalW) + 1));
+            rSqRct[index].top = (BDR_SZ * ((index / iPalW) + 1)) + ((GetPaletteSquareSize()) * (index / iPalW));
+            rSqRct[index].left = (BDR_SZ * ((index % iPalW) + 1)) + ((GetPaletteSquareSize()) * (index % iPalW));
+            rSqRct[index].right = (BDR_SZ * ((index % iPalW) + 1)) + (GetPaletteSquareSize() * ((index % iPalW) + 1));
+            rSqRct[index].bottom = (BDR_SZ * ((index / iPalW) + 1)) + (GetPaletteSquareSize() * ((index / iPalW) + 1));
 
             InflateRect(&rSqRct[index], 1, 1);
 
@@ -735,7 +756,7 @@ BOOL CJunk::ProcessHovered(CPoint hPoint, CPoint& PalPos)
     int x = hPoint.x;
     int y = hPoint.y;
 
-    int posmod = PAL_SQ_SZ + BDR_SZ;
+    int posmod = GetPaletteSquareSize() + BDR_SZ;
 
     int xIn = x / posmod;
     int yIn = y / posmod;

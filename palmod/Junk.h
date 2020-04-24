@@ -19,8 +19,7 @@
 #define PAL_MAXWIDTH 8
 #define PAL_MAXAMT 64
 
-// These values don't handle DPI correctly.
-#define PAL_SQ_SZ 15
+#define BASE_PALETTE_SQUARE_SIZE 15
 #define BDR_SZ 1
 
 #define FLAG_HL 0
@@ -42,6 +41,8 @@ private:
     void DrawBG();
     BOOL ProcBaseBMP();
     void ClearBaseBMP();
+
+    int GetPaletteSquareSize();
 
     void SetIndexPen(int nIndex, int pFlag);
 

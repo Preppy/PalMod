@@ -579,22 +579,6 @@ bool  CImgDisp::LoadExternalSprite(CHAR* pszTextureLocation)
                 }
             }
         }
-
-        // It's not a texture file... try it as a PNG/GIF/JPG/etc
-        // THIS WON'T WORK: BUT IT WOULD IF WE CONVERT IT TO RAW.....
-        CImage imageExternalFile;
-
-        HRESULT hr = imageExternalFile.Load(pszTextureLocation);
-        if (SUCCEEDED(hr))
-        {
-            m_nTextureOverrideW = imageExternalFile.GetHeight();
-            m_nTextureOverrideH = imageExternalFile.GetWidth();
-
-            m_pSpriteOverrideTexture = new UINT8[m_nTextureOverrideW * m_nTextureOverrideH];
-            m_pSpriteOverrideTexture = (UINT8 *)imageExternalFile.GetBits();
-
-            return true;
-        }
     }
 
     return false;

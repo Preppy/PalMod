@@ -653,14 +653,14 @@ const sGame_PaletteDataset MVC_A_HYPERVENOM_PALETTES_P2[] =
 const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P1[] =
 {
     { "P1 Color", 0x48644, 0x48664, 0x0c },
-    { "P1 Extra 1", 0x48664, 0x48684 },
+    { "P1 Spotlight", 0x48664, 0x48684, 0x0C, 0x0C },
     { "P1 Web", 0x48684, 0x486a4, 0x0c, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P2[] =
 {
     { "P2 Color", 0x486a4, 0x486c4, 0x0c },
-    { "P2 Extra 1", 0x486c4, 0x486e4 },
+    { "P2 Spotlight", 0x486c4, 0x486e4, 0x0C, 0x0C },
     { "P2 Web", 0x486e4, 0x48704, 0x0c, 2 },
 };
 

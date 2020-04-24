@@ -165,7 +165,7 @@ const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
     0x06, // Cyclops
     0x07, // Wolverine
     0x08, // Psylocke
-    0x09, // Ice-Man
+    0x09, // Iceman
     0x0A, // Rogue
     0x0B, // Captain America
     0x0C, // Spider-Man
@@ -369,7 +369,7 @@ const UINT8 MVC_A_IMG_UNITS[MVC_A_NUM_IMG_UNITS] =
     // Assists
     0x06, // Cyclops
     0x08, // Psylocke
-    0x09, // Ice-Man
+    0x09, // Iceman
     0x0A, // Rogue
     0x21, // Charlie
     0x29, // Juggernaut

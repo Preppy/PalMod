@@ -145,7 +145,7 @@ const CHAR MVC2_D_UNITDESC[MVC2_D_NUMUNIT][MAX_DESCRIPTION_LENGTH] =
     "Cyclops",
     "Wolverine",
     "Psylocke",
-    "Ice-Man",
+    "Iceman",
     "Rogue",
     "Captain America",
     "Spider-Man",
