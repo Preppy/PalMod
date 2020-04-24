@@ -376,7 +376,7 @@ UINT16 CGame_XMVSF_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if XMVSF_DEBUG
         CString strMsg;
-        strMsg.Format("CGame_XMVSF_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format("CGame_XMVSF_A::GetPaletteCountForUnit: %u for unit %u (%s) which has %u collections.\n", nCompleteCount, nUnitId, XMVSF_A_UNITS[nUnitId].szDesc, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -503,6 +503,7 @@ void CGame_XMVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     if (nUnitId != XMVSF_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
+
         const sXMVSF_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
 
         nCurrPalOffs = paletteData->nPaletteOffset;
@@ -556,7 +557,7 @@ BOOL CGame_XMVSF_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitId);
+        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {

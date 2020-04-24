@@ -10,8 +10,8 @@ enum SupportedPaletteListIndexXMVSF
 {
     indexXCammy,
     indexXCharlie,
-    indexXChunLiSFA,
     indexXChunLi,
+    indexXChunLiSFA,
     indexXCyclops,
     indexXDhalsim,
     indexXGambit,
@@ -36,52 +36,6 @@ constexpr auto XMVSF_A_NUMUNIT = indexXMVSFLast;
 
 // Sprite reference:
 // https://www.zytor.com/~johannax/jigsaw/sf/xvsf.html
-
-const UINT8 XMVSF_A_IMGREDIR[XMVSF_A_NUMUNIT] = 
-{
-    0x07,
-    0x06,
-    0x2A,
-    0x0A,
-    0x28,
-    0x2B,
-    0x29,
-    0x2C,
-    XMVSF_A_IMGSTART, // Apocalypse: no sprite available yet.
-    0x00,
-    0x27,
-    0x1B,
-    0x25,
-    0x01,
-    0x26,
-    0x1E,
-    0x21,
-    0x24,
-    0x3B + 0x11 // Chun Li's image in SFA3 ... but we don't have that yet.
-};
-
-const CHAR XMVSF_A_UNITDESC[XMVSF_A_NUMUNIT][16] = 
-{
-    "Wolverine",
-    "Cyclops",
-    "Storm",
-    "Rogue",
-    "Gambit",
-    "Sabretooth",
-    "Juggernaut",
-    "Magneto",
-    "Apocalypse",
-    "Ryu",
-    "Ken",
-    "Chun-Li",
-    "Dhalsim",
-    "Zangief",
-    "M. Bison",
-    "Gouki",
-    "Charlie",
-    "Cammy",
-    "Chun-Li (SFA)"
-};
 
 const UINT32 XMVSF_A_TRUE_UNITLOC[XMVSF_A_NUMUNIT + 1] =
 {
@@ -738,7 +692,7 @@ const UINT32 XMVSF_A_UNITLOC[XMVSF_A_NUMUNIT + 1] =
 };
 
 
-// We extend this array with data groveled from the SFA3e.txt extensible extras file, if any.
+// We extend this array with data groveled from the xmvsfe.txt extensible extras file, if any.
 const stExtraDef XMVSF_A_EXTRA[] =
 {
     // Start
