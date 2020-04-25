@@ -672,7 +672,8 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 if (paletteDataSetToJoin)
                 {
-                    int nXOffs, nYOffs;
+                    int nXOffs = 0, nYOffs = 0;
+                    UINT8 nPeerPaletteDistance = 1;
 
                     if (NodeGet->uUnitId == indexMVCWolverine) // wolvie claws support
                     {
@@ -680,17 +681,45 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         nYOffs = 4;
                         fShouldUseAlternateLoadLogic = true;
                     }
-                    else if ((NodeGet->uUnitId == indexMVCCaptainAmerica) || // Captain America shield
-                             (NodeGet->uUnitId == indexMVCAssists))          // US Agent's shield
+                    else if (NodeGet->uUnitId == indexMVCCaptainAmerica) // Captain America shield
                     {
                         nXOffs = -22;
                         nYOffs = -17;
                         fShouldUseAlternateLoadLogic = true;
                     }
+                    else if (NodeGet->uUnitId == indexMVCMegaman) // Hyper Megaman
+                    {
+                        nPeerPaletteDistance = 9; // there are 9 colors for this
+                        paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+
+                        if (paletteDataSetToJoin)
+                        {
+                            nXOffs = 31;
+                            nYOffs = 12;
+                            fShouldUseAlternateLoadLogic = true;
+                        }
+                    }
                     else if (NodeGet->uUnitId == indexMVCCapCom)  // Captain Commando ninjas
                     {
                         nXOffs = 28;
                         nYOffs = 4;
+                        fShouldUseAlternateLoadLogic = true;
+                    }
+                    else if (NodeGet->uUnitId == indexMVCAssists)
+                    {
+                        if (paletteDataSet->indexImgToUse == 0x0B) // US Agent's shield
+                        {
+                            nXOffs = -22;
+                            nYOffs = -17;
+                        }
+                        else if ((paletteDataSet->indexImgToUse == 0x3C) && // Burnt Devilot
+                                 (paletteDataSet->indexOffsetToUse == 0x03))
+                        {
+                            // Note that the normal Devilot matches perfectly.
+                            nXOffs = 7;
+                            nYOffs = 3;
+                        }
+
                         fShouldUseAlternateLoadLogic = true;
                     }
 
@@ -705,7 +734,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         //Set each palette
                         sDescNode* JoinedNode[2] = {
                             MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                            MainDescTree.GetDescNode(Node01, Node02, Node03 + 1, -1)
+                            MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
                         };
 
                         //Set each palette
@@ -713,7 +742,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         CreateDefPal(JoinedNode[1], 1);
 
                         SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + 1, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
                     }
                 }
             }
