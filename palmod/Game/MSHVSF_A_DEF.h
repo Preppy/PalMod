@@ -4,7 +4,7 @@ enum Supported_MSHVSF_6A_PaletteListIndex
 {
     //index_MSHVSF_Apocalypse,
     index_MSHVSF_ArmoredSpiderMan,
-    index_MSHVSF_BlackHeart_Mephisto,
+    index_MSHVSF_Blackheart_Mephisto,
     index_MSHVSF_CaptainAmerica,
     index_MSHVSF_ChunLi,
     //index_MSHVSF_CyberGouki,
@@ -288,18 +288,19 @@ const sGame_PaletteDataset MSHVSF_A_MECH_ZANGIEF_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MSHVSF_A_NORIMARO_PALETTES_P1COLOR_PUNCH[] =
 {
-    { "P1 Color (Punch)",        0x72D4E, 0x72D6E,  },
-    { "P1 Extras 1", 0x7710E, 0x7712E, },
-    { "P1 Extras 2", 0x7716E, 0x7718E, },
-    { "P1 Extras 3", 0x72D6E, 0x72D8E, }, // BUGBUG UNBALANCED
-
-
+    { "P1 Color (Punch)",       0x72D4E, 0x72D6E,  },
+    { "P1 Extras 1",            0x7710E, 0x7712E, },
+    { "P1 Extras 2",            0x7716E, 0x7718E, },
 };
 const sGame_PaletteDataset MSHVSF_A_NORIMARO_PALETTES_P2COLOR_KICK[] =
 {
     { "P2 Color (Kick)",        0x72DAE, 0x72DCE, },
-    { "P2 Extras 1", 0x7718E, 0x771AE, },
-    { "P2 Extras 2", 0x72DCE, 0x72DEE, },
+    { "P2 Extras 1",            0x7718E, 0x771AE, },
+    { "P2 Extras 2",            0x72DCE, 0x72DEE, },
+};
+const sGame_PaletteDataset MSHVSF_A_NORIMARO_PALETTES_EXTRAS[] =
+{
+    { "P1 Extras 3",            0x72D6E, 0x72D8E, }
 };
 
 const sGame_PaletteDataset MSHVSF_A_OMEGARED_PALETTES_P1COLOR_PUNCH[] =
@@ -367,7 +368,7 @@ const sGame_PaletteDataset MSHVSF_A_SHADOW_PALETTES_P2COLOR_KICK[] =
 const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH[] =
 {
     { "P1 Color (Punch)",        0x7234E, 0x7236E, 0x2D},
-    //{"Shuma-Gorath P1 Extra 1", 0x7730E, 0x7732E, 0x2D }, // BUGBUG
+    //{"Shuma-Gorath P1 Extra 1", 0x7730E, 0x7732E, 0x2D }, // BUGBUG: we have two definitions for this.  using 16 below
     {"P1 Extra 2", 0x773AE, 0x773CE, 0x2D },
     {"P1 Extra 3", 0x7764E, 0x7766E, 0x2D },
     {"P1 Extra 4", 0x7766E, 0x7768E, 0x2D },
@@ -382,7 +383,7 @@ const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH[] =
     {"P1 Extra 13", 0x772AE, 0x772CE, 0x2D },
     {"P1 Extra 14", 0x772CE, 0x772EE, 0x2D },
     {"P1 Extra 15", 0x772EE, 0x7730E, 0x2D },
-    {"P1 Extra 16", 0x7730E, 0x7732E, 0x2D }, // BUGBUG
+    {"P1 Extra 16", 0x7730E, 0x7732E, 0x2D }, // BUGBUG: this is the second definition for this.  Using this one.
     {"P1 Extra 17 Stone 1", 0x7732E, 0x7734E, 0x2D },
     {"P1 Extra 18 Stone 2", 0x7734E, 0x7736E, 0x2D },
     {"P1 Extra 19 Stone 3", 0x7736E, 0x7738E, 0x2D },
@@ -489,7 +490,7 @@ const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK[] =
 const sGame_PaletteDataset MSHVSF_A_CSI_PALETTES[] =
 {
     { "Akuma P1 CSI", 0x7994E, 0x7996E },
-    { "BlackHeart P1 CSI", 0x7986E, 0x7988E },
+    { "Blackheart P1 CSI", 0x7986E, 0x7988E },
     { "Captain America P1 CSI", 0x797AE, 0x797CE },
     { "Chun-Li P1 CSI", 0x798CE, 0x798EE },
     { "Cyclops P1 CSI", 0x7978E, 0x797AE },
@@ -514,8 +515,8 @@ const sGame_PaletteDataset MSHVSF_A_SSP_PALETTES[] =
     { "A. Spider-Man P2 SSP", 0x7EB2E, 0x7EB6E },
     { "Akuma P1 SSP", 0x7D40E, 0x7D48E },
     { "Akuma P2 SSP", 0x7E4FE, 0x7E56E },
-    { "BlackHeart P1 SSP", 0x7CFAE, 0x7D02E },
-    { "BlackHeart P2 SSP", 0x7E08E, 0x7E10E },
+    { "Blackheart P1 SSP", 0x7CFAE, 0x7D02E },
+    { "Blackheart P2 SSP", 0x7E08E, 0x7E10E },
     { "Captain America P1 SSP", 0x7CBEE, 0x7CC8E },
     { "Captain America P2 SSP", 0x7DCCE, 0x7DD6E },
     { "Chun-Li P1 SSP", 0x7D18E, 0x7D20E },
@@ -559,7 +560,7 @@ const sGame_PaletteDataset MSHVSF_A_VSP_PALETTES[] =
 {
     { "A. Spider-Man P1 VSP", 0x7FD4E, 0x7FD8E},
     { "Akuma P1 VSP", 0x7F70E, 0x7F78E},
-    { "BlackHeart P1 VSP", 0x7F2AE, 0x7F2EE},
+    { "Blackheart P1 VSP", 0x7F2AE, 0x7F2EE},
     { "Captain America P1 VSP", 0x7EEEE, 0x7EF8E},
     { "Captain America P2 VSP Part 1", 0x7FFCE, 0x7FFFF },
     { "Chun-Li P1 VSP", 0x7F48E, 0x7F4EE},
@@ -588,7 +589,7 @@ const sGame_PaletteDataset MSHVSF_A_VSP_PALETTES_7B[] =
 {
     { "A. Spider-Man P2 VSP", 0x0000e2e, 0x0000e6e },
     { "Akuma P2 VSP", 0x00007ee, 0x000086e },
-    { "BlackHeart P2 VSP", 0x000038e, 0x00003ce },
+    { "Blackheart P2 VSP", 0x000038e, 0x00003ce },
     { "Captain America P2 VSP Part", 0x0000000, 0x000006e },
     { "Chun-Li P2 VSP", 0x000056e, 0x00005ce },
 #ifdef USE_LARGE_PALETTES
@@ -692,8 +693,8 @@ const sDescTreeNode MSHVSF_A_GOUKI_COLLECTION[] =
 };
 const sDescTreeNode MSHVSF_A_BLACKHEART_MEPHISTO_COLLECTION[] =
 {
-    { "BlackHeart P1 Color (Punch)", DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH,   ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH)   },
-    { "BlackHeart P2 Color (Kick)",  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK,    ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK)    },
+    { "Blackheart P1 Color (Punch)", DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH,   ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH)   },
+    { "Blackheart P2 Color (Kick)",  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK,    ARRAYSIZE(MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK)    },
     { "Mephisto P1 Color (Punch)",   DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH,     ARRAYSIZE(MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH)     },
     { "Mephisto P2 Color (Kick)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_MEPHISTO_PALETTES_P2COLOR_KICK,      ARRAYSIZE(MSHVSF_A_MEPHISTO_PALETTES_P2COLOR_KICK)      },
     { "Shared Palettes",             DESC_NODETYPE_TREE,    (void*)MSHVSF_A_BLACKHEART_MEPHISTO_PALETTES_SHARED, ARRAYSIZE(MSHVSF_A_BLACKHEART_MEPHISTO_PALETTES_SHARED) },
@@ -760,6 +761,7 @@ const sDescTreeNode MSHVSF_A_NORIMARO_COLLECTION[] =
 {
     { "P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_NORIMARO_PALETTES_P1COLOR_PUNCH) },
     { "P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_NORIMARO_PALETTES_P2COLOR_KICK) },
+    { "Extras",              DESC_NODETYPE_TREE,    (void*)MSHVSF_A_NORIMARO_PALETTES_EXTRAS,           ARRAYSIZE(MSHVSF_A_NORIMARO_PALETTES_EXTRAS) },
 };
 const sDescTreeNode MSHVSF_A_OMEGARED_COLLECTION[] =
 {
@@ -826,7 +828,7 @@ const sDescTreeNode MSHVSF_A_UNITS_6A[MSHVSF_A_NUM_IND_6A] =
 {
     //{ "Apocalypse",          DESC_NODETYPE_TREE, (void*)MSHVSF_A_APOCALYPSE_COLLECTION,          ARRAYSIZE(MSHVSF_A_APOCALYPSE_COLLECTION) },
     { "Armored Spider-Man",  DESC_NODETYPE_TREE, (void*)MSHVSF_A_ARMORED_SPIDERMAN_COLLECTION,   ARRAYSIZE(MSHVSF_A_ARMORED_SPIDERMAN_COLLECTION) },
-    { "BlackHeart/Mephisto", DESC_NODETYPE_TREE, (void*)MSHVSF_A_BLACKHEART_MEPHISTO_COLLECTION, ARRAYSIZE(MSHVSF_A_BLACKHEART_MEPHISTO_COLLECTION) },
+    { "Blackheart/Mephisto", DESC_NODETYPE_TREE, (void*)MSHVSF_A_BLACKHEART_MEPHISTO_COLLECTION, ARRAYSIZE(MSHVSF_A_BLACKHEART_MEPHISTO_COLLECTION) },
     { "Captain America",     DESC_NODETYPE_TREE, (void*)MSHVSF_A_CAPTAIN_AMERICA_COLLECTION,     ARRAYSIZE(MSHVSF_A_CAPTAIN_AMERICA_COLLECTION) },
     { "Chun-Li",             DESC_NODETYPE_TREE, (void*)MSHVSF_A_CHUNLI_COLLECTION,              ARRAYSIZE(MSHVSF_A_CHUNLI_COLLECTION) },
     //{ "Cyber Gouki",         DESC_NODETYPE_TREE, (void*)MSHVSF_A_CYBER_GOUKI_COLLECTION,         ARRAYSIZE(MSHVSF_A_CYBER_GOUKI_COLLECTION) },

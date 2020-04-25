@@ -358,7 +358,7 @@ const UINT16 _mvc2_supp_const [] =
         //SUPP_NODE_EX, 1 | MOD_ABS, 8, 5, 1, 11,  // unclear of this logic. 
         //    MOD_LUM, 11, 1, NEG + 7,
 
-    0x1C | SUPP_START, // MegaMan
+    0x1C | SUPP_START, // Megaman
         // intro animation is frames 0xb-0x13
         SUPP_NODE, 0x0B, 56,
             MOD_LUM, 01, 15, NEG + 21,

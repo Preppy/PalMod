@@ -184,10 +184,10 @@ const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
     0x19, // Abyss (Form 2)
     0x1A, // Abyss (Form 3)
     0x1B, // Chun-Li
-    0x1C, // MegaMan
+    0x1C, // Megaman
     0x1D, // Roll
     0x1E, // Gouki
-    0x1F, // B.B.Hood
+    0x1F, // B.B. Hood
     0x20, // Felicia
     0x21, // Charlie
     0x22, // Sakura
@@ -355,7 +355,7 @@ const UINT8 MVC_A_IMG_UNITS[MVC_A_NUM_IMG_UNITS] =
     0x0E, // Venom
     0x1B, // Chun-Li
     0x1D, // Roll
-    0x1C, // MegaMan
+    0x1C, // Megaman
     0x28, // Gambit
     0x2E, // War Machine
     0x37, // Jin
@@ -417,7 +417,7 @@ const UINT8 MSHVSF_A_IMG_UNITS[MSHVSF_A_NUM_IMG_UNITS] =
     0x27, // Ken
     0x2D, // Shuma-Gorath
     0x30, // Omega Red
-    0x35, // BlackHeart
+    0x35, // Blackheart
     0x35, // Mephisto
     //0xZZ, // Apocalypse
     //0xZZ, // Cyber Gouki

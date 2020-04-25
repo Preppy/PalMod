@@ -797,7 +797,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
-                    if (NodeGet->uUnitId == index_MSHVSF_BlackHeart_Mephisto)
+                    if (NodeGet->uUnitId == index_MSHVSF_Blackheart_Mephisto)
                     {
                         // Allow for both Blackheart and Mephisto displays
                         if (((nSrcStart >= nNodeIncrement) && (nSrcStart <= (nNodeIncrement * 2))) ||

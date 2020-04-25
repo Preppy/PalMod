@@ -236,7 +236,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "P1 Hyper Megaman 7", 0x4c964, 0x4c984, 0x1c },
     { "P1 Hyper Megaman 8", 0x4c984, 0x4c9a4, 0x1c },
     { "P1 Hyper Megaman 9", 0x4c9a4, 0x4c9c4, 0x1c },
-    { "P1 Hyper MegaMan Missiles", 0x4c9c4, 0x4c9e4 },
+    { "P1 Hyper Megaman Missiles", 0x4c9c4, 0x4c9e4 },
 
     { "P1 Roll Win Pose", 0x4cae4, 0x4cb04, 0x1d },
     { "P1 Magnetic Megaman", 0x4cb04, 0x4cb24, 0x1c },
@@ -1341,7 +1341,7 @@ const sGame_PaletteDataset MVC_A_CSIS_PALETTES[] =
     { "Gambit CS Icon", 0x003e63a, 0x003e65a, 0x28, 0x11 },
     { "Hulk CS Icon", 0x003e5fa, 0x003e61a, 0x0D, 0x11 },
     { "Jin CS Icon", 0x003e71a, 0x003e73a, 0x37, 0x11 },
-    { "MegaMan CS Icon", 0x003e79a, 0x003e7ba, 0x1C, 0x11 },
+    { "Megaman CS Icon", 0x003e79a, 0x003e7ba, 0x1C, 0x11 },
     { "Morrigan CS Icon", 0x003e77a, 0x003e79a, 0x03, 0x11 },
     { "Ryu CS Icon", 0x003e6ba, 0x003e6da, 0x00, 0x11 },
     { "Spider-Man CS Icon", 0x003e67a, 0x003e69a, 0x0C, 0x11 },
