@@ -94,7 +94,7 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P1[] =
     { "P1 Glimmer 2", 0x4ff84, 0x4ffa4, 0x1b },
     { "P1 Glimmer 3", 0x4ffa4, 0x4ffc4, 0x1b },
     { "P1 Extra 1", 0x49304, 0x49324 },
-    { "P1 Extra 2", 0x49324, 0x49344 },
+    { "P1 Extra 2", 0x49324, 0x49344 }, // Lightning leg accent?
 };
 
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P2[] =
@@ -141,19 +141,19 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
 {
     { "Megaman P1", 0x48f84, 0x48fa4, 0x1c },
     { "P1 Rush/Eddie", 0x48fa4, 0x48fc4, 0x1c, 1 },
-    { "P1 Beat", 0x48fc4, 0x48fe4 },
+    { "P1 Beat", 0x48fc4, 0x48fe4, 0x1C, 0x03 },
 };
 
 const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
 {
     { "Megaman P2", 0x48fe4, 0x49004, 0x1c },
     { "P2 Rush/Eddie", 0x49004, 0x49024, 0x1c, 1 },
-    { "P2 Beat", 0x49024, 0x49044 },
+    { "P2 Beat", 0x49024, 0x49044, 0x1C, 0x03 },
 };
 
 const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_EXTRAS[] =
 {
-    { "P1 Hair", 0x4c044, 0x4c064 },
+    { "P1 Hair", 0x4c044, 0x4c064, 0x1C, 0x06 },
     { "P1 Teleport / Death Animation", 0x4c064, 0x4c084 },
     { "P1 Intro 1", 0x4c084, 0x4c0a4, 0x1c },
     { "P1 Intro 2", 0x4c0a4, 0x4c0c4, 0x1c },
@@ -175,25 +175,25 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "P1 Rush 8", 0x4c284, 0x4c2a4, 0x1c, 1 },
     { "P1 Rush 9", 0x4c2a4, 0x4c2c4, 0x1c, 1 },
 
-    { "P1 Beat 1", 0x4c2c4, 0x4c2e4 },
-    { "P1 Beat 2", 0x4c2e4, 0x4c304 },
-    { "P1 Beat 3", 0x4c304, 0x4c324 },
-    { "P1 Beat 4", 0x4c324, 0x4c344 },
-    { "P1 Beat 5", 0x4c344, 0x4c364 },
-    { "P1 Beat 6", 0x4c364, 0x4c384 },
-    { "P1 Beat 7", 0x4c384, 0x4c3a4 },
-    { "P1 Beat 8", 0x4c3a4, 0x4c3c4 },
-    { "P1 Beat 9", 0x4c3c4, 0x4c3e4 },
+    { "P1 Beat 1", 0x4c2c4, 0x4c2e4, 0x1C, 0x03 },
+    { "P1 Beat 2", 0x4c2e4, 0x4c304, 0x1C, 0x03 },
+    { "P1 Beat 3", 0x4c304, 0x4c324, 0x1C, 0x03 },
+    { "P1 Beat 4", 0x4c324, 0x4c344, 0x1C, 0x03 },
+    { "P1 Beat 5", 0x4c344, 0x4c364, 0x1C, 0x03 },
+    { "P1 Beat 6", 0x4c364, 0x4c384, 0x1C, 0x03 },
+    { "P1 Beat 7", 0x4c384, 0x4c3a4, 0x1C, 0x03 },
+    { "P1 Beat 8", 0x4c3a4, 0x4c3c4, 0x1C, 0x03 },
+    { "P1 Beat 9", 0x4c3c4, 0x4c3e4, 0x1C, 0x03 },
 
-    { "P1 Beat Plane 1", 0x4c3e4, 0x4c404 },
-    { "P1 Beat Plane 2", 0x4c404, 0x4c424 },
-    { "P1 Beat Plane 3", 0x4c424, 0x4c444 },
-    { "P1 Beat Plane 4", 0x4c444, 0x4c464 },
-    { "P1 Beat Plane 5", 0x4c464, 0x4c484 },
-    { "P1 Beat Plane 6", 0x4c484, 0x4c4a4 },
-    { "P1 Beat Plane 7", 0x4c4a4, 0x4c4c4 },
-    { "P1 Beat Plane 8", 0x4c4c4, 0x4c4e4 },
-    { "P1 Beat Plane 9", 0x4c4e4, 0x4c504 },
+    { "P1 Beat Plane 1", 0x4c3e4, 0x4c404, 0x1c, 0x04 },
+    { "P1 Beat Plane 2", 0x4c404, 0x4c424, 0x1c, 0x04 },
+    { "P1 Beat Plane 3", 0x4c424, 0x4c444, 0x1c, 0x04 },
+    { "P1 Beat Plane 4", 0x4c444, 0x4c464, 0x1c, 0x04 },
+    { "P1 Beat Plane 5", 0x4c464, 0x4c484, 0x1c, 0x04 },
+    { "P1 Beat Plane 6", 0x4c484, 0x4c4a4, 0x1c, 0x04 },
+    { "P1 Beat Plane 7", 0x4c4a4, 0x4c4c4, 0x1c, 0x04 },
+    { "P1 Beat Plane 8", 0x4c4c4, 0x4c4e4, 0x1c, 0x04 },
+    { "P1 Beat Plane 9", 0x4c4e4, 0x4c504, 0x1c, 0x04 },
 
     { "P1 Charged HP 1", 0x4c504, 0x4c524, 0x1c },
     { "P1 Charged HP 2", 0x4c524, 0x4c544, 0x1c },
@@ -204,39 +204,39 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "P1 Charged HP 7", 0x4c5c4, 0x4c5e4, 0x1c },
     { "P1 Charged HP 8", 0x4c5e4, 0x4c604, 0x1c },
     { "P1 Charged HP 9", 0x4c604, 0x4c624, 0x1c },
-    { "P1 Rush Drill 1", 0x4c624, 0x4c644, 0x1c, 1 },
-    { "P1 Rush Drill 2", 0x4c644, 0x4c664, 0x1c, 1 },
-    { "P1 Rush Drill 3", 0x4c664, 0x4c684, 0x1c, 1 },
-    { "P1 Rush Drill 4", 0x4c684, 0x4c6a4, 0x1c, 1 },
-    { "P1 Rush Drill 5", 0x4c6a4, 0x4c6c4, 0x1c, 1 },
-    { "P1 Rush Drill 6", 0x4c6c4, 0x4c6e4, 0x1c, 1 },
-    { "P1 Rush Drill 7", 0x4c6e4, 0x4c704, 0x1c, 1 },
-    { "P1 Rush Drill 8", 0x4c704, 0x4c724, 0x1c, 1 },
-    { "P1 Rush Drill 9", 0x4c724, 0x4c744, 0x1c, 1 },
+    { "P1 Rush Drill 1", 0x4c624, 0x4c644, 0x1c, 2 },
+    { "P1 Rush Drill 2", 0x4c644, 0x4c664, 0x1c, 2 },
+    { "P1 Rush Drill 3", 0x4c664, 0x4c684, 0x1c, 2 },
+    { "P1 Rush Drill 4", 0x4c684, 0x4c6a4, 0x1c, 2 },
+    { "P1 Rush Drill 5", 0x4c6a4, 0x4c6c4, 0x1c, 2 },
+    { "P1 Rush Drill 6", 0x4c6c4, 0x4c6e4, 0x1c, 2 },
+    { "P1 Rush Drill 7", 0x4c6e4, 0x4c704, 0x1c, 2 },
+    { "P1 Rush Drill 8", 0x4c704, 0x4c724, 0x1c, 2 },
+    { "P1 Rush Drill 9", 0x4c724, 0x4c744, 0x1c, 2 },
 
     { "P1 Teleport Intro", 0x4c744, 0x4c764 },
-    { "P1 Dr Light", 0x4c764, 0x4c784 },
+    { "P1 Dr Light", 0x4c764, 0x4c784, 0x1c, 0x05 },
 
-    { "P1 Hyper Megaman Armor 1", 0x4c784, 0x4c7a4 },
-    { "P1 Hyper Megaman Armor 2", 0x4c7a4, 0x4c7c4 },
-    { "P1 Hyper Megaman Armor 3", 0x4c7c4, 0x4c7e4 },
-    { "P1 Hyper Megaman Armor 4", 0x4c7e4, 0x4c804 },
-    { "P1 Hyper Megaman Armor 5", 0x4c804, 0x4c824 },
-    { "P1 Hyper Megaman Armor 6", 0x4c824, 0x4c844 },
-    { "P1 Hyper Megaman Armor 7", 0x4c844, 0x4c864 },
-    { "P1 Hyper Megaman Armor 8", 0x4c864, 0x4c884 },
-    { "P1 Hyper Megaman Armor 9", 0x4c884, 0x4c8a4 },
+    { "P1 Hyper Megaman Armor 1", 0x4c784, 0x4c7a4, 0x1C, 0x07 },
+    { "P1 Hyper Megaman Armor 2", 0x4c7a4, 0x4c7c4, 0x1C, 0x07 },
+    { "P1 Hyper Megaman Armor 3", 0x4c7c4, 0x4c7e4, 0x1C, 0x07 },
+    { "P1 Hyper Megaman Armor 4", 0x4c7e4, 0x4c804, 0x1C, 0x07 },
+    { "P1 Hyper Megaman Armor 5", 0x4c804, 0x4c824, 0x1C, 0x07 },
+    { "P1 Hyper Megaman Armor 6", 0x4c824, 0x4c844, 0x1C, 0x07 },
+    { "P1 Hyper Megaman Armor 7", 0x4c844, 0x4c864, 0x1C, 0x07 },
+    { "P1 Hyper Megaman Armor 8", 0x4c864, 0x4c884, 0x1C, 0x07 },
+    { "P1 Hyper Megaman Armor 9", 0x4c884, 0x4c8a4, 0x1C, 0x07 },
 
-    { "P1 Hyper Megaman 1", 0x4c8a4, 0x4c8c4, 0x1c },
-    { "P1 Hyper Megaman 2", 0x4c8c4, 0x4c8e4, 0x1c },
-    { "P1 Hyper Megaman 3", 0x4c8e4, 0x4c904, 0x1c },
-    { "P1 Hyper Megaman 4", 0x4c904, 0x4c924, 0x1c },
-    { "P1 Hyper Megaman 5", 0x4c924, 0x4c944, 0x1c },
-    { "P1 Hyper Megaman 6", 0x4c944, 0x4c964, 0x1c },
-    { "P1 Hyper Megaman 7", 0x4c964, 0x4c984, 0x1c },
-    { "P1 Hyper Megaman 8", 0x4c984, 0x4c9a4, 0x1c },
-    { "P1 Hyper Megaman 9", 0x4c9a4, 0x4c9c4, 0x1c },
-    { "P1 Hyper Megaman Missiles", 0x4c9c4, 0x4c9e4 },
+    { "P1 Hyper Megaman 1", 0x4c8a4, 0x4c8c4, 0x1c, 0x08 },
+    { "P1 Hyper Megaman 2", 0x4c8c4, 0x4c8e4, 0x1c, 0x08 },
+    { "P1 Hyper Megaman 3", 0x4c8e4, 0x4c904, 0x1c, 0x08 },
+    { "P1 Hyper Megaman 4", 0x4c904, 0x4c924, 0x1c, 0x08 },
+    { "P1 Hyper Megaman 5", 0x4c924, 0x4c944, 0x1c, 0x08 },
+    { "P1 Hyper Megaman 6", 0x4c944, 0x4c964, 0x1c, 0x08 },
+    { "P1 Hyper Megaman 7", 0x4c964, 0x4c984, 0x1c, 0x08 },
+    { "P1 Hyper Megaman 8", 0x4c984, 0x4c9a4, 0x1c, 0x08 },
+    { "P1 Hyper Megaman 9", 0x4c9a4, 0x4c9c4, 0x1c, 0x08 },
+    { "P1 Hyper Megaman Missiles", 0x4c9c4, 0x4c9e4, 0x1C, 0x09 },
 
     { "P1 Roll Win Pose", 0x4cae4, 0x4cb04, 0x1d },
     { "P1 Magnetic Megaman", 0x4cb04, 0x4cb24, 0x1c },
@@ -254,7 +254,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "P1 Megaman Extra", 0x4e0a4, 0x4e0c4, 0x1c },
     { "P1 Magnetic Megaman", 0x4e0c4, 0x4e0e4, 0x1c },
 
-    { "P2 Hair", 0x4cb24, 0x4cb44 },
+    { "P2 Hair", 0x4cb24, 0x4cb44, 0x1C, 0x06 },
     { "P2 Teleport Intro / Death", 0x4cb44, 0x4cb64 },
 
     { "P2 Intro 1", 0x4cb64, 0x4cb84, 0x1c },
@@ -277,25 +277,25 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "P2 Rush 8", 0x4cd64, 0x4cd84, 0x1c, 1 },
     { "P2 Rush 9", 0x4cd84, 0x4cda4, 0x1c, 1 },
 
-    { "P2 Beat 1", 0x4cda4, 0x4cdc4 },
-    { "P2 Beat 2", 0x4cdc4, 0x4cde4 },
-    { "P2 Beat 3", 0x4cde4, 0x4ce04 },
-    { "P2 Beat 4", 0x4ce04, 0x4ce24 },
-    { "P2 Beat 5", 0x4ce24, 0x4ce44 },
-    { "P2 Beat 6", 0x4ce44, 0x4ce64 },
-    { "P2 Beat 7", 0x4ce64, 0x4ce84 },
-    { "P2 Beat 8", 0x4ce84, 0x4cea4 },
-    { "P2 Beat 9", 0x4cea4, 0x4cec4 },
+    { "P2 Beat 1", 0x4cda4, 0x4cdc4, 0x1C, 0x03 },
+    { "P2 Beat 2", 0x4cdc4, 0x4cde4, 0x1C, 0x03 },
+    { "P2 Beat 3", 0x4cde4, 0x4ce04, 0x1C, 0x03 },
+    { "P2 Beat 4", 0x4ce04, 0x4ce24, 0x1C, 0x03 },
+    { "P2 Beat 5", 0x4ce24, 0x4ce44, 0x1C, 0x03 },
+    { "P2 Beat 6", 0x4ce44, 0x4ce64, 0x1C, 0x03 },
+    { "P2 Beat 7", 0x4ce64, 0x4ce84, 0x1C, 0x03 },
+    { "P2 Beat 8", 0x4ce84, 0x4cea4, 0x1C, 0x03 },
+    { "P2 Beat 9", 0x4cea4, 0x4cec4, 0x1C, 0x03 },
 
-    { "P2 Beat Plane 1", 0x4cec4, 0x4cee4 },
-    { "P2 Beat Plane 2", 0x4cee4, 0x4cf04 },
-    { "P2 Beat Plane 3", 0x4cf04, 0x4cf24 },
-    { "P2 Beat Plane 4", 0x4cf24, 0x4cf44 },
-    { "P2 Beat Plane 5", 0x4cf44, 0x4cf64 },
-    { "P2 Beat Plane 6", 0x4cf64, 0x4cf84 },
-    { "P2 Beat Plane 7", 0x4cf84, 0x4cfa4 },
-    { "P2 Beat Plane 8", 0x4cfa4, 0x4cfc4 },
-    { "P2 Beat Plane 9", 0x4cfc4, 0x4cfe4 },
+    { "P2 Beat Plane 1", 0x4cec4, 0x4cee4, 0x1c, 0x04 },
+    { "P2 Beat Plane 2", 0x4cee4, 0x4cf04, 0x1c, 0x04 },
+    { "P2 Beat Plane 3", 0x4cf04, 0x4cf24, 0x1c, 0x04 },
+    { "P2 Beat Plane 4", 0x4cf24, 0x4cf44, 0x1c, 0x04 },
+    { "P2 Beat Plane 5", 0x4cf44, 0x4cf64, 0x1c, 0x04 },
+    { "P2 Beat Plane 6", 0x4cf64, 0x4cf84, 0x1c, 0x04 },
+    { "P2 Beat Plane 7", 0x4cf84, 0x4cfa4, 0x1c, 0x04 },
+    { "P2 Beat Plane 8", 0x4cfa4, 0x4cfc4, 0x1c, 0x04 },
+    { "P2 Beat Plane 9", 0x4cfc4, 0x4cfe4, 0x1c, 0x04 },
 
     { "P2 Charged HP 1", 0x4cfe4, 0x4d004, 0x1c },
     { "P2 Charged HP 2", 0x4d004, 0x4d024, 0x1c },
@@ -307,40 +307,40 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "P2 Charged HP 8", 0x4d0c4, 0x4d0e4, 0x1c },
     { "P2 Charged HP 9", 0x4d0e4, 0x4d104, 0x1c },
 
-    { "P2 Rush Drill 1", 0x4d104, 0x4d124, 0x1c, 1 },
-    { "P2 Rush Drill 2", 0x4d124, 0x4d144, 0x1c, 1 },
-    { "P2 Rush Drill 3", 0x4d144, 0x4d164, 0x1c, 1 },
-    { "P2 Rush Drill 4", 0x4d164, 0x4d184, 0x1c, 1 },
-    { "P2 Rush Drill 5", 0x4d184, 0x4d1a4, 0x1c, 1 },
-    { "P2 Rush Drill 6", 0x4d1a4, 0x4d1c4, 0x1c, 1 },
-    { "P2 Rush Drill 7", 0x4d1c4, 0x4d1e4, 0x1c, 1 },
-    { "P2 Rush Drill 8", 0x4d1e4, 0x4d204, 0x1c, 1 },
-    { "P2 Rush Drill 9", 0x4d204, 0x4d224, 0x1c, 1 }, // 97
+    { "P2 Rush Drill 1", 0x4d104, 0x4d124, 0x1c, 2 },
+    { "P2 Rush Drill 2", 0x4d124, 0x4d144, 0x1c, 2 },
+    { "P2 Rush Drill 3", 0x4d144, 0x4d164, 0x1c, 2 },
+    { "P2 Rush Drill 4", 0x4d164, 0x4d184, 0x1c, 2 },
+    { "P2 Rush Drill 5", 0x4d184, 0x4d1a4, 0x1c, 2 },
+    { "P2 Rush Drill 6", 0x4d1a4, 0x4d1c4, 0x1c, 2 },
+    { "P2 Rush Drill 7", 0x4d1c4, 0x4d1e4, 0x1c, 2 },
+    { "P2 Rush Drill 8", 0x4d1e4, 0x4d204, 0x1c, 2 },
+    { "P2 Rush Drill 9", 0x4d204, 0x4d224, 0x1c, 2 }, // 97
 
     { "P2 Teleport Intro", 0x4d224, 0x4d244 },
-    { "P2 Dr Light", 0x4d244, 0x4d264 },
+    { "P2 Dr Light", 0x4d244, 0x4d264, 0x1c, 0x05 },
 
-    { "P2 Hyper Megaman Armor 1", 0x4d264, 0x4d284 },
-    { "P2 Hyper Megaman Armor 2", 0x4d284, 0x4d2a4 },
-    { "P2 Hyper Megaman Armor 3", 0x4d2a4, 0x4d2c4 },
-    { "P2 Hyper Megaman Armor 4", 0x4d2c4, 0x4d2e4 },
-    { "P2 Hyper Megaman Armor 5", 0x4d2e4, 0x4d304 },
-    { "P2 Hyper Megaman Armor 6", 0x4d304, 0x4d324 },
-    { "P2 Hyper Megaman Armor 7", 0x4d324, 0x4d344 },
-    { "P2 Hyper Megaman Armor 8", 0x4d344, 0x4d364 },
-    { "P2 Hyper Megaman Armor 9", 0x4d364, 0x4d384 }, // a2
+    { "P2 Hyper Megaman Armor 1", 0x4d264, 0x4d284, 0x1C, 0x07 },
+    { "P2 Hyper Megaman Armor 2", 0x4d284, 0x4d2a4, 0x1C, 0x07 },
+    { "P2 Hyper Megaman Armor 3", 0x4d2a4, 0x4d2c4, 0x1C, 0x07 },
+    { "P2 Hyper Megaman Armor 4", 0x4d2c4, 0x4d2e4, 0x1C, 0x07 },
+    { "P2 Hyper Megaman Armor 5", 0x4d2e4, 0x4d304, 0x1C, 0x07 },
+    { "P2 Hyper Megaman Armor 6", 0x4d304, 0x4d324, 0x1C, 0x07 },
+    { "P2 Hyper Megaman Armor 7", 0x4d324, 0x4d344, 0x1C, 0x07 },
+    { "P2 Hyper Megaman Armor 8", 0x4d344, 0x4d364, 0x1C, 0x07 },
+    { "P2 Hyper Megaman Armor 9", 0x4d364, 0x4d384, 0x1C, 0x07 }, // a2
 
-    { "P2 Hyper Megaman 1", 0x4d384, 0x4d3a4, 0x1c },
-    { "P2 Hyper Megaman 2", 0x4d3a4, 0x4d3c4, 0x1c },
-    { "P2 Hyper Megaman 3", 0x4d3c4, 0x4d3e4, 0x1c },
-    { "P2 Hyper Megaman 4", 0x4d3e4, 0x4d404, 0x1c },
-    { "P2 Hyper Megaman 5", 0x4d404, 0x4d424, 0x1c },
-    { "P2 Hyper Megaman 6", 0x4d424, 0x4d444, 0x1c },
-    { "P2 Hyper Megaman 7", 0x4d444, 0x4d464, 0x1c },
-    { "P2 Hyper Megaman 8", 0x4d464, 0x4d484, 0x1c },
-    { "P2 Hyper Megaman 9", 0x4d484, 0x4d4a4, 0x1c }, // ab
+    { "P2 Hyper Megaman 1", 0x4d384, 0x4d3a4, 0x1c, 0x08 },
+    { "P2 Hyper Megaman 2", 0x4d3a4, 0x4d3c4, 0x1c, 0x08 },
+    { "P2 Hyper Megaman 3", 0x4d3c4, 0x4d3e4, 0x1c, 0x08 },
+    { "P2 Hyper Megaman 4", 0x4d3e4, 0x4d404, 0x1c, 0x08 },
+    { "P2 Hyper Megaman 5", 0x4d404, 0x4d424, 0x1c, 0x08 },
+    { "P2 Hyper Megaman 6", 0x4d424, 0x4d444, 0x1c, 0x08 },
+    { "P2 Hyper Megaman 7", 0x4d444, 0x4d464, 0x1c, 0x08 },
+    { "P2 Hyper Megaman 8", 0x4d464, 0x4d484, 0x1c, 0x08 },
+    { "P2 Hyper Megaman 9", 0x4d484, 0x4d4a4, 0x1c, 0x08 }, // ab
 
-    { "P2 Hyper Megaman Missiles", 0x4d4a4, 0x4d4c4 }, // ac
+    { "P2 Hyper Megaman Missiles", 0x4d4a4, 0x4d4c4, 0x1C, 0x09 }, // ac
 
     { "P2 Megaman Intro 1", 0x4e944, 0x4e964, 0x1c },
     { "P2 Megaman Intro 2", 0x4e964, 0x4e984, 0x1c },
@@ -360,19 +360,19 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P1[] =
 {
     { "P1 Color", 0x48704, 0x48724, 0x1d },
     { "P1 Rush/Eddie", 0x48724, 0x48744, 0x1c, 1 },
-    { "P1 Beat", 0x48744, 0x48764 },
+    { "P1 Beat", 0x48744, 0x48764, 0x1C, 0x03 },
 };
 
 const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P2[] =
 {
     { "P2 Color", 0x48764, 0x48784, 0x1d },
     { "P2 Rush/Eddie", 0x48784, 0x487a4, 0x1c, 1 },
-    { "P2 Beat", 0x487a4, 0x487c4 }, // 09 : these numbers align to the mvc2 extra ids as identified in the Palette Variant Full spreadsheet
+    { "P2 Beat", 0x487a4, 0x487c4, 0x1C, 0x03 }, // 09 : these numbers align to the mvc2 extra ids as identified in the Palette Variant Full spreadsheet
 };
 
 const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
 {
-    { "P1 Hair", 0x4d604, 0x4d624 },
+    { "P1 Megaman Hair", 0x4d604, 0x4d624, 0x1C, 0x06 },
     { "P1 Intro / Death Animation", 0x4d624, 0x4d644 },
     { "P1 Intro 1", 0x4d644, 0x4d664, 0x1d },
     { "P1 Intro 2", 0x4d664, 0x4d684, 0x1d },
@@ -392,24 +392,24 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
     { "P1 Rush/Eddie 7", 0x4d824, 0x4d844, 0x1c, 1 },
     { "P1 Rush/Eddie 8", 0x4d844, 0x4d864, 0x1c, 1 },
     { "P1 Rush/Eddie 9", 0x4d864, 0x4d884, 0x1c, 1 },
-    { "P1 Beat 1", 0x4d884, 0x4d8a4 },
-    { "P1 Beat 2", 0x4d8a4, 0x4d8c4 },
-    { "P1 Beat 3", 0x4d8c4, 0x4d8e4 },
-    { "P1 Beat 4", 0x4d8e4, 0x4d904 },
-    { "P1 Beat 5", 0x4d904, 0x4d924 },
-    { "P1 Beat 6", 0x4d924, 0x4d944 },
-    { "P1 Beat 7", 0x4d944, 0x4d964 },
-    { "P1 Beat 8", 0x4d964, 0x4d984 },
-    { "P1 Beat 9", 0x4d984, 0x4d9a4 },
-    { "P1 Beat Plane 1", 0x4d9a4, 0x4d9c4 },
-    { "P1 Beat Plane 2", 0x4d9c4, 0x4d9e4 },
-    { "P1 Beat Plane 3", 0x4d9e4, 0x4da04 },
-    { "P1 Beat Plane 4", 0x4da04, 0x4da24 },
-    { "P1 Beat Plane 5", 0x4da24, 0x4da44 },
-    { "P1 Beat Plane 6", 0x4da44, 0x4da64 },
-    { "P1 Beat Plane 7", 0x4da64, 0x4da84 },
-    { "P1 Beat Plane 8", 0x4da84, 0x4daa4 },
-    { "P1 Beat Plane 9", 0x4daa4, 0x4dac4 },
+    { "P1 Beat 1", 0x4d884, 0x4d8a4, 0x1C, 0x03 },
+    { "P1 Beat 2", 0x4d8a4, 0x4d8c4, 0x1C, 0x03 },
+    { "P1 Beat 3", 0x4d8c4, 0x4d8e4, 0x1C, 0x03 },
+    { "P1 Beat 4", 0x4d8e4, 0x4d904, 0x1C, 0x03 },
+    { "P1 Beat 5", 0x4d904, 0x4d924, 0x1C, 0x03 },
+    { "P1 Beat 6", 0x4d924, 0x4d944, 0x1C, 0x03 },
+    { "P1 Beat 7", 0x4d944, 0x4d964, 0x1C, 0x03 },
+    { "P1 Beat 8", 0x4d964, 0x4d984, 0x1C, 0x03 },
+    { "P1 Beat 9", 0x4d984, 0x4d9a4, 0x1C, 0x03 },
+    { "P1 Beat Plane 1", 0x4d9a4, 0x4d9c4, 0x1c, 0x04 },
+    { "P1 Beat Plane 2", 0x4d9c4, 0x4d9e4, 0x1c, 0x04 },
+    { "P1 Beat Plane 3", 0x4d9e4, 0x4da04, 0x1c, 0x04 },
+    { "P1 Beat Plane 4", 0x4da04, 0x4da24, 0x1c, 0x04 },
+    { "P1 Beat Plane 5", 0x4da24, 0x4da44, 0x1c, 0x04 },
+    { "P1 Beat Plane 6", 0x4da44, 0x4da64, 0x1c, 0x04 },
+    { "P1 Beat Plane 7", 0x4da64, 0x4da84, 0x1c, 0x04 },
+    { "P1 Beat Plane 8", 0x4da84, 0x4daa4, 0x1c, 0x04 },
+    { "P1 Beat Plane 9", 0x4daa4, 0x4dac4, 0x1c, 0x04 },
     { "P1 Charging Roll 1", 0x4dac4, 0x4dae4, 0x1d },
     { "P1 Charging Roll 2", 0x4dae4, 0x4db04, 0x1d },
     { "P1 Charging Roll 3", 0x4db04, 0x4db24, 0x1d },
@@ -419,17 +419,17 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
     { "P1 Charging Roll 7", 0x4db84, 0x4dba4, 0x1d },
     { "P1 Charging Roll 8", 0x4dba4, 0x4dbc4, 0x1d },
     { "P1 Charging Roll 9", 0x4dbc4, 0x4dbe4, 0x1d },
-    { "P1 Rush Drill 1", 0x4dbe4, 0x4dc04, 0x1c, 1 },
-    { "P1 Rush Drill 2", 0x4dc04, 0x4dc24, 0x1c, 1 },
-    { "P1 Rush Drill 3", 0x4dc24, 0x4dc44, 0x1c, 1 },
-    { "P1 Rush Drill 4", 0x4dc44, 0x4dc64, 0x1c, 1 },
-    { "P1 Rush Drill 5", 0x4dc64, 0x4dc84, 0x1c, 1 },
-    { "P1 Rush Drill 6", 0x4dc84, 0x4dca4, 0x1c, 1 },
-    { "P1 Rush Drill 7", 0x4dca4, 0x4dcc4, 0x1c, 1 },
-    { "P1 Rush Drill 8", 0x4dcc4, 0x4dce4, 0x1c, 1 },
-    { "P1 Rush Drill 9", 0x4dce4, 0x4dd04, 0x1c, 1 },
+    { "P1 Rush Drill 1", 0x4dbe4, 0x4dc04, 0x1c, 2 },
+    { "P1 Rush Drill 2", 0x4dc04, 0x4dc24, 0x1c, 2 },
+    { "P1 Rush Drill 3", 0x4dc24, 0x4dc44, 0x1c, 2 },
+    { "P1 Rush Drill 4", 0x4dc44, 0x4dc64, 0x1c, 2 },
+    { "P1 Rush Drill 5", 0x4dc64, 0x4dc84, 0x1c, 2 },
+    { "P1 Rush Drill 6", 0x4dc84, 0x4dca4, 0x1c, 2 },
+    { "P1 Rush Drill 7", 0x4dca4, 0x4dcc4, 0x1c, 2 },
+    { "P1 Rush Drill 8", 0x4dcc4, 0x4dce4, 0x1c, 2 },
+    { "P1 Rush Drill 9", 0x4dce4, 0x4dd04, 0x1c, 2 },
     { "P1 Teleport Intro", 0x4dd04, 0x4dd24 },
-    { "P1 Dr Light", 0x4dd24, 0x4dd44 },
+    { "P1 Dr Light", 0x4dd24, 0x4dd44, 0x1c, 0x05 },
     { "P1 Hyper Roll Armor 1", 0x4dd44, 0x4dd64 },
     { "P1 Hyper Roll Armor 2", 0x4dd64, 0x4dd84 },
     { "P1 Hyper Roll Armor 3", 0x4dd84, 0x4dda4 },
@@ -451,7 +451,7 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
     { "P1 Revert Hyper Roll 6", 0x4e044, 0x4e064 },
     { "P1 Revert Hyper Roll 7", 0x4e064, 0x4e084 },
     { "P1 Revert Hyper Roll 8", 0x4e084, 0x4e0a4 },
-    { "P2 Hair ", 0x4e0e4, 0x4e104 },
+    { "P2 Megaman Hair ", 0x4e0e4, 0x4e104, 0x1C, 0x06 },
     { "P2 Intro / Death Animation", 0x4e104, 0x4e124 },
     { "P2 Intro 1", 0x4e124, 0x4e144, 0x1d },
     { "P2 Intro 2", 0x4e144, 0x4e164, 0x1d },
@@ -471,24 +471,24 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
     { "P2 Rush/Eddie 7", 0x4e304, 0x4e324, 0x1c, 1 },
     { "P2 Rush/Eddie 8", 0x4e324, 0x4e344, 0x1c, 1 },
     { "P2 Rush/Eddie 9", 0x4e344, 0x4e364, 0x1c, 1 },
-    { "P2 Beat 1", 0x4e364, 0x4e384 },
-    { "P2 Beat 2", 0x4e384, 0x4e3a4 },
-    { "P2 Beat 3", 0x4e3a4, 0x4e3c4 },
-    { "P2 Beat 4", 0x4e3c4, 0x4e3e4 },
-    { "P2 Beat 5", 0x4e3e4, 0x4e404 },
-    { "P2 Beat 6", 0x4e404, 0x4e424 },
-    { "P2 Beat 7", 0x4e424, 0x4e444 },
-    { "P2 Beat 8", 0x4e444, 0x4e464 },
-    { "P2 Beat 9", 0x4e464, 0x4e484 },
-    { "P2 Beat Plane 1", 0x4e484, 0x4e4a4 },
-    { "P2 Beat Plane 2", 0x4e4a4, 0x4e4c4 },
-    { "P2 Beat Plane 3", 0x4e4c4, 0x4e4e4 },
-    { "P2 Beat Plane 4", 0x4e4e4, 0x4e504 },
-    { "P2 Beat Plane 5", 0x4e504, 0x4e524 },
-    { "P2 Beat Plane 6", 0x4e524, 0x4e544 },
-    { "P2 Beat Plane 7", 0x4e544, 0x4e564 },
-    { "P2 Beat Plane 8", 0x4e564, 0x4e584 },
-    { "P2 Beat Plane 9", 0x4e584, 0x4e5a4 },
+    { "P2 Beat 1", 0x4e364, 0x4e384, 0x1C, 0x03 },
+    { "P2 Beat 2", 0x4e384, 0x4e3a4, 0x1C, 0x03 },
+    { "P2 Beat 3", 0x4e3a4, 0x4e3c4, 0x1C, 0x03 },
+    { "P2 Beat 4", 0x4e3c4, 0x4e3e4, 0x1C, 0x03 },
+    { "P2 Beat 5", 0x4e3e4, 0x4e404, 0x1C, 0x03 },
+    { "P2 Beat 6", 0x4e404, 0x4e424, 0x1C, 0x03 },
+    { "P2 Beat 7", 0x4e424, 0x4e444, 0x1C, 0x03 },
+    { "P2 Beat 8", 0x4e444, 0x4e464, 0x1C, 0x03 },
+    { "P2 Beat 9", 0x4e464, 0x4e484, 0x1C, 0x03 },
+    { "P2 Beat Plane 1", 0x4e484, 0x4e4a4, 0x1c, 0x04 },
+    { "P2 Beat Plane 2", 0x4e4a4, 0x4e4c4, 0x1c, 0x04 },
+    { "P2 Beat Plane 3", 0x4e4c4, 0x4e4e4, 0x1c, 0x04 },
+    { "P2 Beat Plane 4", 0x4e4e4, 0x4e504, 0x1c, 0x04 },
+    { "P2 Beat Plane 5", 0x4e504, 0x4e524, 0x1c, 0x04 },
+    { "P2 Beat Plane 6", 0x4e524, 0x4e544, 0x1c, 0x04 },
+    { "P2 Beat Plane 7", 0x4e544, 0x4e564, 0x1c, 0x04 },
+    { "P2 Beat Plane 8", 0x4e564, 0x4e584, 0x1c, 0x04 },
+    { "P2 Beat Plane 9", 0x4e584, 0x4e5a4, 0x1c, 0x04 },
     { "P2 Charging Roll 1", 0x4e5a4, 0x4e5c4, 0x1d },
     { "P2 Charging Roll 2", 0x4e5c4, 0x4e5e4, 0x1d },
     { "P2 Charging Roll 3", 0x4e5e4, 0x4e604, 0x1d },
@@ -498,17 +498,17 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
     { "P2 Charging Roll 7", 0x4e664, 0x4e684, 0x1d },
     { "P2 Charging Roll 8", 0x4e684, 0x4e6a4, 0x1d },
     { "P2 Charging Roll 9", 0x4e6a4, 0x4e6c4, 0x1d },
-    { "P2 Rush Drill 1", 0x4e6c4, 0x4e6e4, 0x1c, 1 },
-    { "P2 Rush Drill 2", 0x4e6e4, 0x4e704, 0x1c, 1 },
-    { "P2 Rush Drill 3", 0x4e704, 0x4e724, 0x1c, 1 },
-    { "P2 Rush Drill 4", 0x4e724, 0x4e744, 0x1c, 1 },
-    { "P2 Rush Drill 5", 0x4e744, 0x4e764, 0x1c, 1 },
-    { "P2 Rush Drill 6", 0x4e764, 0x4e784, 0x1c, 1 },
-    { "P2 Rush Drill 7", 0x4e784, 0x4e7a4, 0x1c, 1 },
-    { "P2 Rush Drill 8", 0x4e7a4, 0x4e7c4, 0x1c, 1 },
-    { "P2 Rush Drill 9", 0x4e7c4, 0x4e7e4, 0x1c, 1 },
+    { "P2 Rush Drill 1", 0x4e6c4, 0x4e6e4, 0x1c, 2 },
+    { "P2 Rush Drill 2", 0x4e6e4, 0x4e704, 0x1c, 2 },
+    { "P2 Rush Drill 3", 0x4e704, 0x4e724, 0x1c, 2 },
+    { "P2 Rush Drill 4", 0x4e724, 0x4e744, 0x1c, 2 },
+    { "P2 Rush Drill 5", 0x4e744, 0x4e764, 0x1c, 2 },
+    { "P2 Rush Drill 6", 0x4e764, 0x4e784, 0x1c, 2 },
+    { "P2 Rush Drill 7", 0x4e784, 0x4e7a4, 0x1c, 2 },
+    { "P2 Rush Drill 8", 0x4e7a4, 0x4e7c4, 0x1c, 2 },
+    { "P2 Rush Drill 9", 0x4e7c4, 0x4e7e4, 0x1c, 2 },
     { "P2 Teleport Intro", 0x4e7e4, 0x4e804 },
-    { "P2 Dr Light", 0x4e804, 0x4e824 },
+    { "P2 Dr Light", 0x4e804, 0x4e824, 0x1c, 0x05 },
     { "P2 Hyper Roll Armor 1", 0x4e824, 0x4e844 },
     { "P2 Hyper Roll Armor 2", 0x4e844, 0x4e864 },
     { "P2 Hyper Roll Armor 3", 0x4e864, 0x4e884 },
@@ -736,18 +736,18 @@ const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 {
-    { "Anita P1", 0x50fa4, 0x50fc4 },
-    { "Anita P1 Extra 1", 0x50fc4, 0x50fe4 },
-    { "Anita P1 Extra 2", 0x50fe4, 0x51004 },
-    { "Anita P2", 0x51004, 0x51024 },
-    { "Anita P2 Extra 1", 0x51024, 0x51044 },
-    { "Anita P2 Extra 2", 0x51044, 0x51064 },
+    { "Anita P1", 0x50fa4, 0x50fc4, 0x51 },
+    { "Anita P1 Extra 1", 0x50fc4, 0x50fe4, 0x51, 1 },
+    { "Anita P1 Extra 2", 0x50fe4, 0x51004, 0x51, 1 },
+    { "Anita P2", 0x51004, 0x51024, 0x51 },
+    { "Anita P2 Extra 1", 0x51024, 0x51044, 0x51, 1 },
+    { "Anita P2 Extra 2", 0x51044, 0x51064, 0x51, 1 },
 
-    { "Arthur P1", 0x50804, 0x50824 },
-    { "Arthur P1 Extra 1", 0x50824, 0x50844 },
+    { "Arthur P1", 0x50804, 0x50824, 0x3C },
+    { "Arthur P1 Extra 1", 0x50824, 0x50844, 0x3C, 1 },
     { "Arthur P1 Extra 2", 0x50844, 0x50864 },
-    { "Arthur P2", 0x50864, 0x50884 },
-    { "Arthur P2 Extra 1", 0x50884, 0x508a4 },
+    { "Arthur P2", 0x50864, 0x50884, 0x3C },
+    { "Arthur P2 Extra 1", 0x50884, 0x508a4, 0x3C, 1 },
     { "Arthur P2 Extra 2", 0x508a4, 0x508c4 },
 
     { "Colossus P1", 0x505c4, 0x505e4, 0x32 },
@@ -761,36 +761,36 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "Cyclops Optic Blast 4", 0x50924, 0x50944 },
     { "Cyclops Optic Blast 5", 0x50944, 0x50964 },
 
-    { "Devilot P1", 0x510c4, 0x510e4 },
-    { "Devilot P1 Extra 1", 0x510e4, 0x51104 },
-    { "Devilot P1 Extra 2", 0x51104, 0x51124 },
-    { "Devilot P1 Extra 3", 0x51184, 0x511a4 },
-    { "Devilot P1 Extra 4", 0x511a4, 0x511c4 },
-    { "Devilot P2", 0x51124, 0x51144 },
-    { "Devilot P2 Extra 1", 0x51144, 0x51164 },
-    { "Devilot P2 Extra 2", 0x51164, 0x51184 },
-    { "Devilot P2 Extra 3", 0x511c4, 0x511e4 },
-    { "Devilot P2 Extra 4", 0x511e4, 0x51204 },
+    { "Devilot P1", 0x510c4, 0x510e4, 0x3C, 4 },
+    { "Devilot P1 Extra 1", 0x510e4, 0x51104, 0x3C, 6 },
+    { "Devilot P1 Extra 2", 0x51104, 0x51124, 0x3C, 2 },
+    { "Devilot P1 Extra 3", 0x51184, 0x511a4, 0x3C, 3 },
+    { "Devilot P1 Extra 4", 0x511a4, 0x511c4, 0x3C, 5 },
+    { "Devilot P2", 0x51124, 0x51144, 0x3C, 4 },
+    { "Devilot P2 Extra 1", 0x51144, 0x51164, 0x3C, 6 },
+    { "Devilot P2 Extra 2", 0x51164, 0x51184, 0x3C, 2 },
+    { "Devilot P2 Extra 3", 0x511c4, 0x511e4, 0x3C, 3 },
+    { "Devilot P2 Extra 4", 0x511e4, 0x51204, 0x3C, 5 },
 
     { "Iceman P1", 0x50d64, 0x50d84, 0x09 },
-    { "Iceman P1 Extra 1", 0x50d84, 0x50da4, 0x09 },
-    { "Iceman P1 Extra 2", 0x50da4, 0x50dc4, 0x09 },
+    { "Iceman P1 Extra 1", 0x50d84, 0x50da4, 0x3C, 0x07 },
+    { "Iceman P1 Extra 2", 0x50da4, 0x50dc4, 0x3C, 0x07 },
     { "Iceman P2", 0x50dc4, 0x50de4, 0x09 },
-    { "Iceman P2 Extra 1", 0x50de4, 0x50e04, 0x09 },
-    { "Iceman P2 Extra 2", 0x50e04, 0x50e24, 0x09 },
+    { "Iceman P2 Extra 1", 0x50de4, 0x50e04, 0x3C, 0x07 },
+    { "Iceman P2 Extra 2", 0x50e04, 0x50e24, 0x3C, 0x07 },
 
-    { "Jubilee P1", 0x51204, 0x51224 },
-    { "Jubilee P2", 0x51264, 0x51284 },
+    { "Jubilee P1", 0x51204, 0x51224, 0x3C, 0x08 },
+    { "Jubilee P2", 0x51264, 0x51284, 0x3C, 0x08 },
 
     { "Juggernaut P1", 0x502c4, 0x502e4, 0x29 },
     { "Juggernaut P1 Extra 1", 0x50304, 0x50324, 0x29, 2 },
     { "Juggernaut P2", 0x50324, 0x50344, 0x29 },
     { "Juggernaut P2 Extra 1", 0x50364, 0x50384, 0x29, 2 },
 
-    { "Lou P1", 0x50204, 0x50224 },
-    { "Lou P1 Extra", 0x50224, 0x50244 },
-    { "Lou P2", 0x50264, 0x50284 },
-    { "Lou P2 Extra", 0x50284, 0x502a4 },
+    { "Lou P1", 0x50204, 0x50224, 0x3C, 0x09 },
+    { "Lou P1 Extra", 0x50224, 0x50244, 0x3C, 0x0A },
+    { "Lou P2", 0x50264, 0x50284, 0x3C, 0x09 },
+    { "Lou P2 Extra", 0x50284, 0x502a4, 0x3C, 0x0A },
 
     { "Magneto P1", 0x50384, 0x503a4, 0x2c },
     { "Magneto P1 Extra", 0x503a4, 0x503c4, 0x2c, 1 },
@@ -886,16 +886,16 @@ const sGame_PaletteDataset MVC_A_ASSISTPORT_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_VSP_PALETTES[] =
 {
-    { "War Machine P1 VSP", 0x0055d84, 0x0055e04 },
-    { "Gold War Machine P1 VSP", 0x0056bc4, 0x0056c44 },
+    { "War Machine P1 VSP", 0x0055d84, 0x0055e04, 0x2E, 0x13 },
+    { "Gold War Machine P1 VSP", 0x0056bc4, 0x0056c44, 0x2E, 0x13 },
 #ifdef USE_LARGE_PALETTES
     { "Captain America P1 VSP", 0x0055e44, 0x0055f04 },
 #else
     { "Captain America P1 VSP (1/2)", 0x0055e44, 0x0055ec4 },
     { "Captain America P1 VSP (2/2)", 0x0055ec4, 0x0055f04 },
 #endif
-    { "Hulk P1 VSP", 0x0055f04, 0x0055f24 },
-    { "Orange Hulk P1 VSP", 0x0056b04, 0x0056b24 },
+    { "Hulk P1 VSP", 0x0055f04, 0x0055f24, 0x0D, 0x13 },
+    { "Orange Hulk P1 VSP", 0x0056b04, 0x0056b24, 0x0D, 0x13 },
 #ifdef USE_LARGE_PALETTES
     { "Wolverine P1 VSP", 0x0055fc4, 0x0056084 },
 #else
@@ -908,9 +908,9 @@ const sGame_PaletteDataset MVC_A_VSP_PALETTES[] =
     { "Gambit P1 VSP (1/2)", 0x0056084, 0x0056104 },
     { "Gambit P1 VSP (2/2)", 0x0056104, 0x0056144 },
 #endif
-    { "Venom P1 VSP", 0x0056144, 0x00561c4 },
-    { "Red Venom P1 VSP", 0x0056a44, 0x0056ac4 },
-    { "Spider-Man P1 VSP", 0x0056204, 0x0056284 },
+    { "Venom P1 VSP", 0x0056144, 0x00561c4, 0x0E, 0x13 },
+    { "Red Venom P1 VSP", 0x0056a44, 0x0056ac4, 0x0E, 0x13 },
+    { "Spider-Man P1 VSP", 0x0056204, 0x0056284, 0x0C, 0x13 },
 #ifdef USE_LARGE_PALETTES
     { "Roll P1 VSP", 0x00562c4, 0x0056384 },
 #else
@@ -989,18 +989,19 @@ const sGame_PaletteDataset MVC_A_VSP_PALETTES[] =
     { "Lilith P1 VSP (1/2)", 0x0056d44, 0x0056dc4 },
     { "Lilith P1 VSP (2/2)", 0x0056dc4, 0x0056e04 },
 #endif
-    { "Megaman P1 VSP", 0x00568c4, 0x0056944 },
-    { "Onslaught P1 VSP", 0x0056984, 0x00569e4 },
-    { "War Machine P2 VSP", 0x0057044, 0x00570c4 },
-    { "Gold War Machine P2 VSP", 0x0057e84, 0x0057f04 },
+    { "Megaman P1 VSP", 0x00568c4, 0x0056944, 0x1C, 0x13 },
+    { "Onslaught P1 VSP", 0x0056984, 0x00569e4, 0x3B, 0x13 },
+
+    { "War Machine P2 VSP", 0x0057044, 0x00570c4, 0x2E, 0x13 },
+    { "Gold War Machine P2 VSP", 0x0057e84, 0x0057f04, 0x2E, 0x13 },
 #ifdef USE_LARGE_PALETTES
     { "Captain America P2 VSP", 0x0057104, 0x00571c4 },
 #else
     { "Captain America P2 VSP (1/2)", 0x0057104, 0x0057184 },
     { "Captain America P2 VSP (2/2)", 0x0057184, 0x00571c4 },
 #endif
-    { "Hulk P2 VSP", 0x00571c4, 0x00571e4 },
-    { "Orange Hulk P2 VSP", 0x0057dc4, 0x0057de4 },
+    { "Hulk P2 VSP", 0x00571c4, 0x00571e4, 0x0D, 0x13 },
+    { "Orange Hulk P2 VSP", 0x0057dc4, 0x0057de4, 0x0D, 0x13 },
 #ifdef USE_LARGE_PALETTES
     { "Wolverine P2 VSP", 0x0057284, 0x0057344 },
 #else
@@ -1013,9 +1014,9 @@ const sGame_PaletteDataset MVC_A_VSP_PALETTES[] =
     { "Gambit P2 VSP (1/2)", 0x0057344, 0x00573c4 },
     { "Gambit P2 VSP (2/2)", 0x00573c4, 0x0057404 },
 #endif
-    { "Venom P2 VSP", 0x0057404, 0x0057484 },
-    { "Red Venom P2 VSP", 0x0057d04, 0x0057d84 },
-    { "Spider-Man P2 VSP", 0x00574c4, 0x0057544 },
+    { "Venom P2 VSP", 0x0057404, 0x0057484, 0x0E, 0x13 },
+    { "Red Venom P2 VSP", 0x0057d04, 0x0057d84, 0x0E, 0x13 },
+    { "Spider-Man P2 VSP", 0x00574c4, 0x0057544, 0x0C, 0x13 },
 #ifdef USE_LARGE_PALETTES
     { "Roll P2 VSP", 0x0057584, 0x0057644 },
 #else
@@ -1094,7 +1095,7 @@ const sGame_PaletteDataset MVC_A_VSP_PALETTES[] =
     { "Lilith P2 VSP (1/2)", 0x0058004, 0x0058084 },
     { "Lilith P2 VSP (2/2)", 0x0058084, 0x00580c4 },
 #endif
-    { "Megaman P2 VSP", 0x0057b84, 0x0057c04 },
+    { "Megaman P2 VSP", 0x0057b84, 0x0057c04, 0x1C, 0x13 },
 };
 
 const sGame_PaletteDataset MVC_A_CSP_PALETTES[] =
@@ -1151,186 +1152,187 @@ const sGame_PaletteDataset MVC_A_CSP_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_SUPERPORT_PALETTES[] =
 {
-    { "War Machine P1 Super", 0x0053e24, 0x0053ea4 },
-    { "Gold War Machine P1 Super", 0x0054a04, 0x0054a84 },
+    { "War Machine P1 Super", 0x0053e24, 0x0053ea4, 0x2E, 0x12 },
+    { "Gold War Machine P1 Super", 0x0054a04, 0x0054a84, 0x2E, 0x12 },
 #ifdef USE_LARGE_PALETTES
-    { "Captain America P1 Super", 0x0053ec4, 0x0053f64 },
+    { "Captain America P1 Super", 0x0053ec4, 0x0053f64, 0x0B, 0x12 },
 #else
-    { "Captain America P1 Super (1/2)", 0x0053ec4, 0x0053f44 },
-    { "Captain America P1 Super (2/2)", 0x0053f44, 0x0053f64 },
+    { "Captain America P1 Super (1/2)", 0x0053ec4, 0x0053f44, 0x0B, 0x12 },
+    { "Captain America P1 Super (2/2)", 0x0053f44, 0x0053f64, 0x0B, 0x12 },
 #endif
-    { "Hulk P1 Super", 0x0053f64, 0x0053f84 },
-    { "Orange Hulk P1 Super", 0x0054964, 0x0054984 },
-    { "Wolverine P1 Super", 0x0054004, 0x0054064 },
-    { "Gambit P1 Super", 0x00540a4, 0x0054124 },
-    { "Venom P1 Super", 0x0054144, 0x00541a4 },
-    { "Red Venom P1 Super", 0x00548c4, 0x0054924 },
-    { "Spider-Man P1 Super", 0x00541e4, 0x0054244 },
+    { "Hulk P1 Super", 0x0053f64, 0x0053f84, 0x0D, 0x12 },
+    { "Orange Hulk P1 Super", 0x0054964, 0x0054984, 0x0D, 0x12 },
+    { "Wolverine P1 Super", 0x0054004, 0x0054064, 0x07, 0x12 },
+    { "Gambit P1 Super", 0x00540a4, 0x0054124, 0x28, 0x12 },
+    { "Venom P1 Super", 0x0054144, 0x00541a4, 0x0E, 0x12 },
+    { "Red Venom P1 Super", 0x00548c4, 0x0054924, 0x0E, 0x12 },
+    { "Spider-Man P1 Super", 0x00541e4, 0x0054244, 0x0C, 0x12 },
 #ifdef USE_LARGE_PALETTES
-    { "Roll P1 Super", 0x0054284, 0x0054324 },
+    { "Roll P1 Super", 0x0054284, 0x0054324, 0x1D, 0x12 },
 #else
-    { "Roll P1 Super (1/2)", 0x0054284, 0x0054304 },
-    { "Roll P1 Super (2/2)", 0x0054304, 0x0054324 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Ryu P1 Super", 0x0054324, 0x00543c4 },
-#else
-    { "Ryu P1 Super (1/2)", 0x0054324, 0x00543a4 },
-    { "Ryu P1 Super (2/2)", 0x00543a4, 0x00543c4 },
+    { "Roll P1 Super (1/2)", 0x0054284, 0x0054304, 0x1D, 0x12 },
+    { "Roll P1 Super (2/2)", 0x0054304, 0x0054324, 0x1D, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Ken P1 Super", 0x0054be4, 0x0054c84 },
+    { "Ryu P1 Super", 0x0054324, 0x00543c4, 0x00, 0x12 },
 #else
-    { "Ken P1 Super (1/2)", 0x0054be4, 0x0054c64 },
-    { "Ken P1 Super (2/2)", 0x0054c64, 0x0054c84 },
+    { "Ryu P1 Super (1/2)", 0x0054324, 0x00543a4, 0x00, 0x12 },
+    { "Ryu P1 Super (2/2)", 0x00543a4, 0x00543c4, 0x00, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Gouki P1 Super", 0x0054c84, 0x0054d24 },
+    { "Ken P1 Super", 0x0054be4, 0x0054c84, 0x27, 0x12 },
 #else
-    { "Gouki P1 Super (1/2)", 0x0054c84, 0x0054d04 },
-    { "Gouki P1 Super (2/2)", 0x0054d04, 0x0054d24 },
+    { "Ken P1 Super (1/2)", 0x0054be4, 0x0054c64, 0x27, 0x12 },
+    { "Ken P1 Super (2/2)", 0x0054c64, 0x0054c84, 0x27, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Captain Commando P1 Super", 0x00543c4, 0x0054464 },
+    { "Gouki P1 Super", 0x0054c84, 0x0054d24, 0x1E, 0x12 },
 #else
-    { "Captain Commando P1 Super (1/2)", 0x00543c4, 0x0054444 },
-    { "Captain Commando P1 Super (2/2)", 0x0054444, 0x0054464 },
+    { "Gouki P1 Super (1/2)", 0x0054c84, 0x0054d04, 0x1E, 0x12 },
+    { "Gouki P1 Super (2/2)", 0x0054d04, 0x0054d24, 0x1E, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Chun-Li P1 Super", 0x0054464, 0x0054504 },
+    { "Captain Commando P1 Super", 0x00543c4, 0x0054464, 0x38, 0x12 },
 #else
-    { "Chun-Li P1 Super (1/2)", 0x0054464, 0x00544e4 },
-    { "Chun-Li P1 Super (2/2)", 0x00544e4, 0x0054504 },
+    { "Captain Commando P1 Super (1/2)", 0x00543c4, 0x0054444, 0x38, 0x12 },
+    { "Captain Commando P1 Super (2/2)", 0x0054444, 0x0054464, 0x38, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Shadow Lady P1 Super", 0x0054aa4, 0x0054b44 },
+    { "Chun-Li P1 Super", 0x0054464, 0x0054504, 0x1B, 0x12 },
 #else
-    { "Shadow Lady P1 Super (1/2)", 0x0054aa4, 0x0054b24 },
-    { "Shadow Lady P1 Super (2/2)", 0x0054b24, 0x0054b44 },
+    { "Chun-Li P1 Super (1/2)", 0x0054464, 0x00544e4, 0x1B, 0x12 },
+    { "Chun-Li P1 Super (2/2)", 0x00544e4, 0x0054504, 0x1B, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Jin P1 Super", 0x0054504, 0x00545a4 },
+    { "Shadow Lady P1 Super", 0x0054aa4, 0x0054b44, 0x1B, 0x12 },
 #else
-    { "Jin P1 Super (1/2)", 0x0054504, 0x0054584 },
-    { "Jin P1 Super (2/2)", 0x0054584, 0x00545a4 },
-#endif
-    { "Zangief P1 Super", 0x00545a4, 0x0054624 },
-    { "Mech-Zangief P1 Super", 0x0054d24, 0x0054da4 },
-#ifdef USE_LARGE_PALETTES
-    { "Strider Hiryu P1 Super", 0x0054644, 0x00546e4 },
-#else
-    { "Strider Hiryu P1 Super (1/2)", 0x0054644, 0x00546c4 },
-    { "Strider Hiryu P1 Super (2/2)", 0x00546c4, 0x00546e4 },
+    { "Shadow Lady P1 Super (1/2)", 0x0054aa4, 0x0054b24, 0x1B, 0x12 },
+    { "Shadow Lady P1 Super (2/2)", 0x0054b24, 0x0054b44, 0x1B, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Morrigan P1 Super", 0x00546e4, 0x0054784 },
+    { "Jin P1 Super", 0x0054504, 0x00545a4, 0x37, 0x12 },
 #else
-    { "Morrigan P1 Super (1/2)", 0x00546e4, 0x0054764 },
-    { "Morrigan P1 Super (2/2)", 0x0054764, 0x0054784 },
+    { "Jin P1 Super (1/2)", 0x0054504, 0x0054584, 0x37, 0x12 },
+    { "Jin P1 Super (2/2)", 0x0054584, 0x00545a4, 0x37, 0x12 },
+#endif
+    { "Zangief P1 Super", 0x00545a4, 0x0054624, 0x01, 0x12 },
+    { "Mech-Zangief P1 Super", 0x0054d24, 0x0054da4, 0x01, 0x12 },
+#ifdef USE_LARGE_PALETTES
+    { "Strider Hiryu P1 Super", 0x0054644, 0x00546e4, 0x05, 0x12 },
+#else
+    { "Strider Hiryu P1 Super (1/2)", 0x0054644, 0x00546c4, 0x05, 0x12 },
+    { "Strider Hiryu P1 Super (2/2)", 0x00546c4, 0x00546e4, 0x05, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Lilith P1 Super", 0x0054b44, 0x0054be4 },
+    { "Morrigan P1 Super", 0x00546e4, 0x0054784, 0x03, 0x12 },
 #else
-    { "Lilith P1 Super (1/2)", 0x0054b44, 0x0054bc4 },
-    { "Lilith P1 Super (2/2)", 0x0054bc4, 0x0054be4 },
+    { "Morrigan P1 Super (1/2)", 0x00546e4, 0x0054764, 0x03, 0x12 },
+    { "Morrigan P1 Super (2/2)", 0x0054764, 0x0054784, 0x03, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Megaman P1 Super", 0x0054784, 0x0054824 },
+    { "Lilith P1 Super", 0x0054b44, 0x0054be4, 0x03, 0x12 },
 #else
-    { "Megaman P1 Super (1/2)", 0x0054784, 0x0054804 },
-    { "Megaman P1 Super (2/2)", 0x0054804, 0x0054824 },
-#endif
-    { "Onslaught P1 Super", 0x0054824, 0x00548a4 },
-    { "War Machine P2 Super", 0x0054dc4, 0x0054e44 },
-    { "Golden War Machine P2 Super", 0x00559a4, 0x0055a24 },
-#ifdef USE_LARGE_PALETTES
-    { "Captain America P2 Super", 0x0054e64, 0x0054f04 },
-#else
-    { "Captain America P2 Super (1/2)", 0x0054e64, 0x0054ee4 },
-    { "Captain America P2 Super (2/2)", 0x0054ee4, 0x0054f04 },
-#endif
-    { "Hulk P2 Super", 0x0054f04, 0x0054f24 },
-    { "Orange Hulk P2 Super", 0x0055904, 0x0055924 },
-    { "Wolverine P2 Super", 0x0054fa4, 0x0055004 },
-    { "Gambit P2 Super", 0x0055044, 0x00550c4 },
-    { "Venom P2 Super", 0x00550e4, 0x0055144 },
-    { "Red Venom P2 Super", 0x0055864, 0x00558c4 },
-    { "Spider-Man P2 Super", 0x0055184, 0x00551e4 },
-#ifdef USE_LARGE_PALETTES
-    { "Roll P2 Super", 0x0055224, 0x00552c4 },
-#else
-    { "Roll P2 Super (1/2)", 0x0055224, 0x00552a4 },
-    { "Roll P2 Super (2/2)", 0x00552a4, 0x00552c4 },
+    { "Lilith P1 Super (1/2)", 0x0054b44, 0x0054bc4, 0x03, 0x12 },
+    { "Lilith P1 Super (2/2)", 0x0054bc4, 0x0054be4, 0x03, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Ryu P2 Super", 0x00552c4, 0x0055364 },
+    { "Megaman P1 Super", 0x0054784, 0x0054824, 0x1C, 0x12 },
 #else
-    { "Ryu P2 Super (1/2)", 0x00552c4, 0x0055344 },
-    { "Ryu P2 Super (2/2)", 0x0055344, 0x0055364 },
+    { "Megaman P1 Super (1/2)", 0x0054784, 0x0054804, 0x1C, 0x12 },
+    { "Megaman P1 Super (2/2)", 0x0054804, 0x0054824, 0x1C, 0x12 },
+#endif
+    { "Onslaught P1 Super", 0x0054824, 0x00548a4, 0x3B, 0x12 },
+
+    { "War Machine P2 Super", 0x0054dc4, 0x0054e44, 0x2E, 0x12 },
+    { "Golden War Machine P2 Super", 0x00559a4, 0x0055a24, 0x2E, 0x12 },
+#ifdef USE_LARGE_PALETTES
+    { "Captain America P2 Super", 0x0054e64, 0x0054f04, 0x0B, 0x12 },
+#else
+    { "Captain America P2 Super (1/2)", 0x0054e64, 0x0054ee4, 0x0B, 0x12 },
+    { "Captain America P2 Super (2/2)", 0x0054ee4, 0x0054f04, 0x0B, 0x12 },
+#endif
+    { "Hulk P2 Super", 0x0054f04, 0x0054f24, 0x0D, 0x12 },
+    { "Orange Hulk P2 Super", 0x0055904, 0x0055924, 0x0D, 0x12 },
+    { "Wolverine P2 Super", 0x0054fa4, 0x0055004, 0x07, 0x12 },
+    { "Gambit P2 Super", 0x0055044, 0x00550c4, 0x28, 0x12 },
+    { "Venom P2 Super", 0x00550e4, 0x0055144, 0x0E, 0x12 },
+    { "Red Venom P2 Super", 0x0055864, 0x00558c4, 0x0E, 0x12 },
+    { "Spider-Man P2 Super", 0x0055184, 0x00551e4, 0x0C, 0x12 },
+#ifdef USE_LARGE_PALETTES
+    { "Roll P2 Super", 0x0055224, 0x00552c4, 0x1D, 0x12 },
+#else
+    { "Roll P2 Super (1/2)", 0x0055224, 0x00552a4, 0x1D, 0x12 },
+    { "Roll P2 Super (2/2)", 0x00552a4, 0x00552c4, 0x1D, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Ken P2 Super", 0x0055b84, 0x0055c24 },
+    { "Ryu P2 Super", 0x00552c4, 0x0055364, 0x00, 0x12 },
 #else
-    { "Ken P2 Super (1/2)", 0x0055b84, 0x0055c04 },
-    { "Ken P2 Super (2/2)", 0x0055c04, 0x0055c24 },
+    { "Ryu P2 Super (1/2)", 0x00552c4, 0x0055344, 0x00, 0x12 },
+    { "Ryu P2 Super (2/2)", 0x0055344, 0x0055364, 0x00, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Gouki P2 Super", 0x0055c24, 0x0055cc4 },
+    { "Ken P2 Super", 0x0055b84, 0x0055c24, 0x27, 0x12 },
 #else
-    { "Gouki P2 Super (1/2)", 0x0055c24, 0x0055ca4 },
-    { "Gouki P2 Super (2/2)", 0x0055ca4, 0x0055cc4 },
+    { "Ken P2 Super (1/2)", 0x0055b84, 0x0055c04, 0x27, 0x12 },
+    { "Ken P2 Super (2/2)", 0x0055c04, 0x0055c24, 0x27, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Captain Commando P2 Super", 0x0055364, 0x0055404 },
+    { "Gouki P2 Super", 0x0055c24, 0x0055cc4, 0x1E, 0x12 },
 #else
-    { "Captain Commando P2 Super (1/2)", 0x0055364, 0x00553e4 },
-    { "Captain Commando P2 Super (2/2)", 0x00553e4, 0x0055404 },
+    { "Gouki P2 Super (1/2)", 0x0055c24, 0x0055ca4, 0x1E, 0x12 },
+    { "Gouki P2 Super (2/2)", 0x0055ca4, 0x0055cc4, 0x1E, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Chun-Li P2 Super", 0x0055404, 0x00554a4 },
+    { "Captain Commando P2 Super", 0x0055364, 0x0055404, 0x38, 0x12 },
 #else
-    { "Chun-Li P2 Super (1/2)", 0x0055404, 0x0055484 },
-    { "Chun-Li P2 Super (2/2)", 0x0055484, 0x00554a4 },
+    { "Captain Commando P2 Super (1/2)", 0x0055364, 0x00553e4, 0x38, 0x12 },
+    { "Captain Commando P2 Super (2/2)", 0x00553e4, 0x0055404, 0x38, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Shadow Lady P2 Super", 0x0055a44, 0x0055ae4 },
+    { "Chun-Li P2 Super", 0x0055404, 0x00554a4, 0x1B, 0x12 },
 #else
-    { "Shadow Lady P2 Super (1/2)", 0x0055a44, 0x0055ac4 },
-    { "Shadow Lady P2 Super (2/2)", 0x0055ac4, 0x0055ae4 },
+    { "Chun-Li P2 Super (1/2)", 0x0055404, 0x0055484, 0x1B, 0x12 },
+    { "Chun-Li P2 Super (2/2)", 0x0055484, 0x00554a4, 0x1B, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Jin P2 Super", 0x00554a4, 0x0055544 },
+    { "Shadow Lady P2 Super", 0x0055a44, 0x0055ae4, 0x1B, 0x12 },
 #else
-    { "Jin P2 Super (1/2)", 0x00554a4, 0x0055524 },
-    { "Jin P2 Super (2/2)", 0x0055524, 0x0055544 },
-#endif
-    { "Zangief P2 Super", 0x0055544, 0x00555c4 },
-    { "Mech-Zangief P2 Super", 0x0055cc4, 0x0055d44 },
-#ifdef USE_LARGE_PALETTES
-    { "Strider Hiryu P2 Super", 0x00555e4, 0x0055684 },
-#else
-    { "Strider Hiryu P2 Super (1/2)", 0x00555e4, 0x0055664 },
-    { "Strider Hiryu P2 Super (2/2)", 0x0055664, 0x0055684 },
+    { "Shadow Lady P2 Super (1/2)", 0x0055a44, 0x0055ac4, 0x1B, 0x12 },
+    { "Shadow Lady P2 Super (2/2)", 0x0055ac4, 0x0055ae4, 0x1B, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Morrigan P2 Super", 0x0055684, 0x0055724 },
+    { "Jin P2 Super", 0x00554a4, 0x0055544, 0x37, 0x12 },
 #else
-    { "Morrigan P2 Super (1/2)", 0x0055684, 0x0055704 },
-    { "Morrigan P2 Super (2/2)", 0x0055704, 0x0055724 },
+    { "Jin P2 Super (1/2)", 0x00554a4, 0x0055524, 0x37, 0x12 },
+    { "Jin P2 Super (2/2)", 0x0055524, 0x0055544, 0x37, 0x12 },
+#endif
+    { "Zangief P2 Super", 0x0055544, 0x00555c4, 0x01, 0x12 },
+    { "Mech-Zangief P2 Super", 0x0055cc4, 0x0055d44, 0x01, 0x12 },
+#ifdef USE_LARGE_PALETTES
+    { "Strider Hiryu P2 Super", 0x00555e4, 0x0055684, 0x05, 0x12 },
+#else
+    { "Strider Hiryu P2 Super (1/2)", 0x00555e4, 0x0055664, 0x05, 0x12 },
+    { "Strider Hiryu P2 Super (2/2)", 0x0055664, 0x0055684, 0x05, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Lilith P2 Super", 0x0055ae4, 0x0055b84 },
+    { "Morrigan P2 Super", 0x0055684, 0x0055724, 0x03, 0x12 },
 #else
-    { "Lilith P2 Super (1/2)", 0x0055ae4, 0x0055b64 },
-    { "Lilith P2 Super (2/2)", 0x0055b64, 0x0055b84 },
+    { "Morrigan P2 Super (1/2)", 0x0055684, 0x0055704, 0x03, 0x12 },
+    { "Morrigan P2 Super (2/2)", 0x0055704, 0x0055724, 0x03, 0x12 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Megaman P2 Super", 0x0055724, 0x00557c4 },
+    { "Lilith P2 Super", 0x0055ae4, 0x0055b84, 0x03, 0x12 },
 #else
-    { "Megaman P2 Super (1/2)", 0x0055724, 0x00557a4 },
-    { "Megaman P2 Super (2/2)", 0x00557a4, 0x00557c4 },
+    { "Lilith P2 Super (1/2)", 0x0055ae4, 0x0055b64, 0x03, 0x12 },
+    { "Lilith P2 Super (2/2)", 0x0055b64, 0x0055b84, 0x03, 0x12 },
 #endif
-    { "Onslaught P2 Super", 0x00557c4, 0x0055844 },
+#ifdef USE_LARGE_PALETTES
+    { "Megaman P2 Super", 0x0055724, 0x00557c4, 0x1C, 0x12 },
+#else
+    { "Megaman P2 Super (1/2)", 0x0055724, 0x00557a4, 0x1C, 0x12 },
+    { "Megaman P2 Super (2/2)", 0x00557a4, 0x00557c4, 0x1C, 0x12 },
+#endif
+    { "Onslaught P2 Super", 0x00557c4, 0x0055844, 0x3B, 0x12 },
 };
 
 const sGame_PaletteDataset MVC_A_CSIS_PALETTES[] =

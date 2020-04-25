@@ -38,11 +38,11 @@ const CHAR g_GameFriendlyName[NUM_GAMES][32] =
 constexpr auto MVC2_D_NUMUNIT = 59;
 constexpr auto SFIII3_A_NUMUNIT = 20;   
 
-constexpr auto SFA3_A_UNIQUE_IMG_UNITS = 17;
-constexpr auto XMVSF_A_UNIQUE_IMG_UNITS = 2; // Apocalypse
-constexpr auto MVC_A_UNIQUE_IMG_UNITS = 2;   // Onslaught
-constexpr auto MSH_A_UNIQUE_IMG_UNITS = 2;
-constexpr auto MSHVSF_A_UNIQUE_IMG_UNITS = 3;
+constexpr auto SFA3_A_UNIQUE_IMG_UNITS = 18; // Unique 17 Characters[3D - 4D] + Unique Assets(HUD, Stages)[4E]
+constexpr auto XMVSF_A_UNIQUE_IMG_UNITS = 2; // Apocalypse[4F] + Unique Assets(HUD, Stages)[50]
+constexpr auto MVC_A_UNIQUE_IMG_UNITS = 2;   // Onslaught[3B] + Unique Assets(HUD, Stages, Assists)[3C]
+constexpr auto MSH_A_UNIQUE_IMG_UNITS = 2;   // Anita[51] + Unique Assets(HUD, Stages)[52]
+constexpr auto MSHVSF_A_UNIQUE_IMG_UNITS = 3; // Norimaro[53] + Cyber-Akuma[54] + Unique Assets(HUD, Stages)[55]
 
 constexpr auto MVC_A_IMGSTART = MVC2_D_NUMUNIT; // MVC2, then MVC1
 constexpr auto SFA3_A_IMGSTART = MVC_A_IMGSTART + MVC_A_UNIQUE_IMG_UNITS;  // MVC1, then SFA3
@@ -56,7 +56,7 @@ constexpr auto SSF2T_A_NUM_IMG_UNITS = 17;
 constexpr auto SFIII3_A_NUM_IMG_UNITS = 20;
 constexpr auto SFA3_A_NUM_IMG_UNITS = 28;
 constexpr auto XMVSF_A_NUM_IMG_UNITS = 18;
-constexpr auto MVC_A_NUM_IMG_UNITS = 31;
+constexpr auto MVC_A_NUM_IMG_UNITS = 32;
 constexpr auto MSH_A_NUM_IMG_UNITS = 11;
 constexpr auto MSHVSF_A_NUM_IMG_UNITS = 23;
 
@@ -338,7 +338,7 @@ const UINT8 XMVSF_A_IMG_UNITS[XMVSF_A_NUM_IMG_UNITS] =
     0x2A, // Storm
     0x2B, // Sabretooth
     0x2C, // Magneto
-    0x4D  // Apocalypse
+    0x4F  // Apocalypse
 };
 
 const UINT8 MVC_A_IMG_UNITS[MVC_A_NUM_IMG_UNITS] =
@@ -378,6 +378,7 @@ const UINT8 MVC_A_IMG_UNITS[MVC_A_NUM_IMG_UNITS] =
     0x32, // Colossus
     0x34,  // Sentinel
     0x33, // Iron Man
+    0x51,  // Anita
 };
 
 const UINT8 MSH_A_IMG_UNITS[MSH_A_NUM_IMG_UNITS] =
@@ -419,9 +420,9 @@ const UINT8 MSHVSF_A_IMG_UNITS[MSHVSF_A_NUM_IMG_UNITS] =
     0x30, // Omega Red
     0x35, // Blackheart
     0x35, // Mephisto
-    //0xZZ, // Apocalypse
+    0x4F, // Apocalypse
     //0xZZ, // Cyber Gouki
-    //0xZZ, // Norimaro
+    0x53, // Norimaro
 };
 
 const UINT8 JOJOS_A_IMG_UNITS[JOJOS_A_NUM_IMG_UNITS] =

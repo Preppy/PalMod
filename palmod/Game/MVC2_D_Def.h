@@ -349,7 +349,7 @@ const UINT16 MVC2_D_EXTRADEF[] =
     // 3b -49: rotates between lilith and morrigan up-poses as the cloak comes down
     // 86 taunt
     EXTRA_START | 0x04, // Anakaris
-    0, 1, 1, 1 ,1, 0, 0, // up hands, ... weird balls, giant super body, worshipper doll
+    0, 1, 1, 1, 1, 0, 0, // up hands, ... weird balls, giant super body, worshipper doll
     0,
     EXTRA_START | 0x05, // Strider    
     1, 1, 0, 0, 0, 0, 0, // weapons, dogs

@@ -304,16 +304,16 @@ const sXMVSF_PaletteDataset XMVSF_A_Ryu_PALETTES_Extras[] =
 
 const sXMVSF_PaletteDataset XMVSF_A_Apocalypse_PALETTES_P1[] =
 {
-    { "Palette (00)", 0x157dc, 0x10, 0x5d },
-    { "Palette (01)", 0x157fc, 0x10, 0x5d },
-    { "Palette (02)", 0x1581c, 0x10, 0x5d },
+    { "Palette (00)", 0x157dc, 0x10, 0x4F },
+    { "Palette (01)", 0x157fc, 0x10, 0x4F },
+    { "Palette (02)", 0x1581c, 0x10 },
 };
 
 const sXMVSF_PaletteDataset XMVSF_A_Apocalypse_PALETTES_P2[] =
 {
-    { "Palette (03)", 0x1583c, 0x10, 0x5d },
-    { "Palette (04)", 0x1585c, 0x10, 0x5d },
-    { "Palette (05)", 0x1587c, 0x10, 0x5d },
+    { "Palette (03)", 0x1583c, 0x10, 0x4F },
+    { "Palette (04)", 0x1585c, 0x10, 0x4F },
+    { "Palette (05)", 0x1587c, 0x10, 0x4F },
 };
 
 const sXMVSF_PaletteDataset XMVSF_A_Apocalypse_PALETTES_Extras[] =

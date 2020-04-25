@@ -343,29 +343,43 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
         if (((uPalId >= (0x0B + EXTRA_OMNI)) && (uPalId <= (0x13 + EXTRA_OMNI))) || // Megaman intros
             ((uPalId >= (0x2F + EXTRA_OMNI)) && (uPalId <= (0x37 + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0x4C + EXTRA_OMNI)) && (uPalId <= (0x54 + EXTRA_OMNI))) || // Hyper Megaman
 
             ((uPalId >= (0x62 + EXTRA_OMNI)) && (uPalId <= (0x6A + EXTRA_OMNI))) || // Megaman intros
             ((uPalId >= (0x86 + EXTRA_OMNI)) && (uPalId <= (0x8E + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0xA3 + EXTRA_OMNI)) && (uPalId <= (0xAB + EXTRA_OMNI))) || // Hyper Megaman
 
             ((uPalId >= (0xB9 + EXTRA_OMNI)) && (uPalId <= (0xC1 + EXTRA_OMNI))) || // Megaman intros
             ((uPalId >= (0xDD + EXTRA_OMNI)) && (uPalId <= (0xE5 + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0xFA + EXTRA_OMNI)) && (uPalId <= (0x102 + EXTRA_OMNI))) ||  // Hyper Megaman
 
             ((uPalId >= (0x110 + EXTRA_OMNI)) && (uPalId <= (0x118 + EXTRA_OMNI))) || // Megaman intros
             ((uPalId >= (0x134 + EXTRA_OMNI)) && (uPalId <= (0x13c + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0x151 + EXTRA_OMNI)) && (uPalId <= (0x159 + EXTRA_OMNI))) || // Hyper Megaman
 
             ((uPalId >= (0x167 + EXTRA_OMNI)) && (uPalId <= (0x16F + EXTRA_OMNI))) || // Megaman intros
             ((uPalId >= (0x18B + EXTRA_OMNI)) && (uPalId <= (0x193 + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0x1A8 + EXTRA_OMNI)) && (uPalId <= (0x1B0 + EXTRA_OMNI))) || // Hyper Megaman
 
             ((uPalId >= (0x1BE + EXTRA_OMNI)) && (uPalId <= (0x1C6 + EXTRA_OMNI))) || // Megaman intros
-            ((uPalId >= (0x1E2 + EXTRA_OMNI)) && (uPalId <= (0x1EA + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0x1FF + EXTRA_OMNI)) && (uPalId <= (0x207 + EXTRA_OMNI))))  // Hyper Megaman
+            ((uPalId >= (0x1E2 + EXTRA_OMNI)) && (uPalId <= (0x1EA + EXTRA_OMNI))))   // Charging buster
         {
             SetExtraImg(0, uUnitId, uPalId);
+            break;
+        }
+        else if ((uPalId == (0x9 + EXTRA_OMNI)) || // hair
+                 (uPalId == (0x60 + EXTRA_OMNI)) ||
+                 (uPalId == (0xB7 + EXTRA_OMNI)) ||
+                 (uPalId == (0xB7 + EXTRA_OMNI)) ||
+                 (uPalId == (0x10E + EXTRA_OMNI)) ||
+                 (uPalId == (0x165 + EXTRA_OMNI)))
+        {
+            nTargetImgId = 0x06; // hair! BUGBUG NEED TO ADJUST
+            break;
+        }
+        else if ((uPalId == (0x42 + EXTRA_OMNI)) || // Dr Light
+                 (uPalId == (0x99 + EXTRA_OMNI)) ||
+                 (uPalId == (0xEF + EXTRA_OMNI)) ||
+                 (uPalId == (0x147 + EXTRA_OMNI)) ||
+                 (uPalId == (0x19E + EXTRA_OMNI)) ||
+                 (uPalId == (0x1F5 + EXTRA_OMNI)))
+        {
+            nTargetImgId = 0x05; // dr light! BUGBUG NEED TO ADJUST
             break;
         }
         else if ((uPalId == (0x5E + EXTRA_OMNI)) || // Roll
@@ -396,6 +410,66 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  ((uPalId >= (0x1C7 + EXTRA_OMNI)) && (uPalId <= (0x1CF + EXTRA_OMNI))))
         {
             nTargetImgId = 1; // Rush
+            break;
+        }
+        else if (((uPalId >= (0x1D + EXTRA_OMNI)) && (uPalId <= (0x25 + EXTRA_OMNI))) || // Beat
+                 ((uPalId >= (0x74 + EXTRA_OMNI)) && (uPalId <= (0x7C + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xCB + EXTRA_OMNI)) && (uPalId <= (0xD3 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x122 + EXTRA_OMNI)) && (uPalId <= (0x12A + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x179 + EXTRA_OMNI)) && (uPalId <= (0x181 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1D0 + EXTRA_OMNI)) && (uPalId <= (0x1D8 + EXTRA_OMNI))))
+        {
+            nTargetImgId = 3; // Beat HACK BUGBUG: FIX WITH NEW IMGDAT
+            break;
+        }
+        else if (((uPalId >= (0x26 + EXTRA_OMNI)) && (uPalId <= (0x2E + EXTRA_OMNI))) || // Beat Plane
+                 ((uPalId >= (0x7D + EXTRA_OMNI)) && (uPalId <= (0x85 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xD4 + EXTRA_OMNI)) && (uPalId <= (0xDC + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x12B + EXTRA_OMNI)) && (uPalId <= (0x133 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x182 + EXTRA_OMNI)) && (uPalId <= (0x18A + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1D9 + EXTRA_OMNI)) && (uPalId <= (0x1E1 + EXTRA_OMNI))))
+        {
+            nTargetImgId = 0x04; // Beat HACK BUGBUG: FIX WITH NEW IMGDAT
+            break;
+        }
+        else if (((uPalId >= (0x38 + EXTRA_OMNI)) && (uPalId <= (0x40 + EXTRA_OMNI))) || // Rush Drill
+                 ((uPalId >= (0x8F + EXTRA_OMNI)) && (uPalId <= (0x97 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xE6 + EXTRA_OMNI)) && (uPalId <= (0xED + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x13D + EXTRA_OMNI)) && (uPalId <= (0x145 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x194 + EXTRA_OMNI)) && (uPalId <= (0x19C + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1EB + EXTRA_OMNI)) && (uPalId <= (0x1F3 + EXTRA_OMNI))))
+        {
+            nTargetImgId = 0x02; // Beat HACK BUGBUG: FIX WITH NEW IMGDAT
+            break;
+        }
+        else if (((uPalId >= (0x43 + EXTRA_OMNI)) && (uPalId <= (0x4B + EXTRA_OMNI))) || // Hyper Megaman: Armor
+                 ((uPalId >= (0x9A + EXTRA_OMNI)) && (uPalId <= (0xA2 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xF1 + EXTRA_OMNI)) && (uPalId <= (0xF9 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x148 + EXTRA_OMNI)) && (uPalId <= (0x150 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x19F + EXTRA_OMNI)) && (uPalId <= (0x1A7 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1F6 + EXTRA_OMNI)) && (uPalId <= (0x1FE + EXTRA_OMNI))))
+        {
+            nTargetImgId = 0x07; // Beat HACK BUGBUG: FIX WITH NEW IMGDAT
+            break;
+        }
+        else if (((uPalId >= (0x4C + EXTRA_OMNI)) && (uPalId <= (0x54 + EXTRA_OMNI))) || // Hyper Megaman: core
+                 ((uPalId >= (0xA3 + EXTRA_OMNI)) && (uPalId <= (0xAB + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xFA + EXTRA_OMNI)) && (uPalId <= (0x102 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x151 + EXTRA_OMNI)) && (uPalId <= (0x159 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1A8 + EXTRA_OMNI)) && (uPalId <= (0x1B0 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1FF + EXTRA_OMNI)) && (uPalId <= (0x207 + EXTRA_OMNI))))
+        {
+            nTargetImgId = 0x08; // Beat HACK BUGBUG: FIX WITH NEW IMGDAT
+            break;
+        }
+        else if ((uPalId == (0x55 + EXTRA_OMNI)) || // HMM missiles
+                 (uPalId == (0xAC + EXTRA_OMNI)) ||
+                 (uPalId == (0x103 + EXTRA_OMNI)) ||
+                 (uPalId == (0x15A + EXTRA_OMNI)) ||
+                 (uPalId == (0x1B1 + EXTRA_OMNI)) ||
+                 (uPalId == (0x208 + EXTRA_OMNI)))
+        {
+            nTargetImgId = 0x09; // HMM missiles! BUGBUG NEED TO ADJUST
             break;
         }
         else if ((uPalId == 0x2) || // Temporary fix to avoid pulling in MVC's CSPs
