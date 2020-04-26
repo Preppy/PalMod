@@ -1,5 +1,6 @@
 #include "StdAfx.h"
-#include ".\junk.h"
+#include "junk.h"
+#include "PalMod.h"
 
 //This is used for the edit commands
 #include "resource.h"
@@ -88,7 +89,15 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
     {
         if (nNewAmt > PAL_MAXAMT)
         {
-            OutputDebugString("ERROR: Our color table can only show 64 colors!\n");
+            CString strError;
+            static bool s_fAlreadyShown = false;
+            strError = "ERROR: Our color table can only show 64 colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n";
+            OutputDebugString(strError);
+            if (!s_fAlreadyShown)
+            {
+                //s_fAlreadyShown = true;
+                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+            }
             return FALSE;
         }
 

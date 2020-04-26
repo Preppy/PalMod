@@ -376,9 +376,9 @@ const UINT8 MVC_A_IMG_UNITS[MVC_A_NUM_IMG_UNITS] =
     0x2A, // Storm
     0x2C, // Magneto
     0x32, // Colossus
-    0x34,  // Sentinel
+    0x34, // Sentinel
     0x33, // Iron Man
-    0x51,  // Anita
+    0x51, // Anita
 };
 
 const UINT8 MSH_A_IMG_UNITS[MSH_A_NUM_IMG_UNITS] =

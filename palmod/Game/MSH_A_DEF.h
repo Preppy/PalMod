@@ -71,8 +71,7 @@ const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_P2[] =
 
 const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_EXTRAS[] =
 {
-
-    {"Photon Array (Shared)",  0x6530E, 0x6532E },
+    {"Photon Array (Shared)", 0x6530E, 0x6532E },
     {"Photon Array (Shared)", 0x6532E, 0x6534E },
     {"Photon Array (Shared)", 0x6534E, 0x6536E },
     {"Extras 1 (MP + HP, Shared)", 0x6536E, 0x6538E },

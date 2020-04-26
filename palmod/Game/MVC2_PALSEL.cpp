@@ -17,6 +17,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     int nSpecOffs;
     BOOL bLoadDefPal = TRUE;
+    bool fImgIsFromNewImgDatRange = false;
 
     sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
@@ -369,7 +370,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  (uPalId == (0x10E + EXTRA_OMNI)) ||
                  (uPalId == (0x165 + EXTRA_OMNI)))
         {
-            nTargetImgId = 0x06; // hair! BUGBUG NEED TO ADJUST
+            fImgIsFromNewImgDatRange = true;
+            nTargetImgId = 0x26;
             break;
         }
         else if ((uPalId == (0x42 + EXTRA_OMNI)) || // Dr Light
@@ -379,7 +381,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  (uPalId == (0x19E + EXTRA_OMNI)) ||
                  (uPalId == (0x1F5 + EXTRA_OMNI)))
         {
-            nTargetImgId = 0x05; // dr light! BUGBUG NEED TO ADJUST
+            fImgIsFromNewImgDatRange = true;
+            nTargetImgId = 0x25;
             break;
         }
         else if ((uPalId == (0x5E + EXTRA_OMNI)) || // Roll
@@ -398,7 +401,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(0, uUnitId, uPalId, 1, 1);
 
             break;
         }
@@ -419,7 +422,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  ((uPalId >= (0x179 + EXTRA_OMNI)) && (uPalId <= (0x181 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x1D0 + EXTRA_OMNI)) && (uPalId <= (0x1D8 + EXTRA_OMNI))))
         {
-            nTargetImgId = 3; // Beat HACK BUGBUG: FIX WITH NEW IMGDAT
+            nTargetImgId = 2;
             break;
         }
         else if (((uPalId >= (0x26 + EXTRA_OMNI)) && (uPalId <= (0x2E + EXTRA_OMNI))) || // Beat Plane
@@ -429,7 +432,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  ((uPalId >= (0x182 + EXTRA_OMNI)) && (uPalId <= (0x18A + EXTRA_OMNI))) ||
                  ((uPalId >= (0x1D9 + EXTRA_OMNI)) && (uPalId <= (0x1E1 + EXTRA_OMNI))))
         {
-            nTargetImgId = 0x04; // Beat HACK BUGBUG: FIX WITH NEW IMGDAT
+            fImgIsFromNewImgDatRange = true;
+            nTargetImgId = 0x24;
             break;
         }
         else if (((uPalId >= (0x38 + EXTRA_OMNI)) && (uPalId <= (0x40 + EXTRA_OMNI))) || // Rush Drill
@@ -439,7 +443,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  ((uPalId >= (0x194 + EXTRA_OMNI)) && (uPalId <= (0x19C + EXTRA_OMNI))) ||
                  ((uPalId >= (0x1EB + EXTRA_OMNI)) && (uPalId <= (0x1F3 + EXTRA_OMNI))))
         {
-            nTargetImgId = 0x02; // Beat HACK BUGBUG: FIX WITH NEW IMGDAT
+            fImgIsFromNewImgDatRange = true;
+            nTargetImgId = 0x22;
             break;
         }
         else if (((uPalId >= (0x43 + EXTRA_OMNI)) && (uPalId <= (0x4B + EXTRA_OMNI))) || // Hyper Megaman: Armor
@@ -449,7 +454,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  ((uPalId >= (0x19F + EXTRA_OMNI)) && (uPalId <= (0x1A7 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x1F6 + EXTRA_OMNI)) && (uPalId <= (0x1FE + EXTRA_OMNI))))
         {
-            nTargetImgId = 0x07; // Beat HACK BUGBUG: FIX WITH NEW IMGDAT
+            fImgIsFromNewImgDatRange = true;
+            nTargetImgId = 0x27;
             break;
         }
         else if (((uPalId >= (0x4C + EXTRA_OMNI)) && (uPalId <= (0x54 + EXTRA_OMNI))) || // Hyper Megaman: core
@@ -459,7 +465,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  ((uPalId >= (0x1A8 + EXTRA_OMNI)) && (uPalId <= (0x1B0 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x1FF + EXTRA_OMNI)) && (uPalId <= (0x207 + EXTRA_OMNI))))
         {
-            nTargetImgId = 0x08; // Beat HACK BUGBUG: FIX WITH NEW IMGDAT
+            fImgIsFromNewImgDatRange = true;
+            nTargetImgId = 0x28;
             break;
         }
         else if ((uPalId == (0x55 + EXTRA_OMNI)) || // HMM missiles
@@ -469,26 +476,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  (uPalId == (0x1B1 + EXTRA_OMNI)) ||
                  (uPalId == (0x208 + EXTRA_OMNI)))
         {
-            nTargetImgId = 0x09; // HMM missiles! BUGBUG NEED TO ADJUST
-            break;
-        }
-        else if ((uPalId == 0x2) || // Temporary fix to avoid pulling in MVC's CSPs
-                 (uPalId == 0xA) ||
-                 (uPalId == 0x12) ||
-                 (uPalId == 0x1A) ||
-                 (uPalId == 0x22) ||
-                 (uPalId == 0x2A))
-        {
-            bLoadDefPal = FALSE;
-
-            nImgUnitId = 0x1D;
-            nTargetImgId = INVALID_UNIT_VALUE; // We don't have Beat yet.
-
-            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-            CreateDefPal(NodeGet, 0);
-
-            SetSourcePal(0, uUnitId, 0, 6, 8);
+            fImgIsFromNewImgDatRange = true;
+            nTargetImgId = 0x29;
             break;
         }
 
@@ -539,7 +528,27 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(0, uUnitId, uPalId, 1, 1);
+
+            break;
+        }
+        else if ((uPalId == (0x9 + EXTRA_OMNI)) || // Megaman's hair
+                 (uPalId == (0x60 + EXTRA_OMNI)) ||
+                 (uPalId == (0xB7 + EXTRA_OMNI)) ||
+                 (uPalId == (0xB7 + EXTRA_OMNI)) ||
+                 (uPalId == (0x10E + EXTRA_OMNI)) ||
+                 (uPalId == (0x165 + EXTRA_OMNI)))
+        {
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x1C;
+            nTargetImgId = 0x26;
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, uPalId, 1, 1);
 
             break;
         }
@@ -565,7 +574,86 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
+            const int nBasicOffset = GetBasicOffset(uPalId);
+            if (nBasicOffset != -1)
+            {
+                SetSourcePal(0, uUnitId, nBasicOffset, 6, 8);
+            }
+            else
+            {
+                SetSourcePal(0, uUnitId, uPalId, 1, 1);
+            }
+            break;
+        }
+        else if ((uPalId == 0x2) || // Pull in Megaman's Beat sprite
+                 (uPalId == 0xA) ||
+                 (uPalId == 0x12) ||
+                 (uPalId == 0x1A) ||
+                 (uPalId == 0x22) ||
+                 (uPalId == 0x2A) ||
+                 ((uPalId >= (0x1D + EXTRA_OMNI)) && (uPalId <= (0x25 + EXTRA_OMNI))) || // Beat
+                 ((uPalId >= (0x74 + EXTRA_OMNI)) && (uPalId <= (0x7C + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xCB + EXTRA_OMNI)) && (uPalId <= (0xD3 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x122 + EXTRA_OMNI)) && (uPalId <= (0x12A + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x179 + EXTRA_OMNI)) && (uPalId <= (0x181 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1D0 + EXTRA_OMNI)) && (uPalId <= (0x1D8 + EXTRA_OMNI))))
+        {
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x1C;
+            nTargetImgId = 0x2; // Beat!
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            const int nBasicOffset = GetBasicOffset(uPalId);
+            if (nBasicOffset != -1)
+            {
+                SetSourcePal(0, uUnitId, nBasicOffset, 6, 8);
+            }
+            else
+            {
+                SetSourcePal(0, uUnitId, uPalId, 1, 1);
+            }
+            break;
+        }
+        else if (((uPalId >= (0x26 + EXTRA_OMNI)) && (uPalId <= (0x2E + EXTRA_OMNI))) || // Beat Plane
+                 ((uPalId >= (0x7D + EXTRA_OMNI)) && (uPalId <= (0x85 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xD4 + EXTRA_OMNI)) && (uPalId <= (0xDC + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x12B + EXTRA_OMNI)) && (uPalId <= (0x133 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x182 + EXTRA_OMNI)) && (uPalId <= (0x18A + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1D9 + EXTRA_OMNI)) && (uPalId <= (0x1E1 + EXTRA_OMNI))))
+        {
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x1C;
+            nTargetImgId = 0x24; // Beat plane
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, uPalId, 1, 1);
+            break;
+        }
+        else if (((uPalId >= (0x38 + EXTRA_OMNI)) && (uPalId <= (0x40 + EXTRA_OMNI))) || // Rush Drill
+                 ((uPalId >= (0x8F + EXTRA_OMNI)) && (uPalId <= (0x97 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xE6 + EXTRA_OMNI)) && (uPalId <= (0xED + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x13D + EXTRA_OMNI)) && (uPalId <= (0x145 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x194 + EXTRA_OMNI)) && (uPalId <= (0x19C + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1EB + EXTRA_OMNI)) && (uPalId <= (0x1F3 + EXTRA_OMNI))))
+        {
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x1C;
+            nTargetImgId = 0x22; // rush drill
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, uPalId, 1, 1);
             break;
         }
 
@@ -922,13 +1010,26 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nBasicOffset = 4;
         }
 
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId ? (nTargetImgId & 0x000F) : nBasicOffset));
+        // I'm unclear why there's a flag here, but fImgIsFromNewImgDatRange allows us to sidestep compatibility concerns.
+        const int nBitFlagToUse = fImgIsFromNewImgDatRange ? 0xFF : 0x0F;
+
+        if (nTargetImgId > nBitFlagToUse)
+        {
+            OutputDebugString("WARNING: The desired nTargetImgId is out of range and is being modified\n");
+        }
+
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId ? (nTargetImgId & nBitFlagToUse) : nBasicOffset));
 
         CreateDefPal(NodeGet, 0);
 
         if (nBasicOffset != -1)
         {
             SetSourcePal(0, uUnitId, nBasicOffset, 6, 8);
+        }
+        else
+        {
+            // Disable multisprite export for now.  Otherwise you would need to do the math.
+            SetSourcePal(0, uUnitId, uPalId, 1, 1);
         }
         //else
         //{
