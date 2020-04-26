@@ -557,9 +557,9 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
 {
-    { "Palette 1", 0x49044, 0x49064 },
-    { "Palette 2", 0x49064, 0x49084 },
-    { "Palette 3", 0x49084, 0x490a4 },
+    { "Main Body", 0x49044, 0x49064, 0x3B },
+    { "Charles Intro", 0x49064, 0x49084, 0x3B, 0x01 },
+    { "Sparkles", 0x49084, 0x490a4, 0x3B, 0x02 },
 };
 
 const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_P1[] =
