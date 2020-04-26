@@ -61,7 +61,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
 
     //Set the image out display type
     DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_NOBUTTONS);
+    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_JOJOS_5);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -654,6 +654,48 @@ UINT16 CGame_JOJOS_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
+const sDescTreeNode* CGame_JOJOS_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+{
+    // Don't use this for Extra palettes.
+    const sDescTreeNode* pCollectionNode = nullptr;
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sGame_PaletteDataset* paletteSetToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+
+    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount;
+
+        if (nUnitId == m_nExtraUnit)
+        {
+            nNodeCount = GetExtraCt(nUnitId);
+
+            if (nDistanceFromZero < nNodeCount)
+            {
+                pCollectionNode = nullptr;
+                break;
+            }
+        }
+        else
+        {
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(UsePaletteSetFor50() ? JOJOS_UNITS_50[nUnitId].ChildNodes  : JOJOS_UNITS_51[nUnitId].ChildNodes);
+
+            nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
+
+            if (nDistanceFromZero < nNodeCount)
+            {
+                pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
+                break;
+            }
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+
+    return pCollectionNode;
+}
+
 const sGame_PaletteDataset* CGame_JOJOS_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
@@ -891,18 +933,34 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 {
                     if (NodeGet->uUnitId == 0x01) // Kakyo
                     {
+                        // This gets us the correct node increment as well as a pointer to the current base palette.
+                        const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                        
+                        UINT16 nKakyoPaletteOffset = (NodeGet->uPalId % pCurrentNode->uChildAmt);
+                        UINT16 nKakyoPaletteId = NodeGet->uPalId - nKakyoPaletteOffset;
+
+                        const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nKakyoPaletteId);
+                        int nXOffs = 0, nYOffs = 0;
+                        nSrcAmt = 5; // We can enable multisprite export here.
+
+                        ClearSetImgTicket(
+                                CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse, 
+                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+
                         //Set each palette
                         sDescNode* JoinedNode[2] = {
-                            MainDescTree_51.GetDescNode(Node01, Node02, 0, -1),
-                            MainDescTree_51.GetDescNode(Node01, Node02, Node03, -1)
+                            MainDescTree_51.GetDescNode(Node01, Node02, Node03, -1),
+                            MainDescTree_51.GetDescNode(Node01, Node02, 0, -1)
                         };
 
                         //Set each palette
                         CreateDefPal(JoinedNode[0], 0);
                         CreateDefPal(JoinedNode[1], 1);
 
-                        SetSourcePal(0, NodeGet->uUnitId, 0, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(0, NodeGet->uUnitId, nKakyoPaletteOffset, nSrcAmt, pCurrentNode->uChildAmt);
+                        SetSourcePal(1, NodeGet->uUnitId, 0, nSrcAmt, pCurrentNode->uChildAmt);
                         return TRUE;
                     }
                 }

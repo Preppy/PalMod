@@ -60,7 +60,7 @@ constexpr auto MVC_A_NUM_IMG_UNITS = 32;
 constexpr auto MSH_A_NUM_IMG_UNITS = 11;
 constexpr auto MSHVSF_A_NUM_IMG_UNITS = 23;
 
-constexpr auto JOJOS_A_NUM_IMG_UNITS = 1;
+constexpr auto JOJOS_A_NUM_IMG_UNITS = 2;
 
 enum eIMGDat_Sections
 {
@@ -100,9 +100,15 @@ enum eDispType
 
 // BUGBUG: Those should be legacy.
 // In the new world order, these probably should be done via node primary names(?)
+// If you add button labels, be sure to update imgoutdlg and imgdumpbmp as well.
 const CHAR DEF_BUTTONLABEL_2[2][16] =
 {
     "P1", "P2"
+};
+
+const CHAR DEF_BUTTONLABEL_JOJOS_5[5][16] =
+{
+    "A", "B", "C", "S", "Start"
 };
 
 const CHAR DEF_BUTTONLABEL6[6][16] =
@@ -427,6 +433,7 @@ const UINT8 MSHVSF_A_IMG_UNITS[MSHVSF_A_NUM_IMG_UNITS] =
 
 const UINT8 JOJOS_A_IMG_UNITS[JOJOS_A_NUM_IMG_UNITS] =
 {
+    0x01, // Kakyo
     0x03, // Pol
 };
 

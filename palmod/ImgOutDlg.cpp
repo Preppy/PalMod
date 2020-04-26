@@ -79,6 +79,9 @@ BOOL CImgOutDlg::OnInitDialog()
     case 2: // MSH, XMvSF
         m_CB_Amt.AddString("2");
         break;
+    case 5: // Jojos
+        m_CB_Amt.AddString("5");
+        break;
     case 6: // MvC, MvC2
     case 7: // 3S
         // Allow the user to export either the solitary sprite or to export

@@ -64,6 +64,7 @@ public:
     static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
+    const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
 
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 

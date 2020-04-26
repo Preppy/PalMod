@@ -93,8 +93,8 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P1[] =
     { "P1 Glimmer 1", 0x4ff64, 0x4ff84, 0x1b },
     { "P1 Glimmer 2", 0x4ff84, 0x4ffa4, 0x1b },
     { "P1 Glimmer 3", 0x4ffa4, 0x4ffc4, 0x1b },
-    { "P1 Extra 1", 0x49304, 0x49324 },
-    { "P1 Extra 2", 0x49324, 0x49344 }, // Lightning leg accent?
+    { "P1 Infinity Legs", 0x49304, 0x49324, 0x1b, 0x0E },
+    { "P1 Shadow Leg Flash", 0x49324, 0x49344, 0x1b, 0x0D },
 };
 
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P2[] =
@@ -103,8 +103,8 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P2[] =
     { "P2 Glimmer 1", 0x4ffc4, 0x4ffe4, 0x1b },
     { "P2 Glimmer 2", 0x4ffe4, 0x50004, 0x1b },
     { "P2 Glimmer 3", 0x50004, 0x50024, 0x1b },
-    { "P2 Extra 1", 0x49364, 0x49384 },
-    { "P2 Extra 2", 0x49384, 0x493a4 },
+    { "P2 Infinity Legs", 0x49364, 0x49384, 0x1b, 0x0E },
+    { "P2 Shadow Leg Flash", 0x49384, 0x493a4, 0x1b, 0x0D },
 };
 
 const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_P1[] =
@@ -144,7 +144,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
     { "P1 Beat", 0x48fc4, 0x48fe4, 0x1C, 0x02 },
 
     { "P1 Hair", 0x4c044, 0x4c064, 0x1C, 0x26 },
-    { "P1 Teleport / Death Animation", 0x4c064, 0x4c084 },
+    { "P1 Teleport / Death Animation", 0x4c064, 0x4c084, 0x1C, 0x0B },
 
     { "P1 Intro 1", 0x4c084, 0x4c0a4, 0x1c },
     { "P1 Intro 2", 0x4c0a4, 0x4c0c4, 0x1c },
@@ -242,7 +242,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
     { "P2 Beat", 0x49024, 0x49044, 0x1C, 0x02 },
 
     { "P2 Hair", 0x4cb24, 0x4cb44, 0x1C, 0x26 },
-    { "P2 Teleport Intro / Death", 0x4cb44, 0x4cb64 },
+    { "P2 Teleport Intro / Death Animation", 0x4cb44, 0x4cb64, 0x1C, 0x0B },
 
     { "P2 Intro 1", 0x4cb64, 0x4cb84, 0x1c },
     { "P2 Intro 2", 0x4cb84, 0x4cba4, 0x1c },
@@ -367,7 +367,7 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P1[] =
     { "P1 Beat", 0x48744, 0x48764, 0x1C, 0x02 },
 
     { "P1 Megaman Hair", 0x4d604, 0x4d624, 0x1C, 0x26 },
-    { "P1 Intro / Death Animation", 0x4d624, 0x4d644 },
+    { "P1 Intro / Death Animation", 0x4d624, 0x4d644, 0x1C, 0x0B },
 
     { "P1 Intro 1", 0x4d644, 0x4d664, 0x1d },
     { "P1 Intro 2", 0x4d664, 0x4d684, 0x1d },
@@ -430,7 +430,7 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P2[] =
     { "P2 Beat", 0x487a4, 0x487c4, 0x1C, 0x02 }, // 09 : these numbers align to the mvc2 extra ids as identified in the Palette Variant Full spreadsheet
 
     { "P2 Megaman Hair", 0x4e0e4, 0x4e104, 0x1C, 0x26 },
-    { "P2 Intro / Death Animation", 0x4e104, 0x4e124 },
+    { "P2 Intro / Death Animation", 0x4e104, 0x4e124, 0x1C, 0x0B },
 
     { "P2 Intro 1", 0x4e124, 0x4e144, 0x1d },
     { "P2 Intro 2", 0x4e144, 0x4e164, 0x1d },
@@ -558,8 +558,8 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
 const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
 {
     { "Main Body", 0x49044, 0x49064, 0x3B },
-    { "Charles Intro", 0x49064, 0x49084, 0x3B, 0x01 },
-    { "Sparkles", 0x49084, 0x490a4, 0x3B, 0x02 },
+    { "Sparkles", 0x49064, 0x49084, 0x3B, 0x02 },
+    { "Charles Intro", 0x49084, 0x490a4, 0x3B, 0x01 },
 };
 
 const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_P1[] =
@@ -779,11 +779,11 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 
     { "Cyclops P1", 0x50504, 0x50524, 0x06 },
     { "Cyclops P2", 0x50564, 0x50584, 0x06 },
-    { "Cyclops Optic Blast 1", 0x508c4, 0x508e4 },
-    { "Cyclops Optic Blast 2", 0x508e4, 0x50904 },
-    { "Cyclops Optic Blast 3", 0x50904, 0x50924 },
-    { "Cyclops Optic Blast 4", 0x50924, 0x50944 },
-    { "Cyclops Optic Blast 5", 0x50944, 0x50964 },
+    { "Cyclops Optic Blast 1", 0x508c4, 0x508e4, 0x06, 0x0E },
+    { "Cyclops Optic Blast 2", 0x508e4, 0x50904, 0x06, 0x0E },
+    { "Cyclops Optic Blast 3", 0x50904, 0x50924, 0x06, 0x0E },
+    { "Cyclops Optic Blast 4", 0x50924, 0x50944, 0x06, 0x0E },
+    { "Cyclops Optic Blast 5", 0x50944, 0x50964, 0x06, 0x0E },
 
     // Warning: these are joined using code in UpdatePalImg.  If you renumber these, you'll want to doublecheck display.
     { "Devilot P1", 0x510c4, 0x510e4, 0x3C, 3, true },
@@ -841,11 +841,6 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 
     { "Rogue P1", 0x50ca4, 0x50cc4, 0x0a },
     { "Rogue P2", 0x50d04, 0x50d24, 0x0a },
-
-    //{ "Saki P1", 0x50964, 0x50984 },
-    //{ "Saki P1 Extra", 0x50984, 0x509a4 },
-    //{ "Saki P2", 0x509c4, 0x509e4 },
-    //{ "Saki P2 Extra", 0x509e4, 0x50a04 },
 
     { "Saki P1", 0x50964, 0x509a4, 0x3C, 0x10 },
     { "Saki P2", 0x509c4, 0x50a04, 0x3C, 0x10 },

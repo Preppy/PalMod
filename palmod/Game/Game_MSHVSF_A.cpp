@@ -563,7 +563,7 @@ const sDescTreeNode* CGame_MSHVSF_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16
                 // We know it's within this group.  Now: is it basic?
                 if (fReturnBasicNodesOnly && (nCollectionIndex < 2)) // P1/P2
                 {
-                    pCollectionNode = pCollectionNodeToCheck;
+                    pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
                 }
                 else
                 {

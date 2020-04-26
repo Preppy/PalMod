@@ -674,6 +674,9 @@ int CImgDumpBmp::GetOutputW()
     case 2:
         w_mul = 2;
         break;
+    case 5:
+        w_mul = 3;
+        break;
     case 6:
         w_mul = 3;
         break;

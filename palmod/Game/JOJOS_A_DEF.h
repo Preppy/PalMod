@@ -2149,17 +2149,17 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 {
-    { "Kakyoin & Hierophant Green A", 0x0337080, 0x0337100 },
+    { "Kakyoin & Hierophant Green A", 0x0337080, 0x0337100, 0x01, 0x0 },
 #ifndef USE_LARGE_PALETTES
-    { "Hierophant Changing Pal A (1/7)", 0x0337900, 0x0337980, INVALID_UNIT_VALUE, 0x0, true },
-    { "Hierophant Changing Pal A (2/7)", 0x0337980, 0x0337a00, INVALID_UNIT_VALUE, 0x0, true },
-    { "Hierophant Changing Pal A (3/7)", 0x0337a00, 0x0337a80, INVALID_UNIT_VALUE, 0x0, true },
-    { "Hierophant Changing Pal A (4/7)", 0x0337a80, 0x0337b00, INVALID_UNIT_VALUE, 0x0, true },
-    { "Hierophant Changing Pal A (5/7)", 0x0337b00, 0x0337b80, INVALID_UNIT_VALUE, 0x0, true },
-    { "Hierophant Changing Pal A (6/7)", 0x0337b80, 0x0337c00, INVALID_UNIT_VALUE, 0x0, true },
-    { "Hierophant Changing Pal A (7/7)", 0x0337c00, 0x0337c80, INVALID_UNIT_VALUE, 0x0, true },
+    { "Hierophant Changing Pal A (1/7)", 0x0337900, 0x0337980, 0x01, 0x01, true },
+    { "Hierophant Changing Pal A (2/7)", 0x0337980, 0x0337a00, 0x01, 0x01, true },
+    { "Hierophant Changing Pal A (3/7)", 0x0337a00, 0x0337a80, 0x01, 0x01, true },
+    { "Hierophant Changing Pal A (4/7)", 0x0337a80, 0x0337b00, 0x01, 0x01, true },
+    { "Hierophant Changing Pal A (5/7)", 0x0337b00, 0x0337b80, 0x01, 0x01, true },
+    { "Hierophant Changing Pal A (6/7)", 0x0337b80, 0x0337c00, 0x01, 0x01, true },
+    { "Hierophant Changing Pal A (7/7)", 0x0337c00, 0x0337c80, 0x01, 0x01, true },
 #else
-    { "Hierophant Changing Pal A", 0x0337900, 0x0337c80 },
+    { "Hierophant Changing Pal A", 0x0337900, 0x0337c80, 0x01, 0x01, true },
 #endif
     { "Hierophant Sparkles A", 0x0337c80, 0x0337ca0 },
     { "Raging Demon Trail A", 0x0337800, 0x0337880 },
@@ -2188,17 +2188,17 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
 {
-    { "Kakyoin & Hierophant Green B", 0x034b580, 0x034b600 },
+    { "Kakyoin & Hierophant Green B", 0x034b580, 0x034b600, 0x01, 0x0 },
 #ifndef USE_LARGE_PALETTES
-    { "Hierophant Changing Pal B (1/7)", 0x034be00, 0x034be80 },
-    { "Hierophant Changing Pal B (2/7)", 0x034be80, 0x034bf00 },
-    { "Hierophant Changing Pal B (3/7)", 0x034bf00, 0x034bf80 },
-    { "Hierophant Changing Pal B (4/7)", 0x034bf80, 0x034c000 },
-    { "Hierophant Changing Pal B (5/7)", 0x034c000, 0x034c080 },
-    { "Hierophant Changing Pal B (6/7)", 0x034c080, 0x034c100 },
-    { "Hierophant Changing Pal B (7/7)", 0x034c100, 0x034c180 },
+    { "Hierophant Changing Pal B (1/7)", 0x034be00, 0x034be80, 0x01, 0x01, true },
+    { "Hierophant Changing Pal B (2/7)", 0x034be80, 0x034bf00, 0x01, 0x01, true },
+    { "Hierophant Changing Pal B (3/7)", 0x034bf00, 0x034bf80, 0x01, 0x01, true },
+    { "Hierophant Changing Pal B (4/7)", 0x034bf80, 0x034c000, 0x01, 0x01, true },
+    { "Hierophant Changing Pal B (5/7)", 0x034c000, 0x034c080, 0x01, 0x01, true },
+    { "Hierophant Changing Pal B (6/7)", 0x034c080, 0x034c100, 0x01, 0x01, true },
+    { "Hierophant Changing Pal B (7/7)", 0x034c100, 0x034c180, 0x01, 0x01, true },
 #else
-    { "Hierophant Changing Pal B", 0x034be00, 0x034c180 },
+    { "Hierophant Changing Pal B", 0x034be00, 0x034c180, 0x01, 0x01, true },
 #endif
     { "Hierophant Sparkles B", 0x034c180, 0x034c1a0 },
     { "Raging Demon Trail B", 0x034bd00, 0x034bd80 },
@@ -2227,17 +2227,17 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
 {
-    { "Kakyoin & Hierophant Green C", 0x035fa80, 0x035fb00 },
+    { "Kakyoin & Hierophant Green C", 0x035fa80, 0x035fb00, 0x01, 0x0 },
 #ifndef USE_LARGE_PALETTES
-    { "Hierophant Changing Pal C (1/7)", 0x0360300, 0x0360380 },
-    { "Hierophant Changing Pal C (2/7)", 0x0360380, 0x0360400 },
-    { "Hierophant Changing Pal C (3/7)", 0x0360400, 0x0360480 },
-    { "Hierophant Changing Pal C (4/7)", 0x0360480, 0x0360500 },
-    { "Hierophant Changing Pal C (5/7)", 0x0360500, 0x0360580 },
-    { "Hierophant Changing Pal C (6/7)", 0x0360580, 0x0360600 },
-    { "Hierophant Changing Pal C (7/7)", 0x0360600, 0x0360680 },
+    { "Hierophant Changing Pal C (1/7)", 0x0360300, 0x0360380, 0x01, 0x01, true },
+    { "Hierophant Changing Pal C (2/7)", 0x0360380, 0x0360400, 0x01, 0x01, true },
+    { "Hierophant Changing Pal C (3/7)", 0x0360400, 0x0360480, 0x01, 0x01, true },
+    { "Hierophant Changing Pal C (4/7)", 0x0360480, 0x0360500, 0x01, 0x01, true },
+    { "Hierophant Changing Pal C (5/7)", 0x0360500, 0x0360580, 0x01, 0x01, true },
+    { "Hierophant Changing Pal C (6/7)", 0x0360580, 0x0360600, 0x01, 0x01, true },
+    { "Hierophant Changing Pal C (7/7)", 0x0360600, 0x0360680, 0x01, 0x01, true },
 #else
-    { "Hierophant Changing Pal C", 0x0360300, 0x0360680 },
+    { "Hierophant Changing Pal C", 0x0360300, 0x0360680, 0x01, 0x01, true },
 #endif
     { "Hierophant Sparkles C", 0x0360680, 0x03606a0 },
     { "Raging Demon Trail C", 0x0360200, 0x0360280 },
@@ -2266,17 +2266,17 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
 {
-    { "Kakyoin & Hierophant Green S", 0x0373f80, 0x0374000 },
+    { "Kakyoin & Hierophant Green S", 0x0373f80, 0x0374000, 0x01, 0x0 },
 #ifndef USE_LARGE_PALETTES
-    { "Hierophant Changing Pal S (1/7)", 0x0374800, 0x0374880 },
-    { "Hierophant Changing Pal S (2/7)", 0x0374880, 0x0374900 },
-    { "Hierophant Changing Pal S (3/7)", 0x0374900, 0x0374980 },
-    { "Hierophant Changing Pal S (4/7)", 0x0374980, 0x0374a00 },
-    { "Hierophant Changing Pal S (5/7)", 0x0374a00, 0x0374a80 },
-    { "Hierophant Changing Pal S (6/7)", 0x0374a80, 0x0374b00 },
-    { "Hierophant Changing Pal S (7/7)", 0x0374b00, 0x0374b80 },
+    { "Hierophant Changing Pal S (1/7)", 0x0374800, 0x0374880, 0x01, 0x01, true },
+    { "Hierophant Changing Pal S (2/7)", 0x0374880, 0x0374900, 0x01, 0x01, true },
+    { "Hierophant Changing Pal S (3/7)", 0x0374900, 0x0374980, 0x01, 0x01, true },
+    { "Hierophant Changing Pal S (4/7)", 0x0374980, 0x0374a00, 0x01, 0x01, true },
+    { "Hierophant Changing Pal S (5/7)", 0x0374a00, 0x0374a80, 0x01, 0x01, true },
+    { "Hierophant Changing Pal S (6/7)", 0x0374a80, 0x0374b00, 0x01, 0x01, true },
+    { "Hierophant Changing Pal S (7/7)", 0x0374b00, 0x0374b80, 0x01, 0x01, true },
 #else
-    { "Hierophant Changing Pal S", 0x0374800, 0x0374b80 },
+    { "Hierophant Changing Pal S", 0x0374800, 0x0374b80, 0x01, 0x01, true },
 #endif
     { "Hierophant Sparkles S", 0x0374b80, 0x0374ba0 },
     { "Raging Demon Trail S", 0x0374700, 0x0374780 },
@@ -2305,17 +2305,17 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_Start[] =
 {
-    { "Kakyoin & Hierophant Green Start", 0x0388480, 0x0388500 },
+    { "Kakyoin & Hierophant Green Start", 0x0388480, 0x0388500, 0x01, 0x0 },
 #ifndef USE_LARGE_PALETTES
-    { "Hierophant Changing Pal Start (1/7)", 0x0388d00, 0x0388d80 },
-    { "Hierophant Changing Pal Start (2/7)", 0x0388d80, 0x0388e00 },
-    { "Hierophant Changing Pal Start (3/7)", 0x0388e00, 0x0388e80 },
-    { "Hierophant Changing Pal Start (4/7)", 0x0388e80, 0x0388f00 },
-    { "Hierophant Changing Pal Start (5/7)", 0x0388f00, 0x0388f80 },
-    { "Hierophant Changing Pal Start (6/7)", 0x0388f80, 0x0389000 },
-    { "Hierophant Changing Pal Start (7/7)", 0x0389000, 0x0389080 },
+    { "Hierophant Changing Pal Start (1/7)", 0x0388d00, 0x0388d80, 0x01, 0x01, true },
+    { "Hierophant Changing Pal Start (2/7)", 0x0388d80, 0x0388e00, 0x01, 0x01, true },
+    { "Hierophant Changing Pal Start (3/7)", 0x0388e00, 0x0388e80, 0x01, 0x01, true },
+    { "Hierophant Changing Pal Start (4/7)", 0x0388e80, 0x0388f00, 0x01, 0x01, true },
+    { "Hierophant Changing Pal Start (5/7)", 0x0388f00, 0x0388f80, 0x01, 0x01, true },
+    { "Hierophant Changing Pal Start (6/7)", 0x0388f80, 0x0389000, 0x01, 0x01, true },
+    { "Hierophant Changing Pal Start (7/7)", 0x0389000, 0x0389080, 0x01, 0x01, true },
 #else
-    { "Hierophant Changing Pal Start", 0x0388d00, 0x0389080 },
+    { "Hierophant Changing Pal Start", 0x0388d00, 0x0389080, 0x01, 0x01, true },
 #endif
     { "Hierophant Sparkles Start", 0x0389080, 0x03890a0 },
     { "Raging Demon Trail Start", 0x0388c00, 0x0388c80 },
@@ -2481,10 +2481,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
 {
     { "Polnareff & Silver Chariot A", 0x0338980, 0x0338a00, 0x03, 0x00 },
 #ifdef USE_LARGE_PALETTES
-    { "Chariot's Changing Pal A", 0x0339280, 0x0339380 },
+    { "Chariot's Changing Pal A", 0x0339280, 0x0339380, 0x03, 0x00 },
 #else
-    { "Chariot's Changing Pal A (1/2)", 0x0339280, 0x0339300 },
-    { "Chariot's Changing Pal A (2/2)", 0x0339300, 0x0339380 },
+    { "Chariot's Changing Pal A (1/2)", 0x0339280, 0x0339300, 0x03, 0x00 },
+    { "Chariot's Changing Pal A (2/2)", 0x0339300, 0x0339380, 0x03, 0x00 },
 #endif
     { "Pol Remote Activation Flash A", 0x0338e00, 0x0338e80 },
     { "Polnareff Vs / Super A", 0x0410900, 0x0410980 },
@@ -2513,10 +2513,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
 {
     { "Polnareff & Silver Chariot B", 0x034ce80, 0x034cf00, 0x03 },
 #ifdef USE_LARGE_PALETTES
-    { "Chariot's Changing Pal B", 0x034d780, 0x034d880 },
+    { "Chariot's Changing Pal B", 0x034d780, 0x034d880, 0x03, 0x00 },
 #else
-    { "Chariot's Changing Pal B (1/2)", 0x034d780, 0x034d800 },
-    { "Chariot's Changing Pal B (2/2)", 0x034d800, 0x034d880 },
+    { "Chariot's Changing Pal B (1/2)", 0x034d780, 0x034d800, 0x03, 0x00 },
+    { "Chariot's Changing Pal B (2/2)", 0x034d800, 0x034d880, 0x03, 0x00 },
 #endif
     { "Pol Remote Activation Flash B", 0x034d300, 0x034d380 },
     { "Polnareff Vs / Super B", 0x0415700, 0x0415780 },
@@ -2545,10 +2545,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
 {
     { "Polnareff & Silver Chariot C", 0x0361380, 0x0361400, 0x03 },
 #ifdef USE_LARGE_PALETTES
-    { "Chariot's Changing Pal C", 0x0361c80, 0x0361d80 },
+    { "Chariot's Changing Pal C", 0x0361c80, 0x0361d80, 0x03, 0x00 },
 #else
-    { "Chariot's Changing Pal C (1/2)", 0x0361c80, 0x0361d00 },
-    { "Chariot's Changing Pal C (2/2)", 0x0361d00, 0x0361d80 },
+    { "Chariot's Changing Pal C (1/2)", 0x0361c80, 0x0361d00, 0x03, 0x00 },
+    { "Chariot's Changing Pal C (2/2)", 0x0361d00, 0x0361d80, 0x03, 0x00 },
 #endif
     { "Pol Remote Activation Flash C", 0x0361800, 0x0361880 },
     { "Polnareff Vs / Super C", 0x041a500, 0x041a580 },
@@ -2577,10 +2577,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
 {
     { "Polnareff & Silver Chariot S", 0x0375880, 0x0375900, 0x03 },
 #ifdef USE_LARGE_PALETTES
-    { "Chariot's Changing Pal S", 0x0376180, 0x0376280 },
+    { "Chariot's Changing Pal S", 0x0376180, 0x0376280, 0x03, 0x00 },
 #else
-    { "Chariot's Changing Pal S (1/2)", 0x0376180, 0x0376200 },
-    { "Chariot's Changing Pal S (2/2)", 0x0376200, 0x0376280 },
+    { "Chariot's Changing Pal S (1/2)", 0x0376180, 0x0376200, 0x03, 0x00 },
+    { "Chariot's Changing Pal S (2/2)", 0x0376200, 0x0376280, 0x03, 0x00 },
 #endif
     { "Pol Remote Activation Flash S", 0x0375d00, 0x0375d80 },
     { "Polnareff Vs / Super S", 0x041f300, 0x041f380 },
@@ -2609,10 +2609,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
 {
     { "Polnareff & Silver Chariot Start", 0x0389d80, 0x0389e00, 0x03 },
 #ifdef USE_LARGE_PALETTES
-    { "Chariot's Changing Pal Start", 0x038a680, 0x038a780 },
+    { "Chariot's Changing Pal Start", 0x038a680, 0x038a780, 0x03, 0x00 },
 #else
-    { "Chariot's Changing Pal Start (1/2)", 0x038a680, 0x038a700 },
-    { "Chariot's Changing Pal Start (2/2)", 0x038a700, 0x038a780 },
+    { "Chariot's Changing Pal Start (1/2)", 0x038a680, 0x038a700, 0x03, 0x00 },
+    { "Chariot's Changing Pal Start (2/2)", 0x038a700, 0x038a780, 0x03, 0x00 },
 #endif
     { "Pol Remote Activation Flash Start", 0x038a200, 0x038a280 },
     { "Polnareff Vs / Super Start", 0x0424100, 0x0424180 },

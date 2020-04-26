@@ -380,17 +380,17 @@ bool CImgDat::sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag)
 BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, UINT16 uImgUnitAmt, UINT16 uImgAmt, BOOL bLoadAll)
 {
     UINT8 uNumGames = 0xFF;
-    bool thingsLoaded = true;
-#if IMGDAT_DEBUG
+
     CString strDebugInfo;
     strDebugInfo.Format("CImgDat::LoadImage : Opening image file '%s'\n", lpszLoadFile);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format("CImgDat::LoadImage : gameFlag is '%u' and gameImageFlag is '%u'.  Reading 0x%x (%u) units with %u images.\n", uGameFlag, uImgGameFlag, uGameUnitAmt, uGameUnitAmt, uImgUnitAmt);
+    strDebugInfo.Format("CImgDat::LoadImage : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  Reading 0x%x (%u) units with %u images.\n", uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, uGameUnitAmt, uImgUnitAmt);
     OutputDebugString(strDebugInfo);
-#endif
 
     if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag))
-        return thingsLoaded;
+    {
+        return true;
+    }
     else
     {
 
@@ -414,7 +414,7 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag,
     if (!ImgDatFile.Open(lpszLoadFile, CFile::modeRead | CFile::typeBinary))
     {
         ImgDatFile.Abort();         //Error loading
-        return !thingsLoaded;
+        return false;
     }
 
     bOnTheFly = !bLoadAll;
@@ -519,11 +519,11 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag,
             ImgDatFile.Abort();
         }
 
-        return thingsLoaded;
+        return true;
     }
     else
     {
-        return !thingsLoaded;
+        return false;
     }
 }
 
