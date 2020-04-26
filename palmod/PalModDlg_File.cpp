@@ -357,7 +357,7 @@ void CPalModDlg::OnFileOpen()
         { SFIII3_A, "SFIII3 51 Rom|51|", INVALID_UNIT_VALUE },
         { SSF2T_A, "SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|", INVALID_UNIT_VALUE },
         { SFA3_A, "SFA3 sz3.09c|*.09c|", INVALID_UNIT_VALUE },
-        { MSH_A, "MSH msh.05|*.05|", INVALID_UNIT_VALUE },
+        { MSH_A, "MSH: Characters (*.05), Portraits (*.06b)|*.05;*.06b|", INVALID_UNIT_VALUE },
         { MSHVSF_A, "MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", INVALID_UNIT_VALUE },
         { MVC_A, "MVC mvc.06|*.06|", INVALID_UNIT_VALUE },
         { XMVSF_A, "XMVSF xvs.05a|*.05a|", INVALID_UNIT_VALUE },

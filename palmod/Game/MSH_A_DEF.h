@@ -7,7 +7,7 @@
 // * Update the index lookups in Game_MSH_A_.cpp that is marked - look for usage of indexRyu to find them
 // That should be it.  Good luck.
 
-enum SupportedMSHPaletteListIndex
+enum SupportedMSHPaletteListIndex_05
 {
     //indexMSHAnita = 0,
     indexMSHBlackheart,
@@ -22,17 +22,25 @@ enum SupportedMSHPaletteListIndex
     indexMSHSpiderman,
     indexMSHThanos,
     indexMSHWolverine,
-    indexMSHLast
+    indexMSH_05_Last
 };
 
-constexpr auto MSH_A_NUMUNIT = indexMSHLast;
+enum SupportedMSHPaletteListIndex_06
+{
+    indexMSHCSPs,
+    indexMSH_06_Last
+};
 
-#define MSH_A_EXTRALOC MSH_A_NUMUNIT
+constexpr auto MSH_A_NUMUNIT_05 = indexMSH_05_Last;
+constexpr auto MSH_A_NUMUNIT_06 = indexMSH_06_Last;
+
+#define MSH_A_EXTRALOC_05 MSH_A_NUMUNIT_05
+#define MSH_A_EXTRALOC_06 MSH_A_NUMUNIT_06
 
 const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P1[] =
 {
     {"Blackheart P1", 0x6214E, 0x6216E, 0x35 },
-    {"P1 HP + HK Demons", 0x62F2E, 0x62F4E },
+    {"P1 HP + HK Demons", 0x62F2E, 0x62F4E, 0x35, 2 },
     {"P1 Dark Thunder", 0x62F8E, 0x62FAE },
     {"P1 Armageddon", 0x632EE, 0x6330E },
 };
@@ -40,7 +48,7 @@ const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P1[] =
 const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P2[] =
 {
     {"Blackheart P2",  0x621CE, 0x621EE, 0x35 },
-    {"P2 HP + HK Demons",  0x6372E, 0x6374E },
+    {"P2 HP + HK Demons",  0x6372E, 0x6374E, 0x35, 2 },
     {"P2 Dark Thunder",  0x6378E, 0x637AE },
     {"P2 Armageddon", 0x63AEE, 0x63B0E },
 };
@@ -197,6 +205,162 @@ const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_P2[] =
     {"P2 Berserker Barrage", 0x6204E, 0x6206E, 0x07, 2 },
 };
 
+const sGame_PaletteDataset MSH_A_CSP_PALETTES[] =
+{
+#ifdef USE_LARGE_PALETTES
+    { "Spider-Man P1 CSP", 0x000b180, 0x000b300 },
+#else
+    { "Spider-Man P1 CSP (1/3)", 0x000b180, 0x000b200 },
+    { "Spider-Man P1 CSP (2/3)", 0x000b200, 0x000b280 },
+    { "Spider-Man P1 CSP (3/3)", 0x000b280, 0x000b300 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Spider-Man P2 CSP", 0x000b380, 0x000b500 },
+#else
+    { "Spider-Man P2 CSP (1/3)", 0x000b380, 0x000b400 },
+    { "Spider-Man P2 CSP (2/3)", 0x000b400, 0x000b480 },
+    { "Spider-Man P2 CSP (3/3)", 0x000b480, 0x000b500 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Captain America P1 CSP", 0x000b580, 0x000b7c0 },
+#else
+    { "Captain America P1 CSP (1/5)", 0x000b580, 0x000b600 },
+    { "Captain America P1 CSP (2/5)", 0x000b600, 0x000b680 },
+    { "Captain America P1 CSP (3/5)", 0x000b680, 0x000b700 },
+    { "Captain America P1 CSP (4/5)", 0x000b700, 0x000b780 },
+    { "Captain America P1 CSP (5/5)", 0x000b780, 0x000b7c0 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Captain America P2 CSP", 0x000b7c0, 0x000b980 },
+#else
+    { "Captain America P2 CSP (1/4)", 0x000b7c0, 0x000b840 },
+    { "Captain America P2 CSP (2/4)", 0x000b840, 0x000b8c0 },
+    { "Captain America P2 CSP (3/4)", 0x000b8c0, 0x000b940 },
+    { "Captain America P2 CSP (4/4)", 0x000b940, 0x000b980 },
+#endif
+    { "Hulk P1 CSP", 0x000b980, 0x000b9e0 },
+    { "Hulk P2 CSP", 0x000bb80, 0x000bbe0 },
+#ifdef USE_LARGE_PALETTES
+    { "Iron Man P1 CSP", 0x000bd80, 0x000bf00 },
+#else
+    { "Iron Man P1 CSP (1/3)", 0x000bd80, 0x000be00 },
+    { "Iron Man P1 CSP (2/3)", 0x000be00, 0x000be80 },
+    { "Iron Man P1 CSP (3/3)", 0x000be80, 0x000bf00 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Iron Man P2 CSP", 0x000bf80, 0x000c100 },
+#else
+    { "Iron Man P2 CSP (1/3)", 0x000bf80, 0x000c000 },
+    { "Iron Man P2 CSP (2/3)", 0x000c000, 0x000c080 },
+    { "Iron Man P2 CSP (3/3)", 0x000c080, 0x000c100 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Wolverine P1 CSP", 0x000c180, 0x000c360 },
+#else
+    { "Wolverine P1 CSP (1/4)", 0x000c180, 0x000c200 },
+    { "Wolverine P1 CSP (2/4)", 0x000c200, 0x000c280 },
+    { "Wolverine P1 CSP (3/4)", 0x000c280, 0x000c300 },
+    { "Wolverine P1 CSP (4/4)", 0x000c300, 0x000c360 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Wolverine P2 CSP", 0x000c380, 0x000c560 },
+#else
+    { "Wolverine P2 CSP (1/4)", 0x000c380, 0x000c400 },
+    { "Wolverine P2 CSP (2/4)", 0x000c400, 0x000c480 },
+    { "Wolverine P2 CSP (3/4)", 0x000c480, 0x000c500 },
+    { "Wolverine P2 CSP (4/4)", 0x000c500, 0x000c560 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Psylocke P1 CSP", 0x000c580, 0x000c6a0 },
+#else
+    { "Psylocke P1 CSP (1/3)", 0x000c580, 0x000c600 },
+    { "Psylocke P1 CSP (2/3)", 0x000c600, 0x000c680 },
+    { "Psylocke P1 CSP (3/3)", 0x000c680, 0x000c6a0 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Psylocke P2 CSP", 0x000c780, 0x000c8a0 },
+#else
+    { "Psylocke P2 CSP (1/3)", 0x000c780, 0x000c800 },
+    { "Psylocke P2 CSP (2/3)", 0x000c800, 0x000c880 },
+    { "Psylocke P2 CSP (3/3)", 0x000c880, 0x000c8a0 },
+#endif
+    { "BlackHeart P1 CSP", 0x000c980, 0x000c9c0 },
+    { "BlackHeart P2 CSP", 0x000cb80, 0x000cbc0 },
+#ifdef USE_LARGE_PALETTES
+    { "Shuma-Gorath P1 CSP", 0x000cd80, 0x000ce80 },
+#else
+    { "Shuma-Gorath P1 CSP (1/2)", 0x000cd80, 0x000ce00 },
+    { "Shuma-Gorath P1 CSP (2/2)", 0x000ce00, 0x000ce80 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Shuma-Gorath P2 CSP", 0x000cf80, 0x000d080 },
+#else
+    { "Shuma-Gorath P2 CSP (1/2)", 0x000cf80, 0x000d000 },
+    { "Shuma-Gorath P2 CSP (2/2)", 0x000d000, 0x000d080 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Juggernaut P1 CSP", 0x000d180, 0x000d280 },
+#else
+    { "Juggernaut P1 CSP (1/2)", 0x000d180, 0x000d200 },
+    { "Juggernaut P1 CSP (2/2)", 0x000d200, 0x000d280 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Juggernaut P2 CSP", 0x000d380, 0x000d480 },
+#else
+    { "Juggernaut P2 CSP (1/2)", 0x000d380, 0x000d400 },
+    { "Juggernaut P2 CSP (2/2)", 0x000d400, 0x000d480 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Magneto P1 CSP", 0x000d580, 0x000d780 },
+#else
+    { "Magneto P1 CSP (1/4)", 0x000d580, 0x000d600 },
+    { "Magneto P1 CSP (2/4)", 0x000d600, 0x000d680 },
+    { "Magneto P1 CSP (3/4)", 0x000d680, 0x000d700 },
+    { "Magneto P1 CSP (4/4)", 0x000d700, 0x000d780 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Magneto P2 CSP", 0x000d780, 0x000d980 },
+#else
+    { "Magneto P2 CSP (1/4)", 0x000d780, 0x000d800 },
+    { "Magneto P2 CSP (2/4)", 0x000d800, 0x000d880 },
+    { "Magneto P2 CSP (3/4)", 0x000d880, 0x000d900 },
+    { "Magneto P2 CSP (4/4)", 0x000d900, 0x000d980 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Dr. Doom P1 CSP", 0x000d980, 0x000db60 },
+#else
+    { "Dr. Doom P1 CSP (1/4)", 0x000d980, 0x000da00 },
+    { "Dr. Doom P1 CSP (2/4)", 0x000da00, 0x000da80 },
+    { "Dr. Doom P1 CSP (3/4)", 0x000da80, 0x000db00 },
+    { "Dr. Doom P1 CSP (4/4)", 0x000db00, 0x000db60 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Dr. Doom P2 CSP", 0x000db80, 0x000dd60 },
+#else
+    { "Dr. Doom P2 CSP (1/4)", 0x000db80, 0x000dc00 },
+    { "Dr. Doom P2 CSP (2/4)", 0x000dc00, 0x000dc80 },
+    { "Dr. Doom P2 CSP (3/4)", 0x000dc80, 0x000dd00 },
+    { "Dr. Doom P2 CSP (4/4)", 0x000dd00, 0x000dd60 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Thanos P1 CSP", 0x000dd80, 0x000df80 },
+#else
+    { "Thanos P1 CSP (1/4)", 0x000dd80, 0x000de00 },
+    { "Thanos P1 CSP (2/4)", 0x000de00, 0x000de80 },
+    { "Thanos P1 CSP (3/4)", 0x000de80, 0x000df00 },
+    { "Thanos P1 CSP (4/4)", 0x000df00, 0x000df80 },
+#endif
+#ifdef USE_LARGE_PALETTES
+    { "Thanos P2 CSP", 0x000df80, 0x000e1a0 },
+#else
+    { "Thanos P2 CSP (1/5)", 0x000df80, 0x000e000 },
+    { "Thanos P2 CSP (2/5)", 0x000e000, 0x000e080 },
+    { "Thanos P2 CSP (3/5)", 0x000e080, 0x000e100 },
+    { "Thanos P2 CSP (4/5)", 0x000e100, 0x000e180 },
+    { "Thanos P2 CSP (5/5)", 0x000e180, 0x000e1a0 },
+#endif
+};
+
 const sDescTreeNode MSH_A_BLACKHEART_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_PALETTES_P1,      ARRAYSIZE(MSH_A_BLACKHEART_PALETTES_P1) },
@@ -266,8 +430,12 @@ const sDescTreeNode MSH_A_WOLVERINE_COLLECTION[] =
     { "P2", DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_PALETTES_P2,       ARRAYSIZE(MSH_A_WOLVERINE_PALETTES_P2) },
 };
 
+const sDescTreeNode MSH_A_CSP_COLLECTION[] =
+{
+    { "Palettes", DESC_NODETYPE_TREE, (void*)MSH_A_CSP_PALETTES,               ARRAYSIZE(MSH_A_CSP_PALETTES) },
+};
 
-const UINT8 MSH_A_UNITSORT[MSH_A_NUMUNIT + 1] = // Plus 1 for the extra palettes
+const UINT8 MSH_A_UNITSORT_05[MSH_A_NUMUNIT_05 + 1] = // Plus 1 for the extra palettes
 {
     //indexMSHAnita = 0,
     indexMSHBlackheart,
@@ -283,10 +451,17 @@ const UINT8 MSH_A_UNITSORT[MSH_A_NUMUNIT + 1] = // Plus 1 for the extra palettes
     indexMSHThanos,
     indexMSHWolverine,
 
-    MSH_A_EXTRALOC // Extra palettes
+    MSH_A_EXTRALOC_05 // Extra palettes
 };
 
-const sDescTreeNode MSH_UNITS[MSH_A_NUMUNIT] =
+const UINT8 MSH_A_UNITSORT_06[MSH_A_NUMUNIT_06 + 1] = // Plus 1 for the extra palettes
+{
+    indexMSHCSPs,
+
+    MSH_A_EXTRALOC_06 // Extra palettes
+};
+
+const sDescTreeNode MSH_UNITS_05[MSH_A_NUMUNIT_05] =
 {
     { "Blackheart",                   DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_COLLECTION,       ARRAYSIZE(MSH_A_BLACKHEART_COLLECTION) },
     { "Captain America",              DESC_NODETYPE_TREE, (void*)MSH_A_CAPTAINAMERICA_COLLECTION,   ARRAYSIZE(MSH_A_CAPTAINAMERICA_COLLECTION) },
@@ -299,6 +474,11 @@ const sDescTreeNode MSH_UNITS[MSH_A_NUMUNIT] =
     { "Spider-Man",                   DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_COLLECTION,        ARRAYSIZE(MSH_A_SPIDERMAN_COLLECTION) },
     { "Thanos",                       DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_COLLECTION,           ARRAYSIZE(MSH_A_THANOS_COLLECTION) },
     { "Wolverine",                    DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_COLLECTION,        ARRAYSIZE(MSH_A_WOLVERINE_COLLECTION) },
+};
+
+const sDescTreeNode MSH_UNITS_06[MSH_A_NUMUNIT_06] =
+{
+    { "Character Select Portraits",   DESC_NODETYPE_TREE, (void*)MSH_A_CSP_COLLECTION,              ARRAYSIZE(MSH_A_CSP_COLLECTION) },
 };
 
 // We extend this array with data groveled from the MSHe.txt extensible extras file, if any.

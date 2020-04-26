@@ -673,7 +673,7 @@ BOOL CGame_MSHVSF_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        rgUnitRedir[nUnitCtr] = nUnitCtr; //Fix later for unit sort
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {

@@ -6,37 +6,35 @@
 #define MSH_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 // Cleanup on this static allocation is handled in CGameLoad::~CGameLoad
-stExtraDef* CGame_MSH_A::MSH_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_MSH_A::MSH_A_EXTRA_CUSTOM_05 = nullptr;
+stExtraDef* CGame_MSH_A::MSH_A_EXTRA_CUSTOM_06 = nullptr;
 
-CDescTree CGame_MSH_A::MainDescTree = CGame_MSH_A::InitDescTree();
+CDescTree CGame_MSH_A::MainDescTree_05 = CGame_MSH_A::InitDescTree(5);
+CDescTree CGame_MSH_A::MainDescTree_06 = CGame_MSH_A::InitDescTree(6);
 
-UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH = 0;
+int CGame_MSH_A::m_nMSHSelectedRom = 5;
+UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_05 = 0;
+UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_06 = 0;
 
 int CGame_MSH_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCountAll[MSH_A_NUMUNIT + 1] = { -1 };
-    static int rgExtraCountVisibleOnly[MSH_A_NUMUNIT + 1] = { -1 };
+    static int rgExtraCountAll_05[MSH_A_NUMUNIT_05 + 1] = { -1 };
+    static int rgExtraCountAll_06[MSH_A_NUMUNIT_06 + 1] = { -1 };
 
-    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
+    int* rgExtraCt = UsePaletteSetForCharacters() ? (int*)rgExtraCountAll_05 : (int*)rgExtraCountAll_06;
 
-    static bool s_isInitialized = false;
-
-    if (!s_isInitialized)
+    if (rgExtraCt[0] == -1)
     {
-        s_isInitialized = true;
-
         int nDefCtr = 0;
-        memset(rgExtraCt, 0, (MSH_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraCt, 0, ((UsePaletteSetForCharacters() ? MSH_A_NUMUNIT_05 : MSH_A_NUMUNIT_06) + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetExtraDefForMSH(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
-            rgExtraCountAll[pCurrDef->uUnitN]++;
-
-            if (!pCurrDef->isInvisible)
+            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
             {
-                rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
+                rgExtraCt[pCurrDef->uUnitN]++;
             }
 
             nDefCtr++;
@@ -49,42 +47,81 @@ int CGame_MSH_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_MSH_A::GetExtraLoc(UINT16 nUnitId)
 {
-    static int rgExtraLoc[MSH_A_NUMUNIT + 1] = { -1 };
+    static int rgExtraLoc_05[MSH_A_NUMUNIT_05 + 1] = { -1 };
+    static int rgExtraLoc_06[MSH_A_NUMUNIT_06 + 1] = { -1 };
 
-    if (rgExtraLoc[0] == -1)
+    if (UsePaletteSetForCharacters())
     {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (MSH_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForMSH(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+        if (rgExtraLoc_05[0] == -1)
         {
-            if (pCurrDef->uUnitN != nCurrUnit)
+            int nDefCtr = 0;
+            int nCurrUnit = UNIT_START_VALUE;
+            memset(rgExtraLoc_05, 0, (MSH_A_NUMUNIT_05 + 1) * sizeof(int));
+
+            stExtraDef * pCurrDef = GetExtraDefForMSH(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
             {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
+                if (pCurrDef->uUnitN != nCurrUnit)
+                {
+                    rgExtraLoc_05[pCurrDef->uUnitN] = nDefCtr;
+                    nCurrUnit = pCurrDef->uUnitN;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetExtraDefForMSH(nDefCtr);
             }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForMSH(nDefCtr);
         }
-    }
 
-    return rgExtraLoc[nUnitId];
+        return rgExtraLoc_05[nUnitId];
+    }
+    else
+    {
+        if (rgExtraLoc_06[0] == -1)
+        {
+            int nDefCtr = 0;
+            int nCurrUnit = UNIT_START_VALUE;
+            memset(rgExtraLoc_06, 0, (MSH_A_NUMUNIT_06 + 1) * sizeof(int));
+
+            stExtraDef * pCurrDef = GetExtraDefForMSH(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            {
+                if (pCurrDef->uUnitN != nCurrUnit)
+                {
+                    rgExtraLoc_06[pCurrDef->uUnitN] = nDefCtr;
+                    nCurrUnit = pCurrDef->uUnitN;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetExtraDefForMSH(nDefCtr);
+            }
+        }
+
+        return rgExtraLoc_06[nUnitId];
+    }
 }
 
-CGame_MSH_A::CGame_MSH_A(void)
+CGame_MSH_A::CGame_MSH_A(int nMSHRomToLoad)
 {
-    //We need the proper unit amt before we init the main buffer
-    nUnitAmt = MSH_A_NUMUNIT + (GetExtraCt(MSH_A_EXTRALOC) ? 1 : 0);
+    m_nMSHSelectedRom = (nMSHRomToLoad == 5) ? 5 : 6;
 
-    m_nTotalInternalUnits = MSH_A_NUMUNIT;
-    m_nExtraUnit = MSH_A_EXTRALOC;
-    m_nSafeCountForThisRom = 68 + GetExtraCt(MSH_A_EXTRALOC);
-    m_pszExtraFilename = EXTRA_FILENAME_MSH;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForMSH;
+    CString strMessage;
+    strMessage.Format("CGame_MSH_A::CGame_MSH_A: Loading for the %s ROM\n", (m_nMSHSelectedRom == 5) ? "05" : "6B");
+    OutputDebugString(strMessage);
+
+
+    m_nTotalInternalUnits = UsePaletteSetForCharacters() ? MSH_A_NUMUNIT_05 : MSH_A_NUMUNIT_06;
+    m_nExtraUnit = UsePaletteSetForCharacters() ? MSH_A_EXTRALOC_05 : MSH_A_EXTRALOC_06;
+
+    const UINT32 nSafeCountFor05 = 68;
+    const UINT32 nSafeCountFor06 = 72;
+
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForCharacters() ? nSafeCountFor05 : nSafeCountFor06);
+    m_pszExtraFilename = UsePaletteSetForCharacters() ? EXTRA_FILENAME_MSH_05 : EXTRA_FILENAME_MSH_06;
+    m_nTotalPaletteCount = UsePaletteSetForCharacters() ? m_nTotalPaletteCountForMSH_05 : m_nTotalPaletteCountForMSH_06;
+
+    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
@@ -129,18 +166,34 @@ CGame_MSH_A::~CGame_MSH_A(void)
 
 CDescTree* CGame_MSH_A::GetMainTree()
 {
-    return &CGame_MSH_A::MainDescTree;
+    if (UsePaletteSetForCharacters())
+    {
+        return &CGame_MSH_A::MainDescTree_05;
+    }
+    else
+    {
+        return &CGame_MSH_A::MainDescTree_06;
+    }
 }
 
-CDescTree CGame_MSH_A::InitDescTree()
+CDescTree CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
 {
     UINT32 nTotalPaletteCount = 0;
+    m_nMSHSelectedRom = nROMPaletteSetToUse;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MSH, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM, MSH_A_EXTRALOC);
+    if (UsePaletteSetForCharacters())
+    {
+        LoadExtraFileForGame(EXTRA_FILENAME_MSH_05, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_05, MSH_A_EXTRALOC_05);
+    }
+    else
+    {
+        LoadExtraFileForGame(EXTRA_FILENAME_MSH_06, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_06, MSH_A_EXTRALOC_06);
+    }
 
-    UINT16 nUnitCt = MSH_A_NUMUNIT + (GetExtraCt(MSH_A_EXTRALOC) ? 1 : 0);
-
+    UINT16 nUnitCt = UsePaletteSetForCharacters() ? (MSH_A_NUMUNIT_05 + (GetExtraCt(MSH_A_EXTRALOC_05) ? 1 : 0)) :
+                                                    (MSH_A_NUMUNIT_06 + (GetExtraCt(MSH_A_EXTRALOC_06) ? 1 : 0));
+    
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
@@ -151,7 +204,7 @@ CDescTree CGame_MSH_A::InitDescTree()
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(MSH_A_EXTRALOC) > 0);
+    bool fHaveExtras = (GetExtraCt(UsePaletteSetForCharacters() ? MSH_A_EXTRALOC_05 : MSH_A_EXTRALOC_06) > 0);
     strMsg.Format("CGame_MSH_A::InitDescTree: Building desc tree for MSH %s extras...\n", fHaveExtras ? "with" : "without");
     OutputDebugString(strMsg);
 
@@ -169,10 +222,10 @@ CDescTree CGame_MSH_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < MSH_A_EXTRALOC)
+        if (UsePaletteSetForCharacters() ? (iUnitCtr < MSH_A_EXTRALOC_05) : (iUnitCtr < MSH_A_EXTRALOC_06))
         {
             //Set each description
-            sprintf(UnitNode->szDesc, "%s", MSH_UNITS[iUnitCtr].szDesc);
+            sprintf(UnitNode->szDesc, "%s", UsePaletteSetForCharacters() ? MSH_UNITS_05[iUnitCtr].szDesc : MSH_UNITS_06[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
@@ -258,7 +311,15 @@ CDescTree CGame_MSH_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MSH_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            if (UsePaletteSetForCharacters())
+            {
+                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MSH_A_EXTRALOC_05 > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            }
+            else
+            {
+                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MSH_A_EXTRALOC_06 > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            }
+
             sprintf(CollectionNode->szDesc, "Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
@@ -287,7 +348,14 @@ CDescTree CGame_MSH_A::InitDescTree()
                 sprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((MSH_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                if (UsePaletteSetForCharacters())
+                {
+                    ChildNode->uPalId = (((MSH_A_EXTRALOC_05 > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                }
+                else
+                {
+                    ChildNode->uPalId = (((MSH_A_EXTRALOC_06 > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                }
 
 #if MSH_DEBUG
                 strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
@@ -300,10 +368,18 @@ CDescTree CGame_MSH_A::InitDescTree()
         }
     }
 
-    strMsg.Format("CGame_MSH_A::InitDescTree: Loaded %u palettes for MSH1\n", nTotalPaletteCount);
+    strMsg.Format("CGame_MSH_A::InitDescTree: Loaded %u palettes for MSH\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForMSH = nTotalPaletteCount;
+    if (UsePaletteSetForCharacters())
+    {
+        m_nTotalPaletteCountForMSH_05 = nTotalPaletteCount;
+    }
+    else
+    {
+        m_nTotalPaletteCountForMSH_06 = nTotalPaletteCount;
+    }
+
 
     return NewDescTree;
 }
@@ -312,7 +388,7 @@ sFileRule CGame_MSH_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "MSH.06");
+    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 5) ? "MSH.05" : "MSH.06B");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = 0x80000;
@@ -322,54 +398,102 @@ sFileRule CGame_MSH_A::GetRule(UINT16 nUnitId)
 
 UINT16 CGame_MSH_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == MSH_A_EXTRALOC)
+    if (UsePaletteSetForCharacters())
     {
-        return GetExtraCt(nUnitId);
+        if (nUnitId == MSH_A_EXTRALOC_05)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            return MSH_UNITS_05[nUnitId].uChildAmt;
+        }
     }
     else
     {
-        return MSH_UNITS[nUnitId].uChildAmt;
+        if (nUnitId == MSH_A_EXTRALOC_06)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            return MSH_UNITS_06[nUnitId].uChildAmt;
+        }
     }
 }
 
 UINT16 CGame_MSH_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == MSH_A_EXTRALOC)
+    if (UsePaletteSetForCharacters())
     {
-        return GetExtraCt(nUnitId);
+        if (nUnitId == MSH_A_EXTRALOC_05)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(MSH_UNITS_05[nUnitId].ChildNodes);
+
+            return pCollectionNode[nCollectionId].uChildAmt;
+        }
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(MSH_UNITS[nUnitId].ChildNodes);
+        if (nUnitId == MSH_A_EXTRALOC_06)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(MSH_UNITS_06[nUnitId].ChildNodes);
 
-        return pCollectionNode[nCollectionId].uChildAmt;
+            return pCollectionNode[nCollectionId].uChildAmt;
+        }
     }
 }
 
 LPCSTR CGame_MSH_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == MSH_A_EXTRALOC)
+    if (UsePaletteSetForCharacters())
     {
-        return "Extra Palettes";
+        if (nUnitId == MSH_A_EXTRALOC_05)
+        {
+            return "Extra Palettes";
+        }
+        else
+        {
+            const sDescTreeNode* pCollection = (const sDescTreeNode*)MSH_UNITS_05[nUnitId].ChildNodes;
+            return pCollection[nCollectionId].szDesc;
+        }
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)MSH_UNITS[nUnitId].ChildNodes;
-        return pCollection[nCollectionId].szDesc;
+        if (nUnitId == MSH_A_EXTRALOC_06)
+        {
+            return "Extra Palettes";
+        }
+        else
+        {
+            const sDescTreeNode* pCollection = (const sDescTreeNode*)MSH_UNITS_06[nUnitId].ChildNodes;
+            return pCollection[nCollectionId].szDesc;
+        }
     }
 }
 
 UINT16 CGame_MSH_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == MSH_A_EXTRALOC)
+    if (UsePaletteSetForCharacters() ? (nUnitId == MSH_A_EXTRALOC_05) :
+                                      (nUnitId == MSH_A_EXTRALOC_06))
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        UINT16 nCollectionCount = MSH_UNITS[nUnitId].uChildAmt;
-        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(MSH_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCompleteROMTree = UsePaletteSetForCharacters() ? MSH_UNITS_05 : MSH_UNITS_06;
+        UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
+
+        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
 
         for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
         {
@@ -388,9 +512,18 @@ UINT16 CGame_MSH_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 const sGame_PaletteDataset* CGame_MSH_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)MSH_UNITS[nUnitId].ChildNodes;
-    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    if (UsePaletteSetForCharacters())
+    {
+        // Don't use this for Extra palettes.
+        const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)MSH_UNITS_05[nUnitId].ChildNodes;
+        return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    }
+    else
+    {
+        // Don't use this for Extra palettes.
+        const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)MSH_UNITS_06[nUnitId].ChildNodes;
+        return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    }
 }
 
 const sDescTreeNode* CGame_MSH_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
@@ -406,7 +539,8 @@ const sDescTreeNode* CGame_MSH_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nP
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == MSH_A_EXTRALOC)
+        if (UsePaletteSetForCharacters() ? (nUnitId == MSH_A_EXTRALOC_05) :
+                                           (nUnitId == MSH_A_EXTRALOC_06))
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -418,8 +552,9 @@ const sDescTreeNode* CGame_MSH_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nP
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(MSH_UNITS[nUnitId].ChildNodes);
-
+            const sDescTreeNode* pCollectionNodeToCheck = UsePaletteSetForCharacters() ? (const sDescTreeNode*)(MSH_UNITS_05[nUnitId].ChildNodes) :
+                                                                                         (const sDescTreeNode*)(MSH_UNITS_06[nUnitId].ChildNodes);
+            
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
             if (nDistanceFromZero < nNodeCount)
@@ -476,15 +611,19 @@ void CGame_MSH_A::InitDataBuffer()
 
 void CGame_MSH_A::ClearDataBuffer()
 {
+    int nCurrentROMMode = m_nMSHSelectedRom;
+
+    m_nMSHSelectedRom = m_nBufferSelectedRom;
+
     if (pppDataBuffer)
     {
-        for (int nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
             if (pppDataBuffer[nUnitCtr])
             {
-                int nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-                for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
                     safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
@@ -495,11 +634,14 @@ void CGame_MSH_A::ClearDataBuffer()
 
         safe_delete_array(pppDataBuffer);
     }
+
+    m_nMSHSelectedRom = nCurrentROMMode;
 }
 
 void CGame_MSH_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-    if (nUnitId != MSH_A_EXTRALOC)
+     if (UsePaletteSetForCharacters() ? (nUnitId != MSH_A_EXTRALOC_05) :
+                                        (nUnitId != MSH_A_EXTRALOC_06))
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -537,8 +679,7 @@ BOOL CGame_MSH_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = MSH_A_UNITSORT[nUnitCtr];
+        rgUnitRedir[nUnitCtr] = nUnitCtr; // probably can remove this
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -563,6 +704,7 @@ BOOL CGame_MSH_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
     bool fShownOnce = false;
+    const int nLowestROMLocationToTestFor = UsePaletteSetForCharacters() ? m_uLowestKnownPaletteROMLocation_05 : m_uLowestKnownPaletteROMLocation_06;
 
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -572,7 +714,7 @@ BOOL CGame_MSH_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if (!fShownOnce && (nCurrPalOffs < m_uLowestKnownPaletteROMLocation)) // This magic number is the lowest known ROM location.
+            if (!fShownOnce && (nCurrPalOffs < nLowestROMLocationToTestFor)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
                 strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
@@ -614,7 +756,8 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = UsePaletteSetForCharacters() ? MainDescTree_05.GetDescNode(Node01, Node02, Node03, Node04) :
+                                                        MainDescTree_06.GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == nullptr)
     {
@@ -637,7 +780,8 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (MSH_A_EXTRALOC != NodeGet->uUnitId)
+     if (UsePaletteSetForCharacters() ? (NodeGet->uUnitId != MSH_A_EXTRALOC_05) :
+                                        (NodeGet->uUnitId != MSH_A_EXTRALOC_06))
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -698,8 +842,8 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                         //Set each palette
                         sDescNode* JoinedNode[2] = {
-                            MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                            MainDescTree.GetDescNode(Node01, Node02, Node03 + 1, -1)
+                            MainDescTree_05.GetDescNode(Node01, Node02, Node03, -1),
+                            MainDescTree_05.GetDescNode(Node01, Node02, Node03 + 1, -1)
                         };
 
                         //Set each palette

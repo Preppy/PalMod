@@ -24,7 +24,8 @@ CGameLoad::~CGameLoad(void)
 {
     // Clean up static allocations.
     safe_delete_array(CGame_MVC_A::MVC_A_EXTRA_CUSTOM);
-    safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM_05);
+    safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM_06);
     safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A);
     safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM);
@@ -168,7 +169,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
     }
     case MSH_A:
     {
-        return new CGame_MSH_A;
+        return new CGame_MSH_A(nExtraGameData);
     }
     case MSHVSF_A:
     {
@@ -227,6 +228,18 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
             pszFileName++;
             _strlwr(pszFileName);
             nGameRule = ((strstr(pszFileName, ".06a") != nullptr) ? 6 : 7);
+        }
+    }
+    else if (nGameFlag == MSH_A)
+    {
+        CHAR* pszFileName = strrchr(szLoadFile, '\\');
+
+        if (pszFileName)
+        {
+            // Step forward to the filename
+            pszFileName++;
+            _strlwr(pszFileName);
+            nGameRule = ((strstr(pszFileName, ".05") != nullptr) ? 5 : 6);
         }
     }
 
