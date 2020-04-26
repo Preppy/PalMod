@@ -884,6 +884,29 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+            if (paletteDataSet->isJoinedPalette)
+            {
+                if (!UsePaletteSetFor50())
+                {
+                    if (NodeGet->uUnitId == 0x01) // Kakyo
+                    {
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            MainDescTree_51.GetDescNode(Node01, Node02, 0, -1),
+                            MainDescTree_51.GetDescNode(Node01, Node02, Node03, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, 0, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId, nSrcAmt, nNodeIncrement);
+                        return TRUE;
+                    }
+                }
+            }
         }
     }
     else

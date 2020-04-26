@@ -19,7 +19,7 @@ CGame_MVC_A::CGame_MVC_A(void)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = 826 + GetExtraCt(MVC_A_EXTRALOC);
+    m_nSafeCountForThisRom = 824 + GetExtraCt(MVC_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
 
@@ -713,7 +713,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             nYOffs = -17;
                         }
                         else if ((paletteDataSet->indexImgToUse == 0x3C) && // Burnt Devilot
-                                 (paletteDataSet->indexOffsetToUse == 0x03))
+                                 (paletteDataSet->indexOffsetToUse == 0x05))
                         {
                             // Note that the normal Devilot matches perfectly.
                             nXOffs = 7;

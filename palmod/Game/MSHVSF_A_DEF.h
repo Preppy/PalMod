@@ -555,6 +555,7 @@ const sGame_PaletteDataset MSHVSF_A_SSP_PALETTES[] =
     { "Mech Zangief P1 SSP", 0x7D72E, 0x7D78E },
     { "Mech Zangief P2 SSP", 0x7E80E, 0x7E86E },
     { "Mephisto P1 SSP", 0x7D9AE, 0x7DA0E },
+    { "Mephisto P2 SSP", 0x7EA8E, 0x7EAEE },
     { "Norimaro P1 SSP (1/2)", 0x7D54E, 0x7D5CE },
     { "Norimaro P1 SSP (2/2)", 0x7D5CE, 0x7D5EE },
     { "Norimaro P2 SSP (1/2)", 0x7E62E, 0x7E6AE },

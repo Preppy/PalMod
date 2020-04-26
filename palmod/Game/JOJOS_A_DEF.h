@@ -2151,13 +2151,13 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 {
     { "Kakyoin & Hierophant Green A", 0x0337080, 0x0337100 },
 #ifndef USE_LARGE_PALETTES
-    { "Hierophant Changing Pal A (1/7)", 0x0337900, 0x0337980 },
-    { "Hierophant Changing Pal A (2/7)", 0x0337980, 0x0337a00 },
-    { "Hierophant Changing Pal A (3/7)", 0x0337a00, 0x0337a80 },
-    { "Hierophant Changing Pal A (4/7)", 0x0337a80, 0x0337b00 },
-    { "Hierophant Changing Pal A (5/7)", 0x0337b00, 0x0337b80 },
-    { "Hierophant Changing Pal A (6/7)", 0x0337b80, 0x0337c00 },
-    { "Hierophant Changing Pal A (7/7)", 0x0337c00, 0x0337c80 },
+    { "Hierophant Changing Pal A (1/7)", 0x0337900, 0x0337980, INVALID_UNIT_VALUE, 0x0, true },
+    { "Hierophant Changing Pal A (2/7)", 0x0337980, 0x0337a00, INVALID_UNIT_VALUE, 0x0, true },
+    { "Hierophant Changing Pal A (3/7)", 0x0337a00, 0x0337a80, INVALID_UNIT_VALUE, 0x0, true },
+    { "Hierophant Changing Pal A (4/7)", 0x0337a80, 0x0337b00, INVALID_UNIT_VALUE, 0x0, true },
+    { "Hierophant Changing Pal A (5/7)", 0x0337b00, 0x0337b80, INVALID_UNIT_VALUE, 0x0, true },
+    { "Hierophant Changing Pal A (6/7)", 0x0337b80, 0x0337c00, INVALID_UNIT_VALUE, 0x0, true },
+    { "Hierophant Changing Pal A (7/7)", 0x0337c00, 0x0337c80, INVALID_UNIT_VALUE, 0x0, true },
 #else
     { "Hierophant Changing Pal A", 0x0337900, 0x0337c80 },
 #endif
