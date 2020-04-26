@@ -984,7 +984,8 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             //Set each palette
                             sDescNode* JoinedNode[2] = {
                                 MainDescTree_51.GetDescNode(Node01, Node02, Node03, -1),
-                                MainDescTree_51.GetDescNode(Node01, Node02, Node03 + 1, -1)
+                                MainDescTree_51.GetDescNode(Node01, Node02, Node03 + 1, -1) // BUGBUG: There's actually a Hiero we should use in the 00 palette, but
+                                                                                            // we need a new sprite for that to work.
                             };
 
                             //Set each palette

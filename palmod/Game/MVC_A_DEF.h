@@ -419,6 +419,15 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P1[] =
     { "P1 Rush Drill 8", 0x4dcc4, 0x4dce4, 0x1c, 0x22 },
     { "P1 Rush Drill 9", 0x4dce4, 0x4dd04, 0x1c, 0x22 },
 
+    { "P1 Rush Drill Metal 1", 0x4dfa4, 0x4dfc4 },
+    { "P1 Rush Drill Metal 2", 0x4dfc4, 0x4dfe4 },
+    { "P1 Rush Drill Metal 3", 0x4dfe4, 0x4e004 },
+    { "P1 Rush Drill Metal 4", 0x4e004, 0x4e024 },
+    { "P1 Rush Drill Metal 5", 0x4e024, 0x4e044 },
+    { "P1 Rush Drill Metal 6", 0x4e044, 0x4e064 },
+    { "P1 Rush Drill Metal 7", 0x4e064, 0x4e084 },
+    { "P1 Rush Drill Metal 8", 0x4e084, 0x4e0a4 },
+
     { "P1 Teleport Intro", 0x4dd04, 0x4dd24 },
     { "P1 Dr Light", 0x4dd24, 0x4dd44, 0x1c, 0x25 },
 };
@@ -482,6 +491,15 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P2[] =
     { "P2 Rush Drill 8", 0x4e7a4, 0x4e7c4, 0x1c, 0x22 },
     { "P2 Rush Drill 9", 0x4e7c4, 0x4e7e4, 0x1c, 0x22 },
 
+    { "P2 Rush Drill Metal 1", 0x4ea84, 0x4eaa4 },
+    { "P2 Rush Drill Metal 2", 0x4eaa4, 0x4eac4 },
+    { "P2 Rush Drill Metal 3", 0x4eac4, 0x4eae4 },
+    { "P2 Rush Drill Metal 4", 0x4eae4, 0x4eb04 },
+    { "P2 Rush Drill Metal 5", 0x4eb04, 0x4eb24 },
+    { "P2 Rush Drill Metal 6", 0x4eb24, 0x4eb44 },
+    { "P2 Rush Drill Metal 7", 0x4eb44, 0x4eb64 },
+    { "P2 Rush Drill Metal 8", 0x4eb64, 0x4eb84 },
+
     { "P2 Teleport Intro", 0x4e7e4, 0x4e804 },
     { "P2 Dr Light", 0x4e804, 0x4e824, 0x1c, 0x25 },
 };
@@ -511,14 +529,6 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
     // 0x4DE64-0x4DF64 are Megaman
 
     { "P1 Hyper Roll Missiles", 0x4df84, 0x4dfa4 },
-    { "P1 Revert Hyper Roll 1", 0x4dfa4, 0x4dfc4 },
-    { "P1 Revert Hyper Roll 2", 0x4dfc4, 0x4dfe4 },
-    { "P1 Revert Hyper Roll 3", 0x4dfe4, 0x4e004 },
-    { "P1 Revert Hyper Roll 4", 0x4e004, 0x4e024 },
-    { "P1 Revert Hyper Roll 5", 0x4e024, 0x4e044 },
-    { "P1 Revert Hyper Roll 6", 0x4e044, 0x4e064 },
-    { "P1 Revert Hyper Roll 7", 0x4e064, 0x4e084 },
-    { "P1 Revert Hyper Roll 8", 0x4e084, 0x4e0a4 },
 
     { "P2 Charging Roll 1", 0x4e5a4, 0x4e5c4, 0x1d },
     { "P2 Charging Roll 2", 0x4e5c4, 0x4e5e4, 0x1d },
@@ -541,15 +551,6 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
     { "P2 Hyper Roll Armor 9", 0x4e924, 0x4e944 },
 
     { "P2 Hyper Roll Missiles", 0x4ea64, 0x4ea84 },
-
-    { "P2 Revert Hyper Roll 1", 0x4ea84, 0x4eaa4 },
-    { "P2 Revert Hyper Roll 2", 0x4eaa4, 0x4eac4 },
-    { "P2 Revert Hyper Roll 3", 0x4eac4, 0x4eae4 },
-    { "P2 Revert Hyper Roll 4", 0x4eae4, 0x4eb04 },
-    { "P2 Revert Hyper Roll 5", 0x4eb04, 0x4eb24 },
-    { "P2 Revert Hyper Roll 6", 0x4eb24, 0x4eb44 },
-    { "P2 Revert Hyper Roll 7", 0x4eb44, 0x4eb64 },
-    { "P2 Revert Hyper Roll 8", 0x4eb64, 0x4eb84 },
 
     { "P2 Megaman", 0x4eb84, 0x4eba4, 0x1c },
     { "P2 Magnetic Shockwave Megaman", 0x4eba4, 0x4ebc4, 0x1c },
