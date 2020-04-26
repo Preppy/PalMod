@@ -863,17 +863,15 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "Storm P2", 0x50c04, 0x50c24, 0x2a },
     { "Storm P2 Extra", 0x50c84, 0x50ca4, 0x2a, 12 },
 
-    { "Ton-Pooh P1", 0x50744, 0x50764 },
-    { "Ton-Pooh P1 Extra 1", 0x50764, 0x50784 },
-    { "Ton-Pooh P1 Extra 2", 0x50784, 0x507a4 },
-    { "Ton-Pooh P2", 0x507a4, 0x507c4 },
-    { "Ton-Pooh P2 Extra 1", 0x507c4, 0x507e4 },
-    { "Ton-Pooh P2 Extra 2", 0x507e4, 0x50804 },
+    { "Ton-Pooh P1", 0x50744, 0x50784, 0x3C, 0x13 },
+    { "Ton-Pooh P1 Attack", 0x50784, 0x507a4, 0x3C, 0x14 },
+    { "Ton-Pooh P2", 0x507a4, 0x507e4, 0x3C, 0x13 },
+    { "Ton-Pooh P2 Attack", 0x507e4, 0x50804, 0x3C, 0x14 },
 
-    { "Thor P1", 0x50ae4, 0x50b04 },
-    { "Thor P1 Extra", 0x50b04, 0x50b24 },
-    { "Thor P2", 0x50b44, 0x50b64 },
-    { "Thor P2 Extra", 0x50b64, 0x50b84 },
+    { "Thor P1", 0x50ae4, 0x50b04, 0x3C, 0x15 },
+    { "Thor P1 Lightning", 0x50b04, 0x50b24, 0x3C, 0x16 },
+    { "Thor P2", 0x50b44, 0x50b64, 0x3C, 0x15 },
+    { "Thor P2 Lightning", 0x50b64, 0x50b84, 0x3C, 0x16 },
 
     { "Unknown Soldier P1", 0x50684, 0x506a4, 0x3C, 0x12 },
     { "Unknown Soldier P1 Extra", 0x506a4, 0x506c4, 0x3C, 0x11 },
@@ -888,28 +886,28 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "US Agent P2 Charging Star", 0x50f84, 0x50fa4, 0x0b, 2 },
 };
 
-const sGame_PaletteDataset MVC_A_ASSISTPORT_PALETTES[] =
+const sGame_PaletteDataset MVC_A_ASSISTICON_PALETTES[] =
 {
-    { "Cyclops Portrait", 0x0047de4, 0x0047e04 },
-    { "Colossus Portrait", 0x0047e04, 0x0047e24 },
-    { "IceMan Portrait", 0x0047e64, 0x0047e84 },
-    { "Jubilee Portrait", 0x0047ea4, 0x0047ec4 },
-    { "Juggernaut Portrait", 0x0047d84, 0x0047da4 },
-    { "Magneto Portrait", 0x0047da4, 0x0047dc4 },
-    { "Psylocke Portrait", 0x0047dc4, 0x0047de4 },
-    { "Rogue Portrait", 0x0047e84, 0x0047ea4 },
-    { "Storm Portrait", 0x0047ec4, 0x0047ee4 },
-    { "Thor Portrait", 0x0047e24, 0x0047e44 },
-    { "U.S. Agent Portrait", 0x0047e44, 0x0047e64 },
-    { "Anita Portrait", 0x0047fc4, 0x0047fe4 },
-    { "Arthur Portrait", 0x0047f04, 0x0047f24 },
-    { "Devilot Portrait", 0x0048004, 0x0048024 },
-    { "Lou Portrait", 0x0047fa4, 0x0047fc4 },
-    { "Michelle Heart Portrait", 0x0047f24, 0x0047f44 },
-    { "Pure and Fur Portrait", 0x0047fe4, 0x0048004 },
-    { "Saki Portrait", 0x0047f64, 0x0047f84 },
-    { "Ton-Pooh Portrait", 0x0047f44, 0x0047f64 },
-    { "Unknown Soldier Portrait", 0x0047f84, 0x0047fa4 },
+    { "Anita", 0x0047fc4, 0x0047fe4, 0x3C, 0x30 },
+    { "Arthur", 0x0047f04, 0x0047f24, 0x3C, 0x31 },
+    { "Colossus", 0x0047e04, 0x0047e24, 0x3C, 0x32 },
+    { "Cyclops", 0x0047de4, 0x0047e04, 0x3C, 0x33 },
+    { "Devilot", 0x0048004, 0x0048024, 0x3C, 0x34 },
+    { "Iceman", 0x0047e64, 0x0047e84, 0x3C, 0x35 },
+    { "Jubilee", 0x0047ea4, 0x0047ec4, 0x3C, 0x36 },
+    { "Juggernaut", 0x0047d84, 0x0047da4, 0x3C, 0x37 },
+    { "Lou", 0x0047fa4, 0x0047fc4, 0x3C, 0x38 },
+    { "Magneto", 0x0047da4, 0x0047dc4, 0x3C, 0x39 },
+    { "Michelle Heart", 0x0047f24, 0x0047f44, 0x3C, 0x3A },
+    { "Psylocke", 0x0047dc4, 0x0047de4, 0x3C, 0x3B },
+    { "Pure and Fur", 0x0047fe4, 0x0048004, 0x3C, 0x3C },
+    { "Rogue", 0x0047e84, 0x0047ea4, 0x3C, 0x3D },
+    { "Saki", 0x0047f64, 0x0047f84, 0x3C, 0x3E },
+    { "Storm", 0x0047ec4, 0x0047ee4, 0x3C, 0x3F },
+    { "Thor", 0x0047e24, 0x0047e44, 0x3C, 0x40 },
+    { "Ton-Pooh", 0x0047f44, 0x0047f64, 0x3C, 0x41 },
+    { "Unknown Soldier", 0x0047f84, 0x0047fa4, 0x3C, 0x42 },
+    { "U.S. Agent", 0x0047e44, 0x0047e64, 0x3C, 0x43 },
 };
 
 const sGame_PaletteDataset MVC_A_VSP_PALETTES[] =
@@ -1518,7 +1516,7 @@ const sDescTreeNode MVC_A_GAMBIT_COLLECTION[] =
 const sDescTreeNode MVC_A_ASSIST_COLLECTION[] =
 {
     { "Assists",                      DESC_NODETYPE_TREE, (void*)MVC_A_ASSIST_PALETTES,           ARRAYSIZE(MVC_A_ASSIST_PALETTES) },
-    { "Assist Portraits",             DESC_NODETYPE_TREE, (void*)MVC_A_ASSISTPORT_PALETTES,       ARRAYSIZE(MVC_A_ASSISTPORT_PALETTES) },
+    { "Assist Icons",                 DESC_NODETYPE_TREE, (void*)MVC_A_ASSISTICON_PALETTES,       ARRAYSIZE(MVC_A_ASSISTICON_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_CSIS_COLLECTION[] =
