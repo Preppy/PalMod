@@ -454,8 +454,32 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  ((uPalId >= (0x19F + EXTRA_OMNI)) && (uPalId <= (0x1A7 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x1F6 + EXTRA_OMNI)) && (uPalId <= (0x1FE + EXTRA_OMNI))))
         {
-            fImgIsFromNewImgDatRange = true;
-            nTargetImgId = 0x27;
+            bLoadDefPal = FALSE;
+
+            int nXOffs = 31;
+            int nYOffs = 12;
+            int nPeerPaletteDistance = 9;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0x27,
+                    CreateImgTicket(uUnitId, 0x28, nullptr, nXOffs, nYOffs)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeHMMM[2] = {
+                MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeHMMM[0], 0);
+            CreateDefPal(NodeHMMM[1], 1);
+
+            SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
+            SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance, 1, 1);
+
             break;
         }
         else if (((uPalId >= (0x4C + EXTRA_OMNI)) && (uPalId <= (0x54 + EXTRA_OMNI))) || // Hyper Megaman: core
