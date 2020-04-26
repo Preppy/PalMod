@@ -23,6 +23,8 @@ private:
     int m_nCurrentPaletteSize = 0;
     const int m_knMaxPalettePageSize = 64;
 
+    int m_nGameButtonColorCount = 5;
+
     // This array holds all the actual color tables we use
     UINT16*** m_pppDataBuffer = nullptr;
 
@@ -67,6 +69,7 @@ public:
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
 
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+    bool AreUnitCoreNodesBalanced(UINT16 nUnitId);
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nFileId = 0);

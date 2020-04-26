@@ -2149,7 +2149,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 {
-    { "Kakyoin & Hierophant Green A", 0x0337080, 0x0337100, 0x01, 0x0 },
+    { "Kakyoin & Hierophant Green A", 0x0337080, 0x0337100, 0x01, 0x0, true },
 #ifndef USE_LARGE_PALETTES
     { "Hierophant Changing Pal A (1/7)", 0x0337900, 0x0337980, 0x01, 0x01, true },
     { "Hierophant Changing Pal A (2/7)", 0x0337980, 0x0337a00, 0x01, 0x01, true },
@@ -2188,7 +2188,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
 {
-    { "Kakyoin & Hierophant Green B", 0x034b580, 0x034b600, 0x01, 0x0 },
+    { "Kakyoin & Hierophant Green B", 0x034b580, 0x034b600, 0x01, 0x0, true },
 #ifndef USE_LARGE_PALETTES
     { "Hierophant Changing Pal B (1/7)", 0x034be00, 0x034be80, 0x01, 0x01, true },
     { "Hierophant Changing Pal B (2/7)", 0x034be80, 0x034bf00, 0x01, 0x01, true },
@@ -2227,7 +2227,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
 {
-    { "Kakyoin & Hierophant Green C", 0x035fa80, 0x035fb00, 0x01, 0x0 },
+    { "Kakyoin & Hierophant Green C", 0x035fa80, 0x035fb00, 0x01, 0x0, true },
 #ifndef USE_LARGE_PALETTES
     { "Hierophant Changing Pal C (1/7)", 0x0360300, 0x0360380, 0x01, 0x01, true },
     { "Hierophant Changing Pal C (2/7)", 0x0360380, 0x0360400, 0x01, 0x01, true },
@@ -2266,7 +2266,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
 {
-    { "Kakyoin & Hierophant Green S", 0x0373f80, 0x0374000, 0x01, 0x0 },
+    { "Kakyoin & Hierophant Green S", 0x0373f80, 0x0374000, 0x01, 0x0, true },
 #ifndef USE_LARGE_PALETTES
     { "Hierophant Changing Pal S (1/7)", 0x0374800, 0x0374880, 0x01, 0x01, true },
     { "Hierophant Changing Pal S (2/7)", 0x0374880, 0x0374900, 0x01, 0x01, true },
@@ -2305,7 +2305,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_Start[] =
 {
-    { "Kakyoin & Hierophant Green Start", 0x0388480, 0x0388500, 0x01, 0x0 },
+    { "Kakyoin & Hierophant Green Start", 0x0388480, 0x0388500, 0x01, 0x0, true },
 #ifndef USE_LARGE_PALETTES
     { "Hierophant Changing Pal Start (1/7)", 0x0388d00, 0x0388d80, 0x01, 0x01, true },
     { "Hierophant Changing Pal Start (2/7)", 0x0388d80, 0x0388e00, 0x01, 0x01, true },
