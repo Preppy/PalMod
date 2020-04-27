@@ -13,7 +13,7 @@ private:
     int nTargetImgId = 0;
 
     //Used for GetPalOffset
-    int nCurrPalOffs = 0;
+    UINT32 nCurrPalOffs = 0;
     int nCurrPalSz = 0;
 
     static UINT32 m_nTotalPaletteCountForXMVSF;
@@ -25,9 +25,6 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     UINT16*** pppDataBuffer = nullptr;
-
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    const int m_uLowestKnownPaletteROMLocation = 0x14000;
 
 public:
     CGame_XMVSF_A(void);

@@ -32,6 +32,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(int nSSF2TRomToLoad)
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForPortraits() ? nSafeCountFor3C : nSafeCountFor4A);
     m_pszExtraFilename = UsePaletteSetForPortraits() ? EXTRA_FILENAME_SSF2T_3C : EXTRA_FILENAME_SSF2T_4A;
     m_nTotalPaletteCount = UsePaletteSetForPortraits() ? m_nTotalPaletteCountForSSF2T_3C : m_nTotalPaletteCountForSSF2T_4A;
+    m_nLowestKnownPaletteRomLocation = UsePaletteSetForPortraits() ? m_uLowestKnownPaletteROMLocation_3C : m_uLowestKnownPaletteROMLocation_4A;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -661,7 +662,7 @@ BOOL CGame_SSF2T_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
-    CheckForDupesInTables();
+    CheckForErrorsInTables();
 
     return TRUE;
 }
@@ -670,7 +671,6 @@ BOOL CGame_SSF2T_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
     bool fShownOnce = false;
-    const int nLowestROMLocationToTestFor = UsePaletteSetForPortraits() ? m_uLowestKnownPaletteROMLocation_3C : m_uLowestKnownPaletteROMLocation_4A;
 
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -680,7 +680,7 @@ BOOL CGame_SSF2T_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if (!fShownOnce && (nCurrPalOffs < nLowestROMLocationToTestFor)) // This magic number is the lowest known ROM location.
+            if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
                 strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);

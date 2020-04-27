@@ -7,11 +7,14 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 class CGameWithExtrasFile
 {
 protected:
-    int m_nCurrentPaletteROMLocation = 0;
+    UINT32 m_nCurrentPaletteROMLocation = 0;
     static UINT32 m_nTotalPaletteCount;
     UINT16 m_nTotalInternalUnits = INVALID_UNIT_VALUE;
     UINT16 m_nExtraUnit = INVALID_UNIT_VALUE;
     UINT32 m_nSafeCountForThisRom = 0;
+    UINT32 m_nLowestKnownPaletteRomLocation = 0xFFFFFFF;
+    UINT32 m_nLowestRomLocationThisPass = 0xFFFFFFF;
+    UINT32 m_nLowestRomExtrasLocationThisPass = 0xFFFFFFF;
     LPCSTR m_pszExtraFilename = nullptr;
 
 public:
@@ -24,6 +27,7 @@ public:
     bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOffsetToCheck);
     int GetDupeCountInExtrasDataset();
     int GetDupeCountInDataset();
-    void CheckForDupesInTables();
+    // Checks for duplicate entries and surprisingly low entries.
+    void CheckForErrorsInTables();
 };
 

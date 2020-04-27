@@ -21,6 +21,7 @@ CGame_SFA3_A::CGame_SFA3_A(void)
     m_nSafeCountForThisRom = 840 + GetExtraCt(SFA3_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SFA3;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
+    m_nLowestKnownPaletteRomLocation = 0x2C000;
 
     InitDataBuffer();
 
@@ -493,7 +494,7 @@ BOOL CGame_SFA3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
-    CheckForDupesInTables();
+    CheckForErrorsInTables();
 
     return TRUE;
 }
@@ -511,7 +512,7 @@ BOOL CGame_SFA3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if (!fShownOnce && (nCurrPalOffs < m_uLowestKnownPaletteROMLocation)) // This magic number is the lowest known ROM location.
+            if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
                 strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);

@@ -1110,7 +1110,7 @@ BOOL CGame_JOJOS_A::LoadFile(CFile* LoadedFile, UINT16 nFileId)
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
-    CheckForDupesInTables();
+    CheckForErrorsInTables();
 
     return TRUE;
 }

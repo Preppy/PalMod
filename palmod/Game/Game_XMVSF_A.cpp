@@ -21,6 +21,8 @@ CGame_XMVSF_A::CGame_XMVSF_A(void)
     m_nSafeCountForThisRom = 211 + GetExtraCt(XMVSF_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_XMVSF;
     m_nTotalPaletteCount = m_nTotalPaletteCountForXMVSF;
+    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+    m_nLowestKnownPaletteRomLocation = 0x14000;
 
     InitDataBuffer();
 
@@ -545,7 +547,7 @@ BOOL CGame_XMVSF_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
-    CheckForDupesInTables();
+    CheckForErrorsInTables();
 
     return TRUE;
 }
@@ -563,7 +565,7 @@ BOOL CGame_XMVSF_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if (!fShownOnce && (nCurrPalOffs < m_uLowestKnownPaletteROMLocation)) // This magic number is the lowest known ROM location.
+            if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
                 strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
