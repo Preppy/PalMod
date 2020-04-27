@@ -91,11 +91,11 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
         {
             CString strError;
             static bool s_fAlreadyShown = false;
-            strError = "ERROR: Our color table can only show 64 colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n";
+            strError.Format("ERROR: Our color table can only show %u colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n", PAL_MAXAMT);
             OutputDebugString(strError);
             if (!s_fAlreadyShown)
             {
-                //s_fAlreadyShown = true;
+                s_fAlreadyShown = true;
                 MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
             }
             return FALSE;
@@ -518,12 +518,15 @@ void CJunk::UpdateIndexAll()
 
 BOOL CJunk::UpdateCtrl(BOOL bUpdFace)
 {
-    if (bUpdFace)
+    if (dcPaintDC)
     {
-        UpdateFace();
-    }
+        if (bUpdFace)
+        {
+            UpdateFace();
+        }
 
-    dcPaintDC->BitBlt(0, 0, iBaseW, iBaseH, &dcBaseDC, 0, 0, SRCCOPY);
+        dcPaintDC->BitBlt(0, 0, iBaseW, iBaseH, &dcBaseDC, 0, 0, SRCCOPY);
+    }
 
     return TRUE;
 }

@@ -2,7 +2,7 @@
 #include "regproc.h"
 
 constexpr auto c_previewWndPos = "prev_wndpos";
-constexpr auto c_mainWndPos = "main_wndpos";
+constexpr auto c_mainWndPos = "main_wndpos_02"; // changed default app size so incrementing this
 
 extern int GetDpiForScreen();
 

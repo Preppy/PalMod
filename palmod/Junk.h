@@ -17,7 +17,7 @@
 #define CUSTOM_SNONE           WM_USER +14
 
 #define PAL_MAXWIDTH 8
-#define PAL_MAXAMT 64
+#define PAL_MAXAMT 128
 
 #define BASE_PALETTE_SQUARE_SIZE 15
 #define BDR_SZ 1

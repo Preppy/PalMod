@@ -239,9 +239,10 @@ BOOL VerifyPaste()
     {
         if (szTempStr[1] - 33 <= NUM_GAMES) //Gameflag
         {
-            if (szTempStr[2] - 33 <= 64)
+            UINT16 nPaletteCount = (0xFF & szTempStr[2]) - 33;
+            if (nPaletteCount <= PAL_MAXAMT)
             {
-                if ((szTempStr[((szTempStr[2] - 33) * 4) + 3] == ')'))
+                if ((szTempStr[(nPaletteCount * 4) + 3] == ')'))
                 {
                     bCanPaste = TRUE;
                 }

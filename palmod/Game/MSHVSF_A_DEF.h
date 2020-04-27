@@ -530,10 +530,8 @@ const sGame_PaletteDataset MSHVSF_A_SSP_PALETTES[] =
     { "Akuma P2 SSP", 0x7E4FE, 0x7E56E },
     { "Blackheart P1 SSP", 0x7CFAE, 0x7D02E },
     { "Blackheart P2 SSP", 0x7E08E, 0x7E10E },
-    { "Captain America P1 SSP (1/2)", 0x7CBEE, 0x7CC6E },
-    { "Captain America P1 SSP (2/2)", 0x7CC6E, 0x7CC8E },
-    { "Captain America P2 SSP (1/2)", 0x7DCCE, 0x7DD4E },
-    { "Captain America P2 SSP (2/2)", 0x7DD4E, 0x7DD6E },
+    { "Captain America P1 SSP", 0x7CBEE, 0x7CC8E },
+    { "Captain America P2 SSP", 0x7DCCE, 0x7DD6E },
     { "Chun-Li P1 SSP", 0x7D18E, 0x7D20E },
     { "Chun-Li P2 SSP", 0x7E26E, 0x7E2EE },
     { "Cyber Akuma P1 SSP", 0x7D68E, 0x7D6EE },
@@ -556,24 +554,19 @@ const sGame_PaletteDataset MSHVSF_A_SSP_PALETTES[] =
     { "Mech Zangief P2 SSP", 0x7E80E, 0x7E86E },
     { "Mephisto P1 SSP", 0x7D9AE, 0x7DA0E },
     { "Mephisto P2 SSP", 0x7EA8E, 0x7EAEE },
-    { "Norimaro P1 SSP (1/2)", 0x7D54E, 0x7D5CE },
-    { "Norimaro P1 SSP (2/2)", 0x7D5CE, 0x7D5EE },
-    { "Norimaro P2 SSP (1/2)", 0x7E62E, 0x7E6AE },
-    { "Norimaro P2 SSP (2/2)", 0x7E6AE, 0x7E6CE },
+    { "Norimaro P1 SSP", 0x7D54E, 0x7D5EE },
+    { "Norimaro P2 SSP", 0x7E62E, 0x7E6CE },
     { "Ryu P1 SSP", 0x7D04E, 0x7D0CE },
     { "Ryu P2 SSP", 0x7E12E, 0x7E1AE },
     { "Sakura P1 SSP", 0x7D4AE, 0x7D52E },
     { "Sakura P2 SSP", 0x7E58E, 0x7E60E },
-    { "Shadow P2 SSP (1/2)", 0x7E94E, 0x7E9CE },
-    { "Shadow P2 SSP (2/2)", 0x7E9CE, 0x7E9EE },
+    { "Shadow P2 SSP", 0x7E94E, 0x7E9EE },
     { "Shuma-Gorath P1 SSP", 0x7CDCE, 0x7CE2E },
     { "Shuma-Gorath P2 SSP", 0x7DEAE, 0x7DF0E },
     { "Spider-Man P1 SSP", 0x7CF0E, 0x7CF4E },
     { "Spider-Man P2 SSP", 0x7DFEE, 0x7E02E },
-    { "US Agent P1 SSP (1/2)", 0x7D90E, 0x7D98E },
-    { "US Agent P1 SSP (2/2)", 0x7D98E, 0x7D9AE },
-    { "US Agent P2 SSP (1/2)", 0x7E9EE, 0x7EA6E },
-    { "US Agent P2 SSP (2/2)", 0x7EA6E, 0x7EA8E },
+    { "US Agent P1 SSP", 0x7D90E, 0x7D9AE },
+    { "US Agent P2 SSP", 0x7E9EE, 0x7EA8E },
     { "Wolverine P1 SSP", 0x7CD2E, 0x7CDAE },
     { "Wolverine P2 SSP", 0x7DE0E, 0x7DE8E },
     { "Zangief P1 SSP", 0x7D2CE, 0x7D32E },
@@ -587,58 +580,31 @@ const sGame_PaletteDataset MSHVSF_A_VSP_PALETTES[] =
     { "A. Spider-Man P1 VSP", 0x7FD4E, 0x7FD8E },
     { "Akuma P1 VSP", 0x7F70E, 0x7F78E },
     { "Blackheart P1 VSP", 0x7F2AE, 0x7F2EE },
-    { "Captain America P1 VSP (1/2)", 0x7EEEE, 0x7EF6E },
-    { "Captain America P1 VSP (2/2)", 0x7EF6E, 0x7EF8E },
+    { "Captain America P1 VSP", 0x7EEEE, 0x7EF8E },
     { "Captain America P2 VSP Part 1", 0x7FFCE, 0x7FFFF },
     { "Chun-Li P1 VSP", 0x7F48E, 0x7F4EE },
-    { "Cyber Akuma P1 VSP (1/2)", 0x7F98E, 0x7FA0E },
-    { "Cyber Akuma P1 VSP (2/2)", 0x7FA0E, 0x7FA2E },
-    { "Cyclops P1 VSP (1/2)", 0x7EE4E, 0x7EECE },
-    { "Cyclops P1 VSP (2/2)", 0x7EECE, 0x7EEEE },
-    { "Cyclops P2 VSP (1/2)", 0x7FF2E, 0x7FFAE },
-    { "Cyclops P2 VSP (2/2)", 0x7FFAE, 0x7FFCE },
-    { "Dan P1 VSP (1/2)", 0x7F8EE, 0x7F96E },
-    { "Dan P1 VSP (2/2)", 0x7F96E, 0x7F98E },
-    { "Dark Sakura P1 VSP (1/2)", 0x7FACE, 0x7FB4E },
-    { "Dark Sakura P1 VSP (2/2)", 0x7FB4E, 0x7FB6E },
-    { "Dhalsim P1 VSP (1/2)", 0x7F52E, 0x7F5AE },
-    { "Dhalsim P1 VSP (2/2)", 0x7F5AE, 0x7F5CE },
+    { "Cyber Akuma P1 VSP", 0x7F98E, 0x7FA2E },
+    { "Cyclops P1 VSP", 0x7EE4E, 0x7EEEE },
+    { "Cyclops P2 VSP", 0x7FF2E, 0x7FFCE },
+    { "Dan P1 VSP", 0x7F8EE, 0x7F98E },
+    { "Dark Sakura P1 VSP", 0x7FACE, 0x7FB6E },
+    { "Dhalsim P1 VSP", 0x7F52E, 0x7F5CE },
     { "Hulk P1 VSP", 0x7EF8E, 0x7EFEE },
-    { "Ken P1 VSP (1/2)", 0x7F3EE, 0x7F46E },
-    { "Ken P1 VSP (2/2)", 0x7F46E, 0x7F48E },
-    { "Omega Red P1 VSP (1/2)", 0x7F16E, 0x7F1EE },
-    { "Omega Red P1 VSP (2/2)", 0x7F1EE, 0x7F20E },
-    { "M. Bison P1 VSP (1/2)", 0x7F66E, 0x7F6EE },
-    { "M. Bison P1 VSP (2/2)", 0x7F6EE, 0x7F70E },
-    { "Mech Zangief P1 VSP (1/2)", 0x7FA2E, 0x7FAAE },
-    { "Mech Zangief P1 VSP (2/2)", 0x7FAAE, 0x7FACE },
+    { "Ken P1 VSP", 0x7F3EE, 0x7F48E },
+    { "Omega Red P1 VSP", 0x7F16E, 0x7F20E },
+    { "M. Bison P1 VSP", 0x7F66E, 0x7F70E },
+    { "Mech Zangief P1 VSP", 0x7FA2E, 0x7FACE },
     { "Mephisto P1 VSP", 0x7FCAE, 0x7FCEE },
-    { "Norimaro P1 VSP (1/2)", 0x7F84E, 0x7F8CE },
-    { "Norimaro P1 VSP (2/2)", 0x7F8CE, 0x7F8EE },
-    { "Ryu P1 VSP (1/2)", 0x7F34E, 0x7F3CE },
-    { "Ryu P1 VSP (2/2)", 0x7F3CE, 0x7F3EE },
-    { "Sakura P1 VSP (1/2)", 0x7F7AE, 0x7F82E },
-    { "Sakura P1 VSP (2/2)", 0x7F82E, 0x7F84E },
+    { "Norimaro P1 VSP", 0x7F84E, 0x7F8EE },
+    { "Ryu P1 VSP", 0x7F34E, 0x7F3EE },
+    { "Sakura P1 VSP", 0x7F7AE, 0x7F84E },
     { "Shuma-Gorath P1 VSP", 0x7F0CE, 0x7F14E },
     { "Spider-Man P1 VSP", 0x7F20E, 0x7F24E },
-    { "U.S Agent P1 VSP (1/2)", 0x7FC0E, 0x7FC8E },
-    { "U.S Agent P1 VSP (2/2)", 0x7FC8E, 0x7FCAE },
-    { "Wolverine P1 VSP (1/2)", 0x7F02E, 0x7F0AE },
-    { "Wolverine P1 VSP (2/2)", 0x7F0AE, 0x7F0CE },
-    { "Zangief P1 VSP (1/2)", 0x7F5CE, 0x7F64E },
-    { "Zangief P1 VSP (2/2)", 0x7F64E, 0x7F66E },
-#ifdef USE_LARGE_PALETTES
+    { "U.S Agent P1 VSP", 0x7FC0E, 0x7FCAE },
+    { "Wolverine P1 VSP", 0x7F02E, 0x7F0CE },
+    { "Zangief P1 VSP", 0x7F5CE, 0x7F66E },
     { "Apocalypse P1 VSP", 0x7EDAE, 0x7EE4E },
-#else
-    { "Apocalypse P1 VSP (1/2)", 0x7EDAE, 0x7EE2E },
-    { "Apocalypse P1 VSP (2/2)", 0x7EE2E, 0x7EE4E },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Apocalypse P2 VSP", 0x7FE8E, 0x7FF2E },
-#else
-    { "Apocalypse P2 VSP (1/2)", 0x7FE8E, 0x7FF0E },
-    { "Apocalypse P2 VSP (2/2)", 0x7FF0E, 0x7FF2E },
-#endif
 };
 
 const sGame_PaletteDataset MSHVSF_A_VSP_PALETTES_7B[] =
@@ -649,88 +615,23 @@ const sGame_PaletteDataset MSHVSF_A_VSP_PALETTES_7B[] =
     { "Captain America P2 VSP Part 2", 0x0000000, 0x000006e },
     { "Chun-Li P2 VSP", 0x000056e, 0x00005ce },
     { "Cyber Akuma P2 VSP", 0xA6E, 0xB0E },
-#ifdef USE_LARGE_PALETTES
     { "Dan P2 VSP", 0x00009ce, 0x0000a6e },
-#else
-    { "Dan P2 VSP (1/2)", 0x00009ce, 0x0000a4e },
-    { "Dan P2 VSP (2/2)", 0x0000a4e, 0x0000a6e },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Dark Sakura P2 VSP", 0x0000bae, 0x0000c4e },
-#else
-    { "Dark Sakura P2 VSP (1/2)", 0x0000bae, 0x0000c2e },
-    { "Dark Sakura P2 VSP (2/2)", 0x0000c2e, 0x0000c4e },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Dhalsim P2 VSP", 0x000060e, 0x00006ae },
-#else
-    { "Dhalsim P2 VSP (1/2)", 0x000060e, 0x000068e },
-    { "Dhalsim P2 VSP (2/2)", 0x000068e, 0x00006ae },
-#endif
     { "Hulk P2 VSP", 0x000006e, 0x00000ce },
-#ifdef USE_LARGE_PALETTES
     { "Ken P2 VSP", 0x00004ce, 0x000056e },
-#else
-    { "Ken P2 VSP (1/2)", 0x00004ce, 0x000054e },
-    { "Ken P2 VSP (2/2)", 0x000054e, 0x000056e },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Omega Red P2 VSP", 0x000024e, 0x00002ee },
-#else
-    { "Omega Red P2 VSP (1/2)", 0x000024e, 0x00002ce },
-    { "Omega Red P2 VSP (2/2)", 0x00002ce, 0x00002ee },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "M. Bison P2 VSP", 0x000074e, 0x00007ee },
-#else
-    { "M. Bison P2 VSP (1/2)", 0x000074e, 0x00007ce },
-    { "M. Bison P2 VSP (2/2)", 0x00007ce, 0x00007ee },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Mech Zangief P2 VSP", 0x0000b0e, 0x0000bae },
-#else
-    { "Mech Zangief P2 VSP (1/2)", 0x0000b0e, 0x0000b8e },
-    { "Mech Zangief P2 VSP (2/2)", 0x0000b8e, 0x0000bae },
-#endif
     { "Mephisto P2 VSP", 0x0000d8e, 0x0000dce },
-#ifdef USE_LARGE_PALETTES
     { "Norimaro P2 VSP", 0x000092e, 0x00009ce },
-#else
-    { "Norimaro P2 VSP (1/2)", 0x000092e, 0x00009ae },
-    { "Norimaro P2 VSP (2/2)", 0x00009ae, 0x00009ce },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Ryu P2 VSP", 0x000042e, 0x00004ce },
-#else
-    { "Ryu P2 VSP (1/2)", 0x000042e, 0x00004ae },
-    { "Ryu P2 VSP (2/2)", 0x00004ae, 0x00004ce },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Sakura P2 VSP", 0x000088e, 0x000092e },
-#else
-    { "Sakura P2 VSP (1/2)", 0x000088e, 0x000090e },
-    { "Sakura P2 VSP (2/2)", 0x000090e, 0x000092e },
-#endif
     { "Shuma-Gorath P2 VSP", 0x00001ae, 0x000022e },
     { "Spider-Man P2 VSP", 0x00002ee, 0x000032e },
-#ifdef USE_LARGE_PALETTES
     { "US Agent P2 VSP", 0x0000cee, 0x0000d8e },
-#else
-    { "US Agent P2 VSP (1/2)", 0x0000cee, 0x0000d6e },
-    { "US Agent P2 VSP (2/2)", 0x0000d6e, 0x0000d8e },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Wolverine P2 VSP", 0x000010e, 0x00001ae },
-#else
-    { "Wolverine P2 VSP (1/2)", 0x000010e, 0x000018e },
-    { "Wolverine P2 VSP (2/2)", 0x000018e, 0x00001ae },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Zangief P2 VSP", 0x00006ae, 0x000074e },
-#else
-    { "Zangief P2 VSP (1/2)", 0x00006ae, 0x000072e },
-    { "Zangief P2 VSP (2/2)", 0x000072e, 0x000074e },
-#endif
 };
 
 const sDescTreeNode MSHVSF_A_APOCALYPSE_COLLECTION[] =

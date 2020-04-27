@@ -284,8 +284,8 @@ const sGame_PaletteDataset MSH_A_CSP_PALETTES[] =
     { "Psylocke P2 CSP (2/3)", 0x000c800, 0x000c880 },
     { "Psylocke P2 CSP (3/3)", 0x000c880, 0x000c8a0 },
 #endif
-    { "BlackHeart P1 CSP", 0x000c980, 0x000c9c0 },
-    { "BlackHeart P2 CSP", 0x000cb80, 0x000cbc0 },
+    { "Blackheart P1 CSP", 0x000c980, 0x000c9c0 },
+    { "Blackheart P2 CSP", 0x000cb80, 0x000cbc0 },
 #ifdef USE_LARGE_PALETTES
     { "Shuma-Gorath P1 CSP", 0x000cd80, 0x000ce80 },
 #else
