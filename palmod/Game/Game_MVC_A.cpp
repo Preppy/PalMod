@@ -668,62 +668,62 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->isJoinedPalette)
             {
-                const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
+                int nXOffs = 0, nYOffs = 0;
+                UINT8 nPeerPaletteDistance = 1;
 
-                if (paletteDataSetToJoin)
+                if (NodeGet->uUnitId == indexMVCWolverine) // wolvie claws support
                 {
-                    int nXOffs = 0, nYOffs = 0;
-                    UINT8 nPeerPaletteDistance = 1;
-
-                    if (NodeGet->uUnitId == indexMVCWolverine) // wolvie claws support
-                    {
-                        nXOffs = 20;
-                        nYOffs = 4;
-                        fShouldUseAlternateLoadLogic = true;
-                    }
-                    else if (NodeGet->uUnitId == indexMVCCaptainAmerica) // Captain America shield
+                    nXOffs = 20;
+                    nYOffs = 4;
+                    fShouldUseAlternateLoadLogic = true;
+                }
+                else if (NodeGet->uUnitId == indexMVCCaptainAmerica) // Captain America shield
+                {
+                    nXOffs = -22;
+                    nYOffs = -17;
+                    fShouldUseAlternateLoadLogic = true;
+                }
+                else if (NodeGet->uUnitId == indexMVCMegaman) // Hyper Megaman
+                {
+                    nPeerPaletteDistance = 9; // there are 9 colors for this
+                    nXOffs = 31;
+                    nYOffs = 12;
+                    fShouldUseAlternateLoadLogic = true;
+                }
+                else if (NodeGet->uUnitId == indexMVCRoll)
+                {
+                    nPeerPaletteDistance = 9; // there are 9 colors for this
+                    fShouldUseAlternateLoadLogic = true;
+                }
+                else if (NodeGet->uUnitId == indexMVCCapCom)  // Captain Commando ninjas
+                {
+                    nXOffs = 28;
+                    nYOffs = 4;
+                    fShouldUseAlternateLoadLogic = true;
+                }
+                else if (NodeGet->uUnitId == indexMVCAssists)
+                {
+                    if (paletteDataSet->indexImgToUse == 0x0B) // US Agent's shield
                     {
                         nXOffs = -22;
                         nYOffs = -17;
-                        fShouldUseAlternateLoadLogic = true;
                     }
-                    else if (NodeGet->uUnitId == indexMVCMegaman) // Hyper Megaman
+                    else if ((paletteDataSet->indexImgToUse == 0x3C) && // Burnt Devilot
+                                (paletteDataSet->indexOffsetToUse == 0x05))
                     {
-                        nPeerPaletteDistance = 9; // there are 9 colors for this
-                        paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+                        // Note that the normal Devilot matches perfectly.
+                        nXOffs = 7;
+                        nYOffs = 3;
+                    }
 
-                        if (paletteDataSetToJoin)
-                        {
-                            nXOffs = 31;
-                            nYOffs = 12;
-                            fShouldUseAlternateLoadLogic = true;
-                        }
-                    }
-                    else if (NodeGet->uUnitId == indexMVCCapCom)  // Captain Commando ninjas
-                    {
-                        nXOffs = 28;
-                        nYOffs = 4;
-                        fShouldUseAlternateLoadLogic = true;
-                    }
-                    else if (NodeGet->uUnitId == indexMVCAssists)
-                    {
-                        if (paletteDataSet->indexImgToUse == 0x0B) // US Agent's shield
-                        {
-                            nXOffs = -22;
-                            nYOffs = -17;
-                        }
-                        else if ((paletteDataSet->indexImgToUse == 0x3C) && // Burnt Devilot
-                                 (paletteDataSet->indexOffsetToUse == 0x05))
-                        {
-                            // Note that the normal Devilot matches perfectly.
-                            nXOffs = 7;
-                            nYOffs = 3;
-                        }
-
-                        fShouldUseAlternateLoadLogic = true;
-                    }
+                    fShouldUseAlternateLoadLogic = true;
+                }
                     
-                    if (fShouldUseAlternateLoadLogic)
+                if (fShouldUseAlternateLoadLogic)
+                {
+                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+
+                    if (paletteDataSetToJoin)
                     {
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,

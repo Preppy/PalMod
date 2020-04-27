@@ -279,7 +279,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
     bool fCollisionFound = false;
 
     //Go through each character
-    for (INT16 nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
+    for (UINT16 nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
     {
         if (nUnitCtr == m_nExtraUnit)
         {

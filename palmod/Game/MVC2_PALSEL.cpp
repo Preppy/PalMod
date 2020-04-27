@@ -374,6 +374,16 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nTargetImgId = 0x26;
             break;
         }
+        else if ((uPalId == (0x0A + EXTRA_OMNI)) || // teleport intro
+                 (uPalId == (0x61 + EXTRA_OMNI)) ||
+                 (uPalId == (0xB8 + EXTRA_OMNI)) ||
+                 (uPalId == (0x10F + EXTRA_OMNI)) ||
+                 (uPalId == (0x166 + EXTRA_OMNI)) ||
+                 (uPalId == (0x1BD + EXTRA_OMNI)))
+        {
+            nTargetImgId = 0x0B;
+            break;
+        }
         else if ((uPalId == (0x42 + EXTRA_OMNI)) || // Dr Light
                  (uPalId == (0x99 + EXTRA_OMNI)) ||
                  (uPalId == (0xEF + EXTRA_OMNI)) ||
@@ -507,6 +517,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
+
     case 0x1D: // Roll
     {
         if (((uPalId >= (0x0B + EXTRA_OMNI)) && (uPalId <= (0x13 + EXTRA_OMNI))) || // Roll intros
@@ -536,6 +547,30 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             SetExtraImg(0, uUnitId, uPalId);
             break;
         }
+        else if ((uPalId == (0x0A + EXTRA_OMNI)) || // teleport intro
+                 (uPalId == (0x61 + EXTRA_OMNI)) ||
+                 (uPalId == (0xB8 + EXTRA_OMNI)) ||
+                 (uPalId == (0x10F + EXTRA_OMNI)) ||
+                 (uPalId == (0x166 + EXTRA_OMNI)) ||
+                 (uPalId == (0x1BD + EXTRA_OMNI)))
+        {
+            nImgUnitId = 0x1C;
+            nTargetImgId = 0x0B;
+            break;
+        }
+        else if ((uPalId == (0x42 + EXTRA_OMNI)) || // Dr Light
+                 (uPalId == (0x99 + EXTRA_OMNI)) ||
+                 (uPalId == (0xEF + EXTRA_OMNI)) ||
+                 (uPalId == (0x147 + EXTRA_OMNI)) ||
+                 (uPalId == (0x19E + EXTRA_OMNI)) ||
+                 (uPalId == (0x1F5 + EXTRA_OMNI)))
+        {
+            fImgIsFromNewImgDatRange = true;
+            nImgUnitId = 0x1C;
+            nTargetImgId = 0x25;
+            break;
+        }
+
         else if ((uPalId == (0x5E + EXTRA_OMNI)) || // Megaman
                  (uPalId == (0xB5 + EXTRA_OMNI)) ||
                  (uPalId == (0x10C + EXTRA_OMNI)) ||
@@ -661,17 +696,71 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             SetSourcePal(0, uUnitId, uPalId, 1, 1);
             break;
         }
-        else if (((uPalId >= (0x38 + EXTRA_OMNI)) && (uPalId <= (0x40 + EXTRA_OMNI))) || // Rush Drill
-                 ((uPalId >= (0x8F + EXTRA_OMNI)) && (uPalId <= (0x97 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0xE6 + EXTRA_OMNI)) && (uPalId <= (0xED + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x13D + EXTRA_OMNI)) && (uPalId <= (0x145 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x194 + EXTRA_OMNI)) && (uPalId <= (0x19C + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x1EB + EXTRA_OMNI)) && (uPalId <= (0x1F3 + EXTRA_OMNI))))
+        else if (((uPalId >= (0x38 + EXTRA_OMNI)) && (uPalId <= (0x3F + EXTRA_OMNI))) || // Rush Drill
+                 ((uPalId >= (0x8F + EXTRA_OMNI)) && (uPalId <= (0x96 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0xE6 + EXTRA_OMNI)) && (uPalId <= (0xEC + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x13D + EXTRA_OMNI)) && (uPalId <= (0x144 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x194 + EXTRA_OMNI)) && (uPalId <= (0x19B + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1EB + EXTRA_OMNI)) && (uPalId <= (0x1F2 + EXTRA_OMNI))))
         {
             bLoadDefPal = FALSE;
 
-            nImgUnitId = 0x1C;
-            nTargetImgId = 0x22; // rush drill
+            int nXOffs = 0;
+            int nYOffs = 0;
+            int nPeerPaletteDistance = 0x1E;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0xB,
+                    CreateImgTicket(uUnitId, 0x0C, nullptr, nXOffs, nYOffs)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeRushDrill[2] = {
+                MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeRushDrill[0], 0);
+            CreateDefPal(NodeRushDrill[1], 1);
+
+            SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
+            SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance, 1, 1);
+
+            break;
+        }
+        else if (((uPalId == (0x40 + EXTRA_OMNI))) || // Rush Drill: all white sprite.  No matching metal.
+                 ((uPalId == (0x97 + EXTRA_OMNI))) ||
+                 ((uPalId == (0xED + EXTRA_OMNI))) ||
+                 ((uPalId == (0x145 + EXTRA_OMNI))) ||
+                 ((uPalId == (0x19C + EXTRA_OMNI))) ||
+                 ((uPalId == (0x1F3 + EXTRA_OMNI))))
+        {
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x1D;
+            nTargetImgId = 0x0B; // rush drill
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, uPalId, 1, 1);
+            break;
+        }
+        else if (((uPalId >= (0x56 + EXTRA_OMNI)) && (uPalId <= (0x5D + EXTRA_OMNI))) || // Rush Drill metal bits
+                 ((uPalId >= (0xAD + EXTRA_OMNI)) && (uPalId <= (0xB4 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x104 + EXTRA_OMNI)) && (uPalId <= (0x10B + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x15B + EXTRA_OMNI)) && (uPalId <= (0x162 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x1B2 + EXTRA_OMNI)) && (uPalId <= (0x1B9 + EXTRA_OMNI))) ||
+                 ((uPalId >= (0x209 + EXTRA_OMNI)) && (uPalId <= (0x210 + EXTRA_OMNI))))
+        {
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x1D;
+            nTargetImgId = 0x0C; // rush drill metal
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
