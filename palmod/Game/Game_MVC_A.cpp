@@ -19,7 +19,7 @@ CGame_MVC_A::CGame_MVC_A(void)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = 764 + GetExtraCt(MVC_A_EXTRALOC);
+    m_nSafeCountForThisRom = 780 + GetExtraCt(MVC_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -685,11 +685,14 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     nYOffs = -17;
                     fShouldUseAlternateLoadLogic = true;
                 }
-                else if (NodeGet->uUnitId == indexMVCMegaman) // Hyper Megaman
+                else if (NodeGet->uUnitId == indexMVCMegaman) // Megaman
                 {
-                    nPeerPaletteDistance = 9; // there are 9 colors for this
-                    nXOffs = 31;
-                    nYOffs = 12;
+                    nPeerPaletteDistance = 9; // there are 9 tints for Megaman normally
+                    if (paletteDataSet->indexOffsetToUse == 0x27) // Hyper Megaman
+                    {
+                        nXOffs = 31;
+                        nYOffs = 12;
+                    }
                     fShouldUseAlternateLoadLogic = true;
                 }
                 else if (NodeGet->uUnitId == indexMVCRoll)
@@ -711,11 +714,17 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         nYOffs = -17;
                     }
                     else if ((paletteDataSet->indexImgToUse == 0x3C) && // Burnt Devilot
-                                (paletteDataSet->indexOffsetToUse == 0x05))
+                             (paletteDataSet->indexOffsetToUse == 0x05))
                     {
                         // Note that the normal Devilot matches perfectly.
                         nXOffs = 7;
                         nYOffs = 3;
+                    }
+                    else if ((paletteDataSet->indexImgToUse == 0x3C) && // Lou
+                             (paletteDataSet->indexOffsetToUse == 0x09))
+                    {
+                        nXOffs = -80;
+                        nYOffs = -15;
                     }
 
                     fShouldUseAlternateLoadLogic = true;
