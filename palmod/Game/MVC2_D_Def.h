@@ -325,10 +325,11 @@ const UINT16 MVC2_D_0x31_EXTRAREDIR[] =
 
 // For these entries we use the EXTRA_START offset.
 // For each palette entry item the BOOL value indicates whether or not to show a sprite.
-// the second line is unique Extras sprites
+// the second line is unique Extras sprites from [location 1] to [location 2]
 //     <CHAR_OFFSET>,
-//      1, 0, 0, 0, 0, 0, 0, 0, // One "extra" sprite exists, use it for the 0x1 (%button%) extras
-//      0x11, // Add an Extra node: that will use 0x11 for that palette entry
+//      1, 0, 0, 0, 0, 0, 0, // One "extra" sprite exists, use it for the 0x1 (%button%) extras
+//      0x11, 0x11 // Add an Extra node: that will use 0x11 for that palette entry.  Each entry is START_POS and END_POS.
+//      An unpaired entry other than 0 is going to do very bad things, so be careful.
 const UINT16 MVC2_D_EXTRADEF[] =
 {
     0,
@@ -439,7 +440,7 @@ const UINT16 MVC2_D_EXTRADEF[] =
     0,
     EXTRA_START | 0x22, // Sakura
     1, 1, 0, 0, 0, 0, 0,
-    0x0B, 0x11, 0x11, 0x13, 0x13, 0x15,  0x15, 0x17, 0x17, 0x19, 0x19, 0x1B, 0x1B, 0x1D, 0x22,
+    0x0B, 0x0B, 0x11, 0x11, 0x13, 0x13, 0x15,  0x15, 0x17, 0x17, 0x19, 0x19, 0x1B, 0x1B, 0x1D, 0x22,
     EXTRA_START | 0x23, // Dan
     1, 1, 0, 0, 0, 0, 0,
     0,
@@ -506,7 +507,7 @@ const UINT16 MVC2_D_EXTRADEF[] =
     1, 1, 1, 1, 1, 0, 0, // ninjas, hoover, corridor, fireball, 
     0x09, 0x19, // activation laser-up, mashable throw
     EXTRA_START | 0x39, // Bonerine
-    1, 1, 0, 0, 0, 0,
+    1, 1, 0, 0, 0, 0, 0,
     0,
     EXTRA_START | 0x3A, // Kobun
     1, 1, 1, 1, 1, 1, 0,

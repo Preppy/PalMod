@@ -121,7 +121,7 @@ const CHAR DEF_BUTTONLABEL_ISMS[6][16] =
     "X-Ism 1", "X-Ism 2", "A-Ism 1", "A-Ism 2", "V-Ism 1", "V-Ism 2"
 };
 
-const CHAR DEF_BUTTONLABEL6ALT[6][16] = 
+const CHAR DEF_BUTTONLABEL6_MVC2[6][16] = 
 {
     "LP", "LK", "HP", "HK", "A1", "A2"
 };

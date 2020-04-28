@@ -5,6 +5,8 @@
 
 #include "MVC2_SUPP.h"
 
+#define MV2C_DEBUG DEFAULT_GAME_DEBUG_STATE
+
 //Initialize the selection tree
 
 CDescTree CGame_MVC2_D::MainDescTree = CGame_MVC2_D::InitDescTree();
@@ -39,7 +41,7 @@ CGame_MVC2_D::CGame_MVC2_D(void)
 
     //Set the image out display type
     DisplayType = DISP_ALT;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6ALT);
+    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6_MVC2);
 
     //Set the MVC2 supp game
     CurrMVC2 = this;
@@ -81,10 +83,6 @@ CDescTree CGame_MVC2_D::InitDescTree()
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
-    sDescTreeNode* UnitNode;
-    sDescTreeNode* ButtonNode;
-    sDescNode* ChildNode;
-
     //Create the main character tree
     sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[MVC2_D]);
     NewDescTree->ChildNodes = new sDescTreeNode[MVC2_D_NUMUNIT];
@@ -92,11 +90,19 @@ CDescTree CGame_MVC2_D::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
+    CString strMsg;
+    strMsg.Format("CGame_MVC2_D::InitDescTree: Building desc tree for MVC2...\n");
+    OutputDebugString(strMsg);
+
     //Go through each character
     for (int iUnitCtr = 0; iUnitCtr < MVC2_D_NUMUNIT; iUnitCtr++)
     {
         //Omni extra count
         int nNumExtra = CountExtraRg(iUnitCtr, TRUE);
+
+        sDescTreeNode* UnitNode = nullptr;
+        sDescTreeNode* ButtonNode = nullptr;
+        sDescNode* ChildNode = nullptr;
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
         //Set each description
@@ -110,8 +116,12 @@ CDescTree CGame_MVC2_D::InitDescTree()
         UnitNode->uChildAmt = BUTTON6 + (nNumExtra ? 1 : 0);
 
         //Set each button data
-        int nButtonExtraCt = CountExtraRg(iUnitCtr, FALSE) + 1;
-        BOOL bSetInfo;
+        const int nButtonExtraCt = CountExtraRg(iUnitCtr, FALSE) + 1;
+
+#if MV2C_DEBUG
+        strMsg.Format("Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, MVC2_D_NUMUNIT, UnitNode->uChildAmt);
+        OutputDebugString(strMsg);
+#endif
 
         for (int iButtonCtr = 0; iButtonCtr < BUTTON6; iButtonCtr++)
         {
@@ -120,7 +130,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
             //Set each button data
-            sprintf(ButtonNode->szDesc, "%s", DEF_BUTTONLABEL6ALT[iButtonCtr]);
+            sprintf(ButtonNode->szDesc, "%s", DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
 
             //Button children have nodes
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
@@ -136,21 +146,28 @@ CDescTree CGame_MVC2_D::InitDescTree()
                 nBasicStart = rgExtraChrLoc[iUnitCtr] + 1;
             }
 
+            const int nButtonExtraTotal = 8;
+
+#if MV2C_DEBUG
+            strMsg.Format("\t\"%s\" Collection: \"%s\", %u of %u, %u children\n", UnitNode->szDesc, ButtonNode->szDesc, iButtonCtr + 1, UnitNode->uChildAmt, nButtonExtraTotal);
+            OutputDebugString(strMsg);
+#endif
+
             //Set each button's extra nodes
-            for (int nButtonExtra = 0; nButtonExtra < 8; nButtonExtra++)
+            for (int nButtonExtra = 0; nButtonExtra < nButtonExtraTotal; nButtonExtra++)
             {
-                bSetInfo = FALSE;
+                BOOL bSetInfo = FALSE;
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraPos];
 
                 if (nButtonExtra == 0)
                 {
-                    sprintf(ChildNode->szDesc, "%s Main", DEF_BUTTONLABEL6ALT[iButtonCtr]);
+                    sprintf(ChildNode->szDesc, "%s Main", DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
                     bSetInfo = TRUE;
                 }
                 else if (!nBasicStart || 1)//MVC2_D_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
                 {
-                    sprintf(ChildNode->szDesc, "%02X %s (Extra - %02X)", nExtraPos, DEF_BUTTONLABEL6ALT[iButtonCtr],
-                        (iButtonCtr * 8) + nExtraPos + 1);
+                    sprintf(ChildNode->szDesc, "%02X %s (Extra - %02X)", nExtraPos, DEF_BUTTONLABEL6_MVC2[iButtonCtr],
+                        (iButtonCtr * nButtonExtraTotal) + nExtraPos + 1);
 
                     bSetInfo = TRUE;
                 }
@@ -162,18 +179,30 @@ CDescTree CGame_MVC2_D::InitDescTree()
 
                     nExtraPos++;
                 }
+
+#if MV2C_DEBUG
+                strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nButtonExtra + 1, nButtonExtraTotal);
+                OutputDebugString(strMsg);
+#endif
             }
         }
 
         //Set extra data
         if (nNumExtra)
         {
-            ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[6]; //Extra data node
+            const int nExtraNodeIndex = 6;
+            ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[nExtraNodeIndex]; //Extra data node
             strcpy(ButtonNode->szDesc, "Extra");
             ButtonNode->uChildAmt = nNumExtra;
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
 
             ButtonNode->ChildNodes = (sDescTreeNode*)(new sDescTreeNode[nNumExtra]);
+
+#if MV2C_DEBUG
+            strMsg.Format("\t\"%s\" Extra Data Collection: \"%s\", %u of %u, %u children\n", UnitNode->szDesc, ButtonNode->szDesc, nExtraNodeIndex, UnitNode->uChildAmt, nNumExtra);
+            OutputDebugString(strMsg);
+#endif
+
 
             if (nNumExtra == (MVC2_D_PALDATASZ[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32)
             {
@@ -185,6 +214,11 @@ CDescTree CGame_MVC2_D::InitDescTree()
 
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = (8 * k_mvc2_character_coloroption_count) + nExtraCtr;
+
+#if MV2C_DEBUG
+                    strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nNumExtra);
+                    OutputDebugString(strMsg);
+#endif
                 }
             }
             else
@@ -210,6 +244,12 @@ CDescTree CGame_MVC2_D::InitDescTree()
                         ChildNode->uPalId = (8 * k_mvc2_character_coloroption_count) + (pCurrVal[0] + nRangeCtr) - 1;
 
                         nExtraCtr++;
+
+#if MV2C_DEBUG
+                        strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nExtraCtr, nNumExtra);
+                        OutputDebugString(strMsg);
+#endif
+
                     }
 
                     i += 2;
