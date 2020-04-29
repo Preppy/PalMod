@@ -41,7 +41,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
         OutputDebugString("BUGBUG: MEMORY CORRUPTION!\n");
     }
 
-    const int nMaxExtraBufferSize = 1000;
+    const int nMaxExtraBufferSize = 10000;
     // I got a report that editing a palette wasn't saving.  Turns out it was also in their Extra file and the later unchanged palette
     // was stomping over the changed palette when we saved out.
     const int nPossibleDuplicateConcern = 100;
@@ -180,7 +180,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                             if (nTotalPagesNeeded > 1)
                             {
                                 //pCurrDef->isInvisible = (nCurrentPage == 1);
-                                snprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), "%s (%u/%u)", szCurrDesc, nCurrentPage++, nTotalPagesNeeded);
+                                snprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), "%s (%u/%u) 0x%x", szCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (MAX_PALETTE_SIZE * 2 * nPos));
                             }
                             else
                             {
@@ -393,29 +393,39 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
         OutputDebugString("\tCGameWithExtrasFile::CheckForErrorsInTables: This matches the last known palette count: we're good.\n");
     }
 
-    if ((m_nLowestRomExtrasLocationThisPass != k_nBogusHighValue) && (m_nLowestRomLocationThisPass < m_nLowestKnownPaletteRomLocation))
+    if (m_nLowestRomLocationThisPass != k_nBogusHighValue)
     {
-        strText.Format("Warning: This game is trying to write to ROM location 0x%06x which is lower than we usually write to (0x%06x).\n\nThis is a bug in PalMod.  Please report.\n", m_nLowestRomLocationThisPass, m_nLowestKnownPaletteRomLocation);
-        OutputDebugString(strText);
-        MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
-    }
-    else if ((m_nLowestRomExtrasLocationThisPass != k_nBogusHighValue) && (m_nLowestRomExtrasLocationThisPass < m_nLowestKnownPaletteRomLocation))
-    {
-        strText.Format("Warning: The currently loaded Extras file wants to write to ROM location 0x%06x which is lower than we usually write to (0x%06x).\n\nThis is possibly intentional, but: just a heads-up.\n", m_nLowestRomExtrasLocationThisPass, m_nLowestKnownPaletteRomLocation);
-        OutputDebugString(strText);
-        MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
-    }
-    else
-    {
-        if (m_nLowestRomExtrasLocationThisPass != k_nBogusHighValue)
+        if (m_nLowestRomLocationThisPass < m_nLowestKnownPaletteRomLocation)
         {
-            strText.Format("\tCGameWithExtrasFile::CheckForErrorsInTables: All palettes were modifying expected ROM ranges (lowest was 0x%06x, we expect no lower than 0x%06x).  We're good.\n", m_nLowestRomLocationThisPass, m_nLowestKnownPaletteRomLocation);
+            strText.Format("Warning: This game is trying to write to ROM location 0x%06x which is lower than we usually write to (0x%06x).\n\nThis is a bug in PalMod.  Please report.\n", m_nLowestRomLocationThisPass, m_nLowestKnownPaletteRomLocation);
+            OutputDebugString(strText);
+            MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
         }
         else
         {
-            strText.Format("\tCGameWithExtrasFile::CheckForErrorsInTables: Skipped the ROM location safety check since the tables checked out.\n");
+            strText.Format("\tCGameWithExtrasFile::CheckForErrorsInTables: All palettes were modifying expected ROM ranges (lowest was 0x%06x, we expect no lower than 0x%06x).  We're good.\n", m_nLowestRomLocationThisPass, m_nLowestKnownPaletteRomLocation);
+            OutputDebugString(strText);
         }
+    }
+    else
+    {
+        strText.Format("\tCGameWithExtrasFile::CheckForErrorsInTables: Skipped the ROM location safety check since the tables checked out.\n");
         OutputDebugString(strText);
+    }
+
+    if (m_nLowestRomExtrasLocationThisPass != k_nBogusHighValue)
+    {
+        if (m_nLowestRomExtrasLocationThisPass < m_nLowestKnownPaletteRomLocation)
+        {
+            strText.Format("Warning: The currently loaded Extras file wants to write to ROM location 0x%06x which is lower than we usually write to (0x%06x).\n\nThis is possibly intentional, but: just a heads-up.\n", m_nLowestRomExtrasLocationThisPass, m_nLowestKnownPaletteRomLocation);
+            OutputDebugString(strText);
+            MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
+        }
+        else
+        {
+            strText.Format("\tCGameWithExtrasFile::CheckForErrorsInTables: All Extras palettes were modifying expected ROM ranges (lowest was 0x%06x, we expect no lower than 0x%06x).  We're good.\n", m_nLowestRomExtrasLocationThisPass, m_nLowestKnownPaletteRomLocation);
+            OutputDebugString(strText);
+        }
     }
 }
 

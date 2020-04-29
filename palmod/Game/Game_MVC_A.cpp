@@ -19,10 +19,84 @@ CGame_MVC_A::CGame_MVC_A(void)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = 791 + GetExtraCt(MVC_A_EXTRALOC);
+    m_nSafeCountForThisRom = 826 + GetExtraCt(MVC_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+    // 0x38xxx large body Onslaught sprites
+    // 0x39xxx+ unknown
+    // 0x47xxx assist icons
+    // 0x48xxx characters
+    // 0x49xxx end of MM 2 and onslaught, then hidden characters
+    // 0x4Axxx unknown
+    // 0x4Bxxx onslaught
+    // 0x4Cxxx megaman extras
+    // 0x4Dxxx megaman + roll extras
+    // 0x4Exxx roll extras
+    // 0x4Fxxx shadow lady glimmer, most unknown
+    // 0x50xxx end of SL glimmer, assists
+    // 0x51xxx assists (Anita P2+)
+    // 0x52xxx Duo/CSPs
+    // 0x53xxx super portraits
+    // 0x54xxx super portraits cont
+    // 0x55xxx super portraits then VSPs
+    // 0x56xxx VSPs
+    // 0x57xxx VSPs
+    // 0x58xxx VSPs
+    // 0x59xxx unknown
+
+#if dontcompilethis
+
+        Educated guess at sort order based upon VSPs. Agrees with CSIs.
+        War Machine
+        Captain America
+        Hulk
+        Wolverine
+        Gambit
+        Venom
+        Spider-Man
+        Roll
+        Ryu
+        Captain Commando
+        Chun-Li
+        Jin
+        Zangief
+        Strider Hiryu
+        Morrigan
+        Megaman
+        Onslaught
+        Red Venom
+        Orange Hulk
+        Gold War Machine
+        Shadow Lady
+        Lilith
+        Ken
+        Gouki
+        Mech-Zangief
+
+        Assist CSI layout.  Differs from character sprite palette layout.
+        0x047d84 Juggernaut
+        0x047da4 Magneto
+        0x047dc4 Psylocke
+        0x047de4 Cyclops
+        0x047e04 Colossus
+        0x047e24 Thor
+        0x047e44 U.S. Agent
+        0x047e64 Iceman
+        0x047e84 Rogue
+        0x047ea4 Jubilee
+        0x047ec4 Storm
+        0x047f04 Arthur
+        0x047f24 Michelle Heart
+        0x047f44 Ton-Pooh
+        0x047f64 Saki
+        0x047f84 Unknown Soldier
+        0x047fa4 Lou
+        0x047fc4 Anita
+        0x047fe4 Pure and Fur
+        0x048004 Devilot
+#endif
+
     m_nLowestKnownPaletteRomLocation = 0x038d00;
 
     InitDataBuffer();
