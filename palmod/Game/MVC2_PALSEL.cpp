@@ -1,6 +1,11 @@
 #include "StdAfx.h"
-//#include "Gamedef.h"
 #include "Game_MVC2_D.h"
+
+int CGame_MVC2_D::GetFirstExtraValueFromExtraPaletteId(int nExtraPaletteIdint, int nStartOfRange, int nPalettePositionIncrements, int nRangeLength)
+{
+    int nExtraAdjustedStart = nStartOfRange + EXTRA_OMNI;
+    return nExtraAdjustedStart + ((nExtraPaletteIdint - nExtraAdjustedStart) % nPalettePositionIncrements);
+}
 
 BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
@@ -13,7 +18,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     //Reset the extra amount
-    nExtraAmt = 6;
+    nExtraAmt = 6; // BUGBUG: This is apparently an artifact of an earlier system.  It can be replaced with setting nAmt 
+                   // in calls to CreateExtraPal.
 
     int nSpecOffs;
     BOOL bLoadDefPal = TRUE;
@@ -38,19 +44,42 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     switch (uUnitId)
     {
-    case 0x01: //Zangief
+    case 0x00: // Ryu
     {
-        if ((uPalId >= (0x11 + EXTRA_OMNI)) && (uPalId <= (0x16 + EXTRA_OMNI)))
+        if ((uPalId == 0x2) ||
+            (uPalId == 0xA) ||
+            (uPalId == 0x12) ||
+            (uPalId == 0x1A) ||
+            (uPalId == 0x22) ||
+            (uPalId == 0x2A))
         {
-            // MechaGief
-            SetExtraImg(11, uUnitId, uPalId);
+            // Reuse the Ken Shoryuken sprite
+            bLoadDefPal = FALSE;
+
+            nImgUnitId = 0x27;
+            nTargetImgId = 0x02;
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+
             break;
         }
-
-        if ((uPalId >= (0x17 + EXTRA_OMNI)) && (uPalId <= (0x3A + EXTRA_OMNI)))
-        {
+        break;
+    }
+    case 0x01: //Zangief
+    {
+        if (
+            // MechaGief
+            CreateExtraPal(uUnitId, uPalId, 0x11, 1, 11) ||
             // atomic suplex sprite
-            SetExtraImg(12, uUnitId, uPalId);
+            CreateExtraPal(uUnitId, uPalId, 0x17, 3, 12, 0, 3) ||
+            // mech atomix suplex sprite
+            CreateExtraPal(uUnitId, uPalId, 0x29, 3, 12, 0, 3)
+            )
+        {
             break;
         }
 
@@ -58,10 +87,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x03: //Morrigan
     {
-        if (CreateExtraPal(uUnitId, uPalId, 0x3A, 3, 11, 0, 2)
-            || CreateExtraPal(uUnitId, uPalId, 0x4B, 9, 12, 0, 2)
-            || CreateExtraPal(uUnitId, uPalId, 0x4D, 9, 13, 0, 7)
-            || CreateExtraPal(uUnitId, uPalId, 0x81, 1, 14))
+        if (   CreateExtraPal(uUnitId, uPalId, 0x3A, 3, 11, 0, 2) // super gun
+            || CreateExtraPal(uUnitId, uPalId, 0x4B, 9, 12, 0, 2) // lilith phase-in
+            || CreateExtraPal(uUnitId, uPalId, 0x4D, 9, 13, 0, 7) // morrigan phase-in
+            || CreateExtraPal(uUnitId, uPalId, 0x81, 1, 14)) // taunt pose
         {
             break;
         }
@@ -71,20 +100,16 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case 0x06: //Cyclops
     {
-        if (CreateExtraPal(uUnitId, uPalId, 0x19, 1, 11))
+        // these are shared, not per character
+        if (uPalId >= (0x19 + EXTRA_OMNI) && uPalId <= (0x1D + EXTRA_OMNI))
         {
+            SetExtraImg(11, uUnitId, uPalId);
             break;
         }
 
-        if (uPalId >= (0x29 + EXTRA_OMNI) && uPalId <= (0x58 + EXTRA_OMNI))
-        {
-            SetExtraImg(12, uUnitId, uPalId);
-            break;
-        }
-
-        if (
-            CreateExtraPal(uUnitId, uPalId, 0x59, 2, 13)
-            || CreateExtraPal(uUnitId, uPalId, 0x5A, 2, 13)
+        if (CreateExtraPal(uUnitId, uPalId, 0x29, 8, 12, 0, 8) ||
+            CreateExtraPal(uUnitId, uPalId, 0x59, 2, 13) ||// super pose
+            CreateExtraPal(uUnitId, uPalId, 0x5A, 2, 13) // tinted super pose
             )
         {
             break;
@@ -148,9 +173,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x0A: //Rogue
     {
-        if ((uPalId >= 0x1D + EXTRA_OMNI) && (uPalId <= 0x22 + EXTRA_OMNI))
+        if (CreateExtraPal(uUnitId, uPalId, 0x1D, 1, 11)) // win pose
         {
-            SetExtraImg(11, uUnitId, uPalId);
             break;
         }
 
@@ -210,8 +234,37 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case 0x0F: //Dr Doom
     {
-        if (
-            CreateExtraPal(uUnitId, uPalId, 0x09, 0x1C, 11)
+        if ((uPalId == (0x09 + EXTRA_OMNI)) || // throne
+            (uPalId == (0x25 + EXTRA_OMNI)) ||
+            (uPalId == (0x41 + EXTRA_OMNI)) ||
+            (uPalId == (0x5D + EXTRA_OMNI)) ||
+            (uPalId == (0x79 + EXTRA_OMNI)) ||
+            (uPalId == (0x95 + EXTRA_OMNI)))
+        {
+            bLoadDefPal = FALSE;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0xC,
+                    CreateImgTicket(uUnitId, 0xB, NULL, 13, 16)
+                )
+            );
+
+            sDescNode* DoomPoseNode[2] = {
+                MainDescTree.GetDescNode(Node01, Node02, Node03 + 1, -1),
+                MainDescTree.GetDescNode(Node01, Node02, Node03, -1)
+
+            };
+
+            //Set each palette
+            CreateDefPal(DoomPoseNode[0], 0);
+            CreateDefPal(DoomPoseNode[1], 1);
+
+            SetSourcePal(0, uUnitId, 0xA + EXTRA_OMNI, 6, 0x1C);
+            SetSourcePal(1, uUnitId, 0x9 + EXTRA_OMNI, 6, 0x1C);
+        }
+        else if (
+               CreateExtraPal(uUnitId, uPalId, 0x09, 0x1C, 11)
             || CreateExtraPal(uUnitId, uPalId, 0x0A, 0x1C, 12)
             || CreateExtraPal(uUnitId, uPalId, 0x0B, 0x1C, 13)
             || CreateExtraPal(uUnitId, uPalId, 0x0C, 0x1C, 14)
@@ -255,10 +308,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         nExtraAmt = 1;
 
         if (
-            CreateExtraPal(uUnitId, uPalId, 0x11, 1, 11)
-            || CreateExtraPal(uUnitId, uPalId, 0x13, 1, 12)
-            || CreateExtraPal(uUnitId, uPalId, 0x14, 1, 13)
-            || CreateExtraPal(uUnitId, uPalId, 0x15, 1, 14)
+            CreateExtraPal(uUnitId, uPalId, 0x11, 1, 11) // food cart
+            || CreateExtraPal(uUnitId, uPalId, 0x13, 1, 12) // lunch!
+            || CreateExtraPal(uUnitId, uPalId, 0x14, 1, 13) // rings
+            || CreateExtraPal(uUnitId, uPalId, 0x15, 1, 14) // drill jet flame
             )
         {
             break;
@@ -272,9 +325,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         nExtraAmt = 1;
 
         if (
-            CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11)
-            || CreateExtraPal(uUnitId, uPalId, 0x0A, 1, 12)
-            || CreateExtraPal(uUnitId, uPalId, 0x0B, 1, 2)
+            CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11)  // ? not present
+            || CreateExtraPal(uUnitId, uPalId, 0x0A, 1, 12)  // healing
+            || CreateExtraPal(uUnitId, uPalId, 0x0B, 1, 2) // flame zombie
             )
         {
             break;
@@ -284,7 +337,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x12: //Hayato
     {
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8) && nSpecOffs < 6)
+        if (SpecSel(&nSpecOffs, uPalId, 0, 8) && nSpecOffs < 6) // Hayato and laser sword
         {
             bLoadDefPal = FALSE;
 
@@ -319,7 +372,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             || CreateExtraPal(uUnitId, uPalId, 0x0C, 1, 12)
             || CreateExtraPal(uUnitId, uPalId, 0x0D, 1, 13)
             || CreateExtraPal(uUnitId, uPalId, 0x0E, 1, 14)
-            || CreateExtraPal(uUnitId, uPalId, 0x10, 1, 15)
+            || CreateExtraPal(uUnitId, uPalId, 0x10, 1, 15) // fireball super of hers
             )
         {
             break;
@@ -330,9 +383,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case 0x14: //SonSon
     {
         if (
-            CreateExtraPal(uUnitId, uPalId, 0x0F, 1, 11)
-            || CreateExtraPal(uUnitId, uPalId, 0x17, 1, 11)
-            || CreateExtraPal(uUnitId, uPalId, 0x1D, 2, 11, 0, 2)
+               CreateExtraPal(uUnitId, uPalId, 0x0F, 1, 11) // giant monkey
+            || CreateExtraPal(uUnitId, uPalId, 0x17, 1, 11) // giant monkey
+            || CreateExtraPal(uUnitId, uPalId, 0x1D, 2, 11, 0, 2) // giant monkey
             )
         {
             break;
@@ -342,60 +395,22 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case 0x1C: // Megaman
     {
-        if (((uPalId >= (0x0B + EXTRA_OMNI)) && (uPalId <= (0x13 + EXTRA_OMNI))) || // Megaman intros
-            ((uPalId >= (0x2F + EXTRA_OMNI)) && (uPalId <= (0x37 + EXTRA_OMNI))) || // Charging buster
-
-            ((uPalId >= (0x62 + EXTRA_OMNI)) && (uPalId <= (0x6A + EXTRA_OMNI))) || // Megaman intros
-            ((uPalId >= (0x86 + EXTRA_OMNI)) && (uPalId <= (0x8E + EXTRA_OMNI))) || // Charging buster
-
-            ((uPalId >= (0xB9 + EXTRA_OMNI)) && (uPalId <= (0xC1 + EXTRA_OMNI))) || // Megaman intros
-            ((uPalId >= (0xDD + EXTRA_OMNI)) && (uPalId <= (0xE5 + EXTRA_OMNI))) || // Charging buster
-
-            ((uPalId >= (0x110 + EXTRA_OMNI)) && (uPalId <= (0x118 + EXTRA_OMNI))) || // Megaman intros
-            ((uPalId >= (0x134 + EXTRA_OMNI)) && (uPalId <= (0x13c + EXTRA_OMNI))) || // Charging buster
-
-            ((uPalId >= (0x167 + EXTRA_OMNI)) && (uPalId <= (0x16F + EXTRA_OMNI))) || // Megaman intros
-            ((uPalId >= (0x18B + EXTRA_OMNI)) && (uPalId <= (0x193 + EXTRA_OMNI))) || // Charging buster
-
-            ((uPalId >= (0x1BE + EXTRA_OMNI)) && (uPalId <= (0x1C6 + EXTRA_OMNI))) || // Megaman intros
-            ((uPalId >= (0x1E2 + EXTRA_OMNI)) && (uPalId <= (0x1EA + EXTRA_OMNI))))   // Charging buster
-        {
-            SetExtraImg(0, uUnitId, uPalId);
-            break;
-        }
-        else if ((uPalId == (0x9 + EXTRA_OMNI)) || // hair
-                 (uPalId == (0x60 + EXTRA_OMNI)) ||
-                 (uPalId == (0xB7 + EXTRA_OMNI)) ||
-                 (uPalId == (0xB7 + EXTRA_OMNI)) ||
-                 (uPalId == (0x10E + EXTRA_OMNI)) ||
-                 (uPalId == (0x165 + EXTRA_OMNI)))
+        // Megaman has an extra range per button of 0x57 palettes.
+        if (CreateExtraPal(uUnitId, uPalId, 0x09, 0x57, 0x26) || // hair
+            CreateExtraPal(uUnitId, uPalId, 0x0A, 0x57, 0x0B) || // teleport intro
+            CreateExtraPal(uUnitId, uPalId, 0x0B, 0x57, 0x00, 0, 9) || // Megaman intro
+            CreateExtraPal(uUnitId, uPalId, 0x2F, 0x57, 0x00, 0, 9) || // Charging buster
+            CreateExtraPal(uUnitId, uPalId, 0x42, 0x57, 0x25) || // Dr Light
+            CreateExtraPal(uUnitId, uPalId, 0x14, 0x57, 0x01, 0, 9) || // Rush
+            CreateExtraPal(uUnitId, uPalId, 0x1D, 0x57, 0x02, 0, 9) || // Beat
+            CreateExtraPal(uUnitId, uPalId, 0x26, 0x57, 0x24, 0, 9) //|| // Beat Plane
+            //CreateExtraPal(uUnitId, uPalId, 0x55, 0x57, 0x29) // HMM Missiles
+            )
         {
             fImgIsFromNewImgDatRange = true;
-            nTargetImgId = 0x26;
             break;
         }
-        else if ((uPalId == (0x0A + EXTRA_OMNI)) || // teleport intro
-                 (uPalId == (0x61 + EXTRA_OMNI)) ||
-                 (uPalId == (0xB8 + EXTRA_OMNI)) ||
-                 (uPalId == (0x10F + EXTRA_OMNI)) ||
-                 (uPalId == (0x166 + EXTRA_OMNI)) ||
-                 (uPalId == (0x1BD + EXTRA_OMNI)))
-        {
-            nTargetImgId = 0x0B;
-            break;
-        }
-        else if ((uPalId == (0x42 + EXTRA_OMNI)) || // Dr Light
-                 (uPalId == (0x99 + EXTRA_OMNI)) ||
-                 (uPalId == (0xEF + EXTRA_OMNI)) ||
-                 (uPalId == (0x147 + EXTRA_OMNI)) ||
-                 (uPalId == (0x19E + EXTRA_OMNI)) ||
-                 (uPalId == (0x1F5 + EXTRA_OMNI)))
-        {
-            fImgIsFromNewImgDatRange = true;
-            nTargetImgId = 0x25;
-            break;
-        }
-        else if ((uPalId == (0x5E + EXTRA_OMNI)) || // Roll
+        else if ((uPalId == (0x5E + EXTRA_OMNI)) || // Roll: cross character load
                  (uPalId == (0xB5 + EXTRA_OMNI)) ||
                  (uPalId == (0x10C + EXTRA_OMNI)) ||
                  (uPalId == (0x163 + EXTRA_OMNI)) ||
@@ -411,42 +426,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, uPalId, 1, 1);
-
+            SetSourcePal(0, 0x1C, 0x5E + EXTRA_OMNI, 6, 0x57);
             break;
         }
-        else if (((uPalId >= (0x14 + EXTRA_OMNI)) && (uPalId <= (0x1C + EXTRA_OMNI))) || // Rush
-                 ((uPalId >= (0x6B + EXTRA_OMNI)) && (uPalId <= (0x73 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0xC2 + EXTRA_OMNI)) && (uPalId <= (0xCA + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x119 + EXTRA_OMNI)) && (uPalId <= (0x121 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x170 + EXTRA_OMNI)) && (uPalId <= (0x178 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x1C7 + EXTRA_OMNI)) && (uPalId <= (0x1CF + EXTRA_OMNI))))
-        {
-            nTargetImgId = 1; // Rush
-            break;
-        }
-        else if (((uPalId >= (0x1D + EXTRA_OMNI)) && (uPalId <= (0x25 + EXTRA_OMNI))) || // Beat
-                 ((uPalId >= (0x74 + EXTRA_OMNI)) && (uPalId <= (0x7C + EXTRA_OMNI))) ||
-                 ((uPalId >= (0xCB + EXTRA_OMNI)) && (uPalId <= (0xD3 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x122 + EXTRA_OMNI)) && (uPalId <= (0x12A + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x179 + EXTRA_OMNI)) && (uPalId <= (0x181 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x1D0 + EXTRA_OMNI)) && (uPalId <= (0x1D8 + EXTRA_OMNI))))
-        {
-            nTargetImgId = 2;
-            break;
-        }
-        else if (((uPalId >= (0x26 + EXTRA_OMNI)) && (uPalId <= (0x2E + EXTRA_OMNI))) || // Beat Plane
-                 ((uPalId >= (0x7D + EXTRA_OMNI)) && (uPalId <= (0x85 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0xD4 + EXTRA_OMNI)) && (uPalId <= (0xDC + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x12B + EXTRA_OMNI)) && (uPalId <= (0x133 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x182 + EXTRA_OMNI)) && (uPalId <= (0x18A + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x1D9 + EXTRA_OMNI)) && (uPalId <= (0x1E1 + EXTRA_OMNI))))
-        {
-            fImgIsFromNewImgDatRange = true;
-            nTargetImgId = 0x24;
-            break;
-        }
-        else if (((uPalId >= (0x38 + EXTRA_OMNI)) && (uPalId <= (0x3F + EXTRA_OMNI))) || // Rush Drill
+        else if (((uPalId >= (0x38 + EXTRA_OMNI)) && (uPalId <= (0x3F + EXTRA_OMNI))) || // Rush Drill: joined
                  ((uPalId >= (0x8F + EXTRA_OMNI)) && (uPalId <= (0x96 + EXTRA_OMNI))) ||
                  ((uPalId >= (0xE6 + EXTRA_OMNI)) && (uPalId <= (0xEC + EXTRA_OMNI))) ||
                  ((uPalId >= (0x13D + EXTRA_OMNI)) && (uPalId <= (0x144 + EXTRA_OMNI))) ||
@@ -476,17 +459,18 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushDrill[0], 0);
             CreateDefPal(NodeRushDrill[1], 1);
 
-            SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
-            SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance, 1, 1);
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x38, 0x57, 0x08);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
 
             break;
         }
-        else if (((uPalId == (0x40 + EXTRA_OMNI))) || // Rush Drill: all white sprite.  No matching metal.
-                 ((uPalId == (0x97 + EXTRA_OMNI))) ||
-                 ((uPalId == (0xED + EXTRA_OMNI))) ||
-                 ((uPalId == (0x145 + EXTRA_OMNI))) ||
-                 ((uPalId == (0x19C + EXTRA_OMNI))) ||
-                 ((uPalId == (0x1F3 + EXTRA_OMNI))))
+        else if ((uPalId == (0x40 + EXTRA_OMNI)) || // Rush Drill: all white sprite.  No matching metal.
+                 (uPalId == (0x97 + EXTRA_OMNI)) ||
+                 (uPalId == (0xED + EXTRA_OMNI)) ||
+                 (uPalId == (0x145 + EXTRA_OMNI)) ||
+                 (uPalId == (0x19C + EXTRA_OMNI)) ||
+                 (uPalId == (0x1F3 + EXTRA_OMNI)))
         {
             bLoadDefPal = FALSE;
 
@@ -497,7 +481,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, uPalId, 1, 1);
+            // Boring white sprite
+            SetSourcePal(0, uUnitId, 0x40 + EXTRA_OMNI, 6, 0x57);
             break;
         }
         else if (((uPalId >= (0x56 + EXTRA_OMNI)) && (uPalId <= (0x5D + EXTRA_OMNI))) || // Rush Drill metal bits
@@ -507,19 +492,37 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  ((uPalId >= (0x1B2 + EXTRA_OMNI)) && (uPalId <= (0x1B9 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x209 + EXTRA_OMNI)) && (uPalId <= (0x210 + EXTRA_OMNI))))
         {
+            // BUGBUG: Going from 0x55 to 0x56 (and so forth for all buttons) leaves sprites drawn incorrectly.
             bLoadDefPal = FALSE;
 
-            nImgUnitId = 0x1D;
-            nTargetImgId = 0x0C; // rush drill metal
+            int nXOffs = 0;
+            int nYOffs = 0;
+            int nPeerPaletteDistance = -0x1E;
 
-            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(0x1D, 0xB,
+                    CreateImgTicket(0x1D, 0x0C, nullptr, nXOffs, nYOffs)
+                )
+            );
 
-            CreateDefPal(NodeGet, 0);
+            //Set each palette
+            sDescNode* NodeRushDrill[2] = {
+                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1),
+                MainDescTree.GetDescNode(Node01, Node02, Node03, -1)
+            };
 
-            SetSourcePal(0, uUnitId, uPalId, 1, 1);
+            //Set each palette
+            CreateDefPal(NodeRushDrill[0], 0);
+            CreateDefPal(NodeRushDrill[1], 1);
+
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x56, 0x57, 0x08);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+
             break;
         }
-        else if (((uPalId >= (0x43 + EXTRA_OMNI)) && (uPalId <= (0x4B + EXTRA_OMNI))) || // Hyper Megaman: Armor
+        else if (((uPalId >= (0x43 + EXTRA_OMNI)) && (uPalId <= (0x4B + EXTRA_OMNI))) || // Hyper Megaman: Armor: joined
                  ((uPalId >= (0x9A + EXTRA_OMNI)) && (uPalId <= (0xA2 + EXTRA_OMNI))) ||
                  ((uPalId >= (0xF1 + EXTRA_OMNI)) && (uPalId <= (0xF9 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x148 + EXTRA_OMNI)) && (uPalId <= (0x150 + EXTRA_OMNI))) ||
@@ -549,20 +552,46 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeHMMM[0], 0);
             CreateDefPal(NodeHMMM[1], 1);
 
-            SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
-            SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance, 1, 1);
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x43, 0x57, 0x09); // HMM has 9 palettes
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
 
             break;
         }
-        else if (((uPalId >= (0x4C + EXTRA_OMNI)) && (uPalId <= (0x54 + EXTRA_OMNI))) || // Hyper Megaman: core
+        else if (((uPalId >= (0x4C + EXTRA_OMNI)) && (uPalId <= (0x54 + EXTRA_OMNI))) || // Hyper Megaman: core: flip the HMM logic.
                  ((uPalId >= (0xA3 + EXTRA_OMNI)) && (uPalId <= (0xAB + EXTRA_OMNI))) ||
                  ((uPalId >= (0xFA + EXTRA_OMNI)) && (uPalId <= (0x102 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x151 + EXTRA_OMNI)) && (uPalId <= (0x159 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x1A8 + EXTRA_OMNI)) && (uPalId <= (0x1B0 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x1FF + EXTRA_OMNI)) && (uPalId <= (0x207 + EXTRA_OMNI))))
         {
-            fImgIsFromNewImgDatRange = true;
-            nTargetImgId = 0x28;
+            bLoadDefPal = FALSE;
+
+            int nXOffs = -31;
+            int nYOffs = -12;
+            int nPeerPaletteDistance = -9;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0x28,
+                    CreateImgTicket(uUnitId, 0x27, nullptr, nXOffs, nYOffs)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeHMMM[2] = {
+                MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeHMMM[0], 0);
+            CreateDefPal(NodeHMMM[1], 1);
+
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x4C, 0x57, 0x09); // HMM has 9 palettes
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+
             break;
         }
         else if ((uPalId == (0x55 + EXTRA_OMNI)) || // HMM missiles
@@ -572,8 +601,71 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  (uPalId == (0x1B1 + EXTRA_OMNI)) ||
                  (uPalId == (0x208 + EXTRA_OMNI)))
         {
-            fImgIsFromNewImgDatRange = true;
-            nTargetImgId = 0x29;
+            // This is an interesting triple sprite join.  Should be logical enough.  If you want the simple approach, use:
+                //        CreateExtraPal(uUnitId, uPalId, 0x55, 0x57, 0x29)
+            // If you want to just show the missiles + core body, use:
+#ifdef JUST_THE_BODY_NO_ARMOR_PLS
+            bLoadDefPal = FALSE;
+
+            int nXOffs = 0;
+            int nYOffs = -10;
+            int nPeerPaletteDistance = -7;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0x28,
+                    CreateImgTicket(uUnitId, 0x29, nullptr, nXOffs, nYOffs)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeHMMM[2] = {
+                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1),
+                MainDescTree.GetDescNode(Node01, Node02, Node03, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeHMMM[0], 0);
+            CreateDefPal(NodeHMMM[1], 1);
+
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x55, 0x57, 0x1); // HMM missiles have 1 palette
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+#else
+            bLoadDefPal = FALSE;
+
+            int nXOffs = 0 + 31;
+            int nYOffs = -10 + 12;
+            int nDistanceToBody = -7;
+            int nDistanceToArmor = -16;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0x27,
+                    CreateImgTicket(uUnitId, 0x28, 
+                    CreateImgTicket(uUnitId, 0x29, nullptr, nXOffs, nYOffs),
+                        31, 12)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeHMMM[3] = {
+                MainDescTree.GetDescNode(Node01, Node02, Node03 + nDistanceToArmor, -1),
+                MainDescTree.GetDescNode(Node01, Node02, Node03 + nDistanceToBody, -1),
+                MainDescTree.GetDescNode(Node01, Node02, Node03, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeHMMM[0], 0);
+            CreateDefPal(NodeHMMM[1], 1);
+            CreateDefPal(NodeHMMM[2], 2);
+
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x55, 0x57, 0x1); // HMM missiles have 1 palette
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette + nDistanceToArmor, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nDistanceToBody, 6, 0x57);
+            SetSourcePal(2, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+#endif
+
             break;
         }
 
@@ -582,109 +674,33 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case 0x1D: // Roll
     {
-        if (((uPalId >= (0x0B + EXTRA_OMNI)) && (uPalId <= (0x13 + EXTRA_OMNI))) || // Roll intros
-            ((uPalId >= (0x2F + EXTRA_OMNI)) && (uPalId <= (0x37 + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0x4C + EXTRA_OMNI)) && (uPalId <= (0x54 + EXTRA_OMNI))) || // Hyper Roll
-
-            ((uPalId >= (0x62 + EXTRA_OMNI)) && (uPalId <= (0x6A + EXTRA_OMNI))) || // Roll intros
-            ((uPalId >= (0x86 + EXTRA_OMNI)) && (uPalId <= (0x8E + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0xA3 + EXTRA_OMNI)) && (uPalId <= (0xAB + EXTRA_OMNI))) || // Hyper Roll
-
-            ((uPalId >= (0xB9 + EXTRA_OMNI)) && (uPalId <= (0xC1 + EXTRA_OMNI))) || // Roll intros
-            ((uPalId >= (0xDD + EXTRA_OMNI)) && (uPalId <= (0xE5 + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0xFA + EXTRA_OMNI)) && (uPalId <= (0x102 + EXTRA_OMNI))) ||  // Hyper Roll
-
-            ((uPalId >= (0x110 + EXTRA_OMNI)) && (uPalId <= (0x118 + EXTRA_OMNI))) || // Roll intros
-            ((uPalId >= (0x134 + EXTRA_OMNI)) && (uPalId <= (0x13c + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0x151 + EXTRA_OMNI)) && (uPalId <= (0x159 + EXTRA_OMNI))) || // Hyper Roll
-
-            ((uPalId >= (0x167 + EXTRA_OMNI)) && (uPalId <= (0x16F + EXTRA_OMNI))) || // Roll intros
-            ((uPalId >= (0x18B + EXTRA_OMNI)) && (uPalId <= (0x193 + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0x1A8 + EXTRA_OMNI)) && (uPalId <= (0x1B0 + EXTRA_OMNI))) || // Hyper Roll
-
-            ((uPalId >= (0x1BE + EXTRA_OMNI)) && (uPalId <= (0x1C6 + EXTRA_OMNI))) || // Roll intros
-            ((uPalId >= (0x1E2 + EXTRA_OMNI)) && (uPalId <= (0x1EA + EXTRA_OMNI))) || // Charging buster
-            ((uPalId >= (0x1FF + EXTRA_OMNI)) && (uPalId <= (0x207 + EXTRA_OMNI))))  // Hyper Roll
-        {
-            SetExtraImg(0, uUnitId, uPalId);
-            break;
-        }
-        else if ((uPalId == (0x0A + EXTRA_OMNI)) || // teleport intro
-                 (uPalId == (0x61 + EXTRA_OMNI)) ||
-                 (uPalId == (0xB8 + EXTRA_OMNI)) ||
-                 (uPalId == (0x10F + EXTRA_OMNI)) ||
-                 (uPalId == (0x166 + EXTRA_OMNI)) ||
-                 (uPalId == (0x1BD + EXTRA_OMNI)))
+        // Handle the cross-unit Megaman sprites first...
+        if (CreateExtraPal(0x1C, uPalId, 0x09, 0x57, 0x26) || // hair
+            CreateExtraPal(0x1C, uPalId, 0x0A, 0x57, 0x0B) || // teleport intro
+            CreateExtraPal(0x1C, uPalId, 0x14, 0x57, 0x01, 0, 9) || // Rush
+            CreateExtraPal(0x1C, uPalId, 0x1D, 0x57, 0x02, 0, 9) || // Beat
+            CreateExtraPal(0x1C, uPalId, 0x26, 0x57, 0x24, 0, 9) || // Beat Plane
+            CreateExtraPal(0x1C, uPalId, 0x42, 0x57, 0x25) || // Dr Light
+            CreateExtraPal(0x1C, uPalId, 0x5E, 0x57, 0x00) // Megaman
+            //CreateExtraPal(uUnitId, uPalId, 0x55, 0x57, 0x29) // Hyper Roll Missiles: no sprite available
+            )
         {
             nImgUnitId = 0x1C;
-            nTargetImgId = 0x0B;
-            break;
-        }
-        else if ((uPalId == (0x42 + EXTRA_OMNI)) || // Dr Light
-                 (uPalId == (0x99 + EXTRA_OMNI)) ||
-                 (uPalId == (0xEF + EXTRA_OMNI)) ||
-                 (uPalId == (0x147 + EXTRA_OMNI)) ||
-                 (uPalId == (0x19E + EXTRA_OMNI)) ||
-                 (uPalId == (0x1F5 + EXTRA_OMNI)))
-        {
             fImgIsFromNewImgDatRange = true;
-            nImgUnitId = 0x1C;
-            nTargetImgId = 0x25;
             break;
         }
-
-        else if ((uPalId == (0x5E + EXTRA_OMNI)) || // Megaman
-                 (uPalId == (0xB5 + EXTRA_OMNI)) ||
-                 (uPalId == (0x10C + EXTRA_OMNI)) ||
-                 (uPalId == (0x163 + EXTRA_OMNI)) ||
-                 (uPalId == (0x1BA + EXTRA_OMNI)) ||
-                 (uPalId == (0x211 + EXTRA_OMNI)))
+        else if (CreateExtraPal(uUnitId, uPalId, 0x0B, 0x57, 0x00, 0, 9) || // Roll intro
+                 CreateExtraPal(uUnitId, uPalId, 0x2F, 0x57, 0x00, 0, 9) || // Roll Charging buster
+                 CreateExtraPal(uUnitId, uPalId, 0x4C, 0x57, 0x00, 0, 9)) //  Hyper Roll ?
         {
-            bLoadDefPal = FALSE;
-
-            nImgUnitId = 0x1C;
-            nTargetImgId = 0;
-
-            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-            CreateDefPal(NodeGet, 0);
-
-            SetSourcePal(0, uUnitId, uPalId, 1, 1);
-
             break;
-        }
-        else if ((uPalId == (0x9 + EXTRA_OMNI)) || // Megaman's hair
-                 (uPalId == (0x60 + EXTRA_OMNI)) ||
-                 (uPalId == (0xB7 + EXTRA_OMNI)) ||
-                 (uPalId == (0xB7 + EXTRA_OMNI)) ||
-                 (uPalId == (0x10E + EXTRA_OMNI)) ||
-                 (uPalId == (0x165 + EXTRA_OMNI)))
-        {
-            bLoadDefPal = FALSE;
-
-            nImgUnitId = 0x1C;
-            nTargetImgId = 0x26;
-
-            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-            CreateDefPal(NodeGet, 0);
-
-            SetSourcePal(0, uUnitId, uPalId, 1, 1);
-
-            break;
-        }
+        }        
         else if ((uPalId == 0x1) || // Button Extra 01: Reuse Megaman's Rush sprite
                  (uPalId == 0x9) ||
                  (uPalId == 0x11) ||
                  (uPalId == 0x19) ||
                  (uPalId == 0x21) ||
-                 (uPalId == 0x29) ||
-                 ((uPalId >= (0x14 + EXTRA_OMNI)) && (uPalId <= (0x1C + EXTRA_OMNI))) || // Rush extras
-                 ((uPalId >= (0x6B + EXTRA_OMNI)) && (uPalId <= (0x73 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0xC2 + EXTRA_OMNI)) && (uPalId <= (0xCA + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x119 + EXTRA_OMNI)) && (uPalId <= (0x121 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x170 + EXTRA_OMNI)) && (uPalId <= (0x178 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x1C7 + EXTRA_OMNI)) && (uPalId <= (0x1CF + EXTRA_OMNI))))
+                 (uPalId == 0x29))
         {
             bLoadDefPal = FALSE;
 
@@ -695,15 +711,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            const int nBasicOffset = GetBasicOffset(uPalId);
-            if (nBasicOffset != -1)
-            {
-                SetSourcePal(0, uUnitId, nBasicOffset, 6, 8);
-            }
-            else
-            {
-                SetSourcePal(0, uUnitId, uPalId, 1, 1);
-            }
+            SetSourcePal(0, uUnitId, GetBasicOffset(uPalId), 6, 8);
             break;
         }
         else if ((uPalId == 0x2) || // Pull in Megaman's Beat sprite
@@ -711,13 +719,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  (uPalId == 0x12) ||
                  (uPalId == 0x1A) ||
                  (uPalId == 0x22) ||
-                 (uPalId == 0x2A) ||
-                 ((uPalId >= (0x1D + EXTRA_OMNI)) && (uPalId <= (0x25 + EXTRA_OMNI))) || // Beat
-                 ((uPalId >= (0x74 + EXTRA_OMNI)) && (uPalId <= (0x7C + EXTRA_OMNI))) ||
-                 ((uPalId >= (0xCB + EXTRA_OMNI)) && (uPalId <= (0xD3 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x122 + EXTRA_OMNI)) && (uPalId <= (0x12A + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x179 + EXTRA_OMNI)) && (uPalId <= (0x181 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x1D0 + EXTRA_OMNI)) && (uPalId <= (0x1D8 + EXTRA_OMNI))))
+                 (uPalId == 0x2A))
         {
             bLoadDefPal = FALSE;
 
@@ -728,34 +730,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            const int nBasicOffset = GetBasicOffset(uPalId);
-            if (nBasicOffset != -1)
-            {
-                SetSourcePal(0, uUnitId, nBasicOffset, 6, 8);
-            }
-            else
-            {
-                SetSourcePal(0, uUnitId, uPalId, 1, 1);
-            }
-            break;
-        }
-        else if (((uPalId >= (0x26 + EXTRA_OMNI)) && (uPalId <= (0x2E + EXTRA_OMNI))) || // Beat Plane
-                 ((uPalId >= (0x7D + EXTRA_OMNI)) && (uPalId <= (0x85 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0xD4 + EXTRA_OMNI)) && (uPalId <= (0xDC + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x12B + EXTRA_OMNI)) && (uPalId <= (0x133 + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x182 + EXTRA_OMNI)) && (uPalId <= (0x18A + EXTRA_OMNI))) ||
-                 ((uPalId >= (0x1D9 + EXTRA_OMNI)) && (uPalId <= (0x1E1 + EXTRA_OMNI))))
-        {
-            bLoadDefPal = FALSE;
-
-            nImgUnitId = 0x1C;
-            nTargetImgId = 0x24; // Beat plane
-
-            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-            CreateDefPal(NodeGet, 0);
-
-            SetSourcePal(0, uUnitId, uPalId, 1, 1);
+            SetSourcePal(0, uUnitId, GetBasicOffset(uPalId), 6, 8);
             break;
         }
         else if (((uPalId >= (0x38 + EXTRA_OMNI)) && (uPalId <= (0x3F + EXTRA_OMNI))) || // Rush Drill
@@ -788,8 +763,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateDefPal(NodeRushDrill[0], 0);
             CreateDefPal(NodeRushDrill[1], 1);
 
-            SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
-            SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance, 1, 1);
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x38, 0x57, 0x08);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
 
             break;
         }
@@ -809,7 +785,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             CreateDefPal(NodeGet, 0);
 
-            SetSourcePal(0, uUnitId, uPalId, 1, 1);
+            SetSourcePal(0, uUnitId, 0x40, 6, 0x57);
             break;
         }
         else if (((uPalId >= (0x56 + EXTRA_OMNI)) && (uPalId <= (0x5D + EXTRA_OMNI))) || // Rush Drill metal bits
@@ -821,14 +797,30 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             bLoadDefPal = FALSE;
 
-            nImgUnitId = 0x1D;
-            nTargetImgId = 0x0C; // rush drill metal
+            int nXOffs = 0;
+            int nYOffs = 0;
+            int nPeerPaletteDistance = -0x1E;
 
-            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0xB,
+                    CreateImgTicket(uUnitId, 0x0C, nullptr, nXOffs, nYOffs)
+                )
+            );
 
-            CreateDefPal(NodeGet, 0);
+            //Set each palette
+            sDescNode* NodeRushDrill[2] = {
+                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1),
+                MainDescTree.GetDescNode(Node01, Node02, Node03, -1)
+            };
 
-            SetSourcePal(0, uUnitId, uPalId, 1, 1);
+            //Set each palette
+            CreateDefPal(NodeRushDrill[0], 0);
+            CreateDefPal(NodeRushDrill[1], 1);
+
+            int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x56, 0x57, 0x08);
+            SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
+            SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
             break;
         }
 
@@ -848,6 +840,11 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
+    case 0x22: // Sakura
+    {
+        CreateExtraPal(uUnitId, uPalId, 0x1D, 0x1, 0x00); // Dark Sakura
+        break;
+    }
     case 0x23: //Dan
     {
         if (SpecSel(&nSpecOffs, uPalId, 2, 8))
@@ -860,18 +857,12 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case 0x24: //Cammy
     {
-        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x3E + EXTRA_OMNI)))
-        {
-            SetExtraImg(11, uUnitId, uPalId);
-        }
+        CreateExtraPal(uUnitId, uPalId, 0x09, 0x09, 11, 0, 9); // Counter flash
         break;
     }
     case 0x25: //Dhalsim
     {
-        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x26 + EXTRA_OMNI)))
-        {
-            SetExtraImg(11, uUnitId, uPalId);
-        }
+        CreateExtraPal(uUnitId, uPalId, 0x09, 0x05, 11, 0, 5); // teleport frames
         break;
     }
     case 0x26: //M.Bison
@@ -888,18 +879,12 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x28: //Gambit
     {
-        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x26 + EXTRA_OMNI)))
-        {
-            SetExtraImg(11, uUnitId, uPalId);
-        }
+        CreateExtraPal(uUnitId, uPalId, 0x09, 0x05, 11, 0, 5); // win pose. yes it looked broken like that back in 1.22 too.
         break;
     }
     case 0x29: //Juggernaut
     {
-        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x44 + EXTRA_OMNI)))
-        {
-            SetExtraImg(11, uUnitId, uPalId);
-        }
+        CreateExtraPal(uUnitId, uPalId, 0x09, 0x0A, 11, 0, 10); // Headcrush + power up.
         break;
     }
     case 0x2A: //Storm
@@ -932,7 +917,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x2C: // Magneto
     {
-        if (uPalId == 0x09 + EXTRA_OMNI)
+        if (uPalId == 0x0A + EXTRA_OMNI) //  c.mp (ball - all buttons) / c.hk (effect after c.mp)
         {
             SetExtraImg(11, uUnitId, uPalId);
         }
@@ -942,10 +927,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case 0x2D: // Shuma Gorath
     {
-        // Everything he has works great with the default sprite
-        // If you want to show the default sprite for just the Extras, uncomment the following line
-        //if (uPalId >= (0x11 + EXTRA_OMNI) && uPalId <= (0x130 + EXTRA_OMNI))
+        if (!CreateExtraPal(uUnitId, uPalId, 0x11, 0x30, 0x00, 0, 0x30))
         {
+            // Everything he has works great with the default sprite
             SetExtraImg(0, uUnitId, uPalId);
         }
 
@@ -954,20 +938,12 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case 0x2F: //Silver Samurai
     {
-        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x37 + EXTRA_OMNI)))
-        {
-            SetExtraImg(0, uUnitId, uPalId);
-        }
-
+        CreateExtraPal(uUnitId, uPalId, 0x09, 0x08, 0x00, 0, 8);
         break;
     }
     case 0x30: //Omega Red
     {
-        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x20 + EXTRA_OMNI)))
-        {
-            SetExtraImg(11, uUnitId, uPalId);
-        }
-
+        CreateExtraPal(uUnitId, uPalId, 0x09, 0x04, 0x0B, 0, 4);
         break;
     }
     case 0x31: //Spiral
@@ -998,24 +974,13 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     case 0x32: //Colossus
     {
-        if (uPalId >= (0x09 + EXTRA_OMNI))
-        {
-            SetExtraImg(0, uUnitId, uPalId);
-        }
-
+        CreateExtraPal(uUnitId, uPalId, 0x09, 32, 0, 0, 32);
         break;
     }
     case 0x37: //Jin
     {
-        // Power-up glow
-        if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x2C + EXTRA_OMNI)))
-        {
-            SetExtraImg(0, uUnitId, uPalId);
-            break;
-        }
-
-        if (
-            CreateExtraPal(uUnitId, uPalId, 0x2D, 6, 11, 0, 6)
+        if (CreateExtraPal(uUnitId, uPalId, 0x09, 6, 0, 0, 6) || // Power-up glow
+               CreateExtraPal(uUnitId, uPalId, 0x2D, 6, 11, 0, 6)
             || CreateExtraPal(uUnitId, uPalId, 0x51, 3, 12)
             || CreateExtraPal(uUnitId, uPalId, 0x52, 3, 13)
             || CreateExtraPal(uUnitId, uPalId, 0x53, 3, 14)
@@ -1164,10 +1129,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             SetExtraImg(0, uUnitId, 0x0);
             break;
         }
-        else if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x26 + EXTRA_OMNI)))
+        else if (CreateExtraPal(uUnitId, uPalId, 0x09, 5, 0, 0, 5))
         {
             // King Kobun.  Just reuse the Kobun core sprite for now. :(
-            SetExtraImg(0, uUnitId, uPalId);
             break;
         }
         break;
@@ -1178,17 +1142,18 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
         int nBasicOffset = GetBasicOffset(uPalId);
 
-        // bugbug: 
         if ((nImgUnitId == 0xA) && (nBasicOffset == 5))
         {
             // Rogue's darkened dash sprite is missing a sprite association in img.dat, so just reuse the normal dash sprite
             nBasicOffset = 4;
         }
 
-        // I'm unclear why there's a flag here, but fImgIsFromNewImgDatRange allows us to sidestep compatibility concerns.
+        // This flag is used to de-extra-ize sprite values.  But for imgdat2020 sprites we actually want a higher range.
+        // So here we allow either choice of ranges, with the explicit need to ask for the new range.
         const int nBitFlagToUse = fImgIsFromNewImgDatRange ? 0xFF : 0x0F;
 
-        if (nTargetImgId > nBitFlagToUse)
+        // Old extra targetimgids will be 0xFF0x, so allow for that.
+        if ((0xFF & nTargetImgId) > nBitFlagToUse)
         {
             OutputDebugString("WARNING: The desired nTargetImgId is out of range and is being modified\n");
         }
@@ -1203,13 +1168,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
         else
         {
-            // Disable multisprite export for now.  Otherwise you would need to do the math.
-            SetSourcePal(0, uUnitId, uPalId, 1, 1);
+            // For Extras, CreateExtraPal handles the call to SetSourcePal
+            // For anybody that wants multisprite export, they need to define their node increment and corrected starting point above.
         }
-        //else
-        //{
-        //    //SetSourcePal(0, uUnitId, uPalId, 0, 0);
-        //}
     }
 
     return TRUE;

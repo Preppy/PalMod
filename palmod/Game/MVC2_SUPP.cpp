@@ -83,7 +83,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
 {
     CString strDebugInfo;
 
-    strDebugInfo.Format("proc_supp: Processing supplemental palettes for character 0x%x (%s), palette number 0x%x\n", char_no, MVC2_D_UNITDESC[char_no], pal_no);
+    strDebugInfo.Format("proc_supp: Processing supplemental palettes for character 0x%02x (%s), palette number 0x%x\n", char_no, MVC2_D_UNITDESC[char_no], pal_no);
     OutputDebugString(strDebugInfo);
 
     HandleSpiralCopies(char_no, pal_no);
@@ -376,7 +376,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
     // We catch indirectly updated palettes here.
     HandleSpiralCopies_ForSupplementedPalettes(char_no, pal_no);
 
-    strDebugInfo.Format("proc_supp: Finished processing supplemental palettes for character 0x%x, palette number 0x%x\n\n", char_no, pal_no);
+    strDebugInfo.Format("proc_supp: Finished processing supplemental palettes for character 0x%02x, palette number 0x%x\n\n", char_no, pal_no);
     OutputDebugString(strDebugInfo);
 }
 

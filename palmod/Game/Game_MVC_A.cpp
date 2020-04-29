@@ -19,7 +19,7 @@ CGame_MVC_A::CGame_MVC_A(void)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = 780 + GetExtraCt(MVC_A_EXTRALOC);
+    m_nSafeCountForThisRom = 785 + GetExtraCt(MVC_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -688,7 +688,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 else if (NodeGet->uUnitId == indexMVCMegaman) // Megaman
                 {
                     nPeerPaletteDistance = 9; // there are 9 tints for Megaman normally
-                    if (paletteDataSet->indexOffsetToUse == 0x27) // Hyper Megaman
+                    if (paletteDataSet->indexOffsetToUse == 0x27) // Hyper Megaman has offsets.
                     {
                         nXOffs = 31;
                         nYOffs = 12;

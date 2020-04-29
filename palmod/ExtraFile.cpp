@@ -111,7 +111,17 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 
                     nCurrEnd = strtol(szFinalLine, nullptr, 16);
 
-                    int nColorsUsed = (nCurrEnd - nCurrStart) / 2; // 2 bytes per color.
+                    UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / 2; // 2 bytes per color.
+
+                    static bool s_fShownOnce = false;
+                    if ((nColorsUsed > 512) && !s_fShownOnce)
+                    {
+                        s_fShownOnce = true;
+                        CString strError;
+                        strError.Format("In file \"%s\", Extra \"%s\" is trying to display %u colors (from 0x%06x to 0x%06x).  This will not work properly.\n", pszExtraFileName, szCurrDesc, nColorsUsed, nCurrStart, nCurrEnd);
+                        MessageBox(nullptr, strError, "PalMod", MB_ICONERROR);
+                    }
+
                     const int nTotalPagesNeeded = (int)ceil((double)nColorsUsed / (double)MAX_PALETTE_SIZE);
                     int nCurrentPage = 1;
 

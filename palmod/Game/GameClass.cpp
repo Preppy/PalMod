@@ -3,6 +3,8 @@
 
 BOOL CGameClass::bPostSetPalProc = TRUE;
 
+#define GAMECLASS_DBG 0
+
 CGameClass::CGameClass(void)
     :
     ConvPal(NULL),
@@ -311,14 +313,21 @@ void CGameClass::SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, 
 {
     if (nIndex >= 4)
     {
+        OutputDebugString(" CGameClass::SetSourcePal:: ERROR: PalMod only supports four palettes per display.\n");
         return;
     }
 
+#if GAMECLASS_DBG
+    CString strMsg;
+    strMsg.Format("CGameClass::SetSourcePal: For unit 0x%02x setting starting palette 0x%02x, displaying %u maximum, and incrementing 0x%x per button.\n", nUnitId, nStart, nAmt, nInc);
+    OutputDebugString(strMsg);
+
     if ((nAmt > 1) && // If this game wants to allow multisprite export
-        (nStart > nInc)) // We can't have a starting point in the second or later node: that'll crash
+        (nStart > nInc)) // This starting point is in the second or later node: that's potentially a problem.
     {
-        OutputDebugString("CGameClass::SetSourcePal: Warning: invalid argument supplied.  Multisprite export will not work properly.\n");
+        OutputDebugString("\tCGameClass::SetSourcePal: Warning: you're using multisprite export in what is hopefully an Extras node.  Be careful.\n");
     }
+#endif
 
     nSrcPalUnit[nIndex] = nUnitId;
     nSrcPalStart[nIndex] = nStart;

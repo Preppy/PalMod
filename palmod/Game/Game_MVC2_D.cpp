@@ -509,24 +509,17 @@ void CGame_MVC2_D::CreateDefPal(UINT16 nUnitId, UINT16 nPalId, UINT16 nSepId)
 BOOL CGame_MVC2_D::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId, int nStart, int nInc, int nImgId, int nSepId, int nAmt)
 {
     int nSpecOffs;
-    //int nTargetPal;
 
     nStart = EXTRA_OMNI + nStart;
 
     if (SpecSel(&nSpecOffs, nPalId, nStart, nInc, nAmt, nExtraAmt))
     {
-        //nTargetPal = (nSpecOffs * nInc);
-        //nTargetPal += ((nPalId - nStart - nTargetPal) % nAmt) + nStart;
-
-        //ClearSetImgTicket(CreateImgTicket(nUnitId, nImgId));
-
-        //CreateDefPal(nUnitId, nTargetPal, nSepId);
-
         nTargetImgId = nImgId | 0xFF00;
         nImgUnitId = nUnitId;
 
         if (nExtraAmt == 6)
         {
+            // I feel like nAmt in the next line should be nInc?
             SetSourcePal(0, nUnitId, nStart + (nPalId - nStart) % nAmt, 6, nInc);
         }
         else

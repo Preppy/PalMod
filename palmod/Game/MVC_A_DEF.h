@@ -579,9 +579,14 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
 {
-    { "Main Body", 0x49044, 0x49064, 0x3B },
+    { "Body (1st Form)", 0x49044, 0x49064, 0x3B },
     { "Sparkles", 0x49064, 0x49084, 0x3B, 0x02 },
     { "Charles Intro", 0x49084, 0x490a4, 0x3B, 0x01 },
+    { "Body (2nd Form)", 0x38DFA, 0x38E1A, 0x3B, 3 },
+    { "Magnetic Tempest", 0x4BCC4, 0x4BCE4 },
+    { "Body Ram (Body)", 0x4BD24, 0x4BD44 },
+    { "Body Ram (Effect)", 0x4BD44, 0x4BD64 },
+    { "Charles (Defeated)", 0x4C004, 0x4C024 },
 };
 
 const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_P1[] =

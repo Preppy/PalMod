@@ -219,7 +219,7 @@ void CPalModDlg::PostPalSel()
 
                 CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
 
-                if ((nPrevImgIndex[nImgIndexCtr] != nImgKey) || bForceImg)
+                if ((nPrevImgIndex[nImgIndexCtr] != nImgKey) || bForceImg || (nPalAmt > 1))
                 {
                     if (nImgIndexCtr == 0)
                     {
@@ -244,6 +244,7 @@ void CPalModDlg::PostPalSel()
                 }
                 else
                 {
+                    // The sprite hasn't changed: just update the palette
                     ImgDispCtrl->UpdateImgPalette(
                         nImgIndexCtr,
                         MainPalGroup->GetPalDef(i)->pPal,
