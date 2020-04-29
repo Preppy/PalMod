@@ -582,11 +582,18 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
     { "Body (1st Form)", 0x49044, 0x49064, 0x3B },
     { "Sparkles", 0x49064, 0x49084, 0x3B, 0x02 },
     { "Charles Intro", 0x49084, 0x490a4, 0x3B, 0x01 },
-    { "Body (2nd Form)", 0x38DFA, 0x38E1A, 0x3B, 3 },
+    { "Charles (Defeated)", 0x4C004, 0x4C024, 0x3B, 0x07 },
+    { "Main Body (2nd Form)", 0x38DFA, 0x38E1A, 0x3B, 0x03 },
+    { "Body Ram (Body)", 0x4BD24, 0x4BD44, 0x3B, 0x08, true },
+    { "Body Ram (Effect)", 0x4BD44, 0x4BD64, 0x3B, 0x09 },
+    { "Main Body & Arm (2nd Form)", 0x4BBA4, 0x4BBC4 },
+    { "Main Body Glimmer 1", 0x4BBC4, 0x4BBE4 },
+    { "Main Body Glimmer 2", 0x4BBE4, 0x4BC04 },
+    { "Main Body Glimmer 3", 0x4BC04, 0x4BC24 },
+    { "Teleport 1", 0x4BC64, 0x4BC84 },
+    { "Teleport 2", 0x4BC84, 0x4BCA4 },
+    { "Magnetic Shockwave", 0x4BC44, 0x4BC64 },
     { "Magnetic Tempest", 0x4BCC4, 0x4BCE4 },
-    { "Body Ram (Body)", 0x4BD24, 0x4BD44 },
-    { "Body Ram (Effect)", 0x4BD44, 0x4BD64 },
-    { "Charles (Defeated)", 0x4C004, 0x4C024 },
 };
 
 const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_P1[] =
