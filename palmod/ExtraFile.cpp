@@ -10,7 +10,7 @@
 using namespace std;
 
 // This is the most we can currently display.
-constexpr auto MAX_PALETTE_SIZE = 64;
+constexpr auto MAX_PALETTE_SIZE = PAL_MAXAMT;
 
 UINT32 CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 

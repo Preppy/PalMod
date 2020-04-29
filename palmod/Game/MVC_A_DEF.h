@@ -804,10 +804,11 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 
     { "Arthur P1", 0x50804, 0x50824, 0x3C },
     { "Arthur P1 Extra 1", 0x50824, 0x50844, 0x3C, 1 },
-    { "Arthur P1 Extra 2", 0x50844, 0x50864 },
+    // This appears to be unused: commenting out for now
+    //{ "Arthur P1 Extra 2", 0x50844, 0x50864 },
     { "Arthur P2", 0x50864, 0x50884, 0x3C },
     { "Arthur P2 Extra 1", 0x50884, 0x508a4, 0x3C, 1 },
-    { "Arthur P2 Extra 2", 0x508a4, 0x508c4 },
+    //{ "Arthur P2 Extra 2", 0x508a4, 0x508c4 },
 
     { "Colossus P1", 0x505c4, 0x505e4, 0x32 },
     { "Colossus P2", 0x50624, 0x50644, 0x32 },
