@@ -19,11 +19,11 @@ CGame_MVC_A::CGame_MVC_A(void)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = 792 + GetExtraCt(MVC_A_EXTRALOC);
+    m_nSafeCountForThisRom = 793 + GetExtraCt(MVC_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x03e5ba;
+    m_nLowestKnownPaletteRomLocation = 0x038d00;
 
     InitDataBuffer();
 
