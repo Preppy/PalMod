@@ -165,7 +165,7 @@ const sGame_PaletteDataset MVC_A_JIN_PALETTES_P2[] =
 const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
 {
     { "Megaman P1", 0x48f84, 0x48fa4, 0x1c },
-    { "P1 Rush/Eddie", 0x48fa4, 0x48fc4, 0x1c, 1 },
+    { "P1 Rush/Eddie", 0x48fa4, 0x48fc4, 0x1c, 0x0C },
     { "P1 Beat", 0x48fc4, 0x48fe4, 0x1C, 0x2 },
 
     { "P1 Hair", 0x4c044, 0x4c064, 0x1C, 0x26 }, // 09
@@ -240,7 +240,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
     { "P1 Rush Drill Metal 7", 0x4c9e4 + 0x0C0, 0x4c9e4 + 0x0E0, 0x1D, 0x0C },
     { "P1 Rush Drill Metal 8", 0x4c9e4 + 0x0E0, 0x4c9e4 + 0x100, 0x1D, 0x0C },
 
-    { "P1 Teleport Intro", 0x4c744, 0x4c764 }, // 41
+    { "P1 Teleport Intro", 0x4c744, 0x4c764, 0x1C, 0x0D }, // 41
     { "P1 Dr Light", 0x4c764, 0x4c784, 0x1c, 0x25 }, // 42
 
     { "P1 Hyper Megaman Armor 1", 0x4c784, 0x4c7a4, 0x1C, 0x27, true }, // 43
@@ -273,7 +273,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
 const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
 {
     { "Megaman P2", 0x48fe4, 0x49004, 0x1c },
-    { "P2 Rush/Eddie", 0x49004, 0x49024, 0x1c, 1 },
+    { "P2 Rush/Eddie", 0x49004, 0x49024, 0x1c, 0x0C },
     { "P2 Beat", 0x49024, 0x49044, 0x1C, 0x2 },
 
     { "P2 Hair", 0x4cb24, 0x4cb44, 0x1C, 0x26 },
@@ -337,7 +337,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
     { "P2 Rush Drill 6", 0x4d1a4, 0x4d1c4, 0x1D, 0x0B, true },
     { "P2 Rush Drill 7", 0x4d1c4, 0x4d1e4, 0x1D, 0x0B, true },
     { "P2 Rush Drill 8", 0x4d1e4, 0x4d204, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 9", 0x4d204, 0x4d224, 0x1D, 0x0B, true }, // 97
+    { "P2 Rush Drill 9", 0x4d204, 0x4d224, 0x1D, 0x0B }, // 97
 
     // Presented out of order because they are associated
     { "P2 Rush Drill Metal 1", 0x4d4c4 + 0x0, 0x4d4c4 + 0x20, 0x1D, 0x0C },
@@ -350,7 +350,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
     { "P2 Rush Drill Metal 8", 0x4d4c4 + 0x0E0, 0x4d4c4 + 0x100, 0x1D, 0x0C },
 
 
-    { "P2 Teleport Intro", 0x4d224, 0x4d244 },
+    { "P2 Teleport Intro", 0x4d224, 0x4d244, 0x1C, 0x0D },
     { "P2 Dr Light", 0x4d244, 0x4d264, 0x1c, 0x25 },
 
     { "P2 Hyper Megaman Armor 1", 0x4d264, 0x4d284, 0x1C, 0x27, true },
@@ -409,7 +409,7 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_EXTRAS[] =
 const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P1[] =
 {
     { "P1 Color", 0x48704, 0x48724, 0x1d },
-    { "P1 Rush/Eddie", 0x48724, 0x48744, 0x1c, 1 },
+    { "P1 Rush/Eddie", 0x48724, 0x48744, 0x1c, 0x0C },
     { "P1 Beat", 0x48744, 0x48764, 0x1C, 0x2 },
 
     { "P1 Megaman Hair", 0x4d604, 0x4d624, 0x1C, 0x26 },
@@ -474,14 +474,14 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P1[] =
     { "P1 Rush Drill Metal 7", 0x4e064, 0x4e084, 0x1D, 0x0C },
     { "P1 Rush Drill Metal 8", 0x4e084, 0x4e0a4, 0x1D, 0x0C },
 
-    { "P1 Teleport Intro", 0x4dd04, 0x4dd24 },
+    { "P1 Teleport Intro", 0x4dd04, 0x4dd24, 0x1C, 0x0D },
     { "P1 Dr Light", 0x4dd24, 0x4dd44, 0x1c, 0x25 },
 };
 
 const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P2[] =
 {
     { "P2 Color", 0x48764, 0x48784, 0x1d },
-    { "P2 Rush/Eddie", 0x48784, 0x487a4, 0x1c, 1 },
+    { "P2 Rush/Eddie", 0x48784, 0x487a4, 0x1c, 0x0C },
     { "P2 Beat", 0x487a4, 0x487c4, 0x1C, 0x2 }, // 09 : these numbers align to the mvc2 extra ids as identified in the Palette Variant Full spreadsheet
 
     { "P2 Megaman Hair", 0x4e0e4, 0x4e104, 0x1C, 0x26 },
@@ -546,7 +546,7 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P2[] =
     { "P2 Rush Drill Metal 7", 0x4eb44, 0x4eb64, 0x1D, 0x0C },
     { "P2 Rush Drill Metal 8", 0x4eb64, 0x4eb84, 0x1D, 0x0C },
 
-    { "P2 Teleport Intro", 0x4e7e4, 0x4e804 },
+    { "P2 Teleport Intro", 0x4e7e4, 0x4e804, 0x1C, 0x0D },
     { "P2 Dr Light", 0x4e804, 0x4e824, 0x1c, 0x25 },
 };
 
@@ -609,6 +609,7 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
     { "Body (1st Form)", 0x49044, 0x49064, 0x3B },
     { "Main Body (2nd Form)", 0x38DFA, 0x38E1A, 0x3B, 0x3 },
     { "Main Body & Arm (2nd Form)", 0x4BBA4, 0x4BBC4, 0x3B, 0x4 },
+    { "Head / Neck  (2nd Form)", 0x4BFA4, 0x4BFC4, 0x3B, 0x0F },
     { "Main Body Glimmer 1", 0x4BBC4, 0x4BBE4, 0x3B },
     { "Main Body Glimmer 2", 0x4BBE4, 0x4BC04, 0x3B },
     { "Main Body Glimmer 3", 0x4BC04, 0x4BC24, 0x3B },
@@ -620,6 +621,16 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
     { "Magnetic Tempest", 0x4BCC4, 0x4BCE4, 0x3B, 0x0A },
     { "Hyper Grav", 0x4BCA4, 0x4BCC4, 0x3B, 0x5 },
     { "Sparkles", 0x49064, 0x49084, 0x3B, 0x2 },
+    { "Bystander", 0x4BD64, 0x4BD84, 0x3B, 0x0B },
+    { "Bystander 2", 0x4BD84, 0x4BDA4, 0x3B, 0x0B },
+    { "Skull Pain 1", 0x4BE24, 0x4BE44, 0x3B, 0x0C },
+    { "Skull Pain 2", 0x4BE44, 0x4BE64, 0x3B, 0x0C },
+    { "Skull Pain 3", 0x4BE64, 0x4BE84, 0x3B, 0x0C },
+    { "Mind Blast (StartUp)", 0x4BDC4, 0x4BDE4, 0x3B, 0x0D },
+    { "Mind Blast (Beam 1, 1st Form)", 0x4BDE4, 0x4BE04, 0x3B, 0x0E },
+    { "Mind Blast (Beam 2, 1st Form)",  0x4BE04, 0x4BE24, 0x3B, 0x0E },
+    { "KO Orbs 1", 0x4BFC4, 0x4BFE4, 0x3B, 0x20 },
+    { "KO Orbs 2", 0x4BFE4, 0x4C004, 0x3B, 0x20 },
 };
 
 const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_P1[] =
@@ -781,7 +792,8 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P1[] =
     { "Morrigan Intro Frame 4", 0x4efA4, 0x4eFC4, 0x3, 13 },
     
     // There isn't a p2 pair for this: ... ? can't enable differently sized nodes as it'll crash multisport export
-    //{ "Morrigan Intro Frame 5", 0x4efC4, 0x4eFE4, 0x3, 13 },
+    // Plus it's unclear what it relates to
+    // { "Morrigan Unknown Sprite", 0x4efC4, 0x4eFE4, 0x3, 14 },
 };
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
