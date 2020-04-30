@@ -21,7 +21,6 @@ enum SupportedMVCPaletteListIndex
     indexMVCChun,
     indexMVCJin,
     indexMVCGief,
-    indexMVCMechGief,
     indexMVCStrider,
     indexMVCMegaman,
     indexMVCMorrigan,
@@ -53,6 +52,8 @@ const sGame_PaletteDataset MVC_A_RYU_PALETTES_P1[] =
     { "Akuma P1", 0x4ed04, 0x4ed24, 0x0 },
     { "Akuma P1 Hadouken", 0x4ed24, 0x4ed44, 0x1e, 1 },
     { "Akuma P1 Shoryuken", 0x4ed44, 0x4ed64, 0x27, 2 },
+    { "Ken (Background) P1", 0x4ebC4, 0x4ebE4, 0x27, 0 },
+    { "Sean (Background) P1", 0x4ebE4, 0x4ec04 },
 };
 
 const sGame_PaletteDataset MVC_A_RYU_PALETTES_P2[] =
@@ -66,6 +67,8 @@ const sGame_PaletteDataset MVC_A_RYU_PALETTES_P2[] =
     { "Akuma P2", 0x4ed64, 0x4ed84, 0x0 },
     { "Akuma P2 Hadouken", 0x4ed84, 0x4eda4, 0x1e, 1 },
     { "Akuma P2 Shoryuken", 0x4eda4, 0x4edc4, 0x27, 2 },
+    { "Ken (Background) P2", 0x4ec04, 0x4ec24, 0x27, 0 },
+    { "Sean (Background) P2", 0x4ec24, 0x4ec44 },
 };
 
 const sGame_PaletteDataset MVC_A_GIEF_PALETTES_P1[] =
@@ -77,6 +80,14 @@ const sGame_PaletteDataset MVC_A_GIEF_PALETTES_P1[] =
     { "P1 SPD Rage 1", 0x48bc4, 0x48be4, 0x1 },
     { "P1 SPD Rage 2", 0x48be4, 0x48c04, 0x1 },
     { "P1 SPD Rage 3", 0x48c04, 0x48c24, 0x1 },
+
+    { "Mech-Gief P1 Color", 0x48c84, 0x48ca4, 0x1 },
+    { "Mech-Gief P1 Yoga Flame", 0x48ca4, 0x48cc4, 0x1, 3 },
+    { "Mech-Gief Palette 15", 0x48cc4, 0x48ce4, 0xff },
+
+    { "Mech-Gief P1 SPD Rage 1", 0x48D44, 0x48D64, 0x1 },
+    { "Mech-Gief P1 SPD Rage 2", 0x48D64, 0x48D84, 0x1 },
+    { "Mech-Gief P1 SPD Rage 3", 0x48D84, 0x48DA4, 0x1 },
 };
 
 const sGame_PaletteDataset MVC_A_GIEF_PALETTES_P2[] =
@@ -88,28 +99,14 @@ const sGame_PaletteDataset MVC_A_GIEF_PALETTES_P2[] =
     { "P2 SPD Rage 1", 0x48c24, 0x48c44, 0x1 },
     { "P2 SPD Rage 2", 0x48c44, 0x48c64, 0x1 },
     { "P2 SPD Rage 3", 0x48c64, 0x48c84, 0x1 },
-};
 
-const sGame_PaletteDataset MVC_A_MECHGIEF_PALETTES_P1[] =
-{
-    { "P1 Color", 0x48c84, 0x48ca4, 0x1 },
-    { "P1 Yoga Flame", 0x48ca4, 0x48cc4, 0x1, 3 },
-    { "Palette 15", 0x48cc4, 0x48ce4, 0xff },
+    { "Mech-Gief P2 Color", 0x48ce4, 0x48d04, 0x1 },
+    { "Mech-Gief P2 Yoga Flame", 0x48d04, 0x48d24, 0x1, 3 },
+    { "Mech-Gief Palette 18", 0x48d24, 0x48d44, 0xff },
 
-    { "P1 SPD Rage 1", 0x48D44, 0x48D64, 0x1 },
-    { "P1 SPD Rage 2", 0x48D64, 0x48D84, 0x1 },
-    { "P1 SPD Rage 3", 0x48D84, 0x48DA4, 0x1 },
-};
-
-const sGame_PaletteDataset MVC_A_MECHGIEF_PALETTES_P2[] =
-{
-    { "P2 Color", 0x48ce4, 0x48d04, 0x1 },
-    { "P2 Yoga Flame", 0x48d04, 0x48d24, 0x1, 3 },
-    { "Palette 18", 0x48d24, 0x48d44, 0xff },
-
-    { "P2 SPD Rage 1", 0x48DA4, 0x48DC4, 0x1 },
-    { "P2 SPD Rage 2", 0x48DC4, 0x48DE4, 0x1 },
-    { "P2 SPD Rage 3", 0x48DE4, 0x48E04, 0x1 },
+    { "Mech-Gief P2 SPD Rage 1", 0x48DA4, 0x48DC4, 0x1 },
+    { "Mech-Gief P2 SPD Rage 2", 0x48DC4, 0x48DE4, 0x1 },
+    { "Mech-Gief P2 SPD Rage 3", 0x48DE4, 0x48E04, 0x1 },
 };
 
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P1[] =
@@ -118,6 +115,11 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P1[] =
     { "P1 Glimmer 1", 0x4ff64, 0x4ff84, 0x1b },
     { "P1 Glimmer 2", 0x4ff84, 0x4ffa4, 0x1b },
     { "P1 Glimmer 3", 0x4ffa4, 0x4ffc4, 0x1b },
+    { "P2 Glimmer 4", 0x4ffc4, 0x4ffe4, 0x1b },
+    { "P1 Glimmer 5", 0x4ffe4, 0x50004, 0x1b },
+    { "P1 Glimmer 6", 0x50004, 0x50024, 0x1b },
+    { "P1 Glimmer 7", 0x50024, 0x50044, 0x1b },
+    { "P2 Glimmer 8", 0x50124, 0x50144, 0x1b },
     { "P1 Infinity Legs", 0x49304, 0x49324, 0x1b, 0x0E },
     { "P1 Shadow Leg Flash", 0x49324, 0x49344, 0x1b, 0x0D },
 };
@@ -125,9 +127,14 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P1[] =
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P2[] =
 {
     { "P2 Color", 0x49344, 0x49364, 0x1b },
-    { "P2 Glimmer 1", 0x4ffc4, 0x4ffe4, 0x1b },
-    { "P2 Glimmer 2", 0x4ffe4, 0x50004, 0x1b },
-    { "P2 Glimmer 3", 0x50004, 0x50024, 0x1b },
+    { "P2 Glimmer 1", 0x50044, 0x50064, 0x1b },
+    { "P2 Glimmer 2", 0x50064, 0x50084, 0x1b },
+    { "P2 Glimmer 3", 0x50084, 0x500A4, 0x1b },
+    { "P2 Glimmer 4", 0x500A4, 0x500C4, 0x1b },
+    { "P2 Glimmer 5", 0x500C4, 0x500E4, 0x1b },
+    { "P2 Glimmer 6", 0x500E4, 0x50104, 0x1b },
+    { "P2 Glimmer 7", 0x50104, 0x50124, 0x1b },
+    { "P2 Glimmer 8", 0x50184, 0x501A4, 0x1b },
     { "P2 Infinity Legs", 0x49364, 0x49384, 0x1b, 0x0E },
     { "P2 Shadow Leg Flash", 0x49384, 0x493a4, 0x1b, 0x0D },
 };
@@ -750,6 +757,16 @@ const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P1[] =
     { "P1 Color", 0x48644, 0x48664, 0x0c },
     { "P1 Spotlight", 0x48664, 0x48684, 0x0C, 0x0C },
     { "P1 Web", 0x48684, 0x486a4, 0x0c, 2 },
+    { "P1 Intro 1", 0x4B824, 0x4B844, 0x0C, 11 },
+    { "P1 Intro 2", 0x4B844, 0x4B864, 0x0C, 11 },
+    { "P1 Intro 3", 0x4B864, 0x4B884, 0x0C, 11 },
+    { "P1 Intro 4", 0x4B884, 0x4B8A4, 0x0C, 11 },
+    { "P1 Intro 5", 0x4B8A4, 0x4B8C4, 0x0C, 11 },
+    { "P1 Intro 6", 0x4B8C4, 0x4B8E4, 0x0C, 11 },
+    { "P1 Intro 7", 0x4B8E4, 0x4B904, 0x0C, 11 },
+    { "P1 Intro 8", 0x4B904, 0x4B924, 0x0C, 11 },
+    { "P1 Spiderlight 1", 0x4B924, 0x4B944, 0x0C, 12 },
+    { "P1 Spiderlight 2", 0x4B944, 0x4B964, 0x0C, 13 },
 };
 
 const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P2[] =
@@ -757,6 +774,17 @@ const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P2[] =
     { "P2 Color", 0x486a4, 0x486c4, 0x0c },
     { "P2 Spotlight", 0x486c4, 0x486e4, 0x0C, 0x0C },
     { "P2 Web", 0x486e4, 0x48704, 0x0c, 2 },
+
+    { "P2 Intro 1", 0x4BA24, 0x4BA44, 0x0C, 11 },
+    { "P2 Intro 2", 0x4BA44, 0x4BA64, 0x0C, 11 },
+    { "P2 Intro 3", 0x4BA64, 0x4BA84, 0x0C, 11 },
+    { "P2 Intro 4", 0x4BA84, 0x4BAA4, 0x0C, 11 },
+    { "P2 Intro 5", 0x4BAA4, 0x4BAC4, 0x0C, 11 },
+    { "P2 Intro 6", 0x4BAC4, 0x4BAE4, 0x0C, 11 },
+    { "P2 Intro 7", 0x4BAE4, 0x4BB04, 0x0C, 11 },
+    { "P2 Intro 8", 0x4BB04, 0x4BB24, 0x0C, 11 },
+    { "P2 Spiderlight 1", 0x4BB24, 0x4BB44, 0x0C, 12 },
+    { "P2 Spiderlight 2", 0x4BB44, 0x4BB64, 0x0C, 13 },
 };
 
 const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P1[] =
@@ -764,6 +792,8 @@ const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P1[] =
     { "P1 Color",  0x48884, 0x488a4, 0x38 },
     { "P1 Ninjas", 0x488a4, 0x488c4, 0x38, 1, true },
     { "P1 Hoover", 0x488c4, 0x488e4, 0x38, 2 },
+    { "P1 Suit Intro", 0x4F304, 0x4F324, 0x38, 13 },
+    { "P1 Taunt", 0x4F344, 0x4F364, 0x38, 14 },
 };
 
 const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P2[] =
@@ -771,6 +801,18 @@ const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P2[] =
     { "P2 Color",  0x488e4, 0x48904, 0x38 },
     { "P2 Ninjas", 0x48904, 0x48924, 0x38, 1, true },
     { "P2 Hoover", 0x48924, 0x48944, 0x38, 2 },
+    { "P2 Suit Intro", 0x4F324, 0x4F344, 0x38, 13 },
+    { "P2 Taunt", 0x4F364, 0x4F384, 0x38, 14 },
+};
+
+const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_EXTRAS[] =
+{
+    { "Paint Rays 1", 0x4F264, 0x4F284, 0x38, 11 },
+    { "Paint Rays 2", 0x4F284, 0x4F2A4, 0x38, 11 },
+    { "Paint Rays 3", 0x4F2A4, 0x4F2C4, 0x38, 11 },
+    { "Paint Rays 4", 0x4F2C4, 0x4F2E4, 0x38, 11 },
+    { "Elect Grab", 0x4F2E4, 0x4F304, 0x38, 12 },
+    { "Silhouette", 0x4F384, 0x4F3A4, 0x38, 13 },
 };
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P1[] =
@@ -781,6 +823,7 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P1[] =
 
     { "P1 Soul Eraser 1", 0x4edE4, 0x4ee04, 0x3, 11 },
     { "P1 Soul Eraser 2", 0x4ee04, 0x4ee24, 0x3, 11 },
+
     { "Morrigan Intro Pose", 0x4ee84, 0x4eeA4, 0x3, 13 },
     { "Lilith Join Pose", 0x4eeA4, 0x4eeC4, 0x3, 12 },
     { "Lilith Join Pose 2", 0x4eeC4, 0x4eEE4, 0x3, 12 },
@@ -861,11 +904,11 @@ const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P2[] =
 const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
 {
     { "Anita P1", 0x50fa4, 0x50fc4, 0x51 },
-    { "Anita P1 Weapons", 0x50fc4, 0x50fe4, 0x51, 1 },
-    { "Anita P1 Floating Body", 0x50fe4, 0x51004, 0x51, 2 },
+    { "Anita P1 Floating Body", 0x50fc4, 0x50fe4, 0x51, 2 },
+    { "Anita P1 Weapons", 0x50fe4, 0x51004, 0x51, 1 },
     { "Anita P2", 0x51004, 0x51024, 0x51 },
-    { "Anita P2 Weapons", 0x51024, 0x51044, 0x51, 1 },
-    { "Anita P2 Floating Body", 0x51044, 0x51064, 0x51, 2 },
+    { "Anita P2 Floating Body", 0x51024, 0x51044, 0x51, 2 },
+    { "Anita P2 Weapons", 0x51044, 0x51064, 0x51, 1 },
 
     { "Arthur P1", 0x50804, 0x50824, 0x3C },
     { "Arthur P1 Extra 1", 0x50824, 0x50844, 0x3C, 1 },
@@ -1237,6 +1280,7 @@ const sDescTreeNode MVC_A_CAPCOM_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES_P1,           ARRAYSIZE(MVC_A_CAPCOM_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES_P2,           ARRAYSIZE(MVC_A_CAPCOM_PALETTES_P2) },
+    { "Extras", DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES_EXTRAS,   ARRAYSIZE(MVC_A_CAPCOM_PALETTES_EXTRAS) },
 };
 
 const sDescTreeNode MVC_A_CHUNLI_COLLECTION[] =
@@ -1255,12 +1299,6 @@ const sDescTreeNode MVC_A_GIEF_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_PALETTES_P1,             ARRAYSIZE(MVC_A_GIEF_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_PALETTES_P2,             ARRAYSIZE(MVC_A_GIEF_PALETTES_P2) },
-};
-
-const sDescTreeNode MVC_A_MECHGIEF_COLLECTION[] =
-{
-    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_MECHGIEF_PALETTES_P1,             ARRAYSIZE(MVC_A_MECHGIEF_PALETTES_P1) },
-    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_MECHGIEF_PALETTES_P2,             ARRAYSIZE(MVC_A_MECHGIEF_PALETTES_P2) },
 };
 
 const sDescTreeNode MVC_A_STRIDER_COLLECTION[] =
@@ -1365,7 +1403,6 @@ const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
     indexMVCGWM,
     indexMVCWolverine,
     indexMVCGief,
-    indexMVCMechGief,
     indexMVCAssists,
     indexMVCPortraits,
     indexMVCCSIs,
@@ -1387,7 +1424,6 @@ const sDescTreeNode MVC_UNITS[MVC_A_NUMUNIT] =
     { "Chun-Li",                      DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_COLLECTION,           ARRAYSIZE(MVC_A_CHUNLI_COLLECTION) },
     { "Jin",                          DESC_NODETYPE_TREE, (void*)MVC_A_JIN_COLLECTION,              ARRAYSIZE(MVC_A_JIN_COLLECTION) },
     { "Zangief",                      DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_COLLECTION,             ARRAYSIZE(MVC_A_GIEF_COLLECTION) },
-    { "Mech-Zangief",                 DESC_NODETYPE_TREE, (void*)MVC_A_MECHGIEF_COLLECTION,         ARRAYSIZE(MVC_A_MECHGIEF_COLLECTION) },
     { "Strider",                      DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_COLLECTION,          ARRAYSIZE(MVC_A_STRIDER_COLLECTION) },
     { "Megaman",                      DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_COLLECTION,          ARRAYSIZE(MVC_A_MEGAMAN_COLLECTION) },
     { "Morrigan",                     DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_COLLECTION,         ARRAYSIZE(MVC_A_MORRIGAN_COLLECTION) },
