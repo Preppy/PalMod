@@ -53,7 +53,7 @@ const sGame_PaletteDataset MVC_A_RYU_PALETTES_P1[] =
     { "Akuma P1 Hadouken", 0x4ed24, 0x4ed44, 0x1e, 1 },
     { "Akuma P1 Shoryuken", 0x4ed44, 0x4ed64, 0x27, 2 },
     { "Ken (Background) P1", 0x4ebC4, 0x4ebE4, 0x27, 0 },
-    { "Sean (Background) P1", 0x4ebE4, 0x4ec04 },
+    { "Sean (Background) P1", 0x4ebE4, 0x4ec04, 0x0, 0xb },
 };
 
 const sGame_PaletteDataset MVC_A_RYU_PALETTES_P2[] =
@@ -68,7 +68,7 @@ const sGame_PaletteDataset MVC_A_RYU_PALETTES_P2[] =
     { "Akuma P2 Hadouken", 0x4ed84, 0x4eda4, 0x1e, 1 },
     { "Akuma P2 Shoryuken", 0x4eda4, 0x4edc4, 0x27, 2 },
     { "Ken (Background) P2", 0x4ec04, 0x4ec24, 0x27, 0 },
-    { "Sean (Background) P2", 0x4ec24, 0x4ec44 },
+    { "Sean (Background) P2", 0x4ec24, 0x4ec44, 0x0, 0xb },
 };
 
 const sGame_PaletteDataset MVC_A_GIEF_PALETTES_P1[] =

@@ -3168,7 +3168,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_Start[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_A[] =
 {
     { "Devo & Ebony Devil A", 0x033c800, 0x033c880 },
-    { "Ebony Devil Stand Off A", 0x033cf40, 0x033cf80 },
+    { "Ebony Devil Stand Off A", 0x033cf00, 0x033cf80 },
     { "Ebony Stand On Transition A", 0x033ce00, 0x033ce80 },
 #ifndef USE_LARGE_PALETTES
     { "Ebony Super Trail A (1/3)", 0x033d100, 0x033d180 },
@@ -3203,7 +3203,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_B[] =
 {
     { "Devo & Ebony Devil B", 0x0350d00, 0x0350d80 },
-    { "Ebony Devil Stand Off B", 0x0351440, 0x0351480 },
+    { "Ebony Devil Stand Off B", 0x0351400, 0x0351480 },
     { "Ebony Stand On Transition B", 0x0351300, 0x0351380 },
 #ifndef USE_LARGE_PALETTES
     { "Ebony Super Trail B (1/3)", 0x0351600, 0x0351680 },
@@ -3238,7 +3238,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_C[] =
 {
     { "Devo & Ebony Devil C", 0x0365200, 0x0365280 },
-    { "Ebony Devil Stand Off C", 0x0365940, 0x0365980 },
+    { "Ebony Devil Stand Off C", 0x0365900, 0x0365980 },
     { "Ebony Stand On Transition C", 0x0365800, 0x0365880 },
 #ifndef USE_LARGE_PALETTES
     { "Ebony Super Trail C (1/3)", 0x0365b00, 0x0365b80 },
@@ -3273,7 +3273,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_S[] =
 {
     { "Devo & Ebony Devil S", 0x0379700, 0x0379780 },
-    { "Ebony Devil Stand Off S", 0x0379e40, 0x0379e80 },
+    { "Ebony Devil Stand Off S", 0x0379e00, 0x0379e80 },
     { "Ebony Stand On Transition S", 0x0379d00, 0x0379d80 },
 #ifndef USE_LARGE_PALETTES
     { "Ebony Super Trail S (1/3)", 0x037a000, 0x037a080 },
@@ -3308,7 +3308,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_Start[] =
 {
     { "Devo & Ebony Devil Start", 0x038dc00, 0x038dc80 },
-    { "Ebony Devil Stand Off Start", 0x038e340, 0x038e380 },
+    { "Ebony Devil Stand Off Start", 0x038e300, 0x038e380 },
     { "Ebony Stand On Transition Start", 0x038e200, 0x038e280 },
 #ifndef USE_LARGE_PALETTES
     { "Ebony Super Trail Start (1/3)", 0x038e500, 0x038e580 },
