@@ -34,6 +34,7 @@ enum SupportedMVCPaletteListIndex
     indexMVCAssists,
     indexMVCPortraits,
     indexMVCCSIs,
+    indexMVCBonus,
     indexMVCLast
 };
 
@@ -1567,6 +1568,7 @@ const sGame_PaletteDataset MVC_A_CSIS_PALETTES[] =
     { "Jin CS Icon", 0x3e71a, 0x3e73a, 0x37, 0x11 },
     { "Megaman CS Icon", 0x3e79a, 0x3e7ba, 0x1C, 0x11 },
     { "Morrigan CS Icon", 0x3e77a, 0x3e79a, 0x3, 0x11 },
+    // The Roll CSI is unused
     { "Ryu CS Icon", 0x3e6ba, 0x3e6da, 0x0, 0x11 },
     { "Spider-Man CS Icon", 0x3e67a, 0x3e69a, 0x0C, 0x11 },
     { "Strider Hiryu CS Icon", 0x3e75a, 0x3e77a, 0x5, 0x11 },
@@ -1574,6 +1576,34 @@ const sGame_PaletteDataset MVC_A_CSIS_PALETTES[] =
     { "War Machine CS Icon", 0x3e5ba, 0x3e5da, 0x2E, 0x11 },
     { "Wolverine CS Icon", 0x3e61a, 0x3e63a, 0x07, 0x11 },
     { "Zangief CS Icon", 0x3e73a, 0x3e75a, 0x1, 0x11 },
+};
+
+const sGame_PaletteDataset MVC_A_CSIS_NEXT_PALETTES[] =
+{
+    { "Captain America Next Icon", 0x3e5da + 0x1418A, 0x3e5fa + 0x1418A, 0x0B, 0x11 },
+    { "Captain Commando Next Icon", 0x3e6da + 0x1418A, 0x3e6fa + 0x1418A, 0x38, 0x11 },
+    { "Chun-Li Next Icon",        0x3e6fa + 0x1418A, 0x3e71a + 0x1418A, 0x1b, 0x11 },
+    { "Gambit Next Icon",         0x3e63a + 0x1418A, 0x3e65a + 0x1418A, 0x28, 0x11 },
+    { "Hulk Next Icon",           0x3e5fa + 0x1418A, 0x3e61a + 0x1418A, 0x0D, 0x11 },
+    { "Jin Next Icon",            0x3e71a + 0x1418A, 0x3e73a + 0x1418A, 0x37, 0x11 },
+    { "Megaman Next Icon",        0x3e79a + 0x1418A, 0x3e7ba + 0x1418A, 0x1C, 0x11 },
+    { "Morrigan Next Icon",       0x3e77a + 0x1418A, 0x3e79a + 0x1418A, 0x3, 0x11 },
+    // The Roll Next is unused
+    { "Ryu Next Icon",            0x3e6ba + 0x1418A, 0x3e6da + 0x1418A, 0x0, 0x11 },
+    { "Spider-Man Next Icon",     0x3e67a + 0x1418A, 0x3e69a + 0x1418A, 0x0C, 0x11 },
+    { "Strider Hiryu Next Icon",  0x3e75a + 0x1418A, 0x3e77a + 0x1418A, 0x5, 0x11 },
+    { "Venom Next Icon",          0x3e65a + 0x1418A, 0x3e67a + 0x1418A, 0x0E, 0x11 },
+    { "War Machine Next Icon",    0x3e5ba + 0x1418A, 0x3e5da + 0x1418A, 0x2E, 0x11 },
+    { "Wolverine Next Icon",      0x3e61a + 0x1418A, 0x3e63a + 0x1418A, 0x07, 0x11 },
+    { "Zangief Next Icon",        0x3e73a + 0x1418A, 0x3e75a + 0x1418A, 0x1, 0x11 },
+};
+
+const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
+{
+    { "Life Bars & Meter Count", 0x479E4, 0x47A04 },
+    { "In-Game Text (Hit Counter, Stage Number, etc)", 0x47424, 0x47444 },
+    { "In-Game Text (Score, Play Status, Level, Character Names)", 0x47444, 0x47464 },
+    { "Test Menu Text", 0x3E4FA, 0x3E53A },
 };
 
 const sDescTreeNode MVC_A_WARMACHINE_COLLECTION[] =
@@ -1741,6 +1771,7 @@ const sDescTreeNode MVC_A_ASSIST_COLLECTION[] =
 const sDescTreeNode MVC_A_CSIS_COLLECTION[] =
 {
     { "Character Select Icons",       DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_PALETTES,             ARRAYSIZE(MVC_A_CSIS_PALETTES) },
+    { "Next Fight Icons",             DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_NEXT_PALETTES,        ARRAYSIZE(MVC_A_CSIS_NEXT_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_PORTRAITS_COLLECTION[] =
@@ -1748,6 +1779,11 @@ const sDescTreeNode MVC_A_PORTRAITS_COLLECTION[] =
     { "Character Select Portraits",   DESC_NODETYPE_TREE, (void*)MVC_A_CSP_PALETTES,              ARRAYSIZE(MVC_A_CSP_PALETTES) },
     { "Victory Screen Portraits",     DESC_NODETYPE_TREE, (void*)MVC_A_VSP_PALETTES,              ARRAYSIZE(MVC_A_VSP_PALETTES) },
     { "Super Portraits",              DESC_NODETYPE_TREE, (void*)MVC_A_SUPERPORT_PALETTES,        ARRAYSIZE(MVC_A_SUPERPORT_PALETTES) },
+};
+
+const sDescTreeNode MVC_A_BONUS_COLLECTION[] =
+{
+   { "Bonus",                         DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_PALETTES,            ARRAYSIZE(MVC_A_BONUS_PALETTES) },
 };
 
 const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
@@ -1777,6 +1813,7 @@ const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
     indexMVCAssists,
     indexMVCPortraits,
     indexMVCCSIs,
+    indexMVCBonus,
 
     MVC_A_EXTRALOC //Extra palettes
 };
@@ -1807,7 +1844,8 @@ const sDescTreeNode MVC_UNITS[MVC_A_NUMUNIT] =
     { "Gambit",                       DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_COLLECTION,           ARRAYSIZE(MVC_A_GAMBIT_COLLECTION) },
     { "Assists",                      DESC_NODETYPE_TREE, (void*)MVC_A_ASSIST_COLLECTION,           ARRAYSIZE(MVC_A_ASSIST_COLLECTION) },
     { "Portraits",                    DESC_NODETYPE_TREE, (void*)MVC_A_PORTRAITS_COLLECTION,        ARRAYSIZE(MVC_A_PORTRAITS_COLLECTION) },
-    { "Character Select Icons",       DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_COLLECTION,             ARRAYSIZE(MVC_A_CSIS_COLLECTION) },
+    { "Character Icons",              DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_COLLECTION,             ARRAYSIZE(MVC_A_CSIS_COLLECTION) },
+    { "Bonus",                        DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_COLLECTION,            ARRAYSIZE(MVC_A_BONUS_COLLECTION) },
 };
 
 // We extend this array with data groveled from the mvce.txt extensible extras file, if any.
