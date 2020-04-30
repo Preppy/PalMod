@@ -119,7 +119,9 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P1[] =
     { "P1 Glimmer 5", 0x4ffe4, 0x50004, 0x1b },
     { "P1 Glimmer 6", 0x50004, 0x50024, 0x1b },
     { "P1 Glimmer 7", 0x50024, 0x50044, 0x1b },
-    { "P2 Glimmer 8", 0x50124, 0x50144, 0x1b },
+    { "P1 Glimmer 8", 0x50124, 0x50144, 0x1b }, // this range is odd?
+    { "P1 Laser?", 0x50144, 0x50164 },
+    { "P1 Missiles", 0x50164, 0x50184 },
     { "P1 Infinity Legs", 0x49304, 0x49324, 0x1b, 0x0E },
     { "P1 Shadow Leg Flash", 0x49324, 0x49344, 0x1b, 0x0D },
 };
@@ -134,7 +136,9 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P2[] =
     { "P2 Glimmer 5", 0x500C4, 0x500E4, 0x1b },
     { "P2 Glimmer 6", 0x500E4, 0x50104, 0x1b },
     { "P2 Glimmer 7", 0x50104, 0x50124, 0x1b },
-    { "P2 Glimmer 8", 0x50184, 0x501A4, 0x1b },
+    { "P2 Glimmer 8", 0x50184, 0x501A4, 0x1b }, // this range is odd?
+    { "P2 Laser?", 0x501A4, 0x501C4 },
+    { "P2 Missiles", 0x501C4, 0x501E4 },
     { "P2 Infinity Legs", 0x49364, 0x49384, 0x1b, 0x0E },
     { "P2 Shadow Leg Flash", 0x49384, 0x493a4, 0x1b, 0x0D },
 };
@@ -158,6 +162,31 @@ const sGame_PaletteDataset MVC_A_JIN_PALETTES_P1[] =
     { "P1 Color", 0x48a04, 0x48a24, 0x37 },
     { "P1 Blodia FX", 0x48a24, 0x48a44, 0x37, 1 },
     { "P1 Blodia Punch", 0x48a44, 0x48a64, 0x37, 2 },
+
+    { "P1 Saotome Shine / Meikyou Shishui 1", 0x4f3e4, 0x4f404, 0x37 },
+    { "P1 Saotome Shine / Meikyou Shishui 2", 0x4f404, 0x4f424, 0x37 },
+    { "P1 Saotome Shine / Meikyou Shishui 3", 0x4f424, 0x4f444, 0x37 },
+    { "P1 Saotome Shine / Meikyou Shishui 4", 0x4f444, 0x4f464, 0x37 },
+    { "P1 Saotome Shine / Meikyou Shishui 5", 0x4f464, 0x4f484, 0x37 },
+    { "P1 Saotome Shine / Meikyou Shishui 6", 0x4f484, 0x4f4a4, 0x37 },
+
+    { "P1 Burning Taunt 1", 0x4f7A4, 0x4f7C4, 0x37, 15 },
+    { "P1 Burning Taunt 2", 0x4f7C4, 0x4f7E4, 0x37, 15  },
+    { "P1 Burning Taunt 3", 0x4f7E4, 0x4f804, 0x37, 15  },
+    { "P1 Burning Taunt 4", 0x4f804, 0x4f824, 0x37, 15  },
+    { "P1 Burning Taunt 5", 0x4f824, 0x4f844, 0x37, 15  },
+    { "P1 Burning Taunt 6", 0x4f844, 0x4f864, 0x37, 15  },
+
+    { "P1 Leaving Blodia 1", 0x4f564, 0x4f584, 0x37, 11 },
+    { "P1 Leaving Blodia 2", 0x4f584, 0x4f5a4, 0x37, 11 },
+    { "P1 Leaving Blodia 3", 0x4f5a4, 0x4f5c4, 0x37, 11 },
+    { "P1 Leaving Blodia 4", 0x4f5c4, 0x4f5e4, 0x37, 11 },
+    { "P1 Leaving Blodia 5", 0x4f5e4, 0x4f604, 0x37, 11 },
+    { "P1 Leaving Blodia 6", 0x4f604, 0x4f624, 0x37, 11 },
+
+    { "P1 Vulcan Super (Hands)", 0x4f6e4, 0x4f704, 0x37, 12 },
+    { "P1 Vulcan Super (Muzzle Flash)", 0x4f704, 0x4f724, 0x37, 13 },
+    { "P1 Vulcan Super (Inside of Blodia)", 0x4f724, 0x4f744, 0x37, 14 },
 };
 
 const sGame_PaletteDataset MVC_A_JIN_PALETTES_P2[] =
@@ -165,6 +194,31 @@ const sGame_PaletteDataset MVC_A_JIN_PALETTES_P2[] =
     { "P2 Color", 0x48a64, 0x48a84, 0x37 },
     { "P2 Blodia FX", 0x48a84, 0x48aa4, 0x37, 1 },
     { "P2 Blodia Punch", 0x48aa4, 0x48ac4, 0x37, 2 },
+
+    { "P2 Saotome Shine / Meikyou Shishui 1", 0x4f4a4, 0x4f4C4, 0x37 },
+    { "P2 Saotome Shine / Meikyou Shishui 2", 0x4f4c4, 0x4f4e4, 0x37 },
+    { "P2 Saotome Shine / Meikyou Shishui 3", 0x4f4e4, 0x4f504, 0x37 },
+    { "P2 Saotome Shine / Meikyou Shishui 4", 0x4f504, 0x4f524, 0x37 },
+    { "P2 Saotome Shine / Meikyou Shishui 5", 0x4f524, 0x4f544, 0x37 },
+    { "P2 Saotome Shine / Meikyou Shishui 6", 0x4f544, 0x4f564, 0x37 },
+
+    { "P2 Burning Taunt 1", 0x4f864, 0x4f884, 0x37, 15  },
+    { "P2 Burning Taunt 2", 0x4f884, 0x4f8A4, 0x37, 15  },
+    { "P2 Burning Taunt 3", 0x4f8A4, 0x4f8C4, 0x37, 15  },
+    { "P2 Burning Taunt 4", 0x4f8C4, 0x4f8E4, 0x37, 15  },
+    { "P2 Burning Taunt 5", 0x4f8E4, 0x4f904, 0x37, 15  },
+    { "P2 Burning Taunt 6", 0x4f904, 0x4f924, 0x37, 15  },
+
+    { "P2 Leaving Blodia 1", 0x4f624, 0x4f644, 0x37, 11 },
+    { "P2 Leaving Blodia 2", 0x4f644, 0x4f664, 0x37, 11 },
+    { "P2 Leaving Blodia 3", 0x4f664, 0x4f684, 0x37, 11 },
+    { "P2 Leaving Blodia 4", 0x4f684, 0x4f6a4, 0x37, 11 },
+    { "P2 Leaving Blodia 5", 0x4f6a4, 0x4f6c4, 0x37, 11 },
+    { "P2 Leaving Blodia 6", 0x4f6c4, 0x4f6e4, 0x37, 11 },
+
+    { "P2 Vulcan Super (Hands)", 0x4f744, 0x4f764, 0x37, 12 },
+    { "P2 Vulcan Super (Muzzle Flash)", 0x4f764, 0x4f784, 0x37, 13 },
+    { "P2 Vulcan Super (Inside of Blodia)", 0x4f784, 0x4f7A4, 0x37, 14 },
 };
 
 // Note that since this is eleventy palettes, the code is substituting the default Megaman sprite when 0xff is supplied.  
@@ -836,7 +890,7 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P1[] =
     
     // There isn't a p2 pair for this: ... ? can't enable differently sized nodes as it'll crash multisport export
     // Plus it's unclear what it relates to
-    // { "Morrigan Unknown Sprite", 0x4efC4, 0x4eFE4, 0x3, 14 },
+    // { "Morrigan Unknown Sprite", 0x4efC4, 0x4eFE4, 0x3, 14 }, // This is Range 7 Palette IE9 in their doc
 };
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
@@ -892,6 +946,12 @@ const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P1[] =
     { "P1 Color",   0x484c4, 0x484e4, 0x28 },
     { "P1 Extra 1", 0x484e4, 0x48504, 0x28, 1 },
     { "P1 Extra 2", 0x48504, 0x48524, 0x28, 2 },
+
+    { "P1 Lighting 1", 0x4f944, 0x4f964, 0x28 },
+    { "P1 Lighting 2", 0x4f964, 0x4f984, 0x28 },
+    { "P1 Lighting 3", 0x4f984, 0x4f9A4, 0x28 },
+    { "P1 Lighting 4", 0x4f9A4, 0x4f9C4, 0x28 },
+    { "P1 Lighting 5", 0x4f9C4, 0x4f9E4, 0x28 },
 };
 
 const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P2[] =
@@ -899,6 +959,12 @@ const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_P2[] =
     { "P2 Color",   0x48524, 0x48544, 0x28 },
     { "P2 Extra 1", 0x48544, 0x48564, 0x28, 1 },
     { "P2 Extra 2", 0x48564, 0x48584, 0x28, 2 },
+
+    { "P2 Lighting 1", 0x4f9E4, 0x4fA04, 0x28 },
+    { "P2 Lighting 2", 0x4fA04, 0x4fA24, 0x28 },
+    { "P2 Lighting 3", 0x4fA24, 0x4fA44, 0x28 },
+    { "P2 Lighting 4", 0x4fA44, 0x4fA64, 0x28 },
+    { "P2 Lighting 5", 0x4fA64, 0x4fA84, 0x28 },
 };
 
 const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
