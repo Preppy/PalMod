@@ -1025,6 +1025,289 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "US Agent P2 Charging Star", 0x50f84, 0x50fa4, 0x0b, 2 },
 };
 
+const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x49c04, 0x49c24, 0x2e },
+    { "Burning 2", 0x49c24, 0x49c44, 0x2e },
+    { "Shocked 1", 0x49c44, 0x49c64, 0x2e },
+    { "Shocked 2", 0x49c64, 0x49c84, 0x2e },
+    { "Dark Burning 1", 0x49c84, 0x49ca4, 0x2e },
+    { "Dark Burning 2", 0x49ca4, 0x49cc4, 0x2e },
+    { "Kinectic Charged 1", 0x49cc4, 0x49ce4, 0x2e },
+    { "Kinectic Charged 2", 0x49ce4, 0x49d04, 0x2e },
+    { "Kinectic Charged 3", 0x49d04, 0x49d24, 0x2e },
+};
+
+const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x49d24, 0x49d44, 0x0b },
+    { "Burning 2", 0x49d44, 0x49d64, 0x0b },
+    { "Shocked 1", 0x49d64, 0x49d84, 0x0b },
+    { "Shocked 2", 0x49d84, 0x49da4, 0x0b },
+    { "Dark Burning 1", 0x49da4, 0x49dc4, 0x0b },
+    { "Dark Burning 2", 0x49dc4, 0x49de4, 0x0b },
+    { "Kinectic Charged 1", 0x49de4, 0x49e04, 0x0b },
+    { "Kinectic Charged 2", 0x49e04, 0x49e24, 0x0b },
+    { "Kinectic Charged 3", 0x49e24, 0x49e44, 0x0b },
+};
+
+const sGame_PaletteDataset MVC_A_HULK_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x49f64, 0x49f84, 0x0d },
+    { "Burning 2", 0x49f84, 0x49fa4, 0x0d },
+    { "Shocked 1", 0x49fa4, 0x49fc4, 0x0d },
+    { "Shocked 2", 0x49fc4, 0x49fe4, 0x0d },
+    { "Dark Burning 1", 0x49fe4, 0x4a004, 0x0d },
+    { "Dark Burning 2", 0x4a004, 0x4a024, 0x0d },
+    { "Kinectic Charged 1", 0x4a024, 0x4a044, 0x0d },
+    { "Kinectic Charged 2", 0x4a044, 0x4a064, 0x0d },
+    { "Kinectic Charged 3", 0x4a064, 0x4a084, 0x0d },
+};
+
+const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4a084, 0x4a0a4, 0x07 },
+    { "Burning 2", 0x4a0a4, 0x4a0c4, 0x07 },
+    { "Shocked 1", 0x4a0c4, 0x4a0e4, 0x07 },
+    { "Shocked 2", 0x4a0e4, 0x4a104, 0x07 },
+    { "Dark Burning 1", 0x4a104, 0x4a124, 0x07 },
+    { "Dark Burning 2", 0x4a124, 0x4a144, 0x07 },
+    { "Kinectic Charged 1", 0x4a144, 0x4a164, 0x07 },
+    { "Kinectic Charged 2", 0x4a164, 0x4a184, 0x07 },
+    { "Kinectic Charged 3", 0x4a184, 0x4a1a4, 0x07 },
+};
+
+const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4a1a4, 0x4a1c4, 0x28 },
+    { "Burning 2", 0x4a1c4, 0x4a1e4, 0x28 },
+    { "Shocked 1", 0x4a1e4, 0x4a204, 0x28 },
+    { "Shocked 2", 0x4a204, 0x4a224, 0x28 },
+    { "Dark Burning 1", 0x4a224, 0x4a244, 0x28 },
+    { "Dark Burning 2", 0x4a244, 0x4a264, 0x28 },
+    { "Kinectic Charged 1", 0x4a264, 0x4a284, 0x28 },
+    { "Kinectic Charged 2", 0x4a284, 0x4a2a4, 0x28 },
+    { "Kinectic Charged 3", 0x4a2a4, 0x4a2c4, 0x28 },
+};
+
+const sGame_PaletteDataset MVC_A_VENOM_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4a2c4, 0x4a2e4, 0x0e },
+    { "Burning 2", 0x4a2e4, 0x4a304, 0x0e },
+    { "Shocked 1", 0x4a304, 0x4a324, 0x0e },
+    { "Shocked 2", 0x4a324, 0x4a344, 0x0e },
+    { "Dark Burning 1", 0x4a344, 0x4a364, 0x0e },
+    { "Dark Burning 2", 0x4a364, 0x4a384, 0x0e },
+    { "Kinectic Charged 1", 0x4a384, 0x4a3a4, 0x0e },
+    { "Kinectic Charged 2", 0x4a3a4, 0x4a3c4, 0x0e },
+    { "Kinectic Charged 3", 0x4a3c4, 0x4a3e4, 0x0e },
+};
+
+const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4a504, 0x4a524, 0x0c },
+    { "Burning 2", 0x4a524, 0x4a544, 0x0c },
+    { "Shocked 1", 0x4a544, 0x4a564, 0x0c },
+    { "Shocked 2", 0x4a564, 0x4a584, 0x0c },
+    { "Dark Burning 1", 0x4a584, 0x4a5a4, 0x0c },
+    { "Dark Burning 2", 0x4a5a4, 0x4a5c4, 0x0c },
+    { "Kinectic Charged 1", 0x4a5c4, 0x4a5e4, 0x0c },
+    { "Kinectic Charged 2", 0x4a5e4, 0x4a604, 0x0c },
+    { "Kinectic Charged 3", 0x4a604, 0x4a624, 0x0c },
+};
+
+const sGame_PaletteDataset MVC_A_ROLL_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4a624, 0x4a644, 0x1d },
+    { "Burning 2", 0x4a644, 0x4a664, 0x1d },
+    { "Shocked 1", 0x4a664, 0x4a684, 0x1d },
+    { "Shocked 2", 0x4a684, 0x4a6a4, 0x1d },
+    { "Dark Burning 1", 0x4a6a4, 0x4a6c4, 0x1d },
+    { "Dark Burning 2", 0x4a6c4, 0x4a6e4, 0x1d },
+    { "Kinectic Charged 1", 0x4a6e4, 0x4a704, 0x1d },
+    { "Kinectic Charged 2", 0x4a704, 0x4a724, 0x1d },
+    { "Kinectic Charged 3", 0x4a724, 0x4a744, 0x1d },
+};
+
+const sGame_PaletteDataset MVC_A_RYU_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4a744, 0x4a764, 0x00 },
+    { "Burning 2", 0x4a764, 0x4a784, 0x00 },
+    { "Shocked 1", 0x4a784, 0x4a7a4, 0x00 },
+    { "Shocked 2", 0x4a7a4, 0x4a7c4, 0x00 },
+    { "Dark Burning 1", 0x4a7c4, 0x4a7e4, 0x00 },
+    { "Dark Burning 2", 0x4a7e4, 0x4a804, 0x00 },
+    { "Kinectic Charged 1", 0x4a804, 0x4a824, 0x00 },
+    { "Kinectic Charged 2", 0x4a824, 0x4a844, 0x00 },
+    { "Kinectic Charged 3", 0x4a844, 0x4a864, 0x00 },
+};
+
+const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4a864, 0x4a884, 0x38 },
+    { "Burning 2", 0x4a884, 0x4a8a4, 0x38 },
+    { "Shocked 1", 0x4a8a4, 0x4a8c4, 0x38 },
+    { "Shocked 2", 0x4a8c4, 0x4a8e4, 0x38 },
+    { "Dark Burning 1", 0x4a8e4, 0x4a904, 0x38 },
+    { "Dark Burning 2", 0x4a904, 0x4a924, 0x38 },
+    { "Kinectic Charged 1", 0x4a924, 0x4a944, 0x38 },
+    { "Kinectic Charged 2", 0x4a944, 0x4a964, 0x38 },
+    { "Kinectic Charged 3", 0x4a964, 0x4a984, 0x38 },
+};
+
+const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4a984, 0x4a9a4, 0x1b },
+    { "Burning 2", 0x4a9a4, 0x4a9c4, 0x1b },
+    { "Shocked 1", 0x4a9c4, 0x4a9e4, 0x1b },
+    { "Shocked 2", 0x4a9e4, 0x4aa04, 0x1b },
+    { "Dark Burning 1", 0x4aa04, 0x4aa24, 0x1b },
+    { "Dark Burning 2", 0x4aa24, 0x4aa44, 0x1b },
+    { "Kinectic Charged 1", 0x4aa44, 0x4aa64, 0x1b },
+    { "Kinectic Charged 2", 0x4aa64, 0x4aa84, 0x1b },
+    { "Kinectic Charged 3", 0x4aa84, 0x4aaa4, 0x1b },
+};
+
+const sGame_PaletteDataset MVC_A_JIN_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4aaa4, 0x4aac4, 0x37 },
+    { "Burning 2", 0x4aac4, 0x4aae4, 0x37 },
+    { "Shocked 1", 0x4aae4, 0x4ab04, 0x37 },
+    { "Shocked 2", 0x4ab04, 0x4ab24, 0x37 },
+    { "Dark Burning 1", 0x4ab24, 0x4ab44, 0x37 },
+    { "Dark Burning 2", 0x4ab44, 0x4ab64, 0x37 },
+    { "Kinectic Charged 1", 0x4ab64, 0x4ab84, 0x37 },
+    { "Kinectic Charged 2", 0x4ab84, 0x4aba4, 0x37 },
+    { "Kinectic Charged 3", 0x4aba4, 0x4abc4, 0x37 },
+};
+
+const sGame_PaletteDataset MVC_A_GIEF_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4abc4, 0x4abe4, 0x01 },
+    { "Burning 2", 0x4abe4, 0x4ac04, 0x01 },
+    { "Shocked 1", 0x4ac04, 0x4ac24, 0x01 },
+    { "Shocked 2", 0x4ac24, 0x4ac44, 0x01 },
+    { "Dark Burning 1", 0x4ac44, 0x4ac64, 0x01 },
+    { "Dark Burning 2", 0x4ac64, 0x4ac84, 0x01 },
+    { "Kinectic Charged 1", 0x4ac84, 0x4aca4, 0x01 },
+    { "Kinectic Charged 2", 0x4aca4, 0x4acc4, 0x01 },
+    { "Kinectic Charged 3", 0x4acc4, 0x4ace4, 0x01 },
+};
+
+const sGame_PaletteDataset MVC_A_STRIDER_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4ace4, 0x4ad04, 0x05 },
+    { "Burning 2", 0x4ad04, 0x4ad24, 0x05 },
+    { "Shocked 1", 0x4ad24, 0x4ad44, 0x05 },
+    { "Shocked 2", 0x4ad44, 0x4ad64, 0x05 },
+    { "Dark Burning 1", 0x4ad64, 0x4ad84, 0x05 },
+    { "Dark Burning 2", 0x4ad84, 0x4ada4, 0x05 },
+    { "Kinectic Charged 1", 0x4ada4, 0x4adc4, 0x05 },
+    { "Kinectic Charged 2", 0x4adc4, 0x4ade4, 0x05 },
+    { "Kinectic Charged 3", 0x4ade4, 0x4ae04, 0x05 },
+};
+
+const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4ae04, 0x4ae24, 0x03 },
+    { "Burning 2", 0x4ae24, 0x4ae44, 0x03 },
+    { "Shocked 1", 0x4ae44, 0x4ae64, 0x03 },
+    { "Shocked 2", 0x4ae64, 0x4ae84, 0x03 },
+    { "Dark Burning 1", 0x4ae84, 0x4aea4, 0x03 },
+    { "Dark Burning 2", 0x4aea4, 0x4aec4, 0x03 },
+    { "Kinectic Charged 1", 0x4aec4, 0x4aee4, 0x03 },
+    { "Kinectic Charged 2", 0x4aee4, 0x4af04, 0x03 },
+    { "Kinectic Charged 3", 0x4af04, 0x4af24, 0x03 },
+};
+
+const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4af24, 0x4af44, 0x1c },
+    { "Burning 2", 0x4af44, 0x4af64, 0x1c },
+    { "Shocked 1", 0x4af64, 0x4af84, 0x1c },
+    { "Shocked 2", 0x4af84, 0x4afa4, 0x1c },
+    { "Dark Burning 1", 0x4afa4, 0x4afc4, 0x1c },
+    { "Dark Burning 2", 0x4afc4, 0x4afe4, 0x1c },
+    { "Kinectic Charged 1", 0x4afe4, 0x4b004, 0x1c },
+    { "Kinectic Charged 2", 0x4b004, 0x4b024, 0x1c },
+    { "Kinectic Charged 3", 0x4b024, 0x4b044, 0x1c },
+};
+
+const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4b044, 0x4b064, 0x3b },
+    { "Burning 2", 0x4b064, 0x4b084, 0x3b },
+    { "Shocked 1", 0x4b084, 0x4b0a4, 0x3b },
+    { "Shocked 2", 0x4b0a4, 0x4b0c4, 0x3b },
+    { "Dark Burning 1", 0x4b0c4, 0x4b0e4, 0x3b },
+    { "Dark Burning 2", 0x4b0e4, 0x4b104, 0x3b },
+};
+
+const sGame_PaletteDataset MVC_A_HYPERVENOM_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4b104, 0x4b124, 0x0e },
+    { "Burning 2", 0x4b124, 0x4b144, 0x0e },
+    { "Shocked 1", 0x4b144, 0x4b164, 0x0e },
+    { "Shocked 2", 0x4b164, 0x4b184, 0x0e },
+    { "Dark Burning 1", 0x4b184, 0x4b1a4, 0x0e },
+    { "Dark Burning 2", 0x4b1a4, 0x4b1c4, 0x0e },
+    { "Kinectic Charged 1", 0x4b1c4, 0x4b1e4, 0x0e },
+    { "Kinectic Charged 2", 0x4b1e4, 0x4b204, 0x0e },
+    { "Kinectic Charged 3", 0x4b204, 0x4b224, 0x0e },
+};
+
+const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4b344, 0x4b364, 0x0d },
+    { "Burning 2", 0x4b364, 0x4b384, 0x0d },
+    { "Shocked 1", 0x4b384, 0x4b3a4, 0x0d },
+    { "Shocked 2", 0x4b3a4, 0x4b3c4, 0x0d },
+    { "Dark Burning 1", 0x4b3c4, 0x4b3e4, 0x0d },
+    { "Dark Burning 2", 0x4b3e4, 0x4b404, 0x0d },
+    { "Kinectic Charged 1", 0x4b404, 0x4b424, 0x0d },
+    { "Kinectic Charged 2", 0x4b424, 0x4b444, 0x0d },
+    { "Kinectic Charged 3", 0x4b444, 0x4b464, 0x0d },
+};
+
+const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4b464, 0x4b484, 0x2e },
+    { "Burning 2", 0x4b484, 0x4b4a4, 0x2e },
+    { "Shocked 1", 0x4b4a4, 0x4b4c4, 0x2e },
+    { "Shocked 2", 0x4b4c4, 0x4b4e4, 0x2e },
+    { "Dark Burning 1", 0x4b4e4, 0x4b504, 0x2e },
+    { "Dark Burning 2", 0x4b504, 0x4b524, 0x2e },
+    { "Kinectic Charged 1", 0x4b524, 0x4b544, 0x2e },
+    { "Kinectic Charged 2", 0x4b544, 0x4b564, 0x2e },
+    { "Kinectic Charged 3", 0x4b564, 0x4b584, 0x2e },
+};
+
+const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4b584, 0x4b5a4, 0x1b },
+    { "Burning 2", 0x4b5a4, 0x4b5c4, 0x1b },
+    { "Shocked 1", 0x4b5c4, 0x4b5e4, 0x1b },
+    { "Shocked 2", 0x4b5e4, 0x4b604, 0x1b },
+    { "Dark Burning 1", 0x4b604, 0x4b624, 0x1b },
+    { "Dark Burning 2", 0x4b624, 0x4b644, 0x1b },
+    { "Kinectic Charged 1", 0x4b644, 0x4b664, 0x1b },
+    { "Kinectic Charged 2", 0x4b664, 0x4b684, 0x1b },
+    { "Kinectic Charged 3", 0x4b684, 0x4b6a4, 0x1b },
+};
+
+const sGame_PaletteDataset MVC_A_LILITH_PALETTES_SHARED[] =
+{
+    { "Burning 1", 0x4b6a4, 0x4b6c4, 0x03 },
+    { "Burning 2", 0x4b6c4, 0x4b6e4, 0x03 },
+    { "Shocked 1", 0x4b6e4, 0x4b704, 0x03 },
+    { "Shocked 2", 0x4b704, 0x4b724, 0x03 },
+    { "Dark Burning 1", 0x4b724, 0x4b744, 0x03 },
+    { "Dark Burning 2", 0x4b744, 0x4b764, 0x03 },
+    { "Kinectic Charged 1", 0x4b764, 0x4b784, 0x03 },
+    { "Kinectic Charged 2", 0x4b784, 0x4b7a4, 0x03 },
+    { "Kinectic Charged 3", 0x4b7a4, 0x4b7c4, 0x03 },
+};
+
 const sGame_PaletteDataset MVC_A_ASSISTICON_PALETTES[] =
 {
     { "Anita", 0x47fc4, 0x47fe4, 0x3C, 0x30 },
@@ -1231,36 +1514,49 @@ const sDescTreeNode MVC_A_WARMACHINE_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_P1,       ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_P2,       ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_SHARED, ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_CAPAM_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_P1,            ARRAYSIZE(MVC_A_CAPAM_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_P2,            ARRAYSIZE(MVC_A_CAPAM_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_SHARED, ARRAYSIZE(MVC_A_CAPAM_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_HULK_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES_P1,             ARRAYSIZE(MVC_A_HULK_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES_P2,             ARRAYSIZE(MVC_A_HULK_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES_SHARED, ARRAYSIZE(MVC_A_HULK_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_WOLVERINE_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES_P1,        ARRAYSIZE(MVC_A_WOLVERINE_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES_P2,        ARRAYSIZE(MVC_A_WOLVERINE_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES_SHARED, ARRAYSIZE(MVC_A_WOLVERINE_PALETTES_SHARED) },
+};
+
+const sDescTreeNode MVC_A_GAMBIT_COLLECTION[] =
+{
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES_P1,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES_P2,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES_SHARED, ARRAYSIZE(MVC_A_GAMBIT_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_VENOM_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES_P1,            ARRAYSIZE(MVC_A_VENOM_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES_P2,            ARRAYSIZE(MVC_A_VENOM_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES_SHARED, ARRAYSIZE(MVC_A_VENOM_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_SPIDEY_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_PALETTES_P1,           ARRAYSIZE(MVC_A_SPIDEY_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_PALETTES_P2,           ARRAYSIZE(MVC_A_SPIDEY_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_SPIDEY_PALETTES_SHARED, ARRAYSIZE(MVC_A_SPIDEY_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_ROLL_COLLECTION[] =
@@ -1268,12 +1564,14 @@ const sDescTreeNode MVC_A_ROLL_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_PALETTES_P1,             ARRAYSIZE(MVC_A_ROLL_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_PALETTES_P2,             ARRAYSIZE(MVC_A_ROLL_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_PALETTES_EXTRAS,             ARRAYSIZE(MVC_A_ROLL_PALETTES_EXTRAS) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_ROLL_PALETTES_SHARED, ARRAYSIZE(MVC_A_ROLL_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_RYU_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_RYU_PALETTES_P1,              ARRAYSIZE(MVC_A_RYU_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_RYU_PALETTES_P2,              ARRAYSIZE(MVC_A_RYU_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_RYU_PALETTES_SHARED, ARRAYSIZE(MVC_A_RYU_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_CAPCOM_COLLECTION[] =
@@ -1281,30 +1579,35 @@ const sDescTreeNode MVC_A_CAPCOM_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES_P1,           ARRAYSIZE(MVC_A_CAPCOM_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES_P2,           ARRAYSIZE(MVC_A_CAPCOM_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES_EXTRAS,   ARRAYSIZE(MVC_A_CAPCOM_PALETTES_EXTRAS) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_CAPCOM_PALETTES_SHARED, ARRAYSIZE(MVC_A_CAPCOM_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_CHUNLI_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_PALETTES_P1,           ARRAYSIZE(MVC_A_CHUNLI_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_PALETTES_P2,           ARRAYSIZE(MVC_A_CHUNLI_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_CHUNLI_PALETTES_SHARED, ARRAYSIZE(MVC_A_CHUNLI_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_JIN_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES_P1,              ARRAYSIZE(MVC_A_JIN_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES_P2,              ARRAYSIZE(MVC_A_JIN_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES_SHARED, ARRAYSIZE(MVC_A_JIN_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_GIEF_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_PALETTES_P1,             ARRAYSIZE(MVC_A_GIEF_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_PALETTES_P2,             ARRAYSIZE(MVC_A_GIEF_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_GIEF_PALETTES_SHARED, ARRAYSIZE(MVC_A_GIEF_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_STRIDER_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_PALETTES_P1,          ARRAYSIZE(MVC_A_STRIDER_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_PALETTES_P2,          ARRAYSIZE(MVC_A_STRIDER_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_STRIDER_PALETTES_SHARED, ARRAYSIZE(MVC_A_STRIDER_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_MEGAMAN_COLLECTION[] =
@@ -1312,53 +1615,55 @@ const sDescTreeNode MVC_A_MEGAMAN_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_PALETTES_P1,          ARRAYSIZE(MVC_A_MEGAMAN_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_PALETTES_P2,          ARRAYSIZE(MVC_A_MEGAMAN_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_PALETTES_EXTRAS,          ARRAYSIZE(MVC_A_MEGAMAN_PALETTES_EXTRAS) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_PALETTES_SHARED, ARRAYSIZE(MVC_A_MEGAMAN_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_MORRIGAN_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES_P1,         ARRAYSIZE(MVC_A_MORRIGAN_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES_P2,         ARRAYSIZE(MVC_A_MORRIGAN_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES_SHARED, ARRAYSIZE(MVC_A_MORRIGAN_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_ONSLAUGHT_COLLECTION[] =
 {
     { "Palettes", DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_PALETTES,        ARRAYSIZE(MVC_A_ONSLAUGHT_PALETTES) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_ONSLAUGHT_PALETTES_SHARED, ARRAYSIZE(MVC_A_ONSLAUGHT_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_HYPERVENOM_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_PALETTES_P1,       ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_PALETTES_P2,       ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_HYPERVENOM_PALETTES_SHARED, ARRAYSIZE(MVC_A_HYPERVENOM_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_ORANGEHULK_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_PALETTES_P1,       ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_PALETTES_P2,       ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_ORANGEHULK_PALETTES_SHARED, ARRAYSIZE(MVC_A_ORANGEHULK_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_GOLDWARMACHINE_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES_P1,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES_P2,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES_SHARED, ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_SHADOWLADY_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES_P1,       ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES_P2,       ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_SHADOWLADY_PALETTES_SHARED, ARRAYSIZE(MVC_A_SHADOWLADY_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_LILITH_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_PALETTES_P1,           ARRAYSIZE(MVC_A_LILITH_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_PALETTES_P2,           ARRAYSIZE(MVC_A_LILITH_PALETTES_P2) },
-};
-
-const sDescTreeNode MVC_A_GAMBIT_COLLECTION[] =
-{
-    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES_P1,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES_P1) },
-    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES_P2,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_LILITH_PALETTES_SHARED, ARRAYSIZE(MVC_A_LILITH_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_ASSIST_COLLECTION[] =
