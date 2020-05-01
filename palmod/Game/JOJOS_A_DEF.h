@@ -2014,136 +2014,136 @@ const sDescTreeNode JOJOS_A_STAGE_COLLECTION[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_A[] =
 {
-    { "Jotaro & Star Platinum A", 0x0336400, 0x0336480 },
+    { "Jotaro & Star Platinum A", 0x0336400, 0x0336480, 0x0, 0 }, // ingame
     { "Star Breaker Super A", 0x0336d82, 0x0336d90 },
-    { "Star Platinum Charging Flash A", 0x0336880, 0x0336900 },
-    { "Jotaro Vs/Super A", 0x0410000, 0x0410080 },
-    { "Jotaro Challenger A", 0x0410080, 0x0410100 },
+    { "Star Platinum Charging Flash A", 0x0336880, 0x0336900, 0x0, 2 },
+    { "Jotaro Vs/Super A", 0x0410000, 0x0410080, 0x0, 3 },
+    { "Jotaro Challenger A", 0x0410080, 0x0410100, 0x0, 4 },
 #ifndef USE_LARGE_PALETTES
-    { "Jotaro Select/Winning A (1/2)", 0x0410100, 0x0410180 },
-    { "Jotaro Select/Winning A (2/2)", 0x0410180, 0x0410200 },
+    { "Jotaro Select/Winning A (1/2)", 0x0410100, 0x0410180, 0x0, 5 },
+    { "Jotaro Select/Winning A (2/2)", 0x0410180, 0x0410200, 0x0, 6 },
 #else
     { "Jotaro Select/Winning A", 0x0410100, 0x0410200 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Jotaro Burning A", 0x0336480, 0x0336580 },
 #else
-    { "Jotaro Burning A (1/2)", 0x0336480, 0x0336500 },
-    { "Jotaro Burning A (2/2)", 0x0336500, 0x0336580 },
+    { "Jotaro Burning A (1/2)", 0x0336480, 0x0336500, 0x0, 7 },
+    { "Jotaro Burning A (2/2)", 0x0336500, 0x0336580, 0x0, 7 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Jotaro Tech/Zap A", 0x0336780, 0x0336880 },
 #else
-    { "Jotaro Tech/Zap A (1/2)", 0x0336780, 0x0336800 },
-    { "Jotaro Tech/Zap A (2/2)", 0x0336800, 0x0336880 },
+    { "Jotaro Tech/Zap A (1/2)", 0x0336780, 0x0336800, 0x0, 7 },
+    { "Jotaro Tech/Zap A (2/2)", 0x0336800, 0x0336880, 0x0, 7 },
 #endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
 {
-    { "Jotaro & Star Platinum B", 0x034a900, 0x034a980 },
+    { "Jotaro & Star Platinum B", 0x034a900, 0x034a980, 0x0, 0 },
     { "Star Breaker Super B", 0x034b282, 0x034b290 },
-    { "Star Platinum Charging Flash B", 0x034AD80, 0x034AE00 },
-    { "Jotaro Vs/Super B", 0x0414e00, 0x0414e80 },
-    { "Jotaro Challenger B", 0x0414e80, 0x0414f00 },
+    { "Star Platinum Charging Flash B", 0x034AD80, 0x034AE00, 0x0, 2 },
+    { "Jotaro Vs/Super B", 0x0414e00, 0x0414e80, 0x0, 3 },
+    { "Jotaro Challenger B", 0x0414e80, 0x0414f00, 0x0, 4 },
 #ifndef USE_LARGE_PALETTES
-    { "Jotaro Select/Winning B (1/2)", 0x0414f00, 0x0414f80 },
-    { "Jotaro Select/Winning B (2/2)", 0x0414f80, 0x0415000 },
+    { "Jotaro Select/Winning B (1/2)", 0x0414f00, 0x0414f80, 0x0, 5 },
+    { "Jotaro Select/Winning B (2/2)", 0x0414f80, 0x0415000, 0x0, 6 },
 #else
     { "Jotaro Select/Winning B", 0x0414f00, 0x0415000 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Jotaro Burning B", 0x034a980, 0x034aa80 },
 #else
-    { "Jotaro Burning B (1/2)", 0x034a980, 0x034aa00 },
-    { "Jotaro Burning B (2/2)", 0x034aa00, 0x034aa80 },
+    { "Jotaro Burning B (1/2)", 0x034a980, 0x034aa00, 0x0, 7 },
+    { "Jotaro Burning B (2/2)", 0x034aa00, 0x034aa80, 0x0, 7 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Jotaro Tech/Zap B", 0x034ac80, 0x034ad80 },
 #else
-    { "Jotaro Tech/Zap B (1/2)", 0x034ac80, 0x034ad00 },
-    { "Jotaro Tech/Zap B (2/2)", 0x034ad00, 0x034ad80 },
+    { "Jotaro Tech/Zap B (1/2)", 0x034ac80, 0x034ad00, 0x0, 7 },
+    { "Jotaro Tech/Zap B (2/2)", 0x034ad00, 0x034ad80, 0x0, 7 },
 #endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_C[] =
 {
-    { "Jotaro & Star Platinum C", 0x035ee00, 0x035ee80 },
+    { "Jotaro & Star Platinum C", 0x035ee00, 0x035ee80, 0x0, 0 },
     { "Star Breaker Super C", 0x035f782, 0x035f790 },
-    { "Star Platinum Charging Flash C", 0x035F280, 0x035F300 },
-    { "Jotaro Vs/Super C", 0x0419c00, 0x0419c80 },
-    { "Jotaro Challenger C", 0x0419c80, 0x0419d00 },
+    { "Star Platinum Charging Flash C", 0x035F280, 0x035F300, 0x0, 2 },
+    { "Jotaro Vs/Super C", 0x0419c00, 0x0419c80, 0x0, 3 },
+    { "Jotaro Challenger C", 0x0419c80, 0x0419d00, 0x0, 4 },
 #ifndef USE_LARGE_PALETTES
-    { "Jotaro Select/Winning C (1/2)", 0x0419d00, 0x0419d80 },
-    { "Jotaro Select/Winning C (2/2)", 0x0419d80, 0x0419e00 },
+    { "Jotaro Select/Winning C (1/2)", 0x0419d00, 0x0419d80, 0x0, 5 },
+    { "Jotaro Select/Winning C (2/2)", 0x0419d80, 0x0419e00, 0x0, 6 },
 #else
     { "Jotaro Select/Winning C", 0x0419d00, 0x0419e00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Jotaro Burning C", 0x035ee80, 0x035ef80 },
 #else
-    { "Jotaro Burning C (1/2)", 0x035ee80, 0x035ef00 },
-    { "Jotaro Burning C (2/2)", 0x035ef00, 0x035ef80 },
+    { "Jotaro Burning C (1/2)", 0x035ee80, 0x035ef00, 0x0, 7 },
+    { "Jotaro Burning C (2/2)", 0x035ef00, 0x035ef80, 0x0, 7 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Jotaro Tech/Zap C", 0x035f180, 0x035f280 },
 #else
-    { "Jotaro Tech/Zap C (1/2)", 0x035f180, 0x035f200 },
-    { "Jotaro Tech/Zap C (2/2)", 0x035f200, 0x035f280 },
+    { "Jotaro Tech/Zap C (1/2)", 0x035f180, 0x035f200, 0x0, 7 },
+    { "Jotaro Tech/Zap C (2/2)", 0x035f200, 0x035f280, 0x0, 7 },
 #endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
 {
-    { "Jotaro & Star Platinum S", 0x0373300, 0x0373380 },
+    { "Jotaro & Star Platinum S", 0x0373300, 0x0373380, 0x0, 0 },
     { "Star Breaker Super S", 0x0373c82, 0x0373c90 },
-    { "Star Platinum Charging Flash S", 0x0373780, 0x0373800 },
-    { "Jotaro Vs/Super S", 0x041ea00, 0x041ea80 },
-    { "Jotaro Challenger S", 0x041ea80, 0x041eb00 },
+    { "Star Platinum Charging Flash S", 0x0373780, 0x0373800, 0x0, 2 },
+    { "Jotaro Vs/Super S", 0x041ea00, 0x041ea80, 0x0, 3 },
+    { "Jotaro Challenger S", 0x041ea80, 0x041eb00, 0x0, 4 },
 #ifndef USE_LARGE_PALETTES
-    { "Jotaro Select/Winning S (1/2)", 0x041eb00, 0x041eb80 },
-    { "Jotaro Select/Winning S (2/2)", 0x041eb80, 0x041ec00 },
+    { "Jotaro Select/Winning S (1/2)", 0x041eb00, 0x041eb80, 0x0, 5 },
+    { "Jotaro Select/Winning S (2/2)", 0x041eb80, 0x041ec00, 0x0, 6 },
 #else
     { "Jotaro Select/Winning S", 0x041eb00, 0x041ec00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Jotaro Burning S", 0x0373380, 0x0373480 },
 #else
-    { "Jotaro Burning S (1/2)", 0x0373380, 0x0373400 },
-    { "Jotaro Burning S (2/2)", 0x0373400, 0x0373480 },
+    { "Jotaro Burning S (1/2)", 0x0373380, 0x0373400, 0x0, 7 },
+    { "Jotaro Burning S (2/2)", 0x0373400, 0x0373480, 0x0, 7 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Jotaro Tech/Zap S", 0x0373680, 0x0373780 },
 #else
-    { "Jotaro Tech/Zap S (1/2)", 0x0373680, 0x0373700 },
-    { "Jotaro Tech/Zap S (2/2)", 0x0373700, 0x0373780 },
+    { "Jotaro Tech/Zap S (1/2)", 0x0373680, 0x0373700, 0x0, 7 },
+    { "Jotaro Tech/Zap S (2/2)", 0x0373700, 0x0373780, 0x0, 7 },
 #endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
 {
-    { "Jotaro & Star Platinum Start", 0x0387800, 0x0387880 },
+    { "Jotaro & Star Platinum Start", 0x0387800, 0x0387880, 0x0, 0 },
     { "Star Breaker Super Start", 0x0388182, 0x0388190 },
-    { "Star Platinum Charging Flash Start", 0x0387C80, 0x0387D00 },
-    { "Jotaro Vs/Super Start", 0x0423800, 0x0423880 },
-    { "Jotaro Challenger Start", 0x0423880, 0x0423900 },
+    { "Star Platinum Charging Flash Start", 0x0387C80, 0x0387D00, 0x0, 2 },
+    { "Jotaro Vs/Super Start", 0x0423800, 0x0423880, 0x0, 3 },
+    { "Jotaro Challenger Start", 0x0423880, 0x0423900, 0x0, 4 },
 #ifndef USE_LARGE_PALETTES
-    { "Jotaro Select/Winning Start (1/2)", 0x0423900, 0x0423980 },
-    { "Jotaro Select/Winning Start (2/2)", 0x0423980, 0x0423a00 },
+    { "Jotaro Select/Winning Start (1/2)", 0x0423900, 0x0423980, 0x0, 5 },
+    { "Jotaro Select/Winning Start (2/2)", 0x0423980, 0x0423a00, 0x0, 6 },
 #else
     { "Jotaro Select/Winning Start", 0x0423900, 0x0423a00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Jotaro Burning Start", 0x0387880, 0x0387980 },
 #else
-    { "Jotaro Burning Start (1/2)", 0x0387880, 0x0387900 },
-    { "Jotaro Burning Start (2/2)", 0x0387900, 0x0387980 },
+    { "Jotaro Burning Start (1/2)", 0x0387880, 0x0387900, 0x0, 7 },
+    { "Jotaro Burning Start (2/2)", 0x0387900, 0x0387980, 0x0, 7 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Jotaro Tech/Zap Start", 0x0387b80, 0x0387c80 },
 #else
-    { "Jotaro Tech/Zap Start (1/2)", 0x0387b80, 0x0387c00 },
-    { "Jotaro Tech/Zap Start (2/2)", 0x0387c00, 0x0387c80 },
+    { "Jotaro Tech/Zap Start (1/2)", 0x0387b80, 0x0387c00, 0x0, 7 },
+    { "Jotaro Tech/Zap Start (2/2)", 0x0387c00, 0x0387c80, 0x0, 7 },
 #endif
 };
 
@@ -2162,8 +2162,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
     { "Hierophant Changing Pal A", 0x0337900, 0x0337c80, 0x01, 0x01, true },
 #endif
     { "Hierophant Sparkles A", 0x0337c80, 0x0337ca0 },
-    { "Raging Demon Trail A", 0x0337800, 0x0337880 },
-    { "Kakyoin Remote Mode Afterimage A", 0x0337500, 0x0337580 },
+    { "Raging Demon Trail A", 0x0337800, 0x0337880, 0x01, 0x01, true },
+    { "Kakyoin Remote Mode Afterimage A", 0x0337500, 0x0337580, 0x01, 0x01, true },
     { "Kakyoin Vs/Super A", 0x0410300, 0x0410380 },
     { "Kakyoin Challenger A", 0x0410380, 0x0410400 },
 #ifndef USE_LARGE_PALETTES
@@ -2175,14 +2175,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Burning A", 0x0337100, 0x0337200 },
 #else
-    { "Kakyoin Burning A (1/2)", 0x0337100, 0x0337180 },
-    { "Kakyoin Burning A (2/2)", 0x0337180, 0x0337200 },
+    { "Kakyoin Burning A (1/2)", 0x0337100, 0x0337180, 0x01, 0x0 },
+    { "Kakyoin Burning A (2/2)", 0x0337180, 0x0337200, 0x01, 0x0 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Tech/Zap A", 0x0337400, 0x0337500 },
 #else
-    { "Kakyoin Tech/Zap A (1/2)", 0x0337400, 0x0337480 },
-    { "Kakyoin Tech/Zap A (2/2)", 0x0337480, 0x0337500 },
+    { "Kakyoin Tech/Zap A (1/2)", 0x0337400, 0x0337480, 0x01, 0x0 },
+    { "Kakyoin Tech/Zap A (2/2)", 0x0337480, 0x0337500, 0x01, 0x0 },
 #endif
 };
 
@@ -2201,8 +2201,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
     { "Hierophant Changing Pal B", 0x034be00, 0x034c180, 0x01, 0x01, true },
 #endif
     { "Hierophant Sparkles B", 0x034c180, 0x034c1a0 },
-    { "Raging Demon Trail B", 0x034bd00, 0x034bd80 },
-    { "Kakyoin Remote Mode Afterimage B", 0x034BA00, 0x034BA80 },
+    { "Raging Demon Trail B", 0x034bd00, 0x034bd80, 0x01, 0x01, true },
+    { "Kakyoin Remote Mode Afterimage B", 0x034BA00, 0x034BA80, 0x01, 0x01, true },
     { "Kakyoin Vs/Super B", 0x0415100, 0x0415180 },
     { "Kakyoin Challenger B", 0x0415180, 0x0415200 },
 #ifndef USE_LARGE_PALETTES
@@ -2214,14 +2214,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Burning B", 0x034b600, 0x034b700 },
 #else
-    { "Kakyoin Burning B (1/2)", 0x034b600, 0x034b680 },
-    { "Kakyoin Burning B (2/2)", 0x034b680, 0x034b700 },
+    { "Kakyoin Burning B (1/2)", 0x034b600, 0x034b680, 0x01, 0x0 },
+    { "Kakyoin Burning B (2/2)", 0x034b680, 0x034b700, 0x01, 0x0 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Tech/Zap B", 0x034b900, 0x034ba00 },
 #else
-    { "Kakyoin Tech/Zap B (1/2)", 0x034b900, 0x034b980 },
-    { "Kakyoin Tech/Zap B (2/2)", 0x034b980, 0x034ba00 },
+    { "Kakyoin Tech/Zap B (1/2)", 0x034b900, 0x034b980, 0x01, 0x0 },
+    { "Kakyoin Tech/Zap B (2/2)", 0x034b980, 0x034ba00, 0x01, 0x0 },
 #endif
 };
 
@@ -2240,8 +2240,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
     { "Hierophant Changing Pal C", 0x0360300, 0x0360680, 0x01, 0x01, true },
 #endif
     { "Hierophant Sparkles C", 0x0360680, 0x03606a0 },
-    { "Raging Demon Trail C", 0x0360200, 0x0360280 },
-    { "Kakyoin Remote Mode Afterimage C", 0x035FF00, 0x035FF80 },
+    { "Raging Demon Trail C", 0x0360200, 0x0360280, 0x01, 0x01, true },
+    { "Kakyoin Remote Mode Afterimage C", 0x035FF00, 0x035FF80, 0x01, 0x01, true },
     { "Kakyoin Vs/Super C", 0x0419f00, 0x0419f80 },
     { "Kakyoin Challenger C", 0x0419f80, 0x041a000 },
 #ifndef USE_LARGE_PALETTES
@@ -2253,14 +2253,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Burning C", 0x035fb00, 0x035fc00 },
 #else
-    { "Kakyoin Burning C (1/2)", 0x035fb00, 0x035fb80 },
-    { "Kakyoin Burning C (2/2)", 0x035fb80, 0x035fc00 },
+    { "Kakyoin Burning C (1/2)", 0x035fb00, 0x035fb80, 0x01, 0x0 },
+    { "Kakyoin Burning C (2/2)", 0x035fb80, 0x035fc00, 0x01, 0x0 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Tech/Zap C", 0x035fe00, 0x035ff00 },
 #else
-    { "Kakyoin Tech/Zap C (1/2)", 0x035fe00, 0x035fe80 },
-    { "Kakyoin Tech/Zap C (2/2)", 0x035fe80, 0x035ff00 },
+    { "Kakyoin Tech/Zap C (1/2)", 0x035fe00, 0x035fe80, 0x01, 0x0 },
+    { "Kakyoin Tech/Zap C (2/2)", 0x035fe80, 0x035ff00, 0x01, 0x0 },
 #endif
 };
 
@@ -2279,8 +2279,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
     { "Hierophant Changing Pal S", 0x0374800, 0x0374b80, 0x01, 0x01, true },
 #endif
     { "Hierophant Sparkles S", 0x0374b80, 0x0374ba0 },
-    { "Raging Demon Trail S", 0x0374700, 0x0374780 },
-    { "Kakyoin Remote Mode Afterimage S", 0x0374400, 0x0374480 },
+    { "Raging Demon Trail S", 0x0374700, 0x0374780, 0x01, 0x01, true },
+    { "Kakyoin Remote Mode Afterimage S", 0x0374400, 0x0374480, 0x01, 0x01, true },
     { "Kakyoin Vs/Super S", 0x041ed00, 0x041ed80 },
     { "Kakyoin Challenger S", 0x041ed80, 0x041ee00 },
 #ifndef USE_LARGE_PALETTES
@@ -2292,14 +2292,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Burning S", 0x0374000, 0x0374100 },
 #else
-    { "Kakyoin Burning S (1/2)", 0x0374000, 0x0374080 },
-    { "Kakyoin Burning S (2/2)", 0x0374080, 0x0374100 },
+    { "Kakyoin Burning S (1/2)", 0x0374000, 0x0374080, 0x01, 0x0 },
+    { "Kakyoin Burning S (2/2)", 0x0374080, 0x0374100, 0x01, 0x0 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Tech/Zap S", 0x0374300, 0x0374400 },
 #else
-    { "Kakyoin Tech/Zap S (1/2)", 0x0374300, 0x0374380 },
-    { "Kakyoin Tech/Zap S (2/2)", 0x0374380, 0x0374400 },
+    { "Kakyoin Tech/Zap S (1/2)", 0x0374300, 0x0374380, 0x01, 0x0 },
+    { "Kakyoin Tech/Zap S (2/2)", 0x0374380, 0x0374400, 0x01, 0x0 },
 #endif
 };
 
@@ -2318,8 +2318,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_Start[] =
     { "Hierophant Changing Pal Start", 0x0388d00, 0x0389080, 0x01, 0x01, true },
 #endif
     { "Hierophant Sparkles Start", 0x0389080, 0x03890a0 },
-    { "Raging Demon Trail Start", 0x0388c00, 0x0388c80 },
-    { "Kakyoin Remote Mode Afterimage Start", 0x0388900, 0x0388980 },
+    { "Raging Demon Trail Start", 0x0388c00, 0x0388c80, 0x01, 0x01, true },
+    { "Kakyoin Remote Mode Afterimage Start", 0x0388900, 0x0388980, 0x01, 0x01, true },
     { "Kakyoin Vs/Super Start", 0x0423b00, 0x0423b80 },
     { "Kakyoin Challenger Start", 0x0423b80, 0x0423c00 },
 #ifndef USE_LARGE_PALETTES
@@ -2331,14 +2331,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_Start[] =
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Burning Start", 0x0388500, 0x0388600 },
 #else
-    { "Kakyoin Burning Start (1/2)", 0x0388500, 0x0388580 },
-    { "Kakyoin Burning Start (2/2)", 0x0388580, 0x0388600 },
+    { "Kakyoin Burning Start (1/2)", 0x0388500, 0x0388580, 0x01, 0x0 },
+    { "Kakyoin Burning Start (2/2)", 0x0388580, 0x0388600, 0x01, 0x0 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Kakyoin Tech/Zap Start", 0x0388800, 0x0388900 },
 #else
-    { "Kakyoin Tech/Zap Start (1/2)", 0x0388800, 0x0388880 },
-    { "Kakyoin Tech/Zap Start (2/2)", 0x0388880, 0x0388900 },
+    { "Kakyoin Tech/Zap Start (1/2)", 0x0388800, 0x0388880, 0x01, 0x0 },
+    { "Kakyoin Tech/Zap Start (2/2)", 0x0388880, 0x0388900, 0x01, 0x0 },
 #endif
 };
 
@@ -2486,7 +2486,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
     { "Chariot's Changing Pal A (1/2)", 0x0339280, 0x0339300, 0x03, 0x00 },
     { "Chariot's Changing Pal A (2/2)", 0x0339300, 0x0339380, 0x03, 0x00 },
 #endif
-    { "Pol Remote Activation Flash A", 0x0338e00, 0x0338e80 },
+    { "Pol Remote Activation Flash A", 0x0338e00, 0x0338e80, 0x03, 0x00  },
     { "Polnareff Vs / Super A", 0x0410900, 0x0410980 },
     { "Polnareff Challenger A", 0x0410980, 0x0410a00 },
 #ifndef USE_LARGE_PALETTES
@@ -2498,14 +2498,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Burning A", 0x0338a00, 0x0338b00 },
 #else
-    { "Polnareff Burning A (1/2)", 0x0338a00, 0x0338a80 },
-    { "Polnareff Burning A (2/2)", 0x0338a80, 0x0338b00 },
+    { "Polnareff Burning A (1/2)", 0x0338a00, 0x0338a80, 0x03, 0x00  },
+    { "Polnareff Burning A (2/2)", 0x0338a80, 0x0338b00, 0x03, 0x00  },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Tech/Zap A", 0x0338d00, 0x0338e00 },
 #else
-    { "Polnareff Tech/Zap A (1/2)", 0x0338d00, 0x0338d80 },
-    { "Polnareff Tech/Zap A (2/2)", 0x0338d80, 0x0338e00 },
+    { "Polnareff Tech/Zap A (1/2)", 0x0338d00, 0x0338d80, 0x03, 0x00  },
+    { "Polnareff Tech/Zap A (2/2)", 0x0338d80, 0x0338e00, 0x03, 0x00  },
 #endif
 };
 
@@ -2518,7 +2518,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
     { "Chariot's Changing Pal B (1/2)", 0x034d780, 0x034d800, 0x03, 0x00 },
     { "Chariot's Changing Pal B (2/2)", 0x034d800, 0x034d880, 0x03, 0x00 },
 #endif
-    { "Pol Remote Activation Flash B", 0x034d300, 0x034d380 },
+    { "Pol Remote Activation Flash B", 0x034d300, 0x034d380, 0x03, 0x00 },
     { "Polnareff Vs / Super B", 0x0415700, 0x0415780 },
     { "Polnareff Challenger B", 0x0415780, 0x0415800 },
 #ifndef USE_LARGE_PALETTES
@@ -2530,14 +2530,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Burning B", 0x034cf00, 0x034d000 },
 #else
-    { "Polnareff Burning B (1/2)", 0x034cf00, 0x034cf80 },
-    { "Polnareff Burning B (2/2)", 0x034cf80, 0x034d000 },
+    { "Polnareff Burning B (1/2)", 0x034cf00, 0x034cf80, 0x03, 0x00 },
+    { "Polnareff Burning B (2/2)", 0x034cf80, 0x034d000, 0x03, 0x00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Tech/Zap B", 0x034d200, 0x034d300 },
 #else
-    { "Polnareff Tech/Zap B (1/2)", 0x034d200, 0x034d280 },
-    { "Polnareff Tech/Zap B (2/2)", 0x034d280, 0x034d300 },
+    { "Polnareff Tech/Zap B (1/2)", 0x034d200, 0x034d280, 0x03, 0x00 },
+    { "Polnareff Tech/Zap B (2/2)", 0x034d280, 0x034d300, 0x03, 0x00 },
 #endif
 };
 
@@ -2550,7 +2550,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
     { "Chariot's Changing Pal C (1/2)", 0x0361c80, 0x0361d00, 0x03, 0x00 },
     { "Chariot's Changing Pal C (2/2)", 0x0361d00, 0x0361d80, 0x03, 0x00 },
 #endif
-    { "Pol Remote Activation Flash C", 0x0361800, 0x0361880 },
+    { "Pol Remote Activation Flash C", 0x0361800, 0x0361880, 0x03, 0x00 },
     { "Polnareff Vs / Super C", 0x041a500, 0x041a580 },
     { "Polnareff Challenger C", 0x041a580, 0x041a600 },
 #ifndef USE_LARGE_PALETTES
@@ -2562,14 +2562,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Burning C", 0x0361400, 0x0361500 },
 #else
-    { "Polnareff Burning C (1/2)", 0x0361400, 0x0361480 },
-    { "Polnareff Burning C (2/2)", 0x0361480, 0x0361500 },
+    { "Polnareff Burning C (1/2)", 0x0361400, 0x0361480, 0x03, 0x00 },
+    { "Polnareff Burning C (2/2)", 0x0361480, 0x0361500, 0x03, 0x00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Tech/Zap C", 0x0361700, 0x0361800 },
 #else
-    { "Polnareff Tech/Zap C (1/2)", 0x0361700, 0x0361780 },
-    { "Polnareff Tech/Zap C (2/2)", 0x0361780, 0x0361800 },
+    { "Polnareff Tech/Zap C (1/2)", 0x0361700, 0x0361780, 0x03, 0x00 },
+    { "Polnareff Tech/Zap C (2/2)", 0x0361780, 0x0361800, 0x03, 0x00 },
 #endif
 };
 
@@ -2582,7 +2582,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
     { "Chariot's Changing Pal S (1/2)", 0x0376180, 0x0376200, 0x03, 0x00 },
     { "Chariot's Changing Pal S (2/2)", 0x0376200, 0x0376280, 0x03, 0x00 },
 #endif
-    { "Pol Remote Activation Flash S", 0x0375d00, 0x0375d80 },
+    { "Pol Remote Activation Flash S", 0x0375d00, 0x0375d80, 0x03, 0x00 },
     { "Polnareff Vs / Super S", 0x041f300, 0x041f380 },
     { "Polnareff Challenger S", 0x041f380, 0x041f400 },
 #ifndef USE_LARGE_PALETTES
@@ -2594,14 +2594,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Burning S", 0x0375900, 0x0375a00 },
 #else
-    { "Polnareff Burning S (1/2)", 0x0375900, 0x0375980 },
-    { "Polnareff Burning S (2/2)", 0x0375980, 0x0375a00 },
+    { "Polnareff Burning S (1/2)", 0x0375900, 0x0375980, 0x03, 0x00 },
+    { "Polnareff Burning S (2/2)", 0x0375980, 0x0375a00, 0x03, 0x00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Tech/Zap S", 0x0375c00, 0x0375d00 },
 #else
-    { "Polnareff Tech/Zap S (1/2)", 0x0375c00, 0x0375c80 },
-    { "Polnareff Tech/Zap S (2/2)", 0x0375c80, 0x0375d00 },
+    { "Polnareff Tech/Zap S (1/2)", 0x0375c00, 0x0375c80, 0x03, 0x00 },
+    { "Polnareff Tech/Zap S (2/2)", 0x0375c80, 0x0375d00, 0x03, 0x00 },
 #endif
 };
 
@@ -2614,7 +2614,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
     { "Chariot's Changing Pal Start (1/2)", 0x038a680, 0x038a700, 0x03, 0x00 },
     { "Chariot's Changing Pal Start (2/2)", 0x038a700, 0x038a780, 0x03, 0x00 },
 #endif
-    { "Pol Remote Activation Flash Start", 0x038a200, 0x038a280 },
+    { "Pol Remote Activation Flash Start", 0x038a200, 0x038a280, 0x03, 0x00 },
     { "Polnareff Vs / Super Start", 0x0424100, 0x0424180 },
     { "Polnareff Challenger Start", 0x0424180, 0x0424200 },
 #ifndef USE_LARGE_PALETTES
@@ -2626,14 +2626,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Burning Start", 0x0389e00, 0x0389f00 },
 #else
-    { "Polnareff Burning Start (1/2)", 0x0389e00, 0x0389e80 },
-    { "Polnareff Burning Start (2/2)", 0x0389e80, 0x0389f00 },
+    { "Polnareff Burning Start (1/2)", 0x0389e00, 0x0389e80, 0x03, 0x00 },
+    { "Polnareff Burning Start (2/2)", 0x0389e80, 0x0389f00, 0x03, 0x00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Tech/Zap Start", 0x038a100, 0x038a200 },
 #else
-    { "Polnareff Tech/Zap Start (1/2)", 0x038a100, 0x038a180 },
-    { "Polnareff Tech/Zap Start (2/2)", 0x038a180, 0x038a200 },
+    { "Polnareff Tech/Zap Start (1/2)", 0x038a100, 0x038a180, 0x03, 0x00 },
+    { "Polnareff Tech/Zap Start (2/2)", 0x038a180, 0x038a200, 0x03, 0x00 },
 #endif
 };
 

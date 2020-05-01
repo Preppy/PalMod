@@ -60,7 +60,7 @@ constexpr auto MVC_A_NUM_IMG_UNITS = 32;
 constexpr auto MSH_A_NUM_IMG_UNITS = 11;
 constexpr auto MSHVSF_A_NUM_IMG_UNITS = 23;
 
-constexpr auto JOJOS_A_NUM_IMG_UNITS = 2;
+constexpr auto JOJOS_A_NUM_IMG_UNITS = 3;
 
 enum eIMGDat_Sections
 {
@@ -433,6 +433,7 @@ const UINT8 MSHVSF_A_IMG_UNITS[MSHVSF_A_NUM_IMG_UNITS] =
 
 const UINT8 JOJOS_A_IMG_UNITS[JOJOS_A_NUM_IMG_UNITS] =
 {
+    0x00, // Jotaro
     0x01, // Kakyo
     0x03, // Pol
 };

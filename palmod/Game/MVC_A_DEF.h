@@ -684,7 +684,7 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
     { "Teleport 2", 0x4BC84, 0x4BCA4, 0x3B },
     { "Body Ram (Body)", 0x4BD24, 0x4BD44, 0x3B, 0x08, true },
     { "Body Ram (Effect)", 0x4BD44, 0x4BD64, 0x3B, 0x09 },
-    { "Magnetic Shockwave", 0x4BC44, 0x4BC64,0x3B, 0x06 },
+    { "Magnetic Shockwave", 0x4BC44, 0x4BC64, 0x3B, 0x06 },
     { "Magnetic Tempest", 0x4BCC4, 0x4BCE4, 0x3B, 0x0A },
     { "Hyper Grav", 0x4BCA4, 0x4BCC4, 0x3B, 0x5 },
     { "Sparkles", 0x49064, 0x49084, 0x3B, 0x2 },
@@ -698,6 +698,7 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
     { "Mind Blast (Beam 2, 1st Form)",  0x4BE04, 0x4BE24, 0x3B, 0x0E },
     { "KO Orbs 1", 0x4BFC4, 0x4BFE4, 0x3B, 0x20 },
     { "KO Orbs 2", 0x4BFE4, 0x4C004, 0x3B, 0x20 },
+    { "Onslaught Sentinel", 0x4BD04, 0x4BD24, 0x34 },
 };
 
 const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_P1[] =
@@ -733,6 +734,7 @@ const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P1[] =
     { "P1 Color", 0x48284, 0x482a4, 0x0b, 0, true },
     { "P1 Shield", 0x482a4, 0x482c4, 0x0b, 1 },
     { "P1 Charging Star", 0x482c4, 0x482e4, 0x0b, 2 },
+    { "P1 Eagle", 0x591E4, 0x59204, 0x0B, 3 },
 };
 
 const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P2[] =
@@ -740,6 +742,7 @@ const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P2[] =
     { "P2 Color", 0x482e4, 0x48304, 0x0b, 0, true },
     { "P2 Shield", 0x48304, 0x48324, 0x0b, 1 },
     { "P2 Charging Star", 0x48324, 0x48344, 0x0b, 2 },
+    { "P2 Eagle", 0x59204, 0x59224, 0x0B, 3 },
 };
 
 const sGame_PaletteDataset MVC_A_HULK_PALETTES_P1[] =
@@ -772,7 +775,7 @@ const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_P1[] =
 {
-    { "P1 Color", 0x48404, 0x48424, 0x07,0, true },
+    { "P1 Color", 0x48404, 0x48424, 0x07, 0, true },
     { "P1 Claws", 0x48424, 0x48444, 0x07, 1 },
     { "P1 Berserker FX", 0x48444, 0x48464, 0x07, 2 },
 };

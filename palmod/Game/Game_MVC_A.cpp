@@ -19,10 +19,9 @@ CGame_MVC_A::CGame_MVC_A(void)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = 1166 + GetExtraCt(MVC_A_EXTRALOC);
+    m_nSafeCountForThisRom = 1169 + GetExtraCt(MVC_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     // 0x38xxx large body Onslaught sprites
     // 0x39xxx+ unknown
     // 0x47xxx assist icons
@@ -97,6 +96,7 @@ CGame_MVC_A::CGame_MVC_A(void)
         0x048004 Devilot
 #endif
 
+    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     m_nLowestKnownPaletteRomLocation = 0x038d00;
 
     InitDataBuffer();
