@@ -222,6 +222,11 @@ const sGame_PaletteDataset MVC_A_JIN_PALETTES_P2[] =
     { "P2 Vulcan Super (Inside of Blodia)", 0x4f784, 0x4f7A4, 0x37, 14 },
 };
 
+const sGame_PaletteDataset MVC_A_JIN_PALETTES_EXTRAS[] =
+{
+    { "Ending Transformation", 0x4f924, 0x4f944, 0x37 },
+};
+
 // Note that since this is eleventy palettes, the code is substituting the default Megaman sprite when 0xff is supplied.  
 // To unwind that we would want to specify the correct sprites to use everywhere.  MM is 0x1C .
 const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
@@ -847,7 +852,7 @@ const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P1[] =
     { "P1 Color",  0x48884, 0x488a4, 0x38 },
     { "P1 Ninjas", 0x488a4, 0x488c4, 0x38, 1, true },
     { "P1 Hoover", 0x488c4, 0x488e4, 0x38, 2 },
-    { "P1 Suit Intro", 0x4F304, 0x4F324, 0x38, 13 },
+    { "P1 Suit Intro", 0x4F304, 0x4F324, 0x38, 0x0F },
     { "P1 Taunt", 0x4F344, 0x4F364, 0x38, 14 },
 };
 
@@ -856,7 +861,7 @@ const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P2[] =
     { "P2 Color",  0x488e4, 0x48904, 0x38 },
     { "P2 Ninjas", 0x48904, 0x48924, 0x38, 1, true },
     { "P2 Hoover", 0x48924, 0x48944, 0x38, 2 },
-    { "P2 Suit Intro", 0x4F324, 0x4F344, 0x38, 13 },
+    { "P2 Suit Intro", 0x4F324, 0x4F344, 0x38, 0x0F },
     { "P2 Taunt", 0x4F364, 0x4F384, 0x38, 14 },
 };
 
@@ -888,10 +893,7 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P1[] =
     { "Morrigan Intro Frame 2", 0x4ef64, 0x4eF84, 0x3, 13 },
     { "Morrigan Intro Frame 3", 0x4ef84, 0x4eFA4, 0x3, 13 },
     { "Morrigan Intro Frame 4", 0x4efA4, 0x4eFC4, 0x3, 13 },
-    
-    // There isn't a p2 pair for this: ... ? can't enable differently sized nodes as it'll crash multisport export
-    // Plus it's unclear what it relates to
-    // { "Morrigan Unknown Sprite", 0x4efC4, 0x4eFE4, 0x3, 14 }, // This is Range 7 Palette IE9 in their doc
+   
 };
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
@@ -914,11 +916,29 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
     { "Morrigan Intro Frame 4", 0x4f104, 0x4f124, 0x3, 13 },
 };
 
+const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
+{
+    // There isn't a direct p2 pair for this: ... ?
+    { "P1 Taunt", 0x4efC4, 0x4eFE4, 0x3, 14 }, // This is Range 7 Palette IE9 in their doc
+    { "Eternal Slumber Heart 1 (Shared)", 0x4f124, 0x4f144 },
+    { "Eternal Slumber Heart 2 (Shared)", 0x4f144, 0x4f164 },
+
+    { "Eternal Slumber XXX 1 (Shared)", 0x4f164, 0x4f184 },
+    { "Eternal Slumber XXX 2 (Shared)", 0x4f184, 0x4f1A4 },
+    { "Eternal Slumber XXX 3 (Shared)", 0x4f1A4, 0x4f1C4 },
+    { "Eternal Slumber XXX 4 (Shared)", 0x4f1C4, 0x4f1E4 },
+    { "Eternal Slumber XXX 5 (Shared)", 0x4f1E4, 0x4f204 },
+    { "Eternal Slumber XXX 6 (Shared)", 0x4f204, 0x4f224 },
+    { "Eternal Slumber XXX 7 (Shared)", 0x4f224, 0x4f244 },
+    { "Eternal Slumber XXX 8 (Shared)", 0x4f244, 0x4f264 },
+};
+
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =
 {
     { "P1 Color", 0x493a4, 0x493c4, 0x3 },
     { "P1 Extra 1", 0x493c4, 0x493e4, 0x3, 1 },
     { "P1 Extra 2", 0x493e4, 0x49404, 0x3, 2 },
+    { "P1 Floating Taunt Morrigan?", 0x4fcc4, 0x4fce4 },
 };
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P2[] =
@@ -926,6 +946,7 @@ const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P2[] =
     { "P2 Color", 0x49404, 0x49424, 0x3 },
     { "P2 Extra 1", 0x49424, 0x49444, 0x3, 1 },
     { "P2 Extra 2", 0x49444, 0x49464, 0x3, 2 },
+    { "P2 Floating Taunt Morrigan?", 0x4fce4, 0x4fd04 },
 };
 
 const sGame_PaletteDataset MVC_A_STRIDER_PALETTES_P1[] =
@@ -1600,10 +1621,12 @@ const sGame_PaletteDataset MVC_A_CSIS_NEXT_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
 {
-    { "Life Bars & Meter Count", 0x479E4, 0x47A04 },
-    { "In-Game Text (Hit Counter, Stage Number, etc)", 0x47424, 0x47444 },
-    { "In-Game Text (Score, Play Status, Level, Character Names)", 0x47444, 0x47464 },
-    { "Test Menu Text", 0x3E4FA, 0x3E53A },
+    { "Life Bars & Meter Count", 0x479E4, 0x47A04, 0x3C, 0x50 },
+    { "In-Game Text (Hit Counter, Stage Number, etc)", 0x47444, 0x47464, 0x3C, 0x51 },
+    { "In-Game Text (Score, Play Status, Level, Character Names)", 0x47424, 0x47444, 0x3C, 0x52 },
+    { "Test Menu Text", 0x3E4FA, 0x3E53A, 0x3C, 0x53 },
+    { "Marvel License Text", 0x3E55A, 0x3E57A, 0x3C, 0x54 },
+    { "QSound Patent Text", 0x3E57A, 0x3E59A, 0x3C, 0x55 },
 };
 
 const sDescTreeNode MVC_A_WARMACHINE_COLLECTION[] =
@@ -1689,7 +1712,8 @@ const sDescTreeNode MVC_A_JIN_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES_P1,              ARRAYSIZE(MVC_A_JIN_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES_P2,              ARRAYSIZE(MVC_A_JIN_PALETTES_P2) },
-    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES_SHARED, ARRAYSIZE(MVC_A_JIN_PALETTES_SHARED) },
+    { "Extras", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES_EXTRAS,      ARRAYSIZE(MVC_A_JIN_PALETTES_EXTRAS) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_JIN_PALETTES_SHARED,      ARRAYSIZE(MVC_A_JIN_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_GIEF_COLLECTION[] =
@@ -1718,6 +1742,7 @@ const sDescTreeNode MVC_A_MORRIGAN_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES_P1,         ARRAYSIZE(MVC_A_MORRIGAN_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES_P2,         ARRAYSIZE(MVC_A_MORRIGAN_PALETTES_P2) },
+    { "Extras", DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES_EXTRAS, ARRAYSIZE(MVC_A_MORRIGAN_PALETTES_EXTRAS) },
     { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_MORRIGAN_PALETTES_SHARED, ARRAYSIZE(MVC_A_MORRIGAN_PALETTES_SHARED) },
 };
 
