@@ -195,22 +195,54 @@ void CPalTool::EndSetPal()
         int nCurrPgH = 0;
         int nPgH = 0;
         int nCurrPg = 0;
+        // Once we turn on navigation controls, make sure to lock that space in
+        int nUsedNavigationSpace = 0;
+        const int nNavigationControlSize = PAL_TXT_SPACE * 2;
 
         rgPalRedir[nCurrPg] = 0;
+
+        // Verify whether or not we will be showing navigation controls for this set...
+        int nTotalHeightNeeded = 0;
+        for (int nIndex = 0; nIndex < nCurrPalAmt; nIndex++)
+        {
+            if (pPalEntry[nIndex].bAvail)
+            {
+                nTotalHeightNeeded += PalSize[nIndex].cy + nFontHeight;
+                if (nTotalHeightNeeded > nPalViewH)
+                {
+                    nUsedNavigationSpace = nNavigationControlSize;
+                    break;
+                }
+            }
+        }
+
+        const int nAvailablePageH = nPalViewH - nUsedNavigationSpace;
 
         for (int i = 0; i < nCurrPalAmt; i++)
         {
             if (pPalEntry[i].bAvail)
             {
-                nCurrPgH = PalSize[i].cy + PAL_TXT_SPACE * 2 + nFontHeight;
+                // Need space for the palette and the descriptive text.  And maybe navigation arrows.
+                nCurrPgH = PalSize[i].cy + nFontHeight;
                 nPgH += nCurrPgH;
 
-                if (nPgH > nPalViewH)
-                {
-                    nPgH = 0;
-                    nCurrPg++;
+                // We want to know information about future pages so that we can display navigation controls appropriately.
+                const bool isNextPaletteAvailable = ((i + 1) < nCurrPalAmt) && (pPalEntry[i + 1].bAvail);
+                const int nNextPgH = isNextPaletteAvailable ? (PalSize[i + 1].cy + nFontHeight) : 0;
 
+                if ((nPgH + nNextPgH) > nAvailablePageH)
+                {
+                    // We're going to need to use multiple pages here...
+                    nPgH = 0;
                     rgPalRedir[nCurrPg] = (UINT8)i;
+                    nCurrPg++;
+                    
+                    if (isNextPaletteAvailable)
+                    {
+                        // Ensure that a final palette has a page to show upon, as without this that final palette
+                        // will not be associated in rgPalRedir
+                        rgPalRedir[nCurrPg] = (UINT8)(i + 1);
+                    }
                 }
             }
         }
@@ -273,7 +305,7 @@ void CPalTool::ShowAvailPal()
                 rCurrPos.right = rCurrPos.left + PalSize[i].cx;
 
                 //The top is always going downward
-                rCurrPos.top += PAL_TXT_SPACE * 2 + nFontHeight;
+                rCurrPos.top += (PAL_TXT_SPACE * 2) + nFontHeight;
                 rCurrPos.bottom = rCurrPos.top + PalSize[i].cy;
 
                 //Do window resize
