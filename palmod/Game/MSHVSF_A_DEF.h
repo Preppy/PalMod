@@ -43,14 +43,6 @@ constexpr auto MSHVSF_A_NUM_IND_7B = index_MSHVSF_7B_Last;
 #define MSHVSF_A_EXTRALOC_6A MSHVSF_A_NUM_IND_6A
 #define MSHVSF_A_EXTRALOC_7B MSHVSF_A_NUM_IND_7B
 
-const sGame_PaletteDataset MSHVSF_A_APOCALYPSE_PALETTES_P1COLOR_PUNCH[] =
-{
-    { "P1 Color (Punch)",        0x000000, 0x000020, 0x4F },
-};
-const sGame_PaletteDataset MSHVSF_A_APOCALYPSE_PALETTES_P2COLOR_KICK[] =
-{
-    { "P2 Color (Kick)",        0x000000, 0x000020, 0x4F },
-};
 const sGame_PaletteDataset MSHVSF_A_APOCALYPSE_PALETTES_SHARED[] =
 {
     { "Small Body (Intro)", 0x71ECE, 0x71EEE, 0x4F, 0x00 },
@@ -150,7 +142,7 @@ const sGame_PaletteDataset MSHVSF_A_CYBER_GOUKI_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH[] =
 {
-    { "P1 Color (Punch)", 0x71F8E, 0x71FAE,  0x06 },
+    { "P1 Color (Punch)", 0x71F8E, 0x71FAE, 0x06 },
     { "P1 HK Extra", 0x71FAE, 0x71FCE, 0x06, 1 },
     { "P1 Optic Blast Super", 0x71FCE, 0x71FEE, 0x06, 2 },
     { "P1 Intro 1", 0x7616E, 0x7618E, 0x06 },
@@ -367,7 +359,7 @@ const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_SHADOW_PALETTES_P1COLOR_PUNCH[] =
 {
-    { "P1 Color (Punch)",       0x731CE, 0x731EE,  0x21 },
+    { "P1 Color (Punch)",       0x731CE, 0x731EE, 0x21 },
     { "P1 Sonic Boom", 0x731EE, 0x7320E, 0x21, 1 },
     { "P1 Flash Kick", 0x7320E, 0x7322E, 0x21, 2 },
 };
@@ -502,24 +494,24 @@ const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_CSI_PALETTES[] =
 {
-    { "Akuma P1 CSI", 0x7994E, 0x7996E },
-    { "Blackheart P1 CSI", 0x7986E, 0x7988E },
-    { "Captain America P1 CSI", 0x797AE, 0x797CE },
-    { "Chun-Li P1 CSI", 0x798CE, 0x798EE },
-    { "Cyclops P1 CSI", 0x7978E, 0x797AE },
-    { "Dan P1 P1 CSI", 0x799AE, 0x799CE },
-    { "Dhalsim P1 CSI", 0x798EE, 0x7990E },
-    { "Hulk P1 CSI", 0x797CE, 0x797EE },
-    { "Ken P1 CSI", 0x798AE, 0x798CE },
-    { "Omega P1 Red CSI", 0x7982E, 0x7984E },
-    { "M. Bison P1 CSI", 0x7992E, 0x7994E },
-    { "Norimaro P1 CSI", 0x7998E, 0x799AE },
-    { "Ryu P1 CSI", 0x7988E, 0x798AE },
-    { "Sakura P1 CSI", 0x7996E, 0x7998E },
-    { "Shuma-Gorath P1 CSI", 0x7980E, 0x7982E },
-    { "Spider-Man P1 CSI", 0x7984E, 0x7986E },
-    { "Wolverine P1 CSI", 0x797EE, 0x7980E },
-    { "Zangief P1 CSI", 0x7990E, 0x7992E }, 
+    { "Zangief CSI", 0x7990E, 0x7992E, 0x01, 0x30 },
+    { "M. Bison CSI", 0x7992E, 0x7994E, 0x26, 0x30 },
+    { "Dhalsim CSI", 0x798EE, 0x7990E, 0x25, 0x30 },
+    { "Sakura CSI", 0x7996E, 0x7998E, 0x22, 0x30 },
+    { "Akuma CSI", 0x7994E, 0x7996E, 0x1E, 0x30 },
+    { "Chun-Li CSI", 0x798CE, 0x798EE, 0x1B, 0x30 },
+    { "Cyclops CSI", 0x7978E, 0x797AE, 0x06, 0x30 },
+    { "Spider-Man CSI", 0x7984E, 0x7986E, 0x0C, 0x30 },
+    { "Captain America CSI", 0x797AE, 0x797CE, 0x0B, 0x30 },
+    { "Ken CSI", 0x798AE, 0x798CE, 0x27, 0x30 },
+    { "Ryu CSI", 0x7988E, 0x798AE, 0x0, 0x30 },
+    { "Dan CSI", 0x799AE, 0x799CE, 0x23, 0x30 },
+    { "Shuma-Gorath CSI", 0x7980E, 0x7982E, 0x2D, 0x30 },
+    { "Wolverine CSI", 0x797EE, 0x7980E, 0x07, 0x30 },
+    { "Hulk CSI", 0x797CE, 0x797EE, 0x0D, 0x30 },
+    { "Blackheart CSI", 0x7986E, 0x7988E, 0x35, 0x30 },
+    { "Norimaro CSI", 0x7998E, 0x799AE, 0x53, 0x30 },
+    { "Omega Red CSI", 0x7982E, 0x7984E, 0x30, 0x30 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SSP_PALETTES[] =

@@ -2020,8 +2020,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_A[] =
     { "Jotaro Vs/Super A", 0x0410000, 0x0410080, 0x0, 3 },
     { "Jotaro Challenger A", 0x0410080, 0x0410100, 0x0, 4 },
 #ifndef USE_LARGE_PALETTES
-    { "Jotaro Select/Winning A (1/2)", 0x0410100, 0x0410180, 0x0, 5 },
-    { "Jotaro Select/Winning A (2/2)", 0x0410180, 0x0410200, 0x0, 6 },
+    { "Jotaro Select/Winning A (1/2)", 0x0410100, 0x0410180, 0x0, 5, true },
+    { "Jotaro Select/Winning A (2/2)", 0x0410180, 0x0410200, 0x0, 6, true },
 #else
     { "Jotaro Select/Winning A", 0x0410100, 0x0410200 },
 #endif
@@ -2047,8 +2047,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
     { "Jotaro Vs/Super B", 0x0414e00, 0x0414e80, 0x0, 3 },
     { "Jotaro Challenger B", 0x0414e80, 0x0414f00, 0x0, 4 },
 #ifndef USE_LARGE_PALETTES
-    { "Jotaro Select/Winning B (1/2)", 0x0414f00, 0x0414f80, 0x0, 5 },
-    { "Jotaro Select/Winning B (2/2)", 0x0414f80, 0x0415000, 0x0, 6 },
+    { "Jotaro Select/Winning B (1/2)", 0x0414f00, 0x0414f80, 0x0, 5, true },
+    { "Jotaro Select/Winning B (2/2)", 0x0414f80, 0x0415000, 0x0, 6, true },
 #else
     { "Jotaro Select/Winning B", 0x0414f00, 0x0415000 },
 #endif
@@ -2074,8 +2074,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_C[] =
     { "Jotaro Vs/Super C", 0x0419c00, 0x0419c80, 0x0, 3 },
     { "Jotaro Challenger C", 0x0419c80, 0x0419d00, 0x0, 4 },
 #ifndef USE_LARGE_PALETTES
-    { "Jotaro Select/Winning C (1/2)", 0x0419d00, 0x0419d80, 0x0, 5 },
-    { "Jotaro Select/Winning C (2/2)", 0x0419d80, 0x0419e00, 0x0, 6 },
+    { "Jotaro Select/Winning C (1/2)", 0x0419d00, 0x0419d80, 0x0, 5, true },
+    { "Jotaro Select/Winning C (2/2)", 0x0419d80, 0x0419e00, 0x0, 6, true },
 #else
     { "Jotaro Select/Winning C", 0x0419d00, 0x0419e00 },
 #endif
@@ -2101,8 +2101,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
     { "Jotaro Vs/Super S", 0x041ea00, 0x041ea80, 0x0, 3 },
     { "Jotaro Challenger S", 0x041ea80, 0x041eb00, 0x0, 4 },
 #ifndef USE_LARGE_PALETTES
-    { "Jotaro Select/Winning S (1/2)", 0x041eb00, 0x041eb80, 0x0, 5 },
-    { "Jotaro Select/Winning S (2/2)", 0x041eb80, 0x041ec00, 0x0, 6 },
+    { "Jotaro Select/Winning S (1/2)", 0x041eb00, 0x041eb80, 0x0, 5, true },
+    { "Jotaro Select/Winning S (2/2)", 0x041eb80, 0x041ec00, 0x0, 6, true },
 #else
     { "Jotaro Select/Winning S", 0x041eb00, 0x041ec00 },
 #endif
@@ -2128,8 +2128,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
     { "Jotaro Vs/Super Start", 0x0423800, 0x0423880, 0x0, 3 },
     { "Jotaro Challenger Start", 0x0423880, 0x0423900, 0x0, 4 },
 #ifndef USE_LARGE_PALETTES
-    { "Jotaro Select/Winning Start (1/2)", 0x0423900, 0x0423980, 0x0, 5 },
-    { "Jotaro Select/Winning Start (2/2)", 0x0423980, 0x0423a00, 0x0, 6 },
+    { "Jotaro Select/Winning Start (1/2)", 0x0423900, 0x0423980, 0x0, 5, true },
+    { "Jotaro Select/Winning Start (2/2)", 0x0423980, 0x0423a00, 0x0, 6, true },
 #else
     { "Jotaro Select/Winning Start", 0x0423900, 0x0423a00 },
 #endif
@@ -2486,26 +2486,26 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_A[] =
     { "Chariot's Changing Pal A (1/2)", 0x0339280, 0x0339300, 0x03, 0x00 },
     { "Chariot's Changing Pal A (2/2)", 0x0339300, 0x0339380, 0x03, 0x00 },
 #endif
-    { "Pol Remote Activation Flash A", 0x0338e00, 0x0338e80, 0x03, 0x00  },
-    { "Polnareff Vs / Super A", 0x0410900, 0x0410980 },
-    { "Polnareff Challenger A", 0x0410980, 0x0410a00 },
+    { "Pol Remote Activation Flash A", 0x0338e00, 0x0338e80, 0x03, 0x01  },
+    { "Polnareff Vs / Super A", 0x0410900, 0x0410980, 0x03, 0x02 },
+    { "Polnareff Challenger A", 0x0410980, 0x0410a00, 0x03, 0x03 },
 #ifndef USE_LARGE_PALETTES
-    { "Polnareff Select / Winning A (1/2)", 0x0410a00, 0x0410a80 },
-    { "Polnareff Select / Winning A (2/2)", 0x0410a80, 0x0410b00 },
+    { "Polnareff Select / Winning A (1/2)", 0x0410a00, 0x0410a80, 0x03, 0x04, true },
+    { "Polnareff Select / Winning A (2/2)", 0x0410a80, 0x0410b00, 0x03, 0x05, true },
 #else
     { "Polnareff Select / Winning A", 0x0410a00, 0x0410b00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Burning A", 0x0338a00, 0x0338b00 },
 #else
-    { "Polnareff Burning A (1/2)", 0x0338a00, 0x0338a80, 0x03, 0x00  },
-    { "Polnareff Burning A (2/2)", 0x0338a80, 0x0338b00, 0x03, 0x00  },
+    { "Polnareff Burning A (1/2)", 0x0338a00, 0x0338a80, 0x03, 0x06 },
+    { "Polnareff Burning A (2/2)", 0x0338a80, 0x0338b00, 0x03, 0x06 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Tech/Zap A", 0x0338d00, 0x0338e00 },
 #else
-    { "Polnareff Tech/Zap A (1/2)", 0x0338d00, 0x0338d80, 0x03, 0x00  },
-    { "Polnareff Tech/Zap A (2/2)", 0x0338d80, 0x0338e00, 0x03, 0x00  },
+    { "Polnareff Tech/Zap A (1/2)", 0x0338d00, 0x0338d80, 0x03, 0x06 },
+    { "Polnareff Tech/Zap A (2/2)", 0x0338d80, 0x0338e00, 0x03, 0x06 },
 #endif
 };
 
@@ -2518,26 +2518,26 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_B[] =
     { "Chariot's Changing Pal B (1/2)", 0x034d780, 0x034d800, 0x03, 0x00 },
     { "Chariot's Changing Pal B (2/2)", 0x034d800, 0x034d880, 0x03, 0x00 },
 #endif
-    { "Pol Remote Activation Flash B", 0x034d300, 0x034d380, 0x03, 0x00 },
-    { "Polnareff Vs / Super B", 0x0415700, 0x0415780 },
-    { "Polnareff Challenger B", 0x0415780, 0x0415800 },
+    { "Pol Remote Activation Flash B", 0x034d300, 0x034d380, 0x03, 0x01 },
+    { "Polnareff Vs / Super B", 0x0415700, 0x0415780, 0x03, 0x02 },
+    { "Polnareff Challenger B", 0x0415780, 0x0415800, 0x03, 0x03 },
 #ifndef USE_LARGE_PALETTES
-    { "Polnareff Select / Winning B (1/2)", 0x0415800, 0x0415880 },
-    { "Polnareff Select / Winning B (2/2)", 0x0415880, 0x0415900 },
+    { "Polnareff Select / Winning B (1/2)", 0x0415800, 0x0415880, 0x03, 0x04, true },
+    { "Polnareff Select / Winning B (2/2)", 0x0415880, 0x0415900, 0x03, 0x05, true },
 #else
     { "Polnareff Select / Winning B", 0x0415800, 0x0415900 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Burning B", 0x034cf00, 0x034d000 },
 #else
-    { "Polnareff Burning B (1/2)", 0x034cf00, 0x034cf80, 0x03, 0x00 },
-    { "Polnareff Burning B (2/2)", 0x034cf80, 0x034d000, 0x03, 0x00 },
+    { "Polnareff Burning B (1/2)", 0x034cf00, 0x034cf80, 0x03, 0x06 },
+    { "Polnareff Burning B (2/2)", 0x034cf80, 0x034d000, 0x03, 0x06 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Tech/Zap B", 0x034d200, 0x034d300 },
 #else
-    { "Polnareff Tech/Zap B (1/2)", 0x034d200, 0x034d280, 0x03, 0x00 },
-    { "Polnareff Tech/Zap B (2/2)", 0x034d280, 0x034d300, 0x03, 0x00 },
+    { "Polnareff Tech/Zap B (1/2)", 0x034d200, 0x034d280, 0x03, 0x06 },
+    { "Polnareff Tech/Zap B (2/2)", 0x034d280, 0x034d300, 0x03, 0x06 },
 #endif
 };
 
@@ -2550,26 +2550,26 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_C[] =
     { "Chariot's Changing Pal C (1/2)", 0x0361c80, 0x0361d00, 0x03, 0x00 },
     { "Chariot's Changing Pal C (2/2)", 0x0361d00, 0x0361d80, 0x03, 0x00 },
 #endif
-    { "Pol Remote Activation Flash C", 0x0361800, 0x0361880, 0x03, 0x00 },
-    { "Polnareff Vs / Super C", 0x041a500, 0x041a580 },
-    { "Polnareff Challenger C", 0x041a580, 0x041a600 },
+    { "Pol Remote Activation Flash C", 0x0361800, 0x0361880, 0x03, 0x01 },
+    { "Polnareff Vs / Super C", 0x041a500, 0x041a580, 0x03, 0x02 },
+    { "Polnareff Challenger C", 0x041a580, 0x041a600, 0x03, 0x03 },
 #ifndef USE_LARGE_PALETTES
-    { "Polnareff Select / Winning C (1/2)", 0x041a600, 0x041a680 },
-    { "Polnareff Select / Winning C (2/2)", 0x041a680, 0x041a700 },
+    { "Polnareff Select / Winning C (1/2)", 0x041a600, 0x041a680, 0x03, 0x04, true },
+    { "Polnareff Select / Winning C (2/2)", 0x041a680, 0x041a700, 0x03, 0x05, true },
 #else
     { "Polnareff Select / Winning C", 0x041a600, 0x041a700 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Burning C", 0x0361400, 0x0361500 },
 #else
-    { "Polnareff Burning C (1/2)", 0x0361400, 0x0361480, 0x03, 0x00 },
-    { "Polnareff Burning C (2/2)", 0x0361480, 0x0361500, 0x03, 0x00 },
+    { "Polnareff Burning C (1/2)", 0x0361400, 0x0361480, 0x03, 0x06 },
+    { "Polnareff Burning C (2/2)", 0x0361480, 0x0361500, 0x03, 0x06 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Tech/Zap C", 0x0361700, 0x0361800 },
 #else
-    { "Polnareff Tech/Zap C (1/2)", 0x0361700, 0x0361780, 0x03, 0x00 },
-    { "Polnareff Tech/Zap C (2/2)", 0x0361780, 0x0361800, 0x03, 0x00 },
+    { "Polnareff Tech/Zap C (1/2)", 0x0361700, 0x0361780, 0x03, 0x06 },
+    { "Polnareff Tech/Zap C (2/2)", 0x0361780, 0x0361800, 0x03, 0x06 },
 #endif
 };
 
@@ -2582,26 +2582,26 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_S[] =
     { "Chariot's Changing Pal S (1/2)", 0x0376180, 0x0376200, 0x03, 0x00 },
     { "Chariot's Changing Pal S (2/2)", 0x0376200, 0x0376280, 0x03, 0x00 },
 #endif
-    { "Pol Remote Activation Flash S", 0x0375d00, 0x0375d80, 0x03, 0x00 },
-    { "Polnareff Vs / Super S", 0x041f300, 0x041f380 },
-    { "Polnareff Challenger S", 0x041f380, 0x041f400 },
+    { "Pol Remote Activation Flash S", 0x0375d00, 0x0375d80, 0x03, 0x01 },
+    { "Polnareff Vs / Super S", 0x041f300, 0x041f380, 0x03, 0x02 },
+    { "Polnareff Challenger S", 0x041f380, 0x041f400, 0x03, 0x03 },
 #ifndef USE_LARGE_PALETTES
-    { "Polnareff Select / Winning S (1/2)", 0x041f400, 0x041f480 },
-    { "Polnareff Select / Winning S (2/2)", 0x041f480, 0x041f500 },
+    { "Polnareff Select / Winning S (1/2)", 0x041f400, 0x041f480, 0x03, 0x04, true },
+    { "Polnareff Select / Winning S (2/2)", 0x041f480, 0x041f500, 0x03, 0x05, true },
 #else
     { "Polnareff Select / Winning S", 0x041f400, 0x041f500 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Burning S", 0x0375900, 0x0375a00 },
 #else
-    { "Polnareff Burning S (1/2)", 0x0375900, 0x0375980, 0x03, 0x00 },
-    { "Polnareff Burning S (2/2)", 0x0375980, 0x0375a00, 0x03, 0x00 },
+    { "Polnareff Burning S (1/2)", 0x0375900, 0x0375980, 0x03, 0x06 },
+    { "Polnareff Burning S (2/2)", 0x0375980, 0x0375a00, 0x03, 0x06 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Tech/Zap S", 0x0375c00, 0x0375d00 },
 #else
-    { "Polnareff Tech/Zap S (1/2)", 0x0375c00, 0x0375c80, 0x03, 0x00 },
-    { "Polnareff Tech/Zap S (2/2)", 0x0375c80, 0x0375d00, 0x03, 0x00 },
+    { "Polnareff Tech/Zap S (1/2)", 0x0375c00, 0x0375c80, 0x03, 0x06 },
+    { "Polnareff Tech/Zap S (2/2)", 0x0375c80, 0x0375d00, 0x03, 0x06 },
 #endif
 };
 
@@ -2614,26 +2614,26 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_POL_Start[] =
     { "Chariot's Changing Pal Start (1/2)", 0x038a680, 0x038a700, 0x03, 0x00 },
     { "Chariot's Changing Pal Start (2/2)", 0x038a700, 0x038a780, 0x03, 0x00 },
 #endif
-    { "Pol Remote Activation Flash Start", 0x038a200, 0x038a280, 0x03, 0x00 },
-    { "Polnareff Vs / Super Start", 0x0424100, 0x0424180 },
-    { "Polnareff Challenger Start", 0x0424180, 0x0424200 },
+    { "Pol Remote Activation Flash Start", 0x038a200, 0x038a280, 0x03, 0x01 },
+    { "Polnareff Vs / Super Start", 0x0424100, 0x0424180, 0x03, 0x02 },
+    { "Polnareff Challenger Start", 0x0424180, 0x0424200, 0x03, 0x03 },
 #ifndef USE_LARGE_PALETTES
-    { "Polnareff Select / Winning Start (1/2)", 0x0424200, 0x0424280 },
-    { "Polnareff Select / Winning Start (2/2)", 0x0424280, 0x0424300 },
+    { "Polnareff Select / Winning Start (1/2)", 0x0424200, 0x0424280, 0x03, 0x04, true },
+    { "Polnareff Select / Winning Start (2/2)", 0x0424280, 0x0424300, 0x03, 0x05, true },
 #else
     { "Polnareff Select / Winning Start", 0x0424200, 0x0424300 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Burning Start", 0x0389e00, 0x0389f00 },
 #else
-    { "Polnareff Burning Start (1/2)", 0x0389e00, 0x0389e80, 0x03, 0x00 },
-    { "Polnareff Burning Start (2/2)", 0x0389e80, 0x0389f00, 0x03, 0x00 },
+    { "Polnareff Burning Start (1/2)", 0x0389e00, 0x0389e80, 0x03, 0x06 },
+    { "Polnareff Burning Start (2/2)", 0x0389e80, 0x0389f00, 0x03, 0x06 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Polnareff Tech/Zap Start", 0x038a100, 0x038a200 },
 #else
-    { "Polnareff Tech/Zap Start (1/2)", 0x038a100, 0x038a180, 0x03, 0x00 },
-    { "Polnareff Tech/Zap Start (2/2)", 0x038a180, 0x038a200, 0x03, 0x00 },
+    { "Polnareff Tech/Zap Start (1/2)", 0x038a100, 0x038a180, 0x03, 0x06 },
+    { "Polnareff Tech/Zap Start (2/2)", 0x038a180, 0x038a200, 0x03, 0x06 },
 #endif
 };
 
