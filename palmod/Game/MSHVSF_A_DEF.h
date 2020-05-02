@@ -53,12 +53,12 @@ const sGame_PaletteDataset MSHVSF_A_APOCALYPSE_PALETTES_P2COLOR_KICK[] =
 };
 const sGame_PaletteDataset MSHVSF_A_APOCALYPSE_PALETTES_SHARED[] =
 {
-    { "Giant Arm", 0x71E6E, 0x71E8E },
-    { "Giant Head", 0x71E8E, 0x71EAE },
-    { "Giant Body 1", 0x59EF4, 0x59F14 },
-    { "Giant Body 2", 0x59F14, 0x59F34 },
-    { "Giant Body 3", 0x71EAE, 0x71ECE },
-    { "Apocalypse Drone", 0x71F2E, 0x71F4E },
+    { "Small Body (Intro)", 0x71ECE, 0x71EEE, 0x4F, 0x00 },
+    { "Giant Head", 0x71E8E, 0x71EAE, 0x4F, 0x01 },
+    { "Giant Body", 0x59EF4, 0x59F34, 0x4F, 0x03 },
+    { "Giant Arm", 0x71E6E, 0x71E8E, 0x4F, 0x02 },
+    { "Shoulder Gun", 0x71EAE, 0x71ECE, 0x4F, 0x04 },
+    { "Apocalypse Drone", 0x71F2E, 0x71F4E, 0x4F, 0x05 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =

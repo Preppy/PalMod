@@ -417,7 +417,6 @@ const UINT8 MSHVSF_A_IMG_UNITS[MSHVSF_A_NUM_IMG_UNITS] =
     0x1B, // Chun-Li
     0x21, // Shadow
     0x22, // Sakura
-    0x22, // Dark Sakura
     0x23, // Dan
     0x25, // Dhalsim
     0x26, // M. Bison

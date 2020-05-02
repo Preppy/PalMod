@@ -302,18 +302,14 @@ const sXMVSF_PaletteDataset XMVSF_A_Ryu_PALETTES_Extras[] =
     { "Portrait", 0x1c39c, 0x40 },
 };
 
-const sXMVSF_PaletteDataset XMVSF_A_Apocalypse_PALETTES_P1[] =
+const sXMVSF_PaletteDataset XMVSF_A_Apocalypse_PALETTES[] =
 {
-    { "Palette (00)", 0x157dc, 0x10, 0x4F },
-    { "Palette (01)", 0x157fc, 0x10, 0x4F },
-    { "Palette (02)", 0x1581c, 0x10 },
-};
-
-const sXMVSF_PaletteDataset XMVSF_A_Apocalypse_PALETTES_P2[] =
-{
-    { "Palette (03)", 0x1583c, 0x10, 0x4F },
-    { "Palette (04)", 0x1585c, 0x10, 0x4F },
-    { "Palette (05)", 0x1587c, 0x10, 0x4F },
+    { "Small Body (intro)", 0x157dc, 0x10, 0x4F },
+    { "Drones",       0x1583c, 0x10, 0x4F, 0x05 },
+    { "Angry Drones", 0x157fc, 0x10, 0x4F, 0x05 },
+    { "?", 0x1581c, 0x10 },
+    { "?",  0x1585c, 0x10 },
+    { "Giant Body?",   0x1587c, 0x10 },
 };
 
 const sXMVSF_PaletteDataset XMVSF_A_Apocalypse_PALETTES_Extras[] =
@@ -568,8 +564,7 @@ const sDescTreeNode XMVSF_A_MAGNETO_COLLECTION[] =
 
 const sDescTreeNode XMVSF_A_APOCALYPSE_COLLECTION[] =
 {
-    { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Apocalypse_PALETTES_P1, ARRAYSIZE(XMVSF_A_Apocalypse_PALETTES_P1) },
-    { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Apocalypse_PALETTES_P2, ARRAYSIZE(XMVSF_A_Apocalypse_PALETTES_P2) },
+    { "Palettes", DESC_NODETYPE_TREE, (void *)XMVSF_A_Apocalypse_PALETTES, ARRAYSIZE(XMVSF_A_Apocalypse_PALETTES) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Apocalypse_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Apocalypse_PALETTES_Extras) },
 };
 

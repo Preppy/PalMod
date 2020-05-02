@@ -448,6 +448,8 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_EXTRAS[] =
 {
+    // { "Megaman FX", 0x590E4, 0x59144 }, ?
+
     // This contains unpaired or unconfirmed palettes
     { "P1 Megaman Extra", 0x4e0a4, 0x4e0c4, 0x1c },
     { "P1 Magnetic Megaman", 0x4e0c4, 0x4e0e4, 0x1c },
@@ -757,6 +759,11 @@ const sGame_PaletteDataset MVC_A_HULK_PALETTES_P2[] =
     { "P2 Color", 0x483a4, 0x483c4, 0x0d },
     { "P2 Charge", 0x483c4, 0x483e4, 0x0d, 1 },
     { "P2 Gamma Quake", 0x483e4, 0x48404, 0x0d, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_HULK_PALETTES_EXTRAS[] =
+{
+    { "Hulk Armor P1+P2 Shared", 0x4F3A4, 0x4F3C4, 0x0d },
 };
 
 const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES_P1[] =
@@ -1469,6 +1476,7 @@ const sGame_PaletteDataset MVC_A_ASSISTICON_PALETTES[] =
     { "Ton-Pooh", 0x47f44, 0x47f64, 0x3C, 0x41 },
     { "Unknown Soldier", 0x47f84, 0x47fa4, 0x3C, 0x42 },
     { "U.S. Agent", 0x47e44, 0x47e64, 0x3C, 0x43 },
+    { "Unselected Assist Icons", 0x52364, 0x52384, 0x3C, 0x44 },
 };
 
 const sGame_PaletteDataset MVC_A_VSP_PALETTES[] =
@@ -1652,22 +1660,23 @@ const sGame_PaletteDataset MVC_A_CSIS_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_CSIS_NEXT_PALETTES[] =
 {
-    { "Captain America Next Icon", 0x3e5da + 0x1418A, 0x3e5fa + 0x1418A, 0x0B, 0x11 },
-    { "Captain Commando Next Icon", 0x3e6da + 0x1418A, 0x3e6fa + 0x1418A, 0x38, 0x11 },
-    { "Chun-Li Next Icon",        0x3e6fa + 0x1418A, 0x3e71a + 0x1418A, 0x1b, 0x11 },
-    { "Gambit Next Icon",         0x3e63a + 0x1418A, 0x3e65a + 0x1418A, 0x28, 0x11 },
-    { "Hulk Next Icon",           0x3e5fa + 0x1418A, 0x3e61a + 0x1418A, 0x0D, 0x11 },
-    { "Jin Next Icon",            0x3e71a + 0x1418A, 0x3e73a + 0x1418A, 0x37, 0x11 },
-    { "Megaman Next Icon",        0x3e79a + 0x1418A, 0x3e7ba + 0x1418A, 0x1C, 0x11 },
-    { "Morrigan Next Icon",       0x3e77a + 0x1418A, 0x3e79a + 0x1418A, 0x3, 0x11 },
+    { "Captain America", 0x3e5da + 0x1418A, 0x3e5fa + 0x1418A, 0x0B, 0x11 },
+    { "Captain Commando", 0x3e6da + 0x1418A, 0x3e6fa + 0x1418A, 0x38, 0x11 },
+    { "Chun-Li",        0x3e6fa + 0x1418A, 0x3e71a + 0x1418A, 0x1b, 0x11 },
+    { "Gambit",         0x3e63a + 0x1418A, 0x3e65a + 0x1418A, 0x28, 0x11 },
+    { "Hulk",           0x3e5fa + 0x1418A, 0x3e61a + 0x1418A, 0x0D, 0x11 },
+    { "Jin",            0x3e71a + 0x1418A, 0x3e73a + 0x1418A, 0x37, 0x11 },
+    { "Megaman",        0x3e79a + 0x1418A, 0x3e7ba + 0x1418A, 0x1C, 0x11 },
+    { "Morrigan",       0x3e77a + 0x1418A, 0x3e79a + 0x1418A, 0x3, 0x11 },
     // The Roll Next is unused
-    { "Ryu Next Icon",            0x3e6ba + 0x1418A, 0x3e6da + 0x1418A, 0x0, 0x11 },
-    { "Spider-Man Next Icon",     0x3e67a + 0x1418A, 0x3e69a + 0x1418A, 0x0C, 0x11 },
-    { "Strider Hiryu Next Icon",  0x3e75a + 0x1418A, 0x3e77a + 0x1418A, 0x5, 0x11 },
-    { "Venom Next Icon",          0x3e65a + 0x1418A, 0x3e67a + 0x1418A, 0x0E, 0x11 },
-    { "War Machine Next Icon",    0x3e5ba + 0x1418A, 0x3e5da + 0x1418A, 0x2E, 0x11 },
-    { "Wolverine Next Icon",      0x3e61a + 0x1418A, 0x3e63a + 0x1418A, 0x07, 0x11 },
-    { "Zangief Next Icon",        0x3e73a + 0x1418A, 0x3e75a + 0x1418A, 0x1, 0x11 },
+    { "Ryu",            0x3e6ba + 0x1418A, 0x3e6da + 0x1418A, 0x0, 0x11 },
+    { "Spider-Man",     0x3e67a + 0x1418A, 0x3e69a + 0x1418A, 0x0C, 0x11 },
+    { "Strider Hiryu",  0x3e75a + 0x1418A, 0x3e77a + 0x1418A, 0x5, 0x11 },
+    { "Venom",          0x3e65a + 0x1418A, 0x3e67a + 0x1418A, 0x0E, 0x11 },
+    { "War Machine",    0x3e5ba + 0x1418A, 0x3e5da + 0x1418A, 0x2E, 0x11 },
+    { "Wolverine",      0x3e61a + 0x1418A, 0x3e63a + 0x1418A, 0x07, 0x11 },
+    { "Zangief",        0x3e73a + 0x1418A, 0x3e75a + 0x1418A, 0x1, 0x11 },
+    { "Campaign Card Back", 0x52324, 0x52344, 0x3C, 0x20 },
 };
 
 const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
@@ -1682,8 +1691,8 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
 
 const sDescTreeNode MVC_A_WARMACHINE_COLLECTION[] =
 {
-    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_P1,       ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_P1) },
-    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_P2,       ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_P2) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_P1,         ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_P2,         ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_P2) },
     { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_SHARED, ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_SHARED) },
 };
 
@@ -1691,20 +1700,21 @@ const sDescTreeNode MVC_A_CAPAM_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_P1,            ARRAYSIZE(MVC_A_CAPAM_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_P2,            ARRAYSIZE(MVC_A_CAPAM_PALETTES_P2) },
-    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_SHARED, ARRAYSIZE(MVC_A_CAPAM_PALETTES_SHARED) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_CAPAM_PALETTES_SHARED,    ARRAYSIZE(MVC_A_CAPAM_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_HULK_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES_P1,             ARRAYSIZE(MVC_A_HULK_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES_P2,             ARRAYSIZE(MVC_A_HULK_PALETTES_P2) },
-    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES_SHARED, ARRAYSIZE(MVC_A_HULK_PALETTES_SHARED) },
+    { "Extras", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES_EXTRAS,     ARRAYSIZE(MVC_A_HULK_PALETTES_EXTRAS) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_HULK_PALETTES_SHARED,     ARRAYSIZE(MVC_A_HULK_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_WOLVERINE_COLLECTION[] =
 {
-    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES_P1,        ARRAYSIZE(MVC_A_WOLVERINE_PALETTES_P1) },
-    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES_P2,        ARRAYSIZE(MVC_A_WOLVERINE_PALETTES_P2) },
+    { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES_P1,         ARRAYSIZE(MVC_A_WOLVERINE_PALETTES_P1) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES_P2,         ARRAYSIZE(MVC_A_WOLVERINE_PALETTES_P2) },
     { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_WOLVERINE_PALETTES_SHARED, ARRAYSIZE(MVC_A_WOLVERINE_PALETTES_SHARED) },
 };
 
@@ -1712,14 +1722,14 @@ const sDescTreeNode MVC_A_GAMBIT_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES_P1,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES_P2,           ARRAYSIZE(MVC_A_GAMBIT_PALETTES_P2) },
-    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES_SHARED, ARRAYSIZE(MVC_A_GAMBIT_PALETTES_SHARED) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_GAMBIT_PALETTES_SHARED,   ARRAYSIZE(MVC_A_GAMBIT_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_VENOM_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES_P1,            ARRAYSIZE(MVC_A_VENOM_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES_P2,            ARRAYSIZE(MVC_A_VENOM_PALETTES_P2) },
-    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES_SHARED, ARRAYSIZE(MVC_A_VENOM_PALETTES_SHARED) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)MVC_A_VENOM_PALETTES_SHARED,    ARRAYSIZE(MVC_A_VENOM_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MVC_A_SPIDEY_COLLECTION[] =
@@ -1847,7 +1857,7 @@ const sDescTreeNode MVC_A_ASSIST_COLLECTION[] =
 const sDescTreeNode MVC_A_CSIS_COLLECTION[] =
 {
     { "Character Select Icons",       DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_PALETTES,             ARRAYSIZE(MVC_A_CSIS_PALETTES) },
-    { "Next Fight Icons",             DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_NEXT_PALETTES,        ARRAYSIZE(MVC_A_CSIS_NEXT_PALETTES) },
+    { "Campaign Cards",               DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_NEXT_PALETTES,        ARRAYSIZE(MVC_A_CSIS_NEXT_PALETTES) },
 };
 
 const sDescTreeNode MVC_A_PORTRAITS_COLLECTION[] =
