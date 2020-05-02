@@ -1127,6 +1127,8 @@ const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x49cc4, 0x49ce4, 0x2e },
     { "Kinectic Charged 2", 0x49ce4, 0x49d04, 0x2e },
     { "Kinectic Charged 3", 0x49d04, 0x49d24, 0x2e },
+    { "Shadows Light", 0x494a4, 0x494c4, 0x2E },
+    { "Shadows Dark", 0x494c4, 0x494e4, 0x2E },
 };
 
 const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_SHARED[] =
@@ -1140,6 +1142,10 @@ const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x49de4, 0x49e04, 0x0b },
     { "Kinectic Charged 2", 0x49e04, 0x49e24, 0x0b },
     { "Kinectic Charged 3", 0x49e24, 0x49e44, 0x0b },
+    { "Shadows Light", 0x494e4, 0x49504, 0x0b },
+    { "Shield Shadows Light", 0x49524, 0x49544, 0x0b, 0x1 },
+    { "Shadows Dark", 0x49504, 0x49524, 0x0b },
+    { "Shield Shadows Dark", 0x49544, 0x49564, 0x0b, 0x1 },
 };
 
 const sGame_PaletteDataset MVC_A_HULK_PALETTES_SHARED[] =
@@ -1153,6 +1159,8 @@ const sGame_PaletteDataset MVC_A_HULK_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4a024, 0x4a044, 0x0d },
     { "Kinectic Charged 2", 0x4a044, 0x4a064, 0x0d },
     { "Kinectic Charged 3", 0x4a064, 0x4a084, 0x0d },
+    { "Shadows Light", 0x49564, 0x49584, 0x0d },
+    { "Shadows Dark", 0x49584, 0x495A4, 0x0d },
 };
 
 const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_SHARED[] =
@@ -1166,6 +1174,8 @@ const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4a144, 0x4a164, 0x07 },
     { "Kinectic Charged 2", 0x4a164, 0x4a184, 0x07 },
     { "Kinectic Charged 3", 0x4a184, 0x4a1a4, 0x07 },
+    { "Shadows Light", 0x495A4, 0x495C4, 0x07 },
+    { "Shadows Dark", 0x495C4, 0x495E4, 0x07 },
 };
 
 const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_SHARED[] =
@@ -1179,6 +1189,8 @@ const sGame_PaletteDataset MVC_A_GAMBIT_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4a264, 0x4a284, 0x28 },
     { "Kinectic Charged 2", 0x4a284, 0x4a2a4, 0x28 },
     { "Kinectic Charged 3", 0x4a2a4, 0x4a2c4, 0x28 },
+    { "Shadows Light", 0x495E4, 0x49604, 0x28 },
+    { "Shadows Dark", 0x49604, 0x49624, 0x28 },
 };
 
 const sGame_PaletteDataset MVC_A_VENOM_PALETTES_SHARED[] =
@@ -1192,6 +1204,8 @@ const sGame_PaletteDataset MVC_A_VENOM_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4a384, 0x4a3a4, 0x0e },
     { "Kinectic Charged 2", 0x4a3a4, 0x4a3c4, 0x0e },
     { "Kinectic Charged 3", 0x4a3c4, 0x4a3e4, 0x0e },
+    { "Shadows Light", 0x49624, 0x49644, 0x0e },
+    { "Shadows Dark", 0x49644, 0x49664, 0x0e },
 };
 
 const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_SHARED[] =
@@ -1205,6 +1219,8 @@ const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4a5c4, 0x4a5e4, 0x0c },
     { "Kinectic Charged 2", 0x4a5e4, 0x4a604, 0x0c },
     { "Kinectic Charged 3", 0x4a604, 0x4a624, 0x0c },
+    { "Shadows Light", 0x49664, 0x49684, 0x0c },
+    { "Shadows Dark", 0x49684, 0x496A4, 0x0c },
 };
 
 const sGame_PaletteDataset MVC_A_ROLL_PALETTES_SHARED[] =
@@ -1218,6 +1234,8 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4a6e4, 0x4a704, 0x1d },
     { "Kinectic Charged 2", 0x4a704, 0x4a724, 0x1d },
     { "Kinectic Charged 3", 0x4a724, 0x4a744, 0x1d },
+    { "Shadows Light", 0x496A4, 0x496C4, 0x1d },
+    { "Shadows Dark", 0x496C4, 0x496E4, 0x1d },
 };
 
 const sGame_PaletteDataset MVC_A_RYU_PALETTES_SHARED[] =
@@ -1231,6 +1249,8 @@ const sGame_PaletteDataset MVC_A_RYU_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4a804, 0x4a824, 0x00 },
     { "Kinectic Charged 2", 0x4a824, 0x4a844, 0x00 },
     { "Kinectic Charged 3", 0x4a844, 0x4a864, 0x00 },
+    { "Shadows Light", 0x49724, 0x49744, 0x00 },
+    { "Shadows Dark", 0x49744, 0x49764, 0x00 },
 };
 
 const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_SHARED[] =
@@ -1244,6 +1264,8 @@ const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4a924, 0x4a944, 0x38 },
     { "Kinectic Charged 2", 0x4a944, 0x4a964, 0x38 },
     { "Kinectic Charged 3", 0x4a964, 0x4a984, 0x38 },
+    { "Shadows Light", 0x49764, 0x49784, 0x38 },
+    { "Shadows Dark", 0x49784, 0x497A4, 0x38 },
 };
 
 const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_SHARED[] =
@@ -1257,6 +1279,8 @@ const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4aa44, 0x4aa64, 0x1b },
     { "Kinectic Charged 2", 0x4aa64, 0x4aa84, 0x1b },
     { "Kinectic Charged 3", 0x4aa84, 0x4aaa4, 0x1b },
+    { "Shadows Light", 0x497A4, 0x497C4, 0x1b },
+    { "Shadows Dark", 0x497C4, 0x497E4, 0x1b },
 };
 
 const sGame_PaletteDataset MVC_A_JIN_PALETTES_SHARED[] =
@@ -1270,6 +1294,8 @@ const sGame_PaletteDataset MVC_A_JIN_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4ab64, 0x4ab84, 0x37 },
     { "Kinectic Charged 2", 0x4ab84, 0x4aba4, 0x37 },
     { "Kinectic Charged 3", 0x4aba4, 0x4abc4, 0x37 },
+    { "Shadows Light", 0x497E4, 0x49804, 0x37 },
+    { "Shadows Dark", 0x49804, 0x49824, 0x37 },
 };
 
 const sGame_PaletteDataset MVC_A_GIEF_PALETTES_SHARED[] =
@@ -1283,6 +1309,8 @@ const sGame_PaletteDataset MVC_A_GIEF_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4ac84, 0x4aca4, 0x01 },
     { "Kinectic Charged 2", 0x4aca4, 0x4acc4, 0x01 },
     { "Kinectic Charged 3", 0x4acc4, 0x4ace4, 0x01 },
+    { "Shadows Light", 0x49824, 0x49844, 0x01 },
+    { "Shadows Dark", 0x49844, 0x49864, 0x01 },
 };
 
 const sGame_PaletteDataset MVC_A_STRIDER_PALETTES_SHARED[] =
@@ -1296,6 +1324,8 @@ const sGame_PaletteDataset MVC_A_STRIDER_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4ada4, 0x4adc4, 0x05 },
     { "Kinectic Charged 2", 0x4adc4, 0x4ade4, 0x05 },
     { "Kinectic Charged 3", 0x4ade4, 0x4ae04, 0x05 },
+    { "Shadows Light", 0x49864, 0x49884, 0x05 },
+    { "Shadows Dark", 0x49884, 0x498A4, 0x05 },
 };
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_SHARED[] =
@@ -1309,6 +1339,8 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4aec4, 0x4aee4, 0x03 },
     { "Kinectic Charged 2", 0x4aee4, 0x4af04, 0x03 },
     { "Kinectic Charged 3", 0x4af04, 0x4af24, 0x03 },
+    { "Shadows Light", 0x498A4, 0x498C4, 0x03 },
+    { "Shadows Dark", 0x498C4, 0x498E4, 0x03 },
 };
 
 const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_SHARED[] =
@@ -1322,6 +1354,8 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4afe4, 0x4b004, 0x1c },
     { "Kinectic Charged 2", 0x4b004, 0x4b024, 0x1c },
     { "Kinectic Charged 3", 0x4b024, 0x4b044, 0x1c },
+    { "Shadows Light", 0x498e4, 0x49904, 0x1c },
+    { "Shadows Dark", 0x49904, 0x49924, 0x1c },
 };
 
 const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES_SHARED[] =
@@ -1332,6 +1366,8 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES_SHARED[] =
     { "Shocked 2", 0x4b0a4, 0x4b0c4, 0x3b },
     { "Dark Burning 1", 0x4b0c4, 0x4b0e4, 0x3b },
     { "Dark Burning 2", 0x4b0e4, 0x4b104, 0x3b },
+    { "Shadows Light", 0x49924, 0x49944, 0x3b },
+    { "Shadows Dark", 0x49944, 0x49964, 0x3b },
 };
 
 const sGame_PaletteDataset MVC_A_HYPERVENOM_PALETTES_SHARED[] =
@@ -1345,6 +1381,8 @@ const sGame_PaletteDataset MVC_A_HYPERVENOM_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4b1c4, 0x4b1e4, 0x0e },
     { "Kinectic Charged 2", 0x4b1e4, 0x4b204, 0x0e },
     { "Kinectic Charged 3", 0x4b204, 0x4b224, 0x0e },
+    { "Shadows Light", 0x49964, 0x49984, 0x0e },
+    { "Shadows Dark", 0x49984, 0x499a4, 0x0e },
 };
 
 const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES_SHARED[] =
@@ -1358,6 +1396,10 @@ const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4b404, 0x4b424, 0x0d },
     { "Kinectic Charged 2", 0x4b424, 0x4b444, 0x0d },
     { "Kinectic Charged 3", 0x4b444, 0x4b464, 0x0d },
+    { "Shadows Light", 0x499a4, 0x499c4, 0x0d },
+    { "Shadows Dark", 0x499c4, 0x499e4, 0x0d },
+    { "Shadows 3?", 0x499e4, 0x49a04, 0x0d },
+    { "Shadows 4?", 0x49a04, 0x49a24, 0x0d },
 };
 
 const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_SHARED[] =
@@ -1371,6 +1413,8 @@ const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4b524, 0x4b544, 0x2e },
     { "Kinectic Charged 2", 0x4b544, 0x4b564, 0x2e },
     { "Kinectic Charged 3", 0x4b564, 0x4b584, 0x2e },
+    { "Shadows Light", 0x49a24, 0x49a44, 0x2E },
+    { "Shadows Dark", 0x49a54, 0x49a86, 0x2E },
 };
 
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_SHARED[] =
@@ -1384,6 +1428,8 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4b644, 0x4b664, 0x1b },
     { "Kinectic Charged 2", 0x4b664, 0x4b684, 0x1b },
     { "Kinectic Charged 3", 0x4b684, 0x4b6a4, 0x1b },
+    { "Shadows Light", 0x49a64, 0x49a84, 0x1b },
+    { "Shadows Dark", 0x49a84, 0x49aa4, 0x1b },
 };
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_SHARED[] =
@@ -1397,6 +1443,8 @@ const sGame_PaletteDataset MVC_A_LILITH_PALETTES_SHARED[] =
     { "Kinectic Charged 1", 0x4b764, 0x4b784, 0x03 },
     { "Kinectic Charged 2", 0x4b784, 0x4b7a4, 0x03 },
     { "Kinectic Charged 3", 0x4b7a4, 0x4b7c4, 0x03 },
+    { "Shadows Light", 0x49aa4, 0x49ac4, 0x03 },
+    { "Shadows Dark", 0x49ac4, 0x49ae4, 0x03 },
 };
 
 const sGame_PaletteDataset MVC_A_ASSISTICON_PALETTES[] =

@@ -19,7 +19,7 @@ CGame_MVC_A::CGame_MVC_A(void)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = 1169 + GetExtraCt(MVC_A_EXTRALOC);
+    m_nSafeCountForThisRom = 1217 + GetExtraCt(MVC_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
     // 0x38xxx large body Onslaught sprites
