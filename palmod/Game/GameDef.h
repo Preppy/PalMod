@@ -398,10 +398,9 @@ const UINT8 MSHVSF_A_IMG_UNITS[MSHVSF_A_NUM_IMG_UNITS] =
     0x27, // Ken
     0x2D, // Shuma-Gorath
     0x30, // Omega Red
-    0x35, // Blackheart
-    0x35, // Mephisto
+    0x35, // Blackheart & Mephisto
     0x4F, // Apocalypse
-    //0xZZ, // Cyber Gouki
+    0x54, // Cyber Gouki
     0x53, // Norimaro
 };
 

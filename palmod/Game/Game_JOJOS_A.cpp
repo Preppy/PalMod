@@ -975,8 +975,8 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     {
                         if (nTargetImgId == 5) // winning 1
                         {
-                            nPaletteOneDelta = 1;
-                            nPaletteTwoDelta = 0;
+                            nPaletteOneDelta = 0;
+                            nPaletteTwoDelta = 1;
                             fUseDefaultPaletteLoad = false;
 
                         }
@@ -989,70 +989,28 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
                     else if (NodeGet->uUnitId == 0x01) // Kakyo
                     {
-                        // TODO: Update Kakyo to use the new delta-based join.
                         if (nSrcStart == 0)
                         {
-                            // Core Kakyo
-                            const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
-
-                            ClearSetImgTicket(
-                                CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                                )
-                            );
-
-                            //Set each palette
-                            sDescNode* JoinedNode[2] = {
-                                MainDescTree_51.GetDescNode(Node01, Node02, Node03, -1),
-                                MainDescTree_51.GetDescNode(Node01, Node02, Node03 + 1, -1) // BUGBUG: There's actually a Hiero we should use in the 00 palette, but
-                                                                                            // we need a new sprite for that to work.
-                            };
-
-                            //Set each palette
-                            CreateDefPal(JoinedNode[0], 0);
-                            CreateDefPal(JoinedNode[1], 1);
-
-                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + 1, nSrcAmt, nNodeIncrement);
-
+                            // BUGBUG: There's actually a Hiero we should use in the 00 palette, but
+                            // we need a new sprite for that to work.  Once we have that we should undo this join.
+                            nPaletteOneDelta = 0;
+                            nPaletteTwoDelta = 1;
+                            fUseDefaultPaletteLoad = false;
                         }
                         else
                         {
                             // Hieros
-                            // This gets us the correct node increment as well as a pointer to the current base palette.
-                            UINT16 nKakyoPaletteId = NodeGet->uPalId - nSrcStart;
-
-                            const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nKakyoPaletteId);
-
-                            ClearSetImgTicket(
-                                CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                                )
-                            );
-
-                            //Set each palette
-                            sDescNode* JoinedNode[2] = {
-                                MainDescTree_51.GetDescNode(Node01, Node02, Node03, -1),
-                                MainDescTree_51.GetDescNode(Node01, Node02, 0, -1)
-                            };
-
-                            //Set each palette
-                            CreateDefPal(JoinedNode[0], 0);
-                            CreateDefPal(JoinedNode[1], 1);
-
-                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                            SetSourcePal(1, NodeGet->uUnitId, 0, nSrcAmt, nNodeIncrement);
+                            nPaletteOneDelta = 0;
+                            nPaletteTwoDelta = -nSrcStart;
+                            fUseDefaultPaletteLoad = false;
                         }
-
-                        fUseDefaultPaletteLoad = false;
-                        return TRUE; // need to update the above code
                     }
                     else if (NodeGet->uUnitId == 0x03) // Pol
                     {
                         if (nTargetImgId == 4) // winning 1
                         {
-                            nPaletteOneDelta = 1;
-                            nPaletteTwoDelta = 0;
+                            nPaletteOneDelta = 0;
+                            nPaletteTwoDelta = 1;
                             fUseDefaultPaletteLoad = false;
 
                         }

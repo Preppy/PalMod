@@ -477,9 +477,7 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag,
                 while (uReadNextImgLoc != 0)
                 {
                     ImgDatFile.Seek(uReadNextImgLoc, CFile::begin);
-                    UINT16 tImgWidth, tImgHeight;
-                    UINT8 uCurrUnitId, uCurrImgId, tCompressed;
-                    UINT32 tDataSize;
+                    UINT8 uCurrUnitId, uCurrImgId;
                     ImgDatFile.Read(&uCurrUnitId, 0x01);
                     ImgDatFile.Read(&uCurrImgId, 0x01);
 #if IMGDAT_DEBUG
@@ -505,6 +503,14 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag,
                         ImgDatFile.Read(&pCurrImg->uDataSize, 0x04);
                         ImgDatFile.Read(&uReadNextImgLoc, 0x04);
                         pCurrImg->uThisImgLoc = (0xFFFFFFFF & ImgDatFile.GetPosition());
+
+                        if (pCurrImg->uDataSize == 0)
+                        {
+                            CString strError;
+                            strError.Format("WARNING: Probable imgdat corruption at gameflag 0x%02x unit 0x%02x imgid 0x%02x: data size is 0x%x.\n\tNext location is 0x%x\n.", uImgGameFlag, uCurrUnitId, uCurrImgId, pCurrImg->uDataSize, uReadNextImgLoc);
+                            OutputDebugString(strError);
+                        }
+
 #if IMGDAT_DEBUG
                         strDebugInfo.Format("CImgDat::LoadImage : Image info for unit 0x%02X img 0x%02X has been loaded.\n", uCurrUnitId, uCurrImgId);
                         OutputDebugString_DebugOnly(strDebugInfo);
@@ -518,6 +524,10 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag,
                     }
                     else
                     {
+                        UINT8 tCompressed;
+                        UINT16 tImgWidth, tImgHeight;
+                        UINT32 tDataSize;
+
                         ImgDatFile.Read(&tImgWidth, 0x02);
                         ImgDatFile.Read(&tImgHeight, 0x02);
                         ImgDatFile.Read(&tCompressed, 0x01);
