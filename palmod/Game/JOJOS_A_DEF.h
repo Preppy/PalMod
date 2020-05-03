@@ -3892,121 +3892,121 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_A[] =
 {
-    { "Hol Horse A", 0x0342c00, 0x0342c80 },
+    { "Hol Horse A", 0x0342c00, 0x0342c80, 0x0D, 0x00 },
     { "Hol's Super Bullets A", 0x0343556, 0x0343560 },
     { "Hol's Slow-mo Bullet Trail 1 A", 0x03435d6, 0x03435e0 },
     { "Hol's Slow-mo Bullet Trail 2 A", 0x0343656, 0x0343660 },
-    { "Hol's Intro/Winpose Stuff+Boingo A", 0x0343480, 0x0343500 },
-    { "Hol Horse Vs / Super A", 0x0413000, 0x0413080 },
-    { "Hol Horse Challenger A", 0x0413080, 0x0413100 },
-    { "Hol Horse Select / Winning A", 0x0413100, 0x0413180 },
+    { "Hol's Intro/Winpose Stuff+Boingo A", 0x0343480, 0x0343500, 0x0D, 0x03 },
+    { "Hol Horse Vs / Super A", 0x0413000, 0x0413080, 0x0D, 0x04 },
+    { "Hol Horse Challenger A", 0x0413080, 0x0413100, 0x0D, 0x06 },
+    { "Hol Horse Select / Winning A", 0x0413100, 0x0413180, 0x0D, 0x05 },
 #ifdef USE_LARGE_PALETTES
     { "Hol Horse Burning A", 0x0342c80, 0x0342d80 },
 #else
-    { "Hol Horse Burning A (1/2)", 0x0342c80, 0x0342d00 },
-    { "Hol Horse Burning A (2/2)", 0x0342d00, 0x0342d80 },
+    { "Hol Horse Burning A (1/2)", 0x0342c80, 0x0342d00, 0x0D },
+    { "Hol Horse Burning A (2/2)", 0x0342d00, 0x0342d80, 0x0D },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Hol Horse Tech/Zap A", 0x0342f80, 0x0343080 },
 #else
-    { "Hol Horse Tech/Zap A (1/2)", 0x0342f80, 0x0343000 },
-    { "Hol Horse Tech/Zap A (2/2)", 0x0343000, 0x0343080 },
+    { "Hol Horse Tech/Zap A (1/2)", 0x0342f80, 0x0343000, 0x0D, 0x0 },
+    { "Hol Horse Tech/Zap A (2/2)", 0x0343000, 0x0343080, 0x0D, 0x0 },
 #endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
 {
-    { "Hol Horse B", 0x0357100, 0x0357180 },
+    { "Hol Horse B", 0x0357100, 0x0357180, 0x0D, 0x00 },
     { "Hol's Super Bullets B", 0x0357a56, 0x0357a60 },
     { "Hol's Slow-mo Bullet Trail 1 B", 0x0357ad6, 0x0357ae0 },
     { "Hol's Slow-mo Bullet Trail 2 B", 0x0357b56, 0x0357b60 },
-    { "Hol Horse Vs / Super B", 0x0417e00, 0x0417e80 },
-    { "Hol Horse Challenger B", 0x0417e80, 0x0417f00 },
-    { "Hol Horse Select / Winning B", 0x0417f00, 0x0417f80 },
-    { "Hol's Intro/Winpose Stuff+Boingo B", 0x0357980, 0x0357a00 },
+    { "Hol's Intro/Winpose Stuff+Boingo B", 0x0357980, 0x0357a00, 0x0D, 0x03 },
+    { "Hol Horse Vs / Super B", 0x0417e00, 0x0417e80, 0x0D, 0x04 },
+    { "Hol Horse Challenger B", 0x0417e80, 0x0417f00, 0x0D, 0x06 },
+    { "Hol Horse Select / Winning B", 0x0417f00, 0x0417f80, 0x0D, 0x05 },
 #ifdef USE_LARGE_PALETTES
     { "Hol Horse Burning B", 0x0357180, 0x0357280 },
 #else
-    { "Hol Horse Burning B (1/2)", 0x0357180, 0x0357200 },
-    { "Hol Horse Burning B (2/2)", 0x0357200, 0x0357280 },
+    { "Hol Horse Burning B (1/2)", 0x0357180, 0x0357200, 0x0D, 0x00 },
+    { "Hol Horse Burning B (2/2)", 0x0357200, 0x0357280, 0x0D, 0x00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Hol Horse Tech/Zap B", 0x0357480, 0x0357580 },
 #else
-    { "Hol Horse Tech/Zap B (1/2)", 0x0357480, 0x0357500 },
-    { "Hol Horse Tech/Zap B (2/2)", 0x0357500, 0x0357580 },
+    { "Hol Horse Tech/Zap B (1/2)", 0x0357480, 0x0357500, 0x0D, 0x00 },
+    { "Hol Horse Tech/Zap B (2/2)", 0x0357500, 0x0357580, 0x0D, 0x00 },
 #endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_C[] =
 {
-    { "Hol Horse C", 0x036b600, 0x036b680 },
+    { "Hol Horse C", 0x036b600, 0x036b680, 0x0D, 0x00 },
     { "Hol's Super Bullets C", 0x036bf56, 0x036bf60 },
     { "Hol's Slow-mo Bullet Trail 1 C", 0x036bfd6, 0x036bfe0 },
     { "Hol's Slow-mo Bullet Trail 2 C", 0x036c056, 0x036c060 },
-    { "Hol's Intro/Winpose Stuff+Boingo C", 0x036be80, 0x036bf00 },
-    { "Hol Horse Vs / Super C", 0x041cc00, 0x041cc80 },
-    { "Hol Horse Challenger C", 0x041cc80, 0x041cd00 },
-    { "Hol Horse Select / Winning C", 0x041cd00, 0x041cd80 },
+    { "Hol's Intro/Winpose Stuff+Boingo C", 0x036be80, 0x036bf00, 0x0D, 0x03 },
+    { "Hol Horse Vs / Super C", 0x041cc00, 0x041cc80, 0x0D, 0x04 },
+    { "Hol Horse Challenger C", 0x041cc80, 0x041cd00, 0x0D, 0x06 },
+    { "Hol Horse Select / Winning C", 0x041cd00, 0x041cd80, 0x0D, 0x05 },
 #ifdef USE_LARGE_PALETTES
     { "Hol Horse Burning C", 0x036b680, 0x036b780 },
 #else
-    { "Hol Horse Burning C (1/2)", 0x036b680, 0x036b700 },
-    { "Hol Horse Burning C (2/2)", 0x036b700, 0x036b780 },
+    { "Hol Horse Burning C (1/2)", 0x036b680, 0x036b700, 0x0D, 0x00 },
+    { "Hol Horse Burning C (2/2)", 0x036b700, 0x036b780, 0x0D, 0x00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Hol Horse Tech/Zap C", 0x036b980, 0x036ba80 },
 #else
-    { "Hol Horse Tech/Zap C (1/2)", 0x036b980, 0x036ba00 },
-    { "Hol Horse Tech/Zap C (2/2)", 0x036ba00, 0x036ba80 },
+    { "Hol Horse Tech/Zap C (1/2)", 0x036b980, 0x036ba00, 0x0D, 0x00 },
+    { "Hol Horse Tech/Zap C (2/2)", 0x036ba00, 0x036ba80, 0x0D, 0x00 },
 #endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
 {
-    { "Hol Horse S", 0x037fb00, 0x037fb80 },
+    { "Hol Horse S", 0x037fb00, 0x037fb80, 0x0D, 0x00 },
     { "Hol's Super Bullets S", 0x0380456, 0x0380460 },
     { "Hol's Slow-mo Bullet Trail 1 S", 0x03804d6, 0x03804e0 },
     { "Hol's Slow-mo Bullet Trail 2 S", 0x0380556, 0x0380560 },
-    { "Hol's Intro/Winpose Stuff+Boingo S", 0x0380380, 0x0380400 },
-    { "Hol Horse Vs / Super S", 0x0421a00, 0x0421a80 },
-    { "Hol Horse Challenger S", 0x0421a80, 0x0421b00 },
-    { "Hol Horse Select / Winning S", 0x0421b00, 0x0421b80 },
+    { "Hol's Intro/Winpose Stuff+Boingo S", 0x0380380, 0x0380400, 0x0D, 0x03 },
+    { "Hol Horse Vs / Super S", 0x0421a00, 0x0421a80, 0x0D, 0x04 },
+    { "Hol Horse Challenger S", 0x0421a80, 0x0421b00, 0x0D, 0x06 },
+    { "Hol Horse Select / Winning S", 0x0421b00, 0x0421b80, 0x0D, 0x05 },
 #ifdef USE_LARGE_PALETTES
     { "Hol Horse Burning S", 0x037fb80, 0x037fc80 },
 #else
-    { "Hol Horse Burning S (1/2)", 0x037fb80, 0x037fc00 },
-    { "Hol Horse Burning S (2/2)", 0x037fc00, 0x037fc80 },
+    { "Hol Horse Burning S (1/2)", 0x037fb80, 0x037fc00, 0x0D, 0x00 },
+    { "Hol Horse Burning S (2/2)", 0x037fc00, 0x037fc80, 0x0D, 0x00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Hol Horse Tech/Zap S", 0x037fe80, 0x037ff80 },
 #else
-    { "Hol Horse Tech/Zap S (1/2)", 0x037fe80, 0x037ff00 },
-    { "Hol Horse Tech/Zap S (2/2)", 0x037ff00, 0x037ff80 },
+    { "Hol Horse Tech/Zap S (1/2)", 0x037fe80, 0x037ff00, 0x0D, 0x00 },
+    { "Hol Horse Tech/Zap S (2/2)", 0x037ff00, 0x037ff80, 0x0D, 0x00 },
 #endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_Start[] =
 {
-    { "Hol Horse Start", 0x0394000, 0x0394080 },
+    { "Hol Horse Start", 0x0394000, 0x0394080, 0x0D, 0x00 },
     { "Hol's Super Bullets Start", 0x0394956, 0x0394960 },
     { "Hol's Slow-mo Bullet Trail 1 Start", 0x03949d6, 0x03949e0 },
     { "Hol's Slow-mo Bullet Trail 2 Start", 0x0394a56, 0x0394a60 },
-    { "Hol's Intro/Winpose Stuff+Boingo Start", 0x0394880, 0x0394900 },
-    { "Hol Horse Vs / Super Start", 0x0426800, 0x0426880 },
-    { "Hol Horse Challenger Start", 0x0426880, 0x0426900 },
-    { "Hol Horse Select / Winning Screen Start", 0x0426900, 0x0426980 },
+    { "Hol's Intro/Winpose Stuff+Boingo Start", 0x0394880, 0x0394900, 0x0D, 0x03 },
+    { "Hol Horse Vs / Super Start", 0x0426800, 0x0426880, 0x0D, 0x04 },
+    { "Hol Horse Challenger Start", 0x0426880, 0x0426900, 0x0D, 0x06 },
+    { "Hol Horse Select / Winning Screen Start", 0x0426900, 0x0426980, 0x0D, 0x05 },
 #ifdef USE_LARGE_PALETTES
     { "Hol Horse Burning Start", 0x0394080, 0x0394180 },
 #else
-    { "Hol Horse Burning Start (1/2)", 0x0394080, 0x0394100 },
-    { "Hol Horse Burning Start (2/2)", 0x0394100, 0x0394180 },
+    { "Hol Horse Burning Start (1/2)", 0x0394080, 0x0394100, 0x0D, 0x00 },
+    { "Hol Horse Burning Start (2/2)", 0x0394100, 0x0394180, 0x0D, 0x00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Hol Horse Tech/Zap Start", 0x0394380, 0x0394480 },
 #else
-    { "Hol Horse Tech/Zap Start (1/2)", 0x0394380, 0x0394400 },
-    { "Hol Horse Tech/Zap Start (2/2)", 0x0394400, 0x0394480 },
+    { "Hol Horse Tech/Zap Start (1/2)", 0x0394380, 0x0394400, 0x0D, 0x00 },
+    { "Hol Horse Tech/Zap Start (2/2)", 0x0394400, 0x0394480, 0x0D, 0x00 },
 #endif
 };
 

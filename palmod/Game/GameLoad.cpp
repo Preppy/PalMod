@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "GameLoad.h"
 
+#include "Game_COTA_A.h"
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
 #include "Game_SFIII3_A.h"
@@ -35,6 +36,7 @@ CGameLoad::~CGameLoad(void)
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50);
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);
     safe_delete_array(CGame_XMVSF_A::XMVSF_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_COTA_A::COTA_A_EXTRA_CUSTOM);
 }
 
 BOOL CGameLoad::SetGame(int nGameFlag)
@@ -113,9 +115,14 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_MSHVSF_A::GetRule;
         return TRUE;
     }
+    case COTA_A:
+    {
+        GetRule = &CGame_COTA_A::GetRule;
+        return TRUE;
+    }
 
     default:
-        OutputDebugString("BUGBUG: This game has not been added properly yet!\n");
+        OutputDebugString("CGameLoad::SetGame:: BUGBUG: This game has not been added properly yet!\n");
         return FALSE;
         break;
     }
@@ -175,8 +182,12 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
     {
         return new CGame_MSHVSF_A(nExtraGameData);
     }
+    case COTA_A:
+    {
+        return new CGame_COTA_A();
+    }
     default:
-        OutputDebugString("BUGBUG: New game has not been properly added yet.\n");
+        OutputDebugString("CGameLoad::CreateGame:: BUGBUG: New game has not been properly added yet.\n");
         return NULL;
     }
 }

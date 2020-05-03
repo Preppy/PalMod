@@ -73,6 +73,9 @@
     <Filter Include="Game\MSHVSF_A">
       <UniqueIdentifier>{4fda55b1-13e7-4349-a09e-04889d545d63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\COTA_A">
+      <UniqueIdentifier>{b76bf8de-0eee-4bdb-be3c-3591a888af28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -200,6 +203,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_MSHVSF_A.cpp">
       <Filter>Game\MSHVSF_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_COTA_A.cpp">
+      <Filter>Game\COTA_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -349,6 +355,12 @@
     </ClInclude>
     <ClInclude Include="Game\MSHVSF_A_DEF.h">
       <Filter>Game\MSHVSF_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\COTA_A_DEF.h">
+      <Filter>Game\COTA_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_COTA_A.h">
+      <Filter>Game\COTA_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

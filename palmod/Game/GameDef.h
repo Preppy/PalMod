@@ -18,7 +18,8 @@ constexpr auto SFIII3_D = 7;
 constexpr auto JOJOS_A = 8;
 constexpr auto MSH_A = 9;
 constexpr auto MSHVSF_A = 10;
-constexpr auto NUM_GAMES = 11;
+constexpr auto COTA_A = 11;
+constexpr auto NUM_GAMES = 12;
 
 const CHAR g_GameFriendlyName[NUM_GAMES][32] =
 {
@@ -32,7 +33,8 @@ const CHAR g_GameFriendlyName[NUM_GAMES][32] =
     "SFIII3 (Dreamcast)",
     "Jojo's",
     "MSH (Arcade)",
-    "MSHVSF (Arcade)"
+    "MSHVSF (Arcade)",
+    "X-Men (Arcade)"
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -59,33 +61,6 @@ constexpr auto XMVSF_A_NUM_IMG_UNITS = 18;
 constexpr auto MVC_A_NUM_IMG_UNITS = 32;
 constexpr auto MSH_A_NUM_IMG_UNITS = 11;
 constexpr auto MSHVSF_A_NUM_IMG_UNITS = 23;
-
-constexpr auto JOJOS_A_NUM_IMG_UNITS = 3;
-
-enum eIMGDat_Sections
-{
-    IMGDAT_SECTION_JOJOS = 0,
-    IMG4,              //Image Game Flag.  Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
-    IMGDAT_SECTION_3S, //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
-    IMGDAT_SECTION_ST  //Image Game Flag.  Used for ST.
-};
-
-// IMG4 ranges:
-//  * MVC2: 0x3b character units
-//  * SFA3: 0x11 character units
-//  * XMVSF: 0x1 character unit (Apocalypse)
-//  * MvC: 0x1 character unit (Onslaught)
-
-//  * SSF2T: 0x11 character units
-
-// Aggregate count of image units per game flag
-const int IMGAMT[4] =
-{
-    JOJOS_A_NUM_IMG_UNITS,
-    MVC2_D_NUM_IMG_UNITS + MVC_A_UNIQUE_IMG_UNITS + SFA3_A_NUM_IMG_UNITS + XMVSF_A_UNIQUE_IMG_UNITS + MSH_A_UNIQUE_IMG_UNITS + MSHVSF_A_UNIQUE_IMG_UNITS,
-    SFIII3_A_NUM_IMG_UNITS,
-    SSF2T_A_NUM_IMG_UNITS
-};
 
 //Display types (used for image out)
 enum eDispType
@@ -430,10 +405,58 @@ const UINT8 MSHVSF_A_IMG_UNITS[MSHVSF_A_NUM_IMG_UNITS] =
     0x53, // Norimaro
 };
 
-const UINT8 JOJOS_A_IMG_UNITS[JOJOS_A_NUM_IMG_UNITS] =
+const UINT8 COTA_A_IMG_UNITS[] =
+{
+    0x06, // Cyclops
+    0x07, // Wolverine
+    0x08, // Psylocke
+    0x09, // Iceman
+    0x1E, // Gouki
+    0x29, // Juggernaut
+    0x2A, // Storm
+    0x2B, // Sabretooth
+    0x2C, // Magneto
+    0x2F, // Silver Samurai
+    0x30, // Omega Red
+    0x31, // Spiral
+    0x32, // Colossus
+    0x34, // Sentinel
+    // 0x27, // Ken dragon punch sprite for Akuma?
+};
+
+const int COTA_A_NUM_IMG_UNITS = ARRAYSIZE(COTA_A_IMG_UNITS);
+
+const UINT8 JOJOS_A_IMG_UNITS[] =
 {
     0x00, // Jotaro
     0x01, // Kakyo
     0x03, // Pol
+    0x0D, // Hol
 };
 
+const int JOJOS_A_NUM_IMG_UNITS = ARRAYSIZE(JOJOS_A_IMG_UNITS);
+
+enum eIMGDat_Sections
+{
+    IMGDAT_SECTION_JOJOS = 0,
+    IMG4,              //Image Game Flag.  Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
+    IMGDAT_SECTION_3S, //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
+    IMGDAT_SECTION_ST  //Image Game Flag.  Used for ST.
+};
+
+// IMG4 ranges:
+//  * MVC2: 0x3b character units
+//  * SFA3: 0x11 character units
+//  * XMVSF: 0x1 character unit (Apocalypse)
+//  * MvC: 0x1 character unit (Onslaught)
+
+//  * SSF2T: 0x11 character units
+
+// Aggregate count of image units per game flag
+const int IMGAMT[4] =
+{
+    JOJOS_A_NUM_IMG_UNITS,
+    MVC2_D_NUM_IMG_UNITS + MVC_A_UNIQUE_IMG_UNITS + SFA3_A_NUM_IMG_UNITS + XMVSF_A_UNIQUE_IMG_UNITS + MSH_A_UNIQUE_IMG_UNITS + MSHVSF_A_UNIQUE_IMG_UNITS,
+    SFIII3_A_NUM_IMG_UNITS,
+    SSF2T_A_NUM_IMG_UNITS
+};

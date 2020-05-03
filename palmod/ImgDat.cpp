@@ -96,7 +96,8 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
     JOJOS_A = 8;
     MSH_A = 9;
     MSHVSF_A = 10;
-    NUM_GAMES = 11;
+    MSHVSF_A = 11;
+    NUM_GAMES = 12;
     */
     for (UINT16 nUnitCtr = 0; nUnitCtr < nCurGameUnitAmt; nUnitCtr++)
     {
@@ -200,6 +201,15 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
                 nImgMap->insert({ MSHVSF_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
                 break;
             }
+            case COTA_A:
+            {
+#if IMGDAT_DEBUG
+                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", COTA_A_IMG_UNITS[nUnitCtr]);
+                OutputDebugString(strDebugInfo);
+#endif
+                nImgMap->insert({ COTA_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+                break;
+            }
             default:
                 return NULL;
                 break;
@@ -249,6 +259,15 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
             strDebugInfo.Format("CImgDat::GetImageDef : Could not find imgID:0x%02X in list for unitID:0x%02X\n", uImgId, uUnitId);
             OutputDebugString(strDebugInfo);
 #endif
+        }
+        else
+        {
+            if (uUnitId != INVALID_UNIT_VALUE)
+            {
+                CString strWarning;
+                strWarning.Format("\n    **************\nCImgDat::GetImageDef : WARNING: UnitId 0x%02x was not found in the image map for this game.  Did you forget to update gamedef.h?\n    **************\n", uUnitId);
+                OutputDebugString(strWarning);
+            }
         }
     }
 
