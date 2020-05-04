@@ -12,60 +12,6 @@ CDescTree CGame_COTA_A::MainDescTree = CGame_COTA_A::InitDescTree();
 
 UINT32 CGame_COTA_A::m_nTotalPaletteCountForCOTA = 0;
 
-int CGame_COTA_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
-{
-    static int rgExtraCountAll[COTA_A_NUMUNIT + 1] = { -1 };
-
-    if (rgExtraCountAll[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, (COTA_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForCOTA(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
-            {
-                rgExtraCountAll[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForCOTA(nDefCtr);
-        }
-    }
-
-    return rgExtraCountAll[nUnitId];
-}
-
-int CGame_COTA_A::GetExtraLoc(UINT16 nUnitId)
-{
-    static int rgExtraLoc[COTA_A_NUMUNIT + 1] = { -1 };
-
-    if (rgExtraLoc[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (COTA_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef * pCurrDef = GetExtraDefForCOTA(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForCOTA(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc[nUnitId];
-}
-
 CGame_COTA_A::CGame_COTA_A()
 {
     CString strMessage;
@@ -124,6 +70,60 @@ CGame_COTA_A::~CGame_COTA_A(void)
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
+}
+
+int CGame_COTA_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+{
+    static int rgExtraCountAll[COTA_A_NUMUNIT + 1] = { -1 };
+
+    if (rgExtraCountAll[0] == -1)
+    {
+        int nDefCtr = 0;
+        memset(rgExtraCountAll, 0, (COTA_A_NUMUNIT + 1) * sizeof(int));
+
+        stExtraDef* pCurrDef = GetExtraDefForCOTA(0);
+
+        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+        {
+            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
+            {
+                rgExtraCountAll[pCurrDef->uUnitN]++;
+            }
+
+            nDefCtr++;
+            pCurrDef = GetExtraDefForCOTA(nDefCtr);
+        }
+    }
+
+    return rgExtraCountAll[nUnitId];
+}
+
+int CGame_COTA_A::GetExtraLoc(UINT16 nUnitId)
+{
+    static int rgExtraLoc[COTA_A_NUMUNIT + 1] = { -1 };
+
+    if (rgExtraLoc[0] == -1)
+    {
+        int nDefCtr = 0;
+        int nCurrUnit = UNIT_START_VALUE;
+        memset(rgExtraLoc, 0, (COTA_A_NUMUNIT + 1) * sizeof(int));
+
+        stExtraDef* pCurrDef = GetExtraDefForCOTA(0);
+
+        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+        {
+            if (pCurrDef->uUnitN != nCurrUnit)
+            {
+                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
+                nCurrUnit = pCurrDef->uUnitN;
+            }
+
+            nDefCtr++;
+            pCurrDef = GetExtraDefForCOTA(nDefCtr);
+        }
+    }
+
+    return rgExtraLoc[nUnitId];
 }
 
 CDescTree* CGame_COTA_A::GetMainTree()

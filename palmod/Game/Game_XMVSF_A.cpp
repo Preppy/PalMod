@@ -14,15 +14,16 @@ UINT32 CGame_XMVSF_A::m_nTotalPaletteCountForXMVSF = 0;
 CGame_XMVSF_A::CGame_XMVSF_A(void)
 {
     //We need the proper unit amt before we init the main buffer
-    nUnitAmt = XMVSF_A_NUMUNIT + (GetExtraCt(XMVSF_A_EXTRALOC) ? 1 : 0);
 
     m_nTotalInternalUnits = XMVSF_A_NUMUNIT;
     m_nExtraUnit = XMVSF_A_EXTRALOC;
-    m_nSafeCountForThisRom = 211 + GetExtraCt(XMVSF_A_EXTRALOC);
+    m_nSafeCountForThisRom = 211 + GetExtraCt(m_nExtraUnit);
     m_pszExtraFilename = EXTRA_FILENAME_XMVSF;
     m_nTotalPaletteCount = m_nTotalPaletteCountForXMVSF;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     m_nLowestKnownPaletteRomLocation = 0x14000;
+
+    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
@@ -127,6 +128,7 @@ int CGame_XMVSF_A::GetExtraLoc(UINT16 nUnitId)
 
     return rgExtraLoc[nUnitId];
 }
+
 CDescTree* CGame_XMVSF_A::GetMainTree()
 {
     return &CGame_XMVSF_A::MainDescTree;
@@ -205,9 +207,9 @@ CDescTree CGame_XMVSF_A::InitDescTree()
                 OutputDebugString(strMsg);
 #endif
 
-                const sXMVSF_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
+                const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
 
-                //Set each collection's extra nodes: convert the sXMVSF_PaletteDataset to sDescTreeNodes
+                //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
                 for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
@@ -219,12 +221,13 @@ CDescTree CGame_XMVSF_A::InitDescTree()
                     nTotalPaletteCount++;
 
 #if XMVSF_DEBUG
+
                     strMsg.Format("\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(", 0x%06x to 0x%06x (%u colors)", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffset + paletteSetToUse[nNodeIndex].nPaletteLength, paletteSetToUse[nNodeIndex].nPaletteLength);
+                    strMsg.Format(", 0x%06x to 0x%06x", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
                     OutputDebugString(strMsg);
 
-                    if (paletteSetToUse[nNodeIndex].indexImgToUse != 0xFF)
+                    if (paletteSetToUse[nNodeIndex].indexImgToUse != 0xFFFF)
                     {
                         strMsg.Format(", image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
@@ -386,11 +389,11 @@ UINT16 CGame_XMVSF_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sXMVSF_PaletteDataset* CGame_XMVSF_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_XMVSF_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)XMVSF_A_UNITS[nUnitId].ChildNodes;
-    return ((sXMVSF_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
 const sDescTreeNode* CGame_XMVSF_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
@@ -398,12 +401,12 @@ const sDescTreeNode* CGame_XMVSF_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sXMVSF_PaletteDataset* paletteSetToUse = nullptr;
+    const sGame_PaletteDataset* paletteSetToUse = nullptr;
     int nDistanceFromZero = nPaletteId;
 
     for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
-        const sXMVSF_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
         if (nUnitId == XMVSF_A_EXTRALOC)
@@ -444,16 +447,16 @@ const sDescTreeNode* CGame_XMVSF_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
     return pCollectionNode;
 }
 
-const sXMVSF_PaletteDataset* CGame_XMVSF_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_XMVSF_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sXMVSF_PaletteDataset* paletteToUse = nullptr;
+    const sGame_PaletteDataset* paletteToUse = nullptr;
     int nDistanceFromZero = nPaletteId;
 
     for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
-        const sXMVSF_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
+        const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
 
         if (nDistanceFromZero < nNodeCount)
@@ -506,10 +509,10 @@ void CGame_XMVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     {
         int cbPaletteSizeOnDisc = 0;
 
-        const sXMVSF_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
+        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
 
         nCurrPalOffs = paletteData->nPaletteOffset;
-        nCurrPalSz = paletteData->nPaletteLength;
+        nCurrPalSz = paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset;
     }
     else // XMVSF_A_EXTRALOC
     {
@@ -671,7 +674,7 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     // external loads to internal sprites.
     if (XMVSF_A_EXTRALOC != NodeGet->uUnitId)
     {
-        const sXMVSF_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
         if (paletteDataSet)
         {
@@ -701,7 +704,7 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->isJoinedPalette)
             {
-                const sXMVSF_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
+                const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
 
                 if (paletteDataSetToJoin)
                 {

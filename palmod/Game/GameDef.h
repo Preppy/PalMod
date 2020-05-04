@@ -57,7 +57,6 @@ constexpr auto MVC2_D_NUM_IMG_UNITS = 59;
 constexpr auto SSF2T_A_NUM_IMG_UNITS = 17;
 constexpr auto SFIII3_A_NUM_IMG_UNITS = 20;
 constexpr auto SFA3_A_NUM_IMG_UNITS = 28;
-constexpr auto XMVSF_A_NUM_IMG_UNITS = 18;
 constexpr auto MVC_A_NUM_IMG_UNITS = 32;
 constexpr auto MSH_A_NUM_IMG_UNITS = 11;
 
@@ -299,7 +298,7 @@ const UINT8 SFA3_A_IMG_UNITS[SFA3_A_NUM_IMG_UNITS] =
     0x4D  // Juli
 };
 
-const UINT8 XMVSF_A_IMG_UNITS[XMVSF_A_NUM_IMG_UNITS] =
+const UINT8 XMVSF_A_IMG_UNITS[] =
 {
     0x00, // Ryu
     0x01, // Zangief
@@ -320,6 +319,8 @@ const UINT8 XMVSF_A_IMG_UNITS[XMVSF_A_NUM_IMG_UNITS] =
     0x2C, // Magneto
     0x4F  // Apocalypse
 };
+
+constexpr auto XMVSF_A_NUM_IMG_UNITS = ARRAYSIZE(XMVSF_A_IMG_UNITS);
 
 const UINT8 MVC_A_IMG_UNITS[MVC_A_NUM_IMG_UNITS] =
 {
