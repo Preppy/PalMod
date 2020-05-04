@@ -60,7 +60,6 @@ constexpr auto SFA3_A_NUM_IMG_UNITS = 28;
 constexpr auto XMVSF_A_NUM_IMG_UNITS = 18;
 constexpr auto MVC_A_NUM_IMG_UNITS = 32;
 constexpr auto MSH_A_NUM_IMG_UNITS = 11;
-constexpr auto MSHVSF_A_NUM_IMG_UNITS = 23;
 
 //Display types (used for image out)
 enum eDispType
@@ -379,29 +378,104 @@ const UINT8 MSH_A_IMG_UNITS[MSH_A_NUM_IMG_UNITS] =
     //indexMSHAnita = 0,
 };
 
-const UINT8 MSHVSF_A_IMG_UNITS[MSHVSF_A_NUM_IMG_UNITS] =
+enum CHARACTERS_CPS2
 {
-    0x00, // Ryu
-    0x01, // Zangief & Mech Zangief
-    0x06, // Cyclops
-    0x07, // Wolverine
-    0x0B, // Captain America & U.S Agent
-    0x0C, // Spider-Man & Armored Spider-Man
-    0x0D, // Hulk
-    0x1E, // Gouki
-    0x1B, // Chun-Li
-    0x21, // Shadow
-    0x22, // Sakura
-    0x23, // Dan
-    0x25, // Dhalsim
-    0x26, // M. Bison
-    0x27, // Ken
-    0x2D, // Shuma-Gorath
-    0x30, // Omega Red
-    0x35, // Blackheart & Mephisto
-    0x4F, // Apocalypse
-    0x54, // Cyber Gouki
-    0x53, // Norimaro
+    indexCPS2_Ryu, // 0x00, // Ryu
+    indexCPS2_Zangief, // 0x01, // Zangief
+    indexCPS2_Guile, // 0x02, // Guile
+    indexCPS2_Morrigan, // 0x03, // Morrigan
+    indexCPS2_Anakaris, // 0x04, // Anakaris
+    indexCPS2_Strider, // 0x05, // Strider Hiryu
+    indexCPS2_Cyclops, // 0x06, // Cyclops
+    indexCPS2_Wolverine, // 0x07, // Wolverine
+    indexCPS2_Psylocke, // 0x08, // Psylocke
+    indexCPS2_Iceman, // 0x09, // Iceman
+    indexCPS2_Rogue, // 0x0A, // Rogue
+    indexCPS2_CapAm, // 0x0B, // Captain America
+    indexCPS2_Spidey, // 0x0C, // Spider-Man
+    indexCPS2_Hulk, // 0x0D, // Hulk,
+    indexCPS2_Venom, // 0x0E, // Venom
+    indexCPS2_DrDoom, // 0x0F, // Dr. Doom
+    indexCPS2_Tron, // 0x10, // Tron Bonne
+    indexCPS2_Jill, // 0x11, // Jill Valentine
+    indexCPS2_Hayato, // 0x12, // Hayato
+    indexCPS2_Ruby, // 0x13, // Ruby Heart
+    indexCPS2_SonSon, // 0x14, // SonSon
+    indexCPS2_Amingo, // 0x15, // Amingo
+    indexCPS2_Marrow, // 0x16, // Marrow
+    indexCPS2_Cable, // 0x17, // Cable
+    indexCPS2_Abyss1, // 0x18, // Abyss (Form 1)
+    indexCPS2_Abyss2, // 0x19, // Abyss (Form 2)
+    indexCPS2_Abyss3, // 0x1A, // Abyss (Form 3)
+    indexCPS2_ChunLi, // 0x1B, // Chun-Li
+    indexCPS2_Megaman, // 0x1C, // Megaman
+    indexCPS2_Roll, // 0x1D, // Roll
+    indexCPS2_Akuma, // 0x1E, // Gouki
+    indexCPS2_BBHood, // 0x1F, // B.B. Hood
+    indexCPS2_Felicia, // 0x20, // Felicia
+    indexCPS2_Charlie, // 0x21, // Charlie
+    indexCPS2_Sakura, // 0x22, // Sakura
+    indexCPS2_Dan, // 0x23, // Dan
+    indexCPS2_Cammy, // 0x24, // Cammy
+    indexCPS2_Dhalsim, // 0x25, // Dhalsim
+    indexCPS2_Bison, // 0x26, // M.Bison
+    indexCPS2_Ken, // 0x27, // Ken
+    indexCPS2_Gambit, // 0x28, // Gambit
+    indexCPS2_Juggy, // 0x29, // Juggernaut
+    indexCPS2_Storm, // 0x2A, // Storm
+    indexCPS2_Sabretooth, // 0x2B, // Sabretooth
+    indexCPS2_Magneto, // 0x2C, // Magneto
+    indexCPS2_Shuma, // 0x2D, // Shuma-Gorath
+    indexCPS2_WarMachine, // 0x2E, // War Machine
+    indexCPS2_SilverSamurai, // 0x2F, // Silver Samurai
+    indexCPS2_OmegaRed, // 0x30, // Omega Red
+    indexCPS2_Spiral, // 0x31, // Spiral
+    indexCPS2_Colossus, // 0x32, // Colossus
+    indexCPS2_IronMan, // 0x33, // Iron Man
+    indexCPS2_Sentinel, // 0x34, // Sentinel
+    indexCPS2_Blackheart, // 0x35, // Blackheart
+    indexCPS2_Thanos, // 0x36, // Thanos
+    indexCPS2_Jin, // 0x37, // Jin
+    indexCPS2_CapCom, // 0x38, // Captain Commando
+    indexCPS2_Bonerine, // 0x39, // Bonerine
+    indexCPS2_Kobun, // 0x3A  // Kobun
+    indexCPS2_Apocalypse = 0x4F, // Apocalypse
+    indexCPS2_Norimaro = 0x53, // Norimaro
+    indexCPS2_CyberAkuma = 0x54, // Cyber Gouki
+};
+
+const UINT8 MSHVSF_A_IMG_UNITS[] =
+{
+    indexCPS2_Ryu,
+    indexCPS2_Zangief,
+    indexCPS2_Cyclops,
+    indexCPS2_Wolverine,
+    indexCPS2_CapAm,
+    indexCPS2_Spidey,
+    indexCPS2_Hulk,
+    indexCPS2_Akuma,
+    indexCPS2_ChunLi,
+    indexCPS2_Charlie,
+    indexCPS2_Sakura,
+    indexCPS2_Dan,
+    indexCPS2_Dhalsim,
+    indexCPS2_Bison,
+    indexCPS2_Ken,
+    indexCPS2_Shuma,
+    indexCPS2_OmegaRed,
+    indexCPS2_Blackheart,
+    indexCPS2_Apocalypse,
+    indexCPS2_CyberAkuma,
+    indexCPS2_Norimaro,
+};
+
+constexpr auto MSHVSF_A_NUM_IMG_UNITS = ARRAYSIZE(MSHVSF_A_IMG_UNITS);
+
+enum MSHVSF_SPRITES
+{
+    indexMSHVSF_CSI = 0x30,
+    indexMSHVSF_SSP,
+    indexMSHVSF_VSP
 };
 
 const UINT8 COTA_A_IMG_UNITS[] =
@@ -425,12 +499,73 @@ const UINT8 COTA_A_IMG_UNITS[] =
 
 const int COTA_A_NUM_IMG_UNITS = ARRAYSIZE(COTA_A_IMG_UNITS);
 
+enum JOJOS_51_CHARACTERS
+{
+    indexJojos51Jotaro = 0,
+    indexJojos51Kakyo,
+    indexJojos51Avdol,
+    indexJojos51Pol,
+    indexJojos51Joseph,
+    indexJojos51Iggy,
+    indexJojos51Alessi,
+    indexJojos51Chaka,
+    indexJojos51Devo,
+    indexJojos51Midler,
+    indexJojos51Dio,    // 0x0a
+    indexJojos51SDio, 
+    indexJojos51YSeph,
+    indexJojos51Hol,
+    indexJojos51VIce,
+    indexJojos51NewKakyo,
+    indexJojos51Anubis, // 0x10
+    indexJojos51Petshop,
+    indexJojos51Mariah,
+    indexJojos51HolBoingo,
+    indexJojos51RSoul,
+    indexJojos51Khan,
+    indexJojos51NDoul,
+    indexJojos51BIce,
+    indexJojos51Death13, // 0x18
+};
+
+enum JOJOS_51_CHARACTER_PALETTES
+{
+    indexJojos51Character_Main = 0,
+    // 1 and 2 are reserved for character specific nonsense
+    indexJojos51Character_VsSuper = 3,
+    indexJojos51Character_Challenger, // 4
+    indexJojos51Character_SelectWin1,
+    indexJojos51Character_SelectWin2,
+    indexJojos51Character_BurnZap,
+};
+
 const UINT8 JOJOS_A_IMG_UNITS[] =
 {
-    0x00, // Jotaro
-    0x01, // Kakyo
-    0x03, // Pol
-    0x0D, // Hol
+    indexJojos51Jotaro,
+    indexJojos51Kakyo,
+    indexJojos51Avdol,
+    indexJojos51Pol,
+    indexJojos51Joseph,
+    indexJojos51Iggy,
+    indexJojos51Alessi,
+    indexJojos51Chaka,
+    indexJojos51Devo,
+    indexJojos51Midler,
+    indexJojos51Dio,    // 0x0a
+    indexJojos51SDio,
+    indexJojos51YSeph,
+    indexJojos51Hol,
+    indexJojos51VIce,
+    indexJojos51NewKakyo,
+    indexJojos51Anubis, // 0x10
+    indexJojos51Petshop,
+    indexJojos51Mariah,
+    indexJojos51HolBoingo,
+    indexJojos51RSoul,
+    indexJojos51Khan,
+    indexJojos51NDoul,
+    indexJojos51BIce,
+    indexJojos51Death13, // 0x18
 };
 
 const int JOJOS_A_NUM_IMG_UNITS = ARRAYSIZE(JOJOS_A_IMG_UNITS);

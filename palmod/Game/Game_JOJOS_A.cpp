@@ -971,25 +971,26 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     int nPaletteOneDelta = 0;
                     int nPaletteTwoDelta = 0;
 
-                    if (NodeGet->uUnitId == 0x00) // Jotaro
+                    if ((NodeGet->uUnitId == indexJojos51Jotaro) || // Jotaro
+                        (NodeGet->uUnitId == indexJojos51Iggy))
                     {
-                        if (nTargetImgId == 5) // winning 1
+                        if (nTargetImgId == indexJojos51Character_SelectWin1) // winning 1
                         {
                             nPaletteOneDelta = 0;
                             nPaletteTwoDelta = 1;
                             fUseDefaultPaletteLoad = false;
 
                         }
-                        else if (nTargetImgId == 6) // winning 2
+                        else if (nTargetImgId == indexJojos51Character_SelectWin2) // winning 2
                         {
                             nPaletteOneDelta = 0;
                             nPaletteTwoDelta = -1;
                             fUseDefaultPaletteLoad = false;
                         }
                     }
-                    else if (NodeGet->uUnitId == 0x01) // Kakyo
+                    else if (NodeGet->uUnitId == indexJojos51Kakyo) // Kakyo
                     {
-                        if (nSrcStart == 0)
+                        if (nSrcStart == indexJojos51Character_Main)
                         {
                             // BUGBUG: There's actually a Hiero we should use in the 00 palette, but
                             // we need a new sprite for that to work.  Once we have that we should undo this join.
@@ -1005,7 +1006,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             fUseDefaultPaletteLoad = false;
                         }
                     }
-                    else if (NodeGet->uUnitId == 0x03) // Pol
+                    else if (NodeGet->uUnitId == indexJojos51Pol) // Pol : uses an older numbering system.
                     {
                         if (nTargetImgId == 4) // winning 1
                         {
