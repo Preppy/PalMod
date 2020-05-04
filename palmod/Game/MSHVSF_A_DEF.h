@@ -129,15 +129,15 @@ const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_CYBER_GOUKI_PALETTES_P1COLOR_PUNCH[] =
 {
-    { "P1 Color (Punch)", 0x72ECE, 0x72EEE, 0x1E },
-    { "P1 Hadouken 1 Tatsu Flames", 0x72EEE, 0x72F0E, 0x1E, 1 },
-    { "P1 Machinery, Hadouken 2", 0x72F0E, 0x72F2E },
+    { "P1 Color (Punch)", 0x72ECE, 0x72EEE, indexCPS2_Akuma, 0, true },
+    { "P1 Machinery, Hadouken 2", 0x72F0E, 0x72F2E, indexCPS2_CyberAkuma, 0 },
+    { "P1 Hadouken 1 Tatsu Flames", 0x72EEE, 0x72F0E, indexCPS2_Akuma, 1 },
 };
 const sGame_PaletteDataset MSHVSF_A_CYBER_GOUKI_PALETTES_P2COLOR_KICK[] =
 {
-    { "P2 Color (Kick)", 0x72F2E, 0x72F4E, 0x1E },
-    { "P2 Hadouken 1 Tatsu Flames", 0x72F4E, 0x72F6E, 0x1E, 1 },
-    { "P2 Machinery, Hadouken 2", 0x72F6E, 0x72F8E },
+    { "P2 Color (Kick)", 0x72F2E, 0x72F4E, indexCPS2_Akuma, 0, true },
+    { "P2 Machinery, Hadouken 2", 0x72F6E, 0x72F8E, indexCPS2_CyberAkuma, 0 },
+    { "P2 Hadouken 1 Tatsu Flames", 0x72F4E, 0x72F6E, indexCPS2_Akuma, 1 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYCLOPS_PALETTES_P1COLOR_PUNCH[] =
