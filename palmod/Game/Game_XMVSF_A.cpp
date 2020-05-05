@@ -13,11 +13,12 @@ UINT32 CGame_XMVSF_A::m_nTotalPaletteCountForXMVSF = 0;
 
 CGame_XMVSF_A::CGame_XMVSF_A(void)
 {
-    //We need the proper unit amt before we init the main buffer
+    OutputDebugString("CGame_XMVSF_A::CGame_XMVSF_A: Loading ROM\n");
 
+    //We need the proper unit amt before we init the main buffer
     m_nTotalInternalUnits = XMVSF_A_NUMUNIT;
     m_nExtraUnit = XMVSF_A_EXTRALOC;
-    m_nSafeCountForThisRom = 211 + GetExtraCt(m_nExtraUnit);
+    m_nSafeCountForThisRom = 209 + GetExtraCt(m_nExtraUnit);
     m_pszExtraFilename = EXTRA_FILENAME_XMVSF;
     m_nTotalPaletteCount = m_nTotalPaletteCountForXMVSF;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -69,28 +70,19 @@ CGame_XMVSF_A::~CGame_XMVSF_A(void)
 int CGame_XMVSF_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     static int rgExtraCountAll[XMVSF_A_NUMUNIT + 1] = { -1 };
-    static int rgExtraCountVisibleOnly[XMVSF_A_NUMUNIT + 1] = { -1 };
 
-    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
-
-    static bool s_isInitialized = false;
-
-    if (!s_isInitialized)
+    if (rgExtraCountAll[0] == -1)
     {
-        s_isInitialized = true;
-
         int nDefCtr = 0;
-        memset(rgExtraCt, 0, (XMVSF_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraCountAll, 0, (XMVSF_A_NUMUNIT + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetExtraDefForXMVSF(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
-            rgExtraCountAll[pCurrDef->uUnitN]++;
-
-            if (!pCurrDef->isInvisible)
+            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
             {
-                rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
+                rgExtraCountAll[pCurrDef->uUnitN]++;
             }
 
             nDefCtr++;
@@ -98,7 +90,7 @@ int CGame_XMVSF_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
         }
     }
 
-    return rgExtraCt[nUnitId];
+    return rgExtraCountAll[nUnitId];
 }
 
 int CGame_XMVSF_A::GetExtraLoc(UINT16 nUnitId)
@@ -158,7 +150,7 @@ CDescTree CGame_XMVSF_A::InitDescTree()
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (int iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
         sDescTreeNode* CollectionNode = nullptr;
@@ -173,7 +165,7 @@ CDescTree CGame_XMVSF_A::InitDescTree()
         
         if (iUnitCtr < XMVSF_A_EXTRALOC)
         {
-            //Set each character name
+            //Set each description
             sprintf(UnitNode->szDesc, "%s", XMVSF_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
@@ -224,10 +216,10 @@ CDescTree CGame_XMVSF_A::InitDescTree()
 
                     strMsg.Format("\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(", 0x%06x to 0x%06x", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
+                    strMsg.Format(", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
-                    if (paletteSetToUse[nNodeIndex].indexImgToUse != 0xFFFF)
+                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
                         strMsg.Format(", image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
@@ -489,10 +481,7 @@ void CGame_XMVSF_A::ClearDataBuffer()
 
                 for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
-                    if (pppDataBuffer[nUnitCtr][nPalCtr])
-                    {
-                        safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
-                    }
+                    safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
 
                 safe_delete_array(pppDataBuffer[nUnitCtr]);
@@ -511,8 +500,13 @@ void CGame_XMVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
 
-        nCurrPalOffs = paletteData->nPaletteOffset;
-        nCurrPalSz = paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset;
+        if (paletteData)
+        {
+            cbPaletteSizeOnDisc = max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
+
+            nCurrPalOffs = paletteData->nPaletteOffset;
+            nCurrPalSz = cbPaletteSizeOnDisc / 2;
+        }
     }
     else // XMVSF_A_EXTRALOC
     {
@@ -649,13 +643,10 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
-    if (NodeGet == NULL)
+    if (NodeGet == nullptr)
     {
         return FALSE;
     }
-
-    UINT16 uUnitId = NodeGet->uUnitId;
-    UINT16 uPalId = NodeGet->uPalId;
 
     // Default values for multisprite image display for Export
     int nSrcStart = 0;
@@ -750,11 +741,27 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         CreateDefPal(NodeGet, 0);
 
-        SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
     }
 
     return TRUE;
 }
+
+// Warning: This is used for hybrid palettes.  I don't actually see that logic used anywhere.
+// Note that this logic requires the XMVSF_A_UNITLOC sort to match XMVSF_A_UNITS or bad things will happen.
+int CGame_XMVSF_A::GetLocalAmt(UINT16 nUnitId)
+{
+    if (nUnitId < XMVSF_A_NUMUNIT)
+    {
+        return (XMVSF_A_UNITLOC[nUnitId + 1] - XMVSF_A_UNITLOC[nUnitId]) / 0x20;
+    }
+    else
+    {
+        // Extras.
+        return INVALID_UNIT_VALUE;
+    }
+}
+
 
 COLORREF* CGame_XMVSF_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {

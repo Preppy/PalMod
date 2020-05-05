@@ -51,7 +51,7 @@ public:
 
     // Warning: This is used for hybrid palettes.  I don't actually see that logic used anywhere.
     // Note that this logic requires the XMVSF_A_UNITLOC sort to match XMVSF_A_UNITS or bad things will happen.
-    int GetLocalAmt(UINT16 nUnitId) { return (XMVSF_A_UNITLOC[nUnitId + 1] - XMVSF_A_UNITLOC[nUnitId]) / 0x20; };
+    int GetLocalAmt(UINT16 nUnitId);
 
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 

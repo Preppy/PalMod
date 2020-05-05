@@ -535,7 +535,7 @@ BOOL CGame_COTA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        int nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
@@ -728,7 +728,7 @@ COLORREF* CGame_COTA_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     COLORREF* NewPal = new COLORREF[nCurrPalSz];
 
-    for (int i = 0; i < nCurrPalSz - 1; i++)
+    for (UINT16 i = 0; i < nCurrPalSz - 1; i++)
     {
         NewPal[i + 1] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
     }
