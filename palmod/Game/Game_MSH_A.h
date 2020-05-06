@@ -15,8 +15,6 @@ private:
 
     //Used for GetPalOffset
     UINT32 nCurrPalOffs = 0;
-    int nCurrPalSz = 0;
-
     // These handle per-ROM logic.
     int m_nBufferSelectedRom = 5;
     static int m_nMSHSelectedRom;

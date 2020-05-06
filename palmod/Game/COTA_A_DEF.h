@@ -338,17 +338,17 @@ const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P1[] =
 {
-    {"P1",          0x2737e, 0x2739e, 0x1E },
-    {"P1 Extras 1", 0x2739e, 0x273be, 0x1E },
-    {"P1 Extras 2", 0x273be, 0x273de, 0x1e },
+    {"P1",          0x2737e, 0x2739e, 0x57 },
+    {"P1 Extras 1", 0x2739e, 0x273be, 0x57 },
+    {"P1 Extras 2", 0x273be, 0x273de, 0x57 },
     {"P1 Extras 3", 0x273de, 0x273fe },
 };
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P2[] =
 {
-    {"P2",          0x273fe, 0x2741e, 0x1E },
-    {"P2 Extras 1", 0x2741e, 0x2743e, 0x1E },
-    {"P2 Extras 2", 0x2743e, 0x2745e, 0x1e },
+    {"P2",          0x273fe, 0x2741e, 0x57 },
+    {"P2 Extras 1", 0x2741e, 0x2743e, 0x57 },
+    {"P2 Extras 2", 0x2743e, 0x2745e, 0x57 },
     {"P2 Extras 3", 0x2745e, 0x2747e },
 };
 

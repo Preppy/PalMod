@@ -40,11 +40,12 @@ const CHAR g_GameFriendlyName[NUM_GAMES][32] =
 constexpr auto MVC2_D_NUMUNIT = 59;
 constexpr auto SFIII3_A_NUMUNIT = 20;   
 
+constexpr auto MVC_A_UNIQUE_IMG_UNITS = 2;   // Onslaught[3B] + Unique Assets(HUD, Stages, Assists)[3C]
 constexpr auto SFA3_A_UNIQUE_IMG_UNITS = 18; // Unique 17 Characters[3D - 4D] + Unique Assets(HUD, Stages)[4E]
 constexpr auto XMVSF_A_UNIQUE_IMG_UNITS = 2; // Apocalypse[4F] + Unique Assets(HUD, Stages)[50]
-constexpr auto MVC_A_UNIQUE_IMG_UNITS = 2;   // Onslaught[3B] + Unique Assets(HUD, Stages, Assists)[3C]
 constexpr auto MSH_A_UNIQUE_IMG_UNITS = 2;   // Anita[51] + Unique Assets(HUD, Stages)[52]
 constexpr auto MSHVSF_A_UNIQUE_IMG_UNITS = 3; // Norimaro[53] + Cyber-Akuma[54] + Unique Assets(HUD, Stages)[55]
+constexpr auto COTA_A_UNIQUE_IMG_UNITS = 2; // Unique Assets(HUD, Stages)[56] + ST Akuma[57]
 
 constexpr auto MVC_A_IMGSTART = MVC2_D_NUMUNIT; // MVC2, then MVC1
 constexpr auto SFA3_A_IMGSTART = MVC_A_IMGSTART + MVC_A_UNIQUE_IMG_UNITS;  // MVC1, then SFA3
@@ -58,7 +59,6 @@ constexpr auto SSF2T_A_NUM_IMG_UNITS = 17;
 constexpr auto SFIII3_A_NUM_IMG_UNITS = 20;
 constexpr auto SFA3_A_NUM_IMG_UNITS = 28;
 constexpr auto MVC_A_NUM_IMG_UNITS = 32;
-constexpr auto MSH_A_NUM_IMG_UNITS = 11;
 
 //Display types (used for image out)
 enum eDispType
@@ -362,23 +362,6 @@ const UINT8 MVC_A_IMG_UNITS[MVC_A_NUM_IMG_UNITS] =
     0x51, // Anita
 };
 
-const UINT8 MSH_A_IMG_UNITS[MSH_A_NUM_IMG_UNITS] =
-{
-    0x07, // Wolverine
-    0x08, // Psylocke
-    0x0B, // Captain America
-    0x0C, // Spider-Man
-    0x0D, // Hulk,
-    0x0F, // Dr.Doom
-    0x29, // Juggernaut
-    0x2C, // Magneto
-  //0x2D, // Shuma-Gorath
-    0x33, // Iron Man
-    0x35, // Blackheart
-    0x36  // Thanos
-    //indexMSHAnita = 0,
-};
-
 enum CHARACTERS_CPS2
 {
     indexCPS2_Ryu, // 0x00, // Ryu
@@ -440,10 +423,56 @@ enum CHARACTERS_CPS2
     indexCPS2_CapCom, // 0x38, // Captain Commando
     indexCPS2_Bonerine, // 0x39, // Bonerine
     indexCPS2_Kobun, // 0x3A  // Kobun
-    indexCPS2_Apocalypse = 0x4F, // Apocalypse
-    indexCPS2_Norimaro = 0x53, // Norimaro
-    indexCPS2_CyberAkuma = 0x54, // Cyber Gouki
+    indexCPS2_Onslaught, // 0x3B
+    indexCPS2_MVCAssets, // 0x3C
+    indexCPS2_Adon, // 0x3D, // Adon
+    indexCPS2_Sodom, // 0x3E, // Sodom
+    indexCPS2_Guy, // 0x3F, // Guy
+    indexCPS2_Birdie, // 0x40, // Birdie
+    indexCPS2_Rose, // 0x41, // Rose
+    indexCPS2_Sagat, // 0x42, // Sagat
+    indexCPS2_Rolento, // 0x43, // Rolento
+    indexCPS2_Gen, // 0x44, // Gen
+    indexCPS2_Balrog, // 0x45, // Balrog
+    indexCPS2_EHonda, // 0x46, // E.Honda
+    indexCPS2_Blanka, // 0x47, // Blanka
+    indexCPS2_RMika, // 0x48, // R.Mika
+    indexCPS2_Cody, // 0x49, // Cody
+    indexCPS2_Vega, // 0x4A, // Vega
+    indexCPS2_Karin, // 0x4B, // Karin
+    indexCPS2_Juni, // 0x4C, // Juni
+    indexCPS2_Juli, // 0x4D  // Juli
+    indexCPS2_SFA3Assets, // x4e - SFA3 HUD, stages
+    indexCPS2_Apocalypse, // x4f Apocalypse
+    indexCPS2_XMVSFAssets, // x50 - XMVSF HUD, stages
+    indexCPS2_Anita , // x51 - Anita
+    indexCPS2_MSHAssets, // x52 - MSH HUD, stages
+    indexCPS2_Norimaro, // x53 - Norimaro
+    indexCPS2_CyberAkuma, // x54 - Cyber Gouki
+    indexCPS2_MSHVSFAssets, // x55 - HUD, stages
+    indexCPS2_COTAAssets, // x56 - HUD, stages, etc
+    indexCPS2_STAkuma, // 0x57 - ST Akuma
 };
+
+const UINT8 MSH_A_IMG_UNITS[] =
+{
+    indexCPS2_Wolverine,
+    indexCPS2_Psylocke,
+    indexCPS2_CapAm,
+    indexCPS2_Spidey,
+    indexCPS2_Hulk,
+    indexCPS2_DrDoom,
+    indexCPS2_Juggy,
+    indexCPS2_Magneto,
+    indexCPS2_Shuma,
+    indexCPS2_IronMan,
+    indexCPS2_Blackheart,
+    indexCPS2_Thanos,
+    //indexMSHAnita = 0,
+    indexCPS2_MSHAssets
+};
+
+constexpr auto MSH_A_NUM_IMG_UNITS = ARRAYSIZE(MSH_A_IMG_UNITS);
 
 const UINT8 MSHVSF_A_IMG_UNITS[] =
 {
@@ -468,6 +497,7 @@ const UINT8 MSHVSF_A_IMG_UNITS[] =
     indexCPS2_Apocalypse,
     indexCPS2_CyberAkuma,
     indexCPS2_Norimaro,
+    indexCPS2_MSHVSFAssets,
 };
 
 constexpr auto MSHVSF_A_NUM_IMG_UNITS = ARRAYSIZE(MSHVSF_A_IMG_UNITS);
@@ -481,20 +511,22 @@ enum MSHVSF_SPRITES
 
 const UINT8 COTA_A_IMG_UNITS[] =
 {
-    0x06, // Cyclops
-    0x07, // Wolverine
-    0x08, // Psylocke
-    0x09, // Iceman
-    0x1E, // Gouki
-    0x29, // Juggernaut
-    0x2A, // Storm
-    0x2B, // Sabretooth
-    0x2C, // Magneto
-    0x2F, // Silver Samurai
-    0x30, // Omega Red
-    0x31, // Spiral
-    0x32, // Colossus
-    0x34, // Sentinel
+    indexCPS2_Cyclops,
+    indexCPS2_Wolverine,
+    indexCPS2_Psylocke,
+    indexCPS2_Iceman,
+    indexCPS2_Akuma,
+    indexCPS2_Juggy,
+    indexCPS2_Storm,
+    indexCPS2_Sabretooth,
+    indexCPS2_Magneto,
+    indexCPS2_SilverSamurai,
+    indexCPS2_OmegaRed,
+    indexCPS2_Spiral,
+    indexCPS2_Colossus,
+    indexCPS2_Sentinel,
+    indexCPS2_STAkuma, 
+    indexCPS2_COTAAssets,
     // 0x27, // Ken dragon punch sprite for Akuma?
 };
 

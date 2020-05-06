@@ -20,7 +20,6 @@ private:
     //Used for image selection
     int nTargetImgId = 0;
 
-    int m_nCurrentPaletteSize = 0;
     const int m_knMaxPalettePageSize = 64;
 
     int m_nGameButtonColorCount = 5;
@@ -69,7 +68,7 @@ public:
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
 
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
-    bool AreUnitCoreNodesBalanced(UINT16 nUnitId);
+    bool CanEnableMultispriteExport(UINT16 nUnitId, UINT16 nPalId);
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nFileId = 0);

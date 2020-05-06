@@ -14,8 +14,7 @@ private:
 
     //Used for GetPalOffset
     UINT32 nCurrPalOffs = 0;
-    int nCurrPalSz = 0;
-
+    
     static UINT32 m_nTotalPaletteCountForSFA3;
 
     void InitDataBuffer();

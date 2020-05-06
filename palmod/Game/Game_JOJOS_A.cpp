@@ -37,11 +37,12 @@ CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
     m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
 
     const UINT32 nSafeCountFor50 = 1491;
-    const UINT32 nSafeCountFor51 = 2100;
+    const UINT32 nSafeCountFor51 = 2099;
 
     m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
     m_pszExtraFilename = UsePaletteSetFor50() ? EXTRA_FILENAME_50 : EXTRA_FILENAME_51;
     m_nTotalPaletteCount = UsePaletteSetFor50() ? m_nTotalPaletteCount50 : m_nTotalPaletteCount51;
+    m_nLowestKnownPaletteRomLocation = UsePaletteSetFor50() ? 0x7c0000 : 0x2d0000;
 
     InitDataBuffer();
 
@@ -654,7 +655,7 @@ UINT16 CGame_JOJOS_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-bool CGame_JOJOS_A::AreUnitCoreNodesBalanced(UINT16 nUnitId)
+bool CGame_JOJOS_A::CanEnableMultispriteExport(UINT16 nUnitId, UINT16 nPalId)
 {
     bool isBalanced = false;
 
@@ -662,6 +663,7 @@ bool CGame_JOJOS_A::AreUnitCoreNodesBalanced(UINT16 nUnitId)
     {
         const sDescTreeNode* pUnitTree = &(JOJOS_UNITS_51[nUnitId]);
 
+        // Only enable for character nodes
         if ((strstr(pUnitTree->szDesc, "Timestop") == nullptr) &&
             (strstr(pUnitTree->szDesc, "Bonus") == nullptr))
         {
@@ -673,6 +675,12 @@ bool CGame_JOJOS_A::AreUnitCoreNodesBalanced(UINT16 nUnitId)
                               (pCurrentCollection[0].uChildAmt == pCurrentCollection[2].uChildAmt) &&
                               (pCurrentCollection[0].uChildAmt == pCurrentCollection[3].uChildAmt) &&
                               (pCurrentCollection[0].uChildAmt == pCurrentCollection[4].uChildAmt));
+
+                if (isBalanced)
+                {
+                    // We know the button nodes are balanced... but are we in a core button node?
+                    isBalanced = nPalId < (5 * pCurrentCollection[0].uChildAmt);
+                }
             }
         }
     }
@@ -952,7 +960,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         if (paletteDataSet)
         {
-            if (AreUnitCoreNodesBalanced(NodeGet->uUnitId))
+            if (CanEnableMultispriteExport(NodeGet->uUnitId, NodeGet->uPalId))
             {
                 const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
                 nSrcAmt = m_nGameButtonColorCount;
@@ -971,7 +979,8 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     int nPaletteOneDelta = 0;
                     int nPaletteTwoDelta = 0;
 
-                    if ((NodeGet->uUnitId == indexJojos51Jotaro) || // Jotaro
+                    if ((NodeGet->uUnitId == indexJojos51Jotaro) ||
+                        (NodeGet->uUnitId == indexJojos51Joseph) ||
                         (NodeGet->uUnitId == indexJojos51Iggy))
                     {
                         if (nTargetImgId == indexJojos51Character_SelectWin1) // winning 1

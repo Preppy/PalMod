@@ -41,7 +41,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
         OutputDebugString("BUGBUG: MEMORY CORRUPTION!\n");
     }
 
-    const int nMaxExtraBufferSize = 10000;
+    const int nMaxExtraBufferSize = 1000;
     // I got a report that editing a palette wasn't saving.  Turns out it was also in their Extra file and the later unchanged palette
     // was stomping over the changed palette when we saved out.
     const int nPossibleDuplicateConcern = 100;
@@ -258,7 +258,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
     }
 }
 
-bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOffsetToCheck)
+bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nOffsetToCheck)
 {
     UINT32 nTotalDupesFound = 0;
     CString strDupeText;
@@ -271,8 +271,11 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, i
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if ((nOffsetToCheck == m_nCurrentPaletteROMLocation) &&
-                !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)))
+            // Yes this takes a while. Thankfully it only runs once for normal usage.  For the developer. :'(
+            if ( !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)) &&
+                   (nOffsetToCheck >= m_nCurrentPaletteROMLocation) && 
+                   (nOffsetToCheck < (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSize * 2)))
+                )
             {
                 nTotalDupesFound++;
                 strDupeText.Format("ERROR: Unit %u pal %u at offset 0x%06x is a duplicate of unit %u pal %u!\n", nUnitCtr, nPalCtr, nOffsetToCheck, nUnitId, nPalId);
@@ -326,8 +329,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
     strDupeText.Format("CGameWithExtrasFile::AreThereDupesInDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
     OutputDebugString(strDupeText);
 
-    // Div 2 since each one will be matching another one internally here
-    return nTotalDupesFound / 2;
+    return nTotalDupesFound;
 }
 
 int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
@@ -345,7 +347,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
         LoadSpecificPaletteData(m_nExtraUnit, nPalCtr);
         nTotalPalettesChecked++;
 
-        int nCurrentROMOffset = m_nCurrentPaletteROMLocation;
+        UINT32 nCurrentROMOffset = m_nCurrentPaletteROMLocation;
         m_nLowestRomExtrasLocationThisPass = min(m_nLowestRomExtrasLocationThisPass, m_nCurrentPaletteROMLocation);
 
         if (IsROMOffsetDuplicated(m_nExtraUnit, nPalCtr, nCurrentROMOffset))

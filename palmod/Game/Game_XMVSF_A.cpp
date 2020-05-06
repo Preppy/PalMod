@@ -18,11 +18,11 @@ CGame_XMVSF_A::CGame_XMVSF_A(void)
     //We need the proper unit amt before we init the main buffer
     m_nTotalInternalUnits = XMVSF_A_NUMUNIT;
     m_nExtraUnit = XMVSF_A_EXTRALOC;
-    m_nSafeCountForThisRom = 209 + GetExtraCt(m_nExtraUnit);
+    m_nSafeCountForThisRom = 212 + GetExtraCt(m_nExtraUnit);
     m_pszExtraFilename = EXTRA_FILENAME_XMVSF;
     m_nTotalPaletteCount = m_nTotalPaletteCountForXMVSF;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x14000;
+    m_nLowestKnownPaletteRomLocation = 0x606e;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -140,8 +140,8 @@ CDescTree CGame_XMVSF_A::InitDescTree()
 
     //Create the main character tree
     sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[XMVSF_A]);
-    NewDescTree->ChildNodes = new sDescTreeNode[XMVSF_A_NUMUNIT];
-    NewDescTree->uChildAmt = XMVSF_A_NUMUNIT;
+    NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
+    NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
@@ -213,10 +213,9 @@ CDescTree CGame_XMVSF_A::InitDescTree()
                     nTotalPaletteCount++;
 
 #if XMVSF_DEBUG
-
                     strMsg.Format("\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(", 0x%06x to 0x%06x (%u colors)", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
@@ -242,7 +241,7 @@ CDescTree CGame_XMVSF_A::InitDescTree()
             UnitNode->uChildAmt = 1;
 
 #if XMVSF_DEBUG
-            strMsg.Format("Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format("Unit (Extras): \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -262,7 +261,7 @@ CDescTree CGame_XMVSF_A::InitDescTree()
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if XMVSF_DEBUG
-            strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format("\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -285,7 +284,7 @@ CDescTree CGame_XMVSF_A::InitDescTree()
                 ChildNode->uPalId = (((XMVSF_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if XMVSF_DEBUG
-                strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -505,7 +504,7 @@ void CGame_XMVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             cbPaletteSizeOnDisc = max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             nCurrPalOffs = paletteData->nPaletteOffset;
-            nCurrPalSz = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
         }
     }
     else // XMVSF_A_EXTRALOC
@@ -514,7 +513,7 @@ void CGame_XMVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForXMVSF(GetExtraLoc(nUnitId) + nPalId);
 
         nCurrPalOffs = pCurrDef->uOffset;
-        nCurrPalSz = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
     }
 
     m_nCurrentPaletteROMLocation = nCurrPalOffs;
@@ -534,11 +533,11 @@ BOOL CGame_XMVSF_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[nCurrPalSz];
+            pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
             LoadedFile->Seek(nCurrPalOffs, CFile::begin);
 
-            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
+            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
         }
     }
 
@@ -571,7 +570,7 @@ BOOL CGame_XMVSF_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             }
 
             SaveFile->Seek(nCurrPalOffs, CFile::begin);
-            SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
+            SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
             nTotalPalettesSaved++;
         }
     }
@@ -619,11 +618,11 @@ void CGame_XMVSF_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
         OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
         OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
 
-        nCurrPalSz = nHybridSz;
+        m_nCurrentPaletteSize = nHybridSz;
     }
 
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
-    BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, nCurrPalSz);
+    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
+    BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
 
     if (bUsesHybrid)
     {
@@ -777,15 +776,15 @@ COLORREF* CGame_XMVSF_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
         //16 = Size of portrait image
         //15 = Unused index
-        CreateHybridPal(nCurrPalSz, 16, pppDataBuffer[nUnitId][nPalId], 15, &NewPal, &nHybridSz);
+        CreateHybridPal(m_nCurrentPaletteSize, 16, pppDataBuffer[nUnitId][nPalId], 15, &NewPal, &nHybridSz);
     }
     else
     {
         bUsesHybrid = FALSE;
 
-        NewPal = new COLORREF[nCurrPalSz];
+        NewPal = new COLORREF[m_nCurrentPaletteSize];
 
-        for (int i = 1; i < nCurrPalSz; i++)
+        for (int i = 1; i < m_nCurrentPaletteSize; i++)
         {
             NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i - 1]) | 0xFF000000;
         }
@@ -816,7 +815,7 @@ void CGame_XMVSF_A::UpdatePalData()
 
                 LoadSpecificPaletteData(srcDef->uUnitId, srcDef->uPalId);
 
-                for (int nPICtr = 0; nPICtr < nCurrPalSz; nPICtr++)
+                for (int nPICtr = 0; nPICtr < m_nCurrentPaletteSize; nPICtr++)
                 {
                     if (pIndexRedir[nPICtr])
                     {

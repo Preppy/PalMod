@@ -218,9 +218,6 @@ const sGame_PaletteDataset XMVSF_A_Magneto_PALETTES_P2[] =
 
 const sGame_PaletteDataset XMVSF_A_Magneto_PALETTES_Extras[] =
 {
-    { "Palette (06)", 0x1577c, 0x1579c },
-    { "Palette (07)", 0x1579c, 0x157bc },
-    { "Palette (08)", 0x157bc, 0x157dc },
     { "Portrait", 0x1c25c, 0x1c2dc },
 };
 
@@ -270,12 +267,17 @@ const sGame_PaletteDataset XMVSF_A_Ryu_PALETTES_Extras[] =
 
 const sGame_PaletteDataset XMVSF_A_Apocalypse_PALETTES[] =
 {
-    { "Small Body (intro)", 0x157dc, 0x157fc, 0x4f, 0x00 },
-    { "Angry Drones",       0x157fc, 0x1581c, 0x4f, 0x05 },
-        //{ "?",                  0x1581c, 0x1583c },
-    { "Drones",             0x1583c, 0x1585c, 0x4f, 0x05 },
-        //{ "?",                  0x1585c, 0x1587c },
-    { "Extra 2",        0x1587c, 0x1589c, 0x4f, 0x2 },
+    { "Small Body (intro)", 0x157dc, 0x157fc, 0x4f, 0x00 }, // confirmed
+    { "Giant Head", 0x1579c, 0x157bc, 0x4f, 1 }, // confirmed
+    { "Giant Body", 0x606e, 0x60ae, 0x4f, 0x03 }, // confirmed
+    { "Giant Arm", 0x1577c, 0x1579c, 0x4f, 2 }, // confirmed
+    { "Shoulder Guns", 0x157bc, 0x157dc, 0x4f, 4 }, // confirmed
+
+    { "Shockwave",       0x157fc, 0x1581c }, // confirmed
+    { "?",                  0x1581c, 0x1583c }, // unclear
+    { "Drones",             0x1583c, 0x1585c, 0x4f, 0x05 }, // confirmed
+    { "Hand: Mace and Drill",                  0x1585c, 0x1587c }, // confirmed
+    { "Shoulder Lasers",        0x1587c, 0x1589c }, // confirmed
 };
 
 const sGame_PaletteDataset XMVSF_A_Apocalypse_PALETTES_Extras[] =
@@ -653,7 +655,7 @@ const UINT32 XMVSF_A_UNITLOC[XMVSF_A_NUMUNIT + 1] =
 };
 
 /*
-These arethe ROM locations sorted by layout rather than alphabetically:
+These are the ROM locations sorted by layout rather than alphabetically:
     0x14D7C, // Wolverine
     0x14E3C, // Cyclops
     0x14FBC, // Storm
@@ -675,7 +677,6 @@ These arethe ROM locations sorted by layout rather than alphabetically:
     0x164BC, // Chun-Li (SFA)
     0x1657C,
 */
-
 
 // We extend this array with data groveled from the xmvsfe.txt extensible extras file, if any.
 const stExtraDef XMVSF_A_EXTRA[] =

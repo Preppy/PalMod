@@ -584,7 +584,7 @@ void CGame_MVC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             cbPaletteSizeOnDisc = max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             nCurrPalOffs = paletteData->nPaletteOffset;
-            nCurrPalSz = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
         }
         else
         {
@@ -598,7 +598,7 @@ void CGame_MVC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForMVC(GetExtraLoc(nUnitId) + nPalId);
 
         nCurrPalOffs = pCurrDef->uOffset;
-        nCurrPalSz = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
     }
 
     m_nCurrentPaletteROMLocation = nCurrPalOffs;
@@ -619,11 +619,11 @@ BOOL CGame_MVC_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[nCurrPalSz];
+            pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
             LoadedFile->Seek(nCurrPalOffs, CFile::begin);
 
-            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
+            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
         }
     }
 
@@ -656,7 +656,7 @@ BOOL CGame_MVC_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             }
 
             SaveFile->Seek(nCurrPalOffs, CFile::begin);
-            SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
+            SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
             nTotalPalettesSaved++;
         }
     }
@@ -675,8 +675,8 @@ void CGame_MVC_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 
     LoadSpecificPaletteData(nUnitId, nPalId);
 
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
-    BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, nCurrPalSz);
+    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
+    BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
 }
 
 BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
@@ -859,9 +859,9 @@ COLORREF* CGame_MVC_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
 
-    COLORREF* NewPal = new COLORREF[nCurrPalSz];
+    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
 
-    for (int i = 0; i < nCurrPalSz - 1; i++)
+    for (int i = 0; i < m_nCurrentPaletteSize - 1; i++)
     {
         NewPal[i + 1] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
     }

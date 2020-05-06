@@ -4,12 +4,13 @@
 
 void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart);
 
-const UINT32 k_nBogusHighValue = 0xFEDFED;
+const UINT32 k_nBogusHighValue = 0xFEEDFED;
 
 class CGameWithExtrasFile
 {
 protected:
     UINT32 m_nCurrentPaletteROMLocation = 0;
+    UINT16 m_nCurrentPaletteSize = 0;
     static UINT32 m_nTotalPaletteCount;
     UINT16 m_nTotalInternalUnits = INVALID_UNIT_VALUE;
     UINT16 m_nExtraUnit = INVALID_UNIT_VALUE;
@@ -26,7 +27,7 @@ public:
     virtual void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId) {};
     virtual UINT16 GetPaletteCountForUnit(UINT16 nUnitId) { return INVALID_UNIT_VALUE; };
 
-    bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, int nOffsetToCheck);
+    bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nOffsetToCheck);
     int GetDupeCountInExtrasDataset();
     int GetDupeCountInDataset();
     // Checks for duplicate entries and surprisingly low entries.
