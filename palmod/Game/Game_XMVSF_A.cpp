@@ -4,6 +4,9 @@
 #include "..\palmod.h"
 
 #define XMVSF_DEBUG DEFAULT_GAME_DEBUG_STATE
+// There was support for hybrid palettes in the old code, but I don't see that being used anywhere.
+//  I think it was vestigial from other code that is gone: I'm turning off hybrid palettes for now.
+#define USE_HYBRID_PALETTES 0
 
 stExtraDef* CGame_XMVSF_A::XMVSF_A_EXTRA_CUSTOM = nullptr;
 
@@ -18,7 +21,7 @@ CGame_XMVSF_A::CGame_XMVSF_A(void)
     //We need the proper unit amt before we init the main buffer
     m_nTotalInternalUnits = XMVSF_A_NUMUNIT;
     m_nExtraUnit = XMVSF_A_EXTRALOC;
-    m_nSafeCountForThisRom = 212 + GetExtraCt(m_nExtraUnit);
+    m_nSafeCountForThisRom = 383 + GetExtraCt(m_nExtraUnit);
     m_pszExtraFilename = EXTRA_FILENAME_XMVSF;
     m_nTotalPaletteCount = m_nTotalPaletteCountForXMVSF;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -589,45 +592,24 @@ void CGame_XMVSF_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 
     LoadSpecificPaletteData(nUnitId, nPalId);
 
+#if USE_HYBRID_PALETTES
     if (bUsesHybrid)
     {
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
-        OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
         OutputDebugString("WARNING FIRST USAGE OF HYBRID PALETTES!\n");
 
         m_nCurrentPaletteSize = nHybridSz;
     }
+#endif
 
     BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
     BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
 
+#if USE_HYBRID_PALETTES
     if (bUsesHybrid)
     {
         BasePalGroup.SortPal(BasePalGroup.GetAddIndex(), 1, SORT_HUE);
     }
+#endif
 }
 
 BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
@@ -768,6 +750,7 @@ COLORREF* CGame_XMVSF_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     COLORREF* NewPal = NULL;
 
+#if USE_HYBRID_PALETTES
     if (GetLocalAmt(nUnitId) <= nPalId)
     {
         OutputDebugString("This is a hybrid palette! This logic is actively untested.  Be careful.\n");
@@ -780,6 +763,7 @@ COLORREF* CGame_XMVSF_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
     }
     else
     {
+#endif
         bUsesHybrid = FALSE;
 
         NewPal = new COLORREF[m_nCurrentPaletteSize];
@@ -790,7 +774,10 @@ COLORREF* CGame_XMVSF_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
         }
 
         NewPal[0] = 0xFF000000;
+
+#if USE_HYBRID_PALETTES
     }
+#endif
 
     return NewPal;
 }

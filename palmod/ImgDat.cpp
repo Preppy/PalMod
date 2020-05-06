@@ -12,7 +12,7 @@ CImgDat::CImgDat(void)
 }
 
 CImgDat::~CImgDat(void)
-{   
+{
     if (!imageBufferFlushed)
     {
         FlushImageBuffer();
@@ -43,11 +43,11 @@ bool CImgDat::FlushImageBuffer()
             nImgMap->clear();
         }
     }
-    
+
     safe_delete(nImgMap);
 
     imageBufferPrepped = false;
-    
+
     return true;
 }
 
@@ -103,117 +103,117 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
     {
         switch (uGameFlag)
         {
-            case MVC2_D:
-            {
+        case MVC2_D:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", MVC2_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", MVC2_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ MVC2_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            }
-            case SFIII3_A:
-            {
+            nImgMap->insert({ MVC2_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case SFIII3_A:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", SFIII3_A_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", SFIII3_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ SFIII3_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            case MVC2_P:
-            {
+            nImgMap->insert({ SFIII3_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        case MVC2_P:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", MVC2_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", MVC2_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ MVC2_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            }
-            case SSF2T_A:
-            {
+            nImgMap->insert({ MVC2_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case SSF2T_A:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", SSF2T_A_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", SSF2T_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ SSF2T_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            }
-            case SFA3_A:
-            {
+            nImgMap->insert({ SSF2T_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case SFA3_A:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", SFA3_A_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", SFA3_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ SFA3_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            }
-            case XMVSF_A:
-            {
+            nImgMap->insert({ SFA3_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case XMVSF_A:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", XMVSF_A_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", XMVSF_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ XMVSF_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            }
-            case MVC_A:
-            {
+            nImgMap->insert({ XMVSF_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case MVC_A:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", MVC_A_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", MVC_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ MVC_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            }
-            case SFIII3_D:
-            {
+            nImgMap->insert({ MVC_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case SFIII3_D:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", SFIII3_D_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", SFIII3_D_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ SFIII3_D_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            }
-            case JOJOS_A:
-            {
+            nImgMap->insert({ SFIII3_D_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case JOJOS_A:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", JOJOS_A_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", JOJOS_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ JOJOS_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            }
-            case MSH_A:
-            {
+            nImgMap->insert({ JOJOS_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case MSH_A:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", MSH_A_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", MSH_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ MSH_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            }
-            case MSHVSF_A:
-            {
+            nImgMap->insert({ MSH_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case MSHVSF_A:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", MSHVSF_A_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", MSHVSF_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ MSHVSF_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            }
-            case COTA_A:
-            {
+            nImgMap->insert({ MSHVSF_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case COTA_A:
+        {
 #if IMGDAT_DEBUG
-                strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", COTA_A_IMG_UNITS[nUnitCtr]);
-                OutputDebugString(strDebugInfo);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", COTA_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
 #endif
-                nImgMap->insert({ COTA_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
-                break;
-            }
-            default:
-                return NULL;
-                break;
-            }
+            nImgMap->insert({ COTA_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        default:
+            return NULL;
+            break;
+        }
 
         }
     }
@@ -223,7 +223,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
 }
 
 sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
-{   
+{
 #if IMGDAT_DEBUG
     CString strDebugInfo;
     strDebugInfo.Format("CImgDat::GetImageDef : Attempting to get ImageDef for unit 0x%02x img 0x%x.\n", uUnitId, uImgId);
@@ -238,7 +238,7 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
         strDebugInfo.Format("CImgDat::GetImageDef : nImgMap exists \n");
         OutputDebugString(strDebugInfo);
 #endif
-        
+
         imgMapIter it = nImgMap->find(uUnitId);
         if (it != nImgMap->cend())
         {
@@ -294,7 +294,7 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
 #endif
         return pCurrImg->pImgData;
     }
-    
+
     //Read the data
 
     UINT8* pNewImgData = new UINT8[pCurrImg->uDataSize];
@@ -315,12 +315,12 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
 
         //pNewImgData = new UINT8[CurrImg->uImgWidth * CurrImg->uImgHeight];
 
-        pNewImgData = DecodeImg(
+        pNewImgData = RLEDecodeImg(
             pTmpData,
             pCurrImg->uDataSize,
             pCurrImg->uImgWidth,
-            pCurrImg->uImgHeight,
-            uReadBPP);
+            pCurrImg->uImgHeight
+        );
 
         safe_delete_array(pTmpData);
     }
@@ -344,13 +344,13 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
         OutputDebugString(strDebugInfo);
 
         HANDLE hFile = CreateFile(
-                                    strFilePath,
-                                    GENERIC_WRITE,
-                                    0,
-                                    NULL,
-                                    CREATE_ALWAYS,
-                                    FILE_ATTRIBUTE_NORMAL,
-                                    NULL);
+            strFilePath,
+            GENERIC_WRITE,
+            0,
+            NULL,
+            CREATE_ALWAYS,
+            FILE_ATTRIBUTE_NORMAL,
+            NULL);
 
         if (hFile != INVALID_HANDLE_VALUE)
         {
@@ -556,32 +556,63 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag,
     }
 }
 
-UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP)
+UINT8* CImgDat::RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight)
 {
     UINT8* output_data = new UINT8[uiImgWidth * uiImgHeight];
-
     memset(output_data, NULL, sizeof(UINT8) * uiImgWidth * uiImgHeight);
 
-    unsigned int bit_ctr = 0;
+    UINT8 count = 0;
+    bool isDigit = true;
+    int byte_ctr = 0;
+    int data_ctr = 0;
+    while (byte_ctr < uiDataSz)
+    {
+
+        if (isDigit) // The character is numerical...
+        {
+            // get the count
+            count = pSrcImgData[byte_ctr];
+            byte_ctr++;
+            isDigit = !isDigit;
+        }
+        else
+        {
+            // expand the next character by count times
+            // the decoding
+            for (UINT16 i = 0; i < count; i++)
+            {
+                output_data[data_ctr + i] = pSrcImgData[byte_ctr];
+            }
+            byte_ctr++;
+            data_ctr += count;
+            isDigit = !isDigit;
+        }
+    }
+    return output_data;
+}
+
+UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP)
+{
+
+    UINT8* output_data = new UINT8[uiImgWidth * uiImgHeight];
+    memset(output_data, NULL, sizeof(UINT8) * uiImgWidth * uiImgHeight);
+
+
+    int bit_ctr = 0;
     int data_ctr = 0;
     int k = 0;
-    int src_ctr = 0;
-    int mod_amt = 0;
-    int up_amt = 0;
 
     UINT8 uZeroPos;
     UINT8 uExtraAmt;
     UINT8 uGetAmt;
     UINT8 curr_data;
-    UINT16 zero_ct = 0;
     UINT16 zero_data;
-    int last_amt = ((uiDataSz - 1) * 8) % uiBPP;
     int get_from_extra;
     int zero_get_amt = 16 - uiBPP;
 
     while (bit_ctr < (uiDataSz * 8))
     {
-        if ((8 - bit_ctr % 8 < uiBPP) && (bit_ctr / 8 != uiDataSz - 1))
+        if (8 - bit_ctr % 8 < uiBPP && bit_ctr / 8 != uiDataSz - 1)
         {
             get_from_extra = uiBPP - (8 - bit_ctr % 8);
         }
@@ -613,7 +644,6 @@ UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth
             while (uZeroPos < zero_get_amt)
             {
                 uExtraAmt = bit_ctr % 8;
-
                 if (zero_get_amt - uZeroPos > 8)
                 {
                     uGetAmt = 8 - uExtraAmt;
@@ -623,25 +653,19 @@ UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth
                     uGetAmt = zero_get_amt - uZeroPos;
                 }
 
-                zero_data |= (((UINT16)(pSrcImgData[bit_ctr / 8] >> uExtraAmt) & ( (0xFF >> (8 - uGetAmt)) << (uZeroPos))));
+                zero_data |= (((UINT16)(pSrcImgData[bit_ctr / 8] >> uExtraAmt) & (0xFF >> 8 - uGetAmt)) << (uZeroPos));
 
                 uZeroPos += uGetAmt;
                 bit_ctr += uGetAmt;
             }
 
-            //memcpy(&zero_data, &pSrcImgData[bit_ctr/8], 0x02);
-            //zero_data = (zero_data >> bit_ctr%8) & (0xFFFF >> uiBPP);
 
             for (k = 0; k < zero_data; k++)
             {
                 output_data[data_ctr + k] = 0;
             }
-
             data_ctr += zero_data;
-
-            //bit_ctr += zero_get_amt;
         }
     }
-
     return output_data;
 }

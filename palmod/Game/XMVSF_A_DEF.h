@@ -267,16 +267,16 @@ const sGame_PaletteDataset XMVSF_A_Ryu_PALETTES_Extras[] =
 
 const sGame_PaletteDataset XMVSF_A_Apocalypse_PALETTES[] =
 {
-    { "Small Body (intro)", 0x157dc, 0x157fc, 0x4f, 0x00 }, // confirmed
-    { "Giant Head", 0x1579c, 0x157bc, 0x4f, 1 }, // confirmed
-    { "Giant Body", 0x606e, 0x60ae, 0x4f, 0x03 }, // confirmed
-    { "Giant Arm", 0x1577c, 0x1579c, 0x4f, 2 }, // confirmed
-    { "Shoulder Guns", 0x157bc, 0x157dc, 0x4f, 4 }, // confirmed
+    { "Small Body (intro)",     0x157dc, 0x157fc, 0x4f, 0x00 }, // confirmed
+    { "Giant Head",             0x1579c, 0x157bc, 0x4f, 1 }, // confirmed
+    { "Giant Body",             0x606e,   0x60ae, 0x4f, 0x03 }, // confirmed
+    { "Giant Arm",              0x1577c, 0x1579c, 0x4f, 2 }, // confirmed
+    { "Shoulder Guns",          0x157bc, 0x157dc, 0x4f, 4 }, // confirmed
 
-    { "Shockwave",       0x157fc, 0x1581c }, // confirmed
-    { "?",                  0x1581c, 0x1583c }, // unclear
-    { "Drones",             0x1583c, 0x1585c, 0x4f, 0x05 }, // confirmed
-    { "Hand: Mace and Drill",                  0x1585c, 0x1587c }, // confirmed
+    { "Shockwave",              0x157fc, 0x1581c }, // confirmed
+    { "?",                      0x1581c, 0x1583c }, // unclear
+    { "Drones",                 0x1583c, 0x1585c, 0x4f, 0x05 }, // confirmed
+    { "Hand: Mace and Drill",   0x1585c, 0x1587c }, // confirmed
     { "Shoulder Lasers",        0x1587c, 0x1589c }, // confirmed
 };
 
@@ -474,11 +474,259 @@ const sGame_PaletteDataset XMVSF_A_ChunLiSFA_PALETTES_Extras[] =
     { "Portrait", 0x1c93c, 0x1c9bc },
 };
 
+const sGame_PaletteDataset XMVSF_A_WOLVERINE_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x16a7c, 0x16a9c, indexCPS2_Wolverine },
+    { "Burning 2", 0x16a9c, 0x16abc, indexCPS2_Wolverine },
+    { "Shocked 1", 0x16abc, 0x16adc, indexCPS2_Wolverine },
+    { "Shocked 2", 0x16adc, 0x16afc, indexCPS2_Wolverine },
+    { "Dark Burning 1", 0x16afc, 0x16b1c, indexCPS2_Wolverine },
+    { "Dark Burning 2", 0x16b1c, 0x16b3c, indexCPS2_Wolverine },
+    { "Kinectic Charged 1", 0x16b3c, 0x16b5c, indexCPS2_Wolverine },
+    { "Kinectic Charged 2", 0x16b5c, 0x16b7c, indexCPS2_Wolverine },
+    { "Kinectic Charged 3", 0x16b7c, 0x16b9c, indexCPS2_Wolverine },
+};
+
+const sGame_PaletteDataset XMVSF_A_CYCLOPS_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x16b9c, 0x16bbc, indexCPS2_Cyclops },
+    { "Burning 2", 0x16bbc, 0x16bdc, indexCPS2_Cyclops },
+    { "Shocked 1", 0x16bdc, 0x16bfc, indexCPS2_Cyclops },
+    { "Shocked 2", 0x16bfc, 0x16c1c, indexCPS2_Cyclops },
+    { "Dark Burning 1", 0x16c1c, 0x16c3c, indexCPS2_Cyclops },
+    { "Dark Burning 2", 0x16c3c, 0x16c5c, indexCPS2_Cyclops },
+    { "Kinectic Charged 1", 0x16c5c, 0x16c7c, indexCPS2_Cyclops },
+    { "Kinectic Charged 2", 0x16c7c, 0x16c9c, indexCPS2_Cyclops },
+    { "Kinectic Charged 3", 0x16c9c, 0x16cbc, indexCPS2_Cyclops },
+};
+
+const sGame_PaletteDataset XMVSF_A_STORM_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x16cbc, 0x16cdc, indexCPS2_Storm },
+    { "Burning 2", 0x16cdc, 0x16cfc, indexCPS2_Storm },
+    { "Shocked 1", 0x16cfc, 0x16d1c, indexCPS2_Storm },
+    { "Shocked 2", 0x16d1c, 0x16d3c, indexCPS2_Storm },
+    { "Dark Burning 1", 0x16d3c, 0x16d5c, indexCPS2_Storm },
+    { "Dark Burning 2", 0x16d5c, 0x16d7c, indexCPS2_Storm },
+    { "Kinectic Charged 1", 0x16d7c, 0x16d9c, indexCPS2_Storm },
+    { "Kinectic Charged 2", 0x16d9c, 0x16dbc, indexCPS2_Storm },
+    { "Kinectic Charged 3", 0x16dbc, 0x16ddc, indexCPS2_Storm },
+};
+
+const sGame_PaletteDataset XMVSF_A_ROGUE_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x16ddc, 0x16dfc, indexCPS2_Rogue },
+    { "Burning 2", 0x16dfc, 0x16e1c, indexCPS2_Rogue },
+    { "Shocked 1", 0x16e1c, 0x16e3c, indexCPS2_Rogue },
+    { "Shocked 2", 0x16e3c, 0x16e5c, indexCPS2_Rogue },
+    { "Dark Burning 1", 0x16e5c, 0x16e7c, indexCPS2_Rogue },
+    { "Dark Burning 2", 0x16e7c, 0x16e9c, indexCPS2_Rogue },
+    { "Kinectic Charged 1", 0x16e9c, 0x16ebc, indexCPS2_Rogue },
+    { "Kinectic Charged 2", 0x16ebc, 0x16edc, indexCPS2_Rogue },
+    { "Kinectic Charged 3", 0x16edc, 0x16efc, indexCPS2_Rogue },
+};
+
+const sGame_PaletteDataset XMVSF_A_GAMBIT_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x16efc, 0x16f1c, indexCPS2_Gambit },
+    { "Burning 2", 0x16f1c, 0x16f3c, indexCPS2_Gambit },
+    { "Shocked 1", 0x16f3c, 0x16f5c, indexCPS2_Gambit },
+    { "Shocked 2", 0x16f5c, 0x16f7c, indexCPS2_Gambit },
+    { "Dark Burning 1", 0x16f7c, 0x16f9c, indexCPS2_Gambit },
+    { "Dark Burning 2", 0x16f9c, 0x16fbc, indexCPS2_Gambit },
+    { "Kinectic Charged 1", 0x16fbc, 0x16fdc, indexCPS2_Gambit },
+    { "Kinectic Charged 2", 0x16fdc, 0x16ffc, indexCPS2_Gambit },
+    { "Kinectic Charged 3", 0x16ffc, 0x1701c, indexCPS2_Gambit },
+};
+
+const sGame_PaletteDataset XMVSF_A_SABRETOOTH_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x1701c, 0x1703c, indexCPS2_Sabretooth },
+    { "Burning 2", 0x1703c, 0x1705c, indexCPS2_Sabretooth },
+    { "Shocked 1", 0x1705c, 0x1707c, indexCPS2_Sabretooth },
+    { "Shocked 2", 0x1707c, 0x1709c, indexCPS2_Sabretooth },
+    { "Dark Burning 1", 0x1709c, 0x170bc, indexCPS2_Sabretooth },
+    { "Dark Burning 2", 0x170bc, 0x170dc, indexCPS2_Sabretooth },
+    { "Kinectic Charged 1", 0x170dc, 0x170fc, indexCPS2_Sabretooth },
+    { "Kinectic Charged 2", 0x170fc, 0x1711c, indexCPS2_Sabretooth },
+    { "Kinectic Charged 3", 0x1711c, 0x1713c, indexCPS2_Sabretooth },
+};
+
+const sGame_PaletteDataset XMVSF_A_JUGGY_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x1713c, 0x1715c, indexCPS2_Juggy },
+    { "Burning 2", 0x1715c, 0x1717c, indexCPS2_Juggy },
+    { "Shocked 1", 0x1717c, 0x1719c, indexCPS2_Juggy },
+    { "Shocked 2", 0x1719c, 0x171bc, indexCPS2_Juggy },
+    { "Dark Burning 1", 0x171bc, 0x171dc, indexCPS2_Juggy },
+    { "Dark Burning 2", 0x171dc, 0x171fc, indexCPS2_Juggy },
+    { "Kinectic Charged 1", 0x171fc, 0x1721c, indexCPS2_Juggy },
+    { "Kinectic Charged 2", 0x1721c, 0x1723c, indexCPS2_Juggy },
+    { "Kinectic Charged 3", 0x1723c, 0x1725c, indexCPS2_Juggy },
+};
+
+const sGame_PaletteDataset XMVSF_A_MAGNETO_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x1725c, 0x1727c, indexCPS2_Magneto },
+    { "Burning 2", 0x1727c, 0x1729c, indexCPS2_Magneto },
+    { "Shocked 1", 0x1729c, 0x172bc, indexCPS2_Magneto },
+    { "Shocked 2", 0x172bc, 0x172dc, indexCPS2_Magneto },
+    { "Dark Burning 1", 0x172dc, 0x172fc, indexCPS2_Magneto },
+    { "Dark Burning 2", 0x172fc, 0x1731c, indexCPS2_Magneto },
+    { "Kinectic Charged 1", 0x1731c, 0x1733c, indexCPS2_Magneto },
+    { "Kinectic Charged 2", 0x1733c, 0x1735c, indexCPS2_Magneto },
+    { "Kinectic Charged 3", 0x1735c, 0x1737c, indexCPS2_Magneto },
+};
+
+const sGame_PaletteDataset XMVSF_A_APOCALYPSE_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x1737c, 0x1739c, indexCPS2_Apocalypse },
+    { "Burning 2", 0x1739c, 0x173bc, indexCPS2_Apocalypse },
+    { "Shocked 1", 0x173bc, 0x173dc, indexCPS2_Apocalypse },
+    { "Shocked 2", 0x173dc, 0x173fc, indexCPS2_Apocalypse },
+    { "Dark Burning 1", 0x173fc, 0x1741c, indexCPS2_Apocalypse },
+    { "Dark Burning 2", 0x1741c, 0x1743c, indexCPS2_Apocalypse },
+    { "Kinectic Charged 1", 0x1743c, 0x1745c, indexCPS2_Apocalypse },
+    { "Kinectic Charged 2", 0x1745c, 0x1747c, indexCPS2_Apocalypse },
+    { "Kinectic Charged 3", 0x1747c, 0x1749c, indexCPS2_Apocalypse },
+};
+
+const sGame_PaletteDataset XMVSF_A_RYU_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x1749c, 0x174bc, indexCPS2_Ryu },
+    { "Burning 2", 0x174bc, 0x174dc, indexCPS2_Ryu },
+    { "Shocked 1", 0x174dc, 0x174fc, indexCPS2_Ryu },
+    { "Shocked 2", 0x174fc, 0x1751c, indexCPS2_Ryu },
+    { "Dark Burning 1", 0x1751c, 0x1753c, indexCPS2_Ryu },
+    { "Dark Burning 2", 0x1753c, 0x1755c, indexCPS2_Ryu },
+    { "Kinectic Charged 1", 0x1755c, 0x1757c, indexCPS2_Ryu },
+    { "Kinectic Charged 2", 0x1757c, 0x1759c, indexCPS2_Ryu },
+    { "Kinectic Charged 3", 0x1759c, 0x175bc, indexCPS2_Ryu },
+};
+
+const sGame_PaletteDataset XMVSF_A_KEN_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x175bc, 0x175dc, indexCPS2_Ken },
+    { "Burning 2", 0x175dc, 0x175fc, indexCPS2_Ken },
+    { "Shocked 1", 0x175fc, 0x1761c, indexCPS2_Ken },
+    { "Shocked 2", 0x1761c, 0x1763c, indexCPS2_Ken },
+    { "Dark Burning 1", 0x1763c, 0x1765c, indexCPS2_Ken },
+    { "Dark Burning 2", 0x1765c, 0x1767c, indexCPS2_Ken },
+    { "Kinectic Charged 1", 0x1767c, 0x1769c, indexCPS2_Ken },
+    { "Kinectic Charged 2", 0x1769c, 0x176bc, indexCPS2_Ken },
+    { "Kinectic Charged 3", 0x176bc, 0x176dc, indexCPS2_Ken },
+};
+
+const sGame_PaletteDataset XMVSF_A_CHUNLI_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x176dc, 0x176fc, indexCPS2_ChunLi },
+    { "Burning 2", 0x176fc, 0x1771c, indexCPS2_ChunLi },
+    { "Shocked 1", 0x1771c, 0x1773c, indexCPS2_ChunLi },
+    { "Shocked 2", 0x1773c, 0x1775c, indexCPS2_ChunLi },
+    { "Dark Burning 1", 0x1775c, 0x1777c, indexCPS2_ChunLi },
+    { "Dark Burning 2", 0x1777c, 0x1779c, indexCPS2_ChunLi },
+    { "Kinectic Charged 1", 0x1779c, 0x177bc, indexCPS2_ChunLi },
+    { "Kinectic Charged 2", 0x177bc, 0x177dc, indexCPS2_ChunLi },
+    { "Kinectic Charged 3", 0x177dc, 0x177fc, indexCPS2_ChunLi },
+};
+
+const sGame_PaletteDataset XMVSF_A_DHALSIM_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x177fc, 0x1781c, indexCPS2_Dhalsim },
+    { "Burning 2", 0x1781c, 0x1783c, indexCPS2_Dhalsim },
+    { "Shocked 1", 0x1783c, 0x1785c, indexCPS2_Dhalsim },
+    { "Shocked 2", 0x1785c, 0x1787c, indexCPS2_Dhalsim },
+    { "Dark Burning 1", 0x1787c, 0x1789c, indexCPS2_Dhalsim },
+    { "Dark Burning 2", 0x1789c, 0x178bc, indexCPS2_Dhalsim },
+    { "Kinectic Charged 1", 0x178bc, 0x178dc, indexCPS2_Dhalsim },
+    { "Kinectic Charged 2", 0x178dc, 0x178fc, indexCPS2_Dhalsim },
+    { "Kinectic Charged 3", 0x178fc, 0x1791c, indexCPS2_Dhalsim },
+};
+
+const sGame_PaletteDataset XMVSF_A_ZANGIEF_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x1791c, 0x1793c, indexCPS2_Zangief },
+    { "Burning 2", 0x1793c, 0x1795c, indexCPS2_Zangief },
+    { "Shocked 1", 0x1795c, 0x1797c, indexCPS2_Zangief },
+    { "Shocked 2", 0x1797c, 0x1799c, indexCPS2_Zangief },
+    { "Dark Burning 1", 0x1799c, 0x179bc, indexCPS2_Zangief },
+    { "Dark Burning 2", 0x179bc, 0x179dc, indexCPS2_Zangief },
+    { "Kinectic Charged 1", 0x179dc, 0x179fc, indexCPS2_Zangief },
+    { "Kinectic Charged 2", 0x179fc, 0x17a1c, indexCPS2_Zangief },
+    { "Kinectic Charged 3", 0x17a1c, 0x17a3c, indexCPS2_Zangief },
+};
+
+const sGame_PaletteDataset XMVSF_A_MBISON_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x17a3c, 0x17a5c, indexCPS2_Bison },
+    { "Burning 2", 0x17a5c, 0x17a7c, indexCPS2_Bison },
+    { "Shocked 1", 0x17a7c, 0x17a9c, indexCPS2_Bison },
+    { "Shocked 2", 0x17a9c, 0x17abc, indexCPS2_Bison },
+    { "Dark Burning 1", 0x17abc, 0x17adc, indexCPS2_Bison },
+    { "Dark Burning 2", 0x17adc, 0x17afc, indexCPS2_Bison },
+    { "Kinectic Charged 1", 0x17afc, 0x17b1c, indexCPS2_Bison },
+    { "Kinectic Charged 2", 0x17b1c, 0x17b3c, indexCPS2_Bison },
+    { "Kinectic Charged 3", 0x17b3c, 0x17b5c, indexCPS2_Bison },
+};
+
+const sGame_PaletteDataset XMVSF_A_GOUKI_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x17b5c, 0x17b7c, indexCPS2_Akuma },
+    { "Burning 2", 0x17b7c, 0x17b9c, indexCPS2_Akuma },
+    { "Shocked 1", 0x17b9c, 0x17bbc, indexCPS2_Akuma },
+    { "Shocked 2", 0x17bbc, 0x17bdc, indexCPS2_Akuma },
+    { "Dark Burning 1", 0x17bdc, 0x17bfc, indexCPS2_Akuma },
+    { "Dark Burning 2", 0x17bfc, 0x17c1c, indexCPS2_Akuma },
+    { "Kinectic Charged 1", 0x17c1c, 0x17c3c, indexCPS2_Akuma },
+    { "Kinectic Charged 2", 0x17c3c, 0x17c5c, indexCPS2_Akuma },
+    { "Kinectic Charged 3", 0x17c5c, 0x17c7c, indexCPS2_Akuma },
+};
+
+const sGame_PaletteDataset XMVSF_A_CHARLIE_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x17c7c, 0x17c9c, indexCPS2_Charlie },
+    { "Burning 2", 0x17c9c, 0x17cbc, indexCPS2_Charlie },
+    { "Shocked 1", 0x17cbc, 0x17cdc, indexCPS2_Charlie },
+    { "Shocked 2", 0x17cdc, 0x17cfc, indexCPS2_Charlie },
+    { "Dark Burning 1", 0x17cfc, 0x17d1c, indexCPS2_Charlie },
+    { "Dark Burning 2", 0x17d1c, 0x17d3c, indexCPS2_Charlie },
+    { "Kinectic Charged 1", 0x17d3c, 0x17d5c, indexCPS2_Charlie },
+    { "Kinectic Charged 2", 0x17d5c, 0x17d7c, indexCPS2_Charlie },
+    { "Kinectic Charged 3", 0x17d7c, 0x17d9c, indexCPS2_Charlie },
+};
+
+const sGame_PaletteDataset XMVSF_A_CAMMY_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x17d9c, 0x17dbc, indexCPS2_Cammy },
+    { "Burning 2", 0x17dbc, 0x17ddc, indexCPS2_Cammy },
+    { "Shocked 1", 0x17ddc, 0x17dfc, indexCPS2_Cammy },
+    { "Shocked 2", 0x17dfc, 0x17e1c, indexCPS2_Cammy },
+    { "Dark Burning 1", 0x17e1c, 0x17e3c, indexCPS2_Cammy },
+    { "Dark Burning 2", 0x17e3c, 0x17e5c, indexCPS2_Cammy },
+    { "Kinectic Charged 1", 0x17e5c, 0x17e7c, indexCPS2_Cammy },
+    { "Kinectic Charged 2", 0x17e7c, 0x17e9c, indexCPS2_Cammy },
+    { "Kinectic Charged 3", 0x17e9c, 0x17ebc, indexCPS2_Cammy },
+};
+
+const sGame_PaletteDataset XMVSF_A_CHUNLISFA_PALETTES_STATUSEFFECTS[] =
+{
+    { "Burning 1", 0x17ebc, 0x17edc, indexCPS2_ChunLi, 0x0C },
+    { "Burning 2", 0x17edc, 0x17efc, indexCPS2_ChunLi, 0x0C },
+    { "Shocked 1", 0x17efc, 0x17f1c, indexCPS2_ChunLi, 0x0C },
+    { "Shocked 2", 0x17f1c, 0x17f3c, indexCPS2_ChunLi, 0x0C },
+    { "Dark Burning 1", 0x17f3c, 0x17f5c, indexCPS2_ChunLi, 0x0C },
+    { "Dark Burning 2", 0x17f5c, 0x17f7c, indexCPS2_ChunLi, 0x0C },
+    { "Kinectic Charged 1", 0x17f7c, 0x17f9c, indexCPS2_ChunLi, 0x0C },
+    { "Kinectic Charged 2", 0x17f9c, 0x17fbc, indexCPS2_ChunLi, 0x0C },
+    { "Kinectic Charged 3", 0x17fbc, 0x17fdc, indexCPS2_ChunLi, 0x0C },
+};
+
 const sDescTreeNode XMVSF_A_WOLVERINE_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Wolverine_PALETTES_P1, ARRAYSIZE(XMVSF_A_Wolverine_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Wolverine_PALETTES_P2, ARRAYSIZE(XMVSF_A_Wolverine_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Wolverine_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Wolverine_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_WOLVERINE_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_WOLVERINE_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_CYCLOPS_COLLECTION[] =
@@ -486,6 +734,7 @@ const sDescTreeNode XMVSF_A_CYCLOPS_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Cyclops_PALETTES_P1, ARRAYSIZE(XMVSF_A_Cyclops_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Cyclops_PALETTES_P2, ARRAYSIZE(XMVSF_A_Cyclops_PALETTES_P2) },
     { "Extra", DESC_NODETYPE_TREE, (void *)XMVSF_A_Cyclops_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Cyclops_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_CYCLOPS_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_CYCLOPS_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_STORM_COLLECTION[] =
@@ -493,6 +742,7 @@ const sDescTreeNode XMVSF_A_STORM_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Storm_PALETTES_P1, ARRAYSIZE(XMVSF_A_Storm_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Storm_PALETTES_P2, ARRAYSIZE(XMVSF_A_Storm_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Storm_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Storm_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_STORM_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_STORM_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_ROGUE_COLLECTION[] =
@@ -500,6 +750,7 @@ const sDescTreeNode XMVSF_A_ROGUE_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Rogue_PALETTES_P1, ARRAYSIZE(XMVSF_A_Rogue_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Rogue_PALETTES_P2, ARRAYSIZE(XMVSF_A_Rogue_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Rogue_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Rogue_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_ROGUE_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_ROGUE_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_GAMBIT_COLLECTION[] =
@@ -507,6 +758,7 @@ const sDescTreeNode XMVSF_A_GAMBIT_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Gambit_PALETTES_P1, ARRAYSIZE(XMVSF_A_Gambit_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Gambit_PALETTES_P2, ARRAYSIZE(XMVSF_A_Gambit_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Gambit_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Gambit_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_GAMBIT_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_GAMBIT_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_SABRETOOTH_COLLECTION[] =
@@ -514,6 +766,7 @@ const sDescTreeNode XMVSF_A_SABRETOOTH_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Sabretooth_PALETTES_P1, ARRAYSIZE(XMVSF_A_Sabretooth_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Sabretooth_PALETTES_P2, ARRAYSIZE(XMVSF_A_Sabretooth_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Sabretooth_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Sabretooth_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_SABRETOOTH_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_SABRETOOTH_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_JUGGERNAUT_COLLECTION[] =
@@ -521,6 +774,7 @@ const sDescTreeNode XMVSF_A_JUGGERNAUT_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Juggernaut_PALETTES_P1, ARRAYSIZE(XMVSF_A_Juggernaut_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Juggernaut_PALETTES_P2, ARRAYSIZE(XMVSF_A_Juggernaut_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Juggernaut_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Juggernaut_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_JUGGY_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_JUGGY_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_MAGNETO_COLLECTION[] =
@@ -528,12 +782,14 @@ const sDescTreeNode XMVSF_A_MAGNETO_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Magneto_PALETTES_P1, ARRAYSIZE(XMVSF_A_Magneto_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Magneto_PALETTES_P2, ARRAYSIZE(XMVSF_A_Magneto_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Magneto_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Magneto_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_MAGNETO_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_MAGNETO_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_APOCALYPSE_COLLECTION[] =
 {
     { "Palettes", DESC_NODETYPE_TREE, (void *)XMVSF_A_Apocalypse_PALETTES, ARRAYSIZE(XMVSF_A_Apocalypse_PALETTES) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Apocalypse_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Apocalypse_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_APOCALYPSE_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_APOCALYPSE_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_RYU_COLLECTION[] =
@@ -541,6 +797,7 @@ const sDescTreeNode XMVSF_A_RYU_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Ryu_PALETTES_P1, ARRAYSIZE(XMVSF_A_Ryu_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Ryu_PALETTES_P2, ARRAYSIZE(XMVSF_A_Ryu_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Ryu_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Ryu_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_RYU_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_RYU_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_KEN_COLLECTION[] =
@@ -548,6 +805,7 @@ const sDescTreeNode XMVSF_A_KEN_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Ken_PALETTES_P1, ARRAYSIZE(XMVSF_A_Ken_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Ken_PALETTES_P2, ARRAYSIZE(XMVSF_A_Ken_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Ken_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Ken_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_KEN_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_KEN_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_DHALSIM_COLLECTION[] =
@@ -555,6 +813,7 @@ const sDescTreeNode XMVSF_A_DHALSIM_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Dhalsim_PALETTES_P1, ARRAYSIZE(XMVSF_A_Dhalsim_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Dhalsim_PALETTES_P2, ARRAYSIZE(XMVSF_A_Dhalsim_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Dhalsim_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Dhalsim_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_DHALSIM_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_DHALSIM_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_ZANGIEF_COLLECTION[] =
@@ -562,6 +821,7 @@ const sDescTreeNode XMVSF_A_ZANGIEF_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Zangief_PALETTES_P1, ARRAYSIZE(XMVSF_A_Zangief_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Zangief_PALETTES_P2, ARRAYSIZE(XMVSF_A_Zangief_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Zangief_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Zangief_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_ZANGIEF_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_ZANGIEF_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_MBISON_COLLECTION[] =
@@ -569,6 +829,7 @@ const sDescTreeNode XMVSF_A_MBISON_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_MBison_PALETTES_P1, ARRAYSIZE(XMVSF_A_MBison_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_MBison_PALETTES_P2, ARRAYSIZE(XMVSF_A_MBison_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_MBison_PALETTES_Extras, ARRAYSIZE(XMVSF_A_MBison_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_MBISON_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_MBISON_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_GOUKI_COLLECTION[] =
@@ -576,6 +837,7 @@ const sDescTreeNode XMVSF_A_GOUKI_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Gouki_PALETTES_P1, ARRAYSIZE(XMVSF_A_Gouki_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Gouki_PALETTES_P2, ARRAYSIZE(XMVSF_A_Gouki_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Gouki_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Gouki_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_GOUKI_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_GOUKI_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_CHARLIE_COLLECTION[] =
@@ -583,6 +845,7 @@ const sDescTreeNode XMVSF_A_CHARLIE_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Charlie_PALETTES_P1, ARRAYSIZE(XMVSF_A_Charlie_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Charlie_PALETTES_P2, ARRAYSIZE(XMVSF_A_Charlie_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Charlie_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Charlie_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_CHARLIE_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_CHARLIE_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_CAMMY_COLLECTION[] =
@@ -590,6 +853,7 @@ const sDescTreeNode XMVSF_A_CAMMY_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_Cammy_PALETTES_P1, ARRAYSIZE(XMVSF_A_Cammy_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_Cammy_PALETTES_P2, ARRAYSIZE(XMVSF_A_Cammy_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_Cammy_PALETTES_Extras, ARRAYSIZE(XMVSF_A_Cammy_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_CAMMY_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_CAMMY_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_CHUNLI_COLLECTION[] =
@@ -597,6 +861,7 @@ const sDescTreeNode XMVSF_A_CHUNLI_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void *)XMVSF_A_ChunLi_PALETTES_P1, ARRAYSIZE(XMVSF_A_ChunLi_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void *)XMVSF_A_ChunLi_PALETTES_P2, ARRAYSIZE(XMVSF_A_ChunLi_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void *)XMVSF_A_ChunLi_PALETTES_Extras, ARRAYSIZE(XMVSF_A_ChunLi_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_CHUNLI_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_CHUNLI_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_CHUNLISFA_COLLECTION[] =
@@ -604,6 +869,7 @@ const sDescTreeNode XMVSF_A_CHUNLISFA_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void*)XMVSF_A_ChunLiSFA_PALETTES_P1, ARRAYSIZE(XMVSF_A_ChunLiSFA_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)XMVSF_A_ChunLiSFA_PALETTES_P2, ARRAYSIZE(XMVSF_A_ChunLiSFA_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void*)XMVSF_A_ChunLiSFA_PALETTES_Extras, ARRAYSIZE(XMVSF_A_ChunLiSFA_PALETTES_Extras) },
+    { "Status Effects", DESC_NODETYPE_TREE, (void*)XMVSF_A_CHUNLISFA_PALETTES_STATUSEFFECTS, ARRAYSIZE(XMVSF_A_CHUNLISFA_PALETTES_STATUSEFFECTS) },
 };
 
 const sDescTreeNode XMVSF_A_UNITS[XMVSF_A_NUMUNIT] =
@@ -638,7 +904,7 @@ const UINT32 XMVSF_A_UNITLOC[XMVSF_A_NUMUNIT + 1] =
     0x164BC, // Chun-Li (SFA)
     0x14E3C, // Cyclops
     0x15C5C, // Dhalsim 
-    0x153DC, // GAMBIT
+    0x153DC, // Gambit
     0x1609C, // Gouki
     0x1559C, // Juggernaut
     0x15A1C, // Ken
@@ -660,7 +926,7 @@ These are the ROM locations sorted by layout rather than alphabetically:
     0x14E3C, // Cyclops
     0x14FBC, // Storm
     0x1531C, // Rogue
-    0x153DC, // GAMBIT
+    0x153DC, // Gambit
     0x1549C, // Sabretooth
     0x1559C, // Juggernaut
     0x156BC, // Magneto

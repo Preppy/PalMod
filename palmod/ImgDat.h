@@ -13,7 +13,7 @@ private:
 
     sImgDef** pLastImg = nullptr;
     int nLastImgCt = 0;
-    
+
     UINT16 nCurGameUnitAmt = 0x0000;
     UINT16 nCurGameImgAmt = 0x0000;
 
@@ -42,6 +42,7 @@ public:
     sImgDef* GetImageDef(UINT16 uUnitId, UINT16 uImgId);
     bool FlushImageBuffer();
     UINT8* DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);
+    UINT8* RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight);
 
     int GetCurrImgFlag() { return nCurImgGameFlag; };
     UINT8* GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitId, int nCurrentImgId);

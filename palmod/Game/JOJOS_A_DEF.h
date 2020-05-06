@@ -2015,7 +2015,7 @@ const sDescTreeNode JOJOS_A_STAGE_COLLECTION[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_A[] =
 {
     { "Jotaro & Star Platinum A", 0x0336400, 0x0336480, indexJojos51Jotaro, indexJojos51Character_Main }, // ingame
-    { "Star Breaker Super A", 0x0336d82, 0x0336d90 },
+    { "Star Breaker Super A", 0x0336D80, 0x0336DC0 },
     { "Star Platinum Charging Flash A", 0x0336880, 0x0336900, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super A", 0x0410000, 0x0410080, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger A", 0x0410080, 0x0410100, indexJojos51Jotaro, indexJojos51Character_Challenger },
@@ -2034,7 +2034,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
 {
     { "Jotaro & Star Platinum B", 0x034a900, 0x034a980, indexJojos51Jotaro, indexJojos51Character_Main },
-    { "Star Breaker Super B", 0x034b282, 0x034b290 },
+    { "Star Breaker Super B", 0x034B280, 0x034B2C0 },
     { "Star Platinum Charging Flash B", 0x034AD80, 0x034AE00, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super B", 0x0414e00, 0x0414e80, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger B", 0x0414e80, 0x0414f00, indexJojos51Jotaro, indexJojos51Character_Challenger },
@@ -2053,7 +2053,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_C[] =
 {
     { "Jotaro & Star Platinum C", 0x035ee00, 0x035ee80, indexJojos51Jotaro, indexJojos51Character_Main },
-    { "Star Breaker Super C", 0x035f782, 0x035f790 },
+    { "Star Breaker Super C", 0x035F780, 0x035F7C0 },
     { "Star Platinum Charging Flash C", 0x035F280, 0x035F300, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super C", 0x0419c00, 0x0419c80, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger C", 0x0419c80, 0x0419d00, indexJojos51Jotaro, indexJojos51Character_Challenger },
@@ -2072,7 +2072,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
 {
     { "Jotaro & Star Platinum S", 0x0373300, 0x0373380, indexJojos51Jotaro, indexJojos51Character_Main },
-    { "Star Breaker Super S", 0x0373c82, 0x0373c90 },
+    { "Star Breaker Super S", 0x0373C80, 0x0373CC0 },
     { "Star Platinum Charging Flash S", 0x0373780, 0x0373800, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super S", 0x041ea00, 0x041ea80, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger S", 0x041ea80, 0x041eb00, indexJojos51Jotaro, indexJojos51Character_Challenger },
@@ -2091,7 +2091,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
 {
     { "Jotaro & Star Platinum Start", 0x0387800, 0x0387880, indexJojos51Jotaro, indexJojos51Character_Main },
-    { "Star Breaker Super Start", 0x0388182, 0x0388190 },
+    { "Star Breaker Super Start", 0x0388180, 0x03881C0 },
     { "Star Platinum Charging Flash Start", 0x0387C80, 0x0387D00, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super Start", 0x0423800, 0x0423880, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger Start", 0x0423880, 0x0423900, indexJojos51Jotaro, indexJojos51Character_Challenger },
@@ -3195,18 +3195,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_A[] =
 #else
     { "DIO Select / Winning A", 0x0412200, 0x0412300 },
 #endif
-#ifdef USE_LARGE_PALETTES
-    { "DIO & The World Burning A", 0x033ee00, 0x033ef00 },
-#else
     { "DIO & The World Burning A (1/2)", 0x033ee00, 0x033ee80 },
     { "DIO & The World Burning A (2/2)", 0x033ee80, 0x033ef00 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "DIO Tech/Zap A", 0x033f100, 0x033f200 },
-#else
-    { "DIO Tech/Zap A (1/2)", 0x033f100, 0x033f180 },
-    { "DIO Tech/Zap A (2/2)", 0x033f180, 0x033f200 },
-#endif
+    { "DIO Afterimages/Tech/Zap A (1/2)", 0x033f100, 0x033f180 },
+    { "DIO Afterimages/Tech/Zap A (2/2)", 0x033f180, 0x033f200 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_B[] =
@@ -3225,18 +3217,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_B[] =
 #else
     { "DIO Select / Winning B", 0x0417000, 0x0417100 },
 #endif
-#ifdef USE_LARGE_PALETTES
-    { "DIO & The World Burning B", 0x0353300, 0x0353400 },
-#else
     { "DIO & The World Burning B (1/2)", 0x0353300, 0x0353380 },
     { "DIO & The World Burning B (2/2)", 0x0353380, 0x0353400 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "DIO Tech/Zap B", 0x0353600, 0x0353700 },
-#else
-    { "DIO Tech/Zap B (1/2)", 0x0353600, 0x0353680 },
-    { "DIO Tech/Zap B (2/2)", 0x0353680, 0x0353700 },
-#endif
+    { "DIO Afterimages/Tech/Zap B (1/2)", 0x0353600, 0x0353680 },
+    { "DIO Afterimages/Tech/Zap B (2/2)", 0x0353680, 0x0353700 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_C[] =
@@ -3255,18 +3239,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_C[] =
 #else
     { "DIO Select / Winning C", 0x041be00, 0x041bf00 },
 #endif
-#ifdef USE_LARGE_PALETTES
-    { "DIO & The World Burning C", 0x0367800, 0x0367900 },
-#else
     { "DIO & The World Burning C (1/2)", 0x0367800, 0x0367880 },
     { "DIO & The World Burning C (2/2)", 0x0367880, 0x0367900 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "DIO Tech/Zap C", 0x0367b00, 0x0367c00 },
-#else
-    { "DIO Tech/Zap C (1/2)", 0x0367b00, 0x0367b80 },
-    { "DIO Tech/Zap C (2/2)", 0x0367b80, 0x0367c00 },
-#endif
+    { "DIO Afterimages/Tech/Zap C (1/2)", 0x0367b00, 0x0367b80 },
+    { "DIO Afterimages/Tech/Zap C (2/2)", 0x0367b80, 0x0367c00 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_S[] =
@@ -3285,18 +3261,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_S[] =
 #else
     { "DIO Select / Winning S", 0x0420c00, 0x0420d00 },
 #endif
-#ifdef USE_LARGE_PALETTES
-    { "DIO & The World Burning S", 0x037bd00, 0x037be00 },
-#else
     { "DIO & The World Burning S (1/2)", 0x037bd00, 0x037bd80 },
     { "DIO & The World Burning S (2/2)", 0x037bd80, 0x037be00 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "DIO Tech/Zap S", 0x037c000, 0x037c100 },
-#else
-    { "DIO Tech/Zap S (1/2)", 0x037c000, 0x037c080 },
-    { "DIO Tech/Zap S (2/2)", 0x037c080, 0x037c100 },
-#endif
+    { "DIO Afterimages/Tech/Zap S (1/2)", 0x037c000, 0x037c080 },
+    { "DIO Afterimages/Tech/Zap S (2/2)", 0x037c080, 0x037c100 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_Start[] =
@@ -3315,18 +3283,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_Start[] =
 #else
     { "DIO Select / Winning Start", 0x0425a00, 0x0425b00 },
 #endif
-#ifdef USE_LARGE_PALETTES
-    { "DIO & The World Burning Start", 0x0390200, 0x0390300 },
-#else
     { "DIO & The World Burning Start (1/2)", 0x0390200, 0x0390280 },
     { "DIO & The World Burning Start (2/2)", 0x0390280, 0x0390300 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "DIO Tech/Zap Start", 0x0390500, 0x0390600 },
-#else
-    { "DIO Tech/Zap Start (1/2)", 0x0390500, 0x0390580 },
-    { "DIO Tech/Zap Start (2/2)", 0x0390580, 0x0390600 },
-#endif
+    { "DIO Afterimages/Tech/Zap Start (1/2)", 0x0390500, 0x0390580 },
+    { "DIO Afterimages/Tech/Zap Start (2/2)", 0x0390580, 0x0390600 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_A[] =
@@ -3340,18 +3300,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_A[] =
     { "Shadow DIO Vs / Super A", 0x0412a00, 0x0412a80 },
     { "Shadow DIO Challenger A", 0x0412a80, 0x0412b00 },
     { "Shadow DIO Select / Winning A", 0x0412b00, 0x0412b80 },
-#ifdef USE_LARGE_PALETTES
-    { "Shadow DIO Burning A", 0x0341380, 0x0341480 },
-#else
     { "Shadow DIO Burning A (1/2)", 0x0341380, 0x0341400 },
     { "Shadow DIO Burning A (2/2)", 0x0341400, 0x0341480 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Shadow DIO Tech/Zap A", 0x0341680, 0x0341780 },
-#else
     { "Shadow DIO Tech/Zap A (1/2)", 0x0341680, 0x0341700 },
     { "Shadow DIO Tech/Zap A (2/2)", 0x0341700, 0x0341780 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_B[] =
@@ -3365,18 +3317,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_B[] =
     { "Shadow DIO Vs / Super B", 0x0417800, 0x0417880 },
     { "Shadow DIO Challenger B", 0x0417880, 0x0417900 },
     { "Shadow DIO Select / Winning B", 0x0417900, 0x0417980 },
-#ifdef USE_LARGE_PALETTES
-    { "Shadow DIO Burning B", 0x0355880, 0x0355980 },
-#else
     { "Shadow DIO Burning B (1/2)", 0x0355880, 0x0355900 },
     { "Shadow DIO Burning B (2/2)", 0x0355900, 0x0355980 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Shadow DIO Tech/Zap B", 0x0355b80, 0x0355c80 },
-#else
     { "Shadow DIO Tech/Zap B (1/2)", 0x0355b80, 0x0355c00 },
     { "Shadow DIO Tech/Zap B (2/2)", 0x0355c00, 0x0355c80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_C[] =
@@ -3390,18 +3334,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_C[] =
     { "Shadow DIO Vs / Super C", 0x041c600, 0x041c680 },
     { "Shadow DIO Challenger C", 0x041c680, 0x041c700 },
     { "Shadow DIO Select / Winning Screen C", 0x041c700, 0x041c780 },
-#ifdef USE_LARGE_PALETTES
-    { "Shadow DIO Burning C", 0x0369d80, 0x0369e80 },
-#else
     { "Shadow DIO Burning C (1/2)", 0x0369d80, 0x0369e00 },
     { "Shadow DIO Burning C (2/2)", 0x0369e00, 0x0369e80 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Shadow DIO Tech/Zap C", 0x036a080, 0x036a180 },
-#else
     { "Shadow DIO Tech/Zap C (1/2)", 0x036a080, 0x036a100 },
     { "Shadow DIO Tech/Zap C (2/2)", 0x036a100, 0x036a180 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_S[] =
@@ -3415,18 +3351,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_S[] =
     { "Shadow DIO Vs / Super S", 0x0421400, 0x0421480 },
     { "Shadow DIO Challenger S", 0x0421480, 0x0421500 },
     { "Shadow DIO Select / Winning Screen S", 0x0421500, 0x0421580 },
-#ifdef USE_LARGE_PALETTES
-    { "Shadow DIO Burning S", 0x037e280, 0x037e380 },
-#else
     { "Shadow DIO Burning S (1/2)", 0x037e280, 0x037e300 },
     { "Shadow DIO Burning S (2/2)", 0x037e300, 0x037e380 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Shadow DIO Tech/Zap S", 0x037e580, 0x037e680 },
-#else
     { "Shadow DIO Tech/Zap S (1/2)", 0x037e580, 0x037e600 },
     { "Shadow DIO Tech/Zap S (2/2)", 0x037e600, 0x037e680 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_Start[] =
@@ -3440,18 +3368,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_Start[] =
     { "Shadow DIO Vs / Super Start", 0x0426200, 0x0426280 },
     { "Shadow DIO Challenger Start", 0x0426280, 0x0426300 },
     { "Shadow DIO Select / Winning Screen Start", 0x0426300, 0x0426380 },
-#ifdef USE_LARGE_PALETTES
-    { "Shadow DIO Burning Start", 0x0392780, 0x0392880 },
-#else
     { "Shadow DIO Burning Start (1/2)", 0x0392780, 0x0392800 },
     { "Shadow DIO Burning Start (2/2)", 0x0392800, 0x0392880 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Shadow DIO Tech/Zap Start", 0x0392a80, 0x0392b80 },
-#else
     { "Shadow DIO Tech/Zap Start (1/2)", 0x0392a80, 0x0392b00 },
     { "Shadow DIO Tech/Zap Start (2/2)", 0x0392b00, 0x0392b80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_A[] =
