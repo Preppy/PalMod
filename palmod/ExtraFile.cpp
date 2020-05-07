@@ -41,7 +41,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
         OutputDebugString("BUGBUG: MEMORY CORRUPTION!\n");
     }
 
-    const int nMaxExtraBufferSize = 1000;
+    const int nMaxExtraBufferSize = 5000;
     // I got a report that editing a palette wasn't saving.  Turns out it was also in their Extra file and the later unchanged palette
     // was stomping over the changed palette when we saved out.
     const int nPossibleDuplicateConcern = 100;
@@ -118,7 +118,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                     {
                         s_fShownOnce = true;
                         CString strError;
-                        strError.Format("In file \"%s\", Extra \"%s\" is trying to display %u colors (from 0x%06x to 0x%06x).  This will not work properly.\n", pszExtraFileName, szCurrDesc, nColorsUsed, nCurrStart, nCurrEnd);
+                        strError.Format("In file \"%s\", Extra \"%s\" is trying to display %u colors (from 0x%06x to 0x%06x).  This may not work properly.\n", pszExtraFileName, szCurrDesc, nColorsUsed, nCurrStart, nCurrEnd);
                         MessageBox(nullptr, strError, "PalMod", MB_ICONERROR);
 
                         if (nCurrStart > nCurrEnd) // This file is broken: just make the best of it.

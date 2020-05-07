@@ -62,14 +62,17 @@ const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P1[] =
     { "P1 HK", 0x14e5c, 0x14e7c, 0x06, 0x01 },
     { "P1 optic FX", 0x14e7c, 0x14e9c, 0x06, 0x02 },
 
-    { "P1 Optic Blast 1", 0x17fdc, 0x17ffc, indexCPS2_Cyclops, 13 }, // BUGBUG: or is this intro...?
-    { "P1 Optic Blast 2", 0x17ffc, 0x1801c, indexCPS2_Cyclops, 13 },
-    { "P1 Optic Blast 3", 0x1801c, 0x1803c, indexCPS2_Cyclops, 13 },
-    { "P1 Optic Blast 4", 0x1803c, 0x1805c, indexCPS2_Cyclops, 13 },
-    { "P1 Optic Blast 5", 0x1805c, 0x1807c, indexCPS2_Cyclops, 13 },
-    { "P1 Optic Blast 6", 0x1807c, 0x1809c, indexCPS2_Cyclops, 13 },
-    { "P1 Optic Blast 7", 0x1809c, 0x180Bc, indexCPS2_Cyclops, 13 },
-    { "P1 Optic Blast 8", 0x180Bc, 0x180Dc, indexCPS2_Cyclops, 13 },
+    { "P1 Intro 1", 0x17fdc, 0x17ffc, indexCPS2_Cyclops, 12 }, // Intro animation: cycles from 1 to 7 and back.
+    { "P1 Intro 2", 0x17ffc, 0x1801c, indexCPS2_Cyclops, 12 },
+    { "P1 Intro 3", 0x1801c, 0x1803c, indexCPS2_Cyclops, 12 },
+    { "P1 Intro 4", 0x1803c, 0x1805c, indexCPS2_Cyclops, 12 },
+    { "P1 Intro 5", 0x1805c, 0x1807c, indexCPS2_Cyclops, 12 },
+    { "P1 Intro 6", 0x1807c, 0x1809c, indexCPS2_Cyclops, 12 },
+    { "P1 Intro 7", 0x1809c, 0x180Bc, indexCPS2_Cyclops, 12 },
+    { "P1 Intro 8", 0x180Bc, 0x180Dc, indexCPS2_Cyclops, 12 },
+
+    { "P1 Optic Blast 1", 0x1827c, 0x1829c, indexCPS2_Cyclops, 13 },
+    { "P1 Optic Blast 2", 0x1829c, 0x182Bc, indexCPS2_Cyclops, 13 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P2[] =
@@ -78,14 +81,17 @@ const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P2[] =
     { "P2 HK", 0x14ebc, 0x14edc, 0x06, 0x01 },
     { "P2 optic FX", 0x14edc, 0x14efc, 0x06, 0x02 },
 
-    { "P2 Optic Blast 1", 0x180dc, 0x180fc, indexCPS2_Cyclops, 13 }, // BUGBUG: or is this intro...?
-    { "P2 Optic Blast 2", 0x180fc, 0x1811c, indexCPS2_Cyclops, 13 },
-    { "P2 Optic Blast 3", 0x1811c, 0x1813c, indexCPS2_Cyclops, 13 },
-    { "P2 Optic Blast 4", 0x1813c, 0x1815c, indexCPS2_Cyclops, 13 },
-    { "P2 Optic Blast 5", 0x1815c, 0x1817c, indexCPS2_Cyclops, 13 },
-    { "P2 Optic Blast 6", 0x1817c, 0x1819c, indexCPS2_Cyclops, 13 },
-    { "P2 Optic Blast 7", 0x1819c, 0x181Bc, indexCPS2_Cyclops, 13 },
-    { "P2 Optic Blast 8", 0x181Bc, 0x181Dc, indexCPS2_Cyclops, 13 },
+    { "P2 Intro 1", 0x180dc, 0x180fc, indexCPS2_Cyclops, 12 },
+    { "P2 Intro 2", 0x180fc, 0x1811c, indexCPS2_Cyclops, 12 },
+    { "P2 Intro 3", 0x1811c, 0x1813c, indexCPS2_Cyclops, 12 },
+    { "P2 Intro 4", 0x1813c, 0x1815c, indexCPS2_Cyclops, 12 },
+    { "P2 Intro 5", 0x1815c, 0x1817c, indexCPS2_Cyclops, 12 },
+    { "P2 Intro 6", 0x1817c, 0x1819c, indexCPS2_Cyclops, 12 },
+    { "P2 Intro 7", 0x1819c, 0x181Bc, indexCPS2_Cyclops, 12 },
+    { "P2 Intro 8", 0x181Bc, 0x181Dc, indexCPS2_Cyclops, 12 },
+
+    { "P2 Optic Blast 1", 0x182bc, 0x182dc, indexCPS2_Cyclops, 13 },
+    { "P2 Optic Blast 2", 0x182dc, 0x182fc, indexCPS2_Cyclops, 13 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_Extras[] =
