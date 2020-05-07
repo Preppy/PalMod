@@ -3181,112 +3181,112 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_A[] =
 {
-    { "DIO & The World A", 0x033ed80, 0x033ee00 },
-    { "DIO Intro Stuff A", 0x033f700, 0x033f780 },
-    { "The World's \"Bloody Summoning\" A", 0x033f800, 0x033f880 },
-    { "DIO Tele Initial Flash A", 0x033f500, 0x033f580 },
-    { "DIO Teleport A", 0x033f680, 0x033f700 },
-    { "Nukesaku A", 0x033f780, 0x033f7c0 },
-    { "DIO Vs / Super A", 0x0412100, 0x0412180 },
-    { "DIO Challenger A", 0x0412180, 0x0412200 },
+    { "DIO & The World A", 0x033ed80, 0x033ee00, indexJojos51Dio },
+    { "DIO Intro Stuff A", 0x033f700, 0x033f780, indexJojos51Dio, 1 },
+    { "The World's \"Bloody Summoning\" A", 0x033f800, 0x033f880, indexJojos51Dio, 2 },
+    { "DIO Tele Initial Flash A", 0x033f500, 0x033f580, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO Teleport A", 0x033f680, 0x033f700, indexJojos51Dio, indexJojos51Character_BurnZap  },
+    { "Nukesaku A", 0x033f780, 0x033f7c0, indexJojos51Dio, 8 },
+    { "DIO Vs / Super A", 0x0412100, 0x0412180, indexJojos51Dio, indexJojos51Character_VsSuper },
+    { "DIO Challenger A", 0x0412180, 0x0412200, indexJojos51Dio, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "DIO Select / Winning A (1/2)", 0x0412200, 0x0412280 },
-    { "DIO Select / Winning A (2/2)", 0x0412280, 0x0412300 },
+    { "DIO Select / Winning A (1/2)", 0x0412200, 0x0412280, indexJojos51Dio, indexJojos51Character_SelectWin1, true },
+    { "DIO Select / Winning A (2/2)", 0x0412280, 0x0412300, indexJojos51Dio, indexJojos51Character_SelectWin2, true },
 #else
     { "DIO Select / Winning A", 0x0412200, 0x0412300 },
 #endif
-    { "DIO & The World Burning A (1/2)", 0x033ee00, 0x033ee80 },
-    { "DIO & The World Burning A (2/2)", 0x033ee80, 0x033ef00 },
-    { "DIO Afterimages/Tech/Zap A (1/2)", 0x033f100, 0x033f180 },
-    { "DIO Afterimages/Tech/Zap A (2/2)", 0x033f180, 0x033f200 },
+    { "DIO & The World Burning A (1/2)", 0x033ee00, 0x033ee80, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO & The World Burning A (2/2)", 0x033ee80, 0x033ef00, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO Afterimages/Tech/Zap A (1/2)", 0x033f100, 0x033f180, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO Afterimages/Tech/Zap A (2/2)", 0x033f180, 0x033f200, indexJojos51Dio, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_B[] =
 {
-    { "DIO & The World B", 0x0353280, 0x0353300 },
-    { "DIO Intro Stuff B", 0x0353c00, 0x0353c80 },
-    { "The World's \"Bloody Summoning\" B", 0x0353d00, 0x0353d80 },
+    { "DIO & The World B", 0x0353280, 0x0353300, indexJojos51Dio },
+    { "DIO Intro Stuff B", 0x0353c00, 0x0353c80, indexJojos51Dio, 1 },
+    { "The World's \"Bloody Summoning\" B", 0x0353d00, 0x0353d80, indexJojos51Dio, 2 },
     { "DIO Tele Initial Flash B", 0x0353a00, 0x0353a80 },
     { "DIO Teleport B", 0x0353b80, 0x0353c00 },
-    { "Nukesaku B", 0x0353c80, 0x0353cc0 },
-    { "DIO Vs / Super B", 0x0416f00, 0x0416f80 },
-    { "DIO Challenger B", 0x0416f80, 0x0417000 },
+    { "Nukesaku B", 0x0353c80, 0x0353cc0, indexJojos51Dio, 8 },
+    { "DIO Vs / Super B", 0x0416f00, 0x0416f80, indexJojos51Dio, indexJojos51Character_VsSuper },
+    { "DIO Challenger B", 0x0416f80, 0x0417000, indexJojos51Dio, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "DIO Select / Winning B (1/2)", 0x0417000, 0x0417080 },
-    { "DIO Select / Winning B (2/2)", 0x0417080, 0x0417100 },
+    { "DIO Select / Winning B (1/2)", 0x0417000, 0x0417080, indexJojos51Dio, indexJojos51Character_SelectWin1, true },
+    { "DIO Select / Winning B (2/2)", 0x0417080, 0x0417100, indexJojos51Dio, indexJojos51Character_SelectWin2, true },
 #else
     { "DIO Select / Winning B", 0x0417000, 0x0417100 },
 #endif
-    { "DIO & The World Burning B (1/2)", 0x0353300, 0x0353380 },
-    { "DIO & The World Burning B (2/2)", 0x0353380, 0x0353400 },
-    { "DIO Afterimages/Tech/Zap B (1/2)", 0x0353600, 0x0353680 },
-    { "DIO Afterimages/Tech/Zap B (2/2)", 0x0353680, 0x0353700 },
+    { "DIO & The World Burning B (1/2)", 0x0353300, 0x0353380, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO & The World Burning B (2/2)", 0x0353380, 0x0353400, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO Afterimages/Tech/Zap B (1/2)", 0x0353600, 0x0353680, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO Afterimages/Tech/Zap B (2/2)", 0x0353680, 0x0353700, indexJojos51Dio, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_C[] =
 {
-    { "DIO & The World C", 0x0367780, 0x0367800 },
-    { "DIO Intro Stuff C", 0x0368100, 0x0368180 },
-    { "The World's \"Bloody Summoning\" C", 0x0368200, 0x0368280 },
+    { "DIO & The World C", 0x0367780, 0x0367800, indexJojos51Dio },
+    { "DIO Intro Stuff C", 0x0368100, 0x0368180, indexJojos51Dio, 1 },
+    { "The World's \"Bloody Summoning\" C", 0x0368200, 0x0368280, indexJojos51Dio, 2 },
     { "DIO Tele Initial Flash C", 0x0367f00, 0x0367f80 },
     { "DIO Teleport C", 0x0368080, 0x0368100 },
-    { "Nukesaku C", 0x0368180, 0x03681c0 },
-    { "DIO Vs / Super C", 0x041bd00, 0x041bd80 },
-    { "DIO Challenger C", 0x041bd80, 0x041be00 },
+    { "Nukesaku C", 0x0368180, 0x03681c0, indexJojos51Dio, 8 },
+    { "DIO Vs / Super C", 0x041bd00, 0x041bd80, indexJojos51Dio, indexJojos51Character_VsSuper },
+    { "DIO Challenger C", 0x041bd80, 0x041be00, indexJojos51Dio, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "DIO Select / Winning C (1/2)", 0x041be00, 0x041be80 },
-    { "DIO Select / Winning C (2/2)", 0x041be80, 0x041bf00 },
+    { "DIO Select / Winning C (1/2)", 0x041be00, 0x041be80, indexJojos51Dio, indexJojos51Character_SelectWin1, true },
+    { "DIO Select / Winning C (2/2)", 0x041be80, 0x041bf00, indexJojos51Dio, indexJojos51Character_SelectWin2, true },
 #else
     { "DIO Select / Winning C", 0x041be00, 0x041bf00 },
 #endif
-    { "DIO & The World Burning C (1/2)", 0x0367800, 0x0367880 },
-    { "DIO & The World Burning C (2/2)", 0x0367880, 0x0367900 },
-    { "DIO Afterimages/Tech/Zap C (1/2)", 0x0367b00, 0x0367b80 },
-    { "DIO Afterimages/Tech/Zap C (2/2)", 0x0367b80, 0x0367c00 },
+    { "DIO & The World Burning C (1/2)", 0x0367800, 0x0367880, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO & The World Burning C (2/2)", 0x0367880, 0x0367900, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO Afterimages/Tech/Zap C (1/2)", 0x0367b00, 0x0367b80, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO Afterimages/Tech/Zap C (2/2)", 0x0367b80, 0x0367c00, indexJojos51Dio, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_S[] =
 {
-    { "DIO & The World S", 0x037bc80, 0x037bd00 },
-    { "DIO Intro Stuff S", 0x037c600, 0x037c680 },
-    { "The World's \"Bloody Summoning\" S", 0x037c700, 0x037c780 },
+    { "DIO & The World S", 0x037bc80, 0x037bd00, indexJojos51Dio },
+    { "DIO Intro Stuff S", 0x037c600, 0x037c680, indexJojos51Dio, 1 },
+    { "The World's \"Bloody Summoning\" S", 0x037c700, 0x037c780, indexJojos51Dio, 2 },
     { "DIO Tele Initial Flash S", 0x037c400, 0x037c480 },
     { "DIO Teleport S", 0x037c580, 0x037c600 },
-    { "Nukesaku S", 0x037c680, 0x037c6c0 },
-    { "DIO Vs / Super S", 0x0420b00, 0x0420b80 },
-    { "DIO Challenger S", 0x0420b80, 0x0420c00 },
+    { "Nukesaku S", 0x037c680, 0x037c6c0, indexJojos51Dio, 8 },
+    { "DIO Vs / Super S", 0x0420b00, 0x0420b80, indexJojos51Dio, indexJojos51Character_VsSuper },
+    { "DIO Challenger S", 0x0420b80, 0x0420c00, indexJojos51Dio, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "DIO Select / Winning S (1/2)", 0x0420c00, 0x0420c80 },
-    { "DIO Select / Winning S (2/2)", 0x0420c80, 0x0420d00 },
+    { "DIO Select / Winning S (1/2)", 0x0420c00, 0x0420c80, indexJojos51Dio, indexJojos51Character_SelectWin1, true },
+    { "DIO Select / Winning S (2/2)", 0x0420c80, 0x0420d00, indexJojos51Dio, indexJojos51Character_SelectWin2, true },
 #else
     { "DIO Select / Winning S", 0x0420c00, 0x0420d00 },
 #endif
-    { "DIO & The World Burning S (1/2)", 0x037bd00, 0x037bd80 },
-    { "DIO & The World Burning S (2/2)", 0x037bd80, 0x037be00 },
-    { "DIO Afterimages/Tech/Zap S (1/2)", 0x037c000, 0x037c080 },
-    { "DIO Afterimages/Tech/Zap S (2/2)", 0x037c080, 0x037c100 },
+    { "DIO & The World Burning S (1/2)", 0x037bd00, 0x037bd80, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO & The World Burning S (2/2)", 0x037bd80, 0x037be00, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO Afterimages/Tech/Zap S (1/2)", 0x037c000, 0x037c080, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO Afterimages/Tech/Zap S (2/2)", 0x037c080, 0x037c100, indexJojos51Dio, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DIO_Start[] =
 {
-    { "DIO & The World Start", 0x0390180, 0x0390200 },
-    { "DIO Intro Stuff Start", 0x0390b00, 0x0390b80 },
-    { "The World's \"Bloody Summoning\" Start", 0x0390c00, 0x0390c80 },
+    { "DIO & The World Start", 0x0390180, 0x0390200, indexJojos51Dio },
+    { "DIO Intro Stuff Start", 0x0390b00, 0x0390b80, indexJojos51Dio, 1 },
+    { "The World's \"Bloody Summoning\" Start", 0x0390c00, 0x0390c80, indexJojos51Dio, 2 },
     { "DIO Tele Initial Flash Start", 0x0390900, 0x0390980 },
     { "DIO Teleport Start", 0x0390a80, 0x0390b00 },
-    { "Nukesaku Start", 0x0390b80, 0x0390bc0 },
-    { "DIO Vs / Super Start", 0x0425900, 0x0425980 },
-    { "DIO Challenger Start", 0x0425980, 0x0425a00 },
+    { "Nukesaku Start", 0x0390b80, 0x0390bc0, indexJojos51Dio, 8 },
+    { "DIO Vs / Super Start", 0x0425900, 0x0425980, indexJojos51Dio, indexJojos51Character_VsSuper },
+    { "DIO Challenger Start", 0x0425980, 0x0425a00, indexJojos51Dio, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "DIO Select / Winning Start (1/2)", 0x0425a00, 0x0425a80 },
-    { "DIO Select / Winning Start (2/2)", 0x0425a80, 0x0425b00 },
+    { "DIO Select / Winning Start (1/2)", 0x0425a00, 0x0425a80, indexJojos51Dio, indexJojos51Character_SelectWin1, true },
+    { "DIO Select / Winning Start (2/2)", 0x0425a80, 0x0425b00, indexJojos51Dio, indexJojos51Character_SelectWin2, true },
 #else
     { "DIO Select / Winning Start", 0x0425a00, 0x0425b00 },
 #endif
-    { "DIO & The World Burning Start (1/2)", 0x0390200, 0x0390280 },
-    { "DIO & The World Burning Start (2/2)", 0x0390280, 0x0390300 },
-    { "DIO Afterimages/Tech/Zap Start (1/2)", 0x0390500, 0x0390580 },
-    { "DIO Afterimages/Tech/Zap Start (2/2)", 0x0390580, 0x0390600 },
+    { "DIO & The World Burning Start (1/2)", 0x0390200, 0x0390280, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO & The World Burning Start (2/2)", 0x0390280, 0x0390300, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO Afterimages/Tech/Zap Start (1/2)", 0x0390500, 0x0390580, indexJojos51Dio, indexJojos51Character_BurnZap },
+    { "DIO Afterimages/Tech/Zap Start (2/2)", 0x0390580, 0x0390600, indexJojos51Dio, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SDIO_A[] =

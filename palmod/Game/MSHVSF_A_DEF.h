@@ -50,7 +50,10 @@ const sGame_PaletteDataset MSHVSF_A_APOCALYPSE_PALETTES_SHARED[] =
     { "Giant Body",         0x59EF4, 0x59F34, 0x4F, 0x03 },
     { "Giant Arm",          0x71E6E, 0x71E8E, 0x4F, 0x02 },
     { "Shoulder Gun",       0x71EAE, 0x71ECE, 0x4F, 0x04 },
+    { "Shockwave",          0x71EEE, 0x71F0E },
+    { "?",                  0x71F0E, 0x71F2E },
     { "Apocalypse Drone",   0x71F2E, 0x71F4E, 0x4F, 0x05 },
+    { "Hand: Mace and Drill", 0x71F4E, 0x71F6E },
 };
 
 const sGame_PaletteDataset MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =
@@ -68,10 +71,12 @@ const sGame_PaletteDataset MSHVSF_A_ARMORED_SPIDERMAN_PALETTES_P2COLOR_KICK[] =
 const sGame_PaletteDataset MSHVSF_A_BLACKHEART_PALETTES_P1COLOR_PUNCH[] =
 {
     { "P1 Color (Punch)",       0x7258E, 0x725AE, 0x35 },
+    { "Extra 01",               0x725AE, 0x725CE },
 };
 const sGame_PaletteDataset MSHVSF_A_BLACKHEART_PALETTES_P2COLOR_KICK[] =
 {
     { "P2 Color (Kick)",        0x725EE, 0x7260E, 0x35 },
+    { "Extra 02",               0x7260E, 0x7262E },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MEPHISTO_PALETTES_P1COLOR_PUNCH[] =
@@ -118,13 +123,15 @@ const sGame_PaletteDataset MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P1COLOR_PUNCH[] =
 {
-    { "P1 Color (Punch)",    0x727CE, 0x727EE, 0x1B },
-    { "P1 Extras 1", 0x7280E, 0x7282E, 0x1B, 1 },
+    { "P1 Color (Punch)",   0x727CE, 0x727EE, 0x1B },
+    { "P1 Extras 1",        0x727EE, 0x7280E, 0x1B, 1 },
+    { "P1 Kikosho",         0x7280E, 0x7282E, 0x1B, 2 },
 };
 const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P2COLOR_KICK[] =
 {
-    { "P2 Color (Kick)",     0x7282E, 0x7284E,  0x1B },
-    { "P2 Extras 1", 0x7284E, 0x7286E, 0x1B, 1 },
+    { "P2 Color (Kick)",    0x7282E, 0x7284E, 0x1B },
+    { "P2 Extras 1",        0x7284E, 0x7286E, 0x1B, 1 },
+    { "P2 Kikosho",         0x7286E, 0x7288E, 0x1B, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYBER_GOUKI_PALETTES_P1COLOR_PUNCH[] =
@@ -201,8 +208,9 @@ const sGame_PaletteDataset MSHVSF_A_DARK_SAKURA_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_DHALSIM_PALETTES_P1COLOR_PUNCH[] =
 {
-    { "P1 Color (Punch)",        0x7288E, 0x728AE,  0x25 },
-    { "P1 Extras 1 Flames", 0x728AE, 0x728CE, 0x25, 1 },
+    { "P1 Color (Punch)",        0x7288E, 0x728AE, 0x25 },
+    { "P1 Extras 1 Flames",      0x728AE, 0x728CE, 0x25, 1 },
+    { "P1 Extras Sally",         0x728CE, 0x728EE, 0x25, 2 },
     { "P1 Teleport 1", 0x76CCE, 0x76CEE, 0x25, 0xb },
     { "P1 Teleport 2", 0x76CEE, 0x76D0E, 0x25, 0xb },
     { "P1 Teleport 3", 0x76D0E, 0x76D2E, 0x25, 0xb },
@@ -214,6 +222,7 @@ const sGame_PaletteDataset MSHVSF_A_DHALSIM_PALETTES_P2COLOR_KICK[] =
 {
     { "P2 Color (Kick)",        0x728EE, 0x7290E, 0x25 },
     { "P2 Extras 1 Flames",     0x7290E, 0x7292E, 0x25, 1 },
+    { "P2 Extras Sally",        0x7292E, 0x7294E, 0x25, 2 },
     { "P2 Teleport 1",          0x76D6E, 0x76D8E, 0x25, 0xb },
     { "P2 Teleport 2",          0x76D8E, 0x76DAE, 0x25, 0xb },
     { "P2 Teleport 3",          0x76DAE, 0x76DCE, 0x25, 0xb },
@@ -383,7 +392,7 @@ const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH[] =
     {"P1 Extra 8", 0x776EE, 0x7770E, 0x2D },
     {"P1 Extra 9", 0x7770E, 0x7772E, 0x2D },
     {"P1 Extra 10", 0x79C0E, 0x79C2E, 0x2D },
-    {"P1 Extra 11", 0x7236E, 0x7238D , 0x2D },
+    {"P1 Extra 11", 0x7236E, 0x7238E , 0x2D },
     {"P1 Extra 12", 0x7728E, 0x772AE, 0x2D },
     {"P1 Extra 13", 0x772AE, 0x772CE, 0x2D },
     {"P1 Extra 14", 0x772CE, 0x772EE, 0x2D },
@@ -407,18 +416,21 @@ const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH[] =
     {"P1 Chaos Dimension 3", 0x7776E, 0x7778E, 0x2D },
     {"P1 Chaos Dimension 4", 0x7778E, 0x777AE, 0x2D },
     {"P1 Chaos Dimension 5", 0x777AE, 0x777CE, 0x2D },
-    {"P1 Chaos Dimension 6", 0x777CE, 0x777ED , 0x2D },
+    {"P1 Chaos Dimension 6", 0x777CE, 0x777EE , 0x2D },
     {"P1 Mystic Smash 1", 0x7786E, 0x7788E, 0x2D },
 };
 const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK[] =
 {
-    { "P2 Color (Kick)",        0x000000, 0x000020, 0x2D },
+    { "P2 Color (Kick)",        0x723AE, 0x723CE, 0x2D },
+    { "P2 Extra 11",            0x723CE, 0x723EE, 0x2D },
+    { "P2 Extra 21 High Punch", 0x723EE, 0x7240E, 0x2D },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =
 { // 2 is web
     { "P1 Color (Punch)", 0x724CE, 0x724EE, 0x0C },
     { "P1 Extras 1", 0x724EE, 0x7250E, 0x0C, 0x2 },
+    { "P1 Spotlight", 0x7250E, 0x7252E, 0x0C, 13 },
     { "P1 Intro 1", 0x765CE, 0x765EE, 0x0C, 0x0B },
     { "P1 Intro 2", 0x765EE, 0x7660E, 0x0C, 0x0B },
     { "P1 Intro 3", 0x7660E, 0x7662E, 0x0C, 0x0B },
@@ -432,6 +444,7 @@ const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P2COLOR_KICK[] =
 {
     { "P2 Color (Kick)", 0x7252E, 0x7254E, 0x0C },
     { "P2 Extras 1", 0x7254E, 0x7256E, 0x0C, 0x2 },
+    { "P2 Spotlight", 0x7256E, 0x7258E, 0x0C, 13 },
     { "P2 Intro 1", 0x767CE, 0x767EE, 0x0C, 0x0B },
     { "P2 Intro 2", 0x767EE, 0x7680E, 0x0C, 0x0B },
     { "P2 Intro 3", 0x7680E, 0x7682E, 0x0C, 0x0B },
@@ -477,16 +490,18 @@ const sGame_PaletteDataset MSHVSF_A_WOLVERINE_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P1COLOR_PUNCH[] =
 {
-    { "P1 Color (Punch)",        0x7294E, 0x7296E, 0x01 },
-    { "P1 Banishing Fist", 0x7296E, 0x7298E, 0x01, 1 },
-    { "P1 FAB 1", 0x72A4E, 0x72A6E, 0x01 },
-    { "P1 FAB 2", 0x72A6E, 0x72A8E, 0x01 },
-    { "P1 FAB 3", 0x72A8E, 0x72AAE, 0x01 },
+    { "P1 Color (Punch)",   0x7294E, 0x7296E, 0x01 },
+    { "P1 Banishing Fist",  0x7296E, 0x7298E, 0x01, 1 },
+    { "P1 Extra 2",         0x7298E, 0x729AE },
+    { "P1 FAB 1",           0x72A4E, 0x72A6E, 0x01 },
+    { "P1 FAB 2",           0x72A6E, 0x72A8E, 0x01 },
+    { "P1 FAB 3",           0x72A8E, 0x72AAE, 0x01 },
 };
 const sGame_PaletteDataset MSHVSF_A_ZANGIEF_PALETTES_P2COLOR_KICK[] =
 {
     { "P2 Color (Kick)",        0x729AE, 0x729CE, 0x01 },
     { "P2 Banishing Fist",      0x729CE, 0x729EE, 0x01, 1 },
+    { "P2 Extra 2",             0x729EE, 0x72A0E },
     { "P2 FAB 1",               0x72AAE, 0x72ACE, 0x01 },
     { "P2 FAB 2",               0x72ACE, 0x72AEE, 0x01 },
     { "P2 FAB 3",               0x72AEE, 0x72B0E, 0x01 },
@@ -744,8 +759,7 @@ const sDescTreeNode MSHVSF_A_SHADOW_COLLECTION[] =
 const sDescTreeNode MSHVSF_A_SHUMAGORATH_COLLECTION[] =
 {
     { "P1 Color (Punch)",    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH) },
-    // We don't have this data yet.
-    //{ "P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK) },
+    { "P2 Color (Kick)",     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK,     ARRAYSIZE(MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK) },
 };
 const sDescTreeNode MSHVSF_A_SPIDERMAN_COLLECTION[] =
 {

@@ -61,6 +61,15 @@ const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P1[] =
     { "P1 Punch Color", 0x14e3c, 0x14e5c, 0x06, 0x00 },
     { "P1 HK", 0x14e5c, 0x14e7c, 0x06, 0x01 },
     { "P1 optic FX", 0x14e7c, 0x14e9c, 0x06, 0x02 },
+
+    { "P1 Optic Blast 1", 0x17fdc, 0x17ffc, indexCPS2_Cyclops, 13 }, // BUGBUG: or is this intro...?
+    { "P1 Optic Blast 2", 0x17ffc, 0x1801c, indexCPS2_Cyclops, 13 },
+    { "P1 Optic Blast 3", 0x1801c, 0x1803c, indexCPS2_Cyclops, 13 },
+    { "P1 Optic Blast 4", 0x1803c, 0x1805c, indexCPS2_Cyclops, 13 },
+    { "P1 Optic Blast 5", 0x1805c, 0x1807c, indexCPS2_Cyclops, 13 },
+    { "P1 Optic Blast 6", 0x1807c, 0x1809c, indexCPS2_Cyclops, 13 },
+    { "P1 Optic Blast 7", 0x1809c, 0x180Bc, indexCPS2_Cyclops, 13 },
+    { "P1 Optic Blast 8", 0x180Bc, 0x180Dc, indexCPS2_Cyclops, 13 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P2[] =
@@ -68,6 +77,15 @@ const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_P2[] =
     { "P2 Kick Color", 0x14e9c, 0x14ebc, 0x06, 0x00 },
     { "P2 HK", 0x14ebc, 0x14edc, 0x06, 0x01 },
     { "P2 optic FX", 0x14edc, 0x14efc, 0x06, 0x02 },
+
+    { "P2 Optic Blast 1", 0x180dc, 0x180fc, indexCPS2_Cyclops, 13 }, // BUGBUG: or is this intro...?
+    { "P2 Optic Blast 2", 0x180fc, 0x1811c, indexCPS2_Cyclops, 13 },
+    { "P2 Optic Blast 3", 0x1811c, 0x1813c, indexCPS2_Cyclops, 13 },
+    { "P2 Optic Blast 4", 0x1813c, 0x1815c, indexCPS2_Cyclops, 13 },
+    { "P2 Optic Blast 5", 0x1815c, 0x1817c, indexCPS2_Cyclops, 13 },
+    { "P2 Optic Blast 6", 0x1817c, 0x1819c, indexCPS2_Cyclops, 13 },
+    { "P2 Optic Blast 7", 0x1819c, 0x181Bc, indexCPS2_Cyclops, 13 },
+    { "P2 Optic Blast 8", 0x181Bc, 0x181Dc, indexCPS2_Cyclops, 13 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_Extras[] =
@@ -84,20 +102,20 @@ const sGame_PaletteDataset XMVSF_A_Cyclops_PALETTES_Extras[] =
 const sGame_PaletteDataset XMVSF_A_Storm_PALETTES_P1[] =
 {
     { "P1 Punch Color", 0x14fbc, 0x14fdc, 0x2a, 0x00 },
-    { "Palette (01)", 0x14fdc, 0x14ffc, 0x2a, 0x00 },
-    { "Palette (02)", 0x14ffc, 0x1501c, 0x2a, 0x00 },
+    { "Palette (01)",   0x14fdc, 0x14ffc, 0x2a, 0x00 },
+    { "Palette (02)",   0x14ffc, 0x1501c, 0x2a, 0x00 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Storm_PALETTES_P2[] =
 {
     { "P2 Kick Color", 0x1501c, 0x1503c, 0x2a, 0x00 },
-    { "Palette (04)", 0x1503c, 0x1505c, 0x2a, 0x00 },
-    { "Palette (05)", 0x1505c, 0x1507c, 0x2a, 0x00 },
+    { "Palette (04)",  0x1503c, 0x1505c, 0x2a, 0x00 },
+    { "Palette (05)",  0x1505c, 0x1507c, 0x2a, 0x00 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Storm_PALETTES_Extras[] =
 {
-    { "Palette (06)", 0x1507c, 0x1509c, 0x2a, 0x00 },
+    { "Palette (06)", 0x1507c, 0x1509c, 0x2a, 0x00 },  
     { "Palette (07)", 0x1509c, 0x150bc, 0x2a, 0x00 },
     { "Palette (08)", 0x150bc, 0x150dc, 0x2a, 0x00 },
     { "Palette (09)", 0x150dc, 0x150fc, 0x2a, 0x00 },
@@ -118,6 +136,7 @@ const sGame_PaletteDataset XMVSF_A_Storm_PALETTES_Extras[] =
     { "Palette (18)", 0x152bc, 0x152dc, 0x2a, 0x00 },
     { "Palette (19)", 0x152dc, 0x152fc, 0x2a, 0x00 },
     { "Palette (1A)", 0x152fc, 0x1531c, 0x2a, 0x00 },
+
     { "Portrait", 0x1bf3c, 0x1bfbc },
 };
 
@@ -166,6 +185,17 @@ const sGame_PaletteDataset XMVSF_A_Juggernaut_PALETTES_P1[] =
     { "P1 Punch Color", 0x1559c, 0x155bc, 0x29, 0x00 },
     { "Palette (01)", 0x155bc, 0x155dc },
     { "P1 ground FX", 0x155dc, 0x155fc, 0x29, 0x02 },
+
+    { "P1 Cyttorak Power-Up 1?", 0x184bc, 0x184dc, indexCPS2_Juggy, 11 },
+    { "P1 Cyttorak Power-Up 2?", 0x184dc, 0x184fc, indexCPS2_Juggy, 11 },
+    { "P1 Cyttorak Power-Up 3?", 0x184fc, 0x1851c, indexCPS2_Juggy, 11 },
+    { "P1 Cyttorak Power-Up 4?", 0x1851c, 0x1853c, indexCPS2_Juggy, 11 },
+    { "P1 Cyttorak Power-Up 5?", 0x1853c, 0x1855c, indexCPS2_Juggy, 11 },
+    { "P1 Cyttorak Power-Up 6?", 0x1855c, 0x1857c, indexCPS2_Juggy, 11 },
+    { "P1 Cyttorak Power-Up 7?", 0x1857c, 0x1859c, indexCPS2_Juggy, 11 },
+    { "P1 Cyttorak Power-Up 8?", 0x1859c, 0x185Bc, indexCPS2_Juggy, 11 },
+    { "P1 Cyttorak Power-Up 9?", 0x185Bc, 0x185Dc, indexCPS2_Juggy, 11 },
+    { "P1 Cyttorak Power-Up 10?", 0x185Dc, 0x185Fc, indexCPS2_Juggy, 11 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Juggernaut_PALETTES_P2[] =
@@ -173,6 +203,17 @@ const sGame_PaletteDataset XMVSF_A_Juggernaut_PALETTES_P2[] =
     { "P2 Kick Color", 0x155fc, 0x1561c, 0x29, 0x00 },
     { "Palette (04)", 0x1561c, 0x1563c },
     { "P2 ground FX", 0x1563c, 0x1565c, 0x29, 0x02 },
+
+    { "P2 Cyttorak Power-Up 1?", 0x185fc, 0x1861c, indexCPS2_Juggy, 11 },
+    { "P2 Cyttorak Power-Up 2?", 0x1861c, 0x1863c, indexCPS2_Juggy, 11 },
+    { "P2 Cyttorak Power-Up 3?", 0x1863c, 0x1865c, indexCPS2_Juggy, 11 },
+    { "P2 Cyttorak Power-Up 4?", 0x1865c, 0x1867c, indexCPS2_Juggy, 11 },
+    { "P2 Cyttorak Power-Up 5?", 0x1867c, 0x1869c, indexCPS2_Juggy, 11 },
+    { "P2 Cyttorak Power-Up 6?", 0x1869c, 0x186Bc, indexCPS2_Juggy, 11 },
+    { "P2 Cyttorak Power-Up 7?", 0x186Bc, 0x186Dc, indexCPS2_Juggy, 11 },
+    { "P2 Cyttorak Power-Up 8?", 0x186Dc, 0x186Fc, indexCPS2_Juggy, 11 },
+    { "P2 Cyttorak Power-Up 9?", 0x186Fc, 0x1871c, indexCPS2_Juggy, 11 },
+    { "P2 Cyttorak Power-Up 10?", 0x1871c, 0x1873c, indexCPS2_Juggy, 11 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Juggernaut_PALETTES_Extras[] =
@@ -223,15 +264,15 @@ const sGame_PaletteDataset XMVSF_A_Magneto_PALETTES_Extras[] =
 
 const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P1[] =
 {
-    { "P1 Punch Color", 0x1531c, 0x1533c, 0x0a, 0x00 },
-    { "Palette (01)", 0x1533c, 0x1535c },
+    { "P1 Punch Color", 0x1531c, 0x1533c, 0x0a, 0x0C },
+    { "Palette (01)", 0x1533c, 0x1535c, 0x0a, 0x0C },
     { "P1 ground FX", 0x1535c, 0x1537c, 0x0a, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Rogue_PALETTES_P2[] =
 {
-    { "P2 Kick Color", 0x1537c, 0x1539c, 0x0a, 0x00 },
-    { "Palette (04)", 0x1539c, 0x153bc },
+    { "P2 Kick Color", 0x1537c, 0x1539c, 0x0a, 0x0C },
+    { "Palette (04)", 0x1539c, 0x153bc, 0x0a, 0x0C },
     { "P2 ground FX", 0x153bc, 0x153dc, 0x0a, 0x02 },
 };
 
@@ -315,6 +356,12 @@ const sGame_PaletteDataset XMVSF_A_Dhalsim_PALETTES_P1[] =
     { "P1 Punch Color", 0x15c5c, 0x15c7c, 0x25, 0x00 },
     { "P1 fire FX", 0x15c7c, 0x15c9c, 0x25, 0x01 },
     { "P1 Sally", 0x15c9c, 0x15cbc, 0x25, 0x02 },
+
+    { "P1 Teleport 1", 0x1895c, 0x1897c, indexCPS2_Dhalsim, 11 },
+    { "P1 Teleport 2", 0x1897c, 0x1899c, indexCPS2_Dhalsim, 11 },
+    { "P1 Teleport 3", 0x1899c, 0x189Bc, indexCPS2_Dhalsim, 11 },
+    { "P1 Teleport 4", 0x189Bc, 0x189Dc, indexCPS2_Dhalsim, 11 },
+    { "P1 Teleport 5", 0x189Dc, 0x189Fc, indexCPS2_Dhalsim, 11 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Dhalsim_PALETTES_P2[] =
@@ -322,6 +369,12 @@ const sGame_PaletteDataset XMVSF_A_Dhalsim_PALETTES_P2[] =
     { "P2 Kick Color", 0x15cbc, 0x15cdc, 0x25, 0x00 },
     { "P2 fire FX", 0x15cdc, 0x15cfc, 0x25, 0x01 },
     { "P2 Sally", 0x15cfc, 0x15d1c, 0x25, 0x02 },
+
+    { "P2 Teleport 1", 0x189Fc, 0x18A1c, indexCPS2_Dhalsim, 11 },
+    { "P2 Teleport 2", 0x18A1c, 0x18A3c, indexCPS2_Dhalsim, 11 },
+    { "P2 Teleport 3", 0x18A3c, 0x18A5c, indexCPS2_Dhalsim, 11 },
+    { "P2 Teleport 4", 0x18A5c, 0x18A7c, indexCPS2_Dhalsim, 11 },
+    { "P2 Teleport 5", 0x18A7c, 0x18A9c, indexCPS2_Dhalsim, 11 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Dhalsim_PALETTES_Extras[] =
@@ -419,6 +472,17 @@ const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P1[] =
     { "P1 Punch Color", 0x1639c, 0x163bc, 0x24, 0x00 },
     { "P1 psycho FX", 0x163bc, 0x163dc, 0x24, 0x01 },
     { "Palette (02)", 0x163dc, 0x163fc, 0x24, 0x00 },
+
+    { "P1 Cannon Revenge 1", 0x18b1c, 0x18b3c, indexCPS2_Cammy, 11 },
+    { "P1 Cannon Revenge 2", 0x18b3c, 0x18b5c, indexCPS2_Cammy, 11 },
+    { "P1 Cannon Revenge 3", 0x18b5c, 0x18b7c, indexCPS2_Cammy, 11 },
+    { "P1 Cannon Revenge 4", 0x18b7c, 0x18b9c, indexCPS2_Cammy, 11 },
+    { "P1 Cannon Revenge 5", 0x18b9c, 0x18bbc, indexCPS2_Cammy, 11 },
+    { "P1 Cannon Revenge 6", 0x18bbc, 0x18bdc, indexCPS2_Cammy, 11 },
+    { "P1 Cannon Revenge 7", 0x18bdc, 0x18bfc, indexCPS2_Cammy, 11 },
+    { "P1 Cannon Revenge 8", 0x18bfc, 0x18c1c, indexCPS2_Cammy, 11 },
+    { "P1 Cannon Revenge 9", 0x18c1c, 0x18c3c, indexCPS2_Cammy, 11 },
+
 };
 
 const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P2[] =
@@ -426,6 +490,16 @@ const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_P2[] =
     { "P2 Kick Color", 0x163fc, 0x1641c, 0x24, 0x00 },
     { "P2 psycho FX", 0x1641c, 0x1643c, 0x24, 0x01 },
     { "Palette (05)", 0x1643c, 0x1645c, 0x24, 0x00 },
+
+    { "P2 Cannon Revenge 1", 0x18c3c, 0x18c5c, indexCPS2_Cammy, 11 },
+    { "P2 Cannon Revenge 2", 0x18c5c, 0x18c7c, indexCPS2_Cammy, 11 },
+    { "P2 Cannon Revenge 3", 0x18c7c, 0x18c9c, indexCPS2_Cammy, 11 },
+    { "P2 Cannon Revenge 4", 0x18c9c, 0x18cbc, indexCPS2_Cammy, 11 },
+    { "P2 Cannon Revenge 5", 0x18cbc, 0x18cdc, indexCPS2_Cammy, 11 },
+    { "P2 Cannon Revenge 6", 0x18cdc, 0x18cfc, indexCPS2_Cammy, 11 },
+    { "P2 Cannon Revenge 7", 0x18cfc, 0x18d1c, indexCPS2_Cammy, 11 },
+    { "P2 Cannon Revenge 8", 0x18d1c, 0x18d3c, indexCPS2_Cammy, 11 },
+    { "P2 Cannon Revenge 9", 0x18d3c, 0x18d5c, indexCPS2_Cammy, 11 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_Extras[] =
