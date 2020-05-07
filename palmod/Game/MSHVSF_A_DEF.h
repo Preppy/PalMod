@@ -381,49 +381,115 @@ const sGame_PaletteDataset MSHVSF_A_SHADOW_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P1COLOR_PUNCH[] =
 {
-    { "P1 Color (Punch)",        0x7234E, 0x7236E, 0x2D },
-    //{"Shuma-Gorath P1 Extra 1", 0x7730E, 0x7732E, 0x2D }, // BUGBUG: we have two definitions for this.  using 16 below
-    {"P1 Extra 2", 0x773AE, 0x773CE, 0x2D },
-    {"P1 Extra 3", 0x7764E, 0x7766E, 0x2D },
-    {"P1 Extra 4", 0x7766E, 0x7768E, 0x2D },
-    {"P1 Extra 5", 0x7768E, 0x776AE, 0x2D },
-    {"P1 Extra 6", 0x776AE, 0x776CE, 0x2D },
-    {"P1 Extra 7", 0x776CE, 0x776EE, 0x2D },
-    {"P1 Extra 8", 0x776EE, 0x7770E, 0x2D },
-    {"P1 Extra 9", 0x7770E, 0x7772E, 0x2D },
-    {"P1 Extra 10", 0x79C0E, 0x79C2E, 0x2D },
-    {"P1 Extra 11", 0x7236E, 0x7238E , 0x2D },
-    {"P1 Extra 12", 0x7728E, 0x772AE, 0x2D },
-    {"P1 Extra 13", 0x772AE, 0x772CE, 0x2D },
-    {"P1 Extra 14", 0x772CE, 0x772EE, 0x2D },
-    {"P1 Extra 15", 0x772EE, 0x7730E, 0x2D },
-    {"P1 Extra 16", 0x7730E, 0x7732E, 0x2D }, // BUGBUG: this is the second definition for this.  Using this one.
-    {"P1 Extra 17 Stone 1", 0x7732E, 0x7734E, 0x2D },
-    {"P1 Extra 18 Stone 2", 0x7734E, 0x7736E, 0x2D },
-    {"P1 Extra 19 Stone 3", 0x7736E, 0x7738E, 0x2D },
-    {"P1 Extra 20 Stone 4", 0x7738E, 0x773AE, 0x2D },
-    {"P1 Extra 21 High Punch", 0x7238E, 0x723AE, 0x2D },
-    {"P1 Life Drain 1", 0x7750E, 0x7752E, 0x2D },
-    {"P1 Life Drain 2", 0x7752E, 0x7754E, 0x2D },
-    {"P1 Life Drain 3", 0x7754E, 0x7756E, 0x2D },
-    {"P1 Life Drain 4", 0x7756E, 0x7758E, 0x2D },
-    {"P1 Life Drain 5", 0x7758E, 0x775AE, 0x2D },
-    {"P1 Life Drain 6", 0x775AE, 0x775CE, 0x2D },
-    {"P1 Life Drain 7", 0x775CE, 0x775EE, 0x2D },
-    {"P1 Life Drain 8", 0x775EE, 0x7760E, 0x2D },
-    {"P1 Chaos Dimension 1", 0x7772E, 0x7774E, 0x2D },
-    {"P1 Chaos Dimension 2", 0x7774E, 0x7776E, 0x2D },
-    {"P1 Chaos Dimension 3", 0x7776E, 0x7778E, 0x2D },
-    {"P1 Chaos Dimension 4", 0x7778E, 0x777AE, 0x2D },
-    {"P1 Chaos Dimension 5", 0x777AE, 0x777CE, 0x2D },
-    {"P1 Chaos Dimension 6", 0x777CE, 0x777EE , 0x2D },
-    {"P1 Mystic Smash 1", 0x7786E, 0x7788E, 0x2D },
+    { "P1 Color (Punch)",        0x7234E, 0x7236E, indexCPS2_Shuma },
+        { "P1 HP", 0x7236E, 0x7238E , indexCPS2_Shuma },
+        { "P1 Mystic Stare", 0x7238E, 0x723AE, indexCPS2_Shuma },
+
+    { "P1 Post HP Stance 1", 0x7728E, 0x772AE, indexCPS2_Shuma },
+    { "P1 Post HP Stance 2", 0x772AE, 0x772CE, indexCPS2_Shuma },
+    { "P1 Post HP Stance 3", 0x772CE, 0x772EE, indexCPS2_Shuma },
+    { "P1 Post HP Stance 4", 0x772EE, 0x7730E, indexCPS2_Shuma },
+    { "P1 Post HP Stance 5", 0x7730E, 0x7732E, indexCPS2_Shuma },
+
+    { "P1 Stone Drop 1", 0x7732E, 0x7734E, indexCPS2_Shuma },
+    { "P1 Stone Drop 2", 0x7734E, 0x7736E, indexCPS2_Shuma },
+    { "P1 Stone Drop 3", 0x7736E, 0x7738E, indexCPS2_Shuma },
+    { "P1 Stone Drop 4", 0x7738E, 0x773AE, indexCPS2_Shuma },
+    { "P1 Stone Drop 5", 0x773AE, 0x773CE, indexCPS2_Shuma },
+
+    // Unused blue region
+
+    // HK grab region
+    { "P1 Life Drain 1", 0x7750E, 0x7752E, indexCPS2_Shuma },
+    { "P1 Life Drain 2", 0x7752E, 0x7754E, indexCPS2_Shuma },
+    { "P1 Life Drain 3", 0x7754E, 0x7756E, indexCPS2_Shuma },
+    { "P1 Life Drain 4", 0x7756E, 0x7758E, indexCPS2_Shuma },
+    { "P1 Life Drain 5", 0x7758E, 0x775AE, indexCPS2_Shuma },
+    { "P1 Life Drain 6", 0x775AE, 0x775CE, indexCPS2_Shuma },
+    { "P1 Life Drain 7", 0x775CE, 0x775EE, indexCPS2_Shuma },
+    { "P1 Life Drain 8", 0x775EE, 0x7760E, indexCPS2_Shuma },
+    { "P1 Life Drain 9", 0x7760E, 0x7762E, indexCPS2_Shuma },
+    { "P1 Life Drain 10", 0x7762E, 0x7764E, indexCPS2_Shuma },
+
+    // HP flash
+    { "P1 HP Flash 1", 0x7764E, 0x7766E, indexCPS2_Shuma },
+    { "P1 HP Flash 2", 0x7766E, 0x7768E, indexCPS2_Shuma },
+    { "P1 HP Flash 3", 0x7768E, 0x776AE, indexCPS2_Shuma },
+    { "P1 HP Flash 4", 0x776AE, 0x776CE, indexCPS2_Shuma },
+    { "P1 HP Flash 5", 0x776CE, 0x776EE, indexCPS2_Shuma },
+    { "P1 HP Flash 6", 0x776EE, 0x7770E, indexCPS2_Shuma },
+    { "P1 HP Flash 7", 0x7770E, 0x7772E, indexCPS2_Shuma },
+
+    { "P1 Chaos Dimension 1", 0x7772E, 0x7774E, indexCPS2_Shuma },
+    { "P1 Chaos Dimension Dash 1", 0x7774E, 0x7776E, indexCPS2_Shuma },
+    { "P1 Chaos Dimension 2", 0x7776E, 0x7778E, indexCPS2_Shuma },
+    { "P1 Chaos Dimension Dash 2", 0x7778E, 0x777AE, indexCPS2_Shuma },
+    { "P1 Chaos Dimension 3", 0x777AE, 0x777CE, indexCPS2_Shuma },
+    { "P1 Chaos Dimension Dash 3", 0x777CE, 0x777EE , indexCPS2_Shuma },
+    { "P1 Chaos Dimension 4", 0x777EE, 0x7780E , indexCPS2_Shuma },
+    { "P1 Chaos Dimension Dash 4", 0x7780E, 0x7782E , indexCPS2_Shuma },
+    { "P1 Chaos Dimension 5", 0x7782E, 0x7784E , indexCPS2_Shuma },
+    { "P1 Chaos Dimension Dash 5", 0x7784E, 0x7786E , indexCPS2_Shuma },
+
+    { "P1 Mystic Smash", 0x7786E, 0x7788E, indexCPS2_Shuma },
+
+    // { "P1 Extra 11", 0x79C0E, 0x79C2E, indexCPS2_Shuma },//  this is shuma but doesn't fit.  excising until somebody tells me why they want it
 };
+
 const sGame_PaletteDataset MSHVSF_A_SHUMAGORATH_PALETTES_P2COLOR_KICK[] =
 {
-    { "P2 Color (Kick)",        0x723AE, 0x723CE, 0x2D },
-    { "P2 Extra 11",            0x723CE, 0x723EE, 0x2D },
-    { "P2 Extra 21 High Punch", 0x723EE, 0x7240E, 0x2D },
+
+    { "P2 Color (Kick)", 0x723AE, 0x723CE, indexCPS2_Shuma },
+        { "P2 HP", 0x723CE, 0x723EE, indexCPS2_Shuma },
+        { "P2 Mystic Stare", 0x723EE, 0x7240E, indexCPS2_Shuma },
+
+    { "P2 Post HP Stance 1", 0x7788E, 0x778AE, indexCPS2_Shuma },
+    { "P2 Post HP Stance 2", 0x778AE, 0x778CE, indexCPS2_Shuma },
+    { "P2 Post HP Stance 3", 0x778CE, 0x778EE, indexCPS2_Shuma },
+    { "P2 Post HP Stance 4", 0x778EE, 0x7790E, indexCPS2_Shuma },
+    { "P2 Post HP Stance 5", 0x7790E, 0x7792E, indexCPS2_Shuma },
+
+    { "P2 Stone Drop 1", 0x7792E, 0x7794E, indexCPS2_Shuma },
+    { "P2 Stone Drop 2", 0x7794E, 0x7796E, indexCPS2_Shuma },
+    { "P2 Stone Drop 3", 0x7796E, 0x7798E, indexCPS2_Shuma },
+    { "P2 Stone Drop 4", 0x7798E, 0x779AE, indexCPS2_Shuma },
+    { "P2 Stone Drop 5", 0x779AE, 0x779CE, indexCPS2_Shuma },
+
+    // unused 'blue range': 799ce-77b0e
+
+    // HK grab region
+    { "P2 Life Drain 1", 0x77B0E, 0x77B2E, indexCPS2_Shuma },
+    { "P2 Life Drain 2", 0x77B2E, 0x77B4E, indexCPS2_Shuma },
+    { "P2 Life Drain 3", 0x77B4E, 0x77B6E, indexCPS2_Shuma },
+    { "P2 Life Drain 4", 0x77B6E, 0x77B8E, indexCPS2_Shuma },
+    { "P2 Life Drain 5", 0x77B8E, 0x77BAE, indexCPS2_Shuma },
+    { "P2 Life Drain 6", 0x77BAE, 0x77BCE, indexCPS2_Shuma },
+    { "P2 Life Drain 7", 0x77BCE, 0x77BEE, indexCPS2_Shuma },
+    { "P2 Life Drain 8", 0x77BEE, 0x77C0E, indexCPS2_Shuma },
+    { "P2 Life Drain 9", 0x77C0E, 0x77C2E, indexCPS2_Shuma },
+    { "P2 Life Drain 10", 0x77C2E, 0x77C4E, indexCPS2_Shuma },
+
+    // HP flash
+    { "P2 HP Flash 1", 0x77C4E, 0x77C6E, indexCPS2_Shuma },
+    { "P2 HP Flash 2", 0x77C6E, 0x77C8E, indexCPS2_Shuma },
+    { "P2 HP Flash 3", 0x77C8E, 0x77CAE, indexCPS2_Shuma },
+    { "P2 HP Flash 4", 0x77CAE, 0x77CCE, indexCPS2_Shuma },
+    { "P2 HP Flash 5", 0x77CCE, 0x77CEE, indexCPS2_Shuma },
+    { "P2 HP Flash 6", 0x77CEE, 0x77D0E, indexCPS2_Shuma },
+    { "P2 HP Flash 7", 0x77D0E, 0x77D2E, indexCPS2_Shuma },
+
+    { "P2 Chaos Dimension 1", 0x77D2E, 0x77D4E, indexCPS2_Shuma },
+    { "P2 Chaos Dimension Dash 1", 0x77D4E, 0x77D6E, indexCPS2_Shuma },
+    { "P2 Chaos Dimension 2", 0x77D6E, 0x77D8E, indexCPS2_Shuma },
+    { "P2 Chaos Dimension Dash 2", 0x77D8E, 0x77DAE, indexCPS2_Shuma },
+    { "P2 Chaos Dimension 3", 0x77DAE, 0x77DCE, indexCPS2_Shuma },
+    { "P2 Chaos Dimension Dash 3", 0x77DCE, 0x77DEE, indexCPS2_Shuma },
+    { "P2 Chaos Dimension 4", 0x77DEE, 0x77E0E, indexCPS2_Shuma },
+    { "P2 Chaos Dimension Dash 4", 0x77E0E, 0x77E2E, indexCPS2_Shuma },
+    { "P2 Chaos Dimension 5", 0x77E2E, 0x77E4E, indexCPS2_Shuma },
+    { "P2 Chaos Dimension Dash 5", 0x77E4E, 0x77E6E, indexCPS2_Shuma },
+
+    { "P2 Mystic Smash", 0x77E6E, 0x77E8E, indexCPS2_Shuma },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_P1COLOR_PUNCH[] =

@@ -181,11 +181,11 @@ void CPalModDlg::PostPalSel()
         }
         else if ((CurrTicket->nImgId == 0xFFFF) || (CurrTicket->nImgId == 0xFFFFFFFF))
         {
-            strInformation.Format("Preview: unit %u, image id (undefined)", CurrTicket->nUnitId);
+            strInformation.Format("Preview: 0x%02x, image id (undefined)", CurrTicket->nUnitId);
         }
         else
         {
-            strInformation.Format("Preview: unit %u, image id %u", CurrTicket->nUnitId, CurrTicket->nImgId);
+            strInformation.Format("Preview: unit 0x%02x, image id %u", CurrTicket->nUnitId, CurrTicket->nImgId);
         }
         PreviewDlg->SetWindowCaption(strInformation);
     }
