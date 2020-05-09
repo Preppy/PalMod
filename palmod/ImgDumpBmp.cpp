@@ -453,7 +453,7 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
 
         if (DispType == DISP_DEF)
         {
-            int nMaxImagesPerLine = max(3, ceil(amt / 2));
+            int nMaxImagesPerLine = (int)max(3, ceil(amt / 2));
 
             if (i >= nMaxImagesPerLine)
             {
@@ -530,7 +530,7 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
     UINT8* pImgData = (UINT8*)rgSrcImg[nSrcIndex]->pImgData;
     UINT8* pCurrPal = (UINT8*)pppPalettes[nSrcIndex][nPalIndex];
 
-    CRect rBltRct(nDstX, nDstY, nDstX + (nWidth * fpZoom), nDstY + (nHeight * fpZoom));
+    CRect rBltRct(nDstX, nDstY, nDstX + (int)(nWidth * fpZoom), nDstY + (int)(nHeight * fpZoom));
 
     if (nDstX < 0)
     {

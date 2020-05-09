@@ -92,19 +92,19 @@ const sGame_PaletteDataset MSHVSF_A_BLACKHEART_MEPHISTO_PALETTES_SHARED[] =
 {
     //{ "P1 Extras 1?", 0x76BEE, 0x76C0E, }, // doesn't match mvc2 anything bugbug
     { "P1 HP/HK Demons", 0x769CE, 0x769EE, 0x35, 0x02 },
-    { "Blackheart P1 HP/HK Demons (hurt)", 0x725CE, 0x725EE, 0x35, 0x02 },
-    { "Mephisto P1 HP/HK Demons (hurt)", 0x7338E, 0x733AE, 0x35, 0x02 },
-    { "P2 HP/HK Demons", 0x76B4E, 0x76B6E, 0x35, 0x02 },
+    { "Blackheart P1 HP/HK Demons (hurt)", 0x725CE, 0x725EE, indexCPS2_Blackheart, 0x02 },
+    { "Mephisto P1 HP/HK Demons (hurt)", 0x7338E, 0x733AE, indexCPS2_Blackheart, 0x02 },
+    { "P2 HP/HK Demons", 0x76B4E, 0x76B6E, indexCPS2_Blackheart, 0x02 },
     { "Blackheart P2 HP/HK Demons (hurt)", 0x7262E, 0x7264E, 0x35, 0x02 },
     { "Mephisto P2 HP/HK Demons (hurt)", 0x733EE, 0x7340E, 0x35, 0x02 },
-    { "HCF+P Dark Thunder", 0x769EE, 0x76A0E },
-    { "HCB+LP (Thunder Inferno)", 0x76A0E, 0x76A2E },
-    { "HCB+MP (Ice Inferno)", 0x76A2E, 0x76A4E },
-    { "HCB+HP (Flame Inferno)", 0x76A4E, 0x76A6E },
-    { "Armageddon Meteors (QCF+3P)", 0x76A8E, 0x76AAE },
+    { "HCF+P Dark Thunder", 0x769EE, 0x76A0E, indexCPS2_Blackheart, 0x01 },
+    { "HCB+LP (Thunder Inferno)", 0x76A0E, 0x76A2E, indexCPS2_Blackheart, 0x09 },
+    { "HCB+MP (Ice Inferno)", 0x76A2E, 0x76A4E, indexCPS2_Blackheart, 0x08 },
+    { "HCB+HP (Flame Inferno)", 0x76A4E, 0x76A6E, indexCPS2_Blackheart, 0x0A },
+    { "Armageddon Meteors (QCF+3P)", 0x76A8E, 0x76AAE, indexCPS2_Blackheart, 0x0B },
     { "Heart of Darkness (QCF+3K)", 0x76BAE, 0x76BCE },
-    { "j.MP Lightning (All)", 0x76BCE, 0x76BEE },
-    { "MP/HP Throw (Ground)", 0x76AAE, 0x76ACE }, 
+    { "j.MP Lightning (All)", 0x76BCE, 0x76BEE, indexCPS2_Blackheart, 0x0D },
+    { "MP/HP Throw (Ground)", 0x76AAE, 0x76ACE, indexCPS2_Blackheart, 0x0C },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P1COLOR_PUNCH[] =

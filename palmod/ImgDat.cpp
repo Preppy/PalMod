@@ -563,7 +563,7 @@ UINT8* CImgDat::RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWi
 
     UINT8 count = 0;
     bool isDigit = true;
-    int byte_ctr = 0;
+    UINT32 byte_ctr = 0;
     int data_ctr = 0;
     while (byte_ctr < uiDataSz)
     {
@@ -598,7 +598,7 @@ UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth
     memset(output_data, NULL, sizeof(UINT8) * uiImgWidth * uiImgHeight);
 
 
-    int bit_ctr = 0;
+    UINT32 bit_ctr = 0;
     int data_ctr = 0;
     int k = 0;
 

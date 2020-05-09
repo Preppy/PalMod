@@ -60,13 +60,16 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P1[] =
     { "P1 Intro 6", 0x2881E, 0x2883E, indexCPS2_Cyclops, 12 },
     { "P1 Intro 7", 0x2883E, 0x2885E, indexCPS2_Cyclops, 12 },
     { "P1 Intro 8", 0x2885E, 0x2887E, indexCPS2_Cyclops, 12 },
-
 };
 
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_EXTRAS[] =
 {
-    { "Shared Optic Blast 1", 0x2871E, 0x2873E, indexCPS2_Cyclops, 11 },
-    { "Shared Optic Blast 2", 0x2873E, 0x2875E, indexCPS2_Cyclops, 11 },
+    { "Shared Optic Blast 1", 0x286be, 0x286de, indexCPS2_Cyclops, 11 },
+    { "Shared Optic Blast 2", 0x286de, 0x286fe, indexCPS2_Cyclops, 11 },
+    { "Shared Optic Blast 3", 0x286fe, 0x2871e, indexCPS2_Cyclops, 11 },
+    { "Shared Optic Blast 4", 0x2871e, 0x2873e, indexCPS2_Cyclops, 11 },
+    { "Shared Optic Blast 5", 0x2869e, 0x286be, indexCPS2_Cyclops, 11 },
+    { "Shared Optic FX?", 0x2873E, 0x2875E, indexCPS2_Cyclops, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P2[] =
@@ -120,23 +123,35 @@ const sGame_PaletteDataset COTA_A_ICEMAN_PALETTES_P2[] =
     { "P2 Shine 7", 0x2901E, 0x2903E, indexCPS2_Iceman },
 };
 
-const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_P1[] =
+const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_P1[] = // boss
 {
     {"P1",          0x26f3e, 0x26f5e, 0x29 },
-    {"P1 Extras 2", 0x26f5e, 0x26f7e, 0x29, 1 },
-    {"P1 Extras 2", 0x26f7e, 0x26f9e, 0x29, 2 },
-    {"P1 Extras 3", 0x26f9e, 0x26fbe, 0x29, 3 },
+    {"P1 Extras 1", 0x26f5e, 0x26f7e, 0x29, 1 }, // eidrian marks this as unused
+    {"P1 Ground FX", 0x26f7e, 0x26f9e, 0x29, 2 },
+    {"P1 Extras 3", 0x26f9e, 0x26fbe, 0x29, 3 }, // eidrian marks this as unused
 };
 
 const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_P2[] =
 {
     {"P2",          0x26fbe, 0x26fde, 0x29 },
-    {"P2 Extras 2", 0x26fde, 0x26ffe, 0x29, 1 },
-    {"P2 Extras 2", 0x26ffe, 0x2701e, 0x29, 2 },
+    {"P2 Extras 1", 0x26fde, 0x26ffe, 0x29, 1 },
+    {"P2 Ground FX", 0x26ffe, 0x2701e, 0x29, 2 },
     {"P2 Extras 3", 0x2701e, 0x2703e, 0x29, 3 },
 };
 
-const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P1[] =
+const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_SHARED[] =
+{
+    { "Cyttorak Power-Up 1", 0x29B7E, 0x29B9E, indexCPS2_Juggy },
+    { "Cyttorak Power-Up 2", 0x29B9E, 0x29BBE, indexCPS2_Juggy },
+    { "Cyttorak Power-Up 3", 0x29BBE, 0x29BDE, indexCPS2_Juggy },
+    { "Cyttorak Power-Up 4", 0x29BDE, 0x29BFE, indexCPS2_Juggy },
+    { "Cyttorak Power-Up 5", 0x29BFE, 0x29C1E, indexCPS2_Juggy },
+    { "Cyttorak Power-Up 6", 0x29C1E, 0x29C3E, indexCPS2_Juggy },
+    { "Cyttorak Power-Up 7", 0x29C3E, 0x29C5E, indexCPS2_Juggy },
+    { "Cyttorak Power-Up 8", 0x29C5E, 0x29C7E, indexCPS2_Juggy },
+};
+
+const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P1[] = // boss
 {
     {"P1",          0x2703e, 0x2705e, 0x2C },
     {"P1 Extras 2", 0x2705e, 0x2707e, 0x2C, 1 },
@@ -163,7 +178,6 @@ const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P1[] =
     { "P1 Intro 2", 0x289DE, 0x289FE, indexCPS2_OmegaRed },
     { "P1 Intro 3", 0x289FE, 0x28A1E, indexCPS2_OmegaRed },
     { "P1 Intro 4", 0x28A1E, 0x28A3E, indexCPS2_OmegaRed },
-    { "P1 Intro 5", 0x28A3E, 0x28A5E, indexCPS2_OmegaRed },
 };
 
 const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P2[] =
@@ -173,11 +187,10 @@ const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P2[] =
     { "P2 Extras 2", 0x26DFE, 0x26E1E, indexCPS2_OmegaRed, 2 },
     { "P2 Extras 3", 0x26E1E, 0x26E3E, indexCPS2_OmegaRed, 3 },
 
-    { "P2 Intro 1", 0x28A5E, 0x28A7E, indexCPS2_OmegaRed },
-    { "P2 Intro 2", 0x28A7E, 0x28A9E, indexCPS2_OmegaRed },
-    { "P2 Intro 3", 0x28A9E, 0x28ABE, indexCPS2_OmegaRed },
-    { "P2 Intro 4", 0x28ABE, 0x28ADE, indexCPS2_OmegaRed },
-    { "P2 Intro 5", 0x28ADE, 0x28AFE, indexCPS2_OmegaRed },
+    { "P2 Intro 1", 0x28A3E, 0x28A5E, indexCPS2_OmegaRed },
+    { "P2 Intro 2", 0x28A5E, 0x28A7E, indexCPS2_OmegaRed },
+    { "P2 Intro 3", 0x28A7E, 0x28A9E, indexCPS2_OmegaRed },
+    { "P2 Intro 4", 0x28A9E, 0x28ABE, indexCPS2_OmegaRed },
 };
 
 const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P1[] =
@@ -246,7 +259,7 @@ const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P1[] =
 {
-    { "P1", 		 0x26C3E, 0x26C5E, indexCPS2_Spiral },
+    { "P1",          0x26C3E, 0x26C5E, indexCPS2_Spiral },
     { "P1 Extras 1", 0x26C5E, 0x26C7E, indexCPS2_Spiral, 1 },
     { "P1 Extras 2", 0x26C7E, 0x26C9E, indexCPS2_Spiral, 2 },
     { "P1 Power Dance 1", 0x2909E, 0x290BE, indexCPS2_Spiral, 11 },
@@ -276,7 +289,7 @@ const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P1[] =
 
 const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P2[] =
 {
-    { "P2", 		 0x26CBE, 0x26CDE, indexCPS2_Spiral },
+    { "P2",          0x26CBE, 0x26CDE, indexCPS2_Spiral },
     { "P2 Extras 1", 0x26CDE, 0x26CFE, indexCPS2_Spiral, 1 },
     { "P2 Extras 2", 0x26CFE, 0x26D1E, indexCPS2_Spiral, 2 },
     { "P2 Power Dance 1", 0x2941E, 0x2943E, indexCPS2_Spiral, 11 },
@@ -306,18 +319,52 @@ const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_STORM_PALETTES_P1[] =
 {
-    {"P1",          0x26a3e, 0x26a5e, 0x2A },
-    {"P1 Extras 1", 0x26a5e, 0x26a7e, 0x2A },
-    {"P1 Extras 2", 0x26a7e, 0x26a9e, 0x2A },
-    {"P1 Extras 3", 0x26a9e, 0x26abe, 0x2A },
+    { "P1",         0x26A3E, 0x26A5E, indexCPS2_Storm },
+    { "P1 Extras 1: Lightning FX", 0x26A7E, 0x26A9E }, // lightning fx
+    { "P1 Extras 2: Lightning FX", 0x26A9E, 0x26ABE }, // head of lightning attack
+
+    { "P1 Extras 3", 0x26A5E, 0x26A7E, indexCPS2_Storm },
+    { "P1 Ending Sprite", 0x279FE, 0x27A1E, indexCPS2_Storm },
+    
+    { "P1 Lumin 1", 0x28ABE, 0x28ADE, indexCPS2_Storm }, // cfp
+    { "P1 Lumin 2", 0x28ADE, 0x28AFE, indexCPS2_Storm }, // cfp2
+    { "P1 Lumin 3", 0x28AFE, 0x28B1E, indexCPS2_Storm }, // cfp3
+    { "P1 Lumin 4", 0x28B1E, 0x28B3E, indexCPS2_Storm }, // cfp4
+    { "P1 Lumin 5", 0x28B3E, 0x28B5E, indexCPS2_Storm }, // cfp5
+
+    { "P1 Typhoon 1", 0x28BDE, 0x28BFE, indexCPS2_Storm, 12 },
+    { "P1 Typhoon 2", 0x28BFE, 0x28C1E, indexCPS2_Storm, 12 },
+    { "P1 Typhoon 3", 0x28C1E, 0x28C3E, indexCPS2_Storm, 12 },
+    { "P1 Typhoon 4", 0x28C3E, 0x28C5E, indexCPS2_Storm, 12 },
+    { "P1 Typhoon 5", 0x28C5E, 0x28C7E, indexCPS2_Storm, 12 },
+    { "P1 Typhoon 6", 0x28C7E, 0x28C9E, indexCPS2_Storm, 12 },
 };
 
 const sGame_PaletteDataset COTA_A_STORM_PALETTES_P2[] =
 {
-    {"P2",          0x26abe, 0x26ade, 0x2A },
-    {"P2 Extras 1", 0x26ade, 0x26afe, 0x2A },
-    {"P2 Extras 2", 0x26afe, 0x26b1e, 0x2A },
-    {"P2 Extras 3", 0x26b1e, 0x26b3e, 0x2A },
+    { "P2", 0x26ABE, 0x26ADE, indexCPS2_Storm },
+    { "P2 Extras 1: Lightning FX", 0x26AFE, 0x26B1E },
+    { "P2 Extras 2: Lightning FX", 0x26B1E, 0x26B3E },
+
+    { "P2 Extras 3", 0x26ADE, 0x26AFE, indexCPS2_Storm },
+    { "P2 Ending Sprite", 0x27A3E, 0x27A5E, indexCPS2_Storm },
+
+    //{ "P2 Lumin 1", 0x28B5E, 0x28B7E, indexCPS2_Storm }, // cfp this is where i thought it began
+    //{ "P2 Lumin 2", 0x28B7E, 0x28B9E, indexCPS2_Storm }, // cfp2
+
+
+    { "P2 Lumin 1", 0x28C9E, 0x28CBE, indexCPS2_Storm },
+    { "P2 Lumin 2", 0x28CBE, 0x28CDE, indexCPS2_Storm },
+    { "P2 Lumin 3", 0x28CDE, 0x28CFE, indexCPS2_Storm },
+    { "P2 Lumin 4", 0x28CFE, 0x28D1E, indexCPS2_Storm },
+    { "P2 Lumin 5", 0x28D1E, 0x28D3E, indexCPS2_Storm },
+
+    { "P2 Typhoon 1", 0x28DBE, 0x28DDE, indexCPS2_Storm, 12 },
+    { "P2 Typhoon 2", 0x28DDE, 0x28DFE, indexCPS2_Storm, 12 },
+    { "P2 Typhoon 3", 0x28DFE, 0x28E1E, indexCPS2_Storm, 12 },
+    { "P2 Typhoon 4", 0x28E1E, 0x28E3E, indexCPS2_Storm, 12 },
+    { "P2 Typhoon 5", 0x28E3E, 0x28E5E, indexCPS2_Storm, 12 },
+    { "P2 Typhoon 6", 0x28E5E, 0x28E7E, indexCPS2_Storm, 12 },
 };
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P1[] =
@@ -378,6 +425,8 @@ const sDescTreeNode COTA_A_JUGGY_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)COTA_A_JUGGY_PALETTES_P1,           ARRAYSIZE(COTA_A_JUGGY_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)COTA_A_JUGGY_PALETTES_P2,           ARRAYSIZE(COTA_A_JUGGY_PALETTES_P2) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)COTA_A_JUGGY_PALETTES_SHARED,           ARRAYSIZE(COTA_A_JUGGY_PALETTES_SHARED) },
+    
 };
 
 const sDescTreeNode COTA_A_MAGNETO_COLLECTION[] =

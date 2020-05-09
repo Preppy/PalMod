@@ -40,17 +40,17 @@ constexpr auto MSH_A_NUMUNIT_06 = indexMSH_06_Last;
 const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P1[] =
 {
     {"Blackheart P1", 0x6214E, 0x6216E, 0x35 },
-    {"P1 HP + HK Demons", 0x62F2E, 0x62F4E, 0x35, 2 },
-    {"P1 Dark Thunder", 0x62F8E, 0x62FAE },
-    {"P1 Armageddon", 0x632EE, 0x6330E },
+    {"P1 HP + HK Demons", 0x62F2E, 0x62F4E, indexCPS2_Blackheart, 0x02 },
+    {"P1 Dark Thunder", 0x62F8E, 0x62FAE, indexCPS2_Blackheart, 0x01 },
+    {"P1 Armageddon", 0x632EE, 0x6330E, indexCPS2_Blackheart, 0x0B },
 };
 
 const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P2[] =
 {
     {"Blackheart P2",  0x621CE, 0x621EE, 0x35 },
-    {"P2 HP + HK Demons",  0x6372E, 0x6374E, 0x35, 2 },
-    {"P2 Dark Thunder",  0x6378E, 0x637AE },
-    {"P2 Armageddon", 0x63AEE, 0x63B0E },
+    {"P2 HP + HK Demons",  0x6372E, 0x6374E, indexCPS2_Blackheart, 0x02 },
+    {"P2 Dark Thunder",  0x6378E, 0x637AE, indexCPS2_Blackheart, 0x01 },
+    {"P2 Armageddon", 0x63AEE, 0x63B0E, indexCPS2_Blackheart, 0x0B },
 };
 
 const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES_P1[] =
