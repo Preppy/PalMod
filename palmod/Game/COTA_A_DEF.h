@@ -31,17 +31,39 @@ constexpr auto COTA_A_NUMUNIT = indexCOTA_Last;
 const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P1[] =
 {
     {"P1",          0x2683e, 0x2685e, indexCPS2_Colossus },
-    {"P1 Extras 1", 0x2685e, 0x2687e, },
+    {"P1 Extras 1: Armor Sparks", 0x2685e, 0x2687e, },
     {"P1 Extras 2", 0x2687e, 0x2689e, },
-    {"P1 Extras 3", 0x2689e, 0x268be, indexCPS2_Colossus },
+    {"P1 Shoulder Tackle Shadows", 0x2689e, 0x268be, indexCPS2_Colossus },
+
+    { "P1 Super Armor Shine 1", 0x27e5e, 0x27e7e, indexCPS2_Colossus },
+    { "P1 Super Armor Shine 2", 0x27e7e, 0x27e9e, indexCPS2_Colossus },
+    { "P1 Super Armor Shine 3", 0x27e9e, 0x27ebe, indexCPS2_Colossus },
+    { "P1 Super Armor Shine 4", 0x27ebe, 0x27ede, indexCPS2_Colossus },
+    { "P1 Super Armor Shine 5", 0x27ede, 0x27efe, indexCPS2_Colossus },
+    { "P1 Super Armor Shine 6", 0x27efe, 0x27f1e, indexCPS2_Colossus },
+
+    { "P1 Power Dive Shine 1", 0x2821e, 0x2823e, indexCPS2_Colossus },
+    { "P1 Power Dive Shine 2", 0x2823e, 0x2825e, indexCPS2_Colossus },
+    { "P1 Power Dive Shine 3", 0x2825e, 0x2827e, indexCPS2_Colossus },
 };
 
 const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P2[] =
 {
-    {"P2",          0x268be, 0x268DE, indexCPS2_Colossus },
-    {"P2 Extras 1", 0x268de, 0x268Fe },
-    {"P2 Extras 2", 0x268fe, 0x2691e },
-    {"P2 Extras 3", 0x2691e, 0x2693e, indexCPS2_Colossus },
+    { "P2",          0x268be, 0x268DE, indexCPS2_Colossus },
+    { "P2 Extras 1: Armor Sparks", 0x268de, 0x268Fe },
+    { "P2 Extras 2", 0x268fe, 0x2691e },
+    { "P2 Shoulder Tackle Shadows", 0x2691e, 0x2693e, indexCPS2_Colossus },
+
+    { "P2 Super Armor Shine 1", 0x27f3e, 0x27f5e, indexCPS2_Colossus },
+    { "P2 Super Armor Shine 2", 0x27f5e, 0x27f7e, indexCPS2_Colossus },
+    { "P2 Super Armor Shine 3", 0x27f7e, 0x27f9e, indexCPS2_Colossus },
+    { "P2 Super Armor Shine 4", 0x27f9e, 0x27fbe, indexCPS2_Colossus },
+    { "P2 Super Armor Shine 5", 0x27fbe, 0x27fde, indexCPS2_Colossus },
+    { "P2 Super Armor Shine 6", 0x27fde, 0x27ffe, indexCPS2_Colossus },
+
+    { "P2 Power Dive Shine 1", 0x282fe, 0x2831e, indexCPS2_Colossus },
+    { "P2 Power Dive Shine 2", 0x2831e, 0x2833e, indexCPS2_Colossus },
+    { "P2 Power Dive Shine 3", 0x2833e, 0x2835e, indexCPS2_Colossus },
 };
 
 // There's also a cyclops range from 0x276fE to 0x277fE: unclear what it's used for
@@ -49,7 +71,7 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P1[] =
 {
     { "P1",          0x2693E, 0x2695E, indexCPS2_Cyclops },
     { "P1 Extras 1", 0x2695E, 0x2697E, indexCPS2_Cyclops },
-    { "P1 jHK",       0x2697E, 0x2699E, indexCPS2_Cyclops, 0x1 },
+    { "P1 jHK",      0x2697E, 0x2699E, indexCPS2_Cyclops, 0x1 },
     { "P1 Extras 3", 0x2699E, 0x269BE, indexCPS2_Cyclops, 0x2 },
 
     // preceded by unknown, segment followed by P2 intro 1
@@ -361,10 +383,6 @@ const sGame_PaletteDataset COTA_A_STORM_PALETTES_P2[] =
     { "P2 Extras 3", 0x26ADE, 0x26AFE, indexCPS2_Storm },
     { "P2 Ending Sprite", 0x27A3E, 0x27A5E, indexCPS2_Storm },
 
-    //{ "P2 Lumin 1", 0x28B5E, 0x28B7E, indexCPS2_Storm }, // cfp this is where i thought it began
-    //{ "P2 Lumin 2", 0x28B7E, 0x28B9E, indexCPS2_Storm }, // cfp2
-
-
     { "P2 Lumin 1", 0x28C9E, 0x28CBE, indexCPS2_Storm },
     { "P2 Lumin 2", 0x28CBE, 0x28CDE, indexCPS2_Storm },
     { "P2 Lumin 3", 0x28CDE, 0x28CFE, indexCPS2_Storm },
@@ -395,12 +413,12 @@ const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P2[] =
     {"P2 ?", 0x2721E, 0x2723E, 0x07 },
 };
 
-const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P1[] =
+const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P1[] = // aka Gouki
 {
     {"P1",          0x2737e, 0x2739e, 0x57 },
     {"P1 Extras 1", 0x2739e, 0x273be, 0x57 },
     {"P1 Extras 2", 0x273be, 0x273de, 0x57 },
-    {"P1 Extras 3", 0x273de, 0x273fe },
+    {"P1 Extras 3", 0x273de, 0x273fe, indexCPS2_STAkuma, 1 },
 };
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P2[] =
@@ -408,7 +426,7 @@ const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P2[] =
     {"P2",          0x273fe, 0x2741e, 0x57 },
     {"P2 Extras 1", 0x2741e, 0x2743e, 0x57 },
     {"P2 Extras 2", 0x2743e, 0x2745e, 0x57 },
-    {"P2 Extras 3", 0x2745e, 0x2747e },
+    {"P2 Extras 3", 0x2745e, 0x2747e, indexCPS2_STAkuma, 1 },
 };
 
 const sDescTreeNode COTA_A_COLOSSUS_COLLECTION[] =

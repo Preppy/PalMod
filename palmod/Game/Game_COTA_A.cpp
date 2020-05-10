@@ -21,7 +21,7 @@ CGame_COTA_A::CGame_COTA_A()
     m_nTotalInternalUnits = COTA_A_NUMUNIT;
     m_nExtraUnit = COTA_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = 241 + GetExtraCt(m_nExtraUnit);
+    m_nSafeCountForThisRom = 259 + GetExtraCt(m_nExtraUnit);
     m_pszExtraFilename = EXTRA_FILENAME_COTA;
     m_nTotalPaletteCount = m_nTotalPaletteCountForCOTA;
     m_nLowestKnownPaletteRomLocation = 0x2600e;
@@ -60,9 +60,6 @@ CGame_COTA_A::CGame_COTA_A()
 
     nRGBIndexMul = 17.0f;
     nAIndexMul = 0.0f;
-
-    MessageBox(g_appHWnd, "Hi!  This is still experimental.  Be careful.  Please help confirm or deconfirm stuff so I can improve it." , GetHost()->GetAppName(), MB_ICONERROR);
-
 }
 
 CGame_COTA_A::~CGame_COTA_A(void)
