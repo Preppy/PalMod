@@ -2603,8 +2603,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_B[] =
     { "Iggy Vs / Super B", 0x0415d00, 0x0415d80, indexJojos51Iggy, indexJojos51Character_VsSuper },
     { "Iggy Challenger B", 0x0415d80, 0x0415e00, indexJojos51Iggy, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Iggy Select / Winning B (1/2)", 0x0415e00, 0x0415e80, indexJojos51Iggy, indexJojos51Character_SelectWin1 },
-    { "Iggy Select / Winning B (2/2)", 0x0415e80, 0x0415f00, indexJojos51Iggy, indexJojos51Character_SelectWin2 },
+    { "Iggy Select / Winning B (1/2)", 0x0415e00, 0x0415e80, indexJojos51Iggy, indexJojos51Character_SelectWin1, true },
+    { "Iggy Select / Winning B (2/2)", 0x0415e80, 0x0415f00, indexJojos51Iggy, indexJojos51Character_SelectWin2, true },
 #else
     { "Iggy Select / Winning B", 0x0415e00, 0x0415f00 },
 #endif
@@ -2623,8 +2623,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_C[] =
     { "Iggy Vs / Super C", 0x041ab00, 0x041ab80, indexJojos51Iggy, indexJojos51Character_VsSuper },
     { "Iggy Challenger C", 0x041ab80, 0x041ac00, indexJojos51Iggy, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Iggy Select / Winning C (1/2)", 0x041ac00, 0x041ac80, indexJojos51Iggy, indexJojos51Character_SelectWin1 },
-    { "Iggy Select / Winning C (2/2)", 0x041ac80, 0x041ad00, indexJojos51Iggy, indexJojos51Character_SelectWin2 },
+    { "Iggy Select / Winning C (1/2)", 0x041ac00, 0x041ac80, indexJojos51Iggy, indexJojos51Character_SelectWin1, true },
+    { "Iggy Select / Winning C (2/2)", 0x041ac80, 0x041ad00, indexJojos51Iggy, indexJojos51Character_SelectWin2, true },
 #else
     { "Iggy Select / Winning C", 0x041ac00, 0x041ad00 },
 #endif
@@ -2643,8 +2643,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_S[] =
     { "Iggy Vs / Super S", 0x041f900, 0x041f980, indexJojos51Iggy, indexJojos51Character_VsSuper },
     { "Iggy Challenger S", 0x041f980, 0x041fa00, indexJojos51Iggy, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Iggy Select / Winning S (1/2)", 0x041fa00, 0x041fa80, indexJojos51Iggy, indexJojos51Character_SelectWin1 },
-    { "Iggy Select / Winning S (2/2)", 0x041fa80, 0x041fb00, indexJojos51Iggy, indexJojos51Character_SelectWin2 },
+    { "Iggy Select / Winning S (1/2)", 0x041fa00, 0x041fa80, indexJojos51Iggy, indexJojos51Character_SelectWin1, true },
+    { "Iggy Select / Winning S (2/2)", 0x041fa80, 0x041fb00, indexJojos51Iggy, indexJojos51Character_SelectWin2, true },
 #else
     { "Iggy Select / Winning S", 0x041fa00, 0x041fb00 },
 #endif
@@ -2663,8 +2663,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_Start[] =
     { "Iggy Vs / Super Start", 0x0424700, 0x0424780, indexJojos51Iggy, indexJojos51Character_VsSuper },
     { "Iggy Challenger Start", 0x0424780, 0x0424800, indexJojos51Iggy, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Iggy Select / Winning Start (1/2)", 0x0424800, 0x0424880, indexJojos51Iggy, indexJojos51Character_SelectWin1 },
-    { "Iggy Select / Winning Start (2/2)", 0x0424880, 0x0424900, indexJojos51Iggy, indexJojos51Character_SelectWin2 },
+    { "Iggy Select / Winning Start (1/2)", 0x0424800, 0x0424880, indexJojos51Iggy, indexJojos51Character_SelectWin1, true },
+    { "Iggy Select / Winning Start (2/2)", 0x0424880, 0x0424900, indexJojos51Iggy, indexJojos51Character_SelectWin2, true },
 #else
     { "Iggy Select / Winning Start", 0x0424800, 0x0424900 },
 #endif

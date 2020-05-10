@@ -114,7 +114,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                     UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / 2; // 2 bytes per color.
 
                     static bool s_fShownOnce = false;
-                    if ((nColorsUsed > 512) && !s_fShownOnce)
+                    if ((nColorsUsed > 5000) && !s_fShownOnce)
                     {
                         s_fShownOnce = true;
                         CString strError;

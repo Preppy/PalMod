@@ -44,14 +44,17 @@ const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P2[] =
     {"P2 Extras 3", 0x2691e, 0x2693e, indexCPS2_Colossus },
 };
 
+// There's also a cyclops range from 0x276fE to 0x277fE: unclear what it's used for
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P1[] =
 {
     { "P1",          0x2693E, 0x2695E, indexCPS2_Cyclops },
     { "P1 Extras 1", 0x2695E, 0x2697E, indexCPS2_Cyclops },
-    { "P1 HK",       0x2697E, 0x2699E, indexCPS2_Cyclops, 0x1 },
+    { "P1 jHK",       0x2697E, 0x2699E, indexCPS2_Cyclops, 0x1 },
     { "P1 Extras 3", 0x2699E, 0x269BE, indexCPS2_Cyclops, 0x2 },
 
-    { "P1 Optic Light", 0x2867E, 0x2869E, indexCPS2_Cyclops, 13 },
+    // preceded by unknown, segment followed by P2 intro 1
+    { "P1 Optic Light 1", 0x2865E, 0x2867E, indexCPS2_Cyclops, 13 }, // confirmed
+    { "P1 Optic Light 2", 0x2867E, 0x2869E, indexCPS2_Cyclops, 13 }, // confirmed
     { "P1 Intro 1", 0x2877E, 0x2879E, indexCPS2_Cyclops, 12 },
     { "P1 Intro 2", 0x2879E, 0x287BE, indexCPS2_Cyclops, 12 },
     { "P1 Intro 3", 0x287BE, 0x287DE, indexCPS2_Cyclops, 12 },
@@ -69,17 +72,21 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_EXTRAS[] =
     { "Shared Optic Blast 3", 0x286fe, 0x2871e, indexCPS2_Cyclops, 11 },
     { "Shared Optic Blast 4", 0x2871e, 0x2873e, indexCPS2_Cyclops, 11 },
     { "Shared Optic Blast 5", 0x2869e, 0x286be, indexCPS2_Cyclops, 11 },
-    { "Shared Optic FX?", 0x2873E, 0x2875E, indexCPS2_Cyclops, 3 },
+
+    { "Shared Optic FX", 0x2873E, 0x2875E, indexCPS2_Cyclops, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P2[] =
 {
     { "P2",          0x269BE, 0x269DE, indexCPS2_Cyclops },
     { "P2 Extras 1", 0x269DE, 0x269FE, indexCPS2_Cyclops },
-    { "P2 HK?",      0x269FE, 0x26A1E, indexCPS2_Cyclops, 0x1 },
+    // Yes, the purple/gold p2 cyclops is using the wrong P2 jHK palette.
+    // this is just an old palette bug in COTA itself
+    { "P2 jHK",      0x269FE, 0x26A1E, indexCPS2_Cyclops, 0x1 }, 
     { "P2 Extras 3", 0x26A1E, 0x26A3E, indexCPS2_Cyclops, 0x2 },
 
-    { "P2 Optic Light", 0x2889E, 0x288BE, indexCPS2_Cyclops, 13 },
+    { "P2 Optic Light 1", 0x2887E, 0x2889E, indexCPS2_Cyclops, 13 }, // confirmed
+    { "P2 Optic Light 2", 0x2889E, 0x288BE, indexCPS2_Cyclops, 13 }, // confirmed
     { "P2 Intro 1", 0x288BE, 0x288DE, indexCPS2_Cyclops, 12 },
     { "P2 Intro 2", 0x288DE, 0x288FE, indexCPS2_Cyclops, 12 },
     { "P2 Intro 3", 0x288FE, 0x2891E, indexCPS2_Cyclops, 12 },
@@ -90,6 +97,7 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P2[] =
     { "P2 Intro 8", 0x2899E, 0x289BE, indexCPS2_Cyclops, 12 },
 };
 
+// missing icebeam palette
 const sGame_PaletteDataset COTA_A_ICEMAN_PALETTES_P1[] =
 {
     { "P1",         0x26B3E, 0x26B5E, indexCPS2_Iceman },
@@ -112,6 +120,8 @@ const sGame_PaletteDataset COTA_A_ICEMAN_PALETTES_EXTRAS[] =
 const sGame_PaletteDataset COTA_A_ICEMAN_PALETTES_P2[] =
 {
     { "P2",         0x26BBE, 0x26BDE, indexCPS2_Iceman },
+    // { "P2 Extra 1", 0x26BDE, 0x26BFE, indexCPS2_Iceman, 1 }, unused apparently.
+    
     { "P2 Extras",  0x26BFE, 0x26C1E, indexCPS2_Iceman, 5 },
     { "P2 Win Pose (Human)", 0x26C1E, 0x26C3E, indexCPS2_Iceman, 3 },
     { "P2 Shine 1", 0x28F5E, 0x28F7E, indexCPS2_Iceman },
@@ -262,6 +272,7 @@ const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P1[] =
     { "P1",          0x26C3E, 0x26C5E, indexCPS2_Spiral },
     { "P1 Extras 1", 0x26C5E, 0x26C7E, indexCPS2_Spiral, 1 },
     { "P1 Extras 2", 0x26C7E, 0x26C9E, indexCPS2_Spiral, 2 },
+
     { "P1 Power Dance 1", 0x2909E, 0x290BE, indexCPS2_Spiral, 11 },
     { "P1 Power Dance 2", 0x290BE, 0x290DE, indexCPS2_Spiral, 11 },
     { "P1 Power Dance 3", 0x290DE, 0x290FE, indexCPS2_Spiral, 11 },
@@ -292,6 +303,7 @@ const sGame_PaletteDataset COTA_A_SPIRAL_PALETTES_P2[] =
     { "P2",          0x26CBE, 0x26CDE, indexCPS2_Spiral },
     { "P2 Extras 1", 0x26CDE, 0x26CFE, indexCPS2_Spiral, 1 },
     { "P2 Extras 2", 0x26CFE, 0x26D1E, indexCPS2_Spiral, 2 },
+
     { "P2 Power Dance 1", 0x2941E, 0x2943E, indexCPS2_Spiral, 11 },
     { "P2 Power Dance 2", 0x2943E, 0x2945E, indexCPS2_Spiral, 11 },
     { "P2 Power Dance 3", 0x2945E, 0x2947E, indexCPS2_Spiral, 11 },
@@ -372,7 +384,7 @@ const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P1[] =
     {"Wolverine P1",    0x2713E, 0x2715E, 0x07, 0, true },
     {"P1 Claws",        0x2715E, 0x2717E, 0x07, 1 },
     {"P1 Berserker Barrage", 0x2717e, 0x2719e, 0x07, 2 },
-    {"P1 ?",            0x2719e, 0x271be, 0x07, 2 },
+    {"P1 ?",            0x2719e, 0x271be, 0x07 },
 };
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P2[] =
@@ -380,7 +392,7 @@ const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P2[] =
     {"Wolverine P2", 0x271be, 0x271dE, 0x07, 0, true },
     {"P2 Claws", 0x271dE, 0x271fE, 0x07, 1 },
     {"P2 Berserker Barrage", 0x271fE, 0x2721E, 0x07, 2 },
-    {"P2 ?", 0x2721E, 0x2723E, 0x07, 3 },
+    {"P2 ?", 0x2721E, 0x2723E, 0x07 },
 };
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P1[] =
@@ -418,7 +430,6 @@ const sDescTreeNode COTA_A_ICEMAN_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void*)COTA_A_ICEMAN_PALETTES_P1,           ARRAYSIZE(COTA_A_ICEMAN_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)COTA_A_ICEMAN_PALETTES_P2,           ARRAYSIZE(COTA_A_ICEMAN_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void*)COTA_A_ICEMAN_PALETTES_EXTRAS,   ARRAYSIZE(COTA_A_ICEMAN_PALETTES_EXTRAS) },
-    
 };
 
 const sDescTreeNode COTA_A_JUGGY_COLLECTION[] =
@@ -426,7 +437,6 @@ const sDescTreeNode COTA_A_JUGGY_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void*)COTA_A_JUGGY_PALETTES_P1,           ARRAYSIZE(COTA_A_JUGGY_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)COTA_A_JUGGY_PALETTES_P2,           ARRAYSIZE(COTA_A_JUGGY_PALETTES_P2) },
     { "Shared", DESC_NODETYPE_TREE, (void*)COTA_A_JUGGY_PALETTES_SHARED,           ARRAYSIZE(COTA_A_JUGGY_PALETTES_SHARED) },
-    
 };
 
 const sDescTreeNode COTA_A_MAGNETO_COLLECTION[] =
