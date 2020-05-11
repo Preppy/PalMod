@@ -26,7 +26,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(int nSSF2TRomToLoad)
     m_nTotalInternalUnits = UsePaletteSetForPortraits() ? SSF2T_A_NUM_IND_3C : SSF2T_A_NUM_IND_4A;
     m_nExtraUnit = UsePaletteSetForPortraits() ? SSF2T_A_EXTRALOC_3C : SSF2T_A_EXTRALOC_4A;
 
-    const UINT32 nSafeCountFor3C = 32;
+    const UINT32 nSafeCountFor3C = 16;
     const UINT32 nSafeCountFor4A = 192;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForPortraits() ? nSafeCountFor3C : nSafeCountFor4A);

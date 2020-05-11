@@ -567,7 +567,6 @@ UINT8* CImgDat::RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWi
     int data_ctr = 0;
     while (byte_ctr < uiDataSz)
     {
-
         if (isDigit) // The character is numerical...
         {
             // get the count
@@ -583,6 +582,7 @@ UINT8* CImgDat::RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWi
             {
                 output_data[data_ctr + i] = pSrcImgData[byte_ctr];
             }
+
             byte_ctr++;
             data_ctr += count;
             isDigit = !isDigit;

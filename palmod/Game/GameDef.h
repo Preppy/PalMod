@@ -527,7 +527,6 @@ const UINT8 COTA_A_IMG_UNITS[] =
     indexCPS2_Sentinel,
     indexCPS2_STAkuma, 
     indexCPS2_COTAAssets,
-    // 0x27, // Ken dragon punch sprite for Akuma?
 };
 
 const int COTA_A_NUM_IMG_UNITS = ARRAYSIZE(COTA_A_IMG_UNITS);

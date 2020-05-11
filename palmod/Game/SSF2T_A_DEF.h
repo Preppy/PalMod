@@ -1,5 +1,8 @@
 #pragma once
 
+// transparency color is the last color on cps2 graphics
+// the first 2 bytes of a palette on ST is how many palette lines it has
+
 enum Supported_SSF2T_3C_PaletteListIndex
 {
     index_SSF2T_3C_Portraits,
@@ -981,23 +984,25 @@ const sDescTreeNode SSF2T_A_GOUKI_COLLECTION[] =
 // THESE ARE IN sfxe.03c
 const sGame_PaletteDataset SSF2T_A_PORTRAITS_NODES[] =
 {
-    { "Ryu Portrait P1",      0x031c48, 0x031cc8, 0x00, 0x10 },
-    { "E. Honda Portrait P1", 0x032148, 0x0321c8, 0x01, 0x10 },
-    { "Blanka Portrait P1",   0x032648, 0x0326c8, 0x02, 0x10 },
-    { "Guile Portrait P1",    0x032b48, 0x032bc8, 0x03, 0x10 },
-    { "Ken Portrait P1",      0x033048, 0x0330c8, 0x04, 0x10 },
-    { "Chun-Li Portrait P1",  0x033548, 0x0335c8, 0x05, 0x10 },
-    { "Zangief Portrait P1",  0x033a48, 0x033ac8, 0x06, 0x10 },
-    { "Dhalsim Portrait P1",  0x033f48, 0x033fc8, 0x07, 0x10 },
-    { "M. Bison Portrait P1", 0x034448, 0x0344c8, 0x08, 0x10 },
-    { "Sagat Portrait P1",    0x034948, 0x0349c8, 0x09, 0x10 },
-    { "Balrog Portrait P1",   0x034e48, 0x034ec8, 0x0A, 0x10 },
-    { "Vega Portrait P1",     0x035348, 0x0353c8, 0x0B, 0x10 },
-    { "Cammy Portrait P1",    0x035848, 0x0358c8, 0x0C, 0x10 },
-    { "T-Hawk Portrait P1",   0x035d48, 0x035dc8, 0x0D, 0x10 },
-    { "Fei Long Portrait P1", 0x036248, 0x0362c8, 0x0E, 0x10 },
-    { "Dee Jay Portrait P1",  0x036748, 0x0367c8, 0x0F, 0x10 },
+    { "Ryu Portrait",      0x031c48, 0x031cc8, 0x00, 0x10 },
+    { "E. Honda Portrait", 0x032148, 0x0321c8, 0x01, 0x10 },
+    { "Blanka Portrait",   0x032648, 0x0326c8, 0x02, 0x10 },
+    { "Guile Portrait",    0x032b48, 0x032bc8, 0x03, 0x10 },
+    { "Ken Portrait",      0x033048, 0x0330c8, 0x04, 0x10 },
+    { "Chun-Li Portrait",  0x033548, 0x0335c8, 0x05, 0x10 },
+    { "Zangief Portrait",  0x033a48, 0x033ac8, 0x06, 0x10 },
+    { "Dhalsim Portrait",  0x033f48, 0x033fc8, 0x07, 0x10 },
+    { "M. Bison Portrait", 0x034448, 0x0344c8, 0x08, 0x10 },
+    { "Sagat Portrait",    0x034948, 0x0349c8, 0x09, 0x10 },
+    { "Balrog Portrait",   0x034e48, 0x034ec8, 0x0A, 0x10 },
+    { "Vega Portrait",     0x035348, 0x0353c8, 0x0B, 0x10 },
+    { "Cammy Portrait",    0x035848, 0x0358c8, 0x0C, 0x10 },
+    { "T-Hawk Portrait",   0x035d48, 0x035dc8, 0x0D, 0x10 },
+    { "Fei Long Portrait", 0x036248, 0x0362c8, 0x0E, 0x10 },
+    { "Dee Jay Portrait",  0x036748, 0x0367c8, 0x0F, 0x10 },
 
+#ifdef UNUSED_PALETTES
+    // These actually aren't used!  Only the P1s are ever shown.
     { "Ryu Portrait P2",      0x036cfe, 0x036d7e, 0x00, 0x10 },
     { "E. Honda Portrait P2", 0x0371fe, 0x03727e, 0x01, 0x10 },
     { "Blanka Portrait P2",   0x0376fe, 0x03777e, 0x02, 0x10 },
@@ -1014,6 +1019,7 @@ const sGame_PaletteDataset SSF2T_A_PORTRAITS_NODES[] =
     { "T-Hawk Portrait P2",   0x03adfe, 0x03ae7e, 0x0D, 0x10 },
     { "Fei Long Portrait P2", 0x03b2fe, 0x03b37e, 0x0E, 0x10 },
     { "Dee Jay Portrait P2",  0x03b7fe, 0x03b87e, 0x0F, 0x10 },
+#endif
 };
 
 const sDescTreeNode SSF2T_A_PORTRAITS_COLLECTION[] =

@@ -2034,7 +2034,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_A[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
 {
     { "Jotaro & Star Platinum B", 0x034a900, 0x034a980, indexJojos51Jotaro, indexJojos51Character_Main },
-    { "Star Breaker Super B", 0x034B280, 0x034B2C0 },
+    { "Star Breaker Super B", 0x034B280, 0x034B2C0, indexJojos51Jotaro, 1  },
     { "Star Platinum Charging Flash B", 0x034AD80, 0x034AE00, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super B", 0x0414e00, 0x0414e80, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger B", 0x0414e80, 0x0414f00, indexJojos51Jotaro, indexJojos51Character_Challenger },
@@ -2053,7 +2053,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_C[] =
 {
     { "Jotaro & Star Platinum C", 0x035ee00, 0x035ee80, indexJojos51Jotaro, indexJojos51Character_Main },
-    { "Star Breaker Super C", 0x035F780, 0x035F7C0 },
+    { "Star Breaker Super C", 0x035F780, 0x035F7C0, indexJojos51Jotaro, 1  },
     { "Star Platinum Charging Flash C", 0x035F280, 0x035F300, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super C", 0x0419c00, 0x0419c80, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger C", 0x0419c80, 0x0419d00, indexJojos51Jotaro, indexJojos51Character_Challenger },
@@ -2072,7 +2072,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_C[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
 {
     { "Jotaro & Star Platinum S", 0x0373300, 0x0373380, indexJojos51Jotaro, indexJojos51Character_Main },
-    { "Star Breaker Super S", 0x0373C80, 0x0373CC0 },
+    { "Star Breaker Super S", 0x0373C80, 0x0373CC0, indexJojos51Jotaro, 1  },
     { "Star Platinum Charging Flash S", 0x0373780, 0x0373800, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super S", 0x041ea00, 0x041ea80, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger S", 0x041ea80, 0x041eb00, indexJojos51Jotaro, indexJojos51Character_Challenger },
@@ -2091,7 +2091,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
 {
     { "Jotaro & Star Platinum Start", 0x0387800, 0x0387880, indexJojos51Jotaro, indexJojos51Character_Main },
-    { "Star Breaker Super Start", 0x0388180, 0x03881C0 },
+    { "Star Breaker Super Start", 0x0388180, 0x03881C0, indexJojos51Jotaro, 1  },
     { "Star Platinum Charging Flash Start", 0x0387C80, 0x0387D00, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super Start", 0x0423800, 0x0423880, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger Start", 0x0423880, 0x0423900, indexJojos51Jotaro, indexJojos51Character_Challenger },
