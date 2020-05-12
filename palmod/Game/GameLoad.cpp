@@ -393,8 +393,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     UINT16* rgChanged = CurrGame->GetChangeRg();
     CHAR* szDir = CurrGame->GetLoadDir();
     UINT16* rgUnitRedir = CurrGame->rgUnitRedir;
-    bool isAnythingReadOnly = false;
-    CString strROFile;
+    CString strErrorFile;
 
     if (CurrGame->GetIsDir())
     {
@@ -414,11 +413,11 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                     {
                         // Mark as clean so we don't save it out until it gets dirtied again.
                         rgChanged[nFileCtr] = FALSE;
-
                         nSaveLoadSucc++;
                     }
                     else
                     {
+                        strErrorFile = szLoad;
                         nSaveLoadErr++;
                     }
 
@@ -426,9 +425,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                 }
                 else
                 {
-                    isAnythingReadOnly = true;
-                    OutputDebugString("CGameLoad::SaveGame : Destination is read-only.\n");
-                    strROFile = szLoad;
+                    strErrorFile = szLoad;
                     nSaveLoadErr++;
                 }
             }
@@ -445,7 +442,6 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                 if (CurrGame->SaveFile(&FileSave, 0))
                 {
                     rgChanged[0] = FALSE;
-
                     nSaveLoadSucc++;
                 }
 
@@ -453,18 +449,26 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             }
             else
             {
-                isAnythingReadOnly = true;
-                strROFile = szDir;
-                OutputDebugString("CGameLoad::SaveGame : Destination is read-only.\n");
+                strErrorFile = szDir;
                 nSaveLoadErr = 1;
             }
         }
     }
 
-    if (isAnythingReadOnly)
+    if (!strErrorFile.IsEmpty())
     {
         CString strError;
-        strError.Format(IDS_ERROR_NOTWRITABLE_FORMAT, strROFile);
+        UINT uErrorString;
+        if ((GetFileAttributes(strErrorFile)) == INVALID_FILE_ATTRIBUTES)
+        {
+            uErrorString = IDS_ERROR_FILENOTFOUND_FORMAT;
+        }
+        else
+        {
+            uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
+        }
+
+        strError.Format(uErrorString, strErrorFile);
         MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
     }
 

@@ -499,7 +499,7 @@ void CPalModDlg::OnLoadAct()
 
                 delete[] pAct;
 
-                SetStatusText(CString("Act file Loaded succesfully!"));
+                SetStatusText(CString("ACT file Loaded succesfully!"));
             }
             else
             {
@@ -555,7 +555,7 @@ void CPalModDlg::OnSaveAct()
 
             delete[] pAct;
 
-            SetStatusText(CString("Act file saved succesfully!"));
+            SetStatusText(CString("ACT file saved succesfully!"));
         }
         else
         {

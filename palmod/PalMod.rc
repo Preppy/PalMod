@@ -184,8 +184,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,41,0
- PRODUCTVERSION 1,0,41,0
+ FILEVERSION 1,0,42,0
+ PRODUCTVERSION 1,0,42,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -202,12 +202,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.41.0"
+            VALUE "FileVersion", "1.0.42.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.41.0"
+            VALUE "ProductVersion", "1.0.42.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -408,7 +408,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.41"
+    IDS_CURRENTAPPNAME      "PalMod 1.42"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't load %s from '%s': previews will not work."
     IDS_ERROR_NO_IMAGES     "No images available."
@@ -425,7 +425,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ERROR_LOADING_BITMAP_BG "Error loading background image"
+    IDS_ERROR_LOADING_BITMAP_BG "Error loading background image."
 END
 
 STRINGTABLE
@@ -437,6 +437,8 @@ BEGIN
     IDS_TOOLTIP_GETCOLOR    "Use the color picker to update the selected palette color."
     IDS_ERROR_TEXTURE_LOAD  "Error loading RAW texture file.  Filename must be of form WHATEVER-W-width-H-height.data"
     IDS_ERROR_TEXTURE_NOGAME "A game must be loaded first."
+    IDS_ERROR_FILENOTFOUND_FORMAT 
+                            "Save failed: output file '%s' does not exist."
 END
 
 #endif    // English (United States) resources

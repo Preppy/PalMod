@@ -18,6 +18,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 {
     ifstream extraFile;
     CHAR szTargetFile[MAX_PATH];
+    CString strOutputText;
     int nTotalExtensionExtraLinesHandled = 0;
     int nStockExtrasCount = 0;
     int nArrayOffsetDesired = 0;
@@ -41,205 +42,202 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
         OutputDebugString("BUGBUG: MEMORY CORRUPTION!\n");
     }
 
-    const int nMaxExtraBufferSize = 5000;
-    // I got a report that editing a palette wasn't saving.  Turns out it was also in their Extra file and the later unchanged palette
-    // was stomping over the changed palette when we saved out.
-    const int nPossibleDuplicateConcern = 100;
-    stExtraDef rgTempExtraBuffer[nMaxExtraBufferSize];
-    memcpy(rgTempExtraBuffer, pBaseExtraDefs, nStockExtrasCount * sizeof(stExtraDef));
+    const int nMaxExtraBufferSize = 10000;
+    stExtraDef* prgTempExtraBuffer = nullptr;
 
-    // Now we look for the Extra extension file.
-    GetModuleFileName(nullptr, szTargetFile, (DWORD)MAX_PATH * sizeof(CHAR));
-    CHAR* pszExeFileName = strrchr(szTargetFile, '\\') + 1;
-    pszExeFileName[0] = '\0';
+    prgTempExtraBuffer = new stExtraDef[nMaxExtraBufferSize];
 
-    strcat(szTargetFile, pszExtraFileName);
-
-    CString strOutputText;
-    strOutputText.Format("Loading extra file for '%s'...\n", pszExtraFileName);
-    OutputDebugString(strOutputText);
-
-    int nFileAttrib = GetFileAttributes(szTargetFile);
-    if (((nFileAttrib & FILE_ATTRIBUTE_ARCHIVE) == FILE_ATTRIBUTE_ARCHIVE) && (nFileAttrib != INVALID_FILE_ATTRIBUTES))
+    if (prgTempExtraBuffer != nullptr)
     {
-        CHAR szCurrLine[MAX_PATH]; // arbitrary line length: in practice it should be MAX_DESCRIPTION_LENGTH + 1
-        CHAR szCurrDesc[MAX_DESCRIPTION_LENGTH];
-        CHAR* szFinalLine = nullptr;
-        int nCurrStart = 0;
-        int nCurrEnd = 0;
+        memcpy(prgTempExtraBuffer, pBaseExtraDefs, nStockExtrasCount * sizeof(stExtraDef));
 
-        extraFile.open(szTargetFile, ios::in);
+        // Now we look for the Extra extension file.
+        GetModuleFileName(nullptr, szTargetFile, (DWORD)MAX_PATH * sizeof(CHAR));
+        CHAR* pszExeFileName = strrchr(szTargetFile, '\\') + 1;
+        pszExeFileName[0] = '\0';
 
-        while (!extraFile.eof())
+        strcat(szTargetFile, pszExtraFileName);
+
+        strOutputText.Format("Loading extra file for '%s'...\n", pszExtraFileName);
+        OutputDebugString(strOutputText);
+
+        DWORD nFileAttrib = GetFileAttributes(szTargetFile);
+        if (((nFileAttrib & FILE_ATTRIBUTE_ARCHIVE) == FILE_ATTRIBUTE_ARCHIVE) && (nFileAttrib != INVALID_FILE_ATTRIBUTES))
         {
-            extraFile.getline(szCurrLine, sizeof(szCurrLine));
+            CHAR szCurrLine[MAX_PATH]; // arbitrary line length: in practice it should be MAX_DESCRIPTION_LENGTH + 1
+            CHAR szCurrDesc[MAX_DESCRIPTION_LENGTH];
+            CHAR* szFinalLine = nullptr;
+            int nCurrStart = 0;
+            int nCurrEnd = 0;
 
-            szFinalLine = szCurrLine;
+            extraFile.open(szTargetFile, ios::in);
 
-            if (strlen(szFinalLine) && (szFinalLine[0] != ';'))
+            while (!extraFile.eof())
             {
-                int nPrevAmt = 0;
+                extraFile.getline(szCurrLine, sizeof(szCurrLine));
 
-                switch (nTotalExtensionExtraLinesHandled % 3)
+                szFinalLine = szCurrLine;
+
+                if (strlen(szFinalLine) && (szFinalLine[0] != ';'))
                 {
-                case 0:
-                {
-                    if (iswspace(szFinalLine[0]) && (strlen(szFinalLine) == 1))
+                    int nPrevAmt = 0;
+
+                    switch (nTotalExtensionExtraLinesHandled % 3)
                     {
-                        strOutputText.Format("Warning: Bogus entry in extension file text '%s'.  Skipping.\n", szFinalLine);
-                        OutputDebugString(strOutputText);
-                        continue;
-                    }
-
-                    memcpy(szCurrDesc, szFinalLine, 31);
-                    szCurrDesc[31] = '\0';
-                }
-                break;
-                case 1:
-                {
-                    nCurrStart = strtol(szFinalLine, nullptr, 16);
-
-                    if ((nCurrStart > 0x00800000) || (nCurrStart < 0))
+                    case 0:
                     {
-                        nCurrStart = 0;
-                    }
-                }
-                break;
-                case 2:
-                {
-                    int nPos = 0;
-
-                    nCurrEnd = strtol(szFinalLine, nullptr, 16);
-
-                    UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / 2; // 2 bytes per color.
-
-                    static bool s_fShownOnce = false;
-                    if ((nColorsUsed > 5000) && !s_fShownOnce)
-                    {
-                        s_fShownOnce = true;
-                        CString strError;
-                        strError.Format("In file \"%s\", Extra \"%s\" is trying to display %u colors (from 0x%06x to 0x%06x).  This may not work properly.\n", pszExtraFileName, szCurrDesc, nColorsUsed, nCurrStart, nCurrEnd);
-                        MessageBox(nullptr, strError, "PalMod", MB_ICONERROR);
-
-                        if (nCurrStart > nCurrEnd) // This file is broken: just make the best of it.
+                        if (iswspace(szFinalLine[0]) && (strlen(szFinalLine) == 1))
                         {
-                            nColorsUsed = 16;
+                            strOutputText.Format("Warning: Bogus entry in extension file text '%s'.  Skipping.\n", szFinalLine);
+                            OutputDebugString(strOutputText);
+                            continue;
+                        }
+
+                        memcpy(szCurrDesc, szFinalLine, 31);
+                        szCurrDesc[31] = '\0';
+                    }
+                    break;
+                    case 1:
+                    {
+                        nCurrStart = strtol(szFinalLine, nullptr, 16);
+
+                        if ((nCurrStart > 0x00800000) || (nCurrStart < 0))
+                        {
+                            nCurrStart = 0;
                         }
                     }
+                    break;
+                    case 2:
+                    {
+                        int nPos = 0;
 
-                    const int nTotalPagesNeeded = (int)ceil((double)nColorsUsed / (double)MAX_PALETTE_SIZE);
-                    int nCurrentPage = 1;
+                        nCurrEnd = strtol(szFinalLine, nullptr, 16);
+
+                        UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / 2; // 2 bytes per color.
+
+                        static bool s_fShownOnce = false;
+                        if ((nColorsUsed > 5000) && !s_fShownOnce)
+                        {
+                            s_fShownOnce = true;
+                            CString strError;
+                            strError.Format("In file \"%s\", Extra \"%s\" is trying to display %u colors (from 0x%06x to 0x%06x).  This may not work properly.\n", pszExtraFileName, szCurrDesc, nColorsUsed, nCurrStart, nCurrEnd);
+                            MessageBox(nullptr, strError, "PalMod", MB_ICONERROR);
+
+                            if (nCurrStart > nCurrEnd) // This file is broken: just make the best of it.
+                            {
+                                nColorsUsed = 16;
+                            }
+                        }
+
+                        const int nTotalPagesNeeded = (int)ceil((double)nColorsUsed / (double)MAX_PALETTE_SIZE);
+                        int nCurrentPage = 1;
 
 #ifdef DUMP_EXTRAS_ON_LOAD // You can use this to convert Extras file content into usable headers.
-                    CString strText;
+                        CString strText;
 
-                    bool fPaletteUsesMultiplePages = (nColorsUsed > MAX_PALETTE_SIZE);
+                        bool fPaletteUsesMultiplePages = (nColorsUsed > MAX_PALETTE_SIZE);
 
-                    if (fPaletteUsesMultiplePages)
-                    {
-                        OutputDebugString("#ifdef USE_LARGE_PALETTES\n");
-                    }
+                        if (fPaletteUsesMultiplePages)
+                        {
+                            OutputDebugString("#ifdef USE_LARGE_PALETTES\n");
+                        }
 
-                    strText.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", szCurrDesc, nCurrStart, nCurrEnd);
-                    OutputDebugString(strText);
-                    if (fPaletteUsesMultiplePages)
-                    {
-                        OutputDebugString("#else\n");
-                    }
+                        strText.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", szCurrDesc, nCurrStart, nCurrEnd);
+                        OutputDebugString(strText);
+                        if (fPaletteUsesMultiplePages)
+                        {
+                            OutputDebugString("#else\n");
+                        }
 #endif
 
-                    // I don't believe we care about color mode right here since we only support
-                    // COLMODE12 and COLMODE_15 right now.
-                    while (nColorsUsed > 0)
-                    {
-                        int nCurrentPaletteEntries = 0;
-
-                        if (nPos)
+                        // I don't believe we care about color mode right here since we only support
+                        // COLMODE12 and COLMODE_15 right now.
+                        while (nColorsUsed > 0)
                         {
-                            // Create a new extra node item if the range for this complete item is over MAX_PALETTE_SIZE.
-                            nTotalExtensionExtraLinesHandled += 3;
-                        }
+                            int nCurrentPaletteEntries = 0;
 
-                        // If you wanted to fit long palettes on one page you would need to remove this 
-                        // overflow check, add an Extra compatible version of CPalGroup::AddSep, and
-                        // call that from CGame_*::UpdatePalImg
-                        if (nColorsUsed > MAX_PALETTE_SIZE)
-                        {
-                            nCurrentPaletteEntries = MAX_PALETTE_SIZE;
-
-                            nColorsUsed -= MAX_PALETTE_SIZE;
-                        }
-                        else
-                        {
-                            nCurrentPaletteEntries = nColorsUsed;
-                            nColorsUsed = 0;
-                        }
-
-                        nArrayOffsetDesired = nStockExtrasCount + (nTotalExtensionExtraLinesHandled / 3);
-
-                        if (nArrayOffsetDesired < nMaxExtraBufferSize)
-                        {
-                            pCurrDef = &rgTempExtraBuffer[nArrayOffsetDesired];
-
-                            pCurrDef->uUnitN = nExtraUnitStart;
-                            if (nTotalPagesNeeded > 1)
+                            if (nPos)
                             {
-                                //pCurrDef->isInvisible = (nCurrentPage == 1);
-                                snprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), "%s (%u/%u) 0x%x", szCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (MAX_PALETTE_SIZE * 2 * nPos));
+                                // Create a new extra node item if the range for this complete item is over MAX_PALETTE_SIZE.
+                                nTotalExtensionExtraLinesHandled += 3;
+                            }
+
+                            // If you wanted to fit long palettes on one page you would need to remove this 
+                            // overflow check, add an Extra compatible version of CPalGroup::AddSep, and
+                            // call that from CGame_*::UpdatePalImg
+                            if (nColorsUsed > MAX_PALETTE_SIZE)
+                            {
+                                nCurrentPaletteEntries = MAX_PALETTE_SIZE;
+
+                                nColorsUsed -= MAX_PALETTE_SIZE;
                             }
                             else
                             {
-                                strncpy(pCurrDef->szDesc, szCurrDesc, sizeof(pCurrDef->szDesc));
-                                //pCurrDef->isInvisible = false;
+                                nCurrentPaletteEntries = nColorsUsed;
+                                nColorsUsed = 0;
                             }
-                            pCurrDef->uOffset = nCurrStart + (MAX_PALETTE_SIZE * 2 * nPos);
-                            pCurrDef->cbPaletteSize = nCurrentPaletteEntries * 2;
-                            pCurrDef->isInvisible = false;
+
+                            nArrayOffsetDesired = nStockExtrasCount + (nTotalExtensionExtraLinesHandled / 3);
+
+                            if (nArrayOffsetDesired < nMaxExtraBufferSize)
+                            {
+                                pCurrDef = &prgTempExtraBuffer[nArrayOffsetDesired];
+
+                                pCurrDef->uUnitN = nExtraUnitStart;
+                                if (nTotalPagesNeeded > 1)
+                                {
+                                    //pCurrDef->isInvisible = (nCurrentPage == 1);
+                                    snprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), "%s (%u/%u) 0x%x", szCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (MAX_PALETTE_SIZE * 2 * nPos));
+                                }
+                                else
+                                {
+                                    strncpy(pCurrDef->szDesc, szCurrDesc, sizeof(pCurrDef->szDesc));
+                                    //pCurrDef->isInvisible = false;
+                                }
+                                pCurrDef->uOffset = nCurrStart + (MAX_PALETTE_SIZE * 2 * nPos);
+                                pCurrDef->cbPaletteSize = nCurrentPaletteEntries * 2;
+                                pCurrDef->isInvisible = false;
+                            }
+
+#ifdef DUMP_EXTRAS_ON_LOAD
+                            if (fPaletteUsesMultiplePages)
+                            {
+                                strText.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + pCurrDef->cbPaletteSize);
+                                OutputDebugString(strText);
+                            }
+#endif
+
+                            // Ensure that if we loop through here again we are using a new Extra node item
+                            nPos++;
                         }
 
 #ifdef DUMP_EXTRAS_ON_LOAD
                         if (fPaletteUsesMultiplePages)
                         {
-                            strText.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + pCurrDef->cbPaletteSize);
-                            OutputDebugString(strText);
+                            OutputDebugString("#endif\n");
                         }
 #endif
 
-                        // Ensure that if we loop through here again we are using a new Extra node item
-                        nPos++;
+                    }
+                    break;
                     }
 
-#ifdef DUMP_EXTRAS_ON_LOAD
-                    if (fPaletteUsesMultiplePages)
-                    {
-                        OutputDebugString("#endif\n");
-                    }
-#endif
-
+                    nTotalExtensionExtraLinesHandled++;
                 }
-                break;
-                }
+            }
 
-                nTotalExtensionExtraLinesHandled++;
+            if (nArrayOffsetDesired >= nMaxExtraBufferSize)
+            {
+                strOutputText.Format("WARNING: The '%s' Extra file exceeds maximum palette count (%u defined).\n\nPalmod has added the first %u palettes.", pszExtraFileName, nArrayOffsetDesired, nMaxExtraBufferSize);
+                // Note that this crash occurs so early we don't get to load strings.
+                MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
             }
         }
-
-        if (nArrayOffsetDesired >= nMaxExtraBufferSize)
+        else
         {
-            strOutputText.Format("WARNING: The '%s' Extra file exceeds maximum palette count (%u defined).\n\nPalmod has added the first %u palettes.", pszExtraFileName, nArrayOffsetDesired, nMaxExtraBufferSize);
-            // Note that this crash occurs so early we don't get to load strings.
-            MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
+            strOutputText.Format("\tExtras file '%s' does not exist. Skipping.\n", pszExtraFileName);
+            OutputDebugString(strOutputText);
         }
-        else if (nArrayOffsetDesired >= nPossibleDuplicateConcern)
-        {
-            strOutputText.Format("WARNING: The '%s' Extra file contains %u items.  Any item directly in PalMod and also in the Extras file can not be patched normally.\n\nPlease remove the duplicates from this Extras file - or don't use it.\n ", pszExtraFileName, nArrayOffsetDesired);
-            MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
-        }
-    }
-    else
-    {
-        strOutputText.Format("\tExtras file '%s' does not exist. Skipping.\n", pszExtraFileName);
-        OutputDebugString(strOutputText);
     }
 
     if (*pCompleteExtraDefs == nullptr)
@@ -249,13 +247,15 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
         // These allocations are cleaned up in CGameLoad::~CGameLoad
         *pCompleteExtraDefs = new stExtraDef[nExtraArraySize + 1];
 
-        memcpy(*pCompleteExtraDefs, rgTempExtraBuffer, nExtraArraySize * sizeof(stExtraDef));
+        memcpy(*pCompleteExtraDefs, prgTempExtraBuffer, nExtraArraySize * sizeof(stExtraDef));
 
         (*pCompleteExtraDefs)[nExtraArraySize].uUnitN = INVALID_UNIT_VALUE;
 
         strOutputText.Format("\tAdded %u palette Extras total, including the '%s' Extra file.\n", nExtraArraySize, pszExtraFileName);
         OutputDebugString(strOutputText);
     }
+
+    safe_delete_array(prgTempExtraBuffer);
 }
 
 bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nOffsetToCheck)
