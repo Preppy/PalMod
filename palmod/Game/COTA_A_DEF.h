@@ -315,9 +315,10 @@ const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P1[] =
     { "P1 Extras 2", 0x272BE, 0x272DE },
     { "P1 Extras 3", 0x272DE, 0x272FE },
 
-    { "P1 Shine 1", 0x2973E, 0x2975E, indexCPS2_SilverSamurai },
+    { "P1 Shine 1", 0x2973E, 0x2975E, indexCPS2_SilverSamurai }, // core rotation
     { "P1 Shine 2", 0x2975E, 0x2977E, indexCPS2_SilverSamurai },
-    { "P1 Shine 3", 0x297BE, 0x297DE, indexCPS2_SilverSamurai },
+    
+    { "P1 Shine 3", 0x297BE, 0x297DE, indexCPS2_SilverSamurai }, // sometimes the rotation runs through the rest of these
     { "P1 Shine 4", 0x297DE, 0x297FE, indexCPS2_SilverSamurai },
     { "P1 Shine 5", 0x297FE, 0x2981E, indexCPS2_SilverSamurai },
     { "P1 Shine 6", 0x2981E, 0x2983E, indexCPS2_SilverSamurai },
@@ -331,9 +332,10 @@ const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P2[] =
     { "P2 Extras 2", 0x2733E, 0x2735E },
     { "P2 Extras 3", 0x2735E, 0x2737E },
 
-    { "P2 Shine 1", 0x2977E, 0x2979E, indexCPS2_SilverSamurai },
+    { "P2 Shine 1", 0x2977E, 0x2979E, indexCPS2_SilverSamurai }, // core rotation
     { "P2 Shine 2", 0x2979E, 0x297BE, indexCPS2_SilverSamurai },
-    { "P2 Shine 3", 0x2985E, 0x2987E, indexCPS2_SilverSamurai },
+
+    { "P2 Shine 3", 0x2985E, 0x2987E, indexCPS2_SilverSamurai }, // sometimes the rotation runs through the rest of these
     { "P2 Shine 4", 0x2987E, 0x2989E, indexCPS2_SilverSamurai },
     { "P2 Shine 5", 0x2989E, 0x298BE, indexCPS2_SilverSamurai },
     { "P2 Shine 6", 0x298BE, 0x298DE, indexCPS2_SilverSamurai },

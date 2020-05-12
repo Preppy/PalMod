@@ -774,7 +774,6 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     nYOffs = 86;
                     nXOffs = -24;
 
-
                     fShouldUseAlternateLoadLogic = true;
                 }
                 else if (NodeGet->uUnitId == indexMVCRoll)

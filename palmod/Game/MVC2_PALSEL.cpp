@@ -234,7 +234,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case 0x0F: //Dr Doom
     {
-        if ((uPalId == (0x09 + EXTRA_OMNI)) || // throne
+        // Turning off throne/doom joint display:
+            // If we show it backwards the lead palette is throne 0xA, which means you can't paste ACTs into body 0x9
+            // If we show it forwards I'm currently unclear on how to keep the sprites in reverse order while keeping the palettes in forward order.
+        /* if ((uPalId == (0x09 + EXTRA_OMNI)) || // throne
             (uPalId == (0x25 + EXTRA_OMNI)) ||
             (uPalId == (0x41 + EXTRA_OMNI)) ||
             (uPalId == (0x5D + EXTRA_OMNI)) ||
@@ -263,7 +266,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             SetSourcePal(0, uUnitId, 0xA + EXTRA_OMNI, 6, 0x1C);
             SetSourcePal(1, uUnitId, 0x9 + EXTRA_OMNI, 6, 0x1C);
         }
-        else if (
+        else */ if (
                CreateExtraPal(uUnitId, uPalId, 0x09, 0x1C, 11)
             || CreateExtraPal(uUnitId, uPalId, 0x0A, 0x1C, 12)
             || CreateExtraPal(uUnitId, uPalId, 0x0B, 0x1C, 13)
@@ -492,6 +495,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  ((uPalId >= (0x1B2 + EXTRA_OMNI)) && (uPalId <= (0x1B9 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x209 + EXTRA_OMNI)) && (uPalId <= (0x210 + EXTRA_OMNI))))
         {
+// If you load an ACT file when using reversed palette display the ACT is applied to the visually first code-wise second palette
+// Since we don't want that, I'm just sticking with forward-only joins for now.
+#ifdef REVERSE_PALETTES_SUPPORT_ACT_PASTING
             // BUGBUG: Going from 0x55 to 0x56 (and so forth for all buttons) leaves sprites drawn incorrectly.
             bLoadDefPal = FALSE;
 
@@ -519,7 +525,18 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x56, 0x57, 0x08);
             SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
             SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+#else
+            bLoadDefPal = FALSE;
 
+            nImgUnitId = 0x1D; // Pull in Roll's sprite here.
+            nTargetImgId = 0x0C; // rush drill
+
+            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+            CreateDefPal(NodeGet, 0);
+
+            SetSourcePal(0, uUnitId, 0x40, 6, 0x57); 
+#endif
             break;
         }
         else if (((uPalId >= (0x43 + EXTRA_OMNI)) && (uPalId <= (0x4B + EXTRA_OMNI))) || // Hyper Megaman: Armor: joined
@@ -565,6 +582,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  ((uPalId >= (0x1A8 + EXTRA_OMNI)) && (uPalId <= (0x1B0 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x1FF + EXTRA_OMNI)) && (uPalId <= (0x207 + EXTRA_OMNI))))
         {
+#ifdef REVERSE_PALETTES_SUPPORT_ACT_PASTING
             bLoadDefPal = FALSE;
 
             int nXOffs = -31;
@@ -591,10 +609,13 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x4C, 0x57, 0x09); // HMM has 9 palettes
             SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
             SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
-
+#else
+            nTargetImgId = 0x28;
+            fImgIsFromNewImgDatRange = true;
+#endif
             break;
         }
-        else if ((uPalId == (0x55 + EXTRA_OMNI)) || // HMM missiles
+        else if ((uPalId == (0x55 + EXTRA_OMNI)) || // HMM missiles.  The palette display is reverse order which is OK for this one-off joined display.
                  (uPalId == (0xAC + EXTRA_OMNI)) ||
                  (uPalId == (0x103 + EXTRA_OMNI)) ||
                  (uPalId == (0x15A + EXTRA_OMNI)) ||
@@ -778,7 +799,6 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             bLoadDefPal = FALSE;
 
-            nImgUnitId = 0x1D;
             nTargetImgId = 0x0B; // rush drill
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
@@ -795,6 +815,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                  ((uPalId >= (0x1B2 + EXTRA_OMNI)) && (uPalId <= (0x1B9 + EXTRA_OMNI))) ||
                  ((uPalId >= (0x209 + EXTRA_OMNI)) && (uPalId <= (0x210 + EXTRA_OMNI))))
         {
+#ifdef REVERSE_PALETTES_SUPPORT_ACT_PASTING
             bLoadDefPal = FALSE;
 
             int nXOffs = 0;
@@ -821,6 +842,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             int nFirstExtraPalette = GetFirstExtraValueFromExtraPaletteId(NodeGet->uPalId, 0x56, 0x57, 0x08);
             SetSourcePal(0, NodeGet->uUnitId, nFirstExtraPalette + nPeerPaletteDistance, 6, 0x57);
             SetSourcePal(1, NodeGet->uUnitId, nFirstExtraPalette, 6, 0x57);
+#else
+            nTargetImgId = 0x0C;
+            fImgIsFromNewImgDatRange = true;
+#endif
             break;
         }
 

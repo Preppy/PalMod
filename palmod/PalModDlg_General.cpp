@@ -216,10 +216,12 @@ void CPalModDlg::PostPalSel()
                 // nUnitId is the character/palette index.
                 // nImgId is the extra offset for that character.
                 int nImgKey = (UINT16)(CurrTicket->nUnitId << 8) | (UINT8)CurrTicket->nImgId;
+                static int s_nLastPalAmt = 1;
 
                 CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
 
-                if ((nPrevImgIndex[nImgIndexCtr] != nImgKey) || bForceImg || (nPalAmt > 1))
+
+                if ((nPrevImgIndex[nImgIndexCtr] != nImgKey) || bForceImg || (nPalAmt > 1) || (s_nLastPalAmt != nPalAmt))
                 {
                     if (nImgIndexCtr == 0)
                     {
@@ -254,6 +256,7 @@ void CPalModDlg::PostPalSel()
                 }
 
                 nPrevImgIndex[nImgIndexCtr] = nImgKey;
+                s_nLastPalAmt = nPalAmt;
 
                 nImgIndexCtr++;
             }
