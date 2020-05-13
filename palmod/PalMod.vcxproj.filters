@@ -362,6 +362,9 @@
     <ClInclude Include="Game\Game_COTA_A.h">
       <Filter>Game\COTA_A</Filter>
     </ClInclude>
+    <ClInclude Include="Game\mvc2_descs.h">
+      <Filter>Game\MVC2_D</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\bgbmp.bmp">

@@ -182,6 +182,7 @@
     <ClInclude Include="Game\JOJOS_A_DEF.h" />
     <ClInclude Include="Game\MSHVSF_A_DEF.h" />
     <ClInclude Include="Game\MSH_A_DEF.h" />
+    <ClInclude Include="Game\mvc2_descs.h" />
     <ClInclude Include="Game\MVC2_D_Def.h" />
     <ClInclude Include="Game\mvc2_supp.h" />
     <ClInclude Include="Game\MVC_A_DEF.h" />

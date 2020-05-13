@@ -144,6 +144,7 @@ void CPalModDlg::UpdateCombo()
     m_ToolTip.AddTool(GetDlgItem(IDC_CHARCOMBO), UnitTree->szDesc);
     m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO1), ButtonTree->szDesc);
     m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO2), PaletteNode.szDesc);
+    SetStatusText(PaletteNode.szDesc);
 }
 
 void CPalModDlg::PostPalSel()

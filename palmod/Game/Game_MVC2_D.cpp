@@ -2,14 +2,14 @@
 #include "Gamedef.h"
 #include "Game_MVC2_D.h"
 #include "mvc2_validate.h"
-
 #include "MVC2_SUPP.h"
+#include "mvc2_descs.h"
 
 #define MV2C_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 //Initialize the selection tree
-
 CDescTree CGame_MVC2_D::MainDescTree = CGame_MVC2_D::InitDescTree();
+
 UINT16 CGame_MVC2_D::uRuleCtr = 0;
 BOOL CGame_MVC2_D::bAlphaTrans = 0;
 
@@ -153,23 +153,40 @@ CDescTree CGame_MVC2_D::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
+            const sMoveDescriptionLookup CurrentMoveDescriptionSet = MVC2_MOVE_DESCRIPTIONS[iUnitCtr];
+
             //Set each button's extra nodes
             for (int nButtonExtra = 0; nButtonExtra < nButtonExtraTotal; nButtonExtra++)
             {
-                BOOL bSetInfo = FALSE;
+                BOOL bSetInfo = false;
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraPos];
 
-                if (nButtonExtra == 0)
+                for (UINT32 nDescriptionLookup = 0; nDescriptionLookup < CurrentMoveDescriptionSet.nArraySize; nDescriptionLookup++)
                 {
-                    sprintf(ChildNode->szDesc, "%s Main", DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
-                    bSetInfo = TRUE;
+                    if (CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].nCharacterIndex == nButtonExtra)
+                    {
+                        //snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%s %s", DEF_BUTTONLABEL6_MVC2[iButtonCtr], CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
+                        // We can skip the button label since the second combo box already has that information
+                        snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%s", CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
+                        bSetInfo = true;
+                        break;
+                    }
                 }
-                else if (!nBasicStart || 1)//MVC2_D_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
-                {
-                    sprintf(ChildNode->szDesc, "%02X %s (Extra - %02X)", nExtraPos, DEF_BUTTONLABEL6_MVC2[iButtonCtr],
-                        (iButtonCtr * nButtonExtraTotal) + nExtraPos + 1);
 
-                    bSetInfo = TRUE;
+                if (!bSetInfo)
+                {
+                    if (nButtonExtra == 0)
+                    {
+                        sprintf(ChildNode->szDesc, "%s Main", DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
+                        bSetInfo = true;
+                    }
+                    else if (!nBasicStart || 1)//MVC2_D_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
+                    {
+                        sprintf(ChildNode->szDesc, "%02X %s (Extra - %02X)", nExtraPos, DEF_BUTTONLABEL6_MVC2[iButtonCtr],
+                            (iButtonCtr * nButtonExtraTotal) + nExtraPos + 1);
+
+                        bSetInfo = true;
+                    }
                 }
 
                 if (bSetInfo)
@@ -203,9 +220,10 @@ CDescTree CGame_MVC2_D::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
-
             if (nNumExtra == (MVC2_D_PALDATASZ[iUnitCtr] - (8 * k_mvc2_character_coloroption_count * 32)) / 32)
             {
+                // This path is used for Akuma/Gouki and War Machine only.
+                // We don't have extended descriptions for these: instead of using MVC2_MOVE_DESCRIPTIONS just use the old defaults
                 for (int nExtraCtr = 0; nExtraCtr < nNumExtra; nExtraCtr++)
                 {
                     ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
@@ -229,6 +247,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
                 int i = 0;
 
                 UINT16* pCurrVal = const_cast<UINT16*>(&MVC2_D_EXTRADEF[nStart]);
+                const sMoveDescriptionLookup CurrentMoveDescriptionSet = MVC2_MOVE_DESCRIPTIONS[iUnitCtr];
 
                 while ((pCurrVal[0] & 0x0F00) != EXTRA_START)
                 {
@@ -236,12 +255,28 @@ CDescTree CGame_MVC2_D::InitDescTree()
 
                     for (int nRangeCtr = 0; nRangeCtr < nRangeAmt; nRangeCtr++)
                     {
+                        bool bSetInfo = false;
+                        const UINT16 nCurrentExtraValue = pCurrVal[0] + nRangeCtr;
+
                         ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
-                        sprintf(ChildNode->szDesc, "(%02X Extra)", (pCurrVal[0] + nRangeCtr));
+                        for (UINT32 nDescriptionLookup = 0; nDescriptionLookup < CurrentMoveDescriptionSet.nArraySize; nDescriptionLookup++)
+                        {
+                            if (CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].nCharacterIndex == nCurrentExtraValue)
+                            {
+                                snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%02X: %s", nCurrentExtraValue, CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
+                                bSetInfo = true;
+                                break;
+                            }
+                        }
+
+                        if (!bSetInfo)
+                        {
+                            sprintf(ChildNode->szDesc, "(%02X Extra)", nCurrentExtraValue);
+                        }
 
                         ChildNode->uUnitId = iUnitCtr;
-                        ChildNode->uPalId = (8 * k_mvc2_character_coloroption_count) + (pCurrVal[0] + nRangeCtr) - 1;
+                        ChildNode->uPalId = (8 * k_mvc2_character_coloroption_count) + nCurrentExtraValue - 1;
 
                         nExtraCtr++;
 

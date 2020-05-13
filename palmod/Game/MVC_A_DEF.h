@@ -332,7 +332,6 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
 
     { "P1 Hyper Megaman Missiles", 0x4c9c4, 0x4c9e4, 0x1C, 0x29 }, // 55
 
-
     { "P1 Roll Win Pose", 0x4cae4, 0x4cb04, 0x1d }, // 5E
     { "P1 Magnetic Megaman", 0x4cb04, 0x4cb24, 0x1c }, // 5F
 };

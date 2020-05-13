@@ -403,6 +403,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             CreateExtraPal(uUnitId, uPalId, 0x0A, 0x57, 0x0B) || // teleport intro
             CreateExtraPal(uUnitId, uPalId, 0x0B, 0x57, 0x00, 0, 9) || // Megaman intro
             CreateExtraPal(uUnitId, uPalId, 0x2F, 0x57, 0x00, 0, 9) || // Charging buster
+            CreateExtraPal(uUnitId, uPalId, 0x41, 0x57, 0x0D) || // teleport intro
             CreateExtraPal(uUnitId, uPalId, 0x42, 0x57, 0x25) || // Dr Light
             CreateExtraPal(uUnitId, uPalId, 0x14, 0x57, 0x01, 0, 9) || // Rush
             CreateExtraPal(uUnitId, uPalId, 0x1D, 0x57, 0x02, 0, 9) || // Beat

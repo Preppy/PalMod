@@ -4110,7 +4110,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_A[] =
 #else
     { "Mariah Winpose Stuff A", 0x0348000, 0x0348100 },
 #endif
-    { "Mariah's Outlet A", 0x0348100, 0x0348180 },
+    { "Mariah's Bastet A", 0x0348100, 0x0348180 },
     { "Mariah Vs / Super A", 0x0414200, 0x0414280 },
     { "Mariah Challenger A", 0x0414280, 0x0414300 },
     { "Mariah Select / Winning A", 0x0414300, 0x0414380 },
@@ -4138,7 +4138,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_B[] =
 #else
     { "Mariah Winpose Stuff B", 0x035c500, 0x035c600 },
 #endif
-    { "Mariah's Outlet B", 0x035c600, 0x035c680 },
+    { "Mariah's Bastet B", 0x035c600, 0x035c680 },
     { "Mariah Vs / Super B", 0x0419000, 0x0419080 },
     { "Mariah Challenger B", 0x0419080, 0x0419100 },
     { "Mariah Select / Winning B", 0x0419100, 0x0419180 },
@@ -4166,7 +4166,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_C[] =
 #else
     { "Mariah Winpose Stuff C", 0x0370a00, 0x0370b00 },
 #endif
-    { "Mariah's Outlet C", 0x0370b00, 0x0370b80 },
+    { "Mariah's Bastet C", 0x0370b00, 0x0370b80 },
     { "Mariah Vs / Super C", 0x041de00, 0x041de80 },
     { "Mariah Challenger C", 0x041de80, 0x041df00 },
     { "Mariah Select / Winning C", 0x041df00, 0x041df80 },
@@ -4194,7 +4194,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_S[] =
 #else
     { "Mariah Winpose Stuff S", 0x0384f00, 0x0385000 },
 #endif
-    { "Mariah's Outlet S", 0x0385000, 0x0385080 },
+    { "Mariah's Bastet S", 0x0385000, 0x0385080 },
     { "Mariah Vs / Super S", 0x0422c00, 0x0422c80 },
     { "Mariah Challenger S", 0x0422c80, 0x0422d00 },
     { "Mariah Select / Winning S", 0x0422d00, 0x0422d80 },
@@ -4222,7 +4222,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_Start[] =
 #else
     { "Mariah Winpose Stuff Start", 0x0399400, 0x0399500 },
 #endif
-    { "Mariah's Outlet Start", 0x0399500, 0x0399580 },
+    { "Mariah's Bastet Start", 0x0399500, 0x0399580 },
     { "Mariah Vs / Super Start", 0x0427a00, 0x0427a80 },
     { "Mariah Challenger Start", 0x0427a80, 0x0427b00 },
     { "Mariah Select / Winning Start", 0x0427b00, 0x0427b80 },
@@ -4382,18 +4382,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_A[] =
     { "Rubber Soul Vs / Super A", 0x0414800, 0x0414880, indexJojos51RSoul, indexJojos51Character_VsSuper },
     { "Rubber Soul Challenger A", 0x0414880, 0x0414900, indexJojos51RSoul, indexJojos51Character_Challenger },
     { "Rubber Soul Select / Winning A", 0x0414900, 0x0414980, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
-#ifdef USE_LARGE_PALETTES
-    { "Rubber Soul Burning A", 0x0349080, 0x0349180 },
-#else
     { "Rubber Soul Burning A (1/2)", 0x0349080, 0x0349100, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { "Rubber Soul Burning A (2/2)", 0x0349100, 0x0349180, indexJojos51RSoul, indexJojos51Character_BurnZap },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Rubber Soul Tech/Zap A", 0x035d880, 0x035d980 },
-#else
     { "Rubber Soul Tech/Zap A (1/2)", 0x035d880, 0x035d900, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { "Rubber Soul Tech/Zap A (2/2)", 0x035d900, 0x035d980, indexJojos51RSoul, indexJojos51Character_BurnZap },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_B[] =
@@ -4403,18 +4395,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_B[] =
     { "Rubber Soul Vs / Super B", 0x0419600, 0x0419680, indexJojos51RSoul, indexJojos51Character_VsSuper },
     { "Rubber Soul Challenger B", 0x0419680, 0x0419700, indexJojos51RSoul, indexJojos51Character_Challenger },
     { "Rubber Soul Select / Winning B", 0x0419700, 0x0419780, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
-#ifdef USE_LARGE_PALETTES
-    { "Rubber Soul Burning B", 0x035d580, 0x035d680 },
-#else
     { "Rubber Soul Burning B (1/2)", 0x035d580, 0x035d600, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { "Rubber Soul Burning B (2/2)", 0x035d600, 0x035d680, indexJojos51RSoul, indexJojos51Character_BurnZap },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Rubber Soul Tech/Zap B", 0x0371d80, 0x0371e80 },
-#else
     { "Rubber Soul Tech/Zap B (1/2)", 0x0371d80, 0x0371e00, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { "Rubber Soul Tech/Zap B (2/2)", 0x0371e00, 0x0371e80, indexJojos51RSoul, indexJojos51Character_BurnZap },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_C[] =
@@ -4424,18 +4408,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_C[] =
     { "Rubber Soul Vs / Super C", 0x041e400, 0x041e480, indexJojos51RSoul, indexJojos51Character_VsSuper },
     { "Rubber Soul Challenger C", 0x041e480, 0x041e500, indexJojos51RSoul, indexJojos51Character_Challenger },
     { "Rubber Soul Select / Winning C", 0x041e500, 0x041e580, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
-#ifdef USE_LARGE_PALETTES
-    { "Rubber Soul Burning C", 0x0371a80, 0x0371b80 },
-#else
     { "Rubber Soul Burning C (1/2)", 0x0371a80, 0x0371b00, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { "Rubber Soul Burning C (2/2)", 0x0371b00, 0x0371b80, indexJojos51RSoul, indexJojos51Character_BurnZap },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Rubber Soul Tech/Zap C", 0x0386280, 0x0386380 },
-#else
     { "Rubber Soul Tech/Zap C (1/2)", 0x0386280, 0x0386300, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { "Rubber Soul Tech/Zap C (2/2)", 0x0386300, 0x0386380, indexJojos51RSoul, indexJojos51Character_BurnZap },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_S[] =
@@ -4445,18 +4421,10 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_S[] =
     { "Rubber Soul Vs / Super S", 0x0423200, 0x0423280, indexJojos51RSoul, indexJojos51Character_VsSuper },
     { "Rubber Soul Challenger S", 0x0423280, 0x0423300, indexJojos51RSoul, indexJojos51Character_Challenger },
     { "Rubber Soul Select / Winning S", 0x0423300, 0x0423380, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
-#ifdef USE_LARGE_PALETTES
-    { "Rubber Soul Burning S", 0x0385f80, 0x0386080 },
-#else
     { "Rubber Soul Burning S (1/2)", 0x0385f80, 0x0386000, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { "Rubber Soul Burning S (2/2)", 0x0386000, 0x0386080, indexJojos51RSoul, indexJojos51Character_BurnZap },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Rubber Soul Tech/Zap S", 0x039a780, 0x039a880 },
-#else
     { "Rubber Soul Tech/Zap S (1/2)", 0x039a780, 0x039a800, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { "Rubber Soul Tech/Zap S (2/2)", 0x039a800, 0x039a880, indexJojos51RSoul, indexJojos51Character_BurnZap },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_Start[] =
@@ -4466,133 +4434,85 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_Start[] =
     { "Rubber Soul Vs / Super Start", 0x0428000, 0x0428080, indexJojos51RSoul, indexJojos51Character_VsSuper },
     { "Rubber Soul Challenger Start", 0x0428080, 0x0428100, indexJojos51RSoul, indexJojos51Character_Challenger },
     { "Rubber Soul Select / Winning Start", 0x0428100, 0x0428180, indexJojos51RSoul, indexJojos51Character_SelectWin1 },
-#ifdef USE_LARGE_PALETTES
-    { "Rubber Soul Burning Start", 0x039a480, 0x039a580 },
-#else
     { "Rubber Soul Burning Start (1/2)", 0x039a480, 0x039a500, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { "Rubber Soul Burning Start (2/2)", 0x039a500, 0x039a580, indexJojos51RSoul, indexJojos51Character_BurnZap },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Rubber Soul Tech/Zap Start", 0x03aec80, 0x03aed80 },
-#else
     { "Rubber Soul Tech/Zap Start (1/2)", 0x03aec80, 0x03aed00, indexJojos51RSoul, indexJojos51Character_BurnZap },
     { "Rubber Soul Tech/Zap Start (2/2)", 0x03aed00, 0x03aed80, indexJojos51RSoul, indexJojos51Character_BurnZap },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_A[] =
 {
-    { "Khan A", 0x0349c80, 0x0349d00 },
-    { "Khan's Intro Anubis A", 0x034a600, 0x034a620 },
-    { "Khan's Counter Anubis A", 0x034a780, 0x034a7a0 },
+    { "Khan A", 0x0349c80, 0x0349d00, indexJojos51Khan },
+    { "Khan's Intro Anubis A", 0x034a600, 0x034a620, indexJojos51Khan, 1 },
+    { "Khan's Counter Anubis A", 0x034a780, 0x034a7a0, indexJojos51Khan, 2 },
     { "Khan's Special Slash A", 0x034a700, 0x034a720 },
-    { "Khan Vs/Super A", 0x0414b00, 0x0414b80 },
-    { "Khan Challenger A", 0x0414b80, 0x0414c00 },
-    { "Khan Select/Winning A", 0x0414c00, 0x0414c80 },
-#ifdef USE_LARGE_PALETTES
-    { "Khan Burning A", 0x0349d00, 0x0349e00 },
-#else
+    { "Khan Sword Slashes/Counter/Tech/Zap A (1/2)", 0x034a000, 0x034a080 },
+    { "Khan Sword Slashes/Counter/Tech/Zap A (2/2)", 0x034a080, 0x034a100 },
+    { "Khan Vs/Super A", 0x0414b00, 0x0414b80, indexJojos51Khan, indexJojos51Character_VsSuper },
+    { "Khan Challenger A", 0x0414b80, 0x0414c00, indexJojos51Khan, indexJojos51Character_Challenger },
+    { "Khan Select/Winning A", 0x0414c00, 0x0414c80, indexJojos51Khan, indexJojos51Character_SelectWin1 },
     { "Khan Burning A (1/2)", 0x0349d00, 0x0349d80 },
     { "Khan Burning A (2/2)", 0x0349d80, 0x0349e00 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Khan Tech/Zap A", 0x034a000, 0x034a100 },
-#else
-    { "Khan Tech/Zap A (1/2)", 0x034a000, 0x034a080 },
-    { "Khan Tech/Zap A (2/2)", 0x034a080, 0x034a100 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_B[] =
 {
-    { "Khan B", 0x035e180, 0x035e200 },
-    { "Khan's Intro Anubis B", 0x035eb00, 0x035eb20 },
-    { "Khan's Counter Anubis B", 0x035ec80, 0x035eca0 },
+    { "Khan B", 0x035e180, 0x035e200, indexJojos51Khan },
+    { "Khan's Intro Anubis B", 0x035eb00, 0x035eb20, indexJojos51Khan, 1 },
+    { "Khan's Counter Anubis B", 0x035ec80, 0x035eca0, indexJojos51Khan, 2 },
     { "Khan's Special Slash B", 0x035ec00, 0x035ec20 },
-    { "Khan Vs/Super B", 0x0419900, 0x0419980 },
-    { "Khan Challenger B", 0x0419980, 0x0419a00 },
-    { "Khan Select/Winning B", 0x0419a00, 0x0419a80 },
-#ifdef USE_LARGE_PALETTES
-    { "Khan Burning B", 0x035e200, 0x035e300 },
-#else
+    { "Khan Sword Slashes/Counter/Tech/Zap B (1/2)", 0x035e500, 0x035e580 },
+    { "Khan Sword Slashes/Counter/Tech/Zap B (2/2)", 0x035e580, 0x035e600 },
+    { "Khan Vs/Super B", 0x0419900, 0x0419980, indexJojos51Khan, indexJojos51Character_VsSuper },
+    { "Khan Challenger B", 0x0419980, 0x0419a00, indexJojos51Khan, indexJojos51Character_Challenger },
+    { "Khan Select/Winning B", 0x0419a00, 0x0419a80, indexJojos51Khan, indexJojos51Character_SelectWin1 },
     { "Khan Burning B (1/2)", 0x035e200, 0x035e280 },
     { "Khan Burning B (2/2)", 0x035e280, 0x035e300 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Khan Tech/Zap B", 0x035e500, 0x035e600 },
-#else
-    { "Khan Tech/Zap B (1/2)", 0x035e500, 0x035e580 },
-    { "Khan Tech/Zap B (2/2)", 0x035e580, 0x035e600 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_C[] =
 {
-    { "Khan C", 0x0372680, 0x0372700 },
-    { "Khan's Intro Anubis C", 0x0373000, 0x0373020 },
-    { "Khan's Counter Anubis C", 0x0373180, 0x03731a0 },
+    { "Khan C", 0x0372680, 0x0372700, indexJojos51Khan },
+    { "Khan's Intro Anubis C", 0x0373000, 0x0373020, indexJojos51Khan, 1 },
+    { "Khan's Counter Anubis C", 0x0373180, 0x03731a0, indexJojos51Khan, 2 },
     { "Khan's Special Slash C", 0x0373100, 0x0373120 },
-    { "Khan Vs/Super C", 0x041e700, 0x041e780 },
-    { "Khan Challenger C", 0x041e780, 0x041e800 },
-    { "Khan Select/Winning C", 0x041e800, 0x041e880 },
-#ifdef USE_LARGE_PALETTES
-    { "Khan Burning C", 0x0372700, 0x0372800 },
-#else
+    { "Khan Sword Slashes/Counter/Tech/Zap C (1/2)", 0x0372a00, 0x0372a80 },
+    { "Khan Sword Slashes/Counter/Tech/Zap C (2/2)", 0x0372a80, 0x0372b00 },
+    { "Khan Vs/Super C", 0x041e700, 0x041e780, indexJojos51Khan, indexJojos51Character_VsSuper },
+    { "Khan Challenger C", 0x041e780, 0x041e800, indexJojos51Khan, indexJojos51Character_Challenger },
+    { "Khan Select/Winning C", 0x041e800, 0x041e880, indexJojos51Khan, indexJojos51Character_SelectWin1 },
     { "Khan Burning C (1/2)", 0x0372700, 0x0372780 },
     { "Khan Burning C (2/2)", 0x0372780, 0x0372800 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Khan Tech/Zap C", 0x0372a00, 0x0372b00 },
-#else
-    { "Khan Tech/Zap C (1/2)", 0x0372a00, 0x0372a80 },
-    { "Khan Tech/Zap C (2/2)", 0x0372a80, 0x0372b00 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_S[] =
 {
-    { "Khan S", 0x0386b80, 0x0386c00 },
-    { "Khan's Intro Anubis S", 0x0387500, 0x0387520 },
-    { "Khan's Counter Anubis S", 0x0387680, 0x03876a0 },
+    { "Khan S", 0x0386b80, 0x0386c00, indexJojos51Khan },
+    { "Khan's Intro Anubis S", 0x0387500, 0x0387520, indexJojos51Khan, 1 },
+    { "Khan's Counter Anubis S", 0x0387680, 0x03876a0, indexJojos51Khan, 2 },
     { "Khan's Special Slash S", 0x0387600, 0x0387620 },
-    { "Khan Vs/Super S", 0x0423500, 0x0423580 },
-    { "Khan Challenger S", 0x0423580, 0x0423600 },
-    { "Khan Select/Winning S", 0x0423600, 0x0423680 },
-#ifdef USE_LARGE_PALETTES
-    { "Khan Burning S", 0x0386c00, 0x0386d00 },
-#else
+    { "Khan Sword Slashes/Counter/Tech/Zap S (1/2)", 0x0386f00, 0x0386f80 },
+    { "Khan Sword Slashes/Counter/Tech/Zap S (2/2)", 0x0386f80, 0x0387000 },
+    { "Khan Vs/Super S", 0x0423500, 0x0423580, indexJojos51Khan, indexJojos51Character_VsSuper },
+    { "Khan Challenger S", 0x0423580, 0x0423600, indexJojos51Khan, indexJojos51Character_Challenger },
+    { "Khan Select/Winning S", 0x0423600, 0x0423680, indexJojos51Khan, indexJojos51Character_SelectWin1 },
     { "Khan Burning S (1/2)", 0x0386c00, 0x0386c80 },
     { "Khan Burning S (2/2)", 0x0386c80, 0x0386d00 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Khan Tech/Zap S", 0x0386f00, 0x0387000 },
-#else
-    { "Khan Tech/Zap S (1/2)", 0x0386f00, 0x0386f80 },
-    { "Khan Tech/Zap S (2/2)", 0x0386f80, 0x0387000 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_Start[] =
 {
-    { "Khan Start", 0x039b080, 0x039b100 },
-    { "Khan's Intro Anubis Start", 0x039ba00, 0x039ba20 },
-    { "Khan's Counter Anubis Start", 0x039bb80, 0x039bba0 },
+    { "Khan Start", 0x039b080, 0x039b100, indexJojos51Khan },
+    { "Khan's Intro Anubis Start", 0x039ba00, 0x039ba20, indexJojos51Khan, 1 },
+    { "Khan's Counter Anubis Start", 0x039bb80, 0x039bba0, indexJojos51Khan, 2 },
     { "Khan's Special Slash Start", 0x039bb00, 0x039bb20 },
-    { "Khan Vs/Super Start", 0x0428300, 0x0428380 },
-    { "Khan Challenger Start", 0x0428380, 0x0428400 },
-    { "Khan Select/Winning Start", 0x0428400, 0x0428480 },
-#ifdef USE_LARGE_PALETTES
-    { "Khan Burning Start", 0x039b100, 0x039b200 },
-#else
+    { "Khan Sword Slashes/Counter/Tech/Zap Start (1/2)", 0x039b400, 0x039b480 },
+    { "Khan Sword Slashes/Counter/Tech/Zap Start (2/2)", 0x039b480, 0x039b500 },
+    { "Khan Vs/Super Start", 0x0428300, 0x0428380, indexJojos51Khan, indexJojos51Character_VsSuper },
+    { "Khan Challenger Start", 0x0428380, 0x0428400, indexJojos51Khan, indexJojos51Character_Challenger },
+    { "Khan Select/Winning Start", 0x0428400, 0x0428480, indexJojos51Khan, indexJojos51Character_SelectWin1 },
     { "Khan Burning Start (1/2)", 0x039b100, 0x039b180 },
     { "Khan Burning Start (2/2)", 0x039b180, 0x039b200 },
-#endif
-#ifdef USE_LARGE_PALETTES
-    { "Khan Tech/Zap Start", 0x039b400, 0x039b500 },
-#else
-    { "Khan Tech/Zap Start (1/2)", 0x039b400, 0x039b480 },
-    { "Khan Tech/Zap Start (2/2)", 0x039b480, 0x039b500 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_A[] =
