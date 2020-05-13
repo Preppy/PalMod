@@ -1002,14 +1002,29 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         CreateExtraPal(uUnitId, uPalId, 0x09, 32, 0, 0, 32);
         break;
     }
+    case 0x35: // Blackheart
+    {
+        nExtraAmt = 1; // These are all one-offs
+        if (CreateExtraPal(uUnitId, uPalId, 0x0D, 1, 2) || // LP, HP, A1 demons
+            CreateExtraPal(uUnitId, uPalId, 0x0E, 1, 1) || // Dark Thunder, etc
+            CreateExtraPal(uUnitId, uPalId, 0x10, 1, 8) || // Inferno
+            CreateExtraPal(uUnitId, uPalId, 0x13, 1, 11) || // Armageddon
+            CreateExtraPal(uUnitId, uPalId, 0x14, 1, 12) || // HP throw skulls
+            CreateExtraPal(uUnitId, uPalId, 0x19, 1, 2) // LK, HK, A2 demons
+            )
+        {
+            break;
+        }
+        break;
+    }
     case 0x37: //Jin
     {
         if (CreateExtraPal(uUnitId, uPalId, 0x09, 6, 0, 0, 6) || // Power-up glow
-               CreateExtraPal(uUnitId, uPalId, 0x2D, 6, 11, 0, 6)
-            || CreateExtraPal(uUnitId, uPalId, 0x51, 3, 12)
-            || CreateExtraPal(uUnitId, uPalId, 0x52, 3, 13)
-            || CreateExtraPal(uUnitId, uPalId, 0x53, 3, 14)
-            || CreateExtraPal(uUnitId, uPalId, 0x63, 6, 15, 0, 6)
+            CreateExtraPal(uUnitId, uPalId, 0x2D, 6, 11, 0, 6) ||
+            CreateExtraPal(uUnitId, uPalId, 0x51, 3, 12) ||
+            CreateExtraPal(uUnitId, uPalId, 0x52, 3, 13) ||
+            CreateExtraPal(uUnitId, uPalId, 0x53, 3, 14) ||
+            CreateExtraPal(uUnitId, uPalId, 0x63, 6, 15, 0, 6)
             )
             break;
 
