@@ -26,6 +26,11 @@ public:
     void LoadReg(int src);
     void SaveReg(int src);
 
+    static void SetColorsPerLine(DWORD dwColors);
+    static DWORD GetColorsPerLine();
+    static DWORD GetMaxPaletteSize();
+    static DWORD dwColorsPerLine;
+
     //Main
 
     RECT main_szpos = { c_badWindowPosValue };

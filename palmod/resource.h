@@ -36,6 +36,7 @@
 #define IDS_ERROR_LOADING_BITMAP_BG     136
 #define IDD_IMGDDLG                     139
 #define IDR_MENUIMGOUT                  141
+#define IDD_PALMOD_DIALOG_FAT           142
 #define IDC_SLIDER1                     1001
 #define IDC_EDIT_RH                     1001
 #define IDC_EDIT_BL                     1002
@@ -156,6 +157,9 @@
 #define ID_SETTINGS_USETRANSPARENTPNG   32834
 #define ID_LOADDIRECTORY_SFIII3         32835
 #define ID_LDSFIII3DCALL                32836
+#define ID_SETTINGS_COLORSPERLINE       32837
+#define ID_COLORSPERLINE_8COLORSPERLINE 32838
+#define ID_COLORSPERLINE_16COLORSPERLINE 32839
 #define ID_SETTINGS_SETBACKGROUNDCOLOR32847 32847
 #define ID_FILE_SAVE32850               32850
 #define ID_Menu32851                    32851
@@ -166,7 +170,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        137
-#define _APS_NEXT_COMMAND_VALUE         32837
+#define _APS_NEXT_COMMAND_VALUE         32840
 #define _APS_NEXT_CONTROL_VALUE         1035
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

@@ -75,7 +75,15 @@ BOOL CPalModApp::InitInstance()
 
     //Create the main window
     PalModDlg = new CPalModDlg();
-    ((CPalModDlg*)PalModDlg)->Create(IDD_PALMOD_DIALOG);
+
+    if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
+    {
+        ((CPalModDlg*)PalModDlg)->Create(IDD_PALMOD_DIALOG);
+    }
+    else
+    {
+        ((CPalModDlg*)PalModDlg)->Create(IDD_PALMOD_DIALOG_FAT);
+    }
 
     m_pMainWnd = PalModDlg;
     //m_pMainWnd->UpdateWindow();

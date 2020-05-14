@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "PalMod.h"
 #include "PalModDlg.h"
+#include "RegProc.h"
 
 #include "Game\GameDef.h"
 
-constexpr auto c_AppRegistryRoot = _T("Software\\knarxed\\PalMod");
 constexpr auto c_strLastUsedPath = _T("LastUsedPath");
 constexpr auto c_strLastUsedGFlag = _T("LastUsedGFlag");
 
@@ -188,6 +188,25 @@ void CPalModDlg::OnBnShowPrev()
 
         PreviewDlg->m_ImgDisp.UpdateCtrl();
     }
+}
+
+void CPalModDlg::SetColorsPerLineTo8()
+{
+    CRegProc::SetColorsPerLine(PAL_MAXWIDTH_8COLORSPERLINE);
+
+    CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
+
+    pSettMenu->CheckMenuItem(ID_COLORSPERLINE_8COLORSPERLINE, MF_BYCOMMAND | MF_CHECKED);
+    pSettMenu->CheckMenuItem(ID_COLORSPERLINE_16COLORSPERLINE, MF_BYCOMMAND |MF_UNCHECKED);
+}
+
+void CPalModDlg::SetColorsPerLineTo16()
+{
+    CRegProc::SetColorsPerLine(PAL_MAXWIDTH_16COLORSPERLINE);
+
+    CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
+    pSettMenu->CheckMenuItem(ID_COLORSPERLINE_8COLORSPERLINE, MF_BYCOMMAND | MF_UNCHECKED);
+    pSettMenu->CheckMenuItem(ID_COLORSPERLINE_16COLORSPERLINE, MF_BYCOMMAND | MF_CHECKED);
 }
 
 void CPalModDlg::LoadLastDir()

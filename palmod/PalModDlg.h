@@ -92,6 +92,9 @@ public:
 
     void LoadLastDir();
 
+    void SetColorsPerLineTo8();
+    void SetColorsPerLineTo16();
+
     void PostGameLoad();
     void UpdateCombo();
     void PostPalSel();

@@ -1,10 +1,16 @@
 #include "stdafx.h"
+#include "PalMod.h"
 #include "regproc.h"
 
 constexpr auto c_previewWndPos = "prev_wndpos";
-constexpr auto c_mainWndPos = "main_wndpos_02"; // changed default app size so incrementing this
+// Display options for 8 colors or for 16 colors per line
+constexpr auto c_mainWndPos_8ColorsPerLine = "main_wndpos_02"; // changed default app size so incrementing this
+constexpr auto c_mainWndPos_16ColorsPerLine = "main_wndpos_02_16c";
+constexpr auto c_mainWndColorsPerLine = "main_wndColorsPerLine";
 
 extern int GetDpiForScreen();
+
+DWORD CRegProc::dwColorsPerLine = 0;
 
 CRegProc::CRegProc(int nSrcType)
 {
@@ -16,6 +22,48 @@ CRegProc::CRegProc(int nSrcType)
 
 CRegProc::~CRegProc(void)
 {
+}
+
+void CRegProc::SetColorsPerLine(DWORD dwColors)
+{
+    HKEY hKey;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        RegSetValueEx(hKey, c_mainWndColorsPerLine, 0, REG_DWORD, (BYTE*)&dwColors, sizeof(DWORD));
+        RegCloseKey(hKey);
+    }
+}
+
+DWORD CRegProc::GetColorsPerLine()
+{
+    // Since this affects UI we should only update it once per instance
+    if (dwColorsPerLine == 0)
+    {
+        HKEY hKey;
+
+        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
+            == ERROR_SUCCESS)
+        {
+            DWORD RegType = REG_DWORD;
+            DWORD GetSz = sizeof(DWORD);
+
+            if (RegQueryValueEx(hKey, c_mainWndColorsPerLine, 0, &RegType, (BYTE*)&dwColorsPerLine, &GetSz) != ERROR_SUCCESS)
+            {
+                dwColorsPerLine = PAL_MAXWIDTH_8COLORSPERLINE;
+            }
+
+            RegCloseKey(hKey);
+        }
+    }
+
+    return (dwColorsPerLine == PAL_MAXWIDTH_16COLORSPERLINE) ? PAL_MAXWIDTH_16COLORSPERLINE : PAL_MAXWIDTH_8COLORSPERLINE;
+}
+
+DWORD CRegProc::GetMaxPaletteSize()
+{
+    return (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? PAL_MAXAMT_8COLORSPERLINE : PAL_MAXAMT_16COLORSPERLINE;
 }
 
 void CRegProc::LoadReg(int src)
@@ -55,7 +103,7 @@ void CRegProc::LoadReg(int src)
             GetSz = RECT_STRSZ;
 
             CString strPosAndDpi;
-            strPosAndDpi.Format("%s_%u", c_mainWndPos, GetDpiForScreen());
+            strPosAndDpi.Format("%s_%u", (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
 
             if (RegQueryValueEx(hKey, strPosAndDpi, 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
             {
@@ -202,7 +250,7 @@ void CRegProc::SaveReg(int src)
             conv_str = RectToStr(main_szpos);
 
             CString strPosAndDpi;
-            strPosAndDpi.Format("%s_%u", c_mainWndPos, GetDpiForScreen());
+            strPosAndDpi.Format("%s_%u", (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
 
             RegSetValueEx(hKey, strPosAndDpi, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), conv_str.GetLength() + 1);
         }

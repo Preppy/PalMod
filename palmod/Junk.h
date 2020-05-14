@@ -16,9 +16,6 @@
 #define CUSTOM_SALL            WM_USER +13
 #define CUSTOM_SNONE           WM_USER +14
 
-#define PAL_MAXWIDTH 8
-#define PAL_MAXAMT 128
-
 #define BASE_PALETTE_SQUARE_SIZE 15
 #define BDR_SZ 1
 
@@ -92,7 +89,9 @@ private:
 
     RECT rUnused = {};
 
-    static int nWidthMax;
+    // These two are initialized in the constructor
+    int nWidthMax;
+    int nMaximumColorsShown;
 
     //Input variables
 

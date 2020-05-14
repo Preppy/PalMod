@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "PalMod.h"
 #include "PalModDlg.h"
+#include "RegProc.h"
 
 #include "afxole.h"
 #include "afxadv.h"
@@ -240,7 +241,7 @@ BOOL VerifyPaste()
         if (szTempStr[1] - 33 <= NUM_GAMES) //Gameflag
         {
             UINT16 nPaletteCount = (0xFF & szTempStr[2]) - 33;
-            if (nPaletteCount <= PAL_MAXAMT)
+            if (nPaletteCount <= CRegProc::GetMaxPaletteSize())
             {
                 if ((szTempStr[(nPaletteCount * 4) + 3] == ')'))
                 {
@@ -310,6 +311,11 @@ void CPalModDlg::UpdateSettingsMenuItems()
     pSettMenu->CheckMenuItem(ID_SHOW32BITRGB, bShow32 ? MF_CHECKED : MF_UNCHECKED);
     pSettMenu->CheckMenuItem(ID_GETCOLORONSELECT, bGetCol ? MF_CHECKED : MF_UNCHECKED);
     pSettMenu->CheckMenuItem(ID_AUTOSETCOL, bAutoSetCol ? MF_CHECKED : MF_UNCHECKED);
+
+    bool show8ColorPerLine = (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE);
+
+    pSettMenu->CheckMenuItem(ID_COLORSPERLINE_8COLORSPERLINE, MF_BYCOMMAND | (show8ColorPerLine ? MF_CHECKED : MF_UNCHECKED));
+    pSettMenu->CheckMenuItem(ID_COLORSPERLINE_16COLORSPERLINE, MF_BYCOMMAND | (show8ColorPerLine ? MF_UNCHECKED : MF_CHECKED));
 }
 
 void CPalModDlg::OnSettingsSettings()

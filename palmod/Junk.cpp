@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "junk.h"
 #include "PalMod.h"
+#include "RegProc.h"
 
 //This is used for the edit commands
 #include "resource.h"
@@ -9,8 +10,6 @@ CPen CJunk::PIndexHL;
 CPen CJunk::PIndexSL;
 CPen CJunk::PIndexMHL;
 CPen CJunk::PIndexBG;
-
-int CJunk::nWidthMax = PAL_MAXWIDTH;
 
 BOOL bTest = CJunk::InitPen();
 
@@ -87,11 +86,11 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
     //Clear the current variables/pointers/arrays etc
     if (nNewAmt != nCurrAmt)
     {
-        if (nNewAmt > PAL_MAXAMT)
+        if (nNewAmt > nMaximumColorsShown)
         {
             CString strError;
             static bool s_fAlreadyShown = false;
-            strError.Format("ERROR: Our color table can only show %u colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n", PAL_MAXAMT);
+            strError.Format("ERROR: Our color table can only show %u colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n", nMaximumColorsShown);
             OutputDebugString(strError);
             if (!s_fAlreadyShown)
             {
@@ -115,7 +114,7 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
 
         if (nNewAmt > nWidthMax)
         {
-            iPalH = nNewAmt / 8 + (nNewAmt % nWidthMax ? 1 : 0);
+            iPalH = (nNewAmt / nWidthMax) + (nNewAmt % nWidthMax ? 1 : 0);
         }
         else
         {
@@ -226,6 +225,9 @@ BOOL CJunk::InitPen()
 
 CJunk::CJunk()
 {
+    nWidthMax = CRegProc::GetColorsPerLine();
+    nMaximumColorsShown = CRegProc::GetMaxPaletteSize();
+
     RegisterWindowClass();
 }
 
@@ -829,12 +831,16 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         point.y += rWnd.top;
 
         bool canCopyOrPaste = false;
-        for (int i = 0; i < iWorkingAmt; i++)
+
+        if (iWorkingAmt < 0xFF) // Our char-based logic doesn't allow for larger copies.
         {
-            if (Selected[i])
+            for (int i = 0; i < iWorkingAmt; i++)
             {
-                canCopyOrPaste = true;
-                break;
+                if (Selected[i])
+                {
+                    canCopyOrPaste = true;
+                    break;
+                }
             }
         }
 

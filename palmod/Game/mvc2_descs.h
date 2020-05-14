@@ -3784,7 +3784,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_BONERINE[] =
 { //39: Bonerine" },
     { 0x00, "Main Color" },
     { 0x01, "(02) Claws" },
-    { 0x02, "(03) Claws (Shadows)" },
+    { 0x02, "(03) Berserker Barrage" },
     { 0x03, "(04) Not Used" },
     { 0x04, "(05) Not Used" },
     { 0x05, "(06) Not Used" },

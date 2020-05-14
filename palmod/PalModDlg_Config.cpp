@@ -30,10 +30,10 @@ void CPalModDlg::SaveSettings()
 {
     CRegProc RegSett;
 
-    RegSett.main_bGetColor        = bGetCol;
+    RegSett.main_bGetColor      = bGetCol;
     RegSett.main_bAlphaTrans    = CGame_MVC2_D::bAlphaTrans;
     RegSett.main_bShow32        = bShow32;
-    RegSett.main_bProcSupp        = CGameClass::bPostSetPalProc;
+    RegSett.main_bProcSupp      = CGameClass::bPostSetPalProc;
     RegSett.main_bAutoSetCol    = bAutoSetCol;
 
     RECT window_rect;
