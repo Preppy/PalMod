@@ -91,7 +91,7 @@ BOOL CPalModApp::InitInstance()
 
     //Create and show image dialog
     PreviewDlg = new CPreviewDlg();
-    PreviewDlg->Create(IDD_PREVIEW_DIALOG);
+    PreviewDlg->Create(IDD_PREVIEW_DIALOG, CWnd::GetDesktopWindow());
     PreviewDlg->ShowWindow(SW_SHOW);
 
     //Load the accelerator table
