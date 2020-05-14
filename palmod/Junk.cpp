@@ -832,15 +832,12 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
 
         bool canCopyOrPaste = false;
 
-        if (iWorkingAmt < 0xFF) // Our char-based logic doesn't allow for larger copies.
+        for (int i = 0; i < iWorkingAmt; i++)
         {
-            for (int i = 0; i < iWorkingAmt; i++)
+            if (Selected[i])
             {
-                if (Selected[i])
-                {
-                    canCopyOrPaste = true;
-                    break;
-                }
+                canCopyOrPaste = true;
+                break;
             }
         }
 

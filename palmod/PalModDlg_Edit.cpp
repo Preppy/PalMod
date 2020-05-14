@@ -21,8 +21,12 @@ void CPalModDlg::OnEditCopy()
         int nWorkingAmt = CurrPal->GetWorkingAmt();
         UINT8* pSelIndex = CurrPal->GetSelIndex();
 
+        UINT16 nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + 33;
         UINT8 uCopyFlag1;
-        UINT8 uCopyFlag2 = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + 33;
+        // We use a CHAR UINT8 value to store the size.  This is compatible with all versions of palmod.
+        // For the new large palette support, this would overflow, so we're just going to set it to 0.
+        // This allows old palmod to ignore the data and current palmod to work by figuring out the size itself.
+        UINT8 uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? (UINT8)nPaletteSelectionLength : 33;
 
         if (!bOleInit)
         {
@@ -104,8 +108,9 @@ void CPalModDlg::OnEditPaste()
     char szFormatStr[] = "0x0000";
 
     UINT8 uPasteGFlag = szPasteBuff[1] - 33;
-    UINT8 uPasteAmt = szPasteBuff[2] - 33;
-
+    // We want the number of colors per paste minus the () and game flag
+    UINT16 uPasteAmt = (strlen(szPasteBuff) - 3) / 4;
+    
     switch (uPasteGFlag)
     {
     default:
@@ -158,7 +163,7 @@ void CPalModDlg::OnEditPaste()
         //Notify the change data
         ProcChange();
 
-        for (int i = 0; i < uPasteAmt; i++)
+        for (UINT16 i = 0; i < uPasteAmt; i++)
         {
             memcpy(&szFormatStr[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
 
@@ -172,7 +177,7 @@ void CPalModDlg::OnEditPaste()
             //Round the values with the switched game flag
             CurrGame->SetColMode(eCurrColMode);
 
-            for (int i = 0; i < uPasteAmt; i++)
+            for (UINT16 i = 0; i < uPasteAmt; i++)
             {
                 rgPasteCol[i] = CurrGame->ConvPal(CurrGame->ConvCol(rgPasteCol[i]));
             }
@@ -238,9 +243,16 @@ BOOL VerifyPaste()
 
     if (szTempStr[0] == '(')
     {
-        if (szTempStr[1] - 33 <= NUM_GAMES) //Gameflag
+        if ((szTempStr[1] - 33) <= NUM_GAMES) //Gameflag
         {
+            // UINT16 uPasteAmt = ;
             UINT16 nPaletteCount = (0xFF & szTempStr[2]) - 33;
+
+            if (nPaletteCount == 0)
+            {
+                nPaletteCount = (strlen(szTempStr) - 3) / 4;
+            }
+
             if (nPaletteCount <= CRegProc::GetMaxPaletteSize())
             {
                 if ((szTempStr[(nPaletteCount * 4) + 3] == ')'))

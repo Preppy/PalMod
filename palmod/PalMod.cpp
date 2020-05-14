@@ -91,7 +91,12 @@ BOOL CPalModApp::InitInstance()
 
     //Create and show image dialog
     PreviewDlg = new CPreviewDlg();
-    PreviewDlg->Create(IDD_PREVIEW_DIALOG, CWnd::GetDesktopWindow());
+
+    // As a child window Preview will share taskbar space with the main window.
+    // It will also always clip the main window, which is an annoyance.
+    // I prefer to be parented....
+    bool fMakeItAChild = true;
+    PreviewDlg->Create(IDD_PREVIEW_DIALOG, fMakeItAChild ? nullptr : CWnd::GetDesktopWindow() );
     PreviewDlg->ShowWindow(SW_SHOW);
 
     //Load the accelerator table
