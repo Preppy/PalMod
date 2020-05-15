@@ -492,8 +492,22 @@ void CPalModDlg::OnLoadAct()
                 UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
                 int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
                 int nFileSz = (int)ActFile.GetLength();
+                int nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
 
-                if (nWorkingAmt * 3 > nFileSz)
+                if (nFileSz == 772) // The documentation states that 768b ACT files do not include color count, but 772b files do.
+                {
+                    WORD wColorCount;
+                    ActFile.Seek(768, CFile::begin);
+                    ActFile.Read(&wColorCount, 2);
+                    // 772b ACT files store their color count big endian: fix.
+                    nACTColorCount = _byteswap_ushort(wColorCount);
+                    ActFile.Seek(0, CFile::begin);
+
+                    // The last four bytes are reserved: don't use them for color copies.
+                    nFileSz = 768;
+                }
+
+                if ((nWorkingAmt * 3) > nFileSz)
                 {
                     nWorkingAmt = nFileSz / 3;
                 }
@@ -504,13 +518,19 @@ void CPalModDlg::OnLoadAct()
                 ActFile.Read(pAct, nWorkingAmt * 3);
                 ActFile.Close();
 
-                for (int i = 0; i < nWorkingAmt; i++)
+                int iActIndex = 0;
+                for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
                 {
-                    pPal[i * 4] = MainPalGroup->ROUND_R(pAct[i * 3]);
-                    pPal[i * 4 + 1] = MainPalGroup->ROUND_G(pAct[i * 3 + 1]);
-                    pPal[i * 4 + 2] = MainPalGroup->ROUND_B(pAct[i * 3 + 2]);
+                    pPal[iPalIndex * 4] = MainPalGroup->ROUND_R(pAct[iActIndex * 3]);
+                    pPal[iPalIndex * 4 + 1] = MainPalGroup->ROUND_G(pAct[iActIndex * 3 + 1]);
+                    pPal[iPalIndex * 4 + 2] = MainPalGroup->ROUND_B(pAct[iActIndex * 3 + 2]);
 
-                    CurrPalCtrl->UpdateIndex(i);
+                    CurrPalCtrl->UpdateIndex(iPalIndex);
+
+                    if (++iActIndex >= nACTColorCount)
+                    {
+                        iActIndex = 0;
+                    }
                 }
 
                 ImgDispCtrl->UpdateCtrl();
