@@ -16,92 +16,6 @@ int CGame_MSH_A::m_nMSHSelectedRom = 5;
 UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_05 = 0;
 UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_06 = 0;
 
-int CGame_MSH_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
-{
-    static int rgExtraCountAll_05[MSH_A_NUMUNIT_05 + 1] = { -1 };
-    static int rgExtraCountAll_06[MSH_A_NUMUNIT_06 + 1] = { -1 };
-
-    int* rgExtraCt = UsePaletteSetForCharacters() ? (int*)rgExtraCountAll_05 : (int*)rgExtraCountAll_06;
-
-    if (rgExtraCt[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCt, 0, ((UsePaletteSetForCharacters() ? MSH_A_NUMUNIT_05 : MSH_A_NUMUNIT_06) + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForMSH(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
-            {
-                rgExtraCt[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForMSH(nDefCtr);
-        }
-    }
-
-    return rgExtraCt[nUnitId];
-}
-
-int CGame_MSH_A::GetExtraLoc(UINT16 nUnitId)
-{
-    static int rgExtraLoc_05[MSH_A_NUMUNIT_05 + 1] = { -1 };
-    static int rgExtraLoc_06[MSH_A_NUMUNIT_06 + 1] = { -1 };
-
-    if (UsePaletteSetForCharacters())
-    {
-        if (rgExtraLoc_05[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_05, 0, (MSH_A_NUMUNIT_05 + 1) * sizeof(int));
-
-            stExtraDef * pCurrDef = GetExtraDefForMSH(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_05[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetExtraDefForMSH(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_05[nUnitId];
-    }
-    else
-    {
-        if (rgExtraLoc_06[0] == -1)
-        {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_06, 0, (MSH_A_NUMUNIT_06 + 1) * sizeof(int));
-
-            stExtraDef * pCurrDef = GetExtraDefForMSH(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-            {
-                if (pCurrDef->uUnitN != nCurrUnit)
-                {
-                    rgExtraLoc_06[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
-                }
-
-                nDefCtr++;
-                pCurrDef = GetExtraDefForMSH(nDefCtr);
-            }
-        }
-
-        return rgExtraLoc_06[nUnitId];
-    }
-}
-
 CGame_MSH_A::CGame_MSH_A(int nMSHRomToLoad)
 {
     m_nMSHSelectedRom = (nMSHRomToLoad == 5) ? 5 : 6;
@@ -115,7 +29,7 @@ CGame_MSH_A::CGame_MSH_A(int nMSHRomToLoad)
     m_nExtraUnit = UsePaletteSetForCharacters() ? MSH_A_EXTRALOC_05 : MSH_A_EXTRALOC_06;
 
     const UINT32 nSafeCountFor05 = 68;
-    const UINT32 nSafeCountFor06 = 72;
+    const UINT32 nSafeCountFor06 = 40;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForCharacters() ? nSafeCountFor05 : nSafeCountFor06);
     m_pszExtraFilename = UsePaletteSetForCharacters() ? EXTRA_FILENAME_MSH_05 : EXTRA_FILENAME_MSH_06;
@@ -174,6 +88,92 @@ CDescTree* CGame_MSH_A::GetMainTree()
     else
     {
         return &CGame_MSH_A::MainDescTree_06;
+    }
+}
+
+int CGame_MSH_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+{
+    static int rgExtraCountAll_05[MSH_A_NUMUNIT_05 + 1] = { -1 };
+    static int rgExtraCountAll_06[MSH_A_NUMUNIT_06 + 1] = { -1 };
+
+    int* rgExtraCt = UsePaletteSetForCharacters() ? (int*)rgExtraCountAll_05 : (int*)rgExtraCountAll_06;
+
+    if (rgExtraCt[0] == -1)
+    {
+        int nDefCtr = 0;
+        memset(rgExtraCt, 0, ((UsePaletteSetForCharacters() ? MSH_A_NUMUNIT_05 : MSH_A_NUMUNIT_06) + 1) * sizeof(int));
+
+        stExtraDef* pCurrDef = GetExtraDefForMSH(0);
+
+        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+        {
+            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
+            {
+                rgExtraCt[pCurrDef->uUnitN]++;
+            }
+
+            nDefCtr++;
+            pCurrDef = GetExtraDefForMSH(nDefCtr);
+        }
+    }
+
+    return rgExtraCt[nUnitId];
+}
+
+int CGame_MSH_A::GetExtraLoc(UINT16 nUnitId)
+{
+    static int rgExtraLoc_05[MSH_A_NUMUNIT_05 + 1] = { -1 };
+    static int rgExtraLoc_06[MSH_A_NUMUNIT_06 + 1] = { -1 };
+
+    if (UsePaletteSetForCharacters())
+    {
+        if (rgExtraLoc_05[0] == -1)
+        {
+            int nDefCtr = 0;
+            int nCurrUnit = UNIT_START_VALUE;
+            memset(rgExtraLoc_05, 0, (MSH_A_NUMUNIT_05 + 1) * sizeof(int));
+
+            stExtraDef* pCurrDef = GetExtraDefForMSH(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            {
+                if (pCurrDef->uUnitN != nCurrUnit)
+                {
+                    rgExtraLoc_05[pCurrDef->uUnitN] = nDefCtr;
+                    nCurrUnit = pCurrDef->uUnitN;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetExtraDefForMSH(nDefCtr);
+            }
+        }
+
+        return rgExtraLoc_05[nUnitId];
+    }
+    else
+    {
+        if (rgExtraLoc_06[0] == -1)
+        {
+            int nDefCtr = 0;
+            int nCurrUnit = UNIT_START_VALUE;
+            memset(rgExtraLoc_06, 0, (MSH_A_NUMUNIT_06 + 1) * sizeof(int));
+
+            stExtraDef* pCurrDef = GetExtraDefForMSH(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            {
+                if (pCurrDef->uUnitN != nCurrUnit)
+                {
+                    rgExtraLoc_06[pCurrDef->uUnitN] = nDefCtr;
+                    nCurrUnit = pCurrDef->uUnitN;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetExtraDefForMSH(nDefCtr);
+            }
+        }
+
+        return rgExtraLoc_06[nUnitId];
     }
 }
 
