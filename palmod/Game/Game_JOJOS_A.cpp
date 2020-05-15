@@ -998,6 +998,25 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             fUseDefaultPaletteLoad = false;
                         }
                     }
+                    else if (NodeGet->uUnitId == indexJojos51Khan)
+                    {
+                        if (nTargetImgId == 0xA) // Sword Slashes 1
+                        {
+                            nXOffs = -28;
+                            nYOffs = -58;
+                            nPaletteOneDelta = 0;
+                            nPaletteTwoDelta = 1;
+                            fUseDefaultPaletteLoad = false;
+                        }
+                        else if (nTargetImgId == 0xB) // Sword Slashes 2
+                        {
+                            nXOffs = 28;
+                            nYOffs = 58;
+                            nPaletteOneDelta = 0;
+                            nPaletteTwoDelta = -1;
+                            fUseDefaultPaletteLoad = false;
+                        }
+                    }
                     else if (NodeGet->uUnitId == indexJojos51Kakyo) // Kakyo
                     {
                         if (nSrcStart == indexJojos51Character_Main)

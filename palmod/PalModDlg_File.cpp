@@ -564,11 +564,14 @@ void CPalModDlg::OnSaveAct()
             ActFile.Write(pAct, nActSz);
 
             // Add 4 bytes per the 772b file syntax...
-            DWORD finalWord;
-            // HIWORD here is the number of useful colors in the file.
-            finalWord = nWorkingAmt << 8;
-            // LOWORD here is be the index to use for the transparency color.  This is 0 in all the games we care about.
-            ActFile.Write(&finalWord, 4);
+            // First two here is the number of useful colors in the file.
+            // Second two here is be the index to use for the transparency color.  This is 0 in all the games we care about.
+
+            // Please note that Photoshop is expecting this big endian, so we byteswap to ensure correct orientation.
+            WORD transparencyColorIndex = 0;
+            WORD colorCount = _byteswap_ushort(nWorkingAmt);
+            ActFile.Write(&colorCount, 2);
+            ActFile.Write(&transparencyColorIndex, 2);
 
             ActFile.Close();
 

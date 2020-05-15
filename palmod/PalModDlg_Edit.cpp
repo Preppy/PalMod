@@ -12,6 +12,9 @@
 #include "Game\GameClass.h"
 #include "Game\Game_MVC2_D.h"
 
+// We use the first non-white space printable character '!' as the base for edit/paste calculations.
+constexpr auto k_nASCIICharacterOffset = 33;
+
 void CPalModDlg::OnEditCopy()
 {
     if (bEnabled)
@@ -21,12 +24,12 @@ void CPalModDlg::OnEditCopy()
         int nWorkingAmt = CurrPal->GetWorkingAmt();
         UINT8* pSelIndex = CurrPal->GetSelIndex();
 
-        UINT16 nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + 33;
+        UINT16 nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset;
         UINT8 uCopyFlag1;
         // We use a CHAR UINT8 value to store the size.  This is compatible with all versions of palmod.
         // For the new large palette support, this would overflow, so we're just going to set it to 0.
         // This allows old palmod to ignore the data and current palmod to work by figuring out the size itself.
-        UINT8 uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? (UINT8)nPaletteSelectionLength : 33;
+        UINT8 uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? (UINT8)nPaletteSelectionLength : k_nASCIICharacterOffset;
 
         if (!bOleInit)
         {
@@ -45,18 +48,18 @@ void CPalModDlg::OnEditCopy()
         switch (CurrGame->GetGameFlag())
         {
         case SFIII3_D:
-            uCopyFlag1 = SFIII3_D + 33;
+            uCopyFlag1 = SFIII3_D + k_nASCIICharacterOffset;
             break;
         case MVC2_D:
         case MVC2_P:
-            uCopyFlag1 = 2 + 33;
+            uCopyFlag1 = 2 + k_nASCIICharacterOffset;
             break;
         case SFIII3_A:
         case JOJOS_A:
-            uCopyFlag1 = 1 + 33;
+            uCopyFlag1 = 1 + k_nASCIICharacterOffset;
             break;
         default:
-            uCopyFlag1 = CurrGame->GetGameFlag() + 33;
+            uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
             break;
         }
 
@@ -107,9 +110,9 @@ void CPalModDlg::OnEditPaste()
 
     char szFormatStr[] = "0x0000";
 
-    UINT8 uPasteGFlag = szPasteBuff[1] - 33;
+    UINT8 uPasteGFlag = szPasteBuff[1] - k_nASCIICharacterOffset;
     // We want the number of colors per paste minus the () and game flag
-    UINT16 uPasteAmt = (strlen(szPasteBuff) - 3) / 4;
+    UINT16 uPasteAmt = (UINT16)((strlen(szPasteBuff) - 3) / 4);
     
     switch (uPasteGFlag)
     {
@@ -243,14 +246,14 @@ BOOL VerifyPaste()
 
     if (szTempStr[0] == '(')
     {
-        if ((szTempStr[1] - 33) <= NUM_GAMES) //Gameflag
+        if ((szTempStr[1] - k_nASCIICharacterOffset) <= NUM_GAMES) //Gameflag
         {
             // UINT16 uPasteAmt = ;
-            UINT16 nPaletteCount = (0xFF & szTempStr[2]) - 33;
+            UINT16 nPaletteCount = (0xFF & szTempStr[2]) - k_nASCIICharacterOffset;
 
             if (nPaletteCount == 0)
             {
-                nPaletteCount = (strlen(szTempStr) - 3) / 4;
+                nPaletteCount = (UINT16)((strlen(szTempStr) - 3) / 4);
             }
 
             if (nPaletteCount <= CRegProc::GetMaxPaletteSize())

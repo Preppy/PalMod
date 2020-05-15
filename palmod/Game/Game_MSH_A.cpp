@@ -606,6 +606,7 @@ const sGame_PaletteDataset* CGame_MSH_A::GetSpecificPalette(UINT16 nUnitId, UINT
 
 void CGame_MSH_A::InitDataBuffer()
 {
+    m_nBufferSelectedRom = m_nMSHSelectedRom;
     pppDataBuffer = new UINT16 * *[nUnitAmt];
     memset(pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
 }

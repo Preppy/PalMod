@@ -4445,14 +4445,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_A[] =
     { "Khan A", 0x0349c80, 0x0349d00, indexJojos51Khan },
     { "Khan's Intro Anubis A", 0x034a600, 0x034a620, indexJojos51Khan, 1 },
     { "Khan's Counter Anubis A", 0x034a780, 0x034a7a0, indexJojos51Khan, 2 },
-    { "Khan's Special Slash A", 0x034a700, 0x034a720 },
-    { "Khan Sword Slashes/Counter/Tech/Zap A (1/2)", 0x034a000, 0x034a080 },
-    { "Khan Sword Slashes/Counter/Tech/Zap A (2/2)", 0x034a080, 0x034a100 },
+    { "Khan's Special Slash A", 0x034a700, 0x034a720, indexJojos51Khan, 8 },
+    { "Khan Sword Slashes/Counter/Tech/Zap A (1/2)", 0x034a000, 0x034a080, indexJojos51Khan, 0x0A, true },
+    { "Khan Sword Slashes/Counter/Tech/Zap A (2/2)", 0x034a080, 0x034a100, indexJojos51Khan, 0x0B, true },
     { "Khan Vs/Super A", 0x0414b00, 0x0414b80, indexJojos51Khan, indexJojos51Character_VsSuper },
     { "Khan Challenger A", 0x0414b80, 0x0414c00, indexJojos51Khan, indexJojos51Character_Challenger },
     { "Khan Select/Winning A", 0x0414c00, 0x0414c80, indexJojos51Khan, indexJojos51Character_SelectWin1 },
-    { "Khan Burning A (1/2)", 0x0349d00, 0x0349d80 },
-    { "Khan Burning A (2/2)", 0x0349d80, 0x0349e00 },
+    { "Khan Burning A (1/2)", 0x0349d00, 0x0349d80, indexJojos51Khan, indexJojos51Character_BurnZap },
+    { "Khan Burning A (2/2)", 0x0349d80, 0x0349e00, indexJojos51Khan, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_B[] =
@@ -4460,14 +4460,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_B[] =
     { "Khan B", 0x035e180, 0x035e200, indexJojos51Khan },
     { "Khan's Intro Anubis B", 0x035eb00, 0x035eb20, indexJojos51Khan, 1 },
     { "Khan's Counter Anubis B", 0x035ec80, 0x035eca0, indexJojos51Khan, 2 },
-    { "Khan's Special Slash B", 0x035ec00, 0x035ec20 },
-    { "Khan Sword Slashes/Counter/Tech/Zap B (1/2)", 0x035e500, 0x035e580 },
-    { "Khan Sword Slashes/Counter/Tech/Zap B (2/2)", 0x035e580, 0x035e600 },
+    { "Khan's Special Slash B", 0x035ec00, 0x035ec20, indexJojos51Khan, 8 },
+    { "Khan Sword Slashes/Counter/Tech/Zap B (1/2)", 0x035e500, 0x035e580, indexJojos51Khan, 0x0A, true },
+    { "Khan Sword Slashes/Counter/Tech/Zap B (2/2)", 0x035e580, 0x035e600, indexJojos51Khan, 0x0B, true },
     { "Khan Vs/Super B", 0x0419900, 0x0419980, indexJojos51Khan, indexJojos51Character_VsSuper },
     { "Khan Challenger B", 0x0419980, 0x0419a00, indexJojos51Khan, indexJojos51Character_Challenger },
     { "Khan Select/Winning B", 0x0419a00, 0x0419a80, indexJojos51Khan, indexJojos51Character_SelectWin1 },
-    { "Khan Burning B (1/2)", 0x035e200, 0x035e280 },
-    { "Khan Burning B (2/2)", 0x035e280, 0x035e300 },
+    { "Khan Burning B (1/2)", 0x035e200, 0x035e280, indexJojos51Khan, indexJojos51Character_BurnZap },
+    { "Khan Burning B (2/2)", 0x035e280, 0x035e300, indexJojos51Khan, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_C[] =
@@ -4475,14 +4475,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_C[] =
     { "Khan C", 0x0372680, 0x0372700, indexJojos51Khan },
     { "Khan's Intro Anubis C", 0x0373000, 0x0373020, indexJojos51Khan, 1 },
     { "Khan's Counter Anubis C", 0x0373180, 0x03731a0, indexJojos51Khan, 2 },
-    { "Khan's Special Slash C", 0x0373100, 0x0373120 },
-    { "Khan Sword Slashes/Counter/Tech/Zap C (1/2)", 0x0372a00, 0x0372a80 },
-    { "Khan Sword Slashes/Counter/Tech/Zap C (2/2)", 0x0372a80, 0x0372b00 },
+    { "Khan's Special Slash C", 0x0373100, 0x0373120, indexJojos51Khan, 8 },
+    { "Khan Sword Slashes/Counter/Tech/Zap C (1/2)", 0x0372a00, 0x0372a80, indexJojos51Khan, 0x0A, true },
+    { "Khan Sword Slashes/Counter/Tech/Zap C (2/2)", 0x0372a80, 0x0372b00, indexJojos51Khan, 0x0B, true },
     { "Khan Vs/Super C", 0x041e700, 0x041e780, indexJojos51Khan, indexJojos51Character_VsSuper },
     { "Khan Challenger C", 0x041e780, 0x041e800, indexJojos51Khan, indexJojos51Character_Challenger },
     { "Khan Select/Winning C", 0x041e800, 0x041e880, indexJojos51Khan, indexJojos51Character_SelectWin1 },
-    { "Khan Burning C (1/2)", 0x0372700, 0x0372780 },
-    { "Khan Burning C (2/2)", 0x0372780, 0x0372800 },
+    { "Khan Burning C (1/2)", 0x0372700, 0x0372780, indexJojos51Khan, indexJojos51Character_BurnZap },
+    { "Khan Burning C (2/2)", 0x0372780, 0x0372800, indexJojos51Khan, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_S[] =
@@ -4490,14 +4490,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_S[] =
     { "Khan S", 0x0386b80, 0x0386c00, indexJojos51Khan },
     { "Khan's Intro Anubis S", 0x0387500, 0x0387520, indexJojos51Khan, 1 },
     { "Khan's Counter Anubis S", 0x0387680, 0x03876a0, indexJojos51Khan, 2 },
-    { "Khan's Special Slash S", 0x0387600, 0x0387620 },
-    { "Khan Sword Slashes/Counter/Tech/Zap S (1/2)", 0x0386f00, 0x0386f80 },
-    { "Khan Sword Slashes/Counter/Tech/Zap S (2/2)", 0x0386f80, 0x0387000 },
+    { "Khan's Special Slash S", 0x0387600, 0x0387620, indexJojos51Khan, 8 },
+    { "Khan Sword Slashes/Counter/Tech/Zap S (1/2)", 0x0386f00, 0x0386f80, indexJojos51Khan, 0x0A, true },
+    { "Khan Sword Slashes/Counter/Tech/Zap S (2/2)", 0x0386f80, 0x0387000, indexJojos51Khan, 0x0B, true },
     { "Khan Vs/Super S", 0x0423500, 0x0423580, indexJojos51Khan, indexJojos51Character_VsSuper },
     { "Khan Challenger S", 0x0423580, 0x0423600, indexJojos51Khan, indexJojos51Character_Challenger },
     { "Khan Select/Winning S", 0x0423600, 0x0423680, indexJojos51Khan, indexJojos51Character_SelectWin1 },
-    { "Khan Burning S (1/2)", 0x0386c00, 0x0386c80 },
-    { "Khan Burning S (2/2)", 0x0386c80, 0x0386d00 },
+    { "Khan Burning S (1/2)", 0x0386c00, 0x0386c80, indexJojos51Khan, indexJojos51Character_BurnZap },
+    { "Khan Burning S (2/2)", 0x0386c80, 0x0386d00, indexJojos51Khan, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_Start[] =
@@ -4505,14 +4505,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_Start[] =
     { "Khan Start", 0x039b080, 0x039b100, indexJojos51Khan },
     { "Khan's Intro Anubis Start", 0x039ba00, 0x039ba20, indexJojos51Khan, 1 },
     { "Khan's Counter Anubis Start", 0x039bb80, 0x039bba0, indexJojos51Khan, 2 },
-    { "Khan's Special Slash Start", 0x039bb00, 0x039bb20 },
-    { "Khan Sword Slashes/Counter/Tech/Zap Start (1/2)", 0x039b400, 0x039b480 },
-    { "Khan Sword Slashes/Counter/Tech/Zap Start (2/2)", 0x039b480, 0x039b500 },
+    { "Khan's Special Slash Start", 0x039bb00, 0x039bb20, indexJojos51Khan, 8 },
+    { "Khan Sword Slashes/Counter/Tech/Zap Start (1/2)", 0x039b400, 0x039b480, indexJojos51Khan, 0x0A, true },
+    { "Khan Sword Slashes/Counter/Tech/Zap Start (2/2)", 0x039b480, 0x039b500, indexJojos51Khan, 0x0B, true },
     { "Khan Vs/Super Start", 0x0428300, 0x0428380, indexJojos51Khan, indexJojos51Character_VsSuper },
     { "Khan Challenger Start", 0x0428380, 0x0428400, indexJojos51Khan, indexJojos51Character_Challenger },
     { "Khan Select/Winning Start", 0x0428400, 0x0428480, indexJojos51Khan, indexJojos51Character_SelectWin1 },
-    { "Khan Burning Start (1/2)", 0x039b100, 0x039b180 },
-    { "Khan Burning Start (2/2)", 0x039b180, 0x039b200 },
+    { "Khan Burning Start (1/2)", 0x039b100, 0x039b180, indexJojos51Khan, indexJojos51Character_BurnZap },
+    { "Khan Burning Start (2/2)", 0x039b180, 0x039b200, indexJojos51Khan, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_A[] =
