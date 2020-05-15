@@ -210,154 +210,106 @@ const sGame_PaletteDataset MSH_A_CSP_PALETTES[] =
 #ifdef USE_LARGE_PALETTES
     { "Spider-Man P1 CSP", 0x000b180, 0x000b300 },
 #else
-    { "Spider-Man P1 CSP (1/3)", 0x000b180, 0x000b200 },
-    { "Spider-Man P1 CSP (2/3)", 0x000b200, 0x000b280 },
-    { "Spider-Man P1 CSP (3/3)", 0x000b280, 0x000b300 },
+    { "Spider-Man P1 CSP (1/2)", 0x000b180, 0x000b280 },
+    { "Spider-Man P1 CSP (2/2)", 0x000b280, 0x000b300 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Spider-Man P2 CSP", 0x000b380, 0x000b500 },
 #else
-    { "Spider-Man P2 CSP (1/3)", 0x000b380, 0x000b400 },
-    { "Spider-Man P2 CSP (2/3)", 0x000b400, 0x000b480 },
-    { "Spider-Man P2 CSP (3/3)", 0x000b480, 0x000b500 },
+    { "Spider-Man P2 CSP (1/2)", 0x000b380, 0x000b480 },
+    { "Spider-Man P2 CSP (2/2)", 0x000b480, 0x000b500 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Captain America P1 CSP", 0x000b580, 0x000b7c0 },
+    { "Captain America P1 CSP", 0x000b580, 0x000b780 },
 #else
-    { "Captain America P1 CSP (1/5)", 0x000b580, 0x000b600 },
-    { "Captain America P1 CSP (2/5)", 0x000b600, 0x000b680 },
-    { "Captain America P1 CSP (3/5)", 0x000b680, 0x000b700 },
-    { "Captain America P1 CSP (4/5)", 0x000b700, 0x000b780 },
-    { "Captain America P1 CSP (5/5)", 0x000b780, 0x000b7c0 },
+    { "Captain America P1 CSP (1/2)", 0x000b580, 0x000b680 },
+    { "Captain America P1 CSP (2/2)", 0x000b680, 0x000b780 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Captain America P2 CSP", 0x000b7c0, 0x000b980 },
+    { "Captain America P2 CSP", 0x000b780, 0x000b980 },
 #else
-    { "Captain America P2 CSP (1/4)", 0x000b7c0, 0x000b840 },
-    { "Captain America P2 CSP (2/4)", 0x000b840, 0x000b8c0 },
-    { "Captain America P2 CSP (3/4)", 0x000b8c0, 0x000b940 },
-    { "Captain America P2 CSP (4/4)", 0x000b940, 0x000b980 },
+    { "Captain America P2 CSP (1/2)", 0x000b780, 0x000b880 },
+    { "Captain America P2 CSP (2/2)", 0x000b880, 0x000b980 },
 #endif
     { "Hulk P1 CSP", 0x000b980, 0x000b9e0 },
     { "Hulk P2 CSP", 0x000bb80, 0x000bbe0 },
 #ifdef USE_LARGE_PALETTES
     { "Iron Man P1 CSP", 0x000bd80, 0x000bf00 },
 #else
-    { "Iron Man P1 CSP (1/3)", 0x000bd80, 0x000be00 },
-    { "Iron Man P1 CSP (2/3)", 0x000be00, 0x000be80 },
-    { "Iron Man P1 CSP (3/3)", 0x000be80, 0x000bf00 },
+    { "Iron Man P1 CSP (1/2)", 0x000bd80, 0x000be80 },
+    { "Iron Man P1 CSP (2/2)", 0x000be80, 0x000bf00 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Iron Man P2 CSP", 0x000bf80, 0x000c100 },
 #else
-    { "Iron Man P2 CSP (1/3)", 0x000bf80, 0x000c000 },
-    { "Iron Man P2 CSP (2/3)", 0x000c000, 0x000c080 },
-    { "Iron Man P2 CSP (3/3)", 0x000c080, 0x000c100 },
+    { "Iron Man P2 CSP (1/2)", 0x000bf80, 0x000c080 },
+    { "Iron Man P2 CSP (2/2)", 0x000c080, 0x000c100 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Wolverine P1 CSP", 0x000c180, 0x000c360 },
 #else
-    { "Wolverine P1 CSP (1/4)", 0x000c180, 0x000c200 },
-    { "Wolverine P1 CSP (2/4)", 0x000c200, 0x000c280 },
-    { "Wolverine P1 CSP (3/4)", 0x000c280, 0x000c300 },
-    { "Wolverine P1 CSP (4/4)", 0x000c300, 0x000c360 },
+    { "Wolverine P1 CSP (1/2)", 0x000c180, 0x000c280 },
+    { "Wolverine P1 CSP (2/2)", 0x000c280, 0x000c360 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Wolverine P2 CSP", 0x000c380, 0x000c560 },
 #else
-    { "Wolverine P2 CSP (1/4)", 0x000c380, 0x000c400 },
-    { "Wolverine P2 CSP (2/4)", 0x000c400, 0x000c480 },
-    { "Wolverine P2 CSP (3/4)", 0x000c480, 0x000c500 },
-    { "Wolverine P2 CSP (4/4)", 0x000c500, 0x000c560 },
+    { "Wolverine P2 CSP (1/2)", 0x000c380, 0x000c480 },
+    { "Wolverine P2 CSP (2/2)", 0x000c480, 0x000c560 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Psylocke P1 CSP", 0x000c580, 0x000c6a0 },
 #else
-    { "Psylocke P1 CSP (1/3)", 0x000c580, 0x000c600 },
-    { "Psylocke P1 CSP (2/3)", 0x000c600, 0x000c680 },
-    { "Psylocke P1 CSP (3/3)", 0x000c680, 0x000c6a0 },
+    { "Psylocke P1 CSP (1/2)", 0x000c580, 0x000c680 },
+    { "Psylocke P1 CSP (2/2)", 0x000c680, 0x000c6a0 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Psylocke P2 CSP", 0x000c780, 0x000c8a0 },
 #else
-    { "Psylocke P2 CSP (1/3)", 0x000c780, 0x000c800 },
-    { "Psylocke P2 CSP (2/3)", 0x000c800, 0x000c880 },
-    { "Psylocke P2 CSP (3/3)", 0x000c880, 0x000c8a0 },
+    { "Psylocke P2 CSP (1/2)", 0x000c780, 0x000c880 },
+    { "Psylocke P2 CSP (2/2)", 0x000c880, 0x000c8a0 },
 #endif
     { "Blackheart P1 CSP", 0x000c980, 0x000c9c0 },
     { "Blackheart P2 CSP", 0x000cb80, 0x000cbc0 },
-#ifdef USE_LARGE_PALETTES
     { "Shuma-Gorath P1 CSP", 0x000cd80, 0x000ce80 },
-#else
-    { "Shuma-Gorath P1 CSP (1/2)", 0x000cd80, 0x000ce00 },
-    { "Shuma-Gorath P1 CSP (2/2)", 0x000ce00, 0x000ce80 },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Shuma-Gorath P2 CSP", 0x000cf80, 0x000d080 },
-#else
-    { "Shuma-Gorath P2 CSP (1/2)", 0x000cf80, 0x000d000 },
-    { "Shuma-Gorath P2 CSP (2/2)", 0x000d000, 0x000d080 },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Juggernaut P1 CSP", 0x000d180, 0x000d280 },
-#else
-    { "Juggernaut P1 CSP (1/2)", 0x000d180, 0x000d200 },
-    { "Juggernaut P1 CSP (2/2)", 0x000d200, 0x000d280 },
-#endif
-#ifdef USE_LARGE_PALETTES
     { "Juggernaut P2 CSP", 0x000d380, 0x000d480 },
-#else
-    { "Juggernaut P2 CSP (1/2)", 0x000d380, 0x000d400 },
-    { "Juggernaut P2 CSP (2/2)", 0x000d400, 0x000d480 },
-#endif
 #ifdef USE_LARGE_PALETTES
     { "Magneto P1 CSP", 0x000d580, 0x000d780 },
 #else
-    { "Magneto P1 CSP (1/4)", 0x000d580, 0x000d600 },
-    { "Magneto P1 CSP (2/4)", 0x000d600, 0x000d680 },
-    { "Magneto P1 CSP (3/4)", 0x000d680, 0x000d700 },
-    { "Magneto P1 CSP (4/4)", 0x000d700, 0x000d780 },
+    { "Magneto P1 CSP (1/2)", 0x000d580, 0x000d680 },
+    { "Magneto P1 CSP (2/2)", 0x000d680, 0x000d780 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Magneto P2 CSP", 0x000d780, 0x000d980 },
 #else
-    { "Magneto P2 CSP (1/4)", 0x000d780, 0x000d800 },
-    { "Magneto P2 CSP (2/4)", 0x000d800, 0x000d880 },
-    { "Magneto P2 CSP (3/4)", 0x000d880, 0x000d900 },
-    { "Magneto P2 CSP (4/4)", 0x000d900, 0x000d980 },
+    { "Magneto P2 CSP (1/2)", 0x000d780, 0x000d880 },
+    { "Magneto P2 CSP (2/2)", 0x000d880, 0x000d980 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Dr. Doom P1 CSP", 0x000d980, 0x000db60 },
 #else
-    { "Dr. Doom P1 CSP (1/4)", 0x000d980, 0x000da00 },
-    { "Dr. Doom P1 CSP (2/4)", 0x000da00, 0x000da80 },
-    { "Dr. Doom P1 CSP (3/4)", 0x000da80, 0x000db00 },
-    { "Dr. Doom P1 CSP (4/4)", 0x000db00, 0x000db60 },
+    { "Dr. Doom P1 CSP (1/2)", 0x000d980, 0x000da80 },
+    { "Dr. Doom P1 CSP (2/2)", 0x000da80, 0x000db60 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Dr. Doom P2 CSP", 0x000db80, 0x000dd60 },
 #else
-    { "Dr. Doom P2 CSP (1/4)", 0x000db80, 0x000dc00 },
-    { "Dr. Doom P2 CSP (2/4)", 0x000dc00, 0x000dc80 },
-    { "Dr. Doom P2 CSP (3/4)", 0x000dc80, 0x000dd00 },
-    { "Dr. Doom P2 CSP (4/4)", 0x000dd00, 0x000dd60 },
+    { "Dr. Doom P2 CSP (1/2)", 0x000db80, 0x000dc80 },
+    { "Dr. Doom P2 CSP (2/2)", 0x000dc80, 0x000dd60 },
 #endif
 #ifdef USE_LARGE_PALETTES
     { "Thanos P1 CSP", 0x000dd80, 0x000df80 },
 #else
-    { "Thanos P1 CSP (1/4)", 0x000dd80, 0x000de00 },
-    { "Thanos P1 CSP (2/4)", 0x000de00, 0x000de80 },
-    { "Thanos P1 CSP (3/4)", 0x000de80, 0x000df00 },
-    { "Thanos P1 CSP (4/4)", 0x000df00, 0x000df80 },
+    { "Thanos P1 CSP (1/2)", 0x000dd80, 0x000de80 },
+    { "Thanos P1 CSP (2/2)", 0x000de80, 0x000df80 },
 #endif
 #ifdef USE_LARGE_PALETTES
-    { "Thanos P2 CSP", 0x000df80, 0x000e1a0 },
+    { "Thanos P2 CSP", 0x000df80, 0x000e180 },
 #else
-    { "Thanos P2 CSP (1/5)", 0x000df80, 0x000e000 },
-    { "Thanos P2 CSP (2/5)", 0x000e000, 0x000e080 },
-    { "Thanos P2 CSP (3/5)", 0x000e080, 0x000e100 },
-    { "Thanos P2 CSP (4/5)", 0x000e100, 0x000e180 },
-    { "Thanos P2 CSP (5/5)", 0x000e180, 0x000e1a0 },
+    { "Thanos P2 CSP (1/2)", 0x000df80, 0x000e080 },
+    { "Thanos P2 CSP (2/2)", 0x000e080, 0x000e180 },
 #endif
 };
 

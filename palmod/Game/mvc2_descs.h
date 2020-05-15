@@ -3073,7 +3073,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SPIRAL[] =
     { 0x25, "Colossus Metamorphosis X Character Frame 26" },
     { 0x26, "Iron Man Metamorphosis X Character Frame 27" },
     { 0x27, "Sentinel Metamorphosis X Character Frame 28" },
-    { 0x28, "Sentinel's s.MP Metamorphosis X Character Frame 29" },
+    { 0x28, "Sentinel's COTA j.d.HK Metamorphosis X Character Frame 29" },
     { 0x29, "Blackheart Metamorphosis X Character Frame 30" },
     { 0x2A, "Thanos Metamorphosis X Character Frame 31" },
     { 0x2B, "Not Used" },
