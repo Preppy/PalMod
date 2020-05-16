@@ -21,7 +21,7 @@ enum SupportedCOTAPaletteListIndex
     indexCOTAStorm,
     indexCOTAWolverine,
     indexCOTAAkuma,
-    indexCOTAPortraits,
+    indexCOTABonus,
     indexCOTA_Last
 };
 
@@ -31,10 +31,10 @@ constexpr auto COTA_A_NUMUNIT = indexCOTA_Last;
 
 const sGame_PaletteDataset COTA_A_COLOSSUS_PALETTES_P1[] =
 {
-    {"P1",          0x2683e, 0x2685e, indexCPS2_Colossus },
-    {"P1 Extras 1: Armor Sparks", 0x2685e, 0x2687e, },
-    {"P1 Extras 2", 0x2687e, 0x2689e, },
-    {"P1 Shoulder Tackle Shadows", 0x2689e, 0x268be, indexCPS2_Colossus },
+    { "P1",          0x2683e, 0x2685e, indexCPS2_Colossus },
+    { "P1 Extras 1: Armor Sparks", 0x2685e, 0x2687e, },
+    { "P1 Extras 2", 0x2687e, 0x2689e, },
+    { "P1 Shoulder Tackle Shadows", 0x2689e, 0x268be, indexCPS2_Colossus },
 
     { "P1 Super Armor Shine 1", 0x27e5e, 0x27e7e, indexCPS2_Colossus },
     { "P1 Super Armor Shine 2", 0x27e7e, 0x27e9e, indexCPS2_Colossus },
@@ -208,18 +208,18 @@ const sGame_PaletteDataset COTA_A_ICEMAN_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_P1[] = // boss
 {
-    {"P1",          0x26f3e, 0x26f5e, indexCPS2_Juggy },
-    {"P1 Extras 1", 0x26f5e, 0x26f7e, indexCPS2_Juggy, 1 }, // eidrian marks this as unused
-    {"P1 Ground FX", 0x26f7e, 0x26f9e, indexCPS2_Juggy, 2 },
-    {"P1 Extras 3", 0x26f9e, 0x26fbe, indexCPS2_Juggy, 3 }, // eidrian marks this as unused
+    { "P1",          0x26f3e, 0x26f5e, indexCPS2_Juggy },
+    { "P1 Extras 1", 0x26f5e, 0x26f7e, indexCPS2_Juggy, 1 }, // eidrian marks this as unused
+    { "P1 Ground FX", 0x26f7e, 0x26f9e, indexCPS2_Juggy, 2 },
+    { "P1 Extras 3", 0x26f9e, 0x26fbe, indexCPS2_Juggy, 3 }, // eidrian marks this as unused
 };
 
 const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_P2[] =
 {
-    {"P2",          0x26fbe, 0x26fde, indexCPS2_Juggy },
-    {"P2 Extras 1", 0x26fde, 0x26ffe, indexCPS2_Juggy, 1 },
-    {"P2 Ground FX", 0x26ffe, 0x2701e, indexCPS2_Juggy, 2 },
-    {"P2 Extras 3", 0x2701e, 0x2703e, indexCPS2_Juggy, 3 },
+    { "P2",          0x26fbe, 0x26fde, indexCPS2_Juggy },
+    { "P2 Extras 1", 0x26fde, 0x26ffe, indexCPS2_Juggy, 1 },
+    { "P2 Ground FX", 0x26ffe, 0x2701e, indexCPS2_Juggy, 2 },
+    { "P2 Extras 3", 0x2701e, 0x2703e, indexCPS2_Juggy, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_SHARED[] =
@@ -236,18 +236,18 @@ const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P1[] = // boss
 {
-    {"P1",          0x2703e, 0x2705e, indexCPS2_Magneto },
-    {"P1 Extras 2", 0x2705e, 0x2707e, indexCPS2_Magneto, 1 },
-    {"P1 Extras 2", 0x2707e, 0x2709e, indexCPS2_Magneto, 2 },
-    {"P1 Extras 3", 0x2709e, 0x270be, indexCPS2_Magneto, 3 },
+    { "P1",          0x2703e, 0x2705e, indexCPS2_Magneto },
+    { "P1 Extras 2", 0x2705e, 0x2707e, indexCPS2_Magneto, 1 },
+    { "P1 Extras 2", 0x2707e, 0x2709e, indexCPS2_Magneto, 2 },
+    { "P1 Extras 3", 0x2709e, 0x270be, indexCPS2_Magneto, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P2[] =
 {
-    {"P2",          0x270be, 0x270de, indexCPS2_Magneto },
-    {"P2 Extras 2", 0x270de, 0x270fe, indexCPS2_Magneto, 1 },
-    {"P2 Extras 2", 0x270fe, 0x2711e, indexCPS2_Magneto, 2 },
-    {"P2 Extras 3", 0x2711e, 0x2713e, indexCPS2_Magneto, 3 },
+    { "P2",          0x270be, 0x270de, indexCPS2_Magneto },
+    { "P2 Extras 2", 0x270de, 0x270fe, indexCPS2_Magneto, 1 },
+    { "P2 Extras 2", 0x270fe, 0x2711e, indexCPS2_Magneto, 2 },
+    { "P2 Extras 3", 0x2711e, 0x2713e, indexCPS2_Magneto, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P1[] =
@@ -278,34 +278,34 @@ const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P1[] =
 {
-    {"Psylocke P1", 0x2673E, 0x2675E, indexCPS2_Psylocke },
-    {"P1 Extras 1", 0x2675E, 0x2677E, indexCPS2_Psylocke, 1 },
-    {"P1 Extras 2", 0x2677E, 0x2679E, indexCPS2_Psylocke, 0 },
-    {"P1 Extras 3", 0x2679E, 0x267BE, indexCPS2_Psylocke, 3 },
+    { "Psylocke P1", 0x2673E, 0x2675E, indexCPS2_Psylocke },
+    { "P1 Extras 1", 0x2675E, 0x2677E, indexCPS2_Psylocke, 1 },
+    { "P1 Extras 2", 0x2677E, 0x2679E, indexCPS2_Psylocke, 0 },
+    { "P1 Extras 3", 0x2679E, 0x267BE, indexCPS2_Psylocke, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P2[] =
 {
-    {"Psylocke P2", 0x267BE, 0x267DE, indexCPS2_Psylocke },
-    {"P2 Extras 1", 0x267DE, 0x267FE, indexCPS2_Psylocke, 1 },
-    {"P2 Extras 2", 0x267FE, 0x2681E, indexCPS2_Psylocke, 0 },
-    {"P2 Extras 3", 0x2681E, 0x2683E, indexCPS2_Psylocke, 2 },
+    { "Psylocke P2", 0x267BE, 0x267DE, indexCPS2_Psylocke },
+    { "P2 Extras 1", 0x267DE, 0x267FE, indexCPS2_Psylocke, 1 },
+    { "P2 Extras 2", 0x267FE, 0x2681E, indexCPS2_Psylocke, 0 },
+    { "P2 Extras 3", 0x2681E, 0x2683E, indexCPS2_Psylocke, 2 },
 };
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P1[] =
 {
-    {"Sentinel P1", 0x26e3E, 0x26e5E, 0x34 },
-    {"P1 Extras 1", 0x26e5E, 0x26e7E, 0x34, 1 },
-    {"P1 Extras 2", 0x26e7E, 0x26e9E, 0x34, 2 },
-    {"P1 Extras 3", 0x26e9E, 0x26ebE, 0x34, 3 },
+    { "Sentinel P1", 0x26e3E, 0x26e5E, 0x34 },
+    { "P1 Extras 1", 0x26e5E, 0x26e7E, 0x34, 1 },
+    { "P1 Extras 2", 0x26e7E, 0x26e9E, 0x34, 2 },
+    { "P1 Extras 3", 0x26e9E, 0x26ebE, 0x34, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P2[] =
 {
-    {"Sentinel P2", 0x26ebE, 0x26edE, 0x34 },
-    {"P2 Extras 1", 0x26edE, 0x26efE, 0x34, 1 },
-    {"P2 Extras 2", 0x26efE, 0x26f1E, 0x34, 2 },
-    {"P2 Extras 3", 0x26f1E, 0x26f3E, 0x34, 3 },
+    { "Sentinel P2", 0x26ebE, 0x26edE, 0x34 },
+    { "P2 Extras 1", 0x26edE, 0x26efE, 0x34, 1 },
+    { "P2 Extras 2", 0x26efE, 0x26f1E, 0x34, 2 },
+    { "P2 Extras 3", 0x26f1E, 0x26f3E, 0x34, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P1[] =
@@ -452,34 +452,34 @@ const sGame_PaletteDataset COTA_A_STORM_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P1[] =
 {
-    {"Wolverine P1",    0x2713E, 0x2715E, 0x07, 0, true },
-    {"P1 Claws",        0x2715E, 0x2717E, 0x07, 1 },
-    {"P1 Berserker Barrage", 0x2717e, 0x2719e, 0x07, 2 },
-    {"P1 ?",            0x2719e, 0x271be, 0x07 },
+    { "Wolverine P1",    0x2713E, 0x2715E, 0x07, 0, true },
+    { "P1 Claws",        0x2715E, 0x2717E, 0x07, 1 },
+    { "P1 Berserker Barrage", 0x2717e, 0x2719e, 0x07, 2 },
+    { "P1 ?",            0x2719e, 0x271be, 0x07 },
 };
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P2[] =
 {
-    {"Wolverine P2", 0x271be, 0x271dE, 0x07, 0, true },
-    {"P2 Claws", 0x271dE, 0x271fE, 0x07, 1 },
-    {"P2 Berserker Barrage", 0x271fE, 0x2721E, 0x07, 2 },
-    {"P2 ?", 0x2721E, 0x2723E, 0x07 },
+    { "Wolverine P2", 0x271be, 0x271dE, 0x07, 0, true },
+    { "P2 Claws", 0x271dE, 0x271fE, 0x07, 1 },
+    { "P2 Berserker Barrage", 0x271fE, 0x2721E, 0x07, 2 },
+    { "P2 ?", 0x2721E, 0x2723E, 0x07 },
 };
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P1[] = // aka Gouki
 {
-    {"P1",          0x2737e, 0x2739e, indexCPS2_STAkuma },
-    {"P1 Extras 1", 0x2739e, 0x273be, indexCPS2_STAkuma },
-    {"P1 Extras 2", 0x273be, 0x273de, indexCPS2_STAkuma },
-    {"P1 Extras 3", 0x273de, 0x273fe, indexCPS2_STAkuma, 1 },
+    { "P1",          0x2737e, 0x2739e, indexCPS2_STAkuma },
+    { "P1 Extras 1", 0x2739e, 0x273be, indexCPS2_STAkuma },
+    { "P1 Extras 2", 0x273be, 0x273de, indexCPS2_STAkuma },
+    { "P1 Extras 3", 0x273de, 0x273fe, indexCPS2_STAkuma, 1 },
 };
 
 const sGame_PaletteDataset COTA_A_AKUMA_PALETTES_P2[] =
 {
-    {"P2",          0x273fe, 0x2741e, indexCPS2_STAkuma },
-    {"P2 Extras 1", 0x2741e, 0x2743e, indexCPS2_STAkuma },
-    {"P2 Extras 2", 0x2743e, 0x2745e, indexCPS2_STAkuma },
-    {"P2 Extras 3", 0x2745e, 0x2747e, indexCPS2_STAkuma, 1 },
+    { "P2",          0x273fe, 0x2741e, indexCPS2_STAkuma },
+    { "P2 Extras 1", 0x2741e, 0x2743e, indexCPS2_STAkuma },
+    { "P2 Extras 2", 0x2743e, 0x2745e, indexCPS2_STAkuma },
+    { "P2 Extras 3", 0x2745e, 0x2747e, indexCPS2_STAkuma, 1 },
 };
 
 const sGame_PaletteDataset COTA_A_PORTRAIT_PALETTES[] =
@@ -498,6 +498,29 @@ const sGame_PaletteDataset COTA_A_PORTRAIT_PALETTES[] =
     { "Wolverine",  0x36ED4, 0x36EF4, indexCPS2_Wolverine, 0x33 },
 };
 
+const sGame_PaletteDataset COTA_A_CSI_PALETTES[] =
+{
+    { "Colossus",       0x37074, 0x37094, indexCPS2_Colossus },
+    { "Cyclops",        0x37054, 0x37074, indexCPS2_Cyclops },
+    { "Iceman",         0x370D4, 0x370F4, indexCPS2_Iceman },
+    { "Juggernaut",     0x37174, 0x37194, indexCPS2_Juggy },
+    { "Magneto",        0x37154, 0x37174, indexCPS2_Magneto },
+    { "Omega Red",      0x370B4, 0x370D4, indexCPS2_OmegaRed },
+    { "Psylocke",       0x370F4, 0x37114, indexCPS2_Psylocke },
+    { "Sentinel",       0x37034, 0x37054, indexCPS2_Sentinel },
+    { "Silver Samurai", 0x37094, 0x370B4, indexCPS2_SilverSamurai },
+    { "Spiral",         0x37134, 0x37154, indexCPS2_Spiral },
+    { "Storm",          0x37114, 0x37134, indexCPS2_Storm },
+    { "Wolverine",      0x37194, 0x371B4, indexCPS2_Wolverine },
+};
+
+const sGame_PaletteDataset COTA_A_BONUS_PALETTES[] =
+{
+    { "World Area Selection Color", 0x371b4, 0x371c4 },
+    { "World Map Color",            0x371c4, 0x371d4 },
+    { "Select Screen Vs Text",      0x371d4, 0x371f4 },
+};
+
 const sDescTreeNode COTA_A_COLOSSUS_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)COTA_A_COLOSSUS_PALETTES_P1,           ARRAYSIZE(COTA_A_COLOSSUS_PALETTES_P1) },
@@ -509,7 +532,6 @@ const sDescTreeNode COTA_A_CYCLOPS_COLLECTION[] =
     { "P1", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_P1,           ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_P2,           ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_P2) },
     { "Extras", DESC_NODETYPE_TREE, (void*)COTA_A_CYCLOPS_PALETTES_EXTRAS,   ARRAYSIZE(COTA_A_CYCLOPS_PALETTES_EXTRAS) },
-    
 };
 
 const sDescTreeNode COTA_A_ICEMAN_COLLECTION[] =
@@ -523,7 +545,7 @@ const sDescTreeNode COTA_A_JUGGY_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)COTA_A_JUGGY_PALETTES_P1,           ARRAYSIZE(COTA_A_JUGGY_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)COTA_A_JUGGY_PALETTES_P2,           ARRAYSIZE(COTA_A_JUGGY_PALETTES_P2) },
-    { "Shared", DESC_NODETYPE_TREE, (void*)COTA_A_JUGGY_PALETTES_SHARED,           ARRAYSIZE(COTA_A_JUGGY_PALETTES_SHARED) },
+    { "Shared", DESC_NODETYPE_TREE, (void*)COTA_A_JUGGY_PALETTES_SHARED,   ARRAYSIZE(COTA_A_JUGGY_PALETTES_SHARED) },
 };
 
 const sDescTreeNode COTA_A_MAGNETO_COLLECTION[] =
@@ -580,9 +602,11 @@ const sDescTreeNode COTA_A_AKUMA_COLLECTION[] =
     { "P2", DESC_NODETYPE_TREE, (void*)COTA_A_AKUMA_PALETTES_P2,       ARRAYSIZE(COTA_A_AKUMA_PALETTES_P2) },
 };
 
-const sDescTreeNode COTA_A_PORTRAITS_COLLECTION[] =
+const sDescTreeNode COTA_A_BONUS_COLLECTION[] =
 {
-    { "Portraits", DESC_NODETYPE_TREE, (void*)COTA_A_PORTRAIT_PALETTES,       ARRAYSIZE(COTA_A_PORTRAIT_PALETTES) },
+    { "Portraits",  DESC_NODETYPE_TREE, (void*)COTA_A_PORTRAIT_PALETTES,        ARRAYSIZE(COTA_A_PORTRAIT_PALETTES) },
+    { "Character Select Icons", DESC_NODETYPE_TREE, (void*)COTA_A_CSI_PALETTES, ARRAYSIZE(COTA_A_CSI_PALETTES) },
+    { "Bonus",      DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_PALETTES,           ARRAYSIZE(COTA_A_BONUS_PALETTES) },
 };
 
 const UINT8 COTA_A_UNITSORT[COTA_A_NUMUNIT + 1] = // Plus 1 for the extra palettes
@@ -600,7 +624,7 @@ const UINT8 COTA_A_UNITSORT[COTA_A_NUMUNIT + 1] = // Plus 1 for the extra palett
     indexCOTAStorm,
     indexCOTAWolverine,
     indexCOTAAkuma,
-    indexCOTAPortraits,
+    indexCOTABonus,
 
     COTA_A_EXTRALOC // Extra palettes
 };
@@ -620,7 +644,7 @@ const sDescTreeNode COTA_UNITS[COTA_A_NUMUNIT] =
     { "Storm",                     DESC_NODETYPE_TREE, (void*)COTA_A_STORM_COLLECTION,         ARRAYSIZE(COTA_A_STORM_COLLECTION) },
     { "Wolverine",                 DESC_NODETYPE_TREE, (void*)COTA_A_WOLVERINE_COLLECTION,     ARRAYSIZE(COTA_A_WOLVERINE_COLLECTION) },
     { "Akuma",                     DESC_NODETYPE_TREE, (void*)COTA_A_AKUMA_COLLECTION,         ARRAYSIZE(COTA_A_AKUMA_COLLECTION) },
-    { "Portraits",                 DESC_NODETYPE_TREE, (void*)COTA_A_PORTRAITS_COLLECTION,     ARRAYSIZE(COTA_A_PORTRAITS_COLLECTION) },
+    { "Bonus Stuff",               DESC_NODETYPE_TREE, (void*)COTA_A_BONUS_COLLECTION,         ARRAYSIZE(COTA_A_BONUS_COLLECTION) },
 };
 
 // We extend this array with data groveled from the cotae.txt extensible extras file, if any.
