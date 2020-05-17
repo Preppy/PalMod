@@ -1,12 +1,13 @@
 #pragma once
 #include "Default.h"
 
-#define MAX_PAL 4
-#define MAX_SEP 4
+constexpr auto MAX_PAL = 4;
+constexpr auto MAX_SEP = 4;
+constexpr auto MAX_PALETTE_PAGES = 2;
 
-#define SORT_HUE 1
-#define SORT_SAT 2
-#define SORT_LUM 4
+constexpr auto SORT_HUE = 1;
+constexpr auto SORT_SAT = 2;
+constexpr auto SORT_LUM = 4;
 
 #define GetAValue(rgb)      (LOBYTE((rgb)>>24))
 #define sq(x) ((double)x*x)

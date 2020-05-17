@@ -88,8 +88,11 @@ BOOL CPalGroup::SetMode(ePalType NewPalMode)
 BOOL CPalGroup::AddSep(int nIndex, LPCSTR szDesc, int nStart, int nAmt)
 {
     // Separators enable us to have multiple groups of palettes within a palette display.
-    if ((rgPalettes[nIndex].uSepAmt >= MAX_SEP) || (nStart + nAmt > rgPalettes[nIndex].uPalSz))
+    if ((rgPalettes[nIndex].uSepAmt >= MAX_SEP) || ((nStart + nAmt) > rgPalettes[nIndex].uPalSz))
     {
+        CString strWarning;
+        strWarning.Format("WARNING: Trying to use too many separators for \"%s\".  Disallowing this.\n", szDesc);
+        OutputDebugString(strWarning);
         return FALSE;
     }
 

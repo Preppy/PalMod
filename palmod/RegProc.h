@@ -28,7 +28,7 @@ public:
 
     static void SetColorsPerLine(DWORD dwColors);
     static DWORD GetColorsPerLine();
-    static DWORD GetMaxPaletteSize();
+    static DWORD GetMaxPalettePageSize();
     static DWORD dwColorsPerLine;
 
     //Main

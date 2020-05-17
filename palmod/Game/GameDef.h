@@ -502,11 +502,13 @@ const UINT8 MSHVSF_A_IMG_UNITS[] =
 
 constexpr auto MSHVSF_A_NUM_IMG_UNITS = ARRAYSIZE(MSHVSF_A_IMG_UNITS);
 
-enum MSHVSF_SPRITES
+enum SPECIFIC_GAME_SPRITESETS
 {
     indexMSHVSF_CSI = 0x30,
     indexMSHVSF_SSP,
-    indexMSHVSF_VSP
+    indexMSHVSF_VSP,
+    indexCPS2Images_COTA_CSPs, // = 0x33,
+    indexCSP2Images_COTA_CSIs, // = 0x34,
 };
 
 const UINT8 COTA_A_IMG_UNITS[] =

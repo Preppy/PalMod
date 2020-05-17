@@ -77,7 +77,7 @@ void CPalTool::OnPalSelChange(int nCtrlId, BOOL bCurrPage)
             {
                 pPalEntry[i].PaletteCtrl->ClearSelected();
 
-                if (bCurrPage && i >= nPalStart && i < nPalEnd)
+                if (bCurrPage && (i >= nPalStart) && (i < nPalEnd))
                 {
                     pPalEntry[i].PaletteCtrl->UpdateCtrl();
                 }
@@ -298,7 +298,7 @@ void CPalTool::ShowAvailPal()
 
     for (int i = 0; i < MAX_PALETTE; i++)
     {
-        if (i >= nPalStart && i < nPalEnd || !nCurrPalAmt)
+        if ((i >= nPalStart) &&( i < nPalEnd) || !nCurrPalAmt)
         {
             if (pPalEntry[i].bAvail)
             {

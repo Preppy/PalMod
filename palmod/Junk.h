@@ -68,11 +68,6 @@ private:
     UINT32* pBmpData = nullptr;
     CDC dcBaseDC;
 
-    CBitmap FaceBitmap;
-
-    //CBitmap BGBmp;
-    //CBitmap BGBrush;
-
     static CPen PIndexHL;
     static CPen PIndexSL;
     static CPen PIndexMHL;
@@ -89,9 +84,9 @@ private:
 
     RECT rUnused = {};
 
-    // These two are initialized in the constructor
+    // These are initialized in the constructor
     int nWidthMax;
-    int nMaximumColorsShown;
+    int nMaximumColorsPerPage;
 
     //Input variables
 

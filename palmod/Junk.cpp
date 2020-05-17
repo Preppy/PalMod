@@ -86,11 +86,12 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
     //Clear the current variables/pointers/arrays etc
     if (nNewAmt != nCurrAmt)
     {
-        if (nNewAmt > nMaximumColorsShown)
+        if (nNewAmt > nMaximumColorsPerPage)
         {
             CString strError;
             static bool s_fAlreadyShown = false;
-            strError.Format("ERROR: Our color table can only show %u colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n", nMaximumColorsShown);
+            // You can either slice the palette or add separators so that PalGroup can handle page divisions
+            strError.Format("ERROR: Our color table can only show %u colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n", nMaximumColorsPerPage);
             OutputDebugString(strError);
             if (!s_fAlreadyShown)
             {
@@ -226,7 +227,7 @@ BOOL CJunk::InitPen()
 CJunk::CJunk()
 {
     nWidthMax = CRegProc::GetColorsPerLine();
-    nMaximumColorsShown = CRegProc::GetMaxPaletteSize();
+    nMaximumColorsPerPage = CRegProc::GetMaxPalettePageSize();
 
     RegisterWindowClass();
 }

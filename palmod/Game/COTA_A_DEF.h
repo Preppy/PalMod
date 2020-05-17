@@ -500,25 +500,26 @@ const sGame_PaletteDataset COTA_A_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset COTA_A_CSI_PALETTES[] =
 {
-    { "Colossus",       0x37074, 0x37094, indexCPS2_Colossus },
-    { "Cyclops",        0x37054, 0x37074, indexCPS2_Cyclops },
-    { "Iceman",         0x370D4, 0x370F4, indexCPS2_Iceman },
-    { "Juggernaut",     0x37174, 0x37194, indexCPS2_Juggy },
-    { "Magneto",        0x37154, 0x37174, indexCPS2_Magneto },
-    { "Omega Red",      0x370B4, 0x370D4, indexCPS2_OmegaRed },
-    { "Psylocke",       0x370F4, 0x37114, indexCPS2_Psylocke },
-    { "Sentinel",       0x37034, 0x37054, indexCPS2_Sentinel },
-    { "Silver Samurai", 0x37094, 0x370B4, indexCPS2_SilverSamurai },
-    { "Spiral",         0x37134, 0x37154, indexCPS2_Spiral },
-    { "Storm",          0x37114, 0x37134, indexCPS2_Storm },
-    { "Wolverine",      0x37194, 0x371B4, indexCPS2_Wolverine },
+    { "Colossus",       0x37074, 0x37094, indexCPS2_Colossus, indexCSP2Images_COTA_CSIs },
+    { "Cyclops",        0x37054, 0x37074, indexCPS2_Cyclops, indexCSP2Images_COTA_CSIs },
+    { "Iceman",         0x370D4, 0x370F4, indexCPS2_Iceman, indexCSP2Images_COTA_CSIs },
+    { "Omega Red",      0x370B4, 0x370D4, indexCPS2_OmegaRed, indexCSP2Images_COTA_CSIs },
+    { "Psylocke",       0x370F4, 0x37114, indexCPS2_Psylocke, indexCSP2Images_COTA_CSIs },
+    { "Sentinel",       0x37034, 0x37054, indexCPS2_Sentinel, indexCSP2Images_COTA_CSIs },
+    { "Silver Samurai", 0x37094, 0x370B4, indexCPS2_SilverSamurai, indexCSP2Images_COTA_CSIs},
+    { "Spiral",         0x37134, 0x37154, indexCPS2_Spiral, indexCSP2Images_COTA_CSIs },
+    { "Storm",          0x37114, 0x37134, indexCPS2_Storm, indexCSP2Images_COTA_CSIs },
+    { "Wolverine",      0x37194, 0x371B4, indexCPS2_Wolverine, indexCSP2Images_COTA_CSIs },
+
+    // These aren't actually exposed but are there.
+    //    { "Juggernaut",     0x37174, 0x37194 },
+    //    { "Magneto",        0x37154, 0x37174 },
 };
 
 const sGame_PaletteDataset COTA_A_BONUS_PALETTES[] =
 {
-    { "World Area Selection Color", 0x371b4, 0x371c4 },
-    { "World Map Color",            0x371c4, 0x371d4 },
-    { "Select Screen Vs Text",      0x371d4, 0x371f4 },
+    { "Select Screen World Map",    0x371b4, 0x371d4, indexCPS2_COTAAssets, 1 },
+    { "Select Screen Vs Text",      0x371d4, 0x371f4, indexCPS2_COTAAssets, 0 },
 };
 
 const sDescTreeNode COTA_A_COLOSSUS_COLLECTION[] =

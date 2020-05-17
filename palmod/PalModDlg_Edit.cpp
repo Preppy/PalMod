@@ -256,7 +256,7 @@ BOOL VerifyPaste()
                 nPaletteCount = (UINT16)((strlen(szTempStr) - 3) / 4);
             }
 
-            if (nPaletteCount <= CRegProc::GetMaxPaletteSize())
+            if (nPaletteCount <= CRegProc::GetMaxPalettePageSize())
             {
                 if ((szTempStr[(nPaletteCount * 4) + 3] == ')'))
                 {

@@ -7,6 +7,8 @@
 // * Update the index lookups in Game_MSH_A_.cpp that is marked - look for usage of indexRyu to find them
 // That should be it.  Good luck.
 
+#define ALLOW_256_COLOR_PALETTES 1
+
 enum SupportedMSHPaletteListIndex_05
 {
     //indexMSHAnita = 0,
@@ -207,25 +209,25 @@ const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_P2[] =
 
 const sGame_PaletteDataset MSH_A_CSP_PALETTES[] =
 {
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Spider-Man P1 CSP", 0x000b180, 0x000b300 },
 #else
     { "Spider-Man P1 CSP (1/2)", 0x000b180, 0x000b280 },
     { "Spider-Man P1 CSP (2/2)", 0x000b280, 0x000b300 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Spider-Man P2 CSP", 0x000b380, 0x000b500 },
 #else
     { "Spider-Man P2 CSP (1/2)", 0x000b380, 0x000b480 },
     { "Spider-Man P2 CSP (2/2)", 0x000b480, 0x000b500 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Captain America P1 CSP", 0x000b580, 0x000b780 },
 #else
     { "Captain America P1 CSP (1/2)", 0x000b580, 0x000b680 },
     { "Captain America P1 CSP (2/2)", 0x000b680, 0x000b780 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Captain America P2 CSP", 0x000b780, 0x000b980 },
 #else
     { "Captain America P2 CSP (1/2)", 0x000b780, 0x000b880 },
@@ -233,37 +235,37 @@ const sGame_PaletteDataset MSH_A_CSP_PALETTES[] =
 #endif
     { "Hulk P1 CSP", 0x000b980, 0x000b9e0 },
     { "Hulk P2 CSP", 0x000bb80, 0x000bbe0 },
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Iron Man P1 CSP", 0x000bd80, 0x000bf00 },
 #else
     { "Iron Man P1 CSP (1/2)", 0x000bd80, 0x000be80 },
     { "Iron Man P1 CSP (2/2)", 0x000be80, 0x000bf00 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Iron Man P2 CSP", 0x000bf80, 0x000c100 },
 #else
     { "Iron Man P2 CSP (1/2)", 0x000bf80, 0x000c080 },
     { "Iron Man P2 CSP (2/2)", 0x000c080, 0x000c100 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Wolverine P1 CSP", 0x000c180, 0x000c360 },
 #else
     { "Wolverine P1 CSP (1/2)", 0x000c180, 0x000c280 },
     { "Wolverine P1 CSP (2/2)", 0x000c280, 0x000c360 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Wolverine P2 CSP", 0x000c380, 0x000c560 },
 #else
     { "Wolverine P2 CSP (1/2)", 0x000c380, 0x000c480 },
     { "Wolverine P2 CSP (2/2)", 0x000c480, 0x000c560 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Psylocke P1 CSP", 0x000c580, 0x000c6a0 },
 #else
     { "Psylocke P1 CSP (1/2)", 0x000c580, 0x000c680 },
     { "Psylocke P1 CSP (2/2)", 0x000c680, 0x000c6a0 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Psylocke P2 CSP", 0x000c780, 0x000c8a0 },
 #else
     { "Psylocke P2 CSP (1/2)", 0x000c780, 0x000c880 },
@@ -275,37 +277,37 @@ const sGame_PaletteDataset MSH_A_CSP_PALETTES[] =
     { "Shuma-Gorath P2 CSP", 0x000cf80, 0x000d080 },
     { "Juggernaut P1 CSP", 0x000d180, 0x000d280 },
     { "Juggernaut P2 CSP", 0x000d380, 0x000d480 },
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Magneto P1 CSP", 0x000d580, 0x000d780 },
 #else
     { "Magneto P1 CSP (1/2)", 0x000d580, 0x000d680 },
     { "Magneto P1 CSP (2/2)", 0x000d680, 0x000d780 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Magneto P2 CSP", 0x000d780, 0x000d980 },
 #else
     { "Magneto P2 CSP (1/2)", 0x000d780, 0x000d880 },
     { "Magneto P2 CSP (2/2)", 0x000d880, 0x000d980 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Dr. Doom P1 CSP", 0x000d980, 0x000db60 },
 #else
     { "Dr. Doom P1 CSP (1/2)", 0x000d980, 0x000da80 },
     { "Dr. Doom P1 CSP (2/2)", 0x000da80, 0x000db60 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Dr. Doom P2 CSP", 0x000db80, 0x000dd60 },
 #else
     { "Dr. Doom P2 CSP (1/2)", 0x000db80, 0x000dc80 },
     { "Dr. Doom P2 CSP (2/2)", 0x000dc80, 0x000dd60 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Thanos P1 CSP", 0x000dd80, 0x000df80 },
 #else
     { "Thanos P1 CSP (1/2)", 0x000dd80, 0x000de80 },
     { "Thanos P1 CSP (2/2)", 0x000de80, 0x000df80 },
 #endif
-#ifdef USE_LARGE_PALETTES
+#if ALLOW_256_COLOR_PALETTES
     { "Thanos P2 CSP", 0x000df80, 0x000e180 },
 #else
     { "Thanos P2 CSP (1/2)", 0x000df80, 0x000e080 },
@@ -441,3 +443,5 @@ const stExtraDef MSH_A_EXTRA[] =
 
     { INVALID_UNIT_VALUE }
 };
+
+#undef USE_LARGE_PALETTES

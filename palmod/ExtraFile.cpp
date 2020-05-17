@@ -67,6 +67,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
             CHAR* szFinalLine = nullptr;
             int nCurrStart = 0;
             int nCurrEnd = 0;
+            const DWORD k_colorsPerPage = CRegProc::GetMaxPalettePageSize();
 
             extraFile.open(szTargetFile, ios::in);
 
@@ -127,7 +128,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                             }
                         }
 
-                        const int nTotalPagesNeeded = (int)ceil((double)nColorsUsed / (double)CRegProc::GetMaxPaletteSize());
+                        const int nTotalPagesNeeded = (int)ceil((double)nColorsUsed / (double)k_colorsPerPage);
                         int nCurrentPage = 1;
 
 #ifdef DUMP_EXTRAS_ON_LOAD // You can use this to convert Extras file content into usable headers.
@@ -163,11 +164,11 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                             // If you wanted to fit long palettes on one page you would need to remove this 
                             // overflow check, add an Extra compatible version of CPalGroup::AddSep, and
                             // call that from CGame_*::UpdatePalImg
-                            if (nColorsUsed > CRegProc::GetMaxPaletteSize())
+                            if (nColorsUsed > k_colorsPerPage)
                             {
-                                nCurrentPaletteEntries = CRegProc::GetMaxPaletteSize();
+                                nCurrentPaletteEntries = k_colorsPerPage;
 
-                                nColorsUsed -= CRegProc::GetMaxPaletteSize();
+                                nColorsUsed -= k_colorsPerPage;
                             }
                             else
                             {
@@ -185,14 +186,14 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                                 if (nTotalPagesNeeded > 1)
                                 {
                                     //pCurrDef->isInvisible = (nCurrentPage == 1);
-                                    snprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), "%s (%u/%u) 0x%x", szCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (CRegProc::GetMaxPaletteSize() * 2 * nPos));
+                                    snprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), "%s (%u/%u) 0x%x", szCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * 2 * nPos));
                                 }
                                 else
                                 {
                                     strncpy(pCurrDef->szDesc, szCurrDesc, sizeof(pCurrDef->szDesc));
                                     //pCurrDef->isInvisible = false;
                                 }
-                                pCurrDef->uOffset = nCurrStart + (CRegProc::GetMaxPaletteSize() * 2 * nPos);
+                                pCurrDef->uOffset = nCurrStart + (k_colorsPerPage * 2 * nPos);
                                 pCurrDef->cbPaletteSize = nCurrentPaletteEntries * 2;
                                 pCurrDef->isInvisible = false;
                             }
