@@ -6,7 +6,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 
 const UINT32 k_nBogusHighValue = 0xFEEDFED;
 
-class CGameWithExtrasFile
+class CGameWithExtrasFile : public CGameClass
 {
 protected:
     UINT32 m_nCurrentPaletteROMLocation = 0;

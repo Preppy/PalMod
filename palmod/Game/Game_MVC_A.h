@@ -6,7 +6,7 @@
 constexpr auto EXTRA_FILENAME_MVC = "mvce.txt";
 #define GetExtraDefForMVC(x)((stExtraDef *)&MVC_A_EXTRA_CUSTOM[x])
 
-class CGame_MVC_A : public CGameClass, public CGameWithExtrasFile
+class CGame_MVC_A : public CGameWithExtrasFile
 {
 private:
     //Used for image selection

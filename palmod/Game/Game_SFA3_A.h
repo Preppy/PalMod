@@ -6,7 +6,7 @@
 constexpr auto EXTRA_FILENAME_SFA3 = "SFA3e.txt";
 #define GetExtraDefForSFA3(x)((stExtraDef *)&SFA3_A_EXTRA_CUSTOM[x])
 
-class CGame_SFA3_A : public CGameClass, public CGameWithExtrasFile
+class CGame_SFA3_A : public CGameWithExtrasFile
 {
 private:
     //Used for image selection

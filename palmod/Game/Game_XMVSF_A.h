@@ -6,7 +6,7 @@
 constexpr auto EXTRA_FILENAME_XMVSF = "XMVSFe.txt";
 #define GetExtraDefForXMVSF(x)((stExtraDef *)&XMVSF_A_EXTRA_CUSTOM[x])
 
-class CGame_XMVSF_A : public CGameClass, public CGameWithExtrasFile
+class CGame_XMVSF_A : public CGameWithExtrasFile
 {
 private:
     //Used for image selection

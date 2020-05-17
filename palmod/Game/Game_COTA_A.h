@@ -6,7 +6,7 @@
 constexpr auto EXTRA_FILENAME_COTA = "cotae.txt";
 #define GetExtraDefForCOTA(x) ((stExtraDef *)&COTA_A_EXTRA_CUSTOM[x])
 
-class CGame_COTA_A : public CGameClass, public CGameWithExtrasFile
+class CGame_COTA_A : public CGameWithExtrasFile
 {
 private:
     //Used for image selection

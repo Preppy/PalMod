@@ -14,7 +14,7 @@ constexpr auto EXTRA_FILENAME_51 = "jojos51e.txt";
 #define GetJojosExtraDef(x) (const_cast<stExtraDef *>(&JOJOS_A_EXTRA[x]))
 #endif
 
-class CGame_JOJOS_A : public CGameClass, public CGameWithExtrasFile
+class CGame_JOJOS_A : public CGameWithExtrasFile
 {
 private:
     //Used for image selection

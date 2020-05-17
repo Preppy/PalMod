@@ -8,7 +8,7 @@ constexpr auto EXTRA_FILENAME_MSHVSF_7B = "mshvsf-7be.txt";
 
 #define GetExtraDefForMSHVSF(x) (UsePaletteSetForCharacters() ? ((stExtraDef *)&MSHVSF_A_EXTRA_CUSTOM_6A[x]) : ((stExtraDef *)&MSHVSF_A_EXTRA_CUSTOM_7B[x]))
 
-class CGame_MSHVSF_A : public CGameClass, public CGameWithExtrasFile
+class CGame_MSHVSF_A :public CGameWithExtrasFile
 {
 private:
     //Used for image selection

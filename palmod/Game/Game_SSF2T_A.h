@@ -8,7 +8,7 @@ constexpr auto EXTRA_FILENAME_SSF2T_4A = "ssf2t-4ae.txt";
 
 #define GetExtraDefForSSF2T(x) (UsePaletteSetForPortraits() ? ((stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_3C[x]) : ((stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_4A[x]))
 
-class CGame_SSF2T_A : public CGameClass, public CGameWithExtrasFile
+class CGame_SSF2T_A : public CGameWithExtrasFile
 {
 private:
     //Used for image selection

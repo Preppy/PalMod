@@ -7,7 +7,7 @@ constexpr auto EXTRA_FILENAME_MSH_05 = "MSHe.txt";
 constexpr auto EXTRA_FILENAME_MSH_06 = "MSH06e.txt";
 #define GetExtraDefForMSH(x) (UsePaletteSetForCharacters() ? ((stExtraDef *)&MSH_A_EXTRA_CUSTOM_05[x]) : ((stExtraDef *)&MSH_A_EXTRA_CUSTOM_06[x]))
 
-class CGame_MSH_A : public CGameClass, public CGameWithExtrasFile
+class CGame_MSH_A : public CGameWithExtrasFile
 {
 private:
     //Used for image selection
