@@ -16,7 +16,7 @@ struct sPalEntry
 {
     CJunk* PaletteCtrl = nullptr;
     CHAR* szPalStr = nullptr;
-    BOOL bAvail;
+    BOOL bAvail = FALSE;
 };
 
 class CPalTool : public CWnd

@@ -239,7 +239,7 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
         OutputDebugString(strDebugInfo);
 #endif
 
-        imgMapIter it = nImgMap->find(uUnitId);
+        imgMapIter it = nImgMap->find((UINT8)uUnitId);
         if (it != nImgMap->cend())
         {
             // it->second->listAllImgIDs();
@@ -653,7 +653,7 @@ UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth
                     uGetAmt = zero_get_amt - uZeroPos;
                 }
 
-                zero_data |= (((UINT16)(pSrcImgData[bit_ctr / 8] >> uExtraAmt) & (0xFF >> 8 - uGetAmt)) << (uZeroPos));
+                zero_data |= (((UINT16)(pSrcImgData[bit_ctr / 8] >> uExtraAmt) & (0xFF >> (8 - uGetAmt))) << (uZeroPos));
 
                 uZeroPos += uGetAmt;
                 bit_ctr += uGetAmt;
