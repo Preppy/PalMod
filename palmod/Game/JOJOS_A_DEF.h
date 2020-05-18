@@ -2246,6 +2246,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_A[] =
 {
     { "Avdol & Magician's Red A", 0x0337d00, 0x0337d80, indexJojos51Avdol, indexJojos51Character_Main, true },
     { "Avdol Fire A", 0x0338580, 0x03385c0, indexJojos51Avdol, 1, true },
+    { "Avdol & MR Remote Activation A", 0x0338180, 0x0338200, indexJojos51Avdol, 2 },
     { "Avdol Vs/Super A", 0x0410600, 0x0410680, indexJojos51Avdol, indexJojos51Character_VsSuper },
     { "Avdol Challenger A", 0x0410680, 0x0410700, indexJojos51Avdol, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
@@ -2254,7 +2255,6 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_A[] =
 #else
     { "Avdol Select / Winning A", 0x0410700, 0x0410800 },
 #endif
-    { "Avdol & MR Remote Activation A", 0x0338180, 0x0338200, indexJojos51Avdol, 2 },
     { "Avdol Burning A (1/2)", 0x0337d80, 0x0337e00, indexJojos51Avdol, indexJojos51Character_BurnZap },
     { "Avdol Burning A (2/2)", 0x0337e00, 0x0337e80, indexJojos51Avdol, indexJojos51Character_BurnZap },
     { "Avdol Tech/Zap A (1/2)", 0x0338080, 0x0338100, indexJojos51Avdol, indexJojos51Character_BurnZap },
@@ -2265,6 +2265,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_B[] =
 {
     { "Avdol & Magician's Red B", 0x034c200, 0x034c280, indexJojos51Avdol, indexJojos51Character_Main, true },
     { "Avdol Fire B", 0x034ca80, 0x034cac0, indexJojos51Avdol, 1, true },
+    { "Avdol & MR Remote Activation B", 0x034c680, 0x034c700, indexJojos51Avdol, 2 },
     { "Avdol Vs / Super B", 0x0415400, 0x0415480, indexJojos51Avdol, indexJojos51Character_VsSuper },
     { "Avdol Challenger B", 0x0415480, 0x0415500, indexJojos51Avdol, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
@@ -2273,7 +2274,6 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_B[] =
 #else
     { "Avdol Select / Winning B", 0x0415500, 0x0415600 },
 #endif
-    { "Avdol & MR Remote Activation B", 0x034c680, 0x034c700, indexJojos51Avdol, 2 },
     { "Avdol Burning B (1/2)", 0x034c280, 0x034c300, indexJojos51Avdol, indexJojos51Character_BurnZap  },
     { "Avdol Burning B (2/2)", 0x034c300, 0x034c380, indexJojos51Avdol, indexJojos51Character_BurnZap  },
     { "Avdol Tech/Zap B (1/2)", 0x034c580, 0x034c600, indexJojos51Avdol, indexJojos51Character_BurnZap  },
@@ -2284,6 +2284,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_C[] =
 {
     { "Avdol & Magician's Red C", 0x0360700, 0x0360780, indexJojos51Avdol, indexJojos51Character_Main, true },
     { "Avdol Fire C", 0x0360f80, 0x0360fc0, indexJojos51Avdol, 1, true },
+    { "Avdol & MR Remote Activation C", 0x0360b80, 0x0360c00, indexJojos51Avdol, 2 },
     { "Avdol Vs / Super C", 0x041a200, 0x041a280, indexJojos51Avdol, indexJojos51Character_VsSuper },
     { "Avdol Challenger C", 0x041a280, 0x041a300, indexJojos51Avdol, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
@@ -2292,7 +2293,6 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_C[] =
 #else
     { "Avdol Select / Winning C", 0x041a300, 0x041a400 },
 #endif
-    { "Avdol & MR Remote Activation C", 0x0360b80, 0x0360c00, indexJojos51Avdol, 2 },
     { "Avdol Burning C (1/2)", 0x0360780, 0x0360800, indexJojos51Avdol, indexJojos51Character_BurnZap  },
     { "Avdol Burning C (2/2)", 0x0360800, 0x0360880, indexJojos51Avdol, indexJojos51Character_BurnZap  },
     { "Avdol Tech/Zap C (1/2)", 0x0360a80, 0x0360b00, indexJojos51Avdol, indexJojos51Character_BurnZap  },
@@ -2303,6 +2303,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_S[] =
 {
     { "Avdol & Magician's Red S", 0x0374c00, 0x0374c80, indexJojos51Avdol, indexJojos51Character_Main, true },
     { "Avdol Fire S", 0x0375480, 0x03754c0, indexJojos51Avdol, 1, true },
+    { "Avdol & MR Remote Activation S", 0x0375080, 0x0375100, indexJojos51Avdol, 2 },
     { "Avdol Vs / Super S", 0x041f000, 0x041f080, indexJojos51Avdol, indexJojos51Character_VsSuper },
     { "Avdol Challenger S", 0x041f080, 0x041f100, indexJojos51Avdol, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
@@ -2311,7 +2312,6 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_S[] =
 #else
     { "Avdol Select / Winning S", 0x041f100, 0x041f200 },
 #endif
-    { "Avdol & MR Remote Activation S", 0x0375080, 0x0375100, indexJojos51Avdol, 2 },
     { "Avdol Burning S (1/2)", 0x0374c80, 0x0374d00, indexJojos51Avdol, indexJojos51Character_BurnZap  },
     { "Avdol Burning S (2/2)", 0x0374d00, 0x0374d80, indexJojos51Avdol, indexJojos51Character_BurnZap  },
     { "Avdol Tech/Zap S (1/2)", 0x0374f80, 0x0375000, indexJojos51Avdol, indexJojos51Character_BurnZap  },
@@ -2322,6 +2322,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_Start[] =
 {
     { "Avdol & Magician's Red Start", 0x0389100, 0x0389180, indexJojos51Avdol, indexJojos51Character_Main, true },
     { "Avdol Fire Start", 0x0389980, 0x03899c0, indexJojos51Avdol, 1, true },
+    { "Avdol & MR Remote Activation Start", 0x0389580, 0x0389600, indexJojos51Avdol, 2 },
     { "Avdol Vs / Super Start", 0x0423e00, 0x0423e80, indexJojos51Avdol, indexJojos51Character_VsSuper },
     { "Avdol Challenger Start", 0x0423e80, 0x0423f00, indexJojos51Avdol, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
@@ -2330,7 +2331,6 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_Start[] =
 #else
     { "Avdol Select / Winning Start", 0x0423f00, 0x0424000 },
 #endif
-    { "Avdol & MR Remote Activation Start", 0x0389580, 0x0389600, indexJojos51Avdol, 2 },
     { "Avdol Burning Start (1/2)", 0x0389180, 0x0389200, indexJojos51Avdol, indexJojos51Character_BurnZap  },
     { "Avdol Burning Start (2/2)", 0x0389200, 0x0389280, indexJojos51Avdol, indexJojos51Character_BurnZap  },
     { "Avdol Tech/Zap Start (1/2)", 0x0389480, 0x0389500, indexJojos51Avdol, indexJojos51Character_BurnZap  },

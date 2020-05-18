@@ -2,6 +2,7 @@
 #include "gameclass.h"
 #include "JOJOS_A_DEF.h"
 #include "..\ExtraFile.h"
+#include "..\palmod.h"
 
 #define JOJOS_A_USEEXTRAFILE
 
@@ -20,7 +21,9 @@ private:
     //Used for image selection
     int nTargetImgId = 0;
 
-    const int m_knMaxPalettePageSize = 64;
+    // Do we want to autoslice at 128 or 256 colors...?  Probably 128, so let's use that here.
+    // This is currently only used when we export out resliced tables: there's no normal usage.
+    const int m_knMaxPalettePageSize = PAL_MAXAMT_8COLORSPERLINE;
 
     int m_nGameButtonColorCount = 5;
 

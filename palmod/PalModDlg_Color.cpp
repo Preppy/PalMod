@@ -990,18 +990,18 @@ void CPalModDlg::OnBnClickedBinvert()
 
         UINT8* rgSel = (UINT8*)CurrPalCtrl->GetSelIndex();
         UINT8* pCurrPal = (UINT8*)CurrPalCtrl->GetBasePal();
-        UINT8 nIndex;
+        UINT16 nPaletteIndex;
         BOOL bForce = !CurrPalCtrl->GetSelAmt();
 
         for (int i = 0; i < CurrPalCtrl->GetWorkingAmt(); i++)
         {
             if (rgSel[i] || bForce)
             {
-                nIndex = (i * 4);
+                nPaletteIndex = (i * 4);
 
-                pCurrPal[nIndex] = MainPalGroup->ROUND_R(~pCurrPal[nIndex]);
-                pCurrPal[nIndex + 1] = MainPalGroup->ROUND_G(~pCurrPal[nIndex + 1]);
-                pCurrPal[nIndex + 2] = MainPalGroup->ROUND_B(~pCurrPal[nIndex + 2]);
+                pCurrPal[nPaletteIndex] = MainPalGroup->ROUND_R(~pCurrPal[nPaletteIndex]);
+                pCurrPal[nPaletteIndex + 1] = MainPalGroup->ROUND_G(~pCurrPal[nPaletteIndex + 1]);
+                pCurrPal[nPaletteIndex + 2] = MainPalGroup->ROUND_B(~pCurrPal[nPaletteIndex + 2]);
 
                 CurrPalCtrl->UpdateIndex(i);
             }

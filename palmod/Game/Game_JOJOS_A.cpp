@@ -206,7 +206,7 @@ void ExportTableToDebugger()
     {
         CString strstr;
 
-        const int knMaxPalettePageSizeOnDisc = 2 * 64;
+        const int knMaxPalettePageSizeOnDisc = 2 * m_knMaxPalettePageSize;
         int nPaletteTotalSize = (JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffsetEnd - JOJOS_BONUS_NODE_INTRO_MANGA[iHeaderIndex].nPaletteOffset);
         int nAdjust = 0;
 
@@ -845,7 +845,6 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         }
 
 #if NEED_TO_UPDATE_JOJO_HEADERS
-
         const int knMaxPalettePageSizeOnDisc = 2 * m_knMaxPalettePageSize;
 
         if (nPaletteSizeOnDisc > knMaxPalettePageSizeOnDisc)

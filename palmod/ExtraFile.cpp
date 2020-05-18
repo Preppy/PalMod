@@ -134,7 +134,8 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 #ifdef DUMP_EXTRAS_ON_LOAD // You can use this to convert Extras file content into usable headers.
                         CString strText;
 
-                        bool fPaletteUsesMultiplePages = (nColorsUsed > MAX_PALETTE_SIZE);
+                        // Do we want to autoslice at 128 or 256 colors...?  Probably 128, so let's use that here.
+                        bool fPaletteUsesMultiplePages = (nColorsUsed > PAL_MAXAMT_8COLORSPERLINE);
 
                         if (fPaletteUsesMultiplePages)
                         {
@@ -157,7 +158,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 
                             if (nPos)
                             {
-                                // Create a new extra node item if the range for this complete item is over MAX_PALETTE_SIZE.
+                                // Create a new extra node item if the range for this complete item is over PAL_MAXAMT_8COLORSPERLINE.
                                 nTotalExtensionExtraLinesHandled += 3;
                             }
 
