@@ -979,10 +979,13 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     int nPaletteOneDelta = 0;
                     int nPaletteTwoDelta = 0;
 
-                    if ((NodeGet->uUnitId == indexJojos51Jotaro) ||
-                        (NodeGet->uUnitId == indexJojos51Joseph) ||
-                        (NodeGet->uUnitId == indexJojos51Dio) ||
-                        (NodeGet->uUnitId == indexJojos51Iggy))
+                    if (((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)) &&
+                        ((NodeGet->uUnitId == indexJojos51Jotaro) ||
+                         (NodeGet->uUnitId == indexJojos51Avdol) ||
+                         (NodeGet->uUnitId == indexJojos51Joseph) ||
+                         (NodeGet->uUnitId == indexJojos51Dio) ||
+                         (NodeGet->uUnitId == indexJojos51Petshop) ||
+                         (NodeGet->uUnitId == indexJojos51Iggy)))
                     {
                         if (nTargetImgId == indexJojos51Character_SelectWin1) // winning 1
                         {
@@ -998,20 +1001,18 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             fUseDefaultPaletteLoad = false;
                         }
                     }
-                    else if (NodeGet->uUnitId == indexJojos51Khan)
+                    else if (NodeGet->uUnitId == indexJojos51Avdol)
                     {
-                        if (nTargetImgId == 0xA) // Sword Slashes 1
+                        if (nTargetImgId == 0x0) // main
                         {
-                            nXOffs = -28;
-                            nYOffs = -58;
+                            nXOffs = 48;
                             nPaletteOneDelta = 0;
                             nPaletteTwoDelta = 1;
                             fUseDefaultPaletteLoad = false;
                         }
-                        else if (nTargetImgId == 0xB) // Sword Slashes 2
+                        else if (nTargetImgId == 0x1) // fire
                         {
-                            nXOffs = 28;
-                            nYOffs = 58;
+                            nXOffs = -48;
                             nPaletteOneDelta = 0;
                             nPaletteTwoDelta = -1;
                             fUseDefaultPaletteLoad = false;
