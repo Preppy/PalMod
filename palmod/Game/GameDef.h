@@ -509,6 +509,7 @@ enum SPECIFIC_GAME_SPRITESETS
     indexMSHVSF_VSP,
     indexCPS2Images_COTA_CSPs, // = 0x33,
     indexCSP2Images_COTA_CSIs, // = 0x34,
+    indexCSP2Images_MSH_CSPs = 0x36, // = 0x36,
 };
 
 const UINT8 COTA_A_IMG_UNITS[] =

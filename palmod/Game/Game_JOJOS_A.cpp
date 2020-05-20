@@ -1000,6 +1000,27 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             fUseDefaultPaletteLoad = false;
                         }
                     }
+                    else if (((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)) &&
+                              (NodeGet->uUnitId == indexJojos51Midler))
+                    {
+                        if (nTargetImgId == indexJojos51Character_SelectWin1) // winning 1
+                        {
+                            nXOffs = -103;
+                            nYOffs = 23;
+                            nPaletteOneDelta = 0;
+                            nPaletteTwoDelta = 1;
+                            fUseDefaultPaletteLoad = false;
+
+                        }
+                        else if (nTargetImgId == indexJojos51Character_SelectWin2) // winning 2
+                        {
+                            nXOffs = 103;
+                            nYOffs = -23;
+                            nPaletteOneDelta = 0;
+                            nPaletteTwoDelta = -1;
+                            fUseDefaultPaletteLoad = false;
+                        }
+                    }
                     else if (NodeGet->uUnitId == indexJojos51Avdol)
                     {
                         if (nTargetImgId == 0x0) // main

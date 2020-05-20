@@ -209,110 +209,30 @@ const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_P2[] =
 
 const sGame_PaletteDataset MSH_A_CSP_PALETTES[] =
 {
-#if ALLOW_256_COLOR_PALETTES
-    { "Spider-Man P1 CSP", 0x000b180, 0x000b300 },
-#else
-    { "Spider-Man P1 CSP (1/2)", 0x000b180, 0x000b280 },
-    { "Spider-Man P1 CSP (2/2)", 0x000b280, 0x000b300 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Spider-Man P2 CSP", 0x000b380, 0x000b500 },
-#else
-    { "Spider-Man P2 CSP (1/2)", 0x000b380, 0x000b480 },
-    { "Spider-Man P2 CSP (2/2)", 0x000b480, 0x000b500 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Captain America P1 CSP", 0x000b580, 0x000b780 },
-#else
-    { "Captain America P1 CSP (1/2)", 0x000b580, 0x000b680 },
-    { "Captain America P1 CSP (2/2)", 0x000b680, 0x000b780 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Captain America P2 CSP", 0x000b780, 0x000b980 },
-#else
-    { "Captain America P2 CSP (1/2)", 0x000b780, 0x000b880 },
-    { "Captain America P2 CSP (2/2)", 0x000b880, 0x000b980 },
-#endif
-    { "Hulk P1 CSP", 0x000b980, 0x000b9e0 },
-    { "Hulk P2 CSP", 0x000bb80, 0x000bbe0 },
-#if ALLOW_256_COLOR_PALETTES
-    { "Iron Man P1 CSP", 0x000bd80, 0x000bf00 },
-#else
-    { "Iron Man P1 CSP (1/2)", 0x000bd80, 0x000be80 },
-    { "Iron Man P1 CSP (2/2)", 0x000be80, 0x000bf00 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Iron Man P2 CSP", 0x000bf80, 0x000c100 },
-#else
-    { "Iron Man P2 CSP (1/2)", 0x000bf80, 0x000c080 },
-    { "Iron Man P2 CSP (2/2)", 0x000c080, 0x000c100 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Wolverine P1 CSP", 0x000c180, 0x000c360 },
-#else
-    { "Wolverine P1 CSP (1/2)", 0x000c180, 0x000c280 },
-    { "Wolverine P1 CSP (2/2)", 0x000c280, 0x000c360 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Wolverine P2 CSP", 0x000c380, 0x000c560 },
-#else
-    { "Wolverine P2 CSP (1/2)", 0x000c380, 0x000c480 },
-    { "Wolverine P2 CSP (2/2)", 0x000c480, 0x000c560 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Psylocke P1 CSP", 0x000c580, 0x000c6a0 },
-#else
-    { "Psylocke P1 CSP (1/2)", 0x000c580, 0x000c680 },
-    { "Psylocke P1 CSP (2/2)", 0x000c680, 0x000c6a0 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Psylocke P2 CSP", 0x000c780, 0x000c8a0 },
-#else
-    { "Psylocke P2 CSP (1/2)", 0x000c780, 0x000c880 },
-    { "Psylocke P2 CSP (2/2)", 0x000c880, 0x000c8a0 },
-#endif
-    { "Blackheart P1 CSP", 0x000c980, 0x000c9c0 },
-    { "Blackheart P2 CSP", 0x000cb80, 0x000cbc0 },
-    { "Shuma-Gorath P1 CSP", 0x000cd80, 0x000ce80 },
-    { "Shuma-Gorath P2 CSP", 0x000cf80, 0x000d080 },
-    { "Juggernaut P1 CSP", 0x000d180, 0x000d280 },
-    { "Juggernaut P2 CSP", 0x000d380, 0x000d480 },
-#if ALLOW_256_COLOR_PALETTES
-    { "Magneto P1 CSP", 0x000d580, 0x000d780 },
-#else
-    { "Magneto P1 CSP (1/2)", 0x000d580, 0x000d680 },
-    { "Magneto P1 CSP (2/2)", 0x000d680, 0x000d780 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Magneto P2 CSP", 0x000d780, 0x000d980 },
-#else
-    { "Magneto P2 CSP (1/2)", 0x000d780, 0x000d880 },
-    { "Magneto P2 CSP (2/2)", 0x000d880, 0x000d980 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Dr. Doom P1 CSP", 0x000d980, 0x000db60 },
-#else
-    { "Dr. Doom P1 CSP (1/2)", 0x000d980, 0x000da80 },
-    { "Dr. Doom P1 CSP (2/2)", 0x000da80, 0x000db60 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Dr. Doom P2 CSP", 0x000db80, 0x000dd60 },
-#else
-    { "Dr. Doom P2 CSP (1/2)", 0x000db80, 0x000dc80 },
-    { "Dr. Doom P2 CSP (2/2)", 0x000dc80, 0x000dd60 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Thanos P1 CSP", 0x000dd80, 0x000df80 },
-#else
-    { "Thanos P1 CSP (1/2)", 0x000dd80, 0x000de80 },
-    { "Thanos P1 CSP (2/2)", 0x000de80, 0x000df80 },
-#endif
-#if ALLOW_256_COLOR_PALETTES
-    { "Thanos P2 CSP", 0x000df80, 0x000e180 },
-#else
-    { "Thanos P2 CSP (1/2)", 0x000df80, 0x000e080 },
-    { "Thanos P2 CSP (2/2)", 0x000e080, 0x000e180 },
-#endif
+    { "Spider-Man P1 CSP",      0x000b180, 0x000b300, indexCPS2_Spidey, indexCSP2Images_MSH_CSPs },
+    { "Spider-Man P2 CSP",      0x000b380, 0x000b500, indexCPS2_Spidey, indexCSP2Images_MSH_CSPs },
+    { "Captain America P1 CSP", 0x000b580, 0x000b780, indexCPS2_CapAm, indexCSP2Images_MSH_CSPs },
+    { "Captain America P2 CSP", 0x000b780, 0x000b980, indexCPS2_CapAm, indexCSP2Images_MSH_CSPs },
+    { "Hulk P1 CSP",            0x000b980, 0x000b9e0, indexCPS2_Hulk, indexCSP2Images_MSH_CSPs },
+    { "Hulk P2 CSP",            0x000bb80, 0x000bbe0, indexCPS2_Hulk, indexCSP2Images_MSH_CSPs },
+    { "Iron Man P1 CSP",        0x000bd80, 0x000bf00, indexCPS2_IronMan, indexCSP2Images_MSH_CSPs },
+    { "Iron Man P2 CSP",        0x000bf80, 0x000c100, indexCPS2_IronMan, indexCSP2Images_MSH_CSPs },
+    { "Wolverine P1 CSP",       0x000c180, 0x000c360, indexCPS2_Wolverine, indexCSP2Images_MSH_CSPs },
+    { "Wolverine P2 CSP",       0x000c380, 0x000c560, indexCPS2_Wolverine, indexCSP2Images_MSH_CSPs },
+    { "Psylocke P1 CSP",        0x000c580, 0x000c6a0, indexCPS2_Psylocke, indexCSP2Images_MSH_CSPs },
+    { "Psylocke P2 CSP",        0x000c780, 0x000c8a0, indexCPS2_Psylocke, indexCSP2Images_MSH_CSPs },
+    { "Blackheart P1 CSP",      0x000c980, 0x000c9c0, indexCPS2_Blackheart, indexCSP2Images_MSH_CSPs },
+    { "Blackheart P2 CSP",      0x000cb80, 0x000cbc0, indexCPS2_Blackheart, indexCSP2Images_MSH_CSPs },
+    { "Shuma-Gorath P1 CSP",    0x000cd80, 0x000ce80, indexCPS2_Shuma, indexCSP2Images_MSH_CSPs },
+    { "Shuma-Gorath P2 CSP",    0x000cf80, 0x000d080, indexCPS2_Shuma, indexCSP2Images_MSH_CSPs },
+    { "Juggernaut P1 CSP",      0x000d180, 0x000d280, indexCPS2_Juggy, indexCSP2Images_MSH_CSPs },
+    { "Juggernaut P2 CSP",      0x000d380, 0x000d480, indexCPS2_Juggy, indexCSP2Images_MSH_CSPs },
+    { "Magneto P1 CSP",         0x000d580, 0x000d780, indexCPS2_Magneto, indexCSP2Images_MSH_CSPs },
+    { "Magneto P2 CSP",         0x000d780, 0x000d980, indexCPS2_Magneto, indexCSP2Images_MSH_CSPs },
+    { "Dr. Doom P1 CSP",        0x000d980, 0x000db60, indexCPS2_DrDoom, indexCSP2Images_MSH_CSPs },
+    { "Dr. Doom P2 CSP",        0x000db80, 0x000dd60, indexCPS2_DrDoom, indexCSP2Images_MSH_CSPs },
+    { "Thanos P1 CSP",          0x000dd80, 0x000df80, indexCPS2_Thanos, indexCSP2Images_MSH_CSPs },
+    { "Thanos P2 CSP",          0x000df80, 0x000e180, indexCPS2_Thanos, indexCSP2Images_MSH_CSPs },
 };
 
 const sDescTreeNode MSH_A_BLACKHEART_COLLECTION[] =

@@ -417,6 +417,82 @@ const sGame_PaletteDataset* CGame_SFA3_A::GetSpecificPalette(UINT16 nUnitId, UIN
     return paletteToUse;
 }
 
+UINT16 CGame_SFA3_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+{
+    // Don't use this for Extra palettes.
+    UINT16 nNodeSize = 0;
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sGame_PaletteDataset* paletteSetToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+
+    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+
+        if (nDistanceFromZero < nNodeCount)
+        {
+            nNodeSize = nNodeCount;
+            break;
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+
+    return nNodeSize;
+}
+
+const sDescTreeNode* CGame_SFA3_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+{
+    // Don't use this for Extra palettes.
+    const sDescTreeNode* pCollectionNode = nullptr;
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sGame_PaletteDataset* paletteSetToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+
+    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount;
+
+        if (nUnitId == SFA3_A_EXTRALOC)
+        {
+            nNodeCount = GetExtraCt(nUnitId);
+
+            if (nDistanceFromZero < nNodeCount)
+            {
+                pCollectionNode = nullptr;
+                break;
+            }
+        }
+        else
+        {
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(SFA3_A_UNITS[nUnitId].ChildNodes);
+
+            nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
+
+            if (nDistanceFromZero < nNodeCount)
+            {
+                // We know it's within this group.  Now: is it basic?
+                if (fReturnBasicNodesOnly && (nCollectionIndex < 6)) // 3 sets of P/K Isms
+                {
+                    pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
+                }
+                else
+                {
+                    pCollectionNode = nullptr;
+                }
+
+                break;
+            }
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+
+    return pCollectionNode;
+}
+
 void CGame_SFA3_A::InitDataBuffer()
 {
     pppDataBuffer = new UINT16 * *[nUnitAmt];
@@ -580,15 +656,46 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     if (SFA3_A_EXTRALOC != NodeGet->uUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+        const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
 
         nSrcStart = NodeGet->uPalId;
-        // Right now SFA3 is all six palettes within one node.
-        nSrcAmt = 6;
 
-        while (nSrcStart >= nNodeIncrement)
+        if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
-            // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
-            nSrcStart -= nNodeIncrement;
+            // Right now most of SFA3 is all six palettes within one node.
+            if ((_stricmp(pCurrentNode->szDesc, "Palettes") == 0) &&
+                (NodeGet->uPalId < 6)) // 3 Ism sets of 2 colors each
+            {
+                // For most characters we have the six colors followed by status effects
+                nSrcAmt = 6;
+
+                while (nSrcStart >= nNodeIncrement)
+                {
+                    // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
+                    nSrcStart -= nNodeIncrement;
+                }
+            }
+            else if ((_stricmp(pCurrentNode->szDesc, "X-Ism Punch") == 0) ||
+                     (_stricmp(pCurrentNode->szDesc, "X-Ism Kick") == 0) ||
+                     (_stricmp(pCurrentNode->szDesc, "A-Ism PUnch") == 0) ||
+                     (_stricmp(pCurrentNode->szDesc, "A-Ism Kick") == 0) ||
+                     (_stricmp(pCurrentNode->szDesc, "V-Ism Punch") == 0) ||
+                     (_stricmp(pCurrentNode->szDesc, "V-Ism Kick") == 0))
+            {
+                nSrcAmt = 6;
+                nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+
+                while (nSrcStart >= nNodeIncrement)
+                {
+                    // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
+                    nSrcStart -= nNodeIncrement;
+                }
+            }
+            else
+            {
+                // Status effects and etc have no peer palettes
+                nSrcAmt = 1;
+            }
         }
 
         if (paletteDataSet)
@@ -596,6 +703,12 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
         }
+    }
+    else
+    {
+        // We don't have multisprite export for Extras.
+        nSrcAmt = 1;
+        nNodeIncrement = 1;
     }
 
     if (!fShouldUseAlternateLoadLogic)
