@@ -2019,12 +2019,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_A[] =
     { "Star Platinum Charging Flash A", 0x0336880, 0x0336900, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super A", 0x0410000, 0x0410080, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger A", 0x0410080, 0x0410100, indexJojos51Jotaro, indexJojos51Character_Challenger },
-#ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning A (1/2)", 0x0410100, 0x0410180, indexJojos51Jotaro, indexJojos51Character_SelectWin1, true },
     { "Jotaro Select/Winning A (2/2)", 0x0410180, 0x0410200, indexJojos51Jotaro, indexJojos51Character_SelectWin2, true },
-#else
-    { "Jotaro Select/Winning A", 0x0410100, 0x0410200 },
-#endif
     { "Jotaro Burning A (1/2)", 0x0336480, 0x0336500, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { "Jotaro Burning A (2/2)", 0x0336500, 0x0336580, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { "Jotaro Tech/Zap A (1/2)", 0x0336780, 0x0336800, indexJojos51Jotaro, indexJojos51Character_BurnZap },
@@ -2038,12 +2034,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_B[] =
     { "Star Platinum Charging Flash B", 0x034AD80, 0x034AE00, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super B", 0x0414e00, 0x0414e80, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger B", 0x0414e80, 0x0414f00, indexJojos51Jotaro, indexJojos51Character_Challenger },
-#ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning B (1/2)", 0x0414f00, 0x0414f80, indexJojos51Jotaro, indexJojos51Character_SelectWin1, true },
     { "Jotaro Select/Winning B (2/2)", 0x0414f80, 0x0415000, indexJojos51Jotaro, indexJojos51Character_SelectWin2, true },
-#else
-    { "Jotaro Select/Winning B", 0x0414f00, 0x0415000 },
-#endif
     { "Jotaro Burning B (1/2)", 0x034a980, 0x034aa00, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { "Jotaro Burning B (2/2)", 0x034aa00, 0x034aa80, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { "Jotaro Tech/Zap B (1/2)", 0x034ac80, 0x034ad00, indexJojos51Jotaro, indexJojos51Character_BurnZap },
@@ -2057,12 +2049,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_C[] =
     { "Star Platinum Charging Flash C", 0x035F280, 0x035F300, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super C", 0x0419c00, 0x0419c80, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger C", 0x0419c80, 0x0419d00, indexJojos51Jotaro, indexJojos51Character_Challenger },
-#ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning C (1/2)", 0x0419d00, 0x0419d80, indexJojos51Jotaro, indexJojos51Character_SelectWin1, true },
     { "Jotaro Select/Winning C (2/2)", 0x0419d80, 0x0419e00, indexJojos51Jotaro, indexJojos51Character_SelectWin2, true },
-#else
-    { "Jotaro Select/Winning C", 0x0419d00, 0x0419e00 },
-#endif
     { "Jotaro Burning C (1/2)", 0x035ee80, 0x035ef00, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { "Jotaro Burning C (2/2)", 0x035ef00, 0x035ef80, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { "Jotaro Tech/Zap C (1/2)", 0x035f180, 0x035f200, indexJojos51Jotaro, indexJojos51Character_BurnZap },
@@ -2076,12 +2064,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_S[] =
     { "Star Platinum Charging Flash S", 0x0373780, 0x0373800, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super S", 0x041ea00, 0x041ea80, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger S", 0x041ea80, 0x041eb00, indexJojos51Jotaro, indexJojos51Character_Challenger },
-#ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning S (1/2)", 0x041eb00, 0x041eb80, indexJojos51Jotaro, indexJojos51Character_SelectWin1, true },
     { "Jotaro Select/Winning S (2/2)", 0x041eb80, 0x041ec00, indexJojos51Jotaro, indexJojos51Character_SelectWin2, true },
-#else
-    { "Jotaro Select/Winning S", 0x041eb00, 0x041ec00 },
-#endif
     { "Jotaro Burning S (1/2)", 0x0373380, 0x0373400, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { "Jotaro Burning S (2/2)", 0x0373400, 0x0373480, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { "Jotaro Tech/Zap S (1/2)", 0x0373680, 0x0373700, indexJojos51Jotaro, indexJojos51Character_BurnZap },
@@ -2095,12 +2079,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
     { "Star Platinum Charging Flash Start", 0x0387C80, 0x0387D00, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super Start", 0x0423800, 0x0423880, indexJojos51Jotaro, indexJojos51Character_VsSuper },
     { "Jotaro Challenger Start", 0x0423880, 0x0423900, indexJojos51Jotaro, indexJojos51Character_Challenger },
-#ifndef USE_LARGE_PALETTES
     { "Jotaro Select/Winning Start (1/2)", 0x0423900, 0x0423980, indexJojos51Jotaro, indexJojos51Character_SelectWin1, true },
     { "Jotaro Select/Winning Start (2/2)", 0x0423980, 0x0423a00, indexJojos51Jotaro, indexJojos51Character_SelectWin2, true },
-#else
-    { "Jotaro Select/Winning Start", 0x0423900, 0x0423a00 },
-#endif
     { "Jotaro Burning Start (1/2)", 0x0387880, 0x0387900, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { "Jotaro Burning Start (2/2)", 0x0387900, 0x0387980, indexJojos51Jotaro, indexJojos51Character_BurnZap },
     { "Jotaro Tech/Zap Start (1/2)", 0x0387b80, 0x0387c00, indexJojos51Jotaro, indexJojos51Character_BurnZap },
@@ -2636,97 +2616,93 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_IGGY_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_A[] =
 {
-    { "Alessi & Sethan A", 0x033af00, 0x033af80 },
-    { "Alessi A Wave Attack", 0x033b780, 0x033b7c0 },
-    { "Alessi Tech/Zap/CC A (1/2)", 0x033b280, 0x033b300 },
-    { "Alessi Tech/Zap/CC A (2/2)", 0x033b300, 0x033b380 },
-    { "Alessi Winpose A", 0x033b800, 0x033b880 },
-    { "Alessi Vs / Super A", 0x0411200, 0x0411280 },
-    { "Alessi Challenger A", 0x0411280, 0x0411300 },
-#ifndef USE_LARGE_PALETTES
-    { "Alessi Select / Winning A (1/2)", 0x0411300, 0x0411380 },
-    { "Alessi Select / Winning A (2/2)", 0x0411380, 0x0411400 },
-#else
-    { "Alessi Select / Winning A", 0x0411300, 0x0411400 },
-#endif
-    { "Alessi Burning A (1/2)", 0x033af80, 0x033b000 },
-    { "Alessi Burning A (2/2)", 0x033b000, 0x033b080 },
+    { "Alessi & Sethan A", 0x033af00, 0x033af80, indexJojos51Alessi },
+    { "Alessi A Wave Attack", 0x033b780, 0x033b7c0, indexJojos51Alessi },
+    { "Alessi Tech/Zap/CC A (1/2)", 0x033b280, 0x033b300, indexJojos51Alessi },
+    { "Alessi Tech/Zap/CC A (2/2)", 0x033b300, 0x033b380, indexJojos51Alessi },
+    { "Alessi Winpose A", 0x033b800, 0x033b880, indexJojos51Alessi },
+    { "Alessi Vs / Super A", 0x0411200, 0x0411280, indexJojos51Alessi, indexJojos51Character_VsSuper },
+    { "Alessi Challenger A", 0x0411280, 0x0411300, indexJojos51Alessi, indexJojos51Character_Challenger },
+    { "Alessi Select / Winning A (1/2)", 0x0411300, 0x0411380, indexJojos51Alessi, indexJojos51Character_SelectWin1 },
+    { "Alessi Select / Winning A (2/2)", 0x0411380, 0x0411400, indexJojos51Alessi, indexJojos51Character_SelectWin2 },
+    { "Alessi Burning A (1/2)", 0x033af80, 0x033b000, indexJojos51Alessi, indexJojos51Character_BurnZap },
+    { "Alessi Burning A (2/2)", 0x033b000, 0x033b080, indexJojos51Alessi, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_B[] =
 {
-    { "Alessi & Sethan B", 0x034f400, 0x034f480 },
+    { "Alessi & Sethan B", 0x034f400, 0x034f480, indexJojos51Alessi },
     { "Alessi B Wave Attack", 0x034fc80, 0x034fcc0 },
     { "Alessi Tech/Zap/CC B (1/2)", 0x034f780, 0x034f800 },
     { "Alessi Tech/Zap/CC B (2/2)", 0x034f800, 0x034f880 },
     { "Alessi Winpose B", 0x034fd00, 0x034fd80 },
-    { "Alessi Vs / Super B", 0x0416000, 0x0416080 },
-    { "Alessi Challenger B", 0x0416080, 0x0416100 },
+    { "Alessi Vs / Super B", 0x0416000, 0x0416080, indexJojos51Alessi, indexJojos51Character_VsSuper },
+    { "Alessi Challenger B", 0x0416080, 0x0416100, indexJojos51Alessi, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Alessi Select / Winning B (1/2)", 0x0416100, 0x0416180 },
-    { "Alessi Select / Winning B (2/2)", 0x0416180, 0x0416200 },
+    { "Alessi Select / Winning B (1/2)", 0x0416100, 0x0416180, indexJojos51Alessi, indexJojos51Character_SelectWin1 },
+    { "Alessi Select / Winning B (2/2)", 0x0416180, 0x0416200, indexJojos51Alessi, indexJojos51Character_SelectWin2 },
 #else
     { "Alessi Select / Winning B", 0x0416100, 0x0416200 },
 #endif
-    { "Alessi Burning B (1/2)", 0x034f480, 0x034f500 },
-    { "Alessi Burning B (2/2)", 0x034f500, 0x034f580 },
+    { "Alessi Burning B (1/2)", 0x034f480, 0x034f500, indexJojos51Alessi, indexJojos51Character_BurnZap },
+    { "Alessi Burning B (2/2)", 0x034f500, 0x034f580, indexJojos51Alessi, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_C[] =
 {
-    { "Alessi & Sethan C", 0x0363900, 0x0363980 },
+    { "Alessi & Sethan C", 0x0363900, 0x0363980, indexJojos51Alessi },
     { "Alessi C Wave Attack", 0x0364180, 0x03641c0 },
     { "Alessi Tech/Zap/CC C (1/2)", 0x0363c80, 0x0363d00 },
     { "Alessi Tech/Zap/CC C (2/2)", 0x0363d00, 0x0363d80 },
     { "Alessi Winpose C", 0x0364200, 0x0364280 },
-    { "Alessi Vs / Super C", 0x041ae00, 0x041ae80 },
-    { "Alessi Challenger C", 0x041ae80, 0x041af00 },
+    { "Alessi Vs / Super C", 0x041ae00, 0x041ae80, indexJojos51Alessi, indexJojos51Character_VsSuper },
+    { "Alessi Challenger C", 0x041ae80, 0x041af00, indexJojos51Alessi, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Alessi Select / Winning C (1/2)", 0x041af00, 0x041af80 },
-    { "Alessi Select / Winning C (2/2)", 0x041af80, 0x041b000 },
+    { "Alessi Select / Winning C (1/2)", 0x041af00, 0x041af80, indexJojos51Alessi, indexJojos51Character_SelectWin1 },
+    { "Alessi Select / Winning C (2/2)", 0x041af80, 0x041b000, indexJojos51Alessi, indexJojos51Character_SelectWin2 },
 #else
     { "Alessi Select / Winning C", 0x041af00, 0x041b000 },
 #endif
-    { "Alessi Burning C (1/2)", 0x0363980, 0x0363a00 },
-    { "Alessi Burning C (2/2)", 0x0363a00, 0x0363a80 },
+    { "Alessi Burning C (1/2)", 0x0363980, 0x0363a00, indexJojos51Alessi, indexJojos51Character_BurnZap },
+    { "Alessi Burning C (2/2)", 0x0363a00, 0x0363a80, indexJojos51Alessi, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_S[] =
 {
-    { "Alessi & Sethan S", 0x0377e00, 0x0377e80 },
+    { "Alessi & Sethan S", 0x0377e00, 0x0377e80, indexJojos51Alessi },
     { "Alessi S Wave Attack", 0x0378680, 0x03786c0 },
     { "Alessi Tech/Zap/CC S (1/2)", 0x0378180, 0x0378200 },
     { "Alessi Tech/Zap/CC S (2/2)", 0x0378200, 0x0378280 },
     { "Alessi Winpose S", 0x0378700, 0x0378780 },
-    { "Alessi Vs / Super S", 0x041fc00, 0x041fc80 },
-    { "Alessi Challenger S", 0x041fc80, 0x041fd00 },
+    { "Alessi Vs / Super S", 0x041fc00, 0x041fc80, indexJojos51Alessi, indexJojos51Character_VsSuper },
+    { "Alessi Challenger S", 0x041fc80, 0x041fd00, indexJojos51Alessi, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Alessi Select / Winning S (1/2)", 0x041fd00, 0x041fd80 },
-    { "Alessi Select / Winning S (2/2)", 0x041fd80, 0x041fe00 },
+    { "Alessi Select / Winning S (1/2)", 0x041fd00, 0x041fd80, indexJojos51Alessi, indexJojos51Character_SelectWin1 },
+    { "Alessi Select / Winning S (2/2)", 0x041fd80, 0x041fe00, indexJojos51Alessi, indexJojos51Character_SelectWin2 },
 #else
     { "Alessi Select / Winning S", 0x041fd00, 0x041fe00 },
 #endif
-    { "Alessi Burning S (1/2)", 0x0377e80, 0x0377f00 },
-    { "Alessi Burning S (2/2)", 0x0377f00, 0x0377f80 },
+    { "Alessi Burning S (1/2)", 0x0377e80, 0x0377f00, indexJojos51Alessi, indexJojos51Character_BurnZap },
+    { "Alessi Burning S (2/2)", 0x0377f00, 0x0377f80, indexJojos51Alessi, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_ALESSI_Start[] =
 {
-    { "Alessi & Sethan Start", 0x038c300, 0x038c380 },
+    { "Alessi & Sethan Start", 0x038c300, 0x038c380, indexJojos51Alessi },
     { "Alessi Start Wave Attack", 0x038cb80, 0x038cbc0 },
     { "Alessi Tech/Zap/CC Start (1/2)", 0x038c680, 0x038c700 },
     { "Alessi Tech/Zap/CC Start (2/2)", 0x038c700, 0x038c780 },
     { "Alessi Winpose Start", 0x038cc00, 0x038cc80 },
-    { "Alessi Vs / Super Start", 0x0424a00, 0x0424a80 },
-    { "Alessi Challenger Start", 0x0424a80, 0x0424b00 },
+    { "Alessi Vs / Super Start", 0x0424a00, 0x0424a80, indexJojos51Alessi, indexJojos51Character_VsSuper },
+    { "Alessi Challenger Start", 0x0424a80, 0x0424b00, indexJojos51Alessi, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Alessi Select / Winning Start (1/2)", 0x0424b00, 0x0424b80 },
-    { "Alessi Select / Winning Start (2/2)", 0x0424b80, 0x0424c00 },
+    { "Alessi Select / Winning Start (1/2)", 0x0424b00, 0x0424b80, indexJojos51Alessi, indexJojos51Character_SelectWin1 },
+    { "Alessi Select / Winning Start (2/2)", 0x0424b80, 0x0424c00, indexJojos51Alessi, indexJojos51Character_SelectWin2 },
 #else
     { "Alessi Select / Winning Start", 0x0424b00, 0x0424c00 },
 #endif
-    { "Alessi Burning Start (1/2)", 0x038c380, 0x038c400 },
-    { "Alessi Burning Start (2/2)", 0x038c400, 0x038c480 },
+    { "Alessi Burning Start (1/2)", 0x038c380, 0x038c400, indexJojos51Alessi, indexJojos51Character_BurnZap },
+    { "Alessi Burning Start (2/2)", 0x038c400, 0x038c480, indexJojos51Alessi, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_A[] =
@@ -2796,97 +2772,97 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_CHAKA_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_A[] =
 {
-    { "Devo & Ebony Devil A", 0x033c800, 0x033c880 },
-    { "Ebony Devil Stand Off A", 0x033cf00, 0x033cf80 },
-    { "Ebony Stand On Transition A", 0x033ce00, 0x033ce80 },
-    { "Ebony Super Trail A (1/3)", 0x033d100, 0x033d180 },
-    { "Ebony Super Trail A (2/3)", 0x033d180, 0x033d200 },
-    { "Ebony Super Trail A (3/3)", 0x033d200, 0x033d280 },
-    { "Devo Intro Stuff A", 0x033d400, 0x033d480 },
-    { "Devo Vs / Super A", 0x0411800, 0x0411880 },
-    { "Devo Challenger A", 0x0411880, 0x0411900 },
-    { "Devo Select / Winning A (1/2)", 0x0411900, 0x0411980 },
-    { "Devo Select / Winning A (2/2)", 0x0411980, 0x0411a00 },
-    { "Devo & Ebony Devil Burning A (1/2)", 0x033c880, 0x033c900 },
-    { "Devo & Ebony Devil Burning A (2/2)", 0x033c900, 0x033c980 },
-    { "Devo Tech/Zap A (1/2)", 0x033cb80, 0x033cc00 },
-    { "Devo Tech/Zap A (2/2)", 0x033cc00, 0x033cc80 },
+    { "Devo & Ebony Devil A", 0x033c800, 0x033c880, indexJojos51Devo },
+    { "Ebony Devil Stand Off A", 0x033cf00, 0x033cf80, indexJojos51Devo, 2 },
+    { "Ebony Stand On Transition A", 0x033ce00, 0x033ce80, indexJojos51Devo, 2 },
+    { "Ebony Super Trail A (1/3)", 0x033d100, 0x033d180, indexJojos51Devo, 2 },
+    { "Ebony Super Trail A (2/3)", 0x033d180, 0x033d200, indexJojos51Devo, 2 },
+    { "Ebony Super Trail A (3/3)", 0x033d200, 0x033d280, indexJojos51Devo, 2 },
+    { "Devo Intro Stuff A", 0x033d400, 0x033d480, indexJojos51Devo, 1 },
+    { "Devo Vs / Super A", 0x0411800, 0x0411880, indexJojos51Devo, indexJojos51Character_VsSuper },
+    { "Devo Challenger A", 0x0411880, 0x0411900, indexJojos51Devo, indexJojos51Character_Challenger },
+    { "Devo Select / Winning A (1/2)", 0x0411900, 0x0411980, indexJojos51Devo, indexJojos51Character_SelectWin1, true },
+    { "Devo Select / Winning A (2/2)", 0x0411980, 0x0411a00, indexJojos51Devo, indexJojos51Character_SelectWin2, true },
+    { "Devo & Ebony Devil Burning A (1/2)", 0x033c880, 0x033c900, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo & Ebony Devil Burning A (2/2)", 0x033c900, 0x033c980, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo Tech/Zap A (1/2)", 0x033cb80, 0x033cc00, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo Tech/Zap A (2/2)", 0x033cc00, 0x033cc80, indexJojos51Devo, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_B[] =
 {
-    { "Devo & Ebony Devil B", 0x0350d00, 0x0350d80 },
-    { "Ebony Devil Stand Off B", 0x0351400, 0x0351480 },
-    { "Ebony Stand On Transition B", 0x0351300, 0x0351380 },
-    { "Ebony Super Trail B (1/3)", 0x0351600, 0x0351680 },
-    { "Ebony Super Trail B (2/3)", 0x0351680, 0x0351700 },
-    { "Ebony Super Trail B (3/3)", 0x0351700, 0x0351780 },
-    { "Devo Intro Stuff B", 0x0351900, 0x0351980 },
-    { "Devo Vs / Super B", 0x0416600, 0x0416680 },
-    { "Devo Challenger B", 0x0416680, 0x0416700 },
-    { "Devo Select / Winning B (1/2)", 0x0416700, 0x0416780 },
-    { "Devo Select / Winning B (2/2)", 0x0416780, 0x0416800 },
-    { "Devo & Ebony Devil Burning B (1/2)", 0x0350d80, 0x0350e00 },
-    { "Devo & Ebony Devil Burning B (2/2)", 0x0350e00, 0x0350e80 },
-    { "Devo Tech/Zap B (1/2)", 0x0351080, 0x0351100 },
-    { "Devo Tech/Zap B (2/2)", 0x0351100, 0x0351180 },
+    { "Devo & Ebony Devil B", 0x0350d00, 0x0350d80, indexJojos51Devo },
+    { "Ebony Devil Stand Off B", 0x0351400, 0x0351480, indexJojos51Devo, 2 },
+    { "Ebony Stand On Transition B", 0x0351300, 0x0351380, indexJojos51Devo, 2 },
+    { "Ebony Super Trail B (1/3)", 0x0351600, 0x0351680, indexJojos51Devo, 2 },
+    { "Ebony Super Trail B (2/3)", 0x0351680, 0x0351700, indexJojos51Devo, 2 },
+    { "Ebony Super Trail B (3/3)", 0x0351700, 0x0351780, indexJojos51Devo, 2 },
+    { "Devo Intro Stuff B", 0x0351900, 0x0351980, indexJojos51Devo, 1 },
+    { "Devo Vs / Super B", 0x0416600, 0x0416680, indexJojos51Devo, indexJojos51Character_VsSuper },
+    { "Devo Challenger B", 0x0416680, 0x0416700, indexJojos51Devo, indexJojos51Character_Challenger },
+    { "Devo Select / Winning B (1/2)", 0x0416700, 0x0416780, indexJojos51Devo, indexJojos51Character_SelectWin1, true },
+    { "Devo Select / Winning B (2/2)", 0x0416780, 0x0416800, indexJojos51Devo, indexJojos51Character_SelectWin2, true },
+    { "Devo & Ebony Devil Burning B (1/2)", 0x0350d80, 0x0350e00, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo & Ebony Devil Burning B (2/2)", 0x0350e00, 0x0350e80, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo Tech/Zap B (1/2)", 0x0351080, 0x0351100, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo Tech/Zap B (2/2)", 0x0351100, 0x0351180, indexJojos51Devo, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_C[] =
 {
-    { "Devo & Ebony Devil C", 0x0365200, 0x0365280 },
-    { "Ebony Devil Stand Off C", 0x0365900, 0x0365980 },
-    { "Ebony Stand On Transition C", 0x0365800, 0x0365880 },
-    { "Ebony Super Trail C (1/3)", 0x0365b00, 0x0365b80 },
-    { "Ebony Super Trail C (2/3)", 0x0365b80, 0x0365c00 },
-    { "Ebony Super Trail C (3/3)", 0x0365c00, 0x0365c80 },
-    { "Devo Intro Stuff C", 0x0365e00, 0x0365e80 },
-    { "Devo Vs / Super C", 0x041b400, 0x041b480 },
-    { "Devo Challenger C", 0x041b480, 0x041b500 },
-    { "Devo Select / Winning C (1/2)", 0x041b500, 0x041b580 },
-    { "Devo Select / Winning C (2/2)", 0x041b580, 0x041b600 },
-    { "Devo & Ebony Devil Burning C (1/2)", 0x0365280, 0x0365300 },
-    { "Devo & Ebony Devil Burning C (2/2)", 0x0365300, 0x0365380 },
-    { "Devo Tech/Zap C (1/2)", 0x0365580, 0x0365600 },
-    { "Devo Tech/Zap C (2/2)", 0x0365600, 0x0365680 },
+    { "Devo & Ebony Devil C", 0x0365200, 0x0365280, indexJojos51Devo },
+    { "Ebony Devil Stand Off C", 0x0365900, 0x0365980, indexJojos51Devo, 2 },
+    { "Ebony Stand On Transition C", 0x0365800, 0x0365880, indexJojos51Devo, 2 },
+    { "Ebony Super Trail C (1/3)", 0x0365b00, 0x0365b80, indexJojos51Devo, 2 },
+    { "Ebony Super Trail C (2/3)", 0x0365b80, 0x0365c00, indexJojos51Devo, 2 },
+    { "Ebony Super Trail C (3/3)", 0x0365c00, 0x0365c80, indexJojos51Devo, 2 },
+    { "Devo Intro Stuff C", 0x0365e00, 0x0365e80, indexJojos51Devo, 1 },
+    { "Devo Vs / Super C", 0x041b400, 0x041b480, indexJojos51Devo, indexJojos51Character_VsSuper },
+    { "Devo Challenger C", 0x041b480, 0x041b500, indexJojos51Devo, indexJojos51Character_Challenger },
+    { "Devo Select / Winning C (1/2)", 0x041b500, 0x041b580, indexJojos51Devo, indexJojos51Character_SelectWin1, true },
+    { "Devo Select / Winning C (2/2)", 0x041b580, 0x041b600, indexJojos51Devo, indexJojos51Character_SelectWin2, true },
+    { "Devo & Ebony Devil Burning C (1/2)", 0x0365280, 0x0365300, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo & Ebony Devil Burning C (2/2)", 0x0365300, 0x0365380, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo Tech/Zap C (1/2)", 0x0365580, 0x0365600, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo Tech/Zap C (2/2)", 0x0365600, 0x0365680, indexJojos51Devo, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_S[] =
 {
-    { "Devo & Ebony Devil S", 0x0379700, 0x0379780 },
-    { "Ebony Devil Stand Off S", 0x0379e00, 0x0379e80 },
-    { "Ebony Stand On Transition S", 0x0379d00, 0x0379d80 },
-    { "Ebony Super Trail S (1/3)", 0x037a000, 0x037a080 },
-    { "Ebony Super Trail S (2/3)", 0x037a080, 0x037a100 },
-    { "Ebony Super Trail S (3/3)", 0x037a100, 0x037a180 },
-    { "Devo Intro Stuff S", 0x037a300, 0x037a380 },
-    { "Devo Vs / Super S", 0x0420200, 0x0420280 },
-    { "Devo Challenger S", 0x0420280, 0x0420300 },
-    { "Devo Select / Winning S (1/2)", 0x0420300, 0x0420380 },
-    { "Devo Select / Winning S (2/2)", 0x0420380, 0x0420400 },
-    { "Devo & Ebony Devil Burning S (1/2)", 0x0379780, 0x0379800 },
-    { "Devo & Ebony Devil Burning S (2/2)", 0x0379800, 0x0379880 },
-    { "Devo Tech/Zap S (1/2)", 0x0379a80, 0x0379b00 },
-    { "Devo Tech/Zap S (2/2)", 0x0379b00, 0x0379b80 },
+    { "Devo & Ebony Devil S", 0x0379700, 0x0379780, indexJojos51Devo },
+    { "Ebony Devil Stand Off S", 0x0379e00, 0x0379e80, indexJojos51Devo, 2 },
+    { "Ebony Stand On Transition S", 0x0379d00, 0x0379d80, indexJojos51Devo, 2 },
+    { "Ebony Super Trail S (1/3)", 0x037a000, 0x037a080, indexJojos51Devo, 2 },
+    { "Ebony Super Trail S (2/3)", 0x037a080, 0x037a100, indexJojos51Devo, 2 },
+    { "Ebony Super Trail S (3/3)", 0x037a100, 0x037a180, indexJojos51Devo, 2 },
+    { "Devo Intro Stuff S", 0x037a300, 0x037a380, indexJojos51Devo, 1 },
+    { "Devo Vs / Super S", 0x0420200, 0x0420280, indexJojos51Devo, indexJojos51Character_VsSuper },
+    { "Devo Challenger S", 0x0420280, 0x0420300, indexJojos51Devo, indexJojos51Character_Challenger },
+    { "Devo Select / Winning S (1/2)", 0x0420300, 0x0420380, indexJojos51Devo, indexJojos51Character_SelectWin1, true },
+    { "Devo Select / Winning S (2/2)", 0x0420380, 0x0420400, indexJojos51Devo, indexJojos51Character_SelectWin2, true },
+    { "Devo & Ebony Devil Burning S (1/2)", 0x0379780, 0x0379800, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo & Ebony Devil Burning S (2/2)", 0x0379800, 0x0379880, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo Tech/Zap S (1/2)", 0x0379a80, 0x0379b00, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo Tech/Zap S (2/2)", 0x0379b00, 0x0379b80, indexJojos51Devo, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEVOEBONY_Start[] =
 {
-    { "Devo & Ebony Devil Start", 0x038dc00, 0x038dc80 },
-    { "Ebony Devil Stand Off Start", 0x038e300, 0x038e380 },
-    { "Ebony Stand On Transition Start", 0x038e200, 0x038e280 },
-    { "Ebony Super Trail Start (1/3)", 0x038e500, 0x038e580 },
-    { "Ebony Super Trail Start (2/3)", 0x038e580, 0x038e600 },
-    { "Ebony Super Trail Start (3/3)", 0x038e600, 0x038e680 },
-    { "Devo Intro Stuff Start", 0x038e800, 0x038e880 },
-    { "Devo Vs / Super Start", 0x0425000, 0x0425080 },
-    { "Devo Challenger Start", 0x0425080, 0x0425100 },
-    { "Devo Select / Winning Start (1/2)", 0x0425100, 0x0425180 },
-    { "Devo Select / Winning Start (2/2)", 0x0425180, 0x0425200 },
-    { "Devo & Ebony Devil Burning Star (1/2)", 0x038dc80, 0x038dd00 }, 
-    { "Devo & Ebony Devil Burning Star (2/2)", 0x038dd00, 0x038dd80 }, 
-    { "Devo Tech/Zap Start (1/2)", 0x038df80, 0x038e000 },
-    { "Devo Tech/Zap Start (2/2)", 0x038e000, 0x038e080 },
+    { "Devo & Ebony Devil Start", 0x038dc00, 0x038dc80, indexJojos51Devo },
+    { "Ebony Devil Stand Off Start", 0x038e300, 0x038e380, indexJojos51Devo, 2 },
+    { "Ebony Stand On Transition Start", 0x038e200, 0x038e280, indexJojos51Devo, 2 },
+    { "Ebony Super Trail Start (1/3)", 0x038e500, 0x038e580, indexJojos51Devo, 2 },
+    { "Ebony Super Trail Start (2/3)", 0x038e580, 0x038e600, indexJojos51Devo, 2 },
+    { "Ebony Super Trail Start (3/3)", 0x038e600, 0x038e680, indexJojos51Devo, 2 },
+    { "Devo Intro Stuff Start", 0x038e800, 0x038e880, indexJojos51Devo, 1 },
+    { "Devo Vs / Super Start", 0x0425000, 0x0425080, indexJojos51Devo, indexJojos51Character_VsSuper },
+    { "Devo Challenger Start", 0x0425080, 0x0425100, indexJojos51Devo, indexJojos51Character_Challenger },
+    { "Devo Select / Winning Start (1/2)", 0x0425100, 0x0425180, indexJojos51Devo, indexJojos51Character_SelectWin1, true },
+    { "Devo Select / Winning Start (2/2)", 0x0425180, 0x0425200, indexJojos51Devo, indexJojos51Character_SelectWin2, true },
+    { "Devo & Ebony Devil Burning Start (1/2)", 0x038dc80, 0x038dd00, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo & Ebony Devil Burning Start (2/2)", 0x038dd00, 0x038dd80, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo Tech/Zap Start (1/2)", 0x038df80, 0x038e000, indexJojos51Devo, indexJojos51Character_BurnZap },
+    { "Devo Tech/Zap Start (2/2)", 0x038e000, 0x038e080, indexJojos51Devo, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_A[] =
@@ -3221,82 +3197,82 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_YJOSEPH_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_A[] =
 {
-    { "Hol Horse A", 0x0342c00, 0x0342c80, 0x0D, 0x00 },
+    { "Hol Horse A", 0x0342c00, 0x0342c80, indexJojos51Hol, 0x00 },
     { "Hol's Super Bullets A", 0x0343556, 0x0343560 },
     { "Hol's Slow-mo Bullet Trail 1 A", 0x03435d6, 0x03435e0 },
     { "Hol's Slow-mo Bullet Trail 2 A", 0x0343656, 0x0343660 },
-    { "Hol's Intro/Winpose Stuff+Boingo A", 0x0343480, 0x0343500, 0x0D, 0x03 },
-    { "Hol Horse Vs / Super A", 0x0413000, 0x0413080, 0x0D, 0x04 },
-    { "Hol Horse Challenger A", 0x0413080, 0x0413100, 0x0D, 0x05 },
-    { "Hol Horse Select / Winning A", 0x0413100, 0x0413180, 0x0D, 0x06 },
-    { "Hol Horse Burning A (1/2)", 0x0342c80, 0x0342d00, 0x0D, 0x07 },
-    { "Hol Horse Burning A (2/2)", 0x0342d00, 0x0342d80, 0x0D, 0x07 },
-    { "Hol Horse Tech/Zap A (1/2)", 0x0342f80, 0x0343000, 0x0D, 0x07 },
-    { "Hol Horse Tech/Zap A (2/2)", 0x0343000, 0x0343080, 0x0D, 0x07 },
+    { "Hol's Intro/Winpose Stuff+Boingo A", 0x0343480, 0x0343500, indexJojos51Hol, 0x03 },
+    { "Hol Horse Vs / Super A", 0x0413000, 0x0413080, indexJojos51Hol, 0x04 },
+    { "Hol Horse Challenger A", 0x0413080, 0x0413100, indexJojos51Hol, 0x05 },
+    { "Hol Horse Select / Winning A", 0x0413100, 0x0413180, indexJojos51Hol, 0x06 },
+    { "Hol Horse Burning A (1/2)", 0x0342c80, 0x0342d00, indexJojos51Hol, 0x07 },
+    { "Hol Horse Burning A (2/2)", 0x0342d00, 0x0342d80, indexJojos51Hol, 0x07 },
+    { "Hol Horse Tech/Zap A (1/2)", 0x0342f80, 0x0343000, indexJojos51Hol, 0x07 },
+    { "Hol Horse Tech/Zap A (2/2)", 0x0343000, 0x0343080, indexJojos51Hol, 0x07 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_B[] =
 {
-    { "Hol Horse B", 0x0357100, 0x0357180, 0x0D, 0x00 },
+    { "Hol Horse B", 0x0357100, 0x0357180, indexJojos51Hol, 0x00 },
     { "Hol's Super Bullets B", 0x0357a56, 0x0357a60 },
     { "Hol's Slow-mo Bullet Trail 1 B", 0x0357ad6, 0x0357ae0 },
     { "Hol's Slow-mo Bullet Trail 2 B", 0x0357b56, 0x0357b60 },
-    { "Hol's Intro/Winpose Stuff+Boingo B", 0x0357980, 0x0357a00, 0x0D, 0x03 },
-    { "Hol Horse Vs / Super B", 0x0417e00, 0x0417e80, 0x0D, 0x04 },
-    { "Hol Horse Challenger B", 0x0417e80, 0x0417f00, 0x0D, 0x05 },
-    { "Hol Horse Select / Winning B", 0x0417f00, 0x0417f80, 0x0D, 0x06 },
-    { "Hol Horse Burning B (1/2)", 0x0357180, 0x0357200, 0x0D, 0x07 },
-    { "Hol Horse Burning B (2/2)", 0x0357200, 0x0357280, 0x0D, 0x07 },
-    { "Hol Horse Tech/Zap B (1/2)", 0x0357480, 0x0357500, 0x0D, 0x07 },
-    { "Hol Horse Tech/Zap B (2/2)", 0x0357500, 0x0357580, 0x0D, 0x07 },
+    { "Hol's Intro/Winpose Stuff+Boingo B", 0x0357980, 0x0357a00, indexJojos51Hol, 0x03 },
+    { "Hol Horse Vs / Super B", 0x0417e00, 0x0417e80, indexJojos51Hol, 0x04 },
+    { "Hol Horse Challenger B", 0x0417e80, 0x0417f00, indexJojos51Hol, 0x05 },
+    { "Hol Horse Select / Winning B", 0x0417f00, 0x0417f80, indexJojos51Hol, 0x06 },
+    { "Hol Horse Burning B (1/2)", 0x0357180, 0x0357200, indexJojos51Hol, 0x07 },
+    { "Hol Horse Burning B (2/2)", 0x0357200, 0x0357280, indexJojos51Hol, 0x07 },
+    { "Hol Horse Tech/Zap B (1/2)", 0x0357480, 0x0357500, indexJojos51Hol, 0x07 },
+    { "Hol Horse Tech/Zap B (2/2)", 0x0357500, 0x0357580, indexJojos51Hol, 0x07 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_C[] =
 {
-    { "Hol Horse C", 0x036b600, 0x036b680, 0x0D, 0x00 },
+    { "Hol Horse C", 0x036b600, 0x036b680, indexJojos51Hol, 0x00 },
     { "Hol's Super Bullets C", 0x036bf56, 0x036bf60 },
     { "Hol's Slow-mo Bullet Trail 1 C", 0x036bfd6, 0x036bfe0 },
     { "Hol's Slow-mo Bullet Trail 2 C", 0x036c056, 0x036c060 },
-    { "Hol's Intro/Winpose Stuff+Boingo C", 0x036be80, 0x036bf00, 0x0D, 0x03 },
-    { "Hol Horse Vs / Super C", 0x041cc00, 0x041cc80, 0x0D, 0x04 },
-    { "Hol Horse Challenger C", 0x041cc80, 0x041cd00, 0x0D, 0x05 },
-    { "Hol Horse Select / Winning C", 0x041cd00, 0x041cd80, 0x0D, 0x06 },
-    { "Hol Horse Burning C (1/2)", 0x036b680, 0x036b700, 0x0D, 0x07 },
-    { "Hol Horse Burning C (2/2)", 0x036b700, 0x036b780, 0x0D, 0x07 },
-    { "Hol Horse Tech/Zap C (1/2)", 0x036b980, 0x036ba00, 0x0D, 0x07 },
-    { "Hol Horse Tech/Zap C (2/2)", 0x036ba00, 0x036ba80, 0x0D, 0x07 },
+    { "Hol's Intro/Winpose Stuff+Boingo C", 0x036be80, 0x036bf00, indexJojos51Hol, 0x03 },
+    { "Hol Horse Vs / Super C", 0x041cc00, 0x041cc80, indexJojos51Hol, 0x04 },
+    { "Hol Horse Challenger C", 0x041cc80, 0x041cd00, indexJojos51Hol, 0x05 },
+    { "Hol Horse Select / Winning C", 0x041cd00, 0x041cd80, indexJojos51Hol, 0x06 },
+    { "Hol Horse Burning C (1/2)", 0x036b680, 0x036b700, indexJojos51Hol, 0x07 },
+    { "Hol Horse Burning C (2/2)", 0x036b700, 0x036b780, indexJojos51Hol, 0x07 },
+    { "Hol Horse Tech/Zap C (1/2)", 0x036b980, 0x036ba00, indexJojos51Hol, 0x07 },
+    { "Hol Horse Tech/Zap C (2/2)", 0x036ba00, 0x036ba80, indexJojos51Hol, 0x07 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_S[] =
 {
-    { "Hol Horse S", 0x037fb00, 0x037fb80, 0x0D, 0x00 },
+    { "Hol Horse S", 0x037fb00, 0x037fb80, indexJojos51Hol, 0x00 },
     { "Hol's Super Bullets S", 0x0380456, 0x0380460 },
     { "Hol's Slow-mo Bullet Trail 1 S", 0x03804d6, 0x03804e0 },
     { "Hol's Slow-mo Bullet Trail 2 S", 0x0380556, 0x0380560 },
-    { "Hol's Intro/Winpose Stuff+Boingo S", 0x0380380, 0x0380400, 0x0D, 0x03 },
-    { "Hol Horse Vs / Super S", 0x0421a00, 0x0421a80, 0x0D, 0x04 },
-    { "Hol Horse Challenger S", 0x0421a80, 0x0421b00, 0x0D, 0x05 },
-    { "Hol Horse Select / Winning S", 0x0421b00, 0x0421b80, 0x0D, 0x06 },
-    { "Hol Horse Burning S (1/2)", 0x037fb80, 0x037fc00, 0x0D, 0x07 },
-    { "Hol Horse Burning S (2/2)", 0x037fc00, 0x037fc80, 0x0D, 0x07 },
-    { "Hol Horse Tech/Zap S (1/2)", 0x037fe80, 0x037ff00, 0x0D, 0x07 },
-    { "Hol Horse Tech/Zap S (2/2)", 0x037ff00, 0x037ff80, 0x0D, 0x07 },
+    { "Hol's Intro/Winpose Stuff+Boingo S", 0x0380380, 0x0380400, indexJojos51Hol, 0x03 },
+    { "Hol Horse Vs / Super S", 0x0421a00, 0x0421a80, indexJojos51Hol, 0x04 },
+    { "Hol Horse Challenger S", 0x0421a80, 0x0421b00, indexJojos51Hol, 0x05 },
+    { "Hol Horse Select / Winning S", 0x0421b00, 0x0421b80, indexJojos51Hol, 0x06 },
+    { "Hol Horse Burning S (1/2)", 0x037fb80, 0x037fc00, indexJojos51Hol, 0x07 },
+    { "Hol Horse Burning S (2/2)", 0x037fc00, 0x037fc80, indexJojos51Hol, 0x07 },
+    { "Hol Horse Tech/Zap S (1/2)", 0x037fe80, 0x037ff00, indexJojos51Hol, 0x07 },
+    { "Hol Horse Tech/Zap S (2/2)", 0x037ff00, 0x037ff80, indexJojos51Hol, 0x07 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOL_Start[] =
 {
-    { "Hol Horse Start", 0x0394000, 0x0394080, 0x0D, 0x00 },
+    { "Hol Horse Start", 0x0394000, 0x0394080, indexJojos51Hol, 0x00 },
     { "Hol's Super Bullets Start", 0x0394956, 0x0394960 },
     { "Hol's Slow-mo Bullet Trail 1 Start", 0x03949d6, 0x03949e0 },
     { "Hol's Slow-mo Bullet Trail 2 Start", 0x0394a56, 0x0394a60 },
-    { "Hol's Intro/Winpose Stuff+Boingo Start", 0x0394880, 0x0394900, 0x0D, 0x03 },
-    { "Hol Horse Vs / Super Start", 0x0426800, 0x0426880, 0x0D, 0x04 },
-    { "Hol Horse Challenger Start", 0x0426880, 0x0426900, 0x0D, 0x05 },
-    { "Hol Horse Select / Winning Screen Start", 0x0426900, 0x0426980, 0x0D, 0x06 },
-    { "Hol Horse Burning Start (1/2)", 0x0394080, 0x0394100, 0x0D, 0x07 },
-    { "Hol Horse Burning Start (2/2)", 0x0394100, 0x0394180, 0x0D, 0x07 },
-    { "Hol Horse Tech/Zap Start (1/2)", 0x0394380, 0x0394400, 0x0D, 0x07 },
-    { "Hol Horse Tech/Zap Start (2/2)", 0x0394400, 0x0394480, 0x0D, 0x07 },
+    { "Hol's Intro/Winpose Stuff+Boingo Start", 0x0394880, 0x0394900, indexJojos51Hol, 0x03 },
+    { "Hol Horse Vs / Super Start", 0x0426800, 0x0426880, indexJojos51Hol, 0x04 },
+    { "Hol Horse Challenger Start", 0x0426880, 0x0426900, indexJojos51Hol, 0x05 },
+    { "Hol Horse Select / Winning Screen Start", 0x0426900, 0x0426980, indexJojos51Hol, 0x06 },
+    { "Hol Horse Burning Start (1/2)", 0x0394080, 0x0394100, indexJojos51Hol, 0x07 },
+    { "Hol Horse Burning Start (2/2)", 0x0394100, 0x0394180, indexJojos51Hol, 0x07 },
+    { "Hol Horse Tech/Zap Start (1/2)", 0x0394380, 0x0394400, indexJojos51Hol, 0x07 },
+    { "Hol Horse Tech/Zap Start (2/2)", 0x0394400, 0x0394480, indexJojos51Hol, 0x07 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_A[] =
@@ -3662,102 +3638,82 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_SHOP_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_A[] =
 {
-    { "Mariah A", 0x0347700, 0x0347780 },
-    { "Old Woman A", 0x0347f80, 0x0348000 },
-#ifndef USE_LARGE_PALETTES
-    { "Mariah Winpose Stuff A (1/2)", 0x0348000, 0x0348080 },
-    { "Mariah Winpose Stuff A (2/2)", 0x0348080, 0x0348100 },
-#else
-    { "Mariah Winpose Stuff A", 0x0348000, 0x0348100 },
-#endif
-    { "Mariah's Bastet A", 0x0348100, 0x0348180 },
-    { "Mariah Vs / Super A", 0x0414200, 0x0414280 },
-    { "Mariah Challenger A", 0x0414280, 0x0414300 },
-    { "Mariah Select / Winning A", 0x0414300, 0x0414380 },
-    { "Mariah Burning A (1/2)", 0x0347780, 0x0347800 },
-    { "Mariah Burning A (2/2)", 0x0347800, 0x0347880 },
-    { "Mariah Tech/Zap A (1/2)", 0x0347a80, 0x0347b00 },
-    { "Mariah Tech/Zap A (2/2)", 0x0347b00, 0x0347b80 },
+    { "Mariah A", 0x0347700, 0x0347780, indexJojos51Mariah },
+    { "Old Woman A", 0x0347f80, 0x0348000, indexJojos51Mariah, 6 },
+    { "Mariah Winpose Stuff A (1/2)", 0x0348000, 0x0348080, indexJojos51Mariah, 1 },
+    { "Mariah Winpose Stuff A (2/2)", 0x0348080, 0x0348100, indexJojos51Mariah, 2 },
+    { "Mariah's Bastet A", 0x0348100, 0x0348180, indexJojos51Mariah, 8 },
+    { "Mariah Vs / Super A", 0x0414200, 0x0414280, indexJojos51Mariah, indexJojos51Character_VsSuper },
+    { "Mariah Challenger A", 0x0414280, 0x0414300, indexJojos51Mariah, indexJojos51Character_Challenger },
+    { "Mariah Select / Winning A", 0x0414300, 0x0414380, indexJojos51Mariah, indexJojos51Character_SelectWin1 },
+    { "Mariah Burning A (1/2)", 0x0347780, 0x0347800, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Burning A (2/2)", 0x0347800, 0x0347880, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Tech/Zap A (1/2)", 0x0347a80, 0x0347b00, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Tech/Zap A (2/2)", 0x0347b00, 0x0347b80, indexJojos51Mariah, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_B[] =
 {
-    { "Mariah B", 0x035bc00, 0x035bc80 },
-    { "Old Woman B", 0x035c480, 0x035c500 },
-#ifndef USE_LARGE_PALETTES
-    { "Mariah Winpose Stuff B (1/2)", 0x035c500, 0x035c580 },
-    { "Mariah Winpose Stuff B (2/2)", 0x035c580, 0x035c600 },
-#else
-    { "Mariah Winpose Stuff B", 0x035c500, 0x035c600 },
-#endif
-    { "Mariah's Bastet B", 0x035c600, 0x035c680 },
-    { "Mariah Vs / Super B", 0x0419000, 0x0419080 },
-    { "Mariah Challenger B", 0x0419080, 0x0419100 },
-    { "Mariah Select / Winning B", 0x0419100, 0x0419180 },
-    { "Mariah Burning B (1/2)", 0x035bc80, 0x035bd00 },
-    { "Mariah Burning B (2/2)", 0x035bd00, 0x035bd80 },
-    { "Mariah Tech/Zap B (1/2)", 0x035bf80, 0x035c000 },
-    { "Mariah Tech/Zap B (2/2)", 0x035c000, 0x035c080 },
+    { "Mariah B", 0x035bc00, 0x035bc80, indexJojos51Mariah },
+    { "Old Woman B", 0x035c480, 0x035c500, indexJojos51Mariah, 6 },
+    { "Mariah Winpose Stuff B (1/2)", 0x035c500, 0x035c580, indexJojos51Mariah, 1 },
+    { "Mariah Winpose Stuff B (2/2)", 0x035c580, 0x035c600, indexJojos51Mariah, 2 },
+    { "Mariah's Bastet B", 0x035c600, 0x035c680, indexJojos51Mariah, 8 },
+    { "Mariah Vs / Super B", 0x0419000, 0x0419080, indexJojos51Mariah, indexJojos51Character_VsSuper },
+    { "Mariah Challenger B", 0x0419080, 0x0419100, indexJojos51Mariah, indexJojos51Character_Challenger },
+    { "Mariah Select / Winning B", 0x0419100, 0x0419180, indexJojos51Mariah, indexJojos51Character_SelectWin1 },
+    { "Mariah Burning B (1/2)", 0x035bc80, 0x035bd00, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Burning B (2/2)", 0x035bd00, 0x035bd80, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Tech/Zap B (1/2)", 0x035bf80, 0x035c000, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Tech/Zap B (2/2)", 0x035c000, 0x035c080, indexJojos51Mariah, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_C[] =
 {
-    { "Mariah C", 0x0370100, 0x0370180 },
-    { "Old Woman C", 0x0370980, 0x0370a00 },
-#ifndef USE_LARGE_PALETTES
-    { "Mariah Winpose Stuff C (1/2)", 0x0370a00, 0x0370a80 },
-    { "Mariah Winpose Stuff C (2/2)", 0x0370a80, 0x0370b00 },
-#else
-    { "Mariah Winpose Stuff C", 0x0370a00, 0x0370b00 },
-#endif
-    { "Mariah's Bastet C", 0x0370b00, 0x0370b80 },
-    { "Mariah Vs / Super C", 0x041de00, 0x041de80 },
-    { "Mariah Challenger C", 0x041de80, 0x041df00 },
-    { "Mariah Select / Winning C", 0x041df00, 0x041df80 },
-    { "Mariah Burning C (1/2)", 0x0370180, 0x0370200 },
-    { "Mariah Burning C (2/2)", 0x0370200, 0x0370280 },
-    { "Mariah Tech/Zap C (1/2)", 0x0370480, 0x0370500 },
-    { "Mariah Tech/Zap C (2/2)", 0x0370500, 0x0370580 },
+    { "Mariah C", 0x0370100, 0x0370180, indexJojos51Mariah },
+    { "Old Woman C", 0x0370980, 0x0370a00, indexJojos51Mariah, 6 },
+    { "Mariah Winpose Stuff C (1/2)", 0x0370a00, 0x0370a80, indexJojos51Mariah, 1 },
+    { "Mariah Winpose Stuff C (2/2)", 0x0370a80, 0x0370b00, indexJojos51Mariah, 2 },
+    { "Mariah's Bastet C", 0x0370b00, 0x0370b80, indexJojos51Mariah, 8 },
+    { "Mariah Vs / Super C", 0x041de00, 0x041de80, indexJojos51Mariah, indexJojos51Character_VsSuper },
+    { "Mariah Challenger C", 0x041de80, 0x041df00, indexJojos51Mariah, indexJojos51Character_Challenger },
+    { "Mariah Select / Winning C", 0x041df00, 0x041df80, indexJojos51Mariah, indexJojos51Character_SelectWin1 },
+    { "Mariah Burning C (1/2)", 0x0370180, 0x0370200, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Burning C (2/2)", 0x0370200, 0x0370280, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Tech/Zap C (1/2)", 0x0370480, 0x0370500, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Tech/Zap C (2/2)", 0x0370500, 0x0370580, indexJojos51Mariah, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_S[] =
 {
-    { "Mariah S", 0x0384600, 0x0384680 },
-    { "Old Woman S", 0x0384e80, 0x0384f00 },
-#ifndef USE_LARGE_PALETTES
-    { "Mariah Winpose Stuff S (1/2)", 0x0384f00, 0x0384f80 },
-    { "Mariah Winpose Stuff S (2/2)", 0x0384f80, 0x0385000 },
-#else
-    { "Mariah Winpose Stuff S", 0x0384f00, 0x0385000 },
-#endif
-    { "Mariah's Bastet S", 0x0385000, 0x0385080 },
-    { "Mariah Vs / Super S", 0x0422c00, 0x0422c80 },
-    { "Mariah Challenger S", 0x0422c80, 0x0422d00 },
-    { "Mariah Select / Winning S", 0x0422d00, 0x0422d80 },
-    { "Mariah Burning S (1/2)", 0x0384680, 0x0384700 },
-    { "Mariah Burning S (2/2)", 0x0384700, 0x0384780 },
-    { "Mariah Tech/Zap S (1/2)", 0x0384980, 0x0384a00 },
-    { "Mariah Tech/Zap S (2/2)", 0x0384a00, 0x0384a80 },
+    { "Mariah S", 0x0384600, 0x0384680, indexJojos51Mariah },
+    { "Old Woman S", 0x0384e80, 0x0384f00, indexJojos51Mariah, 6 },
+    { "Mariah Winpose Stuff S (1/2)", 0x0384f00, 0x0384f80, indexJojos51Mariah, 1 },
+    { "Mariah Winpose Stuff S (2/2)", 0x0384f80, 0x0385000, indexJojos51Mariah, 2 },
+    { "Mariah's Bastet S", 0x0385000, 0x0385080, indexJojos51Mariah, 8 },
+    { "Mariah Vs / Super S", 0x0422c00, 0x0422c80, indexJojos51Mariah, indexJojos51Character_VsSuper },
+    { "Mariah Challenger S", 0x0422c80, 0x0422d00, indexJojos51Mariah, indexJojos51Character_Challenger },
+    { "Mariah Select / Winning S", 0x0422d00, 0x0422d80, indexJojos51Mariah, indexJojos51Character_SelectWin1 },
+    { "Mariah Burning S (1/2)", 0x0384680, 0x0384700, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Burning S (2/2)", 0x0384700, 0x0384780, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Tech/Zap S (1/2)", 0x0384980, 0x0384a00, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Tech/Zap S (2/2)", 0x0384a00, 0x0384a80, indexJojos51Mariah, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_Start[] =
 {
-    { "Mariah Start", 0x0398b00, 0x0398b80 },
-    { "Old Woman Start", 0x0399380, 0x0399400 },
-#ifndef USE_LARGE_PALETTES
-    { "Mariah Winpose Stuff Start (1/2)", 0x0399400, 0x0399480 },
-    { "Mariah Winpose Stuff Start (2/2)", 0x0399480, 0x0399500 },
-#else
-    { "Mariah Winpose Stuff Start", 0x0399400, 0x0399500 },
-#endif
-    { "Mariah's Bastet Start", 0x0399500, 0x0399580 },
-    { "Mariah Vs / Super Start", 0x0427a00, 0x0427a80 },
-    { "Mariah Challenger Start", 0x0427a80, 0x0427b00 },
-    { "Mariah Select / Winning Start", 0x0427b00, 0x0427b80 },
-    { "Mariah Burning Start (1/2)", 0x0398b80, 0x0398c00 },
-    { "Mariah Burning Start (2/2)", 0x0398c00, 0x0398c80 },
-    { "Mariah Tech/Zap Start (1/2)", 0x0398e80, 0x0398f00 },
-    { "Mariah Tech/Zap Start (2/2)", 0x0398f00, 0x0398f80 },
+    { "Mariah Start", 0x0398b00, 0x0398b80, indexJojos51Mariah },
+    { "Old Woman Start", 0x0399380, 0x0399400, indexJojos51Mariah, 6 },
+    { "Mariah Winpose Stuff Start (1/2)", 0x0399400, 0x0399480, indexJojos51Mariah, 1 },
+    { "Mariah Winpose Stuff Start (2/2)", 0x0399480, 0x0399500, indexJojos51Mariah, 2 },
+    { "Mariah's Bastet Start", 0x0399500, 0x0399580, indexJojos51Mariah, 8 },
+    { "Mariah Vs / Super Start", 0x0427a00, 0x0427a80, indexJojos51Mariah, indexJojos51Character_VsSuper },
+    { "Mariah Challenger Start", 0x0427a80, 0x0427b00, indexJojos51Mariah, indexJojos51Character_Challenger },
+    { "Mariah Select / Winning Start", 0x0427b00, 0x0427b80, indexJojos51Mariah, indexJojos51Character_SelectWin1 },
+    { "Mariah Burning Start (1/2)", 0x0398b80, 0x0398c00, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Burning Start (2/2)", 0x0398c00, 0x0398c80, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Tech/Zap Start (1/2)", 0x0398e80, 0x0398f00, indexJojos51Mariah, indexJojos51Character_BurnZap },
+    { "Mariah Tech/Zap Start (2/2)", 0x0398f00, 0x0398f80, indexJojos51Mariah, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_A[] =

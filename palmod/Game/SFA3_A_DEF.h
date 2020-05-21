@@ -40,6 +40,7 @@ enum Supported_SFA3_PaletteListIndex
     index_SFA3_Karin,
     index_SFA3_Juni,
     index_SFA3_Juli,
+    index_SFA3_Bonus,
     index_SFA3_Last
 };
 
@@ -77,6 +78,7 @@ const UINT8 SFA3_A_UNITSORT[SFA3_A_NUM_IND + 1] = // Plus 1 for the extra palett
     index_SFA3_Sodom,
     index_SFA3_Vega,
     index_SFA3_Zangief,
+    index_SFA3_Bonus,
    
     SFA3_A_EXTRALOC // Extra palettes
 };
@@ -390,37 +392,37 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_PALETTES[] =
 const sGame_PaletteDataset SFA3_A_ROSE_XISMP[] =
 {
     { "X-Ism Punch", 0x02E294, 0x02E2B4, indexCPS2_Rose },
-    { "X-ism Punch Dress Winpose", 0x4ae14, 0x4ae34 },
+    { "X-ism Punch Dress Winpose", 0x4ae14, 0x4ae34, indexCPS2_Rose, 1 },
 };
 
 const sGame_PaletteDataset SFA3_A_ROSE_XISMK[] =
 {
     { "X-Ism Kick",  0x02E334, 0x02E354, indexCPS2_Rose },
-    { "X-ism Kick Dress Winpose", 0x4ae34, 0x4ae54 },
+    { "X-ism Kick Dress Winpose", 0x4ae34, 0x4ae54, indexCPS2_Rose, 1 },
 };
 
 const sGame_PaletteDataset SFA3_A_ROSE_AISMP[] =
 {
     { "A-Ism Punch", 0x02E3D4, 0x02E3F4, indexCPS2_Rose },
-    { "A-ism Punch Dress Winpose", 0x4ae54, 0x4ae74 },
+    { "A-ism Punch Dress Winpose", 0x4ae54, 0x4ae74, indexCPS2_Rose, 1 },
 };
 
 const sGame_PaletteDataset SFA3_A_ROSE_AISMK[] =
 {
     { "A-Ism Kick", 0x02E474, 0x02E494, indexCPS2_Rose },
-    { "A-ism Kick Dress Winpose", 0x4ae74, 0x4ae94 },
+    { "A-ism Kick Dress Winpose", 0x4ae74, 0x4ae94, indexCPS2_Rose, 1 },
 };
 
 const sGame_PaletteDataset SFA3_A_ROSE_VISMP[] =
 {
     { "V-Ism Punch", 0x02E514, 0x02E534, indexCPS2_Rose },
-    { "V-ism Punch Dress Winpose", 0x4ae94, 0x4aeb4 },
+    { "V-ism Punch Dress Winpose", 0x4ae94, 0x4aeb4, indexCPS2_Rose, 1 },
 };
 
 const sGame_PaletteDataset SFA3_A_ROSE_VISMK[] =
 {
     { "V-Ism Kick",  0x02E5B4, 0x02E5D4, indexCPS2_Rose },
-    { "V-ism Kick Dress Winpose", 0x4aeb4, 0x4aed4 },
+    { "V-ism Kick Dress Winpose", 0x4aeb4, 0x4aed4, indexCPS2_Rose, 1 },
 };
     
 const sGame_PaletteDataset SFA3_A_ROSE_STATUS[] =
@@ -1061,6 +1063,27 @@ const sGame_PaletteDataset SFA3_A_JULI_PALETTES[] =
     { "V-Ism Shadows 2E", 0x37c34 + 0x2e0, 0x37c34 + 0x300, 0x4D },
 };
 
+const sGame_PaletteDataset SFA3_A_STAGES_AKUMA_NODE[] =
+{
+    { "Akuma Stg FG", 0x40F34, 0x41014 },
+    { "Akuma Stg FG Glow 1", 0x62A54, 0x62A74 },
+    { "Akuma Stg FG Glow 2", 0x62A74, 0x62A94 },
+    { "Akuma Stg MidBG", 0x47CD4, 0x47CF4 },
+    { "Akuma Stg FarBG", 0x3C814, 0x3C8D4 },
+    { "Akuma Stg FarBG Glow 1", 0x61394, 0x613B4 },
+    { "Akuma Stg FarBG Glow 2", 0x613B4, 0x613D4 },
+    { "Akuma Stg Candles LS 1", 0x4C554, 0x4C574 },
+    { "Akuma Stg Candles LS 2",0x4C594, 0x4C5B4 },
+    { "Akuma Stg Candles RS 1", 0x4C574, 0x4C594 },
+    { "Akuma Stg Candles RS 2", 0x4C5B4, 0x4C5D4 },
+    { "Akuma Stg Candle Wall Glow", 0x385B4, 0x385D4 },
+    { "Akuma Stg (HangTagsMidBG / Shadow)", 0x38614, 0x38634 },
+    { "Akuma Stg Unknown Sprites 1", 0x38574, 0x38594 },
+    { "Akuma Stg Unknown Sprites 2", 0x38594, 0x385B4 },
+    { "Akuma Stg Unknown Sprites 3", 0x385D4, 0x385F4 },
+    { "Akuma Stg Unknown Sprites 4", 0x385F4, 0x38614 },
+};
+
 const sDescTreeNode SFA3_A_RYU_COLLECTION[] =
 {
     { "Palettes", DESC_NODETYPE_TREE, (void*)SFA3_A_RYU_PALETTES,       ARRAYSIZE(SFA3_A_RYU_PALETTES) },
@@ -1207,6 +1230,11 @@ const sDescTreeNode SFA3_A_JULI_COLLECTION[] =
     { "Palettes", DESC_NODETYPE_TREE, (void*)SFA3_A_JULI_PALETTES,      ARRAYSIZE(SFA3_A_JULI_PALETTES) },
 };
 
+const sDescTreeNode SFA3_A_BONUS_COLLECTION[] =
+{
+    { "Akuma Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_AKUMA_NODE, ARRAYSIZE(SFA3_A_STAGES_AKUMA_NODE) },
+};
+
 const sDescTreeNode SFA3_A_UNITS[SFA3_A_NUM_IND] =
 {
     { "Adon",            DESC_NODETYPE_TREE, (void*)SFA3_A_ADON_COLLECTION,          ARRAYSIZE(SFA3_A_ADON_COLLECTION) },
@@ -1237,6 +1265,7 @@ const sDescTreeNode SFA3_A_UNITS[SFA3_A_NUM_IND] =
     { "Sodom",           DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_COLLECTION,         ARRAYSIZE(SFA3_A_SODOM_COLLECTION) },
     { "Vega",            DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_COLLECTION,          ARRAYSIZE(SFA3_A_VEGA_COLLECTION) },
     { "Zangief",         DESC_NODETYPE_TREE, (void*)SFA3_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA3_A_ZANGIEF_COLLECTION) },
+    { "Bonus Stuff",     DESC_NODETYPE_TREE, (void*)SFA3_A_BONUS_COLLECTION,         ARRAYSIZE(SFA3_A_BONUS_COLLECTION) },
 };
 
 // We extend this array with data groveled from the SFA3e.txt extensible extras file, if any.
