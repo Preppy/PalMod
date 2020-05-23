@@ -91,7 +91,9 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
             CString strError;
             static bool s_fAlreadyShown = false;
             // You can either slice the palette or add separators so that PalGroup can handle page divisions
-            strError.Format("ERROR: Our color table can only show %u colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n", nMaximumColorsPerPage);
+            // You can easily have separators added for you automatically by using the new ::CreateDefPal logic
+            // that is already in use for SFA3 and MSH
+            strError.Format("ERROR: Our color table can only show %u colors, but this palette wants %u colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n", nMaximumColorsPerPage, nNewAmt);
             OutputDebugString(strError);
             if (!s_fAlreadyShown)
             {

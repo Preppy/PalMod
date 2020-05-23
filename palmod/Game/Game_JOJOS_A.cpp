@@ -982,8 +982,11 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         ((NodeGet->uUnitId == indexJojos51Jotaro) ||
                          (NodeGet->uUnitId == indexJojos51Avdol) ||
                          (NodeGet->uUnitId == indexJojos51Joseph) ||
+                         (NodeGet->uUnitId == indexJojos51Alessi) ||
                          (NodeGet->uUnitId == indexJojos51Dio) ||
                          (NodeGet->uUnitId == indexJojos51Devo) ||
+                         (NodeGet->uUnitId == indexJojos51VIce) ||
+                         (NodeGet->uUnitId == indexJojos51Anubis) ||
                          (NodeGet->uUnitId == indexJojos51Petshop) ||
                          (NodeGet->uUnitId == indexJojos51Midler) ||
                          (NodeGet->uUnitId == indexJojos51Iggy)))

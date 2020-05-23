@@ -57,7 +57,7 @@ constexpr auto MSHVSF_A_IMGSTART = MSH_A_IMGSTART + MSH_A_UNIQUE_IMG_UNITS;  // 
 constexpr auto MVC2_D_NUM_IMG_UNITS = 59;
 constexpr auto SSF2T_A_NUM_IMG_UNITS = 17;
 constexpr auto SFIII3_A_NUM_IMG_UNITS = 20;
-constexpr auto SFA3_A_NUM_IMG_UNITS = 28;
+constexpr auto SFA3_A_NUM_IMG_UNITS = 29;
 constexpr auto MVC_A_NUM_IMG_UNITS = 32;
 
 //Display types (used for image out)
@@ -295,7 +295,8 @@ const UINT8 SFA3_A_IMG_UNITS[SFA3_A_NUM_IMG_UNITS] =
     0x4A, // Vega
     0x4B, // Karin
     0x4C, // Juni
-    0x4D  // Juli
+    0x4D,  // Juli
+    0x4E, // SFA3-unique bonus assets
 };
 
 const UINT8 XMVSF_A_IMG_UNITS[] =
@@ -514,21 +515,20 @@ enum SPECIFIC_GAME_SPRITESETS
 
 const UINT8 COTA_A_IMG_UNITS[] =
 {
-    indexCPS2_Cyclops,
-    indexCPS2_Wolverine,
-    indexCPS2_Psylocke,
-    indexCPS2_Iceman,
-    indexCPS2_Akuma,
-    indexCPS2_Juggy,
-    indexCPS2_Storm,
-    indexCPS2_Sabretooth,
-    indexCPS2_Magneto,
-    indexCPS2_SilverSamurai,
-    indexCPS2_OmegaRed,
-    indexCPS2_Spiral,
     indexCPS2_Colossus,
+    indexCPS2_Cyclops,
+    indexCPS2_Iceman,
+    indexCPS2_Juggy,
+    indexCPS2_Magneto,
+    indexCPS2_OmegaRed,
+    indexCPS2_Psylocke,
     indexCPS2_Sentinel,
-    indexCPS2_STAkuma, 
+    indexCPS2_SilverSamurai,
+    indexCPS2_Spiral,
+    indexCPS2_Storm,
+    indexCPS2_Wolverine,
+    indexCPS2_Akuma,
+    indexCPS2_STAkuma,
     indexCPS2_COTAAssets,
 };
 
@@ -561,6 +561,8 @@ enum JOJOS_51_CHARACTERS
     indexJojos51NDoul,
     indexJojos51BIce,
     indexJojos51Death13, // 0x18
+    indexJojos51Timestop,
+    indexJojos51Bonus,
 };
 
 enum JOJOS_51_CHARACTER_PALETTES
@@ -601,6 +603,8 @@ const UINT8 JOJOS_A_IMG_UNITS[] =
     indexJojos51NDoul,
     indexJojos51BIce,
     indexJojos51Death13, // 0x18
+    indexJojos51Timestop,
+    indexJojos51Bonus,
 };
 
 const int JOJOS_A_NUM_IMG_UNITS = ARRAYSIZE(JOJOS_A_IMG_UNITS);
@@ -615,7 +619,7 @@ enum eIMGDat_Sections
 
 // IMG4 ranges:
 //  * MVC2: 0x3b character units
-//  * SFA3: 0x11 character units
+//  * SFA3: 0x11 character units + bonus unit
 //  * XMVSF: 0x1 character unit (Apocalypse)
 //  * MvC: 0x1 character unit (Onslaught)
 

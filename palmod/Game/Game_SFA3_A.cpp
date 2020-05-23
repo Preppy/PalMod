@@ -2,6 +2,7 @@
 #include "Game_SFA3_A.h"
 #include "GameDef.h"
 #include "..\PalMod.h"
+#include "..\RegProc.h"
 
 #define SFA3_DEBUG DEFAULT_GAME_DEBUG_STATE
 
@@ -18,7 +19,7 @@ CGame_SFA3_A::CGame_SFA3_A(void)
 
     m_nTotalInternalUnits = SFA3_A_NUM_IND;
     m_nExtraUnit = SFA3_A_EXTRALOC;
-    m_nSafeCountForThisRom = 863 + GetExtraCt(SFA3_A_EXTRALOC);
+    m_nSafeCountForThisRom = 879 + GetExtraCt(SFA3_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SFA3;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
     m_nLowestKnownPaletteRomLocation = 0x2C000;
@@ -613,11 +614,39 @@ void CGame_SFA3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
+    static DWORD s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
 
     LoadSpecificPaletteData(nUnitId, nPalId);
 
+    const UINT8 nTotalPagesNeeded = (UINT8)ceil(m_nCurrentPaletteSize / s_nColorsPerPage);
+    const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
+
+    if (!fCanFitWithinCurrentPageLayout)
+    {
+        CString strWarning;
+        strWarning.Format("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n", MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
+        OutputDebugString(strWarning);
+    }
+
     BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
-    BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
+
+    if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
+    {
+        CString strPageDescription;
+        const UINT8 nTotalSeparatoresNeeded = (UINT8)ceil(m_nCurrentPaletteSize / s_nColorsPerPage);
+        int nColorsRemaining = m_nCurrentPaletteSize;
+
+        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
+        {
+            strPageDescription.Format("%s (%u/%u)", srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
+            BasePalGroup.AddSep(0, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
+            nColorsRemaining -= s_nColorsPerPage;
+        }
+    }
+    else
+    {
+        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
+    }
 }
 
 BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
@@ -702,6 +731,63 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+            if (paletteDataSet->isJoinedPalette)
+            {
+                int nXOffs = 0, nYOffs = 0;
+                UINT16 nPeerPaletteDistance = 1;
+                UINT16 nPeerPaletteIdInNode = Node03;
+
+                if (paletteDataSet->indexImgToUse == indexCPS2_SFA3Assets)
+                {
+                    if (paletteDataSet->indexOffsetToUse == 0x01) // Waterfall landing
+                    {
+                        nXOffs = 86;
+                        nYOffs = -31;
+                        nPeerPaletteDistance = 4;
+                        nPeerPaletteIdInNode += 4;
+                        fShouldUseAlternateLoadLogic = true;
+                    }
+                    else if (paletteDataSet->indexOffsetToUse == 0x02) // Waterfall stream
+                    {
+                        nXOffs = -86;
+                        nYOffs = 31;
+                        nPeerPaletteDistance = -4;
+                        nPeerPaletteIdInNode -= 4;
+                        fShouldUseAlternateLoadLogic = true;
+                    }
+                }
+
+                UINT16 nPeerPaletteIdInUnit = NodeGet->uPalId + nPeerPaletteDistance;
+
+                if (fShouldUseAlternateLoadLogic)
+                {
+                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nPeerPaletteIdInUnit);
+
+                    if (paletteDataSetToJoin)
+                    {
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            MainDescTree.GetDescNode(NodeGet->uUnitId, Node02, Node03, -1),
+                            MainDescTree.GetDescNode(NodeGet->uUnitId, Node02, nPeerPaletteIdInNode, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                    }
+                }
+            }
+
         }
     }
     else

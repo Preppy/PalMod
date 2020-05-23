@@ -1065,23 +1065,43 @@ const sGame_PaletteDataset SFA3_A_JULI_PALETTES[] =
 
 const sGame_PaletteDataset SFA3_A_STAGES_AKUMA_NODE[] =
 {
-    { "Akuma Stg FG", 0x40F34, 0x41014 },
-    { "Akuma Stg FG Glow 1", 0x62A54, 0x62A74 },
-    { "Akuma Stg FG Glow 2", 0x62A74, 0x62A94 },
-    { "Akuma Stg MidBG", 0x47CD4, 0x47CF4 },
-    { "Akuma Stg FarBG", 0x3C814, 0x3C8D4 },
-    { "Akuma Stg FarBG Glow 1", 0x61394, 0x613B4 },
-    { "Akuma Stg FarBG Glow 2", 0x613B4, 0x613D4 },
-    { "Akuma Stg Candles LS 1", 0x4C554, 0x4C574 },
-    { "Akuma Stg Candles LS 2",0x4C594, 0x4C5B4 },
-    { "Akuma Stg Candles RS 1", 0x4C574, 0x4C594 },
-    { "Akuma Stg Candles RS 2", 0x4C5B4, 0x4C5D4 },
-    { "Akuma Stg Candle Wall Glow", 0x385B4, 0x385D4 },
-    { "Akuma Stg (HangTagsMidBG / Shadow)", 0x38614, 0x38634 },
-    { "Akuma Stg Unknown Sprites 1", 0x38574, 0x38594 },
-    { "Akuma Stg Unknown Sprites 2", 0x38594, 0x385B4 },
-    { "Akuma Stg Unknown Sprites 3", 0x385D4, 0x385F4 },
-    { "Akuma Stg Unknown Sprites 4", 0x385F4, 0x38614 },
+    { "FG", 0x40F34, 0x41014 },
+    { "FG Glow 1", 0x62A54, 0x62A74 },
+    { "FG Glow 2", 0x62A74, 0x62A94 },
+    { "MidBG", 0x47CD4, 0x47CF4 },
+    { "FarBG", 0x3C814, 0x3C8D4 },
+    { "FarBG Glow 1", 0x61394, 0x613B4 },
+    { "FarBG Glow 2", 0x613B4, 0x613D4 },
+    { "Candles LS 1", 0x4C554, 0x4C574 },
+    { "Candles LS 2",0x4C594, 0x4C5B4 },
+    { "Candles RS 1", 0x4C574, 0x4C594 },
+    { "Candles RS 2", 0x4C5B4, 0x4C5D4 },
+    { "Candle Wall Glow", 0x385B4, 0x385D4 },
+    { "(HangTagsMidBG / Shadow)", 0x38614, 0x38634 },
+    { "Unknown Sprites 1", 0x38574, 0x38594 },
+    { "Unknown Sprites 2", 0x38594, 0x385B4 },
+    { "Unknown Sprites 3", 0x385D4, 0x385F4 },
+    { "Unknown Sprites 4", 0x385F4, 0x38614 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_RYU_NODE[] =
+{
+    { "Sunset / Sea", 0x3C4B4, 0x3C4F4, indexCPS2_SFA3Assets, 0 },
+    { "Castle", 0x383F4, 0x38434, indexCPS2_SFA3Assets, 0x03 },
+    { "Forest / Cliff Tree / Waterfall Hill", 0x477F4, 0x47934, indexCPS2_SFA3Assets, 0x04 },
+    { "Waterfall Landing Anim 1", 0x63FB4, 0x63FD4, indexCPS2_SFA3Assets, 0x01, true },
+    { "Waterfall Landing Anim 2", 0x63FD4, 0x63FF4, indexCPS2_SFA3Assets, 0x01, true },
+    { "Waterfall Landing Anim 3", 0x63FF4, 0x64014, indexCPS2_SFA3Assets, 0x01, true },
+    { "Waterfall Landing Anim 4", 0x64014, 0x64034, indexCPS2_SFA3Assets, 0x01, true },
+    { "Waterfall Stream Anim 1", 0x63F34, 0x63F54, indexCPS2_SFA3Assets, 0x02, true },
+    { "Waterfall Stream Anim 2", 0x63F54, 0x63F74, indexCPS2_SFA3Assets, 0x02, true },
+    { "Waterfall Stream Anim 3", 0x63F74, 0x63F94, indexCPS2_SFA3Assets, 0x02, true },
+    { "Waterfall Stream Anim 4", 0x63F94, 0x63FB4, indexCPS2_SFA3Assets, 0x02, true },
+    { "Main Ground / Big Tree Branches", 0x40994, 0x40B34, indexCPS2_SFA3Assets, 0x05 },
+    { "Tree Trunk Right Side", 0x38454, 0x38474, indexCPS2_SFA3Assets, 0x06 },
+    { "Tree Leaves", 0x38474, 0x38494, indexCPS2_SFA3Assets, 0x07 },
+    { "Grass Left Side", 0x38434, 0x38454, indexCPS2_SFA3Assets, 0x08 },
+    { "Fighter Shadow", 0x38494, 0x384B4, indexCPS2_SFA3Assets, 0x09 },
 };
 
 const sDescTreeNode SFA3_A_RYU_COLLECTION[] =
@@ -1233,6 +1253,7 @@ const sDescTreeNode SFA3_A_JULI_COLLECTION[] =
 const sDescTreeNode SFA3_A_BONUS_COLLECTION[] =
 {
     { "Akuma Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_AKUMA_NODE, ARRAYSIZE(SFA3_A_STAGES_AKUMA_NODE) },
+    { "Ryu Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_RYU_NODE, ARRAYSIZE(SFA3_A_STAGES_RYU_NODE) },
 };
 
 const sDescTreeNode SFA3_A_UNITS[SFA3_A_NUM_IND] =
