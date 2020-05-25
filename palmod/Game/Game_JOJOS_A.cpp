@@ -2,6 +2,7 @@
 #include "Game_JOJOS_A.h"
 #include "GameDef.h"
 #include "..\palmod.h"
+#include "..\RegProc.h"
 
 #define JOJOS_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 #define NEED_TO_UPDATE_JOJO_HEADERS 0
@@ -36,7 +37,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
     m_nTotalInternalUnits = UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51;
     m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
 
-    const UINT32 nSafeCountFor50 = 1491;
+    const UINT32 nSafeCountFor50 = 475;
     const UINT32 nSafeCountFor51 = 2099;
 
     m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
@@ -907,11 +908,39 @@ void CGame_JOJOS_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
+    static DWORD s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
 
     LoadSpecificPaletteData(nUnitId, nPalId);
 
+    const UINT8 nTotalPagesNeeded = (UINT8)ceil(m_nCurrentPaletteSize / s_nColorsPerPage);
+    const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
+
+    if (!fCanFitWithinCurrentPageLayout)
+    {
+        CString strWarning;
+        strWarning.Format("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n", MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
+        OutputDebugString(strWarning);
+    }
+
     BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
-    BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
+
+    if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
+    {
+        CString strPageDescription;
+        const UINT8 nTotalSeparatoresNeeded = (UINT8)ceil(m_nCurrentPaletteSize / s_nColorsPerPage);
+        int nColorsRemaining = m_nCurrentPaletteSize;
+
+        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
+        {
+            strPageDescription.Format("%s (%u/%u)", srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
+            BasePalGroup.AddSep(0, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
+            nColorsRemaining -= s_nColorsPerPage;
+        }
+    }
+    else
+    {
+        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
+    }
 }
 
 BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
@@ -1055,7 +1084,6 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         {
                             nPaletteOneDelta = 0;
                             nPaletteTwoDelta = -1;
-
                             fUseDefaultPaletteLoad = false;
                         }
                     }
@@ -1074,8 +1102,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         //Set each palette
                         sDescNode* JoinedNode[2] = {
                             MainDescTree_51.GetDescNode(Node01, Node02, Node03 + nPaletteOneDelta, -1),
-                            MainDescTree_51.GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1) // BUGBUG: There's actually a Hiero we should use in the 00 palette, but
-                                                                                        // we need a new sprite for that to work.
+                            MainDescTree_51.GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1)
                         };
 
                         //Set each palette
