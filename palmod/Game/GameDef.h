@@ -40,18 +40,12 @@ const CHAR g_GameFriendlyName[NUM_GAMES][32] =
 constexpr auto MVC2_D_NUMUNIT = 59;
 constexpr auto SFIII3_A_NUMUNIT = 20;   
 
-constexpr auto MVC_A_UNIQUE_IMG_UNITS = 2;   // Onslaught[3B] + Unique Assets(HUD, Stages, Assists)[3C]
-constexpr auto SFA3_A_UNIQUE_IMG_UNITS = 18; // Unique 17 Characters[3D - 4D] + Unique Assets(HUD, Stages)[4E]
-constexpr auto XMVSF_A_UNIQUE_IMG_UNITS = 2; // Apocalypse[4F] + Unique Assets(HUD, Stages)[50]
-constexpr auto MSH_A_UNIQUE_IMG_UNITS = 2;   // Anita[51] + Unique Assets(HUD, Stages)[52]
+constexpr auto MVC_A_UNIQUE_IMG_UNITS = 2;    // Onslaught[3B] + Unique Assets(HUD, Stages, Assists)[3C]
+constexpr auto SFA3_A_UNIQUE_IMG_UNITS = 18;  // Unique 17 Characters[3D - 4D] + Unique Assets(HUD, Stages)[4E]
+constexpr auto XMVSF_A_UNIQUE_IMG_UNITS = 2;  // Apocalypse[4F] + Unique Assets(HUD, Stages)[50]
+constexpr auto MSH_A_UNIQUE_IMG_UNITS = 2;    // Anita[51] + Unique Assets(HUD, Stages)[52]
 constexpr auto MSHVSF_A_UNIQUE_IMG_UNITS = 3; // Norimaro[53] + Cyber-Akuma[54] + Unique Assets(HUD, Stages)[55]
-constexpr auto COTA_A_UNIQUE_IMG_UNITS = 2; // Unique Assets(HUD, Stages)[56] + ST Akuma[57]
-
-constexpr auto MVC_A_IMGSTART = MVC2_D_NUMUNIT; // MVC2, then MVC1
-constexpr auto SFA3_A_IMGSTART = MVC_A_IMGSTART + MVC_A_UNIQUE_IMG_UNITS;  // MVC1, then SFA3
-constexpr auto XMVSF_A_IMGSTART = SFA3_A_IMGSTART + SFA3_A_UNIQUE_IMG_UNITS; // SFA3, then XMVSF
-constexpr auto MSH_A_IMGSTART = XMVSF_A_IMGSTART + XMVSF_A_UNIQUE_IMG_UNITS; // XMVSF, then MSH
-constexpr auto MSHVSF_A_IMGSTART = MSH_A_IMGSTART + MSH_A_UNIQUE_IMG_UNITS;  // MSH, then MSHVSF
+constexpr auto COTA_A_UNIQUE_IMG_UNITS = 2;   // Unique Assets(HUD, Stages)[56] + ST Akuma[57]
 
 //Images
 constexpr auto MVC2_D_NUM_IMG_UNITS = 59;

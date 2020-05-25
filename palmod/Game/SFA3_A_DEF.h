@@ -1297,37 +1297,3 @@ const stExtraDef SFA3_A_EXTRA[] =
 
     { INVALID_UNIT_VALUE }
 };
-
-/*
-const UINT16 SFA3_A_IMGREDIR[SFA3_A_NUM_IND] =
-{
-    0x00,
-    0x27,
-    0x1E,
-    0x21,
-    SFA3_A_IMGSTART + 0x00,
-    SFA3_A_IMGSTART + 0x01,
-    SFA3_A_IMGSTART + 0x02,
-    SFA3_A_IMGSTART + 0x03,
-    SFA3_A_IMGSTART + 0x04,
-    SFA3_A_IMGSTART + 0x05,
-    0x26,
-    SFA3_A_IMGSTART + 0x06,
-    0x23,
-    0x22,
-    SFA3_A_IMGSTART + 0x07,
-    0x25,
-    0x01,
-    SFA3_A_IMGSTART + 0x08,
-    SFA3_A_IMGSTART + 0x09,
-    0x24,
-    SFA3_A_IMGSTART + 0x0A,
-    SFA3_A_IMGSTART + 0x0B,
-    SFA3_A_IMGSTART + 0x0C,
-    SFA3_A_IMGSTART + 0x0D,
-    SFA3_A_IMGSTART + 0x0E,
-    SFA3_A_IMGSTART + 0x0F,
-    SFA3_A_IMGSTART + 0x10,
-    SFA3_A_IMGSTART + 0x11,  // If you change this array you will want to change gamedef.h's SFA3_A_* values
-};
-// */
