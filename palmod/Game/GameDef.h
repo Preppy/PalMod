@@ -52,7 +52,6 @@ constexpr auto MVC2_D_NUM_IMG_UNITS = 59;
 constexpr auto SSF2T_A_NUM_IMG_UNITS = 17;
 constexpr auto SFIII3_A_NUM_IMG_UNITS = 20;
 constexpr auto SFA3_A_NUM_IMG_UNITS = 29;
-constexpr auto MVC_A_NUM_IMG_UNITS = 32;
 
 //Display types (used for image out)
 enum eDispType
@@ -317,7 +316,7 @@ const UINT8 XMVSF_A_IMG_UNITS[] =
 
 constexpr auto XMVSF_A_NUM_IMG_UNITS = ARRAYSIZE(XMVSF_A_IMG_UNITS);
 
-const UINT8 MVC_A_IMG_UNITS[MVC_A_NUM_IMG_UNITS] =
+const UINT8 MVC_A_IMG_UNITS[] =
 {
     // Main Roster
     0x00, // Ryu
@@ -353,9 +352,10 @@ const UINT8 MVC_A_IMG_UNITS[MVC_A_NUM_IMG_UNITS] =
     0x2C, // Magneto
     0x32, // Colossus
     0x34, // Sentinel
-    0x33, // Iron Man
     0x51, // Anita
 };
+
+constexpr auto MVC_A_NUM_IMG_UNITS = ARRAYSIZE(MVC_A_IMG_UNITS);
 
 enum CHARACTERS_CPS2
 {

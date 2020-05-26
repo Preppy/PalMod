@@ -704,30 +704,30 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_P1[] =
 {
-    { "P1 Color", 0x481c4, 0x481e4, 0x2E },
-    { "P1 Proton Cannon", 0x481e4, 0x48204, 0x33, 1 },  // same sprites as iron man
-    { "P1 Proton Laser", 0x48204, 0x48224, 0x33, 2 },
+    { "P1 Color", 0x481c4, 0x481e4, indexCPS2_WarMachine },
+    { "P1 Proton Cannon / War Destroyer", 0x481e4, 0x48204, indexCPS2_WarMachine, 1 },
+    { "P1 Beams/Blasts/Effect", 0x48204, 0x48224, indexCPS2_WarMachine, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_P2[] =
 {
-    { "P2 Color", 0x48224, 0x48244, 0x2E },
-    { "P2 Proton Cannon", 0x48244, 0x48264, 0x33, 1 },
-    { "P2 Proton Laser", 0x48264, 0x48284, 0x33, 2 },
+    { "P2 Color", 0x48224, 0x48244, indexCPS2_WarMachine },
+    { "P2 Proton Cannon / War Destroyer", 0x48244, 0x48264, indexCPS2_WarMachine, 1 },
+    { "P2 Beams / Blasts / Effect", 0x48264, 0x48284, indexCPS2_WarMachine, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_P1[] =
 {
-    { "P1 Color", 0x49224, 0x49244, 0x2E },
-    { "P1 Proton Cannon", 0x49244, 0x49264, 0x33, 1 }, // same sprites as iron man
-    { "P1 Proton Laser", 0x49264, 0x49284, 0x33, 2 },
+    { "P1 Color", 0x49224, 0x49244, indexCPS2_WarMachine },
+    { "P1 Proton Cannon / War Destroyer", 0x49244, 0x49264, indexCPS2_WarMachine, 1 },
+    { "P1 Beams / Blasts / Effect", 0x49264, 0x49284, indexCPS2_WarMachine, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_P2[] =
 {
-    { "P2 Color", 0x49284, 0x492a4, 0x2E },
-    { "P2 Proton Cannon", 0x492a4, 0x492c4, 0x33, 1 },
-    { "P2 Proton Laser", 0x492c4, 0x492e4, 0x33, 2 },
+    { "P2 Color", 0x49284, 0x492a4, indexCPS2_WarMachine },
+    { "P2 Proton Cannon / War Destroyer", 0x492a4, 0x492c4, indexCPS2_WarMachine, 1 },
+    { "P2 Beams / Blasts / Effect", 0x492c4, 0x492e4, indexCPS2_WarMachine, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P1[] =

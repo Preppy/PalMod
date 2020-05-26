@@ -2926,8 +2926,8 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SHUMA[] =
 const sMoveDescription MVC2_MOVE_DESCRIPTIONS_WARMACHINE[] =
 { //2E: War Machine" },
     { 0x00, "Main Color" },
-    { 0x01, "(02) ID:01-08 Protton Cannon ID:09-15 Rocket (Flame)" },
-    { 0x02, "(03) ID:01-08 HP, s.HK, c.HP, Repulsor Blast, s.MK / Smart Bombs (Frame 1) || ID:09-15: Protton Cannon (appearance) / Smart Bombs (Frame 2)" },
+    { 0x01, "(02) ID:01-08 Proton Cannon ID:09-15 Rocket (Flame)" },
+    { 0x02, "(03) ID:01-08 HP, s.HK, c.HP, Repulsor Blast, s.MK / Smart Bombs (Frame 1) || ID:09-15: Proton Cannon (appearance) / Smart Bombs (Frame 2)" },
     { 0x03, "(04) ID:01-08 Smart Bomb (burst) ID:09-15 Not Used" },
     { 0x04, "(05) Not Used" },
     { 0x05, "(06) Not Used" },
@@ -3465,8 +3465,8 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_COLOSSUS[] =
 const sMoveDescription MVC2_MOVE_DESCRIPTIONS_IRONMAN[] =
 { //33: Iron-Man" },
     { 0x00, "Main Color" },
-    { 0x01, "(02) ID:01-08 Protton Cannon, ID:09-15 Rocket Flames (fly)" },
-    { 0x02, "(03) ID:01-08 Protton Cannon (laser) Unibeam / c.fp / Smart Bombs" },
+    { 0x01, "(02) ID:01-08 Proton Cannon, ID:09-15 Rocket Flames (fly)" },
+    { 0x02, "(03) ID:01-08 Proton Cannon (laser) Unibeam / c.fp / Smart Bombs" },
     { 0x03, "(04) Not Used" },
     { 0x04, "(05) Not Used" },
     { 0x05, "(06) Not Used" },

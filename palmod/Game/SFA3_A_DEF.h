@@ -1084,6 +1084,23 @@ const sGame_PaletteDataset SFA3_A_STAGES_AKUMA_NODE[] =
     { "Unknown Sprites 4", 0x385F4, 0x38614 },
 };
 
+const sGame_PaletteDataset SFA3_A_STAGES_KEN_NODE[] =
+{
+    { "Read Building 1", 0x3C4F4, 0x3C6D4, indexCPS2_SFA3Assets, 0x13 },
+    { "Rear Building 2", 0x3C6D4, 0x3C814, indexCPS2_SFA3Assets, 0x14 },
+    { "Left Building / Palms 1", 0x40B34, 0x40D34, indexCPS2_SFA3Assets, 0x15 },
+    { "Left Building / Palms 2", 0x40D34, 0x40F34, indexCPS2_SFA3Assets, 0x16 },
+    
+    { "Fountain / Flags / Palms 1", 0x47934, 0x47B34, indexCPS2_SFA3Assets, 0x17 },
+    { "Fountain / Flags / Palms 2", 0x47B34, 0x47CD4, indexCPS2_SFA3Assets, 0x18 },
+    { "Fountain Stream", 0x38514, 0x38534, indexCPS2_SFA3Assets, 0x19 },
+    { "Bartender", 0x384D4, 0x384F4, indexCPS2_SFA3Assets, 0x1a },
+    { "Girls Lounging", 0x384B4, 0x384D4, indexCPS2_SFA3Assets, 0x1b },
+    { "Couple @ Table", 0x384F4, 0x38514, indexCPS2_SFA3Assets, 0x1c },
+    { "Plants?", 0x38534, 0x38554, indexCPS2_SFA3Assets, 0x1d },
+    { "Post & Statue", 0x38554, 0x38574, indexCPS2_SFA3Assets, 0x1e },
+};
+
 const sGame_PaletteDataset SFA3_A_STAGES_RYU_NODE[] =
 {
     { "Sunset / Sea", 0x3C4B4, 0x3C4F4, indexCPS2_SFA3Assets, 0 },
@@ -1253,6 +1270,7 @@ const sDescTreeNode SFA3_A_JULI_COLLECTION[] =
 const sDescTreeNode SFA3_A_BONUS_COLLECTION[] =
 {
     { "Akuma Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_AKUMA_NODE, ARRAYSIZE(SFA3_A_STAGES_AKUMA_NODE) },
+    { "Ken Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_KEN_NODE, ARRAYSIZE(SFA3_A_STAGES_KEN_NODE) },
     { "Ryu Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_RYU_NODE, ARRAYSIZE(SFA3_A_STAGES_RYU_NODE) },
 };
 
