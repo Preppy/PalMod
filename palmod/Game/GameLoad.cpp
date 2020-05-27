@@ -2,6 +2,7 @@
 #include "GameLoad.h"
 
 #include "Game_COTA_A.h"
+#include "Game_MVC2_A.h"
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
 #include "Game_SFIII3_A.h"
@@ -29,6 +30,7 @@ CGameLoad::~CGameLoad(void)
     safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM_06);
     safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A);
     safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B);
+    safe_delete_array(CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM);
     safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_3C);
@@ -100,6 +102,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_MVC_A::GetRule;
         return TRUE;
     }
+    case MVC2_A:
+    {
+        GetRule = &CGame_MVC2_A::GetRule;
+        return TRUE;
+    }
     case JOJOS_A:
     {
         GetRule = &CGame_JOJOS_A::GetRule;
@@ -122,7 +129,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     }
 
     default:
-        OutputDebugString("CGameLoad::SetGame:: BUGBUG: This game has not been added properly yet!\n");
+        OutputDebugString("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n");
         return FALSE;
         break;
     }
@@ -134,6 +141,11 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
 {
     switch (nGameFlag)
     {
+    case MVC2_A:
+    {
+        return new CGame_MVC2_A;
+    }
+    break;
     case MVC2_D:
     {
         return new CGame_MVC2_D;
@@ -276,6 +288,10 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
             {
                 safe_delete(OutGame);
             }
+        }
+        else
+        {
+            OutputDebugString("CGameLoad::LoadFile: ERROR: ROM is the wrong size.  Rejecting loading this ROM.\n");
         }
 
         CurrFile.Abort();

@@ -76,6 +76,9 @@
     <Filter Include="Game\COTA_A">
       <UniqueIdentifier>{b76bf8de-0eee-4bdb-be3c-3591a888af28}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\MVC2_A">
+      <UniqueIdentifier>{4f605612-8147-46d6-88ad-c958642579f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -206,6 +209,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_COTA_A.cpp">
       <Filter>Game\COTA_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MVC2_A.cpp">
+      <Filter>Game\MVC2_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -364,6 +370,12 @@
     </ClInclude>
     <ClInclude Include="Game\mvc2_descs.h">
       <Filter>Game\MVC2_D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MVC2_A.h">
+      <Filter>Game\MVC2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MVC2_A_DEF.h">
+      <Filter>Game\MVC2_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

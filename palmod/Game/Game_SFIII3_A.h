@@ -21,7 +21,7 @@ private:
 
     //Used for GetPalOffset
 
-    int nCurrPalOffs = 0;
+    UINT32 nCurrPalOffs = 0;
     int nCurrPalSz = 0;
 
     UINT16*** pppDataBuffer = nullptr;

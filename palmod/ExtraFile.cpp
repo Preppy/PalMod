@@ -100,7 +100,8 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                     {
                         nCurrStart = strtol(szFinalLine, nullptr, 16);
 
-                        if ((nCurrStart > 0x00800000) || (nCurrStart < 0))
+                        // BUGBUG: Update this to verifyvar maybe?
+                        if ((nCurrStart > 0x08000000) || (nCurrStart < 0))
                         {
                             nCurrStart = 0;
                         }

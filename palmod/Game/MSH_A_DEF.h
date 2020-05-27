@@ -4,7 +4,6 @@
 // * Update the SupportedPaletteListIndex with the new index name.
 // * Add an array below along the lines of MSH_A_BLACKHEART_PALETTES. 
 // * Update every array using MSH_A_NUMUNIT below
-// * Update the index lookups in Game_MSH_A_.cpp that is marked - look for usage of indexRyu to find them
 // That should be it.  Good luck.
 
 #define ALLOW_256_COLOR_PALETTES 1

@@ -379,6 +379,7 @@ void CPalModDlg::OnFileOpen()
         { MSH_A, "MSH: Characters (*.05), Portraits (*.06b)|*.05;*.06b|", INVALID_UNIT_VALUE },
         { MSHVSF_A, "MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", INVALID_UNIT_VALUE },
         { MVC_A, "MVC mvc.06|*.06|", INVALID_UNIT_VALUE },
+        { MVC2_A, "MVC2 Arcade|*.dat;*.bin|", INVALID_UNIT_VALUE },
         { COTA_A, "COTA xmn.05a|*.05a|", INVALID_UNIT_VALUE },
         { XMVSF_A, "XMVSF xvs.05a|*.05a|", INVALID_UNIT_VALUE },
         { JOJOS_A, "Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|", INVALID_UNIT_VALUE },

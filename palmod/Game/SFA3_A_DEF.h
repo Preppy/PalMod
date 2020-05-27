@@ -1121,6 +1121,19 @@ const sGame_PaletteDataset SFA3_A_STAGES_RYU_NODE[] =
     { "Fighter Shadow", 0x38494, 0x384B4, indexCPS2_SFA3Assets, 0x09 },
 };
 
+const sGame_PaletteDataset SFA3_A_STAGES_NASH_NODE[] =
+{
+    { "Cockpit/Top(Plane)/LandingGear", 0x47CF4, 0x47DF4 },
+    { "Plane and Floor", 0x41014, 0x413D4 },
+    { "Rear Windows Metal Ceiling", 0x3C8D4, 0x3CC74 },
+    { "Mechanic Spectators", 0x38634, 0x38654 },
+    { "Rolling Stairs Thing", 0x38654, 0x38674 },
+    { "Missile", 0x38674, 0x38694 },
+    { "Missile Tails", 0x38694, 0x386B4 },
+    { "Missile Heads", 0x386B4, 0x386D4 },
+    { "Under Plane???", 0x386D4, 0x386F4 },
+};
+
 const sDescTreeNode SFA3_A_RYU_COLLECTION[] =
 {
     { "Palettes", DESC_NODETYPE_TREE, (void*)SFA3_A_RYU_PALETTES,       ARRAYSIZE(SFA3_A_RYU_PALETTES) },
@@ -1272,6 +1285,7 @@ const sDescTreeNode SFA3_A_BONUS_COLLECTION[] =
     { "Akuma Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_AKUMA_NODE, ARRAYSIZE(SFA3_A_STAGES_AKUMA_NODE) },
     { "Ken Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_KEN_NODE, ARRAYSIZE(SFA3_A_STAGES_KEN_NODE) },
     { "Ryu Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_RYU_NODE, ARRAYSIZE(SFA3_A_STAGES_RYU_NODE) },
+    { "Nash Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_NASH_NODE, ARRAYSIZE(SFA3_A_STAGES_NASH_NODE) },
 };
 
 const sDescTreeNode SFA3_A_UNITS[SFA3_A_NUM_IND] =

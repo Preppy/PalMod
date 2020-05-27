@@ -19,7 +19,15 @@ constexpr auto JOJOS_A = 8;
 constexpr auto MSH_A = 9;
 constexpr auto MSHVSF_A = 10;
 constexpr auto COTA_A = 11;
-constexpr auto NUM_GAMES = 12;
+constexpr auto MVC2_A = 12;
+constexpr auto NUM_GAMES = 13;
+
+// If you're adding a new game you also need to update 
+//    CGameLoad::SetGame
+//    CGameLoad::CreateGame
+//    CPalModDlg::OnFileOpen
+//    CImgDat::PrepImageBuffer
+// 
 
 const CHAR g_GameFriendlyName[NUM_GAMES][32] =
 {
@@ -34,8 +42,10 @@ const CHAR g_GameFriendlyName[NUM_GAMES][32] =
     "Jojo's",
     "MSH (Arcade)",
     "MSHVSF (Arcade)",
-    "X-Men (Arcade)"
+    "X-Men (Arcade)",
+    "Marvel vs Capcom 2 (Arcade)",
 };
+
 
 constexpr auto MVC2_D_NUMUNIT = 59;
 constexpr auto SFIII3_A_NUMUNIT = 20;   
@@ -119,8 +129,8 @@ struct stExtraDef
 struct sGame_PaletteDataset
 {
     LPCSTR szPaletteName = "uninit";
-    int nPaletteOffset = 0;
-    int nPaletteOffsetEnd = 0;
+    UINT32 nPaletteOffset = 0;
+    UINT32 nPaletteOffsetEnd = 0;
     UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
     UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
     bool isJoinedPalette = false;
@@ -627,3 +637,4 @@ const int IMGAMT[4] =
     SFIII3_A_NUM_IMG_UNITS,
     SSF2T_A_NUM_IMG_UNITS
 };
+

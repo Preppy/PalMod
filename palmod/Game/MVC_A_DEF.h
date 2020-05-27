@@ -4,7 +4,6 @@
 // * Update the SupportedPaletteListIndex with the new index name.
 // * Add an array below along the lines of MVC_A_RYU_PALETTES. 
 // * Update every array using MVC_A_NUMUNIT below
-// * Update the index lookups in Game_MVC_A_.cpp that is marked - look for usage of indexRyu to find them
 // That should be it.  Good luck.
 
 enum SupportedMVCPaletteListIndex

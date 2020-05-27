@@ -361,7 +361,8 @@ void CGame_SFIII3_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
     int nExPos = 2 + nPortPos;
     int nExtraPos = 8 + nExPos;
 
-    int nOffset = 0, cbPalSz = 0;
+    UINT32 nOffset = 0;
+    int cbPalSz = 0;
 
     //nPortPos = nBasicPos + 7;
 

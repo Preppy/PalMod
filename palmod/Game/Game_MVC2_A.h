@@ -1,13 +1,12 @@
 #pragma once
 #include "gameclass.h"
-#include "MSH_A_DEF.h"
+#include "MVC2_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_MSH_05 = "MSHe.txt";
-constexpr auto EXTRA_FILENAME_MSH_06 = "MSH06e.txt";
-#define GetExtraDefForMSH(x) (UsePaletteSetForCharacters() ? ((stExtraDef *)&MSH_A_EXTRA_CUSTOM_05[x]) : ((stExtraDef *)&MSH_A_EXTRA_CUSTOM_06[x]))
+constexpr auto EXTRA_FILENAME_MVC2_A = "MVC2e.txt";
+#define GetExtraDefForMVC2(x)((stExtraDef *)&MVC2_A_EXTRA_CUSTOM[x])
 
-class CGame_MSH_A : public CGameWithExtrasFile
+class CGame_MVC2_A : public CGameWithExtrasFile
 {
 private:
     //Used for image selection
@@ -15,14 +14,7 @@ private:
 
     //Used for GetPalOffset
     UINT32 nCurrPalOffs = 0;
-
-    // These handle per-ROM logic.
-    int m_nBufferSelectedRom = 5;
-    static int m_nMSHSelectedRom;
-    static UINT32 m_nTotalPaletteCountForMSH_05;
-    static UINT32 m_nTotalPaletteCountForMSH_06;
-    static bool UsePaletteSetForCharacters() { return (m_nMSHSelectedRom == 5); }
-    static UINT32 m_nTotalPaletteCountForMSH;
+    static UINT32 m_nTotalPaletteCountForMVC2;
 
     void InitDataBuffer();
     void ClearDataBuffer();
@@ -33,18 +25,16 @@ private:
     UINT16*** pppDataBuffer = nullptr;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    const int m_uLowestKnownPaletteROMLocation_05 = 0x61000;
-    const int m_uLowestKnownPaletteROMLocation_06 = 0x0b100;
+    const int m_uLowestKnownPaletteROMLocation = 0x259C5A0;
 
 public:
-    CGame_MSH_A(int nMSHRomToLoad);
-    ~CGame_MSH_A(void);
+    CGame_MVC2_A();
+    ~CGame_MVC2_A(void);
 
     //Static functions / variables
-    static CDescTree MainDescTree_05;
-    static CDescTree MainDescTree_06;
+    static CDescTree MainDescTree;
 
-    static CDescTree InitDescTree(int nROMPaletteSetToUse);
+    static CDescTree InitDescTree();
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function
@@ -75,6 +65,5 @@ public:
     void FlushUnitFile() { safe_delete(rgFileChanged); };
     void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
-    static stExtraDef* MSH_A_EXTRA_CUSTOM_05;
-    static stExtraDef* MSH_A_EXTRA_CUSTOM_06;
+    static stExtraDef* MVC2_A_EXTRA_CUSTOM;
 };

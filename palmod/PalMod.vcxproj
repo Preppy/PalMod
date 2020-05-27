@@ -119,6 +119,7 @@
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_MSHVSF_A.cpp" />
     <ClCompile Include="Game\Game_MSH_A.cpp" />
+    <ClCompile Include="Game\Game_MVC2_A.cpp" />
     <ClCompile Include="Game\Game_MVC2_D.cpp" />
     <ClCompile Include="Game\Game_MVC2_P.cpp" />
     <ClCompile Include="Game\Game_MVC_A.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Game\Game_JOJOS_A.h" />
     <ClInclude Include="Game\Game_MSHVSF_A.h" />
     <ClInclude Include="Game\Game_MSH_A.h" />
+    <ClInclude Include="Game\Game_MVC2_A.h" />
     <ClInclude Include="Game\Game_MVC2_D.h" />
     <ClInclude Include="Game\Game_MVC2_P.h" />
     <ClInclude Include="Game\Game_MVC_A.h" />
@@ -182,6 +184,7 @@
     <ClInclude Include="Game\JOJOS_A_DEF.h" />
     <ClInclude Include="Game\MSHVSF_A_DEF.h" />
     <ClInclude Include="Game\MSH_A_DEF.h" />
+    <ClInclude Include="Game\MVC2_A_DEF.h" />
     <ClInclude Include="Game\mvc2_descs.h" />
     <ClInclude Include="Game\MVC2_D_Def.h" />
     <ClInclude Include="Game\mvc2_supp.h" />

@@ -268,7 +268,7 @@ void CGame_JOJOS_A::CheckExtrasFileForDuplication()
         for (UINT16 nExtraIndex = 0; nExtraIndex < nExtraCt; nExtraIndex++)
         {
             LoadSpecificPaletteData(nExtraLoc, nExtraIndex);
-            int nExtraROMLocation = m_nCurrentPaletteROMLocation;
+            UINT32 nExtraROMLocation = m_nCurrentPaletteROMLocation;
             bool fCollisionFound = false;
 
             for (INT16 nUnitCtr = 0; nUnitCtr < nExtraLoc; nUnitCtr++)
@@ -278,7 +278,7 @@ void CGame_JOJOS_A::CheckExtrasFileForDuplication()
                 {
                     LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                    int nCurrentROMLocation = m_nCurrentPaletteROMLocation;
+                    UINT32 nCurrentROMLocation = m_nCurrentPaletteROMLocation;
 
                     nTotalPalettesChecked++;
 
@@ -815,7 +815,8 @@ const sGame_PaletteDataset* CGame_JOJOS_A::GetPaletteSet(UINT16 nUnitId, UINT16 
 void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
     int nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    int nOffset = 0, cbPaletteSizeOnDisc = 0;
+    UINT32 nOffset = 0;
+    int cbPaletteSizeOnDisc = 0;
     BOOL isPaletteFromExtensionsFile = FALSE;
 
     if (UsePaletteSetFor50() ? (nUnitId == JOJOS_A_EXTRALOC_50) :
@@ -826,7 +827,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
     if (!isPaletteFromExtensionsFile)
     {
-        int nCurrentPaletteOffset = 0;
+        UINT32 nCurrentPaletteOffset = 0;
         int nDistanceFromZero = nPalId;
         const sGame_PaletteDataset* paletteSetToUse = nullptr;
 
@@ -838,7 +839,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             if (nDistanceFromZero < nNodeCount)
             {
                 nOffset = paletteSetToUse[nDistanceFromZero].nPaletteOffset;
-                cbPaletteSizeOnDisc = max(0, (paletteSetToUse[nDistanceFromZero].nPaletteOffsetEnd - paletteSetToUse[nDistanceFromZero].nPaletteOffset));
+                cbPaletteSizeOnDisc = (int)max(0, (paletteSetToUse[nDistanceFromZero].nPaletteOffsetEnd - paletteSetToUse[nDistanceFromZero].nPaletteOffset));
                 break;
             }
 

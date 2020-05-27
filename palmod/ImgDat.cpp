@@ -103,6 +103,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
     {
         switch (uGameFlag)
         {
+        case MVC2_A:
         case MVC2_D:
         {
 #if IMGDAT_DEBUG
