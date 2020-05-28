@@ -1,11 +1,12 @@
 #include "StdAfx.h"
 #include "Game_MVC2_A.h"
 #include "Game_MVC2_D.h"
+#include "mvc2_descs.h"
 #include "GameDef.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define MVC2_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define MVC2_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 // Cleanup on this static allocation is handled in CGameLoad::~CGameLoad
 stExtraDef* CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM = nullptr;
@@ -23,7 +24,7 @@ CGame_MVC2_A::CGame_MVC2_A()
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
     m_nExtraUnit = MVC2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 192;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6316;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
     m_nLowestKnownPaletteRomLocation = m_uLowestKnownPaletteROMLocation;
@@ -141,76 +142,79 @@ struct sMVC2A_CharacterData
     UINT32 nStartingPosition = 0;
     UINT16 nExtraStart = 0;
     UINT16 nExtraEnd = 0;
+    bool fHasTwoCorePalettes = false;
 };
 
 sMVC2A_CharacterData MVC2ArcadeCharacterArray[] =
 {
-    { "indexCPS2_Ryu", 0x00, "Ryu", "RYU", 0x000000, 0, 0 },
-    { "indexCPS2_Zangief", 0x01, "Zangief", "ZANGIEF", 0x000000, 0x11, 0x3a},
-    { "indexCPS2_Guile", 0x02, "Guile", "GUILE", 0x000000, 0, 0 },
-    { "indexCPS2_Morrigan", 0x03, "Morrigan", "MORRIGAN", 0x000000, 0x3a, 0x86 },
-    { "indexCPS2_Anakaris", 0x04, "Anakaris", "ANAKARIS", 0x000000, 0, 0 },
-    { "indexCPS2_Strider", 0x05, "Strider Hiryu", "STRIDER", 0x000000, 0, 0},
-    { "indexCPS2_Cyclops", 0x06, "Cyclops", "CYCLOPS", 0x000000, 0x19, 0x64},
-    { "indexCPS2_Wolverine", 0x07, "Wolverine", "WOLVERINE", 0x000000, 0x11, 0x11 },
-    { "indexCPS2_Psylocke", 0x08, "Psylocke", "PSYLOCKE", 0x000000, 0, 0 },
-    { "indexCPS2_Iceman", 0x09, "Iceman", "ICEMAN", 0x000000, 0x9, 0x4a},
-    { "indexCPS2_Rogue", 0x0A, "Rogue", "ROGUE", 0x000000, 0x1d, 0x22},
-    { "indexCPS2_CapAm", 0x0B, "Captain America", "CAPTAINAMERICA", 0x000000, 0, 0 },
-    { "indexCPS2_Spidey", 0x0C, "Spider-Man", "SPIDERMAN", 0x000000, 0x9, 0x64},
-    { "indexCPS2_Hulk", 0x0D, "Hulk,", "HULK", 0x000000, 0xa, 0xa },
-    { "indexCPS2_Venom", 0x0E, "Venom", "VENOM", 0x000000, 0, 0},
-    { "indexCPS2_DrDoom", 0x0F, "Dr. Doom", "DRDOOM", 0x000000, 0x9, 0x98 },
-    { "indexCPS2_Tron", 0x10, "Tron Bonne", "TRON", 0x000000, 0x11, 0x15 },
-    { "indexCPS2_Jill", 0x11, "Jill Valentine", "JILL", 0x000000, 0x9, 0xb },
-    { "indexCPS2_Hayato", 0x12, "Hayato", "HAYATO", 0x000000, 0x14, 0x17 },
-    { "indexCPS2_Ruby", 0x13, "Ruby Heart", "RUBY", 0x000000, 0xb, 0x10 },
-    { "indexCPS2_SonSon", 0x14, "SonSon", "SONSON", 0x000000, 0xb, 0x28 },
-    { "indexCPS2_Amingo", 0x15, "Amingo", "AMINGO", 0x000000, 0x9, 0xb },
-    { "indexCPS2_Marrow", 0x16, "Marrow", "MARROW", 0x000000, 0, 0 },
-    { "indexCPS2_Cable", 0x17, "Cable", "CABLE", 0x3c2d5a2, 0, 0} ,
-    { "indexCPS2_Abyss1", 0x18, "Abyss (Form 1)", "ABYSS1", 0x000000, 0, 0 },
-    { "indexCPS2_Abyss2", 0x19, "Abyss (Form 2)", "ABYSS2", 0x000000, 0, 0 },
-    { "indexCPS2_Abyss3", 0x1A, "Abyss (Form 3)", "ABYSS3", 0x000000, 0, 0 },
-    { "indexCPS2_ChunLi", 0x1B, "Chun-Li", "CHUNLI", 0x000000, 0, 0 },
-    { "indexCPS2_Megaman", 0x1C, "Megaman", "MEGAMAN", 0x000000, 0x9, 0x211 },
-    { "indexCPS2_Roll", 0x1D, "Roll", "ROLL", 0x000000, 0x9, 0x211 },
-    { "indexCPS2_Akuma", 0x1E, "Gouki", "GOUKI", 0x000000, 0, 0 },
-    { "indexCPS2_BBHood", 0x1F, "B.B. Hood", "BBHOOD", 0x000000, 0xc, 0x14 },
-    { "indexCPS2_Felicia", 0x20, "Felicia", "FELICIA", 0x000000, 0, 0 },
-    { "indexCPS2_Charlie", 0x21, "Charlie", "CHARLIE", 0x000000, 0, 0 },
-    { "indexCPS2_Sakura", 0x22, "Sakura", "SAKURA", 0x000000, 0xb, 0x22 },
-    { "indexCPS2_Dan", 0x23, "Dan", "DAN", 0x000000, 0, 0 },
-    { "indexCPS2_Cammy", 0x24, "Cammy", "CAMMY", 0x000000, 0x9, 0x3e},
-    { "indexCPS2_Dhalsim", 0x25, "Dhalsim", "DHALSIM", 0x000000, 0x9, 0x26 },
-    { "indexCPS2_Bison", 0x26, "M.Bison", "MBISON", 0x000000, 0x9, 0x14 },
-    { "indexCPS2_Ken", 0x27, "Ken", "KEN", 0x000000, 0, 0 },
-    { "indexCPS2_Gambit", 0x28, "Gambit", "GAMBIT", 0x000000, 0x9, 0x26 },
-    { "indexCPS2_Juggy", 0x29, "Juggernaut", "JUGGERNAUT", 0x000000, 0x9, 0x44 },
-    { "indexCPS2_Storm", 0x2A, "Storm", "STORM", 0x000000, 0x9, 0x2a },
-    { "indexCPS2_Sabretooth", 0x2B, "Sabretooth", "SABRETOOTH", 0x000000, 0, 0 },
-    { "indexCPS2_Magneto", 0x2C, "Magneto", "MAGNETO", 0x000000, 0xa, 0xa },
-    { "indexCPS2_Shuma", 0x2D, "Shuma-Gorath", "SHUMA", 0x000000, 0x11, 0x130 },
-    { "indexCPS2_WarMachine", 0x2E, "War Machine", "WARMACHINE", 0x000000, 0, 0 },
-    { "indexCPS2_SilverSamurai", 0x2F, "Silver Samurai", "SILVERSAMURAI", 0x000000, 0x9, 0x37},
-    { "indexCPS2_OmegaRed", 0x30, "Omega Red", "OMEGARED", 0x000000, 0x9, 0x20 },
-    { "indexCPS2_Spiral", 0x31, "Spiral", "SPIRAL", 0x000000, 0x9, 0xd2},
-    { "indexCPS2_Colossus", 0x32, "Colossus", "COLOSSUS", 0x000000, 0x9, 0xc8},
-    { "indexCPS2_IronMan", 0x33, "Iron Man", "IRONMAN", 0x000000, 0, 0 },
-    { "indexCPS2_Sentinel", 0x34, "Sentinel", "SENTINEL", 0x545E422, 0x12, 0x13 },
+    { "indexCPS2_Ryu", 0x00, "Ryu", "RYU", 0x260a9c2, 0, 0 },
+    { "indexCPS2_Zangief", 0x01, "Zangief", "ZANGIEF", 0x26E2242, 0x11, 0x3a},
+    { "indexCPS2_Guile", 0x02, "Guile", "GUILE", 0x2775162, 0, 0 },
+    { "indexCPS2_Morrigan", 0x03, "Morrigan", "MORRIGAN", 0x283a362, 0x3a, 0x86 },
+    { "indexCPS2_Anakaris", 0x04, "Anakaris", "ANAKARIS", 0x2954602, 0, 0 },
+    { "indexCPS2_Strider", 0x05, "Strider Hiryu", "STRIDER", 0x2A2c5E2, 0, 0},
+    { "indexCPS2_Cyclops", 0x06, "Cyclops", "CYCLOPS", 0x2B13442, 0x19, 0x64},
+    // don't forget to join the claws!
+    { "indexCPS2_Wolverine", 0x07, "Wolverine", "WOLVERINE", 0x2C0eba2, 0x11, 0x11, true },
+    { "indexCPS2_Psylocke", 0x08, "Psylocke", "PSYLOCKE", 0x2D104E2, 0, 0 },
+    { "indexCPS2_Iceman", 0x09, "Iceman", "ICEMAN", 0x2DFB5C2, 0x9, 0x4a},
+    { "indexCPS2_Rogue", 0x0A, "Rogue", "ROGUE", 0x2EE2142 , 0x1d, 0x22},
+    { "indexCPS2_CapAm", 0x0B, "Captain America", "CAPTAINAMERICA", 0x2FD03E2, 0, 0, true },
+    { "indexCPS2_Spidey", 0x0C, "Spider-Man", "SPIDERMAN", 0x30Ae9C2, 0x9, 0x64},
+    { "indexCPS2_Hulk", 0x0D, "Hulk,", "HULK", 0x31C9402, 0xa, 0xa },
+    { "indexCPS2_Venom", 0x0E, "Venom", "VENOM", 0x32Ed122 , 0, 0},
+    { "indexCPS2_DrDoom", 0x0F, "Dr. Doom", "DRDOOM", 0x33ffa42 , 0x9, 0x98 },
+    { "indexCPS2_Tron", 0x10, "Tron Bonne", "TRON", 0x35175c2 , 0x11, 0x15, true },
+    { "indexCPS2_Jill", 0x11, "Jill Valentine", "JILL", 0x35f3162 , 0x9, 0xb },
+    { "indexCPS2_Hayato", 0x12, "Hayato", "HAYATO", 0x36f0742, 0x14, 0x17, true },
+    { "indexCPS2_Ruby", 0x13, "Ruby Heart", "RUBY", 0x37f9ce2 , 0xb, 0x10 },
+    { "indexCPS2_SonSon", 0x14, "SonSon", "SONSON", 0x39136C2 , 0xb, 0x28 },
+    { "indexCPS2_Amingo", 0x15, "Amingo", "AMINGO", 0x3A2c762 , 0x9, 0xb },
+    { "indexCPS2_Marrow", 0x16, "Marrow", "MARROW", 0x3B214a2 , 0, 0 },
+    { "indexCPS2_Cable", 0x17, "Cable", "CABLE", 0x3c2d5a2, 0, 0 },
+    { "indexCPS2_Abyss1", 0x18, "Abyss (Form 1)", "ABYSS1", 0x3D19482, 0, 0 },
+    { "indexCPS2_Abyss2", 0x19, "Abyss (Form 2)", "ABYSS2", 0x3Da68e2, 0, 0 },
+    { "indexCPS2_Abyss3", 0x1A, "Abyss (Form 3)", "ABYSS3", 0x3E80562, 0, 0 },
+    { "indexCPS2_ChunLi", 0x1B, "Chun-Li", "CHUNLI", 0x3F00962, 0, 0 },
+    { "indexCPS2_Megaman", 0x1C, "Megaman", "MEGAMAN", 0x3F93962, 0x9, 0x211 },
+    { "indexCPS2_Roll", 0x1D, "Roll", "ROLL", 0x4007742, 0x9, 0x211 },
+    { "indexCPS2_Akuma", 0x1E, "Gouki", "GOUKI", 0x4090ce2, 0, 0 },
+    { "indexCPS2_BBHood", 0x1F, "B.B. Hood", "BBHOOD", 0x41Aae62, 0xc, 0x14 },
+    { "indexCPS2_Felicia", 0x20, "Felicia", "FELICIA", 0x42D2082, 0, 0 },
+    { "indexCPS2_Charlie", 0x21, "Charlie", "CHARLIE", 0x433f102, 0, 0 },
+    { "indexCPS2_Sakura", 0x22, "Sakura", "SAKURA", 0x4405b62, 0xb, 0x22 },
+    { "indexCPS2_Dan", 0x23, "Dan", "DAN", 0x44540C2, 0, 0 },
+    { "indexCPS2_Cammy", 0x24, "Cammy", "CAMMY", 0x44f3b82, 0x9, 0x3e},
+    { "indexCPS2_Dhalsim", 0x25, "Dhalsim", "DHALSIM", 0x45AA822, 0x9, 0x26 },
+    { "indexCPS2_Bison", 0x26, "M.Bison", "MBISON", 0x462f342, 0x9, 0x14 },
+    { "indexCPS2_Ken", 0x27, "Ken", "KEN", 0x46B5662, 0, 0 },
+    { "indexCPS2_Gambit", 0x28, "Gambit", "GAMBIT", 0x479ec82, 0x9, 0x26 },
+    { "indexCPS2_Juggy", 0x29, "Juggernaut", "JUGGERNAUT", 0x48Cb762, 0x9, 0x44 },
+    { "indexCPS2_Storm", 0x2A, "Storm", "STORM", 0x49d9e82, 0x9, 0x2a },
+    { "indexCPS2_Sabretooth", 0x2B, "Sabretooth", "SABRETOOTH", 0x4ADb362, 0, 0 },
+    { "indexCPS2_Magneto", 0x2C, "Magneto", "MAGNETO", 0x4BF21c2, 0xa, 0xa },
+    // This is actually a joint palette but it's incorrectly ripped.  We do need the
+    // two step effects palettes but all the character joins can be ignored or excised.
+    { "indexCPS2_Shuma", 0x2D, "Shuma-Gorath", "SHUMA", 0x4CDa622, 0x11, 0x130, true },
+    { "indexCPS2_WarMachine", 0x2E, "War Machine", "WARMACHINE", 0x4Ddab82, 0, 0 },
+    { "indexCPS2_SilverSamurai", 0x2F, "Silver Samurai", "SILVERSAMURAI", 0x4EF6122, 0x9, 0x37},
+    { "indexCPS2_OmegaRed", 0x30, "Omega Red", "OMEGARED", 0x4ff4942, 0x9, 0x20 },
+    { "indexCPS2_Spiral", 0x31, "Spiral", "SPIRAL", 0x5109fa2, 0x9, 0xd2},
+    { "indexCPS2_Colossus", 0x32, "Colossus", "COLOSSUS", 0x5235a62, 0x9, 0xc8},
+    { "indexCPS2_IronMan", 0x33, "Iron Man", "IRONMAN", 0x53384c2, 0, 0 },
+    { "indexCPS2_Sentinel", 0x34, "Sentinel", "SENTINEL", 0x545E422, 0x12, 0x13, true },
     { "indexCPS2_Blackheart", 0x35, "Blackheart", "BLACKHEART", 0x5585402, 0x9, 0x1b },
-    { "indexCPS2_Thanos", 0x36, "Thanos", "THANOS", 0x000000, 0x9, 0x1f },
-    { "indexCPS2_Jin", 0x37, "Jin", "JIN", 0x000000, 0x9, 0x86 },
-    { "indexCPS2_CapCom", 0x38, "Captain Commando", "CAPTAINCOMMANDO", 0x000000, 0x9, 0x19},
-    { "indexCPS2_Bonerine", 0x39, "Bonerine", "BONERINE", 0x000000, 0, 0 },
-    { "indexCPS2_Kobun", 0x3A, "Kobun", "KOBUN", 0x000000, 0x9, 0x26 },
+    { "indexCPS2_Thanos", 0x36, "Thanos", "THANOS", 0x5673e42, 0x9, 0x1f },
+    { "indexCPS2_Jin", 0x37, "Jin", "JIN", 0x5758482, 0x9, 0x86 },
+    { "indexCPS2_CapCom", 0x38, "Captain Commando", "CAPTAINCOMMANDO", 0x5847ec2 , 0x9, 0x19},
+    { "indexCPS2_Bonerine", 0x39, "Bonerine", "BONERINE", 0x59472a2, 0, 0, true },
+    { "indexCPS2_Kobun", 0x3A, "Kobun", "KOBUN", 0x59acdc2, 0x9, 0x26 },
 };
-
 
 void DumpAllCharacters()
 {
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < MVC2_D_NUMUNIT; iUnitCtr++)
+    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(MVC2ArcadeCharacterArray); iUnitCtr++)
     {
         if (MVC2ArcadeCharacterArray[iUnitCtr].nStartingPosition != 0)
         {
@@ -223,9 +227,18 @@ void DumpAllCharacters()
                 strOutput.Format("const sGame_PaletteDataset MVC2_A_%s_PALETTES_%s[] =\r\n{\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex]);
                 OutputDebugString(strOutput);
 
-                strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0 },\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex], 
+                if (MVC2ArcadeCharacterArray[iUnitCtr].fHasTwoCorePalettes)
+                {
+                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0, true },\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex], 
+                                                                                        nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
+                                                                                        MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName );
+                }
+                else
+                {
+                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0 },\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex], 
                                                                                     nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                                                                                     MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName );
+                }
                 OutputDebugString(strOutput);
                 nCurrentCharacterOffset += 0x20;
                 nPaletteCount++;
@@ -247,13 +260,22 @@ void DumpAllCharacters()
 
             for (UINT16 iStatusEffect = 0; iStatusEffect < 8; iStatusEffect++)
             {
-                strOutput.Format("    { \"%s %u\", 0x%07x, 0x%7x, %s, %u },\r\n", "Status Effect", iStatusEffect, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
-                OutputDebugString(strOutput);
-                nCurrentCharacterOffset += 0x20;
                 // Use this for people with two body pieces
-                //strOutput.Format("    { \"%s %u 2\", 0x%07x, 0x%7x, %s, %u },\r\n", "Status Effect", iStatusEffect, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
-                //OutputDebugString(strOutput);
-                //nCurrentCharacterOffset += 0x20;
+                if (MVC2ArcadeCharacterArray[iUnitCtr].fHasTwoCorePalettes)
+                {
+                    strOutput.Format("    { \"%s %u\", 0x%07x, 0x%7x, %s, %u, true },\r\n", "Status Effect", iStatusEffect, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
+                    OutputDebugString(strOutput);
+                    nCurrentCharacterOffset += 0x20;
+                    strOutput.Format("    { \"%s %u 2\", 0x%07x, 0x%7x, %s, %u },\r\n", "Status Effect", iStatusEffect, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 1);
+                    OutputDebugString(strOutput);
+                    nCurrentCharacterOffset += 0x20;
+                }
+                else
+                {
+                    strOutput.Format("    { \"%s %u\", 0x%07x, 0x%7x, %s, %u },\r\n", "Status Effect", iStatusEffect, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
+                    OutputDebugString(strOutput);
+                    nCurrentCharacterOffset += 0x20;
+                }
             }
 
             OutputDebugString("};\r\n\r\n");
@@ -266,11 +288,16 @@ void DumpAllCharacters()
 
                 for (UINT16 iExtraPosition = 0x9; iExtraPosition <= MVC2ArcadeCharacterArray[iUnitCtr].nExtraEnd; iExtraPosition++)
                 {
+                    // So... I think those other extras might be used......
                     if (iExtraPosition >= MVC2ArcadeCharacterArray[iUnitCtr].nExtraStart)
                     {
                         strOutput.Format("    { \"%s 0x%x\", 0x%07x, 0x%7x, %s, %u },\r\n", "Extra", iExtraPosition, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
-                        OutputDebugString(strOutput);
                     }
+                    else
+                    {
+                        strOutput.Format("    { \"Unused: %s 0x%x\", 0x%07x, 0x%7x },\r\n", "Extra", iExtraPosition, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20 );
+                    }
+                    OutputDebugString(strOutput);
                     nCurrentCharacterOffset += 0x20;
                 }
 
@@ -348,7 +375,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if MVC2_DEBUG
+#if MVC2_A_DEBUG
             strMsg.Format("Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -370,7 +397,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if MVC2_DEBUG
+#if MVC2_A_DEBUG
                 strMsg.Format("\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -388,7 +415,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if MVC2_DEBUG
+#if MVC2_A_DEBUG
                     strMsg.Format("\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
@@ -416,7 +443,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if MVC2_DEBUG
+#if MVC2_A_DEBUG
             strMsg.Format("Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -437,7 +464,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if MVC2_DEBUG
+#if MVC2_A_DEBUG
             strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -460,7 +487,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((MVC2_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if MVC2_DEBUG
+#if MVC2_A_DEBUG
                 strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -476,6 +503,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
 
     m_nTotalPaletteCountForMVC2 = nTotalPaletteCount;
 
+    // hopefully we don't need to do this again........
     //DumpAllCharacters();
 
     return NewDescTree;
@@ -552,7 +580,7 @@ UINT16 CGame_MVC2_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if MVC2_DEBUG
+#if MVC2_A_DEBUG
         CString strMsg;
         strMsg.Format("CGame_MVC2_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
@@ -601,7 +629,7 @@ const sDescTreeNode* CGame_MVC2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
             if (nDistanceFromZero < nNodeCount)
             {
                 // We know it's within this group.  Now: is it basic?
-                if (fReturnBasicNodesOnly && (nCollectionIndex < 6)) // 6 colors
+                if (!fReturnBasicNodesOnly || (nCollectionIndex < 6)) // 6 colors
                 {
                     pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
                 }
@@ -852,7 +880,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
 
-            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
+            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
@@ -863,6 +891,8 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     // We show 6 sprites (LP...A2) for export for all normal MVC2 sprites
                     nSrcAmt = 6;
                     nNodeIncrement = pCurrentNode->uChildAmt;
+                    // Need to reset because we have a status effect label set as well.
+                    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6_MVC2);
 
                     while (nSrcStart >= nNodeIncrement)
                     {
@@ -870,9 +900,24 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         nSrcStart -= nNodeIncrement;
                     }
                 }
+                else if (_stricmp(pCurrentNode->szDesc, "Status Effects") == 0)
+                {
+                    // Status effects are the last 8 palettes in the last node.
+                    UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId) - 1;
+                    nSrcStart = 0;
+
+                    for (UINT16 iCollectionIndex = 0; iCollectionIndex < nCollectionCount; iCollectionIndex++)
+                    {
+                        nSrcStart += GetNodeCountForCollection(NodeGet->uUnitId, iCollectionIndex);
+                    }
+
+                    // There are 8 status effects
+                    nSrcAmt = 8;
+                    nNodeIncrement = paletteDataSet->isJoinedPalette ? 2 : 1;
+                    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_LABEL_STATUS_EFFECTS);
+                }
             }
 
-#ifdef WANT_JOINED_PALETTES
             if (paletteDataSet->isJoinedPalette)
             {
                 const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
@@ -881,7 +926,8 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 {
                     int nXOffs, nYOffs;
 
-                    if (NodeGet->uUnitId == indexMVC2AWolverine) // wolvie claws support
+                    if ((NodeGet->uUnitId == indexMVC2AWolverine) || // wolvie claws support
+                        (NodeGet->uUnitId == indexMVC2ABonerine))
                     {
                         nXOffs = 20;
                         nYOffs = 4;
@@ -893,6 +939,23 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         nYOffs = -17;
                         fShouldUseAlternateLoadLogic = true;
                     }
+                    else if (NodeGet->uUnitId == indexMVC2ATron)
+                    {
+                        nXOffs = -4;
+                        nYOffs = -50;
+                        fShouldUseAlternateLoadLogic = true;
+                    }
+                    else if (NodeGet->uUnitId == indexMVC2AHayato)
+                    {
+                        nXOffs = -63;
+                        nYOffs = 32;
+                        fShouldUseAlternateLoadLogic = true;
+                    }
+                    else
+                    {
+                        OutputDebugString("WARNING: You're asking for a palette join that the code doesn't know about.  Please fix.\n");
+                    }
+
 
                     if (fShouldUseAlternateLoadLogic)
                     {
@@ -917,7 +980,6 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
                 }
             }
-#endif
         }
     }
     

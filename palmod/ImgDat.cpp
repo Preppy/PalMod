@@ -4,6 +4,14 @@
 
 #define IMGDAT_DEBUG 0
 
+void OutputDebugString_ImgDat(LPCSTR pszString)
+{
+#if IMGDAT_DEBUG
+    OutputDebugString(pszString);
+#else
+#endif
+}
+
 typedef std::map<UINT8, ImgInfoList*>::iterator imgMapIter;
 
 CImgDat::CImgDat(void)
@@ -302,9 +310,9 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
 
 #if IMGDAT_DEBUG
     strDebugInfo.Format("CImgDat::GetImgData : Making pNewImgData for unitID:0x%X, imgID:0x%X .\n", nCurrentUnitId, nCurrentImgId);
-    OutputDebugString_DebugOnly(strDebugInfo);
+    OutputDebugString_ImgDat(strDebugInfo);
     strDebugInfo.Format(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
-    OutputDebugString_DebugOnly(strDebugInfo);
+    OutputDebugString_ImgDat(strDebugInfo);
 #endif
 
     ImgDatFile.Seek(pCurrImg->uThisImgLoc, CFile::begin);
@@ -483,7 +491,7 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag,
                     ImgDatFile.Read(&uCurrImgId, 0x01);
 #if IMGDAT_DEBUG
                     strDebugInfo.Format("CImgDat::LoadImage : Seeing UnitID:0x%02X imgID:0x%02X \n", uCurrUnitId, uCurrImgId);
-                    OutputDebugString_DebugOnly(strDebugInfo);
+                    OutputDebugString_ImgDat(strDebugInfo);
 #endif
 
                     std::map<UINT8, ImgInfoList*>::iterator it = nImgMap->find(uCurrUnitId);
@@ -493,7 +501,7 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag,
 
 #if IMGDAT_DEBUG
                         strDebugInfo.Format("CImgDat::LoadImage : node[0x%X][0x%X] Inserted \n", uCurrUnitId, uCurrImgId);
-                        OutputDebugString_DebugOnly(strDebugInfo);
+                        OutputDebugString_ImgDat(strDebugInfo);
 #endif
 
                         sImgDef* pCurrImg = it->second->getImgDef(uCurrImgId);
@@ -514,9 +522,9 @@ BOOL CImgDat::LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag,
 
 #if IMGDAT_DEBUG
                         strDebugInfo.Format("CImgDat::LoadImage : Image info for unit 0x%02X img 0x%02X has been loaded.\n", uCurrUnitId, uCurrImgId);
-                        OutputDebugString_DebugOnly(strDebugInfo);
+                        OutputDebugString_ImgDat(strDebugInfo);
                         strDebugInfo.Format(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n", pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
-                        OutputDebugString_DebugOnly(strDebugInfo);
+                        OutputDebugString_ImgDat(strDebugInfo);
 #endif
                         if (bLoadAll)
                         {

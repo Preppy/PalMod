@@ -27,6 +27,8 @@ constexpr auto NUM_GAMES = 13;
 //    CGameLoad::CreateGame
 //    CPalModDlg::OnFileOpen
 //    CImgDat::PrepImageBuffer
+// And potentially update:
+//    CPalModDlg::OnEditCopy
 // 
 
 const CHAR g_GameFriendlyName[NUM_GAMES][32] =
@@ -116,6 +118,13 @@ const CHAR DEF_NOBUTTONS[1][16] =
 {
     "Special"
 };
+
+
+const CHAR DEF_LABEL_STATUS_EFFECTS[8][16] =
+{
+    "Burn 1", "Burn 2", "Shock 1", "Shock 2", "Dark 1", "Dark 2", "Kinetic 1", "Kinetic 2"
+};
+
 
 struct stExtraDef
 {
@@ -567,6 +576,7 @@ enum JOJOS_51_CHARACTERS
     indexJojos51Death13, // 0x18
     indexJojos51Timestop,
     indexJojos51Bonus,
+    indexJojos51Stages,
 };
 
 enum JOJOS_51_CHARACTER_PALETTES
@@ -609,6 +619,7 @@ const UINT8 JOJOS_A_IMG_UNITS[] =
     indexJojos51Death13, // 0x18
     indexJojos51Timestop,
     indexJojos51Bonus,
+    indexJojos51Stages,
 };
 
 const int JOJOS_A_NUM_IMG_UNITS = ARRAYSIZE(JOJOS_A_IMG_UNITS);

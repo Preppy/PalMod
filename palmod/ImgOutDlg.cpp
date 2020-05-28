@@ -89,6 +89,9 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString("6");
         nPalAmt == 7 ? m_CB_Amt.AddString("7") : NULL;
         break;
+    case 8: // status effects!
+        m_CB_Amt.AddString("8");
+        break;
     case 10: // ST
         m_CB_Amt.AddString("6");
         m_CB_Amt.AddString("10");

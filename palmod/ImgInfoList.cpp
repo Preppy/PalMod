@@ -1,9 +1,15 @@
 ﻿#include "stdafx.h"
 #include "ImgInfoList.h"
-//#ifndef IMGINFOLIST_CPP
-//#define IMGINFOLIST_CPP
 
 #define IMGINFOLIST_DEBUG 0
+
+void OutputDebugString_DebugOnly(LPCSTR pszString)
+{
+#if IMGINFOLIST_DEBUG
+    OutputDebugString(pszString);
+#else
+#endif
+}
 
 ImgInfoList::ImgInfoList()
 {   
@@ -176,5 +182,3 @@ bool ImgInfoList::valueExists(UINT16 desiredImgID)
 
     return found;
 }
-
-//#endif

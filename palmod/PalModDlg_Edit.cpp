@@ -50,6 +50,7 @@ void CPalModDlg::OnEditCopy()
         case SFIII3_D:
             uCopyFlag1 = SFIII3_D + k_nASCIICharacterOffset;
             break;
+        case MVC2_A:
         case MVC2_D:
         case MVC2_P:
             uCopyFlag1 = 2 + k_nASCIICharacterOffset;

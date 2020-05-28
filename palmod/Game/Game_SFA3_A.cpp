@@ -475,7 +475,7 @@ const sDescTreeNode* CGame_SFA3_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
             if (nDistanceFromZero < nNodeCount)
             {
                 // We know it's within this group.  Now: is it basic?
-                if (fReturnBasicNodesOnly && (nCollectionIndex < 6)) // 3 sets of P/K Isms
+                if (!fReturnBasicNodesOnly || (nCollectionIndex < 6)) // 3 sets of P/K Isms
                 {
                     pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
                 }

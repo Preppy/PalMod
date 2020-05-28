@@ -683,11 +683,14 @@ int CImgDumpBmp::GetOutputW()
     case 7:
         w_mul = 4;
         break;
+    case 8:
+        w_mul = 4;
+        break;
     case 10:
         w_mul = 5;
         break;
     default:
-        OutputDebugString("Bogus argument to GetOutputW");
+        OutputDebugString("CImgDumpBmp::GetOutputW: You need to finish adding in this new output option.");
         DebugBreak();
         break;
     }
