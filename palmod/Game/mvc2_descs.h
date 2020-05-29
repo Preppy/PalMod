@@ -1643,7 +1643,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ROLL[] =
     { 0x07, "(08) ID:01-08 Hyper Roll (Rush Projectile) ID:09-15 Dr. Light (background)" },
 
     { 0x09, "LP Megaman hair (all buttons)", 38, "indexCPS2_Megaman" },
-    { 0x0A, "LP Death Animation (all buttons)", 11 },
+    { 0x0A, "LP Death Animation (all buttons)", 11, "indexCPS2_Megaman" },
     { 0x0B, "LP Roll Intro 1", 0 },
     { 0x0C, "LP Roll Intro 2", 0 },
     { 0x0D, "LP Roll Intro 3", 0 },
@@ -1736,7 +1736,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ROLL[] =
     { 0x5F, "LP Magnetic Shockwave Power Up (MvC1 Ending)", 0, "indexCPS2_Megaman" },
 
     { 0x60, "LK Megaman hair (all buttons)", 38, "indexCPS2_Megaman" },
-    { 0x61, "LK Death Animation (all buttons)", 11 },
+    { 0x61, "LK Death Animation (all buttons)", 11, "indexCPS2_Megaman" },
     { 0x62, "LK Roll Intro 1", 0 },
     { 0x62 + 1, "LK Roll Intro 2", 0 },
     { 0x62 + 2, "LK Roll Intro 3", 0 },
@@ -1830,7 +1830,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ROLL[] =
     { 0xB6, "LK Magnetic Shockwave Power Up (MvC1 Ending)", 0, "indexCPS2_Megaman" },
 
     { 0xB7, "HP Megaman hair (all buttons)", 38, "indexCPS2_Megaman" },
-    { 0xB8, "HP Death Animation (all buttons)", 11 },
+    { 0xB8, "HP Death Animation (all buttons)", 11, "indexCPS2_Megaman" },
     { 0xB9, "HP Roll Intro 1", 0 },
     { 0xB9 + 1, "HP Roll Intro 2", 0 },
     { 0xB9 + 2, "HP Roll Intro 3", 0 },
@@ -1924,7 +1924,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ROLL[] =
     { 0x10D, "HP Magnetic Shockwave Power Up (MvC1 Ending)", 0, "indexCPS2_Megaman" },
 
     { 0x10E, "HK Megaman hair (all buttons)", 38, "indexCPS2_Megaman" },
-    { 0x10F, "HK Death Animation (all buttons)", 11 },
+    { 0x10F, "HK Death Animation (all buttons)", 11, "indexCPS2_Megaman" },
     { 0x110, "HK Roll Intro 1", 0 },
     { 0x110 + 1, "HK Roll Intro 2", 0 },
     { 0x110 + 2, "HK Roll Intro 3", 0 },
@@ -2018,7 +2018,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ROLL[] =
     { 0x164, "HK Magnetic Shockwave Power Up (MvC1 Ending)", 0, "indexCPS2_Megaman" },
 
     { 0x165, "A1 Megaman hair (all buttons)", 38, "indexCPS2_Megaman" },
-    { 0x166, "A1 Death Animation (all buttons)", 11 },
+    { 0x166, "A1 Death Animation (all buttons)", 11, "indexCPS2_Megaman" },
     { 0x167, "A1 Roll Intro 1", 0 },
     { 0x167 + 1, "A1 Roll Intro 2", 0 },
     { 0x167 + 2, "A1 Roll Intro 3", 0 },
@@ -2111,8 +2111,8 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ROLL[] =
     { 0x1BA, "A1 Megaman", 0, "indexCPS2_Megaman" },
     { 0x1BB, "A1 Magnetic Shockwave Power Up (MvC1 Ending)", 0, "indexCPS2_Megaman" },
 
-    { 0x1BC, "A2 Roll hair (all buttons)" },
-    { 0x1BD, "A2 Death Animation (all buttons)", 11 },
+    { 0x1BC, "A2 Megaman hair (all buttons)", 38, "indexCPS2_Megaman" },
+    { 0x1BD, "A2 Death Animation (all buttons)", 11, "indexCPS2_Megaman" },
     { 0x1BE, "A2 Roll Intro 1", 0 },
     { 0x1BE + 1, "A2 Roll Intro 2", 0 },
     { 0x1BE + 2, "A2 Roll Intro 3", 0 },

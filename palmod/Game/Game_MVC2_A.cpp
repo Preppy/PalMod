@@ -24,7 +24,7 @@ CGame_MVC2_A::CGame_MVC2_A()
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
     m_nExtraUnit = MVC2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 5839;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 5842;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
     m_nLowestKnownPaletteRomLocation = m_uLowestKnownPaletteROMLocation;
@@ -571,11 +571,9 @@ CDescTree CGame_MVC2_A::InitDescTree()
     m_nTotalPaletteCountForMVC2 = nTotalPaletteCount;
 
     // hopefully we don't need to do this again........
-
     // TODO: paired palettes such as HMM
     // TODO: proc_supp :'(
-
-    DumpAllCharacters();
+    //DumpAllCharacters();
 
     return NewDescTree;
 }
