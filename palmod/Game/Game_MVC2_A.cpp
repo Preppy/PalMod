@@ -246,10 +246,24 @@ void DumpAllCharacters()
                 nCurrentCharacterOffset += 0x20;
                 nPaletteCount++;
 
-                for (UINT16 iCurrentExtra = 0; iCurrentExtra < 7; iCurrentExtra++)
+                for (UINT16 iCurrentExtra = 1; iCurrentExtra < 8; iCurrentExtra++)
                 {
-                    //strOutput.Format("    { \"%02u %s (Extra - %02x)\", 0x%07x, 0x%7x, %s, %u },\r\n", iCurrentExtra + 1, DEF_BUTTONLABEL6_MVC2[iButtonIndex], nPaletteCount, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, iCurrentExtra + 1 );
-                    strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sCurrentMoveDescriptors[iCurrentExtra + 1].szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, iCurrentExtra + 1);
+                    if (sCurrentMoveDescriptors[iCurrentExtra].nImageIndex != 0xFF)
+                    {
+                        if (sCurrentMoveDescriptors[iCurrentExtra].szImageUnitOverride != nullptr)
+                        {
+                            strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sCurrentMoveDescriptors[iCurrentExtra].szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sCurrentMoveDescriptors[iCurrentExtra].szImageUnitOverride, sCurrentMoveDescriptors[iCurrentExtra].nImageIndex);
+                        }
+                        else
+                        {
+                            strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sCurrentMoveDescriptors[iCurrentExtra].szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, sCurrentMoveDescriptors[iCurrentExtra].nImageIndex);
+                        }
+                    }
+                    else
+                    {
+                        //strOutput.Format("    { \"%02u %s (Extra - %02x)\", 0x%07x, 0x%7x, %s, %u },\r\n", iCurrentExtra + 1, DEF_BUTTONLABEL6_MVC2[iButtonIndex], nPaletteCount, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, iCurrentExtra + 1 );
+                        strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sCurrentMoveDescriptors[iCurrentExtra].szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, iCurrentExtra);
+                    }
                     OutputDebugString(strOutput);
                     nCurrentCharacterOffset += 0x20;
                     nPaletteCount++;
@@ -322,7 +336,14 @@ void DumpAllCharacters()
                         }
                         else if (sExtraDescription->nImageIndex != 0xFF)
                         {
-                            strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, sExtraDescription->nImageIndex);
+                            if (sExtraDescription->szImageUnitOverride != nullptr)
+                            {
+                                strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sExtraDescription->szImageUnitOverride, sExtraDescription->nImageIndex);
+                            }
+                            else
+                            {
+                                strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, sExtraDescription->nImageIndex);
+                            }
                             OutputDebugString(strOutput);
                         }
                         else
@@ -550,7 +571,11 @@ CDescTree CGame_MVC2_A::InitDescTree()
     m_nTotalPaletteCountForMVC2 = nTotalPaletteCount;
 
     // hopefully we don't need to do this again........
-    //DumpAllCharacters();
+
+    // TODO: paired palettes such as HMM
+    // TODO: proc_supp :'(
+
+    DumpAllCharacters();
 
     return NewDescTree;
 }

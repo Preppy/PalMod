@@ -891,6 +891,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x05, 11, 0, 5); // teleport frames
         break;
     }
+#ifdef THESE_ARENT_IN_IMGDAT
     case 0x26: //M.Bison
     {
         if (
@@ -903,9 +904,10 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
+#endif
     case 0x28: //Gambit
     {
-        CreateExtraPal(uUnitId, uPalId, 0x09, 0x05, 11, 0, 5); // win pose. yes it looked broken like that back in 1.22 too.
+        CreateExtraPal(uUnitId, uPalId, 0x09, 0x05, 0, 0, 5); // win pose. 11 looks broken so I'm using 0.
         break;
     }
     case 0x29: //Juggernaut
@@ -1121,7 +1123,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             // Tron Bonne body
             bLoadDefPal = FALSE;
 
-            nImgUnitId = 0x10;
+            nImgUnitId = indexCPS2_Tron;
             nTargetImgId = 1;
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
@@ -1142,7 +1144,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             // Tron Bonne has a lunch sprite we can reuse here.
             bLoadDefPal = FALSE;
 
-            nImgUnitId = 0x10;
+            nImgUnitId = indexCPS2_Tron;
             nTargetImgId = 0x0C;
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
