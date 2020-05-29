@@ -24,7 +24,7 @@ CGame_MVC2_A::CGame_MVC2_A()
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
     m_nExtraUnit = MVC2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6316;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 5839;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
     m_nLowestKnownPaletteRomLocation = m_uLowestKnownPaletteROMLocation;
@@ -218,6 +218,9 @@ void DumpAllCharacters()
     {
         if (MVC2ArcadeCharacterArray[iUnitCtr].nStartingPosition != 0)
         {
+            const sMoveDescription* sCurrentMoveDescriptors = MVC2_MOVE_DESCRIPTIONS[iUnitCtr].pMoveDescriptions;
+            const UINT32 nMoveDescriptorCount = MVC2_MOVE_DESCRIPTIONS[iUnitCtr].nArraySize;
+
             UINT32 nCurrentCharacterOffset = MVC2ArcadeCharacterArray[iUnitCtr].nStartingPosition;
             UINT16 nPaletteCount = 0;
             CString strOutput;
@@ -229,13 +232,13 @@ void DumpAllCharacters()
 
                 if (MVC2ArcadeCharacterArray[iUnitCtr].fHasTwoCorePalettes)
                 {
-                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0, true },\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex], 
+                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0, true },\r\n", sCurrentMoveDescriptors[0].szMoveName, DEF_BUTTONLABEL6_MVC2[iButtonIndex],
                                                                                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                                                                                         MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName );
                 }
                 else
                 {
-                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0 },\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex], 
+                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0 },\r\n", sCurrentMoveDescriptors[0].szMoveName, DEF_BUTTONLABEL6_MVC2[iButtonIndex],
                                                                                     nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                                                                                     MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName );
                 }
@@ -245,7 +248,8 @@ void DumpAllCharacters()
 
                 for (UINT16 iCurrentExtra = 0; iCurrentExtra < 7; iCurrentExtra++)
                 {
-                    strOutput.Format("    { \"%02u %s (Extra - %02x)\", 0x%07x, 0x%7x, %s, %u },\r\n", iCurrentExtra + 1, DEF_BUTTONLABEL6_MVC2[iButtonIndex], nPaletteCount, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, iCurrentExtra + 1 );
+                    //strOutput.Format("    { \"%02u %s (Extra - %02x)\", 0x%07x, 0x%7x, %s, %u },\r\n", iCurrentExtra + 1, DEF_BUTTONLABEL6_MVC2[iButtonIndex], nPaletteCount, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, iCurrentExtra + 1 );
+                    strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sCurrentMoveDescriptors[iCurrentExtra + 1].szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, iCurrentExtra + 1);
                     OutputDebugString(strOutput);
                     nCurrentCharacterOffset += 0x20;
                     nPaletteCount++;
@@ -258,21 +262,26 @@ void DumpAllCharacters()
             strOutput.Format("const sGame_PaletteDataset MVC2_A_%s_PALETTES_SHARED[] =\r\n{\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc);
             OutputDebugString(strOutput);
 
+            const CHAR* StatusDescriptions[8] =
+            {
+                "Burning Dark", "Burning Light", "Shocked Dark", "Shocked Light", "Dark Burning Dark", "Dark Burning Light", "Kinetic Charge Dark", "Kinetic Charge Light"
+            };
+
             for (UINT16 iStatusEffect = 0; iStatusEffect < 8; iStatusEffect++)
             {
                 // Use this for people with two body pieces
                 if (MVC2ArcadeCharacterArray[iUnitCtr].fHasTwoCorePalettes)
                 {
-                    strOutput.Format("    { \"%s %u\", 0x%07x, 0x%7x, %s, %u, true },\r\n", "Status Effect", iStatusEffect, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
+                    strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u, true },\r\n", StatusDescriptions[iStatusEffect], nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
                     OutputDebugString(strOutput);
                     nCurrentCharacterOffset += 0x20;
-                    strOutput.Format("    { \"%s %u 2\", 0x%07x, 0x%7x, %s, %u },\r\n", "Status Effect", iStatusEffect, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 1);
+                    strOutput.Format("    { \"%s 2\", 0x%07x, 0x%7x, %s, %u },\r\n", StatusDescriptions[iStatusEffect], nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 1);
                     OutputDebugString(strOutput);
                     nCurrentCharacterOffset += 0x20;
                 }
                 else
                 {
-                    strOutput.Format("    { \"%s %u\", 0x%07x, 0x%7x, %s, %u },\r\n", "Status Effect", iStatusEffect, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
+                    strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", StatusDescriptions[iStatusEffect], nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
                     OutputDebugString(strOutput);
                     nCurrentCharacterOffset += 0x20;
                 }
@@ -285,19 +294,56 @@ void DumpAllCharacters()
             {
                 strOutput.Format("const sGame_PaletteDataset MVC2_A_%s_PALETTES_EXTRAS[] =\r\n{\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc);
                 OutputDebugString(strOutput);
+                const UINT16 nExtraStart = MVC2ArcadeCharacterArray[iUnitCtr].fHasTwoCorePalettes ? (8 + 0x9) : 0x9;
 
-                for (UINT16 iExtraPosition = 0x9; iExtraPosition <= MVC2ArcadeCharacterArray[iUnitCtr].nExtraEnd; iExtraPosition++)
+                for (UINT16 iExtraPosition = nExtraStart; iExtraPosition <= MVC2ArcadeCharacterArray[iUnitCtr].nExtraEnd; iExtraPosition++)
                 {
+                    const sMoveDescription* sExtraDescription = nullptr;
+
+                    for (UINT32 iDescriptionIndex = 8; iDescriptionIndex < nMoveDescriptorCount; iDescriptionIndex++)
+                    {
+                        if (sCurrentMoveDescriptors[iDescriptionIndex].nCharacterIndex == iExtraPosition)
+                        {
+                            sExtraDescription = &sCurrentMoveDescriptors[iDescriptionIndex];
+                            break;
+                        }
+                        else if (sCurrentMoveDescriptors[iDescriptionIndex].nCharacterIndex > iExtraPosition)
+                        {
+                            // We've passed beyond the range of interest
+                            break;
+                        }
+                    }
+
+                    if (sExtraDescription)
+                    {
+                        if (_stricmp(sExtraDescription->szMoveName, "Not Used") == 0)
+                        {
+                            // don't bother adding this to the layout.
+                        }
+                        else if (sExtraDescription->nImageIndex != 0xFF)
+                        {
+                            strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, sExtraDescription->nImageIndex);
+                            OutputDebugString(strOutput);
+                        }
+                        else
+                        {
+                            strOutput.Format("    { \"%s\", 0x%07x, 0x%7x },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
+                            OutputDebugString(strOutput);
+                        }
+                    }
+#ifdef WEWANTSTUFFEIDRIANDIDNTCAREABOUT
                     // So... I think those other extras might be used......
-                    if (iExtraPosition >= MVC2ArcadeCharacterArray[iUnitCtr].nExtraStart)
+                    else if (iExtraPosition >= MVC2ArcadeCharacterArray[iUnitCtr].nExtraStart)
                     {
                         strOutput.Format("    { \"%s 0x%x\", 0x%07x, 0x%7x, %s, %u },\r\n", "Extra", iExtraPosition, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
+                        OutputDebugString(strOutput);
                     }
                     else
                     {
                         strOutput.Format("    { \"Unused: %s 0x%x\", 0x%07x, 0x%7x },\r\n", "Extra", iExtraPosition, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20 );
+                        OutputDebugString(strOutput);
                     }
-                    OutputDebugString(strOutput);
+#endif
                     nCurrentCharacterOffset += 0x20;
                 }
 
@@ -409,7 +455,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    sprintf(ChildNode->szDesc, "%s", paletteSetToUse[nNodeIndex].szPaletteName);
+                    snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
@@ -819,7 +865,6 @@ void CGame_MVC2_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
     {
         CString strPageDescription;
-        const UINT8 nTotalSeparatoresNeeded = (UINT8)ceil(m_nCurrentPaletteSize / s_nColorsPerPage);
         int nColorsRemaining = m_nCurrentPaletteSize;
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
@@ -951,11 +996,15 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         nYOffs = 32;
                         fShouldUseAlternateLoadLogic = true;
                     }
+                    else if ((NodeGet->uUnitId == indexMVC2AShuma) ||
+                             (NodeGet->uUnitId == indexMVC2ASentinel))
+                    {
+                        OutputDebugString("Sadness: this sprite is wrong.  Should be reripped as paired.\n");
+                    }
                     else
                     {
                         OutputDebugString("WARNING: You're asking for a palette join that the code doesn't know about.  Please fix.\n");
                     }
-
 
                     if (fShouldUseAlternateLoadLogic)
                     {

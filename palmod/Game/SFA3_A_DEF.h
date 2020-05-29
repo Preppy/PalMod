@@ -1123,15 +1123,17 @@ const sGame_PaletteDataset SFA3_A_STAGES_RYU_NODE[] =
 
 const sGame_PaletteDataset SFA3_A_STAGES_NASH_NODE[] =
 {
-    { "Cockpit/Top(Plane)/LandingGear", 0x47CF4, 0x47DF4 },
-    { "Plane and Floor", 0x41014, 0x413D4 },
-    { "Rear Windows Metal Ceiling", 0x3C8D4, 0x3CC74 },
-    { "Mechanic Spectators", 0x38634, 0x38654 },
-    { "Rolling Stairs Thing", 0x38654, 0x38674 },
-    { "Missile", 0x38674, 0x38694 },
-    { "Missile Tails", 0x38694, 0x386B4 },
-    { "Missile Heads", 0x386B4, 0x386D4 },
-    { "Under Plane???", 0x386D4, 0x386F4 },
+    { "Cockpit/Top(Plane)/LandingGear", 0x47CF4, 0x47DF4, indexCPS2_SFA3Assets, 0x1f },
+    { "Plane and Floor Part 1", 0x41014, 0x41214, indexCPS2_SFA3Assets, 0x20 },
+    { "Plane and Floor Part 2", 0x41214, 0x413D4, indexCPS2_SFA3Assets, 0x21 },
+    { "Rear Windows Metal Ceiling Part 1", 0x3C8D4, 0x3CA74, indexCPS2_SFA3Assets, 0x22 },
+    { "Rear Windows Metal Ceiling Part 2", 0x3CAD4, 0x3CC74, indexCPS2_SFA3Assets, 0x23 },
+    { "Mechanic Spectators", 0x38634, 0x38654, indexCPS2_SFA3Assets, 0x25 },
+    { "Rolling Stairs Thing", 0x38654, 0x38674, indexCPS2_SFA3Assets, 0x24 },
+    { "Missile", 0x38674, 0x38694, indexCPS2_SFA3Assets, 0x26 },
+    { "Missile Tails", 0x38694, 0x386B4, indexCPS2_SFA3Assets, 0x27 },
+    { "Missile Heads", 0x386B4, 0x386D4, indexCPS2_SFA3Assets, 0x28 },
+    { "Under Plane???", 0x386D4, 0x386F4, indexCPS2_SFA3Assets, 0x29 },
 };
 
 const sDescTreeNode SFA3_A_RYU_COLLECTION[] =

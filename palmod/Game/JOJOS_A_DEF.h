@@ -585,12 +585,12 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_INHOUSE[] =
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CROOM[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { "Coffin Room (1/6)", 0x07e4300, 0x07e4500 },
-    { "Coffin Room (2/6)", 0x07e4500, 0x07e4700 },
-    { "Coffin Room (3/6)", 0x07e4700, 0x07e4900 },
-    { "Coffin Room (4/6)", 0x07e4900, 0x07e4b00 },
-    { "Coffin Room (5/6)", 0x07e4b00, 0x07e4d00 },
-    { "Coffin Room (6/6)", 0x07e4d00, 0x07e4e00 },
+    { "Coffin Room (1/6)", 0x07e4300, 0x07e4500, indexJojos51Stages, 0x5 },
+    { "Coffin Room (2/6)", 0x07e4500, 0x07e4700, indexJojos51Stages, 0x6},
+    { "Coffin Room (3/6)", 0x07e4700, 0x07e4900, indexJojos51Stages, 0x7 },
+    { "Coffin Room (4/6)", 0x07e4900, 0x07e4b00, indexJojos51Stages, 0x8 },
+    { "Coffin Room (5/6)", 0x07e4b00, 0x07e4d00, indexJojos51Stages, 0x9 },
+    { "Coffin Room (6/6)", 0x07e4d00, 0x07e4e00, indexJojos51Stages, 0xa },
 #else
     { "Coffin Room", 0x07e4300, 0x07e4e00 },
 #endif
@@ -599,9 +599,9 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CROOM[] =
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CLOCK[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { "Clock Tower (1/3)", 0x07e5b00, 0x07e5d00 },
-    { "Clock Tower (2/3)", 0x07e5d00, 0x07e5f00 },
-    { "Clock Tower (3/3)", 0x07e5f00, 0x07e6100 },
+    { "Clock Tower (1/3)", 0x07e5b00, 0x07e5d00, indexJojos51Stages, 0 },
+    { "Clock Tower (2/3)", 0x07e5d00, 0x07e5f00, indexJojos51Stages, 0x1 },
+    { "Clock Tower (3/3)", 0x07e5f00, 0x07e6100, indexJojos51Stages, 0x2 },
 #else
     { "Clock Tower", 0x07e5b00, 0x07e6100 },
 #endif
@@ -640,8 +640,8 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB[] =
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_OTBRIDGE[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { "On The Bridge (1/2)", 0x07eed00, 0x07eef00 },
-    { "On The Bridge (2/2)", 0x07eef00, 0x07ef100 },
+    { "On The Bridge (1/2)", 0x07eed00, 0x07eef00, indexJojos51Stages, 0x3 },
+    { "On The Bridge (2/2)", 0x07eef00, 0x07ef100, indexJojos51Stages, 0x4 },
 #else
     { "On The Bridge", 0x07eed00, 0x07ef100 },
 #endif
@@ -2900,27 +2900,27 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_KHAN_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_A[] =
 {
-    { "N'Doul & Geb A", 0x033d480, 0x033d500 },
+    { "N'Doul & Geb A", 0x033d480, 0x033d500, indexJojos51NDoul },
 }; 
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_B[] =
 {
-    { "N'Doul & Geb B", 0x0351980, 0x0351a00 },
+    { "N'Doul & Geb B", 0x0351980, 0x0351a00, indexJojos51NDoul },
 }; 
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_C[] =
 {
-    { "N'Doul & Geb C", 0x0365e80, 0x0365f00 },
+    { "N'Doul & Geb C", 0x0365e80, 0x0365f00, indexJojos51NDoul },
 }; 
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_S[] =
 {
-    { "N'Doul & Geb S", 0x037a380, 0x037a400 },
+    { "N'Doul & Geb S", 0x037a380, 0x037a400, indexJojos51NDoul },
 }; 
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_NDOUL_Start[] =
 {
-    { "N'Doul & Geb Start", 0x038e880, 0x038e900 },
+    { "N'Doul & Geb Start", 0x038e880, 0x038e900, indexJojos51NDoul },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_A[] =
@@ -2950,27 +2950,27 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BICE_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_A[] =
 {
-    { "Death 13 A", 0x0340680, 0x0340700 },
+    { "Death 13 A", 0x0340680, 0x0340700, indexJojos51Death13 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_B[] =
 {
-    { "Death 13 B", 0x0354b80, 0x0354c00 },
+    { "Death 13 B", 0x0354b80, 0x0354c00, indexJojos51Death13 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_C[] =
 {
-    { "Death 13 C", 0x0369080, 0x0369100 },
+    { "Death 13 C", 0x0369080, 0x0369100, indexJojos51Death13 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_S[] =
 {
-    { "Death 13 S", 0x037d580, 0x037d600 },
+    { "Death 13 S", 0x037d580, 0x037d600, indexJojos51Death13 },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_Start[] =
 {
-    { "Death 13 Start", 0x0391a80, 0x0391b00 },
+    { "Death 13 Start", 0x0391a80, 0x0391b00, indexJojos51Death13 },
 };
 
 const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_JOTARO[] =
@@ -4057,22 +4057,10 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_INHOUSE[] =
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CROOM[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { "Coffin Room / New 7 TS (1/16)", 0x02e1300, 0x02e1380 },
-    { "Coffin Room / New 7 TS (2/16)", 0x02e1380, 0x02e1400 },
-    { "Coffin Room / New 7 TS (3/16)", 0x02e1400, 0x02e1480 },
-    { "Coffin Room / New 7 TS (4/16)", 0x02e1480, 0x02e1500 },
-    { "Coffin Room / New 7 TS (5/16)", 0x02e1500, 0x02e1580 },
-    { "Coffin Room / New 7 TS (6/16)", 0x02e1580, 0x02e1600 },
-    { "Coffin Room / New 7 TS (7/16)", 0x02e1600, 0x02e1680 },
-    { "Coffin Room / New 7 TS (8/16)", 0x02e1680, 0x02e1700 },
-    { "Coffin Room / New 7 TS (9/16)", 0x02e1700, 0x02e1780 },
-    { "Coffin Room / New 7 TS (10/16)", 0x02e1780, 0x02e1800 },
-    { "Coffin Room / New 7 TS (11/16)", 0x02e1800, 0x02e1880 },
-    { "Coffin Room / New 7 TS (12/16)", 0x02e1880, 0x02e1900 },
-    { "Coffin Room / New 7 TS (13/16)", 0x02e1900, 0x02e1980 },
-    { "Coffin Room / New 7 TS (14/16)", 0x02e1980, 0x02e1a00 },
-    { "Coffin Room / New 7 TS (15/16)", 0x02e1a00, 0x02e1a80 },
-    { "Coffin Room / New 7 TS (16/16)", 0x02e1a80, 0x02e1b00 },
+    { "Coffin Room / New 7 TS (1/4)", 0x02e1300, 0x02e1500, indexJojos51Stages, 0x5 },
+    { "Coffin Room / New 7 TS (2/4)", 0x02e1500, 0x02e1700, indexJojos51Stages, 0x6 },
+    { "Coffin Room / New 7 TS (3/4)", 0x02e1700, 0x02e1900, indexJojos51Stages, 0x7 },
+    { "Coffin Room / New 7 TS (4/4)", 0x02e1900, 0x02e1b00, indexJojos51Stages, 0x8 },
 #else
     { "Coffin Room / New 7 TS", 0x02e1300, 0x02e1b00 },
 #endif
@@ -4081,18 +4069,9 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CROOM[] =
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CTOWER[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { "Clock Tower / New 8 TS (1/12)", 0x02e1c00, 0x02e1c80 },
-    { "Clock Tower / New 8 TS (2/12)", 0x02e1c80, 0x02e1d00 },
-    { "Clock Tower / New 8 TS (3/12)", 0x02e1d00, 0x02e1d80 },
-    { "Clock Tower / New 8 TS (4/12)", 0x02e1d80, 0x02e1e00 },
-    { "Clock Tower / New 8 TS (5/12)", 0x02e1e00, 0x02e1e80 },
-    { "Clock Tower / New 8 TS (6/12)", 0x02e1e80, 0x02e1f00 },
-    { "Clock Tower / New 8 TS (7/12)", 0x02e1f00, 0x02e1f80 },
-    { "Clock Tower / New 8 TS (8/12)", 0x02e1f80, 0x02e2000 },
-    { "Clock Tower / New 8 TS (9/12)", 0x02e2000, 0x02e2080 },
-    { "Clock Tower / New 8 TS (10/12)", 0x02e2080, 0x02e2100 },
-    { "Clock Tower / New 8 TS (11/12)", 0x02e2100, 0x02e2180 },
-    { "Clock Tower / New 8 TS (12/12)", 0x02e2180, 0x02e2200 },
+    { "Clock Tower / New 8 TS (1/3)", 0x02e1c00, 0x02e1e00, indexJojos51Stages, 0 },
+    { "Clock Tower / New 8 TS (2/3)", 0x02e1e00, 0x02e2000, indexJojos51Stages, 1 },
+    { "Clock Tower / New 8 TS (3/3)", 0x02e2000, 0x02e2200, indexJojos51Stages, 2 },
 #else
     { "Clock Tower / New 8 TS", 0x02e1c00, 0x02e2200 },
 #endif
@@ -4197,14 +4176,8 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_SUBURB[] =
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_OBRIDGE[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { "On the Bridge TS (1/8)", 0x02e4f00, 0x02e4f80 },
-    { "On the Bridge TS (2/8)", 0x02e4f80, 0x02e5000 },
-    { "On the Bridge TS (3/8)", 0x02e5000, 0x02e5080 },
-    { "On the Bridge TS (4/8)", 0x02e5080, 0x02e5100 },
-    { "On the Bridge TS (5/8)", 0x02e5100, 0x02e5180 },
-    { "On the Bridge TS (6/8)", 0x02e5180, 0x02e5200 },
-    { "On the Bridge TS (7/8)", 0x02e5200, 0x02e5280 },
-    { "On the Bridge TS (8/8)", 0x02e5280, 0x02e5300 },
+    { "On the Bridge TS (1/2)", 0x02e4f00, 0x02e5100, indexJojos51Stages, 0x3 },
+    { "On the Bridge TS (2/2)", 0x02e5100, 0x02e5300, indexJojos51Stages, 0x4 },
 #else
     { "On the Bridge TS", 0x02e4f00, 0x02e5300 },
 #endif

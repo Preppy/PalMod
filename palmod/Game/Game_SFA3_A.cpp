@@ -19,7 +19,7 @@ CGame_SFA3_A::CGame_SFA3_A(void)
 
     m_nTotalInternalUnits = SFA3_A_NUM_IND;
     m_nExtraUnit = SFA3_A_EXTRALOC;
-    m_nSafeCountForThisRom = 900 + GetExtraCt(SFA3_A_EXTRALOC);
+    m_nSafeCountForThisRom = 902 + GetExtraCt(SFA3_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SFA3;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
     m_nLowestKnownPaletteRomLocation = 0x2C000;
@@ -633,7 +633,6 @@ void CGame_SFA3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
     {
         CString strPageDescription;
-        const UINT8 nTotalSeparatoresNeeded = (UINT8)ceil(m_nCurrentPaletteSize / s_nColorsPerPage);
         int nColorsRemaining = m_nCurrentPaletteSize;
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)

@@ -765,7 +765,6 @@ void CGame_MSH_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
     {
         CString strPageDescription;
-        const UINT8 nTotalSeparatoresNeeded = (UINT8)ceil(m_nCurrentPaletteSize / s_nColorsPerPage);
         int nColorsRemaining = m_nCurrentPaletteSize;
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
