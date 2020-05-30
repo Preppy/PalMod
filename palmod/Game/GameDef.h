@@ -135,6 +135,13 @@ struct stExtraDef
     bool isInvisible = false;
 };
 
+struct stPairedPaletteInfo
+{
+    int nNodeIncrementToPartner = 1;
+    int nXOffs = 0;
+    int nYOffs = 0;
+};
+
 struct sGame_PaletteDataset
 {
     LPCSTR szPaletteName = "uninit";
@@ -142,7 +149,7 @@ struct sGame_PaletteDataset
     UINT32 nPaletteOffsetEnd = 0;
     UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
     UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
-    bool isJoinedPalette = false;
+    const stPairedPaletteInfo* pPalettePairingInfo = nullptr;
 };
 
 const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
@@ -648,4 +655,20 @@ const int IMGAMT[4] =
     SFIII3_A_NUM_IMG_UNITS,
     SSF2T_A_NUM_IMG_UNITS
 };
+
+const stPairedPaletteInfo pairUnhandled =     { 0, 0, 0 };
+const stPairedPaletteInfo pairHandledInCode = { 0, 0, 0 };
+
+const stPairedPaletteInfo pairCaptainAmericaShield = { 1, -22, -17 };
+const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, 4 };
+const stPairedPaletteInfo pairHayatoSword = { 1, -63, 32 };
+const stPairedPaletteInfo pairTronBody = { 1, -4, -50 };
+const stPairedPaletteInfo pairWolvieClaws =   { 1, 20, 4 };
+
+// Please note that the palette sort order in PalMod differs for MM in MvC1 and MvC2
+const stPairedPaletteInfo pairRushDrill =    { 30, 0, 0 };
+const stPairedPaletteInfo pairHyperMegaman = { 9, 31, 12 };
+
+
+
 

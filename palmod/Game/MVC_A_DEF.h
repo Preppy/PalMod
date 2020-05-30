@@ -287,14 +287,14 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
     { "P1 Charged HP 8", 0x4c5e4, 0x4c604, 0x1c },
     { "P1 Charged HP 9", 0x4c604, 0x4c624, 0x1c },
 
-    { "P1 Rush Drill 1", 0x4c624, 0x4c644, 0x1D, 0x0B, true }, // 38
-    { "P1 Rush Drill 2", 0x4c644, 0x4c664, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 3", 0x4c664, 0x4c684, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 4", 0x4c684, 0x4c6a4, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 5", 0x4c6a4, 0x4c6c4, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 6", 0x4c6c4, 0x4c6e4, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 7", 0x4c6e4, 0x4c704, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 8", 0x4c704, 0x4c724, 0x1D, 0x0B, true },
+    { "P1 Rush Drill 1", 0x4c624, 0x4c644, 0x1D, 0x0B, &pairRushDrill }, // 38
+    { "P1 Rush Drill 2", 0x4c644, 0x4c664, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 3", 0x4c664, 0x4c684, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 4", 0x4c684, 0x4c6a4, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 5", 0x4c6a4, 0x4c6c4, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 6", 0x4c6c4, 0x4c6e4, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 7", 0x4c6e4, 0x4c704, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 8", 0x4c704, 0x4c724, 0x1D, 0x0B, &pairRushDrill },
     { "P1 Rush Drill 9", 0x4c724, 0x4c744, 0x1D, 0x0B },
 
     { "P1 Rush Drill Metal 1", 0x4c9e4 + 0x0, 0x4c9e4 + 0x20, 0x1D, 0x0C },
@@ -309,15 +309,15 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P1[] =
     { "P1 Teleport Intro", 0x4c744, 0x4c764, 0x1C, 0x0D }, // 41
     { "P1 Dr Light", 0x4c764, 0x4c784, 0x1c, 0x25 }, // 42
 
-    { "P1 Hyper Megaman Armor 1", 0x4c784, 0x4c7a4, 0x1C, 0x27, true }, // 43
-    { "P1 Hyper Megaman Armor 2", 0x4c7a4, 0x4c7c4, 0x1C, 0x27, true },
-    { "P1 Hyper Megaman Armor 3", 0x4c7c4, 0x4c7e4, 0x1C, 0x27, true },
-    { "P1 Hyper Megaman Armor 4", 0x4c7e4, 0x4c804, 0x1C, 0x27, true },
-    { "P1 Hyper Megaman Armor 5", 0x4c804, 0x4c824, 0x1C, 0x27, true },
-    { "P1 Hyper Megaman Armor 6", 0x4c824, 0x4c844, 0x1C, 0x27, true },
-    { "P1 Hyper Megaman Armor 7", 0x4c844, 0x4c864, 0x1C, 0x27, true },
-    { "P1 Hyper Megaman Armor 8", 0x4c864, 0x4c884, 0x1C, 0x27, true },
-    { "P1 Hyper Megaman Armor 9", 0x4c884, 0x4c8a4, 0x1C, 0x27, true },
+    { "P1 Hyper Megaman Armor 1", 0x4c784, 0x4c7a4, 0x1C, 0x27, &pairHyperMegaman }, // 43
+    { "P1 Hyper Megaman Armor 2", 0x4c7a4, 0x4c7c4, 0x1C, 0x27, &pairHyperMegaman },
+    { "P1 Hyper Megaman Armor 3", 0x4c7c4, 0x4c7e4, 0x1C, 0x27, &pairHyperMegaman },
+    { "P1 Hyper Megaman Armor 4", 0x4c7e4, 0x4c804, 0x1C, 0x27, &pairHyperMegaman },
+    { "P1 Hyper Megaman Armor 5", 0x4c804, 0x4c824, 0x1C, 0x27, &pairHyperMegaman },
+    { "P1 Hyper Megaman Armor 6", 0x4c824, 0x4c844, 0x1C, 0x27, &pairHyperMegaman },
+    { "P1 Hyper Megaman Armor 7", 0x4c844, 0x4c864, 0x1C, 0x27, &pairHyperMegaman },
+    { "P1 Hyper Megaman Armor 8", 0x4c864, 0x4c884, 0x1C, 0x27, &pairHyperMegaman },
+    { "P1 Hyper Megaman Armor 9", 0x4c884, 0x4c8a4, 0x1C, 0x27, &pairHyperMegaman },
 
     { "P1 Hyper Megaman 1", 0x4c8a4, 0x4c8c4, 0x1c, 0x28 }, // 4C
     { "P1 Hyper Megaman 2", 0x4c8c4, 0x4c8e4, 0x1c, 0x28 },
@@ -394,14 +394,14 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
     { "P2 Charged HP 8", 0x4d0c4, 0x4d0e4, 0x1c },
     { "P2 Charged HP 9", 0x4d0e4, 0x4d104, 0x1c },
 
-    { "P2 Rush Drill 1", 0x4d104, 0x4d124, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 2", 0x4d124, 0x4d144, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 3", 0x4d144, 0x4d164, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 4", 0x4d164, 0x4d184, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 5", 0x4d184, 0x4d1a4, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 6", 0x4d1a4, 0x4d1c4, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 7", 0x4d1c4, 0x4d1e4, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 8", 0x4d1e4, 0x4d204, 0x1D, 0x0B, true },
+    { "P2 Rush Drill 1", 0x4d104, 0x4d124, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 2", 0x4d124, 0x4d144, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 3", 0x4d144, 0x4d164, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 4", 0x4d164, 0x4d184, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 5", 0x4d184, 0x4d1a4, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 6", 0x4d1a4, 0x4d1c4, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 7", 0x4d1c4, 0x4d1e4, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 8", 0x4d1e4, 0x4d204, 0x1D, 0x0B, &pairRushDrill },
     { "P2 Rush Drill 9", 0x4d204, 0x4d224, 0x1D, 0x0B }, // 97
 
     // Presented out of order because they are associated
@@ -418,15 +418,15 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_PALETTES_P2[] =
     { "P2 Teleport Intro", 0x4d224, 0x4d244, 0x1C, 0x0D },
     { "P2 Dr Light", 0x4d244, 0x4d264, 0x1c, 0x25 },
 
-    { "P2 Hyper Megaman Armor 1", 0x4d264, 0x4d284, 0x1C, 0x27, true },
-    { "P2 Hyper Megaman Armor 2", 0x4d284, 0x4d2a4, 0x1C, 0x27, true },
-    { "P2 Hyper Megaman Armor 3", 0x4d2a4, 0x4d2c4, 0x1C, 0x27, true },
-    { "P2 Hyper Megaman Armor 4", 0x4d2c4, 0x4d2e4, 0x1C, 0x27, true },
-    { "P2 Hyper Megaman Armor 5", 0x4d2e4, 0x4d304, 0x1C, 0x27, true },
-    { "P2 Hyper Megaman Armor 6", 0x4d304, 0x4d324, 0x1C, 0x27, true },
-    { "P2 Hyper Megaman Armor 7", 0x4d324, 0x4d344, 0x1C, 0x27, true },
-    { "P2 Hyper Megaman Armor 8", 0x4d344, 0x4d364, 0x1C, 0x27, true },
-    { "P2 Hyper Megaman Armor 9", 0x4d364, 0x4d384, 0x1C, 0x27, true }, // a2
+    { "P2 Hyper Megaman Armor 1", 0x4d264, 0x4d284, 0x1C, 0x27, &pairHyperMegaman },
+    { "P2 Hyper Megaman Armor 2", 0x4d284, 0x4d2a4, 0x1C, 0x27, &pairHyperMegaman },
+    { "P2 Hyper Megaman Armor 3", 0x4d2a4, 0x4d2c4, 0x1C, 0x27, &pairHyperMegaman },
+    { "P2 Hyper Megaman Armor 4", 0x4d2c4, 0x4d2e4, 0x1C, 0x27, &pairHyperMegaman },
+    { "P2 Hyper Megaman Armor 5", 0x4d2e4, 0x4d304, 0x1C, 0x27, &pairHyperMegaman },
+    { "P2 Hyper Megaman Armor 6", 0x4d304, 0x4d324, 0x1C, 0x27, &pairHyperMegaman },
+    { "P2 Hyper Megaman Armor 7", 0x4d324, 0x4d344, 0x1C, 0x27, &pairHyperMegaman },
+    { "P2 Hyper Megaman Armor 8", 0x4d344, 0x4d364, 0x1C, 0x27, &pairHyperMegaman },
+    { "P2 Hyper Megaman Armor 9", 0x4d364, 0x4d384, 0x1C, 0x27, &pairHyperMegaman }, // a2
 
     { "P2 Hyper Megaman 1", 0x4d384, 0x4d3a4, 0x1C, 0x28 },
     { "P2 Hyper Megaman 2", 0x4d3a4, 0x4d3c4, 0x1C, 0x28 },
@@ -522,14 +522,14 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P1[] =
     { "P1 Beat Plane 8", 0x4da84, 0x4daa4, 0x1C, 0x24 },
     { "P1 Beat Plane 9", 0x4daa4, 0x4dac4, 0x1C, 0x24 },
 
-    { "P1 Rush Drill 1", 0x4dbe4, 0x4dc04, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 2", 0x4dc04, 0x4dc24, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 3", 0x4dc24, 0x4dc44, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 4", 0x4dc44, 0x4dc64, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 5", 0x4dc64, 0x4dc84, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 6", 0x4dc84, 0x4dca4, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 7", 0x4dca4, 0x4dcc4, 0x1D, 0x0B, true },
-    { "P1 Rush Drill 8", 0x4dcc4, 0x4dce4, 0x1D, 0x0B, true },
+    { "P1 Rush Drill 1", 0x4dbe4, 0x4dc04, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 2", 0x4dc04, 0x4dc24, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 3", 0x4dc24, 0x4dc44, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 4", 0x4dc44, 0x4dc64, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 5", 0x4dc64, 0x4dc84, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 6", 0x4dc84, 0x4dca4, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 7", 0x4dca4, 0x4dcc4, 0x1D, 0x0B, &pairRushDrill },
+    { "P1 Rush Drill 8", 0x4dcc4, 0x4dce4, 0x1D, 0x0B, &pairRushDrill },
     { "P1 Rush Drill 9", 0x4dce4, 0x4dd04, 0x1D, 0x0B },
 
     { "P1 Rush Drill Metal 1", 0x4dfa4, 0x4dfc4, 0x1D, 0x0C },
@@ -594,14 +594,14 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_P2[] =
     { "P2 Beat Plane 8", 0x4e564, 0x4e584, 0x1C, 0x24 },
     { "P2 Beat Plane 9", 0x4e584, 0x4e5a4, 0x1C, 0x24 },
 
-    { "P2 Rush Drill 1", 0x4e6c4, 0x4e6e4, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 2", 0x4e6e4, 0x4e704, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 3", 0x4e704, 0x4e724, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 4", 0x4e724, 0x4e744, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 5", 0x4e744, 0x4e764, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 6", 0x4e764, 0x4e784, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 7", 0x4e784, 0x4e7a4, 0x1D, 0x0B, true },
-    { "P2 Rush Drill 8", 0x4e7a4, 0x4e7c4, 0x1D, 0x0B, true },
+    { "P2 Rush Drill 1", 0x4e6c4, 0x4e6e4, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 2", 0x4e6e4, 0x4e704, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 3", 0x4e704, 0x4e724, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 4", 0x4e724, 0x4e744, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 5", 0x4e744, 0x4e764, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 6", 0x4e764, 0x4e784, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 7", 0x4e784, 0x4e7a4, 0x1D, 0x0B, &pairRushDrill },
+    { "P2 Rush Drill 8", 0x4e7a4, 0x4e7c4, 0x1D, 0x0B, &pairRushDrill },
     { "P2 Rush Drill 9", 0x4e7c4, 0x4e7e4, 0x1D, 0x0B },
 
     { "P2 Rush Drill Metal 1", 0x4ea84, 0x4eaa4, 0x1D, 0x0C },
@@ -682,7 +682,7 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
     { "Main Body Glimmer 3", 0x4BC04, 0x4BC24, 0x3B },
     { "Teleport 1", 0x4BC64, 0x4BC84, 0x3B },
     { "Teleport 2", 0x4BC84, 0x4BCA4, 0x3B },
-    { "Body Ram (Body)", 0x4BD24, 0x4BD44, 0x3B, 0x08, true },
+    { "Body Ram (Body)", 0x4BD24, 0x4BD44, 0x3B, 0x08, &pairHandledInCode },
     { "Body Ram (Effect)", 0x4BD44, 0x4BD64, 0x3B, 0x09 },
     { "Magnetic Shockwave", 0x4BC44, 0x4BC64, 0x3B, 0x06 },
     { "Magnetic Tempest", 0x4BCC4, 0x4BCE4, 0x3B, 0x0A },
@@ -731,7 +731,7 @@ const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P1[] =
 {
-    { "P1 Color", 0x48284, 0x482a4, 0x0b, 0, true },
+    { "P1 Color", 0x48284, 0x482a4, 0x0b, 0, &pairCaptainAmericaShield },
     { "P1 Shield", 0x482a4, 0x482c4, 0x0b, 1 },
     { "P1 Charging Star", 0x482c4, 0x482e4, 0x0b, 2 },
     { "P1 Eagle", 0x591E4, 0x59204, 0x0B, 3 },
@@ -739,7 +739,7 @@ const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P2[] =
 {
-    { "P2 Color", 0x482e4, 0x48304, 0x0b, 0, true },
+    { "P2 Color", 0x482e4, 0x48304, 0x0b, 0, &pairCaptainAmericaShield },
     { "P2 Shield", 0x48304, 0x48324, 0x0b, 1 },
     { "P2 Charging Star", 0x48324, 0x48344, 0x0b, 2 },
     { "P2 Eagle", 0x59204, 0x59224, 0x0B, 3 },
@@ -780,14 +780,14 @@ const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_P1[] =
 {
-    { "P1 Color", 0x48404, 0x48424, 0x07, 0, true },
+    { "P1 Color", 0x48404, 0x48424, 0x07, 0, &pairWolvieClaws },
     { "P1 Claws", 0x48424, 0x48444, 0x07, 1 },
     { "P1 Berserker FX", 0x48444, 0x48464, 0x07, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_P2[] =
 {
-    { "P2 Color", 0x48464, 0x48484, 0x07, 0, true },
+    { "P2 Color", 0x48464, 0x48484, 0x07, 0, &pairWolvieClaws },
     { "P2 Claws", 0x48484, 0x484a4, 0x07, 1 },
     { "P2 Berserker FX", 0x484a4, 0x484c4, 0x07, 2 },
 };
@@ -858,7 +858,7 @@ const sGame_PaletteDataset MVC_A_SPIDEY_PALETTES_P2[] =
 const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P1[] =
 {
     { "P1 Color",  0x48884, 0x488a4, 0x38 },
-    { "P1 Ninjas", 0x488a4, 0x488c4, 0x38, 1, true },
+    { "P1 Ninjas", 0x488a4, 0x488c4, 0x38, 1, &pairCapComNinjas },
     { "P1 Hoover", 0x488c4, 0x488e4, 0x38, 2 },
     { "P1 Suit Intro", 0x4F304, 0x4F324, 0x38, 0x0F },
     { "P1 Taunt", 0x4F344, 0x4F364, 0x38, 14 },
@@ -867,7 +867,7 @@ const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P1[] =
 const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_P2[] =
 {
     { "P2 Color",  0x488e4, 0x48904, 0x38 },
-    { "P2 Ninjas", 0x48904, 0x48924, 0x38, 1, true },
+    { "P2 Ninjas", 0x48904, 0x48924, 0x38, 1, &pairCapComNinjas },
     { "P2 Hoover", 0x48924, 0x48944, 0x38, 2 },
     { "P2 Suit Intro", 0x4F324, 0x4F344, 0x38, 0x0F },
     { "P2 Taunt", 0x4F364, 0x4F384, 0x38, 14 },
@@ -1026,15 +1026,15 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "Cyclops Optic Blast 5", 0x50944, 0x50964, 0x06, 0x0E },
 
     // Warning: these are joined using code in UpdatePalImg.  If you renumber these, you'll want to doublecheck display.
-    { "Devilot P1", 0x510c4, 0x510e4, 0x3C, 3, true },
+    { "Devilot P1", 0x510c4, 0x510e4, 0x3C, 3, &pairHandledInCode },
     { "Devilot P1: Dave and Xavier", 0x510e4, 0x51104, 0x3C, 4 },
     { "Devilot P1: Platform", 0x51104, 0x51124, 0x3C, 2 },
-    { "Devilot P1: Burnt", 0x51184, 0x511a4, 0x3C, 5, true },
+    { "Devilot P1: Burnt", 0x51184, 0x511a4, 0x3C, 5, &pairHandledInCode },
     { "Devilot P1: Burnt Dave and Xavier", 0x511a4, 0x511c4, 0x3C, 6 },
-    { "Devilot P2", 0x51124, 0x51144, 0x3C, 3, true },
+    { "Devilot P2", 0x51124, 0x51144, 0x3C, 3, &pairHandledInCode },
     { "Devilot P2: Dave and Xavier", 0x51144, 0x51164, 0x3C, 4 },
     { "Devilot P2: Platform", 0x51164, 0x51184, 0x3C, 2 },
-    { "Devilot P2: Burnt", 0x511c4, 0x511e4, 0x3C, 5, true },
+    { "Devilot P2: Burnt", 0x511c4, 0x511e4, 0x3C, 5, &pairHandledInCode },
     { "Devilot P2: Burnt Dave and Xavier", 0x511e4, 0x51204, 0x3C, 6 },
 
     { "Iceman P1", 0x50d64, 0x50d84, 0x09 },
@@ -1052,9 +1052,9 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "Juggernaut P2", 0x50324, 0x50344, 0x29 },
     { "Juggernaut P2 Extra 1", 0x50364, 0x50384, 0x29, 2 },
 
-    { "Lou P1", 0x50204, 0x50224, 0x3C, 0x09, true },
+    { "Lou P1", 0x50204, 0x50224, 0x3C, 0x09, &pairHandledInCode },
     { "Lou P1 Extra", 0x50224, 0x50244, 0x3C, 0x0A },
-    { "Lou P2", 0x50264, 0x50284, 0x3C, 0x09, true },
+    { "Lou P2", 0x50264, 0x50284, 0x3C, 0x09, &pairHandledInCode },
     { "Lou P2 Extra", 0x50284, 0x502a4, 0x3C, 0x0A },
 
     { "Magneto P1", 0x50384, 0x503a4, 0x2c },
@@ -1113,10 +1113,10 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { "Unknown Soldier P2", 0x506e4, 0x50704, 0x3C, 0x12 },
     { "Unknown Soldier P2 Extra", 0x50704, 0x50724, 0x3C, 0x11 },
 
-    { "US Agent P1", 0x50ee4, 0x50f04, 0x0b, 0, true },
+    { "US Agent P1", 0x50ee4, 0x50f04, 0x0b, 0, &pairCaptainAmericaShield },
     { "US Agent P1 Shield", 0x50f04, 0x50f24, 0x0b, 1 },
     { "US Agent P1 Charging Star", 0x50f24, 0x50f44, 0x0b, 2 },
-    { "US Agent P2", 0x50f44, 0x50f64, 0x0b, 0, true },
+    { "US Agent P2", 0x50f44, 0x50f64, 0x0b, 0, &pairCaptainAmericaShield },
     { "US Agent P2 Shield", 0x50f64, 0x50f84, 0x0b, 1 },
     { "US Agent P2 Charging Star", 0x50f84, 0x50fa4, 0x0b, 2 },
 };

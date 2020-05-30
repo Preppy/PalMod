@@ -39,14 +39,14 @@ constexpr auto XMVSF_A_NUMUNIT = indexXMVSFLast;
 
 const sGame_PaletteDataset XMVSF_A_Wolverine_PALETTES_P1[] =
 {
-    { "P1 Punch Color", 0x14d7c, 0x14d9c, 0x07, 0x00, true },
+    { "P1 Punch Color", 0x14d7c, 0x14d9c, 0x07, 0x00, &pairWolvieClaws },
     { "P1 claw", 0x14d9c, 0x14dbc, 0x07, 0x01 },
     { "P1 slash FX", 0x14dbc, 0x14ddc, 0x07, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Wolverine_PALETTES_P2[] =
 {
-    { "P2 Kick Color", 0x14ddc, 0x14dfc, 0x07, 0x00, true },
+    { "P2 Kick Color", 0x14ddc, 0x14dfc, 0x07, 0x00, &pairWolvieClaws },
     { "P2 claw",       0x14dfc, 0x14e1c, 0x07, 0x01 },
     { "P2 slash FX",   0x14e1c, 0x14e3c, 0x07, 0x02 },
 };

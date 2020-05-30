@@ -665,7 +665,7 @@ BOOL CGame_COTA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
             }
 
-            if (paletteDataSet->isJoinedPalette)
+            if (paletteDataSet->pPalettePairingInfo)
             {
                 const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
 

@@ -142,7 +142,7 @@ struct sMVC2A_CharacterData
     UINT32 nStartingPosition = 0;
     UINT16 nExtraStart = 0;
     UINT16 nExtraEnd = 0;
-    bool fHasTwoCorePalettes = false;
+    LPCSTR pszPalettePairName = nullptr;
 };
 
 sMVC2A_CharacterData MVC2ArcadeCharacterArray[] =
@@ -155,18 +155,18 @@ sMVC2A_CharacterData MVC2ArcadeCharacterArray[] =
     { "indexCPS2_Strider", 0x05, "Strider Hiryu", "STRIDER", 0x2A2c5E2, 0, 0},
     { "indexCPS2_Cyclops", 0x06, "Cyclops", "CYCLOPS", 0x2B13442, 0x19, 0x64},
     // don't forget to join the claws!
-    { "indexCPS2_Wolverine", 0x07, "Wolverine", "WOLVERINE", 0x2C0eba2, 0x11, 0x11, true },
+    { "indexCPS2_Wolverine", 0x07, "Wolverine", "WOLVERINE", 0x2C0eba2, 0x11, 0x11, "pairWolvieClaws" },
     { "indexCPS2_Psylocke", 0x08, "Psylocke", "PSYLOCKE", 0x2D104E2, 0, 0 },
     { "indexCPS2_Iceman", 0x09, "Iceman", "ICEMAN", 0x2DFB5C2, 0x9, 0x4a},
     { "indexCPS2_Rogue", 0x0A, "Rogue", "ROGUE", 0x2EE2142 , 0x1d, 0x22},
-    { "indexCPS2_CapAm", 0x0B, "Captain America", "CAPTAINAMERICA", 0x2FD03E2, 0, 0, true },
+    { "indexCPS2_CapAm", 0x0B, "Captain America", "CAPTAINAMERICA", 0x2FD03E2, 0, 0, "pairCaptainAmericaShield" },
     { "indexCPS2_Spidey", 0x0C, "Spider-Man", "SPIDERMAN", 0x30Ae9C2, 0x9, 0x64},
     { "indexCPS2_Hulk", 0x0D, "Hulk,", "HULK", 0x31C9402, 0xa, 0xa },
     { "indexCPS2_Venom", 0x0E, "Venom", "VENOM", 0x32Ed122 , 0, 0},
     { "indexCPS2_DrDoom", 0x0F, "Dr. Doom", "DRDOOM", 0x33ffa42 , 0x9, 0x98 },
-    { "indexCPS2_Tron", 0x10, "Tron Bonne", "TRON", 0x35175c2 , 0x11, 0x15, true },
+    { "indexCPS2_Tron", 0x10, "Tron Bonne", "TRON", 0x35175c2 , 0x11, 0x15, "pairTronBody" },
     { "indexCPS2_Jill", 0x11, "Jill Valentine", "JILL", 0x35f3162 , 0x9, 0xb },
-    { "indexCPS2_Hayato", 0x12, "Hayato", "HAYATO", 0x36f0742, 0x14, 0x17, true },
+    { "indexCPS2_Hayato", 0x12, "Hayato", "HAYATO", 0x36f0742, 0x14, 0x17, "pairHayatoSword" },
     { "indexCPS2_Ruby", 0x13, "Ruby Heart", "RUBY", 0x37f9ce2 , 0xb, 0x10 },
     { "indexCPS2_SonSon", 0x14, "SonSon", "SONSON", 0x39136C2 , 0xb, 0x28 },
     { "indexCPS2_Amingo", 0x15, "Amingo", "AMINGO", 0x3A2c762 , 0x9, 0xb },
@@ -195,19 +195,19 @@ sMVC2A_CharacterData MVC2ArcadeCharacterArray[] =
     { "indexCPS2_Magneto", 0x2C, "Magneto", "MAGNETO", 0x4BF21c2, 0xa, 0xa },
     // This is actually a joint palette but it's incorrectly ripped.  We do need the
     // two step effects palettes but all the character joins can be ignored or excised.
-    { "indexCPS2_Shuma", 0x2D, "Shuma-Gorath", "SHUMA", 0x4CDa622, 0x11, 0x130, true },
+    { "indexCPS2_Shuma", 0x2D, "Shuma-Gorath", "SHUMA", 0x4CDa622, 0x11, 0x130, "pairUnhandled" },
     { "indexCPS2_WarMachine", 0x2E, "War Machine", "WARMACHINE", 0x4Ddab82, 0, 0 },
     { "indexCPS2_SilverSamurai", 0x2F, "Silver Samurai", "SILVERSAMURAI", 0x4EF6122, 0x9, 0x37},
     { "indexCPS2_OmegaRed", 0x30, "Omega Red", "OMEGARED", 0x4ff4942, 0x9, 0x20 },
     { "indexCPS2_Spiral", 0x31, "Spiral", "SPIRAL", 0x5109fa2, 0x9, 0xd2},
     { "indexCPS2_Colossus", 0x32, "Colossus", "COLOSSUS", 0x5235a62, 0x9, 0xc8},
     { "indexCPS2_IronMan", 0x33, "Iron Man", "IRONMAN", 0x53384c2, 0, 0 },
-    { "indexCPS2_Sentinel", 0x34, "Sentinel", "SENTINEL", 0x545E422, 0x12, 0x13, true },
+    { "indexCPS2_Sentinel", 0x34, "Sentinel", "SENTINEL", 0x545E422, 0x12, 0x13, "pairUnhandled" },
     { "indexCPS2_Blackheart", 0x35, "Blackheart", "BLACKHEART", 0x5585402, 0x9, 0x1b },
     { "indexCPS2_Thanos", 0x36, "Thanos", "THANOS", 0x5673e42, 0x9, 0x1f },
     { "indexCPS2_Jin", 0x37, "Jin", "JIN", 0x5758482, 0x9, 0x86 },
     { "indexCPS2_CapCom", 0x38, "Captain Commando", "CAPTAINCOMMANDO", 0x5847ec2 , 0x9, 0x19},
-    { "indexCPS2_Bonerine", 0x39, "Bonerine", "BONERINE", 0x59472a2, 0, 0, true },
+    { "indexCPS2_Bonerine", 0x39, "Bonerine", "BONERINE", 0x59472a2, 0, 0, "pairWolvieClaws" },
     { "indexCPS2_Kobun", 0x3A, "Kobun", "KOBUN", 0x59acdc2, 0x9, 0x26 },
 };
 
@@ -230,11 +230,11 @@ void DumpAllCharacters()
                 strOutput.Format("const sGame_PaletteDataset MVC2_A_%s_PALETTES_%s[] =\r\n{\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex]);
                 OutputDebugString(strOutput);
 
-                if (MVC2ArcadeCharacterArray[iUnitCtr].fHasTwoCorePalettes)
+                if (MVC2ArcadeCharacterArray[iUnitCtr].pszPalettePairName) 
                 {
-                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0, true },\r\n", sCurrentMoveDescriptors[0].szMoveName, DEF_BUTTONLABEL6_MVC2[iButtonIndex],
+                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0, &%s },\r\n", sCurrentMoveDescriptors[0].szMoveName, DEF_BUTTONLABEL6_MVC2[iButtonIndex],
                                                                                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
-                                                                                        MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName );
+                                                                                        MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, MVC2ArcadeCharacterArray[iUnitCtr].pszPalettePairName);
                 }
                 else
                 {
@@ -284,9 +284,10 @@ void DumpAllCharacters()
             for (UINT16 iStatusEffect = 0; iStatusEffect < 8; iStatusEffect++)
             {
                 // Use this for people with two body pieces
-                if (MVC2ArcadeCharacterArray[iUnitCtr].fHasTwoCorePalettes)
+                if (MVC2ArcadeCharacterArray[iUnitCtr].pszPalettePairName)
                 {
-                    strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u, true },\r\n", StatusDescriptions[iStatusEffect], nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
+                    strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u, &%s },\r\n", StatusDescriptions[iStatusEffect], nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0,
+                                                                                        MVC2ArcadeCharacterArray[iUnitCtr].pszPalettePairName);
                     OutputDebugString(strOutput);
                     nCurrentCharacterOffset += 0x20;
                     strOutput.Format("    { \"%s 2\", 0x%07x, 0x%7x, %s, %u },\r\n", StatusDescriptions[iStatusEffect], nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 1);
@@ -308,7 +309,7 @@ void DumpAllCharacters()
             {
                 strOutput.Format("const sGame_PaletteDataset MVC2_A_%s_PALETTES_EXTRAS[] =\r\n{\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc);
                 OutputDebugString(strOutput);
-                const UINT16 nExtraStart = MVC2ArcadeCharacterArray[iUnitCtr].fHasTwoCorePalettes ? (8 + 0x9) : 0x9;
+                const UINT16 nExtraStart = MVC2ArcadeCharacterArray[iUnitCtr].pszPalettePairName ? (8 + 0x9) : 0x9;
 
                 for (UINT16 iExtraPosition = nExtraStart; iExtraPosition <= MVC2ArcadeCharacterArray[iUnitCtr].nExtraEnd; iExtraPosition++)
                 {
@@ -981,56 +982,29 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                     // There are 8 status effects
                     nSrcAmt = 8;
-                    nNodeIncrement = paletteDataSet->isJoinedPalette ? 2 : 1;
+                    nNodeIncrement = paletteDataSet->pPalettePairingInfo ? 2 : 1;
                     pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_LABEL_STATUS_EFFECTS);
                 }
             }
 
-            if (paletteDataSet->isJoinedPalette)
+            if (paletteDataSet->pPalettePairingInfo)
             {
-                const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
-
-                if (paletteDataSetToJoin)
+                if ((NodeGet->uUnitId == indexMVC2AShuma) ||
+                    (NodeGet->uUnitId == indexMVC2ASentinel))
                 {
-                    int nXOffs, nYOffs;
+                    OutputDebugString("Sadness: this sprite is wrong.  Should be reripped as paired.\n");
+                }
+                else
+                {
+                    UINT16 nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
 
-                    if ((NodeGet->uUnitId == indexMVC2AWolverine) || // wolvie claws support
-                        (NodeGet->uUnitId == indexMVC2ABonerine))
+                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nDeltaToSecondElement);
+                    if (paletteDataSetToJoin)
                     {
-                        nXOffs = 20;
-                        nYOffs = 4;
                         fShouldUseAlternateLoadLogic = true;
-                    }
-                    else if (NodeGet->uUnitId == indexMVC2ACaptainAmerica)
-                    {
-                        nXOffs = -22;
-                        nYOffs = -17;
-                        fShouldUseAlternateLoadLogic = true;
-                    }
-                    else if (NodeGet->uUnitId == indexMVC2ATron)
-                    {
-                        nXOffs = -4;
-                        nYOffs = -50;
-                        fShouldUseAlternateLoadLogic = true;
-                    }
-                    else if (NodeGet->uUnitId == indexMVC2AHayato)
-                    {
-                        nXOffs = -63;
-                        nYOffs = 32;
-                        fShouldUseAlternateLoadLogic = true;
-                    }
-                    else if ((NodeGet->uUnitId == indexMVC2AShuma) ||
-                             (NodeGet->uUnitId == indexMVC2ASentinel))
-                    {
-                        OutputDebugString("Sadness: this sprite is wrong.  Should be reripped as paired.\n");
-                    }
-                    else
-                    {
-                        OutputDebugString("WARNING: You're asking for a palette join that the code doesn't know about.  Please fix.\n");
-                    }
 
-                    if (fShouldUseAlternateLoadLogic)
-                    {
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
                                 CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
@@ -1040,7 +1014,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         //Set each palette
                         sDescNode* JoinedNode[2] = {
                             MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                            MainDescTree.GetDescNode(Node01, Node02, Node03 + 1, -1)
+                            MainDescTree.GetDescNode(Node01, Node02, Node03 + nDeltaToSecondElement, -1)
                         };
 
                         //Set each palette
@@ -1048,7 +1022,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         CreateDefPal(JoinedNode[1], 1);
 
                         SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + 1, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement);
                     }
                 }
             }

@@ -731,7 +731,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
 
-            if (paletteDataSet->isJoinedPalette)
+            if (paletteDataSet->pPalettePairingInfo)
             {
                 int nXOffs = 0, nYOffs = 0;
                 UINT16 nPeerPaletteDistance = 1;

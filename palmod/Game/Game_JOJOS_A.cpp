@@ -999,7 +999,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
 
-            if (paletteDataSet->isJoinedPalette)
+            if (paletteDataSet->pPalettePairingInfo)
             {
                 if (!UsePaletteSetFor50())
                 {

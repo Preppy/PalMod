@@ -6,7 +6,6 @@
 // * Update every array using MVC2_A_NUMUNIT below
 // That should be it.  Good luck.
 
-
 enum SupportedMVC2_A_PaletteListIndex
 {
     indexMVC2ARyu,
@@ -944,7 +943,7 @@ const sDescTreeNode MVC2_A_CYCLOPS_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_LP[] =
 {
-    { "Main Color LP", 0x2c0eba2, 0x2c0ebc2, indexCPS2_Wolverine, 0, true },
+    { "Main Color LP", 0x2c0eba2, 0x2c0ebc2, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "(02) Wolverine's Claws", 0x2c0ebc2, 0x2c0ebe2, indexCPS2_Wolverine, 1 },
     { "(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)", 0x2c0ebe2, 0x2c0ec02, indexCPS2_Wolverine, 2 },
     { "(04) Not Used", 0x2c0ec02, 0x2c0ec22, indexCPS2_Wolverine, 3 },
@@ -956,7 +955,7 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_LK[] =
 {
-    { "Main Color LK", 0x2c0eca2, 0x2c0ecc2, indexCPS2_Wolverine, 0, true },
+    { "Main Color LK", 0x2c0eca2, 0x2c0ecc2, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "(02) Wolverine's Claws", 0x2c0ecc2, 0x2c0ece2, indexCPS2_Wolverine, 1 },
     { "(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)", 0x2c0ece2, 0x2c0ed02, indexCPS2_Wolverine, 2 },
     { "(04) Not Used", 0x2c0ed02, 0x2c0ed22, indexCPS2_Wolverine, 3 },
@@ -968,7 +967,7 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HP[] =
 {
-    { "Main Color HP", 0x2c0eda2, 0x2c0edc2, indexCPS2_Wolverine, 0, true },
+    { "Main Color HP", 0x2c0eda2, 0x2c0edc2, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "(02) Wolverine's Claws", 0x2c0edc2, 0x2c0ede2, indexCPS2_Wolverine, 1 },
     { "(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)", 0x2c0ede2, 0x2c0ee02, indexCPS2_Wolverine, 2 },
     { "(04) Not Used", 0x2c0ee02, 0x2c0ee22, indexCPS2_Wolverine, 3 },
@@ -980,7 +979,7 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HK[] =
 {
-    { "Main Color HK", 0x2c0eea2, 0x2c0eec2, indexCPS2_Wolverine, 0, true },
+    { "Main Color HK", 0x2c0eea2, 0x2c0eec2, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "(02) Wolverine's Claws", 0x2c0eec2, 0x2c0eee2, indexCPS2_Wolverine, 1 },
     { "(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)", 0x2c0eee2, 0x2c0ef02, indexCPS2_Wolverine, 2 },
     { "(04) Not Used", 0x2c0ef02, 0x2c0ef22, indexCPS2_Wolverine, 3 },
@@ -992,7 +991,7 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A1[] =
 {
-    { "Main Color A1", 0x2c0efa2, 0x2c0efc2, indexCPS2_Wolverine, 0, true },
+    { "Main Color A1", 0x2c0efa2, 0x2c0efc2, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "(02) Wolverine's Claws", 0x2c0efc2, 0x2c0efe2, indexCPS2_Wolverine, 1 },
     { "(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)", 0x2c0efe2, 0x2c0f002, indexCPS2_Wolverine, 2 },
     { "(04) Not Used", 0x2c0f002, 0x2c0f022, indexCPS2_Wolverine, 3 },
@@ -1004,7 +1003,7 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A2[] =
 {
-    { "Main Color A2", 0x2c0f0a2, 0x2c0f0c2, indexCPS2_Wolverine, 0, true },
+    { "Main Color A2", 0x2c0f0a2, 0x2c0f0c2, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "(02) Wolverine's Claws", 0x2c0f0c2, 0x2c0f0e2, indexCPS2_Wolverine, 1 },
     { "(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)", 0x2c0f0e2, 0x2c0f102, indexCPS2_Wolverine, 2 },
     { "(04) Not Used", 0x2c0f102, 0x2c0f122, indexCPS2_Wolverine, 3 },
@@ -1016,21 +1015,21 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_SHARED[] =
 {
-    { "Burning Dark", 0x2c0f1a2, 0x2c0f1c2, indexCPS2_Wolverine, 0, true },
+    { "Burning Dark", 0x2c0f1a2, 0x2c0f1c2, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "Burning Dark 2", 0x2c0f1c2, 0x2c0f1e2, indexCPS2_Wolverine, 1 },
-    { "Burning Light", 0x2c0f1e2, 0x2c0f202, indexCPS2_Wolverine, 0, true },
+    { "Burning Light", 0x2c0f1e2, 0x2c0f202, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "Burning Light 2", 0x2c0f202, 0x2c0f222, indexCPS2_Wolverine, 1 },
-    { "Shocked Dark", 0x2c0f222, 0x2c0f242, indexCPS2_Wolverine, 0, true },
+    { "Shocked Dark", 0x2c0f222, 0x2c0f242, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "Shocked Dark 2", 0x2c0f242, 0x2c0f262, indexCPS2_Wolverine, 1 },
-    { "Shocked Light", 0x2c0f262, 0x2c0f282, indexCPS2_Wolverine, 0, true },
+    { "Shocked Light", 0x2c0f262, 0x2c0f282, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "Shocked Light 2", 0x2c0f282, 0x2c0f2a2, indexCPS2_Wolverine, 1 },
-    { "Dark Burning Dark", 0x2c0f2a2, 0x2c0f2c2, indexCPS2_Wolverine, 0, true },
+    { "Dark Burning Dark", 0x2c0f2a2, 0x2c0f2c2, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "Dark Burning Dark 2", 0x2c0f2c2, 0x2c0f2e2, indexCPS2_Wolverine, 1 },
-    { "Dark Burning Light", 0x2c0f2e2, 0x2c0f302, indexCPS2_Wolverine, 0, true },
+    { "Dark Burning Light", 0x2c0f2e2, 0x2c0f302, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "Dark Burning Light 2", 0x2c0f302, 0x2c0f322, indexCPS2_Wolverine, 1 },
-    { "Kinetic Charge Dark", 0x2c0f322, 0x2c0f342, indexCPS2_Wolverine, 0, true },
+    { "Kinetic Charge Dark", 0x2c0f322, 0x2c0f342, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "Kinetic Charge Dark 2", 0x2c0f342, 0x2c0f362, indexCPS2_Wolverine, 1 },
-    { "Kinetic Charge Light", 0x2c0f362, 0x2c0f382, indexCPS2_Wolverine, 0, true },
+    { "Kinetic Charge Light", 0x2c0f362, 0x2c0f382, indexCPS2_Wolverine, 0, &pairWolvieClaws },
     { "Kinetic Charge Light 2", 0x2c0f382, 0x2c0f3a2, indexCPS2_Wolverine, 1 },
 };
 
@@ -1400,7 +1399,7 @@ const sDescTreeNode MVC2_A_ROGUE_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_LP[] =
 {
-    { "Main Color LP", 0x2fd03e2, 0x2fd0402, indexCPS2_CapAm, 0, true },
+    { "Main Color LP", 0x2fd03e2, 0x2fd0402, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield", 0x2fd0402, 0x2fd0422, indexCPS2_CapAm, 1 },
     { "(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)", 0x2fd0422, 0x2fd0442, indexCPS2_CapAm, 2 },
     { "(04) Eagle", 0x2fd0442, 0x2fd0462, indexCPS2_CapAm, 3 },
@@ -1412,7 +1411,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_LK[] =
 {
-    { "Main Color LK", 0x2fd04e2, 0x2fd0502, indexCPS2_CapAm, 0, true },
+    { "Main Color LK", 0x2fd04e2, 0x2fd0502, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield", 0x2fd0502, 0x2fd0522, indexCPS2_CapAm, 1 },
     { "(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)", 0x2fd0522, 0x2fd0542, indexCPS2_CapAm, 2 },
     { "(04) Eagle", 0x2fd0542, 0x2fd0562, indexCPS2_CapAm, 3 },
@@ -1424,7 +1423,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_HP[] =
 {
-    { "Main Color HP", 0x2fd05e2, 0x2fd0602, indexCPS2_CapAm, 0, true },
+    { "Main Color HP", 0x2fd05e2, 0x2fd0602, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield", 0x2fd0602, 0x2fd0622, indexCPS2_CapAm, 1 },
     { "(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)", 0x2fd0622, 0x2fd0642, indexCPS2_CapAm, 2 },
     { "(04) Eagle", 0x2fd0642, 0x2fd0662, indexCPS2_CapAm, 3 },
@@ -1436,7 +1435,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_HK[] =
 {
-    { "Main Color HK", 0x2fd06e2, 0x2fd0702, indexCPS2_CapAm, 0, true },
+    { "Main Color HK", 0x2fd06e2, 0x2fd0702, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield", 0x2fd0702, 0x2fd0722, indexCPS2_CapAm, 1 },
     { "(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)", 0x2fd0722, 0x2fd0742, indexCPS2_CapAm, 2 },
     { "(04) Eagle", 0x2fd0742, 0x2fd0762, indexCPS2_CapAm, 3 },
@@ -1448,7 +1447,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_A1[] =
 {
-    { "Main Color A1", 0x2fd07e2, 0x2fd0802, indexCPS2_CapAm, 0, true },
+    { "Main Color A1", 0x2fd07e2, 0x2fd0802, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield", 0x2fd0802, 0x2fd0822, indexCPS2_CapAm, 1 },
     { "(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)", 0x2fd0822, 0x2fd0842, indexCPS2_CapAm, 2 },
     { "(04) Eagle", 0x2fd0842, 0x2fd0862, indexCPS2_CapAm, 3 },
@@ -1460,7 +1459,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_A2[] =
 {
-    { "Main Color A2", 0x2fd08e2, 0x2fd0902, indexCPS2_CapAm, 0, true },
+    { "Main Color A2", 0x2fd08e2, 0x2fd0902, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield", 0x2fd0902, 0x2fd0922, indexCPS2_CapAm, 1 },
     { "(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)", 0x2fd0922, 0x2fd0942, indexCPS2_CapAm, 2 },
     { "(04) Eagle", 0x2fd0942, 0x2fd0962, indexCPS2_CapAm, 3 },
@@ -1472,21 +1471,21 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_SHARED[] =
 {
-    { "Burning Dark", 0x2fd09e2, 0x2fd0a02, indexCPS2_CapAm, 0, true },
+    { "Burning Dark", 0x2fd09e2, 0x2fd0a02, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "Burning Dark 2", 0x2fd0a02, 0x2fd0a22, indexCPS2_CapAm, 1 },
-    { "Burning Light", 0x2fd0a22, 0x2fd0a42, indexCPS2_CapAm, 0, true },
+    { "Burning Light", 0x2fd0a22, 0x2fd0a42, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "Burning Light 2", 0x2fd0a42, 0x2fd0a62, indexCPS2_CapAm, 1 },
-    { "Shocked Dark", 0x2fd0a62, 0x2fd0a82, indexCPS2_CapAm, 0, true },
+    { "Shocked Dark", 0x2fd0a62, 0x2fd0a82, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "Shocked Dark 2", 0x2fd0a82, 0x2fd0aa2, indexCPS2_CapAm, 1 },
-    { "Shocked Light", 0x2fd0aa2, 0x2fd0ac2, indexCPS2_CapAm, 0, true },
+    { "Shocked Light", 0x2fd0aa2, 0x2fd0ac2, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "Shocked Light 2", 0x2fd0ac2, 0x2fd0ae2, indexCPS2_CapAm, 1 },
-    { "Dark Burning Dark", 0x2fd0ae2, 0x2fd0b02, indexCPS2_CapAm, 0, true },
+    { "Dark Burning Dark", 0x2fd0ae2, 0x2fd0b02, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "Dark Burning Dark 2", 0x2fd0b02, 0x2fd0b22, indexCPS2_CapAm, 1 },
-    { "Dark Burning Light", 0x2fd0b22, 0x2fd0b42, indexCPS2_CapAm, 0, true },
+    { "Dark Burning Light", 0x2fd0b22, 0x2fd0b42, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "Dark Burning Light 2", 0x2fd0b42, 0x2fd0b62, indexCPS2_CapAm, 1 },
-    { "Kinetic Charge Dark", 0x2fd0b62, 0x2fd0b82, indexCPS2_CapAm, 0, true },
+    { "Kinetic Charge Dark", 0x2fd0b62, 0x2fd0b82, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "Kinetic Charge Dark 2", 0x2fd0b82, 0x2fd0ba2, indexCPS2_CapAm, 1 },
-    { "Kinetic Charge Light", 0x2fd0ba2, 0x2fd0bc2, indexCPS2_CapAm, 0, true },
+    { "Kinetic Charge Light", 0x2fd0ba2, 0x2fd0bc2, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
     { "Kinetic Charge Light 2", 0x2fd0bc2, 0x2fd0be2, indexCPS2_CapAm, 1 },
 };
 
@@ -1995,7 +1994,7 @@ const sDescTreeNode MVC2_A_DRDOOM_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LP[] =
 {
-    { "Main Color LP", 0x35175c2, 0x35175e2, indexCPS2_Tron, 0, true },
+    { "Main Color LP", 0x35175c2, 0x35175e2, indexCPS2_Tron, 0, &pairTronBody },
     { "(02) Tron Bonne (girl)", 0x35175e2, 0x3517602, indexCPS2_Tron, 1 },
     { "(03) Kobun", 0x3517602, 0x3517622, indexCPS2_Tron, 2 },
     { "(04) ID:01-08 - drill, lk, rock", 0x3517622, 0x3517642, indexCPS2_Tron, 3 },
@@ -2007,7 +2006,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LK[] =
 {
-    { "Main Color LK", 0x35176c2, 0x35176e2, indexCPS2_Tron, 0, true },
+    { "Main Color LK", 0x35176c2, 0x35176e2, indexCPS2_Tron, 0, &pairTronBody },
     { "(02) Tron Bonne (girl)", 0x35176e2, 0x3517702, indexCPS2_Tron, 1 },
     { "(03) Kobun", 0x3517702, 0x3517722, indexCPS2_Tron, 2 },
     { "(04) ID:01-08 - drill, lk, rock", 0x3517722, 0x3517742, indexCPS2_Tron, 3 },
@@ -2019,7 +2018,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HP[] =
 {
-    { "Main Color HP", 0x35177c2, 0x35177e2, indexCPS2_Tron, 0, true },
+    { "Main Color HP", 0x35177c2, 0x35177e2, indexCPS2_Tron, 0, &pairTronBody },
     { "(02) Tron Bonne (girl)", 0x35177e2, 0x3517802, indexCPS2_Tron, 1 },
     { "(03) Kobun", 0x3517802, 0x3517822, indexCPS2_Tron, 2 },
     { "(04) ID:01-08 - drill, lk, rock", 0x3517822, 0x3517842, indexCPS2_Tron, 3 },
@@ -2031,7 +2030,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HK[] =
 {
-    { "Main Color HK", 0x35178c2, 0x35178e2, indexCPS2_Tron, 0, true },
+    { "Main Color HK", 0x35178c2, 0x35178e2, indexCPS2_Tron, 0, &pairTronBody },
     { "(02) Tron Bonne (girl)", 0x35178e2, 0x3517902, indexCPS2_Tron, 1 },
     { "(03) Kobun", 0x3517902, 0x3517922, indexCPS2_Tron, 2 },
     { "(04) ID:01-08 - drill, lk, rock", 0x3517922, 0x3517942, indexCPS2_Tron, 3 },
@@ -2043,7 +2042,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A1[] =
 {
-    { "Main Color A1", 0x35179c2, 0x35179e2, indexCPS2_Tron, 0, true },
+    { "Main Color A1", 0x35179c2, 0x35179e2, indexCPS2_Tron, 0, &pairTronBody },
     { "(02) Tron Bonne (girl)", 0x35179e2, 0x3517a02, indexCPS2_Tron, 1 },
     { "(03) Kobun", 0x3517a02, 0x3517a22, indexCPS2_Tron, 2 },
     { "(04) ID:01-08 - drill, lk, rock", 0x3517a22, 0x3517a42, indexCPS2_Tron, 3 },
@@ -2055,7 +2054,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A2[] =
 {
-    { "Main Color A2", 0x3517ac2, 0x3517ae2, indexCPS2_Tron, 0, true },
+    { "Main Color A2", 0x3517ac2, 0x3517ae2, indexCPS2_Tron, 0, &pairTronBody },
     { "(02) Tron Bonne (girl)", 0x3517ae2, 0x3517b02, indexCPS2_Tron, 1 },
     { "(03) Kobun", 0x3517b02, 0x3517b22, indexCPS2_Tron, 2 },
     { "(04) ID:01-08 - drill, lk, rock", 0x3517b22, 0x3517b42, indexCPS2_Tron, 3 },
@@ -2067,21 +2066,21 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_SHARED[] =
 {
-    { "Burning Dark", 0x3517bc2, 0x3517be2, indexCPS2_Tron, 0, true },
+    { "Burning Dark", 0x3517bc2, 0x3517be2, indexCPS2_Tron, 0, &pairTronBody },
     { "Burning Dark 2", 0x3517be2, 0x3517c02, indexCPS2_Tron, 1 },
-    { "Burning Light", 0x3517c02, 0x3517c22, indexCPS2_Tron, 0, true },
+    { "Burning Light", 0x3517c02, 0x3517c22, indexCPS2_Tron, 0, &pairTronBody },
     { "Burning Light 2", 0x3517c22, 0x3517c42, indexCPS2_Tron, 1 },
-    { "Shocked Dark", 0x3517c42, 0x3517c62, indexCPS2_Tron, 0, true },
+    { "Shocked Dark", 0x3517c42, 0x3517c62, indexCPS2_Tron, 0, &pairTronBody },
     { "Shocked Dark 2", 0x3517c62, 0x3517c82, indexCPS2_Tron, 1 },
-    { "Shocked Light", 0x3517c82, 0x3517ca2, indexCPS2_Tron, 0, true },
+    { "Shocked Light", 0x3517c82, 0x3517ca2, indexCPS2_Tron, 0, &pairTronBody },
     { "Shocked Light 2", 0x3517ca2, 0x3517cc2, indexCPS2_Tron, 1 },
-    { "Dark Burning Dark", 0x3517cc2, 0x3517ce2, indexCPS2_Tron, 0, true },
+    { "Dark Burning Dark", 0x3517cc2, 0x3517ce2, indexCPS2_Tron, 0, &pairTronBody },
     { "Dark Burning Dark 2", 0x3517ce2, 0x3517d02, indexCPS2_Tron, 1 },
-    { "Dark Burning Light", 0x3517d02, 0x3517d22, indexCPS2_Tron, 0, true },
+    { "Dark Burning Light", 0x3517d02, 0x3517d22, indexCPS2_Tron, 0, &pairTronBody },
     { "Dark Burning Light 2", 0x3517d22, 0x3517d42, indexCPS2_Tron, 1 },
-    { "Kinetic Charge Dark", 0x3517d42, 0x3517d62, indexCPS2_Tron, 0, true },
+    { "Kinetic Charge Dark", 0x3517d42, 0x3517d62, indexCPS2_Tron, 0, &pairTronBody },
     { "Kinetic Charge Dark 2", 0x3517d62, 0x3517d82, indexCPS2_Tron, 1 },
-    { "Kinetic Charge Light", 0x3517d82, 0x3517da2, indexCPS2_Tron, 0, true },
+    { "Kinetic Charge Light", 0x3517d82, 0x3517da2, indexCPS2_Tron, 0, &pairTronBody },
     { "Kinetic Charge Light 2", 0x3517da2, 0x3517dc2, indexCPS2_Tron, 1 },
 };
 
@@ -2210,7 +2209,7 @@ const sDescTreeNode MVC2_A_JILL_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LP[] =
 {
-    { "Main Color LP", 0x36f0742, 0x36f0762, indexCPS2_Hayato, 0, true },
+    { "Main Color LP", 0x36f0742, 0x36f0762, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0762, 0x36f0782, indexCPS2_Hayato, 1 },
     { "(03) ID: 01-08: Intro (Rising Flames)", 0x36f0782, 0x36f07a2, indexCPS2_Hayato, 2 },
     { "(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f07a2, 0x36f07c2, indexCPS2_Hayato, 3 },
@@ -2222,7 +2221,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LK[] =
 {
-    { "Main Color LK", 0x36f0842, 0x36f0862, indexCPS2_Hayato, 0, true },
+    { "Main Color LK", 0x36f0842, 0x36f0862, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0862, 0x36f0882, indexCPS2_Hayato, 1 },
     { "(03) ID: 01-08: Intro (Rising Flames)", 0x36f0882, 0x36f08a2, indexCPS2_Hayato, 2 },
     { "(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f08a2, 0x36f08c2, indexCPS2_Hayato, 3 },
@@ -2234,7 +2233,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HP[] =
 {
-    { "Main Color HP", 0x36f0942, 0x36f0962, indexCPS2_Hayato, 0, true },
+    { "Main Color HP", 0x36f0942, 0x36f0962, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0962, 0x36f0982, indexCPS2_Hayato, 1 },
     { "(03) ID: 01-08: Intro (Rising Flames)", 0x36f0982, 0x36f09a2, indexCPS2_Hayato, 2 },
     { "(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f09a2, 0x36f09c2, indexCPS2_Hayato, 3 },
@@ -2246,7 +2245,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HK[] =
 {
-    { "Main Color HK", 0x36f0a42, 0x36f0a62, indexCPS2_Hayato, 0, true },
+    { "Main Color HK", 0x36f0a42, 0x36f0a62, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0a62, 0x36f0a82, indexCPS2_Hayato, 1 },
     { "(03) ID: 01-08: Intro (Rising Flames)", 0x36f0a82, 0x36f0aa2, indexCPS2_Hayato, 2 },
     { "(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f0aa2, 0x36f0ac2, indexCPS2_Hayato, 3 },
@@ -2258,7 +2257,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A1[] =
 {
-    { "Main Color A1", 0x36f0b42, 0x36f0b62, indexCPS2_Hayato, 0, true },
+    { "Main Color A1", 0x36f0b42, 0x36f0b62, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0b62, 0x36f0b82, indexCPS2_Hayato, 1 },
     { "(03) ID: 01-08: Intro (Rising Flames)", 0x36f0b82, 0x36f0ba2, indexCPS2_Hayato, 2 },
     { "(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f0ba2, 0x36f0bc2, indexCPS2_Hayato, 3 },
@@ -2270,7 +2269,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A2[] =
 {
-    { "Main Color A2", 0x36f0c42, 0x36f0c62, indexCPS2_Hayato, 0, true },
+    { "Main Color A2", 0x36f0c42, 0x36f0c62, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword", 0x36f0c62, 0x36f0c82, indexCPS2_Hayato, 1 },
     { "(03) ID: 01-08: Intro (Rising Flames)", 0x36f0c82, 0x36f0ca2, indexCPS2_Hayato, 2 },
     { "(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f0ca2, 0x36f0cc2, indexCPS2_Hayato, 3 },
@@ -2282,21 +2281,21 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_SHARED[] =
 {
-    { "Burning Dark", 0x36f0d42, 0x36f0d62, indexCPS2_Hayato, 0, true },
+    { "Burning Dark", 0x36f0d42, 0x36f0d62, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "Burning Dark 2", 0x36f0d62, 0x36f0d82, indexCPS2_Hayato, 1 },
-    { "Burning Light", 0x36f0d82, 0x36f0da2, indexCPS2_Hayato, 0, true },
+    { "Burning Light", 0x36f0d82, 0x36f0da2, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "Burning Light 2", 0x36f0da2, 0x36f0dc2, indexCPS2_Hayato, 1 },
-    { "Shocked Dark", 0x36f0dc2, 0x36f0de2, indexCPS2_Hayato, 0, true },
+    { "Shocked Dark", 0x36f0dc2, 0x36f0de2, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "Shocked Dark 2", 0x36f0de2, 0x36f0e02, indexCPS2_Hayato, 1 },
-    { "Shocked Light", 0x36f0e02, 0x36f0e22, indexCPS2_Hayato, 0, true },
+    { "Shocked Light", 0x36f0e02, 0x36f0e22, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "Shocked Light 2", 0x36f0e22, 0x36f0e42, indexCPS2_Hayato, 1 },
-    { "Dark Burning Dark", 0x36f0e42, 0x36f0e62, indexCPS2_Hayato, 0, true },
+    { "Dark Burning Dark", 0x36f0e42, 0x36f0e62, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "Dark Burning Dark 2", 0x36f0e62, 0x36f0e82, indexCPS2_Hayato, 1 },
-    { "Dark Burning Light", 0x36f0e82, 0x36f0ea2, indexCPS2_Hayato, 0, true },
+    { "Dark Burning Light", 0x36f0e82, 0x36f0ea2, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "Dark Burning Light 2", 0x36f0ea2, 0x36f0ec2, indexCPS2_Hayato, 1 },
-    { "Kinetic Charge Dark", 0x36f0ec2, 0x36f0ee2, indexCPS2_Hayato, 0, true },
+    { "Kinetic Charge Dark", 0x36f0ec2, 0x36f0ee2, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "Kinetic Charge Dark 2", 0x36f0ee2, 0x36f0f02, indexCPS2_Hayato, 1 },
-    { "Kinetic Charge Light", 0x36f0f02, 0x36f0f22, indexCPS2_Hayato, 0, true },
+    { "Kinetic Charge Light", 0x36f0f02, 0x36f0f22, indexCPS2_Hayato, 0, &pairHayatoSword },
     { "Kinetic Charge Light 2", 0x36f0f22, 0x36f0f42, indexCPS2_Hayato, 1 },
 };
 
@@ -3357,26 +3356,26 @@ const sGame_PaletteDataset MVC2_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "LP charging Megaman 7", 0x3f945e2, 0x3f94602, indexCPS2_Megaman, 0 },
     { "LP charging Megaman 8", 0x3f94602, 0x3f94622, indexCPS2_Megaman, 0 },
     { "LP charging Megaman 9", 0x3f94622, 0x3f94642, indexCPS2_Megaman, 0 },
-    { "LP Rush Drill 1", 0x3f94642, 0x3f94662, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 2", 0x3f94662, 0x3f94682, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 3", 0x3f94682, 0x3f946a2, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 4", 0x3f946a2, 0x3f946c2, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 5", 0x3f946c2, 0x3f946e2, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 6", 0x3f946e2, 0x3f94702, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 7", 0x3f94702, 0x3f94722, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 8", 0x3f94722, 0x3f94742, indexCPS2_Roll, 11 },
+    { "LP Rush Drill 1", 0x3f94642, 0x3f94662, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 2", 0x3f94662, 0x3f94682, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 3", 0x3f94682, 0x3f946a2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 4", 0x3f946a2, 0x3f946c2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 5", 0x3f946c2, 0x3f946e2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 6", 0x3f946e2, 0x3f94702, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 7", 0x3f94702, 0x3f94722, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 8", 0x3f94722, 0x3f94742, indexCPS2_Roll, 11, &pairRushDrill },
     { "LP Rush Drill 9", 0x3f94742, 0x3f94762, indexCPS2_Roll, 11 },
     { "LP Teleport Intro", 0x3f94762, 0x3f94782, indexCPS2_Megaman, 13 },
     { "LP Dr. Light", 0x3f94782, 0x3f947a2, indexCPS2_Megaman, 37 },
-    { "LP Hyper Megaman Armor 1", 0x3f947a2, 0x3f947c2, indexCPS2_Megaman, 39 },
-    { "LP Hyper Megaman Armor 2", 0x3f947c2, 0x3f947e2, indexCPS2_Megaman, 39 },
-    { "LP Hyper Megaman Armor 3", 0x3f947e2, 0x3f94802, indexCPS2_Megaman, 39 },
-    { "LP Hyper Megaman Armor 4", 0x3f94802, 0x3f94822, indexCPS2_Megaman, 39 },
-    { "LP Hyper Megaman Armor 5", 0x3f94822, 0x3f94842, indexCPS2_Megaman, 39 },
-    { "LP Hyper Megaman Armor 6", 0x3f94842, 0x3f94862, indexCPS2_Megaman, 39 },
-    { "LP Hyper Megaman Armor 7", 0x3f94862, 0x3f94882, indexCPS2_Megaman, 39 },
-    { "LP Hyper Megaman Armor 8", 0x3f94882, 0x3f948a2, indexCPS2_Megaman, 39 },
-    { "LP Hyper Megaman Armor 9", 0x3f948a2, 0x3f948c2, indexCPS2_Megaman, 39 },
+    { "LP Hyper Megaman Armor 1", 0x3f947a2, 0x3f947c2, indexCPS2_Megaman, 39, &pairHyperMegaman },
+    { "LP Hyper Megaman Armor 2", 0x3f947c2, 0x3f947e2, indexCPS2_Megaman, 39, &pairHyperMegaman },
+    { "LP Hyper Megaman Armor 3", 0x3f947e2, 0x3f94802, indexCPS2_Megaman, 39, &pairHyperMegaman },
+    { "LP Hyper Megaman Armor 4", 0x3f94802, 0x3f94822, indexCPS2_Megaman, 39, &pairHyperMegaman },
+    { "LP Hyper Megaman Armor 5", 0x3f94822, 0x3f94842, indexCPS2_Megaman, 39, &pairHyperMegaman },
+    { "LP Hyper Megaman Armor 6", 0x3f94842, 0x3f94862, indexCPS2_Megaman, 39, &pairHyperMegaman },
+    { "LP Hyper Megaman Armor 7", 0x3f94862, 0x3f94882, indexCPS2_Megaman, 39, &pairHyperMegaman },
+    { "LP Hyper Megaman Armor 8", 0x3f94882, 0x3f948a2, indexCPS2_Megaman, 39, &pairHyperMegaman },
+    { "LP Hyper Megaman Armor 9", 0x3f948a2, 0x3f948c2, indexCPS2_Megaman, 39, &pairHyperMegaman },
     { "LP Hyper Megaman 1", 0x3f948c2, 0x3f948e2, indexCPS2_Megaman, 40 },
     { "LP Hyper Megaman 2", 0x3f948e2, 0x3f94902, indexCPS2_Megaman, 40 },
     { "LP Hyper Megaman 3", 0x3f94902, 0x3f94922, indexCPS2_Megaman, 40 },
@@ -3444,14 +3443,14 @@ const sGame_PaletteDataset MVC2_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "LK charging Megaman 7", 0x3f950c2, 0x3f950e2, indexCPS2_Megaman, 0 },
     { "LK charging Megaman 8", 0x3f950e2, 0x3f95102, indexCPS2_Megaman, 0 },
     { "LK charging Megaman 9", 0x3f95102, 0x3f95122, indexCPS2_Megaman, 0 },
-    { "LK Rush Drill 1", 0x3f95122, 0x3f95142, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 2", 0x3f95142, 0x3f95162, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 3", 0x3f95162, 0x3f95182, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 4", 0x3f95182, 0x3f951a2, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 5", 0x3f951a2, 0x3f951c2, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 6", 0x3f951c2, 0x3f951e2, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 7", 0x3f951e2, 0x3f95202, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 8", 0x3f95202, 0x3f95222, indexCPS2_Roll, 11 },
+    { "LK Rush Drill 1", 0x3f95122, 0x3f95142, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 2", 0x3f95142, 0x3f95162, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 3", 0x3f95162, 0x3f95182, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 4", 0x3f95182, 0x3f951a2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 5", 0x3f951a2, 0x3f951c2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 6", 0x3f951c2, 0x3f951e2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 7", 0x3f951e2, 0x3f95202, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 8", 0x3f95202, 0x3f95222, indexCPS2_Roll, 11, &pairRushDrill },
     { "LK Rush Drill 9", 0x3f95222, 0x3f95242, indexCPS2_Roll, 11 },
     { "LK Teleport Intro", 0x3f95242, 0x3f95262, indexCPS2_Megaman, 13 },
     { "LK Dr. Light", 0x3f95262, 0x3f95282, indexCPS2_Megaman, 37 },
@@ -3531,14 +3530,14 @@ const sGame_PaletteDataset MVC2_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "HP charging Megaman 7", 0x3f95ba2, 0x3f95bc2, indexCPS2_Megaman, 0 },
     { "HP charging Megaman 8", 0x3f95bc2, 0x3f95be2, indexCPS2_Megaman, 0 },
     { "HP charging Megaman 9", 0x3f95be2, 0x3f95c02, indexCPS2_Megaman, 0 },
-    { "HP Rush Drill 1", 0x3f95c02, 0x3f95c22, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 2", 0x3f95c22, 0x3f95c42, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 3", 0x3f95c42, 0x3f95c62, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 4", 0x3f95c62, 0x3f95c82, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 5", 0x3f95c82, 0x3f95ca2, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 6", 0x3f95ca2, 0x3f95cc2, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 7", 0x3f95cc2, 0x3f95ce2, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 8", 0x3f95ce2, 0x3f95d02, indexCPS2_Roll, 11 },
+    { "HP Rush Drill 1", 0x3f95c02, 0x3f95c22, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 2", 0x3f95c22, 0x3f95c42, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 3", 0x3f95c42, 0x3f95c62, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 4", 0x3f95c62, 0x3f95c82, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 5", 0x3f95c82, 0x3f95ca2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 6", 0x3f95ca2, 0x3f95cc2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 7", 0x3f95cc2, 0x3f95ce2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 8", 0x3f95ce2, 0x3f95d02, indexCPS2_Roll, 11, &pairRushDrill },
     { "HP Rush Drill 9", 0x3f95d02, 0x3f95d22, indexCPS2_Roll, 11 },
     { "HP Teleport Intro", 0x3f95d22, 0x3f95d42, indexCPS2_Megaman, 13 },
     { "HP Dr. Light", 0x3f95d42, 0x3f95d62, indexCPS2_Megaman, 37 },
@@ -3618,14 +3617,14 @@ const sGame_PaletteDataset MVC2_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "HK charging Megaman 7", 0x3f96682, 0x3f966a2, indexCPS2_Megaman, 0 },
     { "HK charging Megaman 8", 0x3f966a2, 0x3f966c2, indexCPS2_Megaman, 0 },
     { "HK charging Megaman 9", 0x3f966c2, 0x3f966e2, indexCPS2_Megaman, 0 },
-    { "HK Rush Drill 1", 0x3f966e2, 0x3f96702, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 2", 0x3f96702, 0x3f96722, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 3", 0x3f96722, 0x3f96742, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 4", 0x3f96742, 0x3f96762, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 5", 0x3f96762, 0x3f96782, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 6", 0x3f96782, 0x3f967a2, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 7", 0x3f967a2, 0x3f967c2, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 8", 0x3f967c2, 0x3f967e2, indexCPS2_Roll, 11 },
+    { "HK Rush Drill 1", 0x3f966e2, 0x3f96702, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 2", 0x3f96702, 0x3f96722, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 3", 0x3f96722, 0x3f96742, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 4", 0x3f96742, 0x3f96762, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 5", 0x3f96762, 0x3f96782, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 6", 0x3f96782, 0x3f967a2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 7", 0x3f967a2, 0x3f967c2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 8", 0x3f967c2, 0x3f967e2, indexCPS2_Roll, 11, &pairRushDrill },
     { "HK Rush Drill 9", 0x3f967e2, 0x3f96802, indexCPS2_Roll, 11 },
     { "HK Teleport Intro", 0x3f96802, 0x3f96822, indexCPS2_Megaman, 13 },
     { "HK Dr. Light", 0x3f96822, 0x3f96842, indexCPS2_Megaman, 37 },
@@ -3705,14 +3704,14 @@ const sGame_PaletteDataset MVC2_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "A1 charging Megaman 7", 0x3f97162, 0x3f97182, indexCPS2_Megaman, 0 },
     { "A1 charging Megaman 8", 0x3f97182, 0x3f971a2, indexCPS2_Megaman, 0 },
     { "A1 charging Megaman 9", 0x3f971a2, 0x3f971c2, indexCPS2_Megaman, 0 },
-    { "A1 Rush Drill 1", 0x3f971c2, 0x3f971e2, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 2", 0x3f971e2, 0x3f97202, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 3", 0x3f97202, 0x3f97222, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 4", 0x3f97222, 0x3f97242, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 5", 0x3f97242, 0x3f97262, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 6", 0x3f97262, 0x3f97282, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 7", 0x3f97282, 0x3f972a2, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 8", 0x3f972a2, 0x3f972c2, indexCPS2_Roll, 11 },
+    { "A1 Rush Drill 1", 0x3f971c2, 0x3f971e2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 2", 0x3f971e2, 0x3f97202, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 3", 0x3f97202, 0x3f97222, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 4", 0x3f97222, 0x3f97242, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 5", 0x3f97242, 0x3f97262, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 6", 0x3f97262, 0x3f97282, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 7", 0x3f97282, 0x3f972a2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 8", 0x3f972a2, 0x3f972c2, indexCPS2_Roll, 11, &pairRushDrill },
     { "A1 Rush Drill 9", 0x3f972c2, 0x3f972e2, indexCPS2_Roll, 11 },
     { "A1 Teleport Intro", 0x3f972e2, 0x3f97302, indexCPS2_Megaman, 13 },
     { "A1 Dr. Light", 0x3f97302, 0x3f97322, indexCPS2_Megaman, 37 },
@@ -3792,14 +3791,14 @@ const sGame_PaletteDataset MVC2_A_MEGAMAN_PALETTES_EXTRAS[] =
     { "A2 charging Megaman 7", 0x3f97c42, 0x3f97c62, indexCPS2_Megaman, 0 },
     { "A2 charging Megaman 8", 0x3f97c62, 0x3f97c82, indexCPS2_Megaman, 0 },
     { "A2 charging Megaman 9", 0x3f97c82, 0x3f97ca2, indexCPS2_Megaman, 0 },
-    { "A2 Rush Drill 1", 0x3f97ca2, 0x3f97cc2, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 2", 0x3f97cc2, 0x3f97ce2, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 3", 0x3f97ce2, 0x3f97d02, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 4", 0x3f97d02, 0x3f97d22, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 5", 0x3f97d22, 0x3f97d42, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 6", 0x3f97d42, 0x3f97d62, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 7", 0x3f97d62, 0x3f97d82, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 8", 0x3f97d82, 0x3f97da2, indexCPS2_Roll, 11 },
+    { "A2 Rush Drill 1", 0x3f97ca2, 0x3f97cc2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 2", 0x3f97cc2, 0x3f97ce2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 3", 0x3f97ce2, 0x3f97d02, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 4", 0x3f97d02, 0x3f97d22, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 5", 0x3f97d22, 0x3f97d42, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 6", 0x3f97d42, 0x3f97d62, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 7", 0x3f97d62, 0x3f97d82, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 8", 0x3f97d82, 0x3f97da2, indexCPS2_Roll, 11, &pairRushDrill },
     { "A2 Rush Drill 9", 0x3f97da2, 0x3f97dc2, indexCPS2_Roll, 11 },
     { "A2 Teleport Intro", 0x3f97dc2, 0x3f97de2, indexCPS2_Megaman, 13 },
     { "A2 Dr. Light", 0x3f97de2, 0x3f97e02, indexCPS2_Megaman, 37 },
@@ -3978,14 +3977,14 @@ const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_EXTRAS[] =
     { "LP charging Roll 7", 0x40083c2, 0x40083e2, indexCPS2_Roll, 0 },
     { "LP charging Roll 8", 0x40083e2, 0x4008402, indexCPS2_Roll, 0 },
     { "LP charging Roll 9", 0x4008402, 0x4008422, indexCPS2_Roll, 0 },
-    { "LP Rush Drill 1", 0x4008422, 0x4008442, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 2", 0x4008442, 0x4008462, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 3", 0x4008462, 0x4008482, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 4", 0x4008482, 0x40084a2, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 5", 0x40084a2, 0x40084c2, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 6", 0x40084c2, 0x40084e2, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 7", 0x40084e2, 0x4008502, indexCPS2_Roll, 11 },
-    { "LP Rush Drill 8", 0x4008502, 0x4008522, indexCPS2_Roll, 11 },
+    { "LP Rush Drill 1", 0x4008422, 0x4008442, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 2", 0x4008442, 0x4008462, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 3", 0x4008462, 0x4008482, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 4", 0x4008482, 0x40084a2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 5", 0x40084a2, 0x40084c2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 6", 0x40084c2, 0x40084e2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 7", 0x40084e2, 0x4008502, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LP Rush Drill 8", 0x4008502, 0x4008522, indexCPS2_Roll, 11, &pairRushDrill },
     { "LP Rush Drill 9", 0x4008522, 0x4008542, indexCPS2_Roll, 11 },
     { "LP Teleport Intro", 0x4008542, 0x4008562, indexCPS2_Megaman, 13 },
     { "LP Dr. Light", 0x4008562, 0x4008582, indexCPS2_Megaman, 37 },
@@ -4065,14 +4064,14 @@ const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_EXTRAS[] =
     { "LK charging Roll 7", 0x4008ea2, 0x4008ec2, indexCPS2_Roll, 0 },
     { "LK charging Roll 8", 0x4008ec2, 0x4008ee2, indexCPS2_Roll, 0 },
     { "LK charging Roll 9", 0x4008ee2, 0x4008f02, indexCPS2_Roll, 0 },
-    { "LK Rush Drill 1", 0x4008f02, 0x4008f22, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 2", 0x4008f22, 0x4008f42, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 3", 0x4008f42, 0x4008f62, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 4", 0x4008f62, 0x4008f82, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 5", 0x4008f82, 0x4008fa2, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 6", 0x4008fa2, 0x4008fc2, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 7", 0x4008fc2, 0x4008fe2, indexCPS2_Roll, 11 },
-    { "LK Rush Drill 8", 0x4008fe2, 0x4009002, indexCPS2_Roll, 11 },
+    { "LK Rush Drill 1", 0x4008f02, 0x4008f22, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 2", 0x4008f22, 0x4008f42, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 3", 0x4008f42, 0x4008f62, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 4", 0x4008f62, 0x4008f82, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 5", 0x4008f82, 0x4008fa2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 6", 0x4008fa2, 0x4008fc2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 7", 0x4008fc2, 0x4008fe2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "LK Rush Drill 8", 0x4008fe2, 0x4009002, indexCPS2_Roll, 11, &pairRushDrill },
     { "LK Rush Drill 9", 0x4009002, 0x4009022, indexCPS2_Roll, 11 },
     { "LK Teleport Intro", 0x4009022, 0x4009042, indexCPS2_Megaman, 13 },
     { "LK Dr. Light", 0x4009042, 0x4009062, indexCPS2_Megaman, 37 },
@@ -4152,14 +4151,14 @@ const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_EXTRAS[] =
     { "HP charging Roll 7", 0x4009982, 0x40099a2, indexCPS2_Roll, 0 },
     { "HP charging Roll 8", 0x40099a2, 0x40099c2, indexCPS2_Roll, 0 },
     { "HP charging Roll 9", 0x40099c2, 0x40099e2, indexCPS2_Roll, 0 },
-    { "HP Rush Drill 1", 0x40099e2, 0x4009a02, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 2", 0x4009a02, 0x4009a22, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 3", 0x4009a22, 0x4009a42, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 4", 0x4009a42, 0x4009a62, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 5", 0x4009a62, 0x4009a82, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 6", 0x4009a82, 0x4009aa2, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 7", 0x4009aa2, 0x4009ac2, indexCPS2_Roll, 11 },
-    { "HP Rush Drill 8", 0x4009ac2, 0x4009ae2, indexCPS2_Roll, 11 },
+    { "HP Rush Drill 1", 0x40099e2, 0x4009a02, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 2", 0x4009a02, 0x4009a22, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 3", 0x4009a22, 0x4009a42, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 4", 0x4009a42, 0x4009a62, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 5", 0x4009a62, 0x4009a82, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 6", 0x4009a82, 0x4009aa2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 7", 0x4009aa2, 0x4009ac2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HP Rush Drill 8", 0x4009ac2, 0x4009ae2, indexCPS2_Roll, 11, &pairRushDrill },
     { "HP Rush Drill 9", 0x4009ae2, 0x4009b02, indexCPS2_Roll, 11 },
     { "HP Dr. Light", 0x4009b02, 0x4009b22, indexCPS2_Megaman, 37 },
     { "HP Hyper Roll (armor/skin while shooting) 1", 0x4009b42, 0x4009b62 },
@@ -4238,14 +4237,14 @@ const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_EXTRAS[] =
     { "HK charging Roll 7", 0x400a462, 0x400a482, indexCPS2_Roll, 0 },
     { "HK charging Roll 8", 0x400a482, 0x400a4a2, indexCPS2_Roll, 0 },
     { "HK charging Roll 9", 0x400a4a2, 0x400a4c2, indexCPS2_Roll, 0 },
-    { "HK Rush Drill 1", 0x400a4c2, 0x400a4e2, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 2", 0x400a4e2, 0x400a502, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 3", 0x400a502, 0x400a522, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 4", 0x400a522, 0x400a542, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 5", 0x400a542, 0x400a562, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 6", 0x400a562, 0x400a582, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 7", 0x400a582, 0x400a5a2, indexCPS2_Roll, 11 },
-    { "HK Rush Drill 8", 0x400a5a2, 0x400a5c2, indexCPS2_Roll, 11 },
+    { "HK Rush Drill 1", 0x400a4c2, 0x400a4e2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 2", 0x400a4e2, 0x400a502, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 3", 0x400a502, 0x400a522, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 4", 0x400a522, 0x400a542, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 5", 0x400a542, 0x400a562, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 6", 0x400a562, 0x400a582, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 7", 0x400a582, 0x400a5a2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "HK Rush Drill 8", 0x400a5a2, 0x400a5c2, indexCPS2_Roll, 11, &pairRushDrill },
     { "HK Rush Drill 9", 0x400a5c2, 0x400a5e2, indexCPS2_Roll, 11 },
     { "HK Teleport Intro", 0x400a5e2, 0x400a602, indexCPS2_Megaman, 13 },
     { "HK Dr. Light", 0x400a602, 0x400a622, indexCPS2_Megaman, 37 },
@@ -4325,14 +4324,14 @@ const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_EXTRAS[] =
     { "A1 charging Roll 7", 0x400af42, 0x400af62, indexCPS2_Roll, 0 },
     { "A1 charging Roll 8", 0x400af62, 0x400af82, indexCPS2_Roll, 0 },
     { "A1 charging Roll 9", 0x400af82, 0x400afa2, indexCPS2_Roll, 0 },
-    { "A1 Rush Drill 1", 0x400afa2, 0x400afc2, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 2", 0x400afc2, 0x400afe2, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 3", 0x400afe2, 0x400b002, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 4", 0x400b002, 0x400b022, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 5", 0x400b022, 0x400b042, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 6", 0x400b042, 0x400b062, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 7", 0x400b062, 0x400b082, indexCPS2_Roll, 11 },
-    { "A1 Rush Drill 8", 0x400b082, 0x400b0a2, indexCPS2_Roll, 11 },
+    { "A1 Rush Drill 1", 0x400afa2, 0x400afc2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 2", 0x400afc2, 0x400afe2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 3", 0x400afe2, 0x400b002, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 4", 0x400b002, 0x400b022, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 5", 0x400b022, 0x400b042, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 6", 0x400b042, 0x400b062, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 7", 0x400b062, 0x400b082, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A1 Rush Drill 8", 0x400b082, 0x400b0a2, indexCPS2_Roll, 11, &pairRushDrill },
     { "A1 Rush Drill 9", 0x400b0a2, 0x400b0c2, indexCPS2_Roll, 11 },
     { "A1 Teleport Intro", 0x400b0c2, 0x400b0e2, indexCPS2_Megaman, 13 },
     { "A1 Dr. Light", 0x400b0e2, 0x400b102, indexCPS2_Megaman, 37 },
@@ -4412,14 +4411,14 @@ const sGame_PaletteDataset MVC2_A_ROLL_PALETTES_EXTRAS[] =
     { "A2 charging Roll 7", 0x400ba22, 0x400ba42, indexCPS2_Roll, 0 },
     { "A2 charging Roll 8", 0x400ba42, 0x400ba62, indexCPS2_Roll, 0 },
     { "A2 charging Roll 9", 0x400ba62, 0x400ba82, indexCPS2_Roll, 0 },
-    { "A2 Rush Drill 1", 0x400ba82, 0x400baa2, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 2", 0x400baa2, 0x400bac2, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 3", 0x400bac2, 0x400bae2, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 4", 0x400bae2, 0x400bb02, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 5", 0x400bb02, 0x400bb22, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 6", 0x400bb22, 0x400bb42, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 7", 0x400bb42, 0x400bb62, indexCPS2_Roll, 11 },
-    { "A2 Rush Drill 8", 0x400bb62, 0x400bb82, indexCPS2_Roll, 11 },
+    { "A2 Rush Drill 1", 0x400ba82, 0x400baa2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 2", 0x400baa2, 0x400bac2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 3", 0x400bac2, 0x400bae2, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 4", 0x400bae2, 0x400bb02, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 5", 0x400bb02, 0x400bb22, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 6", 0x400bb22, 0x400bb42, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 7", 0x400bb42, 0x400bb62, indexCPS2_Roll, 11, &pairRushDrill },
+    { "A2 Rush Drill 8", 0x400bb62, 0x400bb82, indexCPS2_Roll, 11, &pairRushDrill },
     { "A2 Rush Drill 9", 0x400bb82, 0x400bba2, indexCPS2_Roll, 11 },
     { "A2 Teleport Intro", 0x400bba2, 0x400bbc2, indexCPS2_Megaman, 13 },
     { "A2 Dr. Light", 0x400bbc2, 0x400bbe2, indexCPS2_Megaman, 37 },
@@ -6172,7 +6171,7 @@ const sDescTreeNode MVC2_A_MAGNETO_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_LP[] =
 {
-    { "Main Color / Mystic Stare LP", 0x4cda622, 0x4cda642, indexCPS2_Shuma, 0, true },
+    { "Main Color / Mystic Stare LP", 0x4cda622, 0x4cda642, indexCPS2_Shuma, 0, &pairUnhandled },
     { "(02) Dash Frame / Guard Frame", 0x4cda642, 0x4cda662, indexCPS2_Shuma, 1 },
     { "(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cda662, 0x4cda682, indexCPS2_Shuma, 2 },
     { "(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cda682, 0x4cda6a2, indexCPS2_Shuma, 3 },
@@ -6184,7 +6183,7 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_LK[] =
 {
-    { "Main Color / Mystic Stare LK", 0x4cda722, 0x4cda742, indexCPS2_Shuma, 0, true },
+    { "Main Color / Mystic Stare LK", 0x4cda722, 0x4cda742, indexCPS2_Shuma, 0, &pairUnhandled },
     { "(02) Dash Frame / Guard Frame", 0x4cda742, 0x4cda762, indexCPS2_Shuma, 1 },
     { "(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cda762, 0x4cda782, indexCPS2_Shuma, 2 },
     { "(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cda782, 0x4cda7a2, indexCPS2_Shuma, 3 },
@@ -6196,7 +6195,7 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_HP[] =
 {
-    { "Main Color / Mystic Stare HP", 0x4cda822, 0x4cda842, indexCPS2_Shuma, 0, true },
+    { "Main Color / Mystic Stare HP", 0x4cda822, 0x4cda842, indexCPS2_Shuma, 0, &pairUnhandled },
     { "(02) Dash Frame / Guard Frame", 0x4cda842, 0x4cda862, indexCPS2_Shuma, 1 },
     { "(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cda862, 0x4cda882, indexCPS2_Shuma, 2 },
     { "(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cda882, 0x4cda8a2, indexCPS2_Shuma, 3 },
@@ -6208,7 +6207,7 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_HK[] =
 {
-    { "Main Color / Mystic Stare HK", 0x4cda922, 0x4cda942, indexCPS2_Shuma, 0, true },
+    { "Main Color / Mystic Stare HK", 0x4cda922, 0x4cda942, indexCPS2_Shuma, 0, &pairUnhandled },
     { "(02) Dash Frame / Guard Frame", 0x4cda942, 0x4cda962, indexCPS2_Shuma, 1 },
     { "(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cda962, 0x4cda982, indexCPS2_Shuma, 2 },
     { "(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cda982, 0x4cda9a2, indexCPS2_Shuma, 3 },
@@ -6220,7 +6219,7 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_A1[] =
 {
-    { "Main Color / Mystic Stare A1", 0x4cdaa22, 0x4cdaa42, indexCPS2_Shuma, 0, true },
+    { "Main Color / Mystic Stare A1", 0x4cdaa22, 0x4cdaa42, indexCPS2_Shuma, 0, &pairUnhandled },
     { "(02) Dash Frame / Guard Frame", 0x4cdaa42, 0x4cdaa62, indexCPS2_Shuma, 1 },
     { "(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cdaa62, 0x4cdaa82, indexCPS2_Shuma, 2 },
     { "(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cdaa82, 0x4cdaaa2, indexCPS2_Shuma, 3 },
@@ -6232,7 +6231,7 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_A2[] =
 {
-    { "Main Color / Mystic Stare A2", 0x4cdab22, 0x4cdab42, indexCPS2_Shuma, 0, true },
+    { "Main Color / Mystic Stare A2", 0x4cdab22, 0x4cdab42, indexCPS2_Shuma, 0, &pairUnhandled },
     { "(02) Dash Frame / Guard Frame", 0x4cdab42, 0x4cdab62, indexCPS2_Shuma, 1 },
     { "(03) FP/ j.FP / c.FP / Intro (portal) / Chaos Dimension (Flash Activation)", 0x4cdab62, 0x4cdab82, indexCPS2_Shuma, 2 },
     { "(04) ID:01-08 Not Used ID:09-15 Mystic Stare (when stuck to the opponent)", 0x4cdab82, 0x4cdaba2, indexCPS2_Shuma, 3 },
@@ -6244,21 +6243,21 @@ const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_SHUMA_PALETTES_SHARED[] =
 {
-    { "Burning Dark", 0x4cdac22, 0x4cdac42, indexCPS2_Shuma, 0, true },
+    { "Burning Dark", 0x4cdac22, 0x4cdac42, indexCPS2_Shuma, 0, &pairUnhandled },
     { "Burning Dark 2", 0x4cdac42, 0x4cdac62, indexCPS2_Shuma, 1 },
-    { "Burning Light", 0x4cdac62, 0x4cdac82, indexCPS2_Shuma, 0, true },
+    { "Burning Light", 0x4cdac62, 0x4cdac82, indexCPS2_Shuma, 0, &pairUnhandled },
     { "Burning Light 2", 0x4cdac82, 0x4cdaca2, indexCPS2_Shuma, 1 },
-    { "Shocked Dark", 0x4cdaca2, 0x4cdacc2, indexCPS2_Shuma, 0, true },
+    { "Shocked Dark", 0x4cdaca2, 0x4cdacc2, indexCPS2_Shuma, 0, &pairUnhandled },
     { "Shocked Dark 2", 0x4cdacc2, 0x4cdace2, indexCPS2_Shuma, 1 },
-    { "Shocked Light", 0x4cdace2, 0x4cdad02, indexCPS2_Shuma, 0, true },
+    { "Shocked Light", 0x4cdace2, 0x4cdad02, indexCPS2_Shuma, 0, &pairUnhandled },
     { "Shocked Light 2", 0x4cdad02, 0x4cdad22, indexCPS2_Shuma, 1 },
-    { "Dark Burning Dark", 0x4cdad22, 0x4cdad42, indexCPS2_Shuma, 0, true },
+    { "Dark Burning Dark", 0x4cdad22, 0x4cdad42, indexCPS2_Shuma, 0, &pairUnhandled },
     { "Dark Burning Dark 2", 0x4cdad42, 0x4cdad62, indexCPS2_Shuma, 1 },
-    { "Dark Burning Light", 0x4cdad62, 0x4cdad82, indexCPS2_Shuma, 0, true },
+    { "Dark Burning Light", 0x4cdad62, 0x4cdad82, indexCPS2_Shuma, 0, &pairUnhandled },
     { "Dark Burning Light 2", 0x4cdad82, 0x4cdada2, indexCPS2_Shuma, 1 },
-    { "Kinetic Charge Dark", 0x4cdada2, 0x4cdadc2, indexCPS2_Shuma, 0, true },
+    { "Kinetic Charge Dark", 0x4cdada2, 0x4cdadc2, indexCPS2_Shuma, 0, &pairUnhandled },
     { "Kinetic Charge Dark 2", 0x4cdadc2, 0x4cdade2, indexCPS2_Shuma, 1 },
-    { "Kinetic Charge Light", 0x4cdade2, 0x4cdae02, indexCPS2_Shuma, 0, true },
+    { "Kinetic Charge Light", 0x4cdade2, 0x4cdae02, indexCPS2_Shuma, 0, &pairUnhandled },
     { "Kinetic Charge Light 2", 0x4cdae02, 0x4cdae22, indexCPS2_Shuma, 1 },
 };
 
@@ -7536,7 +7535,7 @@ const sDescTreeNode MVC2_A_IRONMAN_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LP[] =
 {
-    { "Main Color LP", 0x545e422, 0x545e442, indexCPS2_Sentinel, 0, true },
+    { "Main Color LP", 0x545e422, 0x545e442, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "(02) Drones (bombs) / Guts", 0x545e442, 0x545e462, indexCPS2_Sentinel, 1 },
     { "(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e462, 0x545e482, indexCPS2_Sentinel, 2 },
     { "(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e482, 0x545e4a2, indexCPS2_Sentinel, 3 },
@@ -7548,7 +7547,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LK[] =
 {
-    { "Main Color LK", 0x545e522, 0x545e542, indexCPS2_Sentinel, 0, true },
+    { "Main Color LK", 0x545e522, 0x545e542, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "(02) Drones (bombs) / Guts", 0x545e542, 0x545e562, indexCPS2_Sentinel, 1 },
     { "(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e562, 0x545e582, indexCPS2_Sentinel, 2 },
     { "(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e582, 0x545e5a2, indexCPS2_Sentinel, 3 },
@@ -7560,7 +7559,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HP[] =
 {
-    { "Main Color HP", 0x545e622, 0x545e642, indexCPS2_Sentinel, 0, true },
+    { "Main Color HP", 0x545e622, 0x545e642, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "(02) Drones (bombs) / Guts", 0x545e642, 0x545e662, indexCPS2_Sentinel, 1 },
     { "(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e662, 0x545e682, indexCPS2_Sentinel, 2 },
     { "(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e682, 0x545e6a2, indexCPS2_Sentinel, 3 },
@@ -7572,7 +7571,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HK[] =
 {
-    { "Main Color HK", 0x545e722, 0x545e742, indexCPS2_Sentinel, 0, true },
+    { "Main Color HK", 0x545e722, 0x545e742, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "(02) Drones (bombs) / Guts", 0x545e742, 0x545e762, indexCPS2_Sentinel, 1 },
     { "(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e762, 0x545e782, indexCPS2_Sentinel, 2 },
     { "(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e782, 0x545e7a2, indexCPS2_Sentinel, 3 },
@@ -7584,7 +7583,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A1[] =
 {
-    { "Main Color A1", 0x545e822, 0x545e842, indexCPS2_Sentinel, 0, true },
+    { "Main Color A1", 0x545e822, 0x545e842, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "(02) Drones (bombs) / Guts", 0x545e842, 0x545e862, indexCPS2_Sentinel, 1 },
     { "(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e862, 0x545e882, indexCPS2_Sentinel, 2 },
     { "(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e882, 0x545e8a2, indexCPS2_Sentinel, 3 },
@@ -7596,7 +7595,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A2[] =
 {
-    { "Main Color A2", 0x545e922, 0x545e942, indexCPS2_Sentinel, 0, true },
+    { "Main Color A2", 0x545e922, 0x545e942, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "(02) Drones (bombs) / Guts", 0x545e942, 0x545e962, indexCPS2_Sentinel, 1 },
     { "(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)", 0x545e962, 0x545e982, indexCPS2_Sentinel, 2 },
     { "(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e982, 0x545e9a2, indexCPS2_Sentinel, 3 },
@@ -7608,21 +7607,21 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_SHARED[] =
 {
-    { "Burning Dark", 0x545ea22, 0x545ea42, indexCPS2_Sentinel, 0, true },
+    { "Burning Dark", 0x545ea22, 0x545ea42, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "Burning Dark 2", 0x545ea42, 0x545ea62, indexCPS2_Sentinel, 1 },
-    { "Burning Light", 0x545ea62, 0x545ea82, indexCPS2_Sentinel, 0, true },
+    { "Burning Light", 0x545ea62, 0x545ea82, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "Burning Light 2", 0x545ea82, 0x545eaa2, indexCPS2_Sentinel, 1 },
-    { "Shocked Dark", 0x545eaa2, 0x545eac2, indexCPS2_Sentinel, 0, true },
+    { "Shocked Dark", 0x545eaa2, 0x545eac2, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "Shocked Dark 2", 0x545eac2, 0x545eae2, indexCPS2_Sentinel, 1 },
-    { "Shocked Light", 0x545eae2, 0x545eb02, indexCPS2_Sentinel, 0, true },
+    { "Shocked Light", 0x545eae2, 0x545eb02, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "Shocked Light 2", 0x545eb02, 0x545eb22, indexCPS2_Sentinel, 1 },
-    { "Dark Burning Dark", 0x545eb22, 0x545eb42, indexCPS2_Sentinel, 0, true },
+    { "Dark Burning Dark", 0x545eb22, 0x545eb42, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "Dark Burning Dark 2", 0x545eb42, 0x545eb62, indexCPS2_Sentinel, 1 },
-    { "Dark Burning Light", 0x545eb62, 0x545eb82, indexCPS2_Sentinel, 0, true },
+    { "Dark Burning Light", 0x545eb62, 0x545eb82, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "Dark Burning Light 2", 0x545eb82, 0x545eba2, indexCPS2_Sentinel, 1 },
-    { "Kinetic Charge Dark", 0x545eba2, 0x545ebc2, indexCPS2_Sentinel, 0, true },
+    { "Kinetic Charge Dark", 0x545eba2, 0x545ebc2, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "Kinetic Charge Dark 2", 0x545ebc2, 0x545ebe2, indexCPS2_Sentinel, 1 },
-    { "Kinetic Charge Light", 0x545ebe2, 0x545ec02, indexCPS2_Sentinel, 0, true },
+    { "Kinetic Charge Light", 0x545ebe2, 0x545ec02, indexCPS2_Sentinel, 0, &pairUnhandled },
     { "Kinetic Charge Light 2", 0x545ec02, 0x545ec22, indexCPS2_Sentinel, 1 },
 };
 
@@ -8056,7 +8055,7 @@ const sDescTreeNode MVC2_A_JIN_COLLECTION[] =
 const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_LP[] =
 {
     { "Main Color LP", 0x5847ec2, 0x5847ee2, indexCPS2_CapCom, 0 },
-    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x5847ee2, 0x5847f02, indexCPS2_CapCom, 1 },
+    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x5847ee2, 0x5847f02, indexCPS2_CapCom, 1, &pairCapComNinjas },
     { "(03) Commando Strike (Sho, Genity, Hoover)", 0x5847f02, 0x5847f22, indexCPS2_CapCom, 2 },
     { "(04) Captain Corridor // Captain Sword", 0x5847f22, 0x5847f42, indexCPS2_CapCom, 3 },
     { "(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5847f42, 0x5847f62, indexCPS2_CapCom, 4 },
@@ -8068,7 +8067,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_LP[] =
 const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_LK[] =
 {
     { "Main Color LK", 0x5847fc2, 0x5847fe2, indexCPS2_CapCom, 0 },
-    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x5847fe2, 0x5848002, indexCPS2_CapCom, 1 },
+    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x5847fe2, 0x5848002, indexCPS2_CapCom, 1, &pairCapComNinjas },
     { "(03) Commando Strike (Sho, Genity, Hoover)", 0x5848002, 0x5848022, indexCPS2_CapCom, 2 },
     { "(04) Captain Corridor // Captain Sword", 0x5848022, 0x5848042, indexCPS2_CapCom, 3 },
     { "(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848042, 0x5848062, indexCPS2_CapCom, 4 },
@@ -8080,7 +8079,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_LK[] =
 const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_HP[] =
 {
     { "Main Color HP", 0x58480c2, 0x58480e2, indexCPS2_CapCom, 0 },
-    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x58480e2, 0x5848102, indexCPS2_CapCom, 1 },
+    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x58480e2, 0x5848102, indexCPS2_CapCom, 1, &pairCapComNinjas },
     { "(03) Commando Strike (Sho, Genity, Hoover)", 0x5848102, 0x5848122, indexCPS2_CapCom, 2 },
     { "(04) Captain Corridor // Captain Sword", 0x5848122, 0x5848142, indexCPS2_CapCom, 3 },
     { "(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848142, 0x5848162, indexCPS2_CapCom, 4 },
@@ -8092,7 +8091,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_HP[] =
 const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_HK[] =
 {
     { "Main Color HK", 0x58481c2, 0x58481e2, indexCPS2_CapCom, 0 },
-    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x58481e2, 0x5848202, indexCPS2_CapCom, 1 },
+    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x58481e2, 0x5848202, indexCPS2_CapCom, 1, &pairCapComNinjas },
     { "(03) Commando Strike (Sho, Genity, Hoover)", 0x5848202, 0x5848222, indexCPS2_CapCom, 2 },
     { "(04) Captain Corridor // Captain Sword", 0x5848222, 0x5848242, indexCPS2_CapCom, 3 },
     { "(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848242, 0x5848262, indexCPS2_CapCom, 4 },
@@ -8104,7 +8103,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_HK[] =
 const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_A1[] =
 {
     { "Main Color A1", 0x58482c2, 0x58482e2, indexCPS2_CapCom, 0 },
-    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x58482e2, 0x5848302, indexCPS2_CapCom, 1 },
+    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x58482e2, 0x5848302, indexCPS2_CapCom, 1, &pairCapComNinjas },
     { "(03) Commando Strike (Sho, Genity, Hoover)", 0x5848302, 0x5848322, indexCPS2_CapCom, 2 },
     { "(04) Captain Corridor // Captain Sword", 0x5848322, 0x5848342, indexCPS2_CapCom, 3 },
     { "(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848342, 0x5848362, indexCPS2_CapCom, 4 },
@@ -8116,7 +8115,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_A1[] =
 const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_A2[] =
 {
     { "Main Color A2", 0x58483c2, 0x58483e2, indexCPS2_CapCom, 0 },
-    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x58483e2, 0x5848402, indexCPS2_CapCom, 1 },
+    { "(02) Commando Strike (Sho, Genity, Hoover)", 0x58483e2, 0x5848402, indexCPS2_CapCom, 1, &pairCapComNinjas },
     { "(03) Commando Strike (Sho, Genity, Hoover)", 0x5848402, 0x5848422, indexCPS2_CapCom, 2 },
     { "(04) Captain Corridor // Captain Sword", 0x5848422, 0x5848442, indexCPS2_CapCom, 3 },
     { "(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848442, 0x5848462, indexCPS2_CapCom, 4 },
@@ -8172,7 +8171,7 @@ const sDescTreeNode MVC2_A_CAPTAINCOMMANDO_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_LP[] =
 {
-    { "Main Color LP", 0x59472a2, 0x59472c2, indexCPS2_Bonerine, 0, true },
+    { "Main Color LP", 0x59472a2, 0x59472c2, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "(02) Claws", 0x59472c2, 0x59472e2, indexCPS2_Bonerine, 1 },
     { "(03) Berserker Barrage", 0x59472e2, 0x5947302, indexCPS2_Bonerine, 2 },
     { "(04) Not Used", 0x5947302, 0x5947322, indexCPS2_Bonerine, 3 },
@@ -8184,7 +8183,7 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_LK[] =
 {
-    { "Main Color LK", 0x59473a2, 0x59473c2, indexCPS2_Bonerine, 0, true },
+    { "Main Color LK", 0x59473a2, 0x59473c2, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "(02) Claws", 0x59473c2, 0x59473e2, indexCPS2_Bonerine, 1 },
     { "(03) Berserker Barrage", 0x59473e2, 0x5947402, indexCPS2_Bonerine, 2 },
     { "(04) Not Used", 0x5947402, 0x5947422, indexCPS2_Bonerine, 3 },
@@ -8196,7 +8195,7 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HP[] =
 {
-    { "Main Color HP", 0x59474a2, 0x59474c2, indexCPS2_Bonerine, 0, true },
+    { "Main Color HP", 0x59474a2, 0x59474c2, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "(02) Claws", 0x59474c2, 0x59474e2, indexCPS2_Bonerine, 1 },
     { "(03) Berserker Barrage", 0x59474e2, 0x5947502, indexCPS2_Bonerine, 2 },
     { "(04) Not Used", 0x5947502, 0x5947522, indexCPS2_Bonerine, 3 },
@@ -8208,7 +8207,7 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HK[] =
 {
-    { "Main Color HK", 0x59475a2, 0x59475c2, indexCPS2_Bonerine, 0, true },
+    { "Main Color HK", 0x59475a2, 0x59475c2, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "(02) Claws", 0x59475c2, 0x59475e2, indexCPS2_Bonerine, 1 },
     { "(03) Berserker Barrage", 0x59475e2, 0x5947602, indexCPS2_Bonerine, 2 },
     { "(04) Not Used", 0x5947602, 0x5947622, indexCPS2_Bonerine, 3 },
@@ -8220,7 +8219,7 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A1[] =
 {
-    { "Main Color A1", 0x59476a2, 0x59476c2, indexCPS2_Bonerine, 0, true },
+    { "Main Color A1", 0x59476a2, 0x59476c2, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "(02) Claws", 0x59476c2, 0x59476e2, indexCPS2_Bonerine, 1 },
     { "(03) Berserker Barrage", 0x59476e2, 0x5947702, indexCPS2_Bonerine, 2 },
     { "(04) Not Used", 0x5947702, 0x5947722, indexCPS2_Bonerine, 3 },
@@ -8232,7 +8231,7 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A2[] =
 {
-    { "Main Color A2", 0x59477a2, 0x59477c2, indexCPS2_Bonerine, 0, true },
+    { "Main Color A2", 0x59477a2, 0x59477c2, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "(02) Claws", 0x59477c2, 0x59477e2, indexCPS2_Bonerine, 1 },
     { "(03) Berserker Barrage", 0x59477e2, 0x5947802, indexCPS2_Bonerine, 2 },
     { "(04) Not Used", 0x5947802, 0x5947822, indexCPS2_Bonerine, 3 },
@@ -8244,21 +8243,21 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_SHARED[] =
 {
-    { "Burning Dark", 0x59478a2, 0x59478c2, indexCPS2_Bonerine, 0, true },
+    { "Burning Dark", 0x59478a2, 0x59478c2, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "Burning Dark 2", 0x59478c2, 0x59478e2, indexCPS2_Bonerine, 1 },
-    { "Burning Light", 0x59478e2, 0x5947902, indexCPS2_Bonerine, 0, true },
+    { "Burning Light", 0x59478e2, 0x5947902, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "Burning Light 2", 0x5947902, 0x5947922, indexCPS2_Bonerine, 1 },
-    { "Shocked Dark", 0x5947922, 0x5947942, indexCPS2_Bonerine, 0, true },
+    { "Shocked Dark", 0x5947922, 0x5947942, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "Shocked Dark 2", 0x5947942, 0x5947962, indexCPS2_Bonerine, 1 },
-    { "Shocked Light", 0x5947962, 0x5947982, indexCPS2_Bonerine, 0, true },
+    { "Shocked Light", 0x5947962, 0x5947982, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "Shocked Light 2", 0x5947982, 0x59479a2, indexCPS2_Bonerine, 1 },
-    { "Dark Burning Dark", 0x59479a2, 0x59479c2, indexCPS2_Bonerine, 0, true },
+    { "Dark Burning Dark", 0x59479a2, 0x59479c2, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "Dark Burning Dark 2", 0x59479c2, 0x59479e2, indexCPS2_Bonerine, 1 },
-    { "Dark Burning Light", 0x59479e2, 0x5947a02, indexCPS2_Bonerine, 0, true },
+    { "Dark Burning Light", 0x59479e2, 0x5947a02, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "Dark Burning Light 2", 0x5947a02, 0x5947a22, indexCPS2_Bonerine, 1 },
-    { "Kinetic Charge Dark", 0x5947a22, 0x5947a42, indexCPS2_Bonerine, 0, true },
+    { "Kinetic Charge Dark", 0x5947a22, 0x5947a42, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "Kinetic Charge Dark 2", 0x5947a42, 0x5947a62, indexCPS2_Bonerine, 1 },
-    { "Kinetic Charge Light", 0x5947a62, 0x5947a82, indexCPS2_Bonerine, 0, true },
+    { "Kinetic Charge Light", 0x5947a62, 0x5947a82, indexCPS2_Bonerine, 0, &pairWolvieClaws },
     { "Kinetic Charge Light 2", 0x5947a82, 0x5947aa2, indexCPS2_Bonerine, 1 },
 };
 
