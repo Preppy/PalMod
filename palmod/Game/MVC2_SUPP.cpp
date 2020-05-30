@@ -7,6 +7,13 @@ CGame_MVC2_D* CurrMVC2 = NULL;
 int rgSuppLoc[MVC2_D_NUMUNIT];
 
 UINT8** _mvc2_data = NULL;
+int _nExtrasOffset = 0;
+
+void supp_offset_override(int nExtrasOffset)
+{
+    // Handle the positional differences between MVC2-A and D
+    _nExtrasOffset = nExtrasOffset;
+}
 
 // Create the array of supplemental processing information needed for mvc2 sprites
 void prep_supp()
@@ -37,46 +44,46 @@ inline UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no)
 void HandleSpiralCopies(UINT16 char_no, UINT16 pal_no)
 {
     // This should generally work, except for sentinel FX which is itself modified by sentinel.  handled post-proc below
-    if ((char_no == 0x06) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x38); } // cyke
-    else if ((char_no == 0x07) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x39); } // wolvie
-    else if ((char_no == 0x07) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x3A); } // wolvie claws
-    else if ((char_no == 0x08) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x3B); } // psylocke
-    else if ((char_no == 0x08) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x3C); } // psyblade
-    else if ((char_no == 0x09) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x3D); } // iceman
-    else if ((char_no == 0x0A) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x3E); } // rogue
-    else if ((char_no == 0x0B) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x3F); } // captain america
-    else if ((char_no == 0x0C) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x40); } // spider-man
-    else if ((char_no == 0x0D) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x41); } // hulk
-    else if ((char_no == 0x0E) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x42); } // venom
-    else if ((char_no == 0x0F) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x43); } // dr doom
-    else if ((char_no == 0x0F) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x44); } // dr doom fx
-    else if ((char_no == 0x16) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x45); } // marrow
- // else if ((char_no == 0xFF) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x46); } // UNUSED
-    else if ((char_no == 0x17) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x47); } // cable
- // else if ((char_no == 0xFF) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x48); } // UNUSED
-    else if ((char_no == 0x28) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x49); } // gambit
-    else if ((char_no == 0x29) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4A); } // juggernaut
-    else if ((char_no == 0x2A) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4B); } // storm
-    else if ((char_no == 0x2A) && (pal_no == 0x42)) { supp_copy_spiral(char_no, pal_no, 0x4C); } // storm lightning FX
-    else if ((char_no == 0x2B) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4D); } // sabe
-    else if ((char_no == 0x2C) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4E); } // magnus
+         if ((char_no == 0x06) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x38 - _nExtrasOffset); } // cyke
+    else if ((char_no == 0x07) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x39 - _nExtrasOffset); } // wolvie
+    else if ((char_no == 0x07) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x3A - _nExtrasOffset); } // wolvie claws
+    else if ((char_no == 0x08) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x3B - _nExtrasOffset); } // psylocke
+    else if ((char_no == 0x08) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x3C - _nExtrasOffset); } // psyblade
+    else if ((char_no == 0x09) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x3D - _nExtrasOffset); } // iceman
+    else if ((char_no == 0x0A) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x3E - _nExtrasOffset); } // rogue
+    else if ((char_no == 0x0B) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x3F - _nExtrasOffset); } // captain america
+    else if ((char_no == 0x0C) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x40 - _nExtrasOffset); } // spider-man
+    else if ((char_no == 0x0D) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x41 - _nExtrasOffset); } // hulk
+    else if ((char_no == 0x0E) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x42 - _nExtrasOffset); } // venom
+    else if ((char_no == 0x0F) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x43 - _nExtrasOffset); } // dr doom
+    else if ((char_no == 0x0F) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x44 - _nExtrasOffset); } // dr doom fx
+    else if ((char_no == 0x16) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x45 - _nExtrasOffset); } // marrow
+ // else if ((char_no == 0xFF) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x46 - _nExtrasOffset); } // UNUSED
+    else if ((char_no == 0x17) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x47 - _nExtrasOffset); } // cable
+ // else if ((char_no == 0xFF) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x48 - _nExtrasOffset); } // UNUSED
+    else if ((char_no == 0x28) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x49 - _nExtrasOffset); } // gambit
+    else if ((char_no == 0x29) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4A - _nExtrasOffset); } // juggernaut
+    else if ((char_no == 0x2A) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4B - _nExtrasOffset); } // storm
+    else if ((char_no == 0x2A) && (pal_no == 0x42 - _nExtrasOffset)) { supp_copy_spiral(char_no, pal_no, 0x4C - _nExtrasOffset); } // storm lightning FX
+    else if ((char_no == 0x2B) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4D - _nExtrasOffset); } // sabe
+    else if ((char_no == 0x2C) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4E - _nExtrasOffset); } // magnus
  // else if ((char_no == 0xFF) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x4F); } // UNUSED
-    else if ((char_no == 0x2D) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x50); } // shuma
-    else if ((char_no == 0x2E) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x51); } // war machine
-    else if ((char_no == 0x2F) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x52); } // silver samurai
-    else if ((char_no == 0x30) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x53); } // omega red
-    else if ((char_no == 0x32) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x54); } // colossus
-    else if ((char_no == 0x33) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x55); } // iron man
-    else if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x56); } // sentinel
-    else if ((char_no == 0x34) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x57, 1, 1, 7); } // sentinel FX
-    else if ((char_no == 0x35) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x58); } // blackheart
-    else if ((char_no == 0x36) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x59); } // thanos
+    else if ((char_no == 0x2D) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x50 - _nExtrasOffset); } // shuma
+    else if ((char_no == 0x2E) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x51 - _nExtrasOffset); } // war machine
+    else if ((char_no == 0x2F) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x52 - _nExtrasOffset); } // silver samurai
+    else if ((char_no == 0x30) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x53 - _nExtrasOffset); } // omega red
+    else if ((char_no == 0x32) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x54 - _nExtrasOffset); } // colossus
+    else if ((char_no == 0x33) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x55 - _nExtrasOffset); } // iron man
+    else if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x56 - _nExtrasOffset); } // sentinel
+    else if ((char_no == 0x34) && (pal_no == 1)) { supp_copy_spiral(char_no, pal_no, 0x57 - _nExtrasOffset, 1, 1, 7); } // sentinel FX
+    else if ((char_no == 0x35) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x58 - _nExtrasOffset); } // blackheart
+    else if ((char_no == 0x36) && (pal_no == 0)) { supp_copy_spiral(char_no, pal_no, 0x59 - _nExtrasOffset); } // thanos
 }
 
 // This handles palettes that are modified as part of modifying a primary palette
 void HandleSpiralCopies_ForSupplementedPalettes(UINT16 char_no, UINT16 pal_no)
 {
-    if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, 0x01, 0x57, 1, 1, 7); } // copy sentinel FX
+    if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, 0x01, 0x57 - _nExtrasOffset, 1, 1, 7); } // copy sentinel FX
 }
 
 void proc_supp(UINT16 char_no, UINT16 pal_no)
@@ -86,13 +93,13 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
     strDebugInfo.Format("proc_supp: Processing supplemental palettes for character 0x%02x (%s), palette number 0x%x\n", char_no, MVC2_D_UNITDESC[char_no], pal_no);
     OutputDebugString(strDebugInfo);
 
-    HandleSpiralCopies(char_no, pal_no);
-
     if (!rgSuppLoc[char_no] || !_mvc2_data)
     {
         OutputDebugString("proc_supp: Not applicable here\n");
         return;
     }
+
+    HandleSpiralCopies(char_no, pal_no);
 
     UINT8 add = 0;
 

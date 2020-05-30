@@ -78,7 +78,7 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_LP[] =
 {
     { "Main Color LP", 0x260a9c2, 0x260a9e2, indexCPS2_Ryu, 0 },
     { "(02) Hadouken // Shinkuu Hadouken", 0x260a9e2, 0x260aa02, indexCPS2_Ryu, 1 },
-    { "(03) Shoryuken", 0x260aa02, 0x260aa22, indexCPS2_Ryu, 2 },
+    { "(03) Shoryuken", 0x260aa02, 0x260aa22, indexCPS2_Ken, 2 },
     { "(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260aa22, 0x260aa42, indexCPS2_Ryu, 3 },
     { "(05) Not Used", 0x260aa42, 0x260aa62, indexCPS2_Ryu, 4 },
     { "(06) Not Used", 0x260aa62, 0x260aa82, indexCPS2_Ryu, 5 },
@@ -90,7 +90,7 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_LK[] =
 {
     { "Main Color LK", 0x260aac2, 0x260aae2, indexCPS2_Ryu, 0 },
     { "(02) Hadouken // Shinkuu Hadouken", 0x260aae2, 0x260ab02, indexCPS2_Ryu, 1 },
-    { "(03) Shoryuken", 0x260ab02, 0x260ab22, indexCPS2_Ryu, 2 },
+    { "(03) Shoryuken", 0x260ab02, 0x260ab22, indexCPS2_Ken, 2 },
     { "(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ab22, 0x260ab42, indexCPS2_Ryu, 3 },
     { "(05) Not Used", 0x260ab42, 0x260ab62, indexCPS2_Ryu, 4 },
     { "(06) Not Used", 0x260ab62, 0x260ab82, indexCPS2_Ryu, 5 },
@@ -102,7 +102,7 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_HP[] =
 {
     { "Main Color HP", 0x260abc2, 0x260abe2, indexCPS2_Ryu, 0 },
     { "(02) Hadouken // Shinkuu Hadouken", 0x260abe2, 0x260ac02, indexCPS2_Ryu, 1 },
-    { "(03) Shoryuken", 0x260ac02, 0x260ac22, indexCPS2_Ryu, 2 },
+    { "(03) Shoryuken", 0x260ac02, 0x260ac22, indexCPS2_Ken, 2 },
     { "(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ac22, 0x260ac42, indexCPS2_Ryu, 3 },
     { "(05) Not Used", 0x260ac42, 0x260ac62, indexCPS2_Ryu, 4 },
     { "(06) Not Used", 0x260ac62, 0x260ac82, indexCPS2_Ryu, 5 },
@@ -114,7 +114,7 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_HK[] =
 {
     { "Main Color HK", 0x260acc2, 0x260ace2, indexCPS2_Ryu, 0 },
     { "(02) Hadouken // Shinkuu Hadouken", 0x260ace2, 0x260ad02, indexCPS2_Ryu, 1 },
-    { "(03) Shoryuken", 0x260ad02, 0x260ad22, indexCPS2_Ryu, 2 },
+    { "(03) Shoryuken", 0x260ad02, 0x260ad22, indexCPS2_Ken, 2 },
     { "(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ad22, 0x260ad42, indexCPS2_Ryu, 3 },
     { "(05) Not Used", 0x260ad42, 0x260ad62, indexCPS2_Ryu, 4 },
     { "(06) Not Used", 0x260ad62, 0x260ad82, indexCPS2_Ryu, 5 },
@@ -126,7 +126,7 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_A1[] =
 {
     { "Main Color A1", 0x260adc2, 0x260ade2, indexCPS2_Ryu, 0 },
     { "(02) Hadouken // Shinkuu Hadouken", 0x260ade2, 0x260ae02, indexCPS2_Ryu, 1 },
-    { "(03) Shoryuken", 0x260ae02, 0x260ae22, indexCPS2_Ryu, 2 },
+    { "(03) Shoryuken", 0x260ae02, 0x260ae22, indexCPS2_Ken, 2 },
     { "(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ae22, 0x260ae42, indexCPS2_Ryu, 3 },
     { "(05) Not Used", 0x260ae42, 0x260ae62, indexCPS2_Ryu, 4 },
     { "(06) Not Used", 0x260ae62, 0x260ae82, indexCPS2_Ryu, 5 },

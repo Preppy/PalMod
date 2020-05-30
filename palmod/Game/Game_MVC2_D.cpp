@@ -535,12 +535,6 @@ void CGame_MVC2_D::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, MVC2_D_PALSZ);
 }
 
-void CGame_MVC2_D::CreateDefPal(UINT16 nUnitId, UINT16 nPalId, UINT16 nSepId)
-{
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), MVC2_D_PALSZ, nUnitId, nPalId);
-    BasePalGroup.AddSep(nSepId, "Palette", 0, MVC2_D_PALSZ);
-}
-
 BOOL CGame_MVC2_D::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId, int nStart, int nInc, int nImgId, int nSepId, int nAmt)
 {
     int nSpecOffs;

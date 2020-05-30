@@ -880,6 +880,7 @@ extern int rgSuppLoc[MVC2_D_NUMUNIT];
 
 inline UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no);
 
+void supp_offset_override(int nExtrasOffset);
 void prep_supp();
 void proc_supp(UINT16 char_no, UINT16 pal_no);
 void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 source_index = 0, UINT8 destination_index = 0, UINT8 copy_amount = 0x10);

@@ -669,6 +669,3 @@ const stPairedPaletteInfo pairWolvieClaws =   { 1, 20, 4 };
 const stPairedPaletteInfo pairRushDrill =    { 30, 0, 0 };
 const stPairedPaletteInfo pairHyperMegaman = { 9, 31, 12 };
 
-
-
-

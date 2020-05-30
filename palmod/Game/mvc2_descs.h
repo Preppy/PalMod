@@ -15,7 +15,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_RYU[] = // 00
 {
     { 0x00, "Main Color" },
     { 0x01, "(02) Hadouken // Shinkuu Hadouken" },
-    { 0x02, "(03) Shoryuken" },
+    { 0x02, "(03) Shoryuken", 2, "indexCPS2_Ken" },
     { 0x03, "(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used" },
     { 0x04, "(05) Not Used" },
     { 0x05, "(06) Not Used" },
