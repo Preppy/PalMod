@@ -62,7 +62,10 @@ protected:
     CPalGroup BasePalGroup;
 
     eDispType DisplayType;
+    // Used for the Export Image listbox
     CHAR* pButtonLabel = nullptr;
+    // How many colors a game has: P1/P2 (2), LP-HK/A2 (6), etc
+    UINT8 m_nNumberOfColorOptions = 0;
 
     BOOL bUsesHybrid = FALSE;
     UINT16* pIndexRedir = nullptr;

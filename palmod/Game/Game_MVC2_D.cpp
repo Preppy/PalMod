@@ -1,11 +1,12 @@
 #include "StdAfx.h"
+#include "..\StdAfx.h"
 #include "Gamedef.h"
 #include "Game_MVC2_D.h"
 #include "mvc2_validate.h"
 #include "MVC2_SUPP.h"
 #include "mvc2_descs.h"
 
-#define MV2C_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define MV2C_D_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 //Initialize the selection tree
 CDescTree CGame_MVC2_D::MainDescTree = CGame_MVC2_D::InitDescTree();
@@ -45,6 +46,7 @@ CGame_MVC2_D::CGame_MVC2_D(void)
 
     //Set the MVC2 supp game
     CurrMVC2 = this;
+    CurrMVC2_Arcade = nullptr;
     //Prepare it
     prep_supp();
 
@@ -91,7 +93,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    strMsg.Format("CGame_MVC2_D::InitDescTree: Building desc tree for MVC2...\n");
+    strMsg.Format("CGame_MVC2_D::InitDescTree: Building desc tree for MVC2_D...\n");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -118,7 +120,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
         //Set each button data
         const int nButtonExtraCt = CountExtraRg(iUnitCtr, FALSE) + 1;
 
-#if MV2C_DEBUG
+#if MV2C_D_DEBUG
         strMsg.Format("Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, MVC2_D_NUMUNIT, UnitNode->uChildAmt);
         OutputDebugString(strMsg);
 #endif
@@ -148,7 +150,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
 
             const int nButtonExtraTotal = 8;
 
-#if MV2C_DEBUG
+#if MV2C_D_DEBUG
             strMsg.Format("\t\"%s\" Collection: \"%s\", %u of %u, %u children\n", UnitNode->szDesc, ButtonNode->szDesc, iButtonCtr + 1, UnitNode->uChildAmt, nButtonExtraTotal);
             OutputDebugString(strMsg);
 #endif
@@ -197,7 +199,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
                     nExtraPos++;
                 }
 
-#if MV2C_DEBUG
+#if MV2C_D_DEBUG
                 strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nButtonExtra + 1, nButtonExtraTotal);
                 OutputDebugString(strMsg);
 #endif
@@ -215,7 +217,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
 
             ButtonNode->ChildNodes = (sDescTreeNode*)(new sDescTreeNode[nNumExtra]);
 
-#if MV2C_DEBUG
+#if MV2C_D_DEBUG
             strMsg.Format("\t\"%s\" Extra Data Collection: \"%s\", %u of %u, %u children\n", UnitNode->szDesc, ButtonNode->szDesc, nExtraNodeIndex, UnitNode->uChildAmt, nNumExtra);
             OutputDebugString(strMsg);
 #endif
@@ -233,7 +235,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = (8 * k_mvc2_character_coloroption_count) + nExtraCtr;
 
-#if MV2C_DEBUG
+#if MV2C_D_DEBUG
                     strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nNumExtra);
                     OutputDebugString(strMsg);
 #endif
@@ -280,7 +282,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
 
                         nExtraCtr++;
 
-#if MV2C_DEBUG
+#if MV2C_D_DEBUG
                         strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nExtraCtr, nNumExtra);
                         OutputDebugString(strMsg);
 #endif
@@ -639,7 +641,7 @@ void CGame_MVC2_D::PostSetPal(UINT16 nUnitId, UINT16 nPalId)
     int nBasicOffset = GetBasicOffset(nPalId);
 
     CString strMessage;
-    strMessage.Format("CGame_MVC2_D::GetBasicOffset : Palette %u updated.  This palette is %s.\n", nPalId, (nBasicOffset == 0) ? "basic" : "Extra");
+    strMessage.Format("CGame_MVC2_D::GetBasicOffset : Palette %u updated.  This palette is %s.\n", nPalId, (nBasicOffset != -1) ? "basic" : "Extra");
     OutputDebugString(strMessage);
 
     proc_supp(nUnitId, nPalId);

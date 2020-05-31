@@ -20,7 +20,7 @@ UINT32 CGame_MVC2_A::m_nTotalPaletteCountForMVC2 = 0;
 CGame_MVC2_A::CGame_MVC2_A()
 {
     CString strMessage;
-    strMessage.Format("CGame_MVC2_A::CGame_MVC2_A: Loading...\n" );
+    strMessage.Format("CGame_MVC2_A::CGame_MVC2_A: Loading ROM...\n" );
     OutputDebugString(strMessage);
 
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
@@ -29,7 +29,8 @@ CGame_MVC2_A::CGame_MVC2_A()
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6290;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
-    m_nLowestKnownPaletteRomLocation = m_uLowestKnownPaletteROMLocation;
+    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+    m_nLowestKnownPaletteRomLocation = 0x260a9c2;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -52,6 +53,7 @@ CGame_MVC2_A::CGame_MVC2_A()
     //Set the image out display type
     DisplayType = DISP_DEF;
     pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6_MVC2);
+    m_nNumberOfColorOptions = 6;
 
     //Set the MVC2 supp game
     CurrMVC2 = (CGame_MVC2_D*)this; //bugbug: lazy
@@ -78,6 +80,9 @@ CGame_MVC2_A::~CGame_MVC2_A(void)
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
+
+    CurrMVC2 = nullptr;
+    CurrMVC2_Arcade = nullptr;
 }
 
 CDescTree* CGame_MVC2_A::GetMainTree()
@@ -219,7 +224,7 @@ sMVC2A_CharacterData MVC2ArcadeCharacterArray[] =
     { "indexCPS2_Kobun", 0x3A, "Kobun", "KOBUN", 0x59acdc2, 0x9, 0x26 },
 };
 
-void DumpAllCharacters()
+void CGame_MVC2_A::DumpAllCharacters()
 {
     //Go through each character
     for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(MVC2ArcadeCharacterArray); iUnitCtr++)
@@ -233,20 +238,20 @@ void DumpAllCharacters()
             UINT16 nPaletteCount = 0;
             CString strOutput;
 
-            for (UINT16 iButtonIndex = 0; iButtonIndex < 6; iButtonIndex++)
+            for (UINT16 iButtonIndex = 0; iButtonIndex < m_nNumberOfColorOptions; iButtonIndex++)
             {
-                strOutput.Format("const sGame_PaletteDataset MVC2_A_%s_PALETTES_%s[] =\r\n{\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex]);
+                strOutput.Format("const sGame_PaletteDataset MVC2_A_%s_PALETTES_%s[] =\r\n{\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, pButtonLabel[iButtonIndex]);
                 OutputDebugString(strOutput);
 
                 if (MVC2ArcadeCharacterArray[iUnitCtr].pszPalettePairName) 
                 {
-                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0, &%s },\r\n", sCurrentMoveDescriptors[0].szMoveName, DEF_BUTTONLABEL6_MVC2[iButtonIndex],
+                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0, &%s },\r\n", sCurrentMoveDescriptors[0].szMoveName, pButtonLabel[iButtonIndex],
                                                                                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                                                                                         MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, MVC2ArcadeCharacterArray[iUnitCtr].pszPalettePairName);
                 }
                 else
                 {
-                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0 },\r\n", sCurrentMoveDescriptors[0].szMoveName, DEF_BUTTONLABEL6_MVC2[iButtonIndex],
+                    strOutput.Format("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0 },\r\n", sCurrentMoveDescriptors[0].szMoveName, pButtonLabel[iButtonIndex],
                                                                                     nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                                                                                     MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName );
                 }
@@ -274,7 +279,7 @@ void DumpAllCharacters()
                     }
                     else
                     {
-                        //strOutput.Format("    { \"%02u %s (Extra - %02x)\", 0x%07x, 0x%7x, %s, %u },\r\n", iCurrentExtra + 1, DEF_BUTTONLABEL6_MVC2[iButtonIndex], nPaletteCount, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, iCurrentExtra + 1 );
+                        //strOutput.Format("    { \"%02u %s (Extra - %02x)\", 0x%07x, 0x%7x, %s, %u },\r\n", iCurrentExtra + 1, pButtonLabel[iButtonIndex], nPaletteCount, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, iCurrentExtra + 1 );
                         strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sCurrentMoveDescriptors[iCurrentExtra].szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, iCurrentExtra);
                     }
                     OutputDebugString(strOutput);
@@ -388,10 +393,10 @@ void DumpAllCharacters()
             strOutput.Format("const sDescTreeNode MVC2_A_%s_COLLECTION[] =\r\n{\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc);
             OutputDebugString(strOutput);
 
-            for (UINT16 iButtonIndex = 0; iButtonIndex < 6; iButtonIndex++)
+            for (UINT16 iButtonIndex = 0; iButtonIndex < m_nNumberOfColorOptions; iButtonIndex++)
             {
-                strOutput.Format("    { \"%s\", DESC_NODETYPE_TREE, (void*)MVC2_A_%s_PALETTES_%s, ARRAYSIZE(MVC2_A_%s_PALETTES_%s) },\r\n", DEF_BUTTONLABEL6_MVC2[iButtonIndex], MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex],
-                                            MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex] );
+                strOutput.Format("    { \"%s\", DESC_NODETYPE_TREE, (void*)MVC2_A_%s_PALETTES_%s, ARRAYSIZE(MVC2_A_%s_PALETTES_%s) },\r\n", pButtonLabel[iButtonIndex], MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex],
+                                            MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, pButtonLabel[iButtonIndex] );
                 OutputDebugString(strOutput);
             }
 
@@ -430,7 +435,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
 
     CString strMsg;
     bool fHaveExtras = (GetExtraCt(MVC2_A_EXTRALOC) > 0);
-    strMsg.Format("CGame_MVC2_A::InitDescTree: Building desc tree for MVC2 %s extras...\n", fHaveExtras ? "with" : "without");
+    strMsg.Format("CGame_MVC2_A::InitDescTree: Building desc tree for MVC2_A %s extras...\n", fHaveExtras ? "with" : "without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -710,7 +715,7 @@ const sDescTreeNode* CGame_MVC2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
             if (nDistanceFromZero < nNodeCount)
             {
                 // We know it's within this group.  Now: is it basic?
-                if (!fReturnBasicNodesOnly || (nCollectionIndex < 6)) // 6 colors
+                if (!fReturnBasicNodesOnly || (nCollectionIndex < m_nNumberOfColorOptions))
                 {
                     pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
                 }
@@ -969,7 +974,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     (_stricmp(pCurrentNode->szDesc, "A1") == 0) || (_stricmp(pCurrentNode->szDesc, "A2") == 0))
                 {
                     // We show 6 sprites (LP...A2) for export for all normal MVC2 sprites
-                    nSrcAmt = 6;
+                    nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;
                     // Need to reset because we have a status effect label set as well.
                     pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6_MVC2);

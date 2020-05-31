@@ -23,9 +23,9 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     UINT16*** pppDataBuffer = nullptr;
-
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    const int m_uLowestKnownPaletteROMLocation = 0x260a9c2;
+    
+    // Developer-only mode to regenerate the header file quickly.
+    void DumpAllCharacters();
 
 public:
     CGame_MVC2_A();
