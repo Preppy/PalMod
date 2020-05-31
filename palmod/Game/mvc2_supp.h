@@ -2,16 +2,16 @@
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_A.h"
 
-#define SUPP_START            0xF000
+#define SUPP_START          0xF000
 #define SUPP_END            0xFFFF
 
 //Syntax: SUPP_NODE, initial palette, palette increment
-#define SUPP_NODE            0x4000
+#define SUPP_NODE           0x4000
 //Syntax: SUPP_NODE_EX, Dest Palette, Dest Increment, Src Start Index, Number of Items to Copy, Dest Index
 #define SUPP_NODE_EX        0x4001
 //SUPP_NODE_ABSOL, Dest Start, Dest Increment, Src Start, Src Increment
 // SUPP_NODE_ABSOL adds two values: the starting palette and the number of colors to include.
-#define SUPP_NODE_ABSOL        0x4002
+#define SUPP_NODE_ABSOL     0x4002
 // All processing does a full copy of the palette first unless you include this flag.
 #define SUPP_NODE_NOCOPY    0x4004
 
@@ -25,19 +25,19 @@
 #define MOD_TINT            0xA030
 
 // These definitions are unused and can safely be removed.
-//#define TINT_R                0xA031
-//#define TINT_G                0xA032
-//#define TINT_B                0xA033
+//#define TINT_R              0xA031
+//#define TINT_G              0xA032
+//#define TINT_B              0xA033
 
-#define MOD_LUM                0xA040
-#define MOD_SAT                0xA041
-#define MOD_WHITE            0xA042
+#define MOD_LUM             0xA040
+#define MOD_SAT             0xA041
+#define MOD_WHITE           0xA042
 
 // Normally we offset at ID_MOD unless MOD_ABS is specified.  If MOD_ABS is specified we use the 
 // raw palette ID.
-#define ID_MOD            47 // Index mod - this is also EXTRA_OMNI
-#define MOD_ABS        0x8000 
-#define NEG            0x8000
+#define ID_MOD              47 // Index mod - this is also EXTRA_OMNI
+#define MOD_ABS             0x8000 
+#define NEG                 0x8000
 
 constexpr auto k_mvc2_character_coloroption_count = 6;
 
@@ -255,30 +255,23 @@ const UINT16 _mvc2_supp_const [] =
         // 01 ABS: Taunt balloon
         // 02 ABS: spider-sense intro
         // 0x09 through 0x10 are for the Intro animation
+             
         SUPP_NODE, 0x09, 16, 
-            MOD_LUM, 01, 11, NEG + 29,
-            MOD_LUM, 15, 2, NEG + 29,
+            MOD_LUM, 01, 10, NEG + 29,
         SUPP_NODE, 0x0A, 16,
-            MOD_LUM, 01, 11, NEG + 23,
-            MOD_LUM, 15, 2, NEG + 23,
+            MOD_LUM, 01, 10, NEG + 23,
         SUPP_NODE, 0x0B, 16,
-            MOD_LUM, 01, 11, NEG + 17,
-            MOD_LUM, 15, 2, NEG + 17,
+            MOD_LUM, 01, 10, NEG + 17,
         SUPP_NODE, 0x0C, 16,
-            MOD_LUM, 01, 11, NEG + 12,
-            MOD_LUM, 15, 2, NEG + 12,
+            MOD_LUM, 01, 10, NEG + 12,
         SUPP_NODE, 0x0D, 16,
-            MOD_LUM, 01, 11, NEG + 8,
-            MOD_LUM, 15, 2, NEG + 8,
+            MOD_LUM, 01, 10, NEG + 8,
         SUPP_NODE, 0x0E, 16,
-            MOD_LUM, 01, 11, NEG + 7,
-            MOD_LUM, 15, 2, NEG + 7,
+            MOD_LUM, 01, 10, NEG + 7,
         SUPP_NODE, 0x0F, 16,
-            MOD_LUM, 01, 11, NEG + 5,
-            MOD_LUM, 15, 2, NEG + 5,
+            MOD_LUM, 01, 10, NEG + 5,
         SUPP_NODE, 0x10, 16,
-            MOD_LUM, 01, 11, NEG + 3,
-            MOD_LUM, 15, 2, NEG + 3,
+            MOD_LUM, 01, 10, NEG + 3,
 
         // 11/12, 20/21, 31,32, etc are the spider signal pairs
         // 11 is (12 - 18LUM) or so of main.
@@ -616,13 +609,13 @@ const UINT16 _mvc2_supp_const [] =
             MOD_LUM, 01, 15, 5 + NEG,
         SUPP_NODE, 0x09, 8,
         SUPP_NODE, 0x0A, 8,
-            MOD_LUM, 8, 15, 10 + NEG,
+            MOD_LUM, 8, 7, 10 + NEG,
         SUPP_NODE, 0x0B, 8,
-            MOD_COPY, 8, 3, 14,
+            MOD_COPY, 7, 2, 13,
         SUPP_NODE, 0x0C, 8,
-            MOD_COPY, 8, 3, 12,
+            MOD_COPY, 7, 4, 11,
         SUPP_NODE, 0x0D, 8,
-            MOD_COPY, 8, 3, 10,
+            MOD_COPY, 7, 6, 10,
         SUPP_NODE, 0x0E, 8,
         SUPP_NODE, 0x0F, 8,
             MOD_LUM, 01, 15, 5 + NEG,
@@ -842,7 +835,7 @@ const UINT16 _mvc2_supp_const [] =
         //SUPP_NODE_EX, Dest Start, Dest Inc, Src Start, Src Amt, Dst Index
         // 0x51 are the "player" hands for blodia vulcan
         SUPP_NODE_EX, 0x51, 3, 6, 10, 6,
-            MOD_LUM, 6, 11, 21,
+            MOD_LUM, 6, 10, 21,
 
         // these are for the towel taunt
         SUPP_NODE_EX, 0x63, 6, 6, 10, 6,

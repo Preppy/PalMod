@@ -585,7 +585,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
     m_nTotalPaletteCountForMVC2 = nTotalPaletteCount;
 
     // hopefully we don't need to do this again........
-    DumpAllCharacters();
+    //DumpAllCharacters();
 
     return NewDescTree;
 }

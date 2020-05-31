@@ -3,6 +3,7 @@
 #include "MVC2_SUPP.h"
 #include "ColorScale.h"
 #include "mvc2_validate.h"
+#include "..\PalMod.h"
 
 CGame_MVC2_D* CurrMVC2 = NULL;
 CGame_MVC2_A* CurrMVC2_Arcade = NULL;
@@ -342,6 +343,11 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
                     UINT8 pi_start = (UINT8)curr_data[index_ctr + 1];
                     UINT8 pi_amt = (UINT8)curr_data[index_ctr + 2];
 
+                    if ((pi_start + pi_amt) > 16)
+                    {
+                        MessageBox(g_appHWnd, "proc_supp: WARNING: Invalid length for this effect.  Please report this bug.", GetHost()->GetAppName(), MB_ICONERROR);
+                    }
+
                     switch (index_data)
                     {
                     case MOD_TINT:
@@ -445,6 +451,12 @@ void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_p
             source_palette, src_index, destination_palette, dst_index, index_amt);
     }
     OutputDebugString(strDebugInfo);
+
+    if ((dst_index + index_amt) > 16)
+    {
+        MessageBox(g_appHWnd, "proc_supp: WARNING: Invalid length for this effect.  Please report this bug.", GetHost()->GetAppName(), MB_ICONERROR);
+    }
+
 
     UINT16* src_16 = get_pal_16(char_id, source_palette);
     UINT16* dst_16 = get_pal_16(char_id, destination_palette);

@@ -3071,7 +3071,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_SPIRAL[] =
     { 0x1F, "Magneto Metamorphosis X Character Frame 21", 0, "indexCPS2_Magneto" },
     { 0x20, "Not Used" },
     { 0x21, "Shuma-Gorath Metamorphosis X Character Frame 22", 0, "indexCPS2_Shuma" },
-    { 0x22, "War-Machine Metamorphosis X Character Frame 23", 0, "indexCPS2_WarMachine" },
+    { 0x22, "War Machine Metamorphosis X Character Frame 23", 0, "indexCPS2_WarMachine" },
     { 0x23, "Silver Samurai Metamorphosis X Character Frame 24", 0, "indexCPS2_SilverSamurai" },
     { 0x24, "Omega Red Metamorphosis X Character Frame 25", 0, "indexCPS2_OmegaRed" },
     { 0x25, "Colossus Metamorphosis X Character Frame 26", 0, "indexCPS2_Colossus" },
@@ -3697,12 +3697,6 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_JIN[] =
     { 0x45 + 3, "A1 Power-up Flash 4", 11 },
     { 0x45 + 4, "A1 Power-up Flash 5", 11 },
     { 0x45 + 5, "A1 Power-up Flash 6", 11 },
-    { 0x7B, "A1 Taunt 1", 15 }, 
-    { 0x7B + 1, "A1 Taunt 2", 15 },
-    { 0x7B + 2, "A1 Taunt 3", 15 },
-    { 0x7B + 3, "A1 Taunt 4", 15 },
-    { 0x7B + 4, "A1 Taunt 5", 15 },
-    { 0x7B + 5, "A1 Taunt 6", 15 },
 
     //A2" },
     { 0x4B, "A2 Power-up Flash 1", 11 },
@@ -3755,14 +3749,18 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_JIN[] =
     { 0x75 + 3, "HK Taunt 4", 15 },
     { 0x75 + 4, "HK Taunt 5", 15 },
     { 0x75 + 5, "HK Taunt 6", 15 },
+    { 0x7B, "A1 Taunt 1", 15 },
+    { 0x7B + 1, "A1 Taunt 2", 15 },
+    { 0x7B + 2, "A1 Taunt 3", 15 },
+    { 0x7B + 3, "A1 Taunt 4", 15 },
+    { 0x7B + 4, "A1 Taunt 5", 15 },
+    { 0x7B + 5, "A1 Taunt 6", 15 },
     { 0x81, "A2 Taunt 1", 15 },
     { 0x81 + 1, "A2 Taunt 2", 15 },
     { 0x81 + 2, "A2 Taunt 3", 15 },
     { 0x81 + 3, "A2 Taunt 4", 15 },
     { 0x81 + 4, "A2 Taunt 5", 15 },
     { 0x81 + 5, "A2 Taunt 6", 15 },
-
-    { 0x87, "Shadow Jin!", 0 },
 };
 
 const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CAPTAINCOMMANDO[] =
