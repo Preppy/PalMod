@@ -45,7 +45,7 @@ const CHAR g_GameFriendlyName[NUM_GAMES][32] =
     "MSH (Arcade)",
     "MSHVSF (Arcade)",
     "X-Men (Arcade)",
-    "Marvel vs Capcom 2 (Arcade)",
+    "MVC2 2 (Arcade)",
 };
 
 

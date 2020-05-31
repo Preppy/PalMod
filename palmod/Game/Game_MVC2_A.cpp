@@ -342,7 +342,7 @@ void DumpAllCharacters()
                         }
                     }
 
-                    strOutput.Format("    { /* 0x%02x */ ", iExtraPosition);
+                    strOutput.Format("    { \"%02x: ", iExtraPosition);
                     OutputDebugString(strOutput);
 
                     if (sExtraDescription)
@@ -351,30 +351,30 @@ void DumpAllCharacters()
                         {
                             if ((sExtraDescription->pszPairedPaletteName != nullptr) && (sExtraDescription->pszImageUnitOverride != nullptr))
                             {
-                                strOutput.Format("\"%s\", 0x%07x, 0x%7x, %s, %u, %s },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sExtraDescription->pszImageUnitOverride,
+                                strOutput.Format("%s\", 0x%07x, 0x%7x, %s, %u, %s },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sExtraDescription->pszImageUnitOverride,
                                                                                                        sExtraDescription->nImageIndex, sExtraDescription->pszPairedPaletteName);
                             }
                             else if (sExtraDescription->pszImageUnitOverride != nullptr)
                             {
-                                strOutput.Format("\"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sExtraDescription->pszImageUnitOverride, sExtraDescription->nImageIndex);
+                                strOutput.Format("%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sExtraDescription->pszImageUnitOverride, sExtraDescription->nImageIndex);
                             }
                             else
                             {
-                                strOutput.Format("\"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, sExtraDescription->nImageIndex);
+                                strOutput.Format("%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, sExtraDescription->nImageIndex);
                             }
                             OutputDebugString(strOutput);
                         }
                         else
                         {
                             // Note that this adds "Not Used" values because we need everything for Extras math.
-                            strOutput.Format("\"%s\", 0x%07x, 0x%7x },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
+                            strOutput.Format("%s\", 0x%07x, 0x%7x },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
                             OutputDebugString(strOutput);
                         }
                     }
                     else
                     {
                         // We need everything in the layout for Extras math to work.
-                        strOutput.Format("\"Unused: %s 0x%x\", 0x%07x, 0x%7x },\r\n", "Extra", iExtraPosition, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20 );
+                        strOutput.Format("Unused Extra\", 0x%07x, 0x%7x },\r\n", nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20 );
                         OutputDebugString(strOutput);
                     }
 
@@ -585,8 +585,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
     m_nTotalPaletteCountForMVC2 = nTotalPaletteCount;
 
     // hopefully we don't need to do this again........
-    // TODO: proc_supp :'(
-    //DumpAllCharacters();
+    DumpAllCharacters();
 
     return NewDescTree;
 }
@@ -1111,8 +1110,7 @@ void CGame_MVC2_A::UpdatePalData()
 
             if (bPostSetPalProc)
             {
-                // commented out until megaman is fixed
-                //PostSetPal(srcDef->uUnitId, srcDef->uPalId);
+                PostSetPal(srcDef->uUnitId, srcDef->uPalId);
             }
         }
     }
@@ -1141,8 +1139,6 @@ void CGame_MVC2_A::PostSetPal(UINT16 nUnitId, UINT16 nPalId)
     CString strMessage;
     strMessage.Format("CGame_MVC2_A::GetBasicOffset : Palette %u updated.  This palette is %s.\n", nPalId, (nBasicOffset != -1) ? "basic" : "Extra");
     OutputDebugString(strMessage);
-
-    supp_offset_override(8 * 6); // six button sets of 8.  BUGBUG: status effects?  paired status effect sets?
 
     proc_supp(nUnitId, nPalId);
 }

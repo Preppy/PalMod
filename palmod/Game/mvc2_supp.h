@@ -5,6 +5,7 @@
 #define SUPP_START            0xF000
 #define SUPP_END            0xFFFF
 
+//Syntax: SUPP_NODE, initial palette, palette increment
 #define SUPP_NODE            0x4000
 //Syntax: SUPP_NODE_EX, Dest Palette, Dest Increment, Src Start Index, Number of Items to Copy, Dest Index
 #define SUPP_NODE_EX        0x4001
@@ -175,7 +176,7 @@ const UINT16 _mvc2_supp_const [] =
         SUPP_NODE_EX, 0x03 | MOD_ABS, 8, 10, 1, 6,
         SUPP_NODE_EX, 0x03 | MOD_ABS, 8, 11, 4, 11,
         // Intro - iceman letters melting
-        SUPP_NODE_EX, 0x04 | MOD_ABS, 8, 1, 85, 1,
+        SUPP_NODE_EX, 0x04 | MOD_ABS, 8, 1, 8, 1,
         // Iceballs
         SUPP_NODE, 0x05 | MOD_ABS, 8,
         // 7 shine frames, but the second (0x22) is pure white
@@ -361,60 +362,62 @@ const UINT16 _mvc2_supp_const [] =
 
     0x1C | SUPP_START, // Megaman
         // intro animation is frames 0xb-0x13
-        SUPP_NODE, 0x0B, 56,
+                // SUPP_NODE: starting_palette, palette_increment
+        SUPP_NODE, 0x0B, 0x57,
             MOD_LUM, 01, 15, NEG + 21,
-        SUPP_NODE, 0x0C, 56,
+        SUPP_NODE, 0x0C, 0x57,
             MOD_LUM, 01, 15, NEG + 13,
-        SUPP_NODE, 0x0D, 56,
+        SUPP_NODE, 0x0D, 0x57,
             MOD_LUM, 01, 15, NEG + 5,
-        SUPP_NODE, 0x0E, 56,
-        SUPP_NODE, 0x0F, 56,
+        SUPP_NODE, 0x0E, 0x57,
+        SUPP_NODE, 0x0F, 0x57,
             MOD_LUM, 01, 15, 5,
-        SUPP_NODE, 0x10, 56,
+        SUPP_NODE, 0x10, 0x57,
             MOD_LUM, 01, 15, 13,
-        SUPP_NODE, 0x11, 56,
+        SUPP_NODE, 0x11, 0x57,
             MOD_LUM, 01, 15, 21,
-        SUPP_NODE, 0x12, 56,
+        SUPP_NODE, 0x12, 0x57,
             MOD_LUM, 01, 15, 35,
         // 0x14-1c: rush
         // 0x1d-25: beat
         // 0x26-23: beat plane
         // 0x2f-37: charging
         // 0x38-40: rush drill
+        // 0x43-4b: hyper megaman armor/wings
         // 0x4c-54: hyper megaman
-        SUPP_NODE, 0x4C, 56,
+        SUPP_NODE, 0x4C, 0x57,
             MOD_LUM, 01, 15, NEG + 21,
-        SUPP_NODE, 0x4D, 56,
+        SUPP_NODE, 0x4D, 0x57,
             MOD_LUM, 01, 15, NEG + 13,
-        SUPP_NODE, 0x4E, 56,
+        SUPP_NODE, 0x4E, 0x57,
             MOD_LUM, 01, 15, NEG + 5,
-        SUPP_NODE, 0x4F, 56,
-        SUPP_NODE, 0x50, 56,
+        SUPP_NODE, 0x4F, 0x57,
+        SUPP_NODE, 0x50, 0x57,
             MOD_LUM, 01, 15, 5,
-        SUPP_NODE, 0x51, 56,
+        SUPP_NODE, 0x51, 0x57,
             MOD_LUM, 01, 15, 13,
-        SUPP_NODE, 0x52, 56,
+        SUPP_NODE, 0x52, 0x57,
             MOD_LUM, 01, 15, 21,
-        SUPP_NODE, 0x53, 56,
+        SUPP_NODE, 0x53, 0x57,
             MOD_LUM, 01, 15, 35,
         // 0x56-5d: hyper megaman switching back
 
     0x1D | SUPP_START, // Roll: Identical to Megaman...
         // intro animation is frames 0xb-0x13
-        SUPP_NODE, 0x0B, 56,
+        SUPP_NODE, 0x0B, 0x57,
             MOD_LUM, 01, 15, NEG + 21,
-        SUPP_NODE, 0x0C, 56,
+        SUPP_NODE, 0x0C, 0x57,
             MOD_LUM, 01, 15, NEG + 13,
-        SUPP_NODE, 0x0D, 56,
+        SUPP_NODE, 0x0D, 0x57,
             MOD_LUM, 01, 15, NEG + 5,
-        SUPP_NODE, 0x0E, 56,
-        SUPP_NODE, 0x0F, 56,
+        SUPP_NODE, 0x0E, 0x57,
+        SUPP_NODE, 0x0F, 0x57,
             MOD_LUM, 01, 15, 5,
-        SUPP_NODE, 0x10, 56,
+        SUPP_NODE, 0x10, 0x57,
             MOD_LUM, 01, 15, 13,
-        SUPP_NODE, 0x11, 56,
+        SUPP_NODE, 0x11, 0x57,
             MOD_LUM, 01, 15, 21,
-        SUPP_NODE, 0x12, 56,
+        SUPP_NODE, 0x12, 0x57,
             MOD_LUM, 01, 15, 35,
         // 0x14-1c: rush
         // 0x1d-25: beat
@@ -422,20 +425,20 @@ const UINT16 _mvc2_supp_const [] =
         // 0x2f-37: charging
         // 0x38-40: rush drill
         // 0x4c-54: hyper roll
-        SUPP_NODE, 0x4C, 56,
+        SUPP_NODE, 0x4C, 0x57,
             MOD_LUM, 01, 15, NEG + 21,
-        SUPP_NODE, 0x4D, 56,
+        SUPP_NODE, 0x4D, 0x57,
             MOD_LUM, 01, 15, NEG + 13,
-        SUPP_NODE, 0x4E, 56,
+        SUPP_NODE, 0x4E, 0x57,
             MOD_LUM, 01, 15, NEG + 5,
-        SUPP_NODE, 0x4F, 56,
-        SUPP_NODE, 0x50, 56,
+        SUPP_NODE, 0x4F, 0x57,
+        SUPP_NODE, 0x50, 0x57,
             MOD_LUM, 01, 15, 5,
-        SUPP_NODE, 0x51, 56,
+        SUPP_NODE, 0x51, 0x57,
             MOD_LUM, 01, 15, 13,
-        SUPP_NODE, 0x52, 56,
+        SUPP_NODE, 0x52, 0x57,
             MOD_LUM, 01, 15, 21,
-        SUPP_NODE, 0x53, 56,
+        SUPP_NODE, 0x53, 0x57,
             MOD_LUM, 01, 15, 35,
         // 0x56-5d: hyper roll switching back
 
@@ -826,6 +829,7 @@ const UINT16 _mvc2_supp_const [] =
             MOD_COPY, 1, 7, 1,
 
     0x37 | SUPP_START, //Jin
+        // power-up flash
         SUPP_NODE, 0x2E, 6,
             MOD_LUM, 01, 15, 64,
         SUPP_NODE, 0x2F, 6,
@@ -839,6 +843,7 @@ const UINT16 _mvc2_supp_const [] =
         // 0x51 are the "player" hands for blodia vulcan
         SUPP_NODE_EX, 0x51, 3, 6, 10, 6,
             MOD_LUM, 6, 11, 21,
+
         // these are for the towel taunt
         SUPP_NODE_EX, 0x63, 6, 6, 10, 6,
             MOD_COPY, 8, 3, 10,
@@ -882,7 +887,6 @@ extern int rgSuppLoc[MVC2_D_NUMUNIT];
 
 inline UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no);
 
-void supp_offset_override(int nExtrasOffset);
 void prep_supp(bool forDreamcast = true);
 void proc_supp(UINT16 char_no, UINT16 pal_no);
 void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 source_index = 0, UINT8 destination_index = 0, UINT8 copy_amount = 0x10);
