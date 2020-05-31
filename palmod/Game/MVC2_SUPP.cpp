@@ -1,12 +1,15 @@
 #include "stdafx.h"
+#include "..\stdafx.h"
 #include "MVC2_SUPP.h"
 #include "ColorScale.h"
 #include "mvc2_validate.h"
 
 CGame_MVC2_D* CurrMVC2 = NULL;
+CGame_MVC2_A* CurrMVC2_Arcade = NULL;
 int rgSuppLoc[MVC2_D_NUMUNIT];
 
-UINT8** _mvc2_data = NULL;
+UINT8** _mvc2_dreamcast_data = NULL;
+UINT16*** _mvc2_arcade_data = NULL;
 int _nExtrasOffset = 0;
 
 void supp_offset_override(int nExtrasOffset)
@@ -16,7 +19,7 @@ void supp_offset_override(int nExtrasOffset)
 }
 
 // Create the array of supplemental processing information needed for mvc2 sprites
-void prep_supp()
+void prep_supp(bool forDreamcast /*= true */)
 {
     int nIndexCtr = 0;
 
@@ -33,12 +36,28 @@ void prep_supp()
         nIndexCtr++;
     }
 
-    _mvc2_data = (UINT8**)(CurrMVC2->GetDataBuffer());
+    if (forDreamcast)
+    {
+        _mvc2_dreamcast_data = (UINT8**)(CurrMVC2->GetDataBuffer());
+        _mvc2_arcade_data = nullptr;
+    }
+    else
+    {
+        _mvc2_dreamcast_data = nullptr;
+        _mvc2_arcade_data = CurrMVC2_Arcade->GetDataBuffer();
+    }
 }
 
 inline UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no)
 {
-    return (UINT16*)&_mvc2_data[char_id][pal_no * 32];
+    if (_mvc2_dreamcast_data)
+    {
+        return (UINT16*)&_mvc2_dreamcast_data[char_id][pal_no * 32];
+    }
+    else
+    {
+        return _mvc2_arcade_data[char_id][pal_no];
+    }
 }
 
 void HandleSpiralCopies(UINT16 char_no, UINT16 pal_no)
@@ -93,9 +112,14 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
     strDebugInfo.Format("proc_supp: Processing supplemental palettes for character 0x%02x (%s), palette number 0x%x\n", char_no, MVC2_D_UNITDESC[char_no], pal_no);
     OutputDebugString(strDebugInfo);
 
-    if (!rgSuppLoc[char_no] || !_mvc2_data)
+    if (!rgSuppLoc[char_no])
     {
         OutputDebugString("proc_supp: Not applicable here\n");
+        return;
+    }
+    else if (!_mvc2_dreamcast_data && !_mvc2_arcade_data)
+    {
+        OutputDebugString("proc_supp: Error: palette buffer not available\n");
         return;
     }
 

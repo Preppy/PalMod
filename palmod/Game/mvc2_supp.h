@@ -1,5 +1,6 @@
 #pragma once
 #include "Game_MVC2_D.h"
+#include "Game_MVC2_A.h"
 
 #define SUPP_START            0xF000
 #define SUPP_END            0xFFFF
@@ -172,7 +173,7 @@ const UINT16 _mvc2_supp_const [] =
         SUPP_NODE_EX, 0x03 | MOD_ABS, 8, 7, 1, 4,
         SUPP_NODE_EX, 0x03 | MOD_ABS, 8, 9, 1, 5,
         SUPP_NODE_EX, 0x03 | MOD_ABS, 8, 10, 1, 6,
-        SUPP_NODE_EX, 0x03 | MOD_ABS, 8, 11, 5, 11,
+        SUPP_NODE_EX, 0x03 | MOD_ABS, 8, 11, 4, 11,
         // Intro - iceman letters melting
         SUPP_NODE_EX, 0x04 | MOD_ABS, 8, 1, 85, 1,
         // Iceballs
@@ -876,12 +877,13 @@ const UINT16 _mvc2_supp_const [] =
 };
 
 extern CGame_MVC2_D * CurrMVC2;
+extern CGame_MVC2_A*  CurrMVC2_Arcade;
 extern int rgSuppLoc[MVC2_D_NUMUNIT];
 
 inline UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no);
 
 void supp_offset_override(int nExtrasOffset);
-void prep_supp();
+void prep_supp(bool forDreamcast = true);
 void proc_supp(UINT16 char_no, UINT16 pal_no);
 void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 source_index = 0, UINT8 destination_index = 0, UINT8 copy_amount = 0x10);
 void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 dst_index, UINT8 src_index, UINT8 index_amt);

@@ -38,7 +38,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
     m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
 
     const UINT32 nSafeCountFor50 = 475;
-    const UINT32 nSafeCountFor51 = 2072;
+    const UINT32 nSafeCountFor51 = 2030;
 
     m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
     m_pszExtraFilename = UsePaletteSetFor50() ? EXTRA_FILENAME_50 : EXTRA_FILENAME_51;

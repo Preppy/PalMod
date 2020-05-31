@@ -1,8 +1,10 @@
 #include "StdAfx.h"
+#include "..\StdAfx.h"
+#include "GameDef.h"
 #include "Game_MVC2_A.h"
 #include "Game_MVC2_D.h"
 #include "mvc2_descs.h"
-#include "GameDef.h"
+#include "mvc2_supp.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
@@ -24,7 +26,7 @@ CGame_MVC2_A::CGame_MVC2_A()
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
     m_nExtraUnit = MVC2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 5842;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6290;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
     m_nLowestKnownPaletteRomLocation = m_uLowestKnownPaletteROMLocation;
@@ -50,6 +52,12 @@ CGame_MVC2_A::CGame_MVC2_A()
     //Set the image out display type
     DisplayType = DISP_DEF;
     pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6_MVC2);
+
+    //Set the MVC2 supp game
+    CurrMVC2 = (CGame_MVC2_D*)this; //bugbug: lazy
+    CurrMVC2_Arcade = this; //bugbug: lazy
+    //Prepare it
+    prep_supp(false);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -250,9 +258,14 @@ void DumpAllCharacters()
                 {
                     if (sCurrentMoveDescriptors[iCurrentExtra].nImageIndex != 0xFF)
                     {
-                        if (sCurrentMoveDescriptors[iCurrentExtra].szImageUnitOverride != nullptr)
+                        if ((sCurrentMoveDescriptors[iCurrentExtra].pszPairedPaletteName != nullptr) && (sCurrentMoveDescriptors[iCurrentExtra].pszImageUnitOverride != nullptr))
                         {
-                            strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sCurrentMoveDescriptors[iCurrentExtra].szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sCurrentMoveDescriptors[iCurrentExtra].szImageUnitOverride, sCurrentMoveDescriptors[iCurrentExtra].nImageIndex);
+                            strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u, %s },\r\n", sCurrentMoveDescriptors[iCurrentExtra].szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sCurrentMoveDescriptors[iCurrentExtra].pszImageUnitOverride, 
+                                                                                                   sCurrentMoveDescriptors[iCurrentExtra].nImageIndex, sCurrentMoveDescriptors[iCurrentExtra].pszPairedPaletteName);
+                        }
+                        else if (sCurrentMoveDescriptors[iCurrentExtra].pszImageUnitOverride != nullptr)
+                        {
+                            strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sCurrentMoveDescriptors[iCurrentExtra].szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sCurrentMoveDescriptors[iCurrentExtra].pszImageUnitOverride, sCurrentMoveDescriptors[iCurrentExtra].nImageIndex);
                         }
                         else
                         {
@@ -329,43 +342,42 @@ void DumpAllCharacters()
                         }
                     }
 
+                    strOutput.Format("    { /* 0x%02x */ ", iExtraPosition);
+                    OutputDebugString(strOutput);
+
                     if (sExtraDescription)
                     {
-                        if (_stricmp(sExtraDescription->szMoveName, "Not Used") == 0)
+                        if (sExtraDescription->nImageIndex != 0xFF)
                         {
-                            // don't bother adding this to the layout.
-                        }
-                        else if (sExtraDescription->nImageIndex != 0xFF)
-                        {
-                            if (sExtraDescription->szImageUnitOverride != nullptr)
+                            if ((sExtraDescription->pszPairedPaletteName != nullptr) && (sExtraDescription->pszImageUnitOverride != nullptr))
                             {
-                                strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sExtraDescription->szImageUnitOverride, sExtraDescription->nImageIndex);
+                                strOutput.Format("\"%s\", 0x%07x, 0x%7x, %s, %u, %s },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sExtraDescription->pszImageUnitOverride,
+                                                                                                       sExtraDescription->nImageIndex, sExtraDescription->pszPairedPaletteName);
+                            }
+                            else if (sExtraDescription->pszImageUnitOverride != nullptr)
+                            {
+                                strOutput.Format("\"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, sExtraDescription->pszImageUnitOverride, sExtraDescription->nImageIndex);
                             }
                             else
                             {
-                                strOutput.Format("    { \"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, sExtraDescription->nImageIndex);
+                                strOutput.Format("\"%s\", 0x%07x, 0x%7x, %s, %u },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, sExtraDescription->nImageIndex);
                             }
                             OutputDebugString(strOutput);
                         }
                         else
                         {
-                            strOutput.Format("    { \"%s\", 0x%07x, 0x%7x },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
+                            // Note that this adds "Not Used" values because we need everything for Extras math.
+                            strOutput.Format("\"%s\", 0x%07x, 0x%7x },\r\n", sExtraDescription->szMoveName, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
                             OutputDebugString(strOutput);
                         }
                     }
-#ifdef WEWANTSTUFFEIDRIANDIDNTCAREABOUT
-                    // So... I think those other extras might be used......
-                    else if (iExtraPosition >= MVC2ArcadeCharacterArray[iUnitCtr].nExtraStart)
-                    {
-                        strOutput.Format("    { \"%s 0x%x\", 0x%07x, 0x%7x, %s, %u },\r\n", "Extra", iExtraPosition, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20, MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, 0);
-                        OutputDebugString(strOutput);
-                    }
                     else
                     {
-                        strOutput.Format("    { \"Unused: %s 0x%x\", 0x%07x, 0x%7x },\r\n", "Extra", iExtraPosition, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20 );
+                        // We need everything in the layout for Extras math to work.
+                        strOutput.Format("\"Unused: %s 0x%x\", 0x%07x, 0x%7x },\r\n", "Extra", iExtraPosition, nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20 );
                         OutputDebugString(strOutput);
                     }
-#endif
+
                     nCurrentCharacterOffset += 0x20;
                 }
 
@@ -383,14 +395,15 @@ void DumpAllCharacters()
                 OutputDebugString(strOutput);
             }
 
+            // These are the 7th set in the ROM layout, so either leave these here or adjust the Extra offsets.
+            strOutput.Format("    { \"Status Effects\", DESC_NODETYPE_TREE, (void*)MVC2_A_%s_PALETTES_SHARED, ARRAYSIZE(MVC2_A_%s_PALETTES_SHARED) },\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc);
+            OutputDebugString(strOutput);
+
             if (MVC2ArcadeCharacterArray[iUnitCtr].nExtraStart != 0)
             {
                 strOutput.Format("    { \"Extras\", DESC_NODETYPE_TREE, (void*)MVC2_A_%s_PALETTES_EXTRAS, ARRAYSIZE(MVC2_A_%s_PALETTES_EXTRAS) },\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc);
                 OutputDebugString(strOutput);
             }
-
-            strOutput.Format("    { \"Status Effects\", DESC_NODETYPE_TREE, (void*)MVC2_A_%s_PALETTES_SHARED, ARRAYSIZE(MVC2_A_%s_PALETTES_SHARED) },\r\n", MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc);
-            OutputDebugString(strOutput);
 
             OutputDebugString("};\r\n\r\n");
         }
@@ -1095,6 +1108,41 @@ void CGame_MVC2_A::UpdatePalData()
 
             srcDef->bChanged = FALSE;
             rgFileChanged[0] = TRUE;
+
+            if (bPostSetPalProc)
+            {
+                // commented out until megaman is fixed
+                //PostSetPal(srcDef->uUnitId, srcDef->uPalId);
+            }
         }
     }
+}
+
+int CGame_MVC2_A::GetBasicOffset(UINT16 nPalId)
+{
+    // Each character by default gets 6 buttons worth of 8 palettes.  
+    if (nPalId >= (8 * k_mvc2_character_coloroption_count))
+    {
+        // This palette is in the Extra group for this character
+        return -1;
+    }
+    else
+    {
+        // This is a stock palette entry for this character: return the MOD so we know the 
+        // particular offset within this button group.
+        return (nPalId % 8);
+    }
+}
+
+void CGame_MVC2_A::PostSetPal(UINT16 nUnitId, UINT16 nPalId)
+{
+    int nBasicOffset = GetBasicOffset(nPalId);
+
+    CString strMessage;
+    strMessage.Format("CGame_MVC2_A::GetBasicOffset : Palette %u updated.  This palette is %s.\n", nPalId, (nBasicOffset != -1) ? "basic" : "Extra");
+    OutputDebugString(strMessage);
+
+    supp_offset_override(8 * 6); // six button sets of 8.  BUGBUG: status effects?  paired status effect sets?
+
+    proc_supp(nUnitId, nPalId);
 }

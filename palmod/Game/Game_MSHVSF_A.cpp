@@ -822,7 +822,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                     if (paletteDataSetToJoin)
                     {
-                        int nXOffs, nYOffs;
+                        int nXOffs = 0, nYOffs = 0;
 
                         if (NodeGet->uUnitId == index_MSHVSF_Wolverine) // wolvie claws support
                         {
