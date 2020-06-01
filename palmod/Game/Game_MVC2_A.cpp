@@ -827,7 +827,8 @@ BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        rgUnitRedir[nUnitCtr] = nUnitCtr; // probably can remove this
+        // Use a sorted layout
+        rgUnitRedir[nUnitCtr] = MVC2_A_UNITSORT[nUnitCtr];
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {

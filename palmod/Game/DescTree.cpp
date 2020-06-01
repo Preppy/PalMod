@@ -21,6 +21,12 @@ void CDescTree::FlushRootTree()
     }
 }
 
+void CDescTree::SetRootTree(sDescTreeNode* NewTree)
+{
+    FlushRootTree();
+    RootTree = NewTree; 
+}
+
 void CDescTree::FlushTree(sDescTreeNode* CurrTree)
 {
     int nChildAmt = CurrTree->uChildAmt;

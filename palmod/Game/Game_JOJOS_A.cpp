@@ -10,15 +10,42 @@
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50 = nullptr;
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51 = nullptr;
 
-CDescTree CGame_JOJOS_A::MainDescTree_50 = CGame_JOJOS_A::InitDescTree(50);
-CDescTree CGame_JOJOS_A::MainDescTree_51 = CGame_JOJOS_A::InitDescTree(51);
+CDescTree CGame_JOJOS_A::MainDescTree_50;
+CDescTree CGame_JOJOS_A::MainDescTree_51;
 
 int CGame_JOJOS_A::m_nJojosMode = 50;
 UINT32 CGame_JOJOS_A::m_nTotalPaletteCount50 = 0;
 UINT32 CGame_JOJOS_A::m_nTotalPaletteCount51 = 0;
 
+int CGame_JOJOS_A::rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
+int CGame_JOJOS_A::rgExtraCountVisibleOnly_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
+int CGame_JOJOS_A::rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
+int CGame_JOJOS_A::rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
+int CGame_JOJOS_A::rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
+int CGame_JOJOS_A::rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
+
+void CGame_JOJOS_A::Initialize()
+{
+    // Reset all the Extra related data as we need to load it all again.
+    safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50);
+    safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);
+
+    memset(rgExtraCountAll_50, -1, ARRAYSIZE(rgExtraCountAll_50));
+    memset(rgExtraCountVisibleOnly_50, -1, ARRAYSIZE(rgExtraCountVisibleOnly_50));
+    memset(rgExtraCountAll_51, -1, ARRAYSIZE(rgExtraCountAll_51));
+    memset(rgExtraCountVisibleOnly_51, -1, ARRAYSIZE(rgExtraCountVisibleOnly_51));
+
+    memset(rgExtraLoc_50, -1, ARRAYSIZE(rgExtraLoc_50));
+    memset(rgExtraLoc_51, -1, ARRAYSIZE(rgExtraLoc_51));
+
+    MainDescTree_50.SetRootTree(CGame_JOJOS_A::InitDescTree(50));
+    MainDescTree_51.SetRootTree(CGame_JOJOS_A::InitDescTree(51));
+}
+
 CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
 {
+    Initialize();
+
     //We need the proper unit amt before we init the main buffer
     m_nJojosMode = nJojosModeToLoad;
 
@@ -87,11 +114,6 @@ CGame_JOJOS_A::~CGame_JOJOS_A(void)
 
 int CGame_JOJOS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
-    static int rgExtraCountVisibleOnly_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
-    static int rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
-    static int rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
-
     int* rgExtraCt = nullptr;
 
     if (bCountVisibleOnly)
@@ -127,9 +149,6 @@ int CGame_JOJOS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_JOJOS_A::GetExtraLoc(UINT16 nUnitId)
 {
-    static int rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
-    static int rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
-
     if (UsePaletteSetFor50())
     {
         if (rgExtraLoc_50[0] == -1)
@@ -254,72 +273,7 @@ void ExportTableToDebugger()
 }
 #endif
 
-void CGame_JOJOS_A::CheckExtrasFileForDuplication()
-{
-    UINT16 nExtraLoc = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_NUMUNIT_51;
-    UINT16 nExtraCt = GetExtraCt(nExtraLoc, TRUE);
-    UINT32 nTotalPalettesChecked = 0;
-
-    if (nExtraCt > 0)
-    {
-        int nCollisionsFound = 0;
-
-        for (UINT16 nExtraIndex = 0; nExtraIndex < nExtraCt; nExtraIndex++)
-        {
-            LoadSpecificPaletteData(nExtraLoc, nExtraIndex);
-            UINT32 nExtraROMLocation = m_nCurrentPaletteROMLocation;
-            bool fCollisionFound = false;
-
-            for (INT16 nUnitCtr = 0; nUnitCtr < nExtraLoc; nUnitCtr++)
-            {
-                UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
-                for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
-                {
-                    LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-                    UINT32 nCurrentROMLocation = m_nCurrentPaletteROMLocation;
-
-                    nTotalPalettesChecked++;
-
-                    if (nCurrentROMLocation == nExtraROMLocation)
-                    {
-                        fCollisionFound = true;
-                        break;
-                    }
-                }
-
-                if (fCollisionFound)
-                {
-                    break;
-                }
-            }
-
-            if (fCollisionFound)
-            {
-                nCollisionsFound++;
-                fCollisionFound = false;
-            }
-            else
-            {
-                // We want to log non-collisions because they are very suspicious if we have a lot of full collisions.
-                // But most non-collisions are probably because one is a subset of the other: these are probably false negatives.
-                CString strstr;
-                strstr.Format("No collision found for 0x%x\n", nExtraROMLocation);
-                OutputDebugString(strstr);
-            }
-        }
-
-        CString strMsg;
-        strMsg.Format("Checked 0x%x total palettes for %u Jojos Extras: %u collisions found.\n", nTotalPalettesChecked, nExtraCt, nCollisionsFound);
-        OutputDebugString(strMsg);
-
-        strMsg.Format("Your jojos%u.txt Extras file contains %u Extras.  %u of these are already present in PalMod.  Please remove those from your Extras file.  Attempting to edit duplicate extras will not do anything.\n", m_nJojosMode, nExtraCt, nCollisionsFound);
-        MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-        OutputDebugString(strMsg);
-    }
-}
-
-CDescTree CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
+sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
 {
     UINT32 nTotalPaletteCount = 0;
     m_nJojosMode = nPaletteSetToUse;

@@ -40,7 +40,13 @@ private:
 
     void InitDataBuffer();
     void ClearDataBuffer();
-    void CheckExtrasFileForDuplication();
+
+    static int rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1];
+    static int rgExtraCountVisibleOnly_50[JOJOS_A_NUMUNIT_50 + 1];
+    static int rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1];
+    static int rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1];
+    static int rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1];
+    static int rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1];
     
     static bool UsePaletteSetFor50() { return (m_nJojosMode == 50); }
 
@@ -52,7 +58,9 @@ public:
     static CDescTree MainDescTree_50;
     static CDescTree MainDescTree_51;
 
-    static CDescTree InitDescTree(int nPaletteSetToUse);
+    static void Initialize();
+
+    static sDescTreeNode* InitDescTree(int nPaletteSetToUse);
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function
