@@ -29,7 +29,7 @@ private:
     BOOL bSpinInit = TRUE;
 
     CFont BaseFont;
-    bool m_fFontisBold = true;
+    bool m_fFontIsBold = true;
     int nFontHeight = -1;
 
     int nNotifyCtrlIndex = 0;
@@ -74,6 +74,8 @@ public:
     BOOL CurrPalAvail() { return pPalEntry[nNotifyCtrlIndex].bAvail; };
     void ShowAvailPal();
     void UpdateCtrl();
+
+    int GetCurrentPageCount() { return nPageAmt; };
 
     //void ResetNotifyPal(int nIndex){OnPalSelChange(0);SendPalMsg(nNotifyCtrlIndex);};
 

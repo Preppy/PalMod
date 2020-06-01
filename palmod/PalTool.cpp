@@ -131,9 +131,9 @@ void CPalTool::CleanUp()
 
 void CPalTool::SetFontToBold(bool beBold)
 {
-    if (m_fFontisBold != beBold)
+    if (m_fFontIsBold != beBold)
     {
-        m_fFontisBold = beBold;
+        m_fFontIsBold = beBold;
         BaseFont.Detach();
 
         LOGFONT lf;

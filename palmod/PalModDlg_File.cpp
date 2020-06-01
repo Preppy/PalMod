@@ -491,7 +491,6 @@ void CPalModDlg::OnLoadAct()
                 ProcChange();
 
                 UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
-                int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
                 int nFileSz = (int)ActFile.GetLength();
                 int nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
 
@@ -508,29 +507,45 @@ void CPalModDlg::OnLoadAct()
                     nFileSz = 768;
                 }
 
-                if ((nWorkingAmt * 3) > nFileSz)
+                if (nACTColorCount == 0)
                 {
-                    nWorkingAmt = nFileSz / 3;
+                    // Default to everything
+                    nACTColorCount = 256;
                 }
 
-                UINT8* pAct = new UINT8[nWorkingAmt * 3];
-                memset(pAct, 0, nWorkingAmt * 3);
+                UINT8* pAct = new UINT8[nACTColorCount * 3];
+                memset(pAct, 0, nACTColorCount * 3);
 
-                ActFile.Read(pAct, nWorkingAmt * 3);
+                ActFile.Read(pAct, nACTColorCount * 3);
                 ActFile.Close();
 
-                int iActIndex = 0;
-                for (int iPalIndex = 0; iPalIndex < nWorkingAmt; iPalIndex++)
+                UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
+                UINT16 iACTIndex = 0;
+
+                // This is commented out because it doesn't work.  
+                // Doing this on load involves updating the non-current page.  But that's only done
+                // on a temporary basis: when the user changes pages, the updates get discarded.
+                for (UINT8 nCurrentPage = 0; nCurrentPage < nPalettePageCount; nCurrentPage++)
                 {
-                    pPal[iPalIndex * 4] = MainPalGroup->ROUND_R(pAct[iActIndex * 3]);
-                    pPal[iPalIndex * 4 + 1] = MainPalGroup->ROUND_G(pAct[iActIndex * 3 + 1]);
-                    pPal[iPalIndex * 4 + 2] = MainPalGroup->ROUND_B(pAct[iActIndex * 3 + 2]);
+                    CJunk* pPalCtrlCurrentPage = m_PalHost.GetPalCtrl(nCurrentPage);
 
-                    CurrPalCtrl->UpdateIndex(iPalIndex);
-
-                    if (++iActIndex >= nACTColorCount)
+                    if (pPalCtrlCurrentPage)
                     {
-                        iActIndex = 0;
+                        const int nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
+
+                        for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                        {
+                            pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(pAct[iACTIndex * 3]);
+                            pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pAct[iACTIndex * 3 + 1]);
+                            pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pAct[iACTIndex * 3 + 2]);
+                            pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
+
+                            if (++iACTIndex >= nACTColorCount)
+                            {
+                                // If the palette is larger than our ACT, loop it.
+                                iACTIndex = 0;
+                            }
+                        }
                     }
                 }
 
@@ -540,6 +555,14 @@ void CPalModDlg::OnLoadAct()
                 delete[] pAct;
 
                 SetStatusText(CString("ACT file Loaded succesfully!"));
+
+                if (nPalettePageCount > 1)
+                {
+                    if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
+                    {
+                        MessageBox("Heads-up: you are loading an ACT for a multipage palette.  PalMod can only use the ACT to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
+                    }
+                }
             }
             else
             {
@@ -570,16 +593,45 @@ void CPalModDlg::OnSaveAct()
 
             int nActSz = 256 * 3;
             UINT8* pAct = new UINT8[nActSz];
-            UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
-            int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-
             memset(pAct, 0, nActSz);
 
-            for (int i = 0; i < nWorkingAmt; i++)
+            UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+            int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+            UINT8 nPalettePageCount;
+
+            if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
             {
-                pAct[i * 3] = pPal[i * 4];
-                pAct[i * 3 + 1] = pPal[i * 4 + 1];
-                pAct[i * 3 + 2] = pPal[i * 4 + 2];
+                nPalettePageCount = m_PalHost.GetCurrentPageCount();
+            }
+            else
+            {
+                nPalettePageCount = 1;
+            }
+
+            int nTotalColorsUsed = 0;
+            for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
+            {
+                pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
+                pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+                pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+            }
+
+            for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+            {
+                CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+                if (pPalCtrlNextPage)
+                {
+                    const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+
+                    for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
+                    {
+                        pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
+                        pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+                        pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+                        nTotalColorsUsed++;
+                    }
+                }
             }
 
             ActFile.Write(pAct, nActSz);
@@ -590,7 +642,7 @@ void CPalModDlg::OnSaveAct()
 
             // Please note that Photoshop is expecting this big endian, so we byteswap to ensure correct orientation.
             WORD transparencyColorIndex = 0;
-            WORD colorCount = _byteswap_ushort(nWorkingAmt);
+            WORD colorCount = _byteswap_ushort(nTotalColorsUsed);
             ActFile.Write(&colorCount, 2);
             ActFile.Write(&transparencyColorIndex, 2);
 

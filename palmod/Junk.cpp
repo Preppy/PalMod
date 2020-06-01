@@ -178,12 +178,6 @@ void CJunk::CleanUp()
     safe_delete_array(Selected);
     safe_delete_array(SelView);
     safe_delete_array(Highlighted);
-
-    //Remove palette
-
-    /*
-    safe_delete_array(BasePal);
-    */
 }
 
 void CJunk::NotifyParent(int iCustomMessage)
@@ -364,13 +358,6 @@ void CJunk::DrawBG()
         }
     }
 }
-
-//BOOL CJunk::DrawBaseBorder()
-//{
-//    dcPaintDC->BitBlt(0,0,iBaseW,iBaseH, &dcBaseDC, 0, 0, SRCCOPY);
-//
-//    return TRUE;
-//}
 
 void CJunk::SelectAll()
 {
@@ -871,7 +858,6 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
     else
     {
         OutputDebugString("ERROR: Couldn't create popup menu.\n");
-        // MessageBox("Error Creating Menu", "PalMod", MB_ICONERROR);
     }
 
     CWnd::OnRButtonDown(nFlags, point);
@@ -893,8 +879,6 @@ void CJunk::OnMenuSelect(UINT nItemID, UINT nFlags, HMENU hSysMenu)
 
 BOOL CJunk::OnCommand(WPARAM wParam, LPARAM lParam)
 {
-    // TODO: Add your specialized code here and/or call the base class
-
     switch (LOWORD(wParam))
     {
     case CUSTOM_COPY:
