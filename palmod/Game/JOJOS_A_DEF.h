@@ -998,7 +998,7 @@ const sDescTreeNode JOJOS_A_STAGE_COLLECTION[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_A[] =
 {
-    { "Jotaro & Star Platinum A", 0x0336400, 0x0336480, indexJojos51Jotaro, indexJojos51Character_Main }, // ingame
+    { "Jotaro & Star Platinum A", 0x0336400, 0x0336480, indexJojos51Jotaro, indexJojos51Character_Main },
     { "Star Breaker Super A", 0x0336D80, 0x0336DC0, indexJojos51Jotaro, 1 },
     { "Star Platinum Charging Flash A", 0x0336880, 0x0336900, indexJojos51Jotaro, 2 },
     { "Jotaro Vs/Super A", 0x0410000, 0x0410080, indexJojos51Jotaro, indexJojos51Character_VsSuper },
@@ -3309,7 +3309,6 @@ const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { "Blocksparks", 0x03358d0, 0x03358e0 },
     { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
     { "Super Hitsparks", 0x03359c0, 0x03359e0, indexJojos51Bonus, 0x00 },
-    { "Tandem Aura", 0x0335930, 0x0335940 },
     { "Tandem Background", 0x030d900, 0x030d980 },
     { "Stand Clash Background", 0x030d100, 0x030d180 },
     { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
@@ -3326,6 +3325,25 @@ const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { "VS screen text", 0x030d400, 0x030d440 },
     { "Win text (character)", 0x030cc40, 0x030cc60 },
     { "Win text (WIN)", 0x030cca0, 0x030ccc0 },
+
+    { "Double Ko", 0x030CD60, 0x030CD80 },
+    { "Draw", 0x030CC80, 0x030CCA0 },
+    { "Time Up", 0x030CCC0, 0x030CCE0 },
+    { "English Title", 0x030CB80, 0x030CC00 },
+    { "Stand Summon & Tandem Aura", 0x0335920, 0x0335940 },
+    { "S.Dio 2c Stone & Requiem Zzz", 0x0335940, 0x0335980 },
+    // partial dupe { "Various Effects", 0x0335980, 0x0335A00 },
+    // partial dupe { "Super Effects/Blocksparks/Etc", 0x03358A0, 0x03358E0 },
+    { "Base Char Dust & Floor Bounce", 0x0335B40, 0x0335B60 },
+    { "Extra Char Dust & Floor Bounce", 0x0335860, 0x0335878 },
+    { "Story Mode Metal Objects", 0x0335B20, 0x0335B40 },
+    { "Speedwagon Pilot & Khan Dust", 0x0335880, 0x03358A0 },
+    { "Chaka s.236a/236aa Effects", 0x03358E0, 0x0335900 },
+    { "Some Floor Effect", 0x0335900, 0x0335920 },
+    { "Here Comes A New Challenger", 0x030CD00, 0x030CD20 },
+    { "Story Mode Episodes Text", 0x030CC00, 0x030CC20 },
+    { "Super KO Portrait Holes/Blood", 0x030CF80, 0x030CFC0 },
+
 };
 
 const sGame_PaletteDataset JOJOS_A_BONUS_NODE_SUPERBACKGROUND[] =

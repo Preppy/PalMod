@@ -84,9 +84,9 @@ BOOL CImgOutDlg::OnInitDialog()
         break;
     case 6: // MvC, MvC2
     case 7: // 3S
-        // Allow the user to export either the solitary sprite or to export
-        // the entire sprite set.
         m_CB_Amt.AddString("6");
+        // Allow the user to export either the "normal" 6 sprite set or to export
+        // the entire 7 sprite set
         nPalAmt == 7 ? m_CB_Amt.AddString("7") : NULL;
         break;
     case 8: // status effects!

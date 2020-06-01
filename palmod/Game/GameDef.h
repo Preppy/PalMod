@@ -76,8 +76,8 @@ enum eDispType
 #define BUTTON6 6
 #define BUTTON7 7
 
-// BUGBUG: Those should be legacy.
-// In the new world order, these probably should be done via node primary names(?)
+// In the new world order, these could be the node labels, but we want the short names here
+// since they fit into the imgdump UI better.
 // If you add button labels, be sure to update imgoutdlg and imgdumpbmp as well.
 const CHAR DEF_BUTTONLABEL_2[2][16] =
 {
@@ -119,12 +119,10 @@ const CHAR DEF_NOBUTTONS[1][16] =
     "Special"
 };
 
-
 const CHAR DEF_LABEL_STATUS_EFFECTS[8][16] =
 {
     "Burn 1", "Burn 2", "Shock 1", "Shock 2", "Dark 1", "Dark 2", "Kinetic 1", "Kinetic 2"
 };
-
 
 struct stExtraDef
 {
