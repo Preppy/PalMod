@@ -6,7 +6,6 @@
 
 #define JOJOS_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 #define NEED_TO_UPDATE_JOJO_HEADERS 0
-#define JOJOS_CHECK_FOR_DUPES       0
 
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50 = nullptr;
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51 = nullptr;
@@ -1208,8 +1207,7 @@ BOOL CGame_JOJOS_A::SaveFile(CFile* SaveFile, UINT16 nFileId)
 {
     UINT32 nTotalPalettesSaved = 0;
 
-    // We're walking this backwards in order to avoid conflicts with Extra files.
-    for (INT16 nUnitCtr = (nUnitAmt - 1); nUnitCtr >= 0 ; nUnitCtr--)
+    for (INT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
         UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
 

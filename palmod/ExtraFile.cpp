@@ -259,7 +259,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
     safe_delete_array(prgTempExtraBuffer);
 }
 
-bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nOffsetToCheck)
+bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nOffsetToCheck, UINT32 nEndOfRegionToCheck /* = 0 */)
 {
     UINT32 nTotalDupesFound = 0;
     CString strDupeText;
@@ -273,15 +273,40 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
             // Yes this takes a while. Thankfully it only runs once for normal usage.  For the developer. :'(
-            if ( !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)) &&
-                   (nOffsetToCheck >= m_nCurrentPaletteROMLocation) && 
-                   (nOffsetToCheck < (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSize * 2)))
-                )
+            if ( !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)))
             {
-                nTotalDupesFound++;
-                strDupeText.Format("ERROR: Unit %u pal %u at offset 0x%06x is a duplicate of unit %u pal %u!\n", nUnitCtr, nPalCtr, nOffsetToCheck, nUnitId, nPalId);
-                OutputDebugString(strDupeText);
-                break;
+                bool fIsDupe = false;
+                const UINT32 nCurrentEndOfPaletteRegion = (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSize * 2));
+                if ((nOffsetToCheck >= m_nCurrentPaletteROMLocation) &&
+                    (nOffsetToCheck < nCurrentEndOfPaletteRegion))
+                {
+                    fIsDupe = true;
+                }
+                else if (nEndOfRegionToCheck != 0)
+                {
+                    // This path is used for Extra files: while the core palette database is checked in all angles,
+                    // for Extra files we also need to be sure that they don't contain core palette offsets
+                    UINT32 nAdjustedRegionToCheck = nEndOfRegionToCheck - 1;
+
+                    if ((nAdjustedRegionToCheck >= m_nCurrentPaletteROMLocation) &&
+                        (nAdjustedRegionToCheck < nCurrentEndOfPaletteRegion))
+                    {
+                        fIsDupe = true;
+                    }
+                    else if ((m_nCurrentPaletteROMLocation >= nOffsetToCheck) &&
+                             (m_nCurrentPaletteROMLocation < nEndOfRegionToCheck))
+                    {
+                        fIsDupe = true;
+                    }
+                }
+
+                if (fIsDupe)
+                {
+                    nTotalDupesFound++;
+                    strDupeText.Format("ERROR: Unit %u pal %u at offset 0x%06x is a duplicate of unit %u pal %u!\n", nUnitCtr, nPalCtr, nOffsetToCheck, nUnitId, nPalId);
+                    OutputDebugString(strDupeText);
+                    break;
+                }
             }
         }
     }
@@ -312,6 +337,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
             nTotalPalettesChecked++;
 
             UINT32 nCurrentROMOffset = m_nCurrentPaletteROMLocation;
+
             m_nLowestRomLocationThisPass = min(m_nLowestRomLocationThisPass, m_nCurrentPaletteROMLocation);
 
             if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset))
@@ -349,9 +375,12 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
         nTotalPalettesChecked++;
 
         UINT32 nCurrentROMOffset = m_nCurrentPaletteROMLocation;
+        UINT32 nEndOfROMOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSize * 2);
         m_nLowestRomExtrasLocationThisPass = min(m_nLowestRomExtrasLocationThisPass, m_nCurrentPaletteROMLocation);
 
-        if (IsROMOffsetDuplicated(m_nExtraUnit, nPalCtr, nCurrentROMOffset))
+        if (IsROMOffsetDuplicated(m_nExtraUnit, nPalCtr, nCurrentROMOffset, nEndOfROMOffset) ||
+            IsROMOffsetDuplicated(m_nExtraUnit, nPalCtr, nEndOfROMOffset))
+
         {
             fCollisionFound = true;
             nTotalDupesFound++;

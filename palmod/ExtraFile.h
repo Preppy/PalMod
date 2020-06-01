@@ -20,6 +20,11 @@ protected:
     UINT32 m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
     LPCSTR m_pszExtraFilename = nullptr;
 
+private:
+    bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nOffsetToCheck, UINT32 nEndOfRegionToCheck = 0);
+    int GetDupeCountInExtrasDataset();
+    int GetDupeCountInDataset();
+
 public:
     CGameWithExtrasFile() {};
     virtual ~CGameWithExtrasFile() {};
@@ -27,9 +32,6 @@ public:
     virtual void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId) {};
     virtual UINT16 GetPaletteCountForUnit(UINT16 nUnitId) { return INVALID_UNIT_VALUE; };
 
-    bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nOffsetToCheck);
-    int GetDupeCountInExtrasDataset();
-    int GetDupeCountInDataset();
     // Checks for duplicate entries and surprisingly low entries.
     void CheckForErrorsInTables();
 };
