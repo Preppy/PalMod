@@ -5,15 +5,31 @@
 
 #define MVC_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-// Cleanup on this static allocation is handled in CGameLoad::~CGameLoad
 stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_MVC_A::MainDescTree = CGame_MVC_A::InitDescTree();
+CDescTree CGame_MVC_A::MainDescTree;
+
+int CGame_MVC_A::rgExtraCountAll[MVC_A_NUMUNIT + 1] = { -1 };
+int CGame_MVC_A::rgExtraCountVisibleOnly[MVC_A_NUMUNIT + 1] = { -1 };
+int CGame_MVC_A::rgExtraLoc[MVC_A_NUMUNIT + 1] = { -1 };
 
 UINT32 CGame_MVC_A::m_nTotalPaletteCountForMVC = 0;
 
+void CGame_MVC_A::InitializeStatics()
+{
+    safe_delete_array(CGame_MVC_A::MVC_A_EXTRA_CUSTOM);
+
+    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
+    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+    memset(rgExtraCountVisibleOnly, -1, sizeof(rgExtraCountVisibleOnly));
+
+    MainDescTree.SetRootTree(CGame_MVC_A::InitDescTree());
+}
+
 CGame_MVC_A::CGame_MVC_A(void)
 {
+    InitializeStatics();
+
     //We need the proper unit amt before we init the main buffer
     nUnitAmt = MVC_A_NUMUNIT + (GetExtraCt(MVC_A_EXTRALOC) ? 1 : 0);
 
@@ -135,6 +151,7 @@ CGame_MVC_A::CGame_MVC_A(void)
 
 CGame_MVC_A::~CGame_MVC_A(void)
 {
+    safe_delete_array(CGame_MVC_A::MVC_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
@@ -142,17 +159,10 @@ CGame_MVC_A::~CGame_MVC_A(void)
 
 int CGame_MVC_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCountAll[MVC_A_NUMUNIT + 1] = { -1 };
-    static int rgExtraCountVisibleOnly[MVC_A_NUMUNIT + 1] = { -1 };
-
     int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
 
-    static bool s_isInitialized = false;
-
-    if (!s_isInitialized)
+    if (rgExtraCt[0] == -1)
     {
-        s_isInitialized = true;
-
         int nDefCtr = 0;
         memset(rgExtraCt, 0, (MVC_A_NUMUNIT + 1) * sizeof(int));
 
@@ -177,8 +187,6 @@ int CGame_MVC_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_MVC_A::GetExtraLoc(UINT16 nUnitId)
 {
-    static int rgExtraLoc[MVC_A_NUMUNIT + 1] = { -1 };
-
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
@@ -208,7 +216,7 @@ CDescTree* CGame_MVC_A::GetMainTree()
     return &CGame_MVC_A::MainDescTree;
 }
 
-CDescTree CGame_MVC_A::InitDescTree()
+sDescTreeNode* CGame_MVC_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 

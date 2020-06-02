@@ -16,9 +16,13 @@ private:
     UINT32 nCurrPalOffs = 0;
     
     static UINT32 m_nTotalPaletteCountForSFA3;
+    static int rgExtraCountAll[SFA3_A_NUM_IND + 1];
+    static int rgExtraCountVisibleOnly[SFA3_A_NUM_IND + 1];
+    static int rgExtraLoc[SFA3_A_NUM_IND + 1];
 
     void InitDataBuffer();
     void ClearDataBuffer();
+    static void InitializeStatics();
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -34,7 +38,7 @@ public:
     //Static functions / variables
     static CDescTree MainDescTree;
 
-    static CDescTree InitDescTree();
+    static sDescTreeNode* InitDescTree();
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function

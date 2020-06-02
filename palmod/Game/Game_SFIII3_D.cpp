@@ -2,12 +2,19 @@
 #include "Game_SFIII3_D.h"
 #include "GameDef.h"
 
-CDescTree CGame_SFIII3_D::MainDescTree = CGame_SFIII3_D::InitDescTree();
+CDescTree CGame_SFIII3_D::MainDescTree;
 
 UINT16 CGame_SFIII3_D::uRuleCtr = 0;
 
+void CGame_SFIII3_D::InitializeStatics()
+{
+    MainDescTree.SetRootTree(CGame_SFIII3_D::InitDescTree());
+}
+
 CGame_SFIII3_D::CGame_SFIII3_D(void)
 {
+    InitializeStatics();
+
     //We need the proper unit amt before we init the main buffer
     nUnitAmt = SFIII3_D_NUMUNIT;
 
@@ -61,7 +68,7 @@ CDescTree* CGame_SFIII3_D::GetMainTree()
     return &CGame_SFIII3_D::MainDescTree;
 }
 
-CDescTree CGame_SFIII3_D::InitDescTree()
+sDescTreeNode* CGame_SFIII3_D::InitDescTree()
 {
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -142,7 +149,7 @@ CDescTree CGame_SFIII3_D::InitDescTree()
         }
     }
 
-    return CDescTree(NewDescTree);
+    return NewDescTree;
 }
 
 sFileRule CGame_SFIII3_D::GetRule(UINT16 nUnitId)

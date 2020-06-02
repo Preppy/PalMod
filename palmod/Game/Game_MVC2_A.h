@@ -16,8 +16,12 @@ private:
     UINT32 nCurrPalOffs = 0;
     static UINT32 m_nTotalPaletteCountForMVC2;
 
+    static int rgExtraCountAll[MVC2_A_NUMUNIT + 1];
+    static int rgExtraLoc[MVC2_A_NUMUNIT + 1];
+
     void InitDataBuffer();
     void ClearDataBuffer();
+    static void InitializeStatics();
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -34,7 +38,7 @@ public:
     //Static functions / variables
     static CDescTree MainDescTree;
 
-    static CDescTree InitDescTree();
+    static sDescTreeNode* InitDescTree();
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function

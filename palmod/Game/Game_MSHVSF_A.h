@@ -24,8 +24,14 @@ private:
     static UINT32 m_nTotalPaletteCountForMSHVSF_7B;
     static bool UsePaletteSetForCharacters() { return (m_nMSHVSFSelectedRom == 6); }
 
+    static int rgExtraCountAll_6A[MSHVSF_A_NUM_IND_6A + 1];
+    static int rgExtraCountAll_7B[MSHVSF_A_NUM_IND_7B + 1];
+    static int rgExtraCount_6A[MSHVSF_A_NUM_IND_6A + 1];
+    static int rgExtraCount_7B[MSHVSF_A_NUM_IND_7B + 1];
+
     void InitDataBuffer();
     void ClearDataBuffer();
+    static void InitializeStatics();
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -44,7 +50,7 @@ public:
     static CDescTree MainDescTree_6A;
     static CDescTree MainDescTree_7B;
 
-    static CDescTree InitDescTree(int nROMPaletteSetToUse);
+    static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function

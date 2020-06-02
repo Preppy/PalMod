@@ -8,12 +8,29 @@
 
 stExtraDef* CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_SFA3_A::MainDescTree = CGame_SFA3_A::InitDescTree();
+CDescTree CGame_SFA3_A::MainDescTree;
 
 UINT32 CGame_SFA3_A::m_nTotalPaletteCountForSFA3 = 0;
 
+int CGame_SFA3_A::rgExtraCountAll[SFA3_A_NUM_IND + 1] = { -1 };
+int CGame_SFA3_A::rgExtraCountVisibleOnly[SFA3_A_NUM_IND + 1] = { -1 };
+int CGame_SFA3_A::rgExtraLoc[SFA3_A_NUM_IND + 1] = { -1 };
+
+void CGame_SFA3_A::InitializeStatics()
+{
+    safe_delete_array(CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM);
+
+    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
+    memset(rgExtraCountVisibleOnly, -1, sizeof(rgExtraCountVisibleOnly));
+    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+
+    MainDescTree.SetRootTree(CGame_SFA3_A::InitDescTree());
+}
+
 CGame_SFA3_A::CGame_SFA3_A(void)
 {
+    InitializeStatics();
+
     //We need the proper unit amt before we init the main buffer
     nUnitAmt = SFA3_A_NUM_IND + (GetExtraCt(SFA3_A_EXTRALOC) ? 1 : 0);
 
@@ -60,6 +77,7 @@ CGame_SFA3_A::CGame_SFA3_A(void)
 
 CGame_SFA3_A::~CGame_SFA3_A(void)
 {
+    safe_delete_array(CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
@@ -67,17 +85,10 @@ CGame_SFA3_A::~CGame_SFA3_A(void)
 
 int CGame_SFA3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCountAll[SFA3_A_NUM_IND + 1] = { -1 };
-    static int rgExtraCountVisibleOnly[SFA3_A_NUM_IND + 1] = { -1 };
-
     int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
 
-    static bool s_isInitialized = false;
-
-    if (!s_isInitialized)
+    if (rgExtraCt[0] == -1)
     {
-        s_isInitialized = true;
-
         int nDefCtr = 0;
         memset(rgExtraCt, 0, (SFA3_A_NUM_IND + 1) * sizeof(int));
 
@@ -102,8 +113,6 @@ int CGame_SFA3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_SFA3_A::GetExtraLoc(UINT16 nUnitId)
 {
-    static int rgExtraLoc[SFA3_A_NUM_IND + 1] = { -1 };
-
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
@@ -133,7 +142,7 @@ CDescTree* CGame_SFA3_A::GetMainTree()
     return &CGame_SFA3_A::MainDescTree;
 }
 
-CDescTree CGame_SFA3_A::InitDescTree()
+sDescTreeNode* CGame_SFA3_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 

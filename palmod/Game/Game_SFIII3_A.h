@@ -33,6 +33,7 @@ private:
 
     void InitDataBuffer();
     void ClearDataBuffer();
+    static void InitializeStatics();
 
 public:
     CGame_SFIII3_A(void);
@@ -42,7 +43,7 @@ public:
     static CDescTree MainDescTree;
 
     //    static CDescTree * GetMainTree();
-    static CDescTree InitDescTree();
+    static sDescTreeNode* InitDescTree();
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
     static sFileRule GetRule(UINT16 nUnitId);
 

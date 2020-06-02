@@ -9,15 +9,22 @@
 #define MV2C_D_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 //Initialize the selection tree
-CDescTree CGame_MVC2_D::MainDescTree = CGame_MVC2_D::InitDescTree();
+CDescTree CGame_MVC2_D::MainDescTree;
 
 UINT16 CGame_MVC2_D::uRuleCtr = 0;
 BOOL CGame_MVC2_D::bAlphaTrans = 0;
 
 UINT16 CGame_MVC2_D::rgExtraChrLoc[MVC2_D_NUMUNIT];
 
+void CGame_MVC2_D::InitializeStatics()
+{
+    MainDescTree.SetRootTree(CGame_MVC2_D::InitDescTree());
+}
+
 CGame_MVC2_D::CGame_MVC2_D(void)
 {
+    InitializeStatics();
+
     // InitDataBuffer uses this value so make sure to set first
     nUnitAmt = MVC2_D_NUMUNIT;
 
@@ -78,7 +85,7 @@ CDescTree* CGame_MVC2_D::GetMainTree()
     return &CGame_MVC2_D::MainDescTree;
 }
 
-CDescTree CGame_MVC2_D::InitDescTree()
+sDescTreeNode* CGame_MVC2_D::InitDescTree()
 {
     //Initialize extra range
     InitExtraRg();
@@ -297,7 +304,7 @@ CDescTree CGame_MVC2_D::InitDescTree()
         }
     }
 
-    return CDescTree(NewDescTree);
+    return NewDescTree;
 }
 
 void CGame_MVC2_D::InitExtraRg()

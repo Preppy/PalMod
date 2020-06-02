@@ -9,7 +9,68 @@ stExtraDef* CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM = NULL;
 int CGame_SFIII3_A::rgExtraCountAll[SFIII3_A_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1] = { -1 };
 
-CDescTree CGame_SFIII3_A::MainDescTree = CGame_SFIII3_A::InitDescTree();
+CDescTree CGame_SFIII3_A::MainDescTree;
+
+void CGame_SFIII3_A::InitializeStatics()
+{
+    safe_delete_array(CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM);
+
+    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
+    memset(rgExtraCountVisibleOnly, -1, sizeof(rgExtraCountVisibleOnly));
+
+    MainDescTree.SetRootTree(CGame_SFIII3_A::InitDescTree());
+}
+
+CGame_SFIII3_A::CGame_SFIII3_A(void)
+{
+    InitializeStatics();
+
+    //We need the proper unit amt before we init the main buffer
+    nUnitAmt = SFIII3_A_NUMUNIT + (GetExtraCt(SFIII3_A_EXTRALOC) ? 1 : 0);
+
+    OutputDebugString(GetExtraCt(SFIII3_A_EXTRALOC) ? "Loaded SF3_A with Extras.\n" : "Loaded SF3_A without Extras\n");
+
+    InitDataBuffer();
+
+    //Set color mode
+    SetColMode(COLMODE_15);
+
+    //Set palette conversion mode=
+    BasePalGroup.SetMode(PALTYPE_8);
+
+    //Set game information
+    nGameFlag = SFIII3_A;
+    nImgGameFlag = IMGDAT_SECTION_3S;
+    nImgUnitAmt = nUnitAmt;
+
+    nDisplayW = 8;
+    nFileAmt = 1;
+
+    //Set the image out display type
+    DisplayType = DISP_DEF;
+    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL7);
+
+    //Create the redirect buffer
+    rgUnitRedir = new UINT16[nUnitAmt + 1];
+    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+
+    //Create the file changed flag
+    rgFileChanged = new UINT16;
+
+    nRGBIndexAmt = 31;
+    nAIndexAmt = 0;
+
+    nRGBIndexMul = 8.225;
+    nAIndexMul = 0;
+}
+
+CGame_SFIII3_A::~CGame_SFIII3_A(void)
+{
+    safe_delete_array(CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM);
+    //Get rid of the file changed flag
+    ClearDataBuffer();
+    safe_delete(rgFileChanged);
+}
 
 int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
@@ -84,60 +145,12 @@ int CGame_SFIII3_A::GetBasicAmt(UINT16 nUnitId)
     }
 }
 
-CGame_SFIII3_A::CGame_SFIII3_A(void)
-{
-    //We need the proper unit amt before we init the main buffer
-    nUnitAmt = SFIII3_A_NUMUNIT + (GetExtraCt(SFIII3_A_EXTRALOC) ? 1 : 0);
-
-    OutputDebugString(GetExtraCt(SFIII3_A_EXTRALOC) ? "Loaded SF3_A with Extras.\n" : "Loaded SF3_A without Extras\n");
-
-    InitDataBuffer();
-
-    //Set color mode
-    SetColMode(COLMODE_15);
-
-    //Set palette conversion mode=
-    BasePalGroup.SetMode(PALTYPE_8);
-
-    //Set game information
-    nGameFlag = SFIII3_A;
-    nImgGameFlag = IMGDAT_SECTION_3S;
-    nImgUnitAmt = nUnitAmt;
-
-    nDisplayW = 8;
-    nFileAmt = 1;
-
-    //Set the image out display type
-    DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL7);
-
-    //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
-
-    //Create the file changed flag
-    rgFileChanged = new UINT16;
-
-    nRGBIndexAmt = 31;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 8.225;
-    nAIndexMul = 0;
-}
-
-CGame_SFIII3_A::~CGame_SFIII3_A(void)
-{
-    //Get rid of the file changed flag
-    ClearDataBuffer();
-    safe_delete(rgFileChanged);
-}
-
 CDescTree* CGame_SFIII3_A::GetMainTree()
 {
     return &CGame_SFIII3_A::MainDescTree;
 }
 
-CDescTree CGame_SFIII3_A::InitDescTree()
+sDescTreeNode* CGame_SFIII3_A::InitDescTree()
 {
 #ifdef SFIII3_A_USEEXTRAFILE
 

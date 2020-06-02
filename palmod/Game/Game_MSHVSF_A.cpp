@@ -8,15 +8,36 @@
 stExtraDef* CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A = nullptr;
 stExtraDef* CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B = nullptr;
 
-CDescTree CGame_MSHVSF_A::MainDescTree_6A = CGame_MSHVSF_A::InitDescTree(6);
-CDescTree CGame_MSHVSF_A::MainDescTree_7B = CGame_MSHVSF_A::InitDescTree(7);
+CDescTree CGame_MSHVSF_A::MainDescTree_6A;
+CDescTree CGame_MSHVSF_A::MainDescTree_7B;
 
 int CGame_MSHVSF_A::m_nMSHVSFSelectedRom = 6;
 UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_6A = 0;
 UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_7B = 0;
 
+int CGame_MSHVSF_A::rgExtraCountAll_6A[MSHVSF_A_NUM_IND_6A + 1] = { -1 };
+int CGame_MSHVSF_A::rgExtraCountAll_7B[MSHVSF_A_NUM_IND_7B + 1] = { -1 };
+int CGame_MSHVSF_A::rgExtraCount_6A[MSHVSF_A_NUM_IND_6A + 1] = { -1 };
+int CGame_MSHVSF_A::rgExtraCount_7B[MSHVSF_A_NUM_IND_7B + 1] = { -1 };
+
+void CGame_MSHVSF_A::InitializeStatics()
+{
+    safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A);
+    safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B);
+
+    memset(rgExtraCountAll_6A, -1, sizeof(rgExtraCountAll_6A));
+    memset(rgExtraCountAll_7B, -1, sizeof(rgExtraCountAll_7B));
+    memset(rgExtraCount_6A, -1, sizeof(rgExtraCount_6A));
+    memset(rgExtraCount_7B, -1, sizeof(rgExtraCount_7B));
+
+    MainDescTree_6A.SetRootTree(CGame_MSHVSF_A::InitDescTree(6));
+    MainDescTree_7B.SetRootTree(CGame_MSHVSF_A::InitDescTree(7));
+}
+
 CGame_MSHVSF_A::CGame_MSHVSF_A(int nMSHVSFRomToLoad)
 {
+    InitializeStatics();
+
     m_nMSHVSFSelectedRom = (nMSHVSFRomToLoad == 6) ? 6 : 7;
 
     CString strMessage;
@@ -72,6 +93,8 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(int nMSHVSFRomToLoad)
 
 CGame_MSHVSF_A::~CGame_MSHVSF_A(void)
 {
+    safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A);
+    safe_delete_array(CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B);
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
@@ -79,9 +102,6 @@ CGame_MSHVSF_A::~CGame_MSHVSF_A(void)
 
 int CGame_MSHVSF_A::GetExtraLoc(UINT16 nUnitId)
 {
-    static int rgExtraCountAll_6A[MSHVSF_A_NUM_IND_6A + 1] = { -1 };
-    static int rgExtraCountAll_7B[MSHVSF_A_NUM_IND_7B + 1] = { -1 };
-
     if (UsePaletteSetForCharacters())
     {
         if (rgExtraCountAll_6A[0] == -1)
@@ -136,9 +156,6 @@ int CGame_MSHVSF_A::GetExtraLoc(UINT16 nUnitId)
 
 int CGame_MSHVSF_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCount_6A[MSHVSF_A_NUM_IND_6A + 1] = { -1 };
-    static int rgExtraCount_7B[MSHVSF_A_NUM_IND_7B + 1] = { -1 };
-
     int* rgExtraCt = UsePaletteSetForCharacters() ? (int*)rgExtraCount_6A : (int*)rgExtraCount_7B;
 
     if (rgExtraCt[0] == -1)
@@ -175,7 +192,7 @@ CDescTree* CGame_MSHVSF_A::GetMainTree()
     }
 }
 
-CDescTree CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
+sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
 {
     UINT32 nTotalPaletteCount = 0;
     m_nMSHVSFSelectedRom = nROMPaletteSetToUse;

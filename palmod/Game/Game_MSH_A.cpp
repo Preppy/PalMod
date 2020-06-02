@@ -6,19 +6,39 @@
 
 #define MSH_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-// Cleanup on this static allocation is handled in CGameLoad::~CGameLoad
 stExtraDef* CGame_MSH_A::MSH_A_EXTRA_CUSTOM_05 = nullptr;
 stExtraDef* CGame_MSH_A::MSH_A_EXTRA_CUSTOM_06 = nullptr;
 
-CDescTree CGame_MSH_A::MainDescTree_05 = CGame_MSH_A::InitDescTree(5);
-CDescTree CGame_MSH_A::MainDescTree_06 = CGame_MSH_A::InitDescTree(6);
+CDescTree CGame_MSH_A::MainDescTree_05;
+CDescTree CGame_MSH_A::MainDescTree_06;
+
+int CGame_MSH_A::rgExtraCountAll_05[MSH_A_NUMUNIT_05 + 1] = { -1 };
+int CGame_MSH_A::rgExtraCountAll_06[MSH_A_NUMUNIT_06 + 1] = { -1 };
+int CGame_MSH_A::rgExtraLoc_05[MSH_A_NUMUNIT_05 + 1] = { -1 };
+int CGame_MSH_A::rgExtraLoc_06[MSH_A_NUMUNIT_06 + 1] = { -1 };
 
 int CGame_MSH_A::m_nMSHSelectedRom = 5;
 UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_05 = 0;
 UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_06 = 0;
 
+void CGame_MSH_A::InitializeStatics()
+{
+    safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM_05);
+    safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM_06);
+
+    memset(rgExtraCountAll_05, -1, sizeof(rgExtraCountAll_05));
+    memset(rgExtraCountAll_06, -1, sizeof(rgExtraCountAll_06));
+    memset(rgExtraLoc_05, -1, sizeof(rgExtraLoc_05));
+    memset(rgExtraLoc_06, -1, sizeof(rgExtraLoc_06));
+
+    MainDescTree_05.SetRootTree(InitDescTree(5));
+    MainDescTree_06.SetRootTree(InitDescTree(6));
+}
+
 CGame_MSH_A::CGame_MSH_A(int nMSHRomToLoad)
 {
+    InitializeStatics();
+
     m_nMSHSelectedRom = (nMSHRomToLoad == 5) ? 5 : 6;
 
     CString strMessage;
@@ -80,6 +100,8 @@ CGame_MSH_A::CGame_MSH_A(int nMSHRomToLoad)
 
 CGame_MSH_A::~CGame_MSH_A(void)
 {
+    safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM_05);
+    safe_delete_array(CGame_MSH_A::MSH_A_EXTRA_CUSTOM_06);
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
@@ -99,9 +121,6 @@ CDescTree* CGame_MSH_A::GetMainTree()
 
 int CGame_MSH_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCountAll_05[MSH_A_NUMUNIT_05 + 1] = { -1 };
-    static int rgExtraCountAll_06[MSH_A_NUMUNIT_06 + 1] = { -1 };
-
     int* rgExtraCt = UsePaletteSetForCharacters() ? (int*)rgExtraCountAll_05 : (int*)rgExtraCountAll_06;
 
     if (rgExtraCt[0] == -1)
@@ -128,9 +147,6 @@ int CGame_MSH_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_MSH_A::GetExtraLoc(UINT16 nUnitId)
 {
-    static int rgExtraLoc_05[MSH_A_NUMUNIT_05 + 1] = { -1 };
-    static int rgExtraLoc_06[MSH_A_NUMUNIT_06 + 1] = { -1 };
-
     if (UsePaletteSetForCharacters())
     {
         if (rgExtraLoc_05[0] == -1)
@@ -183,7 +199,7 @@ int CGame_MSH_A::GetExtraLoc(UINT16 nUnitId)
     }
 }
 
-CDescTree CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
+sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
 {
     UINT32 nTotalPaletteCount = 0;
     m_nMSHSelectedRom = nROMPaletteSetToUse;

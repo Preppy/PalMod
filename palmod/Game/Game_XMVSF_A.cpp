@@ -10,13 +10,28 @@
 
 stExtraDef* CGame_XMVSF_A::XMVSF_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_XMVSF_A::MainDescTree = CGame_XMVSF_A::InitDescTree();
+CDescTree CGame_XMVSF_A::MainDescTree;
 
 UINT32 CGame_XMVSF_A::m_nTotalPaletteCountForXMVSF = 0;
+
+int CGame_XMVSF_A::rgExtraCountAll[XMVSF_A_NUMUNIT + 1] = { -1 };
+int CGame_XMVSF_A::rgExtraLoc[XMVSF_A_NUMUNIT + 1] = { -1 };
+
+void CGame_XMVSF_A::InitializeStatics()
+{
+    safe_delete_array(CGame_XMVSF_A::XMVSF_A_EXTRA_CUSTOM);
+
+    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
+    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+
+    MainDescTree.SetRootTree(CGame_XMVSF_A::InitDescTree());
+}
 
 CGame_XMVSF_A::CGame_XMVSF_A(void)
 {
     OutputDebugString("CGame_XMVSF_A::CGame_XMVSF_A: Loading ROM\n");
+
+    InitializeStatics();
 
     //We need the proper unit amt before we init the main buffer
     m_nTotalInternalUnits = XMVSF_A_NUMUNIT;
@@ -65,6 +80,7 @@ CGame_XMVSF_A::CGame_XMVSF_A(void)
 
 CGame_XMVSF_A::~CGame_XMVSF_A(void)
 {
+    safe_delete_array(CGame_XMVSF_A::XMVSF_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
@@ -72,8 +88,6 @@ CGame_XMVSF_A::~CGame_XMVSF_A(void)
 
 int CGame_XMVSF_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCountAll[XMVSF_A_NUMUNIT + 1] = { -1 };
-
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
@@ -98,8 +112,6 @@ int CGame_XMVSF_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_XMVSF_A::GetExtraLoc(UINT16 nUnitId)
 {
-    static int rgExtraLoc[XMVSF_A_NUMUNIT + 1] = { -1 };
-
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
@@ -129,7 +141,7 @@ CDescTree* CGame_XMVSF_A::GetMainTree()
     return &CGame_XMVSF_A::MainDescTree;
 }
 
-CDescTree CGame_XMVSF_A::InitDescTree()
+sDescTreeNode* CGame_XMVSF_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 

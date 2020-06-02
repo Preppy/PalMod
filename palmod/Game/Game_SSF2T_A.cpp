@@ -8,15 +8,36 @@
 stExtraDef* CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_3C = nullptr;
 stExtraDef* CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_4A = nullptr;
 
-CDescTree CGame_SSF2T_A::MainDescTree_3C = CGame_SSF2T_A::InitDescTree(3);
-CDescTree CGame_SSF2T_A::MainDescTree_4A = CGame_SSF2T_A::InitDescTree(4);
+CDescTree CGame_SSF2T_A::MainDescTree_3C;
+CDescTree CGame_SSF2T_A::MainDescTree_4A;
 
 int CGame_SSF2T_A::m_nSSF2TSelectedRom = 4;
 UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_3C = 0;
 UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_4A = 0;
 
+int CGame_SSF2T_A::rgExtraLoc_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
+int CGame_SSF2T_A::rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
+int CGame_SSF2T_A::rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
+int CGame_SSF2T_A::rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
+
+void CGame_SSF2T_A::InitializeStatics()
+{
+    safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_3C);
+    safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_4A);
+
+    memset(rgExtraLoc_3C, -1, sizeof(rgExtraLoc_3C));
+    memset(rgExtraLoc_4A, -1, sizeof(rgExtraLoc_4A));
+    memset(rgExtraCountAll_3C, -1, sizeof(rgExtraCountAll_3C));
+    memset(rgExtraCountAll_4A, -1, sizeof(rgExtraCountAll_4A));
+
+    MainDescTree_3C.SetRootTree(CGame_SSF2T_A::InitDescTree(3));
+    MainDescTree_4A.SetRootTree(CGame_SSF2T_A::InitDescTree(4));
+}
+
 CGame_SSF2T_A::CGame_SSF2T_A(int nSSF2TRomToLoad)
 {
+    InitializeStatics();
+
     m_nSSF2TSelectedRom = (nSSF2TRomToLoad == 3) ? 3 : 4;
 
     CString strMessage;
@@ -72,6 +93,8 @@ CGame_SSF2T_A::CGame_SSF2T_A(int nSSF2TRomToLoad)
 
 CGame_SSF2T_A::~CGame_SSF2T_A(void)
 {
+    safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_3C);
+    safe_delete_array(CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_4A);
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
@@ -79,9 +102,6 @@ CGame_SSF2T_A::~CGame_SSF2T_A(void)
 
 int CGame_SSF2T_A::GetExtraLoc(UINT16 nUnitId)
 {
-    static int rgExtraLoc_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
-    static int rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
-
     if (UsePaletteSetForPortraits())
     {
         if (rgExtraLoc_3C[0] == -1)
@@ -136,9 +156,6 @@ int CGame_SSF2T_A::GetExtraLoc(UINT16 nUnitId)
 
 int CGame_SSF2T_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
-    static int rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
-
     int* rgExtraCt = UsePaletteSetForPortraits() ? (int*)rgExtraCountAll_3C : (int*)rgExtraCountAll_4A;
 
     if (rgExtraCt[0] == -1)
@@ -175,7 +192,7 @@ CDescTree* CGame_SSF2T_A::GetMainTree()
     }    
 }
 
-CDescTree CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
+sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
 {
     UINT32 nTotalPaletteCount = 0;
     m_nSSF2TSelectedRom = nROMPaletteSetToUse;

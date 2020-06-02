@@ -19,6 +19,10 @@ private:
 
     void InitDataBuffer();
     void ClearDataBuffer();
+    static void InitializeStatics();
+
+    static int rgExtraCountAll[XMVSF_A_NUMUNIT + 1];
+    static int rgExtraLoc[XMVSF_A_NUMUNIT + 1];
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -32,7 +36,7 @@ public:
     //Static functions / variables
     static CDescTree MainDescTree;
 
-    static CDescTree InitDescTree();
+    static sDescTreeNode* InitDescTree();
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function

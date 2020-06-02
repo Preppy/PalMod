@@ -7,6 +7,7 @@ class CGame_MVC2_D : public CGameClass
 private:
     void InitDataBuffer();
     void ClearDataBuffer();
+    static void InitializeStatics();
 
     UINT16** ppDataBuffer = nullptr;
 
@@ -30,7 +31,7 @@ public:
 
     static CDescTree MainDescTree;
 
-    static CDescTree InitDescTree();
+    static sDescTreeNode* InitDescTree();
     static void InitExtraRg();
     static int CountExtraRg(UINT16 nUnitId, BOOL bOmniExtra);
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);

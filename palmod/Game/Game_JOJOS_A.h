@@ -40,6 +40,7 @@ private:
 
     void InitDataBuffer();
     void ClearDataBuffer();
+    static void InitializeStatics();
 
     static int rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1];
     static int rgExtraCountVisibleOnly_50[JOJOS_A_NUMUNIT_50 + 1];
@@ -57,8 +58,6 @@ public:
     //Static functions / variables
     static CDescTree MainDescTree_50;
     static CDescTree MainDescTree_51;
-
-    static void Initialize();
 
     static sDescTreeNode* InitDescTree(int nPaletteSetToUse);
     static sFileRule GetRule(UINT16 nUnitId);

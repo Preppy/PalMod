@@ -10,12 +10,24 @@
 
 #define MVC2_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-// Cleanup on this static allocation is handled in CGameLoad::~CGameLoad
 stExtraDef* CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_MVC2_A::MainDescTree = CGame_MVC2_A::InitDescTree();
+CDescTree CGame_MVC2_A::MainDescTree;
+
+int CGame_MVC2_A::rgExtraCountAll[MVC2_A_NUMUNIT + 1];
+int CGame_MVC2_A::rgExtraLoc[MVC2_A_NUMUNIT + 1];
 
 UINT32 CGame_MVC2_A::m_nTotalPaletteCountForMVC2 = 0;
+
+void CGame_MVC2_A::InitializeStatics()
+{
+    safe_delete_array(CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM);
+
+    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
+    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+
+    MainDescTree.SetRootTree(CGame_MVC2_A::InitDescTree());
+}
 
 CGame_MVC2_A::CGame_MVC2_A()
 {
@@ -23,10 +35,12 @@ CGame_MVC2_A::CGame_MVC2_A()
     strMessage.Format("CGame_MVC2_A::CGame_MVC2_A: Loading ROM...\n" );
     OutputDebugString(strMessage);
 
+    InitializeStatics();
+
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
     m_nExtraUnit = MVC2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6362;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6368;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -77,6 +91,7 @@ CGame_MVC2_A::CGame_MVC2_A()
 
 CGame_MVC2_A::~CGame_MVC2_A(void)
 {
+    safe_delete_array(CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
@@ -92,8 +107,6 @@ CDescTree* CGame_MVC2_A::GetMainTree()
 
 int CGame_MVC2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCountAll[MVC2_A_NUMUNIT + 1] = { -1 };
-
     int* rgExtraCt = (int*)rgExtraCountAll;
 
     if (rgExtraCt[0] == -1)
@@ -120,8 +133,6 @@ int CGame_MVC2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_MVC2_A::GetExtraLoc(UINT16 nUnitId)
 {
-    static int rgExtraLoc[MVC2_A_NUMUNIT + 1] = { -1 };
-
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
@@ -415,7 +426,7 @@ void CGame_MVC2_A::DumpAllCharacters()
     }
 }
 
-CDescTree CGame_MVC2_A::InitDescTree()
+sDescTreeNode* CGame_MVC2_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 

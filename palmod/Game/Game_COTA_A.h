@@ -9,21 +9,24 @@ constexpr auto EXTRA_FILENAME_COTA = "cotae.txt";
 class CGame_COTA_A : public CGameWithExtrasFile
 {
 private:
+    void InitDataBuffer();
+    void ClearDataBuffer();
+    static void InitializeStatics();
+
+    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
+    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+
     //Used for image selection
     int nTargetImgId = 0;
 
     //Used for GetPalOffset
     UINT32 nCurrPalOffs = 0;
-    
-    static UINT32 m_nTotalPaletteCountForCOTA;
-
-    void InitDataBuffer();
-    void ClearDataBuffer();
-
-    void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
-    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     UINT16*** pppDataBuffer = nullptr;
+
+    static UINT32 m_nTotalPaletteCountForCOTA;
+    static int rgExtraCountAll[COTA_A_NUMUNIT + 1];
+    static int rgExtraLoc[COTA_A_NUMUNIT + 1];
 
 public:
     CGame_COTA_A();
@@ -32,7 +35,7 @@ public:
     //Static functions / variables
     static CDescTree MainDescTree;
 
-    static CDescTree InitDescTree();
+    static sDescTreeNode* InitDescTree();
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function

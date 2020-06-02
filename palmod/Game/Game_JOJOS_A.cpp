@@ -24,19 +24,19 @@ int CGame_JOJOS_A::rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 
-void CGame_JOJOS_A::Initialize()
+void CGame_JOJOS_A::InitializeStatics()
 {
     // Reset all the Extra related data as we need to load it all again.
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50);
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);
 
-    memset(rgExtraCountAll_50, -1, ARRAYSIZE(rgExtraCountAll_50));
-    memset(rgExtraCountVisibleOnly_50, -1, ARRAYSIZE(rgExtraCountVisibleOnly_50));
-    memset(rgExtraCountAll_51, -1, ARRAYSIZE(rgExtraCountAll_51));
-    memset(rgExtraCountVisibleOnly_51, -1, ARRAYSIZE(rgExtraCountVisibleOnly_51));
+    memset(rgExtraCountAll_50, -1, sizeof(rgExtraCountAll_50));
+    memset(rgExtraCountVisibleOnly_50, -1, sizeof(rgExtraCountVisibleOnly_50));
+    memset(rgExtraCountAll_51, -1, sizeof(rgExtraCountAll_51));
+    memset(rgExtraCountVisibleOnly_51, -1, sizeof(rgExtraCountVisibleOnly_51));
 
-    memset(rgExtraLoc_50, -1, ARRAYSIZE(rgExtraLoc_50));
-    memset(rgExtraLoc_51, -1, ARRAYSIZE(rgExtraLoc_51));
+    memset(rgExtraLoc_50, -1, sizeof(rgExtraLoc_50));
+    memset(rgExtraLoc_51, -1, sizeof(rgExtraLoc_51));
 
     MainDescTree_50.SetRootTree(CGame_JOJOS_A::InitDescTree(50));
     MainDescTree_51.SetRootTree(CGame_JOJOS_A::InitDescTree(51));
@@ -44,7 +44,7 @@ void CGame_JOJOS_A::Initialize()
 
 CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
 {
-    Initialize();
+    InitializeStatics();
 
     //We need the proper unit amt before we init the main buffer
     m_nJojosMode = nJojosModeToLoad;
@@ -107,6 +107,8 @@ CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
 
 CGame_JOJOS_A::~CGame_JOJOS_A(void)
 {
+    safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50);
+    safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);

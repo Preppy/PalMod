@@ -8881,6 +8881,7 @@ const MVC2_TEAM_GROUPING mvc2TeamList[] =
     { "Duc", indexMVC2ASpiral, indexMVC2ACable, indexMVC2ASentinel },
     { "Clockw0rk", indexMVC2ASentinel, indexMVC2AStrider, indexMVC2ADrDoom },
     { "Combofiend", indexMVC2AMagneto, indexMVC2AIronMan, indexMVC2ASentinel },
+    { "Watts", indexMVC2ABlackheart, indexMVC2ASentinel, indexMVC2ACaptainCommando },
     
     { "VDO", indexMVC2ARogue, indexMVC2AColossus, indexMVC2AKen },
 //    { "MikeZ", indexMVC2AJuggernaut, indexMVC2ADrDoom, indexMVC2ATron },
@@ -8899,6 +8900,7 @@ const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
     { "Duc", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { "Clockw0rk", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     { "Combofiend", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { "Watts", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
 
     { "VDO", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
     // The problem with Tron is that she's already a joined palette...

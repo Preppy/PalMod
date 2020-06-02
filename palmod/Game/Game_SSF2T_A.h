@@ -24,8 +24,14 @@ private:
     static UINT32 m_nTotalPaletteCountForSSF2T_4A;
     static bool UsePaletteSetForPortraits() { return (m_nSSF2TSelectedRom == 3); }
 
+    static int rgExtraLoc_3C[SSF2T_A_NUM_IND_3C + 1];
+    static int rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1];
+    static int rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1];
+    static int rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1];
+
     void InitDataBuffer();
     void ClearDataBuffer();
+    static void InitializeStatics();
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -44,7 +50,7 @@ public:
     static CDescTree MainDescTree_3C;
     static CDescTree MainDescTree_4A;
 
-    static CDescTree InitDescTree(int nROMPaletteSetToUse);
+    static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function

@@ -6,18 +6,31 @@
 
 #define COTA_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-// Cleanup on this static allocation is handled in CGameLoad::~CGameLoad
 stExtraDef* CGame_COTA_A::COTA_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_COTA_A::MainDescTree = CGame_COTA_A::InitDescTree();
+CDescTree CGame_COTA_A::MainDescTree;
+int CGame_COTA_A::rgExtraCountAll[COTA_A_NUMUNIT + 1] = { -1 };
+int CGame_COTA_A::rgExtraLoc[COTA_A_NUMUNIT + 1] = { -1 };
 
 UINT32 CGame_COTA_A::m_nTotalPaletteCountForCOTA = 0;
+
+void CGame_COTA_A::InitializeStatics()
+{
+    safe_delete_array(CGame_COTA_A::COTA_A_EXTRA_CUSTOM);
+
+    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
+    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+
+    MainDescTree.SetRootTree(InitDescTree());
+}
 
 CGame_COTA_A::CGame_COTA_A()
 {
     CString strMessage;
     strMessage.Format("CGame_COTA_A::CGame_COTA_A: Loading ROM\n");
     OutputDebugString(strMessage);
+
+    InitializeStatics();
 
     m_nTotalInternalUnits = COTA_A_NUMUNIT;
     m_nExtraUnit = COTA_A_EXTRALOC;
@@ -65,6 +78,7 @@ CGame_COTA_A::CGame_COTA_A()
 
 CGame_COTA_A::~CGame_COTA_A(void)
 {
+    safe_delete_array(CGame_COTA_A::COTA_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
@@ -72,8 +86,6 @@ CGame_COTA_A::~CGame_COTA_A(void)
 
 int CGame_COTA_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    static int rgExtraCountAll[COTA_A_NUMUNIT + 1] = { -1 };
-
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
@@ -98,8 +110,6 @@ int CGame_COTA_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_COTA_A::GetExtraLoc(UINT16 nUnitId)
 {
-    static int rgExtraLoc[COTA_A_NUMUNIT + 1] = { -1 };
-
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
@@ -129,7 +139,7 @@ CDescTree* CGame_COTA_A::GetMainTree()
     return &CGame_COTA_A::MainDescTree;
 }
 
-CDescTree CGame_COTA_A::InitDescTree()
+sDescTreeNode* CGame_COTA_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 

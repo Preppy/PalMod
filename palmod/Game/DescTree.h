@@ -34,7 +34,6 @@ public:
     CDescTree(sDescTreeNode* InputTree = NULL);
     ~CDescTree(void);
 
-    sDescTreeNode* GetRootTree() { return RootTree; };
     void SetRootTree(sDescTreeNode* NewTree);
     void DumpTree(const sDescTreeNode* pTreeOfInterest);
     void FlushTree(sDescTreeNode* CurrTree);

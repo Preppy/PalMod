@@ -21,11 +21,17 @@ private:
     static int m_nMSHSelectedRom;
     static UINT32 m_nTotalPaletteCountForMSH_05;
     static UINT32 m_nTotalPaletteCountForMSH_06;
-    static bool UsePaletteSetForCharacters() { return (m_nMSHSelectedRom == 5); }
     static UINT32 m_nTotalPaletteCountForMSH;
+    static bool UsePaletteSetForCharacters() { return (m_nMSHSelectedRom == 5); }
+
+    static int rgExtraCountAll_05[MSH_A_NUMUNIT_05 + 1];
+    static int rgExtraCountAll_06[MSH_A_NUMUNIT_06 + 1];
+    static int rgExtraLoc_05[MSH_A_NUMUNIT_05 + 1];
+    static int rgExtraLoc_06[MSH_A_NUMUNIT_06 + 1];
 
     void InitDataBuffer();
     void ClearDataBuffer();
+    static void InitializeStatics();
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -44,7 +50,7 @@ public:
     static CDescTree MainDescTree_05;
     static CDescTree MainDescTree_06;
 
-    static CDescTree InitDescTree(int nROMPaletteSetToUse);
+    static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
     static sFileRule GetRule(UINT16 nUnitId);
 
     //Extra palette function
