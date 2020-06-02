@@ -497,7 +497,7 @@ CDescTree CGame_MVC2_A::InitDescTree()
 
                     snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
-                    ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
+                    ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
@@ -839,7 +839,7 @@ BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
             if (nUnitCtr == indexMVC2ATeamView)
             {
                 // This is a virtual group.
-                // We just need to be indexed in the rgUnitRedit
+                // We just need to be indexed in the rgUnitRedir
                 ZeroMemory(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize);
                 continue;
             }
@@ -970,7 +970,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-     if (NodeGet->uUnitId != MVC2_A_EXTRALOC)
+    if (NodeGet->uUnitId != MVC2_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
