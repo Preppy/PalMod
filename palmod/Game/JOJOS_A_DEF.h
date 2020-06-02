@@ -2665,97 +2665,77 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MARIAH_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_A[] =
 {
-    { "Hol & Boingo A", 0x0348380, 0x0348400 },
-    { "Child Hol & Boingo A", 0x0348c00, 0x0348c80 },
+    { "Hol & Boingo A", 0x0348380, 0x0348400, indexJojos51HolBoingo },
+    { "Child Hol & Boingo A", 0x0348c00, 0x0348c80, indexJojos51HolBoingo, 1 },
     { "Hol & Boingo Super Bullets A", 0x0348cd6, 0x0348ce0 },
-    { "Hol & Boingo Vs / Super A", 0x0414500, 0x0414580 },
-    { "Hol & Boingo Challenger A", 0x0414580, 0x0414600 },
-#ifndef USE_LARGE_PALETTES
-    { "Hol & Boingo Select / Winning A (1/2)", 0x0414600, 0x0414680 },
-    { "Hol & Boingo Select / Winning A (2/2)", 0x0414680, 0x0414700 },
-#else
-    { "Hol & Boingo Select / Winning A", 0x0414600, 0x0414700 },
-#endif
-    { "Hol & Boingo Burning A (1/2)", 0x0348400, 0x0348480 },
-    { "Hol & Boingo Burning A (2/2)", 0x0348480, 0x0348500 },
-    { "Hol & Boingo Tech/Zap A (1/2)", 0x0348700, 0x0348780 },
-    { "Hol & Boingo Tech/Zap A (2/2)", 0x0348780, 0x0348800 },
+    { "Hol & Boingo Vs / Super A", 0x0414500, 0x0414580, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
+    { "Hol & Boingo Challenger A", 0x0414580, 0x0414600, indexJojos51HolBoingo, indexJojos51Character_Challenger },
+    { "Hol & Boingo Select / Winning A (1/2)", 0x0414600, 0x0414680, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "Hol & Boingo Select / Winning A (2/2)", 0x0414680, 0x0414700, indexJojos51HolBoingo, indexJojos51Character_SelectWin2, &pairHandledInCode },
+    { "Hol & Boingo Burning A (1/2)", 0x0348400, 0x0348480, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Burning A (2/2)", 0x0348480, 0x0348500, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Tech/Zap A (1/2)", 0x0348700, 0x0348780, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Tech/Zap A (2/2)", 0x0348780, 0x0348800, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_B[] =
 {
-    { "Hol & Boingo B", 0x035c880, 0x035c900 },
-    { "Child Hol & Boingo B", 0x035d100, 0x035d180 },
+    { "Hol & Boingo B", 0x035c880, 0x035c900, indexJojos51HolBoingo },
+    { "Child Hol & Boingo B", 0x035d100, 0x035d180, indexJojos51HolBoingo, 1 },
     { "Hol & Boingo Super Bullets B", 0x035d1d6, 0x035d1e0 },
-    { "Hol & Boingo Vs / Super B", 0x0419300, 0x0419380 },
-    { "Hol & Boingo Challenger B", 0x0419380, 0x0419400 },
-#ifndef USE_LARGE_PALETTES
-    { "Hol & Boingo Select / Winning B (1/2)", 0x0419400, 0x0419480 },
-    { "Hol & Boingo Select / Winning B (2/2)", 0x0419480, 0x0419500 },
-#else
-    { "Hol & Boingo Select / Winning B", 0x0419400, 0x0419500 },
-#endif
-    { "Hol & Boingo Burning B (1/2)", 0x035c900, 0x035c980 },
-    { "Hol & Boingo Burning B (2/2)", 0x035c980, 0x035ca00 },
-    { "Hol & Boingo Tech/Zap B (1/2)", 0x035cc00, 0x035cc80 },
-    { "Hol & Boingo Tech/Zap B (2/2)", 0x035cc80, 0x035cd00 },
+    { "Hol & Boingo Vs / Super B", 0x0419300, 0x0419380, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
+    { "Hol & Boingo Challenger B", 0x0419380, 0x0419400, indexJojos51HolBoingo, indexJojos51Character_Challenger },
+    { "Hol & Boingo Select / Winning B (1/2)", 0x0419400, 0x0419480, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "Hol & Boingo Select / Winning B (2/2)", 0x0419480, 0x0419500, indexJojos51HolBoingo, indexJojos51Character_SelectWin2, &pairHandledInCode },
+    { "Hol & Boingo Burning B (1/2)", 0x035c900, 0x035c980, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Burning B (2/2)", 0x035c980, 0x035ca00, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Tech/Zap B (1/2)", 0x035cc00, 0x035cc80, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Tech/Zap B (2/2)", 0x035cc80, 0x035cd00, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_C[] =
 {
-    { "Hol & Boingo C", 0x0370d80, 0x0370e00 },
-    { "Child Hol & Boingo C", 0x0371600, 0x0371680 },
+    { "Hol & Boingo C", 0x0370d80, 0x0370e00, indexJojos51HolBoingo },
+    { "Child Hol & Boingo C", 0x0371600, 0x0371680, indexJojos51HolBoingo, 1 },
     { "Hol & Boingo Super Bullets C", 0x03716d6, 0x03716e0 },
-    { "Hol & Boingo Vs / Super C", 0x041e100, 0x041e180 },
-    { "Hol & Boingo Challenger C", 0x041e180, 0x041e200 },
-#ifndef USE_LARGE_PALETTES
-    { "Hol & Boingo Select / Winning C (1/2)", 0x041e200, 0x041e280 },
-    { "Hol & Boingo Select / Winning C (2/2)", 0x041e280, 0x041e300 },
-#else
-    { "Hol & Boingo Select / Winning C", 0x041e200, 0x041e300 },
-#endif
-    { "Hol & Boingo Burning C (1/2)", 0x0370e00, 0x0370e80 },
-    { "Hol & Boingo Burning C (2/2)", 0x0370e80, 0x0370f00 },
-    { "Hol & Boingo Tech/Zap C (1/2)", 0x0371100, 0x0371180 },
-    { "Hol & Boingo Tech/Zap C (2/2)", 0x0371180, 0x0371200 },
+    { "Hol & Boingo Vs / Super C", 0x041e100, 0x041e180, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
+    { "Hol & Boingo Challenger C", 0x041e180, 0x041e200, indexJojos51HolBoingo, indexJojos51Character_Challenger },
+    { "Hol & Boingo Select / Winning C (1/2)", 0x041e200, 0x041e280, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "Hol & Boingo Select / Winning C (2/2)", 0x041e280, 0x041e300, indexJojos51HolBoingo, indexJojos51Character_SelectWin2, &pairHandledInCode },
+    { "Hol & Boingo Burning C (1/2)", 0x0370e00, 0x0370e80, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Burning C (2/2)", 0x0370e80, 0x0370f00, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Tech/Zap C (1/2)", 0x0371100, 0x0371180, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Tech/Zap C (2/2)", 0x0371180, 0x0371200, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_S[] =
 {
-    { "Hol & Boingo S", 0x0385280, 0x0385300 },
-    { "Child Hol & Boingo S", 0x0385b00, 0x0385b80 },
+    { "Hol & Boingo S", 0x0385280, 0x0385300, indexJojos51HolBoingo },
+    { "Child Hol & Boingo S", 0x0385b00, 0x0385b80, indexJojos51HolBoingo, 1 },
     { "Hol & Boingo Super Bullets S", 0x0385bd6, 0x0385be0 },
-    { "Hol & Boingo Vs / Super S", 0x0422f00, 0x0422f80 },
-    { "Hol & Boingo Challenger S", 0x0422f80, 0x0423000 },
-#ifndef USE_LARGE_PALETTES
-    { "Hol & Boingo Select / Winning S (1/2)", 0x0423000, 0x0423080 },
-    { "Hol & Boingo Select / Winning S (2/2)", 0x0423080, 0x0423100 },
-#else
-    { "Hol & Boingo Select / Winning S", 0x0423000, 0x0423100 },
-#endif
-    { "Hol & Boingo Burning S (1/2)", 0x0385300, 0x0385380 },
-    { "Hol & Boingo Burning S (2/2)", 0x0385380, 0x0385400 },
-    { "Hol & Boingo Tech/Zap S (1/2)", 0x0385600, 0x0385680 },
-    { "Hol & Boingo Tech/Zap S (2/2)", 0x0385680, 0x0385700 },
+    { "Hol & Boingo Vs / Super S", 0x0422f00, 0x0422f80, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
+    { "Hol & Boingo Challenger S", 0x0422f80, 0x0423000, indexJojos51HolBoingo, indexJojos51Character_Challenger },
+    { "Hol & Boingo Select / Winning S (1/2)", 0x0423000, 0x0423080, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "Hol & Boingo Select / Winning S (2/2)", 0x0423080, 0x0423100, indexJojos51HolBoingo, indexJojos51Character_SelectWin2, &pairHandledInCode },
+    { "Hol & Boingo Burning S (1/2)", 0x0385300, 0x0385380, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Burning S (2/2)", 0x0385380, 0x0385400, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Tech/Zap S (1/2)", 0x0385600, 0x0385680, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Tech/Zap S (2/2)", 0x0385680, 0x0385700, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HOLBOINGO_Start[] =
 {
-    { "Hol & Boingo Start", 0x0399780, 0x0399800 },
-    { "Child Hol & Boingo Start", 0x039a000, 0x039a080 },
+    { "Hol & Boingo Start", 0x0399780, 0x0399800, indexJojos51HolBoingo },
+    { "Child Hol & Boingo Start", 0x039a000, 0x039a080, indexJojos51HolBoingo, 1 },
     { "Hol & Boingo Super Bullets Start", 0x039a0d6, 0x039a0e0 },
-    { "Hol & Boingo Vs / Super Start", 0x0427d00, 0x0427d80 },
-    { "Hol & Boingo Challenger Start", 0x0427d80, 0x0427e00 },
-#ifndef USE_LARGE_PALETTES
-    { "Hol & Boingo Select / Winning Start (1/2)", 0x0427e00, 0x0427e80 },
-    { "Hol & Boingo Select / Winning Start (2/2)", 0x0427e80, 0x0427f00 },
-#else
-    { "Hol & Boingo Select / Winning Start", 0x0427e00, 0x0427f00 },
-#endif
-    { "Hol & Boingo Burning Start (1/2)", 0x0399800, 0x0399880 },
-    { "Hol & Boingo Burning Start (2/2)", 0x0399880, 0x0399900 },
-    { "Hol & Boingo Tech/Zap Start (1/2)", 0x0399b00, 0x0399b80 },
-    { "Hol & Boingo Tech/Zap Start (2/2)", 0x0399b80, 0x0399c00 },
+    { "Hol & Boingo Vs / Super Start", 0x0427d00, 0x0427d80, indexJojos51HolBoingo, indexJojos51Character_VsSuper },
+    { "Hol & Boingo Challenger Start", 0x0427d80, 0x0427e00, indexJojos51HolBoingo, indexJojos51Character_Challenger },
+    { "Hol & Boingo Select / Winning Start (1/2)", 0x0427e00, 0x0427e80, indexJojos51HolBoingo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "Hol & Boingo Select / Winning Start (2/2)", 0x0427e80, 0x0427f00, indexJojos51HolBoingo, indexJojos51Character_SelectWin2, &pairHandledInCode },
+    { "Hol & Boingo Burning Start (1/2)", 0x0399800, 0x0399880, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Burning Start (2/2)", 0x0399880, 0x0399900, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Tech/Zap Start (1/2)", 0x0399b00, 0x0399b80, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
+    { "Hol & Boingo Tech/Zap Start (2/2)", 0x0399b80, 0x0399c00, indexJojos51HolBoingo, indexJojos51Character_BurnZap },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_RSOUL_A[] =

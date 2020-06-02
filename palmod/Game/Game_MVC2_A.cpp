@@ -26,7 +26,7 @@ CGame_MVC2_A::CGame_MVC2_A()
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
     m_nExtraUnit = MVC2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6290;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 6362;
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -836,9 +836,19 @@ BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
             pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
-            LoadedFile->Seek(nCurrPalOffs, CFile::begin);
+            if (nUnitCtr == indexMVC2ATeamView)
+            {
+                // This is a virtual group.
+                // We just need to be indexed in the rgUnitRedit
+                ZeroMemory(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize);
+                continue;
+            }
+            else
+            {
+                LoadedFile->Seek(nCurrPalOffs, CFile::begin);
 
-            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            }
         }
     }
 
@@ -856,6 +866,12 @@ BOOL CGame_MVC2_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
+        if (nUnitCtr == indexMVC2ATeamView)
+        {
+            // This is a virtual group.
+            continue;
+        }
+
         UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -970,9 +986,102 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((_stricmp(pCurrentNode->szDesc, "LP") == 0) || (_stricmp(pCurrentNode->szDesc, "LK") == 0) ||
-                    (_stricmp(pCurrentNode->szDesc, "HP") == 0) || (_stricmp(pCurrentNode->szDesc, "HK") == 0) ||
-                    (_stricmp(pCurrentNode->szDesc, "A1") == 0) || (_stricmp(pCurrentNode->szDesc, "A2") == 0))
+                if (NodeGet->uUnitId == indexMVC2ATeamView)
+                {
+                    UINT16 nJoinedUnit1 = indexMVC2AMagneto;
+                    UINT16 nJoinedUnit2 = indexMVC2AStorm;
+                    UINT16 nJoinedUnit3 = indexMVC2APsylocke;
+                    bool fTeamFound = false;
+
+                    for (UINT16 nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
+                    {
+                        if (_stricmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
+                        {
+                            nJoinedUnit1 = mvc2TeamList[nTeamIndex].nCharacterOne;
+                            nJoinedUnit2 = mvc2TeamList[nTeamIndex].nCharacterTwo;
+                            nJoinedUnit3 = mvc2TeamList[nTeamIndex].nCharacterThree;
+                            fTeamFound = true;
+                            break;
+                        }
+                    }
+
+                    if (!fTeamFound)
+                    {
+                        OutputDebugString("WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\n");
+                    }
+
+                    // Fudge some visual offsets here so fatter sprites don't collide.
+                    int nXOffsetForSecond = 100;
+                    int nYOffsetForSecond = 0;
+                    int nXOffsetForThird = nXOffsetForSecond + 100;
+                    int nYOffsetForThird = 0;
+
+                    if (nJoinedUnit2 == indexMVC2ASentinel)
+                    {
+                        nXOffsetForSecond += 40;
+                        nXOffsetForThird += 40;
+                    }
+                    else if (nJoinedUnit2 == indexMVC2AStrider)
+                    {
+                        nXOffsetForSecond += 280;
+                        nXOffsetForThird += 280;
+                    }
+                    else if (nJoinedUnit2 == indexMVC2ADrDoom)
+                    {
+                        nXOffsetForSecond += 80;
+                        nXOffsetForThird += 80;
+                    }
+
+                    if (nJoinedUnit3 == indexMVC2ASentinel)
+                    {
+                        nXOffsetForThird += 40;
+                    }
+                    else if (nJoinedUnit3 == indexMVC2ACaptainCommando)
+                    {
+                        nXOffsetForThird += 150;
+                    }
+                    else if (nJoinedUnit3 == indexMVC2AAkuma)
+                    {
+                        nXOffsetForThird += 180;
+                    }
+
+                    UINT16 nNodeIndex = (NodeGet->uPalId % 6);
+                    UINT16 nPaletteIndex = nNodeIndex * 8;
+                    const sGame_PaletteDataset* palette1ToJoin = GetSpecificPalette(nJoinedUnit1, nPaletteIndex);
+                    const sGame_PaletteDataset* palette2ToJoin = GetSpecificPalette(nJoinedUnit2, nPaletteIndex);
+                    const sGame_PaletteDataset* palette3ToJoin = GetSpecificPalette(nJoinedUnit3, nPaletteIndex);
+
+                    fShouldUseAlternateLoadLogic = true;
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(palette1ToJoin->indexImgToUse, palette1ToJoin->indexOffsetToUse,
+                            CreateImgTicket(palette2ToJoin->indexImgToUse, palette2ToJoin->indexOffsetToUse, 
+                                CreateImgTicket(palette3ToJoin->indexImgToUse, palette3ToJoin->indexOffsetToUse, nullptr, nXOffsetForThird, nYOffsetForThird),
+                                nXOffsetForSecond, nYOffsetForSecond)
+                        )
+                    );
+
+                    //Set each palette
+                    sDescNode* JoinedNode[3] = {
+                        MainDescTree.GetDescNode(nJoinedUnit1, nNodeIndex, 0, -1),
+                        MainDescTree.GetDescNode(nJoinedUnit2, nNodeIndex, 0, -1),
+                        MainDescTree.GetDescNode(nJoinedUnit3, nNodeIndex, 0, -1)
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+                    CreateDefPal(JoinedNode[2], 2);
+
+                    nSrcAmt = 6;
+                    nNodeIncrement = 8;
+                    SetSourcePal(0, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(2, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);
+                }
+                else  if ((_stricmp(pCurrentNode->szDesc, "LP") == 0) || (_stricmp(pCurrentNode->szDesc, "LK") == 0) ||
+                          (_stricmp(pCurrentNode->szDesc, "HP") == 0) || (_stricmp(pCurrentNode->szDesc, "HK") == 0) ||
+                          (_stricmp(pCurrentNode->szDesc, "A1") == 0) || (_stricmp(pCurrentNode->szDesc, "A2") == 0))
                 {
                     // We show 6 sprites (LP...A2) for export for all normal MVC2 sprites
                     nSrcAmt = m_nNumberOfColorOptions;

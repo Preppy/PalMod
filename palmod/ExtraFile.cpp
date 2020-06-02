@@ -338,6 +338,12 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
             UINT32 nCurrentROMOffset = m_nCurrentPaletteROMLocation;
 
+            if (nCurrentROMOffset == INVALID_UNIT_VALUE)
+            {
+                // virtual palette: ignore
+                continue;
+            }
+
             m_nLowestRomLocationThisPass = min(m_nLowestRomLocationThisPass, m_nCurrentPaletteROMLocation);
 
             if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset))

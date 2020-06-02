@@ -971,6 +971,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                          (NodeGet->uUnitId == indexJojos51Anubis) ||
                          (NodeGet->uUnitId == indexJojos51Petshop) ||
                          (NodeGet->uUnitId == indexJojos51Midler) ||
+                         (NodeGet->uUnitId == indexJojos51HolBoingo) ||
                          (NodeGet->uUnitId == indexJojos51Iggy)))
                     {
                         if (nTargetImgId == indexJojos51Character_SelectWin1) // winning 1

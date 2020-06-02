@@ -2561,7 +2561,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_JUGGERNAUT[] =
     { 0x29 + 4, "HK - Power-Up Frames 5", 11 },
     { 0x29 + 5, "HK - Power-Up Frames 6", 11 },
     { 0x29 + 6, "HK - Power-Up Frames 7", 11 },
-    { 0x29 + 7, "HK - Power-Up Frames 8", 11 },
+    { 0x29 + 7, "HK - Power-Up Frames 8", 11 },  // This looks like  LK
     { 0x31, "A1 - Juggernaut Headcrush Frame 1", 0 },
     { 0x32, "A1 - Juggernaut Headcrush Frame 2", 0 },
     { 0x33, "A1 - Power-Up Frames 1", 11 },

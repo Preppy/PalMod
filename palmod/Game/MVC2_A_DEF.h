@@ -67,6 +67,7 @@ enum SupportedMVC2_A_PaletteListIndex
     indexMVC2ACaptainCommando,
     indexMVC2ABonerine,
     indexMVC2AServbot,
+    indexMVC2ATeamView,
     indexMVC2ALast
 };
 
@@ -8850,6 +8851,61 @@ const sDescTreeNode MVC2_A_KOBUN_COLLECTION[] =
     { "Extras", DESC_NODETYPE_TREE, (void*)MVC2_A_KOBUN_PALETTES_EXTRAS, ARRAYSIZE(MVC2_A_KOBUN_PALETTES_EXTRAS) },
 };
 
+const sGame_PaletteDataset MVC2_A_GENERICSET_PALETTES[] =
+{
+    { "LP", INVALID_UNIT_VALUE, INVALID_UNIT_VALUE },
+    { "LK", INVALID_UNIT_VALUE, INVALID_UNIT_VALUE },
+    { "HP", INVALID_UNIT_VALUE, INVALID_UNIT_VALUE },
+    { "HK", INVALID_UNIT_VALUE, INVALID_UNIT_VALUE },
+    { "A1", INVALID_UNIT_VALUE, INVALID_UNIT_VALUE },
+    { "A2", INVALID_UNIT_VALUE, INVALID_UNIT_VALUE },
+};
+
+struct MVC2_TEAM_GROUPING
+{
+    LPCSTR pszTeamName = nullptr;
+    UINT16 nCharacterOne = indexMVC2ARyu;
+    UINT16 nCharacterTwo = indexMVC2ARyu;
+    UINT16 nCharacterThree = indexMVC2ARyu;
+};
+
+const MVC2_TEAM_GROUPING mvc2TeamList[] =
+{
+    { "MSP", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2APsylocke },
+    { "MSS", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2ASentinel },
+    { "Santhrax", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACaptainCommando },
+    { "Scrub", indexMVC2ACable, indexMVC2ASentinel, indexMVC2ACaptainCommando },
+    { "SSCable", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACable },
+    { "Rowtron", indexMVC2AMagneto, indexMVC2ACable, indexMVC2ASentinel },
+    { "Matrix", indexMVC2AStorm, indexMVC2ASentinel, indexMVC2ACyclops },
+    { "Duc", indexMVC2ASpiral, indexMVC2ACable, indexMVC2ASentinel },
+    { "Clockw0rk", indexMVC2ASentinel, indexMVC2AStrider, indexMVC2ADrDoom },
+    { "Combofiend", indexMVC2AMagneto, indexMVC2AIronMan, indexMVC2ASentinel },
+    
+    { "VDO", indexMVC2ARogue, indexMVC2AColossus, indexMVC2AKen },
+//    { "MikeZ", indexMVC2AJuggernaut, indexMVC2ADrDoom, indexMVC2ATron },
+    { "Shoto", indexMVC2ARyu, indexMVC2AKen, indexMVC2AAkuma},
+};
+
+const sDescTreeNode MVC2_A_TEAMVIEW_COLLECTION[ARRAYSIZE(mvc2TeamList)] =
+{
+    { "MSP", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { "MSS", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { "Santhrax", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { "Scrub", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { "SSCable", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { "Rowtron", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { "Matrix", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { "Duc", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { "Clockw0rk", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { "Combofiend", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+
+    { "VDO", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    // The problem with Tron is that she's already a joined palette...
+//    { "MikeZ", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+    { "Shoto", DESC_NODETYPE_TREE, (void*)MVC2_A_GENERICSET_PALETTES, ARRAYSIZE(MVC2_A_GENERICSET_PALETTES) },
+};
+
 const UINT8 MVC2_A_UNITSORT[MVC2_A_NUMUNIT + 1] // Plus for extras
 {
    indexMVC2AAkuma,
@@ -8911,6 +8967,7 @@ const UINT8 MVC2_A_UNITSORT[MVC2_A_NUMUNIT + 1] // Plus for extras
    indexMVC2AAbyss1,
    indexMVC2AAbyss2,
    indexMVC2AAbyss3,
+   indexMVC2ATeamView,
 };
 
 const sDescTreeNode MVC2_A_UNITS[MVC2_A_NUMUNIT] =
@@ -8974,6 +9031,7 @@ const sDescTreeNode MVC2_A_UNITS[MVC2_A_NUMUNIT] =
     { "Captain Commando",   DESC_NODETYPE_TREE, (void*)MVC2_A_CAPTAINCOMMANDO_COLLECTION,   ARRAYSIZE(MVC2_A_CAPTAINCOMMANDO_COLLECTION) },
     { "Bonerine",           DESC_NODETYPE_TREE, (void*)MVC2_A_BONERINE_COLLECTION,          ARRAYSIZE(MVC2_A_BONERINE_COLLECTION) },
     { "Kobun",              DESC_NODETYPE_TREE, (void*)MVC2_A_KOBUN_COLLECTION,             ARRAYSIZE(MVC2_A_KOBUN_COLLECTION) },
+    { "Team Views",         DESC_NODETYPE_TREE, (void*)MVC2_A_TEAMVIEW_COLLECTION,          ARRAYSIZE(MVC2_A_TEAMVIEW_COLLECTION) },
 };
 
 // We extend this array with data groveled from the MVC2e.txt extensible extras file, if any.
