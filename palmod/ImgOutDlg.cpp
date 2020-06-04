@@ -79,6 +79,9 @@ BOOL CImgOutDlg::OnInitDialog()
     case 2: // MSH, XMvSF
         m_CB_Amt.AddString("2");
         break;
+    case 4: // Garou
+        m_CB_Amt.AddString("4");
+        break;
     case 5: // Jojos
         m_CB_Amt.AddString("5");
         break;

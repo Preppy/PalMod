@@ -311,50 +311,122 @@ UINT16 CGameClass::CONV_32_15ALT(UINT32 inCol)
     return auxb | auxg | auxr;
 }
 
-UINT32 CGameClass::CONV_NEOGEO_32(UINT16 inCol)
+UINT8 NGColorVals[] = {
+//--Dark,Bright
+    0x00,0x00,    //--00
+    0x08,0x08,    //--01
+    0x0e,0x0e,    //--02
+    0x15,0x16,    //--03
+    0x1e,0x1e,    //--04
+    0x26,0x26,    //--05
+    0x2c,0x2c,    //--06
+    0x33,0x34,    //--07
+    0x40,0x41,    //--08
+    0x47,0x49,    //--09
+    0x4d,0x4f,    //--0a
+    0x55,0x56,    //--0b
+    0x5e,0x5f,    //--0c
+    0x65,0x67,    //--0d
+    0x6b,0x6d,    //--0e
+    0x73,0x75,    //--0f
+    0x88,0x8a,    //--10
+    0x90,0x92,    //--11
+    0x96,0x98,    //--12
+    0x9e,0xa0,    //--13
+    0xa6,0xa9,    //--14
+    0xae,0xb0,    //--15
+    0xb4,0xb6,    //--16
+    0xbc,0xbe,    //--17
+    0xc8,0xcb,    //--18
+    0xd0,0xd3,    //--19
+    0xd6,0xd9,    //--1a
+    0xdd,0xe1,    //--1b
+    0xe6,0xe9,    //--1c
+    0xee,0xf1,    //--1d
+    0xf4,0xf7,    //--1e
+    0xfb,0xff     //--1f
+};
+
+bool IsNEOGEOColorDark(UINT8 redIndex, UINT8 greenIndex, UINT8 blueIndex)
 {
-    OutputDebugString("NEOGEO color handling needs to be fixed.\n");
-    UINT32 auxr = 0, auxg = 0, auxb = 0;
+    bool isRedEven = (redIndex / 2) == 0;
+    bool isGreenEven = (greenIndex / 2) == 0;
+    bool isBlueEven = (blueIndex / 2) == 0;
 
-    UINT16 swapped = inCol;//SWAP_16(inCol);
+    if (isRedEven && isGreenEven && isBlueEven)
+    {
+        // the color tables are sometimes duplicated between dark/bright: default to presuming bright
+        isRedEven = (NGColorVals[redIndex] != NGColorVals[redIndex + 1]);
+        isGreenEven = (NGColorVals[greenIndex] != NGColorVals[greenIndex + 1]);
+        isBlueEven = (NGColorVals[blueIndex] != NGColorVals[blueIndex + 1]);
+    }
 
-    auxr = (swapped & 0x7C00) >> 10;
-    auxg = (swapped & 0x3E0) >> 5;
-    auxb = (swapped & 0x1F);
+    return isRedEven && isGreenEven && isBlueEven;
+}
 
-    auxr = auxr << (3);
-    auxg = auxg << (3);
-    auxb = auxb << (3);
+UINT8 Convert32ToNEOGEO(UINT8 nColor)
+{
+    UINT8 nColorIndex = 0;
 
-    auxr += auxr / 32;
-    auxg += auxg / 32;
-    auxb += auxb / 32;
+    for (; nColorIndex < ARRAYSIZE(NGColorVals); nColorIndex++)
+    {
+        if (NGColorVals[nColorIndex] >= nColor)
+        {
+            break;
+        }
+    }
 
-    //auxr = auxr;
-    auxg = auxg << 8;
-    auxb = auxb << 16;
+    return nColorIndex;
+}
 
-    return (auxb | auxg | auxr | 0xFF000000);
+UINT32 CGameClass::CONV_NEOGEO_32(UINT16 nColorData)
+{
+    UINT8 dk =  (nColorData >> 0xf) & 0x01;
+    UINT8 r1 = ((nColorData >> 0xe) & 0x01) * 2;
+    UINT8 g1 = ((nColorData >> 0xd) & 0x01) * 2;
+    UINT8 b1 = ((nColorData >> 0xc) & 0x01) * 2;
+    UINT8 rm = ((nColorData >> 0x8) & 0x0f) * 4;
+    UINT8 gm = ((nColorData >> 0x4) & 0x0f) * 4;
+    UINT8 bm = ((nColorData >> 0x0) & 0x0f) * 4;
+
+    UINT8 blue =  NGColorVals[((r1 + rm) - dk) + 1];
+    UINT8 green = NGColorVals[((g1 + gm) - dk) + 1];
+    UINT8 red =   NGColorVals[((b1 + bm) - dk) + 1];
+
+    UINT32 color = (red * 0x10000) + (green * 0x100) + (blue)+0xff000000;
+
+    CString strColor;
+    strColor.Format("ROM : neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n", nColorData, color, red, green, blue);
+    OutputDebugString(strColor);
+
+    return color;
 }
 
 UINT16 CGameClass::CONV_32_NEOGEO(UINT32 inCol)
 {
-    OutputDebugString("NEOGEO color handling needs to be fixed.\n");
-    UINT16 auxr = 0, auxg = 0, auxb = 0;
+    UINT8 auxb = ((inCol & 0x00FF0000) >> 16);
+    UINT8 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT8 auxr = ((inCol & 0x000000FF));
 
-    auxb = (inCol & 0x00FF0000) >> (16);
-    auxg = (inCol & 0x0000FF00) >> (8);
-    auxr = (inCol & 0x000000FF);
+    UINT8 red =   Convert32ToNEOGEO(auxr);
+    UINT8 green = Convert32ToNEOGEO(auxg);
+    UINT8 blue =  Convert32ToNEOGEO(auxb);
 
-    auxb /= 8;
-    auxg /= 8;
-    auxr /= 8;
+    UINT16 darkbit = (IsNEOGEOColorDark(red, green, blue) ? 0x1 : 0x0) << 0xf;
 
-    auxr = auxr << (10);
-    auxg = auxg << (5);
-    //auxb = auxb;
+    UINT16 red1 =      ((red / 2) & 0x1) << 0xe;
+    UINT16 redMain =   ((red / 4) & 0xf) << 0x8;
+    UINT16 green1 =    ((green / 2) & 0x1) << 0xd;
+    UINT16 greenMain = ((green / 4) & 0xf) << 0x4;
+    UINT16 blue1 =     ((blue / 2) & 0x1) << 0xc;
+    UINT16 blueMain =  ((blue / 4) & 0xf) << 0x0;
 
-    return auxb | auxg | auxr;
+    UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
+    CString strColor;
+    strColor.Format("BACK: neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n", outColor, inCol, red, green, blue);
+    OutputDebugString(strColor);
+
+    return outColor;
 }
 
 UINT16 CGameClass::SWAP_16(UINT16 palv)

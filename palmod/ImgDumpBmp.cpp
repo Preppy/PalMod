@@ -672,6 +672,7 @@ int CImgDumpBmp::GetOutputW()
         w_mul = 1;
         break;
     case 2:
+    case 4: // Garou
         w_mul = 2;
         break;
     case 5:

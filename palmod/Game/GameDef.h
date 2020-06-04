@@ -83,10 +83,15 @@ enum eDispType
 
 // In the new world order, these could be the node labels, but we want the short names here
 // since they fit into the imgdump UI better.
-// If you add button labels, be sure to update imgoutdlg and imgdumpbmp as well.
+// If you add button labels, be sure to update CImgOutDlg::OnInitDialog and CImgDumpBmp::GetOutputW as well.
 const CHAR DEF_BUTTONLABEL_2[2][16] =
 {
     "P1", "P2"
+};
+
+const CHAR DEF_BUTTONLABEL_NEOGEO[][16] =
+{
+    "A", "B", "C", "D"
 };
 
 const CHAR DEF_BUTTONLABEL_JOJOS_5[5][16] =

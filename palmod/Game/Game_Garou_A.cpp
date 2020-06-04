@@ -49,7 +49,7 @@ CGame_Garou_A::CGame_Garou_A()
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_12A);
+    SetColMode(COLMODE_NEOGEO);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(PALTYPE_17);
@@ -66,8 +66,8 @@ CGame_Garou_A::CGame_Garou_A()
     DisplayType = DISP_DEF;
     // The MOTW options are A B C D
     // so do thateventually
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_NOBUTTONS);
-    m_nNumberOfColorOptions = 1;
+    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_NEOGEO);
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -711,62 +711,6 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-UINT8 GetNGColorVals(UINT8 nValueIn)
-{
-    if (nValueIn <= 0x00) { return 0x00; }
-    else if (nValueIn <= 0x08) { return 0x01; }
-    else if (nValueIn <= 0x0e) { return 0x02; }
-    else if (nValueIn <= 0x16) { return 0x03; }
-    else if (nValueIn <= 0x1e) { return 0x04; }
-    else if (nValueIn <= 0x26) { return 0x05; }
-    else if (nValueIn <= 0x2c) { return 0x06; }
-    else if (nValueIn <= 0x34) { return 0x07; }
-    else if (nValueIn <= 0x41) { return 0x08; }
-    else if (nValueIn <= 0x49) { return 0x09; }
-    else if (nValueIn <= 0x4f) { return 0x0a; }
-    else if (nValueIn <= 0x56) { return 0x0b; }
-    else if (nValueIn <= 0x5f) { return 0x0c; }
-    else if (nValueIn <= 0x67) { return 0x0d; }
-    else if (nValueIn <= 0x6d) { return 0x0e; }
-    else if (nValueIn <= 0x75) { return 0x0f; }
-    else if (nValueIn <= 0x8a) { return 0x10; }
-    else if (nValueIn <= 0x92) { return 0x11; }
-    else if (nValueIn <= 0x98) { return 0x12; }
-    else if (nValueIn <= 0xa0) { return 0x13; }
-    else if (nValueIn <= 0xa9) { return 0x14; }
-    else if (nValueIn <= 0xb0) { return 0x15; }
-    else if (nValueIn <= 0xb6) { return 0x16; }
-    else if (nValueIn <= 0xbe) { return 0x17; }
-    else if (nValueIn <= 0xcb) { return 0x18; }
-    else if (nValueIn <= 0xd3) { return 0x19; }
-    else if (nValueIn <= 0xd9) { return 0x1a; }
-    else if (nValueIn <= 0xe1) { return 0x1b; }
-    else if (nValueIn <= 0xe9) { return 0x1c; }
-    else if (nValueIn <= 0xf1) { return 0x1d; }
-    else if (nValueIn <= 0xf7) { return 0x1e; }
-    else                       { return 0x1f; }
-}
-
-COLORREF neogeo(UINT32 nColorData)
-{
-    //local data = mem:read_u16(adr)
-    UINT8 dk = (nColorData >> 0xf) & 0x01;
-    UINT8 r1 = ((nColorData >> 0xe) & 0x01) * 2;
-    UINT8 g1 = ((nColorData >> 0xd) & 0x01) * 2;
-    UINT8 b1 = ((nColorData >> 0xc) & 0x01) * 2;
-    UINT8 rm = ((nColorData >> 0x8) & 0x0f) * 4;
-    UINT8 gm = ((nColorData >> 0x4) & 0x0f) * 4;
-    UINT8 bm = ((nColorData >> 0x0) & 0x0f) * 4;
-
-    UINT8 red = GetNGColorVals(((r1 + rm) - dk) + 1);
-    UINT8 green = GetNGColorVals(((g1 + gm) - dk) + 1);
-    UINT8 blue = GetNGColorVals(((b1 + bm) - dk) + 1);
-
-    COLORREF color = (red * 0x10000) + (green * 0x100) + (blue)+0xff000000;
-
-    return color;
-}
-
 COLORREF* CGame_Garou_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     // bugbugbugbug here we go
@@ -776,8 +720,7 @@ COLORREF* CGame_Garou_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (int i = 0; i < m_nCurrentPaletteSize - 1; i++)
     {
-        //NewPal[i + 1] = neogeo(pppDataBuffer[nUnitId][nPalId][i]);
-        NewPal[i + 1] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
+        NewPal[i + 1] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]);
     }
 
     NewPal[0] = 0xFF000000;
@@ -787,7 +730,6 @@ COLORREF* CGame_Garou_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_Garou_A::UpdatePalData()
 {
-    // bugbugbugbug here we go
     for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
@@ -814,8 +756,7 @@ void CGame_Garou_A::UpdatePalData()
                     }
 
                     UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    // NAOMI wants alpha set to 15
-                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = ((ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF)) | 0xF000;
+                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = ConvCol(crSrc[iCurrentArrayOffset]);
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;
