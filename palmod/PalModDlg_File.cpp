@@ -373,16 +373,19 @@ void CPalModDlg::OnFileOpen()
     // CGameLoad::LoadFile to pass the appropriate gameflag to that game.
     sSupportedGameList SupportedGameList[] =
     {
-        { SFIII3_A, "SFIII3 51 Rom|51|", INVALID_UNIT_VALUE },
-        { SSF2T_A, "SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|", INVALID_UNIT_VALUE },
-        { SFA3_A, "SFA3 sz3.09c|*.09c|", INVALID_UNIT_VALUE },
+        { COTA_A, "COTA xmn.05a|*.05a|", INVALID_UNIT_VALUE },
+#ifdef DEBUG
+        { Garou_A, "Garou|kf.neo-sma|", INVALID_UNIT_VALUE },
+#endif
+        { JOJOS_A, "Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|", INVALID_UNIT_VALUE },
         { MSH_A, "MSH: Characters (*.05), Portraits (*.06b)|*.05;*.06b|", INVALID_UNIT_VALUE },
         { MSHVSF_A, "MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", INVALID_UNIT_VALUE },
         { MVC_A, "MVC mvc.06|*.06|", INVALID_UNIT_VALUE },
         { MVC2_A, "MVC2 Arcade|*.dat;*.bin|", INVALID_UNIT_VALUE },
-        { COTA_A, "COTA xmn.05a|*.05a|", INVALID_UNIT_VALUE },
+        { SFIII3_A, "SFIII3 51 Rom|51|", INVALID_UNIT_VALUE },
+        { SSF2T_A, "SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|", INVALID_UNIT_VALUE },
+        { SFA3_A, "SFA3 sz3.09c|*.09c|", INVALID_UNIT_VALUE },
         { XMVSF_A, "XMVSF xvs.05a|*.05a|", INVALID_UNIT_VALUE },
-        { JOJOS_A, "Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|", INVALID_UNIT_VALUE },
     };
 
     // The following logic ensures that their last used selection is the default filter view.

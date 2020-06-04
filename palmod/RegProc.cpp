@@ -7,6 +7,7 @@ constexpr auto c_previewWndPos = "prev_wndpos";
 constexpr auto c_mainWndPos_8ColorsPerLine = "main_wndpos_02"; // changed default app size so incrementing this
 constexpr auto c_mainWndPos_16ColorsPerLine = "main_wndpos_02_16c";
 constexpr auto c_mainWndColorsPerLine = "main_wndColorsPerLine";
+constexpr auto c_mainWndMaxColorsPerPage = "extras_MaxColorsPerPage";
 
 extern int GetDpiForScreen();
 
@@ -34,6 +35,35 @@ void CRegProc::SetColorsPerLine(DWORD dwColors)
         RegSetValueEx(hKey, c_mainWndColorsPerLine, 0, REG_DWORD, (BYTE*)&dwColors, sizeof(DWORD));
         RegCloseKey(hKey);
     }
+}
+
+DWORD CRegProc::GetMaxColorsPerPageOverride()
+{
+    static DWORD s_dwMaxColorsPerPage = -1;
+
+    // Since this affects UI we should only update it once per instance
+    if (s_dwMaxColorsPerPage == -1)
+    {
+        HKEY hKey;
+
+        s_dwMaxColorsPerPage = 0;
+
+        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
+            == ERROR_SUCCESS)
+        {
+            DWORD RegType = REG_DWORD;
+            DWORD GetSz = sizeof(DWORD);
+
+            if (RegQueryValueEx(hKey, c_mainWndMaxColorsPerPage, 0, &RegType, (BYTE*)&s_dwMaxColorsPerPage, &GetSz) != ERROR_SUCCESS)
+            {
+                s_dwMaxColorsPerPage = 0;
+            }
+
+            RegCloseKey(hKey);
+        }
+    }
+
+    return s_dwMaxColorsPerPage;
 }
 
 DWORD CRegProc::GetColorsPerLine()

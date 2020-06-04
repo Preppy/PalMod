@@ -19,6 +19,7 @@ int CGame_SSF2T_A::rgExtraLoc_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
 int CGame_SSF2T_A::rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
 int CGame_SSF2T_A::rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
 int CGame_SSF2T_A::rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
+UINT32 CGame_SSF2T_A::m_nGameROMSize = 0x80000; // 524288 bytes
 
 void CGame_SSF2T_A::InitializeStatics()
 {
@@ -201,11 +202,11 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
 
     if (UsePaletteSetForPortraits())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_3C, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_3C, SSF2T_A_EXTRALOC_3C);
+        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_3C, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_3C, SSF2T_A_EXTRALOC_3C, m_nGameROMSize);
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_4A, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_4A, SSF2T_A_EXTRALOC_4A);
+        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_4A, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_4A, SSF2T_A_EXTRALOC_4A, m_nGameROMSize);
     }
 
     UINT16 nUnitCt = UsePaletteSetForPortraits() ? (SSF2T_A_NUM_IND_3C + (GetExtraCt(SSF2T_A_EXTRALOC_3C) ? 1 : 0)) :
@@ -412,7 +413,7 @@ sFileRule CGame_SSF2T_A::GetRule(UINT16 nUnitId)
     sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 3) ? "sfxe.03c" : "sfxe.04a");
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = 0x80000;
+    NewFileRule.uVerifyVar = m_nGameROMSize;
 
     return NewFileRule;
 }

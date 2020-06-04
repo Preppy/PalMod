@@ -41,6 +41,7 @@ private:
     void InitDataBuffer();
     void ClearDataBuffer();
     static void InitializeStatics();
+    static UINT32 m_nGameROMSize;
 
     static int rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1];
     static int rgExtraCountVisibleOnly_50[JOJOS_A_NUMUNIT_50 + 1];

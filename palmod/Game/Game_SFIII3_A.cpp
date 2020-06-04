@@ -10,6 +10,7 @@ int CGame_SFIII3_A::rgExtraCountAll[SFIII3_A_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1] = { -1 };
 
 CDescTree CGame_SFIII3_A::MainDescTree;
+UINT32 CGame_SFIII3_A::m_nGameROMSize = 0x800000; // 8,388,608 bytes
 
 void CGame_SFIII3_A::InitializeStatics()
 {
@@ -155,7 +156,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
 #ifdef SFIII3_A_USEEXTRAFILE
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SF3, SFIII3_A_EXTRA, &SFIII3_A_EXTRA_CUSTOM, SFIII3_A_EXTRALOC);
+    LoadExtraFileForGame(EXTRA_FILENAME_SF3, SFIII3_A_EXTRA, &SFIII3_A_EXTRA_CUSTOM, SFIII3_A_EXTRALOC, m_nGameROMSize);
         
 #endif
 
@@ -321,7 +322,7 @@ sFileRule CGame_SFIII3_A::GetRule(UINT16 nUnitId)
     sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "51");
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = 0x800000;
+    NewFileRule.uVerifyVar = m_nGameROMSize;
 
     return NewFileRule;
 }

@@ -20,6 +20,7 @@ private:
     void InitDataBuffer();
     void ClearDataBuffer();
     static void InitializeStatics();
+    static UINT32 m_nGameROMSize;
 
     static int rgExtraCountAll[XMVSF_A_NUMUNIT + 1];
     static int rgExtraLoc[XMVSF_A_NUMUNIT + 1];

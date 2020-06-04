@@ -20,6 +20,7 @@ int CGame_MSH_A::rgExtraLoc_06[MSH_A_NUMUNIT_06 + 1] = { -1 };
 int CGame_MSH_A::m_nMSHSelectedRom = 5;
 UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_05 = 0;
 UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_06 = 0;
+UINT32 CGame_MSH_A::m_nGameROMSize = 0x80000; // 524288 bytes
 
 void CGame_MSH_A::InitializeStatics()
 {
@@ -207,11 +208,11 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
     //Load extra file if we're using it
     if (UsePaletteSetForCharacters())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_MSH_05, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_05, MSH_A_EXTRALOC_05);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSH_05, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_05, MSH_A_EXTRALOC_05, m_nGameROMSize);
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_MSH_06, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_06, MSH_A_EXTRALOC_06);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSH_06, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_06, MSH_A_EXTRALOC_06, m_nGameROMSize);
     }
 
     UINT16 nUnitCt = UsePaletteSetForCharacters() ? (MSH_A_NUMUNIT_05 + (GetExtraCt(MSH_A_EXTRALOC_05) ? 1 : 0)) :
@@ -414,7 +415,7 @@ sFileRule CGame_MSH_A::GetRule(UINT16 nUnitId)
     sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 5) ? "MSH.05" : "MSH.06B");
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = 0x80000;
+    NewFileRule.uVerifyVar = m_nGameROMSize;
 
     return NewFileRule;
 }

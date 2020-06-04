@@ -15,6 +15,7 @@ UINT32 CGame_SFA3_A::m_nTotalPaletteCountForSFA3 = 0;
 int CGame_SFA3_A::rgExtraCountAll[SFA3_A_NUM_IND + 1] = { -1 };
 int CGame_SFA3_A::rgExtraCountVisibleOnly[SFA3_A_NUM_IND + 1] = { -1 };
 int CGame_SFA3_A::rgExtraLoc[SFA3_A_NUM_IND + 1] = { -1 };
+UINT32 CGame_SFA3_A::m_nGameROMSize = 0x80000; // 524288 bytes
 
 void CGame_SFA3_A::InitializeStatics()
 {
@@ -147,7 +148,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SFA3, SFA3_A_EXTRA, &SFA3_A_EXTRA_CUSTOM, SFA3_A_EXTRALOC);
+    LoadExtraFileForGame(EXTRA_FILENAME_SFA3, SFA3_A_EXTRA, &SFA3_A_EXTRA_CUSTOM, SFA3_A_EXTRALOC, m_nGameROMSize);
 
     bool fHaveExtras = (GetExtraCt(SFA3_A_EXTRALOC) > 0);
     UINT16 nUnitCt = SFA3_A_NUM_IND + (fHaveExtras ? 1 : 0);
@@ -325,7 +326,7 @@ sFileRule CGame_SFA3_A::GetRule(UINT16 nUnitId)
     sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "sz3.09c");
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = 0x80000;
+    NewFileRule.uVerifyVar = m_nGameROMSize;
 
     return NewFileRule;
 }

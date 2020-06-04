@@ -14,6 +14,7 @@ CDescTree CGame_MSHVSF_A::MainDescTree_7B;
 int CGame_MSHVSF_A::m_nMSHVSFSelectedRom = 6;
 UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_6A = 0;
 UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_7B = 0;
+UINT32 CGame_MSHVSF_A::m_nGameROMSize = 0x80000; // 524288 bytes
 
 int CGame_MSHVSF_A::rgExtraCountAll_6A[MSHVSF_A_NUM_IND_6A + 1] = { -1 };
 int CGame_MSHVSF_A::rgExtraCountAll_7B[MSHVSF_A_NUM_IND_7B + 1] = { -1 };
@@ -200,11 +201,11 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
     //Load extra file if we're using it
     if (UsePaletteSetForCharacters())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_6A, MSHVSF_A_EXTRA, &MSHVSF_A_EXTRA_CUSTOM_6A, MSHVSF_A_EXTRALOC_6A);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_6A, MSHVSF_A_EXTRA, &MSHVSF_A_EXTRA_CUSTOM_6A, MSHVSF_A_EXTRALOC_6A, m_nGameROMSize);
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_7B, MSHVSF_A_EXTRA, &MSHVSF_A_EXTRA_CUSTOM_7B, MSHVSF_A_EXTRALOC_7B);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_7B, MSHVSF_A_EXTRA, &MSHVSF_A_EXTRA_CUSTOM_7B, MSHVSF_A_EXTRALOC_7B, m_nGameROMSize);
     }
 
     UINT16 nUnitCt = UsePaletteSetForCharacters() ? (MSHVSF_A_NUM_IND_6A + (GetExtraCt(MSHVSF_A_EXTRALOC_6A) ? 1 : 0)) :
@@ -409,7 +410,7 @@ sFileRule CGame_MSHVSF_A::GetRule(UINT16 nUnitId)
     sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 6) ? "mvs.06a" : "mvs.07b");
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = 0x80000;
+    NewFileRule.uVerifyVar = m_nGameROMSize;
 
     return NewFileRule;
 }

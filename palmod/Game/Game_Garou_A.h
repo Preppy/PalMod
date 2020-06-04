@@ -1,12 +1,12 @@
 #pragma once
-#include "GameClass.h"
-#include "SFA3_A_DEF.h"
-#include "..\ExtraFile.h"
+#include "gameclass.h"
+#include "Garou_A_DEF.h"
+#include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SFA3 = "SFA3e.txt";
-#define GetExtraDefForSFA3(x)((stExtraDef *)&SFA3_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_Garou_A = "GarouE.txt";
+#define GetExtraDefForGarou(x)((stExtraDef *)&Garou_A_EXTRA_CUSTOM[x])
 
-class CGame_SFA3_A : public CGameWithExtrasFile
+class CGame_Garou_A : public CGameWithExtrasFile
 {
 private:
     //Used for image selection
@@ -14,11 +14,10 @@ private:
 
     //Used for GetPalOffset
     UINT32 nCurrPalOffs = 0;
-    
-    static UINT32 m_nTotalPaletteCountForSFA3;
-    static int rgExtraCountAll[SFA3_A_NUM_IND + 1];
-    static int rgExtraCountVisibleOnly[SFA3_A_NUM_IND + 1];
-    static int rgExtraLoc[SFA3_A_NUM_IND + 1];
+    static UINT32 m_nTotalPaletteCountForGarou;
+
+    static int rgExtraCountAll[Garou_A_NUMUNIT + 1];
+    static int rgExtraLoc[Garou_A_NUMUNIT + 1];
 
     void InitDataBuffer();
     void ClearDataBuffer();
@@ -30,11 +29,9 @@ private:
 
     UINT16*** pppDataBuffer = nullptr;
 
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-
 public:
-    CGame_SFA3_A(void);
-    ~CGame_SFA3_A(void);
+    CGame_Garou_A();
+    ~CGame_Garou_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -56,7 +53,6 @@ public:
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
-    UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
@@ -65,11 +61,12 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
+    UINT16*** GetDataBuffer() { return pppDataBuffer; };
 
     void UpdatePalData();
 
     void FlushUnitFile() { safe_delete(rgFileChanged); };
     void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
-    static stExtraDef* SFA3_A_EXTRA_CUSTOM;
+    static stExtraDef* Garou_A_EXTRA_CUSTOM;
 };

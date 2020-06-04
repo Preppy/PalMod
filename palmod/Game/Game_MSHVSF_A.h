@@ -32,6 +32,7 @@ private:
     void InitDataBuffer();
     void ClearDataBuffer();
     static void InitializeStatics();
+    static UINT32 m_nGameROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);

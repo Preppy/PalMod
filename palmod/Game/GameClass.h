@@ -18,7 +18,8 @@ enum ColMode
 {
     COLMODE_12A,
     COLMODE_15,
-    COLMODE_15ALT    // RGB555
+    COLMODE_15ALT,   // RGB555
+    COLMODE_NEOGEO   // RGB666
 };
 
 enum ColFlag
@@ -77,6 +78,8 @@ protected:
     static UINT32 CONV_15_32(UINT16 inCol);
     static UINT16 CONV_32_15ALT(UINT32 inCol);
     static UINT32 CONV_15ALT_32(UINT16 inCol);
+    static UINT16 CONV_32_NEOGEO(UINT32 inCol);
+    static UINT32 CONV_NEOGEO_32(UINT16 inCol);
     static UINT16 SWAP_16(UINT16 palv);
 
 public:

@@ -13,6 +13,7 @@ int CGame_COTA_A::rgExtraCountAll[COTA_A_NUMUNIT + 1] = { -1 };
 int CGame_COTA_A::rgExtraLoc[COTA_A_NUMUNIT + 1] = { -1 };
 
 UINT32 CGame_COTA_A::m_nTotalPaletteCountForCOTA = 0;
+UINT32 CGame_COTA_A::m_nGameROMSize = 0x80000; // 524288 bytes
 
 void CGame_COTA_A::InitializeStatics()
 {
@@ -144,7 +145,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_COTA, COTA_A_EXTRA, &COTA_A_EXTRA_CUSTOM, COTA_A_EXTRALOC);
+    LoadExtraFileForGame(EXTRA_FILENAME_COTA, COTA_A_EXTRA, &COTA_A_EXTRA_CUSTOM, COTA_A_EXTRALOC, m_nGameROMSize);
 
     UINT16 nUnitCt = (COTA_A_NUMUNIT + (GetExtraCt(COTA_A_EXTRALOC) ? 1 : 0));
     
@@ -323,7 +324,7 @@ sFileRule CGame_COTA_A::GetRule(UINT16 nUnitId)
     sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "xmn.05a");
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = 0x80000;
+    NewFileRule.uVerifyVar = m_nGameROMSize;
 
     return NewFileRule;
 }

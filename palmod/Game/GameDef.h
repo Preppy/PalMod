@@ -7,20 +7,24 @@
 
 //Game Definitions
 
-constexpr auto MVC2_D = 0;
-constexpr auto SFIII3_A = 1;
-constexpr auto MVC2_P = 2;
-constexpr auto SSF2T_A = 3;
-constexpr auto SFA3_A = 4;
-constexpr auto XMVSF_A = 5;
-constexpr auto MVC_A = 6;
-constexpr auto SFIII3_D = 7;
-constexpr auto JOJOS_A = 8;
-constexpr auto MSH_A = 9;
-constexpr auto MSHVSF_A = 10;
-constexpr auto COTA_A = 11;
-constexpr auto MVC2_A = 12;
-constexpr auto NUM_GAMES = 13;
+enum SupportedGamesList
+{
+    MVC2_D = 0,
+    SFIII3_A,
+    MVC2_P,
+    SSF2T_A,
+    SFA3_A,
+    XMVSF_A,
+    MVC_A,
+    SFIII3_D,
+    JOJOS_A,
+    MSH_A,
+    MSHVSF_A,
+    COTA_A,
+    MVC2_A,
+    Garou_A,
+    NUM_GAMES
+};
 
 // If you're adding a new game you also need to update 
 //    CGameLoad::SetGame
@@ -46,6 +50,7 @@ const CHAR g_GameFriendlyName[NUM_GAMES][32] =
     "MSHVSF (Arcade)",
     "X-Men (Arcade)",
     "MVC2 2 (Arcade)",
+    "Garou: MotW (Arcade)",
 };
 
 

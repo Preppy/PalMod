@@ -23,6 +23,7 @@ int CGame_JOJOS_A::rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
+UINT32 CGame_JOJOS_A::m_nGameROMSize = 0x800000; // 8,388,608 bytes
 
 void CGame_JOJOS_A::InitializeStatics()
 {
@@ -284,11 +285,11 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     //Load extra file if we're using it
     if (UsePaletteSetFor50())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_50, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_50, JOJOS_A_EXTRALOC_50);
+        LoadExtraFileForGame(EXTRA_FILENAME_50, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_50, JOJOS_A_EXTRALOC_50, m_nGameROMSize);
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_51, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_51, JOJOS_A_EXTRALOC_51);
+        LoadExtraFileForGame(EXTRA_FILENAME_51, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_51, JOJOS_A_EXTRALOC_51, m_nGameROMSize);
     }
 #endif
 
@@ -491,7 +492,7 @@ sFileRule CGame_JOJOS_A::GetRule(UINT16 nUnitId)
     sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "%u", nUnitId);
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = 0x800000;
+    NewFileRule.uVerifyVar = m_nGameROMSize;
 
     return NewFileRule;
 }

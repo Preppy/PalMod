@@ -20,6 +20,7 @@ private:
     void InitDataBuffer();
     void ClearDataBuffer();
     static void InitializeStatics();
+    static UINT32 m_nGameROMSize;
 
 public:
     CGame_SFIII3_D(void);

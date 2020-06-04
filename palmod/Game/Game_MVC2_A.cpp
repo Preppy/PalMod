@@ -18,6 +18,7 @@ int CGame_MVC2_A::rgExtraCountAll[MVC2_A_NUMUNIT + 1];
 int CGame_MVC2_A::rgExtraLoc[MVC2_A_NUMUNIT + 1];
 
 UINT32 CGame_MVC2_A::m_nTotalPaletteCountForMVC2 = 0;
+UINT32 CGame_MVC2_A::m_nGameROMSize = 0x889B600; // 143,242,752 bytes
 
 void CGame_MVC2_A::InitializeStatics()
 {
@@ -431,7 +432,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MVC2_A, MVC2_A_EXTRA, &MVC2_A_EXTRA_CUSTOM, MVC2_A_EXTRALOC);
+    LoadExtraFileForGame(EXTRA_FILENAME_MVC2_A, MVC2_A_EXTRA, &MVC2_A_EXTRA_CUSTOM, MVC2_A_EXTRALOC, m_nGameROMSize);
 
     UINT16 nUnitCt = MVC2_A_NUMUNIT + (GetExtraCt(MVC2_A_EXTRALOC) ? 1 : 0);
     
@@ -614,7 +615,7 @@ sFileRule CGame_MVC2_A::GetRule(UINT16 nUnitId)
     sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "Marvel vs. Capcom 2.dat");
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = 0x889B600; // 143242752
+    NewFileRule.uVerifyVar = m_nGameROMSize;
 
     return NewFileRule;
 }

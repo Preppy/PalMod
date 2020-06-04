@@ -16,6 +16,7 @@ UINT32 CGame_XMVSF_A::m_nTotalPaletteCountForXMVSF = 0;
 
 int CGame_XMVSF_A::rgExtraCountAll[XMVSF_A_NUMUNIT + 1] = { -1 };
 int CGame_XMVSF_A::rgExtraLoc[XMVSF_A_NUMUNIT + 1] = { -1 };
+UINT32 CGame_XMVSF_A::m_nGameROMSize = 0x80000; // 524288 bytes
 
 void CGame_XMVSF_A::InitializeStatics()
 {
@@ -146,7 +147,7 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_XMVSF, XMVSF_A_EXTRA, &XMVSF_A_EXTRA_CUSTOM, XMVSF_A_EXTRALOC);
+    LoadExtraFileForGame(EXTRA_FILENAME_XMVSF, XMVSF_A_EXTRA, &XMVSF_A_EXTRA_CUSTOM, XMVSF_A_EXTRALOC, m_nGameROMSize);
 
     bool fHaveExtras = (GetExtraCt(XMVSF_A_EXTRALOC) > 0);
     UINT16 nUnitCt = XMVSF_A_NUMUNIT + (fHaveExtras ? 1 : 0);
@@ -324,7 +325,7 @@ sFileRule CGame_XMVSF_A::GetRule(UINT16 nUnitId)
     sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "xvs.05a");
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = 0x80000;
+    NewFileRule.uVerifyVar = m_nGameROMSize;
 
     return NewFileRule;
 }

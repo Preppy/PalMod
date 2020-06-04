@@ -12,7 +12,7 @@ using namespace std;
 
 UINT32 CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 
-void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart)
+void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart, UINT32 nGameROMSize)
 {
     ifstream extraFile;
     CHAR szTargetFile[MAX_PATH];
@@ -67,7 +67,13 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
             CHAR* szFinalLine = nullptr;
             int nCurrStart = 0;
             int nCurrEnd = 0;
-            const DWORD k_colorsPerPage = CRegProc::GetMaxPalettePageSize();
+
+            DWORD k_colorsPerPage = CRegProc::GetMaxPalettePageSize();
+
+            if (CRegProc::GetMaxColorsPerPageOverride() != 0)
+            {
+                k_colorsPerPage = CRegProc::GetMaxColorsPerPageOverride();
+            }
 
             extraFile.open(szTargetFile, ios::in);
 
@@ -100,10 +106,21 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                     {
                         nCurrStart = strtol(szFinalLine, nullptr, 16);
 
-                        // BUGBUG: Update this to verifyvar maybe?
-                        if ((nCurrStart > 0x08000000) || (nCurrStart < 0))
+                        if (nCurrStart < 0)
                         {
+                            // Make sure it's not negative: the terminal write check will check start vs rom size
                             nCurrStart = 0;
+                        }
+
+                        if (nCurrStart == 0)
+                        {
+                            if (((szFinalLine[0] > 'F') && (szFinalLine[0] < 'a')) ||
+                                 (szFinalLine[0] > 'f'))
+                            {
+                                CString strError;
+                                strError.Format("In file \"%s\", Extra \"%s\" appears to be broken: it is trying to display from starting offset \"%s\".  If that's not a number, your Extras file isn't correct.\n", pszExtraFileName, szCurrDesc, szFinalLine);
+                                MessageBox(nullptr, strError, "PalMod", MB_ICONERROR);
+                            }
                         }
                     }
                     break;
@@ -113,10 +130,30 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 
                         nCurrEnd = strtol(szFinalLine, nullptr, 16);
 
+                        if (nCurrEnd <= nCurrStart)
+                        {
+                            CString strError;
+                            strError.Format("In file \"%s\", Extra \"%s\" is broken: trying to display from starting offset 0x%06x to ending offset 0x%06x: that ending offset actually starts before the starting offset!\n\nPlease fix: this isn't going to work right.\n", pszExtraFileName, szCurrDesc, nCurrStart, nCurrEnd);
+                            MessageBox(nullptr, strError, "PalMod", MB_ICONERROR);
+
+                            nCurrEnd = nCurrStart + (16 * 2);
+                        }
+
+                        // Validate that they're not trying to read off the end of the ROM...
+                        if ((nCurrEnd >= (int)nGameROMSize) || (nCurrStart >= (int)nGameROMSize))
+                        {
+                            CString strError;
+                            strError.Format("In file \"%s\", Extra \"%s\" is broken: the game ROM size is '%u' bytes, but this Extra starts at offset 0x%06x and ends at offset 0x%06x: \n\nPlease fix: this isn't going to work right.\n", pszExtraFileName, szCurrDesc, nGameROMSize, nCurrStart, nCurrEnd);
+                            MessageBox(nullptr, strError, "PalMod", MB_ICONERROR);
+
+                            nCurrStart = min(nCurrStart, (int)(nGameROMSize - (16 * 2)));
+                            nCurrEnd = min(nCurrEnd, (int)nGameROMSize);
+                        }
+
                         UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / 2; // 2 bytes per color.
 
                         static bool s_fShownOnce = false;
-                        if ((nColorsUsed > 5000) && !s_fShownOnce)
+                        if ((nColorsUsed > 10000) && !s_fShownOnce)
                         {
                             s_fShownOnce = true;
                             CString strError;
@@ -264,8 +301,11 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
     UINT32 nTotalDupesFound = 0;
     CString strDupeText;
 
+    // If we're in Extras territory, check it against itself.
+    UINT16 nUnitCountToCheck = (m_nTotalInternalUnits == nUnitId) ? m_nTotalInternalUnits + 1 : m_nTotalInternalUnits;
+
     //Go through each character
-    for (INT16 nUnitCtr = 0; nUnitCtr < m_nTotalInternalUnits; nUnitCtr++)
+    for (INT16 nUnitCtr = 0; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
     {
         UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
         for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
@@ -386,7 +426,6 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 
         if (IsROMOffsetDuplicated(m_nExtraUnit, nPalCtr, nCurrentROMOffset, nEndOfROMOffset) ||
             IsROMOffsetDuplicated(m_nExtraUnit, nPalCtr, nEndOfROMOffset))
-
         {
             fCollisionFound = true;
             nTotalDupesFound++;

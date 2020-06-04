@@ -121,7 +121,24 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
     {
         CString strDebugInfo;
         // See also MEDIASUBTYPE_555
-        strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", (NewMode == COLMODE_12A) ? "COLMOD_12A (ARGB444)" : (NewMode == COLMODE_15) ? "COLMODE_15 (BGR555)" : "COLMODE_15ALT (RGB555)");
+        switch (NewMode)
+        {
+        case COLMODE_12A:
+            strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", "COLMOD_12A (ARGB444)");
+            break;
+        case COLMODE_15:
+            strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", "COLMODE_15 (BGR555)");
+            break;
+        case COLMODE_15ALT:
+            strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", "COLMODE_15ALT (RGB555)");
+            break;
+        case COLMODE_NEOGEO:
+            strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", "COLMODE_NEOGEO (RGB666)");
+            break;
+        default:
+            strDebugInfo.Format("CGameClass::SetColMode : unsupported color mode.");
+            break;
+        }
         OutputDebugString(strDebugInfo);
     }
 
@@ -142,6 +159,11 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
     case COLMODE_15ALT:
         ConvPal = &CGameClass::CONV_15ALT_32;
         ConvCol = &CGameClass::CONV_32_15ALT;
+        return TRUE;
+        break;
+    case COLMODE_NEOGEO:
+        ConvPal = &CGameClass::CONV_NEOGEO_32;
+        ConvCol = &CGameClass::CONV_32_NEOGEO;
         return TRUE;
         break;
     default:
@@ -272,6 +294,52 @@ UINT32 CGameClass::CONV_15ALT_32(UINT16 inCol)
 
 UINT16 CGameClass::CONV_32_15ALT(UINT32 inCol)
 {
+    UINT16 auxr = 0, auxg = 0, auxb = 0;
+
+    auxb = (inCol & 0x00FF0000) >> (16);
+    auxg = (inCol & 0x0000FF00) >> (8);
+    auxr = (inCol & 0x000000FF);
+
+    auxb /= 8;
+    auxg /= 8;
+    auxr /= 8;
+
+    auxr = auxr << (10);
+    auxg = auxg << (5);
+    //auxb = auxb;
+
+    return auxb | auxg | auxr;
+}
+
+UINT32 CGameClass::CONV_NEOGEO_32(UINT16 inCol)
+{
+    OutputDebugString("NEOGEO color handling needs to be fixed.\n");
+    UINT32 auxr = 0, auxg = 0, auxb = 0;
+
+    UINT16 swapped = inCol;//SWAP_16(inCol);
+
+    auxr = (swapped & 0x7C00) >> 10;
+    auxg = (swapped & 0x3E0) >> 5;
+    auxb = (swapped & 0x1F);
+
+    auxr = auxr << (3);
+    auxg = auxg << (3);
+    auxb = auxb << (3);
+
+    auxr += auxr / 32;
+    auxg += auxg / 32;
+    auxb += auxb / 32;
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+
+    return (auxb | auxg | auxr | 0xFF000000);
+}
+
+UINT16 CGameClass::CONV_32_NEOGEO(UINT32 inCol)
+{
+    OutputDebugString("NEOGEO color handling needs to be fixed.\n");
     UINT16 auxr = 0, auxg = 0, auxb = 0;
 
     auxb = (inCol & 0x00FF0000) >> (16);
