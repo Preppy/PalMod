@@ -38,11 +38,11 @@ CGame_Garou_A::CGame_Garou_A()
     m_nTotalInternalUnits = Garou_A_NUMUNIT;
     m_nExtraUnit = Garou_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1176;
     m_pszExtraFilename = EXTRA_FILENAME_Garou_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForGarou;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0xff00;
+    m_nLowestKnownPaletteRomLocation = 0xeb00;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -530,6 +530,7 @@ void CGame_Garou_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
             nCurrPalOffs = paletteData->nPaletteOffset;
             m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+            m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
         else
         {
@@ -544,6 +545,7 @@ void CGame_Garou_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         nCurrPalOffs = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 
     m_nCurrentPaletteROMLocation = nCurrPalOffs;

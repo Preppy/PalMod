@@ -317,7 +317,7 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
             {
                 bool fIsDupe = false;
                 const UINT32 nCurrentEndOfPaletteRegion = (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSize * 2));
-                if ((nOffsetToCheck >= m_nCurrentPaletteROMLocation) &&
+                if ((nOffsetToCheck > m_nCurrentPaletteROMLocation) &&
                     (nOffsetToCheck < nCurrentEndOfPaletteRegion))
                 {
                     fIsDupe = true;
@@ -326,15 +326,15 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
                 {
                     // This path is used for Extra files: while the core palette database is checked in all angles,
                     // for Extra files we also need to be sure that they don't contain core palette offsets
-                    UINT32 nAdjustedRegionToCheck = nEndOfRegionToCheck - 1;
+                    UINT32 nAdjustedRegionToCheck = nEndOfRegionToCheck ;
 
-                    if ((nAdjustedRegionToCheck >= m_nCurrentPaletteROMLocation) &&
+                    if ((nAdjustedRegionToCheck > m_nCurrentPaletteROMLocation) &&
                         (nAdjustedRegionToCheck < nCurrentEndOfPaletteRegion))
                     {
                         fIsDupe = true;
                     }
                     else if ((m_nCurrentPaletteROMLocation >= nOffsetToCheck) &&
-                             (m_nCurrentPaletteROMLocation < nEndOfRegionToCheck))
+                             (m_nCurrentPaletteROMLocation < nAdjustedRegionToCheck))
                     {
                         fIsDupe = true;
                     }
@@ -412,6 +412,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 
     CString strDupeText;
     bool fCollisionFound = false;
+    bool fHaveShownDupeWarning = false;
 
     //Go through the Extras
     UINT16 nPalCount = GetPaletteCountForUnit(m_nExtraUnit);
@@ -422,13 +423,22 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 
         UINT32 nCurrentROMOffset = m_nCurrentPaletteROMLocation;
         UINT32 nEndOfROMOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSize * 2);
+        LPCSTR pszExtraPaletteBeingChecked = m_pszCurrentPaletteName;
         m_nLowestRomExtrasLocationThisPass = min(m_nLowestRomExtrasLocationThisPass, m_nCurrentPaletteROMLocation);
 
-        if (IsROMOffsetDuplicated(m_nExtraUnit, nPalCtr, nCurrentROMOffset, nEndOfROMOffset) ||
-            IsROMOffsetDuplicated(m_nExtraUnit, nPalCtr, nEndOfROMOffset))
+        if (IsROMOffsetDuplicated(m_nExtraUnit, nPalCtr, nCurrentROMOffset, nEndOfROMOffset))
         {
             fCollisionFound = true;
             nTotalDupesFound++;
+
+            if (!fHaveShownDupeWarning && pszExtraPaletteBeingChecked && m_pszCurrentPaletteName)
+            {
+                fHaveShownDupeWarning = true;
+                CString strText;
+                strText.Format("WARNING: In the %s Extras file the palette named '%s' overlaps with '%s'.  That will not work correctly.  Please fix this.\n", m_pszExtraFilename, pszExtraPaletteBeingChecked, m_pszCurrentPaletteName);
+                OutputDebugString(strText);
+                MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
+            }
         }
     }
 

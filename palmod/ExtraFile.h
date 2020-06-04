@@ -11,6 +11,7 @@ class CGameWithExtrasFile : public CGameClass
 protected:
     UINT32 m_nCurrentPaletteROMLocation = 0;
     UINT16 m_nCurrentPaletteSize = 0;
+    LPCSTR m_pszCurrentPaletteName = nullptr;
     static UINT32 m_nTotalPaletteCount;
     UINT16 m_nTotalInternalUnits = INVALID_UNIT_VALUE;
     UINT16 m_nExtraUnit = INVALID_UNIT_VALUE;

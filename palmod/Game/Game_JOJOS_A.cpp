@@ -795,59 +795,13 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             if (nDistanceFromZero < nNodeCount)
             {
                 nOffset = paletteSetToUse[nDistanceFromZero].nPaletteOffset;
+                m_pszCurrentPaletteName = paletteSetToUse[nDistanceFromZero].szPaletteName;
                 cbPaletteSizeOnDisc = (int)max(0, (paletteSetToUse[nDistanceFromZero].nPaletteOffsetEnd - paletteSetToUse[nDistanceFromZero].nPaletteOffset));
                 break;
             }
 
             nDistanceFromZero -= nNodeCount;
         }
-
-#if NEED_TO_UPDATE_JOJO_HEADERS
-        const int knMaxPalettePageSizeOnDisc = 2 * m_knMaxPalettePageSize;
-
-        if (nPaletteSizeOnDisc > knMaxPalettePageSizeOnDisc)
-        {
-            CString strError;
-            strError.Format("BUG: In unit %u collection %u palette %u (\"%s\") at offset 0x%u will be chopped.  Please use this instead:\n", nUnitId, nCollectionIndex, nPalId, paletteSetToUse[nPalId].szPaletteName, paletteSetToUse[nPalId].nPaletteOffset);
-            OutputDebugString(strError);
-
-            const int nTotalPagesNeeded = (int)ceil((double)nPaletteSizeOnDisc / (double)knMaxPalettePageSizeOnDisc);
-            if (nTotalPagesNeeded < 250)
-            {
-                int nCurrentPaletteSectionLength = knMaxPalettePageSizeOnDisc;
-                int nTotalUnusedColors = nPaletteSizeOnDisc;
-
-                OutputDebugString("#ifdef USE_LARGE_PALETTES\n");
-
-                strError.Format("    { \"%s\", 0x%07x, 0x%07x }, \n", paletteSetToUse[nPalId].szPaletteName,
-                                                                      paletteSetToUse[nPalId].nPaletteOffset,
-                                                                      paletteSetToUse[nPalId].nPaletteOffsetEnd);
-                OutputDebugString(strError);
-
-                OutputDebugString("#else\n");
-
-                for (int nCurrentPage = 0, nCurrentOffset = 0; nCurrentPage < nTotalPagesNeeded; nCurrentPage++)
-                {
-                    strError.Format("    { \"%s (%u/%u)\", 0x%07x, 0x%07x }, \n", paletteSetToUse[nPalId].szPaletteName, nCurrentPage + 1, nTotalPagesNeeded,
-                                                                                    paletteSetToUse[nPalId].nPaletteOffset + nCurrentOffset,
-                                                                                    paletteSetToUse[nPalId].nPaletteOffset + nCurrentOffset + nCurrentPaletteSectionLength);
-
-                    nCurrentOffset += knMaxPalettePageSizeOnDisc;
-                    nTotalUnusedColors -= nCurrentPaletteSectionLength;
-                    nCurrentPaletteSectionLength = min(nTotalUnusedColors, knMaxPalettePageSizeOnDisc);
-                    OutputDebugString(strError);
-                }
-
-                OutputDebugString("#endif\n");
-            }
-            else
-            {
-                // This won't be recoverable.
-                OutputDebugString("ERROR: Actually, something is wrong.  Don't use this palette.\n");
-                DebugBreak();
-            }
-        }
-#endif
     }
     else //Extra Palettes
     {
@@ -855,6 +809,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         nOffset = pCurrDef->uOffset;
         cbPaletteSizeOnDisc = pCurrDef->cbPaletteSize;
+        m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 
     m_nCurrentPaletteROMLocation = nOffset;

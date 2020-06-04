@@ -395,9 +395,9 @@ UINT32 CGameClass::CONV_NEOGEO_32(UINT16 nColorData)
 
     UINT32 color = (red * 0x10000) + (green * 0x100) + (blue)+0xff000000;
 
-    CString strColor;
-    strColor.Format("ROM : neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n", nColorData, color, red, green, blue);
-    OutputDebugString(strColor);
+    //CString strColor;
+    //strColor.Format("ROM : neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n", nColorData, color, red, green, blue);
+    //OutputDebugString(strColor);
 
     return color;
 }
@@ -422,9 +422,9 @@ UINT16 CGameClass::CONV_32_NEOGEO(UINT32 inCol)
     UINT16 blueMain =  ((blue / 4) & 0xf) << 0x0;
 
     UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
-    CString strColor;
-    strColor.Format("BACK: neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n", outColor, inCol, red, green, blue);
-    OutputDebugString(strColor);
+    //CString strColor;
+    //strColor.Format("BACK: neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n", outColor, inCol, red, green, blue);
+    //OutputDebugString(strColor);
 
     return outColor;
 }

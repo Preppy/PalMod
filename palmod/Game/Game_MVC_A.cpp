@@ -594,6 +594,7 @@ void CGame_MVC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
             nCurrPalOffs = paletteData->nPaletteOffset;
             m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+            m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
         else
         {
@@ -608,6 +609,7 @@ void CGame_MVC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         nCurrPalOffs = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 
     m_nCurrentPaletteROMLocation = nCurrPalOffs;
