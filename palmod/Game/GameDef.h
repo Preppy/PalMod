@@ -94,6 +94,11 @@ const CHAR DEF_BUTTONLABEL_NEOGEO[][16] =
     "A", "B", "C", "D"
 };
 
+const CHAR DEF_BUTTONLABEL_NEOGEO_FIVE[][16] =
+{
+    "A", "B", "C", "D", "Boss"
+};
+
 const CHAR DEF_BUTTONLABEL_JOJOS_5[5][16] =
 {
     "A", "B", "C", "S", "Start"
@@ -589,9 +594,11 @@ enum JOJOS_51_CHARACTERS
     indexJojos51NDoul,
     indexJojos51BIce,
     indexJojos51Death13, // 0x18
-    indexJojos51Timestop,
+    indexJojos51Timestop, 
     indexJojos51Bonus,
     indexJojos51Stages,
+    indexJojos50HUDPortraits, // 0x1C
+
 };
 
 enum JOJOS_51_CHARACTER_PALETTES
@@ -635,16 +642,59 @@ const UINT8 JOJOS_A_IMG_UNITS[] =
     indexJojos51Timestop,
     indexJojos51Bonus,
     indexJojos51Stages,
+    indexJojos50HUDPortraits,
 };
 
 const int JOJOS_A_NUM_IMG_UNITS = ARRAYSIZE(JOJOS_A_IMG_UNITS);
 
+enum SupportedGarou_A_PaletteListIndex
+{
+    indexGarouARockHoward,
+    indexGarouATerryBogard,
+    indexGarouAKhushnood,
+    indexGarouADong,
+    indexGarouAJae,
+    indexGarouAHotaru,
+    indexGarouAGato,
+    indexGarouAKevin,
+    indexGarouAGrant,
+    indexGarouABJennet,
+    indexGarouAHokutomaru,
+    indexGarouAFreeman,
+    indexGarouATizoc,
+    indexGarouAKain,
+    indexGarouAPortraits,
+    indexGarouALast
+};
+
+const UINT8 GAROU_A_IMG_UNITS[] =
+{
+    indexGarouARockHoward,
+    indexGarouATerryBogard,
+    indexGarouAKhushnood,
+    indexGarouADong,
+    indexGarouAJae,
+    indexGarouAHotaru,
+    indexGarouAGato,
+    indexGarouAKevin,
+    indexGarouAGrant,
+    indexGarouABJennet,
+    indexGarouAHokutomaru,
+    indexGarouAFreeman,
+    indexGarouATizoc,
+    indexGarouAKain,
+    indexGarouAPortraits,
+};
+
+const int GAROU_A_NUM_IMG_UNITS = ARRAYSIZE(GAROU_A_IMG_UNITS);
+
 enum eIMGDat_Sections
 {
-    IMGDAT_SECTION_JOJOS = 0,
-    IMG4,              //Image Game Flag.  Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
-    IMGDAT_SECTION_3S, //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
-    IMGDAT_SECTION_ST  //Image Game Flag.  Used for ST.
+    IMGDAT_SECTION_NEOGEO = 0, // NEOGEO: Garou
+    IMGDAT_SECTION_JOJOS,
+    IMG4,               //Image Game Flag.  Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
+    IMGDAT_SECTION_3S,  //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
+    IMGDAT_SECTION_ST,  //Image Game Flag.  Used for ST.
 };
 
 // IMG4 ranges:
@@ -656,12 +706,13 @@ enum eIMGDat_Sections
 //  * SSF2T: 0x11 character units
 
 // Aggregate count of image units per game flag
-const int IMGAMT[4] =
+const int IMGAMT[] =
 {
+    GAROU_A_NUM_IMG_UNITS,
     JOJOS_A_NUM_IMG_UNITS,
     MVC2_D_NUM_IMG_UNITS + MVC_A_UNIQUE_IMG_UNITS + SFA3_A_NUM_IMG_UNITS + XMVSF_A_UNIQUE_IMG_UNITS + MSH_A_UNIQUE_IMG_UNITS + MSHVSF_A_UNIQUE_IMG_UNITS,
     SFIII3_A_NUM_IMG_UNITS,
-    SSF2T_A_NUM_IMG_UNITS
+    SSF2T_A_NUM_IMG_UNITS,
 };
 
 const stPairedPaletteInfo pairUnhandled =     { 0, 0, 0 };

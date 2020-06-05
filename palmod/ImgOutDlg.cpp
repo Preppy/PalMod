@@ -71,7 +71,7 @@ BOOL CImgOutDlg::OnInitDialog()
     switch (nPalAmt)
     {
     default:
-        OutputDebugString("WARNING BUGBUG: This palette count is not supported in CImgOutDlg::OnInitDialog: yet!\n");
+        OutputDebugString("WARNING BUGBUG: This palette count is not supported in CImgOutDlg::OnInitDialog yet!\n");
     case 1:
         // By default, we export out only the one sprite
         m_CB_Amt.EnableWindow(FALSE);
@@ -82,7 +82,7 @@ BOOL CImgOutDlg::OnInitDialog()
     case 4: // Garou
         m_CB_Amt.AddString("4");
         break;
-    case 5: // Jojos
+    case 5: // Jojos & Garou
         m_CB_Amt.AddString("5");
         break;
     case 6: // MvC, MvC2

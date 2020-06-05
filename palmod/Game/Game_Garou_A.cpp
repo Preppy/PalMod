@@ -52,22 +52,21 @@ CGame_Garou_A::CGame_Garou_A()
     SetColMode(COLMODE_NEOGEO);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_17);
+    BasePalGroup.SetMode(PALTYPE_8);
 
     //Set game information
     nGameFlag = Garou_A;
-    nImgGameFlag = IMGDAT_SECTION_ST; // doesn't matter: we aren't using anything yet
-    nImgUnitAmt = 0; //  Garou_A_NUM_IMG_UNITS;
+    nImgGameFlag = IMGDAT_SECTION_NEOGEO;
+    nImgUnitAmt = GAROU_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = DISP_DEF;
-    // The MOTW options are A B C D
-    // so do thateventually
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_NEOGEO);
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
+    // The MOTW options are A B C D (Boss)
+    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_NEOGEO_FIVE);
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO_FIVE);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -697,6 +696,38 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
+
+            if (pCurrentNode)
+            {
+                if (Garou_A_UNITSORT[NodeGet->uUnitId] == indexGarouAPortraits)
+                {
+                    nSrcAmt = 4;
+                    nSrcStart = NodeGet->uPalId - (NodeGet->uPalId % 4);
+                    nNodeIncrement = 1;
+                }
+                else
+                {
+                    nSrcAmt = 5;
+                    nNodeIncrement = pCurrentNode->uChildAmt;
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        nSrcStart -= nNodeIncrement;
+                    }
+                }
+
+                if (nSrcAmt == 5)
+                {
+                    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_NEOGEO_FIVE);
+                }
+                else
+                {
+                    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_NEOGEO);
+                }
+            }
         }
     }
     
@@ -715,14 +746,13 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
 COLORREF* CGame_Garou_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
-    // bugbugbugbug here we go
     LoadSpecificPaletteData(nUnitId, nPalId);
 
     COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
 
-    for (int i = 0; i < m_nCurrentPaletteSize - 1; i++)
+    for (int i = 0; i < m_nCurrentPaletteSize; i++)
     {
-        NewPal[i + 1] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]);
+        NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]);
     }
 
     NewPal[0] = 0xFF000000;
@@ -758,7 +788,7 @@ void CGame_Garou_A::UpdatePalData()
                     }
 
                     UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = ConvCol(crSrc[iCurrentArrayOffset]);
+                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;

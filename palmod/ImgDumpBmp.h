@@ -85,6 +85,8 @@ public:
 
     int nMainW = 0, nMainH = 0;
 
+    int GetImagesPerLine();
+
     CScrollBar m_HScroll;
     CScrollBar m_VScroll;
 

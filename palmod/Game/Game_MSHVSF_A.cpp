@@ -813,7 +813,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             {
                 if ((strstr(pCurrentNode->szDesc, "P1") != nullptr) || (strstr(pCurrentNode->szDesc, "P2") == nullptr))
                 {
-                    // We show 2 sprites (P1/P2) for export for all normal mvc sprites
+                    // We show 2 sprites (P1/P2) for export for all normal VS sprites
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;
 

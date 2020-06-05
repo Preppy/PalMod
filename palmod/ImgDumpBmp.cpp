@@ -447,14 +447,14 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
         pMainBmpData = (UINT32*)pDstData;
     }
 
+    int nMaxImagesPerLine = GetImagesPerLine();
+
     for (int i = 0; i < amt; i++)
     {
         nPal = amt > 1 ? i : nPalIndex;
 
         if (DispType == DISP_DEF)
         {
-            int nMaxImagesPerLine = (int)max(3, ceil(amt / 2));
-
             if (i >= nMaxImagesPerLine)
             {
                 row_ctr = 1;
@@ -662,7 +662,7 @@ void CImgDumpBmp::CleanUp()
     //Clean main image data
 }
 
-int CImgDumpBmp::GetOutputW()
+int CImgDumpBmp::GetImagesPerLine()
 {
     int w_mul = 0;
 
@@ -691,10 +691,17 @@ int CImgDumpBmp::GetOutputW()
         w_mul = 5;
         break;
     default:
-        OutputDebugString("CImgDumpBmp::GetOutputW: You need to finish adding in this new output option.");
+        OutputDebugString("CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option.");
         DebugBreak();
         break;
     }
+
+    return w_mul;
+}
+
+int CImgDumpBmp::GetOutputW()
+{
+    int w_mul = GetImagesPerLine();
 
     nMainW = ((w_mul * border_sz) + border_sz) + ((blt_w * zoom) * w_mul);
 

@@ -61,198 +61,198 @@ constexpr auto JOJOS_A_NUMUNIT_51 = ARRAYSIZE(JOJOS_A_UNITDESC_51);
 #pragma region HUD_PORTRAITS
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_JOTARO_PALETTES[] =
 {
-    { "Jotaro A Life Bar Portrait", 0x07C0400, 0x07C0420 },
-    { "Jotaro B Life Bar Portrait", 0x07C0420, 0x07C0440 },
-    { "Jotaro C Life Bar Portrait", 0x07C0C00, 0x07C0C20 },
-    { "Jotaro S Life Bar Portrait", 0x07C0C20, 0x07C0C40 },
-    { "Jotaro Start Life Bar Portrait", 0x07C0C40, 0x07C0C60 },
+    { "Jotaro A Life Bar Portrait", 0x07C0400, 0x07C0420, indexJojos50HUDPortraits, indexJojos51Jotaro },
+    { "Jotaro B Life Bar Portrait", 0x07C0420, 0x07C0440, indexJojos50HUDPortraits, indexJojos51Jotaro },
+    { "Jotaro C Life Bar Portrait", 0x07C0C00, 0x07C0C20, indexJojos50HUDPortraits, indexJojos51Jotaro },
+    { "Jotaro S Life Bar Portrait", 0x07C0C20, 0x07C0C40, indexJojos50HUDPortraits, indexJojos51Jotaro },
+    { "Jotaro Start Life Bar Portrait", 0x07C0C40, 0x07C0C60, indexJojos50HUDPortraits, indexJojos51Jotaro },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_KAKYOIN_PALETTES[] =
 {
-    { "Kakyoin A Life Bar Portrait", 0x07C0440, 0x07C0460 },
-    { "Kakyoin B Life Bar Portrait", 0x07C0460, 0x07C0480 },
-    { "Kakyoin C Life Bar Portrait", 0x07C0C60, 0x07C0C80 },
-    { "Kakyoin S Life Bar Portrait", 0x07C0C80, 0x07C0CA0 },
-    { "Kakyoin Start Life Bar Portrait", 0x07C0CA0, 0x07C0CC0 },
+    { "Kakyoin A Life Bar Portrait", 0x07C0440, 0x07C0460, indexJojos50HUDPortraits, indexJojos51Kakyo },
+    { "Kakyoin B Life Bar Portrait", 0x07C0460, 0x07C0480, indexJojos50HUDPortraits, indexJojos51Kakyo },
+    { "Kakyoin C Life Bar Portrait", 0x07C0C60, 0x07C0C80, indexJojos50HUDPortraits, indexJojos51Kakyo },
+    { "Kakyoin S Life Bar Portrait", 0x07C0C80, 0x07C0CA0, indexJojos50HUDPortraits, indexJojos51Kakyo },
+    { "Kakyoin Start Life Bar Portrait", 0x07C0CA0, 0x07C0CC0, indexJojos50HUDPortraits, indexJojos51Kakyo },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_DIO_PALETTES[] =
 {
-    { "Dio A Life Bar Portrait", 0x07C0480, 0x07C04A0 },
-    { "Dio B Life Bar Portrait", 0x07C04A0, 0x07C04C0 },
-    { "Dio C Life Bar Portrait", 0x07C14C0, 0x07C14E0 },
-    { "Dio S Life Bar Portrait", 0x07C14E0, 0x07C1500 },
-    { "Dio Start Life Bar Portrait", 0x07C1500, 0x07C1520 },
+    { "Dio A Life Bar Portrait", 0x07C0480, 0x07C04A0, indexJojos50HUDPortraits, indexJojos51Dio },
+    { "Dio B Life Bar Portrait", 0x07C04A0, 0x07C04C0, indexJojos50HUDPortraits, indexJojos51Dio },
+    { "Dio C Life Bar Portrait", 0x07C14C0, 0x07C14E0, indexJojos50HUDPortraits, indexJojos51Dio },
+    { "Dio S Life Bar Portrait", 0x07C14E0, 0x07C1500, indexJojos50HUDPortraits, indexJojos51Dio },
+    { "Dio Start Life Bar Portrait", 0x07C1500, 0x07C1520, indexJojos50HUDPortraits, indexJojos51Dio },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_CHAKA_PALETTES[] =
 {
-    { "Chaka A Life Bar Portrait", 0x07C04C0, 0x07C04E0 },
-    { "Chaka B Life Bar Portrait", 0x07C04E0, 0x07C0500 },
-    { "Chaka C Life Bar Portrait", 0x07C0F60, 0x07C0F80 },
-    { "Chaka S Life Bar Portrait", 0x07C0F80, 0x07C0FA0 },
-    { "Chaka Start Life Bar Portrait", 0x07C0FA0, 0x07C0FC0 },
+    { "Chaka A Life Bar Portrait", 0x07C04C0, 0x07C04E0, indexJojos50HUDPortraits, indexJojos51Chaka },
+    { "Chaka B Life Bar Portrait", 0x07C04E0, 0x07C0500, indexJojos50HUDPortraits, indexJojos51Chaka },
+    { "Chaka C Life Bar Portrait", 0x07C0F60, 0x07C0F80, indexJojos50HUDPortraits, indexJojos51Chaka },
+    { "Chaka S Life Bar Portrait", 0x07C0F80, 0x07C0FA0, indexJojos50HUDPortraits, indexJojos51Chaka },
+    { "Chaka Start Life Bar Portrait", 0x07C0FA0, 0x07C0FC0, indexJojos50HUDPortraits, indexJojos51Chaka },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_IGGY_PALETTES[] =
 {
-    { "Iggy A Life Bar Portrait", 0x07C0500, 0x07C0520 },
-    { "Iggy B Life Bar Portrait", 0x07C0520, 0x07C0540 },
-    { "Iggy C Life Bar Portrait", 0x07C0DE0, 0x07C0E00 },
-    { "Iggy S Life Bar Portrait", 0x07C0E00, 0x07C0E20 },
-    { "Iggy Start Life Bar Portrait", 0x07C0E20, 0x07C0E40 },
+    { "Iggy A Life Bar Portrait", 0x07C0500, 0x07C0520, indexJojos50HUDPortraits, indexJojos51Iggy },
+    { "Iggy B Life Bar Portrait", 0x07C0520, 0x07C0540, indexJojos50HUDPortraits, indexJojos51Iggy },
+    { "Iggy C Life Bar Portrait", 0x07C0DE0, 0x07C0E00, indexJojos50HUDPortraits, indexJojos51Iggy },
+    { "Iggy S Life Bar Portrait", 0x07C0E00, 0x07C0E20, indexJojos50HUDPortraits, indexJojos51Iggy },
+    { "Iggy Start Life Bar Portrait", 0x07C0E20, 0x07C0E40, indexJojos50HUDPortraits, indexJojos51Iggy },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_PETSHOP_PALETTES[] =
 {
-    { "Petshop A Life Bar Portrait", 0x07C0540, 0x07C0560 },
-    { "Petshop B Life Bar Portrait", 0x07C0560, 0x07C0580 },
-    { "Petshop C Life Bar Portrait", 0x07C1800, 0x07C1820 },
-    { "Petshop S Life Bar Portrait", 0x07C1820, 0x07C1840 },
-    { "Petshop Start Life Bar Portrait", 0x07C1840, 0x07C1860 },
+    { "Petshop A Life Bar Portrait", 0x07C0540, 0x07C0560, indexJojos50HUDPortraits, indexJojos51Petshop },
+    { "Petshop B Life Bar Portrait", 0x07C0560, 0x07C0580, indexJojos50HUDPortraits, indexJojos51Petshop },
+    { "Petshop C Life Bar Portrait", 0x07C1800, 0x07C1820, indexJojos50HUDPortraits, indexJojos51Petshop },
+    { "Petshop S Life Bar Portrait", 0x07C1820, 0x07C1840, indexJojos50HUDPortraits, indexJojos51Petshop },
+    { "Petshop Start Life Bar Portrait", 0x07C1840, 0x07C1860, indexJojos50HUDPortraits, indexJojos51Petshop },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_POLNAREFF_PALETTES[] =
 {
-    { "Polnareff A Life Bar Portrait", 0x07C0580, 0x07C05A0 },
-    { "Polnareff B Life Bar Portrait", 0x07C05A0, 0x07C05C0 },
-    { "Polnareff C Life Bar Portrait", 0x07C0D20, 0x07C0D40 },
-    { "Polnareff S Life Bar Portrait", 0x07C0D40, 0x07C0D60 },
-    { "Polnareff Start Life Bar Portrait", 0x07C0D60, 0x07C0D80 },
+    { "Polnareff A Life Bar Portrait", 0x07C0580, 0x07C05A0, indexJojos50HUDPortraits, indexJojos51Pol },
+    { "Polnareff B Life Bar Portrait", 0x07C05A0, 0x07C05C0, indexJojos50HUDPortraits, indexJojos51Pol },
+    { "Polnareff C Life Bar Portrait", 0x07C0D20, 0x07C0D40, indexJojos50HUDPortraits, indexJojos51Pol },
+    { "Polnareff S Life Bar Portrait", 0x07C0D40, 0x07C0D60, indexJojos50HUDPortraits, indexJojos51Pol },
+    { "Polnareff Start Life Bar Portrait", 0x07C0D60, 0x07C0D80, indexJojos50HUDPortraits, indexJojos51Pol },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_JOSEPH_PALETTES[] =
 {
-    { "Joseph A Life Bar Portrait", 0x07C05C0, 0x07C05E0 },
-    { "Joseph B Life Bar Portrait", 0x07C05E0, 0x07C0600 },
-    { "Joseph C Life Bar Portrait", 0x07C0D80, 0x07C0DA0 },
-    { "Joseph S Life Bar Portrait", 0x07C0DA0, 0x07C0DC0 },
-    { "Joseph Start Life Bar Portrait", 0x07C0DC0, 0x07C0DE0 },
+    { "Joseph A Life Bar Portrait", 0x07C05C0, 0x07C05E0, indexJojos50HUDPortraits, indexJojos51Joseph },
+    { "Joseph B Life Bar Portrait", 0x07C05E0, 0x07C0600, indexJojos50HUDPortraits, indexJojos51Joseph },
+    { "Joseph C Life Bar Portrait", 0x07C0D80, 0x07C0DA0, indexJojos50HUDPortraits, indexJojos51Joseph },
+    { "Joseph S Life Bar Portrait", 0x07C0DA0, 0x07C0DC0, indexJojos50HUDPortraits, indexJojos51Joseph },
+    { "Joseph Start Life Bar Portrait", 0x07C0DC0, 0x07C0DE0, indexJojos50HUDPortraits, indexJojos51Joseph },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_ABDUL_PALETTES[] =
 {
-    { "Avdol A Life Bar Portrait", 0x07C0600, 0x07C0620 },
-    { "Avdol B Life Bar Portrait", 0x07C0620, 0x07C0640 },
-    { "Avdol C Life Bar Portrait", 0x07C0CC0, 0x07C0CE0 },
-    { "Avdol S Life Bar Portrait", 0x07C0CE0, 0x07C0D00 },
-    { "Avdol Start Life Bar Portrait", 0x07C0D00, 0x07C0D20 },
+    { "Avdol A Life Bar Portrait", 0x07C0600, 0x07C0620, indexJojos50HUDPortraits, indexJojos51Avdol },
+    { "Avdol B Life Bar Portrait", 0x07C0620, 0x07C0640, indexJojos50HUDPortraits, indexJojos51Avdol },
+    { "Avdol C Life Bar Portrait", 0x07C0CC0, 0x07C0CE0, indexJojos50HUDPortraits, indexJojos51Avdol },
+    { "Avdol S Life Bar Portrait", 0x07C0CE0, 0x07C0D00, indexJojos50HUDPortraits, indexJojos51Avdol },
+    { "Avdol Start Life Bar Portrait", 0x07C0D00, 0x07C0D20, indexJojos50HUDPortraits, indexJojos51Avdol },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_ALESSI_PALETTES[] =
 {
-    { "Alessi A Life Bar Portrait", 0x07C0640, 0x07C0660 },
-    { "Alessi B Life Bar Portrait", 0x07C0660, 0x07C0680 },
-    { "Alessi C Life Bar Portrait", 0x07C0F00, 0x07C0F20 },
-    { "Alessi S Life Bar Portrait", 0x07C0F20, 0x07C0F40 },
-    { "Alessi Start Life Bar Portrait", 0x07C0F40, 0x07C0F60 },
+    { "Alessi A Life Bar Portrait", 0x07C0640, 0x07C0660, indexJojos50HUDPortraits, indexJojos51Alessi },
+    { "Alessi B Life Bar Portrait", 0x07C0660, 0x07C0680, indexJojos50HUDPortraits, indexJojos51Alessi },
+    { "Alessi C Life Bar Portrait", 0x07C0F00, 0x07C0F20, indexJojos50HUDPortraits, indexJojos51Alessi },
+    { "Alessi S Life Bar Portrait", 0x07C0F20, 0x07C0F40, indexJojos50HUDPortraits, indexJojos51Alessi },
+    { "Alessi Start Life Bar Portrait", 0x07C0F40, 0x07C0F60, indexJojos50HUDPortraits, indexJojos51Alessi },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_DEVO_PALETTES[] =
 {
-    { "Devo A Life Bar Portrait", 0x07C06C0, 0x07C06E0 },
-    { "Devo B Life Bar Portrait", 0x07C06E0, 0x07C0700 },
-    { "Devo C Life Bar Portrait", 0x07C1400, 0x07C1420 },
-    { "Devo S Life Bar Portrait", 0x07C1420, 0x07C1440 },
-    { "Devo Start Life Bar Portrait", 0x07C1440, 0x07C1460 },
+    { "Devo A Life Bar Portrait", 0x07C06C0, 0x07C06E0, indexJojos50HUDPortraits, indexJojos51Devo },
+    { "Devo B Life Bar Portrait", 0x07C06E0, 0x07C0700, indexJojos50HUDPortraits, indexJojos51Devo },
+    { "Devo C Life Bar Portrait", 0x07C1400, 0x07C1420, indexJojos50HUDPortraits, indexJojos51Devo },
+    { "Devo S Life Bar Portrait", 0x07C1420, 0x07C1440, indexJojos50HUDPortraits, indexJojos51Devo },
+    { "Devo Start Life Bar Portrait", 0x07C1440, 0x07C1460, indexJojos50HUDPortraits, indexJojos51Devo },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_VANILLA_PALETTES[] =
 {
-    { "Vanilla Ice A Life Bar Portrait", 0x07C0740, 0x07C0760 },
-    { "Vanilla Ice B Life Bar Portrait", 0x07C0760, 0x07C0780 },
-    { "Vanilla Ice C Life Bar Portrait", 0x07C1520, 0x07C1540 },
-    { "Vanilla Ice S Life Bar Portrait", 0x07C1540, 0x07C1560 },
-    { "Vanilla Ice Start Life Bar Portrait", 0x07C1560, 0x07C1580 },
+    { "Vanilla Ice A Life Bar Portrait", 0x07C0740, 0x07C0760, indexJojos50HUDPortraits, indexJojos51VIce },
+    { "Vanilla Ice B Life Bar Portrait", 0x07C0760, 0x07C0780, indexJojos50HUDPortraits, indexJojos51VIce },
+    { "Vanilla Ice C Life Bar Portrait", 0x07C1520, 0x07C1540, indexJojos50HUDPortraits, indexJojos51VIce },
+    { "Vanilla Ice S Life Bar Portrait", 0x07C1540, 0x07C1560, indexJojos50HUDPortraits, indexJojos51VIce },
+    { "Vanilla Ice Start Life Bar Portrait", 0x07C1560, 0x07C1580, indexJojos50HUDPortraits, indexJojos51VIce },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_HOL_PALETTES[] =
 {
-    { "Hol Horse A Life Bar Portrait", 0x07C0780, 0x07C07A0 },
-    { "Hol Horse B Life Bar Portrait", 0x07C07A0, 0x07C07C0 },
-    { "Hol Horse C Life Bar Portrait", 0x07C1640, 0x07C1660 },
-    { "Hol Horse S Life Bar Portrait", 0x07C1660, 0x07C1680 },
-    { "Hol Horse Start Life Bar Portrait", 0x07C1680, 0x07C16A0 },
+    { "Hol Horse A Life Bar Portrait", 0x07C0780, 0x07C07A0, indexJojos50HUDPortraits, indexJojos51Hol },
+    { "Hol Horse B Life Bar Portrait", 0x07C07A0, 0x07C07C0, indexJojos50HUDPortraits, indexJojos51Hol },
+    { "Hol Horse C Life Bar Portrait", 0x07C1640, 0x07C1660, indexJojos50HUDPortraits, indexJojos51Hol },
+    { "Hol Horse S Life Bar Portrait", 0x07C1660, 0x07C1680, indexJojos50HUDPortraits, indexJojos51Hol },
+    { "Hol Horse Start Life Bar Portrait", 0x07C1680, 0x07C16A0, indexJojos50HUDPortraits, indexJojos51Hol },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_MIDLER_PALETTES[] =
 {
-    { "Midler A Life Bar Portrait", 0x07C08C0, 0x07C08E0 },
-    { "Midler B Life Bar Portrait", 0x07C08E0, 0x07C0900 },
-    { "Midler C Life Bar Portrait", 0x07C1460, 0x07C1480 },
-    { "Midler S Life Bar Portrait", 0x07C1480, 0x07C14A0 },
-    { "Midler Start Life Bar Portrait", 0x07C14A0, 0x07C14C0 },
+    { "Midler A Life Bar Portrait", 0x07C08C0, 0x07C08E0, indexJojos50HUDPortraits, indexJojos51Midler },
+    { "Midler B Life Bar Portrait", 0x07C08E0, 0x07C0900, indexJojos50HUDPortraits, indexJojos51Midler },
+    { "Midler C Life Bar Portrait", 0x07C1460, 0x07C1480, indexJojos50HUDPortraits, indexJojos51Midler },
+    { "Midler S Life Bar Portrait", 0x07C1480, 0x07C14A0, indexJojos50HUDPortraits, indexJojos51Midler },
+    { "Midler Start Life Bar Portrait", 0x07C14A0, 0x07C14C0, indexJojos50HUDPortraits, indexJojos51Midler },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_MARIAH_PALETTES[] =
 {
-    { "Mariah A Life Bar Portrait", 0x07C0900, 0x07C0920 },
-    { "Mariah B Life Bar Portrait", 0x07C0920, 0x07C0940 },
-    { "Mariah C Life Bar Portrait", 0x07C1860, 0x07C1880 },
-    { "Mariah S Life Bar Portrait", 0x07C1880, 0x07C18A0 },
-    { "Mariah Start Life Bar Portrait", 0x07C18A0, 0x07C18C0 },
+    { "Mariah A Life Bar Portrait", 0x07C0900, 0x07C0920, indexJojos50HUDPortraits, indexJojos51Mariah },
+    { "Mariah B Life Bar Portrait", 0x07C0920, 0x07C0940, indexJojos50HUDPortraits, indexJojos51Mariah },
+    { "Mariah C Life Bar Portrait", 0x07C1860, 0x07C1880, indexJojos50HUDPortraits, indexJojos51Mariah },
+    { "Mariah S Life Bar Portrait", 0x07C1880, 0x07C18A0, indexJojos50HUDPortraits, indexJojos51Mariah },
+    { "Mariah Start Life Bar Portrait", 0x07C18A0, 0x07C18C0, indexJojos50HUDPortraits, indexJojos51Mariah },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_YJOSEPH_PALETTES[] =
 {
-    { "Young Joseph A Life Bar Portrait", 0x07C0B60, 0x07C0B80 },
-    { "Young Joseph B Life Bar Portrait", 0x07C0B80, 0x07C0BA0 },
-    { "Young Joseph C Life Bar Portrait", 0x07C15E0, 0x07C1600 },
-    { "Young Joseph S Life Bar Portrait", 0x07C1600, 0x07C1620 },
-    { "Young Joseph Start Life Bar Portrait", 0x07C1620, 0x07C1640 },
+    { "Young Joseph A Life Bar Portrait", 0x07C0B60, 0x07C0B80, indexJojos50HUDPortraits, indexJojos51YSeph },
+    { "Young Joseph B Life Bar Portrait", 0x07C0B80, 0x07C0BA0, indexJojos50HUDPortraits, indexJojos51YSeph },
+    { "Young Joseph C Life Bar Portrait", 0x07C15E0, 0x07C1600, indexJojos50HUDPortraits, indexJojos51YSeph },
+    { "Young Joseph S Life Bar Portrait", 0x07C1600, 0x07C1620, indexJojos50HUDPortraits, indexJojos51YSeph },
+    { "Young Joseph Start Life Bar Portrait", 0x07C1620, 0x07C1640, indexJojos50HUDPortraits, indexJojos51YSeph },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_SDIO_PALETTES[] =
 {
-    { "Shadow Dio A Life Bar Portrait", 0x07C0BA0, 0x07C0BC0 },
-    { "Shadow Dio B Life Bar Portrait", 0x07C0BC0, 0x07C0BE0 },
-    { "Shadow Dio C Life Bar Portrait", 0x07C1580, 0x07C15A0 },
-    { "Shadow Dio S Life Bar Portrait", 0x07C15A0, 0x07C15C0 },
-    { "Shadow Dio Start Life Bar Portrait", 0x07C15C0, 0x07C15E0 },
+    { "Shadow Dio A Life Bar Portrait", 0x07C0BA0, 0x07C0BC0, indexJojos50HUDPortraits, indexJojos51SDio },
+    { "Shadow Dio B Life Bar Portrait", 0x07C0BC0, 0x07C0BE0, indexJojos50HUDPortraits, indexJojos51SDio },
+    { "Shadow Dio C Life Bar Portrait", 0x07C1580, 0x07C15A0, indexJojos50HUDPortraits, indexJojos51SDio },
+    { "Shadow Dio S Life Bar Portrait", 0x07C15A0, 0x07C15C0, indexJojos50HUDPortraits, indexJojos51SDio },
+    { "Shadow Dio Start Life Bar Portrait", 0x07C15C0, 0x07C15E0, indexJojos50HUDPortraits, indexJojos51SDio },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_NKAKYOIN_PALETTES[] =
 {
-    { "New Kakyoin A / B / Start Life Bar Portrait", 0x07C16E0, 0x07C1700 },
-    { "New Kakyoin C Life Bar Portrait", 0x07C16A0, 0x07C16C0 },
-    { "New Kakyoin S Life Bar Portrait", 0x07C16C0, 0x07C16E0 },
+    { "New Kakyoin A / B / Start Life Bar Portrait", 0x07C16E0, 0x07C1700, indexJojos50HUDPortraits, indexJojos51NewKakyo },
+    { "New Kakyoin C Life Bar Portrait", 0x07C16A0, 0x07C16C0, indexJojos50HUDPortraits, indexJojos51NewKakyo },
+    { "New Kakyoin S Life Bar Portrait", 0x07C16C0, 0x07C16E0, indexJojos50HUDPortraits, indexJojos51NewKakyo },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_APOL_PALETTES[] =
 {
-    { "Anubis Polnareff A Life Bar Portrait", 0x07C1700, 0x07C1720 },
-    { "Anubis Polnareff B Life Bar Portrait", 0x07C1720, 0x07C1740 },
-    { "Anubis Polnareff C Life Bar Portrait", 0x07C1740, 0x07C1760 },
-    { "Anubis Polnareff S Life Bar Portrait", 0x07C1760, 0x07C1780 },
-    { "Anubis Polnareff Start Life Bar Portrait", 0x07C1780, 0x07C17A0 },
+    { "Anubis Polnareff A Life Bar Portrait", 0x07C1700, 0x07C1720, indexJojos50HUDPortraits, indexJojos51Anubis },
+    { "Anubis Polnareff B Life Bar Portrait", 0x07C1720, 0x07C1740, indexJojos50HUDPortraits, indexJojos51Anubis },
+    { "Anubis Polnareff C Life Bar Portrait", 0x07C1740, 0x07C1760, indexJojos50HUDPortraits, indexJojos51Anubis },
+    { "Anubis Polnareff S Life Bar Portrait", 0x07C1760, 0x07C1780, indexJojos50HUDPortraits, indexJojos51Anubis },
+    { "Anubis Polnareff Start Life Bar Portrait", 0x07C1780, 0x07C17A0, indexJojos50HUDPortraits, indexJojos51Anubis },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_HOLB_PALETTES[] =
 {
-    { "Hol & Boingo A Life Bar Portrait", 0x07C18C0, 0x07C18E0 },
-    { "Hol & Boingo B Life Bar Portrait", 0x07C18E0, 0x07C1900 },
-    { "Hol & Boingo C Life Bar Portrait", 0x07C1900, 0x07C1920 },
-    { "Hol & Boingo S Life Bar Portrait", 0x07C1920, 0x07C1940 },
-    { "Hol & Boingo Start Life Bar Portrait", 0x07C1940, 0x07C1960 },
+    { "Hol & Boingo A Life Bar Portrait", 0x07C18C0, 0x07C18E0, indexJojos50HUDPortraits, indexJojos51HolBoingo },
+    { "Hol & Boingo B Life Bar Portrait", 0x07C18E0, 0x07C1900, indexJojos50HUDPortraits, indexJojos51HolBoingo },
+    { "Hol & Boingo C Life Bar Portrait", 0x07C1900, 0x07C1920, indexJojos50HUDPortraits, indexJojos51HolBoingo },
+    { "Hol & Boingo S Life Bar Portrait", 0x07C1920, 0x07C1940, indexJojos50HUDPortraits, indexJojos51HolBoingo },
+    { "Hol & Boingo Start Life Bar Portrait", 0x07C1940, 0x07C1960, indexJojos50HUDPortraits, indexJojos51HolBoingo },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_RSOUL_PALETTES[] =
 {
-    { "Rubber Soul A Life Bar Portrait", 0x07C1960, 0x07C1980 },
-    { "Rubber Soul B Life Bar Portrait", 0x07C1980, 0x07C19A0 },
-    { "Rubber Soul C Life Bar Portrait", 0x07C19A0, 0x07C19C0 },
-    { "Rubber Soul S Life Bar Portrait", 0x07C19C0, 0x07C19E0 },
-    { "Rubber Soul Start Life Bar Portrait", 0x07C19E0, 0x07C1A00 },
+    { "Rubber Soul A Life Bar Portrait", 0x07C1960, 0x07C1980, indexJojos50HUDPortraits, indexJojos51RSoul },
+    { "Rubber Soul B Life Bar Portrait", 0x07C1980, 0x07C19A0, indexJojos50HUDPortraits, indexJojos51RSoul },
+    { "Rubber Soul C Life Bar Portrait", 0x07C19A0, 0x07C19C0, indexJojos50HUDPortraits, indexJojos51RSoul },
+    { "Rubber Soul S Life Bar Portrait", 0x07C19C0, 0x07C19E0, indexJojos50HUDPortraits, indexJojos51RSoul },
+    { "Rubber Soul Start Life Bar Portrait", 0x07C19E0, 0x07C1A00, indexJojos50HUDPortraits, indexJojos51RSoul },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_KHAN_PALETTES[] =
 {
-    { "Khan A Life Bar Portrait", 0x07C1A00, 0x07C1A20 },
-    { "Khan B Life Bar Portrait", 0x07C1A20, 0x07C1A40 },
-    { "Khan C Life Bar Portrait", 0x07C1A40, 0x07C1A60 },
-    { "Khan S Life Bar Portrait", 0x07C1A60, 0x07C1A80 },
-    { "Khan Start Life Bar Portrait", 0x07C1A80, 0x07C1AA0 },
+    { "Khan A Life Bar Portrait", 0x07C1A00, 0x07C1A20, indexJojos50HUDPortraits, indexJojos51Khan },
+    { "Khan B Life Bar Portrait", 0x07C1A20, 0x07C1A40, indexJojos50HUDPortraits, indexJojos51Khan },
+    { "Khan C Life Bar Portrait", 0x07C1A40, 0x07C1A60, indexJojos50HUDPortraits, indexJojos51Khan },
+    { "Khan S Life Bar Portrait", 0x07C1A60, 0x07C1A80, indexJojos50HUDPortraits, indexJojos51Khan },
+    { "Khan Start Life Bar Portrait", 0x07C1A80, 0x07C1AA0, indexJojos50HUDPortraits, indexJojos51Khan },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_DEATH_PALETTES[] =
@@ -3277,6 +3277,7 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { "Title Screen Jotaro Manga", 0x030cb00, 0x030cb80 },
     { "Title Screen Logo",      0x030c680, 0x030c700 },
     { "Title Screen Logo Ribbon", 0x030c700, 0x030c780 },
+    { "English Title", 0x030CB80, 0x030CC00 },
     { "Title Screen Background", 0x030b0a0, 0x030b0b0 },
     { "World Map",              0x0313780, 0x0313800 },
 };
@@ -3288,20 +3289,21 @@ const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { "Super Flash / Zap Effects", 0x0335840, 0x0335860 },
     { "Blocksparks", 0x03358d0, 0x03358e0 },
     { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
-    { "Super Hitsparks", 0x03359c0, 0x03359e0, indexJojos51Bonus, 0x00 },
+    { "Super Hitsparks", 0x03359c0, 0x03359e0 /*, indexJojos51Bonus, 0x00 */}, // temp bug
     { "Tandem Background", 0x030d900, 0x030d980 },
     { "Stand Clash Background", 0x030d100, 0x030d180 },
-    { "Stand Crash Mask Background", 0x030cec0, 0x030cf00 },
-    { "Stand Crash Mask Background 2", 0x030CF40, 0x030CF80 },
+    { "Stand Crash Mask Background", 0x030cec0, 0x030cf00, indexJojos51Bonus, 0x0 },
+    { "Stand Crash Mask Background 2", 0x030CF40, 0x030CF80, indexJojos51Bonus, 0x0 },
     { "Raging Demon Background", 0x030d180, 0x030d200 },
-    { "Super KO Background", 0x030d080, 0x030d100 }, // i was given this as ...82 to xxx102, but that doesn't jive with the other palettes here
-    { "Super KO Portrait", 0x030ce80, 0x030cec0 },
+    { "Super KO Background", 0x030d080, 0x030d100 },
+    { "Super KO Portrait", 0x030ce80, 0x030cec0, indexJojos51Bonus, 0x6 },
+    { "Super KO Portrait Holes/Blood", 0x030CF80, 0x030CFC0, indexJojos51Bonus, 0x7 },
     { "\"Round 1,2,3\" Text", 0x030ce00, 0x030ce60 },
-    { "\"Fight\" & \"Down\" Text", 0x030cd80, 0x030ce00 },
-    { "\"LOSE\"", 0x030cce0, 0x030cd00 },
-    { "\"KO\"", 0x030cd20, 0x030cd40 },
-    { "\"PERFECT\"", 0X030CD40, 0X030CD60 },
-    { "\"Retired\"", 0x030CC20, 0x030CC40 },
+    { "\"Fight\" & \"Down\" Text", 0x030cd80, 0x030ce00, indexJojos51Bonus, 0x1 },
+    { "\"LOSE\"", 0x030cce0, 0x030cd00, indexJojos51Bonus, 0x2 },
+    { "\"KO\"", 0x030cd20, 0x030cd40, indexJojos51Bonus, 0x3 },
+    { "\"PERFECT\"", 0X030CD40, 0X030CD60, indexJojos51Bonus, 0x4 },
+    { "\"Retired\"", 0x030CC20, 0x030CC40, indexJojos51Bonus, 0x5 },
     { "VS screen text", 0x030d400, 0x030d440 },
     { "Win text (character)", 0x030cc40, 0x030cc60 },
     { "Win text (WIN)", 0x030cca0, 0x030ccc0 },
@@ -3309,11 +3311,8 @@ const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { "Double Ko", 0x030CD60, 0x030CD80 },
     { "Draw", 0x030CC80, 0x030CCA0 },
     { "Time Up", 0x030CCC0, 0x030CCE0 },
-    { "English Title", 0x030CB80, 0x030CC00 },
     { "Stand Summon & Tandem Aura", 0x0335920, 0x0335940 },
     { "S.Dio 2c Stone & Requiem Zzz", 0x0335940, 0x0335980 },
-    // partial dupe { "Various Effects", 0x0335980, 0x0335A00 },
-    // partial dupe { "Super Effects/Blocksparks/Etc", 0x03358A0, 0x03358E0 },
     { "Base Char Dust & Floor Bounce", 0x0335B40, 0x0335B60 },
     { "Extra Char Dust & Floor Bounce", 0x0335860, 0x0335878 },
     { "Story Mode Metal Objects", 0x0335B20, 0x0335B40 },
@@ -3322,8 +3321,6 @@ const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { "Some Floor Effect", 0x0335900, 0x0335920 },
     { "Here Comes A New Challenger", 0x030CD00, 0x030CD20 },
     { "Story Mode Episodes Text", 0x030CC00, 0x030CC20 },
-    { "Super KO Portrait Holes/Blood", 0x030CF80, 0x030CFC0 },
-
 };
 
 const sGame_PaletteDataset JOJOS_A_BONUS_NODE_SUPERBACKGROUND[] =
