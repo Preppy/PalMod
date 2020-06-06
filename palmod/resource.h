@@ -27,6 +27,7 @@
 #define IDS_ERROR_TEXTURE_LOAD          117
 #define IDS_ERROR_TEXTURE_NOGAME        118
 #define IDS_ERROR_FILENOTFOUND_FORMAT   119
+#define IDS_ROMMISMATCH_CHECK           120
 #define IDR_MAINFRAME                   128
 #define IDR_MENUMAIN                    129
 #define IDD_PREVIEW_DIALOG              130

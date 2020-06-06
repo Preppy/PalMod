@@ -264,7 +264,28 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
 
     if (CurrFile.Open(szLoadFile, CFile::modeRead | CFile::typeBinary))
     {
-        if (((short int)CurrRule.uVerifyVar == -1) || (CurrFile.GetLength() == CurrRule.uVerifyVar))
+        bool isSafeToRunGame = ((short int)CurrRule.uVerifyVar == -1) || (CurrFile.GetLength() == CurrRule.uVerifyVar);
+
+        if (!isSafeToRunGame)
+        {
+            CString strQuestion;
+            strQuestion.LoadString(IDS_ROMMISMATCH_CHECK);
+
+            switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_ICONSTOP | MB_DEFBUTTON2))
+            {
+                case IDYES:
+                {
+                    isSafeToRunGame = true;
+                    break;
+                }
+                default:
+                {
+                    break;
+                }
+            }
+        }
+
+        if (isSafeToRunGame)
         {
             OutGame = CreateGame(nGameFlag, nGameRule);
             OutGame->SetLoadDir(szLoadFile);

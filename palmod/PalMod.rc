@@ -492,6 +492,7 @@ BEGIN
     IDS_ERROR_TEXTURE_NOGAME "A game must be loaded first."
     IDS_ERROR_FILENOTFOUND_FORMAT 
                             "Save failed: output file '%s' does not exist."
+    IDS_ROMMISMATCH_CHECK   "This ROM is not the expected size.  Are you sure you wish to continue?"
 END
 
 #endif    // English (United States) resources

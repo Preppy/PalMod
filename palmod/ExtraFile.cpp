@@ -142,12 +142,33 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                         // Validate that they're not trying to read off the end of the ROM...
                         if ((nCurrEnd >= (int)nGameROMSize) || (nCurrStart >= (int)nGameROMSize))
                         {
-                            CString strError;
-                            strError.Format("In file \"%s\", Extra \"%s\" is broken: the game ROM size is '%u' bytes, but this Extra starts at offset 0x%06x and ends at offset 0x%06x: \n\nPlease fix: this isn't going to work right.\n", pszExtraFileName, szCurrDesc, nGameROMSize, nCurrStart, nCurrEnd);
-                            MessageBox(nullptr, strError, "PalMod", MB_ICONERROR);
+                            static int s_fAllowOutOfBoundsExtras = -1;
 
-                            nCurrStart = min(nCurrStart, (int)(nGameROMSize - (16 * 2)));
-                            nCurrEnd = min(nCurrEnd, (int)nGameROMSize);
+                            if (s_fAllowOutOfBoundsExtras == -1)
+                            {
+                                CString strQuestion;
+                                strQuestion.Format("In file \"%s\", Extra \"%s\" is broken: the game ROM size is normally '%u' bytes, but this Extra starts at offset 0x%06x and ends at offset 0x%06x: \n\nDo you want PalMod to allow these probably broken Extras?\n", pszExtraFileName, szCurrDesc, nGameROMSize, nCurrStart, nCurrEnd);
+                                
+                                switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_ICONSTOP | MB_DEFBUTTON2))
+                                {
+                                    case IDYES:
+                                    {
+                                        s_fAllowOutOfBoundsExtras = true;
+                                        break;
+                                    }
+                                    default:
+                                    {
+                                        s_fAllowOutOfBoundsExtras = false;
+                                        break;
+                                    }
+                                }
+                            }
+
+                            if (!s_fAllowOutOfBoundsExtras)
+                            {
+                                nCurrStart = min(nCurrStart, (int)(nGameROMSize - (16 * 2)));
+                                nCurrEnd = min(nCurrEnd, (int)nGameROMSize);
+                            }
                         }
 
                         UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / 2; // 2 bytes per color.
