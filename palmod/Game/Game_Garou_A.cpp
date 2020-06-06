@@ -97,12 +97,10 @@ CDescTree* CGame_Garou_A::GetMainTree()
 
 int CGame_Garou_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = (int*)rgExtraCountAll;
-
-    if (rgExtraCt[0] == -1)
+    if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCt, 0, ((Garou_A_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((Garou_A_NUMUNIT + 1) * sizeof(int)));
 
         stExtraDef* pCurrDef = GetExtraDefForGarou(0);
 
@@ -110,7 +108,7 @@ int CGame_Garou_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
         {
             if (!pCurrDef->isInvisible || !bCountVisibleOnly)
             {
-                rgExtraCt[pCurrDef->uUnitN]++;
+                rgExtraCountAll[pCurrDef->uUnitN]++;
             }
 
             nDefCtr++;
@@ -118,7 +116,7 @@ int CGame_Garou_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
         }
     }
 
-    return rgExtraCt[nUnitId];
+    return rgExtraCountAll[nUnitId];
 }
 
 int CGame_Garou_A::GetExtraLoc(UINT16 nUnitId)
@@ -754,8 +752,6 @@ COLORREF* CGame_Garou_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
     {
         NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]);
     }
-
-    NewPal[0] = 0xFF000000;
 
     return NewPal;
 }

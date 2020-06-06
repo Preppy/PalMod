@@ -393,7 +393,7 @@ UINT32 CGameClass::CONV_NEOGEO_32(UINT16 nColorData)
     UINT8 green = NGColorVals[((g1 + gm) - dk) + 1];
     UINT8 red =   NGColorVals[((b1 + bm) - dk) + 1];
 
-    UINT32 color = (red * 0x10000) + (green * 0x100) + (blue)+0xff000000;
+    UINT32 color = (red * 0x10000) + (green * 0x100) + (blue) + 0xff000000;
 
     //CString strColor;
     //strColor.Format("ROM : neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n", nColorData, color, red, green, blue);

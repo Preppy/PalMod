@@ -6,8 +6,6 @@
 // * Update every array using Garou_A_NUMUNIT below
 // That should be it.  Good luck.
 
-
-
 constexpr auto Garou_A_NUMUNIT = indexGarouALast;
 
 #define Garou_A_EXTRALOC Garou_A_NUMUNIT
@@ -1692,6 +1690,8 @@ const UINT8 Garou_A_UNITSORT[Garou_A_NUMUNIT + 1] // Plus for extras
     indexGarouATizoc,
     indexGarouAKain,
     indexGarouAPortraits,
+    
+    Garou_A_EXTRALOC
 };
 
 const sDescTreeNode Garou_A_UNITS[Garou_A_NUMUNIT] =
