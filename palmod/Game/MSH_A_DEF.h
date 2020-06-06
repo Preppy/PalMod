@@ -32,6 +32,34 @@ enum SupportedMSHPaletteListIndex_06
     indexMSH_06_Last
 };
 
+#ifdef LOOKINGFORSORTORDER
+
+const sGame_PaletteDataset MSH_A_SPIDERMAN_PALETTES_P1[] =
+    { "Spider-Man P1", 0x61C0E, 0x61C2E, 0x0C },
+const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES_P1[] =
+    { "Captain America P1", 0x61CEE, 0x61D0E, 0x0B, 0, &pairCaptainAmericaShie
+const sGame_PaletteDataset MSH_A_HULK_PALETTES_P1[] =
+    {"Hulk P1",        0x61DCE, 0x61DEE, 0x0D },
+const sGame_PaletteDataset MSH_A_IRONMAN_PALETTES_P1[] =
+    {"Iron Man P1",    0x61EAE, 0x61ECE, 0x33 },
+const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_P1[] =
+    {"Wolverine P1",   0x61F8E, 0x61FAE, 0x07, 0, &pairWolvieClaws },
+const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P1[] =
+    {"Blackheart P1",  0x6214E, 0x6216E, 0x35 },
+const sGame_PaletteDataset MSH_A_DRDOOM_PALETTES_P1[] =
+    {"Dr. Doom P1",    0x624CE, 0x624EE, 0x0F },
+const sGame_PaletteDataset MSH_A_PSYLOCKE_PALETTES_P1[] =
+    {"Psylocke P1",    0x6206E, 0x6208E, 0x08 },
+const sGame_PaletteDataset MSH_A_JUGGY_PALETTES_P1[] =
+    {"Juggernaut P1",  0x6230E, 0x6232E, 0x29 },
+const sGame_PaletteDataset MSH_A_MAGNETO_PALETTES_P1[] =
+    {"Magneto P1",     0x623EE, 0x6240E, 0x2C },
+const sGame_PaletteDataset MSH_A_THANOS_PALETTES_P1[] =
+    {"Thanos P1",      0x6264E, 0x6266E, 0x36 },
+
+
+#endif
+
 constexpr auto MSH_A_NUMUNIT_05 = indexMSH_05_Last;
 constexpr auto MSH_A_NUMUNIT_06 = indexMSH_06_Last;
 
@@ -250,7 +278,7 @@ const sDescTreeNode MSH_A_DRDOOM_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_P1,          ARRAYSIZE(MSH_A_DRDOOM_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_P2,          ARRAYSIZE(MSH_A_DRDOOM_PALETTES_P2) },
-    { "Extras", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_EXTRAS,          ARRAYSIZE(MSH_A_DRDOOM_PALETTES_EXTRAS) },
+    { "Extras", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_EXTRAS,  ARRAYSIZE(MSH_A_DRDOOM_PALETTES_EXTRAS) },
 };
 
 const sDescTreeNode MSH_A_HULK_COLLECTION[] =
@@ -269,7 +297,7 @@ const sDescTreeNode MSH_A_JUGGY_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_P1,           ARRAYSIZE(MSH_A_JUGGY_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_P2,           ARRAYSIZE(MSH_A_JUGGY_PALETTES_P2) },
-    { "Extras", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_EXTRAS,           ARRAYSIZE(MSH_A_JUGGY_PALETTES_EXTRAS) },
+    { "Extras", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_EXTRAS,   ARRAYSIZE(MSH_A_JUGGY_PALETTES_EXTRAS) },
 };
 
 const sDescTreeNode MSH_A_MAGNETO_COLLECTION[] =
@@ -287,14 +315,14 @@ const sDescTreeNode MSH_A_PSYLOCKE_COLLECTION[] =
 const sDescTreeNode MSH_A_SPIDERMAN_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_PALETTES_P1,       ARRAYSIZE(MSH_A_SPIDERMAN_PALETTES_P1) },
-    { "P2", DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_PALETTES_P2, ARRAYSIZE(MSH_A_SPIDERMAN_PALETTES_P2) },
+    { "P2", DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_PALETTES_P2,       ARRAYSIZE(MSH_A_SPIDERMAN_PALETTES_P2) },
 };
 
 const sDescTreeNode MSH_A_THANOS_COLLECTION[] =
 {
     { "P1", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_P1,          ARRAYSIZE(MSH_A_THANOS_PALETTES_P1) },
     { "P2", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_P2,          ARRAYSIZE(MSH_A_THANOS_PALETTES_P2) },
-    { "Extras", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_EXTRAS,          ARRAYSIZE(MSH_A_THANOS_PALETTES_EXTRAS) },
+    { "Extras", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_EXTRAS,  ARRAYSIZE(MSH_A_THANOS_PALETTES_EXTRAS) },
 };
 
 const sDescTreeNode MSH_A_WOLVERINE_COLLECTION[] =

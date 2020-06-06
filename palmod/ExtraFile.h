@@ -20,6 +20,7 @@ protected:
     UINT32 m_nLowestRomLocationThisPass = k_nBogusHighValue;
     UINT32 m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
     LPCSTR m_pszExtraFilename = nullptr;
+    LPCSTR m_pszDupedPaletteName = nullptr;
 
 private:
     bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nOffsetToCheck, UINT32 nEndOfRegionToCheck = 0);

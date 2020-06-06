@@ -147,24 +147,24 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                             if (s_fAllowOutOfBoundsExtras == -1)
                             {
                                 CString strQuestion;
-                                strQuestion.Format("In file \"%s\", Extra \"%s\" is broken: the game ROM size is normally '%u' bytes, but this Extra starts at offset 0x%06x and ends at offset 0x%06x: \n\nDo you want PalMod to allow these probably broken Extras?\n", pszExtraFileName, szCurrDesc, nGameROMSize, nCurrStart, nCurrEnd);
+                                strQuestion.Format("In file \"%s\", Extra \"%s\" is broken: the game ROM size is normally '%u' bytes, but this Extra starts at offset 0x%06x and ends at offset 0x%06x. \n\nDo you want PalMod to allow these probably broken Extras?\n", pszExtraFileName, szCurrDesc, nGameROMSize, nCurrStart, nCurrEnd);
                                 
                                 switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_ICONSTOP | MB_DEFBUTTON2))
                                 {
                                     case IDYES:
                                     {
-                                        s_fAllowOutOfBoundsExtras = true;
+                                        s_fAllowOutOfBoundsExtras = 1;
                                         break;
                                     }
                                     default:
                                     {
-                                        s_fAllowOutOfBoundsExtras = false;
+                                        s_fAllowOutOfBoundsExtras = 0;
                                         break;
                                     }
                                 }
                             }
 
-                            if (!s_fAllowOutOfBoundsExtras)
+                            if (s_fAllowOutOfBoundsExtras != 1)
                             {
                                 nCurrStart = min(nCurrStart, (int)(nGameROMSize - (16 * 2)));
                                 nCurrEnd = min(nCurrEnd, (int)nGameROMSize);
@@ -347,15 +347,13 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
                 {
                     // This path is used for Extra files: while the core palette database is checked in all angles,
                     // for Extra files we also need to be sure that they don't contain core palette offsets
-                    UINT32 nAdjustedRegionToCheck = nEndOfRegionToCheck ;
-
-                    if ((nAdjustedRegionToCheck > m_nCurrentPaletteROMLocation) &&
-                        (nAdjustedRegionToCheck < nCurrentEndOfPaletteRegion))
+                    if ((nEndOfRegionToCheck > m_nCurrentPaletteROMLocation) &&
+                        (nEndOfRegionToCheck < nCurrentEndOfPaletteRegion))
                     {
                         fIsDupe = true;
                     }
                     else if ((m_nCurrentPaletteROMLocation >= nOffsetToCheck) &&
-                             (m_nCurrentPaletteROMLocation < nAdjustedRegionToCheck))
+                             (m_nCurrentPaletteROMLocation < nEndOfRegionToCheck))
                     {
                         fIsDupe = true;
                     }
@@ -363,6 +361,7 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
 
                 if (fIsDupe)
                 {
+                    m_pszDupedPaletteName = m_pszCurrentPaletteName;
                     nTotalDupesFound++;
                     strDupeText.Format("ERROR: Unit %u pal %u at offset 0x%06x is a duplicate of unit %u pal %u!\n", nUnitCtr, nPalCtr, nOffsetToCheck, nUnitId, nPalId);
                     OutputDebugString(strDupeText);
@@ -452,11 +451,11 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
             fCollisionFound = true;
             nTotalDupesFound++;
 
-            if (!fHaveShownDupeWarning && pszExtraPaletteBeingChecked && m_pszCurrentPaletteName)
+            if (!fHaveShownDupeWarning && pszExtraPaletteBeingChecked && m_pszDupedPaletteName)
             {
                 fHaveShownDupeWarning = true;
                 CString strText;
-                strText.Format("WARNING: In the %s Extras file the palette named '%s' overlaps with '%s'.  That will not work correctly.  Please fix this.\n", m_pszExtraFilename, pszExtraPaletteBeingChecked, m_pszCurrentPaletteName);
+                strText.Format("WARNING: In the %s Extras file the palette named '%s' overlaps with '%s'.  That will not work correctly.  Please fix this.\n", m_pszExtraFilename, pszExtraPaletteBeingChecked, m_pszDupedPaletteName);
                 OutputDebugString(strText);
                 MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
             }
