@@ -384,6 +384,7 @@ void CPalModDlg::OnFileOpen()
         { SSF2T_A, "SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|", INVALID_UNIT_VALUE },
         { SFA3_A, "SFA3 sz3.09c|*.09c|", INVALID_UNIT_VALUE },
         { XMVSF_A, "XMVSF xvs.05a|*.05a|", INVALID_UNIT_VALUE },
+        { NEOGEO_A, "Unknown NEO•GEO|*.*|", INVALID_UNIT_VALUE },
     };
 
     // The following logic ensures that their last used selection is the default filter view.

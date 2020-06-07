@@ -23,6 +23,7 @@ enum SupportedGamesList
     COTA_A,
     MVC2_A,
     Garou_A,
+    NEOGEO_A,
     NUM_GAMES
 };
 
@@ -51,8 +52,8 @@ const CHAR g_GameFriendlyName[NUM_GAMES][32] =
     "X-Men (Arcade)",
     "MVC2 2 (Arcade)",
     "Garou: MotW (Arcade)",
+    "Unknown NEO•GEO (Arcade)",
 };
-
 
 constexpr auto MVC2_D_NUMUNIT = 59;
 constexpr auto SFIII3_A_NUMUNIT = 20;   
@@ -687,6 +688,13 @@ const UINT8 GAROU_A_IMG_UNITS[] =
 };
 
 const int GAROU_A_NUM_IMG_UNITS = ARRAYSIZE(GAROU_A_IMG_UNITS);
+
+enum SupportedNEOGEO_A_PaletteListIndex
+{
+    indexNEOGEO_A_Stub,
+    indexNEOGEO_A_Stub2,
+    indexNEOGEO_A_Last
+};
 
 enum eIMGDat_Sections
 {

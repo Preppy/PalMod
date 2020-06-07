@@ -82,6 +82,9 @@
     <Filter Include="Game\Garou_A">
       <UniqueIdentifier>{a8830097-3e47-45f5-bdd5-b2d4fc746943}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\NEOGEO_A">
+      <UniqueIdentifier>{acaea0b1-3907-4bbd-a2f0-32edc189a18a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -218,6 +221,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_Garou_A.cpp">
       <Filter>Game\Garou_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_NEOGEO_A.cpp">
+      <Filter>Game\NEOGEO_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -388,6 +394,12 @@
     </ClInclude>
     <ClInclude Include="Game\Garou_A_DEF.h">
       <Filter>Game\Garou_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_NEOGEO_A.h">
+      <Filter>Game\NEOGEO_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NEOGEO_A_DEF.h">
+      <Filter>Game\NEOGEO_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

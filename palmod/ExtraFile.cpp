@@ -140,7 +140,8 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                         }
 
                         // Validate that they're not trying to read off the end of the ROM...
-                        if ((nCurrEnd >= (int)nGameROMSize) || (nCurrStart >= (int)nGameROMSize))
+                        if ((nGameROMSize != -1) && 
+                            (((nCurrEnd >= (int)nGameROMSize) || (nCurrStart >= (int)nGameROMSize))))
                         {
                             static int s_fAllowOutOfBoundsExtras = -1;
 

@@ -15,6 +15,7 @@
 #include "Game_MSH_A.h"
 #include "Game_MSHVSF_A.h"
 #include "Game_Garou_A.h"
+#include "Game_NEOGEO_A.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
@@ -118,6 +119,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_Garou_A::GetRule;
         return TRUE;
     }
+    case NEOGEO_A:
+    {
+        GetRule = &CGame_NEOGEO_A::GetRule;
+        return TRUE;
+    }
     default:
         OutputDebugString("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n");
         return FALSE;
@@ -191,6 +197,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
     case Garou_A:
     {
         return new CGame_Garou_A();
+    }
+    case NEOGEO_A:
+    {
+        return new CGame_NEOGEO_A();
     }
     default:
         OutputDebugString("CGameLoad::CreateGame:: BUGBUG: New game has not been properly added yet.\n");
