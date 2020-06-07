@@ -88,10 +88,11 @@ int CGame_SFA3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
 
-    if (rgExtraCt[0] == -1)
+    if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCt, 0, (SFA3_A_NUM_IND + 1) * sizeof(int));
+        memset(rgExtraCountAll, 0, (SFA3_A_NUM_IND + 1) * sizeof(int));
+        memset(rgExtraCountVisibleOnly, 0, (SFA3_A_NUM_IND + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetExtraDefForSFA3(0);
 

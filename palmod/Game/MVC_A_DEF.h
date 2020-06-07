@@ -1419,7 +1419,7 @@ const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_SHARED[] =
     { "Kinectic Charged 2", 0x4b544, 0x4b564, 0x2e },
     { "Kinectic Charged 3", 0x4b564, 0x4b584, 0x2e },
     { "Shadows Light", 0x49a24, 0x49a44, 0x2E },
-    { "Shadows Dark", 0x49a54, 0x49a86, 0x2E },
+    { "Shadows Dark", 0x49a44, 0x49a64, 0x2E },
 };
 
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_SHARED[] =

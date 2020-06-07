@@ -108,12 +108,10 @@ CDescTree* CGame_MVC2_A::GetMainTree()
 
 int CGame_MVC2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = (int*)rgExtraCountAll;
-
-    if (rgExtraCt[0] == -1)
+    if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCt, 0, ((MVC2_A_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((MVC2_A_NUMUNIT + 1) * sizeof(int)));
 
         stExtraDef* pCurrDef = GetExtraDefForMVC2(0);
 
@@ -121,7 +119,7 @@ int CGame_MVC2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
         {
             if (!pCurrDef->isInvisible || !bCountVisibleOnly)
             {
-                rgExtraCt[pCurrDef->uUnitN]++;
+                rgExtraCountAll[pCurrDef->uUnitN]++;
             }
 
             nDefCtr++;
@@ -129,7 +127,7 @@ int CGame_MVC2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
         }
     }
 
-    return rgExtraCt[nUnitId];
+    return rgExtraCountAll[nUnitId];
 }
 
 int CGame_MVC2_A::GetExtraLoc(UINT16 nUnitId)

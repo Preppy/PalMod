@@ -162,10 +162,11 @@ int CGame_MVC_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
 
-    if (rgExtraCt[0] == -1)
+    if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCt, 0, (MVC_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraCountAll, 0, (MVC_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraCountVisibleOnly, 0, (MVC_A_NUMUNIT + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetExtraDefForMVC(0);
 
