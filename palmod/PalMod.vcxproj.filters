@@ -85,6 +85,9 @@
     <Filter Include="Game\NEOGEO_A">
       <UniqueIdentifier>{acaea0b1-3907-4bbd-a2f0-32edc189a18a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\KOF98_A">
+      <UniqueIdentifier>{d9c8c45e-3ad2-4bb8-a6e6-08a9665543d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -224,6 +227,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_NEOGEO_A.cpp">
       <Filter>Game\NEOGEO_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF98_A.cpp">
+      <Filter>Game\KOF98_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -400,6 +406,12 @@
     </ClInclude>
     <ClInclude Include="Game\NEOGEO_A_DEF.h">
       <Filter>Game\NEOGEO_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF98_A.h">
+      <Filter>Game\KOF98_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF98_A_DEF.h">
+      <Filter>Game\KOF98_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

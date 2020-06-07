@@ -16,6 +16,7 @@
 #include "Game_MSHVSF_A.h"
 #include "Game_Garou_A.h"
 #include "Game_NEOGEO_A.h"
+#include "Game_KOF98_A.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
@@ -124,6 +125,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_NEOGEO_A::GetRule;
         return TRUE;
     }
+    case KOF98_A:
+    {
+        GetRule = &CGame_KOF98_A::GetRule;
+        return TRUE;
+    }
     default:
         OutputDebugString("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n");
         return FALSE;
@@ -201,6 +207,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
     case NEOGEO_A:
     {
         return new CGame_NEOGEO_A();
+    }
+    case KOF98_A:
+    {
+        return new CGame_KOF98_A();
     }
     default:
         OutputDebugString("CGameLoad::CreateGame:: BUGBUG: New game has not been properly added yet.\n");

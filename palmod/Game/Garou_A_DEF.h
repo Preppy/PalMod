@@ -210,7 +210,6 @@ const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_BOSS[] =
     { "Khushnood Butt Boss? - Projectile6", 0xf4e0, 0xf500 },
 };
 
-
 const sGame_PaletteDataset Garou_A_TERRY_PALETTES_A[] =
 {
     { "Terry A - Main", 0xf500, 0xf520, indexGarouATerryBogard },
