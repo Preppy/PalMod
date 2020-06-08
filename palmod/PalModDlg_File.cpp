@@ -479,99 +479,336 @@ void CPalModDlg::OnBnBlink()
     Blink();
 }
 
-void CPalModDlg::OnLoadAct()
+void CPalModDlg::LoadPaletteFromPNG(LPCSTR pszFileName)
 {
-    if (bEnabled)
+    CFile PNGFile;
+    if (PNGFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
     {
-        CFileDialog ActLoad(TRUE, NULL, NULL, NULL, "ACT Palette (*.ACT)| *.ACT||");
+        ProcChange();
 
-        if (ActLoad.DoModal() == IDOK)
+        CHAR szSignature[8];
+
+        const ULONGLONG nTotalFileSize = PNGFile.GetLength();
+        ULONGLONG nFileSizeRemaining = nTotalFileSize;
+
+#define READFROMFILEANDDECREMENT(a, b) { PNGFile.Read(a, b); nFileSizeRemaining -= b; }
+
+        READFROMFILEANDDECREMENT(szSignature, 8);
+
+        // Verify PNG signature
+        if ((szSignature[0] == (char)0x89) &&
+            (szSignature[1] == (char)0x50) &&
+            (szSignature[2] == (char)0x4E) &&
+            (szSignature[3] == (char)0x47) &&
+            (szSignature[4] == (char)0x0D) &&
+            (szSignature[5] == (char)0x0A) &&
+            (szSignature[6] == (char)0x1A) &&
+            (szSignature[7] == (char)0x0A))
         {
-            CFile ActFile;
+            CString strInfo;
+            bool fFoundPaletteData = false;
+            int nPNGColorCount = 0;
+            bool fHadToFlip = false;
 
-            if (ActFile.Open(ActLoad.GetOFN().lpstrFile, CFile::modeRead | CFile::typeBinary))
+            OutputDebugString("this is a png.... reading chunks now...\n");
+
+            while (nFileSizeRemaining > 0)
             {
-                ProcChange();
+                UINT32 chunkLength;
+                READFROMFILEANDDECREMENT(&chunkLength, sizeof(chunkLength));
+                chunkLength = _byteswap_ulong(chunkLength);
+                CHAR chunkType[5];
+                READFROMFILEANDDECREMENT(chunkType, sizeof(chunkType) - 1);
+                chunkType[sizeof(chunkType) - 1] = 0;
 
-                UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
-                int nFileSz = (int)ActFile.GetLength();
-                int nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
+                strInfo.Format("Chunk: %4s, size 0x%x\n", chunkType, chunkLength);
+                OutputDebugString(strInfo);
 
-                if (nFileSz == 772) // The documentation states that 768b ACT files do not include color count, but 772b files do.
+                CHAR crcBuffer[4];
+
+                if (strcmp(chunkType, "IHDR") == 0)
                 {
-                    WORD wColorCount;
-                    ActFile.Seek(768, CFile::begin);
-                    ActFile.Read(&wColorCount, 2);
-                    // 772b ACT files store their color count big endian: fix.
-                    nACTColorCount = _byteswap_ushort(wColorCount);
-                    ActFile.Seek(0, CFile::begin);
+                    // 13 bytes for the header
+                    UINT32 imageWidth, imageHeight;
+                    READFROMFILEANDDECREMENT(&imageWidth, 4);
+                    READFROMFILEANDDECREMENT(&imageHeight, 4);
 
-                    // The last four bytes are reserved: don't use them for color copies.
-                    nFileSz = 768;
+                    imageWidth = _byteswap_ulong(imageWidth);
+                    imageHeight = _byteswap_ulong(imageHeight);
+
+                    CHAR IHDRBuffer[5];
+                    READFROMFILEANDDECREMENT(IHDRBuffer, sizeof(IHDRBuffer));
+                    READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
+
+                    UINT32 bitDepth = IHDRBuffer[0];
+                    CHAR colorType = IHDRBuffer[1];
+
+                    if ((colorType == 0) || (colorType == 4)) // grayscale options
+                    {
+                        // PLTE entry cannot appear for this type
+                        OutputDebugString("pngreader: grayscale: PLTE cannot be present.\n");
+                        break;
+                    }
+                    else if (colorType == 3) // indexed color
+                    {
+                        OutputDebugString("pngreader: indexed: PLTE must be present.\n");
+                    }
+                    else // 2 - truecolor and 6 - truecolor with alpha
+                    {
+                        OutputDebugString("pngreader: truecolor: PLTE may be present.\n");
+                    }
                 }
-
-                if (nACTColorCount == 0)
+                else if (strcmp(chunkType, "PLTE") == 0)
                 {
-                    // Default to everything
-                    nACTColorCount = 256;
-                }
+                    fFoundPaletteData = true;
+                    CHAR* pszPaletteData = new CHAR[chunkLength];
 
-                UINT8* pAct = new UINT8[nACTColorCount * 3];
-                memset(pAct, 0, nACTColorCount * 3);
+                    READFROMFILEANDDECREMENT(pszPaletteData, chunkLength);
+                    READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
 
-                ActFile.Read(pAct, nACTColorCount * 3);
-                ActFile.Close();
+                    OutputDebugString("pngreader: processing PLTE header...\n");
 
-                UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
-                UINT16 iACTIndex = 0;
+                    UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+                    nPNGColorCount = (chunkLength / 3);
 
-                // This is commented out because it doesn't work.  
-                // Doing this on load involves updating the non-current page.  But that's only done
-                // on a temporary basis: when the user changes pages, the updates get discarded.
-                for (UINT8 nCurrentPage = 0; nCurrentPage < nPalettePageCount; nCurrentPage++)
-                {
-                    CJunk* pPalCtrlCurrentPage = m_PalHost.GetPalCtrl(nCurrentPage);
+                    strInfo.Format("\tpngreader: processing %u colors...\n", nPNGColorCount);
+                    OutputDebugString(strInfo);
+
+                    // We can only update the active page: ignore further pages.
+                    CJunk* pPalCtrlCurrentPage = m_PalHost.GetPalCtrl(0);
 
                     if (pPalCtrlCurrentPage)
                     {
                         const int nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
+                        UINT16 iPNGIndex = 0;
 
+                        UINT32 nBlackColorCount = 0;
+                        bool fStillStuckOnBlack = true;
                         for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
                         {
-                            pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(pAct[iACTIndex * 3]);
-                            pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pAct[iACTIndex * 3 + 1]);
-                            pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pAct[iACTIndex * 3 + 2]);
+                            pPal[iActivePageIndex * 4] =     MainPalGroup->ROUND_R(pszPaletteData[iPNGIndex * 3]);
+                            pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pszPaletteData[(iPNGIndex * 3) + 1]);
+                            pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pszPaletteData[(iPNGIndex * 3) + 2]);
                             pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
 
-                            if (++iACTIndex >= nACTColorCount)
+                            // This code exists because Fighter Factory writes upside-down color tables.
+                            if (fStillStuckOnBlack &&
+                                (pPal[iActivePageIndex * 4] == 0) &&
+                                (pPal[(iActivePageIndex * 4) + 1] == 0) &&
+                                (pPal[(iActivePageIndex * 4) + 2] == 0))
                             {
-                                // If the palette is larger than our ACT, loop it.
-                                iACTIndex = 0;
+                                nBlackColorCount++;
+                            }
+                            else
+                            {
+                                fStillStuckOnBlack = false;
+                            }
+
+                            if (++iPNGIndex >= nPNGColorCount)
+                            {
+                                // If the palette is larger than our PNG, loop it.
+                                iPNGIndex = 0;
+                            }
+                        }
+
+                        if (nBlackColorCount > 32)
+                        {
+                            // TODO: Maybe ask the use before flipping?
+                            UINT16 iPNGIndex = nPNGColorCount - 1;
+                            fHadToFlip = true;
+
+                            OutputDebugString("This appears to be a bogus SFF PNG... flipping our PNG table logic...\n");
+
+                            for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                            {
+                                pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(pszPaletteData[iPNGIndex * 3]);
+                                pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pszPaletteData[(iPNGIndex * 3) + 1]);
+                                pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pszPaletteData[(iPNGIndex * 3) + 2]);
+                                pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
+
+                                // This code exists because Fighter Factory writes upside-down color tables.
+                                if (--iPNGIndex >= nPNGColorCount)
+                                {
+                                    // If the palette is larger than our PNG, loop it.
+                                    iPNGIndex = nCurrentPageWorkingAmt;
+                                }
                             }
                         }
                     }
-                }
 
-                ImgDispCtrl->UpdateCtrl();
-                CurrPalCtrl->UpdateCtrl();
+                    ImgDispCtrl->UpdateCtrl();
+                    CurrPalCtrl->UpdateCtrl();
 
-                delete[] pAct;
+                    SetStatusText(CString("PNG file Loaded succesfully!"));
 
-                SetStatusText(CString("ACT file Loaded succesfully!"));
-
-                if (nPalettePageCount > 1)
-                {
-                    if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
+                    UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
+                    if (nPalettePageCount > 1)
                     {
-                        MessageBox("Heads-up: you are loading an ACT for a multipage palette.  PalMod can only use the ACT to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
+                        if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
+                        {
+                            MessageBox("Heads-up: you are loading a PNG for a multipage palette.  PalMod can only use the PNG to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
+                        }
                     }
+
+                    safe_delete_array(pszPaletteData);
+                    break;
                 }
+                else if (strcmp(chunkType, "IDAT") == 0)
+                {
+                    // PLTE data if present must be present before the IDAT chunks
+                    OutputDebugString("pngreader: IDAT section hit: PLTE cannot be present from here on out.\n");
+                    break;
+                }
+                else
+                {
+                    // This is a chunk we don't care about: just walk past.
+                    CHAR* pszNope = new CHAR[chunkLength];
+
+                    READFROMFILEANDDECREMENT(pszNope, chunkLength);
+                    READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
+
+                    safe_delete_array(pszNope);
+                }
+            }
+
+            if (!fFoundPaletteData)
+            {
+                MessageBox("Error: This PNG file is not using indexed color.  PalMod cannot use it.", GetHost()->GetAppName(), MB_ICONERROR);
             }
             else
             {
-                CString strError;
-                strError.LoadString(IDS_ERROR_LOADING_ACT_FILE);
-                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+                if (fHadToFlip)
+                {
+                    strInfo.Format("PNG appears to have a reversed color table: loaded %u colors backwards.", nPNGColorCount);
+                }
+                else
+                {
+                    strInfo.Format("Loaded %u colors from the indexed PNG.", nPNGColorCount);
+                }
+                SetStatusText(strInfo);
+            }
+
+            OutputDebugString("pngreader: done!\n");
+        }
+        else
+        {
+            MessageBox("Error: This is not a valid PNG file.", GetHost()->GetAppName(), MB_ICONERROR);
+        }
+
+        PNGFile.Close();
+    }
+    else
+    {
+        CString strError;
+        strError.LoadString(IDS_ERROR_LOADING_ACT_FILE);
+        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+    }
+}
+
+void CPalModDlg::OnLoadAct()
+{
+    if (bEnabled)
+    {
+        CFileDialog ActLoad(TRUE, NULL, NULL, NULL, "ACT Palette (*.ACT), Indexed PNG (*.PNG)| *.ACT;*.png||");
+
+        if (ActLoad.DoModal() == IDOK)
+        {
+            CString strFileName = ActLoad.GetOFN().lpstrFile;
+
+            char szExtension[_MAX_EXT];
+            _splitpath(strFileName, nullptr, nullptr, nullptr, szExtension);
+
+            if (_stricmp(szExtension, ".png") == 0)
+            {
+                LoadPaletteFromPNG(strFileName);
+            }
+            else
+            {
+                CFile ActFile;
+                if (ActFile.Open(strFileName, CFile::modeRead | CFile::typeBinary))
+                {
+                    ProcChange();
+
+                    UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+                    int nFileSz = (int)ActFile.GetLength();
+                    int nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
+
+                    if (nFileSz == 772) // The documentation states that 768b ACT files do not include color count, but 772b files do.
+                    {
+                        WORD wColorCount;
+                        ActFile.Seek(768, CFile::begin);
+                        ActFile.Read(&wColorCount, 2);
+                        // 772b ACT files store their color count big endian: fix.
+                        nACTColorCount = _byteswap_ushort(wColorCount);
+                        ActFile.Seek(0, CFile::begin);
+
+                        // The last four bytes are reserved: don't use them for color copies.
+                        nFileSz = 768;
+                    }
+
+                    if (nACTColorCount == 0)
+                    {
+                        // Default to everything
+                        nACTColorCount = 256;
+                    }
+
+                    UINT8* pAct = new UINT8[nACTColorCount * 3];
+                    memset(pAct, 0, nACTColorCount * 3);
+
+                    ActFile.Read(pAct, nACTColorCount * 3);
+                    ActFile.Close();
+
+                    UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
+                    UINT16 iACTIndex = 0;
+
+                    // This doesn't work as it could.
+                    // Doing this on load involves updating the non-current page.  But that's only done
+                    // on a temporary basis: when the user changes pages, the updates get discarded.
+                    for (UINT8 nCurrentPage = 0; nCurrentPage < nPalettePageCount; nCurrentPage++)
+                    {
+                        CJunk* pPalCtrlCurrentPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+                        if (pPalCtrlCurrentPage)
+                        {
+                            const int nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
+
+                            for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                            {
+                                pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(pAct[iACTIndex * 3]);
+                                pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pAct[iACTIndex * 3 + 1]);
+                                pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pAct[iACTIndex * 3 + 2]);
+                                pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
+
+                                if (++iACTIndex >= nACTColorCount)
+                                {
+                                    // If the palette is larger than our ACT, loop it.
+                                    iACTIndex = 0;
+                                }
+                            }
+                        }
+                    }
+
+                    ImgDispCtrl->UpdateCtrl();
+                    CurrPalCtrl->UpdateCtrl();
+
+                    delete[] pAct;
+
+                    SetStatusText(CString("ACT file Loaded succesfully!"));
+
+                    if (nPalettePageCount > 1)
+                    {
+                        if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
+                        {
+                            MessageBox("Heads-up: you are loading an ACT for a multipage palette.  PalMod can only use the ACT to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
+                        }
+                    }
+                }
+                else
+                {
+                    CString strError;
+                    strError.LoadString(IDS_ERROR_LOADING_ACT_FILE);
+                    MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+                }
             }
         }
     }

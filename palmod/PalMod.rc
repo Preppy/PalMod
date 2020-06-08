@@ -339,7 +339,7 @@ BEGIN
         MENUITEM "&Revert",                     ID_TOOLS_REVERT
         MENUITEM "&Blink",                      ID_TOOLS_BLINK
         MENUITEM SEPARATOR
-        MENUITEM "&Load ACT Palette",           ID_TOOLS_LOADACTPALETTE
+        MENUITEM "&Load Palette",               ID_TOOLS_LOADACTPALETTE
         MENUITEM "&Save ACT Palette",           ID_TOOLS_SAVEACTPALETTE
     END
     POPUP "&Settings"

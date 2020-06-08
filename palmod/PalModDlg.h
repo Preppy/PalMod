@@ -85,7 +85,7 @@ public:
     //Program functions
 
     void LoadGameDir(int nGameFlag, CHAR * szLoadDir);
-    BOOL SetLoadDir(CString * szOut);
+    BOOL SetLoadDir(CString* szOut);
     void UpdateAppTitle();
 
     void LoadGameFile(int nGameFlag, CHAR * szFile);
@@ -103,6 +103,7 @@ public:
     void SaveSettings();
     void UpdateSettingsMenuItems();
 
+    void LoadPaletteFromPNG(LPCSTR pszFileName);
 
     void UpdateSliderSel(BOOL bModeChange = FALSE, BOOL bResetRF = FALSE);
     void SetColMode(int nColMode);

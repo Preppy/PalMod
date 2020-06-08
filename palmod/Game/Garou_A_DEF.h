@@ -1672,6 +1672,34 @@ const sDescTreeNode Garou_A_PORTRAITS_COLLECTION[] =
     { "Kain", DESC_NODETYPE_TREE, (void*)Garou_A_KAIN_PALETTES_PORTRAITS, ARRAYSIZE(Garou_A_KAIN_PALETTES_PORTRAITS) },
 };
 
+const sGame_PaletteDataset Garou_A_BONUS_PALETTES[] =
+{
+    { "Meter", 0xe040, 0xe0e0 },
+    { "Lifebar Nametag, Border, Timer", 0xe120, 0xe140 },
+    { "Lifebar Timer Hurry Up", 0xe140, 0xe160 },
+    { "Lifebar Top: off", 0xe160, 0xe180 },
+    { "Lifebar Top: on", 0xe180, 0xe1a0 },
+    { "Terry Winpoint", 0xe400, 0xe420 },
+    { "Rock Winpoint", 0xe480, 0xe4a0 },
+    { "Dong Hwan Winpoint", 0xe500, 0xe520 },
+    { "Jae Hoon Winpoint", 0xe580, 0xe5a0 },
+    { "Hotaru Winpoint", 0xe600, 0xe620 },
+    { "Gato Winpoint", 0xe680, 0xe6a0 },
+    { "B.Jenet Winpoint", 0xe700, 0xe720 },
+    { "Khushnood Winpoint", 0xe780, 0xe7a0 },
+    { "Hokutomaru Winpoint", 0xe800, 0xe820 },
+    { "Freeman Winpoint", 0xe880, 0xe8a0 },
+    { "Tizoc Winpoint", 0xe900, 0xe920 },
+    { "Bastard Kevin Winpoint", 0xe980, 0xe9a0 },
+    { "Grant Winpoint", 0xea00, 0xea20 },
+    { "Kain Winpoint", 0xea80, 0xeaa0 },
+};
+
+const sDescTreeNode Garou_A_BONUS_COLLECTION[] =
+{
+    { "Bonus", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_PALETTES, ARRAYSIZE(Garou_A_BONUS_PALETTES) },
+};
+
 const UINT8 Garou_A_UNITSORT[Garou_A_NUMUNIT + 1] // Plus for extras
 {
     indexGarouARockHoward,
@@ -1689,6 +1717,7 @@ const UINT8 Garou_A_UNITSORT[Garou_A_NUMUNIT + 1] // Plus for extras
     indexGarouATizoc,
     indexGarouAKain,
     indexGarouAPortraits,
+    indexGarouABonus,
     
     Garou_A_EXTRALOC
 };
@@ -1710,6 +1739,7 @@ const sDescTreeNode Garou_A_UNITS[Garou_A_NUMUNIT] =
     { "Tizoc", DESC_NODETYPE_TREE, (void*)Garou_A_TIZOC_COLLECTION, ARRAYSIZE(Garou_A_TIZOC_COLLECTION) },
     { "Kain", DESC_NODETYPE_TREE, (void*)Garou_A_KAIN_COLLECTION, ARRAYSIZE(Garou_A_KAIN_COLLECTION) },
     { "Portraits", DESC_NODETYPE_TREE, (void*)Garou_A_PORTRAITS_COLLECTION, ARRAYSIZE(Garou_A_PORTRAITS_COLLECTION) },
+    { "Bonus Stuff", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_COLLECTION, ARRAYSIZE(Garou_A_BONUS_COLLECTION) },
 };
 
 // We extend this array with data groveled from the GarouE.txt extensible extras file, if any.

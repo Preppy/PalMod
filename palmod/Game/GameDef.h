@@ -667,6 +667,7 @@ enum SupportedGarou_A_PaletteListIndex
     indexGarouATizoc,
     indexGarouAKain,
     indexGarouAPortraits,
+    indexGarouABonus,
     indexGarouALast
 };
 
