@@ -491,9 +491,8 @@ void CPalModDlg::LoadPaletteFromPNG(LPCSTR pszFileName)
         const ULONGLONG nTotalFileSize = PNGFile.GetLength();
         ULONGLONG nFileSizeRemaining = nTotalFileSize;
 
-#define READFROMFILEANDDECREMENT(a, b) { PNGFile.Read(a, b); nFileSizeRemaining -= b; }
-
-        READFROMFILEANDDECREMENT(szSignature, 8);
+        PNGFile.Read(szSignature, 8); 
+        nFileSizeRemaining -= 8;
 
         // Verify PNG signature
         if ((szSignature[0] == (char)0x89) &&
@@ -511,6 +510,8 @@ void CPalModDlg::LoadPaletteFromPNG(LPCSTR pszFileName)
             bool fHadToFlip = false;
 
             OutputDebugString("this is a png.... reading chunks now...\n");
+
+#define READFROMFILEANDDECREMENT(buffer, cbchunk) { if (cbchunk > nFileSizeRemaining) {break;} PNGFile.Read(buffer, cbchunk); nFileSizeRemaining -= cbchunk; }
 
             while (nFileSizeRemaining > 0)
             {
@@ -709,7 +710,7 @@ void CPalModDlg::OnLoadAct()
 {
     if (bEnabled)
     {
-        CFileDialog ActLoad(TRUE, NULL, NULL, NULL, "ACT Palette (*.ACT), Indexed PNG (*.PNG)| *.ACT;*.png||");
+        CFileDialog ActLoad(TRUE, NULL, NULL, NULL, "ACT Palette, Indexed PNG| *.ACT;*.png||");
 
         if (ActLoad.DoModal() == IDOK)
         {

@@ -718,7 +718,7 @@ enum SupportedKOF98_A_PaletteListIndex
     indexKOF98_A_Chin,
     indexKOF98_A_Chizuru,
     indexKOF98_A_Mai,
-    indexKOF98_A_Kind,
+    indexKOF98_A_King,
     indexKOF98_A_Kim,
     indexKOF98_A_Chang,
     indexKOF98_A_Choi,
@@ -748,7 +748,44 @@ enum SupportedKOF98_A_PaletteListIndex
 
 const UINT8 KOF98_A_IMG_UNITS[] =
 {
-    indexGarouATerryBogard, // test: this sprite doesn't work for KOF98
+    indexKOF98_A_Kyo,
+    indexKOF98_A_Beniumaru,
+    indexKOF98_A_Daimon,
+    indexKOF98_A_Terry,
+    indexKOF98_A_Andy,
+    indexKOF98_A_Joe,
+    indexKOF98_A_Ryo,
+    indexKOF98_A_Robert,
+    indexKOF98_A_Yuri,
+    indexKOF98_A_Leona,
+    indexKOF98_A_Ralf,
+    indexKOF98_A_Clark,
+    indexKOF98_A_Athena,
+    indexKOF98_A_Kensou,
+    indexKOF98_A_Chin,
+    indexKOF98_A_Chizuru,
+    indexKOF98_A_Mai,
+    indexKOF98_A_King,
+    indexKOF98_A_Kim,
+    indexKOF98_A_Chang,
+    indexKOF98_A_Choi,
+    indexKOF98_A_Yashiro,
+    indexKOF98_A_Shermie,
+    indexKOF98_A_Chris,
+    indexKOF98_A_Yamazaki,
+    indexKOF98_A_BlueMary,
+    indexKOF98_A_Billy,
+    indexKOF98_A_Iori,
+    indexKOF98_A_Mature,
+    indexKOF98_A_Vice,
+    indexKOF98_A_Heidern,
+    indexKOF98_A_Takuma,
+    indexKOF98_A_Saisyu,
+    indexKOF98_A_HeavyD,
+    indexKOF98_A_Lucky,
+    indexKOF98_A_Brian,
+    indexKOF98_A_Rugal,
+    indexKOF98_A_Shingo,
 };
 
 const int KOF98_A_NUM_IMG_UNITS = ARRAYSIZE(KOF98_A_IMG_UNITS);
@@ -757,6 +794,7 @@ enum eIMGDat_Sections
 {
     IMGDAT_SECTION_NEOGEO = 0, // NEOGEO: Garou
     IMGDAT_SECTION_JOJOS,
+    IMGDAT_SECTION_KOF, // KOF98
     IMG4,               //Image Game Flag.  Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
     IMGDAT_SECTION_3S,  //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
     IMGDAT_SECTION_ST,  //Image Game Flag.  Used for ST.

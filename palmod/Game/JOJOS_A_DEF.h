@@ -2320,6 +2320,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_A[] =
     { "New Hierophant Changing Pal A (7/7)", 0x0345080, 0x0345100 },
     { "New Hierophant Sparkles A", 0x0345100, 0x0345120 },
     { "Raging Demon Trail A", 0x0344ca0, 0x0344d20 },
+    { "New Kakyoin Remote Mode Afterimage A", 0x0344980, 0x0344A00 },
 
     { "New Kakyoin Vs / Super A", 0x0413600, 0x0413680 },
     { "New Kakyoin Challenger A", 0x0413680, 0x0413700 },
@@ -2344,6 +2345,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_B[] =
     { "New Hierophant Changing Pal B (7/7)", 0x0359580, 0x0359600 },
     { "New Hierophant Sparkles B", 0x0359600, 0x0359620 },
     { "Raging Demon Trail B", 0x03591a0, 0x0359220 },
+    { "New Kakyoin Remote Mode Afterimage B", 0x0358E80, 0x0358F00 },
 
     { "New Kakyoin Vs / Super B", 0x0418400, 0x0418480 },
     { "New Kakyoin Challenger B", 0x0418480, 0x0418500 },
@@ -2368,6 +2370,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_C[] =
     { "New Hierophant Changing Pal C (7/7)", 0x036da80, 0x036db00 },
     { "New Hierophant Sparkles C", 0x036db00, 0x036db20 },
     { "Raging Demon Trail C", 0x036d6a0, 0x036d720 },
+    { "New Kakyoin Remote Mode Afterimage C", 0x036D380,0x036D400 },
 
     { "New Kakyoin Vs / Super C", 0x041d200, 0x041d280 },
     { "New Kakyoin Challenger C", 0x041d280, 0x041d300 },
@@ -2392,6 +2395,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_S[] =
     { "New Hierophant Changing Pal S (7/7)", 0x0381f80, 0x0382000 },
     { "New Hierophant Sparkles S", 0x0382000, 0x0382020 },
     { "Raging Demon Trail S", 0x0381ba0, 0x0381c20 },
+    { "New Kakyoin Remote Mode Afterimage S", 0x0381880, 0x0381900 },
 
     { "New Kakyoin Vs / Super S", 0x0422000, 0x0422080 },
     { "New Kakyoin Challenger S", 0x0422080, 0x0422100 },
@@ -2416,6 +2420,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_Start[] =
     { "New Hierophant Changing Pal Start (7/7)", 0x0396480, 0x0396500 },
     { "New Hierophant Sparkles Start", 0x0396500, 0x0396520 },
     { "Raging Demon Trail Start", 0x03960a0, 0x0396120 },
+    { "New Kakyoin Remote Mode Afterimage Start", 0x395D80, 0x395E00 },
 
     { "New Kakyoin Vs / Super Start", 0x0426e00, 0x0426e80 },
     { "New Kakyoin Challenger Start", 0x0426e80, 0x0426f00 },
@@ -3189,7 +3194,6 @@ const sGame_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
 {
     { "Mode Select Frame", 0x030d4e0, 0x030d500 },
     // { "Mode Select Text", 0x0311a90, 0x0311aa0 }, Duplicate of the Game Over Text range
-    { "Menu Cards", 0x030db40, 0x030db80 },
     { "Challenge & Story signs", 0x030d480, 0x030d4c0 },
     { "Character Select Background", 0x0310100, 0x0310160 },
     { "Selector Rings", 0x0310080, 0x03100c0 },
@@ -3389,6 +3393,62 @@ const sGame_PaletteDataset JOJOS_BONUS_NODE_INTRO_MANGA[] =
 #endif
 };
 
+const sGame_PaletteDataset JOJOS_BONUS_TAROT_CARDS[] =
+{
+#ifdef FUN_COMMENT
+    string: "I say we should wait until we have more of them before adding to the program (also midler is annoying)
+             I know a few people are figuring those out"
+#endif
+    //{ "Coffin Scene: Crusaders ", 0x02eb680, 0x02eb880 },
+    //{ "Jotaro Story: Imprisoned Jotaro", 0x02E8400, 0x02E8500? },
+    //{ "Jotaro Story: Scared Holly", 0x02e8380, 0x02E8400 },
+    //{ "Joseph Story: \"Let's Go!\" ", 0x02e7600, 0x02e7800 },
+    //{ "Midler Story Ending", 0x02E6300, 0x02E6500 },
+
+    { "Menu Cards", 0x030db40, 0x030db80 },
+    //{ "Card Backs", 0x030DB00, 0x030DB40 },
+    { "Star Platinum Light Menu Card", 0x030DB80, 0x030DC00 },
+    { "Star Platinum Menu Card", 0x030DC00, 0x030DC80 },
+    { "Hierophant Light Menu Card", 0x030DC80, 0x030DD00 },
+    { "Hierophant Menu", 0x030DD00, 0x030DD80 },
+    { "Magician's Red Light Menu Card", 0x030DD80, 0x030DE00 },
+    { "Magician's Red Menu Card", 0x030DE00, 0x030DE80 },
+    { "Silver Chariot Light Menu Card", 0x030DE80, 0x030DF00 },
+    { "Silver Chariot Menu Card", 0x030DF00, 0x030DF80 },
+    { "The Hermit Light Menu Card", 0x030DF80, 0x030E000 },
+    { "The Hermit Menu Card", 0x030E000, 0x030E080 },
+    { "The Fool Light Menu Card", 0x030E080, 0x030E100 },
+    { "The Fool Menu Card", 0x030E100, 0x030E180 },
+    { "Sethan Light Menu Card", 0x030E180, 0x030E200 },
+    { "Sethan Menu Card", 0x030E200, 0x030E280 },
+    { "Anubis Light Menu Card", 0x030E280, 0x030E300 },
+    { "Anubis Menu Card", 0x030E300, 0x030E380 },
+    { "The Devil Light Menu Card", 0x030E380, 0x030E400 },
+    { "The Devil Menu Card", 0x030E400, 0x030E480 },
+    { "Geb Light Menu Card", 0x030E480, 0x030E500 },
+    { "Geb Menu Card", 0x030E500, 0x030E580 },
+    { "High Priestess Light Menu Card", 0x030E580, 0x030E600 },
+    { "High Priestess Menu Card", 0x030E600, 0x030E680 },
+    { "The Tower Light Menu Card", 0x030E680, 0x030E700 },
+    { "The Tower Menu Card", 0x030E700, 0x030E780 },
+    { "The Emperor Light Menu Card", 0x030E780, 0x030E800 },
+    { "The Emperor Menu Card", 0x030E800, 0x030E880 },
+    { "Hanged Man Light Menu Card", 0x030E880, 0x030E900 },
+    { "Hanged Man Menu Card", 0x030E900, 0x030E980 },
+    { "Death 13 Light Menu Card", 0x030E980, 0x030EA00 },
+    { "Death 13 Menu Card", 0x030EA00, 0x030EA80 },
+    { "Judgement Light Menu Card", 0x030EA80, 0x030EB00 },
+    { "Judgement Menu Card", 0x030EB00, 0x030EB80 },
+    { "Justice Light Menu Card", 0x030EB80, 0x030EC00 },
+    { "Justice Menu Card", 0x030EC00, 0x030EC80 },
+    { "Horus Light Menu Card", 0x030EC80, 0x030ED00 },
+    { "Horus Menu Card", 0x030ED00, 0x030ED80 },
+    { "Cream Light Menu Card", 0x030ED80, 0x030EE00 },
+    { "Cream Menu Card", 0x030EE00, 0x030EE80 },
+    { "The World Light Menu Card", 0x030EE80, 0x030EF00 },
+    { "The World Menu Card", 0x030EF00, 0x030EF80 },
+};
+
 const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
 {
     { "Intro", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_INTRO_PALETTES, ARRAYSIZE(JOJOS_BONUS_INTRO_PALETTES) },
@@ -3398,6 +3458,7 @@ const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
     // Pushing these directly into INTRO
     //{ "Intro Manga Panels", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_INTRO_MANGA, ARRAYSIZE(JOJOS_BONUS_NODE_INTRO_MANGA) },
     { "Super Screen Background", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_NODE_SUPERBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_NODE_SUPERBACKGROUND) },
+    { "Tarot Cards", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_TAROT_CARDS, ARRAYSIZE(JOJOS_BONUS_TAROT_CARDS) },
 };
 
 #pragma endregion Bonus

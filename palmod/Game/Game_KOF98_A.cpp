@@ -56,7 +56,7 @@ CGame_KOF98_A::CGame_KOF98_A()
 
     //Set game information
     nGameFlag = KOF98_A;
-    nImgGameFlag = IMGDAT_SECTION_NEOGEO;
+    nImgGameFlag = IMGDAT_SECTION_KOF;
     nImgUnitAmt = KOF98_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;

@@ -81,7 +81,7 @@ void CImgDisp::ResizeMainBitmap()
     DeleteObject(hBmp);
 
     Bmpi.bmiHeader.biWidth = MAIN_W;
-    Bmpi.bmiHeader.biHeight = m_pSpriteOverrideTexture ? MAIN_H : -MAIN_H;
+    Bmpi.bmiHeader.biHeight = -MAIN_H;
     Bmpi.bmiHeader.biPlanes = 1;
     Bmpi.bmiHeader.biBitCount = 32;
     Bmpi.bmiHeader.biCompression = BI_RGB;
