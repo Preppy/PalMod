@@ -393,7 +393,7 @@ void CPalModDlg::OnFileOpen()
 
     {
         int nLastUsedGFlag;
-        TCHAR szLastDir[MAX_PATH];
+        CHAR szLastDir[MAX_PATH];
 
         if (GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, nullptr))
         {
@@ -406,6 +406,27 @@ void CPalModDlg::OnFileOpen()
                     break;
                 }
             }
+        }
+        else
+        {
+            // If we're here, that means that they have never used PalMod to load a game before.  Help them.
+            CString strInfo;
+            LPCSTR pszParagraph1 = "Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
+            LPCSTR pszParagraph2 = "The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog helps show the right one for your game.\n\n";
+
+            CHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
+            _tcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
+       
+            LPSTR pszPipe = strstr(szGameFilter, "|");
+
+            if (pszPipe != nullptr)
+            {
+                // Truncate off the filter information
+                pszPipe[0] = 0;
+            }
+
+            strInfo.Format("%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you probably want to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
+            MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
         }
     }
 
