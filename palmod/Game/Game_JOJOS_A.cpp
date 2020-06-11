@@ -65,7 +65,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
     m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
 
     const UINT32 nSafeCountFor50 = 475;
-    const UINT32 nSafeCountFor51 = 2069;
+    const UINT32 nSafeCountFor51 = 2050;
 
     m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
     m_pszExtraFilename = UsePaletteSetFor50() ? EXTRA_FILENAME_50 : EXTRA_FILENAME_51;
@@ -925,6 +925,8 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                          (NodeGet->uUnitId == indexJojos51Alessi) ||
                          (NodeGet->uUnitId == indexJojos51Dio) ||
                          (NodeGet->uUnitId == indexJojos51Devo) ||
+                         (NodeGet->uUnitId == indexJojos51Kakyo) ||
+                         (NodeGet->uUnitId == indexJojos51NewKakyo) ||
                          (NodeGet->uUnitId == indexJojos51VIce) ||
                          (NodeGet->uUnitId == indexJojos51Anubis) ||
                          (NodeGet->uUnitId == indexJojos51Petshop) ||
@@ -965,23 +967,13 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             fUseDefaultPaletteLoad = false;
                         }
                     }
-                    else if (NodeGet->uUnitId == indexJojos51Kakyo) // Kakyo
+                    else if ((NodeGet->uUnitId == indexJojos51Kakyo) ||
+                             (NodeGet->uUnitId == indexJojos51NewKakyo))
                     {
-                        if (nSrcStart == indexJojos51Character_Main)
-                        {
-                            // BUGBUG: There's actually a Hiero we should use in the 00 palette, but
-                            // we need a new sprite for that to work.  Once we have that we should undo this join.
-                            nPaletteOneDelta = 0;
-                            nPaletteTwoDelta = 1;
-                            fUseDefaultPaletteLoad = false;
-                        }
-                        else
-                        {
-                            // Hieros
-                            nPaletteOneDelta = 0;
-                            nPaletteTwoDelta = -nSrcStart;
-                            fUseDefaultPaletteLoad = false;
-                        }
+                        // Hieros
+                        nPaletteOneDelta = 0;
+                        nPaletteTwoDelta = -nSrcStart;
+                        fUseDefaultPaletteLoad = false;
                     }
                     else if (NodeGet->uUnitId == indexJojos51Pol) // Pol : uses an older numbering system.
                     {
@@ -1005,9 +997,20 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         const sGame_PaletteDataset* paletteDataSetOne = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteOneDelta);
                         const sGame_PaletteDataset* paletteDataSetTwo = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteTwoDelta);
 
+                        UINT16 imageOne = paletteDataSetOne->indexOffsetToUse;
+                        UINT16 imageTwo = paletteDataSetTwo->indexOffsetToUse;
+
+                        if (((NodeGet->uUnitId == indexJojos51Kakyo) || (NodeGet->uUnitId == indexJojos51NewKakyo)) &&
+                            !((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)))
+                        {
+                            // Kakyo/NewKakyo uses special logic as the paired palette actually is aligned to a "full" sprite.
+                            imageOne = 1;
+                            imageTwo = 2;
+                        }
+                        
                         ClearSetImgTicket(
-                            CreateImgTicket(paletteDataSetOne->indexImgToUse, paletteDataSetOne->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetTwo->indexImgToUse, paletteDataSetTwo->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            CreateImgTicket(paletteDataSetOne->indexImgToUse, imageOne,
+                                CreateImgTicket(paletteDataSetTwo->indexImgToUse, imageTwo, nullptr, nXOffs, nYOffs)
                             )
                         );
 

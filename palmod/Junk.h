@@ -80,7 +80,6 @@ private:
 
     int iPalW = 0;
     int iPalH = 0;
-    int bUnused = 0;
 
     RECT rUnused = {};
 
@@ -96,6 +95,7 @@ private:
 
     int iHLAmt = 0;
     int iWorkingAmt = 0;
+    int nAllocationLength = 0;
 
     int iHighlightx = 0;
     int iHighlighty = 0;

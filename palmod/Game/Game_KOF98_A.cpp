@@ -692,6 +692,20 @@ BOOL CGame_KOF98_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
+
+            if (pCurrentNode)
+            {
+                nSrcAmt = 4;
+                nNodeIncrement = pCurrentNode->uChildAmt;
+
+                while (nSrcStart >= nNodeIncrement)
+                {
+                    // The starting point is the absolute first palette for the sprite in question which is found in P1
+                    nSrcStart -= nNodeIncrement;
+                }
+            }
         }
     }
 

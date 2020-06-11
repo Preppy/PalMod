@@ -398,17 +398,13 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_TGARDEN[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_HOTELD[] =
 {
-#ifndef USE_LARGE_PALETTES
-    { "Hotel (Devil) (1/7)", 0x07c8300, 0x07c8500 },
-    { "Hotel (Devil) (2/7)", 0x07c8500, 0x07c8700 },
-    { "Hotel (Devil) (3/7)", 0x07c8700, 0x07c8900 },
-    { "Hotel (Devil) (4/7)", 0x07c8900, 0x07c8b00 },
-    { "Hotel (Devil) (5/7)", 0x07c8b00, 0x07c8d00 },
-    { "Hotel (Devil) (6/7)", 0x07c8d00, 0x07c8f00 },
-    { "Hotel (Devil) (7/7)", 0x07c8f00, 0x07c9080 },
-#else
-    { "Hotel (Devil)", 0x07c8300, 0x07c9080 },
-#endif
+    { "Hotel (Devil) (1/7)", 0x07c8300, 0x07c8500, indexJojos51Stages, 0x11 },
+    { "Hotel (Devil) (2/7)", 0x07c8500, 0x07c8700, indexJojos51Stages, 0x12 },
+    { "Hotel (Devil) (3/7)", 0x07c8700, 0x07c8900, indexJojos51Stages, 0x13 },
+    { "Hotel (Devil) (4/7)", 0x07c8900, 0x07c8b00, indexJojos51Stages, 0x14 },
+    { "Hotel (Devil) (5/7)", 0x07c8b00, 0x07c8d00, indexJojos51Stages, 0x15 },
+    { "Hotel (Devil) (6/7)", 0x07c8d00, 0x07c8f00, indexJojos51Stages, 0x16 },
+    { "Hotel (Devil) (7/7)", 0x07c8f00, 0x07c9080, indexJojos51Stages, 0x17 },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_REMAINS[] =
@@ -1073,7 +1069,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_JOTARO_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 {
-    { "Kakyoin & Hierophant Green A", 0x0337080, 0x0337100, indexJojos51Kakyo, indexJojos51Character_Main, &pairHandledInCode },
+    { "Kakyoin & Hierophant Green A", 0x0337080, 0x0337100, indexJojos51Kakyo, indexJojos51Character_Main },
     { "Hierophant Changing Pal A (1/7)", 0x0337900, 0x0337980, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal A (2/7)", 0x0337980, 0x0337a00, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal A (3/7)", 0x0337a00, 0x0337a80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
@@ -1081,14 +1077,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
     { "Hierophant Changing Pal A (5/7)", 0x0337b00, 0x0337b80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal A (6/7)", 0x0337b80, 0x0337c00, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal A (7/7)", 0x0337c00, 0x0337c80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Hierophant Sparkles A", 0x0337c80, 0x0337ca0 },
-    { "Raging Demon Trail A", 0x0337800, 0x0337880, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Kakyoin Remote Mode Afterimage A", 0x0337500, 0x0337580, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Kakyoin Vs/Super A", 0x0410300, 0x0410380 },
-    { "Kakyoin Challenger A", 0x0410380, 0x0410400 },
+    { "Hierophant Sparkles A", 0x0337c80, 0x0337ca0, indexJojos51Kakyo, 0x8 },
+    { "Raging Demon Trail A", 0x0337800, 0x0337880, indexJojos51Kakyo, 0x09 },
+    { "Kakyoin Remote Mode Afterimage A", 0x0337500, 0x0337580, indexJojos51Kakyo, 0x0A },
+    { "Kakyoin Vs/Super A", 0x0410300, 0x0410380, indexJojos51Kakyo, indexJojos51Character_VsSuper },
+    { "Kakyoin Challenger A", 0x0410380, 0x0410400, indexJojos51Kakyo, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Kakyoin Select/Winning A (1/2)", 0x0410400, 0x0410480 },
-    { "Kakyoin Select/Winning A (2/2)", 0x0410480, 0x0410500 },
+    { "Kakyoin Select/Winning A (1/2)", 0x0410400, 0x0410480, indexJojos51Kakyo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "Kakyoin Select/Winning A (2/2)", 0x0410480, 0x0410500, indexJojos51Kakyo, indexJojos51Character_SelectWin2, &pairHandledInCode },
 #else
     { "Kakyoin Select/Winning A", 0x0410400, 0x0410500 },
 #endif
@@ -1100,7 +1096,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_A[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
 {
-    { "Kakyoin & Hierophant Green B", 0x034b580, 0x034b600, indexJojos51Kakyo, indexJojos51Character_Main, &pairHandledInCode },
+    { "Kakyoin & Hierophant Green B", 0x034b580, 0x034b600, indexJojos51Kakyo, indexJojos51Character_Main },
     { "Hierophant Changing Pal B (1/7)", 0x034be00, 0x034be80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal B (2/7)", 0x034be80, 0x034bf00, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal B (3/7)", 0x034bf00, 0x034bf80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
@@ -1108,14 +1104,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
     { "Hierophant Changing Pal B (5/7)", 0x034c000, 0x034c080, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal B (6/7)", 0x034c080, 0x034c100, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal B (7/7)", 0x034c100, 0x034c180, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Hierophant Sparkles B", 0x034c180, 0x034c1a0 },
-    { "Raging Demon Trail B", 0x034bd00, 0x034bd80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Kakyoin Remote Mode Afterimage B", 0x034BA00, 0x034BA80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Kakyoin Vs/Super B", 0x0415100, 0x0415180 },
-    { "Kakyoin Challenger B", 0x0415180, 0x0415200 },
+    { "Hierophant Sparkles B", 0x034c180, 0x034c1a0, indexJojos51Kakyo, 0x8 },
+    { "Raging Demon Trail B", 0x034bd00, 0x034bd80, indexJojos51Kakyo, 0x9 },
+    { "Kakyoin Remote Mode Afterimage B", 0x034BA00, 0x034BA80, indexJojos51Kakyo, 0xa },
+    { "Kakyoin Vs/Super B", 0x0415100, 0x0415180, indexJojos51Kakyo, indexJojos51Character_VsSuper },
+    { "Kakyoin Challenger B", 0x0415180, 0x0415200, indexJojos51Kakyo, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Kakyoin Select/Winning B (1/2)", 0x0415200, 0x0415280 },
-    { "Kakyoin Select/Winning B (2/2)", 0x0415280, 0x0415300 },
+    { "Kakyoin Select/Winning B (1/2)", 0x0415200, 0x0415280, indexJojos51Kakyo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "Kakyoin Select/Winning B (2/2)", 0x0415280, 0x0415300, indexJojos51Kakyo, indexJojos51Character_SelectWin2, &pairHandledInCode },
 #else
     { "Kakyoin Select/Winning B", 0x0415200, 0x0415300 },
 #endif
@@ -1127,7 +1123,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_B[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
 {
-    { "Kakyoin & Hierophant Green C", 0x035fa80, 0x035fb00, indexJojos51Kakyo, indexJojos51Character_Main, &pairHandledInCode },
+    { "Kakyoin & Hierophant Green C", 0x035fa80, 0x035fb00, indexJojos51Kakyo, indexJojos51Character_Main },
     { "Hierophant Changing Pal C (1/7)", 0x0360300, 0x0360380, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal C (2/7)", 0x0360380, 0x0360400, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal C (3/7)", 0x0360400, 0x0360480, indexJojos51Kakyo, 0x01, &pairHandledInCode },
@@ -1135,14 +1131,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
     { "Hierophant Changing Pal C (5/7)", 0x0360500, 0x0360580, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal C (6/7)", 0x0360580, 0x0360600, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal C (7/7)", 0x0360600, 0x0360680, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Hierophant Sparkles C", 0x0360680, 0x03606a0 },
-    { "Raging Demon Trail C", 0x0360200, 0x0360280, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Kakyoin Remote Mode Afterimage C", 0x035FF00, 0x035FF80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Kakyoin Vs/Super C", 0x0419f00, 0x0419f80 },
-    { "Kakyoin Challenger C", 0x0419f80, 0x041a000 },
+    { "Hierophant Sparkles C", 0x0360680, 0x03606a0, indexJojos51Kakyo, 0x8 },
+    { "Raging Demon Trail C", 0x0360200, 0x0360280, indexJojos51Kakyo, 0x9 },
+    { "Kakyoin Remote Mode Afterimage C", 0x035FF00, 0x035FF80, indexJojos51Kakyo, 0xa },
+    { "Kakyoin Vs/Super C", 0x0419f00, 0x0419f80, indexJojos51Kakyo, indexJojos51Character_VsSuper },
+    { "Kakyoin Challenger C", 0x0419f80, 0x041a000, indexJojos51Kakyo, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Kakyoin Select/Winning C (1/2)", 0x041a000, 0x041a080 },
-    { "Kakyoin Select/Winning C (2/2)", 0x041a080, 0x041a100 },
+    { "Kakyoin Select/Winning C (1/2)", 0x041a000, 0x041a080, indexJojos51Kakyo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "Kakyoin Select/Winning C (2/2)", 0x041a080, 0x041a100, indexJojos51Kakyo, indexJojos51Character_SelectWin2, &pairHandledInCode },
 #else
     { "Kakyoin Select/Winning C", 0x041a000, 0x041a100 },
 #endif
@@ -1154,7 +1150,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_C[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
 {
-    { "Kakyoin & Hierophant Green S", 0x0373f80, 0x0374000, indexJojos51Kakyo, indexJojos51Character_Main, &pairHandledInCode },
+    { "Kakyoin & Hierophant Green S", 0x0373f80, 0x0374000, indexJojos51Kakyo, indexJojos51Character_Main },
     { "Hierophant Changing Pal S (1/7)", 0x0374800, 0x0374880, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal S (2/7)", 0x0374880, 0x0374900, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal S (3/7)", 0x0374900, 0x0374980, indexJojos51Kakyo, 0x01, &pairHandledInCode },
@@ -1162,14 +1158,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
     { "Hierophant Changing Pal S (5/7)", 0x0374a00, 0x0374a80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal S (6/7)", 0x0374a80, 0x0374b00, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal S (7/7)", 0x0374b00, 0x0374b80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Hierophant Sparkles S", 0x0374b80, 0x0374ba0 },
-    { "Raging Demon Trail S", 0x0374700, 0x0374780, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Kakyoin Remote Mode Afterimage S", 0x0374400, 0x0374480, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Kakyoin Vs/Super S", 0x041ed00, 0x041ed80 },
-    { "Kakyoin Challenger S", 0x041ed80, 0x041ee00 },
+    { "Hierophant Sparkles S", 0x0374b80, 0x0374ba0, indexJojos51Kakyo, 0x8 },
+    { "Raging Demon Trail S", 0x0374700, 0x0374780, indexJojos51Kakyo, 0x9 },
+    { "Kakyoin Remote Mode Afterimage S", 0x0374400, 0x0374480, indexJojos51Kakyo, 0xa },
+    { "Kakyoin Vs/Super S", 0x041ed00, 0x041ed80, indexJojos51Kakyo, indexJojos51Character_VsSuper },
+    { "Kakyoin Challenger S", 0x041ed80, 0x041ee00, indexJojos51Kakyo, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Kakyoin Select/Winning S (1/2)", 0x041ee00, 0x041ee80 },
-    { "Kakyoin Select/Winning S (2/2)", 0x041ee80, 0x041ef00 },
+    { "Kakyoin Select/Winning S (1/2)", 0x041ee00, 0x041ee80, indexJojos51Kakyo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "Kakyoin Select/Winning S (2/2)", 0x041ee80, 0x041ef00, indexJojos51Kakyo, indexJojos51Character_SelectWin2, &pairHandledInCode },
 #else
     { "Kakyoin Select/Winning S", 0x041ee00, 0x041ef00 },
 #endif
@@ -1181,7 +1177,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_S[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_Start[] =
 {
-    { "Kakyoin & Hierophant Green Start", 0x0388480, 0x0388500, indexJojos51Kakyo, indexJojos51Character_Main, &pairHandledInCode },
+    { "Kakyoin & Hierophant Green Start", 0x0388480, 0x0388500, indexJojos51Kakyo, indexJojos51Character_Main },
     { "Hierophant Changing Pal Start (1/7)", 0x0388d00, 0x0388d80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal Start (2/7)", 0x0388d80, 0x0388e00, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal Start (3/7)", 0x0388e00, 0x0388e80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
@@ -1189,14 +1185,14 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_Start[] =
     { "Hierophant Changing Pal Start (5/7)", 0x0388f00, 0x0388f80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal Start (6/7)", 0x0388f80, 0x0389000, indexJojos51Kakyo, 0x01, &pairHandledInCode },
     { "Hierophant Changing Pal Start (7/7)", 0x0389000, 0x0389080, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Hierophant Sparkles Start", 0x0389080, 0x03890a0 },
-    { "Raging Demon Trail Start", 0x0388c00, 0x0388c80, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Kakyoin Remote Mode Afterimage Start", 0x0388900, 0x0388980, indexJojos51Kakyo, 0x01, &pairHandledInCode },
-    { "Kakyoin Vs/Super Start", 0x0423b00, 0x0423b80 },
-    { "Kakyoin Challenger Start", 0x0423b80, 0x0423c00 },
+    { "Hierophant Sparkles Start", 0x0389080, 0x03890a0, indexJojos51Kakyo, 0x8 },
+    { "Raging Demon Trail Start", 0x0388c00, 0x0388c80, indexJojos51Kakyo, 0x9 },
+    { "Kakyoin Remote Mode Afterimage Start", 0x0388900, 0x0388980, indexJojos51Kakyo, 0xa },
+    { "Kakyoin Vs/Super Start", 0x0423b00, 0x0423b80, indexJojos51Kakyo, indexJojos51Character_VsSuper },
+    { "Kakyoin Challenger Start", 0x0423b80, 0x0423c00, indexJojos51Kakyo, indexJojos51Character_Challenger },
 #ifndef USE_LARGE_PALETTES
-    { "Kakyoin Select/Winning Start (1/2)", 0x0423c00, 0x0423c80 },
-    { "Kakyoin Select/Winning Start (2/2)", 0x0423c80, 0x0423d00 },
+    { "Kakyoin Select/Winning Start (1/2)", 0x0423c00, 0x0423c80, indexJojos51Kakyo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "Kakyoin Select/Winning Start (2/2)", 0x0423c80, 0x0423d00, indexJojos51Kakyo, indexJojos51Character_SelectWin2, &pairHandledInCode },
 #else
     { "Kakyoin Select/Winning Start", 0x0423c00, 0x0423d00 },
 #endif
@@ -2310,127 +2306,127 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_VICE_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_A[] =
 {
-    { "New Kakyoin & Hierophant A", 0x0344500, 0x0344580 },
-    { "New Hierophant Changing Pal A (1/7)", 0x0344d80, 0x0344e00 },
-    { "New Hierophant Changing Pal A (2/7)", 0x0344e00, 0x0344e80 },
-    { "New Hierophant Changing Pal A (3/7)", 0x0344e80, 0x0344f00 },
-    { "New Hierophant Changing Pal A (4/7)", 0x0344f00, 0x0344f80 },
-    { "New Hierophant Changing Pal A (5/7)", 0x0344f80, 0x0345000 },
-    { "New Hierophant Changing Pal A (6/7)", 0x0345000, 0x0345080 },
-    { "New Hierophant Changing Pal A (7/7)", 0x0345080, 0x0345100 },
-    { "New Hierophant Sparkles A", 0x0345100, 0x0345120 },
-    { "Raging Demon Trail A", 0x0344ca0, 0x0344d20 },
-    { "New Kakyoin Remote Mode Afterimage A", 0x0344980, 0x0344A00 },
+    { "New Kakyoin & Hierophant A", 0x0344500, 0x0344580, indexJojos51NewKakyo },
+    { "New Hierophant Changing Pal A (1/7)", 0x0344d80, 0x0344e00, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal A (2/7)", 0x0344e00, 0x0344e80, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal A (3/7)", 0x0344e80, 0x0344f00, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal A (4/7)", 0x0344f00, 0x0344f80, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal A (5/7)", 0x0344f80, 0x0345000, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal A (6/7)", 0x0345000, 0x0345080, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal A (7/7)", 0x0345080, 0x0345100, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Sparkles A", 0x0345100, 0x0345120, indexJojos51NewKakyo, 0x8 },
+    { "Raging Demon Trail A", 0x0344ca0, 0x0344d20, indexJojos51NewKakyo, 0x9 },
+    { "New Kakyoin Remote Mode Afterimage A", 0x0344980, 0x0344A00, indexJojos51NewKakyo, 0xa },
 
-    { "New Kakyoin Vs / Super A", 0x0413600, 0x0413680 },
-    { "New Kakyoin Challenger A", 0x0413680, 0x0413700 },
-    { "New Kakyoin Select / Winning A", 0x0413700, 0x0413780 },
-    { "New Hierophant Select / Winning A", 0x0413780, 0x0413800 },
+    { "New Kakyoin Vs / Super A", 0x0413600, 0x0413680, indexJojos51NewKakyo, indexJojos51Character_VsSuper },
+    { "New Kakyoin Challenger A", 0x0413680, 0x0413700, indexJojos51NewKakyo, indexJojos51Character_Challenger },
+    { "New Kakyoin Select / Winning A", 0x0413700, 0x0413780, indexJojos51NewKakyo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "New Hierophant Select / Winning A", 0x0413780, 0x0413800, indexJojos51NewKakyo, indexJojos51Character_SelectWin2, &pairHandledInCode },
 
-    { "New Kakyoin Burning A (1/2)", 0x0344580, 0x0344600 },
-    { "New Kakyoin Burning A (2/2)", 0x0344600, 0x0344680 },
-    { "New Kakyoin Tech/Zap A (1/2)", 0x0344880, 0x0344900 },
-    { "New Kakyoin Tech/Zap A (2/2)", 0x0344900, 0x0344980 },
+    { "New Kakyoin Burning A (1/2)", 0x0344580, 0x0344600, indexJojos51NewKakyo },
+    { "New Kakyoin Burning A (2/2)", 0x0344600, 0x0344680, indexJojos51NewKakyo },
+    { "New Kakyoin Tech/Zap A (1/2)", 0x0344880, 0x0344900, indexJojos51NewKakyo },
+    { "New Kakyoin Tech/Zap A (2/2)", 0x0344900, 0x0344980, indexJojos51NewKakyo },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_B[] =
 {
-    { "New Kakyoin & Hierophant B", 0x0358a00, 0x0358a80 },
-    { "New Hierophant Changing Pal B (1/7)", 0x0359280, 0x0359300 },
-    { "New Hierophant Changing Pal B (2/7)", 0x0359300, 0x0359380 },
-    { "New Hierophant Changing Pal B (3/7)", 0x0359380, 0x0359400 },
-    { "New Hierophant Changing Pal B (4/7)", 0x0359400, 0x0359480 },
-    { "New Hierophant Changing Pal B (5/7)", 0x0359480, 0x0359500 },
-    { "New Hierophant Changing Pal B (6/7)", 0x0359500, 0x0359580 },
-    { "New Hierophant Changing Pal B (7/7)", 0x0359580, 0x0359600 },
-    { "New Hierophant Sparkles B", 0x0359600, 0x0359620 },
-    { "Raging Demon Trail B", 0x03591a0, 0x0359220 },
-    { "New Kakyoin Remote Mode Afterimage B", 0x0358E80, 0x0358F00 },
+    { "New Kakyoin & Hierophant B", 0x0358a00, 0x0358a80, indexJojos51NewKakyo },
+    { "New Hierophant Changing Pal B (1/7)", 0x0359280, 0x0359300, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal B (2/7)", 0x0359300, 0x0359380, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal B (3/7)", 0x0359380, 0x0359400, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal B (4/7)", 0x0359400, 0x0359480, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal B (5/7)", 0x0359480, 0x0359500, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal B (6/7)", 0x0359500, 0x0359580, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal B (7/7)", 0x0359580, 0x0359600, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Sparkles B", 0x0359600, 0x0359620, indexJojos51NewKakyo, 0x8 },
+    { "Raging Demon Trail B", 0x03591a0, 0x0359220, indexJojos51NewKakyo, 0x9 },
+    { "New Kakyoin Remote Mode Afterimage B", 0x0358E80, 0x0358F00, indexJojos51NewKakyo, 0xa },
 
-    { "New Kakyoin Vs / Super B", 0x0418400, 0x0418480 },
-    { "New Kakyoin Challenger B", 0x0418480, 0x0418500 },
-    { "New Kakyoin Select / Winning B", 0x0418500, 0x0418580 },
-    { "New Hierophant Select / Winning B", 0x0418580, 0x0418600 },
+    { "New Kakyoin Vs / Super B", 0x0418400, 0x0418480, indexJojos51NewKakyo, indexJojos51Character_VsSuper },
+    { "New Kakyoin Challenger B", 0x0418480, 0x0418500, indexJojos51NewKakyo, indexJojos51Character_Challenger },
+    { "New Kakyoin Select / Winning B", 0x0418500, 0x0418580, indexJojos51NewKakyo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "New Hierophant Select / Winning B", 0x0418580, 0x0418600, indexJojos51NewKakyo, indexJojos51Character_SelectWin2, &pairHandledInCode },
 
-    { "New Kakyoin Burning B (1/2)", 0x0358a80, 0x0358b00 },
-    { "New Kakyoin Burning B (2/2)", 0x0358b00, 0x0358b80 },
-    { "New Kakyoin Tech/Zap B (1/2)", 0x0358d80, 0x0358e00 },
-    { "New Kakyoin Tech/Zap B (2/2)", 0x0358e00, 0x0358e80 },
+    { "New Kakyoin Burning B (1/2)", 0x0358a80, 0x0358b00, indexJojos51NewKakyo },
+    { "New Kakyoin Burning B (2/2)", 0x0358b00, 0x0358b80, indexJojos51NewKakyo },
+    { "New Kakyoin Tech/Zap B (1/2)", 0x0358d80, 0x0358e00, indexJojos51NewKakyo },
+    { "New Kakyoin Tech/Zap B (2/2)", 0x0358e00, 0x0358e80, indexJojos51NewKakyo },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_C[] =
 {
-    { "New Kakyoin & Hierophant C", 0x036cf00, 0x036cf80 },
-    { "New Hierophant Changing Pal C (1/7)", 0x036d780, 0x036d800 },
-    { "New Hierophant Changing Pal C (2/7)", 0x036d800, 0x036d880 },
-    { "New Hierophant Changing Pal C (3/7)", 0x036d880, 0x036d900 },
-    { "New Hierophant Changing Pal C (4/7)", 0x036d900, 0x036d980 },
-    { "New Hierophant Changing Pal C (5/7)", 0x036d980, 0x036da00 },
-    { "New Hierophant Changing Pal C (6/7)", 0x036da00, 0x036da80 },
-    { "New Hierophant Changing Pal C (7/7)", 0x036da80, 0x036db00 },
-    { "New Hierophant Sparkles C", 0x036db00, 0x036db20 },
-    { "Raging Demon Trail C", 0x036d6a0, 0x036d720 },
-    { "New Kakyoin Remote Mode Afterimage C", 0x036D380,0x036D400 },
+    { "New Kakyoin & Hierophant C", 0x036cf00, 0x036cf80, indexJojos51NewKakyo },
+    { "New Hierophant Changing Pal C (1/7)", 0x036d780, 0x036d800, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal C (2/7)", 0x036d800, 0x036d880, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal C (3/7)", 0x036d880, 0x036d900, indexJojos51NewKakyo, 0x1,& pairHandledInCode },
+    { "New Hierophant Changing Pal C (4/7)", 0x036d900, 0x036d980, indexJojos51NewKakyo, 0x1,& pairHandledInCode },
+    { "New Hierophant Changing Pal C (5/7)", 0x036d980, 0x036da00, indexJojos51NewKakyo, 0x1,& pairHandledInCode },
+    { "New Hierophant Changing Pal C (6/7)", 0x036da00, 0x036da80, indexJojos51NewKakyo, 0x1,& pairHandledInCode },
+    { "New Hierophant Changing Pal C (7/7)", 0x036da80, 0x036db00, indexJojos51NewKakyo, 0x1,& pairHandledInCode },
+    { "New Hierophant Sparkles C", 0x036db00, 0x036db20, indexJojos51NewKakyo, 0x8 },
+    { "Raging Demon Trail C", 0x036d6a0, 0x036d720, indexJojos51NewKakyo, 0x9 },
+    { "New Kakyoin Remote Mode Afterimage C", 0x036D380,0x036D400, indexJojos51NewKakyo, 0xA },
 
-    { "New Kakyoin Vs / Super C", 0x041d200, 0x041d280 },
-    { "New Kakyoin Challenger C", 0x041d280, 0x041d300 },
-    { "New Kakyoin Select / Winning C", 0x041d300, 0x041d380 },
-    { "New Hierophant Select / Winning C", 0x041d380, 0x041d400 },
+    { "New Kakyoin Vs / Super C", 0x041d200, 0x041d280, indexJojos51NewKakyo, indexJojos51Character_VsSuper },
+    { "New Kakyoin Challenger C", 0x041d280, 0x041d300, indexJojos51NewKakyo, indexJojos51Character_Challenger },
+    { "New Kakyoin Select / Winning C", 0x041d300, 0x041d380, indexJojos51NewKakyo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "New Hierophant Select / Winning C", 0x041d380, 0x041d400, indexJojos51NewKakyo, indexJojos51Character_SelectWin2, &pairHandledInCode },
 
-    { "New Kakyoin Burning C (1/2)", 0x036cf80, 0x036d000 },
-    { "New Kakyoin Burning C (2/2)", 0x036d000, 0x036d080 },
-    { "New Kakyoin Tech/Zap C (1/2)", 0x036d280, 0x036d300 },
-    { "New Kakyoin Tech/Zap C (2/2)", 0x036d300, 0x036d380 },
+    { "New Kakyoin Burning C (1/2)", 0x036cf80, 0x036d000, indexJojos51NewKakyo },
+    { "New Kakyoin Burning C (2/2)", 0x036d000, 0x036d080, indexJojos51NewKakyo },
+    { "New Kakyoin Tech/Zap C (1/2)", 0x036d280, 0x036d300, indexJojos51NewKakyo },
+    { "New Kakyoin Tech/Zap C (2/2)", 0x036d300, 0x036d380, indexJojos51NewKakyo },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_S[] =
 {
-    { "New Kakyoin & Hierophant S", 0x0381400, 0x0381480 },
-    { "New Hierophant Changing Pal S (1/7)", 0x0381c80, 0x0381d00 },
-    { "New Hierophant Changing Pal S (2/7)", 0x0381d00, 0x0381d80 },
-    { "New Hierophant Changing Pal S (3/7)", 0x0381d80, 0x0381e00 },
-    { "New Hierophant Changing Pal S (4/7)", 0x0381e00, 0x0381e80 },
-    { "New Hierophant Changing Pal S (5/7)", 0x0381e80, 0x0381f00 },
-    { "New Hierophant Changing Pal S (6/7)", 0x0381f00, 0x0381f80 },
-    { "New Hierophant Changing Pal S (7/7)", 0x0381f80, 0x0382000 },
-    { "New Hierophant Sparkles S", 0x0382000, 0x0382020 },
-    { "Raging Demon Trail S", 0x0381ba0, 0x0381c20 },
-    { "New Kakyoin Remote Mode Afterimage S", 0x0381880, 0x0381900 },
+    { "New Kakyoin & Hierophant S", 0x0381400, 0x0381480, indexJojos51NewKakyo },
+    { "New Hierophant Changing Pal S (1/7)", 0x0381c80, 0x0381d00, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal S (2/7)", 0x0381d00, 0x0381d80, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal S (3/7)", 0x0381d80, 0x0381e00, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal S (4/7)", 0x0381e00, 0x0381e80, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal S (5/7)", 0x0381e80, 0x0381f00, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal S (6/7)", 0x0381f00, 0x0381f80, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal S (7/7)", 0x0381f80, 0x0382000, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Sparkles S", 0x0382000, 0x0382020, indexJojos51NewKakyo, 0x8 },
+    { "Raging Demon Trail S", 0x0381ba0, 0x0381c20, indexJojos51NewKakyo, 0x9 },
+    { "New Kakyoin Remote Mode Afterimage S", 0x0381880, 0x0381900, indexJojos51NewKakyo, 0xa },
 
-    { "New Kakyoin Vs / Super S", 0x0422000, 0x0422080 },
-    { "New Kakyoin Challenger S", 0x0422080, 0x0422100 },
-    { "New Kakyoin Select / Winning S", 0x0422100, 0x0422180 },
-    { "New Hierophant Select / Winning S", 0x0422180, 0x0422200 },
+    { "New Kakyoin Vs / Super S", 0x0422000, 0x0422080, indexJojos51NewKakyo, indexJojos51Character_VsSuper },
+    { "New Kakyoin Challenger S", 0x0422080, 0x0422100, indexJojos51NewKakyo, indexJojos51Character_Challenger },
+    { "New Kakyoin Select / Winning S", 0x0422100, 0x0422180, indexJojos51NewKakyo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "New Hierophant Select / Winning S", 0x0422180, 0x0422200, indexJojos51NewKakyo, indexJojos51Character_SelectWin2, &pairHandledInCode },
 
-    { "New Kakyoin Burning S (1/2)", 0x0381480, 0x0381500 },
-    { "New Kakyoin Burning S (2/2)", 0x0381500, 0x0381580 },
-    { "New Kakyoin Tech/Zap S (1/2)", 0x0381780, 0x0381800 },
-    { "New Kakyoin Tech/Zap S (2/2)", 0x0381800, 0x0381880 },
+    { "New Kakyoin Burning S (1/2)", 0x0381480, 0x0381500, indexJojos51NewKakyo },
+    { "New Kakyoin Burning S (2/2)", 0x0381500, 0x0381580, indexJojos51NewKakyo },
+    { "New Kakyoin Tech/Zap S (1/2)", 0x0381780, 0x0381800, indexJojos51NewKakyo },
+    { "New Kakyoin Tech/Zap S (2/2)", 0x0381800, 0x0381880, indexJojos51NewKakyo },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIERO_Start[] =
 {
-    { "New Kakyoin & Hierophant Start", 0x0395900, 0x0395980 },
-    { "New Hierophant Changing Pal Start (1/7)", 0x0396180, 0x0396200 },
-    { "New Hierophant Changing Pal Start (2/7)", 0x0396200, 0x0396280 },
-    { "New Hierophant Changing Pal Start (3/7)", 0x0396280, 0x0396300 },
-    { "New Hierophant Changing Pal Start (4/7)", 0x0396300, 0x0396380 },
-    { "New Hierophant Changing Pal Start (5/7)", 0x0396380, 0x0396400 },
-    { "New Hierophant Changing Pal Start (6/7)", 0x0396400, 0x0396480 },
-    { "New Hierophant Changing Pal Start (7/7)", 0x0396480, 0x0396500 },
-    { "New Hierophant Sparkles Start", 0x0396500, 0x0396520 },
-    { "Raging Demon Trail Start", 0x03960a0, 0x0396120 },
-    { "New Kakyoin Remote Mode Afterimage Start", 0x395D80, 0x395E00 },
+    { "New Kakyoin & Hierophant Start", 0x0395900, 0x0395980, indexJojos51NewKakyo },
+    { "New Hierophant Changing Pal Start (1/7)", 0x0396180, 0x0396200, indexJojos51NewKakyo, 0x1, &pairHandledInCode },
+    { "New Hierophant Changing Pal Start (2/7)", 0x0396200, 0x0396280, indexJojos51NewKakyo, 0x1,& pairHandledInCode },
+    { "New Hierophant Changing Pal Start (3/7)", 0x0396280, 0x0396300, indexJojos51NewKakyo, 0x1,& pairHandledInCode },
+    { "New Hierophant Changing Pal Start (4/7)", 0x0396300, 0x0396380, indexJojos51NewKakyo, 0x1,& pairHandledInCode },
+    { "New Hierophant Changing Pal Start (5/7)", 0x0396380, 0x0396400, indexJojos51NewKakyo, 0x1,& pairHandledInCode },
+    { "New Hierophant Changing Pal Start (6/7)", 0x0396400, 0x0396480, indexJojos51NewKakyo, 0x1,& pairHandledInCode },
+    { "New Hierophant Changing Pal Start (7/7)", 0x0396480, 0x0396500, indexJojos51NewKakyo, 0x1,& pairHandledInCode },
+    { "New Hierophant Sparkles Start", 0x0396500, 0x0396520, indexJojos51NewKakyo, 0x8 },
+    { "Raging Demon Trail Start", 0x03960a0, 0x0396120, indexJojos51NewKakyo, 0x9 },
+    { "New Kakyoin Remote Mode Afterimage Start", 0x395D80, 0x395E00, indexJojos51NewKakyo, 0xa },
 
-    { "New Kakyoin Vs / Super Start", 0x0426e00, 0x0426e80 },
-    { "New Kakyoin Challenger Start", 0x0426e80, 0x0426f00 },
-    { "New Kakyoin Select / Winning Start", 0x0426f00, 0x0426f80 },
-    { "New Hierophant Select / Winning Start", 0x0426f80, 0x0427000 },
+    { "New Kakyoin Vs / Super Start", 0x0426e00, 0x0426e80, indexJojos51NewKakyo, indexJojos51Character_VsSuper },
+    { "New Kakyoin Challenger Start", 0x0426e80, 0x0426f00, indexJojos51NewKakyo, indexJojos51Character_Challenger },
+    { "New Kakyoin Select / Winning Start", 0x0426f00, 0x0426f80, indexJojos51NewKakyo, indexJojos51Character_SelectWin1, &pairHandledInCode },
+    { "New Hierophant Select / Winning Start", 0x0426f80, 0x0427000, indexJojos51NewKakyo, indexJojos51Character_SelectWin2, &pairHandledInCode },
 
-    { "New Kakyoin Burning Start (1/2)", 0x0395980, 0x0395a00 },
-    { "New Kakyoin Burning Start (2/2)", 0x0395a00, 0x0395a80 },
-    { "New Kakyoin Tech/Zap Start (1/2)", 0x0395c80, 0x0395d00 },
-    { "New Kakyoin Tech/Zap Start (2/2)", 0x0395d00, 0x0395d80 },
+    { "New Kakyoin Burning Start (1/2)", 0x0395980, 0x0395a00, indexJojos51NewKakyo },
+    { "New Kakyoin Burning Start (2/2)", 0x0395a00, 0x0395a80, indexJojos51NewKakyo },
+    { "New Kakyoin Tech/Zap Start (1/2)", 0x0395c80, 0x0395d00, indexJojos51NewKakyo },
+    { "New Kakyoin Tech/Zap Start (2/2)", 0x0395d00, 0x0395d80, indexJojos51NewKakyo },
 };
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_BPOL_A[] =
@@ -3638,36 +3634,13 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_TIGERBAUM[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_HOTELD[] =
 {
-#ifndef USE_LARGE_PALETTES
-    { "Hotel (Devil) / New 2 TS (1/26)", 0x02d5300, 0x02d5380 },
-    { "Hotel (Devil) / New 2 TS (2/26)", 0x02d5380, 0x02d5400 },
-    { "Hotel (Devil) / New 2 TS (3/26)", 0x02d5400, 0x02d5480 },
-    { "Hotel (Devil) / New 2 TS (4/26)", 0x02d5480, 0x02d5500 },
-    { "Hotel (Devil) / New 2 TS (5/26)", 0x02d5500, 0x02d5580 },
-    { "Hotel (Devil) / New 2 TS (6/26)", 0x02d5580, 0x02d5600 },
-    { "Hotel (Devil) / New 2 TS (7/26)", 0x02d5600, 0x02d5680 },
-    { "Hotel (Devil) / New 2 TS (8/26)", 0x02d5680, 0x02d5700 },
-    { "Hotel (Devil) / New 2 TS (9/26)", 0x02d5700, 0x02d5780 },
-    { "Hotel (Devil) / New 2 TS (10/26)", 0x02d5780, 0x02d5800 },
-    { "Hotel (Devil) / New 2 TS (11/26)", 0x02d5800, 0x02d5880 },
-    { "Hotel (Devil) / New 2 TS (12/26)", 0x02d5880, 0x02d5900 },
-    { "Hotel (Devil) / New 2 TS (13/26)", 0x02d5900, 0x02d5980 },
-    { "Hotel (Devil) / New 2 TS (14/26)", 0x02d5980, 0x02d5a00 },
-    { "Hotel (Devil) / New 2 TS (15/26)", 0x02d5a00, 0x02d5a80 },
-    { "Hotel (Devil) / New 2 TS (16/26)", 0x02d5a80, 0x02d5b00 },
-    { "Hotel (Devil) / New 2 TS (17/26)", 0x02d5b00, 0x02d5b80 },
-    { "Hotel (Devil) / New 2 TS (18/26)", 0x02d5b80, 0x02d5c00 },
-    { "Hotel (Devil) / New 2 TS (19/26)", 0x02d5c00, 0x02d5c80 },
-    { "Hotel (Devil) / New 2 TS (20/26)", 0x02d5c80, 0x02d5d00 },
-    { "Hotel (Devil) / New 2 TS (21/26)", 0x02d5d00, 0x02d5d80 },
-    { "Hotel (Devil) / New 2 TS (22/26)", 0x02d5d80, 0x02d5e00 },
-    { "Hotel (Devil) / New 2 TS (23/26)", 0x02d5e00, 0x02d5e80 },
-    { "Hotel (Devil) / New 2 TS (24/26)", 0x02d5e80, 0x02d5f00 },
-    { "Hotel (Devil) / New 2 TS (25/26)", 0x02d5f00, 0x02d5f80 },
-    { "Hotel (Devil) / New 2 TS (26/26)", 0x02d5f80, 0x02d6000 },
-#else
-    { "Hotel (Devil) / New 2 TS", 0x02d5300, 0x02d6000 },
-#endif
+    { "Hotel (Devil) / New 2 TS (1/7)", 0x02d5300, 0x02d5500, indexJojos51Stages, 0x11 },
+    { "Hotel (Devil) / New 2 TS (2/7)", 0x02d5500, 0x02d5700, indexJojos51Stages, 0x12 },
+    { "Hotel (Devil) / New 2 TS (3/7)", 0x02d5700, 0x02d5900, indexJojos51Stages, 0x13 },
+    { "Hotel (Devil) / New 2 TS (4/7)", 0x02d5900, 0x02d5b00, indexJojos51Stages, 0x14 },
+    { "Hotel (Devil) / New 2 TS (5/7)", 0x02d5b00, 0x02d5d00, indexJojos51Stages, 0x15 },
+    { "Hotel (Devil) / New 2 TS (6/7)", 0x02d5d00, 0x02d5f00, indexJojos51Stages, 0x16 },
+    { "Hotel (Devil) / New 2 TS (7/7)", 0x02d5f00, 0x02d6000, indexJojos51Stages, 0x17 },
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_REMAINS[] =

@@ -75,7 +75,7 @@ void CJunk::ClearHighlighted()
 
 void CJunk::LoadDefaultPal()
 {
-    for (int i = 0; i < iPalH * iPalW; i++)
+    for (int i = 0; i < (iPalH * iPalW); i++)
     {
         BasePal[i] = RGB((F_R + 1) * i / 13, (F_G + 1) * i / 13, (F_B + 1) * i / 13);
     }
@@ -130,11 +130,11 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
 
         //Set the working amount
         iWorkingAmt = nNewAmt;
+        nAllocationLength = iPalW * iPalH;
 
-        bUnused = (iPalH > 1 ? iWorkingAmt % iPalW : 0);
-
-        if (bUnused)
+        if (nAllocationLength != iWorkingAmt)
         {
+            // This handles non-rectangular layouts, since we allocate a H*W layout
             int nSrcIndex = (iWorkingAmt % nWidthMax) + ((iPalH - 1) * nWidthMax);
             int nDstIndex = ((iPalH * nWidthMax) - 1);
 
@@ -145,9 +145,9 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
         }
 
         //Create Selected, Highlighted and SelView
-        Highlighted = new UCHAR[iPalW * iPalH];
-        Selected = new UCHAR[iPalW * iPalH];
-        SelView = new UCHAR[iPalW * iPalH];
+        Highlighted = new UCHAR[nAllocationLength];
+        Selected = new UCHAR[nAllocationLength];
+        SelView = new UCHAR[nAllocationLength];
 
         ClearSelView();
         ClearSelected();
@@ -352,7 +352,7 @@ void CJunk::DrawBG()
         dcBaseDC.FillSolidRect(&rBGRect, RGB(BG_R, BG_G, BG_B));
 
         //Draw the unused palette indexes
-        if (bUnused)
+        if (nAllocationLength != iWorkingAmt)
         {
             dcBaseDC.FillSolidRect(&rUnused, GetSysColor(COLOR_3DFACE));
         }
@@ -688,7 +688,9 @@ void CJunk::UpdateSelAmt()
     {
         for (int ix = 0; ix < iPalW; ix++)
         {
-            if (Selected[(iy * iPalW) + ix])
+            const int iSelIndex = (iy * iPalW) + ix;
+
+            if ((iSelIndex < iWorkingAmt) && Selected[iSelIndex])
             {
                 iSelAmt++;
             }

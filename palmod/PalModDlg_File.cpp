@@ -612,7 +612,7 @@ void CPalModDlg::LoadPaletteFromPNG(LPCSTR pszFileName)
                             }
                         }
 
-                        if (nBlackColorCount > 32)
+                        if ((nBlackColorCount > 32) || (nBlackColorCount == nCurrentPageWorkingAmt))
                         {
                             // TODO: Maybe ask the use before flipping?
                             UINT16 iPNGIndex = nPNGColorCount - 1;
