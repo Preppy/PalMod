@@ -95,8 +95,7 @@ BOOL CPalModApp::InitInstance()
     // As a child window Preview will share taskbar space with the main window.
     // It will also always clip the main window, which is an annoyance.
     // I prefer to be parented....
-    bool fMakeItAChild = true;
-    PreviewDlg->Create(IDD_PREVIEW_DIALOG, fMakeItAChild ? nullptr : CWnd::GetDesktopWindow() );
+    PreviewDlg->Create(IDD_PREVIEW_DIALOG, CRegProc::ShouldForcePeerPreviewWindow() ? CWnd::GetDesktopWindow() : nullptr);
     PreviewDlg->ShowWindow(SW_SHOW);
 
     //Load the accelerator table

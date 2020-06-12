@@ -31,6 +31,7 @@ public:
     static DWORD GetColorsPerLine();
     static DWORD GetMaxPalettePageSize();
     static DWORD dwColorsPerLine;
+    static bool ShouldForcePeerPreviewWindow();
 
     //Main
 

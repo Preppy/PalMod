@@ -8,6 +8,7 @@ constexpr auto c_mainWndPos_8ColorsPerLine = "main_wndpos_02"; // changed defaul
 constexpr auto c_mainWndPos_16ColorsPerLine = "main_wndpos_02_16c";
 constexpr auto c_mainWndColorsPerLine = "main_wndColorsPerLine";
 constexpr auto c_mainWndMaxColorsPerPage = "extras_MaxColorsPerPage";
+constexpr auto c_mainWndForcePeerPreviewWindow = "extras_ForcePeerPreviewWindow";
 
 extern int GetDpiForScreen();
 
@@ -64,6 +65,35 @@ DWORD CRegProc::GetMaxColorsPerPageOverride()
     }
 
     return s_dwMaxColorsPerPage;
+}
+
+bool CRegProc::ShouldForcePeerPreviewWindow()
+{
+    static DWORD shouldForcePeerWindow = -1;
+
+    // Since this affects UI we should only update it once per instance
+    if (shouldForcePeerWindow == -1)
+    {
+        HKEY hKey;
+
+        shouldForcePeerWindow = 0;
+
+        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
+            == ERROR_SUCCESS)
+        {
+            DWORD RegType = REG_DWORD;
+            DWORD GetSz = sizeof(DWORD);
+
+            if (RegQueryValueEx(hKey, c_mainWndForcePeerPreviewWindow, 0, &RegType, (BYTE*)&shouldForcePeerWindow, &GetSz) != ERROR_SUCCESS)
+            {
+                shouldForcePeerWindow = 0;
+            }
+
+            RegCloseKey(hKey);
+        }
+    }
+
+    return (shouldForcePeerWindow == 1);
 }
 
 DWORD CRegProc::GetColorsPerLine()
