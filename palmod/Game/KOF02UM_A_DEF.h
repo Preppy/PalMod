@@ -22,118 +22,77 @@ struct sKOF02_CharacterDump
 
 const sKOF02_CharacterDump KOF02UM_CharacterOffsetArray[] =
 {
-    // Japan Team
     { "Kyo", 0x02000, 0x02200, 0x02400, 0x02600, "indexKOFSprites_02Kyo" },
     { "Benimaru", 0x02800, 0x02A00, 0x02C00, 0x02E00, "indexKOFSprites_98Benimaru" },
     { "Daimon", 0x03000, 0x03200, 0x03400, 0x03600, "indexKOFSprites_98Daimon" },
-
-    // Fatal Fury Team
     { "Terry", 0x03800, 0x03A00, 0x03C00, 0x03E00, "indexKOFSprites_98Terry" },
     { "Andy", 0x04000, 0x04200, 0x04400, 0x04600, "indexKOFSprites_98Andy" },
     { "Joe", 0x04800, 0x04A00, 0x04C00, 0x04E00, "indexKOFSprites_98Joe" },
-
-    // Korea Justice Team
     { "Kim", 0x05000, 0x05200, 0x05400, 0x05600, "indexKOFSprites_98Kim" },
     { "Chang", 0x05800, 0x05A00, 0x05C00, 0x05E00, "indexKOFSprites_98Chang" },
     { "Choi", 0x06000, 0x06200, 0x06400, 0x06600, "indexKOFSprites_98Choi" },
-
-    // Psycho Soldier Team
     { "Athena", 0x06800, 0x06A00, 0x06C00, 0x06E00, "indexKOFSprites_02Athena" },
     { "Kensou", 0x07000, 0x07200, 0x07400, 0x07600, "indexKOFSprites_98Kensou" },
-        // Bao
-
-    // Ikari Warriors Team
+    { "Chin", 0x07800, 0x07A00, 0x07C00, 0x07E00, "indexKOFSprites_98Chin" },
     { "Leona", 0x08000, 0x08200, 0x08400, 0x08600, "indexKOFSprites_98Leona" },
     { "Ralf", 0x08800, 0x08A00, 0x08C00, 0x08E00, "indexKOFSprites_02Ralf" },
     { "Clark", 0x09000, 0x09200, 0x09400, 0x09600, "indexKOFSprites_02Clark" },
-
-    // Art of Fighting Team
     { "Ryo", 0x09800, 0x09A00, 0x09C00, 0x09E00, "indexKOFSprites_98Ryo" },
     { "Robert", 0x0A000, 0x0A200, 0x0A400, 0x0A600, "indexKOFSprites_98Robert" },
+    { "Takuma", 0x0A800, 0x0AA00, 0x0AC00, 0x0AE00, "indexKOFSprites_98Takuma" },
+    { "Mai", 0x0B000, 0x0B200, 0x0B400, 0x0B600, "indexKOFSprites_98Mai" },
     { "Yuri", 0x0B800, 0x0BA00, 0x0BC00, 0x0BE00, "indexKOFSprites_98Yuri" },
-
-    // Yagami Team
+    { "May Lee", 0x0C000, 0x0C200, 0x0C400, 0x0C600, "indexKOFSprites_02MayLee" },
     { "Iori", 0x0C800, 0x0CA00, 0x0CC00, 0x0CE00, "indexKOFSprites_98Iori" },
     { "Mature", 0x0D000, 0x0D200, 0x0D400, 0x0D600, "indexKOFSprites_98Mature" },
     { "Vice", 0x0D800, 0x0DA00, 0x0DC00, 0x0DE00, "indexKOFSprites_98Vice" },
-
-    // '97 Special Team
     { "Yamazaki", 0x0E000, 0x0E200, 0x0E400, 0x0E600, "indexKOFSprites_98Yamazaki" },
     { "Blue Mary", 0x0E800, 0x0EA00, 0x0EC00, 0x0EE00, "indexKOFSprites_98BlueMary" },
     { "Billy", 0x0F000, 0x0F200, 0x0F400, 0x0F600, "indexKOFSprites_98Billy" },
-
-    // New Faces Team
     { "Yashiro", 0x0F800, 0x0FA00, 0x0FC00, 0x0FE00, "indexKOFSprites_98Yashiro" },
     { "Shermie", 0x10000, 0x10200, 0x10400, 0x10600, "indexKOFSprites_98Shermie" },
     { "Chris", 0x10800, 0x10A00, 0x10C00, 0x10E00, "indexKOFSprites_98Chris" },
-
-    // K' Team
     { "K’", 0x11000, 0x11200, 0x11400, 0x11600, "indexKOFSprites_02K" },
     { "Maxima", 0x11800, 0x11A00, 0x11C00, 0x11E00, "indexKOFSprites_02Maxima" },
     { "Whip", 0x12000, 0x12200, 0x12400, 0x12600, "indexKOFSprites_02Whip" },
-
-    // Agents Team
     { "Vanessa", 0x12800, 0x12A00, 0x12C00, 0x12E00, "indexKOFSprites_02Vanessa" },
     { "Seth", 0x13000, 0x13200, 0x13400, 0x13600, "indexKOFSprites_02Seth" },
     { "Ramon", 0x13800, 0x13A00, 0x13C00, 0x13E00, "indexKOFSprites_02Ramon" },
-
-    // Women Fighters Team
-    { "King", 0x46400, 0x46500, 0x46600, 0x46700, "indexKOFSprites_02King" },
-    { "Mai", 0x0B000, 0x0B200, 0x0B400, 0x0B600, "indexKOFSprites_98Mai" },
-    { "Kasumi", 0x4b400, 0x4b500, 0x4b600, 0x4b700 },
-
-    // Asian Triple Alliance Team
-        // Jhun Hoon
-    { "Lin", 0x48400, 0x48500, 0x48600, 0x48700, "indexKOFSprites_02Lin" },
-        // Shingo
-
-    // Pretty Girl Fighters Team
-    { "Xiangfei", 0x46c00, 0x46d00, 0x46e00, 0x46f00, "indexKOFSprites_02Xiangfei" },
-        // Hinako Shijou
-    { "May Lee", 0x0C000, 0x0C200, 0x0C400, 0x0C600, "indexKOFSprites_02MayLee" },
-
-    // Masters Team
-        // Heidern
-    { "Takuma", 0x0A800, 0x0AA00, 0x0AC00, 0x0AE00, "indexKOFSprites_98Takuma" },
-    { "Chin", 0x07800, 0x07A00, 0x07C00, 0x07E00, "indexKOFSprites_98Chin" },
-
-    // Orochi Team
+    { "Kula", 0x14000, 0x14200, 0x14400, 0x14600, "indexKOFSprites_02Kula" },
+    { "Nameless", 0x14800, 0x14A00, 0x14C00, 0x14E00, "indexKOFSprites_02Nameless" },
+    { "Angel", 0x15000, 0x15200, 0x15400, 0x15600, "indexKOFSprites_02Angel" },
+    { "Omega Rugal", 0x15800, 0x15A00, 0x15C00, 0x15E00, "indexKOFSprites_98Rugal" },
+    { "Kusanagi", 0x16000, 0x16200, 0x16400, 0x16600, "indexKOFSprites_02Kyo" },
     { "O.Yashiro", 0x16800, 0x16A00, 0x16C00, 0x16E00, "indexKOFSprites_98Yashiro" },
     { "O.Shermie", 0x17000, 0x17200, 0x17400, 0x17600, "indexKOFSprites_98Shermie" },
     { "O.Chris", 0x17800, 0x17A00, 0x17C00, 0x17E00, "indexKOFSprites_98Chris" },
 
-    // Mid-Bosses
-    
-    // NESTS Team
-    { "Kula", 0x14000, 0x14200, 0x14400, 0x14600, "indexKOFSprites_02Kula" },
-        // Foxy
-    { "Angel", 0x15000, 0x15200, 0x15400, 0x15600, "indexKOFSprites_02Angel" },
-
-    // Clones Team
-    { "Kusanagi", 0x16000, 0x16200, 0x16400, 0x16600, "indexKOFSprites_02Kyo" },
+    // 45c000
+    { "Shingo", 0x45c00, 0x45d00, 0x45e00, 0x45f00, "indexKOFSprites_98Shingo" },
+    { "King", 0x46400, 0x46500, 0x46600, 0x46700, "indexKOFSprites_02King" },
+    { "Xiangfei", 0x46c00, 0x46d00, 0x46e00, 0x46f00, "indexKOFSprites_02Xiangfei" },
+    { "Hinako", 0x47400, 0x47500, 0x47600, 0x47700, "indexKOFSprites_02Hinako" },
+    { "Heidern", 0x47c00, 0x47d00, 0x47e00, 0x47f00, "indexKOFSprites_98Heidern" },
+    { "Lin", 0x48400, 0x48500, 0x48600, 0x48700, "indexKOFSprites_02Lin" },
+    { "EX Takuma", 0x48c00, 0x48d00, 0x48e00, 0x48f00, "indexKOFSprites_98Takuma" },
+    { "Bao", 0x49400, 0x49500, 0x49600, 0x49600, "indexKOFSprites_02Bao" },
+    { "Jhun Hoon", 0x49c00, 0x49d00, 0x49e00, 0x49f00, "indexKOFSprites_02Jhun" },
     { "Kyo-1", 0x4a400, 0x4a500, 0x4a600, 0x4a700, "indexKOFSprites_98Kyo" },
-    { "Kyo-2", 0x4dc00, 0x4dd00, 0x4de00, 0x4df00, "indexKOFSprites_98Kyo" },
+    { "Foxy", 0x4ac00, 0x4ad00, 0x4ae00, 0x4af00, "indexKOFSprites_02Foxy" },
 
-    // Single Entry
-    { "Nameless", 0x14800, 0x14A00, 0x14C00, 0x14E00, "indexKOFSprites_02Nameless" },
-
-    // Bosses
-        // Krizalid
-        // Clone Zero
-        // Zero
-        // Igniz
-
-    // Special Boss
-    { "Omega Rugal", 0x15800, 0x15A00, 0x15C00, 0x15E00, "indexKOFSprites_98Rugal" },
-
-    // Single Entry Bosses
-        // Geese
-        // Nightmare Geese
-    { "Goenitz", 0x4e400, 0x4e500, 0x4e600, 0x4e700, "indexKOFSprites_02Goenitz" },
-    
-
+    { "Kasumi", 0x4b400, 0x4b500, 0x4b600, 0x4b700 },
+    { "Geese", 0x4bc00, 0x4bd00, 0x4be00 ,0x4bf00, "indexKOFSprites_02Geese" },
+    { "Nightmare Geese", 0x4c400, 0x4c500, 0x4c600 ,0x4c700, "indexKOFSprites_02Geese" },
+    { "EX Robert", 0x4cc00, 0x4cd00, 0x4ce00, 0x4cf00, "indexKOFSprites_98Robert" },
     { "EX Kensou", 0x4d400, 0x4d500, 0x4d600, 0x4d700, "indexKOFSprites_98Kensou" },
+    { "Kyo-2", 0x4dc00, 0x4dd00, 0x4de00, 0x4df00, "indexKOFSprites_98Kyo" },
+    { "Goenitz", 0x4e400, 0x4e500, 0x4e600, 0x4e700, "indexKOFSprites_02Goenitz" },
 
+    { "Krizalid", 0x4ec00, 0x4ed00, 0x4ee00, 0x4ef00, "indexKOFSprites_02Krizalid" },
+    { "Clone Zero", 0x4f400, 0x4f500, 0x4f600, 0x4f700, "indexKOFSprites_02OZero" },
+
+    { "Original Zero", 0x4fc00, 0x4fc00, 0x4fc00, 0x4fc00, "indexKOFSprites_02OZero" },
+    { "Igniz", 0x50400, 0x50400, 0x50400, 0x50400, "indexKOFSprites_02Igniz" },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KYO_PALETTES_A[] =
@@ -3048,135 +3007,930 @@ const sDescTreeNode KOF02UM_A_EXKENSOU_COLLECTION[] =
     { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXKENSOU_PALETTES_D, ARRAYSIZE(KOF02UM_A_EXKENSOU_PALETTES_D) },
 };
 
+const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_A[] =
+{
+    { "Shingo A", 0x0045c00, 0x0045c20, indexKOFSprites_98Shingo },
+    { "Shingo A - Extra 1", 0x0045c20, 0x0045c40, indexKOFSprites_98Shingo },
+    { "Shingo A - Extra 2", 0x0045c40, 0x0045c60, indexKOFSprites_98Shingo },
+    { "Shingo A - Extra 3", 0x0045c60, 0x0045c80, indexKOFSprites_98Shingo },
+    { "Shingo A - Extra 4", 0x0045c80, 0x0045ca0, indexKOFSprites_98Shingo },
+    { "Shingo A - Extra 5", 0x0045ca0, 0x0045cc0, indexKOFSprites_98Shingo },
+    { "Shingo A - Extra 6", 0x0045cc0, 0x0045ce0, indexKOFSprites_98Shingo },
+    { "Shingo A - Extra 7", 0x0045ce0, 0x0045d00, indexKOFSprites_98Shingo },
+};
+
+const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_B[] =
+{
+    { "Shingo B", 0x0045d00, 0x0045d20, indexKOFSprites_98Shingo },
+    { "Shingo B - Extra 1", 0x0045d20, 0x0045d40, indexKOFSprites_98Shingo },
+    { "Shingo B - Extra 2", 0x0045d40, 0x0045d60, indexKOFSprites_98Shingo },
+    { "Shingo B - Extra 3", 0x0045d60, 0x0045d80, indexKOFSprites_98Shingo },
+    { "Shingo B - Extra 4", 0x0045d80, 0x0045da0, indexKOFSprites_98Shingo },
+    { "Shingo B - Extra 5", 0x0045da0, 0x0045dc0, indexKOFSprites_98Shingo },
+    { "Shingo B - Extra 6", 0x0045dc0, 0x0045de0, indexKOFSprites_98Shingo },
+    { "Shingo B - Extra 7", 0x0045de0, 0x0045e00, indexKOFSprites_98Shingo },
+};
+
+const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_C[] =
+{
+    { "Shingo C", 0x0045e00, 0x0045e20, indexKOFSprites_98Shingo },
+    { "Shingo C - Extra 1", 0x0045e20, 0x0045e40, indexKOFSprites_98Shingo },
+    { "Shingo C - Extra 2", 0x0045e40, 0x0045e60, indexKOFSprites_98Shingo },
+    { "Shingo C - Extra 3", 0x0045e60, 0x0045e80, indexKOFSprites_98Shingo },
+    { "Shingo C - Extra 4", 0x0045e80, 0x0045ea0, indexKOFSprites_98Shingo },
+    { "Shingo C - Extra 5", 0x0045ea0, 0x0045ec0, indexKOFSprites_98Shingo },
+    { "Shingo C - Extra 6", 0x0045ec0, 0x0045ee0, indexKOFSprites_98Shingo },
+    { "Shingo C - Extra 7", 0x0045ee0, 0x0045f00, indexKOFSprites_98Shingo },
+};
+
+const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_D[] =
+{
+    { "Shingo D", 0x0045f00, 0x0045f20, indexKOFSprites_98Shingo },
+    { "Shingo D - Extra 1", 0x0045f20, 0x0045f40, indexKOFSprites_98Shingo },
+    { "Shingo D - Extra 2", 0x0045f40, 0x0045f60, indexKOFSprites_98Shingo },
+    { "Shingo D - Extra 3", 0x0045f60, 0x0045f80, indexKOFSprites_98Shingo },
+    { "Shingo D - Extra 4", 0x0045f80, 0x0045fa0, indexKOFSprites_98Shingo },
+    { "Shingo D - Extra 5", 0x0045fa0, 0x0045fc0, indexKOFSprites_98Shingo },
+    { "Shingo D - Extra 6", 0x0045fc0, 0x0045fe0, indexKOFSprites_98Shingo },
+    { "Shingo D - Extra 7", 0x0045fe0, 0x0046000, indexKOFSprites_98Shingo },
+};
+
+const sDescTreeNode KOF02UM_A_SHINGO_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHINGO_PALETTES_A, ARRAYSIZE(KOF02UM_A_SHINGO_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHINGO_PALETTES_B, ARRAYSIZE(KOF02UM_A_SHINGO_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHINGO_PALETTES_C, ARRAYSIZE(KOF02UM_A_SHINGO_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHINGO_PALETTES_D, ARRAYSIZE(KOF02UM_A_SHINGO_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_A[] =
+{
+    { "Hinako A", 0x0047400, 0x0047420, indexKOFSprites_02Hinako },
+    { "Hinako A - Extra 1", 0x0047420, 0x0047440, indexKOFSprites_02Hinako },
+    { "Hinako A - Extra 2", 0x0047440, 0x0047460, indexKOFSprites_02Hinako },
+    { "Hinako A - Extra 3", 0x0047460, 0x0047480, indexKOFSprites_02Hinako },
+    { "Hinako A - Extra 4", 0x0047480, 0x00474a0, indexKOFSprites_02Hinako },
+    { "Hinako A - Extra 5", 0x00474a0, 0x00474c0, indexKOFSprites_02Hinako },
+    { "Hinako A - Extra 6", 0x00474c0, 0x00474e0, indexKOFSprites_02Hinako },
+    { "Hinako A - Extra 7", 0x00474e0, 0x0047500, indexKOFSprites_02Hinako },
+};
+
+const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_B[] =
+{
+    { "Hinako B", 0x0047500, 0x0047520, indexKOFSprites_02Hinako },
+    { "Hinako B - Extra 1", 0x0047520, 0x0047540, indexKOFSprites_02Hinako },
+    { "Hinako B - Extra 2", 0x0047540, 0x0047560, indexKOFSprites_02Hinako },
+    { "Hinako B - Extra 3", 0x0047560, 0x0047580, indexKOFSprites_02Hinako },
+    { "Hinako B - Extra 4", 0x0047580, 0x00475a0, indexKOFSprites_02Hinako },
+    { "Hinako B - Extra 5", 0x00475a0, 0x00475c0, indexKOFSprites_02Hinako },
+    { "Hinako B - Extra 6", 0x00475c0, 0x00475e0, indexKOFSprites_02Hinako },
+    { "Hinako B - Extra 7", 0x00475e0, 0x0047600, indexKOFSprites_02Hinako },
+};
+
+const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_C[] =
+{
+    { "Hinako C", 0x0047600, 0x0047620, indexKOFSprites_02Hinako },
+    { "Hinako C - Extra 1", 0x0047620, 0x0047640, indexKOFSprites_02Hinako },
+    { "Hinako C - Extra 2", 0x0047640, 0x0047660, indexKOFSprites_02Hinako },
+    { "Hinako C - Extra 3", 0x0047660, 0x0047680, indexKOFSprites_02Hinako },
+    { "Hinako C - Extra 4", 0x0047680, 0x00476a0, indexKOFSprites_02Hinako },
+    { "Hinako C - Extra 5", 0x00476a0, 0x00476c0, indexKOFSprites_02Hinako },
+    { "Hinako C - Extra 6", 0x00476c0, 0x00476e0, indexKOFSprites_02Hinako },
+    { "Hinako C - Extra 7", 0x00476e0, 0x0047700, indexKOFSprites_02Hinako },
+};
+
+const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_D[] =
+{
+    { "Hinako D", 0x0047700, 0x0047720, indexKOFSprites_02Hinako },
+    { "Hinako D - Extra 1", 0x0047720, 0x0047740, indexKOFSprites_02Hinako },
+    { "Hinako D - Extra 2", 0x0047740, 0x0047760, indexKOFSprites_02Hinako },
+    { "Hinako D - Extra 3", 0x0047760, 0x0047780, indexKOFSprites_02Hinako },
+    { "Hinako D - Extra 4", 0x0047780, 0x00477a0, indexKOFSprites_02Hinako },
+    { "Hinako D - Extra 5", 0x00477a0, 0x00477c0, indexKOFSprites_02Hinako },
+    { "Hinako D - Extra 6", 0x00477c0, 0x00477e0, indexKOFSprites_02Hinako },
+    { "Hinako D - Extra 7", 0x00477e0, 0x0047800, indexKOFSprites_02Hinako },
+};
+
+const sDescTreeNode KOF02UM_A_HINAKO_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_HINAKO_PALETTES_A, ARRAYSIZE(KOF02UM_A_HINAKO_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_HINAKO_PALETTES_B, ARRAYSIZE(KOF02UM_A_HINAKO_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_HINAKO_PALETTES_C, ARRAYSIZE(KOF02UM_A_HINAKO_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_HINAKO_PALETTES_D, ARRAYSIZE(KOF02UM_A_HINAKO_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_A[] =
+{
+    { "Heidern A", 0x0047c00, 0x0047c20, indexKOFSprites_98Heidern },
+    { "Heidern A - Extra 1", 0x0047c20, 0x0047c40, indexKOFSprites_98Heidern },
+    { "Heidern A - Extra 2", 0x0047c40, 0x0047c60, indexKOFSprites_98Heidern },
+    { "Heidern A - Extra 3", 0x0047c60, 0x0047c80, indexKOFSprites_98Heidern },
+    { "Heidern A - Extra 4", 0x0047c80, 0x0047ca0, indexKOFSprites_98Heidern },
+    { "Heidern A - Extra 5", 0x0047ca0, 0x0047cc0, indexKOFSprites_98Heidern },
+    { "Heidern A - Extra 6", 0x0047cc0, 0x0047ce0, indexKOFSprites_98Heidern },
+    { "Heidern A - Extra 7", 0x0047ce0, 0x0047d00, indexKOFSprites_98Heidern },
+};
+
+const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_B[] =
+{
+    { "Heidern B", 0x0047d00, 0x0047d20, indexKOFSprites_98Heidern },
+    { "Heidern B - Extra 1", 0x0047d20, 0x0047d40, indexKOFSprites_98Heidern },
+    { "Heidern B - Extra 2", 0x0047d40, 0x0047d60, indexKOFSprites_98Heidern },
+    { "Heidern B - Extra 3", 0x0047d60, 0x0047d80, indexKOFSprites_98Heidern },
+    { "Heidern B - Extra 4", 0x0047d80, 0x0047da0, indexKOFSprites_98Heidern },
+    { "Heidern B - Extra 5", 0x0047da0, 0x0047dc0, indexKOFSprites_98Heidern },
+    { "Heidern B - Extra 6", 0x0047dc0, 0x0047de0, indexKOFSprites_98Heidern },
+    { "Heidern B - Extra 7", 0x0047de0, 0x0047e00, indexKOFSprites_98Heidern },
+};
+
+const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_C[] =
+{
+    { "Heidern C", 0x0047e00, 0x0047e20, indexKOFSprites_98Heidern },
+    { "Heidern C - Extra 1", 0x0047e20, 0x0047e40, indexKOFSprites_98Heidern },
+    { "Heidern C - Extra 2", 0x0047e40, 0x0047e60, indexKOFSprites_98Heidern },
+    { "Heidern C - Extra 3", 0x0047e60, 0x0047e80, indexKOFSprites_98Heidern },
+    { "Heidern C - Extra 4", 0x0047e80, 0x0047ea0, indexKOFSprites_98Heidern },
+    { "Heidern C - Extra 5", 0x0047ea0, 0x0047ec0, indexKOFSprites_98Heidern },
+    { "Heidern C - Extra 6", 0x0047ec0, 0x0047ee0, indexKOFSprites_98Heidern },
+    { "Heidern C - Extra 7", 0x0047ee0, 0x0047f00, indexKOFSprites_98Heidern },
+};
+
+const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_D[] =
+{
+    { "Heidern D", 0x0047f00, 0x0047f20, indexKOFSprites_98Heidern },
+    { "Heidern D - Extra 1", 0x0047f20, 0x0047f40, indexKOFSprites_98Heidern },
+    { "Heidern D - Extra 2", 0x0047f40, 0x0047f60, indexKOFSprites_98Heidern },
+    { "Heidern D - Extra 3", 0x0047f60, 0x0047f80, indexKOFSprites_98Heidern },
+    { "Heidern D - Extra 4", 0x0047f80, 0x0047fa0, indexKOFSprites_98Heidern },
+    { "Heidern D - Extra 5", 0x0047fa0, 0x0047fc0, indexKOFSprites_98Heidern },
+    { "Heidern D - Extra 6", 0x0047fc0, 0x0047fe0, indexKOFSprites_98Heidern },
+    { "Heidern D - Extra 7", 0x0047fe0, 0x0048000, indexKOFSprites_98Heidern },
+};
+
+const sDescTreeNode KOF02UM_A_HEIDERN_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_HEIDERN_PALETTES_A, ARRAYSIZE(KOF02UM_A_HEIDERN_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_HEIDERN_PALETTES_B, ARRAYSIZE(KOF02UM_A_HEIDERN_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_HEIDERN_PALETTES_C, ARRAYSIZE(KOF02UM_A_HEIDERN_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_HEIDERN_PALETTES_D, ARRAYSIZE(KOF02UM_A_HEIDERN_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_A[] =
+{
+    { "Bao A", 0x0049400, 0x0049420, indexKOFSprites_02Bao },
+    { "Bao A - Extra 1", 0x0049420, 0x0049440, indexKOFSprites_02Bao },
+    { "Bao A - Extra 2", 0x0049440, 0x0049460, indexKOFSprites_02Bao },
+    { "Bao A - Extra 3", 0x0049460, 0x0049480, indexKOFSprites_02Bao },
+    { "Bao A - Extra 4", 0x0049480, 0x00494a0, indexKOFSprites_02Bao },
+    { "Bao A - Extra 5", 0x00494a0, 0x00494c0, indexKOFSprites_02Bao },
+    { "Bao A - Extra 6", 0x00494c0, 0x00494e0, indexKOFSprites_02Bao },
+    { "Bao A - Extra 7", 0x00494e0, 0x0049500, indexKOFSprites_02Bao },
+};
+
+const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_B[] =
+{
+    { "Bao B", 0x0049500, 0x0049520, indexKOFSprites_02Bao },
+    { "Bao B - Extra 1", 0x0049520, 0x0049540, indexKOFSprites_02Bao },
+    { "Bao B - Extra 2", 0x0049540, 0x0049560, indexKOFSprites_02Bao },
+    { "Bao B - Extra 3", 0x0049560, 0x0049580, indexKOFSprites_02Bao },
+    { "Bao B - Extra 4", 0x0049580, 0x00495a0, indexKOFSprites_02Bao },
+    { "Bao B - Extra 5", 0x00495a0, 0x00495c0, indexKOFSprites_02Bao },
+    { "Bao B - Extra 6", 0x00495c0, 0x00495e0, indexKOFSprites_02Bao },
+    { "Bao B - Extra 7", 0x00495e0, 0x0049600, indexKOFSprites_02Bao },
+};
+
+const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_C[] =
+{
+    { "Bao C", 0x0049600, 0x0049620, indexKOFSprites_02Bao },
+    { "Bao C - Extra 1", 0x0049620, 0x0049640, indexKOFSprites_02Bao },
+    { "Bao C - Extra 2", 0x0049640, 0x0049660, indexKOFSprites_02Bao },
+    { "Bao C - Extra 3", 0x0049660, 0x0049680, indexKOFSprites_02Bao },
+    { "Bao C - Extra 4", 0x0049680, 0x00496a0, indexKOFSprites_02Bao },
+    { "Bao C - Extra 5", 0x00496a0, 0x00496c0, indexKOFSprites_02Bao },
+    { "Bao C - Extra 6", 0x00496c0, 0x00496e0, indexKOFSprites_02Bao },
+    { "Bao C - Extra 7", 0x00496e0, 0x0049700, indexKOFSprites_02Bao },
+};
+
+const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_D[] =
+{
+    { "Bao D", 0x0049600, 0x0049620, indexKOFSprites_02Bao },
+    { "Bao D - Extra 1", 0x0049620, 0x0049640, indexKOFSprites_02Bao },
+    { "Bao D - Extra 2", 0x0049640, 0x0049660, indexKOFSprites_02Bao },
+    { "Bao D - Extra 3", 0x0049660, 0x0049680, indexKOFSprites_02Bao },
+    { "Bao D - Extra 4", 0x0049680, 0x00496a0, indexKOFSprites_02Bao },
+    { "Bao D - Extra 5", 0x00496a0, 0x00496c0, indexKOFSprites_02Bao },
+    { "Bao D - Extra 6", 0x00496c0, 0x00496e0, indexKOFSprites_02Bao },
+    { "Bao D - Extra 7", 0x00496e0, 0x0049700, indexKOFSprites_02Bao },
+};
+
+const sDescTreeNode KOF02UM_A_BAO_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_BAO_PALETTES_A, ARRAYSIZE(KOF02UM_A_BAO_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_BAO_PALETTES_B, ARRAYSIZE(KOF02UM_A_BAO_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_BAO_PALETTES_C, ARRAYSIZE(KOF02UM_A_BAO_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_BAO_PALETTES_D, ARRAYSIZE(KOF02UM_A_BAO_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_A[] =
+{
+    { "Jhun Hoon A", 0x0049c00, 0x0049c20, indexKOFSprites_02Jhun },
+    { "Jhun Hoon A - Extra 1", 0x0049c20, 0x0049c40, indexKOFSprites_02Jhun },
+    { "Jhun Hoon A - Extra 2", 0x0049c40, 0x0049c60, indexKOFSprites_02Jhun },
+    { "Jhun Hoon A - Extra 3", 0x0049c60, 0x0049c80, indexKOFSprites_02Jhun },
+    { "Jhun Hoon A - Extra 4", 0x0049c80, 0x0049ca0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon A - Extra 5", 0x0049ca0, 0x0049cc0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon A - Extra 6", 0x0049cc0, 0x0049ce0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon A - Extra 7", 0x0049ce0, 0x0049d00, indexKOFSprites_02Jhun },
+};
+
+const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_B[] =
+{
+    { "Jhun Hoon B", 0x0049d00, 0x0049d20, indexKOFSprites_02Jhun },
+    { "Jhun Hoon B - Extra 1", 0x0049d20, 0x0049d40, indexKOFSprites_02Jhun },
+    { "Jhun Hoon B - Extra 2", 0x0049d40, 0x0049d60, indexKOFSprites_02Jhun },
+    { "Jhun Hoon B - Extra 3", 0x0049d60, 0x0049d80, indexKOFSprites_02Jhun },
+    { "Jhun Hoon B - Extra 4", 0x0049d80, 0x0049da0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon B - Extra 5", 0x0049da0, 0x0049dc0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon B - Extra 6", 0x0049dc0, 0x0049de0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon B - Extra 7", 0x0049de0, 0x0049e00, indexKOFSprites_02Jhun },
+};
+
+const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_C[] =
+{
+    { "Jhun Hoon C", 0x0049e00, 0x0049e20, indexKOFSprites_02Jhun },
+    { "Jhun Hoon C - Extra 1", 0x0049e20, 0x0049e40, indexKOFSprites_02Jhun },
+    { "Jhun Hoon C - Extra 2", 0x0049e40, 0x0049e60, indexKOFSprites_02Jhun },
+    { "Jhun Hoon C - Extra 3", 0x0049e60, 0x0049e80, indexKOFSprites_02Jhun },
+    { "Jhun Hoon C - Extra 4", 0x0049e80, 0x0049ea0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon C - Extra 5", 0x0049ea0, 0x0049ec0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon C - Extra 6", 0x0049ec0, 0x0049ee0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon C - Extra 7", 0x0049ee0, 0x0049f00, indexKOFSprites_02Jhun },
+};
+
+const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_D[] =
+{
+    { "Jhun Hoon D", 0x0049f00, 0x0049f20, indexKOFSprites_02Jhun },
+    { "Jhun Hoon D - Extra 1", 0x0049f20, 0x0049f40, indexKOFSprites_02Jhun },
+    { "Jhun Hoon D - Extra 2", 0x0049f40, 0x0049f60, indexKOFSprites_02Jhun },
+    { "Jhun Hoon D - Extra 3", 0x0049f60, 0x0049f80, indexKOFSprites_02Jhun },
+    { "Jhun Hoon D - Extra 4", 0x0049f80, 0x0049fa0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon D - Extra 5", 0x0049fa0, 0x0049fc0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon D - Extra 6", 0x0049fc0, 0x0049fe0, indexKOFSprites_02Jhun },
+    { "Jhun Hoon D - Extra 7", 0x0049fe0, 0x004a000, indexKOFSprites_02Jhun },
+};
+
+const sDescTreeNode KOF02UM_A_JHUNHOON_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_JHUNHOON_PALETTES_A, ARRAYSIZE(KOF02UM_A_JHUNHOON_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_JHUNHOON_PALETTES_B, ARRAYSIZE(KOF02UM_A_JHUNHOON_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_JHUNHOON_PALETTES_C, ARRAYSIZE(KOF02UM_A_JHUNHOON_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_JHUNHOON_PALETTES_D, ARRAYSIZE(KOF02UM_A_JHUNHOON_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_A[] =
+{
+    { "Foxy A", 0x004ac00, 0x004ac20, indexKOFSprites_02Foxy },
+    { "Foxy A - Extra 1", 0x004ac20, 0x004ac40, indexKOFSprites_02Foxy },
+    { "Foxy A - Extra 2", 0x004ac40, 0x004ac60, indexKOFSprites_02Foxy },
+    { "Foxy A - Extra 3", 0x004ac60, 0x004ac80, indexKOFSprites_02Foxy },
+    { "Foxy A - Extra 4", 0x004ac80, 0x004aca0, indexKOFSprites_02Foxy },
+    { "Foxy A - Extra 5", 0x004aca0, 0x004acc0, indexKOFSprites_02Foxy },
+    { "Foxy A - Extra 6", 0x004acc0, 0x004ace0, indexKOFSprites_02Foxy },
+    { "Foxy A - Extra 7", 0x004ace0, 0x004ad00, indexKOFSprites_02Foxy },
+};
+
+const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_B[] =
+{
+    { "Foxy B", 0x004ad00, 0x004ad20, indexKOFSprites_02Foxy },
+    { "Foxy B - Extra 1", 0x004ad20, 0x004ad40, indexKOFSprites_02Foxy },
+    { "Foxy B - Extra 2", 0x004ad40, 0x004ad60, indexKOFSprites_02Foxy },
+    { "Foxy B - Extra 3", 0x004ad60, 0x004ad80, indexKOFSprites_02Foxy },
+    { "Foxy B - Extra 4", 0x004ad80, 0x004ada0, indexKOFSprites_02Foxy },
+    { "Foxy B - Extra 5", 0x004ada0, 0x004adc0, indexKOFSprites_02Foxy },
+    { "Foxy B - Extra 6", 0x004adc0, 0x004ade0, indexKOFSprites_02Foxy },
+    { "Foxy B - Extra 7", 0x004ade0, 0x004ae00, indexKOFSprites_02Foxy },
+};
+
+const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_C[] =
+{
+    { "Foxy C", 0x004ae00, 0x004ae20, indexKOFSprites_02Foxy },
+    { "Foxy C - Extra 1", 0x004ae20, 0x004ae40, indexKOFSprites_02Foxy },
+    { "Foxy C - Extra 2", 0x004ae40, 0x004ae60, indexKOFSprites_02Foxy },
+    { "Foxy C - Extra 3", 0x004ae60, 0x004ae80, indexKOFSprites_02Foxy },
+    { "Foxy C - Extra 4", 0x004ae80, 0x004aea0, indexKOFSprites_02Foxy },
+    { "Foxy C - Extra 5", 0x004aea0, 0x004aec0, indexKOFSprites_02Foxy },
+    { "Foxy C - Extra 6", 0x004aec0, 0x004aee0, indexKOFSprites_02Foxy },
+    { "Foxy C - Extra 7", 0x004aee0, 0x004af00, indexKOFSprites_02Foxy },
+};
+
+const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_D[] =
+{
+    { "Foxy D", 0x004af00, 0x004af20, indexKOFSprites_02Foxy },
+    { "Foxy D - Extra 1", 0x004af20, 0x004af40, indexKOFSprites_02Foxy },
+    { "Foxy D - Extra 2", 0x004af40, 0x004af60, indexKOFSprites_02Foxy },
+    { "Foxy D - Extra 3", 0x004af60, 0x004af80, indexKOFSprites_02Foxy },
+    { "Foxy D - Extra 4", 0x004af80, 0x004afa0, indexKOFSprites_02Foxy },
+    { "Foxy D - Extra 5", 0x004afa0, 0x004afc0, indexKOFSprites_02Foxy },
+    { "Foxy D - Extra 6", 0x004afc0, 0x004afe0, indexKOFSprites_02Foxy },
+    { "Foxy D - Extra 7", 0x004afe0, 0x004b000, indexKOFSprites_02Foxy },
+};
+
+const sDescTreeNode KOF02UM_A_FOXY_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_FOXY_PALETTES_A, ARRAYSIZE(KOF02UM_A_FOXY_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_FOXY_PALETTES_B, ARRAYSIZE(KOF02UM_A_FOXY_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_FOXY_PALETTES_C, ARRAYSIZE(KOF02UM_A_FOXY_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_FOXY_PALETTES_D, ARRAYSIZE(KOF02UM_A_FOXY_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_A[] =
+{
+    { "Original Zero A", 0x004fc00, 0x004fc20, indexKOFSprites_02OZero },
+    { "Original Zero A - Extra 1", 0x004fc20, 0x004fc40, indexKOFSprites_02OZero },
+    { "Original Zero A - Extra 2", 0x004fc40, 0x004fc60, indexKOFSprites_02OZero },
+    { "Original Zero A - Extra 3", 0x004fc60, 0x004fc80, indexKOFSprites_02OZero },
+    { "Original Zero A - Extra 4", 0x004fc80, 0x004fca0, indexKOFSprites_02OZero },
+    { "Original Zero A - Extra 5", 0x004fca0, 0x004fcc0, indexKOFSprites_02OZero },
+    { "Original Zero A - Extra 6", 0x004fcc0, 0x004fce0, indexKOFSprites_02OZero },
+    { "Original Zero A - Extra 7", 0x004fce0, 0x004fd00, indexKOFSprites_02OZero },
+};
+
+const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_B[] =
+{
+    { "Original Zero B", 0x004fc00, 0x004fc20, indexKOFSprites_02OZero },
+    { "Original Zero B - Extra 1", 0x004fc20, 0x004fc40, indexKOFSprites_02OZero },
+    { "Original Zero B - Extra 2", 0x004fc40, 0x004fc60, indexKOFSprites_02OZero },
+    { "Original Zero B - Extra 3", 0x004fc60, 0x004fc80, indexKOFSprites_02OZero },
+    { "Original Zero B - Extra 4", 0x004fc80, 0x004fca0, indexKOFSprites_02OZero },
+    { "Original Zero B - Extra 5", 0x004fca0, 0x004fcc0, indexKOFSprites_02OZero },
+    { "Original Zero B - Extra 6", 0x004fcc0, 0x004fce0, indexKOFSprites_02OZero },
+    { "Original Zero B - Extra 7", 0x004fce0, 0x004fd00, indexKOFSprites_02OZero },
+};
+
+const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_C[] =
+{
+    { "Original Zero C", 0x004fc00, 0x004fc20, indexKOFSprites_02OZero },
+    { "Original Zero C - Extra 1", 0x004fc20, 0x004fc40, indexKOFSprites_02OZero },
+    { "Original Zero C - Extra 2", 0x004fc40, 0x004fc60, indexKOFSprites_02OZero },
+    { "Original Zero C - Extra 3", 0x004fc60, 0x004fc80, indexKOFSprites_02OZero },
+    { "Original Zero C - Extra 4", 0x004fc80, 0x004fca0, indexKOFSprites_02OZero },
+    { "Original Zero C - Extra 5", 0x004fca0, 0x004fcc0, indexKOFSprites_02OZero },
+    { "Original Zero C - Extra 6", 0x004fcc0, 0x004fce0, indexKOFSprites_02OZero },
+    { "Original Zero C - Extra 7", 0x004fce0, 0x004fd00, indexKOFSprites_02OZero },
+};
+
+const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_D[] =
+{
+    { "Original Zero D", 0x004fc00, 0x004fc20, indexKOFSprites_02OZero },
+    { "Original Zero D - Extra 1", 0x004fc20, 0x004fc40, indexKOFSprites_02OZero },
+    { "Original Zero D - Extra 2", 0x004fc40, 0x004fc60, indexKOFSprites_02OZero },
+    { "Original Zero D - Extra 3", 0x004fc60, 0x004fc80, indexKOFSprites_02OZero },
+    { "Original Zero D - Extra 4", 0x004fc80, 0x004fca0, indexKOFSprites_02OZero },
+    { "Original Zero D - Extra 5", 0x004fca0, 0x004fcc0, indexKOFSprites_02OZero },
+    { "Original Zero D - Extra 6", 0x004fcc0, 0x004fce0, indexKOFSprites_02OZero },
+    { "Original Zero D - Extra 7", 0x004fce0, 0x004fd00, indexKOFSprites_02OZero },
+};
+
+const sDescTreeNode KOF02UM_A_ORIGINALZERO_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_ORIGINALZERO_PALETTES_A, ARRAYSIZE(KOF02UM_A_ORIGINALZERO_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_ORIGINALZERO_PALETTES_B, ARRAYSIZE(KOF02UM_A_ORIGINALZERO_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_ORIGINALZERO_PALETTES_C, ARRAYSIZE(KOF02UM_A_ORIGINALZERO_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_ORIGINALZERO_PALETTES_D, ARRAYSIZE(KOF02UM_A_ORIGINALZERO_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_A[] =
+{
+    { "Igniz A", 0x0050400, 0x0050420, indexKOFSprites_02Igniz },
+    { "Igniz A - Extra 1", 0x0050420, 0x0050440, indexKOFSprites_02Igniz },
+    { "Igniz A - Extra 2", 0x0050440, 0x0050460, indexKOFSprites_02Igniz },
+    { "Igniz A - Extra 3", 0x0050460, 0x0050480, indexKOFSprites_02Igniz },
+    { "Igniz A - Extra 4", 0x0050480, 0x00504a0, indexKOFSprites_02Igniz },
+    { "Igniz A - Extra 5", 0x00504a0, 0x00504c0, indexKOFSprites_02Igniz },
+    { "Igniz A - Extra 6", 0x00504c0, 0x00504e0, indexKOFSprites_02Igniz },
+    { "Igniz A - Extra 7", 0x00504e0, 0x0050500, indexKOFSprites_02Igniz },
+};
+
+const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_B[] =
+{
+    { "Igniz B", 0x0050400, 0x0050420, indexKOFSprites_02Igniz },
+    { "Igniz B - Extra 1", 0x0050420, 0x0050440, indexKOFSprites_02Igniz },
+    { "Igniz B - Extra 2", 0x0050440, 0x0050460, indexKOFSprites_02Igniz },
+    { "Igniz B - Extra 3", 0x0050460, 0x0050480, indexKOFSprites_02Igniz },
+    { "Igniz B - Extra 4", 0x0050480, 0x00504a0, indexKOFSprites_02Igniz },
+    { "Igniz B - Extra 5", 0x00504a0, 0x00504c0, indexKOFSprites_02Igniz },
+    { "Igniz B - Extra 6", 0x00504c0, 0x00504e0, indexKOFSprites_02Igniz },
+    { "Igniz B - Extra 7", 0x00504e0, 0x0050500, indexKOFSprites_02Igniz },
+};
+
+const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_C[] =
+{
+    { "Igniz C", 0x0050400, 0x0050420, indexKOFSprites_02Igniz },
+    { "Igniz C - Extra 1", 0x0050420, 0x0050440, indexKOFSprites_02Igniz },
+    { "Igniz C - Extra 2", 0x0050440, 0x0050460, indexKOFSprites_02Igniz },
+    { "Igniz C - Extra 3", 0x0050460, 0x0050480, indexKOFSprites_02Igniz },
+    { "Igniz C - Extra 4", 0x0050480, 0x00504a0, indexKOFSprites_02Igniz },
+    { "Igniz C - Extra 5", 0x00504a0, 0x00504c0, indexKOFSprites_02Igniz },
+    { "Igniz C - Extra 6", 0x00504c0, 0x00504e0, indexKOFSprites_02Igniz },
+    { "Igniz C - Extra 7", 0x00504e0, 0x0050500, indexKOFSprites_02Igniz },
+};
+
+const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_D[] =
+{
+    { "Igniz D", 0x0050400, 0x0050420, indexKOFSprites_02Igniz },
+    { "Igniz D - Extra 1", 0x0050420, 0x0050440, indexKOFSprites_02Igniz },
+    { "Igniz D - Extra 2", 0x0050440, 0x0050460, indexKOFSprites_02Igniz },
+    { "Igniz D - Extra 3", 0x0050460, 0x0050480, indexKOFSprites_02Igniz },
+    { "Igniz D - Extra 4", 0x0050480, 0x00504a0, indexKOFSprites_02Igniz },
+    { "Igniz D - Extra 5", 0x00504a0, 0x00504c0, indexKOFSprites_02Igniz },
+    { "Igniz D - Extra 6", 0x00504c0, 0x00504e0, indexKOFSprites_02Igniz },
+    { "Igniz D - Extra 7", 0x00504e0, 0x0050500, indexKOFSprites_02Igniz },
+};
+
+const sDescTreeNode KOF02UM_A_IGNIZ_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_IGNIZ_PALETTES_A, ARRAYSIZE(KOF02UM_A_IGNIZ_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_IGNIZ_PALETTES_B, ARRAYSIZE(KOF02UM_A_IGNIZ_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_IGNIZ_PALETTES_C, ARRAYSIZE(KOF02UM_A_IGNIZ_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_IGNIZ_PALETTES_D, ARRAYSIZE(KOF02UM_A_IGNIZ_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_A[] =
+{
+    { "Geese A", 0x004bc00, 0x004bc20, indexKOFSprites_02Geese },
+    { "Geese A - Extra 1", 0x004bc20, 0x004bc40, indexKOFSprites_02Geese },
+    { "Geese A - Extra 2", 0x004bc40, 0x004bc60, indexKOFSprites_02Geese },
+    { "Geese A - Extra 3", 0x004bc60, 0x004bc80, indexKOFSprites_02Geese },
+    { "Geese A - Extra 4", 0x004bc80, 0x004bca0, indexKOFSprites_02Geese },
+    { "Geese A - Extra 5", 0x004bca0, 0x004bcc0, indexKOFSprites_02Geese },
+    { "Geese A - Extra 6", 0x004bcc0, 0x004bce0, indexKOFSprites_02Geese },
+    { "Geese A - Extra 7", 0x004bce0, 0x004bd00, indexKOFSprites_02Geese },
+};
+
+const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_B[] =
+{
+    { "Geese B", 0x004bd00, 0x004bd20, indexKOFSprites_02Geese },
+    { "Geese B - Extra 1", 0x004bd20, 0x004bd40, indexKOFSprites_02Geese },
+    { "Geese B - Extra 2", 0x004bd40, 0x004bd60, indexKOFSprites_02Geese },
+    { "Geese B - Extra 3", 0x004bd60, 0x004bd80, indexKOFSprites_02Geese },
+    { "Geese B - Extra 4", 0x004bd80, 0x004bda0, indexKOFSprites_02Geese },
+    { "Geese B - Extra 5", 0x004bda0, 0x004bdc0, indexKOFSprites_02Geese },
+    { "Geese B - Extra 6", 0x004bdc0, 0x004bde0, indexKOFSprites_02Geese },
+    { "Geese B - Extra 7", 0x004bde0, 0x004be00, indexKOFSprites_02Geese },
+};
+
+const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_C[] =
+{
+    { "Geese C", 0x004be00, 0x004be20, indexKOFSprites_02Geese },
+    { "Geese C - Extra 1", 0x004be20, 0x004be40, indexKOFSprites_02Geese },
+    { "Geese C - Extra 2", 0x004be40, 0x004be60, indexKOFSprites_02Geese },
+    { "Geese C - Extra 3", 0x004be60, 0x004be80, indexKOFSprites_02Geese },
+    { "Geese C - Extra 4", 0x004be80, 0x004bea0, indexKOFSprites_02Geese },
+    { "Geese C - Extra 5", 0x004bea0, 0x004bec0, indexKOFSprites_02Geese },
+    { "Geese C - Extra 6", 0x004bec0, 0x004bee0, indexKOFSprites_02Geese },
+    { "Geese C - Extra 7", 0x004bee0, 0x004bf00, indexKOFSprites_02Geese },
+};
+
+const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_D[] =
+{
+    { "Geese D", 0x004bf00, 0x004bf20, indexKOFSprites_02Geese },
+    { "Geese D - Extra 1", 0x004bf20, 0x004bf40, indexKOFSprites_02Geese },
+    { "Geese D - Extra 2", 0x004bf40, 0x004bf60, indexKOFSprites_02Geese },
+    { "Geese D - Extra 3", 0x004bf60, 0x004bf80, indexKOFSprites_02Geese },
+    { "Geese D - Extra 4", 0x004bf80, 0x004bfa0, indexKOFSprites_02Geese },
+    { "Geese D - Extra 5", 0x004bfa0, 0x004bfc0, indexKOFSprites_02Geese },
+    { "Geese D - Extra 6", 0x004bfc0, 0x004bfe0, indexKOFSprites_02Geese },
+    { "Geese D - Extra 7", 0x004bfe0, 0x004c000, indexKOFSprites_02Geese },
+};
+
+const sDescTreeNode KOF02UM_A_GEESE_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_GEESE_PALETTES_A, ARRAYSIZE(KOF02UM_A_GEESE_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_GEESE_PALETTES_B, ARRAYSIZE(KOF02UM_A_GEESE_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_GEESE_PALETTES_C, ARRAYSIZE(KOF02UM_A_GEESE_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_GEESE_PALETTES_D, ARRAYSIZE(KOF02UM_A_GEESE_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_A[] =
+{
+    { "Nightmare Geese A", 0x004c400, 0x004c420, indexKOFSprites_02Geese },
+    { "Nightmare Geese A - Extra 1", 0x004c420, 0x004c440, indexKOFSprites_02Geese },
+    { "Nightmare Geese A - Extra 2", 0x004c440, 0x004c460, indexKOFSprites_02Geese },
+    { "Nightmare Geese A - Extra 3", 0x004c460, 0x004c480, indexKOFSprites_02Geese },
+    { "Nightmare Geese A - Extra 4", 0x004c480, 0x004c4a0, indexKOFSprites_02Geese },
+    { "Nightmare Geese A - Extra 5", 0x004c4a0, 0x004c4c0, indexKOFSprites_02Geese },
+    { "Nightmare Geese A - Extra 6", 0x004c4c0, 0x004c4e0, indexKOFSprites_02Geese },
+    { "Nightmare Geese A - Extra 7", 0x004c4e0, 0x004c500, indexKOFSprites_02Geese },
+};
+
+const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_B[] =
+{
+    { "Nightmare Geese B", 0x004c500, 0x004c520, indexKOFSprites_02Geese },
+    { "Nightmare Geese B - Extra 1", 0x004c520, 0x004c540, indexKOFSprites_02Geese },
+    { "Nightmare Geese B - Extra 2", 0x004c540, 0x004c560, indexKOFSprites_02Geese },
+    { "Nightmare Geese B - Extra 3", 0x004c560, 0x004c580, indexKOFSprites_02Geese },
+    { "Nightmare Geese B - Extra 4", 0x004c580, 0x004c5a0, indexKOFSprites_02Geese },
+    { "Nightmare Geese B - Extra 5", 0x004c5a0, 0x004c5c0, indexKOFSprites_02Geese },
+    { "Nightmare Geese B - Extra 6", 0x004c5c0, 0x004c5e0, indexKOFSprites_02Geese },
+    { "Nightmare Geese B - Extra 7", 0x004c5e0, 0x004c600, indexKOFSprites_02Geese },
+};
+
+const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_C[] =
+{
+    { "Nightmare Geese C", 0x004c600, 0x004c620, indexKOFSprites_02Geese },
+    { "Nightmare Geese C - Extra 1", 0x004c620, 0x004c640, indexKOFSprites_02Geese },
+    { "Nightmare Geese C - Extra 2", 0x004c640, 0x004c660, indexKOFSprites_02Geese },
+    { "Nightmare Geese C - Extra 3", 0x004c660, 0x004c680, indexKOFSprites_02Geese },
+    { "Nightmare Geese C - Extra 4", 0x004c680, 0x004c6a0, indexKOFSprites_02Geese },
+    { "Nightmare Geese C - Extra 5", 0x004c6a0, 0x004c6c0, indexKOFSprites_02Geese },
+    { "Nightmare Geese C - Extra 6", 0x004c6c0, 0x004c6e0, indexKOFSprites_02Geese },
+    { "Nightmare Geese C - Extra 7", 0x004c6e0, 0x004c700, indexKOFSprites_02Geese },
+};
+
+const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_D[] =
+{
+    { "Nightmare Geese D", 0x004c700, 0x004c720, indexKOFSprites_02Geese },
+    { "Nightmare Geese D - Extra 1", 0x004c720, 0x004c740, indexKOFSprites_02Geese },
+    { "Nightmare Geese D - Extra 2", 0x004c740, 0x004c760, indexKOFSprites_02Geese },
+    { "Nightmare Geese D - Extra 3", 0x004c760, 0x004c780, indexKOFSprites_02Geese },
+    { "Nightmare Geese D - Extra 4", 0x004c780, 0x004c7a0, indexKOFSprites_02Geese },
+    { "Nightmare Geese D - Extra 5", 0x004c7a0, 0x004c7c0, indexKOFSprites_02Geese },
+    { "Nightmare Geese D - Extra 6", 0x004c7c0, 0x004c7e0, indexKOFSprites_02Geese },
+    { "Nightmare Geese D - Extra 7", 0x004c7e0, 0x004c800, indexKOFSprites_02Geese },
+};
+
+const sDescTreeNode KOF02UM_A_NIGHTMAREGEESE_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_NIGHTMAREGEESE_PALETTES_A, ARRAYSIZE(KOF02UM_A_NIGHTMAREGEESE_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_NIGHTMAREGEESE_PALETTES_B, ARRAYSIZE(KOF02UM_A_NIGHTMAREGEESE_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_NIGHTMAREGEESE_PALETTES_C, ARRAYSIZE(KOF02UM_A_NIGHTMAREGEESE_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_NIGHTMAREGEESE_PALETTES_D, ARRAYSIZE(KOF02UM_A_NIGHTMAREGEESE_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_A[] =
+{
+    { "Krizalid A", 0x004ec00, 0x004ec20, indexKOFSprites_02Krizalid },
+    { "Krizalid A - Extra 1", 0x004ec20, 0x004ec40, indexKOFSprites_02Krizalid },
+    { "Krizalid A - Extra 2", 0x004ec40, 0x004ec60, indexKOFSprites_02Krizalid },
+    { "Krizalid A - Extra 3", 0x004ec60, 0x004ec80, indexKOFSprites_02Krizalid },
+    { "Krizalid A - Extra 4", 0x004ec80, 0x004eca0, indexKOFSprites_02Krizalid },
+    { "Krizalid A - Extra 5", 0x004eca0, 0x004ecc0, indexKOFSprites_02Krizalid },
+    { "Krizalid A - Extra 6", 0x004ecc0, 0x004ece0, indexKOFSprites_02Krizalid },
+    { "Krizalid A - Extra 7", 0x004ece0, 0x004ed00, indexKOFSprites_02Krizalid },
+};
+
+const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_B[] =
+{
+    { "Krizalid B", 0x004ed00, 0x004ed20, indexKOFSprites_02Krizalid },
+    { "Krizalid B - Extra 1", 0x004ed20, 0x004ed40, indexKOFSprites_02Krizalid },
+    { "Krizalid B - Extra 2", 0x004ed40, 0x004ed60, indexKOFSprites_02Krizalid },
+    { "Krizalid B - Extra 3", 0x004ed60, 0x004ed80, indexKOFSprites_02Krizalid },
+    { "Krizalid B - Extra 4", 0x004ed80, 0x004eda0, indexKOFSprites_02Krizalid },
+    { "Krizalid B - Extra 5", 0x004eda0, 0x004edc0, indexKOFSprites_02Krizalid },
+    { "Krizalid B - Extra 6", 0x004edc0, 0x004ede0, indexKOFSprites_02Krizalid },
+    { "Krizalid B - Extra 7", 0x004ede0, 0x004ee00, indexKOFSprites_02Krizalid },
+};
+
+const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_C[] =
+{
+    { "Krizalid C", 0x004ee00, 0x004ee20, indexKOFSprites_02Krizalid },
+    { "Krizalid C - Extra 1", 0x004ee20, 0x004ee40, indexKOFSprites_02Krizalid },
+    { "Krizalid C - Extra 2", 0x004ee40, 0x004ee60, indexKOFSprites_02Krizalid },
+    { "Krizalid C - Extra 3", 0x004ee60, 0x004ee80, indexKOFSprites_02Krizalid },
+    { "Krizalid C - Extra 4", 0x004ee80, 0x004eea0, indexKOFSprites_02Krizalid },
+    { "Krizalid C - Extra 5", 0x004eea0, 0x004eec0, indexKOFSprites_02Krizalid },
+    { "Krizalid C - Extra 6", 0x004eec0, 0x004eee0, indexKOFSprites_02Krizalid },
+    { "Krizalid C - Extra 7", 0x004eee0, 0x004ef00, indexKOFSprites_02Krizalid },
+};
+
+const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_D[] =
+{
+    { "Krizalid D", 0x004ef00, 0x004ef20, indexKOFSprites_02Krizalid },
+    { "Krizalid D - Extra 1", 0x004ef20, 0x004ef40, indexKOFSprites_02Krizalid },
+    { "Krizalid D - Extra 2", 0x004ef40, 0x004ef60, indexKOFSprites_02Krizalid },
+    { "Krizalid D - Extra 3", 0x004ef60, 0x004ef80, indexKOFSprites_02Krizalid },
+    { "Krizalid D - Extra 4", 0x004ef80, 0x004efa0, indexKOFSprites_02Krizalid },
+    { "Krizalid D - Extra 5", 0x004efa0, 0x004efc0, indexKOFSprites_02Krizalid },
+    { "Krizalid D - Extra 6", 0x004efc0, 0x004efe0, indexKOFSprites_02Krizalid },
+    { "Krizalid D - Extra 7", 0x004efe0, 0x004f000, indexKOFSprites_02Krizalid },
+};
+
+const sDescTreeNode KOF02UM_A_KRIZALID_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KRIZALID_PALETTES_A, ARRAYSIZE(KOF02UM_A_KRIZALID_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KRIZALID_PALETTES_B, ARRAYSIZE(KOF02UM_A_KRIZALID_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KRIZALID_PALETTES_C, ARRAYSIZE(KOF02UM_A_KRIZALID_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KRIZALID_PALETTES_D, ARRAYSIZE(KOF02UM_A_KRIZALID_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_A[] =
+{
+    { "Clone Zero A", 0x004f400, 0x004f420, indexKOFSprites_02OZero },
+    { "Clone Zero A - Extra 1", 0x004f420, 0x004f440, indexKOFSprites_02OZero },
+    { "Clone Zero A - Extra 2", 0x004f440, 0x004f460, indexKOFSprites_02OZero },
+    { "Clone Zero A - Extra 3", 0x004f460, 0x004f480, indexKOFSprites_02OZero },
+    { "Clone Zero A - Extra 4", 0x004f480, 0x004f4a0, indexKOFSprites_02OZero },
+    { "Clone Zero A - Extra 5", 0x004f4a0, 0x004f4c0, indexKOFSprites_02OZero },
+    { "Clone Zero A - Extra 6", 0x004f4c0, 0x004f4e0, indexKOFSprites_02OZero },
+    { "Clone Zero A - Extra 7", 0x004f4e0, 0x004f500, indexKOFSprites_02OZero },
+};
+
+const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_B[] =
+{
+    { "Clone Zero B", 0x004f500, 0x004f520, indexKOFSprites_02OZero },
+    { "Clone Zero B - Extra 1", 0x004f520, 0x004f540, indexKOFSprites_02OZero },
+    { "Clone Zero B - Extra 2", 0x004f540, 0x004f560, indexKOFSprites_02OZero },
+    { "Clone Zero B - Extra 3", 0x004f560, 0x004f580, indexKOFSprites_02OZero },
+    { "Clone Zero B - Extra 4", 0x004f580, 0x004f5a0, indexKOFSprites_02OZero },
+    { "Clone Zero B - Extra 5", 0x004f5a0, 0x004f5c0, indexKOFSprites_02OZero },
+    { "Clone Zero B - Extra 6", 0x004f5c0, 0x004f5e0, indexKOFSprites_02OZero },
+    { "Clone Zero B - Extra 7", 0x004f5e0, 0x004f600, indexKOFSprites_02OZero },
+};
+
+const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_C[] =
+{
+    { "Clone Zero C", 0x004f600, 0x004f620, indexKOFSprites_02OZero },
+    { "Clone Zero C - Extra 1", 0x004f620, 0x004f640, indexKOFSprites_02OZero },
+    { "Clone Zero C - Extra 2", 0x004f640, 0x004f660, indexKOFSprites_02OZero },
+    { "Clone Zero C - Extra 3", 0x004f660, 0x004f680, indexKOFSprites_02OZero },
+    { "Clone Zero C - Extra 4", 0x004f680, 0x004f6a0, indexKOFSprites_02OZero },
+    { "Clone Zero C - Extra 5", 0x004f6a0, 0x004f6c0, indexKOFSprites_02OZero },
+    { "Clone Zero C - Extra 6", 0x004f6c0, 0x004f6e0, indexKOFSprites_02OZero },
+    { "Clone Zero C - Extra 7", 0x004f6e0, 0x004f700, indexKOFSprites_02OZero },
+};
+
+const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_D[] =
+{
+    { "Clone Zero D", 0x004f700, 0x004f720, indexKOFSprites_02OZero },
+    { "Clone Zero D - Extra 1", 0x004f720, 0x004f740, indexKOFSprites_02OZero },
+    { "Clone Zero D - Extra 2", 0x004f740, 0x004f760, indexKOFSprites_02OZero },
+    { "Clone Zero D - Extra 3", 0x004f760, 0x004f780, indexKOFSprites_02OZero },
+    { "Clone Zero D - Extra 4", 0x004f780, 0x004f7a0, indexKOFSprites_02OZero },
+    { "Clone Zero D - Extra 5", 0x004f7a0, 0x004f7c0, indexKOFSprites_02OZero },
+    { "Clone Zero D - Extra 6", 0x004f7c0, 0x004f7e0, indexKOFSprites_02OZero },
+    { "Clone Zero D - Extra 7", 0x004f7e0, 0x004f800, indexKOFSprites_02OZero },
+};
+
+const sDescTreeNode KOF02UM_A_CLONEZERO_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLONEZERO_PALETTES_A, ARRAYSIZE(KOF02UM_A_CLONEZERO_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLONEZERO_PALETTES_B, ARRAYSIZE(KOF02UM_A_CLONEZERO_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLONEZERO_PALETTES_C, ARRAYSIZE(KOF02UM_A_CLONEZERO_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLONEZERO_PALETTES_D, ARRAYSIZE(KOF02UM_A_CLONEZERO_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_A[] =
+{
+    { "EX Robert A", 0x004cc00, 0x004cc20, indexKOFSprites_98Robert },
+    { "EX Robert A - Extra 1", 0x004cc20, 0x004cc40, indexKOFSprites_98Robert },
+    { "EX Robert A - Extra 2", 0x004cc40, 0x004cc60, indexKOFSprites_98Robert },
+    { "EX Robert A - Extra 3", 0x004cc60, 0x004cc80, indexKOFSprites_98Robert },
+    { "EX Robert A - Extra 4", 0x004cc80, 0x004cca0, indexKOFSprites_98Robert },
+    { "EX Robert A - Extra 5", 0x004cca0, 0x004ccc0, indexKOFSprites_98Robert },
+    { "EX Robert A - Extra 6", 0x004ccc0, 0x004cce0, indexKOFSprites_98Robert },
+    { "EX Robert A - Extra 7", 0x004cce0, 0x004cd00, indexKOFSprites_98Robert },
+};
+
+const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_B[] =
+{
+    { "EX Robert B", 0x004cd00, 0x004cd20, indexKOFSprites_98Robert },
+    { "EX Robert B - Extra 1", 0x004cd20, 0x004cd40, indexKOFSprites_98Robert },
+    { "EX Robert B - Extra 2", 0x004cd40, 0x004cd60, indexKOFSprites_98Robert },
+    { "EX Robert B - Extra 3", 0x004cd60, 0x004cd80, indexKOFSprites_98Robert },
+    { "EX Robert B - Extra 4", 0x004cd80, 0x004cda0, indexKOFSprites_98Robert },
+    { "EX Robert B - Extra 5", 0x004cda0, 0x004cdc0, indexKOFSprites_98Robert },
+    { "EX Robert B - Extra 6", 0x004cdc0, 0x004cde0, indexKOFSprites_98Robert },
+    { "EX Robert B - Extra 7", 0x004cde0, 0x004ce00, indexKOFSprites_98Robert },
+};
+
+const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_C[] =
+{
+    { "EX Robert C", 0x004ce00, 0x004ce20, indexKOFSprites_98Robert },
+    { "EX Robert C - Extra 1", 0x004ce20, 0x004ce40, indexKOFSprites_98Robert },
+    { "EX Robert C - Extra 2", 0x004ce40, 0x004ce60, indexKOFSprites_98Robert },
+    { "EX Robert C - Extra 3", 0x004ce60, 0x004ce80, indexKOFSprites_98Robert },
+    { "EX Robert C - Extra 4", 0x004ce80, 0x004cea0, indexKOFSprites_98Robert },
+    { "EX Robert C - Extra 5", 0x004cea0, 0x004cec0, indexKOFSprites_98Robert },
+    { "EX Robert C - Extra 6", 0x004cec0, 0x004cee0, indexKOFSprites_98Robert },
+    { "EX Robert C - Extra 7", 0x004cee0, 0x004cf00, indexKOFSprites_98Robert },
+};
+
+const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_D[] =
+{
+    { "EX Robert D", 0x004cf00, 0x004cf20, indexKOFSprites_98Robert },
+    { "EX Robert D - Extra 1", 0x004cf20, 0x004cf40, indexKOFSprites_98Robert },
+    { "EX Robert D - Extra 2", 0x004cf40, 0x004cf60, indexKOFSprites_98Robert },
+    { "EX Robert D - Extra 3", 0x004cf60, 0x004cf80, indexKOFSprites_98Robert },
+    { "EX Robert D - Extra 4", 0x004cf80, 0x004cfa0, indexKOFSprites_98Robert },
+    { "EX Robert D - Extra 5", 0x004cfa0, 0x004cfc0, indexKOFSprites_98Robert },
+    { "EX Robert D - Extra 6", 0x004cfc0, 0x004cfe0, indexKOFSprites_98Robert },
+    { "EX Robert D - Extra 7", 0x004cfe0, 0x004d000, indexKOFSprites_98Robert },
+};
+
+const sDescTreeNode KOF02UM_A_EXROBERT_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXROBERT_PALETTES_A, ARRAYSIZE(KOF02UM_A_EXROBERT_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXROBERT_PALETTES_B, ARRAYSIZE(KOF02UM_A_EXROBERT_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXROBERT_PALETTES_C, ARRAYSIZE(KOF02UM_A_EXROBERT_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXROBERT_PALETTES_D, ARRAYSIZE(KOF02UM_A_EXROBERT_PALETTES_D) },
+};
+
+const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_A[] =
+{
+    { "EX Takuma A", 0x0048c00, 0x0048c20, indexKOFSprites_98Takuma },
+    { "EX Takuma A - Extra 1", 0x0048c20, 0x0048c40, indexKOFSprites_98Takuma },
+    { "EX Takuma A - Extra 2", 0x0048c40, 0x0048c60, indexKOFSprites_98Takuma },
+    { "EX Takuma A - Extra 3", 0x0048c60, 0x0048c80, indexKOFSprites_98Takuma },
+    { "EX Takuma A - Extra 4", 0x0048c80, 0x0048ca0, indexKOFSprites_98Takuma },
+    { "EX Takuma A - Extra 5", 0x0048ca0, 0x0048cc0, indexKOFSprites_98Takuma },
+    { "EX Takuma A - Extra 6", 0x0048cc0, 0x0048ce0, indexKOFSprites_98Takuma },
+    { "EX Takuma A - Extra 7", 0x0048ce0, 0x0048d00, indexKOFSprites_98Takuma },
+};
+
+const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_B[] =
+{
+    { "EX Takuma B", 0x0048d00, 0x0048d20, indexKOFSprites_98Takuma },
+    { "EX Takuma B - Extra 1", 0x0048d20, 0x0048d40, indexKOFSprites_98Takuma },
+    { "EX Takuma B - Extra 2", 0x0048d40, 0x0048d60, indexKOFSprites_98Takuma },
+    { "EX Takuma B - Extra 3", 0x0048d60, 0x0048d80, indexKOFSprites_98Takuma },
+    { "EX Takuma B - Extra 4", 0x0048d80, 0x0048da0, indexKOFSprites_98Takuma },
+    { "EX Takuma B - Extra 5", 0x0048da0, 0x0048dc0, indexKOFSprites_98Takuma },
+    { "EX Takuma B - Extra 6", 0x0048dc0, 0x0048de0, indexKOFSprites_98Takuma },
+    { "EX Takuma B - Extra 7", 0x0048de0, 0x0048e00, indexKOFSprites_98Takuma },
+};
+
+const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_C[] =
+{
+    { "EX Takuma C", 0x0048e00, 0x0048e20, indexKOFSprites_98Takuma },
+    { "EX Takuma C - Extra 1", 0x0048e20, 0x0048e40, indexKOFSprites_98Takuma },
+    { "EX Takuma C - Extra 2", 0x0048e40, 0x0048e60, indexKOFSprites_98Takuma },
+    { "EX Takuma C - Extra 3", 0x0048e60, 0x0048e80, indexKOFSprites_98Takuma },
+    { "EX Takuma C - Extra 4", 0x0048e80, 0x0048ea0, indexKOFSprites_98Takuma },
+    { "EX Takuma C - Extra 5", 0x0048ea0, 0x0048ec0, indexKOFSprites_98Takuma },
+    { "EX Takuma C - Extra 6", 0x0048ec0, 0x0048ee0, indexKOFSprites_98Takuma },
+    { "EX Takuma C - Extra 7", 0x0048ee0, 0x0048f00, indexKOFSprites_98Takuma },
+};
+
+const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_D[] =
+{
+    { "EX Takuma D", 0x0048f00, 0x0048f20, indexKOFSprites_98Takuma },
+    { "EX Takuma D - Extra 1", 0x0048f20, 0x0048f40, indexKOFSprites_98Takuma },
+    { "EX Takuma D - Extra 2", 0x0048f40, 0x0048f60, indexKOFSprites_98Takuma },
+    { "EX Takuma D - Extra 3", 0x0048f60, 0x0048f80, indexKOFSprites_98Takuma },
+    { "EX Takuma D - Extra 4", 0x0048f80, 0x0048fa0, indexKOFSprites_98Takuma },
+    { "EX Takuma D - Extra 5", 0x0048fa0, 0x0048fc0, indexKOFSprites_98Takuma },
+    { "EX Takuma D - Extra 6", 0x0048fc0, 0x0048fe0, indexKOFSprites_98Takuma },
+    { "EX Takuma D - Extra 7", 0x0048fe0, 0x0049000, indexKOFSprites_98Takuma },
+};
+
+const sDescTreeNode KOF02UM_A_EXTAKUMA_COLLECTION[] =
+{
+    { "A", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXTAKUMA_PALETTES_A, ARRAYSIZE(KOF02UM_A_EXTAKUMA_PALETTES_A) },
+    { "B", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXTAKUMA_PALETTES_B, ARRAYSIZE(KOF02UM_A_EXTAKUMA_PALETTES_B) },
+    { "C", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXTAKUMA_PALETTES_C, ARRAYSIZE(KOF02UM_A_EXTAKUMA_PALETTES_C) },
+    { "D", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXTAKUMA_PALETTES_D, ARRAYSIZE(KOF02UM_A_EXTAKUMA_PALETTES_D) },
+};
+
 const UINT8 KOF02UM_A_UNITSORT[KOF02UM_A_NUMUNIT + 1] // Plus 1 for extras
 {
-    indexKOF02UM_A_Kyo,
-    indexKOF02UM_A_Benimaru,
-    indexKOF02UM_A_Daimon,
-
-    indexKOF02UM_A_Terry,
     indexKOF02UM_A_Andy,
-    indexKOF02UM_A_Joe,
-
-    indexKOF02UM_A_Kim,
-    indexKOF02UM_A_Chang,
-    indexKOF02UM_A_Choi,
-
-    indexKOF02UM_A_Athena,
-    indexKOF02UM_A_Kensou,
-    indexKOF02UM_A_Chin,
-
-    indexKOF02UM_A_Leona,
-    indexKOF02UM_A_Ralf,
-    indexKOF02UM_A_Clark,
-
-    indexKOF02UM_A_Ryo,
-    indexKOF02UM_A_Robert,
-    indexKOF02UM_A_Takuma,
-
-    indexKOF02UM_A_Mai,
-    indexKOF02UM_A_Yuri,
-    indexKOF02UM_A_MayLee,
-
-    indexKOF02UM_A_Iori,
-    indexKOF02UM_A_Mature,
-    indexKOF02UM_A_Vice,
-
-    indexKOF02UM_A_Yamazaki,
-    indexKOF02UM_A_BlueMary,
-    indexKOF02UM_A_Billy,
-
-    indexKOF02UM_A_Yashiro,
-    indexKOF02UM_A_Shermie,
-    indexKOF02UM_A_Chris,
-
-    indexKOF02UM_A_K,
-    indexKOF02UM_A_Maxima,
-    indexKOF02UM_A_Whip,
-
-    indexKOF02UM_A_Vanessa,
-    indexKOF02UM_A_Seth,
-    indexKOF02UM_A_Ramon,
-
-    indexKOF02UM_A_Kula,
-    indexKOF02UM_A_K9999,
     indexKOF02UM_A_Angel,
-
-    indexKOF02UM_A_OmegaRugal,
-
-    indexKOF02UM_A_Kusanagi,
-
-    indexKOF02UM_A_OYashiro,
-    indexKOF02UM_A_OShermie,
-    indexKOF02UM_A_OChris,
-
+    indexKOF02UM_A_Athena,
+    indexKOF02UM_A_Bao,
+    indexKOF02UM_A_Benimaru,
+    indexKOF02UM_A_Billy,
+    indexKOF02UM_A_BlueMary,
+    indexKOF02UM_A_Chang,
+    indexKOF02UM_A_Chin,
+    indexKOF02UM_A_Choi,
+    indexKOF02UM_A_Chris,
+    indexKOF02UM_A_Clark,
+    indexKOF02UM_A_CloneZero,
+    indexKOF02UM_A_Daimon,
+    indexKOF02UM_A_EXKensou,
+    indexKOF02UM_A_EXRobert,
+    indexKOF02UM_A_EXTakuma,
+    indexKOF02UM_A_Foxy,
+    indexKOF02UM_A_Geese,
+    indexKOF02UM_A_Goenitz,
+    indexKOF02UM_A_Heidern,
+    indexKOF02UM_A_Hinako,
+    indexKOF02UM_A_Igniz,
+    indexKOF02UM_A_Iori,
+    indexKOF02UM_A_Jhun,
+    indexKOF02UM_A_Joe,
+    indexKOF02UM_A_K,
     indexKOF02UM_A_Kasumi,
-    indexKOF02UM_A_Lin,
-
+    indexKOF02UM_A_Kensou,
+    indexKOF02UM_A_Kim,
     indexKOF02UM_A_King,
-    indexKOF02UM_A_Xiangfei,
+    indexKOF02UM_A_Krizalid,
+    indexKOF02UM_A_Kula,
+    indexKOF02UM_A_Kusanagi,
+    indexKOF02UM_A_Kyo,
     indexKOF02UM_A_Kyo1,
     indexKOF02UM_A_Kyo2,
-    indexKOF02UM_A_Goenitz,
-    indexKOF02UM_A_EXKensou,
+    indexKOF02UM_A_Leona,
+    indexKOF02UM_A_Lin,
+    indexKOF02UM_A_Mai,
+    indexKOF02UM_A_Mature,
+    indexKOF02UM_A_Maxima,
+    indexKOF02UM_A_MayLee,
+    indexKOF02UM_A_Nameless,
+    indexKOF02UM_A_NGeese,
+    indexKOF02UM_A_OChris,
+    indexKOF02UM_A_OShermie,
+    indexKOF02UM_A_OYashiro,
+    indexKOF02UM_A_OmegaRugal,
+    indexKOF02UM_A_OZero,
+    indexKOF02UM_A_Ralf,
+    indexKOF02UM_A_Ramon,
+    indexKOF02UM_A_Robert,
+    indexKOF02UM_A_Ryo,
+    indexKOF02UM_A_Seth,
+    indexKOF02UM_A_Shermie,
+    indexKOF02UM_A_Shingo,
+    indexKOF02UM_A_Takuma,
+    indexKOF02UM_A_Terry,
+    indexKOF02UM_A_Vanessa,
+    indexKOF02UM_A_Vice,
+    indexKOF02UM_A_Whip,
+    indexKOF02UM_A_Xiangfei,
+    indexKOF02UM_A_Yamazaki,
+    indexKOF02UM_A_Yashiro,
+    indexKOF02UM_A_Yuri,
 
     KOF02UM_A_EXTRALOC
 };
 
 const sDescTreeNode KOF02UM_A_UNITS[KOF02UM_A_NUMUNIT] =
 {
-    { "Kyo", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO_COLLECTION, ARRAYSIZE(KOF02UM_A_KYO_COLLECTION) },
-    { "Benimaru", DESC_NODETYPE_TREE, (void*)KOF02UM_A_BENIMARU_COLLECTION, ARRAYSIZE(KOF02UM_A_BENIMARU_COLLECTION) },
-    { "Daimon", DESC_NODETYPE_TREE, (void*)KOF02UM_A_DAIMON_COLLECTION, ARRAYSIZE(KOF02UM_A_DAIMON_COLLECTION) },
-    { "Terry", DESC_NODETYPE_TREE, (void*)KOF02UM_A_TERRY_COLLECTION, ARRAYSIZE(KOF02UM_A_TERRY_COLLECTION) },
     { "Andy", DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANDY_COLLECTION, ARRAYSIZE(KOF02UM_A_ANDY_COLLECTION) },
-    { "Joe", DESC_NODETYPE_TREE, (void*)KOF02UM_A_JOE_COLLECTION, ARRAYSIZE(KOF02UM_A_JOE_COLLECTION) },
-    { "Kim", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KIM_COLLECTION, ARRAYSIZE(KOF02UM_A_KIM_COLLECTION) },
-    { "Chang", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHANG_COLLECTION, ARRAYSIZE(KOF02UM_A_CHANG_COLLECTION) },
-    { "Choi", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHOI_COLLECTION, ARRAYSIZE(KOF02UM_A_CHOI_COLLECTION) },
-    { "Athena", DESC_NODETYPE_TREE, (void*)KOF02UM_A_ATHENA_COLLECTION, ARRAYSIZE(KOF02UM_A_ATHENA_COLLECTION) },
-    { "Kensou", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KENSOU_COLLECTION, ARRAYSIZE(KOF02UM_A_KENSOU_COLLECTION) },
-    { "Chin", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHIN_COLLECTION, ARRAYSIZE(KOF02UM_A_CHIN_COLLECTION) },
-    { "Leona", DESC_NODETYPE_TREE, (void*)KOF02UM_A_LEONA_COLLECTION, ARRAYSIZE(KOF02UM_A_LEONA_COLLECTION) },
-    { "Ralf", DESC_NODETYPE_TREE, (void*)KOF02UM_A_RALF_COLLECTION, ARRAYSIZE(KOF02UM_A_RALF_COLLECTION) },
-    { "Clark", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLARK_COLLECTION, ARRAYSIZE(KOF02UM_A_CLARK_COLLECTION) },
-    { "Ryo", DESC_NODETYPE_TREE, (void*)KOF02UM_A_RYO_COLLECTION, ARRAYSIZE(KOF02UM_A_RYO_COLLECTION) },
-    { "Robert", DESC_NODETYPE_TREE, (void*)KOF02UM_A_ROBERT_COLLECTION, ARRAYSIZE(KOF02UM_A_ROBERT_COLLECTION) },
-    { "Takuma", DESC_NODETYPE_TREE, (void*)KOF02UM_A_TAKUMA_COLLECTION, ARRAYSIZE(KOF02UM_A_TAKUMA_COLLECTION) },
-    { "Mai", DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAI_COLLECTION, ARRAYSIZE(KOF02UM_A_MAI_COLLECTION) },
-    { "Yuri", DESC_NODETYPE_TREE, (void*)KOF02UM_A_YURI_COLLECTION, ARRAYSIZE(KOF02UM_A_YURI_COLLECTION) },
-    { "May Lee", DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAYLEE_COLLECTION, ARRAYSIZE(KOF02UM_A_MAYLEE_COLLECTION) },
-    { "Iori", DESC_NODETYPE_TREE, (void*)KOF02UM_A_IORI_COLLECTION, ARRAYSIZE(KOF02UM_A_IORI_COLLECTION) },
-    { "Mature", DESC_NODETYPE_TREE, (void*)KOF02UM_A_MATURE_COLLECTION, ARRAYSIZE(KOF02UM_A_MATURE_COLLECTION) },
-    { "Vice", DESC_NODETYPE_TREE, (void*)KOF02UM_A_VICE_COLLECTION, ARRAYSIZE(KOF02UM_A_VICE_COLLECTION) },
-    { "Yamazaki", DESC_NODETYPE_TREE, (void*)KOF02UM_A_YAMAZAKI_COLLECTION, ARRAYSIZE(KOF02UM_A_YAMAZAKI_COLLECTION) },
-    { "Mary", DESC_NODETYPE_TREE, (void*)KOF02UM_A_MARY_COLLECTION, ARRAYSIZE(KOF02UM_A_MARY_COLLECTION) },
-    { "Billy", DESC_NODETYPE_TREE, (void*)KOF02UM_A_BILLY_COLLECTION, ARRAYSIZE(KOF02UM_A_BILLY_COLLECTION) },
-    { "Yashiro", DESC_NODETYPE_TREE, (void*)KOF02UM_A_YASHIRO_COLLECTION, ARRAYSIZE(KOF02UM_A_YASHIRO_COLLECTION) },
-    { "Shermie", DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHERMIE_COLLECTION, ARRAYSIZE(KOF02UM_A_SHERMIE_COLLECTION) },
-    { "Chris", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHRIS_COLLECTION, ARRAYSIZE(KOF02UM_A_CHRIS_COLLECTION) },
-    { "K’", DESC_NODETYPE_TREE, (void*)KOF02UM_A_K_COLLECTION, ARRAYSIZE(KOF02UM_A_K_COLLECTION) },
-    { "Maxima", DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAXIMA_COLLECTION, ARRAYSIZE(KOF02UM_A_MAXIMA_COLLECTION) },
-    { "Whip", DESC_NODETYPE_TREE, (void*)KOF02UM_A_WHIP_COLLECTION, ARRAYSIZE(KOF02UM_A_WHIP_COLLECTION) },
-    { "Vanessa", DESC_NODETYPE_TREE, (void*)KOF02UM_A_VANESSA_COLLECTION, ARRAYSIZE(KOF02UM_A_VANESSA_COLLECTION) },
-    { "Seth", DESC_NODETYPE_TREE, (void*)KOF02UM_A_SETH_COLLECTION, ARRAYSIZE(KOF02UM_A_SETH_COLLECTION) },
-    { "Ramon", DESC_NODETYPE_TREE, (void*)KOF02UM_A_RAMON_COLLECTION, ARRAYSIZE(KOF02UM_A_RAMON_COLLECTION) },
-    { "Kula", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KULA_COLLECTION, ARRAYSIZE(KOF02UM_A_KULA_COLLECTION) },
-    { "Nameless", DESC_NODETYPE_TREE, (void*)KOF02UM_A_NAMELESS_COLLECTION, ARRAYSIZE(KOF02UM_A_NAMELESS_COLLECTION) },
     { "Angel", DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANGEL_COLLECTION, ARRAYSIZE(KOF02UM_A_ANGEL_COLLECTION) },
-    { "Omega Rugal", DESC_NODETYPE_TREE, (void*)KOF02UM_A_OMEGARUGAL_COLLECTION, ARRAYSIZE(KOF02UM_A_OMEGARUGAL_COLLECTION) },
-    { "Kusanagi", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KUSANAGI_COLLECTION, ARRAYSIZE(KOF02UM_A_KUSANAGI_COLLECTION) },
-    { "O.Yashiro", DESC_NODETYPE_TREE, (void*)KOF02UM_A_OYASHIRO_COLLECTION, ARRAYSIZE(KOF02UM_A_OYASHIRO_COLLECTION) },
-    { "O.Shermie", DESC_NODETYPE_TREE, (void*)KOF02UM_A_OSHERMIE_COLLECTION, ARRAYSIZE(KOF02UM_A_OSHERMIE_COLLECTION) },
-    { "O.Chris", DESC_NODETYPE_TREE, (void*)KOF02UM_A_OCHRIS_COLLECTION, ARRAYSIZE(KOF02UM_A_OCHRIS_COLLECTION) },
+    { "Athena", DESC_NODETYPE_TREE, (void*)KOF02UM_A_ATHENA_COLLECTION, ARRAYSIZE(KOF02UM_A_ATHENA_COLLECTION) },
+    { "Bao", DESC_NODETYPE_TREE, (void*)KOF02UM_A_BAO_COLLECTION, ARRAYSIZE(KOF02UM_A_BAO_COLLECTION) },
+    { "Benimaru", DESC_NODETYPE_TREE, (void*)KOF02UM_A_BENIMARU_COLLECTION, ARRAYSIZE(KOF02UM_A_BENIMARU_COLLECTION) },
+    { "Billy", DESC_NODETYPE_TREE, (void*)KOF02UM_A_BILLY_COLLECTION, ARRAYSIZE(KOF02UM_A_BILLY_COLLECTION) },
+    { "Blue Mary", DESC_NODETYPE_TREE, (void*)KOF02UM_A_MARY_COLLECTION, ARRAYSIZE(KOF02UM_A_MARY_COLLECTION) },
+    { "Chang", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHANG_COLLECTION, ARRAYSIZE(KOF02UM_A_CHANG_COLLECTION) },
+    { "Chin", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHIN_COLLECTION, ARRAYSIZE(KOF02UM_A_CHIN_COLLECTION) },
+    { "Choi", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHOI_COLLECTION, ARRAYSIZE(KOF02UM_A_CHOI_COLLECTION) },
+    { "Chris", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHRIS_COLLECTION, ARRAYSIZE(KOF02UM_A_CHRIS_COLLECTION) },
+    { "Clark", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLARK_COLLECTION, ARRAYSIZE(KOF02UM_A_CLARK_COLLECTION) },
+    { "Clone Zero", DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLONEZERO_COLLECTION, ARRAYSIZE(KOF02UM_A_CLONEZERO_COLLECTION) },
+    { "Daimon", DESC_NODETYPE_TREE, (void*)KOF02UM_A_DAIMON_COLLECTION, ARRAYSIZE(KOF02UM_A_DAIMON_COLLECTION) },
+    { "EX Kensou", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXKENSOU_COLLECTION, ARRAYSIZE(KOF02UM_A_EXKENSOU_COLLECTION) },
+    { "EX Robert", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXROBERT_COLLECTION, ARRAYSIZE(KOF02UM_A_EXROBERT_COLLECTION) },
+    { "EX Takuma", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXTAKUMA_COLLECTION, ARRAYSIZE(KOF02UM_A_EXTAKUMA_COLLECTION) },
+    { "Foxy", DESC_NODETYPE_TREE, (void*)KOF02UM_A_FOXY_COLLECTION, ARRAYSIZE(KOF02UM_A_FOXY_COLLECTION) },
+    { "Geese", DESC_NODETYPE_TREE, (void*)KOF02UM_A_GEESE_COLLECTION, ARRAYSIZE(KOF02UM_A_GEESE_COLLECTION) },
+    { "Goenitz", DESC_NODETYPE_TREE, (void*)KOF02UM_A_GOENITZ_COLLECTION, ARRAYSIZE(KOF02UM_A_GOENITZ_COLLECTION) },
+    { "Heidern", DESC_NODETYPE_TREE, (void*)KOF02UM_A_HEIDERN_COLLECTION, ARRAYSIZE(KOF02UM_A_HEIDERN_COLLECTION) },
+    { "Hinako", DESC_NODETYPE_TREE, (void*)KOF02UM_A_HINAKO_COLLECTION, ARRAYSIZE(KOF02UM_A_HINAKO_COLLECTION) },
+    { "Igniz", DESC_NODETYPE_TREE, (void*)KOF02UM_A_IGNIZ_COLLECTION, ARRAYSIZE(KOF02UM_A_IGNIZ_COLLECTION) },
+    { "Iori", DESC_NODETYPE_TREE, (void*)KOF02UM_A_IORI_COLLECTION, ARRAYSIZE(KOF02UM_A_IORI_COLLECTION) },
+    { "Jhun Hoon", DESC_NODETYPE_TREE, (void*)KOF02UM_A_JHUNHOON_COLLECTION, ARRAYSIZE(KOF02UM_A_JHUNHOON_COLLECTION) },
+    { "Joe", DESC_NODETYPE_TREE, (void*)KOF02UM_A_JOE_COLLECTION, ARRAYSIZE(KOF02UM_A_JOE_COLLECTION) },
+    { "K’", DESC_NODETYPE_TREE, (void*)KOF02UM_A_K_COLLECTION, ARRAYSIZE(KOF02UM_A_K_COLLECTION) },
     { "Kasumi", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KASUMI_COLLECTION, ARRAYSIZE(KOF02UM_A_KASUMI_COLLECTION) },
-    { "Lin", DESC_NODETYPE_TREE, (void*)KOF02UM_A_LIN_COLLECTION, ARRAYSIZE(KOF02UM_A_LIN_COLLECTION) },
+    { "Kensou", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KENSOU_COLLECTION, ARRAYSIZE(KOF02UM_A_KENSOU_COLLECTION) },
+    { "Kim", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KIM_COLLECTION, ARRAYSIZE(KOF02UM_A_KIM_COLLECTION) },
     { "King", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KING_COLLECTION, ARRAYSIZE(KOF02UM_A_KING_COLLECTION) },
-    { "Xiangfei", DESC_NODETYPE_TREE, (void*)KOF02UM_A_XIANGFEI_COLLECTION, ARRAYSIZE(KOF02UM_A_XIANGFEI_COLLECTION) },
+    { "Krizalid", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KRIZALID_COLLECTION, ARRAYSIZE(KOF02UM_A_KRIZALID_COLLECTION) },
+    { "Kula", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KULA_COLLECTION, ARRAYSIZE(KOF02UM_A_KULA_COLLECTION) },
+    { "Kusanagi", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KUSANAGI_COLLECTION, ARRAYSIZE(KOF02UM_A_KUSANAGI_COLLECTION) },
+    { "Kyo", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO_COLLECTION, ARRAYSIZE(KOF02UM_A_KYO_COLLECTION) },
     { "Kyo-1", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO1_COLLECTION, ARRAYSIZE(KOF02UM_A_KYO1_COLLECTION) },
     { "Kyo-2", DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO2_COLLECTION, ARRAYSIZE(KOF02UM_A_KYO2_COLLECTION) },
-    { "Goenitz", DESC_NODETYPE_TREE, (void*)KOF02UM_A_GOENITZ_COLLECTION, ARRAYSIZE(KOF02UM_A_GOENITZ_COLLECTION) },
-    { "EX Kensou", DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXKENSOU_COLLECTION, ARRAYSIZE(KOF02UM_A_EXKENSOU_COLLECTION) },
+    { "Leona", DESC_NODETYPE_TREE, (void*)KOF02UM_A_LEONA_COLLECTION, ARRAYSIZE(KOF02UM_A_LEONA_COLLECTION) },
+    { "Lin", DESC_NODETYPE_TREE, (void*)KOF02UM_A_LIN_COLLECTION, ARRAYSIZE(KOF02UM_A_LIN_COLLECTION) },
+    { "Mai", DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAI_COLLECTION, ARRAYSIZE(KOF02UM_A_MAI_COLLECTION) },
+    { "Mature", DESC_NODETYPE_TREE, (void*)KOF02UM_A_MATURE_COLLECTION, ARRAYSIZE(KOF02UM_A_MATURE_COLLECTION) },
+    { "Maxima", DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAXIMA_COLLECTION, ARRAYSIZE(KOF02UM_A_MAXIMA_COLLECTION) },
+    { "May Lee", DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAYLEE_COLLECTION, ARRAYSIZE(KOF02UM_A_MAYLEE_COLLECTION) },
+    { "Nameless", DESC_NODETYPE_TREE, (void*)KOF02UM_A_NAMELESS_COLLECTION, ARRAYSIZE(KOF02UM_A_NAMELESS_COLLECTION) },
+    { "Nightmare Geese", DESC_NODETYPE_TREE, (void*)KOF02UM_A_NIGHTMAREGEESE_COLLECTION, ARRAYSIZE(KOF02UM_A_NIGHTMAREGEESE_COLLECTION) },
+    { "O.Chris", DESC_NODETYPE_TREE, (void*)KOF02UM_A_OCHRIS_COLLECTION, ARRAYSIZE(KOF02UM_A_OCHRIS_COLLECTION) },
+    { "O.Shermie", DESC_NODETYPE_TREE, (void*)KOF02UM_A_OSHERMIE_COLLECTION, ARRAYSIZE(KOF02UM_A_OSHERMIE_COLLECTION) },
+    { "O.Yashiro", DESC_NODETYPE_TREE, (void*)KOF02UM_A_OYASHIRO_COLLECTION, ARRAYSIZE(KOF02UM_A_OYASHIRO_COLLECTION) },
+    { "Omega Rugal", DESC_NODETYPE_TREE, (void*)KOF02UM_A_OMEGARUGAL_COLLECTION, ARRAYSIZE(KOF02UM_A_OMEGARUGAL_COLLECTION) },
+    { "Original Zero", DESC_NODETYPE_TREE, (void*)KOF02UM_A_ORIGINALZERO_COLLECTION, ARRAYSIZE(KOF02UM_A_ORIGINALZERO_COLLECTION) },
+    { "Ralf", DESC_NODETYPE_TREE, (void*)KOF02UM_A_RALF_COLLECTION, ARRAYSIZE(KOF02UM_A_RALF_COLLECTION) },
+    { "Ramon", DESC_NODETYPE_TREE, (void*)KOF02UM_A_RAMON_COLLECTION, ARRAYSIZE(KOF02UM_A_RAMON_COLLECTION) },
+    { "Robert", DESC_NODETYPE_TREE, (void*)KOF02UM_A_ROBERT_COLLECTION, ARRAYSIZE(KOF02UM_A_ROBERT_COLLECTION) },
+    { "Ryo", DESC_NODETYPE_TREE, (void*)KOF02UM_A_RYO_COLLECTION, ARRAYSIZE(KOF02UM_A_RYO_COLLECTION) },
+    { "Seth", DESC_NODETYPE_TREE, (void*)KOF02UM_A_SETH_COLLECTION, ARRAYSIZE(KOF02UM_A_SETH_COLLECTION) },
+    { "Shermie", DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHERMIE_COLLECTION, ARRAYSIZE(KOF02UM_A_SHERMIE_COLLECTION) },
+    { "Shingo", DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHINGO_COLLECTION, ARRAYSIZE(KOF02UM_A_SHINGO_COLLECTION) },
+    { "Takuma", DESC_NODETYPE_TREE, (void*)KOF02UM_A_TAKUMA_COLLECTION, ARRAYSIZE(KOF02UM_A_TAKUMA_COLLECTION) },
+    { "Terry", DESC_NODETYPE_TREE, (void*)KOF02UM_A_TERRY_COLLECTION, ARRAYSIZE(KOF02UM_A_TERRY_COLLECTION) },
+    { "Vanessa", DESC_NODETYPE_TREE, (void*)KOF02UM_A_VANESSA_COLLECTION, ARRAYSIZE(KOF02UM_A_VANESSA_COLLECTION) },
+    { "Vice", DESC_NODETYPE_TREE, (void*)KOF02UM_A_VICE_COLLECTION, ARRAYSIZE(KOF02UM_A_VICE_COLLECTION) },
+    { "Whip", DESC_NODETYPE_TREE, (void*)KOF02UM_A_WHIP_COLLECTION, ARRAYSIZE(KOF02UM_A_WHIP_COLLECTION) },
+    { "Xiangfei", DESC_NODETYPE_TREE, (void*)KOF02UM_A_XIANGFEI_COLLECTION, ARRAYSIZE(KOF02UM_A_XIANGFEI_COLLECTION) },
+    { "Yamazaki", DESC_NODETYPE_TREE, (void*)KOF02UM_A_YAMAZAKI_COLLECTION, ARRAYSIZE(KOF02UM_A_YAMAZAKI_COLLECTION) },
+    { "Yashiro", DESC_NODETYPE_TREE, (void*)KOF02UM_A_YASHIRO_COLLECTION, ARRAYSIZE(KOF02UM_A_YASHIRO_COLLECTION) },
+    { "Yuri", DESC_NODETYPE_TREE, (void*)KOF02UM_A_YURI_COLLECTION, ARRAYSIZE(KOF02UM_A_YURI_COLLECTION) },
 };
 
 // We extend this array with data groveled from the GarouE.txt extensible extras file, if any.

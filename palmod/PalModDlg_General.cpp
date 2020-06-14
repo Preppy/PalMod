@@ -63,6 +63,11 @@ void CPalModDlg::UpdateCombo()
 
     int nCurrUnitSel = m_CBUnitSel.GetCurSel();
 
+    if (nCurrUnitSel == -1)
+    {
+        return;
+    }
+
     if (nCurrUnitSel != nPrevUnitSel)
     {
         sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], -1);
@@ -85,6 +90,11 @@ void CPalModDlg::UpdateCombo()
 
     int nCurrChildSel1 = m_CBChildSel1.GetCurSel();
 
+    if (nCurrChildSel1 == -1)
+    {
+        return;
+    }
+
     if (nCurrChildSel1 != nPrevChildSel1)
     {
         sDescTreeNode* ChildTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], nCurrChildSel1, -1);
@@ -106,6 +116,11 @@ void CPalModDlg::UpdateCombo()
     }
 
     int nCurrChildSel2 = m_CBChildSel2.GetCurSel();
+
+    if (nCurrChildSel2 == -1)
+    {
+        return;
+    }
 
     if (nCurrChildSel2 != nPrevChildSel2)
     {

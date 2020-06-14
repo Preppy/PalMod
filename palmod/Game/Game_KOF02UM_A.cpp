@@ -38,7 +38,7 @@ CGame_KOF02UM_A::CGame_KOF02UM_A()
     m_nTotalInternalUnits = KOF02UM_A_NUMUNIT;
     m_nExtraUnit = KOF02UM_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1632;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2112;
     m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -424,7 +424,7 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
     m_nTotalPaletteCountForKOF02UM = nTotalPaletteCount;
 
     // For development purposes only...
-    //DumpAllCharacters();
+    // DumpAllCharacters();
 
     return NewDescTree;
 }
