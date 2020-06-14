@@ -25,6 +25,7 @@ enum SupportedGamesList
     Garou_A,
     NEOGEO_A,
     KOF98_A,
+    KOF02UM_A,
     NUM_GAMES
 };
 
@@ -55,6 +56,7 @@ const CHAR g_GameFriendlyName[NUM_GAMES][32] =
     "Garou: MotW (Arcade)",
     "Unknown NEO•GEO (Arcade)",
     "KOF: 98 (Arcade)",
+    "KOF: 02UM (Steam)",
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -699,10 +701,72 @@ enum SupportedNEOGEO_A_PaletteListIndex
     indexNEOGEO_A_Last
 };
 
+enum KOFSpriteList
+{
+    indexKOFSprites_98Kyo,
+    indexKOFSprites_98Benimaru,
+    indexKOFSprites_98Daimon,
+    indexKOFSprites_98Terry,
+    indexKOFSprites_98Andy,
+    indexKOFSprites_98Joe,
+    indexKOFSprites_98Ryo,
+    indexKOFSprites_98Robert,
+    indexKOFSprites_98Yuri,
+    indexKOFSprites_98Leona,
+    indexKOFSprites_98Ralf,
+    indexKOFSprites_98Clark,
+    indexKOFSprites_98Athena,
+    indexKOFSprites_98Kensou,
+    indexKOFSprites_98Chin,
+    indexKOFSprites_98Chizuru,
+    indexKOFSprites_98Mai,
+    indexKOFSprites_98King,
+    indexKOFSprites_98Kim,
+    indexKOFSprites_98Chang,
+    indexKOFSprites_98Choi,
+    indexKOFSprites_98Yashiro,
+    indexKOFSprites_98Shermie,
+    indexKOFSprites_98Chris,
+    indexKOFSprites_98Yamazaki,
+    indexKOFSprites_98BlueMary,
+    indexKOFSprites_98Billy,
+    indexKOFSprites_98Iori,
+    indexKOFSprites_98Mature,
+    indexKOFSprites_98Vice,
+    indexKOFSprites_98Heidern,
+    indexKOFSprites_98Takuma,
+    indexKOFSprites_98Saisyu,
+    indexKOFSprites_98HeavyD,
+    indexKOFSprites_98Lucky,
+    indexKOFSprites_98Brian,
+    indexKOFSprites_98Rugal,
+    indexKOFSprites_98Shingo, // 25
+    indexKOFSprites_02Angel,
+    indexKOFSprites_02Athena,
+    indexKOFSprites_02Clark,
+    indexKOFSprites_02K,
+    indexKOFSprites_02Kula,
+    indexKOFSprites_02Kyo,
+    indexKOFSprites_02Maxima,
+    indexKOFSprites_02MayLee,
+    indexKOFSprites_02Ralf,
+    indexKOFSprites_02Ramon,
+    indexKOFSprites_02Seth,
+    indexKOFSprites_02Vanessa,
+    indexKOFSprites_02Whip,
+    indexKOFSprites_02Lin,
+    indexKOFSprites_02Nameless,
+    indexKOFSprites_02King,
+    indexKOFSprites_02Xiangfei,
+    indexKOFSprites_02Goenitz,
+    indexKOFSprites_02Kasumi,
+    indexKOFSprites_Last,
+};
+
 enum SupportedKOF98_A_PaletteListIndex
 {
     indexKOF98_A_Kyo,
-    indexKOF98_A_Beniumaru,
+    indexKOF98_A_Benimaru,
     indexKOF98_A_Daimon,
     indexKOF98_A_Terry,
     indexKOF98_A_Andy,
@@ -749,7 +813,7 @@ enum SupportedKOF98_A_PaletteListIndex
 const UINT8 KOF98_A_IMG_UNITS[] =
 {
     indexKOF98_A_Kyo,
-    indexKOF98_A_Beniumaru,
+    indexKOF98_A_Benimaru,
     indexKOF98_A_Daimon,
     indexKOF98_A_Terry,
     indexKOF98_A_Andy,
@@ -790,11 +854,146 @@ const UINT8 KOF98_A_IMG_UNITS[] =
 
 const int KOF98_A_NUM_IMG_UNITS = ARRAYSIZE(KOF98_A_IMG_UNITS);
 
+enum SupportedKOF02UM_A_PaletteListIndex
+{
+    indexKOF02UM_A_Kyo,
+    indexKOF02UM_A_Benimaru,
+    indexKOF02UM_A_Daimon,
+
+    indexKOF02UM_A_Terry,
+    indexKOF02UM_A_Andy,
+    indexKOF02UM_A_Joe,
+
+    indexKOF02UM_A_Kim,
+    indexKOF02UM_A_Chang,
+    indexKOF02UM_A_Choi,
+
+    indexKOF02UM_A_Athena,
+    indexKOF02UM_A_Kensou,
+    indexKOF02UM_A_Chin,
+
+    indexKOF02UM_A_Leona,
+    indexKOF02UM_A_Ralf,
+    indexKOF02UM_A_Clark,
+
+    indexKOF02UM_A_Ryo,
+    indexKOF02UM_A_Robert,
+    indexKOF02UM_A_Takuma,
+
+    indexKOF02UM_A_Mai,
+    indexKOF02UM_A_Yuri,
+    indexKOF02UM_A_MayLee,
+
+    indexKOF02UM_A_Iori,
+    indexKOF02UM_A_Mature,
+    indexKOF02UM_A_Vice,
+    
+    indexKOF02UM_A_Yamazaki,
+    indexKOF02UM_A_BlueMary,
+    indexKOF02UM_A_Billy,
+    
+    indexKOF02UM_A_Yashiro,
+    indexKOF02UM_A_Shermie,
+    indexKOF02UM_A_Chris,
+
+    indexKOF02UM_A_K,
+    indexKOF02UM_A_Maxima,
+    indexKOF02UM_A_Whip,
+
+    indexKOF02UM_A_Vanessa,
+    indexKOF02UM_A_Seth,
+    indexKOF02UM_A_Ramon,
+
+    indexKOF02UM_A_Kula,
+    indexKOF02UM_A_K9999,
+    indexKOF02UM_A_Angel,
+
+    indexKOF02UM_A_OmegaRugal,
+
+    indexKOF02UM_A_Kusanagi,
+    
+    indexKOF02UM_A_OYashiro,
+    indexKOF02UM_A_OShermie,
+    indexKOF02UM_A_OChris,
+
+    indexKOF02UM_A_Lin,
+
+    indexKOF02UM_A_King,
+    indexKOF02UM_A_Xiangfei,
+    indexKOF02UM_A_Kyo1,
+    indexKOF02UM_A_Kyo2,
+    indexKOF02UM_A_Goenitz,
+    indexKOF02UM_A_EXKensou,
+    indexKOF02UM_A_Kasumi,
+
+    indexKOF02UM_A_Last
+};
+
+const UINT8 KOF02UM_A_IMG_UNITS[] =
+{
+    indexKOFSprites_98Kyo,
+    indexKOFSprites_98Benimaru,
+    indexKOFSprites_98Daimon,
+    indexKOFSprites_98Terry,
+    indexKOFSprites_98Andy,
+    indexKOFSprites_98Joe,
+    indexKOFSprites_98Ryo,
+    indexKOFSprites_98Robert,
+    indexKOFSprites_98Yuri,
+    indexKOFSprites_98Leona,
+    indexKOFSprites_98Athena,
+    indexKOFSprites_98Kensou,
+    indexKOFSprites_98Chin,
+    indexKOFSprites_98Chizuru,
+    indexKOFSprites_98Mai,
+    indexKOFSprites_98Kim,
+    indexKOFSprites_98Chang,
+    indexKOFSprites_98Choi,
+    indexKOFSprites_98Yashiro,
+    indexKOFSprites_98Shermie,
+    indexKOFSprites_98Chris,
+    indexKOFSprites_98Yamazaki,
+    indexKOFSprites_98BlueMary,
+    indexKOFSprites_98Billy,
+    indexKOFSprites_98Iori,
+    indexKOFSprites_98Mature,
+    indexKOFSprites_98Vice,
+    indexKOFSprites_98Heidern,
+    indexKOFSprites_98Takuma,
+    indexKOFSprites_98Saisyu,
+    indexKOFSprites_98HeavyD,
+    indexKOFSprites_98Lucky,
+    indexKOFSprites_98Brian,
+    indexKOFSprites_98Rugal,
+    indexKOFSprites_98Shingo,
+    indexKOFSprites_02Angel,
+    indexKOFSprites_02Athena,
+    indexKOFSprites_02Clark,
+    indexKOFSprites_02K,
+    indexKOFSprites_02Kula,
+    indexKOFSprites_02Kyo,
+    indexKOFSprites_02Maxima,
+    indexKOFSprites_02MayLee,
+    indexKOFSprites_02Ralf,
+    indexKOFSprites_02Ramon,
+    indexKOFSprites_02Seth,
+    indexKOFSprites_02Vanessa,
+    indexKOFSprites_02Whip,
+    indexKOFSprites_02Lin,
+    indexKOFSprites_02Nameless,
+    indexKOFSprites_02King,
+    indexKOFSprites_02Xiangfei,
+    indexKOFSprites_02Goenitz,
+    indexKOFSprites_02Kasumi,
+};
+
+const int KOF02UM_A_NUM_IMG_UNITS = ARRAYSIZE(KOF02UM_A_IMG_UNITS);
+
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_NEOGEO = 0, // NEOGEO: Garou
     IMGDAT_SECTION_JOJOS,
-    IMGDAT_SECTION_KOF, // KOF98
+    IMGDAT_SECTION_KOF, // KOF98 + KOF02UM
     IMG4,               //Image Game Flag.  Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
     IMGDAT_SECTION_3S,  //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
     IMGDAT_SECTION_ST,  //Image Game Flag.  Used for ST.
@@ -813,6 +1012,7 @@ const int IMGAMT[] =
 {
     GAROU_A_NUM_IMG_UNITS,
     JOJOS_A_NUM_IMG_UNITS,
+    indexKOFSprites_Last,
     MVC2_D_NUM_IMG_UNITS + MVC_A_UNIQUE_IMG_UNITS + SFA3_A_NUM_IMG_UNITS + XMVSF_A_UNIQUE_IMG_UNITS + MSH_A_UNIQUE_IMG_UNITS + MSHVSF_A_UNIQUE_IMG_UNITS,
     SFIII3_A_NUM_IMG_UNITS,
     SSF2T_A_NUM_IMG_UNITS,

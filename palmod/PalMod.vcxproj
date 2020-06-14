@@ -118,6 +118,7 @@
     <ClCompile Include="Game\Game_COTA_A.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
+    <ClCompile Include="Game\Game_KOF02UM_A.cpp" />
     <ClCompile Include="Game\Game_KOF98_A.cpp" />
     <ClCompile Include="Game\Game_MSHVSF_A.cpp" />
     <ClCompile Include="Game\Game_MSH_A.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Game\Game_COTA_A.h" />
     <ClInclude Include="Game\Game_Garou_A.h" />
     <ClInclude Include="Game\Game_JOJOS_A.h" />
+    <ClInclude Include="Game\Game_KOF02UM_A.h" />
     <ClInclude Include="Game\Game_KOF98_A.h" />
     <ClInclude Include="Game\Game_MSHVSF_A.h" />
     <ClInclude Include="Game\Game_MSH_A.h" />
@@ -189,6 +191,7 @@
     <ClInclude Include="Game\Garou_A_DEF.h" />
     <ClInclude Include="Game\ImgTicket.h" />
     <ClInclude Include="Game\JOJOS_A_DEF.h" />
+    <ClInclude Include="Game\KOF02UM_A_DEF.h" />
     <ClInclude Include="Game\KOF98_A_DEF.h" />
     <ClInclude Include="Game\MSHVSF_A_DEF.h" />
     <ClInclude Include="Game\MSH_A_DEF.h" />

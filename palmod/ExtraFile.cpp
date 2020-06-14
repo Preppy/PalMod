@@ -420,7 +420,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
         }
     }
 
-    strDupeText.Format("CGameWithExtrasFile::AreThereDupesInDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
+    strDupeText.Format("CGameWithExtrasFile::AreThereDupesInDataset: Checked %u core palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
     OutputDebugString(strDupeText);
 
     return nTotalDupesFound;
@@ -463,7 +463,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
         }
     }
 
-    strDupeText.Format("CGameWithExtrasFile::AreThereDupesInExtrasDataset: Checked %u palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
+    strDupeText.Format("CGameWithExtrasFile::AreThereDupesInExtrasDataset: Checked %u Extras palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
     OutputDebugString(strDupeText);
 
     return nTotalDupesFound;
@@ -477,7 +477,7 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
 
     CString strText;
-    strText.Format("CGameWithExtrasFile::CheckForErrorsInTables: Safe palette count for ROM is %u.  We found %u now.\n", m_nSafeCountForThisRom, nPaletteCountForRom);
+    strText.Format("CGameWithExtrasFile::CheckForErrorsInTables: Safe palette count for ROM is %u.  We found %u now including extras.\n", m_nSafeCountForThisRom, nPaletteCountForRom);
     OutputDebugString(strText);
 
     int nDupeCount = (nPaletteCountForRom == m_nSafeCountForThisRom) ? 0 : GetDupeCountInDataset();

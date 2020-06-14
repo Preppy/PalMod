@@ -239,6 +239,15 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
             nImgMap->insert({ KOF98_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
             break;
         }
+        case KOF02UM_A:
+        {
+#if IMGDAT_DEBUG
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", KOF98_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
+#endif
+            nImgMap->insert({ KOF02UM_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
         default:
             OutputDebugString("CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n ");
             return NULL;

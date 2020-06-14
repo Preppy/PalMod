@@ -64,12 +64,12 @@ const sGame_PaletteDataset KOF98_A_KYO_PALETTE_D[] =
 
 const sGame_PaletteDataset KOF98_A_BENIMARU_PALETTE_A[] =
 {
-    { "Benimaru A - Main",  0x2d9ff0, 0x2da010, indexKOF98_A_Beniumaru },
-    { "Benimaru A - Extra 1",  0x2da010, 0x2da030, indexKOF98_A_Beniumaru },
-    { "Benimaru A - Extra 2",  0x2da030, 0x2da050, indexKOF98_A_Beniumaru },
-    { "Benimaru A - Max Mode",  0x2da050, 0x2da070, indexKOF98_A_Beniumaru },
-    { "Benimaru A - Extra 3",  0x2da070, 0x2da090, indexKOF98_A_Beniumaru },
-    { "Benimaru A - Extra 4",  0x2da090, 0x2da0b0, indexKOF98_A_Beniumaru },
+    { "Benimaru A - Main",  0x2d9ff0, 0x2da010, indexKOF98_A_Benimaru },
+    { "Benimaru A - Extra 1",  0x2da010, 0x2da030, indexKOF98_A_Benimaru },
+    { "Benimaru A - Extra 2",  0x2da030, 0x2da050, indexKOF98_A_Benimaru },
+    { "Benimaru A - Max Mode",  0x2da050, 0x2da070, indexKOF98_A_Benimaru },
+    { "Benimaru A - Extra 3",  0x2da070, 0x2da090, indexKOF98_A_Benimaru },
+    { "Benimaru A - Extra 4",  0x2da090, 0x2da0b0, indexKOF98_A_Benimaru },
     { "Benimaru A - Order Select",  0x2da0b0, 0x2da0d0 },
     { "Benimaru A - Life Bar Portrait",  0x2da0d0, 0x2da0f0 },
     { "Benimaru A - Win Screen Portrait/sprite",  0x2da0f0, 0x2da1f0 },
@@ -77,12 +77,12 @@ const sGame_PaletteDataset KOF98_A_BENIMARU_PALETTE_A[] =
 
 const sGame_PaletteDataset KOF98_A_BENIMARU_PALETTE_B[] =
 {
-    { "Benimaru B - Main",  0x2da1f0, 0x2da210, indexKOF98_A_Beniumaru },
-    { "Benimaru B - Extra 1",  0x2da210, 0x2da230, indexKOF98_A_Beniumaru },
-    { "Benimaru B - Extra 2",  0x2da230, 0x2da250, indexKOF98_A_Beniumaru },
-    { "Benimaru B - Max Mode",  0x2da250, 0x2da270, indexKOF98_A_Beniumaru },
-    { "Benimaru B - Extra 3",  0x2da270, 0x2da290, indexKOF98_A_Beniumaru },
-    { "Benimaru B - Extra 4",  0x2da290, 0x2da2b0, indexKOF98_A_Beniumaru },
+    { "Benimaru B - Main",  0x2da1f0, 0x2da210, indexKOF98_A_Benimaru },
+    { "Benimaru B - Extra 1",  0x2da210, 0x2da230, indexKOF98_A_Benimaru },
+    { "Benimaru B - Extra 2",  0x2da230, 0x2da250, indexKOF98_A_Benimaru },
+    { "Benimaru B - Max Mode",  0x2da250, 0x2da270, indexKOF98_A_Benimaru },
+    { "Benimaru B - Extra 3",  0x2da270, 0x2da290, indexKOF98_A_Benimaru },
+    { "Benimaru B - Extra 4",  0x2da290, 0x2da2b0, indexKOF98_A_Benimaru },
     { "Benimaru B - Order Select",  0x2da2b0, 0x2da2d0 },
     { "Benimaru B - Life Bar Portrait",  0x2da2d0, 0x2da2f0 },
     { "Benimaru B - Win Screen Portrait/sprite",  0x2da2f0, 0x2da3f0 },
@@ -90,12 +90,12 @@ const sGame_PaletteDataset KOF98_A_BENIMARU_PALETTE_B[] =
 
 const sGame_PaletteDataset KOF98_A_BENIMARU_PALETTE_C[] =
 {
-    { "Benimaru C - Main",  0x2da3f0, 0x2da410, indexKOF98_A_Beniumaru },
-    { "Benimaru C - Extra 1",  0x2da410, 0x2da430, indexKOF98_A_Beniumaru },
-    { "Benimaru C - Extra 2",  0x2da430, 0x2da450, indexKOF98_A_Beniumaru },
-    { "Benimaru C - Max Mode",  0x2da450, 0x2da470, indexKOF98_A_Beniumaru },
-    { "Benimaru C - Extra 3",  0x2da470, 0x2da490, indexKOF98_A_Beniumaru },
-    { "Benimaru C - Extra 4",  0x2da490, 0x2da4b0, indexKOF98_A_Beniumaru },
+    { "Benimaru C - Main",  0x2da3f0, 0x2da410, indexKOF98_A_Benimaru },
+    { "Benimaru C - Extra 1",  0x2da410, 0x2da430, indexKOF98_A_Benimaru },
+    { "Benimaru C - Extra 2",  0x2da430, 0x2da450, indexKOF98_A_Benimaru },
+    { "Benimaru C - Max Mode",  0x2da450, 0x2da470, indexKOF98_A_Benimaru },
+    { "Benimaru C - Extra 3",  0x2da470, 0x2da490, indexKOF98_A_Benimaru },
+    { "Benimaru C - Extra 4",  0x2da490, 0x2da4b0, indexKOF98_A_Benimaru },
     { "Benimaru C - Order Select",  0x2da4b0, 0x2da4d0 },
     { "Benimaru C - Life Bar Portrait",  0x2da4d0, 0x2da4f0 },
     { "Benimaru C - Win Screen Portrait/sprite",  0x2da4f0, 0x2da5f0 },
@@ -103,12 +103,12 @@ const sGame_PaletteDataset KOF98_A_BENIMARU_PALETTE_C[] =
 
 const sGame_PaletteDataset KOF98_A_BENIMARU_PALETTE_D[] =
 {
-    { "Benimaru D - Main",  0x2da5f0, 0x2da610, indexKOF98_A_Beniumaru },
-    { "Benimaru D - Extra 1",  0x2da610, 0x2da630, indexKOF98_A_Beniumaru },
-    { "Benimaru D - Extra 2",  0x2da630, 0x2da650, indexKOF98_A_Beniumaru },
-    { "Benimaru D - Max Mode",  0x2da650, 0x2da670, indexKOF98_A_Beniumaru },
-    { "Benimaru D - Extra 3",  0x2da670, 0x2da690, indexKOF98_A_Beniumaru },
-    { "Benimaru D - Extra 4",  0x2da690, 0x2da6b0, indexKOF98_A_Beniumaru },
+    { "Benimaru D - Main",  0x2da5f0, 0x2da610, indexKOF98_A_Benimaru },
+    { "Benimaru D - Extra 1",  0x2da610, 0x2da630, indexKOF98_A_Benimaru },
+    { "Benimaru D - Extra 2",  0x2da630, 0x2da650, indexKOF98_A_Benimaru },
+    { "Benimaru D - Max Mode",  0x2da650, 0x2da670, indexKOF98_A_Benimaru },
+    { "Benimaru D - Extra 3",  0x2da670, 0x2da690, indexKOF98_A_Benimaru },
+    { "Benimaru D - Extra 4",  0x2da690, 0x2da6b0, indexKOF98_A_Benimaru },
     { "Benimaru D - Order Select",  0x2da6b0, 0x2da6d0 },
     { "Benimaru D - Life Bar Portrait",  0x2da6d0, 0x2da6f0 },
     { "Benimaru D - Win Screen Portrait/sprite",  0x2da6f0, 0x2da7f0 }, 
@@ -2533,7 +2533,7 @@ const sDescTreeNode KOF98_A_OmegaRugal_COLLECTION[] =
 const UINT8 KOF98_A_UNITSORT[KOF98_A_NUMUNIT + 1] // Plus 1 for extras
 {
     indexKOF98_A_Kyo,
-    indexKOF98_A_Beniumaru,
+    indexKOF98_A_Benimaru,
     indexKOF98_A_Daimon,
     indexKOF98_A_Terry,
     indexKOF98_A_Andy,
