@@ -48,6 +48,7 @@ void CPalModDlg::OnEditCopy()
         switch (CurrGame->GetGameFlag())
         {
         case SFIII3_D:
+        case KOF02UM_A:
             uCopyFlag1 = SFIII3_D + k_nASCIICharacterOffset;
             break;
         case MVC2_A:

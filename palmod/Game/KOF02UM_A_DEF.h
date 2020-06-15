@@ -80,7 +80,7 @@ const sKOF02_CharacterDump KOF02UM_CharacterOffsetArray[] =
     { "Kyo-1", 0x4a400, 0x4a500, 0x4a600, 0x4a700, "indexKOFSprites_98Kyo" },
     { "Foxy", 0x4ac00, 0x4ad00, 0x4ae00, 0x4af00, "indexKOFSprites_02Foxy" },
 
-    { "Kasumi", 0x4b400, 0x4b500, 0x4b600, 0x4b700 },
+    { "Kasumi", 0x4b400, 0x4b500, 0x4b600, 0x4b700, "indexKOFSprites_02Kasumi" },
     { "Geese", 0x4bc00, 0x4bd00, 0x4be00 ,0x4bf00, "indexKOFSprites_02Geese" },
     { "Nightmare Geese", 0x4c400, 0x4c500, 0x4c600 ,0x4c700, "indexKOFSprites_02Geese" },
     { "EX Robert", 0x4cc00, 0x4cd00, 0x4ce00, 0x4cf00, "indexKOFSprites_98Robert" },
@@ -2561,50 +2561,50 @@ const sDescTreeNode KOF02UM_A_OCHRIS_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_A[] =
 {
-    { "Kasumi A", 0x004b400, 0x004b420 },
-    { "Kasumi A - Extra 1", 0x004b420, 0x004b440 },
-    { "Kasumi A - Extra 2", 0x004b440, 0x004b460 },
-    { "Kasumi A - Extra 3", 0x004b460, 0x004b480 },
-    { "Kasumi A - Extra 4", 0x004b480, 0x004b4a0 },
-    { "Kasumi A - Extra 5", 0x004b4a0, 0x004b4c0 },
-    { "Kasumi A - Extra 6", 0x004b4c0, 0x004b4e0 },
-    { "Kasumi A - Extra 7", 0x004b4e0, 0x004b500 },
+    { "Kasumi A", 0x004b400, 0x004b420, indexKOFSprites_02Kasumi },
+    { "Kasumi A - Extra 1", 0x004b420, 0x004b440, indexKOFSprites_02Kasumi },
+    { "Kasumi A - Extra 2", 0x004b440, 0x004b460, indexKOFSprites_02Kasumi },
+    { "Kasumi A - Extra 3", 0x004b460, 0x004b480, indexKOFSprites_02Kasumi },
+    { "Kasumi A - Extra 4", 0x004b480, 0x004b4a0, indexKOFSprites_02Kasumi },
+    { "Kasumi A - Extra 5", 0x004b4a0, 0x004b4c0, indexKOFSprites_02Kasumi },
+    { "Kasumi A - Extra 6", 0x004b4c0, 0x004b4e0, indexKOFSprites_02Kasumi },
+    { "Kasumi A - Extra 7", 0x004b4e0, 0x004b500, indexKOFSprites_02Kasumi },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_B[] =
 {
-    { "Kasumi B", 0x004b500, 0x004b520 },
-    { "Kasumi B - Extra 1", 0x004b520, 0x004b540 },
-    { "Kasumi B - Extra 2", 0x004b540, 0x004b560 },
-    { "Kasumi B - Extra 3", 0x004b560, 0x004b580 },
-    { "Kasumi B - Extra 4", 0x004b580, 0x004b5a0 },
-    { "Kasumi B - Extra 5", 0x004b5a0, 0x004b5c0 },
-    { "Kasumi B - Extra 6", 0x004b5c0, 0x004b5e0 },
-    { "Kasumi B - Extra 7", 0x004b5e0, 0x004b600 },
+    { "Kasumi B", 0x004b500, 0x004b520, indexKOFSprites_02Kasumi },
+    { "Kasumi B - Extra 1", 0x004b520, 0x004b540, indexKOFSprites_02Kasumi },
+    { "Kasumi B - Extra 2", 0x004b540, 0x004b560, indexKOFSprites_02Kasumi },
+    { "Kasumi B - Extra 3", 0x004b560, 0x004b580, indexKOFSprites_02Kasumi },
+    { "Kasumi B - Extra 4", 0x004b580, 0x004b5a0, indexKOFSprites_02Kasumi },
+    { "Kasumi B - Extra 5", 0x004b5a0, 0x004b5c0, indexKOFSprites_02Kasumi },
+    { "Kasumi B - Extra 6", 0x004b5c0, 0x004b5e0, indexKOFSprites_02Kasumi },
+    { "Kasumi B - Extra 7", 0x004b5e0, 0x004b600, indexKOFSprites_02Kasumi },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_C[] =
 {
-    { "Kasumi C", 0x004b600, 0x004b620 },
-    { "Kasumi C - Extra 1", 0x004b620, 0x004b640 },
-    { "Kasumi C - Extra 2", 0x004b640, 0x004b660 },
-    { "Kasumi C - Extra 3", 0x004b660, 0x004b680 },
-    { "Kasumi C - Extra 4", 0x004b680, 0x004b6a0 },
-    { "Kasumi C - Extra 5", 0x004b6a0, 0x004b6c0 },
-    { "Kasumi C - Extra 6", 0x004b6c0, 0x004b6e0 },
-    { "Kasumi C - Extra 7", 0x004b6e0, 0x004b700 },
+    { "Kasumi C", 0x004b600, 0x004b620, indexKOFSprites_02Kasumi },
+    { "Kasumi C - Extra 1", 0x004b620, 0x004b640, indexKOFSprites_02Kasumi },
+    { "Kasumi C - Extra 2", 0x004b640, 0x004b660, indexKOFSprites_02Kasumi },
+    { "Kasumi C - Extra 3", 0x004b660, 0x004b680, indexKOFSprites_02Kasumi },
+    { "Kasumi C - Extra 4", 0x004b680, 0x004b6a0, indexKOFSprites_02Kasumi },
+    { "Kasumi C - Extra 5", 0x004b6a0, 0x004b6c0, indexKOFSprites_02Kasumi },
+    { "Kasumi C - Extra 6", 0x004b6c0, 0x004b6e0, indexKOFSprites_02Kasumi },
+    { "Kasumi C - Extra 7", 0x004b6e0, 0x004b700, indexKOFSprites_02Kasumi },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_D[] =
 {
-    { "Kasumi D", 0x004b700, 0x004b720 },
-    { "Kasumi D - Extra 1", 0x004b720, 0x004b740 },
-    { "Kasumi D - Extra 2", 0x004b740, 0x004b760 },
-    { "Kasumi D - Extra 3", 0x004b760, 0x004b780 },
-    { "Kasumi D - Extra 4", 0x004b780, 0x004b7a0 },
-    { "Kasumi D - Extra 5", 0x004b7a0, 0x004b7c0 },
-    { "Kasumi D - Extra 6", 0x004b7c0, 0x004b7e0 },
-    { "Kasumi D - Extra 7", 0x004b7e0, 0x004b800 },
+    { "Kasumi D", 0x004b700, 0x004b720, indexKOFSprites_02Kasumi },
+    { "Kasumi D - Extra 1", 0x004b720, 0x004b740, indexKOFSprites_02Kasumi },
+    { "Kasumi D - Extra 2", 0x004b740, 0x004b760, indexKOFSprites_02Kasumi },
+    { "Kasumi D - Extra 3", 0x004b760, 0x004b780, indexKOFSprites_02Kasumi },
+    { "Kasumi D - Extra 4", 0x004b780, 0x004b7a0, indexKOFSprites_02Kasumi },
+    { "Kasumi D - Extra 5", 0x004b7a0, 0x004b7c0, indexKOFSprites_02Kasumi },
+    { "Kasumi D - Extra 6", 0x004b7c0, 0x004b7e0, indexKOFSprites_02Kasumi },
+    { "Kasumi D - Extra 7", 0x004b7e0, 0x004b800, indexKOFSprites_02Kasumi },
 };
 
 const sDescTreeNode KOF02UM_A_KASUMI_COLLECTION[] =
