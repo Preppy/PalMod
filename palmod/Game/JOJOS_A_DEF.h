@@ -1836,6 +1836,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_A[] =
     { "Midler's Super Cars A (2/4)", 0x033ea00, 0x033ea80, indexJojos51Midler, 1 },
     { "Midler's Super Cars A (3/4)", 0x033ea80, 0x033eb00, indexJojos51Midler, 1 },
     { "Midler's Super Cars A (4/4)", 0x033eb00, 0x033eb80, indexJojos51Midler, 1 },
+    { "Midler 236s A", 0x033E880, 0x033E900, indexJojos51Midler, 0x08 },
     { "High Priestess' Beam/Jaws A", 0x033eb80, 0x033ec00, indexJojos51Midler, 2 },
     { "Midler Vs / Super A", 0x0411e00, 0x0411e80, indexJojos51Midler, indexJojos51Character_VsSuper },
     { "Midler Challenger A", 0x0411e80, 0x0411f00, indexJojos51Midler, indexJojos51Character_Challenger },
@@ -1854,6 +1855,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_B[] =
     { "Midler's Super Cars B (2/4)", 0x0352f00, 0x0352f80, indexJojos51Midler, 1 },
     { "Midler's Super Cars B (3/4)", 0x0352f80, 0x0353000, indexJojos51Midler, 1 },
     { "Midler's Super Cars B (4/4)", 0x0353000, 0x0353080, indexJojos51Midler, 1 },
+    { "Midler 236s B", 0x0352D80, 0x0352E00, indexJojos51Midler, 0x08 },
     { "High Priestess' Beam/Jaws B", 0x0353080, 0x0353100, indexJojos51Midler, 2 },
     { "Midler Vs / Super B", 0x0416c00, 0x0416c80, indexJojos51Midler, indexJojos51Character_VsSuper },
     { "Midler Challenger B", 0x0416c80, 0x0416d00, indexJojos51Midler, indexJojos51Character_Challenger },
@@ -1872,6 +1874,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_C[] =
     { "Midler's Super Cars C (2/4)", 0x0367400, 0x0367480, indexJojos51Midler, 1 },
     { "Midler's Super Cars C (3/4)", 0x0367480, 0x0367500, indexJojos51Midler, 1 },
     { "Midler's Super Cars C (4/4)", 0x0367500, 0x0367580, indexJojos51Midler, 1 },
+    { "Midler 236s C", 0x0367280, 0x0367300, indexJojos51Midler, 0x08 },
     { "High Priestess' Beam/Jaws C", 0x0367580, 0x0367600, indexJojos51Midler, 2 },
     { "Midler Vs / Super C", 0x041ba00, 0x041ba80, indexJojos51Midler, indexJojos51Character_VsSuper },
     { "Midler Challenger C", 0x041ba80, 0x041bb00, indexJojos51Midler, indexJojos51Character_Challenger },
@@ -1890,6 +1893,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_S[] =
     { "Midler's Super Cars S (2/4)", 0x037b900, 0x037b980, indexJojos51Midler, 1 },
     { "Midler's Super Cars S (3/4)", 0x037b980, 0x037ba00, indexJojos51Midler, 1 },
     { "Midler's Super Cars S (4/4)", 0x037ba00, 0x037ba80, indexJojos51Midler, 1 },
+    { "Midler 236s S", 0x037B780, 0x037B800, indexJojos51Midler, 0x08 },
     { "High Priestess' Beam/Jaws S", 0x037ba80, 0x037bb00, indexJojos51Midler, 2 },
     { "Midler Vs / Super S", 0x0420800, 0x0420880, indexJojos51Midler, indexJojos51Character_VsSuper },
     { "Midler Challenger S", 0x0420880, 0x0420900, indexJojos51Midler, indexJojos51Character_Challenger },
@@ -1908,6 +1912,7 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_MIDLER_Start[] =
     { "Midler's Super Cars Start (2/4)", 0x038fe00, 0x038fe80, indexJojos51Midler, 1 },
     { "Midler's Super Cars Start (3/4)", 0x038fe80, 0x038ff00, indexJojos51Midler, 1 },
     { "Midler's Super Cars Start (4/4)", 0x038ff00, 0x038ff80, indexJojos51Midler, 1 },
+    { "Midler 236s Start", 0x038FC80, 0x038FD00, indexJojos51Midler, 0x08 },
     { "High Priestess' Beam/Jaws Start", 0x038ff80, 0x0390000, indexJojos51Midler, 2 },
     { "Midler Vs / Super Start", 0x0425600, 0x0425680, indexJojos51Midler, indexJojos51Character_VsSuper },
     { "Midler Challenger Start", 0x0425680, 0x0425700, indexJojos51Midler, indexJojos51Character_Challenger },
@@ -3237,8 +3242,8 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
 #endif
     { "Vice Intro Ender",       0x030c380, 0x030c400 },
 #ifndef USE_LARGE_PALETTES
-    { "Intro Manga Panels (1/2)", 0x030b780, 0x030b980 },
-    { "Intro Manga Panels (2/2)", 0x030b980, 0x030ba00 },
+    { "Intro Manga Panels (1/2)", 0x030b780, 0x030b980, indexJojos51Bonus, 0x09 },
+    { "Intro Manga Panels (2/2)", 0x030b980, 0x030ba00, indexJojos51Bonus, 0x09 },
 #else
     { "Intro Manga Panels", 0x030b780, 0x030ba00 },
 #endif
@@ -3266,7 +3271,7 @@ const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { "Super Flash / Zap Effects", 0x0335840, 0x0335860 },
     { "Blocksparks", 0x03358d0, 0x03358e0 },
     { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
-    { "Super Hitsparks", 0x03359c0, 0x03359e0 /*, indexJojos51Bonus, 0x00 */}, // temp bug
+    { "Super Hitsparks", 0x03359c0, 0x03359e0, indexJojos51Bonus, 0x08 },
     { "Tandem Background", 0x030d900, 0x030d980 },
     { "Stand Clash Background", 0x030d100, 0x030d180 },
     { "Stand Crash Mask Background", 0x030cec0, 0x030cf00, indexJojos51Bonus, 0x0 },
@@ -3353,19 +3358,6 @@ const sGame_PaletteDataset JOJOS_BONUS_NODE_FADEBACKGROUND[] =
 #endif
 };
 
-const sGame_PaletteDataset JOJOS_BONUS_NODE_INTRO_MANGA[] =
-{
-#ifndef USE_LARGE_PALETTES
-    { "Intro Manga Panels (1/5)", 0x030b780, 0x030b800 },
-    { "Intro Manga Panels (2/5)", 0x030b800, 0x030b880 },
-    { "Intro Manga Panels (3/5)", 0x030b880, 0x030b900 },
-    { "Intro Manga Panels (4/5)", 0x030b900, 0x030b980 },
-    { "Intro Manga Panels (5/5)", 0x030b980, 0x030ba00 },
-#else
-    { "Intro Manga Panels", 0x030b780, 0x030ba00 },
-#endif
-};
-
 const sGame_PaletteDataset JOJOS_BONUS_TAROT_CARDS[] =
 {
 #ifdef FUN_COMMENT
@@ -3428,8 +3420,6 @@ const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
     { "Menu", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_MENU_PALETTES, ARRAYSIZE(JOJOS_BONUS_MENU_PALETTES) },
     { "In Game", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_INGAME_PALETTES, ARRAYSIZE(JOJOS_BONUS_INGAME_PALETTES) },
     { "Fade Background (Challenge Screen / Demo)", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_FADEBACKGROUND, ARRAYSIZE(JOJOS_BONUS_NODE_FADEBACKGROUND) },
-    // Pushing these directly into INTRO
-    //{ "Intro Manga Panels", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_NODE_INTRO_MANGA, ARRAYSIZE(JOJOS_BONUS_NODE_INTRO_MANGA) },
     { "Super Screen Background", DESC_NODETYPE_TREE, (void*)JOJOS_A_BONUS_NODE_SUPERBACKGROUND, ARRAYSIZE(JOJOS_A_BONUS_NODE_SUPERBACKGROUND) },
     { "Tarot Cards", DESC_NODETYPE_TREE, (void*)JOJOS_BONUS_TAROT_CARDS, ARRAYSIZE(JOJOS_BONUS_TAROT_CARDS) },
 };
@@ -3442,7 +3432,7 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_ALOCKUP[] =
 #ifndef USE_LARGE_PALETTES
     { "A Lockup TS (1/7)", 0x02d0000, 0x02d0200 },
     { "A Lockup TS (2/7)", 0x02d0200, 0x02d0400 },
-    { "A Lockup TS (3/7)", 0x02d0400,  0x02d0600 },
+    { "A Lockup TS (3/7)", 0x02d0400, 0x02d0600 },
     { "A Lockup TS (4/7)", 0x02d0600, 0x02d0800 },
     { "A Lockup TS (5/7)", 0x02d0800, 0x02d0a00 },
     { "A Lockup TS (6/7)", 0x02d0a00, 0x02d0c00 },

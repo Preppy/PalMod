@@ -1123,7 +1123,7 @@ const sGame_PaletteDataset SFA3_A_STAGES_RYU_NODE[] =
 
 const sGame_PaletteDataset SFA3_A_STAGES_NASH_NODE[] =
 {
-    { "Cockpit/Top(Plane)/LandingGear", 0x47CF4, 0x47DF4, indexCPS2_SFA3Assets, 0x1f },
+    { "Cockpit/Top (Plane)/Landing Gear", 0x47CF4, 0x47DF4, indexCPS2_SFA3Assets, 0x1f },
     { "Plane and Floor Part 1", 0x41014, 0x41214, indexCPS2_SFA3Assets, 0x20 },
     { "Plane and Floor Part 2", 0x41214, 0x413D4, indexCPS2_SFA3Assets, 0x21 },
     { "Rear Windows Metal Ceiling Part 1", 0x3C8D4, 0x3CA74, indexCPS2_SFA3Assets, 0x22 },
@@ -1134,6 +1134,21 @@ const sGame_PaletteDataset SFA3_A_STAGES_NASH_NODE[] =
     { "Missile Tails", 0x38694, 0x386B4, indexCPS2_SFA3Assets, 0x27 },
     { "Missile Heads", 0x386B4, 0x386D4, indexCPS2_SFA3Assets, 0x28 },
     { "Under Plane???", 0x386D4, 0x386F4, indexCPS2_SFA3Assets, 0x29 },
+};
+
+const sGame_PaletteDataset SFA3_A_STAGES_CHUNLI_NODE[] =
+{
+    { "Far Background - 8x8 (1/2)", 0x3CC74, 0x3CE74, indexCPS2_SFA3Assets, 0x2A },
+    { "Far Background - 8x8 (2/2)", 0x3CE74, 0x3CFD4, indexCPS2_SFA3Assets, 0x2B },
+    { "Mid Background - 16x16 (1/2)", 0x413D4, 0x415D4, indexCPS2_SFA3Assets, 0x2C },
+    { "Mid Background - 16x16 (2/2)", 0x415D4, 0x417D4, indexCPS2_SFA3Assets, 0x2D },
+    { "Close Background - 32x32", 0x47DF4, 0x47ED4, indexCPS2_SFA3Assets, 0x2E },
+    { "Instructor", 0x386F4, 0x38714, indexCPS2_SFA3Assets, 0x2F },
+    { "Lamp Post", 0x38714, 0x38734, indexCPS2_SFA3Assets, 0x30 },
+    { "Sign", 0x38734, 0x38754, indexCPS2_SFA3Assets, 0x31 },
+    { "Flag", 0x38754, 0x38774, indexCPS2_SFA3Assets, 0x32 },
+    { "Tree", 0x38774, 0x38794, indexCPS2_SFA3Assets, 0x33 },
+    { "Shadow", 0x38794, 0x387B4, indexCPS2_SFA3Assets, 0x34 },
 };
 
 const sDescTreeNode SFA3_A_RYU_COLLECTION[] =
@@ -1285,9 +1300,11 @@ const sDescTreeNode SFA3_A_JULI_COLLECTION[] =
 const sDescTreeNode SFA3_A_BONUS_COLLECTION[] =
 {
     { "Akuma Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_AKUMA_NODE, ARRAYSIZE(SFA3_A_STAGES_AKUMA_NODE) },
+    { "Chun-Li Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_CHUNLI_NODE, ARRAYSIZE(SFA3_A_STAGES_CHUNLI_NODE) },
     { "Ken Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_KEN_NODE, ARRAYSIZE(SFA3_A_STAGES_KEN_NODE) },
     { "Ryu Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_RYU_NODE, ARRAYSIZE(SFA3_A_STAGES_RYU_NODE) },
     { "Nash Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_NASH_NODE, ARRAYSIZE(SFA3_A_STAGES_NASH_NODE) },
+
 };
 
 const sDescTreeNode SFA3_A_UNITS[SFA3_A_NUM_IND] =

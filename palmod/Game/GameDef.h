@@ -1014,7 +1014,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_JOJOS,
     IMGDAT_SECTION_KOF, // KOF98 + KOF02UM
     IMG4,               //Image Game Flag.  Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
-    IMGDAT_SECTION_3S,  //Image Game Flag.  Used for SFIII3.  And Jojo's but -- we have nothing there yet.
+    IMGDAT_SECTION_3S,  //Image Game Flag.  Used for SFIII3.
     IMGDAT_SECTION_ST,  //Image Game Flag.  Used for ST.
 };
 
