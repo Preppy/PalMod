@@ -3241,12 +3241,11 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { "Vice intro background (4/4)", 0x030b700, 0x030b780 },
 #endif
     { "Vice Intro Ender",       0x030c380, 0x030c400 },
-#ifndef USE_LARGE_PALETTES
-    { "Intro Manga Panels (1/2)", 0x030b780, 0x030b980, indexJojos51Bonus, 0x09 },
-    { "Intro Manga Panels (2/2)", 0x030b980, 0x030ba00, indexJojos51Bonus, 0x09 },
-#else
-    { "Intro Manga Panels", 0x030b780, 0x030ba00 },
-#endif
+    { "Intro Manga Panels (1/5)", 0x030b780, 0x030b800, indexJojos51Bonus, 0x09 },
+    { "Intro Manga Panels (2/5)", 0x030b800, 0x030b880, indexJojos51Bonus, 0x09 },
+    { "Intro Manga Panels (3/5)", 0x030b880, 0x030b900, indexJojos51Bonus, 0x09 },
+    { "Intro Manga Panels (4/5)", 0x030b900, 0x030b980, indexJojos51Bonus, 0x09 },
+    { "Intro Manga Panels (5/5)", 0x030b980, 0x030ba00, indexJojos51Bonus, 0x09 },
     { "Title Screen DIO",       0x030c500, 0x030c580 },
     { "Title Screen DIO Fade 1", 0x030C780, 0x030C800 },
     { "Title Screen DIO Fade 2", 0x030C800, 0x030C880 },

@@ -80,7 +80,8 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCt, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraCountAll, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraCountVisibleOnly, 0, (SFIII3_A_NUMUNIT + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetSF3ExtraDef(0);
 
