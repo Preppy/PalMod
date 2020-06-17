@@ -92,7 +92,7 @@ BOOL CImgOutDlg::OnInitDialog()
         // the entire 7 sprite set
         nPalAmt == 7 ? m_CB_Amt.AddString("7") : NULL;
         break;
-    case 8: // status effects!
+    case 8: // status effects or cvs2
         m_CB_Amt.AddString("8");
         break;
     case 10: // ST

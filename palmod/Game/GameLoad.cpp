@@ -18,6 +18,7 @@
 #include "Game_NEOGEO_A.h"
 #include "Game_KOF98_A.h"
 #include "Game_KOF02UM_A.h"
+#include "Game_CVS2_A.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
@@ -136,6 +137,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_KOF02UM_A::GetRule;
         return TRUE;
     }
+    case CVS2_A:
+    {
+        GetRule = &CGame_CVS2_A::GetRule;
+        return TRUE;
+    }
     default:
         OutputDebugString("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n");
         return FALSE;
@@ -221,6 +227,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
     case KOF02UM_A:
     {
         return new CGame_KOF02UM_A();
+    }
+    case CVS2_A:
+    {
+        return new CGame_CVS2_A();
     }
     default:
         OutputDebugString("CGameLoad::CreateGame:: BUGBUG: New game has not been properly added yet.\n");

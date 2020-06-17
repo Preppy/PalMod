@@ -304,7 +304,7 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
             if (uUnitId != INVALID_UNIT_VALUE)
             {
                 CString strWarning;
-                strWarning.Format("\n    **************\nCImgDat::GetImageDef : WARNING: UnitId 0x%02x was not found in the image map for this game.  Did you forget to update gamedef.h?\n    **************\n", uUnitId);
+                strWarning.Format("\n    **************\nCImgDat::GetImageDef : WARNING: UnitId 0x%02x was not found in the image map for this game.  Did you forget to update gamedef.h or CImgDat::PrepImageBuffer?\n    **************\n", uUnitId);
                 OutputDebugString(strWarning);
             }
         }

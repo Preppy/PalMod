@@ -26,6 +26,7 @@ enum SupportedGamesList
     NEOGEO_A,
     KOF98_A,
     KOF02UM_A,
+    CVS2_A,
     NUM_GAMES
 };
 
@@ -57,6 +58,7 @@ const CHAR g_GameFriendlyName[NUM_GAMES][32] =
     "Unknown NEO•GEO (Arcade)",
     "KOF: 98 (Arcade)",
     "KOF: 02UM (Steam)",
+    "CVS2 (Arcade)"
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -88,7 +90,7 @@ enum eDispType
 
 // In the new world order, these could be the node labels, but we want the short names here
 // since they fit into the imgdump UI better.
-// If you add button labels, be sure to update CImgOutDlg::OnInitDialog and CImgDumpBmp::GetOutputW as well.
+// If you add button labels, be sure to update CImgOutDlg::OnInitDialog and CImgDumpBmp::GetImagesPerLine as well.
 const CHAR DEF_BUTTONLABEL_2[2][16] =
 {
     "P1", "P2"
@@ -127,6 +129,11 @@ const CHAR DEF_BUTTONLABEL6_MVC2[6][16] =
 const CHAR DEF_BUTTONLABEL7[7][16] = 
 {
     "LP", "MP", "HP", "LK", "MK", "HK", "EX"
+};
+
+const CHAR DEF_BUTTONLABEL_CVS2[8][16] =
+{
+    "LP", "MP", "HP", "LK", "MK", "HK", "3P", "3K"
 };
 
 const CHAR DEF_BUTTONLABEL_ST10[10][16] =
@@ -1003,10 +1010,99 @@ const UINT8 KOF02UM_A_IMG_UNITS[] =
     indexKOFSprites_02Kasumi,
     indexKOFSprites_02Krizalid,
     indexKOFSprites_02OZero,
-   
 };
 
 const int KOF02UM_A_NUM_IMG_UNITS = ARRAYSIZE(KOF02UM_A_IMG_UNITS);
+
+enum SupportedCVS2_A_PaletteListIndex
+{
+    indexCVS2_A_Akuma,
+    indexCVS2_A_Athena,
+    indexCVS2_A_Balrog,
+    indexCVS2_A_Benimaru,
+    indexCVS2_A_Blanka,
+    indexCVS2_A_Cammy,
+    indexCVS2_A_Chang,
+    indexCVS2_A_ChunLi,
+    indexCVS2_A_Dan,
+    indexCVS2_A_Dhalsim,
+    indexCVS2_A_EHonda,
+    indexCVS2_A_Eagle,
+    indexCVS2_A_EvilRyu,
+    indexCVS2_A_Geese,
+    indexCVS2_A_GodRugal,
+    indexCVS2_A_Guile,
+    indexCVS2_A_Haohmaru,
+    indexCVS2_A_Hibiki,
+    indexCVS2_A_Iori,
+    indexCVS2_A_Joe,
+    indexCVS2_A_Ken,
+    indexCVS2_A_Kim,
+    indexCVS2_A_King,
+    indexCVS2_A_Kyo,
+    indexCVS2_A_Kyosuke,
+    indexCVS2_A_MBison,
+    indexCVS2_A_Mai,
+    indexCVS2_A_Maki,
+    indexCVS2_A_Morrigan,
+    indexCVS2_A_Nakoruru,
+    indexCVS2_A_OrochiIori,
+    indexCVS2_A_Raiden,
+    
+    indexCVS2_A_Last
+};
+
+enum CVS2SpriteList
+{
+        indexCVS2Sprites_Akuma,
+    indexCVS2Sprites_Athena,
+    indexCVS2Sprites_Balrog,
+    indexCVS2Sprites_Benimaru,
+        indexCVS2Sprites_Blanka,
+        indexCVS2Sprites_Cammy,
+    indexCVS2Sprites_Chang,
+        indexCVS2Sprites_ChunLi,
+    indexCVS2Sprites_Dan,
+        indexCVS2Sprites_Dhalsim,
+        indexCVS2Sprites_EHonda,
+    indexCVS2Sprites_Eagle,
+    indexCVS2Sprites_EvilRyu,
+        indexCVS2Sprites_Geese,
+    indexCVS2Sprites_GodRugal,
+        indexCVS2Sprites_Guile,
+    indexCVS2Sprites_Haohmaru,
+    indexCVS2Sprites_Hibiki,
+    indexCVS2Sprites_Iori,
+    indexCVS2Sprites_Joe,
+        indexCVS2Sprites_Ken,
+    indexCVS2Sprites_Kim,
+    indexCVS2Sprites_King,
+    indexCVS2Sprites_Kyo,
+    indexCVS2Sprites_Kyosuke,
+        indexCVS2Sprites_MBison,
+    indexCVS2Sprites_Mai,
+    indexCVS2Sprites_Maki,
+        indexCVS2Sprites_Morrigan,
+    indexCVS2Sprites_Nakoruru,
+    indexCVS2Sprites_OrochiIori,
+    indexCVS2Sprites_Raiden,
+    indexCVS2Sprites_Rock,
+    indexCVS2Sprites_Rolento,
+    indexCVS2Sprites_Rugal,
+    indexCVS2Sprites_Ryo,
+        indexCVS2Sprites_Ryu,
+    indexCVS2Sprites_RyuhakuTodoh,
+    indexCVS2Sprites_RyujiYamazaki,
+        indexCVS2Sprites_Sagat,
+        indexCVS2Sprites_Sakura,
+    indexCVS2Sprites_ShinAkuma,
+    indexCVS2Sprites_Terry,
+        indexCVS2Sprites_Vega,
+    indexCVS2Sprites_Vice,
+    indexCVS2Sprites_Yun,
+    indexCVS2Sprites_Yuri,
+        indexCVS2Sprites_Zangief
+}; // max 47 characters
 
 enum eIMGDat_Sections
 {

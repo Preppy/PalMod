@@ -374,6 +374,9 @@ void CPalModDlg::OnFileOpen()
     sSupportedGameList SupportedGameList[] =
     {
         { COTA_A, "COTA xmn.05a|*.05a|", INVALID_UNIT_VALUE },
+#ifdef DEBUG
+        { CVS2_A, "CVS2|*.bin|", INVALID_UNIT_VALUE },
+#endif
         { Garou_A, "Garou|kf.neo-sma|", INVALID_UNIT_VALUE },
         { JOJOS_A, "Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|", INVALID_UNIT_VALUE },
         { KOF98_A, "KOF98 (242-p2.sp2)|*.sp2|", INVALID_UNIT_VALUE },
