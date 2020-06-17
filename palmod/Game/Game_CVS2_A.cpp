@@ -38,7 +38,7 @@ CGame_CVS2_A::CGame_CVS2_A()
     m_nTotalInternalUnits = CVS2_A_NUMUNIT;
     m_nExtraUnit = CVS2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1536;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2304;
     m_pszExtraFilename = EXTRA_FILENAME_CVS2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForCVS2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -56,8 +56,8 @@ CGame_CVS2_A::CGame_CVS2_A()
 
     //Set game information
     nGameFlag = CVS2_A;
-    nImgGameFlag = IMG4; // BUGBUG
-    nImgUnitAmt = 0; // BUGBUG CVS2_A_NUM_IMG_UNITS;
+    nImgGameFlag = IMGDAT_SECTION_CVS2;
+    nImgUnitAmt = indexCVS2Sprites_Last;
 
     nDisplayW = 8;
     nFileAmt = 1;
@@ -387,7 +387,7 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
     m_nTotalPaletteCountForCVS2 = nTotalPaletteCount;
 
     // For development purposes only...
-    DumpAllCharacters();
+    //DumpAllCharacters();
 
     return NewDescTree;
 }

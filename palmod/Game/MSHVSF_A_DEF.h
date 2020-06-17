@@ -659,7 +659,7 @@ const sGame_PaletteDataset MSHVSF_A_VSP_PALETTES[] =
     { "Akuma P1 VSP", 0x7F70E, 0x7F78E, indexCPS2_Akuma, indexMSHVSF_VSP },
     { "Blackheart P1 VSP", 0x7F2AE, 0x7F2EE, indexCPS2_Blackheart, indexMSHVSF_VSP },
     { "Captain America P1 VSP", 0x7EEEE, 0x7EF8E, indexCPS2_CapAm, indexMSHVSF_VSP },
-    { "Captain America P2 VSP Part 1", 0x7FFCE, 0x7FFFF },
+    { "Captain America P2 VSP Part 1", 0x7FFCE, 0x80000 },
     { "Chun-Li P1 VSP", 0x7F48E, 0x7F4EE, indexCPS2_ChunLi, indexMSHVSF_VSP },
     { "Cyber Akuma P1 VSP", 0x7F98E, 0x7FA2E, indexCPS2_CyberAkuma, indexMSHVSF_VSP },
     { "Cyclops P1 VSP", 0x7EE4E, 0x7EEEE, indexCPS2_Cyclops, indexMSHVSF_VSP },

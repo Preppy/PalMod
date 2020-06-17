@@ -242,10 +242,19 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
         case KOF02UM_A:
         {
 #if IMGDAT_DEBUG
-            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", KOF98_A_IMG_UNITS[nUnitCtr]);
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", KOF02UM_A_IMG_UNITS[nUnitCtr]);
             OutputDebugString(strDebugInfo);
 #endif
             nImgMap->insert({ KOF02UM_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case CVS2_A:
+        {
+#if IMGDAT_DEBUG
+            strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", CVS2_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
+#endif
+            nImgMap->insert({ CVS2_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
             break;
         }
         default:
