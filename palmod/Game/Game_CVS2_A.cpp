@@ -173,8 +173,39 @@ void CGame_CVS2_A::DumpAllCharacters()
 
             for (UINT16 iCurrentExtra = 1; iCurrentExtra < 6; iCurrentExtra++)
             {
-                strOutput.Format("    { \"Extra %u\", 0x%07x, 0x%07x },\r\n", iCurrentExtra,
-                    nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20 );
+                const sCVS2_ExtraPair* extraPairInfo = nullptr;
+
+                switch (iCurrentExtra)
+                {
+                case 1:
+                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra1);
+                    break;
+                case 2:
+                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra2);
+                    break;
+                case 3:
+                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra3);
+                    break;
+                case 4:
+                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra4);
+                    break;
+                case 5:
+                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra5);
+                    break;
+                }
+
+                if (extraPairInfo && extraPairInfo->pszExtraName)
+                {
+                    strOutput.Format("    { \"%s\", 0x%07x, 0x%07x, %s, %u },\r\n", 
+                        extraPairInfo->pszExtraName, 
+                        nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
+                        CVS2_CharacterOffsetArray[iUnitCtr].pszImageRefName, extraPairInfo->nImgIndex);
+                }
+                else
+                {
+                    strOutput.Format("    { \"Extra %u\", 0x%07x, 0x%07x },\r\n", iCurrentExtra,
+                        nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
+                }
 
                 OutputDebugString(strOutput);
                 nCurrentCharacterOffset += 0x20;
