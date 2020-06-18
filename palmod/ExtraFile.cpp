@@ -167,6 +167,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
 
                             if (s_fAllowOutOfBoundsExtras != 1)
                             {
+                                strcpy(szCurrDesc, "Invalid: Don't Use");
                                 nCurrStart = min(nCurrStart, (int)(nGameROMSize - (16 * 2)));
                                 nCurrEnd = min(nCurrEnd, (int)nGameROMSize);
                             }

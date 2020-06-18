@@ -55,7 +55,7 @@ CGame_XMVSF_A::CGame_XMVSF_A(void)
 
     //Set game information
     nGameFlag = XMVSF_A;
-    nImgGameFlag = IMG4;
+    nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = XMVSF_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;

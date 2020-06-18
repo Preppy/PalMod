@@ -68,7 +68,7 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(int nMSHVSFRomToLoad)
 
     //Set game information
     nGameFlag = MSHVSF_A;
-    nImgGameFlag = IMG4;
+    nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = MSHVSF_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;

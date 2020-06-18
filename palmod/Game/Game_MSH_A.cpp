@@ -75,7 +75,7 @@ CGame_MSH_A::CGame_MSH_A(int nMSHRomToLoad)
 
     //Set game information
     nGameFlag = MSH_A;
-    nImgGameFlag = IMG4;
+    nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = MSH_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;

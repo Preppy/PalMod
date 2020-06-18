@@ -52,7 +52,7 @@ CGame_SFA3_A::CGame_SFA3_A(void)
 
     //Set game information
     nGameFlag = SFA3_A;
-    nImgGameFlag = IMG4;
+    nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = SFA3_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;

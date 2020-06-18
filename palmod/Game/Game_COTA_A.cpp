@@ -53,7 +53,7 @@ CGame_COTA_A::CGame_COTA_A()
 
     //Set game information
     nGameFlag = COTA_A;
-    nImgGameFlag = IMG4;
+    nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = COTA_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;

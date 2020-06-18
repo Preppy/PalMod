@@ -1179,15 +1179,15 @@ const UINT8 CVS2_A_IMG_UNITS[] =
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_CVS2 = 0, // CVS2: has both Capcom and SNK images
-    IMGDAT_SECTION_NEOGEO, // NEOGEO: Garou
+    IMGDAT_SECTION_NEOGEO,  // NEOGEO: Garou
     IMGDAT_SECTION_JOJOS,
-    IMGDAT_SECTION_KOF, // KOF98 + KOF02UM
-    IMG4,               //Image Game Flag.  Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
-    IMGDAT_SECTION_3S,  //Image Game Flag.  Used for SFIII3.
-    IMGDAT_SECTION_ST,  //Image Game Flag.  Used for ST.
+    IMGDAT_SECTION_KOF,     // KOF98 + KOF02UM
+    IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
+    IMGDAT_SECTION_3S,      // Used for SFIII3.
+    IMGDAT_SECTION_ST,      // Used for ST.
 };
 
-// IMG4 ranges:
+// IMGDAT_SECTION_CPS2 ranges:
 //  * MVC2: 0x3b character units
 //  * SFA3: 0x11 character units + bonus unit
 //  * XMVSF: 0x1 character unit (Apocalypse)

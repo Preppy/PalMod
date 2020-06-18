@@ -126,7 +126,7 @@ CGame_MVC_A::CGame_MVC_A(void)
 
     //Set game information
     nGameFlag = MVC_A;
-    nImgGameFlag = IMG4;
+    nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = MVC_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;
