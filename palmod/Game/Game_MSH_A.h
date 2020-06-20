@@ -33,6 +33,7 @@ private:
     void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nGameROMSize;
+    static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -44,7 +45,7 @@ private:
     const int m_uLowestKnownPaletteROMLocation_06 = 0x0b100;
 
 public:
-    CGame_MSH_A(int nMSHRomToLoad);
+    CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad);
     ~CGame_MSH_A(void);
 
     //Static functions / variables

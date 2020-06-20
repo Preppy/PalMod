@@ -24,6 +24,7 @@ int CGame_JOJOS_A::rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 UINT32 CGame_JOJOS_A::m_nGameROMSize = 0x800000; // 8,388,608 bytes
+UINT32 CGame_JOJOS_A::m_nConfirmedROMSize = -1;
 
 void CGame_JOJOS_A::InitializeStatics()
 {
@@ -43,8 +44,11 @@ void CGame_JOJOS_A::InitializeStatics()
     MainDescTree_51.SetRootTree(CGame_JOJOS_A::InitDescTree(51));
 }
 
-CGame_JOJOS_A::CGame_JOJOS_A(int nJojosModeToLoad)
+CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
 {
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     //We need the proper unit amt before we init the main buffer
@@ -285,11 +289,11 @@ sDescTreeNode* CGame_JOJOS_A::InitDescTree(int nPaletteSetToUse)
     //Load extra file if we're using it
     if (UsePaletteSetFor50())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_50, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_50, JOJOS_A_EXTRALOC_50, m_nGameROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_50, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_50, JOJOS_A_EXTRALOC_50, m_nConfirmedROMSize);
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_51, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_51, JOJOS_A_EXTRALOC_51, m_nGameROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_51, JOJOS_A_EXTRA, &JOJOS_A_EXTRA_CUSTOM_51, JOJOS_A_EXTRALOC_51, m_nConfirmedROMSize);
     }
 #endif
 

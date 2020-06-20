@@ -11,6 +11,7 @@ int CGame_SFIII3_A::rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1] = { -1 };
 
 CDescTree CGame_SFIII3_A::MainDescTree;
 UINT32 CGame_SFIII3_A::m_nGameROMSize = 0x800000; // 8,388,608 bytes
+UINT32 CGame_SFIII3_A::m_nConfirmedROMSize = -1;
 
 void CGame_SFIII3_A::InitializeStatics()
 {
@@ -22,8 +23,11 @@ void CGame_SFIII3_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_SFIII3_A::InitDescTree());
 }
 
-CGame_SFIII3_A::CGame_SFIII3_A(void)
+CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
 {
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     //We need the proper unit amt before we init the main buffer
@@ -153,7 +157,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
 #ifdef SFIII3_A_USEEXTRAFILE
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_SF3, SFIII3_A_EXTRA, &SFIII3_A_EXTRA_CUSTOM, SFIII3_A_EXTRALOC, m_nGameROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_SF3, SFIII3_A_EXTRA, &SFIII3_A_EXTRA_CUSTOM, SFIII3_A_EXTRALOC, m_nConfirmedROMSize);
         
 #endif
 

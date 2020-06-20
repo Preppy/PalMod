@@ -19,6 +19,7 @@ int CGame_MVC2_A::rgExtraLoc[MVC2_A_NUMUNIT + 1];
 
 UINT32 CGame_MVC2_A::m_nTotalPaletteCountForMVC2 = 0;
 UINT32 CGame_MVC2_A::m_nGameROMSize = 0x889B600; // 143,242,752 bytes
+UINT32 CGame_MVC2_A::m_nConfirmedROMSize = -1;
 
 void CGame_MVC2_A::InitializeStatics()
 {
@@ -30,12 +31,15 @@ void CGame_MVC2_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_MVC2_A::InitDescTree());
 }
 
-CGame_MVC2_A::CGame_MVC2_A()
+CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
     strMessage.Format("CGame_MVC2_A::CGame_MVC2_A: Loading ROM...\n" );
     OutputDebugString(strMessage);
 
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     m_nTotalInternalUnits = MVC2_A_NUMUNIT;
@@ -430,7 +434,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MVC2_A, MVC2_A_EXTRA, &MVC2_A_EXTRA_CUSTOM, MVC2_A_EXTRALOC, m_nGameROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_MVC2_A, MVC2_A_EXTRA, &MVC2_A_EXTRA_CUSTOM, MVC2_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = MVC2_A_NUMUNIT + (GetExtraCt(MVC2_A_EXTRALOC) ? 1 : 0);
     

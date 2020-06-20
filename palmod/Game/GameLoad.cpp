@@ -151,13 +151,13 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     return FALSE;
 }
 
-CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
+CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int nExtraGameData)
 {
     switch (nGameFlag)
     {
     case MVC2_A:
     {
-        return new CGame_MVC2_A;
+        return new CGame_MVC2_A(nConfirmedROMSize);
     }
     break;
     case MVC2_D:
@@ -172,7 +172,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
     break;
     case SFIII3_A:
     {
-        return new CGame_SFIII3_A;
+        return new CGame_SFIII3_A(nConfirmedROMSize);
     }
     break;
     case SFIII3_D:
@@ -182,55 +182,55 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, int nExtraGameData)
     break;
     case SSF2T_A:
     {
-        return new CGame_SSF2T_A(nExtraGameData);
+        return new CGame_SSF2T_A(nConfirmedROMSize, nExtraGameData);
     }
     case SFA3_A:
     {
-        return new CGame_SFA3_A;
+        return new CGame_SFA3_A(nConfirmedROMSize);
     }
     case XMVSF_A:
     {
-        return new CGame_XMVSF_A;
+        return new CGame_XMVSF_A(nConfirmedROMSize);
     }
     case MVC_A:
     {
-        return new CGame_MVC_A;
+        return new CGame_MVC_A(nConfirmedROMSize);
     }
     case JOJOS_A:
     {
-        return new CGame_JOJOS_A(nExtraGameData);
+        return new CGame_JOJOS_A(nConfirmedROMSize, nExtraGameData);
     }
     case MSH_A:
     {
-        return new CGame_MSH_A(nExtraGameData);
+        return new CGame_MSH_A(nConfirmedROMSize, nExtraGameData);
     }
     case MSHVSF_A:
     {
-        return new CGame_MSHVSF_A(nExtraGameData);
+        return new CGame_MSHVSF_A(nConfirmedROMSize, nExtraGameData);
     }
     case COTA_A:
     {
-        return new CGame_COTA_A();
+        return new CGame_COTA_A(nConfirmedROMSize);
     }
     case Garou_A:
     {
-        return new CGame_Garou_A();
+        return new CGame_Garou_A(nConfirmedROMSize);
     }
     case NEOGEO_A:
     {
-        return new CGame_NEOGEO_A();
+        return new CGame_NEOGEO_A(nConfirmedROMSize);
     }
     case KOF98_A:
     {
-        return new CGame_KOF98_A();
+        return new CGame_KOF98_A(nConfirmedROMSize);
     }
     case KOF02UM_A:
     {
-        return new CGame_KOF02UM_A();
+        return new CGame_KOF02UM_A(nConfirmedROMSize);
     }
     case CVS2_A:
     {
-        return new CGame_CVS2_A();
+        return new CGame_CVS2_A(nConfirmedROMSize);
     }
     default:
         OutputDebugString("CGameLoad::CreateGame:: BUGBUG: New game has not been properly added yet.\n");
@@ -327,7 +327,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
 
         if (isSafeToRunGame)
         {
-            OutGame = CreateGame(nGameFlag, nGameRule);
+            OutGame = CreateGame(nGameFlag, CurrFile.GetLength(), nGameRule);
             OutGame->SetLoadDir(szLoadFile);
 
             if (OutGame->LoadFile(&CurrFile, 0))
@@ -401,7 +401,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, CHAR* szLoadDir)
             {
                 if (!OutGame)
                 {
-                    OutGame = CreateGame(nGameFlag);
+                    OutGame = CreateGame(nGameFlag, -1);
 
                     OutGame->SetLoadDir(szLoadDir);
                     OutGame->SetIsDir();

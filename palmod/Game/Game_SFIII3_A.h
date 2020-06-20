@@ -35,9 +35,10 @@ private:
     void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nGameROMSize;
+    static UINT32 m_nConfirmedROMSize;
 
 public:
-    CGame_SFIII3_A(void);
+    CGame_SFIII3_A(UINT32 nConfirmedROMSize);
     ~CGame_SFIII3_A(void);
 
     //Static functions / variables

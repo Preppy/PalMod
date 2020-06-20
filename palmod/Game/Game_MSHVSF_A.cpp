@@ -15,6 +15,7 @@ int CGame_MSHVSF_A::m_nMSHVSFSelectedRom = 6;
 UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_6A = 0;
 UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_7B = 0;
 UINT32 CGame_MSHVSF_A::m_nGameROMSize = 0x80000; // 524288 bytes
+UINT32 CGame_MSHVSF_A::m_nConfirmedROMSize = -1;
 
 int CGame_MSHVSF_A::rgExtraCountAll_6A[MSHVSF_A_NUM_IND_6A + 1] = { -1 };
 int CGame_MSHVSF_A::rgExtraCountAll_7B[MSHVSF_A_NUM_IND_7B + 1] = { -1 };
@@ -35,8 +36,11 @@ void CGame_MSHVSF_A::InitializeStatics()
     MainDescTree_7B.SetRootTree(CGame_MSHVSF_A::InitDescTree(7));
 }
 
-CGame_MSHVSF_A::CGame_MSHVSF_A(int nMSHVSFRomToLoad)
+CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
 {
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     m_nMSHVSFSelectedRom = (nMSHVSFRomToLoad == 6) ? 6 : 7;
@@ -201,11 +205,11 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
     //Load extra file if we're using it
     if (UsePaletteSetForCharacters())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_6A, MSHVSF_A_EXTRA, &MSHVSF_A_EXTRA_CUSTOM_6A, MSHVSF_A_EXTRALOC_6A, m_nGameROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_6A, MSHVSF_A_EXTRA, &MSHVSF_A_EXTRA_CUSTOM_6A, MSHVSF_A_EXTRALOC_6A, m_nConfirmedROMSize);
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_7B, MSHVSF_A_EXTRA, &MSHVSF_A_EXTRA_CUSTOM_7B, MSHVSF_A_EXTRALOC_7B, m_nGameROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSHVSF_7B, MSHVSF_A_EXTRA, &MSHVSF_A_EXTRA_CUSTOM_7B, MSHVSF_A_EXTRALOC_7B, m_nConfirmedROMSize);
     }
 
     UINT16 nUnitCt = UsePaletteSetForCharacters() ? (MSHVSF_A_NUM_IND_6A + (GetExtraCt(MSHVSF_A_EXTRALOC_6A) ? 1 : 0)) :

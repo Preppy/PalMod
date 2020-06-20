@@ -119,7 +119,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                             {
                                 CString strError;
                                 strError.Format("In file \"%s\", Extra \"%s\" appears to be broken: it is trying to display from starting offset \"%s\".  If that's not a number, your Extras file isn't correct.\n", pszExtraFileName, szCurrDesc, szFinalLine);
-                                MessageBox(nullptr, strError, "PalMod", MB_ICONERROR);
+                                MessageBox(g_appHWnd, strError, "PalMod", MB_ICONERROR);
                             }
                         }
                     }
@@ -134,43 +134,28 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                         {
                             CString strError;
                             strError.Format("In file \"%s\", Extra \"%s\" is broken: trying to display from starting offset 0x%06x to ending offset 0x%06x: that ending offset actually starts before the starting offset!\n\nPlease fix: this isn't going to work right.\n", pszExtraFileName, szCurrDesc, nCurrStart, nCurrEnd);
-                            MessageBox(nullptr, strError, "PalMod", MB_ICONERROR);
+                            MessageBox(g_appHWnd, strError, "PalMod", MB_ICONERROR);
 
                             nCurrEnd = nCurrStart + (16 * 2);
                         }
 
                         // Validate that they're not trying to read off the end of the ROM...
-                        if ((nGameROMSize != -1) && 
-                            (((nCurrEnd >= (int)nGameROMSize) || (nCurrStart >= (int)nGameROMSize))))
+                        if ((nCurrEnd >= (int)nGameROMSize) || (nCurrStart >= (int)nGameROMSize))
                         {
-                            static int s_fAllowOutOfBoundsExtras = -1;
+                            static bool s_fAlertedToTruncation = false;
 
-                            if (s_fAllowOutOfBoundsExtras == -1)
+                            if (!s_fAlertedToTruncation)
                             {
                                 CString strQuestion;
-                                strQuestion.Format("In file \"%s\", Extra \"%s\" is broken: the game ROM size is normally '%u' bytes, but this Extra starts at offset 0x%06x and ends at offset 0x%06x. \n\nDo you want PalMod to allow these probably broken Extras?\n", pszExtraFileName, szCurrDesc, nGameROMSize, nCurrStart, nCurrEnd);
+                                strQuestion.Format("In file \"%s\", Extra \"%s\" is broken.\n\nThis game ROM size is 0x%06x bytes. This Extra starts at offset 0x%06x and ends at offset 0x%06x.  That won't work.\n\nPalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, szCurrDesc, nGameROMSize, nCurrStart, nCurrEnd);
                                 
-                                switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_ICONSTOP | MB_DEFBUTTON2))
-                                {
-                                    case IDYES:
-                                    {
-                                        s_fAllowOutOfBoundsExtras = 1;
-                                        break;
-                                    }
-                                    default:
-                                    {
-                                        s_fAllowOutOfBoundsExtras = 0;
-                                        break;
-                                    }
-                                }
+                                MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
+                                s_fAlertedToTruncation = true;
                             }
 
-                            if (s_fAllowOutOfBoundsExtras != 1)
-                            {
-                                strcpy(szCurrDesc, "Invalid: Don't Use");
-                                nCurrStart = min(nCurrStart, (int)(nGameROMSize - (16 * 2)));
-                                nCurrEnd = min(nCurrEnd, (int)nGameROMSize);
-                            }
+                            strcpy(szCurrDesc, "Broken: Truncated");
+                            nCurrStart = min(nCurrStart, (int)(nGameROMSize - (16 * 2)));
+                            nCurrEnd = min(nCurrEnd, (int)nGameROMSize);
                         }
 
                         UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / 2; // 2 bytes per color.
@@ -181,7 +166,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
                             s_fShownOnce = true;
                             CString strError;
                             strError.Format("In file \"%s\", Extra \"%s\" is trying to display %u colors (from 0x%06x to 0x%06x).  This may not work properly.\n", pszExtraFileName, szCurrDesc, nColorsUsed, nCurrStart, nCurrEnd);
-                            MessageBox(nullptr, strError, "PalMod", MB_ICONERROR);
+                            MessageBox(g_appHWnd, strError, "PalMod", MB_ICONERROR);
 
                             if (nCurrStart > nCurrEnd) // This file is broken: just make the best of it.
                             {
@@ -291,7 +276,7 @@ void LoadExtraFileForGame(LPCSTR pszExtraFileName, const stExtraDef* pBaseExtraD
             {
                 strOutputText.Format("WARNING: The '%s' Extra file exceeds maximum palette count (%u defined).\n\nPalmod has added the first %u palettes.", pszExtraFileName, nArrayOffsetDesired, nMaxExtraBufferSize);
                 // Note that this crash occurs so early we don't get to load strings.
-                MessageBox(nullptr, strOutputText, "PalMod", MB_ICONERROR);
+                MessageBox(g_appHWnd, strOutputText, "PalMod", MB_ICONERROR);
             }
         }
         else

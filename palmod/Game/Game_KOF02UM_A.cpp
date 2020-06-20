@@ -16,6 +16,7 @@ int CGame_KOF02UM_A::rgExtraLoc[KOF02UM_A_NUMUNIT + 1];
 
 UINT32 CGame_KOF02UM_A::m_nTotalPaletteCountForKOF02UM = 0;
 UINT32 CGame_KOF02UM_A::m_nGameROMSize = 0x606E0;  // 394976 bytes
+UINT32 CGame_KOF02UM_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF02UM_A::InitializeStatics()
 {
@@ -27,12 +28,15 @@ void CGame_KOF02UM_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_KOF02UM_A::InitDescTree());
 }
 
-CGame_KOF02UM_A::CGame_KOF02UM_A()
+CGame_KOF02UM_A::CGame_KOF02UM_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
     strMessage.Format("CGame_KOF02UM_A::CGame_KOF02UM_A: Loading ROM...\n" );
     OutputDebugString(strMessage);
 
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     m_nTotalInternalUnits = KOF02UM_A_NUMUNIT;
@@ -254,7 +258,7 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_A, KOF02UM_A_EXTRA, &KOF02UM_A_EXTRA_CUSTOM, KOF02UM_A_EXTRALOC, m_nGameROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_A, KOF02UM_A_EXTRA, &KOF02UM_A_EXTRA_CUSTOM, KOF02UM_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = KOF02UM_A_NUMUNIT + (GetExtraCt(KOF02UM_A_EXTRALOC) ? 1 : 0);
     

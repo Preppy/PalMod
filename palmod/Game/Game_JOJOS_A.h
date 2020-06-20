@@ -42,6 +42,7 @@ private:
     void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nGameROMSize;
+    static UINT32 m_nConfirmedROMSize;
 
     static int rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1];
     static int rgExtraCountVisibleOnly_50[JOJOS_A_NUMUNIT_50 + 1];
@@ -53,7 +54,7 @@ private:
     static bool UsePaletteSetFor50() { return (m_nJojosMode == 50); }
 
 public:
-    CGame_JOJOS_A(int nJojosModeToLoad);
+    CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad);
     ~CGame_JOJOS_A(void);
 
     //Static functions / variables

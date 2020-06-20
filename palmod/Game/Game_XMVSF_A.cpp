@@ -17,6 +17,7 @@ UINT32 CGame_XMVSF_A::m_nTotalPaletteCountForXMVSF = 0;
 int CGame_XMVSF_A::rgExtraCountAll[XMVSF_A_NUMUNIT + 1] = { -1 };
 int CGame_XMVSF_A::rgExtraLoc[XMVSF_A_NUMUNIT + 1] = { -1 };
 UINT32 CGame_XMVSF_A::m_nGameROMSize = 0x80000; // 524288 bytes
+UINT32 CGame_XMVSF_A::m_nConfirmedROMSize = -1;
 
 void CGame_XMVSF_A::InitializeStatics()
 {
@@ -28,10 +29,13 @@ void CGame_XMVSF_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_XMVSF_A::InitDescTree());
 }
 
-CGame_XMVSF_A::CGame_XMVSF_A(void)
+CGame_XMVSF_A::CGame_XMVSF_A(UINT32 nConfirmedROMSize)
 {
     OutputDebugString("CGame_XMVSF_A::CGame_XMVSF_A: Loading ROM\n");
 
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     //We need the proper unit amt before we init the main buffer
@@ -147,7 +151,7 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_XMVSF, XMVSF_A_EXTRA, &XMVSF_A_EXTRA_CUSTOM, XMVSF_A_EXTRALOC, m_nGameROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_XMVSF, XMVSF_A_EXTRA, &XMVSF_A_EXTRA_CUSTOM, XMVSF_A_EXTRALOC, m_nConfirmedROMSize);
 
     bool fHaveExtras = (GetExtraCt(XMVSF_A_EXTRALOC) > 0);
     UINT16 nUnitCt = XMVSF_A_NUMUNIT + (fHaveExtras ? 1 : 0);

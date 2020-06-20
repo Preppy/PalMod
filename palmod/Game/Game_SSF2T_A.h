@@ -33,6 +33,7 @@ private:
     void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nGameROMSize;
+    static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -44,7 +45,7 @@ private:
     const int m_uLowestKnownPaletteROMLocation_4A = 0x3FB00;
 
 public:
-    CGame_SSF2T_A(int nSSF2TRomToLoad);
+    CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad);
     ~CGame_SSF2T_A(void);
 
     //Static functions / variables

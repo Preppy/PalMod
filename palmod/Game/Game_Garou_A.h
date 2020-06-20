@@ -23,6 +23,7 @@ private:
     void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nGameROMSize;
+    static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -30,7 +31,7 @@ private:
     UINT16*** pppDataBuffer = nullptr;
 
 public:
-    CGame_Garou_A();
+    CGame_Garou_A(UINT32 nConfirmedROMSize);
     ~CGame_Garou_A(void);
 
     //Static functions / variables

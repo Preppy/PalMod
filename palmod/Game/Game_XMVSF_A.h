@@ -21,6 +21,7 @@ private:
     void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nGameROMSize;
+    static UINT32 m_nConfirmedROMSize;
 
     static int rgExtraCountAll[XMVSF_A_NUMUNIT + 1];
     static int rgExtraLoc[XMVSF_A_NUMUNIT + 1];
@@ -31,7 +32,7 @@ private:
     UINT16*** pppDataBuffer = nullptr;
 
 public:
-    CGame_XMVSF_A(void);
+    CGame_XMVSF_A(UINT32 nConfirmedROMSize);
     ~CGame_XMVSF_A(void);
 
     //Static functions / variables

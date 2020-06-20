@@ -16,6 +16,7 @@ int CGame_Garou_A::rgExtraLoc[Garou_A_NUMUNIT + 1];
 
 UINT32 CGame_Garou_A::m_nTotalPaletteCountForGarou = 0;
 UINT32 CGame_Garou_A::m_nGameROMSize = 0x40000; // 262,144 bytes
+UINT32 CGame_Garou_A::m_nConfirmedROMSize = -1;
 
 void CGame_Garou_A::InitializeStatics()
 {
@@ -27,12 +28,15 @@ void CGame_Garou_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_Garou_A::InitDescTree());
 }
 
-CGame_Garou_A::CGame_Garou_A()
+CGame_Garou_A::CGame_Garou_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
     strMessage.Format("CGame_Garou_A::CGame_Garou_A: Loading ROM...\n" );
     OutputDebugString(strMessage);
 
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     m_nTotalInternalUnits = Garou_A_NUMUNIT;
@@ -150,7 +154,7 @@ sDescTreeNode* CGame_Garou_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_Garou_A, Garou_A_EXTRA, &Garou_A_EXTRA_CUSTOM, Garou_A_EXTRALOC, m_nGameROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_Garou_A, Garou_A_EXTRA, &Garou_A_EXTRA_CUSTOM, Garou_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = Garou_A_NUMUNIT + (GetExtraCt(Garou_A_EXTRALOC) ? 1 : 0);
     

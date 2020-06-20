@@ -16,6 +16,7 @@ int CGame_CVS2_A::rgExtraLoc[CVS2_A_NUMUNIT + 1];
 
 UINT32 CGame_CVS2_A::m_nTotalPaletteCountForCVS2 = 0;
 UINT32 CGame_CVS2_A::m_nGameROMSize = 0x9800000;  // 159,383,552 bytes
+UINT32 CGame_CVS2_A::m_nConfirmedROMSize = -1;
 
 void CGame_CVS2_A::InitializeStatics()
 {
@@ -27,12 +28,15 @@ void CGame_CVS2_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_CVS2_A::InitDescTree());
 }
 
-CGame_CVS2_A::CGame_CVS2_A()
+CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
     strMessage.Format("CGame_CVS2_A::CGame_CVS2_A: Loading ROM...\n" );
     OutputDebugString(strMessage);
 
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     m_nTotalInternalUnits = CVS2_A_NUMUNIT;
@@ -248,7 +252,7 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_CVS2_A, CVS2_A_EXTRA, &CVS2_A_EXTRA_CUSTOM, CVS2_A_EXTRALOC, m_nGameROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_CVS2_A, CVS2_A_EXTRA, &CVS2_A_EXTRA_CUSTOM, CVS2_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = CVS2_A_NUMUNIT + (GetExtraCt(CVS2_A_EXTRALOC) ? 1 : 0);
     

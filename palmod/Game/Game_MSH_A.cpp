@@ -21,6 +21,7 @@ int CGame_MSH_A::m_nMSHSelectedRom = 5;
 UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_05 = 0;
 UINT32 CGame_MSH_A::m_nTotalPaletteCountForMSH_06 = 0;
 UINT32 CGame_MSH_A::m_nGameROMSize = 0x80000; // 524288 bytes
+UINT32 CGame_MSH_A::m_nConfirmedROMSize = -1;
 
 void CGame_MSH_A::InitializeStatics()
 {
@@ -36,8 +37,11 @@ void CGame_MSH_A::InitializeStatics()
     MainDescTree_06.SetRootTree(InitDescTree(6));
 }
 
-CGame_MSH_A::CGame_MSH_A(int nMSHRomToLoad)
+CGame_MSH_A::CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad)
 {
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     m_nMSHSelectedRom = (nMSHRomToLoad == 5) ? 5 : 6;
@@ -208,11 +212,11 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
     //Load extra file if we're using it
     if (UsePaletteSetForCharacters())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_MSH_05, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_05, MSH_A_EXTRALOC_05, m_nGameROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSH_05, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_05, MSH_A_EXTRALOC_05, m_nConfirmedROMSize);
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_MSH_06, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_06, MSH_A_EXTRALOC_06, m_nGameROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_MSH_06, MSH_A_EXTRA, &MSH_A_EXTRA_CUSTOM_06, MSH_A_EXTRALOC_06, m_nConfirmedROMSize);
     }
 
     UINT16 nUnitCt = UsePaletteSetForCharacters() ? (MSH_A_NUMUNIT_05 + (GetExtraCt(MSH_A_EXTRALOC_05) ? 1 : 0)) :

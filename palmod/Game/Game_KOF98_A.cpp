@@ -16,6 +16,7 @@ int CGame_KOF98_A::rgExtraLoc[KOF98_A_NUMUNIT + 1];
 
 UINT32 CGame_KOF98_A::m_nTotalPaletteCountForKOF98 = 0;
 UINT32 CGame_KOF98_A::m_nGameROMSize = 0x400000;  // 4194304 bytes
+UINT32 CGame_KOF98_A::m_nConfirmedROMSize = -1;
 
 void CGame_KOF98_A::InitializeStatics()
 {
@@ -27,12 +28,15 @@ void CGame_KOF98_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_KOF98_A::InitDescTree());
 }
 
-CGame_KOF98_A::CGame_KOF98_A()
+CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
     strMessage.Format("CGame_KOF98_A::CGame_KOF98_A: Loading ROM...\n" );
     OutputDebugString(strMessage);
 
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     m_nTotalInternalUnits = KOF98_A_NUMUNIT;
@@ -150,7 +154,7 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_KOF98_A, KOF98_A_EXTRA, &KOF98_A_EXTRA_CUSTOM, KOF98_A_EXTRALOC, m_nGameROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_KOF98_A, KOF98_A_EXTRA, &KOF98_A_EXTRA_CUSTOM, KOF98_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = KOF98_A_NUMUNIT + (GetExtraCt(KOF98_A_EXTRALOC) ? 1 : 0);
     

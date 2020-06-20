@@ -13,6 +13,7 @@ private:
     void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nGameROMSize;
+    static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -30,7 +31,7 @@ private:
     static int rgExtraLoc[COTA_A_NUMUNIT + 1];
 
 public:
-    CGame_COTA_A();
+    CGame_COTA_A(UINT32 nConfirmedROMSize);
     ~CGame_COTA_A(void);
 
     //Static functions / variables

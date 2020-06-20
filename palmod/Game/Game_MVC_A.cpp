@@ -15,6 +15,7 @@ int CGame_MVC_A::rgExtraLoc[MVC_A_NUMUNIT + 1] = { -1 };
 
 UINT32 CGame_MVC_A::m_nTotalPaletteCountForMVC = 0;
 UINT32 CGame_MVC_A::m_nGameROMSize = 0x80000; // 524288 bytes
+UINT32 CGame_MVC_A::m_nConfirmedROMSize = -1;
 
 void CGame_MVC_A::InitializeStatics()
 {
@@ -27,8 +28,11 @@ void CGame_MVC_A::InitializeStatics()
     MainDescTree.SetRootTree(CGame_MVC_A::InitDescTree());
 }
 
-CGame_MVC_A::CGame_MVC_A(void)
+CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
 {
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     //We need the proper unit amt before we init the main buffer
@@ -223,7 +227,7 @@ sDescTreeNode* CGame_MVC_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MVC, MVC_A_EXTRA, &MVC_A_EXTRA_CUSTOM, MVC_A_EXTRALOC, m_nGameROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_MVC, MVC_A_EXTRA, &MVC_A_EXTRA_CUSTOM, MVC_A_EXTRALOC, m_nConfirmedROMSize);
 
     const UINT16 nUnitCt = MVC_A_NUMUNIT + (GetExtraCt(MVC_A_EXTRALOC) ? 1 : 0);
 

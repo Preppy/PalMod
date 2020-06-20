@@ -24,6 +24,7 @@ private:
     void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nGameROMSize;
+    static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -33,7 +34,7 @@ private:
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
 
 public:
-    CGame_SFA3_A(void);
+    CGame_SFA3_A(UINT32 nConfirmedROMSize);
     ~CGame_SFA3_A(void);
 
     //Static functions / variables

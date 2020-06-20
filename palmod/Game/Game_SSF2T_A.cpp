@@ -20,6 +20,7 @@ int CGame_SSF2T_A::rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
 int CGame_SSF2T_A::rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
 int CGame_SSF2T_A::rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
 UINT32 CGame_SSF2T_A::m_nGameROMSize = 0x80000; // 524288 bytes
+UINT32 CGame_SSF2T_A::m_nConfirmedROMSize = -1;
 
 void CGame_SSF2T_A::InitializeStatics()
 {
@@ -35,8 +36,11 @@ void CGame_SSF2T_A::InitializeStatics()
     MainDescTree_4A.SetRootTree(CGame_SSF2T_A::InitDescTree(4));
 }
 
-CGame_SSF2T_A::CGame_SSF2T_A(int nSSF2TRomToLoad)
+CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
 {
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     m_nSSF2TSelectedRom = (nSSF2TRomToLoad == 3) ? 3 : 4;
@@ -202,11 +206,11 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
 
     if (UsePaletteSetForPortraits())
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_3C, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_3C, SSF2T_A_EXTRALOC_3C, m_nGameROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_3C, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_3C, SSF2T_A_EXTRALOC_3C, m_nConfirmedROMSize);
     }
     else
     {
-        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_4A, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_4A, SSF2T_A_EXTRALOC_4A, m_nGameROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_SSF2T_4A, SSF2T_A_EXTRA, &SSF2T_A_EXTRA_CUSTOM_4A, SSF2T_A_EXTRALOC_4A, m_nConfirmedROMSize);
     }
 
     UINT16 nUnitCt = UsePaletteSetForPortraits() ? (SSF2T_A_NUM_IND_3C + (GetExtraCt(SSF2T_A_EXTRALOC_3C) ? 1 : 0)) :

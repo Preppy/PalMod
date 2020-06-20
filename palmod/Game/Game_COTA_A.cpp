@@ -14,6 +14,7 @@ int CGame_COTA_A::rgExtraLoc[COTA_A_NUMUNIT + 1] = { -1 };
 
 UINT32 CGame_COTA_A::m_nTotalPaletteCountForCOTA = 0;
 UINT32 CGame_COTA_A::m_nGameROMSize = 0x80000; // 524288 bytes
+UINT32 CGame_COTA_A::m_nConfirmedROMSize = -1;
 
 void CGame_COTA_A::InitializeStatics()
 {
@@ -25,12 +26,15 @@ void CGame_COTA_A::InitializeStatics()
     MainDescTree.SetRootTree(InitDescTree());
 }
 
-CGame_COTA_A::CGame_COTA_A()
+CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
     strMessage.Format("CGame_COTA_A::CGame_COTA_A: Loading ROM\n");
     OutputDebugString(strMessage);
 
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
+    m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
     m_nTotalInternalUnits = COTA_A_NUMUNIT;
@@ -145,7 +149,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_COTA, COTA_A_EXTRA, &COTA_A_EXTRA_CUSTOM, COTA_A_EXTRALOC, m_nGameROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_COTA, COTA_A_EXTRA, &COTA_A_EXTRA_CUSTOM, COTA_A_EXTRALOC, m_nConfirmedROMSize);
 
     UINT16 nUnitCt = (COTA_A_NUMUNIT + (GetExtraCt(COTA_A_EXTRALOC) ? 1 : 0));
     
