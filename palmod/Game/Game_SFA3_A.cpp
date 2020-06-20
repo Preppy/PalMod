@@ -851,30 +851,19 @@ void CGame_SFA3_A::UpdatePalData()
         if (srcDef->bAvail)
         {
             COLORREF* crSrc = srcDef->pPal;
-
-            int nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
-            // Every 16 colors there is another counter WORD (color length) to preserve.
-            const UINT16 nMaxSafeColorsToWrite = 16;
-            const UINT16 iFixedCounterPosition = 0; // The lead 'color' is a counter and needs to be preserved.
+            // Leave SFA3's transparency color alone.
+            const UINT16 iTransparencyColorPosition = 0;
 
-            while (nTotalColorsRemaining > 0)
+            for (int nPICtr = 0; nPICtr < srcDef->uPalSz; nPICtr++)
             {
-                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
-
-                for (int nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
+                if (nPICtr == iTransparencyColorPosition)
                 {
-                    if (nPICtr == iFixedCounterPosition)
-                    {
-                        continue;
-                    }
-
-                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
+                    continue;
                 }
 
-                nCurrentTotalWrites += nMaxSafeColorsToWrite;
-                nTotalColorsRemaining -= nMaxSafeColorsToWrite;
+                UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
+                pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
             }
 
             srcDef->bChanged = FALSE;
