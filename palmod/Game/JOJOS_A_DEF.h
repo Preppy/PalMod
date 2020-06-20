@@ -313,7 +313,7 @@ const sGame_PaletteDataset JOJOS_A_HUD_PALETTE_NODES[] =
     { "Super Meter Bar", 0x07C03A0, 0x07C0400 },
     { "Mariah Level (Player 1 only)", 0x07C01A0, 0x07C01C0 },
     { "Dev-menu Font Color", 0x07C0000, 0x07C0020 },
-    { "Player 1 and 2 counter icons", 0x07C02E0, 0x07C0320 },
+    { "Player 1 and 2 counter icons", 0x07C02E0, 0x07C0320, indexJojos51Bonus, 0x26 },
 };
 
 const sDescTreeNode JOJOS_A_50_HUD_COLLECTION[]
@@ -3267,55 +3267,61 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
 const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
 {
     { "Aja Stone", 0x0335800, 0x0335820 },
-    { "Blood (Sdio grab, bpol grab,etc)", 0x0335878, 0x0335880 },
+    { "Extra Character Dust and Blood", 0x0335860, 0x0335880 },
     { "Super Flash / Zap Effects", 0x0335840, 0x0335860 },
-    { "Blocksparks", 0x03358d0, 0x03358e0 },
+    { "Blocksparks/OldSeph 360/Small Explosions", 0x03358a0, 0x0335900 },
     { "Hitsparks & Pushblock", 0x0335820, 0x0335840 },
-    { "Super Hitsparks", 0x03359c0, 0x03359e0, indexJojos51Bonus, 0x08 },
-    { "Tandem Background", 0x030d900, 0x030d980 },
-    { "Stand Clash Background", 0x030d100, 0x030d180 },
+    { "Super Hitsparks and Burning Effect", 0x03359c0, 0x0335A00, indexJojos51Bonus, 0x08 },
+    { "Tandem Background", 0x030d900, 0x030d980, indexJojos51Bonus, 0x1f },
+    { "Stand Clash Background", 0x030d100, 0x030d180, indexJojos51Bonus, 0x20 },
     { "Stand Crash Mask Background", 0x030cec0, 0x030cf00, indexJojos51Bonus, 0x0 },
     { "Stand Crash Mask Background 2", 0x030CF40, 0x030CF80, indexJojos51Bonus, 0x0 },
-    { "Raging Demon Background", 0x030d180, 0x030d200 },
-    { "Super KO Background", 0x030d080, 0x030d100 },
+    { "Raging Demon Background", 0x030d180, 0x030d200, indexJojos51Bonus, 0x21 },
+    { "Super KO Background", 0x030d080, 0x030d100, indexJojos51Bonus, 0x23 },
     { "Super KO Portrait", 0x030ce80, 0x030cec0, indexJojos51Bonus, 0x6 },
     { "Super KO Portrait Holes/Blood", 0x030CF80, 0x030CFC0, indexJojos51Bonus, 0x7 },
-    { "\"Round 1,2,3\" Text", 0x030ce00, 0x030ce60 },
+    { "\"Round 1,2,3\" Text", 0x030ce00, 0x030ce60, indexJojos51Bonus, 0x22 },
     { "\"Fight\" & \"Down\" Text", 0x030cd80, 0x030ce00, indexJojos51Bonus, 0x1 },
     { "\"LOSE\"", 0x030cce0, 0x030cd00, indexJojos51Bonus, 0x2 },
     { "\"KO\"", 0x030cd20, 0x030cd40, indexJojos51Bonus, 0x3 },
     { "\"PERFECT\"", 0X030CD40, 0X030CD60, indexJojos51Bonus, 0x4 },
     { "\"Retired\"", 0x030CC20, 0x030CC40, indexJojos51Bonus, 0x5 },
     { "VS screen text", 0x030d400, 0x030d440 },
-    { "Win text (character)", 0x030cc40, 0x030cc60 },
-    { "Win text (WIN)", 0x030cca0, 0x030ccc0 },
+    { "Win text (character)", 0x030cc40, 0x030cc60, indexJojos51Bonus, 0x1a },
+    { "Win text (WIN)", 0x030cca0, 0x030ccc0, indexJojos51Bonus, 0x19 },
 
-    { "Double Ko", 0x030CD60, 0x030CD80 },
-    { "Draw", 0x030CC80, 0x030CCA0 },
-    { "Time Up", 0x030CCC0, 0x030CCE0 },
+    { "Double KO", 0x030CD60, 0x030CD80, indexJojos51Bonus, 0x1c },
+    { "Draw", 0x030CC80, 0x030CCA0, indexJojos51Bonus, 0x1d },
+    { "Time Up", 0x030CCC0, 0x030CCE0, indexJojos51Bonus, 0x1e },
+    { "Here Comes A New Challenger", 0x030CD00, 0x030CD20, indexJojos51Bonus, 0x25 },
+    { "Story Mode Episodes Text", 0x030CC00, 0x030CC20, indexJojos51Bonus, 0x24 },
     { "Stand Summon & Tandem Aura", 0x0335920, 0x0335940 },
     { "S.Dio 2c Stone & Requiem Zzz", 0x0335940, 0x0335980 },
     { "Base Char Dust & Floor Bounce", 0x0335B40, 0x0335B60 },
-    { "Extra Char Dust & Floor Bounce", 0x0335860, 0x0335878 },
+    // Folded into another one
+    //{ "Extra Char Dust & Floor Bounce", 0x0335860, 0x0335878 },
     { "Story Mode Metal Objects", 0x0335B20, 0x0335B40 },
-    { "Speedwagon Pilot & Khan Dust", 0x0335880, 0x03358A0 },
-    { "Chaka s.236a/236aa Effects", 0x03358E0, 0x0335900 },
-    { "Some Floor Effect", 0x0335900, 0x0335920 },
-    { "Here Comes A New Challenger", 0x030CD00, 0x030CD20 },
-    { "Story Mode Episodes Text", 0x030CC00, 0x030CC20 },
+    { "Speedwagon Pilot", 0x0335880, 0x03358A0 },
+    // Duped to "Various..."
+    //{ "Chaka s.236a/236aa Effects", 0x03358E0, 0x0335900 },
+    { "S.Dio 623aa Floor Effect", 0x0335900, 0x0335920 },
+
+    { "S.Dio Effects/Round Start/Wallbounce/etc", 0x0335980, 0x03359C0 },
+    { "Various 236x Effects", 0x03358E0, 0x0335900 },
+
 };
 
 const sGame_PaletteDataset JOJOS_A_BONUS_NODE_SUPERBACKGROUND[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { "Super Flash Background (Challenge Screen / Demo) (1/8)", 0x030d500, 0x030d580 },
-    { "Super Flash Background (Challenge Screen / Demo) (2/8)", 0x030d580, 0x030d600 },
-    { "Super Flash Background (Challenge Screen / Demo) (3/8)", 0x030d600, 0x030d680 },
-    { "Super Flash Background (Challenge Screen / Demo) (4/8)", 0x030d680, 0x030d700 },
-    { "Super Flash Background (Challenge Screen / Demo) (5/8)", 0x030d700, 0x030d780 },
-    { "Super Flash Background (Challenge Screen / Demo) (6/8)", 0x030d780, 0x030d800 },
-    { "Super Flash Background (Challenge Screen / Demo) (7/8)", 0x030d800, 0x030d880 },
-    { "Super Flash Background (Challenge Screen / Demo) (8/8)", 0x030d880, 0x030d900 },
+    { "Super Flash Background (Challenge Screen / Demo) (1/8)", 0x030d500, 0x030d580, indexJojos51Bonus, 0x11 },
+    { "Super Flash Background (Challenge Screen / Demo) (2/8)", 0x030d580, 0x030d600, indexJojos51Bonus, 0x12 },
+    { "Super Flash Background (Challenge Screen / Demo) (3/8)", 0x030d600, 0x030d680, indexJojos51Bonus, 0x13 },
+    { "Super Flash Background (Challenge Screen / Demo) (4/8)", 0x030d680, 0x030d700, indexJojos51Bonus, 0x14 },
+    { "Super Flash Background (Challenge Screen / Demo) (5/8)", 0x030d700, 0x030d780, indexJojos51Bonus, 0x15 },
+    { "Super Flash Background (Challenge Screen / Demo) (6/8)", 0x030d780, 0x030d800, indexJojos51Bonus, 0x16 },
+    { "Super Flash Background (Challenge Screen / Demo) (7/8)", 0x030d800, 0x030d880, indexJojos51Bonus, 0x17 },
+    { "Super Flash Background (Challenge Screen / Demo) (8/8)", 0x030d880, 0x030d900, indexJojos51Bonus, 0x18 },
 #else
     { "Super Flash Background (Challenge Screen / Demo)", 0x030d500, 0x030d900 },
 #endif
