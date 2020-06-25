@@ -327,7 +327,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
 
         if (isSafeToRunGame)
         {
-            OutGame = CreateGame(nGameFlag, CurrFile.GetLength(), nGameRule);
+            OutGame = CreateGame(nGameFlag, (UINT32)CurrFile.GetLength(), nGameRule);
             OutGame->SetLoadDir(szLoadFile);
 
             if (OutGame->LoadFile(&CurrFile, 0))

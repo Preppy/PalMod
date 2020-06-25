@@ -31,7 +31,8 @@ private:
 
     UINT16*** pppDataBuffer = nullptr;
 
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+    // Developer-only mode to regenerate the header file quickly.
+    static void DumpHeaderPalettes();
 
 public:
     CGame_SFA3_A(UINT32 nConfirmedROMSize);

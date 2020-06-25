@@ -41,7 +41,7 @@ CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = SFA3_A_NUM_IND;
     m_nExtraUnit = SFA3_A_EXTRALOC;
-    m_nSafeCountForThisRom = 913 + GetExtraCt(SFA3_A_EXTRALOC);
+    m_nSafeCountForThisRom = 1063 + GetExtraCt(SFA3_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SFA3;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
     m_nLowestKnownPaletteRomLocation = 0x2C000;
@@ -321,7 +321,99 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
 
     m_nTotalPaletteCountForSFA3 = nTotalPaletteCount;
 
+    // For development use to speed things up
+    //DumpHeaderPalettes();
+
     return NewDescTree;
+}
+
+struct sSFA3_A_PortraitData
+{
+    LPCSTR pszCharacterName = nullptr;
+    LPCSTR pszCodeName = nullptr;
+    UINT32 nROMOffset = 0;
+    LPCSTR pszImageSet = "indexCPS2_SFA3Assets"; // SFA3_Unique
+    UINT32 nImageSetIndex = 0;
+};
+
+sSFA3_A_PortraitData SFA3_A_PortraitDataArray[] =
+{
+    { "Ryu", "RYU", 0x4ce14, "indexCPS2_SFA3Assets", 0xB4 }, // Ryu
+    { "Ken", "KEN", 0x4d114, "indexCPS2_SFA3Assets", 0xAF }, // Ken
+    { "Akuma", "AKUMA", 0x4d414, "indexCPS2_SFA3Assets", 0xA1 }, // Akuma
+    { "Charlie", "CHARLIE", 0x4d714, "indexCPS2_SFA3Assets", 0xA5 }, // Charlie
+    { "Chun-Li", "CHUNLI", 0x4da14, "indexCPS2_SFA3Assets", 0xA6 }, // Chun (NOTE: Chun has a special non-X-ISM portrait, A7)
+    { "Adon", "ADON", 0x4dd14, "indexCPS2_SFA3Assets", 0xA0 }, // Adon
+    { "Sodom", "SODOM", 0x4e014, "indexCPS2_SFA3Assets", 0xB7 }, // Sodom
+    { "Guy", "GUY", 0x4e314, "indexCPS2_SFA3Assets", 0xAD }, // Guy
+    { "Birdie", "BIRDIE", 0x4e614, "indexCPS2_SFA3Assets", 0xA2 }, // Birdie
+    { "Rose", "ROSE", 0x4e914, "indexCPS2_SFA3Assets", 0xB3 }, // Rose
+    { "M.Bison", "MBISON", 0x4ec14, "indexCPS2_SFA3Assets", 0xB0 }, // Dict
+    { "Sagat", "SAGAT", 0x4ef14, "indexCPS2_SFA3Assets", 0xB5 }, // Sagat
+    { "Dan", "DAN", 0x4f214, "indexCPS2_SFA3Assets", 0xA9 }, // Dan
+    { "Sakura", "SAKURA", 0x4f514, "indexCPS2_SFA3Assets", 0xB6 }, // Sakura
+    { "Rolento", "ROLENTO", 0x4f814, "indexCPS2_SFA3Assets", 0xB2 }, // Rolento
+    { "Dhalsim", "DHALSIM", 0x4fb14, "indexCPS2_SFA3Assets", 0xAA }, // Dhalsim
+    { "Zangief", "ZANGIEF", 0x4fe14, "indexCPS2_SFA3Assets", 0xB9 }, // Zangief
+    { "Gen", "GEN", 0x50114, "indexCPS2_SFA3Assets", 0xAC }, // Gen
+    { "Cammy", "CAMMY", 0x50a14, "indexCPS2_SFA3Assets", 0xA4 }, // Cammy
+    { "E.Honda", "EHONDA", 0x50d14, "indexCPS2_SFA3Assets", 0xAB }, // E.Honda
+    { "Blanka", "BLANKA", 0x51014, "indexCPS2_SFA3Assets", 0xA3 }, // Blanka
+    { "R.Mika", "RMIKA", 0x51314, "indexCPS2_SFA3Assets", 0xB1 }, // R.Mika
+    { "Cody", "CODY", 0x51614, "indexCPS2_SFA3Assets", 0xA8 }, // Cody
+    { "Vega", "VEGA", 0x51914, "indexCPS2_SFA3Assets", 0xB8 }, // Vega
+    { "Karin", "KARIN", 0x51c14, "indexCPS2_SFA3Assets", 0xAE }, // Karin
+};
+
+void CGame_SFA3_A::DumpHeaderPalettes()
+{
+    CString strOutput;
+
+    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFA3_A_PortraitDataArray); nIndex++)
+    {
+        const UINT16 nPortraitsPerCharacter = 6;
+        strOutput.Format("const sGame_PaletteDataset SFA3_A_%s_PORTRAIT_PALETTES[] = \r\n{\r\n", SFA3_A_PortraitDataArray[nIndex].pszCodeName);
+        OutputDebugString(strOutput);
+        for (UINT16 nColorIndex = 0; nColorIndex < nPortraitsPerCharacter; nColorIndex++)
+        {
+            constexpr UINT32 PORTRAIT_OFFSET = 0x80;
+            CString strColorName;
+
+            switch (nColorIndex)
+            {
+            case 0:
+                strColorName = "X-Ism Punch";
+                break;
+            case 1:
+                strColorName = "X-Ism Kick";
+                break;
+            case 2:
+                strColorName = "A-Ism Punch";
+                break;
+            case 3:
+                strColorName = "A-Ism Kick";
+                break;
+            case 4:
+                strColorName = "V-Ism Punch";
+                break;
+            case 5:
+                strColorName = "V-Ism Kick";
+                break;
+            }
+
+            strOutput.Format("    { \"%s\", 0x%x, 0x%x, %s, 0x%02x },\r\n", strColorName, SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * nColorIndex), SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * (nColorIndex + 1)), SFA3_A_PortraitDataArray[nIndex].pszImageSet, SFA3_A_PortraitDataArray[nIndex].nImageSetIndex);
+            OutputDebugString(strOutput);
+        }
+
+        OutputDebugString("};\r\n\r\n");
+    }
+
+    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFA3_A_PortraitDataArray); nIndex++)
+    {
+        const UINT16 nPortraitsPerCharacter = 6;
+        strOutput.Format("    { \"Select Portraits\", DESC_NODETYPE_TREE, (void*)SFA3_A_%s_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_%s_PORTRAIT_PALETTES) },\r\n", SFA3_A_PortraitDataArray[nIndex].pszCodeName, SFA3_A_PortraitDataArray[nIndex].pszCodeName);
+        OutputDebugString(strOutput);
+    }
 }
 
 sFileRule CGame_SFA3_A::GetRule(UINT16 nUnitId)
@@ -708,8 +800,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
             // Right now most of SFA3 is all six palettes within one node.
-            if ((_stricmp(pCurrentNode->szDesc, "Palettes") == 0) &&
-                (NodeGet->uPalId < 6)) // 3 Ism sets of 2 colors each
+            if ((_stricmp(pCurrentNode->szDesc, "Palettes") == 0) && (NodeGet->uPalId < 6))// 3 Ism sets of 2 colors each
             {
                 // For most characters we have the six colors followed by status effects
                 nSrcAmt = 6;
@@ -720,6 +811,39 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     nSrcStart -= nNodeIncrement;
                 }
             }
+            else if (_stricmp(pCurrentNode->szDesc, "Select Portraits") == 0)
+            {
+                // Hm.  These are at an abstract length.  Let's derive that.
+                int nProspectiveStart = NodeGet->uPalId;
+                
+                if (strstr(paletteDataSet->szPaletteName, "Kick") != nullptr)
+                {
+                    // Ordering is punch/kick. 
+                    nProspectiveStart = (nProspectiveStart > 0) ? nProspectiveStart - 1 : nProspectiveStart;
+                }
+
+                if (strstr(paletteDataSet->szPaletteName, "V-Ism") != nullptr)
+                {
+                    nProspectiveStart = (nProspectiveStart > 4) ? nProspectiveStart - 4 : nProspectiveStart;
+                }
+                else if (strstr(paletteDataSet->szPaletteName, "A-Ism") != nullptr)
+                {
+                    nProspectiveStart = (nProspectiveStart > 2) ? nProspectiveStart - 2 : nProspectiveStart;
+                }
+
+                const sGame_PaletteDataset* prospectivePalette = GetSpecificPalette(NodeGet->uUnitId, nProspectiveStart);
+
+                if (_stricmp(prospectivePalette->szPaletteName, "X-Ism Punch") == 0)
+                {
+                    // OK, we've arrived where we expected to
+                    nSrcAmt = 6;
+                    nSrcStart = nProspectiveStart;
+                }
+                else
+                {
+                    OutputDebugString("CGame_SFA3_A::UpdatePalImg: Possible error: we couldn't map a portrait correctly for multisprite export.\n");
+                }
+            }
             else if ((_stricmp(pCurrentNode->szDesc, "X-Ism Punch") == 0) ||
                      (_stricmp(pCurrentNode->szDesc, "X-Ism Kick") == 0) ||
                      (_stricmp(pCurrentNode->szDesc, "A-Ism PUnch") == 0) ||
@@ -727,6 +851,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                      (_stricmp(pCurrentNode->szDesc, "V-Ism Punch") == 0) ||
                      (_stricmp(pCurrentNode->szDesc, "V-Ism Kick") == 0))
             {
+                // So far only Rose is actualy split up.
                 nSrcAmt = 6;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -851,19 +976,30 @@ void CGame_SFA3_A::UpdatePalData()
         if (srcDef->bAvail)
         {
             COLORREF* crSrc = srcDef->pPal;
-            UINT16 nCurrentTotalWrites = 0;
-            // Leave SFA3's transparency color alone.
-            const UINT16 iTransparencyColorPosition = 0;
 
-            for (int nPICtr = 0; nPICtr < srcDef->uPalSz; nPICtr++)
+            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nCurrentTotalWrites = 0;
+            // Every 16 colors there is another counter WORD (color length) to preserve.
+            const UINT16 nMaxSafeColorsToWrite = 16;
+            const UINT16 iFixedCounterPosition = 0; // The lead 'color' is a counter and needs to be preserved.
+
+            while (nTotalColorsRemaining > 0)
             {
-                if (nPICtr == iTransparencyColorPosition)
+                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
+
+                for (int nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
                 {
-                    continue;
+                    if (nPICtr == iFixedCounterPosition)
+                    {
+                        continue;
+                    }
+
+                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
+                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
                 }
 
-                UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
+                nCurrentTotalWrites += nMaxSafeColorsToWrite;
+                nTotalColorsRemaining -= nMaxSafeColorsToWrite;
             }
 
             srcDef->bChanged = FALSE;
