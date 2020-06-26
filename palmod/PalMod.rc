@@ -493,6 +493,7 @@ BEGIN
     IDS_ERROR_FILENOTFOUND_FORMAT 
                             "Save failed: output file '%s' does not exist."
     IDS_ROMMISMATCH_CHECK   "This ROM is not the expected size.  Are you sure you wish to continue?"
+    IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM.  If you want to PalMod Venture, let people in the HFTF Discord server know and they'll walk you through it.\n\nAre you sure you wish to continue?"
 END
 
 #endif    // English (United States) resources

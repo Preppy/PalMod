@@ -306,10 +306,18 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
     {
         bool isSafeToRunGame = ((short int)CurrRule.uVerifyVar == -1) || (CurrFile.GetLength() == CurrRule.uVerifyVar);
 
-        if (!isSafeToRunGame)
+        if (!isSafeToRunGame) // we could hook people trying to load Venture here... file size is 4194304
         {
             CString strQuestion;
-            strQuestion.LoadString(IDS_ROMMISMATCH_CHECK);
+
+            if ((nGameFlag == JOJOS_A) && (nGameRule == 50) && (CurrFile.GetLength() == 4194304))
+            {
+                strQuestion.LoadString(IDS_ROMISVENTURE);
+            }
+            else
+            {
+                strQuestion.LoadString(IDS_ROMMISMATCH_CHECK);
+            }
 
             switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_ICONSTOP | MB_DEFBUTTON2))
             {
@@ -429,7 +437,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, CHAR* szLoadDir)
                 OutputDebugString("CGameLoad::LoadDir : Gouki doesn't exist for SF3-DC: skipping.\n");
                 nSaveLoadSucc++;
             }
-            else if ((nGameFlag == MVC2_D) && (nCurrRuleCtr == 0x3b))
+            else if ((nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION))
             {
                 OutputDebugString("CGameLoad::LoadDir : Team View for MvC2. Ignoring file open.\n");
                 if (OutGame->LoadFile(nullptr, CurrRule.uUnitId))
@@ -485,7 +493,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             {
                 nSaveLoadCount++;
 
-                if (!((CurrGame->GetGameFlag() == MVC2_D) && (nFileCtr == 0x3b))) // ignore the virtual team view
+                if (!((CurrGame->GetGameFlag() == MVC2_D) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION))) // ignore the virtual team view
                 {
                     CString szLoad;
 
