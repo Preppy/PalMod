@@ -10,11 +10,12 @@ constexpr auto c_strLastUsedGFlag = _T("LastUsedGFlag");
 
 void CPalModDlg::LoadGameDir(int nGameFlag, CHAR* szLoadDir)
 {
+    ClearGameVar();
+
     CGameClass* GameGet = GetHost()->GetLoader()->LoadDir(nGameFlag, szLoadDir);
 
     if (GameGet)
     {
-        ClearGameVar();
         GetHost()->SetGameClass(GameGet);
 
         //Set the last used location

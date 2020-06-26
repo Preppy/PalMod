@@ -2,6 +2,7 @@
 #include "..\StdAfx.h"
 #include "Gamedef.h"
 #include "Game_MVC2_D.h"
+#include "MVC2_A_DEF.h"
 #include "mvc2_validate.h"
 #include "MVC2_SUPP.h"
 #include "mvc2_descs.h"
@@ -14,7 +15,7 @@ CDescTree CGame_MVC2_D::MainDescTree;
 UINT16 CGame_MVC2_D::uRuleCtr = 0;
 BOOL CGame_MVC2_D::bAlphaTrans = 0;
 
-UINT16 CGame_MVC2_D::rgExtraChrLoc[MVC2_D_NUMUNIT];
+UINT16 CGame_MVC2_D::rgExtraChrLoc[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
 
 void CGame_MVC2_D::InitializeStatics()
 {
@@ -26,7 +27,7 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     InitializeStatics();
 
     // InitDataBuffer uses this value so make sure to set first
-    nUnitAmt = MVC2_D_NUMUNIT;
+    nUnitAmt = MVC2_D_NUMUNIT_WITH_TEAMVIEW;
 
     InitDataBuffer();
 
@@ -42,7 +43,7 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     nImgUnitAmt = nUnitAmt;
 
     nDisplayW = 8;
-    nFileAmt = MVC2_D_NUMUNIT;
+    nFileAmt = MVC2_D_NUMUNIT_WITH_TEAMVIEW;
 
     //Prepare the file list
     PrepUnitFile();
@@ -94,8 +95,8 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 
     //Create the main character tree
     sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[MVC2_D]);
-    NewDescTree->ChildNodes = new sDescTreeNode[MVC2_D_NUMUNIT];
-    NewDescTree->uChildAmt = MVC2_D_NUMUNIT;
+    NewDescTree->ChildNodes = new sDescTreeNode[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
+    NewDescTree->uChildAmt = MVC2_D_NUMUNIT_WITH_TEAMVIEW;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
@@ -128,7 +129,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         const int nButtonExtraCt = CountExtraRg(iUnitCtr, FALSE) + 1;
 
 #if MV2C_D_DEBUG
-        strMsg.Format("Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, MVC2_D_NUMUNIT, UnitNode->uChildAmt);
+        strMsg.Format("Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, MVC2_D_NUMUNIT_WITH_TEAMVIEW, UnitNode->uChildAmt);
         OutputDebugString(strMsg);
 #endif
 
@@ -304,6 +305,60 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         }
     }
 
+    // Now add team view...
+    {
+        sDescTreeNode* UnitNode = nullptr;
+        sDescTreeNode* TeamNode = nullptr;
+        sDescNode* ChildNode = nullptr;
+        const int iUnitCtr = MVC2_D_TEAMVIEW_LOCATION; // Team view location
+
+        UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
+
+        //Set each description
+        sprintf(UnitNode->szDesc, "%s", MVC2_D_UNITDESC[iUnitCtr]);
+
+        const UINT32 nTeamCount = ARRAYSIZE(mvc2TeamList);
+        const UINT32 nColorOptionCount = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
+        UnitNode->ChildNodes = new sDescTreeNode[nTeamCount];
+        UnitNode->uChildType = DESC_NODETYPE_TREE;
+        UnitNode->uChildAmt = nTeamCount;
+
+#if MV2C_D_DEBUG
+        strMsg.Format("Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, MVC2_D_NUMUNIT_WITH_TEAMVIEW, UnitNode->uChildAmt);
+        OutputDebugString(strMsg);
+#endif
+
+        for (int iTeamIndex = 0; iTeamIndex < nTeamCount; iTeamIndex++)
+        {
+            TeamNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iTeamIndex];
+
+            // Define each team's data
+            TeamNode->uChildType = DESC_NODETYPE_NODE;
+            TeamNode->uChildAmt = nColorOptionCount;
+            TeamNode->ChildNodes = (sDescTreeNode*)new sDescNode[nColorOptionCount];
+            sprintf(TeamNode->szDesc, "%s", mvc2TeamList[iTeamIndex].pszTeamName);
+
+#if MV2C_D_DEBUG
+            strMsg.Format("\t\"%s\" Collection: \"%s\", %u of %u, %u children\n", UnitNode->szDesc, TeamNode->szDesc, iTeamIndex + 1, UnitNode->uChildAmt, nColorOptionCount);
+            OutputDebugString(strMsg);
+#endif
+
+            //Set each team's button options
+            for (int iColorOption = 0; iColorOption < nColorOptionCount; iColorOption++)
+            {
+                ChildNode = &((sDescNode*)TeamNode->ChildNodes)[iColorOption];
+                ChildNode->uUnitId = iUnitCtr;
+                ChildNode->uPalId = (iTeamIndex * nColorOptionCount) + iColorOption;
+                snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%s", MVC2_A_GENERICSET_PALETTES[iColorOption].szPaletteName);
+
+#if MV2C_D_DEBUG
+                strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, iColorOption + 1, nColorOptionCount);
+                OutputDebugString(strMsg);
+#endif
+            }
+        }
+    }
+
     return NewDescTree;
 }
 
@@ -312,7 +367,7 @@ void CGame_MVC2_D::InitExtraRg()
     int i = 0;
 
     //Clear the extra buffer
-    memset(CGame_MVC2_D::rgExtraChrLoc, 0, sizeof(UINT16) * MVC2_D_NUMUNIT);
+    memset(CGame_MVC2_D::rgExtraChrLoc, 0, sizeof(UINT16) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
 
     // Set up the 
     while (MVC2_D_EXTRADEF[i] != EXTRA_END)
@@ -411,7 +466,7 @@ sFileRule CGame_MVC2_D::GetNextRule()
 
     uRuleCtr++;
 
-    if (uRuleCtr >= MVC2_D_NUMUNIT)
+    if (uRuleCtr >= MVC2_D_NUMUNIT_WITH_TEAMVIEW)
     {
         uRuleCtr = INVALID_UNIT_VALUE;
     }
@@ -421,15 +476,15 @@ sFileRule CGame_MVC2_D::GetNextRule()
 
 void CGame_MVC2_D::InitDataBuffer()
 {
-    ppDataBuffer = new UINT16 * [MVC2_D_NUMUNIT];
-    memset(ppDataBuffer, NULL, sizeof(UINT16*) * MVC2_D_NUMUNIT);
+    ppDataBuffer = new UINT16 * [MVC2_D_NUMUNIT_WITH_TEAMVIEW];
+    memset(ppDataBuffer, NULL, sizeof(UINT16*) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
 }
 
 void CGame_MVC2_D::ClearDataBuffer()
 {
     if (ppDataBuffer)
     {
-        for (int i = 0; i < MVC2_D_NUMUNIT; i++)
+        for (int i = 0; i < MVC2_D_NUMUNIT_WITH_TEAMVIEW; i++)
         {
             safe_delete_array(ppDataBuffer[i]);
         }
@@ -463,25 +518,29 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     }
     else
     {
-        UINT32 nStart, nEnd;
-
-        LoadedFile->Seek(0x08, CFile::begin);
-
-        LoadedFile->Read(&nStart, 0x04);
-        LoadedFile->Read(&nEnd, 0x04);
-
-        int nDataSz = nEnd - nStart;
-
-        if (nDataSz != MVC2_D_PALDATASZ[nUnitId])
+        // Team view is a generated view not associated with a file: no need to load for it.
+        if (nUnitId != MVC2_D_TEAMVIEW_LOCATION)
         {
-            return FALSE;
+            UINT32 nStart, nEnd;
+
+            LoadedFile->Seek(0x08, CFile::begin);
+
+            LoadedFile->Read(&nStart, 0x04);
+            LoadedFile->Read(&nEnd, 0x04);
+
+            int nDataSz = nEnd - nStart;
+
+            if (nDataSz != MVC2_D_PALDATASZ[nUnitId])
+            {
+                return FALSE;
+            }
+
+            ppDataBuffer[nUnitId] = new UINT16[nDataSz / 2];
+
+            LoadedFile->Seek(nStart, CFile::begin);
+
+            LoadedFile->Read(ppDataBuffer[nUnitId], nDataSz);
         }
-
-        ppDataBuffer[nUnitId] = new UINT16[nDataSz / 2];
-
-        LoadedFile->Seek(nStart, CFile::begin);
-
-        LoadedFile->Read(ppDataBuffer[nUnitId], nDataSz);
 
         //Set the redirect
         rgUnitRedir[nRedirCtr] = nUnitId;
@@ -500,21 +559,24 @@ BOOL CGame_MVC2_D::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     }
     else
     {
-        UINT32 uPalPos, uPalSz;
-
-        SaveFile->Seek(0x08, CFile::begin);
-        SaveFile->Read(&uPalPos, 0x04);
-        SaveFile->Read(&uPalSz, 0x04);
-
-        uPalSz = uPalSz - uPalPos;
-
-        if (uPalPos > SaveFile->GetLength())
+        if (nUnitId != MVC2_D_TEAMVIEW_LOCATION)
         {
-            return FALSE;
-        }
+            UINT32 uPalPos, uPalSz;
 
-        SaveFile->Seek(uPalPos, CFile::begin);
-        SaveFile->Write(ppDataBuffer[nUnitId], uPalSz);
+            SaveFile->Seek(0x08, CFile::begin);
+            SaveFile->Read(&uPalPos, 0x04);
+            SaveFile->Read(&uPalSz, 0x04);
+
+            uPalSz = uPalSz - uPalPos;
+
+            if (uPalPos > SaveFile->GetLength())
+            {
+                return FALSE;
+            }
+
+            SaveFile->Seek(uPalPos, CFile::begin);
+            SaveFile->Write(ppDataBuffer[nUnitId], uPalSz);
+        }
 
         return TRUE;
     }
@@ -613,7 +675,7 @@ void CGame_MVC2_D::FlushUnitFile()
 {
     if (szUnitFile)
     {
-        for (UINT16 i = 0; i < MVC2_D_NUMUNIT; i++)
+        for (UINT16 i = 0; i < MVC2_D_NUMUNIT_WITH_TEAMVIEW; i++)
         {
             safe_delete_array(szUnitFile[i]);
         }
@@ -631,11 +693,11 @@ void CGame_MVC2_D::PrepUnitFile()
         return;
     }
 
-    szUnitFile = new CHAR * [MVC2_D_NUMUNIT];
-    memset(szUnitFile, NULL, sizeof(CHAR*) * MVC2_D_NUMUNIT);
+    szUnitFile = new CHAR * [MVC2_D_NUMUNIT_WITH_TEAMVIEW];
+    memset(szUnitFile, NULL, sizeof(CHAR*) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
 
-    rgFileChanged = new UINT16[MVC2_D_NUMUNIT];
-    memset(rgFileChanged, NULL, sizeof(UINT16) * MVC2_D_NUMUNIT);
+    rgFileChanged = new UINT16[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
+    memset(rgFileChanged, NULL, sizeof(UINT16) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
 }
 
 void CGame_MVC2_D::ResetChangeFlag(UINT16 nUnitId)

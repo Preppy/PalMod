@@ -504,7 +504,7 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destinati
         break;
     }
 
-    for (int i = index_start; i < index_start + index_inc; i++)
+    for (int i = index_start; i < (index_start + index_inc); i++)
     {
         input_col = CurrMVC2->ConvPal(dst_16[i]);
 

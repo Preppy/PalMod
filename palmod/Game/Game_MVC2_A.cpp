@@ -1062,6 +1062,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
 
                     UINT16 nNodeIndex = (NodeGet->uPalId % 6);
+                    // there are 8 palettes per main character button/color section
                     UINT16 nPaletteIndex = nNodeIndex * 8;
                     const sGame_PaletteDataset* palette1ToJoin = GetSpecificPalette(nJoinedUnit1, nPaletteIndex);
                     const sGame_PaletteDataset* palette2ToJoin = GetSpecificPalette(nJoinedUnit2, nPaletteIndex);
@@ -1089,8 +1090,8 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     CreateDefPal(JoinedNode[1], 1);
                     CreateDefPal(JoinedNode[2], 2);
 
-                    nSrcAmt = 6;
-                    nNodeIncrement = 8;
+                    nSrcAmt = 6; // 6 button colors
+                    nNodeIncrement = 8; // 8 palettes per main character color set
                     SetSourcePal(0, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
                     SetSourcePal(1, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
                     SetSourcePal(2, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);

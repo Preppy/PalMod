@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "Game_MVC2_D.h"
+#include "mvc2_a_def.h"
 
 int CGame_MVC2_D::GetFirstExtraValueFromExtraPaletteId(int nExtraPaletteIdint, int nStartOfRange, int nPalettePositionIncrements, int nRangeLength)
 {
@@ -1177,6 +1178,103 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             // King Kobun.  Just reuse the Kobun core sprite for now. :(
             break;
         }
+        break;
+    }
+    case MVC2_D_TEAMVIEW_LOCATION: // Team View: generated.
+    {
+        bLoadDefPal = FALSE;
+
+        UINT16 nJoinedUnit1 = indexMVC2AMagneto;
+        UINT16 nJoinedUnit2 = indexMVC2AStorm;
+        UINT16 nJoinedUnit3 = indexMVC2APsylocke;
+        bool fTeamFound = false;
+        int nSrcAmt = 0;
+        UINT16 nNodeIncrement = 1;
+
+        UINT16 nTeamViewNode = (UINT16)floor(NodeGet->uPalId / ARRAYSIZE(DEF_BUTTONLABEL6_MVC2));
+        const sDescTreeNode* pCurrentNode = &MVC2_A_TEAMVIEW_COLLECTION[nTeamViewNode];
+
+        for (UINT16 nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
+        {
+            if (_stricmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
+            {
+                nJoinedUnit1 = mvc2TeamList[nTeamIndex].nCharacterOne;
+                nJoinedUnit2 = mvc2TeamList[nTeamIndex].nCharacterTwo;
+                nJoinedUnit3 = mvc2TeamList[nTeamIndex].nCharacterThree;
+                fTeamFound = true;
+                break;
+            }
+        }
+
+        if (!fTeamFound)
+        {
+            OutputDebugString("WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\n");
+        }
+
+        // Fudge some visual offsets here so fatter sprites don't collide.
+        int nXOffsetForSecond = 100;
+        int nYOffsetForSecond = 0;
+        int nXOffsetForThird = nXOffsetForSecond + 100;
+        int nYOffsetForThird = 0;
+
+        if (nJoinedUnit2 == indexMVC2ASentinel)
+        {
+            nXOffsetForSecond += 40;
+            nXOffsetForThird += 40;
+        }
+        else if (nJoinedUnit2 == indexMVC2AStrider)
+        {
+            nXOffsetForSecond += 280;
+            nXOffsetForThird += 280;
+        }
+        else if (nJoinedUnit2 == indexMVC2ADrDoom)
+        {
+            nXOffsetForSecond += 80;
+            nXOffsetForThird += 80;
+        }
+
+        if (nJoinedUnit3 == indexMVC2ASentinel)
+        {
+            nXOffsetForThird += 40;
+        }
+        else if (nJoinedUnit3 == indexMVC2ACaptainCommando)
+        {
+            nXOffsetForThird += 150;
+        }
+        else if (nJoinedUnit3 == indexMVC2AAkuma)
+        {
+            nXOffsetForThird += 180;
+        }
+
+        UINT16 nNodeIndex = ((NodeGet->uPalId) % ARRAYSIZE(DEF_BUTTONLABEL6_MVC2));
+        UINT16 nPaletteIndex = nNodeIndex * 8;  // this is 8 since we're dealing with base mvc2 character palettes
+
+        ClearSetImgTicket(
+            CreateImgTicket(nJoinedUnit1, 0,
+                CreateImgTicket(nJoinedUnit2, 0,
+                    CreateImgTicket(nJoinedUnit3, 0, nullptr, nXOffsetForThird, nYOffsetForThird),
+                    nXOffsetForSecond, nYOffsetForSecond)
+            )
+        );
+
+        //Set each palette
+        sDescNode* JoinedNode[3] = {
+            MainDescTree.GetDescNode(nJoinedUnit1, nNodeIndex, 0, -1),
+            MainDescTree.GetDescNode(nJoinedUnit2, nNodeIndex, 0, -1),
+            MainDescTree.GetDescNode(nJoinedUnit3, nNodeIndex, 0, -1)
+        };
+
+        //Set each palette
+        CreateDefPal(JoinedNode[0], 0);
+        CreateDefPal(JoinedNode[1], 1);
+        CreateDefPal(JoinedNode[2], 2);
+
+        nSrcAmt = 6;
+        nNodeIncrement = 8; // this is 8 since we're dealing with base mvc2 character palettes
+        SetSourcePal(0, nJoinedUnit1, 0, nSrcAmt, nNodeIncrement);
+        SetSourcePal(1, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
+        SetSourcePal(2, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);
+    
         break;
     }
     }

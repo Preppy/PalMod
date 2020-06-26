@@ -7,8 +7,9 @@ constexpr UINT16 EXTRA_START = 0x0F00;
 constexpr UINT16 EXTRA_END = 0xFFFF;
 
 constexpr UINT16 EXTRA_OMNI = 47; //  (8 * 6) - 1;
+constexpr auto MVC2_D_TEAMVIEW_LOCATION = MVC2_D_NUMUNIT;
 
-const UINT32 MVC2_D_FILESZ[0x3B] = {
+const UINT32 MVC2_D_FILESZ[MVC2_D_NUMUNIT_WITH_TEAMVIEW] = {
 
     557408, 
     926400, 
@@ -68,10 +69,11 @@ const UINT32 MVC2_D_FILESZ[0x3B] = {
     983712, 
     1025152, 
     1091648, 
-    464448
+    464448,
+    0
 };
 
-const UINT32 MVC2_D_PALDATASZ[MVC2_D_NUMUNIT] = 
+const UINT32 MVC2_D_PALDATASZ[MVC2_D_NUMUNIT_WITH_TEAMVIEW] =
 {
     0x00000720,
     0x00000D40,
@@ -131,10 +133,11 @@ const UINT32 MVC2_D_PALDATASZ[MVC2_D_NUMUNIT] =
     0x000016E0,
     0x00000920,
     0x00000840,
-    0x00000B80
+    0x00000B80,
+    0x00000720
 };
 
-const CHAR MVC2_D_UNITDESC[MVC2_D_NUMUNIT][MAX_DESCRIPTION_LENGTH] =
+const CHAR MVC2_D_UNITDESC[MVC2_D_NUMUNIT_WITH_TEAMVIEW][MAX_DESCRIPTION_LENGTH] =
 {
     "Ryu",
     "Zangief",
@@ -194,10 +197,11 @@ const CHAR MVC2_D_UNITDESC[MVC2_D_NUMUNIT][MAX_DESCRIPTION_LENGTH] =
     "Jin",
     "Captain Commando",
     "Bonerine",
-    "Kobun"
+    "Kobun",
+    "Team View"
 };
 
-const UINT8 MVC2_D_UNITSORT[0x3C] =
+const UINT8 MVC2_D_UNITSORT[MVC2_D_NUMUNIT_WITH_TEAMVIEW + 1] = // plus one for terminal entry
 {
     0x18,
     0x19,
@@ -257,7 +261,8 @@ const UINT8 MVC2_D_UNITSORT[0x3C] =
     0x0E,
     0x2E,
     0x07,
-    0x01,
+    0x01, // Zangief
+    MVC2_D_TEAMVIEW_LOCATION,
     0xFF
 };
 
@@ -512,6 +517,9 @@ const UINT16 MVC2_D_EXTRADEF[] =
     EXTRA_START | 0x3A, // Kobun
     1, 1, 1, 1, 1, 1, 0,
     0x09, 0x26,
+    EXTRA_START | 0x3B, // Team View
+    0, 0, 0, 0, 0, 0,
+    0,
 
     EXTRA_END
 };

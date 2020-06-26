@@ -429,6 +429,17 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, CHAR* szLoadDir)
                 OutputDebugString("CGameLoad::LoadDir : Gouki doesn't exist for SF3-DC: skipping.\n");
                 nSaveLoadSucc++;
             }
+            else if ((nGameFlag == MVC2_D) && (nCurrRuleCtr == 0x3b))
+            {
+                OutputDebugString("CGameLoad::LoadDir : Team View for MvC2. Ignoring file open.\n");
+                if (OutGame->LoadFile(nullptr, CurrRule.uUnitId))
+                {
+                    nSaveLoadSucc++;
+
+                    //Increase the sort counter
+                    OutGame->nRedirCtr++;
+                }
+            }
             else
             {
                 nSaveLoadErr++;
@@ -474,30 +485,40 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             {
                 nSaveLoadCount++;
 
-                CString szLoad;
-
-                szLoad.Format("%s\\%s", szDir, GetRule(nFileCtr + 0xFF00).szFileName);
-
-                if (FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary))
+                if (!((CurrGame->GetGameFlag() == MVC2_D) && (nFileCtr == 0x3b))) // ignore the virtual team view
                 {
-                    if (CurrGame->SaveFile(&FileSave, nFileCtr))
+                    CString szLoad;
+
+                    szLoad.Format("%s\\%s", szDir, GetRule(nFileCtr + 0xFF00).szFileName);
+
+                    if (FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary))
                     {
-                        // Mark as clean so we don't save it out until it gets dirtied again.
-                        rgChanged[nFileCtr] = FALSE;
-                        nSaveLoadSucc++;
+                        if (CurrGame->SaveFile(&FileSave, nFileCtr))
+                        {
+                            // Mark as clean so we don't save it out until it gets dirtied again.
+                            rgChanged[nFileCtr] = FALSE;
+                            nSaveLoadSucc++;
+                        }
+                        else
+                        {
+                            strErrorFile = szLoad;
+                            nSaveLoadErr++;
+                        }
+
+                        FileSave.Abort();
                     }
                     else
                     {
                         strErrorFile = szLoad;
                         nSaveLoadErr++;
                     }
-
-                    FileSave.Abort();
                 }
                 else
                 {
-                    strErrorFile = szLoad;
-                    nSaveLoadErr++;
+                    // Ignore the virtual team view
+                    // Mark as clean so we don't save it out until it gets dirtied again.
+                    rgChanged[nFileCtr] = FALSE;
+                    nSaveLoadSucc++;
                 }
             }
         }

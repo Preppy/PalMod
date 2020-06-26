@@ -25,7 +25,7 @@ public:
 
     //Static functions
     static UINT16 uRuleCtr;
-    static UINT16 rgExtraChrLoc[MVC2_D_NUMUNIT];
+    static UINT16 rgExtraChrLoc[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
 
     static UINT16 GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
