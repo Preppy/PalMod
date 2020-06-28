@@ -1,12 +1,12 @@
 #pragma once
 #include "gameclass.h"
-#include "Garou_A_DEF.h"
+#include "Garou_S_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_Garou_A = "GarouE.txt";
-#define GetExtraDefForGarou_A(x)((stExtraDef *)&Garou_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_Garou_S = "GarouSE.txt";
+#define GetExtraDefForGarou_S(x)((stExtraDef *)&Garou_S_EXTRA_CUSTOM[x])
 
-class CGame_Garou_A : public CGameWithExtrasFile
+class CGame_Garou_S : public CGameWithExtrasFile
 {
 private:
     //Used for image selection
@@ -16,8 +16,8 @@ private:
     UINT32 nCurrPalOffs = 0;
     static UINT32 m_nTotalPaletteCountForGarou;
 
-    static int rgExtraCountAll[Garou_A_NUMUNIT + 1];
-    static int rgExtraLoc[Garou_A_NUMUNIT + 1];
+    static int rgExtraCountAll[Garou_S_NUMUNIT + 1];
+    static int rgExtraLoc[Garou_S_NUMUNIT + 1];
 
     void InitDataBuffer();
     void ClearDataBuffer();
@@ -31,8 +31,8 @@ private:
     UINT16*** pppDataBuffer = nullptr;
 
 public:
-    CGame_Garou_A(UINT32 nConfirmedROMSize);
-    ~CGame_Garou_A(void);
+    CGame_Garou_S(UINT32 nConfirmedROMSize);
+    ~CGame_Garou_S(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -69,5 +69,5 @@ public:
     void FlushUnitFile() { safe_delete(rgFileChanged); };
     void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
-    static stExtraDef* Garou_A_EXTRA_CUSTOM;
+    static stExtraDef* Garou_S_EXTRA_CUSTOM;
 };

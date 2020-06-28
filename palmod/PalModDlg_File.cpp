@@ -377,6 +377,7 @@ void CPalModDlg::OnFileOpen()
         { COTA_A, "COTA xmn.05a|*.05a|", INVALID_UNIT_VALUE },
         { CVS2_A, "CVS2 (SNKGD_SL.bin)|*.bin|", INVALID_UNIT_VALUE },
         { Garou_A, "Garou|kf.neo-sma|", INVALID_UNIT_VALUE },
+        { Garou_S, "Garou for Steam (p1.bin)|p1.bin|", INVALID_UNIT_VALUE },
         { JOJOS_A, "Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|", INVALID_UNIT_VALUE },
         { KOF98_A, "KOF98 (242-p2.sp2)|*.sp2|", INVALID_UNIT_VALUE },
         { KOF02UM_A, "KOF02UM (pal_a.bin)|*.bin|", INVALID_UNIT_VALUE },

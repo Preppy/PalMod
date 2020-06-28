@@ -94,6 +94,9 @@
     <Filter Include="Game\CVS2_A">
       <UniqueIdentifier>{3570dfdb-7518-4b38-a235-2e484ea22c9a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Garou_S">
+      <UniqueIdentifier>{a88dc215-a7e2-4efe-b6ea-bd7491c26694}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -242,6 +245,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_CVS2_A.cpp">
       <Filter>Game\CVS2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Garou_S.cpp">
+      <Filter>Game\Garou_S</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -436,6 +442,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_CVS2_A.h">
       <Filter>Game\CVS2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Garou_S.h">
+      <Filter>Game\Garou_S</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Garou_S_DEF.h">
+      <Filter>Game\Garou_S</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

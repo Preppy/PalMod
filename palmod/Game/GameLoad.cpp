@@ -19,6 +19,7 @@
 #include "Game_KOF98_A.h"
 #include "Game_KOF02UM_A.h"
 #include "Game_CVS2_A.h"
+#include "Game_Garou_S.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
@@ -122,6 +123,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_Garou_A::GetRule;
         return TRUE;
     }
+    case Garou_S:
+    {
+        GetRule = &CGame_Garou_S::GetRule;
+        return TRUE;
+    }
     case NEOGEO_A:
     {
         GetRule = &CGame_NEOGEO_A::GetRule;
@@ -215,6 +221,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case Garou_A:
     {
         return new CGame_Garou_A(nConfirmedROMSize);
+    }
+    case Garou_S:
+    {
+        return new CGame_Garou_S(nConfirmedROMSize);
     }
     case NEOGEO_A:
     {

@@ -27,6 +27,7 @@ enum SupportedGamesList
     KOF98_A,
     KOF02UM_A,
     CVS2_A,
+    Garou_S,
     NUM_GAMES
 };
 
@@ -58,7 +59,8 @@ const CHAR g_GameFriendlyName[NUM_GAMES][32] =
     "Unknown NEO•GEO (Arcade)",
     "KOF: 98 (Arcade)",
     "KOF: 02UM (Steam)",
-    "CVS2 (Arcade)"
+    "CVS2 (Arcade)",
+    "Garou: MotW (Steam)"
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -701,6 +703,7 @@ const UINT8 GAROU_A_IMG_UNITS[] =
 };
 
 const int GAROU_A_NUM_IMG_UNITS = ARRAYSIZE(GAROU_A_IMG_UNITS);
+const int GAROU_S_NUM_IMG_UNITS = ARRAYSIZE(GAROU_A_IMG_UNITS);
 
 enum SupportedNEOGEO_A_PaletteListIndex
 {

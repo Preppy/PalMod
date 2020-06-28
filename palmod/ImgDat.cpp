@@ -108,6 +108,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
     COTA_A,
     MVC2_A,
     Garou_A,
+    NEOGEO_A,
+    KOF98_A,
+    KOF02UM_A,
+    CVS2_A,
+    Garou_S,
     */
     for (UINT16 nUnitCtr = 0; nUnitCtr < nCurGameUnitAmt; nUnitCtr++)
     {
@@ -222,6 +227,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
             break;
         }
         case Garou_A:
+        case Garou_S:
         {
 #if IMGDAT_DEBUG
             strDebugInfo.Format("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n", GAROU_A_IMG_UNITS[nUnitCtr]);
