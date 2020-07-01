@@ -485,7 +485,7 @@ STRINGTABLE
 BEGIN
     IDS_BCHECKMIX_TOOLTIP   "Verifies that Extra edits were made: avoid flashing Storm and etc."
     IDS_TOOLTIP_UPDATE      "Saves the current changes to memory.  ROM is only updated on patch."
-    IDS_TOOLTIP_REVERT      "Reverts to the last saved colors."
+    IDS_TOOLTIP_REVERT      "Reverts to the last saved colors. Use CTRL+Z for just the last change."
     IDS_TOOLTIP_SETCOLOR    "If Auto-Set Color is off, updates the selected palette color."
     IDS_TOOLTIP_GETCOLOR    "Use the color picker to update the selected palette color."
     IDS_ERROR_TEXTURE_LOAD  "Error loading RAW texture file.  Filename must be of form WHATEVER-W-width-H-height.data"

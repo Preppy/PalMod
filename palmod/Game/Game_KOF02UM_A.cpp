@@ -149,6 +149,31 @@ int CGame_KOF02UM_A::GetExtraLoc(UINT16 nUnitId)
     return rgExtraLoc[nUnitId];
 }
 
+void StrRemoveNonASCII(char* pszOutput, size_t ccSize, LPCSTR pszInput)
+{
+    size_t iStrOutputIndex = 0;
+    
+    for (size_t iStrIndex = 0; iStrIndex < ccSize; iStrIndex++)
+    {
+        if (!pszInput[iStrIndex])
+        {
+            break;
+        }
+
+        if (((pszInput[iStrIndex] >= 48) && (pszInput[iStrIndex] <= 57)) ||// numbers
+            ((pszInput[iStrIndex] >= 65) && (pszInput[iStrIndex] <= 90))) // upper case
+        {
+            pszOutput[iStrOutputIndex++] = pszInput[iStrIndex];
+        }
+        else if ((pszInput[iStrIndex] >= 97) && (pszInput[iStrIndex] <= 122))
+        {
+            pszOutput[iStrOutputIndex++] = pszInput[iStrIndex] - 32;
+        }
+    }
+
+    pszOutput[iStrOutputIndex] = 0;
+}
+
 void CGame_KOF02UM_A::DumpAllCharacters()
 {
     //Go through each character
@@ -159,8 +184,7 @@ void CGame_KOF02UM_A::DumpAllCharacters()
         CString strOutput;
         char szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        strcpy(szCodeDesc, KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName);
-        _strupr(szCodeDesc);
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         for (UINT16 iButtonIndex = 0; iButtonIndex < 4; iButtonIndex++)
         {
@@ -199,17 +223,28 @@ void CGame_KOF02UM_A::DumpAllCharacters()
             nCurrentCharacterOffset += 0x20;
             nPaletteCount++;
 
+            const LPCSTR pszMoveNames[] =
+            {
+                "Hidden Super Desperation Move 1",
+                "Desperation Move / Super Desperation Move",
+                "Electric Shock Effect",
+                "Max Flash",
+                "Hidden Super Desperation Move 2",
+                "Soul Palette",
+                "Hidden Super Desperation Move 3",
+            };
+
             for (UINT16 iCurrentExtra = 1; iCurrentExtra < 8; iCurrentExtra++)
             {
                 if (KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName)
                 {
-                    strOutput.Format("    { \"%s %s - Extra %u\", 0x%07x, 0x%07x, %s },\r\n", KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex], iCurrentExtra,
+                    strOutput.Format("    { \"%s - %s\", 0x%07x, 0x%07x, %s },\r\n", DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                         KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName);
                 }
                 else
                 {
-                    strOutput.Format("    { \"%s %s - Extra %u\", 0x%07x, 0x%07x },\r\n", KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex], iCurrentExtra,
+                    strOutput.Format("    { \"%s - %s\", 0x%07x, 0x%07x },\r\n", DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
                 }
 
@@ -244,8 +279,7 @@ void CGame_KOF02UM_A::DumpAllCharacters()
         CString strOutput;
         char szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        strcpy(szCodeDesc, KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName);
-        _strupr(szCodeDesc);
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         strOutput.Format("    { \"%s\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_COLLECTION, ARRAYSIZE(KOF02UM_A_%s_COLLECTION) },\r\n", KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
@@ -428,7 +462,7 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
     m_nTotalPaletteCountForKOF02UM = nTotalPaletteCount;
 
     // For development purposes only...
-    // DumpAllCharacters();
+    //DumpAllCharacters();
 
     return NewDescTree;
 }

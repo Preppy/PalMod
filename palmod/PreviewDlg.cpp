@@ -189,6 +189,36 @@ void CPreviewDlg::LoadSettings()
     {
         MoveWindow(&window_rect);
     }
+    else
+    {
+        // New user!  Offset ourselves...
+        bool foundGoodPosition = false;
+
+        ::GetWindowRect(g_appHWnd, &window_rect);
+
+        window_rect.left += (window_rect.right - window_rect.left);
+        window_rect.right += (window_rect.right - window_rect.left);
+
+        if (MonitorFromRect(&window_rect, MONITOR_DEFAULTTONULL) != nullptr)
+        {
+            foundGoodPosition = true;
+            MoveWindow(&window_rect);
+        }
+
+        if (!foundGoodPosition)
+        {
+            // Try a vertical shift...
+            ::GetWindowRect(g_appHWnd, &window_rect);
+
+            window_rect.top += (window_rect.bottom - window_rect.top);
+            window_rect.bottom += (window_rect.bottom - window_rect.top);
+
+            if (MonitorFromRect(&window_rect, MONITOR_DEFAULTTONULL) != nullptr)
+            {
+                MoveWindow(&window_rect);
+            }
+        }
+    }
 
     if (bImgDispInit)
     {

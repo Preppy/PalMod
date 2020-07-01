@@ -13,7 +13,7 @@ void CPalModDlg::LoadSettings()
     bGetCol    = RegSett.main_bGetColor;
     CGame_MVC2_D::bAlphaTrans = RegSett.main_bAlphaTrans;
     bShow32    = RegSett.main_bShow32;
-    CGameClass::bPostSetPalProc    = RegSett.main_bProcSupp;
+    CGameClass::bPostSetPalProc = RegSett.main_bProcSupp;
     bAutoSetCol = RegSett.main_bAutoSetCol;
 
     RECT window_rect;

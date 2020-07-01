@@ -261,7 +261,9 @@ void CRegProc::LoadReg(int src)
 
             GetSz = sizeof(BOOL);
             if (RegQueryValueEx(hKey, "TransparentPNG", 0, &RegType, (BYTE*)&bTransPNG, &GetSz) != ERROR_SUCCESS)
-                bTransPNG = FALSE;
+            {
+                bTransPNG = TRUE;
+            }
 
             RegType = REG_SZ;
             GetSz = RECT_STRSZ;
