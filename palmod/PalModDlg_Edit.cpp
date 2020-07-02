@@ -26,7 +26,7 @@ void CPalModDlg::OnEditCopy()
 
         UINT16 nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset;
         UINT8 uCopyFlag1;
-        // We use a CHAR UINT8 value to store the size.  This is compatible with all versions of palmod.
+        // We use a TCHAR UINT8 value to store the size.  This is compatible with all versions of palmod.
         // For the new large palette support, this would overflow, so we're just going to set it to 0.
         // This allows old palmod to ignore the data and current palmod to work by figuring out the size itself.
         UINT8 uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? (UINT8)nPaletteSelectionLength : k_nASCIICharacterOffset;
@@ -66,7 +66,7 @@ void CPalModDlg::OnEditCopy()
             break;
         }
 
-        CopyText.Format("(%c%c", uCopyFlag1, uCopyFlag2);
+        CopyText.Format(_T("(%c%c"), uCopyFlag1, uCopyFlag2);
 
         for (int i = 0; i < nWorkingAmt; i++)
         {
@@ -74,16 +74,16 @@ void CPalModDlg::OnEditCopy()
             {
                 uCurrData = CurrGame->ConvCol(CurrPal->GetBasePal()[i]);
 
-                FormatTxt.Format("%04X", uCurrData);
+                FormatTxt.Format(_T("%04X"), uCurrData);
 
                 //Only changed:
-                //FormatTxt.Format("%04X", (UINT16)((uCurrData << 8) | (uCurrData >> 8) & (UINT16)0xFF0F));
+                //FormatTxt.Format(_T("%04X"), (UINT16)((uCurrData << 8) | (uCurrData >> 8) & (UINT16)0xFF0F));
 
                 CopyText.Append(FormatTxt);
             }
         }
     
-        CopyText.Append(")");
+        CopyText.Append(_T(")"));
 
         sf.Write(CopyText, CopyText.GetLength());
 
@@ -107,15 +107,15 @@ void CPalModDlg::OnEditPaste()
 
     COleDataObject obj;
 
-    char* szPasteBuff = szPasteStr.GetBuffer();
+    TCHAR* szPasteBuff = szPasteStr.GetBuffer();
 
     // Do something with the data in 'buffer'
 
-    char szFormatStr[] = "0x0000";
+    TCHAR szFormatStr[] = _T("0x0000");
 
     UINT8 uPasteGFlag = szPasteBuff[1] - k_nASCIICharacterOffset;
     // We want the number of colors per paste minus the () and game flag
-    UINT16 uPasteAmt = (UINT16)((strlen(szPasteBuff) - 3) / 4);
+    UINT16 uPasteAmt = (UINT16)((_tcslen(szPasteBuff) - 3) / 4);
     
     switch (uPasteGFlag)
     {
@@ -173,7 +173,7 @@ void CPalModDlg::OnEditPaste()
         {
             memcpy(&szFormatStr[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
 
-            rgPasteCol[i] = CurrGame->ConvPal((UINT16)strtol(szFormatStr, NULL, 16));
+            rgPasteCol[i] = CurrGame->ConvPal((UINT16)_tcstol(szFormatStr, NULL, 16));
             ((UINT8*)rgPasteCol)[i * 4 + 3] |= (0xFF * (nAMul == 0));
         }
 
@@ -240,14 +240,14 @@ BOOL VerifyPaste()
     HGLOBAL hmem = obj.GetGlobalData(CF_TEXT);
     CMemFile sf((BYTE*) ::GlobalLock(hmem), ::GlobalSize(hmem));
 
-    LPSTR szTempStr = szPasteStr.GetBufferSetLength(::GlobalSize(hmem));
+    LPTSTR szTempStr = szPasteStr.GetBufferSetLength(::GlobalSize(hmem));
     sf.Read(szTempStr, ::GlobalSize(hmem));
     ::GlobalUnlock(hmem);
 
-    szPasteStr.Remove(' ');
-    szPasteStr.Remove('\n');
+    szPasteStr.Remove(_T(' '));
+    szPasteStr.Remove(_T('\n'));
 
-    if (szTempStr[0] == '(')
+    if (szTempStr[0] == _T('('))
     {
         if ((szTempStr[1] - k_nASCIICharacterOffset) <= NUM_GAMES) //Gameflag
         {
@@ -256,12 +256,12 @@ BOOL VerifyPaste()
 
             if (nPaletteCount == 0)
             {
-                nPaletteCount = (UINT16)((strlen(szTempStr) - 3) / 4);
+                nPaletteCount = (UINT16)((_tcslen(szTempStr) - 3) / 4);
             }
 
             if (nPaletteCount <= CRegProc::GetMaxPalettePageSize())
             {
-                if ((szTempStr[(nPaletteCount * 4) + 3] == ')'))
+                if (szTempStr[(nPaletteCount * 4) + 3] == _T(')'))
                 {
                     bCanPaste = TRUE;
                 }

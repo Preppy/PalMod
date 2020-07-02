@@ -46,7 +46,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     m_nSSF2TSelectedRom = (nSSF2TRomToLoad == 3) ? 3 : 4;
 
     CString strMessage;
-    strMessage.Format("CGame_SSF2T_A::CGame_SSF2T_A: Loading for the %s ROM\n", (m_nSSF2TSelectedRom == 3) ? "3C" : "4A");
+    strMessage.Format(_T("CGame_SSF2T_A::CGame_SSF2T_A: Loading for the %s ROM\n"), (m_nSSF2TSelectedRom == 3) ? _T("3C") : _T("4A"));
     OutputDebugString(strMessage);
 
     m_nTotalInternalUnits = UsePaletteSetForPortraits() ? SSF2T_A_NUM_IND_3C : SSF2T_A_NUM_IND_4A;
@@ -80,7 +80,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
 
     //Set the image out display type
     DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_ST10);
+    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_ST10);
     
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -219,7 +219,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[SSF2T_A]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[SSF2T_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -227,7 +227,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
 
     CString strMsg;
     bool fHaveExtras = UsePaletteSetForPortraits() ? (GetExtraCt(SSF2T_A_EXTRALOC_3C) > 0) : (GetExtraCt(SSF2T_A_EXTRALOC_4A) > 0);
-    strMsg.Format("CGame_SSF2T_A::InitDescTree: Building desc tree for SSF2T ROM...\n", UsePaletteSetForPortraits() ? "3C" : "4A" );
+    strMsg.Format(_T("CGame_SSF2T_A::InitDescTree: Building desc tree for SSF2T ROM...\n"), UsePaletteSetForPortraits() ? _T("3C") : _T("4A"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -247,14 +247,14 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
         if (UsePaletteSetForPortraits() ? (iUnitCtr < SSF2T_A_EXTRALOC_3C) : (iUnitCtr < SSF2T_A_EXTRALOC_4A))
         {
             //Set each description
-            sprintf(UnitNode->szDesc, "%s", UsePaletteSetForPortraits() ? SSF2T_A_UNITS_3C[iUnitCtr].szDesc : SSF2T_A_UNITS_4A[iUnitCtr].szDesc);
+            _stprintf(UnitNode->szDesc, _T("%s"), UsePaletteSetForPortraits() ? SSF2T_A_UNITS_3C[iUnitCtr].szDesc : SSF2T_A_UNITS_4A[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if SSF2T_DEBUG
-            strMsg.Format("Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
+            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -268,7 +268,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                sprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -276,7 +276,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if SSF2T_DEBUG
-                strMsg.Format("\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -287,7 +287,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    sprintf(ChildNode->szDesc, "%s", paletteSetToUse[nNodeIndex].szPaletteName);
+                    _stprintf(ChildNode->szDesc, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
@@ -295,21 +295,21 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
 
 #if SSF2T_DEBUG
 #if OUTPUT_AS_NODE
-                    strMsg.Format("    { \"%s\", 0x%06x, 0x%06x },\n", ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
+                    strMsg.Format(_T("    { \"%s\", 0x%06x, 0x%06x },\n"), ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
                     OutputDebugString(strMsg);
 #else
-                    strMsg.Format("\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(" no image available.\n");
+                        strMsg.Format(_T(" no image available.\n"));
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -321,13 +321,13 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            sprintf(UnitNode->szDesc, "Extra Palettes");
+            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if SSF2T_DEBUG
-            strMsg.Format("Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -347,7 +347,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(SSF2T_A_EXTRALOC_4A > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
             }
 
-            sprintf(CollectionNode->szDesc, "Extra");
+            _stprintf(CollectionNode->szDesc, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -355,7 +355,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if SSF2T_DEBUG
-            strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -372,7 +372,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                     pCurrDef = GetExtraDefForSSF2T(nExtraPos + nCurrExtra);
                 }
 
-                sprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 if (UsePaletteSetForPortraits())
@@ -385,7 +385,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                 }
 
 #if SSF2T_DEBUG
-                strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -395,7 +395,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
         }
     }
 
-    strMsg.Format("CGame_SSF2T_A::InitDescTree: Loaded %u palettes for SSF2T ROM %s\n", nTotalPaletteCount, (m_nSSF2TSelectedRom == 3) ? "3C" : "4A");
+    strMsg.Format(_T("CGame_SSF2T_A::InitDescTree: Loaded %u palettes for SSF2T ROM %s\n"), nTotalPaletteCount, (m_nSSF2TSelectedRom == 3) ? _T("3C") : _T("4A"));
     OutputDebugString(strMsg);
 
     if (UsePaletteSetForPortraits())
@@ -414,7 +414,7 @@ sFileRule CGame_SSF2T_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 3) ? "sfxe.03c" : "sfxe.04a");
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 3) ? _T("sfxe.03c") : _T("sfxe.04a"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nGameROMSize;
@@ -478,13 +478,13 @@ UINT16 CGame_SSF2T_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
 }
 
-LPCSTR CGame_SSF2T_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_SSF2T_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (UsePaletteSetForPortraits())
     {
         if (nUnitId == SSF2T_A_EXTRALOC_3C)
         {
-            return "Extra Palettes";
+            return _T("Extra Palettes");
         }
         else
         {
@@ -496,7 +496,7 @@ LPCSTR CGame_SSF2T_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollec
     {
         if (nUnitId == SSF2T_A_EXTRALOC_4A)
         {
-            return "Extra Palettes";
+            return _T("Extra Palettes");
         }
         else
         {
@@ -527,7 +527,7 @@ UINT16 CGame_SSF2T_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if SSF2T_DEBUG
         CString strMsg;
-        strMsg.Format("CGame_SSF2T_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_SSF2T_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -707,7 +707,7 @@ BOOL CGame_SSF2T_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
-                strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
+                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, nCurrPalOffs);
                 MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                 fShownOnce = true;
             }
@@ -719,7 +719,7 @@ BOOL CGame_SSF2T_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     }
 
     CString strMsg;
-    strMsg.Format("CGame_SSF2T_A::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(_T("CGame_SSF2T_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
 
     return TRUE;

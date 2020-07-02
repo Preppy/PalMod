@@ -193,7 +193,7 @@ BOOL CPalModDlg::OnInitDialog()
     //Init Ole
     if (!AfxOleInit())
     {
-        AfxMessageBox("AfxOleInit Error!");
+        AfxMessageBox(_T("AfxOleInit Error!"));
         bOleInit = FALSE;
     }
 
@@ -349,7 +349,7 @@ BOOL CPalModDlg::SetLoadDir(CString* szOut)
     if (::SHGetMalloc(&pMalloc) == NOERROR)
     {
         BROWSEINFO      bi;
-        char            pszBuffer[MAX_PATH];
+        TCHAR            pszBuffer[MAX_PATH];
         LPITEMIDLIST    pidl;
 
         bi.hwndOwner = GetSafeHwnd();

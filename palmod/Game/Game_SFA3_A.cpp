@@ -64,7 +64,7 @@ CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
 
     //Set the image out display type
     DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_ISMS);
+    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_ISMS);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -161,14 +161,14 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[SFA3_A]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[SFA3_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    strMsg.Format("CGame_SFA3_A::InitDescTree: Building desc tree for SFA3 %s extras...\n", fHaveExtras ? "with" : "without");
+    strMsg.Format(_T("CGame_SFA3_A::InitDescTree: Building desc tree for SFA3 %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -188,14 +188,14 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
         if (iUnitCtr < SFA3_A_EXTRALOC)
         {
             //Set each description
-            sprintf(UnitNode->szDesc, "%s", SFA3_A_UNITS[iUnitCtr].szDesc);
+            _stprintf(UnitNode->szDesc, _T("%s"), SFA3_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if SFA3_DEBUG
-            strMsg.Format("Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
+            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -209,7 +209,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                sprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -217,7 +217,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if SFA3_DEBUG
-                strMsg.Format("\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -228,25 +228,25 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    sprintf(ChildNode->szDesc, "%s", paletteSetToUse[nNodeIndex].szPaletteName);
+                    _stprintf(ChildNode->szDesc, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if SFA3_DEBUG
-                    strMsg.Format("\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(" no image available.\n");
+                        strMsg.Format(_T(" no image available.\n"));
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -257,13 +257,13 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            sprintf(UnitNode->szDesc, "Extra Palettes");
+            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if SFA3_DEBUG
-            strMsg.Format("Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -275,7 +275,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
             int nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(SFA3_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            sprintf(CollectionNode->szDesc, "Extra");
+            _stprintf(CollectionNode->szDesc, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -283,7 +283,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if SFA3_DEBUG
-            strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -300,13 +300,13 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
                     pCurrDef = GetExtraDefForSFA3(nExtraPos + nCurrExtra);
                 }
 
-                sprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((SFA3_A_EXTRALOC > iUnitCtr) ? 1 : 0)* nUnitChildCount * 2) + nCurrExtra;
 
 #if SFA3_DEBUG
-                strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -316,7 +316,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
         }
     }
 
-    strMsg.Format("CGame_SFA3_A::InitDescTree: Loaded %u palettes for SFA3\n", nTotalPaletteCount);
+    strMsg.Format(_T("CGame_SFA3_A::InitDescTree: Loaded %u palettes for SFA3\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     m_nTotalPaletteCountForSFA3 = nTotalPaletteCount;
@@ -329,40 +329,40 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
 
 struct sSFA3_A_PortraitData
 {
-    LPCSTR pszCharacterName = nullptr;
-    LPCSTR pszCodeName = nullptr;
+    LPCTSTR pszCharacterName = nullptr;
+    LPCTSTR pszCodeName = nullptr;
     UINT32 nROMOffset = 0;
-    LPCSTR pszImageSet = "indexCPS2_SFA3Assets"; // SFA3_Unique
+    LPCTSTR pszImageSet = _T("indexCPS2_SFA3Assets"); // SFA3_Unique
     UINT32 nImageSetIndex = 0;
 };
 
 sSFA3_A_PortraitData SFA3_A_PortraitDataArray[] =
 {
-    { "Ryu", "RYU", 0x4ce14, "indexCPS2_SFA3Assets", 0xB4 }, // Ryu
-    { "Ken", "KEN", 0x4d114, "indexCPS2_SFA3Assets", 0xAF }, // Ken
-    { "Akuma", "AKUMA", 0x4d414, "indexCPS2_SFA3Assets", 0xA1 }, // Akuma
-    { "Charlie", "CHARLIE", 0x4d714, "indexCPS2_SFA3Assets", 0xA5 }, // Charlie
-    { "Chun-Li", "CHUNLI", 0x4da14, "indexCPS2_SFA3Assets", 0xA6 }, // Chun (NOTE: Chun has a special non-X-ISM portrait, A7)
-    { "Adon", "ADON", 0x4dd14, "indexCPS2_SFA3Assets", 0xA0 }, // Adon
-    { "Sodom", "SODOM", 0x4e014, "indexCPS2_SFA3Assets", 0xB7 }, // Sodom
-    { "Guy", "GUY", 0x4e314, "indexCPS2_SFA3Assets", 0xAD }, // Guy
-    { "Birdie", "BIRDIE", 0x4e614, "indexCPS2_SFA3Assets", 0xA2 }, // Birdie
-    { "Rose", "ROSE", 0x4e914, "indexCPS2_SFA3Assets", 0xB3 }, // Rose
-    { "M.Bison", "MBISON", 0x4ec14, "indexCPS2_SFA3Assets", 0xB0 }, // Dict
-    { "Sagat", "SAGAT", 0x4ef14, "indexCPS2_SFA3Assets", 0xB5 }, // Sagat
-    { "Dan", "DAN", 0x4f214, "indexCPS2_SFA3Assets", 0xA9 }, // Dan
-    { "Sakura", "SAKURA", 0x4f514, "indexCPS2_SFA3Assets", 0xB6 }, // Sakura
-    { "Rolento", "ROLENTO", 0x4f814, "indexCPS2_SFA3Assets", 0xB2 }, // Rolento
-    { "Dhalsim", "DHALSIM", 0x4fb14, "indexCPS2_SFA3Assets", 0xAA }, // Dhalsim
-    { "Zangief", "ZANGIEF", 0x4fe14, "indexCPS2_SFA3Assets", 0xB9 }, // Zangief
-    { "Gen", "GEN", 0x50114, "indexCPS2_SFA3Assets", 0xAC }, // Gen
-    { "Cammy", "CAMMY", 0x50a14, "indexCPS2_SFA3Assets", 0xA4 }, // Cammy
-    { "E.Honda", "EHONDA", 0x50d14, "indexCPS2_SFA3Assets", 0xAB }, // E.Honda
-    { "Blanka", "BLANKA", 0x51014, "indexCPS2_SFA3Assets", 0xA3 }, // Blanka
-    { "R.Mika", "RMIKA", 0x51314, "indexCPS2_SFA3Assets", 0xB1 }, // R.Mika
-    { "Cody", "CODY", 0x51614, "indexCPS2_SFA3Assets", 0xA8 }, // Cody
-    { "Vega", "VEGA", 0x51914, "indexCPS2_SFA3Assets", 0xB8 }, // Vega
-    { "Karin", "KARIN", 0x51c14, "indexCPS2_SFA3Assets", 0xAE }, // Karin
+    { _T("Ryu"), _T("RYU"), 0x4ce14, _T("indexCPS2_SFA3Assets"), 0xB4 }, // Ryu
+    { _T("Ken"), _T("KEN"), 0x4d114, _T("indexCPS2_SFA3Assets"), 0xAF }, // Ken
+    { _T("Akuma"), _T("AKUMA"), 0x4d414, _T("indexCPS2_SFA3Assets"), 0xA1 }, // Akuma
+    { _T("Charlie"), _T("CHARLIE"), 0x4d714, _T("indexCPS2_SFA3Assets"), 0xA5 }, // Charlie
+    { _T("Chun-Li"), _T("CHUNLI"), 0x4da14, _T("indexCPS2_SFA3Assets"), 0xA6 }, // Chun (NOTE: Chun has a special non-X-ISM portrait, A7)
+    { _T("Adon"), _T("ADON"), 0x4dd14, _T("indexCPS2_SFA3Assets"), 0xA0 }, // Adon
+    { _T("Sodom"), _T("SODOM"), 0x4e014, _T("indexCPS2_SFA3Assets"), 0xB7 }, // Sodom
+    { _T("Guy"), _T("GUY"), 0x4e314, _T("indexCPS2_SFA3Assets"), 0xAD }, // Guy
+    { _T("Birdie"), _T("BIRDIE"), 0x4e614, _T("indexCPS2_SFA3Assets"), 0xA2 }, // Birdie
+    { _T("Rose"), _T("ROSE"), 0x4e914, _T("indexCPS2_SFA3Assets"), 0xB3 }, // Rose
+    { _T("M.Bison"), _T("MBISON"), 0x4ec14, _T("indexCPS2_SFA3Assets"), 0xB0 }, // Dict
+    { _T("Sagat"), _T("SAGAT"), 0x4ef14, _T("indexCPS2_SFA3Assets"), 0xB5 }, // Sagat
+    { _T("Dan"), _T("DAN"), 0x4f214, _T("indexCPS2_SFA3Assets"), 0xA9 }, // Dan
+    { _T("Sakura"), _T("SAKURA"), 0x4f514, _T("indexCPS2_SFA3Assets"), 0xB6 }, // Sakura
+    { _T("Rolento"), _T("ROLENTO"), 0x4f814, _T("indexCPS2_SFA3Assets"), 0xB2 }, // Rolento
+    { _T("Dhalsim"), _T("DHALSIM"), 0x4fb14, _T("indexCPS2_SFA3Assets"), 0xAA }, // Dhalsim
+    { _T("Zangief"), _T("ZANGIEF"), 0x4fe14, _T("indexCPS2_SFA3Assets"), 0xB9 }, // Zangief
+    { _T("Gen"), _T("GEN"), 0x50114, _T("indexCPS2_SFA3Assets"), 0xAC }, // Gen
+    { _T("Cammy"), _T("CAMMY"), 0x50a14, _T("indexCPS2_SFA3Assets"), 0xA4 }, // Cammy
+    { _T("E.Honda"), _T("EHONDA"), 0x50d14, _T("indexCPS2_SFA3Assets"), 0xAB }, // E.Honda
+    { _T("Blanka"), _T("BLANKA"), 0x51014, _T("indexCPS2_SFA3Assets"), 0xA3 }, // Blanka
+    { _T("R.Mika"), _T("RMIKA"), 0x51314, _T("indexCPS2_SFA3Assets"), 0xB1 }, // R.Mika
+    { _T("Cody"), _T("CODY"), 0x51614, _T("indexCPS2_SFA3Assets"), 0xA8 }, // Cody
+    { _T("Vega"), _T("VEGA"), 0x51914, _T("indexCPS2_SFA3Assets"), 0xB8 }, // Vega
+    { _T("Karin"), _T("KARIN"), 0x51c14, _T("indexCPS2_SFA3Assets"), 0xAE }, // Karin
 };
 
 void CGame_SFA3_A::DumpHeaderPalettes()
@@ -372,7 +372,7 @@ void CGame_SFA3_A::DumpHeaderPalettes()
     for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFA3_A_PortraitDataArray); nIndex++)
     {
         const UINT16 nPortraitsPerCharacter = 6;
-        strOutput.Format("const sGame_PaletteDataset SFA3_A_%s_PORTRAIT_PALETTES[] = \r\n{\r\n", SFA3_A_PortraitDataArray[nIndex].pszCodeName);
+        strOutput.Format(_T("const sGame_PaletteDataset SFA3_A_%s_PORTRAIT_PALETTES[] = \r\n{\r\n"), SFA3_A_PortraitDataArray[nIndex].pszCodeName);
         OutputDebugString(strOutput);
         for (UINT16 nColorIndex = 0; nColorIndex < nPortraitsPerCharacter; nColorIndex++)
         {
@@ -382,36 +382,36 @@ void CGame_SFA3_A::DumpHeaderPalettes()
             switch (nColorIndex)
             {
             case 0:
-                strColorName = "X-Ism Punch";
+                strColorName = _T("X-Ism Punch");
                 break;
             case 1:
-                strColorName = "X-Ism Kick";
+                strColorName = _T("X-Ism Kick");
                 break;
             case 2:
-                strColorName = "A-Ism Punch";
+                strColorName = _T("A-Ism Punch");
                 break;
             case 3:
-                strColorName = "A-Ism Kick";
+                strColorName = _T("A-Ism Kick");
                 break;
             case 4:
-                strColorName = "V-Ism Punch";
+                strColorName = _T("V-Ism Punch");
                 break;
             case 5:
-                strColorName = "V-Ism Kick";
+                strColorName = _T("V-Ism Kick");
                 break;
             }
 
-            strOutput.Format("    { \"%s\", 0x%x, 0x%x, %s, 0x%02x },\r\n", strColorName, SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * nColorIndex), SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * (nColorIndex + 1)), SFA3_A_PortraitDataArray[nIndex].pszImageSet, SFA3_A_PortraitDataArray[nIndex].nImageSetIndex);
+            strOutput.Format(_T("    { \"%s\", 0x%x, 0x%x, %s, 0x%02x },\r\n"), strColorName, SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * nColorIndex), SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * (nColorIndex + 1)), SFA3_A_PortraitDataArray[nIndex].pszImageSet, SFA3_A_PortraitDataArray[nIndex].nImageSetIndex);
             OutputDebugString(strOutput);
         }
 
-        OutputDebugString("};\r\n\r\n");
+        OutputDebugString(_T("};\r\n\r\n"));
     }
 
     for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFA3_A_PortraitDataArray); nIndex++)
     {
         const UINT16 nPortraitsPerCharacter = 6;
-        strOutput.Format("    { \"Select Portraits\", DESC_NODETYPE_TREE, (void*)SFA3_A_%s_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_%s_PORTRAIT_PALETTES) },\r\n", SFA3_A_PortraitDataArray[nIndex].pszCodeName, SFA3_A_PortraitDataArray[nIndex].pszCodeName);
+        strOutput.Format(_T("    { \"Select Portraits\", DESC_NODETYPE_TREE, (void*)SFA3_A_%s_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_%s_PORTRAIT_PALETTES) },\r\n"), SFA3_A_PortraitDataArray[nIndex].pszCodeName, SFA3_A_PortraitDataArray[nIndex].pszCodeName);
         OutputDebugString(strOutput);
     }
 }
@@ -420,7 +420,7 @@ sFileRule CGame_SFA3_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "sz3.09c");
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("sz3.09c"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nGameROMSize;
@@ -454,11 +454,11 @@ UINT16 CGame_SFA3_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectio
     }
 }
 
-LPCSTR CGame_SFA3_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_SFA3_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == SFA3_A_EXTRALOC)
     {
-        return "Extra Palettes";
+        return _T("Extra Palettes");
     }
     else
     {
@@ -486,7 +486,7 @@ UINT16 CGame_SFA3_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if SFA3_DEBUG
         CString strMsg;
-        strMsg.Format("CGame_SFA3_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_SFA3_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -701,7 +701,7 @@ BOOL CGame_SFA3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
-                strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
+                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, nCurrPalOffs);
                 MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                 fShownOnce = true;
             }
@@ -713,7 +713,7 @@ BOOL CGame_SFA3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     }
 
     CString strMsg;
-    strMsg.Format("CGame_SFA3_A::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(_T("CGame_SFA3_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
 
     return TRUE;
@@ -733,7 +733,7 @@ void CGame_SFA3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (!fCanFitWithinCurrentPageLayout)
     {
         CString strWarning;
-        strWarning.Format("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n", MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
+        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
         OutputDebugString(strWarning);
     }
 
@@ -746,7 +746,7 @@ void CGame_SFA3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
         {
-            strPageDescription.Format("%s (%u/%u)", srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
+            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
             BasePalGroup.AddSep(0, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
             nColorsRemaining -= s_nColorsPerPage;
         }
@@ -800,7 +800,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
             // Right now most of SFA3 is all six palettes within one node.
-            if ((_stricmp(pCurrentNode->szDesc, "Palettes") == 0) && (NodeGet->uPalId < 6))// 3 Ism sets of 2 colors each
+            if ((_tcsicmp(pCurrentNode->szDesc, _T("Palettes")) == 0) && (NodeGet->uPalId < 6))// 3 Ism sets of 2 colors each
             {
                 // For most characters we have the six colors followed by status effects
                 nSrcAmt = 6;
@@ -811,29 +811,29 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     nSrcStart -= nNodeIncrement;
                 }
             }
-            else if (_stricmp(pCurrentNode->szDesc, "Select Portraits") == 0)
+            else if (_tcsicmp(pCurrentNode->szDesc, _T("Select Portraits")) == 0)
             {
                 // Hm.  These are at an abstract length.  Let's derive that.
                 int nProspectiveStart = NodeGet->uPalId;
                 
-                if (strstr(paletteDataSet->szPaletteName, "Kick") != nullptr)
+                if (_tcsstr(paletteDataSet->szPaletteName, _T("Kick")) != nullptr)
                 {
                     // Ordering is punch/kick. 
                     nProspectiveStart = (nProspectiveStart > 0) ? nProspectiveStart - 1 : nProspectiveStart;
                 }
 
-                if (strstr(paletteDataSet->szPaletteName, "V-Ism") != nullptr)
+                if (_tcsstr(paletteDataSet->szPaletteName, _T("V-Ism")) != nullptr)
                 {
                     nProspectiveStart = (nProspectiveStart > 4) ? nProspectiveStart - 4 : nProspectiveStart;
                 }
-                else if (strstr(paletteDataSet->szPaletteName, "A-Ism") != nullptr)
+                else if (_tcsstr(paletteDataSet->szPaletteName, _T("A-Ism")) != nullptr)
                 {
                     nProspectiveStart = (nProspectiveStart > 2) ? nProspectiveStart - 2 : nProspectiveStart;
                 }
 
                 const sGame_PaletteDataset* prospectivePalette = GetSpecificPalette(NodeGet->uUnitId, nProspectiveStart);
 
-                if (_stricmp(prospectivePalette->szPaletteName, "X-Ism Punch") == 0)
+                if (_tcsicmp(prospectivePalette->szPaletteName, _T("X-Ism Punch")) == 0)
                 {
                     // OK, we've arrived where we expected to
                     nSrcAmt = 6;
@@ -841,15 +841,15 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
                 else
                 {
-                    OutputDebugString("CGame_SFA3_A::UpdatePalImg: Possible error: we couldn't map a portrait correctly for multisprite export.\n");
+                    OutputDebugString(_T("CGame_SFA3_A::UpdatePalImg: Possible error: we couldn't map a portrait correctly for multisprite export.\n"));
                 }
             }
-            else if ((_stricmp(pCurrentNode->szDesc, "X-Ism Punch") == 0) ||
-                     (_stricmp(pCurrentNode->szDesc, "X-Ism Kick") == 0) ||
-                     (_stricmp(pCurrentNode->szDesc, "A-Ism PUnch") == 0) ||
-                     (_stricmp(pCurrentNode->szDesc, "A-Ism Kick") == 0) ||
-                     (_stricmp(pCurrentNode->szDesc, "V-Ism Punch") == 0) ||
-                     (_stricmp(pCurrentNode->szDesc, "V-Ism Kick") == 0))
+            else if ((_tcsicmp(pCurrentNode->szDesc, _T("X-Ism Punch")) == 0) ||
+                     (_tcsicmp(pCurrentNode->szDesc, _T("X-Ism Kick")) == 0) ||
+                     (_tcsicmp(pCurrentNode->szDesc, _T("A-Ism PUnch")) == 0) ||
+                     (_tcsicmp(pCurrentNode->szDesc, _T("A-Ism Kick")) == 0) ||
+                     (_tcsicmp(pCurrentNode->szDesc, _T("V-Ism Punch")) == 0) ||
+                     (_tcsicmp(pCurrentNode->szDesc, _T("V-Ism Kick")) == 0))
             {
                 // So far only Rose is actualy split up.
                 nSrcAmt = 6;

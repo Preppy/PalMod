@@ -9,7 +9,7 @@
 //File rule definition
 struct sFileRule
 {
-    char szFileName[MAX_FILENAME_LENGTH] = "uninit";
+    TCHAR szFileName[MAX_FILENAME_LENGTH] = _T("uninit");
     UINT32 uVerifyVar;
     UINT16 uUnitId = INVALID_UNIT_VALUE;
 };
@@ -31,8 +31,8 @@ enum ColFlag
 class CGameClass
 {
 protected:
-    CHAR* szDir = nullptr;
-    CHAR** szUnitFile = nullptr;
+    TCHAR* szDir = nullptr;
+    TCHAR** szUnitFile = nullptr;
     UINT16* rgFileChanged = nullptr;
     int nFileAmt = 0;
 
@@ -64,7 +64,7 @@ protected:
 
     eDispType DisplayType;
     // Used for the Export Image listbox
-    CHAR* pButtonLabel = nullptr;
+    TCHAR* pButtonLabel = nullptr;
     // How many colors a game has: P1/P2 (2), LP-HK/A2 (6), etc
     UINT8 m_nNumberOfColorOptions = 0;
 
@@ -94,10 +94,10 @@ public:
     UINT16(*ConvCol)(UINT32 inCol);
     UINT32(*ConvPal)(UINT16 inCol);
 
-    CHAR* GetUnitFile(UINT16 nUnitId) { return szUnitFile[nUnitId]; };
-    void SetUnitFile(UINT16 nUnitId, CHAR* szNewFile) { szUnitFile[nUnitId] = szNewFile; };
-    CHAR* GetLoadDir() { return szDir; };
-    BOOL SetLoadDir(CHAR* szNewDir);
+    TCHAR* GetUnitFile(UINT16 nUnitId) { return szUnitFile[nUnitId]; };
+    void SetUnitFile(UINT16 nUnitId, TCHAR* szNewFile) { szUnitFile[nUnitId] = szNewFile; };
+    TCHAR* GetLoadDir() { return szDir; };
+    BOOL SetLoadDir(TCHAR* szNewDir);
 
     ColMode GetColMode() { return CurrColMode; };
     BOOL SetColMode(ColMode NewMode);
@@ -128,7 +128,7 @@ public:
     int GetImgOutPalAmt() { return nSrcPalAmt[0]; };
     void ClearSrcPal();
 
-    CHAR* GetButtonDesc() { return pButtonLabel; };
+    TCHAR* GetButtonDesc() { return pButtonLabel; };
     eDispType GetImgDispType() { return DisplayType; };
 
     void SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc);

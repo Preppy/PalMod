@@ -40,27 +40,27 @@ enum SupportedGamesList
 //    CPalModDlg::OnEditCopy
 // 
 
-const CHAR g_GameFriendlyName[NUM_GAMES][32] =
+const TCHAR g_GameFriendlyName[NUM_GAMES][32] =
 {
-    "MvC2 (Dreamcast)",
-    "SFIII3 (Arcade)",
-    "MVC2 (Playstation)",
-    "SSF2T (Arcade)",
-    "SFA3 (Arcade)",
-    "XVSF (Arcade)",
-    "MVC (Arcade)",
-    "SFIII3 (Dreamcast)",
-    "Jojo's",
-    "MSH (Arcade)",
-    "MSHVSF (Arcade)",
-    "X-Men (Arcade)",
-    "MVC2 2 (Arcade)",
-    "Garou: MotW (Arcade)",
-    "Unknown NEO•GEO (Arcade)",
-    "KOF: 98 (Arcade)",
-    "KOF: 02UM (Steam)",
-    "CVS2 (Arcade)",
-    "Garou: MotW (Steam)"
+   _T("MvC2 (Dreamcast)"),
+   _T("SFIII3 (Arcade)"),
+   _T("MVC2 (Playstation)"),
+   _T("SSF2T (Arcade)"),
+   _T("SFA3 (Arcade)"),
+   _T("XVSF (Arcade)"),
+   _T("MVC (Arcade)"),
+   _T("SFIII3 (Dreamcast)"),
+   _T("Jojo's"),
+   _T("MSH (Arcade)"),
+   _T("MSHVSF (Arcade)"),
+   _T("X-Men (Arcade)"),
+   _T("MVC2 2 (Arcade)"),
+   _T("Garou: MotW (Arcade)"),
+   _T("Unknown NEO•GEO (Arcade)"),
+   _T("KOF: 98 (Arcade)"),
+   _T("KOF: 02UM (Steam)"),
+   _T("CVS2 (Arcade)"),
+   _T("Garou: MotW (Steam)")
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -94,70 +94,70 @@ enum eDispType
 // In the new world order, these could be the node labels, but we want the short names here
 // since they fit into the imgdump UI better.
 // If you add button labels, be sure to update CImgOutDlg::OnInitDialog and CImgDumpBmp::GetImagesPerLine as well.
-const CHAR DEF_BUTTONLABEL_2[2][16] =
+const TCHAR DEF_BUTTONLABEL_2[2][16] =
 {
-    "P1", "P2"
+    _T("P1"), _T("P2")
 };
 
-const CHAR DEF_BUTTONLABEL_NEOGEO[][16] =
+const TCHAR DEF_BUTTONLABEL_NEOGEO[][16] =
 {
-    "A", "B", "C", "D"
+    _T("A"), _T("B"), _T("C"), _T("D")
 };
 
-const CHAR DEF_BUTTONLABEL_NEOGEO_FIVE[][16] =
+const TCHAR DEF_BUTTONLABEL_NEOGEO_FIVE[][16] =
 {
-    "A", "B", "C", "D", "Boss"
+   _T("A"), _T("B"), _T("C"), _T("D"), _T("Boss")
 };
 
-const CHAR DEF_BUTTONLABEL_JOJOS_5[5][16] =
+const TCHAR DEF_BUTTONLABEL_JOJOS_5[5][16] =
 {
-    "A", "B", "C", "S", "Start"
+   _T("A"), _T("B"), _T("C"), _T("S"), _T("Start")
 };
 
-const CHAR DEF_BUTTONLABEL6[6][16] =
+const TCHAR DEF_BUTTONLABEL6[6][16] =
 {
-    "LP", "MP", "HP", "LK", "MK", "HK"
+   _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK")
 };
 
-const CHAR DEF_BUTTONLABEL_ISMS[6][16] =
+const TCHAR DEF_BUTTONLABEL_ISMS[6][16] =
 {
-    "X-Ism 1", "X-Ism 2", "A-Ism 1", "A-Ism 2", "V-Ism 1", "V-Ism 2"
+   _T("X-Ism 1"), _T("X-Ism 2"), _T("A-Ism 1"), _T("A-Ism 2"), _T("V-Ism 1"), _T("V-Ism 2")
 };
 
-const CHAR DEF_BUTTONLABEL6_MVC2[6][16] = 
+const TCHAR DEF_BUTTONLABEL6_MVC2[6][16] = 
 {
-    "LP", "LK", "HP", "HK", "A1", "A2"
+   _T("LP"), _T("LK"), _T("HP"), _T("HK"), _T("A1"), _T("A2")
 };
 
-const CHAR DEF_BUTTONLABEL7[7][16] = 
+const TCHAR DEF_BUTTONLABEL7[7][16] = 
 {
-    "LP", "MP", "HP", "LK", "MK", "HK", "EX"
+   _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("EX")
 };
 
-const CHAR DEF_BUTTONLABEL_CVS2[8][16] =
+const TCHAR DEF_BUTTONLABEL_CVS2[8][16] =
 {
-    "LP", "MP", "HP", "LK", "MK", "HK", "3P", "3K"
+   _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("3P"), _T("3K")
 };
 
-const CHAR DEF_BUTTONLABEL_ST10[10][16] =
+const TCHAR DEF_BUTTONLABEL_ST10[10][16] =
 {
-    "Jab", "Strong", "Fierce", "Short", "Forward", "RH", "Start", "Hold", "Old 1P", "Old 2P"
+   _T("Jab"), _T("Strong"), _T("Fierce"), _T("Short"), _T("Forward"), _T("RH"), _T("Start"), _T("Hold"), _T("Old 1P"), _T("Old 2P")
 };
 
-const CHAR DEF_NOBUTTONS[1][16] =
+const TCHAR DEF_NOBUTTONS[1][16] =
 {
-    "Special"
+   _T("Special")
 };
 
-const CHAR DEF_LABEL_STATUS_EFFECTS[8][16] =
+const TCHAR DEF_LABEL_STATUS_EFFECTS[8][16] =
 {
-    "Burn 1", "Burn 2", "Shock 1", "Shock 2", "Dark 1", "Dark 2", "Kinetic 1", "Kinetic 2"
+   _T("Burn 1"), _T("Burn 2"), _T("Shock 1"), _T("Shock 2"), _T("Dark 1"), _T("Dark 2"), _T("Kinetic 1"), _T("Kinetic 2")
 };
 
 struct stExtraDef
 {
     UINT16 uUnitN = INVALID_UNIT_VALUE;
-    CHAR szDesc[MAX_DESCRIPTION_LENGTH] = "uninit";
+    TCHAR szDesc[MAX_DESCRIPTION_LENGTH] = _T("uninit");
     UINT32 uOffset = 0;
     UINT16 cbPaletteSize = 0;
     bool isInvisible = false;
@@ -172,7 +172,7 @@ struct stPairedPaletteInfo
 
 struct sGame_PaletteDataset
 {
-    LPCSTR szPaletteName = "uninit";
+    LPCTSTR szPaletteName = _T("uninit");
     UINT32 nPaletteOffset = 0;
     UINT32 nPaletteOffsetEnd = 0;
     UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index

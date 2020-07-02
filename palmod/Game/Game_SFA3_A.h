@@ -3,7 +3,7 @@
 #include "SFA3_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SFA3 = "SFA3e.txt";
+constexpr auto EXTRA_FILENAME_SFA3 = _T("SFA3e.txt");
 #define GetExtraDefForSFA3(x)((stExtraDef *)&SFA3_A_EXTRA_CUSTOM[x])
 
 class CGame_SFA3_A : public CGameWithExtrasFile
@@ -54,7 +54,7 @@ public:
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static LPCTSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 

@@ -124,19 +124,19 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
         switch (NewMode)
         {
         case COLMODE_12A:
-            strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", "COLMOD_12A (ARGB444)");
+            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMOD_12A (ARGB444)"));
             break;
         case COLMODE_15:
-            strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", "COLMODE_15 (BGR555)");
+            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMODE_15 (BGR555)"));
             break;
         case COLMODE_15ALT:
-            strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", "COLMODE_15ALT (RGB555)");
+            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMODE_15ALT (RGB555)"));
             break;
         case COLMODE_NEOGEO:
-            strDebugInfo.Format("CGameClass::SetColMode : Switching color mode to '%s'. \n", "COLMODE_NEOGEO (RGB666)");
+            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMODE_NEOGEO (RGB666)"));
             break;
         default:
-            strDebugInfo.Format("CGameClass::SetColMode : unsupported color mode.");
+            strDebugInfo.Format(_T("CGameClass::SetColMode : unsupported color mode."));
             break;
         }
         OutputDebugString(strDebugInfo);
@@ -396,7 +396,7 @@ UINT32 CGameClass::CONV_NEOGEO_32(UINT16 nColorData)
     UINT32 color = (red * 0x10000) + (green * 0x100) + (blue) + 0xff000000;
 
     //CString strColor;
-    //strColor.Format("ROM : neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n", nColorData, color, red, green, blue);
+    //strColor.Format(_T("ROM : neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n"), nColorData, color, red, green, blue);
     //OutputDebugString(strColor);
 
     return color;
@@ -423,7 +423,7 @@ UINT16 CGameClass::CONV_32_NEOGEO(UINT32 inCol)
 
     UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
     //CString strColor;
-    //strColor.Format("BACK: neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n", outColor, inCol, red, green, blue);
+    //strColor.Format(_T("BACK: neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n"), outColor, inCol, red, green, blue);
     //OutputDebugString(strColor);
 
     return outColor;
@@ -437,12 +437,12 @@ UINT16 CGameClass::SWAP_16(UINT16 palv)
     return aux;
 }
 
-BOOL CGameClass::SetLoadDir(CHAR* szNewDir)
+BOOL CGameClass::SetLoadDir(TCHAR* szNewDir)
 {
     if (!szDir)
     {
-        szDir = new CHAR[strlen(szNewDir) + 1];
-        strcpy(szDir, szNewDir);
+        szDir = new TCHAR[_tcslen(szNewDir) + 1];
+        _tcscpy(szDir, szNewDir);
 
         return TRUE;
     }
@@ -456,19 +456,19 @@ void CGameClass::SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, 
 {
     if (nIndex >= 4)
     {
-        OutputDebugString(" CGameClass::SetSourcePal:: ERROR: PalMod only supports four palettes per display.\n");
+        OutputDebugString(_T(" CGameClass::SetSourcePal:: ERROR: PalMod only supports four palettes per display.\n"));
         return;
     }
 
 #if GAMECLASS_DBG
     CString strMsg;
-    strMsg.Format("CGameClass::SetSourcePal: For unit 0x%02x setting starting palette 0x%02x, displaying %u maximum, and incrementing 0x%x per button.\n", nUnitId, nStart, nAmt, nInc);
+    strMsg.Format(_T("CGameClass::SetSourcePal: For unit 0x%02x setting starting palette 0x%02x, displaying %u maximum, and incrementing 0x%x per button.\n"), nUnitId, nStart, nAmt, nInc);
     OutputDebugString(strMsg);
 
     if ((nAmt > 1) && // If this game wants to allow multisprite export
         (nStart > nInc)) // This starting point is in the second or later node: that's potentially a problem.
     {
-        OutputDebugString("\tCGameClass::SetSourcePal: Warning: you're using multisprite export in what is hopefully an Extras node.  Be careful.\n");
+        OutputDebugString(_T("\tCGameClass::SetSourcePal: Warning: you're using multisprite export in what is hopefully an Extras node.  Be careful.\n"));
     }
 #endif
 

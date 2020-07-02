@@ -62,42 +62,42 @@ BOOL CImgOutDlg::OnInitDialog()
 
     nPalAmt = m_DumpBmp.nPalAmt;
 
-    m_CB_Amt.AddString("1");
+    m_CB_Amt.AddString(_T("1"));
 
-    tmp_str.Format("CImgOutDlg::OnInitDialog: preparing to show up to %u sprites\n", nPalAmt);
+    tmp_str.Format(_T("CImgOutDlg::OnInitDialog: preparing to show up to %u sprites\n"), nPalAmt);
     OutputDebugString(tmp_str);
 
     //Fix later... as we add more games
     switch (nPalAmt)
     {
     default:
-        OutputDebugString("WARNING BUGBUG: This palette count is not supported in CImgOutDlg::OnInitDialog yet!\n");
+        OutputDebugString(_T("WARNING BUGBUG: This palette count is not supported in CImgOutDlg::OnInitDialog yet!\n"));
     case 1:
         // By default, we export out only the one sprite
         m_CB_Amt.EnableWindow(FALSE);
         break;
     case 2: // MSH, XMvSF
-        m_CB_Amt.AddString("2");
+        m_CB_Amt.AddString(_T("2"));
         break;
     case 4: // Garou
-        m_CB_Amt.AddString("4");
+        m_CB_Amt.AddString(_T("4"));
         break;
     case 5: // Jojos & Garou
-        m_CB_Amt.AddString("5");
+        m_CB_Amt.AddString(_T("5"));
         break;
     case 6: // MvC, MvC2
     case 7: // 3S
-        m_CB_Amt.AddString("6");
+        m_CB_Amt.AddString(_T("6"));
         // Allow the user to export either the "normal" 6 sprite set or to export
         // the entire 7 sprite set
-        nPalAmt == 7 ? m_CB_Amt.AddString("7") : NULL;
+        nPalAmt == 7 ? m_CB_Amt.AddString(_T("7")) : NULL;
         break;
     case 8: // status effects or cvs2
-        m_CB_Amt.AddString("8");
+        m_CB_Amt.AddString(_T("8"));
         break;
     case 10: // ST
-        m_CB_Amt.AddString("6");
-        m_CB_Amt.AddString("10");
+        m_CB_Amt.AddString(_T("6"));
+        m_CB_Amt.AddString(_T("10"));
         break;
     }
 
@@ -114,12 +114,12 @@ BOOL CImgOutDlg::OnInitDialog()
     {
         if (i == 3 * 5)
         {
-            tmp_str.Format("4.0x");
+            tmp_str.Format(_T("4.0x"));
 
         }
         else
         {
-            tmp_str.Format("%d.%dx", 1 + (i / 5), (i % 5) * 2);
+            tmp_str.Format(_T("%d.%dx"), 1 + (i / 5), (i % 5) * 2);
         }
 
         m_CB_Zoom.AddString(tmp_str);
@@ -246,10 +246,10 @@ void CImgOutDlg::OnCbnSelchangeAmt()
 {
     UpdateData();
 
-    char szCount[32];
+    TCHAR szCount[32];
     if (m_CB_Amt.GetLBText(m_CB_Amt.GetCurSel(), szCount) != CB_ERR)
     {
-        sscanf_s(szCount, "%u", &img_amt);
+        _stscanf_s(szCount, _T("%u"), &img_amt);
 
         m_CB_Pal.EnableWindow(img_amt == 1);
 
@@ -277,7 +277,7 @@ void CImgOutDlg::FillPalCombo()
     }
     else
     {
-        m_CB_Pal.AddString("Selected");
+        m_CB_Pal.AddString(_T("Selected"));
     }
 
     m_CB_Pal.SetCurSel(0);
@@ -403,7 +403,7 @@ void CImgOutDlg::OnFileSave()
         NULL,
         NULL,
         OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY,
-        "PNG Image (*.png)|*.png|GIF Image (*.gif)|*.GIF|BMP Image (*.bmp)|*.BMP|JPEG Image (*.jpg)|*.jpg||"
+        _T("PNG Image (*.png)|*.png|GIF Image (*.gif)|*.GIF|BMP Image (*.bmp)|*.BMP|JPEG Image (*.jpg)|*.jpg||")
     );
 
     if (sfd.DoModal() == IDOK)
@@ -411,7 +411,7 @@ void CImgOutDlg::OnFileSave()
         int output_width = m_DumpBmp.GetOutputW();
         int output_height = m_DumpBmp.GetOutputH();
 
-        CString output_ext = ".png";
+        CString output_ext = _T(".png");
         GUID img_format = ImageFormatPNG;
 
         switch (sfd.GetOFN().nFilterIndex)
@@ -420,25 +420,25 @@ void CImgOutDlg::OnFileSave()
         case 1:
         {
             img_format = ImageFormatPNG;
-            output_ext = ".png";
+            output_ext = _T(".png");
             break;
         }
         case 2:
         {
             img_format = ImageFormatGIF;
-            output_ext = ".gif";
+            output_ext = _T(".gif");
             break;
         }
         case 3:
         {
             img_format = ImageFormatBMP;
-            output_ext = ".bmp";
+            output_ext = _T(".bmp");
             break;
         }
         case 4:
         {
             img_format = ImageFormatJPEG;
-            output_ext = ".jpg";
+            output_ext = _T(".jpg");
             break;
         }
         }
@@ -471,7 +471,7 @@ void CImgOutDlg::OnFileSave()
         }
         else
         {
-            output_str.Format("%s%s", sfd_ofn.lpstrFile, output_ext);
+            output_str.Format(_T("%s%s"), sfd_ofn.lpstrFile, output_ext);
         }
 
         out_img.Save(output_str, img_format);

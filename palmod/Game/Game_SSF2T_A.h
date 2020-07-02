@@ -3,8 +3,8 @@
 #include "SSF2T_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SSF2T_3C = "ssf2t-3ce.txt";
-constexpr auto EXTRA_FILENAME_SSF2T_4A = "ssf2t-4ae.txt";
+constexpr auto EXTRA_FILENAME_SSF2T_3C = _T("ssf2t-3ce.txt");
+constexpr auto EXTRA_FILENAME_SSF2T_4A = _T("ssf2t-4ae.txt");
 
 #define GetExtraDefForSSF2T(x) (UsePaletteSetForPortraits() ? ((stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_3C[x]) : ((stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_4A[x]))
 
@@ -65,7 +65,7 @@ public:
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static LPCTSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 

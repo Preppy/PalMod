@@ -26,7 +26,8 @@ enum eVerifyType
     VM_FILECHANGE
 };
 
-#define DEFAULT_STATUS_TEXT "Always keep a backup of files!"
+constexpr auto DEFAULT_STATUS_TEXT = _T("Always keep a backup of files!");
+
 // CPalModDlg dialog
 class CPalModDlg : public CDialog
 {
@@ -84,11 +85,11 @@ public:
 
     //Program functions
 
-    void LoadGameDir(int nGameFlag, CHAR * szLoadDir);
+    void LoadGameDir(int nGameFlag, TCHAR * szLoadDir);
     BOOL SetLoadDir(CString* szOut);
     void UpdateAppTitle();
 
-    void LoadGameFile(int nGameFlag, CHAR * szFile);
+    void LoadGameFile(int nGameFlag, TCHAR * szFile);
 
     void LoadLastDir();
 
@@ -103,7 +104,7 @@ public:
     void SaveSettings();
     void UpdateSettingsMenuItems();
 
-    void LoadPaletteFromPNG(LPCSTR pszFileName);
+    void LoadPaletteFromPNG(LPCTSTR pszFileName);
 
     void UpdateSliderSel(BOOL bModeChange = FALSE, BOOL bResetRF = FALSE);
     void SetColMode(int nColMode);

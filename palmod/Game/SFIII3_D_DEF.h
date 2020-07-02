@@ -3,29 +3,29 @@
 #define SFIII3_D_NUMUNIT 0x14
 #define SFIII3_D_PALSZ 64
 
-const char SFIII3_D_UNITDESC[SFIII3_D_NUMUNIT][16] = 
+const TCHAR SFIII3_D_UNITDESC[SFIII3_D_NUMUNIT][16] = 
 {
-    //"Gill",        //0x
-    "Alex",          //0x00 
-    "Ryu",           //0x01
-    "Yun",           //0x02
-    "Dudley",        //0x03
-    "Necro",         //0x04
-    "Hugo",          //0x05
-    "Ibuki",         //0x06
-    "Elena",         //0x07
-    "Oro",           //0x08
-    "Yang",          //0x09
-    "Ken",           //0x0A
-    "Sean",          //0x0B
-    "Urien",         //0x0C
-    "Gouki",         //0x0D
-    "Shin-Gouki",    //0x0E  // Shin-Gouki is not present on the Dreamcast
-    "Chun-Li",       //0x0F
-    "Makoto",        //0x10
-    "Q",             //0x11
-    "Twelve",        //0x12
-    "Remy"           //0x13
+    //"Gill"),        //0x
+    _T("Alex"),          //0x00 
+    _T("Ryu"),           //0x01
+    _T("Yun"),           //0x02
+    _T("Dudley"),        //0x03
+    _T("Necro"),         //0x04
+    _T("Hugo"),          //0x05
+    _T("Ibuki"),         //0x06
+    _T("Elena"),         //0x07
+    _T("Oro"),           //0x08
+    _T("Yang"),          //0x09
+    _T("Ken"),           //0x0A
+    _T("Sean"),          //0x0B
+    _T("Urien"),         //0x0C
+    _T("Gouki"),         //0x0D
+    _T("Shin-Gouki"),    //0x0E  // Shin-Gouki is not present on the Dreamcast
+    _T("Chun-Li"),       //0x0F
+    _T("Makoto"),        //0x10
+    _T("Q"),             //0x11
+    _T("Twelve"),        //0x12
+    _T("Remy")           //0x13
 };
 
 const UINT8 SFIII3_D_UNITSORT[SFIII3_D_NUMUNIT] = //Plus 1 for the extra palettes

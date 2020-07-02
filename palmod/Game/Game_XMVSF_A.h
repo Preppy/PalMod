@@ -3,7 +3,7 @@
 #include "XMVSF_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_XMVSF = "XMVSFe.txt";
+constexpr auto EXTRA_FILENAME_XMVSF = _T("XMVSFe.txt");
 #define GetExtraDefForXMVSF(x)((stExtraDef *)&XMVSF_A_EXTRA_CUSTOM[x])
 
 class CGame_XMVSF_A : public CGameWithExtrasFile
@@ -50,7 +50,7 @@ public:
     static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
 
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static LPCTSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 

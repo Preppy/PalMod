@@ -9,7 +9,7 @@
 
 // IMG.dat contains all the sprites used for preview.
 // Magnetro ripped the sprites, eidrian used PSP to arrange them, and then suupabuu integrated them.
-#define IMGDATFILE "img2020.dat"
+#define IMGDATFILE _T("img2020.dat")
 
 #include "resource.h"        // main symbols
 

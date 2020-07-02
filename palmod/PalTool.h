@@ -15,7 +15,7 @@
 struct sPalEntry
 {
     CJunk* PaletteCtrl = nullptr;
-    CHAR* szPalStr = nullptr;
+    TCHAR* szPalStr = nullptr;
     BOOL bAvail = FALSE;
 };
 
@@ -64,7 +64,7 @@ public:
 
     void BeginSetPal();
     void EndSetPal();
-    void SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, CHAR* szNewPalStr);
+    void SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, TCHAR* szNewPalStr);
     int GetNotifyIndex() { return nNotifyCtrlIndex; };
     CJunk* GetNotifyPal() { return pPalEntry[nNotifyCtrlIndex].PaletteCtrl; };
     CJunk* GetPalCtrl(int nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].PaletteCtrl : NULL; };

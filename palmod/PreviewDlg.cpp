@@ -59,12 +59,12 @@ void CPreviewDlg::InitDispCtrl()
         RECT rClient;
         GetClientRect(&rClient);
 
-        m_ImgDisp.Create("CImgDisp", "ImgDisp", WS_CHILD | WS_VISIBLE, rClient, this, 1234);
+        m_ImgDisp.Create(_T("CImgDisp"), _T("ImgDisp"), WS_CHILD | WS_VISIBLE, rClient, this, 1234);
         bImgDispInit = TRUE;
     }
 }
 
-void CPreviewDlg::SetWindowCaption(LPCSTR pszCaption)
+void CPreviewDlg::SetWindowCaption(LPCTSTR pszCaption)
 {
     SetWindowText(pszCaption);
 }
@@ -136,7 +136,7 @@ void CPreviewDlg::OnSetBlinkCol()
 
 void CPreviewDlg::OnSetBGImage()
 {
-    CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, "Standard graphics files|*.bmp; *.png; *.gif; *.jpg; *.jpeg||", this);
+    CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, _T("Standard graphics files|*.bmp; *.png; *.gif; *.jpg; *.jpeg||"), this);
 
     if (OpenDialog.DoModal() == IDOK)
     {
@@ -196,8 +196,10 @@ void CPreviewDlg::LoadSettings()
 
         ::GetWindowRect(g_appHWnd, &window_rect);
 
-        window_rect.left += (window_rect.right - window_rect.left);
-        window_rect.right += (window_rect.right - window_rect.left);
+        long nWindowDelta = (window_rect.right - window_rect.left);
+
+        window_rect.left += nWindowDelta;
+        window_rect.right += nWindowDelta;
 
         if (MonitorFromRect(&window_rect, MONITOR_DEFAULTTONULL) != nullptr)
         {
@@ -230,7 +232,7 @@ void CPreviewDlg::SaveSettings()
 {
     CRegProc SaveSett;
 
-    strcpy(SaveSett.szPrevBGLoc, szBGLoc.GetBuffer());
+    _tcscpy(SaveSett.szPrevBGLoc, szBGLoc.GetBuffer());
     SaveSett.prev_bgcol = m_ImgDisp.GetBGCol();
     SaveSett.prev_blinkcol = m_ImgDisp.GetBlinkCol();
     SaveSett.bTileBG = m_ImgDisp.IsBGTiled();
@@ -345,7 +347,7 @@ void CPreviewDlg::OnLoadCustomSprite()
 {
     if (GetHost()->GetCurrGame())
     {
-        CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, "RAW Texture file|*-W-*-H-*.*||", this);
+        CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, _T("RAW Texture file|*-W-*-H-*.*||"), this);
 
         if (OpenDialog.DoModal() == IDOK)
         {

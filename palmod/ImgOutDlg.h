@@ -43,7 +43,7 @@ public:
 
     BOOL bTransPNG = FALSE;
 
-    CHAR* pButtonLabel = nullptr;
+    TCHAR* pButtonLabel = nullptr;
 
     int nPalAmt = 0;
 

@@ -6,8 +6,8 @@
 
 #define JOJOS_A_USEEXTRAFILE
 
-constexpr auto EXTRA_FILENAME_50 = "jojos50e.txt";
-constexpr auto EXTRA_FILENAME_51 = "jojos51e.txt";
+constexpr auto EXTRA_FILENAME_50 = _T("jojos50e.txt");
+constexpr auto EXTRA_FILENAME_51 = _T("jojos51e.txt");
 
 #ifdef JOJOS_A_USEEXTRAFILE
 #define GetJojosExtraDef(x) (UsePaletteSetFor50() ? ((stExtraDef *)&JOJOS_A_EXTRA_CUSTOM_50[x]) : ((stExtraDef *)&JOJOS_A_EXTRA_CUSTOM_51[x]))
@@ -74,7 +74,7 @@ public:
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static LPCTSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);

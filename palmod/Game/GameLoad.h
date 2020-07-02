@@ -13,7 +13,7 @@ private:
     sFileRule(*GetRule)(UINT16);
     CGameClass* CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int nExtraGameData = 0);
 
-    CString szLoadSaveStr = "";
+    CString szLoadSaveStr = _T("");
 
     int nSaveLoadCount = 0;
     int nSaveLoadSucc = 0;
@@ -23,8 +23,8 @@ public:
     CGameLoad(void);
     ~CGameLoad(void);
 
-    CGameClass* LoadFile(int nGameFlag, CHAR* szLoadFile);
-    CGameClass* LoadDir(int nGameFlag, CHAR* szLoadDir);
+    CGameClass* LoadFile(int nGameFlag, TCHAR* szLoadFile);
+    CGameClass* LoadDir(int nGameFlag, TCHAR* szLoadDir);
     void SaveGame(CGameClass* CurrGame);
 
     int GetErrCt() { return nSaveLoadErr; };

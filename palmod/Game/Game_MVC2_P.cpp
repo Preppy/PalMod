@@ -20,7 +20,7 @@ sFileRule CGame_MVC2_P::GetRule(UINT16 nRuleId)
     sFileRule NewFileRule;
 
     nRuleId = (nRuleId & 0xFF00) == 0xFF00 ? (nRuleId & 0x00FF) : MVC2_D_UNITSORT[nRuleId];
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "PL%02XPAK.BIN", nRuleId);
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("PL%02XPAK.BIN"), nRuleId);
 
     NewFileRule.uUnitId = nRuleId;
     NewFileRule.uVerifyVar = (short int)-1;

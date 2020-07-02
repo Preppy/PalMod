@@ -3,8 +3,8 @@
 #include "MSHVSF_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_MSHVSF_6A = "mshvsf-6ae.txt";
-constexpr auto EXTRA_FILENAME_MSHVSF_7B = "mshvsf-7be.txt";
+constexpr auto EXTRA_FILENAME_MSHVSF_6A = _T("mshvsf-6ae.txt");
+constexpr auto EXTRA_FILENAME_MSHVSF_7B = _T("mshvsf-7be.txt");
 
 #define GetExtraDefForMSHVSF(x) (UsePaletteSetForCharacters() ? ((stExtraDef *)&MSHVSF_A_EXTRA_CUSTOM_6A[x]) : ((stExtraDef *)&MSHVSF_A_EXTRA_CUSTOM_7B[x]))
 
@@ -65,7 +65,7 @@ public:
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static LPCTSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 

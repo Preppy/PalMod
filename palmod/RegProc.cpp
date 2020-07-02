@@ -2,13 +2,13 @@
 #include "PalMod.h"
 #include "regproc.h"
 
-constexpr auto c_previewWndPos = "prev_wndpos";
+constexpr auto c_previewWndPos = _T("prev_wndpos");
 // Display options for 8 colors or for 16 colors per line
-constexpr auto c_mainWndPos_8ColorsPerLine = "main_wndpos_02"; // changed default app size so incrementing this
-constexpr auto c_mainWndPos_16ColorsPerLine = "main_wndpos_02_16c";
-constexpr auto c_mainWndColorsPerLine = "main_wndColorsPerLine";
-constexpr auto c_mainWndMaxColorsPerPage = "extras_MaxColorsPerPage";
-constexpr auto c_mainWndForcePeerPreviewWindow = "extras_ForcePeerPreviewWindow";
+constexpr auto c_mainWndPos_8ColorsPerLine = _T("main_wndpos_02"); // changed default app size so incrementing this
+constexpr auto c_mainWndPos_16ColorsPerLine = _T("main_wndpos_02_16c");
+constexpr auto c_mainWndColorsPerLine = _T("main_wndColorsPerLine");
+constexpr auto c_mainWndMaxColorsPerPage = _T("extras_MaxColorsPerPage");
+constexpr auto c_mainWndForcePeerPreviewWindow = _T("extras_ForcePeerPreviewWindow");
 
 extern int GetDpiForScreen();
 
@@ -144,26 +144,26 @@ void CRegProc::LoadReg(int src)
             RegType = REG_DWORD;
             GetSz = sizeof(BOOL);
 
-            if (RegQueryValueEx(hKey, "main_getcolor", 0, &RegType, (BYTE*)&main_bGetColor, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("main_getcolor"), 0, &RegType, (BYTE*)&main_bGetColor, &GetSz) != ERROR_SUCCESS)
                 main_bGetColor = c_mainDefaultGetColor;
 
-            if (RegQueryValueEx(hKey, "main_alphatrans", 0, &RegType, (BYTE*)&main_bAlphaTrans, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("main_alphatrans"), 0, &RegType, (BYTE*)&main_bAlphaTrans, &GetSz) != ERROR_SUCCESS)
                 main_bAlphaTrans = c_mainDefaultAlphaTrans;
 
-            if (RegQueryValueEx(hKey, "main_show32", 0, &RegType, (BYTE*)&main_bShow32, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("main_show32"), 0, &RegType, (BYTE*)&main_bShow32, &GetSz) != ERROR_SUCCESS)
                 main_bShow32 = c_mainDefaultShowAs32;
 
-            if (RegQueryValueEx(hKey, "main_procsupps", 0, &RegType, (BYTE*)&main_bProcSupp, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("main_procsupps"), 0, &RegType, (BYTE*)&main_bProcSupp, &GetSz) != ERROR_SUCCESS)
                 main_bProcSupp = c_mainDefaultProcSupp;
 
-            if (RegQueryValueEx(hKey, "AutoSetColor", 0, &RegType, (BYTE*)&main_bAutoSetCol, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("AutoSetColor"), 0, &RegType, (BYTE*)&main_bAutoSetCol, &GetSz) != ERROR_SUCCESS)
                 main_bAutoSetCol = c_mainDefaultAutoSetCol;
 
             RegType = REG_SZ;
             GetSz = RECT_STRSZ;
 
             CString strPosAndDpi;
-            strPosAndDpi.Format("%s_%u", (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
+            strPosAndDpi.Format(_T("%s_%u"), (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
 
             if (RegQueryValueEx(hKey, strPosAndDpi, 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
             {
@@ -187,26 +187,26 @@ void CRegProc::LoadReg(int src)
             RegType = REG_DWORD;
             GetSz = sizeof(BOOL); //int is same size as bool, so...
 
-            if (RegQueryValueEx(hKey, "prev_bgcol", 0, &RegType, (BYTE*)&prev_bgcol, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("prev_bgcol"), 0, &RegType, (BYTE*)&prev_bgcol, &GetSz) != ERROR_SUCCESS)
                 prev_bgcol = RGB(0, 0, 0);
 
-            if (RegQueryValueEx(hKey, "prev_blinkcol", 0, &RegType, (BYTE*)&prev_blinkcol, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("prev_blinkcol"), 0, &RegType, (BYTE*)&prev_blinkcol, &GetSz) != ERROR_SUCCESS)
                 prev_blinkcol = RGB(255, 255, 255);
 
-            if (RegQueryValueEx(hKey, "PreviewTiledBG", 0, &RegType, (BYTE*)&bTileBG, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("PreviewTiledBG"), 0, &RegType, (BYTE*)&bTileBG, &GetSz) != ERROR_SUCCESS)
                 bTileBG = TRUE;
 
-            if (RegQueryValueEx(hKey, "PreviewBGXOffset", 0, &RegType, (BYTE*)&nBGXOffs, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("PreviewBGXOffset"), 0, &RegType, (BYTE*)&nBGXOffs, &GetSz) != ERROR_SUCCESS)
                 nBGXOffs = 0;
 
-            if (RegQueryValueEx(hKey, "PreviewBGYOffset", 0, &RegType, (BYTE*)&nBGYOffs, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("PreviewBGYOffset"), 0, &RegType, (BYTE*)&nBGYOffs, &GetSz) != ERROR_SUCCESS)
                 nBGYOffs = 0;
 
-            if (RegQueryValueEx(hKey, "UseBGCol", 0, &RegType, (BYTE*)&bUseBGCol, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("UseBGCol"), 0, &RegType, (BYTE*)&bUseBGCol, &GetSz) != ERROR_SUCCESS)
                 bUseBGCol = TRUE;
 
             int nTranslation = 0;
-            if (RegQueryValueEx(hKey, "PreviewZoom", 0, &RegType, (BYTE*)&nTranslation, &GetSz) == ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("PreviewZoom"), 0, &RegType, (BYTE*)&nTranslation, &GetSz) == ERROR_SUCCESS)
             {
                 dPreviewZoom = (double)nTranslation;
             }
@@ -236,12 +236,12 @@ void CRegProc::LoadReg(int src)
             //Reset get size 
             GetSz = MAX_PATH;
             if (
-                RegQueryValueEx(hKey, "PreviewBGFile", 0, &RegType, (BYTE*)szPrevBGLoc, &GetSz) != ERROR_SUCCESS
+                RegQueryValueEx(hKey, _T("PreviewBGFile"), 0, &RegType, (BYTE*)szPrevBGLoc, &GetSz) != ERROR_SUCCESS
                 && GetFileAttributes(szPrevBGLoc) != FILE_ATTRIBUTE_ARCHIVE)
             {
                 CString szTemp;
                 GetModuleFileName(NULL, szTemp.GetBufferSetLength(MAX_PATH), MAX_PATH);
-                strcpy(szPrevBGLoc, szTemp.Left(szTemp.ReverseFind('\\') + 1) + BGBMPFILE);
+                _tcscpy(szPrevBGLoc, szTemp.Left(szTemp.ReverseFind('\\') + 1) + BGBMPFILE);
             }
         }
         break;
@@ -250,17 +250,17 @@ void CRegProc::LoadReg(int src)
             RegType = REG_DWORD;
             GetSz = sizeof(DWORD);
 
-            if (RegQueryValueEx(hKey, "imgout_bgcol", 0, &RegType, (BYTE*)&imgout_bgcol, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("imgout_bgcol"), 0, &RegType, (BYTE*)&imgout_bgcol, &GetSz) != ERROR_SUCCESS)
                 imgout_bgcol = RGB(0, 0, 0);
 
-            if (RegQueryValueEx(hKey, "imgout_border", 0, &RegType, (BYTE*)&imgout_border, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("imgout_border"), 0, &RegType, (BYTE*)&imgout_border, &GetSz) != ERROR_SUCCESS)
                 imgout_border = 0;
 
-            if (RegQueryValueEx(hKey, "imgout_zoomindex", 0, &RegType, (BYTE*)&imgout_zoomindex, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("imgout_zoomindex"), 0, &RegType, (BYTE*)&imgout_zoomindex, &GetSz) != ERROR_SUCCESS)
                 imgout_zoomindex = 0;
 
             GetSz = sizeof(BOOL);
-            if (RegQueryValueEx(hKey, "TransparentPNG", 0, &RegType, (BYTE*)&bTransPNG, &GetSz) != ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("TransparentPNG"), 0, &RegType, (BYTE*)&bTransPNG, &GetSz) != ERROR_SUCCESS)
             {
                 bTransPNG = TRUE;
             }
@@ -268,7 +268,7 @@ void CRegProc::LoadReg(int src)
             RegType = REG_SZ;
             GetSz = RECT_STRSZ;
 
-            if (RegQueryValueEx(hKey, "imgout_szpos", 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
+            if (RegQueryValueEx(hKey, _T("imgout_szpos"), 0, &RegType, (BYTE*)conv_str.GetBufferSetLength(RECT_STRSZ), &GetSz) == ERROR_SUCCESS)
             {
                 imgout_szpos = StrToRect(conv_str);
 
@@ -303,50 +303,50 @@ void CRegProc::SaveReg(int src)
         {
         case REG_MAIN:
         {
-            RegSetValueEx(hKey, "main_getcolor", 0, REG_DWORD, (BYTE*)&main_bGetColor, sizeof(BOOL));
-            RegSetValueEx(hKey, "main_alphatrans", 0, REG_DWORD, (BYTE*)&main_bAlphaTrans, sizeof(BOOL));
-            RegSetValueEx(hKey, "main_show32", 0, REG_DWORD, (BYTE*)&main_bShow32, sizeof(BOOL));
-            RegSetValueEx(hKey, "main_procsupps", 0, REG_DWORD, (BYTE*)&main_bProcSupp, sizeof(BOOL));
-            RegSetValueEx(hKey, "AutoSetColor", 0, REG_DWORD, (BYTE*)&main_bAutoSetCol, sizeof(BOOL));
+            RegSetValueEx(hKey, _T("main_getcolor"), 0, REG_DWORD, (BYTE*)&main_bGetColor, sizeof(BOOL));
+            RegSetValueEx(hKey, _T("main_alphatrans"), 0, REG_DWORD, (BYTE*)&main_bAlphaTrans, sizeof(BOOL));
+            RegSetValueEx(hKey, _T("main_show32"), 0, REG_DWORD, (BYTE*)&main_bShow32, sizeof(BOOL));
+            RegSetValueEx(hKey, _T("main_procsupps"), 0, REG_DWORD, (BYTE*)&main_bProcSupp, sizeof(BOOL));
+            RegSetValueEx(hKey, _T("AutoSetColor"), 0, REG_DWORD, (BYTE*)&main_bAutoSetCol, sizeof(BOOL));
 
             conv_str = RectToStr(main_szpos);
 
             CString strPosAndDpi;
-            strPosAndDpi.Format("%s_%u", (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
+            strPosAndDpi.Format(_T("%s_%u"), (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? c_mainWndPos_8ColorsPerLine : c_mainWndPos_16ColorsPerLine, GetDpiForScreen());
 
-            RegSetValueEx(hKey, strPosAndDpi, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), conv_str.GetLength() + 1);
+            RegSetValueEx(hKey, strPosAndDpi, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(TCHAR) * (conv_str.GetLength() + 1));
         }
         break;
 
         case REG_PREV:
         {
-            RegSetValueEx(hKey, "prev_bgCol", 0, REG_DWORD, (BYTE*)&prev_bgcol, sizeof(COLORREF));
-            RegSetValueEx(hKey, "prev_blinkCol", 0, REG_DWORD, (BYTE*)&prev_blinkcol, sizeof(COLORREF));
+            RegSetValueEx(hKey, _T("prev_bgCol"), 0, REG_DWORD, (BYTE*)&prev_bgcol, sizeof(COLORREF));
+            RegSetValueEx(hKey, _T("prev_blinkCol"), 0, REG_DWORD, (BYTE*)&prev_blinkcol, sizeof(COLORREF));
 
             conv_str = RectToStr(prev_szpos);
 
-            RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), conv_str.GetLength() + 1);
-            RegSetValueEx(hKey, "PreviewBGFile", 0, REG_SZ, (BYTE*)szPrevBGLoc, (DWORD)((strlen(szPrevBGLoc) + 1) * sizeof(CHAR)));
-            RegSetValueEx(hKey, "PreviewTiledBG", 0, REG_DWORD, (BYTE*)&bTileBG, sizeof(BOOL));
-            RegSetValueEx(hKey, "PreviewBGXOffset", 0, REG_DWORD, (BYTE*)&nBGXOffs, sizeof(int));
-            RegSetValueEx(hKey, "PreviewBGYOffset", 0, REG_DWORD, (BYTE*)&nBGYOffs, sizeof(int));
-            RegSetValueEx(hKey, "UseBGCol", 0, REG_DWORD, (BYTE*)&bUseBGCol, sizeof(int));
+            RegSetValueEx(hKey, c_previewWndPos, 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(TCHAR) * (conv_str.GetLength() + 1));
+            RegSetValueEx(hKey, _T("PreviewBGFile"), 0, REG_SZ, (BYTE*)szPrevBGLoc, (DWORD)((_tcslen(szPrevBGLoc) + 1) * sizeof(TCHAR)));
+            RegSetValueEx(hKey, _T("PreviewTiledBG"), 0, REG_DWORD, (BYTE*)&bTileBG, sizeof(BOOL));
+            RegSetValueEx(hKey, _T("PreviewBGXOffset"), 0, REG_DWORD, (BYTE*)&nBGXOffs, sizeof(int));
+            RegSetValueEx(hKey, _T("PreviewBGYOffset"), 0, REG_DWORD, (BYTE*)&nBGYOffs, sizeof(int));
+            RegSetValueEx(hKey, _T("UseBGCol"), 0, REG_DWORD, (BYTE*)&bUseBGCol, sizeof(int));
 
             int nTranslation = (int)dPreviewZoom;
-            RegSetValueEx(hKey, "PreviewZoom", 0, REG_DWORD, (BYTE*)&nTranslation, sizeof(int));
+            RegSetValueEx(hKey, _T("PreviewZoom"), 0, REG_DWORD, (BYTE*)&nTranslation, sizeof(int));
         }
         break;
 
         case REG_IMGOUT:
         {
-            RegSetValueEx(hKey, "imgout_bgcol", 0, REG_DWORD, (BYTE*)&imgout_bgcol, sizeof(COLORREF));
-            RegSetValueEx(hKey, "imgout_border", 0, REG_DWORD, (BYTE*)&imgout_border, sizeof(DWORD));
-            RegSetValueEx(hKey, "imgout_zoomindex", 0, REG_DWORD, (BYTE*)&imgout_zoomindex, sizeof(DWORD));
-            RegSetValueEx(hKey, "TransparentPNG", 0, REG_DWORD, (BYTE*)&bTransPNG, sizeof(BOOL));
+            RegSetValueEx(hKey, _T("imgout_bgcol"), 0, REG_DWORD, (BYTE*)&imgout_bgcol, sizeof(COLORREF));
+            RegSetValueEx(hKey, _T("imgout_border"), 0, REG_DWORD, (BYTE*)&imgout_border, sizeof(DWORD));
+            RegSetValueEx(hKey, _T("imgout_zoomindex"), 0, REG_DWORD, (BYTE*)&imgout_zoomindex, sizeof(DWORD));
+            RegSetValueEx(hKey, _T("TransparentPNG"), 0, REG_DWORD, (BYTE*)&bTransPNG, sizeof(BOOL));
 
             conv_str = RectToStr(imgout_szpos);
 
-            RegSetValueEx(hKey, "imgout_szpos", 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), conv_str.GetLength() + 1);
+            RegSetValueEx(hKey, _T("imgout_szpos"), 0, REG_SZ, (BYTE*)conv_str.GetBuffer(), sizeof(TCHAR) * (conv_str.GetLength() + 1));
         }
         break;
         }
@@ -359,7 +359,7 @@ CString RectToStr(RECT in_rect)
 {
     CString out_str;
 
-    out_str.Format("%d %d %d %d", in_rect.left, in_rect.top, in_rect.right, in_rect.bottom);
+    out_str.Format(_T("%d %d %d %d"), in_rect.left, in_rect.top, in_rect.right, in_rect.bottom);
 
     return out_str;
 }
@@ -368,12 +368,12 @@ RECT StrToRect(CString in_str)
 {
     RECT out_rect;
 
-    char* rect_val = in_str.GetBuffer();
+    TCHAR* rect_val = in_str.GetBuffer();
 
-    out_rect.left = strtol(rect_val, &rect_val, 10);
-    out_rect.top = strtol(rect_val, &rect_val, 10);
-    out_rect.right = strtol(rect_val, &rect_val, 10);
-    out_rect.bottom = strtol(rect_val, NULL, 10);
+    out_rect.left = _tcstol(rect_val, &rect_val, 10);
+    out_rect.top = _tcstol(rect_val, &rect_val, 10);
+    out_rect.right = _tcstol(rect_val, &rect_val, 10);
+    out_rect.bottom = _tcstol(rect_val, NULL, 10);
 
     return out_rect;
 }

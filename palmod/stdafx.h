@@ -48,6 +48,8 @@
 #define DUMP_DESCRIPTION_TREE_ON_LOAD 0
 #define DEFAULT_GAME_DEBUG_STATE 0
 
+#include <tchar.h>
+
 template<typename T> void safe_delete(T*& a) {
     delete a;
     a = nullptr;

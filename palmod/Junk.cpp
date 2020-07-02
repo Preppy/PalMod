@@ -93,7 +93,7 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
             // You can either slice the palette or add separators so that PalGroup can handle page divisions
             // You can easily have separators added for you automatically by using the new ::CreateDefPal logic
             // that is already in use for SFA3 and MSH
-            strError.Format("ERROR: Our color table can only show %u colors, but this palette wants %u colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n", nMaximumColorsPerPage, nNewAmt);
+            strError.Format(_T("ERROR: Our color table can only show %u colors, but this palette wants %u colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n"), nMaximumColorsPerPage, nNewAmt);
             OutputDebugString(strError);
             if (!s_fAlreadyShown)
             {
@@ -295,7 +295,7 @@ BOOL CJunk::ProcBaseBMP()
 {
     if (hBmp && !DeleteObject(hBmp))
     {
-        OutputDebugString("ERROR: Could not delete old hBmp\n");
+        OutputDebugString(_T("ERROR: Could not delete old hBmp\n"));
     }
 
     Bmpi.bmiHeader.biWidth = iBaseW;
@@ -833,11 +833,11 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
             }
         }
 
-        PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_COPY, "&Copy");
-        PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTE, "&Paste");
-        PopupMenu.AppendMenu(MF_SEPARATOR, 0, "");
-        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, "Select &All");
-        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SNONE, "Select &None");
+        PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_COPY, _T("&Copy"));
+        PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTE, _T("&Paste"));
+        PopupMenu.AppendMenu(MF_SEPARATOR, 0, _T(""));
+        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, _T("Select &All"));
+        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SNONE, _T("Select &None"));
 
         int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, point.x, point.y, this, NULL);
 
@@ -859,7 +859,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
     }
     else
     {
-        OutputDebugString("ERROR: Couldn't create popup menu.\n");
+        OutputDebugString(_T("ERROR: Couldn't create popup menu.\n"));
     }
 
     CWnd::OnRButtonDown(nFlags, point);

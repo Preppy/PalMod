@@ -85,20 +85,20 @@ BOOL CPalGroup::SetMode(ePalType NewPalMode)
     }
 }
 
-BOOL CPalGroup::AddSep(int nIndex, LPCSTR szDesc, int nStart, int nAmt)
+BOOL CPalGroup::AddSep(int nIndex, LPCTSTR szDesc, int nStart, int nAmt)
 {
     // Separators enable us to have multiple groups of palettes within a palette display.
     if ((rgPalettes[nIndex].uSepAmt >= MAX_SEP) || ((nStart + nAmt) > rgPalettes[nIndex].uPalSz))
     {
         CString strWarning;
-        strWarning.Format("WARNING: Trying to use too many separators for \"%s\".  Disallowing this.\n", szDesc);
+        strWarning.Format(_T("WARNING: Trying to use too many separators for \"%s\".  Disallowing this.\n"), szDesc);
         OutputDebugString(strWarning);
         return FALSE;
     }
 
     sPalSep* NewSep = new sPalSep;
 
-    sprintf(NewSep->szDesc, szDesc);
+    _stprintf(NewSep->szDesc, szDesc);
     NewSep->nStart = nStart;
     NewSep->nAmt = nAmt;
 
@@ -118,7 +118,7 @@ BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, UINT16 uUnitId, UINT16 uPa
 {
     if ((nCurrPalAmt >= MAX_PAL) || !pPal || !uPalSz)
     {
-        OutputDebugString("CPalGroup::AddPal: bogus argument supplied\n");
+        OutputDebugString(_T("CPalGroup::AddPal: bogus argument supplied\n"));
         return FALSE;
     }
 

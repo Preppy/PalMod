@@ -691,7 +691,7 @@ int CImgDumpBmp::GetImagesPerLine()
         w_mul = 5;
         break;
     default:
-        OutputDebugString("CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option.");
+        OutputDebugString(_T("CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option."));
         DebugBreak();
         break;
     }

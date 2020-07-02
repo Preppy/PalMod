@@ -25,7 +25,7 @@ private:
     UINT16 uReadNumImgs = 0x0000;
     UINT32 uReadNextImgLoc = 0x00000000;
 
-    bool imageBufferFlushed = true;
+    bool imageBufferFlushed = false;
     bool imageBufferPrepped = false;
     bool PrepImageBuffer(UINT16 uGameUnitAmt, UINT8 uGameFlag);
     bool sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag);
@@ -38,7 +38,7 @@ public:
     CImgDat(void);
     ~CImgDat(void);
 
-    BOOL LoadImage(CHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, UINT16 uImgUnitAmt, UINT16 uImgAmt = MAX_IMAGE, BOOL bLoadAll = TRUE);
+    BOOL LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, UINT16 uImgUnitAmt, UINT16 uImgAmt = MAX_IMAGE, BOOL bLoadAll = TRUE);
     sImgDef* GetImageDef(UINT16 uUnitId, UINT16 uImgId);
     bool FlushImageBuffer();
     UINT8* DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);

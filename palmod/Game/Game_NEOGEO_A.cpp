@@ -31,7 +31,7 @@ void CGame_NEOGEO_A::InitializeStatics()
 CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format("CGame_NEOGEO_A::CGame_NEOGEO_A: Loading ROM...\n" );
+    strMessage.Format(_T("CGame_NEOGEO_A::CGame_NEOGEO_A: Loading ROM...\n") );
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
@@ -53,11 +53,11 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     if (GetExtraCt(m_nExtraUnit) == 0)
     {
         CString strIntro;
-        strIntro = "Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random NEO•GEO ROM that PalMod does not already support. ";
-        strIntro += "PalMod will read / write specified RAM offsets as if they indicated RGB666 colors.\n\n";
-        strIntro += "Right now, you don't have any entries in your NEOGEOE.txt Extras file: you will want to add entries there if you wish to use this \"dummy\" mode.\n\n";
-        strIntro += "Please make sure to only change a copy of the ROM you're interested in: since you're directly playing around with the game ROM, weird things could happen.\n\n";
-        strIntro += "Good luck!";
+        strIntro = _T("Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random NEO•GEO ROM that PalMod does not already support. ");
+        strIntro += _T("PalMod will read / write specified RAM offsets as if they indicated RGB666 colors.\n\n");
+        strIntro += _T("Right now, you don't have any entries in your NEOGEOE.txt Extras file: you will want to add entries there if you wish to use this \"dummy\" mode.\n\n");
+        strIntro += _T("Please make sure to only change a copy of the ROM you're interested in: since you're directly playing around with the game ROM, weird things could happen.\n\n");
+        strIntro += _T("Good luck!");
         MessageBox(g_appHWnd, strIntro, GetHost()->GetAppName(), MB_ICONINFORMATION);
     }
 
@@ -80,7 +80,7 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = DISP_DEF;
     // Button labels are used for the Export Image dialog: we don't need them for a game stub.
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_NOBUTTONS);
+    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_NOBUTTONS);
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
 
     //Create the redirect buffer
@@ -172,7 +172,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[NEOGEO_A]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[NEOGEO_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -180,7 +180,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
 
     CString strMsg;
     bool fHaveExtras = (GetExtraCt(NEOGEO_A_EXTRALOC) > 0);
-    strMsg.Format("CGame_NEOGEO_A::InitDescTree: Building desc tree for NEOGEO_A %s extras...\n", fHaveExtras ? "with" : "without");
+    strMsg.Format(_T("CGame_NEOGEO_A::InitDescTree: Building desc tree for NEOGEO_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -200,14 +200,14 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
         if (iUnitCtr < NEOGEO_A_EXTRALOC)
         {
             //Set each description
-            sprintf(UnitNode->szDesc, "%s", NEOGEO_A_UNITS[iUnitCtr].szDesc);
+            _stprintf(UnitNode->szDesc, _T("%s"), NEOGEO_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if NEOGEO_A_DEBUG
-            strMsg.Format("Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
+            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
@@ -221,7 +221,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                sprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -229,7 +229,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if NEOGEO_A_DEBUG
-                strMsg.Format("\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -240,25 +240,25 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%s", paletteSetToUse[nNodeIndex].szPaletteName);
+                    _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if NEOGEO_A_DEBUG
-                    strMsg.Format("\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(" no image available.\n");
+                        strMsg.Format(_T(" no image available.\n"));
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -269,13 +269,13 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            sprintf(UnitNode->szDesc, "Extra Palettes");
+            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if NEOGEO_A_DEBUG
-            strMsg.Format("Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -288,7 +288,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(NEOGEO_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            sprintf(CollectionNode->szDesc, "Extra");
+            _stprintf(CollectionNode->szDesc, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -296,7 +296,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if NEOGEO_A_DEBUG
-            strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -313,13 +313,13 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
                     pCurrDef = GetExtraDefForNEOGEO(nExtraPos + nCurrExtra);
                 }
 
-                sprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((NEOGEO_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if NEOGEO_A_DEBUG
-                strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -329,7 +329,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
         }
     }
 
-    strMsg.Format("CGame_NEOGEO_A::InitDescTree: Loaded %u palettes for NEOGEO\n", nTotalPaletteCount);
+    strMsg.Format(_T("CGame_NEOGEO_A::InitDescTree: Loaded %u palettes for NEOGEO\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     m_nTotalPaletteCountForNEOGEO = nTotalPaletteCount;
@@ -342,7 +342,7 @@ sFileRule CGame_NEOGEO_A::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "stub.stub"); // use a stub value here
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("stub.stub")); // use a stub value here
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = -1; // this game is a stub only
@@ -376,11 +376,11 @@ UINT16 CGame_NEOGEO_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollect
     }
 }
 
-LPCSTR CGame_NEOGEO_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_NEOGEO_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == NEOGEO_A_EXTRALOC)
     {
-        return "Extra Palettes";
+        return _T("Extra Palettes");
     }
     else
     {
@@ -410,7 +410,7 @@ UINT16 CGame_NEOGEO_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if NEOGEO_A_DEBUG
         CString strMsg;
-        strMsg.Format("CGame_NEOGEO_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_NEOGEO_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -609,7 +609,7 @@ BOOL CGame_NEOGEO_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
-                strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
+                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, nCurrPalOffs);
                 MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                 fShownOnce = true;
             }
@@ -621,7 +621,7 @@ BOOL CGame_NEOGEO_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     }
 
     CString strMsg;
-    strMsg.Format("CGame_NEOGEO_A::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(_T("CGame_NEOGEO_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
 
     return TRUE;
@@ -641,7 +641,7 @@ void CGame_NEOGEO_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (!fCanFitWithinCurrentPageLayout)
     {
         CString strWarning;
-        strWarning.Format("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n", MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
+        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
         OutputDebugString(strWarning);
     }
 
@@ -654,7 +654,7 @@ void CGame_NEOGEO_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
         {
-            strPageDescription.Format("%s (%u/%u)", srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
+            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
             BasePalGroup.AddSep(0, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
             nColorsRemaining -= s_nColorsPerPage;
         }

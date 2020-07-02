@@ -81,6 +81,8 @@
 #define IDC_BBLINK                      1031
 #define IDC_BINVERT                     1032
 #define IDC_BCHECKMIX                   1033
+#define IDC_MFCLINK1                    1035
+#define IDC_WEBSITELINK                 1035
 #define IDC_DUMMY1                      1036
 #define IDC_DUMMY2                      1039
 #define IDC_DUMMY3                      1040
@@ -171,9 +173,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        137
+#define _APS_NEXT_RESOURCE_VALUE        138
 #define _APS_NEXT_COMMAND_VALUE         32840
-#define _APS_NEXT_CONTROL_VALUE         1035
+#define _APS_NEXT_CONTROL_VALUE         1036
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif

@@ -33,7 +33,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
     //We need the proper unit amt before we init the main buffer
     nUnitAmt = SFIII3_A_NUMUNIT + (GetExtraCt(SFIII3_A_EXTRALOC) ? 1 : 0);
 
-    OutputDebugString(GetExtraCt(SFIII3_A_EXTRALOC) ? "Loaded SF3_A with Extras.\n" : "Loaded SF3_A without Extras\n");
+    OutputDebugString(GetExtraCt(SFIII3_A_EXTRALOC) ? _T("Loaded SF3_A with Extras.\n") : _T("Loaded SF3_A without Extras\n"));
 
     InitDataBuffer();
 
@@ -53,7 +53,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
 
     //Set the image out display type
     DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL7);
+    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL7);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -166,7 +166,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[SFIII3_A]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[SFIII3_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -195,7 +195,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
         if (iUnitCtr < SFIII3_A_EXTRALOC)
         {
             //Set each description
-            sprintf(UnitNode->szDesc, "%s", SFIII3_A_UNITDESC[iUnitCtr]);
+            _stprintf(UnitNode->szDesc, _T("%s"), SFIII3_A_UNITDESC[iUnitCtr]);
 
             //Init each character to have all 7 basic buttons (or 2 for ShinGouki) + portrait + ex + extra
             UnitNode->ChildNodes = new sDescTreeNode[nMainChildAmt];
@@ -209,7 +209,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
                 ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
                 //Set each button data
-                sprintf(ButtonNode->szDesc, "%s", DEF_BUTTONLABEL7[iButtonCtr]);
+                _stprintf(ButtonNode->szDesc, _T("%s"), DEF_BUTTONLABEL7[iButtonCtr]);
 
                 //Button children have nodes
                 ButtonNode->uChildType = DESC_NODETYPE_NODE;
@@ -224,11 +224,11 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
 
                     if (nBasicCtr == 0)
                     {
-                        sprintf(ChildNode->szDesc, "%s Main", DEF_BUTTONLABEL7[iButtonCtr]);
+                        _stprintf(ChildNode->szDesc, _T("%s Main"), DEF_BUTTONLABEL7[iButtonCtr]);
                     }
                     else //It's 1
                     {
-                        sprintf(ChildNode->szDesc, "%s Portrait", DEF_BUTTONLABEL7[iButtonCtr]);
+                        _stprintf(ChildNode->szDesc, _T("%s Portrait"), DEF_BUTTONLABEL7[iButtonCtr]);
                     }
 
                     ChildNode->uUnitId = iUnitCtr;
@@ -240,7 +240,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
             nSuppAmt = 2 + 8;
 
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[nButtonAmt]; //Support node
-            sprintf(ButtonNode->szDesc, "Support");
+            _stprintf(ButtonNode->szDesc, _T("Support"));
 
             ButtonNode->ChildNodes = new sDescTreeNode[nSuppAmt];
 
@@ -253,11 +253,11 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
 
                 if (nExtraCtr < 2)
                 {
-                    sprintf(ChildNode->szDesc, "EX Attack (%d)", nExtraCtr + 1);
+                    _stprintf(ChildNode->szDesc, _T("EX Attack (%d)"), nExtraCtr + 1);
                 }
                 else if (nExtraCtr < nSuppAmt)
                 {
-                    sprintf(ChildNode->szDesc, "????");
+                    _stprintf(ChildNode->szDesc, _T("????"));
                 }
 
                 ChildNode->uUnitId = iUnitCtr;
@@ -267,13 +267,13 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
         else
         {
             //Set each description
-            sprintf(UnitNode->szDesc, "Extra Palettes");
+            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
 
             //Init each character to have all 7 basic buttons (or 2 for ShinGouki) + portrait + ex + extra
-            UnitNode->ChildNodes = new sDescTreeNode[1]; //Only 1 for now, "Extra"
+            UnitNode->ChildNodes = new sDescTreeNode[1]; //Only 1 for now, _T("Extra"
             //All children have button trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = 1; //Only 1 for now, "Extra"
+            UnitNode->uChildAmt = 1; //Only 1 for now, _T("Extra"
         }
 
         //Set up extra nodes
@@ -283,7 +283,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
             int nCurrExtra = 0;
 
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[SFIII3_A_EXTRALOC > iUnitCtr ? (nMainChildAmt - 1) : 0]; //Extra node
-            sprintf(ButtonNode->szDesc, "Extra");
+            _stprintf(ButtonNode->szDesc, _T("Extra"));
 
             ButtonNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -303,7 +303,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
                     pCurrDef = GetSF3ExtraDef(nExtraPos + nCurrExtra);
                 }
 
-                sprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((SFIII3_A_EXTRALOC > iUnitCtr ? 1 : 0)* nButtonAmt * 2) + nSuppAmt) + nCurrExtra;
@@ -320,7 +320,7 @@ sFileRule CGame_SFIII3_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "51");
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("51"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nGameROMSize;
@@ -513,16 +513,16 @@ BOOL CGame_SFIII3_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
 
                 BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
 
-                BasePalGroup.AddSep(0, "Concrete", 0, 16);
-                //BasePalGroup.AddSep(0, "", 16, 16); 
-                BasePalGroup.AddSep(0, "Dinosaur / Stone", 32, 16);
-                BasePalGroup.AddSep(0, "Rocket", 48, 16);
+                BasePalGroup.AddSep(0, _T("Concrete"), 0, 16);
+                //BasePalGroup.AddSep(0, _T(""), 16, 16); 
+                BasePalGroup.AddSep(0, _T("Dinosaur / Stone"), 32, 16);
+                BasePalGroup.AddSep(0, _T("Rocket"), 48, 16);
 
                 GetPalOffsSz(nUnitId, nPalId + 1);
 
                 BasePalGroup.AddPal(CreatePal(nUnitId, nPalId + 1), nCurrPalSz, nUnitId, nPalId + 1);
 
-                BasePalGroup.AddSep(1, "Brick", 0, 16);
+                BasePalGroup.AddSep(1, _T("Brick"), 0, 16);
 
                 ClearSetImgTicket(
                     CreateImgTicket(nUnitId, 2,
@@ -547,12 +547,12 @@ BOOL CGame_SFIII3_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
                 GetPalOffsSz(nUnitId, nPalId);
 
                 BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
-                BasePalGroup.AddSep(0, "Morph", 0, 64);
+                BasePalGroup.AddSep(0, _T("Morph"), 0, 64);
 
                 GetPalOffsSz(nUnitId, nPalId + 1);
 
                 BasePalGroup.AddPal(CreatePal(nUnitId, nPalId + 1), nCurrPalSz, nUnitId, nPalId + 1);
-                BasePalGroup.AddSep(1, "Suit", 0, 64);
+                BasePalGroup.AddSep(1, _T("Suit"), 0, 64);
 
                 ClearSetImgTicket(
                     CreateImgTicket(nUnitId, 2,

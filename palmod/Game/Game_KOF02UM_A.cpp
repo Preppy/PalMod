@@ -31,7 +31,7 @@ void CGame_KOF02UM_A::InitializeStatics()
 CGame_KOF02UM_A::CGame_KOF02UM_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format("CGame_KOF02UM_A::CGame_KOF02UM_A: Loading ROM...\n" );
+    strMessage.Format(_T("CGame_KOF02UM_A::CGame_KOF02UM_A: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
@@ -69,7 +69,7 @@ CGame_KOF02UM_A::CGame_KOF02UM_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = DISP_DEF;
     // Button labels are used for the Export Image dialog
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL_NEOGEO);
+    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_NEOGEO);
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
 
     //Create the redirect buffer
@@ -149,7 +149,7 @@ int CGame_KOF02UM_A::GetExtraLoc(UINT16 nUnitId)
     return rgExtraLoc[nUnitId];
 }
 
-void StrRemoveNonASCII(char* pszOutput, size_t ccSize, LPCSTR pszInput)
+void StrRemoveNonASCII(TCHAR* pszOutput, size_t ccSize, LPCTSTR pszInput)
 {
     size_t iStrOutputIndex = 0;
     
@@ -160,8 +160,8 @@ void StrRemoveNonASCII(char* pszOutput, size_t ccSize, LPCSTR pszInput)
             break;
         }
 
-        if (((pszInput[iStrIndex] >= 48) && (pszInput[iStrIndex] <= 57)) ||// numbers
-            ((pszInput[iStrIndex] >= 65) && (pszInput[iStrIndex] <= 90))) // upper case
+        if (((pszInput[iStrIndex] >= 48) && (pszInput[iStrIndex] <= 57)) || // numbers
+            ((pszInput[iStrIndex] >= 65) && (pszInput[iStrIndex] <= 90)))   // upper case
         {
             pszOutput[iStrOutputIndex++] = pszInput[iStrIndex];
         }
@@ -182,7 +182,7 @@ void CGame_KOF02UM_A::DumpAllCharacters()
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
-        char szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
@@ -204,18 +204,18 @@ void CGame_KOF02UM_A::DumpAllCharacters()
                 break;
             };
 
-            strOutput.Format("const sGame_PaletteDataset KOF02UM_A_%s_PALETTES_%s[] =\r\n{\r\n", szCodeDesc, DEF_BUTTONLABEL_NEOGEO[iButtonIndex]);
+            strOutput.Format(_T("const sGame_PaletteDataset KOF02UM_A_%s_PALETTES_%s[] =\r\n{\r\n"), szCodeDesc, DEF_BUTTONLABEL_NEOGEO[iButtonIndex]);
             OutputDebugString(strOutput);
 
             if (KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName)
             {
-                strOutput.Format("    { \"%s %s\", 0x%07x, 0x%07x, %s },\r\n", KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
+                strOutput.Format(_T("    { \"%s %s\", 0x%07x, 0x%07x, %s },\r\n"), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
                     nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                     KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName);
             }
             else
             {
-                strOutput.Format("    { \"%s %s\", 0x%07x, 0x%07x },\r\n", KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
+                strOutput.Format(_T("    { \"%s %s\", 0x%07x, 0x%07x },\r\n"), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
                     nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20 );
             }
 
@@ -223,28 +223,28 @@ void CGame_KOF02UM_A::DumpAllCharacters()
             nCurrentCharacterOffset += 0x20;
             nPaletteCount++;
 
-            const LPCSTR pszMoveNames[] =
+            const LPCTSTR pszMoveNames[] =
             {
-                "Hidden Super Desperation Move 1",
-                "Desperation Move / Super Desperation Move",
-                "Electric Shock Effect",
-                "Max Flash",
-                "Hidden Super Desperation Move 2",
-                "Soul Palette",
-                "Hidden Super Desperation Move 3",
+                _T("Hidden Super Desperation Move 1"),
+                _T("Desperation Move / Super Desperation Move"),
+                _T("Electric Shock Effect"),
+                _T("Max Flash"),
+                _T("Hidden Super Desperation Move 2"),
+                _T("Soul Palette"),
+                _T("Hidden Super Desperation Move 3"),
             };
 
             for (UINT16 iCurrentExtra = 1; iCurrentExtra < 8; iCurrentExtra++)
             {
                 if (KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName)
                 {
-                    strOutput.Format("    { \"%s - %s\", 0x%07x, 0x%07x, %s },\r\n", DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
+                    strOutput.Format(_T("    { \"%s - %s\", 0x%07x, 0x%07x, %s },\r\n"), DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                         KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName);
                 }
                 else
                 {
-                    strOutput.Format("    { \"%s - %s\", 0x%07x, 0x%07x },\r\n", DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
+                    strOutput.Format(_T("    { \"%s - %s\", 0x%07x, 0x%07x },\r\n"), DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
                 }
 
@@ -253,23 +253,23 @@ void CGame_KOF02UM_A::DumpAllCharacters()
                 nPaletteCount++;
             }
 
-            OutputDebugString("};\r\n\r\n");
+            OutputDebugString(_T("};\r\n\r\n"));
         }
 
         // Now create the collection...
-        strOutput.Format("const sDescTreeNode KOF02UM_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
+        strOutput.Format(_T("const sDescTreeNode KOF02UM_A_%s_COLLECTION[] =\r\n{\r\n"), szCodeDesc);
         OutputDebugString(strOutput);
 
-        strOutput.Format("    { \"A\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_A, ARRAYSIZE(KOF02UM_A_%s_PALETTES_A) },\r\n", szCodeDesc, szCodeDesc );
+        strOutput.Format(_T("    { \"A\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_A, ARRAYSIZE(KOF02UM_A_%s_PALETTES_A) },\r\n"), szCodeDesc, szCodeDesc );
         OutputDebugString(strOutput);
-        strOutput.Format("    { \"B\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_B, ARRAYSIZE(KOF02UM_A_%s_PALETTES_B) },\r\n", szCodeDesc, szCodeDesc );
+        strOutput.Format(_T("    { \"B\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_B, ARRAYSIZE(KOF02UM_A_%s_PALETTES_B) },\r\n"), szCodeDesc, szCodeDesc );
         OutputDebugString(strOutput);
-        strOutput.Format("    { \"C\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_C, ARRAYSIZE(KOF02UM_A_%s_PALETTES_C) },\r\n", szCodeDesc, szCodeDesc );
+        strOutput.Format(_T("    { \"C\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_C, ARRAYSIZE(KOF02UM_A_%s_PALETTES_C) },\r\n"), szCodeDesc, szCodeDesc );
         OutputDebugString(strOutput);
-        strOutput.Format("    { \"D\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_D, ARRAYSIZE(KOF02UM_A_%s_PALETTES_D) },\r\n", szCodeDesc, szCodeDesc );
+        strOutput.Format(_T("    { \"D\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_D, ARRAYSIZE(KOF02UM_A_%s_PALETTES_D) },\r\n"), szCodeDesc, szCodeDesc );
         OutputDebugString(strOutput);
 
-        OutputDebugString("};\r\n\r\n");
+        OutputDebugString(_T("};\r\n\r\n"));
     }
 
     for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(KOF02UM_CharacterOffsetArray); iUnitCtr++)
@@ -277,11 +277,11 @@ void CGame_KOF02UM_A::DumpAllCharacters()
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
-        char szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
-        strOutput.Format("    { \"%s\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_COLLECTION, ARRAYSIZE(KOF02UM_A_%s_COLLECTION) },\r\n", KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
+        strOutput.Format(_T("    { \"%s\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_COLLECTION, ARRAYSIZE(KOF02UM_A_%s_COLLECTION) },\r\n"), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
     }
 
@@ -299,7 +299,7 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[KOF02UM_A]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[KOF02UM_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -307,7 +307,7 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
 
     CString strMsg;
     bool fHaveExtras = (GetExtraCt(KOF02UM_A_EXTRALOC) > 0);
-    strMsg.Format("CGame_KOF02UM_A::InitDescTree: Building desc tree for KOF02UM_A %s extras...\n", fHaveExtras ? "with" : "without");
+    strMsg.Format(_T("CGame_KOF02UM_A::InitDescTree: Building desc tree for KOF02UM_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -327,14 +327,14 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
         if (iUnitCtr < KOF02UM_A_EXTRALOC)
         {
             //Set each description
-            sprintf(UnitNode->szDesc, "%s", KOF02UM_A_UNITS[iUnitCtr].szDesc);
+            _stprintf(UnitNode->szDesc, _T("%s"), KOF02UM_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if KOF02UM_A_DEBUG
-            strMsg.Format("Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? "with extras" : "no extras", nUnitChildCount);
+            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
@@ -348,7 +348,7 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                sprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -356,7 +356,7 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if KOF02UM_A_DEBUG
-                strMsg.Format("\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -367,25 +367,25 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%s", paletteSetToUse[nNodeIndex].szPaletteName);
+                    _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if KOF02UM_A_DEBUG
-                    strMsg.Format("\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(" no image available.\n");
+                        strMsg.Format(_T(" no image available.\n"));
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -396,13 +396,13 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            sprintf(UnitNode->szDesc, "Extra Palettes");
+            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if KOF02UM_A_DEBUG
-            strMsg.Format("Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -415,7 +415,7 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(KOF02UM_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            sprintf(CollectionNode->szDesc, "Extra");
+            _stprintf(CollectionNode->szDesc, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -423,7 +423,7 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if KOF02UM_A_DEBUG
-            strMsg.Format("\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -440,13 +440,13 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
                     pCurrDef = GetExtraDefForKOF02UM(nExtraPos + nCurrExtra);
                 }
 
-                sprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((KOF02UM_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if KOF02UM_A_DEBUG
-                strMsg.Format("\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -456,7 +456,7 @@ sDescTreeNode* CGame_KOF02UM_A::InitDescTree()
         }
     }
 
-    strMsg.Format("CGame_KOF02UM_A::InitDescTree: Loaded %u palettes for KOF02UM\n", nTotalPaletteCount);
+    strMsg.Format(_T("CGame_KOF02UM_A::InitDescTree: Loaded %u palettes for KOF02UM\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     m_nTotalPaletteCountForKOF02UM = nTotalPaletteCount;
@@ -472,7 +472,7 @@ sFileRule CGame_KOF02UM_A::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "242-p2.sp2");
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("242-p2.sp2"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nGameROMSize;
@@ -506,11 +506,11 @@ UINT16 CGame_KOF02UM_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollec
     }
 }
 
-LPCSTR CGame_KOF02UM_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_KOF02UM_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == KOF02UM_A_EXTRALOC)
     {
-        return "Extra Palettes";
+        return _T("Extra Palettes");
     }
     else
     {
@@ -540,7 +540,7 @@ UINT16 CGame_KOF02UM_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if KOF02UM_A_DEBUG
         CString strMsg;
-        strMsg.Format("CGame_KOF02UM_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_KOF02UM_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -739,7 +739,7 @@ BOOL CGame_KOF02UM_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
-                strMsg.Format("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, nCurrPalOffs);
+                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, nCurrPalOffs);
                 MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                 fShownOnce = true;
             }
@@ -751,7 +751,7 @@ BOOL CGame_KOF02UM_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     }
 
     CString strMsg;
-    strMsg.Format("CGame_KOF02UM_A::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(_T("CGame_KOF02UM_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
 
     return TRUE;
@@ -771,7 +771,7 @@ void CGame_KOF02UM_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (!fCanFitWithinCurrentPageLayout)
     {
         CString strWarning;
-        strWarning.Format("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n", MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
+        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
         OutputDebugString(strWarning);
     }
 
@@ -784,7 +784,7 @@ void CGame_KOF02UM_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
         {
-            strPageDescription.Format("%s (%u/%u)", srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
+            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
             BasePalGroup.AddSep(0, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
             nColorsRemaining -= s_nColorsPerPage;
         }

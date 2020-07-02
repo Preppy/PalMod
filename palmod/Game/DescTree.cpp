@@ -67,7 +67,7 @@ void CDescTree::DumpTree(const sDescTreeNode* pTreeOfInterest)
         switch (pTreeToEnumerate->uChildType)
         {
         case DESC_NODETYPE_NODE:
-            strOutput.Format("\tButton '%s'.  It has 0x%x children.\n", pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
+            strOutput.Format(_T("\tButton '%s'.  It has 0x%x children.\n"), pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
             OutputDebugString(strOutput);
 
             for (UINT16 iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
@@ -76,13 +76,13 @@ void CDescTree::DumpTree(const sDescTreeNode* pTreeOfInterest)
 
                 if (pChildNode)
                 {
-                    strOutput.Format("\t\tNode '%s'.  This is UnitId 0x%x, PaletteId 0x%x.\n", pChildNode->szDesc, pChildNode->uUnitId, pChildNode->uPalId);
+                    strOutput.Format(_T("\t\tNode '%s'.  This is UnitId 0x%x, PaletteId 0x%x.\n"), pChildNode->szDesc, pChildNode->uUnitId, pChildNode->uPalId);
                     OutputDebugString(strOutput);
                 }
             }
             break;
         case DESC_NODETYPE_TREE:
-            strOutput.Format("Entering unit '%s'. It has 0x%x child Buttons.\n", pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
+            strOutput.Format(_T("Entering unit '%s'. It has 0x%x child Buttons.\n"), pTreeToEnumerate->szDesc, pTreeToEnumerate->uChildAmt);
             OutputDebugString(strOutput);
 
             for (UINT16 iPlaceInNode = 0; iPlaceInNode < pTreeToEnumerate->uChildAmt; iPlaceInNode++)
@@ -99,7 +99,7 @@ void CDescTree::DumpTree(const sDescTreeNode* pTreeOfInterest)
     }
     else
     {
-        OutputDebugString("No tree loaded.\n");
+        OutputDebugString(_T("No tree loaded.\n"));
     }
 }
 

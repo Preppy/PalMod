@@ -19,15 +19,15 @@ CString CPalModApp::GetAppName()
 {
     CString strAppName;
     strAppName.LoadString(IDS_CURRENTAPPNAME);
-    strAppName += " (" __DATE__ ")";
+    strAppName += _T(" (" __DATE__ ")");
 
 #ifdef DEBUG
-    strAppName += " DEBUG build";
+    strAppName += _T(" DEBUG build");
 #endif
 
     if (GetCurrGame())
     {
-        strAppName += ": ";
+        strAppName += _T(": ");
         strAppName += g_GameFriendlyName[GetCurrGame()->GetGameFlag()];
     }
 
@@ -103,7 +103,7 @@ BOOL CPalModApp::InitInstance()
 
     //Get the image dat file
     GetModuleFileName(NULL, ImgStr.GetBufferSetLength(MAX_PATH), MAX_PATH);
-    ImgStr = ImgStr.Left(ImgStr.ReverseFind('\\') + 1) + IMGDATFILE;
+    ImgStr = ImgStr.Left(ImgStr.ReverseFind(_T('\\')) + 1) + IMGDATFILE;
 
     return TRUE;
 }

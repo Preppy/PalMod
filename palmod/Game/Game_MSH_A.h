@@ -3,8 +3,8 @@
 #include "MSH_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_MSH_05 = "MSHe.txt";
-constexpr auto EXTRA_FILENAME_MSH_06 = "MSH06e.txt";
+constexpr auto EXTRA_FILENAME_MSH_05 = _T("MSHe.txt");
+constexpr auto EXTRA_FILENAME_MSH_06 = _T("MSH06e.txt");
 #define GetExtraDefForMSH(x) (UsePaletteSetForCharacters() ? ((stExtraDef *)&MSH_A_EXTRA_CUSTOM_05[x]) : ((stExtraDef *)&MSH_A_EXTRA_CUSTOM_06[x]))
 
 class CGame_MSH_A : public CGameWithExtrasFile
@@ -65,7 +65,7 @@ public:
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static LPCTSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 

@@ -1196,7 +1196,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         for (UINT16 nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
         {
-            if (_stricmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
+            if (_tcsicmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
             {
                 nJoinedUnit1 = mvc2TeamList[nTeamIndex].nCharacterOne;
                 nJoinedUnit2 = mvc2TeamList[nTeamIndex].nCharacterTwo;
@@ -1208,7 +1208,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         if (!fTeamFound)
         {
-            OutputDebugString("WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\n");
+            OutputDebugString(_T("WARNING: MVC2 Team lookup failed. Please fix.  Will use MSP for now.\n"));
         }
 
         // Fudge some visual offsets here so fatter sprites don't collide.
@@ -1296,7 +1296,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         // Old extra targetimgids will be 0xFF0x, so allow for that.
         if ((0xFF & nTargetImgId) > nBitFlagToUse)
         {
-            OutputDebugString("WARNING: The desired nTargetImgId is out of range and is being modified\n");
+            OutputDebugString(_T("WARNING: The desired nTargetImgId is out of range and is being modified\n"));
         }
 
         ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId ? (nTargetImgId & nBitFlagToUse) : nBasicOffset));

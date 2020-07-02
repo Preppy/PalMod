@@ -50,7 +50,7 @@ CGame_MVC2_D::CGame_MVC2_D(void)
 
     //Set the image out display type
     DisplayType = DISP_ALT;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL6_MVC2);
+    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL6_MVC2);
 
     //Set the MVC2 supp game
     CurrMVC2 = this;
@@ -94,14 +94,14 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[MVC2_D]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[MVC2_D]);
     NewDescTree->ChildNodes = new sDescTreeNode[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
     NewDescTree->uChildAmt = MVC2_D_NUMUNIT_WITH_TEAMVIEW;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    strMsg.Format("CGame_MVC2_D::InitDescTree: Building desc tree for MVC2_D...\n");
+    strMsg.Format(_T("CGame_MVC2_D::InitDescTree: Building desc tree for MVC2_D...\n"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -116,7 +116,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
         //Set each description
-        sprintf(UnitNode->szDesc, "%s", MVC2_D_UNITDESC[iUnitCtr]);
+        _stprintf(UnitNode->szDesc, _T("%s"), MVC2_D_UNITDESC[iUnitCtr]);
 
         //Init each character to have all 6 basic buttons + extra
         UnitNode->ChildNodes = new sDescTreeNode[BUTTON6 + (nNumExtra ? 1 : 0)];
@@ -129,7 +129,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         const int nButtonExtraCt = CountExtraRg(iUnitCtr, FALSE) + 1;
 
 #if MV2C_D_DEBUG
-        strMsg.Format("Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, MVC2_D_NUMUNIT_WITH_TEAMVIEW, UnitNode->uChildAmt);
+        strMsg.Format(_T("Unit: \"%s\", %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, MVC2_D_NUMUNIT_WITH_TEAMVIEW, UnitNode->uChildAmt);
         OutputDebugString(strMsg);
 #endif
 
@@ -140,7 +140,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
             //Set each button data
-            sprintf(ButtonNode->szDesc, "%s", DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
+            _stprintf(ButtonNode->szDesc, _T("%s"), DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
 
             //Button children have nodes
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
@@ -159,7 +159,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
             const int nButtonExtraTotal = 8;
 
 #if MV2C_D_DEBUG
-            strMsg.Format("\t\"%s\" Collection: \"%s\", %u of %u, %u children\n", UnitNode->szDesc, ButtonNode->szDesc, iButtonCtr + 1, UnitNode->uChildAmt, nButtonExtraTotal);
+            strMsg.Format(_T("\t\"%s\" Collection: \"%s\", %u of %u, %u children\n"), UnitNode->szDesc, ButtonNode->szDesc, iButtonCtr + 1, UnitNode->uChildAmt, nButtonExtraTotal);
             OutputDebugString(strMsg);
 #endif
 
@@ -175,9 +175,9 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 {
                     if (CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].nCharacterIndex == nButtonExtra)
                     {
-                        //snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%s %s", DEF_BUTTONLABEL6_MVC2[iButtonCtr], CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
+                        //_sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s %s"), DEF_BUTTONLABEL6_MVC2[iButtonCtr], CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
                         // We can skip the button label since the second combo box already has that information
-                        snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%s", CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
+                        _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s"), CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
                         bSetInfo = true;
                         break;
                     }
@@ -187,12 +187,12 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 {
                     if (nButtonExtra == 0)
                     {
-                        sprintf(ChildNode->szDesc, "%s Main", DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
+                        _stprintf(ChildNode->szDesc, _T("%s Main"), DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
                         bSetInfo = true;
                     }
                     else if (!nBasicStart || 1)//MVC2_D_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
                     {
-                        sprintf(ChildNode->szDesc, "%02X %s (Extra - %02X)", nExtraPos, DEF_BUTTONLABEL6_MVC2[iButtonCtr],
+                        _stprintf(ChildNode->szDesc, _T("%02X %s (Extra - %02X)"), nExtraPos, DEF_BUTTONLABEL6_MVC2[iButtonCtr],
                             (iButtonCtr * nButtonExtraTotal) + nExtraPos + 1);
 
                         bSetInfo = true;
@@ -208,7 +208,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 }
 
 #if MV2C_D_DEBUG
-                strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nButtonExtra + 1, nButtonExtraTotal);
+                strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u\n"), ChildNode->szDesc, nButtonExtra + 1, nButtonExtraTotal);
                 OutputDebugString(strMsg);
 #endif
             }
@@ -219,14 +219,14 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         {
             const int nExtraNodeIndex = 6;
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[nExtraNodeIndex]; //Extra data node
-            strcpy(ButtonNode->szDesc, "Extra");
+            _tcscpy(ButtonNode->szDesc, _T("Extra"));
             ButtonNode->uChildAmt = nNumExtra;
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
 
             ButtonNode->ChildNodes = (sDescTreeNode*)(new sDescTreeNode[nNumExtra]);
 
 #if MV2C_D_DEBUG
-            strMsg.Format("\t\"%s\" Extra Data Collection: \"%s\", %u of %u, %u children\n", UnitNode->szDesc, ButtonNode->szDesc, nExtraNodeIndex, UnitNode->uChildAmt, nNumExtra);
+            strMsg.Format(_T("\t\"%s\" Extra Data Collection: \"%s\", %u of %u, %u children\n"), UnitNode->szDesc, ButtonNode->szDesc, nExtraNodeIndex, UnitNode->uChildAmt, nNumExtra);
             OutputDebugString(strMsg);
 #endif
 
@@ -238,13 +238,13 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
-                    sprintf(ChildNode->szDesc, "(%02X Extra)", nExtraCtr + 1);
+                    _stprintf(ChildNode->szDesc, _T("(%02X Extra)"), nExtraCtr + 1);
 
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = (8 * k_mvc2_character_coloroption_count) + nExtraCtr;
 
 #if MV2C_D_DEBUG
-                    strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nNumExtra);
+                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nNumExtra);
                     OutputDebugString(strMsg);
 #endif
                 }
@@ -274,7 +274,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                         {
                             if (CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].nCharacterIndex == nCurrentExtraValue)
                             {
-                                snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%02X: %s", nCurrentExtraValue, CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
+                                _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%02X: %s"), nCurrentExtraValue, CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
                                 bSetInfo = true;
                                 break;
                             }
@@ -282,7 +282,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 
                         if (!bSetInfo)
                         {
-                            sprintf(ChildNode->szDesc, "(%02X Extra)", nCurrentExtraValue);
+                            _stprintf(ChildNode->szDesc, _T("(%02X Extra)"), nCurrentExtraValue);
                         }
 
                         ChildNode->uUnitId = iUnitCtr;
@@ -291,7 +291,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                         nExtraCtr++;
 
 #if MV2C_D_DEBUG
-                        strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nExtraCtr, nNumExtra);
+                        strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u\n"), ChildNode->szDesc, nExtraCtr, nNumExtra);
                         OutputDebugString(strMsg);
 #endif
 
@@ -315,7 +315,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
         //Set each description
-        sprintf(UnitNode->szDesc, "%s", MVC2_D_UNITDESC[iUnitCtr]);
+        _stprintf(UnitNode->szDesc, _T("%s"), MVC2_D_UNITDESC[iUnitCtr]);
 
         const UINT32 nTeamCount = ARRAYSIZE(mvc2TeamList);
         const UINT32 nColorOptionCount = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
@@ -324,7 +324,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         UnitNode->uChildAmt = nTeamCount;
 
 #if MV2C_D_DEBUG
-        strMsg.Format("Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, MVC2_D_NUMUNIT_WITH_TEAMVIEW, UnitNode->uChildAmt);
+        strMsg.Format(_T("Unit: \"%s\", %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, MVC2_D_NUMUNIT_WITH_TEAMVIEW, UnitNode->uChildAmt);
         OutputDebugString(strMsg);
 #endif
 
@@ -336,10 +336,10 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
             TeamNode->uChildType = DESC_NODETYPE_NODE;
             TeamNode->uChildAmt = nColorOptionCount;
             TeamNode->ChildNodes = (sDescTreeNode*)new sDescNode[nColorOptionCount];
-            sprintf(TeamNode->szDesc, "%s", mvc2TeamList[iTeamIndex].pszTeamName);
+            _stprintf(TeamNode->szDesc, _T("%s"), mvc2TeamList[iTeamIndex].pszTeamName);
 
 #if MV2C_D_DEBUG
-            strMsg.Format("\t\"%s\" Collection: \"%s\", %u of %u, %u children\n", UnitNode->szDesc, TeamNode->szDesc, iTeamIndex + 1, UnitNode->uChildAmt, nColorOptionCount);
+            strMsg.Format(_T("\t\"%s\" Collection: \"%s\", %u of %u, %u children\n"), UnitNode->szDesc, TeamNode->szDesc, iTeamIndex + 1, UnitNode->uChildAmt, nColorOptionCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -349,10 +349,10 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 ChildNode = &((sDescNode*)TeamNode->ChildNodes)[iColorOption];
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (iTeamIndex * nColorOptionCount) + iColorOption;
-                snprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), "%s", MVC2_A_GENERICSET_PALETTES[iColorOption].szPaletteName);
+                _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s"), MVC2_A_GENERICSET_PALETTES[iColorOption].szPaletteName);
 
 #if MV2C_D_DEBUG
-                strMsg.Format("\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, iColorOption + 1, nColorOptionCount);
+                strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u\n"), ChildNode->szDesc, iColorOption + 1, nColorOptionCount);
                 OutputDebugString(strMsg);
 #endif
             }
@@ -452,7 +452,7 @@ sFileRule CGame_MVC2_D::GetRule(UINT16 nRuleId)
     sFileRule NewFileRule;
 
     nRuleId = (nRuleId & 0xFF00) == 0xFF00 ? (nRuleId & 0x00FF) : MVC2_D_UNITSORT[nRuleId];
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "PL%02X_DAT.BIN", nRuleId);
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("PL%02X_DAT.BIN"), nRuleId);
 
     NewFileRule.uUnitId = nRuleId;
     NewFileRule.uVerifyVar = MVC2_D_FILESZ[nRuleId];
@@ -693,8 +693,8 @@ void CGame_MVC2_D::PrepUnitFile()
         return;
     }
 
-    szUnitFile = new CHAR * [MVC2_D_NUMUNIT_WITH_TEAMVIEW];
-    memset(szUnitFile, NULL, sizeof(CHAR*) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
+    szUnitFile = new TCHAR * [MVC2_D_NUMUNIT_WITH_TEAMVIEW];
+    memset(szUnitFile, NULL, sizeof(TCHAR*) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
 
     rgFileChanged = new UINT16[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
     memset(rgFileChanged, NULL, sizeof(UINT16) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
@@ -710,7 +710,7 @@ void CGame_MVC2_D::PostSetPal(UINT16 nUnitId, UINT16 nPalId)
     int nBasicOffset = GetBasicOffset(nPalId);
 
     CString strMessage;
-    strMessage.Format("CGame_MVC2_D::GetBasicOffset : Palette %u updated.  This palette is %s.\n", nPalId, (nBasicOffset != -1) ? "basic" : "Extra");
+    strMessage.Format(_T("CGame_MVC2_D::GetBasicOffset : Palette %u updated.  This palette is %s.\n"), nPalId, (nBasicOffset != -1) ? _T("basic") : _T("Extra"));
     OutputDebugString(strMessage);
 
     proc_supp(nUnitId, nPalId);

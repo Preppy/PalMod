@@ -4,7 +4,7 @@
 
 #define SFIII3_A_USEEXTRAFILE
 
-#define EXTRA_FILENAME_SF3 "sfiii3e.txt"
+#define EXTRA_FILENAME_SF3 _T("sfiii3e.txt")
 
 #ifdef SFIII3_A_USEEXTRAFILE
 #define GetSF3ExtraDef(x) ((stExtraDef *)&SFIII3_A_EXTRA_CUSTOM[x])

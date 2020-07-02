@@ -76,20 +76,22 @@ IDR_MAINFRAME           ICON                    "res\\PalMod.ico"
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOGEX 0, 0, 178, 111
+IDD_ABOUTBOX DIALOGEX 0, 0, 231, 124
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About PalMod"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
     LTEXT           "PalMod",IDC_ABOUTNAME,42,14,114,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2020",IDC_STATIC,24,79,65,8
-    DEFPUSHBUTTON   "OK",IDOK,121,90,50,14,WS_GROUP
+    LTEXT           "Copyright (C) 2020",IDC_STATIC,10,106,65,8
+    DEFPUSHBUTTON   "OK",IDOK,174,103,50,14,WS_GROUP
     LTEXT           "Credits",IDC_STATIC,41,28,125,8
     LTEXT           "knarxed",IDC_STATIC,50,42,50,8
     LTEXT           "Magnetro",IDC_STATIC,102,42,50,8
-    LTEXT           "Eidrian",IDC_STATIC,103,52,50,8
+    LTEXT           "Eidrian",IDC_STATIC,102,52,50,8
     LTEXT           "Preppy",IDC_STATIC,50,51,50,8
+    LTEXT           "Updates and guides available at:",IDC_STATIC,7,70,209,8
+    CONTROL         "https://zachd.com/palmod",IDC_WEBSITELINK,"MfcLink",WS_TABSTOP,37,82,134,14
 END
 
 IDD_PALMOD_DIALOG_FAT DIALOGEX 0, 0, 407, 244
@@ -267,9 +269,9 @@ BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 171
+        RIGHTMARGIN, 224
         TOPMARGIN, 7
-        BOTTOMMARGIN, 104
+        BOTTOMMARGIN, 117
     END
 
     IDD_PALMOD_DIALOG_FAT, DIALOG
@@ -449,6 +451,29 @@ END
 
 IDD_PALMOD_DIALOG_FAT AFX_DIALOG_LAYOUT
 BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_ABOUTBOX DLGINIT
+BEGIN
+    IDC_WEBSITELINK, 0x37c, 181, 0
+0x4d3c, 0x4346, 0x694c, 0x6b6e, 0x555f, 0x6c72, 0x7a3e, 0x6361, 0x6468, 
+0x632e, 0x6d6f, 0x702f, 0x6c61, 0x6f6d, 0x3c64, 0x4d2f, 0x4346, 0x694c, 
+0x6b6e, 0x555f, 0x6c72, 0x3c3e, 0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7255, 
+0x506c, 0x6572, 0x6966, 0x3e78, 0x7468, 0x7074, 0x3a73, 0x2f2f, 0x2f3c, 
+0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7255, 0x506c, 0x6572, 0x6966, 0x3e78, 
+0x4d3c, 0x4346, 0x694c, 0x6b6e, 0x545f, 0x6f6f, 0x746c, 0x7069, 0x3c3e, 
+0x4d2f, 0x4346, 0x694c, 0x6b6e, 0x545f, 0x6f6f, 0x746c, 0x7069, 0x3c3e, 
+0x464d, 0x4c43, 0x6e69, 0x5f6b, 0x7546, 0x6c6c, 0x6554, 0x7478, 0x6f54, 
+0x6c6f, 0x6974, 0x3e70, 0x4146, 0x534c, 0x3c45, 0x4d2f, 0x4346, 0x694c, 
+0x6b6e, 0x465f, 0x6c75, 0x546c, 0x7865, 0x5474, 0x6f6f, 0x746c, 0x7069, 
+"\076" 
     0
 END
 

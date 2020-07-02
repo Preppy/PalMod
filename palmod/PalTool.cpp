@@ -172,7 +172,7 @@ void CPalTool::BeginSetPal()
     ResetNotifyIndex();
 }
 
-void CPalTool::SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, CHAR* szNewPalStr)
+void CPalTool::SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, TCHAR* szNewPalStr)
 {
     SetFontToBold(false);
     //Set palette width/height/color
@@ -355,9 +355,9 @@ void CPalTool::DrawText()
     if (nPageAmt > 1)
     {
         CString szTemp;
-        szTemp.Format("%d/%d", nCurrPage, nPageAmt);
+        szTemp.Format(_T("%d/%d"), nCurrPage, nPageAmt);
         dc.SetTextColor(RGB(0, 0, 0)); //Red for selected palette
-        dc.TextOutA(rClient.right - 25 + 1, rClient.bottom - 15 + 1, szTemp);
+        dc.TextOut(rClient.right - 25 + 1, rClient.bottom - 15 + 1, szTemp);
     }
 
     if (nCurrPalAmt)
@@ -386,7 +386,7 @@ void CPalTool::DrawText()
 
                 nVisibleAmt++;
 
-                dc.TextOutA(CurrPos.cx, CurrPos.cy, CString(pPalEntry[i].szPalStr));
+                dc.TextOut(CurrPos.cx, CurrPos.cy, CString(pPalEntry[i].szPalStr));
 
                 CurrPos.cy += (PAL_TXT_SPACE * 2 + nFontHeight + PalSize[i].cy);
             }
@@ -396,7 +396,7 @@ void CPalTool::DrawText()
     {
         //Draw bold text to show none are visible
         SetFontToBold(true);
-        dc.TextOutA(CurrPos.cx, CurrPos.cy, CString("No Palettes Loaded"));
+        dc.TextOut(CurrPos.cx, CurrPos.cy, CString(_T("No Palettes Loaded")));
     }
 }
 

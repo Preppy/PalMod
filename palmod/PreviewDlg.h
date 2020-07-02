@@ -28,7 +28,7 @@ public:
 // Dialog Data
     enum { IDD = IDD_PREVIEW_DIALOG };
 
-    void SetWindowCaption(LPCSTR pszCaption);
+    void SetWindowCaption(LPCTSTR pszCaption);
 
 //Additional data
     CImgDisp m_ImgDisp;

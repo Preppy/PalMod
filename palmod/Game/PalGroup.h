@@ -20,7 +20,7 @@ struct sPalRedir
 
 struct sPalSep
 {
-    CHAR szDesc[MAX_DESCRIPTION_LENGTH];
+    TCHAR szDesc[MAX_DESCRIPTION_LENGTH];
     int nStart;
     int nAmt;
 };
@@ -90,7 +90,7 @@ public:
     int GetPalAmt() { return nCurrPalAmt; };
 
     BOOL AddPal(COLORREF* pPal, UINT16 uPalSz, UINT16 uUnitId, UINT16 uPalId);
-    BOOL AddSep(int nIndex, LPCSTR szDesc, int nStart, int nAmt);
+    BOOL AddSep(int nIndex, LPCTSTR szDesc, int nStart, int nAmt);
 
     void SetRGBA(COLORREF* crTarget, UINT8 rVal, UINT8 gVal, UINT8 bVal, UINT8 aVal = 0);
     void SetHLSA(COLORREF* crTarget, double dH, double dL, double dS, UINT8 aVal);

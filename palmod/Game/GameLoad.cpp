@@ -1,4 +1,5 @@
 #include "StdAfx.h"
+#include "..\StdAfx.h"
 #include "GameLoad.h"
 
 #include "Game_COTA_A.h"
@@ -149,7 +150,7 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     default:
-        OutputDebugString("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n");
+        OutputDebugString(_T("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n"));
         return FALSE;
         break;
     }
@@ -243,12 +244,12 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
         return new CGame_CVS2_A(nConfirmedROMSize);
     }
     default:
-        OutputDebugString("CGameLoad::CreateGame:: BUGBUG: New game has not been properly added yet.\n");
+        OutputDebugString(_T("CGameLoad::CreateGame:: BUGBUG: New game has not been properly added yet.\n"));
         return NULL;
     }
 }
 
-CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
+CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
 {
     CGameClass* OutGame = NULL;
 
@@ -264,49 +265,49 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
 
     if (nGameFlag == JOJOS_A)
     {
-        CHAR* pszFileName = strrchr(szLoadFile, '\\') ;
+        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
 
         if (pszFileName)
         {
             // Step forward to the filename
             pszFileName++;
-            nGameRule = ((strcmp(pszFileName, "50") == 0) ? 50 : 51);
+            nGameRule = ((_tcscmp(pszFileName, _T("50")) == 0) ? 50 : 51);
         }
     }
     else if (nGameFlag == SSF2T_A)
     {
-        CHAR* pszFileName = strrchr(szLoadFile, '\\');
+        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
 
         if (pszFileName)
         {
             // Step forward to the filename
             pszFileName++;
-            _strlwr(pszFileName);
-            nGameRule = ((strstr(pszFileName, ".03c") != nullptr) ? 3 : 4);
+            _tcslwr(pszFileName);
+            nGameRule = ((_tcsstr(pszFileName, _T(".03c")) != nullptr) ? 3 : 4);
         }
     }
     else if (nGameFlag == MSHVSF_A)
     {
-        CHAR* pszFileName = strrchr(szLoadFile, '\\');
+        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
 
         if (pszFileName)
         {
             // Step forward to the filename
             pszFileName++;
-            _strlwr(pszFileName);
-            nGameRule = ((strstr(pszFileName, ".06a") != nullptr) ? 6 : 7);
+            _tcslwr(pszFileName);
+            nGameRule = ((_tcsstr(pszFileName, _T(".06a")) != nullptr) ? 6 : 7);
         }
     }
     else if (nGameFlag == MSH_A)
     {
-        CHAR* pszFileName = strrchr(szLoadFile, '\\');
+        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
 
         if (pszFileName)
         {
             // Step forward to the filename
             pszFileName++;
-            _strlwr(pszFileName);
-            nGameRule = ((strstr(pszFileName, ".05") != nullptr) ? 5 : 6);
+            _tcslwr(pszFileName);
+            nGameRule = ((_tcsstr(pszFileName, _T(".05")) != nullptr) ? 5 : 6);
         }
     }
 
@@ -364,7 +365,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
         }
         else
         {
-            OutputDebugString("CGameLoad::LoadFile: ERROR: ROM is the wrong size.  Rejecting loading this ROM.\n");
+            OutputDebugString(_T("CGameLoad::LoadFile: ERROR: ROM is the wrong size.  Rejecting loading this ROM.\n"));
         }
 
         CurrFile.Abort();
@@ -378,12 +379,12 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, CHAR* szLoadFile)
 
     int nOut = OutGame ? 1 : 0;
 
-    szLoadSaveStr.Format("%d of %d files loaded successfully (%d error%s)", nOut, 1, !nOut, nOut == 0 ? "" : "s");
+    szLoadSaveStr.Format(_T("%d of %d files loaded successfully (%d error%s)"), nOut, 1, !nOut, nOut == 0 ? _T("") : _T("s"));
 
     return OutGame;
 }
 
-CGameClass* CGameLoad::LoadDir(int nGameFlag, CHAR* szLoadDir)
+CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
 {
     CGameClass* OutGame = NULL;
     sFileRule CurrRule;
@@ -411,7 +412,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, CHAR* szLoadDir)
 
         CurrRule = GetNextRule();
 
-        szCurrFile.Format("%s\\%s", szLoadDir, CurrRule.szFileName);
+        szCurrFile.Format(_T("%s\\%s"), szLoadDir, CurrRule.szFileName);
 
         if (CurrFile.Open(szCurrFile, CFile::modeRead | CFile::typeBinary))
         {
@@ -444,12 +445,12 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, CHAR* szLoadDir)
         {
             if ((nGameFlag == SFIII3_D) && (nCurrRuleCtr == 0xE))
             {
-                OutputDebugString("CGameLoad::LoadDir : Gouki doesn't exist for SF3-DC: skipping.\n");
+                OutputDebugString(_T("CGameLoad::LoadDir : Gouki doesn't exist for SF3-DC: skipping.\n"));
                 nSaveLoadSucc++;
             }
             else if ((nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION))
             {
-                OutputDebugString("CGameLoad::LoadDir : Team View for MvC2. Ignoring file open.\n");
+                OutputDebugString(_T("CGameLoad::LoadDir : Team View for MvC2. Ignoring file open.\n"));
                 if (OutGame->LoadFile(nullptr, CurrRule.uUnitId))
                 {
                     nSaveLoadSucc++;
@@ -473,7 +474,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, CHAR* szLoadDir)
         OutGame->rgUnitRedir[OutGame->nRedirCtr] = INVALID_UNIT_VALUE;
     }
 
-    szLoadSaveStr.Format("%d of %d files loaded successfully (%d error%s)", nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? "" : "s");
+    szLoadSaveStr.Format(_T("%d of %d files loaded successfully (%d error%s)"), nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? _T("") : _T("s"));
 
     // Perhaps we could be less strict here, but -- we also will crash elsewhere if we don't have the full PL set.
     return (nSaveLoadErr == 0) ? OutGame : nullptr;
@@ -491,7 +492,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
     int nFileAmt = CurrGame->GetFileAmt();
     UINT16* rgChanged = CurrGame->GetChangeRg();
-    CHAR* szDir = CurrGame->GetLoadDir();
+    TCHAR* szDir = CurrGame->GetLoadDir();
     UINT16* rgUnitRedir = CurrGame->rgUnitRedir;
     CString strErrorFile;
 
@@ -507,7 +508,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                 {
                     CString szLoad;
 
-                    szLoad.Format("%s\\%s", szDir, GetRule(nFileCtr + 0xFF00).szFileName);
+                    szLoad.Format(_T("%s\\%s"), szDir, GetRule(nFileCtr + 0xFF00).szFileName);
 
                     if (FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary))
                     {
@@ -582,5 +583,5 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
         MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
     }
 
-    szLoadSaveStr.Format("%d of %d files patched successfully (%d error%s)", nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? "" : "s");
+    szLoadSaveStr.Format(_T("%d of %d files patched successfully (%d error%s)"), nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? _T("") : _T("s"));
 }

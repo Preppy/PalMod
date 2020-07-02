@@ -39,7 +39,7 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
 
     //Set the image out display type
     DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<CHAR*>((CHAR*)DEF_BUTTONLABEL7);
+    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL7);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -77,7 +77,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     sDescNode* ChildNode;
 
     //Create the main character tree
-    sprintf(NewDescTree->szDesc, "%s", g_GameFriendlyName[SFIII3_D]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[SFIII3_D]);
     NewDescTree->ChildNodes = new sDescTreeNode[SFIII3_D_NUMUNIT];
     NewDescTree->uChildAmt = SFIII3_D_NUMUNIT;
 
@@ -89,7 +89,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     {
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
         //Set each description
-        sprintf(UnitNode->szDesc, "%s", SFIII3_D_UNITDESC[iUnitCtr]);
+        _stprintf(UnitNode->szDesc, _T("%s"), SFIII3_D_UNITDESC[iUnitCtr]);
 
         //Init each character to have all 6 basic buttons + extra
         UnitNode->ChildNodes = new sDescTreeNode[1];
@@ -105,7 +105,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
             //Set each button data
-            sprintf(ButtonNode->szDesc, "Palettes");//, DEF_BUTTONLABEL7[iButtonCtr]);
+            _stprintf(ButtonNode->szDesc, _T("Palettes"));//, DEF_BUTTONLABEL7[iButtonCtr]);
 
             //Button children have nodes
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
@@ -118,7 +118,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr];
 
                 ChildNode->uUnitId = iUnitCtr;
-                sprintf(ChildNode->szDesc, "Palette %02X", nChildCtr);
+                _stprintf(ChildNode->szDesc, _T("Palette %02X"), nChildCtr);
 
                 ChildNode->uPalId = nChildCtr;
 
@@ -133,13 +133,13 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
 
                 if (nChildCtr)
                 {
-                    sprintf(ChildNode->szDesc, "%s Color Alternate", DEF_BUTTONLABEL7[iButtonCtr]);
+                    _stprintf(ChildNode->szDesc, _T("%s Color Alternate"), DEF_BUTTONLABEL7[iButtonCtr]);
 
                     ChildNode->uPalId = nChildCtr * BUTTON7 + iButtonCtr;
                 }
                 else
                 {
-                    sprintf(ChildNode->szDesc, "%s Color", DEF_BUTTONLABEL7[iButtonCtr]);
+                    _stprintf(ChildNode->szDesc, _T("%s Color"), DEF_BUTTONLABEL7[iButtonCtr]);
 
                     ChildNode->uPalId = iButtonCtr;
                 }
@@ -159,7 +159,7 @@ sFileRule CGame_SFIII3_D::GetRule(UINT16 nUnitId)
     // We get extra data from GameClass that we don't want: clear the lead 0xFF00 flag if present.
     const UINT16 nRuleId = (nUnitId & 0x00FF) + 1;
 
-    sprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, "PL%02dPL.BIN", nRuleId);
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("PL%02dPL.BIN"), nRuleId);
 
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = -1;

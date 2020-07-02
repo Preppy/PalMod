@@ -3,7 +3,7 @@
 
 #define IMGINFOLIST_DEBUG 0
 
-void OutputDebugString_DebugOnly(LPCSTR pszString)
+void OutputDebugString_DebugOnly(LPCTSTR pszString)
 {
 #if IMGINFOLIST_DEBUG
     OutputDebugString(pszString);
@@ -42,12 +42,12 @@ bool ImgInfoList::insertNode(UINT16 newImgID)
 
     if (valueExists(newImgID))
     {
-        strDebugInfo.Format("ImgInfoList::insertNode : Will not insert node; node with imgID:0x%02X already exists.\n", newImgID);
+        strDebugInfo.Format(_T("ImgInfoList::insertNode : Will not insert node; node with imgID:0x%02X already exists.\n"), newImgID);
         OutputDebugString_DebugOnly(strDebugInfo);
         return false;
     }
 
-    strDebugInfo.Format("ImgInfoList::insertNode : Inserting node with imgID:0x%02X\n", newImgID);
+    strDebugInfo.Format(_T("ImgInfoList::insertNode : Inserting node with imgID:0x%02X\n"), newImgID);
     OutputDebugString_DebugOnly(strDebugInfo);
 
     ImgInfoNode* toAdd = makeNode(newImgID);
@@ -87,19 +87,19 @@ void ImgInfoList::listAllImgIDs()
     }
 
     CString strDebugInfo;
-    strDebugInfo.Format("\nImgInfoList::listAllImgIDs : Listing all imgIDs - [ ");
+    strDebugInfo.Format(_T("\nImgInfoList::listAllImgIDs : Listing all imgIDs - [ "));
     OutputDebugString_DebugOnly(strDebugInfo);
     ImgInfoNode* currentNode = headNode;
     while (currentNode->nextNode != nullptr)
     {
-        strDebugInfo.Format("0x%02X, ", currentNode->imgID);
+        strDebugInfo.Format(_T("0x%02X, "), currentNode->imgID);
         OutputDebugString_DebugOnly(strDebugInfo);
         currentNode = currentNode->nextNode;
     }
 
     if (currentNode->nextNode == nullptr)
     {
-        strDebugInfo.Format("0x%02X ]\n\n", currentNode->imgID);
+        strDebugInfo.Format(_T("0x%02X ]\n\n"), currentNode->imgID);
         OutputDebugString_DebugOnly(strDebugInfo);
     }
 }
@@ -109,7 +109,7 @@ ImgInfoNode* ImgInfoList::getToNode(UINT16 desiredImgID)
     CString strDebugInfo;
     if (isEmpty())
     {
-        strDebugInfo.Format("ImgInfoList::getToNode : There are no nodes in this list.\n");
+        strDebugInfo.Format(_T("ImgInfoList::getToNode : There are no nodes in this list.\n"));
         OutputDebugString_DebugOnly(strDebugInfo);
         return nullptr;
     }
@@ -118,12 +118,12 @@ ImgInfoNode* ImgInfoList::getToNode(UINT16 desiredImgID)
 
     while (desiredImgID != currentNode->imgID)
     {
-        strDebugInfo.Format("ImgInfoList::getToNode : Looking for desiredImgID:0x%02X, Currently looking at currentNode->imgID:0x%02X \n", desiredImgID, currentNode->imgID);
+        strDebugInfo.Format(_T("ImgInfoList::getToNode : Looking for desiredImgID:0x%02X, Currently looking at currentNode->imgID:0x%02X \n"), desiredImgID, currentNode->imgID);
         OutputDebugString_DebugOnly(strDebugInfo);
 
         if (currentNode->nextNode == nullptr)
         {
-            strDebugInfo.Format("\tImgInfoList::getToNode : Search exhausted.\n");
+            strDebugInfo.Format(_T("\tImgInfoList::getToNode : Search exhausted.\n"));
             OutputDebugString_DebugOnly(strDebugInfo);
             break;
         }
@@ -135,7 +135,7 @@ ImgInfoNode* ImgInfoList::getToNode(UINT16 desiredImgID)
 
     if (desiredImgID == currentNode->imgID)
     {
-        strDebugInfo.Format("\tImgInfoList::getToNode : Found desiredImgID:0x%02X in list.\n", desiredImgID);
+        strDebugInfo.Format(_T("\tImgInfoList::getToNode : Found desiredImgID:0x%02X in list.\n"), desiredImgID);
         OutputDebugString_DebugOnly(strDebugInfo);
     }
     return currentNode;
@@ -148,7 +148,7 @@ bool ImgInfoList::valueExists(UINT16 desiredImgID)
 
     if (isEmpty())
     {
-        strDebugInfo.Format("\tImgInfoList::valueExists : There are no nodes in this list.\n");
+        strDebugInfo.Format(_T("\tImgInfoList::valueExists : There are no nodes in this list.\n"));
         OutputDebugString_DebugOnly(strDebugInfo);
         return found;
     }
@@ -156,7 +156,7 @@ bool ImgInfoList::valueExists(UINT16 desiredImgID)
     ImgInfoNode* currentNode = headNode;
     while (!found && currentNode)
     {
-        strDebugInfo.Format("\tImgInfoList::valueExists : Looking for desiredImgID:0x%02X, Currently looking at currentNode->imgID:0x%02X \n", desiredImgID, currentNode->imgID);
+        strDebugInfo.Format(_T("\tImgInfoList::valueExists : Looking for desiredImgID:0x%02X, Currently looking at currentNode->imgID:0x%02X \n"), desiredImgID, currentNode->imgID);
         OutputDebugString_DebugOnly(strDebugInfo);
 
         if (desiredImgID == currentNode->imgID)
@@ -166,17 +166,17 @@ bool ImgInfoList::valueExists(UINT16 desiredImgID)
         }
 
         currentNode = currentNode->nextNode;
-        strDebugInfo.Format("\t\tImgInfoList::valueExists : not here, checking next item.\n");
+        strDebugInfo.Format(_T("\t\tImgInfoList::valueExists : not here, checking next item.\n"));
         OutputDebugString_DebugOnly(strDebugInfo);
     }
 
     if (found)
     {
-        strDebugInfo.Format("\t\tImgInfoList::valueExists : Search success: found desiredImgID:0x%02X\n", desiredImgID);
+        strDebugInfo.Format(_T("\t\tImgInfoList::valueExists : Search success: found desiredImgID:0x%02X\n"), desiredImgID);
     }
     else
     {
-        strDebugInfo.Format("\t\tImgInfoList::valueExists : Search exhausted.\n");
+        strDebugInfo.Format(_T("\t\tImgInfoList::valueExists : Search exhausted.\n"));
     }
     OutputDebugString_DebugOnly(strDebugInfo);
 

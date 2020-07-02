@@ -109,7 +109,7 @@ private:
 
     POINT ptOffs[MAX_IMG];
     
-    CString m_strBackgroundLoc = "";
+    CString m_strBackgroundLoc = _T("");
 
     int nXOffsTop = 0;
     int nYOffsTop = 0;
@@ -156,7 +156,7 @@ public:
 
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
-    bool LoadExternalSprite(CHAR* szTextureLocation);
+    bool LoadExternalSprite(TCHAR* szTextureLocation);
     void AssignBackupPalette(UINT8* pBackupPalette);
     bool DoWeHaveImageForIndex(int nIndex);
     
@@ -169,8 +169,8 @@ public:
 
     double GetZoom() { return fpZoom; };
 
-    BOOL LoadBGBmp(CHAR* szBmpLoc);
-    void SetBGBmpPath(CHAR* szBmpLoc) { m_strBackgroundLoc = szBmpLoc; };
+    BOOL LoadBGBmp(TCHAR* szBmpLoc);
+    void SetBGBmpPath(TCHAR* szBmpLoc) { m_strBackgroundLoc = szBmpLoc; };
     //void UseBGCol(){bFillBGBmp = FALSE;};
 
     int GetImgAmt() { return nImgAmt; };

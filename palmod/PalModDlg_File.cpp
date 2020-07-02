@@ -8,7 +8,7 @@
 constexpr auto c_strLastUsedPath = _T("LastUsedPath");
 constexpr auto c_strLastUsedGFlag = _T("LastUsedGFlag");
 
-void CPalModDlg::LoadGameDir(int nGameFlag, CHAR* szLoadDir)
+void CPalModDlg::LoadGameDir(int nGameFlag, TCHAR* szLoadDir)
 {
     ClearGameVar();
 
@@ -43,7 +43,7 @@ void CPalModDlg::PostGameLoad()
     nPalWMax = ProgHost->GetCurrGame()->GetPalDisplayW();
 
     CString strDebugInfo;
-    strDebugInfo.Format("CPalModDlg::PostGameLoad : Successfully loaded files for '%s'\n", g_GameFriendlyName[ProgHost->GetCurrGame()->GetGameFlag()]);
+    strDebugInfo.Format(_T("CPalModDlg::PostGameLoad : Successfully loaded files for '%s'\n"), g_GameFriendlyName[ProgHost->GetCurrGame()->GetGameFlag()]);
     OutputDebugString(strDebugInfo);
 
     //Set pal, img, and img ctrl pointers
@@ -319,7 +319,7 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
 
                     // This code used to be testing for (dwAttribs & FILE_ATTRIBUTE_ARCHIVE), but I don't think we need that currently.
 
-                    strcpy(ptszPath, szPath);
+                    _tcscpy(ptszPath, szPath);
                     fFound = TRUE;
                 }
             }
@@ -361,12 +361,12 @@ void CPalModDlg::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
 
 void CPalModDlg::OnFileOpen()
 {
-    CString szGameFileDef = "";
+    CString szGameFileDef = _T("");
 
     struct sSupportedGameList
     {
         int nInternalGameIndex;
-        LPCSTR szGameFilterString;
+        LPCTSTR szGameFilterString;
         int nListedGameIndex;
     };
 
@@ -374,22 +374,22 @@ void CPalModDlg::OnFileOpen()
     // CGameLoad::LoadFile to pass the appropriate gameflag to that game.
     sSupportedGameList SupportedGameList[] =
     {
-        { COTA_A, "COTA xmn.05a|*.05a|", INVALID_UNIT_VALUE },
-        { CVS2_A, "CVS2 (SNKGD_SL.bin)|*.bin|", INVALID_UNIT_VALUE },
-        { Garou_A, "Garou|kf.neo-sma|", INVALID_UNIT_VALUE },
-        { Garou_S, "Garou for Steam (p1.bin)|p1.bin|", INVALID_UNIT_VALUE },
-        { JOJOS_A, "Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|", INVALID_UNIT_VALUE },
-        { KOF98_A, "KOF98 (242-p2.sp2)|*.sp2|", INVALID_UNIT_VALUE },
-        { KOF02UM_A, "KOF02UM (pal_a.bin)|*.bin|", INVALID_UNIT_VALUE },
-        { MSH_A, "MSH: Characters (*.05), Portraits (*.06b)|*.05;*.06b|", INVALID_UNIT_VALUE },
-        { MSHVSF_A, "MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", INVALID_UNIT_VALUE },
-        { MVC_A, "MVC mvc.06|*.06|", INVALID_UNIT_VALUE },
-        { MVC2_A, "MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|*.dat;*.bin|", INVALID_UNIT_VALUE },
-        { SFIII3_A, "SFIII3 51 Rom|51|", INVALID_UNIT_VALUE },
-        { SSF2T_A, "SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|", INVALID_UNIT_VALUE },
-        { SFA3_A, "SFA3 sz3.09c|*.09c|", INVALID_UNIT_VALUE },
-        { XMVSF_A, "XMVSF xvs.05a|*.05a|", INVALID_UNIT_VALUE },
-        { NEOGEO_A, "Unknown NEO•GEO|*.*|", INVALID_UNIT_VALUE },
+        { COTA_A, _T("COTA xmn.05a|*.05a|"), INVALID_UNIT_VALUE },
+        { CVS2_A, _T("CVS2 (SNKGD_SL.bin)|*.bin|"), INVALID_UNIT_VALUE },
+        { Garou_A, _T("Garou|kf.neo-sma|"), INVALID_UNIT_VALUE },
+        { Garou_S, _T("Garou for Steam (p1.bin)|p1.bin|"), INVALID_UNIT_VALUE },
+        { JOJOS_A, _T("Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|"), INVALID_UNIT_VALUE },
+        { KOF98_A, _T("KOF98 (242-p2.sp2)|*.sp2|"), INVALID_UNIT_VALUE },
+        { KOF02UM_A, _T("KOF02UM (pal_a.bin)|*.bin|"), INVALID_UNIT_VALUE },
+        { MSH_A, _T("MSH: Characters (*.05), Portraits (*.06b)|*.05;*.06b|"), INVALID_UNIT_VALUE },
+        { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },
+        { MVC_A, _T("MVC mvc.06|*.06|"), INVALID_UNIT_VALUE },
+        { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|*.dat;*.bin|"), INVALID_UNIT_VALUE },
+        { SFIII3_A, _T("SFIII3 51 Rom|51|"), INVALID_UNIT_VALUE },
+        { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|"), INVALID_UNIT_VALUE },
+        { SFA3_A, _T("SFA3 sz3.09c|*.09c|"), INVALID_UNIT_VALUE },
+        { XMVSF_A, _T("XMVSF xvs.05a|*.05a|"), INVALID_UNIT_VALUE },
+        { NEOGEO_A, _T("Unknown NEO•GEO|*.*|"), INVALID_UNIT_VALUE },
     };
 
     // The following logic ensures that their last used selection is the default filter view.
@@ -397,7 +397,7 @@ void CPalModDlg::OnFileOpen()
 
     {
         int nLastUsedGFlag;
-        CHAR szLastDir[MAX_PATH];
+        TCHAR szLastDir[MAX_PATH];
 
         if (GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, nullptr))
         {
@@ -415,13 +415,13 @@ void CPalModDlg::OnFileOpen()
         {
             // If we're here, that means that they have never used PalMod to load a game before.  Help them.
             CString strInfo;
-            LPCSTR pszParagraph1 = "Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
-            LPCSTR pszParagraph2 = "The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog helps show the right one for your game.\n\n";
+            LPCTSTR pszParagraph1 = _T("Howdy!  You appear to be new to PalMod.  Welcome!\n\n");
+            LPCTSTR pszParagraph2 = _T("The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog helps show the right one for your game.\n\n");
 
-            CHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
+            TCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
             _tcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
        
-            LPSTR pszPipe = strstr(szGameFilter, "|");
+            LPTSTR pszPipe = _tcsstr(szGameFilter, _T("|"));
 
             if (pszPipe != nullptr)
             {
@@ -429,7 +429,7 @@ void CPalModDlg::OnFileOpen()
                 pszPipe[0] = 0;
             }
 
-            strInfo.Format("%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you probably want to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
+            strInfo.Format(_T("%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you probably want to change that to the game you're interested in so that your ROM shows up."), pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
             MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
         }
     }
@@ -443,7 +443,7 @@ void CPalModDlg::OnFileOpen()
         }
     }
 
-    szGameFileDef.Append("|"); //End
+    szGameFileDef.Append(_T("|")); //End
 
     CFileDialog OpenDialog(
         TRUE,
@@ -461,13 +461,13 @@ void CPalModDlg::OnFileOpen()
         {
             if (currentGame.nListedGameIndex == ofn.nFilterIndex)
             {
-                LoadGameFile(currentGame.nInternalGameIndex, (CHAR*)ofn.lpstrFile);
+                LoadGameFile(currentGame.nInternalGameIndex, (TCHAR*)ofn.lpstrFile);
             }
         }
     }
 }
 
-void CPalModDlg::LoadGameFile(int nGameFlag, CHAR* szFile)
+void CPalModDlg::LoadGameFile(int nGameFlag, TCHAR* szFile)
 {
     if (!VerifyMsg(VM_FILECHANGE))
     {
@@ -504,37 +504,37 @@ void CPalModDlg::OnBnBlink()
     Blink();
 }
 
-void CPalModDlg::LoadPaletteFromPNG(LPCSTR pszFileName)
+void CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
 {
     CFile PNGFile;
     if (PNGFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
     {
         ProcChange();
 
-        CHAR szSignature[8];
+        char aszSignature[8];
 
         const ULONGLONG nTotalFileSize = PNGFile.GetLength();
         ULONGLONG nFileSizeRemaining = nTotalFileSize;
 
-        PNGFile.Read(szSignature, 8); 
+        PNGFile.Read(aszSignature, 8);
         nFileSizeRemaining -= 8;
 
         // Verify PNG signature
-        if ((szSignature[0] == (char)0x89) &&
-            (szSignature[1] == (char)0x50) &&
-            (szSignature[2] == (char)0x4E) &&
-            (szSignature[3] == (char)0x47) &&
-            (szSignature[4] == (char)0x0D) &&
-            (szSignature[5] == (char)0x0A) &&
-            (szSignature[6] == (char)0x1A) &&
-            (szSignature[7] == (char)0x0A))
+        if ((aszSignature[0] == (char)0x89) &&
+            (aszSignature[1] == (char)0x50) &&
+            (aszSignature[2] == (char)0x4E) &&
+            (aszSignature[3] == (char)0x47) &&
+            (aszSignature[4] == (char)0x0D) &&
+            (aszSignature[5] == (char)0x0A) &&
+            (aszSignature[6] == (char)0x1A) &&
+            (aszSignature[7] == (char)0x0A))
         {
             CString strInfo;
             bool fFoundPaletteData = false;
             int nPNGColorCount = 0;
             bool fHadToFlip = false;
 
-            OutputDebugString("this is a png.... reading chunks now...\n");
+            OutputDebugString(_T("this is a png.... reading chunks now...\n"));
 
 #define READFROMFILEANDDECREMENT(buffer, cbchunk) { if (cbchunk > nFileSizeRemaining) {break;} PNGFile.Read(buffer, cbchunk); nFileSizeRemaining -= cbchunk; }
 
@@ -543,14 +543,14 @@ void CPalModDlg::LoadPaletteFromPNG(LPCSTR pszFileName)
                 UINT32 chunkLength;
                 READFROMFILEANDDECREMENT(&chunkLength, sizeof(chunkLength));
                 chunkLength = _byteswap_ulong(chunkLength);
-                CHAR chunkType[5];
+                char chunkType[5];
                 READFROMFILEANDDECREMENT(chunkType, sizeof(chunkType) - 1);
                 chunkType[sizeof(chunkType) - 1] = 0;
 
-                strInfo.Format("Chunk: %4s, size 0x%x\n", chunkType, chunkLength);
+                strInfo.Format(_T("Chunk: %4S, size 0x%x\n"), chunkType, chunkLength);
                 OutputDebugString(strInfo);
 
-                CHAR crcBuffer[4];
+                char crcBuffer[4];
 
                 if (strcmp(chunkType, "IHDR") == 0)
                 {
@@ -562,42 +562,42 @@ void CPalModDlg::LoadPaletteFromPNG(LPCSTR pszFileName)
                     imageWidth = _byteswap_ulong(imageWidth);
                     imageHeight = _byteswap_ulong(imageHeight);
 
-                    CHAR IHDRBuffer[5];
+                    char IHDRBuffer[5];
                     READFROMFILEANDDECREMENT(IHDRBuffer, sizeof(IHDRBuffer));
                     READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
 
                     UINT32 bitDepth = IHDRBuffer[0];
-                    CHAR colorType = IHDRBuffer[1];
+                    char colorType = IHDRBuffer[1];
 
                     if ((colorType == 0) || (colorType == 4)) // grayscale options
                     {
                         // PLTE entry cannot appear for this type
-                        OutputDebugString("pngreader: grayscale: PLTE cannot be present.\n");
+                        OutputDebugString(_T("pngreader: grayscale: PLTE cannot be present.\n"));
                         break;
                     }
                     else if (colorType == 3) // indexed color
                     {
-                        OutputDebugString("pngreader: indexed: PLTE must be present.\n");
+                        OutputDebugString(_T("pngreader: indexed: PLTE must be present.\n"));
                     }
                     else // 2 - truecolor and 6 - truecolor with alpha
                     {
-                        OutputDebugString("pngreader: truecolor: PLTE may be present.\n");
+                        OutputDebugString(_T("pngreader: truecolor: PLTE may be present.\n"));
                     }
                 }
                 else if (strcmp(chunkType, "PLTE") == 0)
                 {
                     fFoundPaletteData = true;
-                    CHAR* pszPaletteData = new CHAR[chunkLength];
+                    char* paszPaletteData = new char[chunkLength];
 
-                    READFROMFILEANDDECREMENT(pszPaletteData, chunkLength);
+                    READFROMFILEANDDECREMENT(paszPaletteData, chunkLength);
                     READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
 
-                    OutputDebugString("pngreader: processing PLTE header...\n");
+                    OutputDebugString(_T("pngreader: processing PLTE header...\n"));
 
                     UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
                     nPNGColorCount = (chunkLength / 3);
 
-                    strInfo.Format("\tpngreader: processing %u colors...\n", nPNGColorCount);
+                    strInfo.Format(_T("\tpngreader: processing %u colors...\n"), nPNGColorCount);
                     OutputDebugString(strInfo);
 
                     // We can only update the active page: ignore further pages.
@@ -612,9 +612,9 @@ void CPalModDlg::LoadPaletteFromPNG(LPCSTR pszFileName)
                         bool fStillStuckOnBlack = true;
                         for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
                         {
-                            pPal[iActivePageIndex * 4] =     MainPalGroup->ROUND_R(pszPaletteData[iPNGIndex * 3]);
-                            pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pszPaletteData[(iPNGIndex * 3) + 1]);
-                            pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pszPaletteData[(iPNGIndex * 3) + 2]);
+                            pPal[iActivePageIndex * 4] =     MainPalGroup->ROUND_R(paszPaletteData[iPNGIndex * 3]);
+                            pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
+                            pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
                             pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
 
                             // This code exists because Fighter Factory writes upside-down color tables.
@@ -643,13 +643,13 @@ void CPalModDlg::LoadPaletteFromPNG(LPCSTR pszFileName)
                             UINT16 iPNGIndex = nPNGColorCount - 1;
                             fHadToFlip = true;
 
-                            OutputDebugString("This appears to be a bogus SFF PNG... flipping our PNG table logic...\n");
+                            OutputDebugString(_T("This appears to be a bogus SFF PNG... flipping our PNG table logic...\n"));
 
                             for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
                             {
-                                pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(pszPaletteData[iPNGIndex * 3]);
-                                pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pszPaletteData[(iPNGIndex * 3) + 1]);
-                                pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pszPaletteData[(iPNGIndex * 3) + 2]);
+                                pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(paszPaletteData[iPNGIndex * 3]);
+                                pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
+                                pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
                                 pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
 
                                 // This code exists because Fighter Factory writes upside-down color tables.
@@ -672,53 +672,53 @@ void CPalModDlg::LoadPaletteFromPNG(LPCSTR pszFileName)
                     {
                         if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
                         {
-                            MessageBox("Heads-up: you are loading a PNG for a multipage palette.  PalMod can only use the PNG to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
+                            MessageBox(_T("Heads-up: you are loading a PNG for a multipage palette.  PalMod can only use the PNG to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once."), GetHost()->GetAppName(), MB_ICONERROR);
                         }
                     }
 
-                    safe_delete_array(pszPaletteData);
+                    safe_delete_array(paszPaletteData);
                     break;
                 }
                 else if (strcmp(chunkType, "IDAT") == 0)
                 {
                     // PLTE data if present must be present before the IDAT chunks
-                    OutputDebugString("pngreader: IDAT section hit: PLTE cannot be present from here on out.\n");
+                    OutputDebugString(_T("pngreader: IDAT section hit: PLTE cannot be present from here on out.\n"));
                     break;
                 }
                 else
                 {
                     // This is a chunk we don't care about: just walk past.
-                    CHAR* pszNope = new CHAR[chunkLength];
+                    char* paszNope = new char[chunkLength];
 
-                    READFROMFILEANDDECREMENT(pszNope, chunkLength);
+                    READFROMFILEANDDECREMENT(paszNope, chunkLength);
                     READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
 
-                    safe_delete_array(pszNope);
+                    safe_delete_array(paszNope);
                 }
             }
 
             if (!fFoundPaletteData)
             {
-                MessageBox("Error: This PNG file is not using indexed color.  PalMod cannot use it.", GetHost()->GetAppName(), MB_ICONERROR);
+                MessageBox(_T("Error: This PNG file is not using indexed color.  PalMod cannot use it."), GetHost()->GetAppName(), MB_ICONERROR);
             }
             else
             {
                 if (fHadToFlip)
                 {
-                    strInfo.Format("PNG appears to have a reversed color table: loaded %u colors backwards.", nPNGColorCount);
+                    strInfo.Format(_T("PNG appears to have a reversed color table: loaded %u colors backwards."), nPNGColorCount);
                 }
                 else
                 {
-                    strInfo.Format("Loaded %u colors from the indexed PNG.", nPNGColorCount);
+                    strInfo.Format(_T("Loaded %u colors from the indexed PNG."), nPNGColorCount);
                 }
                 SetStatusText(strInfo);
             }
 
-            OutputDebugString("pngreader: done!\n");
+            OutputDebugString(_T("pngreader: done!\n"));
         }
         else
         {
-            MessageBox("Error: This is not a valid PNG file.", GetHost()->GetAppName(), MB_ICONERROR);
+            MessageBox(_T("Error: This is not a valid PNG file."), GetHost()->GetAppName(), MB_ICONERROR);
         }
 
         PNGFile.Close();
@@ -735,16 +735,16 @@ void CPalModDlg::OnLoadAct()
 {
     if (bEnabled)
     {
-        CFileDialog ActLoad(TRUE, NULL, NULL, NULL, "ACT Palette, Indexed PNG| *.ACT;*.png||");
+        CFileDialog ActLoad(TRUE, NULL, NULL, NULL, _T("ACT Palette, Indexed PNG| *.ACT;*.png||"));
 
         if (ActLoad.DoModal() == IDOK)
         {
             CString strFileName = ActLoad.GetOFN().lpstrFile;
 
-            char szExtension[_MAX_EXT];
-            _splitpath(strFileName, nullptr, nullptr, nullptr, szExtension);
+            TCHAR szExtension[_MAX_EXT];
+            _tsplitpath(strFileName, nullptr, nullptr, nullptr, szExtension);
 
-            if (_stricmp(szExtension, ".png") == 0)
+            if (_tcsicmp(szExtension, _T(".png")) == 0)
             {
                 LoadPaletteFromPNG(strFileName);
             }
@@ -825,7 +825,7 @@ void CPalModDlg::OnLoadAct()
                     {
                         if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
                         {
-                            MessageBox("Heads-up: you are loading an ACT for a multipage palette.  PalMod can only use the ACT to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
+                            MessageBox(_T("Heads-up: you are loading an ACT for a multipage palette.  PalMod can only use the ACT to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once."), GetHost()->GetAppName(), MB_ICONERROR);
                         }
                     }
                 }
@@ -842,7 +842,7 @@ void CPalModDlg::OnLoadAct()
 
 void CPalModDlg::OnSaveAct()
 {
-    CFileDialog ActSave(FALSE, ".act", NULL, 4 | 2, "ACT Palette (*.ACT)| *.act|| All Files (*.*)| *.*||");
+    CFileDialog ActSave(FALSE, _T(".act"), NULL, 4 | 2, _T("ACT Palette (*.ACT)| *.act|| All Files (*.*)| *.*||"));
 
     if (ActSave.DoModal() == IDOK)
     {

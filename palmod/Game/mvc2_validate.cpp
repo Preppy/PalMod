@@ -2489,28 +2489,28 @@ void dump_palettes(UINT16 char_id, UINT16 source_palette, UINT16 compare_char, U
     // THEORIES
     // both should match stock values. if EITHER both are matching OR neither matches then we are happy.
     CString strPaletteData;
-    strPaletteData.Format(" { 0x%x /* %s */, 0x%x, { ", char_id, MVC2_D_UNITDESC[char_id], source_palette);
+    strPaletteData.Format(_T(" { 0x%x /* %s */, 0x%x, { "), char_id, MVC2_D_UNITDESC[char_id], source_palette);
     OutputDebugString(strPaletteData);
 
     UINT16 *source_colors = get_pal_16(char_id, source_palette);
 
     for (UINT16 nIndex = 0; nIndex < 16; nIndex++)
     {
-        strPaletteData.Format("0x%x, ", source_colors[nIndex]);
+        strPaletteData.Format(_T("0x%x, "), source_colors[nIndex]);
         OutputDebugString(strPaletteData);
     }
 
-    strPaletteData.Format("},\n\t 0x%x /* %s */, 0x%x, { ", compare_char, MVC2_D_UNITDESC[compare_char], destination_palette);
+    strPaletteData.Format(_T("},\n\t 0x%x /* %s */, 0x%x, { "), compare_char, MVC2_D_UNITDESC[compare_char], destination_palette);
     OutputDebugString(strPaletteData);
 
     UINT16 *destination_colors = get_pal_16(compare_char, destination_palette);
     for (UINT16 nIndex = 0; nIndex < 16; nIndex++)
     {
-        strPaletteData.Format("0x%x, ", destination_colors[nIndex]);
+        strPaletteData.Format(_T("0x%x, "), destination_colors[nIndex]);
         OutputDebugString(strPaletteData);
     }
 
-    OutputDebugString("} },\n");
+    OutputDebugString(_T("} },\n"));
 }
 
 void DumpAllPalettes()
@@ -2612,7 +2612,7 @@ bool IsPaletteOutOfSync(UINT16 char_id, UINT16 source_palette, UINT16 compare_ch
                 (char_val_array[nValIndex].source_palette == char_val_array[nValIndex].destination_palette))
             {
                 CString strMsg;
-                strMsg.Format("\nPlease remove no-op check for        0x%x /* %s */, 0x%x, {", char_id, MVC2_D_UNITDESC[char_id], char_val_array[nValIndex].destination_palette);
+                strMsg.Format(_T("\nPlease remove no-op check for        0x%x /* %s */, 0x%x, { "), char_id, MVC2_D_UNITDESC[char_id], char_val_array[nValIndex].destination_palette);
                 OutputDebugString(strMsg);
             }
 #endif
@@ -2636,7 +2636,7 @@ bool IsPaletteOutOfSync(UINT16 char_id, UINT16 source_palette, UINT16 compare_ch
             {
                 if ((nIndex == 0) && (char_val_array[nValIndex].destColors[nIndex] != 0x0))
                 {
-                    OutputDebugString("Bogus step detected: please fix.\n");
+                    OutputDebugString(_T("Bogus step detected: please fix.\n"));
                 }
 
                 if (destination_colors[nIndex] != char_val_array[nValIndex].destColors[nIndex])
@@ -2657,7 +2657,7 @@ bool IsPaletteOutOfSync(UINT16 char_id, UINT16 source_palette, UINT16 compare_ch
                     (lastDestPal == char_val_array[nValIndex].destination_palette))
                 {
                     CString strMsg;
-                    strMsg.Format("Error: duplicate check found in validation table for character %s (0x%x) at 0x%x to 0x%x :\n", MVC2_D_UNITDESC[char_id], char_id, char_val_array[nValIndex].source_palette, char_val_array[nValIndex].destination_palette);
+                    strMsg.Format(_T("Error: duplicate check found in validation table for character %s (0x%x) at 0x%x to 0x%x :\n"), MVC2_D_UNITDESC[char_id], char_id, char_val_array[nValIndex].source_palette, char_val_array[nValIndex].destination_palette);
                     OutputDebugString(strMsg);
                 }
 
@@ -2666,25 +2666,25 @@ bool IsPaletteOutOfSync(UINT16 char_id, UINT16 source_palette, UINT16 compare_ch
 
                 // Use this to dump out the vanilla colors.
                 CString strMsg;
-                strMsg.Format("    {   0x%x /* %s */, 0x%02x, {", char_id, MVC2_D_UNITDESC[char_id], char_val_array[nValIndex].source_palette);
+                strMsg.Format(_T("    {   0x%x /* %s */, 0x%02x, { "), char_id, MVC2_D_UNITDESC[char_id], char_val_array[nValIndex].source_palette);
                 OutputDebugString(strMsg);
                 for (UINT16 nIndex = 0; nIndex < 16; nIndex++)
                 {
-                    strMsg.Format(" 0x%x,", source_colors[nIndex]);
+                    strMsg.Format(_T(" 0x%x,"), source_colors[nIndex]);
                     OutputDebugString(strMsg);
                 }
 
-                OutputDebugString(" },\n");
+                OutputDebugString(_T(") },\n"));
 
-                strMsg.Format("        0x%x /* %s */, 0x%02x, {", char_id, MVC2_D_UNITDESC[char_id], char_val_array[nValIndex].destination_palette);
+                strMsg.Format(_T("        0x%x /* %s */, 0x%02x, { "), char_id, MVC2_D_UNITDESC[char_id], char_val_array[nValIndex].destination_palette);
                 OutputDebugString(strMsg);
                 for (UINT16 nIndex = 0; nIndex < 16; nIndex++)
                 {
-                    strMsg.Format(" 0x%x,", destination_colors[nIndex]);
+                    strMsg.Format(_T(" 0x%x,"), destination_colors[nIndex]);
                     OutputDebugString(strMsg);
                 }
 
-                OutputDebugString(" } },\n");
+                OutputDebugString(_T(" } },\n"));
             }
 #endif
 
@@ -2769,7 +2769,7 @@ bool AreEditsOutOfSync()
             {
                 editsAreOutofSync = true;
                 CString strMessage;
-                strMessage.Format("Issues found: %s at 0x%x is not in sync with %s at 0x%x\n", MVC2_D_UNITDESC[paletteToCheck.character_number], paletteToCheck.source_palette,
+                strMessage.Format(_T("Issues found: %s at 0x%x is not in sync with %s at 0x%x\n"), MVC2_D_UNITDESC[paletteToCheck.character_number], paletteToCheck.source_palette,
                     MVC2_D_UNITDESC[paletteToCheck.compare_character], paletteToCheck.destination_palette);
                 OutputDebugString(strMessage);
             }
@@ -2787,7 +2787,7 @@ bool AreEditsOutOfSync()
             editsAreOutofSync = true;
 
             CString strMessage;
-            strMessage.Format("Issues found: %s at 0x%x is not in sync with %s at 0x%x\n", MVC2_D_UNITDESC[paletteToCheck.character_number], paletteToCheck.source_palette,
+            strMessage.Format(_T("Issues found: %s at 0x%x is not in sync with %s at 0x%x\n"), MVC2_D_UNITDESC[paletteToCheck.character_number], paletteToCheck.source_palette,
                 MVC2_D_UNITDESC[paletteToCheck.compare_character], paletteToCheck.destination_palette);
             OutputDebugString(strMessage);
 
@@ -2823,22 +2823,22 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT16* rgPaletteChangeArray)
             {
                 if (issueCount == 0)
                 {
-                    strUserMessage = "Issues were found with the colors for: ";
+                    strUserMessage = _T("Issues were found with the colors for: ");
                 }
                 else
                 {
-                    strUserMessage.Append(", ");
+                    strUserMessage.Append(_T(", "));
                 }
                 strUserMessage.Append(MVC2_D_UNITDESC[nIndex]);
                 issueCount++;
 
                 CString strMessage;
-                strMessage.Format("Please fix %s (0x%x)\n", MVC2_D_UNITDESC[nIndex], nIndex);
+                strMessage.Format(_T("Please fix %s (0x%x)\n"), MVC2_D_UNITDESC[nIndex], nIndex);
                 OutputDebugString(strMessage);
             }
         }
 
-        strUserMessage.Append(".\n\nDo you want PalMod to try to fix that for you?");
+        strUserMessage.Append(_T(".\n\nDo you want PalMod to try to fix that for you?"));
         switch (MessageBox(g_appHWnd, strUserMessage, GetHost()->GetAppName(),  MB_YESNO | MB_ICONERROR))
         {
             case IDYES:
@@ -2848,11 +2848,11 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT16* rgPaletteChangeArray)
                 
                 if (AreEditsOutOfSync())
                 {
-                    strUserMessage = "Unable to fix the edits, sorry.";
+                    strUserMessage = _T("Unable to fix the edits, sorry.");
                 }
                 else
                 {
-                    strUserMessage = "Auto-modifications complete.\n\nIf you like the changes, make sure to Save/Patch them.";
+                    strUserMessage = _T("Auto-modifications complete.\n\nIf you like the changes, make sure to Save/Patch them.");
                 }
                 MessageBox(g_appHWnd, strUserMessage, GetHost()->GetAppName(), MB_ICONINFORMATION);
                 break;
@@ -2863,7 +2863,7 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT16* rgPaletteChangeArray)
     }
     else
     {
-        strUserMessage = "The color edits seem to match correctly: nice work.";
+        strUserMessage = _T("The color edits seem to match correctly: nice work.");
         MessageBox(g_appHWnd, strUserMessage, GetHost()->GetAppName(), MB_ICONINFORMATION);
     }
 }
@@ -2885,7 +2885,7 @@ void FixAllProblemPalettes(UINT16* rgPaletteChangeArray)
             ((lastFixedCharacter != paletteToCheck.character_number)  || (lastFixedPalette != paletteToCheck.source_palette)))
         {
             CString strMessage;
-            strMessage.Format("Fixing %s palette 0x%x \n", MVC2_D_UNITDESC[paletteToCheck.character_number], paletteToCheck.source_palette);
+            strMessage.Format(_T("Fixing %s palette 0x%x \n"), MVC2_D_UNITDESC[paletteToCheck.character_number], paletteToCheck.source_palette);
             OutputDebugString(strMessage);
 
             lastFixedCharacter = paletteToCheck.character_number;
@@ -2907,11 +2907,11 @@ void FixAllProblemPalettes(UINT16* rgPaletteChangeArray)
             if (isModified)
             {
                 proc_supp(paletteToCheck.character_number, paletteToCheck.source_palette);
-                OutputDebugString("This was modified: FIXED.\n");
+                OutputDebugString(_T("This was modified: FIXED.\n"));
             }
             else
             {
-                OutputDebugString("This is unmodified.\n");
+                OutputDebugString(_T("This is unmodified.\n"));
             }
 
             rgPaletteChangeArray[paletteToCheck.character_number] = TRUE;
@@ -2936,6 +2936,6 @@ void FixAllProblemPalettes(UINT16* rgPaletteChangeArray)
 
     g_haveValidationData = false;
 
-    OutputDebugString("Complete!\n");
+    OutputDebugString(_T("Complete!\n"));
 }
 

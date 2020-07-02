@@ -193,15 +193,15 @@ void CPalModDlg::PostPalSel()
         // Friendly name would be kind of nice.
         if ((CurrTicket->nUnitId == 0xFFFF) || (CurrTicket->nUnitId == 0xFFFFFFFF))
         {
-            strInformation.Format("Preview: unit (undefined), image id %u", CurrTicket->nImgId);
+            strInformation.Format(_T("Preview: unit (undefined), image id %u"), CurrTicket->nImgId);
         }
         else if ((CurrTicket->nImgId == 0xFFFF) || (CurrTicket->nImgId == 0xFFFFFFFF))
         {
-            strInformation.Format("Preview: 0x%02x, image id (undefined)", CurrTicket->nUnitId);
+            strInformation.Format(_T("Preview: 0x%02x, image id (undefined)"), CurrTicket->nUnitId);
         }
         else
         {
-            strInformation.Format("Preview: unit 0x%02x, image id %u", CurrTicket->nUnitId, CurrTicket->nImgId);
+            strInformation.Format(_T("Preview: unit 0x%02x, image id %u"), CurrTicket->nUnitId, CurrTicket->nImgId);
         }
         PreviewDlg->SetWindowCaption(strInformation);
     }
@@ -340,19 +340,19 @@ void CPalModDlg::OnPalHLChange(void* pPalCtrl, int nCtrlId)
 
     if (!nHLAmt)
     {
-        m_StatusBar.SetPaneText(1, "");
+        m_StatusBar.SetPaneText(1, _T(""));
     }
     else if (nHLAmt == 1)
     {
-        CHAR szIndex[32];
+        TCHAR szIndex[32];
         // this is the status bar area text
-        sprintf(szIndex, "(%d: %d)", nCtrlId, pNotifyCtrl->GetHighlightIndex());
+        _stprintf(szIndex, _T("(%d: %d)"), nCtrlId, pNotifyCtrl->GetHighlightIndex());
 
         m_StatusBar.SetPaneText(1, szIndex);
     }
     else
     {
-        m_StatusBar.SetPaneText(1, "--");
+        m_StatusBar.SetPaneText(1, _T("--"));
     }
 }
 

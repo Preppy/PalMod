@@ -2,11 +2,11 @@
 
 #define REG_MAIN        0
 #define REG_PREV        1
-#define REG_IMGOUT        2
+#define REG_IMGOUT      2
 
-#define RECT_STRSZ        256
+#define RECT_STRSZ      256
 
-#define BGBMPFILE "bgbmp.bmp"
+#define BGBMPFILE _T("bgbmp.bmp")
 constexpr auto c_badWindowPosValue = -512;
 
 constexpr auto c_mainDefaultGetColor = TRUE;
@@ -50,7 +50,7 @@ public:
     COLORREF prev_bgcol;
     COLORREF prev_blinkcol;
 
-    CHAR szPrevBGLoc[MAX_PATH];
+    TCHAR szPrevBGLoc[MAX_PATH];
     int nBGXOffs;
     int nBGYOffs;
     BOOL bTileBG;
