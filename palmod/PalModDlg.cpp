@@ -56,7 +56,7 @@ static UINT BASED_CODE indicators[] =
     ID_INDICATOR_EXTRA
 };
 
-CString szPasteStr = _T("");
+CStringA szPasteStr = "";
 
 // CPalModDlg dialog
 CPalModDlg::CPalModDlg(CWnd* pParent /*=NULL*/)
