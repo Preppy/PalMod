@@ -782,6 +782,18 @@ enum KOFSpriteList
     indexKOFSprites_02OZero,
     indexKOFSprites_02NGeese, // unused curently
 
+    indexKOFSprites_99Krizalid,
+    indexKOFSprites_00Bao,
+    indexKOFSprites_00Kasumi,
+    indexKOFSprites_00Robert,
+    indexKOFSprites_00ZeroClone,
+    indexKOFSprites_01Xiangfei,
+    indexKOFSprites_02Andy,
+    indexKOFSprites_02Chin,
+    indexKOFSprites_02Kusanagi,
+    indexKOFSprites_02Robert,
+    indexKOFSprites_02Yuri,
+
     indexKOFSprites_Last,
 };
 
@@ -1014,6 +1026,18 @@ const UINT8 KOF02UM_A_IMG_UNITS[] =
     indexKOFSprites_02Kasumi,
     indexKOFSprites_02Krizalid,
     indexKOFSprites_02OZero,
+
+    indexKOFSprites_99Krizalid,
+    indexKOFSprites_00Bao,
+    indexKOFSprites_00Kasumi,
+    indexKOFSprites_00Robert,
+    indexKOFSprites_00ZeroClone,
+    indexKOFSprites_01Xiangfei,
+    indexKOFSprites_02Andy,
+    indexKOFSprites_02Chin,
+    indexKOFSprites_02Kusanagi,
+    indexKOFSprites_02Robert,
+    indexKOFSprites_02Yuri,
 };
 
 const int KOF02UM_A_NUM_IMG_UNITS = ARRAYSIZE(KOF02UM_A_IMG_UNITS);

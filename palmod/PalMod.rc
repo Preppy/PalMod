@@ -76,22 +76,30 @@ IDR_MAINFRAME           ICON                    "res\\PalMod.ico"
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOGEX 0, 0, 231, 124
+IDD_ABOUTBOX DIALOGEX 0, 0, 231, 215
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About PalMod"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
     LTEXT           "PalMod",IDC_ABOUTNAME,42,14,114,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2020",IDC_STATIC,10,106,65,8
-    DEFPUSHBUTTON   "OK",IDOK,174,103,50,14,WS_GROUP
-    LTEXT           "Credits",IDC_STATIC,41,28,125,8
-    LTEXT           "knarxed",IDC_STATIC,50,42,50,8
-    LTEXT           "Magnetro",IDC_STATIC,102,42,50,8
-    LTEXT           "Eidrian",IDC_STATIC,102,52,50,8
-    LTEXT           "Preppy",IDC_STATIC,50,51,50,8
-    LTEXT           "Updates and guides available at:",IDC_STATIC,7,70,209,8
-    CONTROL         "https://zachd.com/palmod",IDC_WEBSITELINK,"MfcLink",WS_TABSTOP,37,82,134,14
+    LTEXT           "PALette MODification for fighting games.",IDC_ABOUTNAME2,41,26,173,8,SS_NOPREFIX
+    LTEXT           "Original 2008 Creative Team",IDC_STATIC,7,43,125,8
+    LTEXT           "knarxed",IDC_STATIC,23,56,50,8
+    LTEXT           "Magnetro",IDC_STATIC,75,56,50,8
+    LTEXT           "Eidrian",IDC_STATIC,75,66,50,8
+    LTEXT           "Preppy",IDC_STATIC,23,66,50,8
+    LTEXT           "2020 Creative Team",IDC_STATIC,7,83,125,8
+    LTEXT           "Preppy",IDC_STATIC,23,96,50,8
+    LTEXT           "TVIndustries",IDC_STATIC,76,96,50,8
+    LTEXT           "IceManual",IDC_STATIC,24,106,50,8
+    LTEXT           "mountainmanjed",IDC_STATIC,76,106,68,8
+    LTEXT           "Game data and images copyright those respective companies.",IDC_STATIC,7,126,210,8
+    LTEXT           "Special thanks and gratitude to many others in the various communities who helped us find and understand game data.",IDC_STATIC,7,142,209,16
+    LTEXT           "Updates and guides available at:",IDC_STATIC,7,166,209,8
+    CONTROL         "https://zachd.com/palmod",IDC_WEBSITELINK,"MfcLink",WS_TABSTOP,37,176,93,14
+    LTEXT           "Copyright (C) 2020",IDC_STATIC,10,194,65,8
+    DEFPUSHBUTTON   "OK",IDOK,174,192,50,14,WS_GROUP
 END
 
 IDD_PALMOD_DIALOG_FAT DIALOGEX 0, 0, 407, 244
@@ -271,7 +279,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 224
         TOPMARGIN, 7
-        BOTTOMMARGIN, 117
+        BOTTOMMARGIN, 208
     END
 
     IDD_PALMOD_DIALOG_FAT, DIALOG

@@ -27,22 +27,22 @@ const sKOF02_CharacterDump KOF02UM_CharacterOffsetArray[] =
     { _T("Benimaru"), 0x02800, 0x02A00, 0x02C00, 0x02E00, _T("indexKOFSprites_98Benimaru") },
     { _T("Daimon"), 0x03000, 0x03200, 0x03400, 0x03600, _T("indexKOFSprites_98Daimon") },
     { _T("Terry"), 0x03800, 0x03A00, 0x03C00, 0x03E00, _T("indexKOFSprites_98Terry") },
-    { _T("Andy"), 0x04000, 0x04200, 0x04400, 0x04600, _T("indexKOFSprites_98Andy") },
+    { _T("Andy"), 0x04000, 0x04200, 0x04400, 0x04600, _T("indexKOFSprites_02Andy") },
     { _T("Joe"), 0x04800, 0x04A00, 0x04C00, 0x04E00, _T("indexKOFSprites_98Joe") },
     { _T("Kim"), 0x05000, 0x05200, 0x05400, 0x05600, _T("indexKOFSprites_98Kim") },
     { _T("Chang"), 0x05800, 0x05A00, 0x05C00, 0x05E00, _T("indexKOFSprites_98Chang") },
     { _T("Choi"), 0x06000, 0x06200, 0x06400, 0x06600, _T("indexKOFSprites_98Choi") },
     { _T("Athena"), 0x06800, 0x06A00, 0x06C00, 0x06E00, _T("indexKOFSprites_02Athena") },
     { _T("Kensou"), 0x07000, 0x07200, 0x07400, 0x07600, _T("indexKOFSprites_98Kensou") },
-    { _T("Chin"), 0x07800, 0x07A00, 0x07C00, 0x07E00, _T("indexKOFSprites_98Chin") },
+    { _T("Chin"), 0x07800, 0x07A00, 0x07C00, 0x07E00, _T("indexKOFSprites_02Chin") },
     { _T("Leona"), 0x08000, 0x08200, 0x08400, 0x08600, _T("indexKOFSprites_98Leona") },
     { _T("Ralf"), 0x08800, 0x08A00, 0x08C00, 0x08E00, _T("indexKOFSprites_02Ralf") },
     { _T("Clark"), 0x09000, 0x09200, 0x09400, 0x09600, _T("indexKOFSprites_02Clark") },
     { _T("Ryo"), 0x09800, 0x09A00, 0x09C00, 0x09E00, _T("indexKOFSprites_98Ryo") },
-    { _T("Robert"), 0x0A000, 0x0A200, 0x0A400, 0x0A600, _T("indexKOFSprites_98Robert") },
+    { _T("Robert"), 0x0A000, 0x0A200, 0x0A400, 0x0A600, _T("indexKOFSprites_02Robert") },
     { _T("Takuma"), 0x0A800, 0x0AA00, 0x0AC00, 0x0AE00, _T("indexKOFSprites_98Takuma") },
     { _T("Mai"), 0x0B000, 0x0B200, 0x0B400, 0x0B600, _T("indexKOFSprites_98Mai") },
-    { _T("Yuri"), 0x0B800, 0x0BA00, 0x0BC00, 0x0BE00, _T("indexKOFSprites_98Yuri") },
+    { _T("Yuri"), 0x0B800, 0x0BA00, 0x0BC00, 0x0BE00, _T("indexKOFSprites_02Yuri") },
     { _T("May Lee"), 0x0C000, 0x0C200, 0x0C400, 0x0C600, _T("indexKOFSprites_02MayLee") },
     { _T("Iori"), 0x0C800, 0x0CA00, 0x0CC00, 0x0CE00, _T("indexKOFSprites_98Iori") },
     { _T("Mature"), 0x0D000, 0x0D200, 0x0D400, 0x0D600, _T("indexKOFSprites_98Mature") },
@@ -63,7 +63,7 @@ const sKOF02_CharacterDump KOF02UM_CharacterOffsetArray[] =
     { _T("Nameless"), 0x14800, 0x14A00, 0x14C00, 0x14E00, _T("indexKOFSprites_02Nameless") },
     { _T("Angel"), 0x15000, 0x15200, 0x15400, 0x15600, _T("indexKOFSprites_02Angel") },
     { _T("Omega Rugal"), 0x15800, 0x15A00, 0x15C00, 0x15E00, _T("indexKOFSprites_98Rugal") },
-    { _T("Kusanagi"), 0x16000, 0x16200, 0x16400, 0x16600, _T("indexKOFSprites_02Kyo") },
+    { _T("Kusanagi"), 0x16000, 0x16200, 0x16400, 0x16600, _T("indexKOFSprites_02Kusanagi") },
     { _T("O.Yashiro"), 0x16800, 0x16A00, 0x16C00, 0x16E00, _T("indexKOFSprites_98Yashiro") },
     { _T("O.Shermie"), 0x17000, 0x17200, 0x17400, 0x17600, _T("indexKOFSprites_98Shermie") },
     { _T("O.Chris"), 0x17800, 0x17A00, 0x17C00, 0x17E00, _T("indexKOFSprites_98Chris") },
@@ -71,26 +71,26 @@ const sKOF02_CharacterDump KOF02UM_CharacterOffsetArray[] =
     // 45c000
     { _T("Shingo"), 0x45c00, 0x45d00, 0x45e00, 0x45f00, _T("indexKOFSprites_98Shingo") },
     { _T("King"), 0x46400, 0x46500, 0x46600, 0x46700, _T("indexKOFSprites_02King") },
-    { _T("Xiangfei"), 0x46c00, 0x46d00, 0x46e00, 0x46f00, _T("indexKOFSprites_02Xiangfei") },
+    { _T("Xiangfei"), 0x46c00, 0x46d00, 0x46e00, 0x46f00, _T("indexKOFSprites_01Xiangfei") },
     { _T("Hinako"), 0x47400, 0x47500, 0x47600, 0x47700, _T("indexKOFSprites_02Hinako") },
     { _T("Heidern"), 0x47c00, 0x47d00, 0x47e00, 0x47f00, _T("indexKOFSprites_98Heidern") },
     { _T("Lin"), 0x48400, 0x48500, 0x48600, 0x48700, _T("indexKOFSprites_02Lin") },
     { _T("EX Takuma"), 0x48c00, 0x48d00, 0x48e00, 0x48f00, _T("indexKOFSprites_98Takuma") },
-    { _T("Bao"), 0x49400, 0x49500, 0x49600, 0x49600, _T("indexKOFSprites_02Bao") },
+    { _T("Bao"), 0x49400, 0x49500, 0x49600, 0x49600, _T("indexKOFSprites_00Bao") },
     { _T("Jhun Hoon"), 0x49c00, 0x49d00, 0x49e00, 0x49f00, _T("indexKOFSprites_02Jhun") },
     { _T("Kyo-1"), 0x4a400, 0x4a500, 0x4a600, 0x4a700, _T("indexKOFSprites_98Kyo") },
     { _T("Foxy"), 0x4ac00, 0x4ad00, 0x4ae00, 0x4af00, _T("indexKOFSprites_02Foxy") },
 
-    { _T("Kasumi"), 0x4b400, 0x4b500, 0x4b600, 0x4b700, _T("indexKOFSprites_02Kasumi") },
+    { _T("Kasumi"), 0x4b400, 0x4b500, 0x4b600, 0x4b700, _T("indexKOFSprites_00Kasumi") },
     { _T("Geese"), 0x4bc00, 0x4bd00, 0x4be00 ,0x4bf00, _T("indexKOFSprites_02Geese") },
     { _T("Nightmare Geese"), 0x4c400, 0x4c500, 0x4c600 ,0x4c700, _T("indexKOFSprites_02Geese") },
-    { _T("EX Robert"), 0x4cc00, 0x4cd00, 0x4ce00, 0x4cf00, _T("indexKOFSprites_98Robert") },
+    { _T("EX Robert"), 0x4cc00, 0x4cd00, 0x4ce00, 0x4cf00, _T("indexKOFSprites_00Robert") },
     { _T("EX Kensou"), 0x4d400, 0x4d500, 0x4d600, 0x4d700, _T("indexKOFSprites_98Kensou") },
     { _T("Kyo-2"), 0x4dc00, 0x4dd00, 0x4de00, 0x4df00, _T("indexKOFSprites_98Kyo") },
     { _T("Goenitz"), 0x4e400, 0x4e500, 0x4e600, 0x4e700, _T("indexKOFSprites_02Goenitz") },
 
-    { _T("Krizalid"), 0x4ec00, 0x4ed00, 0x4ee00, 0x4ef00, _T("indexKOFSprites_02Krizalid") },
-    { _T("Clone Zero"), 0x4f400, 0x4f500, 0x4f600, 0x4f700, _T("indexKOFSprites_02OZero") },
+    { _T("Krizalid"), 0x4ec00, 0x4ed00, 0x4ee00, 0x4ef00, _T("indexKOFSprites_99Krizalid") },
+    { _T("Clone Zero"), 0x4f400, 0x4f500, 0x4f600, 0x4f700, _T("indexKOFSprites_00ZeroClone") },
 
     { _T("Original Zero"), 0x4fc00, 0x4fc00, 0x4fc00, 0x4fc00, _T("indexKOFSprites_02OZero") },
     { _T("Igniz"), 0x50400, 0x50400, 0x50400, 0x50400, _T("indexKOFSprites_02Igniz") },
@@ -322,50 +322,50 @@ const sDescTreeNode KOF02UM_A_TERRY_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_A[] =
 {
-    { _T("Andy A"), 0x0004000, 0x0004020, indexKOFSprites_98Andy },
-    { _T("A - Hidden Super Desperation Move 1"), 0x0004020, 0x0004040, indexKOFSprites_98Andy },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x0004040, 0x0004060, indexKOFSprites_98Andy },
-    { _T("A - Electric Shock Effect"), 0x0004060, 0x0004080, indexKOFSprites_98Andy },
-    { _T("A - Max Flash"), 0x0004080, 0x00040a0, indexKOFSprites_98Andy },
-    { _T("A - Hidden Super Desperation Move 2"), 0x00040a0, 0x00040c0, indexKOFSprites_98Andy },
-    { _T("A - Soul Palette"), 0x00040c0, 0x00040e0, indexKOFSprites_98Andy },
-    { _T("A - Hidden Super Desperation Move 3"), 0x00040e0, 0x0004100, indexKOFSprites_98Andy },
+    { _T("Andy A"), 0x0004000, 0x0004020, indexKOFSprites_02Andy },
+    { _T("A - Hidden Super Desperation Move 1"), 0x0004020, 0x0004040, indexKOFSprites_02Andy },
+    { _T("A - Desperation Move / Super Desperation Move"), 0x0004040, 0x0004060, indexKOFSprites_02Andy },
+    { _T("A - Electric Shock Effect"), 0x0004060, 0x0004080, indexKOFSprites_02Andy },
+    { _T("A - Max Flash"), 0x0004080, 0x00040a0, indexKOFSprites_02Andy },
+    { _T("A - Hidden Super Desperation Move 2"), 0x00040a0, 0x00040c0, indexKOFSprites_02Andy },
+    { _T("A - Soul Palette"), 0x00040c0, 0x00040e0, indexKOFSprites_02Andy },
+    { _T("A - Hidden Super Desperation Move 3"), 0x00040e0, 0x0004100, indexKOFSprites_02Andy },
 };
 
 const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_B[] =
 {
-    { _T("Andy B"), 0x0004200, 0x0004220, indexKOFSprites_98Andy },
-    { _T("B - Hidden Super Desperation Move 1"), 0x0004220, 0x0004240, indexKOFSprites_98Andy },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x0004240, 0x0004260, indexKOFSprites_98Andy },
-    { _T("B - Electric Shock Effect"), 0x0004260, 0x0004280, indexKOFSprites_98Andy },
-    { _T("B - Max Flash"), 0x0004280, 0x00042a0, indexKOFSprites_98Andy },
-    { _T("B - Hidden Super Desperation Move 2"), 0x00042a0, 0x00042c0, indexKOFSprites_98Andy },
-    { _T("B - Soul Palette"), 0x00042c0, 0x00042e0, indexKOFSprites_98Andy },
-    { _T("B - Hidden Super Desperation Move 3"), 0x00042e0, 0x0004300, indexKOFSprites_98Andy },
+    { _T("Andy B"), 0x0004200, 0x0004220, indexKOFSprites_02Andy },
+    { _T("B - Hidden Super Desperation Move 1"), 0x0004220, 0x0004240, indexKOFSprites_02Andy },
+    { _T("B - Desperation Move / Super Desperation Move"), 0x0004240, 0x0004260, indexKOFSprites_02Andy },
+    { _T("B - Electric Shock Effect"), 0x0004260, 0x0004280, indexKOFSprites_02Andy },
+    { _T("B - Max Flash"), 0x0004280, 0x00042a0, indexKOFSprites_02Andy },
+    { _T("B - Hidden Super Desperation Move 2"), 0x00042a0, 0x00042c0, indexKOFSprites_02Andy },
+    { _T("B - Soul Palette"), 0x00042c0, 0x00042e0, indexKOFSprites_02Andy },
+    { _T("B - Hidden Super Desperation Move 3"), 0x00042e0, 0x0004300, indexKOFSprites_02Andy },
 };
 
 const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_C[] =
 {
-    { _T("Andy C"), 0x0004400, 0x0004420, indexKOFSprites_98Andy },
-    { _T("C - Hidden Super Desperation Move 1"), 0x0004420, 0x0004440, indexKOFSprites_98Andy },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x0004440, 0x0004460, indexKOFSprites_98Andy },
-    { _T("C - Electric Shock Effect"), 0x0004460, 0x0004480, indexKOFSprites_98Andy },
-    { _T("C - Max Flash"), 0x0004480, 0x00044a0, indexKOFSprites_98Andy },
-    { _T("C - Hidden Super Desperation Move 2"), 0x00044a0, 0x00044c0, indexKOFSprites_98Andy },
-    { _T("C - Soul Palette"), 0x00044c0, 0x00044e0, indexKOFSprites_98Andy },
-    { _T("C - Hidden Super Desperation Move 3"), 0x00044e0, 0x0004500, indexKOFSprites_98Andy },
+    { _T("Andy C"), 0x0004400, 0x0004420, indexKOFSprites_02Andy },
+    { _T("C - Hidden Super Desperation Move 1"), 0x0004420, 0x0004440, indexKOFSprites_02Andy },
+    { _T("C - Desperation Move / Super Desperation Move"), 0x0004440, 0x0004460, indexKOFSprites_02Andy },
+    { _T("C - Electric Shock Effect"), 0x0004460, 0x0004480, indexKOFSprites_02Andy },
+    { _T("C - Max Flash"), 0x0004480, 0x00044a0, indexKOFSprites_02Andy },
+    { _T("C - Hidden Super Desperation Move 2"), 0x00044a0, 0x00044c0, indexKOFSprites_02Andy },
+    { _T("C - Soul Palette"), 0x00044c0, 0x00044e0, indexKOFSprites_02Andy },
+    { _T("C - Hidden Super Desperation Move 3"), 0x00044e0, 0x0004500, indexKOFSprites_02Andy },
 };
 
 const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_D[] =
 {
-    { _T("Andy D"), 0x0004600, 0x0004620, indexKOFSprites_98Andy },
-    { _T("D - Hidden Super Desperation Move 1"), 0x0004620, 0x0004640, indexKOFSprites_98Andy },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x0004640, 0x0004660, indexKOFSprites_98Andy },
-    { _T("D - Electric Shock Effect"), 0x0004660, 0x0004680, indexKOFSprites_98Andy },
-    { _T("D - Max Flash"), 0x0004680, 0x00046a0, indexKOFSprites_98Andy },
-    { _T("D - Hidden Super Desperation Move 2"), 0x00046a0, 0x00046c0, indexKOFSprites_98Andy },
-    { _T("D - Soul Palette"), 0x00046c0, 0x00046e0, indexKOFSprites_98Andy },
-    { _T("D - Hidden Super Desperation Move 3"), 0x00046e0, 0x0004700, indexKOFSprites_98Andy },
+    { _T("Andy D"), 0x0004600, 0x0004620, indexKOFSprites_02Andy },
+    { _T("D - Hidden Super Desperation Move 1"), 0x0004620, 0x0004640, indexKOFSprites_02Andy },
+    { _T("D - Desperation Move / Super Desperation Move"), 0x0004640, 0x0004660, indexKOFSprites_02Andy },
+    { _T("D - Electric Shock Effect"), 0x0004660, 0x0004680, indexKOFSprites_02Andy },
+    { _T("D - Max Flash"), 0x0004680, 0x00046a0, indexKOFSprites_02Andy },
+    { _T("D - Hidden Super Desperation Move 2"), 0x00046a0, 0x00046c0, indexKOFSprites_02Andy },
+    { _T("D - Soul Palette"), 0x00046c0, 0x00046e0, indexKOFSprites_02Andy },
+    { _T("D - Hidden Super Desperation Move 3"), 0x00046e0, 0x0004700, indexKOFSprites_02Andy },
 };
 
 const sDescTreeNode KOF02UM_A_ANDY_COLLECTION[] =
@@ -714,50 +714,50 @@ const sDescTreeNode KOF02UM_A_KENSOU_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_A[] =
 {
-    { _T("Chin A"), 0x0007800, 0x0007820, indexKOFSprites_98Chin },
-    { _T("A - Hidden Super Desperation Move 1"), 0x0007820, 0x0007840, indexKOFSprites_98Chin },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x0007840, 0x0007860, indexKOFSprites_98Chin },
-    { _T("A - Electric Shock Effect"), 0x0007860, 0x0007880, indexKOFSprites_98Chin },
-    { _T("A - Max Flash"), 0x0007880, 0x00078a0, indexKOFSprites_98Chin },
-    { _T("A - Hidden Super Desperation Move 2"), 0x00078a0, 0x00078c0, indexKOFSprites_98Chin },
-    { _T("A - Soul Palette"), 0x00078c0, 0x00078e0, indexKOFSprites_98Chin },
-    { _T("A - Hidden Super Desperation Move 3"), 0x00078e0, 0x0007900, indexKOFSprites_98Chin },
+    { _T("Chin A"), 0x0007800, 0x0007820, indexKOFSprites_02Chin },
+    { _T("A - Hidden Super Desperation Move 1"), 0x0007820, 0x0007840, indexKOFSprites_02Chin },
+    { _T("A - Desperation Move / Super Desperation Move"), 0x0007840, 0x0007860, indexKOFSprites_02Chin },
+    { _T("A - Electric Shock Effect"), 0x0007860, 0x0007880, indexKOFSprites_02Chin },
+    { _T("A - Max Flash"), 0x0007880, 0x00078a0, indexKOFSprites_02Chin },
+    { _T("A - Hidden Super Desperation Move 2"), 0x00078a0, 0x00078c0, indexKOFSprites_02Chin },
+    { _T("A - Soul Palette"), 0x00078c0, 0x00078e0, indexKOFSprites_02Chin },
+    { _T("A - Hidden Super Desperation Move 3"), 0x00078e0, 0x0007900, indexKOFSprites_02Chin },
 };
 
 const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_B[] =
 {
-    { _T("Chin B"), 0x0007a00, 0x0007a20, indexKOFSprites_98Chin },
-    { _T("B - Hidden Super Desperation Move 1"), 0x0007a20, 0x0007a40, indexKOFSprites_98Chin },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x0007a40, 0x0007a60, indexKOFSprites_98Chin },
-    { _T("B - Electric Shock Effect"), 0x0007a60, 0x0007a80, indexKOFSprites_98Chin },
-    { _T("B - Max Flash"), 0x0007a80, 0x0007aa0, indexKOFSprites_98Chin },
-    { _T("B - Hidden Super Desperation Move 2"), 0x0007aa0, 0x0007ac0, indexKOFSprites_98Chin },
-    { _T("B - Soul Palette"), 0x0007ac0, 0x0007ae0, indexKOFSprites_98Chin },
-    { _T("B - Hidden Super Desperation Move 3"), 0x0007ae0, 0x0007b00, indexKOFSprites_98Chin },
+    { _T("Chin B"), 0x0007a00, 0x0007a20, indexKOFSprites_02Chin },
+    { _T("B - Hidden Super Desperation Move 1"), 0x0007a20, 0x0007a40, indexKOFSprites_02Chin },
+    { _T("B - Desperation Move / Super Desperation Move"), 0x0007a40, 0x0007a60, indexKOFSprites_02Chin },
+    { _T("B - Electric Shock Effect"), 0x0007a60, 0x0007a80, indexKOFSprites_02Chin },
+    { _T("B - Max Flash"), 0x0007a80, 0x0007aa0, indexKOFSprites_02Chin },
+    { _T("B - Hidden Super Desperation Move 2"), 0x0007aa0, 0x0007ac0, indexKOFSprites_02Chin },
+    { _T("B - Soul Palette"), 0x0007ac0, 0x0007ae0, indexKOFSprites_02Chin },
+    { _T("B - Hidden Super Desperation Move 3"), 0x0007ae0, 0x0007b00, indexKOFSprites_02Chin },
 };
 
 const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_C[] =
 {
-    { _T("Chin C"), 0x0007c00, 0x0007c20, indexKOFSprites_98Chin },
-    { _T("C - Hidden Super Desperation Move 1"), 0x0007c20, 0x0007c40, indexKOFSprites_98Chin },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x0007c40, 0x0007c60, indexKOFSprites_98Chin },
-    { _T("C - Electric Shock Effect"), 0x0007c60, 0x0007c80, indexKOFSprites_98Chin },
-    { _T("C - Max Flash"), 0x0007c80, 0x0007ca0, indexKOFSprites_98Chin },
-    { _T("C - Hidden Super Desperation Move 2"), 0x0007ca0, 0x0007cc0, indexKOFSprites_98Chin },
-    { _T("C - Soul Palette"), 0x0007cc0, 0x0007ce0, indexKOFSprites_98Chin },
-    { _T("C - Hidden Super Desperation Move 3"), 0x0007ce0, 0x0007d00, indexKOFSprites_98Chin },
+    { _T("Chin C"), 0x0007c00, 0x0007c20, indexKOFSprites_02Chin },
+    { _T("C - Hidden Super Desperation Move 1"), 0x0007c20, 0x0007c40, indexKOFSprites_02Chin },
+    { _T("C - Desperation Move / Super Desperation Move"), 0x0007c40, 0x0007c60, indexKOFSprites_02Chin },
+    { _T("C - Electric Shock Effect"), 0x0007c60, 0x0007c80, indexKOFSprites_02Chin },
+    { _T("C - Max Flash"), 0x0007c80, 0x0007ca0, indexKOFSprites_02Chin },
+    { _T("C - Hidden Super Desperation Move 2"), 0x0007ca0, 0x0007cc0, indexKOFSprites_02Chin },
+    { _T("C - Soul Palette"), 0x0007cc0, 0x0007ce0, indexKOFSprites_02Chin },
+    { _T("C - Hidden Super Desperation Move 3"), 0x0007ce0, 0x0007d00, indexKOFSprites_02Chin },
 };
 
 const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_D[] =
 {
-    { _T("Chin D"), 0x0007e00, 0x0007e20, indexKOFSprites_98Chin },
-    { _T("D - Hidden Super Desperation Move 1"), 0x0007e20, 0x0007e40, indexKOFSprites_98Chin },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x0007e40, 0x0007e60, indexKOFSprites_98Chin },
-    { _T("D - Electric Shock Effect"), 0x0007e60, 0x0007e80, indexKOFSprites_98Chin },
-    { _T("D - Max Flash"), 0x0007e80, 0x0007ea0, indexKOFSprites_98Chin },
-    { _T("D - Hidden Super Desperation Move 2"), 0x0007ea0, 0x0007ec0, indexKOFSprites_98Chin },
-    { _T("D - Soul Palette"), 0x0007ec0, 0x0007ee0, indexKOFSprites_98Chin },
-    { _T("D - Hidden Super Desperation Move 3"), 0x0007ee0, 0x0007f00, indexKOFSprites_98Chin },
+    { _T("Chin D"), 0x0007e00, 0x0007e20, indexKOFSprites_02Chin },
+    { _T("D - Hidden Super Desperation Move 1"), 0x0007e20, 0x0007e40, indexKOFSprites_02Chin },
+    { _T("D - Desperation Move / Super Desperation Move"), 0x0007e40, 0x0007e60, indexKOFSprites_02Chin },
+    { _T("D - Electric Shock Effect"), 0x0007e60, 0x0007e80, indexKOFSprites_02Chin },
+    { _T("D - Max Flash"), 0x0007e80, 0x0007ea0, indexKOFSprites_02Chin },
+    { _T("D - Hidden Super Desperation Move 2"), 0x0007ea0, 0x0007ec0, indexKOFSprites_02Chin },
+    { _T("D - Soul Palette"), 0x0007ec0, 0x0007ee0, indexKOFSprites_02Chin },
+    { _T("D - Hidden Super Desperation Move 3"), 0x0007ee0, 0x0007f00, indexKOFSprites_02Chin },
 };
 
 const sDescTreeNode KOF02UM_A_CHIN_COLLECTION[] =
@@ -994,50 +994,50 @@ const sDescTreeNode KOF02UM_A_RYO_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_A[] =
 {
-    { _T("Robert A"), 0x000a000, 0x000a020, indexKOFSprites_98Robert },
-    { _T("A - Hidden Super Desperation Move 1"), 0x000a020, 0x000a040, indexKOFSprites_98Robert },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x000a040, 0x000a060, indexKOFSprites_98Robert },
-    { _T("A - Electric Shock Effect"), 0x000a060, 0x000a080, indexKOFSprites_98Robert },
-    { _T("A - Max Flash"), 0x000a080, 0x000a0a0, indexKOFSprites_98Robert },
-    { _T("A - Hidden Super Desperation Move 2"), 0x000a0a0, 0x000a0c0, indexKOFSprites_98Robert },
-    { _T("A - Soul Palette"), 0x000a0c0, 0x000a0e0, indexKOFSprites_98Robert },
-    { _T("A - Hidden Super Desperation Move 3"), 0x000a0e0, 0x000a100, indexKOFSprites_98Robert },
+    { _T("Robert A"), 0x000a000, 0x000a020, indexKOFSprites_02Robert },
+    { _T("A - Hidden Super Desperation Move 1"), 0x000a020, 0x000a040, indexKOFSprites_02Robert },
+    { _T("A - Desperation Move / Super Desperation Move"), 0x000a040, 0x000a060, indexKOFSprites_02Robert },
+    { _T("A - Electric Shock Effect"), 0x000a060, 0x000a080, indexKOFSprites_02Robert },
+    { _T("A - Max Flash"), 0x000a080, 0x000a0a0, indexKOFSprites_02Robert },
+    { _T("A - Hidden Super Desperation Move 2"), 0x000a0a0, 0x000a0c0, indexKOFSprites_02Robert },
+    { _T("A - Soul Palette"), 0x000a0c0, 0x000a0e0, indexKOFSprites_02Robert },
+    { _T("A - Hidden Super Desperation Move 3"), 0x000a0e0, 0x000a100, indexKOFSprites_02Robert },
 };
 
 const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_B[] =
 {
-    { _T("Robert B"), 0x000a200, 0x000a220, indexKOFSprites_98Robert },
-    { _T("B - Hidden Super Desperation Move 1"), 0x000a220, 0x000a240, indexKOFSprites_98Robert },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x000a240, 0x000a260, indexKOFSprites_98Robert },
-    { _T("B - Electric Shock Effect"), 0x000a260, 0x000a280, indexKOFSprites_98Robert },
-    { _T("B - Max Flash"), 0x000a280, 0x000a2a0, indexKOFSprites_98Robert },
-    { _T("B - Hidden Super Desperation Move 2"), 0x000a2a0, 0x000a2c0, indexKOFSprites_98Robert },
-    { _T("B - Soul Palette"), 0x000a2c0, 0x000a2e0, indexKOFSprites_98Robert },
-    { _T("B - Hidden Super Desperation Move 3"), 0x000a2e0, 0x000a300, indexKOFSprites_98Robert },
+    { _T("Robert B"), 0x000a200, 0x000a220, indexKOFSprites_02Robert },
+    { _T("B - Hidden Super Desperation Move 1"), 0x000a220, 0x000a240, indexKOFSprites_02Robert },
+    { _T("B - Desperation Move / Super Desperation Move"), 0x000a240, 0x000a260, indexKOFSprites_02Robert },
+    { _T("B - Electric Shock Effect"), 0x000a260, 0x000a280, indexKOFSprites_02Robert },
+    { _T("B - Max Flash"), 0x000a280, 0x000a2a0, indexKOFSprites_02Robert },
+    { _T("B - Hidden Super Desperation Move 2"), 0x000a2a0, 0x000a2c0, indexKOFSprites_02Robert },
+    { _T("B - Soul Palette"), 0x000a2c0, 0x000a2e0, indexKOFSprites_02Robert },
+    { _T("B - Hidden Super Desperation Move 3"), 0x000a2e0, 0x000a300, indexKOFSprites_02Robert },
 };
 
 const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_C[] =
 {
-    { _T("Robert C"), 0x000a400, 0x000a420, indexKOFSprites_98Robert },
-    { _T("C - Hidden Super Desperation Move 1"), 0x000a420, 0x000a440, indexKOFSprites_98Robert },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x000a440, 0x000a460, indexKOFSprites_98Robert },
-    { _T("C - Electric Shock Effect"), 0x000a460, 0x000a480, indexKOFSprites_98Robert },
-    { _T("C - Max Flash"), 0x000a480, 0x000a4a0, indexKOFSprites_98Robert },
-    { _T("C - Hidden Super Desperation Move 2"), 0x000a4a0, 0x000a4c0, indexKOFSprites_98Robert },
-    { _T("C - Soul Palette"), 0x000a4c0, 0x000a4e0, indexKOFSprites_98Robert },
-    { _T("C - Hidden Super Desperation Move 3"), 0x000a4e0, 0x000a500, indexKOFSprites_98Robert },
+    { _T("Robert C"), 0x000a400, 0x000a420, indexKOFSprites_02Robert },
+    { _T("C - Hidden Super Desperation Move 1"), 0x000a420, 0x000a440, indexKOFSprites_02Robert },
+    { _T("C - Desperation Move / Super Desperation Move"), 0x000a440, 0x000a460, indexKOFSprites_02Robert },
+    { _T("C - Electric Shock Effect"), 0x000a460, 0x000a480, indexKOFSprites_02Robert },
+    { _T("C - Max Flash"), 0x000a480, 0x000a4a0, indexKOFSprites_02Robert },
+    { _T("C - Hidden Super Desperation Move 2"), 0x000a4a0, 0x000a4c0, indexKOFSprites_02Robert },
+    { _T("C - Soul Palette"), 0x000a4c0, 0x000a4e0, indexKOFSprites_02Robert },
+    { _T("C - Hidden Super Desperation Move 3"), 0x000a4e0, 0x000a500, indexKOFSprites_02Robert },
 };
 
 const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_D[] =
 {
-    { _T("Robert D"), 0x000a600, 0x000a620, indexKOFSprites_98Robert },
-    { _T("D - Hidden Super Desperation Move 1"), 0x000a620, 0x000a640, indexKOFSprites_98Robert },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x000a640, 0x000a660, indexKOFSprites_98Robert },
-    { _T("D - Electric Shock Effect"), 0x000a660, 0x000a680, indexKOFSprites_98Robert },
-    { _T("D - Max Flash"), 0x000a680, 0x000a6a0, indexKOFSprites_98Robert },
-    { _T("D - Hidden Super Desperation Move 2"), 0x000a6a0, 0x000a6c0, indexKOFSprites_98Robert },
-    { _T("D - Soul Palette"), 0x000a6c0, 0x000a6e0, indexKOFSprites_98Robert },
-    { _T("D - Hidden Super Desperation Move 3"), 0x000a6e0, 0x000a700, indexKOFSprites_98Robert },
+    { _T("Robert D"), 0x000a600, 0x000a620, indexKOFSprites_02Robert },
+    { _T("D - Hidden Super Desperation Move 1"), 0x000a620, 0x000a640, indexKOFSprites_02Robert },
+    { _T("D - Desperation Move / Super Desperation Move"), 0x000a640, 0x000a660, indexKOFSprites_02Robert },
+    { _T("D - Electric Shock Effect"), 0x000a660, 0x000a680, indexKOFSprites_02Robert },
+    { _T("D - Max Flash"), 0x000a680, 0x000a6a0, indexKOFSprites_02Robert },
+    { _T("D - Hidden Super Desperation Move 2"), 0x000a6a0, 0x000a6c0, indexKOFSprites_02Robert },
+    { _T("D - Soul Palette"), 0x000a6c0, 0x000a6e0, indexKOFSprites_02Robert },
+    { _T("D - Hidden Super Desperation Move 3"), 0x000a6e0, 0x000a700, indexKOFSprites_02Robert },
 };
 
 const sDescTreeNode KOF02UM_A_ROBERT_COLLECTION[] =
@@ -1162,50 +1162,50 @@ const sDescTreeNode KOF02UM_A_MAI_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_A[] =
 {
-    { _T("Yuri A"), 0x000b800, 0x000b820, indexKOFSprites_98Yuri },
-    { _T("A - Hidden Super Desperation Move 1"), 0x000b820, 0x000b840, indexKOFSprites_98Yuri },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x000b840, 0x000b860, indexKOFSprites_98Yuri },
-    { _T("A - Electric Shock Effect"), 0x000b860, 0x000b880, indexKOFSprites_98Yuri },
-    { _T("A - Max Flash"), 0x000b880, 0x000b8a0, indexKOFSprites_98Yuri },
-    { _T("A - Hidden Super Desperation Move 2"), 0x000b8a0, 0x000b8c0, indexKOFSprites_98Yuri },
-    { _T("A - Soul Palette"), 0x000b8c0, 0x000b8e0, indexKOFSprites_98Yuri },
-    { _T("A - Hidden Super Desperation Move 3"), 0x000b8e0, 0x000b900, indexKOFSprites_98Yuri },
+    { _T("Yuri A"), 0x000b800, 0x000b820, indexKOFSprites_02Yuri },
+    { _T("A - Hidden Super Desperation Move 1"), 0x000b820, 0x000b840, indexKOFSprites_02Yuri },
+    { _T("A - Desperation Move / Super Desperation Move"), 0x000b840, 0x000b860, indexKOFSprites_02Yuri },
+    { _T("A - Electric Shock Effect"), 0x000b860, 0x000b880, indexKOFSprites_02Yuri },
+    { _T("A - Max Flash"), 0x000b880, 0x000b8a0, indexKOFSprites_02Yuri },
+    { _T("A - Hidden Super Desperation Move 2"), 0x000b8a0, 0x000b8c0, indexKOFSprites_02Yuri },
+    { _T("A - Soul Palette"), 0x000b8c0, 0x000b8e0, indexKOFSprites_02Yuri },
+    { _T("A - Hidden Super Desperation Move 3"), 0x000b8e0, 0x000b900, indexKOFSprites_02Yuri },
 };
 
 const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_B[] =
 {
-    { _T("Yuri B"), 0x000ba00, 0x000ba20, indexKOFSprites_98Yuri },
-    { _T("B - Hidden Super Desperation Move 1"), 0x000ba20, 0x000ba40, indexKOFSprites_98Yuri },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x000ba40, 0x000ba60, indexKOFSprites_98Yuri },
-    { _T("B - Electric Shock Effect"), 0x000ba60, 0x000ba80, indexKOFSprites_98Yuri },
-    { _T("B - Max Flash"), 0x000ba80, 0x000baa0, indexKOFSprites_98Yuri },
-    { _T("B - Hidden Super Desperation Move 2"), 0x000baa0, 0x000bac0, indexKOFSprites_98Yuri },
-    { _T("B - Soul Palette"), 0x000bac0, 0x000bae0, indexKOFSprites_98Yuri },
-    { _T("B - Hidden Super Desperation Move 3"), 0x000bae0, 0x000bb00, indexKOFSprites_98Yuri },
+    { _T("Yuri B"), 0x000ba00, 0x000ba20, indexKOFSprites_02Yuri },
+    { _T("B - Hidden Super Desperation Move 1"), 0x000ba20, 0x000ba40, indexKOFSprites_02Yuri },
+    { _T("B - Desperation Move / Super Desperation Move"), 0x000ba40, 0x000ba60, indexKOFSprites_02Yuri },
+    { _T("B - Electric Shock Effect"), 0x000ba60, 0x000ba80, indexKOFSprites_02Yuri },
+    { _T("B - Max Flash"), 0x000ba80, 0x000baa0, indexKOFSprites_02Yuri },
+    { _T("B - Hidden Super Desperation Move 2"), 0x000baa0, 0x000bac0, indexKOFSprites_02Yuri },
+    { _T("B - Soul Palette"), 0x000bac0, 0x000bae0, indexKOFSprites_02Yuri },
+    { _T("B - Hidden Super Desperation Move 3"), 0x000bae0, 0x000bb00, indexKOFSprites_02Yuri },
 };
 
 const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_C[] =
 {
-    { _T("Yuri C"), 0x000bc00, 0x000bc20, indexKOFSprites_98Yuri },
-    { _T("C - Hidden Super Desperation Move 1"), 0x000bc20, 0x000bc40, indexKOFSprites_98Yuri },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x000bc40, 0x000bc60, indexKOFSprites_98Yuri },
-    { _T("C - Electric Shock Effect"), 0x000bc60, 0x000bc80, indexKOFSprites_98Yuri },
-    { _T("C - Max Flash"), 0x000bc80, 0x000bca0, indexKOFSprites_98Yuri },
-    { _T("C - Hidden Super Desperation Move 2"), 0x000bca0, 0x000bcc0, indexKOFSprites_98Yuri },
-    { _T("C - Soul Palette"), 0x000bcc0, 0x000bce0, indexKOFSprites_98Yuri },
-    { _T("C - Hidden Super Desperation Move 3"), 0x000bce0, 0x000bd00, indexKOFSprites_98Yuri },
+    { _T("Yuri C"), 0x000bc00, 0x000bc20, indexKOFSprites_02Yuri },
+    { _T("C - Hidden Super Desperation Move 1"), 0x000bc20, 0x000bc40, indexKOFSprites_02Yuri },
+    { _T("C - Desperation Move / Super Desperation Move"), 0x000bc40, 0x000bc60, indexKOFSprites_02Yuri },
+    { _T("C - Electric Shock Effect"), 0x000bc60, 0x000bc80, indexKOFSprites_02Yuri },
+    { _T("C - Max Flash"), 0x000bc80, 0x000bca0, indexKOFSprites_02Yuri },
+    { _T("C - Hidden Super Desperation Move 2"), 0x000bca0, 0x000bcc0, indexKOFSprites_02Yuri },
+    { _T("C - Soul Palette"), 0x000bcc0, 0x000bce0, indexKOFSprites_02Yuri },
+    { _T("C - Hidden Super Desperation Move 3"), 0x000bce0, 0x000bd00, indexKOFSprites_02Yuri },
 };
 
 const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_D[] =
 {
-    { _T("Yuri D"), 0x000be00, 0x000be20, indexKOFSprites_98Yuri },
-    { _T("D - Hidden Super Desperation Move 1"), 0x000be20, 0x000be40, indexKOFSprites_98Yuri },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x000be40, 0x000be60, indexKOFSprites_98Yuri },
-    { _T("D - Electric Shock Effect"), 0x000be60, 0x000be80, indexKOFSprites_98Yuri },
-    { _T("D - Max Flash"), 0x000be80, 0x000bea0, indexKOFSprites_98Yuri },
-    { _T("D - Hidden Super Desperation Move 2"), 0x000bea0, 0x000bec0, indexKOFSprites_98Yuri },
-    { _T("D - Soul Palette"), 0x000bec0, 0x000bee0, indexKOFSprites_98Yuri },
-    { _T("D - Hidden Super Desperation Move 3"), 0x000bee0, 0x000bf00, indexKOFSprites_98Yuri },
+    { _T("Yuri D"), 0x000be00, 0x000be20, indexKOFSprites_02Yuri },
+    { _T("D - Hidden Super Desperation Move 1"), 0x000be20, 0x000be40, indexKOFSprites_02Yuri },
+    { _T("D - Desperation Move / Super Desperation Move"), 0x000be40, 0x000be60, indexKOFSprites_02Yuri },
+    { _T("D - Electric Shock Effect"), 0x000be60, 0x000be80, indexKOFSprites_02Yuri },
+    { _T("D - Max Flash"), 0x000be80, 0x000bea0, indexKOFSprites_02Yuri },
+    { _T("D - Hidden Super Desperation Move 2"), 0x000bea0, 0x000bec0, indexKOFSprites_02Yuri },
+    { _T("D - Soul Palette"), 0x000bec0, 0x000bee0, indexKOFSprites_02Yuri },
+    { _T("D - Hidden Super Desperation Move 3"), 0x000bee0, 0x000bf00, indexKOFSprites_02Yuri },
 };
 
 const sDescTreeNode KOF02UM_A_YURI_COLLECTION[] =
@@ -2338,50 +2338,50 @@ const sDescTreeNode KOF02UM_A_OMEGARUGAL_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_A[] =
 {
-    { _T("Kusanagi A"), 0x0016000, 0x0016020, indexKOFSprites_02Kyo },
-    { _T("A - Hidden Super Desperation Move 1"), 0x0016020, 0x0016040, indexKOFSprites_02Kyo },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x0016040, 0x0016060, indexKOFSprites_02Kyo },
-    { _T("A - Electric Shock Effect"), 0x0016060, 0x0016080, indexKOFSprites_02Kyo },
-    { _T("A - Max Flash"), 0x0016080, 0x00160a0, indexKOFSprites_02Kyo },
-    { _T("A - Hidden Super Desperation Move 2"), 0x00160a0, 0x00160c0, indexKOFSprites_02Kyo },
-    { _T("A - Soul Palette"), 0x00160c0, 0x00160e0, indexKOFSprites_02Kyo },
-    { _T("A - Hidden Super Desperation Move 3"), 0x00160e0, 0x0016100, indexKOFSprites_02Kyo },
+    { _T("Kusanagi A"), 0x0016000, 0x0016020, indexKOFSprites_02Kusanagi },
+    { _T("A - Hidden Super Desperation Move 1"), 0x0016020, 0x0016040, indexKOFSprites_02Kusanagi },
+    { _T("A - Desperation Move / Super Desperation Move"), 0x0016040, 0x0016060, indexKOFSprites_02Kusanagi },
+    { _T("A - Electric Shock Effect"), 0x0016060, 0x0016080, indexKOFSprites_02Kusanagi },
+    { _T("A - Max Flash"), 0x0016080, 0x00160a0, indexKOFSprites_02Kusanagi },
+    { _T("A - Hidden Super Desperation Move 2"), 0x00160a0, 0x00160c0, indexKOFSprites_02Kusanagi },
+    { _T("A - Soul Palette"), 0x00160c0, 0x00160e0, indexKOFSprites_02Kusanagi },
+    { _T("A - Hidden Super Desperation Move 3"), 0x00160e0, 0x0016100, indexKOFSprites_02Kusanagi },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_B[] =
 {
-    { _T("Kusanagi B"), 0x0016200, 0x0016220, indexKOFSprites_02Kyo },
-    { _T("B - Hidden Super Desperation Move 1"), 0x0016220, 0x0016240, indexKOFSprites_02Kyo },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x0016240, 0x0016260, indexKOFSprites_02Kyo },
-    { _T("B - Electric Shock Effect"), 0x0016260, 0x0016280, indexKOFSprites_02Kyo },
-    { _T("B - Max Flash"), 0x0016280, 0x00162a0, indexKOFSprites_02Kyo },
-    { _T("B - Hidden Super Desperation Move 2"), 0x00162a0, 0x00162c0, indexKOFSprites_02Kyo },
-    { _T("B - Soul Palette"), 0x00162c0, 0x00162e0, indexKOFSprites_02Kyo },
-    { _T("B - Hidden Super Desperation Move 3"), 0x00162e0, 0x0016300, indexKOFSprites_02Kyo },
+    { _T("Kusanagi B"), 0x0016200, 0x0016220, indexKOFSprites_02Kusanagi },
+    { _T("B - Hidden Super Desperation Move 1"), 0x0016220, 0x0016240, indexKOFSprites_02Kusanagi },
+    { _T("B - Desperation Move / Super Desperation Move"), 0x0016240, 0x0016260, indexKOFSprites_02Kusanagi },
+    { _T("B - Electric Shock Effect"), 0x0016260, 0x0016280, indexKOFSprites_02Kusanagi },
+    { _T("B - Max Flash"), 0x0016280, 0x00162a0, indexKOFSprites_02Kusanagi },
+    { _T("B - Hidden Super Desperation Move 2"), 0x00162a0, 0x00162c0, indexKOFSprites_02Kusanagi },
+    { _T("B - Soul Palette"), 0x00162c0, 0x00162e0, indexKOFSprites_02Kusanagi },
+    { _T("B - Hidden Super Desperation Move 3"), 0x00162e0, 0x0016300, indexKOFSprites_02Kusanagi },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_C[] =
 {
-    { _T("Kusanagi C"), 0x0016400, 0x0016420, indexKOFSprites_02Kyo },
-    { _T("C - Hidden Super Desperation Move 1"), 0x0016420, 0x0016440, indexKOFSprites_02Kyo },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x0016440, 0x0016460, indexKOFSprites_02Kyo },
-    { _T("C - Electric Shock Effect"), 0x0016460, 0x0016480, indexKOFSprites_02Kyo },
-    { _T("C - Max Flash"), 0x0016480, 0x00164a0, indexKOFSprites_02Kyo },
-    { _T("C - Hidden Super Desperation Move 2"), 0x00164a0, 0x00164c0, indexKOFSprites_02Kyo },
-    { _T("C - Soul Palette"), 0x00164c0, 0x00164e0, indexKOFSprites_02Kyo },
-    { _T("C - Hidden Super Desperation Move 3"), 0x00164e0, 0x0016500, indexKOFSprites_02Kyo },
+    { _T("Kusanagi C"), 0x0016400, 0x0016420, indexKOFSprites_02Kusanagi },
+    { _T("C - Hidden Super Desperation Move 1"), 0x0016420, 0x0016440, indexKOFSprites_02Kusanagi },
+    { _T("C - Desperation Move / Super Desperation Move"), 0x0016440, 0x0016460, indexKOFSprites_02Kusanagi },
+    { _T("C - Electric Shock Effect"), 0x0016460, 0x0016480, indexKOFSprites_02Kusanagi },
+    { _T("C - Max Flash"), 0x0016480, 0x00164a0, indexKOFSprites_02Kusanagi },
+    { _T("C - Hidden Super Desperation Move 2"), 0x00164a0, 0x00164c0, indexKOFSprites_02Kusanagi },
+    { _T("C - Soul Palette"), 0x00164c0, 0x00164e0, indexKOFSprites_02Kusanagi },
+    { _T("C - Hidden Super Desperation Move 3"), 0x00164e0, 0x0016500, indexKOFSprites_02Kusanagi },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_D[] =
 {
-    { _T("Kusanagi D"), 0x0016600, 0x0016620, indexKOFSprites_02Kyo },
-    { _T("D - Hidden Super Desperation Move 1"), 0x0016620, 0x0016640, indexKOFSprites_02Kyo },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x0016640, 0x0016660, indexKOFSprites_02Kyo },
-    { _T("D - Electric Shock Effect"), 0x0016660, 0x0016680, indexKOFSprites_02Kyo },
-    { _T("D - Max Flash"), 0x0016680, 0x00166a0, indexKOFSprites_02Kyo },
-    { _T("D - Hidden Super Desperation Move 2"), 0x00166a0, 0x00166c0, indexKOFSprites_02Kyo },
-    { _T("D - Soul Palette"), 0x00166c0, 0x00166e0, indexKOFSprites_02Kyo },
-    { _T("D - Hidden Super Desperation Move 3"), 0x00166e0, 0x0016700, indexKOFSprites_02Kyo },
+    { _T("Kusanagi D"), 0x0016600, 0x0016620, indexKOFSprites_02Kusanagi },
+    { _T("D - Hidden Super Desperation Move 1"), 0x0016620, 0x0016640, indexKOFSprites_02Kusanagi },
+    { _T("D - Desperation Move / Super Desperation Move"), 0x0016640, 0x0016660, indexKOFSprites_02Kusanagi },
+    { _T("D - Electric Shock Effect"), 0x0016660, 0x0016680, indexKOFSprites_02Kusanagi },
+    { _T("D - Max Flash"), 0x0016680, 0x00166a0, indexKOFSprites_02Kusanagi },
+    { _T("D - Hidden Super Desperation Move 2"), 0x00166a0, 0x00166c0, indexKOFSprites_02Kusanagi },
+    { _T("D - Soul Palette"), 0x00166c0, 0x00166e0, indexKOFSprites_02Kusanagi },
+    { _T("D - Hidden Super Desperation Move 3"), 0x00166e0, 0x0016700, indexKOFSprites_02Kusanagi },
 };
 
 const sDescTreeNode KOF02UM_A_KUSANAGI_COLLECTION[] =
@@ -2674,50 +2674,50 @@ const sDescTreeNode KOF02UM_A_KING_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_A[] =
 {
-    { _T("Xiangfei A"), 0x0046c00, 0x0046c20, indexKOFSprites_02Xiangfei },
-    { _T("A - Hidden Super Desperation Move 1"), 0x0046c20, 0x0046c40, indexKOFSprites_02Xiangfei },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x0046c40, 0x0046c60, indexKOFSprites_02Xiangfei },
-    { _T("A - Electric Shock Effect"), 0x0046c60, 0x0046c80, indexKOFSprites_02Xiangfei },
-    { _T("A - Max Flash"), 0x0046c80, 0x0046ca0, indexKOFSprites_02Xiangfei },
-    { _T("A - Hidden Super Desperation Move 2"), 0x0046ca0, 0x0046cc0, indexKOFSprites_02Xiangfei },
-    { _T("A - Soul Palette"), 0x0046cc0, 0x0046ce0, indexKOFSprites_02Xiangfei },
-    { _T("A - Hidden Super Desperation Move 3"), 0x0046ce0, 0x0046d00, indexKOFSprites_02Xiangfei },
+    { _T("Xiangfei A"), 0x0046c00, 0x0046c20, indexKOFSprites_01Xiangfei },
+    { _T("A - Hidden Super Desperation Move 1"), 0x0046c20, 0x0046c40, indexKOFSprites_01Xiangfei },
+    { _T("A - Desperation Move / Super Desperation Move"), 0x0046c40, 0x0046c60, indexKOFSprites_01Xiangfei },
+    { _T("A - Electric Shock Effect"), 0x0046c60, 0x0046c80, indexKOFSprites_01Xiangfei },
+    { _T("A - Max Flash"), 0x0046c80, 0x0046ca0, indexKOFSprites_01Xiangfei },
+    { _T("A - Hidden Super Desperation Move 2"), 0x0046ca0, 0x0046cc0, indexKOFSprites_01Xiangfei },
+    { _T("A - Soul Palette"), 0x0046cc0, 0x0046ce0, indexKOFSprites_01Xiangfei },
+    { _T("A - Hidden Super Desperation Move 3"), 0x0046ce0, 0x0046d00, indexKOFSprites_01Xiangfei },
 };
 
 const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_B[] =
 {
-    { _T("Xiangfei B"), 0x0046d00, 0x0046d20, indexKOFSprites_02Xiangfei },
-    { _T("B - Hidden Super Desperation Move 1"), 0x0046d20, 0x0046d40, indexKOFSprites_02Xiangfei },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x0046d40, 0x0046d60, indexKOFSprites_02Xiangfei },
-    { _T("B - Electric Shock Effect"), 0x0046d60, 0x0046d80, indexKOFSprites_02Xiangfei },
-    { _T("B - Max Flash"), 0x0046d80, 0x0046da0, indexKOFSprites_02Xiangfei },
-    { _T("B - Hidden Super Desperation Move 2"), 0x0046da0, 0x0046dc0, indexKOFSprites_02Xiangfei },
-    { _T("B - Soul Palette"), 0x0046dc0, 0x0046de0, indexKOFSprites_02Xiangfei },
-    { _T("B - Hidden Super Desperation Move 3"), 0x0046de0, 0x0046e00, indexKOFSprites_02Xiangfei },
+    { _T("Xiangfei B"), 0x0046d00, 0x0046d20, indexKOFSprites_01Xiangfei },
+    { _T("B - Hidden Super Desperation Move 1"), 0x0046d20, 0x0046d40, indexKOFSprites_01Xiangfei },
+    { _T("B - Desperation Move / Super Desperation Move"), 0x0046d40, 0x0046d60, indexKOFSprites_01Xiangfei },
+    { _T("B - Electric Shock Effect"), 0x0046d60, 0x0046d80, indexKOFSprites_01Xiangfei },
+    { _T("B - Max Flash"), 0x0046d80, 0x0046da0, indexKOFSprites_01Xiangfei },
+    { _T("B - Hidden Super Desperation Move 2"), 0x0046da0, 0x0046dc0, indexKOFSprites_01Xiangfei },
+    { _T("B - Soul Palette"), 0x0046dc0, 0x0046de0, indexKOFSprites_01Xiangfei },
+    { _T("B - Hidden Super Desperation Move 3"), 0x0046de0, 0x0046e00, indexKOFSprites_01Xiangfei },
 };
 
 const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_C[] =
 {
-    { _T("Xiangfei C"), 0x0046e00, 0x0046e20, indexKOFSprites_02Xiangfei },
-    { _T("C - Hidden Super Desperation Move 1"), 0x0046e20, 0x0046e40, indexKOFSprites_02Xiangfei },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x0046e40, 0x0046e60, indexKOFSprites_02Xiangfei },
-    { _T("C - Electric Shock Effect"), 0x0046e60, 0x0046e80, indexKOFSprites_02Xiangfei },
-    { _T("C - Max Flash"), 0x0046e80, 0x0046ea0, indexKOFSprites_02Xiangfei },
-    { _T("C - Hidden Super Desperation Move 2"), 0x0046ea0, 0x0046ec0, indexKOFSprites_02Xiangfei },
-    { _T("C - Soul Palette"), 0x0046ec0, 0x0046ee0, indexKOFSprites_02Xiangfei },
-    { _T("C - Hidden Super Desperation Move 3"), 0x0046ee0, 0x0046f00, indexKOFSprites_02Xiangfei },
+    { _T("Xiangfei C"), 0x0046e00, 0x0046e20, indexKOFSprites_01Xiangfei },
+    { _T("C - Hidden Super Desperation Move 1"), 0x0046e20, 0x0046e40, indexKOFSprites_01Xiangfei },
+    { _T("C - Desperation Move / Super Desperation Move"), 0x0046e40, 0x0046e60, indexKOFSprites_01Xiangfei },
+    { _T("C - Electric Shock Effect"), 0x0046e60, 0x0046e80, indexKOFSprites_01Xiangfei },
+    { _T("C - Max Flash"), 0x0046e80, 0x0046ea0, indexKOFSprites_01Xiangfei },
+    { _T("C - Hidden Super Desperation Move 2"), 0x0046ea0, 0x0046ec0, indexKOFSprites_01Xiangfei },
+    { _T("C - Soul Palette"), 0x0046ec0, 0x0046ee0, indexKOFSprites_01Xiangfei },
+    { _T("C - Hidden Super Desperation Move 3"), 0x0046ee0, 0x0046f00, indexKOFSprites_01Xiangfei },
 };
 
 const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_D[] =
 {
-    { _T("Xiangfei D"), 0x0046f00, 0x0046f20, indexKOFSprites_02Xiangfei },
-    { _T("D - Hidden Super Desperation Move 1"), 0x0046f20, 0x0046f40, indexKOFSprites_02Xiangfei },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x0046f40, 0x0046f60, indexKOFSprites_02Xiangfei },
-    { _T("D - Electric Shock Effect"), 0x0046f60, 0x0046f80, indexKOFSprites_02Xiangfei },
-    { _T("D - Max Flash"), 0x0046f80, 0x0046fa0, indexKOFSprites_02Xiangfei },
-    { _T("D - Hidden Super Desperation Move 2"), 0x0046fa0, 0x0046fc0, indexKOFSprites_02Xiangfei },
-    { _T("D - Soul Palette"), 0x0046fc0, 0x0046fe0, indexKOFSprites_02Xiangfei },
-    { _T("D - Hidden Super Desperation Move 3"), 0x0046fe0, 0x0047000, indexKOFSprites_02Xiangfei },
+    { _T("Xiangfei D"), 0x0046f00, 0x0046f20, indexKOFSprites_01Xiangfei },
+    { _T("D - Hidden Super Desperation Move 1"), 0x0046f20, 0x0046f40, indexKOFSprites_01Xiangfei },
+    { _T("D - Desperation Move / Super Desperation Move"), 0x0046f40, 0x0046f60, indexKOFSprites_01Xiangfei },
+    { _T("D - Electric Shock Effect"), 0x0046f60, 0x0046f80, indexKOFSprites_01Xiangfei },
+    { _T("D - Max Flash"), 0x0046f80, 0x0046fa0, indexKOFSprites_01Xiangfei },
+    { _T("D - Hidden Super Desperation Move 2"), 0x0046fa0, 0x0046fc0, indexKOFSprites_01Xiangfei },
+    { _T("D - Soul Palette"), 0x0046fc0, 0x0046fe0, indexKOFSprites_01Xiangfei },
+    { _T("D - Hidden Super Desperation Move 3"), 0x0046fe0, 0x0047000, indexKOFSprites_01Xiangfei },
 };
 
 const sDescTreeNode KOF02UM_A_XIANGFEI_COLLECTION[] =
@@ -2954,50 +2954,50 @@ const sDescTreeNode KOF02UM_A_EXTAKUMA_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_A[] =
 {
-    { _T("Bao A"), 0x0049400, 0x0049420, indexKOFSprites_02Bao },
-    { _T("A - Hidden Super Desperation Move 1"), 0x0049420, 0x0049440, indexKOFSprites_02Bao },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x0049440, 0x0049460, indexKOFSprites_02Bao },
-    { _T("A - Electric Shock Effect"), 0x0049460, 0x0049480, indexKOFSprites_02Bao },
-    { _T("A - Max Flash"), 0x0049480, 0x00494a0, indexKOFSprites_02Bao },
-    { _T("A - Hidden Super Desperation Move 2"), 0x00494a0, 0x00494c0, indexKOFSprites_02Bao },
-    { _T("A - Soul Palette"), 0x00494c0, 0x00494e0, indexKOFSprites_02Bao },
-    { _T("A - Hidden Super Desperation Move 3"), 0x00494e0, 0x0049500, indexKOFSprites_02Bao },
+    { _T("Bao A"), 0x0049400, 0x0049420, indexKOFSprites_00Bao },
+    { _T("A - Hidden Super Desperation Move 1"), 0x0049420, 0x0049440, indexKOFSprites_00Bao },
+    { _T("A - Desperation Move / Super Desperation Move"), 0x0049440, 0x0049460, indexKOFSprites_00Bao },
+    { _T("A - Electric Shock Effect"), 0x0049460, 0x0049480, indexKOFSprites_00Bao },
+    { _T("A - Max Flash"), 0x0049480, 0x00494a0, indexKOFSprites_00Bao },
+    { _T("A - Hidden Super Desperation Move 2"), 0x00494a0, 0x00494c0, indexKOFSprites_00Bao },
+    { _T("A - Soul Palette"), 0x00494c0, 0x00494e0, indexKOFSprites_00Bao },
+    { _T("A - Hidden Super Desperation Move 3"), 0x00494e0, 0x0049500, indexKOFSprites_00Bao },
 };
 
 const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_B[] =
 {
-    { _T("Bao B"), 0x0049500, 0x0049520, indexKOFSprites_02Bao },
-    { _T("B - Hidden Super Desperation Move 1"), 0x0049520, 0x0049540, indexKOFSprites_02Bao },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x0049540, 0x0049560, indexKOFSprites_02Bao },
-    { _T("B - Electric Shock Effect"), 0x0049560, 0x0049580, indexKOFSprites_02Bao },
-    { _T("B - Max Flash"), 0x0049580, 0x00495a0, indexKOFSprites_02Bao },
-    { _T("B - Hidden Super Desperation Move 2"), 0x00495a0, 0x00495c0, indexKOFSprites_02Bao },
-    { _T("B - Soul Palette"), 0x00495c0, 0x00495e0, indexKOFSprites_02Bao },
-    { _T("B - Hidden Super Desperation Move 3"), 0x00495e0, 0x0049600, indexKOFSprites_02Bao },
+    { _T("Bao B"), 0x0049500, 0x0049520, indexKOFSprites_00Bao },
+    { _T("B - Hidden Super Desperation Move 1"), 0x0049520, 0x0049540, indexKOFSprites_00Bao },
+    { _T("B - Desperation Move / Super Desperation Move"), 0x0049540, 0x0049560, indexKOFSprites_00Bao },
+    { _T("B - Electric Shock Effect"), 0x0049560, 0x0049580, indexKOFSprites_00Bao },
+    { _T("B - Max Flash"), 0x0049580, 0x00495a0, indexKOFSprites_00Bao },
+    { _T("B - Hidden Super Desperation Move 2"), 0x00495a0, 0x00495c0, indexKOFSprites_00Bao },
+    { _T("B - Soul Palette"), 0x00495c0, 0x00495e0, indexKOFSprites_00Bao },
+    { _T("B - Hidden Super Desperation Move 3"), 0x00495e0, 0x0049600, indexKOFSprites_00Bao },
 };
 
 const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_C[] =
 {
-    { _T("Bao C"), 0x0049600, 0x0049620, indexKOFSprites_02Bao },
-    { _T("C - Hidden Super Desperation Move 1"), 0x0049620, 0x0049640, indexKOFSprites_02Bao },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x0049640, 0x0049660, indexKOFSprites_02Bao },
-    { _T("C - Electric Shock Effect"), 0x0049660, 0x0049680, indexKOFSprites_02Bao },
-    { _T("C - Max Flash"), 0x0049680, 0x00496a0, indexKOFSprites_02Bao },
-    { _T("C - Hidden Super Desperation Move 2"), 0x00496a0, 0x00496c0, indexKOFSprites_02Bao },
-    { _T("C - Soul Palette"), 0x00496c0, 0x00496e0, indexKOFSprites_02Bao },
-    { _T("C - Hidden Super Desperation Move 3"), 0x00496e0, 0x0049700, indexKOFSprites_02Bao },
+    { _T("Bao C"), 0x0049600, 0x0049620, indexKOFSprites_00Bao },
+    { _T("C - Hidden Super Desperation Move 1"), 0x0049620, 0x0049640, indexKOFSprites_00Bao },
+    { _T("C - Desperation Move / Super Desperation Move"), 0x0049640, 0x0049660, indexKOFSprites_00Bao },
+    { _T("C - Electric Shock Effect"), 0x0049660, 0x0049680, indexKOFSprites_00Bao },
+    { _T("C - Max Flash"), 0x0049680, 0x00496a0, indexKOFSprites_00Bao },
+    { _T("C - Hidden Super Desperation Move 2"), 0x00496a0, 0x00496c0, indexKOFSprites_00Bao },
+    { _T("C - Soul Palette"), 0x00496c0, 0x00496e0, indexKOFSprites_00Bao },
+    { _T("C - Hidden Super Desperation Move 3"), 0x00496e0, 0x0049700, indexKOFSprites_00Bao },
 };
 
 const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_D[] =
 {
-    { _T("Bao D"), 0x0049600, 0x0049620, indexKOFSprites_02Bao },
-    { _T("D - Hidden Super Desperation Move 1"), 0x0049620, 0x0049640, indexKOFSprites_02Bao },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x0049640, 0x0049660, indexKOFSprites_02Bao },
-    { _T("D - Electric Shock Effect"), 0x0049660, 0x0049680, indexKOFSprites_02Bao },
-    { _T("D - Max Flash"), 0x0049680, 0x00496a0, indexKOFSprites_02Bao },
-    { _T("D - Hidden Super Desperation Move 2"), 0x00496a0, 0x00496c0, indexKOFSprites_02Bao },
-    { _T("D - Soul Palette"), 0x00496c0, 0x00496e0, indexKOFSprites_02Bao },
-    { _T("D - Hidden Super Desperation Move 3"), 0x00496e0, 0x0049700, indexKOFSprites_02Bao },
+    { _T("Bao D"), 0x0049600, 0x0049620, indexKOFSprites_00Bao },
+    { _T("D - Hidden Super Desperation Move 1"), 0x0049620, 0x0049640, indexKOFSprites_00Bao },
+    { _T("D - Desperation Move / Super Desperation Move"), 0x0049640, 0x0049660, indexKOFSprites_00Bao },
+    { _T("D - Electric Shock Effect"), 0x0049660, 0x0049680, indexKOFSprites_00Bao },
+    { _T("D - Max Flash"), 0x0049680, 0x00496a0, indexKOFSprites_00Bao },
+    { _T("D - Hidden Super Desperation Move 2"), 0x00496a0, 0x00496c0, indexKOFSprites_00Bao },
+    { _T("D - Soul Palette"), 0x00496c0, 0x00496e0, indexKOFSprites_00Bao },
+    { _T("D - Hidden Super Desperation Move 3"), 0x00496e0, 0x0049700, indexKOFSprites_00Bao },
 };
 
 const sDescTreeNode KOF02UM_A_BAO_COLLECTION[] =
@@ -3178,50 +3178,50 @@ const sDescTreeNode KOF02UM_A_FOXY_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_A[] =
 {
-    { _T("Kasumi A"), 0x004b400, 0x004b420, indexKOFSprites_02Kasumi },
-    { _T("A - Hidden Super Desperation Move 1"), 0x004b420, 0x004b440, indexKOFSprites_02Kasumi },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x004b440, 0x004b460, indexKOFSprites_02Kasumi },
-    { _T("A - Electric Shock Effect"), 0x004b460, 0x004b480, indexKOFSprites_02Kasumi },
-    { _T("A - Max Flash"), 0x004b480, 0x004b4a0, indexKOFSprites_02Kasumi },
-    { _T("A - Hidden Super Desperation Move 2"), 0x004b4a0, 0x004b4c0, indexKOFSprites_02Kasumi },
-    { _T("A - Soul Palette"), 0x004b4c0, 0x004b4e0, indexKOFSprites_02Kasumi },
-    { _T("A - Hidden Super Desperation Move 3"), 0x004b4e0, 0x004b500, indexKOFSprites_02Kasumi },
+    { _T("Kasumi A"), 0x004b400, 0x004b420, indexKOFSprites_00Kasumi },
+    { _T("A - Hidden Super Desperation Move 1"), 0x004b420, 0x004b440, indexKOFSprites_00Kasumi },
+    { _T("A - Desperation Move / Super Desperation Move"), 0x004b440, 0x004b460, indexKOFSprites_00Kasumi },
+    { _T("A - Electric Shock Effect"), 0x004b460, 0x004b480, indexKOFSprites_00Kasumi },
+    { _T("A - Max Flash"), 0x004b480, 0x004b4a0, indexKOFSprites_00Kasumi },
+    { _T("A - Hidden Super Desperation Move 2"), 0x004b4a0, 0x004b4c0, indexKOFSprites_00Kasumi },
+    { _T("A - Soul Palette"), 0x004b4c0, 0x004b4e0, indexKOFSprites_00Kasumi },
+    { _T("A - Hidden Super Desperation Move 3"), 0x004b4e0, 0x004b500, indexKOFSprites_00Kasumi },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_B[] =
 {
-    { _T("Kasumi B"), 0x004b500, 0x004b520, indexKOFSprites_02Kasumi },
-    { _T("B - Hidden Super Desperation Move 1"), 0x004b520, 0x004b540, indexKOFSprites_02Kasumi },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x004b540, 0x004b560, indexKOFSprites_02Kasumi },
-    { _T("B - Electric Shock Effect"), 0x004b560, 0x004b580, indexKOFSprites_02Kasumi },
-    { _T("B - Max Flash"), 0x004b580, 0x004b5a0, indexKOFSprites_02Kasumi },
-    { _T("B - Hidden Super Desperation Move 2"), 0x004b5a0, 0x004b5c0, indexKOFSprites_02Kasumi },
-    { _T("B - Soul Palette"), 0x004b5c0, 0x004b5e0, indexKOFSprites_02Kasumi },
-    { _T("B - Hidden Super Desperation Move 3"), 0x004b5e0, 0x004b600, indexKOFSprites_02Kasumi },
+    { _T("Kasumi B"), 0x004b500, 0x004b520, indexKOFSprites_00Kasumi },
+    { _T("B - Hidden Super Desperation Move 1"), 0x004b520, 0x004b540, indexKOFSprites_00Kasumi },
+    { _T("B - Desperation Move / Super Desperation Move"), 0x004b540, 0x004b560, indexKOFSprites_00Kasumi },
+    { _T("B - Electric Shock Effect"), 0x004b560, 0x004b580, indexKOFSprites_00Kasumi },
+    { _T("B - Max Flash"), 0x004b580, 0x004b5a0, indexKOFSprites_00Kasumi },
+    { _T("B - Hidden Super Desperation Move 2"), 0x004b5a0, 0x004b5c0, indexKOFSprites_00Kasumi },
+    { _T("B - Soul Palette"), 0x004b5c0, 0x004b5e0, indexKOFSprites_00Kasumi },
+    { _T("B - Hidden Super Desperation Move 3"), 0x004b5e0, 0x004b600, indexKOFSprites_00Kasumi },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_C[] =
 {
-    { _T("Kasumi C"), 0x004b600, 0x004b620, indexKOFSprites_02Kasumi },
-    { _T("C - Hidden Super Desperation Move 1"), 0x004b620, 0x004b640, indexKOFSprites_02Kasumi },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x004b640, 0x004b660, indexKOFSprites_02Kasumi },
-    { _T("C - Electric Shock Effect"), 0x004b660, 0x004b680, indexKOFSprites_02Kasumi },
-    { _T("C - Max Flash"), 0x004b680, 0x004b6a0, indexKOFSprites_02Kasumi },
-    { _T("C - Hidden Super Desperation Move 2"), 0x004b6a0, 0x004b6c0, indexKOFSprites_02Kasumi },
-    { _T("C - Soul Palette"), 0x004b6c0, 0x004b6e0, indexKOFSprites_02Kasumi },
-    { _T("C - Hidden Super Desperation Move 3"), 0x004b6e0, 0x004b700, indexKOFSprites_02Kasumi },
+    { _T("Kasumi C"), 0x004b600, 0x004b620, indexKOFSprites_00Kasumi },
+    { _T("C - Hidden Super Desperation Move 1"), 0x004b620, 0x004b640, indexKOFSprites_00Kasumi },
+    { _T("C - Desperation Move / Super Desperation Move"), 0x004b640, 0x004b660, indexKOFSprites_00Kasumi },
+    { _T("C - Electric Shock Effect"), 0x004b660, 0x004b680, indexKOFSprites_00Kasumi },
+    { _T("C - Max Flash"), 0x004b680, 0x004b6a0, indexKOFSprites_00Kasumi },
+    { _T("C - Hidden Super Desperation Move 2"), 0x004b6a0, 0x004b6c0, indexKOFSprites_00Kasumi },
+    { _T("C - Soul Palette"), 0x004b6c0, 0x004b6e0, indexKOFSprites_00Kasumi },
+    { _T("C - Hidden Super Desperation Move 3"), 0x004b6e0, 0x004b700, indexKOFSprites_00Kasumi },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_D[] =
 {
-    { _T("Kasumi D"), 0x004b700, 0x004b720, indexKOFSprites_02Kasumi },
-    { _T("D - Hidden Super Desperation Move 1"), 0x004b720, 0x004b740, indexKOFSprites_02Kasumi },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x004b740, 0x004b760, indexKOFSprites_02Kasumi },
-    { _T("D - Electric Shock Effect"), 0x004b760, 0x004b780, indexKOFSprites_02Kasumi },
-    { _T("D - Max Flash"), 0x004b780, 0x004b7a0, indexKOFSprites_02Kasumi },
-    { _T("D - Hidden Super Desperation Move 2"), 0x004b7a0, 0x004b7c0, indexKOFSprites_02Kasumi },
-    { _T("D - Soul Palette"), 0x004b7c0, 0x004b7e0, indexKOFSprites_02Kasumi },
-    { _T("D - Hidden Super Desperation Move 3"), 0x004b7e0, 0x004b800, indexKOFSprites_02Kasumi },
+    { _T("Kasumi D"), 0x004b700, 0x004b720, indexKOFSprites_00Kasumi },
+    { _T("D - Hidden Super Desperation Move 1"), 0x004b720, 0x004b740, indexKOFSprites_00Kasumi },
+    { _T("D - Desperation Move / Super Desperation Move"), 0x004b740, 0x004b760, indexKOFSprites_00Kasumi },
+    { _T("D - Electric Shock Effect"), 0x004b760, 0x004b780, indexKOFSprites_00Kasumi },
+    { _T("D - Max Flash"), 0x004b780, 0x004b7a0, indexKOFSprites_00Kasumi },
+    { _T("D - Hidden Super Desperation Move 2"), 0x004b7a0, 0x004b7c0, indexKOFSprites_00Kasumi },
+    { _T("D - Soul Palette"), 0x004b7c0, 0x004b7e0, indexKOFSprites_00Kasumi },
+    { _T("D - Hidden Super Desperation Move 3"), 0x004b7e0, 0x004b800, indexKOFSprites_00Kasumi },
 };
 
 const sDescTreeNode KOF02UM_A_KASUMI_COLLECTION[] =
@@ -3346,50 +3346,50 @@ const sDescTreeNode KOF02UM_A_NIGHTMAREGEESE_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_A[] =
 {
-    { _T("EX Robert A"), 0x004cc00, 0x004cc20, indexKOFSprites_98Robert },
-    { _T("A - Hidden Super Desperation Move 1"), 0x004cc20, 0x004cc40, indexKOFSprites_98Robert },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x004cc40, 0x004cc60, indexKOFSprites_98Robert },
-    { _T("A - Electric Shock Effect"), 0x004cc60, 0x004cc80, indexKOFSprites_98Robert },
-    { _T("A - Max Flash"), 0x004cc80, 0x004cca0, indexKOFSprites_98Robert },
-    { _T("A - Hidden Super Desperation Move 2"), 0x004cca0, 0x004ccc0, indexKOFSprites_98Robert },
-    { _T("A - Soul Palette"), 0x004ccc0, 0x004cce0, indexKOFSprites_98Robert },
-    { _T("A - Hidden Super Desperation Move 3"), 0x004cce0, 0x004cd00, indexKOFSprites_98Robert },
+    { _T("EX Robert A"), 0x004cc00, 0x004cc20, indexKOFSprites_00Robert },
+    { _T("A - Hidden Super Desperation Move 1"), 0x004cc20, 0x004cc40, indexKOFSprites_00Robert },
+    { _T("A - Desperation Move / Super Desperation Move"), 0x004cc40, 0x004cc60, indexKOFSprites_00Robert },
+    { _T("A - Electric Shock Effect"), 0x004cc60, 0x004cc80, indexKOFSprites_00Robert },
+    { _T("A - Max Flash"), 0x004cc80, 0x004cca0, indexKOFSprites_00Robert },
+    { _T("A - Hidden Super Desperation Move 2"), 0x004cca0, 0x004ccc0, indexKOFSprites_00Robert },
+    { _T("A - Soul Palette"), 0x004ccc0, 0x004cce0, indexKOFSprites_00Robert },
+    { _T("A - Hidden Super Desperation Move 3"), 0x004cce0, 0x004cd00, indexKOFSprites_00Robert },
 };
 
 const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_B[] =
 {
-    { _T("EX Robert B"), 0x004cd00, 0x004cd20, indexKOFSprites_98Robert },
-    { _T("B - Hidden Super Desperation Move 1"), 0x004cd20, 0x004cd40, indexKOFSprites_98Robert },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x004cd40, 0x004cd60, indexKOFSprites_98Robert },
-    { _T("B - Electric Shock Effect"), 0x004cd60, 0x004cd80, indexKOFSprites_98Robert },
-    { _T("B - Max Flash"), 0x004cd80, 0x004cda0, indexKOFSprites_98Robert },
-    { _T("B - Hidden Super Desperation Move 2"), 0x004cda0, 0x004cdc0, indexKOFSprites_98Robert },
-    { _T("B - Soul Palette"), 0x004cdc0, 0x004cde0, indexKOFSprites_98Robert },
-    { _T("B - Hidden Super Desperation Move 3"), 0x004cde0, 0x004ce00, indexKOFSprites_98Robert },
+    { _T("EX Robert B"), 0x004cd00, 0x004cd20, indexKOFSprites_00Robert },
+    { _T("B - Hidden Super Desperation Move 1"), 0x004cd20, 0x004cd40, indexKOFSprites_00Robert },
+    { _T("B - Desperation Move / Super Desperation Move"), 0x004cd40, 0x004cd60, indexKOFSprites_00Robert },
+    { _T("B - Electric Shock Effect"), 0x004cd60, 0x004cd80, indexKOFSprites_00Robert },
+    { _T("B - Max Flash"), 0x004cd80, 0x004cda0, indexKOFSprites_00Robert },
+    { _T("B - Hidden Super Desperation Move 2"), 0x004cda0, 0x004cdc0, indexKOFSprites_00Robert },
+    { _T("B - Soul Palette"), 0x004cdc0, 0x004cde0, indexKOFSprites_00Robert },
+    { _T("B - Hidden Super Desperation Move 3"), 0x004cde0, 0x004ce00, indexKOFSprites_00Robert },
 };
 
 const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_C[] =
 {
-    { _T("EX Robert C"), 0x004ce00, 0x004ce20, indexKOFSprites_98Robert },
-    { _T("C - Hidden Super Desperation Move 1"), 0x004ce20, 0x004ce40, indexKOFSprites_98Robert },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x004ce40, 0x004ce60, indexKOFSprites_98Robert },
-    { _T("C - Electric Shock Effect"), 0x004ce60, 0x004ce80, indexKOFSprites_98Robert },
-    { _T("C - Max Flash"), 0x004ce80, 0x004cea0, indexKOFSprites_98Robert },
-    { _T("C - Hidden Super Desperation Move 2"), 0x004cea0, 0x004cec0, indexKOFSprites_98Robert },
-    { _T("C - Soul Palette"), 0x004cec0, 0x004cee0, indexKOFSprites_98Robert },
-    { _T("C - Hidden Super Desperation Move 3"), 0x004cee0, 0x004cf00, indexKOFSprites_98Robert },
+    { _T("EX Robert C"), 0x004ce00, 0x004ce20, indexKOFSprites_00Robert },
+    { _T("C - Hidden Super Desperation Move 1"), 0x004ce20, 0x004ce40, indexKOFSprites_00Robert },
+    { _T("C - Desperation Move / Super Desperation Move"), 0x004ce40, 0x004ce60, indexKOFSprites_00Robert },
+    { _T("C - Electric Shock Effect"), 0x004ce60, 0x004ce80, indexKOFSprites_00Robert },
+    { _T("C - Max Flash"), 0x004ce80, 0x004cea0, indexKOFSprites_00Robert },
+    { _T("C - Hidden Super Desperation Move 2"), 0x004cea0, 0x004cec0, indexKOFSprites_00Robert },
+    { _T("C - Soul Palette"), 0x004cec0, 0x004cee0, indexKOFSprites_00Robert },
+    { _T("C - Hidden Super Desperation Move 3"), 0x004cee0, 0x004cf00, indexKOFSprites_00Robert },
 };
 
 const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_D[] =
 {
-    { _T("EX Robert D"), 0x004cf00, 0x004cf20, indexKOFSprites_98Robert },
-    { _T("D - Hidden Super Desperation Move 1"), 0x004cf20, 0x004cf40, indexKOFSprites_98Robert },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x004cf40, 0x004cf60, indexKOFSprites_98Robert },
-    { _T("D - Electric Shock Effect"), 0x004cf60, 0x004cf80, indexKOFSprites_98Robert },
-    { _T("D - Max Flash"), 0x004cf80, 0x004cfa0, indexKOFSprites_98Robert },
-    { _T("D - Hidden Super Desperation Move 2"), 0x004cfa0, 0x004cfc0, indexKOFSprites_98Robert },
-    { _T("D - Soul Palette"), 0x004cfc0, 0x004cfe0, indexKOFSprites_98Robert },
-    { _T("D - Hidden Super Desperation Move 3"), 0x004cfe0, 0x004d000, indexKOFSprites_98Robert },
+    { _T("EX Robert D"), 0x004cf00, 0x004cf20, indexKOFSprites_00Robert },
+    { _T("D - Hidden Super Desperation Move 1"), 0x004cf20, 0x004cf40, indexKOFSprites_00Robert },
+    { _T("D - Desperation Move / Super Desperation Move"), 0x004cf40, 0x004cf60, indexKOFSprites_00Robert },
+    { _T("D - Electric Shock Effect"), 0x004cf60, 0x004cf80, indexKOFSprites_00Robert },
+    { _T("D - Max Flash"), 0x004cf80, 0x004cfa0, indexKOFSprites_00Robert },
+    { _T("D - Hidden Super Desperation Move 2"), 0x004cfa0, 0x004cfc0, indexKOFSprites_00Robert },
+    { _T("D - Soul Palette"), 0x004cfc0, 0x004cfe0, indexKOFSprites_00Robert },
+    { _T("D - Hidden Super Desperation Move 3"), 0x004cfe0, 0x004d000, indexKOFSprites_00Robert },
 };
 
 const sDescTreeNode KOF02UM_A_EXROBERT_COLLECTION[] =
@@ -3570,50 +3570,50 @@ const sDescTreeNode KOF02UM_A_GOENITZ_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_A[] =
 {
-    { _T("Krizalid A"), 0x004ec00, 0x004ec20, indexKOFSprites_02Krizalid },
-    { _T("A - Hidden Super Desperation Move 1"), 0x004ec20, 0x004ec40, indexKOFSprites_02Krizalid },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x004ec40, 0x004ec60, indexKOFSprites_02Krizalid },
-    { _T("A - Electric Shock Effect"), 0x004ec60, 0x004ec80, indexKOFSprites_02Krizalid },
-    { _T("A - Max Flash"), 0x004ec80, 0x004eca0, indexKOFSprites_02Krizalid },
-    { _T("A - Hidden Super Desperation Move 2"), 0x004eca0, 0x004ecc0, indexKOFSprites_02Krizalid },
-    { _T("A - Soul Palette"), 0x004ecc0, 0x004ece0, indexKOFSprites_02Krizalid },
-    { _T("A - Hidden Super Desperation Move 3"), 0x004ece0, 0x004ed00, indexKOFSprites_02Krizalid },
+    { _T("Krizalid A"), 0x004ec00, 0x004ec20, indexKOFSprites_99Krizalid },
+    { _T("A - Hidden Super Desperation Move 1"), 0x004ec20, 0x004ec40, indexKOFSprites_99Krizalid },
+    { _T("A - Desperation Move / Super Desperation Move"), 0x004ec40, 0x004ec60, indexKOFSprites_99Krizalid },
+    { _T("A - Electric Shock Effect"), 0x004ec60, 0x004ec80, indexKOFSprites_99Krizalid },
+    { _T("A - Max Flash"), 0x004ec80, 0x004eca0, indexKOFSprites_99Krizalid },
+    { _T("A - Hidden Super Desperation Move 2"), 0x004eca0, 0x004ecc0, indexKOFSprites_99Krizalid },
+    { _T("A - Soul Palette"), 0x004ecc0, 0x004ece0, indexKOFSprites_99Krizalid },
+    { _T("A - Hidden Super Desperation Move 3"), 0x004ece0, 0x004ed00, indexKOFSprites_99Krizalid },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_B[] =
 {
-    { _T("Krizalid B"), 0x004ed00, 0x004ed20, indexKOFSprites_02Krizalid },
-    { _T("B - Hidden Super Desperation Move 1"), 0x004ed20, 0x004ed40, indexKOFSprites_02Krizalid },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x004ed40, 0x004ed60, indexKOFSprites_02Krizalid },
-    { _T("B - Electric Shock Effect"), 0x004ed60, 0x004ed80, indexKOFSprites_02Krizalid },
-    { _T("B - Max Flash"), 0x004ed80, 0x004eda0, indexKOFSprites_02Krizalid },
-    { _T("B - Hidden Super Desperation Move 2"), 0x004eda0, 0x004edc0, indexKOFSprites_02Krizalid },
-    { _T("B - Soul Palette"), 0x004edc0, 0x004ede0, indexKOFSprites_02Krizalid },
-    { _T("B - Hidden Super Desperation Move 3"), 0x004ede0, 0x004ee00, indexKOFSprites_02Krizalid },
+    { _T("Krizalid B"), 0x004ed00, 0x004ed20, indexKOFSprites_99Krizalid },
+    { _T("B - Hidden Super Desperation Move 1"), 0x004ed20, 0x004ed40, indexKOFSprites_99Krizalid },
+    { _T("B - Desperation Move / Super Desperation Move"), 0x004ed40, 0x004ed60, indexKOFSprites_99Krizalid },
+    { _T("B - Electric Shock Effect"), 0x004ed60, 0x004ed80, indexKOFSprites_99Krizalid },
+    { _T("B - Max Flash"), 0x004ed80, 0x004eda0, indexKOFSprites_99Krizalid },
+    { _T("B - Hidden Super Desperation Move 2"), 0x004eda0, 0x004edc0, indexKOFSprites_99Krizalid },
+    { _T("B - Soul Palette"), 0x004edc0, 0x004ede0, indexKOFSprites_99Krizalid },
+    { _T("B - Hidden Super Desperation Move 3"), 0x004ede0, 0x004ee00, indexKOFSprites_99Krizalid },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_C[] =
 {
-    { _T("Krizalid C"), 0x004ee00, 0x004ee20, indexKOFSprites_02Krizalid },
-    { _T("C - Hidden Super Desperation Move 1"), 0x004ee20, 0x004ee40, indexKOFSprites_02Krizalid },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x004ee40, 0x004ee60, indexKOFSprites_02Krizalid },
-    { _T("C - Electric Shock Effect"), 0x004ee60, 0x004ee80, indexKOFSprites_02Krizalid },
-    { _T("C - Max Flash"), 0x004ee80, 0x004eea0, indexKOFSprites_02Krizalid },
-    { _T("C - Hidden Super Desperation Move 2"), 0x004eea0, 0x004eec0, indexKOFSprites_02Krizalid },
-    { _T("C - Soul Palette"), 0x004eec0, 0x004eee0, indexKOFSprites_02Krizalid },
-    { _T("C - Hidden Super Desperation Move 3"), 0x004eee0, 0x004ef00, indexKOFSprites_02Krizalid },
+    { _T("Krizalid C"), 0x004ee00, 0x004ee20, indexKOFSprites_99Krizalid },
+    { _T("C - Hidden Super Desperation Move 1"), 0x004ee20, 0x004ee40, indexKOFSprites_99Krizalid },
+    { _T("C - Desperation Move / Super Desperation Move"), 0x004ee40, 0x004ee60, indexKOFSprites_99Krizalid },
+    { _T("C - Electric Shock Effect"), 0x004ee60, 0x004ee80, indexKOFSprites_99Krizalid },
+    { _T("C - Max Flash"), 0x004ee80, 0x004eea0, indexKOFSprites_99Krizalid },
+    { _T("C - Hidden Super Desperation Move 2"), 0x004eea0, 0x004eec0, indexKOFSprites_99Krizalid },
+    { _T("C - Soul Palette"), 0x004eec0, 0x004eee0, indexKOFSprites_99Krizalid },
+    { _T("C - Hidden Super Desperation Move 3"), 0x004eee0, 0x004ef00, indexKOFSprites_99Krizalid },
 };
 
 const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_D[] =
 {
-    { _T("Krizalid D"), 0x004ef00, 0x004ef20, indexKOFSprites_02Krizalid },
-    { _T("D - Hidden Super Desperation Move 1"), 0x004ef20, 0x004ef40, indexKOFSprites_02Krizalid },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x004ef40, 0x004ef60, indexKOFSprites_02Krizalid },
-    { _T("D - Electric Shock Effect"), 0x004ef60, 0x004ef80, indexKOFSprites_02Krizalid },
-    { _T("D - Max Flash"), 0x004ef80, 0x004efa0, indexKOFSprites_02Krizalid },
-    { _T("D - Hidden Super Desperation Move 2"), 0x004efa0, 0x004efc0, indexKOFSprites_02Krizalid },
-    { _T("D - Soul Palette"), 0x004efc0, 0x004efe0, indexKOFSprites_02Krizalid },
-    { _T("D - Hidden Super Desperation Move 3"), 0x004efe0, 0x004f000, indexKOFSprites_02Krizalid },
+    { _T("Krizalid D"), 0x004ef00, 0x004ef20, indexKOFSprites_99Krizalid },
+    { _T("D - Hidden Super Desperation Move 1"), 0x004ef20, 0x004ef40, indexKOFSprites_99Krizalid },
+    { _T("D - Desperation Move / Super Desperation Move"), 0x004ef40, 0x004ef60, indexKOFSprites_99Krizalid },
+    { _T("D - Electric Shock Effect"), 0x004ef60, 0x004ef80, indexKOFSprites_99Krizalid },
+    { _T("D - Max Flash"), 0x004ef80, 0x004efa0, indexKOFSprites_99Krizalid },
+    { _T("D - Hidden Super Desperation Move 2"), 0x004efa0, 0x004efc0, indexKOFSprites_99Krizalid },
+    { _T("D - Soul Palette"), 0x004efc0, 0x004efe0, indexKOFSprites_99Krizalid },
+    { _T("D - Hidden Super Desperation Move 3"), 0x004efe0, 0x004f000, indexKOFSprites_99Krizalid },
 };
 
 const sDescTreeNode KOF02UM_A_KRIZALID_COLLECTION[] =
@@ -3626,50 +3626,50 @@ const sDescTreeNode KOF02UM_A_KRIZALID_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_A[] =
 {
-    { _T("Clone Zero A"), 0x004f400, 0x004f420, indexKOFSprites_02OZero },
-    { _T("A - Hidden Super Desperation Move 1"), 0x004f420, 0x004f440, indexKOFSprites_02OZero },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x004f440, 0x004f460, indexKOFSprites_02OZero },
-    { _T("A - Electric Shock Effect"), 0x004f460, 0x004f480, indexKOFSprites_02OZero },
-    { _T("A - Max Flash"), 0x004f480, 0x004f4a0, indexKOFSprites_02OZero },
-    { _T("A - Hidden Super Desperation Move 2"), 0x004f4a0, 0x004f4c0, indexKOFSprites_02OZero },
-    { _T("A - Soul Palette"), 0x004f4c0, 0x004f4e0, indexKOFSprites_02OZero },
-    { _T("A - Hidden Super Desperation Move 3"), 0x004f4e0, 0x004f500, indexKOFSprites_02OZero },
+    { _T("Clone Zero A"), 0x004f400, 0x004f420, indexKOFSprites_00ZeroClone },
+    { _T("A - Hidden Super Desperation Move 1"), 0x004f420, 0x004f440, indexKOFSprites_00ZeroClone },
+    { _T("A - Desperation Move / Super Desperation Move"), 0x004f440, 0x004f460, indexKOFSprites_00ZeroClone },
+    { _T("A - Electric Shock Effect"), 0x004f460, 0x004f480, indexKOFSprites_00ZeroClone },
+    { _T("A - Max Flash"), 0x004f480, 0x004f4a0, indexKOFSprites_00ZeroClone },
+    { _T("A - Hidden Super Desperation Move 2"), 0x004f4a0, 0x004f4c0, indexKOFSprites_00ZeroClone },
+    { _T("A - Soul Palette"), 0x004f4c0, 0x004f4e0, indexKOFSprites_00ZeroClone },
+    { _T("A - Hidden Super Desperation Move 3"), 0x004f4e0, 0x004f500, indexKOFSprites_00ZeroClone },
 };
 
 const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_B[] =
 {
-    { _T("Clone Zero B"), 0x004f500, 0x004f520, indexKOFSprites_02OZero },
-    { _T("B - Hidden Super Desperation Move 1"), 0x004f520, 0x004f540, indexKOFSprites_02OZero },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x004f540, 0x004f560, indexKOFSprites_02OZero },
-    { _T("B - Electric Shock Effect"), 0x004f560, 0x004f580, indexKOFSprites_02OZero },
-    { _T("B - Max Flash"), 0x004f580, 0x004f5a0, indexKOFSprites_02OZero },
-    { _T("B - Hidden Super Desperation Move 2"), 0x004f5a0, 0x004f5c0, indexKOFSprites_02OZero },
-    { _T("B - Soul Palette"), 0x004f5c0, 0x004f5e0, indexKOFSprites_02OZero },
-    { _T("B - Hidden Super Desperation Move 3"), 0x004f5e0, 0x004f600, indexKOFSprites_02OZero },
+    { _T("Clone Zero B"), 0x004f500, 0x004f520, indexKOFSprites_00ZeroClone },
+    { _T("B - Hidden Super Desperation Move 1"), 0x004f520, 0x004f540, indexKOFSprites_00ZeroClone },
+    { _T("B - Desperation Move / Super Desperation Move"), 0x004f540, 0x004f560, indexKOFSprites_00ZeroClone },
+    { _T("B - Electric Shock Effect"), 0x004f560, 0x004f580, indexKOFSprites_00ZeroClone },
+    { _T("B - Max Flash"), 0x004f580, 0x004f5a0, indexKOFSprites_00ZeroClone },
+    { _T("B - Hidden Super Desperation Move 2"), 0x004f5a0, 0x004f5c0, indexKOFSprites_00ZeroClone },
+    { _T("B - Soul Palette"), 0x004f5c0, 0x004f5e0, indexKOFSprites_00ZeroClone },
+    { _T("B - Hidden Super Desperation Move 3"), 0x004f5e0, 0x004f600, indexKOFSprites_00ZeroClone },
 };
 
 const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_C[] =
 {
-    { _T("Clone Zero C"), 0x004f600, 0x004f620, indexKOFSprites_02OZero },
-    { _T("C - Hidden Super Desperation Move 1"), 0x004f620, 0x004f640, indexKOFSprites_02OZero },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x004f640, 0x004f660, indexKOFSprites_02OZero },
-    { _T("C - Electric Shock Effect"), 0x004f660, 0x004f680, indexKOFSprites_02OZero },
-    { _T("C - Max Flash"), 0x004f680, 0x004f6a0, indexKOFSprites_02OZero },
-    { _T("C - Hidden Super Desperation Move 2"), 0x004f6a0, 0x004f6c0, indexKOFSprites_02OZero },
-    { _T("C - Soul Palette"), 0x004f6c0, 0x004f6e0, indexKOFSprites_02OZero },
-    { _T("C - Hidden Super Desperation Move 3"), 0x004f6e0, 0x004f700, indexKOFSprites_02OZero },
+    { _T("Clone Zero C"), 0x004f600, 0x004f620, indexKOFSprites_00ZeroClone },
+    { _T("C - Hidden Super Desperation Move 1"), 0x004f620, 0x004f640, indexKOFSprites_00ZeroClone },
+    { _T("C - Desperation Move / Super Desperation Move"), 0x004f640, 0x004f660, indexKOFSprites_00ZeroClone },
+    { _T("C - Electric Shock Effect"), 0x004f660, 0x004f680, indexKOFSprites_00ZeroClone },
+    { _T("C - Max Flash"), 0x004f680, 0x004f6a0, indexKOFSprites_00ZeroClone },
+    { _T("C - Hidden Super Desperation Move 2"), 0x004f6a0, 0x004f6c0, indexKOFSprites_00ZeroClone },
+    { _T("C - Soul Palette"), 0x004f6c0, 0x004f6e0, indexKOFSprites_00ZeroClone },
+    { _T("C - Hidden Super Desperation Move 3"), 0x004f6e0, 0x004f700, indexKOFSprites_00ZeroClone },
 };
 
 const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_D[] =
 {
-    { _T("Clone Zero D"), 0x004f700, 0x004f720, indexKOFSprites_02OZero },
-    { _T("D - Hidden Super Desperation Move 1"), 0x004f720, 0x004f740, indexKOFSprites_02OZero },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x004f740, 0x004f760, indexKOFSprites_02OZero },
-    { _T("D - Electric Shock Effect"), 0x004f760, 0x004f780, indexKOFSprites_02OZero },
-    { _T("D - Max Flash"), 0x004f780, 0x004f7a0, indexKOFSprites_02OZero },
-    { _T("D - Hidden Super Desperation Move 2"), 0x004f7a0, 0x004f7c0, indexKOFSprites_02OZero },
-    { _T("D - Soul Palette"), 0x004f7c0, 0x004f7e0, indexKOFSprites_02OZero },
-    { _T("D - Hidden Super Desperation Move 3"), 0x004f7e0, 0x004f800, indexKOFSprites_02OZero },
+    { _T("Clone Zero D"), 0x004f700, 0x004f720, indexKOFSprites_00ZeroClone },
+    { _T("D - Hidden Super Desperation Move 1"), 0x004f720, 0x004f740, indexKOFSprites_00ZeroClone },
+    { _T("D - Desperation Move / Super Desperation Move"), 0x004f740, 0x004f760, indexKOFSprites_00ZeroClone },
+    { _T("D - Electric Shock Effect"), 0x004f760, 0x004f780, indexKOFSprites_00ZeroClone },
+    { _T("D - Max Flash"), 0x004f780, 0x004f7a0, indexKOFSprites_00ZeroClone },
+    { _T("D - Hidden Super Desperation Move 2"), 0x004f7a0, 0x004f7c0, indexKOFSprites_00ZeroClone },
+    { _T("D - Soul Palette"), 0x004f7c0, 0x004f7e0, indexKOFSprites_00ZeroClone },
+    { _T("D - Hidden Super Desperation Move 3"), 0x004f7e0, 0x004f800, indexKOFSprites_00ZeroClone },
 };
 
 const sDescTreeNode KOF02UM_A_CLONEZERO_COLLECTION[] =

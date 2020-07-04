@@ -209,13 +209,13 @@ void CGame_KOF02UM_A::DumpAllCharacters()
 
             if (KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName)
             {
-                strOutput.Format(_T("    { \"%s %s\", 0x%07x, 0x%07x, %s },\r\n"), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
+                strOutput.Format(_T("    { _T(\"%s %s\"), 0x%07x, 0x%07x, %s },\r\n"), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
                     nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                     KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName);
             }
             else
             {
-                strOutput.Format(_T("    { \"%s %s\", 0x%07x, 0x%07x },\r\n"), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
+                strOutput.Format(_T("    { _T(\"%s %s\"), 0x%07x, 0x%07x },\r\n"), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
                     nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20 );
             }
 
@@ -238,13 +238,13 @@ void CGame_KOF02UM_A::DumpAllCharacters()
             {
                 if (KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName)
                 {
-                    strOutput.Format(_T("    { \"%s - %s\", 0x%07x, 0x%07x, %s },\r\n"), DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
+                    strOutput.Format(_T("    { _T(\"%s - %s\"), 0x%07x, 0x%07x, %s },\r\n"), DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                         KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName);
                 }
                 else
                 {
-                    strOutput.Format(_T("    { \"%s - %s\", 0x%07x, 0x%07x },\r\n"), DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
+                    strOutput.Format(_T("    { _T(\"%s - %s\"), 0x%07x, 0x%07x },\r\n"), DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
                 }
 
@@ -260,13 +260,13 @@ void CGame_KOF02UM_A::DumpAllCharacters()
         strOutput.Format(_T("const sDescTreeNode KOF02UM_A_%s_COLLECTION[] =\r\n{\r\n"), szCodeDesc);
         OutputDebugString(strOutput);
 
-        strOutput.Format(_T("    { \"A\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_A, ARRAYSIZE(KOF02UM_A_%s_PALETTES_A) },\r\n"), szCodeDesc, szCodeDesc );
+        strOutput.Format(_T("    { _T(\"A\"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_A, ARRAYSIZE(KOF02UM_A_%s_PALETTES_A) },\r\n"), szCodeDesc, szCodeDesc );
         OutputDebugString(strOutput);
-        strOutput.Format(_T("    { \"B\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_B, ARRAYSIZE(KOF02UM_A_%s_PALETTES_B) },\r\n"), szCodeDesc, szCodeDesc );
+        strOutput.Format(_T("    { _T(\"B\"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_B, ARRAYSIZE(KOF02UM_A_%s_PALETTES_B) },\r\n"), szCodeDesc, szCodeDesc );
         OutputDebugString(strOutput);
-        strOutput.Format(_T("    { \"C\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_C, ARRAYSIZE(KOF02UM_A_%s_PALETTES_C) },\r\n"), szCodeDesc, szCodeDesc );
+        strOutput.Format(_T("    { _T(\"C\"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_C, ARRAYSIZE(KOF02UM_A_%s_PALETTES_C) },\r\n"), szCodeDesc, szCodeDesc );
         OutputDebugString(strOutput);
-        strOutput.Format(_T("    { \"D\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_D, ARRAYSIZE(KOF02UM_A_%s_PALETTES_D) },\r\n"), szCodeDesc, szCodeDesc );
+        strOutput.Format(_T("    { _T(\"D\"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_PALETTES_D, ARRAYSIZE(KOF02UM_A_%s_PALETTES_D) },\r\n"), szCodeDesc, szCodeDesc );
         OutputDebugString(strOutput);
 
         OutputDebugString(_T("};\r\n\r\n"));
@@ -281,7 +281,7 @@ void CGame_KOF02UM_A::DumpAllCharacters()
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
-        strOutput.Format(_T("    { \"%s\", DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_COLLECTION, ARRAYSIZE(KOF02UM_A_%s_COLLECTION) },\r\n"), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
+        strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_%s_COLLECTION, ARRAYSIZE(KOF02UM_A_%s_COLLECTION) },\r\n"), KOF02UM_CharacterOffsetArray[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
     }
 
