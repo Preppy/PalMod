@@ -479,12 +479,12 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_AMPARK[] =
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SISLAND[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { _T("Small Island (1/6)"), 0x07d0a00, 0x07d0c00 },
-    { _T("Small Island (2/6)"), 0x07d0c00, 0x07d0e00 },
-    { _T("Small Island (3/6)"), 0x07d0e00, 0x07d1000 },
-    { _T("Small Island (4/6)"), 0x07d1000, 0x07d1200 },
-    { _T("Small Island (5/6)"), 0x07d1200, 0x07d1400 },
-    { _T("Small Island (6/6)"), 0x07d1400, 0x07d1600 },
+    { _T("Small Island (1/6)"), 0x07d0a00, 0x07d0c00, indexJojos51Stages, 0x18 },
+    { _T("Small Island (2/6)"), 0x07d0c00, 0x07d0e00, indexJojos51Stages, 0x19 },
+    { _T("Small Island (3/6)"), 0x07d0e00, 0x07d1000, indexJojos51Stages, 0x1A },
+    { _T("Small Island (4/6)"), 0x07d1000, 0x07d1200, indexJojos51Stages, 0x1B },
+    { _T("Small Island (5/6)"), 0x07d1200, 0x07d1400, indexJojos51Stages, 0x1C },
+    { _T("Small Island (6/6)"), 0x07d1400, 0x07d1600, indexJojos51Stages, 0x1D },
 #else
     { _T("Small Island"), 0x07d0a00, 0x07d1600 },
 #endif
@@ -724,12 +724,12 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DNIGHT[] =
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SISLANDJ[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { _T("Small Island (Joseph) (1/6)"), 0x07d1700, 0x07d1900 },
-    { _T("Small Island (Joseph) (2/6)"), 0x07d1900, 0x07d1b00 },
-    { _T("Small Island (Joseph) (3/6)"), 0x07d1b00, 0x07d1d00 },
-    { _T("Small Island (Joseph) (4/6)"), 0x07d1d00, 0x07d1f00 },
-    { _T("Small Island (Joseph) (5/6)"), 0x07d1f00, 0x07d2100 },
-    { _T("Small Island (Joseph) (6/6)"), 0x07d2100, 0x07d2300 },
+    { _T("Small Island (Joseph) (1/6)"), 0x07d1700, 0x07d1900, indexJojos51Stages, 0x18 },
+    { _T("Small Island (Joseph) (2/6)"), 0x07d1900, 0x07d1b00, indexJojos51Stages, 0x19 },
+    { _T("Small Island (Joseph) (3/6)"), 0x07d1b00, 0x07d1d00, indexJojos51Stages, 0x1a },
+    { _T("Small Island (Joseph) (4/6)"), 0x07d1d00, 0x07d1f00, indexJojos51Stages, 0x1b },
+    { _T("Small Island (Joseph) (5/6)"), 0x07d1f00, 0x07d2100, indexJojos51Stages, 0x1c },
+    { _T("Small Island (Joseph) (6/6)"), 0x07d2100, 0x07d2300, indexJojos51Stages, 0x1d },
 #else
     { _T("Small Island (Joseph)"), 0x07d1700, 0x07d2300 },
 #endif
@@ -3553,12 +3553,12 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_HOTELJ[] =
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_SISLAND[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { _T("Small Island / New 3 TS (1/6)"), 0x02d8300, 0x02d8500 },
-    { _T("Small Island / New 3 TS (2/6)"), 0x02d8500, 0x02d8700 },
-    { _T("Small Island / New 3 TS (3/6)"), 0x02d8700, 0x02d8900 },
-    { _T("Small Island / New 3 TS (4/6)"), 0x02d8900, 0x02d8b00 },
-    { _T("Small Island / New 3 TS (5/6)"), 0x02d8b00, 0x02d8d00 },
-    { _T("Small Island / New 3 TS (6/6)"), 0x02d8d00, 0x02d8f00 },
+    { _T("Small Island / New 3 TS (1/6)"), 0x02d8300, 0x02d8500, indexJojos51Stages, 0x18 },
+    { _T("Small Island / New 3 TS (2/6)"), 0x02d8500, 0x02d8700, indexJojos51Stages, 0x19 },
+    { _T("Small Island / New 3 TS (3/6)"), 0x02d8700, 0x02d8900, indexJojos51Stages, 0x1a },
+    { _T("Small Island / New 3 TS (4/6)"), 0x02d8900, 0x02d8b00, indexJojos51Stages, 0x1b },
+    { _T("Small Island / New 3 TS (5/6)"), 0x02d8b00, 0x02d8d00, indexJojos51Stages, 0x1c },
+    { _T("Small Island / New 3 TS (6/6)"), 0x02d8d00, 0x02d8f00, indexJojos51Stages, 0x1d },
 #else
     { _T("Small Island / New 3 TS"), 0x02d8300, 0x02d8f00 },
 #endif
