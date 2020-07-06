@@ -234,8 +234,8 @@ public:
     afx_msg void OnBnBlink();
     afx_msg void OnAboutAboutpalmod();
     afx_msg void OnBnClickedBinvert();
-    afx_msg void OnLoadAct();
-    afx_msg void OnSaveAct();
+    afx_msg void OnImportPalette();
+    afx_msg void OnExportPalette();
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
     afx_msg void OnLdsfiii3dcall();
 };

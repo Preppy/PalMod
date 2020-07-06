@@ -731,7 +731,7 @@ void CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
     }
 }
 
-void CPalModDlg::OnLoadAct()
+void CPalModDlg::OnImportPalette()
 {
     if (bEnabled)
     {
@@ -840,9 +840,13 @@ void CPalModDlg::OnLoadAct()
     }
 }
 
-void CPalModDlg::OnSaveAct()
+void CPalModDlg::OnExportPalette()
 {
-    CFileDialog ActSave(FALSE, _T(".act"), NULL, 4 | 2, _T("ACT Palette (*.ACT)| *.act|| All Files (*.*)| *.*||"));
+    static LPCTSTR szSaveFilter[] = { _T("ACT Palette (*.ACT)|*.act|")
+                                      _T("GIMP Palette File (*.GPL) |*.gpl|")
+                                      _T("|") };
+
+    CFileDialog ActSave(FALSE, _T(".act"), nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, *szSaveFilter);
 
     if (ActSave.DoModal() == IDOK)
     {
@@ -850,7 +854,71 @@ void CPalModDlg::OnSaveAct()
 
         CString szFile = ActSave.GetOFN().lpstrFile;
 
-        if (ActFile.Open(ActSave.GetOFN().lpstrFile, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+        TCHAR szExtension[_MAX_EXT];
+        _tsplitpath(szFile, nullptr, nullptr, nullptr, szExtension);
+
+        if (_tcsicmp(szExtension, _T(".gpl")) == 0)
+        {
+            // Save to GPL file.
+            if (ActFile.Open(ActSave.GetOFN().lpstrFile, CFile::modeCreate | CFile::modeWrite | CFile::typeText))
+            {
+                char szBuffer[MAX_PATH];
+
+                // Write the header...
+                strcpy(szBuffer, "GIMP Palette\n");
+                ActFile.Write(szBuffer, strlen(szBuffer));
+                sprintf(szBuffer, "Name: %S\n", m_PalHost.GetPalName(0));
+                ActFile.Write(szBuffer, strlen(szBuffer));
+                strcpy(szBuffer, "Columns: 0\n");
+                ActFile.Write(szBuffer, strlen(szBuffer));
+                strcpy(szBuffer, "# Created by PalMod\n");
+                ActFile.Write(szBuffer, strlen(szBuffer));
+
+                // Write out the colors...
+                UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+                int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+                UINT8 nPalettePageCount;
+
+                if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
+                {
+                    nPalettePageCount = m_PalHost.GetCurrentPageCount();
+                }
+                else
+                {
+                    nPalettePageCount = 1;
+                }
+
+                // Skip the first color for GIMP's usage
+                int nTotalColorsUsed = 1;
+                for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
+                {
+                    sprintf(szBuffer, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
+                    ActFile.Write(szBuffer, strlen(szBuffer));
+                }
+
+                for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+                {
+                    CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+                    if (pPalCtrlNextPage)
+                    {
+                        const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+
+                        for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
+                        {
+                            sprintf(szBuffer, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
+                            ActFile.Write(szBuffer, strlen(szBuffer));
+                            nTotalColorsUsed++;
+                        }
+                    }
+                }
+
+                ActFile.Close();
+
+                SetStatusText(CString("GPL file saved successfully!"));
+            }
+        }
+        else if (ActFile.Open(ActSave.GetOFN().lpstrFile, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
         {
             // We are writing this file in accordance with the spec as found here--
             //   https://www.adobe.com/devnet-apps/photoshop/fileformatashtml/#50577411_pgfId-1070626
@@ -916,7 +984,7 @@ void CPalModDlg::OnSaveAct()
 
             delete[] pAct;
 
-            SetStatusText(CString("ACT file saved succesfully!"));
+            SetStatusText(CString("ACT file saved successfully!"));
         }
         else
         {

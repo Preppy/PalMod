@@ -68,6 +68,7 @@ public:
     int GetNotifyIndex() { return nNotifyCtrlIndex; };
     CJunk* GetNotifyPal() { return pPalEntry[nNotifyCtrlIndex].PaletteCtrl; };
     CJunk* GetPalCtrl(int nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].PaletteCtrl : NULL; };
+    LPCTSTR GetPalName(int nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].szPalStr : _T("Untitled Palette"); };
 
     void ResetNotifyIndex() { nNotifyCtrlIndex = 0; };
 

@@ -233,8 +233,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,56,0
- PRODUCTVERSION 1,0,56,0
+ FILEVERSION 1,0,57,0
+ PRODUCTVERSION 1,0,57,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -251,12 +251,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.56.0"
+            VALUE "FileVersion", "1.0.57.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.56.0"
+            VALUE "ProductVersion", "1.0.57.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -349,8 +349,8 @@ BEGIN
         MENUITEM "&Revert",                     ID_TOOLS_REVERT
         MENUITEM "&Blink",                      ID_TOOLS_BLINK
         MENUITEM SEPARATOR
-        MENUITEM "&Load Palette",               ID_TOOLS_LOADACTPALETTE
-        MENUITEM "&Save ACT Palette",           ID_TOOLS_SAVEACTPALETTE
+        MENUITEM "&Load Palette\tCtrl+L",       ID_TOOLS_LOADACTPALETTE
+        MENUITEM "&Save Palette\tCtrl+P",       ID_TOOLS_SAVEACTPALETTE
     END
     POPUP "&Settings"
     BEGIN
@@ -422,6 +422,7 @@ END
 
 IDR_PALMOD_ACC ACCELERATORS
 BEGIN
+    VK_OEM_PLUS,    ID_ACC_ADDZOOM,         VIRTKEY, CONTROL, NOINVERT
     "B",            ID_ACC_BLINK,           VIRTKEY, CONTROL, NOINVERT
     "C",            ID_ACC_COPY,            VIRTKEY, CONTROL, NOINVERT
     "O",            ID_ACC_FILEOPEN,        VIRTKEY, CONTROL, NOINVERT
@@ -431,9 +432,10 @@ BEGIN
     "Y",            ID_ACC_REDO,            VIRTKEY, CONTROL, NOINVERT
     "A",            ID_ACC_SELALL,          VIRTKEY, CONTROL, NOINVERT
     "D",            ID_ACC_SELNONE,         VIRTKEY, CONTROL, NOINVERT
-    "Z",            ID_ACC_UNDO,            VIRTKEY, CONTROL, NOINVERT
-    VK_OEM_PLUS,    ID_ACC_ADDZOOM,         VIRTKEY, CONTROL, NOINVERT
     VK_OEM_MINUS,   ID_ACC_SUBZOOM,         VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_ACC_UNDO,            VIRTKEY, CONTROL, NOINVERT
+    "L",            ID_ACC_LOADPALETTE,     VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_ACC_SAVEPALETTE,     VIRTKEY, CONTROL, NOINVERT
 END
 
 
@@ -494,7 +496,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.56"
+    IDS_CURRENTAPPNAME      "PalMod 1.57"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
     IDS_ERROR_NO_IMAGES     "No images available."
