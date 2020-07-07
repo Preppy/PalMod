@@ -1,12 +1,12 @@
 #pragma once
 #include "gameclass.h"
-#include "KOF02UM_A_DEF.h"
+#include "KOF02_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOF02UM_A = _T("KOF02UME.txt");
-#define GetExtraDefForKOF02UM(x)((stExtraDef *)&KOF02UM_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_KOF02_A = _T("KOF02E.txt");
+#define GetExtraDefForKOF02(x)((stExtraDef *)&KOF02_A_EXTRA_CUSTOM[x])
 
-class CGame_KOF02UM_A : public CGameWithExtrasFile
+class CGame_KOF02_A : public CGameWithExtrasFile
 {
 private:
     //Used for image selection
@@ -14,11 +14,11 @@ private:
 
     //Used for GetPalOffset
     UINT32 nCurrPalOffs = 0;
-    static UINT32 m_nTotalPaletteCountForKOF02UM;
+    static UINT32 m_nTotalPaletteCountForKOF02;
     static void DumpAllCharacters();
 
-    static int rgExtraCountAll[KOF02UM_A_NUMUNIT + 1];
-    static int rgExtraLoc[KOF02UM_A_NUMUNIT + 1];
+    static int rgExtraCountAll[KOF02_A_NUMUNIT + 1];
+    static int rgExtraLoc[KOF02_A_NUMUNIT + 1];
 
     void InitDataBuffer();
     void ClearDataBuffer();
@@ -32,8 +32,8 @@ private:
     UINT16*** pppDataBuffer = nullptr;
 
 public:
-    CGame_KOF02UM_A(UINT32 nConfirmedROMSize);
-    ~CGame_KOF02UM_A(void);
+    CGame_KOF02_A(UINT32 nConfirmedROMSize);
+    ~CGame_KOF02_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -70,5 +70,5 @@ public:
     void FlushUnitFile() { safe_delete(rgFileChanged); };
     void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
-    static stExtraDef* KOF02UM_A_EXTRA_CUSTOM;
+    static stExtraDef* KOF02_A_EXTRA_CUSTOM;
 };

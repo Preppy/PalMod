@@ -88,14 +88,17 @@
     <Filter Include="Game\KOF98_A">
       <UniqueIdentifier>{d9c8c45e-3ad2-4bb8-a6e6-08a9665543d8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\KOF02_A">
-      <UniqueIdentifier>{8b9ef95f-05ae-44ef-8320-826a370b75b2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\CVS2_A">
       <UniqueIdentifier>{3570dfdb-7518-4b38-a235-2e484ea22c9a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\Garou_S">
       <UniqueIdentifier>{a88dc215-a7e2-4efe-b6ea-bd7491c26694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\KOF02UM_S">
+      <UniqueIdentifier>{8b9ef95f-05ae-44ef-8320-826a370b75b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\KOF02_A">
+      <UniqueIdentifier>{a54da33d-5b19-45ec-81c8-38f230908bd8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -240,14 +243,17 @@
     <ClCompile Include="Game\Game_KOF98_A.cpp">
       <Filter>Game\KOF98_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_KOF02UM_A.cpp">
-      <Filter>Game\KOF02_A</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_CVS2_A.cpp">
       <Filter>Game\CVS2_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_Garou_S.cpp">
       <Filter>Game\Garou_S</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF02_A.cpp">
+      <Filter>Game\KOF02_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF02UM_S.cpp">
+      <Filter>Game\KOF02UM_S</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -431,12 +437,6 @@
     <ClInclude Include="Game\KOF98_A_DEF.h">
       <Filter>Game\KOF98_A</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Game_KOF02UM_A.h">
-      <Filter>Game\KOF02_A</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\KOF02UM_A_DEF.h">
-      <Filter>Game\KOF02_A</Filter>
-    </ClInclude>
     <ClInclude Include="Game\CVS2_A_DEF.h">
       <Filter>Game\CVS2_A</Filter>
     </ClInclude>
@@ -448,6 +448,18 @@
     </ClInclude>
     <ClInclude Include="Game\Garou_S_DEF.h">
       <Filter>Game\Garou_S</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF02_A.h">
+      <Filter>Game\KOF02_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF02_A_DEF.h">
+      <Filter>Game\KOF02_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF02UM_S.h">
+      <Filter>Game\KOF02UM_S</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF02UM_S_DEF.h">
+      <Filter>Game\KOF02UM_S</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

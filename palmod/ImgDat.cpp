@@ -110,9 +110,10 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
     Garou_A,
     NEOGEO_A,
     KOF98_A,
-    KOF02UM_A,
+    KOF02UM_S,
     CVS2_A,
     Garou_S,
+    KOF02_A,
     */
     for (UINT16 nUnitCtr = 0; nUnitCtr < nCurGameUnitAmt; nUnitCtr++)
     {
@@ -245,13 +246,22 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
             nImgMap->insert({ KOF98_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
             break;
         }
-        case KOF02UM_A:
+        case KOF02_A:
         {
 #if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), KOF02UM_A_IMG_UNITS[nUnitCtr]);
+            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), KOF02_A_IMG_UNITS[nUnitCtr]);
             OutputDebugString(strDebugInfo);
 #endif
-            nImgMap->insert({ KOF02UM_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImgMap->insert({ KOF02_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case KOF02UM_S:
+        {
+#if IMGDAT_DEBUG
+            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), KOF02UM_S_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
+#endif
+            nImgMap->insert({ KOF02UM_S_IMG_UNITS[nUnitCtr], new ImgInfoList });
             break;
         }
         case CVS2_A:

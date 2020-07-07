@@ -2,13 +2,13 @@
 
 // To add characters or palette lists:
 // * Update the SupportedPaletteListIndex with the new index name.
-// * Add an array below along the lines of KOF02UM_A_KYO_PALETTE_A. 
-// * Update every array using KOF02UM_A_NUMUNIT below
+// * Add an array below along the lines of KOF02UM_S_KYO_PALETTE_A. 
+// * Update every array using KOF02UM_S_NUMUNIT below
 // That should be it.  Good luck.
 
-constexpr auto KOF02UM_A_NUMUNIT = indexKOF02UM_A_Last;
+constexpr auto KOF02UM_S_NUMUNIT = indexKOF02UM_S_Last;
 
-#define KOF02UM_A_EXTRALOC KOF02UM_A_NUMUNIT
+#define KOF02UM_S_EXTRALOC KOF02UM_S_NUMUNIT
 
 struct sKOF02_CharacterDump
 {
@@ -96,7 +96,7 @@ const sKOF02_CharacterDump KOF02UM_CharacterOffsetArray[] =
     { _T("Igniz"), 0x50400, 0x50400, 0x50400, 0x50400, _T("indexKOFSprites_02Igniz") },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_A[] =
 {
     { _T("Kyo A"), 0x0002000, 0x0002020, indexKOFSprites_02Kyo },
     { _T("A - Hidden Super Desperation Move 1"), 0x0002020, 0x0002040, indexKOFSprites_02Kyo },
@@ -108,7 +108,7 @@ const sGame_PaletteDataset KOF02UM_A_KYO_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00020e0, 0x0002100, indexKOFSprites_02Kyo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_B[] =
 {
     { _T("Kyo B"), 0x0002200, 0x0002220, indexKOFSprites_02Kyo },
     { _T("B - Hidden Super Desperation Move 1"), 0x0002220, 0x0002240, indexKOFSprites_02Kyo },
@@ -120,7 +120,7 @@ const sGame_PaletteDataset KOF02UM_A_KYO_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00022e0, 0x0002300, indexKOFSprites_02Kyo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_C[] =
 {
     { _T("Kyo C"), 0x0002400, 0x0002420, indexKOFSprites_02Kyo },
     { _T("C - Hidden Super Desperation Move 1"), 0x0002420, 0x0002440, indexKOFSprites_02Kyo },
@@ -132,7 +132,7 @@ const sGame_PaletteDataset KOF02UM_A_KYO_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00024e0, 0x0002500, indexKOFSprites_02Kyo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_D[] =
 {
     { _T("Kyo D"), 0x0002600, 0x0002620, indexKOFSprites_02Kyo },
     { _T("D - Hidden Super Desperation Move 1"), 0x0002620, 0x0002640, indexKOFSprites_02Kyo },
@@ -144,15 +144,15 @@ const sGame_PaletteDataset KOF02UM_A_KYO_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00026e0, 0x0002700, indexKOFSprites_02Kyo },
 };
 
-const sDescTreeNode KOF02UM_A_KYO_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_KYO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO_PALETTES_A, ARRAYSIZE(KOF02UM_A_KYO_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO_PALETTES_B, ARRAYSIZE(KOF02UM_A_KYO_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO_PALETTES_C, ARRAYSIZE(KOF02UM_A_KYO_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO_PALETTES_D, ARRAYSIZE(KOF02UM_A_KYO_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO_PALETTES_A, ARRAYSIZE(KOF02UM_S_KYO_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO_PALETTES_B, ARRAYSIZE(KOF02UM_S_KYO_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO_PALETTES_C, ARRAYSIZE(KOF02UM_S_KYO_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO_PALETTES_D, ARRAYSIZE(KOF02UM_S_KYO_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BENIMARU_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_A[] =
 {
     { _T("Benimaru A"), 0x0002800, 0x0002820, indexKOFSprites_98Benimaru },
     { _T("A - Hidden Super Desperation Move 1"), 0x0002820, 0x0002840, indexKOFSprites_98Benimaru },
@@ -164,7 +164,7 @@ const sGame_PaletteDataset KOF02UM_A_BENIMARU_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00028e0, 0x0002900, indexKOFSprites_98Benimaru },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BENIMARU_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_B[] =
 {
     { _T("Benimaru B"), 0x0002a00, 0x0002a20, indexKOFSprites_98Benimaru },
     { _T("B - Hidden Super Desperation Move 1"), 0x0002a20, 0x0002a40, indexKOFSprites_98Benimaru },
@@ -176,7 +176,7 @@ const sGame_PaletteDataset KOF02UM_A_BENIMARU_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0002ae0, 0x0002b00, indexKOFSprites_98Benimaru },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BENIMARU_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_C[] =
 {
     { _T("Benimaru C"), 0x0002c00, 0x0002c20, indexKOFSprites_98Benimaru },
     { _T("C - Hidden Super Desperation Move 1"), 0x0002c20, 0x0002c40, indexKOFSprites_98Benimaru },
@@ -188,7 +188,7 @@ const sGame_PaletteDataset KOF02UM_A_BENIMARU_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0002ce0, 0x0002d00, indexKOFSprites_98Benimaru },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BENIMARU_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_D[] =
 {
     { _T("Benimaru D"), 0x0002e00, 0x0002e20, indexKOFSprites_98Benimaru },
     { _T("D - Hidden Super Desperation Move 1"), 0x0002e20, 0x0002e40, indexKOFSprites_98Benimaru },
@@ -200,15 +200,15 @@ const sGame_PaletteDataset KOF02UM_A_BENIMARU_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0002ee0, 0x0002f00, indexKOFSprites_98Benimaru },
 };
 
-const sDescTreeNode KOF02UM_A_BENIMARU_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_BENIMARU_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BENIMARU_PALETTES_A, ARRAYSIZE(KOF02UM_A_BENIMARU_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BENIMARU_PALETTES_B, ARRAYSIZE(KOF02UM_A_BENIMARU_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BENIMARU_PALETTES_C, ARRAYSIZE(KOF02UM_A_BENIMARU_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BENIMARU_PALETTES_D, ARRAYSIZE(KOF02UM_A_BENIMARU_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BENIMARU_PALETTES_A, ARRAYSIZE(KOF02UM_S_BENIMARU_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BENIMARU_PALETTES_B, ARRAYSIZE(KOF02UM_S_BENIMARU_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BENIMARU_PALETTES_C, ARRAYSIZE(KOF02UM_S_BENIMARU_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BENIMARU_PALETTES_D, ARRAYSIZE(KOF02UM_S_BENIMARU_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_DAIMON_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_DAIMON_PALETTES_A[] =
 {
     { _T("Daimon A"), 0x0003000, 0x0003020, indexKOFSprites_98Daimon },
     { _T("A - Hidden Super Desperation Move 1"), 0x0003020, 0x0003040, indexKOFSprites_98Daimon },
@@ -220,7 +220,7 @@ const sGame_PaletteDataset KOF02UM_A_DAIMON_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00030e0, 0x0003100, indexKOFSprites_98Daimon },
 };
 
-const sGame_PaletteDataset KOF02UM_A_DAIMON_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_DAIMON_PALETTES_B[] =
 {
     { _T("Daimon B"), 0x0003200, 0x0003220, indexKOFSprites_98Daimon },
     { _T("B - Hidden Super Desperation Move 1"), 0x0003220, 0x0003240, indexKOFSprites_98Daimon },
@@ -232,7 +232,7 @@ const sGame_PaletteDataset KOF02UM_A_DAIMON_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00032e0, 0x0003300, indexKOFSprites_98Daimon },
 };
 
-const sGame_PaletteDataset KOF02UM_A_DAIMON_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_DAIMON_PALETTES_C[] =
 {
     { _T("Daimon C"), 0x0003400, 0x0003420, indexKOFSprites_98Daimon },
     { _T("C - Hidden Super Desperation Move 1"), 0x0003420, 0x0003440, indexKOFSprites_98Daimon },
@@ -244,7 +244,7 @@ const sGame_PaletteDataset KOF02UM_A_DAIMON_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00034e0, 0x0003500, indexKOFSprites_98Daimon },
 };
 
-const sGame_PaletteDataset KOF02UM_A_DAIMON_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_DAIMON_PALETTES_D[] =
 {
     { _T("Daimon D"), 0x0003600, 0x0003620, indexKOFSprites_98Daimon },
     { _T("D - Hidden Super Desperation Move 1"), 0x0003620, 0x0003640, indexKOFSprites_98Daimon },
@@ -256,15 +256,15 @@ const sGame_PaletteDataset KOF02UM_A_DAIMON_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00036e0, 0x0003700, indexKOFSprites_98Daimon },
 };
 
-const sDescTreeNode KOF02UM_A_DAIMON_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_DAIMON_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_DAIMON_PALETTES_A, ARRAYSIZE(KOF02UM_A_DAIMON_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_DAIMON_PALETTES_B, ARRAYSIZE(KOF02UM_A_DAIMON_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_DAIMON_PALETTES_C, ARRAYSIZE(KOF02UM_A_DAIMON_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_DAIMON_PALETTES_D, ARRAYSIZE(KOF02UM_A_DAIMON_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_DAIMON_PALETTES_A, ARRAYSIZE(KOF02UM_S_DAIMON_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_DAIMON_PALETTES_B, ARRAYSIZE(KOF02UM_S_DAIMON_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_DAIMON_PALETTES_C, ARRAYSIZE(KOF02UM_S_DAIMON_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_DAIMON_PALETTES_D, ARRAYSIZE(KOF02UM_S_DAIMON_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_TERRY_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_TERRY_PALETTES_A[] =
 {
     { _T("Terry A"), 0x0003800, 0x0003820, indexKOFSprites_98Terry },
     { _T("A - Hidden Super Desperation Move 1"), 0x0003820, 0x0003840, indexKOFSprites_98Terry },
@@ -276,7 +276,7 @@ const sGame_PaletteDataset KOF02UM_A_TERRY_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00038e0, 0x0003900, indexKOFSprites_98Terry },
 };
 
-const sGame_PaletteDataset KOF02UM_A_TERRY_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_TERRY_PALETTES_B[] =
 {
     { _T("Terry B"), 0x0003a00, 0x0003a20, indexKOFSprites_98Terry },
     { _T("B - Hidden Super Desperation Move 1"), 0x0003a20, 0x0003a40, indexKOFSprites_98Terry },
@@ -288,7 +288,7 @@ const sGame_PaletteDataset KOF02UM_A_TERRY_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0003ae0, 0x0003b00, indexKOFSprites_98Terry },
 };
 
-const sGame_PaletteDataset KOF02UM_A_TERRY_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_TERRY_PALETTES_C[] =
 {
     { _T("Terry C"), 0x0003c00, 0x0003c20, indexKOFSprites_98Terry },
     { _T("C - Hidden Super Desperation Move 1"), 0x0003c20, 0x0003c40, indexKOFSprites_98Terry },
@@ -300,7 +300,7 @@ const sGame_PaletteDataset KOF02UM_A_TERRY_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0003ce0, 0x0003d00, indexKOFSprites_98Terry },
 };
 
-const sGame_PaletteDataset KOF02UM_A_TERRY_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_TERRY_PALETTES_D[] =
 {
     { _T("Terry D"), 0x0003e00, 0x0003e20, indexKOFSprites_98Terry },
     { _T("D - Hidden Super Desperation Move 1"), 0x0003e20, 0x0003e40, indexKOFSprites_98Terry },
@@ -312,15 +312,15 @@ const sGame_PaletteDataset KOF02UM_A_TERRY_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0003ee0, 0x0003f00, indexKOFSprites_98Terry },
 };
 
-const sDescTreeNode KOF02UM_A_TERRY_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_TERRY_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_TERRY_PALETTES_A, ARRAYSIZE(KOF02UM_A_TERRY_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_TERRY_PALETTES_B, ARRAYSIZE(KOF02UM_A_TERRY_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_TERRY_PALETTES_C, ARRAYSIZE(KOF02UM_A_TERRY_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_TERRY_PALETTES_D, ARRAYSIZE(KOF02UM_A_TERRY_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_TERRY_PALETTES_A, ARRAYSIZE(KOF02UM_S_TERRY_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_TERRY_PALETTES_B, ARRAYSIZE(KOF02UM_S_TERRY_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_TERRY_PALETTES_C, ARRAYSIZE(KOF02UM_S_TERRY_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_TERRY_PALETTES_D, ARRAYSIZE(KOF02UM_S_TERRY_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_A[] =
 {
     { _T("Andy A"), 0x0004000, 0x0004020, indexKOFSprites_02Andy },
     { _T("A - Hidden Super Desperation Move 1"), 0x0004020, 0x0004040, indexKOFSprites_02Andy },
@@ -332,7 +332,7 @@ const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00040e0, 0x0004100, indexKOFSprites_02Andy },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_B[] =
 {
     { _T("Andy B"), 0x0004200, 0x0004220, indexKOFSprites_02Andy },
     { _T("B - Hidden Super Desperation Move 1"), 0x0004220, 0x0004240, indexKOFSprites_02Andy },
@@ -344,7 +344,7 @@ const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00042e0, 0x0004300, indexKOFSprites_02Andy },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_C[] =
 {
     { _T("Andy C"), 0x0004400, 0x0004420, indexKOFSprites_02Andy },
     { _T("C - Hidden Super Desperation Move 1"), 0x0004420, 0x0004440, indexKOFSprites_02Andy },
@@ -356,7 +356,7 @@ const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00044e0, 0x0004500, indexKOFSprites_02Andy },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_D[] =
 {
     { _T("Andy D"), 0x0004600, 0x0004620, indexKOFSprites_02Andy },
     { _T("D - Hidden Super Desperation Move 1"), 0x0004620, 0x0004640, indexKOFSprites_02Andy },
@@ -368,15 +368,15 @@ const sGame_PaletteDataset KOF02UM_A_ANDY_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00046e0, 0x0004700, indexKOFSprites_02Andy },
 };
 
-const sDescTreeNode KOF02UM_A_ANDY_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_ANDY_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANDY_PALETTES_A, ARRAYSIZE(KOF02UM_A_ANDY_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANDY_PALETTES_B, ARRAYSIZE(KOF02UM_A_ANDY_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANDY_PALETTES_C, ARRAYSIZE(KOF02UM_A_ANDY_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANDY_PALETTES_D, ARRAYSIZE(KOF02UM_A_ANDY_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANDY_PALETTES_A, ARRAYSIZE(KOF02UM_S_ANDY_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANDY_PALETTES_B, ARRAYSIZE(KOF02UM_S_ANDY_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANDY_PALETTES_C, ARRAYSIZE(KOF02UM_S_ANDY_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANDY_PALETTES_D, ARRAYSIZE(KOF02UM_S_ANDY_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_JOE_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_JOE_PALETTES_A[] =
 {
     { _T("Joe A"), 0x0004800, 0x0004820, indexKOFSprites_98Joe },
     { _T("A - Hidden Super Desperation Move 1"), 0x0004820, 0x0004840, indexKOFSprites_98Joe },
@@ -388,7 +388,7 @@ const sGame_PaletteDataset KOF02UM_A_JOE_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00048e0, 0x0004900, indexKOFSprites_98Joe },
 };
 
-const sGame_PaletteDataset KOF02UM_A_JOE_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_JOE_PALETTES_B[] =
 {
     { _T("Joe B"), 0x0004a00, 0x0004a20, indexKOFSprites_98Joe },
     { _T("B - Hidden Super Desperation Move 1"), 0x0004a20, 0x0004a40, indexKOFSprites_98Joe },
@@ -400,7 +400,7 @@ const sGame_PaletteDataset KOF02UM_A_JOE_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0004ae0, 0x0004b00, indexKOFSprites_98Joe },
 };
 
-const sGame_PaletteDataset KOF02UM_A_JOE_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_JOE_PALETTES_C[] =
 {
     { _T("Joe C"), 0x0004c00, 0x0004c20, indexKOFSprites_98Joe },
     { _T("C - Hidden Super Desperation Move 1"), 0x0004c20, 0x0004c40, indexKOFSprites_98Joe },
@@ -412,7 +412,7 @@ const sGame_PaletteDataset KOF02UM_A_JOE_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0004ce0, 0x0004d00, indexKOFSprites_98Joe },
 };
 
-const sGame_PaletteDataset KOF02UM_A_JOE_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_JOE_PALETTES_D[] =
 {
     { _T("Joe D"), 0x0004e00, 0x0004e20, indexKOFSprites_98Joe },
     { _T("D - Hidden Super Desperation Move 1"), 0x0004e20, 0x0004e40, indexKOFSprites_98Joe },
@@ -424,15 +424,15 @@ const sGame_PaletteDataset KOF02UM_A_JOE_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0004ee0, 0x0004f00, indexKOFSprites_98Joe },
 };
 
-const sDescTreeNode KOF02UM_A_JOE_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_JOE_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_JOE_PALETTES_A, ARRAYSIZE(KOF02UM_A_JOE_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_JOE_PALETTES_B, ARRAYSIZE(KOF02UM_A_JOE_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_JOE_PALETTES_C, ARRAYSIZE(KOF02UM_A_JOE_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_JOE_PALETTES_D, ARRAYSIZE(KOF02UM_A_JOE_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_JOE_PALETTES_A, ARRAYSIZE(KOF02UM_S_JOE_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_JOE_PALETTES_B, ARRAYSIZE(KOF02UM_S_JOE_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_JOE_PALETTES_C, ARRAYSIZE(KOF02UM_S_JOE_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_JOE_PALETTES_D, ARRAYSIZE(KOF02UM_S_JOE_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KIM_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_KIM_PALETTES_A[] =
 {
     { _T("Kim A"), 0x0005000, 0x0005020, indexKOFSprites_98Kim },
     { _T("A - Hidden Super Desperation Move 1"), 0x0005020, 0x0005040, indexKOFSprites_98Kim },
@@ -444,7 +444,7 @@ const sGame_PaletteDataset KOF02UM_A_KIM_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00050e0, 0x0005100, indexKOFSprites_98Kim },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KIM_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_KIM_PALETTES_B[] =
 {
     { _T("Kim B"), 0x0005200, 0x0005220, indexKOFSprites_98Kim },
     { _T("B - Hidden Super Desperation Move 1"), 0x0005220, 0x0005240, indexKOFSprites_98Kim },
@@ -456,7 +456,7 @@ const sGame_PaletteDataset KOF02UM_A_KIM_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00052e0, 0x0005300, indexKOFSprites_98Kim },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KIM_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_KIM_PALETTES_C[] =
 {
     { _T("Kim C"), 0x0005400, 0x0005420, indexKOFSprites_98Kim },
     { _T("C - Hidden Super Desperation Move 1"), 0x0005420, 0x0005440, indexKOFSprites_98Kim },
@@ -468,7 +468,7 @@ const sGame_PaletteDataset KOF02UM_A_KIM_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00054e0, 0x0005500, indexKOFSprites_98Kim },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KIM_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_KIM_PALETTES_D[] =
 {
     { _T("Kim D"), 0x0005600, 0x0005620, indexKOFSprites_98Kim },
     { _T("D - Hidden Super Desperation Move 1"), 0x0005620, 0x0005640, indexKOFSprites_98Kim },
@@ -480,15 +480,15 @@ const sGame_PaletteDataset KOF02UM_A_KIM_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00056e0, 0x0005700, indexKOFSprites_98Kim },
 };
 
-const sDescTreeNode KOF02UM_A_KIM_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_KIM_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KIM_PALETTES_A, ARRAYSIZE(KOF02UM_A_KIM_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KIM_PALETTES_B, ARRAYSIZE(KOF02UM_A_KIM_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KIM_PALETTES_C, ARRAYSIZE(KOF02UM_A_KIM_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KIM_PALETTES_D, ARRAYSIZE(KOF02UM_A_KIM_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KIM_PALETTES_A, ARRAYSIZE(KOF02UM_S_KIM_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KIM_PALETTES_B, ARRAYSIZE(KOF02UM_S_KIM_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KIM_PALETTES_C, ARRAYSIZE(KOF02UM_S_KIM_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KIM_PALETTES_D, ARRAYSIZE(KOF02UM_S_KIM_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHANG_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_CHANG_PALETTES_A[] =
 {
     { _T("Chang A"), 0x0005800, 0x0005820, indexKOFSprites_98Chang },
     { _T("A - Hidden Super Desperation Move 1"), 0x0005820, 0x0005840, indexKOFSprites_98Chang },
@@ -500,7 +500,7 @@ const sGame_PaletteDataset KOF02UM_A_CHANG_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00058e0, 0x0005900, indexKOFSprites_98Chang },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHANG_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_CHANG_PALETTES_B[] =
 {
     { _T("Chang B"), 0x0005a00, 0x0005a20, indexKOFSprites_98Chang },
     { _T("B - Hidden Super Desperation Move 1"), 0x0005a20, 0x0005a40, indexKOFSprites_98Chang },
@@ -512,7 +512,7 @@ const sGame_PaletteDataset KOF02UM_A_CHANG_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0005ae0, 0x0005b00, indexKOFSprites_98Chang },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHANG_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_CHANG_PALETTES_C[] =
 {
     { _T("Chang C"), 0x0005c00, 0x0005c20, indexKOFSprites_98Chang },
     { _T("C - Hidden Super Desperation Move 1"), 0x0005c20, 0x0005c40, indexKOFSprites_98Chang },
@@ -524,7 +524,7 @@ const sGame_PaletteDataset KOF02UM_A_CHANG_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0005ce0, 0x0005d00, indexKOFSprites_98Chang },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHANG_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_CHANG_PALETTES_D[] =
 {
     { _T("Chang D"), 0x0005e00, 0x0005e20, indexKOFSprites_98Chang },
     { _T("D - Hidden Super Desperation Move 1"), 0x0005e20, 0x0005e40, indexKOFSprites_98Chang },
@@ -536,15 +536,15 @@ const sGame_PaletteDataset KOF02UM_A_CHANG_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0005ee0, 0x0005f00, indexKOFSprites_98Chang },
 };
 
-const sDescTreeNode KOF02UM_A_CHANG_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_CHANG_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHANG_PALETTES_A, ARRAYSIZE(KOF02UM_A_CHANG_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHANG_PALETTES_B, ARRAYSIZE(KOF02UM_A_CHANG_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHANG_PALETTES_C, ARRAYSIZE(KOF02UM_A_CHANG_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHANG_PALETTES_D, ARRAYSIZE(KOF02UM_A_CHANG_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHANG_PALETTES_A, ARRAYSIZE(KOF02UM_S_CHANG_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHANG_PALETTES_B, ARRAYSIZE(KOF02UM_S_CHANG_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHANG_PALETTES_C, ARRAYSIZE(KOF02UM_S_CHANG_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHANG_PALETTES_D, ARRAYSIZE(KOF02UM_S_CHANG_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHOI_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_CHOI_PALETTES_A[] =
 {
     { _T("Choi A"), 0x0006000, 0x0006020, indexKOFSprites_98Choi },
     { _T("A - Hidden Super Desperation Move 1"), 0x0006020, 0x0006040, indexKOFSprites_98Choi },
@@ -556,7 +556,7 @@ const sGame_PaletteDataset KOF02UM_A_CHOI_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00060e0, 0x0006100, indexKOFSprites_98Choi },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHOI_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_CHOI_PALETTES_B[] =
 {
     { _T("Choi B"), 0x0006200, 0x0006220, indexKOFSprites_98Choi },
     { _T("B - Hidden Super Desperation Move 1"), 0x0006220, 0x0006240, indexKOFSprites_98Choi },
@@ -568,7 +568,7 @@ const sGame_PaletteDataset KOF02UM_A_CHOI_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00062e0, 0x0006300, indexKOFSprites_98Choi },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHOI_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_CHOI_PALETTES_C[] =
 {
     { _T("Choi C"), 0x0006400, 0x0006420, indexKOFSprites_98Choi },
     { _T("C - Hidden Super Desperation Move 1"), 0x0006420, 0x0006440, indexKOFSprites_98Choi },
@@ -580,7 +580,7 @@ const sGame_PaletteDataset KOF02UM_A_CHOI_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00064e0, 0x0006500, indexKOFSprites_98Choi },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHOI_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_CHOI_PALETTES_D[] =
 {
     { _T("Choi D"), 0x0006600, 0x0006620, indexKOFSprites_98Choi },
     { _T("D - Hidden Super Desperation Move 1"), 0x0006620, 0x0006640, indexKOFSprites_98Choi },
@@ -592,15 +592,15 @@ const sGame_PaletteDataset KOF02UM_A_CHOI_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00066e0, 0x0006700, indexKOFSprites_98Choi },
 };
 
-const sDescTreeNode KOF02UM_A_CHOI_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_CHOI_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHOI_PALETTES_A, ARRAYSIZE(KOF02UM_A_CHOI_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHOI_PALETTES_B, ARRAYSIZE(KOF02UM_A_CHOI_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHOI_PALETTES_C, ARRAYSIZE(KOF02UM_A_CHOI_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHOI_PALETTES_D, ARRAYSIZE(KOF02UM_A_CHOI_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHOI_PALETTES_A, ARRAYSIZE(KOF02UM_S_CHOI_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHOI_PALETTES_B, ARRAYSIZE(KOF02UM_S_CHOI_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHOI_PALETTES_C, ARRAYSIZE(KOF02UM_S_CHOI_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHOI_PALETTES_D, ARRAYSIZE(KOF02UM_S_CHOI_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ATHENA_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_ATHENA_PALETTES_A[] =
 {
     { _T("Athena A"), 0x0006800, 0x0006820, indexKOFSprites_02Athena },
     { _T("A - Hidden Super Desperation Move 1"), 0x0006820, 0x0006840, indexKOFSprites_02Athena },
@@ -612,7 +612,7 @@ const sGame_PaletteDataset KOF02UM_A_ATHENA_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00068e0, 0x0006900, indexKOFSprites_02Athena },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ATHENA_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_ATHENA_PALETTES_B[] =
 {
     { _T("Athena B"), 0x0006a00, 0x0006a20, indexKOFSprites_02Athena },
     { _T("B - Hidden Super Desperation Move 1"), 0x0006a20, 0x0006a40, indexKOFSprites_02Athena },
@@ -624,7 +624,7 @@ const sGame_PaletteDataset KOF02UM_A_ATHENA_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0006ae0, 0x0006b00, indexKOFSprites_02Athena },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ATHENA_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_ATHENA_PALETTES_C[] =
 {
     { _T("Athena C"), 0x0006c00, 0x0006c20, indexKOFSprites_02Athena },
     { _T("C - Hidden Super Desperation Move 1"), 0x0006c20, 0x0006c40, indexKOFSprites_02Athena },
@@ -636,7 +636,7 @@ const sGame_PaletteDataset KOF02UM_A_ATHENA_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0006ce0, 0x0006d00, indexKOFSprites_02Athena },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ATHENA_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_ATHENA_PALETTES_D[] =
 {
     { _T("Athena D"), 0x0006e00, 0x0006e20, indexKOFSprites_02Athena },
     { _T("D - Hidden Super Desperation Move 1"), 0x0006e20, 0x0006e40, indexKOFSprites_02Athena },
@@ -648,15 +648,15 @@ const sGame_PaletteDataset KOF02UM_A_ATHENA_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0006ee0, 0x0006f00, indexKOFSprites_02Athena },
 };
 
-const sDescTreeNode KOF02UM_A_ATHENA_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_ATHENA_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ATHENA_PALETTES_A, ARRAYSIZE(KOF02UM_A_ATHENA_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ATHENA_PALETTES_B, ARRAYSIZE(KOF02UM_A_ATHENA_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ATHENA_PALETTES_C, ARRAYSIZE(KOF02UM_A_ATHENA_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ATHENA_PALETTES_D, ARRAYSIZE(KOF02UM_A_ATHENA_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ATHENA_PALETTES_A, ARRAYSIZE(KOF02UM_S_ATHENA_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ATHENA_PALETTES_B, ARRAYSIZE(KOF02UM_S_ATHENA_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ATHENA_PALETTES_C, ARRAYSIZE(KOF02UM_S_ATHENA_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ATHENA_PALETTES_D, ARRAYSIZE(KOF02UM_S_ATHENA_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KENSOU_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_A[] =
 {
     { _T("Kensou A"), 0x0007000, 0x0007020, indexKOFSprites_98Kensou },
     { _T("A - Hidden Super Desperation Move 1"), 0x0007020, 0x0007040, indexKOFSprites_98Kensou },
@@ -668,7 +668,7 @@ const sGame_PaletteDataset KOF02UM_A_KENSOU_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00070e0, 0x0007100, indexKOFSprites_98Kensou },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KENSOU_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_B[] =
 {
     { _T("Kensou B"), 0x0007200, 0x0007220, indexKOFSprites_98Kensou },
     { _T("B - Hidden Super Desperation Move 1"), 0x0007220, 0x0007240, indexKOFSprites_98Kensou },
@@ -680,7 +680,7 @@ const sGame_PaletteDataset KOF02UM_A_KENSOU_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00072e0, 0x0007300, indexKOFSprites_98Kensou },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KENSOU_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_C[] =
 {
     { _T("Kensou C"), 0x0007400, 0x0007420, indexKOFSprites_98Kensou },
     { _T("C - Hidden Super Desperation Move 1"), 0x0007420, 0x0007440, indexKOFSprites_98Kensou },
@@ -692,7 +692,7 @@ const sGame_PaletteDataset KOF02UM_A_KENSOU_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00074e0, 0x0007500, indexKOFSprites_98Kensou },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KENSOU_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_D[] =
 {
     { _T("Kensou D"), 0x0007600, 0x0007620, indexKOFSprites_98Kensou },
     { _T("D - Hidden Super Desperation Move 1"), 0x0007620, 0x0007640, indexKOFSprites_98Kensou },
@@ -704,15 +704,15 @@ const sGame_PaletteDataset KOF02UM_A_KENSOU_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00076e0, 0x0007700, indexKOFSprites_98Kensou },
 };
 
-const sDescTreeNode KOF02UM_A_KENSOU_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_KENSOU_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KENSOU_PALETTES_A, ARRAYSIZE(KOF02UM_A_KENSOU_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KENSOU_PALETTES_B, ARRAYSIZE(KOF02UM_A_KENSOU_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KENSOU_PALETTES_C, ARRAYSIZE(KOF02UM_A_KENSOU_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KENSOU_PALETTES_D, ARRAYSIZE(KOF02UM_A_KENSOU_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KENSOU_PALETTES_A, ARRAYSIZE(KOF02UM_S_KENSOU_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KENSOU_PALETTES_B, ARRAYSIZE(KOF02UM_S_KENSOU_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KENSOU_PALETTES_C, ARRAYSIZE(KOF02UM_S_KENSOU_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KENSOU_PALETTES_D, ARRAYSIZE(KOF02UM_S_KENSOU_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_A[] =
 {
     { _T("Chin A"), 0x0007800, 0x0007820, indexKOFSprites_02Chin },
     { _T("A - Hidden Super Desperation Move 1"), 0x0007820, 0x0007840, indexKOFSprites_02Chin },
@@ -724,7 +724,7 @@ const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00078e0, 0x0007900, indexKOFSprites_02Chin },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_B[] =
 {
     { _T("Chin B"), 0x0007a00, 0x0007a20, indexKOFSprites_02Chin },
     { _T("B - Hidden Super Desperation Move 1"), 0x0007a20, 0x0007a40, indexKOFSprites_02Chin },
@@ -736,7 +736,7 @@ const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0007ae0, 0x0007b00, indexKOFSprites_02Chin },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_C[] =
 {
     { _T("Chin C"), 0x0007c00, 0x0007c20, indexKOFSprites_02Chin },
     { _T("C - Hidden Super Desperation Move 1"), 0x0007c20, 0x0007c40, indexKOFSprites_02Chin },
@@ -748,7 +748,7 @@ const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0007ce0, 0x0007d00, indexKOFSprites_02Chin },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_D[] =
 {
     { _T("Chin D"), 0x0007e00, 0x0007e20, indexKOFSprites_02Chin },
     { _T("D - Hidden Super Desperation Move 1"), 0x0007e20, 0x0007e40, indexKOFSprites_02Chin },
@@ -760,15 +760,15 @@ const sGame_PaletteDataset KOF02UM_A_CHIN_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0007ee0, 0x0007f00, indexKOFSprites_02Chin },
 };
 
-const sDescTreeNode KOF02UM_A_CHIN_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_CHIN_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHIN_PALETTES_A, ARRAYSIZE(KOF02UM_A_CHIN_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHIN_PALETTES_B, ARRAYSIZE(KOF02UM_A_CHIN_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHIN_PALETTES_C, ARRAYSIZE(KOF02UM_A_CHIN_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHIN_PALETTES_D, ARRAYSIZE(KOF02UM_A_CHIN_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHIN_PALETTES_A, ARRAYSIZE(KOF02UM_S_CHIN_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHIN_PALETTES_B, ARRAYSIZE(KOF02UM_S_CHIN_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHIN_PALETTES_C, ARRAYSIZE(KOF02UM_S_CHIN_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHIN_PALETTES_D, ARRAYSIZE(KOF02UM_S_CHIN_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_LEONA_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_LEONA_PALETTES_A[] =
 {
     { _T("Leona A"), 0x0008000, 0x0008020, indexKOFSprites_98Leona },
     { _T("A - Hidden Super Desperation Move 1"), 0x0008020, 0x0008040, indexKOFSprites_98Leona },
@@ -780,7 +780,7 @@ const sGame_PaletteDataset KOF02UM_A_LEONA_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00080e0, 0x0008100, indexKOFSprites_98Leona },
 };
 
-const sGame_PaletteDataset KOF02UM_A_LEONA_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_LEONA_PALETTES_B[] =
 {
     { _T("Leona B"), 0x0008200, 0x0008220, indexKOFSprites_98Leona },
     { _T("B - Hidden Super Desperation Move 1"), 0x0008220, 0x0008240, indexKOFSprites_98Leona },
@@ -792,7 +792,7 @@ const sGame_PaletteDataset KOF02UM_A_LEONA_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00082e0, 0x0008300, indexKOFSprites_98Leona },
 };
 
-const sGame_PaletteDataset KOF02UM_A_LEONA_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_LEONA_PALETTES_C[] =
 {
     { _T("Leona C"), 0x0008400, 0x0008420, indexKOFSprites_98Leona },
     { _T("C - Hidden Super Desperation Move 1"), 0x0008420, 0x0008440, indexKOFSprites_98Leona },
@@ -804,7 +804,7 @@ const sGame_PaletteDataset KOF02UM_A_LEONA_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00084e0, 0x0008500, indexKOFSprites_98Leona },
 };
 
-const sGame_PaletteDataset KOF02UM_A_LEONA_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_LEONA_PALETTES_D[] =
 {
     { _T("Leona D"), 0x0008600, 0x0008620, indexKOFSprites_98Leona },
     { _T("D - Hidden Super Desperation Move 1"), 0x0008620, 0x0008640, indexKOFSprites_98Leona },
@@ -816,15 +816,15 @@ const sGame_PaletteDataset KOF02UM_A_LEONA_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00086e0, 0x0008700, indexKOFSprites_98Leona },
 };
 
-const sDescTreeNode KOF02UM_A_LEONA_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_LEONA_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_LEONA_PALETTES_A, ARRAYSIZE(KOF02UM_A_LEONA_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_LEONA_PALETTES_B, ARRAYSIZE(KOF02UM_A_LEONA_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_LEONA_PALETTES_C, ARRAYSIZE(KOF02UM_A_LEONA_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_LEONA_PALETTES_D, ARRAYSIZE(KOF02UM_A_LEONA_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_LEONA_PALETTES_A, ARRAYSIZE(KOF02UM_S_LEONA_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_LEONA_PALETTES_B, ARRAYSIZE(KOF02UM_S_LEONA_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_LEONA_PALETTES_C, ARRAYSIZE(KOF02UM_S_LEONA_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_LEONA_PALETTES_D, ARRAYSIZE(KOF02UM_S_LEONA_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RALF_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_RALF_PALETTES_A[] =
 {
     { _T("Ralf A"), 0x0008800, 0x0008820, indexKOFSprites_02Ralf },
     { _T("A - Hidden Super Desperation Move 1"), 0x0008820, 0x0008840, indexKOFSprites_02Ralf },
@@ -836,7 +836,7 @@ const sGame_PaletteDataset KOF02UM_A_RALF_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00088e0, 0x0008900, indexKOFSprites_02Ralf },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RALF_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_RALF_PALETTES_B[] =
 {
     { _T("Ralf B"), 0x0008a00, 0x0008a20, indexKOFSprites_02Ralf },
     { _T("B - Hidden Super Desperation Move 1"), 0x0008a20, 0x0008a40, indexKOFSprites_02Ralf },
@@ -848,7 +848,7 @@ const sGame_PaletteDataset KOF02UM_A_RALF_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0008ae0, 0x0008b00, indexKOFSprites_02Ralf },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RALF_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_RALF_PALETTES_C[] =
 {
     { _T("Ralf C"), 0x0008c00, 0x0008c20, indexKOFSprites_02Ralf },
     { _T("C - Hidden Super Desperation Move 1"), 0x0008c20, 0x0008c40, indexKOFSprites_02Ralf },
@@ -860,7 +860,7 @@ const sGame_PaletteDataset KOF02UM_A_RALF_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0008ce0, 0x0008d00, indexKOFSprites_02Ralf },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RALF_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_RALF_PALETTES_D[] =
 {
     { _T("Ralf D"), 0x0008e00, 0x0008e20, indexKOFSprites_02Ralf },
     { _T("D - Hidden Super Desperation Move 1"), 0x0008e20, 0x0008e40, indexKOFSprites_02Ralf },
@@ -872,15 +872,15 @@ const sGame_PaletteDataset KOF02UM_A_RALF_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0008ee0, 0x0008f00, indexKOFSprites_02Ralf },
 };
 
-const sDescTreeNode KOF02UM_A_RALF_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_RALF_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RALF_PALETTES_A, ARRAYSIZE(KOF02UM_A_RALF_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RALF_PALETTES_B, ARRAYSIZE(KOF02UM_A_RALF_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RALF_PALETTES_C, ARRAYSIZE(KOF02UM_A_RALF_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RALF_PALETTES_D, ARRAYSIZE(KOF02UM_A_RALF_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RALF_PALETTES_A, ARRAYSIZE(KOF02UM_S_RALF_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RALF_PALETTES_B, ARRAYSIZE(KOF02UM_S_RALF_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RALF_PALETTES_C, ARRAYSIZE(KOF02UM_S_RALF_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RALF_PALETTES_D, ARRAYSIZE(KOF02UM_S_RALF_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CLARK_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_CLARK_PALETTES_A[] =
 {
     { _T("Clark A"), 0x0009000, 0x0009020, indexKOFSprites_02Clark },
     { _T("A - Hidden Super Desperation Move 1"), 0x0009020, 0x0009040, indexKOFSprites_02Clark },
@@ -892,7 +892,7 @@ const sGame_PaletteDataset KOF02UM_A_CLARK_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00090e0, 0x0009100, indexKOFSprites_02Clark },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CLARK_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_CLARK_PALETTES_B[] =
 {
     { _T("Clark B"), 0x0009200, 0x0009220, indexKOFSprites_02Clark },
     { _T("B - Hidden Super Desperation Move 1"), 0x0009220, 0x0009240, indexKOFSprites_02Clark },
@@ -904,7 +904,7 @@ const sGame_PaletteDataset KOF02UM_A_CLARK_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00092e0, 0x0009300, indexKOFSprites_02Clark },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CLARK_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_CLARK_PALETTES_C[] =
 {
     { _T("Clark C"), 0x0009400, 0x0009420, indexKOFSprites_02Clark },
     { _T("C - Hidden Super Desperation Move 1"), 0x0009420, 0x0009440, indexKOFSprites_02Clark },
@@ -916,7 +916,7 @@ const sGame_PaletteDataset KOF02UM_A_CLARK_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00094e0, 0x0009500, indexKOFSprites_02Clark },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CLARK_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_CLARK_PALETTES_D[] =
 {
     { _T("Clark D"), 0x0009600, 0x0009620, indexKOFSprites_02Clark },
     { _T("D - Hidden Super Desperation Move 1"), 0x0009620, 0x0009640, indexKOFSprites_02Clark },
@@ -928,15 +928,15 @@ const sGame_PaletteDataset KOF02UM_A_CLARK_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00096e0, 0x0009700, indexKOFSprites_02Clark },
 };
 
-const sDescTreeNode KOF02UM_A_CLARK_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_CLARK_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLARK_PALETTES_A, ARRAYSIZE(KOF02UM_A_CLARK_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLARK_PALETTES_B, ARRAYSIZE(KOF02UM_A_CLARK_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLARK_PALETTES_C, ARRAYSIZE(KOF02UM_A_CLARK_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLARK_PALETTES_D, ARRAYSIZE(KOF02UM_A_CLARK_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLARK_PALETTES_A, ARRAYSIZE(KOF02UM_S_CLARK_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLARK_PALETTES_B, ARRAYSIZE(KOF02UM_S_CLARK_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLARK_PALETTES_C, ARRAYSIZE(KOF02UM_S_CLARK_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLARK_PALETTES_D, ARRAYSIZE(KOF02UM_S_CLARK_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RYO_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_RYO_PALETTES_A[] =
 {
     { _T("Ryo A"), 0x0009800, 0x0009820, indexKOFSprites_98Ryo },
     { _T("A - Hidden Super Desperation Move 1"), 0x0009820, 0x0009840, indexKOFSprites_98Ryo },
@@ -948,7 +948,7 @@ const sGame_PaletteDataset KOF02UM_A_RYO_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00098e0, 0x0009900, indexKOFSprites_98Ryo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RYO_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_RYO_PALETTES_B[] =
 {
     { _T("Ryo B"), 0x0009a00, 0x0009a20, indexKOFSprites_98Ryo },
     { _T("B - Hidden Super Desperation Move 1"), 0x0009a20, 0x0009a40, indexKOFSprites_98Ryo },
@@ -960,7 +960,7 @@ const sGame_PaletteDataset KOF02UM_A_RYO_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0009ae0, 0x0009b00, indexKOFSprites_98Ryo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RYO_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_RYO_PALETTES_C[] =
 {
     { _T("Ryo C"), 0x0009c00, 0x0009c20, indexKOFSprites_98Ryo },
     { _T("C - Hidden Super Desperation Move 1"), 0x0009c20, 0x0009c40, indexKOFSprites_98Ryo },
@@ -972,7 +972,7 @@ const sGame_PaletteDataset KOF02UM_A_RYO_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0009ce0, 0x0009d00, indexKOFSprites_98Ryo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RYO_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_RYO_PALETTES_D[] =
 {
     { _T("Ryo D"), 0x0009e00, 0x0009e20, indexKOFSprites_98Ryo },
     { _T("D - Hidden Super Desperation Move 1"), 0x0009e20, 0x0009e40, indexKOFSprites_98Ryo },
@@ -984,15 +984,15 @@ const sGame_PaletteDataset KOF02UM_A_RYO_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0009ee0, 0x0009f00, indexKOFSprites_98Ryo },
 };
 
-const sDescTreeNode KOF02UM_A_RYO_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_RYO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RYO_PALETTES_A, ARRAYSIZE(KOF02UM_A_RYO_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RYO_PALETTES_B, ARRAYSIZE(KOF02UM_A_RYO_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RYO_PALETTES_C, ARRAYSIZE(KOF02UM_A_RYO_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RYO_PALETTES_D, ARRAYSIZE(KOF02UM_A_RYO_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RYO_PALETTES_A, ARRAYSIZE(KOF02UM_S_RYO_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RYO_PALETTES_B, ARRAYSIZE(KOF02UM_S_RYO_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RYO_PALETTES_C, ARRAYSIZE(KOF02UM_S_RYO_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RYO_PALETTES_D, ARRAYSIZE(KOF02UM_S_RYO_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_ROBERT_PALETTES_A[] =
 {
     { _T("Robert A"), 0x000a000, 0x000a020, indexKOFSprites_02Robert },
     { _T("A - Hidden Super Desperation Move 1"), 0x000a020, 0x000a040, indexKOFSprites_02Robert },
@@ -1004,7 +1004,7 @@ const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000a0e0, 0x000a100, indexKOFSprites_02Robert },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_ROBERT_PALETTES_B[] =
 {
     { _T("Robert B"), 0x000a200, 0x000a220, indexKOFSprites_02Robert },
     { _T("B - Hidden Super Desperation Move 1"), 0x000a220, 0x000a240, indexKOFSprites_02Robert },
@@ -1016,7 +1016,7 @@ const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000a2e0, 0x000a300, indexKOFSprites_02Robert },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_ROBERT_PALETTES_C[] =
 {
     { _T("Robert C"), 0x000a400, 0x000a420, indexKOFSprites_02Robert },
     { _T("C - Hidden Super Desperation Move 1"), 0x000a420, 0x000a440, indexKOFSprites_02Robert },
@@ -1028,7 +1028,7 @@ const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000a4e0, 0x000a500, indexKOFSprites_02Robert },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_ROBERT_PALETTES_D[] =
 {
     { _T("Robert D"), 0x000a600, 0x000a620, indexKOFSprites_02Robert },
     { _T("D - Hidden Super Desperation Move 1"), 0x000a620, 0x000a640, indexKOFSprites_02Robert },
@@ -1040,15 +1040,15 @@ const sGame_PaletteDataset KOF02UM_A_ROBERT_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000a6e0, 0x000a700, indexKOFSprites_02Robert },
 };
 
-const sDescTreeNode KOF02UM_A_ROBERT_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_ROBERT_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ROBERT_PALETTES_A, ARRAYSIZE(KOF02UM_A_ROBERT_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ROBERT_PALETTES_B, ARRAYSIZE(KOF02UM_A_ROBERT_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ROBERT_PALETTES_C, ARRAYSIZE(KOF02UM_A_ROBERT_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ROBERT_PALETTES_D, ARRAYSIZE(KOF02UM_A_ROBERT_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ROBERT_PALETTES_A, ARRAYSIZE(KOF02UM_S_ROBERT_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ROBERT_PALETTES_B, ARRAYSIZE(KOF02UM_S_ROBERT_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ROBERT_PALETTES_C, ARRAYSIZE(KOF02UM_S_ROBERT_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ROBERT_PALETTES_D, ARRAYSIZE(KOF02UM_S_ROBERT_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_TAKUMA_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_TAKUMA_PALETTES_A[] =
 {
     { _T("Takuma A"), 0x000a800, 0x000a820, indexKOFSprites_98Takuma },
     { _T("A - Hidden Super Desperation Move 1"), 0x000a820, 0x000a840, indexKOFSprites_98Takuma },
@@ -1060,7 +1060,7 @@ const sGame_PaletteDataset KOF02UM_A_TAKUMA_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000a8e0, 0x000a900, indexKOFSprites_98Takuma },
 };
 
-const sGame_PaletteDataset KOF02UM_A_TAKUMA_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_TAKUMA_PALETTES_B[] =
 {
     { _T("Takuma B"), 0x000aa00, 0x000aa20, indexKOFSprites_98Takuma },
     { _T("B - Hidden Super Desperation Move 1"), 0x000aa20, 0x000aa40, indexKOFSprites_98Takuma },
@@ -1072,7 +1072,7 @@ const sGame_PaletteDataset KOF02UM_A_TAKUMA_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000aae0, 0x000ab00, indexKOFSprites_98Takuma },
 };
 
-const sGame_PaletteDataset KOF02UM_A_TAKUMA_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_TAKUMA_PALETTES_C[] =
 {
     { _T("Takuma C"), 0x000ac00, 0x000ac20, indexKOFSprites_98Takuma },
     { _T("C - Hidden Super Desperation Move 1"), 0x000ac20, 0x000ac40, indexKOFSprites_98Takuma },
@@ -1084,7 +1084,7 @@ const sGame_PaletteDataset KOF02UM_A_TAKUMA_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000ace0, 0x000ad00, indexKOFSprites_98Takuma },
 };
 
-const sGame_PaletteDataset KOF02UM_A_TAKUMA_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_TAKUMA_PALETTES_D[] =
 {
     { _T("Takuma D"), 0x000ae00, 0x000ae20, indexKOFSprites_98Takuma },
     { _T("D - Hidden Super Desperation Move 1"), 0x000ae20, 0x000ae40, indexKOFSprites_98Takuma },
@@ -1096,15 +1096,15 @@ const sGame_PaletteDataset KOF02UM_A_TAKUMA_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000aee0, 0x000af00, indexKOFSprites_98Takuma },
 };
 
-const sDescTreeNode KOF02UM_A_TAKUMA_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_TAKUMA_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_TAKUMA_PALETTES_A, ARRAYSIZE(KOF02UM_A_TAKUMA_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_TAKUMA_PALETTES_B, ARRAYSIZE(KOF02UM_A_TAKUMA_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_TAKUMA_PALETTES_C, ARRAYSIZE(KOF02UM_A_TAKUMA_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_TAKUMA_PALETTES_D, ARRAYSIZE(KOF02UM_A_TAKUMA_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_TAKUMA_PALETTES_A, ARRAYSIZE(KOF02UM_S_TAKUMA_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_TAKUMA_PALETTES_B, ARRAYSIZE(KOF02UM_S_TAKUMA_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_TAKUMA_PALETTES_C, ARRAYSIZE(KOF02UM_S_TAKUMA_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_TAKUMA_PALETTES_D, ARRAYSIZE(KOF02UM_S_TAKUMA_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAI_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_MAI_PALETTES_A[] =
 {
     { _T("Mai A"), 0x000b000, 0x000b020, indexKOFSprites_98Mai },
     { _T("A - Hidden Super Desperation Move 1"), 0x000b020, 0x000b040, indexKOFSprites_98Mai },
@@ -1116,7 +1116,7 @@ const sGame_PaletteDataset KOF02UM_A_MAI_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000b0e0, 0x000b100, indexKOFSprites_98Mai },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAI_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_MAI_PALETTES_B[] =
 {
     { _T("Mai B"), 0x000b200, 0x000b220, indexKOFSprites_98Mai },
     { _T("B - Hidden Super Desperation Move 1"), 0x000b220, 0x000b240, indexKOFSprites_98Mai },
@@ -1128,7 +1128,7 @@ const sGame_PaletteDataset KOF02UM_A_MAI_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000b2e0, 0x000b300, indexKOFSprites_98Mai },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAI_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_MAI_PALETTES_C[] =
 {
     { _T("Mai C"), 0x000b400, 0x000b420, indexKOFSprites_98Mai },
     { _T("C - Hidden Super Desperation Move 1"), 0x000b420, 0x000b440, indexKOFSprites_98Mai },
@@ -1140,7 +1140,7 @@ const sGame_PaletteDataset KOF02UM_A_MAI_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000b4e0, 0x000b500, indexKOFSprites_98Mai },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAI_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_MAI_PALETTES_D[] =
 {
     { _T("Mai D"), 0x000b600, 0x000b620, indexKOFSprites_98Mai },
     { _T("D - Hidden Super Desperation Move 1"), 0x000b620, 0x000b640, indexKOFSprites_98Mai },
@@ -1152,15 +1152,15 @@ const sGame_PaletteDataset KOF02UM_A_MAI_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000b6e0, 0x000b700, indexKOFSprites_98Mai },
 };
 
-const sDescTreeNode KOF02UM_A_MAI_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_MAI_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAI_PALETTES_A, ARRAYSIZE(KOF02UM_A_MAI_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAI_PALETTES_B, ARRAYSIZE(KOF02UM_A_MAI_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAI_PALETTES_C, ARRAYSIZE(KOF02UM_A_MAI_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAI_PALETTES_D, ARRAYSIZE(KOF02UM_A_MAI_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAI_PALETTES_A, ARRAYSIZE(KOF02UM_S_MAI_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAI_PALETTES_B, ARRAYSIZE(KOF02UM_S_MAI_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAI_PALETTES_C, ARRAYSIZE(KOF02UM_S_MAI_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAI_PALETTES_D, ARRAYSIZE(KOF02UM_S_MAI_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_YURI_PALETTES_A[] =
 {
     { _T("Yuri A"), 0x000b800, 0x000b820, indexKOFSprites_02Yuri },
     { _T("A - Hidden Super Desperation Move 1"), 0x000b820, 0x000b840, indexKOFSprites_02Yuri },
@@ -1172,7 +1172,7 @@ const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000b8e0, 0x000b900, indexKOFSprites_02Yuri },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_YURI_PALETTES_B[] =
 {
     { _T("Yuri B"), 0x000ba00, 0x000ba20, indexKOFSprites_02Yuri },
     { _T("B - Hidden Super Desperation Move 1"), 0x000ba20, 0x000ba40, indexKOFSprites_02Yuri },
@@ -1184,7 +1184,7 @@ const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000bae0, 0x000bb00, indexKOFSprites_02Yuri },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_YURI_PALETTES_C[] =
 {
     { _T("Yuri C"), 0x000bc00, 0x000bc20, indexKOFSprites_02Yuri },
     { _T("C - Hidden Super Desperation Move 1"), 0x000bc20, 0x000bc40, indexKOFSprites_02Yuri },
@@ -1196,7 +1196,7 @@ const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000bce0, 0x000bd00, indexKOFSprites_02Yuri },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_YURI_PALETTES_D[] =
 {
     { _T("Yuri D"), 0x000be00, 0x000be20, indexKOFSprites_02Yuri },
     { _T("D - Hidden Super Desperation Move 1"), 0x000be20, 0x000be40, indexKOFSprites_02Yuri },
@@ -1208,15 +1208,15 @@ const sGame_PaletteDataset KOF02UM_A_YURI_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000bee0, 0x000bf00, indexKOFSprites_02Yuri },
 };
 
-const sDescTreeNode KOF02UM_A_YURI_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_YURI_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YURI_PALETTES_A, ARRAYSIZE(KOF02UM_A_YURI_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YURI_PALETTES_B, ARRAYSIZE(KOF02UM_A_YURI_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YURI_PALETTES_C, ARRAYSIZE(KOF02UM_A_YURI_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YURI_PALETTES_D, ARRAYSIZE(KOF02UM_A_YURI_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YURI_PALETTES_A, ARRAYSIZE(KOF02UM_S_YURI_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YURI_PALETTES_B, ARRAYSIZE(KOF02UM_S_YURI_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YURI_PALETTES_C, ARRAYSIZE(KOF02UM_S_YURI_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YURI_PALETTES_D, ARRAYSIZE(KOF02UM_S_YURI_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAYLEE_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_MAYLEE_PALETTES_A[] =
 {
     { _T("May Lee A"), 0x000c000, 0x000c020, indexKOFSprites_02MayLee },
     { _T("A - Hidden Super Desperation Move 1"), 0x000c020, 0x000c040, indexKOFSprites_02MayLee },
@@ -1228,7 +1228,7 @@ const sGame_PaletteDataset KOF02UM_A_MAYLEE_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000c0e0, 0x000c100, indexKOFSprites_02MayLee },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAYLEE_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_MAYLEE_PALETTES_B[] =
 {
     { _T("May Lee B"), 0x000c200, 0x000c220, indexKOFSprites_02MayLee },
     { _T("B - Hidden Super Desperation Move 1"), 0x000c220, 0x000c240, indexKOFSprites_02MayLee },
@@ -1240,7 +1240,7 @@ const sGame_PaletteDataset KOF02UM_A_MAYLEE_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000c2e0, 0x000c300, indexKOFSprites_02MayLee },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAYLEE_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_MAYLEE_PALETTES_C[] =
 {
     { _T("May Lee C"), 0x000c400, 0x000c420, indexKOFSprites_02MayLee },
     { _T("C - Hidden Super Desperation Move 1"), 0x000c420, 0x000c440, indexKOFSprites_02MayLee },
@@ -1252,7 +1252,7 @@ const sGame_PaletteDataset KOF02UM_A_MAYLEE_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000c4e0, 0x000c500, indexKOFSprites_02MayLee },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAYLEE_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_MAYLEE_PALETTES_D[] =
 {
     { _T("May Lee D"), 0x000c600, 0x000c620, indexKOFSprites_02MayLee },
     { _T("D - Hidden Super Desperation Move 1"), 0x000c620, 0x000c640, indexKOFSprites_02MayLee },
@@ -1264,15 +1264,15 @@ const sGame_PaletteDataset KOF02UM_A_MAYLEE_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000c6e0, 0x000c700, indexKOFSprites_02MayLee },
 };
 
-const sDescTreeNode KOF02UM_A_MAYLEE_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_MAYLEE_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAYLEE_PALETTES_A, ARRAYSIZE(KOF02UM_A_MAYLEE_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAYLEE_PALETTES_B, ARRAYSIZE(KOF02UM_A_MAYLEE_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAYLEE_PALETTES_C, ARRAYSIZE(KOF02UM_A_MAYLEE_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAYLEE_PALETTES_D, ARRAYSIZE(KOF02UM_A_MAYLEE_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAYLEE_PALETTES_A, ARRAYSIZE(KOF02UM_S_MAYLEE_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAYLEE_PALETTES_B, ARRAYSIZE(KOF02UM_S_MAYLEE_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAYLEE_PALETTES_C, ARRAYSIZE(KOF02UM_S_MAYLEE_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAYLEE_PALETTES_D, ARRAYSIZE(KOF02UM_S_MAYLEE_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_IORI_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_IORI_PALETTES_A[] =
 {
     { _T("Iori A"), 0x000c800, 0x000c820, indexKOFSprites_98Iori },
     { _T("A - Hidden Super Desperation Move 1"), 0x000c820, 0x000c840, indexKOFSprites_98Iori },
@@ -1284,7 +1284,7 @@ const sGame_PaletteDataset KOF02UM_A_IORI_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000c8e0, 0x000c900, indexKOFSprites_98Iori },
 };
 
-const sGame_PaletteDataset KOF02UM_A_IORI_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_IORI_PALETTES_B[] =
 {
     { _T("Iori B"), 0x000ca00, 0x000ca20, indexKOFSprites_98Iori },
     { _T("B - Hidden Super Desperation Move 1"), 0x000ca20, 0x000ca40, indexKOFSprites_98Iori },
@@ -1296,7 +1296,7 @@ const sGame_PaletteDataset KOF02UM_A_IORI_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000cae0, 0x000cb00, indexKOFSprites_98Iori },
 };
 
-const sGame_PaletteDataset KOF02UM_A_IORI_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_IORI_PALETTES_C[] =
 {
     { _T("Iori C"), 0x000cc00, 0x000cc20, indexKOFSprites_98Iori },
     { _T("C - Hidden Super Desperation Move 1"), 0x000cc20, 0x000cc40, indexKOFSprites_98Iori },
@@ -1308,7 +1308,7 @@ const sGame_PaletteDataset KOF02UM_A_IORI_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000cce0, 0x000cd00, indexKOFSprites_98Iori },
 };
 
-const sGame_PaletteDataset KOF02UM_A_IORI_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_IORI_PALETTES_D[] =
 {
     { _T("Iori D"), 0x000ce00, 0x000ce20, indexKOFSprites_98Iori },
     { _T("D - Hidden Super Desperation Move 1"), 0x000ce20, 0x000ce40, indexKOFSprites_98Iori },
@@ -1320,15 +1320,15 @@ const sGame_PaletteDataset KOF02UM_A_IORI_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000cee0, 0x000cf00, indexKOFSprites_98Iori },
 };
 
-const sDescTreeNode KOF02UM_A_IORI_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_IORI_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_IORI_PALETTES_A, ARRAYSIZE(KOF02UM_A_IORI_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_IORI_PALETTES_B, ARRAYSIZE(KOF02UM_A_IORI_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_IORI_PALETTES_C, ARRAYSIZE(KOF02UM_A_IORI_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_IORI_PALETTES_D, ARRAYSIZE(KOF02UM_A_IORI_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_IORI_PALETTES_A, ARRAYSIZE(KOF02UM_S_IORI_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_IORI_PALETTES_B, ARRAYSIZE(KOF02UM_S_IORI_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_IORI_PALETTES_C, ARRAYSIZE(KOF02UM_S_IORI_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_IORI_PALETTES_D, ARRAYSIZE(KOF02UM_S_IORI_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MATURE_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_MATURE_PALETTES_A[] =
 {
     { _T("Mature A"), 0x000d000, 0x000d020, indexKOFSprites_98Mature },
     { _T("A - Hidden Super Desperation Move 1"), 0x000d020, 0x000d040, indexKOFSprites_98Mature },
@@ -1340,7 +1340,7 @@ const sGame_PaletteDataset KOF02UM_A_MATURE_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000d0e0, 0x000d100, indexKOFSprites_98Mature },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MATURE_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_MATURE_PALETTES_B[] =
 {
     { _T("Mature B"), 0x000d200, 0x000d220, indexKOFSprites_98Mature },
     { _T("B - Hidden Super Desperation Move 1"), 0x000d220, 0x000d240, indexKOFSprites_98Mature },
@@ -1352,7 +1352,7 @@ const sGame_PaletteDataset KOF02UM_A_MATURE_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000d2e0, 0x000d300, indexKOFSprites_98Mature },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MATURE_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_MATURE_PALETTES_C[] =
 {
     { _T("Mature C"), 0x000d400, 0x000d420, indexKOFSprites_98Mature },
     { _T("C - Hidden Super Desperation Move 1"), 0x000d420, 0x000d440, indexKOFSprites_98Mature },
@@ -1364,7 +1364,7 @@ const sGame_PaletteDataset KOF02UM_A_MATURE_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000d4e0, 0x000d500, indexKOFSprites_98Mature },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MATURE_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_MATURE_PALETTES_D[] =
 {
     { _T("Mature D"), 0x000d600, 0x000d620, indexKOFSprites_98Mature },
     { _T("D - Hidden Super Desperation Move 1"), 0x000d620, 0x000d640, indexKOFSprites_98Mature },
@@ -1376,15 +1376,15 @@ const sGame_PaletteDataset KOF02UM_A_MATURE_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000d6e0, 0x000d700, indexKOFSprites_98Mature },
 };
 
-const sDescTreeNode KOF02UM_A_MATURE_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_MATURE_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MATURE_PALETTES_A, ARRAYSIZE(KOF02UM_A_MATURE_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MATURE_PALETTES_B, ARRAYSIZE(KOF02UM_A_MATURE_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MATURE_PALETTES_C, ARRAYSIZE(KOF02UM_A_MATURE_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MATURE_PALETTES_D, ARRAYSIZE(KOF02UM_A_MATURE_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MATURE_PALETTES_A, ARRAYSIZE(KOF02UM_S_MATURE_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MATURE_PALETTES_B, ARRAYSIZE(KOF02UM_S_MATURE_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MATURE_PALETTES_C, ARRAYSIZE(KOF02UM_S_MATURE_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MATURE_PALETTES_D, ARRAYSIZE(KOF02UM_S_MATURE_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_VICE_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_VICE_PALETTES_A[] =
 {
     { _T("Vice A"), 0x000d800, 0x000d820, indexKOFSprites_98Vice },
     { _T("A - Hidden Super Desperation Move 1"), 0x000d820, 0x000d840, indexKOFSprites_98Vice },
@@ -1396,7 +1396,7 @@ const sGame_PaletteDataset KOF02UM_A_VICE_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000d8e0, 0x000d900, indexKOFSprites_98Vice },
 };
 
-const sGame_PaletteDataset KOF02UM_A_VICE_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_VICE_PALETTES_B[] =
 {
     { _T("Vice B"), 0x000da00, 0x000da20, indexKOFSprites_98Vice },
     { _T("B - Hidden Super Desperation Move 1"), 0x000da20, 0x000da40, indexKOFSprites_98Vice },
@@ -1408,7 +1408,7 @@ const sGame_PaletteDataset KOF02UM_A_VICE_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000dae0, 0x000db00, indexKOFSprites_98Vice },
 };
 
-const sGame_PaletteDataset KOF02UM_A_VICE_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_VICE_PALETTES_C[] =
 {
     { _T("Vice C"), 0x000dc00, 0x000dc20, indexKOFSprites_98Vice },
     { _T("C - Hidden Super Desperation Move 1"), 0x000dc20, 0x000dc40, indexKOFSprites_98Vice },
@@ -1420,7 +1420,7 @@ const sGame_PaletteDataset KOF02UM_A_VICE_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000dce0, 0x000dd00, indexKOFSprites_98Vice },
 };
 
-const sGame_PaletteDataset KOF02UM_A_VICE_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_VICE_PALETTES_D[] =
 {
     { _T("Vice D"), 0x000de00, 0x000de20, indexKOFSprites_98Vice },
     { _T("D - Hidden Super Desperation Move 1"), 0x000de20, 0x000de40, indexKOFSprites_98Vice },
@@ -1432,15 +1432,15 @@ const sGame_PaletteDataset KOF02UM_A_VICE_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000dee0, 0x000df00, indexKOFSprites_98Vice },
 };
 
-const sDescTreeNode KOF02UM_A_VICE_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_VICE_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_VICE_PALETTES_A, ARRAYSIZE(KOF02UM_A_VICE_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_VICE_PALETTES_B, ARRAYSIZE(KOF02UM_A_VICE_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_VICE_PALETTES_C, ARRAYSIZE(KOF02UM_A_VICE_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_VICE_PALETTES_D, ARRAYSIZE(KOF02UM_A_VICE_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_VICE_PALETTES_A, ARRAYSIZE(KOF02UM_S_VICE_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_VICE_PALETTES_B, ARRAYSIZE(KOF02UM_S_VICE_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_VICE_PALETTES_C, ARRAYSIZE(KOF02UM_S_VICE_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_VICE_PALETTES_D, ARRAYSIZE(KOF02UM_S_VICE_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YAMAZAKI_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_YAMAZAKI_PALETTES_A[] =
 {
     { _T("Yamazaki A"), 0x000e000, 0x000e020, indexKOFSprites_98Yamazaki },
     { _T("A - Hidden Super Desperation Move 1"), 0x000e020, 0x000e040, indexKOFSprites_98Yamazaki },
@@ -1452,7 +1452,7 @@ const sGame_PaletteDataset KOF02UM_A_YAMAZAKI_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000e0e0, 0x000e100, indexKOFSprites_98Yamazaki },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YAMAZAKI_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_YAMAZAKI_PALETTES_B[] =
 {
     { _T("Yamazaki B"), 0x000e200, 0x000e220, indexKOFSprites_98Yamazaki },
     { _T("B - Hidden Super Desperation Move 1"), 0x000e220, 0x000e240, indexKOFSprites_98Yamazaki },
@@ -1464,7 +1464,7 @@ const sGame_PaletteDataset KOF02UM_A_YAMAZAKI_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000e2e0, 0x000e300, indexKOFSprites_98Yamazaki },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YAMAZAKI_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_YAMAZAKI_PALETTES_C[] =
 {
     { _T("Yamazaki C"), 0x000e400, 0x000e420, indexKOFSprites_98Yamazaki },
     { _T("C - Hidden Super Desperation Move 1"), 0x000e420, 0x000e440, indexKOFSprites_98Yamazaki },
@@ -1476,7 +1476,7 @@ const sGame_PaletteDataset KOF02UM_A_YAMAZAKI_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000e4e0, 0x000e500, indexKOFSprites_98Yamazaki },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YAMAZAKI_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_YAMAZAKI_PALETTES_D[] =
 {
     { _T("Yamazaki D"), 0x000e600, 0x000e620, indexKOFSprites_98Yamazaki },
     { _T("D - Hidden Super Desperation Move 1"), 0x000e620, 0x000e640, indexKOFSprites_98Yamazaki },
@@ -1488,15 +1488,15 @@ const sGame_PaletteDataset KOF02UM_A_YAMAZAKI_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000e6e0, 0x000e700, indexKOFSprites_98Yamazaki },
 };
 
-const sDescTreeNode KOF02UM_A_YAMAZAKI_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_YAMAZAKI_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YAMAZAKI_PALETTES_A, ARRAYSIZE(KOF02UM_A_YAMAZAKI_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YAMAZAKI_PALETTES_B, ARRAYSIZE(KOF02UM_A_YAMAZAKI_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YAMAZAKI_PALETTES_C, ARRAYSIZE(KOF02UM_A_YAMAZAKI_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YAMAZAKI_PALETTES_D, ARRAYSIZE(KOF02UM_A_YAMAZAKI_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YAMAZAKI_PALETTES_A, ARRAYSIZE(KOF02UM_S_YAMAZAKI_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YAMAZAKI_PALETTES_B, ARRAYSIZE(KOF02UM_S_YAMAZAKI_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YAMAZAKI_PALETTES_C, ARRAYSIZE(KOF02UM_S_YAMAZAKI_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YAMAZAKI_PALETTES_D, ARRAYSIZE(KOF02UM_S_YAMAZAKI_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BLUEMARY_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_BLUEMARY_PALETTES_A[] =
 {
     { _T("Blue Mary A"), 0x000e800, 0x000e820, indexKOFSprites_98BlueMary },
     { _T("A - Hidden Super Desperation Move 1"), 0x000e820, 0x000e840, indexKOFSprites_98BlueMary },
@@ -1508,7 +1508,7 @@ const sGame_PaletteDataset KOF02UM_A_BLUEMARY_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000e8e0, 0x000e900, indexKOFSprites_98BlueMary },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BLUEMARY_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_BLUEMARY_PALETTES_B[] =
 {
     { _T("Blue Mary B"), 0x000ea00, 0x000ea20, indexKOFSprites_98BlueMary },
     { _T("B - Hidden Super Desperation Move 1"), 0x000ea20, 0x000ea40, indexKOFSprites_98BlueMary },
@@ -1520,7 +1520,7 @@ const sGame_PaletteDataset KOF02UM_A_BLUEMARY_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000eae0, 0x000eb00, indexKOFSprites_98BlueMary },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BLUEMARY_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_BLUEMARY_PALETTES_C[] =
 {
     { _T("Blue Mary C"), 0x000ec00, 0x000ec20, indexKOFSprites_98BlueMary },
     { _T("C - Hidden Super Desperation Move 1"), 0x000ec20, 0x000ec40, indexKOFSprites_98BlueMary },
@@ -1532,7 +1532,7 @@ const sGame_PaletteDataset KOF02UM_A_BLUEMARY_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000ece0, 0x000ed00, indexKOFSprites_98BlueMary },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BLUEMARY_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_BLUEMARY_PALETTES_D[] =
 {
     { _T("Blue Mary D"), 0x000ee00, 0x000ee20, indexKOFSprites_98BlueMary },
     { _T("D - Hidden Super Desperation Move 1"), 0x000ee20, 0x000ee40, indexKOFSprites_98BlueMary },
@@ -1544,15 +1544,15 @@ const sGame_PaletteDataset KOF02UM_A_BLUEMARY_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000eee0, 0x000ef00, indexKOFSprites_98BlueMary },
 };
 
-const sDescTreeNode KOF02UM_A_BLUEMARY_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_BLUEMARY_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BLUEMARY_PALETTES_A, ARRAYSIZE(KOF02UM_A_BLUEMARY_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BLUEMARY_PALETTES_B, ARRAYSIZE(KOF02UM_A_BLUEMARY_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BLUEMARY_PALETTES_C, ARRAYSIZE(KOF02UM_A_BLUEMARY_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BLUEMARY_PALETTES_D, ARRAYSIZE(KOF02UM_A_BLUEMARY_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BLUEMARY_PALETTES_A, ARRAYSIZE(KOF02UM_S_BLUEMARY_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BLUEMARY_PALETTES_B, ARRAYSIZE(KOF02UM_S_BLUEMARY_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BLUEMARY_PALETTES_C, ARRAYSIZE(KOF02UM_S_BLUEMARY_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BLUEMARY_PALETTES_D, ARRAYSIZE(KOF02UM_S_BLUEMARY_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BILLY_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_BILLY_PALETTES_A[] =
 {
     { _T("Billy A"), 0x000f000, 0x000f020, indexKOFSprites_98Billy },
     { _T("A - Hidden Super Desperation Move 1"), 0x000f020, 0x000f040, indexKOFSprites_98Billy },
@@ -1564,7 +1564,7 @@ const sGame_PaletteDataset KOF02UM_A_BILLY_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000f0e0, 0x000f100, indexKOFSprites_98Billy },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BILLY_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_BILLY_PALETTES_B[] =
 {
     { _T("Billy B"), 0x000f200, 0x000f220, indexKOFSprites_98Billy },
     { _T("B - Hidden Super Desperation Move 1"), 0x000f220, 0x000f240, indexKOFSprites_98Billy },
@@ -1576,7 +1576,7 @@ const sGame_PaletteDataset KOF02UM_A_BILLY_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000f2e0, 0x000f300, indexKOFSprites_98Billy },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BILLY_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_BILLY_PALETTES_C[] =
 {
     { _T("Billy C"), 0x000f400, 0x000f420, indexKOFSprites_98Billy },
     { _T("C - Hidden Super Desperation Move 1"), 0x000f420, 0x000f440, indexKOFSprites_98Billy },
@@ -1588,7 +1588,7 @@ const sGame_PaletteDataset KOF02UM_A_BILLY_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000f4e0, 0x000f500, indexKOFSprites_98Billy },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BILLY_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_BILLY_PALETTES_D[] =
 {
     { _T("Billy D"), 0x000f600, 0x000f620, indexKOFSprites_98Billy },
     { _T("D - Hidden Super Desperation Move 1"), 0x000f620, 0x000f640, indexKOFSprites_98Billy },
@@ -1600,15 +1600,15 @@ const sGame_PaletteDataset KOF02UM_A_BILLY_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000f6e0, 0x000f700, indexKOFSprites_98Billy },
 };
 
-const sDescTreeNode KOF02UM_A_BILLY_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_BILLY_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BILLY_PALETTES_A, ARRAYSIZE(KOF02UM_A_BILLY_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BILLY_PALETTES_B, ARRAYSIZE(KOF02UM_A_BILLY_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BILLY_PALETTES_C, ARRAYSIZE(KOF02UM_A_BILLY_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BILLY_PALETTES_D, ARRAYSIZE(KOF02UM_A_BILLY_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BILLY_PALETTES_A, ARRAYSIZE(KOF02UM_S_BILLY_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BILLY_PALETTES_B, ARRAYSIZE(KOF02UM_S_BILLY_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BILLY_PALETTES_C, ARRAYSIZE(KOF02UM_S_BILLY_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BILLY_PALETTES_D, ARRAYSIZE(KOF02UM_S_BILLY_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YASHIRO_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_YASHIRO_PALETTES_A[] =
 {
     { _T("Yashiro A"), 0x000f800, 0x000f820, indexKOFSprites_98Yashiro },
     { _T("A - Hidden Super Desperation Move 1"), 0x000f820, 0x000f840, indexKOFSprites_98Yashiro },
@@ -1620,7 +1620,7 @@ const sGame_PaletteDataset KOF02UM_A_YASHIRO_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x000f8e0, 0x000f900, indexKOFSprites_98Yashiro },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YASHIRO_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_YASHIRO_PALETTES_B[] =
 {
     { _T("Yashiro B"), 0x000fa00, 0x000fa20, indexKOFSprites_98Yashiro },
     { _T("B - Hidden Super Desperation Move 1"), 0x000fa20, 0x000fa40, indexKOFSprites_98Yashiro },
@@ -1632,7 +1632,7 @@ const sGame_PaletteDataset KOF02UM_A_YASHIRO_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x000fae0, 0x000fb00, indexKOFSprites_98Yashiro },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YASHIRO_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_YASHIRO_PALETTES_C[] =
 {
     { _T("Yashiro C"), 0x000fc00, 0x000fc20, indexKOFSprites_98Yashiro },
     { _T("C - Hidden Super Desperation Move 1"), 0x000fc20, 0x000fc40, indexKOFSprites_98Yashiro },
@@ -1644,7 +1644,7 @@ const sGame_PaletteDataset KOF02UM_A_YASHIRO_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x000fce0, 0x000fd00, indexKOFSprites_98Yashiro },
 };
 
-const sGame_PaletteDataset KOF02UM_A_YASHIRO_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_YASHIRO_PALETTES_D[] =
 {
     { _T("Yashiro D"), 0x000fe00, 0x000fe20, indexKOFSprites_98Yashiro },
     { _T("D - Hidden Super Desperation Move 1"), 0x000fe20, 0x000fe40, indexKOFSprites_98Yashiro },
@@ -1656,15 +1656,15 @@ const sGame_PaletteDataset KOF02UM_A_YASHIRO_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x000fee0, 0x000ff00, indexKOFSprites_98Yashiro },
 };
 
-const sDescTreeNode KOF02UM_A_YASHIRO_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_YASHIRO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YASHIRO_PALETTES_A, ARRAYSIZE(KOF02UM_A_YASHIRO_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YASHIRO_PALETTES_B, ARRAYSIZE(KOF02UM_A_YASHIRO_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YASHIRO_PALETTES_C, ARRAYSIZE(KOF02UM_A_YASHIRO_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YASHIRO_PALETTES_D, ARRAYSIZE(KOF02UM_A_YASHIRO_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YASHIRO_PALETTES_A, ARRAYSIZE(KOF02UM_S_YASHIRO_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YASHIRO_PALETTES_B, ARRAYSIZE(KOF02UM_S_YASHIRO_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YASHIRO_PALETTES_C, ARRAYSIZE(KOF02UM_S_YASHIRO_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YASHIRO_PALETTES_D, ARRAYSIZE(KOF02UM_S_YASHIRO_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SHERMIE_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_SHERMIE_PALETTES_A[] =
 {
     { _T("Shermie A"), 0x0010000, 0x0010020, indexKOFSprites_98Shermie },
     { _T("A - Hidden Super Desperation Move 1"), 0x0010020, 0x0010040, indexKOFSprites_98Shermie },
@@ -1676,7 +1676,7 @@ const sGame_PaletteDataset KOF02UM_A_SHERMIE_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00100e0, 0x0010100, indexKOFSprites_98Shermie },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SHERMIE_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_SHERMIE_PALETTES_B[] =
 {
     { _T("Shermie B"), 0x0010200, 0x0010220, indexKOFSprites_98Shermie },
     { _T("B - Hidden Super Desperation Move 1"), 0x0010220, 0x0010240, indexKOFSprites_98Shermie },
@@ -1688,7 +1688,7 @@ const sGame_PaletteDataset KOF02UM_A_SHERMIE_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00102e0, 0x0010300, indexKOFSprites_98Shermie },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SHERMIE_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_SHERMIE_PALETTES_C[] =
 {
     { _T("Shermie C"), 0x0010400, 0x0010420, indexKOFSprites_98Shermie },
     { _T("C - Hidden Super Desperation Move 1"), 0x0010420, 0x0010440, indexKOFSprites_98Shermie },
@@ -1700,7 +1700,7 @@ const sGame_PaletteDataset KOF02UM_A_SHERMIE_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00104e0, 0x0010500, indexKOFSprites_98Shermie },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SHERMIE_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_SHERMIE_PALETTES_D[] =
 {
     { _T("Shermie D"), 0x0010600, 0x0010620, indexKOFSprites_98Shermie },
     { _T("D - Hidden Super Desperation Move 1"), 0x0010620, 0x0010640, indexKOFSprites_98Shermie },
@@ -1712,15 +1712,15 @@ const sGame_PaletteDataset KOF02UM_A_SHERMIE_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00106e0, 0x0010700, indexKOFSprites_98Shermie },
 };
 
-const sDescTreeNode KOF02UM_A_SHERMIE_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_SHERMIE_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHERMIE_PALETTES_A, ARRAYSIZE(KOF02UM_A_SHERMIE_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHERMIE_PALETTES_B, ARRAYSIZE(KOF02UM_A_SHERMIE_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHERMIE_PALETTES_C, ARRAYSIZE(KOF02UM_A_SHERMIE_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHERMIE_PALETTES_D, ARRAYSIZE(KOF02UM_A_SHERMIE_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SHERMIE_PALETTES_A, ARRAYSIZE(KOF02UM_S_SHERMIE_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SHERMIE_PALETTES_B, ARRAYSIZE(KOF02UM_S_SHERMIE_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SHERMIE_PALETTES_C, ARRAYSIZE(KOF02UM_S_SHERMIE_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SHERMIE_PALETTES_D, ARRAYSIZE(KOF02UM_S_SHERMIE_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHRIS_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_CHRIS_PALETTES_A[] =
 {
     { _T("Chris A"), 0x0010800, 0x0010820, indexKOFSprites_98Chris },
     { _T("A - Hidden Super Desperation Move 1"), 0x0010820, 0x0010840, indexKOFSprites_98Chris },
@@ -1732,7 +1732,7 @@ const sGame_PaletteDataset KOF02UM_A_CHRIS_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00108e0, 0x0010900, indexKOFSprites_98Chris },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHRIS_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_CHRIS_PALETTES_B[] =
 {
     { _T("Chris B"), 0x0010a00, 0x0010a20, indexKOFSprites_98Chris },
     { _T("B - Hidden Super Desperation Move 1"), 0x0010a20, 0x0010a40, indexKOFSprites_98Chris },
@@ -1744,7 +1744,7 @@ const sGame_PaletteDataset KOF02UM_A_CHRIS_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0010ae0, 0x0010b00, indexKOFSprites_98Chris },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHRIS_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_CHRIS_PALETTES_C[] =
 {
     { _T("Chris C"), 0x0010c00, 0x0010c20, indexKOFSprites_98Chris },
     { _T("C - Hidden Super Desperation Move 1"), 0x0010c20, 0x0010c40, indexKOFSprites_98Chris },
@@ -1756,7 +1756,7 @@ const sGame_PaletteDataset KOF02UM_A_CHRIS_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0010ce0, 0x0010d00, indexKOFSprites_98Chris },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CHRIS_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_CHRIS_PALETTES_D[] =
 {
     { _T("Chris D"), 0x0010e00, 0x0010e20, indexKOFSprites_98Chris },
     { _T("D - Hidden Super Desperation Move 1"), 0x0010e20, 0x0010e40, indexKOFSprites_98Chris },
@@ -1768,15 +1768,15 @@ const sGame_PaletteDataset KOF02UM_A_CHRIS_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0010ee0, 0x0010f00, indexKOFSprites_98Chris },
 };
 
-const sDescTreeNode KOF02UM_A_CHRIS_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_CHRIS_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHRIS_PALETTES_A, ARRAYSIZE(KOF02UM_A_CHRIS_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHRIS_PALETTES_B, ARRAYSIZE(KOF02UM_A_CHRIS_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHRIS_PALETTES_C, ARRAYSIZE(KOF02UM_A_CHRIS_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHRIS_PALETTES_D, ARRAYSIZE(KOF02UM_A_CHRIS_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHRIS_PALETTES_A, ARRAYSIZE(KOF02UM_S_CHRIS_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHRIS_PALETTES_B, ARRAYSIZE(KOF02UM_S_CHRIS_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHRIS_PALETTES_C, ARRAYSIZE(KOF02UM_S_CHRIS_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHRIS_PALETTES_D, ARRAYSIZE(KOF02UM_S_CHRIS_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_K_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_K_PALETTES_A[] =
 {
     { _T("K’ A"), 0x0011000, 0x0011020, indexKOFSprites_02K },
     { _T("A - Hidden Super Desperation Move 1"), 0x0011020, 0x0011040, indexKOFSprites_02K },
@@ -1788,7 +1788,7 @@ const sGame_PaletteDataset KOF02UM_A_K_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00110e0, 0x0011100, indexKOFSprites_02K },
 };
 
-const sGame_PaletteDataset KOF02UM_A_K_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_K_PALETTES_B[] =
 {
     { _T("K’ B"), 0x0011200, 0x0011220, indexKOFSprites_02K },
     { _T("B - Hidden Super Desperation Move 1"), 0x0011220, 0x0011240, indexKOFSprites_02K },
@@ -1800,7 +1800,7 @@ const sGame_PaletteDataset KOF02UM_A_K_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00112e0, 0x0011300, indexKOFSprites_02K },
 };
 
-const sGame_PaletteDataset KOF02UM_A_K_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_K_PALETTES_C[] =
 {
     { _T("K’ C"), 0x0011400, 0x0011420, indexKOFSprites_02K },
     { _T("C - Hidden Super Desperation Move 1"), 0x0011420, 0x0011440, indexKOFSprites_02K },
@@ -1812,7 +1812,7 @@ const sGame_PaletteDataset KOF02UM_A_K_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00114e0, 0x0011500, indexKOFSprites_02K },
 };
 
-const sGame_PaletteDataset KOF02UM_A_K_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_K_PALETTES_D[] =
 {
     { _T("K’ D"), 0x0011600, 0x0011620, indexKOFSprites_02K },
     { _T("D - Hidden Super Desperation Move 1"), 0x0011620, 0x0011640, indexKOFSprites_02K },
@@ -1824,15 +1824,15 @@ const sGame_PaletteDataset KOF02UM_A_K_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00116e0, 0x0011700, indexKOFSprites_02K },
 };
 
-const sDescTreeNode KOF02UM_A_K_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_K_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_K_PALETTES_A, ARRAYSIZE(KOF02UM_A_K_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_K_PALETTES_B, ARRAYSIZE(KOF02UM_A_K_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_K_PALETTES_C, ARRAYSIZE(KOF02UM_A_K_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_K_PALETTES_D, ARRAYSIZE(KOF02UM_A_K_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_K_PALETTES_A, ARRAYSIZE(KOF02UM_S_K_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_K_PALETTES_B, ARRAYSIZE(KOF02UM_S_K_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_K_PALETTES_C, ARRAYSIZE(KOF02UM_S_K_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_K_PALETTES_D, ARRAYSIZE(KOF02UM_S_K_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAXIMA_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_MAXIMA_PALETTES_A[] =
 {
     { _T("Maxima A"), 0x0011800, 0x0011820, indexKOFSprites_02Maxima },
     { _T("A - Hidden Super Desperation Move 1"), 0x0011820, 0x0011840, indexKOFSprites_02Maxima },
@@ -1844,7 +1844,7 @@ const sGame_PaletteDataset KOF02UM_A_MAXIMA_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00118e0, 0x0011900, indexKOFSprites_02Maxima },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAXIMA_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_MAXIMA_PALETTES_B[] =
 {
     { _T("Maxima B"), 0x0011a00, 0x0011a20, indexKOFSprites_02Maxima },
     { _T("B - Hidden Super Desperation Move 1"), 0x0011a20, 0x0011a40, indexKOFSprites_02Maxima },
@@ -1856,7 +1856,7 @@ const sGame_PaletteDataset KOF02UM_A_MAXIMA_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0011ae0, 0x0011b00, indexKOFSprites_02Maxima },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAXIMA_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_MAXIMA_PALETTES_C[] =
 {
     { _T("Maxima C"), 0x0011c00, 0x0011c20, indexKOFSprites_02Maxima },
     { _T("C - Hidden Super Desperation Move 1"), 0x0011c20, 0x0011c40, indexKOFSprites_02Maxima },
@@ -1868,7 +1868,7 @@ const sGame_PaletteDataset KOF02UM_A_MAXIMA_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0011ce0, 0x0011d00, indexKOFSprites_02Maxima },
 };
 
-const sGame_PaletteDataset KOF02UM_A_MAXIMA_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_MAXIMA_PALETTES_D[] =
 {
     { _T("Maxima D"), 0x0011e00, 0x0011e20, indexKOFSprites_02Maxima },
     { _T("D - Hidden Super Desperation Move 1"), 0x0011e20, 0x0011e40, indexKOFSprites_02Maxima },
@@ -1880,15 +1880,15 @@ const sGame_PaletteDataset KOF02UM_A_MAXIMA_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0011ee0, 0x0011f00, indexKOFSprites_02Maxima },
 };
 
-const sDescTreeNode KOF02UM_A_MAXIMA_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_MAXIMA_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAXIMA_PALETTES_A, ARRAYSIZE(KOF02UM_A_MAXIMA_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAXIMA_PALETTES_B, ARRAYSIZE(KOF02UM_A_MAXIMA_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAXIMA_PALETTES_C, ARRAYSIZE(KOF02UM_A_MAXIMA_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAXIMA_PALETTES_D, ARRAYSIZE(KOF02UM_A_MAXIMA_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAXIMA_PALETTES_A, ARRAYSIZE(KOF02UM_S_MAXIMA_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAXIMA_PALETTES_B, ARRAYSIZE(KOF02UM_S_MAXIMA_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAXIMA_PALETTES_C, ARRAYSIZE(KOF02UM_S_MAXIMA_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAXIMA_PALETTES_D, ARRAYSIZE(KOF02UM_S_MAXIMA_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_WHIP_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_WHIP_PALETTES_A[] =
 {
     { _T("Whip A"), 0x0012000, 0x0012020, indexKOFSprites_02Whip },
     { _T("A - Hidden Super Desperation Move 1"), 0x0012020, 0x0012040, indexKOFSprites_02Whip },
@@ -1900,7 +1900,7 @@ const sGame_PaletteDataset KOF02UM_A_WHIP_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00120e0, 0x0012100, indexKOFSprites_02Whip },
 };
 
-const sGame_PaletteDataset KOF02UM_A_WHIP_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_WHIP_PALETTES_B[] =
 {
     { _T("Whip B"), 0x0012200, 0x0012220, indexKOFSprites_02Whip },
     { _T("B - Hidden Super Desperation Move 1"), 0x0012220, 0x0012240, indexKOFSprites_02Whip },
@@ -1912,7 +1912,7 @@ const sGame_PaletteDataset KOF02UM_A_WHIP_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00122e0, 0x0012300, indexKOFSprites_02Whip },
 };
 
-const sGame_PaletteDataset KOF02UM_A_WHIP_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_WHIP_PALETTES_C[] =
 {
     { _T("Whip C"), 0x0012400, 0x0012420, indexKOFSprites_02Whip },
     { _T("C - Hidden Super Desperation Move 1"), 0x0012420, 0x0012440, indexKOFSprites_02Whip },
@@ -1924,7 +1924,7 @@ const sGame_PaletteDataset KOF02UM_A_WHIP_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00124e0, 0x0012500, indexKOFSprites_02Whip },
 };
 
-const sGame_PaletteDataset KOF02UM_A_WHIP_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_WHIP_PALETTES_D[] =
 {
     { _T("Whip D"), 0x0012600, 0x0012620, indexKOFSprites_02Whip },
     { _T("D - Hidden Super Desperation Move 1"), 0x0012620, 0x0012640, indexKOFSprites_02Whip },
@@ -1936,15 +1936,15 @@ const sGame_PaletteDataset KOF02UM_A_WHIP_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00126e0, 0x0012700, indexKOFSprites_02Whip },
 };
 
-const sDescTreeNode KOF02UM_A_WHIP_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_WHIP_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_WHIP_PALETTES_A, ARRAYSIZE(KOF02UM_A_WHIP_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_WHIP_PALETTES_B, ARRAYSIZE(KOF02UM_A_WHIP_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_WHIP_PALETTES_C, ARRAYSIZE(KOF02UM_A_WHIP_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_WHIP_PALETTES_D, ARRAYSIZE(KOF02UM_A_WHIP_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_WHIP_PALETTES_A, ARRAYSIZE(KOF02UM_S_WHIP_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_WHIP_PALETTES_B, ARRAYSIZE(KOF02UM_S_WHIP_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_WHIP_PALETTES_C, ARRAYSIZE(KOF02UM_S_WHIP_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_WHIP_PALETTES_D, ARRAYSIZE(KOF02UM_S_WHIP_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_VANESSA_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_VANESSA_PALETTES_A[] =
 {
     { _T("Vanessa A"), 0x0012800, 0x0012820, indexKOFSprites_02Vanessa },
     { _T("A - Hidden Super Desperation Move 1"), 0x0012820, 0x0012840, indexKOFSprites_02Vanessa },
@@ -1956,7 +1956,7 @@ const sGame_PaletteDataset KOF02UM_A_VANESSA_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00128e0, 0x0012900, indexKOFSprites_02Vanessa },
 };
 
-const sGame_PaletteDataset KOF02UM_A_VANESSA_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_VANESSA_PALETTES_B[] =
 {
     { _T("Vanessa B"), 0x0012a00, 0x0012a20, indexKOFSprites_02Vanessa },
     { _T("B - Hidden Super Desperation Move 1"), 0x0012a20, 0x0012a40, indexKOFSprites_02Vanessa },
@@ -1968,7 +1968,7 @@ const sGame_PaletteDataset KOF02UM_A_VANESSA_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0012ae0, 0x0012b00, indexKOFSprites_02Vanessa },
 };
 
-const sGame_PaletteDataset KOF02UM_A_VANESSA_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_VANESSA_PALETTES_C[] =
 {
     { _T("Vanessa C"), 0x0012c00, 0x0012c20, indexKOFSprites_02Vanessa },
     { _T("C - Hidden Super Desperation Move 1"), 0x0012c20, 0x0012c40, indexKOFSprites_02Vanessa },
@@ -1980,7 +1980,7 @@ const sGame_PaletteDataset KOF02UM_A_VANESSA_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0012ce0, 0x0012d00, indexKOFSprites_02Vanessa },
 };
 
-const sGame_PaletteDataset KOF02UM_A_VANESSA_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_VANESSA_PALETTES_D[] =
 {
     { _T("Vanessa D"), 0x0012e00, 0x0012e20, indexKOFSprites_02Vanessa },
     { _T("D - Hidden Super Desperation Move 1"), 0x0012e20, 0x0012e40, indexKOFSprites_02Vanessa },
@@ -1992,15 +1992,15 @@ const sGame_PaletteDataset KOF02UM_A_VANESSA_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0012ee0, 0x0012f00, indexKOFSprites_02Vanessa },
 };
 
-const sDescTreeNode KOF02UM_A_VANESSA_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_VANESSA_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_VANESSA_PALETTES_A, ARRAYSIZE(KOF02UM_A_VANESSA_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_VANESSA_PALETTES_B, ARRAYSIZE(KOF02UM_A_VANESSA_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_VANESSA_PALETTES_C, ARRAYSIZE(KOF02UM_A_VANESSA_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_VANESSA_PALETTES_D, ARRAYSIZE(KOF02UM_A_VANESSA_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_VANESSA_PALETTES_A, ARRAYSIZE(KOF02UM_S_VANESSA_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_VANESSA_PALETTES_B, ARRAYSIZE(KOF02UM_S_VANESSA_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_VANESSA_PALETTES_C, ARRAYSIZE(KOF02UM_S_VANESSA_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_VANESSA_PALETTES_D, ARRAYSIZE(KOF02UM_S_VANESSA_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SETH_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_SETH_PALETTES_A[] =
 {
     { _T("Seth A"), 0x0013000, 0x0013020, indexKOFSprites_02Seth },
     { _T("A - Hidden Super Desperation Move 1"), 0x0013020, 0x0013040, indexKOFSprites_02Seth },
@@ -2012,7 +2012,7 @@ const sGame_PaletteDataset KOF02UM_A_SETH_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00130e0, 0x0013100, indexKOFSprites_02Seth },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SETH_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_SETH_PALETTES_B[] =
 {
     { _T("Seth B"), 0x0013200, 0x0013220, indexKOFSprites_02Seth },
     { _T("B - Hidden Super Desperation Move 1"), 0x0013220, 0x0013240, indexKOFSprites_02Seth },
@@ -2024,7 +2024,7 @@ const sGame_PaletteDataset KOF02UM_A_SETH_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00132e0, 0x0013300, indexKOFSprites_02Seth },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SETH_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_SETH_PALETTES_C[] =
 {
     { _T("Seth C"), 0x0013400, 0x0013420, indexKOFSprites_02Seth },
     { _T("C - Hidden Super Desperation Move 1"), 0x0013420, 0x0013440, indexKOFSprites_02Seth },
@@ -2036,7 +2036,7 @@ const sGame_PaletteDataset KOF02UM_A_SETH_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00134e0, 0x0013500, indexKOFSprites_02Seth },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SETH_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_SETH_PALETTES_D[] =
 {
     { _T("Seth D"), 0x0013600, 0x0013620, indexKOFSprites_02Seth },
     { _T("D - Hidden Super Desperation Move 1"), 0x0013620, 0x0013640, indexKOFSprites_02Seth },
@@ -2048,15 +2048,15 @@ const sGame_PaletteDataset KOF02UM_A_SETH_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00136e0, 0x0013700, indexKOFSprites_02Seth },
 };
 
-const sDescTreeNode KOF02UM_A_SETH_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_SETH_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SETH_PALETTES_A, ARRAYSIZE(KOF02UM_A_SETH_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SETH_PALETTES_B, ARRAYSIZE(KOF02UM_A_SETH_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SETH_PALETTES_C, ARRAYSIZE(KOF02UM_A_SETH_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SETH_PALETTES_D, ARRAYSIZE(KOF02UM_A_SETH_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SETH_PALETTES_A, ARRAYSIZE(KOF02UM_S_SETH_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SETH_PALETTES_B, ARRAYSIZE(KOF02UM_S_SETH_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SETH_PALETTES_C, ARRAYSIZE(KOF02UM_S_SETH_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SETH_PALETTES_D, ARRAYSIZE(KOF02UM_S_SETH_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RAMON_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_RAMON_PALETTES_A[] =
 {
     { _T("Ramon A"), 0x0013800, 0x0013820, indexKOFSprites_02Ramon },
     { _T("A - Hidden Super Desperation Move 1"), 0x0013820, 0x0013840, indexKOFSprites_02Ramon },
@@ -2068,7 +2068,7 @@ const sGame_PaletteDataset KOF02UM_A_RAMON_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00138e0, 0x0013900, indexKOFSprites_02Ramon },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RAMON_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_RAMON_PALETTES_B[] =
 {
     { _T("Ramon B"), 0x0013a00, 0x0013a20, indexKOFSprites_02Ramon },
     { _T("B - Hidden Super Desperation Move 1"), 0x0013a20, 0x0013a40, indexKOFSprites_02Ramon },
@@ -2080,7 +2080,7 @@ const sGame_PaletteDataset KOF02UM_A_RAMON_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0013ae0, 0x0013b00, indexKOFSprites_02Ramon },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RAMON_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_RAMON_PALETTES_C[] =
 {
     { _T("Ramon C"), 0x0013c00, 0x0013c20, indexKOFSprites_02Ramon },
     { _T("C - Hidden Super Desperation Move 1"), 0x0013c20, 0x0013c40, indexKOFSprites_02Ramon },
@@ -2092,7 +2092,7 @@ const sGame_PaletteDataset KOF02UM_A_RAMON_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0013ce0, 0x0013d00, indexKOFSprites_02Ramon },
 };
 
-const sGame_PaletteDataset KOF02UM_A_RAMON_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_RAMON_PALETTES_D[] =
 {
     { _T("Ramon D"), 0x0013e00, 0x0013e20, indexKOFSprites_02Ramon },
     { _T("D - Hidden Super Desperation Move 1"), 0x0013e20, 0x0013e40, indexKOFSprites_02Ramon },
@@ -2104,15 +2104,15 @@ const sGame_PaletteDataset KOF02UM_A_RAMON_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0013ee0, 0x0013f00, indexKOFSprites_02Ramon },
 };
 
-const sDescTreeNode KOF02UM_A_RAMON_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_RAMON_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RAMON_PALETTES_A, ARRAYSIZE(KOF02UM_A_RAMON_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RAMON_PALETTES_B, ARRAYSIZE(KOF02UM_A_RAMON_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RAMON_PALETTES_C, ARRAYSIZE(KOF02UM_A_RAMON_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RAMON_PALETTES_D, ARRAYSIZE(KOF02UM_A_RAMON_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RAMON_PALETTES_A, ARRAYSIZE(KOF02UM_S_RAMON_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RAMON_PALETTES_B, ARRAYSIZE(KOF02UM_S_RAMON_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RAMON_PALETTES_C, ARRAYSIZE(KOF02UM_S_RAMON_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RAMON_PALETTES_D, ARRAYSIZE(KOF02UM_S_RAMON_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KULA_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_KULA_PALETTES_A[] =
 {
     { _T("Kula A"), 0x0014000, 0x0014020, indexKOFSprites_02Kula },
     { _T("A - Hidden Super Desperation Move 1"), 0x0014020, 0x0014040, indexKOFSprites_02Kula },
@@ -2124,7 +2124,7 @@ const sGame_PaletteDataset KOF02UM_A_KULA_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00140e0, 0x0014100, indexKOFSprites_02Kula },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KULA_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_KULA_PALETTES_B[] =
 {
     { _T("Kula B"), 0x0014200, 0x0014220, indexKOFSprites_02Kula },
     { _T("B - Hidden Super Desperation Move 1"), 0x0014220, 0x0014240, indexKOFSprites_02Kula },
@@ -2136,7 +2136,7 @@ const sGame_PaletteDataset KOF02UM_A_KULA_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00142e0, 0x0014300, indexKOFSprites_02Kula },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KULA_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_KULA_PALETTES_C[] =
 {
     { _T("Kula C"), 0x0014400, 0x0014420, indexKOFSprites_02Kula },
     { _T("C - Hidden Super Desperation Move 1"), 0x0014420, 0x0014440, indexKOFSprites_02Kula },
@@ -2148,7 +2148,7 @@ const sGame_PaletteDataset KOF02UM_A_KULA_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00144e0, 0x0014500, indexKOFSprites_02Kula },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KULA_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_KULA_PALETTES_D[] =
 {
     { _T("Kula D"), 0x0014600, 0x0014620, indexKOFSprites_02Kula },
     { _T("D - Hidden Super Desperation Move 1"), 0x0014620, 0x0014640, indexKOFSprites_02Kula },
@@ -2160,15 +2160,15 @@ const sGame_PaletteDataset KOF02UM_A_KULA_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00146e0, 0x0014700, indexKOFSprites_02Kula },
 };
 
-const sDescTreeNode KOF02UM_A_KULA_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_KULA_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KULA_PALETTES_A, ARRAYSIZE(KOF02UM_A_KULA_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KULA_PALETTES_B, ARRAYSIZE(KOF02UM_A_KULA_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KULA_PALETTES_C, ARRAYSIZE(KOF02UM_A_KULA_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KULA_PALETTES_D, ARRAYSIZE(KOF02UM_A_KULA_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KULA_PALETTES_A, ARRAYSIZE(KOF02UM_S_KULA_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KULA_PALETTES_B, ARRAYSIZE(KOF02UM_S_KULA_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KULA_PALETTES_C, ARRAYSIZE(KOF02UM_S_KULA_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KULA_PALETTES_D, ARRAYSIZE(KOF02UM_S_KULA_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_NAMELESS_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_NAMELESS_PALETTES_A[] =
 {
     { _T("Nameless A"), 0x0014800, 0x0014820, indexKOFSprites_02Nameless },
     { _T("A - Hidden Super Desperation Move 1"), 0x0014820, 0x0014840, indexKOFSprites_02Nameless },
@@ -2180,7 +2180,7 @@ const sGame_PaletteDataset KOF02UM_A_NAMELESS_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00148e0, 0x0014900, indexKOFSprites_02Nameless },
 };
 
-const sGame_PaletteDataset KOF02UM_A_NAMELESS_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_NAMELESS_PALETTES_B[] =
 {
     { _T("Nameless B"), 0x0014a00, 0x0014a20, indexKOFSprites_02Nameless },
     { _T("B - Hidden Super Desperation Move 1"), 0x0014a20, 0x0014a40, indexKOFSprites_02Nameless },
@@ -2192,7 +2192,7 @@ const sGame_PaletteDataset KOF02UM_A_NAMELESS_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0014ae0, 0x0014b00, indexKOFSprites_02Nameless },
 };
 
-const sGame_PaletteDataset KOF02UM_A_NAMELESS_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_NAMELESS_PALETTES_C[] =
 {
     { _T("Nameless C"), 0x0014c00, 0x0014c20, indexKOFSprites_02Nameless },
     { _T("C - Hidden Super Desperation Move 1"), 0x0014c20, 0x0014c40, indexKOFSprites_02Nameless },
@@ -2204,7 +2204,7 @@ const sGame_PaletteDataset KOF02UM_A_NAMELESS_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0014ce0, 0x0014d00, indexKOFSprites_02Nameless },
 };
 
-const sGame_PaletteDataset KOF02UM_A_NAMELESS_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_NAMELESS_PALETTES_D[] =
 {
     { _T("Nameless D"), 0x0014e00, 0x0014e20, indexKOFSprites_02Nameless },
     { _T("D - Hidden Super Desperation Move 1"), 0x0014e20, 0x0014e40, indexKOFSprites_02Nameless },
@@ -2216,15 +2216,15 @@ const sGame_PaletteDataset KOF02UM_A_NAMELESS_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0014ee0, 0x0014f00, indexKOFSprites_02Nameless },
 };
 
-const sDescTreeNode KOF02UM_A_NAMELESS_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_NAMELESS_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_NAMELESS_PALETTES_A, ARRAYSIZE(KOF02UM_A_NAMELESS_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_NAMELESS_PALETTES_B, ARRAYSIZE(KOF02UM_A_NAMELESS_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_NAMELESS_PALETTES_C, ARRAYSIZE(KOF02UM_A_NAMELESS_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_NAMELESS_PALETTES_D, ARRAYSIZE(KOF02UM_A_NAMELESS_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_NAMELESS_PALETTES_A, ARRAYSIZE(KOF02UM_S_NAMELESS_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_NAMELESS_PALETTES_B, ARRAYSIZE(KOF02UM_S_NAMELESS_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_NAMELESS_PALETTES_C, ARRAYSIZE(KOF02UM_S_NAMELESS_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_NAMELESS_PALETTES_D, ARRAYSIZE(KOF02UM_S_NAMELESS_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ANGEL_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_ANGEL_PALETTES_A[] =
 {
     { _T("Angel A"), 0x0015000, 0x0015020, indexKOFSprites_02Angel },
     { _T("A - Hidden Super Desperation Move 1"), 0x0015020, 0x0015040, indexKOFSprites_02Angel },
@@ -2236,7 +2236,7 @@ const sGame_PaletteDataset KOF02UM_A_ANGEL_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00150e0, 0x0015100, indexKOFSprites_02Angel },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ANGEL_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_ANGEL_PALETTES_B[] =
 {
     { _T("Angel B"), 0x0015200, 0x0015220, indexKOFSprites_02Angel },
     { _T("B - Hidden Super Desperation Move 1"), 0x0015220, 0x0015240, indexKOFSprites_02Angel },
@@ -2248,7 +2248,7 @@ const sGame_PaletteDataset KOF02UM_A_ANGEL_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00152e0, 0x0015300, indexKOFSprites_02Angel },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ANGEL_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_ANGEL_PALETTES_C[] =
 {
     { _T("Angel C"), 0x0015400, 0x0015420, indexKOFSprites_02Angel },
     { _T("C - Hidden Super Desperation Move 1"), 0x0015420, 0x0015440, indexKOFSprites_02Angel },
@@ -2260,7 +2260,7 @@ const sGame_PaletteDataset KOF02UM_A_ANGEL_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00154e0, 0x0015500, indexKOFSprites_02Angel },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ANGEL_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_ANGEL_PALETTES_D[] =
 {
     { _T("Angel D"), 0x0015600, 0x0015620, indexKOFSprites_02Angel },
     { _T("D - Hidden Super Desperation Move 1"), 0x0015620, 0x0015640, indexKOFSprites_02Angel },
@@ -2272,15 +2272,15 @@ const sGame_PaletteDataset KOF02UM_A_ANGEL_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00156e0, 0x0015700, indexKOFSprites_02Angel },
 };
 
-const sDescTreeNode KOF02UM_A_ANGEL_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_ANGEL_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANGEL_PALETTES_A, ARRAYSIZE(KOF02UM_A_ANGEL_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANGEL_PALETTES_B, ARRAYSIZE(KOF02UM_A_ANGEL_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANGEL_PALETTES_C, ARRAYSIZE(KOF02UM_A_ANGEL_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANGEL_PALETTES_D, ARRAYSIZE(KOF02UM_A_ANGEL_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANGEL_PALETTES_A, ARRAYSIZE(KOF02UM_S_ANGEL_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANGEL_PALETTES_B, ARRAYSIZE(KOF02UM_S_ANGEL_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANGEL_PALETTES_C, ARRAYSIZE(KOF02UM_S_ANGEL_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANGEL_PALETTES_D, ARRAYSIZE(KOF02UM_S_ANGEL_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OMEGARUGAL_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_OMEGARUGAL_PALETTES_A[] =
 {
     { _T("Omega Rugal A"), 0x0015800, 0x0015820, indexKOFSprites_98Rugal },
     { _T("A - Hidden Super Desperation Move 1"), 0x0015820, 0x0015840, indexKOFSprites_98Rugal },
@@ -2292,7 +2292,7 @@ const sGame_PaletteDataset KOF02UM_A_OMEGARUGAL_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00158e0, 0x0015900, indexKOFSprites_98Rugal },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OMEGARUGAL_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_OMEGARUGAL_PALETTES_B[] =
 {
     { _T("Omega Rugal B"), 0x0015a00, 0x0015a20, indexKOFSprites_98Rugal },
     { _T("B - Hidden Super Desperation Move 1"), 0x0015a20, 0x0015a40, indexKOFSprites_98Rugal },
@@ -2304,7 +2304,7 @@ const sGame_PaletteDataset KOF02UM_A_OMEGARUGAL_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0015ae0, 0x0015b00, indexKOFSprites_98Rugal },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OMEGARUGAL_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_OMEGARUGAL_PALETTES_C[] =
 {
     { _T("Omega Rugal C"), 0x0015c00, 0x0015c20, indexKOFSprites_98Rugal },
     { _T("C - Hidden Super Desperation Move 1"), 0x0015c20, 0x0015c40, indexKOFSprites_98Rugal },
@@ -2316,7 +2316,7 @@ const sGame_PaletteDataset KOF02UM_A_OMEGARUGAL_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0015ce0, 0x0015d00, indexKOFSprites_98Rugal },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OMEGARUGAL_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_OMEGARUGAL_PALETTES_D[] =
 {
     { _T("Omega Rugal D"), 0x0015e00, 0x0015e20, indexKOFSprites_98Rugal },
     { _T("D - Hidden Super Desperation Move 1"), 0x0015e20, 0x0015e40, indexKOFSprites_98Rugal },
@@ -2328,15 +2328,15 @@ const sGame_PaletteDataset KOF02UM_A_OMEGARUGAL_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0015ee0, 0x0015f00, indexKOFSprites_98Rugal },
 };
 
-const sDescTreeNode KOF02UM_A_OMEGARUGAL_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_OMEGARUGAL_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OMEGARUGAL_PALETTES_A, ARRAYSIZE(KOF02UM_A_OMEGARUGAL_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OMEGARUGAL_PALETTES_B, ARRAYSIZE(KOF02UM_A_OMEGARUGAL_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OMEGARUGAL_PALETTES_C, ARRAYSIZE(KOF02UM_A_OMEGARUGAL_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OMEGARUGAL_PALETTES_D, ARRAYSIZE(KOF02UM_A_OMEGARUGAL_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OMEGARUGAL_PALETTES_A, ARRAYSIZE(KOF02UM_S_OMEGARUGAL_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OMEGARUGAL_PALETTES_B, ARRAYSIZE(KOF02UM_S_OMEGARUGAL_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OMEGARUGAL_PALETTES_C, ARRAYSIZE(KOF02UM_S_OMEGARUGAL_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OMEGARUGAL_PALETTES_D, ARRAYSIZE(KOF02UM_S_OMEGARUGAL_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_A[] =
 {
     { _T("Kusanagi A"), 0x0016000, 0x0016020, indexKOFSprites_02Kusanagi },
     { _T("A - Hidden Super Desperation Move 1"), 0x0016020, 0x0016040, indexKOFSprites_02Kusanagi },
@@ -2348,7 +2348,7 @@ const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00160e0, 0x0016100, indexKOFSprites_02Kusanagi },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_B[] =
 {
     { _T("Kusanagi B"), 0x0016200, 0x0016220, indexKOFSprites_02Kusanagi },
     { _T("B - Hidden Super Desperation Move 1"), 0x0016220, 0x0016240, indexKOFSprites_02Kusanagi },
@@ -2360,7 +2360,7 @@ const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00162e0, 0x0016300, indexKOFSprites_02Kusanagi },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_C[] =
 {
     { _T("Kusanagi C"), 0x0016400, 0x0016420, indexKOFSprites_02Kusanagi },
     { _T("C - Hidden Super Desperation Move 1"), 0x0016420, 0x0016440, indexKOFSprites_02Kusanagi },
@@ -2372,7 +2372,7 @@ const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00164e0, 0x0016500, indexKOFSprites_02Kusanagi },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_D[] =
 {
     { _T("Kusanagi D"), 0x0016600, 0x0016620, indexKOFSprites_02Kusanagi },
     { _T("D - Hidden Super Desperation Move 1"), 0x0016620, 0x0016640, indexKOFSprites_02Kusanagi },
@@ -2384,15 +2384,15 @@ const sGame_PaletteDataset KOF02UM_A_KUSANAGI_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00166e0, 0x0016700, indexKOFSprites_02Kusanagi },
 };
 
-const sDescTreeNode KOF02UM_A_KUSANAGI_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_KUSANAGI_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KUSANAGI_PALETTES_A, ARRAYSIZE(KOF02UM_A_KUSANAGI_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KUSANAGI_PALETTES_B, ARRAYSIZE(KOF02UM_A_KUSANAGI_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KUSANAGI_PALETTES_C, ARRAYSIZE(KOF02UM_A_KUSANAGI_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KUSANAGI_PALETTES_D, ARRAYSIZE(KOF02UM_A_KUSANAGI_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KUSANAGI_PALETTES_A, ARRAYSIZE(KOF02UM_S_KUSANAGI_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KUSANAGI_PALETTES_B, ARRAYSIZE(KOF02UM_S_KUSANAGI_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KUSANAGI_PALETTES_C, ARRAYSIZE(KOF02UM_S_KUSANAGI_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KUSANAGI_PALETTES_D, ARRAYSIZE(KOF02UM_S_KUSANAGI_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OYASHIRO_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_OYASHIRO_PALETTES_A[] =
 {
     { _T("O.Yashiro A"), 0x0016800, 0x0016820, indexKOFSprites_98Yashiro },
     { _T("A - Hidden Super Desperation Move 1"), 0x0016820, 0x0016840, indexKOFSprites_98Yashiro },
@@ -2404,7 +2404,7 @@ const sGame_PaletteDataset KOF02UM_A_OYASHIRO_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00168e0, 0x0016900, indexKOFSprites_98Yashiro },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OYASHIRO_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_OYASHIRO_PALETTES_B[] =
 {
     { _T("O.Yashiro B"), 0x0016a00, 0x0016a20, indexKOFSprites_98Yashiro },
     { _T("B - Hidden Super Desperation Move 1"), 0x0016a20, 0x0016a40, indexKOFSprites_98Yashiro },
@@ -2416,7 +2416,7 @@ const sGame_PaletteDataset KOF02UM_A_OYASHIRO_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0016ae0, 0x0016b00, indexKOFSprites_98Yashiro },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OYASHIRO_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_OYASHIRO_PALETTES_C[] =
 {
     { _T("O.Yashiro C"), 0x0016c00, 0x0016c20, indexKOFSprites_98Yashiro },
     { _T("C - Hidden Super Desperation Move 1"), 0x0016c20, 0x0016c40, indexKOFSprites_98Yashiro },
@@ -2428,7 +2428,7 @@ const sGame_PaletteDataset KOF02UM_A_OYASHIRO_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0016ce0, 0x0016d00, indexKOFSprites_98Yashiro },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OYASHIRO_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_OYASHIRO_PALETTES_D[] =
 {
     { _T("O.Yashiro D"), 0x0016e00, 0x0016e20, indexKOFSprites_98Yashiro },
     { _T("D - Hidden Super Desperation Move 1"), 0x0016e20, 0x0016e40, indexKOFSprites_98Yashiro },
@@ -2440,15 +2440,15 @@ const sGame_PaletteDataset KOF02UM_A_OYASHIRO_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0016ee0, 0x0016f00, indexKOFSprites_98Yashiro },
 };
 
-const sDescTreeNode KOF02UM_A_OYASHIRO_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_OYASHIRO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OYASHIRO_PALETTES_A, ARRAYSIZE(KOF02UM_A_OYASHIRO_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OYASHIRO_PALETTES_B, ARRAYSIZE(KOF02UM_A_OYASHIRO_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OYASHIRO_PALETTES_C, ARRAYSIZE(KOF02UM_A_OYASHIRO_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OYASHIRO_PALETTES_D, ARRAYSIZE(KOF02UM_A_OYASHIRO_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OYASHIRO_PALETTES_A, ARRAYSIZE(KOF02UM_S_OYASHIRO_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OYASHIRO_PALETTES_B, ARRAYSIZE(KOF02UM_S_OYASHIRO_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OYASHIRO_PALETTES_C, ARRAYSIZE(KOF02UM_S_OYASHIRO_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OYASHIRO_PALETTES_D, ARRAYSIZE(KOF02UM_S_OYASHIRO_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OSHERMIE_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_OSHERMIE_PALETTES_A[] =
 {
     { _T("O.Shermie A"), 0x0017000, 0x0017020, indexKOFSprites_98Shermie },
     { _T("A - Hidden Super Desperation Move 1"), 0x0017020, 0x0017040, indexKOFSprites_98Shermie },
@@ -2460,7 +2460,7 @@ const sGame_PaletteDataset KOF02UM_A_OSHERMIE_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00170e0, 0x0017100, indexKOFSprites_98Shermie },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OSHERMIE_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_OSHERMIE_PALETTES_B[] =
 {
     { _T("O.Shermie B"), 0x0017200, 0x0017220, indexKOFSprites_98Shermie },
     { _T("B - Hidden Super Desperation Move 1"), 0x0017220, 0x0017240, indexKOFSprites_98Shermie },
@@ -2472,7 +2472,7 @@ const sGame_PaletteDataset KOF02UM_A_OSHERMIE_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00172e0, 0x0017300, indexKOFSprites_98Shermie },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OSHERMIE_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_OSHERMIE_PALETTES_C[] =
 {
     { _T("O.Shermie C"), 0x0017400, 0x0017420, indexKOFSprites_98Shermie },
     { _T("C - Hidden Super Desperation Move 1"), 0x0017420, 0x0017440, indexKOFSprites_98Shermie },
@@ -2484,7 +2484,7 @@ const sGame_PaletteDataset KOF02UM_A_OSHERMIE_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00174e0, 0x0017500, indexKOFSprites_98Shermie },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OSHERMIE_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_OSHERMIE_PALETTES_D[] =
 {
     { _T("O.Shermie D"), 0x0017600, 0x0017620, indexKOFSprites_98Shermie },
     { _T("D - Hidden Super Desperation Move 1"), 0x0017620, 0x0017640, indexKOFSprites_98Shermie },
@@ -2496,15 +2496,15 @@ const sGame_PaletteDataset KOF02UM_A_OSHERMIE_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00176e0, 0x0017700, indexKOFSprites_98Shermie },
 };
 
-const sDescTreeNode KOF02UM_A_OSHERMIE_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_OSHERMIE_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OSHERMIE_PALETTES_A, ARRAYSIZE(KOF02UM_A_OSHERMIE_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OSHERMIE_PALETTES_B, ARRAYSIZE(KOF02UM_A_OSHERMIE_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OSHERMIE_PALETTES_C, ARRAYSIZE(KOF02UM_A_OSHERMIE_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OSHERMIE_PALETTES_D, ARRAYSIZE(KOF02UM_A_OSHERMIE_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OSHERMIE_PALETTES_A, ARRAYSIZE(KOF02UM_S_OSHERMIE_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OSHERMIE_PALETTES_B, ARRAYSIZE(KOF02UM_S_OSHERMIE_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OSHERMIE_PALETTES_C, ARRAYSIZE(KOF02UM_S_OSHERMIE_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OSHERMIE_PALETTES_D, ARRAYSIZE(KOF02UM_S_OSHERMIE_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OCHRIS_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_A[] =
 {
     { _T("O.Chris A"), 0x0017800, 0x0017820, indexKOFSprites_98Chris },
     { _T("A - Hidden Super Desperation Move 1"), 0x0017820, 0x0017840, indexKOFSprites_98Chris },
@@ -2516,7 +2516,7 @@ const sGame_PaletteDataset KOF02UM_A_OCHRIS_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00178e0, 0x0017900, indexKOFSprites_98Chris },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OCHRIS_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_B[] =
 {
     { _T("O.Chris B"), 0x0017a00, 0x0017a20, indexKOFSprites_98Chris },
     { _T("B - Hidden Super Desperation Move 1"), 0x0017a20, 0x0017a40, indexKOFSprites_98Chris },
@@ -2528,7 +2528,7 @@ const sGame_PaletteDataset KOF02UM_A_OCHRIS_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0017ae0, 0x0017b00, indexKOFSprites_98Chris },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OCHRIS_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_C[] =
 {
     { _T("O.Chris C"), 0x0017c00, 0x0017c20, indexKOFSprites_98Chris },
     { _T("C - Hidden Super Desperation Move 1"), 0x0017c20, 0x0017c40, indexKOFSprites_98Chris },
@@ -2540,7 +2540,7 @@ const sGame_PaletteDataset KOF02UM_A_OCHRIS_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0017ce0, 0x0017d00, indexKOFSprites_98Chris },
 };
 
-const sGame_PaletteDataset KOF02UM_A_OCHRIS_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_D[] =
 {
     { _T("O.Chris D"), 0x0017e00, 0x0017e20, indexKOFSprites_98Chris },
     { _T("D - Hidden Super Desperation Move 1"), 0x0017e20, 0x0017e40, indexKOFSprites_98Chris },
@@ -2552,15 +2552,15 @@ const sGame_PaletteDataset KOF02UM_A_OCHRIS_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0017ee0, 0x0017f00, indexKOFSprites_98Chris },
 };
 
-const sDescTreeNode KOF02UM_A_OCHRIS_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_OCHRIS_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OCHRIS_PALETTES_A, ARRAYSIZE(KOF02UM_A_OCHRIS_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OCHRIS_PALETTES_B, ARRAYSIZE(KOF02UM_A_OCHRIS_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OCHRIS_PALETTES_C, ARRAYSIZE(KOF02UM_A_OCHRIS_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OCHRIS_PALETTES_D, ARRAYSIZE(KOF02UM_A_OCHRIS_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OCHRIS_PALETTES_A, ARRAYSIZE(KOF02UM_S_OCHRIS_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OCHRIS_PALETTES_B, ARRAYSIZE(KOF02UM_S_OCHRIS_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OCHRIS_PALETTES_C, ARRAYSIZE(KOF02UM_S_OCHRIS_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OCHRIS_PALETTES_D, ARRAYSIZE(KOF02UM_S_OCHRIS_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_SHINGO_PALETTES_A[] =
 {
     { _T("Shingo A"), 0x0045c00, 0x0045c20, indexKOFSprites_98Shingo },
     { _T("A - Hidden Super Desperation Move 1"), 0x0045c20, 0x0045c40, indexKOFSprites_98Shingo },
@@ -2572,7 +2572,7 @@ const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x0045ce0, 0x0045d00, indexKOFSprites_98Shingo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_SHINGO_PALETTES_B[] =
 {
     { _T("Shingo B"), 0x0045d00, 0x0045d20, indexKOFSprites_98Shingo },
     { _T("B - Hidden Super Desperation Move 1"), 0x0045d20, 0x0045d40, indexKOFSprites_98Shingo },
@@ -2584,7 +2584,7 @@ const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0045de0, 0x0045e00, indexKOFSprites_98Shingo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_SHINGO_PALETTES_C[] =
 {
     { _T("Shingo C"), 0x0045e00, 0x0045e20, indexKOFSprites_98Shingo },
     { _T("C - Hidden Super Desperation Move 1"), 0x0045e20, 0x0045e40, indexKOFSprites_98Shingo },
@@ -2596,7 +2596,7 @@ const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0045ee0, 0x0045f00, indexKOFSprites_98Shingo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_SHINGO_PALETTES_D[] =
 {
     { _T("Shingo D"), 0x0045f00, 0x0045f20, indexKOFSprites_98Shingo },
     { _T("D - Hidden Super Desperation Move 1"), 0x0045f20, 0x0045f40, indexKOFSprites_98Shingo },
@@ -2608,15 +2608,15 @@ const sGame_PaletteDataset KOF02UM_A_SHINGO_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0045fe0, 0x0046000, indexKOFSprites_98Shingo },
 };
 
-const sDescTreeNode KOF02UM_A_SHINGO_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_SHINGO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHINGO_PALETTES_A, ARRAYSIZE(KOF02UM_A_SHINGO_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHINGO_PALETTES_B, ARRAYSIZE(KOF02UM_A_SHINGO_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHINGO_PALETTES_C, ARRAYSIZE(KOF02UM_A_SHINGO_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHINGO_PALETTES_D, ARRAYSIZE(KOF02UM_A_SHINGO_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SHINGO_PALETTES_A, ARRAYSIZE(KOF02UM_S_SHINGO_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SHINGO_PALETTES_B, ARRAYSIZE(KOF02UM_S_SHINGO_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SHINGO_PALETTES_C, ARRAYSIZE(KOF02UM_S_SHINGO_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SHINGO_PALETTES_D, ARRAYSIZE(KOF02UM_S_SHINGO_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KING_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_KING_PALETTES_A[] =
 {
     { _T("King A"), 0x0046400, 0x0046420, indexKOFSprites_02King },
     { _T("A - Hidden Super Desperation Move 1"), 0x0046420, 0x0046440, indexKOFSprites_02King },
@@ -2628,7 +2628,7 @@ const sGame_PaletteDataset KOF02UM_A_KING_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00464e0, 0x0046500, indexKOFSprites_02King },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KING_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_KING_PALETTES_B[] =
 {
     { _T("King B"), 0x0046500, 0x0046520, indexKOFSprites_02King },
     { _T("B - Hidden Super Desperation Move 1"), 0x0046520, 0x0046540, indexKOFSprites_02King },
@@ -2640,7 +2640,7 @@ const sGame_PaletteDataset KOF02UM_A_KING_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00465e0, 0x0046600, indexKOFSprites_02King },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KING_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_KING_PALETTES_C[] =
 {
     { _T("King C"), 0x0046600, 0x0046620, indexKOFSprites_02King },
     { _T("C - Hidden Super Desperation Move 1"), 0x0046620, 0x0046640, indexKOFSprites_02King },
@@ -2652,7 +2652,7 @@ const sGame_PaletteDataset KOF02UM_A_KING_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00466e0, 0x0046700, indexKOFSprites_02King },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KING_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_KING_PALETTES_D[] =
 {
     { _T("King D"), 0x0046700, 0x0046720, indexKOFSprites_02King },
     { _T("D - Hidden Super Desperation Move 1"), 0x0046720, 0x0046740, indexKOFSprites_02King },
@@ -2664,15 +2664,15 @@ const sGame_PaletteDataset KOF02UM_A_KING_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00467e0, 0x0046800, indexKOFSprites_02King },
 };
 
-const sDescTreeNode KOF02UM_A_KING_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_KING_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KING_PALETTES_A, ARRAYSIZE(KOF02UM_A_KING_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KING_PALETTES_B, ARRAYSIZE(KOF02UM_A_KING_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KING_PALETTES_C, ARRAYSIZE(KOF02UM_A_KING_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KING_PALETTES_D, ARRAYSIZE(KOF02UM_A_KING_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KING_PALETTES_A, ARRAYSIZE(KOF02UM_S_KING_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KING_PALETTES_B, ARRAYSIZE(KOF02UM_S_KING_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KING_PALETTES_C, ARRAYSIZE(KOF02UM_S_KING_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KING_PALETTES_D, ARRAYSIZE(KOF02UM_S_KING_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_XIANGFEI_PALETTES_A[] =
 {
     { _T("Xiangfei A"), 0x0046c00, 0x0046c20, indexKOFSprites_01Xiangfei },
     { _T("A - Hidden Super Desperation Move 1"), 0x0046c20, 0x0046c40, indexKOFSprites_01Xiangfei },
@@ -2684,7 +2684,7 @@ const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x0046ce0, 0x0046d00, indexKOFSprites_01Xiangfei },
 };
 
-const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_XIANGFEI_PALETTES_B[] =
 {
     { _T("Xiangfei B"), 0x0046d00, 0x0046d20, indexKOFSprites_01Xiangfei },
     { _T("B - Hidden Super Desperation Move 1"), 0x0046d20, 0x0046d40, indexKOFSprites_01Xiangfei },
@@ -2696,7 +2696,7 @@ const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0046de0, 0x0046e00, indexKOFSprites_01Xiangfei },
 };
 
-const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_XIANGFEI_PALETTES_C[] =
 {
     { _T("Xiangfei C"), 0x0046e00, 0x0046e20, indexKOFSprites_01Xiangfei },
     { _T("C - Hidden Super Desperation Move 1"), 0x0046e20, 0x0046e40, indexKOFSprites_01Xiangfei },
@@ -2708,7 +2708,7 @@ const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0046ee0, 0x0046f00, indexKOFSprites_01Xiangfei },
 };
 
-const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_XIANGFEI_PALETTES_D[] =
 {
     { _T("Xiangfei D"), 0x0046f00, 0x0046f20, indexKOFSprites_01Xiangfei },
     { _T("D - Hidden Super Desperation Move 1"), 0x0046f20, 0x0046f40, indexKOFSprites_01Xiangfei },
@@ -2720,15 +2720,15 @@ const sGame_PaletteDataset KOF02UM_A_XIANGFEI_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0046fe0, 0x0047000, indexKOFSprites_01Xiangfei },
 };
 
-const sDescTreeNode KOF02UM_A_XIANGFEI_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_XIANGFEI_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_XIANGFEI_PALETTES_A, ARRAYSIZE(KOF02UM_A_XIANGFEI_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_XIANGFEI_PALETTES_B, ARRAYSIZE(KOF02UM_A_XIANGFEI_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_XIANGFEI_PALETTES_C, ARRAYSIZE(KOF02UM_A_XIANGFEI_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_XIANGFEI_PALETTES_D, ARRAYSIZE(KOF02UM_A_XIANGFEI_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_XIANGFEI_PALETTES_A, ARRAYSIZE(KOF02UM_S_XIANGFEI_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_XIANGFEI_PALETTES_B, ARRAYSIZE(KOF02UM_S_XIANGFEI_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_XIANGFEI_PALETTES_C, ARRAYSIZE(KOF02UM_S_XIANGFEI_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_XIANGFEI_PALETTES_D, ARRAYSIZE(KOF02UM_S_XIANGFEI_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_HINAKO_PALETTES_A[] =
 {
     { _T("Hinako A"), 0x0047400, 0x0047420, indexKOFSprites_02Hinako },
     { _T("A - Hidden Super Desperation Move 1"), 0x0047420, 0x0047440, indexKOFSprites_02Hinako },
@@ -2740,7 +2740,7 @@ const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00474e0, 0x0047500, indexKOFSprites_02Hinako },
 };
 
-const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_HINAKO_PALETTES_B[] =
 {
     { _T("Hinako B"), 0x0047500, 0x0047520, indexKOFSprites_02Hinako },
     { _T("B - Hidden Super Desperation Move 1"), 0x0047520, 0x0047540, indexKOFSprites_02Hinako },
@@ -2752,7 +2752,7 @@ const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00475e0, 0x0047600, indexKOFSprites_02Hinako },
 };
 
-const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_HINAKO_PALETTES_C[] =
 {
     { _T("Hinako C"), 0x0047600, 0x0047620, indexKOFSprites_02Hinako },
     { _T("C - Hidden Super Desperation Move 1"), 0x0047620, 0x0047640, indexKOFSprites_02Hinako },
@@ -2764,7 +2764,7 @@ const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00476e0, 0x0047700, indexKOFSprites_02Hinako },
 };
 
-const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_HINAKO_PALETTES_D[] =
 {
     { _T("Hinako D"), 0x0047700, 0x0047720, indexKOFSprites_02Hinako },
     { _T("D - Hidden Super Desperation Move 1"), 0x0047720, 0x0047740, indexKOFSprites_02Hinako },
@@ -2776,15 +2776,15 @@ const sGame_PaletteDataset KOF02UM_A_HINAKO_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00477e0, 0x0047800, indexKOFSprites_02Hinako },
 };
 
-const sDescTreeNode KOF02UM_A_HINAKO_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_HINAKO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_HINAKO_PALETTES_A, ARRAYSIZE(KOF02UM_A_HINAKO_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_HINAKO_PALETTES_B, ARRAYSIZE(KOF02UM_A_HINAKO_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_HINAKO_PALETTES_C, ARRAYSIZE(KOF02UM_A_HINAKO_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_HINAKO_PALETTES_D, ARRAYSIZE(KOF02UM_A_HINAKO_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_HINAKO_PALETTES_A, ARRAYSIZE(KOF02UM_S_HINAKO_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_HINAKO_PALETTES_B, ARRAYSIZE(KOF02UM_S_HINAKO_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_HINAKO_PALETTES_C, ARRAYSIZE(KOF02UM_S_HINAKO_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_HINAKO_PALETTES_D, ARRAYSIZE(KOF02UM_S_HINAKO_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_HEIDERN_PALETTES_A[] =
 {
     { _T("Heidern A"), 0x0047c00, 0x0047c20, indexKOFSprites_98Heidern },
     { _T("A - Hidden Super Desperation Move 1"), 0x0047c20, 0x0047c40, indexKOFSprites_98Heidern },
@@ -2796,7 +2796,7 @@ const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x0047ce0, 0x0047d00, indexKOFSprites_98Heidern },
 };
 
-const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_HEIDERN_PALETTES_B[] =
 {
     { _T("Heidern B"), 0x0047d00, 0x0047d20, indexKOFSprites_98Heidern },
     { _T("B - Hidden Super Desperation Move 1"), 0x0047d20, 0x0047d40, indexKOFSprites_98Heidern },
@@ -2808,7 +2808,7 @@ const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0047de0, 0x0047e00, indexKOFSprites_98Heidern },
 };
 
-const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_HEIDERN_PALETTES_C[] =
 {
     { _T("Heidern C"), 0x0047e00, 0x0047e20, indexKOFSprites_98Heidern },
     { _T("C - Hidden Super Desperation Move 1"), 0x0047e20, 0x0047e40, indexKOFSprites_98Heidern },
@@ -2820,7 +2820,7 @@ const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0047ee0, 0x0047f00, indexKOFSprites_98Heidern },
 };
 
-const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_HEIDERN_PALETTES_D[] =
 {
     { _T("Heidern D"), 0x0047f00, 0x0047f20, indexKOFSprites_98Heidern },
     { _T("D - Hidden Super Desperation Move 1"), 0x0047f20, 0x0047f40, indexKOFSprites_98Heidern },
@@ -2832,15 +2832,15 @@ const sGame_PaletteDataset KOF02UM_A_HEIDERN_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0047fe0, 0x0048000, indexKOFSprites_98Heidern },
 };
 
-const sDescTreeNode KOF02UM_A_HEIDERN_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_HEIDERN_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_HEIDERN_PALETTES_A, ARRAYSIZE(KOF02UM_A_HEIDERN_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_HEIDERN_PALETTES_B, ARRAYSIZE(KOF02UM_A_HEIDERN_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_HEIDERN_PALETTES_C, ARRAYSIZE(KOF02UM_A_HEIDERN_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_HEIDERN_PALETTES_D, ARRAYSIZE(KOF02UM_A_HEIDERN_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_HEIDERN_PALETTES_A, ARRAYSIZE(KOF02UM_S_HEIDERN_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_HEIDERN_PALETTES_B, ARRAYSIZE(KOF02UM_S_HEIDERN_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_HEIDERN_PALETTES_C, ARRAYSIZE(KOF02UM_S_HEIDERN_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_HEIDERN_PALETTES_D, ARRAYSIZE(KOF02UM_S_HEIDERN_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_LIN_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_LIN_PALETTES_A[] =
 {
     { _T("Lin A"), 0x0048400, 0x0048420, indexKOFSprites_02Lin },
     { _T("A - Hidden Super Desperation Move 1"), 0x0048420, 0x0048440, indexKOFSprites_02Lin },
@@ -2852,7 +2852,7 @@ const sGame_PaletteDataset KOF02UM_A_LIN_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00484e0, 0x0048500, indexKOFSprites_02Lin },
 };
 
-const sGame_PaletteDataset KOF02UM_A_LIN_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_LIN_PALETTES_B[] =
 {
     { _T("Lin B"), 0x0048500, 0x0048520, indexKOFSprites_02Lin },
     { _T("B - Hidden Super Desperation Move 1"), 0x0048520, 0x0048540, indexKOFSprites_02Lin },
@@ -2864,7 +2864,7 @@ const sGame_PaletteDataset KOF02UM_A_LIN_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00485e0, 0x0048600, indexKOFSprites_02Lin },
 };
 
-const sGame_PaletteDataset KOF02UM_A_LIN_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_LIN_PALETTES_C[] =
 {
     { _T("Lin C"), 0x0048600, 0x0048620, indexKOFSprites_02Lin },
     { _T("C - Hidden Super Desperation Move 1"), 0x0048620, 0x0048640, indexKOFSprites_02Lin },
@@ -2876,7 +2876,7 @@ const sGame_PaletteDataset KOF02UM_A_LIN_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00486e0, 0x0048700, indexKOFSprites_02Lin },
 };
 
-const sGame_PaletteDataset KOF02UM_A_LIN_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_LIN_PALETTES_D[] =
 {
     { _T("Lin D"), 0x0048700, 0x0048720, indexKOFSprites_02Lin },
     { _T("D - Hidden Super Desperation Move 1"), 0x0048720, 0x0048740, indexKOFSprites_02Lin },
@@ -2888,15 +2888,15 @@ const sGame_PaletteDataset KOF02UM_A_LIN_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00487e0, 0x0048800, indexKOFSprites_02Lin },
 };
 
-const sDescTreeNode KOF02UM_A_LIN_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_LIN_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_LIN_PALETTES_A, ARRAYSIZE(KOF02UM_A_LIN_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_LIN_PALETTES_B, ARRAYSIZE(KOF02UM_A_LIN_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_LIN_PALETTES_C, ARRAYSIZE(KOF02UM_A_LIN_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_LIN_PALETTES_D, ARRAYSIZE(KOF02UM_A_LIN_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_LIN_PALETTES_A, ARRAYSIZE(KOF02UM_S_LIN_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_LIN_PALETTES_B, ARRAYSIZE(KOF02UM_S_LIN_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_LIN_PALETTES_C, ARRAYSIZE(KOF02UM_S_LIN_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_LIN_PALETTES_D, ARRAYSIZE(KOF02UM_S_LIN_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_EXTAKUMA_PALETTES_A[] =
 {
     { _T("EX Takuma A"), 0x0048c00, 0x0048c20, indexKOFSprites_98Takuma },
     { _T("A - Hidden Super Desperation Move 1"), 0x0048c20, 0x0048c40, indexKOFSprites_98Takuma },
@@ -2908,7 +2908,7 @@ const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x0048ce0, 0x0048d00, indexKOFSprites_98Takuma },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_EXTAKUMA_PALETTES_B[] =
 {
     { _T("EX Takuma B"), 0x0048d00, 0x0048d20, indexKOFSprites_98Takuma },
     { _T("B - Hidden Super Desperation Move 1"), 0x0048d20, 0x0048d40, indexKOFSprites_98Takuma },
@@ -2920,7 +2920,7 @@ const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0048de0, 0x0048e00, indexKOFSprites_98Takuma },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_EXTAKUMA_PALETTES_C[] =
 {
     { _T("EX Takuma C"), 0x0048e00, 0x0048e20, indexKOFSprites_98Takuma },
     { _T("C - Hidden Super Desperation Move 1"), 0x0048e20, 0x0048e40, indexKOFSprites_98Takuma },
@@ -2932,7 +2932,7 @@ const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0048ee0, 0x0048f00, indexKOFSprites_98Takuma },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_EXTAKUMA_PALETTES_D[] =
 {
     { _T("EX Takuma D"), 0x0048f00, 0x0048f20, indexKOFSprites_98Takuma },
     { _T("D - Hidden Super Desperation Move 1"), 0x0048f20, 0x0048f40, indexKOFSprites_98Takuma },
@@ -2944,15 +2944,15 @@ const sGame_PaletteDataset KOF02UM_A_EXTAKUMA_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0048fe0, 0x0049000, indexKOFSprites_98Takuma },
 };
 
-const sDescTreeNode KOF02UM_A_EXTAKUMA_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_EXTAKUMA_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXTAKUMA_PALETTES_A, ARRAYSIZE(KOF02UM_A_EXTAKUMA_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXTAKUMA_PALETTES_B, ARRAYSIZE(KOF02UM_A_EXTAKUMA_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXTAKUMA_PALETTES_C, ARRAYSIZE(KOF02UM_A_EXTAKUMA_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXTAKUMA_PALETTES_D, ARRAYSIZE(KOF02UM_A_EXTAKUMA_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXTAKUMA_PALETTES_A, ARRAYSIZE(KOF02UM_S_EXTAKUMA_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXTAKUMA_PALETTES_B, ARRAYSIZE(KOF02UM_S_EXTAKUMA_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXTAKUMA_PALETTES_C, ARRAYSIZE(KOF02UM_S_EXTAKUMA_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXTAKUMA_PALETTES_D, ARRAYSIZE(KOF02UM_S_EXTAKUMA_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_BAO_PALETTES_A[] =
 {
     { _T("Bao A"), 0x0049400, 0x0049420, indexKOFSprites_00Bao },
     { _T("A - Hidden Super Desperation Move 1"), 0x0049420, 0x0049440, indexKOFSprites_00Bao },
@@ -2964,7 +2964,7 @@ const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00494e0, 0x0049500, indexKOFSprites_00Bao },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_BAO_PALETTES_B[] =
 {
     { _T("Bao B"), 0x0049500, 0x0049520, indexKOFSprites_00Bao },
     { _T("B - Hidden Super Desperation Move 1"), 0x0049520, 0x0049540, indexKOFSprites_00Bao },
@@ -2976,7 +2976,7 @@ const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00495e0, 0x0049600, indexKOFSprites_00Bao },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_BAO_PALETTES_C[] =
 {
     { _T("Bao C"), 0x0049600, 0x0049620, indexKOFSprites_00Bao },
     { _T("C - Hidden Super Desperation Move 1"), 0x0049620, 0x0049640, indexKOFSprites_00Bao },
@@ -2988,7 +2988,7 @@ const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00496e0, 0x0049700, indexKOFSprites_00Bao },
 };
 
-const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_BAO_PALETTES_D[] =
 {
     { _T("Bao D"), 0x0049600, 0x0049620, indexKOFSprites_00Bao },
     { _T("D - Hidden Super Desperation Move 1"), 0x0049620, 0x0049640, indexKOFSprites_00Bao },
@@ -3000,15 +3000,15 @@ const sGame_PaletteDataset KOF02UM_A_BAO_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00496e0, 0x0049700, indexKOFSprites_00Bao },
 };
 
-const sDescTreeNode KOF02UM_A_BAO_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_BAO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BAO_PALETTES_A, ARRAYSIZE(KOF02UM_A_BAO_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BAO_PALETTES_B, ARRAYSIZE(KOF02UM_A_BAO_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BAO_PALETTES_C, ARRAYSIZE(KOF02UM_A_BAO_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BAO_PALETTES_D, ARRAYSIZE(KOF02UM_A_BAO_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BAO_PALETTES_A, ARRAYSIZE(KOF02UM_S_BAO_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BAO_PALETTES_B, ARRAYSIZE(KOF02UM_S_BAO_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BAO_PALETTES_C, ARRAYSIZE(KOF02UM_S_BAO_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BAO_PALETTES_D, ARRAYSIZE(KOF02UM_S_BAO_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_JHUNHOON_PALETTES_A[] =
 {
     { _T("Jhun Hoon A"), 0x0049c00, 0x0049c20, indexKOFSprites_02Jhun },
     { _T("A - Hidden Super Desperation Move 1"), 0x0049c20, 0x0049c40, indexKOFSprites_02Jhun },
@@ -3020,7 +3020,7 @@ const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x0049ce0, 0x0049d00, indexKOFSprites_02Jhun },
 };
 
-const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_JHUNHOON_PALETTES_B[] =
 {
     { _T("Jhun Hoon B"), 0x0049d00, 0x0049d20, indexKOFSprites_02Jhun },
     { _T("B - Hidden Super Desperation Move 1"), 0x0049d20, 0x0049d40, indexKOFSprites_02Jhun },
@@ -3032,7 +3032,7 @@ const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x0049de0, 0x0049e00, indexKOFSprites_02Jhun },
 };
 
-const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_JHUNHOON_PALETTES_C[] =
 {
     { _T("Jhun Hoon C"), 0x0049e00, 0x0049e20, indexKOFSprites_02Jhun },
     { _T("C - Hidden Super Desperation Move 1"), 0x0049e20, 0x0049e40, indexKOFSprites_02Jhun },
@@ -3044,7 +3044,7 @@ const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x0049ee0, 0x0049f00, indexKOFSprites_02Jhun },
 };
 
-const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_JHUNHOON_PALETTES_D[] =
 {
     { _T("Jhun Hoon D"), 0x0049f00, 0x0049f20, indexKOFSprites_02Jhun },
     { _T("D - Hidden Super Desperation Move 1"), 0x0049f20, 0x0049f40, indexKOFSprites_02Jhun },
@@ -3056,15 +3056,15 @@ const sGame_PaletteDataset KOF02UM_A_JHUNHOON_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x0049fe0, 0x004a000, indexKOFSprites_02Jhun },
 };
 
-const sDescTreeNode KOF02UM_A_JHUNHOON_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_JHUNHOON_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_JHUNHOON_PALETTES_A, ARRAYSIZE(KOF02UM_A_JHUNHOON_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_JHUNHOON_PALETTES_B, ARRAYSIZE(KOF02UM_A_JHUNHOON_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_JHUNHOON_PALETTES_C, ARRAYSIZE(KOF02UM_A_JHUNHOON_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_JHUNHOON_PALETTES_D, ARRAYSIZE(KOF02UM_A_JHUNHOON_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_JHUNHOON_PALETTES_A, ARRAYSIZE(KOF02UM_S_JHUNHOON_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_JHUNHOON_PALETTES_B, ARRAYSIZE(KOF02UM_S_JHUNHOON_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_JHUNHOON_PALETTES_C, ARRAYSIZE(KOF02UM_S_JHUNHOON_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_JHUNHOON_PALETTES_D, ARRAYSIZE(KOF02UM_S_JHUNHOON_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO1_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_KYO1_PALETTES_A[] =
 {
     { _T("Kyo-1 A"), 0x004a400, 0x004a420, indexKOFSprites_98Kyo },
     { _T("A - Hidden Super Desperation Move 1"), 0x004a420, 0x004a440, indexKOFSprites_98Kyo },
@@ -3076,7 +3076,7 @@ const sGame_PaletteDataset KOF02UM_A_KYO1_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004a4e0, 0x004a500, indexKOFSprites_98Kyo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO1_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_KYO1_PALETTES_B[] =
 {
     { _T("Kyo-1 B"), 0x004a500, 0x004a520, indexKOFSprites_98Kyo },
     { _T("B - Hidden Super Desperation Move 1"), 0x004a520, 0x004a540, indexKOFSprites_98Kyo },
@@ -3088,7 +3088,7 @@ const sGame_PaletteDataset KOF02UM_A_KYO1_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004a5e0, 0x004a600, indexKOFSprites_98Kyo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO1_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_KYO1_PALETTES_C[] =
 {
     { _T("Kyo-1 C"), 0x004a600, 0x004a620, indexKOFSprites_98Kyo },
     { _T("C - Hidden Super Desperation Move 1"), 0x004a620, 0x004a640, indexKOFSprites_98Kyo },
@@ -3100,7 +3100,7 @@ const sGame_PaletteDataset KOF02UM_A_KYO1_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004a6e0, 0x004a700, indexKOFSprites_98Kyo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO1_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_KYO1_PALETTES_D[] =
 {
     { _T("Kyo-1 D"), 0x004a700, 0x004a720, indexKOFSprites_98Kyo },
     { _T("D - Hidden Super Desperation Move 1"), 0x004a720, 0x004a740, indexKOFSprites_98Kyo },
@@ -3112,15 +3112,15 @@ const sGame_PaletteDataset KOF02UM_A_KYO1_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004a7e0, 0x004a800, indexKOFSprites_98Kyo },
 };
 
-const sDescTreeNode KOF02UM_A_KYO1_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_KYO1_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO1_PALETTES_A, ARRAYSIZE(KOF02UM_A_KYO1_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO1_PALETTES_B, ARRAYSIZE(KOF02UM_A_KYO1_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO1_PALETTES_C, ARRAYSIZE(KOF02UM_A_KYO1_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO1_PALETTES_D, ARRAYSIZE(KOF02UM_A_KYO1_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO1_PALETTES_A, ARRAYSIZE(KOF02UM_S_KYO1_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO1_PALETTES_B, ARRAYSIZE(KOF02UM_S_KYO1_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO1_PALETTES_C, ARRAYSIZE(KOF02UM_S_KYO1_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO1_PALETTES_D, ARRAYSIZE(KOF02UM_S_KYO1_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_A[] =
 {
     { _T("Foxy A"), 0x004ac00, 0x004ac20, indexKOFSprites_02Foxy },
     { _T("A - Hidden Super Desperation Move 1"), 0x004ac20, 0x004ac40, indexKOFSprites_02Foxy },
@@ -3132,7 +3132,7 @@ const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004ace0, 0x004ad00, indexKOFSprites_02Foxy },
 };
 
-const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_B[] =
 {
     { _T("Foxy B"), 0x004ad00, 0x004ad20, indexKOFSprites_02Foxy },
     { _T("B - Hidden Super Desperation Move 1"), 0x004ad20, 0x004ad40, indexKOFSprites_02Foxy },
@@ -3144,7 +3144,7 @@ const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004ade0, 0x004ae00, indexKOFSprites_02Foxy },
 };
 
-const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_C[] =
 {
     { _T("Foxy C"), 0x004ae00, 0x004ae20, indexKOFSprites_02Foxy },
     { _T("C - Hidden Super Desperation Move 1"), 0x004ae20, 0x004ae40, indexKOFSprites_02Foxy },
@@ -3156,7 +3156,7 @@ const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004aee0, 0x004af00, indexKOFSprites_02Foxy },
 };
 
-const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_D[] =
 {
     { _T("Foxy D"), 0x004af00, 0x004af20, indexKOFSprites_02Foxy },
     { _T("D - Hidden Super Desperation Move 1"), 0x004af20, 0x004af40, indexKOFSprites_02Foxy },
@@ -3168,15 +3168,15 @@ const sGame_PaletteDataset KOF02UM_A_FOXY_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004afe0, 0x004b000, indexKOFSprites_02Foxy },
 };
 
-const sDescTreeNode KOF02UM_A_FOXY_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_FOXY_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_FOXY_PALETTES_A, ARRAYSIZE(KOF02UM_A_FOXY_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_FOXY_PALETTES_B, ARRAYSIZE(KOF02UM_A_FOXY_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_FOXY_PALETTES_C, ARRAYSIZE(KOF02UM_A_FOXY_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_FOXY_PALETTES_D, ARRAYSIZE(KOF02UM_A_FOXY_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_FOXY_PALETTES_A, ARRAYSIZE(KOF02UM_S_FOXY_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_FOXY_PALETTES_B, ARRAYSIZE(KOF02UM_S_FOXY_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_FOXY_PALETTES_C, ARRAYSIZE(KOF02UM_S_FOXY_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_FOXY_PALETTES_D, ARRAYSIZE(KOF02UM_S_FOXY_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_KASUMI_PALETTES_A[] =
 {
     { _T("Kasumi A"), 0x004b400, 0x004b420, indexKOFSprites_00Kasumi },
     { _T("A - Hidden Super Desperation Move 1"), 0x004b420, 0x004b440, indexKOFSprites_00Kasumi },
@@ -3188,7 +3188,7 @@ const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004b4e0, 0x004b500, indexKOFSprites_00Kasumi },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_KASUMI_PALETTES_B[] =
 {
     { _T("Kasumi B"), 0x004b500, 0x004b520, indexKOFSprites_00Kasumi },
     { _T("B - Hidden Super Desperation Move 1"), 0x004b520, 0x004b540, indexKOFSprites_00Kasumi },
@@ -3200,7 +3200,7 @@ const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004b5e0, 0x004b600, indexKOFSprites_00Kasumi },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_KASUMI_PALETTES_C[] =
 {
     { _T("Kasumi C"), 0x004b600, 0x004b620, indexKOFSprites_00Kasumi },
     { _T("C - Hidden Super Desperation Move 1"), 0x004b620, 0x004b640, indexKOFSprites_00Kasumi },
@@ -3212,7 +3212,7 @@ const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004b6e0, 0x004b700, indexKOFSprites_00Kasumi },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_KASUMI_PALETTES_D[] =
 {
     { _T("Kasumi D"), 0x004b700, 0x004b720, indexKOFSprites_00Kasumi },
     { _T("D - Hidden Super Desperation Move 1"), 0x004b720, 0x004b740, indexKOFSprites_00Kasumi },
@@ -3224,15 +3224,15 @@ const sGame_PaletteDataset KOF02UM_A_KASUMI_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004b7e0, 0x004b800, indexKOFSprites_00Kasumi },
 };
 
-const sDescTreeNode KOF02UM_A_KASUMI_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_KASUMI_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KASUMI_PALETTES_A, ARRAYSIZE(KOF02UM_A_KASUMI_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KASUMI_PALETTES_B, ARRAYSIZE(KOF02UM_A_KASUMI_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KASUMI_PALETTES_C, ARRAYSIZE(KOF02UM_A_KASUMI_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KASUMI_PALETTES_D, ARRAYSIZE(KOF02UM_A_KASUMI_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KASUMI_PALETTES_A, ARRAYSIZE(KOF02UM_S_KASUMI_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KASUMI_PALETTES_B, ARRAYSIZE(KOF02UM_S_KASUMI_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KASUMI_PALETTES_C, ARRAYSIZE(KOF02UM_S_KASUMI_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KASUMI_PALETTES_D, ARRAYSIZE(KOF02UM_S_KASUMI_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_GEESE_PALETTES_A[] =
 {
     { _T("Geese A"), 0x004bc00, 0x004bc20, indexKOFSprites_02Geese },
     { _T("A - Hidden Super Desperation Move 1"), 0x004bc20, 0x004bc40, indexKOFSprites_02Geese },
@@ -3244,7 +3244,7 @@ const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004bce0, 0x004bd00, indexKOFSprites_02Geese },
 };
 
-const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_GEESE_PALETTES_B[] =
 {
     { _T("Geese B"), 0x004bd00, 0x004bd20, indexKOFSprites_02Geese },
     { _T("B - Hidden Super Desperation Move 1"), 0x004bd20, 0x004bd40, indexKOFSprites_02Geese },
@@ -3256,7 +3256,7 @@ const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004bde0, 0x004be00, indexKOFSprites_02Geese },
 };
 
-const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_GEESE_PALETTES_C[] =
 {
     { _T("Geese C"), 0x004be00, 0x004be20, indexKOFSprites_02Geese },
     { _T("C - Hidden Super Desperation Move 1"), 0x004be20, 0x004be40, indexKOFSprites_02Geese },
@@ -3268,7 +3268,7 @@ const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004bee0, 0x004bf00, indexKOFSprites_02Geese },
 };
 
-const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_GEESE_PALETTES_D[] =
 {
     { _T("Geese D"), 0x004bf00, 0x004bf20, indexKOFSprites_02Geese },
     { _T("D - Hidden Super Desperation Move 1"), 0x004bf20, 0x004bf40, indexKOFSprites_02Geese },
@@ -3280,15 +3280,15 @@ const sGame_PaletteDataset KOF02UM_A_GEESE_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004bfe0, 0x004c000, indexKOFSprites_02Geese },
 };
 
-const sDescTreeNode KOF02UM_A_GEESE_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_GEESE_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_GEESE_PALETTES_A, ARRAYSIZE(KOF02UM_A_GEESE_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_GEESE_PALETTES_B, ARRAYSIZE(KOF02UM_A_GEESE_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_GEESE_PALETTES_C, ARRAYSIZE(KOF02UM_A_GEESE_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_GEESE_PALETTES_D, ARRAYSIZE(KOF02UM_A_GEESE_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_GEESE_PALETTES_A, ARRAYSIZE(KOF02UM_S_GEESE_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_GEESE_PALETTES_B, ARRAYSIZE(KOF02UM_S_GEESE_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_GEESE_PALETTES_C, ARRAYSIZE(KOF02UM_S_GEESE_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_GEESE_PALETTES_D, ARRAYSIZE(KOF02UM_S_GEESE_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_NIGHTMAREGEESE_PALETTES_A[] =
 {
     { _T("Nightmare Geese A"), 0x004c400, 0x004c420, indexKOFSprites_02Geese },
     { _T("A - Hidden Super Desperation Move 1"), 0x004c420, 0x004c440, indexKOFSprites_02Geese },
@@ -3300,7 +3300,7 @@ const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004c4e0, 0x004c500, indexKOFSprites_02Geese },
 };
 
-const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_NIGHTMAREGEESE_PALETTES_B[] =
 {
     { _T("Nightmare Geese B"), 0x004c500, 0x004c520, indexKOFSprites_02Geese },
     { _T("B - Hidden Super Desperation Move 1"), 0x004c520, 0x004c540, indexKOFSprites_02Geese },
@@ -3312,7 +3312,7 @@ const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004c5e0, 0x004c600, indexKOFSprites_02Geese },
 };
 
-const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_NIGHTMAREGEESE_PALETTES_C[] =
 {
     { _T("Nightmare Geese C"), 0x004c600, 0x004c620, indexKOFSprites_02Geese },
     { _T("C - Hidden Super Desperation Move 1"), 0x004c620, 0x004c640, indexKOFSprites_02Geese },
@@ -3324,7 +3324,7 @@ const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004c6e0, 0x004c700, indexKOFSprites_02Geese },
 };
 
-const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_NIGHTMAREGEESE_PALETTES_D[] =
 {
     { _T("Nightmare Geese D"), 0x004c700, 0x004c720, indexKOFSprites_02Geese },
     { _T("D - Hidden Super Desperation Move 1"), 0x004c720, 0x004c740, indexKOFSprites_02Geese },
@@ -3336,15 +3336,15 @@ const sGame_PaletteDataset KOF02UM_A_NIGHTMAREGEESE_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004c7e0, 0x004c800, indexKOFSprites_02Geese },
 };
 
-const sDescTreeNode KOF02UM_A_NIGHTMAREGEESE_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_NIGHTMAREGEESE_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_NIGHTMAREGEESE_PALETTES_A, ARRAYSIZE(KOF02UM_A_NIGHTMAREGEESE_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_NIGHTMAREGEESE_PALETTES_B, ARRAYSIZE(KOF02UM_A_NIGHTMAREGEESE_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_NIGHTMAREGEESE_PALETTES_C, ARRAYSIZE(KOF02UM_A_NIGHTMAREGEESE_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_NIGHTMAREGEESE_PALETTES_D, ARRAYSIZE(KOF02UM_A_NIGHTMAREGEESE_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_NIGHTMAREGEESE_PALETTES_A, ARRAYSIZE(KOF02UM_S_NIGHTMAREGEESE_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_NIGHTMAREGEESE_PALETTES_B, ARRAYSIZE(KOF02UM_S_NIGHTMAREGEESE_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_NIGHTMAREGEESE_PALETTES_C, ARRAYSIZE(KOF02UM_S_NIGHTMAREGEESE_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_NIGHTMAREGEESE_PALETTES_D, ARRAYSIZE(KOF02UM_S_NIGHTMAREGEESE_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_A[] =
 {
     { _T("EX Robert A"), 0x004cc00, 0x004cc20, indexKOFSprites_00Robert },
     { _T("A - Hidden Super Desperation Move 1"), 0x004cc20, 0x004cc40, indexKOFSprites_00Robert },
@@ -3356,7 +3356,7 @@ const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004cce0, 0x004cd00, indexKOFSprites_00Robert },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_B[] =
 {
     { _T("EX Robert B"), 0x004cd00, 0x004cd20, indexKOFSprites_00Robert },
     { _T("B - Hidden Super Desperation Move 1"), 0x004cd20, 0x004cd40, indexKOFSprites_00Robert },
@@ -3368,7 +3368,7 @@ const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004cde0, 0x004ce00, indexKOFSprites_00Robert },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_C[] =
 {
     { _T("EX Robert C"), 0x004ce00, 0x004ce20, indexKOFSprites_00Robert },
     { _T("C - Hidden Super Desperation Move 1"), 0x004ce20, 0x004ce40, indexKOFSprites_00Robert },
@@ -3380,7 +3380,7 @@ const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004cee0, 0x004cf00, indexKOFSprites_00Robert },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_D[] =
 {
     { _T("EX Robert D"), 0x004cf00, 0x004cf20, indexKOFSprites_00Robert },
     { _T("D - Hidden Super Desperation Move 1"), 0x004cf20, 0x004cf40, indexKOFSprites_00Robert },
@@ -3392,15 +3392,15 @@ const sGame_PaletteDataset KOF02UM_A_EXROBERT_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004cfe0, 0x004d000, indexKOFSprites_00Robert },
 };
 
-const sDescTreeNode KOF02UM_A_EXROBERT_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_EXROBERT_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXROBERT_PALETTES_A, ARRAYSIZE(KOF02UM_A_EXROBERT_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXROBERT_PALETTES_B, ARRAYSIZE(KOF02UM_A_EXROBERT_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXROBERT_PALETTES_C, ARRAYSIZE(KOF02UM_A_EXROBERT_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXROBERT_PALETTES_D, ARRAYSIZE(KOF02UM_A_EXROBERT_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXROBERT_PALETTES_A, ARRAYSIZE(KOF02UM_S_EXROBERT_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXROBERT_PALETTES_B, ARRAYSIZE(KOF02UM_S_EXROBERT_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXROBERT_PALETTES_C, ARRAYSIZE(KOF02UM_S_EXROBERT_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXROBERT_PALETTES_D, ARRAYSIZE(KOF02UM_S_EXROBERT_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXKENSOU_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_EXKENSOU_PALETTES_A[] =
 {
     { _T("EX Kensou A"), 0x004d400, 0x004d420, indexKOFSprites_98Kensou },
     { _T("A - Hidden Super Desperation Move 1"), 0x004d420, 0x004d440, indexKOFSprites_98Kensou },
@@ -3412,7 +3412,7 @@ const sGame_PaletteDataset KOF02UM_A_EXKENSOU_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004d4e0, 0x004d500, indexKOFSprites_98Kensou },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXKENSOU_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_EXKENSOU_PALETTES_B[] =
 {
     { _T("EX Kensou B"), 0x004d500, 0x004d520, indexKOFSprites_98Kensou },
     { _T("B - Hidden Super Desperation Move 1"), 0x004d520, 0x004d540, indexKOFSprites_98Kensou },
@@ -3424,7 +3424,7 @@ const sGame_PaletteDataset KOF02UM_A_EXKENSOU_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004d5e0, 0x004d600, indexKOFSprites_98Kensou },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXKENSOU_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_EXKENSOU_PALETTES_C[] =
 {
     { _T("EX Kensou C"), 0x004d600, 0x004d620, indexKOFSprites_98Kensou },
     { _T("C - Hidden Super Desperation Move 1"), 0x004d620, 0x004d640, indexKOFSprites_98Kensou },
@@ -3436,7 +3436,7 @@ const sGame_PaletteDataset KOF02UM_A_EXKENSOU_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004d6e0, 0x004d700, indexKOFSprites_98Kensou },
 };
 
-const sGame_PaletteDataset KOF02UM_A_EXKENSOU_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_EXKENSOU_PALETTES_D[] =
 {
     { _T("EX Kensou D"), 0x004d700, 0x004d720, indexKOFSprites_98Kensou },
     { _T("D - Hidden Super Desperation Move 1"), 0x004d720, 0x004d740, indexKOFSprites_98Kensou },
@@ -3448,15 +3448,15 @@ const sGame_PaletteDataset KOF02UM_A_EXKENSOU_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004d7e0, 0x004d800, indexKOFSprites_98Kensou },
 };
 
-const sDescTreeNode KOF02UM_A_EXKENSOU_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_EXKENSOU_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXKENSOU_PALETTES_A, ARRAYSIZE(KOF02UM_A_EXKENSOU_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXKENSOU_PALETTES_B, ARRAYSIZE(KOF02UM_A_EXKENSOU_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXKENSOU_PALETTES_C, ARRAYSIZE(KOF02UM_A_EXKENSOU_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXKENSOU_PALETTES_D, ARRAYSIZE(KOF02UM_A_EXKENSOU_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXKENSOU_PALETTES_A, ARRAYSIZE(KOF02UM_S_EXKENSOU_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXKENSOU_PALETTES_B, ARRAYSIZE(KOF02UM_S_EXKENSOU_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXKENSOU_PALETTES_C, ARRAYSIZE(KOF02UM_S_EXKENSOU_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXKENSOU_PALETTES_D, ARRAYSIZE(KOF02UM_S_EXKENSOU_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO2_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_KYO2_PALETTES_A[] =
 {
     { _T("Kyo-2 A"), 0x004dc00, 0x004dc20, indexKOFSprites_98Kyo },
     { _T("A - Hidden Super Desperation Move 1"), 0x004dc20, 0x004dc40, indexKOFSprites_98Kyo },
@@ -3468,7 +3468,7 @@ const sGame_PaletteDataset KOF02UM_A_KYO2_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004dce0, 0x004dd00, indexKOFSprites_98Kyo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO2_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_KYO2_PALETTES_B[] =
 {
     { _T("Kyo-2 B"), 0x004dd00, 0x004dd20, indexKOFSprites_98Kyo },
     { _T("B - Hidden Super Desperation Move 1"), 0x004dd20, 0x004dd40, indexKOFSprites_98Kyo },
@@ -3480,7 +3480,7 @@ const sGame_PaletteDataset KOF02UM_A_KYO2_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004dde0, 0x004de00, indexKOFSprites_98Kyo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO2_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_KYO2_PALETTES_C[] =
 {
     { _T("Kyo-2 C"), 0x004de00, 0x004de20, indexKOFSprites_98Kyo },
     { _T("C - Hidden Super Desperation Move 1"), 0x004de20, 0x004de40, indexKOFSprites_98Kyo },
@@ -3492,7 +3492,7 @@ const sGame_PaletteDataset KOF02UM_A_KYO2_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004dee0, 0x004df00, indexKOFSprites_98Kyo },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KYO2_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_KYO2_PALETTES_D[] =
 {
     { _T("Kyo-2 D"), 0x004df00, 0x004df20, indexKOFSprites_98Kyo },
     { _T("D - Hidden Super Desperation Move 1"), 0x004df20, 0x004df40, indexKOFSprites_98Kyo },
@@ -3504,15 +3504,15 @@ const sGame_PaletteDataset KOF02UM_A_KYO2_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004dfe0, 0x004e000, indexKOFSprites_98Kyo },
 };
 
-const sDescTreeNode KOF02UM_A_KYO2_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_KYO2_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO2_PALETTES_A, ARRAYSIZE(KOF02UM_A_KYO2_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO2_PALETTES_B, ARRAYSIZE(KOF02UM_A_KYO2_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO2_PALETTES_C, ARRAYSIZE(KOF02UM_A_KYO2_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO2_PALETTES_D, ARRAYSIZE(KOF02UM_A_KYO2_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO2_PALETTES_A, ARRAYSIZE(KOF02UM_S_KYO2_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO2_PALETTES_B, ARRAYSIZE(KOF02UM_S_KYO2_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO2_PALETTES_C, ARRAYSIZE(KOF02UM_S_KYO2_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO2_PALETTES_D, ARRAYSIZE(KOF02UM_S_KYO2_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_GOENITZ_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_A[] =
 {
     { _T("Goenitz A"), 0x004e400, 0x004e420, indexKOFSprites_02Goenitz },
     { _T("A - Hidden Super Desperation Move 1"), 0x004e420, 0x004e440, indexKOFSprites_02Goenitz },
@@ -3524,7 +3524,7 @@ const sGame_PaletteDataset KOF02UM_A_GOENITZ_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004e4e0, 0x004e500, indexKOFSprites_02Goenitz },
 };
 
-const sGame_PaletteDataset KOF02UM_A_GOENITZ_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_B[] =
 {
     { _T("Goenitz B"), 0x004e500, 0x004e520, indexKOFSprites_02Goenitz },
     { _T("B - Hidden Super Desperation Move 1"), 0x004e520, 0x004e540, indexKOFSprites_02Goenitz },
@@ -3536,7 +3536,7 @@ const sGame_PaletteDataset KOF02UM_A_GOENITZ_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004e5e0, 0x004e600, indexKOFSprites_02Goenitz },
 };
 
-const sGame_PaletteDataset KOF02UM_A_GOENITZ_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_C[] =
 {
     { _T("Goenitz C"), 0x004e600, 0x004e620, indexKOFSprites_02Goenitz },
     { _T("C - Hidden Super Desperation Move 1"), 0x004e620, 0x004e640, indexKOFSprites_02Goenitz },
@@ -3548,7 +3548,7 @@ const sGame_PaletteDataset KOF02UM_A_GOENITZ_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004e6e0, 0x004e700, indexKOFSprites_02Goenitz },
 };
 
-const sGame_PaletteDataset KOF02UM_A_GOENITZ_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_D[] =
 {
     { _T("Goenitz D"), 0x004e700, 0x004e720, indexKOFSprites_02Goenitz },
     { _T("D - Hidden Super Desperation Move 1"), 0x004e720, 0x004e740, indexKOFSprites_02Goenitz },
@@ -3560,15 +3560,15 @@ const sGame_PaletteDataset KOF02UM_A_GOENITZ_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004e7e0, 0x004e800, indexKOFSprites_02Goenitz },
 };
 
-const sDescTreeNode KOF02UM_A_GOENITZ_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_GOENITZ_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_GOENITZ_PALETTES_A, ARRAYSIZE(KOF02UM_A_GOENITZ_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_GOENITZ_PALETTES_B, ARRAYSIZE(KOF02UM_A_GOENITZ_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_GOENITZ_PALETTES_C, ARRAYSIZE(KOF02UM_A_GOENITZ_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_GOENITZ_PALETTES_D, ARRAYSIZE(KOF02UM_A_GOENITZ_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_GOENITZ_PALETTES_A, ARRAYSIZE(KOF02UM_S_GOENITZ_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_GOENITZ_PALETTES_B, ARRAYSIZE(KOF02UM_S_GOENITZ_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_GOENITZ_PALETTES_C, ARRAYSIZE(KOF02UM_S_GOENITZ_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_GOENITZ_PALETTES_D, ARRAYSIZE(KOF02UM_S_GOENITZ_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_KRIZALID_PALETTES_A[] =
 {
     { _T("Krizalid A"), 0x004ec00, 0x004ec20, indexKOFSprites_99Krizalid },
     { _T("A - Hidden Super Desperation Move 1"), 0x004ec20, 0x004ec40, indexKOFSprites_99Krizalid },
@@ -3580,7 +3580,7 @@ const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004ece0, 0x004ed00, indexKOFSprites_99Krizalid },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_KRIZALID_PALETTES_B[] =
 {
     { _T("Krizalid B"), 0x004ed00, 0x004ed20, indexKOFSprites_99Krizalid },
     { _T("B - Hidden Super Desperation Move 1"), 0x004ed20, 0x004ed40, indexKOFSprites_99Krizalid },
@@ -3592,7 +3592,7 @@ const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004ede0, 0x004ee00, indexKOFSprites_99Krizalid },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_KRIZALID_PALETTES_C[] =
 {
     { _T("Krizalid C"), 0x004ee00, 0x004ee20, indexKOFSprites_99Krizalid },
     { _T("C - Hidden Super Desperation Move 1"), 0x004ee20, 0x004ee40, indexKOFSprites_99Krizalid },
@@ -3604,7 +3604,7 @@ const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004eee0, 0x004ef00, indexKOFSprites_99Krizalid },
 };
 
-const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_KRIZALID_PALETTES_D[] =
 {
     { _T("Krizalid D"), 0x004ef00, 0x004ef20, indexKOFSprites_99Krizalid },
     { _T("D - Hidden Super Desperation Move 1"), 0x004ef20, 0x004ef40, indexKOFSprites_99Krizalid },
@@ -3616,15 +3616,15 @@ const sGame_PaletteDataset KOF02UM_A_KRIZALID_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004efe0, 0x004f000, indexKOFSprites_99Krizalid },
 };
 
-const sDescTreeNode KOF02UM_A_KRIZALID_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_KRIZALID_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KRIZALID_PALETTES_A, ARRAYSIZE(KOF02UM_A_KRIZALID_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KRIZALID_PALETTES_B, ARRAYSIZE(KOF02UM_A_KRIZALID_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KRIZALID_PALETTES_C, ARRAYSIZE(KOF02UM_A_KRIZALID_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KRIZALID_PALETTES_D, ARRAYSIZE(KOF02UM_A_KRIZALID_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KRIZALID_PALETTES_A, ARRAYSIZE(KOF02UM_S_KRIZALID_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KRIZALID_PALETTES_B, ARRAYSIZE(KOF02UM_S_KRIZALID_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KRIZALID_PALETTES_C, ARRAYSIZE(KOF02UM_S_KRIZALID_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KRIZALID_PALETTES_D, ARRAYSIZE(KOF02UM_S_KRIZALID_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_CLONEZERO_PALETTES_A[] =
 {
     { _T("Clone Zero A"), 0x004f400, 0x004f420, indexKOFSprites_00ZeroClone },
     { _T("A - Hidden Super Desperation Move 1"), 0x004f420, 0x004f440, indexKOFSprites_00ZeroClone },
@@ -3636,7 +3636,7 @@ const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004f4e0, 0x004f500, indexKOFSprites_00ZeroClone },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_CLONEZERO_PALETTES_B[] =
 {
     { _T("Clone Zero B"), 0x004f500, 0x004f520, indexKOFSprites_00ZeroClone },
     { _T("B - Hidden Super Desperation Move 1"), 0x004f520, 0x004f540, indexKOFSprites_00ZeroClone },
@@ -3648,7 +3648,7 @@ const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004f5e0, 0x004f600, indexKOFSprites_00ZeroClone },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_CLONEZERO_PALETTES_C[] =
 {
     { _T("Clone Zero C"), 0x004f600, 0x004f620, indexKOFSprites_00ZeroClone },
     { _T("C - Hidden Super Desperation Move 1"), 0x004f620, 0x004f640, indexKOFSprites_00ZeroClone },
@@ -3660,7 +3660,7 @@ const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004f6e0, 0x004f700, indexKOFSprites_00ZeroClone },
 };
 
-const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_CLONEZERO_PALETTES_D[] =
 {
     { _T("Clone Zero D"), 0x004f700, 0x004f720, indexKOFSprites_00ZeroClone },
     { _T("D - Hidden Super Desperation Move 1"), 0x004f720, 0x004f740, indexKOFSprites_00ZeroClone },
@@ -3672,15 +3672,15 @@ const sGame_PaletteDataset KOF02UM_A_CLONEZERO_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004f7e0, 0x004f800, indexKOFSprites_00ZeroClone },
 };
 
-const sDescTreeNode KOF02UM_A_CLONEZERO_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_CLONEZERO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLONEZERO_PALETTES_A, ARRAYSIZE(KOF02UM_A_CLONEZERO_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLONEZERO_PALETTES_B, ARRAYSIZE(KOF02UM_A_CLONEZERO_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLONEZERO_PALETTES_C, ARRAYSIZE(KOF02UM_A_CLONEZERO_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLONEZERO_PALETTES_D, ARRAYSIZE(KOF02UM_A_CLONEZERO_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLONEZERO_PALETTES_A, ARRAYSIZE(KOF02UM_S_CLONEZERO_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLONEZERO_PALETTES_B, ARRAYSIZE(KOF02UM_S_CLONEZERO_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLONEZERO_PALETTES_C, ARRAYSIZE(KOF02UM_S_CLONEZERO_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLONEZERO_PALETTES_D, ARRAYSIZE(KOF02UM_S_CLONEZERO_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_ORIGINALZERO_PALETTES_A[] =
 {
     { _T("Original Zero A"), 0x004fc00, 0x004fc20, indexKOFSprites_02OZero },
     { _T("A - Hidden Super Desperation Move 1"), 0x004fc20, 0x004fc40, indexKOFSprites_02OZero },
@@ -3692,7 +3692,7 @@ const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x004fce0, 0x004fd00, indexKOFSprites_02OZero },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_ORIGINALZERO_PALETTES_B[] =
 {
     { _T("Original Zero B"), 0x004fc00, 0x004fc20, indexKOFSprites_02OZero },
     { _T("B - Hidden Super Desperation Move 1"), 0x004fc20, 0x004fc40, indexKOFSprites_02OZero },
@@ -3704,7 +3704,7 @@ const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x004fce0, 0x004fd00, indexKOFSprites_02OZero },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_ORIGINALZERO_PALETTES_C[] =
 {
     { _T("Original Zero C"), 0x004fc00, 0x004fc20, indexKOFSprites_02OZero },
     { _T("C - Hidden Super Desperation Move 1"), 0x004fc20, 0x004fc40, indexKOFSprites_02OZero },
@@ -3716,7 +3716,7 @@ const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x004fce0, 0x004fd00, indexKOFSprites_02OZero },
 };
 
-const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_ORIGINALZERO_PALETTES_D[] =
 {
     { _T("Original Zero D"), 0x004fc00, 0x004fc20, indexKOFSprites_02OZero },
     { _T("D - Hidden Super Desperation Move 1"), 0x004fc20, 0x004fc40, indexKOFSprites_02OZero },
@@ -3728,15 +3728,15 @@ const sGame_PaletteDataset KOF02UM_A_ORIGINALZERO_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x004fce0, 0x004fd00, indexKOFSprites_02OZero },
 };
 
-const sDescTreeNode KOF02UM_A_ORIGINALZERO_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_ORIGINALZERO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ORIGINALZERO_PALETTES_A, ARRAYSIZE(KOF02UM_A_ORIGINALZERO_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ORIGINALZERO_PALETTES_B, ARRAYSIZE(KOF02UM_A_ORIGINALZERO_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ORIGINALZERO_PALETTES_C, ARRAYSIZE(KOF02UM_A_ORIGINALZERO_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ORIGINALZERO_PALETTES_D, ARRAYSIZE(KOF02UM_A_ORIGINALZERO_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ORIGINALZERO_PALETTES_A, ARRAYSIZE(KOF02UM_S_ORIGINALZERO_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ORIGINALZERO_PALETTES_B, ARRAYSIZE(KOF02UM_S_ORIGINALZERO_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ORIGINALZERO_PALETTES_C, ARRAYSIZE(KOF02UM_S_ORIGINALZERO_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ORIGINALZERO_PALETTES_D, ARRAYSIZE(KOF02UM_S_ORIGINALZERO_PALETTES_D) },
 };
 
-const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_A[] =
+const sGame_PaletteDataset KOF02UM_S_IGNIZ_PALETTES_A[] =
 {
     { _T("Igniz A"), 0x0050400, 0x0050420, indexKOFSprites_02Igniz },
     { _T("A - Hidden Super Desperation Move 1"), 0x0050420, 0x0050440, indexKOFSprites_02Igniz },
@@ -3748,7 +3748,7 @@ const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_A[] =
     { _T("A - Hidden Super Desperation Move 3"), 0x00504e0, 0x0050500, indexKOFSprites_02Igniz },
 };
 
-const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_B[] =
+const sGame_PaletteDataset KOF02UM_S_IGNIZ_PALETTES_B[] =
 {
     { _T("Igniz B"), 0x0050400, 0x0050420, indexKOFSprites_02Igniz },
     { _T("B - Hidden Super Desperation Move 1"), 0x0050420, 0x0050440, indexKOFSprites_02Igniz },
@@ -3760,7 +3760,7 @@ const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_B[] =
     { _T("B - Hidden Super Desperation Move 3"), 0x00504e0, 0x0050500, indexKOFSprites_02Igniz },
 };
 
-const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_C[] =
+const sGame_PaletteDataset KOF02UM_S_IGNIZ_PALETTES_C[] =
 {
     { _T("Igniz C"), 0x0050400, 0x0050420, indexKOFSprites_02Igniz },
     { _T("C - Hidden Super Desperation Move 1"), 0x0050420, 0x0050440, indexKOFSprites_02Igniz },
@@ -3772,7 +3772,7 @@ const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_C[] =
     { _T("C - Hidden Super Desperation Move 3"), 0x00504e0, 0x0050500, indexKOFSprites_02Igniz },
 };
 
-const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_D[] =
+const sGame_PaletteDataset KOF02UM_S_IGNIZ_PALETTES_D[] =
 {
     { _T("Igniz D"), 0x0050400, 0x0050420, indexKOFSprites_02Igniz },
     { _T("D - Hidden Super Desperation Move 1"), 0x0050420, 0x0050440, indexKOFSprites_02Igniz },
@@ -3784,158 +3784,158 @@ const sGame_PaletteDataset KOF02UM_A_IGNIZ_PALETTES_D[] =
     { _T("D - Hidden Super Desperation Move 3"), 0x00504e0, 0x0050500, indexKOFSprites_02Igniz },
 };
 
-const sDescTreeNode KOF02UM_A_IGNIZ_COLLECTION[] =
+const sDescTreeNode KOF02UM_S_IGNIZ_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_IGNIZ_PALETTES_A, ARRAYSIZE(KOF02UM_A_IGNIZ_PALETTES_A) },
-    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_IGNIZ_PALETTES_B, ARRAYSIZE(KOF02UM_A_IGNIZ_PALETTES_B) },
-    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_IGNIZ_PALETTES_C, ARRAYSIZE(KOF02UM_A_IGNIZ_PALETTES_C) },
-    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_IGNIZ_PALETTES_D, ARRAYSIZE(KOF02UM_A_IGNIZ_PALETTES_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_IGNIZ_PALETTES_A, ARRAYSIZE(KOF02UM_S_IGNIZ_PALETTES_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_IGNIZ_PALETTES_B, ARRAYSIZE(KOF02UM_S_IGNIZ_PALETTES_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_IGNIZ_PALETTES_C, ARRAYSIZE(KOF02UM_S_IGNIZ_PALETTES_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_IGNIZ_PALETTES_D, ARRAYSIZE(KOF02UM_S_IGNIZ_PALETTES_D) },
 };
 
-const UINT8 KOF02UM_A_UNITSORT[KOF02UM_A_NUMUNIT + 1] // Plus 1 for extras
+const UINT8 KOF02UM_S_UNITSORT[KOF02UM_S_NUMUNIT + 1] // Plus 1 for extras
 {
-    indexKOF02UM_A_Andy,
-    indexKOF02UM_A_Angel,
-    indexKOF02UM_A_Athena,
-    indexKOF02UM_A_Bao,
-    indexKOF02UM_A_Benimaru,
-    indexKOF02UM_A_Billy,
-    indexKOF02UM_A_BlueMary,
-    indexKOF02UM_A_Chang,
-    indexKOF02UM_A_Chin,
-    indexKOF02UM_A_Choi,
-    indexKOF02UM_A_Chris,
-    indexKOF02UM_A_Clark,
-    indexKOF02UM_A_CloneZero,
-    indexKOF02UM_A_Daimon,
-    indexKOF02UM_A_EXKensou,
-    indexKOF02UM_A_EXRobert,
-    indexKOF02UM_A_EXTakuma,
-    indexKOF02UM_A_Foxy,
-    indexKOF02UM_A_Geese,
-    indexKOF02UM_A_Goenitz,
-    indexKOF02UM_A_Heidern,
-    indexKOF02UM_A_Hinako,
-    indexKOF02UM_A_Igniz,
-    indexKOF02UM_A_Iori,
-    indexKOF02UM_A_Jhun,
-    indexKOF02UM_A_Joe,
-    indexKOF02UM_A_K,
-    indexKOF02UM_A_Kasumi,
-    indexKOF02UM_A_Kensou,
-    indexKOF02UM_A_Kim,
-    indexKOF02UM_A_King,
-    indexKOF02UM_A_Krizalid,
-    indexKOF02UM_A_Kula,
-    indexKOF02UM_A_Kusanagi,
-    indexKOF02UM_A_Kyo,
-    indexKOF02UM_A_Kyo1,
-    indexKOF02UM_A_Kyo2,
-    indexKOF02UM_A_Leona,
-    indexKOF02UM_A_Lin,
-    indexKOF02UM_A_Mai,
-    indexKOF02UM_A_Mature,
-    indexKOF02UM_A_Maxima,
-    indexKOF02UM_A_MayLee,
-    indexKOF02UM_A_Nameless,
-    indexKOF02UM_A_NGeese,
-    indexKOF02UM_A_OChris,
-    indexKOF02UM_A_OShermie,
-    indexKOF02UM_A_OYashiro,
-    indexKOF02UM_A_OmegaRugal,
-    indexKOF02UM_A_OZero,
-    indexKOF02UM_A_Ralf,
-    indexKOF02UM_A_Ramon,
-    indexKOF02UM_A_Robert,
-    indexKOF02UM_A_Ryo,
-    indexKOF02UM_A_Seth,
-    indexKOF02UM_A_Shermie,
-    indexKOF02UM_A_Shingo,
-    indexKOF02UM_A_Takuma,
-    indexKOF02UM_A_Terry,
-    indexKOF02UM_A_Vanessa,
-    indexKOF02UM_A_Vice,
-    indexKOF02UM_A_Whip,
-    indexKOF02UM_A_Xiangfei,
-    indexKOF02UM_A_Yamazaki,
-    indexKOF02UM_A_Yashiro,
-    indexKOF02UM_A_Yuri,
+    indexKOF02UM_S_Andy,
+    indexKOF02UM_S_Angel,
+    indexKOF02UM_S_Athena,
+    indexKOF02UM_S_Bao,
+    indexKOF02UM_S_Benimaru,
+    indexKOF02UM_S_Billy,
+    indexKOF02UM_S_BlueMary,
+    indexKOF02UM_S_Chang,
+    indexKOF02UM_S_Chin,
+    indexKOF02UM_S_Choi,
+    indexKOF02UM_S_Chris,
+    indexKOF02UM_S_Clark,
+    indexKOF02UM_S_CloneZero,
+    indexKOF02UM_S_Daimon,
+    indexKOF02UM_S_EXKensou,
+    indexKOF02UM_S_EXRobert,
+    indexKOF02UM_S_EXTakuma,
+    indexKOF02UM_S_Foxy,
+    indexKOF02UM_S_Geese,
+    indexKOF02UM_S_Goenitz,
+    indexKOF02UM_S_Heidern,
+    indexKOF02UM_S_Hinako,
+    indexKOF02UM_S_Igniz,
+    indexKOF02UM_S_Iori,
+    indexKOF02UM_S_Jhun,
+    indexKOF02UM_S_Joe,
+    indexKOF02UM_S_K,
+    indexKOF02UM_S_Kasumi,
+    indexKOF02UM_S_Kensou,
+    indexKOF02UM_S_Kim,
+    indexKOF02UM_S_King,
+    indexKOF02UM_S_Krizalid,
+    indexKOF02UM_S_Kula,
+    indexKOF02UM_S_Kusanagi,
+    indexKOF02UM_S_Kyo,
+    indexKOF02UM_S_Kyo1,
+    indexKOF02UM_S_Kyo2,
+    indexKOF02UM_S_Leona,
+    indexKOF02UM_S_Lin,
+    indexKOF02UM_S_Mai,
+    indexKOF02UM_S_Mature,
+    indexKOF02UM_S_Maxima,
+    indexKOF02UM_S_MayLee,
+    indexKOF02UM_S_Nameless,
+    indexKOF02UM_S_NGeese,
+    indexKOF02UM_S_OChris,
+    indexKOF02UM_S_OShermie,
+    indexKOF02UM_S_OYashiro,
+    indexKOF02UM_S_OmegaRugal,
+    indexKOF02UM_S_OZero,
+    indexKOF02UM_S_Ralf,
+    indexKOF02UM_S_Ramon,
+    indexKOF02UM_S_Robert,
+    indexKOF02UM_S_Ryo,
+    indexKOF02UM_S_Seth,
+    indexKOF02UM_S_Shermie,
+    indexKOF02UM_S_Shingo,
+    indexKOF02UM_S_Takuma,
+    indexKOF02UM_S_Terry,
+    indexKOF02UM_S_Vanessa,
+    indexKOF02UM_S_Vice,
+    indexKOF02UM_S_Whip,
+    indexKOF02UM_S_Xiangfei,
+    indexKOF02UM_S_Yamazaki,
+    indexKOF02UM_S_Yashiro,
+    indexKOF02UM_S_Yuri,
 
-    KOF02UM_A_EXTRALOC
+    KOF02UM_S_EXTRALOC
 };
 
-const sDescTreeNode KOF02UM_A_UNITS[KOF02UM_A_NUMUNIT] =
+const sDescTreeNode KOF02UM_S_UNITS[KOF02UM_S_NUMUNIT] =
 {
-    { _T("Andy"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANDY_COLLECTION, ARRAYSIZE(KOF02UM_A_ANDY_COLLECTION) },
-    { _T("Angel"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ANGEL_COLLECTION, ARRAYSIZE(KOF02UM_A_ANGEL_COLLECTION) },
-    { _T("Athena"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ATHENA_COLLECTION, ARRAYSIZE(KOF02UM_A_ATHENA_COLLECTION) },
-    { _T("Bao"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BAO_COLLECTION, ARRAYSIZE(KOF02UM_A_BAO_COLLECTION) },
-    { _T("Benimaru"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BENIMARU_COLLECTION, ARRAYSIZE(KOF02UM_A_BENIMARU_COLLECTION) },
-    { _T("Billy"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BILLY_COLLECTION, ARRAYSIZE(KOF02UM_A_BILLY_COLLECTION) },
-    { _T("Blue Mary"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_BLUEMARY_COLLECTION, ARRAYSIZE(KOF02UM_A_BLUEMARY_COLLECTION) },
-    { _T("Chang"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHANG_COLLECTION, ARRAYSIZE(KOF02UM_A_CHANG_COLLECTION) },
-    { _T("Chin"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHIN_COLLECTION, ARRAYSIZE(KOF02UM_A_CHIN_COLLECTION) },
-    { _T("Choi"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHOI_COLLECTION, ARRAYSIZE(KOF02UM_A_CHOI_COLLECTION) },
-    { _T("Chris"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CHRIS_COLLECTION, ARRAYSIZE(KOF02UM_A_CHRIS_COLLECTION) },
-    { _T("Clark"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLARK_COLLECTION, ARRAYSIZE(KOF02UM_A_CLARK_COLLECTION) },
-    { _T("Clone Zero"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_CLONEZERO_COLLECTION, ARRAYSIZE(KOF02UM_A_CLONEZERO_COLLECTION) },
-    { _T("Daimon"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_DAIMON_COLLECTION, ARRAYSIZE(KOF02UM_A_DAIMON_COLLECTION) },
-    { _T("EX Kensou"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXKENSOU_COLLECTION, ARRAYSIZE(KOF02UM_A_EXKENSOU_COLLECTION) },
-    { _T("EX Robert"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXROBERT_COLLECTION, ARRAYSIZE(KOF02UM_A_EXROBERT_COLLECTION) },
-    { _T("EX Takuma"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_EXTAKUMA_COLLECTION, ARRAYSIZE(KOF02UM_A_EXTAKUMA_COLLECTION) },
-    { _T("Foxy"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_FOXY_COLLECTION, ARRAYSIZE(KOF02UM_A_FOXY_COLLECTION) },
-    { _T("Geese"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_GEESE_COLLECTION, ARRAYSIZE(KOF02UM_A_GEESE_COLLECTION) },
-    { _T("Goenitz"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_GOENITZ_COLLECTION, ARRAYSIZE(KOF02UM_A_GOENITZ_COLLECTION) },
-    { _T("Heidern"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_HEIDERN_COLLECTION, ARRAYSIZE(KOF02UM_A_HEIDERN_COLLECTION) },
-    { _T("Hinako"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_HINAKO_COLLECTION, ARRAYSIZE(KOF02UM_A_HINAKO_COLLECTION) },
-    { _T("Igniz"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_IGNIZ_COLLECTION, ARRAYSIZE(KOF02UM_A_IGNIZ_COLLECTION) },
-    { _T("Iori"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_IORI_COLLECTION, ARRAYSIZE(KOF02UM_A_IORI_COLLECTION) },
-    { _T("Jhun Hoon"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_JHUNHOON_COLLECTION, ARRAYSIZE(KOF02UM_A_JHUNHOON_COLLECTION) },
-    { _T("Joe"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_JOE_COLLECTION, ARRAYSIZE(KOF02UM_A_JOE_COLLECTION) },
-    { _T("K’"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_K_COLLECTION, ARRAYSIZE(KOF02UM_A_K_COLLECTION) },
-    { _T("Kasumi"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KASUMI_COLLECTION, ARRAYSIZE(KOF02UM_A_KASUMI_COLLECTION) },
-    { _T("Kensou"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KENSOU_COLLECTION, ARRAYSIZE(KOF02UM_A_KENSOU_COLLECTION) },
-    { _T("Kim"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KIM_COLLECTION, ARRAYSIZE(KOF02UM_A_KIM_COLLECTION) },
-    { _T("King"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KING_COLLECTION, ARRAYSIZE(KOF02UM_A_KING_COLLECTION) },
-    { _T("Krizalid"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KRIZALID_COLLECTION, ARRAYSIZE(KOF02UM_A_KRIZALID_COLLECTION) },
-    { _T("Kula"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KULA_COLLECTION, ARRAYSIZE(KOF02UM_A_KULA_COLLECTION) },
-    { _T("Kusanagi"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KUSANAGI_COLLECTION, ARRAYSIZE(KOF02UM_A_KUSANAGI_COLLECTION) },
-    { _T("Kyo"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO_COLLECTION, ARRAYSIZE(KOF02UM_A_KYO_COLLECTION) },
-    { _T("Kyo-1"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO1_COLLECTION, ARRAYSIZE(KOF02UM_A_KYO1_COLLECTION) },
-    { _T("Kyo-2"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_KYO2_COLLECTION, ARRAYSIZE(KOF02UM_A_KYO2_COLLECTION) },
-    { _T("Leona"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_LEONA_COLLECTION, ARRAYSIZE(KOF02UM_A_LEONA_COLLECTION) },
-    { _T("Lin"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_LIN_COLLECTION, ARRAYSIZE(KOF02UM_A_LIN_COLLECTION) },
-    { _T("Mai"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAI_COLLECTION, ARRAYSIZE(KOF02UM_A_MAI_COLLECTION) },
-    { _T("Mature"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MATURE_COLLECTION, ARRAYSIZE(KOF02UM_A_MATURE_COLLECTION) },
-    { _T("Maxima"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAXIMA_COLLECTION, ARRAYSIZE(KOF02UM_A_MAXIMA_COLLECTION) },
-    { _T("May Lee"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_MAYLEE_COLLECTION, ARRAYSIZE(KOF02UM_A_MAYLEE_COLLECTION) },
-    { _T("Nameless"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_NAMELESS_COLLECTION, ARRAYSIZE(KOF02UM_A_NAMELESS_COLLECTION) },
-    { _T("Nightmare Geese"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_NIGHTMAREGEESE_COLLECTION, ARRAYSIZE(KOF02UM_A_NIGHTMAREGEESE_COLLECTION) },
-    { _T("O.Chris"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OCHRIS_COLLECTION, ARRAYSIZE(KOF02UM_A_OCHRIS_COLLECTION) },
-    { _T("O.Shermie"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OSHERMIE_COLLECTION, ARRAYSIZE(KOF02UM_A_OSHERMIE_COLLECTION) },
-    { _T("O.Yashiro"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OYASHIRO_COLLECTION, ARRAYSIZE(KOF02UM_A_OYASHIRO_COLLECTION) },
-    { _T("Omega Rugal"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_OMEGARUGAL_COLLECTION, ARRAYSIZE(KOF02UM_A_OMEGARUGAL_COLLECTION) },
-    { _T("Original Zero"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ORIGINALZERO_COLLECTION, ARRAYSIZE(KOF02UM_A_ORIGINALZERO_COLLECTION) },
-    { _T("Ralf"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RALF_COLLECTION, ARRAYSIZE(KOF02UM_A_RALF_COLLECTION) },
-    { _T("Ramon"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RAMON_COLLECTION, ARRAYSIZE(KOF02UM_A_RAMON_COLLECTION) },
-    { _T("Robert"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_ROBERT_COLLECTION, ARRAYSIZE(KOF02UM_A_ROBERT_COLLECTION) },
-    { _T("Ryo"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_RYO_COLLECTION, ARRAYSIZE(KOF02UM_A_RYO_COLLECTION) },
-    { _T("Seth"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SETH_COLLECTION, ARRAYSIZE(KOF02UM_A_SETH_COLLECTION) },
-    { _T("Shermie"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHERMIE_COLLECTION, ARRAYSIZE(KOF02UM_A_SHERMIE_COLLECTION) },
-    { _T("Shingo"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_SHINGO_COLLECTION, ARRAYSIZE(KOF02UM_A_SHINGO_COLLECTION) },
-    { _T("Takuma"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_TAKUMA_COLLECTION, ARRAYSIZE(KOF02UM_A_TAKUMA_COLLECTION) },
-    { _T("Terry"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_TERRY_COLLECTION, ARRAYSIZE(KOF02UM_A_TERRY_COLLECTION) },
-    { _T("Vanessa"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_VANESSA_COLLECTION, ARRAYSIZE(KOF02UM_A_VANESSA_COLLECTION) },
-    { _T("Vice"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_VICE_COLLECTION, ARRAYSIZE(KOF02UM_A_VICE_COLLECTION) },
-    { _T("Whip"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_WHIP_COLLECTION, ARRAYSIZE(KOF02UM_A_WHIP_COLLECTION) },
-    { _T("Xiangfei"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_XIANGFEI_COLLECTION, ARRAYSIZE(KOF02UM_A_XIANGFEI_COLLECTION) },
-    { _T("Yamazaki"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YAMAZAKI_COLLECTION, ARRAYSIZE(KOF02UM_A_YAMAZAKI_COLLECTION) },
-    { _T("Yashiro"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YASHIRO_COLLECTION, ARRAYSIZE(KOF02UM_A_YASHIRO_COLLECTION) },
-    { _T("Yuri"), DESC_NODETYPE_TREE, (void*)KOF02UM_A_YURI_COLLECTION, ARRAYSIZE(KOF02UM_A_YURI_COLLECTION) },
+    { _T("Andy"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANDY_COLLECTION, ARRAYSIZE(KOF02UM_S_ANDY_COLLECTION) },
+    { _T("Angel"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANGEL_COLLECTION, ARRAYSIZE(KOF02UM_S_ANGEL_COLLECTION) },
+    { _T("Athena"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ATHENA_COLLECTION, ARRAYSIZE(KOF02UM_S_ATHENA_COLLECTION) },
+    { _T("Bao"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BAO_COLLECTION, ARRAYSIZE(KOF02UM_S_BAO_COLLECTION) },
+    { _T("Benimaru"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BENIMARU_COLLECTION, ARRAYSIZE(KOF02UM_S_BENIMARU_COLLECTION) },
+    { _T("Billy"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BILLY_COLLECTION, ARRAYSIZE(KOF02UM_S_BILLY_COLLECTION) },
+    { _T("Blue Mary"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_BLUEMARY_COLLECTION, ARRAYSIZE(KOF02UM_S_BLUEMARY_COLLECTION) },
+    { _T("Chang"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHANG_COLLECTION, ARRAYSIZE(KOF02UM_S_CHANG_COLLECTION) },
+    { _T("Chin"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHIN_COLLECTION, ARRAYSIZE(KOF02UM_S_CHIN_COLLECTION) },
+    { _T("Choi"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHOI_COLLECTION, ARRAYSIZE(KOF02UM_S_CHOI_COLLECTION) },
+    { _T("Chris"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CHRIS_COLLECTION, ARRAYSIZE(KOF02UM_S_CHRIS_COLLECTION) },
+    { _T("Clark"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLARK_COLLECTION, ARRAYSIZE(KOF02UM_S_CLARK_COLLECTION) },
+    { _T("Clone Zero"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_CLONEZERO_COLLECTION, ARRAYSIZE(KOF02UM_S_CLONEZERO_COLLECTION) },
+    { _T("Daimon"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_DAIMON_COLLECTION, ARRAYSIZE(KOF02UM_S_DAIMON_COLLECTION) },
+    { _T("EX Kensou"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXKENSOU_COLLECTION, ARRAYSIZE(KOF02UM_S_EXKENSOU_COLLECTION) },
+    { _T("EX Robert"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXROBERT_COLLECTION, ARRAYSIZE(KOF02UM_S_EXROBERT_COLLECTION) },
+    { _T("EX Takuma"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXTAKUMA_COLLECTION, ARRAYSIZE(KOF02UM_S_EXTAKUMA_COLLECTION) },
+    { _T("Foxy"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_FOXY_COLLECTION, ARRAYSIZE(KOF02UM_S_FOXY_COLLECTION) },
+    { _T("Geese"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_GEESE_COLLECTION, ARRAYSIZE(KOF02UM_S_GEESE_COLLECTION) },
+    { _T("Goenitz"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_GOENITZ_COLLECTION, ARRAYSIZE(KOF02UM_S_GOENITZ_COLLECTION) },
+    { _T("Heidern"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_HEIDERN_COLLECTION, ARRAYSIZE(KOF02UM_S_HEIDERN_COLLECTION) },
+    { _T("Hinako"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_HINAKO_COLLECTION, ARRAYSIZE(KOF02UM_S_HINAKO_COLLECTION) },
+    { _T("Igniz"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_IGNIZ_COLLECTION, ARRAYSIZE(KOF02UM_S_IGNIZ_COLLECTION) },
+    { _T("Iori"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_IORI_COLLECTION, ARRAYSIZE(KOF02UM_S_IORI_COLLECTION) },
+    { _T("Jhun Hoon"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_JHUNHOON_COLLECTION, ARRAYSIZE(KOF02UM_S_JHUNHOON_COLLECTION) },
+    { _T("Joe"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_JOE_COLLECTION, ARRAYSIZE(KOF02UM_S_JOE_COLLECTION) },
+    { _T("K’"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_K_COLLECTION, ARRAYSIZE(KOF02UM_S_K_COLLECTION) },
+    { _T("Kasumi"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KASUMI_COLLECTION, ARRAYSIZE(KOF02UM_S_KASUMI_COLLECTION) },
+    { _T("Kensou"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KENSOU_COLLECTION, ARRAYSIZE(KOF02UM_S_KENSOU_COLLECTION) },
+    { _T("Kim"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KIM_COLLECTION, ARRAYSIZE(KOF02UM_S_KIM_COLLECTION) },
+    { _T("King"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KING_COLLECTION, ARRAYSIZE(KOF02UM_S_KING_COLLECTION) },
+    { _T("Krizalid"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KRIZALID_COLLECTION, ARRAYSIZE(KOF02UM_S_KRIZALID_COLLECTION) },
+    { _T("Kula"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KULA_COLLECTION, ARRAYSIZE(KOF02UM_S_KULA_COLLECTION) },
+    { _T("Kusanagi"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KUSANAGI_COLLECTION, ARRAYSIZE(KOF02UM_S_KUSANAGI_COLLECTION) },
+    { _T("Kyo"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO_COLLECTION, ARRAYSIZE(KOF02UM_S_KYO_COLLECTION) },
+    { _T("Kyo-1"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO1_COLLECTION, ARRAYSIZE(KOF02UM_S_KYO1_COLLECTION) },
+    { _T("Kyo-2"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_KYO2_COLLECTION, ARRAYSIZE(KOF02UM_S_KYO2_COLLECTION) },
+    { _T("Leona"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_LEONA_COLLECTION, ARRAYSIZE(KOF02UM_S_LEONA_COLLECTION) },
+    { _T("Lin"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_LIN_COLLECTION, ARRAYSIZE(KOF02UM_S_LIN_COLLECTION) },
+    { _T("Mai"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAI_COLLECTION, ARRAYSIZE(KOF02UM_S_MAI_COLLECTION) },
+    { _T("Mature"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MATURE_COLLECTION, ARRAYSIZE(KOF02UM_S_MATURE_COLLECTION) },
+    { _T("Maxima"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAXIMA_COLLECTION, ARRAYSIZE(KOF02UM_S_MAXIMA_COLLECTION) },
+    { _T("May Lee"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_MAYLEE_COLLECTION, ARRAYSIZE(KOF02UM_S_MAYLEE_COLLECTION) },
+    { _T("Nameless"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_NAMELESS_COLLECTION, ARRAYSIZE(KOF02UM_S_NAMELESS_COLLECTION) },
+    { _T("Nightmare Geese"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_NIGHTMAREGEESE_COLLECTION, ARRAYSIZE(KOF02UM_S_NIGHTMAREGEESE_COLLECTION) },
+    { _T("O.Chris"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OCHRIS_COLLECTION, ARRAYSIZE(KOF02UM_S_OCHRIS_COLLECTION) },
+    { _T("O.Shermie"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OSHERMIE_COLLECTION, ARRAYSIZE(KOF02UM_S_OSHERMIE_COLLECTION) },
+    { _T("O.Yashiro"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OYASHIRO_COLLECTION, ARRAYSIZE(KOF02UM_S_OYASHIRO_COLLECTION) },
+    { _T("Omega Rugal"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_OMEGARUGAL_COLLECTION, ARRAYSIZE(KOF02UM_S_OMEGARUGAL_COLLECTION) },
+    { _T("Original Zero"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ORIGINALZERO_COLLECTION, ARRAYSIZE(KOF02UM_S_ORIGINALZERO_COLLECTION) },
+    { _T("Ralf"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RALF_COLLECTION, ARRAYSIZE(KOF02UM_S_RALF_COLLECTION) },
+    { _T("Ramon"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RAMON_COLLECTION, ARRAYSIZE(KOF02UM_S_RAMON_COLLECTION) },
+    { _T("Robert"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_ROBERT_COLLECTION, ARRAYSIZE(KOF02UM_S_ROBERT_COLLECTION) },
+    { _T("Ryo"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_RYO_COLLECTION, ARRAYSIZE(KOF02UM_S_RYO_COLLECTION) },
+    { _T("Seth"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SETH_COLLECTION, ARRAYSIZE(KOF02UM_S_SETH_COLLECTION) },
+    { _T("Shermie"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SHERMIE_COLLECTION, ARRAYSIZE(KOF02UM_S_SHERMIE_COLLECTION) },
+    { _T("Shingo"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_SHINGO_COLLECTION, ARRAYSIZE(KOF02UM_S_SHINGO_COLLECTION) },
+    { _T("Takuma"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_TAKUMA_COLLECTION, ARRAYSIZE(KOF02UM_S_TAKUMA_COLLECTION) },
+    { _T("Terry"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_TERRY_COLLECTION, ARRAYSIZE(KOF02UM_S_TERRY_COLLECTION) },
+    { _T("Vanessa"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_VANESSA_COLLECTION, ARRAYSIZE(KOF02UM_S_VANESSA_COLLECTION) },
+    { _T("Vice"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_VICE_COLLECTION, ARRAYSIZE(KOF02UM_S_VICE_COLLECTION) },
+    { _T("Whip"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_WHIP_COLLECTION, ARRAYSIZE(KOF02UM_S_WHIP_COLLECTION) },
+    { _T("Xiangfei"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_XIANGFEI_COLLECTION, ARRAYSIZE(KOF02UM_S_XIANGFEI_COLLECTION) },
+    { _T("Yamazaki"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YAMAZAKI_COLLECTION, ARRAYSIZE(KOF02UM_S_YAMAZAKI_COLLECTION) },
+    { _T("Yashiro"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YASHIRO_COLLECTION, ARRAYSIZE(KOF02UM_S_YASHIRO_COLLECTION) },
+    { _T("Yuri"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_YURI_COLLECTION, ARRAYSIZE(KOF02UM_S_YURI_COLLECTION) },
 };
 
 // We extend this array with data groveled from the GarouE.txt extensible extras file, if any.
-const stExtraDef KOF02UM_A_EXTRA[] =
+const stExtraDef KOF02UM_S_EXTRA[] =
 {
     // Start
     { UNIT_START_VALUE },

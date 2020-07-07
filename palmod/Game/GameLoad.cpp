@@ -18,12 +18,38 @@
 #include "Game_Garou_A.h"
 #include "Game_NEOGEO_A.h"
 #include "Game_KOF98_A.h"
-#include "Game_KOF02UM_A.h"
+#include "Game_KOF02UM_S.h"
 #include "Game_CVS2_A.h"
 #include "Game_Garou_S.h"
+#include "Game_KOF02_A.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
+
+void StrRemoveNonASCII(TCHAR* pszOutput, size_t ccSize, LPCTSTR pszInput)
+{
+    size_t iStrOutputIndex = 0;
+
+    for (size_t iStrIndex = 0; iStrIndex < ccSize; iStrIndex++)
+    {
+        if (!pszInput[iStrIndex])
+        {
+            break;
+        }
+
+        if (((pszInput[iStrIndex] >= 48) && (pszInput[iStrIndex] <= 57)) || // numbers
+            ((pszInput[iStrIndex] >= 65) && (pszInput[iStrIndex] <= 90)))   // upper case
+        {
+            pszOutput[iStrOutputIndex++] = pszInput[iStrIndex];
+        }
+        else if ((pszInput[iStrIndex] >= 97) && (pszInput[iStrIndex] <= 122))
+        {
+            pszOutput[iStrOutputIndex++] = pszInput[iStrIndex] - 32;
+        }
+    }
+
+    pszOutput[iStrOutputIndex] = 0;
+}
 
 CGameLoad::CGameLoad(void)
 {
@@ -139,9 +165,14 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_KOF98_A::GetRule;
         return TRUE;
     }
-    case KOF02UM_A:
+    case KOF02_A:
     {
-        GetRule = &CGame_KOF02UM_A::GetRule;
+        GetRule = &CGame_KOF02_A::GetRule;
+        return TRUE;
+    }
+    case KOF02UM_S:
+    {
+        GetRule = &CGame_KOF02UM_S::GetRule;
         return TRUE;
     }
     case CVS2_A:
@@ -235,9 +266,13 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_KOF98_A(nConfirmedROMSize);
     }
-    case KOF02UM_A:
+    case KOF02_A:
     {
-        return new CGame_KOF02UM_A(nConfirmedROMSize);
+        return new CGame_KOF02_A(nConfirmedROMSize);
+    }
+    case KOF02UM_S:
+    {
+        return new CGame_KOF02UM_S(nConfirmedROMSize);
     }
     case CVS2_A:
     {
