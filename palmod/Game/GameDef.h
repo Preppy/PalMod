@@ -799,6 +799,8 @@ enum KOFSpriteList
     indexKOFSprites_02Kusanagi,
     indexKOFSprites_02Robert,
     indexKOFSprites_02Yuri,
+    
+    indexKOFSprites_02K9999,
 
     indexKOFSprites_Last,
 };
@@ -1009,6 +1011,8 @@ const UINT8 KOF02_A_IMG_UNITS[] =
     indexKOFSprites_02Kusanagi,
     indexKOFSprites_02Robert,
     indexKOFSprites_02Yuri,
+
+    indexKOFSprites_02K9999,
 };
 
 const int KOF02_A_NUM_IMG_UNITS = ARRAYSIZE(KOF02_A_IMG_UNITS);
