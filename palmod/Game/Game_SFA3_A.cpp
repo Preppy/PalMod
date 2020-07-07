@@ -41,7 +41,7 @@ CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = SFA3_A_NUM_IND;
     m_nExtraUnit = SFA3_A_EXTRALOC;
-    m_nSafeCountForThisRom = 1063 + GetExtraCt(SFA3_A_EXTRALOC);
+    m_nSafeCountForThisRom = 1069 + GetExtraCt(SFA3_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SFA3;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
     m_nLowestKnownPaletteRomLocation = 0x2C000;
@@ -851,7 +851,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                      (_tcsicmp(pCurrentNode->szDesc, _T("V-Ism Punch")) == 0) ||
                      (_tcsicmp(pCurrentNode->szDesc, _T("V-Ism Kick")) == 0))
             {
-                // So far only Rose is actualy split up.
+                // So far only Rose and Vega are actually split up.
                 nSrcAmt = 6;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 

@@ -564,7 +564,7 @@ bool  CImgDisp::LoadExternalSprite(TCHAR* pszTextureLocation)
                 {
                     if ((m_nTextureOverrideW * m_nTextureOverrideH) != nSizeToRead)
                     {
-                        MessageBox(_T("The W and H values in the RAW filename are wrong.  This will not look right."), GetHost()->GetAppName(), MB_ICONERROR);
+                        MessageBox(_T("The W and H values specified in the RAW filename are wrong.  This will not look right."), GetHost()->GetAppName(), MB_ICONERROR);
                     }
 
                     m_pSpriteOverrideTexture = new UINT8[nSizeToRead];

@@ -928,14 +928,44 @@ const sGame_PaletteDataset SFA3_A_CODY_PALETTES[] =
     { _T("Just Defend"), 0x37194 + 0x2e0, 0x37194 + 0x300, 0x49 },
 };
 
-const sGame_PaletteDataset SFA3_A_VEGA_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_VEGA_XISMP[] =
 {
-    { _T("X-Ism Punch"), 0x031AD4, 0x031AF4, 0x4A},
-    { _T("X-Ism Kick"),  0x031B74, 0x031B94, 0x4A},
-    { _T("A-Ism Punch"), 0x031C14, 0x031C34, 0x4A},
-    { _T("A-Ism Kick"),  0x031CB4, 0x031CD4, 0x4A},
-    { _T("V-Ism Punch"), 0x031D54, 0x031D74, 0x4A},
-    { _T("V-Ism Kick"),  0x031DF4, 0x031E14, 0x4A},
+    { _T("X-Ism Punch"), 0x031AD4, 0x031AF4, 0x4A },
+    { _T("X-Ism Punch Claws"), 0x031AF4, 0x031B14 },
+};
+
+const sGame_PaletteDataset SFA3_A_VEGA_XISMK[] =
+{
+    { _T("X-Ism Kick"),  0x031B74, 0x031B94, 0x4A },
+    { _T("X-Ism Kick Claws"), 0x031B94, 0x031BB4 },
+};
+
+const sGame_PaletteDataset SFA3_A_VEGA_AISMP[] =
+{
+    { _T("A-Ism Punch"), 0x031C14, 0x031C34, 0x4A },
+    { _T("A-Ism Punch Claws"), 0x031C34, 0x031C54 },
+};
+
+const sGame_PaletteDataset SFA3_A_VEGA_AISMK[] =
+{
+    { _T("A-Ism Kick"),  0x031CB4, 0x031CD4, 0x4A },
+    { _T("A-Ism Kick Claws"), 0x031CD4, 0x031CF4 },
+};
+
+const sGame_PaletteDataset SFA3_A_VEGA_VISMP[] =
+{
+    { _T("V-Ism Punch"), 0x031D54, 0x031D74, 0x4A },
+    { _T("V-Ism Punch Claws"), 0x031D74, 0x031D94 },
+};
+
+const sGame_PaletteDataset SFA3_A_VEGA_VISMK[] =
+{
+    { _T("V-Ism Kick"),  0x031DF4, 0x031E14, 0x4A },
+    { _T("V-Ism Kick Claws"), 0x031E14, 0x031E34 },
+};
+
+const sGame_PaletteDataset SFA3_A_VEGA_STATUS[] =
+{
     { _T("Burned 1"), 0x37494 + 0x00, 0x37494 + 0x20, 0x4A },
     { _T("Burned 2"), 0x37494 + 0x20, 0x37494 + 0x40, 0x4A },
     { _T("Psycho Crusher Burned 1"), 0x37494 + 0x40, 0x37494 + 0x60, 0x4A },
@@ -1551,7 +1581,13 @@ const sDescTreeNode SFA3_A_CODY_COLLECTION[] =
 
 const sDescTreeNode SFA3_A_VEGA_COLLECTION[] =
 {
-    { _T("Palettes"), DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_PALETTES,      ARRAYSIZE(SFA3_A_VEGA_PALETTES) },
+    { _T("X-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_XISMP,      ARRAYSIZE(SFA3_A_VEGA_XISMP) },
+    { _T("X-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_XISMK,      ARRAYSIZE(SFA3_A_VEGA_XISMK) },
+    { _T("A-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_AISMP,      ARRAYSIZE(SFA3_A_VEGA_AISMP) },
+    { _T("A-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_AISMK,      ARRAYSIZE(SFA3_A_VEGA_AISMK) },
+    { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_VISMP,      ARRAYSIZE(SFA3_A_VEGA_VISMP) },
+    { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_VISMK,      ARRAYSIZE(SFA3_A_VEGA_VISMK) },
+    { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_STATUS,     ARRAYSIZE(SFA3_A_VEGA_STATUS) },
     { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_VEGA_PORTRAIT_PALETTES) },
 };
 
