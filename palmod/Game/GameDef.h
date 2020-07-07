@@ -1367,6 +1367,8 @@ const stPairedPaletteInfo pairHayatoSword = { 1, -63, 32 };
 const stPairedPaletteInfo pairTronBody = { 1, -4, -50 };
 const stPairedPaletteInfo pairWolvieClaws =   { 1, 20, 4 };
 
+const stPairedPaletteInfo pairVegaClaws = { 1, 0, 0 };
+
 // Please note that the palette sort order in PalMod differs for MM in MvC1 and MvC2
 const stPairedPaletteInfo pairRushDrill =    { 30, 0, 0 };
 const stPairedPaletteInfo pairHyperMegaman = { 9, 31, 12 };

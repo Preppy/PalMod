@@ -898,6 +898,12 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         fShouldUseAlternateLoadLogic = true;
                     }
                 }
+                else if (paletteDataSet->indexImgToUse == indexCPS2_Vega)
+                {
+                    fShouldUseAlternateLoadLogic = true;
+                    nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    nPeerPaletteIdInNode += nPeerPaletteDistance;
+                }
 
                 UINT16 nPeerPaletteIdInUnit = NodeGet->uPalId + nPeerPaletteDistance;
 
