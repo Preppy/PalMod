@@ -53,11 +53,14 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     if (GetExtraCt(m_nExtraUnit) == 0)
     {
         CString strIntro;
-        strIntro = _T("Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random NEO•GEO ROM that PalMod does not already support. ");
-        strIntro += _T("PalMod will read / write specified RAM offsets as if they indicated RGB666 colors.\n\n");
+        // BUGBUG: All of this string is useful.  However, in the July 1st 2020 Visual Studio update they introduced a bug wherein this long string corrupts memory.
+        // So for right now I am skipping most of this to avoid that problem.  Also the app now builds Optimized instead of Max Optimized because of another bug
+        // in the compiler, so that's tight.  If at some point MSFT fixes their code we can go back to using the full text here.
+        strIntro = _T("Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random NEO•GEO ROM that PalMod does not already support. \n\n");
+        //strIntro += _T("PalMod will read / write specified RAM offsets as if they indicated RGB666 colors.\n\n");
         strIntro += _T("Right now, you don't have any entries in your NEOGEOE.txt Extras file: you will want to add entries there if you wish to use this \"dummy\" mode.\n\n");
-        strIntro += _T("Please make sure to only change a copy of the ROM you're interested in: since you're directly playing around with the game ROM, weird things could happen.\n\n");
-        strIntro += _T("Good luck!");
+        //strIntro += _T("Please make sure to only change a copy of the ROM you're interested in: since you're directly playing around with the game ROM, weird things could happen.\n\n");
+        //strIntro += _T("Good luck!");
         MessageBox(g_appHWnd, strIntro, GetHost()->GetAppName(), MB_ICONINFORMATION);
     }
 
