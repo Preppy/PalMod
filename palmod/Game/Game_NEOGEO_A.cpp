@@ -695,7 +695,7 @@ BOOL CGame_NEOGEO_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
 
     //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+    ClearSetImgTicket(nullptr);
 
     CreateDefPal(NodeGet, 0);
 

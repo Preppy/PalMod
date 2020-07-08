@@ -11,7 +11,7 @@ CPen CJunk::PIndexSL;
 CPen CJunk::PIndexMHL;
 CPen CJunk::PIndexBG;
 
-BOOL bTest = CJunk::InitPen();
+BOOL bCreatedPens = CJunk::InitPen();
 
 int GetDpiForScreen()
 {
@@ -232,6 +232,15 @@ CJunk::~CJunk(void)
 {
     //delete (dcPaintDC);
     CleanUp();
+
+    if (bCreatedPens)
+    {
+        bCreatedPens = FALSE;
+        DeleteObject(PIndexHL);
+        DeleteObject(PIndexSL);
+        DeleteObject(PIndexMHL);
+        DeleteObject(PIndexBG);
+    }
 }
 
 BEGIN_MESSAGE_MAP(CJunk, CWnd)

@@ -141,7 +141,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                         }
 
                         // Validate that they're not trying to read off the end of the ROM...
-                        if ((nCurrEnd >= (int)nGameROMSize) || (nCurrStart >= (int)nGameROMSize))
+                        if ((nCurrEnd > (int)nGameROMSize) || (nCurrStart >= (int)nGameROMSize))
                         {
                             static bool s_fAlertedToTruncation = false;
 

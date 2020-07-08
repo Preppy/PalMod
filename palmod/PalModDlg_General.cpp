@@ -236,7 +236,6 @@ void CPalModDlg::PostPalSel()
 
                 CurrImgDef = ImgFile->GetImageDef(CurrTicket->nUnitId, CurrTicket->nImgId);
 
-
                 if ((nPrevImgIndex[nImgIndexCtr] != nImgKey) || bForceImg || (nPalAmt > 1) || (s_nLastPalAmt != nPalAmt))
                 {
                     if (nImgIndexCtr == 0)
