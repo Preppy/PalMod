@@ -1370,6 +1370,7 @@ const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, 4 };
 const stPairedPaletteInfo pairHayatoSword = { 1, -63, 32 };
 const stPairedPaletteInfo pairTronBody = { 1, -4, -50 };
 const stPairedPaletteInfo pairWolvieClaws =   { 1, 20, 4 };
+const stPairedPaletteInfo pairBonerineClaws = { 1, 25, 6 };
 
 const stPairedPaletteInfo pairVegaClaws = { 1, 0, 0 };
 

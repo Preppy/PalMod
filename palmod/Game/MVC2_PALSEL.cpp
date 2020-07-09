@@ -179,11 +179,16 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             break;
         }
 
+        if (CreateExtraPal(uUnitId, uPalId, 0x11, 2, 4, 0, 2)) // Extra dash shadows
+        {
+            break;
+        }
         break;
     }
 
     case 0x0B: //Captain America
     {
+        // Handle his shield
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
         {
             bLoadDefPal = FALSE;

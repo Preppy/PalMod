@@ -49,7 +49,7 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     m_pszExtraFilename = EXTRA_FILENAME_MVC2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x260a9c2;
+    m_nLowestKnownPaletteRomLocation = 0x260a9c0;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -1191,9 +1191,9 @@ COLORREF* CGame_MVC2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
 
-    for (int i = 0; i < m_nCurrentPaletteSize - 1; i++)
+    for (int i = 0; i < m_nCurrentPaletteSize; i++)
     {
-        NewPal[i + 1] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
+        NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
     }
 
     NewPal[0] = 0xFF000000;
@@ -1230,7 +1230,7 @@ void CGame_MVC2_A::UpdatePalData()
 
                     UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
                     // NAOMI wants alpha set to 15
-                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = ((ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF)) | 0xF000;
+                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ((ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF)) | 0xF000;
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;

@@ -99,6 +99,20 @@ void HandleSpiralCopies_ForSupplementedPalettes(UINT16 char_no, UINT16 pal_no)
     if ((char_no == 0x34) && (pal_no == 0)) { supp_copy_spiral(char_no, 0x01, 0x57, 1, 1, 7); } // copy sentinel FX
 }
 
+bool VerifyWriteIsSafe(UINT16 nCharId, UINT8 nCopyLength)
+{
+    // We can copy all 16 colors if we start at 0, but if we're shifting colors we need to not stomp on the transparency color
+    if (nCopyLength > 16)
+    {
+        CString strError;
+        strError.Format(_T("ERROR! Invalid length for %s supplemental color processing.  Effects processing skipped to avoid corrupting this character.\n\nPlease report this bug: it'll be fixed immediately,"), MVC2_D_UNITDESC[nCharId]);
+        MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+        return false;
+    }
+
+    return true;
+}
+
 void proc_supp(UINT16 char_no, UINT16 pal_no)
 {
     CString strDebugInfo;
@@ -130,11 +144,11 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
     BOOL isCurrentPaletteABasicPalette = FALSE, isCurrentPaletteAnExtraPalette = FALSE;
 
     // Load the supplemental data for this character
-    UINT16* curr_data = const_cast<UINT16*>(&_mvc2_supp_const[rgSuppLoc[char_no]]);
+    UINT16* supplementalEffectsData = const_cast<UINT16*>(&_mvc2_supp_const[rgSuppLoc[char_no]]);
     UINT16 index_data;
-    UINT16 index_ctr = 1; //1 to skip the count
+    UINT16 indexCounterForEffects = 1; //1 to skip the count
 
-    UINT16 index_sz = curr_data[0];
+    UINT16 index_sz = supplementalEffectsData[0];
 
     //SUPP_NODE
     // Node_start: offset within the palette set.
@@ -145,7 +159,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
     UINT16 node_start = 0, node_inc = 0, base_start = 0, base_inc = 1;
 
     //Check to see if we are modifying any basic palettes
-    index_data = curr_data[index_ctr];
+    index_data = supplementalEffectsData[indexCounterForEffects];
 
     while ((index_data & 0xF000) != SUPP_START) // SUPP_START marks the beginning of the next character
     {
@@ -154,14 +168,14 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
 
         // If the current position is SUPP_NODE or SUPP_NODE_*, that indicates the beginning of a new modifier array
             //Possible sources = SUPP_NODE, SUPP_NODE_EX, SUPP_NODE_ABSOL, SUPP_NODE_EX | SUPP_NODE_NOCOPY, SUPP_NODE_EX | SUPP_NODE_ABSOL
-        if ((index_data & 0xF000) == SUPP_NODE) //&& index_ctr < index_sz)
+        if ((index_data & 0xF000) == SUPP_NODE) //&& indexCounterForEffects < index_sz)
         {
             OutputDebugString(_T("\nproc_supp: New modification node encountered\n"));
 
             //Fix later
             add = 3; //count of data provided for a SUPP_NODE entry, which is the minimum.
 
-            UINT16 in_start = curr_data[index_ctr + 1];
+            UINT16 in_start = supplementalEffectsData[indexCounterForEffects + 1];
 
             if (in_start & MOD_ABS)
             {
@@ -172,7 +186,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
                 node_start = in_start + ID_MOD;
             }
 
-            node_inc = curr_data[index_ctr + 2];
+            node_inc = supplementalEffectsData[indexCounterForEffects + 2];
 
             //Set the source palette
             source_palette = pal_no;
@@ -180,7 +194,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
             if ((index_data & SUPP_NODE_ABSOL) == SUPP_NODE_ABSOL)
             {
                 // SUPP_NODE_ABSOL adds two values: the first is the palette to copy from, and the second is the incrementation value
-                base_start = curr_data[index_ctr + 3];
+                base_start = supplementalEffectsData[indexCounterForEffects + 3];
 
                 if (base_start & MOD_ABS)
                 {
@@ -191,7 +205,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
                     base_start = base_start + ID_MOD;
                 }
 
-                base_inc = curr_data[index_ctr + 4];
+                base_inc = supplementalEffectsData[indexCounterForEffects + 4];
 
                 /*
                 if ((pal_no / base_inc) < k_mvc2_character_coloroption_count && pal_no - ((pal_no / base_inc) * base_inc) == base_start)
@@ -272,7 +286,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
             }
 
             //Set the counter past the indexes into the actual actions and reset the step counter
-            index_ctr += add;
+            indexCounterForEffects += add;
             add = 0;
 
             if ((index_data & SUPP_NODE_EX) == SUPP_NODE_EX)
@@ -283,14 +297,14 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
             //if (isCurrentPaletteABasicPalette)
             {
                 int copy_start = 0;
-                int copy_amt = 16;
+                int copy_amt = 15;
                 int copy_dst = 0;
 
                 if ((index_data & SUPP_NODE_EX) == SUPP_NODE_EX)
                 {
-                    copy_start = curr_data[index_ctr + 0];
-                    copy_amt = curr_data[index_ctr + 1];
-                    copy_dst = curr_data[index_ctr + 2];
+                    copy_start = supplementalEffectsData[indexCounterForEffects + 0];
+                    copy_amt = supplementalEffectsData[indexCounterForEffects + 1];
+                    copy_dst = supplementalEffectsData[indexCounterForEffects + 2];
                 }
 
                 if (shouldProcessEffectsForThisNode)
@@ -317,12 +331,15 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
                 {
                     if (shouldProcessEffectsForThisNode)
                     {
-                        supp_copy_index(char_no, source_palette, destination_palette, copy_dst, copy_start, copy_amt);
+                        if (VerifyWriteIsSafe(char_no, copy_dst + copy_amt))
+                        {
+                            supp_copy_index(char_no, source_palette, destination_palette, copy_dst, copy_start, copy_amt);
+                        }
                     }
                 }
 
-                index_ctr += add;
-                index_data = curr_data[index_ctr];
+                indexCounterForEffects += add;
+                index_data = supplementalEffectsData[indexCounterForEffects];
 
                 int iNodeBeingProcessed = 0x0;
 
@@ -340,66 +357,61 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
                     }
 
                     //pi = palette index - value should be from 0-15.
-                    UINT8 pi_start = (UINT8)curr_data[index_ctr + 1];
-                    UINT8 pi_amt = (UINT8)curr_data[index_ctr + 2];
-
-                    if ((pi_start + pi_amt) > 16)
-                    {
-                        MessageBox(g_appHWnd, _T("proc_supp: WARNING: Invalid length for this effect.  Please report this bug."), GetHost()->GetAppName(), MB_ICONERROR);
-                    }
+                    UINT8 pi_start = (UINT8)supplementalEffectsData[indexCounterForEffects + 1];
+                    UINT8 pi_amt = (UINT8)supplementalEffectsData[indexCounterForEffects + 2];
 
                     switch (index_data)
                     {
                     case MOD_TINT:
                     {
-                        if (shouldProcessEffectsForThisNode)
+                        if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, (UINT8)supplementalEffectsData[indexCounterForEffects + 3] + pi_amt))
                         {
-                            supp_mod_tint(char_no, pal_no, destination_palette, (UINT8)curr_data[index_ctr + 3], pi_start, pi_amt,
-                                curr_data[index_ctr + 4], curr_data[index_ctr + 5], curr_data[index_ctr + 6]);
+                            supp_mod_tint(char_no, pal_no, destination_palette, (UINT8)supplementalEffectsData[indexCounterForEffects + 3], pi_start, pi_amt,
+                                supplementalEffectsData[indexCounterForEffects + 4], supplementalEffectsData[indexCounterForEffects + 5], supplementalEffectsData[indexCounterForEffects + 6]);
                         }
 
-                        index_ctr += 7;
+                        indexCounterForEffects += 7;
                         break;
                     }
                     case MOD_WHITE:
                     {
-                        if (shouldProcessEffectsForThisNode)
+                        if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, pi_start + pi_amt))
                         {
                             supp_mod_white(char_no, destination_palette, pi_start, pi_amt);
                         }
 
-                        index_ctr += 3;
+                        indexCounterForEffects += 3;
                         break;
                     }
 
                     case MOD_COPY:
                     {
-                        if (shouldProcessEffectsForThisNode)
+                        if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, supplementalEffectsData[indexCounterForEffects + 3] + pi_amt))
                         {
-                            supp_copy_index(char_no, pal_no, destination_palette, (UINT8)curr_data[index_ctr + 3], pi_start, pi_amt);
+                            supp_copy_index(char_no, pal_no, destination_palette, (UINT8)supplementalEffectsData[indexCounterForEffects + 3], pi_start, pi_amt);
                         }
 
-                        index_ctr += 4;
+                        indexCounterForEffects += 4;
                         break;
                     }
 
                     case MOD_LUM:
                     case MOD_SAT:
                     {
-                        if (shouldProcessEffectsForThisNode)
+                        if (shouldProcessEffectsForThisNode && VerifyWriteIsSafe(char_no, pi_start + pi_amt))
                         {
-                            UINT16 mod_type = curr_data[index_ctr];
-                            UINT16 mod_amt = curr_data[index_ctr + 3];
+                            UINT16 mod_type = supplementalEffectsData[indexCounterForEffects];
+                            UINT16 mod_amt = supplementalEffectsData[indexCounterForEffects + 3];
 
                             supp_mod_hsl(char_no, mod_type, mod_amt, destination_palette, pi_start, pi_amt);
                         }
 
-                        index_ctr += 4;
+                        indexCounterForEffects += 4;
                         break;
                     }
                     }
 
-                    index_data = curr_data[index_ctr];
+                    index_data = supplementalEffectsData[indexCounterForEffects];
                 }
             }
         }
@@ -451,12 +463,6 @@ void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_p
             source_palette, src_index, destination_palette, dst_index, index_amt);
     }
     OutputDebugString(strDebugInfo);
-
-    if ((dst_index + index_amt) > 16)
-    {
-        MessageBox(g_appHWnd, _T("proc_supp: WARNING: Invalid length for this effect.  Please report this bug."), GetHost()->GetAppName(), MB_ICONERROR);
-    }
-
 
     UINT16* src_16 = get_pal_16(char_id, source_palette);
     UINT16* dst_16 = get_pal_16(char_id, destination_palette);

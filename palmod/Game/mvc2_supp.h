@@ -93,7 +93,7 @@ const UINT16 _mvc2_supp_const [] =
         SUPP_NODE, 0x52, 9,
             MOD_LUM, 1, 15, 7,
         SUPP_NODE, 0x53, 9,
-        //    MOD_LUM, 0, 16, 0
+        //    MOD_LUM, 1, 15, 0
         
         // pose sprite: full copy and then we manually tweak further.
         SUPP_NODE, 0x81, 1,
@@ -207,34 +207,41 @@ const UINT16 _mvc2_supp_const [] =
         
         // Taunt sprite,    
         // skin: 1-7, 8: hair & boots, 9-15: boots and clothes
-        SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 1, 7, 1,
+        SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 1, 6, 1,
 
+        // skin
         SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 3, 1, 3,
-            MOD_LUM, 3, 1, 13,
+            MOD_LUM, 3, 1, 6,
         SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 4, 1, 4,
-            MOD_LUM, 4, 1, 25,
+            MOD_LUM, 4, 1, 12,
 
-        SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 7, 1, 7,
-            MOD_LUM, 7, 1, NEG + 25,
+        // These are commented out: they are not consistently related.
 
-        SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 8, 1, 8,
-            MOD_LUM, 8, 1, NEG + 25,
-        SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 9, 1, 9,
-            MOD_LUM, 9, 1, NEG + 13,
+        // shoes, shirt
+        // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 7, 1, 7,
+        //    MOD_LUM, 7, 1, NEG + 25,
 
-        SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 12, 1, 10,
-            MOD_LUM, 10, 1, 25,
-        SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 13, 1, 11,
-            MOD_LUM, 11, 1, 25,
-        SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 14, 1, 12,
-            MOD_LUM, 12, 1, 25,
+        // sunglasses, boots, skirt
+        //  SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 8, 1, 8,
+        //    MOD_LUM, 8, 1, NEG + 25,
+        //  SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 9, 1, 9,
+        //    MOD_LUM, 9, 1, NEG + 13,
 
-        SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 13,
-            MOD_LUM, 13, 1, 38,
-        SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 14,
-            MOD_LUM, 14, 1, 25,
-        SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 15,
-            MOD_LUM, 15, 1, 13,
+        // shorts
+        // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 9, 1, 10,
+        //    MOD_LUM, 10, 1, 25,
+        // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 10, 1, 11,
+        //    MOD_LUM, 11, 1, 25,
+        // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 11, 1, 12,
+        //    MOD_LUM, 12, 1, 25,
+
+        // jacket
+        // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 13,
+        //    MOD_LUM, 13, 1, 24,
+        // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 14,
+        //    MOD_LUM, 14, 1, 12,
+        // SUPP_NODE_EX | SUPP_NODE_NOCOPY, 0x1D, 1, 15, 1, 15,
+        //    MOD_LUM, 15, 1, 6,
 
             /*
     0x0B | SUPP_START, //Captain America
@@ -345,7 +352,7 @@ const UINT16 _mvc2_supp_const [] =
 
         SUPP_NODE_EX, 1 | MOD_ABS, 8, 1, 5, 1,  // straight copy
         SUPP_NODE_EX, 1 | MOD_ABS, 8, 8, 6, 6,  // straight copy
-        SUPP_NODE_EX, 1 | MOD_ABS, 8, 8, 4, 12, MOD_LUM, 11, 1, NEG + 7,  // bugbug: yes this is wrong but hey it's closer
+        SUPP_NODE_EX, 1 | MOD_ABS, 8, 8, 4, 12, MOD_LUM, 11, 1, NEG + 7,  // bugbug: yes this is wrong shade but hey it's closer
 
         //SUPP_NODE_EX, 1 | MOD_ABS, 8, 1, 5, 6,  // the dest offset here should have been 1
         //SUPP_NODE_EX, 1 | MOD_ABS, 8, 1, 4, 12,  // i don't think this does anything we care about
@@ -357,20 +364,20 @@ const UINT16 _mvc2_supp_const [] =
         // intro animation is frames 0xb-0x13
                 // SUPP_NODE: starting_palette, palette_increment
         SUPP_NODE, 0x0B, 0x57,
-            MOD_LUM, 01, 15, NEG + 21,
+            MOD_LUM, 1, 15, NEG + 21,
         SUPP_NODE, 0x0C, 0x57,
-            MOD_LUM, 01, 15, NEG + 13,
+            MOD_LUM, 1, 15, NEG + 13,
         SUPP_NODE, 0x0D, 0x57,
-            MOD_LUM, 01, 15, NEG + 5,
+            MOD_LUM, 1, 15, NEG + 5,
         SUPP_NODE, 0x0E, 0x57,
         SUPP_NODE, 0x0F, 0x57,
-            MOD_LUM, 01, 15, 5,
+            MOD_LUM, 1, 15, 5,
         SUPP_NODE, 0x10, 0x57,
-            MOD_LUM, 01, 15, 13,
+            MOD_LUM, 1, 15, 13,
         SUPP_NODE, 0x11, 0x57,
-            MOD_LUM, 01, 15, 21,
+            MOD_LUM, 1, 15, 21,
         SUPP_NODE, 0x12, 0x57,
-            MOD_LUM, 01, 15, 35,
+            MOD_LUM, 1, 15, 35,
         // 0x14-1c: rush
         // 0x1d-25: beat
         // 0x26-23: beat plane
@@ -379,39 +386,39 @@ const UINT16 _mvc2_supp_const [] =
         // 0x43-4b: hyper megaman armor/wings
         // 0x4c-54: hyper megaman
         SUPP_NODE, 0x4C, 0x57,
-            MOD_LUM, 01, 15, NEG + 21,
+            MOD_LUM, 1, 15, NEG + 21,
         SUPP_NODE, 0x4D, 0x57,
-            MOD_LUM, 01, 15, NEG + 13,
+            MOD_LUM, 1, 15, NEG + 13,
         SUPP_NODE, 0x4E, 0x57,
-            MOD_LUM, 01, 15, NEG + 5,
+            MOD_LUM, 1, 15, NEG + 5,
         SUPP_NODE, 0x4F, 0x57,
         SUPP_NODE, 0x50, 0x57,
-            MOD_LUM, 01, 15, 5,
+            MOD_LUM, 1, 15, 5,
         SUPP_NODE, 0x51, 0x57,
-            MOD_LUM, 01, 15, 13,
+            MOD_LUM, 1, 15, 13,
         SUPP_NODE, 0x52, 0x57,
-            MOD_LUM, 01, 15, 21,
+            MOD_LUM, 1, 15, 21,
         SUPP_NODE, 0x53, 0x57,
-            MOD_LUM, 01, 15, 35,
+            MOD_LUM, 1, 15, 35,
         // 0x56-5d: hyper megaman switching back
 
     0x1D | SUPP_START, // Roll: Identical to Megaman...
         // intro animation is frames 0xb-0x13
         SUPP_NODE, 0x0B, 0x57,
-            MOD_LUM, 01, 15, NEG + 21,
+            MOD_LUM, 1, 15, NEG + 21,
         SUPP_NODE, 0x0C, 0x57,
-            MOD_LUM, 01, 15, NEG + 13,
+            MOD_LUM, 1, 15, NEG + 13,
         SUPP_NODE, 0x0D, 0x57,
-            MOD_LUM, 01, 15, NEG + 5,
+            MOD_LUM, 1, 15, NEG + 5,
         SUPP_NODE, 0x0E, 0x57,
         SUPP_NODE, 0x0F, 0x57,
-            MOD_LUM, 01, 15, 5,
+            MOD_LUM, 1, 15, 5,
         SUPP_NODE, 0x10, 0x57,
-            MOD_LUM, 01, 15, 13,
+            MOD_LUM, 1, 15, 13,
         SUPP_NODE, 0x11, 0x57,
-            MOD_LUM, 01, 15, 21,
+            MOD_LUM, 1, 15, 21,
         SUPP_NODE, 0x12, 0x57,
-            MOD_LUM, 01, 15, 35,
+            MOD_LUM, 1, 15, 35,
         // 0x14-1c: rush
         // 0x1d-25: beat
         // 0x26-23: beat plane
@@ -419,28 +426,28 @@ const UINT16 _mvc2_supp_const [] =
         // 0x38-40: rush drill
         // 0x4c-54: hyper roll
         SUPP_NODE, 0x4C, 0x57,
-            MOD_LUM, 01, 15, NEG + 21,
+            MOD_LUM, 1, 15, NEG + 21,
         SUPP_NODE, 0x4D, 0x57,
-            MOD_LUM, 01, 15, NEG + 13,
+            MOD_LUM, 1, 15, NEG + 13,
         SUPP_NODE, 0x4E, 0x57,
-            MOD_LUM, 01, 15, NEG + 5,
+            MOD_LUM, 1, 15, NEG + 5,
         SUPP_NODE, 0x4F, 0x57,
         SUPP_NODE, 0x50, 0x57,
-            MOD_LUM, 01, 15, 5,
+            MOD_LUM, 1, 15, 5,
         SUPP_NODE, 0x51, 0x57,
-            MOD_LUM, 01, 15, 13,
+            MOD_LUM, 1, 15, 13,
         SUPP_NODE, 0x52, 0x57,
-            MOD_LUM, 01, 15, 21,
+            MOD_LUM, 1, 15, 21,
         SUPP_NODE, 0x53, 0x57,
-            MOD_LUM, 01, 15, 35,
+            MOD_LUM, 1, 15, 35,
         // 0x56-5d: hyper roll switching back
 
     0x24 | SUPP_START, //Cammy
         // 0x9-0x11 are the counter flash
         SUPP_NODE, 0x09, 9,
-            MOD_TINT, 1, 15, 1, 0, 8, 15, // blue +15
+            MOD_TINT, 1, 15, 1, 0, 8, 15, // blue + 15
         SUPP_NODE, 0x0A, 9,
-            MOD_TINT, 1, 15, 1, 0, 6, 14, // blue +14
+            MOD_TINT, 1, 15, 1, 0, 6, 14, // blue + 14
         SUPP_NODE, 0x0B, 9, 
             MOD_TINT, 1, 15, 1, 0, 4, 10, // blue + 10
         SUPP_NODE, 0x0C, 9,
@@ -457,40 +464,40 @@ const UINT16 _mvc2_supp_const [] =
 
     0x25 | SUPP_START, //Dhalsim
         SUPP_NODE, 0x09, 5,
-            MOD_LUM, 01, 15, 15,
+            MOD_LUM, 1, 15, 15,
         SUPP_NODE, 0x0A, 5,
-            MOD_LUM, 01, 15, 27,
+            MOD_LUM, 1, 15, 27,
         SUPP_NODE, 0x0B, 5,
-            MOD_LUM, 01, 15, 42,
+            MOD_LUM, 1, 15, 42,
         SUPP_NODE, 0x0C, 5,
-            MOD_LUM, 01, 15, 65,
+            MOD_LUM, 1, 15, 65,
 
     0x28 | SUPP_START, //Gambit
         SUPP_NODE, 0x09, 5,
-            MOD_LUM, 01, 15, 10,
+            MOD_LUM, 1, 15, 10,
         SUPP_NODE, 0x0A, 5,
-            MOD_LUM, 01, 15, 5,
+            MOD_LUM, 1, 15, 5,
         SUPP_NODE, 0x0B, 5,
         SUPP_NODE, 0x0C, 5,
-            MOD_LUM, 01, 15, 5 + NEG,
+            MOD_LUM, 1, 15, 5 + NEG,
         SUPP_NODE, 0x0D, 5,
-            MOD_LUM, 01, 15, 10 + NEG,
+            MOD_LUM, 1, 15, 10 + NEG,
 
     0x29 | SUPP_START, //Juggernaut
         SUPP_NODE, 0x0B, 10,
-            MOD_LUM, 01, 15, 6,
+            MOD_LUM, 1, 15, 6,
         SUPP_NODE, 0x0C, 10,
-            MOD_LUM, 01, 15, 12,
+            MOD_LUM, 1, 15, 12,
         SUPP_NODE, 0x0D, 10,
-            MOD_LUM, 01, 15, 15,
+            MOD_LUM, 1, 15, 15,
         SUPP_NODE, 0x0E, 10,
-            MOD_LUM, 01, 15, 18,
+            MOD_LUM, 1, 15, 18,
         SUPP_NODE, 0x0F, 10,
-            MOD_LUM, 01, 15, 12,
+            MOD_LUM, 1, 15, 12,
         SUPP_NODE, 0x10, 10,
-            MOD_LUM, 01, 15, 7,
+            MOD_LUM, 1, 15, 7,
         SUPP_NODE, 0x11, 10,
-            MOD_LUM, 01, 15, 4,
+            MOD_LUM, 1, 15, 4,
         SUPP_NODE, 0x12, 10,
 
     0x2A | SUPP_START, //Storm
@@ -499,10 +506,10 @@ const UINT16 _mvc2_supp_const [] =
         //  lightning effect
         SUPP_NODE, 0x19, 3,
         SUPP_NODE, 0x1A, 3,
-            MOD_LUM, 01, 15, 7,
+            MOD_LUM, 1, 15, 7,
         // hail storm
         SUPP_NODE, 0x1B, 3,
-            MOD_LUM, 01, 15, 17,
+            MOD_LUM, 1, 15, 17,
 
     0x2D | SUPP_START, //Shuma Gorath
         // Dash/Guard: Extra 01
@@ -606,7 +613,7 @@ const UINT16 _mvc2_supp_const [] =
 
     0x2F | SUPP_START, //Silver Samurai
         SUPP_NODE, 0x01 | MOD_ABS, 8,
-            MOD_LUM, 01, 15, 5 + NEG,
+            MOD_LUM, 1, 15, 5 + NEG,
         SUPP_NODE, 0x09, 8,
         SUPP_NODE, 0x0A, 8,
             MOD_LUM, 8, 7, 10 + NEG,
@@ -618,17 +625,17 @@ const UINT16 _mvc2_supp_const [] =
             MOD_COPY, 7, 6, 10,
         SUPP_NODE, 0x0E, 8,
         SUPP_NODE, 0x0F, 8,
-            MOD_LUM, 01, 15, 5 + NEG,
+            MOD_LUM, 1, 15, 5 + NEG,
 
     0x30 | SUPP_START, //Omega Red
         SUPP_NODE, 0x09, 4,
-            MOD_LUM, 01, 15, 25 + NEG,
+            MOD_LUM, 1, 15, 25 + NEG,
         SUPP_NODE, 0x0A, 4,
-            MOD_LUM, 01, 15, 12 + NEG,
+            MOD_LUM, 1, 15, 12 + NEG,
         SUPP_NODE, 0x0B, 4,
-            MOD_LUM, 01, 15, 9 + NEG,
+            MOD_LUM, 1, 15, 9 + NEG,
         SUPP_NODE, 0x0C, 4,
-            MOD_LUM, 01, 15, 5 + NEG,
+            MOD_LUM, 1, 15, 5 + NEG,
 
     0x31 | SUPP_START, //Spiral
 
@@ -769,23 +776,23 @@ const UINT16 _mvc2_supp_const [] =
         SUPP_NODE, 0x17, 32,
             MOD_COPY, 2, 1, 4,
         SUPP_NODE, 0x18, 32,
-            MOD_LUM, 01, 15, 31,
+            MOD_LUM, 1, 15, 31,
         SUPP_NODE, 0x19, 32,
-            MOD_LUM, 01, 15, 45,
+            MOD_LUM, 1, 15, 45,
         SUPP_NODE, 0x1B, 32,
-            MOD_LUM, 01, 15, NEG + 18,
+            MOD_LUM, 1, 15, NEG + 18,
 
         SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x1B, 32, 0x1B, 32, 9, 1, 8,
         SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x1B, 32, 0x1B, 32, 3, 1, 2,
 
         SUPP_NODE, 0x1C, 32,
-            MOD_LUM, 01, 15, NEG + 13,
+            MOD_LUM, 1, 15, NEG + 13,
 
         SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x1C, 32, 0x1C, 32, 9, 1, 8,
         SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x1C, 32, 0x1C, 32, 3, 1, 2,
 
         SUPP_NODE, 0x1D, 32,
-            MOD_LUM, 01, 15, NEG + 6,
+            MOD_LUM, 1, 15, NEG + 6,
 
         SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x1D, 32, 0x1D, 32, 9, 1, 8,
         SUPP_NODE_ABSOL | SUPP_NODE_EX, 0x1D, 32, 0x1D, 32, 3, 1, 6,
@@ -794,25 +801,25 @@ const UINT16 _mvc2_supp_const [] =
 
         SUPP_NODE, 0x1E, 32,
         SUPP_NODE, 0x1F, 32,
-            MOD_LUM, 01, 15, NEG + 5,
+            MOD_LUM, 1, 15, NEG + 5,
         SUPP_NODE, 0x20, 32,
-            MOD_LUM, 01, 15, 25,
+            MOD_LUM, 1, 15, 25,
         SUPP_NODE, 0x21, 32,
         SUPP_NODE, 0x22, 32,
-            MOD_LUM, 02, 14, NEG + 5,
+            MOD_LUM, 2, 14, NEG + 5,
             MOD_WHITE, 7, 1,
         SUPP_NODE, 0x23, 32,
-            MOD_LUM, 02, 14, NEG + 8,
+            MOD_LUM, 2, 14, NEG + 8,
             MOD_WHITE, 6, 1,
         SUPP_NODE, 0x24, 32,
-            MOD_LUM, 02, 14, NEG + 4,
+            MOD_LUM, 2, 14, NEG + 4,
             MOD_WHITE, 5, 1,
         SUPP_NODE, 0x25, 32,
             MOD_WHITE, 4, 1,
         SUPP_NODE, 0x26, 32,
-            MOD_LUM, 02, 14, 30,
+            MOD_LUM, 2, 14, 30,
         SUPP_NODE, 0x27, 32,
-            MOD_LUM, 02, 14, 45,
+            MOD_LUM, 2, 14, 45,
             MOD_LUM, 07, 1, NEG + 7,
             MOD_SAT, 07, 1, 50,
         SUPP_NODE, 0x28, 32,
@@ -824,32 +831,32 @@ const UINT16 _mvc2_supp_const [] =
     0x37 | SUPP_START, //Jin
         // power-up flash
         SUPP_NODE, 0x2E, 6,
-            MOD_LUM, 01, 15, 64,
+            MOD_LUM, 1, 15, 32,
         SUPP_NODE, 0x2F, 6,
-            MOD_LUM, 01, 15, 50,
+            MOD_LUM, 1, 15, 25,
         SUPP_NODE, 0x30, 6,
-            MOD_LUM, 01, 15, 32,
+            MOD_LUM, 1, 15, 16,
         SUPP_NODE, 0x31, 6,
-            MOD_LUM, 01, 15, 21,
+            MOD_LUM, 1, 15, 10,
 
-        //SUPP_NODE_EX, Dest Start, Dest Inc, Src Start, Src Amt, Dst Index
+        //SUPP_NODE_EX, Dest Palette, Dest Inc, Src Start, Src Amt, Dst Index
         // 0x51 are the "player" hands for blodia vulcan
         SUPP_NODE_EX, 0x51, 3, 6, 10, 6,
-            MOD_LUM, 6, 10, 21,
+            MOD_LUM, 6, 10, 10,
 
         // these are for the towel taunt
-        SUPP_NODE_EX, 0x63, 6, 6, 10, 6,
-            MOD_COPY, 8, 3, 10,
-        SUPP_NODE_EX, 0x64, 6, 6, 10, 6,
-            MOD_COPY, 8, 3, 10,
-        SUPP_NODE_EX, 0x65, 6, 6, 10, 6,
-            MOD_COPY, 8, 3, 10,
-        SUPP_NODE_EX, 0x66, 6, 6, 10, 6,
-            MOD_COPY, 8, 3, 10,
-        SUPP_NODE_EX, 0x67, 6, 6, 10, 6,
-            MOD_COPY, 8, 3, 10,
-        SUPP_NODE_EX, 0x68, 6, 6, 10, 6,
-            MOD_COPY, 8, 3, 10,
+        SUPP_NODE, 0x63, 6,
+            MOD_TINT, 2, 4, 2, 0, NEG + 1, NEG + 1,
+        SUPP_NODE, 0x64, 6,
+            MOD_TINT, 2, 4, 2, 4, NEG + 2, NEG + 2,
+        SUPP_NODE, 0x65, 6,
+            MOD_TINT, 2, 4, 2, 0, NEG + 3, NEG + 3,
+        SUPP_NODE, 0x66, 6,
+            MOD_TINT, 2, 4, 2, 0, NEG + 4, NEG + 4,
+        SUPP_NODE, 0x67, 6,
+            MOD_TINT, 2, 4, 2, 0, NEG + 5, NEG + 5,
+        SUPP_NODE, 0x68, 6,
+            MOD_TINT, 2, 4, 2, 0, NEG + 6, NEG + 6,
 
     0x39 | SUPP_START, // Bonerine
         // his berserker barrage trails a bit of his costume.
@@ -862,11 +869,11 @@ const UINT16 _mvc2_supp_const [] =
     0x3A | SUPP_START, //Kobun
         SUPP_NODE, 0x09, 5, 
         SUPP_NODE, 0x0A, 5,
-            MOD_LUM, 01, 15, 23,
+            MOD_LUM, 1, 15, 23,
         SUPP_NODE, 0x0B, 5,
-            MOD_LUM, 01, 15, 32,
+            MOD_LUM, 1, 15, 32,
         SUPP_NODE, 0x0C, 5,
-            MOD_LUM, 01, 15, 40,
+            MOD_LUM, 1, 15, 40,
 
   //0x2D | SUPP_START, //Shuma-Gorath
   //0x31 | SUPP_START, //Spiral
