@@ -53,14 +53,11 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     if (GetExtraCt(m_nExtraUnit) == 0)
     {
         CString strIntro;
-        // BUGBUG: All of this string is useful.  However, in the July 1st 2020 Visual Studio update they introduced a bug wherein this long string corrupts memory.
-        // So for right now I am skipping most of this to avoid that problem.  Also the app now builds Optimized instead of Max Optimized because of another bug
-        // in the compiler, so that's tight.  If at some point MSFT fixes their code we can go back to using the full text here.
         strIntro = _T("Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random NEO•GEO ROM that PalMod does not already support. \n\n");
-        //strIntro += _T("PalMod will read / write specified RAM offsets as if they indicated RGB666 colors.\n\n");
+        strIntro += _T("PalMod will read / write specified RAM offsets as if they indicated RGB666 colors.\n\n");
         strIntro += _T("Right now, you don't have any entries in your NEOGEOE.txt Extras file: you will want to add entries there if you wish to use this \"dummy\" mode.\n\n");
-        //strIntro += _T("Please make sure to only change a copy of the ROM you're interested in: since you're directly playing around with the game ROM, weird things could happen.\n\n");
-        //strIntro += _T("Good luck!");
+        strIntro += _T("Please make sure to only change a copy of the ROM you're interested in: since you're directly playing around with the game ROM, weird things could happen.\n\n");
+        strIntro += _T("Good luck!");
         MessageBox(g_appHWnd, strIntro, GetHost()->GetAppName(), MB_ICONINFORMATION);
     }
 
@@ -345,7 +342,7 @@ sFileRule CGame_NEOGEO_A::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("stub.stub")); // use a stub value here
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("stub.stb")); // use a stub value here
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = -1; // this game is a stub only
