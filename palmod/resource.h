@@ -72,11 +72,9 @@
 #define IDC_SHOWPREVIEW                 1025
 #define IDC_COLORIZE                    1026
 #define IDC_EDIT_ADESC                  1026
-#define IDC_BEIDRIAN1                   1027
 #define IDC_SPEC                        1028
 #define IDC_A_SLIDER                    1028
 #define IDC_INVERT                      1029
-#define IDC_BEIDRIAN2                   1029
 #define IDC_BREVERT                     1030
 #define IDC_BBLINK                      1031
 #define IDC_BINVERT                     1032

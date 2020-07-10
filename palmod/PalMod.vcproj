@@ -541,10 +541,6 @@
 					>
 				</File>
 				<File
-					RelativePath=".\PalModDlg_Debug.cpp"
-					>
-				</File>
-				<File
 					RelativePath=".\PalModDlg_Edit.cpp"
 					>
 				</File>

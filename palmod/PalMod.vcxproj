@@ -150,7 +150,6 @@
     <ClCompile Include="PalModDlg.cpp" />
     <ClCompile Include="PalModDlg_Color.cpp" />
     <ClCompile Include="PalModDlg_Config.cpp" />
-    <ClCompile Include="PalModDlg_Debug.cpp" />
     <ClCompile Include="PalModDlg_Edit.cpp" />
     <ClCompile Include="PalModDlg_File.cpp" />
     <ClCompile Include="PalModDlg_General.cpp" />

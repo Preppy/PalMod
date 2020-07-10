@@ -180,9 +180,6 @@
     <ClCompile Include="PalModDlg_Config.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PalModDlg_Debug.cpp">
-      <Filter>Main DLG/APP\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PalModDlg_Edit.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
     </ClCompile>

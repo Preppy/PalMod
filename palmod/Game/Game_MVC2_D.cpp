@@ -716,42 +716,6 @@ void CGame_MVC2_D::PostSetPal(UINT16 nUnitId, UINT16 nPalId)
     proc_supp(nUnitId, nPalId);
 }
 
-void CGame_MVC2_D::ForEidrian(int nFlag, COLORREF crCol)
-{
-    int nPalAmt = 1;
-    switch (nFlag)
-    {
-    case 0:
-    {
-        nPalAmt = 1;
-    }
-    break;
-    case 1:
-    {
-        nPalAmt = 16;
-    }
-    break;
-    }
-
-    for (int nUnitCtr = 0; nUnitCtr < MVC2_D_NUMUNIT; nUnitCtr++)
-    {
-        for (UINT32 nPalCtr = 0; nPalCtr < MVC2_D_PALDATASZ[nUnitCtr] / 32; nPalCtr++)
-        {
-            if (ppDataBuffer[nUnitCtr])
-            {
-                for (int nPICtr = 0; nPICtr < nPalAmt; nPICtr++)
-                {
-                    ppDataBuffer[nUnitCtr][nPalCtr * 16 + nPICtr]
-                        =
-                        nFlag ? (ppDataBuffer[nUnitCtr][nPalCtr * 16 + nPICtr] & 0x0FFF) : ConvCol(crCol);
-                }
-
-                rgFileChanged[nUnitCtr] = TRUE;
-            }
-        }
-    }
-}
-
 void CGame_MVC2_D::SetExtraImg(UINT16 nImgId, UINT16 nUnitId, UINT16 nPalId)
 {
     nTargetImgId = nImgId + 0xFF00;

@@ -124,11 +124,9 @@ BEGIN
     EDITTEXT        IDC_EDIT_ADESC,258,76,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT_A,267,74,23,12,ES_AUTOHSCROLL
     CONTROL         "",IDC_A_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,294,74,81,12
-    PUSHBUTTON      "Set All 0 Index",IDC_BEIDRIAN2,321,189,64,13,NOT WS_VISIBLE
     PUSHBUTTON      "Set Color",IDC_BSETCOL,265,95,49,13,NOT WS_VISIBLE
     PUSHBUTTON      "Pick Color",IDC_BNEWCOL,321,95,49,13
     PUSHBUTTON      "Check My Edits",IDC_BCHECKMIX,10,209,64,13,NOT WS_VISIBLE
-    PUSHBUTTON      "Make All Invis",IDC_BEIDRIAN1,249,188,64,13,NOT WS_VISIBLE
     COMBOBOX        IDC_CHARCOMBO,249,129,135,147,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_CHILDCOMBO1,249,143,135,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_CHILDCOMBO2,249,157,135,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
@@ -163,11 +161,9 @@ BEGIN
     EDITTEXT        IDC_EDIT_ADESC,168,76,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT_A,177,74,23,12,ES_AUTOHSCROLL
     CONTROL         "",IDC_A_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,204,74,81,12
-    PUSHBUTTON      "Set All 0 Index",IDC_BEIDRIAN2,231,189,64,13,NOT WS_VISIBLE
     PUSHBUTTON      "Set Color",IDC_BSETCOL,175,95,49,13,NOT WS_VISIBLE
     PUSHBUTTON      "Pick Color",IDC_BNEWCOL,231,95,49,13
     PUSHBUTTON      "Check My Edits",IDC_BCHECKMIX,10,209,64,13,NOT WS_VISIBLE
-    PUSHBUTTON      "Make All Invis",IDC_BEIDRIAN1,159,188,64,13,NOT WS_VISIBLE
     COMBOBOX        IDC_CHARCOMBO,159,129,135,147,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_CHILDCOMBO1,159,143,135,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_CHILDCOMBO2,159,157,135,133,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
@@ -233,8 +229,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,60,0
- PRODUCTVERSION 1,0,60,0
+ FILEVERSION 1,0,61,0
+ PRODUCTVERSION 1,0,61,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -251,12 +247,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.60.0"
+            VALUE "FileVersion", "1.0.61.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.60.0"
+            VALUE "ProductVersion", "1.0.61.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -496,7 +492,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.60"
+    IDS_CURRENTAPPNAME      "PalMod 1.61"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
     IDS_ERROR_NO_IMAGES     "No images available."

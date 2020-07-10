@@ -228,8 +228,6 @@ public:
     afx_msg void OnLdMVC2PS2USA();
     afx_msg void OnFileOpen();
     afx_msg void OnButtonClickCheckEdits();
-    afx_msg void OnBnClickedBEidrian1();
-    afx_msg void OnBnClickedBEidrian2();
     afx_msg void OnBnRevert();
     afx_msg void OnBnBlink();
     afx_msg void OnAboutAboutpalmod();
