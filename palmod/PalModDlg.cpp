@@ -140,6 +140,10 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_NOTIFY(NM_RELEASEDCAPTURE, IDC_GS_SLIDER, &CPalModDlg::OnNMReleasedCaptureAll)
     ON_NOTIFY(NM_RELEASEDCAPTURE, IDC_BL_SLIDER, &CPalModDlg::OnNMReleasedCaptureAll)
     ON_NOTIFY(NM_RELEASEDCAPTURE, IDC_A_SLIDER, &CPalModDlg::OnNMReleasedCaptureAll)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN_RH, &CPalModDlg::OnDeltaposSpinRH)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN_GS, &CPalModDlg::OnDeltaposSpinGS)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN_BL, &CPalModDlg::OnDeltaposSpinBL)
+    ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN_A, &CPalModDlg::OnDeltaposSpinA)
     ON_COMMAND(ID_FILE_EXIT, &CPalModDlg::OnFileExit)
     ON_COMMAND(ID_FILE_CLOSEFILEDIR, &CPalModDlg::OnFileCloseFileDir)
     ON_WM_TIMER()
@@ -324,6 +328,10 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
     case IDC_EDIT_GS:
     case IDC_EDIT_BL:
     case IDC_EDIT_A:
+    case IDC_SPIN_RH:
+    case IDC_SPIN_GS:
+    case IDC_SPIN_BL:
+    case IDC_SPIN_A:
     case IDC_SHOWPREVIEW:
         break;
     case IDC_BNEWCOL:

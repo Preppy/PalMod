@@ -219,6 +219,10 @@ public:
     afx_msg void OnEditSelectAll();
     afx_msg void OnEditSelectNone();
     afx_msg void OnNMReleasedCaptureAll(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnDeltaposSpinRH(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnDeltaposSpinGS(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnDeltaposSpinBL(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnDeltaposSpinA(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnFileExit();
     afx_msg void OnFileCloseFileDir();
     afx_msg void OnTimer(UINT_PTR nIDEvent);

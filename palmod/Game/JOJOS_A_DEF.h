@@ -3307,7 +3307,8 @@ const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { _T("S.Dio 623aa Floor Effect"), 0x0335900, 0x0335920 },
 
     { _T("S.Dio Effects/Round Start/Wallbounce/etc"), 0x0335980, 0x03359C0 },
-    { _T("Various 236x Effects"), 0x03358E0, 0x0335900 },
+    // Also a dupe
+    //{ _T("Various 236x Effects"), 0x03358E0, 0x0335900 },
 
 };
 

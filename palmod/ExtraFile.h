@@ -23,7 +23,7 @@ protected:
     LPCTSTR m_pszDupedPaletteName = nullptr;
 
 private:
-    bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nOffsetToCheck, UINT32 nEndOfRegionToCheck = 0);
+    bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nStartingOffsetToCheck, UINT32 nEndOfRegionToCheck = 0);
     int GetDupeCountInExtrasDataset();
     int GetDupeCountInDataset();
 

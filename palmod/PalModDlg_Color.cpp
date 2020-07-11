@@ -9,12 +9,15 @@ void CPalModDlg::EnableSlider(int RH, int GS, int BL)
 {
     GetDlgItem(IDC_EDIT_RH)->EnableWindow(RH);
     m_RHSlider.EnableWindow(RH);
+    GetDlgItem(IDC_SPIN_RH)->EnableWindow(RH);
 
     GetDlgItem(IDC_EDIT_GS)->EnableWindow(GS);
     m_GSSlider.EnableWindow(GS);
+    GetDlgItem(IDC_SPIN_GS)->EnableWindow(RH);
 
     GetDlgItem(IDC_EDIT_BL)->EnableWindow(BL);
     m_BLSlider.EnableWindow(BL);
+    GetDlgItem(IDC_SPIN_BL)->EnableWindow(RH);
 }
 
 void CPalModDlg::ResetSlider(BOOL bSetZero)
@@ -38,6 +41,58 @@ void CPalModDlg::ResetSlider(BOOL bSetZero)
     m_ASlider.SetPos((int)(double)(round(m_Edit_A / nTAMul)));
 
     UpdateData(FALSE);
+}
+
+void CPalModDlg::OnDeltaposSpinRH(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    *pResult = 0;
+
+    // Adjust by amount, but correct the orientation
+    UpdateData();
+    ProcChange();
+    m_Edit_RH = m_Edit_RH + (-1 * pNMUpDown->iDelta);
+    UpdateData(FALSE);
+    UpdateEditKillFocus(IDC_EDIT_RH);
+}
+
+void CPalModDlg::OnDeltaposSpinGS(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    *pResult = 0;
+
+    // Adjust by amount, but correct the orientation
+    UpdateData();
+    ProcChange();
+    m_Edit_GS = m_Edit_GS + (-1 * pNMUpDown->iDelta);
+    UpdateData(FALSE);
+    UpdateEditKillFocus(IDC_EDIT_GS);
+}
+
+void CPalModDlg::OnDeltaposSpinBL(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    *pResult = 0;
+
+    // Adjust by amount, but correct the orientation
+    UpdateData();
+    ProcChange();
+    m_Edit_BL = m_Edit_BL + (-1 * pNMUpDown->iDelta);
+    UpdateData(FALSE);
+    UpdateEditKillFocus(IDC_EDIT_BL);
+}
+
+void CPalModDlg::OnDeltaposSpinA(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+    *pResult = 0;
+
+    // Adjust by amount, but correct the orientation
+    UpdateData();
+    ProcChange();
+    m_Edit_A = m_Edit_A + (-1 * pNMUpDown->iDelta);
+    UpdateData(FALSE);
+    UpdateEditKillFocus(IDC_EDIT_A);
 }
 
 void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
@@ -167,6 +222,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
     {
         m_ASlider.EnableWindow(bEnableAlpha);
         GetDlgItem(IDC_EDIT_A)->EnableWindow(bEnableAlpha);
+        GetDlgItem(IDC_SPIN_A)->EnableWindow(bEnableAlpha);
 
         bAlphaEnabled = bEnableAlpha;
     }
@@ -175,14 +231,6 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
     UpdateData();
-
-    //Update the slider undo data before changing
-    if (bAutoSetCol && bGetSliderUndo)
-    {
-        ProcChange();
-
-        bGetSliderUndo = FALSE;
-    }
 
     //Update the edit control
     int* editControl = &m_Edit_RH;
@@ -216,12 +264,26 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
         nMul = nAMul;
     }
     break;
+    case IDC_SPIN_RH:
+    case IDC_SPIN_GS:
+    case IDC_SPIN_BL:
+    case IDC_SPIN_A:
+        // These are handled over in OnDeltaposSpin*
+        return;
     default:
-        OutputDebugString(_T("Bogus slider ID: bad things will happen"));
+        OutputDebugString(_T("Bogus slider ID: bad things will happen\n"));
         return;
     }
 
-    if (nSliderId == IDC_A_SLIDER)
+    //Update the slider undo data before changing
+    if (bAutoSetCol && bGetSliderUndo)
+    {
+        ProcChange();
+
+        bGetSliderUndo = FALSE;
+    }
+
+    if ((nSliderId == IDC_A_SLIDER) || (nSliderId == IDC_SPIN_A))
     {
         nMul = bShow32 ? nMul : 1;
     }

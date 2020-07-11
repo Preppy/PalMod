@@ -162,17 +162,17 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                         UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / 2; // 2 bytes per color.
 
                         static bool s_fShownOnce = false;
-                        if ((nColorsUsed > 10000) && !s_fShownOnce)
+                        if (nCurrStart > nCurrEnd) // This file is broken: just make the best of it.
                         {
-                            s_fShownOnce = true;
-                            CString strError;
-                            strError.Format(_T("In file \"%s\", Extra \"%S\" is trying to display %u colors (from 0x%06x to 0x%06x).  This may not work properly.\n"), pszExtraFileName, aszCurrDesc, nColorsUsed, nCurrStart, nCurrEnd);
-                            MessageBox(g_appHWnd, strError, _T("PalMod"), MB_ICONINFORMATION);
-
-                            if (nCurrStart > nCurrEnd) // This file is broken: just make the best of it.
+                            if (!s_fShownOnce)
                             {
-                                nColorsUsed = 16;
+                                s_fShownOnce = true;
+                                CString strError;
+                                strError.Format(_T("In file \"%s\", Extra \"%S\" is trying to display %u colors (from 0x%06x to 0x%06x).  This is broken, so PalMod is overriding it.\n"), pszExtraFileName, aszCurrDesc, nColorsUsed, nCurrStart, nCurrEnd);
+                                MessageBox(g_appHWnd, strError, _T("PalMod"), MB_ICONINFORMATION);
                             }
+
+                            nColorsUsed = 16;
                         }
 
                         const int nTotalPagesNeeded = (int)ceil((double)nColorsUsed / (double)k_colorsPerPage);
@@ -305,7 +305,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
     safe_delete_array(prgTempExtraBuffer);
 }
 
-bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nOffsetToCheck, UINT32 nEndOfRegionToCheck /* = 0 */)
+bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nStartingOffsetToCheck, UINT32 nEndOfRegionToCheck /* = 0 */)
 {
     UINT32 nTotalDupesFound = 0;
     CString strDupeText;
@@ -326,8 +326,8 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
             {
                 bool fIsDupe = false;
                 const UINT32 nCurrentEndOfPaletteRegion = (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSize * 2));
-                if ((nOffsetToCheck > m_nCurrentPaletteROMLocation) &&
-                    (nOffsetToCheck < nCurrentEndOfPaletteRegion))
+                if ((nStartingOffsetToCheck >= m_nCurrentPaletteROMLocation) &&
+                    (nStartingOffsetToCheck < nCurrentEndOfPaletteRegion))
                 {
                     fIsDupe = true;
                 }
@@ -340,7 +340,7 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
                     {
                         fIsDupe = true;
                     }
-                    else if ((m_nCurrentPaletteROMLocation >= nOffsetToCheck) &&
+                    else if ((m_nCurrentPaletteROMLocation >= nStartingOffsetToCheck) &&
                              (m_nCurrentPaletteROMLocation < nEndOfRegionToCheck))
                     {
                         fIsDupe = true;
@@ -351,7 +351,7 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
                 {
                     m_pszDupedPaletteName = m_pszCurrentPaletteName;
                     nTotalDupesFound++;
-                    strDupeText.Format(_T("ERROR: Unit %u pal %u ('%s', 0x%06x to 0x%06x) is a duplicate of unit %u pal %u (0x%x to 0x%x)!\n"), nUnitCtr, nPalCtr, m_pszDupedPaletteName, m_nCurrentPaletteROMLocation, nCurrentEndOfPaletteRegion, nUnitId, nPalId, nOffsetToCheck, nEndOfRegionToCheck);
+                    strDupeText.Format(_T("ERROR: Unit %u pal %u ('%s', 0x%06x to 0x%06x) is a duplicate of unit %u pal %u (0x%x to 0x%x)!\n"), nUnitCtr, nPalCtr, m_pszDupedPaletteName, m_nCurrentPaletteROMLocation, nCurrentEndOfPaletteRegion, nUnitId, nPalId, nStartingOffsetToCheck, nEndOfRegionToCheck);
                     OutputDebugString(strDupeText);
                     break;
                 }

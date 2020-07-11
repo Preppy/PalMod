@@ -79,11 +79,11 @@
 #define IDC_BBLINK                      1031
 #define IDC_BINVERT                     1032
 #define IDC_BCHECKMIX                   1033
-#define IDC_MFCLINK1                    1035
 #define IDC_WEBSITELINK                 1035
-#define IDC_DUMMY1                      1036
-#define IDC_DUMMY2                      1039
-#define IDC_DUMMY3                      1040
+#define IDC_SPIN_RH                     1036
+#define IDC_SPIN_GS                     1037
+#define IDC_SPIN_BL                     1038
+#define IDC_SPIN_A                      1039
 #define IDC_COMBONO                     1041
 #define IDC_AMT                         1046
 #define IDC_ZOOM                        1047
@@ -176,7 +176,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
 #define _APS_NEXT_COMMAND_VALUE         32842
-#define _APS_NEXT_CONTROL_VALUE         1036
+#define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
 #endif
