@@ -827,15 +827,16 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB3[] =
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW1[] =
 {
 #ifndef USE_LARGE_PALETTES
-    { _T("New 1 (1/9)"), 0x07cb280, 0x07cb480 },
-    { _T("New 1 (2/9)"), 0x07cb480, 0x07cb680 },
-    { _T("New 1 (3/9)"), 0x07cb680, 0x07cb880 },
-    { _T("New 1 (4/9)"), 0x07cb880, 0x07cba80 },
-    { _T("New 1 (5/9)"), 0x07cba80, 0x07cbc80 },
-    { _T("New 1 (6/9)"), 0x07cbc80, 0x07cbe80 },
-    { _T("New 1 (7/9)"), 0x07cbe80, 0x07cc080 },
-    { _T("New 1 (8/9)"), 0x07cc080, 0x07cc280 },
-    { _T("New 1 (9/9)"), 0x07cc280, 0x07cc480 },
+    { _T("New 1 (1/10)"), 0x07cb200, 0x07cb400 },
+    { _T("New 1 (2/10)"), 0x07cb400, 0x07cb600 },
+    { _T("New 1 (3/10)"), 0x07cb600, 0x07cb800 },
+    { _T("New 1 (4/10)"), 0x07cb800, 0x07cba00 },
+    { _T("New 1 (5/10)"), 0x07cba00, 0x07cbc00 },
+    { _T("New 1 (6/10)"), 0x07cbc00, 0x07cbe00 },
+    { _T("New 1 (7/10)"), 0x07cbe00, 0x07cc000 },
+    { _T("New 1 (8/10)"), 0x07cc000, 0x07cc200 },
+    { _T("New 1 (9/10)"), 0x07cc200, 0x07cc400 },
+    { _T("New 1 (10/10)"), 0x07cc400, 0x07cc480 },
 #else
     { _T("New 1"), 0x07cb280, 0x07cc480 },
 #endif

@@ -42,7 +42,7 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF02UM_S_NUMUNIT;
     m_nExtraUnit = KOF02UM_S_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2112;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2646;
     m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -242,6 +242,10 @@ void CGame_KOF02UM_S::DumpAllCharacters()
         strOutput.Format(_T("    { _T(\"C\"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_%s_PALETTES_C, ARRAYSIZE(KOF02UM_S_%s_PALETTES_C) },\r\n"), szCodeDesc, szCodeDesc );
         OutputDebugString(strOutput);
         strOutput.Format(_T("    { _T(\"D\"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_%s_PALETTES_D, ARRAYSIZE(KOF02UM_S_%s_PALETTES_D) },\r\n"), szCodeDesc, szCodeDesc );
+        OutputDebugString(strOutput);
+        strOutput.Format(_T("    { _T(\"Moves\"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_%s_PALETTES_MOVES, ARRAYSIZE(KOF02UM_S_%s_PALETTES_MOVES) },\r\n"), szCodeDesc, szCodeDesc);
+        OutputDebugString(strOutput);
+        strOutput.Format(_T("    { _T(\"Portraits\"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_%s_PALETTES_PORTRAITS, ARRAYSIZE(KOF02UM_S_%s_PALETTES_PORTRAITS) },\r\n"), szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
 
         OutputDebugString(_T("};\r\n\r\n"));
