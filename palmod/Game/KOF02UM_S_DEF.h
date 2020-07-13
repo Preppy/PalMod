@@ -99,530 +99,530 @@ const sKOF02_CharacterDump KOF02UM_CharacterOffsetArray[] =
 // These tables were added by hand through research.  They are not part of the table print output logic.
 const sGame_PaletteDataset KOF02UM_S_KYO_PALETTES_PORTRAITS[] =
 {
-    { _T("Kyo A Portrait"), 0x53900, 0x53920 },
-    { _T("Kyo B Portrait"), 0x53920, 0x53940 },
-    { _T("Kyo C Portrait"), 0x53940, 0x53960 },
-    { _T("Kyo D Portrait"), 0x53960, 0x53980 },
+    { _T("Kyo A Portrait"), 0x53900, 0x53920, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo },
+    { _T("Kyo B Portrait"), 0x53920, 0x53940, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo },
+    { _T("Kyo C Portrait"), 0x53940, 0x53960, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo },
+    { _T("Kyo D Portrait"), 0x53960, 0x53980, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo },
 };
 
 const sGame_PaletteDataset KOF02UM_S_BENIMARU_PALETTES_PORTRAITS[] =
 {
-    { _T("Benimaru A Portrait"), 0x53a00, 0x53a20 },
-    { _T("Benimaru B Portrait"), 0x53a20, 0x53a40 },
-    { _T("Benimaru C Portrait"), 0x53a40, 0x53a60 },
-    { _T("Benimaru D Portrait"), 0x53a60, 0x53a80 },
+    { _T("Benimaru A Portrait"), 0x53a00, 0x53a20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Benimaru },
+    { _T("Benimaru B Portrait"), 0x53a20, 0x53a40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Benimaru },
+    { _T("Benimaru C Portrait"), 0x53a40, 0x53a60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Benimaru },
+    { _T("Benimaru D Portrait"), 0x53a60, 0x53a80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Benimaru },
 };
 
 const sGame_PaletteDataset KOF02UM_S_DAIMON_PALETTES_PORTRAITS[] =
 {
-    { _T("Daimon A Portrait"), 0x53b00, 0x53b20 },
-    { _T("Daimon B Portrait"), 0x53b20, 0x53b40 },
-    { _T("Daimon C Portrait"), 0x53b40, 0x53b60 },
-    { _T("Daimon D Portrait"), 0x53b60, 0x53b80 },
+    { _T("Daimon A Portrait"), 0x53b00, 0x53b20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Daimon },
+    { _T("Daimon B Portrait"), 0x53b20, 0x53b40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Daimon },
+    { _T("Daimon C Portrait"), 0x53b40, 0x53b60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Daimon },
+    { _T("Daimon D Portrait"), 0x53b60, 0x53b80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Daimon },
 };
 
 const sGame_PaletteDataset KOF02UM_S_TERRY_PALETTES_PORTRAITS[] =
 {
-    { _T("Terry A Portrait"), 0x53c00, 0x53c20 },
-    { _T("Terry B Portrait"), 0x53c20, 0x53c40 },
-    { _T("Terry C Portrait"), 0x53c40, 0x53c60 },
-    { _T("Terry D Portrait"), 0x53c60, 0x53c80 },
+    { _T("Terry A Portrait"), 0x53c00, 0x53c20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Terry },
+    { _T("Terry B Portrait"), 0x53c20, 0x53c40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Terry },
+    { _T("Terry C Portrait"), 0x53c40, 0x53c60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Terry },
+    { _T("Terry D Portrait"), 0x53c60, 0x53c80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Terry },
 };
 
 const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_PORTRAITS[] =
 {
-    { _T("Andy A Portrait"), 0x53d00, 0x53d20 },
-    { _T("Andy B Portrait"), 0x53d20, 0x53d40 },
-    { _T("Andy C Portrait"), 0x53d40, 0x53d60 },
-    { _T("Andy D Portrait"), 0x53d60, 0x53d80 },
+    { _T("Andy A Portrait"), 0x53d00, 0x53d20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Andy },
+    { _T("Andy B Portrait"), 0x53d20, 0x53d40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Andy },
+    { _T("Andy C Portrait"), 0x53d40, 0x53d60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Andy },
+    { _T("Andy D Portrait"), 0x53d60, 0x53d80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Andy },
 };
 
 const sGame_PaletteDataset KOF02UM_S_JOE_PALETTES_PORTRAITS[] =
 {
-    { _T("Joe A Portrait"), 0x53e00, 0x53e20 },
-    { _T("Joe B Portrait"), 0x53e20, 0x53e40 },
-    { _T("Joe C Portrait"), 0x53e40, 0x53e60 },
-    { _T("Joe D Portrait"), 0x53e60, 0x53e80 },
+    { _T("Joe A Portrait"), 0x53e00, 0x53e20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Joe },
+    { _T("Joe B Portrait"), 0x53e20, 0x53e40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Joe },
+    { _T("Joe C Portrait"), 0x53e40, 0x53e60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Joe },
+    { _T("Joe D Portrait"), 0x53e60, 0x53e80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Joe },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KIM_PALETTES_PORTRAITS[] =
 {
-    { _T("Kim A Portrait"), 0x53f00, 0x53f20 },
-    { _T("Kim B Portrait"), 0x53f20, 0x53f40 },
-    { _T("Kim C Portrait"), 0x53f40, 0x53f60 },
-    { _T("Kim D Portrait"), 0x53f60, 0x53f80 },
+    { _T("Kim A Portrait"), 0x53f00, 0x53f20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
+    { _T("Kim B Portrait"), 0x53f20, 0x53f40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
+    { _T("Kim C Portrait"), 0x53f40, 0x53f60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
+    { _T("Kim D Portrait"), 0x53f60, 0x53f80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CHANG_PALETTES_PORTRAITS[] =
 {
-    { _T("Chang A Portrait"), 0x54000, 0x54020 },
-    { _T("Chang B Portrait"), 0x54020, 0x54040 },
-    { _T("Chang C Portrait"), 0x54040, 0x54060 },
-    { _T("Chang D Portrait"), 0x54060, 0x54080 },
+    { _T("Chang A Portrait"), 0x54000, 0x54020, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chang },
+    { _T("Chang B Portrait"), 0x54020, 0x54040, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chang },
+    { _T("Chang C Portrait"), 0x54040, 0x54060, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chang },
+    { _T("Chang D Portrait"), 0x54060, 0x54080, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chang },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CHOI_PALETTES_PORTRAITS[] =
 {
-    { _T("Choi A Portrait"), 0x54100, 0x54120 },
-    { _T("Choi B Portrait"), 0x54120, 0x54140 },
-    { _T("Choi C Portrait"), 0x54140, 0x54160 },
-    { _T("Choi D Portrait"), 0x54160, 0x54180 },
+    { _T("Choi A Portrait"), 0x54100, 0x54120, indexKOFSprites_02UMExtras, indexKOF02UM_S_Choi },
+    { _T("Choi B Portrait"), 0x54120, 0x54140, indexKOFSprites_02UMExtras, indexKOF02UM_S_Choi },
+    { _T("Choi C Portrait"), 0x54140, 0x54160, indexKOFSprites_02UMExtras, indexKOF02UM_S_Choi },
+    { _T("Choi D Portrait"), 0x54160, 0x54180, indexKOFSprites_02UMExtras, indexKOF02UM_S_Choi },
 };
 
 const sGame_PaletteDataset KOF02UM_S_ATHENA_PALETTES_PORTRAITS[] =
 {
-    { _T("Athena A Portrait"), 0x54200, 0x54220 },
-    { _T("Athena B Portriat"), 0x54220, 0x54240 },
-    { _T("Athena C Portrait"), 0x54240, 0x54260 },
-    { _T("Athena D Portrait"), 0x54260, 0x54280 },
+    { _T("Athena A Portrait"), 0x54200, 0x54220, indexKOFSprites_02UMExtras, indexKOF02UM_S_Athena },
+    { _T("Athena B Portriat"), 0x54220, 0x54240, indexKOFSprites_02UMExtras, indexKOF02UM_S_Athena },
+    { _T("Athena C Portrait"), 0x54240, 0x54260, indexKOFSprites_02UMExtras, indexKOF02UM_S_Athena },
+    { _T("Athena D Portrait"), 0x54260, 0x54280, indexKOFSprites_02UMExtras, indexKOF02UM_S_Athena },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_PORTRAITS[] =
 {
-    { _T("Kensou A Portrait"), 0x54300, 0x54320 },
-    { _T("Kensou B Portrait"), 0x54320, 0x54340 },
-    { _T("Kensou C Portrait"), 0x54340, 0x54360 },
-    { _T("Kensou D Portrait"), 0x54360, 0x54380 },
+    { _T("Kensou A Portrait"), 0x54300, 0x54320, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
+    { _T("Kensou B Portrait"), 0x54320, 0x54340, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
+    { _T("Kensou C Portrait"), 0x54340, 0x54360, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
+    { _T("Kensou D Portrait"), 0x54360, 0x54380, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_PORTRAITS[] =
 {
-    { _T("Chin A Portrait"), 0x54400, 0x54420 },
-    { _T("Chin B Portrait"), 0x54420, 0x54440 },
-    { _T("Chin C Portrait"), 0x54440, 0x54460 },
-    { _T("Chin D Portrait"), 0x54460, 0x54480 },
+    { _T("Chin A Portrait"), 0x54400, 0x54420, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chin },
+    { _T("Chin B Portrait"), 0x54420, 0x54440, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chin },
+    { _T("Chin C Portrait"), 0x54440, 0x54460, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chin },
+    { _T("Chin D Portrait"), 0x54460, 0x54480, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chin },
 };
 
 const sGame_PaletteDataset KOF02UM_S_LEONA_PALETTES_PORTRAITS[] =
 {
-    { _T("Leona A Portrait"), 0x54500, 0x54520 },
-    { _T("Leona B Portrait"), 0x54520, 0x54540 },
-    { _T("Leona C Portrait"), 0x54540, 0x54560 },
-    { _T("Leona D Portrait"), 0x54560, 0x54580 },
+    { _T("Leona A Portrait"), 0x54500, 0x54520, indexKOFSprites_02UMExtras, indexKOF02UM_S_Leona },
+    { _T("Leona B Portrait"), 0x54520, 0x54540, indexKOFSprites_02UMExtras, indexKOF02UM_S_Leona },
+    { _T("Leona C Portrait"), 0x54540, 0x54560, indexKOFSprites_02UMExtras, indexKOF02UM_S_Leona },
+    { _T("Leona D Portrait"), 0x54560, 0x54580, indexKOFSprites_02UMExtras, indexKOF02UM_S_Leona },
 };
 
 const sGame_PaletteDataset KOF02UM_S_RALF_PALETTES_PORTRAITS[] =
 {
-    { _T("Ralf A Portrait"), 0x54600, 0x54620 },
-    { _T("Ralf B Portrait"), 0x54620, 0x54640 },
-    { _T("Ralf C Portrait"), 0x54640, 0x54660 },
-    { _T("Ralf D Portrait"), 0x54660, 0x54680 },
+    { _T("Ralf A Portrait"), 0x54600, 0x54620, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ralf },
+    { _T("Ralf B Portrait"), 0x54620, 0x54640, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ralf },
+    { _T("Ralf C Portrait"), 0x54640, 0x54660, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ralf },
+    { _T("Ralf D Portrait"), 0x54660, 0x54680, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ralf },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CLARK_PALETTES_PORTRAITS[] =
 {
-    { _T("Clark A Portrait"), 0x54700, 0x54720 },
-    { _T("Clark B Portrait"), 0x54720, 0x54740 },
-    { _T("Clark C Portrait"), 0x54740, 0x54760 },
-    { _T("Clark D Portrait"), 0x54760, 0x54780 },
+    { _T("Clark A Portrait"), 0x54700, 0x54720, indexKOFSprites_02UMExtras, indexKOF02UM_S_Clark },
+    { _T("Clark B Portrait"), 0x54720, 0x54740, indexKOFSprites_02UMExtras, indexKOF02UM_S_Clark },
+    { _T("Clark C Portrait"), 0x54740, 0x54760, indexKOFSprites_02UMExtras, indexKOF02UM_S_Clark },
+    { _T("Clark D Portrait"), 0x54760, 0x54780, indexKOFSprites_02UMExtras, indexKOF02UM_S_Clark },
 };
 
 const sGame_PaletteDataset KOF02UM_S_RYO_PALETTES_PORTRAITS[] =
 {
-    { _T("Ryo A Portrait"), 0x54800, 0x54820 },
-    { _T("Ryo B Portrait"), 0x54820, 0x54840 },
-    { _T("Ryo C Portrait"), 0x54840, 0x54860 },
-    { _T("Ryo D Portrait"), 0x54860, 0x54880 },
+    { _T("Ryo A Portrait"), 0x54800, 0x54820, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ryo },
+    { _T("Ryo B Portrait"), 0x54820, 0x54840, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ryo },
+    { _T("Ryo C Portrait"), 0x54840, 0x54860, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ryo },
+    { _T("Ryo D Portrait"), 0x54860, 0x54880, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ryo },
 };
 
 const sGame_PaletteDataset KOF02UM_S_ROBERT_PALETTES_PORTRAITS[] =
 {
-    { _T("Robert A Portrait"), 0x54900, 0x54920 },
-    { _T("Robert B Portrait"), 0x54920, 0x54940 },
-    { _T("Robert C Portrait"), 0x54940, 0x54960 },
-    { _T("Robert D Portrait"), 0x54960, 0x54980 },
+    { _T("Robert A Portrait"), 0x54900, 0x54920, indexKOFSprites_02UMExtras, indexKOF02UM_S_Robert },
+    { _T("Robert B Portrait"), 0x54920, 0x54940, indexKOFSprites_02UMExtras, indexKOF02UM_S_Robert },
+    { _T("Robert C Portrait"), 0x54940, 0x54960, indexKOFSprites_02UMExtras, indexKOF02UM_S_Robert },
+    { _T("Robert D Portrait"), 0x54960, 0x54980, indexKOFSprites_02UMExtras, indexKOF02UM_S_Robert },
 };
 
 const sGame_PaletteDataset KOF02UM_S_TAKUMA_PALETTES_PORTRAITS[] =
 {
-    { _T("Takuma A Portrait"), 0x54a00, 0x54a20 },
-    { _T("Takuma B Portrait"), 0x54a20, 0x54a40 },
-    { _T("Takuma C Portrait"), 0x54a40, 0x54a60 },
-    { _T("Takuma D Portrait"), 0x54a60, 0x54a80 },
+    { _T("Takuma A Portrait"), 0x54a00, 0x54a20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Takuma },
+    { _T("Takuma B Portrait"), 0x54a20, 0x54a40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Takuma },
+    { _T("Takuma C Portrait"), 0x54a40, 0x54a60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Takuma },
+    { _T("Takuma D Portrait"), 0x54a60, 0x54a80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Takuma },
 };
 
 const sGame_PaletteDataset KOF02UM_S_MAI_PALETTES_PORTRAITS[] =
 {
-    { _T("Mai A Portrait"), 0x54b00, 0x54b20 },
-    { _T("Mai B Portrait"), 0x54b20, 0x54b40 },
-    { _T("Mai C Portrait"), 0x54b40, 0x54b60 },
-    { _T("Mai D Portrait"), 0x54b60, 0x54b80 },
+    { _T("Mai A Portrait"), 0x54b00, 0x54b20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Mai },
+    { _T("Mai B Portrait"), 0x54b20, 0x54b40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Mai },
+    { _T("Mai C Portrait"), 0x54b40, 0x54b60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Mai },
+    { _T("Mai D Portrait"), 0x54b60, 0x54b80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Mai },
 };
 
 const sGame_PaletteDataset KOF02UM_S_YURI_PALETTES_PORTRAITS[] =
 {
-    { _T("Yuri A Portrait"), 0x54c00, 0x54c20 },
-    { _T("Yuri B Portrait"), 0x54c20, 0x54c40 },
-    { _T("Yuri C Portrait"), 0x54c40, 0x54c60 },
-    { _T("Yuri D Portrait"), 0x54c60, 0x54c80 },
+    { _T("Yuri A Portrait"), 0x54c00, 0x54c20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yuri },
+    { _T("Yuri B Portrait"), 0x54c20, 0x54c40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yuri },
+    { _T("Yuri C Portrait"), 0x54c40, 0x54c60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yuri },
+    { _T("Yuri D Portrait"), 0x54c60, 0x54c80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yuri },
 };
 
 const sGame_PaletteDataset KOF02UM_S_MAYLEE_PALETTES_PORTRAITS[] =
 {
-    { _T("May Lee A Portrait"), 0x54d00, 0x54d20 },
-    { _T("May Lee B Portrait"), 0x54d20, 0x54d40 },
-    { _T("May Lee C Portrait"), 0x54d40, 0x54d60 },
-    { _T("May Lee D Portrait"), 0x54d60, 0x54d80 },
+    { _T("May Lee A Portrait"), 0x54d00, 0x54d20, indexKOFSprites_02UMExtras, indexKOF02UM_S_MayLee },
+    { _T("May Lee B Portrait"), 0x54d20, 0x54d40, indexKOFSprites_02UMExtras, indexKOF02UM_S_MayLee },
+    { _T("May Lee C Portrait"), 0x54d40, 0x54d60, indexKOFSprites_02UMExtras, indexKOF02UM_S_MayLee },
+    { _T("May Lee D Portrait"), 0x54d60, 0x54d80, indexKOFSprites_02UMExtras, indexKOF02UM_S_MayLee },
 };
 
 const sGame_PaletteDataset KOF02UM_S_IORI_PALETTES_PORTRAITS[] =
 {
-    { _T("Iori A Portrait"), 0x54e00, 0x54e20 },
-    { _T("Iori B Portrait"), 0x54e20, 0x54e40 },
-    { _T("Iori C Portrait"), 0x54e40, 0x54e60 },
-    { _T("Iori D Portrait"), 0x54e60, 0x54e80 },
+    { _T("Iori A Portrait"), 0x54e00, 0x54e20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Iori },
+    { _T("Iori B Portrait"), 0x54e20, 0x54e40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Iori },
+    { _T("Iori C Portrait"), 0x54e40, 0x54e60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Iori },
+    { _T("Iori D Portrait"), 0x54e60, 0x54e80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Iori },
 };
 
 const sGame_PaletteDataset KOF02UM_S_MATURE_PALETTES_PORTRAITS[] =
 {
-    { _T("Mature A Portrait"), 0x54f00, 0x54f20 },
-    { _T("Mature B Portrait"), 0x54f20, 0x54f40 },
-    { _T("Mature C Portrait"), 0x54f40, 0x54f60 },
-    { _T("Mature D Portrait"), 0x54f60, 0x54f80 },
+    { _T("Mature A Portrait"), 0x54f00, 0x54f20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Mature },
+    { _T("Mature B Portrait"), 0x54f20, 0x54f40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Mature },
+    { _T("Mature C Portrait"), 0x54f40, 0x54f60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Mature },
+    { _T("Mature D Portrait"), 0x54f60, 0x54f80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Mature },
 };
 
 const sGame_PaletteDataset KOF02UM_S_VICE_PALETTES_PORTRAITS[] =
 {
-    { _T("Vice A Portrait"), 0x55000, 0x55020 },
-    { _T("Vice B Portrait"), 0x55020, 0x55040 },
-    { _T("Vice C Portrait"), 0x55040, 0x55060 },
-    { _T("Vice D Portrait"), 0x55060, 0x55080 },
+    { _T("Vice A Portrait"), 0x55000, 0x55020, indexKOFSprites_02UMExtras, indexKOF02UM_S_Vice },
+    { _T("Vice B Portrait"), 0x55020, 0x55040, indexKOFSprites_02UMExtras, indexKOF02UM_S_Vice },
+    { _T("Vice C Portrait"), 0x55040, 0x55060, indexKOFSprites_02UMExtras, indexKOF02UM_S_Vice },
+    { _T("Vice D Portrait"), 0x55060, 0x55080, indexKOFSprites_02UMExtras, indexKOF02UM_S_Vice },
 };
 
 const sGame_PaletteDataset KOF02UM_S_YAMAZAKI_PALETTES_PORTRAITS[] =
 {
-    { _T("Yamazaki A Portrait"), 0x55100, 0x55120 },
-    { _T("Yamazaki B Portrait"), 0x55120, 0x55140 },
-    { _T("Yamazaki C Portrait"), 0x55140, 0x55160 },
-    { _T("Yamazaki D Portrait"), 0x55160, 0x55180 },
+    { _T("Yamazaki A Portrait"), 0x55100, 0x55120, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yamazaki },
+    { _T("Yamazaki B Portrait"), 0x55120, 0x55140, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yamazaki },
+    { _T("Yamazaki C Portrait"), 0x55140, 0x55160, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yamazaki },
+    { _T("Yamazaki D Portrait"), 0x55160, 0x55180, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yamazaki },
 };
 
 const sGame_PaletteDataset KOF02UM_S_BLUEMARY_PALETTES_PORTRAITS[] =
 {
-    { _T("Blue Mary A Portrait"), 0x55200, 0x55220 },
-    { _T("Blue Mary B Portrait"), 0x55220, 0x55240 },
-    { _T("Blue Mary C Portrait"), 0x55240, 0x55260 },
-    { _T("Blue Mary D Portrait"), 0x55260, 0x55280 },
+    { _T("Blue Mary A Portrait"), 0x55200, 0x55220, indexKOFSprites_02UMExtras, indexKOF02UM_S_BlueMary },
+    { _T("Blue Mary B Portrait"), 0x55220, 0x55240, indexKOFSprites_02UMExtras, indexKOF02UM_S_BlueMary },
+    { _T("Blue Mary C Portrait"), 0x55240, 0x55260, indexKOFSprites_02UMExtras, indexKOF02UM_S_BlueMary },
+    { _T("Blue Mary D Portrait"), 0x55260, 0x55280, indexKOFSprites_02UMExtras, indexKOF02UM_S_BlueMary },
 };
 
 const sGame_PaletteDataset KOF02UM_S_BILLY_PALETTES_PORTRAITS[] =
 {
-    { _T("Billy A Portrait"), 0x55300, 0x55320 },
-    { _T("Billy B Portrait"), 0x55320, 0x55340 },
-    { _T("Billy C Portrait"), 0x55340, 0x55360 },
-    { _T("Billy D Portrait"), 0x55360, 0x55380 },
+    { _T("Billy A Portrait"), 0x55300, 0x55320, indexKOFSprites_02UMExtras, indexKOF02UM_S_Billy },
+    { _T("Billy B Portrait"), 0x55320, 0x55340, indexKOFSprites_02UMExtras, indexKOF02UM_S_Billy },
+    { _T("Billy C Portrait"), 0x55340, 0x55360, indexKOFSprites_02UMExtras, indexKOF02UM_S_Billy },
+    { _T("Billy D Portrait"), 0x55360, 0x55380, indexKOFSprites_02UMExtras, indexKOF02UM_S_Billy },
 };
 
 const sGame_PaletteDataset KOF02UM_S_YASHIRO_PALETTES_PORTRAITS[] =
 {
-    { _T("Yashiro A Portrait"), 0x55400, 0x55420 },
-    { _T("Yashiro B Portrait"), 0x55420, 0x55440 },
-    { _T("Yashiro C Portrait"), 0x55440, 0x55460 },
-    { _T("Yashiro D Portrait"), 0x55460, 0x55480 },
+    { _T("Yashiro A Portrait"), 0x55400, 0x55420, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yashiro },
+    { _T("Yashiro B Portrait"), 0x55420, 0x55440, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yashiro },
+    { _T("Yashiro C Portrait"), 0x55440, 0x55460, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yashiro },
+    { _T("Yashiro D Portrait"), 0x55460, 0x55480, indexKOFSprites_02UMExtras, indexKOF02UM_S_Yashiro },
 };
 
 const sGame_PaletteDataset KOF02UM_S_SHERMIE_PALETTES_PORTRAITS[] =
 {
-    { _T("Shermie A Portrait"), 0x55500, 0x55520 },
-    { _T("Shermie B Portrait"), 0x55520, 0x55540 },
-    { _T("Shermie C Portrait"), 0x55540, 0x55560 },
-    { _T("Shermie D Portrait"), 0x55560, 0x55580 },
+    { _T("Shermie A Portrait"), 0x55500, 0x55520, indexKOFSprites_02UMExtras, indexKOF02UM_S_Shermie },
+    { _T("Shermie B Portrait"), 0x55520, 0x55540, indexKOFSprites_02UMExtras, indexKOF02UM_S_Shermie },
+    { _T("Shermie C Portrait"), 0x55540, 0x55560, indexKOFSprites_02UMExtras, indexKOF02UM_S_Shermie },
+    { _T("Shermie D Portrait"), 0x55560, 0x55580, indexKOFSprites_02UMExtras, indexKOF02UM_S_Shermie },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CHRIS_PALETTES_PORTRAITS[] =
 {
-    { _T("Chris A Portrait"), 0x55600, 0x55620 },
-    { _T("Chris B Portrait"), 0x55620, 0x55640 },
-    { _T("Chris C Portrait"), 0x55640, 0x55660 },
-    { _T("Chris D Portrait"), 0x55660, 0x55680 },
+    { _T("Chris A Portrait"), 0x55600, 0x55620, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chris },
+    { _T("Chris B Portrait"), 0x55620, 0x55640, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chris },
+    { _T("Chris C Portrait"), 0x55640, 0x55660, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chris },
+    { _T("Chris D Portrait"), 0x55660, 0x55680, indexKOFSprites_02UMExtras, indexKOF02UM_S_Chris },
 };
 
 const sGame_PaletteDataset KOF02UM_S_K_PALETTES_PORTRAITS[] =
 {
-    { _T("K' A Portrait"), 0x55700, 0x55720 },
-    { _T("K' B Portrait"), 0x55720, 0x55740 },
-    { _T("K' C Portrait"), 0x55740, 0x55760 },
-    { _T("K' D Portrait"), 0x55760, 0x55780 },
+    { _T("K' A Portrait"), 0x55700, 0x55720, indexKOFSprites_02UMExtras, indexKOF02UM_S_K },
+    { _T("K' B Portrait"), 0x55720, 0x55740, indexKOFSprites_02UMExtras, indexKOF02UM_S_K },
+    { _T("K' C Portrait"), 0x55740, 0x55760, indexKOFSprites_02UMExtras, indexKOF02UM_S_K },
+    { _T("K' D Portrait"), 0x55760, 0x55780, indexKOFSprites_02UMExtras, indexKOF02UM_S_K },
 };
 
 const sGame_PaletteDataset KOF02UM_S_MAXIMA_PALETTES_PORTRAITS[] =
 {
-    { _T("Maxima A Portrait"), 0x55800, 0x55820 },
-    { _T("Maxima B Portrait"), 0x55820, 0x55840 },
-    { _T("Maxima C Portrait"), 0x55840, 0x55860 },
-    { _T("Maxima D Portrait"), 0x55860, 0x55880 },
+    { _T("Maxima A Portrait"), 0x55800, 0x55820, indexKOFSprites_02UMExtras, indexKOF02UM_S_Maxima },
+    { _T("Maxima B Portrait"), 0x55820, 0x55840, indexKOFSprites_02UMExtras, indexKOF02UM_S_Maxima },
+    { _T("Maxima C Portrait"), 0x55840, 0x55860, indexKOFSprites_02UMExtras, indexKOF02UM_S_Maxima },
+    { _T("Maxima D Portrait"), 0x55860, 0x55880, indexKOFSprites_02UMExtras, indexKOF02UM_S_Maxima },
 };
 
 const sGame_PaletteDataset KOF02UM_S_WHIP_PALETTES_PORTRAITS[] =
 {
-    { _T("Whip A Portrait"), 0x55900, 0x55920 },
-    { _T("Whip B Portrait"), 0x55920, 0x55940 },
-    { _T("Whip C Portrait"), 0x55940, 0x55960 },
-    { _T("Whip D Portrait"), 0x55960, 0x55980 },
+    { _T("Whip A Portrait"), 0x55900, 0x55920, indexKOFSprites_02UMExtras, indexKOF02UM_S_Whip },
+    { _T("Whip B Portrait"), 0x55920, 0x55940, indexKOFSprites_02UMExtras, indexKOF02UM_S_Whip },
+    { _T("Whip C Portrait"), 0x55940, 0x55960, indexKOFSprites_02UMExtras, indexKOF02UM_S_Whip },
+    { _T("Whip D Portrait"), 0x55960, 0x55980, indexKOFSprites_02UMExtras, indexKOF02UM_S_Whip },
 };
 
 const sGame_PaletteDataset KOF02UM_S_VANESSA_PALETTES_PORTRAITS[] =
 {
-    { _T("Vanessa A Portrait"), 0x55a00, 0x55a20 },
-    { _T("Vanessa B Portrait"), 0x55a20, 0x55a40 },
-    { _T("Vanessa C Portrait"), 0x55a40, 0x55a60 },
-    { _T("Vanessa D Portrait"), 0x55a60, 0x55a80 },
+    { _T("Vanessa A Portrait"), 0x55a00, 0x55a20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Vanessa },
+    { _T("Vanessa B Portrait"), 0x55a20, 0x55a40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Vanessa },
+    { _T("Vanessa C Portrait"), 0x55a40, 0x55a60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Vanessa },
+    { _T("Vanessa D Portrait"), 0x55a60, 0x55a80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Vanessa },
 };
 
 const sGame_PaletteDataset KOF02UM_S_SETH_PALETTES_PORTRAITS[] =
 {
-    { _T("Seth A Portrait"), 0x55b00, 0x55b20 },
-    { _T("Seth B Portrait"), 0x55b20, 0x55b40 },
-    { _T("Seth C Portrait"), 0x55b40, 0x55b60 },
-    { _T("Seth D Portrait"), 0x55b60, 0x55b80 },
+    { _T("Seth A Portrait"), 0x55b00, 0x55b20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Seth },
+    { _T("Seth B Portrait"), 0x55b20, 0x55b40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Seth },
+    { _T("Seth C Portrait"), 0x55b40, 0x55b60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Seth },
+    { _T("Seth D Portrait"), 0x55b60, 0x55b80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Seth },
 };
 
 const sGame_PaletteDataset KOF02UM_S_RAMON_PALETTES_PORTRAITS[] =
 {
-    { _T("Ramon A Portrait"), 0x55c00, 0x55c20 },
-    { _T("Ramon B Portrait"), 0x55c20, 0x55c40 },
-    { _T("Ramon C Portrait"), 0x55c40, 0x55c60 },
-    { _T("Ramon D Portrait"), 0x55c60, 0x55c80 },
+    { _T("Ramon A Portrait"), 0x55c00, 0x55c20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ramon },
+    { _T("Ramon B Portrait"), 0x55c20, 0x55c40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ramon },
+    { _T("Ramon C Portrait"), 0x55c40, 0x55c60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ramon },
+    { _T("Ramon D Portrait"), 0x55c60, 0x55c80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Ramon },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KULA_PALETTES_PORTRAITS[] =
 {
-    { _T("Kula A Portrait"), 0x55d00, 0x55d20 },
-    { _T("Kula B Portrait"), 0x55d20, 0x55d40 },
-    { _T("Kula C Portrait"), 0x55d40, 0x55d60 },
-    { _T("Kula D Portrait"), 0x55d60, 0x55d80 },
+    { _T("Kula A Portrait"), 0x55d00, 0x55d20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
+    { _T("Kula B Portrait"), 0x55d20, 0x55d40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
+    { _T("Kula C Portrait"), 0x55d40, 0x55d60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
+    { _T("Kula D Portrait"), 0x55d60, 0x55d80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
 };
 
 const sGame_PaletteDataset KOF02UM_S_NAMELESS_PALETTES_PORTRAITS[] =
 {
-    { _T("Nameless A Portrait"), 0x55e00, 0x55e20 },
-    { _T("Nameless B Portrait"), 0x55e20, 0x55e40 },
-    { _T("Nameless C Portrait"), 0x55e40, 0x55e60 },
-    { _T("Nameless D Portrait"), 0x55e60, 0x55e80 },
+    { _T("Nameless A Portrait"), 0x55e00, 0x55e20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Nameless },
+    { _T("Nameless B Portrait"), 0x55e20, 0x55e40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Nameless },
+    { _T("Nameless C Portrait"), 0x55e40, 0x55e60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Nameless },
+    { _T("Nameless D Portrait"), 0x55e60, 0x55e80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Nameless },
 };
 
 const sGame_PaletteDataset KOF02UM_S_ANGEL_PALETTES_PORTRAITS[] =
 {
-    { _T("Angel A Portrait"), 0x55f00, 0x55f20 },
-    { _T("Angel B Portrait"), 0x55f20, 0x55f40 },
-    { _T("Angel C Portrait"), 0x55f40, 0x55f60 },
-    { _T("Angel D Portrait"), 0x55f60, 0x55f80 },
+    { _T("Angel A Portrait"), 0x55f00, 0x55f20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Angel },
+    { _T("Angel B Portrait"), 0x55f20, 0x55f40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Angel },
+    { _T("Angel C Portrait"), 0x55f40, 0x55f60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Angel },
+    { _T("Angel D Portrait"), 0x55f60, 0x55f80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Angel },
 };
 
 const sGame_PaletteDataset KOF02UM_S_OMEGARUGAL_PALETTES_PORTRAITS[] =
 {
-    { _T("Omega Rugal A Portrait"), 0x56000, 0x56020 },
-    { _T("Omega Rugal B Portrait"), 0x56020, 0x56040 },
-    { _T("Omega Rugal C Portrait"), 0x56040, 0x56060 },
-    { _T("Omega Rugal D Portrait"), 0x56060, 0x56080 },
+    { _T("Omega Rugal A Portrait"), 0x56000, 0x56020, indexKOFSprites_02UMExtras, indexKOF02UM_S_OmegaRugal },
+    { _T("Omega Rugal B Portrait"), 0x56020, 0x56040, indexKOFSprites_02UMExtras, indexKOF02UM_S_OmegaRugal },
+    { _T("Omega Rugal C Portrait"), 0x56040, 0x56060, indexKOFSprites_02UMExtras, indexKOF02UM_S_OmegaRugal },
+    { _T("Omega Rugal D Portrait"), 0x56060, 0x56080, indexKOFSprites_02UMExtras, indexKOF02UM_S_OmegaRugal },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_PORTRAITS[] =
 {
-    { _T("Kusanagi A Portrait"), 0x56100, 0x56120 },
-    { _T("Kusanagi B Portrait"), 0x56120, 0x56140 },
-    { _T("Kusanagi C Portrait"), 0x56140, 0x56160 },
-    { _T("Kusanagi D Potrait"), 0x56160, 0x56180 },
+    { _T("Kusanagi A Portrait"), 0x56100, 0x56120, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
+    { _T("Kusanagi B Portrait"), 0x56120, 0x56140, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
+    { _T("Kusanagi C Portrait"), 0x56140, 0x56160, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
+    { _T("Kusanagi D Potrait"), 0x56160, 0x56180, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
 };
 
 const sGame_PaletteDataset KOF02UM_S_SHINGO_PALETTES_PORTRAITS[] =
 {
-    { _T("Shingo A Portrait"), 0x56200, 0x56220 },
-    { _T("Shingo B Portrait"), 0x56220, 0x56240 },
-    { _T("Shingo C Portrait"), 0x56240, 0x56260 },
-    { _T("Shingo D Portrait"), 0x56260, 0x56280 },
+    { _T("Shingo A Portrait"), 0x56200, 0x56220, indexKOFSprites_02UMExtras, indexKOF02UM_S_Shingo },
+    { _T("Shingo B Portrait"), 0x56220, 0x56240, indexKOFSprites_02UMExtras, indexKOF02UM_S_Shingo },
+    { _T("Shingo C Portrait"), 0x56240, 0x56260, indexKOFSprites_02UMExtras, indexKOF02UM_S_Shingo },
+    { _T("Shingo D Portrait"), 0x56260, 0x56280, indexKOFSprites_02UMExtras, indexKOF02UM_S_Shingo },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KING_PALETTES_PORTRAITS[] =
 {
-    { _T("King A Portrait"), 0x56300, 0x56320 },
-    { _T("King B Portrait"), 0x56320, 0x56340 },
-    { _T("King C Portrait"), 0x56340, 0x56360 },
-    { _T("King D Portrait"), 0x56360, 0x56380 },
+    { _T("King A Portrait"), 0x56300, 0x56320, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
+    { _T("King B Portrait"), 0x56320, 0x56340, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
+    { _T("King C Portrait"), 0x56340, 0x56360, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
+    { _T("King D Portrait"), 0x56360, 0x56380, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
 };
 
 const sGame_PaletteDataset KOF02UM_S_XIANGFEI_PALETTES_PORTRAITS[] =
 {
-    { _T("Xiangfei A Portrait"), 0x56400, 0x56420 },
-    { _T("Xiangfei B Portrait"), 0x56420, 0x56440 },
-    { _T("Xiangfei C Portrait"), 0x56440, 0x56460 },
-    { _T("Xiangfei D Portrait"), 0x56460, 0x56480 },
+    { _T("Xiangfei A Portrait"), 0x56400, 0x56420, indexKOFSprites_02UMExtras, indexKOF02UM_S_Xiangfei },
+    { _T("Xiangfei B Portrait"), 0x56420, 0x56440, indexKOFSprites_02UMExtras, indexKOF02UM_S_Xiangfei },
+    { _T("Xiangfei C Portrait"), 0x56440, 0x56460, indexKOFSprites_02UMExtras, indexKOF02UM_S_Xiangfei },
+    { _T("Xiangfei D Portrait"), 0x56460, 0x56480, indexKOFSprites_02UMExtras, indexKOF02UM_S_Xiangfei },
 };
 
 const sGame_PaletteDataset KOF02UM_S_HINAKO_PALETTES_PORTRAITS[] =
 {
-    { _T("Hinako A Portrait"), 0x56500, 0x56520 },
-    { _T("Hinako B Portrait"), 0x56520, 0x56540 },
-    { _T("Hinako C Portrait"), 0x56540, 0x56560 },
-    { _T("Hinako D Portrait"), 0x56560, 0x56580 },
+    { _T("Hinako A Portrait"), 0x56500, 0x56520, indexKOFSprites_02UMExtras, indexKOF02UM_S_Hinako },
+    { _T("Hinako B Portrait"), 0x56520, 0x56540, indexKOFSprites_02UMExtras, indexKOF02UM_S_Hinako },
+    { _T("Hinako C Portrait"), 0x56540, 0x56560, indexKOFSprites_02UMExtras, indexKOF02UM_S_Hinako },
+    { _T("Hinako D Portrait"), 0x56560, 0x56580, indexKOFSprites_02UMExtras, indexKOF02UM_S_Hinako },
 };
 
 const sGame_PaletteDataset KOF02UM_S_HEIDERN_PALETTES_PORTRAITS[] =
 {
-    { _T("Heidern A Portrait"), 0x56600, 0x56620 },
-    { _T("Heidern B Portrait"), 0x56620, 0x56640 },
-    { _T("Heidern C Portrait"), 0x56640, 0x56660 },
-    { _T("Heidern D Portrait"), 0x56660, 0x56680 },
+    { _T("Heidern A Portrait"), 0x56600, 0x56620, indexKOFSprites_02UMExtras, indexKOF02UM_S_Heidern },
+    { _T("Heidern B Portrait"), 0x56620, 0x56640, indexKOFSprites_02UMExtras, indexKOF02UM_S_Heidern },
+    { _T("Heidern C Portrait"), 0x56640, 0x56660, indexKOFSprites_02UMExtras, indexKOF02UM_S_Heidern },
+    { _T("Heidern D Portrait"), 0x56660, 0x56680, indexKOFSprites_02UMExtras, indexKOF02UM_S_Heidern },
 };
 
 const sGame_PaletteDataset KOF02UM_S_LIN_PALETTES_PORTRAITS[] =
 {
-    { _T("Lin A Portrait"), 0x56700, 0x56720 },
-    { _T("Lin B Portrait"), 0x56720, 0x56740 },
-    { _T("Lin C Portrait"), 0x56740, 0x56760 },
-    { _T("Lin D Portrait"), 0x56760, 0x56780 },
+    { _T("Lin A Portrait"), 0x56700, 0x56720, indexKOFSprites_02UMExtras, indexKOF02UM_S_Lin },
+    { _T("Lin B Portrait"), 0x56720, 0x56740, indexKOFSprites_02UMExtras, indexKOF02UM_S_Lin },
+    { _T("Lin C Portrait"), 0x56740, 0x56760, indexKOFSprites_02UMExtras, indexKOF02UM_S_Lin },
+    { _T("Lin D Portrait"), 0x56760, 0x56780, indexKOFSprites_02UMExtras, indexKOF02UM_S_Lin },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXTAKUMA_PALETTES_PORTRAITS[] =
 {
-    { _T("EX Takuma A Portrait"), 0x56800, 0x56820 },
-    { _T("EX Takuma B Portrait"), 0x56820, 0x56840 },
-    { _T("EX Takuma C Portrait"), 0x56840, 0x56860 },
-    { _T("EX Takuma D Portrait"), 0x56860, 0x56880 },
+    { _T("EX Takuma A Portrait"), 0x56800, 0x56820, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXTakuma },
+    { _T("EX Takuma B Portrait"), 0x56820, 0x56840, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXTakuma },
+    { _T("EX Takuma C Portrait"), 0x56840, 0x56860, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXTakuma },
+    { _T("EX Takuma D Portrait"), 0x56860, 0x56880, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXTakuma },
 };
 
 const sGame_PaletteDataset KOF02UM_S_BAO_PALETTES_PORTRAITS[] =
 {
-    { _T("Bao A Portrait"), 0x56900, 0x56920 },
-    { _T("Bao B Portrait"), 0x56920, 0x56940 },
-    { _T("Bao C Portrait"), 0x56940, 0x56960 },
-    { _T("Bao D Portrait"), 0x56960, 0x56980 },
+    { _T("Bao A Portrait"), 0x56900, 0x56920, indexKOFSprites_02UMExtras, indexKOF02UM_S_Bao },
+    { _T("Bao B Portrait"), 0x56920, 0x56940, indexKOFSprites_02UMExtras, indexKOF02UM_S_Bao },
+    { _T("Bao C Portrait"), 0x56940, 0x56960, indexKOFSprites_02UMExtras, indexKOF02UM_S_Bao },
+    { _T("Bao D Portrait"), 0x56960, 0x56980, indexKOFSprites_02UMExtras, indexKOF02UM_S_Bao },
 };
 
 const sGame_PaletteDataset KOF02UM_S_JHUNHOON_PALETTES_PORTRAITS[] =
 {
-    { _T("Jhun A Portrait"), 0x56a00, 0x56a20 },
-    { _T("Jhun B Portrait"), 0x56a20, 0x56a40 },
-    { _T("Jhun C Portrait"), 0x56a40, 0x56a60 },
-    { _T("Jhun D Portrait"), 0x56a60, 0x56a80 },
+    { _T("Jhun A Portrait"), 0x56a00, 0x56a20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Jhun },
+    { _T("Jhun B Portrait"), 0x56a20, 0x56a40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Jhun },
+    { _T("Jhun C Portrait"), 0x56a40, 0x56a60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Jhun },
+    { _T("Jhun D Portrait"), 0x56a60, 0x56a80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Jhun },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KYO1_PALETTES_PORTRAITS[] =
 {
-    { _T("Kyo-1 A Portrait"), 0x56b00, 0x56b20 },
-    { _T("Kyo-1 B Portrait"), 0x56b20, 0x56b40 },
-    { _T("Kyo-1 C Portrait"), 0x56b40, 0x56b60 },
-    { _T("Kyo-1 D Portrait"), 0x56b60, 0x56b80 },
+    { _T("Kyo-1 A Portrait"), 0x56b00, 0x56b20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo1 },
+    { _T("Kyo-1 B Portrait"), 0x56b20, 0x56b40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo1 },
+    { _T("Kyo-1 C Portrait"), 0x56b40, 0x56b60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo1 },
+    { _T("Kyo-1 D Portrait"), 0x56b60, 0x56b80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo1 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_PORTRAITS[] =
 {
-    { _T("Foxy A Portrait"), 0x56c00, 0x56c20 },
-    { _T("Foxy B Portrait"), 0x56c20, 0x56c40 },
-    { _T("Foxy C Portrait"), 0x56c40, 0x56c60 },
-    { _T("Foxy D Portrait"), 0x56c60, 0x56c80 },
+    { _T("Foxy A Portrait"), 0x56c00, 0x56c20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Foxy },
+    { _T("Foxy B Portrait"), 0x56c20, 0x56c40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Foxy },
+    { _T("Foxy C Portrait"), 0x56c40, 0x56c60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Foxy },
+    { _T("Foxy D Portrait"), 0x56c60, 0x56c80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Foxy },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KASUMI_PALETTES_PORTRAITS[] =
 {
-    { _T("Kasumi A Portrait"), 0x56d00, 0x56d20 },
-    { _T("Kasumi B Portrait"), 0x56d20, 0x56d40 },
-    { _T("Kasumi C Portrait"), 0x56d40, 0x56d60 },
-    { _T("Kasumi D Portrait"), 0x56d60, 0x56d80 },
+    { _T("Kasumi A Portrait"), 0x56d00, 0x56d20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
+    { _T("Kasumi B Portrait"), 0x56d20, 0x56d40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
+    { _T("Kasumi C Portrait"), 0x56d40, 0x56d60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
+    { _T("Kasumi D Portrait"), 0x56d60, 0x56d80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
 };
 
 const sGame_PaletteDataset KOF02UM_S_GEESE_PALETTES_PORTRAITS[] =
 {
-    { _T("Geese A Portrait"), 0x56e00, 0x56e20 },
-    { _T("Geese B Portrait"), 0x56e20, 0x56e40 },
-    { _T("Geese C Portrait"), 0x56e40, 0x56e60 },
-    { _T("Geese D Portrait"), 0x56e60, 0x56e80 },
+    { _T("Geese A Portrait"), 0x56e00, 0x56e20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Geese },
+    { _T("Geese B Portrait"), 0x56e20, 0x56e40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Geese },
+    { _T("Geese C Portrait"), 0x56e40, 0x56e60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Geese },
+    { _T("Geese D Portrait"), 0x56e60, 0x56e80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Geese },
 };
 
 const sGame_PaletteDataset KOF02UM_S_NIGHTMAREGEESE_PALETTES_PORTRAITS[] =
 {
-    { _T("Nightmare Geese A Portrait"), 0x56f00, 0x56f20 },
-    { _T("Nightmare Geese B Portrait"), 0x56f20, 0x56f40 },
-    { _T("Nightmare Geese C Portrait"), 0x56f40, 0x56f60 },
-    { _T("Nightmare Geese D Portrait"), 0x56f60, 0x56f80 },
+    { _T("Nightmare Geese A Portrait"), 0x56f00, 0x56f20, indexKOFSprites_02UMExtras, indexKOF02UM_S_NGeese },
+    { _T("Nightmare Geese B Portrait"), 0x56f20, 0x56f40, indexKOFSprites_02UMExtras, indexKOF02UM_S_NGeese },
+    { _T("Nightmare Geese C Portrait"), 0x56f40, 0x56f60, indexKOFSprites_02UMExtras, indexKOF02UM_S_NGeese },
+    { _T("Nightmare Geese D Portrait"), 0x56f60, 0x56f80, indexKOFSprites_02UMExtras, indexKOF02UM_S_NGeese },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_PORTRAITS[] =
 {
-    { _T("EX Robert A Portrait"), 0x57000, 0x57020 },
-    { _T("EX Robert B Portrait"), 0x57020, 0x57040 },
-    { _T("EX Robert C Portrait"), 0x57040, 0x57060 },
-    { _T("EX Robert D Portrait"), 0x57060, 0x57080 },
+    { _T("EX Robert A Portrait"), 0x57000, 0x57020, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXRobert },
+    { _T("EX Robert B Portrait"), 0x57020, 0x57040, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXRobert },
+    { _T("EX Robert C Portrait"), 0x57040, 0x57060, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXRobert },
+    { _T("EX Robert D Portrait"), 0x57060, 0x57080, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXRobert },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXKENSOU_PALETTES_PORTRAITS[] =
 {
-    { _T("EX Kensou A Portrait"), 0x57100, 0x57120 },
-    { _T("EX Kensou B Portrait"), 0x57120, 0x57140 },
-    { _T("EX Kensou C Portrait"), 0x57140, 0x57160 },
-    { _T("EX Kensou D Portrait"), 0x57160, 0x57180 },
+    { _T("EX Kensou A Portrait"), 0x57100, 0x57120, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXKensou },
+    { _T("EX Kensou B Portrait"), 0x57120, 0x57140, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXKensou },
+    { _T("EX Kensou C Portrait"), 0x57140, 0x57160, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXKensou },
+    { _T("EX Kensou D Portrait"), 0x57160, 0x57180, indexKOFSprites_02UMExtras, indexKOF02UM_S_EXKensou },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KYO2_PALETTES_PORTRAITS[] =
 {
-    { _T("Kyo-2 A Portrait"), 0x57200, 0x57220 },
-    { _T("Kyo-2 B Portrait"), 0x57220, 0x57240 },
-    { _T("Kyo-2 C Portrait"), 0x57240, 0x57260 },
-    { _T("Kyo-2 D Portrait"), 0x57260, 0x57280 },
+    { _T("Kyo-2 A Portrait"), 0x57200, 0x57220, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo2 },
+    { _T("Kyo-2 B Portrait"), 0x57220, 0x57240, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo2 },
+    { _T("Kyo-2 C Portrait"), 0x57240, 0x57260, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo2 },
+    { _T("Kyo-2 D Portrait"), 0x57260, 0x57280, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kyo2 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_PORTRAITS[] =
 {
-    { _T("Goenitz A Portrait"), 0x57300, 0x57320 },
-    { _T("Goenitz B Portrait"), 0x57320, 0x57340 },
-    { _T("Goenitz C Portrait"), 0x57340, 0x57360 },
-    { _T("Goenitz D Portrait"), 0x57360, 0x57380 },
+    { _T("Goenitz A Portrait"), 0x57300, 0x57320, indexKOFSprites_02UMExtras, indexKOF02UM_S_Goenitz },
+    { _T("Goenitz B Portrait"), 0x57320, 0x57340, indexKOFSprites_02UMExtras, indexKOF02UM_S_Goenitz },
+    { _T("Goenitz C Portrait"), 0x57340, 0x57360, indexKOFSprites_02UMExtras, indexKOF02UM_S_Goenitz },
+    { _T("Goenitz D Portrait"), 0x57360, 0x57380, indexKOFSprites_02UMExtras, indexKOF02UM_S_Goenitz },
 };
 
 const sGame_PaletteDataset KOF02UM_S_KRIZALID_PALETTES_PORTRAITS[] =
 {
-    { _T("Krizalid A Portrait"), 0x57400, 0x57420 },
-    { _T("Krizalid B Portrait"), 0x57420, 0x57440 },
-    { _T("Krizalid C Portrait"), 0x57440, 0x57460 },
-    { _T("Krizalid D Portrait"), 0x57460, 0x57480 },
+    { _T("Krizalid A Portrait"), 0x57400, 0x57420, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
+    { _T("Krizalid B Portrait"), 0x57420, 0x57440, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
+    { _T("Krizalid C Portrait"), 0x57440, 0x57460, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
+    { _T("Krizalid D Portrait"), 0x57460, 0x57480, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CLONEZERO_PALETTES_PORTRAITS[] =
 {
-    { _T("Zero-1 A Portrait"), 0x57500, 0x57520 },
-    { _T("Zero-1 B Portrait"), 0x57520, 0x57540 },
-    { _T("Zero-1 C Portrait"), 0x57540, 0x57560 },
-    { _T("Zero-1 D Portrait"), 0x57560, 0x57580 },
+    { _T("Zero-1 A Portrait"), 0x57500, 0x57520, indexKOFSprites_02UMExtras, indexKOF02UM_S_CloneZero },
+    { _T("Zero-1 B Portrait"), 0x57520, 0x57540, indexKOFSprites_02UMExtras, indexKOF02UM_S_CloneZero },
+    { _T("Zero-1 C Portrait"), 0x57540, 0x57560, indexKOFSprites_02UMExtras, indexKOF02UM_S_CloneZero },
+    { _T("Zero-1 D Portrait"), 0x57560, 0x57580, indexKOFSprites_02UMExtras, indexKOF02UM_S_CloneZero },
 };
 
 const sGame_PaletteDataset KOF02UM_S_ORIGINALZERO_PALETTES_PORTRAITS[] =
 {
-    { _T("Zero A Portrait"), 0x57600, 0x57620 },
-    { _T("Zero B Portrait"), 0x57620, 0x57640 },
-    { _T("Zero C Portrait"), 0x57640, 0x57660 },
-    { _T("Zero D Portrait"), 0x57660, 0x57680 },
+    { _T("Zero A Portrait"), 0x57600, 0x57620, indexKOFSprites_02UMExtras, indexKOF02UM_S_OZero },
+    { _T("Zero B Portrait"), 0x57620, 0x57640, indexKOFSprites_02UMExtras, indexKOF02UM_S_OZero },
+    { _T("Zero C Portrait"), 0x57640, 0x57660, indexKOFSprites_02UMExtras, indexKOF02UM_S_OZero },
+    { _T("Zero D Portrait"), 0x57660, 0x57680, indexKOFSprites_02UMExtras, indexKOF02UM_S_OZero },
 };
 
 const sGame_PaletteDataset KOF02UM_S_IGNIZ_PALETTES_PORTRAITS[] =
 {
-    { _T("Igniz A Portrait"), 0x57700, 0x57720 },
-    { _T("Igniz B Portrait"), 0x57720, 0x57740 },
-    { _T("Igniz C Portrait"), 0x57740, 0x57760 },
-    { _T("Igniz D Portrait"), 0x57760, 0x57780 },
+    { _T("Igniz A Portrait"), 0x57700, 0x57720, indexKOFSprites_02UMExtras, indexKOF02UM_S_Igniz },
+    { _T("Igniz B Portrait"), 0x57720, 0x57740, indexKOFSprites_02UMExtras, indexKOF02UM_S_Igniz },
+    { _T("Igniz C Portrait"), 0x57740, 0x57760, indexKOFSprites_02UMExtras, indexKOF02UM_S_Igniz },
+    { _T("Igniz D Portrait"), 0x57760, 0x57780, indexKOFSprites_02UMExtras, indexKOF02UM_S_Igniz },
 };
 
 const sGame_PaletteDataset KOF02UM_S_OYASHIRO_PALETTES_PORTRAITS[] =
 {
-    { _T("Orochi Yashiro A Portrait"), 0x57900, 0x57920 },
-    { _T("Orochi Yashiro B Portrait"), 0x57920, 0x57940 },
-    { _T("Orochi Yashiro C Portrait"), 0x57940, 0x57960 },
-    { _T("Orochi Yashiro D Portrait"), 0x57960, 0x57980 },
+    { _T("Orochi Yashiro A Portrait"), 0x57900, 0x57920, indexKOFSprites_02UMExtras, indexKOF02UM_S_OYashiro },
+    { _T("Orochi Yashiro B Portrait"), 0x57920, 0x57940, indexKOFSprites_02UMExtras, indexKOF02UM_S_OYashiro },
+    { _T("Orochi Yashiro C Portrait"), 0x57940, 0x57960, indexKOFSprites_02UMExtras, indexKOF02UM_S_OYashiro },
+    { _T("Orochi Yashiro D Portrait"), 0x57960, 0x57980, indexKOFSprites_02UMExtras, indexKOF02UM_S_OYashiro },
 };
 
 const sGame_PaletteDataset KOF02UM_S_OSHERMIE_PALETTES_PORTRAITS[] =
 {
-    { _T("Orochi Shermie A Portrait"), 0x57a00, 0x57a20 },
-    { _T("Orochi Shermie B Portrait"), 0x57a20, 0x57a40 },
-    { _T("Orochi Shermie C Portrait"), 0x57a40, 0x57a60 },
-    { _T("Orochi Shermie D Portrait"), 0x57a60, 0x57a80 },
+    { _T("Orochi Shermie A Portrait"), 0x57a00, 0x57a20, indexKOFSprites_02UMExtras, indexKOF02UM_S_OShermie },
+    { _T("Orochi Shermie B Portrait"), 0x57a20, 0x57a40, indexKOFSprites_02UMExtras, indexKOF02UM_S_OShermie },
+    { _T("Orochi Shermie C Portrait"), 0x57a40, 0x57a60, indexKOFSprites_02UMExtras, indexKOF02UM_S_OShermie },
+    { _T("Orochi Shermie D Portrait"), 0x57a60, 0x57a80, indexKOFSprites_02UMExtras, indexKOF02UM_S_OShermie },
 };
 
 const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_PORTRAITS[] =
 {
-    { _T("Orochi Chris A Portrait"), 0x57b00, 0x57b20 },
-    { _T("Orochi Chris B Portrait"), 0x57b20, 0x57b40 },
-    { _T("Orochi Chris C Portrait"), 0x57b40, 0x57b60 },
-    { _T("Orochi Chris D Portrait"), 0x57b60, 0x57b80 },
+    { _T("Orochi Chris A Portrait"), 0x57b00, 0x57b20, indexKOFSprites_02UMExtras, indexKOF02UM_S_OChris },
+    { _T("Orochi Chris B Portrait"), 0x57b20, 0x57b40, indexKOFSprites_02UMExtras, indexKOF02UM_S_OChris },
+    { _T("Orochi Chris C Portrait"), 0x57b40, 0x57b60, indexKOFSprites_02UMExtras, indexKOF02UM_S_OChris },
+    { _T("Orochi Chris D Portrait"), 0x57b60, 0x57b80, indexKOFSprites_02UMExtras, indexKOF02UM_S_OChris },
 };
 
 const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_MOVES[] =

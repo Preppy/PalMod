@@ -820,13 +820,24 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
             if (pCurrentNode)
             {
-                nSrcAmt = 4;
-                nNodeIncrement = pCurrentNode->uChildAmt;
-
-                while (nSrcStart >= nNodeIncrement)
+                if ((_tcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) ||
+                    (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
                 {
-                    // The starting point is the absolute first palette for the sprite in question which is found in P1
-                    nSrcStart -= nNodeIncrement;
+                    nSrcAmt = 4;
+                    nNodeIncrement = pCurrentNode->uChildAmt;
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1/A
+                        nSrcStart -= nNodeIncrement;
+                    }
+                }
+                else if (_tcsicmp(pCurrentNode->szDesc, _T("Portraits")) == 0) // Portraits is last
+                {
+                    nSrcAmt = 4;
+                    nSrcStart = GetPaletteCountForUnit(NodeGet->uUnitId) - pCurrentNode->uChildAmt;
+                    nNodeIncrement = 1;
+
                 }
             }
         }

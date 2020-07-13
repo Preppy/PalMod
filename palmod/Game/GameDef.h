@@ -777,30 +777,32 @@ enum KOFSpriteList
     indexKOFSprites_02Xiangfei,
     indexKOFSprites_02Goenitz, // 37
 
-    indexKOFSprites_02Bao,
-    indexKOFSprites_02Foxy,
-    indexKOFSprites_02Geese,
-    indexKOFSprites_02Hinako,
-    indexKOFSprites_02Igniz,
-    indexKOFSprites_02Jhun,
-    indexKOFSprites_02Kasumi,
-    indexKOFSprites_02Krizalid,
-    indexKOFSprites_02OZero,
+    indexKOFSprites_02Bao, // 38
+    indexKOFSprites_02Foxy, // 39
+    indexKOFSprites_02Geese, // 3a
+    indexKOFSprites_02Hinako, // 3b
+    indexKOFSprites_02Igniz, // 3c
+    indexKOFSprites_02Jhun, // 3d
+    indexKOFSprites_02Kasumi, // 3e
+    indexKOFSprites_02Krizalid, // 3f
+    indexKOFSprites_02OZero, // 40
     indexKOFSprites_02NGeese, // unused curently
 
-    indexKOFSprites_99Krizalid,
-    indexKOFSprites_00Bao,
-    indexKOFSprites_00Kasumi,
-    indexKOFSprites_00Robert,
-    indexKOFSprites_00ZeroClone,
-    indexKOFSprites_01Xiangfei,
-    indexKOFSprites_02Andy,
-    indexKOFSprites_02Chin,
-    indexKOFSprites_02Kusanagi,
-    indexKOFSprites_02Robert,
-    indexKOFSprites_02Yuri,
+    indexKOFSprites_99Krizalid, // 42
+    indexKOFSprites_00Bao, // 43
+    indexKOFSprites_00Kasumi, // 44
+    indexKOFSprites_00Robert, // 45
+    indexKOFSprites_00ZeroClone, // 46
+    indexKOFSprites_01Xiangfei, // 47
+    indexKOFSprites_02Andy, // 48
+    indexKOFSprites_02Chin, // 49 
+    indexKOFSprites_02Kusanagi, // 4a
+    indexKOFSprites_02Robert, // 4b
+    indexKOFSprites_02Yuri, // 4c
     
-    indexKOFSprites_02K9999,
+    indexKOFSprites_02K9999, // 4d
+
+    indexKOFSprites_02UMExtras, // 4e - portraits and such
 
     indexKOFSprites_Last,
 };
@@ -1165,6 +1167,8 @@ const UINT8 KOF02UM_S_IMG_UNITS[] =
     indexKOFSprites_02Kusanagi,
     indexKOFSprites_02Robert,
     indexKOFSprites_02Yuri,
+
+    indexKOFSprites_02UMExtras,
 };
 
 const int KOF02UM_S_NUM_IMG_UNITS = ARRAYSIZE(KOF02UM_S_IMG_UNITS);

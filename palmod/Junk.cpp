@@ -43,9 +43,12 @@ UCHAR CJunk::Toggle(UCHAR& tVar)
 
 void CJunk::ClearSelView()
 {
-    for (int i = 0; i < iWorkingAmt; i++)
+    if (SelView)
     {
-        SelView[i] = FALSE;
+        for (int i = 0; i < iWorkingAmt; i++)
+        {
+            SetSelViewItem(L"ClearSelView", i, FALSE);
+        }
     }
 
     iHLAmt = 0;
@@ -53,9 +56,12 @@ void CJunk::ClearSelView()
 
 void CJunk::ClearSelected()
 {
-    for (int i = 0; i < iWorkingAmt; i++)
+    if (Selected)
     {
-        Selected[i] = FALSE;
+        for (int i = 0; i < iWorkingAmt; i++)
+        {
+            Selected[i] = 0;
+        }
     }
 
     SingleSelect = -1;
@@ -65,12 +71,38 @@ void CJunk::ClearSelected()
 
 void CJunk::ClearHighlighted()
 {
-    for (int i = 0; i < iWorkingAmt; i++)
+    if (Highlighted)
     {
-         Highlighted[i] = 0;
+        for (int i = 0; i < iWorkingAmt; i++)
+        {
+            Highlighted[i] = 0;
+        }
     }
 
     //iHLAmt = 0;
+}
+
+void CJunk::SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
+{
+    bool fSuccess = false;
+    if (SelView)
+    {
+        if ((nIndex >= 0) && (nIndex < nAllocationLength))
+        {
+            SelView[nIndex] = nValue;
+            fSuccess = true;
+        }
+    }
+
+    static bool s_fShownOnce = false;
+
+    if (!fSuccess && !s_fShownOnce)
+    {
+        s_fShownOnce = true;
+        CString strError;
+        strError.Format(_T("Error: %s code tried writing to %u but array is 0-%u.\nPreviously this code would have crashed, but now this check saved you.  Please report this message text to me - thanks!"), pszFunctionName, nIndex, nAllocationLength);
+        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+    }
 }
 
 void CJunk::LoadDefaultPal()
@@ -447,7 +479,7 @@ void CJunk::UpdateFace()
         {
             bDraw = TRUE;
 
-            if (SelView[index])
+            if (SelView && SelView[index])
             {
                 SetIndexPen(index, FLAG_MH);
             }
@@ -559,7 +591,7 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 
         if (ProcessHovered(point, PalIndex))
         {
-            if (!(PalIndex.y >= iPalH || PalIndex.x >= iPalW))
+            if (!((PalIndex.y >= iPalH) || (PalIndex.x >= iPalW)))
             {
                 Highlighted[(PalIndex.y * iPalW) + PalIndex.x] = TRUE;
             }
@@ -622,7 +654,7 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 
                     for (y = ks; y <= ke; y++)
                     {
-                        SelView[y] = TRUE;
+                        SetSelViewItem(L"OnMouseMove::ProcessHovered", y, TRUE);
                         iHLAmt++;
                     }
                 }
@@ -733,7 +765,7 @@ void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
                             Selected[(iy * iPalW) + ix] = TRUE;
                         }
 
-                        SelView[(iy * iPalW) + ix] = FALSE;
+                        SetSelViewItem(L"OnLButtonUp::HLAmt > 1", (iy * iPalW) + ix, FALSE);
                     }
                 }
             }
@@ -753,7 +785,7 @@ void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
                 iSelAmt--;
             }
 
-            SelView[(yInSelStart * iPalW) + xInSelStart] = FALSE;
+            SetSelViewItem(L"OnLButtonUp::HLAmt == 1", (yInSelStart * iPalW) + xInSelStart, FALSE);
 
             NotifyParent(CUSTOM_SS);
         }
@@ -776,9 +808,10 @@ BOOL CJunk::ProcessHovered(CPoint hPoint, CPoint& PalPos)
     int xIn = x / posmod;
     int yIn = y / posmod;
 
-    if ((xIn >= iPalW) ||
-        (yIn >= iPalH) ||
-        ((yIn * iPalW) + xIn >= iWorkingAmt))
+    // Verify the hover is over the control still
+    if ((xIn >= iPalW) || (xIn < 0) ||
+        (yIn >= iPalH) || (yIn < 0) ||
+        (((yIn * iPalW) + xIn) >= iWorkingAmt))
     {
         return FALSE;
     }

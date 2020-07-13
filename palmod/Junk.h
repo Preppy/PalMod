@@ -93,6 +93,8 @@ private:
     UCHAR* Selected = nullptr;
     UCHAR* SelView = nullptr;
 
+    inline void SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
+
     int iHLAmt = 0;
     int iWorkingAmt = 0;
     int nAllocationLength = 0;
