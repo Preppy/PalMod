@@ -51,7 +51,7 @@ void CPalModDlg::OnDeltaposSpinRH(NMHDR* pNMHDR, LRESULT* pResult)
     // Adjust by amount, but correct the orientation
     UpdateData();
     ProcChange();
-    const int nStepLength = -1 * (bShow32 ? nRGBMul : 1);
+    const int nStepLength = -1 * (bShow32 ? (int)nRGBMul : 1);
     m_Edit_RH = m_Edit_RH + (nStepLength * pNMUpDown->iDelta);
     UpdateData(FALSE);
     UpdateEditKillFocus(IDC_EDIT_RH);
@@ -65,7 +65,7 @@ void CPalModDlg::OnDeltaposSpinGS(NMHDR* pNMHDR, LRESULT* pResult)
     // Adjust by amount, but correct the orientation
     UpdateData();
     ProcChange();
-    const int nStepLength = -1 * (bShow32 ? nRGBMul : 1);
+    const int nStepLength = -1 * (bShow32 ? (int)nRGBMul : 1);
     m_Edit_GS = m_Edit_GS + (nStepLength * pNMUpDown->iDelta);
     UpdateData(FALSE);
     UpdateEditKillFocus(IDC_EDIT_GS);
@@ -79,7 +79,7 @@ void CPalModDlg::OnDeltaposSpinBL(NMHDR* pNMHDR, LRESULT* pResult)
     // Adjust by amount, but correct the orientation
     UpdateData();
     ProcChange();
-    const int nStepLength = -1 * (bShow32 ? nRGBMul : 1);
+    const int nStepLength = -1 * (bShow32 ? (int)nRGBMul : 1);
     m_Edit_BL = m_Edit_BL + (nStepLength * pNMUpDown->iDelta);
     UpdateData(FALSE);
     UpdateEditKillFocus(IDC_EDIT_BL);
@@ -93,7 +93,7 @@ void CPalModDlg::OnDeltaposSpinA(NMHDR* pNMHDR, LRESULT* pResult)
     // Adjust by amount, but correct the orientation
     UpdateData();
     ProcChange();
-    const int nStepLength = -1 * (bShow32 ? nAMul : 1);
+    const int nStepLength = -1 * (bShow32 ? (int)nAMul : 1);
     m_Edit_A = m_Edit_A + (nStepLength * pNMUpDown->iDelta);
     UpdateData(FALSE);
     UpdateEditKillFocus(IDC_EDIT_A);
