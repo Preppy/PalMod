@@ -388,6 +388,7 @@ void CPalModDlg::OnFileOpen()
         { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|*.dat;*.bin|"), INVALID_UNIT_VALUE },
         { SFIII3_A, _T("SFIII3 51 Rom|51|"), INVALID_UNIT_VALUE },
         { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|"), INVALID_UNIT_VALUE },
+        { SFA2_A, _T("SFA2 sz2.07|*.07|"), INVALID_UNIT_VALUE },
         { SFA3_A, _T("SFA3 sz3.09c|*.09c|"), INVALID_UNIT_VALUE },
         { XMVSF_A, _T("XMVSF xvs.05a|*.05a|"), INVALID_UNIT_VALUE },
         { NEOGEO_A, _T("Unknown NEO•GEO|*.*|"), INVALID_UNIT_VALUE },

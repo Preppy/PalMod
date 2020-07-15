@@ -1,7 +1,5 @@
 #pragma once
 
-#define XMVSF_A_PALSZ 16
-
 // Editor's note:
 // Some characters have more than P/K colors available.  Those don't appear to be used
 // and may have been part of getting ready for the console release.

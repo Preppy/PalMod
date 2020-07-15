@@ -100,6 +100,9 @@
     <Filter Include="Game\KOF02_A">
       <UniqueIdentifier>{a54da33d-5b19-45ec-81c8-38f230908bd8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SFA2_A">
+      <UniqueIdentifier>{7a9a83c1-418d-40d6-a3ea-10a5cb212d1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -251,6 +254,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_KOF02UM_S.cpp">
       <Filter>Game\KOF02UM_S</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFA2_A.cpp">
+      <Filter>Game\SFA2_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -457,6 +463,12 @@
     </ClInclude>
     <ClInclude Include="Game\KOF02UM_S_DEF.h">
       <Filter>Game\KOF02UM_S</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFA2_A.h">
+      <Filter>Game\SFA2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFA2_A_DEF.h">
+      <Filter>Game\SFA2_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

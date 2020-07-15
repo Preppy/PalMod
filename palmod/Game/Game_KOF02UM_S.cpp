@@ -1,5 +1,4 @@
 #include "StdAfx.h"
-#include "..\StdAfx.h"
 #include "GameDef.h"
 #include "Game_KOF02UM_S.h"
 #include "..\PalMod.h"

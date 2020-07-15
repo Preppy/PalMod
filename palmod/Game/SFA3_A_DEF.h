@@ -1,12 +1,10 @@
 #pragma once
 
-#define SFA3_A_PALSZ 16
-
 // To add characters or palette lists:
 // * Update the SupportedPaletteListIndex with the new index name.
 // * Add an array below along the lines of SFA3_A_RYU_PALETTES. 
 // * Update every array using SFA3_A_NUM_IND below
-// * Update the index lookups in Game_SFA3_A_.cpp that is marked 
+// * Update the index lookups in Game_SFA3_A.cpp that are marked 
 //       - look for usage of index_SFA3_Ryu to find them
 // That should be it.  Good luck.
 

@@ -33,6 +33,7 @@ enum SupportedGamesList
     CVS2_A,
     Garou_S,
     KOF02_A,
+    SFA2_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -67,6 +68,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][32] =
    _T("CVS2 (Arcade)"),
    _T("Garou: MotW (Steam)"),
    _T("KOF: 02 (Arcade)"),
+   _T("SFA2 (Arcade)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -128,6 +130,11 @@ const TCHAR DEF_BUTTONLABEL6[6][16] =
 const TCHAR DEF_BUTTONLABEL_ISMS[6][16] =
 {
    _T("X-Ism 1"), _T("X-Ism 2"), _T("A-Ism 1"), _T("A-Ism 2"), _T("V-Ism 1"), _T("V-Ism 2")
+};
+
+const TCHAR DEF_BUTTONLABEL_SFA2[6][16] =
+{
+   _T("P"), _T("K"), _T("PP"), _T("KK"), _T("Auto P"), _T("Auto K")
 };
 
 const TCHAR DEF_BUTTONLABEL6_MVC2[6][16] = 
@@ -1341,7 +1348,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_NEOGEO,  // NEOGEO: Garou
     IMGDAT_SECTION_JOJOS,
     IMGDAT_SECTION_KOF,     // KOF98 + KOF02UM
-    IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF 
+    IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_3S,      // Used for SFIII3.
     IMGDAT_SECTION_ST,      // Used for ST.
 };

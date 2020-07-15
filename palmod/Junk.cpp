@@ -124,7 +124,7 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
             static bool s_fAlreadyShown = false;
             // You can either slice the palette or add separators so that PalGroup can handle page divisions
             // You can easily have separators added for you automatically by using the new ::CreateDefPal logic
-            // that is already in use for SFA3 and MSH
+            // that is already in use for SFA3 and MSH and some of the other more recently added games
             strError.Format(_T("ERROR: Our color table can only show %u colors, but this palette wants %u colors.  This palette is too large and needs to be modified.\n\nThis is a bug in PalMod: please report it.\n"), nMaximumColorsPerPage, nNewAmt);
             OutputDebugString(strError);
             if (!s_fAlreadyShown)

@@ -72,7 +72,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
     }
     else if (pPopupMenu == m_SubToolMenu)
     {
-        // Enable everything... but then double-check since Jojos has no previews available at this time.
+        // Enable everything... but then double-check since some games have no previews available at this time.
         int i = 0, nMenuID;
 
         while ((nMenuID = pPopupMenu->GetMenuItemID(i)) != -1)

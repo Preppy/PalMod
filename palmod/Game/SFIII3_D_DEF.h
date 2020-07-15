@@ -1,7 +1,6 @@
 #pragma once
 
 #define SFIII3_D_NUMUNIT 0x14
-#define SFIII3_D_PALSZ 64
 
 const TCHAR SFIII3_D_UNITDESC[SFIII3_D_NUMUNIT][16] = 
 {

@@ -8,6 +8,7 @@
 #include "Game_MVC2_P.h"
 #include "Game_SFIII3_A.h"
 #include "Game_SSF2T_A.h"
+#include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
 #include "Game_XMVSF_A.h"
 #include "Game_MVC_A.h"
@@ -103,6 +104,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case SSF2T_A:
     {
         GetRule = &CGame_SSF2T_A::GetRule;
+        return TRUE;
+    }
+    case SFA2_A:
+    {
+        GetRule = &CGame_SFA2_A::GetRule;
         return TRUE;
     }
     case SFA3_A:
@@ -221,6 +227,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SSF2T_A:
     {
         return new CGame_SSF2T_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case SFA2_A:
+    {
+        return new CGame_SFA2_A(nConfirmedROMSize);
     }
     case SFA3_A:
     {
