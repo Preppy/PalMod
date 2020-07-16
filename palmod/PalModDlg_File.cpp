@@ -546,6 +546,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
 
         UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
         UINT16 iACTIndex = 0;
+        int nCurrentPageWorkingAmt = 0;
 
         // This doesn't work as it could.
         // Doing this on load involves updating the non-current page.  But that's only done
@@ -556,7 +557,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
 
             if (pPalCtrlCurrentPage)
             {
-                const int nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
+                nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
 
                 for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
                 {
@@ -580,7 +581,9 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
         delete[] pAct;
 
         fSuccess = true;
-        SetStatusText(CString("ACT file Loaded succesfully!"));
+        CString strStatus;
+        strStatus.Format(_T("Loaded %u colors from %u color %s file."), nCurrentPageWorkingAmt, nACTColorCount, _T("ACT"));
+        SetStatusText(strStatus);
 
         if (nPalettePageCount > 1)
         {
@@ -591,12 +594,21 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
         }
     }
 
+    if (!fSuccess)
+    {
+        CString strError;
+        strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE);
+        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+        SetStatusText(CString(_T("Failed loading ACT file.")));
+    }
+
     return fSuccess;
 }
 
 bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
 {
     bool fSuccess = false;
+    bool fFoundPALChunk = false;
 
     HMMIO hRIFFFile = mmioOpen((LPTSTR)pszFileName, nullptr, MMIO_READ);
 
@@ -616,6 +628,8 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
             {
                 MMCKINFO mmckinfoSubchunk;
                 memset(&mmckinfoSubchunk, 0, sizeof(mmckinfoSubchunk));
+
+                fFoundPALChunk = true;
 
                 mmckinfoSubchunk.ckid = mmioFOURCC('d', 'a', 't', 'a');
 
@@ -637,6 +651,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
 
                             UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
                             UINT16 iPALDataIndex = 0;
+                            int nCurrentPageWorkingAmt = 0;
 
                             // This doesn't work as it could.
                             // Doing this on load involves updating the non-current page.  But that's only done
@@ -648,7 +663,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
 
                                 if (pPalCtrlCurrentPage)
                                 {
-                                    const int nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
+                                    nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
 
                                     for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
                                     {
@@ -671,7 +686,9 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
                             CurrPalCtrl->UpdateCtrl();
 
                             fSuccess = true;
-                            SetStatusText(CString("PAL file Loaded succesfully!"));
+                            CString strStatus;
+                            strStatus.Format(_T("Loaded %u colors from %u color %s file."), nCurrentPageWorkingAmt, nPALColorCount - 1, _T("PAL"));
+                            SetStatusText(strStatus);
 
                             if (nPalettePageCount > 1)
                             {
@@ -691,12 +708,26 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
         mmioClose(hRIFFFile, 0);
     }
 
+    if (!fFoundPALChunk)
+    {
+        MessageBox(_T("Error: This is not a Microsoft PAL RIFF file."), GetHost()->GetAppName(), MB_ICONERROR);
+        SetStatusText(CString(_T("Failed loading PAL file.")));
+    }
+    else if (!fSuccess)
+    {
+        CString strError;
+        strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE);
+        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+        SetStatusText(CString(_T("Failed loading PAL file.")));
+    }
+
     return fSuccess;
 }
 
 bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
 {
     bool fSuccess = false;
+    bool fFoundPaletteData = false;
     CFile PNGFile;
     if (PNGFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
     {
@@ -721,7 +752,6 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
             (aszSignature[7] == (char)0x0A))
         {
             CString strInfo;
-            bool fFoundPaletteData = false;
             int nPNGColorCount = 0;
             bool fHadToFlip = false;
 
@@ -803,7 +833,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                         bool fStillStuckOnBlack = true;
                         for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
                         {
-                            pPal[iActivePageIndex * 4] =     MainPalGroup->ROUND_R(paszPaletteData[iPNGIndex * 3]);
+                            pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(paszPaletteData[iPNGIndex * 3]);
                             pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
                             pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
                             pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
@@ -851,20 +881,29 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                                 }
                             }
                         }
-                    }
 
-                    ImgDispCtrl->UpdateCtrl();
-                    CurrPalCtrl->UpdateCtrl();
+                        ImgDispCtrl->UpdateCtrl();
+                        CurrPalCtrl->UpdateCtrl();
 
-                    SetStatusText(CString("PNG file Loaded succesfully!"));
-                    fSuccess = true;
-
-                    UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
-                    if (nPalettePageCount > 1)
-                    {
-                        if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
+                        if (fHadToFlip)
                         {
-                            MessageBox(_T("Heads-up: you are loading a PNG for a multipage palette.  PalMod can only use the PNG to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once."), GetHost()->GetAppName(), MB_ICONERROR);
+                            strInfo.Format(_T("PNG appears to have a reversed color table: loaded %u colors backwards."), min(nCurrentPageWorkingAmt, nPNGColorCount));
+                        }
+                        else
+                        {
+                            strInfo.Format(_T("Loaded %u colors from the %u color indexed %s file."), nCurrentPageWorkingAmt, nPNGColorCount, _T("PNG"));
+                        }
+                        SetStatusText(strInfo);
+
+                        fSuccess = true;
+
+                        UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
+                        if (nPalettePageCount > 1)
+                        {
+                            if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
+                            {
+                                MessageBox(_T("Heads-up: you are loading a PNG for a multipage palette.  PalMod can only use the PNG to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once."), GetHost()->GetAppName(), MB_ICONERROR);
+                            }
                         }
                     }
 
@@ -889,31 +928,21 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                 }
             }
 
-            if (!fFoundPaletteData)
-            {
-                MessageBox(_T("Error: This PNG file is not using indexed color.  PalMod cannot use it."), GetHost()->GetAppName(), MB_ICONERROR);
-            }
-            else
-            {
-                if (fHadToFlip)
-                {
-                    strInfo.Format(_T("PNG appears to have a reversed color table: loaded %u colors backwards."), nPNGColorCount);
-                }
-                else
-                {
-                    strInfo.Format(_T("Loaded %u colors from the indexed PNG."), nPNGColorCount);
-                }
-                SetStatusText(strInfo);
-            }
-
             OutputDebugString(_T("pngreader: done!\n"));
-        }
-        else
-        {
-            MessageBox(_T("Error: This is not a valid PNG file."), GetHost()->GetAppName(), MB_ICONERROR);
         }
 
         PNGFile.Close();
+    }
+
+    if (!fFoundPaletteData)
+    {
+        MessageBox(_T("Error: This PNG file is not using indexed color.  PalMod cannot use it."), GetHost()->GetAppName(), MB_ICONERROR);
+        SetStatusText(CString(_T("Failed loading PNG file.")));
+    }
+    else if (!fSuccess)
+    {
+        MessageBox(_T("Error: This is not a valid PNG file."), GetHost()->GetAppName(), MB_ICONERROR);
+        SetStatusText(CString(_T("Failed loading PNG file.")));
     }
 
     return fSuccess;
@@ -923,7 +952,13 @@ void CPalModDlg::OnImportPalette()
 {
     if (bEnabled)
     {
-        CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, _T("ACT Palette, Indexed PNG, Microsoft PAL| *.ACT;*.png;*.pal||"));
+        static LPCTSTR szOpenFilter[] = { _T("Supported Palette Files|*.act;*.png;*.pal|")
+                                          _T("ACT Palette|*.act|")
+                                          _T("Indexed PNG|*.png|")
+                                          _T("Microsoft PAL|*.pal|")
+                                          _T("|") };
+
+        CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, *szOpenFilter);
 
         if (PaletteLoad.DoModal() == IDOK)
         {
@@ -935,22 +970,15 @@ void CPalModDlg::OnImportPalette()
 
             if (_tcsicmp(szExtension, _T(".png")) == 0)
             {
-                fSuccess = LoadPaletteFromPNG(strFileName);
+                LoadPaletteFromPNG(strFileName);
             }
             else if (_tcsicmp(szExtension, _T(".pal")) == 0)
             {
-                fSuccess = LoadPaletteFromPAL(strFileName);
+                LoadPaletteFromPAL(strFileName);
             }
             else
             {
-                fSuccess = LoadPaletteFromACT(strFileName);
-            }
-
-            if (!fSuccess)
-            {
-                CString strError;
-                strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE);
-                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+                LoadPaletteFromACT(strFileName);
             }
         }
     }
@@ -958,8 +986,8 @@ void CPalModDlg::OnImportPalette()
 
 void CPalModDlg::OnExportPalette()
 {
-    static LPCTSTR szSaveFilter[] = { _T("ACT Palette (*.ACT)|*.act|")
-                                      _T("GIMP Palette File (*.GPL) |*.gpl|")
+    static LPCTSTR szSaveFilter[] = { _T("ACT Palette|*.act|")
+                                      _T("GIMP Palette File|*.gpl|")
                                       _T("|") };
 
     CFileDialog ActSave(FALSE, _T(".act"), nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, *szSaveFilter);

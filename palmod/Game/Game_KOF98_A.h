@@ -30,6 +30,9 @@ private:
 
     UINT16*** pppDataBuffer = nullptr;
 
+    // Developer-only mode to regenerate the header file quickly.
+    static void DumpPaletteHeaders();
+
 public:
     CGame_KOF98_A(UINT32 nConfirmedROMSize);
     ~CGame_KOF98_A(void);

@@ -42,7 +42,7 @@ CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF98_A_NUMUNIT;
     m_nExtraUnit = KOF98_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1512;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1909;
     m_pszExtraFilename = EXTRA_FILENAME_KOF98_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF98;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -323,7 +323,147 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
 
     m_nTotalPaletteCountForKOF98 = nTotalPaletteCount;
 
+    // For development use to speed things up
+    //DumpPaletteHeaders();
+
     return NewDescTree;
+}
+
+struct sKOF98_A_PaletteData
+{
+    LPCTSTR pszCharacterName;
+    UINT32 nROMOffset = 0;
+    LPCTSTR pszImageSet = _T("indexKOF98_A_Kyo");
+    int rgIsEffectUsed[11];
+};
+
+sKOF98_A_PaletteData KOF98_A_CharacterEffectPalettes[] =
+{
+    // These effects use a random number of palettes per character.  The rgIsEffectUsed array keeps track of this for us.
+    // Note that the Orochi characters share the same effects as the normal character.
+    //                                                                            1  2  3  4  5  6  7  8  9  a  b
+    { _T("Kyo"),        0x2ee7f0 + (0x200 *  0), _T("indexKOF98_A_Kyo"),        { 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0 } },
+    { _T("Benimaru"),   0x2ee7f0 + (0x200 *  1), _T("indexKOF98_A_Benimaru"),   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Daimon"),     0x2ee7f0 + (0x200 *  2), _T("indexKOF98_A_Daimon"),     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Terry"),      0x2ee7f0 + (0x200 *  3), _T("indexKOF98_A_Terry"),      { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
+    { _T("Andy"),       0x2ee7f0 + (0x200 *  4), _T("indexKOF98_A_Andy"),       { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 } },
+    { _T("Joe"),        0x2ee7f0 + (0x200 *  5), _T("indexKOF98_A_Joe"),        { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
+    { _T("Ryo"),        0x2ee7f0 + (0x200 *  6), _T("indexKOF98_A_Ryo"),        { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
+    { _T("Robert"),     0x2ee7f0 + (0x200 *  7), _T("indexKOF98_A_Robert"),     { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
+    { _T("Yuri"),       0x2ee7f0 + (0x200 *  8), _T("indexKOF98_A_Yuri"),       { 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0 } },
+    { _T("Leona"),      0x2ee7f0 + (0x200 *  9), _T("indexKOF98_A_Leona"),      { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
+    { _T("Ralf"),       0x2ee7f0 + (0x200 * 10), _T("indexKOF98_A_Ralf"),       { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Clark"),      0x2ee7f0 + (0x200 * 11), _T("indexKOF98_A_Clark"),      { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Athena"),     0x2ee7f0 + (0x200 * 12), _T("indexKOF98_A_Athena"),     { 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0 } },
+    { _T("Kensou"),     0x2ee7f0 + (0x200 * 13), _T("indexKOF98_A_Kensou"),     { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Chin"),       0x2ee7f0 + (0x200 * 14), _T("indexKOF98_A_Chin"),       { 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
+    { _T("Chizuru"),    0x2ee7f0 + (0x200 * 15), _T("indexKOF98_A_Chizuru"),    { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Mai"),        0x2ee7f0 + (0x200 * 16), _T("indexKOF98_A_Mai"),        { 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0 } },
+    { _T("King"),       0x2ee7f0 + (0x200 * 17), _T("indexKOF98_A_King"),       { 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Kim"),        0x2ee7f0 + (0x200 * 18), _T("indexKOF98_A_Kim"),        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Chang"),      0x2ee7f0 + (0x200 * 19), _T("indexKOF98_A_Chang"),      { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Choi"),       0x2ee7f0 + (0x200 * 20), _T("indexKOF98_A_Choi"),       { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Yashiro"),    0x2ee7f0 + (0x200 * 21), _T("indexKOF98_A_Yashiro"),    { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 } },
+    { _T("Shermie"),    0x2ee7f0 + (0x200 * 22), _T("indexKOF98_A_Shermie"),    { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1 } },
+    { _T("Chris"),      0x2ee7f0 + (0x200 * 23), _T("indexKOF98_A_Chris"),      { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } },
+    { _T("Yamazaki"),   0x2ee7f0 + (0x200 * 24), _T("indexKOF98_A_Yamazaki"),   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Blue Mary"),  0x2ee7f0 + (0x200 * 25), _T("indexKOF98_A_BlueMary"),   { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Billy"),      0x2ee7f0 + (0x200 * 26), _T("indexKOF98_A_Billy"),      { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1 } },
+    { _T("Iori"),       0x2ee7f0 + (0x200 * 27), _T("indexKOF98_A_Iori"),       { 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0 } },
+    { _T("Mature"),     0x2ee7f0 + (0x200 * 28), _T("indexKOF98_A_Mature"),     { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
+    { _T("Vice"),       0x2ee7f0 + (0x200 * 29), _T("indexKOF98_A_Vice"),       { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1 } },
+    { _T("Heidern"),    0x2ee7f0 + (0x200 * 30), _T("indexKOF98_A_Heidern"),    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } },
+    { _T("Takuma"),     0x2ee7f0 + (0x200 * 31), _T("indexKOF98_A_Takuma"),     { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
+    { _T("Saisyu"),     0x2ee7f0 + (0x200 * 32), _T("indexKOF98_A_Saisyu"),     { 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0 } },
+    { _T("Heavy D!"),   0x2ee7f0 + (0x200 * 33), _T("indexKOF98_A_HeavyD"),     { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
+    { _T("Lucky"),      0x2ee7f0 + (0x200 * 34), _T("indexKOF98_A_Lucky"),      { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 } },
+    { _T("Brian"),      0x2ee7f0 + (0x200 * 35), _T("indexKOF98_A_Brian"),      { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
+    { _T("Rugal"),      0x2ee7f0 + (0x200 * 36), _T("indexKOF98_A_Rugal"),      { 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0 } },
+    { _T("Shingo"),     0x2ee7f0 + (0x200 * 37), _T("indexKOF98_A_Shingo"),     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { _T("Omega Rugal"), 0x2ee7f0 + (0x200* 38), _T("indexKOF98_A_OmegaRugal"), { 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1 } },
+    //                                                                            1  2  3  4  5  6  7  8  9  a  b
+};
+
+void CGame_KOF98_A::DumpPaletteHeaders()
+{
+    CString strOutput;
+    const UINT16 nColorOptionsPerCharacter = 4;
+    constexpr UINT32 KOF98_PALETTE_LENGTH = 0x20;
+    const UINT16 nCountStatusEffects = 16;
+
+    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF98_A_CharacterEffectPalettes); nCharIndex++)
+    {
+        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF98_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
+
+        strOutput.Format(_T("const sGame_PaletteDataset KOF98_A_%s_EFFECT_PALETTES[] = \r\n{\r\n"), szCodeDesc);
+        OutputDebugString(strOutput);
+
+        // Status effects
+        for (UINT16 nStatusIndex = 0; nStatusIndex < nCountStatusEffects; nStatusIndex++)
+        {
+            UINT32 nCurrentOffset = KOF98_A_CharacterEffectPalettes[nCharIndex].nROMOffset + (nStatusIndex * KOF98_PALETTE_LENGTH);
+            switch (nStatusIndex)
+            {
+            default:
+                if (KOF98_A_CharacterEffectPalettes[nCharIndex].rgIsEffectUsed[nStatusIndex])
+                {
+                    strOutput.Format(_T("    { _T(\"Effect %u\"), 0x%x, 0x%x },\r\n"), nStatusIndex, nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH);
+                        OutputDebugString(strOutput);
+                }
+                break;
+            case 11:
+                strOutput.Format(_T("    { _T(\"Zap Effect 1\"), 0x%x, 0x%x, %s },\r\n"), nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH,
+                    KOF98_A_CharacterEffectPalettes[nCharIndex].pszImageSet);
+                OutputDebugString(strOutput);
+                break;
+            case 12:
+                strOutput.Format(_T("    { _T(\"Zap Effect 2\"), 0x%x, 0x%x, %s },\r\n"), nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH,
+                    KOF98_A_CharacterEffectPalettes[nCharIndex].pszImageSet);
+                OutputDebugString(strOutput);
+                break;
+            case 13:
+                strOutput.Format(_T("    { _T(\"Super Trail 1\"), 0x%x, 0x%x, %s },\r\n"), nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH,
+                    KOF98_A_CharacterEffectPalettes[nCharIndex].pszImageSet);
+                OutputDebugString(strOutput);
+                break;
+            case 14:
+                strOutput.Format(_T("    { _T(\"Super Trail 2\"), 0x%x, 0x%x, %s },\r\n"), nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH,
+                    KOF98_A_CharacterEffectPalettes[nCharIndex].pszImageSet);
+                OutputDebugString(strOutput);
+                break;
+            case 15:
+                strOutput.Format(_T("    { _T(\"Super Trail 3\"), 0x%x, 0x%x, %s },\r\n"), nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH,
+                    KOF98_A_CharacterEffectPalettes[nCharIndex].pszImageSet);
+                OutputDebugString(strOutput);
+                break;
+            };
+        }
+
+        OutputDebugString(_T("};\r\n\r\n"));
+    }
+
+    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF98_A_CharacterEffectPalettes); nCharIndex++)
+    {
+        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF98_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
+
+        strOutput.Format(_T("const sDescTreeNode KOF98_A_%s_COLLECTION[] = \r\n{\r\n"), szCodeDesc);
+        OutputDebugString(strOutput);
+
+        for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+        {
+            TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_NEOGEO[nColorIndex]);
+
+            strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)KOF98_A_%s_%s_PALETTES, ARRAYSIZE(KOF98_A_%s_%s_PALETTES) },\r\n"), DEF_BUTTONLABEL_NEOGEO[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
+            OutputDebugString(strOutput);
+        }
+
+        strOutput.Format(_T("    { _T(\"Effects\"), DESC_NODETYPE_TREE, (void*)KOF98_A_%s_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_%s_EFFECT_PALETTES) },\r\n"), szCodeDesc, szCodeDesc);
+        OutputDebugString(strOutput);
+        OutputDebugString(_T("};\r\n\r\n"));
+    }
 }
 
 sFileRule CGame_KOF98_A::GetRule(UINT16 nUnitId)
@@ -701,13 +841,17 @@ BOOL CGame_KOF98_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                nSrcAmt = 4;
-                nNodeIncrement = pCurrentNode->uChildAmt;
-
-                while (nSrcStart >= nNodeIncrement)
+                if ((_tcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) ||
+                    (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
                 {
-                    // The starting point is the absolute first palette for the sprite in question which is found in P1
-                    nSrcStart -= nNodeIncrement;
+                    nSrcAmt = 4;
+                    nNodeIncrement = pCurrentNode->uChildAmt;
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        nSrcStart -= nNodeIncrement;
+                    }
                 }
             }
         }

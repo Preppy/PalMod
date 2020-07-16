@@ -2194,12 +2194,566 @@ const sGame_PaletteDataset KOF98_A_OmegaRugal_PALETTE_D[] =
     { _T("Omega Rugal D - Win Screen Portrait/sprite"),  0x2ee6f0, 0x2ee7f0 },
 };
 
+const sGame_PaletteDataset KOF98_A_KYO_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2ee7f0, 0x2ee810 },
+    { _T("Effect 1"), 0x2ee810, 0x2ee830 },
+    { _T("Effect 2"), 0x2ee830, 0x2ee850 },
+    { _T("Effect 4"), 0x2ee870, 0x2ee890 },
+    { _T("Effect 5"), 0x2ee890, 0x2ee8b0 },
+    { _T("Effect 6"), 0x2ee8b0, 0x2ee8d0 },
+    { _T("Zap Effect 1"), 0x2ee950, 0x2ee970, indexKOF98_A_Kyo },
+    { _T("Zap Effect 2"), 0x2ee970, 0x2ee990, indexKOF98_A_Kyo },
+    { _T("Super Trail 1"), 0x2ee990, 0x2ee9b0, indexKOF98_A_Kyo },
+    { _T("Super Trail 2"), 0x2ee9b0, 0x2ee9d0, indexKOF98_A_Kyo },
+    { _T("Super Trail 3"), 0x2ee9d0, 0x2ee9f0, indexKOF98_A_Kyo },
+};
+
+const sGame_PaletteDataset KOF98_A_BENIMARU_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2ee9f0, 0x2eea10 },
+    { _T("Effect 1"), 0x2eea10, 0x2eea30 },
+    { _T("Effect 2"), 0x2eea30, 0x2eea50 },
+    { _T("Effect 3"), 0x2eea50, 0x2eea70 },
+    { _T("Zap Effect 1"), 0x2eeb50, 0x2eeb70, indexKOF98_A_Benimaru },
+    { _T("Zap Effect 2"), 0x2eeb70, 0x2eeb90, indexKOF98_A_Benimaru },
+    { _T("Super Trail 1"), 0x2eeb90, 0x2eebb0, indexKOF98_A_Benimaru },
+    { _T("Super Trail 2"), 0x2eebb0, 0x2eebd0, indexKOF98_A_Benimaru },
+    { _T("Super Trail 3"), 0x2eebd0, 0x2eebf0, indexKOF98_A_Benimaru },
+};
+
+const sGame_PaletteDataset KOF98_A_DAIMON_EFFECT_PALETTES[] =
+{
+    { _T("Zap Effect 1"), 0x2eed50, 0x2eed70, indexKOF98_A_Daimon },
+    { _T("Zap Effect 2"), 0x2eed70, 0x2eed90, indexKOF98_A_Daimon },
+    { _T("Super Trail 1"), 0x2eed90, 0x2eedb0, indexKOF98_A_Daimon },
+    { _T("Super Trail 2"), 0x2eedb0, 0x2eedd0, indexKOF98_A_Daimon },
+    { _T("Super Trail 3"), 0x2eedd0, 0x2eedf0, indexKOF98_A_Daimon },
+};
+
+const sGame_PaletteDataset KOF98_A_TERRY_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2eedf0, 0x2eee10 },
+    { _T("Effect 1"), 0x2eee10, 0x2eee30 },
+    { _T("Effect 2"), 0x2eee30, 0x2eee50 },
+    { _T("Effect 3"), 0x2eee50, 0x2eee70 },
+    { _T("Effect 4"), 0x2eee70, 0x2eee90 },
+    { _T("Effect 5"), 0x2eee90, 0x2eeeb0 },
+    { _T("Zap Effect 1"), 0x2eef50, 0x2eef70, indexKOF98_A_Terry },
+    { _T("Zap Effect 2"), 0x2eef70, 0x2eef90, indexKOF98_A_Terry },
+    { _T("Super Trail 1"), 0x2eef90, 0x2eefb0, indexKOF98_A_Terry },
+    { _T("Super Trail 2"), 0x2eefb0, 0x2eefd0, indexKOF98_A_Terry },
+    { _T("Super Trail 3"), 0x2eefd0, 0x2eeff0, indexKOF98_A_Terry },
+};
+
+const sGame_PaletteDataset KOF98_A_ANDY_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2eeff0, 0x2ef010 },
+    { _T("Effect 1"), 0x2ef010, 0x2ef030 },
+    { _T("Effect 2"), 0x2ef030, 0x2ef050 },
+    { _T("Effect 3"), 0x2ef050, 0x2ef070 },
+    { _T("Effect 4"), 0x2ef070, 0x2ef090 },
+    { _T("Effect 5"), 0x2ef090, 0x2ef0b0 },
+    { _T("Effect 6"), 0x2ef0b0, 0x2ef0d0 },
+    { _T("Effect 7"), 0x2ef0d0, 0x2ef0f0 },
+    { _T("Effect 8"), 0x2ef0f0, 0x2ef110 },
+    { _T("Effect 9"), 0x2ef110, 0x2ef130 },
+    { _T("Zap Effect 1"), 0x2ef150, 0x2ef170, indexKOF98_A_Andy },
+    { _T("Zap Effect 2"), 0x2ef170, 0x2ef190, indexKOF98_A_Andy },
+    { _T("Super Trail 1"), 0x2ef190, 0x2ef1b0, indexKOF98_A_Andy },
+    { _T("Super Trail 2"), 0x2ef1b0, 0x2ef1d0, indexKOF98_A_Andy },
+    { _T("Super Trail 3"), 0x2ef1d0, 0x2ef1f0, indexKOF98_A_Andy },
+};
+
+const sGame_PaletteDataset KOF98_A_JOE_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2ef1f0, 0x2ef210 },
+    { _T("Effect 1"), 0x2ef210, 0x2ef230 },
+    { _T("Effect 2"), 0x2ef230, 0x2ef250 },
+    { _T("Effect 3"), 0x2ef250, 0x2ef270 },
+    { _T("Effect 4"), 0x2ef270, 0x2ef290 },
+    { _T("Effect 5"), 0x2ef290, 0x2ef2b0 },
+    { _T("Zap Effect 1"), 0x2ef350, 0x2ef370, indexKOF98_A_Joe },
+    { _T("Zap Effect 2"), 0x2ef370, 0x2ef390, indexKOF98_A_Joe },
+    { _T("Super Trail 1"), 0x2ef390, 0x2ef3b0, indexKOF98_A_Joe },
+    { _T("Super Trail 2"), 0x2ef3b0, 0x2ef3d0, indexKOF98_A_Joe },
+    { _T("Super Trail 3"), 0x2ef3d0, 0x2ef3f0, indexKOF98_A_Joe },
+};
+
+const sGame_PaletteDataset KOF98_A_RYO_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2ef3f0, 0x2ef410 },
+    { _T("Effect 1"), 0x2ef410, 0x2ef430 },
+    { _T("Effect 2"), 0x2ef430, 0x2ef450 },
+    { _T("Effect 3"), 0x2ef450, 0x2ef470 },
+    { _T("Effect 4"), 0x2ef470, 0x2ef490 },
+    { _T("Effect 5"), 0x2ef490, 0x2ef4b0 },
+    { _T("Effect 6"), 0x2ef4b0, 0x2ef4d0 },
+    { _T("Zap Effect 1"), 0x2ef550, 0x2ef570, indexKOF98_A_Ryo },
+    { _T("Zap Effect 2"), 0x2ef570, 0x2ef590, indexKOF98_A_Ryo },
+    { _T("Super Trail 1"), 0x2ef590, 0x2ef5b0, indexKOF98_A_Ryo },
+    { _T("Super Trail 2"), 0x2ef5b0, 0x2ef5d0, indexKOF98_A_Ryo },
+    { _T("Super Trail 3"), 0x2ef5d0, 0x2ef5f0, indexKOF98_A_Ryo },
+};
+
+const sGame_PaletteDataset KOF98_A_ROBERT_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2ef5f0, 0x2ef610 },
+    { _T("Effect 1"), 0x2ef610, 0x2ef630 },
+    { _T("Effect 2"), 0x2ef630, 0x2ef650 },
+    { _T("Effect 3"), 0x2ef650, 0x2ef670 },
+    { _T("Effect 4"), 0x2ef670, 0x2ef690 },
+    { _T("Effect 5"), 0x2ef690, 0x2ef6b0 },
+    { _T("Zap Effect 1"), 0x2ef750, 0x2ef770, indexKOF98_A_Robert },
+    { _T("Zap Effect 2"), 0x2ef770, 0x2ef790, indexKOF98_A_Robert },
+    { _T("Super Trail 1"), 0x2ef790, 0x2ef7b0, indexKOF98_A_Robert },
+    { _T("Super Trail 2"), 0x2ef7b0, 0x2ef7d0, indexKOF98_A_Robert },
+    { _T("Super Trail 3"), 0x2ef7d0, 0x2ef7f0, indexKOF98_A_Robert },
+};
+
+const sGame_PaletteDataset KOF98_A_YURI_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2ef7f0, 0x2ef810 },
+    { _T("Effect 1"), 0x2ef810, 0x2ef830 },
+    { _T("Effect 2"), 0x2ef830, 0x2ef850 },
+    { _T("Effect 3"), 0x2ef850, 0x2ef870 },
+    { _T("Effect 4"), 0x2ef870, 0x2ef890 },
+    { _T("Effect 5"), 0x2ef890, 0x2ef8b0 },
+    { _T("Effect 6"), 0x2ef8b0, 0x2ef8d0 },
+    { _T("Effect 7"), 0x2ef8d0, 0x2ef8f0 },
+    { _T("Effect 8"), 0x2ef8f0, 0x2ef910 },
+    { _T("Zap Effect 1"), 0x2ef950, 0x2ef970, indexKOF98_A_Yuri },
+    { _T("Zap Effect 2"), 0x2ef970, 0x2ef990, indexKOF98_A_Yuri },
+    { _T("Super Trail 1"), 0x2ef990, 0x2ef9b0, indexKOF98_A_Yuri },
+    { _T("Super Trail 2"), 0x2ef9b0, 0x2ef9d0, indexKOF98_A_Yuri },
+    { _T("Super Trail 3"), 0x2ef9d0, 0x2ef9f0, indexKOF98_A_Yuri },
+};
+
+const sGame_PaletteDataset KOF98_A_LEONA_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2ef9f0, 0x2efa10 },
+    { _T("Effect 1"), 0x2efa10, 0x2efa30 },
+    { _T("Effect 2"), 0x2efa30, 0x2efa50 },
+    { _T("Effect 3"), 0x2efa50, 0x2efa70 },
+    { _T("Effect 4"), 0x2efa70, 0x2efa90 },
+    { _T("Effect 5"), 0x2efa90, 0x2efab0 },
+    { _T("Effect 6"), 0x2efab0, 0x2efad0 },
+    { _T("Zap Effect 1"), 0x2efb50, 0x2efb70, indexKOF98_A_Leona },
+    { _T("Zap Effect 2"), 0x2efb70, 0x2efb90, indexKOF98_A_Leona },
+    { _T("Super Trail 1"), 0x2efb90, 0x2efbb0, indexKOF98_A_Leona },
+    { _T("Super Trail 2"), 0x2efbb0, 0x2efbd0, indexKOF98_A_Leona },
+    { _T("Super Trail 3"), 0x2efbd0, 0x2efbf0, indexKOF98_A_Leona },
+};
+
+const sGame_PaletteDataset KOF98_A_RALF_EFFECT_PALETTES[] =
+{
+    { _T("Zap Effect 1"), 0x2efd50, 0x2efd70, indexKOF98_A_Ralf },
+    { _T("Zap Effect 2"), 0x2efd70, 0x2efd90, indexKOF98_A_Ralf },
+    { _T("Super Trail 1"), 0x2efd90, 0x2efdb0, indexKOF98_A_Ralf },
+    { _T("Super Trail 2"), 0x2efdb0, 0x2efdd0, indexKOF98_A_Ralf },
+    { _T("Super Trail 3"), 0x2efdd0, 0x2efdf0, indexKOF98_A_Ralf },
+};
+
+const sGame_PaletteDataset KOF98_A_CLARK_EFFECT_PALETTES[] =
+{
+    { _T("Zap Effect 1"), 0x2eff50, 0x2eff70, indexKOF98_A_Clark },
+    { _T("Zap Effect 2"), 0x2eff70, 0x2eff90, indexKOF98_A_Clark },
+    { _T("Super Trail 1"), 0x2eff90, 0x2effb0, indexKOF98_A_Clark },
+    { _T("Super Trail 2"), 0x2effb0, 0x2effd0, indexKOF98_A_Clark },
+    { _T("Super Trail 3"), 0x2effd0, 0x2efff0, indexKOF98_A_Clark },
+};
+
+const sGame_PaletteDataset KOF98_A_ATHENA_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2efff0, 0x2f0010 },
+    { _T("Effect 1"), 0x2f0010, 0x2f0030 },
+    { _T("Effect 2"), 0x2f0030, 0x2f0050 },
+    { _T("Effect 3"), 0x2f0050, 0x2f0070 },
+    { _T("Effect 4"), 0x2f0070, 0x2f0090 },
+    { _T("Effect 5"), 0x2f0090, 0x2f00b0 },
+    { _T("Effect 6"), 0x2f00b0, 0x2f00d0 },
+    { _T("Effect 7"), 0x2f00d0, 0x2f00f0 },
+    { _T("Effect 8"), 0x2f00f0, 0x2f0110 },
+    { _T("Zap Effect 1"), 0x2f0150, 0x2f0170, indexKOF98_A_Athena },
+    { _T("Zap Effect 2"), 0x2f0170, 0x2f0190, indexKOF98_A_Athena },
+    { _T("Super Trail 1"), 0x2f0190, 0x2f01b0, indexKOF98_A_Athena },
+    { _T("Super Trail 2"), 0x2f01b0, 0x2f01d0, indexKOF98_A_Athena },
+    { _T("Super Trail 3"), 0x2f01d0, 0x2f01f0, indexKOF98_A_Athena },
+};
+
+const sGame_PaletteDataset KOF98_A_KENSOU_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f01f0, 0x2f0210 },
+    { _T("Effect 1"), 0x2f0210, 0x2f0230 },
+    { _T("Effect 2"), 0x2f0230, 0x2f0250 },
+    { _T("Effect 3"), 0x2f0250, 0x2f0270 },
+    { _T("Zap Effect 1"), 0x2f0350, 0x2f0370, indexKOF98_A_Kensou },
+    { _T("Zap Effect 2"), 0x2f0370, 0x2f0390, indexKOF98_A_Kensou },
+    { _T("Super Trail 1"), 0x2f0390, 0x2f03b0, indexKOF98_A_Kensou },
+    { _T("Super Trail 2"), 0x2f03b0, 0x2f03d0, indexKOF98_A_Kensou },
+    { _T("Super Trail 3"), 0x2f03d0, 0x2f03f0, indexKOF98_A_Kensou },
+};
+
+const sGame_PaletteDataset KOF98_A_CHIN_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f03f0, 0x2f0410 },
+    { _T("Effect 2"), 0x2f0430, 0x2f0450 },
+    { _T("Effect 3"), 0x2f0450, 0x2f0470 },
+    { _T("Effect 4"), 0x2f0470, 0x2f0490 },
+    { _T("Effect 5"), 0x2f0490, 0x2f04b0 },
+    { _T("Zap Effect 1"), 0x2f0550, 0x2f0570, indexKOF98_A_Chin },
+    { _T("Zap Effect 2"), 0x2f0570, 0x2f0590, indexKOF98_A_Chin },
+    { _T("Super Trail 1"), 0x2f0590, 0x2f05b0, indexKOF98_A_Chin },
+    { _T("Super Trail 2"), 0x2f05b0, 0x2f05d0, indexKOF98_A_Chin },
+    { _T("Super Trail 3"), 0x2f05d0, 0x2f05f0, indexKOF98_A_Chin },
+};
+
+const sGame_PaletteDataset KOF98_A_CHIZURU_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f05f0, 0x2f0610 },
+    { _T("Zap Effect 1"), 0x2f0750, 0x2f0770, indexKOF98_A_Chizuru },
+    { _T("Zap Effect 2"), 0x2f0770, 0x2f0790, indexKOF98_A_Chizuru },
+    { _T("Super Trail 1"), 0x2f0790, 0x2f07b0, indexKOF98_A_Chizuru },
+    { _T("Super Trail 2"), 0x2f07b0, 0x2f07d0, indexKOF98_A_Chizuru },
+    { _T("Super Trail 3"), 0x2f07d0, 0x2f07f0, indexKOF98_A_Chizuru },
+};
+
+const sGame_PaletteDataset KOF98_A_MAI_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f07f0, 0x2f0810 },
+    { _T("Effect 1"), 0x2f0810, 0x2f0830 },
+    { _T("Effect 2"), 0x2f0830, 0x2f0850 },
+    { _T("Effect 3"), 0x2f0850, 0x2f0870 },
+    { _T("Effect 4"), 0x2f0870, 0x2f0890 },
+    { _T("Effect 5"), 0x2f0890, 0x2f08b0 },
+    { _T("Effect 6"), 0x2f08b0, 0x2f08d0 },
+    { _T("Effect 9"), 0x2f0910, 0x2f0930 },
+    { _T("Zap Effect 1"), 0x2f0950, 0x2f0970, indexKOF98_A_Mai },
+    { _T("Zap Effect 2"), 0x2f0970, 0x2f0990, indexKOF98_A_Mai },
+    { _T("Super Trail 1"), 0x2f0990, 0x2f09b0, indexKOF98_A_Mai },
+    { _T("Super Trail 2"), 0x2f09b0, 0x2f09d0, indexKOF98_A_Mai },
+    { _T("Super Trail 3"), 0x2f09d0, 0x2f09f0, indexKOF98_A_Mai },
+};
+
+const sGame_PaletteDataset KOF98_A_KING_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f09f0, 0x2f0a10 },
+    { _T("Effect 1"), 0x2f0a10, 0x2f0a30 },
+    { _T("Zap Effect 1"), 0x2f0b50, 0x2f0b70, indexKOF98_A_King },
+    { _T("Zap Effect 2"), 0x2f0b70, 0x2f0b90, indexKOF98_A_King },
+    { _T("Super Trail 1"), 0x2f0b90, 0x2f0bb0, indexKOF98_A_King },
+    { _T("Super Trail 2"), 0x2f0bb0, 0x2f0bd0, indexKOF98_A_King },
+    { _T("Super Trail 3"), 0x2f0bd0, 0x2f0bf0, indexKOF98_A_King },
+};
+
+const sGame_PaletteDataset KOF98_A_KIM_EFFECT_PALETTES[] =
+{
+    { _T("Zap Effect 1"), 0x2f0d50, 0x2f0d70, indexKOF98_A_Kim },
+    { _T("Zap Effect 2"), 0x2f0d70, 0x2f0d90, indexKOF98_A_Kim },
+    { _T("Super Trail 1"), 0x2f0d90, 0x2f0db0, indexKOF98_A_Kim },
+    { _T("Super Trail 2"), 0x2f0db0, 0x2f0dd0, indexKOF98_A_Kim },
+    { _T("Super Trail 3"), 0x2f0dd0, 0x2f0df0, indexKOF98_A_Kim },
+};
+
+const sGame_PaletteDataset KOF98_A_CHANG_EFFECT_PALETTES[] =
+{
+    { _T("Zap Effect 1"), 0x2f0f50, 0x2f0f70, indexKOF98_A_Chang },
+    { _T("Zap Effect 2"), 0x2f0f70, 0x2f0f90, indexKOF98_A_Chang },
+    { _T("Super Trail 1"), 0x2f0f90, 0x2f0fb0, indexKOF98_A_Chang },
+    { _T("Super Trail 2"), 0x2f0fb0, 0x2f0fd0, indexKOF98_A_Chang },
+    { _T("Super Trail 3"), 0x2f0fd0, 0x2f0ff0, indexKOF98_A_Chang },
+};
+
+const sGame_PaletteDataset KOF98_A_CHOI_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f0ff0, 0x2f1010 },
+    { _T("Effect 1"), 0x2f1010, 0x2f1030 },
+    { _T("Effect 2"), 0x2f1030, 0x2f1050 },
+    { _T("Zap Effect 1"), 0x2f1150, 0x2f1170, indexKOF98_A_Choi },
+    { _T("Zap Effect 2"), 0x2f1170, 0x2f1190, indexKOF98_A_Choi },
+    { _T("Super Trail 1"), 0x2f1190, 0x2f11b0, indexKOF98_A_Choi },
+    { _T("Super Trail 2"), 0x2f11b0, 0x2f11d0, indexKOF98_A_Choi },
+    { _T("Super Trail 3"), 0x2f11d0, 0x2f11f0, indexKOF98_A_Choi },
+};
+
+const sGame_PaletteDataset KOF98_A_YASHIRO_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f11f0, 0x2f1210 },
+    { _T("Effect 1"), 0x2f1210, 0x2f1230 },
+    { _T("Effect 2"), 0x2f1230, 0x2f1250 },
+    { _T("Effect 3"), 0x2f1250, 0x2f1270 },
+    { _T("Effect 4"), 0x2f1270, 0x2f1290 },
+    { _T("Zap Effect 1"), 0x2f1350, 0x2f1370, indexKOF98_A_Yashiro },
+    { _T("Zap Effect 2"), 0x2f1370, 0x2f1390, indexKOF98_A_Yashiro },
+    { _T("Super Trail 1"), 0x2f1390, 0x2f13b0, indexKOF98_A_Yashiro },
+    { _T("Super Trail 2"), 0x2f13b0, 0x2f13d0, indexKOF98_A_Yashiro },
+    { _T("Super Trail 3"), 0x2f13d0, 0x2f13f0, indexKOF98_A_Yashiro },
+};
+
+const sGame_PaletteDataset KOF98_A_SHERMIE_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f13f0, 0x2f1410 },
+    { _T("Effect 1"), 0x2f1410, 0x2f1430 },
+    { _T("Effect 2"), 0x2f1430, 0x2f1450 },
+    { _T("Effect 3"), 0x2f1450, 0x2f1470 },
+    { _T("Effect 4"), 0x2f1470, 0x2f1490 },
+    { _T("Effect 5"), 0x2f1490, 0x2f14b0 },
+    { _T("Effect 6"), 0x2f14b0, 0x2f14d0 },
+    { _T("Effect 7"), 0x2f14d0, 0x2f14f0 },
+    { _T("Effect 10"), 0x2f1530, 0x2f1550 },
+    { _T("Zap Effect 1"), 0x2f1550, 0x2f1570, indexKOF98_A_Shermie },
+    { _T("Zap Effect 2"), 0x2f1570, 0x2f1590, indexKOF98_A_Shermie },
+    { _T("Super Trail 1"), 0x2f1590, 0x2f15b0, indexKOF98_A_Shermie },
+    { _T("Super Trail 2"), 0x2f15b0, 0x2f15d0, indexKOF98_A_Shermie },
+    { _T("Super Trail 3"), 0x2f15d0, 0x2f15f0, indexKOF98_A_Shermie },
+};
+
+const sGame_PaletteDataset KOF98_A_CHRIS_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f15f0, 0x2f1610 },
+    { _T("Effect 1"), 0x2f1610, 0x2f1630 },
+    { _T("Effect 2"), 0x2f1630, 0x2f1650 },
+    { _T("Effect 3"), 0x2f1650, 0x2f1670 },
+    { _T("Effect 4"), 0x2f1670, 0x2f1690 },
+    { _T("Effect 5"), 0x2f1690, 0x2f16b0 },
+    { _T("Effect 6"), 0x2f16b0, 0x2f16d0 },
+    { _T("Effect 7"), 0x2f16d0, 0x2f16f0 },
+    { _T("Effect 8"), 0x2f16f0, 0x2f1710 },
+    { _T("Effect 9"), 0x2f1710, 0x2f1730 },
+    { _T("Effect 10"), 0x2f1730, 0x2f1750 },
+    { _T("Zap Effect 1"), 0x2f1750, 0x2f1770, indexKOF98_A_Chris },
+    { _T("Zap Effect 2"), 0x2f1770, 0x2f1790, indexKOF98_A_Chris },
+    { _T("Super Trail 1"), 0x2f1790, 0x2f17b0, indexKOF98_A_Chris },
+    { _T("Super Trail 2"), 0x2f17b0, 0x2f17d0, indexKOF98_A_Chris },
+    { _T("Super Trail 3"), 0x2f17d0, 0x2f17f0, indexKOF98_A_Chris },
+};
+
+const sGame_PaletteDataset KOF98_A_YAMAZAKI_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f17f0, 0x2f1810 },
+    { _T("Effect 1"), 0x2f1810, 0x2f1830 },
+    { _T("Effect 2"), 0x2f1830, 0x2f1850 },
+    { _T("Effect 3"), 0x2f1850, 0x2f1870 },
+    { _T("Zap Effect 1"), 0x2f1950, 0x2f1970, indexKOF98_A_Yamazaki },
+    { _T("Zap Effect 2"), 0x2f1970, 0x2f1990, indexKOF98_A_Yamazaki },
+    { _T("Super Trail 1"), 0x2f1990, 0x2f19b0, indexKOF98_A_Yamazaki },
+    { _T("Super Trail 2"), 0x2f19b0, 0x2f19d0, indexKOF98_A_Yamazaki },
+    { _T("Super Trail 3"), 0x2f19d0, 0x2f19f0, indexKOF98_A_Yamazaki },
+};
+
+const sGame_PaletteDataset KOF98_A_BLUEMARY_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f19f0, 0x2f1a10 },
+    { _T("Effect 1"), 0x2f1a10, 0x2f1a30 },
+    { _T("Effect 2"), 0x2f1a30, 0x2f1a50 },
+    { _T("Zap Effect 1"), 0x2f1b50, 0x2f1b70, indexKOF98_A_BlueMary },
+    { _T("Zap Effect 2"), 0x2f1b70, 0x2f1b90, indexKOF98_A_BlueMary },
+    { _T("Super Trail 1"), 0x2f1b90, 0x2f1bb0, indexKOF98_A_BlueMary },
+    { _T("Super Trail 2"), 0x2f1bb0, 0x2f1bd0, indexKOF98_A_BlueMary },
+    { _T("Super Trail 3"), 0x2f1bd0, 0x2f1bf0, indexKOF98_A_BlueMary },
+};
+
+const sGame_PaletteDataset KOF98_A_BILLY_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f1bf0, 0x2f1c10 },
+    { _T("Effect 1"), 0x2f1c10, 0x2f1c30 },
+    { _T("Effect 2"), 0x2f1c30, 0x2f1c50 },
+    { _T("Effect 3"), 0x2f1c50, 0x2f1c70 },
+    { _T("Effect 4"), 0x2f1c70, 0x2f1c90 },
+    { _T("Effect 10"), 0x2f1d30, 0x2f1d50 },
+    { _T("Zap Effect 1"), 0x2f1d50, 0x2f1d70, indexKOF98_A_Billy },
+    { _T("Zap Effect 2"), 0x2f1d70, 0x2f1d90, indexKOF98_A_Billy },
+    { _T("Super Trail 1"), 0x2f1d90, 0x2f1db0, indexKOF98_A_Billy },
+    { _T("Super Trail 2"), 0x2f1db0, 0x2f1dd0, indexKOF98_A_Billy },
+    { _T("Super Trail 3"), 0x2f1dd0, 0x2f1df0, indexKOF98_A_Billy },
+};
+
+const sGame_PaletteDataset KOF98_A_IORI_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f1df0, 0x2f1e10 },
+    { _T("Effect 1"), 0x2f1e10, 0x2f1e30 },
+    { _T("Effect 3"), 0x2f1e50, 0x2f1e70 },
+    { _T("Effect 4"), 0x2f1e70, 0x2f1e90 },
+    { _T("Zap Effect 1"), 0x2f1f50, 0x2f1f70, indexKOF98_A_Iori },
+    { _T("Zap Effect 2"), 0x2f1f70, 0x2f1f90, indexKOF98_A_Iori },
+    { _T("Super Trail 1"), 0x2f1f90, 0x2f1fb0, indexKOF98_A_Iori },
+    { _T("Super Trail 2"), 0x2f1fb0, 0x2f1fd0, indexKOF98_A_Iori },
+    { _T("Super Trail 3"), 0x2f1fd0, 0x2f1ff0, indexKOF98_A_Iori },
+};
+
+const sGame_PaletteDataset KOF98_A_MATURE_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f1ff0, 0x2f2010 },
+    { _T("Effect 1"), 0x2f2010, 0x2f2030 },
+    { _T("Effect 2"), 0x2f2030, 0x2f2050 },
+    { _T("Effect 3"), 0x2f2050, 0x2f2070 },
+    { _T("Effect 4"), 0x2f2070, 0x2f2090 },
+    { _T("Effect 5"), 0x2f2090, 0x2f20b0 },
+    { _T("Zap Effect 1"), 0x2f2150, 0x2f2170, indexKOF98_A_Mature },
+    { _T("Zap Effect 2"), 0x2f2170, 0x2f2190, indexKOF98_A_Mature },
+    { _T("Super Trail 1"), 0x2f2190, 0x2f21b0, indexKOF98_A_Mature },
+    { _T("Super Trail 2"), 0x2f21b0, 0x2f21d0, indexKOF98_A_Mature },
+    { _T("Super Trail 3"), 0x2f21d0, 0x2f21f0, indexKOF98_A_Mature },
+};
+
+const sGame_PaletteDataset KOF98_A_VICE_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f21f0, 0x2f2210 },
+    { _T("Effect 1"), 0x2f2210, 0x2f2230 },
+    { _T("Effect 2"), 0x2f2230, 0x2f2250 },
+    { _T("Effect 3"), 0x2f2250, 0x2f2270 },
+    { _T("Effect 10"), 0x2f2330, 0x2f2350 },
+    { _T("Zap Effect 1"), 0x2f2350, 0x2f2370, indexKOF98_A_Vice },
+    { _T("Zap Effect 2"), 0x2f2370, 0x2f2390, indexKOF98_A_Vice },
+    { _T("Super Trail 1"), 0x2f2390, 0x2f23b0, indexKOF98_A_Vice },
+    { _T("Super Trail 2"), 0x2f23b0, 0x2f23d0, indexKOF98_A_Vice },
+    { _T("Super Trail 3"), 0x2f23d0, 0x2f23f0, indexKOF98_A_Vice },
+};
+
+const sGame_PaletteDataset KOF98_A_HEIDERN_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f23f0, 0x2f2410 },
+    { _T("Effect 1"), 0x2f2410, 0x2f2430 },
+    { _T("Effect 2"), 0x2f2430, 0x2f2450 },
+    { _T("Effect 3"), 0x2f2450, 0x2f2470 },
+    { _T("Effect 4"), 0x2f2470, 0x2f2490 },
+    { _T("Effect 5"), 0x2f2490, 0x2f24b0 },
+    { _T("Effect 6"), 0x2f24b0, 0x2f24d0 },
+    { _T("Effect 7"), 0x2f24d0, 0x2f24f0 },
+    { _T("Effect 8"), 0x2f24f0, 0x2f2510 },
+    { _T("Effect 9"), 0x2f2510, 0x2f2530 },
+    { _T("Effect 10"), 0x2f2530, 0x2f2550 },
+    { _T("Zap Effect 1"), 0x2f2550, 0x2f2570, indexKOF98_A_Heidern },
+    { _T("Zap Effect 2"), 0x2f2570, 0x2f2590, indexKOF98_A_Heidern },
+    { _T("Super Trail 1"), 0x2f2590, 0x2f25b0, indexKOF98_A_Heidern },
+    { _T("Super Trail 2"), 0x2f25b0, 0x2f25d0, indexKOF98_A_Heidern },
+    { _T("Super Trail 3"), 0x2f25d0, 0x2f25f0, indexKOF98_A_Heidern },
+};
+
+const sGame_PaletteDataset KOF98_A_TAKUMA_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f25f0, 0x2f2610 },
+    { _T("Effect 1"), 0x2f2610, 0x2f2630 },
+    { _T("Effect 2"), 0x2f2630, 0x2f2650 },
+    { _T("Effect 3"), 0x2f2650, 0x2f2670 },
+    { _T("Effect 4"), 0x2f2670, 0x2f2690 },
+    { _T("Effect 5"), 0x2f2690, 0x2f26b0 },
+    { _T("Effect 6"), 0x2f26b0, 0x2f26d0 },
+    { _T("Zap Effect 1"), 0x2f2750, 0x2f2770, indexKOF98_A_Takuma },
+    { _T("Zap Effect 2"), 0x2f2770, 0x2f2790, indexKOF98_A_Takuma },
+    { _T("Super Trail 1"), 0x2f2790, 0x2f27b0, indexKOF98_A_Takuma },
+    { _T("Super Trail 2"), 0x2f27b0, 0x2f27d0, indexKOF98_A_Takuma },
+    { _T("Super Trail 3"), 0x2f27d0, 0x2f27f0, indexKOF98_A_Takuma },
+};
+
+const sGame_PaletteDataset KOF98_A_SAISYU_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f27f0, 0x2f2810 },
+    { _T("Effect 1"), 0x2f2810, 0x2f2830 },
+    { _T("Effect 2"), 0x2f2830, 0x2f2850 },
+    { _T("Effect 4"), 0x2f2870, 0x2f2890 },
+    { _T("Effect 5"), 0x2f2890, 0x2f28b0 },
+    { _T("Effect 6"), 0x2f28b0, 0x2f28d0 },
+    { _T("Effect 7"), 0x2f28d0, 0x2f28f0 },
+    { _T("Zap Effect 1"), 0x2f2950, 0x2f2970, indexKOF98_A_Saisyu },
+    { _T("Zap Effect 2"), 0x2f2970, 0x2f2990, indexKOF98_A_Saisyu },
+    { _T("Super Trail 1"), 0x2f2990, 0x2f29b0, indexKOF98_A_Saisyu },
+    { _T("Super Trail 2"), 0x2f29b0, 0x2f29d0, indexKOF98_A_Saisyu },
+    { _T("Super Trail 3"), 0x2f29d0, 0x2f29f0, indexKOF98_A_Saisyu },
+};
+
+const sGame_PaletteDataset KOF98_A_HEAVYD_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f29f0, 0x2f2a10 },
+    { _T("Effect 1"), 0x2f2a10, 0x2f2a30 },
+    { _T("Effect 2"), 0x2f2a30, 0x2f2a50 },
+    { _T("Effect 3"), 0x2f2a50, 0x2f2a70 },
+    { _T("Effect 4"), 0x2f2a70, 0x2f2a90 },
+    { _T("Effect 5"), 0x2f2a90, 0x2f2ab0 },
+    { _T("Effect 6"), 0x2f2ab0, 0x2f2ad0 },
+    { _T("Zap Effect 1"), 0x2f2b50, 0x2f2b70, indexKOF98_A_HeavyD },
+    { _T("Zap Effect 2"), 0x2f2b70, 0x2f2b90, indexKOF98_A_HeavyD },
+    { _T("Super Trail 1"), 0x2f2b90, 0x2f2bb0, indexKOF98_A_HeavyD },
+    { _T("Super Trail 2"), 0x2f2bb0, 0x2f2bd0, indexKOF98_A_HeavyD },
+    { _T("Super Trail 3"), 0x2f2bd0, 0x2f2bf0, indexKOF98_A_HeavyD },
+};
+
+const sGame_PaletteDataset KOF98_A_LUCKY_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f2bf0, 0x2f2c10 },
+    { _T("Effect 1"), 0x2f2c10, 0x2f2c30 },
+    { _T("Effect 2"), 0x2f2c30, 0x2f2c50 },
+    { _T("Effect 3"), 0x2f2c50, 0x2f2c70 },
+    { _T("Effect 4"), 0x2f2c70, 0x2f2c90 },
+    { _T("Zap Effect 1"), 0x2f2d50, 0x2f2d70, indexKOF98_A_Lucky },
+    { _T("Zap Effect 2"), 0x2f2d70, 0x2f2d90, indexKOF98_A_Lucky },
+    { _T("Super Trail 1"), 0x2f2d90, 0x2f2db0, indexKOF98_A_Lucky },
+    { _T("Super Trail 2"), 0x2f2db0, 0x2f2dd0, indexKOF98_A_Lucky },
+    { _T("Super Trail 3"), 0x2f2dd0, 0x2f2df0, indexKOF98_A_Lucky },
+};
+
+const sGame_PaletteDataset KOF98_A_BRIAN_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f2df0, 0x2f2e10 },
+    { _T("Effect 1"), 0x2f2e10, 0x2f2e30 },
+    { _T("Effect 2"), 0x2f2e30, 0x2f2e50 },
+    { _T("Effect 3"), 0x2f2e50, 0x2f2e70 },
+    { _T("Effect 4"), 0x2f2e70, 0x2f2e90 },
+    { _T("Effect 5"), 0x2f2e90, 0x2f2eb0 },
+    { _T("Zap Effect 1"), 0x2f2f50, 0x2f2f70, indexKOF98_A_Brian },
+    { _T("Zap Effect 2"), 0x2f2f70, 0x2f2f90, indexKOF98_A_Brian },
+    { _T("Super Trail 1"), 0x2f2f90, 0x2f2fb0, indexKOF98_A_Brian },
+    { _T("Super Trail 2"), 0x2f2fb0, 0x2f2fd0, indexKOF98_A_Brian },
+    { _T("Super Trail 3"), 0x2f2fd0, 0x2f2ff0, indexKOF98_A_Brian },
+};
+
+const sGame_PaletteDataset KOF98_A_RUGAL_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f2ff0, 0x2f3010 },
+    { _T("Effect 1"), 0x2f3010, 0x2f3030 },
+    { _T("Effect 2"), 0x2f3030, 0x2f3050 },
+    { _T("Effect 3"), 0x2f3050, 0x2f3070 },
+    { _T("Effect 5"), 0x2f3090, 0x2f30b0 },
+    { _T("Effect 7"), 0x2f30d0, 0x2f30f0 },
+    { _T("Effect 9"), 0x2f3110, 0x2f3130 },
+    { _T("Zap Effect 1"), 0x2f3150, 0x2f3170, indexKOF98_A_Rugal },
+    { _T("Zap Effect 2"), 0x2f3170, 0x2f3190, indexKOF98_A_Rugal },
+    { _T("Super Trail 1"), 0x2f3190, 0x2f31b0, indexKOF98_A_Rugal },
+    { _T("Super Trail 2"), 0x2f31b0, 0x2f31d0, indexKOF98_A_Rugal },
+    { _T("Super Trail 3"), 0x2f31d0, 0x2f31f0, indexKOF98_A_Rugal },
+};
+
+const sGame_PaletteDataset KOF98_A_SHINGO_EFFECT_PALETTES[] =
+{
+    { _T("Zap Effect 1"), 0x2f3350, 0x2f3370, indexKOF98_A_Shingo },
+    { _T("Zap Effect 2"), 0x2f3370, 0x2f3390, indexKOF98_A_Shingo },
+    { _T("Super Trail 1"), 0x2f3390, 0x2f33b0, indexKOF98_A_Shingo },
+    { _T("Super Trail 2"), 0x2f33b0, 0x2f33d0, indexKOF98_A_Shingo },
+    { _T("Super Trail 3"), 0x2f33d0, 0x2f33f0, indexKOF98_A_Shingo },
+};
+
+const sGame_PaletteDataset KOF98_A_OMEGARUGAL_EFFECT_PALETTES[] =
+{
+    { _T("Effect 0"), 0x2f33f0, 0x2f3410 },
+    { _T("Effect 1"), 0x2f3410, 0x2f3430 },
+    { _T("Effect 3"), 0x2f3450, 0x2f3470 },
+    { _T("Effect 7"), 0x2f34d0, 0x2f34f0 },
+    { _T("Effect 8"), 0x2f34f0, 0x2f3510 },
+    { _T("Effect 10"), 0x2f3530, 0x2f3550 },
+    { _T("Zap Effect 1"), 0x2f3550, 0x2f3570, indexKOF98_A_OmegaRugal },
+    { _T("Zap Effect 2"), 0x2f3570, 0x2f3590, indexKOF98_A_OmegaRugal },
+    { _T("Super Trail 1"), 0x2f3590, 0x2f35b0, indexKOF98_A_OmegaRugal },
+    { _T("Super Trail 2"), 0x2f35b0, 0x2f35d0, indexKOF98_A_OmegaRugal },
+    { _T("Super Trail 3"), 0x2f35d0, 0x2f35f0, indexKOF98_A_OmegaRugal },
+};
+
 const sDescTreeNode KOF98_A_KYO_COLLECTION[] =
 {
     { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_KYO_PALETTE_A, ARRAYSIZE(KOF98_A_KYO_PALETTE_A) },
     { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_KYO_PALETTE_B, ARRAYSIZE(KOF98_A_KYO_PALETTE_B) },
     { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_KYO_PALETTE_C, ARRAYSIZE(KOF98_A_KYO_PALETTE_C) },
     { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_KYO_PALETTE_D, ARRAYSIZE(KOF98_A_KYO_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_KYO_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_KYO_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_BENIMARU_COLLECTION[] =
@@ -2208,6 +2762,7 @@ const sDescTreeNode KOF98_A_BENIMARU_COLLECTION[] =
     { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_BENIMARU_PALETTE_B, ARRAYSIZE(KOF98_A_BENIMARU_PALETTE_B) },
     { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_BENIMARU_PALETTE_C, ARRAYSIZE(KOF98_A_BENIMARU_PALETTE_C) },
     { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_BENIMARU_PALETTE_D, ARRAYSIZE(KOF98_A_BENIMARU_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_BENIMARU_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_BENIMARU_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_DAIMON_COLLECTION[] =
@@ -2216,6 +2771,7 @@ const sDescTreeNode KOF98_A_DAIMON_COLLECTION[] =
     { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_DAIMON_PALETTE_B, ARRAYSIZE(KOF98_A_DAIMON_PALETTE_B) },
     { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_DAIMON_PALETTE_C, ARRAYSIZE(KOF98_A_DAIMON_PALETTE_C) },
     { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_DAIMON_PALETTE_D, ARRAYSIZE(KOF98_A_DAIMON_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_DAIMON_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_DAIMON_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_TERRY_COLLECTION[] =
@@ -2224,310 +2780,346 @@ const sDescTreeNode KOF98_A_TERRY_COLLECTION[] =
     { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_TERRY_PALETTE_B, ARRAYSIZE(KOF98_A_TERRY_PALETTE_B) },
     { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_TERRY_PALETTE_C, ARRAYSIZE(KOF98_A_TERRY_PALETTE_C) },
     { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_TERRY_PALETTE_D, ARRAYSIZE(KOF98_A_TERRY_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_TERRY_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_TERRY_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Andy_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Andy_PALETTE_A, ARRAYSIZE(KOF98_A_Andy_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Andy_PALETTE_B, ARRAYSIZE(KOF98_A_Andy_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Andy_PALETTE_C, ARRAYSIZE(KOF98_A_Andy_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Andy_PALETTE_D, ARRAYSIZE(KOF98_A_Andy_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Andy_PALETTE_A, ARRAYSIZE(KOF98_A_Andy_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Andy_PALETTE_B, ARRAYSIZE(KOF98_A_Andy_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Andy_PALETTE_C, ARRAYSIZE(KOF98_A_Andy_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Andy_PALETTE_D, ARRAYSIZE(KOF98_A_Andy_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_ANDY_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_ANDY_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Joe_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Joe_PALETTE_A, ARRAYSIZE(KOF98_A_Joe_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Joe_PALETTE_B, ARRAYSIZE(KOF98_A_Joe_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Joe_PALETTE_C, ARRAYSIZE(KOF98_A_Joe_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Joe_PALETTE_D, ARRAYSIZE(KOF98_A_Joe_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Joe_PALETTE_A, ARRAYSIZE(KOF98_A_Joe_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Joe_PALETTE_B, ARRAYSIZE(KOF98_A_Joe_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Joe_PALETTE_C, ARRAYSIZE(KOF98_A_Joe_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Joe_PALETTE_D, ARRAYSIZE(KOF98_A_Joe_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_JOE_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_JOE_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Ryo_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ryo_PALETTE_A, ARRAYSIZE(KOF98_A_Ryo_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ryo_PALETTE_B, ARRAYSIZE(KOF98_A_Ryo_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ryo_PALETTE_C, ARRAYSIZE(KOF98_A_Ryo_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ryo_PALETTE_D, ARRAYSIZE(KOF98_A_Ryo_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ryo_PALETTE_A, ARRAYSIZE(KOF98_A_Ryo_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ryo_PALETTE_B, ARRAYSIZE(KOF98_A_Ryo_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ryo_PALETTE_C, ARRAYSIZE(KOF98_A_Ryo_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ryo_PALETTE_D, ARRAYSIZE(KOF98_A_Ryo_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_RYO_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_RYO_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Robert_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Robert_PALETTE_A, ARRAYSIZE(KOF98_A_Robert_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Robert_PALETTE_B, ARRAYSIZE(KOF98_A_Robert_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Robert_PALETTE_C, ARRAYSIZE(KOF98_A_Robert_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Robert_PALETTE_D, ARRAYSIZE(KOF98_A_Robert_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Robert_PALETTE_A, ARRAYSIZE(KOF98_A_Robert_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Robert_PALETTE_B, ARRAYSIZE(KOF98_A_Robert_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Robert_PALETTE_C, ARRAYSIZE(KOF98_A_Robert_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Robert_PALETTE_D, ARRAYSIZE(KOF98_A_Robert_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_ROBERT_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_ROBERT_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Yuri_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yuri_PALETTE_A, ARRAYSIZE(KOF98_A_Yuri_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yuri_PALETTE_B, ARRAYSIZE(KOF98_A_Yuri_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yuri_PALETTE_C, ARRAYSIZE(KOF98_A_Yuri_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yuri_PALETTE_D, ARRAYSIZE(KOF98_A_Yuri_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yuri_PALETTE_A, ARRAYSIZE(KOF98_A_Yuri_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yuri_PALETTE_B, ARRAYSIZE(KOF98_A_Yuri_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yuri_PALETTE_C, ARRAYSIZE(KOF98_A_Yuri_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yuri_PALETTE_D, ARRAYSIZE(KOF98_A_Yuri_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_YURI_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_YURI_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Leona_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Leona_PALETTE_A, ARRAYSIZE(KOF98_A_Leona_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Leona_PALETTE_B, ARRAYSIZE(KOF98_A_Leona_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Leona_PALETTE_C, ARRAYSIZE(KOF98_A_Leona_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Leona_PALETTE_D, ARRAYSIZE(KOF98_A_Leona_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Leona_PALETTE_A, ARRAYSIZE(KOF98_A_Leona_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Leona_PALETTE_B, ARRAYSIZE(KOF98_A_Leona_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Leona_PALETTE_C, ARRAYSIZE(KOF98_A_Leona_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Leona_PALETTE_D, ARRAYSIZE(KOF98_A_Leona_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_LEONA_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_LEONA_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Ralf_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ralf_PALETTE_A, ARRAYSIZE(KOF98_A_Ralf_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ralf_PALETTE_B, ARRAYSIZE(KOF98_A_Ralf_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ralf_PALETTE_C, ARRAYSIZE(KOF98_A_Ralf_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ralf_PALETTE_D, ARRAYSIZE(KOF98_A_Ralf_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ralf_PALETTE_A, ARRAYSIZE(KOF98_A_Ralf_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ralf_PALETTE_B, ARRAYSIZE(KOF98_A_Ralf_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ralf_PALETTE_C, ARRAYSIZE(KOF98_A_Ralf_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Ralf_PALETTE_D, ARRAYSIZE(KOF98_A_Ralf_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_RALF_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_RALF_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Clark_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Clark_PALETTE_A, ARRAYSIZE(KOF98_A_Clark_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Clark_PALETTE_B, ARRAYSIZE(KOF98_A_Clark_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Clark_PALETTE_C, ARRAYSIZE(KOF98_A_Clark_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Clark_PALETTE_D, ARRAYSIZE(KOF98_A_Clark_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Clark_PALETTE_A, ARRAYSIZE(KOF98_A_Clark_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Clark_PALETTE_B, ARRAYSIZE(KOF98_A_Clark_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Clark_PALETTE_C, ARRAYSIZE(KOF98_A_Clark_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Clark_PALETTE_D, ARRAYSIZE(KOF98_A_Clark_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_CLARK_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_CLARK_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Athena_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Athena_PALETTE_A, ARRAYSIZE(KOF98_A_Athena_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Athena_PALETTE_B, ARRAYSIZE(KOF98_A_Athena_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Athena_PALETTE_C, ARRAYSIZE(KOF98_A_Athena_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Athena_PALETTE_D, ARRAYSIZE(KOF98_A_Athena_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Athena_PALETTE_A, ARRAYSIZE(KOF98_A_Athena_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Athena_PALETTE_B, ARRAYSIZE(KOF98_A_Athena_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Athena_PALETTE_C, ARRAYSIZE(KOF98_A_Athena_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Athena_PALETTE_D, ARRAYSIZE(KOF98_A_Athena_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_ATHENA_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_ATHENA_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Kensou_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kensou_PALETTE_A, ARRAYSIZE(KOF98_A_Kensou_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kensou_PALETTE_B, ARRAYSIZE(KOF98_A_Kensou_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kensou_PALETTE_C, ARRAYSIZE(KOF98_A_Kensou_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kensou_PALETTE_D, ARRAYSIZE(KOF98_A_Kensou_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kensou_PALETTE_A, ARRAYSIZE(KOF98_A_Kensou_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kensou_PALETTE_B, ARRAYSIZE(KOF98_A_Kensou_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kensou_PALETTE_C, ARRAYSIZE(KOF98_A_Kensou_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kensou_PALETTE_D, ARRAYSIZE(KOF98_A_Kensou_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_KENSOU_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_KENSOU_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Chin_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chin_PALETTE_A, ARRAYSIZE(KOF98_A_Chin_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chin_PALETTE_B, ARRAYSIZE(KOF98_A_Chin_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chin_PALETTE_C, ARRAYSIZE(KOF98_A_Chin_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chin_PALETTE_D, ARRAYSIZE(KOF98_A_Chin_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chin_PALETTE_A, ARRAYSIZE(KOF98_A_Chin_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chin_PALETTE_B, ARRAYSIZE(KOF98_A_Chin_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chin_PALETTE_C, ARRAYSIZE(KOF98_A_Chin_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chin_PALETTE_D, ARRAYSIZE(KOF98_A_Chin_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_CHIN_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_CHIN_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Chizuru_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chizuru_PALETTE_A, ARRAYSIZE(KOF98_A_Chizuru_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chizuru_PALETTE_B, ARRAYSIZE(KOF98_A_Chizuru_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chizuru_PALETTE_C, ARRAYSIZE(KOF98_A_Chizuru_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chizuru_PALETTE_D, ARRAYSIZE(KOF98_A_Chizuru_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chizuru_PALETTE_A, ARRAYSIZE(KOF98_A_Chizuru_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chizuru_PALETTE_B, ARRAYSIZE(KOF98_A_Chizuru_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chizuru_PALETTE_C, ARRAYSIZE(KOF98_A_Chizuru_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chizuru_PALETTE_D, ARRAYSIZE(KOF98_A_Chizuru_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_CHIZURU_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_CHIZURU_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Mai_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mai_PALETTE_A, ARRAYSIZE(KOF98_A_Mai_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mai_PALETTE_B, ARRAYSIZE(KOF98_A_Mai_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mai_PALETTE_C, ARRAYSIZE(KOF98_A_Mai_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mai_PALETTE_D, ARRAYSIZE(KOF98_A_Mai_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mai_PALETTE_A, ARRAYSIZE(KOF98_A_Mai_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mai_PALETTE_B, ARRAYSIZE(KOF98_A_Mai_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mai_PALETTE_C, ARRAYSIZE(KOF98_A_Mai_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mai_PALETTE_D, ARRAYSIZE(KOF98_A_Mai_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_MAI_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_MAI_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_King_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_King_PALETTE_A, ARRAYSIZE(KOF98_A_King_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_King_PALETTE_B, ARRAYSIZE(KOF98_A_King_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_King_PALETTE_C, ARRAYSIZE(KOF98_A_King_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_King_PALETTE_D, ARRAYSIZE(KOF98_A_King_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_King_PALETTE_A, ARRAYSIZE(KOF98_A_King_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_King_PALETTE_B, ARRAYSIZE(KOF98_A_King_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_King_PALETTE_C, ARRAYSIZE(KOF98_A_King_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_King_PALETTE_D, ARRAYSIZE(KOF98_A_King_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_KING_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_KING_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Kim_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kim_PALETTE_A, ARRAYSIZE(KOF98_A_Kim_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kim_PALETTE_B, ARRAYSIZE(KOF98_A_Kim_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kim_PALETTE_C, ARRAYSIZE(KOF98_A_Kim_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kim_PALETTE_D, ARRAYSIZE(KOF98_A_Kim_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kim_PALETTE_A, ARRAYSIZE(KOF98_A_Kim_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kim_PALETTE_B, ARRAYSIZE(KOF98_A_Kim_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kim_PALETTE_C, ARRAYSIZE(KOF98_A_Kim_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Kim_PALETTE_D, ARRAYSIZE(KOF98_A_Kim_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_KIM_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_KIM_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Chang_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chang_PALETTE_A, ARRAYSIZE(KOF98_A_Chang_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chang_PALETTE_B, ARRAYSIZE(KOF98_A_Chang_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chang_PALETTE_C, ARRAYSIZE(KOF98_A_Chang_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chang_PALETTE_D, ARRAYSIZE(KOF98_A_Chang_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chang_PALETTE_A, ARRAYSIZE(KOF98_A_Chang_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chang_PALETTE_B, ARRAYSIZE(KOF98_A_Chang_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chang_PALETTE_C, ARRAYSIZE(KOF98_A_Chang_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chang_PALETTE_D, ARRAYSIZE(KOF98_A_Chang_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_CHANG_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_CHANG_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Choi_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Choi_PALETTE_A, ARRAYSIZE(KOF98_A_Choi_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Choi_PALETTE_B, ARRAYSIZE(KOF98_A_Choi_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Choi_PALETTE_C, ARRAYSIZE(KOF98_A_Choi_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Choi_PALETTE_D, ARRAYSIZE(KOF98_A_Choi_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Choi_PALETTE_A, ARRAYSIZE(KOF98_A_Choi_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Choi_PALETTE_B, ARRAYSIZE(KOF98_A_Choi_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Choi_PALETTE_C, ARRAYSIZE(KOF98_A_Choi_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Choi_PALETTE_D, ARRAYSIZE(KOF98_A_Choi_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_CHOI_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_CHOI_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Yashiro_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yashiro_PALETTE_A, ARRAYSIZE(KOF98_A_Yashiro_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yashiro_PALETTE_B, ARRAYSIZE(KOF98_A_Yashiro_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yashiro_PALETTE_C, ARRAYSIZE(KOF98_A_Yashiro_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yashiro_PALETTE_D, ARRAYSIZE(KOF98_A_Yashiro_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yashiro_PALETTE_A, ARRAYSIZE(KOF98_A_Yashiro_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yashiro_PALETTE_B, ARRAYSIZE(KOF98_A_Yashiro_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yashiro_PALETTE_C, ARRAYSIZE(KOF98_A_Yashiro_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yashiro_PALETTE_D, ARRAYSIZE(KOF98_A_Yashiro_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_YASHIRO_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_YASHIRO_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Shermie_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shermie_PALETTE_A, ARRAYSIZE(KOF98_A_Shermie_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shermie_PALETTE_B, ARRAYSIZE(KOF98_A_Shermie_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shermie_PALETTE_C, ARRAYSIZE(KOF98_A_Shermie_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shermie_PALETTE_D, ARRAYSIZE(KOF98_A_Shermie_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shermie_PALETTE_A, ARRAYSIZE(KOF98_A_Shermie_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shermie_PALETTE_B, ARRAYSIZE(KOF98_A_Shermie_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shermie_PALETTE_C, ARRAYSIZE(KOF98_A_Shermie_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shermie_PALETTE_D, ARRAYSIZE(KOF98_A_Shermie_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_SHERMIE_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_SHERMIE_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Chris_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chris_PALETTE_A, ARRAYSIZE(KOF98_A_Chris_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chris_PALETTE_B, ARRAYSIZE(KOF98_A_Chris_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chris_PALETTE_C, ARRAYSIZE(KOF98_A_Chris_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chris_PALETTE_D, ARRAYSIZE(KOF98_A_Chris_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chris_PALETTE_A, ARRAYSIZE(KOF98_A_Chris_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chris_PALETTE_B, ARRAYSIZE(KOF98_A_Chris_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chris_PALETTE_C, ARRAYSIZE(KOF98_A_Chris_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Chris_PALETTE_D, ARRAYSIZE(KOF98_A_Chris_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_CHRIS_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_CHRIS_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Yamazaki_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yamazaki_PALETTE_A, ARRAYSIZE(KOF98_A_Yamazaki_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yamazaki_PALETTE_B, ARRAYSIZE(KOF98_A_Yamazaki_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yamazaki_PALETTE_C, ARRAYSIZE(KOF98_A_Yamazaki_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yamazaki_PALETTE_D, ARRAYSIZE(KOF98_A_Yamazaki_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yamazaki_PALETTE_A, ARRAYSIZE(KOF98_A_Yamazaki_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yamazaki_PALETTE_B, ARRAYSIZE(KOF98_A_Yamazaki_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yamazaki_PALETTE_C, ARRAYSIZE(KOF98_A_Yamazaki_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Yamazaki_PALETTE_D, ARRAYSIZE(KOF98_A_Yamazaki_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_YAMAZAKI_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_YAMAZAKI_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Blue_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Blue_PALETTE_A, ARRAYSIZE(KOF98_A_Blue_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Blue_PALETTE_B, ARRAYSIZE(KOF98_A_Blue_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Blue_PALETTE_C, ARRAYSIZE(KOF98_A_Blue_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Blue_PALETTE_D, ARRAYSIZE(KOF98_A_Blue_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Blue_PALETTE_A, ARRAYSIZE(KOF98_A_Blue_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Blue_PALETTE_B, ARRAYSIZE(KOF98_A_Blue_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Blue_PALETTE_C, ARRAYSIZE(KOF98_A_Blue_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Blue_PALETTE_D, ARRAYSIZE(KOF98_A_Blue_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_BLUEMARY_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_BLUEMARY_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Billy_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Billy_PALETTE_A, ARRAYSIZE(KOF98_A_Billy_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Billy_PALETTE_B, ARRAYSIZE(KOF98_A_Billy_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Billy_PALETTE_C, ARRAYSIZE(KOF98_A_Billy_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Billy_PALETTE_D, ARRAYSIZE(KOF98_A_Billy_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Billy_PALETTE_A, ARRAYSIZE(KOF98_A_Billy_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Billy_PALETTE_B, ARRAYSIZE(KOF98_A_Billy_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Billy_PALETTE_C, ARRAYSIZE(KOF98_A_Billy_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Billy_PALETTE_D, ARRAYSIZE(KOF98_A_Billy_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_BILLY_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_BILLY_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Iori_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Iori_PALETTE_A, ARRAYSIZE(KOF98_A_Iori_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Iori_PALETTE_B, ARRAYSIZE(KOF98_A_Iori_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Iori_PALETTE_C, ARRAYSIZE(KOF98_A_Iori_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Iori_PALETTE_D, ARRAYSIZE(KOF98_A_Iori_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Iori_PALETTE_A, ARRAYSIZE(KOF98_A_Iori_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Iori_PALETTE_B, ARRAYSIZE(KOF98_A_Iori_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Iori_PALETTE_C, ARRAYSIZE(KOF98_A_Iori_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Iori_PALETTE_D, ARRAYSIZE(KOF98_A_Iori_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_IORI_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_IORI_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Mature_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mature_PALETTE_A, ARRAYSIZE(KOF98_A_Mature_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mature_PALETTE_B, ARRAYSIZE(KOF98_A_Mature_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mature_PALETTE_C, ARRAYSIZE(KOF98_A_Mature_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mature_PALETTE_D, ARRAYSIZE(KOF98_A_Mature_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mature_PALETTE_A, ARRAYSIZE(KOF98_A_Mature_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mature_PALETTE_B, ARRAYSIZE(KOF98_A_Mature_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mature_PALETTE_C, ARRAYSIZE(KOF98_A_Mature_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Mature_PALETTE_D, ARRAYSIZE(KOF98_A_Mature_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_MATURE_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_MATURE_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Vice_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Vice_PALETTE_A, ARRAYSIZE(KOF98_A_Vice_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Vice_PALETTE_B, ARRAYSIZE(KOF98_A_Vice_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Vice_PALETTE_C, ARRAYSIZE(KOF98_A_Vice_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Vice_PALETTE_D, ARRAYSIZE(KOF98_A_Vice_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Vice_PALETTE_A, ARRAYSIZE(KOF98_A_Vice_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Vice_PALETTE_B, ARRAYSIZE(KOF98_A_Vice_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Vice_PALETTE_C, ARRAYSIZE(KOF98_A_Vice_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Vice_PALETTE_D, ARRAYSIZE(KOF98_A_Vice_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_VICE_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_VICE_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Heidern_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Heidern_PALETTE_A, ARRAYSIZE(KOF98_A_Heidern_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Heidern_PALETTE_B, ARRAYSIZE(KOF98_A_Heidern_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Heidern_PALETTE_C, ARRAYSIZE(KOF98_A_Heidern_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Heidern_PALETTE_D, ARRAYSIZE(KOF98_A_Heidern_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Heidern_PALETTE_A, ARRAYSIZE(KOF98_A_Heidern_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Heidern_PALETTE_B, ARRAYSIZE(KOF98_A_Heidern_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Heidern_PALETTE_C, ARRAYSIZE(KOF98_A_Heidern_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Heidern_PALETTE_D, ARRAYSIZE(KOF98_A_Heidern_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_HEIDERN_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_HEIDERN_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Takuma_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Takuma_PALETTE_A, ARRAYSIZE(KOF98_A_Takuma_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Takuma_PALETTE_B, ARRAYSIZE(KOF98_A_Takuma_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Takuma_PALETTE_C, ARRAYSIZE(KOF98_A_Takuma_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Takuma_PALETTE_D, ARRAYSIZE(KOF98_A_Takuma_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Takuma_PALETTE_A, ARRAYSIZE(KOF98_A_Takuma_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Takuma_PALETTE_B, ARRAYSIZE(KOF98_A_Takuma_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Takuma_PALETTE_C, ARRAYSIZE(KOF98_A_Takuma_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Takuma_PALETTE_D, ARRAYSIZE(KOF98_A_Takuma_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_TAKUMA_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_TAKUMA_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Saisyu_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Saisyu_PALETTE_A, ARRAYSIZE(KOF98_A_Saisyu_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Saisyu_PALETTE_B, ARRAYSIZE(KOF98_A_Saisyu_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Saisyu_PALETTE_C, ARRAYSIZE(KOF98_A_Saisyu_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Saisyu_PALETTE_D, ARRAYSIZE(KOF98_A_Saisyu_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Saisyu_PALETTE_A, ARRAYSIZE(KOF98_A_Saisyu_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Saisyu_PALETTE_B, ARRAYSIZE(KOF98_A_Saisyu_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Saisyu_PALETTE_C, ARRAYSIZE(KOF98_A_Saisyu_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Saisyu_PALETTE_D, ARRAYSIZE(KOF98_A_Saisyu_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_SAISYU_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_SAISYU_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_HeavyD_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_HeavyD_PALETTE_A, ARRAYSIZE(KOF98_A_HeavyD_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_HeavyD_PALETTE_B, ARRAYSIZE(KOF98_A_HeavyD_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_HeavyD_PALETTE_C, ARRAYSIZE(KOF98_A_HeavyD_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_HeavyD_PALETTE_D, ARRAYSIZE(KOF98_A_HeavyD_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_HeavyD_PALETTE_A, ARRAYSIZE(KOF98_A_HeavyD_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_HeavyD_PALETTE_B, ARRAYSIZE(KOF98_A_HeavyD_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_HeavyD_PALETTE_C, ARRAYSIZE(KOF98_A_HeavyD_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_HeavyD_PALETTE_D, ARRAYSIZE(KOF98_A_HeavyD_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_HEAVYD_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_HEAVYD_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Lucky_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Lucky_PALETTE_A, ARRAYSIZE(KOF98_A_Lucky_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Lucky_PALETTE_B, ARRAYSIZE(KOF98_A_Lucky_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Lucky_PALETTE_C, ARRAYSIZE(KOF98_A_Lucky_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Lucky_PALETTE_D, ARRAYSIZE(KOF98_A_Lucky_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Lucky_PALETTE_A, ARRAYSIZE(KOF98_A_Lucky_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Lucky_PALETTE_B, ARRAYSIZE(KOF98_A_Lucky_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Lucky_PALETTE_C, ARRAYSIZE(KOF98_A_Lucky_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Lucky_PALETTE_D, ARRAYSIZE(KOF98_A_Lucky_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_LUCKY_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_LUCKY_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Brian_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Brian_PALETTE_A, ARRAYSIZE(KOF98_A_Brian_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Brian_PALETTE_B, ARRAYSIZE(KOF98_A_Brian_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Brian_PALETTE_C, ARRAYSIZE(KOF98_A_Brian_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Brian_PALETTE_D, ARRAYSIZE(KOF98_A_Brian_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Brian_PALETTE_A, ARRAYSIZE(KOF98_A_Brian_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Brian_PALETTE_B, ARRAYSIZE(KOF98_A_Brian_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Brian_PALETTE_C, ARRAYSIZE(KOF98_A_Brian_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Brian_PALETTE_D, ARRAYSIZE(KOF98_A_Brian_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_BRIAN_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_BRIAN_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Rugal_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Rugal_PALETTE_A, ARRAYSIZE(KOF98_A_Rugal_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Rugal_PALETTE_B, ARRAYSIZE(KOF98_A_Rugal_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Rugal_PALETTE_C, ARRAYSIZE(KOF98_A_Rugal_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Rugal_PALETTE_D, ARRAYSIZE(KOF98_A_Rugal_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Rugal_PALETTE_A, ARRAYSIZE(KOF98_A_Rugal_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Rugal_PALETTE_B, ARRAYSIZE(KOF98_A_Rugal_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Rugal_PALETTE_C, ARRAYSIZE(KOF98_A_Rugal_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Rugal_PALETTE_D, ARRAYSIZE(KOF98_A_Rugal_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_RUGAL_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_RUGAL_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_Shingo_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shingo_PALETTE_A, ARRAYSIZE(KOF98_A_Shingo_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shingo_PALETTE_B, ARRAYSIZE(KOF98_A_Shingo_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shingo_PALETTE_C, ARRAYSIZE(KOF98_A_Shingo_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shingo_PALETTE_D, ARRAYSIZE(KOF98_A_Shingo_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shingo_PALETTE_A, ARRAYSIZE(KOF98_A_Shingo_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shingo_PALETTE_B, ARRAYSIZE(KOF98_A_Shingo_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shingo_PALETTE_C, ARRAYSIZE(KOF98_A_Shingo_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_Shingo_PALETTE_D, ARRAYSIZE(KOF98_A_Shingo_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_SHINGO_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_SHINGO_EFFECT_PALETTES) },
 };
 
 const sDescTreeNode KOF98_A_OYashiro_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_OYashiro_PALETTE_A, ARRAYSIZE(KOF98_A_OYashiro_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_OYashiro_PALETTE_B, ARRAYSIZE(KOF98_A_OYashiro_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_OYashiro_PALETTE_C, ARRAYSIZE(KOF98_A_OYashiro_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_OYashiro_PALETTE_D, ARRAYSIZE(KOF98_A_OYashiro_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_OYashiro_PALETTE_A, ARRAYSIZE(KOF98_A_OYashiro_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_OYashiro_PALETTE_B, ARRAYSIZE(KOF98_A_OYashiro_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_OYashiro_PALETTE_C, ARRAYSIZE(KOF98_A_OYashiro_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_OYashiro_PALETTE_D, ARRAYSIZE(KOF98_A_OYashiro_PALETTE_D) },
 };
 
 const sDescTreeNode KOF98_A_OShermie_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_OShermie_PALETTE_A, ARRAYSIZE(KOF98_A_OShermie_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_OShermie_PALETTE_B, ARRAYSIZE(KOF98_A_OShermie_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_OShermie_PALETTE_C, ARRAYSIZE(KOF98_A_OShermie_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_OShermie_PALETTE_D, ARRAYSIZE(KOF98_A_OShermie_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_OShermie_PALETTE_A, ARRAYSIZE(KOF98_A_OShermie_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_OShermie_PALETTE_B, ARRAYSIZE(KOF98_A_OShermie_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_OShermie_PALETTE_C, ARRAYSIZE(KOF98_A_OShermie_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_OShermie_PALETTE_D, ARRAYSIZE(KOF98_A_OShermie_PALETTE_D) },
 };
 
 const sDescTreeNode KOF98_A_OChris_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_OChris_PALETTE_A, ARRAYSIZE(KOF98_A_OChris_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_OChris_PALETTE_B, ARRAYSIZE(KOF98_A_OChris_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_OChris_PALETTE_C, ARRAYSIZE(KOF98_A_OChris_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_OChris_PALETTE_D, ARRAYSIZE(KOF98_A_OChris_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_OChris_PALETTE_A, ARRAYSIZE(KOF98_A_OChris_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_OChris_PALETTE_B, ARRAYSIZE(KOF98_A_OChris_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_OChris_PALETTE_C, ARRAYSIZE(KOF98_A_OChris_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_OChris_PALETTE_D, ARRAYSIZE(KOF98_A_OChris_PALETTE_D) },
 };
 
 const sDescTreeNode KOF98_A_OmegaRugal_COLLECTION[] =
 {
-   { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_PALETTE_A, ARRAYSIZE(KOF98_A_OmegaRugal_PALETTE_A) },
-   { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_PALETTE_B, ARRAYSIZE(KOF98_A_OmegaRugal_PALETTE_B) },
-   { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_PALETTE_C, ARRAYSIZE(KOF98_A_OmegaRugal_PALETTE_C) },
-   { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_PALETTE_D, ARRAYSIZE(KOF98_A_OmegaRugal_PALETTE_D) },
+    { _T("A"), DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_PALETTE_A, ARRAYSIZE(KOF98_A_OmegaRugal_PALETTE_A) },
+    { _T("B"), DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_PALETTE_B, ARRAYSIZE(KOF98_A_OmegaRugal_PALETTE_B) },
+    { _T("C"), DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_PALETTE_C, ARRAYSIZE(KOF98_A_OmegaRugal_PALETTE_C) },
+    { _T("D"), DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_PALETTE_D, ARRAYSIZE(KOF98_A_OmegaRugal_PALETTE_D) },
+    { _T("Effects"), DESC_NODETYPE_TREE, (void*)KOF98_A_OMEGARUGAL_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_OMEGARUGAL_EFFECT_PALETTES) },
 };
 
 const UINT8 KOF98_A_UNITSORT[KOF98_A_NUMUNIT + 1] // Plus 1 for extras
