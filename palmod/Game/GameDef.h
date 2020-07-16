@@ -1028,58 +1028,59 @@ const int KOF02_A_NUM_IMG_UNITS = ARRAYSIZE(KOF02_A_IMG_UNITS);
 
 enum SupportedKOF02UM_S_PaletteListIndex
 {
-    indexKOF02UM_S_Andy,
-    indexKOF02UM_S_Angel,
-    indexKOF02UM_S_Athena,
-    indexKOF02UM_S_Bao,
-    indexKOF02UM_S_Benimaru,
-    indexKOF02UM_S_Billy,
-    indexKOF02UM_S_BlueMary,
-    indexKOF02UM_S_Chang,
-    indexKOF02UM_S_Chin,
-    indexKOF02UM_S_Choi,
-    indexKOF02UM_S_Chris,
-    indexKOF02UM_S_Clark,
-    indexKOF02UM_S_CloneZero,
-    indexKOF02UM_S_Daimon,
-    indexKOF02UM_S_EXKensou,
-    indexKOF02UM_S_EXRobert,
-    indexKOF02UM_S_EXTakuma,
-    indexKOF02UM_S_Foxy,
-    indexKOF02UM_S_Geese,
-    indexKOF02UM_S_Goenitz,
-    indexKOF02UM_S_Heidern,
-    indexKOF02UM_S_Hinako,
-    indexKOF02UM_S_Igniz,
-    indexKOF02UM_S_Iori,
-    indexKOF02UM_S_Jhun,
-    indexKOF02UM_S_Joe,
-    indexKOF02UM_S_K,
-    indexKOF02UM_S_Kasumi,
-    indexKOF02UM_S_Kensou,
-    indexKOF02UM_S_Kim,
-    indexKOF02UM_S_King,
-    indexKOF02UM_S_Krizalid,
-    indexKOF02UM_S_Kula,
-    indexKOF02UM_S_Kusanagi,
-    indexKOF02UM_S_Kyo,
-    indexKOF02UM_S_Kyo1,
-    indexKOF02UM_S_Kyo2,
-    indexKOF02UM_S_Leona,
-    indexKOF02UM_S_Lin,
-    indexKOF02UM_S_Mai,
-    indexKOF02UM_S_Mature,
-    indexKOF02UM_S_Maxima,
-    indexKOF02UM_S_MayLee,
-    indexKOF02UM_S_Nameless,
-    indexKOF02UM_S_NGeese,
-    indexKOF02UM_S_OChris,
-    indexKOF02UM_S_OShermie,
-    indexKOF02UM_S_OYashiro,
-    indexKOF02UM_S_OmegaRugal,
-    indexKOF02UM_S_OZero,
-    indexKOF02UM_S_Ralf,
-    indexKOF02UM_S_Ramon,
+    indexKOF02UM_S_Andy,        // 0
+    indexKOF02UM_S_Angel,       // 1
+    indexKOF02UM_S_Athena,      // 2
+    indexKOF02UM_S_Bao,         // 3
+    indexKOF02UM_S_Benimaru,    // 4
+    indexKOF02UM_S_Billy,       // 5
+    indexKOF02UM_S_BlueMary,    // 6
+    indexKOF02UM_S_Chang,       // 7
+    indexKOF02UM_S_Chin,        // 8
+    indexKOF02UM_S_Choi,        // 9
+    indexKOF02UM_S_Chris,       // a
+    indexKOF02UM_S_Clark,       // b
+    indexKOF02UM_S_CloneZero,   // c
+
+    indexKOF02UM_S_Daimon,      // d
+    indexKOF02UM_S_EXKensou,    // e
+    indexKOF02UM_S_EXRobert,    // f
+    indexKOF02UM_S_EXTakuma,    // 10
+    indexKOF02UM_S_Foxy,        // 11
+    indexKOF02UM_S_Geese,       // 12
+    indexKOF02UM_S_Goenitz,     // 13
+    indexKOF02UM_S_Heidern,     // 14
+    indexKOF02UM_S_Hinako,      // 16
+    indexKOF02UM_S_Igniz,       // 16
+    indexKOF02UM_S_Iori,        // 17
+    indexKOF02UM_S_Jhun,        // 18
+    indexKOF02UM_S_Joe,         // 19
+    indexKOF02UM_S_K,           // 1a
+    indexKOF02UM_S_Kasumi,      // 1b
+    indexKOF02UM_S_Kensou,      // 1c
+    indexKOF02UM_S_Kim,         // 1d
+    indexKOF02UM_S_King,        // 1e
+    indexKOF02UM_S_Krizalid,    // 1f
+    indexKOF02UM_S_Kula,        // 20
+    indexKOF02UM_S_Kusanagi,    // 21
+    indexKOF02UM_S_Kyo,         // 22
+    indexKOF02UM_S_Kyo1,        // 23
+    indexKOF02UM_S_Kyo2,        // 24
+    indexKOF02UM_S_Leona,       // 25
+    indexKOF02UM_S_Lin,         // 26
+    indexKOF02UM_S_Mai,         // 27
+    indexKOF02UM_S_Mature,      // 28
+    indexKOF02UM_S_Maxima,      // 29
+    indexKOF02UM_S_MayLee,      // 2a
+    indexKOF02UM_S_Nameless,    // 2b
+    indexKOF02UM_S_NGeese,      // 2c
+    indexKOF02UM_S_OChris,      // 2d
+    indexKOF02UM_S_OShermie,    // 2e
+    indexKOF02UM_S_OYashiro,    // 2f
+    indexKOF02UM_S_OmegaRugal,  // 30
+    indexKOF02UM_S_OZero,       // 31
+    indexKOF02UM_S_Ralf,        // 32
+    indexKOF02UM_S_Ramon,       // 33
     indexKOF02UM_S_Robert,
     indexKOF02UM_S_Ryo,
     indexKOF02UM_S_Seth,

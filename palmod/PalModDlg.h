@@ -104,7 +104,9 @@ public:
     void SaveSettings();
     void UpdateSettingsMenuItems();
 
-    void LoadPaletteFromPNG(LPCTSTR pszFileName);
+    bool LoadPaletteFromACT(LPCTSTR pszFileName);
+    bool LoadPaletteFromPAL(LPCTSTR pszFileName);
+    bool LoadPaletteFromPNG(LPCTSTR pszFileName);
 
     void UpdateSliderSel(BOOL bModeChange = FALSE, BOOL bResetRF = FALSE);
     void SetColMode(int nColMode);

@@ -2,6 +2,7 @@
 #include "PalMod.h"
 #include "PalModDlg.h"
 #include "RegProc.h"
+#include <mmiscapi.h> // RIFF .PAL support
 
 #include "Game\GameDef.h"
 
@@ -506,8 +507,196 @@ void CPalModDlg::OnBnBlink()
     Blink();
 }
 
-void CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
+bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
 {
+    bool fSuccess = false;
+    CFile ActFile;
+    if (ActFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
+    {
+        ProcChange();
+
+        UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+        int nFileSz = (int)ActFile.GetLength();
+        int nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
+
+        if (nFileSz == 772) // The documentation states that 768b ACT files do not include color count, but 772b files do.
+        {
+            WORD wColorCount;
+            ActFile.Seek(768, CFile::begin);
+            ActFile.Read(&wColorCount, 2);
+            // 772b ACT files store their color count big endian: fix.
+            nACTColorCount = _byteswap_ushort(wColorCount);
+            ActFile.Seek(0, CFile::begin);
+
+            // The last four bytes are reserved: don't use them for color copies.
+            nFileSz = 768;
+        }
+
+        if (nACTColorCount == 0)
+        {
+            // Default to everything
+            nACTColorCount = 256;
+        }
+
+        UINT8* pAct = new UINT8[nACTColorCount * 3];
+        memset(pAct, 0, nACTColorCount * 3);
+
+        ActFile.Read(pAct, nACTColorCount * 3);
+        ActFile.Close();
+
+        UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
+        UINT16 iACTIndex = 0;
+
+        // This doesn't work as it could.
+        // Doing this on load involves updating the non-current page.  But that's only done
+        // on a temporary basis: when the user changes pages, the updates get discarded.
+        for (UINT8 nCurrentPage = 0; nCurrentPage < nPalettePageCount; nCurrentPage++)
+        {
+            CJunk* pPalCtrlCurrentPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+            if (pPalCtrlCurrentPage)
+            {
+                const int nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
+
+                for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                {
+                    pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(pAct[iACTIndex * 3]);
+                    pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pAct[iACTIndex * 3 + 1]);
+                    pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pAct[iACTIndex * 3 + 2]);
+                    pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
+
+                    if (++iACTIndex >= nACTColorCount)
+                    {
+                        // If the palette is larger than our ACT, loop it.
+                        iACTIndex = 0;
+                    }
+                }
+            }
+        }
+
+        ImgDispCtrl->UpdateCtrl();
+        CurrPalCtrl->UpdateCtrl();
+
+        delete[] pAct;
+
+        fSuccess = true;
+        SetStatusText(CString("ACT file Loaded succesfully!"));
+
+        if (nPalettePageCount > 1)
+        {
+            if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
+            {
+                MessageBox(_T("Heads-up: you are loading an ACT for a multipage palette.  PalMod can only use the ACT to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once."), GetHost()->GetAppName(), MB_ICONERROR);
+            }
+        }
+    }
+
+    return fSuccess;
+}
+
+bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
+{
+    bool fSuccess = false;
+
+    HMMIO hRIFFFile = mmioOpen((LPTSTR)pszFileName, nullptr, MMIO_READ);
+
+    if (hRIFFFile)
+    {
+        MMCKINFO mmckinfoParent;
+
+        memset(&mmckinfoParent, 0, sizeof(mmckinfoParent));
+
+        MMRESULT mmRes = mmioDescend(hRIFFFile, &mmckinfoParent, nullptr, MMIO_FINDCHUNK);
+        if (mmRes == MMSYSERR_NOERROR)
+        {
+            // found some palette data.
+            FOURCC fourCCPal = mmioFOURCC('P', 'A', 'L', ' ');
+
+            if (mmckinfoParent.fccType == fourCCPal)
+            {
+                MMCKINFO mmckinfoSubchunk;
+                memset(&mmckinfoSubchunk, 0, sizeof(mmckinfoSubchunk));
+
+                mmckinfoSubchunk.ckid = mmioFOURCC('d', 'a', 't', 'a');
+
+                if (mmioDescend(hRIFFFile, &mmckinfoSubchunk, &mmckinfoParent, MMIO_FINDCHUNK) == MMSYSERR_NOERROR)
+                {
+                    DWORD dwDataSize;
+                    dwDataSize = mmckinfoSubchunk.cksize;
+
+                    if ((dwDataSize > 0))
+                    {
+                        UINT8* pPALFileData = new UINT8[dwDataSize];
+                        if (mmioRead(hRIFFFile, (HPSTR)pPALFileData, dwDataSize) == dwDataSize)
+                        {
+                            // party.
+                            ProcChange();
+
+                            UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+                            int nPALColorCount = (dwDataSize / 4);
+
+                            UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
+                            UINT16 iPALDataIndex = 0;
+
+                            // This doesn't work as it could.
+                            // Doing this on load involves updating the non-current page.  But that's only done
+                            // on a temporary basis: when the user changes pages, the updates get discarded.
+                            // It might be wise to save the other pages when we load palettes.
+                            for (UINT8 nCurrentPage = 0; nCurrentPage < nPalettePageCount; nCurrentPage++)
+                            {
+                                CJunk* pPalCtrlCurrentPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+                                if (pPalCtrlCurrentPage)
+                                {
+                                    const int nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
+
+                                    for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                                    {
+                                        // copy over the RGB data, skipping the A value
+                                        pPal[iActivePageIndex * 4] =     MainPalGroup->ROUND_R(pPALFileData[iPALDataIndex * 4]);
+                                        pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pPALFileData[iPALDataIndex * 4 + 1]);
+                                        pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pPALFileData[iPALDataIndex * 4 + 2]);
+                                        pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
+
+                                        if (++iPALDataIndex >= nPALColorCount)
+                                        {
+                                            // If the palette is larger than our ACT, loop it.
+                                            iPALDataIndex = 0;
+                                        }
+                                    }
+                                }
+                            }
+
+                            ImgDispCtrl->UpdateCtrl();
+                            CurrPalCtrl->UpdateCtrl();
+
+                            fSuccess = true;
+                            SetStatusText(CString("PAL file Loaded succesfully!"));
+
+                            if (nPalettePageCount > 1)
+                            {
+                                if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
+                                {
+                                    MessageBox(_T("Heads-up: you are loading a PAL for a multipage palette.  PalMod can only use the PAL to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once."), GetHost()->GetAppName(), MB_ICONERROR);
+                                }
+                            }
+                        }
+
+                        safe_delete_array(pPALFileData);
+                    }
+                }
+            }
+        }
+
+        mmioClose(hRIFFFile, 0);
+    }
+
+    return fSuccess;
+}
+
+bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
+{
+    bool fSuccess = false;
     CFile PNGFile;
     if (PNGFile.Open(pszFileName, CFile::modeRead | CFile::typeBinary))
     {
@@ -668,6 +857,7 @@ void CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                     CurrPalCtrl->UpdateCtrl();
 
                     SetStatusText(CString("PNG file Loaded succesfully!"));
+                    fSuccess = true;
 
                     UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
                     if (nPalettePageCount > 1)
@@ -725,118 +915,42 @@ void CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
 
         PNGFile.Close();
     }
-    else
-    {
-        CString strError;
-        strError.LoadString(IDS_ERROR_LOADING_ACT_FILE);
-        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-    }
+
+    return fSuccess;
 }
 
 void CPalModDlg::OnImportPalette()
 {
     if (bEnabled)
     {
-        CFileDialog ActLoad(TRUE, NULL, NULL, NULL, _T("ACT Palette, Indexed PNG| *.ACT;*.png||"));
+        CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, _T("ACT Palette, Indexed PNG, Microsoft PAL| *.ACT;*.png;*.pal||"));
 
-        if (ActLoad.DoModal() == IDOK)
+        if (PaletteLoad.DoModal() == IDOK)
         {
-            CString strFileName = ActLoad.GetOFN().lpstrFile;
+            CString strFileName = PaletteLoad.GetOFN().lpstrFile;
+            bool fSuccess = false;
 
             TCHAR szExtension[_MAX_EXT];
             _tsplitpath(strFileName, nullptr, nullptr, nullptr, szExtension);
 
             if (_tcsicmp(szExtension, _T(".png")) == 0)
             {
-                LoadPaletteFromPNG(strFileName);
+                fSuccess = LoadPaletteFromPNG(strFileName);
+            }
+            else if (_tcsicmp(szExtension, _T(".pal")) == 0)
+            {
+                fSuccess = LoadPaletteFromPAL(strFileName);
             }
             else
             {
-                CFile ActFile;
-                if (ActFile.Open(strFileName, CFile::modeRead | CFile::typeBinary))
-                {
-                    ProcChange();
+                fSuccess = LoadPaletteFromACT(strFileName);
+            }
 
-                    UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
-                    int nFileSz = (int)ActFile.GetLength();
-                    int nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
-
-                    if (nFileSz == 772) // The documentation states that 768b ACT files do not include color count, but 772b files do.
-                    {
-                        WORD wColorCount;
-                        ActFile.Seek(768, CFile::begin);
-                        ActFile.Read(&wColorCount, 2);
-                        // 772b ACT files store their color count big endian: fix.
-                        nACTColorCount = _byteswap_ushort(wColorCount);
-                        ActFile.Seek(0, CFile::begin);
-
-                        // The last four bytes are reserved: don't use them for color copies.
-                        nFileSz = 768;
-                    }
-
-                    if (nACTColorCount == 0)
-                    {
-                        // Default to everything
-                        nACTColorCount = 256;
-                    }
-
-                    UINT8* pAct = new UINT8[nACTColorCount * 3];
-                    memset(pAct, 0, nACTColorCount * 3);
-
-                    ActFile.Read(pAct, nACTColorCount * 3);
-                    ActFile.Close();
-
-                    UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
-                    UINT16 iACTIndex = 0;
-
-                    // This doesn't work as it could.
-                    // Doing this on load involves updating the non-current page.  But that's only done
-                    // on a temporary basis: when the user changes pages, the updates get discarded.
-                    for (UINT8 nCurrentPage = 0; nCurrentPage < nPalettePageCount; nCurrentPage++)
-                    {
-                        CJunk* pPalCtrlCurrentPage = m_PalHost.GetPalCtrl(nCurrentPage);
-
-                        if (pPalCtrlCurrentPage)
-                        {
-                            const int nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
-
-                            for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
-                            {
-                                pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(pAct[iACTIndex * 3]);
-                                pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pAct[iACTIndex * 3 + 1]);
-                                pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pAct[iACTIndex * 3 + 2]);
-                                pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
-
-                                if (++iACTIndex >= nACTColorCount)
-                                {
-                                    // If the palette is larger than our ACT, loop it.
-                                    iACTIndex = 0;
-                                }
-                            }
-                        }
-                    }
-
-                    ImgDispCtrl->UpdateCtrl();
-                    CurrPalCtrl->UpdateCtrl();
-
-                    delete[] pAct;
-
-                    SetStatusText(CString("ACT file Loaded succesfully!"));
-
-                    if (nPalettePageCount > 1)
-                    {
-                        if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
-                        {
-                            MessageBox(_T("Heads-up: you are loading an ACT for a multipage palette.  PalMod can only use the ACT to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once."), GetHost()->GetAppName(), MB_ICONERROR);
-                        }
-                    }
-                }
-                else
-                {
-                    CString strError;
-                    strError.LoadString(IDS_ERROR_LOADING_ACT_FILE);
-                    MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-                }
+            if (!fSuccess)
+            {
+                CString strError;
+                strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE);
+                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
             }
         }
     }
