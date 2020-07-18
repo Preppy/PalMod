@@ -57,7 +57,7 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     m_nExtraUnit = UsePaletteSetForCharacters() ? SFA2_A_EXTRALOC_07 : SFA2_A_EXTRALOC_08;
 
     const UINT32 nSafeCountFor07 = 874;
-    const UINT32 nSafeCountFor08 = 145;
+    const UINT32 nSafeCountFor08 = 259;
 
     const UINT32 nLowestPaletteIn07 = 0x2C000;
     const UINT32 nLowestPaletteIn08 = 0x1adc0;
@@ -412,7 +412,13 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse)
     }
 
     // For development use to speed things up
-    //DumpPaletteHeaders();
+    static bool s_fShouldOutputOnce = true;
+
+    if (s_fShouldOutputOnce)
+    {
+        s_fShouldOutputOnce = false;
+        DumpPaletteHeaders();
+    }
 
     return NewDescTree;
 }
@@ -471,6 +477,29 @@ const sSFA2_A_EffectPaletteData SFA2_EffectsPaletteSets[] =
     { _T("Dhalsim"),    _T("Teleport"),         0x1b820, _T("indexCPS2_Dhalsim"), 0, 5 },
     // Single entry : { _T("Shin Akuma"), _T("Teleport"),         0x1bbe0, _T("indexCPS2_Akuma"), 0, 5 },
     { _T("Evil Ryu"),   _T("Extra"),            0x1bc80, _T("indexCPS2_Ryu"), 0, 5 },
+};
+
+const sSFA2_A_PaletteData SFA2_A_PortraitPalettes[] =
+{
+    { _T("Ryu"),        0x1c7c0 + (0x60 * 0) },
+    { _T("Ken"),        0x1c7c0 + (0x60 * 1) },
+    { _T("Akuma"),      0x1c7c0 + (0x60 * 2) },
+    { _T("Charlie"),    0x1c7c0 + (0x60 * 3) },
+    { _T("Chun-Li"),    0x1c7c0 + (0x60 * 4), },
+    { _T("Adon"),       0x1c7c0 + (0x60 * 5), },
+    { _T("Sodom"),      0x1c7c0 + (0x60 * 6), },
+    { _T("Guy"),        0x1c7c0 + (0x60 * 7), },
+    { _T("Birdie"),     0x1c7c0 + (0x60 * 8), },
+    { _T("Rose"),       0x1c7c0 + (0x60 * 9), },
+    { _T("M.Bison"),    0x1c7c0 + (0x60 * 10), },
+    { _T("Sagat"),      0x1c7c0 + (0x60 * 11), },
+    { _T("Dan"),        0x1c7c0 + (0x60 * 12), },
+    { _T("Sakura"),     0x1c7c0 + (0x60 * 13), },
+    { _T("Rolento"),    0x1c7c0 + (0x60 * 14), },
+    { _T("Dhalsim"),    0x1c7c0 + (0x60 * 15), },
+    { _T("Zangief"),    0x1c7c0 + (0x60 * 16), },
+    { _T("Gen"),        0x1c7c0 + (0x60 * 17), },
+    { _T("Chun-Li (Original)"),   0x1c7c0 + (0x60 * 18) },
 };
 
 const LPCTSTR SFA2_ColorOptionNames[] =
@@ -581,18 +610,6 @@ void CGame_SFA2_A::DumpPaletteHeaders()
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     // ROM8 headers
     OutputDebugString(_T("\n\nHeaders for ROM8 data...\n\n"));
 
@@ -636,13 +653,31 @@ void CGame_SFA2_A::DumpPaletteHeaders()
         OutputDebugString(_T("};\r\n\r\n"));
     }
 
-#ifdef lamab
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_EffectsPaletteSets); nCharIndex++)
+    const UINT32 SFA2_PORTRAIT_LENGTH = 0x60;
+    const UINT32 SFA2_PORTRAIT_SET_LENGTH = 0x720;
+
+    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_PortraitPalettes); nCharIndex++)
     {
         TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_EffectsPaletteSets[nCharIndex].pszCharacterName);
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName);
 
-        strOutput.Format(_T("const sDescTreeNode SFA2_A_%s_MOVE_COLLECTION[] = \r\n{\r\n"), szCodeDesc);
+        for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
+        {
+            TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
+
+            strOutput.Format(_T("const sGame_PaletteDataset SFA2_A_%s_%s_PORTRAIT_PALETTES[] = \r\n{\r\n"), szCodeDesc, szColorOptionCodeDesc);
+            OutputDebugString(strOutput);
+
+            UINT32 nCurrentOffset = SFA2_A_PortraitPalettes[nCharIndex].nROMOffset + (nColorIndex * SFA2_PORTRAIT_SET_LENGTH);
+
+            strOutput.Format(_T("    { _T(\"%s Portrait\"), 0x%x, 0x%x },\r\n"), SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName, nCurrentOffset, nCurrentOffset + SFA2_PORTRAIT_LENGTH);
+            OutputDebugString(strOutput);
+
+            OutputDebugString(_T("};\r\n\r\n"));
+        }
+
+        strOutput.Format(_T("const sDescTreeNode SFA2_A_%s_PORTRAIT_COLLECTION[] = \r\n{\r\n"), szCodeDesc);
         OutputDebugString(strOutput);
 
         for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
@@ -650,16 +685,21 @@ void CGame_SFA2_A::DumpPaletteHeaders()
             TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
 
-            strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SFA2_A_%s_%s_PALETTES, ARRAYSIZE(SFA2_A_%s_%s_PALETTES) },\r\n"), SFA2_ColorOptionNames[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
+            strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SFA2_A_%s_%s_PORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_%s_%s_PORTRAIT_PALETTES) },\r\n"), SFA2_ColorOptionNames[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
             OutputDebugString(strOutput);
         }
 
-        strOutput.Format(_T("    { _T(\"Status Effects\"), DESC_NODETYPE_TREE, (void*)SFA2_A_%s_STATUS_PALETTES, ARRAYSIZE(SFA2_A_%s_STATUS_PALETTES) },\r\n"), szCodeDesc, szCodeDesc);
-        OutputDebugString(strOutput);
         OutputDebugString(_T("};\r\n\r\n"));
     }
-#endif
 
+    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_PortraitPalettes); nCharIndex++)
+    {
+        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName);
+
+        strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SFA2_A_%s_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_%s_PORTRAIT_COLLECTION) },\r\n"), SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName, szCodeDesc, szCodeDesc);
+        OutputDebugString(strOutput);
+    }
 }
 
 sFileRule CGame_SFA2_A::GetRule(UINT16 nUnitId)
@@ -982,7 +1022,16 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         }
         else if (!UsePaletteSetForCharacters() && (m_currentSFA2ROMVersion == SFA2_960229))  //   229 starts at 0x1bb40, 306 at 0x1adc0
         {
-            nCurrPalOffs += 0xD80;
+            if (nCurrPalOffs < 0x1c7c0)
+            {
+                // Early bonus/extra range
+                nCurrPalOffs += 0xD80;
+            }
+            else
+            {
+                // Later portrait range
+                nCurrPalOffs += 0x900;
+            }
         }
 
         m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
