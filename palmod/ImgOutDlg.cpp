@@ -444,45 +444,57 @@ void CImgOutDlg::OnFileSave()
         }
 
         CImage out_img;
-        out_img.Create(output_width, output_height, 32, CImage::createAlphaChannel * bTransPNG * (sfd.GetOFN().nFilterIndex == 1));
-
-        if (bTransPNG)
+        if (out_img.Create(output_width, output_height, 32, CImage::createAlphaChannel * bTransPNG * (sfd.GetOFN().nFilterIndex == 1)))
         {
-            m_DumpBmp.UpdateCtrl(FALSE, (UINT8*)out_img.GetBits());
+            if (bTransPNG)
+            {
+                m_DumpBmp.UpdateCtrl(FALSE, (UINT8*)out_img.GetBits());
+            }
+            else
+            {
+                CDC* output_DC;
+
+                output_DC = CDC::FromHandle(out_img.GetDC());
+                output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.MainDC, 0, 0, SRCCOPY);
+            }
+
+            OPENFILENAME sfd_ofn = sfd.GetOFN();
+
+            CString save_str;
+            CString output_str;
+
+            save_str = sfd_ofn.lpstrFile;
+
+            if (save_str.Find(output_ext) == save_str.GetLength() - 4)
+            {
+                output_str = save_str;
+            }
+            else
+            {
+                output_str.Format(_T("%s%s"), sfd_ofn.lpstrFile, output_ext);
+            }
+
+            HRESULT hr = out_img.Save(output_str, img_format);
+
+            if (FAILED(hr))
+            {
+                CString strInfo;
+                strInfo.Format(_T("Image export to file '%s' failed.  The error code is 0x%x"), sfd_ofn.lpstrFile, hr);
+                MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
+            }
+
+            if (!bTransPNG)
+            {
+                out_img.ReleaseDC();
+            }
+            else
+            {
+                m_DumpBmp.UpdateCtrl();
+            }
         }
         else
         {
-            CDC* output_DC;
-
-            output_DC = CDC::FromHandle(out_img.GetDC());
-            output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.MainDC, 0, 0, SRCCOPY);
-        }
-
-        OPENFILENAME sfd_ofn = sfd.GetOFN();
-
-        CString save_str;
-        CString output_str;
-
-        save_str = sfd_ofn.lpstrFile;
-
-        if (save_str.Find(output_ext) == save_str.GetLength() - 4)
-        {
-            output_str = save_str;
-        }
-        else
-        {
-            output_str.Format(_T("%s%s"), sfd_ofn.lpstrFile, output_ext);
-        }
-
-        out_img.Save(output_str, img_format);
-
-        if (!bTransPNG)
-        {
-            out_img.ReleaseDC();
-        }
-        else
-        {
-            m_DumpBmp.UpdateCtrl();
+            MessageBox(_T("Image export failed: Failed to create the image file."), GetHost()->GetAppName(), MB_ICONERROR);
         }
     }
 }

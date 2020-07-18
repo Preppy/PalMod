@@ -334,7 +334,7 @@ struct sKOF98_A_PaletteData
     LPCTSTR pszCharacterName;
     UINT32 nROMOffset = 0;
     LPCTSTR pszImageSet = _T("indexKOF98_A_Kyo");
-    int rgIsEffectUsed[11];
+    bool rgIsEffectUsed[11];
 };
 
 sKOF98_A_PaletteData KOF98_A_CharacterEffectPalettes[] =

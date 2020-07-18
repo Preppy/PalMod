@@ -199,66 +199,13 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
 {
     switch (nGameFlag)
     {
-    case MVC2_A:
-    {
-        return new CGame_MVC2_A(nConfirmedROMSize);
-    }
-    break;
-    case MVC2_D:
-    {
-        return new CGame_MVC2_D;
-    }
-    break;
-    case MVC2_P:
-    {
-        return new CGame_MVC2_P;
-    }
-    break;
-    case SFIII3_A:
-    {
-        return new CGame_SFIII3_A(nConfirmedROMSize);
-    }
-    break;
-    case SFIII3_D:
-    {
-        return new CGame_SFIII3_D;
-    }
-    break;
-    case SSF2T_A:
-    {
-        return new CGame_SSF2T_A(nConfirmedROMSize, nExtraGameData);
-    }
-    case SFA2_A:
-    {
-        return new CGame_SFA2_A(nConfirmedROMSize);
-    }
-    case SFA3_A:
-    {
-        return new CGame_SFA3_A(nConfirmedROMSize);
-    }
-    case XMVSF_A:
-    {
-        return new CGame_XMVSF_A(nConfirmedROMSize);
-    }
-    case MVC_A:
-    {
-        return new CGame_MVC_A(nConfirmedROMSize);
-    }
-    case JOJOS_A:
-    {
-        return new CGame_JOJOS_A(nConfirmedROMSize, nExtraGameData);
-    }
-    case MSH_A:
-    {
-        return new CGame_MSH_A(nConfirmedROMSize, nExtraGameData);
-    }
-    case MSHVSF_A:
-    {
-        return new CGame_MSHVSF_A(nConfirmedROMSize, nExtraGameData);
-    }
     case COTA_A:
     {
         return new CGame_COTA_A(nConfirmedROMSize);
+    }
+    case CVS2_A:
+    {
+        return new CGame_CVS2_A(nConfirmedROMSize);
     }
     case Garou_A:
     {
@@ -268,9 +215,9 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_Garou_S(nConfirmedROMSize);
     }
-    case NEOGEO_A:
+    case JOJOS_A:
     {
-        return new CGame_NEOGEO_A(nConfirmedROMSize);
+        return new CGame_JOJOS_A(nConfirmedROMSize, nExtraGameData);
     }
     case KOF98_A:
     {
@@ -284,9 +231,57 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_KOF02UM_S(nConfirmedROMSize);
     }
-    case CVS2_A:
+    case MSH_A:
     {
-        return new CGame_CVS2_A(nConfirmedROMSize);
+        return new CGame_MSH_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case MSHVSF_A:
+    {
+        return new CGame_MSHVSF_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case MVC_A:
+    {
+        return new CGame_MVC_A(nConfirmedROMSize);
+    }
+    case MVC2_A:
+    {
+        return new CGame_MVC2_A(nConfirmedROMSize);
+    }
+    case MVC2_D:
+    {
+        return new CGame_MVC2_D;
+    }
+    case MVC2_P:
+    {
+        return new CGame_MVC2_P;
+    }
+    case NEOGEO_A:
+    {
+        return new CGame_NEOGEO_A(nConfirmedROMSize);
+    }
+    case SFIII3_A:
+    {
+        return new CGame_SFIII3_A(nConfirmedROMSize);
+    }
+    case SFIII3_D:
+    {
+        return new CGame_SFIII3_D;
+    }
+    case SFA2_A:
+    {
+        return new CGame_SFA2_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case SFA3_A:
+    {
+        return new CGame_SFA3_A(nConfirmedROMSize);
+    }
+    case SSF2T_A:
+    {
+        return new CGame_SSF2T_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case XMVSF_A:
+    {
+        return new CGame_XMVSF_A(nConfirmedROMSize);
     }
     default:
         OutputDebugString(_T("CGameLoad::CreateGame:: BUGBUG: New game has not been properly added yet.\n"));
@@ -308,18 +303,47 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
 
     int nGameRule = 0;
 
-    if (nGameFlag == JOJOS_A)
+    switch (nGameFlag)
     {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+    case JOJOS_A:
         {
-            // Step forward to the filename
-            pszFileName++;
-            nGameRule = ((_tcscmp(pszFileName, _T("50")) == 0) ? 50 : 51);
+            TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
+
+            if (pszFileName)
+            {
+                // Step forward to the filename
+                pszFileName++;
+                nGameRule = ((_tcscmp(pszFileName, _T("50")) == 0) ? 50 : 51);
+            }
+            break;
         }
-    }
-    else if (nGameFlag == SSF2T_A)
+    case MSHVSF_A:
+        {
+            TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
+
+            if (pszFileName)
+            {
+                // Step forward to the filename
+                pszFileName++;
+                _tcslwr(pszFileName);
+                nGameRule = ((_tcsstr(pszFileName, _T(".06a")) != nullptr) ? 6 : 7);
+            }
+            break;
+        }
+    case MSH_A:
+        {
+            TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
+
+            if (pszFileName)
+            {
+                // Step forward to the filename
+                pszFileName++;
+                _tcslwr(pszFileName);
+                nGameRule = ((_tcsstr(pszFileName, _T(".05")) != nullptr) ? 5 : 6);
+            }
+            break;
+        }
+    case SFA2_A:
     {
         TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
 
@@ -328,33 +352,26 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             // Step forward to the filename
             pszFileName++;
             _tcslwr(pszFileName);
-            nGameRule = ((_tcsstr(pszFileName, _T(".03c")) != nullptr) ? 3 : 4);
+            nGameRule = ((_tcsstr(pszFileName, _T(".08")) != nullptr) ? 8 : 7);
         }
+        break;
     }
-    else if (nGameFlag == MSHVSF_A)
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+    case SSF2T_A:
         {
-            // Step forward to the filename
-            pszFileName++;
-            _tcslwr(pszFileName);
-            nGameRule = ((_tcsstr(pszFileName, _T(".06a")) != nullptr) ? 6 : 7);
-        }
-    }
-    else if (nGameFlag == MSH_A)
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
+            TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
 
-        if (pszFileName)
-        {
-            // Step forward to the filename
-            pszFileName++;
-            _tcslwr(pszFileName);
-            nGameRule = ((_tcsstr(pszFileName, _T(".05")) != nullptr) ? 5 : 6);
+            if (pszFileName)
+            {
+                // Step forward to the filename
+                pszFileName++;
+                _tcslwr(pszFileName);
+                nGameRule = ((_tcsstr(pszFileName, _T(".03c")) != nullptr) ? 3 : 4);
+            }
+            break;
         }
-    }
+        default:
+            break;
+    };
 
     CurrRule = GetRule(nGameRule);
 

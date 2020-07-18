@@ -210,17 +210,39 @@ void CGame_KOF02UM_S::DumpAllCharacters()
 
             for (UINT16 iCurrentExtra = 1; iCurrentExtra < 8; iCurrentExtra++)
             {
-                if (KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName)
+                LPCTSTR pszImageRefName = KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName ? KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName : _T("nullptr");
+                LPCTSTR pszExtraMoveName = nullptr;
+
+                // Get move name, allowing overrides,
+                switch (iCurrentExtra)
                 {
-                    strOutput.Format(_T("    { _T(\"%s - %s\"), 0x%07x, 0x%07x, %s },\r\n"), DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
-                        nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
-                        KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName);
-                }
-                else
+                case 1:
+                    pszExtraMoveName = KOF02UM_CharacterOffsetArray[iUnitCtr].pszHSDM1NameOverride;
+                    break;
+                case 2:
+                    pszExtraMoveName = KOF02UM_CharacterOffsetArray[iUnitCtr].pszDMSDMNameOverride;
+                    break;
+                case 5:
+                    pszExtraMoveName = KOF02UM_CharacterOffsetArray[iUnitCtr].pszHSDM2NameOverride;
+                    break;
+                case 7:
+                    pszExtraMoveName = KOF02UM_CharacterOffsetArray[iUnitCtr].pszHSDM3NameOverride;
+                    break;
+                default:
+                case 3: // Use stock names for Shock/Flash/Soul
+                case 4:
+                case 6:
+                    break;
+                };
+
+                if (pszExtraMoveName == nullptr)
                 {
-                    strOutput.Format(_T("    { _T(\"%s - %s\"), 0x%07x, 0x%07x },\r\n"), DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszMoveNames[iCurrentExtra - 1],
-                        nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
+                    pszExtraMoveName = pszMoveNames[iCurrentExtra - 1];
                 }
+
+                strOutput.Format(_T("    { _T(\"%s - %s\"), 0x%07x, 0x%07x, %s },\r\n"), DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszExtraMoveName,
+                                                                                        nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
+                                                                                        pszImageRefName);
 
                 OutputDebugString(strOutput);
                 nCurrentCharacterOffset += 0x20;
