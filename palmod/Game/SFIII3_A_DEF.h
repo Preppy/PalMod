@@ -4,7 +4,7 @@ constexpr auto SFIII3_A_PALETTESIZE = 64; // unused
 
 #define SFIII3_A_EXTRALOC SFIII3_A_NUMUNIT
 
-const TCHAR SFIII3_A_UNITDESC[SFIII3_A_NUMUNIT][16] = 
+const TCHAR SFIII3_A_UNITDESC[SFIII3_A_NUMUNIT + 1][16] = 
 {
     //"Gill"),        //0x?
     _T("Alex"),          //0x00 
@@ -26,7 +26,8 @@ const TCHAR SFIII3_A_UNITDESC[SFIII3_A_NUMUNIT][16] =
     _T("Makoto"),        //0x10
     _T("Q"),             //0x11
     _T("Twelve"),        //0x12
-    _T("Remy")           //0x13
+    _T("Remy"),          //0x13
+    _T("Extra Palettes")
 };
 
 const UINT8 SFIII3_A_UNITSORT[SFIII3_A_NUMUNIT + 1] = //Plus 1 for the extra palettes

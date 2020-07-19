@@ -28,6 +28,7 @@ private:
 
     static int rgExtraCountAll[SFIII3_A_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1];
+    static int rgExtraLoc[SFIII3_A_NUMUNIT + 1];
 
     void GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId);
 

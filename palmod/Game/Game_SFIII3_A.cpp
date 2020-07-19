@@ -8,6 +8,7 @@ stExtraDef* CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM = NULL;
 
 int CGame_SFIII3_A::rgExtraCountAll[SFIII3_A_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1] = { -1 };
+int CGame_SFIII3_A::rgExtraLoc[SFIII3_A_NUMUNIT + 1] = { -1 };
 
 CDescTree CGame_SFIII3_A::MainDescTree;
 UINT32 CGame_SFIII3_A::m_nGameROMSize = 0x800000; // 8,388,608 bytes
@@ -19,6 +20,7 @@ void CGame_SFIII3_A::InitializeStatics()
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraCountVisibleOnly, -1, sizeof(rgExtraCountVisibleOnly));
+    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
     MainDescTree.SetRootTree(CGame_SFIII3_A::InitDescTree());
 }
@@ -108,8 +110,6 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_SFIII3_A::GetExtraLoc(UINT16 nUnitId)
 {
-    static int rgExtraLoc[SFIII3_A_NUMUNIT + 1] = { -1 };
-
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
@@ -710,16 +710,21 @@ void CGame_SFIII3_A::UpdatePalData()
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
         if (srcDef->bAvail)
         {
-            int nIndexStart = 0;
+            // First color is the transparency color
+            int nIndexStart = 1;
 
             COLORREF* crSrc = srcDef->pPal;
             UINT16 uAmt = srcDef->uPalSz;
+
+            // This was in the 2008 code base, but ... there's no reason to do this.  The gridlines are shown in-game, even if not in PalMod.
+#ifdef OBSOLETE
             UINT16 nBasicAmt = GetBasicAmt(srcDef->uUnitId);
 
-            if ((srcDef->uPalId >= nBasicAmt) && (srcDef->uPalId < nBasicAmt * 2) && (srcDef->uUnitId != SFIII3_A_EXTRALOC)) //Portrait
+            if ((srcDef->uPalId >= nBasicAmt) && (srcDef->uPalId < (nBasicAmt * 2)) && (srcDef->uUnitId != SFIII3_A_EXTRALOC)) //Portrait
             {
-                nIndexStart = 3; //Skip surrounding portrait indexes
+                nIndexStart = 3; //Skip surrounding portrait indexes: those gridlines aren't visible in the preview
             }
+#endif
 
             for (int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
             {

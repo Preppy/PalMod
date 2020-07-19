@@ -19,6 +19,9 @@ CImgDisp::CImgDisp()
 
 CImgDisp::~CImgDisp()
 {
+    BGBitmap.DeleteObject();
+    BGBrush.DeleteObject();
+
     FlushImages();
 
     safe_delete(MainDC);

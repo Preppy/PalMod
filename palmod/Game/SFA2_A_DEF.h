@@ -2879,7 +2879,7 @@ const sDescTreeNode SFA2_A_DAN_MOVE_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_SHINAKUMA_MOVE_PALETTES[] =
 {
-    { _T("Shin Akuma"),        0x1bbe0, 0x1bc00, indexCPS2_Akuma, 0x00 },
+    { _T("Shin Akuma"),     0x1bbe0, 0x1bc00, indexCPS2_Akuma, 0x00 },
     { _T("Hadoken"),        0x1bc00, 0x1bc20, indexCPS2_Akuma, 1 },
     { _T("Shoryuken"),      0x1bc20, 0x1bc40,  },
     { _T("Ashura Senku 1"), 0x1bc40, 0x1bc60, indexCPS2_Akuma, 0x00 },
