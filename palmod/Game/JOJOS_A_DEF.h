@@ -300,11 +300,11 @@ const sDescTreeNode JOJOS_A_50_HUD_PORTRAIT_COLLECTION[]
 #pragma region HUD
 const sGame_PaletteDataset JOJOS_A_HUD_PALETTE_NODES[] =
 {
-    { _T("Round Markers"), 0x07C0160, 0x07C0180 },
-    { _T("Timer"), 0x07C00C0, 0x07C00E0 },
-    { _T("Lifebar"), 0x07C01E0, 0x07C0200 },
-    { _T("Stand Meter"), 0x07C0200, 0x07C0220 },
-    { _T("Stand Text Under The Stand Gauge"), 0x07C0320, 0x07C0340 },
+    { _T("Round Markers"), 0x07C0160, 0x07C0180, indexJojos51Bonus, 0x28, &pairHandledInCode },
+    { _T("Timer"), 0x07C00C0, 0x07C00E0, indexJojos51Bonus, 0x2b },
+    { _T("Lifebar"), 0x07C01E0, 0x07C0200, indexJojos51Bonus, 0x27 },
+    { _T("Stand Meter"), 0x07C0200, 0x07C0220, indexJojos51Bonus, 0x29 },
+    { _T("Stand Text Under The Stand Gauge"), 0x07C0320, 0x07C0340, indexJojos51Bonus, 0x2a },
     { _T("Combo Meter"), 0x07C01C0, 0x07C01E0 },
     { _T("Combo Messages"), 0x07C0220, 0x07C0240 },
     { _T("Text Above The Lifebars"),  0x07C0280, 0x07C02A0 },

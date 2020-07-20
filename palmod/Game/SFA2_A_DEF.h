@@ -2104,34 +2104,35 @@ const sDescTreeNode SFA2_A_EVILRYU_MOVE_COLLECTION[] =
     { _T("Auto Guard Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_AUTOGUARDKICK_MOVE_PALETTES, ARRAYSIZE(SFA2_A_EVILRYU_AUTOGUARDKICK_MOVE_PALETTES) },
 };
 
+
 const sGame_PaletteDataset SFA2_A_RYU_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Ryu Portrait"), 0x1c7c0, 0x1c820 },
+    { _T("Ryu Portrait"), 0x1c7c0, 0x1c820, indexCPS2_SFA2Portraits, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_A_RYU_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Ryu Portrait"), 0x1cee0, 0x1cf40 },
+    { _T("Ryu Portrait"), 0x1cee0, 0x1cf40, indexCPS2_SFA2Portraits, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_A_RYU_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Ryu Portrait"), 0x1d600, 0x1d660 },
+    { _T("Ryu Portrait"), 0x1d600, 0x1d660, indexCPS2_SFA2Portraits, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_A_RYU_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Ryu Portrait"), 0x1dd20, 0x1dd80 },
+    { _T("Ryu Portrait"), 0x1dd20, 0x1dd80, indexCPS2_SFA2Portraits, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_A_RYU_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Ryu Portrait"), 0x1e440, 0x1e4a0 },
+    { _T("Ryu Portrait"), 0x1e440, 0x1e4a0, indexCPS2_SFA2Portraits, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_A_RYU_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Ryu Portrait"), 0x1eb60, 0x1ebc0 },
+    { _T("Ryu Portrait"), 0x1eb60, 0x1ebc0, indexCPS2_SFA2Portraits, 0x00 },
 };
 
 const sDescTreeNode SFA2_A_RYU_PORTRAIT_COLLECTION[] =
@@ -2146,32 +2147,32 @@ const sDescTreeNode SFA2_A_RYU_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_KEN_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Ken Portrait"), 0x1c820, 0x1c880 },
+    { _T("Ken Portrait"), 0x1c820, 0x1c880, indexCPS2_SFA2Portraits, 0x27 },
 };
 
 const sGame_PaletteDataset SFA2_A_KEN_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Ken Portrait"), 0x1cf40, 0x1cfa0 },
+    { _T("Ken Portrait"), 0x1cf40, 0x1cfa0, indexCPS2_SFA2Portraits, 0x27 },
 };
 
 const sGame_PaletteDataset SFA2_A_KEN_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Ken Portrait"), 0x1d660, 0x1d6c0 },
+    { _T("Ken Portrait"), 0x1d660, 0x1d6c0, indexCPS2_SFA2Portraits, 0x27 },
 };
 
 const sGame_PaletteDataset SFA2_A_KEN_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Ken Portrait"), 0x1dd80, 0x1dde0 },
+    { _T("Ken Portrait"), 0x1dd80, 0x1dde0, indexCPS2_SFA2Portraits, 0x27 },
 };
 
 const sGame_PaletteDataset SFA2_A_KEN_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Ken Portrait"), 0x1e4a0, 0x1e500 },
+    { _T("Ken Portrait"), 0x1e4a0, 0x1e500, indexCPS2_SFA2Portraits, 0x27 },
 };
 
 const sGame_PaletteDataset SFA2_A_KEN_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Ken Portrait"), 0x1ebc0, 0x1ec20 },
+    { _T("Ken Portrait"), 0x1ebc0, 0x1ec20, indexCPS2_SFA2Portraits, 0x27 },
 };
 
 const sDescTreeNode SFA2_A_KEN_PORTRAIT_COLLECTION[] =
@@ -2186,32 +2187,32 @@ const sDescTreeNode SFA2_A_KEN_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_AKUMA_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Akuma Portrait"), 0x1c880, 0x1c8e0 },
+    { _T("Akuma Portrait"), 0x1c880, 0x1c8e0, indexCPS2_SFA2Portraits, 0x1e },
 };
 
 const sGame_PaletteDataset SFA2_A_AKUMA_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Akuma Portrait"), 0x1cfa0, 0x1d000 },
+    { _T("Akuma Portrait"), 0x1cfa0, 0x1d000, indexCPS2_SFA2Portraits, 0x1e },
 };
 
 const sGame_PaletteDataset SFA2_A_AKUMA_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Akuma Portrait"), 0x1d6c0, 0x1d720 },
+    { _T("Akuma Portrait"), 0x1d6c0, 0x1d720, indexCPS2_SFA2Portraits, 0x1e },
 };
 
 const sGame_PaletteDataset SFA2_A_AKUMA_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Akuma Portrait"), 0x1dde0, 0x1de40 },
+    { _T("Akuma Portrait"), 0x1dde0, 0x1de40, indexCPS2_SFA2Portraits, 0x1e },
 };
 
 const sGame_PaletteDataset SFA2_A_AKUMA_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Akuma Portrait"), 0x1e500, 0x1e560 },
+    { _T("Akuma Portrait"), 0x1e500, 0x1e560, indexCPS2_SFA2Portraits, 0x1e },
 };
 
 const sGame_PaletteDataset SFA2_A_AKUMA_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Akuma Portrait"), 0x1ec20, 0x1ec80 },
+    { _T("Akuma Portrait"), 0x1ec20, 0x1ec80, indexCPS2_SFA2Portraits, 0x1e },
 };
 
 const sDescTreeNode SFA2_A_AKUMA_PORTRAIT_COLLECTION[] =
@@ -2226,32 +2227,32 @@ const sDescTreeNode SFA2_A_AKUMA_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_CHARLIE_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Charlie Portrait"), 0x1c8e0, 0x1c940 },
+    { _T("Charlie Portrait"), 0x1c8e0, 0x1c940, indexCPS2_SFA2Portraits, 0x21 },
 };
 
 const sGame_PaletteDataset SFA2_A_CHARLIE_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Charlie Portrait"), 0x1d000, 0x1d060 },
+    { _T("Charlie Portrait"), 0x1d000, 0x1d060, indexCPS2_SFA2Portraits, 0x21 },
 };
 
 const sGame_PaletteDataset SFA2_A_CHARLIE_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Charlie Portrait"), 0x1d720, 0x1d780 },
+    { _T("Charlie Portrait"), 0x1d720, 0x1d780, indexCPS2_SFA2Portraits, 0x21 },
 };
 
 const sGame_PaletteDataset SFA2_A_CHARLIE_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Charlie Portrait"), 0x1de40, 0x1dea0 },
+    { _T("Charlie Portrait"), 0x1de40, 0x1dea0, indexCPS2_SFA2Portraits, 0x21 },
 };
 
 const sGame_PaletteDataset SFA2_A_CHARLIE_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Charlie Portrait"), 0x1e560, 0x1e5c0 },
+    { _T("Charlie Portrait"), 0x1e560, 0x1e5c0, indexCPS2_SFA2Portraits, 0x21 },
 };
 
 const sGame_PaletteDataset SFA2_A_CHARLIE_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Charlie Portrait"), 0x1ec80, 0x1ece0 },
+    { _T("Charlie Portrait"), 0x1ec80, 0x1ece0, indexCPS2_SFA2Portraits, 0x21 },
 };
 
 const sDescTreeNode SFA2_A_CHARLIE_PORTRAIT_COLLECTION[] =
@@ -2266,32 +2267,32 @@ const sDescTreeNode SFA2_A_CHARLIE_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li Portrait"), 0x1c940, 0x1c9a0 },
+    { _T("Chun-Li Portrait"), 0x1c940, 0x1c9a0, indexCPS2_SFA2Portraits, 0x1b },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li Portrait"), 0x1d060, 0x1d0c0 },
+    { _T("Chun-Li Portrait"), 0x1d060, 0x1d0c0, indexCPS2_SFA2Portraits, 0x1b },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li Portrait"), 0x1d780, 0x1d7e0 },
+    { _T("Chun-Li Portrait"), 0x1d780, 0x1d7e0, indexCPS2_SFA2Portraits, 0x1b },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li Portrait"), 0x1dea0, 0x1df00 },
+    { _T("Chun-Li Portrait"), 0x1dea0, 0x1df00, indexCPS2_SFA2Portraits, 0x1b },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li Portrait"), 0x1e5c0, 0x1e620 },
+    { _T("Chun-Li Portrait"), 0x1e5c0, 0x1e620, indexCPS2_SFA2Portraits, 0x1b },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li Portrait"), 0x1ece0, 0x1ed40 },
+    { _T("Chun-Li Portrait"), 0x1ece0, 0x1ed40, indexCPS2_SFA2Portraits, 0x1b },
 };
 
 const sDescTreeNode SFA2_A_CHUNLI_PORTRAIT_COLLECTION[] =
@@ -2306,32 +2307,32 @@ const sDescTreeNode SFA2_A_CHUNLI_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_ADON_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Adon Portrait"), 0x1c9a0, 0x1ca00 },
+    { _T("Adon Portrait"), 0x1c9a0, 0x1ca00, indexCPS2_SFA2Portraits, 0x3d },
 };
 
 const sGame_PaletteDataset SFA2_A_ADON_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Adon Portrait"), 0x1d0c0, 0x1d120 },
+    { _T("Adon Portrait"), 0x1d0c0, 0x1d120, indexCPS2_SFA2Portraits, 0x3d },
 };
 
 const sGame_PaletteDataset SFA2_A_ADON_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Adon Portrait"), 0x1d7e0, 0x1d840 },
+    { _T("Adon Portrait"), 0x1d7e0, 0x1d840, indexCPS2_SFA2Portraits, 0x3d },
 };
 
 const sGame_PaletteDataset SFA2_A_ADON_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Adon Portrait"), 0x1df00, 0x1df60 },
+    { _T("Adon Portrait"), 0x1df00, 0x1df60, indexCPS2_SFA2Portraits, 0x3d },
 };
 
 const sGame_PaletteDataset SFA2_A_ADON_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Adon Portrait"), 0x1e620, 0x1e680 },
+    { _T("Adon Portrait"), 0x1e620, 0x1e680, indexCPS2_SFA2Portraits, 0x3d },
 };
 
 const sGame_PaletteDataset SFA2_A_ADON_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Adon Portrait"), 0x1ed40, 0x1eda0 },
+    { _T("Adon Portrait"), 0x1ed40, 0x1eda0, indexCPS2_SFA2Portraits, 0x3d },
 };
 
 const sDescTreeNode SFA2_A_ADON_PORTRAIT_COLLECTION[] =
@@ -2346,32 +2347,32 @@ const sDescTreeNode SFA2_A_ADON_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_SODOM_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Sodom Portrait"), 0x1ca00, 0x1ca60 },
+    { _T("Sodom Portrait"), 0x1ca00, 0x1ca60, indexCPS2_SFA2Portraits, 0x3e },
 };
 
 const sGame_PaletteDataset SFA2_A_SODOM_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Sodom Portrait"), 0x1d120, 0x1d180 },
+    { _T("Sodom Portrait"), 0x1d120, 0x1d180, indexCPS2_SFA2Portraits, 0x3e },
 };
 
 const sGame_PaletteDataset SFA2_A_SODOM_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Sodom Portrait"), 0x1d840, 0x1d8a0 },
+    { _T("Sodom Portrait"), 0x1d840, 0x1d8a0, indexCPS2_SFA2Portraits, 0x3e },
 };
 
 const sGame_PaletteDataset SFA2_A_SODOM_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Sodom Portrait"), 0x1df60, 0x1dfc0 },
+    { _T("Sodom Portrait"), 0x1df60, 0x1dfc0, indexCPS2_SFA2Portraits, 0x3e },
 };
 
 const sGame_PaletteDataset SFA2_A_SODOM_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Sodom Portrait"), 0x1e680, 0x1e6e0 },
+    { _T("Sodom Portrait"), 0x1e680, 0x1e6e0, indexCPS2_SFA2Portraits, 0x3e },
 };
 
 const sGame_PaletteDataset SFA2_A_SODOM_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Sodom Portrait"), 0x1eda0, 0x1ee00 },
+    { _T("Sodom Portrait"), 0x1eda0, 0x1ee00, indexCPS2_SFA2Portraits, 0x3e },
 };
 
 const sDescTreeNode SFA2_A_SODOM_PORTRAIT_COLLECTION[] =
@@ -2386,32 +2387,32 @@ const sDescTreeNode SFA2_A_SODOM_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_GUY_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Guy Portrait"), 0x1ca60, 0x1cac0 },
+    { _T("Guy Portrait"), 0x1ca60, 0x1cac0, indexCPS2_SFA2Portraits, 0x3f },
 };
 
 const sGame_PaletteDataset SFA2_A_GUY_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Guy Portrait"), 0x1d180, 0x1d1e0 },
+    { _T("Guy Portrait"), 0x1d180, 0x1d1e0, indexCPS2_SFA2Portraits, 0x3f },
 };
 
 const sGame_PaletteDataset SFA2_A_GUY_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Guy Portrait"), 0x1d8a0, 0x1d900 },
+    { _T("Guy Portrait"), 0x1d8a0, 0x1d900, indexCPS2_SFA2Portraits, 0x3f },
 };
 
 const sGame_PaletteDataset SFA2_A_GUY_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Guy Portrait"), 0x1dfc0, 0x1e020 },
+    { _T("Guy Portrait"), 0x1dfc0, 0x1e020, indexCPS2_SFA2Portraits, 0x3f },
 };
 
 const sGame_PaletteDataset SFA2_A_GUY_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Guy Portrait"), 0x1e6e0, 0x1e740 },
+    { _T("Guy Portrait"), 0x1e6e0, 0x1e740, indexCPS2_SFA2Portraits, 0x3f },
 };
 
 const sGame_PaletteDataset SFA2_A_GUY_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Guy Portrait"), 0x1ee00, 0x1ee60 },
+    { _T("Guy Portrait"), 0x1ee00, 0x1ee60, indexCPS2_SFA2Portraits, 0x3f },
 };
 
 const sDescTreeNode SFA2_A_GUY_PORTRAIT_COLLECTION[] =
@@ -2426,32 +2427,32 @@ const sDescTreeNode SFA2_A_GUY_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_BIRDIE_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Birdie Portrait"), 0x1cac0, 0x1cb20 },
+    { _T("Birdie Portrait"), 0x1cac0, 0x1cb20, indexCPS2_SFA2Portraits, 0x40 },
 };
 
 const sGame_PaletteDataset SFA2_A_BIRDIE_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Birdie Portrait"), 0x1d1e0, 0x1d240 },
+    { _T("Birdie Portrait"), 0x1d1e0, 0x1d240, indexCPS2_SFA2Portraits, 0x40 },
 };
 
 const sGame_PaletteDataset SFA2_A_BIRDIE_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Birdie Portrait"), 0x1d900, 0x1d960 },
+    { _T("Birdie Portrait"), 0x1d900, 0x1d960, indexCPS2_SFA2Portraits, 0x40 },
 };
 
 const sGame_PaletteDataset SFA2_A_BIRDIE_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Birdie Portrait"), 0x1e020, 0x1e080 },
+    { _T("Birdie Portrait"), 0x1e020, 0x1e080, indexCPS2_SFA2Portraits, 0x40 },
 };
 
 const sGame_PaletteDataset SFA2_A_BIRDIE_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Birdie Portrait"), 0x1e740, 0x1e7a0 },
+    { _T("Birdie Portrait"), 0x1e740, 0x1e7a0, indexCPS2_SFA2Portraits, 0x40 },
 };
 
 const sGame_PaletteDataset SFA2_A_BIRDIE_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Birdie Portrait"), 0x1ee60, 0x1eec0 },
+    { _T("Birdie Portrait"), 0x1ee60, 0x1eec0, indexCPS2_SFA2Portraits, 0x40 },
 };
 
 const sDescTreeNode SFA2_A_BIRDIE_PORTRAIT_COLLECTION[] =
@@ -2466,32 +2467,32 @@ const sDescTreeNode SFA2_A_BIRDIE_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_ROSE_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Rose Portrait"), 0x1cb20, 0x1cb80 },
+    { _T("Rose Portrait"), 0x1cb20, 0x1cb80, indexCPS2_SFA2Portraits, 0x41 },
 };
 
 const sGame_PaletteDataset SFA2_A_ROSE_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Rose Portrait"), 0x1d240, 0x1d2a0 },
+    { _T("Rose Portrait"), 0x1d240, 0x1d2a0, indexCPS2_SFA2Portraits, 0x41 },
 };
 
 const sGame_PaletteDataset SFA2_A_ROSE_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Rose Portrait"), 0x1d960, 0x1d9c0 },
+    { _T("Rose Portrait"), 0x1d960, 0x1d9c0, indexCPS2_SFA2Portraits, 0x41 },
 };
 
 const sGame_PaletteDataset SFA2_A_ROSE_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Rose Portrait"), 0x1e080, 0x1e0e0 },
+    { _T("Rose Portrait"), 0x1e080, 0x1e0e0, indexCPS2_SFA2Portraits, 0x41 },
 };
 
 const sGame_PaletteDataset SFA2_A_ROSE_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Rose Portrait"), 0x1e7a0, 0x1e800 },
+    { _T("Rose Portrait"), 0x1e7a0, 0x1e800, indexCPS2_SFA2Portraits, 0x41 },
 };
 
 const sGame_PaletteDataset SFA2_A_ROSE_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Rose Portrait"), 0x1eec0, 0x1ef20 },
+    { _T("Rose Portrait"), 0x1eec0, 0x1ef20, indexCPS2_SFA2Portraits, 0x41 },
 };
 
 const sDescTreeNode SFA2_A_ROSE_PORTRAIT_COLLECTION[] =
@@ -2506,32 +2507,32 @@ const sDescTreeNode SFA2_A_ROSE_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_MBISON_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("M.Bison Portrait"), 0x1cb80, 0x1cbe0 },
+    { _T("M.Bison Portrait"), 0x1cb80, 0x1cbe0, indexCPS2_SFA2Portraits, 0x26 },
 };
 
 const sGame_PaletteDataset SFA2_A_MBISON_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("M.Bison Portrait"), 0x1d2a0, 0x1d300 },
+    { _T("M.Bison Portrait"), 0x1d2a0, 0x1d300, indexCPS2_SFA2Portraits, 0x26 },
 };
 
 const sGame_PaletteDataset SFA2_A_MBISON_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("M.Bison Portrait"), 0x1d9c0, 0x1da20 },
+    { _T("M.Bison Portrait"), 0x1d9c0, 0x1da20, indexCPS2_SFA2Portraits, 0x26 },
 };
 
 const sGame_PaletteDataset SFA2_A_MBISON_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("M.Bison Portrait"), 0x1e0e0, 0x1e140 },
+    { _T("M.Bison Portrait"), 0x1e0e0, 0x1e140, indexCPS2_SFA2Portraits, 0x26 },
 };
 
 const sGame_PaletteDataset SFA2_A_MBISON_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("M.Bison Portrait"), 0x1e800, 0x1e860 },
+    { _T("M.Bison Portrait"), 0x1e800, 0x1e860, indexCPS2_SFA2Portraits, 0x26 },
 };
 
 const sGame_PaletteDataset SFA2_A_MBISON_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("M.Bison Portrait"), 0x1ef20, 0x1ef80 },
+    { _T("M.Bison Portrait"), 0x1ef20, 0x1ef80, indexCPS2_SFA2Portraits, 0x26 },
 };
 
 const sDescTreeNode SFA2_A_MBISON_PORTRAIT_COLLECTION[] =
@@ -2546,32 +2547,32 @@ const sDescTreeNode SFA2_A_MBISON_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_SAGAT_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Sagat Portrait"), 0x1cbe0, 0x1cc40 },
+    { _T("Sagat Portrait"), 0x1cbe0, 0x1cc40, indexCPS2_SFA2Portraits, 0x42 },
 };
 
 const sGame_PaletteDataset SFA2_A_SAGAT_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Sagat Portrait"), 0x1d300, 0x1d360 },
+    { _T("Sagat Portrait"), 0x1d300, 0x1d360, indexCPS2_SFA2Portraits, 0x42 },
 };
 
 const sGame_PaletteDataset SFA2_A_SAGAT_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Sagat Portrait"), 0x1da20, 0x1da80 },
+    { _T("Sagat Portrait"), 0x1da20, 0x1da80, indexCPS2_SFA2Portraits, 0x42 },
 };
 
 const sGame_PaletteDataset SFA2_A_SAGAT_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Sagat Portrait"), 0x1e140, 0x1e1a0 },
+    { _T("Sagat Portrait"), 0x1e140, 0x1e1a0, indexCPS2_SFA2Portraits, 0x42 },
 };
 
 const sGame_PaletteDataset SFA2_A_SAGAT_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Sagat Portrait"), 0x1e860, 0x1e8c0 },
+    { _T("Sagat Portrait"), 0x1e860, 0x1e8c0, indexCPS2_SFA2Portraits, 0x42 },
 };
 
 const sGame_PaletteDataset SFA2_A_SAGAT_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Sagat Portrait"), 0x1ef80, 0x1efe0 },
+    { _T("Sagat Portrait"), 0x1ef80, 0x1efe0, indexCPS2_SFA2Portraits, 0x42 },
 };
 
 const sDescTreeNode SFA2_A_SAGAT_PORTRAIT_COLLECTION[] =
@@ -2586,32 +2587,32 @@ const sDescTreeNode SFA2_A_SAGAT_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_DAN_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Dan Portrait"), 0x1cc40, 0x1cca0 },
+    { _T("Dan Portrait"), 0x1cc40, 0x1cca0, indexCPS2_SFA2Portraits, 0x23 },
 };
 
 const sGame_PaletteDataset SFA2_A_DAN_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Dan Portrait"), 0x1d360, 0x1d3c0 },
+    { _T("Dan Portrait"), 0x1d360, 0x1d3c0, indexCPS2_SFA2Portraits, 0x23 },
 };
 
 const sGame_PaletteDataset SFA2_A_DAN_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Dan Portrait"), 0x1da80, 0x1dae0 },
+    { _T("Dan Portrait"), 0x1da80, 0x1dae0, indexCPS2_SFA2Portraits, 0x23 },
 };
 
 const sGame_PaletteDataset SFA2_A_DAN_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Dan Portrait"), 0x1e1a0, 0x1e200 },
+    { _T("Dan Portrait"), 0x1e1a0, 0x1e200, indexCPS2_SFA2Portraits, 0x23 },
 };
 
 const sGame_PaletteDataset SFA2_A_DAN_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Dan Portrait"), 0x1e8c0, 0x1e920 },
+    { _T("Dan Portrait"), 0x1e8c0, 0x1e920, indexCPS2_SFA2Portraits, 0x23 },
 };
 
 const sGame_PaletteDataset SFA2_A_DAN_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Dan Portrait"), 0x1efe0, 0x1f040 },
+    { _T("Dan Portrait"), 0x1efe0, 0x1f040, indexCPS2_SFA2Portraits, 0x23 },
 };
 
 const sDescTreeNode SFA2_A_DAN_PORTRAIT_COLLECTION[] =
@@ -2626,32 +2627,32 @@ const sDescTreeNode SFA2_A_DAN_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_SAKURA_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Sakura Portrait"), 0x1cca0, 0x1cd00 },
+    { _T("Sakura Portrait"), 0x1cca0, 0x1cd00, indexCPS2_SFA2Portraits, 0x22 },
 };
 
 const sGame_PaletteDataset SFA2_A_SAKURA_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Sakura Portrait"), 0x1d3c0, 0x1d420 },
+    { _T("Sakura Portrait"), 0x1d3c0, 0x1d420, indexCPS2_SFA2Portraits, 0x22 },
 };
 
 const sGame_PaletteDataset SFA2_A_SAKURA_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Sakura Portrait"), 0x1dae0, 0x1db40 },
+    { _T("Sakura Portrait"), 0x1dae0, 0x1db40, indexCPS2_SFA2Portraits, 0x22 },
 };
 
 const sGame_PaletteDataset SFA2_A_SAKURA_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Sakura Portrait"), 0x1e200, 0x1e260 },
+    { _T("Sakura Portrait"), 0x1e200, 0x1e260, indexCPS2_SFA2Portraits, 0x22 },
 };
 
 const sGame_PaletteDataset SFA2_A_SAKURA_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Sakura Portrait"), 0x1e920, 0x1e980 },
+    { _T("Sakura Portrait"), 0x1e920, 0x1e980, indexCPS2_SFA2Portraits, 0x22 },
 };
 
 const sGame_PaletteDataset SFA2_A_SAKURA_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Sakura Portrait"), 0x1f040, 0x1f0a0 },
+    { _T("Sakura Portrait"), 0x1f040, 0x1f0a0, indexCPS2_SFA2Portraits, 0x22 },
 };
 
 const sDescTreeNode SFA2_A_SAKURA_PORTRAIT_COLLECTION[] =
@@ -2666,32 +2667,32 @@ const sDescTreeNode SFA2_A_SAKURA_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_ROLENTO_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Rolento Portrait"), 0x1cd00, 0x1cd60 },
+    { _T("Rolento Portrait"), 0x1cd00, 0x1cd60, indexCPS2_SFA2Portraits, 0x43 },
 };
 
 const sGame_PaletteDataset SFA2_A_ROLENTO_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Rolento Portrait"), 0x1d420, 0x1d480 },
+    { _T("Rolento Portrait"), 0x1d420, 0x1d480, indexCPS2_SFA2Portraits, 0x43 },
 };
 
 const sGame_PaletteDataset SFA2_A_ROLENTO_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Rolento Portrait"), 0x1db40, 0x1dba0 },
+    { _T("Rolento Portrait"), 0x1db40, 0x1dba0, indexCPS2_SFA2Portraits, 0x43 },
 };
 
 const sGame_PaletteDataset SFA2_A_ROLENTO_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Rolento Portrait"), 0x1e260, 0x1e2c0 },
+    { _T("Rolento Portrait"), 0x1e260, 0x1e2c0, indexCPS2_SFA2Portraits, 0x43 },
 };
 
 const sGame_PaletteDataset SFA2_A_ROLENTO_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Rolento Portrait"), 0x1e980, 0x1e9e0 },
+    { _T("Rolento Portrait"), 0x1e980, 0x1e9e0, indexCPS2_SFA2Portraits, 0x43 },
 };
 
 const sGame_PaletteDataset SFA2_A_ROLENTO_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Rolento Portrait"), 0x1f0a0, 0x1f100 },
+    { _T("Rolento Portrait"), 0x1f0a0, 0x1f100, indexCPS2_SFA2Portraits, 0x43 },
 };
 
 const sDescTreeNode SFA2_A_ROLENTO_PORTRAIT_COLLECTION[] =
@@ -2706,32 +2707,32 @@ const sDescTreeNode SFA2_A_ROLENTO_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_DHALSIM_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Dhalsim Portrait"), 0x1cd60, 0x1cdc0 },
+    { _T("Dhalsim Portrait"), 0x1cd60, 0x1cdc0, indexCPS2_SFA2Portraits, 0x25 },
 };
 
 const sGame_PaletteDataset SFA2_A_DHALSIM_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Dhalsim Portrait"), 0x1d480, 0x1d4e0 },
+    { _T("Dhalsim Portrait"), 0x1d480, 0x1d4e0, indexCPS2_SFA2Portraits, 0x25 },
 };
 
 const sGame_PaletteDataset SFA2_A_DHALSIM_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Dhalsim Portrait"), 0x1dba0, 0x1dc00 },
+    { _T("Dhalsim Portrait"), 0x1dba0, 0x1dc00, indexCPS2_SFA2Portraits, 0x25 },
 };
 
 const sGame_PaletteDataset SFA2_A_DHALSIM_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Dhalsim Portrait"), 0x1e2c0, 0x1e320 },
+    { _T("Dhalsim Portrait"), 0x1e2c0, 0x1e320, indexCPS2_SFA2Portraits, 0x25 },
 };
 
 const sGame_PaletteDataset SFA2_A_DHALSIM_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Dhalsim Portrait"), 0x1e9e0, 0x1ea40 },
+    { _T("Dhalsim Portrait"), 0x1e9e0, 0x1ea40, indexCPS2_SFA2Portraits, 0x25 },
 };
 
 const sGame_PaletteDataset SFA2_A_DHALSIM_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Dhalsim Portrait"), 0x1f100, 0x1f160 },
+    { _T("Dhalsim Portrait"), 0x1f100, 0x1f160, indexCPS2_SFA2Portraits, 0x25 },
 };
 
 const sDescTreeNode SFA2_A_DHALSIM_PORTRAIT_COLLECTION[] =
@@ -2746,32 +2747,32 @@ const sDescTreeNode SFA2_A_DHALSIM_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_ZANGIEF_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Zangief Portrait"), 0x1cdc0, 0x1ce20 },
+    { _T("Zangief Portrait"), 0x1cdc0, 0x1ce20, indexCPS2_SFA2Portraits, 0x01 },
 };
 
 const sGame_PaletteDataset SFA2_A_ZANGIEF_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Zangief Portrait"), 0x1d4e0, 0x1d540 },
+    { _T("Zangief Portrait"), 0x1d4e0, 0x1d540, indexCPS2_SFA2Portraits, 0x01 },
 };
 
 const sGame_PaletteDataset SFA2_A_ZANGIEF_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Zangief Portrait"), 0x1dc00, 0x1dc60 },
+    { _T("Zangief Portrait"), 0x1dc00, 0x1dc60, indexCPS2_SFA2Portraits, 0x01 },
 };
 
 const sGame_PaletteDataset SFA2_A_ZANGIEF_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Zangief Portrait"), 0x1e320, 0x1e380 },
+    { _T("Zangief Portrait"), 0x1e320, 0x1e380, indexCPS2_SFA2Portraits, 0x01 },
 };
 
 const sGame_PaletteDataset SFA2_A_ZANGIEF_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Zangief Portrait"), 0x1ea40, 0x1eaa0 },
+    { _T("Zangief Portrait"), 0x1ea40, 0x1eaa0, indexCPS2_SFA2Portraits, 0x01 },
 };
 
 const sGame_PaletteDataset SFA2_A_ZANGIEF_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Zangief Portrait"), 0x1f160, 0x1f1c0 },
+    { _T("Zangief Portrait"), 0x1f160, 0x1f1c0, indexCPS2_SFA2Portraits, 0x01 },
 };
 
 const sDescTreeNode SFA2_A_ZANGIEF_PORTRAIT_COLLECTION[] =
@@ -2786,32 +2787,32 @@ const sDescTreeNode SFA2_A_ZANGIEF_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_GEN_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Gen Portrait"), 0x1ce20, 0x1ce80 },
+    { _T("Gen Portrait"), 0x1ce20, 0x1ce80, indexCPS2_SFA2Portraits, 0x44 },
 };
 
 const sGame_PaletteDataset SFA2_A_GEN_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Gen Portrait"), 0x1d540, 0x1d5a0 },
+    { _T("Gen Portrait"), 0x1d540, 0x1d5a0, indexCPS2_SFA2Portraits, 0x44 },
 };
 
 const sGame_PaletteDataset SFA2_A_GEN_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Gen Portrait"), 0x1dc60, 0x1dcc0 },
+    { _T("Gen Portrait"), 0x1dc60, 0x1dcc0, indexCPS2_SFA2Portraits, 0x44 },
 };
 
 const sGame_PaletteDataset SFA2_A_GEN_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Gen Portrait"), 0x1e380, 0x1e3e0 },
+    { _T("Gen Portrait"), 0x1e380, 0x1e3e0, indexCPS2_SFA2Portraits, 0x44 },
 };
 
 const sGame_PaletteDataset SFA2_A_GEN_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Gen Portrait"), 0x1eaa0, 0x1eb00 },
+    { _T("Gen Portrait"), 0x1eaa0, 0x1eb00, indexCPS2_SFA2Portraits, 0x44 },
 };
 
 const sGame_PaletteDataset SFA2_A_GEN_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Gen Portrait"), 0x1f1c0, 0x1f220 },
+    { _T("Gen Portrait"), 0x1f1c0, 0x1f220, indexCPS2_SFA2Portraits, 0x44 },
 };
 
 const sDescTreeNode SFA2_A_GEN_PORTRAIT_COLLECTION[] =
@@ -2826,32 +2827,32 @@ const sDescTreeNode SFA2_A_GEN_PORTRAIT_COLLECTION[] =
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_PUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li (Original) Portrait"), 0x1ce80, 0x1cee0 },
+    { _T("Chun-Li (Original) Portrait"), 0x1ce80, 0x1cee0, indexCPS2_SFA2Portraits, 0x1c },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_KICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li (Original) Portrait"), 0x1d5a0, 0x1d600 },
+    { _T("Chun-Li (Original) Portrait"), 0x1d5a0, 0x1d600, indexCPS2_SFA2Portraits, 0x1c },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_2PUNCHES_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li (Original) Portrait"), 0x1dcc0, 0x1dd20 },
+    { _T("Chun-Li (Original) Portrait"), 0x1dcc0, 0x1dd20, indexCPS2_SFA2Portraits, 0x1c },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_2KICKS_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li (Original) Portrait"), 0x1e3e0, 0x1e440 },
+    { _T("Chun-Li (Original) Portrait"), 0x1e3e0, 0x1e440, indexCPS2_SFA2Portraits, 0x1c },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li (Original) Portrait"), 0x1eb00, 0x1eb60 },
+    { _T("Chun-Li (Original) Portrait"), 0x1eb00, 0x1eb60, indexCPS2_SFA2Portraits, 0x1c },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li (Original) Portrait"), 0x1f220, 0x1f280 },
+    { _T("Chun-Li (Original) Portrait"), 0x1f220, 0x1f280, indexCPS2_SFA2Portraits, 0x1c },
 };
 
 const sDescTreeNode SFA2_A_CHUNLIORIGINAL_PORTRAIT_COLLECTION[] =
@@ -2890,31 +2891,6 @@ const sDescTreeNode SFA2_A_SHINAKUMA_MOVE_COLLECTION[] =
 {
     { _T("Hidden Boss"), DESC_NODETYPE_TREE, (void*)SFA2_A_SHINAKUMA_MOVE_PALETTES, ARRAYSIZE(SFA2_A_SHINAKUMA_MOVE_PALETTES) },
 };
-
-#ifdef CODEDUP
-const sDescTreeNode SFA2_A_PORTRAIT_COLLECTION[] =
-{
-    { _T("Adon"),            DESC_NODETYPE_TREE, (void*)SFA2_A_ADON_PORTRAIT_PALETTE,          ARRAYSIZE(SFA2_A_ADON_PORTRAIT_PALETTE) },
-    { _T("Akuma"),           DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_PORTRAIT_PALETTE,         ARRAYSIZE(SFA2_A_AKUMA_PORTRAIT_PALETTE) },
-    { _T("Birdie"),          DESC_NODETYPE_TREE, (void*)SFA2_A_BIRDIE_PORTRAIT_PALETTE,        ARRAYSIZE(SFA2_A_BIRDIE_PORTRAIT_PALETTE) },
-    { _T("Charlie"),         DESC_NODETYPE_TREE, (void*)SFA2_A_CHARLIE_PORTRAIT_PALETTE,       ARRAYSIZE(SFA2_A_CHARLIE_PORTRAIT_PALETTE) },
-    { _T("Chun-Li"),         DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLI_PORTRAIT_PALETTE,        ARRAYSIZE(SFA2_A_CHUNLI_PORTRAIT_PALETTE) },
-    { _T("Chun-Li (Original)"), DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLIORIGINAL_PORTRAIT_PALETTE,        ARRAYSIZE(SFA2_A_CHUNLIORIGINAL_PORTRAIT_PALETTE) },
-    { _T("Dan"),             DESC_NODETYPE_TREE, (void*)SFA2_A_DAN_PORTRAIT_PALETTE,           ARRAYSIZE(SFA2_A_DAN_PORTRAIT_PALETTE) },
-    { _T("Dhalsim"),         DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIM_PORTRAIT_PALETTE,       ARRAYSIZE(SFA2_A_DHALSIM_PORTRAIT_PALETTE) },
-    { _T("Gen"),             DESC_NODETYPE_TREE, (void*)SFA2_A_GEN_PORTRAIT_PALETTE,           ARRAYSIZE(SFA2_A_GEN_PORTRAIT_PALETTE) },
-    { _T("Guy"),             DESC_NODETYPE_TREE, (void*)SFA2_A_GUY_PORTRAIT_PALETTE,           ARRAYSIZE(SFA2_A_GUY_PORTRAIT_PALETTE) },
-    { _T("Ken"),             DESC_NODETYPE_TREE, (void*)SFA2_A_KEN_PORTRAIT_PALETTE,           ARRAYSIZE(SFA2_A_KEN_PORTRAIT_PALETTE) },
-    { _T("M. Bison"),        DESC_NODETYPE_TREE, (void*)SFA2_A_MBISON_PORTRAIT_PALETTE,        ARRAYSIZE(SFA2_A_MBISON_PORTRAIT_PALETTE) },
-    { _T("Rolento"),         DESC_NODETYPE_TREE, (void*)SFA2_A_ROLENTO_PORTRAIT_PALETTE,       ARRAYSIZE(SFA2_A_ROLENTO_PORTRAIT_PALETTE) },
-    { _T("Rose"),            DESC_NODETYPE_TREE, (void*)SFA2_A_ROSE_PORTRAIT_PALETTE,          ARRAYSIZE(SFA2_A_ROSE_PORTRAIT_PALETTE) },
-    { _T("Ryu"),             DESC_NODETYPE_TREE, (void*)SFA2_A_RYU_PORTRAIT_PALETTE,           ARRAYSIZE(SFA2_A_RYU_PORTRAIT_PALETTE) },
-    { _T("Sagat"),           DESC_NODETYPE_TREE, (void*)SFA2_A_SAGAT_PORTRAIT_PALETTE,         ARRAYSIZE(SFA2_A_SAGAT_PORTRAIT_PALETTE) },
-    { _T("Sakura"),          DESC_NODETYPE_TREE, (void*)SFA2_A_SAKURA_PORTRAIT_PALETTE,        ARRAYSIZE(SFA2_A_SAKURA_PORTRAIT_PALETTE) },
-    { _T("Sodom"),           DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_PORTRAIT_PALETTE,         ARRAYSIZE(SFA2_A_SODOM_PORTRAIT_PALETTE) },
-    { _T("Zangief"),         DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_PORTRAIT_PALETTE,       ARRAYSIZE(SFA2_A_ZANGIEF_PORTRAIT_PALETTE) },
-};
-#endif
 
 const sDescTreeNode SFA2_A_UNITS_07[SFA2_A_NUM_IND_07] =
 {

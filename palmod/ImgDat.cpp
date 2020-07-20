@@ -156,8 +156,16 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
             nImgMap->insert({ SSF2T_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
             break;
         }
-        case SFA3_A:
         case SFA2_A:
+        {
+#if IMGDAT_DEBUG
+            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), SFA2_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
+#endif
+            nImgMap->insert({ SFA2_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+        case SFA3_A:
         {
 #if IMGDAT_DEBUG
             strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), SFA3_A_IMG_UNITS[nUnitCtr]);

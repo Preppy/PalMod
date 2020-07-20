@@ -68,7 +68,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     m_nTotalInternalUnits = UsePaletteSetFor50() ? JOJOS_A_NUMUNIT_50 : JOJOS_A_NUMUNIT_51;
     m_nExtraUnit = UsePaletteSetFor50() ? JOJOS_A_EXTRALOC_50 : JOJOS_A_EXTRALOC_51;
 
-    const UINT32 nSafeCountFor50 = 476;
+    const UINT32 nSafeCountFor50 = 477;
     const UINT32 nSafeCountFor51 = 1658;
 
     m_nSafeCountForThisRom = UsePaletteSetFor50() ? (nSafeCountFor50 + GetExtraCt(JOJOS_A_EXTRALOC_50)): (nSafeCountFor51 + GetExtraCt(JOJOS_A_EXTRALOC_51));
@@ -916,27 +916,27 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->pPalettePairingInfo)
             {
+                int nXOffs = 0, nYOffs = 0;
+                int nPaletteOneDelta = 0;
+                int nPaletteTwoDelta = 0;
+
                 if (!UsePaletteSetFor50())
                 {
-                    int nXOffs = 0, nYOffs = 0;
-                    int nPaletteOneDelta = 0;
-                    int nPaletteTwoDelta = 0;
-
                     if (((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)) &&
                         ((NodeGet->uUnitId == indexJojos51Jotaro) ||
-                         (NodeGet->uUnitId == indexJojos51Avdol) ||
-                         (NodeGet->uUnitId == indexJojos51Joseph) ||
-                         (NodeGet->uUnitId == indexJojos51Alessi) ||
-                         (NodeGet->uUnitId == indexJojos51Dio) ||
-                         (NodeGet->uUnitId == indexJojos51Devo) ||
-                         (NodeGet->uUnitId == indexJojos51Kakyo) ||
-                         (NodeGet->uUnitId == indexJojos51NewKakyo) ||
-                         (NodeGet->uUnitId == indexJojos51VIce) ||
-                         (NodeGet->uUnitId == indexJojos51Anubis) ||
-                         (NodeGet->uUnitId == indexJojos51Petshop) ||
-                         (NodeGet->uUnitId == indexJojos51Midler) ||
-                         (NodeGet->uUnitId == indexJojos51HolBoingo) ||
-                         (NodeGet->uUnitId == indexJojos51Iggy)))
+                            (NodeGet->uUnitId == indexJojos51Avdol) ||
+                            (NodeGet->uUnitId == indexJojos51Joseph) ||
+                            (NodeGet->uUnitId == indexJojos51Alessi) ||
+                            (NodeGet->uUnitId == indexJojos51Dio) ||
+                            (NodeGet->uUnitId == indexJojos51Devo) ||
+                            (NodeGet->uUnitId == indexJojos51Kakyo) ||
+                            (NodeGet->uUnitId == indexJojos51NewKakyo) ||
+                            (NodeGet->uUnitId == indexJojos51VIce) ||
+                            (NodeGet->uUnitId == indexJojos51Anubis) ||
+                            (NodeGet->uUnitId == indexJojos51Petshop) ||
+                            (NodeGet->uUnitId == indexJojos51Midler) ||
+                            (NodeGet->uUnitId == indexJojos51HolBoingo) ||
+                            (NodeGet->uUnitId == indexJojos51Iggy)))
                     {
                         if (nTargetImgId == indexJojos51Character_SelectWin1) // winning 1
                         {
@@ -972,7 +972,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         }
                     }
                     else if ((NodeGet->uUnitId == indexJojos51Kakyo) ||
-                             (NodeGet->uUnitId == indexJojos51NewKakyo))
+                                (NodeGet->uUnitId == indexJojos51NewKakyo))
                     {
                         // Hieros
                         nPaletteOneDelta = 0;
@@ -1030,6 +1030,61 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                         SetSourcePal(0, NodeGet->uUnitId, nSrcStart + nPaletteOneDelta, nSrcAmt, nNodeIncrement);
                         SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPaletteTwoDelta, nSrcAmt, nNodeIncrement);
+                    }
+                }
+                else // 50 ROM
+                {
+                    nImgUnitId = paletteDataSet->indexImgToUse;
+                    if ((nImgUnitId == indexJojos51Bonus) && (nTargetImgId == 0x28))
+                    {
+                        fUseDefaultPaletteLoad = false;
+                        nPaletteTwoDelta = 1;
+                        int nPaletteThreeDelta = 2;
+                        int nPaletteFourDelta = 3;
+                        int nPaletteFiveDelta = 4;
+
+                        const sGame_PaletteDataset* paletteDataSetOne = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteOneDelta);
+                        const sGame_PaletteDataset* paletteDataSetTwo = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteTwoDelta);
+                        const sGame_PaletteDataset* paletteDataSetThree = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteThreeDelta);
+                        const sGame_PaletteDataset* paletteDataSetFour = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteFourDelta);
+                        const sGame_PaletteDataset* paletteDataSetFive = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteFiveDelta);
+
+                        UINT16 imageOne = paletteDataSetOne->indexOffsetToUse;
+                        UINT16 imageTwo = paletteDataSetTwo->indexOffsetToUse;
+                        UINT16 imageThree = paletteDataSetThree->indexOffsetToUse;
+                        UINT16 imageFour = paletteDataSetFour->indexOffsetToUse;
+                        UINT16 imageFive = paletteDataSetFive->indexOffsetToUse;
+
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSetOne->indexImgToUse, imageOne,
+                                CreateImgTicket(paletteDataSetTwo->indexImgToUse, imageTwo,
+                                    CreateImgTicket(paletteDataSetThree->indexImgToUse, imageThree,
+                                        CreateImgTicket(paletteDataSetFour->indexImgToUse, imageFour,
+                                            CreateImgTicket(paletteDataSetFive->indexImgToUse, imageFive, nullptr, nXOffs, nYOffs))))
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[5] = {
+                            MainDescTree_50.GetDescNode(Node01, Node02, Node03 + nPaletteOneDelta, -1),
+                            MainDescTree_50.GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1),
+                            MainDescTree_50.GetDescNode(Node01, Node02, Node03 + nPaletteThreeDelta, -1),
+                            MainDescTree_50.GetDescNode(Node01, Node02, Node03 + nPaletteFourDelta, -1),
+                            MainDescTree_50.GetDescNode(Node01, Node02, Node03 + nPaletteFiveDelta, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+                        CreateDefPal(JoinedNode[2], 2);
+                        CreateDefPal(JoinedNode[3], 3);
+                        CreateDefPal(JoinedNode[4], 4);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart + nPaletteOneDelta, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPaletteTwoDelta, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPaletteThreeDelta, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(3, NodeGet->uUnitId, nSrcStart + nPaletteFourDelta, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(4, NodeGet->uUnitId, nSrcStart + nPaletteFiveDelta, nSrcAmt, nNodeIncrement);
                     }
                 }
             }

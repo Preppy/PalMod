@@ -454,9 +454,11 @@ BOOL CGameClass::SetLoadDir(TCHAR* szNewDir)
 
 void CGameClass::SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc)
 {
-    if (nIndex >= 4)
+    if (nIndex >= MAX_PAL)
     {
-        OutputDebugString(_T(" CGameClass::SetSourcePal:: ERROR: PalMod only supports four palettes per display.\n"));
+        CString strErr;
+        strErr.Format(_T("CGameClass::SetSourcePal:: ERROR: PalMod only supports %u palettes per display.\n"), MAX_PAL);
+        OutputDebugString(strErr);
         return;
     }
 

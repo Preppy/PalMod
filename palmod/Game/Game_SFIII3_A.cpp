@@ -570,6 +570,25 @@ BOOL CGame_SFIII3_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
 
             break;
         }
+        case 0x0D: //Akuma/Gouki
+        {
+            switch (nExtra)
+            {
+            case 0:
+            {
+                sDescNode* NodeGet[1] = { MainDescTree.GetDescNode(nUnitId, nPalId, 0, 0) };
+
+                CreateDefPal(NodeGet[0], 0);
+                ClearSetImgTicket(CreateImgTicket(nUnitId, 0xf));
+                SetSourcePal(0, nUnitId, nPalId, 1, 1);
+
+                return TRUE;
+            }
+            break;
+            }
+
+            break;
+        }
         default:
         {
             nTargetImgId = nExtra + 2;
@@ -652,15 +671,23 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     }
     else
     {
-        // This handles palettes loaded from the Extras extension file
+        bCreateBasicPal = false;
+
+        CreateDefPal(NodeGet, 0);
+
+        // Only internal units get sprites
+        ClearSetImgTicket(nullptr);
+
+        SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
     }
 
     if (bCreateBasicPal)
     {
         //Create the default palette
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
         CreateDefPal(NodeGet, 0);
+
+        // Only internal units get sprites
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
         SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
     }

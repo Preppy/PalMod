@@ -1,9 +1,9 @@
 #pragma once
 #include "Default.h"
 
-constexpr auto MAX_PAL = 4;
-constexpr auto MAX_SEP = 4;
-constexpr auto MAX_PALETTE_PAGES = 2;
+constexpr auto MAX_PAL = 12;
+constexpr auto MAX_SEP = 12;
+constexpr auto MAX_PALETTE_PAGES = 4;
 
 constexpr auto SORT_HUE = 1;
 constexpr auto SORT_SAT = 2;

@@ -81,7 +81,7 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     //Set game information
     nGameFlag = SFA2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = SFA3_A_NUM_IMG_UNITS;
+    nImgUnitAmt = SFA2_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;
     nFileAmt = 1;
@@ -412,7 +412,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse)
     }
 
     // For development use to speed things up
-    static bool s_fShouldOutputOnce = true;
+    static bool s_fShouldOutputOnce = false;
 
     if (s_fShouldOutputOnce)
     {
@@ -481,25 +481,25 @@ const sSFA2_A_EffectPaletteData SFA2_EffectsPaletteSets[] =
 
 const sSFA2_A_PaletteData SFA2_A_PortraitPalettes[] =
 {
-    { _T("Ryu"),        0x1c7c0 + (0x60 * 0) },
-    { _T("Ken"),        0x1c7c0 + (0x60 * 1) },
-    { _T("Akuma"),      0x1c7c0 + (0x60 * 2) },
-    { _T("Charlie"),    0x1c7c0 + (0x60 * 3) },
-    { _T("Chun-Li"),    0x1c7c0 + (0x60 * 4), },
-    { _T("Adon"),       0x1c7c0 + (0x60 * 5), },
-    { _T("Sodom"),      0x1c7c0 + (0x60 * 6), },
-    { _T("Guy"),        0x1c7c0 + (0x60 * 7), },
-    { _T("Birdie"),     0x1c7c0 + (0x60 * 8), },
-    { _T("Rose"),       0x1c7c0 + (0x60 * 9), },
-    { _T("M.Bison"),    0x1c7c0 + (0x60 * 10), },
-    { _T("Sagat"),      0x1c7c0 + (0x60 * 11), },
-    { _T("Dan"),        0x1c7c0 + (0x60 * 12), },
-    { _T("Sakura"),     0x1c7c0 + (0x60 * 13), },
-    { _T("Rolento"),    0x1c7c0 + (0x60 * 14), },
-    { _T("Dhalsim"),    0x1c7c0 + (0x60 * 15), },
-    { _T("Zangief"),    0x1c7c0 + (0x60 * 16), },
-    { _T("Gen"),        0x1c7c0 + (0x60 * 17), },
-    { _T("Chun-Li (Original)"),   0x1c7c0 + (0x60 * 18) },
+    { _T("Ryu"),        0x1c7c0 + (0x60 *  0), _T("indexCPS2_SFA2Portraits"), indexCPS2_Ryu },
+    { _T("Ken"),        0x1c7c0 + (0x60 *  1), _T("indexCPS2_SFA2Portraits"), indexCPS2_Ken },
+    { _T("Akuma"),      0x1c7c0 + (0x60 *  2), _T("indexCPS2_SFA2Portraits"), indexCPS2_Akuma },
+    { _T("Charlie"),    0x1c7c0 + (0x60 *  3), _T("indexCPS2_SFA2Portraits"), indexCPS2_Charlie },
+    { _T("Chun-Li"),    0x1c7c0 + (0x60 *  4), _T("indexCPS2_SFA2Portraits"), indexCPS2_ChunLi },
+    { _T("Adon"),       0x1c7c0 + (0x60 *  5), _T("indexCPS2_SFA2Portraits"), indexCPS2_Adon },
+    { _T("Sodom"),      0x1c7c0 + (0x60 *  6), _T("indexCPS2_SFA2Portraits"), indexCPS2_Sodom },
+    { _T("Guy"),        0x1c7c0 + (0x60 *  7), _T("indexCPS2_SFA2Portraits"), indexCPS2_Guy },
+    { _T("Birdie"),     0x1c7c0 + (0x60 *  8), _T("indexCPS2_SFA2Portraits"), indexCPS2_Birdie },
+    { _T("Rose"),       0x1c7c0 + (0x60 *  9), _T("indexCPS2_SFA2Portraits"), indexCPS2_Rose },
+    { _T("M.Bison"),    0x1c7c0 + (0x60 * 10), _T("indexCPS2_SFA2Portraits"), indexCPS2_Bison },
+    { _T("Sagat"),      0x1c7c0 + (0x60 * 11), _T("indexCPS2_SFA2Portraits"), indexCPS2_Sagat },
+    { _T("Dan"),        0x1c7c0 + (0x60 * 12), _T("indexCPS2_SFA2Portraits"), indexCPS2_Dan },
+    { _T("Sakura"),     0x1c7c0 + (0x60 * 13), _T("indexCPS2_SFA2Portraits"), indexCPS2_Sakura },
+    { _T("Rolento"),    0x1c7c0 + (0x60 * 14), _T("indexCPS2_SFA2Portraits"), indexCPS2_Rolento },
+    { _T("Dhalsim"),    0x1c7c0 + (0x60 * 15), _T("indexCPS2_SFA2Portraits"), indexCPS2_Dhalsim },
+    { _T("Zangief"),    0x1c7c0 + (0x60 * 16), _T("indexCPS2_SFA2Portraits"), indexCPS2_Zangief },
+    { _T("Gen"),        0x1c7c0 + (0x60 * 17), _T("indexCPS2_SFA2Portraits"), indexCPS2_Gen },
+    { _T("Chun-Li (Original)"),   0x1c7c0 + (0x60 * 18), _T("indexCPS2_SFA2Portraits"), indexCPS2_ChunLi + 1 },
 };
 
 const LPCTSTR SFA2_ColorOptionNames[] =
@@ -671,7 +671,8 @@ void CGame_SFA2_A::DumpPaletteHeaders()
 
             UINT32 nCurrentOffset = SFA2_A_PortraitPalettes[nCharIndex].nROMOffset + (nColorIndex * SFA2_PORTRAIT_SET_LENGTH);
 
-            strOutput.Format(_T("    { _T(\"%s Portrait\"), 0x%x, 0x%x },\r\n"), SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName, nCurrentOffset, nCurrentOffset + SFA2_PORTRAIT_LENGTH);
+            strOutput.Format(_T("    { _T(\"%s Portrait\"), 0x%x, 0x%x, %s, 0x%02x },\r\n"), SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName, nCurrentOffset, nCurrentOffset + SFA2_PORTRAIT_LENGTH,
+                                                                                             SFA2_A_PortraitPalettes[nCharIndex].pszImageSet, SFA2_A_PortraitPalettes[nCharIndex].nImageSetIndex);
             OutputDebugString(strOutput);
 
             OutputDebugString(_T("};\r\n\r\n"));
