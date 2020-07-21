@@ -98,7 +98,9 @@ BOOL CPalGroup::AddSep(int nIndex, LPCTSTR szDesc, int nStart, int nAmt)
 
     sPalSep* NewSep = new sPalSep;
 
-    _stprintf(NewSep->szDesc, szDesc);
+    _sntprintf(NewSep->szDesc, ARRAYSIZE(NewSep->szDesc), szDesc);
+    NewSep->szDesc[ARRAYSIZE(NewSep->szDesc) - 1] = 0;
+
     NewSep->nStart = nStart;
     NewSep->nAmt = nAmt;
 

@@ -510,6 +510,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
                     _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    ChildNode->szDesc[ARRAYSIZE(ChildNode->szDesc) - 1] = 0;
 
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;

@@ -178,6 +178,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                         //_sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s %s"), DEF_BUTTONLABEL6_MVC2[iButtonCtr], CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
                         // We can skip the button label since the second combo box already has that information
                         _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s"), CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
+                        ChildNode->szDesc[ARRAYSIZE(ChildNode->szDesc) - 1] = 0;
                         bSetInfo = true;
                         break;
                     }
@@ -275,6 +276,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                             if (CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].nCharacterIndex == nCurrentExtraValue)
                             {
                                 _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%02X: %s"), nCurrentExtraValue, CurrentMoveDescriptionSet.pMoveDescriptions[nDescriptionLookup].szMoveName);
+                                ChildNode->szDesc[ARRAYSIZE(ChildNode->szDesc) - 1] = 0;
                                 bSetInfo = true;
                                 break;
                             }
