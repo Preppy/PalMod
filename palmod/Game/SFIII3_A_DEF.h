@@ -81,7 +81,7 @@ const stExtraDef SFIII3_A_EXTRA[] =
     { 0x0C, _T("Morph"), 0x00706680, 0x80 },
 
     // Akuma/Gouki
-    { 0x0D, _T("Shun Goku Satsu KO Screen"), 0x706b80, 16 * 2 },
+    { 0x0D, _T("Shun Goku Satsu KO Screen"), 0x706b80, 16 * 2 * 4 },
 
     //{ SFIII3_A_EXTRALOC, _T("Check"), 0x00706580, 0x80 },
     

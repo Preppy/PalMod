@@ -576,15 +576,9 @@ BOOL CGame_SFIII3_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
             {
             case 0:
             {
-                sDescNode* NodeGet[1] = { MainDescTree.GetDescNode(nUnitId, nPalId, 0, 0) };
-
-                CreateDefPal(NodeGet[0], 0);
-                ClearSetImgTicket(CreateImgTicket(nUnitId, 0xf));
-                SetSourcePal(0, nUnitId, nPalId, 1, 1);
-
-                return TRUE;
+                nTargetImgId = 0xf;
+                break;
             }
-            break;
             }
 
             break;
