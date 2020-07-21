@@ -381,7 +381,8 @@ void CPalModDlg::OnFileOpen()
         { Garou_S, _T("Garou for Steam (p1.bin)|p1.bin|"), INVALID_UNIT_VALUE },
         { JOJOS_A, _T("Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|"), INVALID_UNIT_VALUE },
         { KOF98_A, _T("KOF98 (242-p2.sp2)|*.sp2|"), INVALID_UNIT_VALUE },
-        { KOF02_A, _T("KOF02 (265-p2.sp2)|*.sp2|"), INVALID_UNIT_VALUE },
+        // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
+        { KOF02_A, _T("KOF02 (265-p2.sp2 or 265.p2.bin)|*p2*|"), INVALID_UNIT_VALUE },
         { KOF02UM_S, _T("KOF02UM (pal_a.bin)|*.bin|"), INVALID_UNIT_VALUE },
         { MSH_A, _T("MSH: Characters (*.05), Portraits (*.06b)|*.05;*.06b|"), INVALID_UNIT_VALUE },
         { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },
