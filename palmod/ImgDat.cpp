@@ -115,6 +115,8 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
     Garou_S,
     KOF02_A,
     SFA2_A,
+    SFIII3_A_DIR,
+    JOJOS_A_DIR,
     */
     for (UINT16 nUnitCtr = 0; nUnitCtr < nCurGameUnitAmt; nUnitCtr++)
     {
@@ -131,6 +133,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
             break;
         }
         case SFIII3_A:
+        case SFIII3_A_DIR:
         {
 #if IMGDAT_DEBUG
             strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), SFIII3_A_IMG_UNITS[nUnitCtr]);
@@ -202,6 +205,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
             break;
         }
         case JOJOS_A:
+        case JOJOS_A_DIR:
         {
 #if IMGDAT_DEBUG
             strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), JOJOS_A_IMG_UNITS[nUnitCtr]);

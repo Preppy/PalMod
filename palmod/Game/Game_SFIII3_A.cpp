@@ -4,6 +4,8 @@
 #include "..\ExtraFile.h"
 #include "..\PalMod.h"
 
+#define SFIII3_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+
 stExtraDef* CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM = NULL;
 
 int CGame_SFIII3_A::rgExtraCountAll[SFIII3_A_NUMUNIT + 1] = { -1 };
@@ -172,6 +174,10 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
+    CString strMsg;
+    strMsg.Format(_T("CGame_SFIII3_A::InitDescTree: Building desc tree for SFIII3_A...\n"));
+    OutputDebugString(strMsg);
+
     //Go through each character
     for (int iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
@@ -203,6 +209,11 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nMainChildAmt;
 
+#if SFIII3_A_DEBUG
+            strMsg.Format(_T("Unit: \"%s\", %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
+            OutputDebugString(strMsg);
+#endif
+
             //Set each button data
             for (int iButtonCtr = 0; iButtonCtr < nButtonAmt; iButtonCtr++)
             {
@@ -216,6 +227,11 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
                 ButtonNode->uChildAmt = 2; //Extra / Portrait
 
                 ButtonNode->ChildNodes = (sDescTreeNode*)new sDescNode[2];
+
+#if SFIII3_A_DEBUG
+                strMsg.Format(_T("\t\"%s\" Collection: \"%s\", %u of %u, %u children\n"), UnitNode->szDesc, ButtonNode->szDesc, iButtonCtr + 1, UnitNode->uChildAmt, ButtonNode->uChildAmt);
+                OutputDebugString(strMsg);
+#endif
 
                 //Set each button's extra nodes
                 for (int nBasicCtr = 0; nBasicCtr < 2; nBasicCtr++)
@@ -395,7 +411,7 @@ void CGame_SFIII3_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
 
     if (!bUseExtra)
     {
-        if (nPalId >= 0 && nPalId < nBasicPos) //Basic palettes
+        if ((nPalId >= 0) && (nPalId < nBasicPos)) //Basic palettes
         {
             nOffset = (nUnitId * 0x80 * 7) + (nPalId * 0x80) + 0x700600;
 
@@ -440,7 +456,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        UINT16 nPalAmt = GetPalCt(nUnitCtr); //Fix later for extras
+        UINT16 nPalAmt = GetPalCt(nUnitCtr);
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 

@@ -103,6 +103,9 @@
     <Filter Include="Game\SFA2_A">
       <UniqueIdentifier>{7a9a83c1-418d-40d6-a3ea-10a5cb212d1d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SFIII3_A_DIR">
+      <UniqueIdentifier>{074d6beb-52e5-4e99-9611-61003896b387}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -257,6 +260,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SFA2_A.cpp">
       <Filter>Game\SFA2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp">
+      <Filter>Game\SFIII3_A_DIR</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -469,6 +475,9 @@
     </ClInclude>
     <ClInclude Include="Game\SFA2_A_DEF.h">
       <Filter>Game\SFA2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII3_A_DIR.h">
+      <Filter>Game\SFIII3_A_DIR</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

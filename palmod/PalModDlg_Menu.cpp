@@ -42,6 +42,32 @@ void CPalModDlg::OnLdsfiii3dcall()
     }
 }
 
+void CPalModDlg::OnLDSFIII3ArcadeAll()
+{
+    if (VerifyMsg(VM_FILECHANGE))
+    {
+        CString szGet;
+
+        if (SetLoadDir(&szGet))
+        {
+            LoadGameDir(SFIII3_A_DIR, szGet.GetBuffer());
+        }
+    }
+}
+
+void CPalModDlg::OnLDJOJOSAll()
+{
+    if (VerifyMsg(VM_FILECHANGE))
+    {
+        CString szGet;
+
+        if (SetLoadDir(&szGet))
+        {
+            LoadGameDir(JOJOS_A_DIR, szGet.GetBuffer());
+        }
+    }
+}
+
 void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 {
     CDialog::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);

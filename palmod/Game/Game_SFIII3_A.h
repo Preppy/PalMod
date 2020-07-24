@@ -14,7 +14,7 @@
 
 class CGame_SFIII3_A : public CGameClass
 {
-private:
+public:
     //Used for image selection
     int nTargetImgId = 0;
     int nNormalPalAmt = 0;
@@ -39,7 +39,7 @@ private:
     static UINT32 m_nConfirmedROMSize;
 
 public:
-    CGame_SFIII3_A(UINT32 nConfirmedROMSize);
+    CGame_SFIII3_A(UINT32 nConfirmedROMSize = -1);
     ~CGame_SFIII3_A(void);
 
     //Static functions / variables

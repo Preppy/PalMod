@@ -47,7 +47,7 @@ BOOL CAboutDlg::OnInitDialog()
 
     GetDlgItem(IDC_ABOUTNAME)->SetWindowText(strAppName);
 
-    return TRUE;  // return TRUE  unless you set the focus to a control
+    return TRUE;  // return TRUE unless you set the focus to a control
 }
 
 static UINT BASED_CODE indicators[] =
@@ -164,6 +164,8 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_TOOLS_BLINK, &CPalModDlg::OnBnBlink)
     ON_WM_GETMINMAXINFO()
     ON_COMMAND(ID_LDSFIII3DCALL, &CPalModDlg::OnLdsfiii3dcall)
+    ON_COMMAND(ID_LDSFIII3ARCADEALL, &CPalModDlg::OnLDSFIII3ArcadeAll)
+    ON_COMMAND(ID_LDJOJOSALL, &CPalModDlg::OnLDJOJOSAll)
 END_MESSAGE_MAP()
 
 BOOL CPalModDlg::OnInitDialog()

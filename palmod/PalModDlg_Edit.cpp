@@ -57,8 +57,10 @@ void CPalModDlg::OnEditCopy()
         case MVC2_P:
             uCopyFlag1 = 2 + k_nASCIICharacterOffset;
             break;
-        case SFIII3_A:
         case JOJOS_A:
+        case JOJOS_A_DIR:
+        case SFIII3_A:
+        case SFIII3_A_DIR:
             uCopyFlag1 = 1 + k_nASCIICharacterOffset;
             break;
         default:

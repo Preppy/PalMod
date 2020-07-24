@@ -327,6 +327,8 @@ BEGIN
             MENUITEM "MVC2 (DC)(USA)",              ID_LDMVC2DCUSA
             MENUITEM "MVC2 (PS2)(*)",               ID_LDMVC2PS2USA
             MENUITEM "SFIII3 (DC)(*)",              ID_LDSFIII3DCALL
+            MENUITEM "SFIII3 (Arcade)(*)",          ID_LDSFIII3ARCADEALL
+//            MENUITEM "Jojo's (Arcade)(*)",          ID_LDJOJOSALL
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
         MENUITEM SEPARATOR

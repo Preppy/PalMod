@@ -34,6 +34,8 @@ enum SupportedGamesList
     Garou_S,
     KOF02_A,
     SFA2_A,
+    SFIII3_A_DIR,
+    JOJOS_A_DIR,
     NUM_GAMES // This needs to be last
 };
 
@@ -69,6 +71,8 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][32] =
    _T("Garou: MotW (Steam)"),
    _T("KOF: 02 (Arcade)"),
    _T("SFA2 (Arcade)"),
+   _T("SFIII3 (Arcade Rerip)"),
+   _T("Jojo's (Arcade Rerip)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;

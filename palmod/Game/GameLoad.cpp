@@ -7,6 +7,7 @@
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
 #include "Game_SFIII3_A.h"
+#include "Game_SFIII3_A_DIR.h"
 #include "Game_SSF2T_A.h"
 #include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
@@ -90,7 +91,16 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     break;
+    case SFIII3_A_DIR:
+    {
+        GetRuleCtr = &CGame_SFIII3_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_SFIII3_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_SFIII3_A_DIR::GetRule;
+        GetNextRule = &CGame_SFIII3_A_DIR::GetNextRule;
 
+        return TRUE;
+    }
+    break;    
     case SFIII3_D:
     {
         GetRuleCtr = &CGame_SFIII3_D::GetRuleCtr;
@@ -262,6 +272,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SFIII3_A:
     {
         return new CGame_SFIII3_A(nConfirmedROMSize);
+    }
+    case SFIII3_A_DIR:
+    {
+        return new CGame_SFIII3_A_DIR();
     }
     case SFIII3_D:
     {
@@ -562,7 +576,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     {
         for (int nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
         {
-            if (rgChanged[nFileCtr])
+            if ((rgChanged[nFileCtr]) || (CurrGame->GetGameFlag() == SFIII3_A_DIR))
             {
                 nSaveLoadCount++;
 
