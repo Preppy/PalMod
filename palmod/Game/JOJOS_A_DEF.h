@@ -38,6 +38,7 @@ const TCHAR JOJOS_A_UNITDESC_51[][32] =
     _T("N'Doul and Geb"), // JOJOS_A_CHARACTER_COLLECTION_NDOUL
     _T("Boss Ice"), // JOJOS_A_CHARACTER_COLLECTION_BICE
     _T("Death 13"), // JOJOS_A_CHARACTER_COLLECTION_DEATH13
+    _T("Unimplemented: Gray Fly"), // JOJOS_A_CHARACTER_COLLECTION_GRAYFLY
     _T("Timestop"), // JOJOS_TIMESTOP_COLLECTION
     _T("Bonus"), // JOJOS_A_BONUS_COLLECTION
 };
@@ -2961,6 +2962,20 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_DEATH13_Start[] =
     { _T("Death 13 Start"), 0x0391a80, 0x0391b00, indexJojos51Death13 },
 };
 
+const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_GRAYFLY[] =
+{
+    { _T("Gray Fly 1"), 0x0346A80, 0x0346B00 },
+    { _T("Gray Fly 2"), 0x035AF80, 0x035B000 },
+    { _T("Gray Fly 3"), 0x036F480, 0x036F500 },
+    { _T("Gray Fly 4"), 0x0383980, 0x0383A00 },
+    { _T("Gray Fly 5"), 0x0397E80, 0x0397F00 },
+    { _T("Gray Fly 6"), 0x03AC380, 0x03AC400 },
+    { _T("Gray Fly 7"), 0x03C0880, 0x03C0900 },
+    { _T("Gray Fly 8"), 0x03D4D80, 0x03D4E00 },
+    { _T("Gray Fly 9"), 0x03E9280, 0x03E9300 },
+    { _T("Gray Fly 10"), 0x03FD780, 0x03FD800 },
+};
+
 const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_JOTARO[] =
 {
     { _T("A"), DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_JOTARO_A, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_JOTARO_A) },
@@ -3188,6 +3203,11 @@ const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_DEATH13[] =
     { _T("Start"), DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_DEATH13_Start, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_DEATH13_Start) },
 };
 
+const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_GRAYFLY[] =
+{
+    { _T("Palettes"), DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_NODE_GRAYFLY, ARRAYSIZE(JOJOS_A_CHARACTER_NODE_GRAYFLY) },
+};
+
 #pragma endregion Jojo_Characters
 
 #pragma region Bonus
@@ -3204,21 +3224,21 @@ const sGame_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
     { _T("Extra characters page arrows"), 0x0310500, 0x0310540 },
     { _T("Vs screen Background"), 0x030d000, 0x030d080 },
     { _T("Win screen Background"), 0x0310200, 0x0310280 },
-    { _T("D'Arby"), 0x0311a00, 0x0311a80 },
-    { _T("Darby Chips"), 0x0311d00, 0x0311d80 },
-    { _T("Osiris Arms"), 0x0311b80, 0x0311c00 },
-    { _T("Osiris Body"), 0x0311b00, 0x0311b80 },
-    { _T("Game Over Text"), 0x0311a80, 0x0311b00 },
+    { _T("D'Arby"), 0x0311a00, 0x0311a80, indexJojos51Bonus, 0x2C },
+    { _T("Darby Chips"), 0x0311d00, 0x0311d80, indexJojos51Bonus, 0x2D },
+    { _T("Osiris Arms"), 0x0311b80, 0x0311c00, indexJojos51Bonus, 0x2E },
+    { _T("Osiris Body"), 0x0311b00, 0x0311b80, indexJojos51Bonus, 0x2F },
+    { _T("Game Over Text"), 0x0311a80, 0x0311b00, indexJojos51Bonus, 0x30 },
 };
 
 const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
 {
-    { _T("Capcom Presents (text under intro logo)"), 0x030b040, 0x030b060 },
-    { _T("Capcom logo"),            0x030b080, 0x030b0a0 },
-    { _T("Capcom Backgrounds"),     0x030C300, 0x030C340 },
-    { _T("Hol Horse intro Body"),   0x030c600, 0x030c680 },
-    { _T("Hol Horse intro Hand"),   0x030c580, 0x030c600 },
-    { _T("Hol Horse shoot scene"),  0x030C400, 0x030C480 },
+    { _T("Capcom Presents (text under intro logo)"), 0x030b040, 0x030b060, indexJojos51Bonus, 0x37 },
+    { _T("Capcom logo"),            0x030b080, 0x030b0a0, indexJojos51Bonus, 0x36 },
+    { _T("Capcom Backgrounds"),     0x030C300, 0x030C340, indexJojos51Bonus, 0x35 },
+    { _T("Hol Horse intro Body"),   0x030c600, 0x030c680, indexJojos51Bonus, 0x3C },
+    { _T("Hol Horse intro Hand"),   0x030c580, 0x030c600, indexJojos51Bonus, 0x3D },
+    { _T("Hol Horse shoot scene"),  0x030C400, 0x030C480, indexJojos51Bonus, 0x3E },
 #ifdef USE_LARGE_PALETTES
     { _T("Hol Horse intro background"), 0x030bb00, 0x030be00 },
 #else
@@ -3232,8 +3252,8 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { _T("Hol Horse intro ender background (2/3)"), 0x030c000, 0x030c200 },
     { _T("Hol Horse intro ender background (3/3)"), 0x030c200,  0x030c300 },
 #endif
-    { _T("Vanilla Ice intro"),      0x030ba00, 0x030ba80 },
-    { _T("Cream intro"),            0x030ba80, 0x030bb00 },
+    { _T("Vanilla Ice intro"),      0x030ba00, 0x030ba80, indexJojos51Bonus, 0x0E },
+    { _T("Cream intro"),            0x030ba80, 0x030bb00, indexJojos51Bonus, 0x3B },
 #ifdef USE_LARGE_PALETTES
     { _T("Vice intro background"), 0x030b100, 0x030b780 },
 #else
@@ -3242,27 +3262,27 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { _T("Vice intro background (3/4)"), 0x030b500, 0x030b700 },
     { _T("Vice intro background (4/4)"), 0x030b700, 0x030b780 },
 #endif
-    { _T("Vice Intro Ender"),       0x030c380, 0x030c400 },
+    { _T("Vice Intro Ender"),       0x030c380, 0x030c400, indexJojos51Bonus, 0x0F },
     { _T("Intro Manga Panels (1/5)"), 0x030b780, 0x030b800, indexJojos51Bonus, 0x09 },
-    { _T("Intro Manga Panels (2/5)"), 0x030b800, 0x030b880, indexJojos51Bonus, 0x09 },
-    { _T("Intro Manga Panels (3/5)"), 0x030b880, 0x030b900, indexJojos51Bonus, 0x09 },
-    { _T("Intro Manga Panels (4/5)"), 0x030b900, 0x030b980, indexJojos51Bonus, 0x09 },
-    { _T("Intro Manga Panels (5/5)"), 0x030b980, 0x030ba00, indexJojos51Bonus, 0x09 },
-    { _T("Title Screen DIO"),       0x030c500, 0x030c580 },
-    { _T("Title Screen DIO Fade 1"), 0x030C780, 0x030C800 },
-    { _T("Title Screen DIO Fade 2"), 0x030C800, 0x030C880 },
-    { _T("Title Screen DIO Fade 3"), 0x030C880, 0x030C900 },
-    { _T("Title Screen DIO Manga"), 0x030c900, 0x030c980 },
-    { _T("Title Screen Jotaro"),    0x030c480, 0x030c500 },
-    { _T("Title Screen Jotaro Fade 1"), 0x030C980, 0x030CA00 },
-    { _T("Title Screen Jotaro Fade 2"), 0x030CA00, 0x030CA80 },
-    { _T("Title Screen Jotaro Fade 3"), 0x030CA80, 0x030CB00 },
-    { _T("Title Screen Jotaro Manga"), 0x030cb00, 0x030cb80 },
-    { _T("Title Screen Logo"),      0x030c680, 0x030c780 },
-    // joined by request { _T("Title Screen Logo Ribbon"), 0x030c700, 0x030c780 },
-    { _T("English Title"), 0x030CB80, 0x030CC00 },
-    { _T("Title Screen Background"), 0x030b0a0, 0x030b0b0 },
-    { _T("World Map"),              0x0313780, 0x0313800 },
+    { _T("Intro Manga Panels (2/5)"), 0x030b800, 0x030b880, indexJojos51Bonus, 0x0A },
+    { _T("Intro Manga Panels (3/5)"), 0x030b880, 0x030b900, indexJojos51Bonus, 0x0B },
+    { _T("Intro Manga Panels (4/5)"), 0x030b900, 0x030b980, indexJojos51Bonus, 0x0C },
+    { _T("Intro Manga Panels (5/5)"), 0x030b980, 0x030ba00, indexJojos51Bonus, 0x0D },
+    { _T("Title Screen DIO"),       0x030c500, 0x030c580, indexJojos51Bonus, 0x3A },
+    { _T("Title Screen DIO Fade 1"), 0x030C780, 0x030C800, indexJojos51Bonus, 0x3A },
+    { _T("Title Screen DIO Fade 2"), 0x030C800, 0x030C880, indexJojos51Bonus, 0x3A },
+    { _T("Title Screen DIO Fade 3"), 0x030C880, 0x030C900, indexJojos51Bonus, 0x3A },
+    { _T("Title Screen DIO Manga"), 0x030c900, 0x030c980, indexJojos51Bonus, 0x3A },
+    { _T("Title Screen Jotaro"),    0x030c480, 0x030c500, indexJojos51Bonus, 0x39 },
+    { _T("Title Screen Jotaro Fade 1"), 0x030C980, 0x030CA00, indexJojos51Bonus, 0x39 },
+    { _T("Title Screen Jotaro Fade 2"), 0x030CA00, 0x030CA80, indexJojos51Bonus, 0x39 },
+    { _T("Title Screen Jotaro Fade 3"), 0x030CA80, 0x030CB00, indexJojos51Bonus, 0x39 },
+    { _T("Title Screen Jotaro Manga"), 0x030cb00, 0x030cb80, indexJojos51Bonus, 0x39 },
+    { _T("Title Screen Logo"),      0x030c680, 0x030c780, indexJojos51Bonus, 0x32  },
+     // joined above { _T("Title Screen Logo Ribbon"), 0x030c700, 0x030c780, indexJojos51Bonus, 0x33 },
+    { _T("English Title"), 0x030CB80, 0x030CC00, indexJojos51Bonus, 0x34 },
+    { _T("Title Screen Background"), 0x030b0a0, 0x030b0b0, indexJojos51Bonus, 0x31 },
+    { _T("World Map"),              0x0313780, 0x0313800, indexJojos51Bonus, 0x38 },
 };
 
 const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
@@ -3809,6 +3829,7 @@ const sDescTreeNode JOJOS_UNITS_51[ARRAYSIZE(JOJOS_A_UNITDESC_51)] =
     { _T("N'Doul and Geb"), DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_NDOUL, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_NDOUL) },
     { _T("Boss Ice"), DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_BICE, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_BICE) },
     { _T("Death 13"), DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_DEATH13, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_DEATH13) },
+    { _T("Unimplemented: Gray Fly"), DESC_NODETYPE_TREE, (void*)JOJOS_A_CHARACTER_COLLECTION_GRAYFLY, ARRAYSIZE(JOJOS_A_CHARACTER_COLLECTION_GRAYFLY) },
     { _T("Timestop"), DESC_NODETYPE_TREE, (void*)JOJOS_TIMESTOP_COLLECTION, ARRAYSIZE(JOJOS_TIMESTOP_COLLECTION) },
     { _T("Bonus"), DESC_NODETYPE_TREE,    (void*)JOJOS_A_BONUS_COLLECTION, ARRAYSIZE(JOJOS_A_BONUS_COLLECTION) },
 };

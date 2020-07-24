@@ -333,7 +333,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if KOF02UM_S_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+            strMsg.Format(_T(";Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
@@ -355,7 +355,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if KOF02UM_S_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(_T(";\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -373,7 +373,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
                     nTotalPaletteCount++;
 
 #if KOF02UM_S_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(_T(";\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
@@ -387,6 +387,10 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
                         strMsg.Format(_T(" no image available.\n"));
                     }
                     OutputDebugString(strMsg);
+
+                    strMsg.Format(_T("%s :: %s :: %s\n0x%X\n0x%X\n\n"), UnitNode->szDesc, CollectionNode->szDesc, ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
+                    OutputDebugString(strMsg);
+
 #endif
                 }
             }
@@ -401,7 +405,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
             UnitNode->uChildAmt = 1;
 
 #if KOF02UM_S_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(_T(";Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }

@@ -152,10 +152,10 @@ const sGame_PaletteDataset KOF02UM_S_JOE_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset KOF02UM_S_KIM_PALETTES_PORTRAITS[] =
 {
-    { _T("Kim A Portrait"), 0x53f00, 0x53f20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
-    { _T("Kim B Portrait"), 0x53f20, 0x53f40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
-    { _T("Kim C Portrait"), 0x53f40, 0x53f60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
-    { _T("Kim D Portrait"), 0x53f60, 0x53f80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
+    { _T("Kim A Portrait"), 0x53f00, 0x53f20, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
+    { _T("Kim B Portrait"), 0x53f20, 0x53f40, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
+    { _T("Kim C Portrait"), 0x53f40, 0x53f60, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
+    { _T("Kim D Portrait"), 0x53f60, 0x53f80, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CHANG_PALETTES_PORTRAITS[] =
@@ -184,10 +184,10 @@ const sGame_PaletteDataset KOF02UM_S_ATHENA_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset KOF02UM_S_KENSOU_PALETTES_PORTRAITS[] =
 {
-    { _T("Kensou A Portrait"), 0x54300, 0x54320, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
-    { _T("Kensou B Portrait"), 0x54320, 0x54340, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
-    { _T("Kensou C Portrait"), 0x54340, 0x54360, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
-    { _T("Kensou D Portrait"), 0x54360, 0x54380, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
+    { _T("Kensou A Portrait"), 0x54300, 0x54320, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
+    { _T("Kensou B Portrait"), 0x54320, 0x54340, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
+    { _T("Kensou C Portrait"), 0x54340, 0x54360, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
+    { _T("Kensou D Portrait"), 0x54360, 0x54380, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kim },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CHIN_PALETTES_PORTRAITS[] =
@@ -392,10 +392,10 @@ const sGame_PaletteDataset KOF02UM_S_RAMON_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset KOF02UM_S_KULA_PALETTES_PORTRAITS[] =
 {
-    { _T("Kula A Portrait"), 0x55d00, 0x55d20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
-    { _T("Kula B Portrait"), 0x55d20, 0x55d40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
-    { _T("Kula C Portrait"), 0x55d40, 0x55d60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
-    { _T("Kula D Portrait"), 0x55d60, 0x55d80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
+    { _T("Kula A Portrait"), 0x55d00, 0x55d20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
+    { _T("Kula B Portrait"), 0x55d20, 0x55d40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
+    { _T("Kula C Portrait"), 0x55d40, 0x55d60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
+    { _T("Kula D Portrait"), 0x55d60, 0x55d80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
 };
 
 const sGame_PaletteDataset KOF02UM_S_NAMELESS_PALETTES_PORTRAITS[] =
@@ -424,10 +424,10 @@ const sGame_PaletteDataset KOF02UM_S_OMEGARUGAL_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset KOF02UM_S_KUSANAGI_PALETTES_PORTRAITS[] =
 {
-    { _T("Kusanagi A Portrait"), 0x56100, 0x56120, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
-    { _T("Kusanagi B Portrait"), 0x56120, 0x56140, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
-    { _T("Kusanagi C Portrait"), 0x56140, 0x56160, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
-    { _T("Kusanagi D Potrait"), 0x56160, 0x56180, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kusanagi },
+    { _T("Kusanagi A Portrait"), 0x56100, 0x56120, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
+    { _T("Kusanagi B Portrait"), 0x56120, 0x56140, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
+    { _T("Kusanagi C Portrait"), 0x56140, 0x56160, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
+    { _T("Kusanagi D Potrait"), 0x56160, 0x56180, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
 };
 
 const sGame_PaletteDataset KOF02UM_S_SHINGO_PALETTES_PORTRAITS[] =
@@ -440,10 +440,10 @@ const sGame_PaletteDataset KOF02UM_S_SHINGO_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset KOF02UM_S_KING_PALETTES_PORTRAITS[] =
 {
-    { _T("King A Portrait"), 0x56300, 0x56320, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
-    { _T("King B Portrait"), 0x56320, 0x56340, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
-    { _T("King C Portrait"), 0x56340, 0x56360, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
-    { _T("King D Portrait"), 0x56360, 0x56380, indexKOFSprites_02UMExtras, indexKOF02UM_S_King },
+    { _T("King A Portrait"), 0x56300, 0x56320, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
+    { _T("King B Portrait"), 0x56320, 0x56340, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
+    { _T("King C Portrait"), 0x56340, 0x56360, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
+    { _T("King D Portrait"), 0x56360, 0x56380, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
 };
 
 const sGame_PaletteDataset KOF02UM_S_XIANGFEI_PALETTES_PORTRAITS[] =
@@ -520,10 +520,10 @@ const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset KOF02UM_S_KASUMI_PALETTES_PORTRAITS[] =
 {
-    { _T("Kasumi A Portrait"), 0x56d00, 0x56d20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
-    { _T("Kasumi B Portrait"), 0x56d20, 0x56d40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
-    { _T("Kasumi C Portrait"), 0x56d40, 0x56d60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
-    { _T("Kasumi D Portrait"), 0x56d60, 0x56d80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kasumi },
+    { _T("Kasumi A Portrait"), 0x56d00, 0x56d20, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
+    { _T("Kasumi B Portrait"), 0x56d20, 0x56d40, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
+    { _T("Kasumi C Portrait"), 0x56d40, 0x56d60, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
+    { _T("Kasumi D Portrait"), 0x56d60, 0x56d80, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kensou },
 };
 
 const sGame_PaletteDataset KOF02UM_S_GEESE_PALETTES_PORTRAITS[] =
@@ -576,10 +576,10 @@ const sGame_PaletteDataset KOF02UM_S_GOENITZ_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset KOF02UM_S_KRIZALID_PALETTES_PORTRAITS[] =
 {
-    { _T("Krizalid A Portrait"), 0x57400, 0x57420, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
-    { _T("Krizalid B Portrait"), 0x57420, 0x57440, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
-    { _T("Krizalid C Portrait"), 0x57440, 0x57460, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
-    { _T("Krizalid D Portrait"), 0x57460, 0x57480, indexKOFSprites_02UMExtras, indexKOF02UM_S_Krizalid },
+    { _T("Krizalid A Portrait"), 0x57400, 0x57420, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
+    { _T("Krizalid B Portrait"), 0x57420, 0x57440, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
+    { _T("Krizalid C Portrait"), 0x57440, 0x57460, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
+    { _T("Krizalid D Portrait"), 0x57460, 0x57480, indexKOFSprites_02UMExtras, indexKOF02UM_S_Kula },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CLONEZERO_PALETTES_PORTRAITS[] =

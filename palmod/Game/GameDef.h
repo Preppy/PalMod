@@ -654,7 +654,7 @@ enum JOJOS_51_CHARACTERS
     indexJojos51Bonus,
     indexJojos51Stages,
     indexJojos50HUDPortraits, // 0x1C
-
+    indexJojos51GrayFly,
 };
 
 enum JOJOS_51_CHARACTER_PALETTES

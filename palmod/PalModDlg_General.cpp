@@ -191,17 +191,14 @@ void CPalModDlg::PostPalSel()
     {
         CString strInformation;
         // Friendly name would be kind of nice.
-        if ((CurrTicket->nUnitId == 0xFFFF) || (CurrTicket->nUnitId == 0xFFFFFFFF))
+        if ((CurrTicket->nUnitId == 0xFFFF) || (CurrTicket->nUnitId == 0xFFFFFFFF) ||
+            (CurrTicket->nImgId == 0xFFFF) || (CurrTicket->nImgId == 0xFFFFFFFF))
         {
-            strInformation.Format(_T("Preview: unit (undefined), image id %u"), CurrTicket->nImgId);
-        }
-        else if ((CurrTicket->nImgId == 0xFFFF) || (CurrTicket->nImgId == 0xFFFFFFFF))
-        {
-            strInformation.Format(_T("Preview: 0x%02x, image id (undefined)"), CurrTicket->nUnitId);
+            strInformation.Format(_T("Preview: (no internal preview available)"), CurrTicket->nImgId);
         }
         else
         {
-            strInformation.Format(_T("Preview: unit 0x%02x, image id %u"), CurrTicket->nUnitId, CurrTicket->nImgId);
+            strInformation.Format(_T("Preview: unit 0x%02x, image id 0x%02x"), CurrTicket->nUnitId, CurrTicket->nImgId);
         }
         PreviewDlg->SetWindowCaption(strInformation);
     }

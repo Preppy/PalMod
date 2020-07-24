@@ -653,7 +653,7 @@ BOOL CGame_COTA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-     if (NodeGet->uUnitId != COTA_A_EXTRALOC)
+    if (NodeGet->uUnitId != COTA_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 

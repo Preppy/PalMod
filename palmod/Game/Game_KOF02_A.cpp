@@ -42,7 +42,7 @@ CGame_KOF02_A::CGame_KOF02_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF02_A_NUMUNIT;
     m_nExtraUnit = KOF02_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1408;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1804;
     m_pszExtraFilename = EXTRA_FILENAME_KOF02_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -216,8 +216,16 @@ void CGame_KOF02_A::DumpAllCharacters()
 
             OutputDebugString(_T("};\r\n\r\n"));
         }
+    }
 
-        // Now create the collection...
+    // Now create the collections...
+    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(KOF02_A_CharacterOffsetArray); iUnitCtr++)
+    {
+        CString strOutput;
+        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
+
         strOutput.Format(_T("const sDescTreeNode KOF02_A_%s_COLLECTION[] =\r\n{\r\n"), szCodeDesc);
         OutputDebugString(strOutput);
 
@@ -229,6 +237,14 @@ void CGame_KOF02_A::DumpAllCharacters()
         OutputDebugString(strOutput);
         strOutput.Format(_T("    { _T(\"D\"), DESC_NODETYPE_TREE, (void*)KOF02_A_%s_PALETTES_D, ARRAYSIZE(KOF02_A_%s_PALETTES_D) },\r\n"), szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
+
+        strOutput.Format(_T("    { _T(\"Win Portraits\"), DESC_NODETYPE_TREE, (void*)KOF02_A_%s_PALETTES_PORTRAITS_WIN, ARRAYSIZE(KOF02_A_%s_PALETTES_PORTRAITS_WIN) },\r\n"), szCodeDesc, szCodeDesc);
+        OutputDebugString(strOutput);
+        strOutput.Format(_T("    { _T(\"Lifebar Portraits\"), DESC_NODETYPE_TREE, (void*)KOF02_A_%s_PALETTES_PORTRAITS_LIFEBAR, ARRAYSIZE(KOF02_A_%s_PALETTES_PORTRAITS_LIFEBAR) },\r\n"), szCodeDesc, szCodeDesc);
+        OutputDebugString(strOutput);
+        strOutput.Format(_T("    { _T(\"Select Portrait\"), DESC_NODETYPE_TREE, (void*)KOF02_A_%s_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02_A_%s_PALETTES_PORTRAITS_SELECT) },\r\n"), szCodeDesc, szCodeDesc);
+        OutputDebugString(strOutput);
+
 
         OutputDebugString(_T("};\r\n\r\n"));
     }
