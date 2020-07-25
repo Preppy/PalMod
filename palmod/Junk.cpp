@@ -94,6 +94,8 @@ void CJunk::SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
         }
     }
 
+#ifdef DEBUG
+    // I'm turning this off for now as I haven't gotten meaningful data showing how the user got to here.
     static bool s_fShownOnce = false;
 
     if (!fSuccess && !s_fShownOnce)
@@ -103,6 +105,7 @@ void CJunk::SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
         strError.Format(_T("Error: %s code tried writing to %u but array is 0-%u.\nPreviously this code would have crashed, but now this check saved you.  Please report this message text to me - thanks!"), pszFunctionName, nIndex, nAllocationLength);
         MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
     }
+#endif
 }
 
 void CJunk::LoadDefaultPal()

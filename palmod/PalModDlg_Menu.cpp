@@ -55,7 +55,7 @@ void CPalModDlg::OnLDSFIII3ArcadeAll()
     }
 }
 
-void CPalModDlg::OnLDJOJOSAll()
+void CPalModDlg::OnLDJOJOS50()
 {
     if (VerifyMsg(VM_FILECHANGE))
     {
@@ -63,7 +63,20 @@ void CPalModDlg::OnLDJOJOSAll()
 
         if (SetLoadDir(&szGet))
         {
-            LoadGameDir(JOJOS_A_DIR, szGet.GetBuffer());
+            LoadGameDir(JOJOS_A_DIR_50, szGet.GetBuffer());
+        }
+    }
+}
+
+void CPalModDlg::OnLDJOJOS51()
+{
+    if (VerifyMsg(VM_FILECHANGE))
+    {
+        CString szGet;
+
+        if (SetLoadDir(&szGet))
+        {
+            LoadGameDir(JOJOS_A_DIR_51, szGet.GetBuffer());
         }
     }
 }

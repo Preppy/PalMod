@@ -243,7 +243,8 @@ public:
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
     afx_msg void OnLdsfiii3dcall();
     afx_msg void OnLDSFIII3ArcadeAll();
-    afx_msg void OnLDJOJOSAll();
+    afx_msg void OnLDJOJOS50();
+    afx_msg void OnLDJOJOS51();
 };
 
 extern BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);

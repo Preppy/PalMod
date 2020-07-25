@@ -58,7 +58,8 @@ void CPalModDlg::OnEditCopy()
             uCopyFlag1 = 2 + k_nASCIICharacterOffset;
             break;
         case JOJOS_A:
-        case JOJOS_A_DIR:
+        case JOJOS_A_DIR_50:
+        case JOJOS_A_DIR_51:
         case SFIII3_A:
         case SFIII3_A_DIR:
             uCopyFlag1 = 1 + k_nASCIICharacterOffset;

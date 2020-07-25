@@ -35,7 +35,8 @@ enum SupportedGamesList
     KOF02_A,
     SFA2_A,
     SFIII3_A_DIR,
-    JOJOS_A_DIR,
+    JOJOS_A_DIR_50,
+    JOJOS_A_DIR_51,
     NUM_GAMES // This needs to be last
 };
 
@@ -72,7 +73,8 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][32] =
    _T("KOF: 02 (Arcade)"),
    _T("SFA2 (Arcade)"),
    _T("SFIII3 (Arcade Rerip)"),
-   _T("Jojo's (Arcade Rerip)"),
+   _T("Jojo's 50 (Arcade Rerip)"),
+   _T("Jojo's 51 (Arcade Rerip)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;

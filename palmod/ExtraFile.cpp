@@ -535,5 +535,3 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
         }
     }
 }
-
-

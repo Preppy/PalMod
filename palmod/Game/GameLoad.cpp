@@ -3,27 +3,28 @@
 #include "GameLoad.h"
 
 #include "Game_COTA_A.h"
+#include "Game_CVS2_A.h"
+#include "Game_Garou_A.h"
+#include "Game_Garou_S.h"
+#include "Game_JOJOS_A.h"
+#include "Game_JOJOS_A_DIR.h"
+#include "Game_KOF02_A.h"
+#include "Game_KOF02UM_S.h"
+#include "Game_KOF98_A.h"
+#include "Game_MSH_A.h"
+#include "Game_MSHVSF_A.h"
+#include "Game_MVC_A.h"
 #include "Game_MVC2_A.h"
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
-#include "Game_SFIII3_A.h"
-#include "Game_SFIII3_A_DIR.h"
-#include "Game_SSF2T_A.h"
+#include "Game_NEOGEO_A.h"
 #include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
-#include "Game_XMVSF_A.h"
-#include "Game_MVC_A.h"
+#include "Game_SFIII3_A.h"
+#include "Game_SFIII3_A_DIR.h"
 #include "Game_SFIII3_D.h"
-#include "Game_JOJOS_A.h"
-#include "Game_MSH_A.h"
-#include "Game_MSHVSF_A.h"
-#include "Game_Garou_A.h"
-#include "Game_NEOGEO_A.h"
-#include "Game_KOF98_A.h"
-#include "Game_KOF02UM_S.h"
-#include "Game_CVS2_A.h"
-#include "Game_Garou_S.h"
-#include "Game_KOF02_A.h"
+#include "Game_SSF2T_A.h"
+#include "Game_XMVSF_A.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
@@ -146,6 +147,18 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_JOJOS_A::GetRule;
         return TRUE;
     }
+    case JOJOS_A_DIR_50:
+    case JOJOS_A_DIR_51:
+    {
+        GetRuleCtr = &CGame_JOJOS_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_JOJOS_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_JOJOS_A_DIR::GetRule;
+        GetNextRule = &CGame_JOJOS_A_DIR::GetNextRule;
+
+        return TRUE;
+    }
+    break;
+
     case MSH_A:
     {
         GetRule = &CGame_MSH_A::GetRule;
@@ -228,6 +241,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case JOJOS_A:
     {
         return new CGame_JOJOS_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case JOJOS_A_DIR_50:
+    {
+        return new CGame_JOJOS_A_DIR(-1, 50);
+    }
+    case JOJOS_A_DIR_51:
+    {
+        return new CGame_JOJOS_A_DIR(-1, 51);
     }
     case KOF98_A:
     {
@@ -600,7 +621,10 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                             nSaveLoadErr++;
                         }
 
-                        FileSave.Abort();
+                        if (FileSave.m_hFile != CFile::hFileNull)
+                        {
+                            FileSave.Abort();
+                        }
                     }
                     else
                     {

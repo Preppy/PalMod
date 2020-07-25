@@ -3,7 +3,7 @@
 
 UINT16 CGame_SFIII3_A_DIR::uRuleCtr = 0;
 
-LPCTSTR SFIII_Arcade_ROM_Base = _T("sfiii3-simm5.");
+constexpr auto SFIII_Arcade_ROM_Base = _T("sfiii3-simm5.");
 
 CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize)
 {
@@ -70,7 +70,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nROMNumber)
 
     if (FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary))
     {
-        OutputDebugString(_T("Loading SF3_A_DIR from SIMMs....\n"));
+        OutputDebugString(_T("Loading SFIII3_A_DIR from SIMMs....\n"));
 
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {

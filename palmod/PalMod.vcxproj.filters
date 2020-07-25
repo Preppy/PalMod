@@ -106,6 +106,9 @@
     <Filter Include="Game\SFIII3_A_DIR">
       <UniqueIdentifier>{074d6beb-52e5-4e99-9611-61003896b387}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\JOJOS_A_DIR">
+      <UniqueIdentifier>{393348a9-9ee8-45fc-a91c-74f1c72ec293}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -263,6 +266,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp">
       <Filter>Game\SFIII3_A_DIR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp">
+      <Filter>Game\JOJOS_A_DIR</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -478,6 +484,9 @@
     </ClInclude>
     <ClInclude Include="Game\Game_SFIII3_A_DIR.h">
       <Filter>Game\SFIII3_A_DIR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_JOJOS_A_DIR.h">
+      <Filter>Game\JOJOS_A_DIR</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

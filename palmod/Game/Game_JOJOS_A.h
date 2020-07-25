@@ -17,7 +17,7 @@ constexpr auto EXTRA_FILENAME_51 = _T("jojos51e.txt");
 
 class CGame_JOJOS_A : public CGameWithExtrasFile
 {
-private:
+public:
     //Used for image selection
     int nTargetImgId = 0;
 
@@ -54,7 +54,7 @@ private:
     static bool UsePaletteSetFor50() { return (m_nJojosMode == 50); }
 
 public:
-    CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad);
+    CGame_JOJOS_A(UINT32 nConfirmedROMSize = -1, int nJojosModeToLoad = 51);
     ~CGame_JOJOS_A(void);
 
     //Static functions / variables

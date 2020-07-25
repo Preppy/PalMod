@@ -1,7 +1,6 @@
 #pragma once
 #include "Game_SFIII3_A.h"
 
-
 class CGame_SFIII3_A_DIR : 
     public CGame_SFIII3_A
 {

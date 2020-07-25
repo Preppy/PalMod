@@ -122,6 +122,7 @@
     <ClCompile Include="Game\Game_Garou_A.cpp" />
     <ClCompile Include="Game\Game_Garou_S.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
+    <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
     <ClCompile Include="Game\Game_KOF02UM_S.cpp" />
     <ClCompile Include="Game\Game_KOF02_A.cpp" />
     <ClCompile Include="Game\Game_KOF98_A.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Game\Game_Garou_A.h" />
     <ClInclude Include="Game\Game_Garou_S.h" />
     <ClInclude Include="Game\Game_JOJOS_A.h" />
+    <ClInclude Include="Game\Game_JOJOS_A_DIR.h" />
     <ClInclude Include="Game\Game_KOF02UM_S.h" />
     <ClInclude Include="Game\Game_KOF02_A.h" />
     <ClInclude Include="Game\Game_KOF98_A.h" />
