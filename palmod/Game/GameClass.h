@@ -40,29 +40,29 @@ protected:
 
     int nDefPalSz = 0;
 
-    int nRGBIndexAmt;
-    int nAIndexAmt;
+    int nRGBIndexAmt = 0;
+    int nAIndexAmt = 0;
 
-    double nRGBIndexMul;
-    double nAIndexMul;
+    double nRGBIndexMul = 0.0;
+    double nAIndexMul = 0.0;
 
-    UINT16 nUnitAmt;
-    int nGameFlag;
-    int nImgGameFlag;
-    int nDisplayW;
+    UINT16 nUnitAmt = 0;
+    int nGameFlag = 0;
+    int nImgGameFlag = 0;
+    int nDisplayW = 0;
     int nImgUnitAmt = 0;
 
     //Values used for image out
-    int nSrcPalUnit[MAX_PAL];
-    int nSrcPalStart[MAX_PAL];
-    int nSrcPalAmt[MAX_PAL];
-    int nSrcPalInc[MAX_PAL];
+    int nSrcPalUnit[MAX_PAL] = { 0 };
+    int nSrcPalStart[MAX_PAL] = { 0 };
+    int nSrcPalAmt[MAX_PAL] = { 0 };
+    int nSrcPalInc[MAX_PAL] = { 0 };
 
-    ColMode CurrColMode;
+    ColMode CurrColMode = COLMODE_12A;
     sImgTicket* CurrImgTicket = nullptr;
     CPalGroup BasePalGroup;
 
-    eDispType DisplayType;
+    eDispType DisplayType = DISP_DEF;
     // Used for the Export Image listbox
     TCHAR* pButtonLabel = nullptr;
     // How many colors a game has: P1/P2 (2), LP-HK/A2 (6), etc

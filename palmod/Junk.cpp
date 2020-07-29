@@ -539,7 +539,7 @@ void CJunk::CustomFillRect(RECT* lpRect, UINT8* crSrcCol)
 
             pDstImgData[(y * iBaseW) + x + 2] = aaadd((fpDstA1 * (double)crSrcCol[0]), (fpDstA2 * (double)crDstCol[0]));
             pDstImgData[(y * iBaseW) + x + 1] = aaadd((fpDstA1 * (double)crSrcCol[1]), (fpDstA2 * (double)crDstCol[1]));
-            pDstImgData[(y * iBaseW) + x] = aaadd((fpDstA1 * (double)crSrcCol[2]), (fpDstA2 * (double)crDstCol[2]));
+            pDstImgData[(y * iBaseW) + x] =     aaadd((fpDstA1 * (double)crSrcCol[2]), (fpDstA2 * (double)crDstCol[2]));
         }
     }
 }

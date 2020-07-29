@@ -29,6 +29,7 @@ class CDescTree
 {
 private:
     sDescTreeNode* RootTree = nullptr;
+    bool m_isInitialized = false;
 
 public:
     CDescTree(sDescTreeNode* InputTree = NULL);

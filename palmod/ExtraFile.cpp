@@ -52,7 +52,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
         if (nGameROMSize != -1) // If we don't know the ROM size we don't know how to sanely bounds-check our file access, so can't trust our handling of Extra files.
         {
             // Now we look for the Extra extension file.
-            GetModuleFileName(nullptr, szTargetFile, (DWORD)MAX_PATH * sizeof(TCHAR));
+            GetModuleFileName(nullptr, szTargetFile, (DWORD)MAX_PATH);
             TCHAR* pszExeFileName = _tcsrchr(szTargetFile, _T('\\')) + 1;
             pszExeFileName[0] = 0;
 

@@ -8,8 +8,8 @@
 stExtraDef* CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_6A = nullptr;
 stExtraDef* CGame_MSHVSF_A::MSHVSF_A_EXTRA_CUSTOM_7B = nullptr;
 
-CDescTree CGame_MSHVSF_A::MainDescTree_6A;
-CDescTree CGame_MSHVSF_A::MainDescTree_7B;
+CDescTree CGame_MSHVSF_A::MainDescTree_6A = nullptr;
+CDescTree CGame_MSHVSF_A::MainDescTree_7B = nullptr;
 
 int CGame_MSHVSF_A::m_nMSHVSFSelectedRom = 6;
 UINT32 CGame_MSHVSF_A::m_nTotalPaletteCountForMSHVSF_6A = 0;

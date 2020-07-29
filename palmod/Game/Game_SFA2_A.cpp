@@ -9,8 +9,8 @@
 stExtraDef* CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07 = nullptr;
 stExtraDef* CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08 = nullptr;
 
-CDescTree CGame_SFA2_A::MainDescTree_07;
-CDescTree CGame_SFA2_A::MainDescTree_08;
+CDescTree CGame_SFA2_A::MainDescTree_07 = nullptr;
+CDescTree CGame_SFA2_A::MainDescTree_08 = nullptr;
 
 int CGame_SFA2_A::rgExtraCountAll_07[SFA2_A_NUM_IND_07 + 1] = { -1 };
 int CGame_SFA2_A::rgExtraCountAll_08[SFA2_A_NUM_IND_08 + 1] = { -1 };

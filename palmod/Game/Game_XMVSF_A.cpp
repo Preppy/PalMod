@@ -10,7 +10,7 @@
 
 stExtraDef* CGame_XMVSF_A::XMVSF_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_XMVSF_A::MainDescTree;
+CDescTree CGame_XMVSF_A::MainDescTree = nullptr;
 
 UINT32 CGame_XMVSF_A::m_nTotalPaletteCountForXMVSF = 0;
 

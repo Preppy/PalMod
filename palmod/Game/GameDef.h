@@ -37,6 +37,7 @@ enum SupportedGamesList
     SFIII3_A_DIR,
     JOJOS_A_DIR_50,
     JOJOS_A_DIR_51,
+    SVCPLUSA_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -75,6 +76,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][32] =
    _T("SFIII3 (Arcade Rerip)"),
    _T("Jojo's 50 (Arcade Rerip)"),
    _T("Jojo's 51 (Arcade Rerip)"),
+   _T("SVC Plus A"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -110,6 +112,11 @@ enum eDispType
 const TCHAR DEF_BUTTONLABEL_2[2][16] =
 {
     _T("P1"), _T("P2")
+};
+
+const TCHAR DEF_BUTTONLABEL_SVC[2][16] =
+{
+    _T("Punch"), _T("Kick")
 };
 
 const TCHAR DEF_BUTTONLABEL_NEOGEO[][16] =
@@ -845,6 +852,45 @@ enum KOFSpriteList
 
     indexKOFSprites_02UMExtras, // 4e - portraits and such
 
+    indexSVCSprites_Kyo,        // 4f
+    indexSVCSprites_Iori,       // 50
+    indexSVCSprites_Ryo,        // 51
+    indexSVCSprites_Terry,      // 52
+    indexSVCSprites_Mai,        // 53
+    indexSVCSprites_Kasumi,     // 54
+    indexSVCSprites_Kim,        // 55
+    indexSVCSprites_MrKarate,   // 56
+    indexSVCSprites_Choi,       // 57
+    indexSVCSprites_Earthquake, // 58
+    indexSVCSprites_Genjuro,    // 59
+    indexSVCSprites_Shiki,      // 5a
+    indexSVCSprites_GeeseHoward, // 5b
+    indexSVCSprites_MarsPeople, // 5c
+    indexSVCSprites_Goenitz,    // 5d
+    indexSVCSprites_PrincessAthena,    // 5e
+    indexSVCSprites_Ryu,        // 5f
+    indexSVCSprites_Ken,        // 60
+    indexSVCSprites_ChunLi,     // 61
+    indexSVCSprites_Guile,      // 62
+    indexSVCSprites_Dhalsim,    // 63
+    indexSVCSprites_Boxer,      // 64
+    indexSVCSprites_Claw,       // 65
+    indexSVCSprites_Sagat,      // 66
+    indexSVCSprites_Dictator,   // 67
+    indexSVCSprites_Akuma,      // 68
+    indexSVCSprites_Hugo,       // 69
+    indexSVCSprites_Poison,     // 6a
+    indexSVCSprites_Tessa,      // 6b
+    indexSVCSprites_Zero,       // 6c
+    indexSVCSprites_Ciel,       // 6d
+    indexSVCSprites_Demitri,    // 6e
+    indexSVCSprites_Dan,        // 6f
+    indexSVCSprites_RedArremer, // 70
+    indexSVCSprites_OrochiIori, // 71
+    indexSVCSprites_SeriousMrKarate,    // 72
+    indexSVCSprites_ViolentKen, // 73
+    indexSVCSprites_ShinAkuma,  // 74
+
     indexKOFSprites_Last,
 };
 
@@ -1377,6 +1423,104 @@ const UINT8 CVS2_A_IMG_UNITS[] =
     indexCVS2Sprites_Zangief,
 };
 
+enum SupportedSVC_A_PaletteListIndex
+{
+    indexSVC_A_Kyo,
+    indexSVC_A_Iori,
+    indexSVC_A_Ryo,
+    indexSVC_A_Terry,
+    indexSVC_A_Mai,
+    indexSVC_A_Kasumi,
+    indexSVC_A_Kim,
+    indexSVC_A_MrKarate,
+    indexSVC_A_Choi,
+    indexSVC_A_Earthquake,
+    indexSVC_A_Genjuro,
+    indexSVC_A_Shiki,
+    indexSVC_A_GeeseHoward,
+    indexSVC_A_MarsPeople,
+    indexSVC_A_Goenitz,
+    indexSVC_A_PrincessAthena,
+    indexSVC_A_Ryu,
+    indexSVC_A_Ken,
+    indexSVC_A_ChunLi,
+    indexSVC_A_Guile,
+    indexSVC_A_Dhalsim,
+    indexSVC_A_Boxer,
+    indexSVC_A_Claw,
+    indexSVC_A_Sagat,
+    indexSVC_A_Dictator,
+    indexSVC_A_Akuma,
+    indexSVC_A_Hugo,
+    indexSVC_A_Poison,
+    indexSVC_A_Tessa,
+    indexSVC_A_Zero,
+    indexSVC_A_Ciel,
+    indexSVC_A_Demitri,
+    indexSVC_A_Dan,
+    indexSVC_A_RedArremer,
+    indexSVC_A_OrochiIori,
+    indexSVC_A_SeriousMrKarate,
+    indexSVC_A_ViolentKen,
+    indexSVC_A_ShinAkuma,
+
+    indexSVC_A_Last,
+};
+
+const UINT8 SVCPLUSA_A_IMG_UNITS[] =
+{
+    indexKOFSprites_98Kyo,
+    indexKOFSprites_98Iori,
+    indexKOFSprites_98Ryo,
+    indexKOFSprites_98Terry,
+    indexKOFSprites_98Mai,
+    indexKOFSprites_00Kasumi,
+    indexKOFSprites_98Kim,
+    indexKOFSprites_98Choi,
+    indexKOFSprites_02Geese,
+    indexKOFSprites_02Goenitz,
+    indexKOFSprites_98Iori,
+
+    indexSVCSprites_Kyo,        // 4f
+    indexSVCSprites_Iori,       // 50
+    indexSVCSprites_Ryo,        // 51
+    indexSVCSprites_Terry,      // 52
+    indexSVCSprites_Mai,        // 53
+    indexSVCSprites_Kasumi,     // 54
+    indexSVCSprites_Kim,        // 55
+    indexSVCSprites_MrKarate,   // 56
+    indexSVCSprites_Choi,       // 57
+    indexSVCSprites_Earthquake, // 58
+    indexSVCSprites_Genjuro,    // 59
+    indexSVCSprites_Shiki,      // 5a
+    indexSVCSprites_GeeseHoward, // 5b
+    indexSVCSprites_MarsPeople, // 5c
+    indexSVCSprites_Goenitz,    // 5d
+    indexSVCSprites_PrincessAthena,    // 5e
+    indexSVCSprites_Ryu,        // 5f
+    indexSVCSprites_Ken,        // 60
+    indexSVCSprites_ChunLi,     // 61
+    indexSVCSprites_Guile,      // 62
+    indexSVCSprites_Dhalsim,    // 63
+    indexSVCSprites_Boxer,      // 64
+    indexSVCSprites_Claw,       // 65
+    indexSVCSprites_Sagat,      // 66
+    indexSVCSprites_Dictator,   // 67
+    indexSVCSprites_Akuma,      // 68
+    indexSVCSprites_Hugo,       // 69
+    indexSVCSprites_Poison,     // 6a
+    indexSVCSprites_Tessa,      // 6b
+    indexSVCSprites_Zero,       // 6c
+    indexSVCSprites_Ciel,       // 6d
+    indexSVCSprites_Demitri,    // 6e
+    indexSVCSprites_Dan,        // 6f
+    indexSVCSprites_RedArremer, // 70
+    indexSVCSprites_OrochiIori, // 71
+    indexSVCSprites_SeriousMrKarate,    // 72
+    indexSVCSprites_ViolentKen, // 73
+    indexSVCSprites_ShinAkuma,  // 74
+};
+
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_CVS2 = 0, // CVS2: has both Capcom and SNK images
@@ -1411,7 +1555,7 @@ const int IMGAMT[] =
 const stPairedPaletteInfo pairUnhandled =     { 0, 0, 0 };
 const stPairedPaletteInfo pairHandledInCode = { 0, 0, 0 };
 
-const stPairedPaletteInfo pairCaptainAmericaShield = { 1, -22, -17 };
+const stPairedPaletteInfo pairCaptainAmericaShield = { 1, 0, 0 };
 const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, 4 };
 const stPairedPaletteInfo pairHayatoSword = { 1, -63, 32 };
 const stPairedPaletteInfo pairTronBody = { 1, -4, -50 };

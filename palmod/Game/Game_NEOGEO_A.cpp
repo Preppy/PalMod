@@ -9,7 +9,7 @@
 
 stExtraDef* CGame_NEOGEO_A::NEOGEO_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_NEOGEO_A::MainDescTree;
+CDescTree CGame_NEOGEO_A::MainDescTree = nullptr;
 
 int CGame_NEOGEO_A::rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
 int CGame_NEOGEO_A::rgExtraLoc[NEOGEO_A_NUMUNIT + 1];

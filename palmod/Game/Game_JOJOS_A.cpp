@@ -10,8 +10,8 @@
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_50 = nullptr;
 stExtraDef* CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51 = nullptr;
 
-CDescTree CGame_JOJOS_A::MainDescTree_50;
-CDescTree CGame_JOJOS_A::MainDescTree_51;
+CDescTree CGame_JOJOS_A::MainDescTree_50 = nullptr;
+CDescTree CGame_JOJOS_A::MainDescTree_51 = nullptr;
 
 int CGame_JOJOS_A::m_nJojosMode = 50;
 UINT32 CGame_JOJOS_A::m_nTotalPaletteCount50 = 0;
@@ -97,8 +97,8 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_JOJOS_5);
 
     //Create the redirect buffer
-    rgUnitRedir = new UINT16[nUnitAmt + 1];
-    memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
+    rgUnitRedir = new UINT16[max(10, nUnitAmt) + 1]; // We need at least 8 redirs because we have that many SIMMs
+    memset(rgUnitRedir, NULL, sizeof(UINT16) * max(10, nUnitAmt));
 
     //Create the file changed flag
     rgFileChanged = new UINT16;

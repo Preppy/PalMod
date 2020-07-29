@@ -9,7 +9,7 @@
 
 stExtraDef* CGame_Garou_A::Garou_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_Garou_A::MainDescTree;
+CDescTree CGame_Garou_A::MainDescTree = nullptr;
 
 int CGame_Garou_A::rgExtraCountAll[Garou_A_NUMUNIT + 1];
 int CGame_Garou_A::rgExtraLoc[Garou_A_NUMUNIT + 1];

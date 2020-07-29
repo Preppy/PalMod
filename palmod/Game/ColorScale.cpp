@@ -76,7 +76,7 @@ COLORREF ColorScaleHSL(const COLORREF Col1,
               making sure that it stays between 0 and 1
 ******************************************************************************/
 extern COLORREF ColorScaleRGB3(const COLORREF Col1, const COLORREF Col2, const COLORREF Col3,
-    float Ratio1, float Ratio2, float Ratio3) {
+                                    double Ratio1, double Ratio2, double Ratio3) {
     int R1 = (Col1 >> 16) & 0xFF, G1 = (Col1 >> 8) & 0xFF, B1 = Col1 & 0xFF;
     int R2 = (Col2 >> 16) & 0xFF, G2 = (Col2 >> 8) & 0xFF, B2 = Col2 & 0xFF;
     int R3 = (Col3 >> 16) & 0xFF, G3 = (Col3 >> 8) & 0xFF, B3 = Col3 & 0xFF;
@@ -87,9 +87,9 @@ extern COLORREF ColorScaleRGB3(const COLORREF Col1, const COLORREF Col2, const C
     if (Ratio2 < 0) Ratio2 = 0; else if (Ratio2 > 1) Ratio2 = 1;
     if (Ratio3 < 0) Ratio3 = 0; else if (Ratio3 > 1) Ratio3 = 1;
     if ((SR = Ratio1 + Ratio2 + Ratio3) == 0) return Col1;
-    Color = (int)((Ratio1 * R1 + Ratio2 * R2 + Ratio3 * R3) / SR + 0.5) << 16 |        // rounding
-        (int)((Ratio1 * G1 + Ratio2 * G2 + Ratio3 * G3) / SR + 0.5) << 8 |
-        (int)((Ratio1 * B1 + Ratio2 * B2 + Ratio3 * B3) / SR + 0.5);
+    Color = (int)(((Ratio1 * R1) + (Ratio2 * R2) + (Ratio3 * R3)) / SR + 0.5) << 16 |        // rounding
+            (int)(((Ratio1 * G1) + (Ratio2 * G2) + (Ratio3 * G3)) / SR + 0.5) << 8 |
+            (int)(((Ratio1 * B1) + (Ratio2 * B2) + (Ratio3 * B3)) / SR + 0.5);
     return Color;
 }
 
@@ -108,7 +108,7 @@ extern COLORREF ColorScaleHSL3(const COLORREF Col1, const COLORREF Col2, const C
     if (Ratio1 < 0) Ratio1 = 0; else if (Ratio1 > 1) Ratio1 = 1;
     if (Ratio2 < 0) Ratio2 = 0; else if (Ratio2 > 1) Ratio2 = 1;
     if (Ratio3 < 0) Ratio3 = 0; else if (Ratio3 > 1) Ratio3 = 1;
-    if ((SR = Ratio1 + Ratio2 + Ratio3) == 0) return Col1;
+    if ((SR = (double)Ratio1 + (double)Ratio2 + (double)Ratio3) == 0) return Col1;
 
     RGBtoHLS(Col1, &H1, &L1, &S1);
     RGBtoHLS(Col2, &H2, &L2, &S2);

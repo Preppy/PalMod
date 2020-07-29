@@ -3,17 +3,19 @@
 
 CDescTree::CDescTree(sDescTreeNode* InputTree)
 {
+    m_isInitialized = true;
     SetRootTree(InputTree);
 }
 
 CDescTree::~CDescTree(void)
 {
     FlushRootTree();
+    m_isInitialized = false;
 }
 
 void CDescTree::FlushRootTree()
 {
-    if (RootTree)
+    if (RootTree && m_isInitialized)
     {
         FlushTree(RootTree);
 

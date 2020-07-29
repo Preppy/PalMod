@@ -13,11 +13,16 @@ CPalTool::~CPalTool(void)
     CleanUp();
 }
 
+#pragma warning( push )
+#pragma warning( disable : 26454 ) // bug in Microsoft headers
+
 BEGIN_MESSAGE_MAP(CPalTool, CWnd)
     ON_WM_PAINT()
     ON_WM_ERASEBKGND()
     ON_NOTIFY(UDN_DELTAPOS, ID_PALTOOLSPIN, &CPalTool::OnDeltaposSpin)
 END_MESSAGE_MAP()
+
+#pragma warning( pop )
 
 BOOL CPalTool::RegisterWindowClass()
 {

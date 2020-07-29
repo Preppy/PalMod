@@ -24,6 +24,7 @@
 #include "Game_SFIII3_A_DIR.h"
 #include "Game_SFIII3_D.h"
 #include "Game_SSF2T_A.h"
+#include "Game_SVCPLUSA_A.h"
 #include "Game_XMVSF_A.h"
 
 #include "..\resource.h"
@@ -209,6 +210,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_CVS2_A::GetRule;
         return TRUE;
     }
+    case SVCPLUSA_A:
+    {
+        GetRule = &CGame_SVCPLUSA_A::GetRule;
+        return TRUE;
+    }
     default:
         OutputDebugString(_T("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n"));
         return FALSE;
@@ -313,6 +319,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SSF2T_A:
     {
         return new CGame_SSF2T_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case SVCPLUSA_A:
+    {
+        return new CGame_SVCPLUSA_A(nConfirmedROMSize);
     }
     case XMVSF_A:
     {
@@ -519,16 +529,23 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
                 {
                     OutGame = CreateGame(nGameFlag, -1);
 
-                    OutGame->SetLoadDir(szLoadDir);
-                    OutGame->SetIsDir();
+                    if (OutGame)
+                    {
+                        OutGame->SetLoadDir(szLoadDir);
+                        OutGame->SetIsDir();
+                    }
                 }
 
-                if (OutGame->LoadFile(&CurrFile, CurrRule.uUnitId))
+                if (OutGame && OutGame->LoadFile(&CurrFile, CurrRule.uUnitId))
                 {
                     nSaveLoadSucc++;
 
                     //Increase the sort counter
                     OutGame->nRedirCtr++;
+                }
+                else
+                {
+                    nSaveLoadErr++;
                 }
             }
             else
@@ -545,7 +562,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
                 OutputDebugString(_T("CGameLoad::LoadDir : Gouki doesn't exist for SF3-DC: skipping.\n"));
                 nSaveLoadSucc++;
             }
-            else if ((nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION))
+            else if (OutGame && (nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION))
             {
                 OutputDebugString(_T("CGameLoad::LoadDir : Team View for MvC2. Ignoring file open.\n"));
                 if (OutGame->LoadFile(nullptr, CurrRule.uUnitId))

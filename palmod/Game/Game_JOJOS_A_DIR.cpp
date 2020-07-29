@@ -17,8 +17,8 @@ CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR(UINT32 nConfirmedROMSize, int nJojosModeToL
 
     // switch to directory mode
     safe_delete(rgFileChanged);
-    rgFileChanged = new UINT16[nFileAmt];
-    memset(rgFileChanged, NULL, sizeof(UINT16) * nFileAmt);
+    rgFileChanged = new UINT16[nUnitAmt + 1];
+    memset(rgFileChanged, NULL, sizeof(UINT16) * nUnitAmt);
 }
 
 CGame_JOJOS_A_DIR::~CGame_JOJOS_A_DIR(void)
@@ -73,6 +73,7 @@ inline UINT32 CGame_JOJOS_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation)
 
 BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 {
+    BOOL fSuccess = TRUE;
     CString strInfo;
 
     strInfo.Format(_T("CGame_JOJOS_A_DIR::LoadFile: Preparing to load data from SIMM number %u\n"), nSIMMNumber);
@@ -110,6 +111,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     if (FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary))
     {
         OutputDebugString(_T("\tLoading JOJOS_A_DIR from SIMMs....\n"));
+        bool fShownCrossSIMMErrorOnce = false;
 
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
@@ -122,6 +124,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
             // These are already sorted, no need to redirect
             rgUnitRedir[nUnitCtr] = nUnitCtr;
+
 
             for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
@@ -137,6 +140,18 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     strInfo.Format(_T("\t\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X\n"), nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation);
                     OutputDebugString(strInfo);
 #endif
+
+                    if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSize) > c_nJOJOSSIMMLength)
+                    {
+                        if (!fShownCrossSIMMErrorOnce)
+                        {
+                            fShownCrossSIMMErrorOnce = true;
+                            strInfo.Format(_T("Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM set boundaries.  This is not supported. Please remove that."), nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSize * 2));
+                            MessageBox(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_ICONERROR);
+                        }
+
+                        fSuccess = FALSE;
+                    }
 
                     m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
@@ -161,18 +176,21 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
-    if (((nGameFlag == JOJOS_A_DIR_50) && (nSIMMNumber == 3)) ||
+    if (((nGameFlag == JOJOS_A_DIR_50) && (nSIMMNumber == 2)) ||
         ((nGameFlag == JOJOS_A_DIR_51) && (nSIMMNumber == 6)))
     {
-        // We're done with our "files" but gameload has a loose mapping between files and unit count.  
-       // We can handle that mapping by simply setting the "file" count to the unit count.
-        nRedirCtr = nUnitAmt - 1;
-
-        // Only run the dupe checker for the second ROM set
+        // Only run the dupe checker for the second SIMM pair
         CheckForErrorsInTables();
+
+        // We're done with our "files" but gameload has a loose mapping between files and unit count.  
+        // We can handle that mapping by simply setting the "file" count to the unit count.
+        if (nSIMMNumber == 6)
+        {
+            nRedirCtr = nUnitAmt - 1;
+        }
     }
 
-    return TRUE;
+    return fSuccess;
 }
 
 inline UINT8 CGame_JOJOS_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)

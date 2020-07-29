@@ -8,8 +8,8 @@
 stExtraDef* CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_3C = nullptr;
 stExtraDef* CGame_SSF2T_A::SSF2T_A_EXTRA_CUSTOM_4A = nullptr;
 
-CDescTree CGame_SSF2T_A::MainDescTree_3C;
-CDescTree CGame_SSF2T_A::MainDescTree_4A;
+CDescTree CGame_SSF2T_A::MainDescTree_3C = nullptr;
+CDescTree CGame_SSF2T_A::MainDescTree_4A = nullptr;
 
 int CGame_SSF2T_A::m_nSSF2TSelectedRom = 4;
 UINT32 CGame_SSF2T_A::m_nTotalPaletteCountForSSF2T_3C = 0;

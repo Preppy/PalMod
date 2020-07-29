@@ -118,6 +118,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
     SFIII3_A_DIR,
     JOJOS_A_DIR_50,
     JOJOS_A_DIR_51,
+    SVCPLUSA_A,
     */
     for (UINT16 nUnitCtr = 0; nUnitCtr < nCurGameUnitAmt; nUnitCtr++)
     {
@@ -289,6 +290,16 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
             nImgMap->insert({ CVS2_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
             break;
         }
+        case SVCPLUSA_A:
+        {
+#if IMGDAT_DEBUG
+            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), SVCPLUSA_A_IMG_UNITS[nUnitCtr]);
+            OutputDebugString(strDebugInfo);
+#endif
+            nImgMap->insert({ SVCPLUSA_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            break;
+        }
+
         default:
             OutputDebugString(_T("CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n "));
             return NULL;

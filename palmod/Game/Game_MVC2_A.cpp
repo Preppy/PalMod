@@ -12,7 +12,7 @@
 
 stExtraDef* CGame_MVC2_A::MVC2_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_MVC2_A::MainDescTree;
+CDescTree CGame_MVC2_A::MainDescTree = nullptr;
 
 int CGame_MVC2_A::rgExtraCountAll[MVC2_A_NUMUNIT + 1];
 int CGame_MVC2_A::rgExtraLoc[MVC2_A_NUMUNIT + 1];

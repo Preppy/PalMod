@@ -9,8 +9,8 @@
 stExtraDef* CGame_MSH_A::MSH_A_EXTRA_CUSTOM_05 = nullptr;
 stExtraDef* CGame_MSH_A::MSH_A_EXTRA_CUSTOM_06 = nullptr;
 
-CDescTree CGame_MSH_A::MainDescTree_05;
-CDescTree CGame_MSH_A::MainDescTree_06;
+CDescTree CGame_MSH_A::MainDescTree_05 = nullptr;
+CDescTree CGame_MSH_A::MainDescTree_06 = nullptr;
 
 int CGame_MSH_A::rgExtraCountAll_05[MSH_A_NUMUNIT_05 + 1] = { -1 };
 int CGame_MSH_A::rgExtraCountAll_06[MSH_A_NUMUNIT_06 + 1] = { -1 };

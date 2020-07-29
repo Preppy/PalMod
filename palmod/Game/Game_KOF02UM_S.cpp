@@ -8,7 +8,7 @@
 
 stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_KOF02UM_S::MainDescTree;
+CDescTree CGame_KOF02UM_S::MainDescTree = nullptr;
 
 int CGame_KOF02UM_S::rgExtraCountAll[KOF02UM_S_NUMUNIT + 1];
 int CGame_KOF02UM_S::rgExtraLoc[KOF02UM_S_NUMUNIT + 1];
@@ -87,6 +87,7 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
 
 CGame_KOF02UM_S::~CGame_KOF02UM_S(void)
 {
+    OutputDebugString(_T("KOF02UM Destructor\n"));
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag

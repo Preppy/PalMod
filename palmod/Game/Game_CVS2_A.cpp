@@ -9,7 +9,7 @@
 
 stExtraDef* CGame_CVS2_A::CVS2_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_CVS2_A::MainDescTree;
+CDescTree CGame_CVS2_A::MainDescTree = nullptr;
 
 int CGame_CVS2_A::rgExtraCountAll[CVS2_A_NUMUNIT + 1];
 int CGame_CVS2_A::rgExtraLoc[CVS2_A_NUMUNIT + 1];
@@ -160,14 +160,17 @@ void CGame_CVS2_A::DumpAllCharacters()
         const UINT16 k_nCharacterColorCount = ARRAYSIZE(DEF_BUTTONLABEL_CVS2);
         CString strOutput;
 
+        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
+
         for (UINT16 iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
         {
             nCurrentCharacterOffset = CVS2_CharacterOffsetArray[iUnitCtr].romOffset + (0xc0 * iButtonIndex);
 
-            strOutput.Format(_T("const sGame_PaletteDataset CVS2_A_%s_PALETTES_%s[] =\r\n{\r\n"), CVS2_CharacterOffsetArray[iUnitCtr].pszCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex]);
+            strOutput.Format(_T("const sGame_PaletteDataset CVS2_A_%s_PALETTES_%s[] =\r\n{\r\n"), szCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex]);
             OutputDebugString(strOutput);
 
-            strOutput.Format(_T("    { \"Main Sprite\", 0x%07x, 0x%07x, %s },\r\n"), 
+            strOutput.Format(_T("    { _T(\"Main Sprite\"), 0x%07x, 0x%07x, %s },\r\n"), 
                 nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                 CVS2_CharacterOffsetArray[iUnitCtr].pszImageRefName);
 
@@ -200,14 +203,14 @@ void CGame_CVS2_A::DumpAllCharacters()
 
                 if (extraPairInfo && extraPairInfo->pszExtraName)
                 {
-                    strOutput.Format(_T("    { \"%s\", 0x%07x, 0x%07x, %s, %u },\r\n"), 
+                    strOutput.Format(_T("    { _T(\"%s\"), 0x%07x, 0x%07x, %s, %u },\r\n"), 
                         extraPairInfo->pszExtraName, 
                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                         CVS2_CharacterOffsetArray[iUnitCtr].pszImageRefName, extraPairInfo->nImgIndex);
                 }
                 else
                 {
-                    strOutput.Format(_T("    { \"Extra %u\", 0x%07x, 0x%07x },\r\n"), iCurrentExtra,
+                    strOutput.Format(_T("    { _T(\"Extra %u\"), 0x%07x, 0x%07x },\r\n"), iCurrentExtra,
                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
                 }
 
@@ -220,15 +223,15 @@ void CGame_CVS2_A::DumpAllCharacters()
         }
 
         // Now create the collection...
-        strOutput.Format(_T("const sDescTreeNode CVS2_A_%s_COLLECTION[] =\r\n{\r\n"), CVS2_CharacterOffsetArray[iUnitCtr].pszCodeDesc);
+        strOutput.Format(_T("const sDescTreeNode CVS2_A_%s_COLLECTION[] =\r\n{\r\n"), szCodeDesc);
         OutputDebugString(strOutput);
 
         for (UINT16 iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
         {
-            strOutput.Format(_T("    { \"%s\", DESC_NODETYPE_TREE, (void*)CVS2_A_%s_PALETTES_%s, ARRAYSIZE(CVS2_A_%s_PALETTES_%s) },\r\n"),
+            strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)CVS2_A_%s_PALETTES_%s, ARRAYSIZE(CVS2_A_%s_PALETTES_%s) },\r\n"),
                 DEF_BUTTONLABEL_CVS2[iButtonIndex],
-                CVS2_CharacterOffsetArray[iUnitCtr].pszCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex],
-                CVS2_CharacterOffsetArray[iUnitCtr].pszCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex]);
+                szCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex],
+                szCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex]);
             OutputDebugString(strOutput);
         }
 
@@ -241,8 +244,12 @@ void CGame_CVS2_A::DumpAllCharacters()
         UINT16 nPaletteCount = 0;
         CString strOutput;
 
+        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
+
+
         strOutput.Format(_T("    { \"%s\", DESC_NODETYPE_TREE, (void*)CVS2_A_%s_COLLECTION, ARRAYSIZE(CVS2_A_%s_COLLECTION) },\r\n"), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName,
-                                        CVS2_CharacterOffsetArray[iUnitCtr].pszCodeDesc, CVS2_CharacterOffsetArray[iUnitCtr].pszCodeDesc);
+                                        szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
     }
 }
@@ -422,7 +429,7 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
     m_nTotalPaletteCountForCVS2 = nTotalPaletteCount;
 
     // For development purposes only...
-    //DumpAllCharacters();
+    // DumpAllCharacters();
 
     return NewDescTree;
 }
@@ -802,7 +809,7 @@ BOOL CGame_CVS2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                nSrcAmt = 4;
+                nSrcAmt = m_nNumberOfColorOptions;
                 nNodeIncrement = pCurrentNode->uChildAmt;
 
                 while (nSrcStart >= nNodeIncrement)

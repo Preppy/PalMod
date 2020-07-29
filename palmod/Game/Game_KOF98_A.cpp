@@ -9,7 +9,7 @@
 
 stExtraDef* CGame_KOF98_A::KOF98_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_KOF98_A::MainDescTree;
+CDescTree CGame_KOF98_A::MainDescTree = nullptr;
 
 int CGame_KOF98_A::rgExtraCountAll[KOF98_A_NUMUNIT + 1];
 int CGame_KOF98_A::rgExtraLoc[KOF98_A_NUMUNIT + 1];

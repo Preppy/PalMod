@@ -194,7 +194,7 @@ void CPalModDlg::PostPalSel()
         if ((CurrTicket->nUnitId == 0xFFFF) || (CurrTicket->nUnitId == 0xFFFFFFFF) ||
             (CurrTicket->nImgId == 0xFFFF) || (CurrTicket->nImgId == 0xFFFFFFFF))
         {
-            strInformation.Format(_T("Preview: (no internal preview available)"), CurrTicket->nImgId);
+            strInformation = _T("Preview: (no internal preview available)");
         }
         else
         {

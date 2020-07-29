@@ -2,7 +2,7 @@
 #include "Game_SFIII3_D.h"
 #include "GameDef.h"
 
-CDescTree CGame_SFIII3_D::MainDescTree;
+CDescTree CGame_SFIII3_D::MainDescTree = nullptr;
 
 UINT16 CGame_SFIII3_D::uRuleCtr = 0;
 

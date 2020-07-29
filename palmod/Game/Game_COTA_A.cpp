@@ -8,7 +8,7 @@
 
 stExtraDef* CGame_COTA_A::COTA_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_COTA_A::MainDescTree;
+CDescTree CGame_COTA_A::MainDescTree = nullptr;
 int CGame_COTA_A::rgExtraCountAll[COTA_A_NUMUNIT + 1] = { -1 };
 int CGame_COTA_A::rgExtraLoc[COTA_A_NUMUNIT + 1] = { -1 };
 

@@ -8,7 +8,7 @@
 
 stExtraDef* CGame_SFA3_A::SFA3_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_SFA3_A::MainDescTree;
+CDescTree CGame_SFA3_A::MainDescTree = nullptr;
 
 UINT32 CGame_SFA3_A::m_nTotalPaletteCountForSFA3 = 0;
 
@@ -401,7 +401,7 @@ void CGame_SFA3_A::DumpHeaderPalettes()
                 break;
             }
 
-            strOutput.Format(_T("    { \"%s\", 0x%x, 0x%x, %s, 0x%02x },\r\n"), strColorName, SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * nColorIndex), SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * (nColorIndex + 1)), SFA3_A_PortraitDataArray[nIndex].pszImageSet, SFA3_A_PortraitDataArray[nIndex].nImageSetIndex);
+            strOutput.Format(_T("    { \"%s\", 0x%x, 0x%x, %s, 0x%02x },\r\n"), strColorName.GetString(), SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * nColorIndex), SFA3_A_PortraitDataArray[nIndex].nROMOffset + (PORTRAIT_OFFSET * (nColorIndex + 1)), SFA3_A_PortraitDataArray[nIndex].pszImageSet, SFA3_A_PortraitDataArray[nIndex].nImageSetIndex);
             OutputDebugString(strOutput);
         }
 

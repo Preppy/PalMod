@@ -4,7 +4,7 @@
 
 #define JUNK_CLASSNAME    _T("CJunk")  // Window class name
 
-#define aaadd(x, y) ((x)+(y) > 255 ? 255 : (x)+(y))
+#define aaadd(x, y) ((UINT8)(((x) + (y) > 255) ? 255 : (x) + (y)))
 
 #define CUSTOM_HLCHANGE        WM_USER +1
 #define CUSTOM_SELHLCHANGE     WM_USER +2

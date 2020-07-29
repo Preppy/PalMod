@@ -10,7 +10,7 @@
 #define MV2C_D_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 //Initialize the selection tree
-CDescTree CGame_MVC2_D::MainDescTree;
+CDescTree CGame_MVC2_D::MainDescTree = nullptr;
 
 UINT16 CGame_MVC2_D::uRuleCtr = 0;
 BOOL CGame_MVC2_D::bAlphaTrans = 0;

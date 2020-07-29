@@ -12,7 +12,7 @@ int CGame_SFIII3_A::rgExtraCountAll[SFIII3_A_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraLoc[SFIII3_A_NUMUNIT + 1] = { -1 };
 
-CDescTree CGame_SFIII3_A::MainDescTree;
+CDescTree CGame_SFIII3_A::MainDescTree = nullptr;
 UINT32 CGame_SFIII3_A::m_nGameROMSize = 0x800000; // 8,388,608 bytes
 UINT32 CGame_SFIII3_A::m_nConfirmedROMSize = -1;
 

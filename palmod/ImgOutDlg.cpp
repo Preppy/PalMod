@@ -159,6 +159,9 @@ afx_msg void CImgOutDlg::OnSize(UINT nType, int cx, int cy)
     ResizeBmp();
 }
 
+#pragma warning( push )
+#pragma warning( disable : 26454 ) // bug in Microsoft headers
+
 BEGIN_MESSAGE_MAP(CImgOutDlg, CDialog)
     ON_WM_SHOWWINDOW()
     ON_WM_SIZE()
@@ -184,6 +187,8 @@ BEGIN_MESSAGE_MAP(CImgOutDlg, CDialog)
     ON_COMMAND(ID_SETTINGS_USETRANSPARENTPNG, &CImgOutDlg::OnSettingsUsetransparentpng)
     ON_WM_INITMENUPOPUP()
 END_MESSAGE_MAP()
+
+#pragma warning( pop )
 
 // CImgOutDlg message handlers
 
@@ -213,7 +218,7 @@ void CImgOutDlg::UpdImgVar(BOOL bResize)
     }
     else
     {
-        fpTargetZoom = ((m_zoom / 5) + 1);
+        fpTargetZoom = (((double)m_zoom / 5.0) + 1.0);
         fpTargetZoom += (0.2 * ((m_zoom) % 5));
     }
 

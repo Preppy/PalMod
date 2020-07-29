@@ -380,18 +380,19 @@ void CPalModDlg::OnFileOpen()
         { Garou_A, _T("Garou|kf.neo-sma|"), INVALID_UNIT_VALUE },
         { Garou_S, _T("Garou for Steam (p1.bin)|p1.bin|"), INVALID_UNIT_VALUE },
         { JOJOS_A, _T("Jojos: HUDs and menus (*.50), Characters (*.51)|50;51|"), INVALID_UNIT_VALUE },
-        { KOF98_A, _T("KOF98 (242-p2.sp2)|*.sp2|"), INVALID_UNIT_VALUE },
+        { KOF98_A, _T("KOF98 (242-p2.sp2)|242*.sp2|"), INVALID_UNIT_VALUE },
         // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
-        { KOF02_A, _T("KOF02 (265-p2.sp2 or 265.p2.bin)|*p2*|"), INVALID_UNIT_VALUE },
+        { KOF02_A, _T("KOF02 (265-p2.sp2 or 265.p2.bin)|265*p2*|"), INVALID_UNIT_VALUE },
         { KOF02UM_S, _T("KOF02UM (pal_a.bin)|*.bin|"), INVALID_UNIT_VALUE },
         { MSH_A, _T("MSH: Characters (*.05), Portraits (*.06b)|*.05;*.06b|"), INVALID_UNIT_VALUE },
         { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },
         { MVC_A, _T("MVC mvc.06|*.06|"), INVALID_UNIT_VALUE },
         { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|*.dat;*.bin|"), INVALID_UNIT_VALUE },
         { SFIII3_A, _T("SFIII3 51 Rom|51|"), INVALID_UNIT_VALUE },
-        { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|"), INVALID_UNIT_VALUE },
         { SFA2_A, _T("SFA2: Characters (sz*.07), Bonus (sz*.08)|*.07;*.08|"), INVALID_UNIT_VALUE },
         { SFA3_A, _T("SFA3 sz3.09c|*.09c|"), INVALID_UNIT_VALUE },
+        { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|"), INVALID_UNIT_VALUE },
+        { SVCPLUSA_A, _T("SVC PlusA|svc-p2pl.bin|"), INVALID_UNIT_VALUE },
         { XMVSF_A, _T("XMVSF xvs.05a|*.05a|"), INVALID_UNIT_VALUE },
         { NEOGEO_A, _T("Unknown NEO•GEO|*.*|"), INVALID_UNIT_VALUE },
     };
@@ -424,6 +425,7 @@ void CPalModDlg::OnFileOpen()
 
             TCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
             _tcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
+            szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
        
             LPTSTR pszPipe = _tcsstr(szGameFilter, _T("|"));
 

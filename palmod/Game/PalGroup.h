@@ -35,7 +35,7 @@ struct sPalDef
     UINT16 uCollectionId = 0;
     UINT16 uPalId = 0;
 
-    sPalSep* SepList[MAX_SEP];
+    sPalSep* SepList[MAX_SEP] = {};
     UINT16 uSepAmt = 0;
 
     BOOL bChanged = FALSE;

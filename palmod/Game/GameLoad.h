@@ -7,8 +7,8 @@ class CGameLoad
 private:
     BOOL SetGame(int nGameFlag);
 
-    UINT16(*GetRuleCtr)(void);
-    void (*ResetRuleCtr)(void);
+    UINT16(*GetRuleCtr)(void) = {};
+    void (*ResetRuleCtr)(void) = {};
     sFileRule(*GetNextRule)(void);
     sFileRule(*GetRule)(UINT16);
     CGameClass* CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int nExtraGameData = 0);

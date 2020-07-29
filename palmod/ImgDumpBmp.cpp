@@ -584,9 +584,9 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
                     pDstBmpData[nDstPos + 3] += pCurrPal[(uIndex * 4) + 3];
 
-                    pDstBmpData[nDstPos + 2] = pDstBmpData[nDstPos + 2] ? pDstBmpData[nDstPos + 2] + ((double)pCurrPal[(uIndex * 4)] * fpAdd) : pDstBmpData[nDstPos + 2] + pCurrPal[(uIndex * 4)];
-                    pDstBmpData[nDstPos + 1] = pDstBmpData[nDstPos + 1] ? pDstBmpData[nDstPos + 1] + ((double)pCurrPal[(uIndex * 4) + 1] * fpAdd) : pDstBmpData[nDstPos + 1] + pCurrPal[(uIndex * 4) + 1];
-                    pDstBmpData[nDstPos] = pDstBmpData[nDstPos] ? pDstBmpData[nDstPos] + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd) : pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2];
+                    pDstBmpData[nDstPos + 2] = (UINT8)(pDstBmpData[nDstPos + 2] ? pDstBmpData[nDstPos + 2] + ((double)pCurrPal[(uIndex * 4)] * fpAdd)     : pDstBmpData[nDstPos + 2] + pCurrPal[(uIndex * 4)]);
+                    pDstBmpData[nDstPos + 1] = (UINT8)(pDstBmpData[nDstPos + 1] ? pDstBmpData[nDstPos + 1] + ((double)pCurrPal[(uIndex * 4) + 1] * fpAdd) : pDstBmpData[nDstPos + 1] + pCurrPal[(uIndex * 4) + 1]);
+                    pDstBmpData[nDstPos] =     (UINT8)(pDstBmpData[nDstPos]     ? pDstBmpData[nDstPos]     + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd) : pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2]);
                 }
             }
         }

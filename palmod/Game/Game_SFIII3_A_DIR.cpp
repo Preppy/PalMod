@@ -135,8 +135,6 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nROMNumber)
     UINT32 nBeginningRange = 0 + (c_nSFIII3RomLength * (nROMNumber - 4));
     UINT32 nEndingRange = (c_nSFIII3RomLength * 2) + (c_nSFIII3RomLength * (nROMNumber - 4));
 
-    CString strInfo;
-
     CFile FilePeer;
     CString strPeerFilename;
     strPeerFilename.Format(_T("%s\\%s%u"), GetLoadDir(), SFIII_Arcade_ROM_Base, nROMNumber + 1);

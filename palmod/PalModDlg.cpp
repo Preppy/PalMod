@@ -87,6 +87,9 @@ void CPalModDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_EDIT_ADESC, m_EditADesc);
 }
 
+#pragma warning( push )
+#pragma warning( disable : 26454 ) // bug in Microsoft headers
+
 // CPalModDlg message handlers
 BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_WM_SYSCOMMAND()
@@ -168,6 +171,8 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_LDJOJOS50, &CPalModDlg::OnLDJOJOS50)
     ON_COMMAND(ID_LDJOJOS51, &CPalModDlg::OnLDJOJOS51)
 END_MESSAGE_MAP()
+
+#pragma warning( pop )
 
 BOOL CPalModDlg::OnInitDialog()
 {

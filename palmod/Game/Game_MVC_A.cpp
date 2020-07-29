@@ -7,7 +7,7 @@
 
 stExtraDef* CGame_MVC_A::MVC_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_MVC_A::MainDescTree;
+CDescTree CGame_MVC_A::MainDescTree = nullptr;
 
 int CGame_MVC_A::rgExtraCountAll[MVC_A_NUMUNIT + 1] = { -1 };
 int CGame_MVC_A::rgExtraCountVisibleOnly[MVC_A_NUMUNIT + 1] = { -1 };
