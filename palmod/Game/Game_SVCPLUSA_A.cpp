@@ -394,10 +394,10 @@ const LPCTSTR SVC_CharacterEffectNames[] =
     _T("Fire Effect 1"),
     _T("Fire Effect 2"),
     _T("Electric Shock Effect"),
-    _T("Effect 4"),
-    _T("Effect 5"),
+    _T("Red Arremer Transformation"),
+    _T("Athena Transformation"),
     _T("Soul Palette"),
-    _T("Max Flash"),
+    _T("Midnight Bliss"),
 };
 
 void CGame_SVCPLUSA_A::DumpPaletteHeaders()

@@ -63,18 +63,18 @@ const stExtraDef SFIII3_A_EXTRA[] =
     { UNIT_START_VALUE },
 
     //Ryu
-    { 0x01, _T("Hadouken"), 0x00704B00, 30 * 2},
-    { 0x01, _T("Hadouken Impact"), 0x00704BA0, 16},
+    { 0x01, _T("Hadouken"), 0x00704B00, 30 * 2}, // Yes, 30: the last two colors are not used
+    { 0x01, _T("Hadouken Impact"), 0x00704BA0, 16 },
 
     //Oro
-    { 0x08, _T("Tengu Stones"), 0x00763100, 0x80},
+    { 0x08, _T("Tengu Stones"), 0x00763100, 0x80 },
     // Bricks are folded into the Tengu Stones display
-    { 0x08, _T("Bricks"), 0x00763180, 0x20, 1},
+    { 0x08, _T("Bricks"), 0x00763180, 0x20, 1 },
 
     //Ken
-    { 0x0A, _T("Hadouken"), 0x00706400, 30 * 2},
-    { 0x0A, _T("Shoryuken Flames"), 0x00706560, 16 * 2},
-    { 0x0A, _T("Hadouken Impact"), 0x007064A0, 16},
+    { 0x0A, _T("Hadouken"), 0x00706400, 30 * 2 }, // Yes, 30: the last two colors are not used
+    { 0x0A, _T("Shoryuken Flames"), 0x00706560, 16 * 2 },
+    { 0x0A, _T("Hadouken Impact"), 0x007064A0, 16 },
 
     //Urien
     { 0x0C, _T("Intro"), 0x00706600, 0x80 },
@@ -82,6 +82,8 @@ const stExtraDef SFIII3_A_EXTRA[] =
 
     // Akuma/Gouki
     { 0x0D, _T("Shun Goku Satsu KO Screen"), 0x706b80, 16 * 2 * 4 },
+    { 0x0D, _T("Messatsu Go Hadou / Air Fireball"), 0x706a80, 16 * 2 * 4 },
+    { 0x0D, _T("Kongou Kokuretzu Zan"), 0x706a00, 16 * 2 * 4 },
 
     //{ SFIII3_A_EXTRALOC, _T("Check"), 0x00706580, 0x80 },
     

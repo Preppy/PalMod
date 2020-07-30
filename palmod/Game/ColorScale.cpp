@@ -182,12 +182,14 @@ static double HueToRGB(const double m1, const double m2, double h) {
 ******************************************************************************/
 //typedef unsigned TCHAR  BYTE;        // 8-bit unsigned entity
 
-COLORREF HLStoRGB(const double H, const double L, const double S) {
+COLORREF HLStoRGB(const double H, const double L, const double S)
+{
     double r, g, b;
     double m1, m2;
 
     if (S == 0) r = g = b = L;
-    else {
+    else
+    {
         if (L <= 0.5) m2 = L * (1.0 + S);
         else         m2 = L + S - L * S;
         m1 = 2.0 * L - m2;
@@ -206,7 +208,8 @@ COLORREF HLStoRGB(const double H, const double L, const double S) {
 ******************************************************************************/
 COLORREF ColorStepsRGB(const COLORREF Col1,
     const COLORREF Col2,
-    const float Ratio, const int NbSteps) {
+    const float Ratio, const int NbSteps) 
+{
     int R1 = (Col1 >> 16) & 0xFF, G1 = (Col1 >> 8) & 0xFF, B1 = Col1 & 0xFF;
     int R2 = (Col2 >> 16) & 0xFF, G2 = (Col2 >> 8) & 0xFF, B2 = Col2 & 0xFF;
     int Color;
@@ -234,7 +237,8 @@ COLORREF ColorStepsRGB(const COLORREF Col1,
 ******************************************************************************/
 COLORREF ColorStepsHSL(const COLORREF Col1,
     const COLORREF Col2,
-    const float Ratio, const int NbSteps) {
+    const float Ratio, const int NbSteps)
+{
     double H1, H2, S1, S2, L1, L2;
     int rgb;
     double IR;

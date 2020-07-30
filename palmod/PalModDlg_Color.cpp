@@ -132,7 +132,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 
             if (bRGB)
             {
-                if (nRangeFlag != 0 + nGameFlag)
+                if (nRangeFlag != (0 + nGameFlag))
                 {
                     m_RHSlider.SetRange(0, nRGBAmt, TRUE);
                     m_GSSlider.SetRange(0, nRGBAmt, TRUE);
@@ -144,7 +144,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
             }
             else
             {
-                if (nRangeFlag != 0xFF * 1 + nGameFlag)
+                if (nRangeFlag != (0xFF * 1 + nGameFlag))
                 {
                     m_RHSlider.SetRange(0, 360, TRUE);
                     m_GSSlider.SetRange(0, 255, TRUE);
@@ -171,7 +171,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 
             if (bRGB)
             {
-                if (nRangeFlag != 0xFF * 2 + nGameFlag)
+                if (nRangeFlag != (0xFF * 2 + nGameFlag))
                 {
                     m_RHSlider.SetRange(-nRGBAmt, nRGBAmt, TRUE);
                     m_GSSlider.SetRange(-nRGBAmt, nRGBAmt, TRUE);
@@ -183,7 +183,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
             }
             else
             {
-                if (nRangeFlag != 0xFF * 3 + nGameFlag)
+                if (nRangeFlag != (0xFF * 3 + nGameFlag))
                 {
                     m_RHSlider.SetRange(0, 360, TRUE);
                     m_GSSlider.SetRange(-255, 255, TRUE);
