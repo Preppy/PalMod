@@ -66,6 +66,11 @@ const stExtraDef SFIII3_A_EXTRA[] =
     { 0x01, _T("Hadouken"), 0x00704B00, 30 * 2}, // Yes, 30: the last two colors are not used
     { 0x01, _T("Hadouken Impact"), 0x00704BA0, 16 },
 
+    //Hugo
+    { 0x05, _T("Poison P1"), 0x705880, 16 * 2 * 4 },
+    { 0x05, _T("Poison P2"), 0x705900, 16 * 2 * 4 },
+    { 0x05, _T("Poison EX"), 0x705980, 16 * 2 * 4 },
+
     //Oro
     { 0x08, _T("Tengu Stones"), 0x00763100, 0x80 },
     // Bricks are folded into the Tengu Stones display

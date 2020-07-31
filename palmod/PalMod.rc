@@ -328,8 +328,8 @@ BEGIN
             MENUITEM "MVC2 (PS2)(*)",               ID_LDMVC2PS2USA
             MENUITEM "SFIII3 (DC)(*)",              ID_LDSFIII3DCALL
             MENUITEM "SFIII3 (Arcade)(*)",          ID_LDSFIII3ARCADEALL
-            MENUITEM "Jojo's 50 (Arcade)(*)",       ID_LDJOJOS50
-            MENUITEM "Jojo's 51 (Arcade)(*)",       ID_LDJOJOS51
+            MENUITEM "Jojo's 50 (Arcade)(Japan)",   ID_LDJOJOS50
+            MENUITEM "Jojo's 51 (Arcade)(Japan)",   ID_LDJOJOS51
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
         MENUITEM SEPARATOR
@@ -534,7 +534,7 @@ BEGIN
     IDS_ERROR_TEXTURE_NOGAME "A game must be loaded first."
     IDS_ERROR_FILENOTFOUND_FORMAT 
                             "Save failed: output file '%s' does not exist."
-    IDS_ROMMISMATCH_CHECK   "This ROM is not the expected size.  Are you sure you wish to continue?"
+    IDS_ROMMISMATCH_CHECK   "ERROR!  This ROM is not the expected size, which means PalMod writing to where it expects the ROM to be may corrupt it.  Are you sure you wish to continue? "
     IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM.  If you want to PalMod Venture, let people in the HFTF Discord server know and they'll walk you through it.\n\nAre you sure you wish to continue?"
 END
 

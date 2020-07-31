@@ -50,7 +50,7 @@ enum SupportedGamesList
 //    CPalModDlg::OnEditCopy
 // 
 
-const TCHAR g_GameFriendlyName[NUM_GAMES][32] =
+const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
 {
    _T("MvC2 (Dreamcast)"),
    _T("SFIII3 (Arcade)"),
@@ -60,7 +60,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][32] =
    _T("XVSF (Arcade)"),
    _T("MVC (Arcade)"),
    _T("SFIII3 (Dreamcast)"),
-   _T("Jojo's"),
+   _T("Jojo's (Japan)"),
    _T("MSH (Arcade)"),
    _T("MSHVSF (Arcade)"),
    _T("X-Men (Arcade)"),
@@ -74,8 +74,8 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][32] =
    _T("KOF: 02 (Arcade)"),
    _T("SFA2 (Arcade)"),
    _T("SFIII3 (Arcade Rerip)"),
-   _T("Jojo's 50 (Arcade Rerip)"),
-   _T("Jojo's 51 (Arcade Rerip)"),
+   _T("Jojo's 50 (Japanese Arcade Rerip)"),
+   _T("Jojo's 51 (Japanese Arcade Rerip)"),
    _T("SVC Plus A"),
 };
 
@@ -1496,7 +1496,7 @@ const UINT8 SVCPLUSA_A_IMG_UNITS[] =
     indexSVCSprites_GeeseHoward, // 5b
     indexSVCSprites_MarsPeople, // 5c
     indexSVCSprites_Goenitz,    // 5d
-    indexSVCSprites_PrincessAthena,    // 5e
+    indexSVCSprites_PrincessAthena, // 5e
     indexSVCSprites_Ryu,        // 5f
     indexSVCSprites_Ken,        // 60
     indexSVCSprites_ChunLi,     // 61
@@ -1516,7 +1516,7 @@ const UINT8 SVCPLUSA_A_IMG_UNITS[] =
     indexSVCSprites_Dan,        // 6f
     indexSVCSprites_RedArremer, // 70
     indexSVCSprites_OrochiIori, // 71
-    indexSVCSprites_SeriousMrKarate,    // 72
+    indexSVCSprites_SeriousMrKarate, // 72
     indexSVCSprites_ViolentKen, // 73
     indexSVCSprites_ShinAkuma,  // 74
 };

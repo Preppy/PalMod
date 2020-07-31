@@ -196,7 +196,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             //Create the img ticket
             ClearSetImgTicket(
                 CreateImgTicket(uUnitId, 0,
-                    CreateImgTicket(uUnitId, 1, NULL, -22, -17)
+                    CreateImgTicket(uUnitId, 1, NULL, 0, 0)
                 )
             );
 
