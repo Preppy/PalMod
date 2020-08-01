@@ -83,7 +83,7 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     nRGBIndexAmt = 31;
     nAIndexAmt = 0;
 
-    nRGBIndexMul = 17.0f;
+    nRGBIndexMul = 8.225;
     nAIndexMul = 0.0f;
 }
 

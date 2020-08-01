@@ -953,7 +953,7 @@ BOOL CGame_SAMSHO5SP_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
 
                     while (nSrcStart >= nNodeIncrement)
                     {
-                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1/A
                         nSrcStart -= nNodeIncrement;
                     }
                 }

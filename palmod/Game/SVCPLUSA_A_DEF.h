@@ -2118,7 +2118,6 @@ const UINT8 SVCPLUSA_A_UNITSORT[SVCPLUSA_A_NUMUNIT + 1] // Plus 1 for extras
     indexSVC_A_SeriousMrKarate,
     indexSVC_A_ViolentKen,
     indexSVC_A_ShinAkuma,
-
     SVCPLUSA_A_EXTRALOC
 };
 

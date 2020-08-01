@@ -42,7 +42,7 @@ void prep_supp(bool forDreamcast /*= true */)
     }
 }
 
-inline UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no)
+UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no)
 {
     if (_mvc2_dreamcast_data)
     {

@@ -885,7 +885,7 @@ extern CGame_MVC2_D * CurrMVC2;
 extern CGame_MVC2_A*  CurrMVC2_Arcade;
 extern int rgSuppLoc[MVC2_D_NUMUNIT];
 
-inline UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no);
+UINT16* get_pal_16(UINT16 char_id, UINT16 pal_no);
 
 void prep_supp(bool forDreamcast = true);
 void proc_supp(UINT16 char_no, UINT16 pal_no);

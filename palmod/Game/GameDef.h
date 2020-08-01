@@ -51,6 +51,9 @@ enum SupportedGamesList
 //    CPalModDlg::OnEditCopy
 // 
 
+
+// We want to keep these short for the titlebar: they're hard-limited by
+// MAX_DESCRIPTION_LENGTH (96), so 64 is probably the max we want.
 const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
 {
    _T("MvC2 (Dreamcast)"),
