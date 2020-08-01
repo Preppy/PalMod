@@ -104,7 +104,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         pPopupMenu->EnableMenuItem(ID_EDIT_REDO, !UndoProc.GetRedoCount());
 
         pPopupMenu->EnableMenuItem(ID_EDIT_COPY, !m_PalHost.CurrPalAvail());
-        pPopupMenu->EnableMenuItem(ID_EDIT_PASTE, !VerifyPaste());
+        pPopupMenu->EnableMenuItem(ID_EDIT_PASTE, !IsPasteSupported());
 
         pPopupMenu->EnableMenuItem(ID_EDIT_SELECTALL, !m_PalHost.GetNotifyPal()->GetWorkingAmt());
         pPopupMenu->EnableMenuItem(ID_EDIT_SELECTNONE, !m_PalHost.GetNotifyPal()->GetWorkingAmt());

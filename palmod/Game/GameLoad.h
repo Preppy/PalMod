@@ -9,8 +9,8 @@ private:
 
     UINT16(*GetRuleCtr)(void) = {};
     void (*ResetRuleCtr)(void) = {};
-    sFileRule(*GetNextRule)(void);
-    sFileRule(*GetRule)(UINT16);
+    sFileRule(*GetNextRule)(void) = {};
+    sFileRule(*GetRule)(UINT16) = {};
     CGameClass* CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int nExtraGameData = 0);
 
     CString szLoadSaveStr = _T("");

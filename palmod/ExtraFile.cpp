@@ -20,6 +20,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
     int nTotalExtensionExtraLinesHandled = 0;
     int nStockExtrasCount = 0;
     int nArrayOffsetDesired = 0;
+    bool fAlertedToTruncation = false;
 
     // Before we load the Extra extension file, load our hardcoded known Extras list.
     stExtraDef* pCurrDef = const_cast<stExtraDef*>(&pBaseExtraDefs[nStockExtrasCount]);
@@ -145,15 +146,13 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                             // Validate that they're not trying to read off the end of the ROM...
                             if ((nCurrEnd > (int)nGameROMSize) || (nCurrStart >= (int)nGameROMSize))
                             {
-                                static bool s_fAlertedToTruncation = false;
-
-                                if (!s_fAlertedToTruncation)
+                                if (!fAlertedToTruncation)
                                 {
                                     CString strQuestion;
                                     strQuestion.Format(_T("In file \"%s\", Extra \"%S\" is broken.\n\nThis game ROM size is 0x%06x bytes. This Extra starts at offset 0x%06x and ends at offset 0x%06x.  That won't work.\n\nPalMod is truncating this Extra so that you do not corrupt your ROM."), pszExtraFileName, aszCurrDesc, nGameROMSize, nCurrStart, nCurrEnd);
 
                                     MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
-                                    s_fAlertedToTruncation = true;
+                                    fAlertedToTruncation = true;
                                 }
 
                                 strcpy(aszCurrDesc, "Broken: Truncated");

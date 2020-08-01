@@ -112,6 +112,9 @@
     <Filter Include="Game\SVCPLUSA_A">
       <UniqueIdentifier>{b5984ab2-a10f-400e-b1ff-4766bfb767c1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SAMSHO5SP_A">
+      <UniqueIdentifier>{fe714ae2-392a-409d-93fc-c41ebecf4c94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -275,6 +278,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp">
       <Filter>Game\SVCPLUSA_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp">
+      <Filter>Game\SAMSHO5SP_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -499,6 +505,12 @@
     </ClInclude>
     <ClInclude Include="Game\SVCPLUSA_A_DEF.h">
       <Filter>Game\SVCPLUSA_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SAMSHO5SP_A.h">
+      <Filter>Game\SAMSHO5SP_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMSHO5SP_A_DEF.h">
+      <Filter>Game\SAMSHO5SP_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

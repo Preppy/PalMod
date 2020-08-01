@@ -18,6 +18,7 @@
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
 #include "Game_NEOGEO_A.h"
+#include "Game_SAMSHO5SP_A.h"
 #include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
 #include "Game_SFIII3_A.h"
@@ -215,6 +216,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SVCPLUSA_A::GetRule;
         return TRUE;
     }
+    case SAMSHO5SP_A:
+    {
+        GetRule = &CGame_SAMSHO5SP_A::GetRule;
+        return TRUE;
+    }
     default:
         OutputDebugString(_T("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n"));
         return FALSE;
@@ -295,6 +301,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case NEOGEO_A:
     {
         return new CGame_NEOGEO_A(nConfirmedROMSize);
+    }
+    case SAMSHO5SP_A:
+    {
+        return new CGame_SAMSHO5SP_A(nConfirmedROMSize);
     }
     case SFIII3_A:
     {

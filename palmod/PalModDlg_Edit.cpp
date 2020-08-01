@@ -101,135 +101,7 @@ void CPalModDlg::OnEditCopy()
     }
 }
 
-void CPalModDlg::OnEditPaste()
-{
-    if (!VerifyPaste())
-    {
-        return;
-    }
-
-    COleDataObject obj;
-
-    char* szPasteBuff = szPasteStr.GetBuffer();
-
-    // Do something with the data in 'buffer'
-
-    char szFormatStr[] = "0x0000";
-
-    UINT8 uPasteGFlag = szPasteBuff[1] - k_nASCIICharacterOffset;
-    // We want the number of colors per paste minus the () and game flag
-    UINT16 uPasteAmt = (UINT16)((strlen(szPasteBuff) - 3) / 4);
-    
-    switch (uPasteGFlag)
-    {
-    default:
-    case 2: //MVC2_D & everything else
-        uPasteGFlag = 0;
-        break;
-    case 1: //SFIII3_A / Jojos
-        uPasteGFlag = 1;
-        break;
-    case SFIII3_D: //SFIII3_D
-        uPasteGFlag = SFIII3_D;
-        break;
-    }
-
-    if (uPasteAmt)
-    {
-        CGameClass* CurrGame = GetHost()->GetCurrGame();
-        UINT8 uCurrGFlag = CurrGame->GetGameFlag();
-        ColMode eCurrColMode = CurrGame->GetColMode();
-
-        COLORREF* rgPasteCol = new COLORREF[uPasteAmt];
-
-        int nIndexCtr = 0, nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-
-        if (uCurrGFlag != uPasteGFlag)
-        {
-            switch (uPasteGFlag)
-            {
-            case SFIII3_D:
-            {
-                CurrGame->SetColMode(COLMODE_15ALT);
-            }
-            break;
-            case SFIII3_A:
-            case JOJOS_A:
-            {
-                CurrGame->SetColMode(COLMODE_15);
-            }
-            break;
-            case MVC2_D:
-            case MVC2_P:
-            default:
-            {
-                CurrGame->SetColMode(COLMODE_12A);
-            }
-            break;
-            }
-        }
-
-        //Notify the change data
-        ProcChange();
-
-        for (UINT16 i = 0; i < uPasteAmt; i++)
-        {
-            memcpy(&szFormatStr[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
-
-            rgPasteCol[i] = CurrGame->ConvPal((UINT16)strtol(szFormatStr, NULL, 16));
-            ((UINT8*)rgPasteCol)[i * 4 + 3] |= (0xFF * (nAMul == 0));
-        }
-
-        if (uCurrGFlag != uPasteGFlag)
-        {
-            //Set the color mode back
-            //Round the values with the switched game flag
-            CurrGame->SetColMode(eCurrColMode);
-
-            for (UINT16 i = 0; i < uPasteAmt; i++)
-            {
-                rgPasteCol[i] = CurrGame->ConvPal(CurrGame->ConvCol(rgPasteCol[i]));
-            }
-        }
-
-        if (!CurrPalCtrl->GetSelAmt())
-        {
-            int nCopyAmt = nWorkingAmt < uPasteAmt ? nWorkingAmt : uPasteAmt;
-
-            memcpy(CurrPalCtrl->GetBasePal(), rgPasteCol, sizeof(COLORREF) * nCopyAmt);
-        }
-        else
-        {
-            UINT8* rgSelIndex = CurrPalCtrl->GetSelIndex();
-            COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
-
-            for (int i = 0; i < nWorkingAmt; i++)
-            {
-                if (rgSelIndex[i])
-                {
-                    crTargetPal[i] = rgPasteCol[nIndexCtr];
-                    CurrPalDef->pBasePal[i + CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
-
-                    nIndexCtr++;
-
-                    if (nIndexCtr >= uPasteAmt)
-                    {
-                        nIndexCtr = 0;
-                    }
-                }
-            }
-        }
-
-        CurrPalCtrl->UpdateIndexAll();
-
-        ImgDispCtrl->UpdateCtrl();
-        CurrPalCtrl->UpdateCtrl();
-
-        safe_delete_array(rgPasteCol);
-    }
-}
-
-BOOL VerifyPaste()
+BOOL IsPasteFromPalMod()
 {
     COleDataObject obj;
     BOOL bCanPaste = FALSE;
@@ -273,6 +145,171 @@ BOOL VerifyPaste()
     }
 
     return bCanPaste;
+}
+
+BOOL IsPasteRGB()
+{
+    COleDataObject obj;
+    BOOL bCanPaste = FALSE;
+
+    if ((!obj.AttachClipboard()) ||
+        (!obj.IsDataAvailable(CF_TEXT)))
+    {
+        return FALSE;
+    }
+
+    HGLOBAL hmem = obj.GetGlobalData(CF_TEXT);
+    CMemFile sf((BYTE*) ::GlobalLock(hmem), ::GlobalSize(hmem));
+
+    LPSTR szTempStr = szPasteStr.GetBufferSetLength(::GlobalSize(hmem));
+    sf.Read(szTempStr, ::GlobalSize(hmem));
+    ::GlobalUnlock(hmem);
+
+    szPasteStr.Remove(' ');
+    szPasteStr.Remove('\n');
+
+    if (szTempStr[0] == '#')
+    {
+        size_t nCountChars = strlen(szTempStr);
+
+        if ((nCountChars == 7) || (nCountChars == 9))
+        {
+            bCanPaste = TRUE;
+        }
+    }
+
+    return FALSE; // hardcode off for the moment
+}
+
+BOOL IsPasteSupported()
+{
+    return IsPasteFromPalMod() || IsPasteRGB();
+}
+
+void CPalModDlg::OnEditPaste()
+{
+    if (IsPasteFromPalMod())
+    {
+        COleDataObject obj;
+
+        char* szPasteBuff = szPasteStr.GetBuffer();
+
+        // Do something with the data in 'buffer'
+
+        char szFormatStr[] = "0x0000";
+
+        UINT8 uPasteGFlag = szPasteBuff[1] - k_nASCIICharacterOffset;
+        // We want the number of colors per paste minus the () and game flag
+        UINT16 uPasteAmt = (UINT16)((strlen(szPasteBuff) - 3) / 4);
+
+        switch (uPasteGFlag)
+        {
+        default:
+        case 2: //MVC2_D & everything else
+            uPasteGFlag = 0;
+            break;
+        case 1: //SFIII3_A / Jojos
+            uPasteGFlag = 1;
+            break;
+        case SFIII3_D: //SFIII3_D
+            uPasteGFlag = SFIII3_D;
+            break;
+        }
+
+        if (uPasteAmt)
+        {
+            CGameClass* CurrGame = GetHost()->GetCurrGame();
+            UINT8 uCurrGFlag = CurrGame->GetGameFlag();
+            ColMode eCurrColMode = CurrGame->GetColMode();
+
+            COLORREF* rgPasteCol = new COLORREF[uPasteAmt];
+
+            int nIndexCtr = 0, nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+
+            if (uCurrGFlag != uPasteGFlag)
+            {
+                switch (uPasteGFlag)
+                {
+                case SFIII3_D:
+                {
+                    CurrGame->SetColMode(COLMODE_15ALT);
+                }
+                break;
+                case SFIII3_A:
+                case JOJOS_A:
+                {
+                    CurrGame->SetColMode(COLMODE_15);
+                }
+                break;
+                case MVC2_D:
+                case MVC2_P:
+                default:
+                {
+                    CurrGame->SetColMode(COLMODE_12A);
+                }
+                break;
+                }
+            }
+
+            //Notify the change data
+            ProcChange();
+
+            for (UINT16 i = 0; i < uPasteAmt; i++)
+            {
+                memcpy(&szFormatStr[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
+
+                rgPasteCol[i] = CurrGame->ConvPal((UINT16)strtol(szFormatStr, NULL, 16));
+                ((UINT8*)rgPasteCol)[i * 4 + 3] |= (0xFF * (nAMul == 0));
+            }
+
+            if (uCurrGFlag != uPasteGFlag)
+            {
+                //Set the color mode back
+                //Round the values with the switched game flag
+                CurrGame->SetColMode(eCurrColMode);
+
+                for (UINT16 i = 0; i < uPasteAmt; i++)
+                {
+                    rgPasteCol[i] = CurrGame->ConvPal(CurrGame->ConvCol(rgPasteCol[i]));
+                }
+            }
+
+            if (!CurrPalCtrl->GetSelAmt())
+            {
+                int nCopyAmt = nWorkingAmt < uPasteAmt ? nWorkingAmt : uPasteAmt;
+
+                memcpy(CurrPalCtrl->GetBasePal(), rgPasteCol, sizeof(COLORREF) * nCopyAmt);
+            }
+            else
+            {
+                UINT8* rgSelIndex = CurrPalCtrl->GetSelIndex();
+                COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
+
+                for (int i = 0; i < nWorkingAmt; i++)
+                {
+                    if (rgSelIndex[i])
+                    {
+                        crTargetPal[i] = rgPasteCol[nIndexCtr];
+                        CurrPalDef->pBasePal[i + CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
+
+                        nIndexCtr++;
+
+                        if (nIndexCtr >= uPasteAmt)
+                        {
+                            nIndexCtr = 0;
+                        }
+                    }
+                }
+            }
+
+            CurrPalCtrl->UpdateIndexAll();
+
+            ImgDispCtrl->UpdateCtrl();
+            CurrPalCtrl->UpdateCtrl();
+
+            safe_delete_array(rgPasteCol);
+        }
+    }
 }
 
 void CPalModDlg::NewUndoData(BOOL bUndo)

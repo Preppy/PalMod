@@ -38,6 +38,7 @@ enum SupportedGamesList
     JOJOS_A_DIR_50,
     JOJOS_A_DIR_51,
     SVCPLUSA_A,
+    SAMSHO5SP_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -77,6 +78,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Jojo's 50 (Japanese Arcade Rerip)"),
    _T("Jojo's 51 (Japanese Arcade Rerip)"),
    _T("SVC Plus A"),
+   _T("Samurai Shodown V Special"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -867,7 +869,7 @@ enum KOFSpriteList
     indexSVCSprites_GeeseHoward, // 5b
     indexSVCSprites_MarsPeople, // 5c
     indexSVCSprites_Goenitz,    // 5d
-    indexSVCSprites_PrincessAthena,    // 5e
+    indexSVCSprites_PrincessAthena, // 5e
     indexSVCSprites_Ryu,        // 5f
     indexSVCSprites_Ken,        // 60
     indexSVCSprites_ChunLi,     // 61
@@ -887,11 +889,45 @@ enum KOFSpriteList
     indexSVCSprites_Dan,        // 6f
     indexSVCSprites_RedArremer, // 70
     indexSVCSprites_OrochiIori, // 71
-    indexSVCSprites_SeriousMrKarate,    // 72
+    indexSVCSprites_SeriousMrKarate, // 72
     indexSVCSprites_ViolentKen, // 73
     indexSVCSprites_ShinAkuma,  // 74
 
     indexKOFSprites_Last,
+};
+
+enum SamuraiShodownSpriteList
+{
+    indexSamSho5Sprites_Amakusa = 0,
+    indexSamSho5Sprites_Basara,
+    indexSamSho5Sprites_Charlotte,
+    indexSamSho5Sprites_Enja,
+    indexSamSho5Sprites_Gaira,
+    indexSamSho5Sprites_Galford,
+    indexSamSho5Sprites_Gaoh,
+    indexSamSho5Sprites_Genjuro,
+    indexSamSho5Sprites_Hanzo,
+    indexSamSho5Sprites_Haohmaru,
+    indexSamSho5Sprites_Jubei,
+    indexSamSho5Sprites_Kazuki,
+    indexSamSho5Sprites_Kusaregedo,
+    indexSamSho5Sprites_Kyoshiro,
+    indexSamSho5Sprites_Mina,
+    indexSamSho5Sprites_Mizuki,
+    indexSamSho5Sprites_Nakoruru,
+    indexSamSho5Sprites_Rasetsumaru,
+    indexSamSho5Sprites_Rera,
+    indexSamSho5Sprites_Rimururu,
+    indexSamSho5Sprites_Shizumaru,
+    indexSamSho5Sprites_Sogetsu,
+    indexSamSho5Sprites_Suija,
+    indexSamSho5Sprites_TamTam,
+    indexSamSho5Sprites_Ukyo,
+    indexSamSho5Sprites_Yoshitora,
+    indexSamSho5Sprites_Yunfei,
+    indexSamSho5Sprites_Zankuro,
+
+    indexSamuraiShodownSprites_Last,
 };
 
 enum SupportedKOF98_A_PaletteListIndex
@@ -1521,6 +1557,72 @@ const UINT8 SVCPLUSA_A_IMG_UNITS[] =
     indexSVCSprites_ShinAkuma,  // 74
 };
 
+enum SupportedSamSho6SP_A_PaletteListIndex
+{
+    indexSamSho5_A_Amakusa = 0,
+    indexSamSho5_A_Basara,
+    indexSamSho5_A_Charlotte,
+    indexSamSho5_A_Enja,
+    indexSamSho5_A_Gaira,
+    indexSamSho5_A_Galford,
+    indexSamSho5_A_Gaoh,
+    indexSamSho5_A_Genjuro,
+    indexSamSho5_A_Hanzo,
+    indexSamSho5_A_Haohmaru,
+    indexSamSho5_A_Jubei,
+    indexSamSho5_A_Kazuki,
+    indexSamSho5_A_Kusaregedo,
+    indexSamSho5_A_Kyoshiro,
+    indexSamSho5_A_Mina,
+    indexSamSho5_A_Mizuki,
+    indexSamSho5_A_Nakoruru,
+    indexSamSho5_A_Rasetsumaru,
+    indexSamSho5_A_Rera,
+    indexSamSho5_A_Rimururu,
+    indexSamSho5_A_Shizumaru,
+    indexSamSho5_A_Sogetsu,
+    indexSamSho5_A_Suija,
+    indexSamSho5_A_TamTam,
+    indexSamSho5_A_Ukyo,
+    indexSamSho5_A_Yoshitora,
+    indexSamSho5_A_Yunfei,
+    indexSamSho5_A_Zankuro,
+
+    indexSamSho5_A_Last,
+};
+
+const UINT8 SAMSHO5SP_A_IMG_UNITS[] =
+{
+    indexSamSho5Sprites_Amakusa,
+    indexSamSho5Sprites_Basara,
+    indexSamSho5Sprites_Charlotte,
+    indexSamSho5Sprites_Enja,
+    indexSamSho5Sprites_Gaira,
+    indexSamSho5Sprites_Galford,
+    indexSamSho5Sprites_Gaoh,
+    indexSamSho5Sprites_Genjuro,
+    indexSamSho5Sprites_Hanzo,
+    indexSamSho5Sprites_Haohmaru,
+    indexSamSho5Sprites_Jubei,
+    indexSamSho5Sprites_Kazuki,
+    indexSamSho5Sprites_Kusaregedo,
+    indexSamSho5Sprites_Kyoshiro,
+    indexSamSho5Sprites_Mina,
+    indexSamSho5Sprites_Mizuki,
+    indexSamSho5Sprites_Nakoruru,
+    indexSamSho5Sprites_Rasetsumaru,
+    indexSamSho5Sprites_Rera,
+    indexSamSho5Sprites_Rimururu,
+    indexSamSho5Sprites_Shizumaru,
+    indexSamSho5Sprites_Sogetsu,
+    indexSamSho5Sprites_Suija,
+    indexSamSho5Sprites_TamTam,
+    indexSamSho5Sprites_Ukyo,
+    indexSamSho5Sprites_Yoshitora,
+    indexSamSho5Sprites_Yunfei,
+    indexSamSho5Sprites_Zankuro,
+};
+
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_CVS2 = 0, // CVS2: has both Capcom and SNK images
@@ -1528,6 +1630,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_JOJOS,
     IMGDAT_SECTION_KOF,     // KOF98 + KOF02UM
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
+    IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
     IMGDAT_SECTION_3S,      // Used for SFIII3.
     IMGDAT_SECTION_ST,      // Used for ST.
 };
@@ -1543,13 +1646,14 @@ enum eIMGDat_Sections
 // Aggregate count of image units per game flag
 const int IMGAMT[] =
 {
+    indexCVS2Sprites_Last,
     GAROU_A_NUM_IMG_UNITS,
     JOJOS_A_NUM_IMG_UNITS,
     indexKOFSprites_Last,
     MVC2_D_NUM_IMG_UNITS + MVC_A_UNIQUE_IMG_UNITS + SFA3_A_NUM_IMG_UNITS + XMVSF_A_UNIQUE_IMG_UNITS + MSH_A_UNIQUE_IMG_UNITS + MSHVSF_A_UNIQUE_IMG_UNITS,
+    indexSamuraiShodownSprites_Last,
     SFIII3_A_NUM_IMG_UNITS,
     SSF2T_A_NUM_IMG_UNITS,
-    indexCVS2Sprites_Last,
 };
 
 const stPairedPaletteInfo pairUnhandled =     { 0, 0, 0 };

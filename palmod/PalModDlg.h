@@ -249,7 +249,7 @@ public:
 
 extern BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);
 
-extern BOOL VerifyPaste();
+extern BOOL IsPasteSupported();
 extern CStringA szPasteStr;
 
 extern int CALLBACK OnBrowseDialog( HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData );
