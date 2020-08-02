@@ -398,6 +398,19 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             }
             break;
         }
+    case SAMSHO5SP_A:
+    {
+        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
+
+        if (pszFileName)
+        {
+            // Step forward to the filename
+            pszFileName++;
+            _tcslwr(pszFileName);
+            nGameRule = ((_tcsstr(pszFileName, _T("272-p1")) != nullptr) ? 0 : 1);
+        }
+        break;
+    }
     case SFA2_A:
     {
         TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));

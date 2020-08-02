@@ -25,6 +25,9 @@ private:
     static UINT32 m_nGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
+    static const UINT32 m_nGameROMSizeArcade = 0x400000;  // 4194304 bytes
+    static const UINT32 m_nGameROMSizeSteam = 0x800000;  // 8388608 bytes
+
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 

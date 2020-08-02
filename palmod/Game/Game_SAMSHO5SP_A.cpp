@@ -15,7 +15,7 @@ int CGame_SAMSHO5SP_A::rgExtraCountAll[SAMSHO5SP_A_NUMUNIT + 1];
 int CGame_SAMSHO5SP_A::rgExtraLoc[SAMSHO5SP_A_NUMUNIT + 1];
 
 UINT32 CGame_SAMSHO5SP_A::m_nTotalPaletteCountForSAMSHO5SP = 0;
-UINT32 CGame_SAMSHO5SP_A::m_nGameROMSize = 0x400000;  // 4194304 bytes
+UINT32 CGame_SAMSHO5SP_A::m_nGameROMSize = -1;  // Figure this out dynamically
 UINT32 CGame_SAMSHO5SP_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAMSHO5SP_A::InitializeStatics()
@@ -575,7 +575,10 @@ sFileRule CGame_SAMSHO5SP_A::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("svc-p2pl.bin"));
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 0) ? _T("272-p1.bin") : _T("p1.bin"));
+
+    // The arcade and Steam versions of 5SP are identical other than ROM size.  Thankfully the offsets are unchanged.
+    m_nGameROMSize = (nUnitId == 0) ? m_nGameROMSizeArcade : m_nGameROMSizeSteam;
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nGameROMSize;

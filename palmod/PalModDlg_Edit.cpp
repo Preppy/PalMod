@@ -178,7 +178,7 @@ BOOL IsPasteRGB()
         }
     }
 
-    return FALSE; // hardcode off for the moment
+    return bCanPaste;
 }
 
 BOOL IsPasteSupported()
@@ -309,6 +309,82 @@ void CPalModDlg::OnEditPaste()
 
             safe_delete_array(rgPasteCol);
         }
+    }
+    else if (IsPasteRGB())
+    {
+        COleDataObject obj;
+
+        char* szPasteBuff = szPasteStr.GetBuffer();
+
+        // Allow for either RGB or ARGB pastes
+        bool fIsARGB = (strlen(szPasteBuff) == 9);
+
+        char szFormatStrRGB[] = "0x000000";
+        char szFormatStrARGB[] = "0x00000000";
+        const UINT16 uPasteAmt = 1; // just one color this way
+
+        CGameClass* CurrGame = GetHost()->GetCurrGame();
+        UINT8 uCurrGFlag = CurrGame->GetGameFlag();
+        ColMode eCurrColMode = CurrGame->GetColMode();
+
+        COLORREF colPasteCol = 0x0;
+
+        int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+
+        //Notify the change data
+        ProcChange();
+
+        if (fIsARGB)
+        {
+            memcpy(&szFormatStrARGB[2], &szPasteBuff[1], sizeof(UINT8) * 8);
+        }
+        else
+        {
+            memcpy(&szFormatStrRGB[2], &szPasteBuff[1], sizeof(UINT8) * 6);
+        }
+
+        LPCSTR pszFormatStringToUse = fIsARGB ? szFormatStrARGB : szFormatStrRGB;
+
+        DWORD argbColor = strtoul(pszFormatStringToUse, NULL, 16);
+        argbColor |= ((0xFF * (nAMul == 0)) << 24);
+
+        colPasteCol = (GetAValue(argbColor) << 24) +
+                      (GetRValue(argbColor) << 16) +
+                      (GetGValue(argbColor) <<  8) +
+                      (GetBValue(argbColor));
+      
+        colPasteCol = CurrGame->ConvPal(CurrGame->ConvCol(colPasteCol));
+
+        if (!CurrPalCtrl->GetSelAmt())
+        {
+            // Stomp the full palette...
+            COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
+
+            for (int i = 0; i < nWorkingAmt; i++)
+            {
+                crTargetPal[i] = colPasteCol;
+                CurrPalDef->pBasePal[i + CurrPalSep->nStart] = colPasteCol;
+            }
+        }
+        else
+        {
+            UINT8* rgSelIndex = CurrPalCtrl->GetSelIndex();
+            COLORREF* crTargetPal = CurrPalCtrl->GetBasePal();
+
+            for (int i = 0; i < nWorkingAmt; i++)
+            {
+                if (rgSelIndex[i])
+                {
+                    crTargetPal[i] = colPasteCol;
+                    CurrPalDef->pBasePal[i + CurrPalSep->nStart] = colPasteCol;
+                }
+            }
+        }
+
+        CurrPalCtrl->UpdateIndexAll();
+
+        ImgDispCtrl->UpdateCtrl();
+        CurrPalCtrl->UpdateCtrl();
     }
 }
 
