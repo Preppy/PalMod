@@ -482,7 +482,6 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             if (OutGame->LoadFile(&CurrFile, 0))
             {
                 OutGame->SetIsDir(FALSE);
-                OutGame->SetLoadDir(szLoadFile);
                 //nSaveLoadSucc++;
 
                 //Increase the sort counter
@@ -723,5 +722,12 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
         MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
     }
 
-    szLoadSaveStr.Format(_T("%d of %d files patched successfully (%d error%s)"), nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? _T("") : _T("s"));
+    if (nSaveLoadCount > 0)
+    {
+        szLoadSaveStr.Format(_T("%d of %d files patched successfully (%d error%s)"), nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? _T("") : _T("s"));
+    }
+    else
+    {
+        szLoadSaveStr = _T("No changes detected: nothing to patch.");
+    }
 }

@@ -16,8 +16,9 @@ struct sFileRule
 
 enum ColMode
 {
-    COLMODE_12A,
-    COLMODE_15,
+    // If you change this list you must update CPalModDlg::OnEditCopy
+    COLMODE_12A,     // RGB444
+    COLMODE_15,      // BGR555
     COLMODE_15ALT,   // RGB555
     COLMODE_NEOGEO   // RGB666
 };

@@ -519,6 +519,12 @@ BOOL CGame_SFIII3_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
     {
         switch (nUnitId)
         {
+        case 0x05: //Hugo
+        {
+            // Poison
+            nTargetImgId = 0x02;
+            break;
+        }
         case 0x08: //Oro
         {
             switch (nExtra)

@@ -450,7 +450,7 @@ BOOL CGameClass::SetLoadDir(TCHAR* szNewDir)
     {
         return FALSE;
     }
-};
+}
 
 void CGameClass::SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc)
 {

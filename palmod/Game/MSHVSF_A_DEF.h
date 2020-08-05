@@ -136,13 +136,13 @@ const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P2COLOR_KICK[] =
 
 const sGame_PaletteDataset MSHVSF_A_CYBER_GOUKI_PALETTES_P1COLOR_PUNCH[] =
 {
-    { _T("P1 Color (Punch)"), 0x72ECE, 0x72EEE, indexCPS2_Akuma, 0, &pairHandledInCode },
+    { _T("P1 Color (Punch)"), 0x72ECE, 0x72EEE, indexCPS2_Akuma, 0, &pairCyberAkuma },
     { _T("P1 Machinery, Hadouken 2"), 0x72F0E, 0x72F2E, indexCPS2_CyberAkuma, 0 },
     { _T("P1 Hadouken 1 Tatsu Flames"), 0x72EEE, 0x72F0E, indexCPS2_Akuma, 1 },
 };
 const sGame_PaletteDataset MSHVSF_A_CYBER_GOUKI_PALETTES_P2COLOR_KICK[] =
 {
-    { _T("P2 Color (Kick)"), 0x72F2E, 0x72F4E, indexCPS2_Akuma, 0, &pairHandledInCode },
+    { _T("P2 Color (Kick)"), 0x72F2E, 0x72F4E, indexCPS2_Akuma, 0, &pairCyberAkuma },
     { _T("P2 Machinery, Hadouken 2"), 0x72F6E, 0x72F8E, indexCPS2_CyberAkuma, 0 },
     { _T("P2 Hadouken 1 Tatsu Flames"), 0x72F4E, 0x72F6E, indexCPS2_Akuma, 1 },
 };

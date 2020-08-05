@@ -484,7 +484,7 @@ void CImgOutDlg::OnFileSave()
             if (FAILED(hr))
             {
                 CString strInfo;
-                strInfo.Format(_T("Image export to file '%s' failed.  The error code is 0x%x"), sfd_ofn.lpstrFile, hr);
+                strInfo.Format(_T("Image export to file '%s' failed.\n\nThe error code is 0x%x"), output_str.GetString(), hr);
                 MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
             }
 

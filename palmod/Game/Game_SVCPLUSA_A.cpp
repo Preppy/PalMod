@@ -42,7 +42,7 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = SVCPLUSA_A_NUMUNIT;
     m_nExtraUnit = SVCPLUSA_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1006;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1000;
     m_pszExtraFilename = EXTRA_FILENAME_SVCPLUSA_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSVCPLUSA;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -927,6 +927,8 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     nTargetImgId = 0;
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
 
+    bool fShouldUseAlternateLoadLogic = false;
+
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
     if (NodeGet->uUnitId != SVCPLUSA_A_EXTRALOC)
@@ -957,15 +959,60 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                     }
                 }
             }
+
+            if (paletteDataSet->pPalettePairingInfo)
+            {
+                // Right now this just needs to handle the weird Athena palette.
+                fShouldUseAlternateLoadLogic = true;
+
+                int nPaletteTwoDelta = 1;
+                int nPaletteThreeDelta = 2;
+                int nPaletteFourDelta = 5;
+
+                const sGame_PaletteDataset* paletteDataSetOne = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+                const sGame_PaletteDataset* paletteDataSetTwo = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteTwoDelta);
+                const sGame_PaletteDataset* paletteDataSetThree = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteThreeDelta);
+                const sGame_PaletteDataset* paletteDataSetFour = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteFourDelta);
+
+                ClearSetImgTicket(
+                    CreateImgTicket(paletteDataSetOne->indexImgToUse, paletteDataSetOne->indexOffsetToUse,
+                        CreateImgTicket(paletteDataSetTwo->indexImgToUse, paletteDataSetTwo->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetThree->indexImgToUse, paletteDataSetThree->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetFour->indexImgToUse, paletteDataSetFour->indexOffsetToUse
+                                    )))));
+
+
+                //Set each palette
+                sDescNode* JoinedNode[4] = {
+                    MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                    MainDescTree.GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1),
+                    MainDescTree.GetDescNode(Node01, Node02, Node03 + nPaletteThreeDelta, -1),
+                    MainDescTree.GetDescNode(Node01, Node02, Node03 + nPaletteFourDelta, -1)
+                };
+
+                //Set each palette
+                CreateDefPal(JoinedNode[0], 0);
+                CreateDefPal(JoinedNode[1], 1);
+                CreateDefPal(JoinedNode[2], 2);
+                CreateDefPal(JoinedNode[3], 3);
+
+                SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPaletteTwoDelta, nSrcAmt, nNodeIncrement);
+                SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPaletteThreeDelta, nSrcAmt, nNodeIncrement);
+                SetSourcePal(3, NodeGet->uUnitId, nSrcStart + nPaletteFourDelta, nSrcAmt, nNodeIncrement);
+            }
         }
     }
 
-    //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+    if (!fShouldUseAlternateLoadLogic)
+    {
+        //Create the default palette
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-    CreateDefPal(NodeGet, 0);
+        CreateDefPal(NodeGet, 0);
 
-    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+    }
 
     return TRUE;
 }

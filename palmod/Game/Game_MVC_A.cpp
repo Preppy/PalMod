@@ -760,98 +760,34 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                int nXOffs = 0, nYOffs = 0;
-                UINT8 nPeerPaletteDistance = 1;
+                int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+                UINT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
-                if (NodeGet->uUnitId == indexMVCWolverine) // wolvie claws support
-                {
-                    nXOffs = 20;
-                    nYOffs = 4;
-                    fShouldUseAlternateLoadLogic = true;
-                }
-                else if (NodeGet->uUnitId == indexMVCCaptainAmerica) // Captain America shield
-                {
-                    nXOffs = -22;
-                    nYOffs = -17;
-                    fShouldUseAlternateLoadLogic = true;
-                }
-                else if (NodeGet->uUnitId == indexMVCMegaman) // Megaman
-                {
-                    nPeerPaletteDistance = 9; // there are 9 tints for Megaman normally
-                    if (paletteDataSet->indexOffsetToUse == 0x27) // Hyper Megaman has offsets.
-                    {
-                        nXOffs = 31;
-                        nYOffs = 12;
-                    }
-                    fShouldUseAlternateLoadLogic = true;
-                }
-                else if (NodeGet->uUnitId == indexMVCOnslaught)
-                {
-                    nYOffs = 86;
-                    nXOffs = -24;
-
-                    fShouldUseAlternateLoadLogic = true;
-                }
-                else if (NodeGet->uUnitId == indexMVCRoll)
-                {
-                    nPeerPaletteDistance = 9; // there are 9 colors for this
-                    fShouldUseAlternateLoadLogic = true;
-                }
-                else if (NodeGet->uUnitId == indexMVCCapCom)  // Captain Commando ninjas
-                {
-                    nXOffs = 28;
-                    nYOffs = 4;
-                    fShouldUseAlternateLoadLogic = true;
-                }
-                else if (NodeGet->uUnitId == indexMVCAssists)
-                {
-                    if (paletteDataSet->indexImgToUse == 0x0B) // US Agent's shield
-                    {
-                        nXOffs = -22;
-                        nYOffs = -17;
-                    }
-                    else if ((paletteDataSet->indexImgToUse == 0x3C) && // Burnt Devilot
-                             (paletteDataSet->indexOffsetToUse == 0x05))
-                    {
-                        // Note that the normal Devilot matches perfectly.
-                        nXOffs = 7;
-                        nYOffs = 3;
-                    }
-                    else if ((paletteDataSet->indexImgToUse == 0x3C) && // Lou
-                             (paletteDataSet->indexOffsetToUse == 0x09))
-                    {
-                        nXOffs = -80;
-                        nYOffs = -15;
-                    }
-
-                    fShouldUseAlternateLoadLogic = true;
-                }
+                fShouldUseAlternateLoadLogic = true;
                     
-                if (fShouldUseAlternateLoadLogic)
+                const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+
+                if (paletteDataSetToJoin)
                 {
-                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                        )
+                    );
 
-                    if (paletteDataSetToJoin)
-                    {
-                        ClearSetImgTicket(
-                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                            )
-                        );
+                    //Set each palette
+                    sDescNode* JoinedNode[2] = {
+                        MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                        MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                    };
 
-                        //Set each palette
-                        sDescNode* JoinedNode[2] = {
-                            MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                            MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
-                        };
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
 
-                        //Set each palette
-                        CreateDefPal(JoinedNode[0], 0);
-                        CreateDefPal(JoinedNode[1], 1);
-
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
-                    }
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
                 }
             }
         }

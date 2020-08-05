@@ -720,26 +720,26 @@ const sGame_PaletteDataset SVCPLUSA_A_GOENITZ_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_PRINCESSATHENA_PUNCH_PALETTES[] =
 {
-    { _T("Princess Athena"), 0x373538, 0x373558, indexSVCSprites_PrincessAthena },
-    { _T("Fire Effect 1"), 0x373558, 0x373578, indexSVCSprites_PrincessAthena },
-    { _T("Fire Effect 2"), 0x373578, 0x373598, indexSVCSprites_PrincessAthena },
+    { _T("Princess Athena"), 0x373538, 0x373558, indexSVCSprites_PrincessAthena, 0x0, &pairHandledInCode },
+    { _T("Milk Crown"), 0x373558, 0x373578, indexSVCSprites_PrincessAthena, 0x1 },
+    { _T("Poseidon Rage"), 0x373578, 0x373598, indexSVCSprites_PrincessAthena, 0x2 },
     { _T("Electric Shock Effect"), 0x373598, 0x3735b8, indexSVCSprites_PrincessAthena },
-    { _T("Red Arremer Transformation"), 0x3735b8, 0x3735d8, indexSVCSprites_PrincessAthena },
-    { _T("Athena Transformation"), 0x3735d8, 0x3735f8, indexSVCSprites_PrincessAthena },
-    { _T("Soul Palette"), 0x3735f8, 0x373618, indexSVCSprites_PrincessAthena },
-    { _T("Midnight Bliss"), 0x373618, 0x373638, indexSVCSprites_PrincessAthena },
+    { _T("Red Arremer Transformation"), 0x3735b8, 0x3735d8 },
+    { _T("Tree and Bug"), 0x3735d8, 0x3735f8, indexSVCSprites_PrincessAthena, 0x3 },
+    { _T("Soul Palette"), 0x3735f8, 0x373618 },
+    { _T("Midnight Bliss"), 0x373618, 0x373638 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_PRINCESSATHENA_KICK_PALETTES[] =
 {
-    { _T("Princess Athena"), 0x373738, 0x373758, indexSVCSprites_PrincessAthena },
-    { _T("Fire Effect 1"), 0x373758, 0x373778, indexSVCSprites_PrincessAthena },
-    { _T("Fire Effect 2"), 0x373778, 0x373798, indexSVCSprites_PrincessAthena },
+    { _T("Princess Athena"), 0x373738, 0x373758, indexSVCSprites_PrincessAthena, 0x0, &pairHandledInCode },
+    { _T("Milk Crown"), 0x373758, 0x373778, indexSVCSprites_PrincessAthena, 0x1 },
+    { _T("Poseidon Rage"), 0x373778, 0x373798, indexSVCSprites_PrincessAthena, 0x2 },
     { _T("Electric Shock Effect"), 0x373798, 0x3737b8, indexSVCSprites_PrincessAthena },
-    { _T("Red Arremer Transformation"), 0x3737b8, 0x3737d8, indexSVCSprites_PrincessAthena },
-    { _T("Athena Transformation"), 0x3737d8, 0x3737f8, indexSVCSprites_PrincessAthena },
-    { _T("Soul Palette"), 0x3737f8, 0x373818, indexSVCSprites_PrincessAthena },
-    { _T("Midnight Bliss"), 0x373818, 0x373838, indexSVCSprites_PrincessAthena },
+    { _T("Red Arremer Transformation"), 0x3737b8, 0x3737d8 },
+    { _T("Tree and Bug"), 0x3737d8, 0x3737f8, indexSVCSprites_PrincessAthena, 0x3 },
+    { _T("Soul Palette"), 0x3737f8, 0x373818 },
+    { _T("Midnight Bliss"), 0x373818, 0x373838 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_PRINCESSATHENA_EFFECTS_PALETTES[] =
@@ -1507,11 +1507,11 @@ const sGame_PaletteDataset SVCPLUSA_A_DAN_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_PUNCH_PALETTES[] =
 {
     { _T("Red Arremer"), 0x383538, 0x383558, indexSVCSprites_RedArremer },
-    { _T("Fire Effect 1"), 0x383558, 0x383578, indexSVCSprites_RedArremer },
-    { _T("Fire Effect 2"), 0x383578, 0x383598, indexSVCSprites_RedArremer },
+    // Unused { _T("Fire Effect 1"), 0x383558, 0x383578, indexSVCSprites_RedArremer },
+    { _T("Woody Pig"), 0x383578, 0x383598, indexSVCSprites_RedArremer },
     { _T("Electric Shock Effect"), 0x383598, 0x3835b8, indexSVCSprites_RedArremer },
-    { _T("Red Arremer Transformation"), 0x3835b8, 0x3835d8, indexSVCSprites_RedArremer },
-    { _T("Athena Transformation"), 0x3835d8, 0x3835f8, indexSVCSprites_RedArremer },
+    { _T("Puchi Devil"), 0x3835b8, 0x3835d8, indexSVCSprites_RedArremer },
+    { _T("Zombie"), 0x3835d8, 0x3835f8, indexSVCSprites_RedArremer },
     { _T("Soul Palette"), 0x3835f8, 0x383618, indexSVCSprites_RedArremer },
     { _T("Midnight Bliss"), 0x383618, 0x383638, indexSVCSprites_RedArremer },
 };
@@ -1519,11 +1519,11 @@ const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_KICK_PALETTES[] =
 {
     { _T("Red Arremer"), 0x383738, 0x383758, indexSVCSprites_RedArremer },
-    { _T("Fire Effect 1"), 0x383758, 0x383778, indexSVCSprites_RedArremer },
-    { _T("Fire Effect 2"), 0x383778, 0x383798, indexSVCSprites_RedArremer },
+    // { _T("Fire Effect 1"), 0x383758, 0x383778, indexSVCSprites_RedArremer },
+    { _T("Woody Pig"), 0x383778, 0x383798, indexSVCSprites_RedArremer },
     { _T("Electric Shock Effect"), 0x383798, 0x3837b8, indexSVCSprites_RedArremer },
-    { _T("Red Arremer Transformation"), 0x3837b8, 0x3837d8, indexSVCSprites_RedArremer },
-    { _T("Athena Transformation"), 0x3837d8, 0x3837f8, indexSVCSprites_RedArremer },
+    { _T("Puchi Devil"), 0x3837b8, 0x3837d8, indexSVCSprites_RedArremer },
+    { _T("Zombie"), 0x3837d8, 0x3837f8, indexSVCSprites_RedArremer },
     { _T("Soul Palette"), 0x3837f8, 0x383818, indexSVCSprites_RedArremer },
     { _T("Midnight Bliss"), 0x383818, 0x383838, indexSVCSprites_RedArremer },
 };
@@ -1554,26 +1554,26 @@ const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_PUNCH_PALETTES[] =
 {
-    { _T("Orochi Iori"), 0x384538, 0x384558, indexSVCSprites_OrochiIori },
-    { _T("Fire Effect 1"), 0x384558, 0x384578, indexSVCSprites_OrochiIori },
-    { _T("Fire Effect 2"), 0x384578, 0x384598, indexSVCSprites_OrochiIori },
-    { _T("Electric Shock Effect"), 0x384598, 0x3845b8, indexSVCSprites_OrochiIori },
-    { _T("Red Arremer Transformation"), 0x3845b8, 0x3845d8, indexSVCSprites_OrochiIori },
-    { _T("Athena Transformation"), 0x3845d8, 0x3845f8, indexSVCSprites_OrochiIori },
-    { _T("Soul Palette"), 0x3845f8, 0x384618, indexSVCSprites_OrochiIori },
-    { _T("Midnight Bliss"), 0x384618, 0x384638, indexSVCSprites_OrochiIori },
+    { _T("Orochi Iori"), 0x384538, 0x384558, indexKOFSprites_98Iori },
+    // unused { _T("Fire Effect 1"), 0x384558, 0x384578, indexKOFSprites_98Iori },
+    // unused { _T("Fire Effect 2"), 0x384578, 0x384598, indexKOFSprites_98Iori },
+    { _T("Electric Shock Effect"), 0x384598, 0x3845b8, indexKOFSprites_98Iori },
+    { _T("Red Arremer Transformation"), 0x3845b8, 0x3845d8 },
+    { _T("Athena Transformation"), 0x3845d8, 0x3845f8 },
+    { _T("Soul Palette"), 0x3845f8, 0x384618, indexKOFSprites_98Iori },
+    { _T("Midnight Bliss"), 0x384618, 0x384638 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_KICK_PALETTES[] =
 {
-    { _T("Orochi Iori"), 0x384738, 0x384758, indexSVCSprites_OrochiIori },
-    { _T("Fire Effect 1"), 0x384758, 0x384778, indexSVCSprites_OrochiIori },
-    { _T("Fire Effect 2"), 0x384778, 0x384798, indexSVCSprites_OrochiIori },
-    { _T("Electric Shock Effect"), 0x384798, 0x3847b8, indexSVCSprites_OrochiIori },
-    { _T("Red Arremer Transformation"), 0x3847b8, 0x3847d8, indexSVCSprites_OrochiIori },
-    { _T("Athena Transformation"), 0x3847d8, 0x3847f8, indexSVCSprites_OrochiIori },
-    { _T("Soul Palette"), 0x3847f8, 0x384818, indexSVCSprites_OrochiIori },
-    { _T("Midnight Bliss"), 0x384818, 0x384838, indexSVCSprites_OrochiIori },
+    { _T("Orochi Iori"), 0x384738, 0x384758, indexKOFSprites_98Iori },
+    // unused { _T("Fire Effect 1"), 0x384758, 0x384778, indexKOFSprites_98Iori },
+    // unused { _T("Fire Effect 2"), 0x384778, 0x384798, indexKOFSprites_98Iori },
+    { _T("Electric Shock Effect"), 0x384798, 0x3847b8, indexKOFSprites_98Iori },
+    { _T("Red Arremer Transformation"), 0x3847b8, 0x3847d8 },
+    { _T("Athena Transformation"), 0x3847d8, 0x3847f8 },
+    { _T("Soul Palette"), 0x3847f8, 0x384818, indexKOFSprites_98Iori },
+    { _T("Midnight Bliss"), 0x384818, 0x384838 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_EFFECTS_PALETTES[] =
@@ -1984,8 +1984,11 @@ const sDescTreeNode SVCPLUSA_A_HUGO_COLLECTION[] =
     { _T("Effects"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_HUGO_EFFECTS_PALETTES, ARRAYSIZE(SVCPLUSA_A_HUGO_EFFECTS_PALETTES) },
     { _T("Win Portraits"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_HUGO_WIN_PORTRAITS_PALETTES, ARRAYSIZE(SVCPLUSA_A_HUGO_WIN_PORTRAITS_PALETTES) },
     { _T("Intro Portraits"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_HUGO_INTRO_PORTRAITS_PALETTES, ARRAYSIZE(SVCPLUSA_A_HUGO_INTRO_PORTRAITS_PALETTES) },
+    { _T("Poison Win Portraits"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_POISON_WIN_PORTRAITS_PALETTES, ARRAYSIZE(SVCPLUSA_A_POISON_WIN_PORTRAITS_PALETTES) },
+    { _T("Poison Intro Portraits"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_POISON_INTRO_PORTRAITS_PALETTES, ARRAYSIZE(SVCPLUSA_A_POISON_INTRO_PORTRAITS_PALETTES) },
 };
 
+// Not using this: pushed into Hugh instead.
 const sDescTreeNode SVCPLUSA_A_POISON_COLLECTION[] =
 {
     { _T("Win Portraits"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_POISON_WIN_PORTRAITS_PALETTES, ARRAYSIZE(SVCPLUSA_A_POISON_WIN_PORTRAITS_PALETTES) },
@@ -2008,8 +2011,10 @@ const sDescTreeNode SVCPLUSA_A_ZERO_COLLECTION[] =
     { _T("Effects"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_ZERO_EFFECTS_PALETTES, ARRAYSIZE(SVCPLUSA_A_ZERO_EFFECTS_PALETTES) },
     { _T("Win Portraits"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_ZERO_WIN_PORTRAITS_PALETTES, ARRAYSIZE(SVCPLUSA_A_ZERO_WIN_PORTRAITS_PALETTES) },
     { _T("Intro Portraits"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_ZERO_INTRO_PORTRAITS_PALETTES, ARRAYSIZE(SVCPLUSA_A_ZERO_INTRO_PORTRAITS_PALETTES) },
+    { _T("Ciel Portraits"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_CIEL_INTRO_PORTRAITS_PALETTES, ARRAYSIZE(SVCPLUSA_A_CIEL_INTRO_PORTRAITS_PALETTES) },
 };
 
+// Not using this: pushed it into the Zero collection
 const sDescTreeNode SVCPLUSA_A_CIEL_COLLECTION[] =
 {
     { _T("Intro Portraits"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_CIEL_INTRO_PORTRAITS_PALETTES, ARRAYSIZE(SVCPLUSA_A_CIEL_INTRO_PORTRAITS_PALETTES) },
@@ -2095,7 +2100,11 @@ const UINT8 SVCPLUSA_A_UNITSORT[SVCPLUSA_A_NUMUNIT + 1] // Plus 1 for extras
     indexSVC_A_GeeseHoward,
     indexSVC_A_MarsPeople,
     indexSVC_A_Goenitz,
+
+    indexSVC_A_OrochiIori,
+    indexSVC_A_SeriousMrKarate,
     indexSVC_A_PrincessAthena,
+
     indexSVC_A_Ryu,
     indexSVC_A_Ken,
     indexSVC_A_ChunLi,
@@ -2107,17 +2116,15 @@ const UINT8 SVCPLUSA_A_UNITSORT[SVCPLUSA_A_NUMUNIT + 1] // Plus 1 for extras
     indexSVC_A_Dictator,
     indexSVC_A_Akuma,
     indexSVC_A_Hugo,
-    indexSVC_A_Poison,
     indexSVC_A_Tessa,
     indexSVC_A_Zero,
-    indexSVC_A_Ciel,
     indexSVC_A_Demitri,
     indexSVC_A_Dan,
-    indexSVC_A_RedArremer,
-    indexSVC_A_OrochiIori,
-    indexSVC_A_SeriousMrKarate,
+
     indexSVC_A_ViolentKen,
     indexSVC_A_ShinAkuma,
+    indexSVC_A_RedArremer,
+
     SVCPLUSA_A_EXTRALOC
 };
 
@@ -2138,10 +2145,14 @@ const sDescTreeNode SVCPLUSA_A_UNITS[SVCPLUSA_A_NUMUNIT] =
     { _T("Geese Howard"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_GEESEHOWARD_COLLECTION, ARRAYSIZE(SVCPLUSA_A_GEESEHOWARD_COLLECTION) },
     { _T("Mars People"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_MARSPEOPLE_COLLECTION, ARRAYSIZE(SVCPLUSA_A_MARSPEOPLE_COLLECTION) },
     { _T("Goenitz"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_GOENITZ_COLLECTION, ARRAYSIZE(SVCPLUSA_A_GOENITZ_COLLECTION) },
+
+    { _T("Orochi Iori"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_OROCHIIORI_COLLECTION, ARRAYSIZE(SVCPLUSA_A_OROCHIIORI_COLLECTION) },
+    { _T("Serious Mr. Karate"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_SERIOUSMRKARATE_COLLECTION, ARRAYSIZE(SVCPLUSA_A_SERIOUSMRKARATE_COLLECTION) },
     { _T("Princess Athena"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_PRINCESSATHENA_COLLECTION, ARRAYSIZE(SVCPLUSA_A_PRINCESSATHENA_COLLECTION) },
+
     { _T("Ryu"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_RYU_COLLECTION, ARRAYSIZE(SVCPLUSA_A_RYU_COLLECTION) },
     { _T("Ken"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_KEN_COLLECTION, ARRAYSIZE(SVCPLUSA_A_KEN_COLLECTION) },
-    { _T("Chun Li"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_CHUNLI_COLLECTION, ARRAYSIZE(SVCPLUSA_A_CHUNLI_COLLECTION) },
+    { _T("Chun-Li"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_CHUNLI_COLLECTION, ARRAYSIZE(SVCPLUSA_A_CHUNLI_COLLECTION) },
     { _T("Guile"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_GUILE_COLLECTION, ARRAYSIZE(SVCPLUSA_A_GUILE_COLLECTION) },
     { _T("Dhalsim"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_DHALSIM_COLLECTION, ARRAYSIZE(SVCPLUSA_A_DHALSIM_COLLECTION) },
     { _T("Boxer"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_BOXER_COLLECTION, ARRAYSIZE(SVCPLUSA_A_BOXER_COLLECTION) },
@@ -2150,17 +2161,14 @@ const sDescTreeNode SVCPLUSA_A_UNITS[SVCPLUSA_A_NUMUNIT] =
     { _T("Dictator"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_DICTATOR_COLLECTION, ARRAYSIZE(SVCPLUSA_A_DICTATOR_COLLECTION) },
     { _T("Akuma"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_AKUMA_COLLECTION, ARRAYSIZE(SVCPLUSA_A_AKUMA_COLLECTION) },
     { _T("Hugo"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_HUGO_COLLECTION, ARRAYSIZE(SVCPLUSA_A_HUGO_COLLECTION) },
-    { _T("Poison"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_POISON_COLLECTION, ARRAYSIZE(SVCPLUSA_A_POISON_COLLECTION) },
     { _T("Tessa"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_TESSA_COLLECTION, ARRAYSIZE(SVCPLUSA_A_TESSA_COLLECTION) },
     { _T("Zero"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_ZERO_COLLECTION, ARRAYSIZE(SVCPLUSA_A_ZERO_COLLECTION) },
-    { _T("Ciel"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_CIEL_COLLECTION, ARRAYSIZE(SVCPLUSA_A_CIEL_COLLECTION) },
     { _T("Demitri"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_DEMITRI_COLLECTION, ARRAYSIZE(SVCPLUSA_A_DEMITRI_COLLECTION) },
     { _T("Dan"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_DAN_COLLECTION, ARRAYSIZE(SVCPLUSA_A_DAN_COLLECTION) },
-    { _T("Red Arremer"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_REDARREMER_COLLECTION, ARRAYSIZE(SVCPLUSA_A_REDARREMER_COLLECTION) },
-    { _T("Orochi Iori"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_OROCHIIORI_COLLECTION, ARRAYSIZE(SVCPLUSA_A_OROCHIIORI_COLLECTION) },
-    { _T("Serious Mr. Karate"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_SERIOUSMRKARATE_COLLECTION, ARRAYSIZE(SVCPLUSA_A_SERIOUSMRKARATE_COLLECTION) },
+
     { _T("Violent Ken"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_VIOLENTKEN_COLLECTION, ARRAYSIZE(SVCPLUSA_A_VIOLENTKEN_COLLECTION) },
     { _T("Shin Akuma"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_SHINAKUMA_COLLECTION, ARRAYSIZE(SVCPLUSA_A_SHINAKUMA_COLLECTION) },
+    { _T("Red Arremer"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_REDARREMER_COLLECTION, ARRAYSIZE(SVCPLUSA_A_REDARREMER_COLLECTION) },
 };
 
 // We extend this array with data groveled from the GarouE.txt extensible extras file, if any.

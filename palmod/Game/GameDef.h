@@ -42,15 +42,13 @@ enum SupportedGamesList
     NUM_GAMES // This needs to be last
 };
 
-// If you're adding a new game you also need to update 
-//    CGameLoad::SetGame
-//    CGameLoad::CreateGame
-//    CPalModDlg::OnFileOpen
-//    CImgDat::PrepImageBuffer
-// And potentially update:
-//    CPalModDlg::OnEditCopy
+// If you're adding a new game you also must update 
+//    CGameLoad::SetGame            Needed to load the game class
+//    CGameLoad::CreateGame         Needed to load the game class
+//    CPalModDlg::OnFileOpen        Ensures the user can open the game
+//    CImgDat::PrepImageBuffer      Ensures that images can load
+//    CPalModDlg::OnEditPaste       Ensures that pastes work correctly
 // 
-
 
 // We want to keep these short for the titlebar: they're hard-limited by
 // MAX_DESCRIPTION_LENGTH (96), so 64 is probably the max we want.
@@ -673,6 +671,7 @@ enum JOJOS_51_CHARACTERS
     indexJojos51Stages,
     indexJojos50HUDPortraits, // 0x1C
     indexJojos51GrayFly,
+    indexJojos51TarotCards,
 };
 
 enum JOJOS_51_CHARACTER_PALETTES
@@ -717,6 +716,8 @@ const UINT8 JOJOS_A_IMG_UNITS[] =
     indexJojos51Bonus,
     indexJojos51Stages,
     indexJojos50HUDPortraits,
+    indexJojos51GrayFly,
+    indexJojos51TarotCards,
 };
 
 const int JOJOS_A_NUM_IMG_UNITS = ARRAYSIZE(JOJOS_A_IMG_UNITS);
@@ -1479,7 +1480,11 @@ enum SupportedSVC_A_PaletteListIndex
     indexSVC_A_GeeseHoward,
     indexSVC_A_MarsPeople,
     indexSVC_A_Goenitz,
+
+    indexSVC_A_OrochiIori,
+    indexSVC_A_SeriousMrKarate,
     indexSVC_A_PrincessAthena,
+
     indexSVC_A_Ryu,
     indexSVC_A_Ken,
     indexSVC_A_ChunLi,
@@ -1491,17 +1496,14 @@ enum SupportedSVC_A_PaletteListIndex
     indexSVC_A_Dictator,
     indexSVC_A_Akuma,
     indexSVC_A_Hugo,
-    indexSVC_A_Poison,
     indexSVC_A_Tessa,
     indexSVC_A_Zero,
-    indexSVC_A_Ciel,
     indexSVC_A_Demitri,
     indexSVC_A_Dan,
-    indexSVC_A_RedArremer,
-    indexSVC_A_OrochiIori,
-    indexSVC_A_SeriousMrKarate,
+
     indexSVC_A_ViolentKen,
     indexSVC_A_ShinAkuma,
+    indexSVC_A_RedArremer,
 
     indexSVC_A_Last,
 };
@@ -1662,9 +1664,15 @@ const int IMGAMT[] =
 const stPairedPaletteInfo pairUnhandled =     { 0, 0, 0 };
 const stPairedPaletteInfo pairHandledInCode = { 0, 0, 0 };
 
+// Vs Series
 const stPairedPaletteInfo pairCaptainAmericaShield = { 1, 0, 0 };
 const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, 4 };
+const stPairedPaletteInfo pairCyberAkuma = { 1, 0, 0 };
+const stPairedPaletteInfo pairMVCDevilotNormal = { 1, 0, 0 };
+const stPairedPaletteInfo pairMVCDevilotBurnt = { 1, 7, 3 };
 const stPairedPaletteInfo pairHayatoSword = { 1, -63, 32 };
+const stPairedPaletteInfo pairMVCLou = { 1, -80, -15 };
+const stPairedPaletteInfo pairOnslaught = { 1, -24, 86 };
 const stPairedPaletteInfo pairTronBody = { 1, -4, -50 };
 const stPairedPaletteInfo pairWolvieClaws =   { 1, 20, 4 };
 const stPairedPaletteInfo pairBonerineClaws = { 1, 25, 6 };
@@ -1672,6 +1680,7 @@ const stPairedPaletteInfo pairBonerineClaws = { 1, 25, 6 };
 const stPairedPaletteInfo pairVegaClaws = { 1, 0, 0 };
 
 // Please note that the palette sort order in PalMod differs for MM in MvC1 and MvC2
-const stPairedPaletteInfo pairRushDrill =    { 30, 0, 0 };
-const stPairedPaletteInfo pairHyperMegaman = { 9, 31, 12 };
+const stPairedPaletteInfo pairMVC1RushDrill = { 9, 0, 0 };
+const stPairedPaletteInfo pairMVC2RushDrill = { 30, 0, 0 };
+const stPairedPaletteInfo pairHyperMegaman =  { 9, 31, 12 };
 

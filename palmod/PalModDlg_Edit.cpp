@@ -45,28 +45,36 @@ void CPalModDlg::OnEditCopy()
         UINT16 uCurrData = 0;
         BOOL bCopyAll = !CurrPal->GetSelAmt();
 
-        switch (CurrGame->GetGameFlag())
+        // You want to update this table so that older or newer versions of PalMod know the bpp of the 
+        // copied colors.
+        // Here we map the color mode to the poster child game for that color mode.  Would make more sense
+        // to just use color mode, but that'd break compatibility.
+        switch (CurrGame->GetColMode())
         {
-        case SFIII3_D:
-        case KOF02UM_S:
-        case CVS2_A:
+        case COLMODE_12A:
+            // RGB444
+            uCopyFlag1 = MVC2_P + k_nASCIICharacterOffset;
+            break;
+        case COLMODE_15:
+            // BGR555
+            uCopyFlag1 = SFIII3_A + k_nASCIICharacterOffset;
+            break;
+        case COLMODE_15ALT:
+            // RGB555
             uCopyFlag1 = SFIII3_D + k_nASCIICharacterOffset;
             break;
-        case MVC2_A:
-        case MVC2_D:
-        case MVC2_P:
-            uCopyFlag1 = 2 + k_nASCIICharacterOffset;
-            break;
-        case JOJOS_A:
-        case JOJOS_A_DIR_50:
-        case JOJOS_A_DIR_51:
-        case SFIII3_A:
-        case SFIII3_A_DIR:
-            uCopyFlag1 = 1 + k_nASCIICharacterOffset;
+        case COLMODE_NEOGEO:
+            // RGB666
+            uCopyFlag1 = NEOGEO_A + k_nASCIICharacterOffset;
             break;
         default:
-            uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
-            break;
+            {
+                CString strMsg;
+                strMsg.Format(_T("Warning: The pasted color value is from a newer version of PalMod.  Please upgrade."));
+                MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+                uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
+                break;
+            }
         }
 
         CopyText.Format("(%c%c", uCopyFlag1, uCopyFlag2);
@@ -202,25 +210,12 @@ void CPalModDlg::OnEditPaste()
         // We want the number of colors per paste minus the () and game flag
         UINT16 uPasteAmt = (UINT16)((strlen(szPasteBuff) - 3) / 4);
 
-        switch (uPasteGFlag)
-        {
-        default:
-        case 2: //MVC2_D & everything else
-            uPasteGFlag = 0;
-            break;
-        case 1: //SFIII3_A / Jojos
-            uPasteGFlag = 1;
-            break;
-        case SFIII3_D: //SFIII3_D
-            uPasteGFlag = SFIII3_D;
-            break;
-        }
-
         if (uPasteAmt)
         {
             CGameClass* CurrGame = GetHost()->GetCurrGame();
             UINT8 uCurrGFlag = CurrGame->GetGameFlag();
             ColMode eCurrColMode = CurrGame->GetColMode();
+            ColMode eColModeForPastedColor = eCurrColMode;
 
             COLORREF* rgPasteCol = new COLORREF[uPasteAmt];
 
@@ -230,24 +225,60 @@ void CPalModDlg::OnEditPaste()
             {
                 switch (uPasteGFlag)
                 {
+                case CVS2_A:
+                case KOF02UM_S:
                 case SFIII3_D:
                 {
-                    CurrGame->SetColMode(COLMODE_15ALT);
+                    eColModeForPastedColor = COLMODE_15ALT;
+                    break;
                 }
-                break;
                 case SFIII3_A:
+                case SFIII3_A_DIR:
                 case JOJOS_A:
+                case JOJOS_A_DIR_50:
+                case JOJOS_A_DIR_51:
                 {
-                    CurrGame->SetColMode(COLMODE_15);
+                    eColModeForPastedColor = COLMODE_15;
+                    break;
                 }
-                break;
+                case COTA_A:
+                case MSHVSF_A:
+                case MSH_A:
+                case MVC2_A:
                 case MVC2_D:
                 case MVC2_P:
+                case MVC_A:
+                case SFA2_A:
+                case SFA3_A:
+                case SSF2T_A:
+                case XMVSF_A:
+                {
+                    eColModeForPastedColor = COLMODE_12A;
+                    break;
+                }
+                case Garou_A:
+                case Garou_S:
+                case KOF02_A:
+                case KOF98_A:
+                case NEOGEO_A:
+                case SAMSHO5SP_A:
+                case SVCPLUSA_A:
+                {
+                    eColModeForPastedColor = COLMODE_NEOGEO;
+                    break;
+                }
                 default:
                 {
-                    CurrGame->SetColMode(COLMODE_12A);
+                    // Do nothing: hopefully this is from a newer version of PalMod and they're pasting from/to the same game.
+                    OutputDebugString(_T("WARNING: Using default paste logic.  You probably want directed handling.\n"));
+                    break;
                 }
-                break;
+                }
+
+                if (eCurrColMode != eColModeForPastedColor)
+                {
+                    OutputDebugString(_T("Pasted color is using a different color mode: switching to that game's color mode to ensure correct values...\n"));
+                    CurrGame->SetColMode(eColModeForPastedColor);
                 }
             }
 
@@ -262,10 +293,11 @@ void CPalModDlg::OnEditPaste()
                 ((UINT8*)rgPasteCol)[i * 4 + 3] |= (0xFF * (nAMul == 0));
             }
 
-            if (uCurrGFlag != uPasteGFlag)
+            if (eCurrColMode != eColModeForPastedColor)
             {
                 //Set the color mode back
                 //Round the values with the switched game flag
+                OutputDebugString(_T("Reverting color mode back to this game's desired color mode...\n"));
                 CurrGame->SetColMode(eCurrColMode);
 
                 for (UINT16 i = 0; i < uPasteAmt; i++)
