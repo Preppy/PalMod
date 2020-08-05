@@ -160,7 +160,6 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
 
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SF3, SFIII3_A_EXTRA, &SFIII3_A_EXTRA_CUSTOM, SFIII3_A_EXTRALOC, m_nConfirmedROMSize);
-        
 #endif
 
     int nUnitCt = SFIII3_A_NUMUNIT + (GetExtraCt(SFIII3_A_EXTRALOC) ? 1 : 0);
