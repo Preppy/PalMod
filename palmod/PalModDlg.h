@@ -86,6 +86,7 @@ public:
     //Program functions
 
     void LoadGameDir(int nGameFlag, TCHAR * szLoadDir);
+    void OnLoadGameByDirectory(int nGameFlag);
     BOOL SetLoadDir(CString* szOut);
     void UpdateAppTitle();
 
@@ -169,7 +170,6 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 public:
-    afx_msg void OnLDMVC2DCUSA();
     CComboBox m_CBUnitSel;
     CComboBox m_CBChildSel1;
     CComboBox m_CBChildSel2;
@@ -231,7 +231,6 @@ public:
     afx_msg void OnBnShowPrev();
     afx_msg void OnSetFocus(CWnd* pOldWnd);
     afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
-    afx_msg void OnLdMVC2PS2USA();
     afx_msg void OnFileOpen();
     afx_msg void OnButtonClickCheckEdits();
     afx_msg void OnBnRevert();
@@ -241,10 +240,14 @@ public:
     afx_msg void OnImportPalette();
     afx_msg void OnExportPalette();
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
-    afx_msg void OnLdsfiii3dcall();
-    afx_msg void OnLDSFIII3ArcadeAll();
-    afx_msg void OnLDJOJOS50();
-    afx_msg void OnLDJOJOS51();
+
+    afx_msg void OnLoadDir_Jojos50()        { OnLoadGameByDirectory(JOJOS_A_DIR_50); };
+    afx_msg void OnLoadDir_Jojos51()        { OnLoadGameByDirectory(JOJOS_A_DIR_51); };
+    afx_msg void OnLoadDir_MVC2ArcadeAll()  { OnLoadGameByDirectory(MVC2_A_DIR); };
+    afx_msg void OnLoadDir_MVC2DCUSA()      { OnLoadGameByDirectory(MVC2_D); };
+    afx_msg void OnLoadDir_MVC2PS2USA()     { OnLoadGameByDirectory(MVC2_P); };
+    afx_msg void OnLoadDir_SFIII3DCAll()    { OnLoadGameByDirectory(SFIII3_D); };
+    afx_msg void OnLoadDir_SFIII3ArcadeAll() { OnLoadGameByDirectory(SFIII3_A_DIR); };
 };
 
 extern BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);

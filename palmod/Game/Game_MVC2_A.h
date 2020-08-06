@@ -8,7 +8,7 @@ constexpr auto EXTRA_FILENAME_MVC2_A = _T("MVC2e.txt");
 
 class CGame_MVC2_A : public CGameWithExtrasFile
 {
-private:
+public:
     //Used for image selection
     int nTargetImgId = 0;
 

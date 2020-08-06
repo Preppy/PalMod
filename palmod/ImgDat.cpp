@@ -120,6 +120,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
     JOJOS_A_DIR_51,
     SVCPLUSA_A,
     SAMSHO5SP_A,
+    MVC2_A_DIR,
     */
     for (UINT16 nUnitCtr = 0; nUnitCtr < nCurGameUnitAmt; nUnitCtr++)
     {
@@ -127,6 +128,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
         {
         case MVC2_A:
         case MVC2_D:
+        case MVC2_A_DIR:
         {
 #if IMGDAT_DEBUG
             strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), MVC2_IMG_UNITS[nUnitCtr]);

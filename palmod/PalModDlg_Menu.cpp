@@ -3,7 +3,7 @@
 #include "PalModDlg.h"
 #include "PalMod.h"
 
-void CPalModDlg::OnLDMVC2DCUSA()
+void CPalModDlg::OnLoadGameByDirectory(int nGameFlag)
 {
     if (VerifyMsg(VM_FILECHANGE))
     {
@@ -11,72 +11,7 @@ void CPalModDlg::OnLDMVC2DCUSA()
 
         if (SetLoadDir(&szGet))
         {
-            LoadGameDir(MVC2_D, szGet.GetBuffer());
-        }
-    }
-}
-
-void CPalModDlg::OnLdMVC2PS2USA()
-{
-    if (VerifyMsg(VM_FILECHANGE))
-    {
-        CString szGet;
-
-        if (SetLoadDir(&szGet))
-        {
-            LoadGameDir(MVC2_P, szGet.GetBuffer());
-        }
-    }
-}
-
-void CPalModDlg::OnLdsfiii3dcall()
-{
-    if (VerifyMsg(VM_FILECHANGE))
-    {
-        CString szGet;
-
-        if (SetLoadDir(&szGet))
-        {
-            LoadGameDir(SFIII3_D, szGet.GetBuffer());
-        }
-    }
-}
-
-void CPalModDlg::OnLDSFIII3ArcadeAll()
-{
-    if (VerifyMsg(VM_FILECHANGE))
-    {
-        CString szGet;
-
-        if (SetLoadDir(&szGet))
-        {
-            LoadGameDir(SFIII3_A_DIR, szGet.GetBuffer());
-        }
-    }
-}
-
-void CPalModDlg::OnLDJOJOS50()
-{
-    if (VerifyMsg(VM_FILECHANGE))
-    {
-        CString szGet;
-
-        if (SetLoadDir(&szGet))
-        {
-            LoadGameDir(JOJOS_A_DIR_50, szGet.GetBuffer());
-        }
-    }
-}
-
-void CPalModDlg::OnLDJOJOS51()
-{
-    if (VerifyMsg(VM_FILECHANGE))
-    {
-        CString szGet;
-
-        if (SetLoadDir(&szGet))
-        {
-            LoadGameDir(JOJOS_A_DIR_51, szGet.GetBuffer());
+            LoadGameDir(nGameFlag, szGet.GetBuffer());
         }
     }
 }

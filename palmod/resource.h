@@ -168,6 +168,7 @@
 #define ID_LDSFIII3ARCADEALL            32842
 #define ID_LDJOJOS50                    32843
 #define ID_LDJOJOS51                    32844
+#define ID_LDMVC2ARCADE                 32845
 #define ID_SETTINGS_SETBACKGROUNDCOLOR32847 32847
 #define ID_FILE_SAVE32850               32850
 #define ID_Menu32851                    32851
@@ -178,7 +179,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32845
+#define _APS_NEXT_COMMAND_VALUE         32846
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

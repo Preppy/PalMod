@@ -39,6 +39,7 @@ enum SupportedGamesList
     JOJOS_A_DIR_51,
     SVCPLUSA_A,
     SAMSHO5SP_A,
+    MVC2_A_DIR,
     NUM_GAMES // This needs to be last
 };
 
@@ -66,7 +67,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("MSH (Arcade)"),
    _T("MSHVSF (Arcade)"),
    _T("X-Men (Arcade)"),
-   _T("MVC2 2 (Arcade)"),
+   _T("MVC2 (Arcade)"),
    _T("Garou: MotW (Arcade)"),
    _T("Unknown NEO•GEO (Arcade)"),
    _T("KOF: 98 (Arcade)"),
@@ -80,6 +81,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Jojo's 51 (Japanese Arcade Rerip)"),
    _T("SVC Plus A"),
    _T("Samurai Shodown V Special"),
+   _T("MVC2 (Arcade rerip) "),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;

@@ -15,6 +15,7 @@
 #include "Game_MSHVSF_A.h"
 #include "Game_MVC_A.h"
 #include "Game_MVC2_A.h"
+#include "Game_MVC2_A_DIR.h"
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
 #include "Game_NEOGEO_A.h"
@@ -221,6 +222,16 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SAMSHO5SP_A::GetRule;
         return TRUE;
     }
+    case MVC2_A_DIR:
+    {
+        GetRuleCtr = &CGame_MVC2_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_MVC2_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_MVC2_A_DIR::GetRule;
+        GetNextRule = &CGame_MVC2_A_DIR::GetNextRule;
+
+        return TRUE;
+    }
+    break;
     default:
         OutputDebugString(_T("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n"));
         return FALSE;
@@ -289,6 +300,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case MVC2_A:
     {
         return new CGame_MVC2_A(nConfirmedROMSize);
+    }
+    case MVC2_A_DIR:
+    {
+        return new CGame_MVC2_A_DIR(nConfirmedROMSize);
     }
     case MVC2_D:
     {

@@ -10,35 +10,11 @@
     <Filter Include="Game\Palette">
       <UniqueIdentifier>{7fdafb55-ac78-4bab-90e9-d0be816ef08f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\MVC2_D">
-      <UniqueIdentifier>{c47d5fd9-40eb-476c-a684-36e1af154e95}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\SFIII3_A">
-      <UniqueIdentifier>{55f08cbc-ae87-4c23-9fa3-17aaf7c5d28a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Default">
       <UniqueIdentifier>{1a9ec6e6-71d3-4e4c-9226-6c7d87f549fe}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\Image">
       <UniqueIdentifier>{6e60247b-4b6c-431e-bdb5-8523533818d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\MVC2_P">
-      <UniqueIdentifier>{2de3a788-3bf5-43af-9f2a-1463e9a9f9ec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\SSF2T_A">
-      <UniqueIdentifier>{41cb4112-4692-4932-907c-e998223278a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\SFA3_A">
-      <UniqueIdentifier>{e9729bd6-5628-4cad-965a-7d633274dda6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\XMVSF_A">
-      <UniqueIdentifier>{812aa4e2-7390-40c1-b4d8-aec28480193d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\MVC_A">
-      <UniqueIdentifier>{4efce5e0-fe0e-4919-aa24-a0017a01bbcd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\SFIII3_D">
-      <UniqueIdentifier>{b3d84418-feea-4a1e-b762-1e50d11de0f2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Additional Files">
       <UniqueIdentifier>{2c52f1e6-5791-4801-876e-4b6c27abaccd}</UniqueIdentifier>
@@ -64,56 +40,89 @@
     <Filter Include="Main DLG/APP\UndoRedo">
       <UniqueIdentifier>{858b99b1-77bf-4de0-a42c-561c33d7d05b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\JOJOS_A">
-      <UniqueIdentifier>{9f70da93-a5b3-4a79-b773-89cda4e86c49}</UniqueIdentifier>
+    <Filter Include="Game\Capcom Games">
+      <UniqueIdentifier>{2568c6dd-60d3-4656-9161-a57b217a57e6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\MSH_A">
-      <UniqueIdentifier>{fc8be4e5-bb36-4453-8d77-b8df802a3ad5}</UniqueIdentifier>
+    <Filter Include="Game\Capcom Games\MVC2_A_DIR">
+      <UniqueIdentifier>{5080e049-60b4-434d-88da-3af65dc004e4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\MSHVSF_A">
-      <UniqueIdentifier>{4fda55b1-13e7-4349-a09e-04889d545d63}</UniqueIdentifier>
+    <Filter Include="Game\Capcom Games\MVC2_P">
+      <UniqueIdentifier>{2de3a788-3bf5-43af-9f2a-1463e9a9f9ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\COTA_A">
-      <UniqueIdentifier>{b76bf8de-0eee-4bdb-be3c-3591a888af28}</UniqueIdentifier>
+    <Filter Include="Game\Capcom Games\MVC2_D">
+      <UniqueIdentifier>{c47d5fd9-40eb-476c-a684-36e1af154e95}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\MVC2_A">
-      <UniqueIdentifier>{4f605612-8147-46d6-88ad-c958642579f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Garou_A">
-      <UniqueIdentifier>{a8830097-3e47-45f5-bdd5-b2d4fc746943}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\NEOGEO_A">
-      <UniqueIdentifier>{acaea0b1-3907-4bbd-a2f0-32edc189a18a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\KOF98_A">
-      <UniqueIdentifier>{d9c8c45e-3ad2-4bb8-a6e6-08a9665543d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\CVS2_A">
-      <UniqueIdentifier>{3570dfdb-7518-4b38-a235-2e484ea22c9a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Garou_S">
-      <UniqueIdentifier>{a88dc215-a7e2-4efe-b6ea-bd7491c26694}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\KOF02UM_S">
-      <UniqueIdentifier>{8b9ef95f-05ae-44ef-8320-826a370b75b2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\KOF02_A">
-      <UniqueIdentifier>{a54da33d-5b19-45ec-81c8-38f230908bd8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\SFA2_A">
+    <Filter Include="Game\Capcom Games\SFA2_A">
       <UniqueIdentifier>{7a9a83c1-418d-40d6-a3ea-10a5cb212d1d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\SFIII3_A_DIR">
+    <Filter Include="Game\Capcom Games\SFA3_A">
+      <UniqueIdentifier>{e9729bd6-5628-4cad-965a-7d633274dda6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFIII3_A">
+      <UniqueIdentifier>{55f08cbc-ae87-4c23-9fa3-17aaf7c5d28a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFIII3_A_DIR">
       <UniqueIdentifier>{074d6beb-52e5-4e99-9611-61003896b387}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\JOJOS_A_DIR">
+    <Filter Include="Game\Capcom Games\SFIII3_D">
+      <UniqueIdentifier>{b3d84418-feea-4a1e-b762-1e50d11de0f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SSF2T_A">
+      <UniqueIdentifier>{41cb4112-4692-4932-907c-e998223278a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\XMVSF_A">
+      <UniqueIdentifier>{812aa4e2-7390-40c1-b4d8-aec28480193d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\MVC2_A">
+      <UniqueIdentifier>{4f605612-8147-46d6-88ad-c958642579f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\MVC_A">
+      <UniqueIdentifier>{4efce5e0-fe0e-4919-aa24-a0017a01bbcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\MSHVSF_A">
+      <UniqueIdentifier>{4fda55b1-13e7-4349-a09e-04889d545d63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\MSH_A">
+      <UniqueIdentifier>{fc8be4e5-bb36-4453-8d77-b8df802a3ad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\JOJOS_A">
+      <UniqueIdentifier>{9f70da93-a5b3-4a79-b773-89cda4e86c49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\JOJOS_A_DIR">
       <UniqueIdentifier>{393348a9-9ee8-45fc-a91c-74f1c72ec293}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\SVCPLUSA_A">
+    <Filter Include="Game\SNK Games">
+      <UniqueIdentifier>{8641f995-3c94-44ec-be0f-8f6a5b01ef82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF98_A">
+      <UniqueIdentifier>{d9c8c45e-3ad2-4bb8-a6e6-08a9665543d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF02UM_S">
+      <UniqueIdentifier>{8b9ef95f-05ae-44ef-8320-826a370b75b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF02_A">
+      <UniqueIdentifier>{a54da33d-5b19-45ec-81c8-38f230908bd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\SAMSHO5SP_A">
+      <UniqueIdentifier>{fe714ae2-392a-409d-93fc-c41ebecf4c94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\SVCPLUSA_A">
       <UniqueIdentifier>{b5984ab2-a10f-400e-b1ff-4766bfb767c1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\SAMSHO5SP_A">
-      <UniqueIdentifier>{fe714ae2-392a-409d-93fc-c41ebecf4c94}</UniqueIdentifier>
+    <Filter Include="Game\SNK Games\NEOGEO_A">
+      <UniqueIdentifier>{acaea0b1-3907-4bbd-a2f0-32edc189a18a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Garou_S">
+      <UniqueIdentifier>{a88dc215-a7e2-4efe-b6ea-bd7491c26694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Garou_A">
+      <UniqueIdentifier>{a8830097-3e47-45f5-bdd5-b2d4fc746943}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\CVS2_A">
+      <UniqueIdentifier>{3570dfdb-7518-4b38-a235-2e484ea22c9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\COTA_A">
+      <UniqueIdentifier>{b76bf8de-0eee-4bdb-be3c-3591a888af28}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -136,16 +145,16 @@
       <Filter>Game\Palette</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MVC2_D.cpp">
-      <Filter>Game\MVC2_D</Filter>
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
     </ClCompile>
     <ClCompile Include="Game\MVC2_PALSEL.cpp">
-      <Filter>Game\MVC2_D</Filter>
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
     </ClCompile>
     <ClCompile Include="Game\MVC2_SUPP.cpp">
-      <Filter>Game\MVC2_D</Filter>
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFIII3_A.cpp">
-      <Filter>Game\SFIII3_A</Filter>
+      <Filter>Game\Capcom Games\SFIII3_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\DescTree.cpp">
       <Filter>Game\Default</Filter>
@@ -160,22 +169,22 @@
       <Filter>Game\Image</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MVC2_P.cpp">
-      <Filter>Game\MVC2_P</Filter>
+      <Filter>Game\Capcom Games\MVC2_P</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SSF2T_A.cpp">
-      <Filter>Game\SSF2T_A</Filter>
+      <Filter>Game\Capcom Games\SSF2T_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFA3_A.cpp">
-      <Filter>Game\SFA3_A</Filter>
+      <Filter>Game\Capcom Games\SFA3_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_XMVSF_A.cpp">
-      <Filter>Game\XMVSF_A</Filter>
+      <Filter>Game\Capcom Games\XMVSF_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MVC_A.cpp">
-      <Filter>Game\MVC_A</Filter>
+      <Filter>Game\Capcom Games\MVC_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFIII3_D.cpp">
-      <Filter>Game\SFIII3_D</Filter>
+      <Filter>Game\Capcom Games\SFIII3_D</Filter>
     </ClCompile>
     <ClCompile Include="ImgDumpBmp.cpp">
       <Filter>Additional Files</Filter>
@@ -223,10 +232,10 @@
       <Filter>Main DLG/APP\UndoRedo</Filter>
     </ClCompile>
     <ClCompile Include="Game\mvc2_validate.cpp">
-      <Filter>Game\MVC2_D</Filter>
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_JOJOS_A.cpp">
-      <Filter>Game\JOJOS_A</Filter>
+      <Filter>Game\Capcom Games\JOJOS_A</Filter>
     </ClCompile>
     <ClCompile Include="ExtraFile.cpp">
       <Filter>Game\Default</Filter>
@@ -235,52 +244,55 @@
       <Filter>Game\Image</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MSH_A.cpp">
-      <Filter>Game\MSH_A</Filter>
+      <Filter>Game\Capcom Games\MSH_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MSHVSF_A.cpp">
-      <Filter>Game\MSHVSF_A</Filter>
+      <Filter>Game\Capcom Games\MSHVSF_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_COTA_A.cpp">
-      <Filter>Game\COTA_A</Filter>
+      <Filter>Game\Capcom Games\COTA_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MVC2_A.cpp">
-      <Filter>Game\MVC2_A</Filter>
+      <Filter>Game\Capcom Games\MVC2_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_Garou_A.cpp">
-      <Filter>Game\Garou_A</Filter>
+      <Filter>Game\SNK Games\Garou_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_NEOGEO_A.cpp">
-      <Filter>Game\NEOGEO_A</Filter>
+      <Filter>Game\SNK Games\NEOGEO_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF98_A.cpp">
-      <Filter>Game\KOF98_A</Filter>
+      <Filter>Game\SNK Games\KOF98_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_CVS2_A.cpp">
-      <Filter>Game\CVS2_A</Filter>
+      <Filter>Game\Capcom Games\CVS2_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_Garou_S.cpp">
-      <Filter>Game\Garou_S</Filter>
+      <Filter>Game\SNK Games\Garou_S</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF02_A.cpp">
-      <Filter>Game\KOF02_A</Filter>
+      <Filter>Game\SNK Games\KOF02_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF02UM_S.cpp">
-      <Filter>Game\KOF02UM_S</Filter>
+      <Filter>Game\SNK Games\KOF02UM_S</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFA2_A.cpp">
-      <Filter>Game\SFA2_A</Filter>
+      <Filter>Game\Capcom Games\SFA2_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp">
-      <Filter>Game\SFIII3_A_DIR</Filter>
+      <Filter>Game\Capcom Games\SFIII3_A_DIR</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp">
-      <Filter>Game\JOJOS_A_DIR</Filter>
+      <Filter>Game\Capcom Games\JOJOS_A_DIR</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp">
-      <Filter>Game\SVCPLUSA_A</Filter>
+      <Filter>Game\SNK Games\SVCPLUSA_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp">
-      <Filter>Game\SAMSHO5SP_A</Filter>
+      <Filter>Game\SNK Games\SAMSHO5SP_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MVC2_A_DIR.cpp">
+      <Filter>Game\Capcom Games\MVC2_A_DIR</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -306,19 +318,19 @@
       <Filter>Game\Palette</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MVC2_D.h">
-      <Filter>Game\MVC2_D</Filter>
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
     </ClInclude>
     <ClInclude Include="Game\MVC2_D_Def.h">
-      <Filter>Game\MVC2_D</Filter>
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
     </ClInclude>
     <ClInclude Include="Game\mvc2_supp.h">
-      <Filter>Game\MVC2_D</Filter>
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SFIII3_A.h">
-      <Filter>Game\SFIII3_A</Filter>
+      <Filter>Game\Capcom Games\SFIII3_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\SFIII3_A_DEF.h">
-      <Filter>Game\SFIII3_A</Filter>
+      <Filter>Game\Capcom Games\SFIII3_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Default.h">
       <Filter>Game\Default</Filter>
@@ -342,37 +354,37 @@
       <Filter>Game\Image</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MVC2_P.h">
-      <Filter>Game\MVC2_P</Filter>
+      <Filter>Game\Capcom Games\MVC2_P</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SSF2T_A.h">
-      <Filter>Game\SSF2T_A</Filter>
+      <Filter>Game\Capcom Games\SSF2T_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\SSF2T_A_DEF.h">
-      <Filter>Game\SSF2T_A</Filter>
+      <Filter>Game\Capcom Games\SSF2T_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SFA3_A.h">
-      <Filter>Game\SFA3_A</Filter>
+      <Filter>Game\Capcom Games\SFA3_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\SFA3_A_DEF.h">
-      <Filter>Game\SFA3_A</Filter>
+      <Filter>Game\Capcom Games\SFA3_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_XMVSF_A.h">
-      <Filter>Game\XMVSF_A</Filter>
+      <Filter>Game\Capcom Games\XMVSF_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\XMVSF_A_DEF.h">
-      <Filter>Game\XMVSF_A</Filter>
+      <Filter>Game\Capcom Games\XMVSF_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MVC_A.h">
-      <Filter>Game\MVC_A</Filter>
+      <Filter>Game\Capcom Games\MVC_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\MVC_A_DEF.h">
-      <Filter>Game\MVC_A</Filter>
+      <Filter>Game\Capcom Games\MVC_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SFIII3_D.h">
-      <Filter>Game\SFIII3_D</Filter>
+      <Filter>Game\Capcom Games\SFIII3_D</Filter>
     </ClInclude>
     <ClInclude Include="Game\SFIII3_D_DEF.h">
-      <Filter>Game\SFIII3_D</Filter>
+      <Filter>Game\Capcom Games\SFIII3_D</Filter>
     </ClInclude>
     <ClInclude Include="ImgDumpBmp.h">
       <Filter>Additional Files</Filter>
@@ -408,10 +420,10 @@
       <Filter>Main DLG/APP\UndoRedo</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_JOJOS_A.h">
-      <Filter>Game\JOJOS_A</Filter>
+      <Filter>Game\Capcom Games\JOJOS_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\JOJOS_A_DEF.h">
-      <Filter>Game\JOJOS_A</Filter>
+      <Filter>Game\Capcom Games\JOJOS_A</Filter>
     </ClInclude>
     <ClInclude Include="ExtraFile.h">
       <Filter>Game\Default</Filter>
@@ -420,97 +432,100 @@
       <Filter>Game\Image</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MSH_A.h">
-      <Filter>Game\MSH_A</Filter>
+      <Filter>Game\Capcom Games\MSH_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\MSH_A_DEF.h">
-      <Filter>Game\MSH_A</Filter>
+      <Filter>Game\Capcom Games\MSH_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MSHVSF_A.h">
-      <Filter>Game\MSHVSF_A</Filter>
+      <Filter>Game\Capcom Games\MSHVSF_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\MSHVSF_A_DEF.h">
-      <Filter>Game\MSHVSF_A</Filter>
+      <Filter>Game\Capcom Games\MSHVSF_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\COTA_A_DEF.h">
-      <Filter>Game\COTA_A</Filter>
+      <Filter>Game\Capcom Games\COTA_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_COTA_A.h">
-      <Filter>Game\COTA_A</Filter>
+      <Filter>Game\Capcom Games\COTA_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\mvc2_descs.h">
-      <Filter>Game\MVC2_D</Filter>
+      <Filter>Game\Capcom Games\MVC2_D</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MVC2_A.h">
-      <Filter>Game\MVC2_A</Filter>
+      <Filter>Game\Capcom Games\MVC2_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\MVC2_A_DEF.h">
-      <Filter>Game\MVC2_A</Filter>
+      <Filter>Game\Capcom Games\MVC2_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_Garou_A.h">
-      <Filter>Game\Garou_A</Filter>
+      <Filter>Game\SNK Games\Garou_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Garou_A_DEF.h">
-      <Filter>Game\Garou_A</Filter>
+      <Filter>Game\SNK Games\Garou_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_NEOGEO_A.h">
-      <Filter>Game\NEOGEO_A</Filter>
+      <Filter>Game\SNK Games\NEOGEO_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\NEOGEO_A_DEF.h">
-      <Filter>Game\NEOGEO_A</Filter>
+      <Filter>Game\SNK Games\NEOGEO_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF98_A.h">
-      <Filter>Game\KOF98_A</Filter>
+      <Filter>Game\SNK Games\KOF98_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF98_A_DEF.h">
-      <Filter>Game\KOF98_A</Filter>
+      <Filter>Game\SNK Games\KOF98_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\CVS2_A_DEF.h">
-      <Filter>Game\CVS2_A</Filter>
+      <Filter>Game\Capcom Games\CVS2_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_CVS2_A.h">
-      <Filter>Game\CVS2_A</Filter>
+      <Filter>Game\Capcom Games\CVS2_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_Garou_S.h">
-      <Filter>Game\Garou_S</Filter>
+      <Filter>Game\SNK Games\Garou_S</Filter>
     </ClInclude>
     <ClInclude Include="Game\Garou_S_DEF.h">
-      <Filter>Game\Garou_S</Filter>
+      <Filter>Game\SNK Games\Garou_S</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF02_A.h">
-      <Filter>Game\KOF02_A</Filter>
+      <Filter>Game\SNK Games\KOF02_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF02_A_DEF.h">
-      <Filter>Game\KOF02_A</Filter>
+      <Filter>Game\SNK Games\KOF02_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF02UM_S.h">
-      <Filter>Game\KOF02UM_S</Filter>
+      <Filter>Game\SNK Games\KOF02UM_S</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOF02UM_S_DEF.h">
-      <Filter>Game\KOF02UM_S</Filter>
+      <Filter>Game\SNK Games\KOF02UM_S</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SFA2_A.h">
-      <Filter>Game\SFA2_A</Filter>
+      <Filter>Game\Capcom Games\SFA2_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\SFA2_A_DEF.h">
-      <Filter>Game\SFA2_A</Filter>
+      <Filter>Game\Capcom Games\SFA2_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SFIII3_A_DIR.h">
-      <Filter>Game\SFIII3_A_DIR</Filter>
+      <Filter>Game\Capcom Games\SFIII3_A_DIR</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_JOJOS_A_DIR.h">
-      <Filter>Game\JOJOS_A_DIR</Filter>
+      <Filter>Game\Capcom Games\JOJOS_A_DIR</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SVCPLUSA_A.h">
-      <Filter>Game\SVCPLUSA_A</Filter>
+      <Filter>Game\SNK Games\SVCPLUSA_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\SVCPLUSA_A_DEF.h">
-      <Filter>Game\SVCPLUSA_A</Filter>
+      <Filter>Game\SNK Games\SVCPLUSA_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO5SP_A.h">
-      <Filter>Game\SAMSHO5SP_A</Filter>
+      <Filter>Game\SNK Games\SAMSHO5SP_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO5SP_A_DEF.h">
-      <Filter>Game\SAMSHO5SP_A</Filter>
+      <Filter>Game\SNK Games\SAMSHO5SP_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MVC2_A_DIR.h">
+      <Filter>Game\Capcom Games\MVC2_A_DIR</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
