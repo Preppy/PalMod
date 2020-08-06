@@ -1,5 +1,5 @@
 # PalMod
-Palette-editing software for Capcom games.
+Palette-editing software for fighting games, mostly centered around Capcom classics.
 
 PalMod is the active branch.  That's where I'm releasing binaries from.
 
