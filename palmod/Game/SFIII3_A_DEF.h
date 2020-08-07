@@ -67,13 +67,13 @@ const stExtraDef SFIII3_A_EXTRA[] =
     { 0x01, _T("Hadouken Impact"), 0x00704BA0, 16 },
 
     //Necro
-    { 0x04, _T("Effie LP"), 0x704F00, 16 * 2 * 3 },
-    { 0x04, _T("Effie MP"), 0x705080, 16 * 2 * 3 },
-    { 0x04, _T("Effie HP"), 0x705200, 16 * 2 * 3 },
-    { 0x04, _T("Effie LK"), 0x705380, 16 * 2 * 3 },
-    { 0x04, _T("Effie MP"), 0x705500, 16 * 2 * 3 },
-    { 0x04, _T("Effie HK"), 0x705680, 16 * 2 * 3 },
-    { 0x04, _T("Effie EX"), 0x705800, 16 * 2 * 3 },
+    { 0x04, _T("Effie LP"), 0x704F00, 16 * 2 * 4 },
+    { 0x04, _T("Effie MP"), 0x705080, 16 * 2 * 4 },
+    { 0x04, _T("Effie HP"), 0x705200, 16 * 2 * 4 },
+    { 0x04, _T("Effie LK"), 0x705380, 16 * 2 * 4 },
+    { 0x04, _T("Effie MP"), 0x705500, 16 * 2 * 4 },
+    { 0x04, _T("Effie HK"), 0x705680, 16 * 2 * 4 },
+    { 0x04, _T("Effie EX"), 0x705800, 16 * 2 * 4 },
 
     //Hugo
     { 0x05, _T("Poison P1"), 0x705880, 16 * 2 * 4 },
