@@ -837,6 +837,8 @@ void CPalModDlg::OnBnNewCol()
     UpdateData(FALSE);
     if (ColorDlg->DoModal() == IDOK)
     {
+        ProcChange();
+
         COLORREF crNewCol = ColorDlg->GetColor();
 
         if (nSelAmt == 1 || !bAutoSetCol)

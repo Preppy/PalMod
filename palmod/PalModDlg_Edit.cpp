@@ -26,7 +26,7 @@ void CPalModDlg::OnEditCopy()
 
         UINT16 nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset;
         UINT8 uCopyFlag1;
-        // We use a TCHAR UINT8 value to store the size.  This is compatible with all versions of palmod.
+        // We use a TCHAR as a UINT8 value to store the size.  This is compatible with all versions of palmod.
         // For the new large palette support, this would overflow, so we're just going to set it to 0.
         // This allows old palmod to ignore the data and current palmod to work by figuring out the size itself.
         UINT8 uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? (UINT8)nPaletteSelectionLength : k_nASCIICharacterOffset;

@@ -98,7 +98,6 @@ constexpr auto COTA_A_UNIQUE_IMG_UNITS = 2;   // Unique Assets(HUD, Stages)[56] 
 //Images
 constexpr auto MVC2_D_NUM_IMG_UNITS = 59;
 constexpr auto SSF2T_A_NUM_IMG_UNITS = 17;
-constexpr auto SFIII3_A_NUM_IMG_UNITS = 20;
 
 //Display types (used for image out)
 enum eDispType
@@ -191,6 +190,8 @@ struct stExtraDef
     UINT32 uOffset = 0;
     UINT16 cbPaletteSize = 0;
     bool isInvisible = false;
+    UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index
+    UINT16 indexOffsetToUse = 0x0; // subsprites within that collection
 };
 
 struct stPairedPaletteInfo
@@ -366,7 +367,7 @@ const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
     0x3A  // Kobun
 };
 
-const UINT8 SFIII3_A_IMG_UNITS[SFIII3_A_NUM_IMG_UNITS] =
+const UINT8 SFIII3_A_IMG_UNITS[] =
 {
     0x00, // Alex
     0x01, // Ryu
@@ -387,8 +388,11 @@ const UINT8 SFIII3_A_IMG_UNITS[SFIII3_A_NUM_IMG_UNITS] =
     0x10, // Makoto
     0x11, // Q
     0x12, // Twelve
-    0x13  // Remy
+    0x13, // Remy
+    0x15, // Extras
 };
+
+constexpr auto SFIII3_A_NUM_IMG_UNITS = ARRAYSIZE(SFIII3_A_IMG_UNITS);
 
 const UINT8 SFIII3_D_IMG_UNITS[SFIII3_A_NUM_IMG_UNITS - 0x01] =
 {

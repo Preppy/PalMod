@@ -582,6 +582,9 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
         ImgDispCtrl->UpdateCtrl();
         CurrPalCtrl->UpdateCtrl();
 
+        UpdateMultiEdit(TRUE);
+        UpdateSliderSel();
+
         delete[] pAct;
 
         fSuccess = true;
@@ -688,6 +691,9 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
 
                             ImgDispCtrl->UpdateCtrl();
                             CurrPalCtrl->UpdateCtrl();
+
+                            UpdateMultiEdit(TRUE);
+                            UpdateSliderSel();
 
                             fSuccess = true;
                             CString strStatus;
@@ -888,6 +894,9 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
 
                         ImgDispCtrl->UpdateCtrl();
                         CurrPalCtrl->UpdateCtrl();
+
+                        UpdateMultiEdit(TRUE);
+                        UpdateSliderSel();
 
                         if (fHadToFlip)
                         {

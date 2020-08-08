@@ -518,18 +518,6 @@ BOOL CGame_SFIII3_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
     {
         switch (nUnitId)
         {
-        case 0x04: //Necro
-        {
-            // Effie
-            nTargetImgId = 0x02;
-            break;
-        }
-        case 0x05: //Hugo
-        {
-            // Poison
-            nTargetImgId = 0x02;
-            break;
-        }
         case 0x08: //Oro
         {
             switch (nExtra)
@@ -593,19 +581,6 @@ BOOL CGame_SFIII3_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
                 return TRUE;
             }
             break;
-            }
-
-            break;
-        }
-        case 0x0D: //Akuma/Gouki
-        {
-            switch (nExtra)
-            {
-            case 0:
-            {
-                nTargetImgId = 0xf;
-                break;
-            }
             }
 
             break;
@@ -679,27 +654,52 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             nSrcStart = uPalId;
             nSrcAmt = 1;
         }
-        else if (uPalId >= nNormalPalAmt) // This Extra is not associated to a known unit/character
+        else if (uPalId >= nNormalPalAmt) // Extra palettes for this character
         {
-            bCreateBasicPal = !(CreateExtraPal(uUnitId, uPalId));
+            int nBasicPos = GetBasicAmt(uUnitId);
+            int nPortPos = nBasicPos * 2;
+            int nExPos = 2 + nPortPos;
+            int nExtraPos = 8 + nExPos;
 
-            if (bCreateBasicPal)
+            stExtraDef* pCurrDef = GetSF3ExtraDef(GetExtraLoc(uUnitId) + uPalId - nExtraPos);
+
+            if (pCurrDef->indexImgToUse != INVALID_UNIT_VALUE)
             {
-                nSrcStart = uPalId;
-                nSrcAmt = 1;
+                nImgUnitId = pCurrDef->indexImgToUse;
+                nTargetImgId = pCurrDef->indexOffsetToUse;
+            }
+            else
+            {
+                bCreateBasicPal = !(CreateExtraPal(uUnitId, uPalId));
+
+                if (bCreateBasicPal)
+                {
+                    nSrcStart = uPalId;
+                    nSrcAmt = 1;
+                }
             }
         }
     }
-    else
+    else // Extra region
     {
-        bCreateBasicPal = false;
+        stExtraDef* pCurrDef = GetSF3ExtraDef(GetExtraLoc(uUnitId) + uPalId);
 
-        CreateDefPal(NodeGet, 0);
+        if (pCurrDef->indexImgToUse != INVALID_UNIT_VALUE)
+        {
+            nImgUnitId = pCurrDef->indexImgToUse;
+            nTargetImgId = pCurrDef->indexOffsetToUse;
+        }
+        else
+        {
+            bCreateBasicPal = false;
 
-        // Only internal units get sprites
-        ClearSetImgTicket(nullptr);
+            CreateDefPal(NodeGet, 0);
 
-        SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
+            // Only internal units get sprites
+            ClearSetImgTicket(nullptr);
+
+            SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
+        }
     }
 
     if (bCreateBasicPal)

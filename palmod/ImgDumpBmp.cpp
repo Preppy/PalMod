@@ -486,12 +486,12 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
             CustomBlt(nImgCtr, nPal,
 
                 //Left
-                (nTargetX * (blt_w * zoom))
-                + border_sz + (border_sz * nTargetX) + abs(rImgRct.left * zoom) + (ptOffs[nImgCtr].x * zoom),
+                (int)((nTargetX * (blt_w * zoom))
+                + border_sz + (border_sz * nTargetX) + abs(rImgRct.left * zoom) + (ptOffs[nImgCtr].x * zoom)),
 
                 //Top
-                (row_ctr * (blt_h * zoom))
-                + border_sz + (border_sz * row_ctr) + abs(rImgRct.top * zoom) + (ptOffs[nImgCtr].y * zoom),
+                (int)((row_ctr * (blt_h * zoom))
+                + border_sz + (border_sz * row_ctr) + abs(rImgRct.top * zoom) + (ptOffs[nImgCtr].y * zoom)),
 
                 zoom, (BOOL)pDstData
             );
@@ -703,7 +703,7 @@ int CImgDumpBmp::GetOutputW()
 {
     int w_mul = GetImagesPerLine();
 
-    nMainW = ((w_mul * border_sz) + border_sz) + ((blt_w * zoom) * w_mul);
+    nMainW = (int)(((w_mul * border_sz) + border_sz) + ((blt_w * zoom) * w_mul));
 
     return nMainW;
 }
@@ -712,7 +712,7 @@ int CImgDumpBmp::GetOutputH()
 {
     int h_mul = ((amt < 3) ? 1 : 2);
 
-    nMainH = ((h_mul * border_sz) + border_sz) + ((blt_h * zoom) * h_mul);
+    nMainH = (int)(((h_mul * border_sz) + border_sz) + ((blt_h * zoom) * h_mul));
 
     return nMainH;
 }
