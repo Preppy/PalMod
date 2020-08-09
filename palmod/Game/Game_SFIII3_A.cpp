@@ -3,6 +3,7 @@
 #include "GameDef.h"
 #include "..\ExtraFile.h"
 #include "..\PalMod.h"
+#include "..\regproc.h"
 
 #define SFIII3_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
@@ -503,11 +504,38 @@ void CGame_SFIII3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
+    static DWORD s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
 
     GetPalOffsSz(nUnitId, nPalId);
 
+    const UINT8 nTotalPagesNeeded = (UINT8)ceil(nCurrPalSz / s_nColorsPerPage);
+    const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
+
+    if (!fCanFitWithinCurrentPageLayout)
+    {
+        CString strWarning;
+        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
+        OutputDebugString(strWarning);
+    }
+
     BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
-    BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, nCurrPalSz);
+
+    if (fCanFitWithinCurrentPageLayout && (nCurrPalSz > s_nColorsPerPage))
+    {
+        CString strPageDescription;
+        int nColorsRemaining = nCurrPalSz;
+
+        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < nCurrPalSz; nCurrentPage++)
+        {
+            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
+            BasePalGroup.AddSep(0, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
+            nColorsRemaining -= s_nColorsPerPage;
+        }
+    }
+    else
+    {
+        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, nCurrPalSz);
+    }
 }
 
 BOOL CGame_SFIII3_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)

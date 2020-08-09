@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "PalMod.h"
 #include "PalModDlg.h"
+#include "RegProc.h"
 
 // CAboutDlg dialog used for App About
 
@@ -469,7 +470,13 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
             CString strQuestion;
             strQuestion.LoadString(IDS_SAVE_PALETTE_CHANGES);
 
-            switch (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
+            const int nMBDefault = CRegProc::GetUserSavePaletteToMemoryPreference();
+
+            int nUserAnswer = SHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION, nMBDefault, _T("{11BFAC2D-42CA-40e2-967C-1017C1B2676A}"));
+
+            CRegProc::SetUserSavePaletteToMemoryPreference(nUserAnswer);
+
+            switch (nUserAnswer)
             {
             case IDYES:
             {

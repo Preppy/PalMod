@@ -1249,8 +1249,8 @@ const sGame_PaletteDataset SVCPLUSA_A_AKUMA_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_HUGO_PUNCH_PALETTES[] =
 {
     { _T("Hugo"), 0x37e538, 0x37e558, indexSVCSprites_Hugo },
-    { _T("Fire Effect 1"), 0x37e558, 0x37e578, indexSVCSprites_Hugo },
-    { _T("Fire Effect 2"), 0x37e578, 0x37e598, indexSVCSprites_Hugo },
+    { _T("Poison"), 0x37e558, 0x37e578, indexSVCSprites_Hugo },
+    { _T("Bao"), 0x37e578, 0x37e598, indexSVCSprites_Hugo },
     { _T("Electric Shock Effect"), 0x37e598, 0x37e5b8, indexSVCSprites_Hugo },
     { _T("Red Arremer Transformation"), 0x37e5b8, 0x37e5d8, indexSVCSprites_Hugo },
     { _T("Athena Transformation"), 0x37e5d8, 0x37e5f8, indexSVCSprites_Hugo },
@@ -1261,8 +1261,8 @@ const sGame_PaletteDataset SVCPLUSA_A_HUGO_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_HUGO_KICK_PALETTES[] =
 {
     { _T("Hugo"), 0x37e738, 0x37e758, indexSVCSprites_Hugo },
-    { _T("Fire Effect 1"), 0x37e758, 0x37e778, indexSVCSprites_Hugo },
-    { _T("Fire Effect 2"), 0x37e778, 0x37e798, indexSVCSprites_Hugo },
+    { _T("Poison"), 0x37e758, 0x37e778, indexSVCSprites_Hugo },
+    { _T("Bao"), 0x37e778, 0x37e798, indexSVCSprites_Hugo },
     { _T("Electric Shock Effect"), 0x37e798, 0x37e7b8, indexSVCSprites_Hugo },
     { _T("Red Arremer Transformation"), 0x37e7b8, 0x37e7d8, indexSVCSprites_Hugo },
     { _T("Athena Transformation"), 0x37e7d8, 0x37e7f8, indexSVCSprites_Hugo },
@@ -1358,9 +1358,9 @@ const sGame_PaletteDataset SVCPLUSA_A_ZERO_PUNCH_PALETTES[] =
 {
     { _T("Zero"), 0x380538, 0x380558, indexSVCSprites_Zero },
     { _T("Fire Effect 1"), 0x380558, 0x380578, indexSVCSprites_Zero },
-    { _T("Fire Effect 2"), 0x380578, 0x380598, indexSVCSprites_Zero },
+    { _T("Red Arremer Transformation"), 0x380578, 0x380598, indexSVCSprites_Zero },
     { _T("Electric Shock Effect"), 0x380598, 0x3805b8, indexSVCSprites_Zero },
-    { _T("Red Arremer Transformation"), 0x3805b8, 0x3805d8, indexSVCSprites_Zero },
+    { _T("Fire Effect 2"), 0x3805b8, 0x3805d8, indexSVCSprites_Zero },
     { _T("Athena Transformation"), 0x3805d8, 0x3805f8, indexSVCSprites_Zero },
     { _T("Soul Palette"), 0x3805f8, 0x380618, indexSVCSprites_Zero },
     { _T("Midnight Bliss"), 0x380618, 0x380638, indexSVCSprites_Zero },
@@ -1370,9 +1370,9 @@ const sGame_PaletteDataset SVCPLUSA_A_ZERO_KICK_PALETTES[] =
 {
     { _T("Zero"), 0x380738, 0x380758, indexSVCSprites_Zero },
     { _T("Fire Effect 1"), 0x380758, 0x380778, indexSVCSprites_Zero },
-    { _T("Fire Effect 2"), 0x380778, 0x380798, indexSVCSprites_Zero },
+    { _T("Red Arremer Transformation"), 0x380778, 0x380798, indexSVCSprites_Zero },
     { _T("Electric Shock Effect"), 0x380798, 0x3807b8, indexSVCSprites_Zero },
-    { _T("Red Arremer Transformation"), 0x3807b8, 0x3807d8, indexSVCSprites_Zero },
+    { _T("Fire Effect 2"), 0x3807b8, 0x3807d8, indexSVCSprites_Zero },
     { _T("Athena Transformation"), 0x3807d8, 0x3807f8, indexSVCSprites_Zero },
     { _T("Soul Palette"), 0x3807f8, 0x380818, indexSVCSprites_Zero },
     { _T("Midnight Bliss"), 0x380818, 0x380838, indexSVCSprites_Zero },

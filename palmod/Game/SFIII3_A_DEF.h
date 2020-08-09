@@ -101,7 +101,7 @@ const stExtraDef SFIII3_A_EXTRA[] =
 
     { 0x0D, _T("Parry Animation"), 0x769080, 0x80 },
     { 0x0D, _T("Burning Effects"), 0x708480, 0x80 },
-    { 0x0D, _T(" SA Animation 1"), 0x769080, 0x80 },
+    { 0x0D, _T("SA Animation 1"), 0x769080, 0x80 },
     { 0x0D, _T("SA Animation 2"), 0x769100, 0x80 },
     { 0x0D, _T("SA Animation 3"), 0x769180, 0x80 },
     { 0x0D, _T("SA Animation 4"), 0x707900, 0x80 },
@@ -120,12 +120,32 @@ const stExtraDef SFIII3_A_EXTRA[] =
 
     //{ SFIII3_A_EXTRALOC, _T("Elena's Stage"), 0x740B80, 0x2E00 },
 
+    { SFIII3_A_EXTRALOC, _T("Akuma Stage Part 1"), 0x74C180, 0x200, false, 0x15, 0x0F },
+    { SFIII3_A_EXTRALOC, _T("Akuma Stage Part 2"), 0x74C380, 0x200, false, 0x15, 0x10 },
+    { SFIII3_A_EXTRALOC, _T("Akuma Stage Part 3"), 0x74C580, 0x200, false, 0x15, 0x11 },
+    { SFIII3_A_EXTRALOC, _T("Akuma Stage Part 4"), 0x74C780, 0x200, false, 0x15, 0x12 },
+    { SFIII3_A_EXTRALOC, _T("Akuma Stage Part 5"), 0x74C980, 0x80, false, 0x15, 0x13 },
+
+    { SFIII3_A_EXTRALOC, _T("Akuma Stage (Faded) Part 1"), 0x74CA00, 0x200, false, 0x15, 0x0F },
+    { SFIII3_A_EXTRALOC, _T("Akuma Stage (Faded) Part 2"), 0x74CC00, 0x200, false, 0x15, 0x10 },
+    { SFIII3_A_EXTRALOC, _T("Akuma Stage (Faded) Part 3"), 0x74CE00, 0x200, false, 0x15, 0x11 },
+    { SFIII3_A_EXTRALOC, _T("Akuma Stage (Faded) Part 4"), 0x74D000, 0x200, false, 0x15, 0x12 },
+    { SFIII3_A_EXTRALOC, _T("Akuma Stage (Faded) Part 5"), 0x74D200, 0x80, false, 0x15, 0x13 },
+
+
     { SFIII3_A_EXTRALOC, _T("Elena Stage - Grass"), 0x743380, 0x80, false, 0x15, 0x00 },
     { SFIII3_A_EXTRALOC, _T("Elena Stage - Bushes"), 0x743400, 0x80, false, 0x15, 0x01 },
     { SFIII3_A_EXTRALOC, _T("Elena Stage - Sun"), 0x743480, 0x80, false, 0x15, 0x02 },
     { SFIII3_A_EXTRALOC, _T("Elena Stage - Grass Pond Elephants"), 0x743500, 0x80, false, 0x15, 0x03 },
     { SFIII3_A_EXTRALOC, _T("Elena Stage - Tree Left Side"), 0x743580, 0x80, false, 0x15, 0x04 },
     { SFIII3_A_EXTRALOC, _T("Elena Stage - Tree Right Side"), 0x743600, 0x80, false, 0x15, 0x05 },
+
+    { SFIII3_A_EXTRALOC, _T("Elena Stage (Faded) - Grass"), 0x743680, 0x80, false, 0x15, 0x00 },
+    { SFIII3_A_EXTRALOC, _T("Elena Stage (Faded) - Bushes"), 0x743700, 0x80, false, 0x15, 0x01 },
+    { SFIII3_A_EXTRALOC, _T("Elena Stage (Faded) - Sun"), 0x743780, 0x80, false, 0x15, 0x02 },
+    { SFIII3_A_EXTRALOC, _T("Elena Stage (Faded) - Grass Pond Elephants"), 0x743800, 0x80, false, 0x15, 0x03 },
+    { SFIII3_A_EXTRALOC, _T("Elena Stage (Faded) - Tree Left Side"), 0x743880, 0x80, false, 0x15, 0x04 },
+    { SFIII3_A_EXTRALOC, _T("Elena Stage (Faded) - Tree Right Side"), 0x743900, 0x80, false, 0x15, 0x05 },
 
     { SFIII3_A_EXTRALOC, _T("Makoto Stage Part 1"), 0x752F80, 0x200, false, 0x15, 0x06 },
     { SFIII3_A_EXTRALOC, _T("Makoto Stage Part 2"), 0x753180, 0x200, false, 0x15, 0x07 },
@@ -137,6 +157,15 @@ const stExtraDef SFIII3_A_EXTRA[] =
     { SFIII3_A_EXTRALOC, _T("Makoto Stage Part 8"), 0x753d80, 0x200, false, 0x15, 0x0D },
     { SFIII3_A_EXTRALOC, _T("Makoto Stage Part 9"), 0x753f80, 0x80, false, 0x15, 0x0E },
 
+    { SFIII3_A_EXTRALOC, _T("Makoto Stage (Faded) Part 1"), 0x753F80 + 0x80, 0x200, false, 0x15, 0x06 },
+    { SFIII3_A_EXTRALOC, _T("Makoto Stage (Faded) Part 2"), 0x754180 + 0x80, 0x200, false, 0x15, 0x07 },
+    { SFIII3_A_EXTRALOC, _T("Makoto Stage (Faded) Part 3"), 0x754380 + 0x80, 0x200, false, 0x15, 0x08 },
+    { SFIII3_A_EXTRALOC, _T("Makoto Stage (Faded) Part 4"), 0x754580 + 0x80, 0x200, false, 0x15, 0x09 },
+    { SFIII3_A_EXTRALOC, _T("Makoto Stage (Faded) Part 5"), 0x754780 + 0x80, 0x200, false, 0x15, 0x0A },
+    { SFIII3_A_EXTRALOC, _T("Makoto Stage (Faded) Part 6"), 0x754980 + 0x80, 0x200, false, 0x15, 0x0B },
+    { SFIII3_A_EXTRALOC, _T("Makoto Stage (Faded) Part 7"), 0x754b80 + 0x80, 0x200, false, 0x15, 0x0C },
+    { SFIII3_A_EXTRALOC, _T("Makoto Stage (Faded) Part 8"), 0x754d80 + 0x80, 0x200, false, 0x15, 0x0D },
+    { SFIII3_A_EXTRALOC, _T("Makoto Stage (Faded) Part 9"), 0x754f80 + 0x80, 0x80, false, 0x15, 0x0E },
 
     //Extra
 

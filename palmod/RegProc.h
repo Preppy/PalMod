@@ -33,6 +33,9 @@ public:
     static DWORD dwColorsPerLine;
     static bool ShouldForcePeerPreviewWindow();
 
+    static int GetUserSavePaletteToMemoryPreference();
+    static void SetUserSavePaletteToMemoryPreference(int nPreference);
+
     //Main
 
     RECT main_szpos = { c_badWindowPosValue };

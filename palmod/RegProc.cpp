@@ -10,6 +10,8 @@ constexpr auto c_mainWndColorsPerLine = _T("main_wndColorsPerLine");
 constexpr auto c_mainWndMaxColorsPerPage = _T("extras_MaxColorsPerPage");
 constexpr auto c_mainWndForcePeerPreviewWindow = _T("extras_ForcePeerPreviewWindow");
 
+constexpr auto c_nPrefSavePaletteToMemory = _T("pref_ShouldSavePaletteToMemory");
+
 extern int GetDpiForScreen();
 
 DWORD CRegProc::dwColorsPerLine = 0;
@@ -24,6 +26,45 @@ CRegProc::CRegProc(int nSrcType)
 
 CRegProc::~CRegProc(void)
 {
+}
+
+void CRegProc::SetUserSavePaletteToMemoryPreference(int nPreference)
+{
+    HKEY hKey;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        RegSetValueEx(hKey, c_nPrefSavePaletteToMemory, 0, REG_DWORD, (BYTE*)&nPreference, sizeof(DWORD));
+        RegCloseKey(hKey);
+    }
+}
+
+int CRegProc::GetUserSavePaletteToMemoryPreference()
+{
+    HKEY hKey;
+    int nShouldAutoSavePalettesToMemory = IDYES;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        DWORD dwValue;
+        DWORD RegType = REG_DWORD;
+        DWORD GetSz = sizeof(DWORD);
+
+        if (RegQueryValueEx(hKey, c_nPrefSavePaletteToMemory, 0, &RegType, (BYTE*)&dwValue, &GetSz) != ERROR_SUCCESS)
+        {
+            nShouldAutoSavePalettesToMemory = IDYES;
+        }
+        else
+        {
+            nShouldAutoSavePalettesToMemory = (int)dwValue;
+        }
+
+        RegCloseKey(hKey);
+    }
+
+    return nShouldAutoSavePalettesToMemory;
 }
 
 void CRegProc::SetColorsPerLine(DWORD dwColors)
