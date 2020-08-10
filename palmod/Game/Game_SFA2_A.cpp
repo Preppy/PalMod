@@ -89,6 +89,7 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     //Set the image out display type
     DisplayType = DISP_DEF;
     pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_SFA2);
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_SFA2);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -386,7 +387,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse)
                 _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = ((((UsePaletteSetForCharacters() ? SFA2_A_EXTRALOC_07 : SFA2_A_EXTRALOC_08) > iUnitCtr) ? 1 : 0)* nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = ((((UsePaletteSetForCharacters() ? SFA2_A_EXTRALOC_07 : SFA2_A_EXTRALOC_08) > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if SFA2_DEBUG
                 strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);

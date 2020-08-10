@@ -5,7 +5,7 @@
 #include "..\PalMod.h"
 #include "..\regproc.h"
 
-#define SFIII3_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define SFIII3_A_DEBUG 1 // DEFAULT_GAME_DEBUG_STATE
 
 stExtraDef* CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM = NULL;
 
@@ -35,8 +35,16 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
+    m_pszExtraFilename = EXTRA_FILENAME_SF3;
+
     //We need the proper unit amt before we init the main buffer
-    nUnitAmt = SFIII3_A_NUMUNIT + (GetExtraCt(SFIII3_A_EXTRALOC) ? 1 : 0);
+    m_nTotalInternalUnits = SFIII3_A_NUMUNIT;
+    m_nExtraUnit = SFIII3_A_EXTRALOC;
+
+    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+
+    m_nSafeCountForThisRom = 538;
+    m_nLowestKnownPaletteRomLocation = 0x700600;
 
     OutputDebugString(GetExtraCt(SFIII3_A_EXTRALOC) ? _T("Loaded SF3_A with Extras.\n") : _T("Loaded SF3_A without Extras\n"));
 
@@ -59,6 +67,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = DISP_DEF;
     pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL7);
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL7);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -137,19 +146,6 @@ int CGame_SFIII3_A::GetExtraLoc(UINT16 nUnitId)
     return rgExtraLoc[nUnitId];
 }
 
-int CGame_SFIII3_A::GetBasicAmt(UINT16 nUnitId)
-{
-    switch (nUnitId)
-    {
-    case 0x0E: // Shin-Gouki
-        return 2;
-    case SFIII3_A_EXTRALOC:
-        return 1;
-    default:
-        return 7;
-    }
-}
-
 CDescTree* CGame_SFIII3_A::GetMainTree()
 {
     return &CGame_SFIII3_A::MainDescTree;
@@ -157,13 +153,16 @@ CDescTree* CGame_SFIII3_A::GetMainTree()
 
 sDescTreeNode* CGame_SFIII3_A::InitDescTree()
 {
+    UINT32 nTotalPaletteCount = 0;
+
 #ifdef SFIII3_A_USEEXTRAFILE
 
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_SF3, SFIII3_A_EXTRA, &SFIII3_A_EXTRA_CUSTOM, SFIII3_A_EXTRALOC, m_nConfirmedROMSize);
 #endif
 
-    int nUnitCt = SFIII3_A_NUMUNIT + (GetExtraCt(SFIII3_A_EXTRALOC) ? 1 : 0);
+    bool fHaveExtras = (GetExtraCt(SFIII3_A_EXTRALOC) > 0);
+    UINT16 nUnitCt = SFIII3_A_NUMUNIT + (GetExtraCt(SFIII3_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -179,117 +178,102 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
     OutputDebugString(strMsg);
 
     //Go through each character
-    for (int iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
+    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
     {
         sDescTreeNode* UnitNode = nullptr;
-        sDescTreeNode* ButtonNode = nullptr;
+        sDescTreeNode* CollectionNode = nullptr;
         sDescNode* ChildNode = nullptr;
 
-        //Use this for the Extra support
-        int nSuppAmt = 0;
-
-        int nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-
+        UINT16 nExtraCt = GetExtraCt(iUnitCtr, TRUE);
         BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
 
-        int nButtonAmt = GetBasicAmt(iUnitCtr);
-        int nMainChildAmt = nButtonAmt + 1 + bUseExtra;
+        UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
-        //int nChildAmt = (iUnitCtr == 0x0E ? 2 : BUTTON7) + 7 + 2 + 8;
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < SFIII3_A_EXTRALOC)
+        if (iUnitCtr != SFIII3_A_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), SFIII3_A_UNITDESC[iUnitCtr]);
+            _stprintf(UnitNode->szDesc, _T("%s"), SFIII3_A_UNITS[iUnitCtr].szDesc);
 
-            //Init each character to have all 7 basic buttons (or 2 for ShinGouki) + portrait + ex + extra
-            UnitNode->ChildNodes = new sDescTreeNode[nMainChildAmt];
-            //All children have button trees
+            UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
+            //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = nMainChildAmt;
+            UnitNode->uChildAmt = nUnitChildCount;
 
 #if SFIII3_A_DEBUG
             strMsg.Format(_T("Unit: \"%s\", %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
             OutputDebugString(strMsg);
 #endif
 
-            //Set each button data
-            for (int iButtonCtr = 0; iButtonCtr < nButtonAmt; iButtonCtr++)
+            UINT16 nTotalPalettesUsedInUnit = 0;
+
+            //Set data for each child group ("collection")
+            for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
-                ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
+                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
 
-                //Set each button data
-                _stprintf(ButtonNode->szDesc, _T("%s"), DEF_BUTTONLABEL7[iButtonCtr]);
+                //Set each collection data
 
-                //Button children have nodes
-                ButtonNode->uChildType = DESC_NODETYPE_NODE;
-                ButtonNode->uChildAmt = 2; //Extra / Portrait
-
-                ButtonNode->ChildNodes = (sDescTreeNode*)new sDescNode[2];
+                // Default label, since these aren't associated to collections
+                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                //Collection children have nodes
+                UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
+                CollectionNode->uChildType = DESC_NODETYPE_NODE;
+                CollectionNode->uChildAmt = nListedChildrenCount;
+                CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if SFIII3_A_DEBUG
-                strMsg.Format(_T("\t\"%s\" Collection: \"%s\", %u of %u, %u children\n"), UnitNode->szDesc, ButtonNode->szDesc, iButtonCtr + 1, UnitNode->uChildAmt, ButtonNode->uChildAmt);
+                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
-                //Set each button's extra nodes
-                for (int nBasicCtr = 0; nBasicCtr < 2; nBasicCtr++)
-                {
-                    ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nBasicCtr];
+                const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
 
-                    if (nBasicCtr == 0)
+                //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
+                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
+                {
+                    ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
+
+                    _stprintf(ChildNode->szDesc, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+
+                    ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
+                    ChildNode->uPalId = nTotalPalettesUsedInUnit++;
+                    nTotalPaletteCount++;
+
+#if SFIII3_A_DEBUG
+                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    OutputDebugString(strMsg);
+                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    OutputDebugString(strMsg);
+
+                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        _stprintf(ChildNode->szDesc, _T("%s Main"), DEF_BUTTONLABEL7[iButtonCtr]);
+                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
-                    else //It's 1
+                    else
                     {
-                        _stprintf(ChildNode->szDesc, _T("%s Portrait"), DEF_BUTTONLABEL7[iButtonCtr]);
+                        strMsg.Format(_T(" no image available.\n"));
                     }
-
-                    ChildNode->uUnitId = iUnitCtr;
-                    ChildNode->uPalId = nBasicCtr ? (nButtonAmt + iButtonCtr) : iButtonCtr;
+                    OutputDebugString(strMsg);
+#endif
                 }
-            }
-
-            //Set up support nodes
-            nSuppAmt = 2 + 8;
-
-            ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[nButtonAmt]; //Support node
-            _stprintf(ButtonNode->szDesc, _T("Support"));
-
-            ButtonNode->ChildNodes = new sDescTreeNode[nSuppAmt];
-
-            ButtonNode->uChildType = DESC_NODETYPE_NODE;
-            ButtonNode->uChildAmt = nSuppAmt; //EX + Extra
-
-            for (int nExtraCtr = 0; nExtraCtr < nSuppAmt; nExtraCtr++)
-            {
-                ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
-
-                if (nExtraCtr < 2)
-                {
-                    _stprintf(ChildNode->szDesc, _T("EX Attack (%d)"), nExtraCtr + 1);
-                }
-                else if (nExtraCtr < nSuppAmt)
-                {
-                    _stprintf(ChildNode->szDesc, _T("????"));
-                }
-
-                ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (nButtonAmt * 2) + nExtraCtr;
             }
         }
         else
         {
-            //Set each description
+            // This handles data loaded from the Extra extension file, which are treated
+            // each as their own separate node with one collection with everything under that.
             _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
-
-            //Init each character to have all 7 basic buttons (or 2 for ShinGouki) + portrait + ex + extra
-            UnitNode->ChildNodes = new sDescTreeNode[1]; //Only 1 for now, _T("Extra"
-            //All children have button trees
+            UnitNode->ChildNodes = new sDescTreeNode[1]; // Only 1, _T("Extra Palettes)"
             UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = 1; //Only 1 for now, _T("Extra"
+            UnitNode->uChildAmt = 1;
+
+#if SFIII3_A_DEBUG
+            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            OutputDebugString(strMsg);
+#endif
+
         }
 
         //Set up extra nodes
@@ -298,17 +282,17 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[SFIII3_A_EXTRALOC > iUnitCtr ? (nMainChildAmt - 1) : 0]; //Extra node
-            _stprintf(ButtonNode->szDesc, _T("Extra"));
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[((SFIII3_A_EXTRALOC) > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            _stprintf(CollectionNode->szDesc, _T("Extra"));
 
-            ButtonNode->ChildNodes = new sDescTreeNode[nExtraCt];
+            CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
-            ButtonNode->uChildType = DESC_NODETYPE_NODE;
-            ButtonNode->uChildAmt = nExtraCt; //EX + Extra
+            CollectionNode->uChildType = DESC_NODETYPE_NODE;
+            CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-            for (int nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
+            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
             {
-                ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
+                ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
                 stExtraDef* pCurrDef = GetSF3ExtraDef(nExtraPos + nCurrExtra);
 
@@ -322,12 +306,23 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree()
                 _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((SFIII3_A_EXTRALOC > iUnitCtr ? 1 : 0)* nButtonAmt * 2) + nSuppAmt) + nCurrExtra;
+                ChildNode->uPalId = ((SFIII3_A_EXTRALOC > iUnitCtr ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+
+#if SFIII3_A_DEBUG
+                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                OutputDebugString(strMsg);
+#endif
 
                 nCurrExtra++;
+                nTotalPaletteCount++;
             }
         }
     }
+
+    m_nTotalPaletteCount = nTotalPaletteCount;
+
+    strMsg.Format(_T("CGame_SFIII3_A::InitDescTree: Loaded %u palettes for SFIII3 ROM\n"), nTotalPaletteCount);
+    OutputDebugString(strMsg);
 
     return NewDescTree;
 }
@@ -344,7 +339,7 @@ sFileRule CGame_SFIII3_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-int CGame_SFIII3_A::GetPalCt(UINT16 nUnitId)
+UINT16 CGame_SFIII3_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
     if (nUnitId == SFIII3_A_EXTRALOC)
     {
@@ -352,8 +347,168 @@ int CGame_SFIII3_A::GetPalCt(UINT16 nUnitId)
     }
     else
     {
-        return (GetBasicAmt(nUnitId) * 2) + (2 + 8) + GetExtraCt(nUnitId);
+        return SFIII3_A_UNITS[nUnitId].uChildAmt;
     }
+}
+
+UINT16 CGame_SFIII3_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+{
+    if (nUnitId == SFIII3_A_EXTRALOC)
+    {
+        return GetExtraCt(nUnitId);
+    }
+    else
+    {
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(SFIII3_A_UNITS[nUnitId].ChildNodes);
+        return pCollectionNode[nCollectionId].uChildAmt;
+    }
+}
+
+LPCTSTR CGame_SFIII3_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+{
+    if (nUnitId == SFIII3_A_EXTRALOC)
+    {
+        return _T("Extra Palettes");
+    }
+    else
+    {
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)SFIII3_A_UNITS[nUnitId].ChildNodes;
+        return pCollection[nCollectionId].szDesc;
+    }
+}
+
+UINT16 CGame_SFIII3_A::GetPaletteCountForUnit(UINT16 nUnitId)
+{
+    if (nUnitId == SFIII3_A_EXTRALOC)
+    {
+        return GetExtraCt(nUnitId);
+    }
+    else
+    {
+        UINT16 nCompleteCount = 0;
+        UINT16 nCollectionCount = SFIII3_A_UNITS[nUnitId].uChildAmt;
+        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(SFIII3_A_UNITS[nUnitId].ChildNodes);
+
+        for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+        {
+            nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
+        }
+
+#if SFIII3_A_DEBUG_EXTRA
+        CString strMsg;
+        strMsg.Format(_T("CGame_SFIII3_A::GetPaletteCountForUnit: %u palettes for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        OutputDebugString(strMsg);
+#endif
+
+        return nCompleteCount;
+    }
+}
+
+const sGame_PaletteDataset* CGame_SFIII3_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+{
+    // Don't use this for Extra palettes.
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)SFIII3_A_UNITS[nUnitId].ChildNodes;
+    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+}
+
+const sGame_PaletteDataset* CGame_SFIII3_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+{
+    // Don't use this for Extra palettes.
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sGame_PaletteDataset* paletteToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+
+    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+
+        if (nDistanceFromZero < nNodeCount)
+        {
+            paletteToUse = &paletteSetToUse[nDistanceFromZero];
+            break;
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+
+    return paletteToUse;
+}
+
+UINT16 CGame_SFIII3_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+{
+    // Don't use this for Extra palettes.
+    UINT16 nNodeSize = 0;
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sGame_PaletteDataset* paletteSetToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+
+    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+
+        if (nDistanceFromZero < nNodeCount)
+        {
+            nNodeSize = nNodeCount;
+            break;
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+
+    return nNodeSize;
+}
+
+const sDescTreeNode* CGame_SFIII3_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+{
+    // Don't use this for Extra palettes.
+    const sDescTreeNode* pCollectionNode = nullptr;
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sGame_PaletteDataset* paletteSetToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+
+    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount;
+
+        if (nUnitId == SFIII3_A_EXTRALOC)
+        {
+            nNodeCount = GetExtraCt(nUnitId);
+
+            if (nDistanceFromZero < nNodeCount)
+            {
+                pCollectionNode = nullptr;
+                break;
+            }
+        }
+        else
+        {
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(SFIII3_A_UNITS[nUnitId].ChildNodes);
+
+            nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
+
+            if (nDistanceFromZero < nNodeCount)
+            {
+                // We know it's within this group.  Now: is it basic?
+                if (!fReturnBasicNodesOnly || (nCollectionIndex < m_nNumberOfColorOptions))
+                {
+                    pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
+                }
+                else
+                {
+                    pCollectionNode = nullptr;
+                }
+
+                break;
+            }
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+
+    return pCollectionNode;
 }
 
 void CGame_SFIII3_A::InitDataBuffer()
@@ -370,7 +525,7 @@ void CGame_SFIII3_A::ClearDataBuffer()
         {
             if (pppDataBuffer[nUnitCtr])
             {
-                int nPalAmt = GetPalCt(nUnitCtr);
+                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                 for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
@@ -385,78 +540,38 @@ void CGame_SFIII3_A::ClearDataBuffer()
     }
 }
 
-void CGame_SFIII3_A::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
+void CGame_SFIII3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-    int nBasicPos = GetBasicAmt(nUnitId);
-    int nPortPos = nBasicPos * 2;
-    int nExPos = 2 + nPortPos;
-    int nExtraPos = 8 + nExPos;
-
-    UINT32 nOffset = 0;
-    int cbPalSz = 0;
-
-    //nPortPos = nBasicPos + 7;
-
-    BOOL bUseExtra = FALSE;
-
-    if (nUnitId == SFIII3_A_EXTRALOC)
+    if (nUnitId != SFIII3_A_EXTRALOC)
     {
-        nExtraPos = 0;
-        bUseExtra = TRUE;
+        int cbPaletteSizeOnDisc = 0;
+        const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
+
+        cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
+
+        nCurrPalOffs = paletteData->nPaletteOffset;
+
+        m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+        m_pszCurrentPaletteName = paletteData->szPaletteName;
     }
-    else if (nPalId >= nExtraPos)
+    else // SFIII3_A_EXTRALOC
     {
-        bUseExtra = TRUE;
-    }
+        // This is where we handle all the palettes added in via Extra.
+        stExtraDef* pCurrDef = GetSF3ExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
-    if (!bUseExtra)
-    {
-        if ((nPalId >= 0) && (nPalId < nBasicPos)) //Basic palettes
-        {
-            nOffset = (nUnitId * 0x80 * 7) + (nPalId * 0x80) + 0x700600;
-
-            if (nUnitId > 0x0E)
-            {
-                nOffset -= (5 * 0x80);
-            }
-
-            cbPalSz = 0x80;
-        }
-        else if (nPalId < nPortPos) //Portraits
-        {
-            nOffset = (nUnitId * (0x20 * 7) + ((nPalId - nBasicPos) * 0x20)) + 0x763BE0;
-            cbPalSz = 0x20;
-        }
-        else if (nPalId < nExPos)
-        {
-            int nOffStart = (nPalId - nPortPos ? 0x76AE00 : 0x764E00);
-
-            nOffset = nOffStart + (nUnitId * 0x80);
-            cbPalSz = 0x80;
-        }
-        else if (nPalId < nExtraPos) //Extra Palettes
-        {
-            nOffset = 0x765C00 + (nUnitId * 0x400) + ((nPalId - nExPos) * 0x80);
-            cbPalSz = 0x80;
-        }
-    }
-    else //Extra Palette
-    {
-        stExtraDef* pCurrDef = GetSF3ExtraDef(GetExtraLoc(nUnitId) + (nPalId - nExtraPos));
-
-        nOffset = pCurrDef->uOffset;
-        cbPalSz = pCurrDef->cbPaletteSize;
+        nCurrPalOffs = pCurrDef->uOffset;
+        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 
-    nCurrPalOffs = nOffset;
-    nCurrPalSz = cbPalSz / 2;
+    m_nCurrentPaletteROMLocation = nCurrPalOffs;
 }
 
 BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        UINT16 nPalAmt = GetPalCt(nUnitCtr);
+        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
@@ -464,38 +579,53 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
-            GetPalOffsSz(nUnitCtr, nPalCtr);
+            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[nCurrPalSz];
+            pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
             LoadedFile->Seek(nCurrPalOffs, CFile::begin);
 
-            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
+            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
         }
     }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
+
+    CheckForErrorsInTables();
 
     return TRUE;
 }
 
 BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
-    UINT16 nPalAmt;
+    UINT32 nTotalPalettesSaved = 0;
+    bool fShownOnce = false;
 
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        nPalAmt = GetPalCt(nUnitCtr);
+        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
-            GetPalOffsSz(nUnitCtr, nPalCtr);
+            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+            if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
+            {
+                CString strMsg;
+                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, nCurrPalOffs);
+                MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+                fShownOnce = true;
+            }
 
             SaveFile->Seek(nCurrPalOffs, CFile::begin);
-
-            SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], nCurrPalSz * 2);
+            SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            nTotalPalettesSaved++;
         }
     }
+
+    CString strMsg;
+    strMsg.Format(_T("CGame_SFIII3_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
+    OutputDebugString(strMsg);
 
     return TRUE;
 }
@@ -506,9 +636,9 @@ void CGame_SFIII3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     UINT16 nPalId = srcNode->uPalId;
     static DWORD s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
 
-    GetPalOffsSz(nUnitId, nPalId);
+    LoadSpecificPaletteData(nUnitId, nPalId);
 
-    const UINT8 nTotalPagesNeeded = (UINT8)ceil(nCurrPalSz / s_nColorsPerPage);
+    const UINT8 nTotalPagesNeeded = (UINT8)ceil(m_nCurrentPaletteSize / s_nColorsPerPage);
     const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
 
     if (!fCanFitWithinCurrentPageLayout)
@@ -518,14 +648,14 @@ void CGame_SFIII3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
         OutputDebugString(strWarning);
     }
 
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
+    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
 
-    if (fCanFitWithinCurrentPageLayout && (nCurrPalSz > s_nColorsPerPage))
+    if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
     {
         CString strPageDescription;
-        int nColorsRemaining = nCurrPalSz;
+        int nColorsRemaining = m_nCurrentPaletteSize;
 
-        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < nCurrPalSz; nCurrentPage++)
+        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
         {
             strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
             BasePalGroup.AddSep(0, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
@@ -534,95 +664,8 @@ void CGame_SFIII3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     }
     else
     {
-        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, nCurrPalSz);
+        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
     }
-}
-
-BOOL CGame_SFIII3_A::CreateExtraPal(UINT16 nUnitId, UINT16 nPalId)
-{
-    UINT16 nExtra = nPalId - nNormalPalAmt;
-
-    if (nExtra >= 0)
-    {
-        switch (nUnitId)
-        {
-        case 0x08: //Oro
-        {
-            switch (nExtra)
-            {
-            case 0: //Tengu Stone (1)
-            {
-                GetPalOffsSz(nUnitId, nPalId);
-
-                BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
-
-                BasePalGroup.AddSep(0, _T("Concrete"), 0, 16);
-                //BasePalGroup.AddSep(0, _T(""), 16, 16); 
-                BasePalGroup.AddSep(0, _T("Dinosaur / Stone"), 32, 16);
-                BasePalGroup.AddSep(0, _T("Rocket"), 48, 16);
-
-                GetPalOffsSz(nUnitId, nPalId + 1);
-
-                BasePalGroup.AddPal(CreatePal(nUnitId, nPalId + 1), nCurrPalSz, nUnitId, nPalId + 1);
-
-                BasePalGroup.AddSep(1, _T("Brick"), 0, 16);
-
-                ClearSetImgTicket(
-                    CreateImgTicket(nUnitId, 2,
-                        CreateImgTicket(nUnitId, 3, NULL, -2, 129)
-                    )
-                );
-
-                SetSourcePal(0, nUnitId, nPalId, 1, 1);
-                SetSourcePal(1, nUnitId, nPalId + 1, 1, 1);
-
-                return TRUE;
-            }
-            }
-            break;
-        }
-        case 0x0C: //Urien
-        {
-            switch (nExtra)
-            {
-            case 0:
-            {
-                GetPalOffsSz(nUnitId, nPalId);
-
-                BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), nCurrPalSz, nUnitId, nPalId);
-                BasePalGroup.AddSep(0, _T("Morph"), 0, 64);
-
-                GetPalOffsSz(nUnitId, nPalId + 1);
-
-                BasePalGroup.AddPal(CreatePal(nUnitId, nPalId + 1), nCurrPalSz, nUnitId, nPalId + 1);
-                BasePalGroup.AddSep(1, _T("Suit"), 0, 64);
-
-                ClearSetImgTicket(
-                    CreateImgTicket(nUnitId, 2,
-                        CreateImgTicket(nUnitId, 3, NULL, 0, 0)
-                    )
-                );
-
-                SetSourcePal(0, nUnitId, nPalId, 1, 1);
-                SetSourcePal(1, nUnitId, nPalId + 1, 1, 1);
-
-                return TRUE;
-            }
-            break;
-            }
-
-            break;
-        }
-        default:
-        {
-            nTargetImgId = nExtra + 2;
-            return FALSE;
-        }
-        break;
-        }
-    }
-
-    return FALSE;
 }
 
 BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
@@ -645,65 +688,120 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     UINT16 uUnitId = NodeGet->uUnitId;
     UINT16 uPalId = NodeGet->uPalId;
 
-    UINT16 nBasicAmt = GetBasicAmt(uUnitId);
-
     //Change the image id if we need to
     nTargetImgId = 0;
     int nImgUnitId = uUnitId;
-    BOOL bCreateBasicPal = TRUE;
 
     int nSrcStart = 0;
-    int nSrcAmt = nBasicAmt;
+    int nSrcAmt = 1;
+    UINT16 nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
     switch (uUnitId)
     {
-    case 0x0E: //Shin Gouki
+    case 0x0E: //Shin Gouki: use normal Gouki sprites
     {
         nImgUnitId = 0x0D;
+        break;
     }
-    break;
+    default:
+        break;
     }
+
+    bool fShouldUseAlternateLoadLogic = false;
 
     //Select the image
-    nNormalPalAmt = ((GetBasicAmt(uUnitId) * 2) + 10);
-
-    if (SFIII3_A_EXTRALOC > uUnitId)
+    if (m_nExtraUnit != uUnitId)
     {
-        if ((uPalId >= nBasicAmt) && (uPalId < nBasicAmt * 2))
-        {
-            nTargetImgId = 0x01; //Portrait Image
-            nSrcStart = nBasicAmt;
-        }
-        else if ((uPalId >= nBasicAmt * 2) && (uPalId < nNormalPalAmt))
-        {
-            nSrcStart = uPalId;
-            nSrcAmt = 1;
-        }
-        else if (uPalId >= nNormalPalAmt) // Extra palettes for this character
-        {
-            int nBasicPos = GetBasicAmt(uUnitId);
-            int nPortPos = nBasicPos * 2;
-            int nExPos = 2 + nPortPos;
-            int nExtraPos = 8 + nExPos;
+        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+        const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
 
-            stExtraDef* pCurrDef = GetSF3ExtraDef(GetExtraLoc(uUnitId) + uPalId - nExtraPos);
+        nSrcStart = NodeGet->uPalId;
 
-            if (pCurrDef->indexImgToUse != INVALID_UNIT_VALUE)
+        if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
+        {
+            if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[0]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[1]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[2]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[3]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[4]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[5]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[6]) == 0))
             {
-                nImgUnitId = pCurrDef->indexImgToUse;
-                nTargetImgId = pCurrDef->indexOffsetToUse;
-            }
-            else
-            {
-                bCreateBasicPal = !(CreateExtraPal(uUnitId, uPalId));
+                nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7);
+                nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
-                if (bCreateBasicPal)
+                while (nSrcStart >= nNodeIncrement)
                 {
-                    nSrcStart = uPalId;
-                    nSrcAmt = 1;
+                    // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
+                    nSrcStart -= nNodeIncrement;
+                }
+            }
+            else // Extras or Extra Range
+            {
+                // Status effects and etc have no peer palettes
+                nSrcAmt = 1;
+            }
+        }
+
+        if (paletteDataSet)
+        {
+            nImgUnitId = paletteDataSet->indexImgToUse;
+            nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+            if (paletteDataSet->pPalettePairingInfo)
+            {
+                if (uUnitId == 0x08) // Oro
+                {
+                    fShouldUseAlternateLoadLogic = true;
+
+                    BasePalGroup.AddPal(CreatePal(uUnitId, uPalId), m_nCurrentPaletteSize, uUnitId, uPalId);
+
+                    BasePalGroup.AddSep(0, _T("Concrete"), 0, 16);
+                    BasePalGroup.AddSep(0, _T("Dinosaur / Stone"), 32, 16);
+                    BasePalGroup.AddSep(0, _T("Rocket"), 48, 16);
+
+                    LoadSpecificPaletteData(uUnitId, uPalId + 1);
+
+                    BasePalGroup.AddPal(CreatePal(uUnitId, uPalId + 1), m_nCurrentPaletteSize, uUnitId, uPalId + 1);
+
+                    BasePalGroup.AddSep(1, _T("Brick"), 0, 16);
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(uUnitId, 2,
+                            CreateImgTicket(uUnitId, 3, NULL, -2, 129)
+                        )
+                    );
+
+                    SetSourcePal(0, uUnitId, uPalId, 1, 1);
+                    SetSourcePal(1, uUnitId, uPalId + 1, 1, 1);
+                }
+                else if (uUnitId == 0x0C) // Urien
+                {
+                    // Note that we deliberately use a different image for the paired palette than we do
+                    // when displaying that palette normally.
+                    fShouldUseAlternateLoadLogic = true;
+
+                    LoadSpecificPaletteData(uUnitId, uPalId);
+
+                    BasePalGroup.AddPal(CreatePal(uUnitId, uPalId), m_nCurrentPaletteSize, uUnitId, uPalId);
+                    BasePalGroup.AddSep(0, _T("Morph"), 0, 64);
+
+                    LoadSpecificPaletteData(uUnitId, uPalId + 1);
+
+                    BasePalGroup.AddPal(CreatePal(uUnitId, uPalId + 1), m_nCurrentPaletteSize, uUnitId, uPalId + 1);
+                    BasePalGroup.AddSep(1, _T("Suit"), 0, 64);
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(uUnitId, 2,
+                            CreateImgTicket(uUnitId, 3, NULL, 9, 0)
+                        )
+                    );
+
+                    SetSourcePal(0, uUnitId, uPalId, 1, 1);
+                    SetSourcePal(1, uUnitId, uPalId + 1, 1, 1);
                 }
             }
         }
@@ -716,10 +814,11 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         {
             nImgUnitId = pCurrDef->indexImgToUse;
             nTargetImgId = pCurrDef->indexOffsetToUse;
+            nSrcStart = uPalId;
         }
         else
         {
-            bCreateBasicPal = false;
+            fShouldUseAlternateLoadLogic = true;
 
             CreateDefPal(NodeGet, 0);
 
@@ -730,7 +829,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         }
     }
 
-    if (bCreateBasicPal)
+    if (!fShouldUseAlternateLoadLogic)
     {
         //Create the default palette
         CreateDefPal(NodeGet, 0);
@@ -738,40 +837,20 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         // Only internal units get sprites
         ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-        SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
+        SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
     }
 
     return TRUE;
 }
 
-int CGame_SFIII3_A::GetBasicImgId(UINT16 nUnitId, UINT16 nPalId)
-{
-    UINT16 nBasicAmt = GetBasicAmt(nUnitId);
-    if (nPalId > nBasicAmt)
-    {
-        if (nPalId > (7 + nBasicAmt))
-        {
-            return 0;
-        }
-        else
-        {
-            return 1;
-        }
-    }
-    else
-    {
-        return 0;
-    }
-}
-
 COLORREF* CGame_SFIII3_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
-    GetPalOffsSz(nUnitId, nPalId);
+    LoadSpecificPaletteData(nUnitId, nPalId);
     //We get this from create def pal
 
-    COLORREF* NewPal = new COLORREF[nCurrPalSz];
+    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
 
-    for (int i = 0; i < nCurrPalSz; i++)
+    for (int i = 0; i < m_nCurrentPaletteSize; i++)
     {
         NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
     }

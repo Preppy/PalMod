@@ -74,7 +74,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nROMNumber)
 
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            UINT16 nPalAmt = GetPalCt(nUnitCtr);
+            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             if (pppDataBuffer[nUnitCtr] == nullptr)
             {
@@ -85,17 +85,17 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nROMNumber)
 
             for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
-                GetPalOffsSz(nUnitCtr, nPalCtr);
+                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
                 if ((nCurrPalOffs >= nBeginningRange) && (nCurrPalOffs <= nEndingRange))
                 {
                     nCurrPalOffs = (nCurrPalOffs / 2) - c_nSFIII3RomLength;
-                    pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[nCurrPalSz];
+                    pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
                     LoadedFile->Seek(nCurrPalOffs, CFile::begin);
                     FilePeer.Seek(nCurrPalOffs, CFile::begin);
 
-                    for (int nWordsRead = 0; nWordsRead < nCurrPalSz; nWordsRead++)
+                    for (int nWordsRead = 0; nWordsRead < m_nCurrentPaletteSize; nWordsRead++)
                     {
                         BYTE high, low;
                         
@@ -143,11 +143,11 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nROMNumber)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            UINT16 nPalAmt = GetPalCt(nUnitCtr);
+            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
-                GetPalOffsSz(nUnitCtr, nPalCtr);
+                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
                 if ((nCurrPalOffs >= nBeginningRange) && (nCurrPalOffs <= nEndingRange))
                 {
@@ -157,7 +157,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nROMNumber)
                     SaveFile->Seek(nCurrPalOffs, CFile::begin);
                     FilePeer.Seek(nCurrPalOffs, CFile::begin);
 
-                    for (int nWordsWritten = 0; nWordsWritten < nCurrPalSz; nWordsWritten++)
+                    for (int nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
                     {
                         // This would be obnoxiously slow: avoid seek to begin
                         BYTE high = (pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;

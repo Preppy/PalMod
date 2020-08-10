@@ -72,7 +72,7 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = DISP_DEF;
     pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL6_MVC2);
-    m_nNumberOfColorOptions = 6;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
 
     //Set the MVC2 supp game
     CurrMVC2 = (CGame_MVC2_D*)this; //bugbug: lazy

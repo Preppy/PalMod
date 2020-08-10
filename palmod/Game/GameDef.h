@@ -86,7 +86,6 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
 
 constexpr auto MVC2_D_NUMUNIT = 59;
 constexpr auto MVC2_D_NUMUNIT_WITH_TEAMVIEW = MVC2_D_NUMUNIT + 1;
-constexpr auto SFIII3_A_NUMUNIT = 20;   
 
 constexpr auto MVC_A_UNIQUE_IMG_UNITS = 2;    // Onslaught[3B] + Unique Assets(HUD, Stages, Assists)[3C]
 constexpr auto SFA3_A_UNIQUE_IMG_UNITS = 18;  // Unique 17 Characters[3D - 4D] + Unique Assets(HUD, Stages)[4E]

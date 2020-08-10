@@ -324,8 +324,8 @@ BEGIN
         MENUITEM "L&oad ROM\tCtrl+O",           ID_FILE_OPEN
         POPUP "&Load Directory"
         BEGIN
-            MENUITEM "Jojo's 50 (Arcade)(Japan)",   ID_LDJOJOS50
-            MENUITEM "Jojo's 51 (Arcade)(Japan)",   ID_LDJOJOS51
+            MENUITEM "Jojo's Characters (Arcade)(Japan)", ID_LDJOJOS51
+            MENUITEM "Jojo's HUD and Stages (Arcade)(Japan)", ID_LDJOJOS50
             MENUITEM "MVC2 (Arcade)(*)",            ID_LDMVC2ARCADE
             MENUITEM "MVC2 (DC)(USA)",              ID_LDMVC2DCUSA
             MENUITEM "MVC2 (PS2)(*)",               ID_LDMVC2PS2USA
