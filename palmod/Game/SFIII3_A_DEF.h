@@ -56,6 +56,10 @@ const sGame_PaletteDataset SFIII3_A_ALEX_Support_PALETTES[] =
     { _T("????"), 0x765f80, 0x766000, 0x00, 0 },
 };
 
+const sGame_PaletteDataset SFIII3_A_ALEX_EXTRA_PALETTES[] =
+{
+    { _T("Flash Chop"), 0x704A80, 0x704B00 },
+};
 const sGame_PaletteDataset SFIII3_A_RYU_LP_PALETTES[] =
 {
     { _T("LP Main"), 0x700980, 0x700a00, 0x01, 0x00 },
@@ -114,8 +118,9 @@ const sGame_PaletteDataset SFIII3_A_RYU_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_RYU_EXTRA_PALETTES[] =
 {
-    { _T("Hadouken"), 0x704B00, 0x704B3C }, // Yes, +30: the last two colors are not used
-    { _T("Hadouken Impact"), 0x704BA0, 0x704BB0 },
+    { _T("Hadouken"), 0x704B00, 0x704B80 },
+    { _T("Hadouken Impact"), 0x704B80, 0x704C00 },
+    { _T("Shakunetsu (EX Fireball)"), 0x704C00, 0x704C80 },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_LP_PALETTES[] =
@@ -230,6 +235,13 @@ const sGame_PaletteDataset SFIII3_A_DUDLEY_Support_PALETTES[] =
     { _T("????"), 0x766b80, 0x766c00, 0x03, 0 },
 };
 
+const sGame_PaletteDataset SFIII3_A_DUDLEY_EXTRA_PALETTES[] =
+{
+    { _T("P1 Intro car"), 0x704C80, 0x704D00 },
+    { _T("P2 Intro car + shared rose"), 0x704D80, 0x704E00 },
+    { _T("SA1 "), 0x704D00, 0x704D80 },
+};
+
 const sGame_PaletteDataset SFIII3_A_NECRO_LP_PALETTES[] =
 {
     { _T("LP Main"), 0x701400, 0x701480, 0x04, 0x00 },
@@ -288,13 +300,27 @@ const sGame_PaletteDataset SFIII3_A_NECRO_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_NECRO_EXTRA_PALETTES[] =
 {
-    { _T("Effie LP"), 0x704F00, 0x704F80, 0x04, 0x02 },
-    { _T("Effie MP"), 0x705080, 0x705100, 0x04, 0x02 },
-    { _T("Effie HP"), 0x705200, 0x705280, 0x04, 0x02 },
-    { _T("Effie LK"), 0x705380, 0x705400, 0x04, 0x02 },
-    { _T("Effie MP"), 0x705500, 0x705580, 0x04, 0x02 },
-    { _T("Effie HK"), 0x705680, 0x705700, 0x04, 0x02 },
-    { _T("Effie EX"), 0x705800, 0x705880, 0x04, 0x02 },
+    { _T("LP SA1 pulse"), 0x704E00, 0x704E80 },
+    { _T("LP SA1 Trails"), 0x704E80, 0x704F00 },
+    { _T("LP Effie"), 0x704F00, 0x704F80, 0x04, 0x2 },
+    { _T("MP SA1 pulse"), 0x704F80, 0x705000 },
+    { _T("MP SA1 Trails"), 0x705000, 0x705080 },
+    { _T("MP Effie"), 0x705080, 0x705100, 0x04, 0x2 },
+    { _T("HP SA1 pulse"), 0x705100, 0x705180 },
+    { _T("HP SA1 Trails"), 0x705180, 0x705200 },
+    { _T("HP Effie"), 0x705200, 0x705280, 0x04, 0x2 },
+    { _T("LK SA1 pulse"), 0x705280, 0x705300 },
+    { _T("LK SA1 Trails"), 0x705300, 0x705380 },
+    { _T("LK Effie"), 0x705380, 0x705400, 0x04, 0x2 },
+    { _T("MK SA1 pulse"), 0x705400, 0x705480  },
+    { _T("MK SA1 Trails"), 0x705480, 0x705500 },
+    { _T("MK Effie"), 0x705500, 0x705580, 0x04, 0x2 },
+    { _T("HK SA1 pulse"), 0x705580 , 0x705600  },
+    { _T("HK SA1 Trails"), 0x705600, 0x705680 },
+    { _T("HK Effie"), 0x705680, 0x705700, 0x04, 0x2 },
+    { _T("EX SA1 pulse"), 0x705700, 0x705780  },
+    { _T("EX SA1 Trails"), 0x705780, 0x705800 },
+    { _T("EX Effie"), 0x705800, 0x705880, 0x04, 0x2 },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUGO_LP_PALETTES[] =
@@ -417,6 +443,24 @@ const sGame_PaletteDataset SFIII3_A_IBUKI_Support_PALETTES[] =
     { _T("????"), 0x767780, 0x767800, 0x06, 0 },
 };
 
+const sGame_PaletteDataset SFIII3_A_IBUKI_EXTRA_PALETTES[] =
+{
+    { _T("LP Extras"), 0x705A00, 0x705A80 },
+    { _T("LP Extras 2"), 0x705A80, 0x705B00 },
+    { _T("MP Extras"), 0x705B00, 0x705B80 },
+    { _T("MP Extras 2"), 0x705B80, 0x705C00 },
+    { _T("HP Extras"), 0x705C00, 0x705C80 },
+    { _T("HP Extras 2"), 0x705C80, 0x705D00 },
+    { _T("LK Extras"), 0x705D00, 0x705D80 },
+    { _T("LK Extras 2"), 0x705D80, 0x705E00 },
+    { _T("MK Extras"), 0x705E00, 0x705E80 },
+    { _T("MK Extras 2"), 0x705E80, 0x705F00 },
+    { _T("HK Extras"), 0x705F00, 0x705F80 },
+    { _T("HK Extras 2"), 0x705F80, 0x706000 },
+    { _T("EX Extras"), 0x706000, 0x706080 },
+    { _T("EX Extras 2"), 0x706080, 0x706100 },
+};
+
 const sGame_PaletteDataset SFIII3_A_ELENA_LP_PALETTES[] =
 {
     { _T("LP Main"), 0x701e80, 0x701f00, 0x07, 0x00 },
@@ -457,6 +501,12 @@ const sGame_PaletteDataset SFIII3_A_ELENA_EX_PALETTES[] =
 {
     { _T("EX Main"), 0x702180, 0x702200, 0x07, 0x00 },
     { _T("EX Portrait"), 0x7642c0, 0x7642e0, 0x07, 0x01 },
+};
+
+const sGame_PaletteDataset SFIII3_A_ELENA_EXTRA_PALETTES[] =
+{
+    { _T("Dust"), 0x706100, 0x706180 },
+    { _T("Music notes"), 0x706180, 0x706200 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_Support_PALETTES[] =
@@ -531,9 +581,12 @@ const sGame_PaletteDataset SFIII3_A_ORO_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_ORO_EXTRA_PALETTES[] =
 {
-    { _T("Tengu Stones"), 0x00763100, 0x00763100 + 0x80, 0x08, 2, &pairHandledInCode },
+    { _T("Tengu Stones"), 0x763100, 0x763100 + 0x80, 0x08, 2, &pairHandledInCode },
     // Bricks are folded into the Tengu Stones display
-    { _T("Bricks"), 0x00763180, 0x00763180 + 0x20, 0x08, 3 },
+    { _T("Bricks"), 0x763180, 0x763180 + 0x20, 0x08, 3 },
+
+    { _T("Fireball + Green Yagyou Dama (SA2)"), 0x706280, 0x706300 },
+    { _T("Fireball + Yellow Yagyou Dama (SA2)"), 0x706380, 0x706400 },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_LP_PALETTES[] =
@@ -650,9 +703,9 @@ const sGame_PaletteDataset SFIII3_A_KEN_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_KEN_EXTRA_PALETTES[] =
 {
-    { _T("Hadouken"), 0x706400, 0x70643C }, // Yes, 30: the last two colors are not used
-    { _T("Shoryuken Flames"), 0x706560, 0x706580 },
-    { _T("Hadouken Impact"), 0x7064A0, 0x7064B0 },
+    { _T("Hadouken"), 0x706400, 0x706480 },
+    { _T("Hadouken Impact"), 0x706480, 0x706500 },
+    { _T("Shoryuken Flames"), 0x706500, 0x706580 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_LP_PALETTES[] =
@@ -769,8 +822,16 @@ const sGame_PaletteDataset SFIII3_A_URIEN_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_URIEN_EXTRA_PALETTES[] =
 {
-    { _T("Intro"), 0x706600, 0x706680, 0x0c, 0x03, &pairHandledInCode },
-    { _T("Morph"), 0x706680, 0x706700, 0x0c, 0x00 }, // Note that for pairing we use an alt image.
+    { _T("P1 Intro"), 0x706600, 0x706680, 0x0c, 0x00, &pairHandledInCode },
+    { _T("P1 Suit"), 0x706680, 0x706700, 0x0c, 0x03 }, // Note that for pairing we use an alt image.
+    { _T("P2 SA3 / Fire"), 0x706700, 0x706780 },
+
+    { _T("P2 Intro"), 0x706880, 0x706900, 0x0c, 0x00, &pairHandledInCode },
+    { _T("P2 Suit"), 0x706900, 0x706980, 0x0c, 0x03 },
+    { _T("P2 SA3 / Fire?"), 0x706980, 0x706A00 },
+
+    { _T("Fireball"), 0x706780, 0x706800 },
+    { _T("Big Fireball"), 0x706800, 0x706880 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_LP_PALETTES[] =
@@ -832,8 +893,13 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_Support_PALETTES[] =
 const sGame_PaletteDataset SFIII3_A_GOUKI_EXTRA_PALETTES[] =
 {
     { _T("Shun Goku Satsu KO Screen"), 0x706b80, 0x706c00, 0x0D, 0x0F },
-    { _T("Messatsu Go Hadou / Air Fireball"), 0x706a80, 0x706b00 },
+
     { _T("Kongou Kokuretzu Zan"), 0x706a00, 0x706a80 },
+    { _T("Messatsu Go Hadou / Air Fireball"), 0x706a80, 0x706b00 },
+
+    { _T("Fireball"), 0x706C00, 0x706C80 },
+    { _T("Fireball Impact"), 0x706C80, 0x706D00 },
+
     { _T("SA Animation 4"), 0x707900, 0x707980, 0x0D },
 
     { _T("Burning Effects"), 0x708480, 0x708500, 0x0D },
@@ -919,6 +985,11 @@ const sGame_PaletteDataset SFIII3_A_CHUNLI_Support_PALETTES[] =
     { _T("????"), 0x769a80, 0x769b00, 0x0f, 0 },
     { _T("????"), 0x769b00, 0x769b80, 0x0f, 0 },
     { _T("????"), 0x769b80, 0x769c00, 0x0f, 0 },
+};
+
+const sGame_PaletteDataset SFIII3_A_CHUNLI_EXTRA_PALETTES[] =
+{
+    { _T("Kikouken / Kikou-Shou"), 0x706D80, 0x706E00 },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_LP_PALETTES[] =
@@ -1038,6 +1109,11 @@ const sGame_PaletteDataset SFIII3_A_Q_EXTRA_PALETTES[] =
     { _T("SA3 charge / all arts burning"), 0x708680, 0x708700 },
     { _T("SA3 main explosion"), 0x708700, 0x708780 },
     { _T("SA3 explosion flames"), 0x708a80, 0x708b00 },
+
+    { _T("Boys"), 0x706E80, 0x706F00 },
+    { _T("Girls "), 0x706F00, 0x706F80 },
+    { _T("Girls 2?"), 0x706F80, 0x707000 },
+    { _T("SA3 Explosion"), 0x707000, 0x707080 },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_LP_PALETTES[] =
@@ -1152,6 +1228,11 @@ const sGame_PaletteDataset SFIII3_A_REMY_Support_PALETTES[] =
     { _T("????"), 0x76ab80, 0x76ac00, 0x13, 0 },
 };
 
+const sGame_PaletteDataset SFIII3_A_REMY_EXTRA_PALETTES[] =
+{
+    { _T("Effects"), 0x707080, 0x707100 },
+};
+
 const sDescTreeNode SFIII3_A_ALEX_COLLECTION[] =
 {
     { _T("LP"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_LP_PALETTES, ARRAYSIZE(SFIII3_A_ALEX_LP_PALETTES) },
@@ -1162,6 +1243,7 @@ const sDescTreeNode SFIII3_A_ALEX_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_HK_PALETTES, ARRAYSIZE(SFIII3_A_ALEX_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_EX_PALETTES, ARRAYSIZE(SFIII3_A_ALEX_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_Support_PALETTES, ARRAYSIZE(SFIII3_A_ALEX_Support_PALETTES) },
+    { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_ALEX_EXTRA_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_RYU_COLLECTION[] =
@@ -1199,6 +1281,7 @@ const sDescTreeNode SFIII3_A_DUDLEY_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_HK_PALETTES, ARRAYSIZE(SFIII3_A_DUDLEY_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_EX_PALETTES, ARRAYSIZE(SFIII3_A_DUDLEY_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_Support_PALETTES, ARRAYSIZE(SFIII3_A_DUDLEY_Support_PALETTES) },
+    { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_DUDLEY_EXTRA_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_NECRO_COLLECTION[] =
@@ -1237,6 +1320,7 @@ const sDescTreeNode SFIII3_A_IBUKI_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_HK_PALETTES, ARRAYSIZE(SFIII3_A_IBUKI_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_EX_PALETTES, ARRAYSIZE(SFIII3_A_IBUKI_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_Support_PALETTES, ARRAYSIZE(SFIII3_A_IBUKI_Support_PALETTES) },
+    { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_IBUKI_EXTRA_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_ELENA_COLLECTION[] =
@@ -1249,6 +1333,7 @@ const sDescTreeNode SFIII3_A_ELENA_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_HK_PALETTES, ARRAYSIZE(SFIII3_A_ELENA_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_EX_PALETTES, ARRAYSIZE(SFIII3_A_ELENA_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_Support_PALETTES, ARRAYSIZE(SFIII3_A_ELENA_Support_PALETTES) },
+    { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_ELENA_EXTRA_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_ORO_COLLECTION[] =
@@ -1344,6 +1429,7 @@ const sDescTreeNode SFIII3_A_CHUNLI_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_HK_PALETTES, ARRAYSIZE(SFIII3_A_CHUNLI_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_EX_PALETTES, ARRAYSIZE(SFIII3_A_CHUNLI_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_Support_PALETTES, ARRAYSIZE(SFIII3_A_CHUNLI_Support_PALETTES) },
+    { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_CHUNLI_EXTRA_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_MAKOTO_COLLECTION[] =
@@ -1393,6 +1479,7 @@ const sDescTreeNode SFIII3_A_REMY_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_HK_PALETTES, ARRAYSIZE(SFIII3_A_REMY_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_EX_PALETTES, ARRAYSIZE(SFIII3_A_REMY_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_Support_PALETTES, ARRAYSIZE(SFIII3_A_REMY_Support_PALETTES) },
+    { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_REMY_EXTRA_PALETTES) },
 };
 
 const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
@@ -1464,6 +1551,38 @@ const sGame_PaletteDataset SFIII3_A_STAGES_MAKOTO_FADED_PALETTES[] =
     { _T("Makoto Stage (Faded) Part 9"), 0x755000, 0x755080, 0x15, 0x0E },
 };
 
+const sGame_PaletteDataset SFIII3_A_STAGES_YANG_PALETTES[] =
+{
+    { _T("Yang Stage Part 1"), 0x732180, 0x732380, 0x15, 0x14 },
+    { _T("Yang Stage Part 2"), 0x732380, 0x732580, 0x15, 0x15 },
+    { _T("Yang Stage Part 3"), 0x732580, 0x732780, 0x15, 0x16 },
+    { _T("Yang Stage Part 4"), 0x732780, 0x732980, 0x15, 0x17 },
+    { _T("Yang Stage Part 5"), 0x732980, 0x732B80, 0x15, 0x18 },
+    { _T("Yang Stage Part 6"), 0x732B80, 0x732D80, 0x15, 0x19 },
+    { _T("Yang Stage Part 7"), 0x732D80, 0x732F80, 0x15, 0x1a },
+    { _T("Yang Stage Part 8"), 0x732F80, 0x733180, 0x15, 0x1b },
+    { _T("Yang Stage Part 9"), 0x733180, 0x733380, 0x15, 0x1c },
+    { _T("Yang Stage Part 10"), 0x733380, 0x733580, 0x15, 0x1d },
+    { _T("Yang Stage Part 11"), 0x733580, 0x733780, 0x15, 0x1e },
+    { _T("Yang Stage Part 12"), 0x733780, 0x733880, 0x15, 0x1f },
+};
+
+const sGame_PaletteDataset SFIII3_A_STAGES_YANG_FADED_PALETTES[] =
+{
+    { _T("Yang Stage (Faded) Part 1"), 0x733880, 0x733A80, 0x15, 0x14 },
+    { _T("Yang Stage (Faded) Part 2"), 0x733A80, 0x733C80, 0x15, 0x15 },
+    { _T("Yang Stage (Faded) Part 3"), 0x733C80, 0x733E80, 0x15, 0x16 },
+    { _T("Yang Stage (Faded) Part 4"), 0x733E80, 0x734080, 0x15, 0x17 },
+    { _T("Yang Stage (Faded) Part 5"), 0x734080, 0x734280, 0x15, 0x18 },
+    { _T("Yang Stage (Faded) Part 6"), 0x734280, 0x734480, 0x15, 0x19 },
+    { _T("Yang Stage (Faded) Part 7"), 0x734480, 0x734680, 0x15, 0x1a },
+    { _T("Yang Stage (Faded) Part 8"), 0x734680, 0x734880, 0x15, 0x1b },
+    { _T("Yang Stage (Faded) Part 9"), 0x734880, 0x734A80, 0x15, 0x1c },
+    { _T("Yang Stage (Faded) Part 10"), 0x734A80, 0x734C80, 0x15, 0x1d },
+    { _T("Yang Stage (Faded) Part 11"), 0x734C80, 0x734E80, 0x15, 0x1e },
+    { _T("Yang Stage (Faded) Part 12"), 0x734E80, 0x735080, 0x15, 0x1f },
+};
+
 const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
 {
     { _T("Bonus"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_PALETTES) },
@@ -1476,6 +1595,9 @@ const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
 
     { _T("Makoto Stage"),           DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_MAKOTO_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_MAKOTO_PALETTES) },
     { _T("Makoto Stage (Faded)"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_MAKOTO_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_MAKOTO_FADED_PALETTES) },
+
+    { _T("Yang Stage"),           DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_YANG_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_YANG_PALETTES) },
+    { _T("Yang Stage (Faded)"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_YANG_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_YANG_FADED_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_UNITS[] =
@@ -1500,7 +1622,7 @@ const sDescTreeNode SFIII3_A_UNITS[] =
     { _T("Q"),      DESC_NODETYPE_TREE, (void*)SFIII3_A_Q_COLLECTION, ARRAYSIZE(SFIII3_A_Q_COLLECTION) },
     { _T("Twelve"), DESC_NODETYPE_TREE, (void*)SFIII3_A_TWELVE_COLLECTION, ARRAYSIZE(SFIII3_A_TWELVE_COLLECTION) },
     { _T("Remy"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_COLLECTION, ARRAYSIZE(SFIII3_A_REMY_COLLECTION) },
-    { _T("Stages"), DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGE_COLLECTION, ARRAYSIZE(SFIII3_A_STAGE_COLLECTION) },
+    { _T("Bonus Palettes"), DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGE_COLLECTION, ARRAYSIZE(SFIII3_A_STAGE_COLLECTION) },
 };
 
 constexpr auto SFIII3_A_NUMUNIT = ARRAYSIZE(SFIII3_A_UNITS);

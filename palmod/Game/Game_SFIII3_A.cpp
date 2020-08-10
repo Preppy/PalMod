@@ -5,7 +5,7 @@
 #include "..\PalMod.h"
 #include "..\regproc.h"
 
-#define SFIII3_A_DEBUG 1 // DEFAULT_GAME_DEBUG_STATE
+#define SFIII3_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 stExtraDef* CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM = NULL;
 
@@ -43,7 +43,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = 538;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 613;
     m_nLowestKnownPaletteRomLocation = 0x700600;
 
     OutputDebugString(GetExtraCt(SFIII3_A_EXTRALOC) ? _T("Loaded SF3_A with Extras.\n") : _T("Loaded SF3_A without Extras\n"));
