@@ -417,7 +417,11 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
 
         //pNewImgData = new UINT8[CurrImg->uImgWidth * CurrImg->uImgHeight];
 
+#ifdef TVRLE
         pNewImgData = BitMaskRLEDecodeImg(
+#else
+        pNewImgData = RLEDecodeImg(
+#endif
             pTmpData,
             pCurrImg->uDataSize,
             pCurrImg->uImgWidth,

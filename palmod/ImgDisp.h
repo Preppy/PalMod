@@ -43,7 +43,7 @@ struct sImgNode
 class CImgDisp : public CWnd
 {
 private:
-    sImgNode* pImgBuffer[MAX_IMG];
+    sImgNode* pImgBuffer[MAX_IMG] = {};
     int nImgAmt = 0;
 
     CPaintDC* PaintDC = nullptr;
@@ -51,13 +51,13 @@ private:
     CDC* ImageDC = nullptr;
 
     CBitmap BGBitmap;
-    HBITMAP hBGBitmap;
+    HBITMAP hBGBitmap = nullptr;
     CBrush BGBrush;
 
     BITMAPINFO Bmpi;
-    HBITMAP hBmp;
+    HBITMAP hBmp = nullptr;
 
-    RECT rBlt;
+    RECT rBlt = {};
 
     UINT32* pBmpData = nullptr;
 

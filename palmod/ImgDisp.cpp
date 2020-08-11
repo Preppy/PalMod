@@ -179,6 +179,7 @@ void CImgDisp::AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgD
 
     pNewNode->pImgData = pImgData;
     pNewNode->pPalette = pPalette;
+    pNewNode->uPalSz = uPalSz;
 
     if (pImgBuffer[nIndex])
     {
@@ -528,8 +529,7 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
     return false;
 }
 
-
-bool  CImgDisp::LoadExternalSprite(TCHAR* pszTextureLocation)
+bool CImgDisp::LoadExternalSprite(TCHAR* pszTextureLocation)
 {
     // BUGBUG TODO LIST:
     //   * look into CImage to RAW support...?
@@ -580,6 +580,16 @@ bool  CImgDisp::LoadExternalSprite(TCHAR* pszTextureLocation)
                     TextureFile.Read(m_pSpriteOverrideTexture, nSizeToRead);
 
                     TextureFile.Close();
+
+                    if (pImgBuffer[0])
+                    {
+                        AddImageNode(0, m_nTextureOverrideW, m_nTextureOverrideH, m_pSpriteOverrideTexture, pImgBuffer[0]->pPalette, pImgBuffer[0]->uPalSz, 0, 0);
+                    }
+                    else
+                    {
+                        // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
+                        AddImageNode(0, m_nTextureOverrideW, m_nTextureOverrideH, m_pSpriteOverrideTexture, m_pBackupPalette, 0, 0, 0);
+                    }
 
                     ResizeMainBitmap();
 

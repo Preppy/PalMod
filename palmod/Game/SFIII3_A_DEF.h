@@ -989,7 +989,7 @@ const sGame_PaletteDataset SFIII3_A_CHUNLI_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_EXTRA_PALETTES[] =
 {
-    { _T("Kikouken / Kikou-Shou"), 0x706D80, 0x706E00 },
+    { _T("Kikouken / Kikou-Shou / Tensei-Ranka"), 0x706D80, 0x706E00 },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_LP_PALETTES[] =

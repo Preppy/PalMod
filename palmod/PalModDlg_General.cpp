@@ -208,7 +208,7 @@ void CPalModDlg::PostPalSel()
         CurrPalDef = MainPalGroup->GetPalDef(i);
         nCurrSepAmt = CurrPalDef->uSepAmt;
 
-        ImgDispCtrl->AssignBackupPalette((UINT8 * )CurrPalDef->pPal);
+        ImgDispCtrl->AssignBackupPalette((UINT8 *)CurrPalDef->pPal);
 
         //Fill the palette control
         for (int nSepCtr = 0; nSepCtr < nCurrSepAmt; nSepCtr++)
