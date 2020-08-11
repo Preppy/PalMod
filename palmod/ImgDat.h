@@ -29,6 +29,7 @@ private:
     bool imageBufferPrepped = false;
     bool PrepImageBuffer(UINT16 uGameUnitAmt, UINT8 uGameFlag);
     bool sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag);
+    void getBMRLEData(UINT8 chunkSize, UINT8* inputData, UINT8* output_data, UINT32& i_byteCtr, UINT32& o_dataCtr);
 
     CFile ImgDatFile;
 
@@ -43,6 +44,7 @@ public:
     bool FlushImageBuffer();
     UINT8* DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);
     UINT8* RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight);
+    UINT8* BitMaskRLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight);
 
     int GetCurrImgFlag() { return nCurImgGameFlag; };
     UINT8* GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitId, int nCurrentImgId);

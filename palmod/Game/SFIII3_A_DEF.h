@@ -1484,7 +1484,7 @@ const sDescTreeNode SFIII3_A_REMY_COLLECTION[] =
 
 const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
 {
-    { _T("Select Background"), 0x709D80, 0x709E00 },
+    { _T("Select Background"), 0x709D80, 0x709E00, 0x14, 0x0 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_AKUMA_PALETTES[] =

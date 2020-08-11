@@ -417,7 +417,7 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
 
         //pNewImgData = new UINT8[CurrImg->uImgWidth * CurrImg->uImgHeight];
 
-        pNewImgData = RLEDecodeImg(
+        pNewImgData = BitMaskRLEDecodeImg(
             pTmpData,
             pCurrImg->uDataSize,
             pCurrImg->uImgWidth,
@@ -691,6 +691,83 @@ UINT8* CImgDat::RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWi
         }
     }
     return output_data;
+}
+
+UINT8* CImgDat::BitMaskRLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight)
+{
+    UINT8* output_data = new UINT8[uiImgWidth * uiImgHeight];
+    memset(output_data, NULL, sizeof(UINT8) * uiImgWidth * uiImgHeight);
+
+    UINT32 i_byteCtr = 0;
+    UINT32 o_dataCtr = 0;
+    UINT32 byteGroups = 0;
+    UINT8 extraChunks = 0;
+
+    memcpy(&byteGroups, pSrcImgData, 4);
+    i_byteCtr += 4;
+    extraChunks = *(pSrcImgData + i_byteCtr++);
+
+    // printf("byteGroups: 0x%08X\n  extraChunks: 0x%02X\n", byteGroups, extraChunks);
+
+    for (UINT32 group = 0; group < byteGroups; group++)
+    {
+        getBMRLEData(8, pSrcImgData, output_data, i_byteCtr, o_dataCtr);
+    }
+
+    if (extraChunks != 0)
+    {
+        getBMRLEData(extraChunks + 1, pSrcImgData, output_data, i_byteCtr, o_dataCtr);
+    }
+
+    return output_data;
+}
+
+void CImgDat::getBMRLEData(UINT8 chunkSize, UINT8* inputData, UINT8* output_data, UINT32& i_byteCtr, UINT32& o_dataCtr)
+{
+    UINT8 data = 0;
+    UINT8 bitMask = 0;
+    UINT32 count = 0;
+    UINT8 tempCount = 0;
+    UINT16 multiplier = 0;
+
+    bitMask = *(inputData + i_byteCtr++);
+    // printf("New Group - \n  BitMask: 0x%02X\n", bitMask);
+
+    for (UINT8 chunk = 0; chunk < chunkSize; chunk++)
+    {
+        count = 0;
+        tempCount = 0;
+        if ((bitMask & (0x80 >> chunk)) != 0)
+        {
+            count = inputData[i_byteCtr++];
+            if (count == 0xFF)
+            {
+                multiplier = 0;
+                tempCount = inputData[i_byteCtr++];
+                while (tempCount == 0xFF)
+                {
+                    multiplier += tempCount;
+                    tempCount = inputData[i_byteCtr++];
+                }
+                multiplier += tempCount;
+                count *= multiplier;
+                tempCount = inputData[i_byteCtr++];
+                count += tempCount;
+            }
+        }
+
+        data = inputData[i_byteCtr++];
+        // printf("    Payload - Count: 0x%08X, Data: 0x%02X\n", count, data);
+        if (count != 0)
+        {
+            for (UINT32 writing = 0; writing < (count - 1); writing++)
+            {
+                output_data[o_dataCtr++] = data;
+            }
+        }
+
+        output_data[o_dataCtr++] = data;
+    }
 }
 
 UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP)

@@ -388,6 +388,7 @@ const UINT8 SFIII3_A_IMG_UNITS[] =
     0x11, // Q
     0x12, // Twelve
     0x13, // Remy
+    0x14, // Bonus
     0x15, // Extras
 };
 
