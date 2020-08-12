@@ -183,15 +183,15 @@ UINT16 CGameClass::CONV_32_12A(UINT32 inCol)
     auxg = ((inCol & 0x0000FF00) >> 8);
     auxr = ((inCol & 0x000000FF));
 
-    auxa = (auxa > 15 * 17 ? auxa = 15 * 17 : auxa);
-    auxr = (auxr > 15 * 17 ? auxr = 15 * 17 : auxr);
-    auxg = (auxg > 15 * 17 ? auxg = 15 * 17 : auxg);
-    auxb = (auxb > 15 * 17 ? auxb = 15 * 17 : auxb);
+    auxa = (auxa > (15 * 17)) ? (15 * 17) : auxa;
+    auxr = (auxr > (15 * 17)) ? (15 * 17) : auxr;
+    auxg = (auxg > (15 * 17)) ? (15 * 17) : auxg;
+    auxb = (auxb > (15 * 17)) ? (15 * 17) : auxb;
 
-    auxr /= 17;
-    auxg /= 17;
-    auxb /= 17;
-    auxa /= 17;
+    auxr = (UINT16)round(auxr / 17.0);
+    auxg = (UINT16)round(auxg / 17.0);
+    auxb = (UINT16)round(auxb / 17.0);
+    auxa = (UINT16)round(auxa / 17.0);
 
     //auxb = auxb;
     auxg = auxg << (4);
@@ -256,9 +256,9 @@ UINT16 CGameClass::CONV_32_15(UINT32 inCol)
     auxg = (inCol & 0x0000FF00) >> (8);
     auxr = (inCol & 0x000000FF);
 
-    auxb /= 8;
-    auxg /= 8;
-    auxr /= 8;
+    auxb = (UINT16)round(auxb / 8);
+    auxg = (UINT16)round(auxg / 8);
+    auxr = (UINT16)round(auxr / 8);
 
     //auxr = auxr;
     auxg = auxg << (5);
@@ -300,9 +300,9 @@ UINT16 CGameClass::CONV_32_15ALT(UINT32 inCol)
     auxg = (inCol & 0x0000FF00) >> (8);
     auxr = (inCol & 0x000000FF);
 
-    auxb /= 8;
-    auxg /= 8;
-    auxr /= 8;
+    auxb = (UINT16)round(auxb / 8);
+    auxg = (UINT16)round(auxg / 8);
+    auxr = (UINT16)round(auxr / 8);
 
     auxr = auxr << (10);
     auxg = auxg << (5);
@@ -414,12 +414,12 @@ UINT16 CGameClass::CONV_32_NEOGEO(UINT32 inCol)
 
     UINT16 darkbit = (IsNEOGEOColorDark(red, green, blue) ? 0x1 : 0x0) << 0xf;
 
-    UINT16 red1 =      ((red / 2) & 0x1) << 0xe;
-    UINT16 redMain =   ((red / 4) & 0xf) << 0x8;
-    UINT16 green1 =    ((green / 2) & 0x1) << 0xd;
-    UINT16 greenMain = ((green / 4) & 0xf) << 0x4;
-    UINT16 blue1 =     ((blue / 2) & 0x1) << 0xc;
-    UINT16 blueMain =  ((blue / 4) & 0xf) << 0x0;
+    UINT16 red1 =      ((UINT8)round(red / 2.0) & 0x1) << 0xe;
+    UINT16 redMain =   ((UINT8)round(red / 4.0) & 0xf) << 0x8;
+    UINT16 green1 =    ((UINT8)round(green / 2.0) & 0x1) << 0xd;
+    UINT16 greenMain = ((UINT8)round(green / 4.0) & 0xf) << 0x4;
+    UINT16 blue1 =     ((UINT8)round(blue / 2.0) & 0x1) << 0xc;
+    UINT16 blueMain =  ((UINT8)round(blue / 4.0) & 0xf) << 0x0;
 
     UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
     //CString strColor;

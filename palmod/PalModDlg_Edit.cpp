@@ -340,6 +340,8 @@ void CPalModDlg::OnEditPaste()
             ImgDispCtrl->UpdateCtrl();
             CurrPalCtrl->UpdateCtrl();
 
+            UpdateSliderSel();
+
             safe_delete_array(rgPasteCol);
         }
     }
@@ -418,6 +420,8 @@ void CPalModDlg::OnEditPaste()
 
         ImgDispCtrl->UpdateCtrl();
         CurrPalCtrl->UpdateCtrl();
+
+        UpdateSliderSel();
     }
 }
 
