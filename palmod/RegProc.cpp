@@ -297,7 +297,8 @@ void CRegProc::LoadReg(int src)
             if (RegQueryValueEx(hKey, _T("imgout_border"), 0, &RegType, (BYTE*)&imgout_border, &GetSz) != ERROR_SUCCESS)
                 imgout_border = 0;
 
-            if (RegQueryValueEx(hKey, _T("imgout_zoomindex"), 0, &RegType, (BYTE*)&imgout_zoomindex, &GetSz) != ERROR_SUCCESS)
+            // Changed our index, so don't try to mismap settings.
+            if (RegQueryValueEx(hKey, _T("imgout_zoomindex_2"), 0, &RegType, (BYTE*)&imgout_zoomindex, &GetSz) != ERROR_SUCCESS)
                 imgout_zoomindex = 0;
 
             GetSz = sizeof(BOOL);
@@ -382,7 +383,7 @@ void CRegProc::SaveReg(int src)
         {
             RegSetValueEx(hKey, _T("imgout_bgcol"), 0, REG_DWORD, (BYTE*)&imgout_bgcol, sizeof(COLORREF));
             RegSetValueEx(hKey, _T("imgout_border"), 0, REG_DWORD, (BYTE*)&imgout_border, sizeof(DWORD));
-            RegSetValueEx(hKey, _T("imgout_zoomindex"), 0, REG_DWORD, (BYTE*)&imgout_zoomindex, sizeof(DWORD));
+            RegSetValueEx(hKey, _T("imgout_zoomindex_2"), 0, REG_DWORD, (BYTE*)&imgout_zoomindex, sizeof(DWORD));
             RegSetValueEx(hKey, _T("TransparentPNG"), 0, REG_DWORD, (BYTE*)&bTransPNG, sizeof(BOOL));
 
             conv_str = RectToStr(imgout_szpos);

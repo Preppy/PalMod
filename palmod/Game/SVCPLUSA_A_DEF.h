@@ -16,10 +16,10 @@ const sGame_PaletteDataset SVCPLUSA_A_KYO_PUNCH_PALETTES[] =
     { _T("Fire Effect 1"), 0x364558, 0x364578, indexKOFSprites_98Kyo },
     { _T("Fire Effect 2"), 0x364578, 0x364598, indexKOFSprites_98Kyo },
     { _T("Electric Shock Effect"), 0x364598, 0x3645b8, indexKOFSprites_98Kyo },
-    { _T("Red Arremer Transformation"), 0x3645b8, 0x3645d8, indexKOFSprites_98Kyo },
-    { _T("Athena Transformation"), 0x3645d8, 0x3645f8, indexKOFSprites_98Kyo },
+    { _T("Red Arremer Transformation"), 0x3645b8, 0x3645d8, indexSVCSprites_Kyo, 4 },
+    { _T("Athena Transformation"), 0x3645d8, 0x3645f8, indexSVCSprites_Kyo, 5 },
     { _T("Soul Palette"), 0x3645f8, 0x364618, indexKOFSprites_98Kyo },
-    { _T("Midnight Bliss"), 0x364618, 0x364638, indexKOFSprites_98Kyo },
+    { _T("Midnight Bliss"), 0x364618, 0x364638, indexSVCSprites_Kyo, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_KYO_KICK_PALETTES[] =
@@ -28,10 +28,10 @@ const sGame_PaletteDataset SVCPLUSA_A_KYO_KICK_PALETTES[] =
     { _T("Fire Effect 1"), 0x364758, 0x364778, indexKOFSprites_98Kyo },
     { _T("Fire Effect 2"), 0x364778, 0x364798, indexKOFSprites_98Kyo },
     { _T("Electric Shock Effect"), 0x364798, 0x3647b8, indexKOFSprites_98Kyo },
-    { _T("Red Arremer Transformation"), 0x3647b8, 0x3647d8, indexKOFSprites_98Kyo },
-    { _T("Athena Transformation"), 0x3647d8, 0x3647f8, indexKOFSprites_98Kyo },
+    { _T("Red Arremer Transformation"), 0x3647b8, 0x3647d8, indexSVCSprites_Kyo, 4 },
+    { _T("Athena Transformation"), 0x3647d8, 0x3647f8, indexSVCSprites_Kyo, 5 },
     { _T("Soul Palette"), 0x3647f8, 0x364818, indexKOFSprites_98Kyo },
-    { _T("Midnight Bliss"), 0x364818, 0x364838, indexKOFSprites_98Kyo },
+    { _T("Midnight Bliss"), 0x364818, 0x364838, indexSVCSprites_Kyo, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_KYO_EFFECTS_PALETTES[] =
@@ -64,10 +64,10 @@ const sGame_PaletteDataset SVCPLUSA_A_IORI_PUNCH_PALETTES[] =
     { _T("Fire Effect 1"), 0x365558, 0x365578, indexKOFSprites_98Iori },
     { _T("Fire Effect 2"), 0x365578, 0x365598, indexKOFSprites_98Iori },
     { _T("Electric Shock Effect"), 0x365598, 0x3655b8, indexKOFSprites_98Iori },
-    { _T("Red Arremer Transformation"), 0x3655b8, 0x3655d8, indexKOFSprites_98Iori },
-    { _T("Athena Transformation"), 0x3655d8, 0x3655f8, indexKOFSprites_98Iori },
+    { _T("Red Arremer Transformation"), 0x3655b8, 0x3655d8, indexSVCSprites_Iori, 4 },
+    { _T("Athena Transformation"), 0x3655d8, 0x3655f8, indexSVCSprites_Iori, 5 },
     { _T("Soul Palette"), 0x3655f8, 0x365618, indexKOFSprites_98Iori },
-    { _T("Midnight Bliss"), 0x365618, 0x365638, indexKOFSprites_98Iori },
+    { _T("Midnight Bliss"), 0x365618, 0x365638, indexSVCSprites_Iori, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_IORI_KICK_PALETTES[] =
@@ -76,10 +76,10 @@ const sGame_PaletteDataset SVCPLUSA_A_IORI_KICK_PALETTES[] =
     { _T("Fire Effect 1"), 0x365758, 0x365778, indexKOFSprites_98Iori },
     { _T("Fire Effect 2"), 0x365778, 0x365798, indexKOFSprites_98Iori },
     { _T("Electric Shock Effect"), 0x365798, 0x3657b8, indexKOFSprites_98Iori },
-    { _T("Red Arremer Transformation"), 0x3657b8, 0x3657d8, indexKOFSprites_98Iori },
-    { _T("Athena Transformation"), 0x3657d8, 0x3657f8, indexKOFSprites_98Iori },
+    { _T("Red Arremer Transformation"), 0x3657b8, 0x3657d8, indexSVCSprites_Iori, 4 },
+    { _T("Athena Transformation"), 0x3657d8, 0x3657f8, indexSVCSprites_Iori , 5},
     { _T("Soul Palette"), 0x3657f8, 0x365818, indexKOFSprites_98Iori },
-    { _T("Midnight Bliss"), 0x365818, 0x365838, indexKOFSprites_98Iori },
+    { _T("Midnight Bliss"), 0x365818, 0x365838, indexSVCSprites_Iori, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_IORI_EFFECTS_PALETTES[] =
@@ -109,25 +109,25 @@ const sGame_PaletteDataset SVCPLUSA_A_IORI_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_RYO_PUNCH_PALETTES[] =
 {
     { _T("Ryo"), 0x366538, 0x366558, indexKOFSprites_98Ryo },
-    { _T("Fire Effect 1"), 0x366558, 0x366578, indexKOFSprites_98Ryo },
-    { _T("Fire Effect 2"), 0x366578, 0x366598, indexKOFSprites_98Ryo },
+    { _T("Unused: Fire Effect 1"), 0x366558, 0x366578, indexKOFSprites_98Ryo },
+    { _T("Unused: Fire Effect 2"), 0x366578, 0x366598, indexKOFSprites_98Ryo },
     { _T("Electric Shock Effect"), 0x366598, 0x3665b8, indexKOFSprites_98Ryo },
-    { _T("Red Arremer Transformation"), 0x3665b8, 0x3665d8, indexKOFSprites_98Ryo },
-    { _T("Athena Transformation"), 0x3665d8, 0x3665f8, indexKOFSprites_98Ryo },
+    { _T("Red Arremer Transformation"), 0x3665b8, 0x3665d8, indexSVCSprites_Ryo, 4 },
+    { _T("Athena Transformation"), 0x3665d8, 0x3665f8, indexSVCSprites_Ryo, 5 },
     { _T("Soul Palette"), 0x3665f8, 0x366618, indexKOFSprites_98Ryo },
-    { _T("Midnight Bliss"), 0x366618, 0x366638, indexKOFSprites_98Ryo },
+    { _T("Midnight Bliss"), 0x366618, 0x366638, indexSVCSprites_Ryo, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_RYO_KICK_PALETTES[] =
 {
     { _T("Ryo"), 0x366738, 0x366758, indexKOFSprites_98Ryo },
-    { _T("Fire Effect 1"), 0x366758, 0x366778, indexKOFSprites_98Ryo },
-    { _T("Fire Effect 2"), 0x366778, 0x366798, indexKOFSprites_98Ryo },
+    { _T("Unused: Fire Effect 1"), 0x366758, 0x366778, indexKOFSprites_98Ryo },
+    { _T("Unused: Fire Effect 2"), 0x366778, 0x366798, indexKOFSprites_98Ryo },
     { _T("Electric Shock Effect"), 0x366798, 0x3667b8, indexKOFSprites_98Ryo },
-    { _T("Red Arremer Transformation"), 0x3667b8, 0x3667d8, indexKOFSprites_98Ryo },
-    { _T("Athena Transformation"), 0x3667d8, 0x3667f8, indexKOFSprites_98Ryo },
+    { _T("Red Arremer Transformation"), 0x3667b8, 0x3667d8, indexSVCSprites_Ryo, 4 },
+    { _T("Athena Transformation"), 0x3667d8, 0x3667f8, indexSVCSprites_Ryo, 5 },
     { _T("Soul Palette"), 0x3667f8, 0x366818, indexKOFSprites_98Ryo },
-    { _T("Midnight Bliss"), 0x366818, 0x366838, indexKOFSprites_98Ryo },
+    { _T("Midnight Bliss"), 0x366818, 0x366838, indexSVCSprites_Ryo, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_RYO_EFFECTS_PALETTES[] =
@@ -157,25 +157,25 @@ const sGame_PaletteDataset SVCPLUSA_A_RYO_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_TERRY_PUNCH_PALETTES[] =
 {
     { _T("Terry"), 0x367538, 0x367558, indexKOFSprites_98Terry },
-    { _T("Fire Effect 1"), 0x367558, 0x367578, indexKOFSprites_98Terry },
-    { _T("Fire Effect 2"), 0x367578, 0x367598, indexKOFSprites_98Terry },
+    { _T("Unused: Fire Effect 1"), 0x367558, 0x367578, indexKOFSprites_98Terry },
+    { _T("Unused: Fire Effect 2"), 0x367578, 0x367598, indexKOFSprites_98Terry },
     { _T("Electric Shock Effect"), 0x367598, 0x3675b8, indexKOFSprites_98Terry },
-    { _T("Red Arremer Transformation"), 0x3675b8, 0x3675d8, indexKOFSprites_98Terry },
-    { _T("Athena Transformation"), 0x3675d8, 0x3675f8, indexKOFSprites_98Terry },
+    { _T("Red Arremer Transformation"), 0x3675b8, 0x3675d8, indexSVCSprites_Terry, 4 },
+    { _T("Athena Transformation"), 0x3675d8, 0x3675f8, indexSVCSprites_Terry, 5 },
     { _T("Soul Palette"), 0x3675f8, 0x367618, indexKOFSprites_98Terry },
-    { _T("Midnight Bliss"), 0x367618, 0x367638, indexKOFSprites_98Terry },
+    { _T("Midnight Bliss"), 0x367618, 0x367638, indexSVCSprites_Terry, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_TERRY_KICK_PALETTES[] =
 {
     { _T("Terry"), 0x367738, 0x367758, indexKOFSprites_98Terry },
-    { _T("Fire Effect 1"), 0x367758, 0x367778, indexKOFSprites_98Terry },
-    { _T("Fire Effect 2"), 0x367778, 0x367798, indexKOFSprites_98Terry },
+    { _T("Unused: Fire Effect 1"), 0x367758, 0x367778, indexKOFSprites_98Terry },
+    { _T("Unused: Fire Effect 2"), 0x367778, 0x367798, indexKOFSprites_98Terry },
     { _T("Electric Shock Effect"), 0x367798, 0x3677b8, indexKOFSprites_98Terry },
-    { _T("Red Arremer Transformation"), 0x3677b8, 0x3677d8, indexKOFSprites_98Terry },
-    { _T("Athena Transformation"), 0x3677d8, 0x3677f8, indexKOFSprites_98Terry },
+    { _T("Red Arremer Transformation"), 0x3677b8, 0x3677d8, indexSVCSprites_Terry, 4 },
+    { _T("Athena Transformation"), 0x3677d8, 0x3677f8, indexSVCSprites_Terry, 5 },
     { _T("Soul Palette"), 0x3677f8, 0x367818, indexKOFSprites_98Terry },
-    { _T("Midnight Bliss"), 0x367818, 0x367838, indexKOFSprites_98Terry },
+    { _T("Midnight Bliss"), 0x367818, 0x367838, indexSVCSprites_Terry, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_TERRY_EFFECTS_PALETTES[] =
@@ -206,24 +206,24 @@ const sGame_PaletteDataset SVCPLUSA_A_MAI_PUNCH_PALETTES[] =
 {
     { _T("Mai"), 0x368538, 0x368558, indexKOFSprites_98Mai },
     { _T("Fire Effect 1"), 0x368558, 0x368578, indexKOFSprites_98Mai },
-    { _T("Fire Effect 2"), 0x368578, 0x368598, indexKOFSprites_98Mai },
+    { _T("Unused: Fire Effect 2"), 0x368578, 0x368598, indexKOFSprites_98Mai },
     { _T("Electric Shock Effect"), 0x368598, 0x3685b8, indexKOFSprites_98Mai },
-    { _T("Red Arremer Transformation"), 0x3685b8, 0x3685d8, indexKOFSprites_98Mai },
-    { _T("Athena Transformation"), 0x3685d8, 0x3685f8, indexKOFSprites_98Mai },
+    { _T("Red Arremer Transformation"), 0x3685b8, 0x3685d8, indexSVCSprites_Mai, 4 },
+    { _T("Athena Transformation"), 0x3685d8, 0x3685f8, indexSVCSprites_Mai, 5 },
     { _T("Soul Palette"), 0x3685f8, 0x368618, indexKOFSprites_98Mai },
-    { _T("Midnight Bliss"), 0x368618, 0x368638, indexKOFSprites_98Mai },
+    { _T("Midnight Bliss"), 0x368618, 0x368638, indexSVCSprites_Mai, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_MAI_KICK_PALETTES[] =
 {
     { _T("Mai"), 0x368738, 0x368758, indexKOFSprites_98Mai },
     { _T("Fire Effect 1"), 0x368758, 0x368778, indexKOFSprites_98Mai },
-    { _T("Fire Effect 2"), 0x368778, 0x368798, indexKOFSprites_98Mai },
+    { _T("Unused: Fire Effect 2"), 0x368778, 0x368798, indexKOFSprites_98Mai },
     { _T("Electric Shock Effect"), 0x368798, 0x3687b8, indexKOFSprites_98Mai },
-    { _T("Red Arremer Transformation"), 0x3687b8, 0x3687d8, indexKOFSprites_98Mai },
-    { _T("Athena Transformation"), 0x3687d8, 0x3687f8, indexKOFSprites_98Mai },
+    { _T("Red Arremer Transformation"), 0x3687b8, 0x3687d8, indexSVCSprites_Mai, 4 },
+    { _T("Athena Transformation"), 0x3687d8, 0x3687f8, indexSVCSprites_Mai, 5 },
     { _T("Soul Palette"), 0x3687f8, 0x368818, indexKOFSprites_98Mai },
-    { _T("Midnight Bliss"), 0x368818, 0x368838, indexKOFSprites_98Mai },
+    { _T("Midnight Bliss"), 0x368818, 0x368838, indexSVCSprites_Mai, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_MAI_EFFECTS_PALETTES[] =
@@ -254,24 +254,24 @@ const sGame_PaletteDataset SVCPLUSA_A_KASUMI_PUNCH_PALETTES[] =
 {
     { _T("Kasumi"), 0x369538, 0x369558, indexKOFSprites_00Kasumi },
     { _T("Fire Effect 1"), 0x369558, 0x369578, indexKOFSprites_00Kasumi },
-    { _T("Fire Effect 2"), 0x369578, 0x369598, indexKOFSprites_00Kasumi },
+    { _T("Unused: Fire Effect 2"), 0x369578, 0x369598, indexKOFSprites_00Kasumi },
     { _T("Electric Shock Effect"), 0x369598, 0x3695b8, indexKOFSprites_00Kasumi },
-    { _T("Red Arremer Transformation"), 0x3695b8, 0x3695d8, indexKOFSprites_00Kasumi },
-    { _T("Athena Transformation"), 0x3695d8, 0x3695f8, indexKOFSprites_00Kasumi },
+    { _T("Red Arremer Transformation"), 0x3695b8, 0x3695d8, indexSVCSprites_Kasumi, 4 },
+    { _T("Athena Transformation"), 0x3695d8, 0x3695f8, indexSVCSprites_Kasumi, 5 },
     { _T("Soul Palette"), 0x3695f8, 0x369618, indexKOFSprites_00Kasumi },
-    { _T("Midnight Bliss"), 0x369618, 0x369638, indexKOFSprites_00Kasumi },
+    { _T("Midnight Bliss"), 0x369618, 0x369638, indexSVCSprites_Kasumi, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_KASUMI_KICK_PALETTES[] =
 {
     { _T("Kasumi"), 0x369738, 0x369758, indexKOFSprites_00Kasumi },
     { _T("Fire Effect 1"), 0x369758, 0x369778, indexKOFSprites_00Kasumi },
-    { _T("Fire Effect 2"), 0x369778, 0x369798, indexKOFSprites_00Kasumi },
+    { _T("Unused: Fire Effect 2"), 0x369778, 0x369798, indexKOFSprites_00Kasumi },
     { _T("Electric Shock Effect"), 0x369798, 0x3697b8, indexKOFSprites_00Kasumi },
-    { _T("Red Arremer Transformation"), 0x3697b8, 0x3697d8, indexKOFSprites_00Kasumi },
-    { _T("Athena Transformation"), 0x3697d8, 0x3697f8, indexKOFSprites_00Kasumi },
+    { _T("Red Arremer Transformation"), 0x3697b8, 0x3697d8, indexSVCSprites_Kasumi, 4 },
+    { _T("Athena Transformation"), 0x3697d8, 0x3697f8, indexSVCSprites_Kasumi, 5 },
     { _T("Soul Palette"), 0x3697f8, 0x369818, indexKOFSprites_00Kasumi },
-    { _T("Midnight Bliss"), 0x369818, 0x369838, indexKOFSprites_00Kasumi },
+    { _T("Midnight Bliss"), 0x369818, 0x369838, indexSVCSprites_Kasumi, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_KASUMI_EFFECTS_PALETTES[] =
@@ -301,25 +301,25 @@ const sGame_PaletteDataset SVCPLUSA_A_KASUMI_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_KIM_PUNCH_PALETTES[] =
 {
     { _T("Kim"), 0x36a538, 0x36a558, indexKOFSprites_98Kim },
-    { _T("Fire Effect 1"), 0x36a558, 0x36a578, indexKOFSprites_98Kim },
-    { _T("Fire Effect 2"), 0x36a578, 0x36a598, indexKOFSprites_98Kim },
+    { _T("Unused: Fire Effect 1"), 0x36a558, 0x36a578, indexKOFSprites_98Kim },
+    { _T("Unused: Fire Effect 2"), 0x36a578, 0x36a598, indexKOFSprites_98Kim },
     { _T("Electric Shock Effect"), 0x36a598, 0x36a5b8, indexKOFSprites_98Kim },
-    { _T("Red Arremer Transformation"), 0x36a5b8, 0x36a5d8, indexKOFSprites_98Kim },
-    { _T("Athena Transformation"), 0x36a5d8, 0x36a5f8, indexKOFSprites_98Kim },
+    { _T("Red Arremer Transformation"), 0x36a5b8, 0x36a5d8, indexSVCSprites_Kim, 4 },
+    { _T("Athena Transformation"), 0x36a5d8, 0x36a5f8, indexSVCSprites_Kim, 5 },
     { _T("Soul Palette"), 0x36a5f8, 0x36a618, indexKOFSprites_98Kim },
-    { _T("Midnight Bliss"), 0x36a618, 0x36a638, indexKOFSprites_98Kim },
+    { _T("Midnight Bliss"), 0x36a618, 0x36a638, indexSVCSprites_Kim, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_KIM_KICK_PALETTES[] =
 {
     { _T("Kim"), 0x36a738, 0x36a758, indexKOFSprites_98Kim },
-    { _T("Fire Effect 1"), 0x36a758, 0x36a778, indexKOFSprites_98Kim },
-    { _T("Fire Effect 2"), 0x36a778, 0x36a798, indexKOFSprites_98Kim },
+    { _T("Unused: Fire Effect 1"), 0x36a758, 0x36a778, indexKOFSprites_98Kim },
+    { _T("Unused: Fire Effect 2"), 0x36a778, 0x36a798, indexKOFSprites_98Kim },
     { _T("Electric Shock Effect"), 0x36a798, 0x36a7b8, indexKOFSprites_98Kim },
-    { _T("Red Arremer Transformation"), 0x36a7b8, 0x36a7d8, indexKOFSprites_98Kim },
-    { _T("Athena Transformation"), 0x36a7d8, 0x36a7f8, indexKOFSprites_98Kim },
+    { _T("Red Arremer Transformation"), 0x36a7b8, 0x36a7d8, indexSVCSprites_Kim, 4 },
+    { _T("Athena Transformation"), 0x36a7d8, 0x36a7f8, indexSVCSprites_Kim, 5 },
     { _T("Soul Palette"), 0x36a7f8, 0x36a818, indexKOFSprites_98Kim },
-    { _T("Midnight Bliss"), 0x36a818, 0x36a838, indexKOFSprites_98Kim },
+    { _T("Midnight Bliss"), 0x36a818, 0x36a838, indexSVCSprites_Kim, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_KIM_WIN_PORTRAITS_PALETTES[] =
@@ -337,25 +337,25 @@ const sGame_PaletteDataset SVCPLUSA_A_KIM_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_MRKARATE_PUNCH_PALETTES[] =
 {
     { _T("Mr. Karate"), 0x36b538, 0x36b558, indexSVCSprites_MrKarate },
-    { _T("Fire Effect 1"), 0x36b558, 0x36b578, indexSVCSprites_MrKarate },
-    { _T("Fire Effect 2"), 0x36b578, 0x36b598, indexSVCSprites_MrKarate },
+    { _T("Unused: Fire Effect 1"), 0x36b558, 0x36b578, indexSVCSprites_MrKarate },
+    { _T("Unused: Fire Effect 2"), 0x36b578, 0x36b598, indexSVCSprites_MrKarate },
     { _T("Electric Shock Effect"), 0x36b598, 0x36b5b8, indexSVCSprites_MrKarate },
-    { _T("Red Arremer Transformation"), 0x36b5b8, 0x36b5d8, indexSVCSprites_MrKarate },
-    { _T("Athena Transformation"), 0x36b5d8, 0x36b5f8, indexSVCSprites_MrKarate },
+    { _T("Red Arremer Transformation"), 0x36b5b8, 0x36b5d8, indexSVCSprites_MrKarate, 4 },
+    { _T("Athena Transformation"), 0x36b5d8, 0x36b5f8, indexSVCSprites_MrKarate, 5 },
     { _T("Soul Palette"), 0x36b5f8, 0x36b618, indexSVCSprites_MrKarate },
-    { _T("Midnight Bliss"), 0x36b618, 0x36b638, indexSVCSprites_MrKarate },
+    { _T("Midnight Bliss"), 0x36b618, 0x36b638, indexSVCSprites_MrKarate, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_MRKARATE_KICK_PALETTES[] =
 {
     { _T("Mr. Karate"), 0x36b738, 0x36b758, indexSVCSprites_MrKarate },
-    { _T("Fire Effect 1"), 0x36b758, 0x36b778, indexSVCSprites_MrKarate },
-    { _T("Fire Effect 2"), 0x36b778, 0x36b798, indexSVCSprites_MrKarate },
+    { _T("Unused: Fire Effect 1"), 0x36b758, 0x36b778, indexSVCSprites_MrKarate },
+    { _T("Unused: Fire Effect 2"), 0x36b778, 0x36b798, indexSVCSprites_MrKarate },
     { _T("Electric Shock Effect"), 0x36b798, 0x36b7b8, indexSVCSprites_MrKarate },
-    { _T("Red Arremer Transformation"), 0x36b7b8, 0x36b7d8, indexSVCSprites_MrKarate },
-    { _T("Athena Transformation"), 0x36b7d8, 0x36b7f8, indexSVCSprites_MrKarate },
+    { _T("Red Arremer Transformation"), 0x36b7b8, 0x36b7d8, indexSVCSprites_MrKarate, 4 },
+    { _T("Athena Transformation"), 0x36b7d8, 0x36b7f8, indexSVCSprites_MrKarate, 5 },
     { _T("Soul Palette"), 0x36b7f8, 0x36b818, indexSVCSprites_MrKarate },
-    { _T("Midnight Bliss"), 0x36b818, 0x36b838, indexSVCSprites_MrKarate },
+    { _T("Midnight Bliss"), 0x36b818, 0x36b838, indexSVCSprites_MrKarate, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_MRKARATE_EFFECTS_PALETTES[] =
@@ -385,25 +385,25 @@ const sGame_PaletteDataset SVCPLUSA_A_MRKARATE_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_CHOI_PUNCH_PALETTES[] =
 {
     { _T("Choi"), 0x36c538, 0x36c558, indexKOFSprites_98Choi },
-    { _T("Fire Effect 1"), 0x36c558, 0x36c578, indexKOFSprites_98Choi },
-    { _T("Fire Effect 2"), 0x36c578, 0x36c598, indexKOFSprites_98Choi },
+    { _T("Unused: Fire Effect 1"), 0x36c558, 0x36c578, indexKOFSprites_98Choi },
+    { _T("Unused: Fire Effect 2"), 0x36c578, 0x36c598, indexKOFSprites_98Choi },
     { _T("Electric Shock Effect"), 0x36c598, 0x36c5b8, indexKOFSprites_98Choi },
-    { _T("Red Arremer Transformation"), 0x36c5b8, 0x36c5d8, indexKOFSprites_98Choi },
-    { _T("Athena Transformation"), 0x36c5d8, 0x36c5f8, indexKOFSprites_98Choi },
+    { _T("Red Arremer Transformation"), 0x36c5b8, 0x36c5d8, indexSVCSprites_Choi, 4 },
+    { _T("Athena Transformation"), 0x36c5d8, 0x36c5f8, indexSVCSprites_Choi, 5 },
     { _T("Soul Palette"), 0x36c5f8, 0x36c618, indexKOFSprites_98Choi },
-    { _T("Midnight Bliss"), 0x36c618, 0x36c638, indexKOFSprites_98Choi },
+    { _T("Midnight Bliss"), 0x36c618, 0x36c638, indexSVCSprites_Choi, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_CHOI_KICK_PALETTES[] =
 {
     { _T("Choi"), 0x36c738, 0x36c758, indexKOFSprites_98Choi },
-    { _T("Fire Effect 1"), 0x36c758, 0x36c778, indexKOFSprites_98Choi },
-    { _T("Fire Effect 2"), 0x36c778, 0x36c798, indexKOFSprites_98Choi },
+    { _T("Unused: Fire Effect 1"), 0x36c758, 0x36c778, indexKOFSprites_98Choi },
+    { _T("Unused: Fire Effect 2"), 0x36c778, 0x36c798, indexKOFSprites_98Choi },
     { _T("Electric Shock Effect"), 0x36c798, 0x36c7b8, indexKOFSprites_98Choi },
-    { _T("Red Arremer Transformation"), 0x36c7b8, 0x36c7d8, indexKOFSprites_98Choi },
-    { _T("Athena Transformation"), 0x36c7d8, 0x36c7f8, indexKOFSprites_98Choi },
+    { _T("Red Arremer Transformation"), 0x36c7b8, 0x36c7d8, indexSVCSprites_Choi, 4 },
+    { _T("Athena Transformation"), 0x36c7d8, 0x36c7f8, indexSVCSprites_Choi, 5 },
     { _T("Soul Palette"), 0x36c7f8, 0x36c818, indexKOFSprites_98Choi },
-    { _T("Midnight Bliss"), 0x36c818, 0x36c838, indexKOFSprites_98Choi },
+    { _T("Midnight Bliss"), 0x36c818, 0x36c838, indexSVCSprites_Choi, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_CHOI_EFFECTS_PALETTES[] =
@@ -433,25 +433,25 @@ const sGame_PaletteDataset SVCPLUSA_A_CHOI_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_EARTHQUAKE_PUNCH_PALETTES[] =
 {
     { _T("Earthquake"), 0x36d538, 0x36d558, indexSVCSprites_Earthquake },
-    { _T("Fire Effect 1"), 0x36d558, 0x36d578, indexSVCSprites_Earthquake },
-    { _T("Fire Effect 2"), 0x36d578, 0x36d598, indexSVCSprites_Earthquake },
+    { _T("Victory Pose Minions"), 0x36d558, 0x36d578, indexSVCSprites_Earthquake, 0x08 },
+    { _T("Unused: Fire Effect 2"), 0x36d578, 0x36d598, indexSVCSprites_Earthquake },
     { _T("Electric Shock Effect"), 0x36d598, 0x36d5b8, indexSVCSprites_Earthquake },
-    { _T("Red Arremer Transformation"), 0x36d5b8, 0x36d5d8, indexSVCSprites_Earthquake },
-    { _T("Athena Transformation"), 0x36d5d8, 0x36d5f8, indexSVCSprites_Earthquake },
+    { _T("Red Arremer Transformation"), 0x36d5b8, 0x36d5d8, indexSVCSprites_Earthquake, 4 },
+    { _T("Athena Transformation"), 0x36d5d8, 0x36d5f8, indexSVCSprites_Earthquake, 5 },
     { _T("Soul Palette"), 0x36d5f8, 0x36d618, indexSVCSprites_Earthquake },
-    { _T("Midnight Bliss"), 0x36d618, 0x36d638, indexSVCSprites_Earthquake },
+    { _T("Midnight Bliss"), 0x36d618, 0x36d638, indexSVCSprites_Earthquake, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_EARTHQUAKE_KICK_PALETTES[] =
 {
     { _T("Earthquake"), 0x36d738, 0x36d758, indexSVCSprites_Earthquake },
-    { _T("Fire Effect 1"), 0x36d758, 0x36d778, indexSVCSprites_Earthquake },
-    { _T("Fire Effect 2"), 0x36d778, 0x36d798, indexSVCSprites_Earthquake },
+    { _T("Victory Pose Minions"), 0x36d758, 0x36d778, indexSVCSprites_Earthquake, 0x08 },
+    { _T("Unused: Fire Effect 2"), 0x36d778, 0x36d798, indexSVCSprites_Earthquake },
     { _T("Electric Shock Effect"), 0x36d798, 0x36d7b8, indexSVCSprites_Earthquake },
-    { _T("Red Arremer Transformation"), 0x36d7b8, 0x36d7d8, indexSVCSprites_Earthquake },
-    { _T("Athena Transformation"), 0x36d7d8, 0x36d7f8, indexSVCSprites_Earthquake },
+    { _T("Red Arremer Transformation"), 0x36d7b8, 0x36d7d8, indexSVCSprites_Earthquake, 4 },
+    { _T("Athena Transformation"), 0x36d7d8, 0x36d7f8, indexSVCSprites_Earthquake, 5 },
     { _T("Soul Palette"), 0x36d7f8, 0x36d818, indexSVCSprites_Earthquake },
-    { _T("Midnight Bliss"), 0x36d818, 0x36d838, indexSVCSprites_Earthquake },
+    { _T("Midnight Bliss"), 0x36d818, 0x36d838, indexSVCSprites_Earthquake, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_EARTHQUAKE_EFFECTS_PALETTES[] =
@@ -481,25 +481,25 @@ const sGame_PaletteDataset SVCPLUSA_A_EARTHQUAKE_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_GENJURO_PUNCH_PALETTES[] =
 {
     { _T("Genjuro"), 0x36e538, 0x36e558, indexSVCSprites_Genjuro },
-    { _T("Fire Effect 1"), 0x36e558, 0x36e578, indexSVCSprites_Genjuro },
-    { _T("Fire Effect 2"), 0x36e578, 0x36e598, indexSVCSprites_Genjuro },
+    { _T("Exceed"), 0x36e558, 0x36e578, indexSVCSprites_Genjuro },
+    { _T("Unused: Fire Effect 2"), 0x36e578, 0x36e598, indexSVCSprites_Genjuro },
     { _T("Electric Shock Effect"), 0x36e598, 0x36e5b8, indexSVCSprites_Genjuro },
-    { _T("Red Arremer Transformation"), 0x36e5b8, 0x36e5d8, indexSVCSprites_Genjuro },
-    { _T("Athena Transformation"), 0x36e5d8, 0x36e5f8, indexSVCSprites_Genjuro },
+    { _T("Red Arremer Transformation"), 0x36e5b8, 0x36e5d8, indexSVCSprites_Genjuro, 4 },
+    { _T("Athena Transformation"), 0x36e5d8, 0x36e5f8, indexSVCSprites_Genjuro, 5 },
     { _T("Soul Palette"), 0x36e5f8, 0x36e618, indexSVCSprites_Genjuro },
-    { _T("Midnight Bliss"), 0x36e618, 0x36e638, indexSVCSprites_Genjuro },
+    { _T("Midnight Bliss"), 0x36e618, 0x36e638, indexSVCSprites_Genjuro, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_GENJURO_KICK_PALETTES[] =
 {
     { _T("Genjuro"), 0x36e738, 0x36e758, indexSVCSprites_Genjuro },
-    { _T("Fire Effect 1"), 0x36e758, 0x36e778, indexSVCSprites_Genjuro },
-    { _T("Fire Effect 2"), 0x36e778, 0x36e798, indexSVCSprites_Genjuro },
+    { _T("Exceed"), 0x36e758, 0x36e778, indexSVCSprites_Genjuro },
+    { _T("Unused: Fire Effect 2"), 0x36e778, 0x36e798, indexSVCSprites_Genjuro },
     { _T("Electric Shock Effect"), 0x36e798, 0x36e7b8, indexSVCSprites_Genjuro },
-    { _T("Red Arremer Transformation"), 0x36e7b8, 0x36e7d8, indexSVCSprites_Genjuro },
-    { _T("Athena Transformation"), 0x36e7d8, 0x36e7f8, indexSVCSprites_Genjuro },
+    { _T("Red Arremer Transformation"), 0x36e7b8, 0x36e7d8, indexSVCSprites_Genjuro, 4 },
+    { _T("Athena Transformation"), 0x36e7d8, 0x36e7f8, indexSVCSprites_Genjuro, 5 },
     { _T("Soul Palette"), 0x36e7f8, 0x36e818, indexSVCSprites_Genjuro },
-    { _T("Midnight Bliss"), 0x36e818, 0x36e838, indexSVCSprites_Genjuro },
+    { _T("Midnight Bliss"), 0x36e818, 0x36e838, indexSVCSprites_Genjuro, 7},
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_GENJURO_EFFECTS_PALETTES[] =
@@ -532,10 +532,10 @@ const sGame_PaletteDataset SVCPLUSA_A_SHIKI_PUNCH_PALETTES[] =
     { _T("Fire Effect 1"), 0x36f558, 0x36f578, indexSVCSprites_Shiki },
     { _T("Fire Effect 2"), 0x36f578, 0x36f598, indexSVCSprites_Shiki },
     { _T("Electric Shock Effect"), 0x36f598, 0x36f5b8, indexSVCSprites_Shiki },
-    { _T("Red Arremer Transformation"), 0x36f5b8, 0x36f5d8, indexSVCSprites_Shiki },
-    { _T("Athena Transformation"), 0x36f5d8, 0x36f5f8, indexSVCSprites_Shiki },
+    { _T("Red Arremer Transformation"), 0x36f5b8, 0x36f5d8, indexSVCSprites_Shiki, 4 },
+    { _T("Athena Transformation"), 0x36f5d8, 0x36f5f8, indexSVCSprites_Shiki, 5 },
     { _T("Soul Palette"), 0x36f5f8, 0x36f618, indexSVCSprites_Shiki },
-    { _T("Midnight Bliss"), 0x36f618, 0x36f638, indexSVCSprites_Shiki },
+    { _T("Midnight Bliss"), 0x36f618, 0x36f638, indexSVCSprites_Shiki, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_SHIKI_KICK_PALETTES[] =
@@ -544,10 +544,10 @@ const sGame_PaletteDataset SVCPLUSA_A_SHIKI_KICK_PALETTES[] =
     { _T("Fire Effect 1"), 0x36f758, 0x36f778, indexSVCSprites_Shiki },
     { _T("Fire Effect 2"), 0x36f778, 0x36f798, indexSVCSprites_Shiki },
     { _T("Electric Shock Effect"), 0x36f798, 0x36f7b8, indexSVCSprites_Shiki },
-    { _T("Red Arremer Transformation"), 0x36f7b8, 0x36f7d8, indexSVCSprites_Shiki },
-    { _T("Athena Transformation"), 0x36f7d8, 0x36f7f8, indexSVCSprites_Shiki },
+    { _T("Red Arremer Transformation"), 0x36f7b8, 0x36f7d8, indexSVCSprites_Shiki, 4 },
+    { _T("Athena Transformation"), 0x36f7d8, 0x36f7f8, indexSVCSprites_Shiki, 5 },
     { _T("Soul Palette"), 0x36f7f8, 0x36f818, indexSVCSprites_Shiki },
-    { _T("Midnight Bliss"), 0x36f818, 0x36f838, indexSVCSprites_Shiki },
+    { _T("Midnight Bliss"), 0x36f818, 0x36f838, indexSVCSprites_Shiki, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_SHIKI_EFFECTS_PALETTES[] =
@@ -577,25 +577,25 @@ const sGame_PaletteDataset SVCPLUSA_A_SHIKI_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_GEESEHOWARD_PUNCH_PALETTES[] =
 {
     { _T("Geese Howard"), 0x370538, 0x370558, indexKOFSprites_02Geese },
-    { _T("Fire Effect 1"), 0x370558, 0x370578, indexKOFSprites_02Geese },
-    { _T("Fire Effect 2"), 0x370578, 0x370598, indexKOFSprites_02Geese },
+    { _T("Unused: Fire Effect 1"), 0x370558, 0x370578, indexKOFSprites_02Geese },
+    { _T("Unused: Fire Effect 2"), 0x370578, 0x370598, indexKOFSprites_02Geese },
     { _T("Electric Shock Effect"), 0x370598, 0x3705b8, indexKOFSprites_02Geese },
-    { _T("Red Arremer Transformation"), 0x3705b8, 0x3705d8, indexKOFSprites_02Geese },
-    { _T("Athena Transformation"), 0x3705d8, 0x3705f8, indexKOFSprites_02Geese },
+    { _T("Red Arremer Transformation"), 0x3705b8, 0x3705d8, indexSVCSprites_GeeseHoward, 4 },
+    { _T("Athena Transformation"), 0x3705d8, 0x3705f8, indexSVCSprites_GeeseHoward, 5 },
     { _T("Soul Palette"), 0x3705f8, 0x370618, indexKOFSprites_02Geese },
-    { _T("Midnight Bliss"), 0x370618, 0x370638, indexKOFSprites_02Geese },
+    { _T("Midnight Bliss"), 0x370618, 0x370638, indexSVCSprites_GeeseHoward, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_GEESEHOWARD_KICK_PALETTES[] =
 {
     { _T("Geese Howard"), 0x370738, 0x370758, indexKOFSprites_02Geese },
-    { _T("Fire Effect 1"), 0x370758, 0x370778, indexKOFSprites_02Geese },
-    { _T("Fire Effect 2"), 0x370778, 0x370798, indexKOFSprites_02Geese },
+    { _T("Unused: Fire Effect 1"), 0x370758, 0x370778, indexKOFSprites_02Geese },
+    { _T("Unused: Fire Effect 2"), 0x370778, 0x370798, indexKOFSprites_02Geese },
     { _T("Electric Shock Effect"), 0x370798, 0x3707b8, indexKOFSprites_02Geese },
-    { _T("Red Arremer Transformation"), 0x3707b8, 0x3707d8, indexKOFSprites_02Geese },
-    { _T("Athena Transformation"), 0x3707d8, 0x3707f8, indexKOFSprites_02Geese },
+    { _T("Red Arremer Transformation"), 0x3707b8, 0x3707d8, indexSVCSprites_GeeseHoward, 4 },
+    { _T("Athena Transformation"), 0x3707d8, 0x3707f8, indexSVCSprites_GeeseHoward, 5 },
     { _T("Soul Palette"), 0x3707f8, 0x370818, indexKOFSprites_02Geese },
-    { _T("Midnight Bliss"), 0x370818, 0x370838, indexKOFSprites_02Geese },
+    { _T("Midnight Bliss"), 0x370818, 0x370838, indexSVCSprites_GeeseHoward, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_GEESEHOWARD_EFFECTS_PALETTES[] =
@@ -625,25 +625,25 @@ const sGame_PaletteDataset SVCPLUSA_A_GEESEHOWARD_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_MARSPEOPLE_PUNCH_PALETTES[] =
 {
     { _T("Mars People"), 0x371538, 0x371558, indexSVCSprites_MarsPeople },
-    { _T("Fire Effect 1"), 0x371558, 0x371578, indexSVCSprites_MarsPeople },
-    { _T("Fire Effect 2"), 0x371578, 0x371598, indexSVCSprites_MarsPeople },
+    { _T("Unused: Fire Effect 1"), 0x371558, 0x371578, indexSVCSprites_MarsPeople },
+    { _T("Unused: Fire Effect 2"), 0x371578, 0x371598, indexSVCSprites_MarsPeople },
     { _T("Electric Shock Effect"), 0x371598, 0x3715b8, indexSVCSprites_MarsPeople },
-    { _T("Red Arremer Transformation"), 0x3715b8, 0x3715d8, indexSVCSprites_MarsPeople },
-    { _T("Athena Transformation"), 0x3715d8, 0x3715f8, indexSVCSprites_MarsPeople },
+    { _T("Red Arremer Transformation"), 0x3715b8, 0x3715d8, indexSVCSprites_MarsPeople, 4 },
+    { _T("Athena Transformation"), 0x3715d8, 0x3715f8, indexSVCSprites_MarsPeople, 5 },
     { _T("Soul Palette"), 0x3715f8, 0x371618, indexSVCSprites_MarsPeople },
-    { _T("Midnight Bliss"), 0x371618, 0x371638, indexSVCSprites_MarsPeople },
+    { _T("Midnight Bliss"), 0x371618, 0x371638, indexSVCSprites_MarsPeople, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_MARSPEOPLE_KICK_PALETTES[] =
 {
     { _T("Mars People"), 0x371738, 0x371758, indexSVCSprites_MarsPeople },
-    { _T("Fire Effect 1"), 0x371758, 0x371778, indexSVCSprites_MarsPeople },
-    { _T("Fire Effect 2"), 0x371778, 0x371798, indexSVCSprites_MarsPeople },
+    { _T("Unused: Fire Effect 1"), 0x371758, 0x371778, indexSVCSprites_MarsPeople },
+    { _T("Unused: Fire Effect 2"), 0x371778, 0x371798, indexSVCSprites_MarsPeople },
     { _T("Electric Shock Effect"), 0x371798, 0x3717b8, indexSVCSprites_MarsPeople },
-    { _T("Red Arremer Transformation"), 0x3717b8, 0x3717d8, indexSVCSprites_MarsPeople },
-    { _T("Athena Transformation"), 0x3717d8, 0x3717f8, indexSVCSprites_MarsPeople },
+    { _T("Red Arremer Transformation"), 0x3717b8, 0x3717d8, indexSVCSprites_MarsPeople, 4 },
+    { _T("Athena Transformation"), 0x3717d8, 0x3717f8, indexSVCSprites_MarsPeople, 5 },
     { _T("Soul Palette"), 0x3717f8, 0x371818, indexSVCSprites_MarsPeople },
-    { _T("Midnight Bliss"), 0x371818, 0x371838, indexSVCSprites_MarsPeople },
+    { _T("Midnight Bliss"), 0x371818, 0x371838, indexSVCSprites_MarsPeople, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_MARSPEOPLE_EFFECTS_PALETTES[] =
@@ -673,25 +673,25 @@ const sGame_PaletteDataset SVCPLUSA_A_MARSPEOPLE_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_GOENITZ_PUNCH_PALETTES[] =
 {
     { _T("Goenitz"), 0x372538, 0x372558, indexKOFSprites_02Goenitz },
-    { _T("Fire Effect 1"), 0x372558, 0x372578, indexKOFSprites_02Goenitz },
-    { _T("Fire Effect 2"), 0x372578, 0x372598, indexKOFSprites_02Goenitz },
+    { _T("Unused: Fire Effect 1"), 0x372558, 0x372578, indexKOFSprites_02Goenitz },
+    { _T("Unused: Fire Effect 2"), 0x372578, 0x372598, indexKOFSprites_02Goenitz },
     { _T("Electric Shock Effect"), 0x372598, 0x3725b8, indexKOFSprites_02Goenitz },
-    { _T("Red Arremer Transformation"), 0x3725b8, 0x3725d8, indexKOFSprites_02Goenitz },
-    { _T("Athena Transformation"), 0x3725d8, 0x3725f8, indexKOFSprites_02Goenitz },
+    { _T("Red Arremer Transformation"), 0x3725b8, 0x3725d8, indexSVCSprites_Goenitz, 4 },
+    { _T("Athena Transformation"), 0x3725d8, 0x3725f8, indexSVCSprites_Goenitz, 5 },
     { _T("Soul Palette"), 0x3725f8, 0x372618, indexKOFSprites_02Goenitz },
-    { _T("Midnight Bliss"), 0x372618, 0x372638, indexKOFSprites_02Goenitz },
+    { _T("Midnight Bliss"), 0x372618, 0x372638, indexSVCSprites_Goenitz, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_GOENITZ_KICK_PALETTES[] =
 {
     { _T("Goenitz"), 0x372738, 0x372758, indexKOFSprites_02Goenitz },
-    { _T("Fire Effect 1"), 0x372758, 0x372778, indexKOFSprites_02Goenitz },
-    { _T("Fire Effect 2"), 0x372778, 0x372798, indexKOFSprites_02Goenitz },
+    { _T("Unused: Fire Effect 1"), 0x372758, 0x372778, indexKOFSprites_02Goenitz },
+    { _T("Unused: Fire Effect 2"), 0x372778, 0x372798, indexKOFSprites_02Goenitz },
     { _T("Electric Shock Effect"), 0x372798, 0x3727b8, indexKOFSprites_02Goenitz },
-    { _T("Red Arremer Transformation"), 0x3727b8, 0x3727d8, indexKOFSprites_02Goenitz },
-    { _T("Athena Transformation"), 0x3727d8, 0x3727f8, indexKOFSprites_02Goenitz },
+    { _T("Red Arremer Transformation"), 0x3727b8, 0x3727d8, indexSVCSprites_Goenitz, 4 },
+    { _T("Athena Transformation"), 0x3727d8, 0x3727f8, indexSVCSprites_Goenitz, 5 },
     { _T("Soul Palette"), 0x3727f8, 0x372818, indexKOFSprites_02Goenitz },
-    { _T("Midnight Bliss"), 0x372818, 0x372838, indexKOFSprites_02Goenitz },
+    { _T("Midnight Bliss"), 0x372818, 0x372838, indexSVCSprites_Goenitz, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_GOENITZ_EFFECTS_PALETTES[] =
@@ -724,10 +724,10 @@ const sGame_PaletteDataset SVCPLUSA_A_PRINCESSATHENA_PUNCH_PALETTES[] =
     { _T("Milk Crown"), 0x373558, 0x373578, indexSVCSprites_PrincessAthena, 0x1 },
     { _T("Poseidon Rage"), 0x373578, 0x373598, indexSVCSprites_PrincessAthena, 0x2 },
     { _T("Electric Shock Effect"), 0x373598, 0x3735b8, indexSVCSprites_PrincessAthena },
-    { _T("Red Arremer Transformation"), 0x3735b8, 0x3735d8 },
+    { _T("Unused: Tree and Bug Copy"), 0x3735b8, 0x3735d8 },
     { _T("Tree and Bug"), 0x3735d8, 0x3735f8, indexSVCSprites_PrincessAthena, 0x3 },
-    { _T("Soul Palette"), 0x3735f8, 0x373618 },
-    { _T("Midnight Bliss"), 0x373618, 0x373638 },
+    { _T("Soul Palette"), 0x3735f8, 0x373618, indexSVCSprites_PrincessAthena },
+    { _T("Midnight Bliss"), 0x373618, 0x373638, indexSVCSprites_PrincessAthena, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_PRINCESSATHENA_KICK_PALETTES[] =
@@ -736,10 +736,10 @@ const sGame_PaletteDataset SVCPLUSA_A_PRINCESSATHENA_KICK_PALETTES[] =
     { _T("Milk Crown"), 0x373758, 0x373778, indexSVCSprites_PrincessAthena, 0x1 },
     { _T("Poseidon Rage"), 0x373778, 0x373798, indexSVCSprites_PrincessAthena, 0x2 },
     { _T("Electric Shock Effect"), 0x373798, 0x3737b8, indexSVCSprites_PrincessAthena },
-    { _T("Red Arremer Transformation"), 0x3737b8, 0x3737d8 },
+    { _T("Unused: Tree and Bug Copy"), 0x3737b8, 0x3737d8 },
     { _T("Tree and Bug"), 0x3737d8, 0x3737f8, indexSVCSprites_PrincessAthena, 0x3 },
-    { _T("Soul Palette"), 0x3737f8, 0x373818 },
-    { _T("Midnight Bliss"), 0x373818, 0x373838 },
+    { _T("Soul Palette"), 0x3737f8, 0x373818, indexSVCSprites_PrincessAthena },
+    { _T("Midnight Bliss"), 0x373818, 0x373838, indexSVCSprites_PrincessAthena, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_PRINCESSATHENA_EFFECTS_PALETTES[] =
@@ -769,25 +769,25 @@ const sGame_PaletteDataset SVCPLUSA_A_PRINCESSATHENA_INTRO_PORTRAITS_PALETTES[] 
 const sGame_PaletteDataset SVCPLUSA_A_RYU_PUNCH_PALETTES[] =
 {
     { _T("Ryu"), 0x374538, 0x374558, indexSVCSprites_Ryu },
-    { _T("Fire Effect 1"), 0x374558, 0x374578, indexSVCSprites_Ryu },
-    { _T("Fire Effect 2"), 0x374578, 0x374598, indexSVCSprites_Ryu },
+    { _T("Unused: Fire Effect 1"), 0x374558, 0x374578, indexSVCSprites_Ryu },
+    { _T("Unused: Fire Effect 2"), 0x374578, 0x374598, indexSVCSprites_Ryu },
     { _T("Electric Shock Effect"), 0x374598, 0x3745b8, indexSVCSprites_Ryu },
-    { _T("Red Arremer Transformation"), 0x3745b8, 0x3745d8, indexSVCSprites_Ryu },
-    { _T("Athena Transformation"), 0x3745d8, 0x3745f8, indexSVCSprites_Ryu },
+    { _T("Red Arremer Transformation"), 0x3745b8, 0x3745d8, indexSVCSprites_Ryu, 4 },
+    { _T("Athena Transformation"), 0x3745d8, 0x3745f8, indexSVCSprites_Ryu, 5 },
     { _T("Soul Palette"), 0x3745f8, 0x374618, indexSVCSprites_Ryu },
-    { _T("Midnight Bliss"), 0x374618, 0x374638, indexSVCSprites_Ryu },
+    { _T("Midnight Bliss"), 0x374618, 0x374638, indexSVCSprites_Ryu, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_RYU_KICK_PALETTES[] =
 {
     { _T("Ryu"), 0x374738, 0x374758, indexSVCSprites_Ryu },
-    { _T("Fire Effect 1"), 0x374758, 0x374778, indexSVCSprites_Ryu },
-    { _T("Fire Effect 2"), 0x374778, 0x374798, indexSVCSprites_Ryu },
+    { _T("Unused: Fire Effect 1"), 0x374758, 0x374778, indexSVCSprites_Ryu },
+    { _T("Unused: Fire Effect 2"), 0x374778, 0x374798, indexSVCSprites_Ryu },
     { _T("Electric Shock Effect"), 0x374798, 0x3747b8, indexSVCSprites_Ryu },
-    { _T("Red Arremer Transformation"), 0x3747b8, 0x3747d8, indexSVCSprites_Ryu },
-    { _T("Athena Transformation"), 0x3747d8, 0x3747f8, indexSVCSprites_Ryu },
+    { _T("Red Arremer Transformation"), 0x3747b8, 0x3747d8, indexSVCSprites_Ryu, 4 },
+    { _T("Athena Transformation"), 0x3747d8, 0x3747f8, indexSVCSprites_Ryu, 5 },
     { _T("Soul Palette"), 0x3747f8, 0x374818, indexSVCSprites_Ryu },
-    { _T("Midnight Bliss"), 0x374818, 0x374838, indexSVCSprites_Ryu },
+    { _T("Midnight Bliss"), 0x374818, 0x374838, indexSVCSprites_Ryu, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_RYU_EFFECTS_PALETTES[] =
@@ -817,25 +817,25 @@ const sGame_PaletteDataset SVCPLUSA_A_RYU_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_KEN_PUNCH_PALETTES[] =
 {
     { _T("Ken"), 0x375538, 0x375558, indexSVCSprites_Ken },
-    { _T("Fire Effect 1"), 0x375558, 0x375578, indexSVCSprites_Ken },
-    { _T("Fire Effect 2"), 0x375578, 0x375598, indexSVCSprites_Ken },
+    { _T("Unused: Fire Effect 1"), 0x375558, 0x375578, indexSVCSprites_Ken },
+    { _T("Unused: Fire Effect 2"), 0x375578, 0x375598, indexSVCSprites_Ken },
     { _T("Electric Shock Effect"), 0x375598, 0x3755b8, indexSVCSprites_Ken },
-    { _T("Red Arremer Transformation"), 0x3755b8, 0x3755d8, indexSVCSprites_Ken },
-    { _T("Athena Transformation"), 0x3755d8, 0x3755f8, indexSVCSprites_Ken },
+    { _T("Red Arremer Transformation"), 0x3755b8, 0x3755d8, indexSVCSprites_Ken, 4 },
+    { _T("Athena Transformation"), 0x3755d8, 0x3755f8, indexSVCSprites_Ken, 5 },
     { _T("Soul Palette"), 0x3755f8, 0x375618, indexSVCSprites_Ken },
-    { _T("Midnight Bliss"), 0x375618, 0x375638, indexSVCSprites_Ken },
+    { _T("Midnight Bliss"), 0x375618, 0x375638, indexSVCSprites_Ken, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_KEN_KICK_PALETTES[] =
 {
     { _T("Ken"), 0x375738, 0x375758, indexSVCSprites_Ken },
-    { _T("Fire Effect 1"), 0x375758, 0x375778, indexSVCSprites_Ken },
-    { _T("Fire Effect 2"), 0x375778, 0x375798, indexSVCSprites_Ken },
+    { _T("Unused: Fire Effect 1"), 0x375758, 0x375778, indexSVCSprites_Ken },
+    { _T("Unused: Fire Effect 2"), 0x375778, 0x375798, indexSVCSprites_Ken },
     { _T("Electric Shock Effect"), 0x375798, 0x3757b8, indexSVCSprites_Ken },
-    { _T("Red Arremer Transformation"), 0x3757b8, 0x3757d8, indexSVCSprites_Ken },
-    { _T("Athena Transformation"), 0x3757d8, 0x3757f8, indexSVCSprites_Ken },
+    { _T("Red Arremer Transformation"), 0x3757b8, 0x3757d8, indexSVCSprites_Ken, 4 },
+    { _T("Athena Transformation"), 0x3757d8, 0x3757f8, indexSVCSprites_Ken, 5 },
     { _T("Soul Palette"), 0x3757f8, 0x375818, indexSVCSprites_Ken },
-    { _T("Midnight Bliss"), 0x375818, 0x375838, indexSVCSprites_Ken },
+    { _T("Midnight Bliss"), 0x375818, 0x375838, indexSVCSprites_Ken, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_KEN_EFFECTS_PALETTES[] =
@@ -865,25 +865,25 @@ const sGame_PaletteDataset SVCPLUSA_A_KEN_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_CHUNLI_PUNCH_PALETTES[] =
 {
     { _T("Chun-Li"), 0x376538, 0x376558, indexSVCSprites_ChunLi },
-    { _T("Fire Effect 1"), 0x376558, 0x376578, indexSVCSprites_ChunLi },
-    { _T("Fire Effect 2"), 0x376578, 0x376598, indexSVCSprites_ChunLi },
+    { _T("Unused: Fire Effect 1"), 0x376558, 0x376578, indexSVCSprites_ChunLi },
+    { _T("Unused: Fire Effect 2"), 0x376578, 0x376598, indexSVCSprites_ChunLi },
     { _T("Electric Shock Effect"), 0x376598, 0x3765b8, indexSVCSprites_ChunLi },
-    { _T("Red Arremer Transformation"), 0x3765b8, 0x3765d8, indexSVCSprites_ChunLi },
-    { _T("Athena Transformation"), 0x3765d8, 0x3765f8, indexSVCSprites_ChunLi },
+    { _T("Red Arremer Transformation"), 0x3765b8, 0x3765d8, indexSVCSprites_ChunLi, 4 },
+    { _T("Athena Transformation"), 0x3765d8, 0x3765f8, indexSVCSprites_ChunLi, 5 },
     { _T("Soul Palette"), 0x3765f8, 0x376618, indexSVCSprites_ChunLi },
-    { _T("Midnight Bliss"), 0x376618, 0x376638, indexSVCSprites_ChunLi },
+    { _T("Midnight Bliss"), 0x376618, 0x376638, indexSVCSprites_ChunLi, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_CHUNLI_KICK_PALETTES[] =
 {
     { _T("Chun-Li"), 0x376738, 0x376758, indexSVCSprites_ChunLi },
-    { _T("Fire Effect 1"), 0x376758, 0x376778, indexSVCSprites_ChunLi },
-    { _T("Fire Effect 2"), 0x376778, 0x376798, indexSVCSprites_ChunLi },
+    { _T("Unused: Fire Effect 1"), 0x376758, 0x376778, indexSVCSprites_ChunLi },
+    { _T("Unused: Fire Effect 2"), 0x376778, 0x376798, indexSVCSprites_ChunLi },
     { _T("Electric Shock Effect"), 0x376798, 0x3767b8, indexSVCSprites_ChunLi },
-    { _T("Red Arremer Transformation"), 0x3767b8, 0x3767d8, indexSVCSprites_ChunLi },
-    { _T("Athena Transformation"), 0x3767d8, 0x3767f8, indexSVCSprites_ChunLi },
+    { _T("Red Arremer Transformation"), 0x3767b8, 0x3767d8, indexSVCSprites_ChunLi, 4 },
+    { _T("Athena Transformation"), 0x3767d8, 0x3767f8, indexSVCSprites_ChunLi, 5 },
     { _T("Soul Palette"), 0x3767f8, 0x376818, indexSVCSprites_ChunLi },
-    { _T("Midnight Bliss"), 0x376818, 0x376838, indexSVCSprites_ChunLi },
+    { _T("Midnight Bliss"), 0x376818, 0x376838, indexSVCSprites_ChunLi, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_CHUNLI_EFFECTS_PALETTES[] =
@@ -913,25 +913,25 @@ const sGame_PaletteDataset SVCPLUSA_A_CHUNLI_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_GUILE_PUNCH_PALETTES[] =
 {
     { _T("Guile"), 0x377538, 0x377558, indexSVCSprites_Guile },
-    { _T("Fire Effect 1"), 0x377558, 0x377578, indexSVCSprites_Guile },
-    { _T("Fire Effect 2"), 0x377578, 0x377598, indexSVCSprites_Guile },
+    { _T("Unused: Fire Effect 1"), 0x377558, 0x377578, indexSVCSprites_Guile },
+    { _T("Unused: Fire Effect 2"), 0x377578, 0x377598, indexSVCSprites_Guile },
     { _T("Electric Shock Effect"), 0x377598, 0x3775b8, indexSVCSprites_Guile },
-    { _T("Red Arremer Transformation"), 0x3775b8, 0x3775d8, indexSVCSprites_Guile },
-    { _T("Athena Transformation"), 0x3775d8, 0x3775f8, indexSVCSprites_Guile },
+    { _T("Red Arremer Transformation"), 0x3775b8, 0x3775d8, indexSVCSprites_Guile, 4 },
+    { _T("Athena Transformation"), 0x3775d8, 0x3775f8, indexSVCSprites_Guile, 5 },
     { _T("Soul Palette"), 0x3775f8, 0x377618, indexSVCSprites_Guile },
-    { _T("Midnight Bliss"), 0x377618, 0x377638, indexSVCSprites_Guile },
+    { _T("Midnight Bliss"), 0x377618, 0x377638, indexSVCSprites_Guile, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_GUILE_KICK_PALETTES[] =
 {
     { _T("Guile"), 0x377738, 0x377758, indexSVCSprites_Guile },
-    { _T("Fire Effect 1"), 0x377758, 0x377778, indexSVCSprites_Guile },
-    { _T("Fire Effect 2"), 0x377778, 0x377798, indexSVCSprites_Guile },
+    { _T("Unused: Fire Effect 1"), 0x377758, 0x377778, indexSVCSprites_Guile },
+    { _T("Unused: Fire Effect 2"), 0x377778, 0x377798, indexSVCSprites_Guile },
     { _T("Electric Shock Effect"), 0x377798, 0x3777b8, indexSVCSprites_Guile },
-    { _T("Red Arremer Transformation"), 0x3777b8, 0x3777d8, indexSVCSprites_Guile },
-    { _T("Athena Transformation"), 0x3777d8, 0x3777f8, indexSVCSprites_Guile },
+    { _T("Red Arremer Transformation"), 0x3777b8, 0x3777d8, indexSVCSprites_Guile, 4 },
+    { _T("Athena Transformation"), 0x3777d8, 0x3777f8, indexSVCSprites_Guile, 5 },
     { _T("Soul Palette"), 0x3777f8, 0x377818, indexSVCSprites_Guile },
-    { _T("Midnight Bliss"), 0x377818, 0x377838, indexSVCSprites_Guile },
+    { _T("Midnight Bliss"), 0x377818, 0x377838, indexSVCSprites_Guile, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_GUILE_EFFECTS_PALETTES[] =
@@ -961,25 +961,25 @@ const sGame_PaletteDataset SVCPLUSA_A_GUILE_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_DHALSIM_PUNCH_PALETTES[] =
 {
     { _T("Dhalsim"), 0x378538, 0x378558, indexSVCSprites_Dhalsim },
-    { _T("Fire Effect 1"), 0x378558, 0x378578, indexSVCSprites_Dhalsim },
-    { _T("Fire Effect 2"), 0x378578, 0x378598, indexSVCSprites_Dhalsim },
+    { _T("Unused: Fire Effect 1"), 0x378558, 0x378578, indexSVCSprites_Dhalsim },
+    { _T("Unused: Fire Effect 2"), 0x378578, 0x378598, indexSVCSprites_Dhalsim },
     { _T("Electric Shock Effect"), 0x378598, 0x3785b8, indexSVCSprites_Dhalsim },
-    { _T("Red Arremer Transformation"), 0x3785b8, 0x3785d8, indexSVCSprites_Dhalsim },
-    { _T("Athena Transformation"), 0x3785d8, 0x3785f8, indexSVCSprites_Dhalsim },
+    { _T("Red Arremer Transformation"), 0x3785b8, 0x3785d8, indexSVCSprites_Dhalsim, 4 },
+    { _T("Athena Transformation"), 0x3785d8, 0x3785f8, indexSVCSprites_Dhalsim, 5 },
     { _T("Soul Palette"), 0x3785f8, 0x378618, indexSVCSprites_Dhalsim },
-    { _T("Midnight Bliss"), 0x378618, 0x378638, indexSVCSprites_Dhalsim },
+    { _T("Midnight Bliss"), 0x378618, 0x378638, indexSVCSprites_Dhalsim, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_DHALSIM_KICK_PALETTES[] =
 {
     { _T("Dhalsim"), 0x378738, 0x378758, indexSVCSprites_Dhalsim },
-    { _T("Fire Effect 1"), 0x378758, 0x378778, indexSVCSprites_Dhalsim },
-    { _T("Fire Effect 2"), 0x378778, 0x378798, indexSVCSprites_Dhalsim },
+    { _T("Unused: Fire Effect 1"), 0x378758, 0x378778, indexSVCSprites_Dhalsim },
+    { _T("Unused: Fire Effect 2"), 0x378778, 0x378798, indexSVCSprites_Dhalsim },
     { _T("Electric Shock Effect"), 0x378798, 0x3787b8, indexSVCSprites_Dhalsim },
-    { _T("Red Arremer Transformation"), 0x3787b8, 0x3787d8, indexSVCSprites_Dhalsim },
-    { _T("Athena Transformation"), 0x3787d8, 0x3787f8, indexSVCSprites_Dhalsim },
+    { _T("Red Arremer Transformation"), 0x3787b8, 0x3787d8, indexSVCSprites_Dhalsim, 4 },
+    { _T("Athena Transformation"), 0x3787d8, 0x3787f8, indexSVCSprites_Dhalsim, 5 },
     { _T("Soul Palette"), 0x3787f8, 0x378818, indexSVCSprites_Dhalsim },
-    { _T("Midnight Bliss"), 0x378818, 0x378838, indexSVCSprites_Dhalsim },
+    { _T("Midnight Bliss"), 0x378818, 0x378838, indexSVCSprites_Dhalsim, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_DHALSIM_EFFECTS_PALETTES[] =
@@ -1010,24 +1010,24 @@ const sGame_PaletteDataset SVCPLUSA_A_BOXER_PUNCH_PALETTES[] =
 {
     { _T("Boxer"), 0x379538, 0x379558, indexSVCSprites_Boxer },
     { _T("Fire Effect 1"), 0x379558, 0x379578, indexSVCSprites_Boxer },
-    { _T("Fire Effect 2"), 0x379578, 0x379598, indexSVCSprites_Boxer },
+    { _T("Unused: Fire Effect 2"), 0x379578, 0x379598, indexSVCSprites_Boxer },
     { _T("Electric Shock Effect"), 0x379598, 0x3795b8, indexSVCSprites_Boxer },
-    { _T("Red Arremer Transformation"), 0x3795b8, 0x3795d8, indexSVCSprites_Boxer },
-    { _T("Athena Transformation"), 0x3795d8, 0x3795f8, indexSVCSprites_Boxer },
+    { _T("Red Arremer Transformation"), 0x3795b8, 0x3795d8, indexSVCSprites_Boxer, 4 },
+    { _T("Athena Transformation"), 0x3795d8, 0x3795f8, indexSVCSprites_Boxer, 5 },
     { _T("Soul Palette"), 0x3795f8, 0x379618, indexSVCSprites_Boxer },
-    { _T("Midnight Bliss"), 0x379618, 0x379638, indexSVCSprites_Boxer },
+    { _T("Midnight Bliss"), 0x379618, 0x379638, indexSVCSprites_Boxer, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_BOXER_KICK_PALETTES[] =
 {
     { _T("Boxer"), 0x379738, 0x379758, indexSVCSprites_Boxer },
     { _T("Fire Effect 1"), 0x379758, 0x379778, indexSVCSprites_Boxer },
-    { _T("Fire Effect 2"), 0x379778, 0x379798, indexSVCSprites_Boxer },
+    { _T("Unused: Fire Effect 2"), 0x379778, 0x379798, indexSVCSprites_Boxer },
     { _T("Electric Shock Effect"), 0x379798, 0x3797b8, indexSVCSprites_Boxer },
-    { _T("Red Arremer Transformation"), 0x3797b8, 0x3797d8, indexSVCSprites_Boxer },
-    { _T("Athena Transformation"), 0x3797d8, 0x3797f8, indexSVCSprites_Boxer },
+    { _T("Red Arremer Transformation"), 0x3797b8, 0x3797d8, indexSVCSprites_Boxer, 4 },
+    { _T("Athena Transformation"), 0x3797d8, 0x3797f8, indexSVCSprites_Boxer, 5 },
     { _T("Soul Palette"), 0x3797f8, 0x379818, indexSVCSprites_Boxer },
-    { _T("Midnight Bliss"), 0x379818, 0x379838, indexSVCSprites_Boxer },
+    { _T("Midnight Bliss"), 0x379818, 0x379838, indexSVCSprites_Boxer, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_BOXER_EFFECTS_PALETTES[] =
@@ -1058,24 +1058,24 @@ const sGame_PaletteDataset SVCPLUSA_A_CLAW_PUNCH_PALETTES[] =
 {
     { _T("Claw"), 0x37a538, 0x37a558, indexSVCSprites_Claw },
     { _T("Fire Effect 1"), 0x37a558, 0x37a578, indexSVCSprites_Claw },
-    { _T("Fire Effect 2"), 0x37a578, 0x37a598, indexSVCSprites_Claw },
+    { _T("Unused: Fire Effect 2"), 0x37a578, 0x37a598, indexSVCSprites_Claw },
     { _T("Electric Shock Effect"), 0x37a598, 0x37a5b8, indexSVCSprites_Claw },
-    { _T("Red Arremer Transformation"), 0x37a5b8, 0x37a5d8, indexSVCSprites_Claw },
-    { _T("Athena Transformation"), 0x37a5d8, 0x37a5f8, indexSVCSprites_Claw },
+    { _T("Red Arremer Transformation"), 0x37a5b8, 0x37a5d8, indexSVCSprites_Claw, 4 },
+    { _T("Athena Transformation"), 0x37a5d8, 0x37a5f8, indexSVCSprites_Claw, 5 },
     { _T("Soul Palette"), 0x37a5f8, 0x37a618, indexSVCSprites_Claw },
-    { _T("Midnight Bliss"), 0x37a618, 0x37a638, indexSVCSprites_Claw },
+    { _T("Midnight Bliss"), 0x37a618, 0x37a638, indexSVCSprites_Claw, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_CLAW_KICK_PALETTES[] =
 {
     { _T("Claw"), 0x37a738, 0x37a758, indexSVCSprites_Claw },
     { _T("Fire Effect 1"), 0x37a758, 0x37a778, indexSVCSprites_Claw },
-    { _T("Fire Effect 2"), 0x37a778, 0x37a798, indexSVCSprites_Claw },
+    { _T("Unused: Fire Effect 2"), 0x37a778, 0x37a798, indexSVCSprites_Claw },
     { _T("Electric Shock Effect"), 0x37a798, 0x37a7b8, indexSVCSprites_Claw },
-    { _T("Red Arremer Transformation"), 0x37a7b8, 0x37a7d8, indexSVCSprites_Claw },
-    { _T("Athena Transformation"), 0x37a7d8, 0x37a7f8, indexSVCSprites_Claw },
+    { _T("Red Arremer Transformation"), 0x37a7b8, 0x37a7d8, indexSVCSprites_Claw, 4 },
+    { _T("Athena Transformation"), 0x37a7d8, 0x37a7f8, indexSVCSprites_Claw, 5 },
     { _T("Soul Palette"), 0x37a7f8, 0x37a818, indexSVCSprites_Claw },
-    { _T("Midnight Bliss"), 0x37a818, 0x37a838, indexSVCSprites_Claw },
+    { _T("Midnight Bliss"), 0x37a818, 0x37a838, indexSVCSprites_Claw, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_CLAW_EFFECTS_PALETTES[] =
@@ -1105,25 +1105,25 @@ const sGame_PaletteDataset SVCPLUSA_A_CLAW_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_SAGAT_PUNCH_PALETTES[] =
 {
     { _T("Sagat"), 0x37b538, 0x37b558, indexSVCSprites_Sagat },
-    { _T("Fire Effect 1"), 0x37b558, 0x37b578, indexSVCSprites_Sagat },
-    { _T("Fire Effect 2"), 0x37b578, 0x37b598, indexSVCSprites_Sagat },
+    { _T("Unused: Fire Effect 1"), 0x37b558, 0x37b578, indexSVCSprites_Sagat },
+    { _T("Unused: Fire Effect 2"), 0x37b578, 0x37b598, indexSVCSprites_Sagat },
     { _T("Electric Shock Effect"), 0x37b598, 0x37b5b8, indexSVCSprites_Sagat },
-    { _T("Red Arremer Transformation"), 0x37b5b8, 0x37b5d8, indexSVCSprites_Sagat },
-    { _T("Athena Transformation"), 0x37b5d8, 0x37b5f8, indexSVCSprites_Sagat },
+    { _T("Red Arremer Transformation"), 0x37b5b8, 0x37b5d8, indexSVCSprites_Sagat, 4 },
+    { _T("Athena Transformation"), 0x37b5d8, 0x37b5f8, indexSVCSprites_Sagat, 5 },
     { _T("Soul Palette"), 0x37b5f8, 0x37b618, indexSVCSprites_Sagat },
-    { _T("Midnight Bliss"), 0x37b618, 0x37b638, indexSVCSprites_Sagat },
+    { _T("Midnight Bliss"), 0x37b618, 0x37b638, indexSVCSprites_Sagat, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_SAGAT_KICK_PALETTES[] =
 {
     { _T("Sagat"), 0x37b738, 0x37b758, indexSVCSprites_Sagat },
-    { _T("Fire Effect 1"), 0x37b758, 0x37b778, indexSVCSprites_Sagat },
-    { _T("Fire Effect 2"), 0x37b778, 0x37b798, indexSVCSprites_Sagat },
+    { _T("Unused: Fire Effect 1"), 0x37b758, 0x37b778, indexSVCSprites_Sagat },
+    { _T("Unused: Fire Effect 2"), 0x37b778, 0x37b798, indexSVCSprites_Sagat },
     { _T("Electric Shock Effect"), 0x37b798, 0x37b7b8, indexSVCSprites_Sagat },
-    { _T("Red Arremer Transformation"), 0x37b7b8, 0x37b7d8, indexSVCSprites_Sagat },
-    { _T("Athena Transformation"), 0x37b7d8, 0x37b7f8, indexSVCSprites_Sagat },
+    { _T("Red Arremer Transformation"), 0x37b7b8, 0x37b7d8, indexSVCSprites_Sagat, 4 },
+    { _T("Athena Transformation"), 0x37b7d8, 0x37b7f8, indexSVCSprites_Sagat, 5 },
     { _T("Soul Palette"), 0x37b7f8, 0x37b818, indexSVCSprites_Sagat },
-    { _T("Midnight Bliss"), 0x37b818, 0x37b838, indexSVCSprites_Sagat },
+    { _T("Midnight Bliss"), 0x37b818, 0x37b838, indexSVCSprites_Sagat, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_SAGAT_EFFECTS_PALETTES[] =
@@ -1153,25 +1153,25 @@ const sGame_PaletteDataset SVCPLUSA_A_SAGAT_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_DICTATOR_PUNCH_PALETTES[] =
 {
     { _T("Dictator"), 0x37c538, 0x37c558, indexSVCSprites_Dictator },
-    { _T("Fire Effect 1"), 0x37c558, 0x37c578, indexSVCSprites_Dictator },
-    { _T("Fire Effect 2"), 0x37c578, 0x37c598, indexSVCSprites_Dictator },
+    { _T("Unused: Fire Effect 1"), 0x37c558, 0x37c578, indexSVCSprites_Dictator },
+    { _T("Unused: Fire Effect 2"), 0x37c578, 0x37c598, indexSVCSprites_Dictator },
     { _T("Electric Shock Effect"), 0x37c598, 0x37c5b8, indexSVCSprites_Dictator },
-    { _T("Red Arremer Transformation"), 0x37c5b8, 0x37c5d8, indexSVCSprites_Dictator },
-    { _T("Athena Transformation"), 0x37c5d8, 0x37c5f8, indexSVCSprites_Dictator },
+    { _T("Red Arremer Transformation"), 0x37c5b8, 0x37c5d8, indexSVCSprites_Dictator, 4 },
+    { _T("Athena Transformation"), 0x37c5d8, 0x37c5f8, indexSVCSprites_Dictator, 5 },
     { _T("Soul Palette"), 0x37c5f8, 0x37c618, indexSVCSprites_Dictator },
-    { _T("Midnight Bliss"), 0x37c618, 0x37c638, indexSVCSprites_Dictator },
+    { _T("Midnight Bliss"), 0x37c618, 0x37c638, indexSVCSprites_Dictator, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_DICTATOR_KICK_PALETTES[] =
 {
     { _T("Dictator"), 0x37c738, 0x37c758, indexSVCSprites_Dictator },
-    { _T("Fire Effect 1"), 0x37c758, 0x37c778, indexSVCSprites_Dictator },
-    { _T("Fire Effect 2"), 0x37c778, 0x37c798, indexSVCSprites_Dictator },
+    { _T("Unused: Fire Effect 1"), 0x37c758, 0x37c778, indexSVCSprites_Dictator },
+    { _T("Unused: Fire Effect 2"), 0x37c778, 0x37c798, indexSVCSprites_Dictator },
     { _T("Electric Shock Effect"), 0x37c798, 0x37c7b8, indexSVCSprites_Dictator },
-    { _T("Red Arremer Transformation"), 0x37c7b8, 0x37c7d8, indexSVCSprites_Dictator },
-    { _T("Athena Transformation"), 0x37c7d8, 0x37c7f8, indexSVCSprites_Dictator },
+    { _T("Red Arremer Transformation"), 0x37c7b8, 0x37c7d8, indexSVCSprites_Dictator, 4 },
+    { _T("Athena Transformation"), 0x37c7d8, 0x37c7f8, indexSVCSprites_Dictator, 5 },
     { _T("Soul Palette"), 0x37c7f8, 0x37c818, indexSVCSprites_Dictator },
-    { _T("Midnight Bliss"), 0x37c818, 0x37c838, indexSVCSprites_Dictator },
+    { _T("Midnight Bliss"), 0x37c818, 0x37c838, indexSVCSprites_Dictator, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_DICTATOR_EFFECTS_PALETTES[] =
@@ -1201,25 +1201,25 @@ const sGame_PaletteDataset SVCPLUSA_A_DICTATOR_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_AKUMA_PUNCH_PALETTES[] =
 {
     { _T("Akuma"), 0x37d538, 0x37d558, indexSVCSprites_Akuma },
-    { _T("Fire Effect 1"), 0x37d558, 0x37d578, indexSVCSprites_Akuma },
-    { _T("Fire Effect 2"), 0x37d578, 0x37d598, indexSVCSprites_Akuma },
+    { _T("Unused: Fire Effect 1"), 0x37d558, 0x37d578, indexSVCSprites_Akuma },
+    { _T("Unused: Fire Effect 2"), 0x37d578, 0x37d598, indexSVCSprites_Akuma },
     { _T("Electric Shock Effect"), 0x37d598, 0x37d5b8, indexSVCSprites_Akuma },
-    { _T("Red Arremer Transformation"), 0x37d5b8, 0x37d5d8, indexSVCSprites_Akuma },
-    { _T("Athena Transformation"), 0x37d5d8, 0x37d5f8, indexSVCSprites_Akuma },
+    { _T("Red Arremer Transformation"), 0x37d5b8, 0x37d5d8, indexSVCSprites_Akuma, 4 },
+    { _T("Athena Transformation"), 0x37d5d8, 0x37d5f8, indexSVCSprites_Akuma, 5 },
     { _T("Soul Palette"), 0x37d5f8, 0x37d618, indexSVCSprites_Akuma },
-    { _T("Midnight Bliss"), 0x37d618, 0x37d638, indexSVCSprites_Akuma },
+    { _T("Midnight Bliss"), 0x37d618, 0x37d638, indexSVCSprites_Akuma, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_AKUMA_KICK_PALETTES[] =
 {
     { _T("Akuma"), 0x37d738, 0x37d758, indexSVCSprites_Akuma },
-    { _T("Fire Effect 1"), 0x37d758, 0x37d778, indexSVCSprites_Akuma },
-    { _T("Fire Effect 2"), 0x37d778, 0x37d798, indexSVCSprites_Akuma },
+    { _T("Unused: Fire Effect 1"), 0x37d758, 0x37d778, indexSVCSprites_Akuma },
+    { _T("Unused: Fire Effect 2"), 0x37d778, 0x37d798, indexSVCSprites_Akuma },
     { _T("Electric Shock Effect"), 0x37d798, 0x37d7b8, indexSVCSprites_Akuma },
-    { _T("Red Arremer Transformation"), 0x37d7b8, 0x37d7d8, indexSVCSprites_Akuma },
-    { _T("Athena Transformation"), 0x37d7d8, 0x37d7f8, indexSVCSprites_Akuma },
+    { _T("Red Arremer Transformation"), 0x37d7b8, 0x37d7d8, indexSVCSprites_Akuma, 4 },
+    { _T("Athena Transformation"), 0x37d7d8, 0x37d7f8, indexSVCSprites_Akuma, 5 },
     { _T("Soul Palette"), 0x37d7f8, 0x37d818, indexSVCSprites_Akuma },
-    { _T("Midnight Bliss"), 0x37d818, 0x37d838, indexSVCSprites_Akuma },
+    { _T("Midnight Bliss"), 0x37d818, 0x37d838, indexSVCSprites_Akuma, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_AKUMA_EFFECTS_PALETTES[] =
@@ -1249,25 +1249,25 @@ const sGame_PaletteDataset SVCPLUSA_A_AKUMA_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_HUGO_PUNCH_PALETTES[] =
 {
     { _T("Hugo"), 0x37e538, 0x37e558, indexSVCSprites_Hugo },
-    { _T("Poison"), 0x37e558, 0x37e578, indexSVCSprites_Hugo },
-    { _T("Bao"), 0x37e578, 0x37e598, indexSVCSprites_Hugo },
+    { _T("Poison"), 0x37e558, 0x37e578, indexSVCSprites_Hugo, 0x10 },
+    { _T("Bao"), 0x37e578, 0x37e598, indexSVCSprites_Hugo, 0x11 },
     { _T("Electric Shock Effect"), 0x37e598, 0x37e5b8, indexSVCSprites_Hugo },
-    { _T("Red Arremer Transformation"), 0x37e5b8, 0x37e5d8, indexSVCSprites_Hugo },
-    { _T("Athena Transformation"), 0x37e5d8, 0x37e5f8, indexSVCSprites_Hugo },
+    { _T("Red Arremer Transformation"), 0x37e5b8, 0x37e5d8, indexSVCSprites_Hugo, 4 },
+    { _T("Athena Transformation"), 0x37e5d8, 0x37e5f8, indexSVCSprites_Hugo, 5 },
     { _T("Soul Palette"), 0x37e5f8, 0x37e618, indexSVCSprites_Hugo },
-    { _T("Midnight Bliss"), 0x37e618, 0x37e638, indexSVCSprites_Hugo },
+    { _T("Midnight Bliss"), 0x37e618, 0x37e638, indexSVCSprites_Hugo, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_HUGO_KICK_PALETTES[] =
 {
     { _T("Hugo"), 0x37e738, 0x37e758, indexSVCSprites_Hugo },
-    { _T("Poison"), 0x37e758, 0x37e778, indexSVCSprites_Hugo },
-    { _T("Bao"), 0x37e778, 0x37e798, indexSVCSprites_Hugo },
+    { _T("Poison"), 0x37e758, 0x37e778, indexSVCSprites_Hugo, 0x10 },
+    { _T("Bao"), 0x37e778, 0x37e798, indexSVCSprites_Hugo, 0x11 },
     { _T("Electric Shock Effect"), 0x37e798, 0x37e7b8, indexSVCSprites_Hugo },
-    { _T("Red Arremer Transformation"), 0x37e7b8, 0x37e7d8, indexSVCSprites_Hugo },
-    { _T("Athena Transformation"), 0x37e7d8, 0x37e7f8, indexSVCSprites_Hugo },
+    { _T("Red Arremer Transformation"), 0x37e7b8, 0x37e7d8, indexSVCSprites_Hugo, 4 },
+    { _T("Athena Transformation"), 0x37e7d8, 0x37e7f8, indexSVCSprites_Hugo, 5 },
     { _T("Soul Palette"), 0x37e7f8, 0x37e818, indexSVCSprites_Hugo },
-    { _T("Midnight Bliss"), 0x37e818, 0x37e838, indexSVCSprites_Hugo },
+    { _T("Midnight Bliss"), 0x37e818, 0x37e838, indexSVCSprites_Hugo, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_HUGO_EFFECTS_PALETTES[] =
@@ -1309,25 +1309,25 @@ const sGame_PaletteDataset SVCPLUSA_A_POISON_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_TESSA_PUNCH_PALETTES[] =
 {
     { _T("Tessa"), 0x37f538, 0x37f558, indexSVCSprites_Tessa },
-    { _T("Fire Effect 1"), 0x37f558, 0x37f578, indexSVCSprites_Tessa },
-    { _T("Fire Effect 2"), 0x37f578, 0x37f598, indexSVCSprites_Tessa },
+    { _T("Cat"), 0x37f558, 0x37f578, indexSVCSprites_Tessa, 1 },
+    { _T("Midnight Bliss"), 0x37f578, 0x37f598, indexSVCSprites_Tessa, 7 },
     { _T("Electric Shock Effect"), 0x37f598, 0x37f5b8, indexSVCSprites_Tessa },
-    { _T("Red Arremer Transformation"), 0x37f5b8, 0x37f5d8, indexSVCSprites_Tessa },
+    { _T("Shield"), 0x37f5b8, 0x37f5d8, indexSVCSprites_Tessa, 4 },
     { _T("Athena Transformation"), 0x37f5d8, 0x37f5f8, indexSVCSprites_Tessa },
     { _T("Soul Palette"), 0x37f5f8, 0x37f618, indexSVCSprites_Tessa },
-    { _T("Midnight Bliss"), 0x37f618, 0x37f638, indexSVCSprites_Tessa },
+    { _T("Hearts"), 0x37f618, 0x37f638, indexSVCSprites_Tessa, 2 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_TESSA_KICK_PALETTES[] =
 {
     { _T("Tessa"), 0x37f738, 0x37f758, indexSVCSprites_Tessa },
-    { _T("Fire Effect 1"), 0x37f758, 0x37f778, indexSVCSprites_Tessa },
-    { _T("Fire Effect 2"), 0x37f778, 0x37f798, indexSVCSprites_Tessa },
+    { _T("Cat"), 0x37f758, 0x37f778, indexSVCSprites_Tessa, 1 },
+    { _T("Midnight Bliss"), 0x37f778, 0x37f798, indexSVCSprites_Tessa, 7 },
     { _T("Electric Shock Effect"), 0x37f798, 0x37f7b8, indexSVCSprites_Tessa },
-    { _T("Red Arremer Transformation"), 0x37f7b8, 0x37f7d8, indexSVCSprites_Tessa },
+    { _T("Shield"), 0x37f7b8, 0x37f7d8, indexSVCSprites_Tessa, 4 },
     { _T("Athena Transformation"), 0x37f7d8, 0x37f7f8, indexSVCSprites_Tessa },
     { _T("Soul Palette"), 0x37f7f8, 0x37f818, indexSVCSprites_Tessa },
-    { _T("Midnight Bliss"), 0x37f818, 0x37f838, indexSVCSprites_Tessa },
+    { _T("Hearts"), 0x37f818, 0x37f838, indexSVCSprites_Tessa, 2 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_TESSA_EFFECTS_PALETTES[] =
@@ -1354,28 +1354,35 @@ const sGame_PaletteDataset SVCPLUSA_A_TESSA_INTRO_PORTRAITS_PALETTES[] =
     { _T("Tessa Kick"), 0x3a86f8, 0x3a8738, indexSVCSprites_Tessa, 0x20 },
 };
 
+// zero FULL?!?, ciel, EMPTY, EMPTY, RAT, ATHE, EMPTY, MB
+// 8    zero part 1, 9  zero part 2,    10 EMPTY, 
+// 11 treasure part 1,  12 treasure bit (done)
+
+// Effect 7 needs to be paired with base Zero 
+// Effect 6 needs to be paired with fire effect 2/RA transformation because that what it really is
+
 const sGame_PaletteDataset SVCPLUSA_A_ZERO_PUNCH_PALETTES[] =
 {
-    { _T("Zero"), 0x380538, 0x380558, indexSVCSprites_Zero },
-    { _T("Fire Effect 1"), 0x380558, 0x380578, indexSVCSprites_Zero },
-    { _T("Red Arremer Transformation"), 0x380578, 0x380598, indexSVCSprites_Zero },
+    { _T("Zero Part 1"), 0x380538, 0x380558, indexSVCSprites_Zero, 0, &pairHandledInCode },
+    { _T("Ciel"), 0x380558, 0x380578, indexSVCSprites_Zero, 1 },
+    { _T("Red Arremer Transform 1/2"), 0x380578, 0x380598, indexSVCSprites_Zero, 4, &pairHandledInCode },
     { _T("Electric Shock Effect"), 0x380598, 0x3805b8, indexSVCSprites_Zero },
-    { _T("Fire Effect 2"), 0x3805b8, 0x3805d8, indexSVCSprites_Zero },
-    { _T("Athena Transformation"), 0x3805d8, 0x3805f8, indexSVCSprites_Zero },
-    { _T("Soul Palette"), 0x3805f8, 0x380618, indexSVCSprites_Zero },
-    { _T("Midnight Bliss"), 0x380618, 0x380638, indexSVCSprites_Zero },
+    { _T("Exceed"), 0x3805b8, 0x3805d8, indexSVCSprites_Zero,  },
+    { _T("Athena Transformation"), 0x3805d8, 0x3805f8, indexSVCSprites_Zero, 5 },
+    { _T("Soul Palette"), 0x3805f8, 0x380618, indexSVCSprites_Zero,  },
+    { _T("Midnight Bliss"), 0x380618, 0x380638, indexSVCSprites_Zero, 7 }, 
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_ZERO_KICK_PALETTES[] =
 {
-    { _T("Zero"), 0x380738, 0x380758, indexSVCSprites_Zero },
-    { _T("Fire Effect 1"), 0x380758, 0x380778, indexSVCSprites_Zero },
-    { _T("Red Arremer Transformation"), 0x380778, 0x380798, indexSVCSprites_Zero },
-    { _T("Electric Shock Effect"), 0x380798, 0x3807b8, indexSVCSprites_Zero },
-    { _T("Fire Effect 2"), 0x3807b8, 0x3807d8, indexSVCSprites_Zero },
-    { _T("Athena Transformation"), 0x3807d8, 0x3807f8, indexSVCSprites_Zero },
+    { _T("Zero Part 1"), 0x380738, 0x380758, indexSVCSprites_Zero, 0, &pairHandledInCode },
+    { _T("Ciel"), 0x380758, 0x380778, indexSVCSprites_Zero, 1 },
+    { _T("Red Arremer Transform 1/2"), 0x380778, 0x380798, indexSVCSprites_Zero, 4, &pairHandledInCode },
+    { _T("Electric Shock Effect"), 0x380798, 0x3807b8, indexSVCSprites_Zero  },
+    { _T("Exceed"), 0x3807b8, 0x3807d8, indexSVCSprites_Zero },
+    { _T("Athena Transformation"), 0x3807d8, 0x3807f8, indexSVCSprites_Zero, 5 },
     { _T("Soul Palette"), 0x3807f8, 0x380818, indexSVCSprites_Zero },
-    { _T("Midnight Bliss"), 0x380818, 0x380838, indexSVCSprites_Zero },
+    { _T("Midnight Bliss"), 0x380818, 0x380838, indexSVCSprites_Zero, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_ZERO_EFFECTS_PALETTES[] =
@@ -1386,8 +1393,8 @@ const sGame_PaletteDataset SVCPLUSA_A_ZERO_EFFECTS_PALETTES[] =
     { _T("Effect 3"), 0x396598, 0x3965b8 },
     { _T("Effect 4"), 0x3965b8, 0x3965d8 },
     { _T("Effect 5"), 0x3965d8, 0x3965f8 },
-    { _T("Effect 6"), 0x3965f8, 0x396618 },
-    { _T("Effect 7"), 0x396618, 0x396638 },
+    { _T("Shared: Red Arremer Transform 2/2"), 0x3965f8, 0x396618, indexSVCSprites_Zero, 12 },
+    { _T("Shared: Zero Part 2"), 0x396618, 0x396638, indexSVCSprites_Zero, 9 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_ZERO_WIN_PORTRAITS_PALETTES[] =
@@ -1410,26 +1417,26 @@ const sGame_PaletteDataset SVCPLUSA_A_CIEL_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_DEMITRI_PUNCH_PALETTES[] =
 {
-    { _T("Demitri"), 0x381538, 0x381558, indexSVCSprites_Demitri },
+    { _T("Demitri / Red Arremer Transform"), 0x381538, 0x381558, indexSVCSprites_Demitri },
     { _T("Fire Effect 1"), 0x381558, 0x381578, indexSVCSprites_Demitri },
     { _T("Fire Effect 2"), 0x381578, 0x381598, indexSVCSprites_Demitri },
     { _T("Electric Shock Effect"), 0x381598, 0x3815b8, indexSVCSprites_Demitri },
-    { _T("Red Arremer Transformation"), 0x3815b8, 0x3815d8, indexSVCSprites_Demitri },
-    { _T("Athena Transformation"), 0x3815d8, 0x3815f8, indexSVCSprites_Demitri },
+    { _T("Unknown"), 0x3815b8, 0x3815d8, indexSVCSprites_Demitri },
+    { _T("Athena Transformation"), 0x3815d8, 0x3815f8, indexSVCSprites_Demitri, 5 },
     { _T("Soul Palette"), 0x3815f8, 0x381618, indexSVCSprites_Demitri },
-    { _T("Midnight Bliss"), 0x381618, 0x381638, indexSVCSprites_Demitri },
+    { _T("Midnight Bliss"), 0x381618, 0x381638, indexSVCSprites_Demitri, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_DEMITRI_KICK_PALETTES[] =
 {
-    { _T("Demitri"), 0x381738, 0x381758, indexSVCSprites_Demitri },
+    { _T("Demitri / Red Arremer Transform"), 0x381738, 0x381758, indexSVCSprites_Demitri },
     { _T("Fire Effect 1"), 0x381758, 0x381778, indexSVCSprites_Demitri },
     { _T("Fire Effect 2"), 0x381778, 0x381798, indexSVCSprites_Demitri },
     { _T("Electric Shock Effect"), 0x381798, 0x3817b8, indexSVCSprites_Demitri },
-    { _T("Red Arremer Transformation"), 0x3817b8, 0x3817d8, indexSVCSprites_Demitri },
-    { _T("Athena Transformation"), 0x3817d8, 0x3817f8, indexSVCSprites_Demitri },
+    { _T("Unknown"), 0x3817b8, 0x3817d8, indexSVCSprites_Demitri },
+    { _T("Athena Transformation"), 0x3817d8, 0x3817f8, indexSVCSprites_Demitri, 5 },
     { _T("Soul Palette"), 0x3817f8, 0x381818, indexSVCSprites_Demitri },
-    { _T("Midnight Bliss"), 0x381818, 0x381838, indexSVCSprites_Demitri },
+    { _T("Midnight Bliss"), 0x381818, 0x381838, indexSVCSprites_Demitri, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_DEMITRI_EFFECTS_PALETTES[] =
@@ -1459,25 +1466,25 @@ const sGame_PaletteDataset SVCPLUSA_A_DEMITRI_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_DAN_PUNCH_PALETTES[] =
 {
     { _T("Dan"), 0x382538, 0x382558, indexSVCSprites_Dan },
-    { _T("Fire Effect 1"), 0x382558, 0x382578, indexSVCSprites_Dan },
-    { _T("Fire Effect 2"), 0x382578, 0x382598, indexSVCSprites_Dan },
+    { _T("Unused: Fire Effect 1"), 0x382558, 0x382578, indexSVCSprites_Dan },
+    { _T("Unused: Fire Effect 2"), 0x382578, 0x382598, indexSVCSprites_Dan },
     { _T("Electric Shock Effect"), 0x382598, 0x3825b8, indexSVCSprites_Dan },
     { _T("Red Arremer Transformation"), 0x3825b8, 0x3825d8, indexSVCSprites_Dan },
-    { _T("Athena Transformation"), 0x3825d8, 0x3825f8, indexSVCSprites_Dan },
+    { _T("Athena Transformation"), 0x3825d8, 0x3825f8, indexSVCSprites_Dan, 5 },
     { _T("Soul Palette"), 0x3825f8, 0x382618, indexSVCSprites_Dan },
-    { _T("Midnight Bliss"), 0x382618, 0x382638, indexSVCSprites_Dan },
+    { _T("Midnight Bliss"), 0x382618, 0x382638, indexSVCSprites_Dan, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_DAN_KICK_PALETTES[] =
 {
     { _T("Dan"), 0x382738, 0x382758, indexSVCSprites_Dan },
-    { _T("Fire Effect 1"), 0x382758, 0x382778, indexSVCSprites_Dan },
-    { _T("Fire Effect 2"), 0x382778, 0x382798, indexSVCSprites_Dan },
+    { _T("Unused: Fire Effect 1"), 0x382758, 0x382778, indexSVCSprites_Dan },
+    { _T("Unused: Fire Effect 2"), 0x382778, 0x382798, indexSVCSprites_Dan },
     { _T("Electric Shock Effect"), 0x382798, 0x3827b8, indexSVCSprites_Dan },
     { _T("Red Arremer Transformation"), 0x3827b8, 0x3827d8, indexSVCSprites_Dan },
-    { _T("Athena Transformation"), 0x3827d8, 0x3827f8, indexSVCSprites_Dan },
+    { _T("Athena Transformation"), 0x3827d8, 0x3827f8, indexSVCSprites_Dan, 5 },
     { _T("Soul Palette"), 0x3827f8, 0x382818, indexSVCSprites_Dan },
-    { _T("Midnight Bliss"), 0x382818, 0x382838, indexSVCSprites_Dan },
+    { _T("Midnight Bliss"), 0x382818, 0x382838, indexSVCSprites_Dan, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_DAN_EFFECTS_PALETTES[] =
@@ -1507,25 +1514,25 @@ const sGame_PaletteDataset SVCPLUSA_A_DAN_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_PUNCH_PALETTES[] =
 {
     { _T("Red Arremer"), 0x383538, 0x383558, indexSVCSprites_RedArremer },
-    // Unused { _T("Fire Effect 1"), 0x383558, 0x383578, indexSVCSprites_RedArremer },
-    { _T("Woody Pig"), 0x383578, 0x383598, indexSVCSprites_RedArremer },
+    { _T("Unused: Fire Effect 1"), 0x383558, 0x383578, indexSVCSprites_RedArremer },
+    { _T("Woody Pig"), 0x383578, 0x383598, indexSVCSprites_RedArremer, 0x10 },
     { _T("Electric Shock Effect"), 0x383598, 0x3835b8, indexSVCSprites_RedArremer },
-    { _T("Puchi Devil"), 0x3835b8, 0x3835d8, indexSVCSprites_RedArremer },
-    { _T("Zombie"), 0x3835d8, 0x3835f8, indexSVCSprites_RedArremer },
+    { _T("Puchi Devil"), 0x3835b8, 0x3835d8, indexSVCSprites_RedArremer, 0x11 },
+    { _T("Zombie"), 0x3835d8, 0x3835f8, indexSVCSprites_RedArremer, 0x12 },
     { _T("Soul Palette"), 0x3835f8, 0x383618, indexSVCSprites_RedArremer },
-    { _T("Midnight Bliss"), 0x383618, 0x383638, indexSVCSprites_RedArremer },
+    { _T("Midnight Bliss"), 0x383618, 0x383638, indexSVCSprites_RedArremer, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_KICK_PALETTES[] =
 {
     { _T("Red Arremer"), 0x383738, 0x383758, indexSVCSprites_RedArremer },
-    // { _T("Fire Effect 1"), 0x383758, 0x383778, indexSVCSprites_RedArremer },
-    { _T("Woody Pig"), 0x383778, 0x383798, indexSVCSprites_RedArremer },
+    { _T("Unused: Fire Effect 1"), 0x383758, 0x383778, indexSVCSprites_RedArremer },
+    { _T("Woody Pig"), 0x383778, 0x383798, indexSVCSprites_RedArremer, 0x10 },
     { _T("Electric Shock Effect"), 0x383798, 0x3837b8, indexSVCSprites_RedArremer },
-    { _T("Puchi Devil"), 0x3837b8, 0x3837d8, indexSVCSprites_RedArremer },
-    { _T("Zombie"), 0x3837d8, 0x3837f8, indexSVCSprites_RedArremer },
+    { _T("Puchi Devil"), 0x3837b8, 0x3837d8, indexSVCSprites_RedArremer, 0x11 },
+    { _T("Zombie"), 0x3837d8, 0x3837f8, indexSVCSprites_RedArremer, 0x12 },
     { _T("Soul Palette"), 0x3837f8, 0x383818, indexSVCSprites_RedArremer },
-    { _T("Midnight Bliss"), 0x383818, 0x383838, indexSVCSprites_RedArremer },
+    { _T("Midnight Bliss"), 0x383818, 0x383838, indexSVCSprites_RedArremer, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_REDARREMER_EFFECTS_PALETTES[] =
@@ -1558,10 +1565,10 @@ const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_PUNCH_PALETTES[] =
     // unused { _T("Fire Effect 1"), 0x384558, 0x384578, indexKOFSprites_98Iori },
     // unused { _T("Fire Effect 2"), 0x384578, 0x384598, indexKOFSprites_98Iori },
     { _T("Electric Shock Effect"), 0x384598, 0x3845b8, indexKOFSprites_98Iori },
-    { _T("Red Arremer Transformation"), 0x3845b8, 0x3845d8 },
-    { _T("Athena Transformation"), 0x3845d8, 0x3845f8 },
+    { _T("Red Arremer Transformation"), 0x3845b8, 0x3845d8, indexSVCSprites_OrochiIori, 4 },
+    { _T("Athena Transformation"), 0x3845d8, 0x3845f8, indexSVCSprites_OrochiIori, 5 },
     { _T("Soul Palette"), 0x3845f8, 0x384618, indexKOFSprites_98Iori },
-    { _T("Midnight Bliss"), 0x384618, 0x384638 },
+    { _T("Midnight Bliss"), 0x384618, 0x384638, indexSVCSprites_OrochiIori, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_KICK_PALETTES[] =
@@ -1570,10 +1577,10 @@ const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_KICK_PALETTES[] =
     // unused { _T("Fire Effect 1"), 0x384758, 0x384778, indexKOFSprites_98Iori },
     // unused { _T("Fire Effect 2"), 0x384778, 0x384798, indexKOFSprites_98Iori },
     { _T("Electric Shock Effect"), 0x384798, 0x3847b8, indexKOFSprites_98Iori },
-    { _T("Red Arremer Transformation"), 0x3847b8, 0x3847d8 },
-    { _T("Athena Transformation"), 0x3847d8, 0x3847f8 },
+    { _T("Red Arremer Transformation"), 0x3847b8, 0x3847d8, indexSVCSprites_OrochiIori, 4 },
+    { _T("Athena Transformation"), 0x3847d8, 0x3847f8, indexSVCSprites_OrochiIori, 5 },
     { _T("Soul Palette"), 0x3847f8, 0x384818, indexKOFSprites_98Iori },
-    { _T("Midnight Bliss"), 0x384818, 0x384838 },
+    { _T("Midnight Bliss"), 0x384818, 0x384838, indexSVCSprites_OrochiIori, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_EFFECTS_PALETTES[] =
@@ -1603,25 +1610,25 @@ const sGame_PaletteDataset SVCPLUSA_A_OROCHIIORI_INTRO_PORTRAITS_PALETTES[] =
 const sGame_PaletteDataset SVCPLUSA_A_SERIOUSMRKARATE_PUNCH_PALETTES[] =
 {
     { _T("Serious Mr. Karate"), 0x385538, 0x385558, indexSVCSprites_SeriousMrKarate },
-    { _T("Fire Effect 1"), 0x385558, 0x385578, indexSVCSprites_SeriousMrKarate },
-    { _T("Fire Effect 2"), 0x385578, 0x385598, indexSVCSprites_SeriousMrKarate },
+    { _T("Unused: Fire Effect 1"), 0x385558, 0x385578, indexSVCSprites_SeriousMrKarate },
+    { _T("Unused: Fire Effect 2"), 0x385578, 0x385598, indexSVCSprites_SeriousMrKarate },
     { _T("Electric Shock Effect"), 0x385598, 0x3855b8, indexSVCSprites_SeriousMrKarate },
-    { _T("Red Arremer Transformation"), 0x3855b8, 0x3855d8, indexSVCSprites_SeriousMrKarate },
-    { _T("Athena Transformation"), 0x3855d8, 0x3855f8, indexSVCSprites_SeriousMrKarate },
+    { _T("Red Arremer Transformation"), 0x3855b8, 0x3855d8, indexSVCSprites_SeriousMrKarate, 4 },
+    { _T("Athena Transformation"), 0x3855d8, 0x3855f8, indexSVCSprites_SeriousMrKarate, 5 },
     { _T("Soul Palette"), 0x3855f8, 0x385618, indexSVCSprites_SeriousMrKarate },
-    { _T("Midnight Bliss"), 0x385618, 0x385638, indexSVCSprites_SeriousMrKarate },
+    { _T("Midnight Bliss"), 0x385618, 0x385638, indexSVCSprites_SeriousMrKarate, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_SERIOUSMRKARATE_KICK_PALETTES[] =
 {
     { _T("Serious Mr. Karate"), 0x385738, 0x385758, indexSVCSprites_SeriousMrKarate },
-    { _T("Fire Effect 1"), 0x385758, 0x385778, indexSVCSprites_SeriousMrKarate },
-    { _T("Fire Effect 2"), 0x385778, 0x385798, indexSVCSprites_SeriousMrKarate },
+    { _T("Unused: Fire Effect 1"), 0x385758, 0x385778, indexSVCSprites_SeriousMrKarate },
+    { _T("Unused: Fire Effect 2"), 0x385778, 0x385798, indexSVCSprites_SeriousMrKarate },
     { _T("Electric Shock Effect"), 0x385798, 0x3857b8, indexSVCSprites_SeriousMrKarate },
-    { _T("Red Arremer Transformation"), 0x3857b8, 0x3857d8, indexSVCSprites_SeriousMrKarate },
-    { _T("Athena Transformation"), 0x3857d8, 0x3857f8, indexSVCSprites_SeriousMrKarate },
+    { _T("Red Arremer Transformation"), 0x3857b8, 0x3857d8, indexSVCSprites_SeriousMrKarate, 4 },
+    { _T("Athena Transformation"), 0x3857d8, 0x3857f8, indexSVCSprites_SeriousMrKarate, 5 },
     { _T("Soul Palette"), 0x3857f8, 0x385818, indexSVCSprites_SeriousMrKarate },
-    { _T("Midnight Bliss"), 0x385818, 0x385838, indexSVCSprites_SeriousMrKarate },
+    { _T("Midnight Bliss"), 0x385818, 0x385838, indexSVCSprites_SeriousMrKarate, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_SERIOUSMRKARATE_EFFECTS_PALETTES[] =
@@ -1651,25 +1658,25 @@ const sGame_PaletteDataset SVCPLUSA_A_SERIOUSMRKARATE_INTRO_PORTRAITS_PALETTES[]
 const sGame_PaletteDataset SVCPLUSA_A_VIOLENTKEN_PUNCH_PALETTES[] =
 {
     { _T("Violent Ken"), 0x386538, 0x386558, indexSVCSprites_ViolentKen },
-    { _T("Fire Effect 1"), 0x386558, 0x386578, indexSVCSprites_ViolentKen },
-    { _T("Fire Effect 2"), 0x386578, 0x386598, indexSVCSprites_ViolentKen },
+    { _T("Unused: Fire Effect 1"), 0x386558, 0x386578, indexSVCSprites_ViolentKen },
+    { _T("Unused: Fire Effect 2"), 0x386578, 0x386598, indexSVCSprites_ViolentKen },
     { _T("Electric Shock Effect"), 0x386598, 0x3865b8, indexSVCSprites_ViolentKen },
-    { _T("Red Arremer Transformation"), 0x3865b8, 0x3865d8, indexSVCSprites_ViolentKen },
-    { _T("Athena Transformation"), 0x3865d8, 0x3865f8, indexSVCSprites_ViolentKen },
+    { _T("Red Arremer Transformation"), 0x3865b8, 0x3865d8, indexSVCSprites_ViolentKen, 4 },
+    { _T("Athena Transformation"), 0x3865d8, 0x3865f8, indexSVCSprites_ViolentKen, 5 },
     { _T("Soul Palette"), 0x3865f8, 0x386618, indexSVCSprites_ViolentKen },
-    { _T("Midnight Bliss"), 0x386618, 0x386638, indexSVCSprites_ViolentKen },
+    { _T("Midnight Bliss"), 0x386618, 0x386638, indexSVCSprites_ViolentKen, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_VIOLENTKEN_KICK_PALETTES[] =
 {
     { _T("Violent Ken"), 0x386738, 0x386758, indexSVCSprites_ViolentKen },
-    { _T("Fire Effect 1"), 0x386758, 0x386778, indexSVCSprites_ViolentKen },
-    { _T("Fire Effect 2"), 0x386778, 0x386798, indexSVCSprites_ViolentKen },
+    { _T("Unused: Fire Effect 1"), 0x386758, 0x386778, indexSVCSprites_ViolentKen },
+    { _T("Unused: Fire Effect 2"), 0x386778, 0x386798, indexSVCSprites_ViolentKen },
     { _T("Electric Shock Effect"), 0x386798, 0x3867b8, indexSVCSprites_ViolentKen },
-    { _T("Red Arremer Transformation"), 0x3867b8, 0x3867d8, indexSVCSprites_ViolentKen },
-    { _T("Athena Transformation"), 0x3867d8, 0x3867f8, indexSVCSprites_ViolentKen },
+    { _T("Red Arremer Transformation"), 0x3867b8, 0x3867d8, indexSVCSprites_ViolentKen, 4 },
+    { _T("Athena Transformation"), 0x3867d8, 0x3867f8, indexSVCSprites_ViolentKen, 5 },
     { _T("Soul Palette"), 0x3867f8, 0x386818, indexSVCSprites_ViolentKen },
-    { _T("Midnight Bliss"), 0x386818, 0x386838, indexSVCSprites_ViolentKen },
+    { _T("Midnight Bliss"), 0x386818, 0x386838, indexSVCSprites_ViolentKen, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_VIOLENTKEN_EFFECTS_PALETTES[] =
@@ -1698,26 +1705,26 @@ const sGame_PaletteDataset SVCPLUSA_A_VIOLENTKEN_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_SHINAKUMA_PUNCH_PALETTES[] =
 {
-    { _T("Shin Akuma"), 0x387538, 0x387558, indexSVCSprites_ShinAkuma },
-    { _T("Fire Effect 1"), 0x387558, 0x387578, indexSVCSprites_ShinAkuma },
-    { _T("Fire Effect 2"), 0x387578, 0x387598, indexSVCSprites_ShinAkuma },
-    { _T("Electric Shock Effect"), 0x387598, 0x3875b8, indexSVCSprites_ShinAkuma },
-    { _T("Red Arremer Transformation"), 0x3875b8, 0x3875d8, indexSVCSprites_ShinAkuma },
-    { _T("Athena Transformation"), 0x3875d8, 0x3875f8, indexSVCSprites_ShinAkuma },
-    { _T("Soul Palette"), 0x3875f8, 0x387618, indexSVCSprites_ShinAkuma },
-    { _T("Midnight Bliss"), 0x387618, 0x387638, indexSVCSprites_ShinAkuma },
+    { _T("Shin Akuma"), 0x387538, 0x387558, indexSVCSprites_Akuma },
+    { _T("Unused: Fire Effect 1"), 0x387558, 0x387578, indexSVCSprites_Akuma },
+    { _T("Unused: Fire Effect 2"), 0x387578, 0x387598, indexSVCSprites_Akuma },
+    { _T("Electric Shock Effect"), 0x387598, 0x3875b8, indexSVCSprites_Akuma },
+    { _T("Red Arremer Transformation"), 0x3875b8, 0x3875d8, indexSVCSprites_ShinAkuma, 4 },
+    { _T("Athena Transformation"), 0x3875d8, 0x3875f8, indexSVCSprites_ShinAkuma, 5 },
+    { _T("Soul Palette"), 0x3875f8, 0x387618, indexSVCSprites_Akuma },
+    { _T("Midnight Bliss"), 0x387618, 0x387638, indexSVCSprites_Akuma, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_SHINAKUMA_KICK_PALETTES[] =
 {
-    { _T("Shin Akuma"), 0x387738, 0x387758, indexSVCSprites_ShinAkuma },
-    { _T("Fire Effect 1"), 0x387758, 0x387778, indexSVCSprites_ShinAkuma },
-    { _T("Fire Effect 2"), 0x387778, 0x387798, indexSVCSprites_ShinAkuma },
-    { _T("Electric Shock Effect"), 0x387798, 0x3877b8, indexSVCSprites_ShinAkuma },
-    { _T("Red Arremer Transformation"), 0x3877b8, 0x3877d8, indexSVCSprites_ShinAkuma },
-    { _T("Athena Transformation"), 0x3877d8, 0x3877f8, indexSVCSprites_ShinAkuma },
-    { _T("Soul Palette"), 0x3877f8, 0x387818, indexSVCSprites_ShinAkuma },
-    { _T("Midnight Bliss"), 0x387818, 0x387838, indexSVCSprites_ShinAkuma },
+    { _T("Shin Akuma"), 0x387738, 0x387758, indexSVCSprites_Akuma },
+    { _T("Unused: Fire Effect 1"), 0x387758, 0x387778, indexSVCSprites_Akuma },
+    { _T("Unused: Fire Effect 2"), 0x387778, 0x387798, indexSVCSprites_Akuma },
+    { _T("Electric Shock Effect"), 0x387798, 0x3877b8, indexSVCSprites_Akuma },
+    { _T("Red Arremer Transformation"), 0x3877b8, 0x3877d8, indexSVCSprites_ShinAkuma, 4 },
+    { _T("Athena Transformation"), 0x3877d8, 0x3877f8, indexSVCSprites_ShinAkuma, 5 },
+    { _T("Soul Palette"), 0x3877f8, 0x387818, indexSVCSprites_Akuma },
+    { _T("Midnight Bliss"), 0x387818, 0x387838, indexSVCSprites_Akuma, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_SHINAKUMA_EFFECTS_PALETTES[] =

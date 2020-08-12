@@ -16,7 +16,6 @@ typedef std::map<UINT8, ImgInfoList*>::iterator imgMapIter;
 
 CImgDat::CImgDat(void)
 {
-    pLastImg = new sImgDef * [MAX_IMAGE];
 }
 
 CImgDat::~CImgDat(void)
@@ -24,7 +23,6 @@ CImgDat::~CImgDat(void)
     if (!imageBufferFlushed)
     {
         FlushImageBuffer();
-        FlushLastImg();
     }
     CloseImgFile();
 }
@@ -57,23 +55,6 @@ bool CImgDat::FlushImageBuffer()
     imageBufferPrepped = false;
 
     return true;
-}
-
-void CImgDat::FlushLastImg()
-{
-    for (int i = 0; i < nLastImgCt; i++)
-    {
-        if (pLastImg[i])
-        {
-            if (pLastImg[i]->pImgData)
-            {
-                delete (pLastImg[i]->pImgData);
-                pLastImg[i] = nullptr;
-            }
-        }
-    }
-    safe_delete_array(pLastImg);
-    nLastImgCt = 0;
 }
 
 bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
@@ -478,12 +459,6 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
     }
 #endif
 
-    if (bOnTheFly)
-    {
-        pLastImg[nLastImgCt] = pCurrImg;
-        nLastImgCt++;
-    }
-
     pCurrImg->pImgData = pNewImgData;
 
     return pNewImgData;
@@ -525,7 +500,6 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
 #endif
 
         imageBufferFlushed = false;
-        FlushLastImg();
         imageBufferFlushed = FlushImageBuffer();
 #if IMGDAT_DEBUG
         strDebugInfo.Format(_T("CImgDat::LoadImage : Image buffer has been flushed. imageBuffer: %u '\n"), imageBufferPrepped);
@@ -533,8 +507,6 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
 #endif
         CloseImgFile();
     }
-
-    FlushLastImg();
 
     if (!ImgDatFile.Open(lpszLoadFile, CFile::modeRead | CFile::typeBinary))
     {
@@ -574,7 +546,6 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
 
                 if (!imageBufferFlushed)
                 {
-                    FlushLastImg();
                     imageBufferFlushed = FlushImageBuffer();
                 }
 

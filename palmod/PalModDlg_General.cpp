@@ -238,9 +238,6 @@ void CPalModDlg::PostPalSel()
                     if (nImgIndexCtr == 0)
                     {
                         ImgDispCtrl->ClearUsed();
-
-                        //Get and flush the image ctrl
-                        ImgFile->FlushLastImg();
                     }
 
                     if (CurrImgDef)

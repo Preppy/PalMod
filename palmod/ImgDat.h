@@ -11,9 +11,6 @@ private:
 
     std::map<UINT8, ImgInfoList*>* nImgMap = nullptr;
 
-    sImgDef** pLastImg = nullptr;
-    int nLastImgCt = 0;
-
     UINT16 nCurGameUnitAmt = 0x0000;
     UINT16 nCurGameImgAmt = 0x0000;
 
@@ -50,5 +47,4 @@ public:
     UINT8* GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitId, int nCurrentImgId);
 
     void CloseImgFile();
-    void FlushLastImg();
 };

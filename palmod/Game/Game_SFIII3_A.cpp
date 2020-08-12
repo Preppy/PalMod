@@ -699,17 +699,6 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();
 
-    switch (uUnitId)
-    {
-    case 0x0E: //Shin Gouki: use normal Gouki sprites
-    {
-        nImgUnitId = 0x0D;
-        break;
-    }
-    default:
-        break;
-    }
-
     bool fShouldUseAlternateLoadLogic = false;
 
     //Select the image
@@ -750,6 +739,17 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+            switch (uUnitId)
+            {
+            case 0x0E: //Shin Gouki: only have two versions in this game
+            {
+                nSrcAmt = 2;
+                break;
+            }
+            default:
+                break;
+            }
 
             if (paletteDataSet->pPalettePairingInfo)
             {

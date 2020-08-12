@@ -907,28 +907,28 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_LP_PALETTES[] =
 {
-    { _T("LP Main"), 0x703700, 0x703780, 0x0e, 0x00 },
-    { _T("LP Portrait"), 0x764820, 0x764840, 0x0e, 0x01 },
+    { _T("LP Main"), 0x703700, 0x703780, 0x0D, 0x00 },
+    { _T("LP Portrait"), 0x764820, 0x764840, 0x0D, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_MP_PALETTES[] =
 {
-    { _T("MP Main"), 0x703780, 0x703800, 0x0e, 0x00 },
-    { _T("MP Portrait"), 0x764840, 0x764860, 0x0e, 0x01 },
+    { _T("MP Main"), 0x703780, 0x703800, 0x0D, 0x00 },
+    { _T("MP Portrait"), 0x764840, 0x764860, 0x0D, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_Support_PALETTES[] =
 {
-    { _T("EX Attack (1)"), 0x765500, 0x765580, 0x0e, 0 },
-    { _T("EX Attack (2)"), 0x76b500, 0x76b580, 0x0e, 0 },
-    { _T("????"), 0x769400, 0x769480, 0x0e, 0 },
-    { _T("????"), 0x769480, 0x769500, 0x0e, 0 },
-    { _T("????"), 0x769500, 0x769580, 0x0e, 0 },
-    { _T("????"), 0x769580, 0x769600, 0x0e, 0 },
-    { _T("????"), 0x769600, 0x769680, 0x0e, 0 },
-    { _T("????"), 0x769680, 0x769700, 0x0e, 0 },
-    { _T("????"), 0x769700, 0x769780, 0x0e, 0 },
-    { _T("????"), 0x769780, 0x769800, 0x0e, 0 },
+    { _T("EX Attack (1)"), 0x765500, 0x765580, 0x0D, 0 },
+    { _T("EX Attack (2)"), 0x76b500, 0x76b580, 0x0D, 0 },
+    { _T("????"), 0x769400, 0x769480, 0x0D, 0 },
+    { _T("????"), 0x769480, 0x769500, 0x0D, 0 },
+    { _T("????"), 0x769500, 0x769580, 0x0D, 0 },
+    { _T("????"), 0x769580, 0x769600, 0x0D, 0 },
+    { _T("????"), 0x769600, 0x769680, 0x0D, 0 },
+    { _T("????"), 0x769680, 0x769700, 0x0D, 0 },
+    { _T("????"), 0x769700, 0x769780, 0x0D, 0 },
+    { _T("????"), 0x769780, 0x769800, 0x0D, 0 },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_LP_PALETTES[] =
