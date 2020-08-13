@@ -1,10 +1,8 @@
 #pragma once
 
-#define SFIII3_D_NUMUNIT 0x14
-
-const TCHAR SFIII3_D_UNITDESC[SFIII3_D_NUMUNIT][16] = 
+const TCHAR SFIII3_D_UNITDESC[][16] = 
 {
-    //"Gill"),        //0x
+    //"Gill"),        //0x00 on disc
     _T("Alex"),          //0x00 
     _T("Ryu"),           //0x01
     _T("Yun"),           //0x02
@@ -19,13 +17,15 @@ const TCHAR SFIII3_D_UNITDESC[SFIII3_D_NUMUNIT][16] =
     _T("Sean"),          //0x0B
     _T("Urien"),         //0x0C
     _T("Gouki"),         //0x0D
-    _T("Shin-Gouki"),    //0x0E  // Shin-Gouki is not present on the Dreamcast
+    //_T("Shin-Gouki"),    //0x0E  // Shin-Gouki is not present on the Dreamcast
     _T("Chun-Li"),       //0x0F
     _T("Makoto"),        //0x10
     _T("Q"),             //0x11
     _T("Twelve"),        //0x12
     _T("Remy")           //0x13
 };
+
+constexpr auto SFIII3_D_NUMUNIT = ARRAYSIZE(SFIII3_D_UNITDESC);
 
 const UINT8 SFIII3_D_UNITSORT[SFIII3_D_NUMUNIT] = //Plus 1 for the extra palettes
 {
@@ -44,8 +44,7 @@ const UINT8 SFIII3_D_UNITSORT[SFIII3_D_NUMUNIT] = //Plus 1 for the extra palette
     0x13, 
     0x01, 
     0x0B, 
-    // BUGBUG: This glitch results in Alex showing twice.
-    0x0E,  // Shin-Gouki is not present nor available on DC.
+    //0x0E,  // Shin-Gouki is not present nor available on DC.
     0x12, 
     0x0C, 
     0x09, 

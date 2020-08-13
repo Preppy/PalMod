@@ -8,7 +8,7 @@ constexpr auto JOJOS_Arcade_ROM_Base = _T("jojoba-simm5.");
 #define JOJOS_RERIP_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 
 CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR(UINT32 nConfirmedROMSize, int nJojosModeToLoad) :
-        CGame_JOJOS_A(0x800000, nJojosModeToLoad)
+        CGame_JOJOS_A(0x800000, nJojosModeToLoad)   // Let Jojos know that it's safe to load extras.
 {
     OutputDebugString(_T("CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR: Loading from SIMM directory\n"));
     nGameFlag = (nJojosModeToLoad == 50) ? JOJOS_A_DIR_50 : JOJOS_A_DIR_51;
@@ -120,11 +120,11 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
             if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
                 m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+                memset(m_pppDataBuffer[nUnitCtr], NULL, sizeof(UINT16*) * nPalAmt);
             }
 
             // These are already sorted, no need to redirect
             rgUnitRedir[nUnitCtr] = nUnitCtr;
-
 
             for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
@@ -154,6 +154,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     }
 
                     m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+                    memset(m_pppDataBuffer[nUnitCtr][nPalCtr], NULL, sizeof(UINT16) * m_nCurrentPaletteSize);
 
                     LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);

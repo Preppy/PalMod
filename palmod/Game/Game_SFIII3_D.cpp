@@ -121,30 +121,6 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
                 _stprintf(ChildNode->szDesc, _T("Palette %02X"), nChildCtr);
 
                 ChildNode->uPalId = nChildCtr;
-
-                //Set each button's node
-                ///////////////////////////////////////////////////////////////////////
-
-                /*
-
-                ChildNode = &((sDescNode *)ButtonNode->ChildNodes)[nChildCtr];
-
-                ChildNode->uUnitId = iUnitCtr;
-
-                if (nChildCtr)
-                {
-                    _stprintf(ChildNode->szDesc, _T("%s Color Alternate"), DEF_BUTTONLABEL7[iButtonCtr]);
-
-                    ChildNode->uPalId = nChildCtr * BUTTON7 + iButtonCtr;
-                }
-                else
-                {
-                    _stprintf(ChildNode->szDesc, _T("%s Color"), DEF_BUTTONLABEL7[iButtonCtr]);
-
-                    ChildNode->uPalId = iButtonCtr;
-                }
-
-                */
             }
         }
     }
@@ -157,7 +133,13 @@ sFileRule CGame_SFIII3_D::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // We get extra data from GameClass that we don't want: clear the lead 0xFF00 flag if present.
-    const UINT16 nRuleId = (nUnitId & 0x00FF) + 1;
+    UINT16 nRuleId = (nUnitId & 0x00FF) + 1;
+
+    if (nRuleId > 14)
+    {
+        // Shin-Gouki doesn't exist
+        nRuleId++;
+    }
 
     _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("PL%02dPL.BIN"), nRuleId);
 
@@ -298,6 +280,11 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     //Change the image id if we need to
     nTargetImgId = 0;
     UINT16 nImgUnitId = uUnitId;
+
+    if (nImgUnitId > 13) // Account for the missing Shin-Gouki file that has shifted all following units by one
+    {
+        nImgUnitId++;
+    }
 
     int nSrcStart = 0;
     int nSrcAmt = 7;//GetBasicAmt(uUnitId);

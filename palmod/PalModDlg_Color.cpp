@@ -515,35 +515,38 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
     break;
     }
 
-    TargetSlider->SetPos((int)round(*editControl / nColMul));
+    int nOldPos = TargetSlider->GetPos();
+    int nNewPos = (int)round(*editControl / nColMul);
 
-    UpdatePalSel();
+    if (nOldPos != nNewPos)
+    {
+        ProcChange();
 
-    UpdateData(FALSE);
+        TargetSlider->SetPos(nNewPos);
+
+        UpdatePalSel();
+
+        UpdateData(FALSE);
+    }
 }
 
 void CPalModDlg::OnKillFocusEditRh()
 {
-    // TODO: Add your control notification handler code here
     UpdateEditKillFocus(IDC_EDIT_RH);
 }
 
 void CPalModDlg::OnKillFocusEditGS()
 {
-    // TODO: Add your control notification handler code here
     UpdateEditKillFocus(IDC_EDIT_GS);
 }
 
 void CPalModDlg::OnKillFocusEditBL()
 {
-
-    // TODO:  Add your control notification handler code here
     UpdateEditKillFocus(IDC_EDIT_BL);
 }
 
 void CPalModDlg::OnKillFocusEditA()
 {
-    // TODO: Add your control notification handler code here
     UpdateEditKillFocus(IDC_EDIT_A);
 }
 

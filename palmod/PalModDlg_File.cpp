@@ -388,7 +388,7 @@ void CPalModDlg::OnFileOpen()
         { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },
         { MVC_A, _T("MVC mvc.06|*.06|"), INVALID_UNIT_VALUE },
         { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|*.dat;*.bin|"), INVALID_UNIT_VALUE },
-        { SAMSHO5SP_A, _T("Samurai Shodown 5 Special|272-p1.p1;p1*.bin|"), INVALID_UNIT_VALUE},
+        { SAMSHO5SP_A, _T("Samurai Shodown 5 Special|272-p1*.p1;p1*.bin|"), INVALID_UNIT_VALUE},
         { SFIII3_A, _T("SFIII3 51 Rom|51|"), INVALID_UNIT_VALUE },
         { SFA2_A, _T("SFA2: Characters (sz*.07), Bonus (sz*.08)|*.07;*.08|"), INVALID_UNIT_VALUE },
         { SFA3_A, _T("SFA3 sz3.09c|*.09c|"), INVALID_UNIT_VALUE },

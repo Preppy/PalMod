@@ -535,6 +535,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
 
     CFile CurrFile;
     CString szCurrFile;
+    bool fShownFileError = false;
 
     //Track load save count
     nSaveLoadCount = 0;
@@ -594,7 +595,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
         }
         else
         {
-            if ((nGameFlag == SFIII3_D) && (nCurrRuleCtr == 0xE))
+            if ((nGameFlag == SFIII3_D) && (nCurrRuleCtr == 0x21))
             {
                 OutputDebugString(_T("CGameLoad::LoadDir : Gouki doesn't exist for SF3-DC: skipping.\n"));
                 nSaveLoadSucc++;
@@ -612,6 +613,14 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
             }
             else
             {
+                if (!fShownFileError)
+                {
+                    fShownFileError = true;
+                    CString strError;
+                    strError.Format(_T("Could not find file \"%s\" needed for this game."), szCurrFile);
+                    MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+                }
+
                 nSaveLoadErr++;
             }
         }

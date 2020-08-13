@@ -5,7 +5,8 @@ UINT16 CGame_SFIII3_A_DIR::uRuleCtr = 0;
 
 constexpr auto SFIII_Arcade_ROM_Base = _T("sfiii3-simm5.");
 
-CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize)
+CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize) :
+    CGame_SFIII3_A(0x800000) // Let the core game know it's safe to load Extras
 {
     nGameFlag = SFIII3_A_DIR;
     nFileAmt = 8;
@@ -79,6 +80,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nROMNumber)
             if (pppDataBuffer[nUnitCtr] == nullptr)
             {
                 pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+                memset(pppDataBuffer[nUnitCtr], NULL, sizeof(UINT16 *) * nPalAmt);
             }
 
             rgUnitRedir[nUnitCtr] = SFIII3_A_UNITSORT[nUnitCtr];
@@ -91,6 +93,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nROMNumber)
                 {
                     nCurrPalOffs = (nCurrPalOffs / 2) - c_nSFIII3RomLength;
                     pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+                    memset(pppDataBuffer[nUnitCtr][nPalCtr], NULL, sizeof(UINT16) * m_nCurrentPaletteSize);
 
                     LoadedFile->Seek(nCurrPalOffs, CFile::begin);
                     FilePeer.Seek(nCurrPalOffs, CFile::begin);

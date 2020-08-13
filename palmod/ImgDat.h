@@ -11,7 +11,6 @@ private:
 
     std::map<UINT8, ImgInfoList*>* nImgMap = nullptr;
 
-    UINT16 nCurGameUnitAmt = 0x0000;
     UINT16 nCurGameImgAmt = 0x0000;
 
     UINT16 nCurGameFlag = 0xFFFF;
@@ -24,7 +23,7 @@ private:
 
     bool imageBufferFlushed = false;
     bool imageBufferPrepped = false;
-    bool PrepImageBuffer(UINT16 uGameUnitAmt, UINT8 uGameFlag);
+    bool PrepImageBuffer(UINT16 nGameImageUnitAmt, UINT8 uGameFlag);
     bool sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag);
     void getBMRLEData(UINT8 chunkSize, UINT8* inputData, UINT8* output_data, UINT32& i_byteCtr, UINT32& o_dataCtr);
 

@@ -331,21 +331,12 @@ UINT8 CPalGroup::ROUND_8(UINT8 rVal)
 
 UINT8 CPalGroup::ROUND_17(UINT8 rVal)
 {
-    int j;
+    UINT8 outVal = (UINT8)(round(rVal / 17.0)) * 17;
 
-    if (rVal - ((rVal / 17) * 17) >= 17 / 2)
-    {
-        j = 1;
-    }
-    else
-    {
-        j = 0;
-    }
-
-    return ((rVal / 17) + j) * 17;
+    return outVal;
 }
 
 extern int LimitVal(int nVal, int nHI, int nLO)
 {
-    return (nVal > nHI ? nHI : (nVal < nLO ? nLO : nVal));
+    return ((nVal > nHI) ? nHI : ((nVal < nLO) ? nLO : nVal));
 }

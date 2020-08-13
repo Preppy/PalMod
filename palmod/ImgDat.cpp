@@ -57,14 +57,13 @@ bool CImgDat::FlushImageBuffer()
     return true;
 }
 
-bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
+bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameFlag)
 {
     if (!imageBufferFlushed)
     {
         imageBufferFlushed = FlushImageBuffer();
     }
 
-    nCurGameUnitAmt = uGameUnitAmt;
     nImgMap = new  std::map<UINT8, ImgInfoList*>;
 
 #if IMGDAT_DEBUG
@@ -103,7 +102,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 uGameUnitAmt, const UINT8 uGameFlag)
     SAMSHO5SP_A,
     MVC2_A_DIR,
     */
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nCurGameUnitAmt; nUnitCtr++)
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nGameImageUnitAmt; nUnitCtr++)
     {
         switch (uGameFlag)
         {
@@ -484,7 +483,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
     CString strDebugInfo;
     strDebugInfo.Format(_T("CImgDat::LoadImage : Opening image file '%s'\n"), lpszLoadFile);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format(_T("CImgDat::LoadImage : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  Reading 0x%x (%u) units with %u images.\n"), uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, uGameUnitAmt, uImgUnitAmt);
+    strDebugInfo.Format(_T("CImgDat::LoadImage : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n"), uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, uGameUnitAmt, uImgUnitAmt);
     OutputDebugString(strDebugInfo);
 
     if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag))
@@ -549,7 +548,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
                     imageBufferFlushed = FlushImageBuffer();
                 }
 
-                imageBufferPrepped = PrepImageBuffer(uGameUnitAmt, uGameFlag);
+                imageBufferPrepped = PrepImageBuffer(uImgUnitAmt, uGameFlag);
 
                 while (uReadNextImgLoc != 0)
                 {

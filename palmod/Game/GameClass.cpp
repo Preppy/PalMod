@@ -414,12 +414,12 @@ UINT16 CGameClass::CONV_32_NEOGEO(UINT32 inCol)
 
     UINT16 darkbit = (IsNEOGEOColorDark(red, green, blue) ? 0x1 : 0x0) << 0xf;
 
-    UINT16 red1 =      ((UINT8)round(red / 2.0) & 0x1) << 0xe;
-    UINT16 redMain =   ((UINT8)round(red / 4.0) & 0xf) << 0x8;
-    UINT16 green1 =    ((UINT8)round(green / 2.0) & 0x1) << 0xd;
-    UINT16 greenMain = ((UINT8)round(green / 4.0) & 0xf) << 0x4;
-    UINT16 blue1 =     ((UINT8)round(blue / 2.0) & 0x1) << 0xc;
-    UINT16 blueMain =  ((UINT8)round(blue / 4.0) & 0xf) << 0x0;
+    UINT16 red1 =      ((red / 2) & 0x1) << 0xe;
+    UINT16 redMain =   ((red / 4) & 0xf) << 0x8;
+    UINT16 green1 =    ((green / 2) & 0x1) << 0xd;
+    UINT16 greenMain = ((green / 4) & 0xf) << 0x4;
+    UINT16 blue1 =     ((blue / 2) & 0x1) << 0xc;
+    UINT16 blueMain =  ((blue / 4) & 0xf) << 0x0;
 
     UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
     //CString strColor;
