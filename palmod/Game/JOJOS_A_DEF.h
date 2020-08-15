@@ -327,7 +327,6 @@ const sDescTreeNode JOJOS_A_50_HUD_COLLECTION[]
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_ALOCKUP[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("A Lockup (1/7)"), 0x07c3000, 0x07c3200 },
     { _T("A Lockup (2/7)"), 0x07c3200, 0x07c3400 },
     { _T("A Lockup (3/7)"), 0x07c3400, 0x07c3600 },
@@ -335,28 +334,20 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_ALOCKUP[] =
     { _T("A Lockup (5/7)"), 0x07c3800, 0x07c3a00 },
     { _T("A Lockup (6/7)"), 0x07c3a00, 0x07c3c00 },
     { _T("A Lockup (7/7)"), 0x07c3c00, 0x07c3d80 },
-#else
-    { _T("A Lockup"), 0x07c3000, 0x07c3d80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_AHEALTHROOM[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("A Health Room (1/6)"), 0x07c3e00, 0x07c4000 },
     { _T("A Health Room (2/6)"), 0x07c4000, 0x07c4200 },
     { _T("A Health Room (3/6)"), 0x07c4200, 0x07c4400 },
     { _T("A Health Room (4/6)"), 0x07c4400, 0x07c4600 },
     { _T("A Health Room (5/6)"), 0x07c4600, 0x07c4800 },
     { _T("A Health Room (6/6)"), 0x07c4800, 0x07c4900 },
-#else
-    { _T("A Health Room"), 0x07c3e00, 0x07c4900 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_AIRPLANE[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("In A Airplane (1/17)"), 0x07c4a00, 0x07c4c00 },
     { _T("In A Airplane (2/17)"), 0x07c4c00, 0x07c4e00 },
     { _T("In A Airplane (3/17)"), 0x07c4e00, 0x07c5000 },
@@ -374,28 +365,21 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_AIRPLANE[] =
     { _T("In A Airplane (15/17)"), 0x07c6600, 0x07c6800 },
     { _T("In A Airplane (16/17)"), 0x07c6800, 0x07c6a00 },
     { _T("In A Airplane (17/17)"), 0x07c6a00, 0x07c6b80 },
-#else
-    { _T("In A Airplane"), 0x07c4a00, 0x07c6b80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_TGARDEN[] =
 {
-#ifndef USE_LARGE_PALETTES
-    { _T("Tigerbaum Garden (1/11)"), 0x07c6c00, 0x07c6e00 },
-    { _T("Tigerbaum Garden (2/11)"), 0x07c6e00, 0x07c7000 },
-    { _T("Tigerbaum Garden (3/11)"), 0x07c7000, 0x07c7200 },
-    { _T("Tigerbaum Garden (4/11)"), 0x07c7200, 0x07c7400 },
-    { _T("Tigerbaum Garden (5/1)"), 0x07c7400, 0x07c7600 },
-    { _T("Tigerbaum Garden (6/11)"), 0x07c7600, 0x07c7800 },
-    { _T("Tigerbaum Garden (7/11)"), 0x07c7800, 0x07c7a00 },
-    { _T("Tigerbaum Garden (8/11)"), 0x07c7a00, 0x07c7c00 },
-    { _T("Tigerbaum Garden (9/11)"), 0x07c7c00, 0x07c7e00 },
-    { _T("Tigerbaum Garden (10/11)"), 0x07c7e00, 0x07c8000 },
-    { _T("Tigerbaum Garden (11/11)"), 0x07c8000, 0x07c8200 },
-#else
-    { _T("Tigerbaum Garden"), 0x07c6c00, 0x07c8200 },
-#endif
+    { _T("Tigerbaum Garden (1/11)"), 0x07c6c00, 0x07c6e00, indexJojos51Stages, 0x1e },
+    { _T("Tigerbaum Garden (2/11)"), 0x07c6e00, 0x07c7000, indexJojos51Stages, 0x1f },
+    { _T("Tigerbaum Garden (3/11)"), 0x07c7000, 0x07c7200, indexJojos51Stages, 0x20 },
+    { _T("Tigerbaum Garden (4/11)"), 0x07c7200, 0x07c7400, indexJojos51Stages, 0x21 },
+    { _T("Tigerbaum Garden (5/11)"), 0x07c7400, 0x07c7600, indexJojos51Stages, 0x22 },
+    { _T("Tigerbaum Garden (6/11)"), 0x07c7600, 0x07c7800, indexJojos51Stages, 0x23 },
+    { _T("Tigerbaum Garden (7/11)"), 0x07c7800, 0x07c7a00, indexJojos51Stages, 0x24 },
+    { _T("Tigerbaum Garden (8/11)"), 0x07c7a00, 0x07c7c00, indexJojos51Stages, 0x25 },
+    { _T("Tigerbaum Garden (9/11)"), 0x07c7c00, 0x07c7e00, indexJojos51Stages, 0x26 },
+    { _T("Tigerbaum Garden (10/11)"), 0x07c7e00, 0x07c8000, indexJojos51Stages, 0x27 },
+    { _T("Tigerbaum Garden (11/11)"), 0x07c8000, 0x07c8200, indexJojos51Stages, 0x28 },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_HOTELD[] =
@@ -411,7 +395,6 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_HOTELD[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_REMAINS[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Remains (1/9)"), 0x07c9f80, 0x07ca180 },
     { _T("Remains (2/9)"), 0x07ca180, 0x07ca380 },
     { _T("Remains (3/9)"), 0x07ca380, 0x07ca580 },
@@ -421,14 +404,10 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_REMAINS[] =
     { _T("Remains (7/9)"), 0x07cab80, 0x07cad80 },
     { _T("Remains (8/9)"), 0x07cad80, 0x07caf80 },
     { _T("Remains (9/9)"), 0x07caf80, 0x07cb180 },
-#else
-    { _T("Remains"), 0x07c9f80, 0x07cb180 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_HOTELJ[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Hotel (Justice) (1/8)"), 0x07cc500, 0x07cc700 },
     { _T("Hotel (Justice) (2/8)"), 0x07cc700, 0x07cc900 },
     { _T("Hotel (Justice) (3/8)"), 0x07cc900, 0x07ccb00 },
@@ -437,14 +416,10 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_HOTELJ[] =
     { _T("Hotel (Justice) (6/8)"), 0x07ccf00, 0x07cd100 },
     { _T("Hotel (Justice) (7/8)"), 0x07cd100, 0x07cd300 },
     { _T("Hotel (Justice) (8/8)"), 0x07cd300, 0x07cd380 },
-#else
-    { _T("Hotel (Justice)"), 0x07cc500, 0x07cd380 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_AMPARK[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Amusement Park (1/27)"), 0x07cd400, 0x07cd600 },
     { _T("Amusement Park (2/27)"), 0x07cd600, 0x07cd800 },
     { _T("Amusement Park (3/27)"), 0x07cd800, 0x07cda00 },
@@ -472,56 +447,40 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_AMPARK[] =
     { _T("Amusement Park (25/27)"), 0x07d0400, 0x07d0600 },
     { _T("Amusement Park (26/27)"), 0x07d0600, 0x07d0800 },
     { _T("Amusement Park (27/27)"), 0x07d0800, 0x07d0900 },
-#else
-    { _T("Amusement Park"), 0x07cd400, 0x07d0900 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SISLAND[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Small Island (1/6)"), 0x07d0a00, 0x07d0c00, indexJojos51Stages, 0x18 },
     { _T("Small Island (2/6)"), 0x07d0c00, 0x07d0e00, indexJojos51Stages, 0x19 },
     { _T("Small Island (3/6)"), 0x07d0e00, 0x07d1000, indexJojos51Stages, 0x1A },
     { _T("Small Island (4/6)"), 0x07d1000, 0x07d1200, indexJojos51Stages, 0x1B },
     { _T("Small Island (5/6)"), 0x07d1200, 0x07d1400, indexJojos51Stages, 0x1C },
     { _T("Small Island (6/6)"), 0x07d1400, 0x07d1600, indexJojos51Stages, 0x1D },
-#else
-    { _T("Small Island"), 0x07d0a00, 0x07d1600 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DNOON[] =
 {
-#ifndef USE_LARGE_PALETTES
-    { _T("Desert Noon (1/7)"), 0x07d3100, 0x07d3300 },
+    { _T("Desert Noon (1/7)"), 0x07d3100, 0x07d3300, indexJojos51Stages, 0x0b },
     { _T("Desert Noon (2/7)"), 0x07d3300, 0x07d3500 },
-    { _T("Desert Noon (3/7)"), 0x07d3500, 0x07d3700 },
+    { _T("Desert Noon (3/7)"), 0x07d3500, 0x07d3700, indexJojos51Stages, 0x0c },
     { _T("Desert Noon (4/7)"), 0x07d3700, 0x07d3900 },
-    { _T("Desert Noon (5/7)"), 0x07d3900, 0x07d3b00 },
-    { _T("Desert Noon (6/7)"), 0x07d3b00, 0x07d3d00 },
-    { _T("Desert Noon (7/7)"), 0x07d3d00, 0x07d3f00 },
-#else
-    { _T("Desert Noon"), 0x07d3100, 0x07d3f00 },
-#endif
+    { _T("Desert Noon (5/7)"), 0x07d3900, 0x07d3b00, indexJojos51Stages, 0x0d },
+    { _T("Desert Noon (6/7)"), 0x07d3b00, 0x07d3d00, indexJojos51Stages, 0x0e },
+    { _T("Desert Noon (7/7)"), 0x07d3d00, 0x07d3f00, indexJojos51Stages, 0x0f },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_RUIN[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Ruins (1/5)"), 0x07d6d00, 0x07d6f00 },
     { _T("Ruins (2/5)"), 0x07d6f00, 0x07d7100 },
     { _T("Ruins (3/5)"), 0x07d7100, 0x07d7300 },
     { _T("Ruins (4/5)"), 0x07d7300, 0x07d7500 },
     { _T("Ruins (5/5)"), 0x07d7500, 0x07d7700 },
-#else
-    { _T("Ruins"), 0x07d6d00, 0x07d7700 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CTNOON[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Country Town Noon (1/21)"), 0x07d8300, 0x07d8500 },
     { _T("Country Town Noon (2/21)"), 0x07d8500, 0x07d8700 },
     { _T("Country Town Noon (3/21)"), 0x07d8700, 0x07d8900 },
@@ -543,14 +502,10 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CTNOON[] =
     { _T("Country Town Noon (19/21)"), 0x07da700, 0x07da900 },
     { _T("Country Town Noon (20/21)"), 0x07da900, 0x07dab00 },
     { _T("Country Town Noon (21/21)"), 0x07dab00, 0x07dac80 },
-#else
-    { _T("Country Town Noon"), 0x07d8300, 0x07dac80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_UWATER[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Underground Water (1/8)"), 0x07e0100, 0x07e0300 },
     { _T("Underground Water (2/8)"), 0x07e0300, 0x07e0500 },
     { _T("Underground Water (3/8)"), 0x07e0500, 0x07e0700 },
@@ -559,14 +514,10 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_UWATER[] =
     { _T("Underground Water (6/8)"), 0x07e0b00, 0x07e0d00 },
     { _T("Underground Water (7/8)"), 0x07e0d00, 0x07e0f00 },
     { _T("Underground Water (8/8)"), 0x07e0f00, 0x07e1100 },
-#else
-    { _T("Underground Water"), 0x07e0100, 0x07e1100 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_INHOUSE[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Inside House (1/8)"), 0x07e2300, 0x07e2500 },
     { _T("Inside House (2/8)"), 0x07e2500, 0x07e2700 },
     { _T("Inside House (3/8)"), 0x07e2700, 0x07e2900 },
@@ -575,39 +526,27 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_INHOUSE[] =
     { _T("Inside House (6/8)"), 0x07e2d00, 0x07e2f00 },
     { _T("Inside House (7/8)"), 0x07e2f00, 0x07e3100 },
     { _T("Inside House (8/8)"), 0x07e3100, 0x07e3200 },
-#else
-    { _T("Inside House"), 0x07e2300, 0x07e3200 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CROOM[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Coffin Room (1/6)"), 0x07e4300, 0x07e4500, indexJojos51Stages, 0x5 },
-    { _T("Coffin Room (2/6)"), 0x07e4500, 0x07e4700, indexJojos51Stages, 0x6},
+    { _T("Coffin Room (2/6)"), 0x07e4500, 0x07e4700, indexJojos51Stages, 0x6 },
     { _T("Coffin Room (3/6)"), 0x07e4700, 0x07e4900, indexJojos51Stages, 0x7 },
     { _T("Coffin Room (4/6)"), 0x07e4900, 0x07e4b00, indexJojos51Stages, 0x8 },
-    { _T("Coffin Room (5/6)"), 0x07e4b00, 0x07e4d00, indexJojos51Stages, 0x9 },
+    { _T("Coffin Room (5/6)"), 0x07e4b00, 0x07e4d00, indexJojos51Stages, 0x9 }, // This and the next are weird characters
     { _T("Coffin Room (6/6)"), 0x07e4d00, 0x07e4e00, indexJojos51Stages, 0xa },
-#else
-    { _T("Coffin Room"), 0x07e4300, 0x07e4e00 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CLOCK[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Clock Tower (1/3)"), 0x07e5b00, 0x07e5d00, indexJojos51Stages, 0 },
     { _T("Clock Tower (2/3)"), 0x07e5d00, 0x07e5f00, indexJojos51Stages, 0x1 },
     { _T("Clock Tower (3/3)"), 0x07e5f00, 0x07e6100, indexJojos51Stages, 0x2 },
-#else
-    { _T("Clock Tower"), 0x07e5b00, 0x07e6100 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Suburbs (1/22)"), 0x07e6900, 0x07e6b00 },
     { _T("Suburbs (2/22)"), 0x07e6b00, 0x07e6d00 },
     { _T("Suburbs (3/22)"), 0x07e6d00, 0x07e6f00 },
@@ -630,24 +569,16 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB[] =
     { _T("Suburbs (20/22)"), 0x07e8f00, 0x07e9100 },
     { _T("Suburbs (21/22)"), 0x07e9100, 0x07e9300 },
     { _T("Suburbs (22/22)"), 0x07e9300, 0x07e9480 },
-#else
-    { _T("Suburbs"), 0x07e6900, 0x07e9480 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_OTBRIDGE[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("On The Bridge (1/2)"), 0x07eed00, 0x07eef00, indexJojos51Stages, 0x3 },
     { _T("On The Bridge (2/2)"), 0x07eef00, 0x07ef100, indexJojos51Stages, 0x4 },
-#else
-    { _T("On The Bridge"), 0x07eed00, 0x07ef100 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CTTWILIGHT[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Country Town Twilight (1/21)"), 0x07dad00, 0x07daf00 },
     { _T("Country Town Twilight (2/21)"), 0x07daf00, 0x07db100 },
     { _T("Country Town Twilight (3/21)"), 0x07db100, 0x07db300 },
@@ -669,46 +600,34 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CTTWILIGHT[] =
     { _T("Country Town Twilight (19/21)"), 0x07dd100, 0x07dd300 },
     { _T("Country Town Twilight (20/21)"), 0x07dd300, 0x07dd500 },
     { _T("Country Town Twilight (21/21)"), 0x07dd500, 0x07dd680 },
-#else
-    { _T("Country Town Twilight"), 0x07dad00, 0x07dd680 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DMORNING[] =
 {
-#ifndef USE_LARGE_PALETTES
-    { _T("Desert Morning (1/8)"), 0x07d4000, 0x07d4200 },
+    { _T("Desert Morning (1/8)"), 0x07d4000, 0x07d4200, indexJojos51Stages, 0x0b },
     { _T("Desert Morning (2/8)"), 0x07d4200, 0x07d4400 },
-    { _T("Desert Morning (3/8)"), 0x07d4400, 0x07d4600 },
+    { _T("Desert Morning (3/8)"), 0x07d4400, 0x07d4600, indexJojos51Stages, 0x0c },
     { _T("Desert Morning (4/8)"), 0x07d4600, 0x07d4800 },
-    { _T("Desert Morning (5/8)"), 0x07d4800, 0x07d4a00 },
-    { _T("Desert Morning (6/8)"), 0x07d4a00, 0x07d4c00 },
-    { _T("Desert Morning (7/8)"), 0x07d4c00, 0x07d4e00 },
+    { _T("Desert Morning (5/8)"), 0x07d4800, 0x07d4a00, indexJojos51Stages, 0x0d },
+    { _T("Desert Morning (6/8)"), 0x07d4a00, 0x07d4c00, indexJojos51Stages, 0x0e },
+    { _T("Desert Morning (7/8)"), 0x07d4c00, 0x07d4e00, indexJojos51Stages, 0x0f },
     { _T("Desert Morning (8/8)"), 0x07d4e00, 0x07d4e80 },
-#else
-    { _T("Desert Morning"), 0x07d4000, 0x07d4e80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DTWILIGHT[] =
 {
-#ifndef USE_LARGE_PALETTES
-    { _T("Desert Twilight (1/8)"), 0x07d5e00, 0x07d6000 },
+    { _T("Desert Twilight (1/8)"), 0x07d5e00, 0x07d6000, indexJojos51Stages, 0x0b },
     { _T("Desert Twilight (2/8)"), 0x07d6000, 0x07d6200 },
-    { _T("Desert Twilight (3/8)"), 0x07d6200, 0x07d6400 },
+    { _T("Desert Twilight (3/8)"), 0x07d6200, 0x07d6400, indexJojos51Stages, 0x0c },
     { _T("Desert Twilight (4/8)"), 0x07d6400, 0x07d6600 },
-    { _T("Desert Twilight (5/8)"), 0x07d6600, 0x07d6800 },
-    { _T("Desert Twilight (6/8)"), 0x07d6800, 0x07d6a00 },
-    { _T("Desert Twilight (7/8)"), 0x07d6a00, 0x07d6c00 },
-    { _T("Desert Twilight (8/8)"), 0x07d6c00, 0x07d6c80 },
-#else
-    { _T("Desert Twilight"), 0x07d5e00, 0x07d6c80 },
-#endif
+    { _T("Desert Twilight (5/8)"), 0x07d6600, 0x07d6800, indexJojos51Stages, 0x0d },
+    { _T("Desert Twilight (6/8)"), 0x07d6800, 0x07d6a00, indexJojos51Stages, 0x0e },
+    { _T("Desert Twilight (7/8)"), 0x07d6a00, 0x07d6c00, indexJojos51Stages, 0x0f },
+    { _T("Desert Twilight (8/8)"), 0x07d6c00, 0x07d6c80},
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DNIGHT[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Desert Night (1/8)"), 0x07d4f00, 0x07d5100, indexJojos51Stages, 0xb },
     { _T("Desert Night (2/8)"), 0x07d5100, 0x07d5300 },
     { _T("Desert Night (3/8)"), 0x07d5300, 0x07d5500, indexJojos51Stages, 0xc },
@@ -717,28 +636,20 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DNIGHT[] =
     { _T("Desert Night (6/8)"), 0x07d5900, 0x07d5b00, indexJojos51Stages, 0xe },
     { _T("Desert Night (7/8)"), 0x07d5b00, 0x07d5d00, indexJojos51Stages, 0xf },
     { _T("Desert Night (8/8)"), 0x07d5d00, 0x07d5d80, indexJojos51Stages, 0x10 },
-#else
-    { _T("Desert Night"), 0x07d4f00, 0x07d5d80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SISLANDJ[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Small Island (Joseph) (1/6)"), 0x07d1700, 0x07d1900, indexJojos51Stages, 0x18 },
     { _T("Small Island (Joseph) (2/6)"), 0x07d1900, 0x07d1b00, indexJojos51Stages, 0x19 },
     { _T("Small Island (Joseph) (3/6)"), 0x07d1b00, 0x07d1d00, indexJojos51Stages, 0x1a },
     { _T("Small Island (Joseph) (4/6)"), 0x07d1d00, 0x07d1f00, indexJojos51Stages, 0x1b },
     { _T("Small Island (Joseph) (5/6)"), 0x07d1f00, 0x07d2100, indexJojos51Stages, 0x1c },
     { _T("Small Island (Joseph) (6/6)"), 0x07d2100, 0x07d2300, indexJojos51Stages, 0x1d },
-#else
-    { _T("Small Island (Joseph)"), 0x07d1700, 0x07d2300 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CTNIGHT[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Country Town Night (1/21)"), 0x07dd700, 0x07dd900 },
     { _T("Country Town Night (2/21)"), 0x07dd900, 0x07ddb00 },
     { _T("Country Town Night (3/21)"), 0x07ddb00, 0x07ddd00 },
@@ -760,14 +671,10 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CTNIGHT[] =
     { _T("Country Town Night (19/21)"), 0x07dfb00, 0x07dfd00 },
     { _T("Country Town Night (20/21)"), 0x07dfd00, 0x07dff00 },
     { _T("Country Town Night (21/21)"), 0x07dff00, 0x07e0080 },
-#else
-    { _T("Country Town Night"), 0x07dd700, 0x07e0080 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB2[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Suburbs 2 (1/22)"), 0x07e9500, 0x07e9700 },
     { _T("Suburbs 2 (2/22)"), 0x07e9700, 0x07e9900 },
     { _T("Suburbs 2 (3/22)"), 0x07e9900, 0x07e9b00 },
@@ -790,14 +697,10 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB2[] =
     { _T("Suburbs 2 (20/22)"), 0x07ebb00, 0x07ebd00 },
     { _T("Suburbs 2 (21/22)"), 0x07ebd00, 0x07ebf00 },
     { _T("Suburbs 2 (22/22)"), 0x07ebf00, 0x07ec080 },
-#else
-    { _T("Suburbs 2"), 0x07e9500, 0x07ec080 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB3[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Suburbs 3 (1/22)"), 0x07ec100, 0x07ec300 },
     { _T("Suburbs 3 (2/22)"), 0x07ec300, 0x07ec500 },
     { _T("Suburbs 3 (3/22)"), 0x07ec500, 0x07ec700 },
@@ -820,14 +723,10 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB3[] =
     { _T("Suburbs 3 (20/22)"), 0x07ee700, 0x07ee900 },
     { _T("Suburbs 3 (21/22)"), 0x07ee900, 0x07eeb00 },
     { _T("Suburbs 3 (22/22)"), 0x07eeb00, 0x07eec80 },
-#else
-    { _T("Suburbs 3"), 0x07ec100, 0x07eec80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW1[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("New 1 (1/10)"), 0x07cb200, 0x07cb400 },
     { _T("New 1 (2/10)"), 0x07cb400, 0x07cb600 },
     { _T("New 1 (3/10)"), 0x07cb600, 0x07cb800 },
@@ -838,14 +737,10 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW1[] =
     { _T("New 1 (8/10)"), 0x07cc000, 0x07cc200 },
     { _T("New 1 (9/10)"), 0x07cc200, 0x07cc400 },
     { _T("New 1 (10/10)"), 0x07cc400, 0x07cc480 },
-#else
-    { _T("New 1"), 0x07cb280, 0x07cc480 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW2[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("New 2 (1/7)"), 0x07c9100, 0x07c9300 },
     { _T("New 2 (2/7)"), 0x07c9300, 0x07c9500 },
     { _T("New 2 (3/7)"), 0x07c9500, 0x07c9700 },
@@ -853,41 +748,29 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW2[] =
     { _T("New 2 (5/7)"), 0x07c9900, 0x07c9b00 },
     { _T("New 2 (6/7)"), 0x07c9b00, 0x07c9d00 },
     { _T("New 2 (7/7)"), 0x07c9d00, 0x07c9e80 },
-#else
-    { _T("New 2"), 0x07c9100, 0x07c9e80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW3[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("New 3 (1/6)"), 0x07d2400, 0x07d2600 },
     { _T("New 3 (2/6)"), 0x07d2600, 0x07d2800 },
     { _T("New 3 (3/6)"), 0x07d2800, 0x07d2a00 },
     { _T("New 3 (4/6)"), 0x07d2a00, 0x07d2c00 },
     { _T("New 3 (5/6)"), 0x07d2c00, 0x07d2e00 },
     { _T("New 3 (6/6)"), 0x07d2e00, 0x07d3000 },
-#else
-    { _T("New 3"), 0x07d2400, 0x07d3000 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW4[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("New 4 (1/5)"), 0x07d7800, 0x07d7a00 },
     { _T("New 4 (2/5)"), 0x07d7a00, 0x07d7c00 },
     { _T("New 4 (3/5)"), 0x07d7c00, 0x07d7e00 },
     { _T("New 4 (4/5)"), 0x07d7e00, 0x07d8000 },
     { _T("New 4 (5/5)"), 0x07d8000, 0x07d8200 },
-#else
-    { _T("New 4"), 0x07d7800, 0x07d8200 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW5[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("New 5 (1/8)"), 0x07e1200, 0x07e1400 },
     { _T("New 5 (2/8)"), 0x07e1400, 0x07e1600 },
     { _T("New 5 (3/8)"), 0x07e1600, 0x07e1800 },
@@ -896,14 +779,10 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW5[] =
     { _T("New 5 (6/8)"), 0x07e1c00, 0x07e1e00 },
     { _T("New 5 (7/8)"), 0x07e1e00, 0x07e2000 },
     { _T("New 5 (8/8)"), 0x07e2000, 0x07e2200 },
-#else
-    { _T("New 5"), 0x07e1200, 0x07e2200 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW6[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("New 6 (1/8)"), 0x07e3300, 0x07e3500 },
     { _T("New 6 (2/8)"), 0x07e3500, 0x07e3700 },
     { _T("New 6 (3/8)"), 0x07e3700, 0x07e3900 },
@@ -912,44 +791,29 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW6[] =
     { _T("New 6 (6/8)"), 0x07e3d00, 0x07e3f00 },
     { _T("New 6 (7/8)"), 0x07e3f00, 0x07e4100 },
     { _T("New 6 (8/8)"), 0x07e4100, 0x07e4200 },
-#else
-    { _T("New 6"), 0x07e3300, 0x07e4200 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW7[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("New 7 (1/6)"), 0x07e4f00, 0x07e5100 },
     { _T("New 7 (2/6)"), 0x07e5100, 0x07e5300 },
     { _T("New 7 (3/6)"), 0x07e5300, 0x07e5500 },
     { _T("New 7 (4/6)"), 0x07e5500, 0x07e5700 },
     { _T("New 7 (5/6)"), 0x07e5700, 0x07e5900 },
     { _T("New 7 (6/6)"), 0x07e5900, 0x07e5a00 },
-#else
-    { _T("New 7"), 0x07e4f00, 0x07e5a00 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW8[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("New 8 (1/3)"), 0x07e6200, 0x07e6400 },
     { _T("New 8 (2/3)"), 0x07e6400, 0x07e6600 },
     { _T("New 8 (2/3)"), 0x07e6600, 0x07e6800 },
-#else
-    { _T("New 8"), 0x07e6200, 0x07e6800 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW9[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("New 9 (1/2)"), 0x07ef200, 0x07ef400 },
     { _T("New 9 (2/2)"), 0x07ef400, 0x07ef600 },
-#else
-    { _T("New 9"), 0x07ef200, 0x07ef600 },
-#endif
 };
 
 const sDescTreeNode JOJOS_A_50_STAGE_COLLECTION[] =
@@ -3215,13 +3079,11 @@ const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_GRAYFLY[] =
 // Note that this is intentionally sorted: don't alphabetize
 const sGame_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
 {
-    { _T("Mode Select Frame"), 0x030d4e0, 0x030d500 },
-    // { _T("Mode Select Text"), 0x0311a90, 0x0311aa0 }, Duplicate of the Game Over Text range
-    { _T("Challenge & Story signs"), 0x030d480, 0x030d4c0 },
-    { _T("Character Select Background"), 0x0310100, 0x0310160 },
-    { _T("Selector Rings"), 0x0310080, 0x03100c0 },
+    { _T("Mode select - Challenge & Story signs"), 0x030d480, 0x030d500 },
+    { _T("Character Select Background"), 0x0310100, 0x0310180 },
+    { _T("Selector Rings"), 0x0310080, 0x0310100 },
     { _T("Character Select Comic"), 0x0310000, 0x0310080 },
-    { _T("Extra characters page arrows"), 0x0310500, 0x0310540 },
+    { _T("Extra characters page arrows"), 0x0310500, 0x0310580 },
     { _T("Vs screen Background"), 0x030d000, 0x030d080 },
     { _T("Win screen Background"), 0x0310200, 0x0310280 },
     { _T("D'Arby"), 0x0311a00, 0x0311a80, indexJojos51Bonus, 0x2C },
@@ -3457,7 +3319,6 @@ const sDescTreeNode JOJOS_A_BONUS_COLLECTION[]
 #pragma region Timestop
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_ALOCKUP[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("A Lockup TS (1/7)"), 0x02d0000, 0x02d0200 },
     { _T("A Lockup TS (2/7)"), 0x02d0200, 0x02d0400 },
     { _T("A Lockup TS (3/7)"), 0x02d0400, 0x02d0600 },
@@ -3465,28 +3326,20 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_ALOCKUP[] =
     { _T("A Lockup TS (5/7)"), 0x02d0800, 0x02d0a00 },
     { _T("A Lockup TS (6/7)"), 0x02d0a00, 0x02d0c00 },
     { _T("A Lockup TS (7/7)"), 0x02d0c00, 0x02d0d80 },
-#else
-    { _T("A Lockup TS"), 0x02d0000, 0x02d0d80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_HEALTH[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("A Health Room TS (1/6)"), 0x02d0e00, 0x02d1000 },
     { _T("A Health Room TS (2/6)"), 0x02d1000, 0x02d1200 },
     { _T("A Health Room TS (3/6)"), 0x02d1200,  0x02d1400 },
     { _T("A Health Room TS (4/6)"), 0x02d1400, 0x02d1600 },
     { _T("A Health Room TS (5/6)"), 0x02d1600, 0x02d1800 },
     { _T("A Health Room TS (6/6)"), 0x02d1800, 0x02d1900 },
-#else
-    { _T("A Health Room TS"), 0x02d0e00, 0x02d1900 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_AIRPLANE[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("In A Airplane TS (1/17)"), 0x02d1a00, 0x02d1c00 },
     { _T("In A Airplane TS (2/17)"), 0x02d1c00, 0x02d1e00 },
     { _T("In A Airplane TS (3/17)"), 0x02d1e00, 0x02d2000 },
@@ -3504,28 +3357,21 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_AIRPLANE[] =
     { _T("In A Airplane TS (15/17)"), 0x02d3600, 0x02d3800 },
     { _T("In A Airplane TS (16/17)"), 0x02d3800, 0x02d3a00 },
     { _T("In A Airplane TS (17/17)"), 0x02d3a00, 0x02d3b80 },
-#else
-    { _T("In A Airplane TS"), 0x02d1a00, 0x02d3b80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_TIGERBAUM[] =
 {
-#ifndef USE_LARGE_PALETTES
-    { _T("Tigerbaum Garden TS (1/11)"), 0x02d3c00, 0x02d3e00 },
-    { _T("Tigerbaum Garden TS (2/11)"), 0x02d3e00, 0x02d4000 },
-    { _T("Tigerbaum Garden TS (3/11)"), 0x02d4000, 0x02d4200 },
-    { _T("Tigerbaum Garden TS (4/11)"), 0x02d4200, 0x02d4400 },
-    { _T("Tigerbaum Garden TS (5/11)"), 0x02d4400, 0x02d4600 },
-    { _T("Tigerbaum Garden TS (6/11)"), 0x02d4600, 0x02d4800 },
-    { _T("Tigerbaum Garden TS (7/11)"), 0x02d4800, 0x02d4a00 },
-    { _T("Tigerbaum Garden TS (8/11)"), 0x02d4a00, 0x02d4c00 },
-    { _T("Tigerbaum Garden TS (9/11)"), 0x02d4c00, 0x02d4e00 },
-    { _T("Tigerbaum Garden TS (10/11)"), 0x02d4e00, 0x02d5000 },
-    { _T("Tigerbaum Garden TS (11/11)"), 0x02d5000, 0x02d5200 },
-#else
-    { _T("Tigerbaum Garden TS"), 0x02d3c00, 0x02d5200 },
-#endif
+    { _T("Tigerbaum Garden TS (1/11)"), 0x02d3c00, 0x02d3e00, indexJojos51Stages, 0x1e },
+    { _T("Tigerbaum Garden TS (2/11)"), 0x02d3e00, 0x02d4000, indexJojos51Stages, 0x1f },
+    { _T("Tigerbaum Garden TS (3/11)"), 0x02d4000, 0x02d4200, indexJojos51Stages, 0x20 },
+    { _T("Tigerbaum Garden TS (4/11)"), 0x02d4200, 0x02d4400, indexJojos51Stages, 0x21 },
+    { _T("Tigerbaum Garden TS (5/11)"), 0x02d4400, 0x02d4600, indexJojos51Stages, 0x22 },
+    { _T("Tigerbaum Garden TS (6/11)"), 0x02d4600, 0x02d4800, indexJojos51Stages, 0x23 },
+    { _T("Tigerbaum Garden TS (7/11)"), 0x02d4800, 0x02d4a00, indexJojos51Stages, 0x24 },
+    { _T("Tigerbaum Garden TS (8/11)"), 0x02d4a00, 0x02d4c00, indexJojos51Stages, 0x25 },
+    { _T("Tigerbaum Garden TS (9/11)"), 0x02d4c00, 0x02d4e00, indexJojos51Stages, 0x26 },
+    { _T("Tigerbaum Garden TS (10/11)"), 0x02d4e00, 0x02d5000, indexJojos51Stages, 0x27 },
+    { _T("Tigerbaum Garden TS (11/11)"), 0x02d5000, 0x02d5200, indexJojos51Stages, 0x28 },
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_HOTELD[] =
@@ -3541,7 +3387,6 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_HOTELD[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_REMAINS[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Remains / New 1 TS (1/9)"), 0x02d6100, 0x02d6300 },
     { _T("Remains / New 1 TS (2/9)"), 0x02d6300, 0x02d6500 },
     { _T("Remains / New 1 TS (3/9)"), 0x02d6500, 0x02d6700 },
@@ -3551,14 +3396,10 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_REMAINS[] =
     { _T("Remains / New 1 TS (7/9)"), 0x02d6d00, 0x02d6f00 },
     { _T("Remains / New 1 TS (8/9)"), 0x02d6f00, 0x02d7100 },
     { _T("Remains / New 1 TS (9/9)"), 0x02d7100, 0x02d7300 },
-#else
-    { _T("Remains / New 1 TS"), 0x02d6100, 0x02d7300 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_HOTELJ[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Hotel (Justice) TS (1/8)"), 0x02d7400, 0x02d7600 },
     { _T("Hotel (Justice) TS (2/8)"), 0x02d7600, 0x02d7800 },
     { _T("Hotel (Justice) TS (3/8)"), 0x02d7800, 0x02d7a00 },
@@ -3567,59 +3408,43 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_HOTELJ[] =
     { _T("Hotel (Justice) TS (6/8)"), 0x02d7e00, 0x02d8000 },
     { _T("Hotel (Justice) TS (7/8)"), 0x02d8000, 0x02d8200 },
     { _T("Hotel (Justice) TS (8/8)"), 0x02d8200, 0x02d8280 },
-#else
-    { _T("Hotel (Justice) TS"), 0x02d7400, 0x02d8280 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_SISLAND[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Small Island / New 3 TS (1/6)"), 0x02d8300, 0x02d8500, indexJojos51Stages, 0x18 },
     { _T("Small Island / New 3 TS (2/6)"), 0x02d8500, 0x02d8700, indexJojos51Stages, 0x19 },
     { _T("Small Island / New 3 TS (3/6)"), 0x02d8700, 0x02d8900, indexJojos51Stages, 0x1a },
     { _T("Small Island / New 3 TS (4/6)"), 0x02d8900, 0x02d8b00, indexJojos51Stages, 0x1b },
     { _T("Small Island / New 3 TS (5/6)"), 0x02d8b00, 0x02d8d00, indexJojos51Stages, 0x1c },
     { _T("Small Island / New 3 TS (6/6)"), 0x02d8d00, 0x02d8f00, indexJojos51Stages, 0x1d },
-#else
-    { _T("Small Island / New 3 TS"), 0x02d8300, 0x02d8f00 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_DMORN[] =
 {
-#ifndef USE_LARGE_PALETTES
-    { _T("Desert Morning / Twilight (1/8)"), 0x02d9f00, 0x02da100 },
-    { _T("Desert Morning / Twilight (2/8)"), 0x02da100, 0x02da300 },
-    { _T("Desert Morning / Twilight (3/8)"), 0x02da300, 0x02da500 },
-    { _T("Desert Morning / Twilight (4/8)"), 0x02da500, 0x02da700 },
-    { _T("Desert Morning / Twilight (5/8)"), 0x02da700, 0x02da900 },
-    { _T("Desert Morning / Twilight (6/8)"), 0x02da900, 0x02dab00 },
-    { _T("Desert Morning / Twilight (7/8)"), 0x02dab00, 0x02dad00 },
-    { _T("Desert Morning / Twilight (8/8)"), 0x02dad00, 0x02dad80 },
-#else
-    { _T("Desert Morning / Twilight"), 0x02d9f00, 0x02dad80 },
-#endif
+    { _T("Desert Morning / Twilight TS (1/8)"), 0x02d9f00, 0x02da100, indexJojos51Stages, 0x0b },
+    { _T("Desert Morning / Twilight TS (2/8)"), 0x02da100, 0x02da300 },
+    { _T("Desert Morning / Twilight TS (3/8)"), 0x02da300, 0x02da500, indexJojos51Stages, 0x0c },
+    { _T("Desert Morning / Twilight TS (4/8)"), 0x02da500, 0x02da700 },
+    { _T("Desert Morning / Twilight TS (5/8)"), 0x02da700, 0x02da900, indexJojos51Stages, 0x0d },
+    { _T("Desert Morning / Twilight TS (6/8)"), 0x02da900, 0x02dab00, indexJojos51Stages, 0x0e },
+    { _T("Desert Morning / Twilight TS (7/8)"), 0x02dab00, 0x02dad00, indexJojos51Stages, 0x0f },
+    { _T("Desert Morning / Twilight TS (8/8)"), 0x02dad00, 0x02dad80 },
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_DNOON[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Desert Noon TS (1/7)"), 0x02d9000, 0x02d9200, indexJojos51Stages, 0x0b },
-    { _T("Desert Noon TS (2/7)"), 0x02d9200, 0x02d9400, indexJojos51Stages, 0x0c },
-    { _T("Desert Noon TS (3/7)"), 0x02d9400, 0x02d9600, indexJojos51Stages, 0x0d },
-    { _T("Desert Noon TS (4/7)"), 0x02d9600, 0x02d9800, indexJojos51Stages, 0x0e },
-    { _T("Desert Noon TS (5/7)"), 0x02d9800, 0x02d9a00, indexJojos51Stages, 0x0f },
-    { _T("Desert Noon TS (6/7)"), 0x02d9a00, 0x02d9c00, indexJojos51Stages, 0x10 },
-    { _T("Desert Noon TS (7/7)"), 0x02d9c00, 0x02d9e00, indexJojos51Stages, 0x10 },
-#else
-    { _T("Desert Noon TS"), 0x02d9000, 0x02d9e00 },
-#endif
+    { _T("Desert Noon TS (2/7)"), 0x02d9200, 0x02d9400 },
+    { _T("Desert Noon TS (3/7)"), 0x02d9400, 0x02d9600, indexJojos51Stages, 0x0c },
+    { _T("Desert Noon TS (4/7)"), 0x02d9600, 0x02d9800 },
+    { _T("Desert Noon TS (5/7)"), 0x02d9800, 0x02d9a00, indexJojos51Stages, 0x0d },
+    { _T("Desert Noon TS (6/7)"), 0x02d9a00, 0x02d9c00, indexJojos51Stages, 0x0e },
+    { _T("Desert Noon TS (7/7)"), 0x02d9c00, 0x02d9e00, indexJojos51Stages, 0x0f },
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_DNIGHT[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Desert Night TS (1/8)"), 0x02dae00, 0x02db000, indexJojos51Stages, 0xb },
     { _T("Desert Night TS (2/8)"), 0x02db000, 0x02db200 },
     { _T("Desert Night TS (3/8)"), 0x02db200, 0x02db400, indexJojos51Stages, 0xc},
@@ -3628,27 +3453,19 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_DNIGHT[] =
     { _T("Desert Night TS (6/8)"), 0x02db800, 0x02dba00, indexJojos51Stages, 0xe },
     { _T("Desert Night TS (7/8)"), 0x02dba00, 0x02dbc00, indexJojos51Stages, 0xf },
     { _T("Desert Night TS (8/8)"), 0x02dbc00, 0x02dbc80, indexJojos51Stages, 0x10 },
-#else
-    { _T("Desert Night TS"), 0x02dae00, 0x02dbc80 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_RUINS[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Ruins / New 4 TS (1/5)"), 0x02dbd00, 0x02dbf00 },
     { _T("Ruins / New 4 TS (2/5)"), 0x02dbf00, 0x02dc100 },
     { _T("Ruins / New 4 TS (3/5)"), 0x02dc100, 0x02dc300 },
     { _T("Ruins / New 4 TS (4/5)"), 0x02dc300, 0x02dc500 },
     { _T("Ruins / New 4 TS (5/5)"), 0x02dc500, 0x02dc700 },
-#else
-    { _T("Ruins / New 4 TS"), 0x02dbd00, 0x02dc700 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CTOWN[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Country Town Noon / Twilight / Night TS (1/21)"), 0x02dc800, 0x02dca00 },
     { _T("Country Town Noon / Twilight / Night TS (2/21)"), 0x02dca00, 0x02dcc00 },
     { _T("Country Town Noon / Twilight / Night TS (3/21)"), 0x02dcc00, 0x02dce00 },
@@ -3670,14 +3487,10 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CTOWN[] =
     { _T("Country Town Noon / Twilight / Night TS (19/21)"), 0x02dec00, 0x02dee00 },
     { _T("Country Town Noon / Twilight / Night TS (20/21)"), 0x02dee00, 0x02df000 },
     { _T("Country Town Noon / Twilight / Night TS (21/21)"), 0x02df000, 0x02df180 },
-#else
-    { _T("Country Town Noon / Twilight / Night TS"), 0x02dc800, 0x02df180 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_UWATER[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Underground Water / New 5 TS (1/8)"), 0x02df200, 0x02df400 },
     { _T("Underground Water / New 5 TS (2/8)"), 0x02df400, 0x02df600 },
     { _T("Underground Water / New 5 TS (3/8)"), 0x02df600, 0x02df800 },
@@ -3686,14 +3499,10 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_UWATER[] =
     { _T("Underground Water / New 5 TS (6/8)"), 0x02dfc00, 0x02dfe00 },
     { _T("Underground Water / New 5 TS (7/8)"), 0x02dfe00, 0x02e0000 },
     { _T("Underground Water / New 5 TS (8/8)"), 0x02e0000, 0x02e0200 },
-#else
-    { _T("Underground Water / New 5 TS"), 0x02df200, 0x02e0200 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_INHOUSE[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Inside House / New 6 TS (1/8)"), 0x02e0300, 0x02e0500 },
     { _T("Inside House / New 6 TS (2/8)"), 0x02e0500, 0x02e0700 },
     { _T("Inside House / New 6 TS (3/8)"), 0x02e0700, 0x02e0900 },
@@ -3702,37 +3511,25 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_INHOUSE[] =
     { _T("Inside House / New 6 TS (6/8)"), 0x02e0d00, 0x02e0f00 },
     { _T("Inside House / New 6 TS (7/8)"), 0x02e0f00, 0x02e1100 },
     { _T("Inside House / New 6 TS (8/8)"), 0x02e1100, 0x02e1200 },
-#else
-    { _T("Inside House / New 6 TS"), 0x02e0300, 0x02e1200 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CROOM[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Coffin Room / New 7 TS (1/4)"), 0x02e1300, 0x02e1500, indexJojos51Stages, 0x5 },
     { _T("Coffin Room / New 7 TS (2/4)"), 0x02e1500, 0x02e1700, indexJojos51Stages, 0x6 },
     { _T("Coffin Room / New 7 TS (3/4)"), 0x02e1700, 0x02e1900, indexJojos51Stages, 0x7 },
     { _T("Coffin Room / New 7 TS (4/4)"), 0x02e1900, 0x02e1b00, indexJojos51Stages, 0x8 },
-#else
-    { _T("Coffin Room / New 7 TS"), 0x02e1300, 0x02e1b00 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CTOWER[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Clock Tower / New 8 TS (1/3)"), 0x02e1c00, 0x02e1e00, indexJojos51Stages, 0 },
     { _T("Clock Tower / New 8 TS (2/3)"), 0x02e1e00, 0x02e2000, indexJojos51Stages, 1 },
     { _T("Clock Tower / New 8 TS (3/3)"), 0x02e2000, 0x02e2200, indexJojos51Stages, 2 },
-#else
-    { _T("Clock Tower / New 8 TS"), 0x02e1c00, 0x02e2200 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_SUBURB[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("Surburbs 1 / 2 / 3 TS (1/22)"), 0x02e2300, 0x02e2500 },
     { _T("Surburbs 1 / 2 / 3 TS (2/22)"), 0x02e2500, 0x02e2700 },
     { _T("Surburbs 1 / 2 / 3 TS (3/22)"), 0x02e2700, 0x02e2900 },
@@ -3755,19 +3552,12 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_SUBURB[] =
     { _T("Surburbs 1 / 2 / 3 TS (20/22)"), 0x02e4900, 0x02e4b00 },
     { _T("Surburbs 1 / 2 / 3 TS (21/22)"), 0x02e4b00, 0x02e4d00 },
     { _T("Surburbs 1 / 2 / 3 TS (22/22)"), 0x02e4d00, 0x02e4f00 },
-#else
-    { _T("Surburbs 1 / 2 / 3 TS"), 0x02e2300, 0x02e4f00 },
-#endif
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_OBRIDGE[] =
 {
-#ifndef USE_LARGE_PALETTES
     { _T("On the Bridge TS (1/2)"), 0x02e4f00, 0x02e5100, indexJojos51Stages, 0x3 },
     { _T("On the Bridge TS (2/2)"), 0x02e5100, 0x02e5300, indexJojos51Stages, 0x4 },
-#else
-    { _T("On the Bridge TS"), 0x02e4f00, 0x02e5300 },
-#endif
 };
 
 const sDescTreeNode JOJOS_TIMESTOP_COLLECTION[] =

@@ -3,7 +3,10 @@
 
 UINT16 CGame_SFIII3_A_DIR::uRuleCtr = 0;
 
-constexpr auto SFIII_Arcade_ROM_Base = _T("sfiii3-simm5.");
+// sfiii3 is the USA 990512 revision
+// sfii3n is Japan 990512 NOCD
+constexpr auto SFIII_Arcade_USA_ROM_Base = _T("sfiii3-simm5.");
+constexpr auto SFIII_Arcade_JPN_ROM_Base = _T("sfiii3n-simm5.");
 
 CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize) :
     CGame_SFIII3_A(0x800000) // Let the core game know it's safe to load Extras
@@ -26,7 +29,11 @@ sFileRule CGame_SFIII3_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u"), SFIII_Arcade_ROM_Base, (nUnitId & 0x00FF));
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u"), SFIII_Arcade_USA_ROM_Base, (nUnitId & 0x00FF));
+
+    NewFileRule.fHasAltName = TRUE;
+    _stprintf_s(NewFileRule.szAltFileName, MAX_FILENAME_LENGTH, _T("%s%u"), SFIII_Arcade_JPN_ROM_Base, (nUnitId & 0x00FF));
+
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
@@ -69,7 +76,17 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nROMNumber)
     CString strPeerFilename;
     strPeerFilename.Format(_T("%s\\%s"), GetLoadDir(), PeerRule.szFileName);
 
-    if (FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary))
+    BOOL fFileOpened = FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary);
+
+    if (!fFileOpened)
+    {
+        CString strAltFileName;
+
+        strAltFileName.Format(_T("%s\\%s"), GetLoadDir(), PeerRule.szAltFileName);
+        fFileOpened = FilePeer.Open(strAltFileName, CFile::modeRead | CFile::typeBinary);
+    }
+
+    if (fFileOpened)
     {
         OutputDebugString(_T("Loading SFIII3_A_DIR from SIMMs....\n"));
 
@@ -140,9 +157,19 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nROMNumber)
 
     CFile FilePeer;
     CString strPeerFilename;
-    strPeerFilename.Format(_T("%s\\%s%u"), GetLoadDir(), SFIII_Arcade_ROM_Base, nROMNumber + 1);
+    strPeerFilename.Format(_T("%s\\%s%u"), GetLoadDir(), SFIII_Arcade_USA_ROM_Base, nROMNumber + 1);
 
-    if (FilePeer.Open(strPeerFilename, CFile::modeWrite | CFile::typeBinary))
+    BOOL fFileOpened = FilePeer.Open(strPeerFilename, CFile::modeWrite | CFile::typeBinary);
+
+    if (!fFileOpened)
+    {
+        CString strAltFileName;
+
+        strAltFileName.Format(_T("%s\\%s%u"), GetLoadDir(), SFIII_Arcade_JPN_ROM_Base, nROMNumber + 1);
+        fFileOpened = FilePeer.Open(strAltFileName, CFile::modeWrite | CFile::typeBinary);
+    }
+
+    if (fFileOpened)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {

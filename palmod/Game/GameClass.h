@@ -12,6 +12,8 @@ struct sFileRule
     TCHAR szFileName[MAX_FILENAME_LENGTH] = _T("uninit");
     UINT32 uVerifyVar;
     UINT16 uUnitId = INVALID_UNIT_VALUE;
+    bool fHasAltName = false;
+    TCHAR szAltFileName[MAX_FILENAME_LENGTH] = _T("uninit");
 };
 
 enum ColMode

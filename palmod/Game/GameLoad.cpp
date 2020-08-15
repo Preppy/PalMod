@@ -559,7 +559,19 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
 
         szCurrFile.Format(_T("%s\\%s"), szLoadDir, CurrRule.szFileName);
 
-        if (CurrFile.Open(szCurrFile, CFile::modeRead | CFile::typeBinary))
+        BOOL fFileOpened = CurrFile.Open(szCurrFile, CFile::modeRead | CFile::typeBinary);
+
+        if (!fFileOpened && CurrRule.fHasAltName)
+        {
+            CString strAltFileName;
+
+            OutputDebugString(_T("Loading game via alternate filenames...\n"));
+
+            strAltFileName.Format(_T("%s\\%s"), szLoadDir, CurrRule.szAltFileName);
+            fFileOpened = CurrFile.Open(strAltFileName, CFile::modeRead | CFile::typeBinary);
+        }
+
+        if (fFileOpened)
         {
             if ((short int)CurrRule.uVerifyVar == -1 || CurrFile.GetLength() == CurrRule.uVerifyVar)
             {
@@ -667,10 +679,24 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                 if (!((CurrGame->GetGameFlag() == MVC2_D) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION))) // ignore the virtual team view
                 {
                     CString szLoad;
+                    sFileRule CurrRule = GetRule(nFileCtr | 0xFF00);
 
-                    szLoad.Format(_T("%s\\%s"), szDir, GetRule(nFileCtr + 0xFF00).szFileName);
+                    szLoad.Format(_T("%s\\%s"), szDir, CurrRule.szFileName);
 
-                    if (FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary))
+                    BOOL fFileOpened = FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary);
+
+                    if (!fFileOpened && CurrRule.fHasAltName)
+                    {
+                        CString strAltFileName;
+
+                        OutputDebugString(_T("Saving game via alternate filenames...\n"));
+
+                        strAltFileName.Format(_T("%s\\%s"), szDir, CurrRule.szAltFileName);
+
+                        fFileOpened = FileSave.Open(strAltFileName, CFile::modeReadWrite | CFile::typeBinary);
+                    }
+
+                    if (fFileOpened)
                     {
                         if (CurrGame->SaveFile(&FileSave, nFileCtr))
                         {

@@ -1670,6 +1670,9 @@ const int IMGAMT[] =
 const stPairedPaletteInfo pairUnhandled =     { 0, 0, 0 };
 const stPairedPaletteInfo pairHandledInCode = { 0, 0, 0 };
 
+const stPairedPaletteInfo pairNext = { 1, 0, 0 };
+const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
+
 // Vs Series
 const stPairedPaletteInfo pairCaptainAmericaShield = { 1, 0, 0 };
 const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, 4 };

@@ -239,7 +239,7 @@ const sGame_PaletteDataset SFIII3_A_DUDLEY_EXTRA_PALETTES[] =
 {
     { _T("P1 Intro car"), 0x704C80, 0x704D00 },
     { _T("P2 Intro car + shared rose"), 0x704D80, 0x704E00 },
-    { _T("SA1 "), 0x704D00, 0x704D80 },
+    { _T("SA1 "), 0x704D00, 0x704D80, 0x03, 0x02 },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_LP_PALETTES[] =
@@ -445,19 +445,19 @@ const sGame_PaletteDataset SFIII3_A_IBUKI_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_EXTRA_PALETTES[] =
 {
-    { _T("LP Extras"), 0x705A00, 0x705A80 },
+    { _T("LP Extras"), 0x705A00, 0x705A80, 0x06, 0x02 },
     { _T("LP Extras 2"), 0x705A80, 0x705B00 },
-    { _T("MP Extras"), 0x705B00, 0x705B80 },
+    { _T("MP Extras"), 0x705B00, 0x705B80, 0x06, 0x02 },
     { _T("MP Extras 2"), 0x705B80, 0x705C00 },
-    { _T("HP Extras"), 0x705C00, 0x705C80 },
+    { _T("HP Extras"), 0x705C00, 0x705C80, 0x06, 0x02 },
     { _T("HP Extras 2"), 0x705C80, 0x705D00 },
-    { _T("LK Extras"), 0x705D00, 0x705D80 },
+    { _T("LK Extras"), 0x705D00, 0x705D80, 0x06, 0x02 },
     { _T("LK Extras 2"), 0x705D80, 0x705E00 },
-    { _T("MK Extras"), 0x705E00, 0x705E80 },
+    { _T("MK Extras"), 0x705E00, 0x705E80, 0x06, 0x02 },
     { _T("MK Extras 2"), 0x705E80, 0x705F00 },
-    { _T("HK Extras"), 0x705F00, 0x705F80 },
+    { _T("HK Extras"), 0x705F00, 0x705F80, 0x06, 0x02 },
     { _T("HK Extras 2"), 0x705F80, 0x706000 },
-    { _T("EX Extras"), 0x706000, 0x706080 },
+    { _T("EX Extras"), 0x706000, 0x706080, 0x06, 0x02 },
     { _T("EX Extras 2"), 0x706080, 0x706100 },
 };
 
@@ -830,8 +830,8 @@ const sGame_PaletteDataset SFIII3_A_URIEN_EXTRA_PALETTES[] =
     { _T("P2 Suit"), 0x706900, 0x706980, 0x0c, 0x03 },
     { _T("P2 SA3 / Fire?"), 0x706980, 0x706A00 },
 
-    { _T("Fireball"), 0x706780, 0x706800 },
-    { _T("Big Fireball"), 0x706800, 0x706880 },
+    { _T("Electroball"), 0x706780, 0x706800 },
+    { _T("SA2 / Big Electroball"), 0x706800, 0x706880, 0x0c, 0x04 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_LP_PALETTES[] =
@@ -907,14 +907,14 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_LP_PALETTES[] =
 {
-    { _T("LP Main"), 0x703700, 0x703780, 0x0D, 0x00 },
-    { _T("LP Portrait"), 0x764820, 0x764840, 0x0D, 0x01 },
+    { _T("P1 Main"), 0x703700, 0x703780, 0x0D, 0x00 },
+    { _T("P1 Portrait"), 0x764820, 0x764840, 0x0D, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_MP_PALETTES[] =
 {
-    { _T("MP Main"), 0x703780, 0x703800, 0x0D, 0x00 },
-    { _T("MP Portrait"), 0x764840, 0x764860, 0x0D, 0x01 },
+    { _T("P2 Main"), 0x703780, 0x703800, 0x0D, 0x00 },
+    { _T("P2 Portrait"), 0x764840, 0x764860, 0x0D, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_Support_PALETTES[] =
@@ -989,7 +989,7 @@ const sGame_PaletteDataset SFIII3_A_CHUNLI_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_EXTRA_PALETTES[] =
 {
-    { _T("Kikouken / Kikou-Shou / Tensei-Ranka"), 0x706D80, 0x706E00 },
+    { _T("Kikouken / Kikou-Shou / Tensei-Ranka"), 0x706D80, 0x706E00, 0x0f, 0x02 },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_LP_PALETTES[] =
@@ -1233,6 +1233,153 @@ const sGame_PaletteDataset SFIII3_A_REMY_EXTRA_PALETTES[] =
     { _T("Effects"), 0x707080, 0x707100 },
 };
 
+const sGame_PaletteDataset SFIII3_A_HUGO_PORTRAIT_PALETTES[] =
+{
+    { _T("Hugo portrait (Normal)"), 0x70D380, 0x70D500 },
+    { _T("Hugo portrait (Tinted)"), 0x0712180, 0x0712300 },
+    { _T("Hugo Character Select Icon"), 0x070B900, 0x070B980 },
+};
+
+const sGame_PaletteDataset SFIII3_A_GILL_PORTRAIT_PALETTES[] =
+{
+    { _T("Gill portrait (Normal)"), 0x070C600, 0x070C800 },
+    { _T("Gill portrait (Tinted)"), 0x0711400, 0x0711600 },
+    { _T("?? Unused Gill Character Select Icon ??"), 0x070BF80, 0x070C000 },
+};
+
+const sGame_PaletteDataset SFIII3_A_ALEX_PORTRAIT_PALETTES[] =
+{
+    { _T("Alex portrait (Normal)"), 0x070CD00, 0x070CF00 },
+    { _T("Alex portrait (Tinted)"), 0x0711B00, 0x0711D00 },
+    { _T("Alex Character Select Icon"), 0x070C180, 0x070C200 },
+};
+
+const sGame_PaletteDataset SFIII3_A_RYU_PORTRAIT_PALETTES[] =
+{
+    { _T("Ryu portrait (Normal)"), 0x070CF00, 0x070D000 },
+    { _T("Ryu portrait (Tinted)"), 0x0711D00, 0x0711E00 },
+    { _T("Ryu Character Select Icon"), 0x070BC00, 0x070BC80 },
+};
+
+const sGame_PaletteDataset SFIII3_A_YUN_PORTRAIT_PALETTES[] =
+{
+    { _T("Yun portrait (Normal)"), 0x070D000, 0x070D100 },
+    { _T("Yun portrait (Tinted)"), 0x0711E00, 0x0711F00 },
+    { _T("Yun Character Select Icon"), 0x070BB00, 0x070BB80 },
+};
+
+const sGame_PaletteDataset SFIII3_A_DUDLEY_PORTRAIT_PALETTES[] =
+{
+    { _T("Dudley portrait (Normal)"), 0x070D100, 0x070D200 },
+    { _T("Dudley portrait (Tinted)"), 0x0711F00, 0x0712000 },
+    { _T("Dudley Character Select Icon"), 0x070C280, 0x070C300 },
+};
+
+const sGame_PaletteDataset SFIII3_A_NECRO_PORTRAIT_PALETTES[] =
+{
+    { _T("Necro portrait (Normal)"), 0x070D200, 0x070D380 },
+    { _T("Necro portrait (Tinted)"), 0x0712000, 0x0712180 },
+    { _T("Necro Character Select Icon"), 0x070B980, 0x070BA00 },
+};
+
+const sGame_PaletteDataset SFIII3_A_IBUKI_PORTRAIT_PALETTES[] =
+{
+    { _T("Ibuki portrait (Normal)"), 0x070D500, 0x070D680 },
+    { _T("Ibuki portrait (Tinted)"), 0x0712300, 0x0712480 },
+    { _T("Ibuki Character Select Icon"), 0x070B880, 0x070B900 },
+};
+
+const sGame_PaletteDataset SFIII3_A_ELENA_PORTRAIT_PALETTES[] =
+{
+    { _T("Elena portrait (Normal) 1/2"), 0x70D680, 0x70D880, 0x07, 0x20, &pairNext },
+    { _T("Elena portrait (Normal) 2/2"), 0x70D880, 0x70DA00, 0x07, 0x21, &pairPrevious},
+    { _T("Elena portrait (Tinted) 1/2"), 0x712480, 0x712680, 0x07, 0x20, &pairNext },
+    { _T("Elena portrait (Tinted) 2/2"), 0x712680, 0x712800, 0x07, 0x21, &pairPrevious },
+    { _T("Elena Character Select Icon"), 0x070C300, 0x070C380 }, 
+};
+
+const sGame_PaletteDataset SFIII3_A_ORO_PORTRAIT_PALETTES[] =
+{
+    { _T("Oro portrait (Normal)"), 0x070DA00, 0x070DA80 },
+    { _T("Oro portrait (Tinted)"), 0x0712800, 0x0712880 },
+    { _T("Oro Character Select Icon"), 0x070C000, 0x070C080 },
+};
+
+const sGame_PaletteDataset SFIII3_A_YANG_PORTRAIT_PALETTES[] =
+{
+    { _T("Yang portrait (Normal)"), 0x070DA80, 0x070DB80 },
+    { _T("Yang portrait (Tinted)"), 0x0712880, 0x0712980 },
+    { _T("Yang Character Select Icon"), 0x070BB80, 0x070BC00 },
+};
+
+const sGame_PaletteDataset SFIII3_A_KEN_PORTRAIT_PALETTES[] =
+{
+    { _T("Ken portrait (Normal)"), 0x070DB80, 0x070DD00, 0x0a, 0x20 },
+    { _T("Ken portrait (Tinted)"), 0x0712980, 0x0712B00, 0x0a, 0x20 },
+    { _T("Ken Character Select Icon"), 0x070C100, 0x070C180 },
+};
+
+const sGame_PaletteDataset SFIII3_A_SEAN_PORTRAIT_PALETTES[] =
+{
+    { _T("Sean portrait (Normal)"), 0x070DD00, 0x070DE80, 0x0b, 0x20 },
+    { _T("Sean portrait (Tinted)"), 0x0712B00, 0x0712C80, 0x0b, 0x20 },
+    { _T("Sean Character Select Icon"), 0x070C200, 0x070C280 },
+};
+
+const sGame_PaletteDataset SFIII3_A_URIEN_PORTRAIT_PALETTES[] =
+{
+    { _T("Urien portrait (Normal)"), 0x070DE80, 0x070DF80 },
+    { _T("Urien portrait (Tinted)"), 0x0712C80, 0x0712D80 },
+    { _T("Urien Character Select Icon"), 0x070BD00, 0x070BD80 },
+};
+
+const sGame_PaletteDataset SFIII3_A_GOUKI_PORTRAIT_PALETTES[] =
+{
+    { _T("Gouki / Shin-Gouki portrait (Normal)"), 0x070DF80, 0x070E080 },
+    { _T("Gouki / Shin-Gouki portrait (Tinted)"), 0x0712D80, 0x0712E80 },
+    { _T("Gouki Character Select Icon"), 0x070BE00, 0x070BE80 },
+};
+
+const sGame_PaletteDataset SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES[] =
+{
+    { _T("Shin-Gouki Character Select Icon"), 0x070BE80, 0x070BF00 },
+};
+
+const sGame_PaletteDataset SFIII3_A_CHUNLI_PORTRAIT_PALETTES[] =
+{
+    { _T("Chun-Li portrait (Normal)"), 0x070E080, 0x070E200 },
+    { _T("Chun-Li portrait (Tinted)"), 0x0712E80, 0x0713000 },
+    { _T("Chun-Li Character Select Icon"), 0x070BC80, 0x070BD00 },
+};
+
+const sGame_PaletteDataset SFIII3_A_MAKOTO_PORTRAIT_PALETTES[] =
+{
+    { _T("Makoto portrait (Normal)"), 0x070E200, 0x070E380 },
+    { _T("Makoto portrait (Tinted)"), 0x0713000, 0x0713180 },
+    { _T("Makoto Character Select Icon"), 0x070BA80, 0x070BB00 },
+};
+
+const sGame_PaletteDataset SFIII3_A_Q_PORTRAIT_PALETTES[] =
+{
+    { _T("Q portrait (Normal)"), 0x070E380, 0x070E400 },
+    { _T("Q portrait (Tinted)"), 0x0713180, 0x0713200 },
+    { _T("Q Character Select Icon"), 0x070BD80, 0x070BE00 },
+};
+
+const sGame_PaletteDataset SFIII3_A_TWELVE_PORTRAIT_PALETTES[] =
+{
+    { _T("Twelve portrait (Normal)"), 0x070E400, 0x070E480 },
+    { _T("Twelve portrait (Tinted)"), 0x0713200, 0x0713280 },
+    { _T("Tweleve Character Select Icon"), 0x070C080, 0x070C100 },
+};
+
+const sGame_PaletteDataset SFIII3_A_REMY_PORTRAIT_PALETTES[] =
+{
+    { _T("Remy portrait (Normal)"), 0x070E480, 0x070E600 },
+    { _T("Remy portrait (Tinted)"), 0x0713280, 0x0713480 },
+    { _T("Remy Character Select Icon"), 0x070BA00, 0x070BA80 },
+};
+
 const sDescTreeNode SFIII3_A_ALEX_COLLECTION[] =
 {
     { _T("LP"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_LP_PALETTES, ARRAYSIZE(SFIII3_A_ALEX_LP_PALETTES) },
@@ -1243,6 +1390,7 @@ const sDescTreeNode SFIII3_A_ALEX_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_HK_PALETTES, ARRAYSIZE(SFIII3_A_ALEX_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_EX_PALETTES, ARRAYSIZE(SFIII3_A_ALEX_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_Support_PALETTES, ARRAYSIZE(SFIII3_A_ALEX_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_ALEX_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_ALEX_EXTRA_PALETTES) },
 };
 
@@ -1256,6 +1404,7 @@ const sDescTreeNode SFIII3_A_RYU_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_RYU_HK_PALETTES, ARRAYSIZE(SFIII3_A_RYU_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_RYU_EX_PALETTES, ARRAYSIZE(SFIII3_A_RYU_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_RYU_Support_PALETTES, ARRAYSIZE(SFIII3_A_RYU_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_RYU_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_RYU_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_RYU_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_RYU_EXTRA_PALETTES) },
 };
 
@@ -1269,6 +1418,7 @@ const sDescTreeNode SFIII3_A_YUN_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_YUN_HK_PALETTES, ARRAYSIZE(SFIII3_A_YUN_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_YUN_EX_PALETTES, ARRAYSIZE(SFIII3_A_YUN_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_YUN_Support_PALETTES, ARRAYSIZE(SFIII3_A_YUN_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_YUN_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_YUN_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_DUDLEY_COLLECTION[] =
@@ -1281,6 +1431,7 @@ const sDescTreeNode SFIII3_A_DUDLEY_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_HK_PALETTES, ARRAYSIZE(SFIII3_A_DUDLEY_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_EX_PALETTES, ARRAYSIZE(SFIII3_A_DUDLEY_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_Support_PALETTES, ARRAYSIZE(SFIII3_A_DUDLEY_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_DUDLEY_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_DUDLEY_EXTRA_PALETTES) },
 };
 
@@ -1294,6 +1445,7 @@ const sDescTreeNode SFIII3_A_NECRO_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_NECRO_HK_PALETTES, ARRAYSIZE(SFIII3_A_NECRO_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_NECRO_EX_PALETTES, ARRAYSIZE(SFIII3_A_NECRO_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_NECRO_Support_PALETTES, ARRAYSIZE(SFIII3_A_NECRO_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_NECRO_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_NECRO_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_NECRO_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_NECRO_EXTRA_PALETTES) },
 };
 
@@ -1307,6 +1459,7 @@ const sDescTreeNode SFIII3_A_HUGO_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_HUGO_HK_PALETTES, ARRAYSIZE(SFIII3_A_HUGO_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_HUGO_EX_PALETTES, ARRAYSIZE(SFIII3_A_HUGO_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_HUGO_Support_PALETTES, ARRAYSIZE(SFIII3_A_HUGO_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_HUGO_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_HUGO_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_HUGO_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_HUGO_EXTRA_PALETTES) },
 };
 
@@ -1320,6 +1473,7 @@ const sDescTreeNode SFIII3_A_IBUKI_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_HK_PALETTES, ARRAYSIZE(SFIII3_A_IBUKI_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_EX_PALETTES, ARRAYSIZE(SFIII3_A_IBUKI_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_Support_PALETTES, ARRAYSIZE(SFIII3_A_IBUKI_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_IBUKI_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_IBUKI_EXTRA_PALETTES) },
 };
 
@@ -1333,6 +1487,7 @@ const sDescTreeNode SFIII3_A_ELENA_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_HK_PALETTES, ARRAYSIZE(SFIII3_A_ELENA_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_EX_PALETTES, ARRAYSIZE(SFIII3_A_ELENA_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_Support_PALETTES, ARRAYSIZE(SFIII3_A_ELENA_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_ELENA_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_ELENA_EXTRA_PALETTES) },
 };
 
@@ -1346,6 +1501,7 @@ const sDescTreeNode SFIII3_A_ORO_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ORO_HK_PALETTES, ARRAYSIZE(SFIII3_A_ORO_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ORO_EX_PALETTES, ARRAYSIZE(SFIII3_A_ORO_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ORO_Support_PALETTES, ARRAYSIZE(SFIII3_A_ORO_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ORO_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_ORO_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_ORO_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_ORO_EXTRA_PALETTES) },
 };
 
@@ -1359,6 +1515,7 @@ const sDescTreeNode SFIII3_A_YANG_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_YANG_HK_PALETTES, ARRAYSIZE(SFIII3_A_YANG_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_YANG_EX_PALETTES, ARRAYSIZE(SFIII3_A_YANG_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_YANG_Support_PALETTES, ARRAYSIZE(SFIII3_A_YANG_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_YANG_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_YANG_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_KEN_COLLECTION[] =
@@ -1371,6 +1528,7 @@ const sDescTreeNode SFIII3_A_KEN_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_KEN_HK_PALETTES, ARRAYSIZE(SFIII3_A_KEN_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_KEN_EX_PALETTES, ARRAYSIZE(SFIII3_A_KEN_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_KEN_Support_PALETTES, ARRAYSIZE(SFIII3_A_KEN_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_KEN_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_KEN_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_KEN_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_KEN_EXTRA_PALETTES) },
 };
 
@@ -1384,6 +1542,7 @@ const sDescTreeNode SFIII3_A_SEAN_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SEAN_HK_PALETTES, ARRAYSIZE(SFIII3_A_SEAN_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SEAN_EX_PALETTES, ARRAYSIZE(SFIII3_A_SEAN_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SEAN_Support_PALETTES, ARRAYSIZE(SFIII3_A_SEAN_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SEAN_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_SEAN_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_URIEN_COLLECTION[] =
@@ -1396,6 +1555,7 @@ const sDescTreeNode SFIII3_A_URIEN_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_URIEN_HK_PALETTES, ARRAYSIZE(SFIII3_A_URIEN_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_URIEN_EX_PALETTES, ARRAYSIZE(SFIII3_A_URIEN_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_URIEN_Support_PALETTES, ARRAYSIZE(SFIII3_A_URIEN_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_URIEN_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_URIEN_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_URIEN_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_URIEN_EXTRA_PALETTES) },
 };
 
@@ -1409,13 +1569,15 @@ const sDescTreeNode SFIII3_A_GOUKI_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_HK_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_EX_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_Support_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_EXTRA_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_SHINGOUKI_COLLECTION[] =
 {
-    { _T("LP"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_LP_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_LP_PALETTES) },
-    { _T("MP"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_MP_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_MP_PALETTES) },
+    { _T("P1"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_LP_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_LP_PALETTES) },
+    { _T("P2"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_MP_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_MP_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_Support_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_Support_PALETTES) },
 };
 
@@ -1429,6 +1591,7 @@ const sDescTreeNode SFIII3_A_CHUNLI_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_HK_PALETTES, ARRAYSIZE(SFIII3_A_CHUNLI_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_EX_PALETTES, ARRAYSIZE(SFIII3_A_CHUNLI_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_Support_PALETTES, ARRAYSIZE(SFIII3_A_CHUNLI_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_CHUNLI_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_CHUNLI_EXTRA_PALETTES) },
 };
 
@@ -1442,6 +1605,7 @@ const sDescTreeNode SFIII3_A_MAKOTO_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_MAKOTO_HK_PALETTES, ARRAYSIZE(SFIII3_A_MAKOTO_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_MAKOTO_EX_PALETTES, ARRAYSIZE(SFIII3_A_MAKOTO_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_MAKOTO_Support_PALETTES, ARRAYSIZE(SFIII3_A_MAKOTO_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_MAKOTO_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_MAKOTO_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_Q_COLLECTION[] =
@@ -1454,6 +1618,7 @@ const sDescTreeNode SFIII3_A_Q_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_Q_HK_PALETTES, ARRAYSIZE(SFIII3_A_Q_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_Q_EX_PALETTES, ARRAYSIZE(SFIII3_A_Q_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_Q_Support_PALETTES, ARRAYSIZE(SFIII3_A_Q_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_Q_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_Q_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_Q_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_Q_EXTRA_PALETTES) },
 };
 
@@ -1467,6 +1632,7 @@ const sDescTreeNode SFIII3_A_TWELVE_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_TWELVE_HK_PALETTES, ARRAYSIZE(SFIII3_A_TWELVE_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_TWELVE_EX_PALETTES, ARRAYSIZE(SFIII3_A_TWELVE_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_TWELVE_Support_PALETTES, ARRAYSIZE(SFIII3_A_TWELVE_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_TWELVE_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_TWELVE_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_REMY_COLLECTION[] =
@@ -1479,12 +1645,14 @@ const sDescTreeNode SFIII3_A_REMY_COLLECTION[] =
     { _T("HK"), DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_HK_PALETTES, ARRAYSIZE(SFIII3_A_REMY_HK_PALETTES) },
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_EX_PALETTES, ARRAYSIZE(SFIII3_A_REMY_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_Support_PALETTES, ARRAYSIZE(SFIII3_A_REMY_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_REMY_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_REMY_EXTRA_PALETTES) },
 };
 
 const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
 {
     { _T("Select Background"), 0x709D80, 0x709E00, 0x14, 0x0 },
+    { _T("Vs Text"), 0x70C780, 0x70C880 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_AKUMA_PALETTES[] =

@@ -43,7 +43,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 613;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 674;
     m_nLowestKnownPaletteRomLocation = 0x700600;
 
     OutputDebugString(GetExtraCt(SFIII3_A_EXTRALOC) ? _T("Loaded SF3_A with Extras.\n") : _T("Loaded SF3_A without Extras\n"));
@@ -745,6 +745,14 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             case 0x0E: //Shin Gouki: only have two versions in this game
             {
                 nSrcAmt = 2;
+                nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+
+                while (nSrcStart >= nNodeIncrement)
+                {
+                    // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
+                    nSrcStart -= nNodeIncrement;
+                }
+
                 break;
             }
             default:
@@ -804,6 +812,37 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                     SetSourcePal(0, uUnitId, uPalId, 1, 1);
                     SetSourcePal(1, uUnitId, uPalId + 1, 1, 1);
+                }
+                else
+                {
+                    int nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+
+                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nDeltaToSecondElement);
+                    if (paletteDataSetToJoin)
+                    {
+                        fShouldUseAlternateLoadLogic = true;
+
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                            MainDescTree.GetDescNode(Node01, Node02, Node03 + nDeltaToSecondElement, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement);
+                    }
                 }
             }
         }

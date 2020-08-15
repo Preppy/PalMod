@@ -53,7 +53,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     m_nTotalInternalUnits = UsePaletteSetForPortraits() ? SSF2T_A_NUM_IND_3C : SSF2T_A_NUM_IND_4A;
     m_nExtraUnit = UsePaletteSetForPortraits() ? SSF2T_A_EXTRALOC_3C : SSF2T_A_EXTRALOC_4A;
 
-    const UINT32 nSafeCountFor3C = 16;
+    const UINT32 nSafeCountFor3C = 160;
     const UINT32 nSafeCountFor4A = 192;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForPortraits() ? nSafeCountFor3C : nSafeCountFor4A);
@@ -784,8 +784,9 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (UsePaletteSetForPortraits())
             {
-                // For portraits we don't have multisprite image export yet
-                nSrcAmt = 1;
+                // Flat set of 10
+                nSrcStart = 0;
+                nSrcAmt = 10;
                 nNodeIncrement = 1;
             }
             else

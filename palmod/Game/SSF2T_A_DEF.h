@@ -982,24 +982,227 @@ const sDescTreeNode SSF2T_A_GOUKI_COLLECTION[] =
 };
 
 // THESE ARE IN sfxe.03c
-const sGame_PaletteDataset SSF2T_A_PORTRAITS_NODES[] =
+const sGame_PaletteDataset SSF2T_A_RYU_PORTRAIT_NODE[] =
 {
-    { _T("Ryu Portrait"),      0x031c48, 0x031cc8, 0x00, 0x10 },
-    { _T("E. Honda Portrait"), 0x032148, 0x0321c8, 0x01, 0x10 },
-    { _T("Blanka Portrait"),   0x032648, 0x0326c8, 0x02, 0x10 },
-    { _T("Guile Portrait"),    0x032b48, 0x032bc8, 0x03, 0x10 },
-    { _T("Ken Portrait"),      0x033048, 0x0330c8, 0x04, 0x10 },
-    { _T("Chun-Li Portrait"),  0x033548, 0x0335c8, 0x05, 0x10 },
-    { _T("Zangief Portrait"),  0x033a48, 0x033ac8, 0x06, 0x10 },
-    { _T("Dhalsim Portrait"),  0x033f48, 0x033fc8, 0x07, 0x10 },
-    { _T("M. Bison Portrait"), 0x034448, 0x0344c8, 0x08, 0x10 },
-    { _T("Sagat Portrait"),    0x034948, 0x0349c8, 0x09, 0x10 },
-    { _T("Balrog Portrait"),   0x034e48, 0x034ec8, 0x0A, 0x10 },
-    { _T("Vega Portrait"),     0x035348, 0x0353c8, 0x0B, 0x10 },
-    { _T("Cammy Portrait"),    0x035848, 0x0358c8, 0x0C, 0x10 },
-    { _T("T-Hawk Portrait"),   0x035d48, 0x035dc8, 0x0D, 0x10 },
-    { _T("Fei Long Portrait"), 0x036248, 0x0362c8, 0x0E, 0x10 },
-    { _T("Dee Jay Portrait"),  0x036748, 0x0367c8, 0x0F, 0x10 },
+    { _T("Ryu Portrait - Jab"), 0x31c48, 0x31cc8, 0x00, 0x10 },
+    { _T("Ryu Portrait - Strong"), 0x31cc8, 0x31d48, 0x00, 0x10 },
+    { _T("Ryu Portrait - Fierce"), 0x31d48, 0x31dc8, 0x00, 0x10 },
+    { _T("Ryu Portrait - Short"), 0x31dc8, 0x31e48, 0x00, 0x10 },
+    { _T("Ryu Portrait - Forward"), 0x31e48, 0x31ec8, 0x00, 0x10 },
+    { _T("Ryu Portrait - RH"), 0x31ec8, 0x31f48, 0x00, 0x10 },
+    { _T("Ryu Portrait - Start"), 0x31f48, 0x31fc8, 0x00, 0x10 },
+    { _T("Ryu Portrait - Hold"), 0x31fc8, 0x32048, 0x00, 0x10 },
+    { _T("Ryu Portrait - Old 1P"), 0x32048, 0x320c8, 0x00, 0x10 },
+    { _T("Ryu Portrait - Old 2P"), 0x320c8, 0x32148, 0x00, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_EHONDA_PORTRAIT_NODE[] =
+{
+    { _T("E. Honda Portrait - Jab"), 0x32148, 0x321c8, 0x01, 0x10 },
+    { _T("E. Honda Portrait - Strong"), 0x321c8, 0x32248, 0x01, 0x10 },
+    { _T("E. Honda Portrait - Fierce"), 0x32248, 0x322c8, 0x01, 0x10 },
+    { _T("E. Honda Portrait - Short"), 0x322c8, 0x32348, 0x01, 0x10 },
+    { _T("E. Honda Portrait - Forward"), 0x32348, 0x323c8, 0x01, 0x10 },
+    { _T("E. Honda Portrait - RH"), 0x323c8, 0x32448, 0x01, 0x10 },
+    { _T("E. Honda Portrait - Start"), 0x32448, 0x324c8, 0x01, 0x10 },
+    { _T("E. Honda Portrait - Hold"), 0x324c8, 0x32548, 0x01, 0x10 },
+    { _T("E. Honda Portrait - Old 1P"), 0x32548, 0x325c8, 0x01, 0x10 },
+    { _T("E. Honda Portrait - Old 2P"), 0x325c8, 0x32648, 0x01, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BLANKA_PORTRAIT_NODE[] =
+{
+    { _T("Blanka Portrait - Jab"), 0x32648, 0x326c8, 0x02, 0x10 },
+    { _T("Blanka Portrait - Strong"), 0x326c8, 0x32748, 0x02, 0x10 },
+    { _T("Blanka Portrait - Fierce"), 0x32748, 0x327c8, 0x02, 0x10 },
+    { _T("Blanka Portrait - Short"), 0x327c8, 0x32848, 0x02, 0x10 },
+    { _T("Blanka Portrait - Forward"), 0x32848, 0x328c8, 0x02, 0x10 },
+    { _T("Blanka Portrait - RH"), 0x328c8, 0x32948, 0x02, 0x10 },
+    { _T("Blanka Portrait - Start"), 0x32948, 0x329c8, 0x02, 0x10 },
+    { _T("Blanka Portrait - Hold"), 0x329c8, 0x32a48, 0x02, 0x10 },
+    { _T("Blanka Portrait - Old 1P"), 0x32a48, 0x32ac8, 0x02, 0x10 },
+    { _T("Blanka Portrait - Old 2P"), 0x32ac8, 0x32b48, 0x02, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_GUILE_PORTRAIT_NODE[] =
+{
+    { _T("Guile Portrait - Jab"), 0x32b48, 0x32bc8, 0x03, 0x10 },
+    { _T("Guile Portrait - Strong"), 0x32bc8, 0x32c48, 0x03, 0x10 },
+    { _T("Guile Portrait - Fierce"), 0x32c48, 0x32cc8, 0x03, 0x10 },
+    { _T("Guile Portrait - Short"), 0x32cc8, 0x32d48, 0x03, 0x10 },
+    { _T("Guile Portrait - Forward"), 0x32d48, 0x32dc8, 0x03, 0x10 },
+    { _T("Guile Portrait - RH"), 0x32dc8, 0x32e48, 0x03, 0x10 },
+    { _T("Guile Portrait - Start"), 0x32e48, 0x32ec8, 0x03, 0x10 },
+    { _T("Guile Portrait - Hold"), 0x32ec8, 0x32f48, 0x03, 0x10 },
+    { _T("Guile Portrait - Old 1P"), 0x32f48, 0x32fc8, 0x03, 0x10 },
+    { _T("Guile Portrait - Old 2P"), 0x32fc8, 0x33048, 0x03, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_KEN_PORTRAIT_NODE[] =
+{
+    { _T("Ken Portrait - Jab"), 0x33048, 0x330c8, 0x04, 0x10 },
+    { _T("Ken Portrait - Strong"), 0x330c8, 0x33148, 0x04, 0x10 },
+    { _T("Ken Portrait - Fierce"), 0x33148, 0x331c8, 0x04, 0x10 },
+    { _T("Ken Portrait - Short"), 0x331c8, 0x33248, 0x04, 0x10 },
+    { _T("Ken Portrait - Forward"), 0x33248, 0x332c8, 0x04, 0x10 },
+    { _T("Ken Portrait - RH"), 0x332c8, 0x33348, 0x04, 0x10 },
+    { _T("Ken Portrait - Start"), 0x33348, 0x333c8, 0x04, 0x10 },
+    { _T("Ken Portrait - Hold"), 0x333c8, 0x33448, 0x04, 0x10 },
+    { _T("Ken Portrait - Old 1P"), 0x33448, 0x334c8, 0x04, 0x10 },
+    { _T("Ken Portrait - Old 2P"), 0x334c8, 0x33548, 0x04, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CHUNLI_PORTRAIT_NODE[] =
+{
+    { _T("Chun-Li Portrait - Jab"), 0x33548, 0x335c8, 0x05, 0x10 },
+    { _T("Chun-Li Portrait - Strong"), 0x335c8, 0x33648, 0x05, 0x10 },
+    { _T("Chun-Li Portrait - Fierce"), 0x33648, 0x336c8, 0x05, 0x10 },
+    { _T("Chun-Li Portrait - Short"), 0x336c8, 0x33748, 0x05, 0x10 },
+    { _T("Chun-Li Portrait - Forward"), 0x33748, 0x337c8, 0x05, 0x10 },
+    { _T("Chun-Li Portrait - RH"), 0x337c8, 0x33848, 0x05, 0x10 },
+    { _T("Chun-Li Portrait - Start"), 0x33848, 0x338c8, 0x05, 0x10 },
+    { _T("Chun-Li Portrait - Hold"), 0x338c8, 0x33948, 0x05, 0x10 },
+    { _T("Chun-Li Portrait - Old 1P"), 0x33948, 0x339c8, 0x05, 0x10 },
+    { _T("Chun-Li Portrait - Old 2P"), 0x339c8, 0x33a48, 0x05, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_ZANGIEF_PORTRAIT_NODE[] =
+{
+    { _T("Zangief Portrait - Jab"), 0x33a48, 0x33ac8, 0x06, 0x10 },
+    { _T("Zangief Portrait - Strong"), 0x33ac8, 0x33b48, 0x06, 0x10 },
+    { _T("Zangief Portrait - Fierce"), 0x33b48, 0x33bc8, 0x06, 0x10 },
+    { _T("Zangief Portrait - Short"), 0x33bc8, 0x33c48, 0x06, 0x10 },
+    { _T("Zangief Portrait - Forward"), 0x33c48, 0x33cc8, 0x06, 0x10 },
+    { _T("Zangief Portrait - RH"), 0x33cc8, 0x33d48, 0x06, 0x10 },
+    { _T("Zangief Portrait - Start"), 0x33d48, 0x33dc8, 0x06, 0x10 },
+    { _T("Zangief Portrait - Hold"), 0x33dc8, 0x33e48, 0x06, 0x10 },
+    { _T("Zangief Portrait - Old 1P"), 0x33e48, 0x33ec8, 0x06, 0x10 },
+    { _T("Zangief Portrait - Old 2P"), 0x33ec8, 0x33f48, 0x06, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_DHALSIM_PORTRAIT_NODE[] =
+{
+    { _T("Dhalsim Portrait - Jab"), 0x33f48, 0x33fc8, 0x07, 0x10 },
+    { _T("Dhalsim Portrait - Strong"), 0x33fc8, 0x34048, 0x07, 0x10 },
+    { _T("Dhalsim Portrait - Fierce"), 0x34048, 0x340c8, 0x07, 0x10 },
+    { _T("Dhalsim Portrait - Short"), 0x340c8, 0x34148, 0x07, 0x10 },
+    { _T("Dhalsim Portrait - Forward"), 0x34148, 0x341c8, 0x07, 0x10 },
+    { _T("Dhalsim Portrait - RH"), 0x341c8, 0x34248, 0x07, 0x10 },
+    { _T("Dhalsim Portrait - Start"), 0x34248, 0x342c8, 0x07, 0x10 },
+    { _T("Dhalsim Portrait - Hold"), 0x342c8, 0x34348, 0x07, 0x10 },
+    { _T("Dhalsim Portrait - Old 1P"), 0x34348, 0x343c8, 0x07, 0x10 },
+    { _T("Dhalsim Portrait - Old 2P"), 0x343c8, 0x34448, 0x07, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_MBISON_PORTRAIT_NODE[] =
+{
+    { _T("M. Bison Portrait - Jab"), 0x34448, 0x344c8, 0x08, 0x10 },
+    { _T("M. Bison Portrait - Strong"), 0x344c8, 0x34548, 0x08, 0x10 },
+    { _T("M. Bison Portrait - Fierce"), 0x34548, 0x345c8, 0x08, 0x10 },
+    { _T("M. Bison Portrait - Short"), 0x345c8, 0x34648, 0x08, 0x10 },
+    { _T("M. Bison Portrait - Forward"), 0x34648, 0x346c8, 0x08, 0x10 },
+    { _T("M. Bison Portrait - RH"), 0x346c8, 0x34748, 0x08, 0x10 },
+    { _T("M. Bison Portrait - Start"), 0x34748, 0x347c8, 0x08, 0x10 },
+    { _T("M. Bison Portrait - Hold"), 0x347c8, 0x34848, 0x08, 0x10 },
+    { _T("M. Bison Portrait - Old 1P"), 0x34848, 0x348c8, 0x08, 0x10 },
+    { _T("M. Bison Portrait - Old 2P"), 0x348c8, 0x34948, 0x08, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_SAGAT_PORTRAIT_NODE[] =
+{
+    { _T("Sagat Portrait - Jab"), 0x34948, 0x349c8, 0x09, 0x10 },
+    { _T("Sagat Portrait - Strong"), 0x349c8, 0x34a48, 0x09, 0x10 },
+    { _T("Sagat Portrait - Fierce"), 0x34a48, 0x34ac8, 0x09, 0x10 },
+    { _T("Sagat Portrait - Short"), 0x34ac8, 0x34b48, 0x09, 0x10 },
+    { _T("Sagat Portrait - Forward"), 0x34b48, 0x34bc8, 0x09, 0x10 },
+    { _T("Sagat Portrait - RH"), 0x34bc8, 0x34c48, 0x09, 0x10 },
+    { _T("Sagat Portrait - Start"), 0x34c48, 0x34cc8, 0x09, 0x10 },
+    { _T("Sagat Portrait - Hold"), 0x34cc8, 0x34d48, 0x09, 0x10 },
+    { _T("Sagat Portrait - Old 1P"), 0x34d48, 0x34dc8, 0x09, 0x10 },
+    { _T("Sagat Portrait - Old 2P"), 0x34dc8, 0x34e48, 0x09, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_BALROG_PORTRAIT_NODE[] =
+{
+    { _T("Balrog Portrait - Jab"), 0x34e48, 0x34ec8, 0x0a, 0x10 },
+    { _T("Balrog Portrait - Strong"), 0x34ec8, 0x34f48, 0x0a, 0x10 },
+    { _T("Balrog Portrait - Fierce"), 0x34f48, 0x34fc8, 0x0a, 0x10 },
+    { _T("Balrog Portrait - Short"), 0x34fc8, 0x35048, 0x0a, 0x10 },
+    { _T("Balrog Portrait - Forward"), 0x35048, 0x350c8, 0x0a, 0x10 },
+    { _T("Balrog Portrait - RH"), 0x350c8, 0x35148, 0x0a, 0x10 },
+    { _T("Balrog Portrait - Start"), 0x35148, 0x351c8, 0x0a, 0x10 },
+    { _T("Balrog Portrait - Hold"), 0x351c8, 0x35248, 0x0a, 0x10 },
+    { _T("Balrog Portrait - Old 1P"), 0x35248, 0x352c8, 0x0a, 0x10 },
+    { _T("Balrog Portrait - Old 2P"), 0x352c8, 0x35348, 0x0a, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_VEGA_PORTRAIT_NODE[] =
+{
+    { _T("Vega Portrait - Jab"), 0x35348, 0x353c8, 0x0b, 0x10 },
+    { _T("Vega Portrait - Strong"), 0x353c8, 0x35448, 0x0b, 0x10 },
+    { _T("Vega Portrait - Fierce"), 0x35448, 0x354c8, 0x0b, 0x10 },
+    { _T("Vega Portrait - Short"), 0x354c8, 0x35548, 0x0b, 0x10 },
+    { _T("Vega Portrait - Forward"), 0x35548, 0x355c8, 0x0b, 0x10 },
+    { _T("Vega Portrait - RH"), 0x355c8, 0x35648, 0x0b, 0x10 },
+    { _T("Vega Portrait - Start"), 0x35648, 0x356c8, 0x0b, 0x10 },
+    { _T("Vega Portrait - Hold"), 0x356c8, 0x35748, 0x0b, 0x10 },
+    { _T("Vega Portrait - Old 1P"), 0x35748, 0x357c8, 0x0b, 0x10 },
+    { _T("Vega Portrait - Old 2P"), 0x357c8, 0x35848, 0x0b, 0x10 }, };
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_PORTRAIT_NODE[] =
+{
+    { _T("Cammy Portrait - Jab"), 0x35848, 0x358c8, 0x0c, 0x10 },
+    { _T("Cammy Portrait - Strong"), 0x358c8, 0x35948, 0x0c, 0x10 },
+    { _T("Cammy Portrait - Fierce"), 0x35948, 0x359c8, 0x0c, 0x10 },
+    { _T("Cammy Portrait - Short"), 0x359c8, 0x35a48, 0x0c, 0x10 },
+    { _T("Cammy Portrait - Forward"), 0x35a48, 0x35ac8, 0x0c, 0x10 },
+    { _T("Cammy Portrait - RH"), 0x35ac8, 0x35b48, 0x0c, 0x10 },
+    { _T("Cammy Portrait - Start"), 0x35b48, 0x35bc8, 0x0c, 0x10 },
+    { _T("Cammy Portrait - Hold"), 0x35bc8, 0x35c48, 0x0c, 0x10 },
+    { _T("Cammy Portrait - Old 1P"), 0x35c48, 0x35cc8, 0x0c, 0x10 },
+    { _T("Cammy Portrait - Old 2P"), 0x35cc8, 0x35d48, 0x0c, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_THAWK_PORTRAIT_NODE[] =
+{
+    { _T("T-Hawk Portrait - Jab"), 0x35d48, 0x35dc8, 0x0d, 0x10 },
+    { _T("T-Hawk Portrait - Strong"), 0x35dc8, 0x35e48, 0x0d, 0x10 },
+    { _T("T-Hawk Portrait - Fierce"), 0x35e48, 0x35ec8, 0x0d, 0x10 },
+    { _T("T-Hawk Portrait - Short"), 0x35ec8, 0x35f48, 0x0d, 0x10 },
+    { _T("T-Hawk Portrait - Forward"), 0x35f48, 0x35fc8, 0x0d, 0x10 },
+    { _T("T-Hawk Portrait - RH"), 0x35fc8, 0x36048, 0x0d, 0x10 },
+    { _T("T-Hawk Portrait - Start"), 0x36048, 0x360c8, 0x0d, 0x10 },
+    { _T("T-Hawk Portrait - Hold"), 0x360c8, 0x36148, 0x0d, 0x10 },
+    { _T("T-Hawk Portrait - Old 1P"), 0x36148, 0x361c8, 0x0d, 0x10 },
+    { _T("T-Hawk Portrait - Old 2P"), 0x361c8, 0x36248, 0x0d, 0x10 }, };
+
+const sGame_PaletteDataset SSF2T_A_FEILONG_PORTRAIT_NODE[] =
+{
+    { _T("Fei Long Portrait - Jab"), 0x36248, 0x362c8, 0x0e, 0x10 },
+    { _T("Fei Long Portrait - Strong"), 0x362c8, 0x36348, 0x0e, 0x10 },
+    { _T("Fei Long Portrait - Fierce"), 0x36348, 0x363c8, 0x0e, 0x10 },
+    { _T("Fei Long Portrait - Short"), 0x363c8, 0x36448, 0x0e, 0x10 },
+    { _T("Fei Long Portrait - Forward"), 0x36448, 0x364c8, 0x0e, 0x10 },
+    { _T("Fei Long Portrait - RH"), 0x364c8, 0x36548, 0x0e, 0x10 },
+    { _T("Fei Long Portrait - Start"), 0x36548, 0x365c8, 0x0e, 0x10 },
+    { _T("Fei Long Portrait - Hold"), 0x365c8, 0x36648, 0x0e, 0x10 },
+    { _T("Fei Long Portrait - Old 1P"), 0x36648, 0x366c8, 0x0e, 0x10 },
+    { _T("Fei Long Portrait - Old 2P"), 0x366c8, 0x36748, 0x0e, 0x10 },
+};
+
+const sGame_PaletteDataset SSF2T_A_DEEJAY_PORTRAIT_NODE[] =
+{
+    { _T("Dee Jay Portrait - Jab"), 0x36748, 0x367c8, 0x0f, 0x10 },
+    { _T("Dee Jay Portrait - Strong"), 0x367c8, 0x36848, 0x0f, 0x10 },
+    { _T("Dee Jay Portrait - Fierce"), 0x36848, 0x368c8, 0x0f, 0x10 },
+    { _T("Dee Jay Portrait - Short"), 0x368c8, 0x36948, 0x0f, 0x10 },
+    { _T("Dee Jay Portrait - Forward"), 0x36948, 0x369c8, 0x0f, 0x10 },
+    { _T("Dee Jay Portrait - RH"), 0x369c8, 0x36a48, 0x0f, 0x10 },
+    { _T("Dee Jay Portrait - Start"), 0x36a48, 0x36ac8, 0x0f, 0x10 },
+    { _T("Dee Jay Portrait - Hold"), 0x36ac8, 0x36b48, 0x0f, 0x10 },
+    { _T("Dee Jay Portrait - Old 1P"), 0x36b48, 0x36bc8, 0x0f, 0x10 },
+    { _T("Dee Jay Portrait - Old 2P"), 0x36bc8, 0x36c48, 0x0f, 0x10 },
+};
 
 #ifdef UNUSED_PALETTES
     // These actually aren't used!  Only the P1s are ever shown.
@@ -1020,11 +1223,26 @@ const sGame_PaletteDataset SSF2T_A_PORTRAITS_NODES[] =
     { _T("Fei Long Portrait P2"), 0x03b2fe, 0x03b37e, 0x0E, 0x10 },
     { _T("Dee Jay Portrait P2"),  0x03b7fe, 0x03b87e, 0x0F, 0x10 },
 #endif
-};
+
 
 const sDescTreeNode SSF2T_A_PORTRAITS_COLLECTION[] =
 {
-    { _T("Portraits"),	 DESC_NODETYPE_TREE, (void*)SSF2T_A_PORTRAITS_NODES,         ARRAYSIZE(SSF2T_A_PORTRAITS_NODES) },
+    { _T("Balrog"),      DESC_NODETYPE_TREE, (void*)SSF2T_A_BALROG_PORTRAIT_NODE,       ARRAYSIZE(SSF2T_A_BALROG_PORTRAIT_NODE) },
+    { _T("Blanka"),      DESC_NODETYPE_TREE, (void*)SSF2T_A_BLANKA_PORTRAIT_NODE,       ARRAYSIZE(SSF2T_A_BLANKA_PORTRAIT_NODE) },
+    { _T("Cammy"),       DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_PORTRAIT_NODE,        ARRAYSIZE(SSF2T_A_CAMMY_PORTRAIT_NODE) },
+    { _T("Chun-Li"),     DESC_NODETYPE_TREE, (void*)SSF2T_A_CHUNLI_PORTRAIT_NODE,       ARRAYSIZE(SSF2T_A_CHUNLI_PORTRAIT_NODE) },
+    { _T("Dee Jay"),     DESC_NODETYPE_TREE, (void*)SSF2T_A_DEEJAY_PORTRAIT_NODE,       ARRAYSIZE(SSF2T_A_DEEJAY_PORTRAIT_NODE) },
+    { _T("Dhalsim"),     DESC_NODETYPE_TREE, (void*)SSF2T_A_DHALSIM_PORTRAIT_NODE,      ARRAYSIZE(SSF2T_A_DHALSIM_PORTRAIT_NODE) },
+    { _T("E. Honda"),    DESC_NODETYPE_TREE, (void*)SSF2T_A_EHONDA_PORTRAIT_NODE,       ARRAYSIZE(SSF2T_A_EHONDA_PORTRAIT_NODE) },
+    { _T("Fei Long"),    DESC_NODETYPE_TREE, (void*)SSF2T_A_FEILONG_PORTRAIT_NODE,      ARRAYSIZE(SSF2T_A_FEILONG_PORTRAIT_NODE) },
+    { _T("Guile"),       DESC_NODETYPE_TREE, (void*)SSF2T_A_GUILE_PORTRAIT_NODE,        ARRAYSIZE(SSF2T_A_GUILE_PORTRAIT_NODE) },
+    { _T("Ken"),         DESC_NODETYPE_TREE, (void*)SSF2T_A_KEN_PORTRAIT_NODE,          ARRAYSIZE(SSF2T_A_KEN_PORTRAIT_NODE) },
+    { _T("M. Bison"),    DESC_NODETYPE_TREE, (void*)SSF2T_A_MBISON_PORTRAIT_NODE,       ARRAYSIZE(SSF2T_A_MBISON_PORTRAIT_NODE) },
+    { _T("Ryu"),         DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_PORTRAIT_NODE,          ARRAYSIZE(SSF2T_A_RYU_PORTRAIT_NODE) },
+    { _T("Sagat"),       DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_PORTRAIT_NODE,        ARRAYSIZE(SSF2T_A_SAGAT_PORTRAIT_NODE) },
+    { _T("T-Hawk"),      DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_PORTRAIT_NODE,        ARRAYSIZE(SSF2T_A_THAWK_PORTRAIT_NODE) },
+    { _T("Vega"),        DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_PORTRAIT_NODE,         ARRAYSIZE(SSF2T_A_VEGA_PORTRAIT_NODE) },
+    { _T("Zangief"),     DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_PORTRAIT_NODE,      ARRAYSIZE(SSF2T_A_ZANGIEF_PORTRAIT_NODE) },
 };
 
 const sDescTreeNode SSF2T_A_UNITS_3C[SSF2T_A_NUM_IND_3C] =
