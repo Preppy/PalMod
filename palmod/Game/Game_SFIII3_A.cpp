@@ -742,7 +742,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             switch (uUnitId)
             {
-            case 0x0E: //Shin Gouki: only have two versions in this game
+            case index3S_CPS3_ShinGouki: //Shin Gouki: only have two versions in this game
             {
                 nSrcAmt = 2;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
@@ -761,7 +761,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (uUnitId == 0x08) // Oro
+                if (uUnitId == index3S_CPS3_Oro) // Oro
                 {
                     fShouldUseAlternateLoadLogic = true;
 
@@ -788,7 +788,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     SetSourcePal(0, uUnitId, uPalId, 1, 1);
                     SetSourcePal(1, uUnitId, uPalId + 1, 1, 1);
                 }
-                else if (uUnitId == 0x0C) // Urien
+                else if (uUnitId == index3S_CPS3_Urien) // Urien
                 {
                     // Note that we deliberately use a different image for the paired palette than we do
                     // when displaying that palette normally.

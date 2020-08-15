@@ -287,7 +287,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     }
 
     int nSrcStart = 0;
-    int nSrcAmt = 7;//GetBasicAmt(uUnitId);
+    int nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7);//GetBasicAmt(uUnitId);
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();

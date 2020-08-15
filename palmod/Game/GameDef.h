@@ -366,55 +366,83 @@ const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
     0x3A  // Kobun
 };
 
+enum CHARACTERS_3S_CPS3
+{
+    index3S_CPS3_Alex,
+    index3S_CPS3_Ryu,
+    index3S_CPS3_Yun,
+    index3S_CPS3_Dudley,
+    index3S_CPS3_Necro,
+    index3S_CPS3_Hugo,
+    index3S_CPS3_Ibuki,
+    index3S_CPS3_Elena,
+    index3S_CPS3_Oro,
+    index3S_CPS3_Yang,
+    index3S_CPS3_Ken,
+    index3S_CPS3_Sean,
+    index3S_CPS3_Urien,
+    index3S_CPS3_Gouki,
+    index3S_CPS3_ShinGouki,
+    index3S_CPS3_ChunLi,
+    index3S_CPS3_Makoto,
+    index3S_CPS3_Q,
+    index3S_CPS3_Twelve,
+    index3S_CPS3_Remy,
+    index3S_CPS3_Bonus,
+    index3S_CPS3_Extras,
+    index3S_CPS3_Gill,
+};
+
 const UINT8 SFIII3_A_IMG_UNITS[] =
 {
-    0x00, // Alex
-    0x01, // Ryu
-    0x02, // Yun
-    0x03, // Dudley
-    0x04, // Necro
-    0x05, // Hugo
-    0x06, // Ibuki
-    0x07, // Elena
-    0x08, // Oro
-    0x09, // Yang
-    0x0A, // Ken
-    0x0B, // Sean
-    0x0C, // Urien
-    0x0D, // Gouki
-    0x0E, // Shin-Gouki
-    0x0F, // Chun-Li
-    0x10, // Makoto
-    0x11, // Q
-    0x12, // Twelve
-    0x13, // Remy
-    0x14, // Bonus
-    0x15, // Extras
+    index3S_CPS3_Alex,
+    index3S_CPS3_Ryu,
+    index3S_CPS3_Yun,
+    index3S_CPS3_Dudley,
+    index3S_CPS3_Necro,
+    index3S_CPS3_Hugo,
+    index3S_CPS3_Ibuki,
+    index3S_CPS3_Elena,
+    index3S_CPS3_Oro,
+    index3S_CPS3_Yang,
+    index3S_CPS3_Ken,
+    index3S_CPS3_Sean,
+    index3S_CPS3_Urien,
+    index3S_CPS3_Gouki,
+    index3S_CPS3_ShinGouki,
+    index3S_CPS3_ChunLi,
+    index3S_CPS3_Makoto,
+    index3S_CPS3_Q,
+    index3S_CPS3_Twelve,
+    index3S_CPS3_Remy,
+    index3S_CPS3_Bonus,
+    index3S_CPS3_Extras,
 };
 
 constexpr auto SFIII3_A_NUM_IMG_UNITS = ARRAYSIZE(SFIII3_A_IMG_UNITS);
 
 const UINT8 SFIII3_D_IMG_UNITS[SFIII3_A_NUM_IMG_UNITS - 0x01] =
 {
-    0x00, // Alex
-    0x01, // Ryu
-    0x02, // Yun
-    0x03, // Dudley
-    0x04, // Necro
-    0x05, // Hugo
-    0x06, // Ibuki
-    0x07, // Elena
-    0x08, // Oro
-    0x09, // Yang
-    0x0A, // Ken
-    0x0B, // Sean
-    0x0C, // Urien
-    0x0D, // Gouki
-    0x0F, // Chun-Li
-    0x10, // Makoto
-    0x11, // Q
-    0x12, // Twelve
-    0x13  // Remy
+    index3S_CPS3_Alex,
+    index3S_CPS3_Ryu,
+    index3S_CPS3_Yun,
+    index3S_CPS3_Dudley,
+    index3S_CPS3_Necro,
+    index3S_CPS3_Hugo,
+    index3S_CPS3_Ibuki,
+    index3S_CPS3_Elena,
+    index3S_CPS3_Oro,
+    index3S_CPS3_Yang,
+    index3S_CPS3_Ken,
+    index3S_CPS3_Sean,
+    index3S_CPS3_Urien,
+    index3S_CPS3_Gouki,
+    index3S_CPS3_ShinGouki,
+    index3S_CPS3_ChunLi,
+    index3S_CPS3_Makoto,
+    index3S_CPS3_Q,
+    index3S_CPS3_Twelve,
+    index3S_CPS3_Remy,
 };
 
 const UINT8 SSF2T_A_IMG_UNITS[SSF2T_A_NUM_IMG_UNITS] =
