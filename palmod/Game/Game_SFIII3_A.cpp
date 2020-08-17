@@ -43,10 +43,12 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 674;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 675;
     m_nLowestKnownPaletteRomLocation = 0x700600;
 
-    OutputDebugString(GetExtraCt(SFIII3_A_EXTRALOC) ? _T("Loaded SF3_A with Extras.\n") : _T("Loaded SF3_A without Extras\n"));
+    CString strInfo;
+    strInfo.Format(_T("CGame_SFIII3_A::CGame_SFIII3_A: Loaded SFIII3_A with %u Extras\n"), GetExtraCt(m_nExtraUnit));
+    OutputDebugString(strInfo);
 
     InitDataBuffer();
 
@@ -549,7 +551,7 @@ void CGame_SFIII3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
-        nCurrPalOffs = paletteData->nPaletteOffset;
+        m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
 
         m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
@@ -559,12 +561,10 @@ void CGame_SFIII3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         // This is where we handle all the palettes added in via Extra.
         stExtraDef* pCurrDef = GetSF3ExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
-        nCurrPalOffs = pCurrDef->uOffset;
+        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
-
-    m_nCurrentPaletteROMLocation = nCurrPalOffs;
 }
 
 BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
@@ -583,7 +583,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
             pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
-            LoadedFile->Seek(nCurrPalOffs, CFile::begin);
+            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
             LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
         }
@@ -609,15 +609,15 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
+            if (!fShownOnce && (m_nCurrentPaletteROMLocation < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
-                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, nCurrPalOffs);
+                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
                 MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                 fShownOnce = true;
             }
 
-            SaveFile->Seek(nCurrPalOffs, CFile::begin);
+            SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
             SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
             nTotalPalettesSaved++;
         }

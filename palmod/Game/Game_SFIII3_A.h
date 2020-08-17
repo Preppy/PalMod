@@ -20,9 +20,6 @@ public:
     int nTargetImgId = 0;
     int nNormalPalAmt = 0;
 
-    //Used for GetPalOffset
-    UINT32 nCurrPalOffs = 0;
-
     static int rgExtraCountAll[SFIII3_A_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1];
     static int rgExtraLoc[SFIII3_A_NUMUNIT + 1];

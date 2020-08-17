@@ -1237,56 +1237,56 @@ const sGame_PaletteDataset SFIII3_A_HUGO_PORTRAIT_PALETTES[] =
 {
     { _T("Hugo portrait (Normal)"), 0x70D380, 0x70D500 },
     { _T("Hugo portrait (Tinted)"), 0x0712180, 0x0712300 },
-    { _T("Hugo Character Select Icon"), 0x070B900, 0x070B980 },
+    { _T("Hugo Character Select Icon"), 0x070B900, 0x070B980, index3S_CPS3_Hugo, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_PORTRAIT_PALETTES[] =
 {
     { _T("Gill portrait (Normal)"), 0x070C600, 0x070C800 },
     { _T("Gill portrait (Tinted)"), 0x0711400, 0x0711600 },
-    { _T("?? Unused Gill Character Select Icon ??"), 0x070BF80, 0x070C000 },
+    { _T("?? Unused Gill Character Select Icon ??"), 0x070BF80, 0x070C000, index3S_CPS3_Gill, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_PORTRAIT_PALETTES[] =
 {
     { _T("Alex portrait (Normal)"), 0x070CD00, 0x070CF00 },
     { _T("Alex portrait (Tinted)"), 0x0711B00, 0x0711D00 },
-    { _T("Alex Character Select Icon"), 0x070C180, 0x070C200 },
+    { _T("Alex Character Select Icon"), 0x070C180, 0x070C200, index3S_CPS3_Alex, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_PORTRAIT_PALETTES[] =
 {
     { _T("Ryu portrait (Normal)"), 0x070CF00, 0x070D000 },
     { _T("Ryu portrait (Tinted)"), 0x0711D00, 0x0711E00 },
-    { _T("Ryu Character Select Icon"), 0x070BC00, 0x070BC80 },
+    { _T("Ryu Character Select Icon"), 0x070BC00, 0x070BC80, index3S_CPS3_Ryu, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_PORTRAIT_PALETTES[] =
 {
     { _T("Yun portrait (Normal)"), 0x070D000, 0x070D100 },
     { _T("Yun portrait (Tinted)"), 0x0711E00, 0x0711F00 },
-    { _T("Yun Character Select Icon"), 0x070BB00, 0x070BB80 },
+    { _T("Yun Character Select Icon"), 0x070BB00, 0x070BB80, index3S_CPS3_Yun, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_PORTRAIT_PALETTES[] =
 {
     { _T("Dudley portrait (Normal)"), 0x070D100, 0x070D200 },
     { _T("Dudley portrait (Tinted)"), 0x0711F00, 0x0712000 },
-    { _T("Dudley Character Select Icon"), 0x070C280, 0x070C300 },
+    { _T("Dudley Character Select Icon"), 0x070C280, 0x070C300, index3S_CPS3_Dudley, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_PORTRAIT_PALETTES[] =
 {
     { _T("Necro portrait (Normal)"), 0x070D200, 0x070D380 },
     { _T("Necro portrait (Tinted)"), 0x0712000, 0x0712180 },
-    { _T("Necro Character Select Icon"), 0x070B980, 0x070BA00 },
+    { _T("Necro Character Select Icon"), 0x070B980, 0x070BA00, index3S_CPS3_Necro, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_PORTRAIT_PALETTES[] =
 {
     { _T("Ibuki portrait (Normal)"), 0x070D500, 0x070D680 },
     { _T("Ibuki portrait (Tinted)"), 0x0712300, 0x0712480 },
-    { _T("Ibuki Character Select Icon"), 0x070B880, 0x070B900 },
+    { _T("Ibuki Character Select Icon"), 0x070B880, 0x070B900, index3S_CPS3_Ibuki, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_PORTRAIT_PALETTES[] =
@@ -1295,89 +1295,89 @@ const sGame_PaletteDataset SFIII3_A_ELENA_PORTRAIT_PALETTES[] =
     { _T("Elena portrait (Normal) 2/2"), 0x70D880, 0x70DA00, index3S_CPS3_Elena, 0x21, &pairPrevious},
     { _T("Elena portrait (Tinted) 1/2"), 0x712480, 0x712680, index3S_CPS3_Elena, 0x20, &pairNext },
     { _T("Elena portrait (Tinted) 2/2"), 0x712680, 0x712800, index3S_CPS3_Elena, 0x21, &pairPrevious },
-    { _T("Elena Character Select Icon"), 0x070C300, 0x070C380 }, 
+    { _T("Elena Character Select Icon"), 0x070C300, 0x070C380, index3S_CPS3_Elena, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_PORTRAIT_PALETTES[] =
 {
     { _T("Oro portrait (Normal)"), 0x070DA00, 0x070DA80 },
     { _T("Oro portrait (Tinted)"), 0x0712800, 0x0712880 },
-    { _T("Oro Character Select Icon"), 0x070C000, 0x070C080 },
+    { _T("Oro Character Select Icon"), 0x070C000, 0x070C080, index3S_CPS3_Oro, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_PORTRAIT_PALETTES[] =
 {
     { _T("Yang portrait (Normal)"), 0x070DA80, 0x070DB80 },
     { _T("Yang portrait (Tinted)"), 0x0712880, 0x0712980 },
-    { _T("Yang Character Select Icon"), 0x070BB80, 0x070BC00 },
+    { _T("Yang Character Select Icon"), 0x070BB80, 0x070BC00, index3S_CPS3_Yang, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_PORTRAIT_PALETTES[] =
 {
     { _T("Ken portrait (Normal)"), 0x070DB80, 0x070DD00, index3S_CPS3_Ken, 0x20 },
     { _T("Ken portrait (Tinted)"), 0x0712980, 0x0712B00, index3S_CPS3_Ken, 0x20 },
-    { _T("Ken Character Select Icon"), 0x070C100, 0x070C180 },
+    { _T("Ken Character Select Icon"), 0x070C100, 0x070C180, index3S_CPS3_Ken, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_PORTRAIT_PALETTES[] =
 {
     { _T("Sean portrait (Normal)"), 0x070DD00, 0x070DE80, index3S_CPS3_Sean, 0x20 },
     { _T("Sean portrait (Tinted)"), 0x0712B00, 0x0712C80, index3S_CPS3_Sean, 0x20 },
-    { _T("Sean Character Select Icon"), 0x070C200, 0x070C280 },
+    { _T("Sean Character Select Icon"), 0x070C200, 0x070C280, index3S_CPS3_Sean, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_PORTRAIT_PALETTES[] =
 {
     { _T("Urien portrait (Normal)"), 0x070DE80, 0x070DF80 },
     { _T("Urien portrait (Tinted)"), 0x0712C80, 0x0712D80 },
-    { _T("Urien Character Select Icon"), 0x070BD00, 0x070BD80 },
+    { _T("Urien Character Select Icon"), 0x070BD00, 0x070BD80, index3S_CPS3_Urien, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_PORTRAIT_PALETTES[] =
 {
     { _T("Gouki / Shin-Gouki portrait (Normal)"), 0x070DF80, 0x070E080 },
     { _T("Gouki / Shin-Gouki portrait (Tinted)"), 0x0712D80, 0x0712E80 },
-    { _T("Gouki Character Select Icon"), 0x070BE00, 0x070BE80 },
+    { _T("Gouki Character Select Icon"), 0x070BE00, 0x070BE80, index3S_CPS3_Gouki, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES[] =
 {
-    { _T("Shin-Gouki Character Select Icon"), 0x070BE80, 0x070BF00 },
+    { _T("Shin-Gouki Character Select Icon"), 0x070BE80, 0x070BF00, index3S_CPS3_ShinGouki, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_PORTRAIT_PALETTES[] =
 {
     { _T("Chun-Li portrait (Normal)"), 0x070E080, 0x070E200 },
     { _T("Chun-Li portrait (Tinted)"), 0x0712E80, 0x0713000 },
-    { _T("Chun-Li Character Select Icon"), 0x070BC80, 0x070BD00 },
+    { _T("Chun-Li Character Select Icon"), 0x070BC80, 0x070BD00, index3S_CPS3_ChunLi, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_PORTRAIT_PALETTES[] =
 {
     { _T("Makoto portrait (Normal)"), 0x070E200, 0x070E380 },
     { _T("Makoto portrait (Tinted)"), 0x0713000, 0x0713180 },
-    { _T("Makoto Character Select Icon"), 0x070BA80, 0x070BB00 },
+    { _T("Makoto Character Select Icon"), 0x070BA80, 0x070BB00, index3S_CPS3_Makoto, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_PORTRAIT_PALETTES[] =
 {
     { _T("Q portrait (Normal)"), 0x070E380, 0x070E400 },
     { _T("Q portrait (Tinted)"), 0x0713180, 0x0713200 },
-    { _T("Q Character Select Icon"), 0x070BD80, 0x070BE00 },
+    { _T("Q Character Select Icon"), 0x070BD80, 0x070BE00, index3S_CPS3_Q, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_PORTRAIT_PALETTES[] =
 {
     { _T("Twelve portrait (Normal)"), 0x070E400, 0x070E480 },
     { _T("Twelve portrait (Tinted)"), 0x0713200, 0x0713280 },
-    { _T("Tweleve Character Select Icon"), 0x070C080, 0x070C100 },
+    { _T("Twelve Character Select Icon"), 0x070C080, 0x070C100, index3S_CPS3_Twelve, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_PORTRAIT_PALETTES[] =
 {
-    { _T("Remy portrait (Normal)"), 0x070E480, 0x070E600 },
+    { _T("Remy portrait (Normal)"), 0x070E480, 0x070E680 },
     { _T("Remy portrait (Tinted)"), 0x0713280, 0x0713480 },
-    { _T("Remy Character Select Icon"), 0x070BA00, 0x070BA80 },
+    { _T("Remy Character Select Icon"), 0x070BA00, 0x070BA80, index3S_CPS3_Remy, 0x22 },
 };
 
 const sDescTreeNode SFIII3_A_ALEX_COLLECTION[] =
@@ -1577,8 +1577,8 @@ const sDescTreeNode SFIII3_A_SHINGOUKI_COLLECTION[] =
 {
     { _T("P1"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_LP_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_LP_PALETTES) },
     { _T("P2"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_MP_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_MP_PALETTES) },
-    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_Support_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_Support_PALETTES) },
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_CHUNLI_COLLECTION[] =
@@ -1651,104 +1651,105 @@ const sDescTreeNode SFIII3_A_REMY_COLLECTION[] =
 
 const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
 {
-    { _T("Select Background"), 0x709D80, 0x709E00, 0x14, 0x0 },
+    { _T("Select Background"), 0x709D80, 0x709E00, index3S_CPS3_Bonus, 0x0 },
+    { _T("Final Results"), 0x70bf00, 0x70bf80, index3S_CPS3_Bonus, 0x01},
     { _T("Vs Text"), 0x70C780, 0x70C880 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_AKUMA_PALETTES[] =
 {
-    { _T("Akuma Stage Part 1"), 0x74C180, 0x74C380, 0x15, 0x0F },
-    { _T("Akuma Stage Part 2"), 0x74C380, 0x74C580, 0x15, 0x10 },
-    { _T("Akuma Stage Part 3"), 0x74C580, 0x74C780, 0x15, 0x11 },
-    { _T("Akuma Stage Part 4"), 0x74C780, 0x74C980, 0x15, 0x12 },
-    { _T("Akuma Stage Part 5"), 0x74C980, 0x74CA00, 0x15, 0x13 },
+    { _T("Akuma Stage Part 1"), 0x74C180, 0x74C380, index3S_CPS3_Stages, 0x0F },
+    { _T("Akuma Stage Part 2"), 0x74C380, 0x74C580, index3S_CPS3_Stages, 0x10 },
+    { _T("Akuma Stage Part 3"), 0x74C580, 0x74C780, index3S_CPS3_Stages, 0x11 },
+    { _T("Akuma Stage Part 4"), 0x74C780, 0x74C980, index3S_CPS3_Stages, 0x12 },
+    { _T("Akuma Stage Part 5"), 0x74C980, 0x74CA00, index3S_CPS3_Stages, 0x13 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_AKUMA_FADED_PALETTES[] =
 {
-    { _T("Akuma Stage (Faded) Part 1"), 0x74CA00, 0x74CC00, 0x15, 0x0F },
-    { _T("Akuma Stage (Faded) Part 2"), 0x74CC00, 0x74CE00, 0x15, 0x10 },
-    { _T("Akuma Stage (Faded) Part 3"), 0x74CE00, 0x74D000, 0x15, 0x11 },
-    { _T("Akuma Stage (Faded) Part 4"), 0x74D000, 0x74D200, 0x15, 0x12 },
-    { _T("Akuma Stage (Faded) Part 5"), 0x74D200, 0x74D280, 0x15, 0x13 },
+    { _T("Akuma Stage (Faded) Part 1"), 0x74CA00, 0x74CC00, index3S_CPS3_Stages, 0x0F },
+    { _T("Akuma Stage (Faded) Part 2"), 0x74CC00, 0x74CE00, index3S_CPS3_Stages, 0x10 },
+    { _T("Akuma Stage (Faded) Part 3"), 0x74CE00, 0x74D000, index3S_CPS3_Stages, 0x11 },
+    { _T("Akuma Stage (Faded) Part 4"), 0x74D000, 0x74D200, index3S_CPS3_Stages, 0x12 },
+    { _T("Akuma Stage (Faded) Part 5"), 0x74D200, 0x74D280, index3S_CPS3_Stages, 0x13 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_ELENA_PALETTES[] =
 {
-    { _T("Elena Stage - Grass"), 0x743380, 0x743400, 0x15, 0x00 },
-    { _T("Elena Stage - Bushes"), 0x743400, 0x743480, 0x15, 0x01 },
-    { _T("Elena Stage - Sun"), 0x743480, 0x743500, 0x15, 0x02 },
-    { _T("Elena Stage - Grass Pond Elephants"), 0x743500, 0x743580, 0x15, 0x03 },
-    { _T("Elena Stage - Tree Left Side"), 0x743580, 0x743600, 0x15, 0x04 },
-    { _T("Elena Stage - Tree Right Side"), 0x743600, 0x743680, 0x15, 0x05 },
+    { _T("Elena Stage - Grass"), 0x743380, 0x743400, index3S_CPS3_Stages, 0x00 },
+    { _T("Elena Stage - Bushes"), 0x743400, 0x743480, index3S_CPS3_Stages, 0x01 },
+    { _T("Elena Stage - Sun"), 0x743480, 0x743500, index3S_CPS3_Stages, 0x02 },
+    { _T("Elena Stage - Grass Pond Elephants"), 0x743500, 0x743580, index3S_CPS3_Stages, 0x03 },
+    { _T("Elena Stage - Tree Left Side"), 0x743580, 0x743600, index3S_CPS3_Stages, 0x04 },
+    { _T("Elena Stage - Tree Right Side"), 0x743600, 0x743680, index3S_CPS3_Stages, 0x05 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_ELENA_FADED_PALETTES[] =
 {
-    { _T("Elena Stage (Faded) - Grass"), 0x743680, 0x743700, 0x15, 0x00 },
-    { _T("Elena Stage (Faded) - Bushes"), 0x743700, 0x743780, 0x15, 0x01 },
-    { _T("Elena Stage (Faded) - Sun"), 0x743780, 0x743800, 0x15, 0x02 },
-    { _T("Elena Stage (Faded) - Grass Pond Elephants"), 0x743800, 0x743880, 0x15, 0x03 },
-    { _T("Elena Stage (Faded) - Tree Left Side"), 0x743880, 0x743900, 0x15, 0x04 },
-    { _T("Elena Stage (Faded) - Tree Right Side"), 0x743900, 0x743980, 0x15, 0x05 },
+    { _T("Elena Stage (Faded) - Grass"), 0x743680, 0x743700, index3S_CPS3_Stages, 0x00 },
+    { _T("Elena Stage (Faded) - Bushes"), 0x743700, 0x743780, index3S_CPS3_Stages, 0x01 },
+    { _T("Elena Stage (Faded) - Sun"), 0x743780, 0x743800, index3S_CPS3_Stages, 0x02 },
+    { _T("Elena Stage (Faded) - Grass Pond Elephants"), 0x743800, 0x743880, index3S_CPS3_Stages, 0x03 },
+    { _T("Elena Stage (Faded) - Tree Left Side"), 0x743880, 0x743900, index3S_CPS3_Stages, 0x04 },
+    { _T("Elena Stage (Faded) - Tree Right Side"), 0x743900, 0x743980, index3S_CPS3_Stages, 0x05 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_MAKOTO_PALETTES[] =
 {
-    { _T("Makoto Stage Part 1"), 0x752F80, 0x753180, 0x15, 0x06 },
-    { _T("Makoto Stage Part 2"), 0x753180, 0x753380, 0x15, 0x07 },
-    { _T("Makoto Stage Part 3"), 0x753380, 0x753580, 0x15, 0x08 },
-    { _T("Makoto Stage Part 4"), 0x753580, 0x753780, 0x15, 0x09 },
-    { _T("Makoto Stage Part 5"), 0x753780, 0x753980, 0x15, 0x0A },
-    { _T("Makoto Stage Part 6"), 0x753980, 0x753b80, 0x15, 0x0B },
-    { _T("Makoto Stage Part 7"), 0x753b80, 0x753d80, 0x15, 0x0C },
-    { _T("Makoto Stage Part 8"), 0x753d80, 0x753f80, 0x15, 0x0D },
-    { _T("Makoto Stage Part 9"), 0x753f80, 0x754000, 0x15, 0x0E },
+    { _T("Makoto Stage Part 1"), 0x752F80, 0x753180, index3S_CPS3_Stages, 0x06 },
+    { _T("Makoto Stage Part 2"), 0x753180, 0x753380, index3S_CPS3_Stages, 0x07 },
+    { _T("Makoto Stage Part 3"), 0x753380, 0x753580, index3S_CPS3_Stages, 0x08 },
+    { _T("Makoto Stage Part 4"), 0x753580, 0x753780, index3S_CPS3_Stages, 0x09 },
+    { _T("Makoto Stage Part 5"), 0x753780, 0x753980, index3S_CPS3_Stages, 0x0A },
+    { _T("Makoto Stage Part 6"), 0x753980, 0x753b80, index3S_CPS3_Stages, 0x0B },
+    { _T("Makoto Stage Part 7"), 0x753b80, 0x753d80, index3S_CPS3_Stages, 0x0C },
+    { _T("Makoto Stage Part 8"), 0x753d80, 0x753f80, index3S_CPS3_Stages, 0x0D },
+    { _T("Makoto Stage Part 9"), 0x753f80, 0x754000, index3S_CPS3_Stages, 0x0E },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_MAKOTO_FADED_PALETTES[] =
 {
-    { _T("Makoto Stage (Faded) Part 1"), 0x754000, 0x754200, 0x15, 0x06 },
-    { _T("Makoto Stage (Faded) Part 2"), 0x754200, 0x754400, 0x15, 0x07 },
-    { _T("Makoto Stage (Faded) Part 3"), 0x754400, 0x754600, 0x15, 0x08 },
-    { _T("Makoto Stage (Faded) Part 4"), 0x754600, 0x754800, 0x15, 0x09 },
-    { _T("Makoto Stage (Faded) Part 5"), 0x754800, 0x754A00, 0x15, 0x0A },
-    { _T("Makoto Stage (Faded) Part 6"), 0x754A00, 0x754C00, 0x15, 0x0B },
-    { _T("Makoto Stage (Faded) Part 7"), 0x754C00, 0x754E00, 0x15, 0x0C },
-    { _T("Makoto Stage (Faded) Part 8"), 0x754E00, 0x755000, 0x15, 0x0D },
-    { _T("Makoto Stage (Faded) Part 9"), 0x755000, 0x755080, 0x15, 0x0E },
+    { _T("Makoto Stage (Faded) Part 1"), 0x754000, 0x754200, index3S_CPS3_Stages, 0x06 },
+    { _T("Makoto Stage (Faded) Part 2"), 0x754200, 0x754400, index3S_CPS3_Stages, 0x07 },
+    { _T("Makoto Stage (Faded) Part 3"), 0x754400, 0x754600, index3S_CPS3_Stages, 0x08 },
+    { _T("Makoto Stage (Faded) Part 4"), 0x754600, 0x754800, index3S_CPS3_Stages, 0x09 },
+    { _T("Makoto Stage (Faded) Part 5"), 0x754800, 0x754A00, index3S_CPS3_Stages, 0x0A },
+    { _T("Makoto Stage (Faded) Part 6"), 0x754A00, 0x754C00, index3S_CPS3_Stages, 0x0B },
+    { _T("Makoto Stage (Faded) Part 7"), 0x754C00, 0x754E00, index3S_CPS3_Stages, 0x0C },
+    { _T("Makoto Stage (Faded) Part 8"), 0x754E00, 0x755000, index3S_CPS3_Stages, 0x0D },
+    { _T("Makoto Stage (Faded) Part 9"), 0x755000, 0x755080, index3S_CPS3_Stages, 0x0E },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_YANG_PALETTES[] =
 {
-    { _T("Yang Stage Part 1"), 0x732180, 0x732380, 0x15, 0x14 },
-    { _T("Yang Stage Part 2"), 0x732380, 0x732580, 0x15, 0x15 },
-    { _T("Yang Stage Part 3"), 0x732580, 0x732780, 0x15, 0x16 },
-    { _T("Yang Stage Part 4"), 0x732780, 0x732980, 0x15, 0x17 },
-    { _T("Yang Stage Part 5"), 0x732980, 0x732B80, 0x15, 0x18 },
-    { _T("Yang Stage Part 6"), 0x732B80, 0x732D80, 0x15, 0x19 },
-    { _T("Yang Stage Part 7"), 0x732D80, 0x732F80, 0x15, 0x1a },
-    { _T("Yang Stage Part 8"), 0x732F80, 0x733180, 0x15, 0x1b },
-    { _T("Yang Stage Part 9"), 0x733180, 0x733380, 0x15, 0x1c },
-    { _T("Yang Stage Part 10"), 0x733380, 0x733580, 0x15, 0x1d },
-    { _T("Yang Stage Part 11"), 0x733580, 0x733780, 0x15, 0x1e },
-    { _T("Yang Stage Part 12"), 0x733780, 0x733880, 0x15, 0x1f },
+    { _T("Yang Stage Part 1"), 0x732180, 0x732380, index3S_CPS3_Stages, 0x14 },
+    { _T("Yang Stage Part 2"), 0x732380, 0x732580, index3S_CPS3_Stages, 0x15 },
+    { _T("Yang Stage Part 3"), 0x732580, 0x732780, index3S_CPS3_Stages, 0x16 },
+    { _T("Yang Stage Part 4"), 0x732780, 0x732980, index3S_CPS3_Stages, 0x17 },
+    { _T("Yang Stage Part 5"), 0x732980, 0x732B80, index3S_CPS3_Stages, 0x18 },
+    { _T("Yang Stage Part 6"), 0x732B80, 0x732D80, index3S_CPS3_Stages, 0x19 },
+    { _T("Yang Stage Part 7"), 0x732D80, 0x732F80, index3S_CPS3_Stages, 0x1a },
+    { _T("Yang Stage Part 8"), 0x732F80, 0x733180, index3S_CPS3_Stages, 0x1b },
+    { _T("Yang Stage Part 9"), 0x733180, 0x733380, index3S_CPS3_Stages, 0x1c },
+    { _T("Yang Stage Part 10"), 0x733380, 0x733580, index3S_CPS3_Stages, 0x1d },
+    { _T("Yang Stage Part 11"), 0x733580, 0x733780, index3S_CPS3_Stages, 0x1e },
+    { _T("Yang Stage Part 12"), 0x733780, 0x733880, index3S_CPS3_Stages, 0x1f },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_YANG_FADED_PALETTES[] =
 {
-    { _T("Yang Stage (Faded) Part 1"), 0x733880, 0x733A80, 0x15, 0x14 },
-    { _T("Yang Stage (Faded) Part 2"), 0x733A80, 0x733C80, 0x15, 0x15 },
-    { _T("Yang Stage (Faded) Part 3"), 0x733C80, 0x733E80, 0x15, 0x16 },
-    { _T("Yang Stage (Faded) Part 4"), 0x733E80, 0x734080, 0x15, 0x17 },
-    { _T("Yang Stage (Faded) Part 5"), 0x734080, 0x734280, 0x15, 0x18 },
-    { _T("Yang Stage (Faded) Part 6"), 0x734280, 0x734480, 0x15, 0x19 },
-    { _T("Yang Stage (Faded) Part 7"), 0x734480, 0x734680, 0x15, 0x1a },
-    { _T("Yang Stage (Faded) Part 8"), 0x734680, 0x734880, 0x15, 0x1b },
-    { _T("Yang Stage (Faded) Part 9"), 0x734880, 0x734A80, 0x15, 0x1c },
-    { _T("Yang Stage (Faded) Part 10"), 0x734A80, 0x734C80, 0x15, 0x1d },
-    { _T("Yang Stage (Faded) Part 11"), 0x734C80, 0x734E80, 0x15, 0x1e },
-    { _T("Yang Stage (Faded) Part 12"), 0x734E80, 0x735080, 0x15, 0x1f },
+    { _T("Yang Stage (Faded) Part 1"), 0x733880, 0x733A80, index3S_CPS3_Stages, 0x14 },
+    { _T("Yang Stage (Faded) Part 2"), 0x733A80, 0x733C80, index3S_CPS3_Stages, 0x15 },
+    { _T("Yang Stage (Faded) Part 3"), 0x733C80, 0x733E80, index3S_CPS3_Stages, 0x16 },
+    { _T("Yang Stage (Faded) Part 4"), 0x733E80, 0x734080, index3S_CPS3_Stages, 0x17 },
+    { _T("Yang Stage (Faded) Part 5"), 0x734080, 0x734280, index3S_CPS3_Stages, 0x18 },
+    { _T("Yang Stage (Faded) Part 6"), 0x734280, 0x734480, index3S_CPS3_Stages, 0x19 },
+    { _T("Yang Stage (Faded) Part 7"), 0x734480, 0x734680, index3S_CPS3_Stages, 0x1a },
+    { _T("Yang Stage (Faded) Part 8"), 0x734680, 0x734880, index3S_CPS3_Stages, 0x1b },
+    { _T("Yang Stage (Faded) Part 9"), 0x734880, 0x734A80, index3S_CPS3_Stages, 0x1c },
+    { _T("Yang Stage (Faded) Part 10"), 0x734A80, 0x734C80, index3S_CPS3_Stages, 0x1d },
+    { _T("Yang Stage (Faded) Part 11"), 0x734C80, 0x734E80, index3S_CPS3_Stages, 0x1e },
+    { _T("Yang Stage (Faded) Part 12"), 0x734E80, 0x735080, index3S_CPS3_Stages, 0x1f },
 };
 
 const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =

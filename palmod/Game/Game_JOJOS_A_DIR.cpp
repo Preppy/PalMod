@@ -84,6 +84,12 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         OutputDebugString(_T("\tThis is a peer SIMM: skipping.\n"));
         return TRUE;
     }
+    else if (((nGameFlag == JOJOS_A_DIR_50) && (nSIMMNumber > 3)) ||
+             ((nGameFlag == JOJOS_A_DIR_51) && (nSIMMNumber < 4)))
+    {
+        OutputDebugString(_T("\tThis SIMM set is not used for the current Jojos mode\n"));
+        return TRUE;
+    }
 
     // OK, so the old 51 ROM in the SIMM redump is interleaved.
     // There is one byte from  5.0 followed by one byte from 5.1, up until the end of those SIMMs.
@@ -95,13 +101,6 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
     strInfo.Format(_T("\tThe SIMM %u set begins at 0x%06x and ends at 0x%06x\n"), nSIMMNumber, nBeginningRange, nEndingRange);
     OutputDebugString(strInfo);
-
-    if (((nGameFlag == JOJOS_A_DIR_50) && (nSIMMNumber > 3)) ||
-        ((nGameFlag == JOJOS_A_DIR_51) && (nSIMMNumber < 4)))
-    {
-        OutputDebugString(_T("\tThis SIMM set is not used for the current Jojos mode\n"));
-        return TRUE;
-    }
 
     CFile FilePeer;
     sFileRule PeerRule = GetNextRule();

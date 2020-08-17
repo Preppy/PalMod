@@ -389,7 +389,7 @@ enum CHARACTERS_3S_CPS3
     index3S_CPS3_Twelve,
     index3S_CPS3_Remy,
     index3S_CPS3_Bonus,
-    index3S_CPS3_Extras,
+    index3S_CPS3_Stages,
     index3S_CPS3_Gill,
 };
 
@@ -416,7 +416,7 @@ const UINT8 SFIII3_A_IMG_UNITS[] =
     index3S_CPS3_Twelve,
     index3S_CPS3_Remy,
     index3S_CPS3_Bonus,
-    index3S_CPS3_Extras,
+    index3S_CPS3_Stages,
 };
 
 constexpr auto SFIII3_A_NUM_IMG_UNITS = ARRAYSIZE(SFIII3_A_IMG_UNITS);

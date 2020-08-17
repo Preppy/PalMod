@@ -9,7 +9,12 @@ public:
     CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize = -1);
     ~CGame_SFIII3_A_DIR(void);
 
-    UINT32 c_nSFIII3RomLength = 0x200000;
+    const UINT8 c_nFirstUsedSIMMOfSet = 4;
+    const UINT32 c_nSFIII3SIMMLength = 0x200000;
+
+    inline UINT32 GetSIMMLocationFromROMLocation(UINT32 nROMLocation);
+    inline UINT32 GetLocationWithinSIMM(UINT32 nSIMMSetLocation);
+    inline UINT8 GetSIMMSetForROMLocation(UINT32 nROMLocation);
 
     //Static functions
     static UINT16 uRuleCtr;
@@ -20,6 +25,6 @@ public:
     static sFileRule GetNextRule();
     static sFileRule GetRule(UINT16 nRuleId);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId);
-    BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber);
+    BOOL SaveFile(CFile* SaveFile, UINT16 nSIMMNumber);
 };
