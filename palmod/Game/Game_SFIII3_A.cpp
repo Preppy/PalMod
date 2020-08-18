@@ -907,7 +907,7 @@ void CGame_SFIII3_A::UpdatePalData()
         if (srcDef->bAvail)
         {
             // First color is the transparency color
-            int nIndexStart = 1;
+            const UINT16 nIndexStart = 1;
 
             COLORREF* crSrc = srcDef->pPal;
             UINT16 uAmt = srcDef->uPalSz;
@@ -922,7 +922,7 @@ void CGame_SFIII3_A::UpdatePalData()
             }
 #endif
 
-            for (int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
+            for (UINT16 nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
             {
                 pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = ConvCol(crSrc[nPICtr]);
 

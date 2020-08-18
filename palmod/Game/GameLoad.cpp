@@ -19,7 +19,7 @@
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
 #include "Game_NEOGEO_A.h"
-#include "Game_PUZZLEFIGHTER_A.h"
+#include "Game_GEMFIGHTER_A.h"
 #include "Game_SAMSHO5SP_A.h"
 #include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
@@ -232,9 +232,9 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
-    case PUZZLEFIGHTER_A:
+    case GEMFIGHTER_A:
     {
-        GetRule = &CGame_PUZZLEFIGHTER_A::GetRule;
+        GetRule = &CGame_GEMFIGHTER_A::GetRule;
         return TRUE;
     }
     break;
@@ -323,9 +323,9 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_NEOGEO_A(nConfirmedROMSize);
     }
-    case PUZZLEFIGHTER_A:
+    case GEMFIGHTER_A:
     {
-        return new CGame_PUZZLEFIGHTER_A(nConfirmedROMSize);
+        return new CGame_GEMFIGHTER_A(nConfirmedROMSize);
     }
     case SAMSHO5SP_A:
     {

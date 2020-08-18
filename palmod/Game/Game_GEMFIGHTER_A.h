@@ -1,21 +1,21 @@
 #pragma once
 #include "gameclass.h"
-#include "PUZZLEFIGHTER_A_DEF.h"
+#include "GEMFIGHTER_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_PUZZLEFIGHTER_A = _T("PUZZLEFIGHTERE.txt");
-#define GetExtraDefForPuzzleFighter(x)((stExtraDef *)&PUZZLEFIGHTER_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_GEMFIGHTER_A = _T("GEMFIGHTERE.txt");
+#define GetExtraDefForGemFighter(x)((stExtraDef *)&GEMFIGHTER_A_EXTRA_CUSTOM[x])
 
-class CGame_PUZZLEFIGHTER_A : public CGameWithExtrasFile
+class CGame_GEMFIGHTER_A : public CGameWithExtrasFile
 {
 private:
     //Used for image selection
     int nTargetImgId = 0;
 
-    static UINT32 m_nTotalPaletteCountForPuzzleFighter;
+    static UINT32 m_nTotalPaletteCountForGemFighter;
 
-    static int rgExtraCountAll[PUZZLEFIGHTER_A_NUMUNITS + 1];
-    static int rgExtraLoc[PUZZLEFIGHTER_A_NUMUNITS + 1];
+    static int rgExtraCountAll[GEMFIGHTER_A_NUMUNITS + 1];
+    static int rgExtraLoc[GEMFIGHTER_A_NUMUNITS + 1];
 
     void InitDataBuffer();
     void ClearDataBuffer();
@@ -29,8 +29,8 @@ private:
     UINT16*** m_pppDataBuffer = nullptr;
 
 public:
-    CGame_PUZZLEFIGHTER_A(UINT32 nConfirmedROMSize);
-    ~CGame_PUZZLEFIGHTER_A(void);
+    CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize);
+    ~CGame_GEMFIGHTER_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -67,5 +67,5 @@ public:
     void FlushUnitFile() { safe_delete(rgFileChanged); };
     void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
-    static stExtraDef* PUZZLEFIGHTER_A_EXTRA_CUSTOM;
+    static stExtraDef* GEMFIGHTER_A_EXTRA_CUSTOM;
 };

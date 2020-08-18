@@ -215,9 +215,9 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = SAMSHO5SP_A_IMG_UNITS[nUnitCtr];
             break;
         }
-        case PUZZLEFIGHTER_A:
+        case GEMFIGHTER_A:
         {
-            nImageUnitCounterToUse = PUZZLEFIGHTER_A_IMG_UNITS[nUnitCtr];
+            nImageUnitCounterToUse = GEMFIGHTER_A_IMG_UNITS[nUnitCtr];
             break;
         }
 

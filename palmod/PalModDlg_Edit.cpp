@@ -249,7 +249,7 @@ void CPalModDlg::OnEditPaste()
                 case MVC2_D:
                 case MVC2_P:
                 case MVC_A:
-                case PUZZLEFIGHTER_A:
+                case GEMFIGHTER_A:
                 case SFA2_A:
                 case SFA3_A:
                 case SSF2T_A:

@@ -124,7 +124,7 @@
     <Filter Include="Game\Capcom Games\COTA_A">
       <UniqueIdentifier>{b76bf8de-0eee-4bdb-be3c-3591a888af28}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Capcom Games\PUZZLEFIGHTER_A">
+    <Filter Include="Game\Capcom Games\GEMFIGHTER_A">
       <UniqueIdentifier>{009a84f1-7e48-4f59-8fdf-a151fc92a9be}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -297,8 +297,8 @@
     <ClCompile Include="Game\Game_MVC2_A_DIR.cpp">
       <Filter>Game\Capcom Games\MVC2_A_DIR</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_PUZZLEFIGHTER_A.cpp">
-      <Filter>Game\Capcom Games\PUZZLEFIGHTER_A</Filter>
+    <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp">
+      <Filter>Game\Capcom Games\GEMFIGHTER_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -533,11 +533,11 @@
     <ClInclude Include="Game\Game_MVC2_A_DIR.h">
       <Filter>Game\Capcom Games\MVC2_A_DIR</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Game_PUZZLEFIGHTER_A.h">
-      <Filter>Game\Capcom Games\PUZZLEFIGHTER_A</Filter>
+    <ClInclude Include="Game\Game_GEMFIGHTER_A.h">
+      <Filter>Game\Capcom Games\GEMFIGHTER_A</Filter>
     </ClInclude>
-    <ClInclude Include="Game\PUZZLEFIGHTER_A_DEF.h">
-      <Filter>Game\Capcom Games\PUZZLEFIGHTER_A</Filter>
+    <ClInclude Include="Game\GEMFIGHTER_A_DEF.h">
+      <Filter>Game\Capcom Games\GEMFIGHTER_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

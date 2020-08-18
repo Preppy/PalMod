@@ -645,7 +645,7 @@ void CGame_MVC2_D::UpdatePalData()
             COLORREF* crSrc = srcDef->pPal;
             UINT16 uAmt = srcDef->uPalSz;
 
-            for (int nPICtr = 0; nPICtr < uAmt; nPICtr++)
+            for (UINT16 nPICtr = 0; nPICtr < uAmt; nPICtr++)
             {
                 ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ConvCol(crSrc[nPICtr]);
             }

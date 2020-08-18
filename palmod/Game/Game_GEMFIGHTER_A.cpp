@@ -1,37 +1,37 @@
 #include "StdAfx.h"
 #include "..\StdAfx.h"
 #include "GameDef.h"
-#include "Game_PUZZLEFIGHTER_A.h"
+#include "Game_GEMFIGHTER_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define PUZZLEFIGHTER_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define GEMFIGHTER_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_PUZZLEFIGHTER_A::PUZZLEFIGHTER_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_GEMFIGHTER_A::GEMFIGHTER_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_PUZZLEFIGHTER_A::MainDescTree = nullptr;
+CDescTree CGame_GEMFIGHTER_A::MainDescTree = nullptr;
 
-int CGame_PUZZLEFIGHTER_A::rgExtraCountAll[PUZZLEFIGHTER_A_NUMUNITS + 1];
-int CGame_PUZZLEFIGHTER_A::rgExtraLoc[PUZZLEFIGHTER_A_NUMUNITS + 1];
+int CGame_GEMFIGHTER_A::rgExtraCountAll[GEMFIGHTER_A_NUMUNITS + 1];
+int CGame_GEMFIGHTER_A::rgExtraLoc[GEMFIGHTER_A_NUMUNITS + 1];
 
-UINT32 CGame_PUZZLEFIGHTER_A::m_nTotalPaletteCountForPuzzleFighter = 0;
-UINT32 CGame_PUZZLEFIGHTER_A::m_nExpectedGameROMSize = 0x80000;
-UINT32 CGame_PUZZLEFIGHTER_A::m_nConfirmedROMSize = -1;
+UINT32 CGame_GEMFIGHTER_A::m_nTotalPaletteCountForGemFighter = 0;
+UINT32 CGame_GEMFIGHTER_A::m_nExpectedGameROMSize = 0x80000;
+UINT32 CGame_GEMFIGHTER_A::m_nConfirmedROMSize = -1;
 
-void CGame_PUZZLEFIGHTER_A::InitializeStatics()
+void CGame_GEMFIGHTER_A::InitializeStatics()
 {
-    safe_delete_array(CGame_PUZZLEFIGHTER_A::PUZZLEFIGHTER_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_GEMFIGHTER_A::GEMFIGHTER_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_PUZZLEFIGHTER_A::InitDescTree());
+    MainDescTree.SetRootTree(CGame_GEMFIGHTER_A::InitDescTree());
 }
 
-CGame_PUZZLEFIGHTER_A::CGame_PUZZLEFIGHTER_A(UINT32 nConfirmedROMSize)
+CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_PUZZLEFIGHTER_A::CGame_PUZZLEFIGHTER_A: Loading ROM...\n"));
+    strMessage.Format(_T("CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
@@ -39,12 +39,12 @@ CGame_PUZZLEFIGHTER_A::CGame_PUZZLEFIGHTER_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = PUZZLEFIGHTER_A_NUMUNITS;
-    m_nExtraUnit = PUZZLEFIGHTER_A_EXTRALOC;
+    m_nTotalInternalUnits = GEMFIGHTER_A_NUMUNITS;
+    m_nExtraUnit = GEMFIGHTER_A_EXTRALOC;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 48;
-    m_pszExtraFilename = EXTRA_FILENAME_PUZZLEFIGHTER_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForPuzzleFighter;
+    m_pszExtraFilename = EXTRA_FILENAME_GEMFIGHTER_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForGemFighter;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     m_nLowestKnownPaletteRomLocation = 0x99e6;
 
@@ -59,9 +59,9 @@ CGame_PUZZLEFIGHTER_A::CGame_PUZZLEFIGHTER_A(UINT32 nConfirmedROMSize)
     BasePalGroup.SetMode(PALTYPE_17);
 
     //Set game information
-    nGameFlag = PUZZLEFIGHTER_A;
+    nGameFlag = GEMFIGHTER_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = sizeof(PUZZLEFIGHTER_A_IMG_UNITS);
+    nImgUnitAmt = sizeof(GEMFIGHTER_A_IMG_UNITS);
 
     nDisplayW = 8;
     nFileAmt = 1;
@@ -69,8 +69,8 @@ CGame_PUZZLEFIGHTER_A::CGame_PUZZLEFIGHTER_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = DISP_DEF;
     // Button labels are used for the Export Image dialog
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_PUZZLEFIGHTER);
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_PUZZLEFIGHTER);
+    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_GEMFIGHTER);
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_GEMFIGHTER);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -86,27 +86,27 @@ CGame_PUZZLEFIGHTER_A::CGame_PUZZLEFIGHTER_A(UINT32 nConfirmedROMSize)
     nAIndexMul = 0.0f;
 }
 
-CGame_PUZZLEFIGHTER_A::~CGame_PUZZLEFIGHTER_A(void)
+CGame_GEMFIGHTER_A::~CGame_GEMFIGHTER_A(void)
 {
-    safe_delete_array(CGame_PUZZLEFIGHTER_A::PUZZLEFIGHTER_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_GEMFIGHTER_A::GEMFIGHTER_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
 }
 
-CDescTree* CGame_PUZZLEFIGHTER_A::GetMainTree()
+CDescTree* CGame_GEMFIGHTER_A::GetMainTree()
 {
-    return &CGame_PUZZLEFIGHTER_A::MainDescTree;
+    return &CGame_GEMFIGHTER_A::MainDescTree;
 }
 
-int CGame_PUZZLEFIGHTER_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_GEMFIGHTER_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((PUZZLEFIGHTER_A_NUMUNITS + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((GEMFIGHTER_A_NUMUNITS + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForPuzzleFighter(0);
+        stExtraDef* pCurrDef = GetExtraDefForGemFighter(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -116,22 +116,22 @@ int CGame_PUZZLEFIGHTER_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForPuzzleFighter(nDefCtr);
+            pCurrDef = GetExtraDefForGemFighter(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-int CGame_PUZZLEFIGHTER_A::GetExtraLoc(UINT16 nUnitId)
+int CGame_GEMFIGHTER_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (PUZZLEFIGHTER_A_NUMUNITS + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (GEMFIGHTER_A_NUMUNITS + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForPuzzleFighter(0);
+        stExtraDef* pCurrDef = GetExtraDefForGemFighter(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -142,34 +142,34 @@ int CGame_PUZZLEFIGHTER_A::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForPuzzleFighter(nDefCtr);
+            pCurrDef = GetExtraDefForGemFighter(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-sDescTreeNode* CGame_PUZZLEFIGHTER_A::InitDescTree()
+sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_PUZZLEFIGHTER_A, PUZZLEFIGHTER_A_EXTRA, &PUZZLEFIGHTER_A_EXTRA_CUSTOM, PUZZLEFIGHTER_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_GEMFIGHTER_A, GEMFIGHTER_A_EXTRA, &GEMFIGHTER_A_EXTRA_CUSTOM, GEMFIGHTER_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = PUZZLEFIGHTER_A_NUMUNITS + (GetExtraCt(PUZZLEFIGHTER_A_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = GEMFIGHTER_A_NUMUNITS + (GetExtraCt(GEMFIGHTER_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[PUZZLEFIGHTER_A]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[GEMFIGHTER_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(PUZZLEFIGHTER_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_PUZZLEFIGHTER_A::InitDescTree: Building desc tree for PUZZLEFIGHTER_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    bool fHaveExtras = (GetExtraCt(GEMFIGHTER_A_EXTRALOC) > 0);
+    strMsg.Format(_T("CGame_GEMFIGHTER_A::InitDescTree: Building desc tree for GEMFIGHTER_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -186,16 +186,16 @@ sDescTreeNode* CGame_PUZZLEFIGHTER_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < PUZZLEFIGHTER_A_EXTRALOC)
+        if (iUnitCtr < GEMFIGHTER_A_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), PUZZLEFIGHTER_A_UNITS[iUnitCtr].szDesc);
+            _stprintf(UnitNode->szDesc, _T("%s"), GEMFIGHTER_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if PUZZLEFIGHTER_A_DEBUG
+#if GEMFIGHTER_A_DEBUG
             strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -217,7 +217,7 @@ sDescTreeNode* CGame_PUZZLEFIGHTER_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if PUZZLEFIGHTER_A_DEBUG
+#if GEMFIGHTER_A_DEBUG
                 strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -235,7 +235,7 @@ sDescTreeNode* CGame_PUZZLEFIGHTER_A::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if PUZZLEFIGHTER_A_DEBUG
+#if GEMFIGHTER_A_DEBUG
                     strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
@@ -263,7 +263,7 @@ sDescTreeNode* CGame_PUZZLEFIGHTER_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if PUZZLEFIGHTER_A_DEBUG
+#if GEMFIGHTER_A_DEBUG
             strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -275,7 +275,7 @@ sDescTreeNode* CGame_PUZZLEFIGHTER_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(PUZZLEFIGHTER_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(GEMFIGHTER_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _stprintf(CollectionNode->szDesc, _T("Extra"));
 
@@ -284,7 +284,7 @@ sDescTreeNode* CGame_PUZZLEFIGHTER_A::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if PUZZLEFIGHTER_A_DEBUG
+#if GEMFIGHTER_A_DEBUG
             strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -293,21 +293,21 @@ sDescTreeNode* CGame_PUZZLEFIGHTER_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForPuzzleFighter(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForGemFighter(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForPuzzleFighter(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForGemFighter(nExtraPos + nCurrExtra);
                 }
 
                 _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((PUZZLEFIGHTER_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((GEMFIGHTER_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if PUZZLEFIGHTER_A_DEBUG
+#if GEMFIGHTER_A_DEBUG
                 strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -318,15 +318,15 @@ sDescTreeNode* CGame_PUZZLEFIGHTER_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_PUZZLEFIGHTER_A::InitDescTree: Loaded %u palettes for PUZZLEFIGHTER\n"), nTotalPaletteCount);
+    strMsg.Format(_T("CGame_GEMFIGHTER_A::InitDescTree: Loaded %u palettes for GEMFIGHTER\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForPuzzleFighter = nTotalPaletteCount;
+    m_nTotalPaletteCountForGemFighter = nTotalPaletteCount;
 
     return NewDescTree;
 }
 
-sFileRule CGame_PUZZLEFIGHTER_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_GEMFIGHTER_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
@@ -339,55 +339,55 @@ sFileRule CGame_PUZZLEFIGHTER_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_PUZZLEFIGHTER_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_GEMFIGHTER_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == PUZZLEFIGHTER_A_EXTRALOC)
+    if (nUnitId == GEMFIGHTER_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return PUZZLEFIGHTER_A_UNITS[nUnitId].uChildAmt;
+        return GEMFIGHTER_A_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_PUZZLEFIGHTER_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_GEMFIGHTER_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == PUZZLEFIGHTER_A_EXTRALOC)
+    if (nUnitId == GEMFIGHTER_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(PUZZLEFIGHTER_A_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(GEMFIGHTER_A_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_PUZZLEFIGHTER_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_GEMFIGHTER_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == PUZZLEFIGHTER_A_EXTRALOC)
+    if (nUnitId == GEMFIGHTER_A_EXTRALOC)
     {
         return _T("Extra Palettes");
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)PUZZLEFIGHTER_A_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)GEMFIGHTER_A_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_PUZZLEFIGHTER_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_GEMFIGHTER_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == PUZZLEFIGHTER_A_EXTRALOC)
+    if (nUnitId == GEMFIGHTER_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = PUZZLEFIGHTER_A_UNITS;
+        const sDescTreeNode* pCompleteROMTree = GEMFIGHTER_A_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -397,9 +397,9 @@ UINT16 CGame_PUZZLEFIGHTER_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if PUZZLEFIGHTER_A_DEBUG
+#if GEMFIGHTER_A_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_PUZZLEFIGHTER_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_GEMFIGHTER_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -407,14 +407,14 @@ UINT16 CGame_PUZZLEFIGHTER_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_PUZZLEFIGHTER_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_GEMFIGHTER_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)PUZZLEFIGHTER_A_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)GEMFIGHTER_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_PUZZLEFIGHTER_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_GEMFIGHTER_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -427,7 +427,7 @@ const sDescTreeNode* CGame_PUZZLEFIGHTER_A::GetNodeFromPaletteId(UINT16 nUnitId,
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == PUZZLEFIGHTER_A_EXTRALOC)
+        if (nUnitId == GEMFIGHTER_A_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -439,7 +439,7 @@ const sDescTreeNode* CGame_PUZZLEFIGHTER_A::GetNodeFromPaletteId(UINT16 nUnitId,
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(PUZZLEFIGHTER_A_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(GEMFIGHTER_A_UNITS[nUnitId].ChildNodes);
             
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -465,7 +465,7 @@ const sDescTreeNode* CGame_PUZZLEFIGHTER_A::GetNodeFromPaletteId(UINT16 nUnitId,
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_PUZZLEFIGHTER_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_GEMFIGHTER_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -489,13 +489,13 @@ const sGame_PaletteDataset* CGame_PUZZLEFIGHTER_A::GetSpecificPalette(UINT16 nUn
     return paletteToUse;
 }
 
-void CGame_PUZZLEFIGHTER_A::InitDataBuffer()
+void CGame_GEMFIGHTER_A::InitDataBuffer()
 {
     m_pppDataBuffer = new UINT16 * *[nUnitAmt];
     memset(m_pppDataBuffer, 0, sizeof(UINT16**) * nUnitAmt);
 }
 
-void CGame_PUZZLEFIGHTER_A::ClearDataBuffer()
+void CGame_GEMFIGHTER_A::ClearDataBuffer()
 {
     if (m_pppDataBuffer)
     {
@@ -518,9 +518,9 @@ void CGame_PUZZLEFIGHTER_A::ClearDataBuffer()
     }
 }
 
-void CGame_PUZZLEFIGHTER_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_GEMFIGHTER_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != PUZZLEFIGHTER_A_EXTRALOC)
+     if (nUnitId != GEMFIGHTER_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -539,10 +539,10 @@ void CGame_PUZZLEFIGHTER_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalI
             DebugBreak();
         }
     }
-    else // PUZZLEFIGHTER_A_EXTRALOC
+    else // GEMFIGHTER_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForPuzzleFighter(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForGemFighter(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
@@ -550,7 +550,7 @@ void CGame_PUZZLEFIGHTER_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalI
     }
 }
 
-BOOL CGame_PUZZLEFIGHTER_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_GEMFIGHTER_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -559,7 +559,7 @@ BOOL CGame_PUZZLEFIGHTER_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = PUZZLEFIGHTER_A_UNITSORT[nUnitCtr];
+        rgUnitRedir[nUnitCtr] = GEMFIGHTER_A_UNITSORT[nUnitCtr];
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -580,7 +580,7 @@ BOOL CGame_PUZZLEFIGHTER_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     return TRUE;
 }
 
-BOOL CGame_PUZZLEFIGHTER_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
+BOOL CGame_GEMFIGHTER_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
     bool fShownOnce = false;
@@ -608,13 +608,13 @@ BOOL CGame_PUZZLEFIGHTER_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     }
 
     CString strMsg;
-    strMsg.Format(_T("CGame_PUZZLEFIGHTER_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(_T("CGame_GEMFIGHTER_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
 
     return TRUE;
 }
 
-void CGame_PUZZLEFIGHTER_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+void CGame_GEMFIGHTER_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
@@ -652,7 +652,7 @@ void CGame_PUZZLEFIGHTER_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     }
 }
 
-BOOL CGame_PUZZLEFIGHTER_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_GEMFIGHTER_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -683,7 +683,7 @@ BOOL CGame_PUZZLEFIGHTER_A::UpdatePalImg(int Node01, int Node02, int Node03, int
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != PUZZLEFIGHTER_A_EXTRALOC)
+    if (NodeGet->uUnitId != GEMFIGHTER_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -699,8 +699,8 @@ BOOL CGame_PUZZLEFIGHTER_A::UpdatePalImg(int Node01, int Node02, int Node03, int
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_PUZZLEFIGHTER[0]) == 0) || (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_PUZZLEFIGHTER[1]) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_PUZZLEFIGHTER[2]) == 0) || (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_PUZZLEFIGHTER[3]) == 0))
+                if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_GEMFIGHTER[0]) == 0) || (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_GEMFIGHTER[1]) == 0) ||
+                    (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_GEMFIGHTER[2]) == 0) || (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_GEMFIGHTER[3]) == 0))
                 {
                     nSrcAmt = 4;
                     nNodeIncrement = pCurrentNode->uChildAmt;
@@ -725,7 +725,7 @@ BOOL CGame_PUZZLEFIGHTER_A::UpdatePalImg(int Node01, int Node02, int Node03, int
     return TRUE;
 }
 
-COLORREF* CGame_PUZZLEFIGHTER_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
+COLORREF* CGame_GEMFIGHTER_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
 
@@ -739,7 +739,7 @@ COLORREF* CGame_PUZZLEFIGHTER_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
     return NewPal;
 }
 
-void CGame_PUZZLEFIGHTER_A::UpdatePalData()
+void CGame_GEMFIGHTER_A::UpdatePalData()
 {
     for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
@@ -759,7 +759,7 @@ void CGame_PUZZLEFIGHTER_A::UpdatePalData()
             {
                 UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
 
-                for (int nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
+                for (UINT16 nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
                 {
                     if (nPICtr == iFixedCounterPosition)
                     {

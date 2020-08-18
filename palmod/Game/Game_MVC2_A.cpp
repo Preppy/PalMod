@@ -1222,7 +1222,7 @@ void CGame_MVC2_A::UpdatePalData()
             {
                 UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
 
-                for (int nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
+                for (UINT16 nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
                 {
                     if (nPICtr == iFixedCounterPosition)
                     {

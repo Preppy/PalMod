@@ -40,7 +40,7 @@ enum SupportedGamesList
     SVCPLUSA_A,
     SAMSHO5SP_A,
     MVC2_A_DIR,
-    PUZZLEFIGHTER_A,
+    GEMFIGHTER_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -174,7 +174,7 @@ const TCHAR DEF_BUTTONLABEL_ST10[10][16] =
    _T("Jab"), _T("Strong"), _T("Fierce"), _T("Short"), _T("Forward"), _T("RH"), _T("Start"), _T("Hold"), _T("Old 1P"), _T("Old 2P")
 };
 
-const TCHAR DEF_BUTTONLABEL_PUZZLEFIGHTER[4][16] =
+const TCHAR DEF_BUTTONLABEL_GEMFIGHTER[4][16] =
 {
     _T("A"), _T("B"), _T("C"), _T("X3")
 };
@@ -692,24 +692,24 @@ const UINT8 COTA_A_IMG_UNITS[] =
 
 const int COTA_A_NUM_IMG_UNITS = ARRAYSIZE(COTA_A_IMG_UNITS);
 
-enum PUZZLEFIGHTER_CHARACTERS
+enum GEMFIGHTER_CHARACTERS
 {
-    indexPuzzleFighterChars_Ryu,
-    indexPuzzleFighterChars_Ken,
-    indexPuzzleFighterChars_ChunLi,
-    indexPuzzleFighterChars_Sakura,
-    indexPuzzleFighterChars_Morrigan,
-    indexPuzzleFighterChars_HsienKo,
-    indexPuzzleFighterChars_Felicia,
-    indexPuzzleFighterChars_Tessa,
-    indexPuzzleFighterChars_Ibuki,
-    indexPuzzleFighterChars_Zangief,
-    indexPuzzleFighterChars_Dan,
-    indexPuzzleFighterChars_Akuma,
-    indexPuzzleFighterChars_Last,
+    indexGemFighterChars_Ryu,
+    indexGemFighterChars_Ken,
+    indexGemFighterChars_ChunLi,
+    indexGemFighterChars_Sakura,
+    indexGemFighterChars_Morrigan,
+    indexGemFighterChars_HsienKo,
+    indexGemFighterChars_Felicia,
+    indexGemFighterChars_Tessa,
+    indexGemFighterChars_Ibuki,
+    indexGemFighterChars_Zangief,
+    indexGemFighterChars_Dan,
+    indexGemFighterChars_Akuma,
+    indexGemFighterChars_Last,
 };
 
-const UINT8 PUZZLEFIGHTER_A_IMG_UNITS[] =
+const UINT8 GEMFIGHTER_A_IMG_UNITS[] =
 {
     indexCPS2_SPF_Ryu,      // 0x59
     indexCPS2_SPF_Ken,      // 0x5a
