@@ -28,8 +28,10 @@ void CPalModDlg::LoadGameDir(int nGameFlag, TCHAR* szLoadDir)
     else
     {
         CString strError;
-        strError.LoadString(IDS_ERROR_LOADING_GAME);
-        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+        if (strError.LoadString(IDS_ERROR_LOADING_GAME))
+        {
+            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+        }
     }
 
     //Since we loaded a DIR, show status of load
@@ -224,8 +226,10 @@ void CPalModDlg::LoadLastDir()
             if (nLastUsedGFlag > NUM_GAMES || nLastUsedGFlag < 0)
             {
                 CString strError;
-                strError.LoadString(IDS_ERROR_PARAMETERS);
-                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+                if (strError.LoadString(IDS_ERROR_PARAMETERS))
+                {
+                    MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+                }
                 return;
             }
             else
@@ -499,8 +503,10 @@ void CPalModDlg::LoadGameFile(int nGameFlag, TCHAR* szFile)
     else
     {
         CString strError;
-        strError.LoadString(IDS_ERROR_LOADING_GAME);
-        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+        if (strError.LoadString(IDS_ERROR_LOADING_GAME))
+        {
+            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+        }
     }
 
     //Since we loaded a DIR, show status of load
@@ -605,8 +611,10 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
     if (!fSuccess)
     {
         CString strError;
-        strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE);
-        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+        if (strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE))
+        {
+            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+        }
         SetStatusText(CString(_T("Failed loading ACT file.")));
     }
 
@@ -727,8 +735,10 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
     else if (!fSuccess)
     {
         CString strError;
-        strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE);
-        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+        if (strError.LoadString(IDS_ERROR_LOADING_PALETTE_FILE))
+        {
+            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+        }
         SetStatusText(CString(_T("Failed loading PAL file.")));
     }
 
@@ -1147,8 +1157,10 @@ void CPalModDlg::OnExportPalette()
         else
         {
             CString strError;
-            strError.LoadString(IDS_ERROR_SAVING_ACT_FILE);
-            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+            if (strError.LoadString(IDS_ERROR_SAVING_ACT_FILE))
+            {
+                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+            }
         }
     }
 }

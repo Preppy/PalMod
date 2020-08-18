@@ -3,7 +3,7 @@
 #include "GEMFIGHTER_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_GEMFIGHTER_A = _T("GEMFIGHTERE.txt");
+constexpr auto EXTRA_FILENAME_GEMFIGHTER_A = _T("GemFighterE.txt");
 #define GetExtraDefForGemFighter(x)((stExtraDef *)&GEMFIGHTER_A_EXTRA_CUSTOM[x])
 
 class CGame_GEMFIGHTER_A : public CGameWithExtrasFile
