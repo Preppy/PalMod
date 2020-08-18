@@ -21,7 +21,7 @@ int CGame_SFA2_A::m_nSFA2SelectedRom = 7;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07 = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_08 = 0;
 
-UINT32 CGame_SFA2_A::m_nGameROMSize = 0x80000; // 524288 bytes
+UINT32 CGame_SFA2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_SFA2_A::m_nConfirmedROMSize = -1;
 
 void CGame_SFA2_A::InitializeStatics()
@@ -112,6 +112,18 @@ CGame_SFA2_A::~CGame_SFA2_A(void)
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
+}
+
+CDescTree* CGame_SFA2_A::GetMainTree()
+{
+    if (UsePaletteSetForCharacters())
+    {
+        return &CGame_SFA2_A::MainDescTree_07;
+    }
+    else
+    {
+        return &CGame_SFA2_A::MainDescTree_08;
+    }
 }
 
 int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
@@ -209,18 +221,6 @@ int CGame_SFA2_A::GetExtraLoc(UINT16 nUnitId)
         }
 
         return rgExtraLoc_08[nUnitId];
-    }
-}
-
-CDescTree* CGame_SFA2_A::GetMainTree()
-{
-    if (UsePaletteSetForCharacters())
-    {
-        return &CGame_SFA2_A::MainDescTree_07;;
-    }
-    else
-    {
-        return &CGame_SFA2_A::MainDescTree_08;
     }
 }
 
@@ -711,7 +711,7 @@ sFileRule CGame_SFA2_A::GetRule(UINT16 nUnitId)
     _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 7) ? _T("sz2.07") : _T("sz2.08"));
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
@@ -1387,7 +1387,7 @@ COLORREF* CGame_SFA2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_SFA2_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
@@ -1395,7 +1395,7 @@ void CGame_SFA2_A::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             // Every 16 colors there is another counter WORD (color length) to preserve.
             const UINT16 nMaxSafeColorsToWrite = 16;

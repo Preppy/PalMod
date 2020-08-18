@@ -14,7 +14,7 @@ int CGame_KOF02UM_S::rgExtraCountAll[KOF02UM_S_NUMUNIT + 1];
 int CGame_KOF02UM_S::rgExtraLoc[KOF02UM_S_NUMUNIT + 1];
 
 UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM = 0;
-UINT32 CGame_KOF02UM_S::m_nGameROMSize = 0x606E0;  // 394976 bytes
+UINT32 CGame_KOF02UM_S::m_nExpectedGameROMSize = 0x606E0;  // 394976 bytes
 UINT32 CGame_KOF02UM_S::m_nConfirmedROMSize = -1;
 
 void CGame_KOF02UM_S::InitializeStatics()
@@ -479,7 +479,7 @@ sFileRule CGame_KOF02UM_S::GetRule(UINT16 nUnitId)
     _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("242-p2.sp2"));
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
@@ -895,7 +895,7 @@ COLORREF* CGame_KOF02UM_S::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_KOF02UM_S::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
@@ -903,7 +903,7 @@ void CGame_KOF02UM_S::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             const UINT16 nMaxSafeColorsToWrite = 16;
             // First color is the transparency color

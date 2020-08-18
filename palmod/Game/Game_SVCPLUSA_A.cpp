@@ -15,7 +15,7 @@ int CGame_SVCPLUSA_A::rgExtraCountAll[SVCPLUSA_A_NUMUNIT + 1];
 int CGame_SVCPLUSA_A::rgExtraLoc[SVCPLUSA_A_NUMUNIT + 1];
 
 UINT32 CGame_SVCPLUSA_A::m_nTotalPaletteCountForSVCPLUSA = 0;
-UINT32 CGame_SVCPLUSA_A::m_nGameROMSize = 0x400000;  // 4194304 bytes
+UINT32 CGame_SVCPLUSA_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
 UINT32 CGame_SVCPLUSA_A::m_nConfirmedROMSize = -1;
 
 void CGame_SVCPLUSA_A::InitializeStatics()
@@ -578,7 +578,7 @@ sFileRule CGame_SVCPLUSA_A::GetRule(UINT16 nUnitId)
     _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("svc-p2pl.bin"));
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
@@ -1081,7 +1081,7 @@ COLORREF* CGame_SVCPLUSA_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_SVCPLUSA_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
@@ -1089,7 +1089,7 @@ void CGame_SVCPLUSA_A::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             const UINT16 nMaxSafeColorsToWrite = 16;
             // First color is the transparency color

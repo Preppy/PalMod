@@ -13,7 +13,7 @@ int CGame_COTA_A::rgExtraCountAll[COTA_A_NUMUNIT + 1] = { -1 };
 int CGame_COTA_A::rgExtraLoc[COTA_A_NUMUNIT + 1] = { -1 };
 
 UINT32 CGame_COTA_A::m_nTotalPaletteCountForCOTA = 0;
-UINT32 CGame_COTA_A::m_nGameROMSize = 0x80000; // 524288 bytes
+UINT32 CGame_COTA_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_COTA_A::m_nConfirmedROMSize = -1;
 
 void CGame_COTA_A::InitializeStatics()
@@ -328,7 +328,7 @@ sFileRule CGame_COTA_A::GetRule(UINT16 nUnitId)
     _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("xmn.05a"));
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
@@ -755,7 +755,7 @@ COLORREF* CGame_COTA_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_COTA_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
@@ -763,7 +763,7 @@ void CGame_COTA_A::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             // Every 16 colors there is another counter WORD (color length) to preserve.
             const UINT16 nMaxSafeColorsToWrite = 16;

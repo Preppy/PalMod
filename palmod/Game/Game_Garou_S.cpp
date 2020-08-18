@@ -15,7 +15,7 @@ int CGame_Garou_S::rgExtraCountAll[Garou_S_NUMUNIT + 1];
 int CGame_Garou_S::rgExtraLoc[Garou_S_NUMUNIT + 1];
 
 UINT32 CGame_Garou_S::m_nTotalPaletteCountForGarou = 0;
-UINT32 CGame_Garou_S::m_nGameROMSize = 0x900000; // 9,437,184 bytes
+UINT32 CGame_Garou_S::m_nExpectedGameROMSize = 0x900000; // 9,437,184 bytes
 UINT32 CGame_Garou_S::m_nConfirmedROMSize = -1;
 
 void CGame_Garou_S::InitializeStatics()
@@ -334,7 +334,7 @@ sFileRule CGame_Garou_S::GetRule(UINT16 nUnitId)
     _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("p1.bin"));
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
@@ -762,7 +762,7 @@ COLORREF* CGame_Garou_S::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_Garou_S::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
@@ -770,7 +770,7 @@ void CGame_Garou_S::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             const UINT16 nMaxSafeColorsToWrite = 16;
             // First color is the transparency color

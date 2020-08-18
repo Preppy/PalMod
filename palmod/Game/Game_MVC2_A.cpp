@@ -18,7 +18,7 @@ int CGame_MVC2_A::rgExtraCountAll[MVC2_A_NUMUNIT + 1];
 int CGame_MVC2_A::rgExtraLoc[MVC2_A_NUMUNIT + 1];
 
 UINT32 CGame_MVC2_A::m_nTotalPaletteCountForMVC2 = 0;
-UINT32 CGame_MVC2_A::m_nGameROMSize = 0x889B600; // 143,242,752 bytes
+UINT32 CGame_MVC2_A::m_nExpectedGameROMSize = 0x889B600; // 143,242,752 bytes
 UINT32 CGame_MVC2_A::m_nConfirmedROMSize = -1;
 
 void CGame_MVC2_A::InitializeStatics()
@@ -618,7 +618,7 @@ sFileRule CGame_MVC2_A::GetRule(UINT16 nUnitId)
     _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("Marvel vs. Capcom 2.dat"));
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
@@ -1204,7 +1204,7 @@ COLORREF* CGame_MVC2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_MVC2_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
@@ -1212,7 +1212,7 @@ void CGame_MVC2_A::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             // Every 16 colors there is another counter WORD (color length) to preserve.
             const UINT16 nMaxSafeColorsToWrite = 16;

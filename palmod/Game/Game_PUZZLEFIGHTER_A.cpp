@@ -733,7 +733,7 @@ COLORREF* CGame_PUZZLEFIGHTER_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < m_nCurrentPaletteSize; i++)
     {
-        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
+        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
     }
 
     return NewPal;
@@ -741,7 +741,7 @@ COLORREF* CGame_PUZZLEFIGHTER_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_PUZZLEFIGHTER_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
@@ -749,7 +749,7 @@ void CGame_PUZZLEFIGHTER_A::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             const UINT16 nMaxSafeColorsToWrite = 16;
             // First color is the transparency color
@@ -767,7 +767,7 @@ void CGame_PUZZLEFIGHTER_A::UpdatePalData()
                     }
 
                     UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
+                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF;
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;

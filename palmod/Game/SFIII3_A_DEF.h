@@ -1375,8 +1375,8 @@ const sGame_PaletteDataset SFIII3_A_TWELVE_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_REMY_PORTRAIT_PALETTES[] =
 {
-    { _T("Remy portrait (Normal)"), 0x070E480, 0x070E680, index3S_CPS3_Remy, 0x20 },
-    { _T("Remy portrait (Tinted)"), 0x0713280, 0x0713480, index3S_CPS3_Remy, 0x20 },
+    { _T("Remy portrait (Normal)"), 0x070E480, 0x070E600, index3S_CPS3_Remy, 0x20 },
+    { _T("Remy portrait (Tinted)"), 0x0713280, 0x0713400, index3S_CPS3_Remy, 0x20 },
     { _T("Remy Character Select Icon"), 0x070BA00, 0x070BA80, index3S_CPS3_Remy, 0x22 },
 };
 

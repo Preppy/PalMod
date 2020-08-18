@@ -15,7 +15,7 @@ int CGame_NEOGEO_A::rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
 int CGame_NEOGEO_A::rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
 
 UINT32 CGame_NEOGEO_A::m_nTotalPaletteCountForNEOGEO = 0;
-UINT32 CGame_NEOGEO_A::m_nGameROMSize = -1; // This is a stub: we can't care about size
+UINT32 CGame_NEOGEO_A::m_nExpectedGameROMSize = -1; // This is a stub: we can't care about size
 UINT32 CGame_NEOGEO_A::m_nConfirmedROMSize = -1;
 
 void CGame_NEOGEO_A::InitializeStatics()
@@ -720,7 +720,7 @@ COLORREF* CGame_NEOGEO_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_NEOGEO_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
@@ -728,7 +728,7 @@ void CGame_NEOGEO_A::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             const UINT16 nMaxSafeColorsToWrite = 16;
             // First color is the transparency color

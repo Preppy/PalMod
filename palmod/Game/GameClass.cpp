@@ -527,7 +527,7 @@ COLORREF*** CGameClass::CreateImgOutPal()
         {
             pppReturnPal[iIndex] = new COLORREF * [nPalAmt];
 
-            for (int nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 pppReturnPal[iIndex][nPalCtr] = CreatePal(nSrcPalUnit[iIndex], nSrcPalStart[iIndex] + (nPalCtr * nSrcPalInc[iIndex]));
             }

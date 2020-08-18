@@ -23,7 +23,7 @@ int CGame_JOJOS_A::rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
-UINT32 CGame_JOJOS_A::m_nGameROMSize = 0x800000; // 8,388,608 bytes
+UINT32 CGame_JOJOS_A::m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
 UINT32 CGame_JOJOS_A::m_nConfirmedROMSize = -1;
 
 void CGame_JOJOS_A::InitializeStatics()
@@ -496,7 +496,7 @@ sFileRule CGame_JOJOS_A::GetRule(UINT16 nUnitId)
     _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%u"), nUnitId);
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
@@ -1125,7 +1125,7 @@ COLORREF* CGame_JOJOS_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_JOJOS_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         // Get the current palette group shown in the UI
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);

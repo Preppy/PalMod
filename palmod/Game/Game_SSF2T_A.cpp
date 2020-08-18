@@ -20,7 +20,7 @@ int CGame_SSF2T_A::rgExtraLoc_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
 int CGame_SSF2T_A::rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1] = { -1 };
 int CGame_SSF2T_A::rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1] = { -1 };
 
-UINT32 CGame_SSF2T_A::m_nGameROMSize = 0x80000; // 524288 bytes
+UINT32 CGame_SSF2T_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_SSF2T_A::m_nConfirmedROMSize = -1;
 
 void CGame_SSF2T_A::InitializeStatics()
@@ -417,7 +417,7 @@ sFileRule CGame_SSF2T_A::GetRule(UINT16 nUnitId)
     _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 3) ? _T("sfxe.03c") : _T("sfxe.04a"));
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
@@ -837,7 +837,7 @@ COLORREF* CGame_SSF2T_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_SSF2T_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
@@ -845,7 +845,7 @@ void CGame_SSF2T_A::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             // Every 16 colors there is another counter WORD (color length) to preserve.
             const UINT16 nMaxSafeColorsToWrite = 16;

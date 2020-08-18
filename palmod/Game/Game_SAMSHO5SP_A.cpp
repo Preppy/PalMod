@@ -15,7 +15,7 @@ int CGame_SAMSHO5SP_A::rgExtraCountAll[SAMSHO5SP_A_NUMUNIT + 1];
 int CGame_SAMSHO5SP_A::rgExtraLoc[SAMSHO5SP_A_NUMUNIT + 1];
 
 UINT32 CGame_SAMSHO5SP_A::m_nTotalPaletteCountForSAMSHO5SP = 0;
-UINT32 CGame_SAMSHO5SP_A::m_nGameROMSize = -1;  // Figure this out dynamically
+UINT32 CGame_SAMSHO5SP_A::m_nExpectedGameROMSize = -1;  // Figure this out dynamically
 UINT32 CGame_SAMSHO5SP_A::m_nConfirmedROMSize = -1;
 
 void CGame_SAMSHO5SP_A::InitializeStatics()
@@ -578,10 +578,10 @@ sFileRule CGame_SAMSHO5SP_A::GetRule(UINT16 nUnitId)
     _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 0) ? _T("272-p1.bin") : _T("p1.bin"));
 
     // The arcade and Steam versions of 5SP are identical other than ROM size.  Thankfully the offsets are unchanged.
-    m_nGameROMSize = (nUnitId == 0) ? m_nGameROMSizeArcade : m_nGameROMSizeSteam;
+    m_nExpectedGameROMSize = (nUnitId == 0) ? m_nExpectedGameROMSizeArcade : m_nExpectedGameROMSizeSteam;
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
@@ -990,7 +990,7 @@ COLORREF* CGame_SAMSHO5SP_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_SAMSHO5SP_A::UpdatePalData()
 {
-    for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 
@@ -998,7 +998,7 @@ void CGame_SAMSHO5SP_A::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            int nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             const UINT16 nMaxSafeColorsToWrite = 16;
             // First color is the transparency color

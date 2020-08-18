@@ -3,22 +3,20 @@
 
 CDescTree::CDescTree(sDescTreeNode* InputTree)
 {
-    m_isInitialized = true;
     SetRootTree(InputTree);
 }
 
 CDescTree::~CDescTree(void)
 {
     FlushRootTree();
-    m_isInitialized = false;
 }
 
 void CDescTree::FlushRootTree()
 {
     if (RootTree && m_isInitialized)
     {
+        m_isInitialized = false;
         FlushTree(RootTree);
-
         safe_delete(RootTree);
     }
 }
@@ -26,7 +24,12 @@ void CDescTree::FlushRootTree()
 void CDescTree::SetRootTree(sDescTreeNode* NewTree)
 {
     FlushRootTree();
-    RootTree = NewTree; 
+
+    if (NewTree)
+    {
+        RootTree = NewTree;
+        m_isInitialized = true;
+    }
 }
 
 void CDescTree::FlushTree(sDescTreeNode* CurrTree)
@@ -43,14 +46,14 @@ void CDescTree::FlushTree(sDescTreeNode* CurrTree)
             }
 
            safe_delete_array(CurrTree->ChildNodes);
+           break;
         }
-        break;
 
         case DESC_NODETYPE_NODE:
         {
             safe_delete_array(CurrTree->ChildNodes);
+            break;
         }
-        break;
         }
     }
 }

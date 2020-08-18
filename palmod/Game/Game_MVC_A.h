@@ -24,7 +24,7 @@ private:
     void InitDataBuffer();
     void ClearDataBuffer();
     static void InitializeStatics();
-    static UINT32 m_nGameROMSize;
+    static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
