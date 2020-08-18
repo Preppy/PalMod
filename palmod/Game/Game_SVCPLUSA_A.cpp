@@ -666,7 +666,7 @@ const sDescTreeNode* CGame_SVCPLUSA_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
     int nDistanceFromZero = nPaletteId;
 
-    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
@@ -716,7 +716,7 @@ const sGame_PaletteDataset* CGame_SVCPLUSA_A::GetSpecificPalette(UINT16 nUnitId,
     const sGame_PaletteDataset* paletteToUse = nullptr;
     int nDistanceFromZero = nPaletteId;
 
-    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
@@ -800,7 +800,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
-        int nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
@@ -864,7 +864,7 @@ void CGame_SVCPLUSA_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
-    static DWORD s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
+    static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
 
     LoadSpecificPaletteData(nUnitId, nPalId);
 
@@ -883,7 +883,7 @@ void CGame_SVCPLUSA_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
     {
         CString strPageDescription;
-        int nColorsRemaining = m_nCurrentPaletteSize;
+        UINT16 nColorsRemaining = m_nCurrentPaletteSize;
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
         {
@@ -916,8 +916,8 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     }
 
     // Default values for multisprite image display for Export
-    int nSrcStart = 0;
-    int nSrcAmt = 0;
+    UINT16 nSrcStart = 0;
+    UINT16 nSrcAmt = 0;
     UINT16 nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
@@ -1071,7 +1071,7 @@ COLORREF* CGame_SVCPLUSA_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
 
-    for (int i = 0; i < m_nCurrentPaletteSize; i++)
+    for (UINT16 i = 0; i < m_nCurrentPaletteSize; i++)
     {
         NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]);
     }

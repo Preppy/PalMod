@@ -1,37 +1,37 @@
 #include "StdAfx.h"
 #include "..\StdAfx.h"
 #include "GameDef.h"
-#include "Game_CVS2_A.h"
+#include "Game_PUZZLEFIGHTER_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define CVS2_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define PUZZLEFIGHTER_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_CVS2_A::CVS2_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_PUZZLEFIGHTER_A::PUZZLEFIGHTER_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_CVS2_A::MainDescTree = nullptr;
+CDescTree CGame_PUZZLEFIGHTER_A::MainDescTree = nullptr;
 
-int CGame_CVS2_A::rgExtraCountAll[CVS2_A_NUMUNIT + 1];
-int CGame_CVS2_A::rgExtraLoc[CVS2_A_NUMUNIT + 1];
+int CGame_PUZZLEFIGHTER_A::rgExtraCountAll[PUZZLEFIGHTER_A_NUMUNITS + 1];
+int CGame_PUZZLEFIGHTER_A::rgExtraLoc[PUZZLEFIGHTER_A_NUMUNITS + 1];
 
-UINT32 CGame_CVS2_A::m_nTotalPaletteCountForCVS2 = 0;
-UINT32 CGame_CVS2_A::m_nGameROMSize = 0x9800000;  // 159,383,552 bytes
-UINT32 CGame_CVS2_A::m_nConfirmedROMSize = -1;
+UINT32 CGame_PUZZLEFIGHTER_A::m_nTotalPaletteCountForPuzzleFighter = 0;
+UINT32 CGame_PUZZLEFIGHTER_A::m_nExpectedGameROMSize = 0x80000;
+UINT32 CGame_PUZZLEFIGHTER_A::m_nConfirmedROMSize = -1;
 
-void CGame_CVS2_A::InitializeStatics()
+void CGame_PUZZLEFIGHTER_A::InitializeStatics()
 {
-    safe_delete_array(CGame_CVS2_A::CVS2_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_PUZZLEFIGHTER_A::PUZZLEFIGHTER_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_CVS2_A::InitDescTree());
+    MainDescTree.SetRootTree(CGame_PUZZLEFIGHTER_A::InitDescTree());
 }
 
-CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
+CGame_PUZZLEFIGHTER_A::CGame_PUZZLEFIGHTER_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_CVS2_A::CGame_CVS2_A: Loading ROM...\n"));
+    strMessage.Format(_T("CGame_PUZZLEFIGHTER_A::CGame_PUZZLEFIGHTER_A: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
@@ -39,29 +39,29 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = CVS2_A_NUMUNIT;
-    m_nExtraUnit = CVS2_A_EXTRALOC;
+    m_nTotalInternalUnits = PUZZLEFIGHTER_A_NUMUNITS;
+    m_nExtraUnit = PUZZLEFIGHTER_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2304;
-    m_pszExtraFilename = EXTRA_FILENAME_CVS2_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForCVS2;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 48;
+    m_pszExtraFilename = EXTRA_FILENAME_PUZZLEFIGHTER_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForPuzzleFighter;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x1488e80;
+    m_nLowestKnownPaletteRomLocation = 0x99e6;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_15ALT);
+    SetColMode(COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_8);
+    BasePalGroup.SetMode(PALTYPE_17);
 
     //Set game information
-    nGameFlag = CVS2_A;
-    nImgGameFlag = IMGDAT_SECTION_CVS2;
-    nImgUnitAmt = indexCVS2Sprites_Last;
+    nGameFlag = PUZZLEFIGHTER_A;
+    nImgGameFlag = IMGDAT_SECTION_CPS2;
+    nImgUnitAmt = sizeof(PUZZLEFIGHTER_A_IMG_UNITS);
 
     nDisplayW = 8;
     nFileAmt = 1;
@@ -69,9 +69,8 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = DISP_DEF;
     // Button labels are used for the Export Image dialog
-
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_CVS2);
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_CVS2);
+    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_PUZZLEFIGHTER);
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_PUZZLEFIGHTER);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -80,34 +79,34 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     //Create the file changed flag
     rgFileChanged = new UINT16;
 
-    nRGBIndexAmt = 31;
+    nRGBIndexAmt = 15;
     nAIndexAmt = 0;
 
-    nRGBIndexMul = 8.225;
+    nRGBIndexMul = 17.0f;
     nAIndexMul = 0.0f;
 }
 
-CGame_CVS2_A::~CGame_CVS2_A(void)
+CGame_PUZZLEFIGHTER_A::~CGame_PUZZLEFIGHTER_A(void)
 {
-    safe_delete_array(CGame_CVS2_A::CVS2_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_PUZZLEFIGHTER_A::PUZZLEFIGHTER_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     safe_delete(rgFileChanged);
 }
 
-CDescTree* CGame_CVS2_A::GetMainTree()
+CDescTree* CGame_PUZZLEFIGHTER_A::GetMainTree()
 {
-    return &CGame_CVS2_A::MainDescTree;
+    return &CGame_PUZZLEFIGHTER_A::MainDescTree;
 }
 
-int CGame_CVS2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_PUZZLEFIGHTER_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((CVS2_A_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((PUZZLEFIGHTER_A_NUMUNITS + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForCVS2(0);
+        stExtraDef* pCurrDef = GetExtraDefForPuzzleFighter(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -117,22 +116,22 @@ int CGame_CVS2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForCVS2(nDefCtr);
+            pCurrDef = GetExtraDefForPuzzleFighter(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-int CGame_CVS2_A::GetExtraLoc(UINT16 nUnitId)
+int CGame_PUZZLEFIGHTER_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (CVS2_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (PUZZLEFIGHTER_A_NUMUNITS + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForCVS2(0);
+        stExtraDef* pCurrDef = GetExtraDefForPuzzleFighter(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -143,138 +142,34 @@ int CGame_CVS2_A::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForCVS2(nDefCtr);
+            pCurrDef = GetExtraDefForPuzzleFighter(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-void CGame_CVS2_A::DumpAllCharacters()
-{
-    //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
-    {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
-        const UINT16 k_nCharacterColorCount = ARRAYSIZE(DEF_BUTTONLABEL_CVS2);
-        CString strOutput;
-
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
-
-        for (UINT16 iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
-        {
-            nCurrentCharacterOffset = CVS2_CharacterOffsetArray[iUnitCtr].romOffset + (0xc0 * iButtonIndex);
-
-            strOutput.Format(_T("const sGame_PaletteDataset CVS2_A_%s_PALETTES_%s[] =\r\n{\r\n"), szCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex]);
-            OutputDebugString(strOutput);
-
-            strOutput.Format(_T("    { _T(\"Main Sprite\"), 0x%07x, 0x%07x, %s },\r\n"), 
-                nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
-                CVS2_CharacterOffsetArray[iUnitCtr].pszImageRefName);
-
-            OutputDebugString(strOutput);
-            nCurrentCharacterOffset += 0x20;
-            nPaletteCount++;
-
-            for (UINT16 iCurrentExtra = 1; iCurrentExtra < 6; iCurrentExtra++)
-            {
-                const sCVS2_ExtraPair* extraPairInfo = nullptr;
-
-                switch (iCurrentExtra)
-                {
-                case 1:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra1);
-                    break;
-                case 2:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra2);
-                    break;
-                case 3:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra3);
-                    break;
-                case 4:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra4);
-                    break;
-                case 5:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra5);
-                    break;
-                }
-
-                if (extraPairInfo && extraPairInfo->pszExtraName)
-                {
-                    strOutput.Format(_T("    { _T(\"%s\"), 0x%07x, 0x%07x, %s, %u },\r\n"), 
-                        extraPairInfo->pszExtraName, 
-                        nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
-                        CVS2_CharacterOffsetArray[iUnitCtr].pszImageRefName, extraPairInfo->nImgIndex);
-                }
-                else
-                {
-                    strOutput.Format(_T("    { _T(\"Extra %u\"), 0x%07x, 0x%07x },\r\n"), iCurrentExtra,
-                        nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
-                }
-
-                OutputDebugString(strOutput);
-                nCurrentCharacterOffset += 0x20;
-                nPaletteCount++;
-            }
-
-            OutputDebugString(_T("};\r\n\r\n"));
-        }
-
-        // Now create the collection...
-        strOutput.Format(_T("const sDescTreeNode CVS2_A_%s_COLLECTION[] =\r\n{\r\n"), szCodeDesc);
-        OutputDebugString(strOutput);
-
-        for (UINT16 iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
-        {
-            strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)CVS2_A_%s_PALETTES_%s, ARRAYSIZE(CVS2_A_%s_PALETTES_%s) },\r\n"),
-                DEF_BUTTONLABEL_CVS2[iButtonIndex],
-                szCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex],
-                szCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex]);
-            OutputDebugString(strOutput);
-        }
-
-        OutputDebugString(_T("};\r\n\r\n"));
-    }
-
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
-    {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
-        CString strOutput;
-
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
-
-
-        strOutput.Format(_T("    { \"%s\", DESC_NODETYPE_TREE, (void*)CVS2_A_%s_COLLECTION, ARRAYSIZE(CVS2_A_%s_COLLECTION) },\r\n"), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName,
-                                        szCodeDesc, szCodeDesc);
-        OutputDebugString(strOutput);
-    }
-}
-
-sDescTreeNode* CGame_CVS2_A::InitDescTree()
+sDescTreeNode* CGame_PUZZLEFIGHTER_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_CVS2_A, CVS2_A_EXTRA, &CVS2_A_EXTRA_CUSTOM, CVS2_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_PUZZLEFIGHTER_A, PUZZLEFIGHTER_A_EXTRA, &PUZZLEFIGHTER_A_EXTRA_CUSTOM, PUZZLEFIGHTER_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = CVS2_A_NUMUNIT + (GetExtraCt(CVS2_A_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = PUZZLEFIGHTER_A_NUMUNITS + (GetExtraCt(PUZZLEFIGHTER_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[CVS2_A]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[PUZZLEFIGHTER_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(CVS2_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_CVS2_A::InitDescTree: Building desc tree for CVS2_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    bool fHaveExtras = (GetExtraCt(PUZZLEFIGHTER_A_EXTRALOC) > 0);
+    strMsg.Format(_T("CGame_PUZZLEFIGHTER_A::InitDescTree: Building desc tree for PUZZLEFIGHTER_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -291,16 +186,16 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < CVS2_A_EXTRALOC)
+        if (iUnitCtr < PUZZLEFIGHTER_A_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), CVS2_A_UNITS[iUnitCtr].szDesc);
+            _stprintf(UnitNode->szDesc, _T("%s"), PUZZLEFIGHTER_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if CVS2_A_DEBUG
+#if PUZZLEFIGHTER_A_DEBUG
             strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -322,7 +217,7 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if CVS2_A_DEBUG
+#if PUZZLEFIGHTER_A_DEBUG
                 strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -340,7 +235,7 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if CVS2_A_DEBUG
+#if PUZZLEFIGHTER_A_DEBUG
                     strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
@@ -368,7 +263,7 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if CVS2_A_DEBUG
+#if PUZZLEFIGHTER_A_DEBUG
             strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -380,7 +275,7 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(CVS2_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(PUZZLEFIGHTER_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _stprintf(CollectionNode->szDesc, _T("Extra"));
 
@@ -389,7 +284,7 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if CVS2_A_DEBUG
+#if PUZZLEFIGHTER_A_DEBUG
             strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -398,21 +293,21 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForCVS2(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForPuzzleFighter(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForCVS2(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForPuzzleFighter(nExtraPos + nCurrExtra);
                 }
 
                 _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((CVS2_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((PUZZLEFIGHTER_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if CVS2_A_DEBUG
+#if PUZZLEFIGHTER_A_DEBUG
                 strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -423,79 +318,76 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_CVS2_A::InitDescTree: Loaded %u palettes for CVS2\n"), nTotalPaletteCount);
+    strMsg.Format(_T("CGame_PUZZLEFIGHTER_A::InitDescTree: Loaded %u palettes for PUZZLEFIGHTER\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForCVS2 = nTotalPaletteCount;
-
-    // For development purposes only...
-    // DumpAllCharacters();
+    m_nTotalPaletteCountForPuzzleFighter = nTotalPaletteCount;
 
     return NewDescTree;
 }
 
-sFileRule CGame_CVS2_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_PUZZLEFIGHTER_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("242-p2.sp2"));
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("pcf.07"));
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nGameROMSize;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
 
-UINT16 CGame_CVS2_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_PUZZLEFIGHTER_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == CVS2_A_EXTRALOC)
+    if (nUnitId == PUZZLEFIGHTER_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return CVS2_A_UNITS[nUnitId].uChildAmt;
+        return PUZZLEFIGHTER_A_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_CVS2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_PUZZLEFIGHTER_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == CVS2_A_EXTRALOC)
+    if (nUnitId == PUZZLEFIGHTER_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(CVS2_A_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(PUZZLEFIGHTER_A_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_CVS2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_PUZZLEFIGHTER_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == CVS2_A_EXTRALOC)
+    if (nUnitId == PUZZLEFIGHTER_A_EXTRALOC)
     {
         return _T("Extra Palettes");
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)CVS2_A_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)PUZZLEFIGHTER_A_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_CVS2_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_PUZZLEFIGHTER_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == CVS2_A_EXTRALOC)
+    if (nUnitId == PUZZLEFIGHTER_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = CVS2_A_UNITS;
+        const sDescTreeNode* pCompleteROMTree = PUZZLEFIGHTER_A_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -505,9 +397,9 @@ UINT16 CGame_CVS2_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if CVS2_A_DEBUG
+#if PUZZLEFIGHTER_A_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_CVS2_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_PUZZLEFIGHTER_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -515,14 +407,14 @@ UINT16 CGame_CVS2_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_CVS2_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_PUZZLEFIGHTER_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)CVS2_A_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)PUZZLEFIGHTER_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_PUZZLEFIGHTER_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -535,7 +427,7 @@ const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == CVS2_A_EXTRALOC)
+        if (nUnitId == PUZZLEFIGHTER_A_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -547,7 +439,7 @@ const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(CVS2_A_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(PUZZLEFIGHTER_A_UNITS[nUnitId].ChildNodes);
             
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -573,7 +465,7 @@ const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_CVS2_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_PUZZLEFIGHTER_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -597,38 +489,38 @@ const sGame_PaletteDataset* CGame_CVS2_A::GetSpecificPalette(UINT16 nUnitId, UIN
     return paletteToUse;
 }
 
-void CGame_CVS2_A::InitDataBuffer()
+void CGame_PUZZLEFIGHTER_A::InitDataBuffer()
 {
-    pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
+    memset(m_pppDataBuffer, 0, sizeof(UINT16**) * nUnitAmt);
 }
 
-void CGame_CVS2_A::ClearDataBuffer()
+void CGame_PUZZLEFIGHTER_A::ClearDataBuffer()
 {
-    if (pppDataBuffer)
+    if (m_pppDataBuffer)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            if (pppDataBuffer[nUnitCtr])
+            if (m_pppDataBuffer[nUnitCtr])
             {
                 UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                 for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
-                    safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
+                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
 
-                safe_delete_array(pppDataBuffer[nUnitCtr]);
+                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
             }
         }
 
-        safe_delete_array(pppDataBuffer);
+        safe_delete_array(m_pppDataBuffer);
     }
 }
 
-void CGame_CVS2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_PUZZLEFIGHTER_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != CVS2_A_EXTRALOC)
+     if (nUnitId != PUZZLEFIGHTER_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -637,7 +529,7 @@ void CGame_CVS2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         {
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
-            nCurrPalOffs = paletteData->nPaletteOffset;
+            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
@@ -647,39 +539,37 @@ void CGame_CVS2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // CVS2_A_EXTRALOC
+    else // PUZZLEFIGHTER_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForCVS2(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForPuzzleFighter(GetExtraLoc(nUnitId) + nPalId);
 
-        nCurrPalOffs = pCurrDef->uOffset;
+        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
-
-    m_nCurrentPaletteROMLocation = nCurrPalOffs;
 }
 
-BOOL CGame_CVS2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_PUZZLEFIGHTER_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
         UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = CVS2_A_UNITSORT[nUnitCtr];
+        rgUnitRedir[nUnitCtr] = PUZZLEFIGHTER_A_UNITSORT[nUnitCtr];
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
-            LoadedFile->Seek(nCurrPalOffs, CFile::begin);
+            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
         }
     }
 
@@ -690,7 +580,7 @@ BOOL CGame_CVS2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     return TRUE;
 }
 
-BOOL CGame_CVS2_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
+BOOL CGame_PUZZLEFIGHTER_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
     bool fShownOnce = false;
@@ -703,28 +593,28 @@ BOOL CGame_CVS2_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
+            if (!fShownOnce && (m_nCurrentPaletteROMLocation < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
-                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, nCurrPalOffs);
+                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
                 MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                 fShownOnce = true;
             }
 
-            SaveFile->Seek(nCurrPalOffs, CFile::begin);
-            SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+            SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
             nTotalPalettesSaved++;
         }
     }
 
     CString strMsg;
-    strMsg.Format(_T("CGame_CVS2_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(_T("CGame_PUZZLEFIGHTER_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
 
     return TRUE;
 }
 
-void CGame_CVS2_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+void CGame_PUZZLEFIGHTER_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
@@ -762,7 +652,7 @@ void CGame_CVS2_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     }
 }
 
-BOOL CGame_CVS2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_PUZZLEFIGHTER_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -793,7 +683,7 @@ BOOL CGame_CVS2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != CVS2_A_EXTRALOC)
+    if (NodeGet->uUnitId != PUZZLEFIGHTER_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -809,13 +699,17 @@ BOOL CGame_CVS2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                nSrcAmt = m_nNumberOfColorOptions;
-                nNodeIncrement = pCurrentNode->uChildAmt;
-
-                while (nSrcStart >= nNodeIncrement)
+                if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_PUZZLEFIGHTER[0]) == 0) || (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_PUZZLEFIGHTER[1]) == 0) ||
+                    (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_PUZZLEFIGHTER[2]) == 0) || (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_PUZZLEFIGHTER[3]) == 0))
                 {
-                    // The starting point is the absolute first palette for the sprite in question which is found in P1
-                    nSrcStart -= nNodeIncrement;
+                    nSrcAmt = 4;
+                    nNodeIncrement = pCurrentNode->uChildAmt;
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1/A
+                        nSrcStart -= nNodeIncrement;
+                    }
                 }
             }
         }
@@ -831,7 +725,7 @@ BOOL CGame_CVS2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-COLORREF* CGame_CVS2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
+COLORREF* CGame_PUZZLEFIGHTER_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
 
@@ -839,13 +733,13 @@ COLORREF* CGame_CVS2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < m_nCurrentPaletteSize; i++)
     {
-        NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]);
+        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
     }
 
     return NewPal;
 }
 
-void CGame_CVS2_A::UpdatePalData()
+void CGame_PUZZLEFIGHTER_A::UpdatePalData()
 {
     for (int nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
@@ -873,7 +767,7 @@ void CGame_CVS2_A::UpdatePalData()
                     }
 
                     UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
+                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;

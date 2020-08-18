@@ -19,6 +19,7 @@
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
 #include "Game_NEOGEO_A.h"
+#include "Game_PUZZLEFIGHTER_A.h"
 #include "Game_SAMSHO5SP_A.h"
 #include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
@@ -231,6 +232,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
+    case PUZZLEFIGHTER_A:
+    {
+        GetRule = &CGame_PUZZLEFIGHTER_A::GetRule;
+        return TRUE;
+    }
     break;
     default:
         OutputDebugString(_T("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n"));
@@ -317,6 +323,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_NEOGEO_A(nConfirmedROMSize);
     }
+    case PUZZLEFIGHTER_A:
+    {
+        return new CGame_PUZZLEFIGHTER_A(nConfirmedROMSize);
+    }
     case SAMSHO5SP_A:
     {
         return new CGame_SAMSHO5SP_A(nConfirmedROMSize);
@@ -373,47 +383,22 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
 
     int nGameRule = 0;
 
+    // Handle games that support multiple ROMs here
     switch (nGameFlag)
     {
     case JOJOS_A:
-        {
-            TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
+    {
+        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
 
-            if (pszFileName)
-            {
-                // Step forward to the filename
-                pszFileName++;
-                nGameRule = ((_tcscmp(pszFileName, _T("50")) == 0) ? 50 : 51);
-            }
-            break;
+        if (pszFileName)
+        {
+            // Step forward to the filename
+            pszFileName++;
+            nGameRule = ((_tcscmp(pszFileName, _T("50")) == 0) ? 50 : 51);
         }
+        break;
+    }
     case MSHVSF_A:
-        {
-            TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-            if (pszFileName)
-            {
-                // Step forward to the filename
-                pszFileName++;
-                _tcslwr(pszFileName);
-                nGameRule = ((_tcsstr(pszFileName, _T(".06a")) != nullptr) ? 6 : 7);
-            }
-            break;
-        }
-    case MSH_A:
-        {
-            TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-            if (pszFileName)
-            {
-                // Step forward to the filename
-                pszFileName++;
-                _tcslwr(pszFileName);
-                nGameRule = ((_tcsstr(pszFileName, _T(".05")) != nullptr) ? 5 : 6);
-            }
-            break;
-        }
-    case SAMSHO5SP_A:
     {
         TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
 
@@ -422,7 +407,20 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             // Step forward to the filename
             pszFileName++;
             _tcslwr(pszFileName);
-            nGameRule = ((_tcsstr(pszFileName, _T("272-p1")) != nullptr) ? 0 : 1);
+            nGameRule = ((_tcsstr(pszFileName, _T(".06a")) != nullptr) ? 6 : 7);
+        }
+        break;
+    }
+    case MSH_A:
+    {
+        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
+
+        if (pszFileName)
+        {
+            // Step forward to the filename
+            pszFileName++;
+            _tcslwr(pszFileName);
+            nGameRule = ((_tcsstr(pszFileName, _T(".05")) != nullptr) ? 5 : 6);
         }
         break;
     }
@@ -629,7 +627,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
                 {
                     fShownFileError = true;
                     CString strError;
-                    strError.Format(_T("Could not find file \"%s\" needed for this game."), szCurrFile);
+                    strError.Format(_T("Could not find file \"%s\" needed for this game."), szCurrFile.GetString());
                     MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
                 }
 

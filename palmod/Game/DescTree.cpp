@@ -31,15 +31,13 @@ void CDescTree::SetRootTree(sDescTreeNode* NewTree)
 
 void CDescTree::FlushTree(sDescTreeNode* CurrTree)
 {
-    int nChildAmt = CurrTree->uChildAmt;
-
     if (CurrTree)
     {
         switch (CurrTree->uChildType)
         {
         case DESC_NODETYPE_TREE:
         {
-            for (int nChildCtr = 0; nChildCtr < nChildAmt; nChildCtr++)
+            for (UINT16 nChildCtr = 0; nChildCtr < CurrTree->uChildAmt; nChildCtr++)
             {
                 FlushTree(&((sDescTreeNode*)CurrTree->ChildNodes)[nChildCtr]);
             }

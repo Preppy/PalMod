@@ -132,8 +132,8 @@ void CPalModApp::SetGameClass(CGameClass* NewGame)
     //Set ptr to main pal group
     BasePal = CurrGame->GetPalGroup();
 
-    //Load the game's image
-    bImgLoaded = ImgBase.LoadImage(ImgStr.GetBuffer(), CurrGame->GetGameFlag(), CurrGame->GetImgGameFlag(), CurrGame->GetImgUnitCt(), CurrGame->GetImgCt());
+    //Load the game's image set
+    bImgLoaded = ImgBase.LoadImage(ImgStr.GetBuffer(), CurrGame->GetGameFlag(), CurrGame->GetImgGameFlag(), CurrGame->GetUnitCt(), CurrGame->GetImgUnitCt(), CurrGame->GetImgCt());
                                                                                                               
     if (!bImgLoaded)
     {

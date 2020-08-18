@@ -40,6 +40,7 @@ enum SupportedGamesList
     SVCPLUSA_A,
     SAMSHO5SP_A,
     MVC2_A_DIR,
+    PUZZLEFIGHTER_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -81,7 +82,8 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Jojo's 51 (Japanese Arcade Rerip)"),
    _T("SVC Plus A"),
    _T("Samurai Shodown V Special"),
-   _T("MVC2 (Arcade rerip) "),
+   _T("MVC2 (Arcade rerip)"),
+   _T("Super Gem Fighter Mini Mix (USA 970904)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -170,6 +172,11 @@ const TCHAR DEF_BUTTONLABEL_CVS2[8][16] =
 const TCHAR DEF_BUTTONLABEL_ST10[10][16] =
 {
    _T("Jab"), _T("Strong"), _T("Fierce"), _T("Short"), _T("Forward"), _T("RH"), _T("Start"), _T("Hold"), _T("Old 1P"), _T("Old 2P")
+};
+
+const TCHAR DEF_BUTTONLABEL_PUZZLEFIGHTER[4][16] =
+{
+    _T("A"), _T("B"), _T("C"), _T("X3")
 };
 
 const TCHAR DEF_NOBUTTONS[1][16] =
@@ -301,6 +308,19 @@ enum CHARACTERS_CPS2
     indexCPS2_COTAAssets, // x56 - HUD, stages, etc
     indexCPS2_STAkuma, // 0x57 - ST Akuma
     indexCPS2_SFA2Portraits, // 0x58
+
+    indexCPS2_SPF_Ryu,      // 0x59
+    indexCPS2_SPF_Ken,      // 0x5a
+    indexCPS2_SPF_ChunLi,   // 0x5b
+    indexCPS2_SPF_Sakura,   // 0x5c
+    indexCPS2_SPF_Morrigan, // 0x5d
+    indexCPS2_SPF_HsienKo,  // 0x5e
+    indexCPS2_SPF_Felicia,  // 0x5f
+    indexCPS2_SPF_Tessa,    // 0x60
+    indexCPS2_SPF_Ibuki,    // 0x61
+    indexCPS2_SPF_Zangief,  // 0x62
+    indexCPS2_SPF_Dan,      // 0x63
+    indexCPS2_SPF_Akuma,    // 0x64
 };
 
 const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
@@ -487,7 +507,6 @@ const UINT8 SFA2_A_IMG_UNITS[] =
     indexCPS2_Rolento,          // 0x43,
     indexCPS2_Gen,              // 0x44,
     indexCPS2_SFA2Portraits,    // 0x58
-    
 };
 
 constexpr auto SFA2_A_NUM_IMG_UNITS = ARRAYSIZE(SFA2_A_IMG_UNITS);
@@ -672,6 +691,39 @@ const UINT8 COTA_A_IMG_UNITS[] =
 };
 
 const int COTA_A_NUM_IMG_UNITS = ARRAYSIZE(COTA_A_IMG_UNITS);
+
+enum PUZZLEFIGHTER_CHARACTERS
+{
+    indexPuzzleFighterChars_Ryu,
+    indexPuzzleFighterChars_Ken,
+    indexPuzzleFighterChars_ChunLi,
+    indexPuzzleFighterChars_Sakura,
+    indexPuzzleFighterChars_Morrigan,
+    indexPuzzleFighterChars_HsienKo,
+    indexPuzzleFighterChars_Felicia,
+    indexPuzzleFighterChars_Tessa,
+    indexPuzzleFighterChars_Ibuki,
+    indexPuzzleFighterChars_Zangief,
+    indexPuzzleFighterChars_Dan,
+    indexPuzzleFighterChars_Akuma,
+    indexPuzzleFighterChars_Last,
+};
+
+const UINT8 PUZZLEFIGHTER_A_IMG_UNITS[] =
+{
+    indexCPS2_SPF_Ryu,      // 0x59
+    indexCPS2_SPF_Ken,      // 0x5a
+    indexCPS2_SPF_ChunLi,   // 0x5b
+    indexCPS2_SPF_Sakura,   // 0x5c
+    indexCPS2_SPF_Morrigan, // 0x5d
+    indexCPS2_SPF_HsienKo,  // 0x5e
+    indexCPS2_SPF_Felicia,  // 0x5f
+    indexCPS2_SPF_Tessa,    // 0x60
+    indexCPS2_SPF_Ibuki,    // 0x61
+    indexCPS2_SPF_Zangief,  // 0x62
+    indexCPS2_SPF_Dan,      // 0x63
+    indexCPS2_SPF_Akuma,    // 0x64
+};
 
 enum JOJOS_51_CHARACTERS
 {

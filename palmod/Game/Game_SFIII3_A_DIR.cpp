@@ -165,7 +165,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     nPaletteLoadCount++;
 
-                    for (int nWordsRead = 0; nWordsRead < m_nCurrentPaletteSize; nWordsRead++)
+                    for (UINT16 nWordsRead = 0; nWordsRead < m_nCurrentPaletteSize; nWordsRead++)
                     {
                         BYTE high, low;
                         
@@ -295,7 +295,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
                 pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 nPaletteSaveCount++;
 
-                for (int nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
+                for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
                 {
                     BYTE high = (pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
                     BYTE low = pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;

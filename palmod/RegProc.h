@@ -27,9 +27,9 @@ public:
     void SaveReg(int src);
 
     static void SetColorsPerLine(DWORD dwColors);
-    static DWORD GetMaxColorsPerPageOverride();
-    static DWORD GetColorsPerLine();
-    static DWORD GetMaxPalettePageSize();
+    static UINT16 GetMaxColorsPerPageOverride();
+    static UINT16 GetColorsPerLine();
+    static UINT16 GetMaxPalettePageSize();
     static DWORD dwColorsPerLine;
     static bool ShouldForcePeerPreviewWindow();
 

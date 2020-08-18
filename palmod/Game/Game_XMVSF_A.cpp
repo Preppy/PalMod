@@ -415,7 +415,7 @@ const sDescTreeNode* CGame_XMVSF_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
     const sGame_PaletteDataset* paletteSetToUse = nullptr;
     int nDistanceFromZero = nPaletteId;
 
-    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
@@ -465,7 +465,7 @@ const sGame_PaletteDataset* CGame_XMVSF_A::GetSpecificPalette(UINT16 nUnitId, UI
     const sGame_PaletteDataset* paletteToUse = nullptr;
     int nDistanceFromZero = nPaletteId;
 
-    for (int nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
     {
         const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
@@ -649,8 +649,8 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     // Default values for multisprite image display for Export
-    int nSrcStart = 0;
-    int nSrcAmt = 1;
+    UINT16 nSrcStart = 0;
+    UINT16 nSrcAmt = 1;
     UINT16 nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
@@ -787,7 +787,7 @@ COLORREF* CGame_XMVSF_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
         NewPal = new COLORREF[m_nCurrentPaletteSize];
 
-        for (int i = 1; i < m_nCurrentPaletteSize; i++)
+        for (UINT16 i = 1; i < m_nCurrentPaletteSize; i++)
         {
             NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i - 1]) | 0xFF000000;
         }
@@ -821,7 +821,7 @@ void CGame_XMVSF_A::UpdatePalData()
 
                 LoadSpecificPaletteData(srcDef->uUnitId, srcDef->uPalId);
 
-                for (int nPICtr = 0; nPICtr < m_nCurrentPaletteSize; nPICtr++)
+                for (UINT16 nPICtr = 0; nPICtr < m_nCurrentPaletteSize; nPICtr++)
                 {
                     if (pIndexRedir[nPICtr])
                     {
@@ -835,7 +835,7 @@ void CGame_XMVSF_A::UpdatePalData()
             {
                 crSrc = srcDef->pPal;
 
-                for (int nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
+                for (UINT16 nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
                 {
                     pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr - 1] = (ConvCol(crSrc[nPICtr]) & 0x0FFF);
                 }

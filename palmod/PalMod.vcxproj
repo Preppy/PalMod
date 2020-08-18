@@ -62,7 +62,6 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -135,6 +134,7 @@
     <ClCompile Include="Game\Game_MVC2_P.cpp" />
     <ClCompile Include="Game\Game_MVC_A.cpp" />
     <ClCompile Include="Game\Game_NEOGEO_A.cpp" />
+    <ClCompile Include="Game\Game_PUZZLEFIGHTER_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp" />
     <ClCompile Include="Game\Game_SFA2_A.cpp" />
     <ClCompile Include="Game\Game_SFA3_A.cpp" />
@@ -200,6 +200,7 @@
     <ClInclude Include="Game\Game_MVC2_P.h" />
     <ClInclude Include="Game\Game_MVC_A.h" />
     <ClInclude Include="Game\Game_NEOGEO_A.h" />
+    <ClInclude Include="Game\Game_PUZZLEFIGHTER_A.h" />
     <ClInclude Include="Game\Game_SAMSHO5SP_A.h" />
     <ClInclude Include="Game\Game_SFA2_A.h" />
     <ClInclude Include="Game\Game_SFA3_A.h" />
@@ -225,6 +226,7 @@
     <ClInclude Include="Game\MVC_A_DEF.h" />
     <ClInclude Include="Game\NEOGEO_A_DEF.h" />
     <ClInclude Include="Game\PalGroup.h" />
+    <ClInclude Include="Game\PUZZLEFIGHTER_A_DEF.h" />
     <ClInclude Include="Game\SAMSHO5SP_A_DEF.h" />
     <ClInclude Include="Game\SFA2_A_DEF.h" />
     <ClInclude Include="Game\SFA3_A_DEF.h" />

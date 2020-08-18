@@ -163,10 +163,8 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
     strInfo.Format(_T("CGame_MVC2_A_DIR::SaveFile: Preparing to save data for MVC2 ROM set\n"));
     OutputDebugString(strInfo);
 
-    // OK, so the old 51 ROM in the SIMM redump is interleaved.
-    // There is one byte from  5.0 followed by one byte from 5.1, up until the end of those SIMMs.
-    // That is then followed by one byte from 5.6 followed by one byte from 5.7, repeat until end of SIMM.
-    // SO to read the SIMMs we need to perform shenanigans.
+    // In the SIMM rerip, the palettes start at mpr-23051.ic20 and increment upwards.
+    // Thankfully they don't interleave.
 
     CFile fileSIMMs[MVC2_Arcade_NumberOfSIMMs];
 
@@ -178,7 +176,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
     for (UINT16 nIndex = 0; nIndex < MVC2_Arcade_NumberOfSIMMs; nIndex++)
     {
         CString strSIMMNames;
-        strSIMMNames.Format(_T("%s%u.ic%u"), GetLoadDir(), MVC2_Arcade_ROM_Base, nIndex + 51, nIndex + 20);
+        strSIMMNames.Format(_T("%s\\%s%u.ic%u"), GetLoadDir(), MVC2_Arcade_ROM_Base, nIndex + 51, nIndex + 20);
 
         if (!fileSIMMs[nIndex].Open(strSIMMNames, CFile::modeWrite | CFile::typeBinary))
         {
@@ -191,6 +189,12 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
+            if (nUnitCtr == indexMVC2ATeamView)
+            {
+                // This is a virtual group.
+                continue;
+            }
+
             UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
             for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -209,7 +213,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 #endif
 
                 fileSIMMs[nSIMMSetToUse].Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                fileSIMMs[nSIMMSetToUse].Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
             }
         }
     }

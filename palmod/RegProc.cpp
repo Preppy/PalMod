@@ -79,7 +79,7 @@ void CRegProc::SetColorsPerLine(DWORD dwColors)
     }
 }
 
-DWORD CRegProc::GetMaxColorsPerPageOverride()
+UINT16 CRegProc::GetMaxColorsPerPageOverride()
 {
     static DWORD s_dwMaxColorsPerPage = -1;
 
@@ -105,7 +105,7 @@ DWORD CRegProc::GetMaxColorsPerPageOverride()
         }
     }
 
-    return s_dwMaxColorsPerPage;
+    return (UINT16)s_dwMaxColorsPerPage;
 }
 
 bool CRegProc::ShouldForcePeerPreviewWindow()
@@ -137,7 +137,7 @@ bool CRegProc::ShouldForcePeerPreviewWindow()
     return (shouldForcePeerWindow == 1);
 }
 
-DWORD CRegProc::GetColorsPerLine()
+UINT16 CRegProc::GetColorsPerLine()
 {
     // Since this affects UI we should only update it once per instance
     if (dwColorsPerLine == 0)
@@ -162,7 +162,7 @@ DWORD CRegProc::GetColorsPerLine()
     return (dwColorsPerLine == PAL_MAXWIDTH_16COLORSPERLINE) ? PAL_MAXWIDTH_16COLORSPERLINE : PAL_MAXWIDTH_8COLORSPERLINE;
 }
 
-DWORD CRegProc::GetMaxPalettePageSize()
+UINT16 CRegProc::GetMaxPalettePageSize()
 {
     return (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? PAL_MAXAMT_8COLORSPERLINE : PAL_MAXAMT_16COLORSPERLINE;
 }

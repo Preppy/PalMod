@@ -158,7 +158,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-                    for (int nWordsRead = 0; nWordsRead < m_nCurrentPaletteSize; nWordsRead++)
+                    for (UINT16 nWordsRead = 0; nWordsRead < m_nCurrentPaletteSize; nWordsRead++)
                     {
                         BYTE high, low;
                         
@@ -259,7 +259,7 @@ BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
                 pSIMM1->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                 pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-                for (int nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
+                for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
                 {
                     BYTE high = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
                     BYTE low = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;

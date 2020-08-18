@@ -9,7 +9,7 @@ struct sImgDef
     UINT16 uImgWidth = 0;
     UINT16 uImgHeight = 0;
 
-    UINT8 bCompressed = 0;
+    UINT8 nCompressionType = 0;
     UINT32 uDataSize = 0;
     UINT32 uThisImgLoc = 0;
     UINT8* pImgData = nullptr;

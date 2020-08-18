@@ -53,6 +53,7 @@ bool CImgDat::FlushImageBuffer()
     safe_delete(nImgMap);
 
     imageBufferPrepped = false;
+    imageBufferFlushed = true;
 
     return true;
 }
@@ -104,200 +105,133 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
     */
     for (UINT16 nUnitCtr = 0; nUnitCtr < nGameImageUnitAmt; nUnitCtr++)
     {
+        UINT8 nImageUnitCounterToUse = 0;
+
         switch (uGameFlag)
         {
         case MVC2_A:
         case MVC2_D:
         case MVC2_A_DIR:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), MVC2_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ MVC2_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = MVC2_IMG_UNITS[nUnitCtr];
             break;
         }
         case SFIII3_A:
         case SFIII3_A_DIR:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), SFIII3_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ SFIII3_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = SFIII3_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case MVC2_P:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), MVC2_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ MVC2_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = MVC2_IMG_UNITS[nUnitCtr];
             break;
         }
         case SSF2T_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), SSF2T_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ SSF2T_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = SSF2T_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case SFA2_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), SFA2_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ SFA2_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = SFA2_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case SFA3_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), SFA3_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ SFA3_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = SFA3_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case XMVSF_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), XMVSF_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ XMVSF_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = XMVSF_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case MVC_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), MVC_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ MVC_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = MVC_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case SFIII3_D:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), SFIII3_D_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ SFIII3_D_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = SFIII3_D_IMG_UNITS[nUnitCtr];
             break;
         }
         case JOJOS_A:
         case JOJOS_A_DIR_50:
         case JOJOS_A_DIR_51:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), JOJOS_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ JOJOS_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = JOJOS_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case MSH_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), MSH_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ MSH_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = MSH_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case MSHVSF_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), MSHVSF_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ MSHVSF_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = MSHVSF_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case COTA_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), COTA_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ COTA_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = COTA_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case Garou_A:
         case Garou_S:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), GAROU_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ GAROU_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = GAROU_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case KOF98_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), KOF98_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ KOF98_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = KOF98_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case KOF02_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), KOF02_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ KOF02_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = KOF02_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case KOF02UM_S:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), KOF02UM_S_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ KOF02UM_S_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = KOF02UM_S_IMG_UNITS[nUnitCtr];
             break;
         }
         case CVS2_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), CVS2_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ CVS2_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = CVS2_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case SVCPLUSA_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), SVCPLUSA_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ SVCPLUSA_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = SVCPLUSA_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case SAMSHO5SP_A:
         {
-#if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), SAMSHO5SP_A_IMG_UNITS[nUnitCtr]);
-            OutputDebugString(strDebugInfo);
-#endif
-            nImgMap->insert({ SAMSHO5SP_A_IMG_UNITS[nUnitCtr], new ImgInfoList });
+            nImageUnitCounterToUse = SAMSHO5SP_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case PUZZLEFIGHTER_A:
+        {
+            nImageUnitCounterToUse = PUZZLEFIGHTER_A_IMG_UNITS[nUnitCtr];
             break;
         }
 
         default:
-            OutputDebugString(_T("CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n "));
+            OutputDebugString(_T("CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n"));
             return NULL;
             break;
         }
+
+#if IMGDAT_DEBUG
+        strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), nImageUnitCounterToUse);
+        OutputDebugString(strDebugInfo);
+#endif
+        nImgMap->insert({ nImageUnitCounterToUse, new ImgInfoList });
     }
 
     imageBufferFlushed = false;
@@ -371,7 +305,7 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
         strDebugInfo.Format(_T("CImgDat::GetImgData : Image at position '0x%x' for unit 0x%02x img 0x%x is already loaded.\n"), pCurrImg->uThisImgLoc, nCurrentUnitId, nCurrentImgId);
         OutputDebugString(strDebugInfo);
 
-        strDebugInfo.Format(_T(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n"), pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
+        strDebugInfo.Format(_T(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n"), pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->nCompressionType, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
         OutputDebugString(strDebugInfo);
 #endif
         return pCurrImg->pImgData;
@@ -384,24 +318,22 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
 #if IMGDAT_DEBUG
     strDebugInfo.Format(_T("CImgDat::GetImgData : Making pNewImgData for unitID:0x%X, imgID:0x%X .\n"), nCurrentUnitId, nCurrentImgId);
     OutputDebugString_ImgDat(strDebugInfo);
-    strDebugInfo.Format(_T(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n"), pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
+    strDebugInfo.Format(_T(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n"), pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->nCompressionType, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
     OutputDebugString_ImgDat(strDebugInfo);
 #endif
 
     ImgDatFile.Seek(pCurrImg->uThisImgLoc, CFile::begin);
     ImgDatFile.Read(pNewImgData, pCurrImg->uDataSize);
 
-    if (pCurrImg->bCompressed)
+    switch (pCurrImg->nCompressionType)
     {
-        UINT8* pTmpData = pNewImgData;
+    case 0: // No compression
+        break;
+    case 1: // RLE
+    {
+        UINT8 * pTmpData = pNewImgData;
 
-        //pNewImgData = new UINT8[CurrImg->uImgWidth * CurrImg->uImgHeight];
-
-#ifdef TVRLE
-        pNewImgData = BitMaskRLEDecodeImg(
-#else
         pNewImgData = RLEDecodeImg(
-#endif
             pTmpData,
             pCurrImg->uDataSize,
             pCurrImg->uImgWidth,
@@ -409,13 +341,33 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
         );
 
         safe_delete_array(pTmpData);
+        break;
+    }
+    case 2: // BitmaskRLE
+    {
+        OutputDebugString(_T("Using new BitMaskRLE logic...\n"));
+        UINT8* pTmpData = pNewImgData;
+
+        pNewImgData = BitMaskRLEDecodeImg(
+            pTmpData,
+            pCurrImg->uDataSize,
+            pCurrImg->uImgWidth,
+            pCurrImg->uImgHeight
+        );
+
+        safe_delete_array(pTmpData);
+        break;
+    }
+    default:
+        OutputDebugString(_T("CImgDat::GetImgData : WARNING: Unhandled compression type.  Skipping loading this image\n"));
+        return nullptr;
     }
 
 #ifdef EXPORT_IMG_DAT_TO_DISK
     static bool shouldExportItAll = true;
     if (shouldExportItAll)
     {
-        int uLengthToWrite = (pCurrImg->bCompressed) ? (pCurrImg->uImgHeight * pCurrImg->uImgWidth) : pCurrImg->uDataSize;
+        int uLengthToWrite = (pCurrImg->nCompressionType) ? (pCurrImg->uImgHeight * pCurrImg->uImgWidth) : pCurrImg->uDataSize;
 
         CString strThisGameName;
         strThisGameName = g_GameFriendlyName[uGameFlag];
@@ -426,7 +378,7 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
         strFilePath.Format(_T(".\\Assets\\%s-unit-0x%02x-imgid-0x%02x-W-%i-H-%i.raw"), strThisGameName, nCurrentUnitId, nCurrentImgId, pCurrImg->uImgWidth, pCurrImg->uImgHeight);
 
         CString strDebugInfo;
-        strDebugInfo.Format(_T("Special Export: Image '0x%x', H %u W %u for LEN %u to %s\n "), pCurrImg->uThisImgLoc, pCurrImg->uImgHeight, pCurrImg->uImgWidth, uLengthToWrite, strFilePath);
+        strDebugInfo.Format(_T("Special Export: Image '0x%x', H %u W %u for LEN %u to %s\n"), pCurrImg->uThisImgLoc, pCurrImg->uImgHeight, pCurrImg->uImgWidth, uLengthToWrite, strFilePath);
         OutputDebugString(strDebugInfo);
 
         HANDLE hFile = CreateFile(
@@ -483,7 +435,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
     CString strDebugInfo;
     strDebugInfo.Format(_T("CImgDat::LoadImage : Opening image file '%s'\n"), lpszLoadFile);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format(_T("CImgDat::LoadImage : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n"), uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, uGameUnitAmt, uImgUnitAmt);
+    strDebugInfo.Format(_T("CImgDat::LoadImage : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n"), uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, uImgUnitAmt);
     OutputDebugString(strDebugInfo);
 
     if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag))
@@ -575,7 +527,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
                         pCurrImg->pImgData = nullptr;
                         ImgDatFile.Read(&pCurrImg->uImgWidth, 0x02);
                         ImgDatFile.Read(&pCurrImg->uImgHeight, 0x02);
-                        ImgDatFile.Read(&pCurrImg->bCompressed, 0x01);
+                        ImgDatFile.Read(&pCurrImg->nCompressionType, 0x01);
                         ImgDatFile.Read(&pCurrImg->uDataSize, 0x04);
                         ImgDatFile.Read(&uReadNextImgLoc, 0x04);
                         pCurrImg->uThisImgLoc = (0xFFFFFFFF & ImgDatFile.GetPosition());
@@ -590,7 +542,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
 #if IMGDAT_DEBUG
                         strDebugInfo.Format(_T("CImgDat::LoadImage : Image info for unit 0x%02X img 0x%02X has been loaded.\n"), uCurrUnitId, uCurrImgId);
                         OutputDebugString_ImgDat(strDebugInfo);
-                        strDebugInfo.Format(_T(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n"), pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->bCompressed, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
+                        strDebugInfo.Format(_T(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n"), pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->nCompressionType, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
                         OutputDebugString_ImgDat(strDebugInfo);
 #endif
                         if (bLoadAll)
