@@ -43,7 +43,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 785;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 821;
     m_nLowestKnownPaletteRomLocation = 0x700600;
 
     CString strInfo;

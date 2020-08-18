@@ -285,14 +285,44 @@ const sGame_PaletteDataset SFA3_A_ADON_PALETTES[] =
     { _T("Just Defend"), 0x339f4 + 0x2e0, 0x339f4 + 0x300, 0x3D },
 };
 
-const sGame_PaletteDataset SFA3_A_SODOM_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_SODOM_XISMP[] =
 {
     { _T("X-Ism Punch"), 0x02D754, 0x02D774, 0x3E},
+    { _T("X-Ism Punch Swords"), 0x02D774, 0x02D794 },
+};
+
+const sGame_PaletteDataset SFA3_A_SODOM_XISMK[] =
+{
     { _T("X-Ism Kick"),  0x02D7F4, 0x02D814, 0x3E},
+    { _T("X-Ism Kick Swords"), 0x02D814, 0x02D834 },
+};
+
+const sGame_PaletteDataset SFA3_A_SODOM_AISMP[] =
+{
     { _T("A-Ism Punch"), 0x02D894, 0x02D8B4, 0x3E},
+    { _T("A-Ism Punch Slashes"), 0x02D8B4, 0x02D8D4 },
+};
+
+const sGame_PaletteDataset SFA3_A_SODOM_AISMK[] =
+{
     { _T("A-Ism Kick"),  0x02D934, 0x02D954, 0x3E},
+    { _T("A-Ism Kick Slashes"), 0x02D954, 0x02D974 },
+};
+
+const sGame_PaletteDataset SFA3_A_SODOM_VISMP[] =
+{
     { _T("V-Ism Punch"), 0x02D9D4, 0x02D9F4, 0x3E},
+    { _T("V-Ism Punch Slashes"), 0x02D9F4, 0x02DA14 },
+};
+
+const sGame_PaletteDataset SFA3_A_SODOM_VISMK[] =
+{
     { _T("V-Ism Kick"),  0x02DA74, 0x02DA94, 0x3E},
+    { _T("V-Ism Kick Slashes"), 0x02DA94, 0x02DAB4 }, 
+};
+
+const sGame_PaletteDataset SFA3_A_SODOM_STATUS[] =
+{
     { _T("Burned 1"), 0x33cf4 + 0x00, 0x33cf4 + 0x20, 0x3E },
     { _T("Burned 2"), 0x33cf4 + 0x20, 0x33cf4 + 0x40, 0x3E },
     { _T("Psycho Crusher Burned 1"), 0x33cf4 + 0x40, 0x33cf4 + 0x60, 0x3E },
@@ -892,14 +922,44 @@ const sGame_PaletteDataset SFA3_A_RMIKA_PALETTES[] =
     { _T("Just Defend"), 0x36e94 + 0x2e0, 0x36e94 + 0x300, 0x48 },
 };
 
-const sGame_PaletteDataset SFA3_A_CODY_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_CODY_XISMP[] =
 {
     { _T("X-Ism Punch"), 0x031714, 0x031734, 0x49},
+    { _T("Dagger/Cyclone X-Ism Punch"), 0x031734, 0x031754 },
+};
+
+const sGame_PaletteDataset SFA3_A_CODY_XISMK[] =
+{
     { _T("X-Ism Kick"),  0x0317B4, 0x0317D4, 0x49},
+    { _T("Dagger/Cyclone X-Ism Kick"), 0x0317D4, 0x0317F4 },
+};
+
+const sGame_PaletteDataset SFA3_A_CODY_AISMP[] =
+{
     { _T("A-Ism Punch"), 0x031854, 0x031874, 0x49},
+    { _T("Dagger/Cyclone A-Ism Punch"), 0x031874, 0x031894 },
+};
+
+const sGame_PaletteDataset SFA3_A_CODY_AISMK[] =
+{
     { _T("A-Ism Kick"),  0x0318F4, 0x031914, 0x49},
+    { _T("Dagger/Cyclone A-Ism Kick"), 0x031914, 0x031934 },
+};
+
+const sGame_PaletteDataset SFA3_A_CODY_VISMP[] =
+{
     { _T("V-Ism Punch"), 0x031994, 0x0319B4, 0x49},
+    { _T("Dagger/Cyclone V-Ism Punch"), 0x0319B4, 0x0319D4 },
+};
+
+const sGame_PaletteDataset SFA3_A_CODY_VISMK[] =
+{
     { _T("V-Ism Kick"),  0x031A34, 0x031A54, 0x49},
+    { _T("Dagger/Cyclone V-Ism Kick"), 0x031A54, 0x031A74 }, 
+};
+
+const sGame_PaletteDataset SFA3_A_CODY_STATUS[] =
+{
     { _T("Burned 1"), 0x37194 + 0x00, 0x37194 + 0x20, 0x49 },
     { _T("Burned 2"), 0x37194 + 0x20, 0x37194 + 0x40, 0x49 },
     { _T("Psycho Crusher Burned 1"), 0x37194 + 0x40, 0x37194 + 0x60, 0x49 },
@@ -1466,7 +1526,13 @@ const sDescTreeNode SFA3_A_ADON_COLLECTION[] =
 
 const sDescTreeNode SFA3_A_SODOM_COLLECTION[] =
 {
-    { _T("Palettes"), DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_PALETTES,     ARRAYSIZE(SFA3_A_SODOM_PALETTES) },
+    { _T("X-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_XISMP,      ARRAYSIZE(SFA3_A_SODOM_XISMP) },
+    { _T("X-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_XISMK,      ARRAYSIZE(SFA3_A_SODOM_XISMK) },
+    { _T("A-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_AISMP,      ARRAYSIZE(SFA3_A_SODOM_AISMP) },
+    { _T("A-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_AISMK,      ARRAYSIZE(SFA3_A_SODOM_AISMK) },
+    { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_VISMP,      ARRAYSIZE(SFA3_A_SODOM_VISMP) },
+    { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_VISMK,      ARRAYSIZE(SFA3_A_SODOM_VISMK) },
+    { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_STATUS,     ARRAYSIZE(SFA3_A_SODOM_STATUS) },
     { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_SODOM_PORTRAIT_PALETTES) },
 };
 
@@ -1573,7 +1639,13 @@ const sDescTreeNode SFA3_A_RMIKA_COLLECTION[] =
 
 const sDescTreeNode SFA3_A_CODY_COLLECTION[] =
 {
-    { _T("Palettes"), DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_PALETTES,      ARRAYSIZE(SFA3_A_CODY_PALETTES) },
+    { _T("X-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_XISMP,      ARRAYSIZE(SFA3_A_CODY_XISMP) },
+    { _T("X-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_XISMK,      ARRAYSIZE(SFA3_A_CODY_XISMK) },
+    { _T("A-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_AISMP,      ARRAYSIZE(SFA3_A_CODY_AISMP) },
+    { _T("A-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_AISMK,      ARRAYSIZE(SFA3_A_CODY_AISMK) },
+    { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_VISMP,      ARRAYSIZE(SFA3_A_CODY_VISMP) },
+    { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_VISMK,      ARRAYSIZE(SFA3_A_CODY_VISMK) },
+    { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_STATUS,     ARRAYSIZE(SFA3_A_CODY_STATUS) },
     { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_CODY_PORTRAIT_PALETTES) },
 };
 
