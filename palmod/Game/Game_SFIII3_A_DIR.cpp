@@ -15,15 +15,13 @@ CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize) :
     nGameFlag = SFIII3_A_DIR;
     nFileAmt = 8;
 
-    // switch to directory mode
-    safe_delete(rgFileChanged);
-    rgFileChanged = new UINT16[nFileAmt];
-    memset(rgFileChanged, NULL, sizeof(UINT16) * nFileAmt);
+    FlushChangeTrackingArray();
+    PrepChangeTrackingArray();
 }
 
 CGame_SFIII3_A_DIR::~CGame_SFIII3_A_DIR(void)
 {
-    safe_delete_array(rgFileChanged);
+    FlushChangeTrackingArray();
 }
 
 sFileRule CGame_SFIII3_A_DIR::GetRule(UINT16 nUnitId)
@@ -128,10 +126,10 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         {
             UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-            if (pppDataBuffer[nUnitCtr] == nullptr)
+            if (m_pppDataBuffer[nUnitCtr] == nullptr)
             {
-                pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
-                memset(pppDataBuffer[nUnitCtr], 0, sizeof(UINT16 *) * nPalAmt);
+                m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+                memset(m_pppDataBuffer[nUnitCtr], 0, sizeof(UINT16 *) * nPalAmt);
             }
 
             rgUnitRedir[nUnitCtr] = SFIII3_A_UNITSORT[nUnitCtr];
@@ -158,8 +156,8 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                         fSuccess = FALSE;
                     }
 
-                    pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-                    memset(pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(UINT16) * m_nCurrentPaletteSize);
+                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+                    memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(UINT16) * m_nCurrentPaletteSize);
 
                     LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -172,7 +170,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                         LoadedFile->Read(&low, 1);
                         FilePeer.Read(&high, 1);
 
-                        pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = (UINT16)((high << 8) | low);
+                        m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = (UINT16)((high << 8) | low);
                     }
                 }
             }
@@ -297,8 +295,8 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
 
                 for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
                 {
-                    BYTE high = (pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
-                    BYTE low = pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
+                    BYTE high = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
+                    BYTE low = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
 
                     pSIMM1->Write(&low, 1);
                     pSIMM2->Write(&high, 1);

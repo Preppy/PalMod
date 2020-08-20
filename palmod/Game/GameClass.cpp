@@ -623,3 +623,13 @@ BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int n
         return FALSE;
     }
 }
+
+void CGameClass::PrepChangeTrackingArray()
+{
+    if (!rgFileChanged)
+    {
+        const UINT16 rgCountChangableUnits = max(nUnitAmt, nFileAmt) + 1;
+        rgFileChanged = new UINT16[rgCountChangableUnits];
+        memset(rgFileChanged, NULL, sizeof(UINT16) * rgCountChangableUnits);
+    }
+}

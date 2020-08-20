@@ -22,8 +22,6 @@ private:
     SFA2_SupportedROMVersion m_currentSFA2ROMVersion = SFA2_960229;
 
     //Used for GetPalOffset
-    UINT32 nCurrPalOffs = 0;    
-
     // These handle per-ROM logic.
     int m_nBufferSelectedRom = 3;
     static int m_nSFA2SelectedRom;
@@ -46,8 +44,6 @@ private:
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
-
-    UINT16*** pppDataBuffer = nullptr;
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
@@ -88,9 +84,6 @@ public:
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
-
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     static stExtraDef* SFA2_A_EXTRA_CUSTOM_07;
     static stExtraDef* SFA2_A_EXTRA_CUSTOM_08;

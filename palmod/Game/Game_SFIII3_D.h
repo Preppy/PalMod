@@ -10,10 +10,10 @@ private:
     int nNormalPalAmt = 0;
 
     //Used for GetPalOffset
-    int nCurrPalOffs = 0;
+    int m_nCurrentPaletteROMLocation = 0;
     int nCurrPalSz = 0;
 
-    UINT16*** pppDataBuffer = nullptr;
+    UINT16*** m_pppDataBuffer = nullptr;
 
     void GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId);
 
@@ -56,7 +56,4 @@ public:
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
-
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 };

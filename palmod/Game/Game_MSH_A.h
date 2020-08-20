@@ -14,8 +14,6 @@ private:
     int nTargetImgId = 0;
 
     //Used for GetPalOffset
-    UINT32 nCurrPalOffs = 0;
-
     // These handle per-ROM logic.
     int m_nBufferSelectedRom = 5;
     static int m_nMSHSelectedRom;
@@ -37,8 +35,6 @@ private:
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
-
-    UINT16*** pppDataBuffer = nullptr;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     const int m_uLowestKnownPaletteROMLocation_05 = 0x61000;
@@ -79,9 +75,6 @@ public:
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
-
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     static stExtraDef* MSH_A_EXTRA_CUSTOM_05;
     static stExtraDef* MSH_A_EXTRA_CUSTOM_06;

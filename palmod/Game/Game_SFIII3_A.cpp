@@ -67,16 +67,16 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISP_DEF;
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL7);
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL7);
+    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
+    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL7_SF3);
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
     memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
 
     //Create the file changed flag
-    rgFileChanged = new UINT16;
+    PrepChangeTrackingArray();
 
     nRGBIndexAmt = 31;
     nAIndexAmt = 0;
@@ -90,7 +90,7 @@ CGame_SFIII3_A::~CGame_SFIII3_A(void)
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_EXTRA_CUSTOM);
     //Get rid of the file changed flag
     ClearDataBuffer();
-    safe_delete(rgFileChanged);
+    FlushChangeTrackingArray();
 }
 
 int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
@@ -513,35 +513,6 @@ const sDescTreeNode* CGame_SFIII3_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16
     return pCollectionNode;
 }
 
-void CGame_SFIII3_A::InitDataBuffer()
-{
-    pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
-}
-
-void CGame_SFIII3_A::ClearDataBuffer()
-{
-    if (pppDataBuffer)
-    {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            if (pppDataBuffer[nUnitCtr])
-            {
-                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-                {
-                    safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
-                }
-
-                safe_delete_array(pppDataBuffer[nUnitCtr]);
-            }
-        }
-
-        safe_delete_array(pppDataBuffer);
-    }
-}
-
 void CGame_SFIII3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
     if (nUnitId != SFIII3_A_EXTRALOC)
@@ -573,7 +544,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     {
         UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         rgUnitRedir[nUnitCtr] = SFIII3_A_UNITSORT[nUnitCtr];
 
@@ -581,11 +552,11 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
             LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
         }
     }
 
@@ -618,7 +589,7 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             }
 
             SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-            SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
             nTotalPalettesSaved++;
         }
     }
@@ -711,15 +682,15 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
-            if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[0]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[1]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[2]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[3]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[4]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[5]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7[6]) == 0))
+            if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[0]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[1]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[2]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[3]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[4]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[5]) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[6]) == 0))
             {
-                nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7);
+                nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                 while (nSrcStart >= nNodeIncrement)
@@ -893,7 +864,7 @@ COLORREF* CGame_SFIII3_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < m_nCurrentPaletteSize; i++)
     {
-        NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
+        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
     }
 
     return NewPal;
@@ -924,7 +895,7 @@ void CGame_SFIII3_A::UpdatePalData()
 
             for (UINT16 nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
             {
-                pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = ConvCol(crSrc[nPICtr]);
+                m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = ConvCol(crSrc[nPICtr]);
 
             }
             srcDef->bChanged = FALSE;

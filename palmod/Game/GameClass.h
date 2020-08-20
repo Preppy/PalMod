@@ -37,7 +37,7 @@ protected:
     TCHAR* szDir = nullptr;
     TCHAR** szUnitFile = nullptr;
     UINT16* rgFileChanged = nullptr;
-    int nFileAmt = 0;
+    UINT16 nFileAmt = 0;
 
     BOOL bIsDir = FALSE;
 
@@ -65,7 +65,7 @@ protected:
     sImgTicket* CurrImgTicket = nullptr;
     CPalGroup BasePalGroup;
 
-    eDispType DisplayType = DISP_DEF;
+    eImageOutputSpriteDisplay DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
     // Used for the Export Image listbox
     TCHAR* pButtonLabel = nullptr;
     // How many colors a game has: P1/P2 (2), LP-HK/A2 (6), etc
@@ -116,8 +116,8 @@ public:
 
     CPalGroup* GetPalGroup() { return &BasePalGroup; };
 
-    int GetFileAmt() { return nFileAmt; };
-    UINT16* GetChangeRg() { return rgFileChanged; };
+    UINT16 GetFileAmt() { return nFileAmt; };
+    UINT16* GetChangeTrackingArray() { return rgFileChanged; };
 
     void SetIsDir(BOOL bNewIsDir = TRUE) { bIsDir = bNewIsDir; };
     BOOL GetIsDir() { return bIsDir; };
@@ -132,7 +132,7 @@ public:
     void ClearSrcPal();
 
     TCHAR* GetButtonDesc() { return pButtonLabel; };
-    eDispType GetImgDispType() { return DisplayType; };
+    eImageOutputSpriteDisplay GetImgDispType() { return DisplayType; };
 
     void SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc);
 
@@ -150,8 +150,8 @@ public:
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId) = 0;
     virtual void UpdatePalData() = 0;
-    virtual void FlushUnitFile() = 0;
-    virtual void PrepUnitFile() = 0;
+    virtual void FlushChangeTrackingArray() { safe_delete_array(rgFileChanged); };
+    virtual void PrepChangeTrackingArray();
     virtual void ValidateMixExtraColors(BOOL* pfChangesWereMade) {};
 
     COLORREF*** CreateImgOutPal();

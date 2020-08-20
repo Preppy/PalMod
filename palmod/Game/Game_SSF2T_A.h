@@ -14,9 +14,6 @@ private:
     //Used for image selection
     int nTargetImgId = 0;
 
-    //Used for GetPalOffset
-    UINT32 nCurrPalOffs = 0;
-    
     // These handle per-ROM logic.
     int m_nBufferSelectedRom = 3;
     static int m_nSSF2TSelectedRom;
@@ -29,16 +26,15 @@ private:
     static int rgExtraCountAll_3C[SSF2T_A_NUM_IND_3C + 1];
     static int rgExtraCountAll_4A[SSF2T_A_NUM_IND_4A + 1];
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
+    void InitDataBuffer() override;
+    void ClearDataBuffer() override;
+
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
-
-    UINT16*** pppDataBuffer = nullptr;
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     const int m_uLowestKnownPaletteROMLocation_3C = 0x31c00;
@@ -79,9 +75,6 @@ public:
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
-
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     static stExtraDef* SSF2T_A_EXTRA_CUSTOM_3C;
     static stExtraDef* SSF2T_A_EXTRA_CUSTOM_4A;

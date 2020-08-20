@@ -67,7 +67,7 @@ CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISP_DEF;
+    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_GEMFIGHTER);
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_GEMFIGHTER);
@@ -77,7 +77,7 @@ CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize)
     memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
 
     //Create the file changed flag
-    rgFileChanged = new UINT16;
+    PrepChangeTrackingArray();
 
     nRGBIndexAmt = 15;
     nAIndexAmt = 0;
@@ -91,7 +91,7 @@ CGame_GEMFIGHTER_A::~CGame_GEMFIGHTER_A(void)
     safe_delete_array(CGame_GEMFIGHTER_A::GEMFIGHTER_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
-    safe_delete(rgFileChanged);
+    FlushChangeTrackingArray();
 }
 
 CDescTree* CGame_GEMFIGHTER_A::GetMainTree()
@@ -487,35 +487,6 @@ const sGame_PaletteDataset* CGame_GEMFIGHTER_A::GetSpecificPalette(UINT16 nUnitI
     }
 
     return paletteToUse;
-}
-
-void CGame_GEMFIGHTER_A::InitDataBuffer()
-{
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, 0, sizeof(UINT16**) * nUnitAmt);
-}
-
-void CGame_GEMFIGHTER_A::ClearDataBuffer()
-{
-    if (m_pppDataBuffer)
-    {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            if (m_pppDataBuffer[nUnitCtr])
-            {
-                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-                {
-                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
-                }
-
-                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
-            }
-        }
-
-        safe_delete_array(m_pppDataBuffer);
-    }
 }
 
 void CGame_GEMFIGHTER_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)

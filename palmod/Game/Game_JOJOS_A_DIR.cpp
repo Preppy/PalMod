@@ -15,15 +15,13 @@ CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR(UINT32 nConfirmedROMSize, int nJojosModeToL
     // We lie here because we want to look at all 8 SIMMs.
     nFileAmt = 8;
 
-    // switch to directory mode
-    safe_delete(rgFileChanged);
-    rgFileChanged = new UINT16[nUnitAmt + 1];
-    memset(rgFileChanged, NULL, sizeof(UINT16) * nUnitAmt);
+    FlushChangeTrackingArray();
+    PrepChangeTrackingArray();
 }
 
 CGame_JOJOS_A_DIR::~CGame_JOJOS_A_DIR(void)
 {
-    safe_delete_array(rgFileChanged);
+    FlushChangeTrackingArray();
 }
 
 sFileRule CGame_JOJOS_A_DIR::GetRule(UINT16 nUnitId)

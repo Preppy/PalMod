@@ -451,9 +451,9 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
 
     for (int i = 0; i < amt; i++)
     {
-        nPal = amt > 1 ? i : nPalIndex;
+        nPal = (amt > 1) ? i : nPalIndex;
 
-        if (DispType == DISP_DEF)
+        if (DispType == DISPLAY_SPRITES_LEFTTORIGHT)
         {
             if (i >= nMaxImagesPerLine)
             {
@@ -462,7 +462,7 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
 
             nTargetX = (i - (row_ctr * nMaxImagesPerLine));
         }
-        else if (DispType == DISP_ALT)
+        else if (DispType == DISPLAY_SPRITES_TOPTOBOTTOM)
         {
             if (i % 2)
             {

@@ -13,14 +13,11 @@ public:
     int nTargetImgId = 0;
 
     //Used for GetPalOffset
-    UINT32 nCurrPalOffs = 0;
     static UINT32 m_nTotalPaletteCountForMVC2;
 
     static int rgExtraCountAll[MVC2_A_NUMUNIT + 1];
     static int rgExtraLoc[MVC2_A_NUMUNIT + 1];
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
@@ -28,8 +25,6 @@ public:
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
-    UINT16*** pppDataBuffer = nullptr;
-    
     // Developer-only mode to regenerate the header file quickly.
     void DumpAllCharacters();
 
@@ -67,12 +62,8 @@ public:
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
     int GetBasicOffset(UINT16 nPalId);
     void PostSetPal(UINT16 nUnitId, UINT16 nPalId);
-    UINT16*** GetDataBuffer() { return pppDataBuffer; };
 
     void UpdatePalData();
-
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     static stExtraDef* MVC2_A_EXTRA_CUSTOM;
 };

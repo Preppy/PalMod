@@ -9,8 +9,6 @@ constexpr auto EXTRA_FILENAME_COTA = _T("cotae.txt");
 class CGame_COTA_A : public CGameWithExtrasFile
 {
 private:
-    void InitDataBuffer();
-    void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
@@ -20,11 +18,6 @@ private:
 
     //Used for image selection
     int nTargetImgId = 0;
-
-    //Used for GetPalOffset
-    UINT32 nCurrPalOffs = 0;
-
-    UINT16*** pppDataBuffer = nullptr;
 
     static UINT32 m_nTotalPaletteCountForCOTA;
     static int rgExtraCountAll[COTA_A_NUMUNIT + 1];
@@ -64,9 +57,6 @@ public:
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
-
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     static stExtraDef* COTA_A_EXTRA_CUSTOM;
 };

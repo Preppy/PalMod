@@ -4,6 +4,7 @@
 #include "RegProc.h"
 
 #include "ExtraFile.h"
+#include <algorithm>
 
 // Uncomment this to have this file help convert an Extra file to our header style
 //#define DUMP_EXTRAS_ON_LOAD
@@ -533,4 +534,58 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
             OutputDebugString(strText);
         }
     }
+}
+
+void CGameWithExtrasFile::InitDataBuffer()
+{
+    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+}
+
+void CGameWithExtrasFile::ClearDataBuffer()
+{
+    if (m_pppDataBuffer)
+    {
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        {
+            if (m_pppDataBuffer[nUnitCtr])
+            {
+                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                {
+                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
+                }
+
+                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
+            }
+        }
+
+        safe_delete_array(m_pppDataBuffer);
+    }
+}
+
+void CGameWithExtrasFile::MarkPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
+{
+    sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteID };
+    m_vDirtyPaletteList.push_back(sPaletteOfInterest);
+    return;
+}
+
+bool CGameWithExtrasFile::IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
+{
+    struct DoPalettesMatch
+    {
+        sPaletteIdentifier *pPalToCheck;
+        DoPalettesMatch(sPaletteIdentifier *pPalToCheck) : pPalToCheck(pPalToCheck) {}
+        bool operator () (const sPaletteIdentifier& m) const
+        {
+            return (m.nUnit == pPalToCheck->nUnit) && (m.nPaletteId == pPalToCheck->nPaletteId);
+        }
+    };
+
+    sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteID };
+    auto it = std::find_if(m_vDirtyPaletteList.begin(), m_vDirtyPaletteList.end(), DoPalettesMatch(&sPaletteOfInterest));
+
+    return it != m_vDirtyPaletteList.end();
 }

@@ -660,17 +660,17 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
     SetGame(CurrGame->GetGameFlag());
 
-    int nFileAmt = CurrGame->GetFileAmt();
-    UINT16* rgChanged = CurrGame->GetChangeRg();
+    UINT16 nFileAmt = CurrGame->GetFileAmt();
+    UINT16* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
     TCHAR* szDir = CurrGame->GetLoadDir();
     UINT16* rgUnitRedir = CurrGame->rgUnitRedir;
     CString strErrorFile;
 
     if (CurrGame->GetIsDir())
     {
-        for (int nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
+        for (UINT16 nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
         {
-            if ((rgChanged[nFileCtr]) || (CurrGame->GetGameFlag() == SFIII3_A_DIR))
+            if ((rgFileIsChanged[nFileCtr]) || (CurrGame->GetGameFlag() == SFIII3_A_DIR))
             {
                 nSaveLoadCount++;
 
@@ -699,7 +699,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                         if (CurrGame->SaveFile(&FileSave, nFileCtr))
                         {
                             // Mark as clean so we don't save it out until it gets dirtied again.
-                            rgChanged[nFileCtr] = FALSE;
+                            rgFileIsChanged[nFileCtr] = FALSE;
                             nSaveLoadSucc++;
                         }
                         else
@@ -723,7 +723,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                 {
                     // Ignore the virtual team view
                     // Mark as clean so we don't save it out until it gets dirtied again.
-                    rgChanged[nFileCtr] = FALSE;
+                    rgFileIsChanged[nFileCtr] = FALSE;
                     nSaveLoadSucc++;
                 }
             }
@@ -731,7 +731,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     }
     else
     {
-        if (rgChanged[0])
+        if (rgFileIsChanged[0])
         {
             nSaveLoadCount = 1;
 
@@ -739,7 +739,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             {
                 if (CurrGame->SaveFile(&FileSave, 0))
                 {
-                    rgChanged[0] = FALSE;
+                    rgFileIsChanged[0] = FALSE;
                     nSaveLoadSucc++;
                 }
 

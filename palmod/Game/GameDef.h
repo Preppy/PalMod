@@ -100,11 +100,11 @@ constexpr auto COTA_A_UNIQUE_IMG_UNITS = 2;   // Unique Assets(HUD, Stages)[56] 
 constexpr auto MVC2_D_NUM_IMG_UNITS = 59;
 constexpr auto SSF2T_A_NUM_IMG_UNITS = 17;
 
-//Display types (used for image out)
-enum eDispType
+//Image output display options
+enum eImageOutputSpriteDisplay
 {
-    DISP_DEF,
-    DISP_ALT
+    DISPLAY_SPRITES_LEFTTORIGHT,
+    DISPLAY_SPRITES_TOPTOBOTTOM
 };
 
 //Basic button labels
@@ -159,7 +159,7 @@ const TCHAR DEF_BUTTONLABEL6_MVC2[6][16] =
    _T("LP"), _T("LK"), _T("HP"), _T("HK"), _T("A1"), _T("A2")
 };
 
-const TCHAR DEF_BUTTONLABEL7[7][16] = 
+const TCHAR DEF_BUTTONLABEL7_SF3[7][16] = 
 {
    _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("EX")
 };

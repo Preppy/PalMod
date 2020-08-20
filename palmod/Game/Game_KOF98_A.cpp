@@ -67,7 +67,7 @@ CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISP_DEF;
+    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
     pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_NEOGEO);
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
@@ -77,7 +77,7 @@ CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
     memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
 
     //Create the file changed flag
-    rgFileChanged = new UINT16;
+    PrepChangeTrackingArray();
 
     nRGBIndexAmt = 15;
     nAIndexAmt = 0;
@@ -91,7 +91,7 @@ CGame_KOF98_A::~CGame_KOF98_A(void)
     safe_delete_array(CGame_KOF98_A::KOF98_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
-    safe_delete(rgFileChanged);
+    FlushChangeTrackingArray();
 }
 
 CDescTree* CGame_KOF98_A::GetMainTree()
@@ -631,30 +631,30 @@ const sGame_PaletteDataset* CGame_KOF98_A::GetSpecificPalette(UINT16 nUnitId, UI
 
 void CGame_KOF98_A::InitDataBuffer()
 {
-    pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
 }
 
 void CGame_KOF98_A::ClearDataBuffer()
 {
-    if (pppDataBuffer)
+    if (m_pppDataBuffer)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            if (pppDataBuffer[nUnitCtr])
+            if (m_pppDataBuffer[nUnitCtr])
             {
                 UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                 for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
-                    safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
+                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
 
-                safe_delete_array(pppDataBuffer[nUnitCtr]);
+                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
             }
         }
 
-        safe_delete_array(pppDataBuffer);
+        safe_delete_array(m_pppDataBuffer);
     }
 }
 
@@ -669,7 +669,7 @@ void CGame_KOF98_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         {
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
-            nCurrPalOffs = paletteData->nPaletteOffset;
+            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
@@ -684,12 +684,10 @@ void CGame_KOF98_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         // This is where we handle all the palettes added in via Extra.
         stExtraDef* pCurrDef = GetExtraDefForKOF98(GetExtraLoc(nUnitId) + nPalId);
 
-        nCurrPalOffs = pCurrDef->uOffset;
+        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
-
-    m_nCurrentPaletteROMLocation = nCurrPalOffs;
 }
 
 BOOL CGame_KOF98_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
@@ -698,7 +696,7 @@ BOOL CGame_KOF98_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     {
         UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         // Use a sorted layout
         rgUnitRedir[nUnitCtr] = KOF98_A_UNITSORT[nUnitCtr];
@@ -707,11 +705,11 @@ BOOL CGame_KOF98_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
-            LoadedFile->Seek(nCurrPalOffs, CFile::begin);
+            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
         }
     }
 
@@ -733,21 +731,26 @@ BOOL CGame_KOF98_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
+            if (IsPaletteDirty(nUnitCtr, nPalCtr))
             {
-                CString strMsg;
-                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, nCurrPalOffs);
-                MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-                fShownOnce = true;
-            }
+                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            SaveFile->Seek(nCurrPalOffs, CFile::begin);
-            SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
-            nTotalPalettesSaved++;
+                if (!fShownOnce && (m_nCurrentPaletteROMLocation < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
+                {
+                    CString strMsg;
+                    strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
+                    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+                    fShownOnce = true;
+                }
+
+                SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                nTotalPalettesSaved++;
+            }
         }
     }
+
+    ClearDirtyPaletteTracker();
 
     CString strMsg;
     strMsg.Format(_T("CGame_KOF98_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
@@ -875,7 +878,7 @@ COLORREF* CGame_KOF98_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < m_nCurrentPaletteSize; i++)
     {
-        NewPal[i] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]);
+        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
     }
 
     return NewPal;
@@ -909,13 +912,14 @@ void CGame_KOF98_A::UpdatePalData()
                     }
 
                     UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
+                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;
                 nTotalColorsRemaining -= nMaxSafeColorsToWrite;
             }
 
+            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
             srcDef->bChanged = FALSE;
             rgFileChanged[0] = TRUE;
         }

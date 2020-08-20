@@ -93,7 +93,7 @@ public:
     RECT h_rect = {};
     RECT v_rect = {};
 
-    eDispType DispType;
+    eImageOutputSpriteDisplay DispType;
 
 protected:
     DECLARE_MESSAGE_MAP()

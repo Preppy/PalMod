@@ -93,7 +93,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISP_DEF;
+    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_JOJOS_5);
 
     //Create the redirect buffer
@@ -101,7 +101,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     memset(rgUnitRedir, NULL, sizeof(UINT16) * max(10, nUnitAmt));
 
     //Create the file changed flag
-    rgFileChanged = new UINT16;
+    PrepChangeTrackingArray();
 
     nRGBIndexAmt = 31;
     nAIndexAmt = 0;
@@ -116,7 +116,7 @@ CGame_JOJOS_A::~CGame_JOJOS_A(void)
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);
     ClearDataBuffer();
     //Get rid of the file changed flag
-    safe_delete(rgFileChanged);
+    FlushChangeTrackingArray();
 }
 
 int CGame_JOJOS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)

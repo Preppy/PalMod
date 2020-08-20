@@ -120,6 +120,7 @@ public:
     void SetSliderCol(int nRH, int nGS, int nBL, int nA = -1);
     void UpdateMultiEdit(BOOL bForce = FALSE);
     void SetSliderDescEdit();
+    int BoundIntBySliderRange(int nIntValue, CSliderCtrl* pSlider);
 
     void NewUndoData(BOOL bUndo = TRUE);
     void DoUndoRedo(BOOL bUndo);

@@ -9,27 +9,18 @@ constexpr auto EXTRA_FILENAME_SFA3 = _T("SFA3e.txt");
 class CGame_SFA3_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
-    //Used for GetPalOffset
-    UINT32 nCurrPalOffs = 0;
-    
     static UINT32 m_nTotalPaletteCountForSFA3;
     static int rgExtraCountAll[SFA3_A_NUM_IND + 1];
     static int rgExtraCountVisibleOnly[SFA3_A_NUM_IND + 1];
     static int rgExtraLoc[SFA3_A_NUM_IND + 1];
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
-    static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
+    static void InitializeStatics();
+
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
-
-    UINT16*** pppDataBuffer = nullptr;
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpHeaderPalettes();
@@ -69,9 +60,6 @@ public:
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
-
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     static stExtraDef* SFA3_A_EXTRA_CUSTOM;
 };

@@ -18,15 +18,14 @@ CGame_MVC2_A_DIR::CGame_MVC2_A_DIR(UINT32 nConfirmedROMSize) :
     // We lie here because we want to look at 8 SIMMs.
     nFileAmt = MVC2_Arcade_NumberOfSIMMs;
 
-    // switch to directory mode
-    safe_delete(rgFileChanged);
-    rgFileChanged = new UINT16[nUnitAmt + 1];
-    memset(rgFileChanged, NULL, sizeof(UINT16) * nUnitAmt);
+    // Ensure our change array is using the correct length
+    FlushChangeTrackingArray();
+    PrepChangeTrackingArray();
 }
 
 CGame_MVC2_A_DIR::~CGame_MVC2_A_DIR(void)
 {
-    safe_delete_array(rgFileChanged);
+    FlushChangeTrackingArray();
 }
 
 sFileRule CGame_MVC2_A_DIR::GetRule(UINT16 nUnitId)
@@ -89,9 +88,9 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     {
         UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        if (pppDataBuffer[nUnitCtr] == nullptr)
+        if (m_pppDataBuffer[nUnitCtr] == nullptr)
         {
-            pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+            m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
         }
 
         // Use a sorted layout
@@ -105,7 +104,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
             {
                 // This is a virtual group.
                 // We just need to be indexed in the rgUnitRedir
-                pppDataBuffer[nUnitCtr][nPalCtr] = nullptr;
+                m_pppDataBuffer[nUnitCtr][nPalCtr] = nullptr;
                 continue;
             }
 
@@ -131,10 +130,10 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     fSuccess = FALSE;
                 }
 
-                pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+                m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
             }
         }
     }
@@ -213,7 +212,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 #endif
 
                 fileSIMMs[nSIMMSetToUse].Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                fileSIMMs[nSIMMSetToUse].Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                fileSIMMs[nSIMMSetToUse].Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
             }
         }
     }

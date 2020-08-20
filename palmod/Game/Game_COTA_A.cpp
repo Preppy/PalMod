@@ -64,7 +64,7 @@ CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISP_DEF;
+    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
@@ -72,7 +72,7 @@ CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
     memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
 
     //Create the file changed flag
-    rgFileChanged = new UINT16;
+    PrepChangeTrackingArray();
 
     nRGBIndexAmt = 15;
     nAIndexAmt = 0;
@@ -86,7 +86,7 @@ CGame_COTA_A::~CGame_COTA_A(void)
     safe_delete_array(CGame_COTA_A::COTA_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
-    safe_delete(rgFileChanged);
+    FlushChangeTrackingArray();
 }
 
 int CGame_COTA_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
@@ -483,35 +483,6 @@ const sGame_PaletteDataset* CGame_COTA_A::GetSpecificPalette(UINT16 nUnitId, UIN
     return paletteToUse;
 }
 
-void CGame_COTA_A::InitDataBuffer()
-{
-    pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
-}
-
-void CGame_COTA_A::ClearDataBuffer()
-{
-    if (pppDataBuffer)
-    {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            if (pppDataBuffer[nUnitCtr])
-            {
-                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-                {
-                    safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
-                }
-
-                safe_delete_array(pppDataBuffer[nUnitCtr]);
-            }
-        }
-
-        safe_delete_array(pppDataBuffer);
-    }
-}
-
 void CGame_COTA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
      if (nUnitId != COTA_A_EXTRALOC)
@@ -523,7 +494,7 @@ void CGame_COTA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         {
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
-            nCurrPalOffs = paletteData->nPaletteOffset;
+            m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
@@ -538,12 +509,10 @@ void CGame_COTA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         // This is where we handle all the palettes added in via Extra.
         stExtraDef* pCurrDef = GetExtraDefForCOTA(GetExtraLoc(nUnitId) + nPalId);
 
-        nCurrPalOffs = pCurrDef->uOffset;
+        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
-
-    m_nCurrentPaletteROMLocation = nCurrPalOffs;
 }
 
 BOOL CGame_COTA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
@@ -552,7 +521,7 @@ BOOL CGame_COTA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     {
         UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         rgUnitRedir[nUnitCtr] = nUnitCtr; // probably can remove this
 
@@ -560,11 +529,11 @@ BOOL CGame_COTA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
-            LoadedFile->Seek(nCurrPalOffs, CFile::begin);
+            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
         }
     }
 
@@ -588,16 +557,16 @@ BOOL CGame_COTA_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
+            if (!fShownOnce && (m_nCurrentPaletteROMLocation < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
-                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, nCurrPalOffs);
+                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
                 MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                 fShownOnce = true;
             }
 
-            SaveFile->Seek(nCurrPalOffs, CFile::begin);
-            SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+            SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
             nTotalPalettesSaved++;
         }
     }
@@ -745,7 +714,7 @@ COLORREF* CGame_COTA_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < m_nCurrentPaletteSize - 1; i++)
     {
-        NewPal[i + 1] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
+        NewPal[i + 1] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
     }
 
     NewPal[0] = 0xFF000000;
@@ -781,7 +750,7 @@ void CGame_COTA_A::UpdatePalData()
                     }
 
                     UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
+                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;

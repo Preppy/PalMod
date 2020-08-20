@@ -87,7 +87,7 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISP_DEF;
+    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_SFA2);
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_SFA2);
 
@@ -96,7 +96,7 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
 
     //Create the file changed flag
-    rgFileChanged = new UINT16;
+    PrepChangeTrackingArray();
 
     nRGBIndexAmt = 15;
     nAIndexAmt = 0;
@@ -111,7 +111,7 @@ CGame_SFA2_A::~CGame_SFA2_A(void)
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08);
     ClearDataBuffer();
     //Get rid of the file changed flag
-    safe_delete(rgFileChanged);
+    FlushChangeTrackingArray();
 }
 
 CDescTree* CGame_SFA2_A::GetMainTree()
@@ -973,8 +973,8 @@ const sDescTreeNode* CGame_SFA2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
 void CGame_SFA2_A::InitDataBuffer()
 {
     m_nBufferSelectedRom = m_nSFA2SelectedRom;
-    pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
 }
 
 void CGame_SFA2_A::ClearDataBuffer()
@@ -983,24 +983,24 @@ void CGame_SFA2_A::ClearDataBuffer()
 
     m_nSFA2SelectedRom = m_nBufferSelectedRom;
 
-    if (pppDataBuffer)
+    if (m_pppDataBuffer)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
-            if (pppDataBuffer[nUnitCtr])
+            if (m_pppDataBuffer[nUnitCtr])
             {
                 UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
                 for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
                 {
-                    safe_delete_array(pppDataBuffer[nUnitCtr][nPalCtr]);
+                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
                 }
 
-                safe_delete_array(pppDataBuffer[nUnitCtr]);
+                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
             }
         }
 
-        safe_delete_array(pppDataBuffer);
+        safe_delete_array(m_pppDataBuffer);
     }
 
     m_nSFA2SelectedRom = nCurrentROMMode;
@@ -1015,24 +1015,24 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
-        nCurrPalOffs = paletteData->nPaletteOffset;
+        m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
 
         if (UsePaletteSetForCharacters() && (m_currentSFA2ROMVersion == SFA2_960306))
         {
             // 0306 ROMs have a different location for palettes
-            nCurrPalOffs -= 0x11e0;
+            m_nCurrentPaletteROMLocation -= 0x11e0;
         }
         else if (!UsePaletteSetForCharacters() && (m_currentSFA2ROMVersion == SFA2_960229))  //   229 starts at 0x1bb40, 306 at 0x1adc0
         {
-            if (nCurrPalOffs < 0x1c7c0)
+            if (m_nCurrentPaletteROMLocation < 0x1c7c0)
             {
                 // Early bonus/extra range
-                nCurrPalOffs += 0xD80;
+                m_nCurrentPaletteROMLocation += 0xD80;
             }
             else
             {
                 // Later portrait range
-                nCurrPalOffs += 0x900;
+                m_nCurrentPaletteROMLocation += 0x900;
             }
         }
 
@@ -1044,12 +1044,10 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         // This is where we handle all the palettes added in via Extra.
         stExtraDef* pCurrDef = GetExtraDefForSFA2(GetExtraLoc(nUnitId) + nPalId);
 
-        nCurrPalOffs = pCurrDef->uOffset;
+        m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
-
-    m_nCurrentPaletteROMLocation = nCurrPalOffs;
 }
 
 SFA2_SupportedROMVersion CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
@@ -1139,7 +1137,7 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     {
         UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
-        pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
         rgUnitRedir[nUnitCtr] = nUnitCtr;
 
@@ -1147,11 +1145,11 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
-            LoadedFile->Seek(nCurrPalOffs, CFile::begin);
+            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-            LoadedFile->Read(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
         }
     }
 
@@ -1175,16 +1173,16 @@ BOOL CGame_SFA2_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            if (!fShownOnce && (nCurrPalOffs < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
+            if (!fShownOnce && (m_nCurrentPaletteROMLocation < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
             {
                 CString strMsg;
-                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, nCurrPalOffs);
+                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
                 MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                 fShownOnce = true;
             }
 
-            SaveFile->Seek(nCurrPalOffs, CFile::begin);
-            SaveFile->Write(pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+            SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
             nTotalPalettesSaved++;
         }
     }
@@ -1377,7 +1375,7 @@ COLORREF* CGame_SFA2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < m_nCurrentPaletteSize - 1; i++)
     {
-        NewPal[i + 1] = ConvPal(pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
+        NewPal[i + 1] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
     }
 
     NewPal[0] = 0xFF000000;
@@ -1413,7 +1411,7 @@ void CGame_SFA2_A::UpdatePalData()
                     }
 
                     UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
+                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;

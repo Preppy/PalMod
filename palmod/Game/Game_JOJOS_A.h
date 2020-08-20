@@ -27,9 +27,6 @@ public:
 
     int m_nGameButtonColorCount = 5;
 
-    // This array holds all the actual color tables we use
-    UINT16*** m_pppDataBuffer = nullptr;
-
     // Jojos has two different ROMs of interest: handle here.
     int m_nBufferJojosMode = 50;
     static int m_nJojosMode;
@@ -90,9 +87,6 @@ public:
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
-
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     static stExtraDef* JOJOS_A_EXTRA_CUSTOM_50;
     static stExtraDef* JOJOS_A_EXTRA_CUSTOM_51;

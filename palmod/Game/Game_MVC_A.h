@@ -13,24 +13,19 @@ private:
     int nTargetImgId = 0;
 
     //Used for GetPalOffset
-    UINT32 nCurrPalOffs = 0;
-    
+   
     static UINT32 m_nTotalPaletteCountForMVC;
 
     static int rgExtraCountAll[MVC_A_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly[MVC_A_NUMUNIT + 1];
     static int rgExtraLoc[MVC_A_NUMUNIT + 1];
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
-
-    UINT16*** pppDataBuffer = nullptr;
 
 public:
     CGame_MVC_A(UINT32 nConfirmedROMSize);
@@ -67,9 +62,6 @@ public:
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
-
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     static stExtraDef* MVC_A_EXTRA_CUSTOM;
 };

@@ -11,14 +11,9 @@ class CGame_XMVSF_A : public CGameWithExtrasFile
 private:
     //Used for image selection
     int nTargetImgId = 0;
-
-    //Used for GetPalOffset
-    UINT32 nCurrPalOffs = 0;
     
     static UINT32 m_nTotalPaletteCountForXMVSF;
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
@@ -28,8 +23,6 @@ private:
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
-
-    UINT16*** pppDataBuffer = nullptr;
 
 public:
     CGame_XMVSF_A(UINT32 nConfirmedROMSize);
@@ -69,7 +62,5 @@ public:
 
     void UpdatePalData();
 
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
     static stExtraDef* XMVSF_A_EXTRA_CUSTOM;
 };

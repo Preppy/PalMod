@@ -24,16 +24,12 @@ public:
     static int rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1];
     static int rgExtraLoc[SFIII3_A_NUMUNIT + 1];
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
-
-    UINT16*** pppDataBuffer = nullptr;
 
 public:
     CGame_SFIII3_A(UINT32 nConfirmedROMSize = -1);
@@ -70,9 +66,6 @@ public:
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
-
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     static stExtraDef* SFIII3_A_EXTRA_CUSTOM;
 };

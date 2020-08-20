@@ -13,7 +13,6 @@ private:
     int nTargetImgId = 0;
 
     //Used for GetPalOffset
-    UINT32 nCurrPalOffs = 0;
     static UINT32 m_nTotalPaletteCountForKOF98;
 
     static int rgExtraCountAll[KOF98_A_NUMUNIT + 1];
@@ -27,8 +26,6 @@ private:
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
-
-    UINT16*** pppDataBuffer = nullptr;
 
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
@@ -65,12 +62,8 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
-    UINT16*** GetDataBuffer() { return pppDataBuffer; };
 
     void UpdatePalData();
-
-    void FlushUnitFile() { safe_delete(rgFileChanged); };
-    void PrepUnitFile() { if (!rgFileChanged) { rgFileChanged = new UINT16; } };
 
     static stExtraDef* KOF98_A_EXTRA_CUSTOM;
 };

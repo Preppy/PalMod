@@ -46,10 +46,10 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     nFileAmt = MVC2_D_NUMUNIT_WITH_TEAMVIEW;
 
     //Prepare the file list
-    PrepUnitFile();
+    PrepChangeTrackingArray();
 
     //Set the image out display type
-    DisplayType = DISP_ALT;
+    DisplayType = DISPLAY_SPRITES_TOPTOBOTTOM;
     pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL6_MVC2);
 
     //Set the MVC2 supp game
@@ -73,10 +73,8 @@ CGame_MVC2_D::CGame_MVC2_D(void)
 
 CGame_MVC2_D::~CGame_MVC2_D(void)
 {
-    FlushUnitFile();
+    FlushChangeTrackingArray();
     ClearDataBuffer();
-    //Get rid of the file changed flag
-    safe_delete_array(rgFileChanged);
 
     CurrMVC2 = NULL;
 }
@@ -478,15 +476,15 @@ sFileRule CGame_MVC2_D::GetNextRule()
 
 void CGame_MVC2_D::InitDataBuffer()
 {
-    ppDataBuffer = new UINT16 * [MVC2_D_NUMUNIT_WITH_TEAMVIEW];
-    memset(ppDataBuffer, NULL, sizeof(UINT16*) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
+    ppDataBuffer = new UINT16 * [nUnitAmt];
+    memset(ppDataBuffer, NULL, sizeof(UINT16*) * nUnitAmt);
 }
 
 void CGame_MVC2_D::ClearDataBuffer()
 {
     if (ppDataBuffer)
     {
-        for (int i = 0; i < MVC2_D_NUMUNIT_WITH_TEAMVIEW; i++)
+        for (int i = 0; i < nUnitAmt; i++)
         {
             safe_delete_array(ppDataBuffer[i]);
         }
@@ -685,21 +683,18 @@ void CGame_MVC2_D::FlushUnitFile()
         safe_delete_array(szUnitFile);
     }
 
-    safe_delete(rgFileChanged);
+    FlushChangeTrackingArray();
 }
 
 void CGame_MVC2_D::PrepUnitFile()
 {
-    if (szUnitFile)
+    if (!szUnitFile)
     {
-        return;
+        szUnitFile = new TCHAR * [MVC2_D_NUMUNIT_WITH_TEAMVIEW];
+        memset(szUnitFile, NULL, sizeof(TCHAR*) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
     }
 
-    szUnitFile = new TCHAR * [MVC2_D_NUMUNIT_WITH_TEAMVIEW];
-    memset(szUnitFile, NULL, sizeof(TCHAR*) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
-
-    rgFileChanged = new UINT16[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
-    memset(rgFileChanged, NULL, sizeof(UINT16) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
+    PrepChangeTrackingArray();
 }
 
 void CGame_MVC2_D::ResetChangeFlag(UINT16 nUnitId)

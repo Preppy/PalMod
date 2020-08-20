@@ -43,6 +43,23 @@ void CPalModDlg::ResetSlider(BOOL bSetZero)
     UpdateData(FALSE);
 }
 
+int CPalModDlg::BoundIntBySliderRange(int nIntValue, CSliderCtrl* pSlider)
+{
+    int nAdjustedValue = nIntValue;
+    int nMin, nMax;
+    pSlider->GetRange(nMin, nMax);
+
+    const int nMultiplier = (int)((&m_ASlider == pSlider) ? nAMul : nRGBMul);
+
+    nMin *= ((bShow32 && bRGB) ? (nMultiplier ? nMultiplier : 1) : 1);
+    nMax *= ((bShow32 && bRGB) ? (nMultiplier ? nMultiplier : 1) : 1);
+
+    nAdjustedValue = min(nAdjustedValue, nMax);
+    nAdjustedValue = max(nAdjustedValue, nMin);
+
+    return nAdjustedValue;
+}
+
 void CPalModDlg::OnDeltaposSpinRH(NMHDR* pNMHDR, LRESULT* pResult)
 {
     LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
@@ -53,6 +70,8 @@ void CPalModDlg::OnDeltaposSpinRH(NMHDR* pNMHDR, LRESULT* pResult)
     ProcChange();
     const int nStepLength = -1 * (bShow32 ? (int)nRGBMul : 1);
     m_Edit_RH = m_Edit_RH + (nStepLength * pNMUpDown->iDelta);
+
+    m_Edit_RH = BoundIntBySliderRange(m_Edit_RH, &m_RHSlider);
     UpdateData(FALSE);
     UpdateEditKillFocus(IDC_EDIT_RH);
 }
@@ -67,6 +86,8 @@ void CPalModDlg::OnDeltaposSpinGS(NMHDR* pNMHDR, LRESULT* pResult)
     ProcChange();
     const int nStepLength = -1 * (bShow32 ? (int)nRGBMul : 1);
     m_Edit_GS = m_Edit_GS + (nStepLength * pNMUpDown->iDelta);
+
+    m_Edit_GS = BoundIntBySliderRange(m_Edit_GS, &m_GSSlider);
     UpdateData(FALSE);
     UpdateEditKillFocus(IDC_EDIT_GS);
 }
@@ -81,6 +102,8 @@ void CPalModDlg::OnDeltaposSpinBL(NMHDR* pNMHDR, LRESULT* pResult)
     ProcChange();
     const int nStepLength = -1 * (bShow32 ? (int)nRGBMul : 1);
     m_Edit_BL = m_Edit_BL + (nStepLength * pNMUpDown->iDelta);
+
+    m_Edit_BL = BoundIntBySliderRange(m_Edit_BL, &m_BLSlider);
     UpdateData(FALSE);
     UpdateEditKillFocus(IDC_EDIT_BL);
 }
@@ -95,6 +118,8 @@ void CPalModDlg::OnDeltaposSpinA(NMHDR* pNMHDR, LRESULT* pResult)
     ProcChange();
     const int nStepLength = -1 * (bShow32 ? (int)nAMul : 1);
     m_Edit_A = m_Edit_A + (nStepLength * pNMUpDown->iDelta);
+
+    m_Edit_A = BoundIntBySliderRange(m_Edit_A, &m_ASlider);
     UpdateData(FALSE);
     UpdateEditKillFocus(IDC_EDIT_A);
 }
@@ -125,10 +150,10 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
             bEnableSlider = !bAutoSetCol;
             bEnableAlpha = !bAutoSetCol * nAAmt;
         }
-        else if (nPalSelAmt == 1 || !bAutoSetCol)
+        else if ((nPalSelAmt == 1) || !bAutoSetCol)
         {
             bEnableSlider = TRUE;
-            bEnableAlpha = TRUE * nAAmt;
+            bEnableAlpha = (nAAmt != 0);
 
             if (bRGB)
             {
@@ -144,14 +169,14 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
             }
             else
             {
-                if (nRangeFlag != (0xFF * 1 + nGameFlag))
+                if (nRangeFlag != ((0xFF * 1) + nGameFlag))
                 {
                     m_RHSlider.SetRange(0, 360, TRUE);
                     m_GSSlider.SetRange(0, 255, TRUE);
                     m_BLSlider.SetRange(0, 100, TRUE);
                     m_ASlider.SetRange(0, nAAmt, TRUE);
 
-                    nRangeFlag = 0xFF * 1 + nGameFlag;
+                    nRangeFlag = (0xFF * 1) + nGameFlag;
                 }
             }
 
@@ -171,26 +196,26 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 
             if (bRGB)
             {
-                if (nRangeFlag != (0xFF * 2 + nGameFlag))
+                if (nRangeFlag != ((0xFF * 2) + nGameFlag))
                 {
                     m_RHSlider.SetRange(-nRGBAmt, nRGBAmt, TRUE);
                     m_GSSlider.SetRange(-nRGBAmt, nRGBAmt, TRUE);
                     m_BLSlider.SetRange(-nRGBAmt, nRGBAmt, TRUE);
                     m_ASlider.SetRange(-nAAmt, nAAmt, TRUE);
 
-                    nRangeFlag = 0xFF * 2 + nGameFlag;
+                    nRangeFlag = (0xFF * 2) + nGameFlag;
                 }
             }
             else
             {
-                if (nRangeFlag != (0xFF * 3 + nGameFlag))
+                if (nRangeFlag != ((0xFF * 3) + nGameFlag))
                 {
                     m_RHSlider.SetRange(0, 360, TRUE);
                     m_GSSlider.SetRange(-255, 255, TRUE);
                     m_BLSlider.SetRange(-100, 100, TRUE);
                     m_ASlider.SetRange(-nAAmt, nAAmt, TRUE);
 
-                    nRangeFlag = 0xFF * 3 + nGameFlag;
+                    nRangeFlag = (0xFF * 3) + nGameFlag;
                 }
             }
 
@@ -324,7 +349,7 @@ void CPalModDlg::SetColMode(int nColMode)
 {
     if (bRGB != nColMode)
     {
-        if (nPalSelAmt == 1 || !bAutoSetCol)
+        if ((nPalSelAmt == 1) || !bAutoSetCol)
         {
             double dH, dS, dL;
 
@@ -844,7 +869,7 @@ void CPalModDlg::OnBnNewCol()
 
         COLORREF crNewCol = ColorDlg->GetColor();
 
-        if (nSelAmt == 1 || !bAutoSetCol)
+        if ((nSelAmt == 1) || !bAutoSetCol)
         {
             SetSliderCol(
                 GetRValue(crNewCol),
@@ -906,7 +931,7 @@ void CPalModDlg::OnColSett()
 {
     bShow32 = !bShow32;
     // Currently only MvC2 has alpha support in the code as seen in the Game_%GAME%.cpp files
-    nTAMul = (bShow32 ? nAMul : (nAMul == 0 ? 1 : nAMul));
+    nTAMul = (bShow32 ? nAMul : ((nAMul == 0) ? 1 : nAMul));
 
     UpdateData();
 
@@ -1024,7 +1049,7 @@ void CPalModDlg::PerformBlink()
         break;
         }
 
-        ImgDispCtrl->UpdateCtrl(bRedraw, ((nBlinkState == 1 ? (nPalImgIndex | 0xFF00) : FALSE)));
+        ImgDispCtrl->UpdateCtrl(bRedraw, (((nBlinkState == 1) ? (nPalImgIndex | 0xFF00) : FALSE)));
 
 
         bSetTimer ? SetTimer(TIMER_BLINK, TIMER_BLINK_ELAPSE, NULL) : NULL;
