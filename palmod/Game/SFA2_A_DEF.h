@@ -12,7 +12,7 @@ enum Supported_SFA2_PaletteListIndex
 {
     index_SFA2_Ryu,
     index_SFA2_Ken,
-    index_SFA2_Gouki,
+    index_SFA2_Akuma,
     index_SFA2_Charlie,
     index_SFA2_ChunLi,
     index_SFA2_ChunLiAlt,
@@ -29,15 +29,21 @@ enum Supported_SFA2_PaletteListIndex
     index_SFA2_Dhalsim,
     index_SFA2_Zangief,
     index_SFA2_Gen,
+    index_SFA2_WWZangief,
+    index_SFA2_WWDhalsim,
     index_SFA2_Last
 };
 
-constexpr auto SFA2_A_NUM_IND_07 = index_SFA2_Last;
-#define SFA2_A_EXTRALOC_07 SFA2_A_NUM_IND_07
+constexpr auto SFA2_A_NUM_IND_07_0229 = index_SFA2_WWZangief;
+#define SFA2_A_EXTRALOC_07_0229 SFA2_A_NUM_IND_07_0229
 
-const UINT8 SFA2_A_UNITSORT_07[SFA2_A_NUM_IND_07 + 1] = // Plus 1 for the extra palettes
+constexpr auto SFA2_A_NUM_IND_07_MAX = index_SFA2_Last;
+#define SFA2_A_EXTRALOC_07_MAX SFA2_A_NUM_IND_07_MAX
+
+const UINT8 SFA2_A_UNITSORT_07_0229[SFA2_A_NUM_IND_07_0229 + 1] = // Plus 1 for the extra palettes
 {
     index_SFA2_Adon,
+    index_SFA2_Akuma,
     index_SFA2_Birdie,
     index_SFA2_Charlie,
     index_SFA2_ChunLi,
@@ -45,7 +51,6 @@ const UINT8 SFA2_A_UNITSORT_07[SFA2_A_NUM_IND_07 + 1] = // Plus 1 for the extra 
     index_SFA2_Dan,
     index_SFA2_Dhalsim,
     index_SFA2_Gen,
-    index_SFA2_Gouki,
     index_SFA2_Guy,
     index_SFA2_Ken,
     index_SFA2_MBison,
@@ -57,7 +62,34 @@ const UINT8 SFA2_A_UNITSORT_07[SFA2_A_NUM_IND_07 + 1] = // Plus 1 for the extra 
     index_SFA2_Sodom,
     index_SFA2_Zangief,
    
-    SFA2_A_EXTRALOC_07 // Extra palettes
+    SFA2_A_EXTRALOC_07_0229 // Extra palettes
+};
+
+const UINT8 SFA2_A_UNITSORT_07_0306[SFA2_A_NUM_IND_07_MAX + 1] = // Plus 1 for the extra palettes
+{
+    index_SFA2_Adon,
+    index_SFA2_Akuma,
+    index_SFA2_Birdie,
+    index_SFA2_Charlie,
+    index_SFA2_ChunLi,
+    index_SFA2_ChunLiAlt,
+    index_SFA2_Dan,
+    index_SFA2_Dhalsim,
+    index_SFA2_WWDhalsim,
+    index_SFA2_Gen,
+    index_SFA2_Guy,
+    index_SFA2_Ken,
+    index_SFA2_MBison,
+    index_SFA2_Rolento,
+    index_SFA2_Rose,
+    index_SFA2_Ryu,
+    index_SFA2_Sagat,
+    index_SFA2_Sakura,
+    index_SFA2_Sodom,
+    index_SFA2_Zangief,
+    index_SFA2_WWZangief,
+
+    SFA2_A_EXTRALOC_07_MAX // Extra palettes
 };
 
 const sGame_PaletteDataset SFA2_A_RYU_PUNCH_PALETTES[] =
@@ -1466,7 +1498,7 @@ const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_STATUS_PALETTES[] =
     { _T("Auto Guard Kick CC Shadow 2"), 0x75440, 0x75460, indexCPS2_ChunLi, 0x00 },
 };
 
-const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_PUNCH_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_GENCRANESTANCE_PUNCH_PALETTES[] =
 {
     { _T("Punch"), 0x72a00, 0x72a20, indexCPS2_Gen, 0x00 },
     { _T("Punch Extra 1"), 0x72a20, 0x72a40, indexCPS2_Gen, 0x00 },
@@ -1475,7 +1507,7 @@ const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_PUNCH_PALETTES[] =
     { _T("Punch Super Trail Dark"), 0x72a80, 0x72aa0, indexCPS2_Gen, 0x00 },
 };
 
-const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_KICK_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_GENCRANESTANCE_KICK_PALETTES[] =
 {
     { _T("Kick"), 0x72aa0, 0x72ac0, indexCPS2_Gen, 0x00 },
     { _T("Kick Extra 1"), 0x72ac0, 0x72ae0, indexCPS2_Gen, 0x00 },
@@ -1484,7 +1516,7 @@ const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_KICK_PALETTES[] =
     { _T("Kick Super Trail Dark"), 0x72b20, 0x72b40, indexCPS2_Gen, 0x00 },
 };
 
-const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_2PUNCHES_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_GENCRANESTANCE_2PUNCHES_PALETTES[] =
 {
     { _T("2 Punches"), 0x72b40, 0x72b60, indexCPS2_Gen, 0x00 },
     { _T("2 Punches Extra 1"), 0x72b60, 0x72b80, indexCPS2_Gen, 0x00 },
@@ -1493,7 +1525,7 @@ const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_2PUNCHES_PALETTES[] =
     { _T("2 Punches Super Trail Dark"), 0x72bc0, 0x72be0, indexCPS2_Gen, 0x00 },
 };
 
-const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_2KICKS_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_GENCRANESTANCE_2KICKS_PALETTES[] =
 {
     { _T("2 Kicks"), 0x72be0, 0x72c00, indexCPS2_Gen, 0x00 },
     { _T("2 Kicks Extra 1"), 0x72c00, 0x72c20, indexCPS2_Gen, 0x00 },
@@ -1502,7 +1534,7 @@ const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_2KICKS_PALETTES[] =
     { _T("2 Kicks Super Trail Dark"), 0x72c60, 0x72c80, indexCPS2_Gen, 0x00 },
 };
 
-const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_AUTOGUARDPUNCH_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_GENCRANESTANCE_AUTOGUARDPUNCH_PALETTES[] =
 {
     { _T("Auto Guard Punch"), 0x72c80, 0x72ca0, indexCPS2_Gen, 0x00 },
     { _T("Auto Guard Punch Extra 1"), 0x72ca0, 0x72cc0, indexCPS2_Gen, 0x00 },
@@ -1511,7 +1543,7 @@ const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_AUTOGUARDPUNCH_PALETTES[] =
     { _T("Auto Guard Punch Super Trail Dark"), 0x72d00, 0x72d20, indexCPS2_Gen, 0x00 },
 };
 
-const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_AUTOGUARDKICK_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_GENCRANESTANCE_AUTOGUARDKICK_PALETTES[] =
 {
     { _T("Auto Guard Kick"), 0x72d20, 0x72d40, indexCPS2_Gen, 0x00 },
     { _T("Auto Guard Kick Extra 1"), 0x72d40, 0x72d60, indexCPS2_Gen, 0x00 },
@@ -1520,7 +1552,7 @@ const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_AUTOGUARDKICK_PALETTES[] =
     { _T("Auto Guard Kick Super Trail Dark"), 0x72da0, 0x72dc0, indexCPS2_Gen, 0x00 },
 };
 
-const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_STATUS_PALETTES[] =
+const sGame_PaletteDataset SFA2_A_GENCRANESTANCE_STATUS_PALETTES[] =
 {
     { _T("Burned 1"), 0x75460, 0x75480, indexCPS2_Gen, 0x00 },
     { _T("Burned 2"), 0x75480, 0x754a0, indexCPS2_Gen, 0x00 },
@@ -1538,6 +1570,154 @@ const sGame_PaletteDataset SFA2_A_GENALTCOSTUME_STATUS_PALETTES[] =
     { _T("Auto Guard Punch CC Shadow 2"), 0x75600, 0x75620, indexCPS2_Gen, 0x00 },
     { _T("Auto Guard Kick CC Shadow 1"), 0x75620, 0x75640, indexCPS2_Gen, 0x00 },
     { _T("Auto Guard Kick CC Shadow 2"), 0x75640, 0x75660, indexCPS2_Gen, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_ZANGIEFWW_PUNCH_PALETTES[] =
+{
+    { _T("Punch"), 0x73180, 0x731a0, indexCPS2_Zangief, 0x00 },
+    { _T("Punch Extra 1"), 0x731a0, 0x731c0, indexCPS2_Zangief, 0x00 },
+    { _T("Punch Extra 2"), 0x731c0, 0x731e0, indexCPS2_Zangief, 0x00 },
+    { _T("Punch Extra 3"), 0x731e0, 0x73200, indexCPS2_Zangief, 0x00 },
+    { _T("Punch Extra 4"), 0x73200, 0x73220, indexCPS2_Zangief, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_ZANGIEFWW_KICK_PALETTES[] =
+{
+    { _T("Kick"), 0x73220, 0x73240, indexCPS2_Zangief, 0x00 },
+    { _T("Kick Extra 1"), 0x73240, 0x73260, indexCPS2_Zangief, 0x00 },
+    { _T("Kick Extra 2"), 0x73260, 0x73280, indexCPS2_Zangief, 0x00 },
+    { _T("Kick Extra 3"), 0x73280, 0x732a0, indexCPS2_Zangief, 0x00 },
+    { _T("Kick Extra 4"), 0x732a0, 0x732c0, indexCPS2_Zangief, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_ZANGIEFWW_2PUNCHES_PALETTES[] =
+{
+    { _T("2 Punches"), 0x732c0, 0x732e0, indexCPS2_Zangief, 0x00 },
+    { _T("2 Punches Extra 1"), 0x732e0, 0x73300, indexCPS2_Zangief, 0x00 },
+    { _T("2 Punches Extra 2"), 0x73300, 0x73320, indexCPS2_Zangief, 0x00 },
+    { _T("2 Punches Extra 3"), 0x73320, 0x73340, indexCPS2_Zangief, 0x00 },
+    { _T("2 Punches Extra 4"), 0x73340, 0x73360, indexCPS2_Zangief, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_ZANGIEFWW_2KICKS_PALETTES[] =
+{
+    { _T("2 Kicks"), 0x73360, 0x73380, indexCPS2_Zangief, 0x00 },
+    { _T("2 Kicks Extra 1"), 0x73380, 0x733a0, indexCPS2_Zangief, 0x00 },
+    { _T("2 Kicks Extra 2"), 0x733a0, 0x733c0, indexCPS2_Zangief, 0x00 },
+    { _T("2 Kicks Extra 3"), 0x733c0, 0x733e0, indexCPS2_Zangief, 0x00 },
+    { _T("2 Kicks Extra 4"), 0x733e0, 0x73400, indexCPS2_Zangief, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_ZANGIEFWW_AUTOGUARDPUNCH_PALETTES[] =
+{
+    { _T("Auto Guard Punch"), 0x73400, 0x73420, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Punch Extra 1"), 0x73420, 0x73440, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Punch Extra 2"), 0x73440, 0x73460, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Punch Extra 3"), 0x73460, 0x73480, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Punch Extra 4"), 0x73480, 0x734a0, indexCPS2_Zangief, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_ZANGIEFWW_AUTOGUARDKICK_PALETTES[] =
+{
+    { _T("Auto Guard Kick"), 0x734a0, 0x734c0, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Kick Extra 1"), 0x734c0, 0x734e0, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Kick Extra 2"), 0x734e0, 0x73500, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Kick Extra 3"), 0x73500, 0x73520, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Kick Extra 4"), 0x73520, 0x73540, indexCPS2_Zangief, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_ZANGIEFWW_STATUS_PALETTES[] =
+{
+    { _T("Burned 1"), 0x75660, 0x75680, indexCPS2_Zangief, 0x00 },
+    { _T("Burned 2"), 0x75680, 0x756a0, indexCPS2_Zangief, 0x00 },
+    { _T("Psycho Power Burned 1"), 0x756a0, 0x756c0, indexCPS2_Zangief, 0x00 },
+    { _T("Psycho Power Burned 2"), 0x756c0, 0x756e0, indexCPS2_Zangief, 0x00 },
+    { _T("Punch CC Shadow 1"), 0x756e0, 0x75700, indexCPS2_Zangief, 0x00 },
+    { _T("Punch CC Shadow 2"), 0x75700, 0x75720, indexCPS2_Zangief, 0x00 },
+    { _T("Kick CC Shadow 1"), 0x75720, 0x75740, indexCPS2_Zangief, 0x00 },
+    { _T("Kick CC Shadow 2"), 0x75740, 0x75760, indexCPS2_Zangief, 0x00 },
+    { _T("2 Punches CC Shadow 1"), 0x75760, 0x75780, indexCPS2_Zangief, 0x00 },
+    { _T("2 Punches CC Shadow 2"), 0x75780, 0x757a0, indexCPS2_Zangief, 0x00 },
+    { _T("2 Kicks CC Shadow 1"), 0x757a0, 0x757c0, indexCPS2_Zangief, 0x00 },
+    { _T("2 Kicks CC Shadow 2"), 0x757c0, 0x757e0, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Punch CC Shadow 1"), 0x757e0, 0x75800, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Punch CC Shadow 2"), 0x75800, 0x75820, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Kick CC Shadow 1"), 0x75820, 0x75840, indexCPS2_Zangief, 0x00 },
+    { _T("Auto Guard Kick CC Shadow 2"), 0x75840, 0x75860, indexCPS2_Zangief, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_DHALSIMWW_PUNCH_PALETTES[] =
+{
+    { _T("Punch"), 0x73540, 0x73560, indexCPS2_Dhalsim, 0x00 },
+    { _T("Punch Extra 1"), 0x73560, 0x73580, indexCPS2_Dhalsim, 0x00 },
+    { _T("Punch Extra 2"), 0x73580, 0x735a0, indexCPS2_Dhalsim, 0x00 },
+    { _T("Punch Extra 3"), 0x735a0, 0x735c0, indexCPS2_Dhalsim, 0x00 },
+    { _T("Punch Extra 4"), 0x735c0, 0x735e0, indexCPS2_Dhalsim, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_DHALSIMWW_KICK_PALETTES[] =
+{
+    { _T("Kick"), 0x735e0, 0x73600, indexCPS2_Dhalsim, 0x00 },
+    { _T("Kick Extra 1"), 0x73600, 0x73620, indexCPS2_Dhalsim, 0x00 },
+    { _T("Kick Extra 2"), 0x73620, 0x73640, indexCPS2_Dhalsim, 0x00 },
+    { _T("Kick Extra 3"), 0x73640, 0x73660, indexCPS2_Dhalsim, 0x00 },
+    { _T("Kick Extra 4"), 0x73660, 0x73680, indexCPS2_Dhalsim, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_DHALSIMWW_2PUNCHES_PALETTES[] =
+{
+    { _T("2 Punches"), 0x73680, 0x736a0, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Punches Extra 1"), 0x736a0, 0x736c0, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Punches Extra 2"), 0x736c0, 0x736e0, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Punches Extra 3"), 0x736e0, 0x73700, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Punches Extra 4"), 0x73700, 0x73720, indexCPS2_Dhalsim, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_DHALSIMWW_2KICKS_PALETTES[] =
+{
+    { _T("2 Kicks"), 0x73720, 0x73740, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Kicks Extra 1"), 0x73740, 0x73760, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Kicks Extra 2"), 0x73760, 0x73780, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Kicks Extra 3"), 0x73780, 0x737a0, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Kicks Extra 4"), 0x737a0, 0x737c0, indexCPS2_Dhalsim, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_DHALSIMWW_AUTOGUARDPUNCH_PALETTES[] =
+{
+    { _T("Auto Guard Punch"), 0x737c0, 0x737e0, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Punch Extra 1"), 0x737e0, 0x73800, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Punch Extra 2"), 0x73800, 0x73820, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Punch Extra 3"), 0x73820, 0x73840, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Punch Extra 4"), 0x73840, 0x73860, indexCPS2_Dhalsim, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_DHALSIMWW_AUTOGUARDKICK_PALETTES[] =
+{
+    { _T("Auto Guard Kick"), 0x73860, 0x73880, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Kick Extra 1"), 0x73880, 0x738a0, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Kick Extra 2"), 0x738a0, 0x738c0, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Kick Extra 3"), 0x738c0, 0x738e0, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Kick Extra 4"), 0x738e0, 0x73900, indexCPS2_Dhalsim, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_DHALSIMWW_STATUS_PALETTES[] =
+{
+    { _T("Burned 1"), 0x75860, 0x75880, indexCPS2_Dhalsim, 0x00 },
+    { _T("Burned 2"), 0x75880, 0x758a0, indexCPS2_Dhalsim, 0x00 },
+    { _T("Psycho Power Burned 1"), 0x758a0, 0x758c0, indexCPS2_Dhalsim, 0x00 },
+    { _T("Psycho Power Burned 2"), 0x758c0, 0x758e0, indexCPS2_Dhalsim, 0x00 },
+    { _T("Punch CC Shadow 1"), 0x758e0, 0x75900, indexCPS2_Dhalsim, 0x00 },
+    { _T("Punch CC Shadow 2"), 0x75900, 0x75920, indexCPS2_Dhalsim, 0x00 },
+    { _T("Kick CC Shadow 1"), 0x75920, 0x75940, indexCPS2_Dhalsim, 0x00 },
+    { _T("Kick CC Shadow 2"), 0x75940, 0x75960, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Punches CC Shadow 1"), 0x75960, 0x75980, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Punches CC Shadow 2"), 0x75980, 0x759a0, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Kicks CC Shadow 1"), 0x759a0, 0x759c0, indexCPS2_Dhalsim, 0x00 },
+    { _T("2 Kicks CC Shadow 2"), 0x759c0, 0x759e0, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Punch CC Shadow 1"), 0x759e0, 0x75a00, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Punch CC Shadow 2"), 0x75a00, 0x75a20, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Kick CC Shadow 1"), 0x75a20, 0x75a40, indexCPS2_Dhalsim, 0x00 },
+    { _T("Auto Guard Kick CC Shadow 2"), 0x75a40, 0x75a60, indexCPS2_Dhalsim, 0x00 },
 };
 
 const sDescTreeNode SFA2_A_RYU_COLLECTION[] =
@@ -1749,15 +1929,37 @@ const sDescTreeNode SFA2_A_CHUNLIORIGINAL_COLLECTION[] =
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLIORIGINAL_STATUS_PALETTES, ARRAYSIZE(SFA2_A_CHUNLIORIGINAL_STATUS_PALETTES) },
 };
 
-const sDescTreeNode SFA2_A_GENALTCOSTUME_COLLECTION[] =
+const sDescTreeNode SFA2_A_GENCRANESTANCE_COLLECTION[] =
 {
-    { _T("Punch"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENALTCOSTUME_PUNCH_PALETTES, ARRAYSIZE(SFA2_A_GENALTCOSTUME_PUNCH_PALETTES) },
-    { _T("Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENALTCOSTUME_KICK_PALETTES, ARRAYSIZE(SFA2_A_GENALTCOSTUME_KICK_PALETTES) },
-    { _T("2 Punches"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENALTCOSTUME_2PUNCHES_PALETTES, ARRAYSIZE(SFA2_A_GENALTCOSTUME_2PUNCHES_PALETTES) },
-    { _T("2 Kicks"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENALTCOSTUME_2KICKS_PALETTES, ARRAYSIZE(SFA2_A_GENALTCOSTUME_2KICKS_PALETTES) },
-    { _T("Auto Guard Punch"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENALTCOSTUME_AUTOGUARDPUNCH_PALETTES, ARRAYSIZE(SFA2_A_GENALTCOSTUME_AUTOGUARDPUNCH_PALETTES) },
-    { _T("Auto Guard Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENALTCOSTUME_AUTOGUARDKICK_PALETTES, ARRAYSIZE(SFA2_A_GENALTCOSTUME_AUTOGUARDKICK_PALETTES) },
-    { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENALTCOSTUME_STATUS_PALETTES, ARRAYSIZE(SFA2_A_GENALTCOSTUME_STATUS_PALETTES) },
+    { _T("Punch"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_PUNCH_PALETTES, ARRAYSIZE(SFA2_A_GENCRANESTANCE_PUNCH_PALETTES) },
+    { _T("Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_KICK_PALETTES, ARRAYSIZE(SFA2_A_GENCRANESTANCE_KICK_PALETTES) },
+    { _T("2 Punches"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_2PUNCHES_PALETTES, ARRAYSIZE(SFA2_A_GENCRANESTANCE_2PUNCHES_PALETTES) },
+    { _T("2 Kicks"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_2KICKS_PALETTES, ARRAYSIZE(SFA2_A_GENCRANESTANCE_2KICKS_PALETTES) },
+    { _T("Auto Guard Punch"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_AUTOGUARDPUNCH_PALETTES, ARRAYSIZE(SFA2_A_GENCRANESTANCE_AUTOGUARDPUNCH_PALETTES) },
+    { _T("Auto Guard Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_AUTOGUARDKICK_PALETTES, ARRAYSIZE(SFA2_A_GENCRANESTANCE_AUTOGUARDKICK_PALETTES) },
+    { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_STATUS_PALETTES, ARRAYSIZE(SFA2_A_GENCRANESTANCE_STATUS_PALETTES) },
+};
+
+const sDescTreeNode SFA2_A_DHALSIMWW_COLLECTION[] =
+{
+    { _T("Punch"), DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIMWW_PUNCH_PALETTES, ARRAYSIZE(SFA2_A_DHALSIMWW_PUNCH_PALETTES) },
+    { _T("Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIMWW_KICK_PALETTES, ARRAYSIZE(SFA2_A_DHALSIMWW_KICK_PALETTES) },
+    { _T("2 Punches"), DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIMWW_2PUNCHES_PALETTES, ARRAYSIZE(SFA2_A_DHALSIMWW_2PUNCHES_PALETTES) },
+    { _T("2 Kicks"), DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIMWW_2KICKS_PALETTES, ARRAYSIZE(SFA2_A_DHALSIMWW_2KICKS_PALETTES) },
+    { _T("Auto Guard Punch"), DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIMWW_AUTOGUARDPUNCH_PALETTES, ARRAYSIZE(SFA2_A_DHALSIMWW_AUTOGUARDPUNCH_PALETTES) },
+    { _T("Auto Guard Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIMWW_AUTOGUARDKICK_PALETTES, ARRAYSIZE(SFA2_A_DHALSIMWW_AUTOGUARDKICK_PALETTES) },
+    { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIMWW_STATUS_PALETTES, ARRAYSIZE(SFA2_A_DHALSIMWW_STATUS_PALETTES) },
+};
+
+const sDescTreeNode SFA2_A_ZANGIEFWW_COLLECTION[] =
+{
+    { _T("Punch"), DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEFWW_PUNCH_PALETTES, ARRAYSIZE(SFA2_A_ZANGIEFWW_PUNCH_PALETTES) },
+    { _T("Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEFWW_KICK_PALETTES, ARRAYSIZE(SFA2_A_ZANGIEFWW_KICK_PALETTES) },
+    { _T("2 Punches"), DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEFWW_2PUNCHES_PALETTES, ARRAYSIZE(SFA2_A_ZANGIEFWW_2PUNCHES_PALETTES) },
+    { _T("2 Kicks"), DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEFWW_2KICKS_PALETTES, ARRAYSIZE(SFA2_A_ZANGIEFWW_2KICKS_PALETTES) },
+    { _T("Auto Guard Punch"), DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEFWW_AUTOGUARDPUNCH_PALETTES, ARRAYSIZE(SFA2_A_ZANGIEFWW_AUTOGUARDPUNCH_PALETTES) },
+    { _T("Auto Guard Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEFWW_AUTOGUARDKICK_PALETTES, ARRAYSIZE(SFA2_A_ZANGIEFWW_AUTOGUARDKICK_PALETTES) },
+    { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEFWW_STATUS_PALETTES, ARRAYSIZE(SFA2_A_ZANGIEFWW_STATUS_PALETTES) },
 };
 
 #pragma region Extra palettes - auto-generated 
@@ -2891,17 +3093,19 @@ const sDescTreeNode SFA2_A_SHINAKUMA_MOVE_COLLECTION[] =
     { _T("Hidden Boss"), DESC_NODETYPE_TREE, (void*)SFA2_A_SHINAKUMA_MOVE_PALETTES, ARRAYSIZE(SFA2_A_SHINAKUMA_MOVE_PALETTES) },
 };
 
-const sDescTreeNode SFA2_A_UNITS_07[SFA2_A_NUM_IND_07] =
+const sDescTreeNode SFA2_A_UNITS_07_0229[SFA2_A_NUM_IND_07_0229] =
 {
     { _T("Adon"),            DESC_NODETYPE_TREE, (void*)SFA2_A_ADON_COLLECTION,          ARRAYSIZE(SFA2_A_ADON_COLLECTION) },
     { _T("Akuma"),           DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_COLLECTION,         ARRAYSIZE(SFA2_A_AKUMA_COLLECTION) },
     { _T("Birdie"),          DESC_NODETYPE_TREE, (void*)SFA2_A_BIRDIE_COLLECTION,        ARRAYSIZE(SFA2_A_BIRDIE_COLLECTION) },
     { _T("Charlie"),         DESC_NODETYPE_TREE, (void*)SFA2_A_CHARLIE_COLLECTION,       ARRAYSIZE(SFA2_A_CHARLIE_COLLECTION) },
     { _T("Chun-Li"),         DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLI_COLLECTION,        ARRAYSIZE(SFA2_A_CHUNLI_COLLECTION) },
-    { _T("Chun-Li (Original)"), DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLIORIGINAL_COLLECTION,        ARRAYSIZE(SFA2_A_CHUNLIORIGINAL_COLLECTION) },
+    { _T("Chun-Li (Original)"), DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLIORIGINAL_COLLECTION, ARRAYSIZE(SFA2_A_CHUNLIORIGINAL_COLLECTION) },
     { _T("Dan"),             DESC_NODETYPE_TREE, (void*)SFA2_A_DAN_COLLECTION,           ARRAYSIZE(SFA2_A_DAN_COLLECTION) },
     { _T("Dhalsim"),         DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIM_COLLECTION,       ARRAYSIZE(SFA2_A_DHALSIM_COLLECTION) },
     { _T("Gen"),             DESC_NODETYPE_TREE, (void*)SFA2_A_GEN_COLLECTION,           ARRAYSIZE(SFA2_A_GEN_COLLECTION) },
+    // Crane Stance Gen isn't really loadable, per Jed
+    //{ _T("Gen (Crane Stance"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_COLLECTION,  ARRAYSIZE(SFA2_A_GENCRANESTANCE_COLLECTION) },
     { _T("Guy"),             DESC_NODETYPE_TREE, (void*)SFA2_A_GUY_COLLECTION,           ARRAYSIZE(SFA2_A_GUY_COLLECTION) },
     { _T("Ken"),             DESC_NODETYPE_TREE, (void*)SFA2_A_KEN_COLLECTION,           ARRAYSIZE(SFA2_A_KEN_COLLECTION) },
     { _T("M. Bison"),        DESC_NODETYPE_TREE, (void*)SFA2_A_MBISON_COLLECTION,        ARRAYSIZE(SFA2_A_MBISON_COLLECTION) },
@@ -2912,6 +3116,33 @@ const sDescTreeNode SFA2_A_UNITS_07[SFA2_A_NUM_IND_07] =
     { _T("Sakura"),          DESC_NODETYPE_TREE, (void*)SFA2_A_SAKURA_COLLECTION,        ARRAYSIZE(SFA2_A_SAKURA_COLLECTION) },
     { _T("Sodom"),           DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_COLLECTION,         ARRAYSIZE(SFA2_A_SODOM_COLLECTION) },
     { _T("Zangief"),         DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA2_A_ZANGIEF_COLLECTION) },
+};
+
+const sDescTreeNode SFA2_A_UNITS_07_MAX[SFA2_A_NUM_IND_07_MAX] =
+{
+    { _T("Adon"),            DESC_NODETYPE_TREE, (void*)SFA2_A_ADON_COLLECTION,          ARRAYSIZE(SFA2_A_ADON_COLLECTION) },
+    { _T("Akuma"),           DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_COLLECTION,         ARRAYSIZE(SFA2_A_AKUMA_COLLECTION) },
+    { _T("Birdie"),          DESC_NODETYPE_TREE, (void*)SFA2_A_BIRDIE_COLLECTION,        ARRAYSIZE(SFA2_A_BIRDIE_COLLECTION) },
+    { _T("Charlie"),         DESC_NODETYPE_TREE, (void*)SFA2_A_CHARLIE_COLLECTION,       ARRAYSIZE(SFA2_A_CHARLIE_COLLECTION) },
+    { _T("Chun-Li"),         DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLI_COLLECTION,        ARRAYSIZE(SFA2_A_CHUNLI_COLLECTION) },
+    { _T("Chun-Li (Original)"), DESC_NODETYPE_TREE, (void*)SFA2_A_CHUNLIORIGINAL_COLLECTION, ARRAYSIZE(SFA2_A_CHUNLIORIGINAL_COLLECTION) },
+    { _T("Dan"),             DESC_NODETYPE_TREE, (void*)SFA2_A_DAN_COLLECTION,           ARRAYSIZE(SFA2_A_DAN_COLLECTION) },
+    { _T("Dhalsim"),         DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIM_COLLECTION,       ARRAYSIZE(SFA2_A_DHALSIM_COLLECTION) },
+    { _T("Dhalsim (WW)"),    DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIMWW_COLLECTION,     ARRAYSIZE(SFA2_A_DHALSIMWW_COLLECTION) },
+    { _T("Gen"),             DESC_NODETYPE_TREE, (void*)SFA2_A_GEN_COLLECTION,           ARRAYSIZE(SFA2_A_GEN_COLLECTION) },
+    // Crane Stance Gen isn't really loadable, per Jed
+    //{ _T("Gen (Crane Stance"), DESC_NODETYPE_TREE, (void*)SFA2_A_GENCRANESTANCE_COLLECTION,  ARRAYSIZE(SFA2_A_GENCRANESTANCE_COLLECTION) },
+    { _T("Guy"),             DESC_NODETYPE_TREE, (void*)SFA2_A_GUY_COLLECTION,           ARRAYSIZE(SFA2_A_GUY_COLLECTION) },
+    { _T("Ken"),             DESC_NODETYPE_TREE, (void*)SFA2_A_KEN_COLLECTION,           ARRAYSIZE(SFA2_A_KEN_COLLECTION) },
+    { _T("M. Bison"),        DESC_NODETYPE_TREE, (void*)SFA2_A_MBISON_COLLECTION,        ARRAYSIZE(SFA2_A_MBISON_COLLECTION) },
+    { _T("Rolento"),         DESC_NODETYPE_TREE, (void*)SFA2_A_ROLENTO_COLLECTION,       ARRAYSIZE(SFA2_A_ROLENTO_COLLECTION) },
+    { _T("Rose"),            DESC_NODETYPE_TREE, (void*)SFA2_A_ROSE_COLLECTION,          ARRAYSIZE(SFA2_A_ROSE_COLLECTION) },
+    { _T("Ryu"),             DESC_NODETYPE_TREE, (void*)SFA2_A_RYU_COLLECTION,           ARRAYSIZE(SFA2_A_RYU_COLLECTION) },
+    { _T("Sagat"),           DESC_NODETYPE_TREE, (void*)SFA2_A_SAGAT_COLLECTION,         ARRAYSIZE(SFA2_A_SAGAT_COLLECTION) },
+    { _T("Sakura"),          DESC_NODETYPE_TREE, (void*)SFA2_A_SAKURA_COLLECTION,        ARRAYSIZE(SFA2_A_SAKURA_COLLECTION) },
+    { _T("Sodom"),           DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_COLLECTION,         ARRAYSIZE(SFA2_A_SODOM_COLLECTION) },
+    { _T("Zangief"),         DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA2_A_ZANGIEF_COLLECTION) },
+    { _T("Zangief (WW)"),    DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEFWW_COLLECTION,     ARRAYSIZE(SFA2_A_ZANGIEFWW_COLLECTION) },
 };
 
 const sDescTreeNode SFA2_A_UNITS_08[] =

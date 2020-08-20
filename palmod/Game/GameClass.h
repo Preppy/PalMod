@@ -145,6 +145,8 @@ public:
     //Public virtual
     virtual CDescTree* GetMainTree() = 0;
 
+    virtual LPCTSTR GetGameName() { return g_GameFriendlyName[nGameFlag]; };
+
     virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId) = 0;
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) = 0;
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;

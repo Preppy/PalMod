@@ -28,7 +28,7 @@ CString CPalModApp::GetAppName()
     if (GetCurrGame())
     {
         strAppName += _T(": ");
-        strAppName += g_GameFriendlyName[GetCurrGame()->GetGameFlag()];
+        strAppName += GetCurrGame()->GetGameName();
     }
 
     return strAppName;
