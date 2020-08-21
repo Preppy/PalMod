@@ -222,6 +222,9 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
             ResetSlider(!bModeChange);
         }
 
+        // Games have to opt in to allow editing alpha
+        bEnableAlpha = bEnableAlpha && CurrGame->AllowTransparency();
+
         //Enable/disable set color button
         GetDlgItem(IDC_BSETCOL)->EnableWindow(!bAutoSetCol);
         GetDlgItem(IDC_BSETCOL)->ShowWindow(bAutoSetCol ? SW_HIDE : SW_SHOW);

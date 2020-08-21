@@ -2,6 +2,7 @@
 #include "GameClass.h"
 
 BOOL CGameClass::bPostSetPalProc = TRUE;
+BOOL CGameClass::m_fAllowTransparency = FALSE;
 
 #define GAMECLASS_DBG 0
 

@@ -10,7 +10,7 @@ IMPLEMENT_DYNAMIC(CSettDlg, CDialog)
 
 CSettDlg::CSettDlg(CWnd* pParent /*=NULL*/)
     : CDialog(CSettDlg::IDD, pParent)
-    , m_bAlphaTrans(TRUE) // these values are ignored: the defaults in regproc.cpp are used
+    , m_fAllowAlphaChanges(FALSE) // these values are ignored: the defaults in regproc.cpp are used
     , m_bUpdSupp(TRUE)
 {
 
@@ -23,7 +23,7 @@ CSettDlg::~CSettDlg()
 void CSettDlg::DoDataExchange(CDataExchange* pDX)
 {
     CDialog::DoDataExchange(pDX);
-    DDX_Check(pDX, IDC_CALPHATRANS, m_bAlphaTrans);
+    DDX_Check(pDX, IDC_CALPHATRANS, m_fAllowAlphaChanges);
     DDX_Check(pDX, IDC_CUPDSUPP, m_bUpdSupp);
 }
 

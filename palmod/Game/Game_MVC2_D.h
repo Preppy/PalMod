@@ -13,6 +13,7 @@ private:
     UINT16** ppDataBuffer = nullptr;
 
     int GetFirstExtraValueFromExtraPaletteId(int nExtraPaletteIdint, int nStartOfRange, int nPalettePositionIncrements, int nRangeLength);
+   
 
 public:
     CGame_MVC2_D(void);
@@ -38,8 +39,6 @@ public:
     //static void SetExtraDesc(sDescTreeNode * srcNode, int nButtonIndex);
     static sFileRule GetNextRule();
     static sFileRule GetRule(UINT16 nRuleId);
-
-    static BOOL bAlphaTrans;
 
     //Normal functions
     CDescTree* GetMainTree();

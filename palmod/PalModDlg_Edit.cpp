@@ -10,7 +10,6 @@
 
 #include "Game\GameDef.h"
 #include "Game\GameClass.h"
-#include "Game\Game_MVC2_D.h"
 
 // We use the first non-white space printable character '!' as the base for edit/paste calculations.
 constexpr auto k_nASCIICharacterOffset = 33;
@@ -494,15 +493,28 @@ void CPalModDlg::OnSettingsSettings()
 {
     CSettDlg SettDlg;
 
-    SettDlg.m_bAlphaTrans = CGame_MVC2_D::bAlphaTrans;
+    SettDlg.m_fAllowAlphaChanges = CGameClass::AllowTransparency();
     SettDlg.m_bUpdSupp = CGameClass::bPostSetPalProc;
+
+    const bool oldAlphaSetting = SettDlg.m_fAllowAlphaChanges;
 
     if (SettDlg.DoModal() == IDOK)
     {
-        CGame_MVC2_D::bAlphaTrans = SettDlg.m_bAlphaTrans;
+        if (SettDlg.m_fAllowAlphaChanges)
+        {
+            CString strMessage;
+            strMessage = _T("Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick yes to agree to not use this mix for competition.  Click no to disagree and not use transparency.");
+            SettDlg.m_fAllowAlphaChanges = (MessageBox(strMessage, GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_YESNO) == IDYES);
+        }
+
+        CGameClass::AllowTransparency(SettDlg.m_fAllowAlphaChanges);
         CGameClass::bPostSetPalProc = SettDlg.m_bUpdSupp;
 
-        //SaveSettings();
+        if (oldAlphaSetting != SettDlg.m_fAllowAlphaChanges)
+        {
+            // Force a refresh to enable/disable the alpha controls
+            OnPalSelChange(0);
+        }
     }
 }
 

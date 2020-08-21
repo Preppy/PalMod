@@ -6,6 +6,7 @@ constexpr auto c_previewWndPos = _T("prev_wndpos");
 // Display options for 8 colors or for 16 colors per line
 constexpr auto c_mainWndPos_8ColorsPerLine = _T("main_wndpos_02"); // changed default app size so incrementing this
 constexpr auto c_mainWndPos_16ColorsPerLine = _T("main_wndpos_02_16c");
+constexpr auto c_mainAllowAlphaChanges = _T("main_AllowAlphaChanges"); // incremented for warning.
 constexpr auto c_mainWndColorsPerLine = _T("main_wndColorsPerLine");
 constexpr auto c_mainWndMaxColorsPerPage = _T("extras_MaxColorsPerPage");
 constexpr auto c_mainWndForcePeerPreviewWindow = _T("extras_ForcePeerPreviewWindow");
@@ -188,8 +189,8 @@ void CRegProc::LoadReg(int src)
             if (RegQueryValueEx(hKey, _T("main_getcolor"), 0, &RegType, (BYTE*)&main_bGetColor, &GetSz) != ERROR_SUCCESS)
                 main_bGetColor = c_mainDefaultGetColor;
 
-            if (RegQueryValueEx(hKey, _T("main_alphatrans"), 0, &RegType, (BYTE*)&main_bAlphaTrans, &GetSz) != ERROR_SUCCESS)
-                main_bAlphaTrans = c_mainDefaultAlphaTrans;
+            if (RegQueryValueEx(hKey, c_mainAllowAlphaChanges, 0, &RegType, (BYTE*)&main_fAllowAlphaChanges, &GetSz) != ERROR_SUCCESS)
+                main_fAllowAlphaChanges = c_mainDefaultAllowAlphaChanges;
 
             if (RegQueryValueEx(hKey, _T("main_show32"), 0, &RegType, (BYTE*)&main_bShow32, &GetSz) != ERROR_SUCCESS)
                 main_bShow32 = c_mainDefaultShowAs32;
@@ -346,7 +347,7 @@ void CRegProc::SaveReg(int src)
         case REG_MAIN:
         {
             RegSetValueEx(hKey, _T("main_getcolor"), 0, REG_DWORD, (BYTE*)&main_bGetColor, sizeof(BOOL));
-            RegSetValueEx(hKey, _T("main_alphatrans"), 0, REG_DWORD, (BYTE*)&main_bAlphaTrans, sizeof(BOOL));
+            RegSetValueEx(hKey, c_mainAllowAlphaChanges, 0, REG_DWORD, (BYTE*)&main_fAllowAlphaChanges, sizeof(BOOL));
             RegSetValueEx(hKey, _T("main_show32"), 0, REG_DWORD, (BYTE*)&main_bShow32, sizeof(BOOL));
             RegSetValueEx(hKey, _T("main_procsupps"), 0, REG_DWORD, (BYTE*)&main_bProcSupp, sizeof(BOOL));
             RegSetValueEx(hKey, _T("AutoSetColor"), 0, REG_DWORD, (BYTE*)&main_bAutoSetCol, sizeof(BOOL));

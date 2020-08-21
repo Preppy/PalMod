@@ -2,7 +2,7 @@
 #include "PalMod.h"
 #include "PalModDlg.h"
 
-#include "Game\Game_MVC2_D.h"
+#include "Game\gameclass.h"
 #include "RegProc.h"
 
 void CPalModDlg::LoadSettings()
@@ -11,7 +11,7 @@ void CPalModDlg::LoadSettings()
 
     //Get main program data
     bGetCol    = RegSett.main_bGetColor;
-    CGame_MVC2_D::bAlphaTrans = RegSett.main_bAlphaTrans;
+    CGameClass::AllowTransparency(RegSett.main_fAllowAlphaChanges);
     bShow32    = RegSett.main_bShow32;
     CGameClass::bPostSetPalProc = RegSett.main_bProcSupp;
     bAutoSetCol = RegSett.main_bAutoSetCol;
@@ -31,7 +31,7 @@ void CPalModDlg::SaveSettings()
     CRegProc RegSett;
 
     RegSett.main_bGetColor      = bGetCol;
-    RegSett.main_bAlphaTrans    = CGame_MVC2_D::bAlphaTrans;
+    RegSett.main_fAllowAlphaChanges = CGameClass::AllowTransparency();
     RegSett.main_bShow32        = bShow32;
     RegSett.main_bProcSupp      = CGameClass::bPostSetPalProc;
     RegSett.main_bAutoSetCol    = bAutoSetCol;

@@ -19,6 +19,6 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 public:
-    BOOL m_bAlphaTrans;
+    BOOL m_fAllowAlphaChanges;
     BOOL m_bUpdSupp;
 };

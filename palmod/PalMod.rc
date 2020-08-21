@@ -81,7 +81,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "About PalMod"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
     LTEXT           "PalMod",IDC_ABOUTNAME,42,14,114,8,SS_NOPREFIX
     LTEXT           "PALette MODification for fighting games.",IDC_ABOUTNAME2,41,26,173,8,SS_NOPREFIX
     LTEXT           "Original 2008 Creative Team",IDC_STATIC,7,43,125,8
@@ -89,7 +89,7 @@ BEGIN
     LTEXT           "Magnetro",IDC_STATIC,75,56,50,8
     LTEXT           "Eidrian",IDC_STATIC,75,66,50,8
     LTEXT           "Preppy",IDC_STATIC,23,66,50,8
-    LTEXT           "2020 Creative Team",IDC_STATIC,7,83,125,8
+    LTEXT           "2020 Core Creative Team",IDC_STATIC,7,83,125,8
     LTEXT           "Preppy",IDC_STATIC,23,96,50,8
     LTEXT           "TVIndustries",IDC_STATIC,76,96,50,8
     LTEXT           "IceManual",IDC_STATIC,24,106,50,8
@@ -198,7 +198,7 @@ CAPTION "MvC2 Settings"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Settings",IDC_STATIC,6,6,193,95
-    CONTROL         "Keep ID:00 transparent (Recommended)",IDC_CALPHATRANS,
+    CONTROL         "Allow transparency (Not Recommended)",IDC_CALPHATRANS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,26,169,11
     CONTROL         "Process Supplement Palettes (Recommended) (ex: Cyclops HK, Spider-Man win poses, etc)",IDC_CUPDSUPP,
                     "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,20,39,168,30

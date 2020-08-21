@@ -13,7 +13,6 @@
 CDescTree CGame_MVC2_D::MainDescTree = nullptr;
 
 UINT16 CGame_MVC2_D::uRuleCtr = 0;
-BOOL CGame_MVC2_D::bAlphaTrans = 0;
 
 UINT16 CGame_MVC2_D::rgExtraChrLoc[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
 
@@ -638,26 +637,30 @@ void CGame_MVC2_D::UpdatePalData()
     for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-        if (srcDef->bAvail)//&& srcDef->bChanged)
+        if (srcDef->bAvail)
         {
             COLORREF* crSrc = srcDef->pPal;
             UINT16 uAmt = srcDef->uPalSz;
 
             for (UINT16 nPICtr = 0; nPICtr < uAmt; nPICtr++)
             {
-                ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ConvCol(crSrc[nPICtr]);
+                if (m_fAllowTransparency)
+                {
+                    ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ConvCol(crSrc[nPICtr]);
+                }
+                else
+                {
+                    ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = (ConvCol(crSrc[nPICtr]) & 0xFFF);
+                }
             }
 
-            if (bAlphaTrans)
-            {
-                //0 out the 1st index alpha flag
-                ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16)] &= 0x0FFF;
-            }
+            //0 out the 1st index alpha flag
+            ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16)] &= 0x0FFF;
 
             srcDef->bChanged = FALSE;
             rgFileChanged[srcDef->uUnitId] = TRUE;
 
-            //Perform supplement palettes
+            //Process supplement palettes
             if (bPostSetPalProc)
             {
                 PostSetPal(srcDef->uUnitId, srcDef->uPalId);

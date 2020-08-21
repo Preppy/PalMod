@@ -75,6 +75,8 @@ protected:
     UINT16* pIndexRedir = nullptr;
     int nHybridSz = 0;
 
+    static BOOL m_fAllowTransparency;
+
     static UINT16 CONV_32_12A(UINT32 inCol);
     static UINT32 CONV_12A_32(UINT16 inCol);
     static UINT16 CONV_32_15(UINT32 inCol);
@@ -141,6 +143,9 @@ public:
     int GetImgCt() { return IMGAMT[GetImgGameFlag()]; };
 
     BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz);
+
+    static void AllowTransparency(BOOL fAllow) { m_fAllowTransparency = fAllow; };
+    static BOOL AllowTransparency() { return m_fAllowTransparency; };
 
     //Public virtual
     virtual CDescTree* GetMainTree() = 0;

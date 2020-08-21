@@ -1,5 +1,4 @@
 #include "StdAfx.h"
-#include "..\StdAfx.h"
 #include "GameDef.h"
 #include "Game_MVC2_A.h"
 #include "Game_MVC2_D.h"
@@ -88,10 +87,10 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 
     nRGBIndexAmt = 15;
-    nAIndexAmt = 0;
+    nAIndexAmt = 15;
 
     nRGBIndexMul = 17.0f;
-    nAIndexMul = 0.0f;
+    nAIndexMul = 17.0f;
 }
 
 CGame_MVC2_A::~CGame_MVC2_A(void)
@@ -1199,8 +1198,15 @@ void CGame_MVC2_A::UpdatePalData()
                     }
 
                     UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    // NAOMI wants alpha set to 15
-                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ((ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF)) | 0xF000;
+                    if (m_fAllowTransparency)
+                    {
+                        m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
+                    }
+                    else
+                    {
+                        // Force alpha
+                        m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ((ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF)) | 0xF000;
+                    }
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;

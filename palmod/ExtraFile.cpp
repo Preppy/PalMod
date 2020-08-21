@@ -450,7 +450,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
             {
                 fHaveShownDupeWarning = true;
                 CString strText;
-                strText.Format(_T("WARNING: In the %s Extras file the palette named '%s' overlaps with '%s'.  That will not work correctly.  Please fix this.\n"), m_pszExtraFilename, pszExtraPaletteBeingChecked, m_pszDupedPaletteName);
+                strText.Format(_T("WARNING: In the %s Extras file the palette named '%s' overlaps with '%s'.  That will block patching the first palette.  Please fix this.\n"), m_pszExtraFilename, pszExtraPaletteBeingChecked, m_pszDupedPaletteName);
                 OutputDebugString(strText);
                 MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
             }
@@ -474,18 +474,18 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     strText.Format(_T("CGameWithExtrasFile::CheckForErrorsInTables: Safe palette count for ROM is %u.  We found %u now including extras.\n"), m_nSafeCountForThisRom, nPaletteCountForRom);
     OutputDebugString(strText);
 
-    int nDupeCount = (nPaletteCountForRom == m_nSafeCountForThisRom) ? 0 : GetDupeCountInDataset();
+    int nInternalDupeCount = (nPaletteCountForRom == m_nSafeCountForThisRom) ? 0 : GetDupeCountInDataset();
     int nExtraDupeCount = fShouldCheckExtras ? GetDupeCountInExtrasDataset() : 0;
 
-    if (nDupeCount || nExtraDupeCount || (m_nSafeCountForThisRom != nPaletteCountForRom))
+    if (nInternalDupeCount || nExtraDupeCount || (m_nSafeCountForThisRom != nPaletteCountForRom))
     {
         if (nExtraDupeCount)
         {
-            strText.Format(_T("WARNING: The %s Extras file used has %u duplicate palettes (including splitting) that are already in PalMod.  They will not work correctly.  Please remove them.\n"), m_pszExtraFilename, nExtraDupeCount);
+            strText.Format(_T("WARNING: The %s Extras file contains %u duplicate palettes (including splitting).  Dupe palettes will prevent patching correctly.  Please remove them.\n"), m_pszExtraFilename, nExtraDupeCount);
         }
-        else if (nDupeCount)
+        else if (nInternalDupeCount)
         {
-            strText.Format(_T("WARNING: There are currently %u duplicates in the hex tables.\n\nThis is a bug in PalMod.  Please report.\n"), nDupeCount);
+            strText.Format(_T("WARNING: There are currently %u duplicates in the hex tables.\n\nThis is a bug in PalMod.  Please report.\n"), nInternalDupeCount);
         }
         else
         {
