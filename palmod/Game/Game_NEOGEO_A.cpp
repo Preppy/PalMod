@@ -700,8 +700,8 @@ void CGame_NEOGEO_A::UpdatePalData()
             UINT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             const UINT16 nMaxSafeColorsToWrite = 16;
-            // First color is the transparency color
-            const UINT16 iFixedCounterPosition = 0;
+            // First color is the transparency color.  For Unknown support, allow full writing of small chunks for now.
+            const UINT16 iFixedCounterPosition = (nTotalColorsRemaining >= nMaxSafeColorsToWrite) ? 0 : 0xFFFF;
 
             while (nTotalColorsRemaining > 0)
             {

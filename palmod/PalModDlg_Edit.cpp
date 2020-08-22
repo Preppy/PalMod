@@ -496,7 +496,7 @@ void CPalModDlg::OnSettingsSettings()
     SettDlg.m_fAllowAlphaChanges = CGameClass::AllowTransparency();
     SettDlg.m_bUpdSupp = CGameClass::bPostSetPalProc;
 
-    const bool oldAlphaSetting = SettDlg.m_fAllowAlphaChanges;
+    const BOOL oldAlphaSetting = SettDlg.m_fAllowAlphaChanges;
 
     if (SettDlg.DoModal() == IDOK)
     {
@@ -510,9 +510,10 @@ void CPalModDlg::OnSettingsSettings()
         CGameClass::AllowTransparency(SettDlg.m_fAllowAlphaChanges);
         CGameClass::bPostSetPalProc = SettDlg.m_bUpdSupp;
 
-        if (oldAlphaSetting != SettDlg.m_fAllowAlphaChanges)
+        if ((oldAlphaSetting != SettDlg.m_fAllowAlphaChanges) &&
+            (GetHost()->GetCurrGame()))
         {
-            // Force a refresh to enable/disable the alpha controls
+            // There are loaded palettes: ensure that the enable/disable state of alpha controls is correct
             OnPalSelChange(0);
         }
     }

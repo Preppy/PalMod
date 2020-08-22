@@ -782,8 +782,8 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (UsePaletteSetForPortraits())
             {
-                // Flat set of 10
-                nSrcStart = 0;
+                // Flat set of 10: start at the first entry per set
+                nSrcStart = (UINT16)(NodeGet->uPalId / 10) * 10;
                 nSrcAmt = 10;
                 nNodeIncrement = 1;
             }
