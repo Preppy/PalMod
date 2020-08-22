@@ -796,21 +796,29 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_SVCPLUSA_A::UpdateGameName(LPCTSTR pszROMFileName)
 {
-    if (_tcsicmp(pszROMFileName, _T("svc-p2sp.bin")) == 0)
+    if (_tcsicmp(pszROMFileName, _T("svc-p2sp.bin")) == 0) // svcsplus: we can read this if we use the svcsplus_px_decrypt implementations
     {
-        m_pszSVCGameName = _T("SNK vs. CAPCOM SVC CHAOS Super Plus (bootleg)");
+        m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Super Plus (bootleg)");
+        m_loadedROMRevision.rev = SVCSPlus;
+        m_loadedROMRevision.fileList = { _T("svc-p1sp.bin"), _T("svc-p2sp.bin") };
     }
-    else if (_tcsicmp(pszROMFileName, _T("svc-p2p.bin")) == 0)
+    else if (_tcsicmp(pszROMFileName, _T("svc-p2p.bin")) == 0) // svcplus
     {
-        m_pszSVCGameName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 1)");
+        m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 1)");
+        m_loadedROMRevision.rev = SVCPlus;
+        m_loadedROMRevision.fileList = { _T("svc-p1p.bin"), _T("svc-p2p.bin"), _T("svc-p3p.bin") };
     }
-    else if (_tcsicmp(pszROMFileName, _T("svc-p2pl.bin")) == 0)
+    else if (_tcsicmp(pszROMFileName, _T("svc-p2pl.bin")) == 0) // svcplusa: no encryption: we can read and write this
     {
-        m_pszSVCGameName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 2)");
+        m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 2)");
+        m_loadedROMRevision.rev = SVCPlusA;
+        m_loadedROMRevision.fileList = { _T("svc-p2pl.bin") };
     }
-    else // if (_tcsicmp(pszROMFileName, _T("269-p2.p2")) == 0)
+    else // if (_tcsicmp(pszROMFileName, _T("269-p2.p2")) == 0) // svc
     {
-        m_pszSVCGameName = _T("SVC (NEO*GEO)");
+        m_loadedROMRevision.pszRevisionName = _T("SVC (NEO*GEO)");
+        m_loadedROMRevision.rev = SVC;
+        m_loadedROMRevision.fileList = { _T("269-p1.p1"), _T("269-p2.p2") };
     }
 }
 
@@ -818,29 +826,50 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     UpdateGameName(LoadedFile->GetFileName());
 
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    uint8_t* decryptedROM = nullptr;
+
+    switch (m_loadedROMRevision.rev)
     {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
-
-        // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = SVCPLUSA_A_UNITSORT[nUnitCtr];
-
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+    case SVC:
+    case SVCPlus:
+    case SVCSPlus:
         {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-
-            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
-            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            CString strMsg;
+            strMsg = (_T("This version of SNK vs. Capcom uses encryption that PalMod cannot read nor write. Palettes will not show up correctly.  Do not patch: we cannot write correctly to encrypted ROMs."));
+            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
         }
-    }
+    default:
+    case SVCPlusA:
+        {
+            // SVCPlusA is already decrypted
+            for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+            {
+                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+                m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+
+                // Use a sorted layout
+                rgUnitRedir[nUnitCtr] = SVCPLUSA_A_UNITSORT[nUnitCtr];
+
+                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                {
+                    LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+
+                    LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+
+                    LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                }
+            }
+        }
+        break;
+    };
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-    
+
+    safe_delete_array(decryptedROM);
+
     CheckForErrorsInTables();
 
     return TRUE;

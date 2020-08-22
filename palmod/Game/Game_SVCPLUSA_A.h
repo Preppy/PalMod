@@ -29,7 +29,23 @@ private:
     // Developer-only mode to regenerate the header file quickly.
     static void DumpPaletteHeaders();
 
-    LPCTSTR m_pszSVCGameName = _T("SVC Plus A");
+    enum eSVCRevisionName
+    {
+        SVC,
+        SVCPlus,
+        SVCPlusA,
+        SVCSPlus,
+    };
+
+    struct SVCRevisionInfo
+    {
+        LPCTSTR pszRevisionName = _T("SVC Plus A");
+        eSVCRevisionName rev = SVCPlusA;
+        std::vector<LPCTSTR> fileList;
+    };
+
+    SVCRevisionInfo m_loadedROMRevision;
+
     void UpdateGameName(LPCTSTR pszROMFileName);
 
 public:
@@ -58,7 +74,7 @@ public:
 
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
-    LPCTSTR GetGameName() { return m_pszSVCGameName; };
+    LPCTSTR GetGameName() { return m_loadedROMRevision.pszRevisionName; };
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
