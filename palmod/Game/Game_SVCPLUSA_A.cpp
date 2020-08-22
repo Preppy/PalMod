@@ -794,8 +794,30 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
+void CGame_SVCPLUSA_A::UpdateGameName(LPCTSTR pszROMFileName)
+{
+    if (_tcsicmp(pszROMFileName, _T("svc-p2sp.bin")) == 0)
+    {
+        m_pszSVCGameName = _T("SNK vs. CAPCOM SVC CHAOS Super Plus (bootleg)");
+    }
+    else if (_tcsicmp(pszROMFileName, _T("svc-p2p.bin")) == 0)
+    {
+        m_pszSVCGameName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 1)");
+    }
+    else if (_tcsicmp(pszROMFileName, _T("svc-p2pl.bin")) == 0)
+    {
+        m_pszSVCGameName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 2)");
+    }
+    else // if (_tcsicmp(pszROMFileName, _T("269-p2.p2")) == 0)
+    {
+        m_pszSVCGameName = _T("SVC (NEO*GEO)");
+    }
+}
+
 BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
+    UpdateGameName(LoadedFile->GetFileName());
+
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
         UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);

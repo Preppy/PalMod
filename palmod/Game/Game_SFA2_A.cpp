@@ -1131,7 +1131,7 @@ LPCTSTR CGame_SFA2_A::GetGameName()
     switch (m_currentSFA2ROMRevision)
     {
     case SFA2_960229:
-        pszGameName = __T("SFA2 960229 (Arcade)");
+        pszGameName = _T("SFA2 960229 (Arcade)");
         break;
     case SFA2_960306_or_960430:
     default:
