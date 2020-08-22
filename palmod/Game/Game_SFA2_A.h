@@ -17,10 +17,6 @@ enum SFA2_SupportedROMRevision
 class CGame_SFA2_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
-    //Used for GetPalOffset
     // These handle per-ROM logic.
     int m_nBufferSelectedRom = 3;
     static int m_nSFA2SelectedRom;
@@ -39,8 +35,8 @@ private:
 
     void ResetActiveSFA2Revision();
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
+    void InitDataBuffer() override;
+    void ClearDataBuffer() override;
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;

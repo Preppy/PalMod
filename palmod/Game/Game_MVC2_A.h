@@ -9,10 +9,6 @@ constexpr auto EXTRA_FILENAME_MVC2_A = _T("MVC2e.txt");
 class CGame_MVC2_A : public CGameWithExtrasFile
 {
 public:
-    //Used for image selection
-    int nTargetImgId = 0;
-
-    //Used for GetPalOffset
     static UINT32 m_nTotalPaletteCountForMVC2;
 
     static int rgExtraCountAll[MVC2_A_NUMUNIT + 1];
@@ -62,8 +58,6 @@ public:
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
     int GetBasicOffset(UINT16 nPalId);
     void PostSetPal(UINT16 nUnitId, UINT16 nPalId);
-
-    void UpdatePalData();
 
     static stExtraDef* MVC2_A_EXTRA_CUSTOM;
 };

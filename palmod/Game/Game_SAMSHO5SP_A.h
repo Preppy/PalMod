@@ -9,16 +9,11 @@ constexpr auto EXTRA_FILENAME_SAMSHO5SP_A = _T("SAMSHO5SPE.txt");
 class CGame_SAMSHO5SP_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
     static UINT32 m_nTotalPaletteCountForSAMSHO5SP;
 
     static int rgExtraCountAll[SAMSHO5SP_A_NUMUNIT + 1];
     static int rgExtraLoc[SAMSHO5SP_A_NUMUNIT + 1];
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;

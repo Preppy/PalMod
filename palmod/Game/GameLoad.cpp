@@ -571,7 +571,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
 
         if (fFileOpened)
         {
-            if ((short int)CurrRule.uVerifyVar == -1 || CurrFile.GetLength() == CurrRule.uVerifyVar)
+            if (((short int)CurrRule.uVerifyVar == -1) || (CurrFile.GetLength() == CurrRule.uVerifyVar))
             {
                 if (!OutGame)
                 {

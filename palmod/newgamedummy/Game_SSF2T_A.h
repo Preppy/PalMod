@@ -7,12 +7,7 @@ class CGame_SSF2T_A : public CGameClass
 {
 private:
 
-	//Used for image selection
-	int nTargetImgId;
-	int nNormalPalAmt;
-
 	//Used for GetPalOffset
-
 	int nCurrPalOffs = 0;
 	int nCurrPalSz = 0;
 

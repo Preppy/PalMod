@@ -9,9 +9,6 @@ constexpr auto EXTRA_FILENAME_Garou_A = _T("GarouE.txt");
 class CGame_Garou_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
     static UINT32 m_nTotalPaletteCountForGarou;
 
     static int rgExtraCountAll[Garou_A_NUMUNIT + 1];

@@ -5,20 +5,12 @@
 class CGame_SFIII3_D : public CGameClass
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-    int nNormalPalAmt = 0;
-
     //Used for GetPalOffset
     int m_nCurrentPaletteROMLocation = 0;
     int nCurrPalSz = 0;
 
-    UINT16*** m_pppDataBuffer = nullptr;
-
     void GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId);
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
 
@@ -46,7 +38,7 @@ public:
     //Normal functions
     CDescTree* GetMainTree();
 
-    static int GetPalCt(UINT16 nUnitId);
+    UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
@@ -55,5 +47,5 @@ public:
 
     COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
 
-    void UpdatePalData();
+    void UpdatePalData() override; // we force specific Alpha
 };

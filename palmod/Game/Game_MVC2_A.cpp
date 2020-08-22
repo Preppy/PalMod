@@ -65,6 +65,8 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = MVC2_D_NUM_IMG_UNITS;
 
+    m_fMustWriteAlphaValue = true;
+
     nDisplayW = 8;
     nFileAmt = 1;
 
@@ -1162,66 +1164,12 @@ COLORREF* CGame_MVC2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < m_nCurrentPaletteSize; i++)
     {
-        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
+        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
     }
 
     NewPal[0] = 0xFF000000;
 
     return NewPal;
-}
-
-void CGame_MVC2_A::UpdatePalData()
-{
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
-    {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-
-        if (srcDef->bAvail)
-        {
-            COLORREF* crSrc = srcDef->pPal;
-
-            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
-            UINT16 nCurrentTotalWrites = 0;
-            // Every 16 colors there is another counter WORD (color length) to preserve.
-            const UINT16 nMaxSafeColorsToWrite = 16;
-            const UINT16 iFixedCounterPosition = 0; // The lead 'color' is a counter and needs to be preserved.
-
-            while (nTotalColorsRemaining > 0)
-            {
-                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
-
-                for (UINT16 nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
-                {
-                    if (nPICtr == iFixedCounterPosition)
-                    {
-                        continue;
-                    }
-
-                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    if (m_fAllowTransparency)
-                    {
-                        m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
-                    }
-                    else
-                    {
-                        // Force alpha
-                        m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ((ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF)) | 0xF000;
-                    }
-                }
-
-                nCurrentTotalWrites += nMaxSafeColorsToWrite;
-                nTotalColorsRemaining -= nMaxSafeColorsToWrite;
-            }
-
-            srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
-
-            if (bPostSetPalProc)
-            {
-                PostSetPal(srcDef->uUnitId, srcDef->uPalId);
-            }
-        }
-    }
 }
 
 int CGame_MVC2_A::GetBasicOffset(UINT16 nPalId)

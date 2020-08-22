@@ -9,11 +9,6 @@ constexpr auto EXTRA_FILENAME_MVC = _T("mvce.txt");
 class CGame_MVC_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
-    //Used for GetPalOffset
-   
     static UINT32 m_nTotalPaletteCountForMVC;
 
     static int rgExtraCountAll[MVC_A_NUMUNIT + 1];

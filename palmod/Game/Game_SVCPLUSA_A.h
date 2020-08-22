@@ -9,16 +9,11 @@ constexpr auto EXTRA_FILENAME_SVCPLUSA_A = _T("SVCE.txt");
 class CGame_SVCPLUSA_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
     static UINT32 m_nTotalPaletteCountForSVCPLUSA;
 
     static int rgExtraCountAll[SVCPLUSA_A_NUMUNIT + 1];
     static int rgExtraLoc[SVCPLUSA_A_NUMUNIT + 1];
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;

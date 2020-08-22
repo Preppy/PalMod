@@ -9,9 +9,6 @@ constexpr auto EXTRA_FILENAME_GEMFIGHTER_A = _T("GemFighterE.txt");
 class CGame_GEMFIGHTER_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
     static UINT32 m_nTotalPaletteCountForGemFighter;
 
     static int rgExtraCountAll[GEMFIGHTER_A_NUMUNITS + 1];

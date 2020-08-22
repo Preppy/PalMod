@@ -18,9 +18,6 @@ constexpr auto EXTRA_FILENAME_51 = _T("jojos51e.txt");
 class CGame_JOJOS_A : public CGameWithExtrasFile
 {
 public:
-    //Used for image selection
-    int nTargetImgId = 0;
-
     // Do we want to autoslice at 128 or 256 colors...?  Probably 128, so let's use that here.
     // This is currently only used when we export out resliced tables: there's no normal usage.
     const int m_knMaxPalettePageSize = PAL_MAXAMT_8COLORSPERLINE;
@@ -35,8 +32,8 @@ public:
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
+    void InitDataBuffer() override;
+    void ClearDataBuffer() override;
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;

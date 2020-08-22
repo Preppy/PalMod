@@ -206,6 +206,7 @@ int CGame_SSF2T_A::GetPalCt(int nUnitId)
 {
     return 6;// 6 palettes in a unit
 }
+
 BOOL CGame_SSF2T_A::SaveFile(CFile* SaveFile, int nUnitId)
 {
     int nPalAmt = GetPalCt(nUnitId);

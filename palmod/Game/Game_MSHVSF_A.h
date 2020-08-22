@@ -11,11 +11,6 @@ constexpr auto EXTRA_FILENAME_MSHVSF_7B = _T("mshvsf-7be.txt");
 class CGame_MSHVSF_A :public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
-    //Used for GetPalOffset
-   
     // These handle per-ROM logic.
     int m_nBufferSelectedRom = 6;
     static int m_nMSHVSFSelectedRom;
@@ -28,8 +23,8 @@ private:
     static int rgExtraCount_6A[MSHVSF_A_NUM_IND_6A + 1];
     static int rgExtraCount_7B[MSHVSF_A_NUM_IND_7B + 1];
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
+    void InitDataBuffer() override;
+    void ClearDataBuffer() override;
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;

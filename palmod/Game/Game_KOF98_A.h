@@ -9,17 +9,11 @@ constexpr auto EXTRA_FILENAME_KOF98_A = _T("KOF98E.txt");
 class CGame_KOF98_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
-    //Used for GetPalOffset
     static UINT32 m_nTotalPaletteCountForKOF98;
 
     static int rgExtraCountAll[KOF98_A_NUMUNIT + 1];
     static int rgExtraLoc[KOF98_A_NUMUNIT + 1];
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;

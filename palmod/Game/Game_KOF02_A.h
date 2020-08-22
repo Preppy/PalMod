@@ -9,17 +9,12 @@ constexpr auto EXTRA_FILENAME_KOF02_A = _T("KOF02E.txt");
 class CGame_KOF02_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
     static UINT32 m_nTotalPaletteCountForKOF02;
     static void DumpAllCharacters();
 
     static int rgExtraCountAll[KOF02_A_NUMUNIT + 1];
     static int rgExtraLoc[KOF02_A_NUMUNIT + 1];
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;

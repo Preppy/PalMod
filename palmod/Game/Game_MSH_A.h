@@ -10,10 +10,6 @@ constexpr auto EXTRA_FILENAME_MSH_06 = _T("MSH06e.txt");
 class CGame_MSH_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
-    //Used for GetPalOffset
     // These handle per-ROM logic.
     int m_nBufferSelectedRom = 5;
     static int m_nMSHSelectedRom;
@@ -27,8 +23,8 @@ private:
     static int rgExtraLoc_05[MSH_A_NUMUNIT_05 + 1];
     static int rgExtraLoc_06[MSH_A_NUMUNIT_06 + 1];
 
-    void InitDataBuffer();
-    void ClearDataBuffer();
+    void InitDataBuffer() override;
+    void ClearDataBuffer() override;
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;

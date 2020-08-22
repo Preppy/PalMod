@@ -9,9 +9,6 @@ constexpr auto EXTRA_FILENAME_XMVSF = _T("XMVSFe.txt");
 class CGame_XMVSF_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-    
     static UINT32 m_nTotalPaletteCountForXMVSF;
 
     static void InitializeStatics();

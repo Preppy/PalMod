@@ -9,10 +9,6 @@ constexpr auto EXTRA_FILENAME_CVS2_A = _T("CVS2E.txt");
 class CGame_CVS2_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
-    //Used for GetPalOffset
     static UINT32 m_nTotalPaletteCountForCVS2;
     static void DumpAllCharacters();
 

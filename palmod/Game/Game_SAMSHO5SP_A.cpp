@@ -736,35 +736,6 @@ const sGame_PaletteDataset* CGame_SAMSHO5SP_A::GetSpecificPalette(UINT16 nUnitId
     return paletteToUse;
 }
 
-void CGame_SAMSHO5SP_A::InitDataBuffer()
-{
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
-}
-
-void CGame_SAMSHO5SP_A::ClearDataBuffer()
-{
-    if (m_pppDataBuffer)
-    {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            if (m_pppDataBuffer[nUnitCtr])
-            {
-                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-                {
-                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
-                }
-
-                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
-            }
-        }
-
-        safe_delete_array(m_pppDataBuffer);
-    }
-}
-
 void CGame_SAMSHO5SP_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
      if (nUnitId != SAMSHO5SP_A_EXTRALOC)

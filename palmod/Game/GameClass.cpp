@@ -625,6 +625,89 @@ BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int n
     }
 }
 
+void CGameClass::UpdatePalData()
+{
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    {
+        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
+
+        if (srcDef->bAvail)
+        {
+            COLORREF* crSrc = srcDef->pPal;
+
+            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
+            UINT16 nCurrentTotalWrites = 0;
+            // Every 16 colors there is another counter WORD (color length) to preserve.
+            const UINT16 nMaxSafeColorsToWrite = 16;
+            const UINT16 iFixedCounterPosition = 0; // The lead 'color' is a counter and needs to be preserved.
+
+            while (nTotalColorsRemaining > 0)
+            {
+                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
+
+                for (UINT16 nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
+                {
+                    if (nPICtr == iFixedCounterPosition)
+                    {
+                        continue;
+                    }
+
+                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
+                    if (m_fAllowTransparency || !m_fMustWriteAlphaValue)
+                    {
+                        m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
+                    }
+                    else
+                    {
+                        m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ((ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF)) | 0xF000;
+                    }
+                }
+
+                nCurrentTotalWrites += nMaxSafeColorsToWrite;
+                nTotalColorsRemaining -= nMaxSafeColorsToWrite;
+            }
+
+            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
+            srcDef->bChanged = FALSE;
+            rgFileChanged[0] = TRUE;
+
+            if (bPostSetPalProc)
+            {
+                PostSetPal(srcDef->uUnitId, srcDef->uPalId);
+            }
+        }
+    }
+}
+
+void CGameClass::InitDataBuffer()
+{
+    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+}
+
+void CGameClass::ClearDataBuffer()
+{
+    if (m_pppDataBuffer)
+    {
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        {
+            if (m_pppDataBuffer[nUnitCtr])
+            {
+                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                {
+                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
+                }
+
+                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
+            }
+        }
+
+        safe_delete_array(m_pppDataBuffer);
+    }
+}
+
 void CGameClass::PrepChangeTrackingArray()
 {
     if (!rgFileChanged)
@@ -634,3 +717,29 @@ void CGameClass::PrepChangeTrackingArray()
         memset(rgFileChanged, NULL, sizeof(UINT16) * rgCountChangableUnits);
     }
 }
+
+void CGameClass::MarkPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
+{
+    sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteID };
+    m_vDirtyPaletteList.push_back(sPaletteOfInterest);
+    return;
+}
+
+bool CGameClass::IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
+{
+    struct DoPalettesMatch
+    {
+        sPaletteIdentifier* pPalToCheck;
+        DoPalettesMatch(sPaletteIdentifier* pPalToCheck) : pPalToCheck(pPalToCheck) {}
+        bool operator () (const sPaletteIdentifier& m) const
+        {
+            return (m.nUnit == pPalToCheck->nUnit) && (m.nPaletteId == pPalToCheck->nPaletteId);
+        }
+    };
+
+    sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteID };
+    auto it = std::find_if(m_vDirtyPaletteList.begin(), m_vDirtyPaletteList.end(), DoPalettesMatch(&sPaletteOfInterest));
+
+    return it != m_vDirtyPaletteList.end();
+}
+

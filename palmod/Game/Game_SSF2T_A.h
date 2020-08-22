@@ -11,9 +11,6 @@ constexpr auto EXTRA_FILENAME_SSF2T_4A = _T("ssf2t-4ae.txt");
 class CGame_SSF2T_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
     // These handle per-ROM logic.
     int m_nBufferSelectedRom = 3;
     static int m_nSSF2TSelectedRom;

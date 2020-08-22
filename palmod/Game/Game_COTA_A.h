@@ -16,9 +16,6 @@ private:
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
-    //Used for image selection
-    int nTargetImgId = 0;
-
     static UINT32 m_nTotalPaletteCountForCOTA;
     static int rgExtraCountAll[COTA_A_NUMUNIT + 1];
     static int rgExtraLoc[COTA_A_NUMUNIT + 1];

@@ -81,7 +81,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     //Go through each character
-    for (int iUnitCtr = 0; iUnitCtr < SFIII3_D_NUMUNIT; iUnitCtr++)
+    for (UINT16 iUnitCtr = 0; iUnitCtr < SFIII3_D_NUMUNIT; iUnitCtr++)
     {
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
         //Set each description
@@ -94,9 +94,9 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
         UnitNode->uChildType = DESC_NODETYPE_TREE;
         UnitNode->uChildAmt = 1;
 
-        for (int iButtonCtr = 0; iButtonCtr < 1; iButtonCtr++)
+        for (UINT16 iButtonCtr = 0; iButtonCtr < 1; iButtonCtr++)
         {
-            int nCurrChildAmt = GetPalCt(iUnitCtr); // 1 for each button for now
+            UINT16 nCurrChildAmt = 32;
 
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
@@ -109,7 +109,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
 
             ButtonNode->ChildNodes = (sDescTreeNode*)new sDescNode[nCurrChildAmt];
 
-            for (int nChildCtr = 0; nChildCtr < nCurrChildAmt; nChildCtr++)
+            for (UINT16 nChildCtr = 0; nChildCtr < nCurrChildAmt; nChildCtr++)
             {
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr];
 
@@ -164,38 +164,9 @@ int CGame_SFIII3_D::GetBasicAmt(UINT16 nUnitId)
     return BUTTON7;
 }
 
-int CGame_SFIII3_D::GetPalCt(UINT16 nUnitId)
+UINT16 CGame_SFIII3_D::GetPaletteCountForUnit(UINT16 nUnitId)
 {
     return 32;
-}
-
-void CGame_SFIII3_D::InitDataBuffer()
-{
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
-}
-
-void CGame_SFIII3_D::ClearDataBuffer()
-{
-    if (m_pppDataBuffer)
-    {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            if (m_pppDataBuffer[nUnitCtr])
-            {
-                UINT16 nPalAmt = GetPalCt(nUnitCtr);
-
-                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-                {
-                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
-                }
-
-                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
-            }
-        }
-
-        safe_delete_array(m_pppDataBuffer);
-    }
 }
 
 void CGame_SFIII3_D::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
@@ -206,7 +177,7 @@ void CGame_SFIII3_D::GetPalOffsSz(UINT16 nUnitId, UINT16 nPalId)
 
 BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
-    UINT16 nPalAmt = GetPalCt(nUnitId);
+    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     m_pppDataBuffer[nUnitId] = new UINT16 * [nPalAmt];
 
@@ -228,7 +199,7 @@ BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
 BOOL CGame_SFIII3_D::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
-    UINT16 nPalAmt = GetPalCt(nUnitId);
+    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitId);
 
     for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {

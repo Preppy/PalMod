@@ -606,35 +606,6 @@ const sGame_PaletteDataset* CGame_KOF02_A::GetSpecificPalette(UINT16 nUnitId, UI
     return paletteToUse;
 }
 
-void CGame_KOF02_A::InitDataBuffer()
-{
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
-}
-
-void CGame_KOF02_A::ClearDataBuffer()
-{
-    if (m_pppDataBuffer)
-    {
-        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-        {
-            if (m_pppDataBuffer[nUnitCtr])
-            {
-                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-                {
-                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
-                }
-
-                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
-            }
-        }
-
-        safe_delete_array(m_pppDataBuffer);
-    }
-}
-
 void CGame_KOF02_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
      if (nUnitId != KOF02_A_EXTRALOC)

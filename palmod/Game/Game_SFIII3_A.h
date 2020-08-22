@@ -16,10 +16,6 @@ constexpr auto EXTRA_FILENAME_SF3 = _T("sfiii3e.txt");
 class CGame_SFIII3_A : public CGameWithExtrasFile
 {
 public:
-    //Used for image selection
-    int nTargetImgId = 0;
-    int nNormalPalAmt = 0;
-
     static int rgExtraCountAll[SFIII3_A_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly[SFIII3_A_NUMUNIT + 1];
     static int rgExtraLoc[SFIII3_A_NUMUNIT + 1];

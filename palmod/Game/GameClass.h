@@ -5,6 +5,7 @@
 #include "GameDef.h"
 #include "PalGroup.h"
 #include "ImgTicket.h"
+#include <vector>
 
 //File rule definition
 struct sFileRule
@@ -71,6 +72,7 @@ protected:
     // How many colors a game has: P1/P2 (2), LP-HK/A2 (6), etc
     UINT8 m_nNumberOfColorOptions = 0;
 
+    bool m_fMustWriteAlphaValue = false;
     BOOL bUsesHybrid = FALSE;
     UINT16* pIndexRedir = nullptr;
     int nHybridSz = 0;
@@ -87,14 +89,30 @@ protected:
     static UINT32 CONV_NEOGEO_32(UINT16 inCol);
     static UINT16 SWAP_16(UINT16 palv);
 
+    struct sPaletteIdentifier
+    {
+        UINT16 nUnit = 0;
+        UINT16 nPaletteId = 0;
+    };
+
+    std::vector<sPaletteIdentifier> m_vDirtyPaletteList;
+    UINT16*** m_pppDataBuffer = nullptr;
+
 public:
     CGameClass(void);
     virtual ~CGameClass(void);
+
+    virtual void InitDataBuffer();
+    virtual void ClearDataBuffer();
 
     static BOOL bPostSetPalProc;
 
     UINT16* rgUnitRedir = nullptr;
     int nRedirCtr = 0;
+    //Used for image selection
+    int nTargetImgId = 0;
+
+    UINT16*** GetDataBuffer() { return m_pppDataBuffer; };
 
     UINT16(*ConvCol)(UINT32 inCol);
     UINT32(*ConvPal)(UINT16 inCol);
@@ -156,12 +174,19 @@ public:
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) = 0;
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId) = 0;
-    virtual void UpdatePalData() = 0;
+    virtual void UpdatePalData();
     virtual void FlushChangeTrackingArray() { safe_delete_array(rgFileChanged); };
     virtual void PrepChangeTrackingArray();
     virtual void ValidateMixExtraColors(BOOL* pfChangesWereMade) {};
+    virtual void PostSetPal(UINT16 nUnitId, UINT16 nPalId) {};
+    virtual void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId) {};
+    virtual UINT16 GetPaletteCountForUnit(UINT16 nUnitId) { return INVALID_UNIT_VALUE; };
 
     COLORREF*** CreateImgOutPal();
+
+    void ClearDirtyPaletteTracker() { m_vDirtyPaletteList.clear(); };
+    void MarkPaletteDirty(UINT16 nUnit, UINT16 nPaletteID);
+    bool IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID);
 
     //virtual void SaveFile() = 0;
 };

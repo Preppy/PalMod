@@ -5,8 +5,8 @@
 class CGame_MVC2_D : public CGameClass
 {
 private:
-    void InitDataBuffer();
-    void ClearDataBuffer();
+    void InitDataBuffer() override;
+    void ClearDataBuffer() override;
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
 
@@ -21,7 +21,6 @@ public:
 
     //Vars used for extra processing
     int nExtraAmt = 0;
-    int nTargetImgId = 0; //Image id used for image selection
     int nImgUnitId = MVC2_D_NUMUNIT; //Unit Image Id
 
     //Static functions

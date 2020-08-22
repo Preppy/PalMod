@@ -9,9 +9,6 @@ constexpr auto EXTRA_FILENAME_NEOGEO_A = _T("NEOGEOE.txt");
 class CGame_NEOGEO_A : public CGameWithExtrasFile
 {
 private:
-    //Used for image selection
-    int nTargetImgId = 0;
-
     static UINT32 m_nTotalPaletteCountForNEOGEO;
 
     static int rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
