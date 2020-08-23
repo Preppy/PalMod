@@ -909,7 +909,7 @@ void CGame_MVC2_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
     {
         CString strPageDescription;
-        UINT16 nColorsRemaining = m_nCurrentPaletteSize;
+        INT16 nColorsRemaining = m_nCurrentPaletteSize;
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
         {

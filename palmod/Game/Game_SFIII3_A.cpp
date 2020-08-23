@@ -43,7 +43,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 821;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 913;
     m_nLowestKnownPaletteRomLocation = 0x700600;
 
     CString strInfo;
@@ -624,7 +624,7 @@ void CGame_SFIII3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
     {
         CString strPageDescription;
-        UINT16 nColorsRemaining = m_nCurrentPaletteSize;
+        INT16 nColorsRemaining = m_nCurrentPaletteSize;
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
         {

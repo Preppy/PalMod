@@ -801,7 +801,7 @@ void CGame_MVC_A::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
+            INT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             // Every 16 colors there is another counter WORD (color length) to preserve.
             const UINT16 nMaxSafeColorsToWrite = 16;

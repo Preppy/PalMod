@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include "..\stdafx.h"
 #include "MVC2_SUPP.h"
 #include "ColorScale.h"
 #include "mvc2_validate.h"

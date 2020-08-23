@@ -1,5 +1,4 @@
 #include "StdAfx.h"
-#include "..\StdAfx.h"
 #include "GameDef.h"
 #include "Game_CVS2_A.h"
 #include "..\PalMod.h"
@@ -716,7 +715,7 @@ void CGame_CVS2_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
     {
         CString strPageDescription;
-        UINT16 nColorsRemaining = m_nCurrentPaletteSize;
+        INT16 nColorsRemaining = m_nCurrentPaletteSize;
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
         {
@@ -824,7 +823,7 @@ void CGame_CVS2_A::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
+            INT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             const UINT16 nMaxSafeColorsToWrite = 16;
             // First color is the transparency color

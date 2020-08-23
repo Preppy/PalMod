@@ -1,5 +1,4 @@
 #include "StdAfx.h"
-#include "..\StdAfx.h"
 #include "GameLoad.h"
 
 #include "Game_COTA_A.h"

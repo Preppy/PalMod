@@ -54,7 +54,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     m_nExtraUnit = UsePaletteSetForPortraits() ? SSF2T_A_EXTRALOC_3C : SSF2T_A_EXTRALOC_4A;
 
     const UINT32 nSafeCountFor3C = 160;
-    const UINT32 nSafeCountFor4A = 192;
+    const UINT32 nSafeCountFor4A = 708;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForPortraits() ? nSafeCountFor3C : nSafeCountFor4A);
     m_pszExtraFilename = UsePaletteSetForPortraits() ? EXTRA_FILENAME_SSF2T_3C : EXTRA_FILENAME_SSF2T_4A;
@@ -293,6 +293,41 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
+                    if (!UsePaletteSetForPortraits())
+                    {
+                        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+                        TCHAR szMoveDesc[MAX_DESCRIPTION_LENGTH];
+                        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), UnitNode->szDesc);
+                        StrRemoveNonASCII(szMoveDesc, ARRAYSIZE(szMoveDesc), ChildNode->szDesc);
+
+                        CString strInfo;
+                        strInfo.Format(_T("const sGame_PaletteDataset SSF2T_A_%s_PALETTES_%s[] =\r\n{\r\n"), szCodeDesc, szMoveDesc);
+                        OutputDebugString(strInfo);
+
+                        UINT32 nInitialOffset = paletteSetToUse[nNodeIndex].nPaletteOffset;
+                        UINT32 nTerminalOffset = paletteSetToUse[nNodeIndex].nPaletteOffsetEnd;
+
+                        strInfo.Format(_T("    { _T(\"%s\", 0x%x, 0%x, 0x%02x },\r\n"), ChildNode->szDesc, nInitialOffset, nTerminalOffset, paletteSetToUse[nNodeIndex].indexImgToUse);
+                        OutputDebugString(strInfo);
+                        nInitialOffset += 0x20;
+                        nTerminalOffset+= 0x20;
+                        strInfo.Format(_T("    { _T(\"%s Extra\", 0x%x, 0x%x, 0x%02x },\r\n"), ChildNode->szDesc, nInitialOffset, nTerminalOffset, paletteSetToUse[nNodeIndex].indexImgToUse);
+                        OutputDebugString(strInfo);
+                        nInitialOffset += 0x20;
+                        nTerminalOffset += 0x20;
+                        strInfo.Format(_T("    { _T(\"%s Super Trail 1\", 0x%x, 0x%x, 0x%02x },\r\n"), ChildNode->szDesc, nInitialOffset, nTerminalOffset, paletteSetToUse[nNodeIndex].indexImgToUse);
+                        OutputDebugString(strInfo);
+                        nInitialOffset += 0x20;
+                        nTerminalOffset += 0x20;
+                        strInfo.Format(_T("    { _T(\"%s Super Trail 2\", 0x%x, 0x%x, 0x%02x },\r\n"), ChildNode->szDesc, nInitialOffset, nTerminalOffset, paletteSetToUse[nNodeIndex].indexImgToUse);
+                        OutputDebugString(strInfo);
+                        nInitialOffset += 0x20;
+                        nTerminalOffset += 0x20;
+                        strInfo.Format(_T("    { _T(\"%s Super Trail 3\", 0x%x, 0x%x, 0x%02x },\r\n"), ChildNode->szDesc, nInitialOffset, nTerminalOffset, paletteSetToUse[nNodeIndex].indexImgToUse);
+                        OutputDebugString(strInfo);
+
+                        OutputDebugString(_T("};\r\n\r\n"));
+                    }
 #if SSF2T_DEBUG
 #if OUTPUT_AS_NODE
                     strMsg.Format(_T("    { \"%s\", 0x%06x, 0x%06x },\n"), ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
@@ -843,7 +878,7 @@ void CGame_SSF2T_A::UpdatePalData()
         {
             COLORREF* crSrc = srcDef->pPal;
 
-            UINT16 nTotalColorsRemaining = srcDef->uPalSz;
+            INT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             // Every 16 colors there is another counter WORD (color length) to preserve.
             const UINT16 nMaxSafeColorsToWrite = 16;

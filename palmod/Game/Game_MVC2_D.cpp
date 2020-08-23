@@ -1,5 +1,4 @@
 #include "StdAfx.h"
-#include "..\StdAfx.h"
 #include "Gamedef.h"
 #include "Game_MVC2_D.h"
 #include "MVC2_A_DEF.h"
