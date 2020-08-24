@@ -1,11 +1,10 @@
 #pragma once
 
 #include "afxwin.h"
+#include "game\Default.h"
 #include "Junk.h"
 
 #define PALTOOL_CLASSNAME    _T("CPalTool")  // Window class name
-
-#define MAX_PALETTE        16
 
 #define PAL_TXT_SPACE    5
 
@@ -22,8 +21,8 @@ struct sPalEntry
 class CPalTool : public CWnd
 {
 private:
-    sPalEntry pPalEntry[MAX_PALETTE];
-    CSize PalSize[MAX_PALETTE];
+    sPalEntry pPalEntry[MAX_PALETTES_DISPLAYABLE];
+    CSize PalSize[MAX_PALETTES_DISPLAYABLE];
 
     BOOL bFirstPaint = TRUE;
     BOOL bSpinInit = TRUE;
@@ -44,7 +43,7 @@ private:
     int nPrevPalAmt = -1;
 
     int nPalViewH = 0;
-    UINT16 rgPalRedir[MAX_PALETTE + 1];
+    UINT16 rgPalRedir[MAX_PALETTES_DISPLAYABLE + 1];
 
     void Init();
 

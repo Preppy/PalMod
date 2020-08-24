@@ -1297,10 +1297,15 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     SFA2_SupportedROMRevision romRevision = GetSFA2ROMVersion(LoadedFile);
 
-    if (UsePaletteSetForCharacters() && (m_currentSFA2ROMRevision != romRevision))
+    if (m_currentSFA2ROMRevision != romRevision)
     {
         m_currentSFA2ROMRevision = romRevision;
-        ResetActiveSFA2Revision();
+        
+        if (UsePaletteSetForCharacters())
+        {
+            // The tree is actually different for the character ROM, so do a full tree reset
+            ResetActiveSFA2Revision();
+        }
     }
 
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
@@ -1515,7 +1520,7 @@ COLORREF* CGame_SFA2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_SFA2_A::UpdatePalData()
 {
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 

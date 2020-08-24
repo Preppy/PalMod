@@ -71,7 +71,7 @@ END_MESSAGE_MAP()
 
 void CImgDisp::InitImgBuffer()
 {
-    for (int i = 0; i < MAX_IMG; i++)
+    for (int i = 0; i < MAX_IMAGES_DISPLAYABLE; i++)
     {
         pImgBuffer[i] = NULL;
     }
@@ -119,7 +119,7 @@ void CImgDisp::CreateImgBitmap(int nIndex, int nWidth, int nHeight)
 
 void CImgDisp::ClearUsed()
 {
-    memset(bUsed, 0, sizeof(UINT8) * MAX_IMG);
+    memset(bUsed, 0, sizeof(UINT8) * MAX_IMAGES_DISPLAYABLE);
     rImgRct.SetRectEmpty();
 
     nXOffsTop = 0;
@@ -134,7 +134,7 @@ void CImgDisp::FlushUnused()
 {
     if (nImgAmt)
     {
-        for (int i = 0; i < MAX_IMG; i++)
+        for (int i = 0; i < MAX_IMAGES_DISPLAYABLE; i++)
         {
             if (!bUsed[i])
             {
@@ -247,7 +247,7 @@ void CImgDisp::FlushImageNode(int nIndex)
 
 void CImgDisp::FlushImages()
 {
-    for (int i = 0; i < MAX_IMG; i++)
+    for (int i = 0; i < MAX_IMAGES_DISPLAYABLE; i++)
     {
         FlushImageNode(i);
     }
@@ -410,12 +410,12 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
     //Reset the BLT rect
     //memset(&rBlt, 0, sizof(RECT));
 
-    int nAltPalIndex = (bUseAltPal ? (bUseAltPal & 0x00FF) : MAX_IMG);
+    int nAltPalIndex = (bUseAltPal ? (bUseAltPal & 0x00FF) : MAX_IMAGES_DISPLAYABLE);
 
     BOOL bFirst = TRUE;
     bool fImageFound = false;
 
-    for (int nImgCtr = 0; nImgCtr < MAX_IMG; nImgCtr++)
+    for (int nImgCtr = 0; nImgCtr < MAX_IMAGES_DISPLAYABLE; nImgCtr++)
     {
         if (pImgBuffer[nImgCtr])
         {

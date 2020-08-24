@@ -1,9 +1,6 @@
 #pragma once
 #include "Default.h"
-
-constexpr auto MAX_PAL = 12;
-constexpr auto MAX_SEP = 12;
-constexpr auto MAX_PALETTE_PAGES = 4;
+#include "PalTool.h"
 
 constexpr auto SORT_HUE = 1;
 constexpr auto SORT_SAT = 2;
@@ -35,7 +32,7 @@ struct sPalDef
     UINT16 uCollectionId = 0;
     UINT16 uPalId = 0;
 
-    sPalSep* SepList[MAX_SEP] = {};
+    sPalSep* SepList[MAX_SEPARATORS] = {};
     UINT16 uSepAmt = 0;
 
     BOOL bChanged = FALSE;
@@ -54,8 +51,8 @@ enum ePalType
 class CPalGroup
 {
 private:
-    sPalDef rgPalettes[MAX_PAL];
-    sPalRedir rgRedir[MAX_PAL * MAX_SEP];
+    sPalDef rgPalettes[MAX_PALETTES_DISPLAYABLE];
+    sPalRedir rgRedir[MAX_PALETTES_DISPLAYABLE * MAX_SEPARATORS];
     int nRedirCtr = 0;
     int nCurrPalAmt = 0;
 

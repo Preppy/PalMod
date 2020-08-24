@@ -815,7 +815,7 @@ COLORREF* CGame_CVS2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_CVS2_A::UpdatePalData()
 {
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 

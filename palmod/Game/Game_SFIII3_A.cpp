@@ -43,7 +43,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 913;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 971;
     m_nLowestKnownPaletteRomLocation = 0x700600;
 
     CString strInfo;
@@ -784,6 +784,31 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     SetSourcePal(0, uUnitId, uPalId, 1, 1);
                     SetSourcePal(1, uUnitId, uPalId + 1, 1, 1);
                 }
+                else if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                {
+
+                    const UINT16 nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+
+                    fShouldUseAlternateLoadLogic = true;
+                    sImgTicket* pImgArray = nullptr;
+
+                    for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    {
+                        // The palettes get added forward, but the image tickets need to be generated in reverse order
+                        const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
+                        if (paletteDataSetToJoin)
+                        {
+                            pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
+
+                            //Set each palette
+                            sDescNode* JoinedNode = MainDescTree.GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                            CreateDefPal(JoinedNode, nStageIndex);
+                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                        }
+                    }
+
+                    ClearSetImgTicket(pImgArray);
+                }
                 else
                 {
                     int nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
@@ -872,7 +897,7 @@ COLORREF* CGame_SFIII3_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_SFIII3_A::UpdatePalData()
 {
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
         if (srcDef->bAvail)

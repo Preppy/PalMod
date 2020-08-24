@@ -16,7 +16,7 @@ CPalGroup::~CPalGroup(void)
 
 void CPalGroup::InitPal()
 {
-    for (int i = 0; i < MAX_PAL; i++)
+    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         rgPalettes[i].pPal = NULL;
         rgPalettes[i].pBasePal = NULL;
@@ -27,12 +27,12 @@ void CPalGroup::InitPal()
     }
 
     //Clear the redirect buffer
-    memset(rgRedir, NULL, sizeof(sPalRedir) * MAX_PAL * MAX_SEP);
+    memset(rgRedir, NULL, sizeof(sPalRedir) * MAX_PALETTES_DISPLAYABLE * MAX_SEPARATORS);
 }
 
 void CPalGroup::FlushPalAll()
 {
-    for (int i = 0; i < MAX_PAL; i++)
+    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         FlushPal(i);
 
@@ -40,13 +40,13 @@ void CPalGroup::FlushPalAll()
     }
 
     //Clear the redirect buffer
-    memset(rgRedir, NULL, sizeof(sPalRedir) * MAX_PAL * MAX_SEP);
+    memset(rgRedir, NULL, sizeof(sPalRedir) * MAX_PALETTES_DISPLAYABLE * MAX_SEPARATORS);
     nRedirCtr = 0;
 }
 
 BOOL CPalGroup::FlushPal(int nIndex)
 {
-    if (nIndex > MAX_PAL)
+    if (nIndex > MAX_PALETTES_DISPLAYABLE)
     {
         return FALSE;
     }
@@ -88,10 +88,10 @@ BOOL CPalGroup::SetMode(ePalType NewPalMode)
 BOOL CPalGroup::AddSep(int nIndex, LPCTSTR szDesc, int nStart, int nAmt)
 {
     // Separators enable us to have multiple groups of palettes within a palette display.
-    if ((rgPalettes[nIndex].uSepAmt >= MAX_SEP) || ((nStart + nAmt) > rgPalettes[nIndex].uPalSz))
+    if ((rgPalettes[nIndex].uSepAmt >= MAX_SEPARATORS) || ((nStart + nAmt) > rgPalettes[nIndex].uPalSz))
     {
         CString strWarning;
-        strWarning.Format(_T("WARNING: Trying to use too many separators for \"%s\".  Disallowing this.\n"), szDesc);
+        strWarning.Format(_T("WARNING: Trying to use too many separators for \"%s\": %u requested, %u allowed. Disallowing this.\n"), szDesc, rgPalettes[nIndex].uSepAmt, MAX_SEPARATORS);
         OutputDebugString(strWarning);
         return FALSE;
     }
@@ -118,7 +118,7 @@ BOOL CPalGroup::AddSep(int nIndex, LPCTSTR szDesc, int nStart, int nAmt)
 
 BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, UINT16 uUnitId, UINT16 uPalId)
 {
-    if ((nCurrPalAmt >= MAX_PAL) || !pPal || !uPalSz)
+    if ((nCurrPalAmt >= MAX_PALETTES_DISPLAYABLE) || !pPal || !uPalSz)
     {
         OutputDebugString(_T("CPalGroup::AddPal: bogus argument supplied\n"));
         return FALSE;

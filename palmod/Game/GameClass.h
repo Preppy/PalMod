@@ -57,10 +57,10 @@ protected:
     int nImgUnitAmt = 0;
 
     //Values used for image out
-    int nSrcPalUnit[MAX_PAL] = { 0 };
-    int nSrcPalStart[MAX_PAL] = { 0 };
-    int nSrcPalAmt[MAX_PAL] = { 0 };
-    int nSrcPalInc[MAX_PAL] = { 0 };
+    int nSrcPalUnit[MAX_PALETTES_DISPLAYABLE] = { 0 };
+    int nSrcPalStart[MAX_PALETTES_DISPLAYABLE] = { 0 };
+    int nSrcPalAmt[MAX_PALETTES_DISPLAYABLE] = { 0 };
+    int nSrcPalInc[MAX_PALETTES_DISPLAYABLE] = { 0 };
 
     ColMode CurrColMode = COLMODE_12A;
     sImgTicket* CurrImgTicket = nullptr;

@@ -164,7 +164,7 @@ void CPalModDlg::UpdateCombo()
 
 void CPalModDlg::PostPalSel()
 {
-    static int nPrevImgIndex[MAX_IMG] = { -1, -1 };
+    static int nPrevImgIndex[MAX_IMAGES_DISPLAYABLE] = { -1, -1 };
     //Update the host palette control
     CGameClass* CurrGame = GetHost()->GetCurrGame();
     sImgDef* CurrImgDef;
@@ -290,7 +290,7 @@ void CPalModDlg::PostPalSel()
     }
 
     //Reset the prev indexes
-    memset(&nPrevImgIndex[nImgIndexCtr], -1, sizeof(int) * (MAX_IMG - nImgIndexCtr));
+    memset(&nPrevImgIndex[nImgIndexCtr], -1, sizeof(int) * (MAX_IMAGES_DISPLAYABLE - nImgIndexCtr));
 
     m_PalHost.EndSetPal();
 

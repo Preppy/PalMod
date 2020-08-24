@@ -55,10 +55,10 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
 void CGameClass::ClearSrcPal()
 {
     //Values used for image out
-    memset(nSrcPalUnit, -1, sizeof(int) * MAX_PAL);
-    memset(nSrcPalStart, -1, sizeof(int) * MAX_PAL);
-    memset(nSrcPalAmt, -1, sizeof(int) * MAX_PAL);
-    memset(nSrcPalInc, -1, sizeof(int) * MAX_PAL);
+    memset(nSrcPalUnit, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
+    memset(nSrcPalStart, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
+    memset(nSrcPalAmt, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
+    memset(nSrcPalInc, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
 }
 
 BOOL CGameClass::SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt, int nMax)
@@ -455,10 +455,10 @@ BOOL CGameClass::SetLoadDir(TCHAR* szNewDir)
 
 void CGameClass::SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc)
 {
-    if (nIndex >= MAX_PAL)
+    if (nIndex >= MAX_PALETTES_DISPLAYABLE)
     {
         CString strErr;
-        strErr.Format(_T("CGameClass::SetSourcePal:: ERROR: PalMod only supports %u palettes per display.\n"), MAX_PAL);
+        strErr.Format(_T("CGameClass::SetSourcePal:: ERROR: PalMod only supports %u palettes per display.\n"), MAX_PALETTES_DISPLAYABLE);
         OutputDebugString(strErr);
         return;
     }
@@ -515,7 +515,7 @@ COLORREF*** CGameClass::CreateImgOutPal()
         int iIndex = 0;
         int nPalAmt = nSrcPalAmt[0];
 
-        while ((nSrcPalStart[iIndex] != -1) && (iIndex < MAX_PAL))
+        while ((nSrcPalStart[iIndex] != -1) && (iIndex < MAX_PALETTES_DISPLAYABLE))
         {
             iIndex++;
         }
@@ -524,7 +524,7 @@ COLORREF*** CGameClass::CreateImgOutPal()
 
         //Pass 2
         iIndex = 0; 
-        while ((nSrcPalStart[iIndex] != -1) && (iIndex < MAX_PAL))
+        while ((nSrcPalStart[iIndex] != -1) && (iIndex < MAX_PALETTES_DISPLAYABLE))
         {
             pppReturnPal[iIndex] = new COLORREF * [nPalAmt];
 
@@ -627,7 +627,7 @@ BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int n
 
 void CGameClass::UpdatePalData()
 {
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
     {
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
 

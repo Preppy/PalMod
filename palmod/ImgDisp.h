@@ -1,4 +1,5 @@
 #pragma once
+#include "game\Default.h"
 
 #define aadd(x, y) ((x)+(y) > 255 ? 255 : (x)+(y))
 #define fabs(x) (x < 0.0f ? -x : x)
@@ -7,14 +8,10 @@
 //Main bitmap is not cleared on destroy
 
 //#define SETIMGPOS
-#define SETIMGINDEX 1
+constexpr auto SETIMGINDEX = 1;
 
 #define IMGDISP_CLASSNAME _T("CImgDisp")
 
-//#define MAIN_W 2048
-//#define MAIN_H 2048
-
-#define MAX_IMG 16
 #define DEF_ZOOM 1.0f
 
 struct sImgIndex
@@ -43,7 +40,7 @@ struct sImgNode
 class CImgDisp : public CWnd
 {
 private:
-    sImgNode* pImgBuffer[MAX_IMG] = {};
+    sImgNode* pImgBuffer[MAX_IMAGES_DISPLAYABLE] = {};
     int nImgAmt = 0;
 
     CPaintDC* PaintDC = nullptr;
@@ -105,9 +102,9 @@ private:
     int nImgRctW = 0;
     int nImgRctH = 0;
 
-    UINT8 bUsed[MAX_IMG];
+    UINT8 bUsed[MAX_IMAGES_DISPLAYABLE];
 
-    POINT ptOffs[MAX_IMG];
+    POINT ptOffs[MAX_IMAGES_DISPLAYABLE];
     
     CString m_strBackgroundLoc = _T("");
 
@@ -130,7 +127,7 @@ public:
     void AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs);
     void FlushImageNode(int nIndex);
     void FlushImages();
-    void UpdateCtrl(BOOL bRedraw = TRUE, BOOL bUseAltPal = FALSE);
+    void UpdateCtrl(BOOL bRedraw = TRUE, int bUseAltPal = FALSE);
     void Redraw();
     void SetBGCol(COLORREF crNewCol) { crBGCol = crNewCol; };
     void SetBlinkCol(COLORREF crNewCol) { crBlinkCol = crNewCol; };
@@ -189,5 +186,4 @@ public:
     afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
     afx_msg void OnMouseMove(UINT nFlags, CPoint point);
     afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
-    afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
 };

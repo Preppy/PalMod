@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include ".\PalTool.h"
+#include "PalTool.h"
 
 CPalTool::CPalTool(void)
 {
@@ -74,7 +74,7 @@ void CPalTool::OnPalSelChange(int nCtrlId, BOOL bCurrPage)
         nPalEnd = nCurrPalAmt;
     }
 
-    for (int i = 0; i < MAX_PALETTE; i++)
+    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         if (pPalEntry[i].bAvail)
         {
@@ -102,7 +102,7 @@ void CPalTool::OnPalSelChange(int nCtrlId, BOOL bCurrPage)
 
 void CPalTool::Init()
 {
-    for (int i = 0; i < MAX_PALETTE; i++)
+    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         pPalEntry[i].PaletteCtrl = new CJunk;
         pPalEntry[i].PaletteCtrl->SetArrayIndex(i);
@@ -121,7 +121,7 @@ void CPalTool::Init()
 
 void CPalTool::CleanUp()
 {
-    for (int i = 0; i < MAX_PALETTE; i++)
+    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         if (pPalEntry[i].PaletteCtrl)
         {
@@ -165,7 +165,7 @@ void CPalTool::ClearBG(CPaintDC* PaintDC)
 
 void CPalTool::BeginSetPal()
 {
-    for (int i = 0; i < MAX_PALETTE; i++)
+    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         pPalEntry[i].bAvail = FALSE;
     }
@@ -301,7 +301,7 @@ void CPalTool::ShowAvailPal()
         nPalEnd = nCurrPalAmt;
     }
 
-    for (int i = 0; i < MAX_PALETTE; i++)
+    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         if ((i >= nPalStart) &&( i < nPalEnd) || !nCurrPalAmt)
         {
@@ -442,7 +442,7 @@ BOOL CPalTool::OnEraseBkgnd(CDC* pDC)
 void CPalTool::PreSubclassWindow()
 {
     //Initialize each palette window
-    for (int i = 0; i < MAX_PALETTE; i++)
+    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         pPalEntry[i].PaletteCtrl->Create(_T("CJunk"), _T(""), 0, CRect(0, 0, 100, 100), this, i);
     }
@@ -498,7 +498,7 @@ BOOL CPalTool::PreTranslateMessage(MSG* pMsg)
 
 void CPalTool::UpdateEveryIndex()
 {
-    for (int i = 0; i < MAX_PALETTE; i++)
+    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         if (pPalEntry[i].bAvail)
         {
@@ -509,7 +509,7 @@ void CPalTool::UpdateEveryIndex()
 
 void CPalTool::UpdateEveryCtrl()
 {
-    for (int i = 0; i < MAX_PALETTE; i++)
+    for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
         if (pPalEntry[i].bAvail)
         {

@@ -38,7 +38,7 @@ public:
     BOOL FirstRun = TRUE;
     BOOL CanSizeScroll = FALSE;
 
-    POINT ptOffs[MAX_IMG];
+    POINT ptOffs[MAX_IMAGES_DISPLAYABLE];
     CRect rImgRct = {};
 
     CPaintDC *PaintDC = nullptr;

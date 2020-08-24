@@ -308,7 +308,7 @@ const sGame_PaletteDataset JOJOS_A_HUD_PALETTE_NODES[] =
     { _T("Stand Text Under The Stand Gauge"), 0x07C0320, 0x07C0340, indexJojos51Bonus, 0x2a },
     { _T("Combo Meter"), 0x07C01C0, 0x07C01E0 },
     { _T("Combo Messages"), 0x07C0220, 0x07C0240 },
-    { _T("Text Above The Lifebars"),  0x07C0280, 0x07C02A0 },
+    { _T("Text Above The Lifebars"),  0x07C0280, 0x07C02A0 }, // Could use 0x2a sprite here
     { _T("Stand Crash / First Hit / Etc. Messages"), 0x07C0340, 0x07C0360 },
     { _T("Stand Meter / Near Stand Break"), 0x07C0B20, 0x07C0B60 },
     { _T("Super Meter Bar"), 0x07C03A0, 0x07C0400 },
@@ -369,7 +369,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_AIRPLANE[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_TGARDEN[] =
 {
-    { _T("Tigerbaum Garden (1/11)"), 0x07c6c00, 0x07c6e00, indexJojos51Stages, 0x1e },
+    { _T("Tigerbaum Garden (1/11)"), 0x07c6c00, 0x07c6e00, indexJojos51Stages, 0x1e, &pairFullyLinkedNode },
     { _T("Tigerbaum Garden (2/11)"), 0x07c6e00, 0x07c7000, indexJojos51Stages, 0x1f },
     { _T("Tigerbaum Garden (3/11)"), 0x07c7000, 0x07c7200, indexJojos51Stages, 0x20 },
     { _T("Tigerbaum Garden (4/11)"), 0x07c7200, 0x07c7400, indexJojos51Stages, 0x21 },
@@ -384,7 +384,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_TGARDEN[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_HOTELD[] =
 {
-    { _T("Hotel (Devil) (1/7)"), 0x07c8300, 0x07c8500, indexJojos51Stages, 0x11 },
+    { _T("Hotel (Devil) (1/7)"), 0x07c8300, 0x07c8500, indexJojos51Stages, 0x11, &pairFullyLinkedNode },
     { _T("Hotel (Devil) (2/7)"), 0x07c8500, 0x07c8700, indexJojos51Stages, 0x12 },
     { _T("Hotel (Devil) (3/7)"), 0x07c8700, 0x07c8900, indexJojos51Stages, 0x13 },
     { _T("Hotel (Devil) (4/7)"), 0x07c8900, 0x07c8b00, indexJojos51Stages, 0x14 },
@@ -3361,7 +3361,7 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_AIRPLANE[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_TIGERBAUM[] =
 {
-    { _T("Tigerbaum Garden TS (1/11)"), 0x02d3c00, 0x02d3e00, indexJojos51Stages, 0x1e },
+    { _T("Tigerbaum Garden TS (1/11)"), 0x02d3c00, 0x02d3e00, indexJojos51Stages, 0x1e, &pairFullyLinkedNode },
     { _T("Tigerbaum Garden TS (2/11)"), 0x02d3e00, 0x02d4000, indexJojos51Stages, 0x1f },
     { _T("Tigerbaum Garden TS (3/11)"), 0x02d4000, 0x02d4200, indexJojos51Stages, 0x20 },
     { _T("Tigerbaum Garden TS (4/11)"), 0x02d4200, 0x02d4400, indexJojos51Stages, 0x21 },
@@ -3376,7 +3376,7 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_TIGERBAUM[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_HOTELD[] =
 {
-    { _T("Hotel (Devil) / New 2 TS (1/7)"), 0x02d5300, 0x02d5500, indexJojos51Stages, 0x11 },
+    { _T("Hotel (Devil) / New 2 TS (1/7)"), 0x02d5300, 0x02d5500, indexJojos51Stages, 0x11, &pairFullyLinkedNode },
     { _T("Hotel (Devil) / New 2 TS (2/7)"), 0x02d5500, 0x02d5700, indexJojos51Stages, 0x12 },
     { _T("Hotel (Devil) / New 2 TS (3/7)"), 0x02d5700, 0x02d5900, indexJojos51Stages, 0x13 },
     { _T("Hotel (Devil) / New 2 TS (4/7)"), 0x02d5900, 0x02d5b00, indexJojos51Stages, 0x14 },

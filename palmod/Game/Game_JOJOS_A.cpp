@@ -920,7 +920,33 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 int nPaletteOneDelta = 0;
                 int nPaletteTwoDelta = 0;
 
-                if (!UsePaletteSetFor50())
+                if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                {
+                    const sDescTreeNode* pThisNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+                    const UINT16 nStageCount = pThisNode->uChildAmt;
+
+                    fUseDefaultPaletteLoad = false;
+                    sImgTicket* pImgArray = nullptr;
+
+                    for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    {
+                        // The palettes get added forward, but the image tickets need to be generated in reverse order
+                        const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
+                        if (paletteDataSetToJoin)
+                        {
+                            pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
+
+                            //Set each palette
+                            sDescNode* JoinedNode = UsePaletteSetFor50() ? MainDescTree_50.GetDescNode(Node01, Node02, Node03 + nStageIndex, -1) :
+                                                                           MainDescTree_51.GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                            CreateDefPal(JoinedNode, nStageIndex);
+                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                        }
+                    }
+
+                    ClearSetImgTicket(pImgArray);
+                }
+                else if (!UsePaletteSetFor50())
                 {
                     if (((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)) &&
                         ((NodeGet->uUnitId == indexJojos51Jotaro) ||
@@ -972,7 +998,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         }
                     }
                     else if ((NodeGet->uUnitId == indexJojos51Kakyo) ||
-                                (NodeGet->uUnitId == indexJojos51NewKakyo))
+                             (NodeGet->uUnitId == indexJojos51NewKakyo))
                     {
                         // Hieros
                         nPaletteOneDelta = 0;
@@ -1125,7 +1151,7 @@ COLORREF* CGame_JOJOS_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_JOJOS_A::UpdatePalData()
 {
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PAL; nPalCtr++)
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
     {
         // Get the current palette group shown in the UI
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
