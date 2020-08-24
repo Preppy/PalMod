@@ -52,6 +52,8 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
+    createPalOptions = { 0, 0x00000000, 0xFF000000 };
+
     InitDataBuffer();
 
     //Set color mode
@@ -1154,22 +1156,6 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     return TRUE;
-}
-
-COLORREF* CGame_MVC2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
-{
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
-
-    for (UINT16 i = 0; i < m_nCurrentPaletteSize; i++)
-    {
-        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
-    }
-
-    NewPal[0] = 0xFF000000;
-
-    return NewPal;
 }
 
 int CGame_MVC2_A::GetBasicOffset(UINT16 nPalId)

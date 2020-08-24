@@ -76,6 +76,8 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     m_nTotalPaletteCount = UsePaletteSetFor50() ? m_nTotalPaletteCount50 : m_nTotalPaletteCount51;
     m_nLowestKnownPaletteRomLocation = UsePaletteSetFor50() ? 0x7c0000 : 0x2d0000;
 
+    createPalOptions = { 0, 0xFF000000, 0x00000000 };
+
     InitDataBuffer();
 
     //Set color mode
@@ -1132,21 +1134,6 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     return TRUE;
-}
-
-COLORREF* CGame_JOJOS_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
-{
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    //We get this from create def pal
-    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
-
-    for (UINT16 i = 0; i < m_nCurrentPaletteSize; i++)
-    {
-        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
-    }
-
-    return NewPal;
 }
 
 void CGame_JOJOS_A::UpdatePalData()

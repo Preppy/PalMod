@@ -799,20 +799,6 @@ BOOL CGame_CVS2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-COLORREF* CGame_CVS2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
-{
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
-
-    for (UINT16 i = 0; i < m_nCurrentPaletteSize; i++)
-    {
-        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
-    }
-
-    return NewPal;
-}
-
 void CGame_CVS2_A::UpdatePalData()
 {
     for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)

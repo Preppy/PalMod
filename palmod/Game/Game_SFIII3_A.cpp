@@ -46,6 +46,8 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 971;
     m_nLowestKnownPaletteRomLocation = 0x700600;
 
+    createPalOptions = { 0, 0xFF000000, 0x00000000 };
+
     CString strInfo;
     strInfo.Format(_T("CGame_SFIII3_A::CGame_SFIII3_A: Loaded SFIII3_A with %u Extras\n"), GetExtraCt(m_nExtraUnit));
     OutputDebugString(strInfo);
@@ -878,21 +880,6 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     }
 
     return TRUE;
-}
-
-COLORREF* CGame_SFIII3_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
-{
-    LoadSpecificPaletteData(nUnitId, nPalId);
-    //We get this from create def pal
-
-    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
-
-    for (UINT16 i = 0; i < m_nCurrentPaletteSize; i++)
-    {
-        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
-    }
-
-    return NewPal;
 }
 
 void CGame_SFIII3_A::UpdatePalData()

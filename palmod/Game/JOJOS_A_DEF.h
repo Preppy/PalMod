@@ -540,7 +540,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CROOM[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CLOCK[] =
 {
-    { _T("Clock Tower (1/3)"), 0x07e5b00, 0x07e5d00, indexJojos51Stages, 0 },
+    { _T("Clock Tower (1/3)"), 0x07e5b00, 0x07e5d00, indexJojos51Stages, 0, &pairFullyLinkedNode },
     { _T("Clock Tower (2/3)"), 0x07e5d00, 0x07e5f00, indexJojos51Stages, 0x1 },
     { _T("Clock Tower (3/3)"), 0x07e5f00, 0x07e6100, indexJojos51Stages, 0x2 },
 };
@@ -573,7 +573,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_SUBURB[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_OTBRIDGE[] =
 {
-    { _T("On The Bridge (1/2)"), 0x07eed00, 0x07eef00, indexJojos51Stages, 0x3 },
+    { _T("On The Bridge (1/2)"), 0x07eed00, 0x07eef00, indexJojos51Stages, 0x3, &pairFullyLinkedNode },
     { _T("On The Bridge (2/2)"), 0x07eef00, 0x07ef100, indexJojos51Stages, 0x4 },
 };
 
@@ -805,9 +805,9 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW7[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW8[] =
 {
-    { _T("New 8 (1/3)"), 0x07e6200, 0x07e6400 },
-    { _T("New 8 (2/3)"), 0x07e6400, 0x07e6600 },
-    { _T("New 8 (2/3)"), 0x07e6600, 0x07e6800 },
+    { _T("New 8 (Clone of Clock Tower) (1/3)"), 0x07e6200, 0x07e6400, indexJojos51Stages, 0, &pairFullyLinkedNode },
+    { _T("New 8 (Clone of Clock Tower) (2/3)"), 0x07e6400, 0x07e6600, indexJojos51Stages, 1 },
+    { _T("New 8 (Clone of Clock Tower) (2/3)"), 0x07e6600, 0x07e6800, indexJojos51Stages, 2 },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW9[] =
@@ -3523,7 +3523,7 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CROOM[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CTOWER[] =
 {
-    { _T("Clock Tower / New 8 TS (1/3)"), 0x02e1c00, 0x02e1e00, indexJojos51Stages, 0 },
+    { _T("Clock Tower / New 8 TS (1/3)"), 0x02e1c00, 0x02e1e00, indexJojos51Stages, 0, &pairFullyLinkedNode },
     { _T("Clock Tower / New 8 TS (2/3)"), 0x02e1e00, 0x02e2000, indexJojos51Stages, 1 },
     { _T("Clock Tower / New 8 TS (3/3)"), 0x02e2000, 0x02e2200, indexJojos51Stages, 2 },
 };
@@ -3556,7 +3556,7 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_SUBURB[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_OBRIDGE[] =
 {
-    { _T("On the Bridge TS (1/2)"), 0x02e4f00, 0x02e5100, indexJojos51Stages, 0x3 },
+    { _T("On the Bridge TS (1/2)"), 0x02e4f00, 0x02e5100, indexJojos51Stages, 0x3, &pairFullyLinkedNode },
     { _T("On the Bridge TS (2/2)"), 0x02e5100, 0x02e5300, indexJojos51Stages, 0x4 },
 };
 

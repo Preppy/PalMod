@@ -848,20 +848,6 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     return TRUE;
 }
 
-COLORREF* CGame_KOF02UM_S::CreatePal(UINT16 nUnitId, UINT16 nPalId)
-{
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
-
-    for (UINT16 i = 0; i < m_nCurrentPaletteSize; i++)
-    {
-        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
-    }
-
-    return NewPal;
-}
-
 void CGame_KOF02UM_S::UpdatePalData()
 {
     for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)

@@ -502,6 +502,25 @@ void CGameClass::Revert(int nPalId)
     delete[] pTempPal;
 }
 
+COLORREF* CGameClass::CreatePal(UINT16 nUnitId, UINT16 nPalId)
+{
+    LoadSpecificPaletteData(nUnitId, nPalId);
+
+    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
+
+    for (UINT16 i = 0; i < (m_nCurrentPaletteSize - createPalOptions.nStartingPosition); i++)
+    {
+        NewPal[i + createPalOptions.nStartingPosition] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | createPalOptions.crForcedColorValues;
+    }
+
+    if (createPalOptions.crForcedFirstColorValue != 0)
+    {
+        NewPal[0] = createPalOptions.crForcedFirstColorValue;
+    }
+
+    return NewPal;
+}
+
 COLORREF*** CGameClass::CreateImgOutPal()
 {
     COLORREF*** pppReturnPal;

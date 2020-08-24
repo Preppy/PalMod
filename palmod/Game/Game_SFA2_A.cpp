@@ -115,6 +115,8 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = SFA2_A_NUM_IMG_UNITS;
 
+    createPalOptions = { 1, 0xFF000000, 0xFF000000 };
+
     nDisplayW = 8;
     nFileAmt = 1;
 
@@ -1500,22 +1502,6 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     return TRUE;
-}
-
-COLORREF* CGame_SFA2_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
-{
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
-
-    for (UINT16 i = 0; i < m_nCurrentPaletteSize - 1; i++)
-    {
-        NewPal[i + 1] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
-    }
-
-    NewPal[0] = 0xFF000000;
-
-    return NewPal;
 }
 
 void CGame_SFA2_A::UpdatePalData()

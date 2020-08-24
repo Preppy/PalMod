@@ -40,6 +40,10 @@ protected:
     UINT16* rgFileChanged = nullptr;
     UINT16 nFileAmt = 0;
 
+    UINT32 m_nCurrentPaletteROMLocation = 0;
+    UINT16 m_nCurrentPaletteSize = 0;
+    LPCTSTR m_pszCurrentPaletteName = nullptr;
+
     BOOL bIsDir = FALSE;
 
     int nDefPalSz = 0;
@@ -89,6 +93,15 @@ protected:
     static UINT32 CONV_NEOGEO_32(UINT16 inCol);
     static UINT16 SWAP_16(UINT16 palv);
 
+    struct sCreatePalOptions
+    {
+        // Normally zero, but we can offset by one in some cases.
+        UINT8 nStartingPosition = 0;
+        COLORREF crForcedColorValues = 0x00000000;
+        COLORREF crForcedFirstColorValue = 0x00000000;
+    };
+
+
     struct sPaletteIdentifier
     {
         UINT16 nUnit = 0;
@@ -111,6 +124,7 @@ public:
     int nRedirCtr = 0;
     //Used for image selection
     int nTargetImgId = 0;
+    sCreatePalOptions createPalOptions;
 
     UINT16*** GetDataBuffer() { return m_pppDataBuffer; };
 
@@ -173,7 +187,7 @@ public:
     virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId) = 0;
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) = 0;
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
-    virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId) = 0;
+    virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
     virtual void UpdatePalData();
     virtual void FlushChangeTrackingArray() { safe_delete_array(rgFileChanged); };
     virtual void PrepChangeTrackingArray();

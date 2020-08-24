@@ -63,6 +63,8 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
+    createPalOptions = { 1, 0xFF000000, 0xFF000000 };
+
     InitDataBuffer();
 
     //Set color mode
@@ -293,41 +295,6 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-                    if (!UsePaletteSetForPortraits())
-                    {
-                        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-                        TCHAR szMoveDesc[MAX_DESCRIPTION_LENGTH];
-                        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), UnitNode->szDesc);
-                        StrRemoveNonASCII(szMoveDesc, ARRAYSIZE(szMoveDesc), ChildNode->szDesc);
-
-                        CString strInfo;
-                        strInfo.Format(_T("const sGame_PaletteDataset SSF2T_A_%s_PALETTES_%s[] =\r\n{\r\n"), szCodeDesc, szMoveDesc);
-                        OutputDebugString(strInfo);
-
-                        UINT32 nInitialOffset = paletteSetToUse[nNodeIndex].nPaletteOffset;
-                        UINT32 nTerminalOffset = paletteSetToUse[nNodeIndex].nPaletteOffsetEnd;
-
-                        strInfo.Format(_T("    { _T(\"%s\", 0x%x, 0%x, 0x%02x },\r\n"), ChildNode->szDesc, nInitialOffset, nTerminalOffset, paletteSetToUse[nNodeIndex].indexImgToUse);
-                        OutputDebugString(strInfo);
-                        nInitialOffset += 0x20;
-                        nTerminalOffset+= 0x20;
-                        strInfo.Format(_T("    { _T(\"%s Extra\", 0x%x, 0x%x, 0x%02x },\r\n"), ChildNode->szDesc, nInitialOffset, nTerminalOffset, paletteSetToUse[nNodeIndex].indexImgToUse);
-                        OutputDebugString(strInfo);
-                        nInitialOffset += 0x20;
-                        nTerminalOffset += 0x20;
-                        strInfo.Format(_T("    { _T(\"%s Super Trail 1\", 0x%x, 0x%x, 0x%02x },\r\n"), ChildNode->szDesc, nInitialOffset, nTerminalOffset, paletteSetToUse[nNodeIndex].indexImgToUse);
-                        OutputDebugString(strInfo);
-                        nInitialOffset += 0x20;
-                        nTerminalOffset += 0x20;
-                        strInfo.Format(_T("    { _T(\"%s Super Trail 2\", 0x%x, 0x%x, 0x%02x },\r\n"), ChildNode->szDesc, nInitialOffset, nTerminalOffset, paletteSetToUse[nNodeIndex].indexImgToUse);
-                        OutputDebugString(strInfo);
-                        nInitialOffset += 0x20;
-                        nTerminalOffset += 0x20;
-                        strInfo.Format(_T("    { _T(\"%s Super Trail 3\", 0x%x, 0x%x, 0x%02x },\r\n"), ChildNode->szDesc, nInitialOffset, nTerminalOffset, paletteSetToUse[nNodeIndex].indexImgToUse);
-                        OutputDebugString(strInfo);
-
-                        OutputDebugString(_T("};\r\n\r\n"));
-                    }
 #if SSF2T_DEBUG
 #if OUTPUT_AS_NODE
                     strMsg.Format(_T("    { \"%s\", 0x%06x, 0x%06x },\n"), ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
@@ -850,22 +817,6 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     return TRUE;
-}
-
-COLORREF* CGame_SSF2T_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
-{
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
-
-    for (UINT16 i = 0; i < m_nCurrentPaletteSize - 1; i++)
-    {
-        NewPal[i + 1] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
-    }
-
-    NewPal[0] = 0xFF000000;
-
-    return NewPal;
 }
 
 void CGame_SSF2T_A::UpdatePalData()

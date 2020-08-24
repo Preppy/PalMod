@@ -50,7 +50,6 @@ CGame_MSH_A::CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad)
     strMessage.Format(_T("CGame_MSH_A::CGame_MSH_A: Loading for the %s ROM\n"), (m_nMSHSelectedRom == 5) ? _T("05") : _T("6B"));
     OutputDebugString(strMessage);
 
-
     m_nTotalInternalUnits = UsePaletteSetForCharacters() ? MSH_A_NUMUNIT_05 : MSH_A_NUMUNIT_06;
     m_nExtraUnit = UsePaletteSetForCharacters() ? MSH_A_EXTRALOC_05 : MSH_A_EXTRALOC_06;
 
@@ -68,6 +67,8 @@ CGame_MSH_A::CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad)
     m_nLowestKnownPaletteRomLocation = UsePaletteSetForCharacters() ? m_uLowestKnownPaletteROMLocation_05 : m_uLowestKnownPaletteROMLocation_06;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+
+    createPalOptions = { 1, 0xFF000000, 0xFF000000 };
 
     InitDataBuffer();
 
@@ -924,22 +925,6 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     return TRUE;
-}
-
-COLORREF* CGame_MSH_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
-{
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
-
-    for (UINT16 i = 0; i < m_nCurrentPaletteSize - 1; i++)
-    {
-        NewPal[i + 1] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | 0xFF000000;
-    }
-
-    NewPal[0] = 0xFF000000;
-
-    return NewPal;
 }
 
 void CGame_MSH_A::UpdatePalData()
