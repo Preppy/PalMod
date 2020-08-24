@@ -24,5 +24,5 @@ public:
     static sFileRule GetRule(UINT16 nRuleId);
 
     BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber);
-    BOOL SaveFile(CFile* SaveFile, UINT16 nSaveUnit);
+    BOOL SaveFile(CFile* SaveFile, UINT16 nSaveUnit) override;
 };

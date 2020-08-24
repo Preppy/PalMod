@@ -78,7 +78,6 @@ public:
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nFileId = 0);
-    BOOL SaveFile(CFile* SaveFile, UINT16 nFileId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     void UpdatePalData();

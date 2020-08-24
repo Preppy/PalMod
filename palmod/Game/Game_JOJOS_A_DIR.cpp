@@ -237,33 +237,36 @@ BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 
             for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
-                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+                if (IsPaletteDirty(nUnitCtr, nPalCtr))
+                {
+                    LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
-                
-                UINT32 nOriginalOffset = m_nCurrentPaletteROMLocation;
-                UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
-                m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
-                m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
+                    const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
+
+                    UINT32 nOriginalOffset = m_nCurrentPaletteROMLocation;
+                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                    m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+                    m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
 #if JOJOS_RERIP_DEBUG
-                strInfo.Format(_T("\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X (SIMM set %u)\n"), nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation, nSIMMSetToUse);
-                OutputDebugString(strInfo);
+                    strInfo.Format(_T("\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X (SIMM set %u)\n"), nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation, nSIMMSetToUse);
+                    OutputDebugString(strInfo);
 #endif
 
-                CFile* pSIMM1 = (nSIMMSetToUse == 0) ? &fileSIMM1 : &fileSIMM3;
-                CFile* pSIMM2 = (nSIMMSetToUse == 0) ? &fileSIMM2 : &fileSIMM4;
+                    CFile* pSIMM1 = (nSIMMSetToUse == 0) ? &fileSIMM1 : &fileSIMM3;
+                    CFile* pSIMM2 = (nSIMMSetToUse == 0) ? &fileSIMM2 : &fileSIMM4;
 
-                pSIMM1->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                    pSIMM1->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                    pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-                for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
-                {
-                    BYTE high = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
-                    BYTE low = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
+                    for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
+                    {
+                        BYTE high = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
+                        BYTE low = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
 
-                    pSIMM1->Write(&low, 1);
-                    pSIMM2->Write(&high, 1);
+                        pSIMM1->Write(&low, 1);
+                        pSIMM2->Write(&high, 1);
+                    }
                 }
             }
         }
@@ -288,6 +291,8 @@ BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
     {
         fileSIMM4.Close();
     }
+
+    ClearDirtyPaletteTracker();
 
     return TRUE;
 }

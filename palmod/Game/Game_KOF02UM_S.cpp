@@ -696,40 +696,6 @@ BOOL CGame_KOF02UM_S::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     return TRUE;
 }
 
-BOOL CGame_KOF02UM_S::SaveFile(CFile* SaveFile, UINT16 nUnitId)
-{
-    UINT32 nTotalPalettesSaved = 0;
-    bool fShownOnce = false;
-
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-    {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-        {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            if (!fShownOnce && (m_nCurrentPaletteROMLocation < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
-            {
-                CString strMsg;
-                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
-                MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-                fShownOnce = true;
-            }
-
-            SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-            SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
-            nTotalPalettesSaved++;
-        }
-    }
-
-    CString strMsg;
-    strMsg.Format(_T("CGame_KOF02UM_S::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
-    OutputDebugString(strMsg);
-
-    return TRUE;
-}
-
 void CGame_KOF02UM_S::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
@@ -883,6 +849,7 @@ void CGame_KOF02UM_S::UpdatePalData()
                 nTotalColorsRemaining -= nMaxSafeColorsToWrite;
             }
 
+            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
             srcDef->bChanged = FALSE;
             rgFileChanged[0] = TRUE;
         }

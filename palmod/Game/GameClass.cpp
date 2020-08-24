@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "GameClass.h"
+#include "..\PalMod.h"
 
 BOOL CGameClass::bPostSetPalProc = TRUE;
 BOOL CGameClass::m_fAllowTransparency = FALSE;
@@ -500,6 +501,8 @@ void CGameClass::Revert(int nPalId)
     }
 
     delete[] pTempPal;
+
+    MarkPaletteClean(CurrPalDef->uUnitId, CurrPalDef->uPalId);
 }
 
 COLORREF* CGameClass::CreatePal(UINT16 nUnitId, UINT16 nPalId)
@@ -744,6 +747,25 @@ void CGameClass::MarkPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
     return;
 }
 
+
+
+void CGameClass::MarkPaletteClean(UINT16 nUnit, UINT16 nPaletteID)
+{
+    struct DoPalettesMatch
+    {
+        sPaletteIdentifier* pPalToCheck;
+        DoPalettesMatch(sPaletteIdentifier* pPalToCheck) : pPalToCheck(pPalToCheck) {}
+        bool operator () (const sPaletteIdentifier& m) const
+        {
+            return (m.nUnit == pPalToCheck->nUnit) && (m.nPaletteId == pPalToCheck->nPaletteId);
+        }
+    };
+
+    sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteID };
+    m_vDirtyPaletteList.erase(std::remove_if(m_vDirtyPaletteList.begin(), m_vDirtyPaletteList.end(), DoPalettesMatch(&sPaletteOfInterest)), m_vDirtyPaletteList.end());
+    return;
+}
+
 bool CGameClass::IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
 {
     struct DoPalettesMatch
@@ -760,5 +782,44 @@ bool CGameClass::IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
     auto it = std::find_if(m_vDirtyPaletteList.begin(), m_vDirtyPaletteList.end(), DoPalettesMatch(&sPaletteOfInterest));
 
     return it != m_vDirtyPaletteList.end();
+}
+
+BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
+{
+    UINT32 nTotalPalettesSaved = 0;
+    bool fShownOnce = false;
+
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    {
+        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        {
+            if (IsPaletteDirty(nUnitCtr, nPalCtr))
+            {
+                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                if (!fShownOnce && (m_nCurrentPaletteROMLocation < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
+                {
+                    CString strMsg;
+                    strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
+                    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+                    fShownOnce = true;
+                }
+
+                SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                nTotalPalettesSaved++;
+            }
+        }
+    }
+
+    ClearDirtyPaletteTracker();
+
+    CString strMsg;
+    strMsg.Format(_T("CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
+    OutputDebugString(strMsg);
+
+    return TRUE;
 }
 

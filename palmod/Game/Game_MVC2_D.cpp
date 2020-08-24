@@ -551,11 +551,7 @@ BOOL CGame_MVC2_D::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
 BOOL CGame_MVC2_D::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
-    if (!ppDataBuffer[nUnitId])
-    {
-        return FALSE;
-    }
-    else
+    if (ppDataBuffer[nUnitId])
     {
         if (nUnitId != MVC2_D_TEAMVIEW_LOCATION)
         {
@@ -656,6 +652,7 @@ void CGame_MVC2_D::UpdatePalData()
             //0 out the 1st index alpha flag
             ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16)] &= 0x0FFF;
 
+            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
             srcDef->bChanged = FALSE;
             rgFileChanged[srcDef->uUnitId] = TRUE;
 

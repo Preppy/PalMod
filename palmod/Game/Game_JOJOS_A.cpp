@@ -1153,6 +1153,7 @@ void CGame_JOJOS_A::UpdatePalData()
                 m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = ConvCol(crSrc[nPICtr]);
             }
 
+            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
             srcDef->bChanged = FALSE;
             rgFileChanged[0] = TRUE;
         }
@@ -1185,31 +1186,6 @@ BOOL CGame_JOJOS_A::LoadFile(CFile* LoadedFile, UINT16 nFileId)
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
     CheckForErrorsInTables();
-
-    return TRUE;
-}
-
-BOOL CGame_JOJOS_A::SaveFile(CFile* SaveFile, UINT16 nFileId)
-{
-    UINT32 nTotalPalettesSaved = 0;
-
-    for (INT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-    {
-        UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
-
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)
-        {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-            SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
-            nTotalPalettesSaved++;
-        }
-    }
-
-    CString strMsg;
-    strMsg.Format(_T("CGame_JOJOS_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
-    OutputDebugString(strMsg);
 
     return TRUE;
 }

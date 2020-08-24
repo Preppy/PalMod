@@ -198,21 +198,24 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 
             for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
-                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+                if (IsPaletteDirty(nUnitCtr, nPalCtr))
+                {
+                    LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
-                
-                UINT32 nOriginalOffset = m_nCurrentPaletteROMLocation;
-                UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
-                m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
+                    const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
+
+                    UINT32 nOriginalOffset = m_nCurrentPaletteROMLocation;
+                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                    m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
 #if MVC2_RERIP_DEBUG
-                strInfo.Format(_T("\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X (SIMM set %u)\n"), nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation, nSIMMSetToUse);
-                OutputDebugString(strInfo);
+                    strInfo.Format(_T("\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X (SIMM set %u)\n"), nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation, nSIMMSetToUse);
+                    OutputDebugString(strInfo);
 #endif
 
-                fileSIMMs[nSIMMSetToUse].Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                fileSIMMs[nSIMMSetToUse].Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                    fileSIMMs[nSIMMSetToUse].Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                    fileSIMMs[nSIMMSetToUse].Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                }
             }
         }
     }
@@ -224,6 +227,8 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
             fileSIMMs[nIndex].Close();
         }
     }
+
+    ClearDirtyPaletteTracker();
 
     return TRUE;
 }

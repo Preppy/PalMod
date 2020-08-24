@@ -4,16 +4,12 @@
 
 void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart, UINT32 nGameROMSize);
 
-const UINT32 k_nBogusHighValue = 0xFEEDFED;
-
 class CGameWithExtrasFile : public CGameClass
 {
 protected:
     static UINT32 m_nTotalPaletteCount;
-    UINT16 m_nTotalInternalUnits = INVALID_UNIT_VALUE;
     UINT16 m_nExtraUnit = INVALID_UNIT_VALUE;
     UINT32 m_nSafeCountForThisRom = 0;
-    UINT32 m_nLowestKnownPaletteRomLocation = k_nBogusHighValue;
     UINT32 m_nLowestRomLocationThisPass = k_nBogusHighValue;
     UINT32 m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
     LPCTSTR m_pszExtraFilename = nullptr;

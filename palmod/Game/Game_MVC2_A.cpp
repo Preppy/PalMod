@@ -865,21 +865,26 @@ BOOL CGame_MVC2_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            if (!fShownOnce && (m_nCurrentPaletteROMLocation < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
+            if (IsPaletteDirty(nUnitCtr, nPalCtr))
             {
-                CString strMsg;
-                strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
-                MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-                fShownOnce = true;
-            }
+                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-            SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
-            nTotalPalettesSaved++;
+                if (!fShownOnce && (m_nCurrentPaletteROMLocation < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
+                {
+                    CString strMsg;
+                    strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
+                    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+                    fShownOnce = true;
+                }
+
+                SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                nTotalPalettesSaved++;
+            }
         }
     }
+
+    ClearDirtyPaletteTracker();
 
     CString strMsg;
     strMsg.Format(_T("CGame_MVC2_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);

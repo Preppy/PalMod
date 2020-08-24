@@ -43,7 +43,7 @@ public:
     CDescTree* GetMainTree();
 
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId);
-    BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
+    BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) override;
 
     void ValidateMixExtraColors(BOOL* pfChangesWereMade);
 

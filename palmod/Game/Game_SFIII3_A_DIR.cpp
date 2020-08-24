@@ -277,29 +277,32 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
 
             for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
-                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-                const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
-
-                UINT32 nOriginalOffset = m_nCurrentPaletteROMLocation;
-                UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
-                m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
-                m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
-
-                CFile* pSIMM1 = (nSIMMSetToUse == 0) ? &fileSIMM1 : &fileSIMM3;
-                CFile* pSIMM2 = (nSIMMSetToUse == 0) ? &fileSIMM2 : &fileSIMM4;
-
-                pSIMM1->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                nPaletteSaveCount++;
-
-                for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
+                if (IsPaletteDirty(nUnitCtr, nPalCtr))
                 {
-                    BYTE high = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
-                    BYTE low = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
+                    LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                    pSIMM1->Write(&low, 1);
-                    pSIMM2->Write(&high, 1);
+                    const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
+
+                    UINT32 nOriginalOffset = m_nCurrentPaletteROMLocation;
+                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+                    m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+                    m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
+
+                    CFile* pSIMM1 = (nSIMMSetToUse == 0) ? &fileSIMM1 : &fileSIMM3;
+                    CFile* pSIMM2 = (nSIMMSetToUse == 0) ? &fileSIMM2 : &fileSIMM4;
+
+                    pSIMM1->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                    pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                    nPaletteSaveCount++;
+
+                    for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
+                    {
+                        BYTE high = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
+                        BYTE low = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
+
+                        pSIMM1->Write(&low, 1);
+                        pSIMM2->Write(&high, 1);
+                    }
                 }
             }
         }
@@ -331,6 +334,8 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
     {
         fileSIMM4.Close();
     }
+
+    ClearDirtyPaletteTracker();
 
     return TRUE;
 }

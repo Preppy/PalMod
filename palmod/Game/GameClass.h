@@ -32,6 +32,8 @@ enum ColFlag
     COL_A,
 };
 
+const UINT32 k_nBogusHighValue = 0xFEEDFED;
+
 class CGameClass
 {
 protected:
@@ -40,7 +42,9 @@ protected:
     UINT16* rgFileChanged = nullptr;
     UINT16 nFileAmt = 0;
 
+    UINT16 m_nTotalInternalUnits = INVALID_UNIT_VALUE;
     UINT32 m_nCurrentPaletteROMLocation = 0;
+    UINT32 m_nLowestKnownPaletteRomLocation = k_nBogusHighValue;
     UINT16 m_nCurrentPaletteSize = 0;
     LPCTSTR m_pszCurrentPaletteName = nullptr;
 
@@ -101,11 +105,22 @@ protected:
         COLORREF crForcedFirstColorValue = 0x00000000;
     };
 
+    sCreatePalOptions createPalOptions;
 
     struct sPaletteIdentifier
     {
         UINT16 nUnit = 0;
         UINT16 nPaletteId = 0;
+    };
+
+    struct DoPalettesMatch
+    {
+        sPaletteIdentifier* pPalToCheck;
+        DoPalettesMatch(sPaletteIdentifier* pPalToCheck) : pPalToCheck(pPalToCheck) {}
+        bool operator () (const sPaletteIdentifier& m) const
+        {
+            return (m.nUnit == pPalToCheck->nUnit) && (m.nPaletteId == pPalToCheck->nPaletteId);
+        }
     };
 
     std::vector<sPaletteIdentifier> m_vDirtyPaletteList;
@@ -124,7 +139,6 @@ public:
     int nRedirCtr = 0;
     //Used for image selection
     int nTargetImgId = 0;
-    sCreatePalOptions createPalOptions;
 
     UINT16*** GetDataBuffer() { return m_pppDataBuffer; };
 
@@ -185,7 +199,7 @@ public:
     virtual LPCTSTR GetGameName() { return g_GameFriendlyName[nGameFlag]; };
 
     virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId) = 0;
-    virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) = 0;
+    virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
     virtual void UpdatePalData();
@@ -200,7 +214,6 @@ public:
 
     void ClearDirtyPaletteTracker() { m_vDirtyPaletteList.clear(); };
     void MarkPaletteDirty(UINT16 nUnit, UINT16 nPaletteID);
+    void MarkPaletteClean(UINT16 nUnit, UINT16 nPaletteID);
     bool IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID);
-
-    //virtual void SaveFile() = 0;
 };

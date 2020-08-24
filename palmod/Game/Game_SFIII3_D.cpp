@@ -203,12 +203,16 @@ BOOL CGame_SFIII3_D::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 
     for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
-        GetPalOffsSz(nUnitId, nPalCtr);
+        if (IsPaletteDirty(nUnitId, nPalCtr))
+        {
+            GetPalOffsSz(nUnitId, nPalCtr);
 
-        SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
-        SaveFile->Write(m_pppDataBuffer[nUnitId][nPalCtr], nCurrPalSz * 2);
+            SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+            SaveFile->Write(m_pppDataBuffer[nUnitId][nPalCtr], nCurrPalSz * 2);
+        }
     }
+
+    ClearDirtyPaletteTracker();
 
     return TRUE;
 }
@@ -300,6 +304,7 @@ void CGame_SFIII3_D::UpdatePalData()
                 m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = (ConvCol(crSrc[nPICtr]) | 0x8000);
             }
 
+            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
             srcDef->bChanged = FALSE;
             rgFileChanged[srcDef->uUnitId] = TRUE;
         }
