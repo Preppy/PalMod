@@ -108,8 +108,6 @@ BOOL CImgOutDlg::OnInitDialog()
     //Cannot get accurate remainder amount
 
     //Populate Zoom combo box
-    //3.8 is the max zoom amt
-
     for (int i = 1; i < 5; i++)
     {
         tmp_str.Format(_T("%d.0x"), i);
@@ -126,7 +124,6 @@ BOOL CImgOutDlg::OnInitDialog()
     m_BdrSpn.SetBuddy(GetDlgItem(IDC_EDIT_BDRSZ));
 
     //Get the size of the dummy rect
-
     GetDlgItem(IDC_DUMMY)->GetClientRect(&rct_dummy);
 
     bCanSize = TRUE;
@@ -196,19 +193,25 @@ void CImgOutDlg::UpdImgVar(BOOL bResize)
 {
     UpdateData();
 
-    m_DumpBmp.amt = img_amt;
+    m_DumpBmp.m_nTotalImagesToDisplay = img_amt;
     m_DumpBmp.nPalIndex = m_pal;
 
     //Remainder Problem
 
     double fpTargetZoom;
 
-    if (m_zoom == 15)
+    if (m_zoom >= 15)
     {
+        m_zoom = 15;
         fpTargetZoom = 4.0;
     }
     else
     {
+        if (m_zoom < 0)
+        {
+            m_zoom = 0;
+        }
+
         fpTargetZoom = (((double)m_zoom / 5.0) + 1.0);
         fpTargetZoom += (0.2 * ((m_zoom) % 5));
     }
@@ -467,7 +470,7 @@ void CImgOutDlg::OnFileSave()
             }
             else
             {
-                output_str.Format(_T("%s%s"), sfd_ofn.lpstrFile, output_ext);
+                output_str.Format(_T("%s%s"), sfd_ofn.lpstrFile, output_ext.GetString());
             }
 
             HRESULT hr = out_img.Save(output_str, img_format);

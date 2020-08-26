@@ -67,7 +67,7 @@ public:
     int nPalAmt = 0;
     int img_amt = 0;
 
-    int amt = 0;
+    int m_nTotalImagesToDisplay = 0;
     int nPalIndex = 0;
     float zoom = 0.0f;
     int border_sz = 0;
@@ -85,7 +85,8 @@ public:
 
     int nMainW = 0, nMainH = 0;
 
-    int GetImagesPerLine();
+    int GetImageCountForFirstLine();
+    int GetMaxImagesPerLine();
 
     CScrollBar m_HScroll;
     CScrollBar m_VScroll;

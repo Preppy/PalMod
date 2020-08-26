@@ -1239,6 +1239,18 @@ const sGame_PaletteDataset SFA3_A_STAGES_CHUNLI_NODE[] =
     { _T("Shadow"), 0x38794, 0x387B4, indexCPS2_SFA3Assets, 0x34 },
 };
 
+const sGame_PaletteDataset SFA3_A_STAGES_ADON_NODE[] =
+{
+    { _T("Adon Stage - 32x32 Pt1"), 0x47ED4, 0x480D4, indexCPS2_SFA3Assets, 0x3b, &pairFullyLinkedNode },
+    { _T("Adon Stage - 32x32 Pt2"), 0x480D4, 0x48114, indexCPS2_SFA3Assets, 0x3c },
+    { _T("Adon Stage - 16x16 Pt1"), 0x417D4, 0x419D4, indexCPS2_SFA3Assets, 0x39 },
+    { _T("Adon Stage - 16x16 Pt2"), 0x419D4, 0x41BD4, indexCPS2_SFA3Assets, 0x3a },
+    { _T("Adon Stage - Obj Pt1"), 0x387B4, 0x387F4, indexCPS2_SFA3Assets, 0x35 },
+    { _T("Adon Stage - 8x8 Pt1"), 0x3CFD4, 0x3D1D4, indexCPS2_SFA3Assets, 0x36 },
+    { _T("Adon Stage - 8x8 Pt2"), 0x3D1D4, 0x3D314, indexCPS2_SFA3Assets, 0x37 },
+    { _T("Adon Stage - Obj Pt2"), 0x387F4, 0x38874, indexCPS2_SFA3Assets, 0x38 },
+};
+
 const sGame_PaletteDataset SFA3_A_RYU_PORTRAIT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4ce14, 0x4ce94, indexCPS2_SFA3Assets, 0xb4 },
@@ -1679,6 +1691,7 @@ const sDescTreeNode SFA3_A_JULI_COLLECTION[] =
 
 const sDescTreeNode SFA3_A_BONUS_COLLECTION[] =
 {
+    { _T("Adon Stage"), DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_ADON_NODE, ARRAYSIZE(SFA3_A_STAGES_ADON_NODE) },
     { _T("Akuma Stage"), DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_AKUMA_NODE, ARRAYSIZE(SFA3_A_STAGES_AKUMA_NODE) },
     { _T("Chun-Li Stage"), DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_CHUNLI_NODE, ARRAYSIZE(SFA3_A_STAGES_CHUNLI_NODE) },
     { _T("Ken Stage"), DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_KEN_NODE, ARRAYSIZE(SFA3_A_STAGES_KEN_NODE) },
@@ -1716,7 +1729,7 @@ const sDescTreeNode SFA3_A_UNITS[SFA3_A_NUM_IND] =
     { _T("Sodom"),           DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_COLLECTION,         ARRAYSIZE(SFA3_A_SODOM_COLLECTION) },
     { _T("Vega"),            DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_COLLECTION,          ARRAYSIZE(SFA3_A_VEGA_COLLECTION) },
     { _T("Zangief"),         DESC_NODETYPE_TREE, (void*)SFA3_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA3_A_ZANGIEF_COLLECTION) },
-    { _T("Bonus Stuff"),     DESC_NODETYPE_TREE, (void*)SFA3_A_BONUS_COLLECTION,         ARRAYSIZE(SFA3_A_BONUS_COLLECTION) },
+    { _T("Stages"),          DESC_NODETYPE_TREE, (void*)SFA3_A_BONUS_COLLECTION,         ARRAYSIZE(SFA3_A_BONUS_COLLECTION) },
 };
 
 // We extend this array with data groveled from the SFA3e.txt extensible extras file, if any.

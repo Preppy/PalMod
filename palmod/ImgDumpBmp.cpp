@@ -107,6 +107,7 @@ void CImgDumpBmp::InitImgData()
     blt_w = rImgRct.Width();
     blt_h = rImgRct.Height();
 
+    // Initialize the W/H variables
     GetOutputW();
     GetOutputH();
 
@@ -359,8 +360,7 @@ void CImgDumpBmp::OnPaint()
 
         SetBG(crBGCol);
 
-        //Create the scroll bars. Why are they here???????????????????
-
+        //Create the scroll bars.
         SizeScroll();
 
         m_HScroll.Create(SBS_HORZ | SBS_TOPALIGN | WS_CHILD, h_rect, this, 100);
@@ -447,20 +447,20 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
         pMainBmpData = (UINT32*)pDstData;
     }
 
-    int nMaxImagesPerLine = GetImagesPerLine();
+    const int nImageCountOnFirstLine = GetImageCountForFirstLine();
 
-    for (int i = 0; i < amt; i++)
+    for (int i = 0; i < m_nTotalImagesToDisplay; i++)
     {
-        nPal = (amt > 1) ? i : nPalIndex;
+        nPal = (m_nTotalImagesToDisplay > 1) ? i : nPalIndex;
 
         if (DispType == DISPLAY_SPRITES_LEFTTORIGHT)
         {
-            if (i >= nMaxImagesPerLine)
+            if (i >= nImageCountOnFirstLine)
             {
                 row_ctr = 1;
             }
 
-            nTargetX = (i - (row_ctr * nMaxImagesPerLine));
+            nTargetX = (i - (row_ctr * nImageCountOnFirstLine));
         }
         else if (DispType == DISPLAY_SPRITES_TOPTOBOTTOM)
         {
@@ -557,8 +557,6 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
     nBltW = rBltRct.right - rBltRct.left;
     nBltH = rBltRct.bottom - rBltRct.top;
 
-    int nRightBlt = rBltRct.right * 4;
-
     if (bTransBG)
     {
         double fpAdd = 0.0;
@@ -584,9 +582,9 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
                     pDstBmpData[nDstPos + 3] += pCurrPal[(uIndex * 4) + 3];
 
-                    pDstBmpData[nDstPos + 2] = (UINT8)(pDstBmpData[nDstPos + 2] ? pDstBmpData[nDstPos + 2] + ((double)pCurrPal[(uIndex * 4)] * fpAdd)     : pDstBmpData[nDstPos + 2] + pCurrPal[(uIndex * 4)]);
-                    pDstBmpData[nDstPos + 1] = (UINT8)(pDstBmpData[nDstPos + 1] ? pDstBmpData[nDstPos + 1] + ((double)pCurrPal[(uIndex * 4) + 1] * fpAdd) : pDstBmpData[nDstPos + 1] + pCurrPal[(uIndex * 4) + 1]);
-                    pDstBmpData[nDstPos] =     (UINT8)(pDstBmpData[nDstPos]     ? pDstBmpData[nDstPos]     + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd) : pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2]);
+                    pDstBmpData[nDstPos + 2] = (UINT8)(pDstBmpData[nDstPos + 2] ? (pDstBmpData[nDstPos + 2] + ((double)pCurrPal[(uIndex * 4)] * fpAdd)    ) : pDstBmpData[nDstPos + 2] + pCurrPal[(uIndex * 4)]);
+                    pDstBmpData[nDstPos + 1] = (UINT8)(pDstBmpData[nDstPos + 1] ? (pDstBmpData[nDstPos + 1] + ((double)pCurrPal[(uIndex * 4) + 1] * fpAdd)) : pDstBmpData[nDstPos + 1] + pCurrPal[(uIndex * 4) + 1]);
+                    pDstBmpData[nDstPos] =     (UINT8)(pDstBmpData[nDstPos]     ? (pDstBmpData[nDstPos]     + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd)) : pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2]);
                 }
             }
         }
@@ -662,28 +660,30 @@ void CImgDumpBmp::CleanUp()
     //Clean main image data
 }
 
-int CImgDumpBmp::GetImagesPerLine()
+int CImgDumpBmp::GetImageCountForFirstLine()
+{
+    // We want the odd sprites on the second line.
+    return (max(1, (int)floor(m_nTotalImagesToDisplay / 2)));
+}
+
+int CImgDumpBmp::GetMaxImagesPerLine()
 {
     int w_mul = 0;
 
-    switch (amt)
+    switch (m_nTotalImagesToDisplay)
     {
     case 1:
         w_mul = 1;
         break;
-    case 2:
+    case 2: // SVC
     case 4: // Garou
         w_mul = 2;
         break;
-    case 5:
-        w_mul = 3;
-        break;
+    case 5: // NEOGEO, Jojos
     case 6:
         w_mul = 3;
         break;
-    case 7:
-        w_mul = 4;
-        break;
+    case 7: // SF3
     case 8:
         w_mul = 4;
         break;
@@ -701,7 +701,7 @@ int CImgDumpBmp::GetImagesPerLine()
 
 int CImgDumpBmp::GetOutputW()
 {
-    int w_mul = GetImagesPerLine();
+    int w_mul = GetMaxImagesPerLine();
 
     nMainW = (int)(((w_mul * border_sz) + border_sz) + ((blt_w * zoom) * w_mul));
 
@@ -710,7 +710,7 @@ int CImgDumpBmp::GetOutputW()
 
 int CImgDumpBmp::GetOutputH()
 {
-    int h_mul = ((amt < 3) ? 1 : 2);
+    int h_mul = ((m_nTotalImagesToDisplay < 3) ? 1 : 2);
 
     nMainH = (int)(((h_mul * border_sz) + border_sz) + ((blt_h * zoom) * h_mul));
 

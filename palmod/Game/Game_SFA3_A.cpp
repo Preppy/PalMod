@@ -41,7 +41,7 @@ CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = SFA3_A_NUM_IND;
     m_nExtraUnit = SFA3_A_EXTRALOC;
-    m_nSafeCountForThisRom = 1081 + GetExtraCt(SFA3_A_EXTRALOC);
+    m_nSafeCountForThisRom = 1089 + GetExtraCt(SFA3_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SFA3;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
     m_nLowestKnownPaletteRomLocation = 0x2C000;
@@ -666,7 +666,7 @@ void CGame_SFA3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 
     LoadSpecificPaletteData(nUnitId, nPalId);
 
-    const UINT8 nTotalPagesNeeded = (UINT8)ceil(m_nCurrentPaletteSize / s_nColorsPerPage);
+    const UINT8 nTotalPagesNeeded = (UINT8)ceil((double)m_nCurrentPaletteSize / (double)s_nColorsPerPage);
     const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
 
     if (!fCanFitWithinCurrentPageLayout)
@@ -686,7 +686,7 @@ void CGame_SFA3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
         {
             strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
-            BasePalGroup.AddSep(0, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
+            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
             nColorsRemaining -= s_nColorsPerPage;
         }
     }
@@ -814,66 +814,92 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                int nXOffs = 0, nYOffs = 0;
-                UINT16 nPeerPaletteDistance = 1;
-                UINT16 nPeerPaletteIdInNode = Node03;
+                if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                {
+                    const UINT16 nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
-                if (paletteDataSet->indexImgToUse == indexCPS2_SFA3Assets)
-                {
-                    if (paletteDataSet->indexOffsetToUse == 0x01) // Waterfall landing
-                    {
-                        nXOffs = 86;
-                        nYOffs = -31;
-                        nPeerPaletteDistance = 4;
-                        nPeerPaletteIdInNode += 4;
-                        fShouldUseAlternateLoadLogic = true;
-                    }
-                    else if (paletteDataSet->indexOffsetToUse == 0x02) // Waterfall stream
-                    {
-                        nXOffs = -86;
-                        nYOffs = 31;
-                        nPeerPaletteDistance = -4;
-                        nPeerPaletteIdInNode -= 4;
-                        fShouldUseAlternateLoadLogic = true;
-                    }
-                }
-                else if (paletteDataSet->indexImgToUse == indexCPS2_Vega)
-                {
                     fShouldUseAlternateLoadLogic = true;
-                    nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-                    nPeerPaletteIdInNode += nPeerPaletteDistance;
-                }
+                    sImgTicket* pImgArray = nullptr;
 
-                UINT16 nPeerPaletteIdInUnit = NodeGet->uPalId + nPeerPaletteDistance;
-
-                if (fShouldUseAlternateLoadLogic)
-                {
-                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nPeerPaletteIdInUnit);
-
-                    if (paletteDataSetToJoin)
+                    for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
                     {
-                        ClearSetImgTicket(
-                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                            )
-                        );
+                        // The palettes get added forward, but the image tickets need to be generated in reverse order
+                        const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
+                        if (paletteDataSetToJoin)
+                        {
+                            pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
 
-                        //Set each palette
-                        sDescNode* JoinedNode[2] = {
-                            MainDescTree.GetDescNode(NodeGet->uUnitId, Node02, Node03, -1),
-                            MainDescTree.GetDescNode(NodeGet->uUnitId, Node02, nPeerPaletteIdInNode, -1)
-                        };
+                            //Set each palette
+                            sDescNode* JoinedNode = MainDescTree.GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                            CreateDefPal(JoinedNode, nStageIndex);
+                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                        }
+                    }
 
-                        //Set each palette
-                        CreateDefPal(JoinedNode[0], 0);
-                        CreateDefPal(JoinedNode[1], 1);
+                    ClearSetImgTicket(pImgArray);
+                }
+                else
+                {
+                    int nXOffs = 0, nYOffs = 0;
+                    UINT16 nPeerPaletteDistance = 1;
+                    UINT16 nPeerPaletteIdInNode = Node03;
 
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                    if (paletteDataSet->indexImgToUse == indexCPS2_SFA3Assets)
+                    {
+                        if (paletteDataSet->indexOffsetToUse == 0x01) // Waterfall landing
+                        {
+                            nXOffs = 86;
+                            nYOffs = -31;
+                            nPeerPaletteDistance = 4;
+                            nPeerPaletteIdInNode += 4;
+                            fShouldUseAlternateLoadLogic = true;
+                        }
+                        else if (paletteDataSet->indexOffsetToUse == 0x02) // Waterfall stream
+                        {
+                            nXOffs = -86;
+                            nYOffs = 31;
+                            nPeerPaletteDistance = -4;
+                            nPeerPaletteIdInNode -= 4;
+                            fShouldUseAlternateLoadLogic = true;
+                        }
+                    }
+                    else if (paletteDataSet->indexImgToUse == indexCPS2_Vega)
+                    {
+                        fShouldUseAlternateLoadLogic = true;
+                        nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                        nPeerPaletteIdInNode += nPeerPaletteDistance;
+                    }
+
+                    UINT16 nPeerPaletteIdInUnit = NodeGet->uPalId + nPeerPaletteDistance;
+
+                    if (fShouldUseAlternateLoadLogic)
+                    {
+                        const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nPeerPaletteIdInUnit);
+
+                        if (paletteDataSetToJoin)
+                        {
+                            ClearSetImgTicket(
+                                CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                                )
+                            );
+
+                            //Set each palette
+                            sDescNode* JoinedNode[2] = {
+                                MainDescTree.GetDescNode(NodeGet->uUnitId, Node02, Node03, -1),
+                                MainDescTree.GetDescNode(NodeGet->uUnitId, Node02, nPeerPaletteIdInNode, -1)
+                            };
+
+                            //Set each palette
+                            CreateDefPal(JoinedNode[0], 0);
+                            CreateDefPal(JoinedNode[1], 1);
+
+                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                        }
                     }
                 }
             }
-
         }
     }
     else

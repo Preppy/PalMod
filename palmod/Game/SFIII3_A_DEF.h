@@ -238,8 +238,8 @@ const sGame_PaletteDataset SFIII3_A_DUDLEY_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_EXTRA_PALETTES[] =
 {
-    { _T("P1 Intro car"), 0x704C80, 0x704D00 },
-    { _T("P2 Intro car + shared rose"), 0x704D80, 0x704E00 },
+    { _T("P1 Intro car"), 0x704C80, 0x704D00, index3S_CPS3_Dudley, 0x03 },
+    { _T("P2 Intro car + shared rose"), 0x704D80, 0x704E00, index3S_CPS3_Dudley, 0x03 },
     { _T("SA1 "), 0x704D00, 0x704D80, index3S_CPS3_Dudley, 0x02 },
 };
 
@@ -506,8 +506,8 @@ const sGame_PaletteDataset SFIII3_A_ELENA_EX_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_ELENA_EXTRA_PALETTES[] =
 {
-    { _T("Dust"), 0x706100, 0x706180 },
-    { _T("Music notes"), 0x706180, 0x706200 },
+    { _T("Dust"), 0x706100, 0x706180, index3S_CPS3_Elena, 0x02 },
+    { _T("Music notes"), 0x706180, 0x706200, index3S_CPS3_Elena, 0x03 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_Support_PALETTES[] =
@@ -1250,8 +1250,8 @@ const sGame_PaletteDataset SFIII3_A_GILL_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_ALEX_PORTRAIT_PALETTES[] =
 {
-    { _T("Alex portrait (Normal)"), 0x070CD80, 0x070CF00 },
-    { _T("Alex portrait (Tinted)"), 0x0711B80, 0x0711D00 },
+    { _T("Alex portrait (Normal)"), 0x070CD80, 0x070CF00, index3S_CPS3_Alex, 0x20 },
+    { _T("Alex portrait (Tinted)"), 0x0711B80, 0x0711D00, index3S_CPS3_Alex, 0x20 },
     { _T("Alex Character Select Icon"), 0x070C180, 0x070C200, index3S_CPS3_Alex, 0x22 },
 };
 

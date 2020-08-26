@@ -807,7 +807,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW8[] =
 {
     { _T("New 8 (Clone of Clock Tower) (1/3)"), 0x07e6200, 0x07e6400, indexJojos51Stages, 0, &pairFullyLinkedNode },
     { _T("New 8 (Clone of Clock Tower) (2/3)"), 0x07e6400, 0x07e6600, indexJojos51Stages, 1 },
-    { _T("New 8 (Clone of Clock Tower) (2/3)"), 0x07e6600, 0x07e6800, indexJojos51Stages, 2 },
+    { _T("New 8 (Clone of Clock Tower) (3/3)"), 0x07e6600, 0x07e6800, indexJojos51Stages, 2 },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW9[] =

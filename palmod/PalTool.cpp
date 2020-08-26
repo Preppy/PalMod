@@ -237,7 +237,7 @@ void CPalTool::EndSetPal()
 
                 if ((nPgH + nNextPgH) > nAvailablePageH)
                 {
-                    // We're going to need to use multiple pages here...
+                    // We need to add a new page for the overflow
                     nPgH = 0;
                     rgPalRedir[nCurrPg] = (UINT8)i;
                     nCurrPg++;
@@ -350,7 +350,7 @@ void CPalTool::DrawText()
 
     if (bFirstPaint)
     {
-        nFontHeight = dc.GetTextExtent(_T("Height"), 5).cy;
+        nFontHeight = (dc.GetTextExtent(_T("Height"), 5).cy + 4); // height plus padding
         bFirstPaint = FALSE;
     }
 
@@ -362,7 +362,8 @@ void CPalTool::DrawText()
         CString szTemp;
         szTemp.Format(_T("%d/%d"), nCurrPage, nPageAmt);
         dc.SetTextColor(RGB(0, 0, 0)); //Red for selected palette
-        dc.TextOut(rClient.right - 25 + 1, rClient.bottom - 15 + 1, szTemp);
+        const int nLeftOffset = (nCurrPage > 9) ? 30 : 25; // extra space for 10/10 vs narrower 9/9
+        dc.TextOut(rClient.right - nLeftOffset + 1, rClient.bottom - 15 + 1, szTemp);
     }
 
     if (nCurrPalAmt)
@@ -393,7 +394,7 @@ void CPalTool::DrawText()
 
                 dc.TextOut(CurrPos.cx, CurrPos.cy, CString(pPalEntry[i].szPalStr));
 
-                CurrPos.cy += (PAL_TXT_SPACE * 2 + nFontHeight + PalSize[i].cy);
+                CurrPos.cy += ((PAL_TXT_SPACE * 2) + nFontHeight + PalSize[i].cy);
             }
         }
     }
@@ -417,7 +418,7 @@ void CPalTool::OnPaint()
 
         m_PgSpin.Create(
             UDS_ARROWKEYS | UDS_HOTTRACK | UDS_HORZ | UDS_WRAP,
-            CRect(rClient.right - 50, nPalViewH, rClient.right - 25, rClient.bottom),
+            CRect(rClient.right - 55, nPalViewH, rClient.right - 30, rClient.bottom),
             this, ID_PALTOOLSPIN);
 
         //m_PgSpin.ShowWindow(SW_SHOW);

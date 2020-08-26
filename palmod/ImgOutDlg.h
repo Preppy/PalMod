@@ -84,7 +84,6 @@ public:
     afx_msg void OnEnChangeEditBdrsz();
 
     BOOL PreTranslateMessage(MSG* pMsg);
-    afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
 
     void AddZoom() { int nCurrZoom = m_CB_Zoom.GetCurSel() + 1; if (nCurrZoom <= nZoomMax)m_CB_Zoom.SetCurSel(nCurrZoom); UpdateImg(); };
