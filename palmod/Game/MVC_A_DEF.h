@@ -45,13 +45,13 @@ const sGame_PaletteDataset MVC_A_RYU_PALETTES_P1[] =
 {
     { _T("Ryu P1"), 0x487c4, 0x487e4, 0x0 },
     { _T("Ryu P1 Hadouken"), 0x487e4, 0x48804, 0x0, 1 },
-    { _T("Ryu P1 Shoryuken"), 0x48804, 0x48824, 0x27, 2 },
+    { _T("Ryu P1 Extra"), 0x48804, 0x48824 },
     { _T("Ken P1"), 0x4ec44, 0x4ec64, 0x0 },
     { _T("Ken P1 Hakouken"), 0x4ec64, 0x4ec84, 0x0, 1 },
     { _T("Ken P1 Shoryuken"), 0x4ec84, 0x4eca4, 0x27, 2 },
     { _T("Akuma P1"), 0x4ed04, 0x4ed24, 0x0 },
     { _T("Akuma P1 Hadouken"), 0x4ed24, 0x4ed44, 0x1e, 1 },
-    { _T("Akuma P1 Shoryuken"), 0x4ed44, 0x4ed64, 0x27, 2 },
+    { _T("Akuma P1 Extra"), 0x4ed44, 0x4ed64 },
     { _T("Ken (Background) P1"), 0x4ebC4, 0x4ebE4, 0x27, 0 },
     { _T("Sean (Background) P1"), 0x4ebE4, 0x4ec04, 0x0, 0xb },
 };
@@ -60,13 +60,13 @@ const sGame_PaletteDataset MVC_A_RYU_PALETTES_P2[] =
 {
     { _T("Ryu P2"), 0x48824, 0x48844, 0x0 },
     { _T("Ryu P2 Hadouken"), 0x48844, 0x48864, 0x0, 1 },
-    { _T("Ryu P2 Shoryuken"), 0x48864, 0x48884, 0x27, 2 },
+    { _T("Ryu P2 Extra"), 0x48864, 0x48884 },
     { _T("Ken P2"), 0x4eca4, 0x4ecc4, 0x0 },
     { _T("Ken P2 Hadouken"), 0x4ecc4, 0x4ece4, 0x0, 1 },
     { _T("Ken P2 Shoryuken"), 0x4ece4, 0x4ed04, 0x27, 2 },
     { _T("Akuma P2"), 0x4ed64, 0x4ed84, 0x0 },
     { _T("Akuma P2 Hadouken"), 0x4ed84, 0x4eda4, 0x1e, 1 },
-    { _T("Akuma P2 Shoryuken"), 0x4eda4, 0x4edc4, 0x27, 2 },
+    { _T("Akuma P2 Extra"), 0x4eda4, 0x4edc4 },
     { _T("Ken (Background) P2"), 0x4ec04, 0x4ec24, 0x27, 0 },
     { _T("Sean (Background) P2"), 0x4ec24, 0x4ec44, 0x0, 0xb },
 };

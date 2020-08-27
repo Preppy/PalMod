@@ -761,8 +761,8 @@ const sGame_PaletteDataset SFA2_A_BIRDIE_STATUS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_ROSE_PUNCH_PALETTES[] =
 {
     { _T("Punch"), 0x70480, 0x704a0, indexCPS2_Rose, 0x00 },
-    { _T("Punch Extra 1"), 0x704a0, 0x704c0, indexCPS2_Rose, 0x00 },
-    { _T("Punch Extra 2"), 0x704c0, 0x704e0, indexCPS2_Rose, 0x00 },
+    { _T("Punch Soul Power 1"), 0x704a0, 0x704c0, indexCPS2_Rose, 0x02 },
+    { _T("Punch Soul Power 2"), 0x704c0, 0x704e0, indexCPS2_Rose, 0x02 },
     { _T("Punch Super Trail Light"), 0x704e0, 0x70500, indexCPS2_Rose, 0x00 },
     { _T("Punch Super Trail Dark"), 0x70500, 0x70520, indexCPS2_Rose, 0x00 },
 };
@@ -770,8 +770,8 @@ const sGame_PaletteDataset SFA2_A_ROSE_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_ROSE_KICK_PALETTES[] =
 {
     { _T("Kick"), 0x70520, 0x70540, indexCPS2_Rose, 0x00 },
-    { _T("Kick Extra 1"), 0x70540, 0x70560, indexCPS2_Rose, 0x00 },
-    { _T("Kick Extra 2"), 0x70560, 0x70580, indexCPS2_Rose, 0x00 },
+    { _T("Kick Soul Power 1"), 0x70540, 0x70560, indexCPS2_Rose, 0x02 },
+    { _T("Kick Soul Power 2"), 0x70560, 0x70580, indexCPS2_Rose, 0x02 },
     { _T("Kick Super Trail Light"), 0x70580, 0x705a0, indexCPS2_Rose, 0x00 },
     { _T("Kick Super Trail Dark"), 0x705a0, 0x705c0, indexCPS2_Rose, 0x00 },
 };
@@ -779,8 +779,8 @@ const sGame_PaletteDataset SFA2_A_ROSE_KICK_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_ROSE_2PUNCHES_PALETTES[] =
 {
     { _T("2 Punches"), 0x705c0, 0x705e0, indexCPS2_Rose, 0x00 },
-    { _T("2 Punches Extra 1"), 0x705e0, 0x70600, indexCPS2_Rose, 0x00 },
-    { _T("2 Punches Extra 2"), 0x70600, 0x70620, indexCPS2_Rose, 0x00 },
+    { _T("2 Punches Soul Power 1"), 0x705e0, 0x70600, indexCPS2_Rose, 0x02 },
+    { _T("2 Punches Soul Power 2"), 0x70600, 0x70620, indexCPS2_Rose, 0x02 },
     { _T("2 Punches Super Trail Light"), 0x70620, 0x70640, indexCPS2_Rose, 0x00 },
     { _T("2 Punches Super Trail Dark"), 0x70640, 0x70660, indexCPS2_Rose, 0x00 },
 };
@@ -788,8 +788,8 @@ const sGame_PaletteDataset SFA2_A_ROSE_2PUNCHES_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_ROSE_2KICKS_PALETTES[] =
 {
     { _T("2 Kicks"), 0x70660, 0x70680, indexCPS2_Rose, 0x00 },
-    { _T("2 Kicks Extra 1"), 0x70680, 0x706a0, indexCPS2_Rose, 0x00 },
-    { _T("2 Kicks Extra 2"), 0x706a0, 0x706c0, indexCPS2_Rose, 0x00 },
+    { _T("2 Kicks Soul Power 1"), 0x70680, 0x706a0, indexCPS2_Rose, 0x02 },
+    { _T("2 Kicks Soul Power 2"), 0x706a0, 0x706c0, indexCPS2_Rose, 0x02 },
     { _T("2 Kicks Super Trail Light"), 0x706c0, 0x706e0, indexCPS2_Rose, 0x00 },
     { _T("2 Kicks Super Trail Dark"), 0x706e0, 0x70700, indexCPS2_Rose, 0x00 },
 };
@@ -797,8 +797,8 @@ const sGame_PaletteDataset SFA2_A_ROSE_2KICKS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_ROSE_AUTOGUARDPUNCH_PALETTES[] =
 {
     { _T("Auto Guard Punch"), 0x70700, 0x70720, indexCPS2_Rose, 0x00 },
-    { _T("Auto Guard Punch Extra 1"), 0x70720, 0x70740, indexCPS2_Rose, 0x00 },
-    { _T("Auto Guard Punch Extra 2"), 0x70740, 0x70760, indexCPS2_Rose, 0x00 },
+    { _T("Auto Guard Punch Soul Power 1"), 0x70720, 0x70740, indexCPS2_Rose, 0x02 },
+    { _T("Auto Guard Punch Soul Power 2"), 0x70740, 0x70760, indexCPS2_Rose, 0x02 },
     { _T("Auto Guard Punch Super Trail Light"), 0x70760, 0x70780, indexCPS2_Rose, 0x00 },
     { _T("Auto Guard Punch Super Trail Dark"), 0x70780, 0x707a0, indexCPS2_Rose, 0x00 },
 };
@@ -806,8 +806,8 @@ const sGame_PaletteDataset SFA2_A_ROSE_AUTOGUARDPUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_ROSE_AUTOGUARDKICK_PALETTES[] =
 {
     { _T("Auto Guard Kick"), 0x707a0, 0x707c0, indexCPS2_Rose, 0x00 },
-    { _T("Auto Guard Kick Extra 1"), 0x707c0, 0x707e0, indexCPS2_Rose, 0x00 },
-    { _T("Auto Guard Kick Extra 2"), 0x707e0, 0x70800, indexCPS2_Rose, 0x00 },
+    { _T("Auto Guard Kick Soul Power 1"), 0x707c0, 0x707e0, indexCPS2_Rose, 0x02 },
+    { _T("Auto Guard Kick Soul Power 2"), 0x707e0, 0x70800, indexCPS2_Rose, 0x02 },
     { _T("Auto Guard Kick Super Trail Light"), 0x70800, 0x70820, indexCPS2_Rose, 0x00 },
     { _T("Auto Guard Kick Super Trail Dark"), 0x70820, 0x70840, indexCPS2_Rose, 0x00 },
 };
