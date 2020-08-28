@@ -63,10 +63,10 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_NEOGEO);
+    SetColMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     //Set game information
     nGameFlag = NEOGEO_A;
@@ -77,9 +77,9 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog: we don't need them for a game stub.
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_NOBUTTONS);
+    pButtonLabelSet = DEF_NOBUTTONS;
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
 
     //Create the redirect buffer

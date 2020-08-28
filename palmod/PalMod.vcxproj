@@ -138,6 +138,7 @@
     <ClCompile Include="Game\Game_MVC_A.cpp" />
     <ClCompile Include="Game\Game_NEOGEO_A.cpp" />
     <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
+    <ClCompile Include="Game\Game_REDEARTH_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp" />
     <ClCompile Include="Game\Game_SFA2_A.cpp" />
     <ClCompile Include="Game\Game_SFA3_A.cpp" />
@@ -204,6 +205,7 @@
     <ClInclude Include="Game\Game_MVC_A.h" />
     <ClInclude Include="Game\Game_NEOGEO_A.h" />
     <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
+    <ClInclude Include="Game\Game_REDEARTH_A.h" />
     <ClInclude Include="Game\Game_SAMSHO5SP_A.h" />
     <ClInclude Include="Game\Game_SFA2_A.h" />
     <ClInclude Include="Game\Game_SFA3_A.h" />
@@ -230,6 +232,7 @@
     <ClInclude Include="Game\NEOGEO_A_DEF.h" />
     <ClInclude Include="Game\PalGroup.h" />
     <ClInclude Include="Game\GEMFIGHTER_A_DEF.h" />
+    <ClInclude Include="Game\REDEARTH_A_DEF.h" />
     <ClInclude Include="Game\SAMSHO5SP_A_DEF.h" />
     <ClInclude Include="Game\SFA2_A_DEF.h" />
     <ClInclude Include="Game\SFA3_A_DEF.h" />

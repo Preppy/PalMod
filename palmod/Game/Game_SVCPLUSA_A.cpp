@@ -52,10 +52,10 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_NEOGEO);
+    SetColMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     //Set game information
     nGameFlag = SVCPLUSA_A;
@@ -66,9 +66,9 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_SVC);
+    pButtonLabelSet = DEF_BUTTONLABEL_SVC;
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_SVC);
 
     //Create the redirect buffer
@@ -769,25 +769,25 @@ void CGame_SVCPLUSA_A::UpdateGameName(LPCTSTR pszROMFileName)
     if (_tcsicmp(pszROMFileName, _T("svc-p2sp.bin")) == 0) // svcsplus: we can read this if we use the svcsplus_px_decrypt implementations
     {
         m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Super Plus (bootleg)");
-        m_loadedROMRevision.rev = SVCSPlus;
+        m_loadedROMRevision.rev = eSVCRevisionName::SVCSPlus;
         m_loadedROMRevision.fileList = { _T("svc-p1sp.bin"), _T("svc-p2sp.bin") };
     }
     else if (_tcsicmp(pszROMFileName, _T("svc-p2p.bin")) == 0) // svcplus
     {
         m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 1)");
-        m_loadedROMRevision.rev = SVCPlus;
+        m_loadedROMRevision.rev = eSVCRevisionName::SVCPlus;
         m_loadedROMRevision.fileList = { _T("svc-p1p.bin"), _T("svc-p2p.bin"), _T("svc-p3p.bin") };
     }
     else if (_tcsicmp(pszROMFileName, _T("svc-p2pl.bin")) == 0) // svcplusa: no encryption: we can read and write this
     {
         m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 2)");
-        m_loadedROMRevision.rev = SVCPlusA;
+        m_loadedROMRevision.rev = eSVCRevisionName::SVCPlusA;
         m_loadedROMRevision.fileList = { _T("svc-p2pl.bin") };
     }
     else // if (_tcsicmp(pszROMFileName, _T("269-p2.p2")) == 0) // svc
     {
         m_loadedROMRevision.pszRevisionName = _T("SVC (NEO*GEO)");
-        m_loadedROMRevision.rev = SVC;
+        m_loadedROMRevision.rev = eSVCRevisionName::SVC;
         m_loadedROMRevision.fileList = { _T("269-p1.p1"), _T("269-p2.p2") };
     }
 }
@@ -800,17 +800,17 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
     switch (m_loadedROMRevision.rev)
     {
-    case SVC:
-    case SVCPlus:
+    case eSVCRevisionName::SVC:
+    case eSVCRevisionName::SVCPlus:
         {
             CString strMsg;
             strMsg = (_T("This version of SNK vs. Capcom uses encryption that PalMod cannot read nor write. Palettes will not show up correctly.  Do not patch: we cannot write correctly to encrypted ROMs."));
             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
         }
     default:
-    case SVCSPlus:
+    case eSVCRevisionName::SVCSPlus:
         // We can edit SVCSPlusA, which uses the same filenames as SVCSPlus
-    case SVCPlusA:
+    case eSVCRevisionName::SVCPlusA:
         {
             // SVCPlusA is already decrypted
             for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)

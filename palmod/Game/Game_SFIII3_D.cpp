@@ -21,10 +21,10 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_15ALT);
+    SetColMode(ColMode::COLMODE_15ALT);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     //Set game information
     nGameFlag = SFIII3_D;
@@ -35,8 +35,8 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     nFileAmt = SFIII3_D_NUMUNIT;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL7_SF3);
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
+    pButtonLabelSet = DEF_BUTTONLABEL7_SF3;
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

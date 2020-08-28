@@ -46,7 +46,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 971;
     m_nLowestKnownPaletteRomLocation = 0x700600;
 
-    createPalOptions = { 0, 0xFF000000, 0x00000000 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
 
     CString strInfo;
     strInfo.Format(_T("CGame_SFIII3_A::CGame_SFIII3_A: Loaded SFIII3_A with %u Extras\n"), GetExtraCt(m_nExtraUnit));
@@ -55,10 +55,10 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_15);
+    SetColMode(ColMode::COLMODE_15);
 
     //Set palette conversion mode=
-    BasePalGroup.SetMode(PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     //Set game information
     nGameFlag = SFIII3_A;
@@ -69,8 +69,8 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL7_SF3);
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
+    pButtonLabelSet = DEF_BUTTONLABEL7_SF3;
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
 
     //Create the redirect buffer
@@ -629,7 +629,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
     //Change the image id if we need to
     nTargetImgId = 0;
-    int nImgUnitId = uUnitId;
+    UINT16 nImgUnitId = uUnitId;
 
     UINT16 nSrcStart = 0;
     UINT16 nSrcAmt = 1;

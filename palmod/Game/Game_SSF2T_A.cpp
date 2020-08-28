@@ -63,15 +63,15 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    createPalOptions = { 1, 0xFF000000, 0xFF000000 };
+   createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
 
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_12A);
+    SetColMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_17);
 
     //Set game information
     nGameFlag = SSF2T_A;
@@ -82,8 +82,8 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_ST10);
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
+    pButtonLabelSet = DEF_BUTTONLABEL_ST10;
     
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

@@ -127,6 +127,9 @@
     <Filter Include="Game\Capcom Games\GEMFIGHTER_A">
       <UniqueIdentifier>{009a84f1-7e48-4f59-8fdf-a151fc92a9be}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\RedEarth_A">
+      <UniqueIdentifier>{d48977d3-f69d-4040-b3e9-89cb618f6d70}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -299,6 +302,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp">
       <Filter>Game\Capcom Games\GEMFIGHTER_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_REDEARTH_A.cpp">
+      <Filter>Game\Capcom Games\RedEarth_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -538,6 +544,12 @@
     </ClInclude>
     <ClInclude Include="Game\GEMFIGHTER_A_DEF.h">
       <Filter>Game\Capcom Games\GEMFIGHTER_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_REDEARTH_A.h">
+      <Filter>Game\Capcom Games\RedEarth_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\REDEARTH_A_DEF.h">
+      <Filter>Game\Capcom Games\RedEarth_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

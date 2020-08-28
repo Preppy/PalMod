@@ -20,7 +20,7 @@
 #define TIMER_ELAPSE 10 * 1000
 #define TIMER_BLINK_ELAPSE 1 * 200
 
-enum eVerifyType
+enum class eVerifyType
 {
     VM_PALCHANGE,
     VM_FILECHANGE

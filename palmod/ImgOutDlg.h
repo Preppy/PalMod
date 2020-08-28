@@ -31,8 +31,8 @@ protected:
     virtual BOOL OnInitDialog();
 
     DECLARE_MESSAGE_MAP()
-public:
 
+public:
     BOOL bDlgInit = FALSE;
 
     CComboBox m_CB_Amt;
@@ -43,7 +43,7 @@ public:
 
     BOOL bTransPNG = FALSE;
 
-    TCHAR* pButtonLabel = nullptr;
+    const LPCTSTR *pButtonLabelSet = nullptr;
 
     int nPalAmt = 0;
 

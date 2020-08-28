@@ -44,7 +44,7 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
 
-    createPalOptions = { 1, 0xFF000000, 0xFF000000 };
+   createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
 
     // 0x38xxx large body Onslaught sprites
     // 0x39xxx+ unknown
@@ -126,10 +126,10 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_12A);
+    SetColMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_17);
 
     //Set game information
     nGameFlag = MVC_A;
@@ -140,8 +140,8 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_2);
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
+    pButtonLabelSet = DEF_BUTTONLABEL_2;
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

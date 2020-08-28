@@ -7,7 +7,7 @@ constexpr auto EXTRA_FILENAME_SFA2_07 = _T("SFA2e.txt");
 constexpr auto EXTRA_FILENAME_SFA2_08 = _T("SFA2-8e.txt");
 #define GetExtraDefForSFA2(x) (UsePaletteSetForCharacters() ? ( IsSFA2Rev1() ? (stExtraDef *)&SFA2_A_EXTRA_CUSTOM_07_0229[x] : (stExtraDef *)&SFA2_A_EXTRA_CUSTOM_07_MAX[x]) : ((stExtraDef *)&SFA2_A_EXTRA_CUSTOM_08[x]))
 
-enum SFA2_SupportedROMRevision
+enum class SFA2_SupportedROMRevision
 {
     SFA2_960229,
     SFA2_960306_or_960430, // 960306 and 960430 are identical for both 07 and 08
@@ -41,7 +41,7 @@ private:
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
-    static bool IsSFA2Rev1() { return m_currentSFA2ROMRevision == SFA2_960229; };
+    static bool IsSFA2Rev1() { return m_currentSFA2ROMRevision == SFA2_SupportedROMRevision::SFA2_960229; };
     static const sDescTreeNode* GetCurrentUnitSet();
     SFA2_SupportedROMRevision GetSFA2ROMVersion(CFile* LoadedFile);
 

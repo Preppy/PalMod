@@ -50,19 +50,19 @@ void CPalModDlg::OnEditCopy()
         // to just use color mode, but that'd break compatibility.
         switch (CurrGame->GetColMode())
         {
-        case COLMODE_12A:
+        case ColMode::COLMODE_12A:
             // RGB444
             uCopyFlag1 = MVC2_P + k_nASCIICharacterOffset;
             break;
-        case COLMODE_15:
+        case ColMode::COLMODE_15:
             // BGR555
             uCopyFlag1 = SFIII3_A + k_nASCIICharacterOffset;
             break;
-        case COLMODE_15ALT:
+        case ColMode::COLMODE_15ALT:
             // RGB555
             uCopyFlag1 = SFIII3_D + k_nASCIICharacterOffset;
             break;
-        case COLMODE_NEOGEO:
+        case ColMode::COLMODE_NEOGEO:
             // RGB666
             uCopyFlag1 = NEOGEO_A + k_nASCIICharacterOffset;
             break;
@@ -228,7 +228,7 @@ void CPalModDlg::OnEditPaste()
                 case KOF02UM_S:
                 case SFIII3_D:
                 {
-                    eColModeForPastedColor = COLMODE_15ALT;
+                    eColModeForPastedColor = ColMode::COLMODE_15ALT;
                     break;
                 }
                 case SFIII3_A:
@@ -236,8 +236,9 @@ void CPalModDlg::OnEditPaste()
                 case JOJOS_A:
                 case JOJOS_A_DIR_50:
                 case JOJOS_A_DIR_51:
+                case REDEARTH_A:
                 {
-                    eColModeForPastedColor = COLMODE_15;
+                    eColModeForPastedColor = ColMode::COLMODE_15;
                     break;
                 }
                 case COTA_A:
@@ -254,7 +255,7 @@ void CPalModDlg::OnEditPaste()
                 case SSF2T_A:
                 case XMVSF_A:
                 {
-                    eColModeForPastedColor = COLMODE_12A;
+                    eColModeForPastedColor = ColMode::COLMODE_12A;
                     break;
                 }
                 case Garou_A:
@@ -265,7 +266,7 @@ void CPalModDlg::OnEditPaste()
                 case SAMSHO5SP_A:
                 case SVCPLUSA_A:
                 {
-                    eColModeForPastedColor = COLMODE_NEOGEO;
+                    eColModeForPastedColor = ColMode::COLMODE_NEOGEO;
                     break;
                 }
                 default:

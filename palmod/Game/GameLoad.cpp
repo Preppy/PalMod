@@ -19,6 +19,7 @@
 #include "Game_MVC2_P.h"
 #include "Game_NEOGEO_A.h"
 #include "Game_GEMFIGHTER_A.h"
+#include "Game_REDEARTH_A.h"
 #include "Game_SAMSHO5SP_A.h"
 #include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
@@ -89,6 +90,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     break;
+    case REDEARTH_A:
+    {
+        GetRule = &CGame_REDEARTH_A::GetRule;
+        return TRUE;
+    }
     case SFIII3_A:
     {
         GetRule = &CGame_SFIII3_A::GetRule;
@@ -326,6 +332,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_GEMFIGHTER_A(nConfirmedROMSize);
     }
+    case REDEARTH_A:
+    {
+        return new CGame_REDEARTH_A(nConfirmedROMSize);
+    }
     case SAMSHO5SP_A:
     {
         return new CGame_SAMSHO5SP_A(nConfirmedROMSize);
@@ -463,17 +473,21 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         {
             CString strQuestion;
 
+            UINT nStringID;
+
             if ((nGameFlag == JOJOS_A) && (nGameRule == 50) && (CurrFile.GetLength() == 4194304))
             {
-                strQuestion.LoadString(IDS_ROMISVENTURE);
+                nStringID = IDS_ROMISVENTURE;
             }
             else
             {
-                strQuestion.LoadString(IDS_ROMMISMATCH_CHECK);
+                nStringID = IDS_ROMMISMATCH_CHECK;
             }
 
-            switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_ICONSTOP | MB_DEFBUTTON2))
+            if (strQuestion.LoadString(nStringID))
             {
+                switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_ICONSTOP | MB_DEFBUTTON2))
+                {
                 case IDYES:
                 {
                     isSafeToRunGame = true;
@@ -482,6 +496,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
                 default:
                 {
                     break;
+                }
                 }
             }
         }

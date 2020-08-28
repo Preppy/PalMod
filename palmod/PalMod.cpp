@@ -18,7 +18,7 @@ END_MESSAGE_MAP()
 CString CPalModApp::GetAppName()
 {
     CString strAppName;
-    strAppName.LoadString(IDS_CURRENTAPPNAME);
+    (void)strAppName.LoadString(IDS_CURRENTAPPNAME);
     strAppName += _T(" (" __DATE__ ")");
 
 #ifdef DEBUG
@@ -64,7 +64,10 @@ BOOL CPalModApp::InitInstance()
 
     CWinApp::InitInstance();
 
-    CoInitialize(nullptr);
+    if (FAILED(CoInitialize(nullptr)))
+    {
+        return FALSE;
+    }
 
     //AfxEnableControlContainer();
 

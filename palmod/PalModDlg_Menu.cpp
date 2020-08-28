@@ -5,7 +5,7 @@
 
 void CPalModDlg::OnLoadGameByDirectory(int nGameFlag)
 {
-    if (VerifyMsg(VM_FILECHANGE))
+    if (VerifyMsg(eVerifyType::VM_FILECHANGE))
     {
         CString szGet;
 

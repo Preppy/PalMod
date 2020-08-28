@@ -6,16 +6,16 @@ void CPalModDlg::GetPlaneData()
 {
     CGameClass* CurrGame = GetHost()->GetCurrGame();
 
-    nRGBAmt = CurrGame->GetPlaneAmt(COL_RGB);
-    nAAmt = CurrGame->GetPlaneAmt(COL_A);
+    nRGBAmt = CurrGame->GetPlaneAmt(ColFlag::COL_RGB);
+    nAAmt = CurrGame->GetPlaneAmt(ColFlag::COL_A);
 
-    nRGBMul = CurrGame->GetPlaneMul(COL_RGB);
-    nAMul = CurrGame->GetPlaneMul(COL_A);
+    nRGBMul = CurrGame->GetPlaneMul(ColFlag::COL_RGB);
+    nAMul = CurrGame->GetPlaneMul(ColFlag::COL_A);
 }
 
 void CPalModDlg::OnCBUnitChildChange()
 {
-    if (VerifyMsg(VM_PALCHANGE))
+    if (VerifyMsg(eVerifyType::VM_PALCHANGE))
     {
         UpdateCombo();
     }

@@ -41,6 +41,7 @@ enum SupportedGamesList
     SAMSHO5SP_A,
     MVC2_A_DIR,
     GEMFIGHTER_A,
+    REDEARTH_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -84,6 +85,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Samurai Shodown V Special"),
    _T("MVC2 (Arcade rerip)"),
    _T("Super Gem Fighter Mini Mix (USA 970904)"),
+   _T("Red Earth (Arcade)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -101,7 +103,7 @@ constexpr auto MVC2_D_NUM_IMG_UNITS = 59;
 constexpr auto SSF2T_A_NUM_IMG_UNITS = 17;
 
 //Image output display options
-enum eImageOutputSpriteDisplay
+enum class eImageOutputSpriteDisplay
 {
     DISPLAY_SPRITES_LEFTTORIGHT,
     DISPLAY_SPRITES_TOPTOBOTTOM
@@ -114,77 +116,77 @@ enum eImageOutputSpriteDisplay
 // In the new world order, these could be the node labels, but we want the short names here
 // since they fit into the imgdump UI better.
 // If you add button labels, be sure to update CImgOutDlg::OnInitDialog and CImgDumpBmp::GetImagesPerLine as well.
-const TCHAR DEF_BUTTONLABEL_2[2][16] =
+const LPCTSTR DEF_BUTTONLABEL_2[] =
 {
     _T("P1"), _T("P2")
 };
 
-const TCHAR DEF_BUTTONLABEL_SVC[2][16] =
+const LPCTSTR DEF_BUTTONLABEL_SVC[] =
 {
     _T("Punch"), _T("Kick")
 };
 
-const TCHAR DEF_BUTTONLABEL_NEOGEO[][16] =
+const LPCTSTR DEF_BUTTONLABEL_NEOGEO[] =
 {
     _T("A"), _T("B"), _T("C"), _T("D")
 };
 
-const TCHAR DEF_BUTTONLABEL_NEOGEO_FIVE[][16] =
+const LPCTSTR DEF_BUTTONLABEL_NEOGEO_FIVE[] =
 {
    _T("A"), _T("B"), _T("C"), _T("D"), _T("Boss")
 };
 
-const TCHAR DEF_BUTTONLABEL_JOJOS_5[5][16] =
+const LPCTSTR DEF_BUTTONLABEL_JOJOS_5[] =
 {
    _T("A"), _T("B"), _T("C"), _T("S"), _T("Start")
 };
 
-const TCHAR DEF_BUTTONLABEL6[6][16] =
+const LPCTSTR DEF_BUTTONLABEL6[] =
 {
    _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK")
 };
 
-const TCHAR DEF_BUTTONLABEL_ISMS[6][16] =
+const LPCTSTR DEF_BUTTONLABEL_ISMS[] =
 {
    _T("X-Ism 1"), _T("X-Ism 2"), _T("A-Ism 1"), _T("A-Ism 2"), _T("V-Ism 1"), _T("V-Ism 2")
 };
 
-const TCHAR DEF_BUTTONLABEL_SFA2[6][16] =
+const LPCTSTR DEF_BUTTONLABEL_SFA2[] =
 {
    _T("P"), _T("K"), _T("PP"), _T("KK"), _T("Auto P"), _T("Auto K")
 };
 
-const TCHAR DEF_BUTTONLABEL6_MVC2[6][16] = 
+const LPCTSTR DEF_BUTTONLABEL6_MVC2[] =
 {
    _T("LP"), _T("LK"), _T("HP"), _T("HK"), _T("A1"), _T("A2")
 };
 
-const TCHAR DEF_BUTTONLABEL7_SF3[7][16] = 
+const LPCTSTR DEF_BUTTONLABEL7_SF3[] =
 {
    _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("EX")
 };
 
-const TCHAR DEF_BUTTONLABEL_CVS2[8][16] =
+const LPCTSTR DEF_BUTTONLABEL_CVS2[] =
 {
    _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("3P"), _T("3K")
 };
 
-const TCHAR DEF_BUTTONLABEL_ST10[10][16] =
+const LPCTSTR DEF_BUTTONLABEL_ST10[] =
 {
    _T("Jab"), _T("Strong"), _T("Fierce"), _T("Short"), _T("Forward"), _T("RH"), _T("Start"), _T("Hold"), _T("Old 1P"), _T("Old 2P")
 };
 
-const TCHAR DEF_BUTTONLABEL_GEMFIGHTER[4][16] =
+const LPCTSTR DEF_BUTTONLABEL_GEMFIGHTER[] =
 {
     _T("A"), _T("B"), _T("C"), _T("X3")
 };
 
-const TCHAR DEF_NOBUTTONS[1][16] =
+const LPCTSTR DEF_NOBUTTONS[] =
 {
    _T("Special")
 };
 
-const TCHAR DEF_LABEL_STATUS_EFFECTS[8][16] =
+const LPCTSTR DEF_LABEL_STATUS_EFFECTS[] =
 {
    _T("Burn 1"), _T("Burn 2"), _T("Shock 1"), _T("Shock 2"), _T("Dark 1"), _T("Dark 2"), _T("Kinetic 1"), _T("Kinetic 2")
 };

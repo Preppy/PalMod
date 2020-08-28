@@ -31,9 +31,9 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
 {
     switch (Flag)
     {
-    case COL_RGB:
+    case ColFlag::COL_RGB:
         return nRGBIndexAmt;
-    case COL_A:
+    case ColFlag::COL_A:
         return nAIndexAmt;
     }
 
@@ -44,9 +44,9 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
 {
     switch (Flag)
     {
-    case COL_RGB:
+    case ColFlag::COL_RGB:
         return nRGBIndexMul;
-    case COL_A:
+    case ColFlag::COL_A:
         return nAIndexMul;
     }
 
@@ -125,16 +125,16 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
         // See also MEDIASUBTYPE_555
         switch (NewMode)
         {
-        case COLMODE_12A:
+        case ColMode::COLMODE_12A:
             strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMOD_12A (ARGB444)"));
             break;
-        case COLMODE_15:
+        case ColMode::COLMODE_15:
             strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMODE_15 (BGR555)"));
             break;
-        case COLMODE_15ALT:
+        case ColMode::COLMODE_15ALT:
             strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMODE_15ALT (RGB555)"));
             break;
-        case COLMODE_NEOGEO:
+        case ColMode::COLMODE_NEOGEO:
             strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMODE_NEOGEO (RGB666)"));
             break;
         default:
@@ -148,22 +148,22 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
 
     switch (NewMode)
     {
-    case COLMODE_12A:
+    case ColMode::COLMODE_12A:
         ConvPal = &CGameClass::CONV_12A_32;
         ConvCol = &CGameClass::CONV_32_12A;
         return TRUE;
         break;
-    case COLMODE_15:
+    case ColMode::COLMODE_15:
         ConvPal = &CGameClass::CONV_15_32;
         ConvCol = &CGameClass::CONV_32_15;
         return TRUE;
         break;
-    case COLMODE_15ALT:
+    case ColMode::COLMODE_15ALT:
         ConvPal = &CGameClass::CONV_15ALT_32;
         ConvCol = &CGameClass::CONV_32_15ALT;
         return TRUE;
         break;
-    case COLMODE_NEOGEO:
+    case ColMode::COLMODE_NEOGEO:
         ConvPal = &CGameClass::CONV_NEOGEO_32;
         ConvCol = &CGameClass::CONV_32_NEOGEO;
         return TRUE;

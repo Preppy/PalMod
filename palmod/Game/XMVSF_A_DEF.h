@@ -289,24 +289,24 @@ const sGame_PaletteDataset XMVSF_A_Ryu_PALETTES_P1[] =
 {
     { _T("P1 Punch Color"), 0x1589c, 0x158bc, 0x00, 0x00 },
     { _T("P1 fireballs"), 0x158bc, 0x158dc, 0x00, 0x01 },
-    { _T("P1 shoryuken"), 0x158dc, 0x158fc, 0x27, 0x02 },
+    { _T("P1 Extra 2"), 0x158dc, 0x158fc },
 };
 
 const sGame_PaletteDataset XMVSF_A_Ryu_PALETTES_P2[] =
 {
     { _T("P2 Kick Color"), 0x158fc, 0x1591c, 0x00, 0x00 },
     { _T("P2 fireballs"), 0x1591c, 0x1593c, 0x00, 0x01 },
-    { _T("P2 shoryuken"), 0x1593c, 0x1595c, 0x27, 0x02 },
+    { _T("P2 Extra 2"), 0x1593c, 0x1595c },
 };
 
 const sGame_PaletteDataset XMVSF_A_Ryu_PALETTES_Extras[] =
 {
     { _T("Palette (06)"),           0x1595c, 0x1597c, 0x00, 0x00 },
     { _T("Palette (07) fireballs"), 0x1597c, 0x1599c, 0x00, 0x01 },
-    { _T("Palette (08) shoryuken"), 0x1599c, 0x159bc, 0x27, 0x02 },
+    { _T("Palette (08)"),           0x1599c, 0x159bc },
     { _T("Palette (09)"),           0x159bc, 0x159dc, 0x00, 0x00 },
     { _T("Palette (0A) fireballs"), 0x159dc, 0x159fc, 0x00, 0x01 },
-    { _T("Palette (0B) shoryuken"), 0x159fc, 0x15a1c, 0x27, 0x02 },
+    { _T("Palette (0B)"),           0x159fc, 0x15a1c },
     { _T("Portrait"),               0x1c39c, 0x1c41c },
 };
 
@@ -425,23 +425,23 @@ const sGame_PaletteDataset XMVSF_A_Gouki_PALETTES_P1[] =
 {
     { _T("P1 Punch Color"), 0x1609c, 0x160bc, 0x1e, 0x00 },
     { _T("P1 fireballs"), 0x160bc, 0x160dc, 0x1e, 0x01 },
-    { _T("P1 shoryuken"), 0x160dc, 0x160fc, 0x27, 0x02 },
+    { _T("P1 Extra 2"), 0x160dc, 0x160fc },
 };
 
 const sGame_PaletteDataset XMVSF_A_Gouki_PALETTES_P2[] =
 {
     { _T("P2 Kick Color"), 0x160fc, 0x1611c, 0x1e, 0x00 },
     { _T("P2 fireballs"), 0x1611c, 0x1613c, 0x1e, 0x01 },
-    { _T("P2 shoryuken"), 0x1613c, 0x1615c, 0x27, 0x02 },
+    { _T("P2 Extra 2"), 0x1613c, 0x1615c },
 };
 
 const sGame_PaletteDataset XMVSF_A_Gouki_PALETTES_Extras[] =
 {
     { _T("Palette (06)"), 0x1615c, 0x1617c, 0x1e, 0x00 },
-    { _T("Palette (07)"), 0x1617c, 0x1619c },
+    { _T("Palette (07) fireballs"), 0x1617c, 0x1619c, 0x1e, 0x01 },
     { _T("Palette (08)"), 0x1619c, 0x161bc },
     { _T("Palette (09)"), 0x161bc, 0x161dc, 0x1e, 0x00 },
-    { _T("Palette (0A)"), 0x161dc, 0x161fc },
+    { _T("Palette (0A) fireballs"), 0x161dc, 0x161fc, 0x1e, 0x01 },
     { _T("Palette (0B)"), 0x161fc, 0x1621c },
     { _T("Portrait"), 0x1c75c, 0x1c7dc },
 };

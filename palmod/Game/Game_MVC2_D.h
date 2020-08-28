@@ -21,7 +21,7 @@ public:
 
     //Vars used for extra processing
     int nExtraAmt = 0;
-    int nImgUnitId = MVC2_D_NUMUNIT; //Unit Image Id
+    UINT16 nImgUnitId = MVC2_D_NUMUNIT; //Unit Image Id
 
     //Static functions
     static UINT16 uRuleCtr;

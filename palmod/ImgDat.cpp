@@ -102,6 +102,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
     SVCPLUSA_A,
     SAMSHO5SP_A,
     MVC2_A_DIR,
+    REDEARTH_A,
     */
     for (UINT16 nUnitCtr = 0; nUnitCtr < nGameImageUnitAmt; nUnitCtr++)
     {
@@ -223,6 +224,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
 
         default:
             OutputDebugString(_T("CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n"));
+        case REDEARTH_A: // no images for now
             return NULL;
             break;
         }

@@ -22,7 +22,7 @@ int CGame_SFA2_A::rgExtraLoc_07_MAX[SFA2_A_NUM_IND_07_MAX + 1] = { -1 };
 int CGame_SFA2_A::rgExtraLoc_08[SFA2_A_NUM_IND_08 + 1] = { -1 };
 
 int CGame_SFA2_A::m_nSFA2SelectedRom = 7;
-SFA2_SupportedROMRevision CGame_SFA2_A::m_currentSFA2ROMRevision = SFA2_960229;
+SFA2_SupportedROMRevision CGame_SFA2_A::m_currentSFA2ROMRevision = SFA2_SupportedROMRevision::SFA2_960229;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_0229 = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_MAX = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_08 = 0;
@@ -43,9 +43,9 @@ void CGame_SFA2_A::InitializeStatics()
     memset(rgExtraLoc_07_MAX, -1, sizeof(rgExtraLoc_07_MAX));
     memset(rgExtraLoc_08, -1, sizeof(rgExtraLoc_08));
 
-    MainDescTree_07_0229.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_960229));
-    MainDescTree_07_MAX.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_960306_or_960430));
-    MainDescTree_08.SetRootTree(CGame_SFA2_A::InitDescTree(8, SFA2_960229));
+    MainDescTree_07_0229.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_SupportedROMRevision::SFA2_960229));
+    MainDescTree_07_MAX.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_SupportedROMRevision::SFA2_960306_or_960430));
+    MainDescTree_08.SetRootTree(CGame_SFA2_A::InitDescTree(8, SFA2_SupportedROMRevision::SFA2_960229));
 }
 
 void CGame_SFA2_A::ResetActiveSFA2Revision()
@@ -105,24 +105,24 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     ResetActiveSFA2Revision();
 
     //Set color mode
-    SetColMode(COLMODE_12A);
+    SetColMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_17);
 
     //Set game information
     nGameFlag = SFA2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = SFA2_A_NUM_IMG_UNITS;
 
-    createPalOptions = { 1, 0xFF000000, 0xFF000000 };
+   createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
 
     nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_SFA2);
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
+    pButtonLabelSet = DEF_BUTTONLABEL_SFA2;
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_SFA2);
 
     //Create the file changed flag
@@ -1132,10 +1132,10 @@ LPCTSTR CGame_SFA2_A::GetGameName()
 
     switch (m_currentSFA2ROMRevision)
     {
-    case SFA2_960229:
+    case SFA2_SupportedROMRevision::SFA2_960229:
         pszGameName = _T("SFA2 960229 (Arcade)");
         break;
-    case SFA2_960306_or_960430:
+    case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
     default:
         pszGameName = _T("SFA2 960306/960430 (Arcade)");
         break;
@@ -1160,9 +1160,9 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         {
             switch (m_currentSFA2ROMRevision)
             {
-            case SFA2_960229:
+            case SFA2_SupportedROMRevision::SFA2_960229:
                 break;
-            case SFA2_960306_or_960430:
+            case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
                 // 0306 ROMs have a different location for palettes
                 if ((m_nCurrentPaletteROMLocation < 0x72a00) || // Handle up to Chun-Li OG (SF2 Costume)
                     (((SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWDhalsim) || (SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWZangief)) &&
@@ -1184,7 +1184,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         {
             switch (m_currentSFA2ROMRevision)
             {
-            case SFA2_960229: // in 229 portraits start at 0x1bb40
+            case SFA2_SupportedROMRevision::SFA2_960229: // in 229 portraits start at 0x1bb40
                 if (m_nCurrentPaletteROMLocation < 0x1c7c0)
                 {
                     // Early bonus/extra range
@@ -1196,7 +1196,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                     m_nCurrentPaletteROMLocation += 0x900;
                 }
                 break;
-            case SFA2_960306_or_960430: // in 306 portraits start at 0x1adc0
+            case SFA2_SupportedROMRevision::SFA2_960306_or_960430: // in 306 portraits start at 0x1adc0
                 break;
             };
         }
@@ -1221,7 +1221,7 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
     // We chiefly support 960229 and 960306.  Sniff the ROM to make sure we use the right logic.
     const size_t nFileLengthToCheck = 32;
     UINT16* prgFileStart = new UINT16[nFileLengthToCheck];
-    SFA2_SupportedROMRevision detectedROMVersion = SFA2_960229;
+    SFA2_SupportedROMRevision detectedROMVersion = SFA2_SupportedROMRevision::SFA2_960229;
     UINT16 rgSFA2_07_960229Start[nFileLengthToCheck] = {  0x0, 0x8, 0x0, 0x20,      0x775c, 0x0, 0x0, 0x0,
                                                           0x0, 0x8, 0x0, 0x20,      0x776c, 0x0, 0x0, 0x0,
                                                           0x0, 0x8, 0x0, 0x20,      0x774c, 0x0, 0x0, 0x0,
@@ -1255,7 +1255,7 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
         if (prgFileStart[nIndex] != pSFA29_960229_Validation[nIndex])
         {
             // 960306 and 960430 are identical
-            detectedROMVersion = SFA2_960306_or_960430;
+            detectedROMVersion = SFA2_SupportedROMRevision::SFA2_960306_or_960430;
             fFoundMatch = false;
             break;
         }
@@ -1273,7 +1273,7 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
         {
             if (prgFileStart[nIndex] != pSFA29_960306_Validation[nIndex])
             {
-                detectedROMVersion = SFA2_Unsupported;
+                detectedROMVersion = SFA2_SupportedROMRevision::SFA2_Unsupported;
                 fFoundMatch = false;
                 break;
             }

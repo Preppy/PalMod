@@ -52,10 +52,10 @@ CGame_XMVSF_A::CGame_XMVSF_A(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_12A);
+    SetColMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_17);
 
     //Set game information
     nGameFlag = XMVSF_A;
@@ -66,8 +66,8 @@ CGame_XMVSF_A::CGame_XMVSF_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_2);
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
+    pButtonLabelSet = DEF_BUTTONLABEL_2;
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

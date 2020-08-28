@@ -233,13 +233,13 @@ const sGame_PaletteDataset MSHVSF_A_GOUKI_PALETTES_P1COLOR_PUNCH[] =
 {
     { _T("P1 Color (Punch)"),        0x72BCE, 0x72BEE, 0x1E },
     { _T("Extra 01 Hadouken"),       0x72BEE, 0x72C0E, 0x1E, 1 },
-    { _T("Extra 02 Shoryuken"),      0x72C0E, 0x72C2E, 0x27, 2 },
+    { _T("Extra 02"),      0x72C0E, 0x72C2E },
 };
 const sGame_PaletteDataset MSHVSF_A_GOUKI_PALETTES_P2COLOR_KICK[] =
 {
     { _T("P2 Color (Kick)"),         0x72C2E, 0x72C4E, 0x1E },
     { _T("Extra 01 Hadouken"),       0x72C4E, 0x72C6E, 0x1E, 1 },
-    { _T("Extra 02 Shoryuken"),      0x72C6E, 0x72C8E, 0x27, 2 },
+    { _T("Extra 02"),      0x72C6E, 0x72C8E },
 };
 
 const sGame_PaletteDataset MSHVSF_A_HULK_PALETTES_P1COLOR_PUNCH[] =
@@ -342,13 +342,13 @@ const sGame_PaletteDataset MSHVSF_A_RYU_PALETTES_P1COLOR_PUNCH[] =
 {
     { _T("P1 Color (Punch)"),        0x7264E, 0x7266E, 0x00 },
     { _T("P1 Hadouken"), 0x7266E, 0x7268E, 0x00, 1 },
-    { _T("P1 Shoryuken"), 0x7268E, 0x726AE, 0x27, 2 },
+    { _T("P1 Extra 2"), 0x7268E, 0x726AE },
 };
 const sGame_PaletteDataset MSHVSF_A_RYU_PALETTES_P2COLOR_KICK[] =
 {
     { _T("P2 Color (Kick)"),        0x726AE, 0x726CE,  0x00 },
     { _T("P2 Hadouken"), 0x726CE, 0x726EE, 0x00, 1 },
-    { _T("P2 Shoryuken"), 0x726EE, 0x7270E, 0x27, 2 },
+    { _T("P2 Extra 2"), 0x726EE, 0x7270E },
 };
 
 const sGame_PaletteDataset MSHVSF_A_SAKURA_PALETTES_P1COLOR_PUNCH[] =

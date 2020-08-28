@@ -46,15 +46,15 @@ CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
     m_nLowestKnownPaletteRomLocation = 0x2C000;
 
-    createPalOptions = { 1, 0xFF000000, 0xFF000000 };
+   createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
 
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_12A);
+    SetColMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_17);
 
     //Set game information
     nGameFlag = SFA3_A;
@@ -65,8 +65,8 @@ CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_ISMS);
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
+    pButtonLabelSet = DEF_BUTTONLABEL_ISMS;
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

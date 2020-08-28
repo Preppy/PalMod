@@ -49,15 +49,15 @@ CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    createPalOptions = { 0, 0xFF000000, 0x00000000 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
 
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_12A);
+    SetColMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_17);
 
     //Set game information
     nGameFlag = GEMFIGHTER_A;
@@ -68,9 +68,9 @@ CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_GEMFIGHTER);
+    pButtonLabelSet = DEF_BUTTONLABEL_GEMFIGHTER;
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_GEMFIGHTER);
 
     //Create the redirect buffer

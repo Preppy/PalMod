@@ -76,15 +76,15 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     m_nTotalPaletteCount = UsePaletteSetFor50() ? m_nTotalPaletteCount50 : m_nTotalPaletteCount51;
     m_nLowestKnownPaletteRomLocation = UsePaletteSetFor50() ? 0x7c0000 : 0x2d0000;
 
-    createPalOptions = { 0, 0xFF000000, 0x00000000 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
 
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_15);
+    SetColMode(ColMode::COLMODE_15);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     //Set game information
     nGameFlag = JOJOS_A;
@@ -95,8 +95,8 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_JOJOS_5);
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
+    pButtonLabelSet = DEF_BUTTONLABEL_JOJOS_5;
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[max(10, nUnitAmt) + 1]; // We need at least 8 redirs because we have that many SIMMs

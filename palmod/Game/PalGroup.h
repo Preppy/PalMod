@@ -56,7 +56,7 @@ private:
     int nRedirCtr = 0;
     int nCurrPalAmt = 0;
 
-    ePalType PalMode = PALTYPE_8;
+    ePalType PalMode = ePalType::PALTYPE_8;
 
     void InitPal();
 

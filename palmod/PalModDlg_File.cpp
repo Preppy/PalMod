@@ -177,7 +177,7 @@ void CPalModDlg::OnFileExit()
 
 void CPalModDlg::OnFileCloseFileDir()
 {
-    if (VerifyMsg(VM_FILECHANGE))
+    if (VerifyMsg(eVerifyType::VM_FILECHANGE))
     {
         CloseFileDir();
     }
@@ -221,7 +221,7 @@ void CPalModDlg::LoadLastDir()
 
     if (GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &bIsDir))
     {
-        if (VerifyMsg(VM_FILECHANGE))
+        if (VerifyMsg(eVerifyType::VM_FILECHANGE))
         {
             if (nLastUsedGFlag > NUM_GAMES || nLastUsedGFlag < 0)
             {
@@ -392,6 +392,7 @@ void CPalModDlg::OnFileOpen()
         { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },
         { MVC_A, _T("MVC Euro 980112 (mvc.06), Euro 980123 (mvc.06a)|*.06*|"), INVALID_UNIT_VALUE },
         { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|*.dat;*.bin|"), INVALID_UNIT_VALUE },
+        { REDEARTH_A, _T("Red Earth|31|"), INVALID_UNIT_VALUE },
         { SAMSHO5SP_A, _T("Samurai Shodown 5 Special|272-p1*.p1;p1*.bin|"), INVALID_UNIT_VALUE},
         { SFIII3_A, _T("SFIII3 Arcade|51|"), INVALID_UNIT_VALUE },
         { SFA2_A, _T("SFA2: Characters (sz*.07), Bonus (sz*.08)|*.07;*.08|"), INVALID_UNIT_VALUE },
@@ -469,7 +470,7 @@ void CPalModDlg::OnFileOpen()
     {
         OPENFILENAME ofn = OpenDialog.GetOFN();
 
-        for (sSupportedGameList currentGame : SupportedGameList)
+        for (const sSupportedGameList currentGame : SupportedGameList)
         {
             if (currentGame.nListedGameIndex == ofn.nFilterIndex)
             {
@@ -481,7 +482,7 @@ void CPalModDlg::OnFileOpen()
 
 void CPalModDlg::LoadGameFile(int nGameFlag, TCHAR* szFile)
 {
-    if (!VerifyMsg(VM_FILECHANGE))
+    if (!VerifyMsg(eVerifyType::VM_FILECHANGE))
     {
         return;
     }

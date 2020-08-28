@@ -30,10 +30,10 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_12A);
+    SetColMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_17);
 
     //Set game information
     nGameFlag = MVC2_D;
@@ -47,8 +47,8 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     PrepChangeTrackingArray();
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_TOPTOBOTTOM;
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL6_MVC2);
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM;
+    pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
 
     //Set the MVC2 supp game
     CurrMVC2 = this;

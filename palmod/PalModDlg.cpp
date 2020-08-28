@@ -44,9 +44,10 @@ BOOL CAboutDlg::OnInitDialog()
     CDialog::OnInitDialog();
 
     CString strAppName;
-    strAppName.LoadString(IDS_CURRENTAPPNAME);
-
-    GetDlgItem(IDC_ABOUTNAME)->SetWindowText(strAppName);
+    if (strAppName.LoadString(IDS_CURRENTAPPNAME))
+    {
+        GetDlgItem(IDC_ABOUTNAME)->SetWindowText(strAppName);
+    }
 
     return TRUE;  // return TRUE unless you set the focus to a control
 }
@@ -188,8 +189,7 @@ BOOL CPalModDlg::OnInitDialog()
     if (pSysMenu != NULL)
     {
         CString strAboutMenu;
-        strAboutMenu.LoadString(IDS_ABOUTBOX);
-        if (!strAboutMenu.IsEmpty())
+        if (strAboutMenu.LoadString(IDS_ABOUTBOX))
         {
             pSysMenu->AppendMenu(MF_SEPARATOR);
             pSysMenu->AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);
@@ -463,16 +463,19 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 {
     switch (eType)
     {
-    case VM_PALCHANGE:
+    case eVerifyType::VM_PALCHANGE:
     {
         if (bPalChanged)
         {
-            CString strQuestion;
-            strQuestion.LoadString(IDS_SAVE_PALETTE_CHANGES);
-
             const int nMBDefault = CRegProc::GetUserSavePaletteToMemoryPreference();
 
-            int nUserAnswer = SHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION, nMBDefault, _T("{11BFAC2D-42CA-40e2-967C-1017C1B2676A}"));
+            int nUserAnswer = IDCANCEL;
+            
+            CString strQuestion;
+            if (strQuestion.LoadString(IDS_SAVE_PALETTE_CHANGES))
+            {
+                nUserAnswer = SHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION, nMBDefault, _T("{11BFAC2D-42CA-40e2-967C-1017C1B2676A}"));
+            }
 
             CRegProc::SetUserSavePaletteToMemoryPreference(nUserAnswer);
 
@@ -508,33 +511,35 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 
     }
     break;
-    case VM_FILECHANGE:
+    case eVerifyType::VM_FILECHANGE:
     {
         if (fFileChanged)
         {
             CString strQuestion;
-            strQuestion.LoadString(IDS_SAVE_FILE_CHANGES);
-
-            switch (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
-            {
-            case IDYES:
-            {
-                OnFilePatch();
-                return TRUE;
-            }
-            break;
-            case IDNO:
-            {
-                fFileChanged = FALSE;
-                bPalChanged = FALSE;
-                return TRUE;
-            }
-            break;
-            case IDCANCEL:
+            if (strQuestion.LoadString(IDS_SAVE_FILE_CHANGES))
             {
 
-                return FALSE;
-            }
+                switch (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION))
+                {
+                case IDYES:
+                {
+                    OnFilePatch();
+                    return TRUE;
+                }
+                break;
+                case IDNO:
+                {
+                    fFileChanged = FALSE;
+                    bPalChanged = FALSE;
+                    return TRUE;
+                }
+                break;
+                case IDCANCEL:
+                {
+
+                    return FALSE;
+                }
+                }
             break;
             }
         }
@@ -553,7 +558,7 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 
 void CPalModDlg::OnClose()
 {
-    if (VerifyMsg(VM_FILECHANGE))
+    if (VerifyMsg(eVerifyType::VM_FILECHANGE))
     {
         SaveSettings();
 

@@ -52,10 +52,10 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_15ALT);
+    SetColMode(ColMode::COLMODE_15ALT);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     //Set game information
     nGameFlag = KOF02UM_S;
@@ -66,9 +66,9 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_NEOGEO);
+    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
 
     //Create the redirect buffer

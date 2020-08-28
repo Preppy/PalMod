@@ -52,10 +52,10 @@ CGame_Garou_S::CGame_Garou_S(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_NEOGEO);
+    SetColMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     //Set game information
     nGameFlag = Garou_S;
@@ -66,9 +66,9 @@ CGame_Garou_S::CGame_Garou_S(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // The MOTW options are A B C D (Boss)
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_NEOGEO_FIVE);
+    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO_FIVE;
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO_FIVE);
 
     //Create the redirect buffer
@@ -657,11 +657,11 @@ BOOL CGame_Garou_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 if (nSrcAmt == 5)
                 {
-                    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_NEOGEO_FIVE);
+                    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO_FIVE;
                 }
                 else
                 {
-                    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL_NEOGEO);
+                    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
                 }
             }
         }

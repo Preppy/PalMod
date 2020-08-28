@@ -52,15 +52,15 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    createPalOptions = { 0, 0x00000000, 0xFF000000 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_FIRST_COLOR };
 
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(COLMODE_12A);
+    SetColMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_17);
 
     //Set game information
     nGameFlag = MVC2_A;
@@ -73,8 +73,8 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     nFileAmt = 1;
 
     //Set the image out display type
-    DisplayType = DISPLAY_SPRITES_TOPTOBOTTOM;
-    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL6_MVC2);
+    DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM;
+    pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
 
     //Set the MVC2 supp game
@@ -257,18 +257,18 @@ void CGame_MVC2_A::DumpAllCharacters()
 
             for (UINT16 iButtonIndex = 0; iButtonIndex < m_nNumberOfColorOptions; iButtonIndex++)
             {
-                strOutput.Format(_T("const sGame_PaletteDataset MVC2_A_%s_PALETTES_%s[] =\r\n{\r\n"), MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, pButtonLabel[iButtonIndex]);
+                strOutput.Format(_T("const sGame_PaletteDataset MVC2_A_%s_PALETTES_%s[] =\r\n{\r\n"), MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, (LPCTSTR)pButtonLabelSet[iButtonIndex]);
                 OutputDebugString(strOutput);
 
                 if (MVC2ArcadeCharacterArray[iUnitCtr].pszPalettePairName) 
                 {
-                    strOutput.Format(_T("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0, &%s },\r\n"), sCurrentMoveDescriptors[0].szMoveName, pButtonLabel[iButtonIndex],
+                    strOutput.Format(_T("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0, &%s },\r\n"), sCurrentMoveDescriptors[0].szMoveName, pButtonLabelSet[iButtonIndex],
                                                                                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                                                                                         MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName, MVC2ArcadeCharacterArray[iUnitCtr].pszPalettePairName);
                 }
                 else
                 {
-                    strOutput.Format(_T("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0 },\r\n"), sCurrentMoveDescriptors[0].szMoveName, pButtonLabel[iButtonIndex],
+                    strOutput.Format(_T("    { \"%s %s\", 0x%07x, 0x%7x, %s, 0 },\r\n"), sCurrentMoveDescriptors[0].szMoveName, pButtonLabelSet[iButtonIndex],
                                                                                     nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
                                                                                     MVC2ArcadeCharacterArray[iUnitCtr].szImageRefName );
                 }
@@ -412,8 +412,8 @@ void CGame_MVC2_A::DumpAllCharacters()
 
             for (UINT16 iButtonIndex = 0; iButtonIndex < m_nNumberOfColorOptions; iButtonIndex++)
             {
-                strOutput.Format(_T("    { \"%s\", DESC_NODETYPE_TREE, (void*)MVC2_A_%s_PALETTES_%s, ARRAYSIZE(MVC2_A_%s_PALETTES_%s) },\r\n"), pButtonLabel[iButtonIndex], MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex],
-                                            MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, pButtonLabel[iButtonIndex] );
+                strOutput.Format(_T("    { \"%s\", DESC_NODETYPE_TREE, (void*)MVC2_A_%s_PALETTES_%s, ARRAYSIZE(MVC2_A_%s_PALETTES_%s) },\r\n"), pButtonLabelSet[iButtonIndex], MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, DEF_BUTTONLABEL6_MVC2[iButtonIndex],
+                                            MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, pButtonLabelSet[iButtonIndex] );
                 OutputDebugString(strOutput);
             }
 
@@ -1082,7 +1082,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;
                     // Need to reset because we have a status effect label set as well.
-                    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_BUTTONLABEL6_MVC2);
+                    pButtonLabelSet = DEF_BUTTONLABEL6_MVC2;
 
                     while (nSrcStart >= nNodeIncrement)
                     {
@@ -1104,7 +1104,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     // There are 8 status effects
                     nSrcAmt = 8;
                     nNodeIncrement = paletteDataSet->pPalettePairingInfo ? 2 : 1;
-                    pButtonLabel = const_cast<TCHAR*>((TCHAR*)DEF_LABEL_STATUS_EFFECTS);
+                    pButtonLabelSet = DEF_LABEL_STATUS_EFFECTS;
                 }
             }
 

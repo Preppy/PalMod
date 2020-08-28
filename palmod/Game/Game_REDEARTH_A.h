@@ -1,18 +1,19 @@
 #pragma once
 #include "gameclass.h"
-#include "SVCPLUSA_A_DEF.h"
-#include "..\extrafile.h"
+#include "REDEARTH_A_DEF.h"
+#include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SVCPLUSA_A = _T("SVCE.txt");
-#define GetExtraDefForSVCPLUSA(x)((stExtraDef *)&SVCPLUSA_A_EXTRA_CUSTOM[x])
+#define REDEARTH_A_USEEXTRAFILE
 
-class CGame_SVCPLUSA_A : public CGameWithExtrasFile
+constexpr auto EXTRA_FILENAME_REDEARTH = _T("REDEARTHe.txt");
+
+#define GetRedEarthExtraDef(x) ((stExtraDef *)&REDEARTH_A_EXTRA_CUSTOM[x])
+
+class CGame_REDEARTH_A : public CGameWithExtrasFile
 {
-private:
-    static UINT32 m_nTotalPaletteCountForSVCPLUSA;
-
-    static int rgExtraCountAll[SVCPLUSA_A_NUMUNIT + 1];
-    static int rgExtraLoc[SVCPLUSA_A_NUMUNIT + 1];
+public:
+    static int rgExtraCountAll[REDEARTH_A_NUMUNIT + 1];
+    static int rgExtraLoc[REDEARTH_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -21,31 +22,9 @@ private:
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
-    // Developer-only mode to regenerate the header file quickly.
-    static void DumpPaletteHeaders();
-
-    enum class eSVCRevisionName
-    {
-        SVC,
-        SVCPlus,
-        SVCPlusA,
-        SVCSPlus,
-    };
-
-    struct SVCRevisionInfo
-    {
-        LPCTSTR pszRevisionName = _T("SVC Plus A");
-        eSVCRevisionName rev = eSVCRevisionName::SVCPlusA;
-        std::vector<LPCTSTR> fileList;
-    };
-
-    SVCRevisionInfo m_loadedROMRevision;
-
-    void UpdateGameName(LPCTSTR pszROMFileName);
-
 public:
-    CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize);
-    ~CGame_SVCPLUSA_A(void);
+    CGame_REDEARTH_A(UINT32 nConfirmedROMSize = -1);
+    ~CGame_REDEARTH_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -67,9 +46,8 @@ public:
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
+    UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
-
-    LPCTSTR GetGameName() { return m_loadedROMRevision.pszRevisionName; };
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
@@ -77,5 +55,5 @@ public:
 
     void UpdatePalData();
 
-    static stExtraDef* SVCPLUSA_A_EXTRA_CUSTOM;
+    static stExtraDef* REDEARTH_A_EXTRA_CUSTOM;
 };

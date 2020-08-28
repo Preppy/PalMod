@@ -45,7 +45,7 @@ BOOL CImgOutDlg::OnInitDialog()
     CGameClass* CurrGame = GetHost()->GetCurrGame();
 
     //Set dialog data
-    pButtonLabel = CurrGame->GetButtonDesc();
+    pButtonLabelSet = CurrGame->GetButtonDescSet();
 
     //Set the image controls data
     m_DumpBmp.pMainImgCtrl = &GetHost()->GetPreviewDlg()->m_ImgDisp;
@@ -267,11 +267,11 @@ void CImgOutDlg::OnCbnSelchangeAmt()
 
 void CImgOutDlg::FillPalCombo()
 {
-    if ((nPalAmt != 1) && (pButtonLabel != nullptr))
+    if ((nPalAmt != 1) && (pButtonLabelSet != nullptr))
     {
         for (int nNodeIndex = 0; nNodeIndex < nPalAmt; nNodeIndex++)
         {
-            m_CB_Pal.AddString(&pButtonLabel[nNodeIndex * 16]);
+            m_CB_Pal.AddString(pButtonLabelSet[nNodeIndex]);
         }
     }
     else

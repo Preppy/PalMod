@@ -17,7 +17,7 @@ struct sFileRule
     TCHAR szAltFileName[MAX_FILENAME_LENGTH] = _T("uninit");
 };
 
-enum ColMode
+enum class ColMode
 {
     // If you change this list you must update CPalModDlg::OnEditCopy
     COLMODE_12A,     // RGB444
@@ -26,7 +26,7 @@ enum ColMode
     COLMODE_NEOGEO   // RGB666
 };
 
-enum ColFlag
+enum class ColFlag
 {
     COL_RGB,
     COL_A,
@@ -70,13 +70,13 @@ protected:
     int nSrcPalAmt[MAX_PALETTES_DISPLAYABLE] = { 0 };
     int nSrcPalInc[MAX_PALETTES_DISPLAYABLE] = { 0 };
 
-    ColMode CurrColMode = COLMODE_12A;
+    ColMode CurrColMode = ColMode::COLMODE_12A;
     sImgTicket* CurrImgTicket = nullptr;
     CPalGroup BasePalGroup;
 
-    eImageOutputSpriteDisplay DisplayType = DISPLAY_SPRITES_LEFTTORIGHT;
+    eImageOutputSpriteDisplay DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Used for the Export Image listbox
-    TCHAR* pButtonLabel = nullptr;
+    const LPCTSTR *pButtonLabelSet = nullptr;
     // How many colors a game has: P1/P2 (2), LP-HK/A2 (6), etc
     UINT8 m_nNumberOfColorOptions = 0;
 
@@ -97,12 +97,20 @@ protected:
     static UINT32 CONV_NEOGEO_32(UINT16 inCol);
     static UINT16 SWAP_16(UINT16 palv);
 
+    enum PALOptionValues
+    {
+        NO_SPECIAL_OPTIONS = 0,
+        SKIP_FIRST_COLOR = 1,
+        FORCE_ALPHA_ON_EVERY_COLOR = 0xFF000000,
+        FORCE_ALPHA_ON_FIRST_COLOR = 0xFF000000,
+    };
+
     struct sCreatePalOptions
     {
         // Normally zero, but we can offset by one in some cases.
-        UINT8 nStartingPosition = 0;
-        COLORREF crForcedColorValues = 0x00000000;
-        COLORREF crForcedFirstColorValue = 0x00000000;
+        UINT8 nStartingPosition =     NO_SPECIAL_OPTIONS;
+        int crForcedColorValues =     NO_SPECIAL_OPTIONS;
+        int crForcedFirstColorValue = NO_SPECIAL_OPTIONS;
     };
 
     sCreatePalOptions createPalOptions;
@@ -179,7 +187,7 @@ public:
     int GetImgOutPalAmt() { return nSrcPalAmt[0]; };
     void ClearSrcPal();
 
-    TCHAR* GetButtonDesc() { return pButtonLabel; };
+    const LPCTSTR *GetButtonDescSet() { return pButtonLabelSet; };
     eImageOutputSpriteDisplay GetImgDispType() { return DisplayType; };
 
     void SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc);
