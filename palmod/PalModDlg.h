@@ -247,6 +247,7 @@ public:
     afx_msg void OnLoadDir_MVC2ArcadeAll()  { OnLoadGameByDirectory(MVC2_A_DIR); };
     afx_msg void OnLoadDir_MVC2DCUSA()      { OnLoadGameByDirectory(MVC2_D); };
     afx_msg void OnLoadDir_MVC2PS2USA()     { OnLoadGameByDirectory(MVC2_P); };
+    afx_msg void OnLoadDir_RedEarthAll()    { OnLoadGameByDirectory(REDEARTH_A_DIR); };
     afx_msg void OnLoadDir_SFIII3DCAll()    { OnLoadGameByDirectory(SFIII3_D); };
     afx_msg void OnLoadDir_SFIII3ArcadeAll() { OnLoadGameByDirectory(SFIII3_A_DIR); };
 };

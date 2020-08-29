@@ -130,6 +130,12 @@
     <Filter Include="Game\Capcom Games\RedEarth_A">
       <UniqueIdentifier>{d48977d3-f69d-4040-b3e9-89cb618f6d70}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\RedEarth_A_DIR">
+      <UniqueIdentifier>{ef4e29a9-08bd-4a6d-befe-5e393fdf5b5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KarnovsR_A">
+      <UniqueIdentifier>{59438445-c5d4-4215-81c1-5154cf395d8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -305,6 +311,12 @@
     </ClCompile>
     <ClCompile Include="Game\Game_REDEARTH_A.cpp">
       <Filter>Game\Capcom Games\RedEarth_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_REDEARTH_A_DIR.cpp">
+      <Filter>Game\Capcom Games\RedEarth_A_DIR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KarnovsR_A.cpp">
+      <Filter>Game\SNK Games\KarnovsR_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -550,6 +562,15 @@
     </ClInclude>
     <ClInclude Include="Game\REDEARTH_A_DEF.h">
       <Filter>Game\Capcom Games\RedEarth_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_REDEARTH_A_DIR.h">
+      <Filter>Game\Capcom Games\RedEarth_A_DIR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KarnovsR_A.h">
+      <Filter>Game\SNK Games\KarnovsR_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KarnovsR_A_DEF.h">
+      <Filter>Game\SNK Games\KarnovsR_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

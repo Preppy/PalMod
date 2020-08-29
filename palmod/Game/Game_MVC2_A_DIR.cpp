@@ -15,7 +15,7 @@ CGame_MVC2_A_DIR::CGame_MVC2_A_DIR(UINT32 nConfirmedROMSize) :
 {
     OutputDebugString(_T("CGame_MVC2_A_DIR::CGame_MVC2_A_DIR: Loading from SIMM directory\n"));
     nGameFlag = MVC2_A_DIR;
-    // We lie here because we want to look at 8 SIMMs.
+    // We lie here because we want to look at 8 SIMM banks
     nFileAmt = MVC2_Arcade_NumberOfSIMMs;
 
     // Ensure our change array is using the correct length

@@ -126,6 +126,7 @@
     <ClCompile Include="Game\Game_Garou_S.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
+    <ClCompile Include="Game\Game_KarnovsR_A.cpp" />
     <ClCompile Include="Game\Game_KOF02UM_S.cpp" />
     <ClCompile Include="Game\Game_KOF02_A.cpp" />
     <ClCompile Include="Game\Game_KOF98_A.cpp" />
@@ -139,6 +140,7 @@
     <ClCompile Include="Game\Game_NEOGEO_A.cpp" />
     <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
     <ClCompile Include="Game\Game_REDEARTH_A.cpp" />
+    <ClCompile Include="Game\Game_REDEARTH_A_DIR.cpp" />
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp" />
     <ClCompile Include="Game\Game_SFA2_A.cpp" />
     <ClCompile Include="Game\Game_SFA3_A.cpp" />
@@ -193,6 +195,7 @@
     <ClInclude Include="Game\Game_Garou_S.h" />
     <ClInclude Include="Game\Game_JOJOS_A.h" />
     <ClInclude Include="Game\Game_JOJOS_A_DIR.h" />
+    <ClInclude Include="Game\Game_KarnovsR_A.h" />
     <ClInclude Include="Game\Game_KOF02UM_S.h" />
     <ClInclude Include="Game\Game_KOF02_A.h" />
     <ClInclude Include="Game\Game_KOF98_A.h" />
@@ -206,6 +209,7 @@
     <ClInclude Include="Game\Game_NEOGEO_A.h" />
     <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
     <ClInclude Include="Game\Game_REDEARTH_A.h" />
+    <ClInclude Include="Game\Game_REDEARTH_A_DIR.h" />
     <ClInclude Include="Game\Game_SAMSHO5SP_A.h" />
     <ClInclude Include="Game\Game_SFA2_A.h" />
     <ClInclude Include="Game\Game_SFA3_A.h" />
@@ -219,6 +223,7 @@
     <ClInclude Include="Game\Garou_S_DEF.h" />
     <ClInclude Include="Game\ImgTicket.h" />
     <ClInclude Include="Game\JOJOS_A_DEF.h" />
+    <ClInclude Include="Game\KarnovsR_A_DEF.h" />
     <ClInclude Include="Game\KOF02UM_S_DEF.h" />
     <ClInclude Include="Game\KOF02_A_DEF.h" />
     <ClInclude Include="Game\KOF98_A_DEF.h" />

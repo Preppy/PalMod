@@ -102,7 +102,7 @@
 #define IDC_ABOUTNAME2                  1071
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772
-#define ID_LDMVC2DCUSA                  32773
+#define ID_LD_MVC2DCUSA                 32773
 #define ID_FILE_CLOSE32774              32774
 #define ID_FILE_EXPORTIMAGE             32775
 #define ID_FILE_EXIT                    32776
@@ -142,8 +142,7 @@
 #define ID_FILE_LOADLASTUSEDDIRECTORY   32813
 #define ID_FILE_LOADLASTUSEDDIR         32814
 #define ID_LOADDIRECTORY_MVC2           32815
-#define ID_LDMVC2USAPS2                 32816
-#define ID_LDMVC2PS2USA                 32817
+#define ID_LD_MVC2PS2USA                32817
 #define ID_ACC_BLINK                    32818
 #define ID_SETTINGS_TILEIMAGEBACKGROUND 32820
 #define ID_SETTINGS_RESETBACKGROUNDOFFSET 32821
@@ -159,16 +158,17 @@
 #define ID_SETTINGS_USEBGCOLOR          32833
 #define ID_SETTINGS_USETRANSPARENTPNG   32834
 #define ID_LOADDIRECTORY_SFIII3         32835
-#define ID_LDSFIII3DCALL                32836
+#define ID_LD_SFIII3DCALL               32836
 #define ID_SETTINGS_COLORSPERLINE       32837
 #define ID_COLORSPERLINE_8COLORSPERLINE 32838
 #define ID_COLORSPERLINE_16COLORSPERLINE 32839
 #define ID_ACC_LOADPALETTE              32840
 #define ID_ACC_SAVEPALETTE              32841
-#define ID_LDSFIII3ARCADEALL            32842
-#define ID_LDJOJOS50                    32843
-#define ID_LDJOJOS51                    32844
-#define ID_LDMVC2ARCADE                 32845
+#define ID_LD_SFIII3ARCADEALL           32842
+#define ID_LD_JOJOS50                   32843
+#define ID_LD_JOJOS51                   32844
+#define ID_LD_MVC2ARCADE                32845
+#define ID_LOADDIRECTORY_REDEARTH       32846
 #define ID_SETTINGS_SETBACKGROUNDCOLOR32847 32847
 #define ID_FILE_SAVE32850               32850
 #define ID_Menu32851                    32851
@@ -179,7 +179,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32846
+#define _APS_NEXT_COMMAND_VALUE         32847
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

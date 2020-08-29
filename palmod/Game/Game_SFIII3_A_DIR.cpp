@@ -13,7 +13,7 @@ CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize) :
     CGame_SFIII3_A(0x800000) // Let the core game know it's safe to load Extras
 {
     nGameFlag = SFIII3_A_DIR;
-    nFileAmt = 8;
+    nFileAmt = 8; // 8 banks per SIMM
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
@@ -30,6 +30,7 @@ sFileRule CGame_SFIII3_A_DIR::GetRule(UINT16 nUnitId)
 
     _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u"), SFIII_Arcade_USA_ROM_Base, (nUnitId & 0x00FF));
 
+    // This is clunky: we should shift the SIMM games to handle loads themselves.
     NewFileRule.fHasAltName = TRUE;
     _stprintf_s(NewFileRule.szAltFileName, MAX_FILENAME_LENGTH, _T("%s%u"), SFIII_Arcade_JPN_ROM_Base, (nUnitId & 0x00FF));
 

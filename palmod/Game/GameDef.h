@@ -42,6 +42,8 @@ enum SupportedGamesList
     MVC2_A_DIR,
     GEMFIGHTER_A,
     REDEARTH_A,
+    REDEARTH_A_DIR,
+    KarnovsR_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -86,6 +88,8 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("MVC2 (Arcade rerip)"),
    _T("Super Gem Fighter Mini Mix (USA 970904)"),
    _T("Red Earth (Arcade)"),
+   _T("Red Earth (Arcade Rerip)"),
+   _T("Karnov's Revenge / Fighter's History Dynamite"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;

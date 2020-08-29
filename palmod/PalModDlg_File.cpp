@@ -384,6 +384,7 @@ void CPalModDlg::OnFileOpen()
         { Garou_A, _T("Garou|kf.neo-sma|"), INVALID_UNIT_VALUE },
         { Garou_S, _T("Garou for Steam (p1.bin)|p1.bin|"), INVALID_UNIT_VALUE },
         { JOJOS_A, _T("Jojos (Japan): HUDs and menus (*.50), Characters (*.51)|50;51|"), INVALID_UNIT_VALUE },
+        { KarnovsR_A, _T("Karnov's Revenge|066-p1.p1|"), INVALID_UNIT_VALUE },
         { KOF98_A, _T("KOF98|242-p2.sp2;kof98_p2.rom|"), INVALID_UNIT_VALUE },
         // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
         { KOF02_A, _T("KOF02 (265-p2.sp2 or 265-p2.bin)|265*p2*|"), INVALID_UNIT_VALUE },

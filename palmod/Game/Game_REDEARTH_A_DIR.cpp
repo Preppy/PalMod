@@ -1,41 +1,42 @@
 #include "StdAfx.h"
-#include "Game_JOJOS_A_DIR.h"
+#include "Game_RedEarth_A_DIR.h"
+#include "..\palmod.h"
 
-UINT16 CGame_JOJOS_A_DIR::uRuleCtr = 0;
+UINT16 CGame_RedEarth_A_DIR::uRuleCtr = 0;
 
-constexpr auto JOJOS_Arcade_ROM_Base = _T("jojoba-simm5.");
+constexpr auto RedEarth_Arcade_ROM_Base = _T("redearth-simm3.");
 
-#define JOJOS_RERIP_DEBUG                 DEFAULT_GAME_DEBUG_STATE
+#define RedEarth_RERIP_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 
-CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR(UINT32 nConfirmedROMSize, int nJojosModeToLoad) :
-        CGame_JOJOS_A(0x800000, nJojosModeToLoad)   // Let Jojos know that it's safe to load extras.
+CGame_RedEarth_A_DIR::CGame_RedEarth_A_DIR(UINT32 nConfirmedROMSize) :
+        CGame_REDEARTH_A(0x800000)   // Let RedEarth know that it's safe to load extras.
 {
-    OutputDebugString(_T("CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR: Loading from SIMM directory\n"));
-    nGameFlag = (nJojosModeToLoad == 50) ? JOJOS_A_DIR_50 : JOJOS_A_DIR_51;
+    OutputDebugString(_T("CGame_RedEarth_A_DIR::CGame_RedEarth_A_DIR: Loading from SIMM directory\n"));
     // We lie here because we want to look at all 8 SIMM banks
     nFileAmt = 8;
+    nGameFlag = REDEARTH_A_DIR;
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
 }
 
-CGame_JOJOS_A_DIR::~CGame_JOJOS_A_DIR(void)
+CGame_RedEarth_A_DIR::~CGame_RedEarth_A_DIR()
 {
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_JOJOS_A_DIR::GetRule(UINT16 nUnitId)
+sFileRule CGame_RedEarth_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u"), JOJOS_Arcade_ROM_Base, (nUnitId & 0x00FF));
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u"), RedEarth_Arcade_ROM_Base, (nUnitId & 0x00FF));
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
     return NewFileRule;
 }
 
-sFileRule CGame_JOJOS_A_DIR::GetNextRule()
+sFileRule CGame_RedEarth_A_DIR::GetNextRule()
 {
     sFileRule NewFileRule = GetRule(uRuleCtr);
 
@@ -49,7 +50,7 @@ sFileRule CGame_JOJOS_A_DIR::GetNextRule()
     return NewFileRule;
 }
 
-inline UINT32 CGame_JOJOS_A_DIR::GetSIMMLocationFromROMLocation(UINT32 nROMLocation)
+inline UINT32 CGame_RedEarth_A_DIR::GetSIMMLocationFromROMLocation(UINT32 nROMLocation)
 {
     UINT32 nSIMMLocation = 0;
 
@@ -57,24 +58,24 @@ inline UINT32 CGame_JOJOS_A_DIR::GetSIMMLocationFromROMLocation(UINT32 nROMLocat
     return nSIMMLocation;
 }
 
-inline UINT32 CGame_JOJOS_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation)
+inline UINT32 CGame_RedEarth_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation)
 {
     UINT32 nSIMMLocation = nSIMMSetLocation;
 
-    while (nSIMMLocation > c_nJOJOSSIMMLength)
+    while (nSIMMLocation > c_nRedEarthSIMMLength)
     {
-        nSIMMLocation -= c_nJOJOSSIMMLength;
+        nSIMMLocation -= c_nRedEarthSIMMLength;
     }
 
     return nSIMMLocation;
 }
 
-BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
+BOOL CGame_RedEarth_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 {
     BOOL fSuccess = TRUE;
     CString strInfo;
 
-    strInfo.Format(_T("CGame_JOJOS_A_DIR::LoadFile: Preparing to load data from SIMM number %u\n"), nSIMMNumber);
+    strInfo.Format(_T("CGame_RedEarth_A_DIR::LoadFile: Preparing to load data from SIMM number %u\n"), nSIMMNumber);
     OutputDebugString(strInfo);
 
     if ((nSIMMNumber % 2) == 1)
@@ -82,10 +83,9 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         OutputDebugString(_T("\tThis is a peer SIMM: skipping.\n"));
         return TRUE;
     }
-    else if (((nGameFlag == JOJOS_A_DIR_50) && (nSIMMNumber > 3)) ||
-             ((nGameFlag == JOJOS_A_DIR_51) && (nSIMMNumber < 4)))
+    else if (nSIMMNumber < 4)
     {
-        OutputDebugString(_T("\tThis SIMM set is not used for the current Jojos mode\n"));
+        OutputDebugString(_T("\tThis SIMM set is not used for the current RedEarth mode\n"));
         return TRUE;
     }
 
@@ -94,8 +94,8 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     // That is then followed by one byte from 5.6 followed by one byte from 5.7, repeat until end of SIMM.
     // SO to read the SIMMs we need to perform shenanigans.
     const UINT32 nSIMMSetAdjustment = (nSIMMNumber > 3) ? 4 : 0;
-    const UINT32 nBeginningRange = 0 + (c_nJOJOSSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
-    const UINT32 nEndingRange = (c_nJOJOSSIMMLength * 2) + (c_nJOJOSSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
+    const UINT32 nBeginningRange = 0 + (c_nRedEarthSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
+    const UINT32 nEndingRange = (c_nRedEarthSIMMLength * 2) + (c_nRedEarthSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
 
     strInfo.Format(_T("\tThe SIMM %u set begins at 0x%06x and ends at 0x%06x\n"), nSIMMNumber, nBeginningRange, nEndingRange);
     OutputDebugString(strInfo);
@@ -107,7 +107,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
     if (FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary))
     {
-        OutputDebugString(_T("\tLoading JOJOS_A_DIR from SIMMs....\n"));
+        OutputDebugString(_T("\tLoading RedEarth_A_DIR from SIMMs....\n"));
         bool fShownCrossSIMMErrorOnce = false;
 
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
@@ -133,12 +133,12 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
-#if JOJOS_RERIP_DEBUG
+#if RedEarth_RERIP_DEBUG
                     strInfo.Format(_T("\t\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X\n"), nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation);
                     OutputDebugString(strInfo);
 #endif
 
-                    if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSize) > c_nJOJOSSIMMLength)
+                    if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSize) > c_nRedEarthSIMMLength)
                     {
                         if (!fShownCrossSIMMErrorOnce)
                         {
@@ -174,8 +174,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
-    if (((nGameFlag == JOJOS_A_DIR_50) && (nSIMMNumber == 2)) ||
-        ((nGameFlag == JOJOS_A_DIR_51) && (nSIMMNumber == 6)))
+    if (nSIMMNumber == 6)
     {
         // Only run the dupe checker for the second SIMM pair
         CheckForErrorsInTables();
@@ -191,23 +190,23 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     return fSuccess;
 }
 
-inline UINT8 CGame_JOJOS_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
+inline UINT8 CGame_RedEarth_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
 {
-    return (nROMLocation > (2 * c_nJOJOSSIMMLength)) ? 1 : 0;
+    return (nROMLocation > (2 * c_nRedEarthSIMMLength)) ? 1 : 0;
 }
 
-BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
+BOOL CGame_RedEarth_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 {
     CString strInfo;
-    strInfo.Format(_T("CGame_JOJOS_A_DIR::SaveFile: Preparing to save data for Jojos ROM set %u\n"), m_nJojosMode);
+    strInfo.Format(_T("CGame_RedEarth_A_DIR::SaveFile: Preparing to save data for RedEarth ROM setu\n"));
     OutputDebugString(strInfo);
 
-    // OK, so the old 51 ROM in the SIMM redump is interleaved.
-    // There is one byte from  5.0 followed by one byte from 5.1, up until the end of those SIMMs.
-    // That is then followed by one byte from 5.6 followed by one byte from 5.7, repeat until end of SIMM.
+    // OK, so the old 31 ROM in the SIMM redump is interleaved.
+    // There is one byte from  3.0 followed by one byte from 3.1, up until the end of those SIMMs.
+    // That is then followed by one byte from 3.6 followed by one byte from 3.7, repeat until end of SIMM.
     // SO to read the SIMMs we need to perform shenanigans.
 
-    const UINT32 nSIMMSetAdjustment = (m_nJojosMode == 51) ? 4 : 0;
+    const UINT32 nSIMMSetAdjustment = 4;
 
     CFile fileSIMM1;
     CString strSIMMName1;
@@ -218,10 +217,10 @@ BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
     CFile fileSIMM4;
     CString strSIMMName4;
 
-    strSIMMName1.Format(_T("%s\\%s%u"), GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 0);
-    strSIMMName2.Format(_T("%s\\%s%u"), GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 1);
-    strSIMMName3.Format(_T("%s\\%s%u"), GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 2);
-    strSIMMName4.Format(_T("%s\\%s%u"), GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 3);
+    strSIMMName1.Format(_T("%s\\%s%u"), GetLoadDir(), RedEarth_Arcade_ROM_Base, nSIMMSetAdjustment + 0);
+    strSIMMName2.Format(_T("%s\\%s%u"), GetLoadDir(), RedEarth_Arcade_ROM_Base, nSIMMSetAdjustment + 1);
+    strSIMMName3.Format(_T("%s\\%s%u"), GetLoadDir(), RedEarth_Arcade_ROM_Base, nSIMMSetAdjustment + 2);
+    strSIMMName4.Format(_T("%s\\%s%u"), GetLoadDir(), RedEarth_Arcade_ROM_Base, nSIMMSetAdjustment + 3);
 
     // We don't necessarily want the incoming file handle, so close it
     SaveFile->Abort();
@@ -248,7 +247,7 @@ BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
                     m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
-#if JOJOS_RERIP_DEBUG
+#if RedEarth_RERIP_DEBUG
                     strInfo.Format(_T("\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X (SIMM set %u)\n"), nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation, nSIMMSetToUse);
                     OutputDebugString(strInfo);
 #endif

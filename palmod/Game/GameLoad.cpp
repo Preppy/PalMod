@@ -7,6 +7,7 @@
 #include "Game_Garou_S.h"
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
+#include "Game_KarnovsR_A.h"
 #include "Game_KOF02_A.h"
 #include "Game_KOF02UM_S.h"
 #include "Game_KOF98_A.h"
@@ -20,6 +21,7 @@
 #include "Game_NEOGEO_A.h"
 #include "Game_GEMFIGHTER_A.h"
 #include "Game_REDEARTH_A.h"
+#include "Game_REDEARTH_A_DIR.h"
 #include "Game_SAMSHO5SP_A.h"
 #include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
@@ -166,8 +168,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
-    break;
-
     case MSH_A:
     {
         GetRule = &CGame_MSH_A::GetRule;
@@ -196,6 +196,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case NEOGEO_A:
     {
         GetRule = &CGame_NEOGEO_A::GetRule;
+        return TRUE;
+    }
+    case KarnovsR_A:
+    {
+        GetRule = &CGame_KarnovsR_A::GetRule;
         return TRUE;
     }
     case KOF98_A:
@@ -242,6 +247,17 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_GEMFIGHTER_A::GetRule;
         return TRUE;
     }
+    case REDEARTH_A_DIR:
+    {
+        GetRuleCtr = &CGame_RedEarth_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_RedEarth_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_RedEarth_A_DIR::GetRule;
+        GetNextRule = &CGame_RedEarth_A_DIR::GetNextRule;
+
+        return TRUE;
+    }
+    break;
+
     break;
     default:
         OutputDebugString(_T("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n"));
@@ -283,6 +299,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case JOJOS_A_DIR_51:
     {
         return new CGame_JOJOS_A_DIR(-1, 51);
+    }
+    case KarnovsR_A:
+    {
+        return new CGame_KarnovsR_A(nConfirmedROMSize);
     }
     case KOF98_A:
     {
@@ -335,6 +355,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case REDEARTH_A:
     {
         return new CGame_REDEARTH_A(nConfirmedROMSize);
+    }
+    case REDEARTH_A_DIR:
+    {
+        return new CGame_RedEarth_A_DIR(-1);
     }
     case SAMSHO5SP_A:
     {
@@ -467,15 +491,18 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
 
     if (CurrFile.Open(szLoadFile, CFile::modeRead | CFile::typeBinary))
     {
-        bool isSafeToRunGame = ((short int)CurrRule.uVerifyVar == -1) || (CurrFile.GetLength() == CurrRule.uVerifyVar);
+        ULONGLONG nGameFileLength = CurrFile.GetLength();
+        bool isSafeToRunGame = ((short int)CurrRule.uVerifyVar == -1) || (nGameFileLength == CurrRule.uVerifyVar);
 
         if (!isSafeToRunGame) // we could hook people trying to load Venture here... file size is 4194304
         {
             CString strQuestion;
-
             UINT nStringID;
 
-            if ((nGameFlag == JOJOS_A) && (nGameRule == 50) && (CurrFile.GetLength() == 4194304))
+            strQuestion.Format(_T("Internal warning: Game file size is 0x%x, but 0x%x is the expected size.\n"), nGameFileLength, CurrRule.uVerifyVar);
+            OutputDebugString(strQuestion);
+
+            if ((nGameFlag == JOJOS_A) && (nGameRule == 50) && (nGameFileLength == 4194304))
             {
                 nStringID = IDS_ROMISVENTURE;
             }
@@ -503,7 +530,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
 
         if (isSafeToRunGame)
         {
-            OutGame = CreateGame(nGameFlag, (UINT32)CurrFile.GetLength(), nGameRule);
+            OutGame = CreateGame(nGameFlag, (UINT32)nGameFileLength, nGameRule);
             OutGame->SetLoadDir(szLoadFile);
 
             if (OutGame->LoadFile(&CurrFile, 0))
