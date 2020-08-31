@@ -884,8 +884,6 @@ BOOL CGame_MVC2_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         }
     }
 
-    ClearDirtyPaletteTracker();
-
     CString strMsg;
     strMsg.Format(_T("CGame_MVC2_A::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);

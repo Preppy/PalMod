@@ -2,43 +2,43 @@
 
 const sGame_PaletteDataset SFIII3_A_ALEX_LP_PALETTES[] =
 {
-    { _T("LP Main"), 0x700600, 0x700680, index3S_CPS3_Alex, 0x00 },
+    { _T("LP Main"), 0x700600, 0x700680, index3S_CPS3_Alex, 0x00, &pairHandledInCode },
     { _T("LP Portrait"), 0x763be0, 0x763c00, index3S_CPS3_Alex, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_MP_PALETTES[] =
 {
-    { _T("MP Main"), 0x700680, 0x700700, index3S_CPS3_Alex, 0x00 },
+    { _T("MP Main"), 0x700680, 0x700700, index3S_CPS3_Alex, 0x00, &pairHandledInCode },
     { _T("MP Portrait"), 0x763c00, 0x763c20, index3S_CPS3_Alex, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_HP_PALETTES[] =
 {
-    { _T("HP Main"), 0x700700, 0x700780, index3S_CPS3_Alex, 0x00 },
+    { _T("HP Main"), 0x700700, 0x700780, index3S_CPS3_Alex, 0x00, &pairHandledInCode },
     { _T("HP Portrait"), 0x763c20, 0x763c40, index3S_CPS3_Alex, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_LK_PALETTES[] =
 {
-    { _T("LK Main"), 0x700780, 0x700800, index3S_CPS3_Alex, 0x00 },
+    { _T("LK Main"), 0x700780, 0x700800, index3S_CPS3_Alex, 0x00, &pairHandledInCode },
     { _T("LK Portrait"), 0x763c40, 0x763c60, index3S_CPS3_Alex, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_MK_PALETTES[] =
 {
-    { _T("MK Main"), 0x700800, 0x700880, index3S_CPS3_Alex, 0x00 },
+    { _T("MK Main"), 0x700800, 0x700880, index3S_CPS3_Alex, 0x00, &pairHandledInCode },
     { _T("MK Portrait"), 0x763c60, 0x763c80, index3S_CPS3_Alex, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_HK_PALETTES[] =
 {
-    { _T("HK Main"), 0x700880, 0x700900, index3S_CPS3_Alex, 0x00 },
+    { _T("HK Main"), 0x700880, 0x700900, index3S_CPS3_Alex, 0x00, &pairHandledInCode },
     { _T("HK Portrait"), 0x763c80, 0x763ca0, index3S_CPS3_Alex, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_EX_PALETTES[] =
 {
-    { _T("EX Main"), 0x700900, 0x700980, index3S_CPS3_Alex, 0x00 },
+    { _T("EX Main"), 0x700900, 0x700980, index3S_CPS3_Alex, 0x00, &pairHandledInCode },
     { _T("EX Portrait"), 0x763ca0, 0x763cc0, index3S_CPS3_Alex, 0x01 },
 };
 
@@ -58,7 +58,8 @@ const sGame_PaletteDataset SFIII3_A_ALEX_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_ALEX_EXTRA_PALETTES[] =
 {
-    { _T("Flash Chop"), 0x704A80, 0x704B00, index3S_CPS3_Alex, 0x02 },
+    // Warning: this is a paired palette, so if you change this please ensure UpdatePalImg handles that update correctly
+    { _T("Flash Chop (shared)"), 0x704A80, 0x704B00, index3S_CPS3_Alex, 0x02 },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_LP_PALETTES[] =
@@ -2200,7 +2201,6 @@ const sGame_PaletteDataset SFIII3_A_STAGES_REMY_FADED_PALETTES[] =
     { _T("Remy Stage (Faded) (19/20)"), 0x759080 + (18 * 0x200), 0x759080 + (19 * 0x200), index3S_CPS3_Stages, 0xaa },
     { _T("Remy Stage (Faded) (20/20)"), 0x759080 + (19 * 0x200), 0x75D080, index3S_CPS3_Stages, 0xab },
 };
-
 
 const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
 {

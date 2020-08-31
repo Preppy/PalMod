@@ -228,7 +228,5 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
         }
     }
 
-    ClearDirtyPaletteTracker();
-
     return TRUE;
 }

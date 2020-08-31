@@ -645,7 +645,8 @@ void CGame_MVC2_D::UpdatePalData()
                 }
                 else
                 {
-                    ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = (ConvCol(crSrc[nPICtr]) & 0xFFF);
+                    // Force opaque
+                    ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ((ConvCol(crSrc[nPICtr]) & 0xFFF) | 0xF000);
                 }
             }
 
@@ -668,32 +669,6 @@ void CGame_MVC2_D::UpdatePalData()
 void CGame_MVC2_D::ValidateMixExtraColors(BOOL* pfChangesWereMade)
 {
     ValidateAllPalettes(pfChangesWereMade, rgFileChanged);
-}
-
-void CGame_MVC2_D::FlushUnitFile()
-{
-    if (szUnitFile)
-    {
-        for (UINT16 i = 0; i < MVC2_D_NUMUNIT_WITH_TEAMVIEW; i++)
-        {
-            safe_delete_array(szUnitFile[i]);
-        }
-
-        safe_delete_array(szUnitFile);
-    }
-
-    FlushChangeTrackingArray();
-}
-
-void CGame_MVC2_D::PrepUnitFile()
-{
-    if (!szUnitFile)
-    {
-        szUnitFile = new TCHAR * [MVC2_D_NUMUNIT_WITH_TEAMVIEW];
-        memset(szUnitFile, NULL, sizeof(TCHAR*) * MVC2_D_NUMUNIT_WITH_TEAMVIEW);
-    }
-
-    PrepChangeTrackingArray();
 }
 
 void CGame_MVC2_D::ResetChangeFlag(UINT16 nUnitId)

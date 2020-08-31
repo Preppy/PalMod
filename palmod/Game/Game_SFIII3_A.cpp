@@ -63,7 +63,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SFIII3_A;
     nImgGameFlag = IMGDAT_SECTION_3S;
-    nImgUnitAmt = nUnitAmt;
+    nImgUnitAmt = SFIII3_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;
     nFileAmt = 1;
@@ -700,7 +700,40 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (uUnitId == index3S_CPS3_Oro) // Oro
+                if (uUnitId == index3S_CPS3_Alex)
+                {
+                    UINT16 nNodeCount = GetCollectionCountForUnit(NodeGet->uUnitId);
+                    UINT16 nNextToLastPalette = GetPaletteCountForUnit(NodeGet->uUnitId) - 1;
+
+                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nNextToLastPalette);
+
+                    if (paletteDataSetToJoin && (paletteDataSetToJoin->indexOffsetToUse == 0x02))
+                    {
+                        fShouldUseAlternateLoadLogic = true;
+                        // Joins using a shared node cannot use multisprite export: it breaks the increment logic
+                        nSrcAmt = 1;
+
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse)
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                            MainDescTree.GetDescNode(Node01, nNodeCount - 1, 0, -1)  // The cross-chop is palette 0 in the final node
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nNextToLastPalette, nSrcAmt, nNodeIncrement);
+                    }
+                }
+                else if (uUnitId == index3S_CPS3_Oro) // Oro
                 {
                     fShouldUseAlternateLoadLogic = true;
 

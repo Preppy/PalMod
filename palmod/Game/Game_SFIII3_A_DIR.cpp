@@ -336,7 +336,5 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
         fileSIMM4.Close();
     }
 
-    ClearDirtyPaletteTracker();
-
     return TRUE;
 }

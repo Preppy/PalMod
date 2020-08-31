@@ -258,7 +258,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     }
     break;
 
-    break;
     default:
         OutputDebugString(_T("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n"));
         return FALSE;
@@ -499,7 +498,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             CString strQuestion;
             UINT nStringID;
 
-            strQuestion.Format(_T("Internal warning: Game file size is 0x%x, but 0x%x is the expected size.\n"), nGameFileLength, CurrRule.uVerifyVar);
+            strQuestion.Format(_T("Internal warning: Game file size is 0x%x, but 0x%x is the expected size.\n"), (int)nGameFileLength, CurrRule.uVerifyVar);
             OutputDebugString(strQuestion);
 
             if ((nGameFlag == JOJOS_A) && (nGameRule == 50) && (nGameFileLength == 4194304))
@@ -515,15 +514,15 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             {
                 switch (MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_ICONSTOP | MB_DEFBUTTON2))
                 {
-                case IDYES:
-                {
-                    isSafeToRunGame = true;
-                    break;
-                }
-                default:
-                {
-                    break;
-                }
+                    case IDYES:
+                    {
+                        isSafeToRunGame = true;
+                        break;
+                    }
+                    default:
+                    {
+                        break;
+                    }
                 }
             }
         }
@@ -818,5 +817,64 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     else
     {
         szLoadSaveStr = _T("No changes detected: nothing to patch.");
+    }
+}
+
+void CGameLoad::SavePatchFile(CGameClass* CurrGame)
+{
+    SetGame(CurrGame->GetGameFlag());
+    UINT32 nNumberOfChangesSaved = 0;
+    UINT16* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
+
+    if (rgFileIsChanged[0] && !CurrGame->GetIsDir())
+    {
+        static LPCTSTR szPatchFilter[] = { _T("IPS Patch File|*.ips|")
+                                          _T("|") };
+
+        LPCTSTR pszLoadedFile = CurrGame->GetLoadDir();
+        LPCTSTR pszFileName = _tcsrchr(pszLoadedFile, _T('\\'));
+        pszFileName = (pszFileName) ? (pszFileName + 1) : _T("unknown");
+        CString strSuggestedFileName = pszFileName;
+        strSuggestedFileName += _T(".ips");        
+
+        CFileDialog PatchFileLoad(FALSE, _T("ips"), strSuggestedFileName.GetString(), 0, *szPatchFilter);
+
+        if (PatchFileLoad.DoModal() == IDOK)
+        {
+            CString strFileName = PatchFileLoad.GetOFN().lpstrFile;
+            CFile PatchFile;
+            nSaveLoadCount = 1;
+
+            if (PatchFile.Open(strFileName, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary))
+            {
+                nNumberOfChangesSaved = CurrGame->SavePatchFile(&PatchFile, 0);
+                PatchFile.Abort();
+            }
+            else
+            {
+                CString strError;
+                UINT uErrorString;
+                if ((GetFileAttributes(strFileName)) == INVALID_FILE_ATTRIBUTES)
+                {
+                    uErrorString = IDS_ERROR_FILENOTFOUND_FORMAT;
+                }
+                else
+                {
+                    uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
+                }
+
+                strError.Format(uErrorString, strFileName);
+                MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+            }
+        }
+    }
+
+    if (nNumberOfChangesSaved > 0)
+    {
+        szLoadSaveStr.Format(_T("%u change%s saved to patch file."), nNumberOfChangesSaved, nNumberOfChangesSaved == 1 ? _T("") : _T("s"));
+    }
+    else
+    {
+        szLoadSaveStr = _T("No changes detected: nothing to put in patch file.");
     }
 }

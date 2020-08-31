@@ -104,6 +104,7 @@ void CPalModDlg::OnButtonClickCheckEdits()
 
 void CPalModDlg::OnFilePatch()
 {
+    // Commit current changes to memory
     if (bPalChanged)
     {
         OnBnUpdate();
@@ -117,6 +118,19 @@ void CPalModDlg::OnFilePatch()
     {
         fFileChanged = FALSE;
     }
+}
+
+void CPalModDlg::OnSavePatchFile()
+{
+    // Commit current changes to memory
+    if (bPalChanged)
+    {
+        OnBnUpdate();
+    }
+
+    GetHost()->GetLoader()->SavePatchFile(GetHost()->GetCurrGame());
+
+    SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 }
 
 void CPalModDlg::OnGetCol()
@@ -490,7 +504,7 @@ void CPalModDlg::LoadGameFile(int nGameFlag, TCHAR* szFile)
 
     ClearGameVar();
 
-    CGameClass* GameGet = GetHost()->GetLoader()->LoadFile(nGameFlag, szFile);//szGet.GetBuffer());
+    CGameClass* GameGet = GetHost()->GetLoader()->LoadFile(nGameFlag, szFile);
 
     if (GameGet)
     {
@@ -1016,7 +1030,7 @@ void CPalModDlg::OnExportPalette()
                                       _T("GIMP Palette File|*.gpl|")
                                       _T("|") };
 
-    CFileDialog ActSave(FALSE, _T(".act"), nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, *szSaveFilter);
+    CFileDialog ActSave(FALSE, _T("act"), nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, *szSaveFilter);
 
     if (ActSave.DoModal() == IDOK)
     {

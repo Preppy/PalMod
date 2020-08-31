@@ -360,6 +360,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Load Palette\tCtrl+L",       ID_TOOLS_LOADACTPALETTE
         MENUITEM "&Save Palette\tCtrl+P",       ID_TOOLS_SAVEACTPALETTE
+        MENUITEM SEPARATOR
+        MENUITEM "Generate IPS Patch File",     ID_TOOLS_GENERATEPATCHFILE
     END
     POPUP "&Settings"
     BEGIN

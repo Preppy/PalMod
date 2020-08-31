@@ -29,7 +29,7 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     //Set game information
     nGameFlag = SFIII3_D;
     nImgGameFlag = IMGDAT_SECTION_3S;
-    nImgUnitAmt = nUnitAmt;
+    nImgUnitAmt = SFIII3_D_NUM_IMG_UNITS;
 
     nDisplayW = 8;
     nFileAmt = SFIII3_D_NUMUNIT;
@@ -211,8 +211,6 @@ BOOL CGame_SFIII3_D::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             SaveFile->Write(m_pppDataBuffer[nUnitId][nPalCtr], nCurrPalSz * 2);
         }
     }
-
-    ClearDirtyPaletteTracker();
 
     return TRUE;
 }

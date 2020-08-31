@@ -38,7 +38,6 @@ class CGameClass
 {
 protected:
     TCHAR* szDir = nullptr;
-    TCHAR** szUnitFile = nullptr;
     UINT16* rgFileChanged = nullptr;
     UINT16 nFileAmt = 0;
 
@@ -153,8 +152,6 @@ public:
     UINT16(*ConvCol)(UINT32 inCol);
     UINT32(*ConvPal)(UINT16 inCol);
 
-    TCHAR* GetUnitFile(UINT16 nUnitId) { return szUnitFile[nUnitId]; };
-    void SetUnitFile(UINT16 nUnitId, TCHAR* szNewFile) { szUnitFile[nUnitId] = szNewFile; };
     TCHAR* GetLoadDir() { return szDir; };
     BOOL SetLoadDir(TCHAR* szNewDir);
 
@@ -208,10 +205,11 @@ public:
 
     virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId) = 0;
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
+    virtual UINT32 SavePatchFile(CFile* PatchFile, UINT16 nUnitId);
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
     virtual void UpdatePalData();
-    virtual void FlushChangeTrackingArray() { safe_delete_array(rgFileChanged); };
+    void FlushChangeTrackingArray() { safe_delete_array(rgFileChanged); ClearDirtyPaletteTracker();  };
     virtual void PrepChangeTrackingArray();
     virtual void ValidateMixExtraColors(BOOL* pfChangesWereMade) {};
     virtual void PostSetPal(UINT16 nUnitId, UINT16 nPalId) {};

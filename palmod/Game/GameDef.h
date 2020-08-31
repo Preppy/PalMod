@@ -471,6 +471,8 @@ const UINT8 SFIII3_D_IMG_UNITS[SFIII3_A_NUM_IMG_UNITS - 0x01] =
     index3S_CPS3_Remy,
 };
 
+constexpr auto SFIII3_D_NUM_IMG_UNITS = ARRAYSIZE(SFIII3_D_IMG_UNITS);
+
 const UINT8 SSF2T_A_IMG_UNITS[SSF2T_A_NUM_IMG_UNITS] =
 {
     0x00, // Ryu
@@ -1774,6 +1776,7 @@ const stPairedPaletteInfo pairWolvieClaws =   { 1, 20, 4 };
 const stPairedPaletteInfo pairBonerineClaws = { 1, 25, 6 };
 
 const stPairedPaletteInfo pairVegaClaws = { 1, 0, 0 };
+
 
 // Please note that the palette sort order in PalMod differs for MM in MvC1 and MvC2
 const stPairedPaletteInfo pairMVC1RushDrill = { 9, 0, 0 };

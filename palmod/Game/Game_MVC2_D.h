@@ -54,8 +54,6 @@ public:
     void SetExtraImg(UINT16 nImgId, UINT16 nUnitId, UINT16 nPalId);
 
     void UpdatePalData();
-    void FlushUnitFile();
-    void PrepUnitFile();
 
     UINT16** GetDataBuffer() { return ppDataBuffer; };
     void PostSetPal(UINT16 nUnitId, UINT16 nPalId);

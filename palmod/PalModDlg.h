@@ -204,11 +204,13 @@ public:
     CString m_EditGSDesc = _T("");
     CString m_EditBLDesc = _T("");
     CString m_EditADesc = _T("A");
+
     afx_msg void OnBnNewCol();
     afx_msg void OnBnSetCol();
     afx_msg void OnColSett();
     afx_msg void OnBnUpdate();
     afx_msg void OnFilePatch();
+    afx_msg void OnSavePatchFile();
     afx_msg void OnGetCol();
     afx_msg void OnAutoSetCol();
 

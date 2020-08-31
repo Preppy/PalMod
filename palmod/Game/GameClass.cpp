@@ -747,8 +747,6 @@ void CGameClass::MarkPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
     return;
 }
 
-
-
 void CGameClass::MarkPaletteClean(UINT16 nUnit, UINT16 nPaletteID)
 {
     struct DoPalettesMatch
@@ -814,8 +812,6 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         }
     }
 
-    ClearDirtyPaletteTracker();
-
     CString strMsg;
     strMsg.Format(_T("CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
@@ -823,3 +819,50 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     return TRUE;
 }
 
+UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
+{
+    UINT32 nTotalPalettesSaved = 0;
+    LPCSTR szIPSOpener = "PATCH";
+    PatchFile->Write(szIPSOpener, strlen(szIPSOpener));
+
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    {
+        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        {
+            if (IsPaletteDirty(nUnitCtr, nPalCtr))
+            {
+                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                // Location
+                BYTE b1 = (m_nCurrentPaletteROMLocation & 0xFF0000) >> 16;
+                BYTE b2 = (m_nCurrentPaletteROMLocation & 0xFF00) >> 8;
+                BYTE b3 = m_nCurrentPaletteROMLocation & 0xFF;
+                PatchFile->Write(&b1, 1);
+                PatchFile->Write(&b2, 1);
+                PatchFile->Write(&b3, 1);
+
+                // Size
+                b1 = ((m_nCurrentPaletteSize * 2) & 0xFF00) >> 8;
+                b2 = (m_nCurrentPaletteSize * 2) & 0xFF;
+                PatchFile->Write(&b1, 1);
+                PatchFile->Write(&b2, 1);
+
+                // Actual data
+                PatchFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+
+                nTotalPalettesSaved++;
+            }
+        }
+    }
+
+    LPCSTR szIPSCloser = "EOF";
+    PatchFile->Write(szIPSCloser, strlen(szIPSCloser));
+
+    CString strMsg;
+    strMsg.Format(_T("CGameClass::SavePatchFile: Saved 0x%x palettes to patching file for %u units\n"), nTotalPalettesSaved, nUnitAmt);
+    OutputDebugString(strMsg);
+
+    return nTotalPalettesSaved;
+}

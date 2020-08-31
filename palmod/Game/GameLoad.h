@@ -26,6 +26,7 @@ public:
     CGameClass* LoadFile(int nGameFlag, TCHAR* szLoadFile);
     CGameClass* LoadDir(int nGameFlag, TCHAR* szLoadDir);
     void SaveGame(CGameClass* CurrGame);
+    void SavePatchFile(CGameClass* CurrGame);
 
     int GetErrCt() { return nSaveLoadErr; };
     CString GetLoadSaveStr() { return szLoadSaveStr; };

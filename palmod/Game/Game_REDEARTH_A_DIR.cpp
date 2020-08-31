@@ -291,7 +291,5 @@ BOOL CGame_RedEarth_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
         fileSIMM4.Close();
     }
 
-    ClearDirtyPaletteTracker();
-
     return TRUE;
 }
