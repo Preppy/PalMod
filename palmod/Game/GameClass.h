@@ -37,7 +37,7 @@ const UINT32 k_nBogusHighValue = 0xFEEDFED;
 class CGameClass
 {
 protected:
-    TCHAR* szDir = nullptr;
+    LPTSTR szDir = nullptr;
     UINT16* rgFileChanged = nullptr;
     UINT16 nFileAmt = 0;
 
@@ -46,6 +46,7 @@ protected:
     UINT32 m_nLowestKnownPaletteRomLocation = k_nBogusHighValue;
     UINT16 m_nCurrentPaletteSize = 0;
     LPCTSTR m_pszCurrentPaletteName = nullptr;
+    UINT32 m_nConfirmedCRCValue = -1;
 
     BOOL bIsDir = FALSE;
 
@@ -130,8 +131,19 @@ protected:
         }
     };
 
+    void ClearDirtyPaletteTracker() { m_vDirtyPaletteList.clear(); };
     std::vector<sPaletteIdentifier> m_vDirtyPaletteList;
     UINT16*** m_pppDataBuffer = nullptr;
+
+    struct sCRC32ValueSet
+    {
+        LPCTSTR szFriendlyName = _T("Unknown Game");
+        LPCTSTR szROMFileName = _T("uninit");
+        const UINT32 crcValueExpected = -1;
+        const int nROMSpecificOffset = 0;
+    };
+
+    const sCRC32ValueSet* m_pCRC32SpecificData = nullptr;
 
 public:
     CGameClass(void);
@@ -152,8 +164,9 @@ public:
     UINT16(*ConvCol)(UINT32 inCol);
     UINT32(*ConvPal)(UINT16 inCol);
 
-    TCHAR* GetLoadDir() { return szDir; };
-    BOOL SetLoadDir(TCHAR* szNewDir);
+    LPCTSTR GetROMFileName();
+    LPCTSTR GetLoadDir() { return szDir; };
+    BOOL SetLoadDir(LPCTSTR szNewDir);
 
     ColMode GetColMode() { return CurrColMode; };
     BOOL SetColMode(ColMode NewMode);
@@ -201,11 +214,14 @@ public:
     //Public virtual
     virtual CDescTree* GetMainTree() = 0;
 
-    virtual LPCTSTR GetGameName() { return g_GameFriendlyName[nGameFlag]; };
+    virtual LPCTSTR GetGameName();
 
     virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId) = 0;
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
     virtual UINT32 SavePatchFile(CFile* PatchFile, UINT16 nUnitId);
+    void SetSpecificValuesForCRC(UINT32 nCRCForFile);
+    virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet) { return 0; };
+
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
     virtual void UpdatePalData();
@@ -218,7 +234,6 @@ public:
 
     COLORREF*** CreateImgOutPal();
 
-    void ClearDirtyPaletteTracker() { m_vDirtyPaletteList.clear(); };
     void MarkPaletteDirty(UINT16 nUnit, UINT16 nPaletteID);
     void MarkPaletteClean(UINT16 nUnit, UINT16 nPaletteID);
     bool IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID);

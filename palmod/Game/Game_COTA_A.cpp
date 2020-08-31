@@ -90,6 +90,57 @@ CGame_COTA_A::~CGame_COTA_A(void)
     FlushChangeTrackingArray();
 }
 
+UINT32 CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+            { _T("X-Men: Children of the Atom (Asia/Japan 9412--)"), _T("xmn.05"), 0xc3ed62a2, -0x1AB8 },
+            { _T("X-Men: Children of the Atom (Japan Rent 940812)"), _T("xmno.05a"), 0x0303d672, -0x35F4 },
+            { _T("X-Men: Children of the Atom (950105)"), _T("xmn.05a"), 0xac0d7759, 0 },
+            { _T("X-Men: Children of the Atom (950331)"), _T("xmne.05b"), 0x87b0ed0f, 0 },
+            { _T("X-Men: Children of the Atom (Hispanic 950331)"), _T("xmnh.05b"), 0x87b0ed0f, 0 },
+    };
+
+    *ppKnownROMSet = knownROMs;
+    return ARRAYSIZE(knownROMs);
+
+#ifdef NOTES
+        // These are the MAME values...
+        xmcotar1    05/01/1995 (c) 1994 (Euro)
+            ROM_LOAD16_WORD_SWAP("xmn.05a",  0x100000, 0x80000, CRC(ac0d7759) SHA1(650d4474b13f16af7910a0f721fcda2ddb2414fd))
+        xmcotau     05/01/1995 (c) 1994 (USA)
+            ROM_LOAD16_WORD_SWAP("xmn.05a",  0x100000, 0x80000, CRC(ac0d7759) SHA1(650d4474b13f16af7910a0f721fcda2ddb2414fd))
+        xmcotahr1   05/01/1995 (c) 1994 (Hispanic)
+            ROM_LOAD16_WORD_SWAP("xmn.05a",  0x100000, 0x80000, CRC(ac0d7759) SHA1(650d4474b13f16af7910a0f721fcda2ddb2414fd))
+        xmcotaj     05/01/1995 (c) 1994 (Japan)
+            ROM_LOAD16_WORD_SWAP("xmn.05a",  0x100000, 0x80000, CRC(ac0d7759) SHA1(650d4474b13f16af7910a0f721fcda2ddb2414fd))
+        xmcotaa     05/01/1995 (c) 1994 (Asia)
+            ROM_LOAD16_WORD_SWAP("xmn.05a",  0x100000, 0x80000, CRC(ac0d7759) SHA1(650d4474b13f16af7910a0f721fcda2ddb2414fd))
+
+        xmcotaj1    22/12/1994 (c) 1994 (Japan)
+            ROM_LOAD16_WORD_SWAP("xmn.05",   0x100000, 0x80000, CRC(c3ed62a2) SHA1(4e3317d7ca981e33318822103a16e59f4ce20deb))
+        xmcotaj2    19/12/1994 (c) 1994 (Japan)
+            ROM_LOAD16_WORD_SWAP("xmn.05",   0x100000, 0x80000, CRC(c3ed62a2) SHA1(4e3317d7ca981e33318822103a16e59f4ce20deb))
+        xmcotaj3    17/12/1994 (c) 1994 (Japan)
+            ROM_LOAD16_WORD_SWAP("xmn.05",   0x100000, 0x80000, CRC(c3ed62a2) SHA1(4e3317d7ca981e33318822103a16e59f4ce20deb))
+        xmcotaar1   19/12/1994 (c) 1994 (Asia)
+            ROM_LOAD16_WORD_SWAP("xmn.05",   0x100000, 0x80000, CRC(c3ed62a2) SHA1(4e3317d7ca981e33318822103a16e59f4ce20deb))
+        xmcotaar2   17/12/1994 (c) 1994 (Asia)
+            ROM_LOAD16_WORD_SWAP("xmn.05",   0x100000, 0x80000, CRC(c3ed62a2) SHA1(4e3317d7ca981e33318822103a16e59f4ce20deb))
+
+        xmcotajr    08/12/1994 (c) 1994 (Japan Rent)
+            ROM_LOAD16_WORD_SWAP("xmno.05a", 0x100000, 0x80000, CRC(0303d672) SHA1(4816b5ac6a9bf78665112d54a8f3569d590721b2))
+
+
+        xmcota      31/03/1995 (c) 1994 (Euro)
+            ROM_LOAD16_WORD_SWAP("xmne.05b", 0x100000, 0x80000, CRC(87b0ed0f) SHA1(f4d78fdd9fcf864e909d9a2bb351b49a5f8ec7a0))
+        xmcotah     31/03/1995 (c) 1994 (Hispanic)
+            ROM_LOAD16_WORD_SWAP("xmnh.05b", 0x100000, 0x80000, CRC(87b0ed0f) SHA1(f4d78fdd9fcf864e909d9a2bb351b49a5f8ec7a0))
+        xmcotab     31/03/1995 (c) 1995 (Brazil)
+            ROM_LOAD16_WORD_SWAP("xmne.05b", 0x100000, 0x80000, CRC(87b0ed0f) SHA1(f4d78fdd9fcf864e909d9a2bb351b49a5f8ec7a0))
+#endif
+}
+
 int CGame_COTA_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
@@ -514,6 +565,22 @@ void CGame_COTA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
+
+     // Adjust for ROM-specific variant locations
+     if (m_pCRC32SpecificData)
+     {
+         // adjust for ROM, but bound it by 0
+         if ((m_pCRC32SpecificData->crcValueExpected == 0x0303d672) && // Japan rent
+             (m_nCurrentPaletteROMLocation > 0x36000)) // this number is fudged
+         {
+             // Somewhere after characters but before portraits there's another shift: account for that
+             m_nCurrentPaletteROMLocation = max(0, m_nCurrentPaletteROMLocation + -0x3654);
+         }
+         else
+         {
+             m_nCurrentPaletteROMLocation = max(0, m_nCurrentPaletteROMLocation + m_pCRC32SpecificData->nROMSpecificOffset);
+         }
+     }
 }
 
 BOOL CGame_COTA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
@@ -524,7 +591,8 @@ BOOL CGame_COTA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        rgUnitRedir[nUnitCtr] = nUnitCtr; // probably can remove this
+        // This ROM is already sorted: no need to re-sort.
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -533,7 +601,6 @@ BOOL CGame_COTA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
             m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
             LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
             LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
         }
     }

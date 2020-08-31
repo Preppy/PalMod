@@ -439,7 +439,36 @@ UINT16 CGameClass::SWAP_16(UINT16 palv)
     return aux;
 }
 
-BOOL CGameClass::SetLoadDir(TCHAR* szNewDir)
+LPCTSTR CGameClass::GetGameName()
+{
+    if (m_pCRC32SpecificData)
+    {
+        return m_pCRC32SpecificData->szFriendlyName;
+    }
+    else
+    {
+        return g_GameFriendlyName[nGameFlag];
+    }
+}
+
+LPCTSTR CGameClass::GetROMFileName()
+{
+    LPCTSTR pszFileName = _T("unknown");
+
+    if (szDir)
+    {
+        LPCTSTR pszPtr = _tcsrchr(szDir, _T('\\'));
+
+        if (pszPtr)
+        {
+            pszFileName = pszPtr + 1;
+        }
+    }
+
+    return pszFileName;
+}
+
+BOOL CGameClass::SetLoadDir(LPCTSTR szNewDir)
 {
     if (!szDir)
     {
@@ -865,4 +894,36 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
     OutputDebugString(strMsg);
 
     return nTotalPalettesSaved;
+}
+
+void CGameClass::SetSpecificValuesForCRC(UINT32 nCRCForFile)
+{
+    m_nConfirmedCRCValue = nCRCForFile;
+
+    const sCRC32ValueSet* ppCRC32ValueSets = nullptr;
+    UINT32 nCRCValueSetCount = GetKnownCRC32DatasetsForGame(&ppCRC32ValueSets);
+
+    if (nCRCValueSetCount != 0)
+    {
+        for (UINT16 nIndex = 0; nIndex < nCRCValueSetCount; nIndex++)
+        {
+            if (ppCRC32ValueSets[nIndex].crcValueExpected == m_nConfirmedCRCValue)
+            {
+                m_pCRC32SpecificData = &ppCRC32ValueSets[nIndex];
+
+                // We have a matching CRC, but some games use different filenames for the same ROM
+                // If we have an exact match, use current data.  Otherwise, continue and see if we find better.
+                if (_tcsicmp(ppCRC32ValueSets[nIndex].szROMFileName, GetROMFileName()) == 0)
+                {
+                    break;
+                }
+            }
+            else if (_tcsicmp(ppCRC32ValueSets[nIndex].szROMFileName, GetROMFileName()) == 0)
+            {
+                // We've got a matching name: it's possible that we're dealing with a modified ROM.
+                // Set this as a fallback option.
+                m_pCRC32SpecificData = &ppCRC32ValueSets[nIndex];
+            }
+        }
+    }
 }

@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "GameLoad.h"
+#include "..\CRC32.h"
 
 #include "Game_COTA_A.h"
 #include "Game_CVS2_A.h"
@@ -493,6 +494,12 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         ULONGLONG nGameFileLength = CurrFile.GetLength();
         bool isSafeToRunGame = ((short int)CurrRule.uVerifyVar == -1) || (nGameFileLength == CurrRule.uVerifyVar);
 
+        UINT32 crcValue = CRC32_BlockChecksum(&CurrFile, (int)nGameFileLength);
+
+        CString strMsg;
+        strMsg.Format(_T("CRC32 for %s is 0x%x!\n"), szLoadFile, crcValue);
+        OutputDebugString(strMsg);
+
         if (!isSafeToRunGame) // we could hook people trying to load Venture here... file size is 4194304
         {
             CString strQuestion;
@@ -531,6 +538,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         {
             OutGame = CreateGame(nGameFlag, (UINT32)nGameFileLength, nGameRule);
             OutGame->SetLoadDir(szLoadFile);
+            OutGame->SetSpecificValuesForCRC(crcValue);
 
             if (OutGame->LoadFile(&CurrFile, 0))
             {
@@ -702,7 +710,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
     UINT16 nFileAmt = CurrGame->GetFileAmt();
     UINT16* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
-    TCHAR* szDir = CurrGame->GetLoadDir();
+    LPCTSTR pszLoadDir = CurrGame->GetLoadDir();
     UINT16* rgUnitRedir = CurrGame->rgUnitRedir;
     CString strErrorFile;
 
@@ -719,7 +727,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                     CString szLoad;
                     sFileRule CurrRule = GetRule(nFileCtr | 0xFF00);
 
-                    szLoad.Format(_T("%s\\%s"), szDir, CurrRule.szFileName);
+                    szLoad.Format(_T("%s\\%s"), pszLoadDir, CurrRule.szFileName);
 
                     BOOL fFileOpened = FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary);
 
@@ -729,7 +737,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
                         OutputDebugString(_T("Saving game via alternate filenames...\n"));
 
-                        strAltFileName.Format(_T("%s\\%s"), szDir, CurrRule.szAltFileName);
+                        strAltFileName.Format(_T("%s\\%s"), pszLoadDir, CurrRule.szAltFileName);
 
                         fFileOpened = FileSave.Open(strAltFileName, CFile::modeReadWrite | CFile::typeBinary);
                     }
@@ -775,7 +783,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
         {
             nSaveLoadCount = 1;
 
-            if (FileSave.Open(szDir, CFile::modeReadWrite | CFile::typeBinary))
+            if (FileSave.Open(pszLoadDir, CFile::modeReadWrite | CFile::typeBinary))
             {
                 if (CurrGame->SaveFile(&FileSave, 0))
                 {
@@ -787,7 +795,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             }
             else
             {
-                strErrorFile = szDir;
+                strErrorFile = pszLoadDir;
                 nSaveLoadErr = 1;
             }
         }

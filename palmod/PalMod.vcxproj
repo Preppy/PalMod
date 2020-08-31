@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CRC32.cpp" />
     <ClCompile Include="ExtraFile.cpp" />
     <ClCompile Include="Game\ColorScale.cpp" />
     <ClCompile Include="Game\DescTree.cpp" />
@@ -180,6 +181,7 @@
     <ClCompile Include="UndoRedo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CRC32.h" />
     <ClInclude Include="ExtraFile.h" />
     <ClInclude Include="Game\ColorScale.h" />
     <ClInclude Include="Game\COTA_A_DEF.h" />

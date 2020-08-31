@@ -393,7 +393,7 @@ void CPalModDlg::OnFileOpen()
     // CGameLoad::LoadFile to pass the appropriate gameflag to that game.
     sSupportedGameList SupportedGameList[] =
     {
-        { COTA_A, _T("COTA xmn.05a|*.05a|"), INVALID_UNIT_VALUE },
+        { COTA_A, _T("COTA xmn.05a|xmn*.05*|"), INVALID_UNIT_VALUE },
         { CVS2_A, _T("CVS2 (SNKGD_SL.bin)|*.bin|"), INVALID_UNIT_VALUE },
         { Garou_A, _T("Garou|kf.neo-sma|"), INVALID_UNIT_VALUE },
         { Garou_S, _T("Garou for Steam (p1.bin)|p1.bin|"), INVALID_UNIT_VALUE },

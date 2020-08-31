@@ -136,6 +136,9 @@
     <Filter Include="Game\SNK Games\KarnovsR_A">
       <UniqueIdentifier>{59438445-c5d4-4215-81c1-5154cf395d8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\CRC32">
+      <UniqueIdentifier>{a158b4e6-b741-41cc-b522-17e2e097c889}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -317,6 +320,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_KarnovsR_A.cpp">
       <Filter>Game\SNK Games\KarnovsR_A</Filter>
+    </ClCompile>
+    <ClCompile Include="CRC32.cpp">
+      <Filter>Game\CRC32</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -571,6 +577,9 @@
     </ClInclude>
     <ClInclude Include="Game\KarnovsR_A_DEF.h">
       <Filter>Game\SNK Games\KarnovsR_A</Filter>
+    </ClInclude>
+    <ClInclude Include="CRC32.h">
+      <Filter>Game\CRC32</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
