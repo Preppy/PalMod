@@ -58,8 +58,8 @@ CGame_KarnovsR_A::CGame_KarnovsR_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = KarnovsR_A;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    nImgUnitAmt = 0;
+    nImgGameFlag = IMGDAT_SECTION_KARNOVSR;
+    nImgUnitAmt = ARRAYSIZE(KARNOVSR_A_IMG_UNITS);
 
     nDisplayW = 8;
     nFileAmt = 1;
@@ -607,7 +607,7 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
     // Default values for multisprite image display for Export
     UINT16 nSrcStart = 0;
-    UINT16 nSrcAmt = 0;
+    UINT16 nSrcAmt = 1;
     UINT16 nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
@@ -646,6 +646,40 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                     {
                         // The starting point is the absolute first palette for the sprite in question which is found in P1
                         nSrcStart -= nNodeIncrement;
+                    }
+                }
+
+                if (paletteDataSet->pPalettePairingInfo)
+                {
+                    const UINT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+
+                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+
+                    if (paletteDataSetToJoin)
+                    {
+                        int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                        int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+
+                        fShouldUseAlternateLoadLogic = true;
+
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                            MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
                     }
                 }
             }

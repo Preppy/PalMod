@@ -1722,11 +1722,46 @@ const UINT8 SAMSHO5SP_A_IMG_UNITS[] =
     indexSamSho5Sprites_Zankuro,
 };
 
+enum SupportedKarnovsR_A_PaletteListIndex
+{
+    indexKarnovsRSprites_Clown,
+    indexKarnovsRSprites_Felin,
+    indexKarnovsRSprites_Jean,
+    indexKarnovsRSprites_Karnov,
+    indexKarnovsRSprites_Lee,
+    indexKarnovsRSprites_Marstorius,
+    indexKarnovsRSprites_Matlok,
+    indexKarnovsRSprites_Mizoguchi,
+    indexKarnovsRSprites_Ray,
+    indexKarnovsRSprites_Ryoko,
+    indexKarnovsRSprites_Samchay,
+    indexKarnovsRSprites_Yungmie,
+    indexKarnovsRSprites_Zazie,
+};
+
+const UINT8 KARNOVSR_A_IMG_UNITS[] =
+{
+    indexKarnovsRSprites_Clown,
+    indexKarnovsRSprites_Felin,
+    indexKarnovsRSprites_Jean,
+    indexKarnovsRSprites_Karnov,
+    indexKarnovsRSprites_Lee,
+    indexKarnovsRSprites_Marstorius,
+    indexKarnovsRSprites_Matlok,
+    indexKarnovsRSprites_Mizoguchi,
+    indexKarnovsRSprites_Ray,
+    indexKarnovsRSprites_Ryoko,
+    indexKarnovsRSprites_Samchay,
+    indexKarnovsRSprites_Yungmie,
+    indexKarnovsRSprites_Zazie,
+};
+
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_CVS2 = 0, // CVS2: has both Capcom and SNK images
     IMGDAT_SECTION_NEOGEO,  // NEOGEO: Garou
     IMGDAT_SECTION_JOJOS,
+    IMGDAT_SECTION_KARNOVSR,
     IMGDAT_SECTION_KOF,     // KOF98 + KOF02UM
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
@@ -1782,4 +1817,3 @@ const stPairedPaletteInfo pairVegaClaws = { 1, 0, 0 };
 const stPairedPaletteInfo pairMVC1RushDrill = { 9, 0, 0 };
 const stPairedPaletteInfo pairMVC2RushDrill = { 30, 0, 0 };
 const stPairedPaletteInfo pairHyperMegaman =  { 9, 31, 12 };
-

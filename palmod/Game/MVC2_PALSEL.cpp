@@ -1193,7 +1193,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         UINT16 nJoinedUnit2 = indexMVC2AStorm;
         UINT16 nJoinedUnit3 = indexMVC2APsylocke;
         bool fTeamFound = false;
-        UINT16 nSrcAmt = 0;
+        UINT16 nSrcAmt = 1;
         UINT16 nNodeIncrement = 1;
 
         UINT16 nTeamViewNode = (UINT16)floor(NodeGet->uPalId / ARRAYSIZE(DEF_BUTTONLABEL6_MVC2));

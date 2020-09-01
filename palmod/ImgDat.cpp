@@ -148,6 +148,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = XMVSF_A_IMG_UNITS[nUnitCtr];
             break;
         }
+        case KarnovsR_A:
+        {
+            nImageUnitCounterToUse = KARNOVSR_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
         case MVC_A:
         {
             nImageUnitCounterToUse = MVC_A_IMG_UNITS[nUnitCtr];

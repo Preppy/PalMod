@@ -662,8 +662,15 @@ void CImgDumpBmp::CleanUp()
 
 int CImgDumpBmp::GetImageCountForFirstLine()
 {
-    // We want the odd sprites on the second line.
-    return (max(1, (int)floor(m_nTotalImagesToDisplay / 2)));
+    if (m_nTotalImagesToDisplay > GetMaxImagesPerLine())
+    {
+        // We want the odd sprites on the second line.
+        return (max(1, (int)floor(m_nTotalImagesToDisplay / 2)));
+    }
+    else
+    {
+        return m_nTotalImagesToDisplay;
+    }
 }
 
 int CImgDumpBmp::GetMaxImagesPerLine()

@@ -101,7 +101,11 @@ UINT32 CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
             { _T("X-Men: Children of the Atom (Hispanic 950331)"), _T("xmnh.05b"), 0x87b0ed0f, 0 },
     };
 
-    *ppKnownROMSet = knownROMs;
+    if (ppKnownROMSet != nullptr)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
     return ARRAYSIZE(knownROMs);
 
 #ifdef NOTES
@@ -642,7 +646,7 @@ BOOL CGame_COTA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Default values for multisprite image display for Export
     UINT16 nSrcStart = 0;
-    UINT16 nSrcAmt = 0;
+    UINT16 nSrcAmt = 1;
     UINT16 nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
@@ -692,7 +696,7 @@ BOOL CGame_COTA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 if (paletteDataSetToJoin)
                 {
-                    int nXOffs, nYOffs;
+                    int nXOffs = 0, nYOffs = 0;
 
                     if (NodeGet->uUnitId == indexCOTAWolverine) // wolvie claws support
                     {

@@ -494,12 +494,6 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         ULONGLONG nGameFileLength = CurrFile.GetLength();
         bool isSafeToRunGame = ((short int)CurrRule.uVerifyVar == -1) || (nGameFileLength == CurrRule.uVerifyVar);
 
-        UINT32 crcValue = CRC32_BlockChecksum(&CurrFile, (int)nGameFileLength);
-
-        CString strMsg;
-        strMsg.Format(_T("CRC32 for %s is 0x%x!\n"), szLoadFile, crcValue);
-        OutputDebugString(strMsg);
-
         if (!isSafeToRunGame) // we could hook people trying to load Venture here... file size is 4194304
         {
             CString strQuestion;
@@ -538,7 +532,18 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         {
             OutGame = CreateGame(nGameFlag, (UINT32)nGameFileLength, nGameRule);
             OutGame->SetLoadDir(szLoadFile);
-            OutGame->SetSpecificValuesForCRC(crcValue);
+
+            if (OutGame->GetKnownCRC32DatasetsForGame(nullptr) != 0)
+            {
+                // Only calculate this if desired since it's time-expensive
+                OutputDebugString(_T("Calculating crc...\n"));
+                UINT32 crcValue = CRC32_BlockChecksum(&CurrFile, (int)nGameFileLength);
+
+                CString strMsg;
+                strMsg.Format(_T("\tCRC32 for %s is 0x%x\n"), szLoadFile, crcValue);
+                OutputDebugString(strMsg);
+                OutGame->SetSpecificValuesForCRC(crcValue);
+            }
 
             if (OutGame->LoadFile(&CurrFile, 0))
             {

@@ -609,7 +609,7 @@ BOOL CGame_GEMFIGHTER_A::UpdatePalImg(int Node01, int Node02, int Node03, int No
 
     // Default values for multisprite image display for Export
     UINT16 nSrcStart = 0;
-    UINT16 nSrcAmt = 0;
+    UINT16 nSrcAmt = 1;
     UINT16 nNodeIncrement = 1;
 
     //Get rid of any palettes if there are any
