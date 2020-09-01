@@ -1044,6 +1044,8 @@ void CPalModDlg::OnExportPalette()
         if (_tcsicmp(szExtension, _T(".gpl")) == 0)
         {
             // Save to GPL file.
+            // In debug builds this will trigger what appears to be a bogus assert in CFile which is stating that
+            // typeText is not supported.  But it is ... just appears to be a random bad assert.
             if (ActFile.Open(ActSave.GetOFN().lpstrFile, CFile::modeCreate | CFile::modeWrite | CFile::typeText))
             {
                 char szBuffer[MAX_PATH];

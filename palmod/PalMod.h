@@ -57,7 +57,7 @@ public:
     CImgDat* GetImgFile() { return &ImgBase; };
     CPalGroup* GetBasePal() { return BasePal; };
     CImgDisp* GetImgDispCtrl() { return &PreviewDlg->m_ImgDisp; };
-    CString GetAppName();
+    CString GetAppName(bool fIncludeGameName = true);
 
     CPalModDlg* GetPalModDlg() { return PalModDlg; };
     CPreviewDlg* GetPreviewDlg() { return PreviewDlg; };

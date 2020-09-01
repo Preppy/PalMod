@@ -15,7 +15,7 @@ BEGIN_MESSAGE_MAP(CPalModApp, CWinApp)
     ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
 END_MESSAGE_MAP()
 
-CString CPalModApp::GetAppName()
+CString CPalModApp::GetAppName(bool fIncludeGameName /*= true*/)
 {
     CString strAppName;
     (void)strAppName.LoadString(IDS_CURRENTAPPNAME);
@@ -25,7 +25,7 @@ CString CPalModApp::GetAppName()
     strAppName += _T(" DEBUG build");
 #endif
 
-    if (GetCurrGame())
+    if (fIncludeGameName && GetCurrGame())
     {
         strAppName += _T(": ");
         strAppName += GetCurrGame()->GetGameName();

@@ -46,7 +46,7 @@ protected:
     UINT32 m_nLowestKnownPaletteRomLocation = k_nBogusHighValue;
     UINT16 m_nCurrentPaletteSize = 0;
     LPCTSTR m_pszCurrentPaletteName = nullptr;
-    UINT32 m_nConfirmedCRCValue = -1;
+    UINT32 m_nConfirmedCRCValue = 0;
 
     BOOL bIsDir = FALSE;
 

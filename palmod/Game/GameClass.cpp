@@ -889,6 +889,54 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
     LPCSTR szIPSCloser = "EOF";
     PatchFile->Write(szIPSCloser, strlen(szIPSCloser));
 
+#ifdef WANT_IPS_DAT_FILES
+    // This code works, but I'm discussing what we want to do with it if anything.
+
+    // Now generate DAT file...
+    if (m_pCRC32SpecificData)
+    {
+        TCHAR szDATFilename[MAX_PATH];
+        TCHAR szIPSFilename[MAX_PATH];
+
+        _tcscpy(szDATFilename, PatchFile->GetFilePath().GetString());
+        
+        TCHAR* pszDot = _tcsrchr(szDATFilename, _T('.'));
+
+        if (pszDot != nullptr)
+        {
+            pszDot[0] = 0;
+        }
+
+        pszDot = _tcsrchr(szDATFilename, _T('\\'));
+
+        _tcscpy(szIPSFilename, pszDot + 1);
+
+        _tcscat(szDATFilename, _T(".dat"));
+
+        CFile DATFile;
+
+        // In debug builds this will trigger what appears to be a bogus assert in CFile which is stating that
+        // typeText is not supported.  But it is ... just appears to be a random bad assert.
+        if (DATFile.Open(szDATFilename, CFile::modeWrite | CFile::modeCreate | CFile::typeText))
+        {
+            CStringA strOutput;
+            strOutput.Format("%S    %S    CRC(%x)\r\n\r\n", GetROMFileName(), szIPSFilename, m_pCRC32SpecificData->crcValueExpected);
+            DATFile.Write(strOutput, strOutput.GetLength());
+
+            strOutput.Format("[en_US]\r\nColor Mod from %S\r\n\r\n", GetHost()->GetAppName(false).GetString());
+            DATFile.Write(strOutput, strOutput.GetLength());
+
+            strOutput.Format("Hacker: (your name here)\r\n\r\n");
+            DATFile.Write(strOutput, strOutput.GetLength());
+
+            strOutput.Format("Description: color changes for %S\r\n\r\n", GetGameName());
+            DATFile.Write(strOutput, strOutput.GetLength());
+
+            DATFile.Abort();
+        }
+    }
+#endif
+
     CString strMsg;
     strMsg.Format(_T("CGameClass::SavePatchFile: Saved 0x%x palettes to patching file for %u units\n"), nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
@@ -901,9 +949,13 @@ void CGameClass::SetSpecificValuesForCRC(UINT32 nCRCForFile)
     m_nConfirmedCRCValue = nCRCForFile;
 
     const sCRC32ValueSet* ppCRC32ValueSets = nullptr;
-    UINT32 nCRCValueSetCount = GetKnownCRC32DatasetsForGame(&ppCRC32ValueSets);
+    const UINT32 nCRCValueSetCount = GetKnownCRC32DatasetsForGame(&ppCRC32ValueSets);
 
-    if (nCRCValueSetCount != 0)
+    if (nCRCValueSetCount == 1)
+    {
+        m_pCRC32SpecificData = &ppCRC32ValueSets[0];
+    }
+    else if (nCRCValueSetCount > 1)
     {
         for (UINT16 nIndex = 0; nIndex < nCRCValueSetCount; nIndex++)
         {

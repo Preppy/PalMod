@@ -98,6 +98,48 @@ CDescTree* CGame_KOF98_A::GetMainTree()
     return &CGame_KOF98_A::MainDescTree;
 }
 
+UINT32 CGame_KOF98_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        // There are three unique ROM sets, but the first two share the same palette file,
+        // and the third one we don't care about.
+        { _T("KOF '98 (Arcade)"), _T("242-p2.sp2"), 0x980aba4c, 0 },
+        //{ _T("KOF '98 (Arcade)"), _T("kof98_p2.rom"), 0x980aba4c, 0 },
+        //{ _T(""KOF '98 (Arcade Alt)"), _T("242-ep.ep2"), 0x6e474841, 0 },
+    };
+
+    if (ppKnownROMSet != nullptr)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    return ARRAYSIZE(knownROMs);
+
+#ifdef NOTES
+    // These are the MAME values...
+    <software name = "kof98">
+        <description>The King of Fighters '98 - The Slugfest / King of Fighters '98 - Dream Match Never Ends(NGM - 2420) </description>
+            <rom loadflag="load16_word_swap" name="242-p2.sp2" offset="0x200000" size="0x400000" crc="980aba4c" sha1="5e735929ec6c3ca5b2efae3c7de47bcbb8ade2c5" />  <!--TC5332205-->
+
+	<software name="kof98k" cloneof="kof98">
+		<description>The King of Fighters '98 - The Slugfest / King of Fighters '98 - Dream Match Never Ends (Korean board, set 1)</description>
+			<rom loadflag="load16_word_swap" name="242-p2.sp2" offset="0x200000" size="0x400000" crc="980aba4c" sha1="5e735929ec6c3ca5b2efae3c7de47bcbb8ade2c5" />  <!-- TC5332205 -->
+
+	<software name="kof98ka" cloneof="kof98">
+		<description>The King of Fighters '98 - The Slugfest / King of Fighters '98 - Dream Match Never Ends (Korean board, set 2)</description>
+			<rom loadflag="load16_word_swap" name="242-p2.sp2" offset="0x200000" size="0x400000" crc="980aba4c" sha1="5e735929ec6c3ca5b2efae3c7de47bcbb8ade2c5" />  <!-- TC5332205 -->
+
+	<software name="kof98h" cloneof="kof98">
+		<description>The King of Fighters '98 - The Slugfest / King of Fighters '98 - Dream Match Never Ends (NGH-2420)</description>
+				<rom loadflag="load16_word_swap" name="242-p2.sp2" offset="0x100000" size="0x400000" crc="980aba4c" sha1="5e735929ec6c3ca5b2efae3c7de47bcbb8ade2c5" />  <!-- TC5332205 -->
+
+	<software name="kof98a" cloneof="kof98">
+		<description>The King of Fighters '98 - The Slugfest / King of Fighters '98 - Dream Match Never Ends (NGM-2420, alt board)</description>
+				<rom loadflag="load16_word_swap" name="242-ep2.ep2" offset="0x400000" size="0x200000" crc="6e474841" sha1="0ce401277f9c53435ea00b930efe361c8d25a7d9" /> <!-- M27C160 -->
+#endif
+}
+
 int CGame_KOF98_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)

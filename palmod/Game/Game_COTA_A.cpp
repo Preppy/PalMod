@@ -94,11 +94,11 @@ UINT32 CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
 {
     static sCRC32ValueSet knownROMs[] =
     {
-            { _T("X-Men: Children of the Atom (Asia/Japan 9412--)"), _T("xmn.05"), 0xc3ed62a2, -0x1AB8 },
-            { _T("X-Men: Children of the Atom (Japan Rent 940812)"), _T("xmno.05a"), 0x0303d672, -0x35F4 },
-            { _T("X-Men: Children of the Atom (950105)"), _T("xmn.05a"), 0xac0d7759, 0 },
-            { _T("X-Men: Children of the Atom (950331)"), _T("xmne.05b"), 0x87b0ed0f, 0 },
-            { _T("X-Men: Children of the Atom (Hispanic 950331)"), _T("xmnh.05b"), 0x87b0ed0f, 0 },
+        { _T("X-Men: Children of the Atom (Asia/Japan 9412--)"), _T("xmn.05"), 0xc3ed62a2, -0x1AB8 },
+        { _T("X-Men: Children of the Atom (Japan Rent 940812)"), _T("xmno.05a"), 0x0303d672, -0x35F4 },
+        { _T("X-Men: Children of the Atom (950105)"), _T("xmn.05a"), 0xac0d7759, 0 },
+        { _T("X-Men: Children of the Atom (950331)"), _T("xmne.05b"), 0x87b0ed0f, 0 },
+        { _T("X-Men: Children of the Atom (Hispanic 950331)"), _T("xmnh.05b"), 0x87b0ed0f, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
