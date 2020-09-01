@@ -15,7 +15,7 @@ private:
     static int rgExtraLoc[KarnovsR_A_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
+    static const UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);

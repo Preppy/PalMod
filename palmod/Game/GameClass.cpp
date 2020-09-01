@@ -704,8 +704,10 @@ void CGameClass::UpdatePalData()
                     }
 
                     UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    if (m_fAllowTransparency || !m_fMustWriteAlphaValue)
+                    if (m_fGameUsesAlphaValue)
                     {
+                        // Right now this is just MVC2.  We only allow editing this if the Allow Transparency option is on,
+                        // but we always want to reflect the actual alpha present.
                         m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
                     }
                     else

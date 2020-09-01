@@ -80,7 +80,7 @@ protected:
     // How many colors a game has: P1/P2 (2), LP-HK/A2 (6), etc
     UINT8 m_nNumberOfColorOptions = 0;
 
-    bool m_fMustWriteAlphaValue = false;
+    bool m_fGameUsesAlphaValue = false;
     BOOL bUsesHybrid = FALSE;
     UINT16* pIndexRedir = nullptr;
     int nHybridSz = 0;

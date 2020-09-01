@@ -13,7 +13,7 @@ int CGame_KarnovsR_A::rgExtraCountAll[KarnovsR_A_NUMUNIT + 1];
 int CGame_KarnovsR_A::rgExtraLoc[KarnovsR_A_NUMUNIT + 1];
 
 UINT32 CGame_KarnovsR_A::m_nTotalPaletteCountForKarnovsR = 0;
-UINT32 CGame_KarnovsR_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
+const UINT32 CGame_KarnovsR_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
 UINT32 CGame_KarnovsR_A::m_nConfirmedROMSize = -1;
 
 void CGame_KarnovsR_A::InitializeStatics()

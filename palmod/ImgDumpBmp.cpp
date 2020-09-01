@@ -90,12 +90,12 @@ void CImgDumpBmp::InitImgData()
             rImgRct.top = nYOffs;
         }
 
-        if (nXOffs + rgSrcImg[nImgCtr]->uImgW > rImgRct.right)
+        if ((nXOffs + rgSrcImg[nImgCtr]->uImgW) > rImgRct.right)
         {
             rImgRct.right = nXOffs + rgSrcImg[nImgCtr]->uImgW;
         }
 
-        if (abs(nYOffs) + rgSrcImg[nImgCtr]->uImgH > rImgRct.bottom)
+        if ((abs(nYOffs) + rgSrcImg[nImgCtr]->uImgH) > rImgRct.bottom)
         {
             rImgRct.bottom = nYOffs + rgSrcImg[nImgCtr]->uImgH;
         }
@@ -559,8 +559,6 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
     if (bTransBG)
     {
-        double fpAdd = 0.0;
-
         for (int y = 0; y < nBltH; y++)
         {
             nYCtr = (int)((double)y * fpYDiff);
@@ -576,24 +574,21 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
                 if (uIndex)
                 {
-                    fpAdd = ((double)pCurrPal[(uIndex * 4) + 3] / 255.0);
+                    double fpAdd = ((double)pCurrPal[(uIndex * 4) + 3] / 255.0);
 
                     nDstPos = nStartRow + x;
 
                     pDstBmpData[nDstPos + 3] += pCurrPal[(uIndex * 4) + 3];
 
-                    pDstBmpData[nDstPos + 2] = (UINT8)(pDstBmpData[nDstPos + 2] ? (pDstBmpData[nDstPos + 2] + ((double)pCurrPal[(uIndex * 4)] * fpAdd)    ) : pDstBmpData[nDstPos + 2] + pCurrPal[(uIndex * 4)]);
-                    pDstBmpData[nDstPos + 1] = (UINT8)(pDstBmpData[nDstPos + 1] ? (pDstBmpData[nDstPos + 1] + ((double)pCurrPal[(uIndex * 4) + 1] * fpAdd)) : pDstBmpData[nDstPos + 1] + pCurrPal[(uIndex * 4) + 1]);
-                    pDstBmpData[nDstPos] =     (UINT8)(pDstBmpData[nDstPos]     ? (pDstBmpData[nDstPos]     + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd)) : pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2]);
+                    pDstBmpData[nDstPos + 2] = (UINT8)(pDstBmpData[nDstPos + 2] ? (pDstBmpData[nDstPos + 2] + ((double)pCurrPal[(uIndex * 4)] * fpAdd)    ) : (pDstBmpData[nDstPos + 2] + pCurrPal[(uIndex * 4)]));
+                    pDstBmpData[nDstPos + 1] = (UINT8)(pDstBmpData[nDstPos + 1] ? (pDstBmpData[nDstPos + 1] + ((double)pCurrPal[(uIndex * 4) + 1] * fpAdd)) : (pDstBmpData[nDstPos + 1] + pCurrPal[(uIndex * 4) + 1]));
+                    pDstBmpData[nDstPos] =     (UINT8)(pDstBmpData[nDstPos]     ? (pDstBmpData[nDstPos]     + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd)) : (pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2]));
                 }
             }
         }
     }
     else
     {
-        double fpDstA1 = 1.0, fpDstA2 = 1.0;
-        UINT8* uDstR, * uDstG, * uDstB;
-
         for (int y = 0; y < nBltH; y++)
         {
             nYCtr = (int)((double)y * fpYDiff);
@@ -611,12 +606,12 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
                 {
                     nDstPos = nStartRow + x;
 
-                    fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
-                    fpDstA1 = 1.0 - fpDstA2;
+                    double fpDstA2 = (1.0 - (pCurrPal[(uIndex * 4) + 3]) / 255.0);
+                    double fpDstA1 = 1.0 - fpDstA2;
 
-                    uDstR = &pDstBmpData[nDstPos + 2];
-                    uDstG = &pDstBmpData[nDstPos + 1];
-                    uDstB = &pDstBmpData[nDstPos];
+                    UINT8* uDstR = &pDstBmpData[nDstPos + 2];
+                    UINT8* uDstG = &pDstBmpData[nDstPos + 1];
+                    UINT8* uDstB = &pDstBmpData[nDstPos];
 
                     *uDstR = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4)]), (fpDstA2 * (double)*uDstR));
                     *uDstG = (UINT8)aadd((fpDstA1 * (double)pCurrPal[(uIndex * 4) + 1]), (fpDstA2 * (double)*uDstG));
@@ -637,7 +632,6 @@ void CImgDumpBmp::Draw()
 void CImgDumpBmp::CleanUp()
 {
     //Delete the extra palettes
-
     if (pppPalettes)
     {
         for (int i = 0; i < img_amt; i++)
@@ -656,8 +650,8 @@ void CImgDumpBmp::CleanUp()
         safe_delete_array(pppPalettes);
     }
 
-    DeleteObject(MainHBmp);
     //Clean main image data
+    DeleteObject(MainHBmp);
 }
 
 int CImgDumpBmp::GetImageCountForFirstLine()
