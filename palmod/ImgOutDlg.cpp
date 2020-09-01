@@ -164,15 +164,16 @@ BEGIN_MESSAGE_MAP(CImgOutDlg, CDialog)
     ON_EN_CHANGE(IDC_EDIT_SPCSZ, UpdateImg)
     //ON_COMMAND(REQ_VAR, UpdImgVar)
     ON_NOTIFY(UDN_DELTAPOS, IDC_BDRSPN, OnDeltaposBdrspn)
-    ON_COMMAND(ID_SETTINGS_SETBACKGROUNDCOLOR32847, OnSettingsSetbackgroundcolor32847)
-    ON_COMMAND(ID_FILE_SAVE32850, OnFileSave)
+    ON_COMMAND(ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR, OnSettingsSetBackgroundColor)
+    ON_COMMAND(ID_IMGOUT_SAVE, OnFileSave)
+    ON_COMMAND(ID_IMGOUT_CLOSE, OnClose)
     ON_COMMAND(REQ_VAR, UpdateImg)
     ON_EN_CHANGE(IDC_EDIT_BDRSZ, OnEnChangeEditBdrsz)
     ON_WM_GETMINMAXINFO()
 
-    ON_COMMAND(ID_ACC_ADDZOOM, &CImgOutDlg::AddZoom)
-    ON_COMMAND(ID_ACC_SUBZOOM, &CImgOutDlg::SubZoom)
-    ON_COMMAND(ID_SETTINGS_USETRANSPARENTPNG, &CImgOutDlg::OnSettingsUsetransparentpng)
+    ON_COMMAND(ID_ACC_ADDZOOM, AddZoom)
+    ON_COMMAND(ID_ACC_SUBZOOM, SubZoom)
+    ON_COMMAND(ID_SETTINGS_USETRANSPARENTPNG, OnSettingsUseTransparentPNG)
     ON_WM_INITMENUPOPUP()
 END_MESSAGE_MAP()
 
@@ -282,33 +283,6 @@ void CImgOutDlg::FillPalCombo()
     m_CB_Pal.SetCurSel(0);
 }
 
-void CImgOutDlg::OnCbnSelchangePal()
-{
-    // TODO: Add your control notification handler code here
-}
-
-void CImgOutDlg::OnCbnSelchangeZoom()
-{
-    // TODO: Add your control notification handler code here
-
-    UpdateImg();
-}
-
-void CImgOutDlg::OnEnChangeBdrsz()
-{
-
-}
-
-void CImgOutDlg::OnEnChangeSpcsz()
-{
-    // TODO:  If this is a RICHEDIT control, the control will not
-    // send this notification unless you override the CDialog::OnInitDialog()
-    // function and call CRichEditCtrl().SetEventMask()
-    // with the ENM_CHANGE flag ORed into the mask.
-
-    // TODO:  Add your control notification handler code here
-}
-
 void CImgOutDlg::OnDeltaposBdrspn(NMHDR* pNMHDR, LRESULT* pResult)
 {
     LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
@@ -320,7 +294,7 @@ void CImgOutDlg::OnDeltaposBdrspn(NMHDR* pNMHDR, LRESULT* pResult)
     *pResult = 0;
 }
 
-void CImgOutDlg::OnSettingsSetbackgroundcolor32847()
+void CImgOutDlg::OnSettingsSetBackgroundColor()
 {
     CColorDialog c_dlg(m_DumpBmp.crBGCol);
 
@@ -502,7 +476,7 @@ void CImgOutDlg::OnClose()
 {
     SaveSettings();
 
-    CDialog::OnClose();
+    CDialog::EndDialog(0);
 }
 
 void CImgOutDlg::OnEnChangeEditBdrsz()
@@ -511,8 +485,6 @@ void CImgOutDlg::OnEnChangeEditBdrsz()
     // send this notification unless you override the CDialog::OnInitDialog()
     // function and call CRichEditCtrl().SetEventMask()
     // with the ENM_CHANGE flag ORed into the mask.
-
-    // TODO:  Add your control notification handler code here
 
     static BOOL bFirstSet = TRUE;
 
@@ -564,7 +536,7 @@ void CImgOutDlg::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
     CWnd::OnGetMinMaxInfo(lpMMI);
 }
 
-void CImgOutDlg::OnSettingsUsetransparentpng()
+void CImgOutDlg::OnSettingsUseTransparentPNG()
 {
     bTransPNG = !bTransPNG;
 }

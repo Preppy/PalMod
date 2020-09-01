@@ -535,7 +535,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
 
             UINT32 crcValue = 0;
 
-#ifndef DEBUG
+            // CRC calculation is slow, so only calculate if we need it.
             if (OutGame->GetKnownCRC32DatasetsForGame(nullptr) > 1)
             {
                 // Only calculate this if desired since it's time-expensive
@@ -546,7 +546,6 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
                 strMsg.Format(_T("\tCRC32 for %s is 0x%x\n"), szLoadFile, crcValue);
                 OutputDebugString(strMsg);
             }
-#endif
 
             OutGame->SetSpecificValuesForCRC(crcValue);
 

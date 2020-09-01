@@ -63,15 +63,11 @@ public:
 
     void UpdateImg();
     afx_msg void OnCbnSelchangeAmt();
-    afx_msg void OnCbnSelchangePal();
-    afx_msg void OnCbnSelchangeZoom();
 
-    afx_msg void OnEnChangeBdrsz();
-    afx_msg void OnEnChangeSpcsz();
     afx_msg void OnDeltaposBdrspn(NMHDR* pNMHDR, LRESULT* pResult);
 
     CSpinButtonCtrl m_BdrSpn;
-    afx_msg void OnSettingsSetbackgroundcolor32847();
+    afx_msg void OnSettingsSetBackgroundColor();
     afx_msg void OnFileSave();
     afx_msg void OnClose();
 
@@ -88,6 +84,6 @@ public:
 
     void AddZoom() { int nCurrZoom = m_CB_Zoom.GetCurSel() + 1; if (nCurrZoom <= nZoomMax)m_CB_Zoom.SetCurSel(nCurrZoom); UpdateImg(); };
     void SubZoom() { int nCurrZoom = m_CB_Zoom.GetCurSel() - 1; if (nCurrZoom >= nZoomMin)m_CB_Zoom.SetCurSel(nCurrZoom); UpdateImg(); };
-    afx_msg void OnSettingsUsetransparentpng();
+    afx_msg void OnSettingsUseTransparentPNG();
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
 };

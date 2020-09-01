@@ -413,13 +413,13 @@ IDR_MENUIMGOUT MENU
 BEGIN
     POPUP "&File"
     BEGIN
-        MENUITEM "&Save",                       ID_FILE_SAVE32850
+        MENUITEM "&Save",                       ID_IMGOUT_SAVE
         MENUITEM SEPARATOR
-        MENUITEM "&Close",                      ID_Menu32851
+        MENUITEM "&Close",                      ID_IMGOUT_CLOSE
     END
     POPUP "&Settings"
     BEGIN
-        MENUITEM "Set &Background Color",       ID_SETTINGS_SETBACKGROUNDCOLOR32847
+        MENUITEM "Set &Background Color",       ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR
         MENUITEM SEPARATOR
         MENUITEM "&Transparent PNG",            ID_SETTINGS_USETRANSPARENTPNG
     END

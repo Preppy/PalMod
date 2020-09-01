@@ -103,7 +103,6 @@
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772
 #define ID_LD_MVC2DCUSA                 32773
-#define ID_FILE_CLOSE32774              32774
 #define ID_FILE_EXPORTIMAGE             32775
 #define ID_FILE_EXIT                    32776
 #define ID_SETTINGS_SETBACKGROUNDCOLOR  32777
@@ -118,10 +117,6 @@
 #define ID_FILE_PATCHCHANGES            32786
 #define ID_FILE_PATCH                   32787
 #define ID_AUTOSETCOL                   32788
-#define ID_EDIT_UNDO32789               32789
-#define ID_EDIT_REDO32790               32790
-#define ID_EDIT_COPY32791               32791
-#define ID_EDIT_PASTE32792              32792
 #define ID_EDIT_SELECTALL               32793
 #define ID_EDIT_SELECTNONE              32794
 #define ID_ABOUT_ABOUTPALMOD            32795
@@ -169,18 +164,18 @@
 #define ID_LD_JOJOS51                   32844
 #define ID_LD_MVC2ARCADE                32845
 #define ID_LOADDIRECTORY_REDEARTH       32846
-#define ID_SETTINGS_SETBACKGROUNDCOLOR32847 32847
-#define ID_TOOLS_GENERATEPATCHFILE      32847
-#define ID_FILE_SAVE32850               32850
-#define ID_Menu32851                    32851
-#define ID_FILE_LOADSPRITE              32852
+#define ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR 32847
+#define ID_TOOLS_GENERATEPATCHFILE      32848
+#define ID_IMGOUT_SAVE                  32849
+#define ID_IMGOUT_CLOSE                 32850
+#define ID_FILE_LOADSPRITE              32851
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32848
+#define _APS_NEXT_COMMAND_VALUE         32852
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif
