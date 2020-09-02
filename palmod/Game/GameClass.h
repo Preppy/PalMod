@@ -220,7 +220,7 @@ public:
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
     virtual UINT32 SavePatchFile(CFile* PatchFile, UINT16 nUnitId);
     void SetSpecificValuesForCRC(UINT32 nCRCForFile);
-    virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet) { return 0; };
+    virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
 
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);

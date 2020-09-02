@@ -494,6 +494,15 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         ULONGLONG nGameFileLength = CurrFile.GetLength();
         bool isSafeToRunGame = ((short int)CurrRule.uVerifyVar == -1) || (nGameFileLength == CurrRule.uVerifyVar);
 
+        if (!isSafeToRunGame)
+        {
+            if ((nGameFlag == SAMSHO5SP_A) && (nGameFileLength == 0x800000))
+            {
+                // Samurai Shodown has a second ROM variant, but we only use the first half here, and things align.
+                isSafeToRunGame = true;
+            }
+        }
+
         if (!isSafeToRunGame) // we could hook people trying to load Venture here... file size is 4194304
         {
             CString strQuestion;
@@ -534,9 +543,11 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             OutGame->SetLoadDir(szLoadFile);
 
             UINT32 crcValue = 0;
+            bool fNeedToValidateCRC = false;
 
             // CRC calculation is slow, so only calculate if we need it.
-            if (OutGame->GetKnownCRC32DatasetsForGame(nullptr) > 1)
+            if ((OutGame->GetKnownCRC32DatasetsForGame(nullptr, &fNeedToValidateCRC) > 1) &&
+                fNeedToValidateCRC)
             {
                 // Only calculate this if desired since it's time-expensive
                 OutputDebugString(_T("Calculating crc...\n"));

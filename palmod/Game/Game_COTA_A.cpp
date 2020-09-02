@@ -90,7 +90,7 @@ CGame_COTA_A::~CGame_COTA_A(void)
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet)
+UINT32 CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
@@ -104,6 +104,12 @@ UINT32 CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
     if (ppKnownROMSet != nullptr)
     {
         *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
     }
 
     return ARRAYSIZE(knownROMs);
@@ -574,6 +580,7 @@ void CGame_COTA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
      if (m_pCRC32SpecificData)
      {
          // adjust for ROM, but bound it by 0
+         // We need a special offset for the Japanese rent version's higher offsets
          if ((m_pCRC32SpecificData->crcValueExpected == 0x0303d672) && // Japan rent
              (m_nCurrentPaletteROMLocation > 0x36000)) // this number is fudged
          {

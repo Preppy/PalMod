@@ -98,20 +98,26 @@ CDescTree* CGame_KOF98_A::GetMainTree()
     return &CGame_KOF98_A::MainDescTree;
 }
 
-UINT32 CGame_KOF98_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet)
+UINT32 CGame_KOF98_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
         // There are three unique ROM sets, but the first two share the same palette file,
         // and the third one we don't care about.
         { _T("KOF '98 (Arcade)"), _T("242-p2.sp2"), 0x980aba4c, 0 },
-        //{ _T("KOF '98 (Arcade)"), _T("kof98_p2.rom"), 0x980aba4c, 0 },
-        //{ _T(""KOF '98 (Arcade Alt)"), _T("242-ep.ep2"), 0x6e474841, 0 },
+        { _T("KOF '98 (Arcade)"), _T("kof98_p2.rom"), 0x980aba4c, 0 },
+        { _T("KOF '98 (Arcade Alt)"), _T("242-ep.ep2"), 0x6e474841, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
     {
         *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
     }
 
     return ARRAYSIZE(knownROMs);
