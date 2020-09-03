@@ -30,11 +30,11 @@ void CImgOutDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_IMGDBMP, m_DumpBmp);
     DDX_Control(pDX, IDC_AMT, m_CB_Amt);
     DDX_Control(pDX, IDC_PAL, m_CB_Pal);
-    DDX_Control(pDX, IDC_ZOOM, m_CB_Zoom);
+    DDX_Control(pDX, IDC_ZOOM, m_CB_Zoom); // see also m_zoomSelIndex
     DDX_Text(pDX, IDC_EDIT_BDRSZ, border_sz);
     DDX_Text(pDX, IDC_EDIT_SPCSZ, outline_sz);
     DDX_CBIndex(pDX, IDC_PAL, m_pal);
-    DDX_CBIndex(pDX, IDC_ZOOM, m_zoom);
+    DDX_CBIndex(pDX, IDC_ZOOM, m_zoomSelIndex); // see also m_CB_Zoom
     DDX_Control(pDX, IDC_BDRSPN, m_BdrSpn);
 }
 
@@ -105,15 +105,12 @@ BOOL CImgOutDlg::OnInitDialog()
 
     //Cannot get accurate remainder amount
 
-    //Populate Zoom combo box
+    //Populate Zoom combo box: 1-4x
     for (int i = 1; i < 5; i++)
     {
-        tmp_str.Format(_T("%d.0x"), i);
+        tmp_str.Format(_T("%ux"), i);
         m_CB_Zoom.AddString(tmp_str);
     }
-
-    nZoomMin = 0;
-    nZoomMax = (3 * 5);
 
     //Change this if we ever decide to load a default image amount
     img_amt = 1;
@@ -137,6 +134,29 @@ BOOL CImgOutDlg::OnInitDialog()
     bDlgInit = TRUE;
     return TRUE;
 }
+
+void CImgOutDlg::AddZoom()
+{
+    int nCurrZoom = m_CB_Zoom.GetCurSel() + 1;
+    if (nCurrZoom <= m_nZoomSelOptionsMax)
+    {
+        m_CB_Zoom.SetCurSel(nCurrZoom);
+    }
+
+    UpdateImg();
+}
+
+void CImgOutDlg::SubZoom()
+{
+    int nCurrZoom = m_CB_Zoom.GetCurSel() - 1;
+    if (nCurrZoom >= m_nZoomSelOptionsMin)
+    {
+        m_CB_Zoom.SetCurSel(nCurrZoom);
+    }
+
+    UpdateImg();
+}
+
 
 afx_msg void CImgOutDlg::OnSize(UINT nType, int cx, int cy)
 {
@@ -195,27 +215,16 @@ void CImgOutDlg::UpdImgVar(BOOL bResize)
     m_DumpBmp.m_nTotalImagesToDisplay = img_amt;
     m_DumpBmp.nPalIndex = m_pal;
 
-    //Remainder Problem
-
-    double fpTargetZoom;
-
-    if (m_zoom >= 15)
+    if (m_zoomSelIndex >= m_nZoomSelOptionsMax)
     {
-        m_zoom = 15;
-        fpTargetZoom = 4.0;
+        m_zoomSelIndex = m_nZoomSelOptionsMax;
     }
-    else
+    else if (m_zoomSelIndex < m_nZoomSelOptionsMin)
     {
-        if (m_zoom < 0)
-        {
-            m_zoom = 0;
-        }
-
-        fpTargetZoom = (((double)m_zoom / 5.0) + 1.0);
-        fpTargetZoom += (0.2 * ((m_zoom) % 5));
+        m_zoomSelIndex = m_nZoomSelOptionsMin;
     }
 
-    m_DumpBmp.zoom = (float)fpTargetZoom;
+    m_DumpBmp.zoom = (float)(1 + m_zoomSelIndex);
     m_DumpBmp.outline_sz = outline_sz;
     m_DumpBmp.border_sz = border_sz;
 

@@ -48,12 +48,12 @@ public:
     int nPalAmt = 0;
 
     int m_pal = 0;
-    int m_zoom = 0;
+    int m_zoomSelIndex = 0;
     int border_sz = 0;
     int outline_sz = 0;
 
-    int nZoomMin = 0;
-    int nZoomMax = 0;
+    const int m_nZoomSelOptionsMin = 0;
+    const int m_nZoomSelOptionsMax = 3;
 
     void UpdImgVar(BOOL bResize = TRUE);
     void FillPalCombo();
@@ -82,8 +82,8 @@ public:
     BOOL PreTranslateMessage(MSG* pMsg);
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
 
-    void AddZoom() { int nCurrZoom = m_CB_Zoom.GetCurSel() + 1; if (nCurrZoom <= nZoomMax)m_CB_Zoom.SetCurSel(nCurrZoom); UpdateImg(); };
-    void SubZoom() { int nCurrZoom = m_CB_Zoom.GetCurSel() - 1; if (nCurrZoom >= nZoomMin)m_CB_Zoom.SetCurSel(nCurrZoom); UpdateImg(); };
+    void AddZoom();
+    void SubZoom();
     afx_msg void OnSettingsUseTransparentPNG();
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
 };
