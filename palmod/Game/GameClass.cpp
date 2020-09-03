@@ -80,7 +80,6 @@ BOOL CGameClass::SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAm
         return FALSE;
     }
 
-    // This is unreachable but removing it breaks joined image displays. ?
     return TRUE;
 }
 

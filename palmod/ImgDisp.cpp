@@ -531,14 +531,11 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
 
 bool CImgDisp::LoadExternalSprite(TCHAR* pszTextureLocation)
 {
-    // BUGBUG TODO LIST:
-    //   * look into CImage to RAW support...?
-
     CFile TextureFile;
 
     if (TextureFile.Open(pszTextureLocation, CFile::modeRead | CFile::typeBinary))
     {
-        int nSizeToRead = (int)TextureFile.GetLength();
+        const int nSizeToRead = (int)TextureFile.GetLength();
         safe_delete_array(m_pSpriteOverrideTexture);
 
         // Filename of form: MvC2_D-offset-2230419-W-60-H-98

@@ -865,7 +865,7 @@ void CGameLoad::SavePatchFile(CGameClass* CurrGame)
         CString strSuggestedFileName = pszFileName;
         strSuggestedFileName += _T(".ips");        
 
-        CFileDialog PatchFileLoad(FALSE, _T("ips"), strSuggestedFileName.GetString(), 0, *szPatchFilter);
+        CFileDialog PatchFileLoad(FALSE, _T("ips"), strSuggestedFileName.GetString(), OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY, *szPatchFilter);
 
         if (PatchFileLoad.DoModal() == IDOK)
         {

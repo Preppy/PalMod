@@ -8,23 +8,29 @@
 
 stExtraDef* CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_0229 = nullptr;
 stExtraDef* CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_MAX = nullptr;
+stExtraDef* CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_07 = nullptr;
 stExtraDef* CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08 = nullptr;
 
 CDescTree CGame_SFA2_A::MainDescTree_07_0229 = nullptr;
 CDescTree CGame_SFA2_A::MainDescTree_07_MAX = nullptr;
+CDescTree CGame_SFA2_A::MainDescTree_07_SFZ2A = nullptr;
 CDescTree CGame_SFA2_A::MainDescTree_08 = nullptr;
 
 int CGame_SFA2_A::rgExtraCountAll_07_0229[SFA2_A_NUM_IND_07_0229 + 1] = { -1 };
 int CGame_SFA2_A::rgExtraCountAll_07_MAX[SFA2_A_NUM_IND_07_MAX + 1] = { -1 };
+int CGame_SFA2_A::rgExtraCountAll_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1] = { -1 };
 int CGame_SFA2_A::rgExtraCountAll_08[SFA2_A_NUM_IND_08 + 1] = { -1 };
+
 int CGame_SFA2_A::rgExtraLoc_07_0229[SFA2_A_NUM_IND_07_0229 + 1] = { -1 };
 int CGame_SFA2_A::rgExtraLoc_07_MAX[SFA2_A_NUM_IND_07_MAX + 1] = { -1 };
+int CGame_SFA2_A::rgExtraLoc_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1] = { -1 };
 int CGame_SFA2_A::rgExtraLoc_08[SFA2_A_NUM_IND_08 + 1] = { -1 };
 
 int CGame_SFA2_A::m_nSFA2SelectedRom = 7;
 SFA2_SupportedROMRevision CGame_SFA2_A::m_currentSFA2ROMRevision = SFA2_SupportedROMRevision::SFA2_960229;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_0229 = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_MAX = 0;
+UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFZ2A_07 = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_08 = 0;
 
 UINT32 CGame_SFA2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
@@ -34,17 +40,21 @@ void CGame_SFA2_A::InitializeStatics()
 {
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_0229);
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_MAX);
+    safe_delete_array(CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_07);
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08);
 
     memset(rgExtraCountAll_07_0229, -1, sizeof(rgExtraCountAll_07_0229));
     memset(rgExtraCountAll_07_MAX, -1, sizeof(rgExtraCountAll_07_MAX));
+    memset(rgExtraCountAll_07_SFZ2A, -1, sizeof(rgExtraCountAll_07_SFZ2A));
     memset(rgExtraCountAll_08, -1, sizeof(rgExtraCountAll_08));
     memset(rgExtraLoc_07_0229, -1, sizeof(rgExtraLoc_07_0229));
     memset(rgExtraLoc_07_MAX, -1, sizeof(rgExtraLoc_07_MAX));
+    memset(rgExtraLoc_07_SFZ2A, -1, sizeof(rgExtraLoc_07_SFZ2A));
     memset(rgExtraLoc_08, -1, sizeof(rgExtraLoc_08));
 
     MainDescTree_07_0229.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_SupportedROMRevision::SFA2_960229));
     MainDescTree_07_MAX.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_SupportedROMRevision::SFA2_960306_or_960430));
+    MainDescTree_07_SFZ2A.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_SupportedROMRevision::SFZ2A_960826));
     MainDescTree_08.SetRootTree(CGame_SFA2_A::InitDescTree(8, SFA2_SupportedROMRevision::SFA2_960229));
 }
 
@@ -54,14 +64,33 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
 
     const UINT32 nSafeCountFor07_0229 = 874;
     const UINT32 nSafeCountFor07_MAX = 966;
+    const UINT32 nSafeCountFor07_SFZ2A = 1296;
     const UINT32 nSafeCountFor08 = 259;
 
     if (UsePaletteSetForCharacters())
     {
-        m_nTotalInternalUnits = IsSFA2Rev1() ? SFA2_A_NUM_IND_07_0229 : SFA2_A_NUM_IND_07_MAX;
-        m_nExtraUnit = IsSFA2Rev1() ? SFA2_A_EXTRALOC_07_0229 : SFA2_A_EXTRALOC_07_MAX;
-        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (IsSFA2Rev1() ? nSafeCountFor07_0229 : nSafeCountFor07_MAX);
-        m_nTotalPaletteCount = IsSFA2Rev1() ? m_nTotalPaletteCountForSFA2_07_0229 : m_nTotalPaletteCountForSFA2_07_MAX;
+        switch (m_currentSFA2ROMRevision)
+        {
+        case SFA2_SupportedROMRevision::SFA2_960229:
+            m_nTotalInternalUnits = SFA2_A_NUM_IND_07_0229;
+            m_nExtraUnit = SFA2_A_EXTRALOC_07_0229;
+            m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nSafeCountFor07_0229;
+            m_nTotalPaletteCount = m_nTotalPaletteCountForSFA2_07_0229;
+            break;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
+            m_nTotalInternalUnits = SFA2_A_NUM_IND_07_MAX;
+            m_nExtraUnit = SFA2_A_EXTRALOC_07_MAX;
+            m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nSafeCountFor07_MAX;
+            m_nTotalPaletteCount = m_nTotalPaletteCountForSFA2_07_MAX;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            m_nTotalInternalUnits = SFZ2A_A_NUM_IND_07;
+            m_nExtraUnit = SFZ2A_A_EXTRALOC_07;
+            m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nSafeCountFor07_SFZ2A;
+            m_nTotalPaletteCount = m_nTotalPaletteCountForSFZ2A_07;
+            break;
+        };
     }
     else
     {
@@ -139,6 +168,7 @@ CGame_SFA2_A::~CGame_SFA2_A(void)
 {
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_0229);
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_MAX);
+    safe_delete_array(CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_07);
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08);
     ClearDataBuffer();
     //Get rid of the file changed flag
@@ -149,13 +179,18 @@ CDescTree* CGame_SFA2_A::GetMainTree()
 {
     if (UsePaletteSetForCharacters())
     {
-        if (IsSFA2Rev1())
+        switch (m_currentSFA2ROMRevision)
         {
+        case SFA2_SupportedROMRevision::SFA2_960229:
             return &CGame_SFA2_A::MainDescTree_07_0229;
-        }
-        else
-        {
+            break;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
             return &CGame_SFA2_A::MainDescTree_07_MAX;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            return &CGame_SFA2_A::MainDescTree_07_SFZ2A;
+            break;
         }
     }
     else
@@ -164,11 +199,126 @@ CDescTree* CGame_SFA2_A::GetMainTree()
     }
 }
 
+UINT32 CGame_SFA2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static const sCRC32ValueSet knownROMs[] =
+    {
+        // Street Fighter Alpha 2 variants...
+        { _T("SFA2 (Arcade)"), _T("sz2.07"), 0x8e184246, 0 },
+        { _T("SFA2 (Arcade)"), _T("sz2.08"), 0x0fe8585d, 0 },
+
+        { _T("SFA2 (Arcade)(USA)"), _T("sz2u.07"), 0x5de01cc5, 0 },
+        { _T("SFA2 (Arcade)(USA)"), _T("sz2u.08"), 0xbea11d56, 0 },
+
+        { _T("SFA2 960227 (Arcade)(Asia)"), _T("sz2a.07"), 0x0aed2494, 0 },
+        { _T("SFA2 960227 (Arcade)(Asia)"), _T("sz2j.07a"), 0xd910b2a2, 0 },
+
+        { _T("SFZ2A 960826 (Arcade)(Asia)"), _T("szaa.07"), 0x5de01cc5, 0 },
+        { _T("SFZ2A 960826 (Arcade)(Asia)"), _T("szaa.08"), 0xbea11d56, 0 },
+
+        { _T("SFZA2 960813 (Arcade)(B/H)"), _T("sza.07"), 0xe9430762, 0 },
+        { _T("SFZA2 960813 (Arcade)(B/H)"), _T("sza.08"), 0xb65711a9, 0 },
+
+        { _T("SFZA2 960805 (Arcade)(Japan)"), _T("szaj.07a"), 0x975dcb3e, 0 },
+        { _T("SFZA2 960805 (Arcade)(Japan)"), _T("szaj.08a"), 0xdc73f2d7, 0 },
+
+        { _T("SFZ2 960304 (Arcade)(Brazil)"), _T("sz2b.07"), 0x947e8ac6, 0 },
+        { _T("SFZ2 960531 (Arcade)(Brazil)"), _T("sz2b.07a"), 0x7d19d5ec, 0 },
+        { _T("SFZ2 (Arcade)(Brazil)"), _T("sz2b.08"), 0x92b66e01, 0 },
+
+        { _T("SFZ2 960403 (Arcade)(Hispanic)"), _T("sz2h.07"), 0x947e8ac6, 0 },
+        { _T("SFZ2 960403 (Arcade)(Hispanic)"), _T("sz2h.08"), 0x92b66e01, 0 },
+
+        { _T("SFZ2 960403 (Arcade)(Japan)"), _T("sz2j.07b"), 0x6352f038, 0 },
+        { _T("SFZ2 960403 (Arcade)(Japan)"), _T("sz2j.08b"), 0x92b66e01, 0 },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+
+#ifdef NOTES
+    // These are the MAME values...
+        sfa2                            // 06/03/1996 (c) 1996 (Euro)
+            ROM_LOAD16_WORD_SWAP("sz2.07", 0x200000, 0x80000, CRC(8e184246) SHA1(c51f6480cfa1dcec6c4713fd38c7a27338c3fa65))
+            ROM_LOAD16_WORD_SWAP("sz2.08", 0x280000, 0x80000, CRC(0fe8585d) SHA1(0cd5369a5aa90c98d8dc1ff3342cd4d990631cff))
+
+        sfz2n                           // 29/02/1996 (c) 1996 (Oceania)
+            ROM_LOAD16_WORD_SWAP("sz2.07", 0x200000, 0x80000, CRC(8e184246) SHA1(c51f6480cfa1dcec6c4713fd38c7a27338c3fa65))
+            ROM_LOAD16_WORD_SWAP("sz2.08", 0x280000, 0x80000, CRC(0fe8585d) SHA1(0cd5369a5aa90c98d8dc1ff3342cd4d990631cff))
+            
+
+        sfa2u                           // 30/04/1996 (c) 1996 (USA)
+            ROM_LOAD16_WORD_SWAP("sz2u.07", 0x200000, 0x80000, CRC(5de01cc5) SHA1(b19bfe970b217c96e782860fc3ae3fcb976ed30d))
+            ROM_LOAD16_WORD_SWAP("sz2u.08", 0x280000, 0x80000, CRC(bea11d56) SHA1(a1d475066d36de7cc5d931671ccdcd89737bc7ee))
+            
+        sfa2ur1                         // 06/03/1996 (c) 1996 (USA)
+            ROM_LOAD16_WORD_SWAP("sz2u.07", 0x200000, 0x80000, CRC(5de01cc5) SHA1(b19bfe970b217c96e782860fc3ae3fcb976ed30d))
+            ROM_LOAD16_WORD_SWAP("sz2u.08", 0x280000, 0x80000, CRC(bea11d56) SHA1(a1d475066d36de7cc5d931671ccdcd89737bc7ee))
+
+
+        sfz2a                           // 27/02/1996 (c) 1996 (Asia)
+        sfz2ad                          //
+            ROM_LOAD16_WORD_SWAP("sz2a.07a", 0x200000, 0x80000, CRC(0aed2494) SHA1(7beb1a394f17cd78a27128292b626aae28754ca2))
+            ROM_LOAD16_WORD_SWAP("sz2.08", 0x280000, 0x80000, CRC(0fe8585d) SHA1(0cd5369a5aa90c98d8dc1ff3342cd4d990631cff))
+
+
+        sfz2al                          // 26/08/1996 (c) 1996 (Asia)
+        sfz2ald                         //
+            ROM_LOAD16_WORD_SWAP("szaa.07", 0x200000, 0x80000, CRC(5feb8b20) SHA1(13c79c9b72c3abf0a0b75d507d91ece71e460c06))
+            ROM_LOAD16_WORD_SWAP("szaa.08", 0x280000, 0x80000, CRC(6eb6d412) SHA1(c858fec9c1dfea70dfcca629c1c24306f8ae6d81))
+
+
+        sfz2alb                         // 13/08/1996 (c) 1996 (Brazil)
+            ROM_LOAD16_WORD_SWAP("sza.07", 0x200000, 0x80000, CRC(e9430762) SHA1(923aea8db5f9b59212ec6dbc35be0808ea015140))
+            ROM_LOAD16_WORD_SWAP("sza.08", 0x280000, 0x80000, CRC(b65711a9) SHA1(3918f44e1bb189e2a115625b35f477eb91a65f04))
+
+        sfz2alh                         // 13/08/1996 (c) 1996 (Hispanic)
+            ROM_LOAD16_WORD_SWAP("sza.07", 0x200000, 0x80000, CRC(e9430762) SHA1(923aea8db5f9b59212ec6dbc35be0808ea015140))
+            ROM_LOAD16_WORD_SWAP("sza.08", 0x280000, 0x80000, CRC(b65711a9) SHA1(3918f44e1bb189e2a115625b35f477eb91a65f04))
+
+
+        sfz2alj                         // 05/08/1996 (c) 1996 (Japan)
+            ROM_LOAD16_WORD_SWAP("szaj.07a", 0x200000, 0x80000, CRC(975dcb3e) SHA1(a2ca8e5a768e49cce9e2137ec0dcba9337ed2ad5))
+            ROM_LOAD16_WORD_SWAP("szaj.08a", 0x280000, 0x80000, CRC(dc73f2d7) SHA1(09fa10e7d1ff5f0dac87a6cf3d66730e3ab9ad25))
+
+        sfz2b                           // 31/05/1996 (c) 1996 (Brazil)
+            ROM_LOAD16_WORD_SWAP("sz2b.07a", 0x200000, 0x80000, CRC(7d19d5ec) SHA1(ab88dfcb2029499578837b8f97fbf55412c8f756))
+            ROM_LOAD16_WORD_SWAP("sz2b.08", 0x280000, 0x80000, CRC(92b66e01) SHA1(f09cb38aa49b22a9c98219fb2ad8a66b11fa5872))
+
+        sfz2br1                         // 04/03/1996 (c) 1996 (Brazil)
+            ROM_LOAD16_WORD_SWAP("sz2b.07", 0x200000, 0x80000, CRC(947e8ac6) SHA1(da82be7cba9cd557da3ee35be9194130a959d5cb))
+            ROM_LOAD16_WORD_SWAP("sz2b.08", 0x280000, 0x80000, CRC(92b66e01) SHA1(f09cb38aa49b22a9c98219fb2ad8a66b11fa5872))
+        sfz2h                           // 04/03/1996 (c) 1996 (Hispanic)
+            ROM_LOAD16_WORD_SWAP("sz2h.07", 0x200000, 0x80000, CRC(947e8ac6) SHA1(da82be7cba9cd557da3ee35be9194130a959d5cb)) /* These two are the same as the Brazil set */
+            ROM_LOAD16_WORD_SWAP("sz2h.08", 0x280000, 0x80000, CRC(92b66e01) SHA1(f09cb38aa49b22a9c98219fb2ad8a66b11fa5872)) /* These two are the same as the Brazil set */
+
+        sfz2j                           // 30/04/1996 (c) 1996 (Japan)
+        sfz2jd                          //
+            ROM_LOAD16_WORD_SWAP("sz2j.07b", 0x200000, 0x80000, CRC(6352f038) SHA1(720a9865ecd0b34315c59ee88d137b4afcdd91cb))
+            ROM_LOAD16_WORD_SWAP("sz2j.08b", 0x280000, 0x80000, CRC(92b66e01) SHA1(f09cb38aa49b22a9c98219fb2ad8a66b11fa5872))
+
+        sfz2jr1                         // 27/02/1996 (c) 1996 (Japan)
+            ROM_LOAD16_WORD_SWAP("sz2j.07a", 0x200000, 0x80000, CRC(d910b2a2) SHA1(aa201660caa9cef993c147a1077c9e7767b34a78))
+            ROM_LOAD16_WORD_SWAP("sz2.08", 0x280000, 0x80000, CRC(0fe8585d) SHA1(0cd5369a5aa90c98d8dc1ff3342cd4d990631cff))
+
+#endif
+}
+
 int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (UsePaletteSetForCharacters())
     {
-        if (IsSFA2Rev1())
+        if (m_currentSFA2ROMRevision == SFA2_SupportedROMRevision::SFA2_960229)
         {
             if (rgExtraCountAll_07_0229[0] == -1)
             {
@@ -187,6 +337,26 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             return rgExtraCountAll_07_0229[nUnitId];
+        }
+        else if (m_currentSFA2ROMRevision == SFA2_SupportedROMRevision::SFZ2A_960826)
+        {
+            if (rgExtraCountAll_07_SFZ2A[0] == -1)
+            {
+                int nDefCtr = 0;
+                memset(rgExtraCountAll_07_SFZ2A, 0, (SFZ2A_A_NUM_IND_07 + 1) * sizeof(int));
+
+                stExtraDef* pCurrDef = GetExtraDefForSFA2(0);
+
+                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+                {
+                    rgExtraCountAll_07_SFZ2A[pCurrDef->uUnitN]++;
+
+                    nDefCtr++;
+                    pCurrDef = GetExtraDefForSFA2(nDefCtr);
+                }
+            }
+
+            return rgExtraCountAll_07_SFZ2A[nUnitId];
         }
         else
         {
@@ -235,7 +405,7 @@ int CGame_SFA2_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (UsePaletteSetForCharacters())
     {
-        if (IsSFA2Rev1())
+        if (m_currentSFA2ROMRevision == SFA2_SupportedROMRevision::SFA2_960229)
         {
             if (rgExtraLoc_07_0229[0] == -1)
             {
@@ -259,6 +429,31 @@ int CGame_SFA2_A::GetExtraLoc(UINT16 nUnitId)
             }
 
             return rgExtraLoc_07_0229[nUnitId];
+        }
+        else if (m_currentSFA2ROMRevision == SFA2_SupportedROMRevision::SFZ2A_960826)
+        {
+            if (rgExtraLoc_07_SFZ2A[0] == -1)
+            {
+                int nDefCtr = 0;
+                int nCurrUnit = UNIT_START_VALUE;
+                memset(rgExtraLoc_07_SFZ2A, 0, (SFZ2A_A_NUM_IND_07 + 1) * sizeof(int));
+
+                stExtraDef* pCurrDef = GetExtraDefForSFA2(0);
+
+                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+                {
+                    if (pCurrDef->uUnitN != nCurrUnit)
+                    {
+                        rgExtraLoc_07_SFZ2A[pCurrDef->uUnitN] = nDefCtr;
+                        nCurrUnit = pCurrDef->uUnitN;
+                    }
+
+                    nDefCtr++;
+                    pCurrDef = GetExtraDefForSFA2(nDefCtr);
+                }
+            }
+
+            return rgExtraLoc_07_SFZ2A[nUnitId];
         }
         else
         {
@@ -317,7 +512,16 @@ const sDescTreeNode* CGame_SFA2_A::GetCurrentUnitSet()
 {
     if (UsePaletteSetForCharacters())
     {
-        return  IsSFA2Rev1() ? SFA2_A_UNITS_07_0229 : SFA2_A_UNITS_07_MAX;
+        switch (m_currentSFA2ROMRevision)
+        {
+        case SFA2_SupportedROMRevision::SFA2_960229:
+            return SFA2_A_UNITS_07_0229;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
+            return SFA2_A_UNITS_07_MAX;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            return SFZ2A_A_UNITS_07;
+        }
     }
     else
     {
@@ -338,10 +542,28 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
     //Load extra file if we're using it
     if (UsePaletteSetForCharacters())
     {
-        nExtraUnitLocation = IsSFA2Rev1() ? SFA2_A_EXTRALOC_07_0229 : SFA2_A_EXTRALOC_07_MAX;
-        LoadExtraFileForGame(EXTRA_FILENAME_SFA2_07, SFA2_A_EXTRA, IsSFA2Rev1() ? &SFA2_A_EXTRA_CUSTOM_07_0229 : &SFA2_A_EXTRA_CUSTOM_07_MAX, nExtraUnitLocation, m_nConfirmedROMSize);
-        fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
-        nUnitCt = (IsSFA2Rev1() ? SFA2_A_NUM_IND_07_0229 : SFA2_A_NUM_IND_07_MAX) + (fHaveExtras ? 1 : 0);
+        switch (m_currentSFA2ROMRevision)
+        {
+        case SFA2_SupportedROMRevision::SFA2_960229:
+            nExtraUnitLocation = SFA2_A_EXTRALOC_07_0229;
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_07, SFA2_A_EXTRA, &SFA2_A_EXTRA_CUSTOM_07_0229, nExtraUnitLocation, m_nConfirmedROMSize);
+            fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
+            nUnitCt = SFA2_A_NUM_IND_07_0229 + (fHaveExtras ? 1 : 0);
+            break;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
+            nExtraUnitLocation = SFA2_A_EXTRALOC_07_MAX;
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_07, SFA2_A_EXTRA, &SFA2_A_EXTRA_CUSTOM_07_MAX, nExtraUnitLocation, m_nConfirmedROMSize);
+            fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
+            nUnitCt = SFA2_A_NUM_IND_07_MAX + (fHaveExtras ? 1 : 0);
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            nExtraUnitLocation = SFZ2A_A_EXTRALOC_07;
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_07, SFA2_A_EXTRA, &SFZ2A_A_EXTRA_CUSTOM_07, nExtraUnitLocation, m_nConfirmedROMSize);
+            fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
+            nUnitCt = SFZ2A_A_NUM_IND_07 + (fHaveExtras ? 1 : 0);
+            break;
+        }
     }
     else
     {
@@ -514,13 +736,18 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
 
     if (UsePaletteSetForCharacters())
     {
-        if (IsSFA2Rev1())
+        switch (m_currentSFA2ROMRevision)
         {
+        case SFA2_SupportedROMRevision::SFA2_960229:
             m_nTotalPaletteCountForSFA2_07_0229 = nTotalPaletteCount;
-        }
-        else
-        {
+            break;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
             m_nTotalPaletteCountForSFA2_07_MAX = nTotalPaletteCount;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            m_nTotalPaletteCountForSFZ2A_07 = nTotalPaletteCount;
+            break;
         }
     }
     else
@@ -839,7 +1066,23 @@ UINT16 CGame_SFA2_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
     if (UsePaletteSetForCharacters())
     {
-        if (IsSFA2Rev1() ? (nUnitId == SFA2_A_EXTRALOC_07_0229) : (nUnitId == SFA2_A_EXTRALOC_07_MAX))
+        UINT16 nExtraLocation;
+
+        switch (m_currentSFA2ROMRevision)
+        {
+        case SFA2_SupportedROMRevision::SFA2_960229:
+            nExtraLocation = SFA2_A_EXTRALOC_07_0229;
+            break;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
+            nExtraLocation = SFA2_A_EXTRALOC_07_MAX;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            nExtraLocation = SFZ2A_A_EXTRALOC_07;
+            break;
+        }
+
+        if (nUnitId == nExtraLocation)
         {
             return GetExtraCt(nUnitId);
         }
@@ -865,7 +1108,23 @@ UINT16 CGame_SFA2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectio
 {
     if (UsePaletteSetForCharacters())
     {
-        if (IsSFA2Rev1() ? (nUnitId == SFA2_A_EXTRALOC_07_0229) : (nUnitId == SFA2_A_EXTRALOC_07_MAX))
+        UINT16 nExtraLocation;
+
+        switch (m_currentSFA2ROMRevision)
+        {
+        case SFA2_SupportedROMRevision::SFA2_960229:
+            nExtraLocation = SFA2_A_EXTRALOC_07_0229;
+            break;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
+            nExtraLocation = SFA2_A_EXTRALOC_07_MAX;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            nExtraLocation = SFZ2A_A_EXTRALOC_07;
+            break;
+        }
+
+        if (nUnitId == nExtraLocation)
         {
             return GetExtraCt(nUnitId);
         }
@@ -893,7 +1152,24 @@ LPCTSTR CGame_SFA2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollec
 {
     if (UsePaletteSetForCharacters())
     {
-        if (IsSFA2Rev1() ? (nUnitId == SFA2_A_EXTRALOC_07_0229) : (nUnitId == SFA2_A_EXTRALOC_07_MAX))
+        UINT16 nExtraLocation;
+
+        switch (m_currentSFA2ROMRevision)
+        {
+        case SFA2_SupportedROMRevision::SFA2_960229:
+            nExtraLocation = SFA2_A_EXTRALOC_07_0229;
+            break;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
+            nExtraLocation = SFA2_A_EXTRALOC_07_MAX;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            nExtraLocation = SFZ2A_A_EXTRALOC_07;
+            break;
+        }
+
+        if (nUnitId == nExtraLocation)
+
         {
             return _T("Extra Palettes");
         }
@@ -921,7 +1197,23 @@ UINT16 CGame_SFA2_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
     if (UsePaletteSetForCharacters())
     {
-        if (IsSFA2Rev1() ? (nUnitId == SFA2_A_EXTRALOC_07_0229) : (nUnitId == SFA2_A_EXTRALOC_07_MAX))
+        UINT16 nExtraLocation;
+
+        switch (m_currentSFA2ROMRevision)
+        {
+        case SFA2_SupportedROMRevision::SFA2_960229:
+            nExtraLocation = SFA2_A_EXTRALOC_07_0229;
+            break;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
+            nExtraLocation = SFA2_A_EXTRALOC_07_MAX;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            nExtraLocation = SFZ2A_A_EXTRALOC_07;
+            break;
+        }
+
+        if (nUnitId == nExtraLocation)
         {
             return GetExtraCt(nUnitId);
         }
@@ -1051,8 +1343,23 @@ const sDescTreeNode* CGame_SFA2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (UsePaletteSetForCharacters() ? (IsSFA2Rev1() ? (nUnitId == SFA2_A_EXTRALOC_07_0229) : (nUnitId == SFA2_A_EXTRALOC_07_MAX)) :
-                                           (nUnitId == SFA2_A_EXTRALOC_08))
+        UINT16 nExtraLocation07;
+
+        switch (m_currentSFA2ROMRevision)
+        {
+        case SFA2_SupportedROMRevision::SFA2_960229:
+            nExtraLocation07 = SFA2_A_EXTRALOC_07_0229;
+            break;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
+            nExtraLocation07 = SFA2_A_EXTRALOC_07_MAX;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            nExtraLocation07 = SFZ2A_A_EXTRALOC_07;
+            break;
+        }
+
+        if (UsePaletteSetForCharacters() ? (nUnitId == nExtraLocation07) : (nUnitId == SFA2_A_EXTRALOC_08))
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -1126,28 +1433,25 @@ void CGame_SFA2_A::ClearDataBuffer()
     m_nSFA2SelectedRom = nCurrentROMMode;
 }
 
-LPCTSTR CGame_SFA2_A::GetGameName()
+void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-    LPCTSTR pszGameName = nullptr;
+    UINT16 nExtraLocation07;
 
     switch (m_currentSFA2ROMRevision)
     {
     case SFA2_SupportedROMRevision::SFA2_960229:
-        pszGameName = _T("SFA2 960229 (Arcade)");
+        nExtraLocation07 = SFA2_A_EXTRALOC_07_0229;
         break;
     case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
     default:
-        pszGameName = _T("SFA2 960306/960430 (Arcade)");
+        nExtraLocation07 = SFA2_A_EXTRALOC_07_MAX;
         break;
-    };
+    case SFA2_SupportedROMRevision::SFZ2A_960826:
+        nExtraLocation07 = SFZ2A_A_EXTRALOC_07;
+        break;
+    }
 
-    return pszGameName;
-}
-
-void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
-{
-    if (UsePaletteSetForCharacters() ? (IsSFA2Rev1() ? (nUnitId != SFA2_A_EXTRALOC_07_0229) : (nUnitId != SFA2_A_EXTRALOC_07_MAX)) :
-                                        (nUnitId != SFA2_A_EXTRALOC_08))
+    if (UsePaletteSetForCharacters() ? (nUnitId != nExtraLocation07) : (nUnitId != SFA2_A_EXTRALOC_08))
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -1166,7 +1470,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 // 0306 ROMs have a different location for palettes
                 if ((m_nCurrentPaletteROMLocation < 0x72a00) || // Handle up to Chun-Li OG (SF2 Costume)
                     (((SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWDhalsim) || (SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWZangief)) &&
-                    (m_nCurrentPaletteROMLocation < 0x73900))) // Second check handles the inserted WW characters
+                        (m_nCurrentPaletteROMLocation < 0x73900))) // Second check handles the inserted WW characters
                 {
                     m_nCurrentPaletteROMLocation -= 0x11e0;
                 }
@@ -1176,6 +1480,34 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                     //  and then status effects.
                     //  306: Chun-Li SF2, Crane Gen, Shin Akuma, WW Gief, WW Sim, Evil Ryu
                     m_nCurrentPaletteROMLocation -= 0x380;
+                }
+                break;
+            case SFA2_SupportedROMRevision::SFZ2A_960826: // 0x1bbe0: ryu
+                if (((SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWRyu) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWKen) ||
+                    (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWChunLi) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWSagat) ||
+                    (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWMBison) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_EvilRyu) ||
+                    (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_AltSakura)) &&
+                    (m_nCurrentPaletteROMLocation < 0x73900))
+                {
+                    // use real locations for SFZ2A unique characters
+                }
+                else if (m_nCurrentPaletteROMLocation < 0x72a00) // Handle up to Chun-Li OG (SF2 Costume)
+                {
+                    // This handles all the character palettes
+                    m_nCurrentPaletteROMLocation -= 0xDDBC;
+                }
+                else if (((SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWDhalsim) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWZangief)) &&
+                            (m_nCurrentPaletteROMLocation < 0x73900)) // Second check handles the inserted WW characters
+                {
+                    // sim: in code 73540
+                    // sim: in sz2u.07 -- 72360
+                    // sim: in szaa.07 -- 65784
+                    m_nCurrentPaletteROMLocation -= 0xDDBC; // CBE0;
+                }
+                else
+                {
+                    // This handles all the status effect palettes
+                    m_nCurrentPaletteROMLocation -= 0xB11C;
                 }
                 break;
             };
@@ -1197,6 +1529,30 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 }
                 break;
             case SFA2_SupportedROMRevision::SFA2_960306_or_960430: // in 306 portraits start at 0x1adc0
+                // 0x1adc0: akuma extra 1
+                // 0x1b480: bison teleport
+                // 0x1b780: dan sagat throw
+                // 0x1b820: sim teleport
+                // 0x1bbe0: shin akuma
+                // 0x1bc80: evil ryu
+                break;
+            case SFA2_SupportedROMRevision::SFZ2A_960826: 
+                // 0x11024: akuma extra 1
+                // 0x11ce4: dan
+                // 0x12144: shin akuma
+                // 0x12504: evil ryu
+                if (m_nCurrentPaletteROMLocation < 0x1b780)
+                {
+                    m_nCurrentPaletteROMLocation -= 0x9D9C;
+                }
+                else if (m_nCurrentPaletteROMLocation < 0x1bc80)
+                {
+                    m_nCurrentPaletteROMLocation -= 0x9A9C;
+                }
+                else
+                {
+                    m_nCurrentPaletteROMLocation -= 0x977C;
+                }
                 break;
             };
         }
@@ -1222,72 +1578,116 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
     const size_t nFileLengthToCheck = 32;
     UINT16* prgFileStart = new UINT16[nFileLengthToCheck];
     SFA2_SupportedROMRevision detectedROMVersion = SFA2_SupportedROMRevision::SFA2_960229;
-    UINT16 rgSFA2_07_960229Start[nFileLengthToCheck] = {  0x0, 0x8, 0x0, 0x20,      0x775c, 0x0, 0x0, 0x0,
-                                                          0x0, 0x8, 0x0, 0x20,      0x776c, 0x0, 0x0, 0x0,
-                                                          0x0, 0x8, 0x0, 0x20,      0x774c, 0x0, 0x0, 0x0,
-                                                          0x0, 0x8, 0x0, 0x20,      0x7714, 0x0, 0x0, 0x0 };
 
-    UINT16 rgSFA2_07_960306Start[nFileLengthToCheck] = {  0xB, 0x0, 0x0, 0xff,              0x1f, 0xfff0, 0x4, 0x0,
-                                                          0x20, 0x1358, 0x2222, 0x1800,     0x400,  0xb216, 0xa, 0x0,
-                                                          0x0, 0xff, 0x4, 0x0,              0x20, 0x127c, 0x2020, 0x1900,
-                                                          0x400, 0x3a16, 0x6, 0x0,          0x0, 0xff, 0x9, 0x0 };
+    struct SFA2_ROM_Identification_Data
+    {
+        SFA2_SupportedROMRevision sRevision = SFA2_SupportedROMRevision::SFA2_Unsupported;
+        UINT16 nBytesToMatch[32] = {};
+    };
 
-    UINT16 rgSFA2_08_960229Start[nFileLengthToCheck] = { 0x111, 0x222, 0x333, 0x444,    0x555, 0x666, 0x777, 0x888,
-                                                         0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000,
-                                                         0x111, 0x222, 0x333, 0x444,    0x555, 0x666, 0x777, 0x888,
-                                                         0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000 };
+    SFA2_ROM_Identification_Data rom7s[] =
+    {
+        {
+            SFA2_SupportedROMRevision::SFA2_960229,
+            {   0x0, 0x8, 0x0, 0x20,      0x775c, 0x0, 0x0, 0x0,    0x0, 0x8, 0x0, 0x20,      0x776c, 0x0, 0x0, 0x0,
+                0x0, 0x8, 0x0, 0x20,      0x774c, 0x0, 0x0, 0x0,    0x0, 0x8, 0x0, 0x20,      0x7714, 0x0, 0x0, 0x0 }
+        },
+        {
+            SFA2_SupportedROMRevision::SFA2_960306_or_960430,
+            {  0xB, 0x0, 0x0, 0xff,     0x1f, 0xfff0, 0x4, 0x0,         0x20, 0x1358, 0x2222, 0x1800,     0x400,  0xb216, 0xa, 0x0,
+               0x0, 0xff, 0x4, 0x0,     0x20, 0x127c, 0x2020, 0x1900,   0x400, 0x3a16, 0x6, 0x0,          0x0, 0xff, 0x9, 0x0 }
+        },
+        {
+            SFA2_SupportedROMRevision::SFZ2A_960826,
+            { 0x7677, 0x0000, 0x7678, 0x0000,    0x765d, 0x0100, 0x0002, 0x002b,
+                0x0006, 0x1ea4, 0x7680, 0x1000,     0x7682, 0x7300, 0x2470, 0x0000,
+                0x7688, 0x0000, 0x7687, 0x0000,     0x7679, 0x1100, 0x7686, 0x1000,
+                0x0002, 0x0029, 0x0006, 0x1ea8,     0x7c21, 0x3020, 0x2520, 0x0000 }
+        },
+    };
 
-    UINT16 rgSFA2_08_960306Start[nFileLengthToCheck] = { 0x625, 0xfff, 0xffd, 0xdfa,    0xaf7, 0x6f4, 0x1e4, 0x1d9,
-                                                         0x111, 0x333, 0x555, 0x888,    0xaaa, 0xccc, 0xfff, 0x000,
-                                                         0x413, 0xfff, 0xfef, 0xece,    0xead, 0xe8d, 0xd6c, 0xc5b,
-                                                         0x111, 0x333, 0x555, 0x888,    0xaaa, 0xccc, 0xfff, 0x000 };
+    SFA2_ROM_Identification_Data rom8s[] =
+    {
+        {
+            SFA2_SupportedROMRevision::SFA2_960229,
+           { 0x111, 0x222, 0x333, 0x444,    0x555, 0x666, 0x777, 0x888, 0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000,
+            0x111, 0x222, 0x333, 0x444,    0x555, 0x666, 0x777, 0x888,  0x999, 0xaaa, 0xbbb, 0xccc,    0xddd, 0xeee, 0xfff, 0x000 }
+        },
+        {
+            SFA2_SupportedROMRevision::SFA2_960306_or_960430,
+            { 0x625, 0xfff, 0xffd, 0xdfa,    0xaf7, 0x6f4, 0x1e4, 0x1d9,    0x111, 0x333, 0x555, 0x888,    0xaaa, 0xccc, 0xfff, 0x000,
+              0x413, 0xfff, 0xfef, 0xece,    0xead, 0xe8d, 0xd6c, 0xc5b, 0x111, 0x333, 0x555, 0x888,    0xaaa, 0xccc, 0xfff, 0x000 }
+        },
+        {
+            SFA2_SupportedROMRevision::SFZ2A_960826,
+            { 0x0777, 0x0000, 0x0aac, 0x0555, 0x0019, 0x0430, 0x0b96, 0x0ca5,    0x0db6, 0x0ec6, 0x0fd7, 0x0fd8, 0x0bbb, 0x0aaa, 0x0999, 0x0888,
+              0x0777, 0x0000, 0x0974, 0x0445, 0x0532, 0x0743, 0x0954, 0x0b65,    0x0d87, 0x0b96, 0x0ca5, 0x0db6, 0x0ec6, 0x0bbb, 0x0aaa, 0x0999, }
+        },
+    };
 
     LoadedFile->Seek(UsePaletteSetForCharacters() ? 0 : 0xc0, CFile::begin);
     LoadedFile->Read(prgFileStart, nFileLengthToCheck * 2);
 
-    bool fFoundMatch = true;
+    bool fFoundMatch = false;
 
-    UINT16* pSFA29_960229_Validation = UsePaletteSetForCharacters() ? rgSFA2_07_960229Start : rgSFA2_08_960229Start;
-    UINT16* pSFA29_960306_Validation = UsePaletteSetForCharacters() ? rgSFA2_07_960306Start : rgSFA2_08_960306Start;
-
-    for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
+    if (UsePaletteSetForCharacters())
     {
-        if (prgFileStart[nIndex] != pSFA29_960229_Validation[nIndex])
+        for (UINT16 nROMInfoIndex = 0; nROMInfoIndex < ARRAYSIZE(rom7s); nROMInfoIndex++)
         {
-            // 960306 and 960430 are identical
-            detectedROMVersion = SFA2_SupportedROMRevision::SFA2_960306_or_960430;
-            fFoundMatch = false;
-            break;
-        }
-    }
+            fFoundMatch = true;
 
-    if (fFoundMatch)
-    {
-        OutputDebugString(_T("\tConfirming this is a 960229 ROM.\n"));
-    }
-    else
-    {
-        fFoundMatch = true;
-
-        for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
-        {
-            if (prgFileStart[nIndex] != pSFA29_960306_Validation[nIndex])
+            for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
             {
-                detectedROMVersion = SFA2_SupportedROMRevision::SFA2_Unsupported;
-                fFoundMatch = false;
+                if (prgFileStart[nIndex] != rom7s[nROMInfoIndex].nBytesToMatch[nIndex])
+                {
+                    fFoundMatch = false;
+                    break;
+                }
+            }
+
+            if (fFoundMatch)
+            {
+                detectedROMVersion = rom7s[nROMInfoIndex].sRevision;
                 break;
             }
         }
+    }
+    else
+    {
+        for (UINT16 nROMInfoIndex = 0; nROMInfoIndex < ARRAYSIZE(rom8s); nROMInfoIndex++)
+        {
+            fFoundMatch = true;
 
-        if (fFoundMatch)
-        {
-            OutputDebugString(_T("\tConfirming this is a 960306 ROM.\n"));
+            for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
+            {
+                if (prgFileStart[nIndex] != rom8s[nROMInfoIndex].nBytesToMatch[nIndex])
+                {
+                    fFoundMatch = false;
+                    break;
+                }
+            }
+
+            if (fFoundMatch)
+            {
+                detectedROMVersion = rom8s[nROMInfoIndex].sRevision;
+                break;
+            }
         }
-        else
-        {
-            OutputDebugString(_T("\tThis is an unknown SFA2 ROM.\n"));
-            MessageBox(g_appHWnd, _T("This doesn't look like a supported SFA2 ROM.  We'll try, but if it doesn't look right please don't use this ROM."), GetHost()->GetAppName(), MB_ICONWARNING);
-        }
+    }
+
+    CString strByteWatch;
+    OutputDebugString(_T("Byte sniff for this ROM: "));
+    for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
+    {
+        strByteWatch.Format(_T("0x%04x, "), prgFileStart[nIndex]);
+        OutputDebugString(strByteWatch);
+    }
+    OutputDebugString(_T("\n"));
+
+    if (detectedROMVersion == SFA2_SupportedROMRevision::SFA2_Unsupported)
+    {
+        OutputDebugString(_T("\tThis is an unknown SFA2 ROM.\n"));
+        MessageBox(g_appHWnd, _T("This doesn't look like a supported SFA2 ROM.  We'll try, but if it doesn't look right please don't use this ROM."), GetHost()->GetAppName(), MB_ICONWARNING);
     }
 
     safe_delete_array(prgFileStart);
@@ -1386,9 +1786,28 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    sDescNode* NodeGet = UsePaletteSetForCharacters() ? (IsSFA2Rev1() ? MainDescTree_07_0229.GetDescNode(Node01, Node02, Node03, Node04) :
-                                                                        MainDescTree_07_MAX.GetDescNode(Node01, Node02, Node03, Node04)) :
-                                                        MainDescTree_08.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = nullptr;
+    
+    if (UsePaletteSetForCharacters())
+    {
+        switch (m_currentSFA2ROMRevision)
+        {
+        case SFA2_SupportedROMRevision::SFA2_960229:
+            NodeGet = MainDescTree_07_0229.GetDescNode(Node01, Node02, Node03, Node04);
+            break;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
+            NodeGet = MainDescTree_07_MAX.GetDescNode(Node01, Node02, Node03, Node04);
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            NodeGet = MainDescTree_07_SFZ2A.GetDescNode(Node01, Node02, Node03, Node04);
+            break;
+        }
+    }
+    else
+    {
+        NodeGet = MainDescTree_08.GetDescNode(Node01, Node02, Node03, Node04);
+    }
 
     if (NodeGet == nullptr)
     {

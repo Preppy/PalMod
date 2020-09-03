@@ -139,7 +139,7 @@ void CPalModDlg::UpdateCombo()
         //OnEditSelectNone();
 
         //Update the display palette selection
-        int nNotifyIndex = m_PalHost.GetNotifyIndex();
+        const int nNotifyIndex = m_PalHost.GetNotifyIndex();
 
         if (m_PalHost.GetPalCtrl(nNotifyIndex))
         {
@@ -154,7 +154,7 @@ void CPalModDlg::UpdateCombo()
 
     sDescTreeNode* UnitTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], -1);
     sDescTreeNode* ButtonTree = CurrGame->GetMainTree()->GetDescTree(rgRedir[nCurrUnitSel], nCurrChildSel1, -1);
-    sDescNode PaletteNode = ((sDescNode * )(ButtonTree->ChildNodes))[nCurrChildSel2];
+    sDescNode PaletteNode = ((sDescNode *)(ButtonTree->ChildNodes))[nCurrChildSel2];
 
     m_ToolTip.AddTool(GetDlgItem(IDC_CHARCOMBO), UnitTree->szDesc);
     m_ToolTip.AddTool(GetDlgItem(IDC_CHILDCOMBO1), ButtonTree->szDesc);

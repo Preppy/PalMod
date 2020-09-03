@@ -295,7 +295,7 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
     }
 
 #if IMGDAT_DEBUG
-    strDebugInfo.Format(_T("CImgDat::GetImageDef : No image found \n"));
+    strDebugInfo.Format(_T("CImgDat::GetImageDef : No image found\n"));
     OutputDebugString(strDebugInfo);
 #endif
     return nullptr;
@@ -526,7 +526,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
                         it->second->insertNode(uCurrImgId);
 
 #if IMGDAT_DEBUG
-                        strDebugInfo.Format(_T("CImgDat::LoadImage : node[0x%X][0x%X] Inserted \n"), uCurrUnitId, uCurrImgId);
+                        strDebugInfo.Format(_T("CImgDat::LoadImage : node[0x%X][0x%X] Inserted\n"), uCurrUnitId, uCurrImgId);
                         OutputDebugString_ImgDat(strDebugInfo);
 #endif
 
@@ -709,7 +709,6 @@ UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth
     UINT8* output_data = new UINT8[uiImgWidth * uiImgHeight];
     memset(output_data, NULL, sizeof(UINT8) * uiImgWidth * uiImgHeight);
 
-
     UINT32 bit_ctr = 0;
     int data_ctr = 0;
     int k = 0;
@@ -724,7 +723,7 @@ UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth
 
     while (bit_ctr < (uiDataSz * 8))
     {
-        if (8 - bit_ctr % 8 < uiBPP && bit_ctr / 8 != uiDataSz - 1)
+        if (((8 - bit_ctr % 8) < uiBPP) && ((bit_ctr / 8) != (uiDataSz - 1)))
         {
             get_from_extra = uiBPP - (8 - bit_ctr % 8);
         }
@@ -770,7 +769,6 @@ UINT8* CImgDat::DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth
                 uZeroPos += uGetAmt;
                 bit_ctr += uGetAmt;
             }
-
 
             for (k = 0; k < zero_data; k++)
             {

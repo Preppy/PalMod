@@ -24,11 +24,11 @@ public:
 
     BITMAPINFO MainBmpi; 
     HBITMAP MainHBmp;
-    UINT32 * pMainBmpData = nullptr;
+    UINT32* pMainBmpData = nullptr;
 
     //Main preview image control
-    CImgDisp * pMainImgCtrl = nullptr;
-    sImgNode ** rgSrcImg = nullptr;
+    CImgDisp* pMainImgCtrl = nullptr;
+    sImgNode** rgSrcImg = nullptr;
 
     BOOL LButtonDown = FALSE;
 
@@ -46,7 +46,7 @@ public:
     CDC    MainDC;
     //CBitmap MainBmp;
 
-    COLORREF ***pppPalettes = nullptr;
+    COLORREF*** pppPalettes = nullptr;
     
     COLORREF crBGCol = RGB(0, 0, 0);
 
@@ -104,7 +104,7 @@ public:
     BOOL RegisterWndClass();
 
     afx_msg void OnPaint();
-    afx_msg void OnSize(UINT nType,int cx,int cy );
+    afx_msg void OnSize(UINT nType, int cx, int cy);
     afx_msg void OnMouseMove(UINT nFlags, CPoint point);
     afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
     afx_msg void OnLButtonUp(UINT nFlags, CPoint point);

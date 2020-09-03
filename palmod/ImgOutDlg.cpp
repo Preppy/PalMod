@@ -101,8 +101,6 @@ BOOL CImgOutDlg::OnInitDialog()
         break;
     }
 
-    int nGameFlag = CurrGame->GetGameFlag();
-
     FillPalCombo();
 
     //Cannot get accurate remainder amount
@@ -371,12 +369,22 @@ void CImgOutDlg::ResizeBmp()
 
 void CImgOutDlg::OnFileSave()
 {
+    static LPCTSTR szSaveFilter[] =
+    {
+        _T("PNG Image|*.png|")
+        _T("GIF Image|*.gif|")
+        _T("BMP Image|*.bmp|")
+        _T("JPEG Image|*.jpg|")
+        _T("RAW texture|*.raw|")
+        _T("|")
+    };
+
     CFileDialog sfd(
         FALSE,
         NULL,
         NULL,
         OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY,
-        _T("PNG Image (*.png)|*.png|GIF Image (*.gif)|*.GIF|BMP Image (*.bmp)|*.BMP|JPEG Image (*.jpg)|*.jpg||")
+        *szSaveFilter
     );
 
     if (sfd.DoModal() == IDOK)
@@ -386,6 +394,7 @@ void CImgOutDlg::OnFileSave()
 
         CString output_ext = _T(".png");
         GUID img_format = ImageFormatPNG;
+        DWORD dwExportFlags = 0;
 
         switch (sfd.GetOFN().nFilterIndex)
         {
@@ -394,6 +403,7 @@ void CImgOutDlg::OnFileSave()
         {
             img_format = ImageFormatPNG;
             output_ext = _T(".png");
+            dwExportFlags = bTransPNG ? CImage::createAlphaChannel : 0;
             break;
         }
         case 2:
@@ -414,60 +424,101 @@ void CImgOutDlg::OnFileSave()
             output_ext = _T(".jpg");
             break;
         }
+        case 5:
+        {
+            img_format = ImageFormatUndefined;
+            output_ext = _T(".raw");
+            break;
+        }
         }
 
-        CImage out_img;
-        if (out_img.Create(output_width, output_height, 32, CImage::createAlphaChannel * bTransPNG * (sfd.GetOFN().nFilterIndex == 1)))
+        OPENFILENAME sfd_ofn = sfd.GetOFN();
+
+        CString output_str;
+
+        CString save_str = sfd_ofn.lpstrFile;
+
+        if (img_format != ImageFormatUndefined)
         {
-            if (bTransPNG)
+            CImage out_img;
+            if (out_img.Create(output_width, output_height, 32, dwExportFlags))
             {
-                m_DumpBmp.UpdateCtrl(FALSE, (UINT8*)out_img.GetBits());
+                if (dwExportFlags == CImage::createAlphaChannel)
+                {
+                    m_DumpBmp.UpdateCtrl(FALSE, (UINT8*)out_img.GetBits());
+                }
+                else
+                {
+                    CDC* output_DC = CDC::FromHandle(out_img.GetDC());
+                    output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.MainDC, 0, 0, SRCCOPY);
+                }
+
+                if (save_str.Find(output_ext) == (save_str.GetLength() - output_ext.GetLength()))
+                {
+                    output_str = save_str;
+                }
+                else
+                {
+                    // Force the correct file extension
+                    output_str.Format(_T("%s%s"), sfd_ofn.lpstrFile, output_ext.GetString());
+                }
+
+                HRESULT hr = out_img.Save(output_str, img_format);
+
+                if (FAILED(hr))
+                {
+                    CString strInfo;
+                    strInfo.Format(_T("Image export to file '%s' failed.\n\nThe error code is 0x%x"), output_str.GetString(), hr);
+                    MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
+                }
+
+                if (!bTransPNG)
+                {
+                    out_img.ReleaseDC();
+                }
+                else
+                {
+                    m_DumpBmp.UpdateCtrl();
+                }
             }
             else
             {
-                CDC* output_DC;
-
-                output_DC = CDC::FromHandle(out_img.GetDC());
-                output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.MainDC, 0, 0, SRCCOPY);
-            }
-
-            OPENFILENAME sfd_ofn = sfd.GetOFN();
-
-            CString save_str;
-            CString output_str;
-
-            save_str = sfd_ofn.lpstrFile;
-
-            if (save_str.Find(output_ext) == save_str.GetLength() - 4)
-            {
-                output_str = save_str;
-            }
-            else
-            {
-                output_str.Format(_T("%s%s"), sfd_ofn.lpstrFile, output_ext.GetString());
-            }
-
-            HRESULT hr = out_img.Save(output_str, img_format);
-
-            if (FAILED(hr))
-            {
-                CString strInfo;
-                strInfo.Format(_T("Image export to file '%s' failed.\n\nThe error code is 0x%x"), output_str.GetString(), hr);
-                MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
-            }
-
-            if (!bTransPNG)
-            {
-                out_img.ReleaseDC();
-            }
-            else
-            {
-                m_DumpBmp.UpdateCtrl();
+                MessageBox(_T("Image export failed: Failed to create the image file."), GetHost()->GetAppName(), MB_ICONERROR);
             }
         }
         else
         {
-            MessageBox(_T("Image export failed: Failed to create the image file."), GetHost()->GetAppName(), MB_ICONERROR);
+            int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
+            sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
+            CString strDimensions;
+
+            // We want to ensure filename syntax, so strip the extension in order to rebuild it
+            save_str.Replace(output_ext.GetString(), _T(""));
+
+            for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
+            {
+                strDimensions.Format(_T("-w-%u-h-%u"), rgSrcImg[nImageIndex]->uImgW, rgSrcImg[nImageIndex]->uImgH);
+
+                // Ensure that the filename includes the W/H values so the RAW is usable
+                const bool fNeedDimensions = (_tcsstr(sfd_ofn.lpstrFile, strDimensions.GetString()) == nullptr);
+
+                // RAW export
+                if (nImageCount == 1)
+                {
+                    output_str.Format(_T("%s%s%s"), save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+                }
+                else
+                {
+                    output_str.Format(_T("%s-%02x%s%s"), save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+                }
+
+                CFile rawFile;
+                if (rawFile.Open(output_str, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+                {
+                    rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW);
+                    rawFile.Abort();
+                }
+            }
         }
     }
 }

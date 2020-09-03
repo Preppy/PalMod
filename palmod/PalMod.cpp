@@ -22,7 +22,7 @@ CString CPalModApp::GetAppName(bool fIncludeGameName /*= true*/)
     strAppName += _T(" (" __DATE__ ")");
 
 #ifdef DEBUG
-    strAppName += _T(" DEBUG build");
+    strAppName += _T(" DEBUG");
 #endif
 
     if (fIncludeGameName && GetCurrGame())

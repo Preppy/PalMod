@@ -410,7 +410,7 @@ void CPalModDlg::OnFileOpen()
         { REDEARTH_A, _T("Red Earth|31|"), INVALID_UNIT_VALUE },
         { SAMSHO5SP_A, _T("Samurai Shodown 5 Special|272-p1*.p1;p1*h*.bin|"), INVALID_UNIT_VALUE},
         { SFIII3_A, _T("SFIII3 Arcade|51|"), INVALID_UNIT_VALUE },
-        { SFA2_A, _T("SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07;sz*.08|"), INVALID_UNIT_VALUE },
+        { SFA2_A, _T("SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07?;sz*.08?|"), INVALID_UNIT_VALUE },
         { SFA3_A, _T("SFA3 sz3.09c|*.09c|"), INVALID_UNIT_VALUE },
         { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|"), INVALID_UNIT_VALUE },
         { GEMFIGHTER_A, _T("Super Gem Fighter|pcf*.07|"), INVALID_UNIT_VALUE },
@@ -897,7 +897,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
 
                         if ((nBlackColorCount > 32) || (nBlackColorCount == nCurrentPageWorkingAmt))
                         {
-                            // TODO: Maybe ask the use before flipping?
+                            // TODO: Maybe ask the user before flipping?
                             UINT16 iPNGIndex = nPNGColorCount - 1;
                             fHadToFlip = true;
 

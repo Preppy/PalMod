@@ -840,8 +840,10 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
                 else
                 {
-                    int nXOffs = 0, nYOffs = 0;
-                    UINT16 nPeerPaletteDistance = 1;
+                    UINT16 nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+
                     UINT16 nPeerPaletteIdInNode = Node03;
 
                     if (paletteDataSet->indexImgToUse == indexCPS2_SFA3Assets)
@@ -850,7 +852,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         {
                             nXOffs = 86;
                             nYOffs = -31;
-                            nPeerPaletteDistance = 4;
+                            nDeltaToSecondElement = 4;
                             nPeerPaletteIdInNode += 4;
                             fShouldUseAlternateLoadLogic = true;
                         }
@@ -858,19 +860,18 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         {
                             nXOffs = -86;
                             nYOffs = 31;
-                            nPeerPaletteDistance = -4;
+                            nDeltaToSecondElement = -4;
                             nPeerPaletteIdInNode -= 4;
                             fShouldUseAlternateLoadLogic = true;
                         }
                     }
-                    else if (paletteDataSet->indexImgToUse == indexCPS2_Vega)
+                    else
                     {
                         fShouldUseAlternateLoadLogic = true;
-                        nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-                        nPeerPaletteIdInNode += nPeerPaletteDistance;
+                        nPeerPaletteIdInNode += nDeltaToSecondElement;
                     }
 
-                    UINT16 nPeerPaletteIdInUnit = NodeGet->uPalId + nPeerPaletteDistance;
+                    UINT16 nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
 
                     if (fShouldUseAlternateLoadLogic)
                     {
@@ -895,7 +896,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             CreateDefPal(JoinedNode[1], 1);
 
                             SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement);
                         }
                     }
                 }
