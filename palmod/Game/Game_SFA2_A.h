@@ -26,16 +26,19 @@ private:
     static UINT32 m_nTotalPaletteCountForSFA2_07_MAX;
     static UINT32 m_nTotalPaletteCountForSFZ2A_07;
     static UINT32 m_nTotalPaletteCountForSFA2_08;
+    static UINT32 m_nTotalPaletteCountForSFZ2A_08;
     static bool UsePaletteSetForCharacters() { return (m_nSFA2SelectedRom == 7); }
 
     static int rgExtraCountAll_07_0229[SFA2_A_NUM_IND_07_0229 + 1];
     static int rgExtraCountAll_07_MAX[SFA2_A_NUM_IND_07_MAX + 1];
     static int rgExtraCountAll_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1];
     static int rgExtraCountAll_08[SFA2_A_NUM_IND_08 + 1];
+    static int rgExtraCountAll_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1];
     static int rgExtraLoc_07_0229[SFA2_A_NUM_IND_07_0229 + 1];
     static int rgExtraLoc_07_MAX[SFA2_A_NUM_IND_07_MAX + 1];
     static int rgExtraLoc_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1];
     static int rgExtraLoc_08[SFA2_A_NUM_IND_08 + 1];
+    static int rgExtraLoc_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1];
 
     void ResetActiveSFA2Revision();
 
@@ -46,6 +49,7 @@ private:
     static UINT32 m_nConfirmedROMSize;
 
     static const sDescTreeNode* GetCurrentUnitSet();
+    static UINT16 GetCurrentExtraLoc();
     SFA2_SupportedROMRevision GetSFA2ROMVersion(CFile* LoadedFile);
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
@@ -63,6 +67,7 @@ public:
     static CDescTree MainDescTree_07_MAX;
     static CDescTree MainDescTree_07_SFZ2A;
     static CDescTree MainDescTree_08;
+    static CDescTree MainDescTree_08_SFZ2A;
 
     static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse, SFA2_SupportedROMRevision nROMRevision);
     static sFileRule GetRule(UINT16 nUnitId);
@@ -96,4 +101,5 @@ public:
     static stExtraDef* SFA2_A_EXTRA_CUSTOM_07_MAX;
     static stExtraDef* SFZ2A_A_EXTRA_CUSTOM_07;
     static stExtraDef* SFA2_A_EXTRA_CUSTOM_08;
+    static stExtraDef* SFZ2A_A_EXTRA_CUSTOM_08;
 };

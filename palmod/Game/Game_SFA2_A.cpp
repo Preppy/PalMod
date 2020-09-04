@@ -10,21 +10,25 @@ stExtraDef* CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_0229 = nullptr;
 stExtraDef* CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_MAX = nullptr;
 stExtraDef* CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_07 = nullptr;
 stExtraDef* CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08 = nullptr;
+stExtraDef* CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_08 = nullptr;
 
 CDescTree CGame_SFA2_A::MainDescTree_07_0229 = nullptr;
 CDescTree CGame_SFA2_A::MainDescTree_07_MAX = nullptr;
 CDescTree CGame_SFA2_A::MainDescTree_07_SFZ2A = nullptr;
 CDescTree CGame_SFA2_A::MainDescTree_08 = nullptr;
+CDescTree CGame_SFA2_A::MainDescTree_08_SFZ2A = nullptr;
 
 int CGame_SFA2_A::rgExtraCountAll_07_0229[SFA2_A_NUM_IND_07_0229 + 1] = { -1 };
 int CGame_SFA2_A::rgExtraCountAll_07_MAX[SFA2_A_NUM_IND_07_MAX + 1] = { -1 };
 int CGame_SFA2_A::rgExtraCountAll_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1] = { -1 };
 int CGame_SFA2_A::rgExtraCountAll_08[SFA2_A_NUM_IND_08 + 1] = { -1 };
+int CGame_SFA2_A::rgExtraCountAll_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1] = { -1 };
 
 int CGame_SFA2_A::rgExtraLoc_07_0229[SFA2_A_NUM_IND_07_0229 + 1] = { -1 };
 int CGame_SFA2_A::rgExtraLoc_07_MAX[SFA2_A_NUM_IND_07_MAX + 1] = { -1 };
 int CGame_SFA2_A::rgExtraLoc_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1] = { -1 };
 int CGame_SFA2_A::rgExtraLoc_08[SFA2_A_NUM_IND_08 + 1] = { -1 };
+int CGame_SFA2_A::rgExtraLoc_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1] = { -1 };
 
 int CGame_SFA2_A::m_nSFA2SelectedRom = 7;
 SFA2_SupportedROMRevision CGame_SFA2_A::m_currentSFA2ROMRevision = SFA2_SupportedROMRevision::SFA2_960229;
@@ -32,6 +36,7 @@ UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_0229 = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_07_MAX = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFZ2A_07 = 0;
 UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFA2_08 = 0;
+UINT32 CGame_SFA2_A::m_nTotalPaletteCountForSFZ2A_08 = 0;
 
 UINT32 CGame_SFA2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_SFA2_A::m_nConfirmedROMSize = -1;
@@ -42,20 +47,25 @@ void CGame_SFA2_A::InitializeStatics()
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_MAX);
     safe_delete_array(CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_07);
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08);
+    safe_delete_array(CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_08);
 
     memset(rgExtraCountAll_07_0229, -1, sizeof(rgExtraCountAll_07_0229));
     memset(rgExtraCountAll_07_MAX, -1, sizeof(rgExtraCountAll_07_MAX));
     memset(rgExtraCountAll_07_SFZ2A, -1, sizeof(rgExtraCountAll_07_SFZ2A));
     memset(rgExtraCountAll_08, -1, sizeof(rgExtraCountAll_08));
+    memset(rgExtraCountAll_08_SFZ2A, -1, sizeof(rgExtraCountAll_08_SFZ2A));
+
     memset(rgExtraLoc_07_0229, -1, sizeof(rgExtraLoc_07_0229));
     memset(rgExtraLoc_07_MAX, -1, sizeof(rgExtraLoc_07_MAX));
     memset(rgExtraLoc_07_SFZ2A, -1, sizeof(rgExtraLoc_07_SFZ2A));
     memset(rgExtraLoc_08, -1, sizeof(rgExtraLoc_08));
+    memset(rgExtraLoc_08_SFZ2A, -1, sizeof(rgExtraLoc_08_SFZ2A));
 
     MainDescTree_07_0229.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_SupportedROMRevision::SFA2_960229));
     MainDescTree_07_MAX.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_SupportedROMRevision::SFA2_960306_or_960430));
     MainDescTree_07_SFZ2A.SetRootTree(CGame_SFA2_A::InitDescTree(7, SFA2_SupportedROMRevision::SFZ2A_960826));
     MainDescTree_08.SetRootTree(CGame_SFA2_A::InitDescTree(8, SFA2_SupportedROMRevision::SFA2_960229));
+    MainDescTree_08_SFZ2A.SetRootTree(CGame_SFA2_A::InitDescTree(8, SFA2_SupportedROMRevision::SFZ2A_960826));
 }
 
 void CGame_SFA2_A::ResetActiveSFA2Revision()
@@ -66,6 +76,7 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
     const UINT32 nSafeCountFor07_MAX = 966;
     const UINT32 nSafeCountFor07_SFZ2A = 1296;
     const UINT32 nSafeCountFor08 = 259;
+    const UINT32 nSafeCountFor08_SFZ2A = 316;
 
     if (UsePaletteSetForCharacters())
     {
@@ -94,14 +105,25 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
     }
     else
     {
-        m_nTotalInternalUnits = SFA2_A_NUM_IND_08;
-        m_nExtraUnit = SFA2_A_EXTRALOC_08;
-        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nSafeCountFor08;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForSFA2_08;
+        switch (m_currentSFA2ROMRevision)
+        {
+        default:
+            m_nTotalInternalUnits = SFA2_A_NUM_IND_08;
+            m_nExtraUnit = SFA2_A_EXTRALOC_08;
+            m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nSafeCountFor08;
+            m_nTotalPaletteCount = m_nTotalPaletteCountForSFA2_08;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            m_nTotalInternalUnits = SFZ2A_A_NUM_IND_08;
+            m_nExtraUnit = SFZ2A_A_EXTRALOC_08;
+            m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + nSafeCountFor08_SFZ2A;
+            m_nTotalPaletteCount = m_nTotalPaletteCountForSFZ2A_08;
+            break;
+        }
     }
 
     const UINT32 nLowestPaletteIn07 = 0x2C000;
-    const UINT32 nLowestPaletteIn08 = 0x1adc0;
+    const UINT32 nLowestPaletteIn08 = 0x11024;
 
     m_nLowestKnownPaletteRomLocation = UsePaletteSetForCharacters() ? nLowestPaletteIn07 : nLowestPaletteIn08;
 
@@ -144,7 +166,7 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = SFA2_A_NUM_IMG_UNITS;
 
-   createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
+    createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
 
     nDisplayW = 8;
     nFileAmt = 1;
@@ -170,6 +192,7 @@ CGame_SFA2_A::~CGame_SFA2_A(void)
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_07_MAX);
     safe_delete_array(CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_07);
     safe_delete_array(CGame_SFA2_A::SFA2_A_EXTRA_CUSTOM_08);
+    safe_delete_array(CGame_SFA2_A::SFZ2A_A_EXTRA_CUSTOM_08);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
@@ -183,19 +206,22 @@ CDescTree* CGame_SFA2_A::GetMainTree()
         {
         case SFA2_SupportedROMRevision::SFA2_960229:
             return &CGame_SFA2_A::MainDescTree_07_0229;
-            break;
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
         default:
             return &CGame_SFA2_A::MainDescTree_07_MAX;
-            break;
         case SFA2_SupportedROMRevision::SFZ2A_960826:
             return &CGame_SFA2_A::MainDescTree_07_SFZ2A;
-            break;
         }
     }
     else
     {
-        return &CGame_SFA2_A::MainDescTree_08;
+        switch (m_currentSFA2ROMRevision)
+        {
+        default:
+            return &CGame_SFA2_A::MainDescTree_08;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            return &CGame_SFA2_A::MainDescTree_08_SFZ2A;
+        }
     }
 }
 
@@ -381,23 +407,45 @@ int CGame_SFA2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
     }
     else
     {
-        if (rgExtraCountAll_08[0] == -1)
+        switch (m_currentSFA2ROMRevision)
         {
-            int nDefCtr = 0;
-            memset(rgExtraCountAll_08, 0, (SFA2_A_NUM_IND_08 + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetExtraDefForSFA2(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+        default:
+            if (rgExtraCountAll_08[0] == -1)
             {
-                rgExtraCountAll_08[pCurrDef->uUnitN]++;
+                int nDefCtr = 0;
+                memset(rgExtraCountAll_08, 0, (SFA2_A_NUM_IND_08 + 1) * sizeof(int));
 
-                nDefCtr++;
-                pCurrDef = GetExtraDefForSFA2(nDefCtr);
+                stExtraDef* pCurrDef = GetExtraDefForSFA2(0);
+
+                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+                {
+                    rgExtraCountAll_08[pCurrDef->uUnitN]++;
+
+                    nDefCtr++;
+                    pCurrDef = GetExtraDefForSFA2(nDefCtr);
+                }
             }
-        }
 
-        return rgExtraCountAll_08[nUnitId];
+            return rgExtraCountAll_08[nUnitId];
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            if (rgExtraCountAll_08_SFZ2A[0] == -1)
+            {
+                int nDefCtr = 0;
+                memset(rgExtraCountAll_08_SFZ2A, 0, (SFZ2A_A_NUM_IND_08 + 1) * sizeof(int));
+
+                stExtraDef* pCurrDef = GetExtraDefForSFA2(0);
+
+                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+                {
+                    rgExtraCountAll_08_SFZ2A[pCurrDef->uUnitN]++;
+
+                    nDefCtr++;
+                    pCurrDef = GetExtraDefForSFA2(nDefCtr);
+                }
+            }
+
+            return rgExtraCountAll_08_SFZ2A[nUnitId];
+        }
     }
 }
 
@@ -483,28 +531,55 @@ int CGame_SFA2_A::GetExtraLoc(UINT16 nUnitId)
     }
     else
     {
-        if (rgExtraLoc_08[0] == -1)
+        switch (m_currentSFA2ROMRevision)
         {
-            int nDefCtr = 0;
-            int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_08, 0, (SFA2_A_NUM_IND_08 + 1) * sizeof(int));
-
-            stExtraDef* pCurrDef = GetExtraDefForSFA2(0);
-
-            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+        default:
+            if (rgExtraLoc_08[0] == -1)
             {
-                if (pCurrDef->uUnitN != nCurrUnit)
+                int nDefCtr = 0;
+                int nCurrUnit = UNIT_START_VALUE;
+                memset(rgExtraLoc_08, 0, (SFA2_A_NUM_IND_08 + 1) * sizeof(int));
+
+                stExtraDef* pCurrDef = GetExtraDefForSFA2(0);
+
+                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
                 {
-                    rgExtraLoc_08[pCurrDef->uUnitN] = nDefCtr;
-                    nCurrUnit = pCurrDef->uUnitN;
+                    if (pCurrDef->uUnitN != nCurrUnit)
+                    {
+                        rgExtraLoc_08[pCurrDef->uUnitN] = nDefCtr;
+                        nCurrUnit = pCurrDef->uUnitN;
+                    }
+
+                    nDefCtr++;
+                    pCurrDef = GetExtraDefForSFA2(nDefCtr);
                 }
-
-                nDefCtr++;
-                pCurrDef = GetExtraDefForSFA2(nDefCtr);
             }
-        }
 
-        return rgExtraLoc_08[nUnitId];
+            return rgExtraLoc_08[nUnitId];
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            if (rgExtraLoc_08_SFZ2A[0] == -1)
+            {
+                int nDefCtr = 0;
+                int nCurrUnit = UNIT_START_VALUE;
+                memset(rgExtraLoc_08_SFZ2A, 0, (SFZ2A_A_NUM_IND_08 + 1) * sizeof(int));
+
+                stExtraDef* pCurrDef = GetExtraDefForSFA2(0);
+
+                while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+                {
+                    if (pCurrDef->uUnitN != nCurrUnit)
+                    {
+                        rgExtraLoc_08_SFZ2A[pCurrDef->uUnitN] = nDefCtr;
+                        nCurrUnit = pCurrDef->uUnitN;
+                    }
+
+                    nDefCtr++;
+                    pCurrDef = GetExtraDefForSFA2(nDefCtr);
+                }
+            }
+
+            return rgExtraLoc_08_SFZ2A[nUnitId];
+        }
     }
 }
 
@@ -525,8 +600,50 @@ const sDescTreeNode* CGame_SFA2_A::GetCurrentUnitSet()
     }
     else
     {
-        return SFA2_A_UNITS_08;
+        switch (m_currentSFA2ROMRevision)
+        {
+        default:
+            return SFA2_A_UNITS_08;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            return SFZ2A_A_UNITS_08;
+        }        
     }
+}
+
+UINT16 CGame_SFA2_A::GetCurrentExtraLoc()
+{
+    UINT16 nExtraLocation = 0;
+
+    if (UsePaletteSetForCharacters())
+    {
+        switch (m_currentSFA2ROMRevision)
+        {
+        case SFA2_SupportedROMRevision::SFA2_960229:
+            nExtraLocation = SFA2_A_EXTRALOC_07_0229;
+            break;
+        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
+            nExtraLocation = SFA2_A_EXTRALOC_07_MAX;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            nExtraLocation = SFZ2A_A_EXTRALOC_07;
+            break;
+        }
+    }
+    else
+    {
+        switch (m_currentSFA2ROMRevision)
+        {
+        default:
+            nExtraLocation = SFA2_A_EXTRALOC_08;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            nExtraLocation = SFZ2A_A_EXTRALOC_08;
+            break;
+        }
+    }
+
+    return nExtraLocation;
 }
 
 sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_SupportedROMRevision nROMRevision)
@@ -567,10 +684,21 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
     }
     else
     {
-        nExtraUnitLocation = SFA2_A_EXTRALOC_08;
-        LoadExtraFileForGame(EXTRA_FILENAME_SFA2_08, SFA2_A_EXTRA, &SFA2_A_EXTRA_CUSTOM_08, nExtraUnitLocation, m_nConfirmedROMSize);
-        fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
-        nUnitCt = SFA2_A_NUM_IND_08 + (fHaveExtras ? 1 : 0);
+        switch (m_currentSFA2ROMRevision)
+        {
+        default:
+            nExtraUnitLocation = SFA2_A_EXTRALOC_08;
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_08, SFA2_A_EXTRA, &SFA2_A_EXTRA_CUSTOM_08, nExtraUnitLocation, m_nConfirmedROMSize);
+            fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
+            nUnitCt = SFA2_A_NUM_IND_08 + (fHaveExtras ? 1 : 0);
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            nExtraUnitLocation = SFZ2A_A_EXTRALOC_08;
+            LoadExtraFileForGame(EXTRA_FILENAME_SFA2_08, SFA2_A_EXTRA, &SFZ2A_A_EXTRA_CUSTOM_08, nExtraUnitLocation, m_nConfirmedROMSize);
+            fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
+            nUnitCt = SFZ2A_A_NUM_IND_08 + (fHaveExtras ? 1 : 0);
+            break;
+        }
     }
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
@@ -752,7 +880,15 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
     }
     else
     {
-        m_nTotalPaletteCountForSFA2_08 = nTotalPaletteCount;
+        switch (m_currentSFA2ROMRevision)
+        {
+        default:
+            m_nTotalPaletteCountForSFA2_08 = nTotalPaletteCount;
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            m_nTotalPaletteCountForSFZ2A_08 = nTotalPaletteCount;
+            break;
+        }
     }
 
     // For development use to speed things up
@@ -1064,221 +1200,75 @@ sFileRule CGame_SFA2_A::GetRule(UINT16 nUnitId)
 
 UINT16 CGame_SFA2_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (UsePaletteSetForCharacters())
+    if (nUnitId == GetCurrentExtraLoc())
     {
-        UINT16 nExtraLocation;
-
-        switch (m_currentSFA2ROMRevision)
-        {
-        case SFA2_SupportedROMRevision::SFA2_960229:
-            nExtraLocation = SFA2_A_EXTRALOC_07_0229;
-            break;
-        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
-        default:
-            nExtraLocation = SFA2_A_EXTRALOC_07_MAX;
-            break;
-        case SFA2_SupportedROMRevision::SFZ2A_960826:
-            nExtraLocation = SFZ2A_A_EXTRALOC_07;
-            break;
-        }
-
-        if (nUnitId == nExtraLocation)
-        {
-            return GetExtraCt(nUnitId);
-        }
-        else
-        {
-            return GetCurrentUnitSet()[nUnitId].uChildAmt;
-        }
+        return GetExtraCt(nUnitId);
     }
     else
     {
-        if (nUnitId == SFA2_A_EXTRALOC_08)
-        {
-            return GetExtraCt(nUnitId);
-        }
-        else
-        {
-            return SFA2_A_UNITS_08[nUnitId].uChildAmt;
-        }
+        return GetCurrentUnitSet()[nUnitId].uChildAmt;
     }
 }
 
 UINT16 CGame_SFA2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (UsePaletteSetForCharacters())
+    if (nUnitId == GetCurrentExtraLoc())
     {
-        UINT16 nExtraLocation;
-
-        switch (m_currentSFA2ROMRevision)
-        {
-        case SFA2_SupportedROMRevision::SFA2_960229:
-            nExtraLocation = SFA2_A_EXTRALOC_07_0229;
-            break;
-        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
-        default:
-            nExtraLocation = SFA2_A_EXTRALOC_07_MAX;
-            break;
-        case SFA2_SupportedROMRevision::SFZ2A_960826:
-            nExtraLocation = SFZ2A_A_EXTRALOC_07;
-            break;
-        }
-
-        if (nUnitId == nExtraLocation)
-        {
-            return GetExtraCt(nUnitId);
-        }
-        else
-        {
-            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
-            return pCollectionNode[nCollectionId].uChildAmt;
-        }
+        return GetExtraCt(nUnitId);
     }
     else
     {
-        if (nUnitId == SFA2_A_EXTRALOC_08)
-        {
-            return GetExtraCt(nUnitId);
-        }
-        else
-        {
-            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(SFA2_A_UNITS_08[nUnitId].ChildNodes);
-            return pCollectionNode[nCollectionId].uChildAmt;
-        }
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
+        return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
 LPCTSTR CGame_SFA2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (UsePaletteSetForCharacters())
+    if (nUnitId == GetCurrentExtraLoc())
+
     {
-        UINT16 nExtraLocation;
-
-        switch (m_currentSFA2ROMRevision)
-        {
-        case SFA2_SupportedROMRevision::SFA2_960229:
-            nExtraLocation = SFA2_A_EXTRALOC_07_0229;
-            break;
-        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
-        default:
-            nExtraLocation = SFA2_A_EXTRALOC_07_MAX;
-            break;
-        case SFA2_SupportedROMRevision::SFZ2A_960826:
-            nExtraLocation = SFZ2A_A_EXTRALOC_07;
-            break;
-        }
-
-        if (nUnitId == nExtraLocation)
-
-        {
-            return _T("Extra Palettes");
-        }
-        else
-        {
-            const sDescTreeNode* pCollection = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
-            return pCollection[nCollectionId].szDesc;
-        }
+        return _T("Extra Palettes");
     }
     else
     {
-        if (nUnitId == SFA2_A_EXTRALOC_08)
-        {
-            return _T("Extra Palettes");
-        }
-        else
-        {
-            const sDescTreeNode* pCollection = (const sDescTreeNode*)SFA2_A_UNITS_08[nUnitId].ChildNodes;
-            return pCollection[nCollectionId].szDesc;
-        }
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
+        return pCollection[nCollectionId].szDesc;
     }
 }
 
 UINT16 CGame_SFA2_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (UsePaletteSetForCharacters())
+    if (nUnitId == GetCurrentExtraLoc())
     {
-        UINT16 nExtraLocation;
-
-        switch (m_currentSFA2ROMRevision)
-        {
-        case SFA2_SupportedROMRevision::SFA2_960229:
-            nExtraLocation = SFA2_A_EXTRALOC_07_0229;
-            break;
-        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
-        default:
-            nExtraLocation = SFA2_A_EXTRALOC_07_MAX;
-            break;
-        case SFA2_SupportedROMRevision::SFZ2A_960826:
-            nExtraLocation = SFZ2A_A_EXTRALOC_07;
-            break;
-        }
-
-        if (nUnitId == nExtraLocation)
-        {
-            return GetExtraCt(nUnitId);
-        }
-        else
-        {
-            UINT16 nCompleteCount = 0;
-            UINT16 nCollectionCount = GetCurrentUnitSet()[nUnitId].uChildAmt;
-            const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
-
-            for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
-            {
-                nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
-            }
-
-#if SFA2_DEBUG
-            CString strMsg;
-            strMsg.Format(_T("CGame_SFA2_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
-            OutputDebugString(strMsg);
-#endif
-
-            return nCompleteCount;
-        }
+        return GetExtraCt(nUnitId);
     }
     else
     {
-        if (nUnitId == SFA2_A_EXTRALOC_08)
-        {
-            return GetExtraCt(nUnitId);
-        }
-        else
-        {
-            UINT16 nCompleteCount = 0;
-            UINT16 nCollectionCount = SFA2_A_UNITS_08[nUnitId].uChildAmt;
-            const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(SFA2_A_UNITS_08[nUnitId].ChildNodes);
+        UINT16 nCompleteCount = 0;
+        UINT16 nCollectionCount = GetCurrentUnitSet()[nUnitId].uChildAmt;
+        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
 
-            for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
-            {
-                nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
-            }
+        for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+        {
+            nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
+        }
 
 #if SFA2_DEBUG
-            CString strMsg;
-            strMsg.Format(_T("CGame_SFA2_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
-            OutputDebugString(strMsg);
+        CString strMsg;
+        strMsg.Format(_T("CGame_SFA2_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        OutputDebugString(strMsg);
 #endif
 
-            return nCompleteCount;
-        }
+        return nCompleteCount;
     }
-
 }
 
 const sGame_PaletteDataset* CGame_SFA2_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    if (UsePaletteSetForCharacters())
-    {
-        const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
-        return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
-    }
-    else
-    {
-        const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)SFA2_A_UNITS_08[nUnitId].ChildNodes;
-        return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
-    }
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
+    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
 const sGame_PaletteDataset* CGame_SFA2_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
@@ -1343,23 +1333,7 @@ const sDescTreeNode* CGame_SFA2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        UINT16 nExtraLocation07;
-
-        switch (m_currentSFA2ROMRevision)
-        {
-        case SFA2_SupportedROMRevision::SFA2_960229:
-            nExtraLocation07 = SFA2_A_EXTRALOC_07_0229;
-            break;
-        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
-        default:
-            nExtraLocation07 = SFA2_A_EXTRALOC_07_MAX;
-            break;
-        case SFA2_SupportedROMRevision::SFZ2A_960826:
-            nExtraLocation07 = SFZ2A_A_EXTRALOC_07;
-            break;
-        }
-
-        if (UsePaletteSetForCharacters() ? (nUnitId == nExtraLocation07) : (nUnitId == SFA2_A_EXTRALOC_08))
+        if (nUnitId == GetCurrentExtraLoc())
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -1371,7 +1345,7 @@ const sDescTreeNode* CGame_SFA2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(UsePaletteSetForCharacters() ? GetCurrentUnitSet()[nUnitId].ChildNodes : SFA2_A_UNITS_08[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
 
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -1435,23 +1409,7 @@ void CGame_SFA2_A::ClearDataBuffer()
 
 void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-    UINT16 nExtraLocation07;
-
-    switch (m_currentSFA2ROMRevision)
-    {
-    case SFA2_SupportedROMRevision::SFA2_960229:
-        nExtraLocation07 = SFA2_A_EXTRALOC_07_0229;
-        break;
-    case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
-    default:
-        nExtraLocation07 = SFA2_A_EXTRALOC_07_MAX;
-        break;
-    case SFA2_SupportedROMRevision::SFZ2A_960826:
-        nExtraLocation07 = SFZ2A_A_EXTRALOC_07;
-        break;
-    }
-
-    if (UsePaletteSetForCharacters() ? (nUnitId != nExtraLocation07) : (nUnitId != SFA2_A_EXTRALOC_08))
+    if (nUnitId != GetCurrentExtraLoc())
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -1541,17 +1499,20 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 // 0x11ce4: dan
                 // 0x12144: shin akuma
                 // 0x12504: evil ryu
-                if (m_nCurrentPaletteROMLocation < 0x1b780)
+                if ((nUnitId > 0) && (nUnitId < 27))
                 {
-                    m_nCurrentPaletteROMLocation -= 0x9D9C;
-                }
-                else if (m_nCurrentPaletteROMLocation < 0x1bc80)
-                {
-                    m_nCurrentPaletteROMLocation -= 0x9A9C;
-                }
-                else
-                {
-                    m_nCurrentPaletteROMLocation -= 0x977C;
+                    if (m_nCurrentPaletteROMLocation < 0x1b780)
+                    {
+                        m_nCurrentPaletteROMLocation -= 0x9D9C;
+                    }
+                    else if (m_nCurrentPaletteROMLocation < 0x1bc80)
+                    {
+                        m_nCurrentPaletteROMLocation -= 0x9A9C;
+                    }
+                    else
+                    {
+                        m_nCurrentPaletteROMLocation -= 0x977C;
+                    }
                 }
                 break;
             };
@@ -1703,11 +1664,8 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     {
         m_currentSFA2ROMRevision = romRevision;
         
-        if (UsePaletteSetForCharacters())
-        {
-            // The tree is actually different for the character ROM, so do a full tree reset
-            ResetActiveSFA2Revision();
-        }
+        // The tree is actually different for the ROMs, so do a full tree reset
+        ResetActiveSFA2Revision();
     }
 
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
@@ -1806,7 +1764,15 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
     else
     {
-        NodeGet = MainDescTree_08.GetDescNode(Node01, Node02, Node03, Node04);
+        switch (m_currentSFA2ROMRevision)
+        {
+        default:
+            NodeGet = MainDescTree_08.GetDescNode(Node01, Node02, Node03, Node04);
+            break;
+        case SFA2_SupportedROMRevision::SFZ2A_960826:
+            NodeGet = MainDescTree_08_SFZ2A.GetDescNode(Node01, Node02, Node03, Node04);
+            break;
+        }
     }
 
     if (NodeGet == nullptr)
