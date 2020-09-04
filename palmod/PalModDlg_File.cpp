@@ -415,6 +415,7 @@ void CPalModDlg::OnFileOpen()
         { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|"), INVALID_UNIT_VALUE },
         { GEMFIGHTER_A, _T("Super Gem Fighter|pcf*.07|"), INVALID_UNIT_VALUE },
         { SVCPLUSA_A, _T("SVC PlusA|svc-p2pl.bin|"), INVALID_UNIT_VALUE },
+        { WakuWaku7_A, _T("Waku Waku 7|225-p1.p1|"), INVALID_UNIT_VALUE },
         { XMVSF_A, _T("XMVSF|xvs*.05a|"), INVALID_UNIT_VALUE },
         { NEOGEO_A, _T("Unknown NEO•GEO|*.*|"), INVALID_UNIT_VALUE },
     };

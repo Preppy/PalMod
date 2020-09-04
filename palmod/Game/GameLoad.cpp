@@ -31,6 +31,7 @@
 #include "Game_SFIII3_D.h"
 #include "Game_SSF2T_A.h"
 #include "Game_SVCPLUSA_A.h"
+#include "Game_WakuWaku7_A.h"
 #include "Game_XMVSF_A.h"
 
 #include "..\resource.h"
@@ -257,6 +258,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
+    case WakuWaku7_A:
+    {
+        GetRule = &CGame_WakuWaku7_A::GetRule;
+        return TRUE;
+    }
     break;
 
     default:
@@ -391,6 +397,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SVCPLUSA_A:
     {
         return new CGame_SVCPLUSA_A(nConfirmedROMSize);
+    }
+    case WakuWaku7_A:
+    {
+        return new CGame_WakuWaku7_A(nConfirmedROMSize);
     }
     case XMVSF_A:
     {

@@ -44,6 +44,7 @@ enum SupportedGamesList
     REDEARTH_A,
     REDEARTH_A_DIR,
     KarnovsR_A,
+    WakuWaku7_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -90,6 +91,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Red Earth (Arcade)"),
    _T("Red Earth (Arcade Rerip)"),
    _T("Karnov's Revenge / Fighter's History Dynamite"),
+   _T("Waku Waku 7"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;

@@ -267,6 +267,7 @@ void CPalModDlg::OnEditPaste()
                 case NEOGEO_A:
                 case SAMSHO5SP_A:
                 case SVCPLUSA_A:
+                case WakuWaku7_A:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_NEOGEO;
                     break;

@@ -150,6 +150,7 @@
     <ClCompile Include="Game\Game_SFIII3_D.cpp" />
     <ClCompile Include="Game\Game_SSF2T_A.cpp" />
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp" />
+    <ClCompile Include="Game\Game_WakuWaku7_A.cpp" />
     <ClCompile Include="Game\Game_XMVSF_A.cpp" />
     <ClCompile Include="Game\MVC2_PALSEL.cpp" />
     <ClCompile Include="Game\MVC2_SUPP.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="Game\Game_SFIII3_D.h" />
     <ClInclude Include="Game\Game_SSF2T_A.h" />
     <ClInclude Include="Game\Game_SVCPLUSA_A.h" />
+    <ClInclude Include="Game\Game_WakuWaku7_A.h" />
     <ClInclude Include="Game\Game_XMVSF_A.h" />
     <ClInclude Include="Game\Garou_A_DEF.h" />
     <ClInclude Include="Game\Garou_S_DEF.h" />
@@ -248,6 +250,7 @@
     <ClInclude Include="Game\ShellSort.h" />
     <ClInclude Include="Game\SSF2T_A_DEF.h" />
     <ClInclude Include="Game\SVCPLUSA_A_DEF.h" />
+    <ClInclude Include="Game\WakuWaku7_A_DEF.h" />
     <ClInclude Include="Game\XMVSF_A_DEF.h" />
     <ClInclude Include="ImgDat.h" />
     <ClInclude Include="ImgDisp.h" />
