@@ -68,8 +68,8 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_SVC;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_SVC);
+    pButtonLabelSet = DEF_BUTTONLABEL_2_PK;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_PK);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -418,7 +418,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
         if (nCurrentOffset != 0)
         {
             // First handle the core sprite and moves.
-            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_SVC); iButtonIndex++)
+            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_2_PK); iButtonIndex++)
             {
                 if (iButtonIndex != 0)
                 {
@@ -426,7 +426,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
                 }
 
                 TCHAR szCodeButtonLabel[MAX_DESCRIPTION_LENGTH];
-                StrRemoveNonASCII(szCodeButtonLabel, ARRAYSIZE(szCodeButtonLabel), DEF_BUTTONLABEL_SVC[iButtonIndex]);
+                StrRemoveNonASCII(szCodeButtonLabel, ARRAYSIZE(szCodeButtonLabel), DEF_BUTTONLABEL_2_PK[iButtonIndex]);
 
                 strOutput.Format(_T("const sGame_PaletteDataset SVCPLUSA_A_%s_%s_PALETTES[] = \r\n{\r\n"), szCodeDesc, szCodeButtonLabel);
                 OutputDebugString(strOutput);
@@ -477,9 +477,9 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
             strOutput.Format(_T("const sGame_PaletteDataset SVCPLUSA_A_%s_%s_PALETTES[] = \r\n{\r\n"), szCodeDesc, _T("WIN_PORTRAITS"));
             OutputDebugString(strOutput);
 
-            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_SVC); iButtonIndex++)
+            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_2_PK); iButtonIndex++)
             {
-                strOutput.Format(_T("    { _T(\"%s %s\"), 0x%x, 0x%x, %s, 0x%02x },\r\n"), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_SVC[iButtonIndex], nCurrentOffset, nCurrentOffset + c_nWinPortraitPaletteLength,
+                strOutput.Format(_T("    { _T(\"%s %s\"), 0x%x, 0x%x, %s, 0x%02x },\r\n"), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_2_PK[iButtonIndex], nCurrentOffset, nCurrentOffset + c_nWinPortraitPaletteLength,
                                                                                 SVCPLUSA_A_CharacterPalettes[nCharIndex].pszImageSet, c_nWinPortraitImageOffset);
                 OutputDebugString(strOutput);
 
@@ -499,9 +499,9 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
             strOutput.Format(_T("const sGame_PaletteDataset SVCPLUSA_A_%s_%s_PALETTES[] = \r\n{\r\n"), szCodeDesc, _T("INTRO_PORTRAITS"));
             OutputDebugString(strOutput);
 
-            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_SVC); iButtonIndex++)
+            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_2_PK); iButtonIndex++)
             {
-                strOutput.Format(_T("    { _T(\"%s %s\"), 0x%x, 0x%x, %s, 0x%02x },\r\n"), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_SVC[iButtonIndex], nCurrentOffset, nCurrentOffset + c_nIntroPortraitPaletteLength,
+                strOutput.Format(_T("    { _T(\"%s %s\"), 0x%x, 0x%x, %s, 0x%02x },\r\n"), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_2_PK[iButtonIndex], nCurrentOffset, nCurrentOffset + c_nIntroPortraitPaletteLength,
                                                                                 SVCPLUSA_A_CharacterPalettes[nCharIndex].pszImageSet, c_nIntroPortraitImageOffset);
                 OutputDebugString(strOutput);
 
@@ -526,9 +526,9 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
             for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
             {
                 TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
-                StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_SVC[nColorIndex]);
+                StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_PK[nColorIndex]);
 
-                strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_%s_%s_PALETTES, ARRAYSIZE(SVCPLUSA_A_%s_%s_PALETTES) },\r\n"), DEF_BUTTONLABEL_SVC[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
+                strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_%s_%s_PALETTES, ARRAYSIZE(SVCPLUSA_A_%s_%s_PALETTES) },\r\n"), DEF_BUTTONLABEL_2_PK[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
                 OutputDebugString(strOutput);
             }
         }

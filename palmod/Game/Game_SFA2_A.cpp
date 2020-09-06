@@ -86,7 +86,7 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
     const UINT32 nSafeCountFor07_SFZ2A = 1296;
     const UINT32 nSafeCountFor08_Rev1 = 229;
     const UINT32 nSafeCountFor08_Rev2 = 270;
-    const UINT32 nSafeCountFor08_SFZ2A = 316;
+    const UINT32 nSafeCountFor08_SFZ2A = 324;
 
     if (UsePaletteSetForCharacters())
     {
@@ -609,6 +609,7 @@ int CGame_SFA2_A::GetExtraLoc(UINT16 nUnitId)
             return rgExtraLoc_08_Rev1[nUnitId];
         }
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
         {
             if (rgExtraLoc_08_Rev2[0] == -1)
             {
@@ -684,6 +685,7 @@ const sDescTreeNode* CGame_SFA2_A::GetCurrentUnitSet()
         case SFA2_SupportedROMRevision::SFA2_960229:
             return SFA2_A_UNITS_08_REV1;
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
+        default:
             return SFA2_A_UNITS_08_REV2;
         case SFA2_SupportedROMRevision::SFZ2A_960826:
             return SFZ2A_A_UNITS_08;
@@ -717,6 +719,7 @@ UINT16 CGame_SFA2_A::GetCurrentExtraLoc()
         {
         case SFA2_SupportedROMRevision::SFA2_960229:
             nExtraLocation = SFA2_A_EXTRALOC_08_REV1;
+        default:
         case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
             nExtraLocation = SFA2_A_EXTRALOC_08_REV2;
             break;

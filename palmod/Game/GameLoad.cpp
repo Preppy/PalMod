@@ -24,6 +24,7 @@
 #include "Game_REDEARTH_A.h"
 #include "Game_REDEARTH_A_DIR.h"
 #include "Game_SAMSHO5SP_A.h"
+#include "Game_SFA1_A.h"
 #include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
 #include "Game_SFIII3_A.h"
@@ -128,6 +129,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case SSF2T_A:
     {
         GetRule = &CGame_SSF2T_A::GetRule;
+        return TRUE;
+    }
+    case SFA1_A:
+    {
+        GetRule = &CGame_SFA1_A::GetRule;
         return TRUE;
     }
     case SFA2_A:
@@ -381,6 +387,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SFIII3_D:
     {
         return new CGame_SFIII3_D;
+    }
+    case SFA1_A:
+    {
+        return new CGame_SFA1_A(nConfirmedROMSize);
     }
     case SFA2_A:
     {

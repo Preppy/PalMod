@@ -28,6 +28,7 @@ enum Supported_SSF2T_4A_PaletteListIndex
     index_SSF2T_THawk,
     index_SSF2T_Vega,
     index_SSF2T_Zangief,
+    index_SSF2T_4A_Bonus,
     index_SSF2T_4A_Last
 };
 
@@ -1883,6 +1884,7 @@ const sGame_PaletteDataset SSF2T_A_DEEJAY_PORTRAIT_NODE[] =
 
 #ifdef UNUSED_PALETTES
     // These actually aren't used!  Only the P1s are ever shown.
+    // but zass says these versions fix issues with the P1 versions...?
     { _T("Ryu Portrait P2"),      0x036cfe, 0x036d7e, 0x00, 0x10 },
     { _T("E. Honda Portrait P2"), 0x0371fe, 0x03727e, 0x01, 0x10 },
     { _T("Blanka Portrait P2"),   0x0376fe, 0x03777e, 0x02, 0x10 },
@@ -1901,6 +1903,12 @@ const sGame_PaletteDataset SSF2T_A_DEEJAY_PORTRAIT_NODE[] =
     { _T("Dee Jay Portrait P2"),  0x03b7fe, 0x03b87e, 0x0F, 0x10 },
 #endif
 
+const sGame_PaletteDataset SSF2T_A_BONUS_NODE[] =
+{
+    { _T("Akuma Intro"), 0x05bf5c, 0x05bf7c },
+    { _T("Chun-Li Intro"), 0x05bf7c, 0x05c09c },
+    { _T("Cammy Intro"), 0x05be5c, 0x05bf5c },
+};
 
 const sDescTreeNode SSF2T_A_PORTRAITS_COLLECTION[] =
 {
@@ -1922,9 +1930,14 @@ const sDescTreeNode SSF2T_A_PORTRAITS_COLLECTION[] =
     { _T("Zangief"),     DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_PORTRAIT_NODE,      ARRAYSIZE(SSF2T_A_ZANGIEF_PORTRAIT_NODE) },
 };
 
+const sDescTreeNode SSF2T_A_BONUS_COLLECTION[] =
+{
+    { _T("Palettes"),     DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_NODE,      ARRAYSIZE(SSF2T_A_BONUS_NODE) },
+};
+
 const sDescTreeNode SSF2T_A_UNITS_3C[SSF2T_A_NUM_IND_3C] =
 {
-    { _T("Portraits"),   DESC_NODETYPE_TREE, (void*)SSF2T_A_PORTRAITS_COLLECTION,    ARRAYSIZE(SSF2T_A_PORTRAITS_COLLECTION) },
+    { _T("Portraits"),  DESC_NODETYPE_TREE, (void*)SSF2T_A_PORTRAITS_COLLECTION,    ARRAYSIZE(SSF2T_A_PORTRAITS_COLLECTION) },
 };
 
 const sDescTreeNode SSF2T_A_UNITS_4A[SSF2T_A_NUM_IND_4A] =
@@ -1946,6 +1959,7 @@ const sDescTreeNode SSF2T_A_UNITS_4A[SSF2T_A_NUM_IND_4A] =
     { _T("T-Hawk"),      DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_COLLECTION,        ARRAYSIZE(SSF2T_A_THAWK_COLLECTION) },
     { _T("Vega"),        DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_COLLECTION,         ARRAYSIZE(SSF2T_A_VEGA_COLLECTION) },
     { _T("Zangief"),     DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_COLLECTION,      ARRAYSIZE(SSF2T_A_ZANGIEF_COLLECTION) },
+    { _T("Bonus"),      DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_COLLECTION,    ARRAYSIZE(SSF2T_A_BONUS_COLLECTION) },
 };
 
 // We extend this array with data groveled from the SSF2T-3Ce.txt or SSF2T-4Ae.txt extensible extras file, if any.

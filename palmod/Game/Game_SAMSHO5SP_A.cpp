@@ -418,7 +418,7 @@ void CGame_SAMSHO5SP_A::DumpPaletteHeaders()
         if (nCurrentOffset != 0)
         {
             // First handle the core sprite and moves.
-            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_SVC); iButtonIndex++)
+            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_2_PK); iButtonIndex++)
             {
                 if (iButtonIndex != 0)
                 {
@@ -426,7 +426,7 @@ void CGame_SAMSHO5SP_A::DumpPaletteHeaders()
                 }
 
                 TCHAR szCodeButtonLabel[MAX_DESCRIPTION_LENGTH];
-                StrRemoveNonASCII(szCodeButtonLabel, ARRAYSIZE(szCodeButtonLabel), DEF_BUTTONLABEL_SVC[iButtonIndex]);
+                StrRemoveNonASCII(szCodeButtonLabel, ARRAYSIZE(szCodeButtonLabel), DEF_BUTTONLABEL_2_PK[iButtonIndex]);
 
                 strOutput.Format(_T("const sGame_PaletteDataset SAMSHO5SP_A_%s_%s_PALETTES[] = \r\n{\r\n"), szCodeDesc, szCodeButtonLabel);
                 OutputDebugString(strOutput);
@@ -477,9 +477,9 @@ void CGame_SAMSHO5SP_A::DumpPaletteHeaders()
             strOutput.Format(_T("const sGame_PaletteDataset SAMSHO5SP_A_%s_%s_PALETTES[] = \r\n{\r\n"), szCodeDesc, _T("WIN_PORTRAITS"));
             OutputDebugString(strOutput);
 
-            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_SVC); iButtonIndex++)
+            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_2_PK); iButtonIndex++)
             {
-                strOutput.Format(_T("    { _T(\"%s %s\"), 0x%x, 0x%x, %s, 0x%02x },\r\n"), SAMSHO5SP_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_SVC[iButtonIndex], nCurrentOffset, nCurrentOffset + c_nWinPortraitPaletteLength,
+                strOutput.Format(_T("    { _T(\"%s %s\"), 0x%x, 0x%x, %s, 0x%02x },\r\n"), SAMSHO5SP_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_2_PK[iButtonIndex], nCurrentOffset, nCurrentOffset + c_nWinPortraitPaletteLength,
                                                                                 SAMSHO5SP_A_CharacterPalettes[nCharIndex].pszImageSet, c_nWinPortraitImageOffset);
                 OutputDebugString(strOutput);
 
@@ -499,9 +499,9 @@ void CGame_SAMSHO5SP_A::DumpPaletteHeaders()
             strOutput.Format(_T("const sGame_PaletteDataset SAMSHO5SP_A_%s_%s_PALETTES[] = \r\n{\r\n"), szCodeDesc, _T("INTRO_PORTRAITS"));
             OutputDebugString(strOutput);
 
-            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_SVC); iButtonIndex++)
+            for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_2_PK); iButtonIndex++)
             {
-                strOutput.Format(_T("    { _T(\"%s %s\"), 0x%x, 0x%x, %s, 0x%02x },\r\n"), SAMSHO5SP_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_SVC[iButtonIndex], nCurrentOffset, nCurrentOffset + c_nIntroPortraitPaletteLength,
+                strOutput.Format(_T("    { _T(\"%s %s\"), 0x%x, 0x%x, %s, 0x%02x },\r\n"), SAMSHO5SP_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_2_PK[iButtonIndex], nCurrentOffset, nCurrentOffset + c_nIntroPortraitPaletteLength,
                                                                                 SAMSHO5SP_A_CharacterPalettes[nCharIndex].pszImageSet, c_nIntroPortraitImageOffset);
                 OutputDebugString(strOutput);
 
@@ -526,9 +526,9 @@ void CGame_SAMSHO5SP_A::DumpPaletteHeaders()
             for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
             {
                 TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
-                StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_SVC[nColorIndex]);
+                StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_PK[nColorIndex]);
 
-                strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SAMSHO5SP_A_%s_%s_PALETTES, ARRAYSIZE(SAMSHO5SP_A_%s_%s_PALETTES) },\r\n"), DEF_BUTTONLABEL_SVC[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
+                strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SAMSHO5SP_A_%s_%s_PALETTES, ARRAYSIZE(SAMSHO5SP_A_%s_%s_PALETTES) },\r\n"), DEF_BUTTONLABEL_2_PK[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
                 OutputDebugString(strOutput);
             }
         }

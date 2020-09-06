@@ -365,8 +365,8 @@ const sGame_PaletteDataset SFA2_A_AKUMA_STATUS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHARLIE_PUNCH_PALETTES[] =
 {
     { _T("Punch"), 0x6ee00, 0x6ee20, indexCPS2_Charlie, 0x00 },
-    { _T("Punch Extra 1"), 0x6ee20, 0x6ee40, indexCPS2_Charlie, 0x00 },
-    { _T("Punch Extra 2"), 0x6ee40, 0x6ee60, indexCPS2_Charlie, 0x00 },
+    { _T("Punch Sonic Boom"), 0x6ee20, 0x6ee40, indexCPS2_Charlie, 0x01 },
+    { _T("Punch Flash Kick"), 0x6ee40, 0x6ee60, indexCPS2_Charlie, 0x02 },
     { _T("Punch Super Trail Light"), 0x6ee60, 0x6ee80, indexCPS2_Charlie, 0x00 },
     { _T("Punch Super Trail Dark"), 0x6ee80, 0x6eea0, indexCPS2_Charlie, 0x00 },
 };
@@ -374,8 +374,8 @@ const sGame_PaletteDataset SFA2_A_CHARLIE_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHARLIE_KICK_PALETTES[] =
 {
     { _T("Kick"), 0x6eea0, 0x6eec0, indexCPS2_Charlie, 0x00 },
-    { _T("Kick Extra 1"), 0x6eec0, 0x6eee0, indexCPS2_Charlie, 0x00 },
-    { _T("Kick Extra 2"), 0x6eee0, 0x6ef00, indexCPS2_Charlie, 0x00 },
+    { _T("Kick Sonic Boom"), 0x6eec0, 0x6eee0, indexCPS2_Charlie, 0x01 },
+    { _T("Kick Flash Kick"), 0x6eee0, 0x6ef00, indexCPS2_Charlie, 0x02 },
     { _T("Kick Super Trail Light"), 0x6ef00, 0x6ef20, indexCPS2_Charlie, 0x00 },
     { _T("Kick Super Trail Dark"), 0x6ef20, 0x6ef40, indexCPS2_Charlie, 0x00 },
 };
@@ -383,8 +383,8 @@ const sGame_PaletteDataset SFA2_A_CHARLIE_KICK_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHARLIE_2PUNCHES_PALETTES[] =
 {
     { _T("2 Punches"), 0x6ef40, 0x6ef60, indexCPS2_Charlie, 0x00 },
-    { _T("2 Punches Extra 1"), 0x6ef60, 0x6ef80, indexCPS2_Charlie, 0x00 },
-    { _T("2 Punches Extra 2"), 0x6ef80, 0x6efa0, indexCPS2_Charlie, 0x00 },
+    { _T("2 Punches Sonic Boom"), 0x6ef60, 0x6ef80, indexCPS2_Charlie, 0x01 },
+    { _T("2 Punches Flash Kick"), 0x6ef80, 0x6efa0, indexCPS2_Charlie, 0x02 },
     { _T("2 Punches Super Trail Light"), 0x6efa0, 0x6efc0, indexCPS2_Charlie, 0x00 },
     { _T("2 Punches Super Trail Dark"), 0x6efc0, 0x6efe0, indexCPS2_Charlie, 0x00 },
 };
@@ -392,8 +392,8 @@ const sGame_PaletteDataset SFA2_A_CHARLIE_2PUNCHES_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHARLIE_2KICKS_PALETTES[] =
 {
     { _T("2 Kicks"), 0x6efe0, 0x6f000, indexCPS2_Charlie, 0x00 },
-    { _T("2 Kicks Extra 1"), 0x6f000, 0x6f020, indexCPS2_Charlie, 0x00 },
-    { _T("2 Kicks Extra 2"), 0x6f020, 0x6f040, indexCPS2_Charlie, 0x00 },
+    { _T("2 Kicks Sonic Boom"), 0x6f000, 0x6f020, indexCPS2_Charlie, 0x01 },
+    { _T("2 Kicks Flash Kick"), 0x6f020, 0x6f040, indexCPS2_Charlie, 0x02 },
     { _T("2 Kicks Super Trail Light"), 0x6f040, 0x6f060, indexCPS2_Charlie, 0x00 },
     { _T("2 Kicks Super Trail Dark"), 0x6f060, 0x6f080, indexCPS2_Charlie, 0x00 },
 };
@@ -401,8 +401,8 @@ const sGame_PaletteDataset SFA2_A_CHARLIE_2KICKS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHARLIE_AUTOGUARDPUNCH_PALETTES[] =
 {
     { _T("Auto Guard Punch"), 0x6f080, 0x6f0a0, indexCPS2_Charlie, 0x00 },
-    { _T("Auto Guard Punch Extra 1"), 0x6f0a0, 0x6f0c0, indexCPS2_Charlie, 0x00 },
-    { _T("Auto Guard Punch Extra 2"), 0x6f0c0, 0x6f0e0, indexCPS2_Charlie, 0x00 },
+    { _T("Auto Guard Punch Sonic Boom"), 0x6f0a0, 0x6f0c0, indexCPS2_Charlie, 0x01 },
+    { _T("Auto Guard Punch Flash Kick"), 0x6f0c0, 0x6f0e0, indexCPS2_Charlie, 0x02 },
     { _T("Auto Guard Punch Super Trail Light"), 0x6f0e0, 0x6f100, indexCPS2_Charlie, 0x00 },
     { _T("Auto Guard Punch Super Trail Dark"), 0x6f100, 0x6f120, indexCPS2_Charlie, 0x00 },
 };
@@ -410,8 +410,8 @@ const sGame_PaletteDataset SFA2_A_CHARLIE_AUTOGUARDPUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHARLIE_AUTOGUARDKICK_PALETTES[] =
 {
     { _T("Auto Guard Kick"), 0x6f120, 0x6f140, indexCPS2_Charlie, 0x00 },
-    { _T("Auto Guard Kick Extra 1"), 0x6f140, 0x6f160, indexCPS2_Charlie, 0x00 },
-    { _T("Auto Guard Kick Extra 2"), 0x6f160, 0x6f180, indexCPS2_Charlie, 0x00 },
+    { _T("Auto Guard Kick Sonic Boom"), 0x6f140, 0x6f160, indexCPS2_Charlie, 0x01 },
+    { _T("Auto Guard Kick Flash Kick"), 0x6f160, 0x6f180, indexCPS2_Charlie, 0x02 },
     { _T("Auto Guard Kick Super Trail Light"), 0x6f180, 0x6f1a0, indexCPS2_Charlie, 0x00 },
     { _T("Auto Guard Kick Super Trail Dark"), 0x6f1a0, 0x6f1c0, indexCPS2_Charlie, 0x00 },
 };
@@ -439,8 +439,8 @@ const sGame_PaletteDataset SFA2_A_CHARLIE_STATUS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHUNLI_PUNCH_PALETTES[] =
 {
     { _T("Punch"), 0x6f1c0, 0x6f1e0, indexCPS2_ChunLi, 0x0c },
-    { _T("Punch Extra 1"), 0x6f1e0, 0x6f200, indexCPS2_ChunLi, 0x0c },
-    { _T("Punch Extra 2"), 0x6f200, 0x6f220, indexCPS2_ChunLi, 0x0c },
+    { _T("Punch Extra 1"), 0x6f1e0, 0x6f200, indexCPS2_ChunLi, 0x01 },
+    { _T("Punch Extra 2"), 0x6f200, 0x6f220 },
     { _T("Punch Super Trail Light"), 0x6f220, 0x6f240, indexCPS2_ChunLi, 0x0c },
     { _T("Punch Super Trail Dark"), 0x6f240, 0x6f260, indexCPS2_ChunLi, 0x0c },
 };
@@ -448,8 +448,8 @@ const sGame_PaletteDataset SFA2_A_CHUNLI_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHUNLI_KICK_PALETTES[] =
 {
     { _T("Kick"), 0x6f260, 0x6f280, indexCPS2_ChunLi, 0x0c },
-    { _T("Kick Extra 1"), 0x6f280, 0x6f2a0, indexCPS2_ChunLi, 0x0c },
-    { _T("Kick Extra 2"), 0x6f2a0, 0x6f2c0, indexCPS2_ChunLi, 0x0c },
+    { _T("Kick Extra 1"), 0x6f280, 0x6f2a0, indexCPS2_ChunLi, 0x01 },
+    { _T("Kick Extra 2"), 0x6f2a0, 0x6f2c0 },
     { _T("Kick Super Trail Light"), 0x6f2c0, 0x6f2e0, indexCPS2_ChunLi, 0x0c },
     { _T("Kick Super Trail Dark"), 0x6f2e0, 0x6f300, indexCPS2_ChunLi, 0x0c },
 };
@@ -457,8 +457,8 @@ const sGame_PaletteDataset SFA2_A_CHUNLI_KICK_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHUNLI_2PUNCHES_PALETTES[] =
 {
     { _T("2 Punches"), 0x6f300, 0x6f320, indexCPS2_ChunLi, 0x0c },
-    { _T("2 Punches Extra 1"), 0x6f320, 0x6f340, indexCPS2_ChunLi, 0x0c },
-    { _T("2 Punches Extra 2"), 0x6f340, 0x6f360, indexCPS2_ChunLi, 0x0c },
+    { _T("2 Punches Extra 1"), 0x6f320, 0x6f340, indexCPS2_ChunLi, 0x01 },
+    { _T("2 Punches Extra 2"), 0x6f340, 0x6f360 },
     { _T("2 Punches Super Trail Light"), 0x6f360, 0x6f380, indexCPS2_ChunLi, 0x0c },
     { _T("2 Punches Super Trail Dark"), 0x6f380, 0x6f3a0, indexCPS2_ChunLi, 0x0c },
 };
@@ -466,8 +466,8 @@ const sGame_PaletteDataset SFA2_A_CHUNLI_2PUNCHES_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHUNLI_2KICKS_PALETTES[] =
 {
     { _T("2 Kicks"), 0x6f3a0, 0x6f3c0, indexCPS2_ChunLi, 0x0c },
-    { _T("2 Kicks Extra 1"), 0x6f3c0, 0x6f3e0, indexCPS2_ChunLi, 0x0c },
-    { _T("2 Kicks Extra 2"), 0x6f3e0, 0x6f400, indexCPS2_ChunLi, 0x0c },
+    { _T("2 Kicks Extra 1"), 0x6f3c0, 0x6f3e0, indexCPS2_ChunLi, 0x01 },
+    { _T("2 Kicks Extra 2"), 0x6f3e0, 0x6f400 },
     { _T("2 Kicks Super Trail Light"), 0x6f400, 0x6f420, indexCPS2_ChunLi, 0x0c },
     { _T("2 Kicks Super Trail Dark"), 0x6f420, 0x6f440, indexCPS2_ChunLi, 0x0c },
 };
@@ -475,8 +475,8 @@ const sGame_PaletteDataset SFA2_A_CHUNLI_2KICKS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHUNLI_AUTOGUARDPUNCH_PALETTES[] =
 {
     { _T("Auto Guard Punch"), 0x6f440, 0x6f460, indexCPS2_ChunLi, 0x0c },
-    { _T("Auto Guard Punch Extra 1"), 0x6f460, 0x6f480, indexCPS2_ChunLi, 0x0c },
-    { _T("Auto Guard Punch Extra 2"), 0x6f480, 0x6f4a0, indexCPS2_ChunLi, 0x0c },
+    { _T("Auto Guard Punch Extra 1"), 0x6f460, 0x6f480, indexCPS2_ChunLi, 0x01 },
+    { _T("Auto Guard Punch Extra 2"), 0x6f480, 0x6f4a0 },
     { _T("Auto Guard Punch Super Trail Light"), 0x6f4a0, 0x6f4c0, indexCPS2_ChunLi, 0x0c },
     { _T("Auto Guard Punch Super Trail Dark"), 0x6f4c0, 0x6f4e0, indexCPS2_ChunLi, 0x0c },
 };
@@ -484,8 +484,8 @@ const sGame_PaletteDataset SFA2_A_CHUNLI_AUTOGUARDPUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_CHUNLI_AUTOGUARDKICK_PALETTES[] =
 {
     { _T("Auto Guard Kick"), 0x6f4e0, 0x6f500, indexCPS2_ChunLi, 0x0c },
-    { _T("Auto Guard Kick Extra 1"), 0x6f500, 0x6f520, indexCPS2_ChunLi, 0x0c },
-    { _T("Auto Guard Kick Extra 2"), 0x6f520, 0x6f540, indexCPS2_ChunLi, 0x0c },
+    { _T("Auto Guard Kick Extra 1"), 0x6f500, 0x6f520, indexCPS2_ChunLi, 0x01 },
+    { _T("Auto Guard Kick Extra 2"), 0x6f520, 0x6f540 },
     { _T("Auto Guard Kick Super Trail Light"), 0x6f540, 0x6f560, indexCPS2_ChunLi, 0x0c },
     { _T("Auto Guard Kick Super Trail Dark"), 0x6f560, 0x6f580, indexCPS2_ChunLi, 0x0c },
 };
@@ -587,8 +587,8 @@ const sGame_PaletteDataset SFA2_A_ADON_STATUS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SODOM_PUNCH_PALETTES[] =
 {
     { _T("Punch"), 0x6f940, 0x6f960, indexCPS2_Sodom, 0x00 },
-    { _T("Punch Extra 1"), 0x6f960, 0x6f980, indexCPS2_Sodom, 0x00 },
-    { _T("Punch Extra 2"), 0x6f980, 0x6f9a0, indexCPS2_Sodom, 0x00 },
+    { _T("Punch Extra 1"), 0x6f960, 0x6f980 },
+    { _T("Punch Extra 2"), 0x6f980, 0x6f9a0 },
     { _T("Punch Super Trail Light"), 0x6f9a0, 0x6f9c0, indexCPS2_Sodom, 0x00 },
     { _T("Punch Super Trail Dark"), 0x6f9c0, 0x6f9e0, indexCPS2_Sodom, 0x00 },
 };
@@ -596,8 +596,8 @@ const sGame_PaletteDataset SFA2_A_SODOM_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SODOM_KICK_PALETTES[] =
 {
     { _T("Kick"), 0x6f9e0, 0x6fa00, indexCPS2_Sodom, 0x00 },
-    { _T("Kick Extra 1"), 0x6fa00, 0x6fa20, indexCPS2_Sodom, 0x00 },
-    { _T("Kick Extra 2"), 0x6fa20, 0x6fa40, indexCPS2_Sodom, 0x00 },
+    { _T("Kick Extra 1"), 0x6fa00, 0x6fa20 },
+    { _T("Kick Extra 2"), 0x6fa20, 0x6fa40 },
     { _T("Kick Super Trail Light"), 0x6fa40, 0x6fa60, indexCPS2_Sodom, 0x00 },
     { _T("Kick Super Trail Dark"), 0x6fa60, 0x6fa80, indexCPS2_Sodom, 0x00 },
 };
@@ -605,8 +605,8 @@ const sGame_PaletteDataset SFA2_A_SODOM_KICK_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SODOM_2PUNCHES_PALETTES[] =
 {
     { _T("2 Punches"), 0x6fa80, 0x6faa0, indexCPS2_Sodom, 0x00 },
-    { _T("2 Punches Extra 1"), 0x6faa0, 0x6fac0, indexCPS2_Sodom, 0x00 },
-    { _T("2 Punches Extra 2"), 0x6fac0, 0x6fae0, indexCPS2_Sodom, 0x00 },
+    { _T("2 Punches Extra 1"), 0x6faa0, 0x6fac0 },
+    { _T("2 Punches Extra 2"), 0x6fac0, 0x6fae0 },
     { _T("2 Punches Super Trail Light"), 0x6fae0, 0x6fb00, indexCPS2_Sodom, 0x00 },
     { _T("2 Punches Super Trail Dark"), 0x6fb00, 0x6fb20, indexCPS2_Sodom, 0x00 },
 };
@@ -614,8 +614,8 @@ const sGame_PaletteDataset SFA2_A_SODOM_2PUNCHES_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SODOM_2KICKS_PALETTES[] =
 {
     { _T("2 Kicks"), 0x6fb20, 0x6fb40, indexCPS2_Sodom, 0x00 },
-    { _T("2 Kicks Extra 1"), 0x6fb40, 0x6fb60, indexCPS2_Sodom, 0x00 },
-    { _T("2 Kicks Extra 2"), 0x6fb60, 0x6fb80, indexCPS2_Sodom, 0x00 },
+    { _T("2 Kicks Extra 1"), 0x6fb40, 0x6fb60 },
+    { _T("2 Kicks Extra 2"), 0x6fb60, 0x6fb80 },
     { _T("2 Kicks Super Trail Light"), 0x6fb80, 0x6fba0, indexCPS2_Sodom, 0x00 },
     { _T("2 Kicks Super Trail Dark"), 0x6fba0, 0x6fbc0, indexCPS2_Sodom, 0x00 },
 };
@@ -623,8 +623,8 @@ const sGame_PaletteDataset SFA2_A_SODOM_2KICKS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SODOM_AUTOGUARDPUNCH_PALETTES[] =
 {
     { _T("Auto Guard Punch"), 0x6fbc0, 0x6fbe0, indexCPS2_Sodom, 0x00 },
-    { _T("Auto Guard Punch Extra 1"), 0x6fbe0, 0x6fc00, indexCPS2_Sodom, 0x00 },
-    { _T("Auto Guard Punch Extra 2"), 0x6fc00, 0x6fc20, indexCPS2_Sodom, 0x00 },
+    { _T("Auto Guard Punch Extra 1"), 0x6fbe0, 0x6fc00 },
+    { _T("Auto Guard Punch Extra 2"), 0x6fc00, 0x6fc20 },
     { _T("Auto Guard Punch Super Trail Light"), 0x6fc20, 0x6fc40, indexCPS2_Sodom, 0x00 },
     { _T("Auto Guard Punch Super Trail Dark"), 0x6fc40, 0x6fc60, indexCPS2_Sodom, 0x00 },
 };
@@ -632,8 +632,8 @@ const sGame_PaletteDataset SFA2_A_SODOM_AUTOGUARDPUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SODOM_AUTOGUARDKICK_PALETTES[] =
 {
     { _T("Auto Guard Kick"), 0x6fc60, 0x6fc80, indexCPS2_Sodom, 0x00 },
-    { _T("Auto Guard Kick Extra 1"), 0x6fc80, 0x6fca0, indexCPS2_Sodom, 0x00 },
-    { _T("Auto Guard Kick Extra 2"), 0x6fca0, 0x6fcc0, indexCPS2_Sodom, 0x00 },
+    { _T("Auto Guard Kick Extra 1"), 0x6fc80, 0x6fca0 },
+    { _T("Auto Guard Kick Extra 2"), 0x6fca0, 0x6fcc0 },
     { _T("Auto Guard Kick Super Trail Light"), 0x6fcc0, 0x6fce0, indexCPS2_Sodom, 0x00 },
     { _T("Auto Guard Kick Super Trail Dark"), 0x6fce0, 0x6fd00, indexCPS2_Sodom, 0x00 },
 };
@@ -661,8 +661,8 @@ const sGame_PaletteDataset SFA2_A_SODOM_STATUS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_GUY_PUNCH_PALETTES[] =
 {
     { _T("Punch"), 0x6fd00, 0x6fd20, indexCPS2_Guy, 0x00 },
-    { _T("Punch Extra 1"), 0x6fd20, 0x6fd40, indexCPS2_Guy, 0x00 },
-    { _T("Punch Extra 2"), 0x6fd40, 0x6fd60, indexCPS2_Guy, 0x00 },
+    { _T("Punch Extra 1"), 0x6fd20, 0x6fd40 },
+    { _T("Punch Extra 2"), 0x6fd40, 0x6fd60 },
     { _T("Punch Super Trail Light"), 0x6fd60, 0x6fd80, indexCPS2_Guy, 0x00 },
     { _T("Punch Super Trail Dark"), 0x6fd80, 0x6fda0, indexCPS2_Guy, 0x00 },
 };
@@ -670,8 +670,8 @@ const sGame_PaletteDataset SFA2_A_GUY_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_GUY_KICK_PALETTES[] =
 {
     { _T("Kick"), 0x6fda0, 0x6fdc0, indexCPS2_Guy, 0x00 },
-    { _T("Kick Extra 1"), 0x6fdc0, 0x6fde0, indexCPS2_Guy, 0x00 },
-    { _T("Kick Extra 2"), 0x6fde0, 0x6fe00, indexCPS2_Guy, 0x00 },
+    { _T("Kick Extra 1"), 0x6fdc0, 0x6fde0 },
+    { _T("Kick Extra 2"), 0x6fde0, 0x6fe00 },
     { _T("Kick Super Trail Light"), 0x6fe00, 0x6fe20, indexCPS2_Guy, 0x00 },
     { _T("Kick Super Trail Dark"), 0x6fe20, 0x6fe40, indexCPS2_Guy, 0x00 },
 };
@@ -679,8 +679,8 @@ const sGame_PaletteDataset SFA2_A_GUY_KICK_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_GUY_2PUNCHES_PALETTES[] =
 {
     { _T("2 Punches"), 0x6fe40, 0x6fe60, indexCPS2_Guy, 0x00 },
-    { _T("2 Punches Extra 1"), 0x6fe60, 0x6fe80, indexCPS2_Guy, 0x00 },
-    { _T("2 Punches Extra 2"), 0x6fe80, 0x6fea0, indexCPS2_Guy, 0x00 },
+    { _T("2 Punches Extra 1"), 0x6fe60, 0x6fe80 },
+    { _T("2 Punches Extra 2"), 0x6fe80, 0x6fea0 },
     { _T("2 Punches Super Trail Light"), 0x6fea0, 0x6fec0, indexCPS2_Guy, 0x00 },
     { _T("2 Punches Super Trail Dark"), 0x6fec0, 0x6fee0, indexCPS2_Guy, 0x00 },
 };
@@ -688,8 +688,8 @@ const sGame_PaletteDataset SFA2_A_GUY_2PUNCHES_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_GUY_2KICKS_PALETTES[] =
 {
     { _T("2 Kicks"), 0x6fee0, 0x6ff00, indexCPS2_Guy, 0x00 },
-    { _T("2 Kicks Extra 1"), 0x6ff00, 0x6ff20, indexCPS2_Guy, 0x00 },
-    { _T("2 Kicks Extra 2"), 0x6ff20, 0x6ff40, indexCPS2_Guy, 0x00 },
+    { _T("2 Kicks Extra 1"), 0x6ff00, 0x6ff20 },
+    { _T("2 Kicks Extra 2"), 0x6ff20, 0x6ff40 },
     { _T("2 Kicks Super Trail Light"), 0x6ff40, 0x6ff60, indexCPS2_Guy, 0x00 },
     { _T("2 Kicks Super Trail Dark"), 0x6ff60, 0x6ff80, indexCPS2_Guy, 0x00 },
 };
@@ -697,8 +697,8 @@ const sGame_PaletteDataset SFA2_A_GUY_2KICKS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_GUY_AUTOGUARDPUNCH_PALETTES[] =
 {
     { _T("Auto Guard Punch"), 0x6ff80, 0x6ffa0, indexCPS2_Guy, 0x00 },
-    { _T("Auto Guard Punch Extra 1"), 0x6ffa0, 0x6ffc0, indexCPS2_Guy, 0x00 },
-    { _T("Auto Guard Punch Extra 2"), 0x6ffc0, 0x6ffe0, indexCPS2_Guy, 0x00 },
+    { _T("Auto Guard Punch Extra 1"), 0x6ffa0, 0x6ffc0 },
+    { _T("Auto Guard Punch Extra 2"), 0x6ffc0, 0x6ffe0 },
     { _T("Auto Guard Punch Super Trail Light"), 0x6ffe0, 0x70000, indexCPS2_Guy, 0x00 },
     { _T("Auto Guard Punch Super Trail Dark"), 0x70000, 0x70020, indexCPS2_Guy, 0x00 },
 };
@@ -706,8 +706,8 @@ const sGame_PaletteDataset SFA2_A_GUY_AUTOGUARDPUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_GUY_AUTOGUARDKICK_PALETTES[] =
 {
     { _T("Auto Guard Kick"), 0x70020, 0x70040, indexCPS2_Guy, 0x00 },
-    { _T("Auto Guard Kick Extra 1"), 0x70040, 0x70060, indexCPS2_Guy, 0x00 },
-    { _T("Auto Guard Kick Extra 2"), 0x70060, 0x70080, indexCPS2_Guy, 0x00 },
+    { _T("Auto Guard Kick Extra 1"), 0x70040, 0x70060 },
+    { _T("Auto Guard Kick Extra 2"), 0x70060, 0x70080 },
     { _T("Auto Guard Kick Super Trail Light"), 0x70080, 0x700a0, indexCPS2_Guy, 0x00 },
     { _T("Auto Guard Kick Super Trail Dark"), 0x700a0, 0x700c0, indexCPS2_Guy, 0x00 },
 };
@@ -883,8 +883,8 @@ const sGame_PaletteDataset SFA2_A_ROSE_STATUS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_MBISON_PUNCH_PALETTES[] =
 {
     { _T("Punch"), 0x70840, 0x70860, indexCPS2_Bison, 0x00 },
-    { _T("Punch Extra 1"), 0x70860, 0x70880, indexCPS2_Bison, 0x00 },
-    { _T("Punch Extra 2"), 0x70880, 0x708a0, indexCPS2_Bison, 0x00 },
+    { _T("Punch Extra 1"), 0x70860, 0x70880 },
+    { _T("Punch Extra 2"), 0x70880, 0x708a0 },
     { _T("Punch Super Trail Light"), 0x708a0, 0x708c0, indexCPS2_Bison, 0x00 },
     { _T("Punch Super Trail Dark"), 0x708c0, 0x708e0, indexCPS2_Bison, 0x00 },
 };
@@ -892,8 +892,8 @@ const sGame_PaletteDataset SFA2_A_MBISON_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_MBISON_KICK_PALETTES[] =
 {
     { _T("Kick"), 0x708e0, 0x70900, indexCPS2_Bison, 0x00 },
-    { _T("Kick Extra 1"), 0x70900, 0x70920, indexCPS2_Bison, 0x00 },
-    { _T("Kick Extra 2"), 0x70920, 0x70940, indexCPS2_Bison, 0x00 },
+    { _T("Kick Extra 1"), 0x70900, 0x70920 },
+    { _T("Kick Extra 2"), 0x70920, 0x70940 },
     { _T("Kick Super Trail Light"), 0x70940, 0x70960, indexCPS2_Bison, 0x00 },
     { _T("Kick Super Trail Dark"), 0x70960, 0x70980, indexCPS2_Bison, 0x00 },
 };
@@ -901,8 +901,8 @@ const sGame_PaletteDataset SFA2_A_MBISON_KICK_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_MBISON_2PUNCHES_PALETTES[] =
 {
     { _T("2 Punches"), 0x70980, 0x709a0, indexCPS2_Bison, 0x00 },
-    { _T("2 Punches Extra 1"), 0x709a0, 0x709c0, indexCPS2_Bison, 0x00 },
-    { _T("2 Punches Extra 2"), 0x709c0, 0x709e0, indexCPS2_Bison, 0x00 },
+    { _T("2 Punches Extra 1"), 0x709a0, 0x709c0 },
+    { _T("2 Punches Extra 2"), 0x709c0, 0x709e0 },
     { _T("2 Punches Super Trail Light"), 0x709e0, 0x70a00, indexCPS2_Bison, 0x00 },
     { _T("2 Punches Super Trail Dark"), 0x70a00, 0x70a20, indexCPS2_Bison, 0x00 },
 };
@@ -910,8 +910,8 @@ const sGame_PaletteDataset SFA2_A_MBISON_2PUNCHES_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_MBISON_2KICKS_PALETTES[] =
 {
     { _T("2 Kicks"), 0x70a20, 0x70a40, indexCPS2_Bison, 0x00 },
-    { _T("2 Kicks Extra 1"), 0x70a40, 0x70a60, indexCPS2_Bison, 0x00 },
-    { _T("2 Kicks Extra 2"), 0x70a60, 0x70a80, indexCPS2_Bison, 0x00 },
+    { _T("2 Kicks Extra 1"), 0x70a40, 0x70a60 },
+    { _T("2 Kicks Extra 2"), 0x70a60, 0x70a80 },
     { _T("2 Kicks Super Trail Light"), 0x70a80, 0x70aa0, indexCPS2_Bison, 0x00 },
     { _T("2 Kicks Super Trail Dark"), 0x70aa0, 0x70ac0, indexCPS2_Bison, 0x00 },
 };
@@ -919,8 +919,8 @@ const sGame_PaletteDataset SFA2_A_MBISON_2KICKS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_MBISON_AUTOGUARDPUNCH_PALETTES[] =
 {
     { _T("Auto Guard Punch"), 0x70ac0, 0x70ae0, indexCPS2_Bison, 0x00 },
-    { _T("Auto Guard Punch Extra 1"), 0x70ae0, 0x70b00, indexCPS2_Bison, 0x00 },
-    { _T("Auto Guard Punch Extra 2"), 0x70b00, 0x70b20, indexCPS2_Bison, 0x00 },
+    { _T("Auto Guard Punch Extra 1"), 0x70ae0, 0x70b00 },
+    { _T("Auto Guard Punch Extra 2"), 0x70b00, 0x70b20 },
     { _T("Auto Guard Punch Super Trail Light"), 0x70b20, 0x70b40, indexCPS2_Bison, 0x00 },
     { _T("Auto Guard Punch Super Trail Dark"), 0x70b40, 0x70b60, indexCPS2_Bison, 0x00 },
 };
@@ -928,8 +928,8 @@ const sGame_PaletteDataset SFA2_A_MBISON_AUTOGUARDPUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_MBISON_AUTOGUARDKICK_PALETTES[] =
 {
     { _T("Auto Guard Kick"), 0x70b60, 0x70b80, indexCPS2_Bison, 0x00 },
-    { _T("Auto Guard Kick Extra 1"), 0x70b80, 0x70ba0, indexCPS2_Bison, 0x00 },
-    { _T("Auto Guard Kick Extra 2"), 0x70ba0, 0x70bc0, indexCPS2_Bison, 0x00 },
+    { _T("Auto Guard Kick Extra 1"), 0x70b80, 0x70ba0 },
+    { _T("Auto Guard Kick Extra 2"), 0x70ba0, 0x70bc0 },
     { _T("Auto Guard Kick Super Trail Light"), 0x70bc0, 0x70be0, indexCPS2_Bison, 0x00 },
     { _T("Auto Guard Kick Super Trail Dark"), 0x70be0, 0x70c00, indexCPS2_Bison, 0x00 },
 };
@@ -957,8 +957,8 @@ const sGame_PaletteDataset SFA2_A_MBISON_STATUS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SAGAT_PUNCH_PALETTES[] =
 {
     { _T("Punch"), 0x70c00, 0x70c20, indexCPS2_Sagat, 0x00 },
-    { _T("Punch Extra 1"), 0x70c20, 0x70c40, indexCPS2_Sagat, 0x00 },
-    { _T("Punch Extra 2"), 0x70c40, 0x70c60, indexCPS2_Sagat, 0x00 },
+    { _T("Punch Extra 1"), 0x70c20, 0x70c40 },
+    { _T("Punch Extra 2"), 0x70c40, 0x70c60 },
     { _T("Punch Super Trail Light"), 0x70c60, 0x70c80, indexCPS2_Sagat, 0x00 },
     { _T("Punch Super Trail Dark"), 0x70c80, 0x70ca0, indexCPS2_Sagat, 0x00 },
 };
@@ -966,8 +966,8 @@ const sGame_PaletteDataset SFA2_A_SAGAT_PUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SAGAT_KICK_PALETTES[] =
 {
     { _T("Kick"), 0x70ca0, 0x70cc0, indexCPS2_Sagat, 0x00 },
-    { _T("Kick Extra 1"), 0x70cc0, 0x70ce0, indexCPS2_Sagat, 0x00 },
-    { _T("Kick Extra 2"), 0x70ce0, 0x70d00, indexCPS2_Sagat, 0x00 },
+    { _T("Kick Extra 1"), 0x70cc0, 0x70ce0 },
+    { _T("Kick Extra 2"), 0x70ce0, 0x70d00 },
     { _T("Kick Super Trail Light"), 0x70d00, 0x70d20, indexCPS2_Sagat, 0x00 },
     { _T("Kick Super Trail Dark"), 0x70d20, 0x70d40, indexCPS2_Sagat, 0x00 },
 };
@@ -975,8 +975,8 @@ const sGame_PaletteDataset SFA2_A_SAGAT_KICK_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SAGAT_2PUNCHES_PALETTES[] =
 {
     { _T("2 Punches"), 0x70d40, 0x70d60, indexCPS2_Sagat, 0x00 },
-    { _T("2 Punches Extra 1"), 0x70d60, 0x70d80, indexCPS2_Sagat, 0x00 },
-    { _T("2 Punches Extra 2"), 0x70d80, 0x70da0, indexCPS2_Sagat, 0x00 },
+    { _T("2 Punches Extra 1"), 0x70d60, 0x70d80 },
+    { _T("2 Punches Extra 2"), 0x70d80, 0x70da0 },
     { _T("2 Punches Super Trail Light"), 0x70da0, 0x70dc0, indexCPS2_Sagat, 0x00 },
     { _T("2 Punches Super Trail Dark"), 0x70dc0, 0x70de0, indexCPS2_Sagat, 0x00 },
 };
@@ -984,8 +984,8 @@ const sGame_PaletteDataset SFA2_A_SAGAT_2PUNCHES_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SAGAT_2KICKS_PALETTES[] =
 {
     { _T("2 Kicks"), 0x70de0, 0x70e00, indexCPS2_Sagat, 0x00 },
-    { _T("2 Kicks Extra 1"), 0x70e00, 0x70e20, indexCPS2_Sagat, 0x00 },
-    { _T("2 Kicks Extra 2"), 0x70e20, 0x70e40, indexCPS2_Sagat, 0x00 },
+    { _T("2 Kicks Extra 1"), 0x70e00, 0x70e20 },
+    { _T("2 Kicks Extra 2"), 0x70e20, 0x70e40 },
     { _T("2 Kicks Super Trail Light"), 0x70e40, 0x70e60, indexCPS2_Sagat, 0x00 },
     { _T("2 Kicks Super Trail Dark"), 0x70e60, 0x70e80, indexCPS2_Sagat, 0x00 },
 };
@@ -993,8 +993,8 @@ const sGame_PaletteDataset SFA2_A_SAGAT_2KICKS_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SAGAT_AUTOGUARDPUNCH_PALETTES[] =
 {
     { _T("Auto Guard Punch"), 0x70e80, 0x70ea0, indexCPS2_Sagat, 0x00 },
-    { _T("Auto Guard Punch Extra 1"), 0x70ea0, 0x70ec0, indexCPS2_Sagat, 0x00 },
-    { _T("Auto Guard Punch Extra 2"), 0x70ec0, 0x70ee0, indexCPS2_Sagat, 0x00 },
+    { _T("Auto Guard Punch Extra 1"), 0x70ea0, 0x70ec0 },
+    { _T("Auto Guard Punch Extra 2"), 0x70ec0, 0x70ee0 },
     { _T("Auto Guard Punch Super Trail Light"), 0x70ee0, 0x70f00, indexCPS2_Sagat, 0x00 },
     { _T("Auto Guard Punch Super Trail Dark"), 0x70f00, 0x70f20, indexCPS2_Sagat, 0x00 },
 };
@@ -1002,8 +1002,8 @@ const sGame_PaletteDataset SFA2_A_SAGAT_AUTOGUARDPUNCH_PALETTES[] =
 const sGame_PaletteDataset SFA2_A_SAGAT_AUTOGUARDKICK_PALETTES[] =
 {
     { _T("Auto Guard Kick"), 0x70f20, 0x70f40, indexCPS2_Sagat, 0x00 },
-    { _T("Auto Guard Kick Extra 1"), 0x70f40, 0x70f60, indexCPS2_Sagat, 0x00 },
-    { _T("Auto Guard Kick Extra 2"), 0x70f60, 0x70f80, indexCPS2_Sagat, 0x00 },
+    { _T("Auto Guard Kick Extra 1"), 0x70f40, 0x70f60 },
+    { _T("Auto Guard Kick Extra 2"), 0x70f60, 0x70f80 },
     { _T("Auto Guard Kick Super Trail Light"), 0x70f80, 0x70fa0, indexCPS2_Sagat, 0x00 },
     { _T("Auto Guard Kick Super Trail Dark"), 0x70fa0, 0x70fc0, indexCPS2_Sagat, 0x00 },
 };
@@ -4042,10 +4042,34 @@ const sGame_PaletteDataset SFZ2A_A_WWDHALSIM_KICK_PORTRAIT_PALETTES[] =
     { _T("Dhalsim (WW) Portrait"), 0x1a544, 0x1a5a4, indexCPS2_SFA2Portraits, 0x25 },
 };
 
+const sGame_PaletteDataset SFZ2A_A_WWDHALSIM_2PUNCHES_PORTRAIT_PALETTES[] =
+{
+    { _T("Dhalsim (WW) Portrait"), 0x1a5a4, 0x1a604, indexCPS2_SFA2Portraits, 0x25 },
+};
+
+const sGame_PaletteDataset SFZ2A_A_WWDHALSIM_2KICKS_PORTRAIT_PALETTES[] =
+{
+    { _T("Dhalsim (WW) Portrait"), 0x1a604, 0x1a664, indexCPS2_SFA2Portraits, 0x25 },
+};
+
+const sGame_PaletteDataset SFZ2A_A_WWDHALSIM_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
+{
+    { _T("Dhalsim (WW) Portrait"), 0x1a664, 0x1a6c4, indexCPS2_SFA2Portraits, 0x25 },
+};
+
+const sGame_PaletteDataset SFZ2A_A_WWDHALSIM_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
+{
+    { _T("Dhalsim (WW) Portrait"), 0x1a6c4, 0x1a724, indexCPS2_SFA2Portraits, 0x25 },
+};
+
 const sDescTreeNode SFZ2A_A_WWDHALSIM_PORTRAIT_COLLECTION[] =
 {
     { _T("Punch"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWDHALSIM_PUNCH_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWDHALSIM_PUNCH_PORTRAIT_PALETTES) },
     { _T("Kick"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWDHALSIM_KICK_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWDHALSIM_KICK_PORTRAIT_PALETTES) },
+    { _T("2 Punches"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWDHALSIM_2PUNCHES_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWDHALSIM_2PUNCHES_PORTRAIT_PALETTES) },
+    { _T("2 Kicks"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWDHALSIM_2KICKS_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWDHALSIM_2KICKS_PORTRAIT_PALETTES) },
+    { _T("Auto Guard Punch"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWDHALSIM_AUTOGUARDPUNCH_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWDHALSIM_AUTOGUARDPUNCH_PORTRAIT_PALETTES) },
+    { _T("Auto Guard Kick"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWDHALSIM_AUTOGUARDKICK_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWDHALSIM_AUTOGUARDKICK_PORTRAIT_PALETTES) },
 };
 
 const sGame_PaletteDataset SFZ2A_A_WWZANGIEF_PUNCH_PORTRAIT_PALETTES[] =
@@ -4058,10 +4082,34 @@ const sGame_PaletteDataset SFZ2A_A_WWZANGIEF_KICK_PORTRAIT_PALETTES[] =
      { _T("Zangief (WW) Portrait"), 0x1a304, 0x1a364, indexCPS2_SFA2Portraits, 0x01 },
 };
 
+const sGame_PaletteDataset SFZ2A_A_WWZANGIEF_2PUNCHES_PORTRAIT_PALETTES[] =
+{
+    { _T("Zangief (WW) Portrait"), 0x1a364, 0x1a3c4, indexCPS2_SFA2Portraits, 0x01 },
+};
+
+const sGame_PaletteDataset SFZ2A_A_WWZANGIEF_2KICKS_PORTRAIT_PALETTES[] =
+{
+    { _T("Zangief (WW) Portrait"), 0x1a3c4, 0x1a424, indexCPS2_SFA2Portraits, 0x01 },
+};
+
+const sGame_PaletteDataset SFZ2A_A_WWZANGIEF_AUTOGUARDPUNCH_PORTRAIT_PALETTES[] =
+{
+    { _T("Zangief (WW) Portrait"), 0x1a424, 0x1a484, indexCPS2_SFA2Portraits, 0x01 },
+};
+
+const sGame_PaletteDataset SFZ2A_A_WWZANGIEF_AUTOGUARDKICK_PORTRAIT_PALETTES[] =
+{
+    { _T("Zangief (WW) Portrait"),  0x1a484, 0x1a4e4, indexCPS2_SFA2Portraits, 0x01 },
+};
+
 const sDescTreeNode SFZ2A_A_WWZANGIEF_PORTRAIT_COLLECTION[] =
 {
     { _T("Punch"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWZANGIEF_PUNCH_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWZANGIEF_PUNCH_PORTRAIT_PALETTES) },
     { _T("Kick"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWZANGIEF_KICK_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWZANGIEF_KICK_PORTRAIT_PALETTES) },
+    { _T("2 Punches"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWZANGIEF_2PUNCHES_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWZANGIEF_2PUNCHES_PORTRAIT_PALETTES) },
+    { _T("2 Kicks"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWZANGIEF_2KICKS_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWZANGIEF_2KICKS_PORTRAIT_PALETTES) },
+    { _T("Auto Guard Punch"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWZANGIEF_AUTOGUARDPUNCH_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWZANGIEF_AUTOGUARDPUNCH_PORTRAIT_PALETTES) },
+    { _T("Auto Guard Kick"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWZANGIEF_AUTOGUARDKICK_PORTRAIT_PALETTES, ARRAYSIZE(SFZ2A_A_WWZANGIEF_AUTOGUARDKICK_PORTRAIT_PALETTES) },
 };
 
 const sGame_PaletteDataset SFZ2A_A_WWSAGAT_PUNCH_PORTRAIT_PALETTES[] =

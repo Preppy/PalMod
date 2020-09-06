@@ -67,8 +67,8 @@ CGame_WakuWaku7_A::CGame_WakuWaku7_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_SVC;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_SVC);
+    pButtonLabelSet = DEF_BUTTONLABEL_2_PK;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_PK);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

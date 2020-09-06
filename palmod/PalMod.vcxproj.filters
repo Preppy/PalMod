@@ -142,6 +142,9 @@
     <Filter Include="Game\SNK Games\Waku Waku 7">
       <UniqueIdentifier>{a1662e6d-6a59-40de-989d-9c354bd32e5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\SFA1_A">
+      <UniqueIdentifier>{c523ccb5-003b-4c0d-8c4e-a7ef3b62a0fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -329,6 +332,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_WakuWaku7_A.cpp">
       <Filter>Game\SNK Games\Waku Waku 7</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFA1_A.cpp">
+      <Filter>Game\Capcom Games\SFA1_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -592,6 +598,12 @@
     </ClInclude>
     <ClInclude Include="Game\WakuWaku7_A_DEF.h">
       <Filter>Game\SNK Games\Waku Waku 7</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFA1_A.h">
+      <Filter>Game\Capcom Games\SFA1_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFA1_A_DEF.h">
+      <Filter>Game\Capcom Games\SFA1_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -44,7 +44,7 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
 
-   createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
+    createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
 
     // 0x38xxx large body Onslaught sprites
     // 0x39xxx+ unknown

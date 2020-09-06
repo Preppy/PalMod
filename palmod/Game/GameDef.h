@@ -10,7 +10,7 @@
 void StrRemoveNonASCII(TCHAR* pszOutput, size_t ccSize, LPCTSTR pszInput);
 
 //Game Definitions
-
+// DO NOT CHANGE THE ORDER OF THIS LIST: the values are used as indexes for quick reloads
 enum SupportedGamesList
 {
     MVC2_D = 0,
@@ -45,6 +45,7 @@ enum SupportedGamesList
     REDEARTH_A_DIR,
     KarnovsR_A,
     WakuWaku7_A,
+    SFA1_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -92,6 +93,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Red Earth (Arcade Rerip)"),
    _T("Karnov's Revenge / Fighter's History Dynamite"),
    _T("Waku Waku 7"),
+   _T("SFA1 (Arcade)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -106,7 +108,6 @@ constexpr auto COTA_A_UNIQUE_IMG_UNITS = 2;   // Unique Assets(HUD, Stages)[56] 
 
 //Images
 constexpr auto MVC2_D_NUM_IMG_UNITS = 59;
-constexpr auto SSF2T_A_NUM_IMG_UNITS = 17;
 
 //Image output display options
 enum class eImageOutputSpriteDisplay
@@ -127,7 +128,7 @@ const LPCTSTR DEF_BUTTONLABEL_2[] =
     _T("P1"), _T("P2")
 };
 
-const LPCTSTR DEF_BUTTONLABEL_SVC[] =
+const LPCTSTR DEF_BUTTONLABEL_2_PK[] =
 {
     _T("Punch"), _T("Kick")
 };
@@ -475,7 +476,7 @@ const UINT8 SFIII3_D_IMG_UNITS[SFIII3_A_NUM_IMG_UNITS - 0x01] =
 
 constexpr auto SFIII3_D_NUM_IMG_UNITS = ARRAYSIZE(SFIII3_D_IMG_UNITS);
 
-const UINT8 SSF2T_A_IMG_UNITS[SSF2T_A_NUM_IMG_UNITS] =
+const UINT8 SSF2T_A_IMG_UNITS[] =
 {
     0x00, // Ryu
     0x01, // E-Honda
@@ -493,8 +494,37 @@ const UINT8 SSF2T_A_IMG_UNITS[SSF2T_A_NUM_IMG_UNITS] =
     0x0D, // T-Hawk
     0x0E, // Fei Long
     0x0F, // Dee Jay
-    0x10  // Gouki
+    0x10, // Gouki
+    0x11, // Bonus
+    0x12, // Stages
 };
+
+constexpr auto SSF2T_A_NUM_IMG_UNITS = ARRAYSIZE(SSF2T_A_IMG_UNITS);
+
+const UINT8 SFA1_A_IMG_UNITS[] =
+{
+    indexCPS2_Ryu,              // 0x00,
+    indexCPS2_Zangief,          // 0x01,
+    indexCPS2_ChunLi,           // 0x1B,
+    indexCPS2_Akuma,            // 0x1E,
+    indexCPS2_Charlie,          // 0x21,
+    indexCPS2_Sakura,           // 0x22,
+    indexCPS2_Dan,              // 0x23,
+    indexCPS2_Dhalsim,          // 0x25,
+    indexCPS2_Bison,            // 0x26,
+    indexCPS2_Ken,              // 0x27,
+    indexCPS2_Adon,             // 0x3D,
+    indexCPS2_Sodom,            // 0x3E,
+    indexCPS2_Guy,              // 0x3F,
+    indexCPS2_Birdie,           // 0x40,
+    indexCPS2_Rose,             // 0x41,
+    indexCPS2_Sagat,            // 0x42,
+    indexCPS2_Rolento,          // 0x43,
+    indexCPS2_Gen,              // 0x44,
+    indexCPS2_SFA2Portraits,    // 0x58
+};
+
+constexpr auto SFA1_A_NUM_IMG_UNITS = ARRAYSIZE(SFA1_A_IMG_UNITS);
 
 const UINT8 SFA2_A_IMG_UNITS[] =
 {
