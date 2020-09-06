@@ -13,21 +13,25 @@ constexpr auto GEMFIGHTER_A_NUMUNITS = indexGemFighterChars_Last;
 const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_A[] =
 {
     { _T("Ryu A"), 0x0099e6, 0x009A86 },
+    { _T("Ryu Portrait A"), 0xc226, 0xc286 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_B[] =
 {
     { _T("Ryu B"), 0x009a86, 0x009b26 },
+    { _T("Ryu Portrait B"), 0xc286, 0xc2e6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_C[] =
 {
     { _T("Ryu C"), 0x009b26, 0x009bc6 },
+    { _T("Ryu Portrait C"), 0xc2e6, 0xc346 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_X3[] =
 {
     { _T("Ryu x3"), 0x009bc6, 0x009c66 },
+    { _T("Ryu Portrait x3"), 0xc346, 0xc3a6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_A[] =
@@ -346,6 +350,18 @@ const sDescTreeNode GEMFIGHTER_A_AKUMA_COLLECTION[] =
     { _T("X3"), DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_AKUMA_PALETTES_X3, ARRAYSIZE(GEMFIGHTER_A_AKUMA_PALETTES_X3) },
 };
 
+const sGame_PaletteDataset GEMFIGHTER_A_BONUS_PALETTES[] =
+{
+    { _T("Insert Coin / Char Names / After Battle Text / Timer Numbers"), 0xbde6, 0xbe06 },
+    { _T("HUD"), 0xbe66, 0xbe86 },
+    { _T("Intro Cascade Gems"), 0xbf26, 0xbf66 },
+};
+
+const sDescTreeNode GEMFIGHTER_A_BONUS_COLLECTION[] =
+{
+    { _T("Palettes"), DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_BONUS_PALETTES, ARRAYSIZE(GEMFIGHTER_A_BONUS_PALETTES) },
+};
+
 const UINT8 GEMFIGHTER_A_UNITSORT[GEMFIGHTER_A_NUMUNITS + 1] // Plus 1 for extras
 {
     indexGemFighterChars_Akuma,
@@ -360,6 +376,7 @@ const UINT8 GEMFIGHTER_A_UNITSORT[GEMFIGHTER_A_NUMUNITS + 1] // Plus 1 for extra
     indexGemFighterChars_Sakura,
     indexGemFighterChars_Tessa,
     indexGemFighterChars_Zangief,
+    indexGemFighterChars_Bonus,
     
     GEMFIGHTER_A_EXTRALOC
 };
@@ -378,6 +395,7 @@ const sDescTreeNode GEMFIGHTER_A_UNITS[GEMFIGHTER_A_NUMUNITS] =
     { _T("Zangief"), DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_ZANGIEF_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_ZANGIEF_COLLECTION) },
     { _T("Dan"), DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_DAN_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_DAN_COLLECTION) },
     { _T("Akuma"), DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_AKUMA_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_AKUMA_COLLECTION) },
+    { _T("Bonus Stuff"), DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_BONUS_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_BONUS_COLLECTION) },
 };
 
 // We extend this array with data groveled from the GarouE.txt extensible extras file, if any.

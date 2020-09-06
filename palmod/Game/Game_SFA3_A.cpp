@@ -41,7 +41,7 @@ CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = SFA3_A_NUM_IND;
     m_nExtraUnit = SFA3_A_EXTRALOC;
-    m_nSafeCountForThisRom = 1743 + GetExtraCt(SFA3_A_EXTRALOC);
+    m_nSafeCountForThisRom = 1893 + GetExtraCt(SFA3_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_SFA3;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFA3;
     m_nLowestKnownPaletteRomLocation = 0x2C000;
@@ -732,32 +732,21 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     if (SFA3_A_EXTRALOC != NodeGet->uUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
-        const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
+        const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
 
         nSrcStart = NodeGet->uPalId;
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
-            // Right now most of SFA3 is all six palettes within one node.
-            if ((_tcsicmp(pCurrentNode->szDesc, _T("Palettes")) == 0) && (NodeGet->uPalId < 6))// 3 Ism sets of 2 colors each
+            if ((_tcsicmp(pCurrentNode->szDesc, _T("Select Portraits")) == 0) ||
+                (_tcsicmp(pCurrentNode->szDesc, _T("Win Portraits")) == 0))
             {
-                // For most characters we have the six colors followed by status effects
-                nSrcAmt = 6;
-
-                while (nSrcStart >= nNodeIncrement)
-                {
-                    // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
-                    nSrcStart -= nNodeIncrement;
-                }
-            }
-            else if (_tcsicmp(pCurrentNode->szDesc, _T("Select Portraits")) == 0)
-            {
-                // Hm.  These are at an abstract length.  Let's derive that.
+                // Hm.  These statrt at an abstract position within the node.  Let's derive that.
                 int nProspectiveStart = NodeGet->uPalId;
-                
+
                 if (_tcsstr(paletteDataSet->szPaletteName, _T("Kick")) != nullptr)
                 {
-                    // Ordering is punch/kick. 
+                    // Ordering is punch/kick: correct this across all pairs.
                     nProspectiveStart = (nProspectiveStart > 0) ? nProspectiveStart - 1 : nProspectiveStart;
                 }
 
@@ -777,6 +766,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     // OK, we've arrived where we expected to
                     nSrcAmt = 6;
                     nSrcStart = nProspectiveStart;
+                    nNodeIncrement = 1;
                 }
                 else
                 {
@@ -785,12 +775,11 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             }
             else if ((_tcsicmp(pCurrentNode->szDesc, _T("X-Ism Punch")) == 0) ||
                      (_tcsicmp(pCurrentNode->szDesc, _T("X-Ism Kick")) == 0) ||
-                     (_tcsicmp(pCurrentNode->szDesc, _T("A-Ism PUnch")) == 0) ||
+                     (_tcsicmp(pCurrentNode->szDesc, _T("A-Ism Punch")) == 0) ||
                      (_tcsicmp(pCurrentNode->szDesc, _T("A-Ism Kick")) == 0) ||
                      (_tcsicmp(pCurrentNode->szDesc, _T("V-Ism Punch")) == 0) ||
                      (_tcsicmp(pCurrentNode->szDesc, _T("V-Ism Kick")) == 0))
             {
-                // So far only Rose and Vega are actually split up.
                 nSrcAmt = 6;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 

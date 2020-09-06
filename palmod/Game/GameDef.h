@@ -746,6 +746,7 @@ enum GEMFIGHTER_CHARACTERS
     indexGemFighterChars_Zangief,
     indexGemFighterChars_Dan,
     indexGemFighterChars_Akuma,
+    indexGemFighterChars_Bonus,
     indexGemFighterChars_Last,
 };
 

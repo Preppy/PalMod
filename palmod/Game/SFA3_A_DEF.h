@@ -38,7 +38,7 @@ enum Supported_SFA3_PaletteListIndex
     index_SFA3_Karin,
     index_SFA3_Juni,
     index_SFA3_Juli,
-    index_SFA3_Bonus,
+    index_SFA3_Stages,
     index_SFA3_Last
 };
 
@@ -76,8 +76,8 @@ const UINT8 SFA3_A_UNITSORT[SFA3_A_NUM_IND + 1] = // Plus 1 for the extra palett
     index_SFA3_Sodom,
     index_SFA3_Vega,
     index_SFA3_Zangief,
-    index_SFA3_Bonus,
-   
+    index_SFA3_Stages,
+
     SFA3_A_EXTRALOC // Extra palettes
 };
 
@@ -2482,7 +2482,7 @@ const sGame_PaletteDataset SFA3_A_STAGES_ADON_NODE[] =
     { _T("Adon Stage - Obj Pt2"), 0x387F4, 0x38874, indexCPS2_SFA3Assets, 0x38 },
 };
 
-const sGame_PaletteDataset SFA3_A_RYU_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_RYU_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4ce14, 0x4ce94, indexCPS2_SFA3Assets, 0xb4 },
     { _T("X-Ism Kick"), 0x4ce94, 0x4cf14, indexCPS2_SFA3Assets, 0xb4 },
@@ -2492,7 +2492,7 @@ const sGame_PaletteDataset SFA3_A_RYU_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4d094, 0x4d114, indexCPS2_SFA3Assets, 0xb4 },
 };
 
-const sGame_PaletteDataset SFA3_A_KEN_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_KEN_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4d114, 0x4d194, indexCPS2_SFA3Assets, 0xaf },
     { _T("X-Ism Kick"), 0x4d194, 0x4d214, indexCPS2_SFA3Assets, 0xaf },
@@ -2502,7 +2502,7 @@ const sGame_PaletteDataset SFA3_A_KEN_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4d394, 0x4d414, indexCPS2_SFA3Assets, 0xaf },
 };
 
-const sGame_PaletteDataset SFA3_A_AKUMA_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_AKUMA_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4d414, 0x4d494, indexCPS2_SFA3Assets, 0xa1 },
     { _T("X-Ism Kick"), 0x4d494, 0x4d514, indexCPS2_SFA3Assets, 0xa1 },
@@ -2512,7 +2512,7 @@ const sGame_PaletteDataset SFA3_A_AKUMA_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4d694, 0x4d714, indexCPS2_SFA3Assets, 0xa1 },
 };
 
-const sGame_PaletteDataset SFA3_A_CHARLIE_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_CHARLIE_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4d714, 0x4d794, indexCPS2_SFA3Assets, 0xa5 },
     { _T("X-Ism Kick"), 0x4d794, 0x4d814, indexCPS2_SFA3Assets, 0xa5 },
@@ -2522,7 +2522,7 @@ const sGame_PaletteDataset SFA3_A_CHARLIE_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4d994, 0x4da14, indexCPS2_SFA3Assets, 0xa5 },
 };
 
-const sGame_PaletteDataset SFA3_A_CHUNLI_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_CHUNLI_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4da14, 0x4da94, indexCPS2_SFA3Assets, 0xa6 },
     { _T("X-Ism Kick"), 0x4da94, 0x4db14, indexCPS2_SFA3Assets, 0xa6 },
@@ -2532,7 +2532,7 @@ const sGame_PaletteDataset SFA3_A_CHUNLI_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4dc94, 0x4dd14, indexCPS2_SFA3Assets, 0xa7 },
 };
 
-const sGame_PaletteDataset SFA3_A_ADON_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_ADON_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4dd14, 0x4dd94, indexCPS2_SFA3Assets, 0xa0 },
     { _T("X-Ism Kick"), 0x4dd94, 0x4de14, indexCPS2_SFA3Assets, 0xa0 },
@@ -2542,7 +2542,7 @@ const sGame_PaletteDataset SFA3_A_ADON_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4df94, 0x4e014, indexCPS2_SFA3Assets, 0xa0 },
 };
 
-const sGame_PaletteDataset SFA3_A_SODOM_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_SODOM_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4e014, 0x4e094, indexCPS2_SFA3Assets, 0xb7 },
     { _T("X-Ism Kick"), 0x4e094, 0x4e114, indexCPS2_SFA3Assets, 0xb7 },
@@ -2552,7 +2552,7 @@ const sGame_PaletteDataset SFA3_A_SODOM_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4e294, 0x4e314, indexCPS2_SFA3Assets, 0xb7 },
 };
 
-const sGame_PaletteDataset SFA3_A_GUY_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_GUY_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4e314, 0x4e394, indexCPS2_SFA3Assets, 0xad },
     { _T("X-Ism Kick"), 0x4e394, 0x4e414, indexCPS2_SFA3Assets, 0xad },
@@ -2562,7 +2562,7 @@ const sGame_PaletteDataset SFA3_A_GUY_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4e594, 0x4e614, indexCPS2_SFA3Assets, 0xad },
 };
 
-const sGame_PaletteDataset SFA3_A_BIRDIE_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_BIRDIE_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4e614, 0x4e694, indexCPS2_SFA3Assets, 0xa2 },
     { _T("X-Ism Kick"), 0x4e694, 0x4e714, indexCPS2_SFA3Assets, 0xa2 },
@@ -2572,7 +2572,7 @@ const sGame_PaletteDataset SFA3_A_BIRDIE_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4e894, 0x4e914, indexCPS2_SFA3Assets, 0xa2 },
 };
 
-const sGame_PaletteDataset SFA3_A_ROSE_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_ROSE_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4e914, 0x4e994, indexCPS2_SFA3Assets, 0xb3 },
     { _T("X-Ism Kick"), 0x4e994, 0x4ea14, indexCPS2_SFA3Assets, 0xb3 },
@@ -2582,7 +2582,7 @@ const sGame_PaletteDataset SFA3_A_ROSE_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4eb94, 0x4ec14, indexCPS2_SFA3Assets, 0xb3 },
 };
 
-const sGame_PaletteDataset SFA3_A_MBISON_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_MBISON_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4ec14, 0x4ec94, indexCPS2_SFA3Assets, 0xb0 },
     { _T("X-Ism Kick"), 0x4ec94, 0x4ed14, indexCPS2_SFA3Assets, 0xb0 },
@@ -2592,7 +2592,7 @@ const sGame_PaletteDataset SFA3_A_MBISON_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4ee94, 0x4ef14, indexCPS2_SFA3Assets, 0xb0 },
 };
 
-const sGame_PaletteDataset SFA3_A_SAGAT_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_SAGAT_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4ef14, 0x4ef94, indexCPS2_SFA3Assets, 0xb5 },
     { _T("X-Ism Kick"), 0x4ef94, 0x4f014, indexCPS2_SFA3Assets, 0xb5 },
@@ -2602,7 +2602,7 @@ const sGame_PaletteDataset SFA3_A_SAGAT_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4f194, 0x4f214, indexCPS2_SFA3Assets, 0xb5 },
 };
 
-const sGame_PaletteDataset SFA3_A_DAN_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_DAN_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4f214, 0x4f294, indexCPS2_SFA3Assets, 0xa9 },
     { _T("X-Ism Kick"), 0x4f294, 0x4f314, indexCPS2_SFA3Assets, 0xa9 },
@@ -2612,7 +2612,7 @@ const sGame_PaletteDataset SFA3_A_DAN_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4f494, 0x4f514, indexCPS2_SFA3Assets, 0xa9 },
 };
 
-const sGame_PaletteDataset SFA3_A_SAKURA_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_SAKURA_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4f514, 0x4f594, indexCPS2_SFA3Assets, 0xb6 },
     { _T("X-Ism Kick"), 0x4f594, 0x4f614, indexCPS2_SFA3Assets, 0xb6 },
@@ -2622,7 +2622,7 @@ const sGame_PaletteDataset SFA3_A_SAKURA_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4f794, 0x4f814, indexCPS2_SFA3Assets, 0xb6 },
 };
 
-const sGame_PaletteDataset SFA3_A_ROLENTO_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_ROLENTO_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4f814, 0x4f894, indexCPS2_SFA3Assets, 0xb2 },
     { _T("X-Ism Kick"), 0x4f894, 0x4f914, indexCPS2_SFA3Assets, 0xb2 },
@@ -2632,7 +2632,7 @@ const sGame_PaletteDataset SFA3_A_ROLENTO_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4fa94, 0x4fb14, indexCPS2_SFA3Assets, 0xb2 },
 };
 
-const sGame_PaletteDataset SFA3_A_DHALSIM_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_DHALSIM_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4fb14, 0x4fb94, indexCPS2_SFA3Assets, 0xaa },
     { _T("X-Ism Kick"), 0x4fb94, 0x4fc14, indexCPS2_SFA3Assets, 0xaa },
@@ -2642,7 +2642,7 @@ const sGame_PaletteDataset SFA3_A_DHALSIM_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x4fd94, 0x4fe14, indexCPS2_SFA3Assets, 0xaa },
 };
 
-const sGame_PaletteDataset SFA3_A_ZANGIEF_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_ZANGIEF_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x4fe14, 0x4fe94, indexCPS2_SFA3Assets, 0xb9 },
     { _T("X-Ism Kick"), 0x4fe94, 0x4ff14, indexCPS2_SFA3Assets, 0xb9 },
@@ -2652,7 +2652,7 @@ const sGame_PaletteDataset SFA3_A_ZANGIEF_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x50094, 0x50114, indexCPS2_SFA3Assets, 0xb9 },
 };
 
-const sGame_PaletteDataset SFA3_A_GEN_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_GEN_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x50114, 0x50194, indexCPS2_SFA3Assets, 0xac },
     { _T("X-Ism Kick"), 0x50194, 0x50214, indexCPS2_SFA3Assets, 0xac },
@@ -2662,7 +2662,7 @@ const sGame_PaletteDataset SFA3_A_GEN_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x50394, 0x50414, indexCPS2_SFA3Assets, 0xac },
 };
 
-const sGame_PaletteDataset SFA3_A_CAMMY_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_CAMMY_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x50a14, 0x50a94, indexCPS2_SFA3Assets, 0xa4 },
     { _T("X-Ism Kick"), 0x50a94, 0x50b14, indexCPS2_SFA3Assets, 0xa4 },
@@ -2672,7 +2672,7 @@ const sGame_PaletteDataset SFA3_A_CAMMY_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x50c94, 0x50d14, indexCPS2_SFA3Assets, 0xa4 },
 };
 
-const sGame_PaletteDataset SFA3_A_EHONDA_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_EHONDA_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x50d14, 0x50d94, indexCPS2_SFA3Assets, 0xab },
     { _T("X-Ism Kick"), 0x50d94, 0x50e14, indexCPS2_SFA3Assets, 0xab },
@@ -2682,7 +2682,7 @@ const sGame_PaletteDataset SFA3_A_EHONDA_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x50f94, 0x51014, indexCPS2_SFA3Assets, 0xab },
 };
 
-const sGame_PaletteDataset SFA3_A_BLANKA_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_BLANKA_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x51014, 0x51094, indexCPS2_SFA3Assets, 0xa3 },
     { _T("X-Ism Kick"), 0x51094, 0x51114, indexCPS2_SFA3Assets, 0xa3 },
@@ -2692,7 +2692,7 @@ const sGame_PaletteDataset SFA3_A_BLANKA_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x51294, 0x51314, indexCPS2_SFA3Assets, 0xa3 },
 };
 
-const sGame_PaletteDataset SFA3_A_RMIKA_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_RMIKA_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x51314, 0x51394, indexCPS2_SFA3Assets, 0xb1 },
     { _T("X-Ism Kick"), 0x51394, 0x51414, indexCPS2_SFA3Assets, 0xb1 },
@@ -2702,7 +2702,7 @@ const sGame_PaletteDataset SFA3_A_RMIKA_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x51594, 0x51614, indexCPS2_SFA3Assets, 0xb1 },
 };
 
-const sGame_PaletteDataset SFA3_A_CODY_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_CODY_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x51614, 0x51694, indexCPS2_SFA3Assets, 0xa8 },
     { _T("X-Ism Kick"), 0x51694, 0x51714, indexCPS2_SFA3Assets, 0xa8 },
@@ -2712,7 +2712,7 @@ const sGame_PaletteDataset SFA3_A_CODY_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x51894, 0x51914, indexCPS2_SFA3Assets, 0xa8 },
 };
 
-const sGame_PaletteDataset SFA3_A_VEGA_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_VEGA_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x51914, 0x51994, indexCPS2_SFA3Assets, 0xb8 },
     { _T("X-Ism Kick"), 0x51994, 0x51a14, indexCPS2_SFA3Assets, 0xb8 },
@@ -2722,7 +2722,7 @@ const sGame_PaletteDataset SFA3_A_VEGA_PORTRAIT_PALETTES[] =
     { _T("V-Ism Kick"), 0x51b94, 0x51c14, indexCPS2_SFA3Assets, 0xb8 },
 };
 
-const sGame_PaletteDataset SFA3_A_KARIN_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset SFA3_A_KARIN_PORTRAIT_SELECT_PALETTES[] =
 {
     { _T("X-Ism Punch"), 0x51c14, 0x51c94, indexCPS2_SFA3Assets, 0xae },
     { _T("X-Ism Kick"), 0x51c94, 0x51d14, indexCPS2_SFA3Assets, 0xae },
@@ -2730,6 +2730,256 @@ const sGame_PaletteDataset SFA3_A_KARIN_PORTRAIT_PALETTES[] =
     { _T("A-Ism Kick"), 0x51d94, 0x51e14, indexCPS2_SFA3Assets, 0xae },
     { _T("V-Ism Punch"), 0x51e14, 0x51e94, indexCPS2_SFA3Assets, 0xae },
     { _T("V-Ism Kick"), 0x51e94, 0x51f14, indexCPS2_SFA3Assets, 0xae },
+};
+
+const sGame_PaletteDataset SFA3_A_RYU_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x51f94, 0x52074 },
+    { _T("X-Ism Kick"), 0x52094, 0x52174 },
+    { _T("A-Ism Punch"), 0x52194, 0x52274 },
+    { _T("A-Ism Kick"), 0x52294, 0x52374 },
+    { _T("V-Ism Punch"), 0x52394, 0x52474 },
+    { _T("V-Ism Kick"), 0x52494, 0x52574 },
+};
+
+const sGame_PaletteDataset SFA3_A_KEN_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x52594, 0x52694 },
+    { _T("X-Ism Kick"), 0x52694, 0x52794 },
+    { _T("A-Ism Punch"), 0x52794, 0x52894 },
+    { _T("A-Ism Kick"), 0x52894, 0x52994 },
+    { _T("V-Ism Punch"), 0x52994, 0x52a94 },
+    { _T("V-Ism Kick"), 0x52a94, 0x52b94 },
+};
+
+const sGame_PaletteDataset SFA3_A_AKUMA_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x52b94, 0x52bf4 },
+    { _T("X-Ism Kick"), 0x52c94, 0x52cf4 },
+    { _T("A-Ism Punch"), 0x52d94, 0x52df4 },
+    { _T("A-Ism Kick"), 0x52e94, 0x52ef4 },
+    { _T("V-Ism Punch"), 0x52f94, 0x52ff4 },
+    { _T("V-Ism Kick"), 0x53094, 0x530f4 },
+};
+
+const sGame_PaletteDataset SFA3_A_CHARLIE_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x53194, 0x53294 },
+    { _T("X-Ism Kick"), 0x53294, 0x53394 },
+    { _T("A-Ism Punch"), 0x53394, 0x53494 },
+    { _T("A-Ism Kick"), 0x53494, 0x53594 },
+    { _T("V-Ism Punch"), 0x53594, 0x53694 },
+    { _T("V-Ism Kick"), 0x53694, 0x53794 },
+};
+
+const sGame_PaletteDataset SFA3_A_CHUNLI_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x53794, 0x537f4 },
+    { _T("X-Ism Kick"), 0x53894, 0x538f4 },
+    { _T("A-Ism Punch "), 0x53994, 0x53a54 },
+    { _T("A-Ism Kick"), 0x53a94, 0x53b54 },
+    { _T("V-Ism Punch"), 0x53b94, 0x53c54 },
+    { _T("V-Ism Kick"), 0x53c94, 0x53d54 },
+};
+
+const sGame_PaletteDataset SFA3_A_ADON_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x53d94, 0x53e14 },
+    { _T("X-Ism Kick"), 0x53e94, 0x53f14 },
+    { _T("A-Ism Punch"), 0x53f94, 0x54014 },
+    { _T("A-Ism Kick"), 0x54094, 0x54114 },
+    { _T("V-Ism Punch"), 0x54194, 0x54214 },
+    { _T("V-Ism Kick"), 0x54294, 0x54314 },
+};
+
+const sGame_PaletteDataset SFA3_A_SODOM_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x54394, 0x54494 },
+    { _T("X-Ism Kick"), 0x54494, 0x54594 },
+    { _T("A-Ism Punch"), 0x54594, 0x54694 },
+    { _T("A-Ism Kick"), 0x54694, 0x54794 },
+    { _T("V-Ism Punch"), 0x54794, 0x54894 },
+    { _T("V-Ism Kick"), 0x54894, 0x54994 },
+};
+
+const sGame_PaletteDataset SFA3_A_GUY_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x54994, 0x54a34 },
+    { _T("X-Ism Kick"), 0x54a94, 0x54b34 },
+    { _T("A-Ism Punch"), 0x54b94, 0x54c34 },
+    { _T("A-Ism Kick"), 0x54c94, 0x54d34 },
+    { _T("V-Ism Punch"), 0x54d94, 0x54e34 },
+    { _T("V-Ism Kick"), 0x54e94, 0x54f34 },
+};
+
+const sGame_PaletteDataset SFA3_A_BIRDIE_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x54f94, 0x55074 },
+    { _T("X-Ism Kick"), 0x55094, 0x55174 },
+    { _T("A-Ism Punch"), 0x55194, 0x55274 },
+    { _T("A-Ism Kick"), 0x55294, 0x55374 },
+    { _T("V-Ism Punch"), 0x55394, 0x55474 },
+    { _T("V-Ism Kick"), 0x55494, 0x55574 },
+};
+
+const sGame_PaletteDataset SFA3_A_ROSE_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x55594, 0x55654 },
+    { _T("X-Ism Kick"), 0x55694, 0x55754 },
+    { _T("A-Ism Punch"), 0x55794, 0x55854 },
+    { _T("A-Ism Kick"), 0x55894, 0x55954 },
+    { _T("V-Ism Punch"), 0x55994, 0x55a54 },
+    { _T("V-Ism Kick"), 0x55a94, 0x55b54 },
+};
+
+const sGame_PaletteDataset SFA3_A_MBISON_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x55b94, 0x55c74 },
+    { _T("X-Ism Kick"), 0x55c94, 0x55d74 },
+    { _T("A-Ism Punch"), 0x55d94, 0x55e74 },
+    { _T("A-Ism Kick"), 0x55e94, 0x55f74 },
+    { _T("V-Ism Punch"), 0x55f94, 0x56074 },
+    { _T("V-Ism Kick"), 0x56094, 0x56174 },
+};
+
+const sGame_PaletteDataset SFA3_A_SAGAT_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x56194, 0x561b4 },
+    { _T("X-Ism Kick"), 0x56294, 0x562b4 },
+    { _T("A-Ism Punch"), 0x56394, 0x563b4 },
+    { _T("A-Ism Kick"), 0x56494, 0x564b4 },
+    { _T("V-Ism Punch"), 0x56594, 0x565b4 },
+    { _T("V-Ism Kick"), 0x56694, 0x566b4 },
+};
+
+const sGame_PaletteDataset SFA3_A_DAN_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x56794, 0x56834 },
+    { _T("X-Ism Kick"), 0x56894, 0x56934 },
+    { _T("A-Ism Punch"), 0x56994, 0x56a34 },
+    { _T("A-Ism Kick"), 0x56a94, 0x56b34 },
+    { _T("V-Ism Punch"), 0x56b94, 0x56c34 },
+    { _T("V-Ism Kick"), 0x56c94, 0x56d34 },
+};
+
+const sGame_PaletteDataset SFA3_A_SAKURA_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x56d94, 0x56e14 },
+    { _T("X-Ism Kick"), 0x56e94, 0x56f14 },
+    { _T("A-Ism Punch"), 0x56f94, 0x57014 },
+    { _T("A-Ism Kick"), 0x57094, 0x57114 },
+    { _T("V-Ism Punch"), 0x57194, 0x57214 },
+    { _T("V-Ism Kick"), 0x57294, 0x57314 },
+};
+
+const sGame_PaletteDataset SFA3_A_ROLENTO_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x57394, 0x57474 },
+    { _T("X-Ism Kick"), 0x57494, 0x57574 },
+    { _T("A-Ism Punch"), 0x57594, 0x57674 },
+    { _T("A-Ism Kick"), 0x57694, 0x57774 },
+    { _T("V-Ism Punch"), 0x57794, 0x57874 },
+    { _T("V-Ism Kick"), 0x57894, 0x57974 },
+};
+
+const sGame_PaletteDataset SFA3_A_DHALSIM_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x57994, 0x57a14 },
+    { _T("X-Ism Kick"), 0x57a94, 0x57b14 },
+    { _T("A-Ism Punch"), 0x57b94, 0x57c14 },
+    { _T("A-Ism Kick"), 0x57c94, 0x57d14 },
+    { _T("V-Ism Punch"), 0x57d94, 0x57e14 },
+    { _T("V-Ism Kick"), 0x57e94, 0x57f14 },
+};
+
+const sGame_PaletteDataset SFA3_A_ZANGIEF_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x57f94, 0x57fd4 },
+    { _T("X-Ism Kick"), 0x58094, 0x580d4 },
+    { _T("A-Ism Punch"), 0x58194, 0x581d4 },
+    { _T("A-Ism Kick"), 0x58294, 0x582d4 },
+    { _T("V-Ism Punch"), 0x58394, 0x583d4 },
+    { _T("V-Ism Kick"), 0x58494, 0x584d4 },
+};
+
+const sGame_PaletteDataset SFA3_A_GEN_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x58594, 0x58614 },
+    { _T("X-Ism Kick"), 0x58694, 0x58714 },
+    { _T("A-Ism Punch"), 0x58794, 0x58814 },
+    { _T("A-Ism Kick"), 0x58894, 0x58914 },
+    { _T("V-Ism Punch"), 0x58994, 0x58a14 },
+    { _T("V-Ism Kick"), 0x58a94, 0x58b14 },
+};
+
+const sGame_PaletteDataset SFA3_A_CAMMY_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x59194, 0x59234 },
+    { _T("X-Ism Kick"), 0x59294, 0x59334 },
+    { _T("A-Ism Punch"), 0x59394, 0x59434 },
+    { _T("A-Ism Kick"), 0x59494, 0x59534 },
+    { _T("V-Ism Punch"), 0x59594, 0x59634 },
+    { _T("V-Ism Kick"), 0x59694, 0x59734 },
+};
+
+const sGame_PaletteDataset SFA3_A_EHONDA_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x59794, 0x597d4 },
+    { _T("X-Ism Kick"), 0x59894, 0x598d4 },
+    { _T("A-Ism Punch"), 0x59994, 0x599d4 },
+    { _T("A-Ism Kick"), 0x59a94, 0x59ad4 },
+    { _T("V-Ism Punch"), 0x59b94, 0x59bd4 },
+    { _T("V-Ism Kick"), 0x59c94, 0x59cd4 },
+};
+
+const sGame_PaletteDataset SFA3_A_BLANKA_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x59d94, 0x59dd4 },
+    { _T("X-Ism Kick"), 0x59e94, 0x59ed4 },
+    { _T("A-Ism Punch"), 0x59f94, 0x59fd4 },
+    { _T("A-Ism Kick"), 0x5a094, 0x5a0d4 },
+    { _T("V-Ism Punch"), 0x5a194, 0x5a1d4 },
+    { _T("V-Ism Kick"), 0x5a294, 0x5a2d4 },
+};
+
+const sGame_PaletteDataset SFA3_A_RMIKA_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x5a394, 0x5a414 },
+    { _T("X-Ism Kick"), 0x5a494, 0x5a514 },
+    { _T("A-Ism Punch"), 0x5a594, 0x5a614 },
+    { _T("A-Ism Kick"), 0x5a694, 0x5a714 },
+    { _T("V-Ism Punch"), 0x5a794, 0x5a814 },
+    { _T("V-Ism Kick"), 0x5a894, 0x5a914 },
+};
+
+const sGame_PaletteDataset SFA3_A_CODY_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x5a994, 0x5a9d4 },
+    { _T("X-Ism Kick"), 0x5aa94, 0x5aad4 },
+    { _T("A-Ism Punch"), 0x5ab94, 0x5abd4 },
+    { _T("A-Ism Kick"), 0x5ac94, 0x5acd4 },
+    { _T("V-Ism Punch"), 0x5ad94, 0x5add4 },
+    { _T("V-Ism Kick"), 0x5ae94, 0x5aed4 },
+};
+
+const sGame_PaletteDataset SFA3_A_VEGA_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Punch"), 0x5af94, 0x5b054 },
+    { _T("X-Ism Kick"), 0x5b094, 0x5b154 },
+    { _T("A-Ism Punch"), 0x5b194, 0x5b254 },
+    { _T("A-Ism Kick"), 0x5b294, 0x5b354 },
+    { _T("V-Ism Punch"), 0x5b394, 0x5b454 },
+    { _T("V-Ism Kick"), 0x5b494, 0x5b554 },
+};
+
+const sGame_PaletteDataset SFA3_A_KARIN_PORTRAIT_WIN_PALETTES[] =
+{
+    { _T("X-Ism Kick"), 0x5b594, 0x5b694 },
+    { _T("X-Ism Kick"), 0x5b694, 0x5b794 },
+    { _T("A-Ism Punch"), 0x5b794, 0x5b894 },
+    { _T("A-Ism Kick"), 0x5b894, 0x5b994 },
+    { _T("V-Ism Punch"), 0x5b994, 0x5ba94 },
+    { _T("V-Ism Kick"), 0x5ba94, 0x5bb94 },
 };
 
 const sDescTreeNode SFA3_A_RYU_COLLECTION[] =
@@ -2741,7 +2991,8 @@ const sDescTreeNode SFA3_A_RYU_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_RYU_VISMP,      ARRAYSIZE(SFA3_A_RYU_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_RYU_VISMK,      ARRAYSIZE(SFA3_A_RYU_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_RYU_STATUS,     ARRAYSIZE(SFA3_A_RYU_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_RYU_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_RYU_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_RYU_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_RYU_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_RYU_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_RYU_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_KEN_COLLECTION[] =
@@ -2753,7 +3004,8 @@ const sDescTreeNode SFA3_A_KEN_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_KEN_VISMP,      ARRAYSIZE(SFA3_A_KEN_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_KEN_VISMK,      ARRAYSIZE(SFA3_A_KEN_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_KEN_STATUS,     ARRAYSIZE(SFA3_A_KEN_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_KEN_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_KEN_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_KEN_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_KEN_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_KEN_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_KEN_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_GOUKI_COLLECTION[] =
@@ -2765,7 +3017,8 @@ const sDescTreeNode SFA3_A_GOUKI_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_GOUKI_VISMP,      ARRAYSIZE(SFA3_A_GOUKI_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_GOUKI_VISMK,      ARRAYSIZE(SFA3_A_GOUKI_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_GOUKI_STATUS,     ARRAYSIZE(SFA3_A_GOUKI_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_AKUMA_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_AKUMA_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_AKUMA_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_AKUMA_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_AKUMA_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_AKUMA_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_CHARLIE_COLLECTION[] =
@@ -2777,7 +3030,8 @@ const sDescTreeNode SFA3_A_CHARLIE_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_CHARLIE_VISMP,      ARRAYSIZE(SFA3_A_CHARLIE_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_CHARLIE_VISMK,      ARRAYSIZE(SFA3_A_CHARLIE_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_CHARLIE_STATUS,     ARRAYSIZE(SFA3_A_CHARLIE_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_CHARLIE_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_CHARLIE_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_CHARLIE_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_CHARLIE_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_CHARLIE_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_CHARLIE_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_CHUNLI_COLLECTION[] =
@@ -2789,7 +3043,8 @@ const sDescTreeNode SFA3_A_CHUNLI_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_VISMP,      ARRAYSIZE(SFA3_A_CHUNLI_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_VISMK,      ARRAYSIZE(SFA3_A_CHUNLI_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_STATUS,     ARRAYSIZE(SFA3_A_CHUNLI_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_CHUNLI_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_CHUNLI_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_CHUNLI_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_ADON_COLLECTION[] =
@@ -2801,7 +3056,8 @@ const sDescTreeNode SFA3_A_ADON_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_ADON_VISMP,      ARRAYSIZE(SFA3_A_ADON_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_ADON_VISMK,      ARRAYSIZE(SFA3_A_ADON_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_ADON_STATUS,     ARRAYSIZE(SFA3_A_ADON_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_ADON_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_ADON_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_ADON_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_ADON_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_ADON_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_ADON_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_SODOM_COLLECTION[] =
@@ -2813,7 +3069,8 @@ const sDescTreeNode SFA3_A_SODOM_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_VISMP,      ARRAYSIZE(SFA3_A_SODOM_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_VISMK,      ARRAYSIZE(SFA3_A_SODOM_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_STATUS,     ARRAYSIZE(SFA3_A_SODOM_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_SODOM_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_SODOM_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_SODOM_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_GUY_COLLECTION[] =
@@ -2825,7 +3082,8 @@ const sDescTreeNode SFA3_A_GUY_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_GUY_VISMP,      ARRAYSIZE(SFA3_A_GUY_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_GUY_VISMK,      ARRAYSIZE(SFA3_A_GUY_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_GUY_STATUS,     ARRAYSIZE(SFA3_A_GUY_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_GUY_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_GUY_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_GUY_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_GUY_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_GUY_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_GUY_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_BIRDIE_COLLECTION[] =
@@ -2837,7 +3095,8 @@ const sDescTreeNode SFA3_A_BIRDIE_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_BIRDIE_VISMP,      ARRAYSIZE(SFA3_A_BIRDIE_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_BIRDIE_VISMK,      ARRAYSIZE(SFA3_A_BIRDIE_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_BIRDIE_STATUS,     ARRAYSIZE(SFA3_A_BIRDIE_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_BIRDIE_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_BIRDIE_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_BIRDIE_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_BIRDIE_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_BIRDIE_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_BIRDIE_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_ROSE_COLLECTION[] =
@@ -2849,7 +3108,8 @@ const sDescTreeNode SFA3_A_ROSE_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_ROSE_VISMP,      ARRAYSIZE(SFA3_A_ROSE_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_ROSE_VISMK,      ARRAYSIZE(SFA3_A_ROSE_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_ROSE_STATUS,     ARRAYSIZE(SFA3_A_ROSE_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_ROSE_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_ROSE_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_ROSE_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_ROSE_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_ROSE_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_ROSE_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_MBISON_COLLECTION[] =
@@ -2861,7 +3121,8 @@ const sDescTreeNode SFA3_A_MBISON_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_MBISON_VISMP,      ARRAYSIZE(SFA3_A_MBISON_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_MBISON_VISMK,      ARRAYSIZE(SFA3_A_MBISON_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_MBISON_STATUS,     ARRAYSIZE(SFA3_A_MBISON_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_MBISON_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_MBISON_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_MBISON_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_MBISON_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_MBISON_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_MBISON_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_SAGAT_COLLECTION[] =
@@ -2873,7 +3134,8 @@ const sDescTreeNode SFA3_A_SAGAT_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_SAGAT_VISMP,      ARRAYSIZE(SFA3_A_SAGAT_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_SAGAT_VISMK,      ARRAYSIZE(SFA3_A_SAGAT_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_SAGAT_STATUS,     ARRAYSIZE(SFA3_A_SAGAT_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_SAGAT_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_SAGAT_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_SAGAT_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_SAGAT_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_SAGAT_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_SAGAT_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_DAN_COLLECTION[] =
@@ -2885,7 +3147,8 @@ const sDescTreeNode SFA3_A_DAN_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_DAN_VISMP,      ARRAYSIZE(SFA3_A_DAN_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_DAN_VISMK,      ARRAYSIZE(SFA3_A_DAN_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_DAN_STATUS,     ARRAYSIZE(SFA3_A_DAN_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_DAN_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_DAN_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_DAN_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_DAN_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_DAN_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_DAN_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_SAKURA_COLLECTION[] =
@@ -2897,7 +3160,8 @@ const sDescTreeNode SFA3_A_SAKURA_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_SAKURA_VISMP,      ARRAYSIZE(SFA3_A_SAKURA_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_SAKURA_VISMK,      ARRAYSIZE(SFA3_A_SAKURA_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_SAKURA_STATUS,     ARRAYSIZE(SFA3_A_SAKURA_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_SAKURA_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_SAKURA_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_SAKURA_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_SAKURA_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_SAKURA_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_SAKURA_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_ROLENTO_COLLECTION[] =
@@ -2909,7 +3173,8 @@ const sDescTreeNode SFA3_A_ROLENTO_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_ROLENTO_VISMP,      ARRAYSIZE(SFA3_A_ROLENTO_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_ROLENTO_VISMK,      ARRAYSIZE(SFA3_A_ROLENTO_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_ROLENTO_STATUS,     ARRAYSIZE(SFA3_A_ROLENTO_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_ROLENTO_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_ROLENTO_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_ROLENTO_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_ROLENTO_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_ROLENTO_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_ROLENTO_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_DHALSIM_COLLECTION[] =
@@ -2921,7 +3186,8 @@ const sDescTreeNode SFA3_A_DHALSIM_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_DHALSIM_VISMP,      ARRAYSIZE(SFA3_A_DHALSIM_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_DHALSIM_VISMK,      ARRAYSIZE(SFA3_A_DHALSIM_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_DHALSIM_STATUS,     ARRAYSIZE(SFA3_A_DHALSIM_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_DHALSIM_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_DHALSIM_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_DHALSIM_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_DHALSIM_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_DHALSIM_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_DHALSIM_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_ZANGIEF_COLLECTION[] =
@@ -2933,7 +3199,8 @@ const sDescTreeNode SFA3_A_ZANGIEF_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_ZANGIEF_VISMP,      ARRAYSIZE(SFA3_A_ZANGIEF_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_ZANGIEF_VISMK,      ARRAYSIZE(SFA3_A_ZANGIEF_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_ZANGIEF_STATUS,     ARRAYSIZE(SFA3_A_ZANGIEF_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_ZANGIEF_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_ZANGIEF_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_ZANGIEF_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_ZANGIEF_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_ZANGIEF_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_ZANGIEF_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_GEN_COLLECTION[] =
@@ -2945,7 +3212,8 @@ const sDescTreeNode SFA3_A_GEN_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_GEN_VISMP,      ARRAYSIZE(SFA3_A_GEN_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_GEN_VISMK,      ARRAYSIZE(SFA3_A_GEN_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_GEN_STATUS,     ARRAYSIZE(SFA3_A_GEN_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_GEN_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_GEN_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_GEN_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_GEN_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_GEN_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_GEN_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_BALROG_COLLECTION[] =
@@ -2968,7 +3236,8 @@ const sDescTreeNode SFA3_A_CAMMY_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_CAMMY_VISMP,      ARRAYSIZE(SFA3_A_CAMMY_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_CAMMY_VISMK,      ARRAYSIZE(SFA3_A_CAMMY_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_CAMMY_STATUS,     ARRAYSIZE(SFA3_A_CAMMY_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_CAMMY_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_CAMMY_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_CAMMY_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_CAMMY_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_CAMMY_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_CAMMY_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_EHONDA_COLLECTION[] =
@@ -2980,7 +3249,8 @@ const sDescTreeNode SFA3_A_EHONDA_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_EHONDA_VISMP,      ARRAYSIZE(SFA3_A_EHONDA_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_EHONDA_VISMK,      ARRAYSIZE(SFA3_A_EHONDA_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_EHONDA_STATUS,     ARRAYSIZE(SFA3_A_EHONDA_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_EHONDA_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_EHONDA_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_EHONDA_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_EHONDA_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_EHONDA_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_EHONDA_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_BLANKA_COLLECTION[] =
@@ -2992,7 +3262,8 @@ const sDescTreeNode SFA3_A_BLANKA_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_BLANKA_VISMP,      ARRAYSIZE(SFA3_A_BLANKA_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_BLANKA_VISMK,      ARRAYSIZE(SFA3_A_BLANKA_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_BLANKA_STATUS,     ARRAYSIZE(SFA3_A_BLANKA_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_BLANKA_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_BLANKA_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_BLANKA_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_BLANKA_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_BLANKA_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_BLANKA_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_RMIKA_COLLECTION[] =
@@ -3004,7 +3275,8 @@ const sDescTreeNode SFA3_A_RMIKA_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_RMIKA_VISMP,      ARRAYSIZE(SFA3_A_RMIKA_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_RMIKA_VISMK,      ARRAYSIZE(SFA3_A_RMIKA_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_RMIKA_STATUS,     ARRAYSIZE(SFA3_A_RMIKA_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_RMIKA_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_RMIKA_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_RMIKA_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_RMIKA_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_RMIKA_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_RMIKA_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_CODY_COLLECTION[] =
@@ -3016,7 +3288,8 @@ const sDescTreeNode SFA3_A_CODY_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_VISMP,      ARRAYSIZE(SFA3_A_CODY_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_VISMK,      ARRAYSIZE(SFA3_A_CODY_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_STATUS,     ARRAYSIZE(SFA3_A_CODY_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_CODY_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_CODY_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_CODY_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_VEGA_COLLECTION[] =
@@ -3028,7 +3301,8 @@ const sDescTreeNode SFA3_A_VEGA_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_VISMP,      ARRAYSIZE(SFA3_A_VEGA_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_VISMK,      ARRAYSIZE(SFA3_A_VEGA_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_STATUS,     ARRAYSIZE(SFA3_A_VEGA_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_VEGA_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_VEGA_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_VEGA_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_KARIN_COLLECTION[] =
@@ -3040,7 +3314,8 @@ const sDescTreeNode SFA3_A_KARIN_COLLECTION[] =
     { _T("V-Ism Punch"),    DESC_NODETYPE_TREE, (void*)SFA3_A_KARIN_VISMP,      ARRAYSIZE(SFA3_A_KARIN_VISMP) },
     { _T("V-Ism Kick"),     DESC_NODETYPE_TREE, (void*)SFA3_A_KARIN_VISMK,      ARRAYSIZE(SFA3_A_KARIN_VISMK) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_KARIN_STATUS,     ARRAYSIZE(SFA3_A_KARIN_STATUS) },
-    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_KARIN_PORTRAIT_PALETTES, ARRAYSIZE(SFA3_A_KARIN_PORTRAIT_PALETTES) },
+    { _T("Select Portraits"), DESC_NODETYPE_TREE, (void*)SFA3_A_KARIN_PORTRAIT_SELECT_PALETTES, ARRAYSIZE(SFA3_A_KARIN_PORTRAIT_SELECT_PALETTES) },
+    { _T("Win Portraits"),  DESC_NODETYPE_TREE, (void*)SFA3_A_KARIN_PORTRAIT_WIN_PALETTES, ARRAYSIZE(SFA3_A_KARIN_PORTRAIT_WIN_PALETTES) },
 };
 
 const sDescTreeNode SFA3_A_JUNI_COLLECTION[] =
@@ -3065,7 +3340,7 @@ const sDescTreeNode SFA3_A_JULI_COLLECTION[] =
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA3_A_JULI_STATUS,     ARRAYSIZE(SFA3_A_JULI_STATUS) }, 
 };
 
-const sDescTreeNode SFA3_A_BONUS_COLLECTION[] =
+const sDescTreeNode SFA3_A_STAGES_COLLECTION[] =
 {
     { _T("Adon Stage"), DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_ADON_NODE, ARRAYSIZE(SFA3_A_STAGES_ADON_NODE) },
     { _T("Akuma Stage"), DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_AKUMA_NODE, ARRAYSIZE(SFA3_A_STAGES_AKUMA_NODE) },
@@ -3105,7 +3380,7 @@ const sDescTreeNode SFA3_A_UNITS[SFA3_A_NUM_IND] =
     { _T("Sodom"),           DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_COLLECTION,         ARRAYSIZE(SFA3_A_SODOM_COLLECTION) },
     { _T("Vega"),            DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_COLLECTION,          ARRAYSIZE(SFA3_A_VEGA_COLLECTION) },
     { _T("Zangief"),         DESC_NODETYPE_TREE, (void*)SFA3_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA3_A_ZANGIEF_COLLECTION) },
-    { _T("Stages"),          DESC_NODETYPE_TREE, (void*)SFA3_A_BONUS_COLLECTION,         ARRAYSIZE(SFA3_A_BONUS_COLLECTION) },
+    { _T("Stages"),          DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_COLLECTION,        ARRAYSIZE(SFA3_A_STAGES_COLLECTION) },
 };
 
 // We extend this array with data groveled from the SFA3e.txt extensible extras file, if any.

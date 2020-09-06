@@ -1905,9 +1905,9 @@ const sGame_PaletteDataset SSF2T_A_DEEJAY_PORTRAIT_NODE[] =
 
 const sGame_PaletteDataset SSF2T_A_BONUS_NODE[] =
 {
-    { _T("Akuma Intro"), 0x05bf5c, 0x05bf7c },
-    { _T("Chun-Li Intro"), 0x05bf7c, 0x05c09c },
-    { _T("Cammy Intro"), 0x05be5c, 0x05bf5c },
+    { _T("Akuma Intro"), 0x05bf5c, 0x05bf7c, 0x11, 1 },
+    { _T("Chun-Li Intro"), 0x05bf7c, 0x05c09c, 0x11, 2 },
+    { _T("Cammy Intro"), 0x05be5c, 0x05bf5c, 0x11, 0 },
 };
 
 const sDescTreeNode SSF2T_A_PORTRAITS_COLLECTION[] =
