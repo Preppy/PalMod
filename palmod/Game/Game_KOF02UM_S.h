@@ -52,7 +52,9 @@ public:
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    void UpdatePalData();
+    COLORREF* CreatePal2(UINT16 nUnitId, UINT16 nPalId);
+
+    void UpdatePalData2();
 
     static stExtraDef* KOF02UM_S_EXTRA_CUSTOM;
 };

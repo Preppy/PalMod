@@ -896,11 +896,8 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_EXTRA_PALETTES[] =
 {
     { _T("Shun Goku Satsu KO Screen"), 0x706b80, 0x706c00, index3S_CPS3_Gouki, 0x0F },
 
-    { _T("Kongou Kokuretzu Zan"), 0x706a00, 0x706a80 },
+    { _T("Kongou Kokuretzu Zan / Fireball"), 0x706a00, 0x706a80 },
     { _T("Messatsu Go Hadou / Air Fireball"), 0x706a80, 0x706b00 },
-
-    { _T("Fireball"), 0x706C00, 0x706C80 },
-    { _T("Fireball Impact"), 0x706C80, 0x706D00 },
 
     { _T("SA Animation 4"), 0x707900, 0x707980, 0x0D },
 
@@ -931,6 +928,12 @@ const sGame_PaletteDataset SFIII3_A_SHINGOUKI_Support_PALETTES[] =
     { _T("????"), 0x769680, 0x769700, index3S_CPS3_Gouki, 0 },
     { _T("????"), 0x769700, 0x769780, index3S_CPS3_Gouki, 0 },
     { _T("????"), 0x769780, 0x769800, index3S_CPS3_Gouki, 0 },
+};
+
+const sGame_PaletteDataset SFIII3_A_SHINGOUKI_EXTRA_PALETTES[] =
+{
+    { _T("Fireball"), 0x706C00, 0x706C80 },
+    { _T("Air Fireball"), 0x706C80, 0x706D00 },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_LP_PALETTES[] =
@@ -1581,6 +1584,7 @@ const sDescTreeNode SFIII3_A_SHINGOUKI_COLLECTION[] =
     { _T("P2"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_MP_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_MP_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_Support_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_Support_PALETTES) },
     { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES) },
+    { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_EXTRA_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_CHUNLI_COLLECTION[] =

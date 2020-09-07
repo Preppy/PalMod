@@ -75,8 +75,8 @@ const sGame_PaletteDataset SFA1_A_RYU_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_RYU_PORTRAIT_PALETTES[] =
 {
-    { _T("Ryu Punch Portrait"), 0x7d780, 0x7d7a0 },
-    { _T("Ryu Kick Portrait"), 0x7da80, 0x7daa0 },
+    { _T("Ryu Punch Portrait"), 0x7d780, 0x7d7a0, indexCPS2_SFA1_Portraits, indexCPS2_Ryu },
+    { _T("Ryu Kick Portrait"), 0x7da80, 0x7daa0, indexCPS2_SFA1_Portraits, indexCPS2_Ryu },
 };
 
 const sGame_PaletteDataset SFA1_A_KEN_PUNCH_PALETTES[] =
@@ -105,8 +105,8 @@ const sGame_PaletteDataset SFA1_A_KEN_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_KEN_PORTRAIT_PALETTES[] =
 {
-    { _T("Ken Punch Portrait"), 0x7d7c0, 0x7d7e0 },
-    { _T("Ken Kick Portrait"), 0x7dac0, 0x7dae0 },
+    { _T("Ken Punch Portrait"), 0x7d7c0, 0x7d7e0, indexCPS2_SFA1_Portraits, indexCPS2_Ken },
+    { _T("Ken Kick Portrait"), 0x7dac0, 0x7dae0, indexCPS2_SFA1_Portraits, indexCPS2_Ken },
 };
 
 const sGame_PaletteDataset SFA1_A_AKUMA_PUNCH_PALETTES[] =
@@ -135,8 +135,8 @@ const sGame_PaletteDataset SFA1_A_AKUMA_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_AKUMA_PORTRAIT_PALETTES[] =
 {
-    { _T("Akuma Punch Portrait"), 0x7d800, 0x7d840 },
-    { _T("Akuma Kick Portrait"), 0x7db00, 0x7db40 },
+    { _T("Akuma Punch Portrait"), 0x7d800, 0x7d840, indexCPS2_SFA1_Portraits, indexCPS2_Akuma },
+    { _T("Akuma Kick Portrait"), 0x7db00, 0x7db40, indexCPS2_SFA1_Portraits, indexCPS2_Akuma },
 };
 
 const sGame_PaletteDataset SFA1_A_CHARLIE_PUNCH_PALETTES[] =
@@ -165,8 +165,8 @@ const sGame_PaletteDataset SFA1_A_CHARLIE_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_CHARLIE_PORTRAIT_PALETTES[] =
 {
-    { _T("Charlie Punch Portrait"), 0x7d840, 0x7d860 },
-    { _T("Charlie Kick Portrait"), 0x7db40, 0x7db60 },
+    { _T("Charlie Punch Portrait"), 0x7d840, 0x7d860, indexCPS2_SFA1_Portraits, indexCPS2_Charlie },
+    { _T("Charlie Kick Portrait"), 0x7db40, 0x7db60, indexCPS2_SFA1_Portraits, indexCPS2_Charlie },
 };
 
 const sGame_PaletteDataset SFA1_A_CHUNLI_PUNCH_PALETTES[] =
@@ -195,8 +195,8 @@ const sGame_PaletteDataset SFA1_A_CHUNLI_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_CHUNLI_PORTRAIT_PALETTES[] =
 {
-    { _T("Chun-Li Punch Portrait"), 0x7d880, 0x7d8c0 },
-    { _T("Chun-Li Kick Portrait"), 0x7db80, 0x7dbc0 },
+    { _T("Chun-Li Punch Portrait"), 0x7d880, 0x7d8c0, indexCPS2_SFA1_Portraits, indexCPS2_ChunLi },
+    { _T("Chun-Li Kick Portrait"), 0x7db80, 0x7dbc0, indexCPS2_SFA1_Portraits, indexCPS2_ChunLi },
 };
 
 const sGame_PaletteDataset SFA1_A_ADON_PUNCH_PALETTES[] =
@@ -225,8 +225,8 @@ const sGame_PaletteDataset SFA1_A_ADON_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_ADON_PORTRAIT_PALETTES[] =
 {
-    { _T("Adon Punch Portrait"), 0x7d8c0, 0x7d900 },
-    { _T("Adon Kick Portrait"), 0x7dbc0, 0x7dc00 },
+    { _T("Adon Punch Portrait"), 0x7d8c0, 0x7d900, indexCPS2_SFA1_Portraits, indexCPS2_Adon },
+    { _T("Adon Kick Portrait"), 0x7dbc0, 0x7dc00, indexCPS2_SFA1_Portraits, indexCPS2_Adon },
 };
 
 const sGame_PaletteDataset SFA1_A_SODOM_PUNCH_PALETTES[] =
@@ -255,8 +255,8 @@ const sGame_PaletteDataset SFA1_A_SODOM_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_SODOM_PORTRAIT_PALETTES[] =
 {
-    { _T("Sodom Punch Portrait"), 0x7d900, 0x7d920 },
-    { _T("Sodom Kick Portrait"), 0x7dc00, 0x7dc20 },
+    { _T("Sodom Punch Portrait"), 0x7d900, 0x7d920, indexCPS2_SFA1_Portraits, indexCPS2_Sodom },
+    { _T("Sodom Kick Portrait"), 0x7dc00, 0x7dc20, indexCPS2_SFA1_Portraits, indexCPS2_Sodom },
 };
 
 const sGame_PaletteDataset SFA1_A_GUY_PUNCH_PALETTES[] =
@@ -285,8 +285,8 @@ const sGame_PaletteDataset SFA1_A_GUY_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_GUY_PORTRAIT_PALETTES[] =
 {
-    { _T("Guy Punch Portrait"), 0x7d940, 0x7d960 },
-    { _T("Guy Kick Portrait"), 0x7dc40, 0x7dc60 },
+    { _T("Guy Punch Portrait"), 0x7d940, 0x7d960, indexCPS2_SFA1_Portraits, indexCPS2_Guy },
+    { _T("Guy Kick Portrait"), 0x7dc40, 0x7dc60, indexCPS2_SFA1_Portraits, indexCPS2_Guy },
 };
 
 const sGame_PaletteDataset SFA1_A_BIRDIE_PUNCH_PALETTES[] =
@@ -315,8 +315,8 @@ const sGame_PaletteDataset SFA1_A_BIRDIE_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_BIRDIE_PORTRAIT_PALETTES[] =
 {
-    { _T("Birdie Punch Portrait"), 0x7d980, 0x7d9a0 },
-    { _T("Birdie Kick Portrait"), 0x7dc80, 0x7dca0 },
+    { _T("Birdie Punch Portrait"), 0x7d980, 0x7d9a0, indexCPS2_SFA1_Portraits, indexCPS2_Birdie },
+    { _T("Birdie Kick Portrait"), 0x7dc80, 0x7dca0, indexCPS2_SFA1_Portraits, indexCPS2_Birdie },
 };
 
 const sGame_PaletteDataset SFA1_A_ROSE_PUNCH_PALETTES[] =
@@ -345,8 +345,8 @@ const sGame_PaletteDataset SFA1_A_ROSE_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_ROSE_PORTRAIT_PALETTES[] =
 {
-    { _T("Rose Punch Portrait"), 0x7d9c0, 0x7da00 },
-    { _T("Rose Kick Portrait"), 0x7dcc0, 0x7dd00 },
+    { _T("Rose Punch Portrait"), 0x7d9c0, 0x7da00, indexCPS2_SFA1_Portraits, indexCPS2_Rose },
+    { _T("Rose Kick Portrait"), 0x7dcc0, 0x7dd00, indexCPS2_SFA1_Portraits, indexCPS2_Rose },
 };
 
 const sGame_PaletteDataset SFA1_A_MBISON_PUNCH_PALETTES[] =
@@ -375,8 +375,8 @@ const sGame_PaletteDataset SFA1_A_MBISON_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_MBISON_PORTRAIT_PALETTES[] =
 {
-    { _T("M.Bison Punch Portrait"), 0x7da00, 0x7da40 },
-    { _T("M.Bison Kick Portrait"), 0x7dd00, 0x7dd40 },
+    { _T("M.Bison Punch Portrait"), 0x7da00, 0x7da40, indexCPS2_SFA1_Portraits, indexCPS2_Bison },
+    { _T("M.Bison Kick Portrait"), 0x7dd00, 0x7dd40, indexCPS2_SFA1_Portraits, indexCPS2_Bison },
 };
 
 const sGame_PaletteDataset SFA1_A_SAGAT_PUNCH_PALETTES[] =
@@ -405,8 +405,8 @@ const sGame_PaletteDataset SFA1_A_SAGAT_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_SAGAT_PORTRAIT_PALETTES[] =
 {
-    { _T("Sagat Punch Portrait"), 0x7da40, 0x7da60 },
-    { _T("Sagat Kick Portrait"), 0x7dd40, 0x7dd60 },
+    { _T("Sagat Punch Portrait"), 0x7da40, 0x7da60, indexCPS2_SFA1_Portraits, indexCPS2_Sagat },
+    { _T("Sagat Kick Portrait"), 0x7dd40, 0x7dd60, indexCPS2_SFA1_Portraits, indexCPS2_Sagat },
 };
 
 const sGame_PaletteDataset SFA1_A_DAN_PUNCH_PALETTES[] =
@@ -435,8 +435,8 @@ const sGame_PaletteDataset SFA1_A_DAN_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_DAN_PORTRAIT_PALETTES[] =
 {
-    { _T("Dan Punch Portrait"), 0x7ec20, 0x7ec40 },
-    { _T("Dan Kick Portrait"), 0x7ec40, 0x7ec60 },
+    { _T("Dan Punch Portrait"), 0x7ec20, 0x7ec40, indexCPS2_SFA1_Portraits, indexCPS2_Dan },
+    { _T("Dan Kick Portrait"), 0x7ec40, 0x7ec60, indexCPS2_SFA1_Portraits, indexCPS2_Dan },
 };
 
 const sDescTreeNode SFA1_A_RYU_COLLECTION[] =

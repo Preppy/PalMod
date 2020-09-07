@@ -279,7 +279,13 @@ COLORREF* CGame_SFIII3_D::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < nCurrPalSz - 1; i++)
     {
-        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i] & 0x7FFF) | 0xFF000000;
+        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
+
+        if (i != 0)
+        {
+            // Force alpha, but leave the first transparency color alone
+            NewPal[i] |= 0xFF000000;
+        }
     }
 
     return NewPal;
@@ -299,7 +305,7 @@ void CGame_SFIII3_D::UpdatePalData()
             // First color is the transparency color
             for (UINT16 nPICtr = 1; nPICtr < uAmt; nPICtr++)
             {
-                m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = (ConvCol(crSrc[nPICtr]) | 0x8000);
+                m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = ConvCol(crSrc[nPICtr]);
             }
 
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);

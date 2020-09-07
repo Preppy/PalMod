@@ -20,10 +20,10 @@ struct sFileRule
 enum class ColMode
 {
     // If you change this list you must update CPalModDlg::OnEditCopy
-    COLMODE_12A,     // RGB444
-    COLMODE_15,      // BGR555
-    COLMODE_15ALT,   // RGB555
-    COLMODE_NEOGEO   // RGB666
+    COLMODE_12A,       // RGB444
+    COLMODE_15,        // BGR555
+    COLMODE_15ALT,     // RGB555
+    COLMODE_NEOGEO,    // RGB666
 };
 
 enum class ColFlag
@@ -160,6 +160,7 @@ public:
     int nTargetImgId = 0;
 
     UINT16*** GetDataBuffer() { return m_pppDataBuffer; };
+    UINT32 GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation; };
 
     UINT16(*ConvCol)(UINT32 inCol);
     UINT32(*ConvPal)(UINT16 inCol);

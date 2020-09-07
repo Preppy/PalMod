@@ -827,7 +827,7 @@ const sGame_PaletteDataset SFA3_A_ROSE_XISMP[] =
     { _T("X-Ism Punch Extra 2"), 0x2e2d4, 0x2e2f4 },
     { _T("X-Ism Punch Super Trail Light"), 0x2e2f4, 0x2e314, 0x41, 0x00 },
     { _T("X-Ism Punch Super Trail Dark"), 0x2e314, 0x2e334, 0x41, 0x00 },
-    { _T("X-ism Punch Dress Winpose"), 0x4ae14, 0x4ae34, indexCPS2_Rose, 1 },
+    { _T("X-Ism Punch Dress Winpose"), 0x4ae14, 0x4ae34, indexCPS2_Rose, 1 },
 };
 
 const sGame_PaletteDataset SFA3_A_ROSE_XISMK[] =
@@ -837,7 +837,7 @@ const sGame_PaletteDataset SFA3_A_ROSE_XISMK[] =
     { _T("X-Ism Kick Extra 2"), 0x2e374, 0x2e394 },
     { _T("X-Ism Kick Super Trail Light"), 0x2e394, 0x2e3b4, 0x41, 0x00 },
     { _T("X-Ism Kick Super Trail Dark"), 0x2e3b4, 0x2e3d4, 0x41, 0x00 },
-    { _T("X-ism Kick Dress Winpose"), 0x4ae34, 0x4ae54, indexCPS2_Rose, 1 },
+    { _T("X-Ism Kick Dress Winpose"), 0x4ae34, 0x4ae54, indexCPS2_Rose, 1 },
 };
 
 const sGame_PaletteDataset SFA3_A_ROSE_AISMP[] =
@@ -847,7 +847,7 @@ const sGame_PaletteDataset SFA3_A_ROSE_AISMP[] =
     { _T("A-Ism Punch Extra 2"), 0x2e414, 0x2e434 },
     { _T("A-Ism Punch Super Trail Light"), 0x2e434, 0x2e454, 0x41, 0x00 },
     { _T("A-Ism Punch Super Trail Dark"), 0x2e454, 0x2e474, 0x41, 0x00 },
-    { _T("A-ism Punch Dress Winpose"), 0x4ae54, 0x4ae74, indexCPS2_Rose, 1 },
+    { _T("A-Ism Punch Dress Winpose"), 0x4ae54, 0x4ae74, indexCPS2_Rose, 1 },
 };
 
 const sGame_PaletteDataset SFA3_A_ROSE_AISMK[] =
@@ -857,7 +857,7 @@ const sGame_PaletteDataset SFA3_A_ROSE_AISMK[] =
     { _T("A-Ism Kick Extra 2"), 0x2e4b4, 0x2e4d4 },
     { _T("A-Ism Kick Super Trail Light"), 0x2e4d4, 0x2e4f4, 0x41, 0x00 },
     { _T("A-Ism Kick Super Trail Dark"), 0x2e4f4, 0x2e514, 0x41, 0x00 },
-    { _T("A-ism Kick Dress Winpose"), 0x4ae74, 0x4ae94, indexCPS2_Rose, 1 },
+    { _T("A-Ism Kick Dress Winpose"), 0x4ae74, 0x4ae94, indexCPS2_Rose, 1 },
 };
 
 const sGame_PaletteDataset SFA3_A_ROSE_VISMP[] =
@@ -867,7 +867,7 @@ const sGame_PaletteDataset SFA3_A_ROSE_VISMP[] =
     { _T("V-Ism Punch Extra 2"), 0x2e554, 0x2e574 },
     { _T("V-Ism Punch Super Trail Light"), 0x2e574, 0x2e594, 0x41, 0x00 },
     { _T("V-Ism Punch Super Trail Dark"), 0x2e594, 0x2e5b4, 0x41, 0x00 },
-    { _T("V-ism Punch Dress Winpose"), 0x4ae94, 0x4aeb4, indexCPS2_Rose, 1 },
+    { _T("V-Ism Punch Dress Winpose"), 0x4ae94, 0x4aeb4, indexCPS2_Rose, 1 },
 };
 
 const sGame_PaletteDataset SFA3_A_ROSE_VISMK[] =
@@ -877,7 +877,7 @@ const sGame_PaletteDataset SFA3_A_ROSE_VISMK[] =
     { _T("V-Ism Kick Extra 2"), 0x2e5f4, 0x2e614 },
     { _T("V-Ism Kick Super Trail Light"), 0x2e614, 0x2e634, 0x41, 0x00 },
     { _T("V-Ism Kick Super Trail Dark"), 0x2e634, 0x2e654, 0x41, 0x00 },
-    { _T("V-ism Kick Dress Winpose"), 0x4aeb4, 0x4aed4, indexCPS2_Rose, 1 },
+    { _T("V-Ism Kick Dress Winpose"), 0x4aeb4, 0x4aed4, indexCPS2_Rose, 1 },
 };
     
 const sGame_PaletteDataset SFA3_A_ROSE_STATUS[] =
@@ -2734,252 +2734,252 @@ const sGame_PaletteDataset SFA3_A_KARIN_PORTRAIT_SELECT_PALETTES[] =
 
 const sGame_PaletteDataset SFA3_A_RYU_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x51f94, 0x52074 },
-    { _T("X-Ism Kick"), 0x52094, 0x52174 },
-    { _T("A-Ism Punch"), 0x52194, 0x52274 },
-    { _T("A-Ism Kick"), 0x52294, 0x52374 },
-    { _T("V-Ism Punch"), 0x52394, 0x52474 },
-    { _T("V-Ism Kick"), 0x52494, 0x52574 },
+    { _T("X-Ism Punch"), 0x51f94, 0x52074, indexCPS2_SFA3_Portraits, indexCPS2_Ryu },
+    { _T("X-Ism Kick"), 0x52094, 0x52174, indexCPS2_SFA3_Portraits, indexCPS2_Ryu },
+    { _T("A-Ism Punch"), 0x52194, 0x52274, indexCPS2_SFA3_Portraits, indexCPS2_Ryu },
+    { _T("A-Ism Kick"), 0x52294, 0x52374, indexCPS2_SFA3_Portraits, indexCPS2_Ryu },
+    { _T("V-Ism Punch"), 0x52394, 0x52474, indexCPS2_SFA3_Portraits, indexCPS2_Ryu },
+    { _T("V-Ism Kick"), 0x52494, 0x52574, indexCPS2_SFA3_Portraits, indexCPS2_Ryu },
 };
 
 const sGame_PaletteDataset SFA3_A_KEN_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x52594, 0x52694 },
-    { _T("X-Ism Kick"), 0x52694, 0x52794 },
-    { _T("A-Ism Punch"), 0x52794, 0x52894 },
-    { _T("A-Ism Kick"), 0x52894, 0x52994 },
-    { _T("V-Ism Punch"), 0x52994, 0x52a94 },
-    { _T("V-Ism Kick"), 0x52a94, 0x52b94 },
+    { _T("X-Ism Punch"), 0x52594, 0x52694, indexCPS2_SFA3_Portraits, indexCPS2_Ken },
+    { _T("X-Ism Kick"), 0x52694, 0x52794, indexCPS2_SFA3_Portraits, indexCPS2_Ken },
+    { _T("A-Ism Punch"), 0x52794, 0x52894, indexCPS2_SFA3_Portraits, indexCPS2_Ken },
+    { _T("A-Ism Kick"), 0x52894, 0x52994, indexCPS2_SFA3_Portraits, indexCPS2_Ken },
+    { _T("V-Ism Punch"), 0x52994, 0x52a94, indexCPS2_SFA3_Portraits, indexCPS2_Ken },
+    { _T("V-Ism Kick"), 0x52a94, 0x52b94, indexCPS2_SFA3_Portraits, indexCPS2_Ken },
 };
 
 const sGame_PaletteDataset SFA3_A_AKUMA_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x52b94, 0x52bf4 },
-    { _T("X-Ism Kick"), 0x52c94, 0x52cf4 },
-    { _T("A-Ism Punch"), 0x52d94, 0x52df4 },
-    { _T("A-Ism Kick"), 0x52e94, 0x52ef4 },
-    { _T("V-Ism Punch"), 0x52f94, 0x52ff4 },
-    { _T("V-Ism Kick"), 0x53094, 0x530f4 },
+    { _T("X-Ism Punch"), 0x52b94, 0x52bf4, indexCPS2_SFA3_Portraits, indexCPS2_Akuma },
+    { _T("X-Ism Kick"), 0x52c94, 0x52cf4, indexCPS2_SFA3_Portraits, indexCPS2_Akuma },
+    { _T("A-Ism Punch"), 0x52d94, 0x52df4, indexCPS2_SFA3_Portraits, indexCPS2_Akuma },
+    { _T("A-Ism Kick"), 0x52e94, 0x52ef4, indexCPS2_SFA3_Portraits, indexCPS2_Akuma },
+    { _T("V-Ism Punch"), 0x52f94, 0x52ff4, indexCPS2_SFA3_Portraits, indexCPS2_Akuma },
+    { _T("V-Ism Kick"), 0x53094, 0x530f4, indexCPS2_SFA3_Portraits, indexCPS2_Akuma },
 };
 
 const sGame_PaletteDataset SFA3_A_CHARLIE_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x53194, 0x53294 },
-    { _T("X-Ism Kick"), 0x53294, 0x53394 },
-    { _T("A-Ism Punch"), 0x53394, 0x53494 },
-    { _T("A-Ism Kick"), 0x53494, 0x53594 },
-    { _T("V-Ism Punch"), 0x53594, 0x53694 },
-    { _T("V-Ism Kick"), 0x53694, 0x53794 },
+    { _T("X-Ism Punch"), 0x53194, 0x53294, indexCPS2_SFA3_Portraits, indexCPS2_Charlie },
+    { _T("X-Ism Kick"), 0x53294, 0x53394, indexCPS2_SFA3_Portraits, indexCPS2_Charlie },
+    { _T("A-Ism Punch"), 0x53394, 0x53494, indexCPS2_SFA3_Portraits, indexCPS2_Charlie },
+    { _T("A-Ism Kick"), 0x53494, 0x53594, indexCPS2_SFA3_Portraits, indexCPS2_Charlie },
+    { _T("V-Ism Punch"), 0x53594, 0x53694, indexCPS2_SFA3_Portraits, indexCPS2_Charlie },
+    { _T("V-Ism Kick"), 0x53694, 0x53794, indexCPS2_SFA3_Portraits, indexCPS2_Charlie },
 };
 
 const sGame_PaletteDataset SFA3_A_CHUNLI_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x53794, 0x537f4 },
-    { _T("X-Ism Kick"), 0x53894, 0x538f4 },
-    { _T("A-Ism Punch "), 0x53994, 0x53a54 },
-    { _T("A-Ism Kick"), 0x53a94, 0x53b54 },
-    { _T("V-Ism Punch"), 0x53b94, 0x53c54 },
-    { _T("V-Ism Kick"), 0x53c94, 0x53d54 },
+    { _T("X-Ism Punch"), 0x53794, 0x537f4, indexCPS2_SFA3_Portraits, 0x1c },
+    { _T("X-Ism Kick"), 0x53894, 0x538f4, indexCPS2_SFA3_Portraits, 0x1c },
+    { _T("A-Ism Punch "), 0x53994, 0x53a54, indexCPS2_SFA3_Portraits, indexCPS2_ChunLi },
+    { _T("A-Ism Kick"), 0x53a94, 0x53b54, indexCPS2_SFA3_Portraits, indexCPS2_ChunLi },
+    { _T("V-Ism Punch"), 0x53b94, 0x53c54, indexCPS2_SFA3_Portraits, indexCPS2_ChunLi },
+    { _T("V-Ism Kick"), 0x53c94, 0x53d54, indexCPS2_SFA3_Portraits, indexCPS2_ChunLi },
 };
 
 const sGame_PaletteDataset SFA3_A_ADON_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x53d94, 0x53e14 },
-    { _T("X-Ism Kick"), 0x53e94, 0x53f14 },
-    { _T("A-Ism Punch"), 0x53f94, 0x54014 },
-    { _T("A-Ism Kick"), 0x54094, 0x54114 },
-    { _T("V-Ism Punch"), 0x54194, 0x54214 },
-    { _T("V-Ism Kick"), 0x54294, 0x54314 },
+    { _T("X-Ism Punch"), 0x53d94, 0x53e14, indexCPS2_SFA3_Portraits, indexCPS2_Adon },
+    { _T("X-Ism Kick"), 0x53e94, 0x53f14, indexCPS2_SFA3_Portraits, indexCPS2_Adon },
+    { _T("A-Ism Punch"), 0x53f94, 0x54014, indexCPS2_SFA3_Portraits, indexCPS2_Adon },
+    { _T("A-Ism Kick"), 0x54094, 0x54114, indexCPS2_SFA3_Portraits, indexCPS2_Adon },
+    { _T("V-Ism Punch"), 0x54194, 0x54214, indexCPS2_SFA3_Portraits, indexCPS2_Adon },
+    { _T("V-Ism Kick"), 0x54294, 0x54314, indexCPS2_SFA3_Portraits, indexCPS2_Adon },
 };
 
 const sGame_PaletteDataset SFA3_A_SODOM_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x54394, 0x54494 },
-    { _T("X-Ism Kick"), 0x54494, 0x54594 },
-    { _T("A-Ism Punch"), 0x54594, 0x54694 },
-    { _T("A-Ism Kick"), 0x54694, 0x54794 },
-    { _T("V-Ism Punch"), 0x54794, 0x54894 },
-    { _T("V-Ism Kick"), 0x54894, 0x54994 },
+    { _T("X-Ism Punch"), 0x54394, 0x54494, indexCPS2_SFA3_Portraits, 0x3c },
+    { _T("X-Ism Kick"), 0x54494, 0x54594, indexCPS2_SFA3_Portraits, 0x3c },
+    { _T("A-Ism Punch"), 0x54594, 0x54694, indexCPS2_SFA3_Portraits, indexCPS2_Sodom },
+    { _T("A-Ism Kick"), 0x54694, 0x54794, indexCPS2_SFA3_Portraits, indexCPS2_Sodom },
+    { _T("V-Ism Punch"), 0x54794, 0x54894, indexCPS2_SFA3_Portraits, indexCPS2_Sodom },
+    { _T("V-Ism Kick"), 0x54894, 0x54994, indexCPS2_SFA3_Portraits, indexCPS2_Sodom },
 };
 
 const sGame_PaletteDataset SFA3_A_GUY_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x54994, 0x54a34 },
-    { _T("X-Ism Kick"), 0x54a94, 0x54b34 },
-    { _T("A-Ism Punch"), 0x54b94, 0x54c34 },
-    { _T("A-Ism Kick"), 0x54c94, 0x54d34 },
-    { _T("V-Ism Punch"), 0x54d94, 0x54e34 },
-    { _T("V-Ism Kick"), 0x54e94, 0x54f34 },
+    { _T("X-Ism Punch"), 0x54994, 0x54a34, indexCPS2_SFA3_Portraits, indexCPS2_Guy },
+    { _T("X-Ism Kick"), 0x54a94, 0x54b34, indexCPS2_SFA3_Portraits, indexCPS2_Guy },
+    { _T("A-Ism Punch"), 0x54b94, 0x54c34, indexCPS2_SFA3_Portraits, indexCPS2_Guy },
+    { _T("A-Ism Kick"), 0x54c94, 0x54d34, indexCPS2_SFA3_Portraits, indexCPS2_Guy },
+    { _T("V-Ism Punch"), 0x54d94, 0x54e34, indexCPS2_SFA3_Portraits, indexCPS2_Guy },
+    { _T("V-Ism Kick"), 0x54e94, 0x54f34, indexCPS2_SFA3_Portraits, indexCPS2_Guy },
 };
 
 const sGame_PaletteDataset SFA3_A_BIRDIE_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x54f94, 0x55074 },
-    { _T("X-Ism Kick"), 0x55094, 0x55174 },
-    { _T("A-Ism Punch"), 0x55194, 0x55274 },
-    { _T("A-Ism Kick"), 0x55294, 0x55374 },
-    { _T("V-Ism Punch"), 0x55394, 0x55474 },
-    { _T("V-Ism Kick"), 0x55494, 0x55574 },
+    { _T("X-Ism Punch"), 0x54f94, 0x55074, indexCPS2_SFA3_Portraits, indexCPS2_Birdie },
+    { _T("X-Ism Kick"), 0x55094, 0x55174, indexCPS2_SFA3_Portraits, indexCPS2_Birdie },
+    { _T("A-Ism Punch"), 0x55194, 0x55274, indexCPS2_SFA3_Portraits, indexCPS2_Birdie },
+    { _T("A-Ism Kick"), 0x55294, 0x55374, indexCPS2_SFA3_Portraits, indexCPS2_Birdie },
+    { _T("V-Ism Punch"), 0x55394, 0x55474, indexCPS2_SFA3_Portraits, indexCPS2_Birdie },
+    { _T("V-Ism Kick"), 0x55494, 0x55574, indexCPS2_SFA3_Portraits, indexCPS2_Birdie },
 };
 
 const sGame_PaletteDataset SFA3_A_ROSE_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x55594, 0x55654 },
-    { _T("X-Ism Kick"), 0x55694, 0x55754 },
-    { _T("A-Ism Punch"), 0x55794, 0x55854 },
-    { _T("A-Ism Kick"), 0x55894, 0x55954 },
-    { _T("V-Ism Punch"), 0x55994, 0x55a54 },
-    { _T("V-Ism Kick"), 0x55a94, 0x55b54 },
+    { _T("X-Ism Punch"), 0x55594, 0x55654, indexCPS2_SFA3_Portraits, indexCPS2_Rose },
+    { _T("X-Ism Kick"), 0x55694, 0x55754, indexCPS2_SFA3_Portraits, indexCPS2_Rose },
+    { _T("A-Ism Punch"), 0x55794, 0x55854, indexCPS2_SFA3_Portraits, indexCPS2_Rose },
+    { _T("A-Ism Kick"), 0x55894, 0x55954, indexCPS2_SFA3_Portraits, indexCPS2_Rose },
+    { _T("V-Ism Punch"), 0x55994, 0x55a54, indexCPS2_SFA3_Portraits, indexCPS2_Rose },
+    { _T("V-Ism Kick"), 0x55a94, 0x55b54, indexCPS2_SFA3_Portraits, indexCPS2_Rose },
 };
 
 const sGame_PaletteDataset SFA3_A_MBISON_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x55b94, 0x55c74 },
-    { _T("X-Ism Kick"), 0x55c94, 0x55d74 },
-    { _T("A-Ism Punch"), 0x55d94, 0x55e74 },
-    { _T("A-Ism Kick"), 0x55e94, 0x55f74 },
-    { _T("V-Ism Punch"), 0x55f94, 0x56074 },
-    { _T("V-Ism Kick"), 0x56094, 0x56174 },
+    { _T("X-Ism Punch"), 0x55b94, 0x55c74, indexCPS2_SFA3_Portraits, indexCPS2_Bison },
+    { _T("X-Ism Kick"), 0x55c94, 0x55d74, indexCPS2_SFA3_Portraits, indexCPS2_Bison },
+    { _T("A-Ism Punch"), 0x55d94, 0x55e74, indexCPS2_SFA3_Portraits, indexCPS2_Bison },
+    { _T("A-Ism Kick"), 0x55e94, 0x55f74, indexCPS2_SFA3_Portraits, indexCPS2_Bison },
+    { _T("V-Ism Punch"), 0x55f94, 0x56074, indexCPS2_SFA3_Portraits, indexCPS2_Bison },
+    { _T("V-Ism Kick"), 0x56094, 0x56174, indexCPS2_SFA3_Portraits, indexCPS2_Bison },
 };
 
 const sGame_PaletteDataset SFA3_A_SAGAT_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x56194, 0x561b4 },
-    { _T("X-Ism Kick"), 0x56294, 0x562b4 },
-    { _T("A-Ism Punch"), 0x56394, 0x563b4 },
-    { _T("A-Ism Kick"), 0x56494, 0x564b4 },
-    { _T("V-Ism Punch"), 0x56594, 0x565b4 },
-    { _T("V-Ism Kick"), 0x56694, 0x566b4 },
+    { _T("X-Ism Punch"), 0x56194, 0x561b4, indexCPS2_SFA3_Portraits, indexCPS2_Sagat },
+    { _T("X-Ism Kick"), 0x56294, 0x562b4, indexCPS2_SFA3_Portraits, indexCPS2_Sagat },
+    { _T("A-Ism Punch"), 0x56394, 0x563b4, indexCPS2_SFA3_Portraits, indexCPS2_Sagat },
+    { _T("A-Ism Kick"), 0x56494, 0x564b4, indexCPS2_SFA3_Portraits, indexCPS2_Sagat },
+    { _T("V-Ism Punch"), 0x56594, 0x565b4, indexCPS2_SFA3_Portraits, indexCPS2_Sagat },
+    { _T("V-Ism Kick"), 0x56694, 0x566b4, indexCPS2_SFA3_Portraits, indexCPS2_Sagat },
 };
 
 const sGame_PaletteDataset SFA3_A_DAN_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x56794, 0x56834 },
-    { _T("X-Ism Kick"), 0x56894, 0x56934 },
-    { _T("A-Ism Punch"), 0x56994, 0x56a34 },
-    { _T("A-Ism Kick"), 0x56a94, 0x56b34 },
-    { _T("V-Ism Punch"), 0x56b94, 0x56c34 },
-    { _T("V-Ism Kick"), 0x56c94, 0x56d34 },
+    { _T("X-Ism Punch"), 0x56794, 0x56834, indexCPS2_SFA3_Portraits, indexCPS2_Dan },
+    { _T("X-Ism Kick"), 0x56894, 0x56934, indexCPS2_SFA3_Portraits, indexCPS2_Dan },
+    { _T("A-Ism Punch"), 0x56994, 0x56a34, indexCPS2_SFA3_Portraits, indexCPS2_Dan },
+    { _T("A-Ism Kick"), 0x56a94, 0x56b34, indexCPS2_SFA3_Portraits, indexCPS2_Dan },
+    { _T("V-Ism Punch"), 0x56b94, 0x56c34, indexCPS2_SFA3_Portraits, indexCPS2_Dan },
+    { _T("V-Ism Kick"), 0x56c94, 0x56d34, indexCPS2_SFA3_Portraits, indexCPS2_Dan },
 };
 
 const sGame_PaletteDataset SFA3_A_SAKURA_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x56d94, 0x56e14 },
-    { _T("X-Ism Kick"), 0x56e94, 0x56f14 },
-    { _T("A-Ism Punch"), 0x56f94, 0x57014 },
-    { _T("A-Ism Kick"), 0x57094, 0x57114 },
-    { _T("V-Ism Punch"), 0x57194, 0x57214 },
-    { _T("V-Ism Kick"), 0x57294, 0x57314 },
+    { _T("X-Ism Punch"), 0x56d94, 0x56e14, indexCPS2_SFA3_Portraits, indexCPS2_Sakura },
+    { _T("X-Ism Kick"), 0x56e94, 0x56f14, indexCPS2_SFA3_Portraits, indexCPS2_Sakura },
+    { _T("A-Ism Punch"), 0x56f94, 0x57014, indexCPS2_SFA3_Portraits, indexCPS2_Sakura },
+    { _T("A-Ism Kick"), 0x57094, 0x57114, indexCPS2_SFA3_Portraits, indexCPS2_Sakura },
+    { _T("V-Ism Punch"), 0x57194, 0x57214, indexCPS2_SFA3_Portraits, indexCPS2_Sakura },
+    { _T("V-Ism Kick"), 0x57294, 0x57314, indexCPS2_SFA3_Portraits, indexCPS2_Sakura },
 };
 
 const sGame_PaletteDataset SFA3_A_ROLENTO_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x57394, 0x57474 },
-    { _T("X-Ism Kick"), 0x57494, 0x57574 },
-    { _T("A-Ism Punch"), 0x57594, 0x57674 },
-    { _T("A-Ism Kick"), 0x57694, 0x57774 },
-    { _T("V-Ism Punch"), 0x57794, 0x57874 },
-    { _T("V-Ism Kick"), 0x57894, 0x57974 },
+    { _T("X-Ism Punch"), 0x57394, 0x57474, indexCPS2_SFA3_Portraits, indexCPS2_Rolento },
+    { _T("X-Ism Kick"), 0x57494, 0x57574, indexCPS2_SFA3_Portraits, indexCPS2_Rolento },
+    { _T("A-Ism Punch"), 0x57594, 0x57674, indexCPS2_SFA3_Portraits, indexCPS2_Rolento },
+    { _T("A-Ism Kick"), 0x57694, 0x57774, indexCPS2_SFA3_Portraits, indexCPS2_Rolento },
+    { _T("V-Ism Punch"), 0x57794, 0x57874, indexCPS2_SFA3_Portraits, indexCPS2_Rolento },
+    { _T("V-Ism Kick"), 0x57894, 0x57974, indexCPS2_SFA3_Portraits, indexCPS2_Rolento },
 };
 
 const sGame_PaletteDataset SFA3_A_DHALSIM_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x57994, 0x57a14 },
-    { _T("X-Ism Kick"), 0x57a94, 0x57b14 },
-    { _T("A-Ism Punch"), 0x57b94, 0x57c14 },
-    { _T("A-Ism Kick"), 0x57c94, 0x57d14 },
-    { _T("V-Ism Punch"), 0x57d94, 0x57e14 },
-    { _T("V-Ism Kick"), 0x57e94, 0x57f14 },
+    { _T("X-Ism Punch"), 0x57994, 0x57a14, indexCPS2_SFA3_Portraits, indexCPS2_Dhalsim },
+    { _T("X-Ism Kick"), 0x57a94, 0x57b14, indexCPS2_SFA3_Portraits, indexCPS2_Dhalsim },
+    { _T("A-Ism Punch"), 0x57b94, 0x57c14, indexCPS2_SFA3_Portraits, indexCPS2_Dhalsim },
+    { _T("A-Ism Kick"), 0x57c94, 0x57d14, indexCPS2_SFA3_Portraits, indexCPS2_Dhalsim },
+    { _T("V-Ism Punch"), 0x57d94, 0x57e14, indexCPS2_SFA3_Portraits, indexCPS2_Dhalsim },
+    { _T("V-Ism Kick"), 0x57e94, 0x57f14, indexCPS2_SFA3_Portraits, indexCPS2_Dhalsim },
 };
 
 const sGame_PaletteDataset SFA3_A_ZANGIEF_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x57f94, 0x57fd4 },
-    { _T("X-Ism Kick"), 0x58094, 0x580d4 },
-    { _T("A-Ism Punch"), 0x58194, 0x581d4 },
-    { _T("A-Ism Kick"), 0x58294, 0x582d4 },
-    { _T("V-Ism Punch"), 0x58394, 0x583d4 },
-    { _T("V-Ism Kick"), 0x58494, 0x584d4 },
+    { _T("X-Ism Punch"), 0x57f94, 0x57fd4, indexCPS2_SFA3_Portraits, indexCPS2_Zangief },
+    { _T("X-Ism Kick"), 0x58094, 0x580d4, indexCPS2_SFA3_Portraits, indexCPS2_Zangief },
+    { _T("A-Ism Punch"), 0x58194, 0x581d4, indexCPS2_SFA3_Portraits, indexCPS2_Zangief },
+    { _T("A-Ism Kick"), 0x58294, 0x582d4, indexCPS2_SFA3_Portraits, indexCPS2_Zangief },
+    { _T("V-Ism Punch"), 0x58394, 0x583d4, indexCPS2_SFA3_Portraits, indexCPS2_Zangief },
+    { _T("V-Ism Kick"), 0x58494, 0x584d4, indexCPS2_SFA3_Portraits, indexCPS2_Zangief },
 };
 
 const sGame_PaletteDataset SFA3_A_GEN_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x58594, 0x58614 },
-    { _T("X-Ism Kick"), 0x58694, 0x58714 },
-    { _T("A-Ism Punch"), 0x58794, 0x58814 },
-    { _T("A-Ism Kick"), 0x58894, 0x58914 },
-    { _T("V-Ism Punch"), 0x58994, 0x58a14 },
-    { _T("V-Ism Kick"), 0x58a94, 0x58b14 },
+    { _T("X-Ism Punch"), 0x58594, 0x58614, indexCPS2_SFA3_Portraits, indexCPS2_Gen },
+    { _T("X-Ism Kick"), 0x58694, 0x58714, indexCPS2_SFA3_Portraits, indexCPS2_Gen },
+    { _T("A-Ism Punch"), 0x58794, 0x58814, indexCPS2_SFA3_Portraits, indexCPS2_Gen },
+    { _T("A-Ism Kick"), 0x58894, 0x58914, indexCPS2_SFA3_Portraits, indexCPS2_Gen },
+    { _T("V-Ism Punch"), 0x58994, 0x58a14, indexCPS2_SFA3_Portraits, indexCPS2_Gen },
+    { _T("V-Ism Kick"), 0x58a94, 0x58b14, indexCPS2_SFA3_Portraits, indexCPS2_Gen },
 };
 
 const sGame_PaletteDataset SFA3_A_CAMMY_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x59194, 0x59234 },
-    { _T("X-Ism Kick"), 0x59294, 0x59334 },
-    { _T("A-Ism Punch"), 0x59394, 0x59434 },
-    { _T("A-Ism Kick"), 0x59494, 0x59534 },
-    { _T("V-Ism Punch"), 0x59594, 0x59634 },
-    { _T("V-Ism Kick"), 0x59694, 0x59734 },
+    { _T("X-Ism Punch"), 0x59194, 0x59234, indexCPS2_SFA3_Portraits, indexCPS2_Cammy },
+    { _T("X-Ism Kick"), 0x59294, 0x59334, indexCPS2_SFA3_Portraits, indexCPS2_Cammy },
+    { _T("A-Ism Punch"), 0x59394, 0x59434, indexCPS2_SFA3_Portraits, indexCPS2_Cammy },
+    { _T("A-Ism Kick"), 0x59494, 0x59534, indexCPS2_SFA3_Portraits, indexCPS2_Cammy },
+    { _T("V-Ism Punch"), 0x59594, 0x59634, indexCPS2_SFA3_Portraits, indexCPS2_Cammy },
+    { _T("V-Ism Kick"), 0x59694, 0x59734, indexCPS2_SFA3_Portraits, indexCPS2_Cammy },
 };
 
 const sGame_PaletteDataset SFA3_A_EHONDA_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x59794, 0x597d4 },
-    { _T("X-Ism Kick"), 0x59894, 0x598d4 },
-    { _T("A-Ism Punch"), 0x59994, 0x599d4 },
-    { _T("A-Ism Kick"), 0x59a94, 0x59ad4 },
-    { _T("V-Ism Punch"), 0x59b94, 0x59bd4 },
-    { _T("V-Ism Kick"), 0x59c94, 0x59cd4 },
+    { _T("X-Ism Punch"), 0x59794, 0x597d4, indexCPS2_SFA3_Portraits, indexCPS2_EHonda },
+    { _T("X-Ism Kick"), 0x59894, 0x598d4, indexCPS2_SFA3_Portraits, indexCPS2_EHonda },
+    { _T("A-Ism Punch"), 0x59994, 0x599d4, indexCPS2_SFA3_Portraits, indexCPS2_EHonda },
+    { _T("A-Ism Kick"), 0x59a94, 0x59ad4, indexCPS2_SFA3_Portraits, indexCPS2_EHonda },
+    { _T("V-Ism Punch"), 0x59b94, 0x59bd4, indexCPS2_SFA3_Portraits, indexCPS2_EHonda },
+    { _T("V-Ism Kick"), 0x59c94, 0x59cd4, indexCPS2_SFA3_Portraits, indexCPS2_EHonda },
 };
 
 const sGame_PaletteDataset SFA3_A_BLANKA_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x59d94, 0x59dd4 },
-    { _T("X-Ism Kick"), 0x59e94, 0x59ed4 },
-    { _T("A-Ism Punch"), 0x59f94, 0x59fd4 },
-    { _T("A-Ism Kick"), 0x5a094, 0x5a0d4 },
-    { _T("V-Ism Punch"), 0x5a194, 0x5a1d4 },
-    { _T("V-Ism Kick"), 0x5a294, 0x5a2d4 },
+    { _T("X-Ism Punch"), 0x59d94, 0x59dd4, indexCPS2_SFA3_Portraits, indexCPS2_Blanka },
+    { _T("X-Ism Kick"), 0x59e94, 0x59ed4, indexCPS2_SFA3_Portraits, indexCPS2_Blanka },
+    { _T("A-Ism Punch"), 0x59f94, 0x59fd4, indexCPS2_SFA3_Portraits, indexCPS2_Blanka },
+    { _T("A-Ism Kick"), 0x5a094, 0x5a0d4, indexCPS2_SFA3_Portraits, indexCPS2_Blanka },
+    { _T("V-Ism Punch"), 0x5a194, 0x5a1d4, indexCPS2_SFA3_Portraits, indexCPS2_Blanka },
+    { _T("V-Ism Kick"), 0x5a294, 0x5a2d4, indexCPS2_SFA3_Portraits, indexCPS2_Blanka },
 };
 
 const sGame_PaletteDataset SFA3_A_RMIKA_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x5a394, 0x5a414 },
-    { _T("X-Ism Kick"), 0x5a494, 0x5a514 },
-    { _T("A-Ism Punch"), 0x5a594, 0x5a614 },
-    { _T("A-Ism Kick"), 0x5a694, 0x5a714 },
-    { _T("V-Ism Punch"), 0x5a794, 0x5a814 },
-    { _T("V-Ism Kick"), 0x5a894, 0x5a914 },
+    { _T("X-Ism Punch"), 0x5a394, 0x5a414, indexCPS2_SFA3_Portraits, indexCPS2_RMika },
+    { _T("X-Ism Kick"), 0x5a494, 0x5a514, indexCPS2_SFA3_Portraits, indexCPS2_RMika },
+    { _T("A-Ism Punch"), 0x5a594, 0x5a614, indexCPS2_SFA3_Portraits, indexCPS2_RMika },
+    { _T("A-Ism Kick"), 0x5a694, 0x5a714, indexCPS2_SFA3_Portraits, indexCPS2_RMika },
+    { _T("V-Ism Punch"), 0x5a794, 0x5a814, indexCPS2_SFA3_Portraits, indexCPS2_RMika },
+    { _T("V-Ism Kick"), 0x5a894, 0x5a914, indexCPS2_SFA3_Portraits, indexCPS2_RMika },
 };
 
 const sGame_PaletteDataset SFA3_A_CODY_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x5a994, 0x5a9d4 },
-    { _T("X-Ism Kick"), 0x5aa94, 0x5aad4 },
-    { _T("A-Ism Punch"), 0x5ab94, 0x5abd4 },
-    { _T("A-Ism Kick"), 0x5ac94, 0x5acd4 },
-    { _T("V-Ism Punch"), 0x5ad94, 0x5add4 },
-    { _T("V-Ism Kick"), 0x5ae94, 0x5aed4 },
+    { _T("X-Ism Punch"), 0x5a994, 0x5a9d4, indexCPS2_SFA3_Portraits, indexCPS2_Cody },
+    { _T("X-Ism Kick"), 0x5aa94, 0x5aad4, indexCPS2_SFA3_Portraits, indexCPS2_Cody },
+    { _T("A-Ism Punch"), 0x5ab94, 0x5abd4, indexCPS2_SFA3_Portraits, indexCPS2_Cody },
+    { _T("A-Ism Kick"), 0x5ac94, 0x5acd4, indexCPS2_SFA3_Portraits, indexCPS2_Cody },
+    { _T("V-Ism Punch"), 0x5ad94, 0x5add4, indexCPS2_SFA3_Portraits, indexCPS2_Cody },
+    { _T("V-Ism Kick"), 0x5ae94, 0x5aed4, indexCPS2_SFA3_Portraits, indexCPS2_Cody },
 };
 
 const sGame_PaletteDataset SFA3_A_VEGA_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Punch"), 0x5af94, 0x5b054 },
-    { _T("X-Ism Kick"), 0x5b094, 0x5b154 },
-    { _T("A-Ism Punch"), 0x5b194, 0x5b254 },
-    { _T("A-Ism Kick"), 0x5b294, 0x5b354 },
-    { _T("V-Ism Punch"), 0x5b394, 0x5b454 },
-    { _T("V-Ism Kick"), 0x5b494, 0x5b554 },
+    { _T("X-Ism Punch"), 0x5af94, 0x5b054, indexCPS2_SFA3_Portraits, indexCPS2_Vega },
+    { _T("X-Ism Kick"), 0x5b094, 0x5b154, indexCPS2_SFA3_Portraits, indexCPS2_Vega },
+    { _T("A-Ism Punch"), 0x5b194, 0x5b254, indexCPS2_SFA3_Portraits, indexCPS2_Vega },
+    { _T("A-Ism Kick"), 0x5b294, 0x5b354, indexCPS2_SFA3_Portraits, indexCPS2_Vega },
+    { _T("V-Ism Punch"), 0x5b394, 0x5b454, indexCPS2_SFA3_Portraits, indexCPS2_Vega },
+    { _T("V-Ism Kick"), 0x5b494, 0x5b554, indexCPS2_SFA3_Portraits, indexCPS2_Vega },
 };
 
 const sGame_PaletteDataset SFA3_A_KARIN_PORTRAIT_WIN_PALETTES[] =
 {
-    { _T("X-Ism Kick"), 0x5b594, 0x5b694 },
-    { _T("X-Ism Kick"), 0x5b694, 0x5b794 },
-    { _T("A-Ism Punch"), 0x5b794, 0x5b894 },
-    { _T("A-Ism Kick"), 0x5b894, 0x5b994 },
-    { _T("V-Ism Punch"), 0x5b994, 0x5ba94 },
-    { _T("V-Ism Kick"), 0x5ba94, 0x5bb94 },
+    { _T("X-Ism Punch"), 0x5b594, 0x5b694, indexCPS2_SFA3_Portraits, indexCPS2_Karin },
+    { _T("X-Ism Kick"), 0x5b694, 0x5b794, indexCPS2_SFA3_Portraits, indexCPS2_Karin },
+    { _T("A-Ism Punch"), 0x5b794, 0x5b894, indexCPS2_SFA3_Portraits, indexCPS2_Karin },
+    { _T("A-Ism Kick"), 0x5b894, 0x5b994, indexCPS2_SFA3_Portraits, indexCPS2_Karin },
+    { _T("V-Ism Punch"), 0x5b994, 0x5ba94, indexCPS2_SFA3_Portraits, indexCPS2_Karin },
+    { _T("V-Ism Kick"), 0x5ba94, 0x5bb94, indexCPS2_SFA3_Portraits, indexCPS2_Karin },
 };
 
 const sDescTreeNode SFA3_A_RYU_COLLECTION[] =

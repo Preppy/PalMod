@@ -604,8 +604,6 @@ const sDescTreeNode* CGame_SFA1_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
     return pCollectionNode;
 }
 
-
-
 void CGame_SFA1_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
     if (nUnitId != SFA1_A_EXTRALOC)
@@ -742,7 +740,13 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             if (_tcsicmp(pCurrentNode->szDesc, _T("Select Portraits")) == 0)
             {
                 nSrcAmt = 2;
-                nSrcStart = 0;
+
+                if (_tcsstr(paletteDataSet->szPaletteName, _T("Kick")))
+                {
+                    // Go back to Punch
+                    nSrcStart--;
+                }
+
                 nNodeIncrement = 1;
             }
             else if ((_tcsicmp(pCurrentNode->szDesc, _T("Punch")) == 0) ||

@@ -151,25 +151,20 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
         ConvPal = &CGameClass::CONV_12A_32;
         ConvCol = &CGameClass::CONV_32_12A;
         return TRUE;
-        break;
     case ColMode::COLMODE_15:
         ConvPal = &CGameClass::CONV_15_32;
         ConvCol = &CGameClass::CONV_32_15;
         return TRUE;
-        break;
     case ColMode::COLMODE_15ALT:
         ConvPal = &CGameClass::CONV_15ALT_32;
         ConvCol = &CGameClass::CONV_32_15ALT;
         return TRUE;
-        break;
     case ColMode::COLMODE_NEOGEO:
         ConvPal = &CGameClass::CONV_NEOGEO_32;
         ConvCol = &CGameClass::CONV_32_NEOGEO;
         return TRUE;
-        break;
     default:
         return FALSE;
-        break;
     }
 }
 
@@ -270,46 +265,42 @@ UINT16 CGameClass::CONV_32_15(UINT32 inCol)
 
 UINT32 CGameClass::CONV_15ALT_32(UINT16 inCol)
 {
-    UINT32 auxr = 0, auxg = 0, auxb = 0;
+    UINT32 auxa = (inCol & 0x8000) >> 15;
+    UINT32 auxr = (inCol & 0x7C00) >> 10;
+    UINT32 auxg = (inCol & 0x3E0) >> 5;
+    UINT32 auxb = (inCol & 0x1F);
 
-    UINT16 swapped = inCol;//SWAP_16(inCol);
-
-    auxr = (swapped & 0x7C00) >> 10;
-    auxg = (swapped & 0x3E0) >> 5;
-    auxb = (swapped & 0x1F);
-
-    auxr = auxr << (3);
-    auxg = auxg << (3);
-    auxb = auxb << (3);
-
-    auxr += auxr / 32;
-    auxg += auxg / 32;
-    auxb += auxb / 32;
+    auxa = auxa << 3;
+    auxr = auxr << 3;
+    auxg = auxg << 3;
+    auxb = auxb << 3;
 
     //auxr = auxr;
     auxg = auxg << 8;
     auxb = auxb << 16;
+    auxa = auxa << 24;
 
-    return (auxb | auxg | auxr | 0xFF000000);
+    return (auxb | auxg | auxr | auxa);
 }
 
 UINT16 CGameClass::CONV_32_15ALT(UINT32 inCol)
 {
-    UINT16 auxr = 0, auxg = 0, auxb = 0;
+    UINT16 auxa = (inCol & 0xFF000000) >> 24;
+    UINT16 auxb = (inCol & 0x00FF0000) >> 16;
+    UINT16 auxg = (inCol & 0x0000FF00) >> 8;
+    UINT16 auxr = (inCol & 0x000000FF);
 
-    auxb = (inCol & 0x00FF0000) >> (16);
-    auxg = (inCol & 0x0000FF00) >> (8);
-    auxr = (inCol & 0x000000FF);
-
+    auxa = (UINT16)round(auxa / 8);
     auxb = (UINT16)round(auxb / 8);
     auxg = (UINT16)round(auxg / 8);
     auxr = (UINT16)round(auxr / 8);
 
+    auxa = auxa << (15);
     auxr = auxr << (10);
     auxg = auxg << (5);
     //auxb = auxb;
 
-    return auxb | auxg | auxr;
+    return auxb | auxg | auxr | auxa;
 }
 
 UINT8 NGColorVals[] = {
@@ -423,6 +414,7 @@ UINT16 CGameClass::CONV_32_NEOGEO(UINT32 inCol)
     UINT16 blueMain =  ((blue / 4) & 0xf) << 0x0;
 
     UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
+    
     //CString strColor;
     //strColor.Format(_T("BACK: neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n"), outColor, inCol, red, green, blue);
     //OutputDebugString(strColor);
@@ -541,7 +533,15 @@ COLORREF* CGameClass::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < (m_nCurrentPaletteSize - createPalOptions.nStartingPosition); i++)
     {
-        NewPal[i + createPalOptions.nStartingPosition] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]) | createPalOptions.crForcedColorValues;
+        const UINT16 nCurrentPos = i + createPalOptions.nStartingPosition;
+
+        NewPal[nCurrentPos] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
+
+        if (nCurrentPos != 0)
+        {
+            // First color is the transparency color: we want to leave that alone
+            NewPal[nCurrentPos] |= createPalOptions.crForcedColorValues;
+        }
     }
 
     if (createPalOptions.crForcedFirstColorValue != 0)

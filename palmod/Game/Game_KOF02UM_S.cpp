@@ -49,6 +49,9 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
+    createPalOptions = { NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
+    m_fGameUsesAlphaValue = true;
+
     InitDataBuffer();
 
     //Set color mode
@@ -78,16 +81,15 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
     //Create the file changed flag
     PrepChangeTrackingArray();
 
-    nRGBIndexAmt = 15;
+    nRGBIndexAmt = 31;
     nAIndexAmt = 0;
 
-    nRGBIndexMul = 17.0f;
-    nAIndexMul = 0.0f;
+    nRGBIndexMul = 8.225;
+    nAIndexMul = 0;
 }
 
 CGame_KOF02UM_S::~CGame_KOF02UM_S(void)
 {
-    OutputDebugString(_T("KOF02UM Destructor\n"));
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
@@ -476,7 +478,7 @@ sFileRule CGame_KOF02UM_S::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("242-p2.sp2"));
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("pal_a.bin"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -812,46 +814,4 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
 
     return TRUE;
-}
-
-void CGame_KOF02UM_S::UpdatePalData()
-{
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
-    {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-
-        if (srcDef->bAvail)
-        {
-            COLORREF* crSrc = srcDef->pPal;
-
-            INT16 nTotalColorsRemaining = srcDef->uPalSz;
-            UINT16 nCurrentTotalWrites = 0;
-            const UINT16 nMaxSafeColorsToWrite = 16;
-            // First color is the transparency color
-            const UINT16 iFixedCounterPosition = 0;
-
-            while (nTotalColorsRemaining > 0)
-            {
-                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
-
-                for (UINT16 nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
-                {
-                    if (nPICtr == iFixedCounterPosition)
-                    {
-                        continue;
-                    }
-
-                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
-                }
-
-                nCurrentTotalWrites += nMaxSafeColorsToWrite;
-                nTotalColorsRemaining -= nMaxSafeColorsToWrite;
-            }
-
-            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
-        }
-    }
 }

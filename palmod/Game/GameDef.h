@@ -155,7 +155,7 @@ const LPCTSTR DEF_BUTTONLABEL6[] =
 
 const LPCTSTR DEF_BUTTONLABEL_ISMS[] =
 {
-   _T("X-Ism 1"), _T("X-Ism 2"), _T("A-Ism 1"), _T("A-Ism 2"), _T("V-Ism 1"), _T("V-Ism 2")
+   _T("X-Ism P"), _T("X-Ism K"), _T("A-Ism P"), _T("A-Ism K"), _T("V-Ism P"), _T("V-Ism K")
 };
 
 const LPCTSTR DEF_BUTTONLABEL_SFA2[] =
@@ -330,6 +330,9 @@ enum CHARACTERS_CPS2
     indexCPS2_SPF_Zangief,  // 0x62
     indexCPS2_SPF_Dan,      // 0x63
     indexCPS2_SPF_Akuma,    // 0x64
+
+    indexCPS2_SFA1_Portraits, // 0x65
+    indexCPS2_SFA3_Portraits, // 0x66
 };
 
 const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
@@ -521,7 +524,7 @@ const UINT8 SFA1_A_IMG_UNITS[] =
     indexCPS2_Sagat,            // 0x42,
     indexCPS2_Rolento,          // 0x43,
     indexCPS2_Gen,              // 0x44,
-    indexCPS2_SFA2Portraits,    // 0x58
+    indexCPS2_SFA1_Portraits,   // 0x65
 };
 
 constexpr auto SFA1_A_NUM_IMG_UNITS = ARRAYSIZE(SFA1_A_IMG_UNITS);
@@ -584,6 +587,7 @@ const UINT8 SFA3_A_IMG_UNITS[] =
     0x4C, // Juni
     0x4D,  // Juli
     0x4E, // SFA3-unique bonus assets
+    indexCPS2_SFA3_Portraits,
 };
 
 constexpr auto SFA3_A_NUM_IMG_UNITS = ARRAYSIZE(SFA3_A_IMG_UNITS);

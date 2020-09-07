@@ -637,6 +637,7 @@ BOOL CGame_SFA3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
+        // These are already sorted: no need to reorder
         rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -741,7 +742,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             if ((_tcsicmp(pCurrentNode->szDesc, _T("Select Portraits")) == 0) ||
                 (_tcsicmp(pCurrentNode->szDesc, _T("Win Portraits")) == 0))
             {
-                // Hm.  These statrt at an abstract position within the node.  Let's derive that.
+                // Hm.  These start at an abstract position within the node.  Let's derive that.
                 int nProspectiveStart = NodeGet->uPalId;
 
                 if (_tcsstr(paletteDataSet->szPaletteName, _T("Kick")) != nullptr)
@@ -763,10 +764,14 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 if (_tcsicmp(prospectivePalette->szPaletteName, _T("X-Ism Punch")) == 0)
                 {
-                    // OK, we've arrived where we expected to
-                    nSrcAmt = 6;
-                    nSrcStart = nProspectiveStart;
-                    nNodeIncrement = 1;
+                    if ((SFA3_A_UNITSORT[NodeGet->uUnitId] != index_SFA3_ChunLi) && // different portraits for X vs non-X
+                        (SFA3_A_UNITSORT[NodeGet->uUnitId] != index_SFA3_Sodom)) // different win portraits for X vs non-X
+                    {
+                        // OK, we've arrived where we expected to
+                        nSrcAmt = 6;
+                        nSrcStart = nProspectiveStart;
+                        nNodeIncrement = 1;
+                    }
                 }
                 else
                 {
