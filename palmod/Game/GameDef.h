@@ -1793,6 +1793,42 @@ const UINT8 KARNOVSR_A_IMG_UNITS[] =
     indexKarnovsRSprites_Zazie,
 };
 
+enum SupportedRedEarth_A_PaletteListIndex
+{
+    indexRedEarthSprites_Blade,
+    indexRedEarthSprites_GiGi,
+    indexRedEarthSprites_Hauzer,
+    indexRedEarthSprites_Hydron,
+    indexRedEarthSprites_Kenji,
+    indexRedEarthSprites_Kongou,
+    indexRedEarthSprites_Lavia,
+    indexRedEarthSprites_Leo,
+    indexRedEarthSprites_MaiLing,
+    indexRedEarthSprites_Ravange,
+    indexRedEarthSprites_Scion,
+    indexRedEarthSprites_Tessa,
+    indexRedEarthSprites_Last
+};
+
+const UINT8 REDEARTH_A_IMG_UNITS[] =
+{
+    
+    indexRedEarthSprites_Blade,
+    indexRedEarthSprites_GiGi,
+    indexRedEarthSprites_Hauzer,
+    indexRedEarthSprites_Hydron,
+    indexRedEarthSprites_Kenji,
+    indexRedEarthSprites_Kongou,
+    indexRedEarthSprites_Lavia,
+    indexRedEarthSprites_Leo,
+    indexRedEarthSprites_MaiLing,
+    indexRedEarthSprites_Ravange,
+    indexRedEarthSprites_Scion,
+    indexRedEarthSprites_Tessa,
+};
+
+constexpr auto REDEARTH_A_NUM_IMG_UNITS = ARRAYSIZE(REDEARTH_A_IMG_UNITS);
+
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_CVS2 = 0, // CVS2: has both Capcom and SNK images
@@ -1801,6 +1837,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_KARNOVSR,
     IMGDAT_SECTION_KOF,     // KOF98 + KOF02UM
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
+    IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
     IMGDAT_SECTION_3S,      // Used for SFIII3.
     IMGDAT_SECTION_ST,      // Used for ST.

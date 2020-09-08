@@ -265,7 +265,8 @@ void CRegProc::LoadReg(int src)
                 prev_szpos = StrToRect(conv_str);
                 // This good faith check doesn't seem to do anything meaningful. 
                 // Maybe I'm overthinking issues with multiple monitors and such.
-                if (MonitorFromRect(&prev_szpos, MONITOR_DEFAULTTONULL) == nullptr)
+                if ((MonitorFromRect(&prev_szpos, MONITOR_DEFAULTTONULL) == nullptr) ||
+                    ((prev_szpos.bottom - prev_szpos.top) < 60)) // make sure we actually have a window to work with
                 {
                     prev_szpos.top = c_badWindowPosValue;
                 }

@@ -39,7 +39,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 168;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 241;
     m_nLowestKnownPaletteRomLocation = 0x1de000;
 
     createPalOptions = { NO_SPECIAL_OPTIONS, NO_SPECIAL_OPTIONS, NO_SPECIAL_OPTIONS };
@@ -58,16 +58,16 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = REDEARTH_A;
-    nImgGameFlag = IMGDAT_SECTION_3S;
-    nImgUnitAmt = nUnitAmt;
+    nImgGameFlag = IMGDAT_SECTION_REDEARTH;
+    nImgUnitAmt = REDEARTH_A_NUM_IMG_UNITS;
 
     nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    pButtonLabelSet = DEF_NOBUTTONS;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
+    pButtonLabelSet = DEF_BUTTONLABEL_2_PK;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_PK);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -587,6 +587,29 @@ void CGame_REDEARTH_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     }
 }
 
+bool CGame_REDEARTH_A::CanEnableMultispriteExport(UINT16 nUnitId, UINT16 nPalId)
+{
+    bool isBalanced = false;
+
+    const sDescTreeNode* pUnitTree = &(REDEARTH_A_UNITS[nUnitId]);
+
+    // Only enable for character nodes
+    if (pUnitTree->uChildAmt >= m_nNumberOfColorOptions)
+    {
+        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pUnitTree->ChildNodes);
+
+        isBalanced = (pCurrentCollection[0].uChildAmt == pCurrentCollection[1].uChildAmt);
+
+        if (isBalanced)
+        {
+            // We know the button nodes are balanced... but are we in a core button node?
+            isBalanced = nPalId < (m_nNumberOfColorOptions* pCurrentCollection[0].uChildAmt);
+        }
+    }
+
+    return isBalanced;
+}
+
 BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
@@ -632,6 +655,57 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
+
+            if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
+            {
+                if (((_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[0]) == 0) || (_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[1]) == 0)) &&
+                    CanEnableMultispriteExport(NodeGet->uUnitId, NodeGet->uPalId)) // make sure we're in a balanced node, since we have unbalanced P palettes
+                {
+                    nSrcAmt = 2;
+                    nNodeIncrement = pCurrentNode->uChildAmt;
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        nSrcStart -= nNodeIncrement;
+                    }
+                }
+            }
+
+            if (paletteDataSet->pPalettePairingInfo)
+            {
+                int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+                INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+
+                const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+
+                if (paletteDataSetToJoin)
+                {
+                    fShouldUseAlternateLoadLogic = true;
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                        )
+                    );
+
+                    //Set each palette
+                    sDescNode* JoinedNode[2] = {
+                        MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                        MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                }
+            }
         }
     }
     else // Extra region

@@ -22,8 +22,6 @@ public:
     // This is currently only used when we export out resliced tables: there's no normal usage.
     const int m_knMaxPalettePageSize = PAL_MAXAMT_8COLORSPERLINE;
 
-    int m_nGameButtonColorCount = 5;
-
     // Jojos has two different ROMs of interest: handle here.
     int m_nBufferJojosMode = 50;
     static int m_nJojosMode;

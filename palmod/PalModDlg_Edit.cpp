@@ -115,7 +115,6 @@ void CPalModDlg::OnEditCopy()
         CopyText.Append("\n");
         OutputDebugStringA(CopyText.GetString());
 
-
         HGLOBAL hMem = sf.Detach();
         if (!hMem)
         {

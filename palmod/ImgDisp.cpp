@@ -368,6 +368,11 @@ void CImgDisp::ModifyClRect()
 
 void CImgDisp::DrawMainBG()
 {
+    if (!MainDC)
+    {
+        InitDC();
+    }
+
     if (bTileBGBmp && !bUseBGCol && CanForceBGBitmapAvailable())
     {
         MainDC->FillRect(CRect(0, 0, MAIN_W, MAIN_H), &BGBrush);
@@ -398,12 +403,6 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
         return;
     }
 
-    int nXOffs = 0;
-    int nYOffs = 0;
-
-    int nWidth = 0;
-    int nHeight = 0;
-
     //Clear the background
     DrawMainBG();
 
@@ -419,10 +418,10 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
     {
         if (pImgBuffer[nImgCtr])
         {
-            nXOffs = pImgBuffer[nImgCtr]->nXOffs;
-            nYOffs = pImgBuffer[nImgCtr]->nYOffs;
-            nWidth = pImgBuffer[nImgCtr]->uImgW;
-            nHeight = pImgBuffer[nImgCtr]->uImgH;
+            int nXOffs = pImgBuffer[nImgCtr]->nXOffs;
+            int nYOffs = pImgBuffer[nImgCtr]->nYOffs;
+            int nWidth = pImgBuffer[nImgCtr]->uImgW;
+            int nHeight = pImgBuffer[nImgCtr]->uImgH;
 
             //Draw the img
             CustomBlt(

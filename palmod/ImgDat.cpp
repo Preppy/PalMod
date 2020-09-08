@@ -110,62 +110,25 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
 
         switch (uGameFlag)
         {
-        case MVC2_A:
-        case MVC2_D:
-        case MVC2_A_DIR:
+        case COTA_A:
         {
-            nImageUnitCounterToUse = MVC2_IMG_UNITS[nUnitCtr];
+            nImageUnitCounterToUse = COTA_A_IMG_UNITS[nUnitCtr];
             break;
         }
-        case SFIII3_A:
-        case SFIII3_A_DIR:
+        case CVS2_A:
         {
-            nImageUnitCounterToUse = SFIII3_A_IMG_UNITS[nUnitCtr];
+            nImageUnitCounterToUse = CVS2_A_IMG_UNITS[nUnitCtr];
             break;
         }
-        case MVC2_P:
+        case Garou_A:
+        case Garou_S:
         {
-            nImageUnitCounterToUse = MVC2_IMG_UNITS[nUnitCtr];
+            nImageUnitCounterToUse = GAROU_A_IMG_UNITS[nUnitCtr];
             break;
         }
-        case SSF2T_A:
+        case GEMFIGHTER_A:
         {
-            nImageUnitCounterToUse = SSF2T_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SFA1_A:
-        {
-            nImageUnitCounterToUse = SFA1_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SFA2_A:
-        {
-            nImageUnitCounterToUse = SFA2_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SFA3_A:
-        {
-            nImageUnitCounterToUse = SFA3_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case XMVSF_A:
-        {
-            nImageUnitCounterToUse = XMVSF_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case KarnovsR_A:
-        {
-            nImageUnitCounterToUse = KARNOVSR_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case MVC_A:
-        {
-            nImageUnitCounterToUse = MVC_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SFIII3_D:
-        {
-            nImageUnitCounterToUse = SFIII3_D_IMG_UNITS[nUnitCtr];
+            nImageUnitCounterToUse = GEMFIGHTER_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case JOJOS_A:
@@ -175,25 +138,9 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = JOJOS_A_IMG_UNITS[nUnitCtr];
             break;
         }
-        case MSH_A:
+        case KarnovsR_A:
         {
-            nImageUnitCounterToUse = MSH_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case MSHVSF_A:
-        {
-            nImageUnitCounterToUse = MSHVSF_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case COTA_A:
-        {
-            nImageUnitCounterToUse = COTA_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case Garou_A:
-        case Garou_S:
-        {
-            nImageUnitCounterToUse = GAROU_A_IMG_UNITS[nUnitCtr];
+            nImageUnitCounterToUse = KARNOVSR_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case KOF98_A:
@@ -211,14 +158,36 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = KOF02UM_S_IMG_UNITS[nUnitCtr];
             break;
         }
-        case CVS2_A:
+        case MSH_A:
         {
-            nImageUnitCounterToUse = CVS2_A_IMG_UNITS[nUnitCtr];
+            nImageUnitCounterToUse = MSH_A_IMG_UNITS[nUnitCtr];
             break;
         }
-        case SVCPLUSA_A:
+        case MSHVSF_A:
         {
-            nImageUnitCounterToUse = SVCPLUSA_A_IMG_UNITS[nUnitCtr];
+            nImageUnitCounterToUse = MSHVSF_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case MVC_A:
+        {
+            nImageUnitCounterToUse = MVC_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case MVC2_A:
+        case MVC2_D:
+        case MVC2_A_DIR:
+        {
+            nImageUnitCounterToUse = MVC2_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case MVC2_P:
+        {
+            nImageUnitCounterToUse = MVC2_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case REDEARTH_A:
+        {
+            nImageUnitCounterToUse = REDEARTH_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case SAMSHO5SP_A:
@@ -226,15 +195,49 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = SAMSHO5SP_A_IMG_UNITS[nUnitCtr];
             break;
         }
-        case GEMFIGHTER_A:
+        case SFA1_A:
         {
-            nImageUnitCounterToUse = GEMFIGHTER_A_IMG_UNITS[nUnitCtr];
+            nImageUnitCounterToUse = SFA1_A_IMG_UNITS[nUnitCtr];
             break;
         }
-
+        case SFA2_A:
+        {
+            nImageUnitCounterToUse = SFA2_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case SFA3_A:
+        {
+            nImageUnitCounterToUse = SFA3_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case SFIII3_A:
+        case SFIII3_A_DIR:
+        {
+            nImageUnitCounterToUse = SFIII3_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case SFIII3_D:
+        {
+            nImageUnitCounterToUse = SFIII3_D_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case SSF2T_A:
+        {
+            nImageUnitCounterToUse = SSF2T_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case SVCPLUSA_A:
+        {
+            nImageUnitCounterToUse = SVCPLUSA_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case XMVSF_A:
+        {
+            nImageUnitCounterToUse = XMVSF_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
         default:
             OutputDebugString(_T("CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n"));
-        case REDEARTH_A: // no images for now
             return NULL;
             break;
         }
@@ -452,7 +455,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
 
     if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag))
     {
-        return true;
+        return TRUE;
     }
     else
     {
@@ -473,8 +476,8 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
 
     if (!ImgDatFile.Open(lpszLoadFile, CFile::modeRead | CFile::typeBinary))
     {
-        ImgDatFile.Abort();         //Error loading
-        return false;
+        ImgDatFile.Abort(); //Error loading
+        return FALSE;
     }
 
     bOnTheFly = !bLoadAll;
@@ -588,11 +591,11 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
             ImgDatFile.Abort();
         }
 
-        return true;
+        return TRUE;
     }
     else
     {
-        return false;
+        return FALSE;
     }
 }
 

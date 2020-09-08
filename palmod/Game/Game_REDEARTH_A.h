@@ -22,6 +22,8 @@ public:
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
+    bool CanEnableMultispriteExport(UINT16 nUnitId, UINT16 nPalId);
+
 public:
     CGame_REDEARTH_A(UINT32 nConfirmedROMSize = -1);
     ~CGame_REDEARTH_A(void);

@@ -97,6 +97,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_JOJOS_5;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_JOJOS_5);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[max(10, nUnitAmt) + 1]; // We need at least 8 redirs because we have that many SIMMs
@@ -630,7 +631,7 @@ bool CGame_JOJOS_A::CanEnableMultispriteExport(UINT16 nUnitId, UINT16 nPalId)
         if ((_tcsstr(pUnitTree->szDesc, _T("Timestop")) == nullptr) &&
             (_tcsstr(pUnitTree->szDesc, _T("Bonus")) == nullptr))
         {
-            if (pUnitTree->uChildAmt >= m_nGameButtonColorCount)
+            if (pUnitTree->uChildAmt >= m_nNumberOfColorOptions)
             {
                 const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pUnitTree->ChildNodes);
 
@@ -642,7 +643,7 @@ bool CGame_JOJOS_A::CanEnableMultispriteExport(UINT16 nUnitId, UINT16 nPalId)
                 if (isBalanced)
                 {
                     // We know the button nodes are balanced... but are we in a core button node?
-                    isBalanced = nPalId < (5 * pCurrentCollection[0].uChildAmt);
+                    isBalanced = nPalId < (m_nNumberOfColorOptions * pCurrentCollection[0].uChildAmt);
                 }
             }
         }
@@ -650,7 +651,6 @@ bool CGame_JOJOS_A::CanEnableMultispriteExport(UINT16 nUnitId, UINT16 nPalId)
 
     return isBalanced;
 }
-
 
 const sDescTreeNode* CGame_JOJOS_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
 {
@@ -908,7 +908,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             if (CanEnableMultispriteExport(NodeGet->uUnitId, NodeGet->uPalId))
             {
                 const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
-                nSrcAmt = m_nGameButtonColorCount;
+                nSrcAmt = m_nNumberOfColorOptions;
                 nSrcStart = NodeGet->uPalId % pCurrentNode->uChildAmt;
                 nNodeIncrement = pCurrentNode->uChildAmt;
             }
