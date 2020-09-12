@@ -401,6 +401,14 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
             m_nLowestRomLocationThisPass = min(m_nLowestRomLocationThisPass, m_nCurrentPaletteROMLocation);
 
+            if (m_nCurrentPaletteSize == 0)
+            {
+                CString strText;
+                strText.Format(_T("WARNING: Bogus zero-length palette found: unit 0x%02x id 0x%02x '%s'.  Please fix this.\n"), nUnitCtr, nPalCtr, m_pszCurrentPaletteName);
+                OutputDebugString(strText);
+                MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
+            }
+
             if (IsROMOffsetDuplicated(nUnitCtr, nPalCtr, nCurrentROMOffset))
             {
                 fCollisionFound = true;

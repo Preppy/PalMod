@@ -145,6 +145,9 @@
     <Filter Include="Game\Capcom Games\SFA1_A">
       <UniqueIdentifier>{c523ccb5-003b-4c0d-8c4e-a7ef3b62a0fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\VSAV_A">
+      <UniqueIdentifier>{9e472f9e-f1a9-40ee-af45-ac125715d5aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -335,6 +338,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SFA1_A.cpp">
       <Filter>Game\Capcom Games\SFA1_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_VSAV_A.cpp">
+      <Filter>Game\Capcom Games\VSAV_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -604,6 +610,12 @@
     </ClInclude>
     <ClInclude Include="Game\SFA1_A_DEF.h">
       <Filter>Game\Capcom Games\SFA1_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_VSAV_A.h">
+      <Filter>Game\Capcom Games\VSAV_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VSAV_A_DEF.h">
+      <Filter>Game\Capcom Games\VSAV_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

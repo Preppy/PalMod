@@ -411,11 +411,12 @@ void CPalModDlg::OnFileOpen()
         { SAMSHO5SP_A, _T("Samurai Shodown 5 Special|272-p1*.p1;p1*h*.bin|"), INVALID_UNIT_VALUE},
         { SFIII3_A, _T("SFIII3 Arcade|51|"), INVALID_UNIT_VALUE },
         { SFA1_A, _T("SFA1|sfz.06|"), INVALID_UNIT_VALUE },
-        { SFA2_A, _T("SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07?;sz*.08?|"), INVALID_UNIT_VALUE },
-        { SFA3_A, _T("SFA3 sz3.09c|*.09c|"), INVALID_UNIT_VALUE },
+        { SFA2_A, _T("SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|"), INVALID_UNIT_VALUE },
+        { SFA3_A, _T("SFA3 sz3.09c|*.09*|"), INVALID_UNIT_VALUE },
         { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|"), INVALID_UNIT_VALUE },
         { GEMFIGHTER_A, _T("Super Gem Fighter|pcf*.07|"), INVALID_UNIT_VALUE },
         { SVCPLUSA_A, _T("SVC PlusA|svc-p2pl.bin|"), INVALID_UNIT_VALUE },
+        { VSAV_A, _T("Vampire Savior|vm3*.10b|"), INVALID_UNIT_VALUE },
         { WakuWaku7_A, _T("Waku Waku 7|225-p1.p1|"), INVALID_UNIT_VALUE },
         { XMVSF_A, _T("XMVSF|xvs*.05a|"), INVALID_UNIT_VALUE },
         { NEOGEO_A, _T("Unknown NEO•GEO|*.*|"), INVALID_UNIT_VALUE },
@@ -872,9 +873,9 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                         bool fStillStuckOnBlack = true;
                         for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
                         {
-                            pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(paszPaletteData[iPNGIndex * 3]);
-                            pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
-                            pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
+                            pPal[(iActivePageIndex * 4)]     = MainPalGroup->ROUND_R(paszPaletteData[iPNGIndex * 3]);
+                            pPal[(iActivePageIndex * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
+                            pPal[(iActivePageIndex * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
                             pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
 
                             // This code exists because Fighter Factory writes upside-down color tables.
@@ -907,9 +908,9 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
 
                             for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
                             {
-                                pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(paszPaletteData[iPNGIndex * 3]);
-                                pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
-                                pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
+                                pPal[(iActivePageIndex * 4)] = MainPalGroup->ROUND_R(paszPaletteData[iPNGIndex * 3]);
+                                pPal[(iActivePageIndex * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
+                                pPal[(iActivePageIndex * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
                                 pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
 
                                 // This code exists because Fighter Factory writes upside-down color tables.

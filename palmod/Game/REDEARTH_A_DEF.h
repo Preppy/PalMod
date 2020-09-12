@@ -179,13 +179,14 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_BONUS_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
 {
-    { _T("Mai Ling Punch"), 0x411600, 0x411680 },
-    { _T("Mai Ling Punch Vs/Winning Screen"), 0x1E4C00, 0x1E4C80 },
-    { _T("Mai Ling Punch Losing Screen"), 0x1E4B80, 0x1E4C00 },
-    { _T("Mai Ling Punch LifeBar Portrait"), 0x406A00, 0x406A40 },
+    { _T("Mai Ling Punch"), 0x411600, 0x411680, indexRedEarthSprites_MaiLing, 0 },
+    { _T("Mai Ling Punch Vs/Winning Screen"), 0x1E4C00, 0x1E4C80, indexRedEarthSprites_MaiLing, 0x17 },
+    { _T("Mai Ling Punch Losing Screen"), 0x1E4B80, 0x1E4C00, indexRedEarthSprites_MaiLing, 0x17 },
+    { _T("Mai Ling Punch LifeBar Portrait"), 0x406A00, 0x406A40, indexRedEarthSprites_MaiLing, 0x10 },
 
     { _T("Mai Ling Punch Fire"), 0x411680, 0x411700 },
-    { _T("Mai Ling Punch Fireball"), 0x411780, 0x411800 },
+    { _T("Mai Ling Punch Fireball"), 0x411780, 0x411800, indexRedEarthSprites_MaiLing, 0x01 },
+    { _T("Mai Ling Punch HCB.1/2/3 Fireball"), 0x4118C0, 0x411900 },
     { _T("Mai Ling Punch Ultimate Guard Flash and Burn 1"), 0x414000, 0x414080 },
     { _T("Mai Ling Punch Burn 2"), 0x414080, 0x414100 },
     { _T("Mai Ling Punch Shock 1"), 0x414100, 0x414180 },
@@ -206,14 +207,14 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
 {
-
-    { _T("Mai Ling Kick"), 0x41DE00, 0x41DE80 },
-    { _T("Mai Ling Kick Vs/Winning Screen"), 0x1E4F80, 0x1E5000 },
-    { _T("Mai Ling Kick Losing Screen"), 0x1E4F00, 0x1E4F80 },
-    { _T("Mai Ling Kick LifeBar Portrait"), 0x406A40, 0x406A80 },
+    { _T("Mai Ling Kick"), 0x41DE00, 0x41DE80, indexRedEarthSprites_MaiLing, 0 },
+    { _T("Mai Ling Kick Vs/Winning Screen"), 0x1E4F80, 0x1E5000, indexRedEarthSprites_MaiLing, 0x17 },
+    { _T("Mai Ling Kick Losing Screen"), 0x1E4F00, 0x1E4F80, indexRedEarthSprites_MaiLing, 0x17 },
+    { _T("Mai Ling Kick LifeBar Portrait"), 0x406A40, 0x406A80, indexRedEarthSprites_MaiLing, 0x10 },
 
     { _T("Mai Ling Kick Fire"), 0x41DE80, 0x41DF00 },
-    { _T("Mai Ling Kick Fireball"), 0x41DF80, 0x41E000 },
+    { _T("Mai Ling Kick Fireball"), 0x41DF80, 0x41E000, indexRedEarthSprites_MaiLing, 0x01 },
+    { _T("Mai Ling Kick HCB.1/2/3 Fireball"), 0x41E0C0, 0x41E100 },
     { _T("Mai Ling Kick Ultimate Guard Flash and Burn 1"), 0x420800, 0x420880 },
     { _T("Mai Ling Kick Burn 2"), 0x420880, 0x420900 },
     { _T("Mai Ling Kick Shock 1"), 0x420900, 0x420980 },
@@ -241,7 +242,8 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_BONUS_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_HAUZER_PALETTES[] =
 {
-    { _T("Hauzer"), 0x421000, 0x421080, indexRedEarthSprites_Hauzer, 0 },
+    { _T("Hauzer"),             0x421000, 0x421080, indexRedEarthSprites_Hauzer, 0 },
+    { _T("Hauzer hit palette"), 0x423E80, 0x423F00, indexRedEarthSprites_Hauzer, 0 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KONGOU_PALETTES[] =

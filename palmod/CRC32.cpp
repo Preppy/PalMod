@@ -155,6 +155,21 @@ void CRC32_UpdateChecksum(unsigned long& crcvalue, CFile* pFile, int length)
     crcvalue = crc;
 }
 
+void CRC32_UpdateChecksum(unsigned long& crcvalue, unsigned char* pInBuffer, int length)
+{
+    unsigned long crc;
+
+    crc = crcvalue;
+    UINT32 nIndex = 0;
+    while (length--)
+    {
+        unsigned char buf;
+        buf = pInBuffer[nIndex++];
+        crc = crctable[(crc ^ (buf)) & 0xff] ^ (crc >> 8);
+    }
+    crcvalue = crc;
+}
+
 void CRC32_FinishChecksum(unsigned long& crcvalue)
 {
     crcvalue ^= CRC32_XOR_VALUE;
@@ -166,6 +181,16 @@ unsigned long CRC32_BlockChecksum(CFile *pFile, int length)
 
     CRC32_InitChecksum(crc);
     CRC32_UpdateChecksum(crc, pFile, length);
+    CRC32_FinishChecksum(crc);
+    return crc;
+}
+
+unsigned long CRC32_BlockChecksum(unsigned char* buf, int length)
+{
+    unsigned long crc;
+
+    CRC32_InitChecksum(crc);
+    CRC32_UpdateChecksum(crc, buf, length);
     CRC32_FinishChecksum(crc);
     return crc;
 }

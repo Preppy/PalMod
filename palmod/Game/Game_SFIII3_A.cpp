@@ -688,7 +688,6 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                 while (nSrcStart >= nNodeIncrement)
                 {
-                    // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
                     nSrcStart -= nNodeIncrement;
                 }
 
@@ -710,8 +709,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     if (paletteDataSetToJoin && (paletteDataSetToJoin->indexOffsetToUse == 0x02))
                     {
                         fShouldUseAlternateLoadLogic = true;
-                        // Joins using a shared node cannot use multisprite export: it breaks the increment logic
-                        nSrcAmt = 1;
+                        nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);;
 
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
@@ -730,7 +728,8 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         CreateDefPal(JoinedNode[1], 1);
 
                         SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nNextToLastPalette, nSrcAmt, nNodeIncrement);
+                        // This second join is of a shared palette, so our node increment is zero
+                        SetSourcePal(1, NodeGet->uUnitId, nNextToLastPalette, nSrcAmt, 0);
                     }
                 }
                 else if (uUnitId == index3S_CPS3_Oro) // Oro

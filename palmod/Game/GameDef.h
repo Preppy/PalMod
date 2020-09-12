@@ -46,6 +46,7 @@ enum SupportedGamesList
     KarnovsR_A,
     WakuWaku7_A,
     SFA1_A,
+    VSAV_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -94,6 +95,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Karnov's Revenge / Fighter's History Dynamite"),
    _T("Waku Waku 7"),
    _T("SFA1 (Arcade)"),
+   _T("Vampire Savior (Arcade)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -198,6 +200,11 @@ const LPCTSTR DEF_LABEL_STATUS_EFFECTS[] =
    _T("Burn 1"), _T("Burn 2"), _T("Shock 1"), _T("Shock 2"), _T("Dark 1"), _T("Dark 2"), _T("Kinetic 1"), _T("Kinetic 2")
 };
 
+const LPCTSTR DEF_BUTTONLABEL_VSAV[] =
+{
+   _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("3P"), _T("3K"), _T("AP"), _T("AK")
+};
+
 struct stExtraDef
 {
     UINT16 uUnitN = INVALID_UNIT_VALUE;
@@ -228,94 +235,94 @@ struct sGame_PaletteDataset
 
 enum CHARACTERS_CPS2
 {
-    indexCPS2_Ryu, // 0x00, // Ryu
-    indexCPS2_Zangief, // 0x01, // Zangief
-    indexCPS2_Guile, // 0x02, // Guile
-    indexCPS2_Morrigan, // 0x03, // Morrigan
-    indexCPS2_Anakaris, // 0x04, // Anakaris
-    indexCPS2_Strider, // 0x05, // Strider Hiryu
-    indexCPS2_Cyclops, // 0x06, // Cyclops
-    indexCPS2_Wolverine, // 0x07, // Wolverine
-    indexCPS2_Psylocke, // 0x08, // Psylocke
-    indexCPS2_Iceman, // 0x09, // Iceman
-    indexCPS2_Rogue, // 0x0A, // Rogue
-    indexCPS2_CapAm, // 0x0B, // Captain America
-    indexCPS2_Spidey, // 0x0C, // Spider-Man
-    indexCPS2_Hulk, // 0x0D, // Hulk,
-    indexCPS2_Venom, // 0x0E, // Venom
-    indexCPS2_DrDoom, // 0x0F, // Dr. Doom
-    indexCPS2_Tron, // 0x10, // Tron Bonne
-    indexCPS2_Jill, // 0x11, // Jill Valentine
-    indexCPS2_Hayato, // 0x12, // Hayato
-    indexCPS2_Ruby, // 0x13, // Ruby Heart
-    indexCPS2_SonSon, // 0x14, // SonSon
-    indexCPS2_Amingo, // 0x15, // Amingo
-    indexCPS2_Marrow, // 0x16, // Marrow
-    indexCPS2_Cable, // 0x17, // Cable
-    indexCPS2_Abyss1, // 0x18, // Abyss (Form 1)
-    indexCPS2_Abyss2, // 0x19, // Abyss (Form 2)
-    indexCPS2_Abyss3, // 0x1A, // Abyss (Form 3)
-    indexCPS2_ChunLi, // 0x1B, // Chun-Li
-    indexCPS2_Megaman, // 0x1C, // Megaman
-    indexCPS2_Roll, // 0x1D, // Roll
-    indexCPS2_Akuma, // 0x1E, // Gouki
-    indexCPS2_BBHood, // 0x1F, // B.B. Hood
-    indexCPS2_Felicia, // 0x20, // Felicia
-    indexCPS2_Charlie, // 0x21, // Charlie
-    indexCPS2_Sakura, // 0x22, // Sakura
-    indexCPS2_Dan, // 0x23, // Dan
-    indexCPS2_Cammy, // 0x24, // Cammy
-    indexCPS2_Dhalsim, // 0x25, // Dhalsim
-    indexCPS2_Bison, // 0x26, // M.Bison
-    indexCPS2_Ken, // 0x27, // Ken
-    indexCPS2_Gambit, // 0x28, // Gambit
-    indexCPS2_Juggy, // 0x29, // Juggernaut
-    indexCPS2_Storm, // 0x2A, // Storm
-    indexCPS2_Sabretooth, // 0x2B, // Sabretooth
-    indexCPS2_Magneto, // 0x2C, // Magneto
-    indexCPS2_Shuma, // 0x2D, // Shuma-Gorath
-    indexCPS2_WarMachine, // 0x2E, // War Machine
+    indexCPS2_Ryu,          // 0x00, // Ryu
+    indexCPS2_Zangief,      // 0x01, // Zangief
+    indexCPS2_Guile,        // 0x02, // Guile
+    indexCPS2_Morrigan,     // 0x03, // Morrigan
+    indexCPS2_Anakaris,     // 0x04, // Anakaris
+    indexCPS2_Strider,      // 0x05, // Strider Hiryu
+    indexCPS2_Cyclops,      // 0x06, // Cyclops
+    indexCPS2_Wolverine,    // 0x07, // Wolverine
+    indexCPS2_Psylocke,     // 0x08, // Psylocke
+    indexCPS2_Iceman,       // 0x09, // Iceman
+    indexCPS2_Rogue,        // 0x0A, // Rogue
+    indexCPS2_CapAm,        // 0x0B, // Captain America
+    indexCPS2_Spidey,       // 0x0C, // Spider-Man
+    indexCPS2_Hulk,         // 0x0D, // Hulk,
+    indexCPS2_Venom,        // 0x0E, // Venom
+    indexCPS2_DrDoom,       // 0x0F, // Dr. Doom
+    indexCPS2_Tron,         // 0x10, // Tron Bonne
+    indexCPS2_Jill,         // 0x11, // Jill Valentine
+    indexCPS2_Hayato,       // 0x12, // Hayato
+    indexCPS2_Ruby,         // 0x13, // Ruby Heart
+    indexCPS2_SonSon,       // 0x14, // SonSon
+    indexCPS2_Amingo,       // 0x15, // Amingo
+    indexCPS2_Marrow,       // 0x16, // Marrow
+    indexCPS2_Cable,        // 0x17, // Cable
+    indexCPS2_Abyss1,       // 0x18, // Abyss (Form 1)
+    indexCPS2_Abyss2,       // 0x19, // Abyss (Form 2)
+    indexCPS2_Abyss3,       // 0x1A, // Abyss (Form 3)
+    indexCPS2_ChunLi,       // 0x1B, // Chun-Li
+    indexCPS2_Megaman,      // 0x1C, // Megaman
+    indexCPS2_Roll,         // 0x1D, // Roll
+    indexCPS2_Akuma,        // 0x1E, // Gouki
+    indexCPS2_BBHood,       // 0x1F, // B.B. Hood
+    indexCPS2_Felicia,      // 0x20, // Felicia
+    indexCPS2_Charlie,      // 0x21, // Charlie
+    indexCPS2_Sakura,       // 0x22, // Sakura
+    indexCPS2_Dan,          // 0x23, // Dan
+    indexCPS2_Cammy,        // 0x24, // Cammy
+    indexCPS2_Dhalsim,      // 0x25, // Dhalsim
+    indexCPS2_Bison,        // 0x26, // M.Bison
+    indexCPS2_Ken,          // 0x27, // Ken
+    indexCPS2_Gambit,       // 0x28, // Gambit
+    indexCPS2_Juggy,        // 0x29, // Juggernaut
+    indexCPS2_Storm,        // 0x2A, // Storm
+    indexCPS2_Sabretooth,   // 0x2B, // Sabretooth
+    indexCPS2_Magneto,      // 0x2C, // Magneto
+    indexCPS2_Shuma,        // 0x2D, // Shuma-Gorath
+    indexCPS2_WarMachine,   // 0x2E, // War Machine
     indexCPS2_SilverSamurai, // 0x2F, // Silver Samurai
-    indexCPS2_OmegaRed, // 0x30, // Omega Red
-    indexCPS2_Spiral, // 0x31, // Spiral
-    indexCPS2_Colossus, // 0x32, // Colossus
-    indexCPS2_IronMan, // 0x33, // Iron Man
-    indexCPS2_Sentinel, // 0x34, // Sentinel
-    indexCPS2_Blackheart, // 0x35, // Blackheart
-    indexCPS2_Thanos, // 0x36, // Thanos
-    indexCPS2_Jin, // 0x37, // Jin
-    indexCPS2_CapCom, // 0x38, // Captain Commando
-    indexCPS2_Bonerine, // 0x39, // Bonerine
-    indexCPS2_Kobun, // 0x3A  // Kobun
-    indexCPS2_Onslaught, // 0x3B
-    indexCPS2_MVCAssets, // 0x3C
-    indexCPS2_Adon, // 0x3D, // Adon
-    indexCPS2_Sodom, // 0x3E, // Sodom
-    indexCPS2_Guy, // 0x3F, // Guy
-    indexCPS2_Birdie, // 0x40, // Birdie
-    indexCPS2_Rose, // 0x41, // Rose
-    indexCPS2_Sagat, // 0x42, // Sagat
-    indexCPS2_Rolento, // 0x43, // Rolento
-    indexCPS2_Gen, // 0x44, // Gen
-    indexCPS2_Balrog, // 0x45, // Balrog
-    indexCPS2_EHonda, // 0x46, // E.Honda
-    indexCPS2_Blanka, // 0x47, // Blanka
-    indexCPS2_RMika, // 0x48, // R.Mika
-    indexCPS2_Cody, // 0x49, // Cody
-    indexCPS2_Vega, // 0x4A, // Vega
-    indexCPS2_Karin, // 0x4B, // Karin
-    indexCPS2_Juni, // 0x4C, // Juni
-    indexCPS2_Juli, // 0x4D  // Juli
-    indexCPS2_SFA3Assets, // x4e - SFA3 HUD, stages
-    indexCPS2_Apocalypse, // x4f Apocalypse
-    indexCPS2_XMVSFAssets, // x50 - XMVSF HUD, stages
-    indexCPS2_Anita, // x51 - Anita
-    indexCPS2_MSHAssets, // x52 - MSH HUD, stages
-    indexCPS2_Norimaro, // x53 - Norimaro
-    indexCPS2_CyberAkuma, // x54 - Cyber Gouki
+    indexCPS2_OmegaRed,     // 0x30, // Omega Red
+    indexCPS2_Spiral,       // 0x31, // Spiral
+    indexCPS2_Colossus,     // 0x32, // Colossus
+    indexCPS2_IronMan,      // 0x33, // Iron Man
+    indexCPS2_Sentinel,     // 0x34, // Sentinel
+    indexCPS2_Blackheart,   // 0x35, // Blackheart
+    indexCPS2_Thanos,       // 0x36, // Thanos
+    indexCPS2_Jin,          // 0x37, // Jin
+    indexCPS2_CapCom,       // 0x38, // Captain Commando
+    indexCPS2_Bonerine,     // 0x39, // Bonerine
+    indexCPS2_Kobun,        // 0x3A  // Kobun
+    indexCPS2_Onslaught,    // 0x3B
+    indexCPS2_MVCAssets,    // 0x3C
+    indexCPS2_Adon,         // 0x3D, // Adon
+    indexCPS2_Sodom,        // 0x3E, // Sodom
+    indexCPS2_Guy,          // 0x3F, // Guy
+    indexCPS2_Birdie,       // 0x40, // Birdie
+    indexCPS2_Rose,         // 0x41, // Rose
+    indexCPS2_Sagat,        // 0x42, // Sagat
+    indexCPS2_Rolento,      // 0x43, // Rolento
+    indexCPS2_Gen,          // 0x44, // Gen
+    indexCPS2_Balrog,       // 0x45, // Balrog
+    indexCPS2_EHonda,       // 0x46, // E.Honda
+    indexCPS2_Blanka,       // 0x47, // Blanka
+    indexCPS2_RMika,        // 0x48, // R.Mika
+    indexCPS2_Cody,         // 0x49, // Cody
+    indexCPS2_Vega,         // 0x4A, // Vega
+    indexCPS2_Karin,        // 0x4B, // Karin
+    indexCPS2_Juni,         // 0x4C, // Juni
+    indexCPS2_Juli,         // 0x4D  // Juli
+    indexCPS2_SFA3Assets,   // x4e - SFA3 HUD, stages
+    indexCPS2_Apocalypse,   // x4f Apocalypse
+    indexCPS2_XMVSFAssets,  // x50 - XMVSF HUD, stages
+    indexCPS2_Anita,        // x51 - Anita
+    indexCPS2_MSHAssets,    // x52 - MSH HUD, stages
+    indexCPS2_Norimaro,     // x53 - Norimaro
+    indexCPS2_CyberAkuma,   // x54 - Cyber Gouki
     indexCPS2_MSHVSFAssets, // x55 - HUD, stages
-    indexCPS2_COTAAssets, // x56 - HUD, stages, etc
-    indexCPS2_STAkuma, // 0x57 - ST Akuma
+    indexCPS2_COTAAssets,   // x56 - HUD, stages, etc
+    indexCPS2_STAkuma,      // 0x57 - ST Akuma
     indexCPS2_SFA2Portraits, // 0x58
 
     indexCPS2_SPF_Ryu,      // 0x59
@@ -333,6 +340,24 @@ enum CHARACTERS_CPS2
 
     indexCPS2_SFA1_Portraits, // 0x65
     indexCPS2_SFA3_Portraits, // 0x66
+
+    indexCPS2_Vamp_Aulbath,   // 0x67
+    indexCPS2_Vamp_Bishamon,  // 0x68
+    indexCPS2_Vamp_Dee,       // 0x69
+    indexCPS2_Vamp_Demitri,   // 0x6A
+    indexCPS2_Vamp_Donovan,   // 0x6B
+    indexCPS2_Vamp_Gallon,    // 0x6C
+    indexCPS2_Vamp_Jedah,     // 0x6D
+    indexCPS2_Vamp_LeiLei,    // 0x6E
+    indexCPS2_Vamp_Lilith,    // 0x6F
+    indexCPS2_Vamp_Marionette, // 0x70
+    indexCPS2_Vamp_Phobos,    // 0x71
+    indexCPS2_Vamp_Pyron,     // 0x72
+    indexCPS2_Vamp_QBee,      // 0x73
+    indexCPS2_Vamp_Sasquatch, // 0x74
+    indexCPS2_Vamp_Shadow,    // 0x75
+    indexCPS2_Vamp_Victor,    // 0x76
+    indexCPS2_Vamp_Zabel,     // 0x77
 };
 
 const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
@@ -1828,6 +1853,33 @@ const UINT8 REDEARTH_A_IMG_UNITS[] =
 };
 
 constexpr auto REDEARTH_A_NUM_IMG_UNITS = ARRAYSIZE(REDEARTH_A_IMG_UNITS);
+
+const UINT8 VSAV_A_IMG_UNITS[] =
+{
+    indexCPS2_Anakaris,
+    indexCPS2_BBHood,
+    indexCPS2_Felicia,
+    indexCPS2_Morrigan,
+    indexCPS2_Vamp_Aulbath,   // 0x67
+    indexCPS2_Vamp_Bishamon,  // 0x68
+    indexCPS2_Vamp_Dee,       // 0x69
+    indexCPS2_Vamp_Demitri,   // 0x6A
+    indexCPS2_Vamp_Donovan,   // 0x6B
+    indexCPS2_Vamp_Gallon,    // 0x6C
+    indexCPS2_Vamp_Jedah,     // 0x6D
+    indexCPS2_Vamp_LeiLei,    // 0x6E
+    indexCPS2_Vamp_Lilith,    // 0x6F
+    indexCPS2_Vamp_Marionette, // 0x70
+    indexCPS2_Vamp_Phobos,    // 0x71
+    indexCPS2_Vamp_Pyron,     // 0x72
+    indexCPS2_Vamp_QBee,      // 0x73
+    indexCPS2_Vamp_Sasquatch, // 0x74
+    indexCPS2_Vamp_Shadow,    // 0x75
+    indexCPS2_Vamp_Victor,    // 0x76
+    indexCPS2_Vamp_Zabel,     // 0x77
+};
+
+constexpr auto VSAV_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV_A_IMG_UNITS);
 
 enum eIMGDat_Sections
 {

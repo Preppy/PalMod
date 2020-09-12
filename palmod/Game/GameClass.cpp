@@ -275,7 +275,7 @@ UINT32 CGameClass::CONV_15ALT_32(UINT16 inCol)
     auxg = auxg << 3;
     auxb = auxb << 3;
 
-    //auxr = auxr;
+    //auxr = auxr; no-op
     auxg = auxg << 8;
     auxb = auxb << 16;
     auxa = auxa << 24;
@@ -295,10 +295,10 @@ UINT16 CGameClass::CONV_32_15ALT(UINT32 inCol)
     auxg = (UINT16)round(auxg / 8);
     auxr = (UINT16)round(auxr / 8);
 
-    auxa = auxa << (15);
-    auxr = auxr << (10);
-    auxg = auxg << (5);
-    //auxb = auxb;
+    auxa = auxa << 15;
+    auxr = auxr << 10;
+    auxg = auxg << 5;
+    //auxb = auxb; no-op
 
     return auxb | auxg | auxr | auxa;
 }

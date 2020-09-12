@@ -1,33 +1,30 @@
 #pragma once
-#include "GameClass.h"
-#include "SFA3_A_DEF.h"
-#include "..\ExtraFile.h"
+#include "gameclass.h"
+#include "VSAV_A_DEF.h"
+#include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SFA3 = _T("SFA3e.txt");
-#define GetExtraDefForSFA3(x)((stExtraDef *)&SFA3_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_VSAV = _T("VSAVe.txt");
+#define GetExtraDefForVSAV(x)((stExtraDef *)&VSAV_A_EXTRA_CUSTOM[x])
 
-class CGame_SFA3_A : public CGameWithExtrasFile
+class CGame_VSAV_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForSFA3;
-    static int rgExtraCountAll[SFA3_A_NUM_IND + 1];
-    static int rgExtraCountVisibleOnly[SFA3_A_NUM_IND + 1];
-    static int rgExtraLoc[SFA3_A_NUM_IND + 1];
+    static UINT32 m_nTotalPaletteCountForVSAV;
 
-    static UINT32 m_nExpectedGameROMSize;
-    static UINT32 m_nConfirmedROMSize;
+    static int rgExtraCountAll[VSAV_A_NUMUNIT + 1];
+    static int rgExtraCountVisibleOnly[VSAV_A_NUMUNIT + 1];
+    static int rgExtraLoc[VSAV_A_NUMUNIT + 1];
 
     static void InitializeStatics();
+    static UINT32 m_nExpectedGameROMSize;
+    static UINT32 m_nConfirmedROMSize;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
-    // Developer-only mode to regenerate the header file quickly.
-    static void DumpHeaderPalettes();
-
 public:
-    CGame_SFA3_A(UINT32 nConfirmedROMSize);
-    ~CGame_SFA3_A(void);
+    CGame_VSAV_A(UINT32 nConfirmedROMSize);
+    ~CGame_VSAV_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -41,6 +38,7 @@ public:
 
     //Normal functions
     CDescTree* GetMainTree();
+
     static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
@@ -49,7 +47,6 @@ public:
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
-    UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
@@ -58,7 +55,7 @@ public:
 
     void UpdatePalData();
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* SFA3_A_EXTRA_CUSTOM;
+    static stExtraDef* VSAV_A_EXTRA_CUSTOM;
 };

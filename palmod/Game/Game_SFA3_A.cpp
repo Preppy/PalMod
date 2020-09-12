@@ -90,6 +90,77 @@ CGame_SFA3_A::~CGame_SFA3_A(void)
     FlushChangeTrackingArray();
 }
 
+UINT32 CGame_SFA3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static const sCRC32ValueSet knownROMs[] =
+    {
+        // Street Fighter Alpha 3 variants...
+        { _T("SFA3 980904 (Arcade)"), _T("sz3.09c"), 0xb29e5199, 0 },
+        { _T("SFA3 (Arcade)"), _T("sz3.09"), 0xc5589553, -0x28 }, 
+        { _T("SFZ3 980726 (Japan Arcade)"), _T("sz3.09a"), 0x2180892, -0x28 },
+
+        // We are aligned to the character sprites here, but not the portraits/stages.
+        // Accordingly, we don't actually expose this in the file picker UI.
+        { _T("SFA3 980616 (Prototype)"), _T("sz3-usam_09.8d"), 0x822fc451, 0x2ff9a },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+
+#ifdef NOTES
+    // These are the MAME values...
+        ROM_START(sfa3) // 04/09/1998 (c) 1998 (USA)
+        ROM_LOAD16_WORD_SWAP("sz3.09c", 0x300000, 0x80000, CRC(b29e5199) SHA1(c6c215eb5aa37f678a9cafcbd8620969fb5ca12f))
+
+        ROM_START(sfa3u)    // 04/09/1998 (c) 1998 (USA)
+        ROM_LOAD16_WORD_SWAP("sz3.09c", 0x300000, 0x80000, CRC(b29e5199) SHA1(c6c215eb5aa37f678a9cafcbd8620969fb5ca12f))
+
+        ROM_START(sfz3j)    // 04/09/1998 (c) 1998 (Japan)
+        ROM_LOAD16_WORD_SWAP("sz3.09c", 0x300000, 0x80000, CRC(b29e5199) SHA1(c6c215eb5aa37f678a9cafcbd8620969fb5ca12f))
+
+        ROM_START(sfz3a)    // 04/09/1998 (c) 1998 (Asia)
+        ROM_LOAD16_WORD_SWAP("sz3.09c", 0x300000, 0x80000, CRC(b29e5199) SHA1(c6c215eb5aa37f678a9cafcbd8620969fb5ca12f))
+
+        ROM_START(sfa3h)    // 04/09/1998 (c) 1998 (Hispanic)
+        ROM_LOAD16_WORD_SWAP("sz3.09c", 0x300000, 0x80000, CRC(b29e5199) SHA1(c6c215eb5aa37f678a9cafcbd8620969fb5ca12f))
+
+
+        ROM_START(sfa3ur1)  // 29/06/1998 (c) 1998 (USA)
+        ROM_LOAD16_WORD_SWAP("sz3.09", 0x300000, 0x80000, CRC(c5589553) SHA1(cda1fdc2ab2f390a2358defd9923a2796093926d))
+
+        ROM_START(sfz3jr2)  // 29/06/1998 (c) 1998 (Japan)
+        ROM_LOAD16_WORD_SWAP("sz3.09", 0x300000, 0x80000, CRC(c5589553) SHA1(cda1fdc2ab2f390a2358defd9923a2796093926d))
+
+        ROM_START(sfz3ar1)  // 01/07/1998 (c) 1998 (Asia)
+        ROM_LOAD16_WORD_SWAP("sz3.09", 0x300000, 0x80000, CRC(c5589553) SHA1(cda1fdc2ab2f390a2358defd9923a2796093926d))
+
+        ROM_START(sfa3hr1)  // 29/06/1998 (c) 1998 (Hispanic)
+        ROM_LOAD16_WORD_SWAP("sz3.09", 0x300000, 0x80000, CRC(c5589553) SHA1(cda1fdc2ab2f390a2358defd9923a2796093926d))
+
+        ROM_START(sfa3b)    // 29/06/1998 (c) 1998 (Brazil)
+        ROM_LOAD16_WORD_SWAP("sz3.09", 0x300000, 0x80000, CRC(c5589553) SHA1(cda1fdc2ab2f390a2358defd9923a2796093926d))
+
+
+        ROM_START(sfa3us)   // 16/06/1998 (c) 1998 (USA)
+        ROM_LOAD16_WORD_SWAP("sz3-usam_09.8d", 0x300000, 0x80000, CRC(822fc451) SHA1(49ec9e3f33d6023b59b350a79fe2299f6ac90251))
+
+
+        ROM_START(sfz3jr1)   // 27/07/1998 (c) 1998 (Japan)
+        ROM_LOAD16_WORD_SWAP("sz3.09a", 0x300000, 0x80000, CRC(2180892c) SHA1(65a44c612b1c6dd527b306c262caa5040897ce7b))
+
+#endif
+}
+
 int CGame_SFA3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
@@ -603,8 +674,6 @@ const sDescTreeNode* CGame_SFA3_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
     return pCollectionNode;
 }
 
-
-
 void CGame_SFA3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
     if (nUnitId != SFA3_A_EXTRALOC)
@@ -617,6 +686,13 @@ void CGame_SFA3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
         m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+        // Adjust for ROM-specific variant locations
+        if (m_pCRC32SpecificData)
+        {
+            m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
+        }
+
     }
     else // SFA3_A_EXTRALOC
     {

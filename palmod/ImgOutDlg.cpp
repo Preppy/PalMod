@@ -7,6 +7,7 @@
 #include "atlimage.h"
 #include "gdiplus.h"
 #include "RegProc.h"
+#include "CRC32.h"
 
 using namespace Gdiplus;
 
@@ -156,7 +157,6 @@ void CImgOutDlg::SubZoom()
 
     UpdateImg();
 }
-
 
 afx_msg void CImgOutDlg::OnSize(UINT nType, int cx, int cy)
 {
@@ -447,57 +447,23 @@ void CImgOutDlg::OnFileSave()
 
         CString save_str = sfd_ofn.lpstrFile;
 
-        if (img_format != ImageFormatUndefined)
+        // Do a quick to confirm if have the file extension in the supplied filename
+        CString strExtCheck = save_str;
+        strExtCheck.MakeLower();
+        if (strExtCheck.Find(output_ext) == (strExtCheck.GetLength() - output_ext.GetLength()))
         {
-            CImage out_img;
-            if (out_img.Create(output_width, output_height, 32, dwExportFlags))
-            {
-                if (dwExportFlags == CImage::createAlphaChannel)
-                {
-                    m_DumpBmp.UpdateCtrl(FALSE, (UINT8*)out_img.GetBits());
-                }
-                else
-                {
-                    CDC* output_DC = CDC::FromHandle(out_img.GetDC());
-                    output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.MainDC, 0, 0, SRCCOPY);
-                }
-
-                if (save_str.Find(output_ext) == (save_str.GetLength() - output_ext.GetLength()))
-                {
-                    output_str = save_str;
-                }
-                else
-                {
-                    // Force the correct file extension
-                    output_str.Format(_T("%s%s"), sfd_ofn.lpstrFile, output_ext.GetString());
-                }
-
-                HRESULT hr = out_img.Save(output_str, img_format);
-
-                if (FAILED(hr))
-                {
-                    CString strInfo;
-                    strInfo.Format(_T("Image export to file '%s' failed.\n\nThe error code is 0x%x"), output_str.GetString(), hr);
-                    MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
-                }
-
-                if (!bTransPNG)
-                {
-                    out_img.ReleaseDC();
-                }
-                else
-                {
-                    m_DumpBmp.UpdateCtrl();
-                }
-            }
-            else
-            {
-                MessageBox(_T("Image export failed: Failed to create the image file."), GetHost()->GetAppName(), MB_ICONERROR);
-            }
+            output_str = save_str;
         }
         else
         {
-            int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
+            // Force the correct file extension
+            output_str.Format(_T("%s%s"), sfd_ofn.lpstrFile, output_ext.GetString());
+        }
+
+        if (img_format == ImageFormatUndefined)
+        {
+            // raw
+            const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
             sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
             CString strDimensions;
 
@@ -527,6 +493,44 @@ void CImgOutDlg::OnFileSave()
                     rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW);
                     rawFile.Abort();
                 }
+            }
+        }
+        else // specific image type guid available
+        {
+            CImage out_img;
+            if (out_img.Create(output_width, output_height, 32, dwExportFlags))
+            {
+                if (dwExportFlags == CImage::createAlphaChannel)
+                {
+                    m_DumpBmp.UpdateCtrl(FALSE, (UINT8*)out_img.GetBits());
+                }
+                else
+                {
+                    CDC* output_DC = CDC::FromHandle(out_img.GetDC());
+                    output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.MainDC, 0, 0, SRCCOPY);
+                }
+
+                HRESULT hr = out_img.Save(output_str, img_format);
+
+                if (FAILED(hr))
+                {
+                    CString strInfo;
+                    strInfo.Format(_T("Image export to file '%s' failed.\n\nThe error code is 0x%x"), output_str.GetString(), hr);
+                    MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
+                }
+
+                if (!bTransPNG)
+                {
+                    out_img.ReleaseDC();
+                }
+                else
+                {
+                    m_DumpBmp.UpdateCtrl();
+                }
+            }
+            else
+            {
+                MessageBox(_T("Image export failed: Failed to create the image file."), GetHost()->GetAppName(), MB_ICONERROR);
             }
         }
     }

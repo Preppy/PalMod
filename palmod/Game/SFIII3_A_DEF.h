@@ -120,9 +120,9 @@ const sGame_PaletteDataset SFIII3_A_RYU_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_RYU_EXTRA_PALETTES[] =
 {
-    { _T("Hadouken"), 0x704B00, 0x704B80 },
-    { _T("Hadouken Impact"), 0x704B80, 0x704C00 },
-    { _T("Shakunetsu (EX Fireball)"), 0x704C00, 0x704C80 },
+    { _T("Hadouken"), 0x704B00, 0x704B80, index3S_CPS3_Ryu, 0x2 },
+    { _T("Hadouken Impact"), 0x704B80, 0x704C00, index3S_CPS3_Ryu, 0x03 },
+    { _T("Shakunetsu (EX Fireball)"), 0x704C00, 0x704C80, index3S_CPS3_Ryu, 0x04 },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_LP_PALETTES[] =
@@ -705,9 +705,9 @@ const sGame_PaletteDataset SFIII3_A_KEN_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_KEN_EXTRA_PALETTES[] =
 {
-    { _T("Hadouken"), 0x706400, 0x706480 },
-    { _T("Hadouken Impact"), 0x706480, 0x706500 },
-    { _T("Shoryuken Flames"), 0x706500, 0x706580 },
+    { _T("Hadouken"), 0x706400, 0x706480, index3S_CPS3_Ken, 0x02 },
+    { _T("Hadouken Impact"), 0x706480, 0x706500, index3S_CPS3_Ken, 0x03 },
+    { _T("Shoryuken Flames"), 0x706500, 0x706580, index3S_CPS3_Ken, 0x04 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_LP_PALETTES[] =

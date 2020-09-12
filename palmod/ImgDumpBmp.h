@@ -131,5 +131,3 @@ public:
 
     void ResizeMainBmp();
 };
-
-

@@ -32,6 +32,7 @@
 #include "Game_SFIII3_D.h"
 #include "Game_SSF2T_A.h"
 #include "Game_SVCPLUSA_A.h"
+#include "Game_VSAV_A.h"
 #include "Game_WakuWaku7_A.h"
 #include "Game_XMVSF_A.h"
 
@@ -269,7 +270,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_WakuWaku7_A::GetRule;
         return TRUE;
     }
-    break;
+    case VSAV_A:
+    {
+        GetRule = &CGame_VSAV_A::GetRule;
+        return TRUE;
+    }
 
     default:
         OutputDebugString(_T("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n"));
@@ -407,6 +412,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SVCPLUSA_A:
     {
         return new CGame_SVCPLUSA_A(nConfirmedROMSize);
+    }
+    case VSAV_A:
+    {
+        return new CGame_VSAV_A(nConfirmedROMSize);
     }
     case WakuWaku7_A:
     {

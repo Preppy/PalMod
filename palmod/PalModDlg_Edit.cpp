@@ -273,6 +273,7 @@ void CPalModDlg::OnEditPaste()
                 case SFA2_A:
                 case SFA3_A:
                 case SSF2T_A:
+                case VSAV_A:
                 case XMVSF_A:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_12A;

@@ -77,8 +77,8 @@ void CImgDumpBmp::InitImgData()
         int nXOffs = rgSrcImg[nImgCtr]->nXOffs;
         int nYOffs = rgSrcImg[nImgCtr]->nYOffs;
 
-        nXOffs = nImgCtr ? nXOffs + (rgSrcImg[0]->uImgW / 2) - (rgSrcImg[nImgCtr]->uImgW / 2) : 0;
-        nYOffs = nImgCtr ? nYOffs + (rgSrcImg[0]->uImgH / 2) - (rgSrcImg[nImgCtr]->uImgH / 2) : 0;
+        nXOffs = nImgCtr ? (nXOffs + (rgSrcImg[0]->uImgW / 2) - (rgSrcImg[nImgCtr]->uImgW / 2)) : 0;
+        nYOffs = nImgCtr ? (nYOffs + (rgSrcImg[0]->uImgH / 2) - (rgSrcImg[nImgCtr]->uImgH / 2)) : 0;
 
         if (nXOffs < rImgRct.left)
         {
