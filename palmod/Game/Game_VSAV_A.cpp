@@ -40,7 +40,7 @@ CGame_VSAV_A::CGame_VSAV_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = VSAV_A_NUMUNIT;
     m_nExtraUnit = VSAV_A_EXTRALOC;
-    m_nSafeCountForThisRom = 1026     + GetExtraCt(VSAV_A_EXTRALOC);
+    m_nSafeCountForThisRom = 1079 + GetExtraCt(VSAV_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_VSAV;
     m_nTotalPaletteCount = m_nTotalPaletteCountForVSAV;
 
@@ -642,7 +642,7 @@ BOOL CGame_VSAV_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 if ((_tcsicmp(pCurrentNode->szDesc, _T("LP")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("MP")) == 0) ||
                     (_tcsicmp(pCurrentNode->szDesc, _T("HP")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("LK")) == 0) ||
                     (_tcsicmp(pCurrentNode->szDesc, _T("MK")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("HK")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("3P")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("3K")) == 0) ||
+                    (_tcsicmp(pCurrentNode->szDesc, _T("PP")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("KK")) == 0) ||
                     (_tcsicmp(pCurrentNode->szDesc, _T("AP")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("AK")) == 0))
                 {
                     nSrcAmt = m_nNumberOfColorOptions;

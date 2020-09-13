@@ -312,6 +312,114 @@ const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_PALETTES[] =
     { _T("Victory Screen (6/6)"), 0x1DEA80, 0x1DEB00 },
 };
 
+const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
+{
+    { _T("Capcom Logo"), 0x320000, 0x320f00 },
+
+    // confirming: { _T("Intro - Red Earth"), 0x322ca0, 0x322d69 },
+
+    // confirming: { _T("Intro - Leo closeup"), 0x32269e, 0x32272e },
+
+    { _T("Intro - Emerald"), 0x321320, 0x321380 },
+    { _T("Intro - Emerald BG"), 0x321720, 0x322500 },
+
+    // confirming: { _T("Intro - Emerald FX"), 0x3216be, 0x32170e },
+
+    { _T("Intro - Hauzer"), 0x3213a0, 0x321420 },
+    { _T("Intro - Kongou"), 0x321420, 0x3214a0 },
+    { _T("Intro - Hydron"), 0x3214a0, 0x321520 },
+    { _T("Intro - Lavia"), 0x321520, 0x3215a0 },
+    { _T("Intro - Ravange"), 0x3215a0, 0x321620 },
+    { _T("Intro - Gi-Gi"), 0x321620, 0x3216a0 },
+    { _T("Intro - Mai Ling background"), 0x322a20, 0x322a60 },
+    { _T("Intro - Mai Ling "), 0x322aa0, 0x322b20 },
+    { _T("Intro - Kenji background"), 0x322a60, 0x322aa0 },
+        // { _T("Intro - Kenji"), 0x322b20, 0x322bb0 }, // this ends on b0 instead of c0?
+    { _T("Intro - Tessa 1"), 0x323720, 0x3237a0 },
+    { _T("Intro - Tessa 2"), 0x3237a0, 0x323820 },
+    { _T("Intro - Tessa 3"), 0x323820, 0x3238a0 },
+    { _T("Intro - Tessa 4"), 0x3238a0, 0x323920 },
+    { _T("Intro - Tessa 5"), 0x323920, 0x3239a0 },
+    { _T("Intro - Tessa 6"), 0x3239a0, 0x323a20 },
+    { _T("Intro - Tessa 7"), 0x323a20, 0x323aa0 },
+    { _T("Intro - Tessa 8"), 0x323aa0, 0x323b20 },
+    { _T("Intro - VS Blade Sky"), 0x321220, 0x321260 },
+        // conflict 1: { _T("Intro - VS Blade Trees"), 0x324120, 0x324150 },
+    { _T("Intro - Blade"), 0x323f00, 0x323fa0 },
+    { _T("Intro - Leo Cliffside"), 0x323fa0, 0x324020 },
+    { _T("Intro - Leo C.Thunder"), 0x324020, 0x3240a0 },
+        // conflict 1: { _T("Intro - Blade.Thunder"), 0x3240a0, 0x324140 },
+        // conflict 2: { _T("Intro - Leo flash"), 0x324620, 0x3246a0 },
+        // conflict 2: { _T("Intro - Blade flash"), 0x3245a0, 0x324640 },
+    { _T("Intro - Thunderflash"), 0x3246a0, 0x324720 },
+    { _T("Intro - Leo rise and slash"), 0x322d90, 0x322e90 },
+    { _T("Intro - RaS BG 1"), 0x322ea0, 0x322f00 },
+    { _T("Intro-Leo.S.BG1"), 0x322f20, 0x322f40 },
+    { _T("Intro-Leo.S.BG2"), 0x322f40, 0x322f60 },
+    { _T("Intro-Leo.S.BG3"), 0x322f60, 0x322f80 },
+    { _T("Intro-Leo.S.BG4"), 0x322f80, 0x322fa0 },
+    { _T("Intro-Leo.S.BG5"), 0x322fa0, 0x322fc0 },
+    { _T("Intro-Leo.S.BG6"), 0x322fc0, 0x322fe0 },
+    { _T("Intro-Leo.S.BG7"), 0x322fe0, 0x323000 },
+    { _T("Intro-Leo.S.BG8"), 0x323000, 0x323020 },
+    { _T("Intro-Leo.S.BG9"), 0x323020, 0x323040 },
+    { _T("Intro-Leo.S.BG10"), 0x323040, 0x323060 },
+    { _T("Intro-Leo.S.BG11"), 0x323060, 0x323080 },
+    { _T("Intro-Leo.S.BG12"), 0x323080, 0x3230a0 },
+    { _T("Intro-Leo.S.BG13"), 0x3230a0, 0x3230c0 },
+    { _T("Intro-Leo.S.BG14"), 0x3230c0, 0x3230e0 },
+    { _T("Intro-Leo.S.BG14"), 0x3230e0, 0x323100 },
+    { _T("Intro-Leo.S.BG16"), 0x323100, 0x323120 },
+    { _T("Intro-Leo.S.BG17"), 0x323120, 0x323140 },
+    { _T("Intro-Leo.S.BG18"), 0x323140, 0x323160 },
+    { _T("Intro-Leo.S.BG19"), 0x323160, 0x323180 },
+    { _T("Intro-Leo.S.BG20"), 0x323180, 0x3231a0 },
+    { _T("Intro-Leo.S.BG21"), 0x3231a0, 0x3231c0 },
+    { _T("Intro-Leo.S.BG22"), 0x3231c0, 0x3231e0 },
+    { _T("Intro-Leo.S.BG23"), 0x3231e0, 0x323200 },
+    { _T("Intro-Leo.S.BG24"), 0x323200, 0x323220 },
+    { _T("Intro-Leo.S.BG25"), 0x323220, 0x323240 },
+    { _T("Intro-Leo.S.BG26"), 0x323240, 0x323260 },
+    { _T("Intro-Leo.S.BG27"), 0x323260, 0x323280 },
+    { _T("Intro-Leo.S.BG28"), 0x323280, 0x3232a0 },
+    { _T("Intro-Leo.S.BG29"), 0x3232a0, 0x3232c0 },
+    { _T("Intro-Leo.S.BG30"), 0x3232c0, 0x3232e0 },
+    { _T("Intro-Leo.S.BG31"), 0x3232e0, 0x323300 },
+    { _T("Intro-Leo.S.BG32"), 0x323300, 0x323320 },
+    { _T("Intro-Leo.S.BG33"), 0x323320, 0x323340 },
+    { _T("Intro-Leo.S.BG34"), 0x323340, 0x323360 },
+    { _T("Intro-Leo.S.BG35"), 0x323360, 0x323380 },
+    { _T("Intro-Leo.S.BG36"), 0x323380, 0x3233a0 },
+    { _T("Intro-Leo.S.BG37"), 0x3233a0, 0x3233c0 },
+    { _T("Intro-Leo.S.BG38"), 0x3233c0, 0x3233e0 },
+    { _T("Intro-Leo.S.BG39"), 0x3233e0, 0x323400 },
+    { _T("Intro-Leo.S.BG40"), 0x323400, 0x323420 },
+    { _T("Intro-Leo.S.BG41"), 0x323420, 0x323440 },
+    { _T("Intro-Leo.S.BG42"), 0x323440, 0x323460 },
+    { _T("Intro-Leo.S.BG43"), 0x323460, 0x323480 },
+    { _T("Intro-Leo.S.BG44"), 0x323480, 0x3234a0 },
+    { _T("Intro-Leo.S.BG45"), 0x3234a0, 0x3234c0 },
+    { _T("Intro-Leo.S.BG46"), 0x3234c0, 0x3234e0 },
+    { _T("Intro-Leo.S.BG47"), 0x3234e0, 0x323500 },
+    { _T("Intro-Leo.S.BG48"), 0x323500, 0x323520 },
+    { _T("Intro-Leo.S.BG49"), 0x323520, 0x323540 },
+    { _T("Intro-Leo.S.BG50"), 0x323540, 0x323560 },
+    { _T("Intro-Leo.S.BG51"), 0x323560, 0x323580 },
+    { _T("Intro-Leo.S.BG52"), 0x323580, 0x3235a0 },
+    { _T("Intro-Leo.S.BG53"), 0x3235a0, 0x3235c0 },
+    { _T("Intro-Leo.S.BG54"), 0x3235c0, 0x3235e0 },
+    { _T("Intro-Leo.S.BG55"), 0x3235e0, 0x323600 },
+    { _T("Intro-Leo.S.BG56"), 0x323600, 0x323620 },
+    { _T("Intro-Leo.S.BG57"), 0x323620, 0x323640 },
+    { _T("Intro-Leo.S.BG58"), 0x323640, 0x323660 },
+    { _T("Intro-Leo.S.BG59"), 0x323660, 0x323680 },
+    { _T("Intro-Leo.S.BG60"), 0x323680, 0x3236a0 },
+    { _T("Intro-Leo.S.BG61"), 0x3236a0, 0x3236c0 },
+    { _T("Intro-Leo.S.BG62"), 0x3236c0, 0x3236e0 },
+    { _T("Intro-Leo.S.BG63"), 0x3236e0, 0x323700 },
+    { _T("Intro-Leo.S.BG64"), 0x323700, 0x323720 },
+};
+
 const sDescTreeNode REDEARTH_A_LEO_COLLECTION[] =
 {
     { _T("Punch"),  DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_LEO_PUNCH_PALETTES) },
@@ -355,6 +463,11 @@ const sDescTreeNode REDEARTH_A_CHARACTERSELECT_COLLECTION[] =
     { _T("Palettes"), DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_PALETTES, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_PALETTES) },
 };
 
+const sDescTreeNode REDEARTH_A_INTRO_COLLECTION[] =
+{
+    { _T("Palettes"), DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_PALETTES, ARRAYSIZE(REDEARTH_A_INTRO_PALETTES) },
+};
+
 const sDescTreeNode REDEARTH_A_UNITS[] =
 {
     { _T("Leo"),                DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_COLLECTION, ARRAYSIZE(REDEARTH_A_LEO_COLLECTION) },
@@ -365,6 +478,7 @@ const sDescTreeNode REDEARTH_A_UNITS[] =
     { _T("Hauzer"),             DESC_NODETYPE_TREE, (void*)REDEARTH_A_HAUZER_COLLECTION, ARRAYSIZE(REDEARTH_A_HAUZER_COLLECTION) },
     { _T("Kongou"),             DESC_NODETYPE_TREE, (void*)REDEARTH_A_KONGOU_COLLECTION, ARRAYSIZE(REDEARTH_A_KONGOU_COLLECTION) },
     { _T("Character Select"),   DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_COLLECTION, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_COLLECTION) },
+    { _T("Intro Palettes"),     DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_COLLECTION, ARRAYSIZE(REDEARTH_A_INTRO_COLLECTION) },
 };
 
 constexpr auto REDEARTH_A_NUMUNIT = ARRAYSIZE(REDEARTH_A_UNITS);

@@ -202,7 +202,7 @@ const LPCTSTR DEF_LABEL_STATUS_EFFECTS[] =
 
 const LPCTSTR DEF_BUTTONLABEL_VSAV[] =
 {
-   _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("3P"), _T("3K"), _T("AP"), _T("AK")
+   _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("PP"), _T("KK"), _T("AP"), _T("AK")
 };
 
 struct stExtraDef
