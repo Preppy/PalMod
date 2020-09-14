@@ -148,6 +148,9 @@
     <Filter Include="Game\Capcom Games\VSAV_A">
       <UniqueIdentifier>{9e472f9e-f1a9-40ee-af45-ac125715d5aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\VSAV2_A">
+      <UniqueIdentifier>{c0e44c54-faac-448c-852c-df9e57bdab25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -341,6 +344,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_VSAV_A.cpp">
       <Filter>Game\Capcom Games\VSAV_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_VSAV2_A.cpp">
+      <Filter>Game\Capcom Games\VSAV2_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -616,6 +622,12 @@
     </ClInclude>
     <ClInclude Include="Game\VSAV_A_DEF.h">
       <Filter>Game\Capcom Games\VSAV_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_VSAV2_A.h">
+      <Filter>Game\Capcom Games\VSAV2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VSAV2_A_DEF.h">
+      <Filter>Game\Capcom Games\VSAV2_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

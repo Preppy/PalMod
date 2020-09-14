@@ -1,18 +1,19 @@
 #pragma once
 #include "gameclass.h"
-#include "GEMFIGHTER_A_DEF.h"
+#include "VSAV2_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_GEMFIGHTER_A = _T("GemFighterE.txt");
-#define GetExtraDefForGemFighter(x)((stExtraDef *)&GEMFIGHTER_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_VSAV2 = _T("VSAV2e.txt");
+#define GetExtraDefForVSAV2(x)((stExtraDef *)&VSAV2_A_EXTRA_CUSTOM[x])
 
-class CGame_GEMFIGHTER_A : public CGameWithExtrasFile
+class CGame_VSAV2_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForGemFighter;
+    static UINT32 m_nTotalPaletteCountForVSAV2;
 
-    static int rgExtraCountAll[GEMFIGHTER_A_NUMUNITS + 1];
-    static int rgExtraLoc[GEMFIGHTER_A_NUMUNITS + 1];
+    static int rgExtraCountAll[VSAV2_A_NUMUNIT + 1];
+    static int rgExtraCountVisibleOnly[VSAV2_A_NUMUNIT + 1];
+    static int rgExtraLoc[VSAV2_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -22,8 +23,8 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
 public:
-    CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize);
-    ~CGame_GEMFIGHTER_A(void);
+    CGame_VSAV2_A(UINT32 nConfirmedROMSize);
+    ~CGame_VSAV2_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -37,6 +38,7 @@ public:
 
     //Normal functions
     CDescTree* GetMainTree();
+
     static UINT16 GetCollectionCountForUnit(UINT16 nUnitId);
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
@@ -55,5 +57,5 @@ public:
 
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* GEMFIGHTER_A_EXTRA_CUSTOM;
+    static stExtraDef* VSAV2_A_EXTRA_CUSTOM;
 };

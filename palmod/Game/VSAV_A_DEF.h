@@ -1738,7 +1738,7 @@ const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_AK[] =
 
 const sGame_PaletteDataset VSAV_A_BONUS_PALETTES[] =
 {
-    { _T("Shadow"), 0x3584C, 0x3586C },
+    { _T("Shadow"), 0x3584C, 0x3586C, indexCPS2_Vamp_Shadow, 0x0 },
 };
 
 const sDescTreeNode VSAV_A_BULLETA_COLLECTION[] =

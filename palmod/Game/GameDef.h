@@ -47,6 +47,7 @@ enum SupportedGamesList
     WakuWaku7_A,
     SFA1_A,
     VSAV_A,
+    VSAV2_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -96,6 +97,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Waku Waku 7"),
    _T("SFA1 (Arcade)"),
    _T("Vampire Savior (Arcade)"),
+   _T("Vampire Savior 2 (Arcade)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -1864,6 +1866,34 @@ const UINT8 VSAV_A_IMG_UNITS[] =
     indexCPS2_Vamp_Bishamon,  // 0x68
     indexCPS2_Vamp_Dee,       // 0x69
     indexCPS2_Vamp_Demitri,   // 0x6A
+    //indexCPS2_Vamp_Donovan,   // 0x6B   console-only
+    indexCPS2_Vamp_Gallon,    // 0x6C
+    indexCPS2_Vamp_Jedah,     // 0x6D
+    indexCPS2_Vamp_LeiLei,    // 0x6E
+    indexCPS2_Vamp_Lilith,    // 0x6F
+    //indexCPS2_Vamp_Marionette, // 0x70  console-only
+    //indexCPS2_Vamp_Phobos,    // 0x71   console-only
+    //indexCPS2_Vamp_Pyron,     // 0x72   console-only
+    indexCPS2_Vamp_QBee,      // 0x73
+    indexCPS2_Vamp_Sasquatch, // 0x74
+    indexCPS2_Vamp_Shadow,    // 0x75
+    indexCPS2_Vamp_Victor,    // 0x76
+    indexCPS2_Vamp_Zabel,     // 0x77
+};
+
+constexpr auto VSAV_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV_A_IMG_UNITS);
+
+const UINT8 VSAV2_A_IMG_UNITS[] =
+{
+    indexCPS2_Anakaris,
+    indexCPS2_Anita,
+    indexCPS2_BBHood,
+    indexCPS2_Felicia,
+    indexCPS2_Morrigan,
+    indexCPS2_Vamp_Aulbath,   // 0x67
+    indexCPS2_Vamp_Bishamon,  // 0x68
+    indexCPS2_Vamp_Dee,       // 0x69
+    indexCPS2_Vamp_Demitri,   // 0x6A
     indexCPS2_Vamp_Donovan,   // 0x6B
     indexCPS2_Vamp_Gallon,    // 0x6C
     indexCPS2_Vamp_Jedah,     // 0x6D
@@ -1879,7 +1909,7 @@ const UINT8 VSAV_A_IMG_UNITS[] =
     indexCPS2_Vamp_Zabel,     // 0x77
 };
 
-constexpr auto VSAV_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV_A_IMG_UNITS);
+constexpr auto VSAV2_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV2_A_IMG_UNITS);
 
 enum eIMGDat_Sections
 {

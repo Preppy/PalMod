@@ -531,6 +531,12 @@ void CGame_VSAV_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             // A bogus palette was requested: this is unrecoverable.
             DebugBreak();
         }
+
+        // Adjust for ROM-specific variant locations
+        if (m_pCRC32SpecificData)
+        {
+            m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
+        }
     }
     else // VSAV_A_EXTRALOC
     {
@@ -540,12 +546,6 @@ void CGame_VSAV_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-
-    // Adjust for ROM-specific variant locations
-    if (m_pCRC32SpecificData)
-    {
-        m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
     }
 }
 
