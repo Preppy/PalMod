@@ -29,28 +29,48 @@ CGameClass::~CGameClass(void)
 
 int CGameClass::GetPlaneAmt(ColFlag Flag)
 {
-    switch (Flag)
+    if ((Flag == ColFlag::COL_RGB) ||
+        ((Flag == ColFlag::COL_A) && m_fGameUsesAlphaValue))
     {
-    case ColFlag::COL_RGB:
-        return nRGBIndexAmt;
-    case ColFlag::COL_A:
-        return nAIndexAmt;
+        switch (CurrColMode)
+        {
+        case ColMode::COLMODE_12A:
+        case ColMode::COLMODE_NEOGEO:
+            return k_nRGBPlaneAmtForRGB444;
+        case ColMode::COLMODE_15:
+        case ColMode::COLMODE_15ALT:
+            return k_nRGBPlaneAmtForRGB555;
+        default:
+            return 0;
+        }
     }
-
-    return 0;
+    else
+    {
+        return 0;
+    }
 }
 
 double CGameClass::GetPlaneMul(ColFlag Flag)
 {
-    switch (Flag)
+    if ((Flag == ColFlag::COL_RGB) ||
+        ((Flag == ColFlag::COL_A) && m_fGameUsesAlphaValue))
     {
-    case ColFlag::COL_RGB:
-        return nRGBIndexMul;
-    case ColFlag::COL_A:
-        return nAIndexMul;
+        switch (CurrColMode)
+        {
+        case ColMode::COLMODE_12A:
+        case ColMode::COLMODE_NEOGEO:
+            return k_nRGBPlaneMulForRGB444;
+        case ColMode::COLMODE_15:
+        case ColMode::COLMODE_15ALT:
+            return k_nRGBPlaneMulForRGB555;
+        default:
+            return 0;
+        }
     }
-
-    return 0;
+    else
+    {
+        return 0;
+    }
 }
 
 void CGameClass::ClearSrcPal()
@@ -170,14 +190,12 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
 
 UINT16 CGameClass::CONV_32_12A(UINT32 inCol)
 {
-    UINT16 auxr = 0, auxg = 0, auxb = 0, auxa = 0;
-
     //UINT16 swapped = SWAP_16(inCol);
 
-    auxa = ((inCol & 0xFF000000) >> 24);
-    auxb = ((inCol & 0x00FF0000) >> 16);
-    auxg = ((inCol & 0x0000FF00) >> 8);
-    auxr = ((inCol & 0x000000FF));
+    UINT16 auxa = ((inCol & 0xFF000000) >> 24);
+    UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
+    UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT16 auxr = ((inCol & 0x000000FF));
 
     auxa = (auxa > (15 * 17)) ? (15 * 17) : auxa;
     auxr = (auxr > (15 * 17)) ? (15 * 17) : auxr;
@@ -199,12 +217,10 @@ UINT16 CGameClass::CONV_32_12A(UINT32 inCol)
 
 UINT32 CGameClass::CONV_12A_32(UINT16 inCol)
 {
-    UINT32 auxr = 0, auxg = 0, auxb = 0, auxa = 0;
-
-    auxb = (inCol & 0xF);
-    auxg = (inCol & 0xF0) >> 4;
-    auxr = (inCol & 0xF00) >> 8;
-    auxa = (inCol & 0xF000) >> 12;
+    UINT32 auxb = (inCol & 0xF);
+    UINT32 auxg = (inCol & 0xF0) >> 4;
+    UINT32 auxr = (inCol & 0xF00) >> 8;
+    UINT32 auxa = (inCol & 0xF000) >> 12;
 
     auxr *= 17;
     auxg *= 17;
@@ -221,18 +237,17 @@ UINT32 CGameClass::CONV_12A_32(UINT16 inCol)
 
 UINT32 CGameClass::CONV_15_32(UINT16 inCol)
 {
-    UINT32 auxr = 0, auxg = 0, auxb = 0;
-
     UINT16 swapped = SWAP_16(inCol);
 
-    auxb = (swapped & 0x7C00) >> 10;
-    auxg = (swapped & 0x3E0) >> 5;
-    auxr = (swapped & 0x1F);
+    UINT32 auxb = (swapped & 0x7C00) >> 10;
+    UINT32 auxg = (swapped & 0x3E0) >> 5;
+    UINT32 auxr = (swapped & 0x1F);
 
-    auxr = auxr << (3);
-    auxg = auxg << (3);
-    auxb = auxb << (3);
+    auxr = auxr << 3;
+    auxg = auxg << 3;
+    auxb = auxb << 3;
 
+    // account for rounding
     auxr += auxr / 32;
     auxg += auxg / 32;
     auxb += auxb / 32;
@@ -246,11 +261,9 @@ UINT32 CGameClass::CONV_15_32(UINT16 inCol)
 
 UINT16 CGameClass::CONV_32_15(UINT32 inCol)
 {
-    UINT16 auxr = 0, auxg = 0, auxb = 0;
-
-    auxb = (inCol & 0x00FF0000) >> (16);
-    auxg = (inCol & 0x0000FF00) >> (8);
-    auxr = (inCol & 0x000000FF);
+    UINT16 auxb = (inCol & 0x00FF0000) >> 16;
+    UINT16 auxg = (inCol & 0x0000FF00) >> 8;
+    UINT16 auxr = (inCol & 0x000000FF);
 
     auxb = (UINT16)round(auxb / 8);
     auxg = (UINT16)round(auxg / 8);
@@ -274,6 +287,12 @@ UINT32 CGameClass::CONV_15ALT_32(UINT16 inCol)
     auxr = auxr << 3;
     auxg = auxg << 3;
     auxb = auxb << 3;
+
+    // account for rounding
+    auxr += auxr / 32;
+    auxg += auxg / 32;
+    auxb += auxb / 32;
+    auxa += auxa / 32;
 
     //auxr = auxr; no-op
     auxg = auxg << 8;
@@ -373,19 +392,19 @@ UINT8 Convert32ToNEOGEO(UINT8 nColor)
 
 UINT32 CGameClass::CONV_NEOGEO_32(UINT16 nColorData)
 {
-    UINT8 dk =  (nColorData >> 0xf) & 0x01;
-    UINT8 r1 = ((nColorData >> 0xe) & 0x01) * 2;
-    UINT8 g1 = ((nColorData >> 0xd) & 0x01) * 2;
-    UINT8 b1 = ((nColorData >> 0xc) & 0x01) * 2;
-    UINT8 rm = ((nColorData >> 0x8) & 0x0f) * 4;
-    UINT8 gm = ((nColorData >> 0x4) & 0x0f) * 4;
-    UINT8 bm = ((nColorData >> 0x0) & 0x0f) * 4;
+    UINT8 darkbit =  (nColorData >> 0xf) & 0x01;
+    UINT8 red1 = ((nColorData >> 0xe) & 0x01) * 2;
+    UINT8 redm = ((nColorData >> 0x8) & 0x0f) * 4;
+    UINT8 green1 = ((nColorData >> 0xd) & 0x01) * 2;
+    UINT8 greenm = ((nColorData >> 0x4) & 0x0f) * 4;
+    UINT8 blue1 = ((nColorData >> 0xc) & 0x01) * 2;
+    UINT8 bluem = ((nColorData >> 0x0) & 0x0f) * 4;
 
-    UINT8 blue =  NGColorVals[((r1 + rm) - dk) + 1];
-    UINT8 green = NGColorVals[((g1 + gm) - dk) + 1];
-    UINT8 red =   NGColorVals[((b1 + bm) - dk) + 1];
+    UINT8 blue =  NGColorVals[((blue1 + bluem) - darkbit) + 1];
+    UINT8 green = NGColorVals[((green1 + greenm) - darkbit) + 1];
+    UINT8 red =   NGColorVals[((red1 + redm) - darkbit) + 1];
 
-    UINT32 color = (red * 0x10000) + (green * 0x100) + (blue) + 0xff000000;
+    UINT32 color = 0xff000000 | (blue << 16) | (green << 8) | (red);
 
     //CString strColor;
     //strColor.Format(_T("ROM : neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n"), nColorData, color, red, green, blue);
@@ -406,15 +425,15 @@ UINT16 CGameClass::CONV_32_NEOGEO(UINT32 inCol)
 
     UINT16 darkbit = (IsNEOGEOColorDark(red, green, blue) ? 0x1 : 0x0) << 0xf;
 
-    UINT16 red1 =      ((red / 2) & 0x1) << 0xe;
-    UINT16 redMain =   ((red / 4) & 0xf) << 0x8;
+    UINT16 red1 =      ((red   / 2) & 0x1) << 0xe;
+    UINT16 redMain =   ((red   / 4) & 0xf) << 0x8;
     UINT16 green1 =    ((green / 2) & 0x1) << 0xd;
     UINT16 greenMain = ((green / 4) & 0xf) << 0x4;
-    UINT16 blue1 =     ((blue / 2) & 0x1) << 0xc;
-    UINT16 blueMain =  ((blue / 4) & 0xf) << 0x0;
+    UINT16 blue1 =     ((blue  / 2) & 0x1) << 0xc;
+    UINT16 blueMain =  ((blue  / 4) & 0xf) << 0x0;
 
     UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
-    
+
     //CString strColor;
     //strColor.Format(_T("BACK: neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n"), outColor, inCol, red, green, blue);
     //OutputDebugString(strColor);
@@ -428,6 +447,18 @@ UINT16 CGameClass::SWAP_16(UINT16 palv)
     aux |= palv << 8;
     aux |= palv >> 8;
     return aux;
+}
+
+UINT32 CGameClass::GetLowestExpectedPaletteLocation()
+{
+    UINT32 nAdjustedLocation = m_nLowestKnownPaletteRomLocation;
+
+    if (m_pCRC32SpecificData)
+    {
+        nAdjustedLocation += m_pCRC32SpecificData->nROMSpecificOffset;
+    }
+
+    return nAdjustedLocation;
 }
 
 LPCTSTR CGameClass::GetGameName()
@@ -563,7 +594,7 @@ COLORREF*** CGameClass::CreateImgOutPal()
     else
     {
         int iIndex = 0;
-        int nPalAmt = nSrcPalAmt[0];
+        const int nPalAmt = nSrcPalAmt[0];
 
         while ((nSrcPalStart[iIndex] != -1) && (iIndex < MAX_PALETTES_DISPLAYABLE))
         {
@@ -654,13 +685,13 @@ BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int n
         }
 
         //Create the palette
-        UINT32 uAlpha = nAIndexAmt ? 0 : 0xFF000000;
+        const UINT32 uForcedAlphaForDisplay = m_fGameUsesAlphaValue ? 0 : 0xFF000000;
 
         *pNewPal = new COLORREF[nNewPalSzCpy];
 
         for (int nPICtr = 0; nPICtr < nNewPalSzCpy; nPICtr++)
         {
-            (*pNewPal)[nPICtr] = ConvPal(pMulRg[nPICtr]) | uAlpha;
+            (*pNewPal)[nPICtr] = ConvPal(pMulRg[nPICtr]) | uForcedAlphaForDisplay;
         }
 
         *nNewPalSz = nNewPalSzCpy;
@@ -702,17 +733,8 @@ void CGameClass::UpdatePalData()
                         continue;
                     }
 
-                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    if (m_fGameUsesAlphaValue)
-                    {
-                        // Right now this is just MVC2.  We only allow editing this if the Allow Transparency option is on,
-                        // but we always want to reflect the actual alpha present.
-                        m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
-                    }
-                    else
-                    {
-                        m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ((ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF)) | 0xF000;
-                    }
+                    const UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
+                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;
@@ -735,10 +757,18 @@ void CGameClass::InitDataBuffer()
 {
     m_pppDataBuffer = new UINT16 * *[nUnitAmt];
     memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+
+    CString stringer;
+    stringer.Format(_T("IMPORTANT INIT: %u\n"), nUnitAmt);
+    OutputDebugString(stringer);
 }
 
 void CGameClass::ClearDataBuffer()
 {
+    CString stringer;
+    stringer.Format(_T("IMPORTANT CLEAR: %u\n"), nUnitAmt);
+    OutputDebugString(stringer);
+
     if (m_pppDataBuffer)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
@@ -827,7 +857,7 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                if (!fShownOnce && (m_nCurrentPaletteROMLocation < m_nLowestKnownPaletteRomLocation)) // This magic number is the lowest known ROM location.
+                if (!fShownOnce && (m_nCurrentPaletteROMLocation < GetLowestExpectedPaletteLocation())) // This magic number is the lowest known ROM location.
                 {
                     CString strMsg;
                     strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);

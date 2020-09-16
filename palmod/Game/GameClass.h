@@ -48,20 +48,17 @@ protected:
     LPCTSTR m_pszCurrentPaletteName = nullptr;
     UINT32 m_nConfirmedCRCValue = 0;
 
+    const int k_nRGBPlaneAmtForRGB444 = 15;
+    const int k_nRGBPlaneAmtForRGB555 = 31;
+   
+    const double k_nRGBPlaneMulForRGB444 = 17.0;
+    const double k_nRGBPlaneMulForRGB555 = 8.225;
+
     BOOL bIsDir = FALSE;
-
-    int nDefPalSz = 0;
-
-    int nRGBIndexAmt = 0;
-    int nAIndexAmt = 0;
-
-    double nRGBIndexMul = 0.0;
-    double nAIndexMul = 0.0;
 
     UINT16 nUnitAmt = 0;
     int nGameFlag = 0;
     int nImgGameFlag = 0;
-    int nDisplayW = 0;
     int nImgUnitAmt = 0;
 
     //Values used for image out
@@ -161,6 +158,7 @@ public:
 
     UINT16*** GetDataBuffer() { return m_pppDataBuffer; };
     UINT32 GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation; };
+    UINT32 GetLowestExpectedPaletteLocation();
 
     UINT16(*ConvCol)(UINT32 inCol);
     UINT32(*ConvPal)(UINT16 inCol);
@@ -178,7 +176,6 @@ public:
     int GetImgGameFlag() { return nImgGameFlag; };
     int GetUnitCt() { return nUnitAmt; };
     int GetImgUnitCt() { return nImgUnitAmt; };
-    int GetPalDisplayW() { return nDisplayW; };
     sImgTicket* GetImgTicket() { return CurrImgTicket; };
 
     CPalGroup* GetPalGroup() { return &BasePalGroup; };

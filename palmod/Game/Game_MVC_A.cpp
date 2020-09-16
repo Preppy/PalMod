@@ -136,7 +136,6 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = MVC_A_NUM_IMG_UNITS;
 
-    nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
@@ -149,12 +148,6 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
 
     //Create the file changed flag
     PrepChangeTrackingArray();
-
-    nRGBIndexAmt = 15;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 17.0f;
-    nAIndexMul = 0.0f;
 }
 
 CGame_MVC_A::~CGame_MVC_A(void)

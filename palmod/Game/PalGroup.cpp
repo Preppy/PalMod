@@ -18,11 +18,11 @@ void CPalGroup::InitPal()
 {
     for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
-        rgPalettes[i].pPal = NULL;
-        rgPalettes[i].pBasePal = NULL;
+        rgPalettes[i].pPal = nullptr;
+        rgPalettes[i].pBasePal = nullptr;
         rgPalettes[i].uSepAmt = 0;
 
-        rgPalettes[i].pSortTable = NULL;
+        rgPalettes[i].pSortTable = nullptr;
         rgPalettes[i].uSortIndexStart = 0;
     }
 

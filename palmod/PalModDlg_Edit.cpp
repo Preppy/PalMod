@@ -316,7 +316,12 @@ void CPalModDlg::OnEditPaste()
                 memcpy(&szFormatStr[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
 
                 rgPasteCol[i] = CurrGame->ConvPal((UINT16)strtol(szFormatStr, NULL, 16));
-                ((UINT8*)rgPasteCol)[i * 4 + 3] |= (0xFF * (nAMul == 0));
+
+                if (nAMul == 0x0)
+                {
+                    // this game doesn't use alpha, but we need alpha to display properly
+                    ((UINT8*)rgPasteCol)[(i * 4) + 3] |= 0xFF;
+                }
             }
 
             if (eCurrColMode != eColModeForPastedColor)
@@ -334,9 +339,10 @@ void CPalModDlg::OnEditPaste()
 
             if (!CurrPalCtrl->GetSelAmt())
             {
-                int nCopyAmt = nWorkingAmt < uPasteAmt ? nWorkingAmt : uPasteAmt;
+                const int nCopyAmt = (nWorkingAmt < uPasteAmt) ? nWorkingAmt : uPasteAmt;
 
-                memcpy(CurrPalCtrl->GetBasePal(), rgPasteCol, sizeof(COLORREF) * nCopyAmt);
+                // always skip the first color
+                memcpy(CurrPalCtrl->GetBasePal() + 1, rgPasteCol + 1, (sizeof(COLORREF) * (nCopyAmt - 1)));
             }
             else
             {
@@ -347,8 +353,11 @@ void CPalModDlg::OnEditPaste()
                 {
                     if (rgSelIndex[i])
                     {
-                        crTargetPal[i] = rgPasteCol[nIndexCtr];
-                        CurrPalDef->pBasePal[i + CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
+                        if (i != 0) // never change the first transparency color
+                        {
+                            crTargetPal[i] = rgPasteCol[nIndexCtr];
+                            CurrPalDef->pBasePal[i + CurrPalSep->nStart] = rgPasteCol[nIndexCtr];
+                        }
 
                         nIndexCtr++;
 

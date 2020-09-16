@@ -31,7 +31,6 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     nImgGameFlag = IMGDAT_SECTION_3S;
     nImgUnitAmt = SFIII3_D_NUM_IMG_UNITS;
 
-    nDisplayW = 8;
     nFileAmt = SFIII3_D_NUMUNIT;
 
     //Set the image out display type
@@ -44,12 +43,6 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
 
     //Create the file changed flag array
     PrepChangeTrackingArray();
-
-    nRGBIndexAmt = 31;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 8.225;
-    nAIndexMul = 0;
 }
 
 CGame_SFIII3_D::~CGame_SFIII3_D(void)

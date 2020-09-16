@@ -50,7 +50,6 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     createPalOptions = { NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
-    m_fGameUsesAlphaValue = true;
 
     InitDataBuffer();
 
@@ -65,7 +64,6 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
     nImgGameFlag = IMGDAT_SECTION_KOF;
     nImgUnitAmt = KOF02UM_S_NUM_IMG_UNITS;
 
-    nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
@@ -80,12 +78,6 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
 
     //Create the file changed flag
     PrepChangeTrackingArray();
-
-    nRGBIndexAmt = 31;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 8.225;
-    nAIndexMul = 0;
 }
 
 CGame_KOF02UM_S::~CGame_KOF02UM_S(void)

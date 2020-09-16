@@ -91,7 +91,6 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     nImgGameFlag = IMGDAT_SECTION_JOJOS;
     nImgUnitAmt = JOJOS_A_NUM_IMG_UNITS;
 
-    nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
@@ -105,12 +104,6 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
 
     //Create the file changed flag
     PrepChangeTrackingArray();
-
-    nRGBIndexAmt = 31;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 8.225;
-    nAIndexMul = 0;
 }
 
 CGame_JOJOS_A::~CGame_JOJOS_A(void)

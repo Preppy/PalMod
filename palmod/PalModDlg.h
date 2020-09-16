@@ -41,8 +41,6 @@ public:
     BOOL bOleInit = TRUE;
     BOOL bEnabled = FALSE;
 
-    int nPalWMax = 0;
-
     BOOL bShow32 = TRUE;
     BOOL bGetCol = TRUE;
     BOOL bAutoSetCol = TRUE;

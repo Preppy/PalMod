@@ -50,7 +50,6 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     createPalOptions = { NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
-    m_fGameUsesAlphaValue = true;
 
     InitDataBuffer();
 
@@ -65,7 +64,6 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     nImgGameFlag = IMGDAT_SECTION_CVS2;
     nImgUnitAmt = indexCVS2Sprites_Last;
 
-    nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
@@ -81,12 +79,6 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
 
     //Create the file changed flag
     PrepChangeTrackingArray();
-
-    nRGBIndexAmt = 31;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 8.225;
-    nAIndexMul = 0.0f;
 }
 
 CGame_CVS2_A::~CGame_CVS2_A(void)

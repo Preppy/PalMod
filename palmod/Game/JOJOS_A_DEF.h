@@ -472,11 +472,11 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_DNOON[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_RUIN[] =
 {
-    { _T("Ruins (1/5)"), 0x07d6d00, 0x07d6f00 },
-    { _T("Ruins (2/5)"), 0x07d6f00, 0x07d7100 },
-    { _T("Ruins (3/5)"), 0x07d7100, 0x07d7300 },
-    { _T("Ruins (4/5)"), 0x07d7300, 0x07d7500 },
-    { _T("Ruins (5/5)"), 0x07d7500, 0x07d7700 },
+    { _T("Ruins (1/5)"), 0x07d6d00, 0x07d6f00, indexJojos51Stages, 0x29, &pairFullyLinkedNode },
+    { _T("Ruins (2/5)"), 0x07d6f00, 0x07d7100, indexJojos51Stages, 0x2a },
+    { _T("Ruins (3/5)"), 0x07d7100, 0x07d7300, indexJojos51Stages, 0x2b },
+    { _T("Ruins (4/5)"), 0x07d7300, 0x07d7500, indexJojos51Stages, 0x2c },
+    { _T("Ruins (5/5)"), 0x07d7500, 0x07d7700, indexJojos51Stages, 0x2d },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CTNOON[] =
@@ -3457,11 +3457,11 @@ const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_DNIGHT[] =
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_RUINS[] =
 {
-    { _T("Ruins / New 4 TS (1/5)"), 0x02dbd00, 0x02dbf00 },
-    { _T("Ruins / New 4 TS (2/5)"), 0x02dbf00, 0x02dc100 },
-    { _T("Ruins / New 4 TS (3/5)"), 0x02dc100, 0x02dc300 },
-    { _T("Ruins / New 4 TS (4/5)"), 0x02dc300, 0x02dc500 },
-    { _T("Ruins / New 4 TS (5/5)"), 0x02dc500, 0x02dc700 },
+    { _T("Ruins / New 4 TS (1/5)"), 0x02dbd00, 0x02dbf00, indexJojos51Stages, 0x29, &pairFullyLinkedNode },
+    { _T("Ruins / New 4 TS (2/5)"), 0x02dbf00, 0x02dc100, indexJojos51Stages, 0x2a },
+    { _T("Ruins / New 4 TS (3/5)"), 0x02dc100, 0x02dc300, indexJojos51Stages, 0x2b },
+    { _T("Ruins / New 4 TS (4/5)"), 0x02dc300, 0x02dc500, indexJojos51Stages, 0x2c },
+    { _T("Ruins / New 4 TS (5/5)"), 0x02dc500, 0x02dc700, indexJojos51Stages, 0x2d },
 };
 
 const sGame_PaletteDataset JOJOS_A_TIMESTOP_NODE_CTOWN[] =

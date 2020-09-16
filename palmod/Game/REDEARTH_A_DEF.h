@@ -44,8 +44,8 @@ const sGame_PaletteDataset REDEARTH_A_LEO_KICK_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_LEO_BONUS_PALETTES[] =
 {
-    { _T("Leo Character Select"),               0x1DF200, 0x1DF280, indexRedEarthSprites_Leo },
-    { _T("Leo Character Selected"),             0x1DEB80, 0x1DEC00, indexRedEarthSprites_Leo },
+    { _T("Leo Character Select"),               0x1DF200, 0x1DF280, indexRedEarthSprites_Leo, 0x11 },
+    { _T("Leo Character Selected"),             0x1DEB80, 0x1DEC00, indexRedEarthSprites_Leo, 0x11 },
     { _T("Leo Character Select Portrait"),      0x1DEF00, 0x1DEF80, indexRedEarthSprites_Leo, 0x12 },
 };
 
@@ -181,7 +181,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
 {
     { _T("Mai Ling Punch"), 0x411600, 0x411680, indexRedEarthSprites_MaiLing, 0 },
     { _T("Mai Ling Punch Vs/Winning Screen"), 0x1E4C00, 0x1E4C80, indexRedEarthSprites_MaiLing, 0x17 },
-    { _T("Mai Ling Punch Losing Screen"), 0x1E4B80, 0x1E4C00, indexRedEarthSprites_MaiLing, 0x17 },
+    { _T("Mai Ling Punch Losing Screen"), 0x1E4B80, 0x1E4C00 },
     { _T("Mai Ling Punch LifeBar Portrait"), 0x406A00, 0x406A40, indexRedEarthSprites_MaiLing, 0x10 },
 
     { _T("Mai Ling Punch Fire"), 0x411680, 0x411700 },
@@ -209,7 +209,7 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
 {
     { _T("Mai Ling Kick"), 0x41DE00, 0x41DE80, indexRedEarthSprites_MaiLing, 0 },
     { _T("Mai Ling Kick Vs/Winning Screen"), 0x1E4F80, 0x1E5000, indexRedEarthSprites_MaiLing, 0x17 },
-    { _T("Mai Ling Kick Losing Screen"), 0x1E4F00, 0x1E4F80, indexRedEarthSprites_MaiLing, 0x17 },
+    { _T("Mai Ling Kick Losing Screen"), 0x1E4F00, 0x1E4F80 },
     { _T("Mai Ling Kick LifeBar Portrait"), 0x406A40, 0x406A80, indexRedEarthSprites_MaiLing, 0x10 },
 
     { _T("Mai Ling Kick Fire"), 0x41DE80, 0x41DF00 },

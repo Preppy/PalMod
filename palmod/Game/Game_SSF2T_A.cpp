@@ -78,7 +78,6 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     nImgGameFlag = IMGDAT_SECTION_ST;
     nImgUnitAmt = SSF2T_A_NUM_IMG_UNITS;
 
-    nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
@@ -91,12 +90,6 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
 
     //Create the file changed flag
     PrepChangeTrackingArray();
-
-    nRGBIndexAmt = 15;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 17.0f;
-    nAIndexMul = 0.0f;
 }
 
 CGame_SSF2T_A::~CGame_SSF2T_A(void)

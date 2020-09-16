@@ -185,7 +185,6 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
 
     createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
 
-    nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
@@ -195,12 +194,6 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
 
     //Create the file changed flag
     PrepChangeTrackingArray();
-
-    nRGBIndexAmt = 15;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 17.0f;
-    nAIndexMul = 0.0f;
 }
 
 CGame_SFA2_A::~CGame_SFA2_A(void)

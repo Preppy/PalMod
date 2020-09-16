@@ -40,7 +40,8 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = nUnitAmt;
 
-    nDisplayW = 8;
+    m_fGameUsesAlphaValue = true;
+
     nFileAmt = MVC2_D_NUMUNIT_WITH_TEAMVIEW;
 
     //Prepare the file list
@@ -59,14 +60,6 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
     memset(rgUnitRedir, NULL, sizeof(UINT16) * nUnitAmt);
-
-    nDefPalSz = MVC2_D_PALSZ;
-
-    nRGBIndexAmt = 15;
-    nAIndexAmt = 15;
-
-    nRGBIndexMul = 17.0;
-    nAIndexMul = 17.0;
 }
 
 CGame_MVC2_D::~CGame_MVC2_D(void)

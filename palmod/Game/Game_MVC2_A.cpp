@@ -69,7 +69,6 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
 
     m_fGameUsesAlphaValue = true;
 
-    nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
@@ -89,12 +88,6 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
 
     //Create the file changed flag
     PrepChangeTrackingArray();
-
-    nRGBIndexAmt = 15;
-    nAIndexAmt = 15;
-
-    nRGBIndexMul = 17.0f;
-    nAIndexMul = 17.0f;
 }
 
 CGame_MVC2_A::~CGame_MVC2_A(void)

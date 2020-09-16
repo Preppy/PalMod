@@ -73,7 +73,6 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
     nImgUnitAmt = 0; // This is a stub game.  No images will be used.
 
-    nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
@@ -88,12 +87,6 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
 
     //Create the file changed flag
     PrepChangeTrackingArray();
-
-    nRGBIndexAmt = 15;
-    nAIndexAmt = 0;
-
-    nRGBIndexMul = 17.0f;
-    nAIndexMul = 0.0f;
 }
 
 CGame_NEOGEO_A::~CGame_NEOGEO_A(void)

@@ -22,7 +22,6 @@ CGame_SSF2T_A::CGame_SSF2T_A(void)
     nImgGameFlag = SSF2T_A;
     nImgUnitAmt = nUnitAmt;
 
-    nDisplayW = 8;
     nFileAmt = 1;
 
     //Set the image out display type
@@ -35,16 +34,6 @@ CGame_SSF2T_A::CGame_SSF2T_A(void)
 
     //Create the file changed flag
     bFileChanged = new UINT8;
-
-    nRIndexAmt = 15;
-    nGIndexAmt = 15;
-    nBIndexAmt = 15;
-    nAIndexAmt = 0;
-
-    nRIndexMul = 17.0f;
-    nGIndexMul = 17.0f;
-    nBIndexMul = 17.0f;
-    nAIndexMul = 0.0f;
 }
 
 CGame_SSF2T_A::~CGame_SSF2T_A(void)

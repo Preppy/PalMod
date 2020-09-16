@@ -42,9 +42,6 @@ void CPalModDlg::PostGameLoad()
 {
     CPalModApp* ProgHost = GetHost();
 
-    //Get the game's palette display width
-    nPalWMax = ProgHost->GetCurrGame()->GetPalDisplayW();
-
     CString strDebugInfo;
     strDebugInfo.Format(_T("CPalModDlg::PostGameLoad : Successfully loaded files for '%s'\n"), g_GameFriendlyName[ProgHost->GetCurrGame()->GetGameFlag()]);
     OutputDebugString(strDebugInfo);
