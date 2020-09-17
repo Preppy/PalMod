@@ -57,6 +57,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         }
 
         // Right now we can only generate patches collecting changes that are for single-binary game sets
-        pPopupMenu->EnableMenuItem(ID_TOOLS_GENERATEPATCHFILE, !fFileChanged && (!GetHost()->GetCurrGame() || !GetHost()->GetCurrGame()->GetIsDir()));
+        const bool shouldEnable = fFileChanged && GetHost()->GetCurrGame() && !GetHost()->GetCurrGame()->GetIsDir();
+        pPopupMenu->EnableMenuItem(ID_TOOLS_GENERATEPATCHFILE, !shouldEnable);
     }
 }

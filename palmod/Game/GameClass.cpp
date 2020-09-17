@@ -757,18 +757,10 @@ void CGameClass::InitDataBuffer()
 {
     m_pppDataBuffer = new UINT16 * *[nUnitAmt];
     memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
-
-    CString stringer;
-    stringer.Format(_T("IMPORTANT INIT: %u\n"), nUnitAmt);
-    OutputDebugString(stringer);
 }
 
 void CGameClass::ClearDataBuffer()
 {
-    CString stringer;
-    stringer.Format(_T("IMPORTANT CLEAR: %u\n"), nUnitAmt);
-    OutputDebugString(stringer);
-
     if (m_pppDataBuffer)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
@@ -803,22 +795,17 @@ void CGameClass::PrepChangeTrackingArray()
 void CGameClass::MarkPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
 {
     sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteID };
-    m_vDirtyPaletteList.push_back(sPaletteOfInterest);
+
+    // only add unique entries
+    if (std::find_if(m_vDirtyPaletteList.begin(), m_vDirtyPaletteList.end(), DoPalettesMatch(&sPaletteOfInterest)) == m_vDirtyPaletteList.end())
+    {
+        m_vDirtyPaletteList.push_back(sPaletteOfInterest);
+    }
     return;
 }
 
 void CGameClass::MarkPaletteClean(UINT16 nUnit, UINT16 nPaletteID)
 {
-    struct DoPalettesMatch
-    {
-        sPaletteIdentifier* pPalToCheck;
-        DoPalettesMatch(sPaletteIdentifier* pPalToCheck) : pPalToCheck(pPalToCheck) {}
-        bool operator () (const sPaletteIdentifier& m) const
-        {
-            return (m.nUnit == pPalToCheck->nUnit) && (m.nPaletteId == pPalToCheck->nPaletteId);
-        }
-    };
-
     sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteID };
     m_vDirtyPaletteList.erase(std::remove_if(m_vDirtyPaletteList.begin(), m_vDirtyPaletteList.end(), DoPalettesMatch(&sPaletteOfInterest)), m_vDirtyPaletteList.end());
     return;
@@ -826,16 +813,6 @@ void CGameClass::MarkPaletteClean(UINT16 nUnit, UINT16 nPaletteID)
 
 bool CGameClass::IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
 {
-    struct DoPalettesMatch
-    {
-        sPaletteIdentifier* pPalToCheck;
-        DoPalettesMatch(sPaletteIdentifier* pPalToCheck) : pPalToCheck(pPalToCheck) {}
-        bool operator () (const sPaletteIdentifier& m) const
-        {
-            return (m.nUnit == pPalToCheck->nUnit) && (m.nPaletteId == pPalToCheck->nPaletteId);
-        }
-    };
-
     sPaletteIdentifier sPaletteOfInterest = { nUnit, nPaletteID };
     auto it = std::find_if(m_vDirtyPaletteList.begin(), m_vDirtyPaletteList.end(), DoPalettesMatch(&sPaletteOfInterest));
 
@@ -881,6 +858,11 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 
 UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
 {
+    CString strOptions;
+    strOptions.Format(_T("Do you want this to be a complete game patch of all possible palettes?  They are much larger and are usually very wasteful.  Select Yes for that, or No to just include the %u palette%s you changed in this current session."), m_vDirtyPaletteList.size(), (m_vDirtyPaletteList.size() > 1) ? _T("s") : _T(""));
+    
+    const bool fUserWantsAllChanges = (MessageBox(g_appHWnd, strOptions, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON2) == IDYES);
+
     UINT32 nTotalPalettesSaved = 0;
     LPCSTR szIPSOpener = "PATCH";
     PatchFile->Write(szIPSOpener, strlen(szIPSOpener));
@@ -891,7 +873,7 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
-            if (IsPaletteDirty(nUnitCtr, nPalCtr))
+            if (fUserWantsAllChanges || IsPaletteDirty(nUnitCtr, nPalCtr))
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 

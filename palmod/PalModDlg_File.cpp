@@ -125,6 +125,7 @@ void CPalModDlg::OnSavePatchFile()
         OnBnUpdate();
     }
 
+    // Generate an IPS file of the current changes
     GetHost()->GetLoader()->SavePatchFile(GetHost()->GetCurrGame());
 
     SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
