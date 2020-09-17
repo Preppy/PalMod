@@ -411,7 +411,7 @@ void CPalModDlg::OnFileOpen()
         { SFA1_A, _T("SFA1|sfz.06|"), INVALID_UNIT_VALUE },
         { SFA2_A, _T("SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|"), INVALID_UNIT_VALUE },
         { SFA3_A, _T("SFA3 sz3.09c|*.09*|"), INVALID_UNIT_VALUE },
-        { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|*.03c;*.04a|"), INVALID_UNIT_VALUE },
+        { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|sfx*.03*;sfx*.04a|"), INVALID_UNIT_VALUE },
         { GEMFIGHTER_A, _T("Super Gem Fighter|pcf*.07|"), INVALID_UNIT_VALUE },
         { SVCPLUSA_A, _T("SVC PlusA|svc-p2pl.bin|"), INVALID_UNIT_VALUE },
         { VSAV_A, _T("Vampire Savior|vm3*.10b|"), INVALID_UNIT_VALUE },

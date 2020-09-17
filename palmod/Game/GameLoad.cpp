@@ -518,7 +518,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
                 // Step forward to the filename
                 pszFileName++;
                 _tcslwr(pszFileName);
-                nGameRule = ((_tcsstr(pszFileName, _T(".03c")) != nullptr) ? 3 : 4);
+                nGameRule = ((_tcsstr(pszFileName, _T(".03")) != nullptr) ? 3 : 4);
             }
             break;
         }
