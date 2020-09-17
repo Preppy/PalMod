@@ -401,7 +401,7 @@ void CPalModDlg::OnFileOpen()
         // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
         { KOF02_A, _T("KOF02|265*p2*|"), INVALID_UNIT_VALUE },
         { KOF02UM_S, _T("KOF02UM|pal_a*.bin|"), INVALID_UNIT_VALUE },
-        { MSH_A, _T("MSH: Characters (*.05), Portraits (*.06b)|*.05;*.06b|"), INVALID_UNIT_VALUE },
+        { MSH_A, _T("MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|"), INVALID_UNIT_VALUE },
         { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },
         { MVC_A, _T("MVC Arcade|mvc*.06*|"), INVALID_UNIT_VALUE },
         { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|*.dat;*.bin|"), INVALID_UNIT_VALUE },
@@ -417,7 +417,7 @@ void CPalModDlg::OnFileOpen()
         { VSAV_A, _T("Vampire Savior|vm3*.10b|"), INVALID_UNIT_VALUE },
         { VSAV2_A, _T("Vampire Savior 2|vs2j.10|"), INVALID_UNIT_VALUE },
         { WakuWaku7_A, _T("Waku Waku 7|225-p1.p1|"), INVALID_UNIT_VALUE },
-        { XMVSF_A, _T("XMVSF|xvs*.05a|"), INVALID_UNIT_VALUE },
+        { XMVSF_A, _T("XMVSF|xvs*.05*|"), INVALID_UNIT_VALUE },
         { NEOGEO_A, _T("Unknown NEO•GEO|*.*|"), INVALID_UNIT_VALUE },
     };
 

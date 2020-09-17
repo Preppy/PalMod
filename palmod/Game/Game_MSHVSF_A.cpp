@@ -100,6 +100,67 @@ CGame_MSHVSF_A::~CGame_MSHVSF_A(void)
     FlushChangeTrackingArray();
 }
 
+UINT32 CGame_MSHVSF_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+#ifdef MAME_NOTES
+        roms 6 and 7 are always identical
+GAME(1997, mshvsf,     0,        cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Marvel Super Heroes Vs. Street Fighter (Euro 970625)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a",  0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b",  0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+GAME(1997, mshvsfu,    mshvsf,   cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Marvel Super Heroes Vs. Street Fighter (USA 970827)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a",  0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b",  0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+GAME(1997, mshvsfu1,   mshvsf,   cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Marvel Super Heroes Vs. Street Fighter (USA 970625)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a",  0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b",  0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+GAME(1997, mshvsfj,    mshvsf,   cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Marvel Super Heroes Vs. Street Fighter (Japan 970707)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a",  0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b",  0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+GAME(1997, mshvsfj1,   mshvsf,   cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Marvel Super Heroes Vs. Street Fighter (Japan 970702)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a",  0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b",  0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+GAME(1997, mshvsfj2,   mshvsf,   cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Marvel Super Heroes Vs. Street Fighter (Japan 970625)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a",  0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b",  0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+GAME(1997, mshvsfh,    mshvsf,   cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Marvel Super Heroes Vs. Street Fighter (Hispanic 970625)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a",  0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b",  0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+GAME(1997, mshvsfa,    mshvsf,   cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Marvel Super Heroes Vs. Street Fighter (Asia 970625)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a",  0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b",  0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+GAME(1997, mshvsfa1,   mshvsf,   cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Marvel Super Heroes Vs. Street Fighter (Asia 970620)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a", 0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b", 0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+GAME(1997, mshvsfb,    mshvsf,   cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Marvel Super Heroes Vs. Street Fighter (Brazil 970827)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a",  0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b",  0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+GAME(1997, mshvsfb1,   mshvsf,   cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "Capcom", "Marvel Super Heroes Vs. Street Fighter (Brazil 970625)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a",  0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b",  0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+GAME(1997, mshvsfu1d,  mshvsf,   dead_cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "bootleg", "Marvel Super Heroes Vs. Street Fighter (USA 970625 Phoenix Edition) (bootleg)", MACHINE_SUPPORTS_SAVE)
+    ROM_LOAD16_WORD_SWAP("mvs.06a",    0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
+    ROM_LOAD16_WORD_SWAP("mvs.07b",    0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
+#endif
+        { _T("MSHVSF (Arcade)"), _T("mvs.06a"), 0x959f3030, 0 },
+        { _T("MSHVSF (Arcade)"), _T("mvs.07b"), 0x7f915bdb, 0 },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+}
+
 int CGame_MSHVSF_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (UsePaletteSetForCharacters())

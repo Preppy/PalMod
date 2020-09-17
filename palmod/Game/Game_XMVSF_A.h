@@ -58,5 +58,7 @@ public:
 
     void UpdatePalData();
 
+    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
+
     static stExtraDef* XMVSF_A_EXTRA_CUSTOM;
 };
