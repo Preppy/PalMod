@@ -384,7 +384,7 @@ void CPalModDlg::OnFileOpen()
     {
         int nInternalGameIndex;
         LPCTSTR szGameFilterString;
-        int nListedGameIndex;
+        int nListedGameIndex = INVALID_UNIT_VALUE;
     };
 
     // NOTE: If you add a multiple-ROM option below, you will also need to update
@@ -405,6 +405,7 @@ void CPalModDlg::OnFileOpen()
         { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },
         { MVC_A, _T("MVC Arcade|mvc*.06*|"), INVALID_UNIT_VALUE },
         { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|*.dat;*.bin|"), INVALID_UNIT_VALUE },
+        { RBFFS_A, _T("Real Bout Fatal Fury Special|223*.p1|"), INVALID_UNIT_VALUE },
         { REDEARTH_A, _T("Red Earth|31|"), INVALID_UNIT_VALUE },
         { SAMSHO5SP_A, _T("Samurai Shodown 5 Special|272-p1*.p1;p1*h*.bin|"), INVALID_UNIT_VALUE},
         { SFIII3_A, _T("SFIII3 Arcade|51|"), INVALID_UNIT_VALUE },

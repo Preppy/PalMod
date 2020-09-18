@@ -151,6 +151,9 @@
     <Filter Include="Game\Capcom Games\VSAV2_A">
       <UniqueIdentifier>{c0e44c54-faac-448c-852c-df9e57bdab25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\Real Bout Fatal Fury Special">
+      <UniqueIdentifier>{8443d0ef-6c99-4658-b287-180c5fa4e7e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -347,6 +350,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_VSAV2_A.cpp">
       <Filter>Game\Capcom Games\VSAV2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_RBFFS_A.cpp">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -628,6 +634,12 @@
     </ClInclude>
     <ClInclude Include="Game\VSAV2_A_DEF.h">
       <Filter>Game\Capcom Games\VSAV2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_RBFFS_A.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\RBFFS_A_DEF.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

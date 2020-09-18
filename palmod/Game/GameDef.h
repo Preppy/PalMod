@@ -48,6 +48,7 @@ enum SupportedGamesList
     SFA1_A,
     VSAV_A,
     VSAV2_A,
+    RBFFS_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -61,6 +62,7 @@ enum SupportedGamesList
 
 // We want to keep these short for the titlebar: they're hard-limited by
 // MAX_DESCRIPTION_LENGTH (96), so 64 is probably the max we want.
+// Note that the games can override these values: these are just the defaults.
 const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
 {
    _T("MvC2 (Dreamcast)"),
@@ -98,6 +100,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("SFA1 (Arcade)"),
    _T("Vampire Savior (Arcade)"),
    _T("Vampire Savior 2 (Arcade)"),
+   _T("Real Bout Fatal Fury Special (Arcade)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -1910,6 +1913,13 @@ const UINT8 VSAV2_A_IMG_UNITS[] =
 };
 
 constexpr auto VSAV2_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV2_A_IMG_UNITS);
+
+const UINT8 RBFFS_A_IMG_UNITS[] =
+{
+    indexKOF98_A_Terry,
+};
+
+const int RBFFS_A_NUM_IMG_UNITS = ARRAYSIZE(RBFFS_A_IMG_UNITS);
 
 enum eIMGDat_Sections
 {

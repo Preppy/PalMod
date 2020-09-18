@@ -21,6 +21,7 @@
 #include "Game_MVC2_P.h"
 #include "Game_NEOGEO_A.h"
 #include "Game_GEMFIGHTER_A.h"
+#include "Game_RBFFS_A.h"
 #include "Game_REDEARTH_A.h"
 #include "Game_REDEARTH_A_DIR.h"
 #include "Game_SAMSHO5SP_A.h"
@@ -77,6 +78,95 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 {
     switch (nGameFlag)
     {
+    case COTA_A:
+    {
+        GetRule = &CGame_COTA_A::GetRule;
+        return TRUE;
+    }
+    case CVS2_A:
+    {
+        GetRule = &CGame_CVS2_A::GetRule;
+        return TRUE;
+    }
+    case Garou_A:
+    {
+        GetRule = &CGame_Garou_A::GetRule;
+        return TRUE;
+    }
+    case Garou_S:
+    {
+        GetRule = &CGame_Garou_S::GetRule;
+        return TRUE;
+    }
+    case GEMFIGHTER_A:
+    {
+        GetRule = &CGame_GEMFIGHTER_A::GetRule;
+        return TRUE;
+    }
+    case JOJOS_A:
+    {
+        GetRule = &CGame_JOJOS_A::GetRule;
+        return TRUE;
+    }
+    case JOJOS_A_DIR_50:
+    case JOJOS_A_DIR_51:
+    {
+        GetRuleCtr = &CGame_JOJOS_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_JOJOS_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_JOJOS_A_DIR::GetRule;
+        GetNextRule = &CGame_JOJOS_A_DIR::GetNextRule;
+
+        return TRUE;
+    }
+    case KarnovsR_A:
+    {
+        GetRule = &CGame_KarnovsR_A::GetRule;
+        return TRUE;
+    }
+    case KOF98_A:
+    {
+        GetRule = &CGame_KOF98_A::GetRule;
+        return TRUE;
+    }
+    case KOF02_A:
+    {
+        GetRule = &CGame_KOF02_A::GetRule;
+        return TRUE;
+    }
+    case KOF02UM_S:
+    {
+        GetRule = &CGame_KOF02UM_S::GetRule;
+        return TRUE;
+    }
+    case MSH_A:
+    {
+        GetRule = &CGame_MSH_A::GetRule;
+        return TRUE;
+    }
+    case MSHVSF_A:
+    {
+        GetRule = &CGame_MSHVSF_A::GetRule;
+        return TRUE;
+    }
+    case MVC_A:
+    {
+        GetRule = &CGame_MVC_A::GetRule;
+        return TRUE;
+    }
+    case MVC2_A:
+    {
+        GetRule = &CGame_MVC2_A::GetRule;
+        return TRUE;
+    }
+    case MVC2_A_DIR:
+    {
+        GetRuleCtr = &CGame_MVC2_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_MVC2_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_MVC2_A_DIR::GetRule;
+        GetNextRule = &CGame_MVC2_A_DIR::GetNextRule;
+
+        return TRUE;
+    }
     case MVC2_D:
     {
         GetRuleCtr = &CGame_MVC2_D::GetRuleCtr;
@@ -86,7 +176,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
-    break;
     case MVC2_P:
     {
         GetRuleCtr = &CGame_MVC2_P::GetRuleCtr;
@@ -96,10 +185,28 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
-    break;
+    case NEOGEO_A:
+    {
+        GetRule = &CGame_NEOGEO_A::GetRule;
+        return TRUE;
+    }
+    case RBFFS_A:
+    {
+        GetRule = &CGame_RBFFS_A::GetRule;
+        return TRUE;
+    }
     case REDEARTH_A:
     {
         GetRule = &CGame_REDEARTH_A::GetRule;
+        return TRUE;
+    }
+    case REDEARTH_A_DIR:
+    {
+        GetRuleCtr = &CGame_RedEarth_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_RedEarth_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_RedEarth_A_DIR::GetRule;
+        GetNextRule = &CGame_RedEarth_A_DIR::GetNextRule;
+
         return TRUE;
     }
     case SFIII3_A:
@@ -148,91 +255,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SFA3_A::GetRule;
         return TRUE;
     }
-    case XMVSF_A:
-    {
-        GetRule = &CGame_XMVSF_A::GetRule;
-        return TRUE;
-    }
-    case MVC_A:
-    {
-        GetRule = &CGame_MVC_A::GetRule;
-        return TRUE;
-    }
-    case MVC2_A:
-    {
-        GetRule = &CGame_MVC2_A::GetRule;
-        return TRUE;
-    }
-    case JOJOS_A:
-    {
-        GetRule = &CGame_JOJOS_A::GetRule;
-        return TRUE;
-    }
-    case JOJOS_A_DIR_50:
-    case JOJOS_A_DIR_51:
-    {
-        GetRuleCtr = &CGame_JOJOS_A_DIR::GetRuleCtr;
-        ResetRuleCtr = &CGame_JOJOS_A_DIR::ResetRuleCtr;
-        GetRule = &CGame_JOJOS_A_DIR::GetRule;
-        GetNextRule = &CGame_JOJOS_A_DIR::GetNextRule;
-
-        return TRUE;
-    }
-    case MSH_A:
-    {
-        GetRule = &CGame_MSH_A::GetRule;
-        return TRUE;
-    }
-    case MSHVSF_A:
-    {
-        GetRule = &CGame_MSHVSF_A::GetRule;
-        return TRUE;
-    }
-    case COTA_A:
-    {
-        GetRule = &CGame_COTA_A::GetRule;
-        return TRUE;
-    }
-    case Garou_A:
-    {
-        GetRule = &CGame_Garou_A::GetRule;
-        return TRUE;
-    }
-    case Garou_S:
-    {
-        GetRule = &CGame_Garou_S::GetRule;
-        return TRUE;
-    }
-    case NEOGEO_A:
-    {
-        GetRule = &CGame_NEOGEO_A::GetRule;
-        return TRUE;
-    }
-    case KarnovsR_A:
-    {
-        GetRule = &CGame_KarnovsR_A::GetRule;
-        return TRUE;
-    }
-    case KOF98_A:
-    {
-        GetRule = &CGame_KOF98_A::GetRule;
-        return TRUE;
-    }
-    case KOF02_A:
-    {
-        GetRule = &CGame_KOF02_A::GetRule;
-        return TRUE;
-    }
-    case KOF02UM_S:
-    {
-        GetRule = &CGame_KOF02UM_S::GetRule;
-        return TRUE;
-    }
-    case CVS2_A:
-    {
-        GetRule = &CGame_CVS2_A::GetRule;
-        return TRUE;
-    }
     case SVCPLUSA_A:
     {
         GetRule = &CGame_SVCPLUSA_A::GetRule;
@@ -243,34 +265,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SAMSHO5SP_A::GetRule;
         return TRUE;
     }
-    case MVC2_A_DIR:
-    {
-        GetRuleCtr = &CGame_MVC2_A_DIR::GetRuleCtr;
-        ResetRuleCtr = &CGame_MVC2_A_DIR::ResetRuleCtr;
-        GetRule = &CGame_MVC2_A_DIR::GetRule;
-        GetNextRule = &CGame_MVC2_A_DIR::GetNextRule;
-
-        return TRUE;
-    }
-    case GEMFIGHTER_A:
-    {
-        GetRule = &CGame_GEMFIGHTER_A::GetRule;
-        return TRUE;
-    }
-    case REDEARTH_A_DIR:
-    {
-        GetRuleCtr = &CGame_RedEarth_A_DIR::GetRuleCtr;
-        ResetRuleCtr = &CGame_RedEarth_A_DIR::ResetRuleCtr;
-        GetRule = &CGame_RedEarth_A_DIR::GetRule;
-        GetNextRule = &CGame_RedEarth_A_DIR::GetNextRule;
-
-        return TRUE;
-    }
-    case WakuWaku7_A:
-    {
-        GetRule = &CGame_WakuWaku7_A::GetRule;
-        return TRUE;
-    }
     case VSAV_A:
     {
         GetRule = &CGame_VSAV_A::GetRule;
@@ -279,6 +273,16 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case VSAV2_A:
     {
         GetRule = &CGame_VSAV2_A::GetRule;
+        return TRUE;
+    }
+    case WakuWaku7_A:
+    {
+        GetRule = &CGame_WakuWaku7_A::GetRule;
+        return TRUE;
+    }
+    case XMVSF_A:
+    {
+        GetRule = &CGame_XMVSF_A::GetRule;
         return TRUE;
     }
 
@@ -310,6 +314,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case Garou_S:
     {
         return new CGame_Garou_S(nConfirmedROMSize);
+    }
+    case GEMFIGHTER_A:
+    {
+        return new CGame_GEMFIGHTER_A(nConfirmedROMSize);
     }
     case JOJOS_A:
     {
@@ -371,9 +379,9 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_NEOGEO_A(nConfirmedROMSize);
     }
-    case GEMFIGHTER_A:
+    case RBFFS_A:
     {
-        return new CGame_GEMFIGHTER_A(nConfirmedROMSize);
+        return new CGame_RBFFS_A(nConfirmedROMSize);
     }
     case REDEARTH_A:
     {

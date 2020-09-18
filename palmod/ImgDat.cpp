@@ -73,37 +73,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
     OutputDebugString(strDebugInfo);
 #endif
 
-    /*
-    MVC2_D = 0;
-    SFIII3_A = 1;
-    MVC2_P = 2;
-    SSF2T_A = 3;
-    SFA3_A = 4;
-    XMVSF_A = 5;
-    MVC_A = 6;
-    SFIII3_D = 7;
-    JOJOS_A = 8;
-    MSH_A = 9;
-    MSHVSF_A = 10;
-    MSHVSF_A = 11;
-    COTA_A,
-    MVC2_A,
-    Garou_A,
-    NEOGEO_A,
-    KOF98_A,
-    KOF02UM_S,
-    CVS2_A,
-    Garou_S,
-    KOF02_A,
-    SFA2_A,
-    SFIII3_A_DIR,
-    JOJOS_A_DIR_50,
-    JOJOS_A_DIR_51,
-    SVCPLUSA_A,
-    SAMSHO5SP_A,
-    MVC2_A_DIR,
-    REDEARTH_A,
-    */
+    // We have an individual entry here for every game so we can optimize image loads
     for (UINT16 nUnitCtr = 0; nUnitCtr < nGameImageUnitAmt; nUnitCtr++)
     {
         UINT8 nImageUnitCounterToUse = 0;
@@ -183,6 +153,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
         case MVC2_P:
         {
             nImageUnitCounterToUse = MVC2_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case RBFFS_A:
+        {
+            nImageUnitCounterToUse = RBFFS_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case REDEARTH_A:
