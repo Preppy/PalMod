@@ -165,6 +165,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = REDEARTH_A_IMG_UNITS[nUnitCtr];
             break;
         }
+        case SAMSHO3_A:
+        {
+            nImageUnitCounterToUse = SAMSHO3_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
         case SAMSHO5SP_A:
         {
             nImageUnitCounterToUse = SAMSHO5SP_A_IMG_UNITS[nUnitCtr];

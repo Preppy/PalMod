@@ -49,6 +49,7 @@ enum SupportedGamesList
     VSAV_A,
     VSAV2_A,
     RBFFS_A,
+    SAMSHO3_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -101,6 +102,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Vampire Savior (Arcade)"),
    _T("Vampire Savior 2 (Arcade)"),
    _T("Real Bout Fatal Fury Special (Arcade)"),
+   _T("Samurai Shodown 3"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -143,6 +145,11 @@ const LPCTSTR DEF_BUTTONLABEL_2_PK[] =
 const LPCTSTR DEF_BUTTONLABEL_NEOGEO[] =
 {
     _T("A"), _T("B"), _T("C"), _T("D")
+};
+
+const LPCTSTR DEF_BUTTONLABEL_SAMSHO3[] =
+{
+    _T("S1"), _T("S2"), _T("B1"), _T("B2")
 };
 
 const LPCTSTR DEF_BUTTONLABEL_NEOGEO_FIVE[] =
@@ -1755,6 +1762,23 @@ enum SupportedSamSho6SP_A_PaletteListIndex
     indexSamSho5_A_Zankuro,
 
     indexSamSho5_A_Last,
+};
+
+const UINT8 SAMSHO3_A_IMG_UNITS[] =
+{
+    indexSamSho5Sprites_Amakusa,
+    indexSamSho5Sprites_Basara,
+    indexSamSho5Sprites_Gaira,
+    indexSamSho5Sprites_Galford,
+    indexSamSho5Sprites_Genjuro,
+    indexSamSho5Sprites_Hanzo,
+    indexSamSho5Sprites_Haohmaru,
+    indexSamSho5Sprites_Kyoshiro,
+    indexSamSho5Sprites_Nakoruru,
+    indexSamSho5Sprites_Rimururu,
+    indexSamSho5Sprites_Shizumaru,
+    indexSamSho5Sprites_Ukyo,
+    indexSamSho5Sprites_Zankuro,
 };
 
 const UINT8 SAMSHO5SP_A_IMG_UNITS[] =

@@ -968,7 +968,7 @@ const sDescTreeNode SAMSHO5SP_A_UNITS[SAMSHO5SP_A_NUMUNIT] =
     { _T("Zankura"), DESC_NODETYPE_TREE, (void*)SAMSHO5SP_A_Zankuro_COLLECTION, ARRAYSIZE(SAMSHO5SP_A_Zankuro_COLLECTION) },
 };
 
-// We extend this array with data groveled from the GarouE.txt extensible extras file, if any.
+// We extend this array with data groveled from the extras file, if any.
 const stExtraDef SAMSHO5SP_A_EXTRA[] =
 {
     // Start

@@ -24,6 +24,7 @@
 #include "Game_RBFFS_A.h"
 #include "Game_REDEARTH_A.h"
 #include "Game_REDEARTH_A_DIR.h"
+#include "Game_SAMSHO3_A.h"
 #include "Game_SAMSHO5SP_A.h"
 #include "Game_SFA1_A.h"
 #include "Game_SFA2_A.h"
@@ -209,6 +210,16 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
+    case SAMSHO3_A:
+    {
+        GetRule = &CGame_SAMSHO3_A::GetRule;
+        return TRUE;
+    }
+    case SAMSHO5SP_A:
+    {
+        GetRule = &CGame_SAMSHO5SP_A::GetRule;
+        return TRUE;
+    }
     case SFIII3_A:
     {
         GetRule = &CGame_SFIII3_A::GetRule;
@@ -258,11 +269,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case SVCPLUSA_A:
     {
         GetRule = &CGame_SVCPLUSA_A::GetRule;
-        return TRUE;
-    }
-    case SAMSHO5SP_A:
-    {
-        GetRule = &CGame_SAMSHO5SP_A::GetRule;
         return TRUE;
     }
     case VSAV_A:
@@ -390,6 +396,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case REDEARTH_A_DIR:
     {
         return new CGame_RedEarth_A_DIR(-1);
+    }
+    case SAMSHO3_A:
+    {
+        return new CGame_SAMSHO3_A(nConfirmedROMSize);
     }
     case SAMSHO5SP_A:
     {

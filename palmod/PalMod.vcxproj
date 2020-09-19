@@ -150,6 +150,7 @@
     <ClCompile Include="Game\Game_RBFFS_A.cpp" />
     <ClCompile Include="Game\Game_REDEARTH_A.cpp" />
     <ClCompile Include="Game\Game_REDEARTH_A_DIR.cpp" />
+    <ClCompile Include="Game\Game_SAMSHO3_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp" />
     <ClCompile Include="Game\Game_SFA1_A.cpp" />
     <ClCompile Include="Game\Game_SFA2_A.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="Game\Game_RBFFS_A.h" />
     <ClInclude Include="Game\Game_REDEARTH_A.h" />
     <ClInclude Include="Game\Game_REDEARTH_A_DIR.h" />
+    <ClInclude Include="Game\Game_SAMSHO3_A.h" />
     <ClInclude Include="Game\Game_SAMSHO5SP_A.h" />
     <ClInclude Include="Game\Game_SFA1_A.h" />
     <ClInclude Include="Game\Game_SFA2_A.h" />
@@ -258,6 +260,7 @@
     <ClInclude Include="Game\GEMFIGHTER_A_DEF.h" />
     <ClInclude Include="Game\RBFFS_A_DEF.h" />
     <ClInclude Include="Game\REDEARTH_A_DEF.h" />
+    <ClInclude Include="Game\SAMSHO3_A_DEF.h" />
     <ClInclude Include="Game\SAMSHO5SP_A_DEF.h" />
     <ClInclude Include="Game\SFA1_A_DEF.h" />
     <ClInclude Include="Game\SFA2_A_DEF.h" />

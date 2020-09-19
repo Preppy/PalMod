@@ -408,6 +408,7 @@ void CPalModDlg::OnFileOpen()
         // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
         { RBFFS_A, _T("Real Bout Fatal Fury Special|223*p1*|"), INVALID_UNIT_VALUE },
         { REDEARTH_A, _T("Red Earth|31|"), INVALID_UNIT_VALUE },
+        { SAMSHO3_A, _T("Samurai Shodown 3|087-p5.p5|"), INVALID_UNIT_VALUE},
         { SAMSHO5SP_A, _T("Samurai Shodown 5 Special|272-p1*.p1;p1*h*.bin|"), INVALID_UNIT_VALUE},
         { SFIII3_A, _T("SFIII3 Arcade (51), Gill (10)|10;51|"), INVALID_UNIT_VALUE },
         { SFA1_A, _T("SFA1|sfz.06|"), INVALID_UNIT_VALUE },

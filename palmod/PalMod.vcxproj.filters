@@ -154,6 +154,9 @@
     <Filter Include="Game\SNK Games\Real Bout Fatal Fury Special">
       <UniqueIdentifier>{8443d0ef-6c99-4658-b287-180c5fa4e7e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\SamSho3">
+      <UniqueIdentifier>{1bc29372-5f2a-4d1f-b949-f5fd9a70efe5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -353,6 +356,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_RBFFS_A.cpp">
       <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SAMSHO3_A.cpp">
+      <Filter>Game\SNK Games\SamSho3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -640,6 +646,12 @@
     </ClInclude>
     <ClInclude Include="Game\RBFFS_A_DEF.h">
       <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SAMSHO3_A.h">
+      <Filter>Game\SNK Games\SamSho3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMSHO3_A_DEF.h">
+      <Filter>Game\SNK Games\SamSho3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
