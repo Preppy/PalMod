@@ -1247,8 +1247,8 @@ const sGame_PaletteDataset SFIII3_A_HUGO_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_PORTRAIT_PALETTES[] =
 {
-    { _T("Gill portrait (Normal)"), 0x070C600, 0x070C800 },
-    { _T("Gill portrait (Tinted)"), 0x0711400, 0x0711600 },
+    { _T("Gill portrait (Normal)"), 0x070C680, 0x070C780 },
+    { _T("Gill portrait (Tinted)"), 0x0711480, 0x0711580 },
     { _T("?? Unused Gill Character Select Icon ??"), 0x070BF80, 0x070C000, index3S_CPS3_Gill, 0x22 },
 };
 
@@ -1466,6 +1466,11 @@ const sDescTreeNode SFIII3_A_HUGO_COLLECTION[] =
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_HUGO_Support_PALETTES, ARRAYSIZE(SFIII3_A_HUGO_Support_PALETTES) },
     { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_HUGO_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_HUGO_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_HUGO_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_HUGO_EXTRA_PALETTES) },
+};
+
+const sDescTreeNode SFIII3_A_GILL_51_COLLECTION[] =
+{
+    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_GILL_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_IBUKI_COLLECTION[] =
@@ -2267,7 +2272,7 @@ const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_PALETTES[] =
 {
-    { _T("Gill"), 0x1C86A8, 0x1C8728, },
+    { _T("Gill"), 0x1C86A8, 0x1C8728, index3S_CPS3_Gill },
 };
 
 const sDescTreeNode SFIII3_A_GILL_COLLECTION[] =
@@ -2303,6 +2308,7 @@ const sDescTreeNode SFIII3_A_51_UNITS[] =
     { _T("Twelve"), DESC_NODETYPE_TREE, (void*)SFIII3_A_TWELVE_COLLECTION, ARRAYSIZE(SFIII3_A_TWELVE_COLLECTION) },
     { _T("Remy"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_COLLECTION, ARRAYSIZE(SFIII3_A_REMY_COLLECTION) },
     { _T("Bonus and Stage Palettes"), DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGE_COLLECTION, ARRAYSIZE(SFIII3_A_STAGE_COLLECTION) },
+    { _T("Gill"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_51_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_51_COLLECTION) },
 };
 
 constexpr auto SFIII3_A_10_NUMUNIT = ARRAYSIZE(SFIII3_A_10_UNITS);
@@ -2333,6 +2339,7 @@ const UINT8 SFIII3_A_UNITSORT[SFIII3_A_51_NUMUNIT + 1] = //Plus 1 for the extra 
     index3S_CPS3_Urien, 
     index3S_CPS3_Yang, 
     index3S_CPS3_Yun,
+    index3S_CPS3_Gill - 1, // the stages being part of Bonus throws this off for now
     index3S_CPS3_Bonus,
 
     SFIII3_A_51_EXTRALOC //Extra palettes

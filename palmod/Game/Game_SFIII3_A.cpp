@@ -59,7 +59,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForGill() ? 1 : 971);
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForGill() ? 1 : 974);
     m_nTotalPaletteCount = UsePaletteSetForGill() ? m_nTotalPaletteCountForSFIII3_10 : m_nTotalPaletteCountForSFIII3_51;
     m_nLowestKnownPaletteRomLocation = UsePaletteSetForGill() ? 0x1C86A8 : 0x700600;
 
@@ -765,18 +765,28 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
             if (UsePaletteSetForGill())
             {
-                UINT32 nDesiredLocation = m_nCurrentPaletteROMLocation;
-                UINT32 nStride = 4;
+                UINT32 fourByteBlocks = m_nCurrentPaletteSize >> 1;
+                const UINT8 cbStride = 4;
 
-                for (UINT16 nByteCount = 0; nByteCount < m_nCurrentPaletteSize * 2; nByteCount += nStride)
+                LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                UINT32 nNewData = 0;
+
+                for (UINT16 nBlockCount = 0; nBlockCount < fourByteBlocks; nBlockCount++)
                 {
                     // this rom is encrypted
-                    // TV! FIX THE DECRYPTION LOGIC HERE
-                    LoadedFile->Seek(nDesiredLocation, CFile::begin);
-                    UINT32 nNewData;
-                    LoadedFile->Read(&nNewData, nStride);
-                    *(m_pppDataBuffer[nUnitCtr][nPalCtr] + nByteCount) = cps3_mask(nNewData * 4 + 0xc0000000, 0xa55432b4, 0x0c129981);
-                    nDesiredLocation += nStride;
+                    LoadedFile->Read(&nNewData, cbStride);
+                    nNewData = _byteswap_ulong(nNewData);
+                    nNewData ^= (cps3_mask(0x6000000 + m_nCurrentPaletteROMLocation + (nBlockCount * cbStride), 0xA55432B4, 0x0C129981));
+                    nNewData = _byteswap_ulong(nNewData);
+                    *(m_pppDataBuffer[nUnitCtr][nPalCtr] + (2 * nBlockCount) + 1) = (nNewData & 0xFFFF0000) >> 16;
+                    *(m_pppDataBuffer[nUnitCtr][nPalCtr] + (2 * nBlockCount)) = nNewData & 0x0000FFFF;
+
+#ifdef Default_Gill_Palette
+                   00 00 7F BC 7F 59 7F 16 7A B3 72 71 66 2E 55 CC 51 AB 49 8A 45 48 3D 27 65 B0 5D 8E 55 8D 55 8D
+                   4B 0E 67 BF 4A FF 3A 3E 2D DD 31 BB 31 7A 2D 37 29 13 24 F1 24 AF 14 4B 45 56 3D 34 35 12 35 12
+                   00 00 03 DE 03 5E 0A 9E 0A 1E 09 9A 01 14 00 90 00 00 00 00 7B DE 7B DE 73 9C 63 18 5A D6 4A 52
+                   39 CE 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+#endif
                 }
             }
             else
@@ -819,9 +829,22 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 
                 if (UsePaletteSetForGill())
                 {
-                    // TV! INSERT ENCRYPTION LOGIC HERE
+                    UINT32 fourByteBlocks = m_nCurrentPaletteSize >> 1;
+                    const UINT8 cbStride = 4;
+
                     SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                    UINT32 nDataToWrite = 0;
+
+                    for (UINT16 nBlockCount = 0; nBlockCount < fourByteBlocks; nBlockCount++)
+                    {
+                        nDataToWrite = *(m_pppDataBuffer[nUnitCtr][nPalCtr] + (2 * nBlockCount));
+                        nDataToWrite |= (*(m_pppDataBuffer[nUnitCtr][nPalCtr] + (2 * nBlockCount) + 1) << 16);
+                        nDataToWrite = _byteswap_ulong(nDataToWrite);
+                        nDataToWrite ^= (cps3_mask(0x6000000 + m_nCurrentPaletteROMLocation + (nBlockCount * cbStride), 0xA55432B4, 0x0C129981));
+                        nDataToWrite = _byteswap_ulong(nDataToWrite);
+
+                        SaveFile->Write(&nDataToWrite, cbStride);
+                    }
                 }
                 else
                 {

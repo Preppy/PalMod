@@ -486,6 +486,7 @@ const UINT8 SFIII3_A_IMG_UNITS[] =
     index3S_CPS3_Remy,
     index3S_CPS3_Bonus,
     index3S_CPS3_Stages,
+    index3S_CPS3_Gill,
 };
 
 constexpr auto SFIII3_A_NUM_IMG_UNITS = ARRAYSIZE(SFIII3_A_IMG_UNITS);
