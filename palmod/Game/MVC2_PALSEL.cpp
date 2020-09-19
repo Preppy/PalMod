@@ -671,8 +671,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             ClearSetImgTicket(
                 CreateImgTicket(uUnitId, 0x27,
                     CreateImgTicket(uUnitId, 0x28, 
-                    CreateImgTicket(uUnitId, 0x29, nullptr, nXOffs, nYOffs),
-                        31, 12)
+                        CreateImgTicket(uUnitId, 0x29, nullptr, nXOffs, nYOffs),
+                            31, 12)
                 )
             );
 
@@ -991,7 +991,34 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nImgUnitId = MVC2_D_0x31_EXTRAREDIR[nOffs];
             nTargetImgId = 0xFF00 + MVC2_D_0x31_EXTRAREDIR[nOffs + 1];
 
-            SetSourcePal(0, nImgUnitId, uPalId, MVC2_D_0x31_EXTRAREDIR[nOffs + 1], 1);
+            if ((nImgUnitId == indexCPS2_Sentinel) && ((nTargetImgId & 0xFF) == 0x0)) // Sentinel guts join
+            {
+                bLoadDefPal = FALSE;
+
+                //Create the img ticket
+                ClearSetImgTicket(
+                    CreateImgTicket(indexCPS2_Sentinel, 0,
+                        CreateImgTicket(indexCPS2_Sentinel, 1)
+                    )
+                );
+
+                sDescNode* JoinedNode[2] = {
+                    MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                    MainDescTree.GetDescNode(Node01, Node02, Node03 + 1, -1),
+                };
+
+                //Set each palette
+                CreateDefPal(JoinedNode[0], 0);
+                CreateDefPal(JoinedNode[1], 1);
+
+                SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1 );
+                SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 1, 1);
+            }
+            else
+            {
+                SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
+            }
+
             break;
         }
 
@@ -1009,6 +1036,39 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     case 0x32: //Colossus
     {
         CreateExtraPal(uUnitId, uPalId, 0x09, 32, 0, 0, 32);
+        break;
+    }
+    case indexCPS2_Sentinel: // 0x34
+    {
+        if (SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // guts, flames
+        {
+            bLoadDefPal = FALSE;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(indexCPS2_Sentinel, 0,
+                    CreateImgTicket(indexCPS2_Sentinel, 1 ,
+                        CreateImgTicket(indexCPS2_Sentinel, 3)
+                    )
+                )
+            );
+
+            sDescNode* NodeGet[3] = {
+                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 1, -1),
+                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 3, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeGet[0], 0);
+            CreateDefPal(NodeGet[1], 1);
+            CreateDefPal(NodeGet[2], 2);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(1, uUnitId, 1, 6, 8);
+            SetSourcePal(2, uUnitId, 3, 6, 8);
+        }
+
         break;
     }
     case 0x35: // Blackheart

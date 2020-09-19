@@ -883,46 +883,34 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + 1);
+                UINT16 nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nDeltaToSecondElement);
 
                 if (paletteDataSetToJoin)
                 {
-                    int nXOffs, nYOffs;
+                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
 
-                    if (NodeGet->uUnitId == indexMSHWolverine) // wolvie claws support
-                    {
-                        nXOffs = 20;
-                        nYOffs = 4;
-                        fShouldUseAlternateLoadLogic = true;
-                    }
-                    else if (NodeGet->uUnitId == indexMSHCaptainAmerica)
-                    {
-                        nXOffs = -22;
-                        nYOffs = -17;
-                        fShouldUseAlternateLoadLogic = true;
-                    }
+                    fShouldUseAlternateLoadLogic = true;
 
-                    if (fShouldUseAlternateLoadLogic)
-                    {
-                        ClearSetImgTicket(
-                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                            )
-                        );
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                        )
+                    );
 
-                        //Set each palette
-                        sDescNode* JoinedNode[2] = {
-                            MainDescTree_05.GetDescNode(Node01, Node02, Node03, -1),
-                            MainDescTree_05.GetDescNode(Node01, Node02, Node03 + 1, -1)
-                        };
+                    //Set each palette
+                    sDescNode* JoinedNode[2] = {
+                        MainDescTree_05.GetDescNode(Node01, Node02, Node03, -1),
+                        MainDescTree_05.GetDescNode(Node01, Node02, Node03 + nDeltaToSecondElement, -1)
+                    };
 
-                        //Set each palette
-                        CreateDefPal(JoinedNode[0], 0);
-                        CreateDefPal(JoinedNode[1], 1);
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
 
-                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + 1, nSrcAmt, nNodeIncrement);
-                    }
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement);
                 }
             }
         }

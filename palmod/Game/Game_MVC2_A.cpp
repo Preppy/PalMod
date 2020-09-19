@@ -225,7 +225,7 @@ sMVC2A_CharacterData MVC2ArcadeCharacterArray[] =
     { _T("indexCPS2_Spiral"), 0x31, _T("Spiral"), _T("SPIRAL"), 0x5109fa2, 0x9, 0xd2},
     { _T("indexCPS2_Colossus"), 0x32, _T("Colossus"), _T("COLOSSUS"), 0x5235a62, 0x9, 0xc8},
     { _T("indexCPS2_IronMan"), 0x33, _T("Iron Man"), _T("IRONMAN"), 0x53384c2, 0, 0 },
-    { _T("indexCPS2_Sentinel"), 0x34, _T("Sentinel"), _T("SENTINEL"), 0x545E422, 0x12, 0x13, _T("pairUnhandled") },
+    { _T("indexCPS2_Sentinel"), 0x34, _T("Sentinel"), _T("SENTINEL"), 0x545E422, 0x12, 0x13, _T("pairHandledInCode") },
     { _T("indexCPS2_Blackheart"), 0x35, _T("Blackheart"), _T("BLACKHEART"), 0x5585402, 0x9, 0x1b },
     { _T("indexCPS2_Thanos"), 0x36, _T("Thanos"), _T("THANOS"), 0x5673e42, 0x9, 0x1f },
     { _T("indexCPS2_Jin"), 0x37, _T("Jin"), _T("JIN"), 0x5758482, 0x9, 0x86 },
@@ -1101,40 +1101,73 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if ((NodeGet->uUnitId == indexMVC2AShuma) ||
-                    (NodeGet->uUnitId == indexMVC2ASentinel))
+                if (NodeGet->uUnitId == indexMVC2AShuma)
                 {
                     OutputDebugString(_T("Sadness: this sprite is wrong.  Should be reripped as paired.\n"));
                 }
                 else
                 {
-                    UINT16 nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
-                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
-                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
-
-                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nDeltaToSecondElement);
-                    if (paletteDataSetToJoin)
+                    if ((NodeGet->uUnitId == indexMVC2ASentinel) && (paletteDataSet->pPalettePairingInfo == &pairHandledInCode))
                     {
+                        INT8 nPeerPaletteDistance1 = 1;
+                        INT8 nPeerPaletteDistance2 = 3;
+                        const sGame_PaletteDataset* paletteDataSetToJoin1 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance1);
+                        const sGame_PaletteDataset* paletteDataSetToJoin2 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance2);
                         fShouldUseAlternateLoadLogic = true;
 
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                            )
+                                CreateImgTicket(paletteDataSetToJoin1->indexImgToUse, paletteDataSetToJoin1->indexOffsetToUse,
+                                    CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse)
+                                    ))
                         );
 
                         //Set each palette
-                        sDescNode* JoinedNode[2] = {
+                        sDescNode* JoinedNode[3] = {
                             MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                            MainDescTree.GetDescNode(Node01, Node02, Node03 + nDeltaToSecondElement, -1)
+                            MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
+                            MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)
                         };
 
                         //Set each palette
                         CreateDefPal(JoinedNode[0], 0);
                         CreateDefPal(JoinedNode[1], 1);
+                        CreateDefPal(JoinedNode[2], 2);
 
                         SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
+                    }
+                    else
+                    {
+                        UINT16 nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                        int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                        int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+
+                        const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nDeltaToSecondElement);
+                        if (paletteDataSetToJoin)
+                        {
+                            fShouldUseAlternateLoadLogic = true;
+
+                            ClearSetImgTicket(
+                                CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                                )
+                            );
+
+                            //Set each palette
+                            sDescNode* JoinedNode[2] = {
+                                MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                                MainDescTree.GetDescNode(Node01, Node02, Node03 + nDeltaToSecondElement, -1)
+                            };
+
+                            //Set each palette
+                            CreateDefPal(JoinedNode[0], 0);
+                            CreateDefPal(JoinedNode[1], 1);
+
+                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement);
+                        }
                     }
                 }
             }

@@ -294,18 +294,18 @@ const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P1[] =
 {
-    { _T("Sentinel P1"), 0x26e3E, 0x26e5E, 0x34 },
-    { _T("P1 Extras 1"), 0x26e5E, 0x26e7E, 0x34, 1 },
-    { _T("P1 Extras 2"), 0x26e7E, 0x26e9E, 0x34, 2 },
-    { _T("P1 Extras 3"), 0x26e9E, 0x26ebE, 0x34, 3 },
+    { _T("Sentinel P1"), 0x26e3E, 0x26e5E, indexCPS2_Sentinel, 0, &pairHandledInCode },
+    { _T("P1 Drones (bombs) / Guts"), 0x26e5E, 0x26e7E, indexCPS2_Sentinel, 1 },
+    { _T("P1 MP / Rocket Punch wires"), 0x26e7E, 0x26e9E, indexCPS2_Sentinel, 2 },
+    { _T("P1 Plasma Storm / Flight"), 0x26e9E, 0x26ebE, indexCPS2_Sentinel, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P2[] =
 {
-    { _T("Sentinel P2"), 0x26ebE, 0x26edE, 0x34 },
-    { _T("P2 Extras 1"), 0x26edE, 0x26efE, 0x34, 1 },
-    { _T("P2 Extras 2"), 0x26efE, 0x26f1E, 0x34, 2 },
-    { _T("P2 Extras 3"), 0x26f1E, 0x26f3E, 0x34, 3 },
+    { _T("Sentinel P2"), 0x26ebE, 0x26edE, indexCPS2_Sentinel, 0, &pairHandledInCode },
+    { _T("P2 Drones (bombs) / Guts"), 0x26edE, 0x26efE, indexCPS2_Sentinel, 1 },
+    { _T("P2 MP / Rocket Punch wires"), 0x26efE, 0x26f1E, indexCPS2_Sentinel, 2 },
+    { _T("P2 Plasma Storm / Flight"), 0x26f1E, 0x26f3E, indexCPS2_Sentinel, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_SILSAM_PALETTES_P1[] =

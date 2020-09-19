@@ -7349,7 +7349,7 @@ const sGame_PaletteDataset MVC2_A_SPIRAL_PALETTES_EXTRAS[] =
     { _T("24: Omega Red Metamorphosis X Character Frame 25"), 0x510aa00, 0x510aa20, indexCPS2_OmegaRed, 0 },
     { _T("25: Colossus Metamorphosis X Character Frame 26"), 0x510aa20, 0x510aa40, indexCPS2_Colossus, 0 },
     { _T("26: Iron Man Metamorphosis X Character Frame 27"), 0x510aa40, 0x510aa60, indexCPS2_IronMan, 0 },
-    { _T("27: Sentinel Metamorphosis X Character Frame 28"), 0x510aa60, 0x510aa80, indexCPS2_Sentinel, 0 },
+    { _T("27: Sentinel Metamorphosis X Character Frame 28"), 0x510aa60, 0x510aa80, indexCPS2_Sentinel, 0, &pairNext },
     { _T("28: Sentinel's COTA j.d.HK Metamorphosis X Character Frame 29"), 0x510aa80, 0x510aaa0, indexCPS2_Sentinel, 1 },
     { _T("29: Blackheart Metamorphosis X Character Frame 30"), 0x510aaa0, 0x510aac0, indexCPS2_Blackheart, 0 },
     { _T("2a: Thanos Metamorphosis X Character Frame 31"), 0x510aac0, 0x510aae0, indexCPS2_Thanos, 0 },
@@ -7924,7 +7924,7 @@ const sDescTreeNode MVC2_A_IRONMAN_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LP[] =
 {
-    { _T("Main Color LP"), 0x545e420, 0x545e440, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Main Color LP"), 0x545e420, 0x545e440, indexCPS2_Sentinel, 0, &pairHandledInCode },
     { _T("(02) Drones (bombs) / Guts"), 0x545e440, 0x545e460, indexCPS2_Sentinel, 1 },
     { _T("(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)"), 0x545e460, 0x545e480, indexCPS2_Sentinel, 2 },
     { _T("(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)"), 0x545e480, 0x545e4a0, indexCPS2_Sentinel, 3 },
@@ -7936,7 +7936,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LK[] =
 {
-    { _T("Main Color LK"), 0x545e520, 0x545e540, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Main Color LK"), 0x545e520, 0x545e540, indexCPS2_Sentinel, 0, &pairHandledInCode },
     { _T("(02) Drones (bombs) / Guts"), 0x545e540, 0x545e560, indexCPS2_Sentinel, 1 },
     { _T("(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)"), 0x545e560, 0x545e580, indexCPS2_Sentinel, 2 },
     { _T("(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)"), 0x545e580, 0x545e5a0, indexCPS2_Sentinel, 3 },
@@ -7948,7 +7948,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HP[] =
 {
-    { _T("Main Color HP"), 0x545e620, 0x545e640, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Main Color HP"), 0x545e620, 0x545e640, indexCPS2_Sentinel, 0, &pairHandledInCode },
     { _T("(02) Drones (bombs) / Guts"), 0x545e640, 0x545e660, indexCPS2_Sentinel, 1 },
     { _T("(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)"), 0x545e660, 0x545e680, indexCPS2_Sentinel, 2 },
     { _T("(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)"), 0x545e680, 0x545e6a0, indexCPS2_Sentinel, 3 },
@@ -7960,7 +7960,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HK[] =
 {
-    { _T("Main Color HK"), 0x545e720, 0x545e740, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Main Color HK"), 0x545e720, 0x545e740, indexCPS2_Sentinel, 0, &pairHandledInCode },
     { _T("(02) Drones (bombs) / Guts"), 0x545e740, 0x545e760, indexCPS2_Sentinel, 1 },
     { _T("(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)"), 0x545e760, 0x545e780, indexCPS2_Sentinel, 2 },
     { _T("(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)"), 0x545e780, 0x545e7a0, indexCPS2_Sentinel, 3 },
@@ -7972,7 +7972,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A1[] =
 {
-    { _T("Main Color A1"), 0x545e820, 0x545e840, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Main Color A1"), 0x545e820, 0x545e840, indexCPS2_Sentinel, 0, &pairHandledInCode },
     { _T("(02) Drones (bombs) / Guts"), 0x545e840, 0x545e860, indexCPS2_Sentinel, 1 },
     { _T("(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)"), 0x545e860, 0x545e880, indexCPS2_Sentinel, 2 },
     { _T("(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)"), 0x545e880, 0x545e8a0, indexCPS2_Sentinel, 3 },
@@ -7984,7 +7984,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A2[] =
 {
-    { _T("Main Color A2"), 0x545e920, 0x545e940, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Main Color A2"), 0x545e920, 0x545e940, indexCPS2_Sentinel, 0, &pairHandledInCode },
     { _T("(02) Drones (bombs) / Guts"), 0x545e940, 0x545e960, indexCPS2_Sentinel, 1 },
     { _T("(03) s.MP, c.MP / ID:01&14-15 Rocket Punch (wires)"), 0x545e960, 0x545e980, indexCPS2_Sentinel, 2 },
     { _T("(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)"), 0x545e980, 0x545e9a0, indexCPS2_Sentinel, 3 },
@@ -7996,21 +7996,21 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_SHARED[] =
 {
-    { _T("Burning Dark"), 0x545ea20, 0x545ea40, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Burning Dark"), 0x545ea20, 0x545ea40, indexCPS2_Sentinel, 0, &pairNext },
     { _T("Burning Dark 2"), 0x545ea40, 0x545ea60, indexCPS2_Sentinel, 1 },
-    { _T("Burning Light"), 0x545ea60, 0x545ea80, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Burning Light"), 0x545ea60, 0x545ea80, indexCPS2_Sentinel, 0, &pairNext },
     { _T("Burning Light 2"), 0x545ea80, 0x545eaa0, indexCPS2_Sentinel, 1 },
-    { _T("Shocked Dark"), 0x545eaa0, 0x545eac0, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Shocked Dark"), 0x545eaa0, 0x545eac0, indexCPS2_Sentinel, 0, &pairNext },
     { _T("Shocked Dark 2"), 0x545eac0, 0x545eae0, indexCPS2_Sentinel, 1 },
-    { _T("Shocked Light"), 0x545eae0, 0x545eb00, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Shocked Light"), 0x545eae0, 0x545eb00, indexCPS2_Sentinel, 0, &pairNext },
     { _T("Shocked Light 2"), 0x545eb00, 0x545eb20, indexCPS2_Sentinel, 1 },
-    { _T("Dark Burning Dark"), 0x545eb20, 0x545eb40, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Dark Burning Dark"), 0x545eb20, 0x545eb40, indexCPS2_Sentinel, 0, &pairNext },
     { _T("Dark Burning Dark 2"), 0x545eb40, 0x545eb60, indexCPS2_Sentinel, 1 },
-    { _T("Dark Burning Light"), 0x545eb60, 0x545eb80, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Dark Burning Light"), 0x545eb60, 0x545eb80, indexCPS2_Sentinel, 0, &pairNext },
     { _T("Dark Burning Light 2"), 0x545eb80, 0x545eba0, indexCPS2_Sentinel, 1 },
-    { _T("Kinetic Charge Dark"), 0x545eba0, 0x545ebc0, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Kinetic Charge Dark"), 0x545eba0, 0x545ebc0, indexCPS2_Sentinel, 0, &pairNext },
     { _T("Kinetic Charge Dark 2"), 0x545ebc0, 0x545ebe0, indexCPS2_Sentinel, 1 },
-    { _T("Kinetic Charge Light"), 0x545ebe0, 0x545ec00, indexCPS2_Sentinel, 0, &pairUnhandled },
+    { _T("Kinetic Charge Light"), 0x545ebe0, 0x545ec00, indexCPS2_Sentinel, 0, &pairNext },
     { _T("Kinetic Charge Light 2"), 0x545ec00, 0x545ec20, indexCPS2_Sentinel, 1 },
 };
 

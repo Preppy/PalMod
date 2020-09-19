@@ -1998,7 +1998,7 @@ const stPairedPaletteInfo pairHayatoSword = { 1, -63, 32 };
 const stPairedPaletteInfo pairMVCLou = { 1, -80, -15 };
 const stPairedPaletteInfo pairOnslaught = { 1, -24, 86 };
 const stPairedPaletteInfo pairTronBody = { 1, -4, -50 };
-const stPairedPaletteInfo pairWolvieClaws =   { 1, 20, 4 };
+const stPairedPaletteInfo pairWolvieClaws =   { 1, 0, 0 };
 const stPairedPaletteInfo pairBonerineClaws = { 1, 25, 6 };
 
 const stPairedPaletteInfo pairVegaClaws = { 1, 0, 0 };

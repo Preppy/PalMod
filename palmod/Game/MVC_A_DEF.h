@@ -1085,8 +1085,8 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { _T("Saki P1"), 0x50964, 0x509a4, 0x3C, 0x10 },
     { _T("Saki P2"), 0x509c4, 0x50a04, 0x3C, 0x10 },
 
-    { _T("Sentinel P1"), 0x51344, 0x51364, 0x34 },
-    { _T("Sentinel P2"), 0x513a4, 0x513c4, 0x34 },
+    { _T("Sentinel P1"), 0x51344, 0x51364, indexCPS2_Sentinel, 0xc },
+    { _T("Sentinel P2"), 0x513a4, 0x513c4, indexCPS2_Sentinel, 0xc },
 
     { _T("Shadow Nash P1"), 0x51284, 0x512a4, 0x21 },
     { _T("Shadow Nash P1 Extra"), 0x512c4, 0x512e4, 0x21, 2 },
