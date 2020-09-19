@@ -459,7 +459,6 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
         m_nTotalPaletteCountForMSHVSF_7B = nTotalPaletteCount;
     }
 
-
     return NewDescTree;
 }
 

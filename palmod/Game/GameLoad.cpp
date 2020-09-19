@@ -397,7 +397,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     }
     case SFIII3_A:
     {
-        return new CGame_SFIII3_A(nConfirmedROMSize);
+        return new CGame_SFIII3_A(nConfirmedROMSize, nExtraGameData);
     }
     case SFIII3_A_DIR:
     {
@@ -514,6 +514,19 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             pszFileName++;
             _tcslwr(pszFileName);
             nGameRule = ((_tcsstr(pszFileName, _T(".08")) != nullptr) ? 8 : 7);
+        }
+        break;
+    }
+    case SFIII3_A:
+    {
+        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
+
+        if (pszFileName)
+        {
+            // Step forward to the filename
+            pszFileName++;
+            _tcslwr(pszFileName);
+            nGameRule = ((_tcsstr(pszFileName, _T("10")) != nullptr) ? 10 : 51);
         }
         break;
     }

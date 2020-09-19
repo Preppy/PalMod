@@ -2233,12 +2233,12 @@ const sGame_PaletteDataset KOF98_A_DAIMON_EFFECT_PALETTES[] =
 
 const sGame_PaletteDataset KOF98_A_TERRY_EFFECT_PALETTES[] =
 {
-    { _T("Effect 0"), 0x2eedf0, 0x2eee10 },
-    { _T("Effect 1"), 0x2eee10, 0x2eee30 },
-    { _T("Effect 2"), 0x2eee30, 0x2eee50 },
-    { _T("Effect 3"), 0x2eee50, 0x2eee70 },
-    { _T("Effect 4"), 0x2eee70, 0x2eee90 },
-    { _T("Effect 5"), 0x2eee90, 0x2eeeb0 },
+    { _T("Burn Knuckle"), 0x2eedf0, 0x2eee10 },
+    { _T("Power Dunk"), 0x2eee10, 0x2eee30 },
+    { _T("All Super Geysers (Max)"), 0x2eee30, 0x2eee50 },
+    { _T("Power Wave"), 0x2eee50, 0x2eee70 },
+    { _T("EX Power Wave"), 0x2eee70, 0x2eee90 },
+    { _T("EX PW Hit Spark"), 0x2eee90, 0x2eeeb0 },
     { _T("Zap Effect 1"), 0x2eef50, 0x2eef70, indexKOF98_A_Terry },
     { _T("Zap Effect 2"), 0x2eef70, 0x2eef90, indexKOF98_A_Terry },
     { _T("Super Trail 1"), 0x2eef90, 0x2eefb0, indexKOF98_A_Terry },

@@ -405,10 +405,11 @@ void CPalModDlg::OnFileOpen()
         { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },
         { MVC_A, _T("MVC Arcade|mvc*.06*|"), INVALID_UNIT_VALUE },
         { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|*.dat;*.bin|"), INVALID_UNIT_VALUE },
-        { RBFFS_A, _T("Real Bout Fatal Fury Special|223*.p1|"), INVALID_UNIT_VALUE },
+        // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
+        { RBFFS_A, _T("Real Bout Fatal Fury Special|223*p1*|"), INVALID_UNIT_VALUE },
         { REDEARTH_A, _T("Red Earth|31|"), INVALID_UNIT_VALUE },
         { SAMSHO5SP_A, _T("Samurai Shodown 5 Special|272-p1*.p1;p1*h*.bin|"), INVALID_UNIT_VALUE},
-        { SFIII3_A, _T("SFIII3 Arcade|51|"), INVALID_UNIT_VALUE },
+        { SFIII3_A, _T("SFIII3 Arcade (51), Gill (10)|10;51|"), INVALID_UNIT_VALUE },
         { SFA1_A, _T("SFA1|sfz.06|"), INVALID_UNIT_VALUE },
         { SFA2_A, _T("SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|"), INVALID_UNIT_VALUE },
         { SFA3_A, _T("SFA3 sz3.09c|*.09*|"), INVALID_UNIT_VALUE },

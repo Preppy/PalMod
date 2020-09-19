@@ -2265,7 +2265,22 @@ const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
     { _T("Yun Stage (Faded)"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_YUN_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_YUN_FADED_PALETTES) },
 };
 
-const sDescTreeNode SFIII3_A_UNITS[] =
+const sGame_PaletteDataset SFIII3_A_GILL_PALETTES[] =
+{
+    { _T("Gill"), 0x1C86A8, 0x1C8728, },
+};
+
+const sDescTreeNode SFIII3_A_GILL_COLLECTION[] =
+{
+    { _T("Palettes"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES, ARRAYSIZE(SFIII3_A_GILL_PALETTES) },
+};
+
+const sDescTreeNode SFIII3_A_10_UNITS[] =
+{
+    { _T("Gill"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_COLLECTION) },
+};
+
+const sDescTreeNode SFIII3_A_51_UNITS[] =
 {
     { _T("Alex"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_COLLECTION, ARRAYSIZE(SFIII3_A_ALEX_COLLECTION) },
     { _T("Ryu"),    DESC_NODETYPE_TREE, (void*)SFIII3_A_RYU_COLLECTION, ARRAYSIZE(SFIII3_A_RYU_COLLECTION) },
@@ -2290,10 +2305,13 @@ const sDescTreeNode SFIII3_A_UNITS[] =
     { _T("Bonus and Stage Palettes"), DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGE_COLLECTION, ARRAYSIZE(SFIII3_A_STAGE_COLLECTION) },
 };
 
-constexpr auto SFIII3_A_NUMUNIT = ARRAYSIZE(SFIII3_A_UNITS);
-#define SFIII3_A_EXTRALOC SFIII3_A_NUMUNIT
+constexpr auto SFIII3_A_10_NUMUNIT = ARRAYSIZE(SFIII3_A_10_UNITS);
+#define SFIII3_A_10_EXTRALOC SFIII3_A_10_NUMUNIT
 
-const UINT8 SFIII3_A_UNITSORT[SFIII3_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
+constexpr auto SFIII3_A_51_NUMUNIT = ARRAYSIZE(SFIII3_A_51_UNITS);
+#define SFIII3_A_51_EXTRALOC SFIII3_A_51_NUMUNIT
+
+const UINT8 SFIII3_A_UNITSORT[SFIII3_A_51_NUMUNIT + 1] = //Plus 1 for the extra palettes
 {
     index3S_CPS3_Alex, 
     index3S_CPS3_ChunLi, 
@@ -2317,7 +2335,7 @@ const UINT8 SFIII3_A_UNITSORT[SFIII3_A_NUMUNIT + 1] = //Plus 1 for the extra pal
     index3S_CPS3_Yun,
     index3S_CPS3_Bonus,
 
-    SFIII3_A_EXTRALOC //Extra palettes
+    SFIII3_A_51_EXTRALOC //Extra palettes
 };
 
 const stExtraDef SFIII3_A_EXTRA[] = 

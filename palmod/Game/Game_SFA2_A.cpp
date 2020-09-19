@@ -844,7 +844,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < nExtraUnitLocation)
+        if (iUnitCtr != nExtraUnitLocation)
         {
             //Set each description
             _stprintf(UnitNode->szDesc, _T("%s"), GetCurrentUnitSet()[iUnitCtr].szDesc);
