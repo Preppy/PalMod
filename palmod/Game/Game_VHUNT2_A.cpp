@@ -1,34 +1,34 @@
 #include "StdAfx.h"
-#include "Game_VSAV_A.h"
+#include "Game_VHUNT2_A.h"
 #include "GameDef.h"
 #include "..\PalMod.h"
 
-#define VSAV_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define VHUNT2_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_VSAV_A::VSAV_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_VHUNT2_A::VHUNT2_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_VSAV_A::MainDescTree = nullptr;
+CDescTree CGame_VHUNT2_A::MainDescTree = nullptr;
 
-int CGame_VSAV_A::rgExtraCountAll[VSAV_A_NUMUNIT + 1] = { -1 };
-int CGame_VSAV_A::rgExtraCountVisibleOnly[VSAV_A_NUMUNIT + 1] = { -1 };
-int CGame_VSAV_A::rgExtraLoc[VSAV_A_NUMUNIT + 1] = { -1 };
+int CGame_VHUNT2_A::rgExtraCountAll[VHUNT2_A_NUMUNIT + 1] = { -1 };
+int CGame_VHUNT2_A::rgExtraCountVisibleOnly[VHUNT2_A_NUMUNIT + 1] = { -1 };
+int CGame_VHUNT2_A::rgExtraLoc[VHUNT2_A_NUMUNIT + 1] = { -1 };
 
-UINT32 CGame_VSAV_A::m_nTotalPaletteCountForVSAV = 0;
-UINT32 CGame_VSAV_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
-UINT32 CGame_VSAV_A::m_nConfirmedROMSize = -1;
+UINT32 CGame_VHUNT2_A::m_nTotalPaletteCountForVHUNT2 = 0;
+UINT32 CGame_VHUNT2_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
+UINT32 CGame_VHUNT2_A::m_nConfirmedROMSize = -1;
 
-void CGame_VSAV_A::InitializeStatics()
+void CGame_VHUNT2_A::InitializeStatics()
 {
-    safe_delete_array(CGame_VSAV_A::VSAV_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_VHUNT2_A::VHUNT2_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
     memset(rgExtraCountVisibleOnly, -1, sizeof(rgExtraCountVisibleOnly));
 
-    MainDescTree.SetRootTree(CGame_VSAV_A::InitDescTree());
+    MainDescTree.SetRootTree(CGame_VHUNT2_A::InitDescTree());
 }
 
-CGame_VSAV_A::CGame_VSAV_A(UINT32 nConfirmedROMSize)
+CGame_VHUNT2_A::CGame_VHUNT2_A(UINT32 nConfirmedROMSize)
 {
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
@@ -36,18 +36,18 @@ CGame_VSAV_A::CGame_VSAV_A(UINT32 nConfirmedROMSize)
     InitializeStatics();
 
     //We need the proper unit amt before we init the main buffer
-    nUnitAmt = VSAV_A_NUMUNIT + (GetExtraCt(VSAV_A_EXTRALOC) ? 1 : 0);
+    nUnitAmt = VHUNT2_A_NUMUNIT + (GetExtraCt(VHUNT2_A_EXTRALOC) ? 1 : 0);
 
-    m_nTotalInternalUnits = VSAV_A_NUMUNIT;
-    m_nExtraUnit = VSAV_A_EXTRALOC;
-    m_nSafeCountForThisRom = 1079 + GetExtraCt(VSAV_A_EXTRALOC);
-    m_pszExtraFilename = EXTRA_FILENAME_VSAV;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForVSAV;
+    m_nTotalInternalUnits = VHUNT2_A_NUMUNIT;
+    m_nExtraUnit = VHUNT2_A_EXTRALOC;
+    m_nSafeCountForThisRom = 848 + GetExtraCt(VHUNT2_A_EXTRALOC);
+    m_pszExtraFilename = EXTRA_FILENAME_VHUNT2;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForVHUNT2;
 
     createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x00c1ac;
+    m_nLowestKnownPaletteRomLocation = 0x16c9c;
 
     InitDataBuffer();
 
@@ -58,9 +58,9 @@ CGame_VSAV_A::CGame_VSAV_A(UINT32 nConfirmedROMSize)
     BasePalGroup.SetMode(ePalType::PALTYPE_17);
 
     //Set game information
-    nGameFlag = VSAV_A;
+    nGameFlag = VHUNT2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = VSAV_A_NUM_IMG_UNITS;
+    nImgUnitAmt = VHUNT2_A_NUM_IMG_UNITS;
 
     nFileAmt = 1;
 
@@ -77,22 +77,19 @@ CGame_VSAV_A::CGame_VSAV_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_VSAV_A::~CGame_VSAV_A(void)
+CGame_VHUNT2_A::~CGame_VHUNT2_A(void)
 {
-    safe_delete_array(CGame_VSAV_A::VSAV_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_VHUNT2_A::VHUNT2_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_VSAV_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+UINT32 CGame_VHUNT2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        // Vampire Savior: The Lord of Vampire (Euro 970519), same for US, Asia, Hispanic
-        { _T("Vampire Savior (970519)"), _T("vm3.10b"),  0xfffbb5b8, 0 },
-        // Vampire Savior: The Lord of Vampire (Japan 970519)
-        { _T("Vampire Savior (Japan 970519)"), _T("vm3j.10b"), 0x434518e9, 0x00F4 },
+        { _T("Vampire Hunter 2 (Japan 970929)"), _T("vh2j.09"), 0x11730952, 0x5FFD4 },//0x4714 }, // bbhood
     };
 
     if (ppKnownROMSet)
@@ -109,17 +106,17 @@ UINT32 CGame_VSAV_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
     return ARRAYSIZE(knownROMs);
 }
 
-int CGame_VSAV_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_VHUNT2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
 
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, (VSAV_A_NUMUNIT + 1) * sizeof(int));
-        memset(rgExtraCountVisibleOnly, 0, (VSAV_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraCountAll, 0, (VHUNT2_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraCountVisibleOnly, 0, (VHUNT2_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForVSAV(0);
+        stExtraDef* pCurrDef = GetExtraDefForVHUNT2(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -131,22 +128,22 @@ int CGame_VSAV_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForVSAV(nDefCtr);
+            pCurrDef = GetExtraDefForVHUNT2(nDefCtr);
         }
     }
 
     return rgExtraCt[nUnitId];
 }
 
-int CGame_VSAV_A::GetExtraLoc(UINT16 nUnitId)
+int CGame_VHUNT2_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (VSAV_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (VHUNT2_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForVSAV(0);
+        stExtraDef* pCurrDef = GetExtraDefForVHUNT2(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -157,39 +154,39 @@ int CGame_VSAV_A::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForVSAV(nDefCtr);
+            pCurrDef = GetExtraDefForVHUNT2(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-CDescTree* CGame_VSAV_A::GetMainTree()
+CDescTree* CGame_VHUNT2_A::GetMainTree()
 {
-    return &CGame_VSAV_A::MainDescTree;
+    return &CGame_VHUNT2_A::MainDescTree;
 }
 
-sDescTreeNode* CGame_VSAV_A::InitDescTree()
+sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_VSAV, VSAV_A_EXTRA, &VSAV_A_EXTRA_CUSTOM, VSAV_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_VHUNT2, VHUNT2_A_EXTRA, &VHUNT2_A_EXTRA_CUSTOM, VHUNT2_A_EXTRALOC, m_nConfirmedROMSize);
 
-    const UINT16 nUnitCt = VSAV_A_NUMUNIT + (GetExtraCt(VSAV_A_EXTRALOC) ? 1 : 0);
+    const UINT16 nUnitCt = VHUNT2_A_NUMUNIT + (GetExtraCt(VHUNT2_A_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[VSAV_A]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[VHUNT2_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(VSAV_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_VSAV_A::InitDescTree: Building desc tree for VSAV %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    bool fHaveExtras = (GetExtraCt(VHUNT2_A_EXTRALOC) > 0);
+    strMsg.Format(_T("CGame_VHUNT2_A::InitDescTree: Building desc tree for VHUNT2 %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -200,22 +197,22 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
         sDescNode* ChildNode = nullptr;
 
         UINT16 nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-        BOOL bUseExtra = (iUnitCtr == VSAV_A_EXTRALOC) ? (GetExtraLoc(iUnitCtr) != 0) : FALSE;
+        BOOL bUseExtra = (iUnitCtr == VHUNT2_A_EXTRALOC) ? (GetExtraLoc(iUnitCtr) != 0) : FALSE;
 
         UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < VSAV_A_EXTRALOC)
+        if (iUnitCtr < VHUNT2_A_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), VSAV_UNITS[iUnitCtr].szDesc);
+            _stprintf(UnitNode->szDesc, _T("%s"), VHUNT2_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if VSAV_DEBUG
+#if VHUNT2_DEBUG
             strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -237,7 +234,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if VSAV_DEBUG
+#if VHUNT2_DEBUG
                 strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -255,7 +252,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if VSAV_DEBUG
+#if VHUNT2_DEBUG
                     strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(_T(", 0x%05x to 0x%05x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
@@ -283,7 +280,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if VSAV_DEBUG
+#if VHUNT2_DEBUG
             strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -295,7 +292,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(VSAV_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(VHUNT2_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
             _stprintf(CollectionNode->szDesc, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
@@ -303,7 +300,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if VSAV_DEBUG
+#if VHUNT2_DEBUG
             strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -312,21 +309,21 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForVSAV(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForVHUNT2(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForVSAV(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForVHUNT2(nExtraPos + nCurrExtra);
                 }
 
                 _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((VSAV_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((VHUNT2_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if VSAV_DEBUG
+#if VHUNT2_DEBUG
                 strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -337,19 +334,19 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_VSAV_A::InitDescTree: Loaded %u palettes for VSAV\n"), nTotalPaletteCount);
+    strMsg.Format(_T("CGame_VHUNT2_A::InitDescTree: Loaded %u palettes for VHUNT2\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForVSAV = nTotalPaletteCount;
+    m_nTotalPaletteCountForVHUNT2 = nTotalPaletteCount;
 
     return NewDescTree;
 }
 
-sFileRule CGame_VSAV_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_VHUNT2_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("vm3.10b"));
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("vs2j.10"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -357,65 +354,65 @@ sFileRule CGame_VSAV_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_VSAV_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_VHUNT2_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == VSAV_A_EXTRALOC)
+    if (nUnitId == VHUNT2_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return VSAV_UNITS[nUnitId].uChildAmt;
+        return VHUNT2_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_VSAV_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_VHUNT2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == VSAV_A_EXTRALOC)
+    if (nUnitId == VHUNT2_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(VSAV_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(VHUNT2_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_VSAV_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_VHUNT2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == VSAV_A_EXTRALOC)
+    if (nUnitId == VHUNT2_A_EXTRALOC)
     {
         return _T("Extra Palettes");
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)VSAV_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)VHUNT2_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_VSAV_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_VHUNT2_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == VSAV_A_EXTRALOC)
+    if (nUnitId == VHUNT2_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        UINT16 nCollectionCount = VSAV_UNITS[nUnitId].uChildAmt;
-        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(VSAV_UNITS[nUnitId].ChildNodes);
+        UINT16 nCollectionCount = VHUNT2_UNITS[nUnitId].uChildAmt;
+        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(VHUNT2_UNITS[nUnitId].ChildNodes);
 
         for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
         {
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if VSAV_DEBUG
+#if VHUNT2_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_VSAV_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_VHUNT2_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -423,14 +420,14 @@ UINT16 CGame_VSAV_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_VSAV_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_VHUNT2_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)VSAV_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)VHUNT2_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_VSAV_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_VHUNT2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -443,7 +440,7 @@ const sDescTreeNode* CGame_VSAV_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == VSAV_A_EXTRALOC)
+        if (nUnitId == VHUNT2_A_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -455,7 +452,7 @@ const sDescTreeNode* CGame_VSAV_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(VSAV_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(VHUNT2_UNITS[nUnitId].ChildNodes);
 
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -481,7 +478,7 @@ const sDescTreeNode* CGame_VSAV_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_VSAV_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_VHUNT2_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -504,9 +501,9 @@ const sGame_PaletteDataset* CGame_VSAV_A::GetSpecificPalette(UINT16 nUnitId, UIN
     return paletteToUse;
 }
 
-void CGame_VSAV_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_VHUNT2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-    if (nUnitId != VSAV_A_EXTRALOC)
+    if (nUnitId != VHUNT2_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -529,12 +526,17 @@ void CGame_VSAV_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         if (m_pCRC32SpecificData)
         {
             m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
+
+            if ((m_nCurrentPaletteROMLocation + cbPaletteSizeOnDisc )> 0x80000)
+            {
+                DebugBreak();
+            }
         }
     }
-    else // VSAV_A_EXTRALOC
+    else // VHUNT2_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForVSAV(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForVHUNT2(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
@@ -542,7 +544,7 @@ void CGame_VSAV_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_VSAV_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_VHUNT2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -572,7 +574,7 @@ BOOL CGame_VSAV_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     return TRUE;
 }
 
-void CGame_VSAV_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+void CGame_VHUNT2_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
@@ -583,7 +585,7 @@ void CGame_VSAV_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
 }
 
-BOOL CGame_VSAV_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_VHUNT2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -616,7 +618,7 @@ BOOL CGame_VSAV_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (VSAV_A_EXTRALOC != NodeGet->uUnitId)
+    if (VHUNT2_A_EXTRALOC != NodeGet->uUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -708,7 +710,7 @@ BOOL CGame_VSAV_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-void CGame_VSAV_A::UpdatePalData()
+void CGame_VHUNT2_A::UpdatePalData()
 {
     for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
     {

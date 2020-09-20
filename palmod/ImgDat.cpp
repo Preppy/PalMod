@@ -211,6 +211,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = SVCPLUSA_A_IMG_UNITS[nUnitCtr];
             break;
         }
+        case VHUNT2_A:
+        {
+            nImageUnitCounterToUse = VHUNT2_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
         case VSAV_A:
         {
             nImageUnitCounterToUse = VSAV_A_IMG_UNITS[nUnitCtr];

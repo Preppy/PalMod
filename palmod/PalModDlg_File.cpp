@@ -404,7 +404,9 @@ void CPalModDlg::OnFileOpen()
         { MSH_A, _T("MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|"), INVALID_UNIT_VALUE },
         { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },
         { MVC_A, _T("MVC Arcade|mvc*.06*|"), INVALID_UNIT_VALUE },
-        { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|*.dat;*.bin|"), INVALID_UNIT_VALUE },
+        // MarvelVsCapcom2.bin
+        // Unlocked\MarvelVsCapcom2_unlocked.bin
+        { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|"), INVALID_UNIT_VALUE },
         // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
         { RBFFS_A, _T("Real Bout Fatal Fury Special|223*p1*|"), INVALID_UNIT_VALUE },
         { REDEARTH_A, _T("Red Earth|31|"), INVALID_UNIT_VALUE },
@@ -417,6 +419,7 @@ void CPalModDlg::OnFileOpen()
         { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|sfx*.03*;sfx*.04a|"), INVALID_UNIT_VALUE },
         { GEMFIGHTER_A, _T("Super Gem Fighter|pcf*.07|"), INVALID_UNIT_VALUE },
         { SVCPLUSA_A, _T("SVC PlusA|svc-p2pl.bin|"), INVALID_UNIT_VALUE },
+        { VHUNT2_A, _T("Vampire Hunter 2|vh2j.09|"), INVALID_UNIT_VALUE },
         { VSAV_A, _T("Vampire Savior|vm3*.10b|"), INVALID_UNIT_VALUE },
         { VSAV2_A, _T("Vampire Savior 2|vs2j.10|"), INVALID_UNIT_VALUE },
         { WakuWaku7_A, _T("Waku Waku 7|225-p1.p1|"), INVALID_UNIT_VALUE },

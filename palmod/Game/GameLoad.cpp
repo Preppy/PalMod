@@ -34,6 +34,7 @@
 #include "Game_SFIII3_D.h"
 #include "Game_SSF2T_A.h"
 #include "Game_SVCPLUSA_A.h"
+#include "Game_VHUNT2_A.h"
 #include "Game_VSAV_A.h"
 #include "Game_VSAV2_A.h"
 #include "Game_WakuWaku7_A.h"
@@ -271,6 +272,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SVCPLUSA_A::GetRule;
         return TRUE;
     }
+    case VHUNT2_A:
+    {
+        GetRule = &CGame_VHUNT2_A::GetRule;
+        return TRUE;
+    }
     case VSAV_A:
     {
         GetRule = &CGame_VSAV_A::GetRule;
@@ -436,6 +442,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SVCPLUSA_A:
     {
         return new CGame_SVCPLUSA_A(nConfirmedROMSize);
+    }
+    case VHUNT2_A:
+    {
+        return new CGame_VHUNT2_A(nConfirmedROMSize);
     }
     case VSAV_A:
     {

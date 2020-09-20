@@ -157,6 +157,9 @@
     <Filter Include="Game\SNK Games\SamSho3">
       <UniqueIdentifier>{1bc29372-5f2a-4d1f-b949-f5fd9a70efe5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\Vampire Hunter 2_A">
+      <UniqueIdentifier>{1787a1ba-4222-49af-b2a1-e0d7642736cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -359,6 +362,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO3_A.cpp">
       <Filter>Game\SNK Games\SamSho3</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_VHUNT2_A.cpp">
+      <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -652,6 +658,12 @@
     </ClInclude>
     <ClInclude Include="Game\SAMSHO3_A_DEF.h">
       <Filter>Game\SNK Games\SamSho3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_VHUNT2_A.h">
+      <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VHUNT2_A_DEF.h">
+      <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -47,7 +47,7 @@ CGame_VSAV2_A::CGame_VSAV2_A(UINT32 nConfirmedROMSize)
     createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x00c1ac;
+    m_nLowestKnownPaletteRomLocation = 0x16c9c;
 
     InitDataBuffer();
 

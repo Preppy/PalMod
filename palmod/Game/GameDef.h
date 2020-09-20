@@ -50,6 +50,7 @@ enum SupportedGamesList
     VSAV2_A,
     RBFFS_A,
     SAMSHO3_A,
+    VHUNT2_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -103,6 +104,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Vampire Savior 2 (Arcade)"),
    _T("Real Bout Fatal Fury Special (Arcade)"),
    _T("Samurai Shodown 3"),
+   _T("Vampire Hunter 2 (Arcade)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -1883,6 +1885,37 @@ const UINT8 REDEARTH_A_IMG_UNITS[] =
 };
 
 constexpr auto REDEARTH_A_NUM_IMG_UNITS = ARRAYSIZE(REDEARTH_A_IMG_UNITS);
+
+const UINT8 VHUNT2_A_IMG_UNITS[] =
+{
+    // These are the playable characters
+    indexCPS2_Anakaris,
+    indexCPS2_Vamp_Bishamon,  // 0x68
+    indexCPS2_Vamp_Demitri,   // 0x6A
+    indexCPS2_Vamp_Donovan,   // 0x6B
+    indexCPS2_Felicia,
+    indexCPS2_Vamp_LeiLei,    // 0x6E aka Hsien-Ko
+    indexCPS2_Vamp_Phobos,    // 0x71 aka Huitzil
+    indexCPS2_Vamp_Gallon,    // 0x6C aka Jon Talbain
+    indexCPS2_Vamp_Zabel,     // 0x77  aka Lord Raptor
+    indexCPS2_Morrigan,
+    indexCPS2_Vamp_Pyron,     // 0x72
+    indexCPS2_Vamp_Aulbath,   // 0x67 aka Rikuo
+    indexCPS2_Vamp_Sasquatch, // 0x74
+    indexCPS2_Vamp_Victor,    // 0x76
+
+    // these just have data in the game
+    indexCPS2_Anita,
+    indexCPS2_BBHood,
+    indexCPS2_Vamp_Dee,       // 0x69
+    indexCPS2_Vamp_Jedah,     // 0x6D
+    indexCPS2_Vamp_Lilith,    // 0x6F
+    indexCPS2_Vamp_Marionette, // 0x70
+    indexCPS2_Vamp_QBee,      // 0x73
+    indexCPS2_Vamp_Shadow,    // 0x75
+};
+
+constexpr auto VHUNT2_A_NUM_IMG_UNITS = ARRAYSIZE(VHUNT2_A_IMG_UNITS);
 
 const UINT8 VSAV_A_IMG_UNITS[] =
 {
