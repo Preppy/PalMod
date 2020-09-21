@@ -1874,7 +1874,7 @@ const sGame_PaletteDataset VSAV2_A_DONOVAN_PALETTES_AK[] =
 };
 
 
-const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_LP[] =
+const sGame_PaletteDataset VSAV2_A_UNKNOWN_PALETTES_LP[] =
 {
     { _T("LP Unknown"),         0x1d09c, 0x1d0bc },
     { _T("LP Unknown Extra 1"), 0x1d0bc, 0x1d0dc },
@@ -1882,7 +1882,7 @@ const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_LP[] =
     { _T("LP Unknown Extra 3"), 0x1d0fc, 0x1d11c },
 };
 
-const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_MP[] =
+const sGame_PaletteDataset VSAV2_A_UNKNOWN_PALETTES_MP[] =
 {
     { _T("MP Unknown"),          0x1d11c, 0x1d13c },
     { _T("MP Unknown Extra 1"), 0x1d13c, 0x1d15c },
@@ -1890,7 +1890,7 @@ const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_MP[] =
     { _T("MP Unknown Extra 3"), 0x1d17c, 0x1d19c },
 };
 
-const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_HP[] =
+const sGame_PaletteDataset VSAV2_A_UNKNOWN_PALETTES_HP[] =
 {
     { _T("HP Unknown"),          0x1d19c, 0x1c1bc + 0x1000 },
     { _T("HP Unknown Extra 1"), 0x1c1bc + 0x1000, 0x1c1dc + 0x1000 },
@@ -1898,7 +1898,7 @@ const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_HP[] =
     { _T("HP Unknown Extra 3"), 0x1c1fc + 0x1000, 0x1c21c + 0x1000 },
 };
 
-const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_LK[] =
+const sGame_PaletteDataset VSAV2_A_UNKNOWN_PALETTES_LK[] =
 {
     { _T("LK Unknown"),          0x1c21c + 0x1000, 0x1c23c + 0x1000 },
     { _T("LK Unknown Extra 1"), 0x1c23c + 0x1000, 0x1c25c + 0x1000 },
@@ -1906,7 +1906,7 @@ const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_LK[] =
     { _T("LK Unknown Extra 3"), 0x1c27c + 0x1000, 0x1c29c + 0x1000 },
 };
 
-const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_MK[] =
+const sGame_PaletteDataset VSAV2_A_UNKNOWN_PALETTES_MK[] =
 {
     { _T("MK Unknown"),          0x1c29c + 0x1000, 0x1c2bc + 0x1000 },
     { _T("MK Unknown Extra 1"), 0x1c2bc + 0x1000, 0x1c2dc + 0x1000 },
@@ -1914,7 +1914,7 @@ const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_MK[] =
     { _T("MK Unknown Extra 3"), 0x1c2fc + 0x1000, 0x1c31c + 0x1000 },
 };
 
-const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_HK[] =
+const sGame_PaletteDataset VSAV2_A_UNKNOWN_PALETTES_HK[] =
 {
     { _T("HK Unknown"),          0x1c31c + 0x1000, 0x1c33c + 0x1000 },
     { _T("HK Unknown Extra 1"), 0x1c33c + 0x1000, 0x1c35c + 0x1000 },
@@ -1922,7 +1922,7 @@ const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_HK[] =
     { _T("HK Unknown Extra 3"), 0x1c37c + 0x1000, 0x1c39c + 0x1000 },
 };
 
-const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_PP[] =
+const sGame_PaletteDataset VSAV2_A_UNKNOWN_PALETTES_PP[] =
 {
     { _T("PP Unknown"),          0x1c39c + 0x1000, 0x1c3bc + 0x1000 },
     { _T("PP Unknown Extra 1"), 0x1c3bc + 0x1000, 0x1c3dc + 0x1000 },
@@ -1930,7 +1930,7 @@ const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_PP[] =
     { _T("PP Unknown Extra 3"), 0x1c3fc + 0x1000, 0x1c41c + 0x1000 },
 };
 
-const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_KK[] =
+const sGame_PaletteDataset VSAV2_A_UNKNOWN_PALETTES_KK[] =
 {
     { _T("KK Unknown"),          0x1c41c + 0x1000, 0x1c43c + 0x1000 },
     { _T("KK Unknown Extra 1"), 0x1c43c + 0x1000, 0x1c45c + 0x1000 },
@@ -1938,7 +1938,7 @@ const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_KK[] =
     { _T("KK Unknown Extra 3"), 0x1c47c + 0x1000, 0x1c49c + 0x1000 },
 };
 
-const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_AP[] =
+const sGame_PaletteDataset VSAV2_A_UNKNOWN_PALETTES_AP[] =
 {
     { _T("AP Unknown"),          0x1c49c + 0x1000, 0x1c4bc + 0x1000 },
     { _T("AP Unknown Extra 1"), 0x1c4bc + 0x1000, 0x1c4dc + 0x1000 },
@@ -1946,7 +1946,7 @@ const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_AP[] =
     { _T("AP Unknown Extra 3"), 0x1c4fc + 0x1000, 0x1c51c + 0x1000 },
 };
 
-const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_AK[] =
+const sGame_PaletteDataset VSAV2_A_UNKNOWN_PALETTES_AK[] =
 {
     { _T("AK Unknown"),          0x1c51c + 0x1000, 0x1c53c + 0x1000 },
     { _T("AK Unknown Extra 1"), 0x1c53c + 0x1000, 0x1c55c + 0x1000 },
@@ -2032,6 +2032,26 @@ const sGame_PaletteDataset VSAV2_A_OBOROBISHAMON_PALETTES_AK[] =
     { _T("AK Intro"),               0x1c53c + 0x1500, 0x1c55c + 0x1500, indexCPS2_Vamp_Bishamon, 0x0 },
     { _T("AK Ghosts/Hitsparks"),    0x1c55c + 0x1500, 0x1c57c + 0x1500 },
     { _T("AK Unknown Extra"),       0x1c57c + 0x1500, 0x1DA9C },
+};
+
+const sGame_PaletteDataset VSAV2_A_SHADOW_PALETTES_PORTRAITS[] =
+{
+    { _T("Bulleta Portrait"),    0x4257c, 0x4259c, indexCPS2_BBHood, 0x20 },
+    { _T("Demitri Portrait"),    0x4259c, 0x425bc, indexCPS2_Vamp_Demitri, 0x20 },
+    { _T("Gallon Portrait"),     0x425bc, 0x425dc, indexCPS2_Vamp_Gallon, 0x20 },
+    { _T("Victor Portrait"),     0x425dc, 0x425fc, indexCPS2_Vamp_Victor, 0x20 },
+    { _T("Zabel Portrait"),      0x425fc, 0x4261c, indexCPS2_Vamp_Zabel, 0x20 },
+    { _T("Morrigan Portrait"),   0x4261c, 0x4263c, indexCPS2_Morrigan, 0x20 },
+    { _T("Anakaris Portrait"),   0x4263c, 0x4265c, indexCPS2_Anakaris, 0x20 },
+    { _T("Felicia Portrait"),    0x4265c, 0x4267c, indexCPS2_Felicia, 0x20 },
+    { _T("Bishamon Portrait"),   0x4267c, 0x4269c, indexCPS2_Vamp_Bishamon, 0x20 },
+    { _T("Aulbath Portrait"),    0x4269c, 0x426bc, indexCPS2_Vamp_Aulbath, 0x20 },
+    { _T("Sasquatch Portrait"),  0x426bc, 0x426dc, indexCPS2_Vamp_Sasquatch, 0x20 },
+    { _T("Alt Zabel Portrait"),  0x426dc, 0x426fc, indexCPS2_Vamp_Zabel, 0x20 },
+    { _T("Q-Bee Portrait"),      0x426fc, 0x4271c, indexCPS2_Vamp_QBee, 0x20 },
+    { _T("Lei-Lei Portrait"),    0x4271c, 0x4273c, indexCPS2_Vamp_LeiLei, 0x20 },
+    { _T("Lilith Portrait"),     0x4273c, 0x4275c, indexCPS2_Vamp_Lilith, 0x20 },
+    { _T("Jedah Portrait"),      0x4275c, 0x4277c, indexCPS2_Vamp_Jedah, 0x20 },
 };
 
 const sDescTreeNode VSAV2_A_BULLETA_COLLECTION[] =
@@ -2293,18 +2313,18 @@ const sDescTreeNode VSAV2_A_DARKGALLON_COLLECTION[] =
     { _T("AK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_DARKGALLON_PALETTES_AK,         ARRAYSIZE(VSAV2_A_DARKGALLON_PALETTES_AK) },
 };
 
-const sDescTreeNode VSAV2_A_SHADOW_COLLECTION[] =
+const sDescTreeNode VSAV2_A_UNKNOWN_COLLECTION[] =
 {
-    { _T("LP"), DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_PALETTES_LP,         ARRAYSIZE(VSAV2_A_SHADOW_PALETTES_LP) },
-    { _T("MP"), DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_PALETTES_MP,         ARRAYSIZE(VSAV2_A_SHADOW_PALETTES_MP) },
-    { _T("HP"), DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_PALETTES_HP,         ARRAYSIZE(VSAV2_A_SHADOW_PALETTES_HP) },
-    { _T("LK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_PALETTES_LK,         ARRAYSIZE(VSAV2_A_SHADOW_PALETTES_LK) },
-    { _T("MK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_PALETTES_MK,         ARRAYSIZE(VSAV2_A_SHADOW_PALETTES_MK) },
-    { _T("HK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_PALETTES_HK,         ARRAYSIZE(VSAV2_A_SHADOW_PALETTES_HK) },
-    { _T("PP"), DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_PALETTES_PP,         ARRAYSIZE(VSAV2_A_SHADOW_PALETTES_PP) },
-    { _T("KK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_PALETTES_KK,         ARRAYSIZE(VSAV2_A_SHADOW_PALETTES_KK) },
-    { _T("AP"), DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_PALETTES_AP,         ARRAYSIZE(VSAV2_A_SHADOW_PALETTES_AP) },
-    { _T("AK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_PALETTES_AK,         ARRAYSIZE(VSAV2_A_SHADOW_PALETTES_AK) },
+    { _T("LP"), DESC_NODETYPE_TREE, (void*)VSAV2_A_UNKNOWN_PALETTES_LP,         ARRAYSIZE(VSAV2_A_UNKNOWN_PALETTES_LP) },
+    { _T("MP"), DESC_NODETYPE_TREE, (void*)VSAV2_A_UNKNOWN_PALETTES_MP,         ARRAYSIZE(VSAV2_A_UNKNOWN_PALETTES_MP) },
+    { _T("HP"), DESC_NODETYPE_TREE, (void*)VSAV2_A_UNKNOWN_PALETTES_HP,         ARRAYSIZE(VSAV2_A_UNKNOWN_PALETTES_HP) },
+    { _T("LK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_UNKNOWN_PALETTES_LK,         ARRAYSIZE(VSAV2_A_UNKNOWN_PALETTES_LK) },
+    { _T("MK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_UNKNOWN_PALETTES_MK,         ARRAYSIZE(VSAV2_A_UNKNOWN_PALETTES_MK) },
+    { _T("HK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_UNKNOWN_PALETTES_HK,         ARRAYSIZE(VSAV2_A_UNKNOWN_PALETTES_HK) },
+    { _T("PP"), DESC_NODETYPE_TREE, (void*)VSAV2_A_UNKNOWN_PALETTES_PP,         ARRAYSIZE(VSAV2_A_UNKNOWN_PALETTES_PP) },
+    { _T("KK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_UNKNOWN_PALETTES_KK,         ARRAYSIZE(VSAV2_A_UNKNOWN_PALETTES_KK) },
+    { _T("AP"), DESC_NODETYPE_TREE, (void*)VSAV2_A_UNKNOWN_PALETTES_AP,         ARRAYSIZE(VSAV2_A_UNKNOWN_PALETTES_AP) },
+    { _T("AK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_UNKNOWN_PALETTES_AK,         ARRAYSIZE(VSAV2_A_UNKNOWN_PALETTES_AK) },
 };
 
 const sDescTreeNode VSAV2_A_OBOROBISHAMON_COLLECTION[] =
@@ -2335,6 +2355,11 @@ const sDescTreeNode VSAV2_A_DONOVAN_COLLECTION[] =
     { _T("AK"), DESC_NODETYPE_TREE, (void*)VSAV2_A_DONOVAN_PALETTES_AK,         ARRAYSIZE(VSAV2_A_DONOVAN_PALETTES_AK) },
 };
 
+const sDescTreeNode VSAV2_A_SHADOW_COLLECTION[] =
+{
+    { _T("Ending Portraits"), DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_PALETTES_PORTRAITS,  ARRAYSIZE(VSAV2_A_SHADOW_PALETTES_PORTRAITS) },
+};
+
 const sDescTreeNode VSAV2_UNITS[] =
 {
     { _T("Bulleta"),            DESC_NODETYPE_TREE, (void*)VSAV2_A_BULLETA_COLLECTION,       ARRAYSIZE(VSAV2_A_BULLETA_COLLECTION) }, // BB-Hood
@@ -2360,8 +2385,9 @@ const sDescTreeNode VSAV2_UNITS[] =
     { _T("Pyron"),              DESC_NODETYPE_TREE, (void*)VSAV2_A_PYRON_COLLECTION,         ARRAYSIZE(VSAV2_A_PYRON_COLLECTION) },
     { _T("Dark Gallon"),        DESC_NODETYPE_TREE, (void*)VSAV2_A_DARKGALLON_COLLECTION,    ARRAYSIZE(VSAV2_A_DARKGALLON_COLLECTION) },
     { _T("Donovan"),            DESC_NODETYPE_TREE, (void*)VSAV2_A_DONOVAN_COLLECTION,       ARRAYSIZE(VSAV2_A_DONOVAN_COLLECTION) },
-    { _T("Unknown"),             DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_COLLECTION,        ARRAYSIZE(VSAV2_A_SHADOW_COLLECTION) },
+    { _T("Unknown"),            DESC_NODETYPE_TREE, (void*)VSAV2_A_UNKNOWN_COLLECTION,       ARRAYSIZE(VSAV2_A_UNKNOWN_COLLECTION) },
     { _T("Oboro Bishamon"),     DESC_NODETYPE_TREE, (void*)VSAV2_A_OBOROBISHAMON_COLLECTION, ARRAYSIZE(VSAV2_A_OBOROBISHAMON_COLLECTION) },
+    { _T("Shadow"),             DESC_NODETYPE_TREE, (void*)VSAV2_A_SHADOW_COLLECTION,        ARRAYSIZE(VSAV2_A_SHADOW_COLLECTION) },
 };
 
 constexpr auto VSAV2_A_NUMUNIT = ARRAYSIZE(VSAV2_UNITS);

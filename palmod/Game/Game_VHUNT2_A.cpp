@@ -529,7 +529,7 @@ void CGame_VHUNT2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
             if ((m_nCurrentPaletteROMLocation + cbPaletteSizeOnDisc )> 0x80000)
             {
-                DebugBreak();
+                OutputDebugString(_T("Warning: invalid location referenced.  This is probably in the wrong ROM.\n"));
             }
         }
     }

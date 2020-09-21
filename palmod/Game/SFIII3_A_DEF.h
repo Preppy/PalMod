@@ -1245,6 +1245,18 @@ const sGame_PaletteDataset SFIII3_A_HUGO_PORTRAIT_PALETTES[] =
     { _T("Hugo Character Select Icon"), 0x070B900, 0x070B980, index3S_CPS3_Hugo, 0x22 },
 };
 
+const sGame_PaletteDataset SFIII3_A_GILL_NORMAL_PALETTES[] =
+{
+    { _T("Intro facing left"), 0x0700000, 0x0700080, index3S_CPS3_Gill, 0x01 },
+    { _T("Intro facing right"), 0x0700080, 0x0700100, index3S_CPS3_Gill, 0x05, &pairNext },
+    { _T("Intro Robe"), 0x078F600, 0x078F680, index3S_CPS3_Gill, 0x04 },
+    { _T("Ice / Fire"), 0x0704A00, 0x0704A80, index3S_CPS3_Gill, 0x02 },
+    { _T("Ice / Fire Impacts"), 0x0704980, 0x0704a00, index3S_CPS3_Gill, 0x03 },
+    
+    { _T("Seraphic Wings Start"), 0x078AE00, 0x078Ae80, index3S_CPS3_Gill, 0x06 },
+    { _T("Seraphic Wings End"), 0x078AE80, 0x078AF00, index3S_CPS3_Gill, 0x07 },
+};
+
 const sGame_PaletteDataset SFIII3_A_GILL_PORTRAIT_PALETTES[] =
 {
     { _T("Gill portrait (Normal)"), 0x070C680, 0x070C780 },
@@ -1470,6 +1482,7 @@ const sDescTreeNode SFIII3_A_HUGO_COLLECTION[] =
 
 const sDescTreeNode SFIII3_A_GILL_51_COLLECTION[] =
 {
+    { _T("Gill stuff (glow is in ROM 10)"), DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_NORMAL_PALETTES, ARRAYSIZE(SFIII3_A_GILL_NORMAL_PALETTES) },
     { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_GILL_PORTRAIT_PALETTES) },
 };
 
@@ -2272,20 +2285,20 @@ const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_LEFT[] =
 {
-    { _T("Gill glow 1"), 0x1C86A8, 0x1C8728, index3S_CPS3_Gill },
-    { _T("Gill glow 2"), 0x1C8728, 0x1C87a8, index3S_CPS3_Gill },
-    { _T("Gill glow 3"), 0x1C87A8, 0x1C8828, index3S_CPS3_Gill },
-    { _T("Gill glow 4"), 0x1C8828, 0x1C88a8, index3S_CPS3_Gill },
+    { _T("Gill glow 1"), 0x1C86A8, 0x1C8728, index3S_CPS3_Gill, 0x01 },
+    { _T("Gill glow 2"), 0x1C8728, 0x1C87a8, index3S_CPS3_Gill, 0x01 },
+    { _T("Gill glow 3"), 0x1C87A8, 0x1C8828, index3S_CPS3_Gill, 0x01 },
+    { _T("Gill glow 4"), 0x1C8828, 0x1C88a8, index3S_CPS3_Gill, 0x01 },
 
-    { _T("Gill glow 5"), 0x1C88a8, 0x1C8928, index3S_CPS3_Gill },
-    { _T("Gill glow 6"), 0x1C8928, 0x1C89a8, index3S_CPS3_Gill },
-    { _T("Gill glow 7"), 0x1C89a8, 0x1C8a28, index3S_CPS3_Gill },
-    { _T("Gill glow 8"), 0x1C8a28, 0x1C8aa8, index3S_CPS3_Gill },
+    { _T("Gill glow 5"), 0x1C88a8, 0x1C8928, index3S_CPS3_Gill, 0x01 },
+    { _T("Gill glow 6"), 0x1C8928, 0x1C89a8, index3S_CPS3_Gill, 0x01 },
+    { _T("Gill glow 7"), 0x1C89a8, 0x1C8a28, index3S_CPS3_Gill, 0x01 },
+    { _T("Gill glow 8"), 0x1C8a28, 0x1C8aa8, index3S_CPS3_Gill, 0x01 },
 
-    { _T("Gill glow 9"),  0x1C8aa8, 0x1C8b28, index3S_CPS3_Gill },
-    { _T("Gill glow 10"), 0x1C8b28, 0x1C8ba8, index3S_CPS3_Gill },
-    { _T("Gill glow 11"), 0x1C8ba8, 0x1C8c28, index3S_CPS3_Gill },
-    { _T("Gill glow 12"), 0x1C8c28, 0x1C8ca8, index3S_CPS3_Gill },
+    { _T("Gill glow 9"),  0x1C8aa8, 0x1C8b28, index3S_CPS3_Gill, 0x01 },
+    { _T("Gill glow 10"), 0x1C8b28, 0x1C8ba8, index3S_CPS3_Gill, 0x01 },
+    { _T("Gill glow 11"), 0x1C8ba8, 0x1C8c28, index3S_CPS3_Gill, 0x01 },
+    { _T("Gill glow 12"), 0x1C8c28, 0x1C8ca8, index3S_CPS3_Gill, 0x01 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_RIGHT[] =
@@ -2315,7 +2328,7 @@ const sDescTreeNode SFIII3_A_GILL_COLLECTION[] =
 
 const sDescTreeNode SFIII3_A_10_UNITS[] =
 {
-    { _T("Gill"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_COLLECTION) },
+    { _T("Gill (glow)"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_COLLECTION) },
 };
 
 const sDescTreeNode SFIII3_A_51_UNITS[] =

@@ -289,7 +289,7 @@ const sGame_PaletteDataset COTA_A_PSYLOCKE_PALETTES_P2[] =
     { _T("Psylocke P2"), 0x267BE, 0x267DE, indexCPS2_Psylocke },
     { _T("P2 Extras 1"), 0x267DE, 0x267FE, indexCPS2_Psylocke, 1 },
     { _T("P2 Extras 2"), 0x267FE, 0x2681E, indexCPS2_Psylocke, 0 },
-    { _T("P2 Extras 3"), 0x2681E, 0x2683E, indexCPS2_Psylocke, 2 },
+    { _T("P2 Extras 3"), 0x2681E, 0x2683E, indexCPS2_Psylocke, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_SENTINEL_PALETTES_P1[] =
