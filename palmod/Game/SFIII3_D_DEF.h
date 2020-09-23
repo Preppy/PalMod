@@ -17,7 +17,7 @@ const TCHAR SFIII3_D_UNITDESC[][16] =
     _T("Sean"),          //0x0B
     _T("Urien"),         //0x0C
     _T("Gouki"),         //0x0D
-    //_T("Shin-Gouki"),    //0x0E  // Shin-Gouki is not present on the Dreamcast
+    //_T("Shin Gouki"),    //0x0E  // Shin Gouki is not present on the Dreamcast
     _T("Chun-Li"),       //0x0F
     _T("Makoto"),        //0x10
     _T("Q"),             //0x11
@@ -44,7 +44,7 @@ const UINT8 SFIII3_D_UNITSORT[SFIII3_D_NUMUNIT] = //Plus 1 for the extra palette
     0x13, 
     0x01, 
     0x0B, 
-    //0x0E,  // Shin-Gouki is not present nor available on DC.
+    //0x0E,  // Shin Gouki is not present nor available on DC.
     0x12, 
     0x0C, 
     0x09, 

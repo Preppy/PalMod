@@ -155,6 +155,7 @@
     <ClCompile Include="Game\Game_SFA1_A.cpp" />
     <ClCompile Include="Game\Game_SFA2_A.cpp" />
     <ClCompile Include="Game\Game_SFA3_A.cpp" />
+    <ClCompile Include="Game\Game_SFIII2_A.cpp" />
     <ClCompile Include="Game\Game_SFIII3_A.cpp" />
     <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp" />
     <ClCompile Include="Game\Game_SFIII3_D.cpp" />
@@ -232,6 +233,7 @@
     <ClInclude Include="Game\Game_SFA1_A.h" />
     <ClInclude Include="Game\Game_SFA2_A.h" />
     <ClInclude Include="Game\Game_SFA3_A.h" />
+    <ClInclude Include="Game\Game_SFIII2_A.h" />
     <ClInclude Include="Game\Game_SFIII3_A.h" />
     <ClInclude Include="Game\Game_SFIII3_A_DIR.h" />
     <ClInclude Include="Game\Game_SFIII3_D.h" />
@@ -267,6 +269,7 @@
     <ClInclude Include="Game\SFA1_A_DEF.h" />
     <ClInclude Include="Game\SFA2_A_DEF.h" />
     <ClInclude Include="Game\SFA3_A_DEF.h" />
+    <ClInclude Include="Game\SFIII2_A_DEF.h" />
     <ClInclude Include="Game\SFIII3_A_DEF.h" />
     <ClInclude Include="Game\SFIII3_D_DEF.h" />
     <ClInclude Include="Game\ShellSort.h" />

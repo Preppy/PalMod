@@ -520,6 +520,7 @@ const sGame_PaletteDataset COTA_A_BONUS_PALETTES[] =
 {
     { _T("Select Screen World Map"),    0x371b4, 0x371d4, indexCPS2_COTAAssets, 1 },
     { _T("Select Screen Vs Text"),      0x371d4, 0x371f4, indexCPS2_COTAAssets, 0 },
+    { _T("Mojo"),                       0x279a0, 0x279c0 },
 };
 
 const sDescTreeNode COTA_A_COLOSSUS_COLLECTION[] =

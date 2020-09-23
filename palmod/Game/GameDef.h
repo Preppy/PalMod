@@ -51,6 +51,7 @@ enum SupportedGamesList
     RBFFS_A,
     SAMSHO3_A,
     VHUNT2_A,
+    SFIII2_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -105,6 +106,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Real Bout Fatal Fury Special (Arcade)"),
    _T("Samurai Shodown 3"),
    _T("Vampire Hunter 2 (Arcade)"),
+   _T("SFIII2 (Arcade)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -463,6 +465,29 @@ enum CHARACTERS_3S_CPS3
     index3S_CPS3_Stages,
     index3S_CPS3_Gill,
 };
+
+const UINT8 SFIII2_A_IMG_UNITS[] =
+{
+    index3S_CPS3_Alex,
+    index3S_CPS3_Ryu,
+    index3S_CPS3_Yun,
+    index3S_CPS3_Dudley,
+    index3S_CPS3_Necro,
+    index3S_CPS3_Hugo,
+    index3S_CPS3_Ibuki,
+    index3S_CPS3_Elena,
+    index3S_CPS3_Oro,
+    index3S_CPS3_Yang,
+    index3S_CPS3_Ken,
+    index3S_CPS3_Sean,
+    index3S_CPS3_Urien,
+    index3S_CPS3_Gouki,
+    index3S_CPS3_ShinGouki,
+    index3S_CPS3_Bonus,
+    index3S_CPS3_Gill,
+};
+
+constexpr auto SFIII2_A_NUM_IMG_UNITS = ARRAYSIZE(SFIII2_A_IMG_UNITS);
 
 const UINT8 SFIII3_A_IMG_UNITS[] =
 {

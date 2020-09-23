@@ -241,7 +241,7 @@ const sGame_PaletteDataset SFIII3_A_DUDLEY_EXTRA_PALETTES[] =
 {
     { _T("P1 Intro car"), 0x704C80, 0x704D00, index3S_CPS3_Dudley, 0x03 },
     { _T("P2 Intro car + shared rose"), 0x704D80, 0x704E00, index3S_CPS3_Dudley, 0x03 },
-    { _T("SA1 "), 0x704D00, 0x704D80, index3S_CPS3_Dudley, 0x02 },
+    { _T("SA1 wind"), 0x704D00, 0x704D80, index3S_CPS3_Dudley, 0x02 },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_LP_PALETTES[] =
@@ -826,7 +826,7 @@ const sGame_PaletteDataset SFIII3_A_URIEN_EXTRA_PALETTES[] =
 {
     { _T("P1 Intro"), 0x706600, 0x706680, index3S_CPS3_Urien, 0x00, &pairHandledInCode },
     { _T("P1 Suit"), 0x706680, 0x706700, index3S_CPS3_Urien, 0x03 }, // Note that for pairing we use an alt image.
-    { _T("P2 SA3 / Fire"), 0x706700, 0x706780 },
+    { _T("P1 SA3 / Fire"), 0x706700, 0x706780 },
 
     { _T("P2 Intro"), 0x706880, 0x706900, index3S_CPS3_Urien, 0x00, &pairHandledInCode },
     { _T("P2 Suit"), 0x706900, 0x706980, index3S_CPS3_Urien, 0x03 },
@@ -1352,14 +1352,14 @@ const sGame_PaletteDataset SFIII3_A_URIEN_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_PORTRAIT_PALETTES[] =
 {
-    { _T("Gouki / Shin-Gouki portrait (Normal)"), 0x070DF80, 0x070E080, index3S_CPS3_Gouki, 0x20 },
-    { _T("Gouki / Shin-Gouki portrait (Tinted)"), 0x0712D80, 0x0712E80, index3S_CPS3_Gouki, 0x20 },
+    { _T("Gouki / Shin Gouki portrait (Normal)"), 0x070DF80, 0x070E080, index3S_CPS3_Gouki, 0x20 },
+    { _T("Gouki / Shin Gouki portrait (Tinted)"), 0x0712D80, 0x0712E80, index3S_CPS3_Gouki, 0x20 },
     { _T("Gouki Character Select Icon"), 0x070BE00, 0x070BE80, index3S_CPS3_Gouki, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES[] =
 {
-    { _T("Shin-Gouki Character Select Icon"), 0x070BE80, 0x070BF00, index3S_CPS3_ShinGouki, 0x22 },
+    { _T("Shin Gouki Character Select Icon"), 0x070BE80, 0x070BF00, index3S_CPS3_ShinGouki, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_PORTRAIT_PALETTES[] =
@@ -2347,7 +2347,7 @@ const sDescTreeNode SFIII3_A_51_UNITS[] =
     { _T("Sean"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_SEAN_COLLECTION, ARRAYSIZE(SFIII3_A_SEAN_COLLECTION) },
     { _T("Urien"),  DESC_NODETYPE_TREE, (void*)SFIII3_A_URIEN_COLLECTION, ARRAYSIZE(SFIII3_A_URIEN_COLLECTION) },
     { _T("Gouki"),  DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_COLLECTION, ARRAYSIZE(SFIII3_A_GOUKI_COLLECTION) },
-    { _T("Shin-Gouki"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_COLLECTION, ARRAYSIZE(SFIII3_A_SHINGOUKI_COLLECTION) },
+    { _T("Shin Gouki"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_COLLECTION, ARRAYSIZE(SFIII3_A_SHINGOUKI_COLLECTION) },
     { _T("Chun-Li"), DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_COLLECTION, ARRAYSIZE(SFIII3_A_CHUNLI_COLLECTION) },
     { _T("Makoto"), DESC_NODETYPE_TREE, (void*)SFIII3_A_MAKOTO_COLLECTION, ARRAYSIZE(SFIII3_A_MAKOTO_COLLECTION) },
     { _T("Q"),      DESC_NODETYPE_TREE, (void*)SFIII3_A_Q_COLLECTION, ARRAYSIZE(SFIII3_A_Q_COLLECTION) },

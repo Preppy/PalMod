@@ -126,7 +126,7 @@ sFileRule CGame_SFIII3_D::GetRule(UINT16 nUnitId)
 
     if (nRuleId > 14)
     {
-        // Shin-Gouki doesn't exist
+        // Shin Gouki doesn't exist
         nRuleId++;
     }
 
@@ -243,7 +243,7 @@ BOOL CGame_SFIII3_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     nTargetImgId = 0;
     UINT16 nImgUnitId = uUnitId;
 
-    if (nImgUnitId > 13) // Account for the missing Shin-Gouki file that has shifted all following units by one
+    if (nImgUnitId > 13) // Account for the missing Shin Gouki file that has shifted all following units by one
     {
         nImgUnitId++;
     }

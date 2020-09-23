@@ -160,6 +160,9 @@
     <Filter Include="Game\Capcom Games\Vampire Hunter 2_A">
       <UniqueIdentifier>{1787a1ba-4222-49af-b2a1-e0d7642736cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\SFIII2_A">
+      <UniqueIdentifier>{769f01ba-c97f-4e25-b20e-2378fdd9abf7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -365,6 +368,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_VHUNT2_A.cpp">
       <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII2_A.cpp">
+      <Filter>Game\Capcom Games\SFIII2_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -664,6 +670,12 @@
     </ClInclude>
     <ClInclude Include="Game\VHUNT2_A_DEF.h">
       <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII2_A.h">
+      <Filter>Game\Capcom Games\SFIII2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFIII2_A_DEF.h">
+      <Filter>Game\Capcom Games\SFIII2_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

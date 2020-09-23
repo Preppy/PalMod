@@ -242,24 +242,6 @@ void CPalModDlg::OnEditPaste()
             {
                 switch (uPasteGFlag)
                 {
-                case CVS2_A:
-                case KOF02UM_S:
-                case SFIII3_D:
-                {
-                    eColModeForPastedColor = ColMode::COLMODE_15ALT;
-                    break;
-                }
-                case SFIII3_A:
-                case SFIII3_A_DIR:
-                case JOJOS_A:
-                case JOJOS_A_DIR_50:
-                case JOJOS_A_DIR_51:
-                case REDEARTH_A:
-                case REDEARTH_A_DIR:
-                {
-                    eColModeForPastedColor = ColMode::COLMODE_15;
-                    break;
-                }
                 case COTA_A:
                 case MSHVSF_A:
                 case MSH_A:
@@ -279,6 +261,25 @@ void CPalModDlg::OnEditPaste()
                 case XMVSF_A:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_12A;
+                    break;
+                }
+                case SFIII2_A:
+                case SFIII3_A:
+                case SFIII3_A_DIR:
+                case JOJOS_A:
+                case JOJOS_A_DIR_50:
+                case JOJOS_A_DIR_51:
+                case REDEARTH_A:
+                case REDEARTH_A_DIR:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_15;
+                    break;
+                }
+                case CVS2_A:
+                case KOF02UM_S:
+                case SFIII3_D:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_15ALT;
                     break;
                 }
                 case Garou_A:

@@ -29,6 +29,7 @@
 #include "Game_SFA1_A.h"
 #include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
+#include "Game_SFIII2_A.h"
 #include "Game_SFIII3_A.h"
 #include "Game_SFIII3_A_DIR.h"
 #include "Game_SFIII3_D.h"
@@ -221,6 +222,12 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SAMSHO5SP_A::GetRule;
         return TRUE;
     }
+    case SFIII2_A:
+    {
+        GetRule = &CGame_SFIII2_A::GetRule;
+        return TRUE;
+    }
+    break;
     case SFIII3_A:
     {
         GetRule = &CGame_SFIII3_A::GetRule;
@@ -410,6 +417,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SAMSHO5SP_A:
     {
         return new CGame_SAMSHO5SP_A(nConfirmedROMSize);
+    }
+    case SFIII2_A:
+    {
+        return new CGame_SFIII2_A(nConfirmedROMSize);
     }
     case SFIII3_A:
     {
