@@ -430,7 +430,7 @@ const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
     0x31, // Spiral
     0x32, // Colossus
     0x33, // Iron Man
-    0x34, // Sentinel
+    indexCPS2_Sentinel, // Sentinel
     0x35, // Blackheart
     0x36, // Thanos
     0x37, // Jin
@@ -716,7 +716,7 @@ const UINT8 MVC_A_IMG_UNITS[] =
     0x2A, // Storm
     0x2C, // Magneto
     0x32, // Colossus
-    0x34, // Sentinel
+    indexCPS2_Sentinel, // Sentinel
     0x51, // Anita
 };
 
@@ -736,7 +736,7 @@ const UINT8 MSH_A_IMG_UNITS[] =
     indexCPS2_IronMan,
     indexCPS2_Blackheart,
     indexCPS2_Thanos,
-    //indexMSHAnita = 0,
+    indexCPS2_Anita,
     indexCPS2_MSHAssets
 };
 

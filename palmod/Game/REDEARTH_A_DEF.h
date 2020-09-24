@@ -269,6 +269,59 @@ const sGame_PaletteDataset REDEARTH_A_HYDRON_PALETTES[] =
     { _T("Hydron"), 0x427400, 0x427480 },
 };
 
+const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
+{
+    { _T("Ravange"), 0x42d800, 0x42d880 },
+    { _T("Fire FX"), 0x42d880, 0x42d900 },
+    { _T("Beam FX"), 0x42d900, 0x42d980 },
+    { _T("Sand FX"), 0x42d980, 0x42da00 },
+    { _T("Shield"), 0x42da80, 0x42db80 },
+    { _T("Fire Breath flash"), 0x42db80, 0x42dc00 },
+    { _T("Fire Breath 1"), 0x42dc00, 0x42dc80 },
+    { _T("Fire Breath 2"), 0x42dc80, 0x42dd00 },
+    { _T("Fire Breath 3"), 0x42dd00, 0x42dd80 },
+    { _T("Fire Breath 4"), 0x42dd80, 0x42de00 },
+    { _T("Firing Beam 1"), 0x42de00, 0x42de80 },
+    { _T("Firing Beam 2"), 0x42de80, 0x42df00 },
+    { _T("Firing Beam 3"), 0x42df00, 0x42df80 },
+    { _T("Firing Beam 4"), 0x42df80, 0x42e000 },
+    { _T("Spawning Sand 1"), 0x42e400, 0x42e480 },
+    { _T("Spawning Sand 2"), 0x42e480, 0x42e500 },
+    { _T("Spawning Sand 3"), 0x42e500, 0x42e580 },
+    { _T("Spawning Sand 4"), 0x42e580, 0x42e600 },
+    { _T("Poison Mist FX1"), 0x42ea00, 0x42eaa0 },
+    { _T("Ravange Sphinx Intro"), 0x42eb00, 0x42eb20 },
+    { _T("Ravange Sphinx Flash 1"), 0x42eb80, 0x42ec00 },
+    { _T("Ravange Sphinx Flash 2"), 0x42ec00, 0x42ec80 },
+    { _T("Ravange morph flash 1"), 0x42ec80, 0x42ed00 },
+    { _T("Ravange morph flash 2"), 0x42ed00, 0x42ed80 },
+    { _T("Ravange morph flash 3"), 0x42ed80, 0x42ee00 },
+    { _T("Ravange morph flash 4"), 0x42ee00, 0x42ee80 },
+    { _T("Ram attack 1"), 0x42e600, 0x42e680 },
+    { _T("Ram attack 2"), 0x42e680, 0x42e700 },
+    { _T("Ram attack 3"), 0x42e700, 0x42e780 },
+    { _T("Ram attack 4"), 0x42e780, 0x42e800 },
+    { _T("Lion attack 1"), 0x42e800, 0x42e880 },
+    { _T("Lion attack 2"), 0x42e880, 0x42e900 },
+    { _T("Lion attack 3"), 0x42e900, 0x42e980 },
+    { _T("Lion attack 4"), 0x42e980, 0x42ea00 },
+    { _T("Clara Tantra"), 0x42f2c0, 0x42f340 },
+    { _T("Clara Flashing 1"), 0x42f380, 0x42f400 },
+    { _T("Clara Flashing 2"), 0x42f400, 0x42f480 },
+    { _T("Clara Flashing 3"), 0x42f480, 0x42f500 },
+    { _T("Clara Flashing 4"), 0x42f500, 0x42f580 },
+    { _T("Clara Flashing 5"), 0x42f580, 0x42f600 },
+    { _T("Clara Flashing 6"), 0x42f600, 0x42f680 },
+    { _T("Clara Flashing 7"), 0x42f680, 0x42f700 },
+    { _T("Clara Flashing 8"), 0x42f700, 0x42f780 },
+    { _T("Clara Flashing 9"), 0x42f780, 0x42f800 },
+    { _T("Clara Flashing 10"), 0x42f800, 0x42f880 },
+    { _T("Clara Flashing 11"), 0x42f880, 0x42f900 },
+    { _T("Clara Flashing 12"), 0x42f900, 0x42f980 },
+    { _T("Pyre"), 0x42f980, 0x42fa00 },
+    { _T("Clara ball FX"), 0x42fb00, 0x42fb80 },
+};
+
 const sGame_PaletteDataset REDEARTH_A_CHARACTERSELECT_PALETTES[] =
 {
     { _T("1P and 2P"), 0x1DED80, 0x1DEE00 },
@@ -471,6 +524,14 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { _T("Intro-Leo.S.BG64"), 0x323700, 0x323720 },
 };
 
+const sGame_PaletteDataset REDEARTH_A_BONUS_PALETTES[] =
+{
+    { _T("Lifebar (danger)"), 0x406700, 0x406720 },
+    { _T("Lifebar overlay (danger)"), 0x406720, 0x406740 },
+    { _T("LVL Up Text 1"), 0x406800, 0x406820 },
+    { _T("EXP / LVL Text"), 0x406880, 0x406900 },
+};
+
 const sDescTreeNode REDEARTH_A_LEO_COLLECTION[] =
 {
     { _T("Punch"),  DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_PUNCH_PALETTES, ARRAYSIZE(REDEARTH_A_LEO_PUNCH_PALETTES) },
@@ -514,6 +575,11 @@ const sDescTreeNode REDEARTH_A_HYDRON_COLLECTION[] =
     { _T("Palettes"), DESC_NODETYPE_TREE, (void*)REDEARTH_A_HYDRON_PALETTES, ARRAYSIZE(REDEARTH_A_HYDRON_PALETTES) },
 };
 
+const sDescTreeNode REDEARTH_A_RAVANGE_COLLECTION[] =
+{
+    { _T("Palettes"), DESC_NODETYPE_TREE, (void*)REDEARTH_A_RAVANGE_PALETTES, ARRAYSIZE(REDEARTH_A_RAVANGE_PALETTES) },
+};
+
 const sDescTreeNode REDEARTH_A_CHARACTERSELECT_COLLECTION[] =
 {
     { _T("Palettes"), DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_PALETTES, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_PALETTES) },
@@ -522,6 +588,11 @@ const sDescTreeNode REDEARTH_A_CHARACTERSELECT_COLLECTION[] =
 const sDescTreeNode REDEARTH_A_INTRO_COLLECTION[] =
 {
     { _T("Palettes"), DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_PALETTES, ARRAYSIZE(REDEARTH_A_INTRO_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_BONUS_COLLECTION[] =
+{
+    { _T("Palettes"), DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_PALETTES) },
 };
 
 const sDescTreeNode REDEARTH_A_UNITS[] =
@@ -534,8 +605,15 @@ const sDescTreeNode REDEARTH_A_UNITS[] =
     { _T("Hauzer"),             DESC_NODETYPE_TREE, (void*)REDEARTH_A_HAUZER_COLLECTION, ARRAYSIZE(REDEARTH_A_HAUZER_COLLECTION) },
     { _T("Kongou"),             DESC_NODETYPE_TREE, (void*)REDEARTH_A_KONGOU_COLLECTION, ARRAYSIZE(REDEARTH_A_KONGOU_COLLECTION) },
     { _T("Hydron"),             DESC_NODETYPE_TREE, (void*)REDEARTH_A_HYDRON_COLLECTION, ARRAYSIZE(REDEARTH_A_HYDRON_COLLECTION) },
+    { _T("Ravanage"),           DESC_NODETYPE_TREE, (void*)REDEARTH_A_RAVANGE_COLLECTION, ARRAYSIZE(REDEARTH_A_RAVANGE_COLLECTION) },
+     
+    // Lavia
+    // Gi Gi
+    // Blade
+    // Scion
     { _T("Character Select"),   DESC_NODETYPE_TREE, (void*)REDEARTH_A_CHARACTERSELECT_COLLECTION, ARRAYSIZE(REDEARTH_A_CHARACTERSELECT_COLLECTION) },
     { _T("Intro Palettes"),     DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_COLLECTION, ARRAYSIZE(REDEARTH_A_INTRO_COLLECTION) },
+    { _T("Bonus"),              DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_BONUS_COLLECTION) },
 };
 
 constexpr auto REDEARTH_A_NUMUNIT = ARRAYSIZE(REDEARTH_A_UNITS);

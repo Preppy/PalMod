@@ -698,7 +698,7 @@ const sGame_PaletteDataset MVC_A_ONSLAUGHT_PALETTES[] =
     { _T("Mind Blast (Beam 2, 1st Form)"),  0x4BE04, 0x4BE24, 0x3B, 0x0E },
     { _T("KO Orbs 1"), 0x4BFC4, 0x4BFE4, 0x3B, 0x20 },
     { _T("KO Orbs 2"), 0x4BFE4, 0x4C004, 0x3B, 0x20 },
-    { _T("Onslaught Sentinel"), 0x4BD04, 0x4BD24, 0x34 },
+    { _T("Onslaught Sentinel"), 0x4BD04, 0x4BD24, indexCPS2_Sentinel, 0xc },
 };
 
 const sGame_PaletteDataset MVC_A_WARMACHINE_PALETTES_P1[] =
