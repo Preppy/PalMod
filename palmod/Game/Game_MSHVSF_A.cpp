@@ -52,7 +52,7 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
     m_nTotalInternalUnits = UsePaletteSetForCharacters() ? MSHVSF_A_NUM_IND_6A : MSHVSF_A_NUM_IND_7B;
     m_nExtraUnit = UsePaletteSetForCharacters() ? MSHVSF_A_EXTRALOC_6A : MSHVSF_A_EXTRALOC_7B;
 
-    const UINT32 nSafeCountFor6A = 404;
+    const UINT32 nSafeCountFor6A = 533;
     const UINT32 nSafeCountFor7B = 24;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForCharacters() ? nSafeCountFor6A : nSafeCountFor7B);
@@ -834,7 +834,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((_tcsstr(pCurrentNode->szDesc, _T("P1")) != nullptr) || (_tcsstr(pCurrentNode->szDesc, _T("P2")) == nullptr))
+                if ((_tcsstr(pCurrentNode->szDesc, _T("P1")) != nullptr) || (_tcsstr(pCurrentNode->szDesc, _T("P2")) != nullptr))
                 {
                     // We show 2 sprites (P1/P2) for export for all normal VS sprites
                     nSrcAmt = 2;
