@@ -107,6 +107,8 @@ public:
     bool LoadPaletteFromPAL(LPCTSTR pszFileName);
     bool LoadPaletteFromPNG(LPCTSTR pszFileName);
 
+    bool SavePaletteToPAL(LPCTSTR pszFileName);
+
     void UpdateSliderSel(BOOL bModeChange = FALSE, BOOL bResetRF = FALSE);
     void SetColMode(int nColMode);
     void GetPlaneData();

@@ -710,8 +710,8 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
                                     {
                                         // copy over the RGB data, skipping the A value
                                         pPal[iActivePageIndex * 4] =     MainPalGroup->ROUND_R(pPALFileData[iPALDataIndex * 4]);
-                                        pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pPALFileData[iPALDataIndex * 4 + 1]);
-                                        pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pPALFileData[iPALDataIndex * 4 + 2]);
+                                        pPal[(iActivePageIndex * 4) + 1] = MainPalGroup->ROUND_G(pPALFileData[(iPALDataIndex * 4) + 1]);
+                                        pPal[(iActivePageIndex * 4) + 2] = MainPalGroup->ROUND_B(pPALFileData[(iPALDataIndex * 4) + 2]);
                                         pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
 
                                         if (++iPALDataIndex >= nPALColorCount)
@@ -1033,10 +1033,55 @@ void CPalModDlg::OnImportPalette()
     }
 }
 
+bool CPalModDlg::SavePaletteToPAL(LPCTSTR pszFileName)
+{
+    bool fSuccess = false;
+
+    // Microsoft RIFF PAL file.  Used by the UNIST workflow supposedly
+    HMMIO hRIFFFile = mmioOpen((LPTSTR)pszFileName, nullptr, MMIO_WRITE | MMIO_CREATE);
+
+    if (hRIFFFile)
+    {
+        MMCKINFO mmckInfo;
+        mmckInfo.fccType = mmioFOURCC('P', 'A', 'L', ' ');
+        mmckInfo.cksize = 0;
+        mmckInfo.dwFlags = MMIO_DIRTY;
+
+        if (mmioCreateChunk(hRIFFFile, &mmckInfo, MMIO_CREATERIFF) == MMSYSERR_NOERROR)
+        {
+            MMCKINFO mmckInfoData;
+            memset(&mmckInfoData, 0, sizeof(mmckInfoData));
+
+            // Write out the current palette
+            UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+            int nColorCount = CurrPalCtrl->GetWorkingAmt();
+
+            mmckInfoData.ckid = mmioFOURCC('d', 'a', 't', 'a');
+            mmckInfoData.cksize = 0;
+            mmckInfoData.dwFlags = MMIO_DIRTY;
+
+            if (mmioCreateChunk(hRIFFFile, &mmckInfoData, 0) == MMSYSERR_NOERROR)
+            {
+                const int nBytesToWrite = nColorCount * 4;
+                fSuccess = (mmioWrite(hRIFFFile, (const char*)pPal, nBytesToWrite) == nBytesToWrite);
+                mmioAscend(hRIFFFile, &mmckInfoData, 0);
+            }
+
+            mmioAscend(hRIFFFile, &mmckInfo, 0);
+        }
+
+        mmioClose(hRIFFFile, 0);
+    }
+
+    SetStatusText(CString(fSuccess ? "RIFF PAL file saved." : "Error saving RIFF PAL file."));
+    return fSuccess;
+}
+
 void CPalModDlg::OnExportPalette()
 {
     static LPCTSTR szSaveFilter[] = { _T("ACT Palette|*.act|")
                                       _T("GIMP Palette File|*.gpl|")
+                                      _T("Microsoft PAL|*.pal|")
                                       _T("|") };
 
     CFileDialog ActSave(FALSE, _T("act"), nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, *szSaveFilter);
@@ -1112,6 +1157,10 @@ void CPalModDlg::OnExportPalette()
 
                 SetStatusText(CString("GPL file saved successfully!"));
             }
+        }
+        else if (_tcsicmp(szExtension, _T(".pal")) == 0)
+        {
+            SavePaletteToPAL(ActSave.GetOFN().lpstrFile);
         }
         else if (ActFile.Open(ActSave.GetOFN().lpstrFile, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
         {
