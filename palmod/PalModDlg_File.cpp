@@ -1033,6 +1033,152 @@ void CPalModDlg::OnImportPalette()
     }
 }
 
+bool CPalModDlg::SavePaletteToACT(LPCTSTR pszFileName)
+{
+    CFile ActFile;
+    bool fSuccess = false;
+
+    if (ActFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+    {
+        // We are writing this file in accordance with the spec as found here--
+        //   https://www.adobe.com/devnet-apps/photoshop/fileformatashtml/#50577411_pgfId-1070626
+        // In theory we should be able to just write a 768 byte file, but there appears to be a bug in PhotoShop's
+        // ACT import wherein they mangle the parse for 768b files.  Thus we are forcibly using 772b here.
+
+        int nActSz = 256 * 3;
+        UINT8* pAct = new UINT8[nActSz];
+        memset(pAct, 0, nActSz);
+
+        UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+        int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+        UINT8 nPalettePageCount;
+
+        if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
+        {
+            nPalettePageCount = m_PalHost.GetCurrentPageCount();
+        }
+        else
+        {
+            nPalettePageCount = 1;
+        }
+
+        int nTotalColorsUsed = 0;
+        for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
+        {
+            pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
+            pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+            pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+        }
+
+        for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+        {
+            CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+            if (pPalCtrlNextPage)
+            {
+                const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+
+                for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
+                {
+                    pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
+                    pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
+                    pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
+                    nTotalColorsUsed++;
+                }
+            }
+        }
+
+        ActFile.Write(pAct, nActSz);
+
+        // Add 4 bytes per the 772b file syntax...
+        // First two here is the number of useful colors in the file.
+        // Second two here is be the index to use for the transparency color.  This is 0 in all the games we care about.
+
+        // Please note that Photoshop is expecting this big endian, so we byteswap to ensure correct orientation.
+        WORD transparencyColorIndex = 0;
+        WORD colorCount = _byteswap_ushort(nTotalColorsUsed);
+        ActFile.Write(&colorCount, 2);
+        ActFile.Write(&transparencyColorIndex, 2);
+
+        ActFile.Close();
+
+        delete[] pAct;
+        fSuccess = true;
+    }
+
+    SetStatusText(CString(fSuccess ? "ACT file saved successfully." : "Error saving ACT file."));
+    return fSuccess;
+}
+
+bool CPalModDlg::SavePaletteToGPL(LPCTSTR pszFileName)
+{
+    bool fSuccess = false;
+    CFile GPLFile;
+
+    // Save to GPL file.
+    // In debug builds this will trigger what appears to be a bogus assert in CFile which is stating that
+    // typeText is not supported.  But it is ... just appears to be a random bad assert.
+    if (GPLFile.Open(pszFileName, CFile::modeCreate | CFile::modeWrite | CFile::typeText))
+    {
+        char szBuffer[MAX_PATH];
+
+        // Write the header...
+        strcpy(szBuffer, "GIMP Palette\n");
+        GPLFile.Write(szBuffer, strlen(szBuffer));
+        sprintf(szBuffer, "Name: %S\n", m_PalHost.GetPalName(0));
+        GPLFile.Write(szBuffer, strlen(szBuffer));
+        strcpy(szBuffer, "Columns: 0\n");
+        GPLFile.Write(szBuffer, strlen(szBuffer));
+        strcpy(szBuffer, "# Created by PalMod\n");
+        GPLFile.Write(szBuffer, strlen(szBuffer));
+
+        // Write out the colors...
+        UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+        int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+        UINT8 nPalettePageCount;
+
+        if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
+        {
+            nPalettePageCount = m_PalHost.GetCurrentPageCount();
+        }
+        else
+        {
+            nPalettePageCount = 1;
+        }
+
+        // Skip the first color for GIMP's usage
+        int nTotalColorsUsed = 1;
+        for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
+        {
+            sprintf(szBuffer, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
+            GPLFile.Write(szBuffer, strlen(szBuffer));
+        }
+
+        for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
+        {
+            CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
+
+            if (pPalCtrlNextPage)
+            {
+                const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
+
+                for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
+                {
+                    sprintf(szBuffer, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
+                    GPLFile.Write(szBuffer, strlen(szBuffer));
+                    nTotalColorsUsed++;
+                }
+            }
+        }
+
+        GPLFile.Close();
+        fSuccess = true;
+    }
+
+    SetStatusText(CString(fSuccess ? "GPL file saved successfully." : "Error saving GPL file."));
+    return fSuccess;
+}
+
 bool CPalModDlg::SavePaletteToPAL(LPCTSTR pszFileName)
 {
     bool fSuccess = false;
@@ -1073,7 +1219,7 @@ bool CPalModDlg::SavePaletteToPAL(LPCTSTR pszFileName)
         mmioClose(hRIFFFile, 0);
     }
 
-    SetStatusText(CString(fSuccess ? "RIFF PAL file saved." : "Error saving RIFF PAL file."));
+    SetStatusText(CString(fSuccess ? "RIFF PAL file saved successfully." : "Error saving RIFF PAL file."));
     return fSuccess;
 }
 
@@ -1094,146 +1240,25 @@ void CPalModDlg::OnExportPalette()
 
         TCHAR szExtension[_MAX_EXT];
         _tsplitpath(szFile, nullptr, nullptr, nullptr, szExtension);
+        bool fSuccess = false;
 
         if (_tcsicmp(szExtension, _T(".gpl")) == 0)
         {
-            // Save to GPL file.
-            // In debug builds this will trigger what appears to be a bogus assert in CFile which is stating that
-            // typeText is not supported.  But it is ... just appears to be a random bad assert.
-            if (ActFile.Open(ActSave.GetOFN().lpstrFile, CFile::modeCreate | CFile::modeWrite | CFile::typeText))
-            {
-                char szBuffer[MAX_PATH];
-
-                // Write the header...
-                strcpy(szBuffer, "GIMP Palette\n");
-                ActFile.Write(szBuffer, strlen(szBuffer));
-                sprintf(szBuffer, "Name: %S\n", m_PalHost.GetPalName(0));
-                ActFile.Write(szBuffer, strlen(szBuffer));
-                strcpy(szBuffer, "Columns: 0\n");
-                ActFile.Write(szBuffer, strlen(szBuffer));
-                strcpy(szBuffer, "# Created by PalMod\n");
-                ActFile.Write(szBuffer, strlen(szBuffer));
-
-                // Write out the colors...
-                UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
-                int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-                UINT8 nPalettePageCount;
-
-                if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
-                {
-                    nPalettePageCount = m_PalHost.GetCurrentPageCount();
-                }
-                else
-                {
-                    nPalettePageCount = 1;
-                }
-
-                // Skip the first color for GIMP's usage
-                int nTotalColorsUsed = 1;
-                for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
-                {
-                    sprintf(szBuffer, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
-                    ActFile.Write(szBuffer, strlen(szBuffer));
-                }
-
-                for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
-                {
-                    CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
-
-                    if (pPalCtrlNextPage)
-                    {
-                        const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
-
-                        for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
-                        {
-                            sprintf(szBuffer, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
-                            ActFile.Write(szBuffer, strlen(szBuffer));
-                            nTotalColorsUsed++;
-                        }
-                    }
-                }
-
-                ActFile.Close();
-
-                SetStatusText(CString("GPL file saved successfully!"));
-            }
+            fSuccess = SavePaletteToGPL(ActSave.GetOFN().lpstrFile);
         }
         else if (_tcsicmp(szExtension, _T(".pal")) == 0)
         {
-            SavePaletteToPAL(ActSave.GetOFN().lpstrFile);
-        }
-        else if (ActFile.Open(ActSave.GetOFN().lpstrFile, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
-        {
-            // We are writing this file in accordance with the spec as found here--
-            //   https://www.adobe.com/devnet-apps/photoshop/fileformatashtml/#50577411_pgfId-1070626
-            // In theory we should be able to just write a 768 byte file, but there appears to be a bug in PhotoShop's
-            // ACT import wherein they mangle the parse for 768b files.  Thus we are forcibly using 772b here.
-
-            int nActSz = 256 * 3;
-            UINT8* pAct = new UINT8[nActSz];
-            memset(pAct, 0, nActSz);
-
-            UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
-            int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
-            UINT8 nPalettePageCount;
-
-            if (CurrPalCtrl->GetSelAmt() == 0) // they want everything
-            {
-                nPalettePageCount = m_PalHost.GetCurrentPageCount();
-            }
-            else
-            {
-                nPalettePageCount = 1;
-            }
-
-            int nTotalColorsUsed = 0;
-            for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
-            {
-                pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
-                pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
-                pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
-            }
-
-            for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
-            {
-                CJunk* pPalCtrlNextPage = m_PalHost.GetPalCtrl(nCurrentPage);
-
-                if (pPalCtrlNextPage)
-                {
-                    const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
-
-                    for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
-                    {
-                        pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
-                        pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];
-                        pAct[nTotalColorsUsed * 3 + 2] = pPal[nTotalColorsUsed * 4 + 2];
-                        nTotalColorsUsed++;
-                    }
-                }
-            }
-
-            ActFile.Write(pAct, nActSz);
-
-            // Add 4 bytes per the 772b file syntax...
-            // First two here is the number of useful colors in the file.
-            // Second two here is be the index to use for the transparency color.  This is 0 in all the games we care about.
-
-            // Please note that Photoshop is expecting this big endian, so we byteswap to ensure correct orientation.
-            WORD transparencyColorIndex = 0;
-            WORD colorCount = _byteswap_ushort(nTotalColorsUsed);
-            ActFile.Write(&colorCount, 2);
-            ActFile.Write(&transparencyColorIndex, 2);
-
-            ActFile.Close();
-
-            delete[] pAct;
-
-            SetStatusText(CString("ACT file saved successfully!"));
+            fSuccess = SavePaletteToPAL(ActSave.GetOFN().lpstrFile);
         }
         else
         {
+            fSuccess = SavePaletteToACT(ActSave.GetOFN().lpstrFile);
+        }
+        
+        if (!fSuccess)
+        {
             CString strError;
-            if (strError.LoadString(IDS_ERROR_SAVING_ACT_FILE))
+            if (strError.LoadString(IDS_ERROR_SAVING_PALETTE_FILE))
             {
                 MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
             }

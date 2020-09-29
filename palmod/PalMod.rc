@@ -514,7 +514,7 @@ BEGIN
     IDS_ERROR_LOADING_GAME  "Unable to load game."
     IDS_ERROR_PARAMETERS    "Invalid parameters."
     IDS_ERROR_LOADING_PALETTE_FILE "Error loading palette file."
-    IDS_ERROR_SAVING_ACT_FILE "Error saving ACT file."
+    IDS_ERROR_SAVING_PALETTE_FILE "Error saving palette file."
     IDS_SAVE_PALETTE_CHANGES 
                             "Update PalMod's palette memory with these changes?\n\nThe actual ROM/files will not be changed until you patch from the File menu or on exit."
     IDS_SAVE_FILE_CHANGES   "Patch ROM/files with the current changes?"
