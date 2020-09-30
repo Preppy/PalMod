@@ -2771,49 +2771,49 @@ const sGame_PaletteDataset KOF02_A_KULA_PALETTES_D[] =
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_A[] =
 {
     { _T("K9999 A"), 0x009b362, 0x009b382, indexKOFSprites_02K9999 },
-    { _T("A - Hidden Super Desperation Move 1"), 0x009b382, 0x009b3a2, indexKOFSprites_02K9999 },
-    { _T("A - Desperation Move / Super Desperation Move"), 0x009b3a2, 0x009b3c2, indexKOFSprites_02K9999 },
+    { _T("A - SDM Barrier"), 0x009b382, 0x009b3a2, indexKOFSprites_02K9999 },
+    { _T("A - Win pose / MAX2"), 0x009b3a2, 0x009b3c2, indexKOFSprites_02K9999 },
     { _T("A - Electric Shock Effect"), 0x009b3c2, 0x009b3e2, indexKOFSprites_02K9999 },
     { _T("A - Max Flash"), 0x009b3e2, 0x009b402, indexKOFSprites_02K9999 },
-    { _T("A - Hidden Super Desperation Move 2"), 0x009b402, 0x009b422, indexKOFSprites_02K9999 },
+    { _T("A - Intro Stuff"), 0x009b402, 0x009b422, indexKOFSprites_02K9999 },
     { _T("A - Soul Palette"), 0x009b422, 0x009b442, indexKOFSprites_02K9999 },
-    { _T("A - Hidden Super Desperation Move 3"), 0x009b442, 0x009b462, indexKOFSprites_02K9999 },
+    { _T("A - MAX Tentacle Arm"), 0x009b442, 0x009b462, indexKOFSprites_02K9999 },
 };
 
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_B[] =
 {
     { _T("K9999 B"), 0x009b562, 0x009b582, indexKOFSprites_02K9999 },
-    { _T("B - Hidden Super Desperation Move 1"), 0x009b582, 0x009b5a2, indexKOFSprites_02K9999 },
-    { _T("B - Desperation Move / Super Desperation Move"), 0x009b5a2, 0x009b5c2, indexKOFSprites_02K9999 },
+    { _T("B - SDM Barrier"), 0x009b582, 0x009b5a2, indexKOFSprites_02K9999 },
+    { _T("B - Win pose / MAX2"), 0x009b5a2, 0x009b5c2, indexKOFSprites_02K9999 },
     { _T("B - Electric Shock Effect"), 0x009b5c2, 0x009b5e2, indexKOFSprites_02K9999 },
     { _T("B - Max Flash"), 0x009b5e2, 0x009b602, indexKOFSprites_02K9999 },
-    { _T("B - Hidden Super Desperation Move 2"), 0x009b602, 0x009b622, indexKOFSprites_02K9999 },
+    { _T("B - Intro Stuff"), 0x009b602, 0x009b622, indexKOFSprites_02K9999 },
     { _T("B - Soul Palette"), 0x009b622, 0x009b642, indexKOFSprites_02K9999 },
-    { _T("B - Hidden Super Desperation Move 3"), 0x009b642, 0x009b662, indexKOFSprites_02K9999 },
+    { _T("B - MAX Tentacle Arm"), 0x009b642, 0x009b662, indexKOFSprites_02K9999 },
 };
 
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_C[] =
 {
     { _T("K9999 C"), 0x009b762, 0x009b782, indexKOFSprites_02K9999 },
-    { _T("C - Hidden Super Desperation Move 1"), 0x009b782, 0x009b7a2, indexKOFSprites_02K9999 },
-    { _T("C - Desperation Move / Super Desperation Move"), 0x009b7a2, 0x009b7c2, indexKOFSprites_02K9999 },
+    { _T("C - SDM Barrier"), 0x009b782, 0x009b7a2, indexKOFSprites_02K9999 },
+    { _T("C - Win pose / MAX2"), 0x009b7a2, 0x009b7c2, indexKOFSprites_02K9999 },
     { _T("C - Electric Shock Effect"), 0x009b7c2, 0x009b7e2, indexKOFSprites_02K9999 },
     { _T("C - Max Flash"), 0x009b7e2, 0x009b802, indexKOFSprites_02K9999 },
-    { _T("C - Hidden Super Desperation Move 2"), 0x009b802, 0x009b822, indexKOFSprites_02K9999 },
+    { _T("C - Intro Stuff"), 0x009b802, 0x009b822, indexKOFSprites_02K9999 },
     { _T("C - Soul Palette"), 0x009b822, 0x009b842, indexKOFSprites_02K9999 },
-    { _T("C - Hidden Super Desperation Move 3"), 0x009b842, 0x009b862, indexKOFSprites_02K9999 },
+    { _T("C - MAX Tentacle Arm"), 0x009b842, 0x009b862, indexKOFSprites_02K9999 },
 };
 
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_D[] =
 {
     { _T("K9999 D"), 0x009b962, 0x009b982, indexKOFSprites_02K9999 },
-    { _T("D - Hidden Super Desperation Move 1"), 0x009b982, 0x009b9a2, indexKOFSprites_02K9999 },
-    { _T("D - Desperation Move / Super Desperation Move"), 0x009b9a2, 0x009b9c2, indexKOFSprites_02K9999 },
+    { _T("D - SDM Barrier"), 0x009b982, 0x009b9a2, indexKOFSprites_02K9999 },
+    { _T("D - Win pose / MAX2"), 0x009b9a2, 0x009b9c2, indexKOFSprites_02K9999 },
     { _T("D - Electric Shock Effect"), 0x009b9c2, 0x009b9e2, indexKOFSprites_02K9999 },
     { _T("D - Max Flash"), 0x009b9e2, 0x009ba02, indexKOFSprites_02K9999 },
-    { _T("D - Hidden Super Desperation Move 2"), 0x009ba02, 0x009ba22, indexKOFSprites_02K9999 },
+    { _T("D - Intro Stuff"), 0x009ba02, 0x009ba22, indexKOFSprites_02K9999 },
     { _T("D - Soul Palette"), 0x009ba22, 0x009ba42, indexKOFSprites_02K9999 },
-    { _T("D - Hidden Super Desperation Move 3"), 0x009ba42, 0x009ba62, indexKOFSprites_02K9999 },
+    { _T("D - MAX Tentacle Arm"), 0x009ba42, 0x009ba62, indexKOFSprites_02K9999 },
 };
 
 const sGame_PaletteDataset KOF02_A_ANGEL_PALETTES_A[] =

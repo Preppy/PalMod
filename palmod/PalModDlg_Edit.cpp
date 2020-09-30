@@ -254,6 +254,7 @@ void CPalModDlg::OnEditPaste()
                 case SFA1_A:
                 case SFA2_A:
                 case SFA3_A:
+                case SF2CE_A:
                 case SF2HF_A:
                 case SSF2T_A:
                 case VHUNT2_A:

@@ -858,7 +858,8 @@ BOOL CGame_MVC2_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
-            if (IsPaletteDirty(nUnitCtr, nPalCtr))
+            // We don't mark proc_supp palettes dirty: only use this check if we change that behavior
+            //if (IsPaletteDirty(nUnitCtr, nPalCtr))
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 

@@ -1081,7 +1081,13 @@ const sGame_PaletteDataset SFIII2_A_GILL_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_GILL_PORTRAIT_PALETTES[] =
 {
-    { _T("Gill Hud (shared)"), 0x3cfd80, 0x3cfda0 },
+    { _T("Gill LP Hud"), 0x3cfd80, 0x3cfda0 },
+    { _T("Gill MP Hud"), 0x3cfda0, 0x3cfdc0 },
+    { _T("Gill HP Hud"), 0x3cfdc0, 0x3cfde0 },
+    { _T("Gill LK Hud"), 0x3cfde0, 0x3cfe00 },
+    { _T("Gill MK Hud"), 0x3cfe00, 0x3cfe20 },
+    { _T("Gill HK Hud"), 0x3cfe20, 0x3cfe40 },
+    { _T("Gill EX Hud (Unused Maybe)"), 0x3cfe40, 0x3cfe60 },
 
     { _T("Gill Left Losing Portrait"), 0x3a9080, 0x3a9200 },
     { _T("Gill Right Losing Portrait"), 0x3a9200, 0x3a9380 },

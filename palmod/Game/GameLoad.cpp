@@ -33,6 +33,7 @@
 #include "Game_SFIII3_A.h"
 #include "Game_SFIII3_A_DIR.h"
 #include "Game_SFIII3_D.h"
+#include "Game_SF2CE_A.h"
 #include "Game_SF2HF_A.h"
 #include "Game_SSF2T_A.h"
 #include "Game_SVCPLUSA_A.h"
@@ -255,6 +256,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
     break;
+    case SF2CE_A:
+    {
+        GetRule = &CGame_SF2CE_A::GetRule;
+        return TRUE;
+    }
     case SF2HF_A:
     {
         GetRule = &CGame_SF2HF_A::GetRule;
@@ -273,6 +279,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case SFA3_A:
     {
         GetRule = &CGame_SFA3_A::GetRule;
+        return TRUE;
+    }
+    case SSF2T_A:
+    {
+        GetRule = &CGame_SSF2T_A::GetRule;
         return TRUE;
     }
     case SVCPLUSA_A:
@@ -447,6 +458,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_SFA3_A(nConfirmedROMSize);
     }
+    case SF2CE_A:
+    {
+        return new CGame_SF2CE_A(nConfirmedROMSize, nExtraGameData);
+    }
     case SF2HF_A:
     {
         return new CGame_SF2HF_A(nConfirmedROMSize, nExtraGameData);
@@ -566,6 +581,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         }
         break;
     }
+    case SF2CE_A: // these two share logic until we care about 23
     case SF2HF_A:
     {
         TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));

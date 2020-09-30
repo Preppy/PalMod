@@ -53,6 +53,7 @@ enum SupportedGamesList
     VHUNT2_A,
     SFIII2_A,
     SF2HF_A,
+    SF2CE_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -109,6 +110,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Vampire Hunter 2 (Arcade)"),
    _T("SFIII2 (Arcade)"),
    _T("SF2:HF (Arcade)"),
+   _T("SF2:CE (Arcade)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
