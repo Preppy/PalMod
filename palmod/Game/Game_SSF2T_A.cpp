@@ -83,6 +83,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_ST10;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_ST10);
     
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

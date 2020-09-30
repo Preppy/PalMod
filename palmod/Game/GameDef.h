@@ -52,6 +52,7 @@ enum SupportedGamesList
     SAMSHO3_A,
     VHUNT2_A,
     SFIII2_A,
+    SF2HF_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -107,6 +108,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Samurai Shodown 3"),
    _T("Vampire Hunter 2 (Arcade)"),
    _T("SFIII2 (Arcade)"),
+   _T("SF2:HF (Arcade)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -544,30 +546,71 @@ const UINT8 SFIII3_D_IMG_UNITS[SFIII3_A_NUM_IMG_UNITS - 0x01] =
 
 constexpr auto SFIII3_D_NUM_IMG_UNITS = ARRAYSIZE(SFIII3_D_IMG_UNITS);
 
+enum SF2Sprites
+{
+    indexSF2Sprites_Ryu = 0,
+    indexSF2Sprites_EHonda,
+    indexSF2Sprites_Blanka,
+    indexSF2Sprites_Guile,
+    indexSF2Sprites_Ken,
+    indexSF2Sprites_ChunLi,
+    indexSF2Sprites_Zangief,
+    indexSF2Sprites_Dhalsim,
+    indexSF2Sprites_Bison,
+    indexSF2Sprites_Sagat,
+    indexSF2Sprites_Balrog,
+    indexSF2Sprites_Vega,
+    indexSF2Sprites_Cammy,
+    indexSF2Sprites_THawk,
+    indexSF2Sprites_FeiLong,
+    indexSF2Sprites_DeeJay,
+    indexSF2Sprites_Gouki,
+    indexSF2Sprites_Bonus,
+    indexSF2Sprites_Stages,
+};
+
 const UINT8 SSF2T_A_IMG_UNITS[] =
 {
-    0x00, // Ryu
-    0x01, // E-Honda
-    0x02, // Blanka
-    0x03, // Guile
-    0x04, // Ken
-    0x05, // Chun-Li
-    0x06, // Zangief
-    0x07, // Dhalsim
-    0x08, // M.Bison
-    0x09, // Sagat
-    0x0A, // Balrog
-    0x0B, // Vega
-    0x0C, // Cammy
-    0x0D, // T-Hawk
-    0x0E, // Fei Long
-    0x0F, // Dee Jay
-    0x10, // Gouki
-    0x11, // Bonus
-    0x12, // Stages
+    indexSF2Sprites_Ryu,
+    indexSF2Sprites_EHonda,
+    indexSF2Sprites_Blanka,
+    indexSF2Sprites_Guile,
+    indexSF2Sprites_Ken,
+    indexSF2Sprites_ChunLi,
+    indexSF2Sprites_Zangief,
+    indexSF2Sprites_Dhalsim,
+    indexSF2Sprites_Bison,
+    indexSF2Sprites_Sagat,
+    indexSF2Sprites_Balrog,
+    indexSF2Sprites_Vega,
+    indexSF2Sprites_Cammy,
+    indexSF2Sprites_THawk,
+    indexSF2Sprites_FeiLong,
+    indexSF2Sprites_DeeJay,
+    indexSF2Sprites_Gouki,
+    indexSF2Sprites_Bonus,
+    indexSF2Sprites_Stages,
 };
 
 constexpr auto SSF2T_A_NUM_IMG_UNITS = ARRAYSIZE(SSF2T_A_IMG_UNITS);
+
+const UINT8 SF2HF_A_IMG_UNITS[] =
+{
+    indexSF2Sprites_Ryu,
+    indexSF2Sprites_EHonda,
+    indexSF2Sprites_Blanka,
+    indexSF2Sprites_Guile,
+    indexSF2Sprites_Ken,
+    indexSF2Sprites_ChunLi,
+    indexSF2Sprites_Zangief,
+    indexSF2Sprites_Dhalsim,
+    indexSF2Sprites_Bison,
+    indexSF2Sprites_Sagat,
+    indexSF2Sprites_Balrog,
+    indexSF2Sprites_Vega,
+};
+
+constexpr auto SF2HF_A_NUM_IMG_UNITS = ARRAYSIZE(SF2HF_A_IMG_UNITS);
 
 const UINT8 SFA1_A_IMG_UNITS[] =
 {

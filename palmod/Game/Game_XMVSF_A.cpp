@@ -4,9 +4,6 @@
 #include "..\palmod.h"
 
 #define XMVSF_DEBUG DEFAULT_GAME_DEBUG_STATE
-// There was support for hybrid palettes in the old code, but I don't see that being used anywhere.
-//  I think it was vestigial from other code that is gone: I'm turning off hybrid palettes for now.
-#define USE_HYBRID_PALETTES 0
 
 stExtraDef* CGame_XMVSF_A::XMVSF_A_EXTRA_CUSTOM = nullptr;
 
@@ -596,24 +593,8 @@ void CGame_XMVSF_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 
     LoadSpecificPaletteData(nUnitId, nPalId);
 
-#if USE_HYBRID_PALETTES
-    if (bUsesHybrid)
-    {
-        OutputDebugString(_T("WARNING FIRST USAGE OF HYBRID PALETTES!\n"));
-
-        m_nCurrentPaletteSize = nHybridSz;
-    }
-#endif
-
     BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
     BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
-
-#if USE_HYBRID_PALETTES
-    if (bUsesHybrid)
-    {
-        BasePalGroup.SortPal(BasePalGroup.GetAddIndex(), 1, SORT_HUE);
-    }
-#endif
 }
 
 BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
@@ -726,56 +707,20 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     return TRUE;
 }
 
-// Warning: This is used for hybrid palettes.  I don't actually see that logic used anywhere.
-// Note that this logic requires the XMVSF_A_UNITLOC sort to match XMVSF_A_UNITS or bad things will happen.
-int CGame_XMVSF_A::GetLocalAmt(UINT16 nUnitId)
-{
-    if (nUnitId < XMVSF_A_NUMUNIT)
-    {
-        return (XMVSF_A_UNITLOC[nUnitId + 1] - XMVSF_A_UNITLOC[nUnitId]) / 0x20;
-    }
-    else
-    {
-        // Extras.
-        return INVALID_UNIT_VALUE;
-    }
-}
-
-
 COLORREF* CGame_XMVSF_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
 
     COLORREF* NewPal = NULL;
 
-#if USE_HYBRID_PALETTES
-    if (GetLocalAmt(nUnitId) <= nPalId)
+    NewPal = new COLORREF[m_nCurrentPaletteSize];
+
+    for (UINT16 i = 1; i < m_nCurrentPaletteSize; i++)
     {
-        OutputDebugString(_T("This is a hybrid palette! This logic is actively untested.  Be careful.\n"));
-
-        bUsesHybrid = TRUE;
-
-        //16 = Size of portrait image
-        //15 = Unused index
-        CreateHybridPal(m_nCurrentPaletteSize, 16, m_pppDataBuffer[nUnitId][nPalId], 15, &NewPal, &nHybridSz);
+        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i - 1]) | 0xFF000000;
     }
-    else
-    {
-#endif
-        bUsesHybrid = FALSE;
 
-        NewPal = new COLORREF[m_nCurrentPaletteSize];
-
-        for (UINT16 i = 1; i < m_nCurrentPaletteSize; i++)
-        {
-            NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i - 1]) | 0xFF000000;
-        }
-
-        NewPal[0] = 0xFF000000;
-
-#if USE_HYBRID_PALETTES
-    }
-#endif
+    NewPal[0] = 0xFF000000;
 
     return NewPal;
 }
@@ -790,34 +735,12 @@ void CGame_XMVSF_A::UpdatePalData()
         {
             int nIndexStart = 1;
 
-            COLORREF* crSrc;
+            COLORREF* crSrc = srcDef->pPal;
             UINT16 uAmt = srcDef->uPalSz;
 
-            if (bUsesHybrid)
+            for (UINT16 nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
             {
-                crSrc = srcDef->pPal;
-                crSrc = BasePalGroup.GetUnsortedPal(nPalCtr);
-
-                LoadSpecificPaletteData(srcDef->uUnitId, srcDef->uPalId);
-
-                for (UINT16 nPICtr = 0; nPICtr < m_nCurrentPaletteSize; nPICtr++)
-                {
-                    if (pIndexRedir[nPICtr])
-                    {
-                        m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = (ConvCol(crSrc[pIndexRedir[nPICtr]]) & 0x0FFF);
-                    }
-                }
-
-                delete[] crSrc;
-            }
-            else
-            {
-                crSrc = srcDef->pPal;
-
-                for (UINT16 nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
-                {
-                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr - 1] = (ConvCol(crSrc[nPICtr]) & 0x0FFF);
-                }
+                m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr - 1] = (ConvCol(crSrc[nPICtr]) & 0x0FFF);
             }
 
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);

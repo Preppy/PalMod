@@ -1005,7 +1005,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     if (paletteDataSetToJoin && (paletteDataSetToJoin->indexOffsetToUse == 0x02))
                     {
                         fShouldUseAlternateLoadLogic = true;
-                        nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);;
+                        nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
 
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,

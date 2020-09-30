@@ -163,6 +163,9 @@
     <Filter Include="Game\Capcom Games\SFIII2_A">
       <UniqueIdentifier>{769f01ba-c97f-4e25-b20e-2378fdd9abf7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\SF2HF_A">
+      <UniqueIdentifier>{365a9fbb-bc12-4a84-bc72-41e4276d2c60}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -371,6 +374,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SFIII2_A.cpp">
       <Filter>Game\Capcom Games\SFIII2_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SF2HF_A.cpp">
+      <Filter>Game\Capcom Games\SF2HF_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -676,6 +682,12 @@
     </ClInclude>
     <ClInclude Include="Game\SFIII2_A_DEF.h">
       <Filter>Game\Capcom Games\SFIII2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SF2HF_A.h">
+      <Filter>Game\Capcom Games\SF2HF_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SF2HF_A_DEF.h">
+      <Filter>Game\Capcom Games\SF2HF_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
