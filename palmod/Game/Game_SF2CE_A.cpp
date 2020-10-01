@@ -9,22 +9,28 @@
 
 stExtraDef* CGame_SF2CE_A::SF2CE_A_21_EXTRA_CUSTOM = NULL;
 stExtraDef* CGame_SF2CE_A::SF2CE_A_22_EXTRA_CUSTOM = NULL;
+stExtraDef* CGame_SF2CE_A::SF2CE_A_23_EXTRA_CUSTOM = NULL;
 
 int CGame_SF2CE_A::rgExtraCountAll_21[SF2CE_A_21_NUMUNIT + 1] = { -1 };
 int CGame_SF2CE_A::rgExtraCountAll_22[SF2CE_A_22_NUMUNIT + 1] = { -1 };
+int CGame_SF2CE_A::rgExtraCountAll_23[SF2CE_A_23_NUMUNIT + 1] = { -1 };
 int CGame_SF2CE_A::rgExtraCountVisibleOnly_21[SF2CE_A_21_NUMUNIT + 1] = { -1 };
 int CGame_SF2CE_A::rgExtraCountVisibleOnly_22[SF2CE_A_22_NUMUNIT + 1] = { -1 };
+int CGame_SF2CE_A::rgExtraCountVisibleOnly_23[SF2CE_A_23_NUMUNIT + 1] = { -1 };
 int CGame_SF2CE_A::rgExtraLoc_21[SF2CE_A_21_NUMUNIT + 1] = { -1 };
 int CGame_SF2CE_A::rgExtraLoc_22[SF2CE_A_22_NUMUNIT + 1] = { -1 };
+int CGame_SF2CE_A::rgExtraLoc_23[SF2CE_A_23_NUMUNIT + 1] = { -1 };
 
 CDescTree CGame_SF2CE_A::MainDescTree_21 = nullptr;
 CDescTree CGame_SF2CE_A::MainDescTree_22 = nullptr;
+CDescTree CGame_SF2CE_A::MainDescTree_23 = nullptr;
 UINT32 CGame_SF2CE_A::m_nExpectedGameROMSize = 0x80000; // 524288 bytes
 UINT32 CGame_SF2CE_A::m_nConfirmedROMSize = -1;
 
 int CGame_SF2CE_A::m_nSelectedRom = 22;
 UINT32 CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_21 = 0;
 UINT32 CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_22 = 0;
+UINT32 CGame_SF2CE_A::m_nTotalPaletteCountForSF2CE_23 = 0;
 
 constexpr auto k_SF2CE_JapanROMName_RevA = _T("s92j_22a.7f");
 constexpr auto k_SF2CE_JapanROMName_RevB = _T("s92j_22b.7f");
@@ -34,16 +40,21 @@ void CGame_SF2CE_A::InitializeStatics()
 {
     safe_delete_array(CGame_SF2CE_A::SF2CE_A_21_EXTRA_CUSTOM);
     safe_delete_array(CGame_SF2CE_A::SF2CE_A_22_EXTRA_CUSTOM);
+    safe_delete_array(CGame_SF2CE_A::SF2CE_A_23_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll_21, -1, sizeof(rgExtraCountAll_21));
     memset(rgExtraCountAll_22, -1, sizeof(rgExtraCountAll_22));
+    memset(rgExtraCountAll_23, -1, sizeof(rgExtraCountAll_23));
     memset(rgExtraCountVisibleOnly_21, -1, sizeof(rgExtraCountVisibleOnly_21));
     memset(rgExtraCountVisibleOnly_22, -1, sizeof(rgExtraCountVisibleOnly_22));
+    memset(rgExtraCountVisibleOnly_23, -1, sizeof(rgExtraCountVisibleOnly_23));
     memset(rgExtraLoc_21, -1, sizeof(rgExtraLoc_21));
     memset(rgExtraLoc_22, -1, sizeof(rgExtraLoc_22));
+    memset(rgExtraLoc_23, -1, sizeof(rgExtraLoc_23));
 
     MainDescTree_21.SetRootTree(CGame_SF2CE_A::InitDescTree(21));
     MainDescTree_22.SetRootTree(CGame_SF2CE_A::InitDescTree(22));
+    MainDescTree_23.SetRootTree(CGame_SF2CE_A::InitDescTree(23));
 }
 
 CGame_SF2CE_A::CGame_SF2CE_A(UINT32 nConfirmedROMSize, int nSF2CEROMToLoad)
@@ -55,17 +66,46 @@ CGame_SF2CE_A::CGame_SF2CE_A(UINT32 nConfirmedROMSize, int nSF2CEROMToLoad)
     InitializeStatics();
 
     m_nSelectedRom = nSF2CEROMToLoad;
-    m_pszExtraFilename = UsePaletteSetForSelect() ? EXTRA_FILENAME_SF2CE_21 : EXTRA_FILENAME_SF2CE_22;
 
-    //We need the proper unit amt before we init the main buffer
-    m_nTotalInternalUnits = UsePaletteSetForSelect() ? SF2CE_A_21_NUMUNIT : SF2CE_A_22_NUMUNIT;
-    m_nExtraUnit = UsePaletteSetForSelect() ? SF2CE_A_21_EXTRALOC : SF2CE_A_22_EXTRALOC;
+    switch (m_nSelectedRom)
+    {
+    case 21:
+        m_pszExtraFilename = EXTRA_FILENAME_SF2CE_21;
+        m_nTotalInternalUnits = SF2CE_A_21_NUMUNIT;
+        m_nExtraUnit = SF2CE_A_21_EXTRALOC;
 
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+        nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForSelect() ? 37 : 24);
-    m_nTotalPaletteCount = UsePaletteSetForSelect() ? m_nTotalPaletteCountForSF2CE_21 : m_nTotalPaletteCountForSF2CE_22;
-    m_nLowestKnownPaletteRomLocation = UsePaletteSetForSelect() ? 0x9400 : 0x16836;
+        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 37;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForSF2CE_21;
+        m_nLowestKnownPaletteRomLocation = 0x9400;
+        break;
+    case 22:
+    default:
+        m_pszExtraFilename = EXTRA_FILENAME_SF2CE_22;
+
+        //We need the proper unit amt before we init the main buffer
+        m_nTotalInternalUnits = SF2CE_A_22_NUMUNIT;
+        m_nExtraUnit = SF2CE_A_22_EXTRALOC;
+
+        nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+
+        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 24;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForSF2CE_22;
+        m_nLowestKnownPaletteRomLocation = 0x16836;
+        break;
+    case 23:
+        m_pszExtraFilename = EXTRA_FILENAME_SF2CE_23;
+        m_nTotalInternalUnits = SF2CE_A_23_NUMUNIT;
+        m_nExtraUnit = SF2CE_A_23_EXTRALOC;
+
+        nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+
+        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 16;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForSF2CE_23;
+        m_nLowestKnownPaletteRomLocation = 0x01dffa;
+        break;
+    };
 
     CString strInfo;
     strInfo.Format(_T("CGame_SF2CE_A::CGame_SF2CE_A: Loaded SF2CE_A with %u Extras\n"), GetExtraCt(m_nExtraUnit));
@@ -105,6 +145,7 @@ CGame_SF2CE_A::~CGame_SF2CE_A(void)
 {
     safe_delete_array(CGame_SF2CE_A::SF2CE_A_21_EXTRA_CUSTOM);
     safe_delete_array(CGame_SF2CE_A::SF2CE_A_22_EXTRA_CUSTOM);
+    safe_delete_array(CGame_SF2CE_A::SF2CE_A_23_EXTRA_CUSTOM);
     //Get rid of the file changed flag
     ClearDataBuffer();
     FlushChangeTrackingArray();
@@ -127,6 +168,19 @@ UINT32 CGame_SF2CE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
         { _T("Street Fighter II' - Champion Edition (Japan 920313)"), k_SF2CE_JapanROMName_RevA, 0xc4f64bcd, 0x1BDE },
         { _T("Street Fighter II' - Champion Edition (Japan 920513)"), k_SF2CE_JapanROMName_RevB, 0x2fbb3bfe, 0x1BF0 },
         { _T("Street Fighter II' - Champion Edition (Japan 920803)"), k_SF2CE_JapanROMName_RevC, 0x8c0b2ed6, 0x1BF8 },
+
+        // 23
+        { _T("Street Fighter II' - Champion Edition (World 920313)"), _T("s92e_23b.8f"), 0x0aaa1a3a, 0 }, // ce - core
+        { _T("Street Fighter II' - Champion Edition (World 920513)"), _T("s92e_23a.8f"), 0x3f846b74, 0 }, // ceea
+
+        { _T("Street Fighter II' - Champion Edition (USA 920313)"), _T("s92u_23a.8f"), 0xac44415b, 0 }, // ceua
+        { _T("Street Fighter II' - Champion Edition (USA 920513)"), _T("s92u_23b.8f"), 0x996a3015, 0 }, // ceub
+        { _T("Street Fighter II' - Champion Edition (USA 920803)"), _T("s92u_23c.8f"), 0x0a8b6aa2, 0 }, // ceuc
+
+        { _T("Street Fighter II' - Champion Edition (Taiwan 920313)"), _T("s92t_23a.8f"), 0xd7c28ade, 0 }, // cet
+        { _T("Street Fighter II' - Champion Edition (Japan 920322)"), _T("s92j_23a.8f"), 0x4f42bb5a, 0xA14 }, // ceja
+        { _T("Street Fighter II' - Champion Edition (Japan 920513)"), _T("s92j_23b.8f"), 0x140876c5, 0xA14 }, // cejb
+        { _T("Street Fighter II' - Champion Edition (Japan 920803)"), _T("s92j_23c.8f"), 0xf0120635, 0xA14 }, // cejc
     };
 
     if (ppKnownROMSet)
@@ -201,7 +255,9 @@ UINT32 CGame_SF2CE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
 
 int CGame_SF2CE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    if (UsePaletteSetForSelect())
+    switch (m_nSelectedRom)
+    {
+    case 21:
     {
         int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_21 : (int*)rgExtraCountAll_21;
 
@@ -229,7 +285,8 @@ int CGame_SF2CE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
         return rgExtraCt[nUnitId];
     }
-    else
+    case 22:
+    default:
     {
         int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_22 : (int*)rgExtraCountAll_22;
 
@@ -257,11 +314,42 @@ int CGame_SF2CE_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
         return rgExtraCt[nUnitId];
     }
+    case 23:
+    {
+        int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_23 : (int*)rgExtraCountAll_23;
+
+        if (rgExtraCountAll_23[0] == -1)
+        {
+            int nDefCtr = 0;
+            memset(rgExtraCountAll_23, 0, (SF2CE_A_23_NUMUNIT + 1) * sizeof(int));
+            memset(rgExtraCountVisibleOnly_23, 0, (SF2CE_A_23_NUMUNIT + 1) * sizeof(int));
+
+            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            {
+                rgExtraCountAll_23[pCurrDef->uUnitN]++;
+
+                if (!pCurrDef->isInvisible)
+                {
+                    rgExtraCountVisibleOnly_23[pCurrDef->uUnitN]++;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetCurrentExtraDef(nDefCtr);
+            }
+        }
+
+        return rgExtraCt[nUnitId];
+    }
+    };
 }
 
 int CGame_SF2CE_A::GetExtraLoc(UINT16 nUnitId)
 {
-    if (UsePaletteSetForSelect())
+    switch (m_nSelectedRom)
+    {
+    case 21:
     {
         if (rgExtraLoc_21[0] == -1)
         {
@@ -286,7 +374,8 @@ int CGame_SF2CE_A::GetExtraLoc(UINT16 nUnitId)
 
         return rgExtraLoc_21[nUnitId];
     }
-    else
+    case 22:
+    default:
     {
         if (rgExtraLoc_22[0] == -1)
         {
@@ -311,54 +400,88 @@ int CGame_SF2CE_A::GetExtraLoc(UINT16 nUnitId)
 
         return rgExtraLoc_22[nUnitId];
     }
+    case 23:
+    {
+        if (rgExtraLoc_23[0] == -1)
+        {
+            int nDefCtr = 0;
+            int nCurrUnit = UNIT_START_VALUE;
+            memset(rgExtraLoc_23, 0, (SF2CE_A_23_NUMUNIT + 1) * sizeof(int));
+
+            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            {
+                if (pCurrDef->uUnitN != nCurrUnit)
+                {
+                    rgExtraLoc_23[pCurrDef->uUnitN] = nDefCtr;
+                    nCurrUnit = pCurrDef->uUnitN;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetCurrentExtraDef(nDefCtr);
+            }
+        }
+
+        return rgExtraLoc_23[nUnitId];
+    }
+    };
 }
 
 const sDescTreeNode* CGame_SF2CE_A::GetCurrentUnitSet()
 {
-    if (UsePaletteSetForSelect())
+    switch (m_nSelectedRom)
     {
+    case 21:
         return SF2CE_A_21_UNITS;
-    }
-    else
-    {
+    case 22:
+    default:
         return SF2CE_A_22_UNITS;
-    }
+    case 23:
+        return SF2CE_A_23_UNITS;
+    };
 }
 
 UINT16 CGame_SF2CE_A::GetCurrentExtraLoc()
 {
-    if (UsePaletteSetForSelect())
+    switch (m_nSelectedRom)
     {
+    case 21:
         return SF2CE_A_21_EXTRALOC;
-    }
-    else
-    {
+    case 22:
+    default:
         return SF2CE_A_22_EXTRALOC;
-    }
+    case 23:
+        return SF2CE_A_23_EXTRALOC;
+    };
 }
 
 CDescTree* CGame_SF2CE_A::GetMainTree()
 {
-    if (UsePaletteSetForSelect())
+    switch (m_nSelectedRom)
     {
+    case 21:
         return &CGame_SF2CE_A::MainDescTree_21;
-    }
-    else
-    {
+    case 22:
+    default:
         return &CGame_SF2CE_A::MainDescTree_22;
-    }
+    case 23:
+        return &CGame_SF2CE_A::MainDescTree_23;
+    };
 }
 
 stExtraDef* CGame_SF2CE_A::GetCurrentExtraDef(int nDefCtr)
 {
-    if (UsePaletteSetForSelect())
+    switch (m_nSelectedRom)
     {
+    case 21:
         return (stExtraDef*)&SF2CE_A_21_EXTRA_CUSTOM[nDefCtr];
-    }
-    else
-    {
+    case 22:
+    default:
         return (stExtraDef*)&SF2CE_A_22_EXTRA_CUSTOM[nDefCtr];
-    }
+    case 23:
+        return (stExtraDef*)&SF2CE_A_23_EXTRA_CUSTOM[nDefCtr];
+    };
 }
 
 sDescTreeNode* CGame_SF2CE_A::InitDescTree(int nROMPaletteSetToUse)
@@ -370,21 +493,36 @@ sDescTreeNode* CGame_SF2CE_A::InitDescTree(int nROMPaletteSetToUse)
     UINT16 nUnitCt;
     UINT8 nExtraUnitLocation;
 
-    if (UsePaletteSetForSelect())
+    switch (m_nSelectedRom)
+    {
+    case 21:
     {
         nExtraUnitLocation = SF2CE_A_21_EXTRALOC;
         LoadExtraFileForGame(EXTRA_FILENAME_SF2CE_21, SF2CE_A_EXTRA, &SF2CE_A_21_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
         nUnitCt = SF2CE_A_21_NUMUNIT + (fHaveExtras ? 1 : 0);
+        break;
     }
-    else
+    case 22:
+    default:
     {
         nExtraUnitLocation = SF2CE_A_22_EXTRALOC;
         //Load extra file if we're using it
         LoadExtraFileForGame(EXTRA_FILENAME_SF2CE_22, SF2CE_A_EXTRA, &SF2CE_A_22_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
         nUnitCt = SF2CE_A_22_NUMUNIT + (fHaveExtras ? 1 : 0);
+        break;
     }
+    case 23:
+    {
+        nExtraUnitLocation = SF2CE_A_23_EXTRALOC;
+        //Load extra file if we're using it
+        LoadExtraFileForGame(EXTRA_FILENAME_SF2CE_23, SF2CE_A_EXTRA, &SF2CE_A_23_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
+        nUnitCt = SF2CE_A_23_NUMUNIT + (fHaveExtras ? 1 : 0);
+        break;
+    }
+    };
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -541,14 +679,19 @@ sDescTreeNode* CGame_SF2CE_A::InitDescTree(int nROMPaletteSetToUse)
         }
     }
 
-    if (UsePaletteSetForSelect())
+    switch (m_nSelectedRom)
     {
+    case 21:
         m_nTotalPaletteCountForSF2CE_21 = nTotalPaletteCount;
-    }
-    else
-    {
+        break;
+    case 22:
+    default:
         m_nTotalPaletteCountForSF2CE_22 = nTotalPaletteCount;
-    }
+        break;
+    case 23:
+        m_nTotalPaletteCountForSF2CE_23 = nTotalPaletteCount;
+        break;
+    };
 
     strMsg.Format(_T("CGame_SF2CE_A::InitDescTree: Loaded %u palettes for SF2CE ROM %u\n"), nTotalPaletteCount, m_nSelectedRom);
     OutputDebugString(strMsg);
@@ -560,7 +703,7 @@ sFileRule CGame_SF2CE_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("s2te_21.6f"));
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("s92_22b.7f"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -938,9 +1081,21 @@ BOOL CGame_SF2CE_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    sDescNode* NodeGet = UsePaletteSetForSelect() ?
-                            MainDescTree_21.GetDescNode(Node01, Node02, Node03, Node04) :
-                            MainDescTree_22.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet;
+    
+    switch (m_nSelectedRom)
+    {
+    case 21:
+        NodeGet = MainDescTree_21.GetDescNode(Node01, Node02, Node03, Node04);
+        break;
+    case 22:
+    default:
+        NodeGet = MainDescTree_22.GetDescNode(Node01, Node02, Node03, Node04);
+        break;
+    case 23:
+        NodeGet = MainDescTree_23.GetDescNode(Node01, Node02, Node03, Node04);
+        break;
+    };
 
     if (NodeGet == NULL)
     {

@@ -194,6 +194,54 @@ const sGame_PaletteDataset SF2CE_A_CLAW_PORTRAITS_NODE[] =
     { _T("Claw P2"), 0x9760, 0x9780 },
 };
 
+const sGame_PaletteDataset SF2CE_A_RYU_23_PORTRAITS_NODE[] =
+{
+    { _T("Ryu P1"), 0x1dffa, 0x1e01a },
+    { _T("Ryu P2"), 0x1e11a, 0x1e13a },
+};
+
+const sGame_PaletteDataset SF2CE_A_EHONDA_23_PORTRAITS_NODE[] =
+{
+    { _T("E.Honda P1"), 0x1e01a, 0x1e03a },
+    { _T("E.Honda P2"), 0x1e13a, 0x1e15a },
+};
+
+const sGame_PaletteDataset SF2CE_A_BLANKA_23_PORTRAITS_NODE[] =
+{
+    { _T("Blanka P1"), 0x1e03a, 0x1e05a },
+    { _T("Blanka P2"), 0x1e15a, 0x1e17a },
+};
+
+const sGame_PaletteDataset SF2CE_A_GUILE_23_PORTRAITS_NODE[] =
+{
+    { _T("Guile P1"), 0x1e05a, 0x1e07a },
+    { _T("Guile P2"), 0x1e17a, 0x1e19a },
+};
+
+const sGame_PaletteDataset SF2CE_A_KEN_23_PORTRAITS_NODE[] =
+{
+    { _T("Ken P1"), 0x1e07a, 0x1e09a },
+    { _T("Ken P2"), 0x1e19a, 0x1e1ba },
+};
+
+const sGame_PaletteDataset SF2CE_A_CHUNLI_23_PORTRAITS_NODE[] =
+{
+    { _T("Chun-Li P1"), 0x1e09a, 0x1e0ba },
+    { _T("Chun-Li P2"), 0x1e1ba, 0x1e1da },
+};
+
+const sGame_PaletteDataset SF2CE_A_ZANGIEF_23_PORTRAITS_NODE[] =
+{
+    { _T("Zangief P1"), 0x1e0ba, 0x1e0da },
+    { _T("Zangief P2"), 0x1e1da, 0x1e1fa },
+};
+
+const sGame_PaletteDataset SF2CE_A_DHALSIM_23_PORTRAITS_NODE[] =
+{
+    { _T("Dhalsim P1"), 0x1e0da, 0x1e0fa },
+    { _T("Dhalsim P2"), 0x1e1fa, 0x1e21a },
+};
+
 const sGame_PaletteDataset SF2CE_A_RYU_SELSCREEN_NODE[] =
 {
     { _T("Ryu"), 0xe420, 0xe440 },
@@ -264,6 +312,18 @@ const sDescTreeNode SF2CE_A_PORTRAITS_COLLECTION[] =
     { _T("Claw"),       DESC_NODETYPE_TREE, (void*)SF2CE_A_CLAW_PORTRAITS_NODE, ARRAYSIZE(SF2CE_A_CLAW_PORTRAITS_NODE) },
     { _T("Sagat"),      DESC_NODETYPE_TREE, (void*)SF2CE_A_SAGAT_PORTRAITS_NODE, ARRAYSIZE(SF2CE_A_SAGAT_PORTRAITS_NODE) },
     { _T("Dictator"),   DESC_NODETYPE_TREE, (void*)SF2CE_A_DICTATOR_PORTRAITS_NODE, ARRAYSIZE(SF2CE_A_DICTATOR_PORTRAITS_NODE) },
+};
+
+const sDescTreeNode SF2CE_A_23_PORTRAITS_COLLECTION[] =
+{
+    { _T("Blanka"),     DESC_NODETYPE_TREE, (void*)SF2CE_A_BLANKA_23_PORTRAITS_NODE, ARRAYSIZE(SF2CE_A_BLANKA_23_PORTRAITS_NODE) },
+    { _T("Chun-Li"),    DESC_NODETYPE_TREE, (void*)SF2CE_A_CHUNLI_23_PORTRAITS_NODE, ARRAYSIZE(SF2CE_A_CHUNLI_23_PORTRAITS_NODE) },
+    { _T("Dhalsim"),    DESC_NODETYPE_TREE, (void*)SF2CE_A_DHALSIM_23_PORTRAITS_NODE, ARRAYSIZE(SF2CE_A_DHALSIM_23_PORTRAITS_NODE) },
+    { _T("E.Honda"),    DESC_NODETYPE_TREE, (void*)SF2CE_A_EHONDA_23_PORTRAITS_NODE, ARRAYSIZE(SF2CE_A_EHONDA_23_PORTRAITS_NODE) },
+    { _T("Guile"),      DESC_NODETYPE_TREE, (void*)SF2CE_A_GUILE_23_PORTRAITS_NODE, ARRAYSIZE(SF2CE_A_GUILE_23_PORTRAITS_NODE) },
+    { _T("Ken"),        DESC_NODETYPE_TREE, (void*)SF2CE_A_KEN_23_PORTRAITS_NODE, ARRAYSIZE(SF2CE_A_KEN_23_PORTRAITS_NODE) },
+    { _T("Ryu"),        DESC_NODETYPE_TREE, (void*)SF2CE_A_RYU_23_PORTRAITS_NODE, ARRAYSIZE(SF2CE_A_RYU_23_PORTRAITS_NODE) },
+    { _T("Zangief"),    DESC_NODETYPE_TREE, (void*)SF2CE_A_ZANGIEF_23_PORTRAITS_NODE, ARRAYSIZE(SF2CE_A_ZANGIEF_23_PORTRAITS_NODE) },
 };
 
 const sDescTreeNode SF2CE_A_SELSCREEN_COLLECTION[] =
@@ -360,6 +420,9 @@ const sDescTreeNode SF2CE_A_21_UNITS[] =
     { _T("Select Screen"),  DESC_NODETYPE_TREE, (void*)SF2CE_A_SELSCREEN_COLLECTION, ARRAYSIZE(SF2CE_A_SELSCREEN_COLLECTION) },
 };
 
+constexpr auto SF2CE_A_21_NUMUNIT = ARRAYSIZE(SF2CE_A_21_UNITS);
+#define SF2CE_A_21_EXTRALOC SF2CE_A_21_NUMUNIT
+
 const sDescTreeNode SF2CE_A_22_UNITS[] =
 {
     { _T("Blanka"),     DESC_NODETYPE_TREE, (void*)SF2CE_A_BLANKA_COLLECTION, ARRAYSIZE(SF2CE_A_BLANKA_COLLECTION) },
@@ -377,11 +440,16 @@ const sDescTreeNode SF2CE_A_22_UNITS[] =
     { _T("Dictator"),   DESC_NODETYPE_TREE, (void*)SF2CE_A_DICTATOR_COLLECTION, ARRAYSIZE(SF2CE_A_DICTATOR_COLLECTION) },
 };
 
-constexpr auto SF2CE_A_21_NUMUNIT = ARRAYSIZE(SF2CE_A_21_UNITS);
-#define SF2CE_A_21_EXTRALOC SF2CE_A_21_NUMUNIT
-
 constexpr auto SF2CE_A_22_NUMUNIT = ARRAYSIZE(SF2CE_A_22_UNITS);
 #define SF2CE_A_22_EXTRALOC SF2CE_A_22_NUMUNIT
+
+const sDescTreeNode SF2CE_A_23_UNITS[] =
+{
+    { _T("Continue Portraits"), DESC_NODETYPE_TREE, (void*)SF2CE_A_23_PORTRAITS_COLLECTION, ARRAYSIZE(SF2CE_A_23_PORTRAITS_COLLECTION) },
+};
+
+constexpr auto SF2CE_A_23_NUMUNIT = ARRAYSIZE(SF2CE_A_23_UNITS);
+#define SF2CE_A_23_EXTRALOC SF2CE_A_23_NUMUNIT
 
 const stExtraDef SF2CE_A_EXTRA[] = 
 {

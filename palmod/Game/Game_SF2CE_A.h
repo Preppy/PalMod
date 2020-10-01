@@ -5,6 +5,7 @@
 
 constexpr auto EXTRA_FILENAME_SF2CE_21 = _T("SF2CE-21e.txt");
 constexpr auto EXTRA_FILENAME_SF2CE_22 = _T("SF2CE-22e.txt");
+constexpr auto EXTRA_FILENAME_SF2CE_23 = _T("SF2CE-23e.txt");
 
 class CGame_SF2CE_A : public CGameWithExtrasFile
 {
@@ -13,14 +14,17 @@ public:
     static int m_nSelectedRom;
     static UINT32 m_nTotalPaletteCountForSF2CE_21;
     static UINT32 m_nTotalPaletteCountForSF2CE_22;
-    static bool UsePaletteSetForSelect() { return (m_nSelectedRom == 21); }
+    static UINT32 m_nTotalPaletteCountForSF2CE_23;
 
     static int rgExtraCountAll_21[SF2CE_A_21_NUMUNIT + 1];
     static int rgExtraCountAll_22[SF2CE_A_22_NUMUNIT + 1];
+    static int rgExtraCountAll_23[SF2CE_A_23_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly_21[SF2CE_A_21_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly_22[SF2CE_A_22_NUMUNIT + 1];
+    static int rgExtraCountVisibleOnly_23[SF2CE_A_23_NUMUNIT + 1];
     static int rgExtraLoc_21[SF2CE_A_21_NUMUNIT + 1];
     static int rgExtraLoc_22[SF2CE_A_22_NUMUNIT + 1];
+    static int rgExtraLoc_23[SF2CE_A_23_NUMUNIT + 1];
 
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
@@ -42,6 +46,7 @@ public:
     //Static functions / variables
     static CDescTree MainDescTree_21;
     static CDescTree MainDescTree_22;
+    static CDescTree MainDescTree_23;
 
     static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
     static sFileRule GetRule(UINT16 nUnitId);
@@ -74,4 +79,5 @@ public:
 
     static stExtraDef* SF2CE_A_21_EXTRA_CUSTOM;
     static stExtraDef* SF2CE_A_22_EXTRA_CUSTOM;
+    static stExtraDef* SF2CE_A_23_EXTRA_CUSTOM;
 };

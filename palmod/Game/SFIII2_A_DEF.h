@@ -398,7 +398,6 @@ const sGame_PaletteDataset SFIII2_A_HUGO_Support_PALETTES[] =
 
     { _T("Hugo Iced Effects"), 0x39c500, 0x39c580, index3S_CPS3_Hugo },
     { _T("Hugo Burned Effects"), 0x39cd00, 0x39cd80, index3S_CPS3_Hugo },
-
 };
 
 const sGame_PaletteDataset SFIII2_A_HUGO_EXTRA_PALETTES[] =
@@ -970,6 +969,7 @@ const sGame_PaletteDataset SFIII2_A_SHINGOUKI_Support_PALETTES[] =
     { _T("Shin Gouki SA6"), 0x3d5200, 0x3d5280, index3S_CPS3_Gouki },
     { _T("Shin Gouki SA7"), 0x3d5280, 0x3d5300, index3S_CPS3_Gouki },
     { _T("Shin Gouki SA8"), 0x3d5300, 0x3d5380, index3S_CPS3_Gouki },
+
     { _T("Shin Gouki LP Hud"), 0x3d0aa0, 0x3d0ac0, index3S_CPS3_Gouki },
     { _T("Shin Gouki MP Hud"), 0x3d0ac0, 0x3d0ae0, index3S_CPS3_Gouki },
     { _T("Shin Gouki HP Hud"), 0x3d0ae0, 0x3d0b00, index3S_CPS3_Gouki },
@@ -991,14 +991,6 @@ const sGame_PaletteDataset SFIII2_A_SHINGOUKI_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_HUGO_PORTRAIT_PALETTES[] =
 {
-    { _T("Hugo Losing Portrait LP"), 0x3ac880, 0x3ac980 },
-    { _T("Hugo Losing Portrait MP"), 0x3aca00, 0x3acb00 },
-    { _T("Hugo Losing Portrait HP"), 0x3acb80, 0x3acc80 },
-    { _T("Hugo Losing Portrait LK"), 0x3acd00, 0x3ace00 },
-    { _T("Hugo Losing Portrait MK"), 0x3ace80, 0x3acf80 },
-    { _T("Hugo Losing Portrait HK"), 0x3ad000, 0x3ad100 },
-    { _T("Hugo Losing Portrait EX"), 0x3ad180, 0x3ad280 },
-
     { _T("Hugo 1 Winning Portrait LP"), 0x3a5880, 0x3a5900 },
     { _T("Hugo 2 Winning Portrait LP"), 0x3a5900, 0x3a5980 },
     { _T("Hugo 1 Winning Portrait MP"), 0x3a5980, 0x3a5a00 },
@@ -1014,6 +1006,14 @@ const sGame_PaletteDataset SFIII2_A_HUGO_PORTRAIT_PALETTES[] =
     { _T("Hugo 1 Winning Portrait EX"), 0x3a5e80, 0x3a5f00 },
     { _T("Hugo 2 Winning Portrait EX"), 0x3a5f00, 0x3a5f80 },
 
+    { _T("Hugo Losing Portrait LP"), 0x3ac880, 0x3ac980 },
+    { _T("Hugo Losing Portrait MP"), 0x3aca00, 0x3acb00 },
+    { _T("Hugo Losing Portrait HP"), 0x3acb80, 0x3acc80 },
+    { _T("Hugo Losing Portrait LK"), 0x3acd00, 0x3ace00 },
+    { _T("Hugo Losing Portrait MK"), 0x3ace80, 0x3acf80 },
+    { _T("Hugo Losing Portrait HK"), 0x3ad000, 0x3ad100 },
+    { _T("Hugo Losing Portrait EX"), 0x3ad180, 0x3ad280 },
+
     { _T("Hugo Icon"), 0x3a0980, 0x3a0a00 },
 };
 
@@ -1021,36 +1021,42 @@ const sGame_PaletteDataset SFIII2_A_GILL_LP_PALETTES[] =
 {
     { _T("Facing Left"), 0x398000, 0x398080, index3S_CPS3_Gill, 0x01 },
     { _T("Facing Right"), 0x398080, 0x398100, index3S_CPS3_Gill, 0x0 },
+    { _T("Gill LP Hud"), 0x3cfd80, 0x3cfda0 },
 };
 
 const sGame_PaletteDataset SFIII2_A_GILL_MP_PALETTES[] =
 {
     { _T("Facing Left"), 0x398100, 0x398180, index3S_CPS3_Gill, 0x01 },
     { _T("Facing Right"), 0x398180, 0x398200, index3S_CPS3_Gill, 0x0 },
+    { _T("Gill MP Hud"), 0x3cfda0, 0x3cfdc0 },
 };
 
 const sGame_PaletteDataset SFIII2_A_GILL_HP_PALETTES[] =
 {
     { _T("Facing Left"), 0x398200, 0x398280, index3S_CPS3_Gill, 0x01 },
     { _T("Facing Right"), 0x398280, 0x398300, index3S_CPS3_Gill, 0x0 },
+    { _T("Gill HP Hud"), 0x3cfdc0, 0x3cfde0 },
 };
 
 const sGame_PaletteDataset SFIII2_A_GILL_LK_PALETTES[] =
 {
     { _T("Facing Left"), 0x398300, 0x398380, index3S_CPS3_Gill, 0x01 },
     { _T("Facing Right"), 0x398380, 0x398400, index3S_CPS3_Gill, 0x0 },
+    { _T("Gill LK Hud"), 0x3cfde0, 0x3cfe00 },
 };
 
 const sGame_PaletteDataset SFIII2_A_GILL_MK_PALETTES[] =
 {
     { _T("Facing Left"), 0x398400, 0x398480, index3S_CPS3_Gill, 0x01 },
     { _T("Facing Right"), 0x398480, 0x398500, index3S_CPS3_Gill, 0x0 },
+    { _T("Gill MK Hud"), 0x3cfe00, 0x3cfe20 },
 };
 
 const sGame_PaletteDataset SFIII2_A_GILL_HK_PALETTES[] =
 {
     { _T("Facing Left"), 0x398500, 0x398580, index3S_CPS3_Gill, 0x01 },
     { _T("Facing Right"), 0x398580, 0x398600, index3S_CPS3_Gill, 0x0 },
+    { _T("Gill HK Hud"), 0x3cfe20, 0x3cfe40 },
 };
 
 const sGame_PaletteDataset SFIII2_A_GILL_Support_PALETTES[] =
@@ -1081,12 +1087,6 @@ const sGame_PaletteDataset SFIII2_A_GILL_EXTRA_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_GILL_PORTRAIT_PALETTES[] =
 {
-    { _T("Gill LP Hud"), 0x3cfd80, 0x3cfda0 },
-    { _T("Gill MP Hud"), 0x3cfda0, 0x3cfdc0 },
-    { _T("Gill HP Hud"), 0x3cfdc0, 0x3cfde0 },
-    { _T("Gill LK Hud"), 0x3cfde0, 0x3cfe00 },
-    { _T("Gill MK Hud"), 0x3cfe00, 0x3cfe20 },
-    { _T("Gill HK Hud"), 0x3cfe20, 0x3cfe40 },
     { _T("Gill EX Hud (Unused Maybe)"), 0x3cfe40, 0x3cfe60 },
 
     { _T("Gill Left Losing Portrait"), 0x3a9080, 0x3a9200 },
@@ -1097,14 +1097,6 @@ const sGame_PaletteDataset SFIII2_A_GILL_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_ALEX_PORTRAIT_PALETTES[] =
 {
-    { _T("Alex Losing Portrait LP"), 0x3a9b00, 0x3a9c00 },
-    { _T("Alex Losing Portrait MP"), 0x3a9c00, 0x3a9d00 },
-    { _T("Alex Losing Portrait HP"), 0x3a9d00, 0x3a9e00 },
-    { _T("Alex Losing Portrait LK"), 0x3a9e00, 0x3a9f00 },
-    { _T("Alex Losing Portrait MK"), 0x3a9f00, 0x3aa000 },
-    { _T("Alex Losing Portrait HK"), 0x3aa000, 0x3aa100 },
-    { _T("Alex Losing Portrait EX"), 0x3aa100, 0x3aa200 },
-
     { _T("Alex Winning Portrait LP"), 0x3a4000, 0x3a4080 },
     { _T("Alex Winning Portrait MP"), 0x3a4080, 0x3a4100 },
     { _T("Alex Winning Portrait HP"), 0x3a4100, 0x3a4180 },
@@ -1113,19 +1105,19 @@ const sGame_PaletteDataset SFIII2_A_ALEX_PORTRAIT_PALETTES[] =
     { _T("Alex Winning Portrait HK"), 0x3a4280, 0x3a4300 },
     { _T("Alex Winning Portrait EX"), 0x3a4300, 0x3a4380 },
 
+    { _T("Alex Losing Portrait LP"), 0x3a9b00, 0x3a9c00 },
+    { _T("Alex Losing Portrait MP"), 0x3a9c00, 0x3a9d00 },
+    { _T("Alex Losing Portrait HP"), 0x3a9d00, 0x3a9e00 },
+    { _T("Alex Losing Portrait LK"), 0x3a9e00, 0x3a9f00 },
+    { _T("Alex Losing Portrait MK"), 0x3a9f00, 0x3aa000 },
+    { _T("Alex Losing Portrait HK"), 0x3aa000, 0x3aa100 },
+    { _T("Alex Losing Portrait EX"), 0x3aa100, 0x3aa200 },
+
     { _T("Alex Character Select Icon"), 0x3a0880, 0x3a0900 },
 };
 
 const sGame_PaletteDataset SFIII2_A_RYU_PORTRAIT_PALETTES[] =
 {
-    { _T("Ryu Losing Portrait LP"), 0x3aa200, 0x3aa380 },
-    { _T("Ryu Losing Portrait MP"), 0x3aa380, 0x3aa500 },
-    { _T("Ryu Losing Portrait HP"), 0x3aa500, 0x3aa680 },
-    { _T("Ryu Losing Portrait LK"), 0x3aa680, 0x3aa800 },
-    { _T("Ryu Losing Portrait MK"), 0x3aa800, 0x3aa980 },
-    { _T("Ryu Losing Portrait HK"), 0x3aa980, 0x3aab00 },
-    { _T("Ryu Losing Portrait EX"), 0x3aab00, 0x3aac80 },
-
     { _T("Ryu Winning Portrait LP"), 0x3a4380, 0x3a4400 },
     { _T("Ryu Winning Portrait MP"), 0x3a4400, 0x3a4480 },
     { _T("Ryu Winning Portrait HP"), 0x3a4480, 0x3a4500 },
@@ -1134,19 +1126,19 @@ const sGame_PaletteDataset SFIII2_A_RYU_PORTRAIT_PALETTES[] =
     { _T("Ryu Winning Portrait HK"), 0x3a4600, 0x3a4680 },
     { _T("Ryu Winning Portrait EX"), 0x3a4680, 0x3a4700 },
 
+    { _T("Ryu Losing Portrait LP"), 0x3aa200, 0x3aa380 },
+    { _T("Ryu Losing Portrait MP"), 0x3aa380, 0x3aa500 },
+    { _T("Ryu Losing Portrait HP"), 0x3aa500, 0x3aa680 },
+    { _T("Ryu Losing Portrait LK"), 0x3aa680, 0x3aa800 },
+    { _T("Ryu Losing Portrait MK"), 0x3aa800, 0x3aa980 },
+    { _T("Ryu Losing Portrait HK"), 0x3aa980, 0x3aab00 },
+    { _T("Ryu Losing Portrait EX"), 0x3aab00, 0x3aac80 },
+
     { _T("Ryu Icon"), 0x3a0500, 0x3a0580 },
 };
 
 const sGame_PaletteDataset SFIII2_A_YUN_PORTRAIT_PALETTES[] =
 {
-    { _T("Yun Losing Portrait LP"), 0x3aac80, 0x3aae00 },
-    { _T("Yun Losing Portrait MP"), 0x3aae00, 0x3aaf80 },
-    { _T("Yun Losing Portrait HP"), 0x3aaf80, 0x3ab100 },
-    { _T("Yun Losing Portrait LK"), 0x3ab100, 0x3ab280 },
-    { _T("Yun Losing Portrait MK"), 0x3ab280, 0x3ab400 },
-    { _T("Yun Losing Portrait HK"), 0x3ab400, 0x3ab580 },
-    { _T("Yun Losing Portrait EX"), 0x3ab580, 0x3ab700 },
-
     { _T("Yun 1 Winning Portrait LP"), 0x3a4700, 0x3a4780 },
     { _T("Yun 2 Winning Portrait LP"), 0x3a4780, 0x3a4800 },
     { _T("Yun 1 Winning Portrait MP"), 0x3a4800, 0x3a4880 },
@@ -1162,19 +1154,19 @@ const sGame_PaletteDataset SFIII2_A_YUN_PORTRAIT_PALETTES[] =
     { _T("Yun 1 Winning Portrait EX"), 0x3a4d00, 0x3a4d80 },
     { _T("Yun 2 Winning Portrait EX"), 0x3a4d80, 0x3a4e00 },
 
+    { _T("Yun Losing Portrait LP"), 0x3aac80, 0x3aae00 },
+    { _T("Yun Losing Portrait MP"), 0x3aae00, 0x3aaf80 },
+    { _T("Yun Losing Portrait HP"), 0x3aaf80, 0x3ab100 },
+    { _T("Yun Losing Portrait LK"), 0x3ab100, 0x3ab280 },
+    { _T("Yun Losing Portrait MK"), 0x3ab280, 0x3ab400 },
+    { _T("Yun Losing Portrait HK"), 0x3ab400, 0x3ab580 },
+    { _T("Yun Losing Portrait EX"), 0x3ab580, 0x3ab700 },
+
     { _T("Yun Icon"), 0x3a0580, 0x3a0600 },
 };
 
 const sGame_PaletteDataset SFIII2_A_DUDLEY_PORTRAIT_PALETTES[] =
 {
-    { _T("Dudley Losing Portrait LP"), 0x3ab700, 0x3ab880 },
-    { _T("Dudley Losing Portrait MP"), 0x3ab880, 0x3aba00 },
-    { _T("Dudley Losing Portrait HP"), 0x3aba00, 0x3abb80 },
-    { _T("Dudley Losing Portrait LK"), 0x3abb80, 0x3abd00 },
-    { _T("Dudley Losing Portrait MK"), 0x3abd00, 0x3abe80 },
-    { _T("Dudley Losing Portrait HK"), 0x3abe80, 0x3ac000 },
-    { _T("Dudley Losing Portrait EX"), 0x3ac000, 0x3ac180 },
-
     { _T("Dudley Winning Portrait LP"), 0x3a4e00, 0x3a4e80 },
     { _T("Dudley Butler Winning Portrait LP"), 0x3a4e80, 0x3a4f00 },
     { _T("Dudley Winning Portrait MP"), 0x3a4f00, 0x3a4f80 },
@@ -1190,19 +1182,19 @@ const sGame_PaletteDataset SFIII2_A_DUDLEY_PORTRAIT_PALETTES[] =
     { _T("Dudley Winning Portrait EX"), 0x3a5400, 0x3a5480 },
     { _T("Dudley Butler Winning Portrait EX"), 0x3a5480, 0x3a5500 },
 
+    { _T("Dudley Losing Portrait LP"), 0x3ab700, 0x3ab880 },
+    { _T("Dudley Losing Portrait MP"), 0x3ab880, 0x3aba00 },
+    { _T("Dudley Losing Portrait HP"), 0x3aba00, 0x3abb80 },
+    { _T("Dudley Losing Portrait LK"), 0x3abb80, 0x3abd00 },
+    { _T("Dudley Losing Portrait MK"), 0x3abd00, 0x3abe80 },
+    { _T("Dudley Losing Portrait HK"), 0x3abe80, 0x3ac000 },
+    { _T("Dudley Losing Portrait EX"), 0x3ac000, 0x3ac180 },
+
     { _T("Dudley Icon"), 0x3a0b00, 0x3a0b80 },
 };
 
 const sGame_PaletteDataset SFIII2_A_NECRO_PORTRAIT_PALETTES[] =
 {
-    { _T("Necro Losing Portrait LP"), 0x3ac180, 0x3ac280 },
-    { _T("Necro Losing Portrait MP"), 0x3ac280, 0x3ac380 },
-    { _T("Necro Losing Portrait HP"), 0x3ac380, 0x3ac480 },
-    { _T("Necro Losing Portrait LK"), 0x3ac480, 0x3ac580 },
-    { _T("Necro Losing Portrait MK"), 0x3ac580, 0x3ac680 },
-    { _T("Necro Losing Portrait HK"), 0x3ac680, 0x3ac780 },
-    { _T("Necro Losing Portrait EX"), 0x3ac780, 0x3ac880 },
-
     { _T("Necro Winning Portrait LP"), 0x3a5500, 0x3a5580 },
     { _T("Necro Winning Portrait MP"), 0x3a5580, 0x3a5600 },
     { _T("Necro Winning Portrait HP"), 0x3a5600, 0x3a5680 },
@@ -1211,19 +1203,19 @@ const sGame_PaletteDataset SFIII2_A_NECRO_PORTRAIT_PALETTES[] =
     { _T("Necro Winning Portrait HK"), 0x3a5780, 0x3a5800 },
     { _T("Necro Winning Portrait EX"), 0x3a5800, 0x3a5880 },
 
+    { _T("Necro Losing Portrait LP"), 0x3ac180, 0x3ac280 },
+    { _T("Necro Losing Portrait MP"), 0x3ac280, 0x3ac380 },
+    { _T("Necro Losing Portrait HP"), 0x3ac380, 0x3ac480 },
+    { _T("Necro Losing Portrait LK"), 0x3ac480, 0x3ac580 },
+    { _T("Necro Losing Portrait MK"), 0x3ac580, 0x3ac680 },
+    { _T("Necro Losing Portrait HK"), 0x3ac680, 0x3ac780 },
+    { _T("Necro Losing Portrait EX"), 0x3ac780, 0x3ac880 },
+
     { _T("Necro Icon"), 0x3a0900, 0x3a0980 },
 };
 
 const sGame_PaletteDataset SFIII2_A_IBUKI_PORTRAIT_PALETTES[] =
 {
-    { _T("Ibuki Losing Portrait LP"), 0x3ad300, 0x3ad400 },
-    { _T("Ibuki Losing Portrait MP"), 0x3ad400, 0x3ad500 },
-    { _T("Ibuki Losing Portrait HP"), 0x3ad500, 0x3ad600 },
-    { _T("Ibuki Losing Portrait LK"), 0x3ad600, 0x3ad700 },
-    { _T("Ibuki Losing Portrait MK"), 0x3ad700, 0x3ad800 },
-    { _T("Ibuki Losing Portrait HK"), 0x3ad800, 0x3ad900 },
-    { _T("Ibuki Losing Portrait EX"), 0x3ad900, 0x3ada00 },
-
     { _T("Ibuki Winning Portrait LP"), 0x3a5f80, 0x3a6000 },
     { _T("Ibuki Winning Portrait MP"), 0x3a6000, 0x3a6080 },
     { _T("Ibuki Winning Portrait HP"), 0x3a6080, 0x3a6100 },
@@ -1232,19 +1224,19 @@ const sGame_PaletteDataset SFIII2_A_IBUKI_PORTRAIT_PALETTES[] =
     { _T("Ibuki Winning Portrait HK"), 0x3a6200, 0x3a6280 },
     { _T("Ibuki Winning Portrait EX"), 0x3a6280, 0x3a6300 },
 
+    { _T("Ibuki Losing Portrait LP"), 0x3ad300, 0x3ad400 },
+    { _T("Ibuki Losing Portrait MP"), 0x3ad400, 0x3ad500 },
+    { _T("Ibuki Losing Portrait HP"), 0x3ad500, 0x3ad600 },
+    { _T("Ibuki Losing Portrait LK"), 0x3ad600, 0x3ad700 },
+    { _T("Ibuki Losing Portrait MK"), 0x3ad700, 0x3ad800 },
+    { _T("Ibuki Losing Portrait HK"), 0x3ad800, 0x3ad900 },
+    { _T("Ibuki Losing Portrait EX"), 0x3ad900, 0x3ada00 },
+
     { _T("Ibuki Icon"), 0x3a0600, 0x3a0680 },
 };
 
 const sGame_PaletteDataset SFIII2_A_ELENA_PORTRAIT_PALETTES[] =
 {
-    { _T("Elena Losing Portrait LP"), 0x3ada00, 0x3adb00 },
-    { _T("Elena Losing Portrait MP"), 0x3adb00, 0x3adc00 },
-    { _T("Elena Losing Portrait HP"), 0x3adc00, 0x3add00 },
-    { _T("Elena Losing Portrait LK"), 0x3add00, 0x3ade00 },
-    { _T("Elena Losing Portrait MK"), 0x3ade00, 0x3adf00 },
-    { _T("Elena Losing Portrait HK"), 0x3adf00, 0x3ae000 },
-    { _T("Elena Losing Portrait EX"), 0x3ae000, 0x3ae100 },
-
     { _T("Elena 1 Winning Portrait LP"), 0x3a6300, 0x3a6380 },
     { _T("Elena 2 Winning Portrait LP"), 0x3a6380, 0x3a6400 },
     { _T("Elena 1 Winning Portrait MP"), 0x3a6400, 0x3a6480 },
@@ -1260,19 +1252,19 @@ const sGame_PaletteDataset SFIII2_A_ELENA_PORTRAIT_PALETTES[] =
     { _T("Elena 1 Winning Portrait EX"), 0x3a6900, 0x3a6980 },
     { _T("Elena 2 Winning Portrait EX"), 0x3a6980, 0x3a6a00 },
 
+    { _T("Elena Losing Portrait LP"), 0x3ada00, 0x3adb00 },
+    { _T("Elena Losing Portrait MP"), 0x3adb00, 0x3adc00 },
+    { _T("Elena Losing Portrait HP"), 0x3adc00, 0x3add00 },
+    { _T("Elena Losing Portrait LK"), 0x3add00, 0x3ade00 },
+    { _T("Elena Losing Portrait MK"), 0x3ade00, 0x3adf00 },
+    { _T("Elena Losing Portrait HK"), 0x3adf00, 0x3ae000 },
+    { _T("Elena Losing Portrait EX"), 0x3ae000, 0x3ae100 },
+
     { _T("Elena Icon"), 0x3a0700, 0x3a0780 },
 };
 
 const sGame_PaletteDataset SFIII2_A_ORO_PORTRAIT_PALETTES[] =
 {
-    { _T("Oro Losing Portrait LP"), 0x3ae100, 0x3ae180 },
-    { _T("Oro Losing Portrait MP"), 0x3ae180, 0x3ae200 },
-    { _T("Oro Losing Portrait HP"), 0x3ae200, 0x3ae280 },
-    { _T("Oro Losing Portrait LK"), 0x3ae280, 0x3ae300 },
-    { _T("Oro Losing Portrait MK"), 0x3ae300, 0x3ae380 },
-    { _T("Oro Losing Portrait HK"), 0x3ae380, 0x3ae400 },
-    { _T("Oro Losing Portrait EX"), 0x3ae400, 0x3ae480 },
-
     { _T("Oro Winning Portrait LP"), 0x3a6a00, 0x3a6a80 },
     { _T("Oro Winning Portrait MP"), 0x3a6a80, 0x3a6b00 },
     { _T("Oro Winning Portrait HP"), 0x3a6b00, 0x3a6b80 },
@@ -1281,19 +1273,19 @@ const sGame_PaletteDataset SFIII2_A_ORO_PORTRAIT_PALETTES[] =
     { _T("Oro Winning Portrait HK"), 0x3a6c80, 0x3a6d00 },
     { _T("Oro Winning Portrait EX"), 0x3a6d00, 0x3a6d80 },
 
+    { _T("Oro Losing Portrait LP"), 0x3ae100, 0x3ae180 },
+    { _T("Oro Losing Portrait MP"), 0x3ae180, 0x3ae200 },
+    { _T("Oro Losing Portrait HP"), 0x3ae200, 0x3ae280 },
+    { _T("Oro Losing Portrait LK"), 0x3ae280, 0x3ae300 },
+    { _T("Oro Losing Portrait MK"), 0x3ae300, 0x3ae380 },
+    { _T("Oro Losing Portrait HK"), 0x3ae380, 0x3ae400 },
+    { _T("Oro Losing Portrait EX"), 0x3ae400, 0x3ae480 },
+
     { _T("Oro Icon"), 0x3a0a80, 0x3a0b00 },
 };
 
 const sGame_PaletteDataset SFIII2_A_YANG_PORTRAIT_PALETTES[] =
 {
-    { _T("Yang Losing Portrait LP"), 0x3ae480, 0x3ae580 },
-    { _T("Yang Losing Portrait MP"), 0x3ae580, 0x3ae680 },
-    { _T("Yang Losing Portrait HP"), 0x3ae680, 0x3ae780 },
-    { _T("Yang Losing Portrait LK"), 0x3ae780, 0x3ae880 },
-    { _T("Yang Losing Portrait MK"), 0x3ae880, 0x3ae980 },
-    { _T("Yang Losing Portrait HK"), 0x3ae980, 0x3aea80 },
-    { _T("Yang Losing Portrait EX"), 0x3aea80, 0x3aeb80 },
-
     { _T("Yang Winning Portrait LP"), 0x3a6d80, 0x3a6e00 },
     { _T("Yang Winning Portrait MP"), 0x3a6e00, 0x3a6e80 },
     { _T("Yang Winning Portrait HP"), 0x3a6e80, 0x3a6f00 },
@@ -1302,19 +1294,19 @@ const sGame_PaletteDataset SFIII2_A_YANG_PORTRAIT_PALETTES[] =
     { _T("Yang Winning Portrait HK"), 0x3a7000, 0x3a7080 },
     { _T("Yang Winning Portrait EX"), 0x3a7080, 0x3a7100 },
 
+    { _T("Yang Losing Portrait LP"), 0x3ae480, 0x3ae580 },
+    { _T("Yang Losing Portrait MP"), 0x3ae580, 0x3ae680 },
+    { _T("Yang Losing Portrait HP"), 0x3ae680, 0x3ae780 },
+    { _T("Yang Losing Portrait LK"), 0x3ae780, 0x3ae880 },
+    { _T("Yang Losing Portrait MK"), 0x3ae880, 0x3ae980 },
+    { _T("Yang Losing Portrait HK"), 0x3ae980, 0x3aea80 },
+    { _T("Yang Losing Portrait EX"), 0x3aea80, 0x3aeb80 },
+
     { _T("Yang Icon"), 0x3a0780, 0x3a0800 },
 };
 
 const sGame_PaletteDataset SFIII2_A_KEN_PORTRAIT_PALETTES[] =
 {
-    { _T("Ken Losing Portrait LP"), 0x3aeb80, 0x3aec80 },
-    { _T("Ken Losing Portrait MP"), 0x3aec80, 0x3aed80 },
-    { _T("Ken Losing Portrait HP"), 0x3aed80, 0x3aee80 },
-    { _T("Ken Losing Portrait LK"), 0x3aee80, 0x3aef80 },
-    { _T("Ken Losing Portrait MK"), 0x3aef80, 0x3af080 },
-    { _T("Ken Losing Portrait HK"), 0x3af080, 0x3af180 },
-    { _T("Ken Losing Portrait EX"), 0x3af180, 0x3af280 },
-
     { _T("Ken Winning Portrait LP"), 0x3a7100, 0x3a7180 },
     { _T("Ken Winning Portrait MP"), 0x3a7180, 0x3a7200 },
     { _T("Ken Winning Portrait HP"), 0x3a7200, 0x3a7280 },
@@ -1323,19 +1315,19 @@ const sGame_PaletteDataset SFIII2_A_KEN_PORTRAIT_PALETTES[] =
     { _T("Ken Winning Portrait HK"), 0x3a7380, 0x3a7400 },
     { _T("Ken Winning Portrait EX"), 0x3a7400, 0x3a7480 },
     
+    { _T("Ken Losing Portrait LP"), 0x3aeb80, 0x3aec80 },
+    { _T("Ken Losing Portrait MP"), 0x3aec80, 0x3aed80 },
+    { _T("Ken Losing Portrait HP"), 0x3aed80, 0x3aee80 },
+    { _T("Ken Losing Portrait LK"), 0x3aee80, 0x3aef80 },
+    { _T("Ken Losing Portrait MK"), 0x3aef80, 0x3af080 },
+    { _T("Ken Losing Portrait HK"), 0x3af080, 0x3af180 },
+    { _T("Ken Losing Portrait EX"), 0x3af180, 0x3af280 },
+
     { _T("Ken Icon"), 0x3a0800, 0x3a0880 },
 };
 
 const sGame_PaletteDataset SFIII2_A_SEAN_PORTRAIT_PALETTES[] =
 {
-    { _T("Sean Losing Portrait LP"), 0x3af280, 0x3af400 },
-    { _T("Sean Losing Portrait MP"), 0x3af400, 0x3af580 },
-    { _T("Sean Losing Portrait HP"), 0x3af580, 0x3af700 },
-    { _T("Sean Losing Portrait LK"), 0x3af700, 0x3af880 },
-    { _T("Sean Losing Portrait MK"), 0x3af880, 0x3afa00 },
-    { _T("Sean Losing Portrait HK"), 0x3afa00, 0x3afb80 },
-    { _T("Sean Losing Portrait EX"), 0x3afb80, 0x3afd00 },
-
     { _T("Sean 1 Winning Portrait LP"), 0x3a7480, 0x3a7500 },
     { _T("Sean 2 Winning Portrait LP"), 0x3a7500, 0x3a7580 },
     { _T("Sean 1 Winning Portrait MP"), 0x3a7580, 0x3a7600 },
@@ -1351,19 +1343,19 @@ const sGame_PaletteDataset SFIII2_A_SEAN_PORTRAIT_PALETTES[] =
     { _T("Sean 1 Winning Portrait EX"), 0x3a7a80, 0x3a7b00 },
     { _T("Sean 2 Winning Portrait EX"), 0x3a7b00, 0x3a7b80 },
 
+    { _T("Sean Losing Portrait LP"), 0x3af280, 0x3af400 },
+    { _T("Sean Losing Portrait MP"), 0x3af400, 0x3af580 },
+    { _T("Sean Losing Portrait HP"), 0x3af580, 0x3af700 },
+    { _T("Sean Losing Portrait LK"), 0x3af700, 0x3af880 },
+    { _T("Sean Losing Portrait MK"), 0x3af880, 0x3afa00 },
+    { _T("Sean Losing Portrait HK"), 0x3afa00, 0x3afb80 },
+    { _T("Sean Losing Portrait EX"), 0x3afb80, 0x3afd00 },
+
     { _T("Sean Icon"), 0x3a0680, 0x3a0700 },
 };
 
 const sGame_PaletteDataset SFIII2_A_URIEN_PORTRAIT_PALETTES[] =
 {
-    { _T("Urien Losing Portrait LP"), 0x3afd00, 0x3afd80 },
-    { _T("Urien Losing Portrait MP"), 0x3afe80, 0x3aff00 },
-    { _T("Urien Losing Portrait HP"), 0x3b0000, 0x3b0080 },
-    { _T("Urien Losing Portrait LK"), 0x3b0180, 0x3b0200 },
-    { _T("Urien Losing Portrait MK"), 0x3b0300, 0x3b0380 },
-    { _T("Urien Losing Portrait HK"), 0x3b0480, 0x3b0500 },
-    { _T("Urien Losing Portrait EX"), 0x3b0600, 0x3b0680 },
-
     { _T("Urien 1 Winning Portrait LP"), 0x3a7b80, 0x3a7c00 },
     { _T("Urien 2 Winning Portrait LP"), 0x3a7c00, 0x3a7c80 },
     { _T("Urien 1 Winning Portrait MP"), 0x3a7c80, 0x3a7d00 },
@@ -1379,18 +1371,19 @@ const sGame_PaletteDataset SFIII2_A_URIEN_PORTRAIT_PALETTES[] =
     { _T("Urien 1 Winning Portrait EX"), 0x3a8180, 0x3a8200 },
     { _T("Urien 2 Winning Portrait EX"), 0x3a8200, 0x3a8280 },
     
+    { _T("Urien Losing Portrait LP"), 0x3afd00, 0x3afd80 },
+    { _T("Urien Losing Portrait MP"), 0x3afe80, 0x3aff00 },
+    { _T("Urien Losing Portrait HP"), 0x3b0000, 0x3b0080 },
+    { _T("Urien Losing Portrait LK"), 0x3b0180, 0x3b0200 },
+    { _T("Urien Losing Portrait MK"), 0x3b0300, 0x3b0380 },
+    { _T("Urien Losing Portrait HK"), 0x3b0480, 0x3b0500 },
+    { _T("Urien Losing Portrait EX"), 0x3b0600, 0x3b0680 },
+
     { _T("Urien Icon"), 0x3a0a00, 0x3a0a80 },
 };
 
 const sGame_PaletteDataset SFIII2_A_GOUKI_PORTRAIT_PALETTES[] =
 {
-    { _T("Gouki Losing Portrait LP"), 0x3b0780, 0x3b0880 },
-    { _T("Gouki Losing Portrait MP"), 0x3b0900, 0x3b0a00 },
-    { _T("Gouki Losing Portrait HP"), 0x3b0a80, 0x3b0b80 },
-    { _T("Gouki Losing Portrait LK"), 0x3b0c00, 0x3b0d00 },
-    { _T("Gouki Losing Portrait MK"), 0x3b0d80, 0x3b0e80 },
-    { _T("Gouki Losing Portrait HK"), 0x3b0f00, 0x3b1000 },
-    { _T("Gouki Losing Portrait EX"), 0x3b1080, 0x3b1180 },
     { _T("Gouki Winning Portrait LP"), 0x3a8280, 0x3a8300 },
     { _T("Gouki Winning Portrait MP"), 0x3a8380, 0x3a8400 },
     { _T("Gouki Winning Portrait HP"), 0x3a8480, 0x3a8500 },
@@ -1399,15 +1392,24 @@ const sGame_PaletteDataset SFIII2_A_GOUKI_PORTRAIT_PALETTES[] =
     { _T("Gouki Winning Portrait HK"), 0x3a8780, 0x3a8800 },
     { _T("Gouki Winning Portrait EX"), 0x3a8880, 0x3a8900 },
 
+    { _T("Gouki Losing Portrait LP"), 0x3b0780, 0x3b0880 },
+    { _T("Gouki Losing Portrait MP"), 0x3b0900, 0x3b0a00 },
+    { _T("Gouki Losing Portrait HP"), 0x3b0a80, 0x3b0b80 },
+    { _T("Gouki Losing Portrait LK"), 0x3b0c00, 0x3b0d00 },
+    { _T("Gouki Losing Portrait MK"), 0x3b0d80, 0x3b0e80 },
+    { _T("Gouki Losing Portrait HK"), 0x3b0f00, 0x3b1000 },
+    { _T("Gouki Losing Portrait EX"), 0x3b1080, 0x3b1180 },
+
     { _T("Gouki Icon"), 0x3a0b80, 0x3a0c00 },
 };
 
 const sGame_PaletteDataset SFIII2_A_SHINGOUKI_PORTRAIT_PALETTES[] =
 {
-    { _T("Shin Gouki Losing Portrait P1"), 0x3b1200, 0x3b1300 },
-    { _T("Shin Gouki Losing Portrait P2"), 0x3b1380, 0x3b1480 },
     { _T("Shin Gouki Winning Portrait P1"), 0x3a8980, 0x3a8a00 },
     { _T("Shin Gouki Winning Portrait P2"), 0x3a8a80, 0x3a8b00 },
+
+    { _T("Shin Gouki Losing Portrait P1"), 0x3b1200, 0x3b1300 },
+    { _T("Shin Gouki Losing Portrait P2"), 0x3b1380, 0x3b1480 },
 };
 
 const sDescTreeNode SFIII2_A_ALEX_COLLECTION[] =

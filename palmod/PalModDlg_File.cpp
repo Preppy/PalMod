@@ -417,7 +417,7 @@ void CPalModDlg::OnFileOpen()
         { SFA3_A, _T("SFA3 sz3.09c|*.09*|"), INVALID_UNIT_VALUE },
         { SFIII2_A, _T("SFIII2 Arcade|50|"), INVALID_UNIT_VALUE },
         { SFIII3_A, _T("SFIII3 Arcade (51), Gill glow (10)|10;51|"), INVALID_UNIT_VALUE },
-        { SF2CE_A, _T("SF2:CE: Select (21), Characters (22)|s92*21*6f;s92*22*7f|"), INVALID_UNIT_VALUE },
+        { SF2CE_A, _T("SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|"), INVALID_UNIT_VALUE },
         { SF2HF_A, _T("SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f|"), INVALID_UNIT_VALUE },
         { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|sfx*.03*;sfx*.04a|"), INVALID_UNIT_VALUE },
         { GEMFIGHTER_A, _T("Super Gem Fighter|pcf*.07|"), INVALID_UNIT_VALUE },
