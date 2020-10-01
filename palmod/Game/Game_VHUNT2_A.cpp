@@ -40,7 +40,7 @@ CGame_VHUNT2_A::CGame_VHUNT2_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = VHUNT2_A_NUMUNIT;
     m_nExtraUnit = VHUNT2_A_EXTRALOC;
-    m_nSafeCountForThisRom = 848 + GetExtraCt(VHUNT2_A_EXTRALOC);
+    m_nSafeCountForThisRom = 808 + GetExtraCt(VHUNT2_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_VHUNT2;
     m_nTotalPaletteCount = m_nTotalPaletteCountForVHUNT2;
 
