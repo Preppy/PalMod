@@ -60,10 +60,10 @@ CGame_SSF2T_GBA::CGame_SSF2T_GBA(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SSF2T_GBA;
     nImgGameFlag = IMGDAT_SECTION_ST;
-    nImgUnitAmt = SSF2T_A_NUM_IMG_UNITS;
+    nImgUnitAmt = 0; // we need GBA sprites that we don't have yet. SSF2T_GBA_NUM_IMG_UNITS;
 
     // GBA actually has alpha values on some colors, but not all of them.  Force it everywhere for sanity.
-    createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
+    createPalOptions = { NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
 
     nFileAmt = 1;
 

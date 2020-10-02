@@ -213,9 +213,13 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             break;
         }
         case SSF2T_A:
-        case SSF2T_GBA:
         {
             nImageUnitCounterToUse = SSF2T_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case SSF2T_GBA:
+        {
+            nImageUnitCounterToUse = SSF2T_GBA_IMG_UNITS[nUnitCtr];
             break;
         }
         case SVCPLUSA_A:

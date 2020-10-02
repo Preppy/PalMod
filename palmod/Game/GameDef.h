@@ -604,6 +604,50 @@ const UINT8 SSF2T_A_IMG_UNITS[] =
 
 constexpr auto SSF2T_A_NUM_IMG_UNITS = ARRAYSIZE(SSF2T_A_IMG_UNITS);
 
+enum SF2GBASprites
+{
+    indexSF2GBASprites_Ryu = 0,
+    indexSF2GBASprites_EHonda,
+    indexSF2GBASprites_Blanka,
+    indexSF2GBASprites_Guile,
+    indexSF2GBASprites_Ken,
+    indexSF2GBASprites_ChunLi,
+    indexSF2GBASprites_Zangief,
+    indexSF2GBASprites_Dhalsim,
+    indexSF2GBASprites_Bison,
+    indexSF2GBASprites_Sagat,
+    indexSF2GBASprites_Balrog,
+    indexSF2GBASprites_Vega,
+    indexSF2GBASprites_Cammy,
+    indexSF2GBASprites_THawk,
+    indexSF2GBASprites_FeiLong,
+    indexSF2GBASprites_DeeJay,
+    indexSF2GBASprites_Gouki,
+};
+
+const UINT8 SSF2T_GBA_IMG_UNITS[] =
+{
+    indexSF2GBASprites_Ryu,
+    indexSF2GBASprites_EHonda,
+    indexSF2GBASprites_Blanka,
+    indexSF2GBASprites_Guile,
+    indexSF2GBASprites_Ken,
+    indexSF2GBASprites_ChunLi,
+    indexSF2GBASprites_Zangief,
+    indexSF2GBASprites_Dhalsim,
+    indexSF2GBASprites_Bison,
+    indexSF2GBASprites_Sagat,
+    indexSF2GBASprites_Balrog,
+    indexSF2GBASprites_Vega,
+    indexSF2GBASprites_Cammy,
+    indexSF2GBASprites_THawk,
+    indexSF2GBASprites_FeiLong,
+    indexSF2GBASprites_DeeJay,
+    indexSF2GBASprites_Gouki,
+};
+
+constexpr auto SSF2T_GBA_NUM_IMG_UNITS = ARRAYSIZE(SSF2T_GBA_IMG_UNITS);
+
 const UINT8 SF2HF_A_IMG_UNITS[] =
 {
     indexSF2Sprites_Ryu,
