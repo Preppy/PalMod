@@ -36,7 +36,7 @@ void CPalModDlg::OnEditCopy()
         }
 
         COleDataSource* pSource = new COleDataSource();
-        CSharedFile    sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
+        CSharedFile sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
 
         CStringA CopyText;
         CStringA FormatTxt;
@@ -50,6 +50,10 @@ void CPalModDlg::OnEditCopy()
         // to just use color mode, but that'd break compatibility.
         switch (CurrGame->GetColMode())
         {
+        case ColMode::COLMODE_GBA:
+            // RGB444
+            uCopyFlag1 = SSF2T_GBA + k_nASCIICharacterOffset;
+            break;
         case ColMode::COLMODE_12A:
             // RGB444
             uCopyFlag1 = MVC2_P + k_nASCIICharacterOffset;
@@ -69,7 +73,7 @@ void CPalModDlg::OnEditCopy()
         default:
             {
                 CString strMsg;
-                strMsg.Format(_T("Warning: The pasted color value is from a newer version of PalMod.  Please upgrade."));
+                strMsg.Format(_T("Warning: The current color mode needs to have copy support added."));
                 MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                 uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
                 break;
@@ -149,9 +153,8 @@ BOOL IsPasteFromPalMod()
 
     if (szTempStr[0] == '(')
     {
-        if ((szTempStr[1] - k_nASCIICharacterOffset) <= NUM_GAMES) //Gameflag
+        if ((szTempStr[1] - k_nASCIICharacterOffset) < NUM_GAMES) //Gameflag
         {
-            // UINT16 uPasteAmt = ;
             UINT16 nPaletteCount = (0xFF & szTempStr[2]) - k_nASCIICharacterOffset;
 
             if (nPaletteCount == 0)
@@ -242,6 +245,11 @@ void CPalModDlg::OnEditPaste()
             {
                 switch (uPasteGFlag)
                 {
+                case SSF2T_GBA:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_GBA;
+                    break;
+                }
                 case COTA_A:
                 case MSHVSF_A:
                 case MSH_A:

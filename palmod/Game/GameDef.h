@@ -5,6 +5,7 @@
 //D = Dreamcast
 //P = Playstation 2
 //S = Steam
+//GBA = GameBoy
 
 // Needed for game tables
 void StrRemoveNonASCII(TCHAR* pszOutput, size_t ccSize, LPCTSTR pszInput);
@@ -54,6 +55,7 @@ enum SupportedGamesList
     SFIII2_A,
     SF2HF_A,
     SF2CE_A,
+    SSF2T_GBA,
     NUM_GAMES // This needs to be last
 };
 
@@ -111,6 +113,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("SFIII2 (Arcade)"),
    _T("SF2:HF (Arcade)"),
    _T("SF2:CE (Arcade)"),
+   _T("SSF2T:Revival (GBA)"),
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -173,6 +176,11 @@ const LPCTSTR DEF_BUTTONLABEL_JOJOS_5[] =
 const LPCTSTR DEF_BUTTONLABEL6[] =
 {
    _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK")
+};
+
+const LPCTSTR DEF_BUTTONLABEL_GBA[] =
+{
+    _T("A"), _T("L"), _T("R"), _T("B"), _T("Sel+A"), _T("Sel+L"), _T("Sel+R"), _T("Sel+B"), _T("Start")
 };
 
 const LPCTSTR DEF_BUTTONLABEL_ISMS[] =

@@ -20,6 +20,7 @@ struct sFileRule
 enum class ColMode
 {
     // If you change this list you must update CPalModDlg::OnEditCopy
+    COLMODE_GBA,       // RGB444
     COLMODE_12A,       // RGB444
     COLMODE_15,        // BGR555
     COLMODE_15ALT,     // RGB555
@@ -84,6 +85,8 @@ protected:
 
     static BOOL m_fAllowTransparency;
 
+    static UINT16 CONV_32_GBA(UINT32 inCol);
+    static UINT32 CONV_GBA_32(UINT16 inCol);
     static UINT16 CONV_32_12A(UINT32 inCol);
     static UINT32 CONV_12A_32(UINT16 inCol);
     static UINT16 CONV_32_15(UINT32 inCol);

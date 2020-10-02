@@ -96,6 +96,11 @@ BOOL CImgOutDlg::OnInitDialog()
     case 8: // status effects or cvs2
         m_CB_Amt.AddString(_T("8"));
         break;
+    case 9: // GBA!
+        m_CB_Amt.AddString(_T("4"));
+        m_CB_Amt.AddString(_T("8"));
+        m_CB_Amt.AddString(_T("9"));
+        break;
     case 10: // ST
         m_CB_Amt.AddString(_T("6"));
         m_CB_Amt.AddString(_T("10"));

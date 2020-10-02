@@ -688,6 +688,7 @@ int CImgDumpBmp::GetMaxImagesPerLine()
     case 8:
         w_mul = 4;
         break;
+    case 9:
     case 10:
         w_mul = 5;
         break;

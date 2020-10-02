@@ -34,6 +34,7 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
     {
         switch (CurrColMode)
         {
+        case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_12A:
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneAmtForRGB444;
@@ -57,6 +58,7 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
     {
         switch (CurrColMode)
         {
+        case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_12A:
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneMulForRGB444;
@@ -144,20 +146,23 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
         // See also MEDIASUBTYPE_555
         switch (NewMode)
         {
+        case ColMode::COLMODE_GBA:
+            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMOD_GBA (ARGB444)"));
+            break;
         case ColMode::COLMODE_12A:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMOD_12A (ARGB444)"));
+            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMOD_12A (ARGB444)"));
             break;
         case ColMode::COLMODE_15:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMODE_15 (BGR555)"));
+            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMODE_15 (BGR555)"));
             break;
         case ColMode::COLMODE_15ALT:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMODE_15ALT (RGB555)"));
+            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMODE_15ALT (RGB555)"));
             break;
         case ColMode::COLMODE_NEOGEO:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'. \n"), _T("COLMODE_NEOGEO (RGB666)"));
+            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMODE_NEOGEO (RGB666)"));
             break;
         default:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : unsupported color mode."));
+            strDebugInfo.Format(_T("CGameClass::SetColMode : unsupported color mode.\n"));
             break;
         }
         OutputDebugString(strDebugInfo);
@@ -167,6 +172,10 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
 
     switch (NewMode)
     {
+    case ColMode::COLMODE_GBA:
+        ConvPal = &CGameClass::CONV_GBA_32;
+        ConvCol = &CGameClass::CONV_32_GBA;
+        return TRUE;
     case ColMode::COLMODE_12A:
         ConvPal = &CGameClass::CONV_12A_32;
         ConvCol = &CGameClass::CONV_32_12A;
@@ -186,6 +195,33 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
     default:
         return FALSE;
     }
+}
+
+UINT16 CGameClass::CONV_32_GBA(UINT32 inCol)
+{
+    UINT16 auxa = ((inCol & 0xFF000000) >> 24);
+    UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
+    UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT16 auxr = ((inCol & 0x000000FF));
+
+    auxa = (auxa == 0xFF) ? 0x1 : 0;
+
+    return (((auxr >> 3) & 31) | (((auxg >> 3) & 31) << 5) | (((auxb >> 3) & 31) << 10)) | (auxa << 15);
+}
+
+UINT32 CGameClass::CONV_GBA_32(UINT16 inCol)
+{
+    UINT32 red =    (inCol        & 31) << 3;
+    UINT32 green = ((inCol >> 5)  & 31) << 3;
+    UINT32 blue =  ((inCol >> 10) & 31) << 3;
+    UINT32 alpha = ((inCol >> 15) &  1) << 3;
+
+    if (alpha == 0x8)
+    {
+        alpha = 0xFF;
+    }
+
+    return ((alpha << 24) | (blue << 16) | (green << 8) | (red));
 }
 
 UINT16 CGameClass::CONV_32_12A(UINT32 inCol)
@@ -560,6 +596,11 @@ COLORREF* CGameClass::CreatePal(UINT16 nUnitId, UINT16 nPalId)
     LoadSpecificPaletteData(nUnitId, nPalId);
 
     COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
+
+    if (createPalOptions.nStartingPosition != 0)
+    {
+        NewPal[0] = 0x0;
+    }
 
     for (UINT16 i = 0; i < (m_nCurrentPaletteSize - createPalOptions.nStartingPosition); i++)
     {

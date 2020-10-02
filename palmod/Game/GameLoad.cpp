@@ -36,6 +36,7 @@
 #include "Game_SF2CE_A.h"
 #include "Game_SF2HF_A.h"
 #include "Game_SSF2T_A.h"
+#include "Game_SSF2T_GBA.h"
 #include "Game_SVCPLUSA_A.h"
 #include "Game_VHUNT2_A.h"
 #include "Game_VSAV_A.h"
@@ -286,6 +287,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SSF2T_A::GetRule;
         return TRUE;
     }
+    case SSF2T_GBA:
+    {
+        GetRule = &CGame_SSF2T_GBA::GetRule;
+        return TRUE;
+    }
     case SVCPLUSA_A:
     {
         GetRule = &CGame_SVCPLUSA_A::GetRule;
@@ -470,6 +476,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_SSF2T_A(nConfirmedROMSize, nExtraGameData);
     }
+    case SSF2T_GBA:
+    {
+        return new CGame_SSF2T_GBA(nConfirmedROMSize);
+    }
     case SVCPLUSA_A:
     {
         return new CGame_SVCPLUSA_A(nConfirmedROMSize);
@@ -608,19 +618,19 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         break;
     }
     case SSF2T_A:
-        {
-            TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
+    {
+        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
 
-            if (pszFileName)
-            {
-                // Step forward to the filename
-                pszFileName++;
-                _tcslwr(pszFileName);
-                nGameRule = ((_tcsstr(pszFileName, _T(".03")) != nullptr) ? 3 : 4);
-            }
-            break;
+        if (pszFileName)
+        {
+            // Step forward to the filename
+            pszFileName++;
+            _tcslwr(pszFileName);
+            nGameRule = ((_tcsstr(pszFileName, _T(".03")) != nullptr) ? 3 : 4);
         }
-        default:
+        break;
+    }
+    default:
             break;
     };
 
