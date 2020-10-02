@@ -59,9 +59,9 @@ CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForSelect() ? 11 : 24);
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForSelect() ? 41 : 24);
     m_nTotalPaletteCount = UsePaletteSetForSelect() ? m_nTotalPaletteCountForSF2HF_21 : m_nTotalPaletteCountForSF2HF_22;
-    m_nLowestKnownPaletteRomLocation = UsePaletteSetForSelect() ? 0xe420 : 0x1e6a8;
+    m_nLowestKnownPaletteRomLocation = UsePaletteSetForSelect() ? 0x9400 : 0x1e6a8;
 
     CString strInfo;
     strInfo.Format(_T("CGame_SF2HF_A::CGame_SF2HF_A: Loaded SF2HF_A with %u Extras\n"), GetExtraCt(m_nExtraUnit));

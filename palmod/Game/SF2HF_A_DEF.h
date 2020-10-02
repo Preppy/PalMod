@@ -120,6 +120,85 @@ const sGame_PaletteDataset SF2HF_A_CLAW_P2_NODE[] =
     { _T("Claw"), 0x1E93E, 0x1E95E, indexSF2Sprites_Vega },
 };
 
+const sGame_PaletteDataset SF2HF_A_RYU_PORTRAITS_NODE[] =
+{
+    { _T("Ryu P1"), 0x9400, 0x9420 },
+    { _T("Ryu P2"), 0x9600, 0x9620 },
+    { _T("Ryu 2 Part 2"), 0x95a0, 0x95c0 },
+
+};
+
+const sGame_PaletteDataset SF2HF_A_EHONDA_PORTRAITS_NODE[] =
+{
+    { _T("E.Honda P1"), 0x9420, 0x9440 },
+    { _T("E.Honda P2"), 0x9620, 0x9640 },
+};
+
+const sGame_PaletteDataset SF2HF_A_BLANKA_PORTRAITS_NODE[] =
+{
+    { _T("Blanka P1"), 0x9440, 0x9460 },
+    { _T("Blanka P2"), 0x9640, 0x9660 },
+    { _T("Blanka 2 Part 2"), 0x97E0, 0x9800 },
+};
+
+const sGame_PaletteDataset SF2HF_A_GUILE_PORTRAITS_NODE[] =
+{
+    { _T("Guile P1"), 0x9460, 0x9480 },
+    { _T("Guile P2"), 0x9660, 0x9680 },
+};
+
+const sGame_PaletteDataset SF2HF_A_KEN_PORTRAITS_NODE[] =
+{
+    { _T("Ken P1"), 0x9480, 0x94a0 },
+    { _T("Ken P2"), 0x9680, 0x96a0 },
+};
+
+const sGame_PaletteDataset SF2HF_A_CHUNLI_PORTRAITS_NODE[] =
+{
+    { _T("Chun-Li P1"), 0x94a0, 0x94c0 },
+    { _T("Chun-Li P2"), 0x96a0, 0x96c0 },
+};
+
+const sGame_PaletteDataset SF2HF_A_ZANGIEF_PORTRAITS_NODE[] =
+{
+    { _T("Zangief P1"), 0x94c0, 0x94e0 },
+    { _T("Zangief P2"), 0x96c0, 0x96e0 },
+};
+
+const sGame_PaletteDataset SF2HF_A_DHALSIM_PORTRAITS_NODE[] =
+{
+    { _T("Dhalsim P1"), 0x94e0, 0x9500 },
+    { _T("Dhalsim P1 Part 2"), 0x9580, 0x95a0 }, // join with one once we have a sprite
+    { _T("Dhalsim P2"), 0x96e0, 0x9700 },
+    { _T("Dhalsim P2 Part 2"), 0x9780, 0x97a0 }, // join with one once we have a sprite
+};
+
+const sGame_PaletteDataset SF2HF_A_DICTATOR_PORTRAITS_NODE[] =
+{
+    { _T("Dictator P1"), 0x9500, 0x9520 },
+    { _T("Dictator 1 Part 2"), 0x95c0, 0x95e0 },
+    { _T("Dictator 2"), 0x9700, 0x9720 },
+    { _T("Dictator 2 Part 2"), 0x97c0, 0x97E0 },
+};
+
+const sGame_PaletteDataset SF2HF_A_BOXER_PORTRAITS_NODE[] =
+{
+    { _T("Boxer P1"), 0x9540, 0x9560 },
+    { _T("Boxer P2"), 0x9740, 0x9760 },
+};
+
+const sGame_PaletteDataset SF2HF_A_SAGAT_PORTRAITS_NODE[] =
+{
+    { _T("Sagat P1"), 0x9520, 0x9540 },
+    { _T("Sagat P2"), 0x9720, 0x9740 },
+};
+
+const sGame_PaletteDataset SF2HF_A_CLAW_PORTRAITS_NODE[] =
+{
+    { _T("Claw P1"), 0x9560, 0x9580 },
+    { _T("Claw P2"), 0x9760, 0x9780 },
+};
+
 const sGame_PaletteDataset SF2HF_A_RYU_SELSCREEN_NODE[] =
 {
     { _T("Ryu"), 0xe420, 0xe440 },
@@ -263,9 +342,27 @@ const sDescTreeNode SF2HF_A_DICTATOR_COLLECTION[] =
     { _T("P2"),         DESC_NODETYPE_TREE, (void*)SF2HF_A_DICTATOR_P2_NODE, ARRAYSIZE(SF2HF_A_DICTATOR_P2_NODE) },
 };
 
+const sDescTreeNode SF2HF_A_PORTRAITS_COLLECTION[] =
+{
+    { _T("Blanka"),     DESC_NODETYPE_TREE, (void*)SF2HF_A_BLANKA_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_BLANKA_PORTRAITS_NODE) },
+    { _T("Chun-Li"),    DESC_NODETYPE_TREE, (void*)SF2HF_A_CHUNLI_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_CHUNLI_PORTRAITS_NODE) },
+    { _T("Dhalsim"),    DESC_NODETYPE_TREE, (void*)SF2HF_A_DHALSIM_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_DHALSIM_PORTRAITS_NODE) },
+    { _T("E.Honda"),    DESC_NODETYPE_TREE, (void*)SF2HF_A_EHONDA_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_EHONDA_PORTRAITS_NODE) },
+    { _T("Guile"),      DESC_NODETYPE_TREE, (void*)SF2HF_A_GUILE_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_GUILE_PORTRAITS_NODE) },
+    { _T("Ken"),        DESC_NODETYPE_TREE, (void*)SF2HF_A_KEN_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_KEN_PORTRAITS_NODE) },
+    { _T("Ryu"),        DESC_NODETYPE_TREE, (void*)SF2HF_A_RYU_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_RYU_PORTRAITS_NODE) },
+    { _T("Zangief"),    DESC_NODETYPE_TREE, (void*)SF2HF_A_ZANGIEF_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_ZANGIEF_PORTRAITS_NODE) },
+
+    { _T("Boxer"),      DESC_NODETYPE_TREE, (void*)SF2HF_A_BOXER_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_BOXER_PORTRAITS_NODE) },
+    { _T("Claw"),       DESC_NODETYPE_TREE, (void*)SF2HF_A_CLAW_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_CLAW_PORTRAITS_NODE) },
+    { _T("Sagat"),      DESC_NODETYPE_TREE, (void*)SF2HF_A_SAGAT_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_SAGAT_PORTRAITS_NODE) },
+    { _T("Dictator"),   DESC_NODETYPE_TREE, (void*)SF2HF_A_DICTATOR_PORTRAITS_NODE, ARRAYSIZE(SF2HF_A_DICTATOR_PORTRAITS_NODE) },
+};
+
 const sDescTreeNode SF2HF_A_21_UNITS[] =
 {
-    { _T("Select Screen"),   DESC_NODETYPE_TREE, (void*)SF2HF_A_SELSCREEN_COLLECTION, ARRAYSIZE(SF2HF_A_SELSCREEN_COLLECTION) },
+    { _T("Portraits"),      DESC_NODETYPE_TREE, (void*)SF2HF_A_PORTRAITS_COLLECTION, ARRAYSIZE(SF2HF_A_PORTRAITS_COLLECTION) },
+    { _T("Select Screen"),  DESC_NODETYPE_TREE, (void*)SF2HF_A_SELSCREEN_COLLECTION, ARRAYSIZE(SF2HF_A_SELSCREEN_COLLECTION) },
 };
 
 const sDescTreeNode SF2HF_A_22_UNITS[] =

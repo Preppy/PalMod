@@ -95,7 +95,8 @@ UINT32 CGame_SSF2T_GBA::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
     {
         { _T("SSFIIT- Revival (USA GBA)"), _T("Super Street Fighter II Turbo - Revival (USA).gba"), 0x63045aa, 0 },
         { _T("SSFIIX - Revival (Japan)"), _T("Super Street Fighter II X - Revival (Japan).gba"), 0x7a2c0d61, 0x1690 },
-        { _T("SSFIIT - Revival (Euro GBA)"), _T("Super Street Fighter II Turbo - Revival (Euro).gba"), 0xbadf00d, -0x418 }, // TODO
+        { _T("SSFIIT - Revival (Euro GBA)"), _T("Super_Street_Fighter_II_Turbo_-_Revival_Europe.gba"), 0x461b4590, -0x418 },
+        { _T("SSFIIT - Revival (Euro GBA)"), _T("Super Street Fighter II Turbo - Revival (Europe).gba"), 0x461b4590, -0x418 },
     };
 
     if (ppKnownROMSet)

@@ -173,7 +173,9 @@ const sGame_PaletteDataset SF2CE_A_DHALSIM_PORTRAITS_NODE[] =
 const sGame_PaletteDataset SF2CE_A_DICTATOR_PORTRAITS_NODE[] =
 {
     { _T("Dictator P1"), 0x9500, 0x9520 },
-    { _T("Dictator P2"), 0x9700, 0x9720 },
+    { _T("Dictator 1 Part 2"), 0x95c0, 0x95e0 },
+    { _T("Dictator 2"), 0x9700, 0x9720 },
+    { _T("Dictator 2 Part 2"), 0x97c0, 0x97E0 },
 };
 
 const sGame_PaletteDataset SF2CE_A_BOXER_PORTRAITS_NODE[] =
