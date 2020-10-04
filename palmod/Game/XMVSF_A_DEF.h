@@ -37,14 +37,14 @@ constexpr auto XMVSF_A_NUMUNIT = indexXMVSFLast;
 
 const sGame_PaletteDataset XMVSF_A_Wolverine_PALETTES_P1[] =
 {
-    { _T("P1 Punch Color"), 0x14d7c, 0x14d9c, 0x07, 0x00, &pairWolvieClaws },
+    { _T("P1 Punch Color"), 0x14d7c, 0x14d9c, 0x07, 0x00, &pairNext },
     { _T("P1 claw"), 0x14d9c, 0x14dbc, 0x07, 0x01 },
     { _T("P1 slash FX"), 0x14dbc, 0x14ddc, 0x07, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_Wolverine_PALETTES_P2[] =
 {
-    { _T("P2 Kick Color"), 0x14ddc, 0x14dfc, 0x07, 0x00, &pairWolvieClaws },
+    { _T("P2 Kick Color"), 0x14ddc, 0x14dfc, 0x07, 0x00, &pairNext },
     { _T("P2 claw"),       0x14dfc, 0x14e1c, 0x07, 0x01 },
     { _T("P2 slash FX"),   0x14e1c, 0x14e3c, 0x07, 0x02 },
 };
@@ -516,16 +516,16 @@ const sGame_PaletteDataset XMVSF_A_Cammy_PALETTES_Extras[] =
 
 const sGame_PaletteDataset XMVSF_A_ChunLi_PALETTES_P1[] =
 {
-    { _T("P1 Punch Color"), 0x15b9c, 0x15bbc, 0x1b, 0x00 },
-    { _T("P1 Kick FX"), 0x15bbc, 0x15bdc, 0x1b, 0x01 },
-    { _T("P1 Kikosho"), 0x15bdc, 0x15bfc, 0x1b, 0x02 },
+    { _T("P1 Punch Color"), 0x15b9c, 0x15bbc, indexCPS2_ChunLi, 0x00, &pairNext },
+    { _T("P1 Keiokuken (shades)"), 0x15bbc, 0x15bdc, indexCPS2_ChunLi, 0x01 },
+    { _T("P1 Kikosho"), 0x15bdc, 0x15bfc, indexCPS2_ChunLi, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_ChunLi_PALETTES_P2[] =
 {
-    { _T("P2 Kick Color"), 0x15bfc, 0x15c1c, 0x1b, 0x00 },
-    { _T("P2 Kick FX"), 0x15c1c, 0x15c3c, 0x1b, 0x01 },
-    { _T("P2 Kikosho"), 0x15c3c, 0x15c5c, 0x1b, 0x02 },
+    { _T("P2 Kick Color"), 0x15bfc, 0x15c1c, indexCPS2_ChunLi, 0x00, &pairNext },
+    { _T("P2 Keiokuken (shades)"), 0x15c1c, 0x15c3c, indexCPS2_ChunLi, 0x01 },
+    { _T("P2 Kikosho"), 0x15c3c, 0x15c5c, indexCPS2_ChunLi, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_ChunLi_PALETTES_Extras[] =
@@ -535,16 +535,16 @@ const sGame_PaletteDataset XMVSF_A_ChunLi_PALETTES_Extras[] =
 
 const sGame_PaletteDataset XMVSF_A_ChunLiSFA_PALETTES_P1[] =
 {
-    { _T("P1 Punch Color"), 0x164bc, 0x164dc, 0x1b, 0x0C },
-    { _T("P1 Kick FX"), 0x164dc, 0x164fc, 0x1b, 0x01 },
-    { _T("P1 Kikosho"), 0x164fc, 0x1651c, 0x1b, 0x02 },
+    { _T("P1 Punch Color"), 0x164bc, 0x164dc, indexCPS2_ChunLi, 0x0C, &pairNext },
+    { _T("P1 Keiokuken (shades)"), 0x164dc, 0x164fc, indexCPS2_ChunLi, 0x0F },
+    { _T("P1 Kikosho"), 0x164fc, 0x1651c, indexCPS2_ChunLi, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_ChunLiSFA_PALETTES_P2[] =
 {
-    { _T("P2 Kick Colors"), 0x1651c, 0x1653c, 0x1b, 0x0C },
-    { _T("P2 Kick FX"), 0x1653c, 0x1655c, 0x1b, 0x01 },
-    { _T("P2 Kikosho"), 0x1655c, 0x1657c, 0x1b, 0x02 },
+    { _T("P2 Kick Colors"), 0x1651c, 0x1653c, indexCPS2_ChunLi, 0x0C, &pairNext },
+    { _T("P2 Keiokuken (shades)"), 0x1653c, 0x1655c, indexCPS2_ChunLi, 0x0F },
+    { _T("P2 Kikosho"), 0x1655c, 0x1657c, indexCPS2_ChunLi, 0x02 },
 };
 
 const sGame_PaletteDataset XMVSF_A_ChunLiSFA_PALETTES_Extras[] =

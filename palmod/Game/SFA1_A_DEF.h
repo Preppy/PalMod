@@ -171,26 +171,26 @@ const sGame_PaletteDataset SFA1_A_CHARLIE_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_CHUNLI_PUNCH_PALETTES[] =
 {
-    { _T("Main Sprite"),    0x68160, 0x68180, indexCPS2_ChunLi, 0x00 },
-    { _T("Super Trail 1"),  0x68180, 0x681A0, indexCPS2_ChunLi, 0x00 },
-    { _T("Super Trail 2"),  0x681A0, 0x681C0, indexCPS2_ChunLi, 0x00 },
-    { _T("Super Trail 3"),  0x681C0, 0x681E0, indexCPS2_ChunLi, 0x00 },
-    { _T("Extra 1"),        0x681E0, 0x68200, indexCPS2_ChunLi, 0x01 },
-    { _T("Extra 2"),        0x68200, 0x68220 },
-    { _T("Psycho Power Burned Effect"), 0x68220, 0x68240, indexCPS2_ChunLi, 0x00 },
-    { _T("Burned Status"),   0x68240, 0x68260, indexCPS2_ChunLi, 0x00 },
+    { _T("Main Sprite"),    0x68160, 0x68180, indexCPS2_ChunLi, 0x0C, &pairNext },
+    { _T("Keiokuken (shades)"), 0x681E0, 0x68200, indexCPS2_ChunLi, 0x0F },
+    { _T("Extra 2"),        0x68200, 0x68220, indexCPS2_ChunLi, 0x02 },
+    { _T("Super Trail 1"),  0x68180, 0x681A0, indexCPS2_ChunLi, 0x0C },
+    { _T("Super Trail 2"),  0x681A0, 0x681C0, indexCPS2_ChunLi, 0x0C },
+    { _T("Super Trail 3"),  0x681C0, 0x681E0, indexCPS2_ChunLi, 0x0C },
+    { _T("Psycho Power Burned Effect"), 0x68220, 0x68240, indexCPS2_ChunLi, 0x0C },
+    { _T("Burned Status"),   0x68240, 0x68260, indexCPS2_ChunLi, 0x0C },
 };
 
 const sGame_PaletteDataset SFA1_A_CHUNLI_KICK_PALETTES[] =
 {
-    { _T("Main Sprite"),    0x68260, 0x68280, indexCPS2_ChunLi, 0x00 },
-    { _T("Super Trail 1"),  0x68280, 0x682A0, indexCPS2_ChunLi, 0x00 },
-    { _T("Super Trail 2"),  0x682A0, 0x682C0, indexCPS2_ChunLi, 0x00 },
-    { _T("Super Trail 3"),  0x682C0, 0x682E0, indexCPS2_ChunLi, 0x00 },
-    { _T("Extra 1"),        0x682E0, 0x68300, indexCPS2_ChunLi, 0x01 },
-    { _T("Extra 2"),        0x68300, 0x68320 },
-    { _T("Psycho Power Burned Effect"), 0x68320, 0x68340, indexCPS2_ChunLi, 0x00 },
-    { _T("Burned Status"),   0x68340, 0x68360, indexCPS2_ChunLi, 0x00 },
+    { _T("Main Sprite"),    0x68260, 0x68280, indexCPS2_ChunLi, 0x0C, &pairNext },
+    { _T("Keiokuken (shades)"), 0x682E0, 0x68300, indexCPS2_ChunLi, 0x0F },
+    { _T("Extra 2"),        0x68300, 0x68320, indexCPS2_ChunLi, 0x02 },
+    { _T("Super Trail 1"),  0x68280, 0x682A0, indexCPS2_ChunLi, 0x0C },
+    { _T("Super Trail 2"),  0x682A0, 0x682C0, indexCPS2_ChunLi, 0x0C },
+    { _T("Super Trail 3"),  0x682C0, 0x682E0, indexCPS2_ChunLi, 0x0C },
+    { _T("Psycho Power Burned Effect"), 0x68320, 0x68340, indexCPS2_ChunLi, 0x0C },
+    { _T("Burned Status"),   0x68340, 0x68360, indexCPS2_ChunLi, 0x0C },
 };
 
 const sGame_PaletteDataset SFA1_A_CHUNLI_PORTRAIT_PALETTES[] =

@@ -178,11 +178,11 @@ sMVC2A_CharacterData MVC2ArcadeCharacterArray[] =
     { _T("indexCPS2_Strider"), 0x05, _T("Strider Hiryu"), _T("STRIDER"), 0x2A2c5E2, 0, 0},
     { _T("indexCPS2_Cyclops"), 0x06, _T("Cyclops"), _T("CYCLOPS"), 0x2B13442, 0x19, 0x64},
     // don't forget to join the claws!
-    { _T("indexCPS2_Wolverine"), 0x07, _T("Wolverine"), _T("WOLVERINE"), 0x2C0eba2, 0x11, 0x11, _T("pairWolvieClaws") },
+    { _T("indexCPS2_Wolverine"), 0x07, _T("Wolverine"), _T("WOLVERINE"), 0x2C0eba2, 0x11, 0x11, _T("pairNext") },
     { _T("indexCPS2_Psylocke"), 0x08, _T("Psylocke"), _T("PSYLOCKE"), 0x2D104E2, 0, 0 },
     { _T("indexCPS2_Iceman"), 0x09, _T("Iceman"), _T("ICEMAN"), 0x2DFB5C2, 0x9, 0x4a},
     { _T("indexCPS2_Rogue"), 0x0A, _T("Rogue"), _T("ROGUE"), 0x2EE2142 , 0x1d, 0x22},
-    { _T("indexCPS2_CapAm"), 0x0B, _T("Captain America"), _T("CAPTAINAMERICA"), 0x2FD03E2, 0, 0, _T("pairCaptainAmericaShield") },
+    { _T("indexCPS2_CapAm"), 0x0B, _T("Captain America"), _T("CAPTAINAMERICA"), 0x2FD03E2, 0, 0, _T("pairNext") },
     { _T("indexCPS2_Spidey"), 0x0C, _T("Spider-Man"), _T("SPIDERMAN"), 0x30Ae9C2, 0x9, 0x64},
     { _T("indexCPS2_Hulk"), 0x0D, _T("Hulk,"), _T("HULK"), 0x31C9402, 0xa, 0xa },
     { _T("indexCPS2_Venom"), 0x0E, _T("Venom"), _T("VENOM"), 0x32Ed122 , 0, 0},
@@ -230,7 +230,7 @@ sMVC2A_CharacterData MVC2ArcadeCharacterArray[] =
     { _T("indexCPS2_Thanos"), 0x36, _T("Thanos"), _T("THANOS"), 0x5673e42, 0x9, 0x1f },
     { _T("indexCPS2_Jin"), 0x37, _T("Jin"), _T("JIN"), 0x5758482, 0x9, 0x86 },
     { _T("indexCPS2_CapCom"), 0x38, _T("Captain Commando"), _T("CAPTAINCOMMANDO"), 0x5847ec2 , 0x9, 0x19},
-    { _T("indexCPS2_Bonerine"), 0x39, _T("Bonerine"), _T("BONERINE"), 0x59472a2, 0, 0, _T("pairWolvieClaws") },
+    { _T("indexCPS2_Bonerine"), 0x39, _T("Bonerine"), _T("BONERINE"), 0x59472a2, 0, 0, _T("pairNext") },
     { _T("indexCPS2_Kobun"), 0x3A, _T("Kobun"), _T("KOBUN"), 0x59acdc2, 0x9, 0x26 },
 };
 

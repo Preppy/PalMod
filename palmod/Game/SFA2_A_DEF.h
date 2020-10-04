@@ -438,8 +438,8 @@ const sGame_PaletteDataset SFA2_A_CHARLIE_STATUS_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_PUNCH_PALETTES[] =
 {
-    { _T("Punch"), 0x6f1c0, 0x6f1e0, indexCPS2_ChunLi, 0x0c },
-    { _T("Punch Extra 1"), 0x6f1e0, 0x6f200, indexCPS2_ChunLi, 0x01 },
+    { _T("Punch"), 0x6f1c0, 0x6f1e0, indexCPS2_ChunLi, 0x0c, &pairNext },
+    { _T("Punch Keiokuken (shades)"), 0x6f1e0, 0x6f200, indexCPS2_ChunLi, 0x0f },
     { _T("Punch Extra 2"), 0x6f200, 0x6f220 },
     { _T("Punch Super Trail Light"), 0x6f220, 0x6f240, indexCPS2_ChunLi, 0x0c },
     { _T("Punch Super Trail Dark"), 0x6f240, 0x6f260, indexCPS2_ChunLi, 0x0c },
@@ -447,8 +447,8 @@ const sGame_PaletteDataset SFA2_A_CHUNLI_PUNCH_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_KICK_PALETTES[] =
 {
-    { _T("Kick"), 0x6f260, 0x6f280, indexCPS2_ChunLi, 0x0c },
-    { _T("Kick Extra 1"), 0x6f280, 0x6f2a0, indexCPS2_ChunLi, 0x01 },
+    { _T("Kick"), 0x6f260, 0x6f280, indexCPS2_ChunLi, 0x0c, &pairNext },
+    { _T("Kick Keiokuken (shades)"), 0x6f280, 0x6f2a0, indexCPS2_ChunLi, 0x0f },
     { _T("Kick Extra 2"), 0x6f2a0, 0x6f2c0 },
     { _T("Kick Super Trail Light"), 0x6f2c0, 0x6f2e0, indexCPS2_ChunLi, 0x0c },
     { _T("Kick Super Trail Dark"), 0x6f2e0, 0x6f300, indexCPS2_ChunLi, 0x0c },
@@ -456,8 +456,8 @@ const sGame_PaletteDataset SFA2_A_CHUNLI_KICK_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_2PUNCHES_PALETTES[] =
 {
-    { _T("2 Punches"), 0x6f300, 0x6f320, indexCPS2_ChunLi, 0x0c },
-    { _T("2 Punches Extra 1"), 0x6f320, 0x6f340, indexCPS2_ChunLi, 0x01 },
+    { _T("2 Punches"), 0x6f300, 0x6f320, indexCPS2_ChunLi, 0x0c, &pairNext },
+    { _T("2 Punches Keiokuken (shades)"), 0x6f320, 0x6f340, indexCPS2_ChunLi, 0x0f },
     { _T("2 Punches Extra 2"), 0x6f340, 0x6f360 },
     { _T("2 Punches Super Trail Light"), 0x6f360, 0x6f380, indexCPS2_ChunLi, 0x0c },
     { _T("2 Punches Super Trail Dark"), 0x6f380, 0x6f3a0, indexCPS2_ChunLi, 0x0c },
@@ -465,8 +465,8 @@ const sGame_PaletteDataset SFA2_A_CHUNLI_2PUNCHES_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_2KICKS_PALETTES[] =
 {
-    { _T("2 Kicks"), 0x6f3a0, 0x6f3c0, indexCPS2_ChunLi, 0x0c },
-    { _T("2 Kicks Extra 1"), 0x6f3c0, 0x6f3e0, indexCPS2_ChunLi, 0x01 },
+    { _T("2 Kicks"), 0x6f3a0, 0x6f3c0, indexCPS2_ChunLi, 0x0c, &pairNext },
+    { _T("2 Kicks Keiokuken (shades)"), 0x6f3c0, 0x6f3e0, indexCPS2_ChunLi, 0x0f },
     { _T("2 Kicks Extra 2"), 0x6f3e0, 0x6f400 },
     { _T("2 Kicks Super Trail Light"), 0x6f400, 0x6f420, indexCPS2_ChunLi, 0x0c },
     { _T("2 Kicks Super Trail Dark"), 0x6f420, 0x6f440, indexCPS2_ChunLi, 0x0c },
@@ -474,8 +474,8 @@ const sGame_PaletteDataset SFA2_A_CHUNLI_2KICKS_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_AUTOGUARDPUNCH_PALETTES[] =
 {
-    { _T("Auto Guard Punch"), 0x6f440, 0x6f460, indexCPS2_ChunLi, 0x0c },
-    { _T("Auto Guard Punch Extra 1"), 0x6f460, 0x6f480, indexCPS2_ChunLi, 0x01 },
+    { _T("Auto Guard Punch"), 0x6f440, 0x6f460, indexCPS2_ChunLi, 0x0c, &pairNext },
+    { _T("Auto Guard Punch Keiokuken (shades)"), 0x6f460, 0x6f480, indexCPS2_ChunLi, 0x0f },
     { _T("Auto Guard Punch Extra 2"), 0x6f480, 0x6f4a0 },
     { _T("Auto Guard Punch Super Trail Light"), 0x6f4a0, 0x6f4c0, indexCPS2_ChunLi, 0x0c },
     { _T("Auto Guard Punch Super Trail Dark"), 0x6f4c0, 0x6f4e0, indexCPS2_ChunLi, 0x0c },
@@ -483,8 +483,8 @@ const sGame_PaletteDataset SFA2_A_CHUNLI_AUTOGUARDPUNCH_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_CHUNLI_AUTOGUARDKICK_PALETTES[] =
 {
-    { _T("Auto Guard Kick"), 0x6f4e0, 0x6f500, indexCPS2_ChunLi, 0x0c },
-    { _T("Auto Guard Kick Extra 1"), 0x6f500, 0x6f520, indexCPS2_ChunLi, 0x01 },
+    { _T("Auto Guard Kick"), 0x6f4e0, 0x6f500, indexCPS2_ChunLi, 0x0c, &pairNext },
+    { _T("Auto Guard Kick Keiokuken (shades)"), 0x6f500, 0x6f520, indexCPS2_ChunLi, 0x0f },
     { _T("Auto Guard Kick Extra 2"), 0x6f520, 0x6f540 },
     { _T("Auto Guard Kick Super Trail Light"), 0x6f540, 0x6f560, indexCPS2_ChunLi, 0x0c },
     { _T("Auto Guard Kick Super Trail Dark"), 0x6f560, 0x6f580, indexCPS2_ChunLi, 0x0c },
@@ -1474,54 +1474,54 @@ const sGame_PaletteDataset SFA2_A_GEN_STATUS_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_PUNCH_PALETTES[] =
 {
-    { _T("Punch"), 0x72640, 0x72660, indexCPS2_ChunLi, 0x00 },
-    { _T("Punch Extra 1"), 0x72660, 0x72680, indexCPS2_ChunLi, 0x00 },
-    { _T("Punch Extra 2"), 0x72680, 0x726a0, indexCPS2_ChunLi, 0x00 },
+    { _T("Punch"), 0x72640, 0x72660, indexCPS2_ChunLi, 0x00, &pairNext },
+    { _T("Punch Keiokuken (shades)"), 0x72660, 0x72680, indexCPS2_ChunLi, 0x01 },
+    { _T("Punch Extra 2"), 0x72680, 0x726a0, indexCPS2_ChunLi, 0x02 },
     { _T("Punch Super Trail Light"), 0x726a0, 0x726c0, indexCPS2_ChunLi, 0x00 },
     { _T("Punch Super Trail Dark"), 0x726c0, 0x726e0, indexCPS2_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_KICK_PALETTES[] =
 {
-    { _T("Kick"), 0x726e0, 0x72700, indexCPS2_ChunLi, 0x00 },
-    { _T("Kick Extra 1"), 0x72700, 0x72720, indexCPS2_ChunLi, 0x00 },
-    { _T("Kick Extra 2"), 0x72720, 0x72740, indexCPS2_ChunLi, 0x00 },
+    { _T("Kick"), 0x726e0, 0x72700, indexCPS2_ChunLi, 0x00 , &pairNext},
+    { _T("Kick Keiokuken (shades)"), 0x72700, 0x72720, indexCPS2_ChunLi, 0x01 },
+    { _T("Kick Extra 2"), 0x72720, 0x72740, indexCPS2_ChunLi, 0x02 },
     { _T("Kick Super Trail Light"), 0x72740, 0x72760, indexCPS2_ChunLi, 0x00 },
     { _T("Kick Super Trail Dark"), 0x72760, 0x72780, indexCPS2_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_2PUNCHES_PALETTES[] =
 {
-    { _T("2 Punches"), 0x72780, 0x727a0, indexCPS2_ChunLi, 0x00 },
-    { _T("2 Punches Extra 1"), 0x727a0, 0x727c0, indexCPS2_ChunLi, 0x00 },
-    { _T("2 Punches Extra 2"), 0x727c0, 0x727e0, indexCPS2_ChunLi, 0x00 },
+    { _T("2 Punches"), 0x72780, 0x727a0, indexCPS2_ChunLi, 0x00, &pairNext },
+    { _T("2 Punches Keiokuken (shades)"), 0x727a0, 0x727c0, indexCPS2_ChunLi, 0x01 },
+    { _T("2 Punches Extra 2"), 0x727c0, 0x727e0, indexCPS2_ChunLi, 0x02 },
     { _T("2 Punches Super Trail Light"), 0x727e0, 0x72800, indexCPS2_ChunLi, 0x00 },
     { _T("2 Punches Super Trail Dark"), 0x72800, 0x72820, indexCPS2_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_2KICKS_PALETTES[] =
 {
-    { _T("2 Kicks"), 0x72820, 0x72840, indexCPS2_ChunLi, 0x00 },
-    { _T("2 Kicks Extra 1"), 0x72840, 0x72860, indexCPS2_ChunLi, 0x00 },
-    { _T("2 Kicks Extra 2"), 0x72860, 0x72880, indexCPS2_ChunLi, 0x00 },
+    { _T("2 Kicks"), 0x72820, 0x72840, indexCPS2_ChunLi, 0x00, &pairNext },
+    { _T("2 Kicks Keiokuken (shades)"), 0x72840, 0x72860, indexCPS2_ChunLi, 0x01 },
+    { _T("2 Kicks Extra 2"), 0x72860, 0x72880, indexCPS2_ChunLi, 0x02 },
     { _T("2 Kicks Super Trail Light"), 0x72880, 0x728a0, indexCPS2_ChunLi, 0x00 },
     { _T("2 Kicks Super Trail Dark"), 0x728a0, 0x728c0, indexCPS2_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_AUTOGUARDPUNCH_PALETTES[] =
 {
-    { _T("Auto Guard Punch"), 0x728c0, 0x728e0, indexCPS2_ChunLi, 0x00 },
-    { _T("Auto Guard Punch Extra 1"), 0x728e0, 0x72900, indexCPS2_ChunLi, 0x00 },
-    { _T("Auto Guard Punch Extra 2"), 0x72900, 0x72920, indexCPS2_ChunLi, 0x00 },
+    { _T("Auto Guard Punch"), 0x728c0, 0x728e0, indexCPS2_ChunLi, 0x00, &pairNext },
+    { _T("Auto Guard Punch Keiokuken (shades)"), 0x728e0, 0x72900, indexCPS2_ChunLi, 0x01 },
+    { _T("Auto Guard Punch Extra 2"), 0x72900, 0x72920, indexCPS2_ChunLi, 0x02 },
     { _T("Auto Guard Punch Super Trail Light"), 0x72920, 0x72940, indexCPS2_ChunLi, 0x00 },
     { _T("Auto Guard Punch Super Trail Dark"), 0x72940, 0x72960, indexCPS2_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SFA2_A_CHUNLIORIGINAL_AUTOGUARDKICK_PALETTES[] =
 {
-    { _T("Auto Guard Kick"), 0x72960, 0x72980, indexCPS2_ChunLi, 0x00 },
-    { _T("Auto Guard Kick Extra 1"), 0x72980, 0x729a0, indexCPS2_ChunLi, 0x00 },
-    { _T("Auto Guard Kick Extra 2"), 0x729a0, 0x729c0, indexCPS2_ChunLi, 0x00 },
+    { _T("Auto Guard Kick"), 0x72960, 0x72980, indexCPS2_ChunLi, 0x00, &pairNext },
+    { _T("Auto Guard Kick Keiokuken (shades)"), 0x72980, 0x729a0, indexCPS2_ChunLi, 0x01 },
+    { _T("Auto Guard Kick Extra 2"), 0x729a0, 0x729c0, indexCPS2_ChunLi, 0x02 },
     { _T("Auto Guard Kick Super Trail Light"), 0x729c0, 0x729e0, indexCPS2_ChunLi, 0x00 },
     { _T("Auto Guard Kick Super Trail Dark"), 0x729e0, 0x72a00, indexCPS2_ChunLi, 0x00 },
 };

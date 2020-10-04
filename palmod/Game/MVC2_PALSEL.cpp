@@ -215,6 +215,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
         break;
     }
+
     case 0x0C: //Spider-Man
     {
         if (
@@ -344,16 +345,17 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
+
     case 0x12: //Hayato
     {
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8) && nSpecOffs < 6) // Hayato and laser sword
+        if (SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // Hayato and laser sword
         {
             bLoadDefPal = FALSE;
 
             //Create the img ticket
             ClearSetImgTicket(
                 CreateImgTicket(0x12, 0,
-                    CreateImgTicket(0x12, 1, NULL, -63, 32)
+                    CreateImgTicket(0x12, 1, NULL, 0, 0)
                 )
             );
 
@@ -372,6 +374,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
+
     case 0x13: //Ruby Heart
     {
         nExtraAmt = 1;
@@ -389,6 +392,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
+
     case 0x14: //SonSon
     {
         if (
@@ -402,6 +406,35 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
+    case 0x1b: // Chun-Li
+    {
+        // Handle her legs
+        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        {
+            bLoadDefPal = FALSE;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0,
+                    CreateImgTicket(uUnitId, 1, NULL, 0, 0)
+                )
+            );
+
+            //Set each palette
+            sDescNode* NodeGet[2] = {
+                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 1, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeGet[0], 0);
+            CreateDefPal(NodeGet[1], 1);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(1, uUnitId, 1, 6, 8);
+        }
+        break;
+    }
     case 0x1C: // Megaman
     {
         // Megaman has an extra range per button of 0x57 palettes.

@@ -1864,40 +1864,7 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    sDescNode* NodeGet = nullptr;
-    
-    if (UsePaletteSetForCharacters())
-    {
-        switch (m_currentSFA2ROMRevision)
-        {
-        case SFA2_SupportedROMRevision::SFA2_960229:
-            NodeGet = MainDescTree_07_0229.GetDescNode(Node01, Node02, Node03, Node04);
-            break;
-        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
-        default:
-            NodeGet = MainDescTree_07_MAX.GetDescNode(Node01, Node02, Node03, Node04);
-            break;
-        case SFA2_SupportedROMRevision::SFZ2A_960826:
-            NodeGet = MainDescTree_07_SFZ2A.GetDescNode(Node01, Node02, Node03, Node04);
-            break;
-        }
-    }
-    else
-    {
-        switch (m_currentSFA2ROMRevision)
-        {
-        case SFA2_SupportedROMRevision::SFA2_960229:
-            NodeGet = MainDescTree_08_Rev1.GetDescNode(Node01, Node02, Node03, Node04);
-            break;
-        case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
-        default:
-            NodeGet = MainDescTree_08_Rev2.GetDescNode(Node01, Node02, Node03, Node04);
-            break;
-        case SFA2_SupportedROMRevision::SFZ2A_960826:
-            NodeGet = MainDescTree_08_SFZ2A.GetDescNode(Node01, Node02, Node03, Node04);
-            break;
-        }
-    }
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == nullptr)
     {
@@ -1957,6 +1924,75 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+            if (paletteDataSet->pPalettePairingInfo)
+            {
+                if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                {
+                    const UINT16 nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+
+                    fShouldUseAlternateLoadLogic = true;
+                    sImgTicket* pImgArray = nullptr;
+
+                    for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    {
+                        // The palettes get added forward, but the image tickets need to be generated in reverse order
+                        const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
+                        if (paletteDataSetToJoin)
+                        {
+                            pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
+
+                            //Set each palette
+                            sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                            CreateDefPal(JoinedNode, nStageIndex);
+                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                        }
+                    }
+
+                    ClearSetImgTicket(pImgArray);
+                }
+                else
+                {
+                    UINT16 nDeltaToSecondElement = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+
+                    fShouldUseAlternateLoadLogic = true;
+
+                    UINT16 nPeerPaletteIdInNode = Node03;
+
+                    nPeerPaletteIdInNode += nDeltaToSecondElement;
+
+                    UINT16 nPeerPaletteIdInUnit = NodeGet->uPalId + nDeltaToSecondElement;
+
+                    if (fShouldUseAlternateLoadLogic)
+                    {
+                        const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, nPeerPaletteIdInUnit);
+
+                        if (paletteDataSetToJoin)
+                        {
+                            ClearSetImgTicket(
+                                CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                    CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                                )
+                            );
+
+                            //Set each palette
+                            sDescNode* JoinedNode[2] = {
+                                GetMainTree()->GetDescNode(NodeGet->uUnitId, Node02, Node03, -1),
+                                GetMainTree()->GetDescNode(NodeGet->uUnitId, Node02, nPeerPaletteIdInNode, -1)
+                            };
+
+                            //Set each palette
+                            CreateDefPal(JoinedNode[0], 0);
+                            CreateDefPal(JoinedNode[1], 1);
+
+                            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                            SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nDeltaToSecondElement, nSrcAmt, nNodeIncrement);
+                        }
+                    }
+                }
+            }
         }
     }
     else

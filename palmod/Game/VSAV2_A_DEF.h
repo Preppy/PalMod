@@ -518,7 +518,7 @@ const sGame_PaletteDataset VSAV2_A_ZABEL_PALETTES_AK[] =
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LP[] =
 {
-    { _T("LP Morrigan"), 0x1859c, 0x185bc, indexCPS2_Morrigan, 0x0 },
+    { _T("LP Morrigan"), 0x1859c, 0x185bc, indexCPS2_Morrigan, 0x0f },
     { _T("LP Idle sparkles/Raging demon"), 0x185bc, 0x185dc, indexCPS2_Morrigan, 0x2 },
     { _T("LP Bats"), 0x185dc, 0x185fc },
     { _T("LP Unknown Extra"), 0x185fc, 0x1861c },
@@ -528,7 +528,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LP[] =
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MP[] =
 {
-    { _T("MP Morrigan"), 0x1861c, 0x1863c, indexCPS2_Morrigan, 0x0 },
+    { _T("MP Morrigan"), 0x1861c, 0x1863c, indexCPS2_Morrigan, 0x0f },
     { _T("MP Idle sparkles/Raging demon"), 0x1863c, 0x1865c, indexCPS2_Morrigan, 0x2 },
     { _T("MP Bats"), 0x1865c, 0x1867c },
     { _T("MP Unknown Extra"), 0x1867c, 0x1869c },
@@ -538,7 +538,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MP[] =
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HP[] =
 {
-    { _T("HP Morrigan"), 0x1869c, 0x186bc, indexCPS2_Morrigan, 0x0 },
+    { _T("HP Morrigan"), 0x1869c, 0x186bc, indexCPS2_Morrigan, 0x0f },
     { _T("HP Idle sparkles/Raging demon"), 0x186bc, 0x186dc, indexCPS2_Morrigan, 0x2 },
     { _T("HP Bats"), 0x186dc, 0x186fc },
     { _T("HP Unknown Extra"), 0x186fc, 0x1871c },
@@ -548,7 +548,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HP[] =
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LK[] =
 {
-    { _T("LK Morrigan"), 0x1871c, 0x1873c, indexCPS2_Morrigan, 0x0 },
+    { _T("LK Morrigan"), 0x1871c, 0x1873c, indexCPS2_Morrigan, 0x0f },
     { _T("LK Idle sparkles/Raging demon"), 0x1873c, 0x1875c, indexCPS2_Morrigan, 0x2 },
     { _T("LK Bats"), 0x1875c, 0x1877c },
     { _T("LK Unknown Extra"), 0x1877c, 0x1879c },
@@ -558,7 +558,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_LK[] =
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MK[] =
 {
-    { _T("MK Morrigan"), 0x1879c, 0x187bc, indexCPS2_Morrigan, 0x0 },
+    { _T("MK Morrigan"), 0x1879c, 0x187bc, indexCPS2_Morrigan, 0x0f },
     { _T("MK Idle sparkles/Raging demon"), 0x187bc, 0x187dc, indexCPS2_Morrigan, 0x2 },
     { _T("MK Bats"), 0x187dc, 0x187fc },
     { _T("MK Unknown Extra"), 0x187fc, 0x1881c },
@@ -568,7 +568,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_MK[] =
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HK[] =
 {
-    { _T("HK Morrigan"), 0x1881c, 0x1883c, indexCPS2_Morrigan, 0x0 },
+    { _T("HK Morrigan"), 0x1881c, 0x1883c, indexCPS2_Morrigan, 0x0f },
     { _T("HK Idle sparkles/Raging demon"), 0x1883c, 0x1885c, indexCPS2_Morrigan, 0x2 },
     { _T("HK Bats"), 0x1885c, 0x1887c },
     { _T("HK Unknown Extra"), 0x1887c, 0x1889c },
@@ -578,7 +578,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_HK[] =
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_PP[] =
 {
-    { _T("PP Morrigan"), 0x1889c, 0x188bc, indexCPS2_Morrigan, 0x0 },
+    { _T("PP Morrigan"), 0x1889c, 0x188bc, indexCPS2_Morrigan, 0x0f },
     { _T("PP Idle sparkles/Raging demon"), 0x188bc, 0x188dc, indexCPS2_Morrigan, 0x2 },
     { _T("PP Bats"), 0x188dc, 0x188fc },
     { _T("PP Unknown Extra"), 0x188fc, 0x1891c },
@@ -588,7 +588,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_PP[] =
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_KK[] =
 {
-    { _T("KK Morrigan"), 0x1891c, 0x1893c, indexCPS2_Morrigan, 0x0 },
+    { _T("KK Morrigan"), 0x1891c, 0x1893c, indexCPS2_Morrigan, 0x0f },
     { _T("KK Idle sparkles/Raging demon"), 0x1893c, 0x1895c, indexCPS2_Morrigan, 0x2 },
     { _T("KK Bats"), 0x1895c, 0x1897c },
     { _T("KK Unknown Extra"), 0x1897c, 0x1899c },
@@ -598,7 +598,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_KK[] =
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_AP[] =
 {
-    { _T("AP Morrigan"), 0x1899c, 0x189bc, indexCPS2_Morrigan, 0x0 },
+    { _T("AP Morrigan"), 0x1899c, 0x189bc, indexCPS2_Morrigan, 0x0f },
     { _T("AP Idle sparkles/Raging demon"), 0x189bc, 0x189dc, indexCPS2_Morrigan, 0x2 },
     { _T("AP Bats"), 0x189dc, 0x189fc },
     { _T("AP Unknown Extra"), 0x189fc, 0x18a1c },
@@ -608,7 +608,7 @@ const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_AP[] =
 
 const sGame_PaletteDataset VSAV2_A_MORRIGAN_PALETTES_AK[] =
 {
-    { _T("AK Morrigan"), 0x18a1c, 0x18a3c, indexCPS2_Morrigan, 0x0 },
+    { _T("AK Morrigan"), 0x18a1c, 0x18a3c, indexCPS2_Morrigan, 0x0f },
     { _T("AK Idle sparkles/Raging demon"), 0x18a3c, 0x18a5c, indexCPS2_Morrigan, 0x2 },
     { _T("AK Bats"), 0x18a5c, 0x18a7c },
     { _T("AK Unknown Extra"), 0x18a7c, 0x18a9c },

@@ -2144,20 +2144,13 @@ const stPairedPaletteInfo pairNext = { 1, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 
 // Vs Series
-const stPairedPaletteInfo pairCaptainAmericaShield = { 1, 0, 0 };
 const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, 4 };
-const stPairedPaletteInfo pairCyberAkuma = { 1, 0, 0 };
-const stPairedPaletteInfo pairMVCDevilotNormal = { 1, 0, 0 };
+const stPairedPaletteInfo pairMVCDevilotNormal = { 1, 0, 0 }; // Don't use pairNext here: we manually tweak z-order
 const stPairedPaletteInfo pairMVCDevilotBurnt = { 1, 7, 3 };
-const stPairedPaletteInfo pairHayatoSword = { 1, -63, 32 };
 const stPairedPaletteInfo pairMVCLou = { 1, -80, -15 };
 const stPairedPaletteInfo pairOnslaught = { 1, -24, 86 };
 const stPairedPaletteInfo pairTronBody = { 1, -4, -50 };
-const stPairedPaletteInfo pairWolvieClaws =   { 1, 0, 0 };
 const stPairedPaletteInfo pairBonerineClaws = { 1, 25, 6 };
-
-const stPairedPaletteInfo pairVegaClaws = { 1, 0, 0 };
-
 
 // Please note that the palette sort order in PalMod differs for MM in MvC1 and MvC2
 const stPairedPaletteInfo pairMVC1RushDrill = { 9, 0, 0 };

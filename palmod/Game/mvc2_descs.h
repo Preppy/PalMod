@@ -1083,7 +1083,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ABYSS3[] =
 const sMoveDescription MVC2_MOVE_DESCRIPTIONS_CHUNLI[] =
 { //1B: Chun-Li") },
     { 0x00, _T("Main Color") },
-    { 0x01, _T("(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)") },
+    { 0x01, _T("(02) Keiokuken (shades)") },
     { 0x02, _T("(03) Lightning Kicks / Kikouken / Kouken") },
     { 0x03, _T("(04) Not Used") },
     { 0x04, _T("(05) Not Used") },

@@ -77,41 +77,41 @@ const sGame_PaletteDataset MSHVSF_A_BLACKHEART_MEPHISTO_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P1COLOR_PUNCH[] =
 {
-    { _T("P1 Color (Punch)"),           0x7210E, 0x7212E, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("P1 Color (Punch)"),           0x7210E, 0x7212E, indexCPS2_CapAm, 0, &pairNext },
     { _T("P1 Shield"),                  0x7212E, 0x7214E, indexCPS2_CapAm, 1 },
     { _T("P1 Charging Star"),           0x7214E, 0x7216E, indexCPS2_CapAm, 2 },
 
 };
 const sGame_PaletteDataset MSHVSF_A_CAPTAIN_AMERICA_PALETTES_P2COLOR_KICK[] =
 {
-    { _T("P2 Color (Kick)"),            0x7216E, 0x7218E, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("P2 Color (Kick)"),            0x7216E, 0x7218E, indexCPS2_CapAm, 0, &pairNext },
     { _T("P2 Shield"),                  0x7218E, 0x721AE, indexCPS2_CapAm, 1 },
     { _T("P2 Charging Star"),           0x721AE, 0x721CE, indexCPS2_CapAm, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P1COLOR_PUNCH[] =
 {
-    { _T("P1 Color (Punch)"),   0x727CE, 0x727EE, indexCPS2_ChunLi },
-    { _T("P1 Extras 1"),        0x727EE, 0x7280E, indexCPS2_ChunLi, 1 },
+    { _T("P1 Color (Punch)"),   0x727CE, 0x727EE, indexCPS2_ChunLi, 0, &pairNext },
+    { _T("P1 Keiokuken (shades)"), 0x727EE, 0x7280E, indexCPS2_ChunLi, 1 },
     { _T("P1 Kikosho"),         0x7280E, 0x7282E, indexCPS2_ChunLi, 2 },
 };
 const sGame_PaletteDataset MSHVSF_A_CHUNLI_PALETTES_P2COLOR_KICK[] =
 {
-    { _T("P2 Color (Kick)"),    0x7282E, 0x7284E, indexCPS2_ChunLi },
-    { _T("P2 Extras 1"),        0x7284E, 0x7286E, indexCPS2_ChunLi, 1 },
+    { _T("P2 Color (Kick)"),    0x7282E, 0x7284E, indexCPS2_ChunLi, 0, &pairNext },
+    { _T("P2 Keiokuken (shades)"), 0x7284E, 0x7286E, indexCPS2_ChunLi, 1 },
     { _T("P2 Kikosho"),         0x7286E, 0x7288E, indexCPS2_ChunLi, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_CYBER_AKUMA_PALETTES_P1COLOR_PUNCH[] =
 {
-    { _T("P1 Color (Punch)"), 0x72ECE, 0x72EEE, indexCPS2_Akuma, 0, &pairCyberAkuma },
-    { _T("P1 Machinery, Hadouken 2"), 0x72F0E, 0x72F2E, indexCPS2_CyberAkuma, 0 },
+    { _T("P1 Color (Punch)"), 0x72ECE, 0x72EEE, indexCPS2_CyberAkuma, 0, &pairNext },
+    { _T("P1 Machinery, Hadouken 2"), 0x72F0E, 0x72F2E, indexCPS2_CyberAkuma, 1 },
     { _T("P1 Hadouken 1 Tatsu Flames"), 0x72EEE, 0x72F0E, indexCPS2_Akuma, 1 },
 };
 const sGame_PaletteDataset MSHVSF_A_CYBER_AKUMA_PALETTES_P2COLOR_KICK[] =
 {
-    { _T("P2 Color (Kick)"), 0x72F2E, 0x72F4E, indexCPS2_Akuma, 0, &pairCyberAkuma },
-    { _T("P2 Machinery, Hadouken 2"), 0x72F6E, 0x72F8E, indexCPS2_CyberAkuma, 0 },
+    { _T("P2 Color (Kick)"), 0x72F2E, 0x72F4E, indexCPS2_CyberAkuma, 0, &pairNext },
+    { _T("P2 Machinery, Hadouken 2"), 0x72F6E, 0x72F8E, indexCPS2_CyberAkuma, 1 },
     { _T("P2 Hadouken 1 Tatsu Flames"), 0x72F4E, 0x72F6E, indexCPS2_Akuma, 1 },
 };
 
@@ -513,21 +513,21 @@ const sGame_PaletteDataset MSHVSF_A_SPIDERMAN_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MSHVSF_A_USAGENT_PALETTES_P1COLOR_PUNCH[] =
 {
-    { _T("P1 Color (Punch)"),        0x7328E, 0x732AE, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("P1 Color (Punch)"),        0x7328E, 0x732AE, indexCPS2_CapAm, 0, &pairNext },
     { _T("P1 Shield"), 0x732AE, 0x732CE, indexCPS2_CapAm, 1 },
     { _T("P1 Charging Star"), 0x732CE, 0x732EE, indexCPS2_CapAm, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_USAGENT_PALETTES_P2COLOR_KICK[] =
 {
-    { _T("P2 Color (Kick)"),        0x732EE, 0x7330E, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("P2 Color (Kick)"),        0x732EE, 0x7330E, indexCPS2_CapAm, 0, &pairNext },
     { _T("P2 Shield"), 0x7330E, 0x7332E, indexCPS2_CapAm, 1 },
     { _T("P2 Charging Star"), 0x7332E, 0x7334E, indexCPS2_CapAm, 2 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_WOLVERINE_PALETTES_P1COLOR_PUNCH[] =
 {
-    { _T("P1 Color (Punch)"),       0x7228E, 0x722AE, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("P1 Color (Punch)"),       0x7228E, 0x722AE, indexCPS2_Wolverine, 0, &pairNext },
     { _T("P1 Claws"), 0x722AE, 0x722CE, indexCPS2_Wolverine, 1 },
     { _T("P1 Extras 1"), 0x722CE, 0x722EE, indexCPS2_Wolverine, 2 },
     { _T("P1 Extras 2 (Fatal Claw)"), 0x7804E, 0x7806E },
@@ -535,7 +535,7 @@ const sGame_PaletteDataset MSHVSF_A_WOLVERINE_PALETTES_P1COLOR_PUNCH[] =
 
 const sGame_PaletteDataset MSHVSF_A_WOLVERINE_PALETTES_P2COLOR_KICK[] =
 {
-    { _T("P2 Color (Kick)"),        0x722EE, 0x7230E, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("P2 Color (Kick)"),        0x722EE, 0x7230E, indexCPS2_Wolverine, 0, &pairNext },
     { _T("P2 Claws"), 0x7230E, 0x7232E, indexCPS2_Wolverine, 1 },
     { _T("P2 Extras 1"), 0x7232E, 0x7234E, indexCPS2_Wolverine, 2 },
     { _T("P2 Extras 2 (Fatal Claw)"), 0x7806E, 0x7808E },

@@ -452,7 +452,7 @@ const sGame_PaletteDataset COTA_A_STORM_PALETTES_P2[] =
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P1[] =
 {
-    { _T("Wolverine P1"),    0x2713E, 0x2715E, 0x07, 0, &pairWolvieClaws },
+    { _T("Wolverine P1"),    0x2713E, 0x2715E, 0x07, 0, &pairNext },
     { _T("P1 Claws"),        0x2715E, 0x2717E, 0x07, 1 },
     { _T("P1 Berserker Barrage"), 0x2717e, 0x2719e, 0x07, 2 },
     { _T("P1 ?"),            0x2719e, 0x271be, 0x07 },
@@ -460,7 +460,7 @@ const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P1[] =
 
 const sGame_PaletteDataset COTA_A_WOLVERINE_PALETTES_P2[] =
 {
-    { _T("Wolverine P2"), 0x271be, 0x271dE, 0x07, 0, &pairWolvieClaws },
+    { _T("Wolverine P2"), 0x271be, 0x271dE, 0x07, 0, &pairNext },
     { _T("P2 Claws"), 0x271dE, 0x271fE, 0x07, 1 },
     { _T("P2 Berserker Barrage"), 0x271fE, 0x2721E, 0x07, 2 },
     { _T("P2 ?"), 0x2721E, 0x2723E, 0x07 },

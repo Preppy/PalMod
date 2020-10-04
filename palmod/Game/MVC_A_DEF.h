@@ -111,50 +111,50 @@ const sGame_PaletteDataset MVC_A_GIEF_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P1[] =
 {
-    { _T("P1 Color"), 0x492e4, 0x49304, 0x1b },
-    { _T("P1 Glimmer 1"), 0x4ff64, 0x4ff84, 0x1b },
-    { _T("P1 Glimmer 2"), 0x4ff84, 0x4ffa4, 0x1b },
-    { _T("P1 Glimmer 3"), 0x4ffa4, 0x4ffc4, 0x1b },
-    { _T("P2 Glimmer 4"), 0x4ffc4, 0x4ffe4, 0x1b },
-    { _T("P1 Glimmer 5"), 0x4ffe4, 0x50004, 0x1b },
-    { _T("P1 Glimmer 6"), 0x50004, 0x50024, 0x1b },
-    { _T("P1 Glimmer 7"), 0x50024, 0x50044, 0x1b },
-    { _T("P1 Glimmer 8"), 0x50124, 0x50144, 0x1b }, // this range is odd?
+    { _T("P1 Color"), 0x492e4, 0x49304, indexCPS2_ChunLi },
+    { _T("P1 Glimmer 1"), 0x4ff64, 0x4ff84, indexCPS2_ChunLi },
+    { _T("P1 Glimmer 2"), 0x4ff84, 0x4ffa4, indexCPS2_ChunLi },
+    { _T("P1 Glimmer 3"), 0x4ffa4, 0x4ffc4, indexCPS2_ChunLi },
+    { _T("P2 Glimmer 4"), 0x4ffc4, 0x4ffe4, indexCPS2_ChunLi },
+    { _T("P1 Glimmer 5"), 0x4ffe4, 0x50004, indexCPS2_ChunLi },
+    { _T("P1 Glimmer 6"), 0x50004, 0x50024, indexCPS2_ChunLi },
+    { _T("P1 Glimmer 7"), 0x50024, 0x50044, indexCPS2_ChunLi },
+    { _T("P1 Glimmer 8"), 0x50124, 0x50144, indexCPS2_ChunLi }, // this range jumping to xx124 is odd.
     { _T("P1 Laser?"), 0x50144, 0x50164 },
     { _T("P1 Missiles"), 0x50164, 0x50184 },
-    { _T("P1 Infinity Legs"), 0x49304, 0x49324, 0x1b, 0x0E },
-    { _T("P1 Shadow Leg Flash"), 0x49324, 0x49344, 0x1b, 0x0D },
+    { _T("P1 Infinity Legs"), 0x49304, 0x49324, indexCPS2_ChunLi, 0x0E },
+    { _T("P1 Shadow Leg Flash"), 0x49324, 0x49344, indexCPS2_ChunLi, 0x0D },
 };
 
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P2[] =
 {
-    { _T("P2 Color"), 0x49344, 0x49364, 0x1b },
-    { _T("P2 Glimmer 1"), 0x50044, 0x50064, 0x1b },
-    { _T("P2 Glimmer 2"), 0x50064, 0x50084, 0x1b },
-    { _T("P2 Glimmer 3"), 0x50084, 0x500A4, 0x1b },
-    { _T("P2 Glimmer 4"), 0x500A4, 0x500C4, 0x1b },
-    { _T("P2 Glimmer 5"), 0x500C4, 0x500E4, 0x1b },
-    { _T("P2 Glimmer 6"), 0x500E4, 0x50104, 0x1b },
-    { _T("P2 Glimmer 7"), 0x50104, 0x50124, 0x1b },
-    { _T("P2 Glimmer 8"), 0x50184, 0x501A4, 0x1b }, // this range is odd?
+    { _T("P2 Color"), 0x49344, 0x49364, indexCPS2_ChunLi },
+    { _T("P2 Glimmer 1"), 0x50044, 0x50064, indexCPS2_ChunLi },
+    { _T("P2 Glimmer 2"), 0x50064, 0x50084, indexCPS2_ChunLi },
+    { _T("P2 Glimmer 3"), 0x50084, 0x500A4, indexCPS2_ChunLi },
+    { _T("P2 Glimmer 4"), 0x500A4, 0x500C4, indexCPS2_ChunLi },
+    { _T("P2 Glimmer 5"), 0x500C4, 0x500E4, indexCPS2_ChunLi },
+    { _T("P2 Glimmer 6"), 0x500E4, 0x50104, indexCPS2_ChunLi },
+    { _T("P2 Glimmer 7"), 0x50104, 0x50124, indexCPS2_ChunLi },
+    { _T("P2 Glimmer 8"), 0x50184, 0x501A4, indexCPS2_ChunLi }, // this range is odd?
     { _T("P2 Laser?"), 0x501A4, 0x501C4 },
     { _T("P2 Missiles"), 0x501C4, 0x501E4 },
-    { _T("P2 Infinity Legs"), 0x49364, 0x49384, 0x1b, 0x0E },
-    { _T("P2 Shadow Leg Flash"), 0x49384, 0x493a4, 0x1b, 0x0D },
+    { _T("P2 Infinity Legs"), 0x49364, 0x49384, indexCPS2_ChunLi, 0x0E },
+    { _T("P2 Shadow Leg Flash"), 0x49384, 0x493a4, indexCPS2_ChunLi, 0x0D },
 };
 
 const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_P1[] =
 {
-    { _T("P1 Color"), 0x48944, 0x48964, 0x1b },
-    { _T("P1 leg flash"), 0x48964, 0x48984, 0x1b, 1 },
-    { _T("P1 Kikosho"), 0x48984, 0x489a4, 0x1b, 2 },
+    { _T("P1 Color"), 0x48944, 0x48964, indexCPS2_ChunLi, 0, &pairNext },
+    { _T("P1 Keiokuken (shades)"), 0x48964, 0x48984, indexCPS2_ChunLi, 1 },
+    { _T("P1 Kikosho"), 0x48984, 0x489a4, indexCPS2_ChunLi, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_P2[] =
 {
-    { _T("P2 Color"), 0x489a4, 0x489c4, 0x1b },
-    { _T("P2 leg flash"), 0x489c4, 0x489e4, 0x1b, 1 },
-    { _T("P2 Kikosho"), 0x489e4, 0x48a04, 0x1b, 2 },
+    { _T("P2 Color"), 0x489a4, 0x489c4, indexCPS2_ChunLi, 0, &pairNext },
+    { _T("P2 Keiokuken (shades)"), 0x489c4, 0x489e4, indexCPS2_ChunLi, 1 },
+    { _T("P2 Kikosho"), 0x489e4, 0x48a04, indexCPS2_ChunLi, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_JIN_PALETTES_P1[] =
@@ -731,7 +731,7 @@ const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P1[] =
 {
-    { _T("P1 Color"), 0x48284, 0x482a4, 0x0b, 0, &pairCaptainAmericaShield },
+    { _T("P1 Color"), 0x48284, 0x482a4, 0x0b, 0, &pairNext },
     { _T("P1 Shield"), 0x482a4, 0x482c4, 0x0b, 1 },
     { _T("P1 Charging Star"), 0x482c4, 0x482e4, 0x0b, 2 },
     { _T("P1 Eagle"), 0x591E4, 0x59204, 0x0B, 3 },
@@ -739,7 +739,7 @@ const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P1[] =
 
 const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P2[] =
 {
-    { _T("P2 Color"), 0x482e4, 0x48304, 0x0b, 0, &pairCaptainAmericaShield },
+    { _T("P2 Color"), 0x482e4, 0x48304, 0x0b, 0, &pairNext },
     { _T("P2 Shield"), 0x48304, 0x48324, 0x0b, 1 },
     { _T("P2 Charging Star"), 0x48324, 0x48344, 0x0b, 2 },
     { _T("P2 Eagle"), 0x59204, 0x59224, 0x0B, 3 },
@@ -780,14 +780,14 @@ const sGame_PaletteDataset MVC_A_ORANGEHULK_PALETTES_P2[] =
 
 const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_P1[] =
 {
-    { _T("P1 Color"), 0x48404, 0x48424, 0x07, 0, &pairWolvieClaws },
+    { _T("P1 Color"), 0x48404, 0x48424, 0x07, 0, &pairNext },
     { _T("P1 Claws"), 0x48424, 0x48444, 0x07, 1 },
     { _T("P1 Berserker FX"), 0x48444, 0x48464, 0x07, 2 },
 };
 
 const sGame_PaletteDataset MVC_A_WOLVERINE_PALETTES_P2[] =
 {
-    { _T("P2 Color"), 0x48464, 0x48484, 0x07, 0, &pairWolvieClaws },
+    { _T("P2 Color"), 0x48464, 0x48484, 0x07, 0, &pairNext },
     { _T("P2 Claws"), 0x48484, 0x484a4, 0x07, 1 },
     { _T("P2 Berserker FX"), 0x484a4, 0x484c4, 0x07, 2 },
 };
@@ -1113,10 +1113,10 @@ const sGame_PaletteDataset MVC_A_ASSIST_PALETTES[] =
     { _T("Unknown Soldier P2"), 0x506e4, 0x50704, 0x3C, 0x12 },
     { _T("Unknown Soldier P2 Extra"), 0x50704, 0x50724, 0x3C, 0x11 },
 
-    { _T("US Agent P1"), 0x50ee4, 0x50f04, 0x0b, 0, &pairCaptainAmericaShield },
+    { _T("US Agent P1"), 0x50ee4, 0x50f04, 0x0b, 0, &pairNext },
     { _T("US Agent P1 Shield"), 0x50f04, 0x50f24, 0x0b, 1 },
     { _T("US Agent P1 Charging Star"), 0x50f24, 0x50f44, 0x0b, 2 },
-    { _T("US Agent P2"), 0x50f44, 0x50f64, 0x0b, 0, &pairCaptainAmericaShield },
+    { _T("US Agent P2"), 0x50f44, 0x50f64, 0x0b, 0, &pairNext },
     { _T("US Agent P2 Shield"), 0x50f64, 0x50f84, 0x0b, 1 },
     { _T("US Agent P2 Charging Star"), 0x50f84, 0x50fa4, 0x0b, 2 },
 };
@@ -1275,17 +1275,17 @@ const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MVC_A_CHUNLI_PALETTES_SHARED[] =
 {
-    { _T("Burning 1"), 0x4a984, 0x4a9a4, 0x1b },
-    { _T("Burning 2"), 0x4a9a4, 0x4a9c4, 0x1b },
-    { _T("Shocked 1"), 0x4a9c4, 0x4a9e4, 0x1b },
-    { _T("Shocked 2"), 0x4a9e4, 0x4aa04, 0x1b },
-    { _T("Dark Burning 1"), 0x4aa04, 0x4aa24, 0x1b },
-    { _T("Dark Burning 2"), 0x4aa24, 0x4aa44, 0x1b },
-    { _T("Kinectic Charged 1"), 0x4aa44, 0x4aa64, 0x1b },
-    { _T("Kinectic Charged 2"), 0x4aa64, 0x4aa84, 0x1b },
-    { _T("Kinectic Charged 3"), 0x4aa84, 0x4aaa4, 0x1b },
-    { _T("Shadows Light"), 0x497A4, 0x497C4, 0x1b },
-    { _T("Shadows Dark"), 0x497C4, 0x497E4, 0x1b },
+    { _T("Burning 1"), 0x4a984, 0x4a9a4, indexCPS2_ChunLi },
+    { _T("Burning 2"), 0x4a9a4, 0x4a9c4, indexCPS2_ChunLi },
+    { _T("Shocked 1"), 0x4a9c4, 0x4a9e4, indexCPS2_ChunLi },
+    { _T("Shocked 2"), 0x4a9e4, 0x4aa04, indexCPS2_ChunLi },
+    { _T("Dark Burning 1"), 0x4aa04, 0x4aa24, indexCPS2_ChunLi },
+    { _T("Dark Burning 2"), 0x4aa24, 0x4aa44, indexCPS2_ChunLi },
+    { _T("Kinectic Charged 1"), 0x4aa44, 0x4aa64, indexCPS2_ChunLi },
+    { _T("Kinectic Charged 2"), 0x4aa64, 0x4aa84, indexCPS2_ChunLi },
+    { _T("Kinectic Charged 3"), 0x4aa84, 0x4aaa4, indexCPS2_ChunLi },
+    { _T("Shadows Light"), 0x497A4, 0x497C4, indexCPS2_ChunLi },
+    { _T("Shadows Dark"), 0x497C4, 0x497E4, indexCPS2_ChunLi },
 };
 
 const sGame_PaletteDataset MVC_A_JIN_PALETTES_SHARED[] =
@@ -1424,17 +1424,17 @@ const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_SHARED[] =
 {
-    { _T("Burning 1"), 0x4b584, 0x4b5a4, 0x1b },
-    { _T("Burning 2"), 0x4b5a4, 0x4b5c4, 0x1b },
-    { _T("Shocked 1"), 0x4b5c4, 0x4b5e4, 0x1b },
-    { _T("Shocked 2"), 0x4b5e4, 0x4b604, 0x1b },
-    { _T("Dark Burning 1"), 0x4b604, 0x4b624, 0x1b },
-    { _T("Dark Burning 2"), 0x4b624, 0x4b644, 0x1b },
-    { _T("Kinectic Charged 1"), 0x4b644, 0x4b664, 0x1b },
-    { _T("Kinectic Charged 2"), 0x4b664, 0x4b684, 0x1b },
-    { _T("Kinectic Charged 3"), 0x4b684, 0x4b6a4, 0x1b },
-    { _T("Shadows Light"), 0x49a64, 0x49a84, 0x1b },
-    { _T("Shadows Dark"), 0x49a84, 0x49aa4, 0x1b },
+    { _T("Burning 1"), 0x4b584, 0x4b5a4, indexCPS2_ChunLi },
+    { _T("Burning 2"), 0x4b5a4, 0x4b5c4, indexCPS2_ChunLi },
+    { _T("Shocked 1"), 0x4b5c4, 0x4b5e4, indexCPS2_ChunLi },
+    { _T("Shocked 2"), 0x4b5e4, 0x4b604, indexCPS2_ChunLi },
+    { _T("Dark Burning 1"), 0x4b604, 0x4b624, indexCPS2_ChunLi },
+    { _T("Dark Burning 2"), 0x4b624, 0x4b644, indexCPS2_ChunLi },
+    { _T("Kinectic Charged 1"), 0x4b644, 0x4b664, indexCPS2_ChunLi },
+    { _T("Kinectic Charged 2"), 0x4b664, 0x4b684, indexCPS2_ChunLi },
+    { _T("Kinectic Charged 3"), 0x4b684, 0x4b6a4, indexCPS2_ChunLi },
+    { _T("Shadows Light"), 0x49a64, 0x49a84, indexCPS2_ChunLi },
+    { _T("Shadows Dark"), 0x49a84, 0x49aa4, indexCPS2_ChunLi },
 };
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_SHARED[] =
@@ -1479,41 +1479,41 @@ const sGame_PaletteDataset MVC_A_ASSISTICON_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_VSP_PALETTES[] =
 {
-    { _T("Captain America P1 VSP"), 0x55e44, 0x55f04, 0x0B, 0x13},
-    { _T("Captain America P2 VSP"), 0x57104, 0x571c4, 0x0B, 0x13},
-    { _T("Captain Commando P1 VSP"), 0x56444, 0x56504, 0x38, 0x13},
-    { _T("Captain Commando P2 VSP"), 0x57704, 0x577c4, 0x38, 0x13},
-    { _T("Chun-Li P1 VSP"), 0x56504, 0x565c4, 0x1b, 0x13},
-    { _T("Chun-Li P2 VSP"), 0x577c4, 0x57884, 0x1b, 0x13},
-    { _T("Shadow Lady P1 VSP"), 0x56c84, 0x56d44, 0x1b, 0x13},
-    { _T("Shadow Lady P2 VSP"), 0x57f44, 0x58004, 0x1b, 0x13},
-    { _T("Gambit P1 VSP"), 0x56084, 0x56144, 0x28, 0x13},
-    { _T("Gambit P2 VSP"), 0x57344, 0x57404, 0x28, 0x13},
+    { _T("Captain America P1 VSP"), 0x55e44, 0x55f04, 0x0B, 0x13 },
+    { _T("Captain America P2 VSP"), 0x57104, 0x571c4, 0x0B, 0x13 },
+    { _T("Captain Commando P1 VSP"), 0x56444, 0x56504, 0x38, 0x13 },
+    { _T("Captain Commando P2 VSP"), 0x57704, 0x577c4, 0x38, 0x13 },
+    { _T("Chun-Li P1 VSP"), 0x56504, 0x565c4, indexCPS2_ChunLi, 0x13 },
+    { _T("Chun-Li P2 VSP"), 0x577c4, 0x57884, indexCPS2_ChunLi, 0x13 },
+    { _T("Shadow Lady P1 VSP"), 0x56c84, 0x56d44, indexCPS2_ChunLi, 0x13 },
+    { _T("Shadow Lady P2 VSP"), 0x57f44, 0x58004, indexCPS2_ChunLi, 0x13 },
+    { _T("Gambit P1 VSP"), 0x56084, 0x56144, 0x28, 0x13 },
+    { _T("Gambit P2 VSP"), 0x57344, 0x57404, 0x28, 0x13 },
     { _T("Hulk P1 VSP"), 0x55f04, 0x55f24, 0x0D, 0x13 },
     { _T("Orange Hulk P1 VSP"), 0x56b04, 0x56b24, 0x0D, 0x13 },
     { _T("Hulk P2 VSP"), 0x571c4, 0x571e4, 0x0D, 0x13 },
     { _T("Orange Hulk P2 VSP"), 0x57dc4, 0x57de4, 0x0D, 0x13 },
-    { _T("Jin P1 VSP"), 0x565c4, 0x56684, 0x37, 0x13},
-    { _T("Jin P2 VSP"), 0x57884, 0x57944, 0x37, 0x13},
+    { _T("Jin P1 VSP"), 0x565c4, 0x56684, 0x37, 0x13 },
+    { _T("Jin P2 VSP"), 0x57884, 0x57944, 0x37, 0x13 },
     { _T("Megaman P1 VSP"), 0x568c4, 0x56944, 0x1C, 0x13 },
     { _T("Megaman P2 VSP"), 0x57b84, 0x57c04, 0x1C, 0x13 },
-    { _T("Morrigan P1 VSP"), 0x56804, 0x568c4, 0x3, 0x13},
-    { _T("Morrigan P2 VSP"), 0x57ac4, 0x57b84, 0x3, 0x13},
-    { _T("Lilith P1 VSP"), 0x56d44, 0x56e04, 0x3, 0x13},
-    { _T("Lilith P2 VSP"), 0x58004, 0x580c4, 0x3, 0x13},
+    { _T("Morrigan P1 VSP"), 0x56804, 0x568c4, 0x3, 0x13 },
+    { _T("Morrigan P2 VSP"), 0x57ac4, 0x57b84, 0x3, 0x13 },
+    { _T("Lilith P1 VSP"), 0x56d44, 0x56e04, 0x3, 0x13 },
+    { _T("Lilith P2 VSP"), 0x58004, 0x580c4, 0x3, 0x13 },
     { _T("Onslaught P1 VSP"), 0x56984, 0x569e4, 0x3B, 0x13 },
-    { _T("Roll P1 VSP"), 0x562c4, 0x56384, 0x1D, 0x13},
-    { _T("Roll P2 VSP"), 0x57584, 0x57644, 0x1D, 0x13},
-    { _T("Ryu P1 VSP"), 0x56384, 0x56444, 0x0, 0x13},
-    { _T("Ryu P2 VSP"), 0x57644, 0x57704, 0x0, 0x13},
-    { _T("Ken P1 VSP"), 0x56e04, 0x56ec4, 0x0, 0x13},
-    { _T("Ken P2 VSP"), 0x580c4, 0x58184, 0x0, 0x13},
-    { _T("Gouki P1 VSP"), 0x56ec4, 0x56f84, 0x0, 0x13},
-    { _T("Gouki P2 VSP"), 0x58184, 0x58244, 0x0, 0x13},
+    { _T("Roll P1 VSP"), 0x562c4, 0x56384, 0x1D, 0x13 },
+    { _T("Roll P2 VSP"), 0x57584, 0x57644, 0x1D, 0x13 },
+    { _T("Ryu P1 VSP"), 0x56384, 0x56444, 0x0, 0x13 },
+    { _T("Ryu P2 VSP"), 0x57644, 0x57704, 0x0, 0x13 },
+    { _T("Ken P1 VSP"), 0x56e04, 0x56ec4, 0x0, 0x13 },
+    { _T("Ken P2 VSP"), 0x580c4, 0x58184, 0x0, 0x13 },
+    { _T("Gouki P1 VSP"), 0x56ec4, 0x56f84, 0x0, 0x13 },
+    { _T("Gouki P2 VSP"), 0x58184, 0x58244, 0x0, 0x13 },
     { _T("Spider-Man P1 VSP"), 0x56204, 0x56284, 0x0C, 0x13 },
     { _T("Spider-Man P2 VSP"), 0x574c4, 0x57544, 0x0C, 0x13 },
-    { _T("Strider Hiryu P1 VSP"), 0x56744, 0x56804, 0x5, 0x13},
-    { _T("Strider Hiryu P2 VSP"), 0x57a04, 0x57ac4, 0x5, 0x13},
+    { _T("Strider Hiryu P1 VSP"), 0x56744, 0x56804, 0x5, 0x13 },
+    { _T("Strider Hiryu P2 VSP"), 0x57a04, 0x57ac4, 0x5, 0x13 },
     { _T("Venom P1 VSP"), 0x56144, 0x561c4, 0x0E, 0x13 },
     { _T("Venom P2 VSP"), 0x57404, 0x57484, 0x0E, 0x13 },
     { _T("Red Venom P1 VSP"), 0x56a44, 0x56ac4, 0x0E, 0x13 },
@@ -1522,12 +1522,12 @@ const sGame_PaletteDataset MVC_A_VSP_PALETTES[] =
     { _T("Gold War Machine P1 VSP"), 0x56bc4, 0x56c44, 0x2E, 0x13 },
     { _T("War Machine P2 VSP"), 0x57044, 0x570c4, 0x2E, 0x13 },
     { _T("Gold War Machine P2 VSP"), 0x57e84, 0x57f04, 0x2E, 0x13 },
-    { _T("Wolverine P1 VSP"), 0x55fc4, 0x56084, 0x07, 0x13},
-    { _T("Wolverine P2 VSP"), 0x57284, 0x57344, 0x07, 0x13},
-    { _T("Zangief P1 VSP"), 0x56684, 0x56724, 0x1, 0x13},
-    { _T("Zangief P2 VSP"), 0x57944, 0x579e4, 0x1, 0x13},
-    { _T("Mech-Zangief P1 VSP"), 0x56f84, 0x57024, 0x1, 0x13},
-    { _T("Mech-Zangief P2 VSP"), 0x58244, 0x582e4, 0x1, 0x13},
+    { _T("Wolverine P1 VSP"), 0x55fc4, 0x56084, 0x07, 0x13 },
+    { _T("Wolverine P2 VSP"), 0x57284, 0x57344, 0x07, 0x13 },
+    { _T("Zangief P1 VSP"), 0x56684, 0x56724, 0x1, 0x13 },
+    { _T("Zangief P2 VSP"), 0x57944, 0x579e4, 0x1, 0x13 },
+    { _T("Mech-Zangief P1 VSP"), 0x56f84, 0x57024, 0x1, 0x13 },
+    { _T("Mech-Zangief P2 VSP"), 0x58244, 0x582e4, 0x1, 0x13 },
 };
 
 const sGame_PaletteDataset MVC_A_CSP_PALETTES[] =
@@ -1536,10 +1536,10 @@ const sGame_PaletteDataset MVC_A_CSP_PALETTES[] =
     { _T("Captain America P2 Duo/CSP"), 0x53084, 0x530e4, 0x0B, 0x10 },
     { _T("Captain Commando P1 Duo/CSP"), 0x52d84, 0x52de4, 0x38, 0x10 },
     { _T("Captain Commando P2 Duo/CSP"), 0x53384, 0x533e4, 0x38, 0x10 },
-    { _T("Chun-Li P1 Duo/CSP"), 0x52de4, 0x52e44, 0x1b, 0x10 },
-    { _T("Chun-Li 2P Duo/CSP"), 0x533e4, 0x53444, 0x1b, 0x10 },
-    { _T("Shadow Lady P2 Duo/CSP"), 0x53924, 0x53984, 0x1b, 0x10 },
-    { _T("Shadow Lady P1 Duo/CSP"), 0x53744, 0x537a4, 0x1b, 0x10 },
+    { _T("Chun-Li P1 Duo/CSP"), 0x52de4, 0x52e44, indexCPS2_ChunLi, 0x10 },
+    { _T("Chun-Li 2P Duo/CSP"), 0x533e4, 0x53444, indexCPS2_ChunLi, 0x10 },
+    { _T("Shadow Lady P2 Duo/CSP"), 0x53924, 0x53984, indexCPS2_ChunLi, 0x10 },
+    { _T("Shadow Lady P1 Duo/CSP"), 0x53744, 0x537a4, indexCPS2_ChunLi, 0x10 },
     { _T("Gambit P1 Duo/CSP"), 0x52ba4, 0x52c04, 0x28, 0x10 },
     { _T("Gambit P2 Duo/CSP"), 0x531a4, 0x53204, 0x28, 0x10 },
     { _T("Hulk P1 Duo/CSP"), 0x52ae4, 0x52b04, 0x0D, 0x10 },
@@ -1588,10 +1588,10 @@ const sGame_PaletteDataset MVC_A_SUPERPORT_PALETTES[] =
     { _T("Captain America P2 Super"), 0x54e64, 0x54f04, 0x0B, 0x12 },
     { _T("Captain Commando P1 Super"), 0x543c4, 0x54464, 0x38, 0x12 },
     { _T("Captain Commando P2 Super"), 0x55364, 0x55404, 0x38, 0x12 },
-    { _T("Chun-Li P1 Super"), 0x54464, 0x54504, 0x1b, 0x12 },
-    { _T("Chun-Li P2 Super"), 0x55404, 0x554a4, 0x1b, 0x12 },
-    { _T("Shadow Lady P1 Super"), 0x54aa4, 0x54b44, 0x1b, 0x12 },
-    { _T("Shadow Lady P2 Super"), 0x55a44, 0x55ae4, 0x1b, 0x12 },
+    { _T("Chun-Li P1 Super"), 0x54464, 0x54504, indexCPS2_ChunLi, 0x12 },
+    { _T("Chun-Li P2 Super"), 0x55404, 0x554a4, indexCPS2_ChunLi, 0x12 },
+    { _T("Shadow Lady P1 Super"), 0x54aa4, 0x54b44, indexCPS2_ChunLi, 0x12 },
+    { _T("Shadow Lady P2 Super"), 0x55a44, 0x55ae4, indexCPS2_ChunLi, 0x12 },
     { _T("Gambit P1 Super"), 0x540a4, 0x54124, 0x28, 0x12 },
     { _T("Gambit P2 Super"), 0x55044, 0x550c4, 0x28, 0x12 },
     { _T("Hulk P1 Super"), 0x53f64, 0x53f84, 0x0D, 0x12 },
@@ -1640,7 +1640,7 @@ const sGame_PaletteDataset MVC_A_CSIS_PALETTES[] =
 {
     { _T("Captain America CS Icon"), 0x3e5da, 0x3e5fa, 0x0B, 0x11 },
     { _T("Captain Commando CS Icon"), 0x3e6da, 0x3e6fa, 0x38, 0x11 },
-    { _T("Chun-Li CS Icon"), 0x3e6fa, 0x3e71a, 0x1b, 0x11 },
+    { _T("Chun-Li CS Icon"), 0x3e6fa, 0x3e71a, indexCPS2_ChunLi, 0x11 },
     { _T("Gambit CS Icon"), 0x3e63a, 0x3e65a, 0x28, 0x11 },
     { _T("Hulk CS Icon"), 0x3e5fa, 0x3e61a, 0x0D, 0x11 },
     { _T("Jin CS Icon"), 0x3e71a, 0x3e73a, 0x37, 0x11 },
@@ -1660,7 +1660,7 @@ const sGame_PaletteDataset MVC_A_CSIS_NEXT_PALETTES[] =
 {
     { _T("Captain America"), 0x3e5da + 0x1418A, 0x3e5fa + 0x1418A, 0x0B, 0x11 },
     { _T("Captain Commando"), 0x3e6da + 0x1418A, 0x3e6fa + 0x1418A, 0x38, 0x11 },
-    { _T("Chun-Li"),        0x3e6fa + 0x1418A, 0x3e71a + 0x1418A, 0x1b, 0x11 },
+    { _T("Chun-Li"),        0x3e6fa + 0x1418A, 0x3e71a + 0x1418A, indexCPS2_ChunLi, 0x11 },
     { _T("Gambit"),         0x3e63a + 0x1418A, 0x3e65a + 0x1418A, 0x28, 0x11 },
     { _T("Hulk"),           0x3e5fa + 0x1418A, 0x3e61a + 0x1418A, 0x0D, 0x11 },
     { _T("Jin"),            0x3e71a + 0x1418A, 0x3e73a + 0x1418A, 0x37, 0x11 },

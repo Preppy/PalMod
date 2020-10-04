@@ -43,7 +43,7 @@ const sGame_PaletteDataset MSH_A_HULK_PALETTES_P1[] =
 const sGame_PaletteDataset MSH_A_IRONMAN_PALETTES_P1[] =
     { _T("Iron Man P1"),    0x61EAE, 0x61ECE, 0x33 },
 const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_P1[] =
-    { _T("Wolverine P1"),   0x61F8E, 0x61FAE, 0x07, 0, &pairWolvieClaws },
+    { _T("Wolverine P1"),   0x61F8E, 0x61FAE, 0x07, 0, &pairNext },
 const sGame_PaletteDataset MSH_A_PSYLOCKE_PALETTES_P1[] =
     { _T("Psylocke P1"),    0x6206E, 0x6208E, 0x08 },
 const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P1[] =
@@ -101,13 +101,13 @@ const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P2[] =
 
 const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES_P1[] =
 {
-    { _T("P1 Main"), 0x61CEE, 0x61D0E, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("P1 Main"), 0x61CEE, 0x61D0E, indexCPS2_CapAm, 0, &pairNext },
     { _T("P1 Shield"), 0x61D0E, 0x61D2E, indexCPS2_CapAm, 1 },
 };
 
 const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES_P2[] =
 {
-    { _T("P2 Main"), 0x61D6E, 0x61D8E, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("P2 Main"), 0x61D6E, 0x61D8E, indexCPS2_CapAm, 0, &pairNext },
     { _T("P2 Shield"), 0x61D8E, 0x61DAE, indexCPS2_CapAm, 1 },
 };
 
@@ -389,14 +389,14 @@ const sGame_PaletteDataset MSH_A_THANOS_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_P1[] =
 {
-    { _T("P1 Main"), 0x61F8E, 0x61FAE, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("P1 Main"), 0x61F8E, 0x61FAE, indexCPS2_Wolverine, 0, &pairNext },
     { _T("P1 Claws"), 0x61FAE, 0x61FCE, indexCPS2_Wolverine, 1 },
     { _T("P1 Berserker Barrage"), 0x61FCE, 0x61FEE, indexCPS2_Wolverine, 2 },
 };
 
 const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_P2[] =
 {
-    { _T("P2 Main"), 0x6200E, 0x6202E, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("P2 Main"), 0x6200E, 0x6202E, indexCPS2_Wolverine, 0, &pairNext },
     { _T("P2 Claws"), 0x6202E, 0x6204E, indexCPS2_Wolverine, 1 },
     { _T("P2 Berserker Barrage"), 0x6204E, 0x6206E, indexCPS2_Wolverine, 2 },
 };

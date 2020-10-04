@@ -1025,7 +1025,7 @@ const sDescTreeNode MVC2_A_CYCLOPS_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_LP[] =
 {
-    { _T("Main Color LP"), 0x2c0eba0, 0x2c0ebc0, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Main Color LP"), 0x2c0eba0, 0x2c0ebc0, indexCPS2_Wolverine, 0, &pairNext },
     { _T("(02) Wolverine's Claws"), 0x2c0ebc0, 0x2c0ebe0, indexCPS2_Wolverine, 1 },
     { _T("(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)"), 0x2c0ebe0, 0x2c0ec00, indexCPS2_Wolverine, 2 },
     { _T("(04) Not Used"), 0x2c0ec00, 0x2c0ec20, indexCPS2_Wolverine, 3 },
@@ -1037,7 +1037,7 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_LK[] =
 {
-    { _T("Main Color LK"), 0x2c0eca0, 0x2c0ecc0, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Main Color LK"), 0x2c0eca0, 0x2c0ecc0, indexCPS2_Wolverine, 0, &pairNext },
     { _T("(02) Wolverine's Claws"), 0x2c0ecc0, 0x2c0ece0, indexCPS2_Wolverine, 1 },
     { _T("(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)"), 0x2c0ece0, 0x2c0ed00, indexCPS2_Wolverine, 2 },
     { _T("(04) Not Used"), 0x2c0ed00, 0x2c0ed20, indexCPS2_Wolverine, 3 },
@@ -1049,7 +1049,7 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HP[] =
 {
-    { _T("Main Color HP"), 0x2c0eda0, 0x2c0edc0, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Main Color HP"), 0x2c0eda0, 0x2c0edc0, indexCPS2_Wolverine, 0, &pairNext },
     { _T("(02) Wolverine's Claws"), 0x2c0edc0, 0x2c0ede0, indexCPS2_Wolverine, 1 },
     { _T("(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)"), 0x2c0ede0, 0x2c0ee00, indexCPS2_Wolverine, 2 },
     { _T("(04) Not Used"), 0x2c0ee00, 0x2c0ee20, indexCPS2_Wolverine, 3 },
@@ -1061,7 +1061,7 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HK[] =
 {
-    { _T("Main Color HK"), 0x2c0eea0, 0x2c0eec0, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Main Color HK"), 0x2c0eea0, 0x2c0eec0, indexCPS2_Wolverine, 0, &pairNext },
     { _T("(02) Wolverine's Claws"), 0x2c0eec0, 0x2c0eee0, indexCPS2_Wolverine, 1 },
     { _T("(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)"), 0x2c0eee0, 0x2c0ef00, indexCPS2_Wolverine, 2 },
     { _T("(04) Not Used"), 0x2c0ef00, 0x2c0ef20, indexCPS2_Wolverine, 3 },
@@ -1073,7 +1073,7 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A1[] =
 {
-    { _T("Main Color A1"), 0x2c0efa0, 0x2c0efc0, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Main Color A1"), 0x2c0efa0, 0x2c0efc0, indexCPS2_Wolverine, 0, &pairNext },
     { _T("(02) Wolverine's Claws"), 0x2c0efc0, 0x2c0efe0, indexCPS2_Wolverine, 1 },
     { _T("(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)"), 0x2c0efe0, 0x2c0f000, indexCPS2_Wolverine, 2 },
     { _T("(04) Not Used"), 0x2c0f000, 0x2c0f020, indexCPS2_Wolverine, 3 },
@@ -1085,7 +1085,7 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A2[] =
 {
-    { _T("Main Color A2"), 0x2c0f0a0, 0x2c0f0c0, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Main Color A2"), 0x2c0f0a0, 0x2c0f0c0, indexCPS2_Wolverine, 0, &pairNext },
     { _T("(02) Wolverine's Claws"), 0x2c0f0c0, 0x2c0f0e0, indexCPS2_Wolverine, 1 },
     { _T("(03) FP effect / Berserker Barrage (claw effect) / Weapon X (X effect)"), 0x2c0f0e0, 0x2c0f100, indexCPS2_Wolverine, 2 },
     { _T("(04) Not Used"), 0x2c0f100, 0x2c0f120, indexCPS2_Wolverine, 3 },
@@ -1097,21 +1097,21 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_SHARED[] =
 {
-    { _T("Burning Dark"), 0x2c0f1a0, 0x2c0f1c0, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Burning Dark"), 0x2c0f1a0, 0x2c0f1c0, indexCPS2_Wolverine, 0, &pairNext },
     { _T("Burning Dark 2"), 0x2c0f1c0, 0x2c0f1e0, indexCPS2_Wolverine, 1 },
-    { _T("Burning Light"), 0x2c0f1e0, 0x2c0f200, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Burning Light"), 0x2c0f1e0, 0x2c0f200, indexCPS2_Wolverine, 0, &pairNext },
     { _T("Burning Light 2"), 0x2c0f200, 0x2c0f220, indexCPS2_Wolverine, 1 },
-    { _T("Shocked Dark"), 0x2c0f220, 0x2c0f240, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Shocked Dark"), 0x2c0f220, 0x2c0f240, indexCPS2_Wolverine, 0, &pairNext },
     { _T("Shocked Dark 2"), 0x2c0f240, 0x2c0f260, indexCPS2_Wolverine, 1 },
-    { _T("Shocked Light"), 0x2c0f260, 0x2c0f280, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Shocked Light"), 0x2c0f260, 0x2c0f280, indexCPS2_Wolverine, 0, &pairNext },
     { _T("Shocked Light 2"), 0x2c0f280, 0x2c0f2a0, indexCPS2_Wolverine, 1 },
-    { _T("Dark Burning Dark"), 0x2c0f2a0, 0x2c0f2c0, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Dark Burning Dark"), 0x2c0f2a0, 0x2c0f2c0, indexCPS2_Wolverine, 0, &pairNext },
     { _T("Dark Burning Dark 2"), 0x2c0f2c0, 0x2c0f2e0, indexCPS2_Wolverine, 1 },
-    { _T("Dark Burning Light"), 0x2c0f2e0, 0x2c0f300, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Dark Burning Light"), 0x2c0f2e0, 0x2c0f300, indexCPS2_Wolverine, 0, &pairNext },
     { _T("Dark Burning Light 2"), 0x2c0f300, 0x2c0f320, indexCPS2_Wolverine, 1 },
-    { _T("Kinetic Charge Dark"), 0x2c0f320, 0x2c0f340, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Kinetic Charge Dark"), 0x2c0f320, 0x2c0f340, indexCPS2_Wolverine, 0, &pairNext },
     { _T("Kinetic Charge Dark 2"), 0x2c0f340, 0x2c0f360, indexCPS2_Wolverine, 1 },
-    { _T("Kinetic Charge Light"), 0x2c0f360, 0x2c0f380, indexCPS2_Wolverine, 0, &pairWolvieClaws },
+    { _T("Kinetic Charge Light"), 0x2c0f360, 0x2c0f380, indexCPS2_Wolverine, 0, &pairNext },
     { _T("Kinetic Charge Light 2"), 0x2c0f380, 0x2c0f3a0, indexCPS2_Wolverine, 1 },
 };
 
@@ -1521,7 +1521,7 @@ const sDescTreeNode MVC2_A_ROGUE_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_LP[] =
 {
-    { _T("Main Color LP"), 0x2fd03e0, 0x2fd0400, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Main Color LP"), 0x2fd03e0, 0x2fd0400, indexCPS2_CapAm, 0, &pairNext },
     { _T("(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield"), 0x2fd0400, 0x2fd0420, indexCPS2_CapAm, 1 },
     { _T("(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)"), 0x2fd0420, 0x2fd0440, indexCPS2_CapAm, 2 },
     { _T("(04) Eagle"), 0x2fd0440, 0x2fd0460, indexCPS2_CapAm, 3 },
@@ -1533,7 +1533,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_LK[] =
 {
-    { _T("Main Color LK"), 0x2fd04e0, 0x2fd0500, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Main Color LK"), 0x2fd04e0, 0x2fd0500, indexCPS2_CapAm, 0, &pairNext },
     { _T("(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield"), 0x2fd0500, 0x2fd0520, indexCPS2_CapAm, 1 },
     { _T("(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)"), 0x2fd0520, 0x2fd0540, indexCPS2_CapAm, 2 },
     { _T("(04) Eagle"), 0x2fd0540, 0x2fd0560, indexCPS2_CapAm, 3 },
@@ -1545,7 +1545,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_HP[] =
 {
-    { _T("Main Color HP"), 0x2fd05e0, 0x2fd0600, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Main Color HP"), 0x2fd05e0, 0x2fd0600, indexCPS2_CapAm, 0, &pairNext },
     { _T("(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield"), 0x2fd0600, 0x2fd0620, indexCPS2_CapAm, 1 },
     { _T("(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)"), 0x2fd0620, 0x2fd0640, indexCPS2_CapAm, 2 },
     { _T("(04) Eagle"), 0x2fd0640, 0x2fd0660, indexCPS2_CapAm, 3 },
@@ -1557,7 +1557,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_HK[] =
 {
-    { _T("Main Color HK"), 0x2fd06e0, 0x2fd0700, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Main Color HK"), 0x2fd06e0, 0x2fd0700, indexCPS2_CapAm, 0, &pairNext },
     { _T("(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield"), 0x2fd0700, 0x2fd0720, indexCPS2_CapAm, 1 },
     { _T("(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)"), 0x2fd0720, 0x2fd0740, indexCPS2_CapAm, 2 },
     { _T("(04) Eagle"), 0x2fd0740, 0x2fd0760, indexCPS2_CapAm, 3 },
@@ -1569,7 +1569,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_A1[] =
 {
-    { _T("Main Color A1"), 0x2fd07e0, 0x2fd0800, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Main Color A1"), 0x2fd07e0, 0x2fd0800, indexCPS2_CapAm, 0, &pairNext },
     { _T("(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield"), 0x2fd0800, 0x2fd0820, indexCPS2_CapAm, 1 },
     { _T("(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)"), 0x2fd0820, 0x2fd0840, indexCPS2_CapAm, 2 },
     { _T("(04) Eagle"), 0x2fd0840, 0x2fd0860, indexCPS2_CapAm, 3 },
@@ -1581,7 +1581,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_A2[] =
 {
-    { _T("Main Color A2"), 0x2fd08e0, 0x2fd0900, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Main Color A2"), 0x2fd08e0, 0x2fd0900, indexCPS2_CapAm, 0, &pairNext },
     { _T("(02) ID: 01-06 - Shield's Star ID: 07-14 - Shield"), 0x2fd0900, 0x2fd0920, indexCPS2_CapAm, 1 },
     { _T("(03) ID: 01-09 - Shield Slash (effect) / Super Charging Stars (effect) ID: 10-16 Super Stars and Stripes (effect)"), 0x2fd0920, 0x2fd0940, indexCPS2_CapAm, 2 },
     { _T("(04) Eagle"), 0x2fd0940, 0x2fd0960, indexCPS2_CapAm, 3 },
@@ -1593,21 +1593,21 @@ const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_CAPTAINAMERICA_PALETTES_SHARED[] =
 {
-    { _T("Burning Dark"), 0x2fd09e0, 0x2fd0a00, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Burning Dark"), 0x2fd09e0, 0x2fd0a00, indexCPS2_CapAm, 0, &pairNext },
     { _T("Burning Dark 2"), 0x2fd0a00, 0x2fd0a20, indexCPS2_CapAm, 1 },
-    { _T("Burning Light"), 0x2fd0a20, 0x2fd0a40, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Burning Light"), 0x2fd0a20, 0x2fd0a40, indexCPS2_CapAm, 0, &pairNext },
     { _T("Burning Light 2"), 0x2fd0a40, 0x2fd0a60, indexCPS2_CapAm, 1 },
-    { _T("Shocked Dark"), 0x2fd0a60, 0x2fd0a80, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Shocked Dark"), 0x2fd0a60, 0x2fd0a80, indexCPS2_CapAm, 0, &pairNext },
     { _T("Shocked Dark 2"), 0x2fd0a80, 0x2fd0aa0, indexCPS2_CapAm, 1 },
-    { _T("Shocked Light"), 0x2fd0aa0, 0x2fd0ac0, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Shocked Light"), 0x2fd0aa0, 0x2fd0ac0, indexCPS2_CapAm, 0, &pairNext },
     { _T("Shocked Light 2"), 0x2fd0ac0, 0x2fd0ae0, indexCPS2_CapAm, 1 },
-    { _T("Dark Burning Dark"), 0x2fd0ae0, 0x2fd0b00, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Dark Burning Dark"), 0x2fd0ae0, 0x2fd0b00, indexCPS2_CapAm, 0, &pairNext },
     { _T("Dark Burning Dark 2"), 0x2fd0b00, 0x2fd0b20, indexCPS2_CapAm, 1 },
-    { _T("Dark Burning Light"), 0x2fd0b20, 0x2fd0b40, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Dark Burning Light"), 0x2fd0b20, 0x2fd0b40, indexCPS2_CapAm, 0, &pairNext },
     { _T("Dark Burning Light 2"), 0x2fd0b40, 0x2fd0b60, indexCPS2_CapAm, 1 },
-    { _T("Kinetic Charge Dark"), 0x2fd0b60, 0x2fd0b80, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Kinetic Charge Dark"), 0x2fd0b60, 0x2fd0b80, indexCPS2_CapAm, 0, &pairNext },
     { _T("Kinetic Charge Dark 2"), 0x2fd0b80, 0x2fd0ba0, indexCPS2_CapAm, 1 },
-    { _T("Kinetic Charge Light"), 0x2fd0ba0, 0x2fd0bc0, indexCPS2_CapAm, 0, &pairCaptainAmericaShield },
+    { _T("Kinetic Charge Light"), 0x2fd0ba0, 0x2fd0bc0, indexCPS2_CapAm, 0, &pairNext },
     { _T("Kinetic Charge Light 2"), 0x2fd0bc0, 0x2fd0be0, indexCPS2_CapAm, 1 },
 };
 
@@ -2473,7 +2473,7 @@ const sDescTreeNode MVC2_A_JILL_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LP[] =
 {
-    { _T("Main Color LP"), 0x36f0740, 0x36f0760, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Main Color LP"), 0x36f0740, 0x36f0760, indexCPS2_Hayato, 0, &pairNext },
     { _T("(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword"), 0x36f0760, 0x36f0780, indexCPS2_Hayato, 1 },
     { _T("(03) ID: 01-08: Intro (Rising Flames)"), 0x36f0780, 0x36f07a0, indexCPS2_Hayato, 2 },
     { _T("(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires"), 0x36f07a0, 0x36f07c0, indexCPS2_Hayato, 3 },
@@ -2485,7 +2485,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LK[] =
 {
-    { _T("Main Color LK"), 0x36f0840, 0x36f0860, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Main Color LK"), 0x36f0840, 0x36f0860, indexCPS2_Hayato, 0, &pairNext },
     { _T("(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword"), 0x36f0860, 0x36f0880, indexCPS2_Hayato, 1 },
     { _T("(03) ID: 01-08: Intro (Rising Flames)"), 0x36f0880, 0x36f08a0, indexCPS2_Hayato, 2 },
     { _T("(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires"), 0x36f08a0, 0x36f08c0, indexCPS2_Hayato, 3 },
@@ -2497,7 +2497,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HP[] =
 {
-    { _T("Main Color HP"), 0x36f0940, 0x36f0960, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Main Color HP"), 0x36f0940, 0x36f0960, indexCPS2_Hayato, 0, &pairNext },
     { _T("(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword"), 0x36f0960, 0x36f0980, indexCPS2_Hayato, 1 },
     { _T("(03) ID: 01-08: Intro (Rising Flames)"), 0x36f0980, 0x36f09a0, indexCPS2_Hayato, 2 },
     { _T("(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires"), 0x36f09a0, 0x36f09c0, indexCPS2_Hayato, 3 },
@@ -2509,7 +2509,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HK[] =
 {
-    { _T("Main Color HK"), 0x36f0a40, 0x36f0a60, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Main Color HK"), 0x36f0a40, 0x36f0a60, indexCPS2_Hayato, 0, &pairNext },
     { _T("(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword"), 0x36f0a60, 0x36f0a80, indexCPS2_Hayato, 1 },
     { _T("(03) ID: 01-08: Intro (Rising Flames)"), 0x36f0a80, 0x36f0aa0, indexCPS2_Hayato, 2 },
     { _T("(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires"), 0x36f0aa0, 0x36f0ac0, indexCPS2_Hayato, 3 },
@@ -2521,7 +2521,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A1[] =
 {
-    { _T("Main Color A1"), 0x36f0b40, 0x36f0b60, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Main Color A1"), 0x36f0b40, 0x36f0b60, indexCPS2_Hayato, 0, &pairNext },
     { _T("(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword"), 0x36f0b60, 0x36f0b80, indexCPS2_Hayato, 1 },
     { _T("(03) ID: 01-08: Intro (Rising Flames)"), 0x36f0b80, 0x36f0ba0, indexCPS2_Hayato, 2 },
     { _T("(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires"), 0x36f0ba0, 0x36f0bc0, indexCPS2_Hayato, 3 },
@@ -2533,7 +2533,7 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A2[] =
 {
-    { _T("Main Color A2"), 0x36f0c40, 0x36f0c60, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Main Color A2"), 0x36f0c40, 0x36f0c60, indexCPS2_Hayato, 0, &pairNext },
     { _T("(02) ID: 01-07: Not Used ID: 08-15: Hayato's Sword"), 0x36f0c60, 0x36f0c80, indexCPS2_Hayato, 1 },
     { _T("(03) ID: 01-08: Intro (Rising Flames)"), 0x36f0c80, 0x36f0ca0, indexCPS2_Hayato, 2 },
     { _T("(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires"), 0x36f0ca0, 0x36f0cc0, indexCPS2_Hayato, 3 },
@@ -2545,21 +2545,21 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_SHARED[] =
 {
-    { _T("Burning Dark"), 0x36f0d40, 0x36f0d60, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Burning Dark"), 0x36f0d40, 0x36f0d60, indexCPS2_Hayato, 0, &pairNext },
     { _T("Burning Dark 2"), 0x36f0d60, 0x36f0d80, indexCPS2_Hayato, 1 },
-    { _T("Burning Light"), 0x36f0d80, 0x36f0da0, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Burning Light"), 0x36f0d80, 0x36f0da0, indexCPS2_Hayato, 0, &pairNext },
     { _T("Burning Light 2"), 0x36f0da0, 0x36f0dc0, indexCPS2_Hayato, 1 },
-    { _T("Shocked Dark"), 0x36f0dc0, 0x36f0de0, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Shocked Dark"), 0x36f0dc0, 0x36f0de0, indexCPS2_Hayato, 0, &pairNext },
     { _T("Shocked Dark 2"), 0x36f0de0, 0x36f0e00, indexCPS2_Hayato, 1 },
-    { _T("Shocked Light"), 0x36f0e00, 0x36f0e20, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Shocked Light"), 0x36f0e00, 0x36f0e20, indexCPS2_Hayato, 0, &pairNext },
     { _T("Shocked Light 2"), 0x36f0e20, 0x36f0e40, indexCPS2_Hayato, 1 },
-    { _T("Dark Burning Dark"), 0x36f0e40, 0x36f0e60, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Dark Burning Dark"), 0x36f0e40, 0x36f0e60, indexCPS2_Hayato, 0, &pairNext },
     { _T("Dark Burning Dark 2"), 0x36f0e60, 0x36f0e80, indexCPS2_Hayato, 1 },
-    { _T("Dark Burning Light"), 0x36f0e80, 0x36f0ea0, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Dark Burning Light"), 0x36f0e80, 0x36f0ea0, indexCPS2_Hayato, 0, &pairNext },
     { _T("Dark Burning Light 2"), 0x36f0ea0, 0x36f0ec0, indexCPS2_Hayato, 1 },
-    { _T("Kinetic Charge Dark"), 0x36f0ec0, 0x36f0ee0, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Kinetic Charge Dark"), 0x36f0ec0, 0x36f0ee0, indexCPS2_Hayato, 0, &pairNext },
     { _T("Kinetic Charge Dark 2"), 0x36f0ee0, 0x36f0f00, indexCPS2_Hayato, 1 },
-    { _T("Kinetic Charge Light"), 0x36f0f00, 0x36f0f20, indexCPS2_Hayato, 0, &pairHayatoSword },
+    { _T("Kinetic Charge Light"), 0x36f0f00, 0x36f0f20, indexCPS2_Hayato, 0, &pairNext },
     { _T("Kinetic Charge Light 2"), 0x36f0f20, 0x36f0f40, indexCPS2_Hayato, 1 },
 };
 
@@ -3406,7 +3406,7 @@ const sDescTreeNode MVC2_A_ABYSS3_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_LP[] =
 {
-    { _T("Main Color LP"), 0x3f00960, 0x3f00980, indexCPS2_ChunLi, 0 },
+    { _T("Main Color LP"), 0x3f00960, 0x3f00980, indexCPS2_ChunLi, 0, &pairNext },
     { _T("(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)"), 0x3f00980, 0x3f009a0, indexCPS2_ChunLi, 1 },
     { _T("(03) Lightning Kicks / Kikouken / Kouken"), 0x3f009a0, 0x3f009c0, indexCPS2_ChunLi, 2 },
     { _T("(04) Not Used"), 0x3f009c0, 0x3f009e0, indexCPS2_ChunLi, 3 },
@@ -3418,7 +3418,7 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_LK[] =
 {
-    { _T("Main Color LK"), 0x3f00a60, 0x3f00a80, indexCPS2_ChunLi, 0 },
+    { _T("Main Color LK"), 0x3f00a60, 0x3f00a80, indexCPS2_ChunLi, 0, &pairNext },
     { _T("(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)"), 0x3f00a80, 0x3f00aa0, indexCPS2_ChunLi, 1 },
     { _T("(03) Lightning Kicks / Kikouken / Kouken"), 0x3f00aa0, 0x3f00ac0, indexCPS2_ChunLi, 2 },
     { _T("(04) Not Used"), 0x3f00ac0, 0x3f00ae0, indexCPS2_ChunLi, 3 },
@@ -3430,7 +3430,7 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_HP[] =
 {
-    { _T("Main Color HP"), 0x3f00b60, 0x3f00b80, indexCPS2_ChunLi, 0 },
+    { _T("Main Color HP"), 0x3f00b60, 0x3f00b80, indexCPS2_ChunLi, 0, &pairNext },
     { _T("(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)"), 0x3f00b80, 0x3f00ba0, indexCPS2_ChunLi, 1 },
     { _T("(03) Lightning Kicks / Kikouken / Kouken"), 0x3f00ba0, 0x3f00bc0, indexCPS2_ChunLi, 2 },
     { _T("(04) Not Used"), 0x3f00bc0, 0x3f00be0, indexCPS2_ChunLi, 3 },
@@ -3442,7 +3442,7 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_HK[] =
 {
-    { _T("Main Color HK"), 0x3f00c60, 0x3f00c80, indexCPS2_ChunLi, 0 },
+    { _T("Main Color HK"), 0x3f00c60, 0x3f00c80, indexCPS2_ChunLi, 0, &pairNext },
     { _T("(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)"), 0x3f00c80, 0x3f00ca0, indexCPS2_ChunLi, 1 },
     { _T("(03) Lightning Kicks / Kikouken / Kouken"), 0x3f00ca0, 0x3f00cc0, indexCPS2_ChunLi, 2 },
     { _T("(04) Not Used"), 0x3f00cc0, 0x3f00ce0, indexCPS2_ChunLi, 3 },
@@ -3454,7 +3454,7 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_A1[] =
 {
-    { _T("Main Color A1"), 0x3f00d60, 0x3f00d80, indexCPS2_ChunLi, 0 },
+    { _T("Main Color A1"), 0x3f00d60, 0x3f00d80, indexCPS2_ChunLi, 0, &pairNext },
     { _T("(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)"), 0x3f00d80, 0x3f00da0, indexCPS2_ChunLi, 1 },
     { _T("(03) Lightning Kicks / Kikouken / Kouken"), 0x3f00da0, 0x3f00dc0, indexCPS2_ChunLi, 2 },
     { _T("(04) Not Used"), 0x3f00dc0, 0x3f00de0, indexCPS2_ChunLi, 3 },
@@ -3466,7 +3466,7 @@ const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_CHUNLI_PALETTES_A2[] =
 {
-    { _T("Main Color A2"), 0x3f00e60, 0x3f00e80, indexCPS2_ChunLi, 0 },
+    { _T("Main Color A2"), 0x3f00e60, 0x3f00e80, indexCPS2_ChunLi, 0, &pairNext },
     { _T("(02) ID:01-05 Not Used 06-15 : Keiokuken (shades)"), 0x3f00e80, 0x3f00ea0, indexCPS2_ChunLi, 1 },
     { _T("(03) Lightning Kicks / Kikouken / Kouken"), 0x3f00ea0, 0x3f00ec0, indexCPS2_ChunLi, 2 },
     { _T("(04) Not Used"), 0x3f00ec0, 0x3f00ee0, indexCPS2_ChunLi, 3 },

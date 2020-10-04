@@ -93,10 +93,10 @@ UINT32 CGame_SSF2T_GBA::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
     // If we need further differentiation, we can bytesniff at 0xa0
     static const sCRC32ValueSet knownROMs[] =
     {
-        { _T("SSFIIT- Revival (USA GBA)"), _T("Super Street Fighter II Turbo - Revival (USA).gba"), 0x63045aa, 0 },
-        { _T("SSFIIX - Revival (Japan)"), _T("Super Street Fighter II X - Revival (Japan).gba"), 0x7a2c0d61, 0x1690 },
-        { _T("SSFIIT - Revival (Euro GBA)"), _T("Super_Street_Fighter_II_Turbo_-_Revival_Europe.gba"), 0x461b4590, -0x418 },
-        { _T("SSFIIT - Revival (Euro GBA)"), _T("Super Street Fighter II Turbo - Revival (Europe).gba"), 0x461b4590, -0x418 },
+        { _T("SSF2T - Revival (USA GBA)"), _T("Super Street Fighter II Turbo - Revival (USA).gba"), 0x63045aa, 0 },
+        { _T("SSF2X - Revival (Japan)"), _T("Super Street Fighter II X - Revival (Japan).gba"), 0x7a2c0d61, 0x1690 },
+        { _T("SSF2T - Revival (Euro GBA)"), _T("Super_Street_Fighter_II_Turbo_-_Revival_Europe.gba"), 0x461b4590, -0x418 },
+        { _T("SSF2T - Revival (Euro GBA)"), _T("Super Street Fighter II Turbo - Revival (Europe).gba"), 0x461b4590, -0x418 },
     };
 
     if (ppKnownROMSet)

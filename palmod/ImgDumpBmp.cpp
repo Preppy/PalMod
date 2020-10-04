@@ -493,7 +493,7 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
                 (int)((row_ctr * (blt_h * zoom))
                 + border_sz + (border_sz * row_ctr) + abs(rImgRct.top * zoom) + (ptOffs[nImgCtr].y * zoom)),
 
-                zoom, (BOOL)pDstData
+                zoom, (pDstData != nullptr)
             );
         }
     }
@@ -574,15 +574,24 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
                 if (uIndex)
                 {
-                    double fpAdd = ((double)pCurrPal[(uIndex * 4) + 3] / 255.0);
-
                     nDstPos = nStartRow + x;
+
+#ifdef BLEND_TO_BACKGROUND
+                    // zachd 2020/10/02: I am baffled why we would blend to background on a transparent background.  For one image there's nothing to blend to.  For multiple images we break layering and instead
+                    // muddle everything together.  I think this was just early experiemental code.  I'll leave it in case it matters, but don't think it's ever correct.
+                    double fpAdd = ((double)pCurrPal[(uIndex * 4) + 3] / 255.0);
 
                     pDstBmpData[nDstPos + 3] += pCurrPal[(uIndex * 4) + 3];
 
                     pDstBmpData[nDstPos + 2] = (UINT8)(pDstBmpData[nDstPos + 2] ? (pDstBmpData[nDstPos + 2] + ((double)pCurrPal[(uIndex * 4)] * fpAdd)    ) : (pDstBmpData[nDstPos + 2] + pCurrPal[(uIndex * 4)]));
                     pDstBmpData[nDstPos + 1] = (UINT8)(pDstBmpData[nDstPos + 1] ? (pDstBmpData[nDstPos + 1] + ((double)pCurrPal[(uIndex * 4) + 1] * fpAdd)) : (pDstBmpData[nDstPos + 1] + pCurrPal[(uIndex * 4) + 1]));
                     pDstBmpData[nDstPos] =     (UINT8)(pDstBmpData[nDstPos]     ? (pDstBmpData[nDstPos]     + ((double)pCurrPal[(uIndex * 4) + 2] * fpAdd)) : (pDstBmpData[nDstPos] + pCurrPal[(uIndex * 4) + 2]));
+#else
+                    pDstBmpData[nDstPos + 3] = pCurrPal[(uIndex * 4) + 3];
+                    pDstBmpData[nDstPos + 2] = pCurrPal[(uIndex * 4)];
+                    pDstBmpData[nDstPos + 1] = pCurrPal[(uIndex * 4) + 1];
+                    pDstBmpData[nDstPos]     = pCurrPal[(uIndex * 4) + 2];
+#endif
                 }
             }
         }
