@@ -476,6 +476,7 @@ enum CHARACTERS_3S_CPS3
     index3S_CPS3_Bonus,
     index3S_CPS3_Stages,
     index3S_CPS3_Gill,
+    index2i_CPS3_Bonus,
 };
 
 const UINT8 SFIII2_A_IMG_UNITS[] =
@@ -495,8 +496,8 @@ const UINT8 SFIII2_A_IMG_UNITS[] =
     index3S_CPS3_Urien,
     index3S_CPS3_Gouki,
     index3S_CPS3_ShinGouki,
-    index3S_CPS3_Bonus,
     index3S_CPS3_Gill,
+    index2i_CPS3_Bonus,
 };
 
 constexpr auto SFIII2_A_NUM_IMG_UNITS = ARRAYSIZE(SFIII2_A_IMG_UNITS);

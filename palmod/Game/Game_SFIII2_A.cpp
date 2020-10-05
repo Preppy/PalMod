@@ -48,7 +48,7 @@ CGame_SFIII2_A::CGame_SFIII2_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 795;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 780;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII2_50;
     m_nLowestKnownPaletteRomLocation = 0x398000;
 

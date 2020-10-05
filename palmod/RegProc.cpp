@@ -33,7 +33,7 @@ void CRegProc::SetUserSavePaletteToMemoryPreference(int nPreference)
 {
     HKEY hKey;
 
-    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
         RegSetValueEx(hKey, c_nPrefSavePaletteToMemory, 0, REG_DWORD, (BYTE*)&nPreference, sizeof(DWORD));
@@ -46,7 +46,7 @@ int CRegProc::GetUserSavePaletteToMemoryPreference()
     HKEY hKey;
     int nShouldAutoSavePalettesToMemory = IDYES;
 
-    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
         DWORD dwValue;
@@ -72,7 +72,7 @@ void CRegProc::SetColorsPerLine(DWORD dwColors)
 {
     HKEY hKey;
 
-    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
         RegSetValueEx(hKey, c_mainWndColorsPerLine, 0, REG_DWORD, (BYTE*)&dwColors, sizeof(DWORD));
@@ -91,7 +91,7 @@ UINT16 CRegProc::GetMaxColorsPerPageOverride()
 
         s_dwMaxColorsPerPage = 0;
 
-        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
+        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
             == ERROR_SUCCESS)
         {
             DWORD RegType = REG_DWORD;
@@ -120,7 +120,7 @@ bool CRegProc::ShouldForcePeerPreviewWindow()
 
         shouldForcePeerWindow = 0;
 
-        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
+        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
             == ERROR_SUCCESS)
         {
             DWORD RegType = REG_DWORD;
@@ -145,7 +145,7 @@ UINT16 CRegProc::GetColorsPerLine()
     {
         HKEY hKey;
 
-        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
+        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
             == ERROR_SUCCESS)
         {
             DWORD RegType = REG_DWORD;
@@ -176,7 +176,7 @@ void CRegProc::LoadReg(int src)
 
     CString conv_str;
 
-    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE|KEY_READ, NULL, &hKey, NULL)
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE|KEY_READ, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
         switch (src)
@@ -340,7 +340,7 @@ void CRegProc::SaveReg(int src)
 
     CString conv_str;
 
-    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
         switch (src)
