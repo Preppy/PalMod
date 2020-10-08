@@ -54,7 +54,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     m_nExtraUnit = UsePaletteSetForPortraits() ? SSF2T_A_EXTRALOC_3C : SSF2T_A_EXTRALOC_4A;
 
     const UINT32 nSafeCountFor3C = 160;
-    const UINT32 nSafeCountFor4A = 711;
+    const UINT32 nSafeCountFor4A = 671;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForPortraits() ? nSafeCountFor3C : nSafeCountFor4A);
     m_pszExtraFilename = UsePaletteSetForPortraits() ? EXTRA_FILENAME_SSF2T_3C : EXTRA_FILENAME_SSF2T_4A;

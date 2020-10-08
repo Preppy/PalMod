@@ -42,7 +42,7 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     m_nExtraUnit = NEOGEO_A_EXTRALOC;
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2;
-    m_pszExtraFilename = EXTRA_FILENAME_NEOGEO_A;
+    m_pszExtraFilename = EXTRA_FILENAME_UNKNOWN_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForNEOGEO;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     m_nLowestKnownPaletteRomLocation = 0x0; // Don't worry about locations for a stubbed game...
@@ -52,9 +52,10 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     if (GetExtraCt(m_nExtraUnit) == 0)
     {
         CString strIntro;
-        strIntro = _T("Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random NEO•GEO ROM that PalMod does not already support. \n\n");
+        strIntro = _T("Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random game ROM that PalMod does not already support. \n\n");
+        //strIntro += _T("PalMod will read / write specified RAM offsets as if they indicated colors for the pixel format specified in the Settings menu.\n\n");
         strIntro += _T("PalMod will read / write specified RAM offsets as if they indicated RGB666 colors.\n\n");
-        strIntro += _T("Right now, you don't have any entries in your NEOGEOE.txt Extras file: you will want to add entries there if you wish to use this \"dummy\" mode.\n\n");
+        strIntro += _T("Right now, you don't have any entries in your UnknownE.txt Extras file: you will want to add entries there if you wish to use this \"dummy\" mode.\n\n");
         strIntro += _T("Please make sure to only change a copy of the ROM you're interested in: since you're directly playing around with the game ROM, weird things could happen.\n\n");
         strIntro += _T("Good luck!");
         MessageBox(g_appHWnd, strIntro, GetHost()->GetAppName(), MB_ICONINFORMATION);
@@ -62,11 +63,33 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
 
     InitDataBuffer();
 
-    //Set color mode
-    SetColMode(ColMode::COLMODE_NEOGEO);
+    DWORD dwMystery = 4;
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_8);
+    switch (dwMystery)
+    {
+    case 0:
+        SetColMode(ColMode::COLMODE_GBA);
+        BasePalGroup.SetMode(ePalType::PALTYPE_17);
+        break;
+    case 1:
+        SetColMode(ColMode::COLMODE_12A);
+        BasePalGroup.SetMode(ePalType::PALTYPE_17);
+        break;
+    case 2:
+        SetColMode(ColMode::COLMODE_15);
+        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        break;
+    case 3:
+        SetColMode(ColMode::COLMODE_15ALT);
+        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        break;
+    case 4:
+    default:
+        SetColMode(ColMode::COLMODE_NEOGEO);
+        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        break;
+    };
+
 
     //Set game information
     nGameFlag = NEOGEO_A;
@@ -100,6 +123,25 @@ CGame_NEOGEO_A::~CGame_NEOGEO_A(void)
 CDescTree* CGame_NEOGEO_A::GetMainTree()
 {
     return &CGame_NEOGEO_A::MainDescTree;
+}
+
+LPCTSTR CGame_NEOGEO_A::GetGameName()
+{
+    switch (GetColMode())
+    {
+    case ColMode::COLMODE_GBA:
+        return L"RGB555 little endian (GBA)";
+    case ColMode::COLMODE_12A:
+        return L"RGB444 big endian (CPS1/CPS2)";
+    case ColMode::COLMODE_15:
+        return L"RGB555 little endian (CPS3)";
+    case ColMode::COLMODE_15ALT:
+        return L"RGB555 big endian";
+    case ColMode::COLMODE_NEOGEO:
+        return L"RGB666 (NEO*GEO)";
+    default:
+        return L"Unknown Game";
+    };
 }
 
 int CGame_NEOGEO_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
@@ -157,7 +199,17 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_NEOGEO_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_UNKNOWN_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize);
+
+    if (GetExtraCt(NEOGEO_A_EXTRALOC) == 0)
+    {
+        // Fall over to the old filename option
+        safe_delete_array(NEOGEO_A_EXTRA_CUSTOM);
+        memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
+        memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+
+        LoadExtraFileForGame(EXTRA_FILENAME_NEO_GEO_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize);
+    }
 
     UINT16 nUnitCt = NEOGEO_A_NUMUNIT + (GetExtraCt(NEOGEO_A_EXTRALOC) ? 1 : 0);
     

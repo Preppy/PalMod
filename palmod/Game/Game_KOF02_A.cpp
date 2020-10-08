@@ -745,13 +745,17 @@ BOOL CGame_KOF02_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                nSrcAmt = 4;
-                nNodeIncrement = pCurrentNode->uChildAmt;
-
-                while (nSrcStart >= nNodeIncrement)
+                if ((_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[0]) == 0) || (_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[1]) == 0) ||
+                    (_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[2]) == 0) || (_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[3]) == 0))
                 {
-                    // The starting point is the absolute first palette for the sprite in question which is found in P1
-                    nSrcStart -= nNodeIncrement;
+                    nSrcAmt = 4;
+                    nNodeIncrement = pCurrentNode->uChildAmt;
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        nSrcStart -= nNodeIncrement;
+                    }
                 }
             }
         }

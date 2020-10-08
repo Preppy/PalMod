@@ -428,7 +428,7 @@ void CPalModDlg::OnFileOpen()
         { VSAV2_A, _T("Vampire Savior 2|vs2j.10|"), INVALID_UNIT_VALUE },
         { WakuWaku7_A, _T("Waku Waku 7|225-p1.p1|"), INVALID_UNIT_VALUE },
         { XMVSF_A, _T("XMVSF|xvs*.05*|"), INVALID_UNIT_VALUE },
-        { NEOGEO_A, _T("Unknown NEO•GEO|*.*|"), INVALID_UNIT_VALUE },
+        { NEOGEO_A, _T("Unknown Game ROM|*.*|"), INVALID_UNIT_VALUE },
     };
 
     // The following logic ensures that their last used selection is the default filter view.

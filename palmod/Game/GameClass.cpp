@@ -147,7 +147,7 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
         switch (NewMode)
         {
         case ColMode::COLMODE_GBA:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMOD_GBA (ARGB444)"));
+            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMOD_GBA (ARGB555)"));
             break;
         case ColMode::COLMODE_12A:
             strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMOD_12A (ARGB444)"));

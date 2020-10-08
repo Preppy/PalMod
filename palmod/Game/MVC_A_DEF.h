@@ -115,7 +115,7 @@ const sGame_PaletteDataset MVC_A_SHADOWLADY_PALETTES_P1[] =
     { _T("P1 Glimmer 1"), 0x4ff64, 0x4ff84, indexCPS2_ChunLi },
     { _T("P1 Glimmer 2"), 0x4ff84, 0x4ffa4, indexCPS2_ChunLi },
     { _T("P1 Glimmer 3"), 0x4ffa4, 0x4ffc4, indexCPS2_ChunLi },
-    { _T("P2 Glimmer 4"), 0x4ffc4, 0x4ffe4, indexCPS2_ChunLi },
+    { _T("P1 Glimmer 4"), 0x4ffc4, 0x4ffe4, indexCPS2_ChunLi },
     { _T("P1 Glimmer 5"), 0x4ffe4, 0x50004, indexCPS2_ChunLi },
     { _T("P1 Glimmer 6"), 0x50004, 0x50024, indexCPS2_ChunLi },
     { _T("P1 Glimmer 7"), 0x50024, 0x50044, indexCPS2_ChunLi },
@@ -727,6 +727,11 @@ const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_P2[] =
     { _T("P2 Color"), 0x49284, 0x492a4, indexCPS2_WarMachine },
     { _T("P2 Proton Cannon / War Destroyer"), 0x492a4, 0x492c4, indexCPS2_WarMachine, 1 },
     { _T("P2 Beams / Blasts / Effect"), 0x492c4, 0x492e4, indexCPS2_WarMachine, 2 },
+};
+
+const sGame_PaletteDataset MVC_A_GOLDWARMACHINE_PALETTES_EXTRAS[] =
+{
+    { _T("Armor P1+P2 Shared"), 0x501e4, 0x50204, indexCPS2_WarMachine },
 };
 
 const sGame_PaletteDataset MVC_A_CAPAM_PALETTES_P1[] =
@@ -1519,8 +1524,8 @@ const sGame_PaletteDataset MVC_A_VSP_PALETTES[] =
     { _T("Red Venom P1 VSP"), 0x56a44, 0x56ac4, 0x0E, 0x13 },
     { _T("Red Venom P2 VSP"), 0x57d04, 0x57d84, 0x0E, 0x13 },
     { _T("War Machine P1 VSP"), 0x55d84, 0x55e04, 0x2E, 0x13 },
-    { _T("Gold War Machine P1 VSP"), 0x56bc4, 0x56c44, 0x2E, 0x13 },
     { _T("War Machine P2 VSP"), 0x57044, 0x570c4, 0x2E, 0x13 },
+    { _T("Gold War Machine P1 VSP"), 0x56bc4, 0x56c44, 0x2E, 0x13 },
     { _T("Gold War Machine P2 VSP"), 0x57e84, 0x57f04, 0x2E, 0x13 },
     { _T("Wolverine P1 VSP"), 0x55fc4, 0x56084, 0x07, 0x13 },
     { _T("Wolverine P2 VSP"), 0x57284, 0x57344, 0x07, 0x13 },
@@ -1829,6 +1834,7 @@ const sDescTreeNode MVC_A_GOLDWARMACHINE_COLLECTION[] =
 {
     { _T("P1"), DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES_P1,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES_P1) },
     { _T("P2"), DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES_P2,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES_P2) },
+    { _T("Extras"), DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES_EXTRAS,   ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES_EXTRAS) },
     { _T("Shared"), DESC_NODETYPE_TREE, (void*)MVC_A_GOLDWARMACHINE_PALETTES_SHARED, ARRAYSIZE(MVC_A_GOLDWARMACHINE_PALETTES_SHARED) },
 };
 

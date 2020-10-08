@@ -774,222 +774,222 @@ const sGame_PaletteDataset KOF02_A_OCHRIS_PALETTES_PORTRAITS_LIFEBAR[] =
 
 const sGame_PaletteDataset KOF02_A_KYO_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Kyo Select Portrait"), 0xb8362, 0xb83a2 },
+    { _T("Kyo Select Portrait"), 0xb8362, 0xb83a2, indexKOFSprites_02Extras, 0x2b },
 };
 
 const sGame_PaletteDataset KOF02_A_BENIMARU_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Benimaru Select Portrait"), 0xb83a2, 0xb83e2 },
+    { _T("Benimaru Select Portrait"), 0xb83a2, 0xb83e2, indexKOFSprites_02Extras, 0x01 },
 };
 
 const sGame_PaletteDataset KOF02_A_DAIMON_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Daimon Select Portrait"), 0xb83e2, 0xb8422 },
+    { _T("Daimon Select Portrait"), 0xb83e2, 0xb8422, indexKOFSprites_02Extras, 0x02 },
 };
 
 const sGame_PaletteDataset KOF02_A_TERRY_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Terry Select Portrait"), 0xb8422, 0xb8462 },
+    { _T("Terry Select Portrait"), 0xb8422, 0xb8462, indexKOFSprites_02Extras, 0x03 },
 };
 
 const sGame_PaletteDataset KOF02_A_ANDY_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Andy Select Portrait"), 0xb8462, 0xb84a2 },
+    { _T("Andy Select Portrait"), 0xb8462, 0xb84a2, indexKOFSprites_02Extras, 0x48 },
 };
 
 const sGame_PaletteDataset KOF02_A_JOE_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Joe Select Portrait"), 0xb84a2, 0xb84e2 },
+    { _T("Joe Select Portrait"), 0xb84a2, 0xb84e2, indexKOFSprites_02Extras, 0x05 },
 };
 
 const sGame_PaletteDataset KOF02_A_KIM_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Kim Select Portrait"), 0xb84e2, 0xb8522 },
+    { _T("Kim Select Portrait"), 0xb84e2, 0xb8522, indexKOFSprites_02Extras, 0x12 },
 };
 
 const sGame_PaletteDataset KOF02_A_CHANG_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Chang Select Portrait"), 0xb8522, 0xb8562 },
+    { _T("Chang Select Portrait"), 0xb8522, 0xb8562, indexKOFSprites_02Extras, 0x13 },
 };
 
 const sGame_PaletteDataset KOF02_A_CHOI_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Choi Select Portrait"), 0xb8562, 0xb85a2 },
+    { _T("Choi Select Portrait"), 0xb8562, 0xb85a2, indexKOFSprites_02Extras, 0x14 },
 };
 
 const sGame_PaletteDataset KOF02_A_ATHENA_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Athena Select Portrait"), 0xb85a2, 0xb85e2 },
+    { _T("Athena Select Portrait"), 0xb85a2, 0xb85e2, indexKOFSprites_02Extras, 0x27 },
 };
 
 const sGame_PaletteDataset KOF02_A_KENSOU_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Kensou Select Portrait"), 0xb85e2, 0xb8622 },
+    { _T("Kensou Select Portrait"), 0xb85e2, 0xb8622, indexKOFSprites_02Extras, 0x0d },
 };
 
 const sGame_PaletteDataset KOF02_A_CHIN_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Chin Select Portrait"), 0xb8622, 0xb8662 },
+    { _T("Chin Select Portrait"), 0xb8622, 0xb8662, indexKOFSprites_02Extras, 0x49 },
 };
 
 const sGame_PaletteDataset KOF02_A_LEONA_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Leona Select Portrait"), 0xb8662, 0xb86a2 },
+    { _T("Leona Select Portrait"), 0xb8662, 0xb86a2, indexKOFSprites_02Extras, 0x09 },
 };
 
 const sGame_PaletteDataset KOF02_A_RALF_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Ralf Select Portrait"), 0xb86a2, 0xb86e2 },
+    { _T("Ralf Select Portrait"), 0xb86a2, 0xb86e2, indexKOFSprites_02Extras, 0x2e },
 };
 
 const sGame_PaletteDataset KOF02_A_CLARK_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Clark Select Portrait"), 0xb86e2, 0xb8722 },
+    { _T("Clark Select Portrait"), 0xb86e2, 0xb8722, indexKOFSprites_02Extras, 0x28 },
 };
 
 const sGame_PaletteDataset KOF02_A_RYO_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Ryo Select Portrait"), 0xb8722, 0xb8762 },
+    { _T("Ryo Select Portrait"), 0xb8722, 0xb8762, indexKOFSprites_02Extras, 0x06 },
 };
 
 const sGame_PaletteDataset KOF02_A_ROBERT_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Robert Select Portrait"), 0xb8762, 0xb87a2 },
+    { _T("Robert Select Portrait"), 0xb8762, 0xb87a2, indexKOFSprites_02Extras, 0x4b },
 };
 
 const sGame_PaletteDataset KOF02_A_TAKUMA_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Takuma Select Portrait"), 0xb87a2, 0xb87e2 },
+    { _T("Takuma Select Portrait"), 0xb87a2, 0xb87e2, indexKOFSprites_02Extras, 0x1f },
 };
 
 const sGame_PaletteDataset KOF02_A_MAI_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Mai Select Portrait"), 0xb87e2, 0xb8822 },
+    { _T("Mai Select Portrait"), 0xb87e2, 0xb8822, indexKOFSprites_02Extras, 0x10 },
 };
 
 const sGame_PaletteDataset KOF02_A_YURI_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Yuri Select Portrait"), 0xb8822, 0xb8862 },
+    { _T("Yuri Select Portrait"), 0xb8822, 0xb8862, indexKOFSprites_02Extras, 0x4c },
 };
 
 const sGame_PaletteDataset KOF02_A_MAYLEE_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("May Lee Select Portrait"), 0xb8862, 0xb88a2 },
+    { _T("May Lee Select Portrait"), 0xb8862, 0xb88a2, indexKOFSprites_02Extras, 0x2d },
 };
 
 const sGame_PaletteDataset KOF02_A_IORI_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Iori Select Portrait"), 0xb88a2, 0xb88e2 },
+    { _T("Iori Select Portrait"), 0xb88a2, 0xb88e2, indexKOFSprites_02Extras, 0x1b },
 };
 
 const sGame_PaletteDataset KOF02_A_MATURE_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Mature Select Portrait"), 0xb88e2, 0xb8922 },
+    { _T("Mature Select Portrait"), 0xb88e2, 0xb8922, indexKOFSprites_02Extras, 0x1c },
 };
 
 const sGame_PaletteDataset KOF02_A_VICE_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Vice Select Portrait"), 0xb8922, 0xb8962 },
+    { _T("Vice Select Portrait"), 0xb8922, 0xb8962, indexKOFSprites_02Extras, 0x1d },
 };
 
 const sGame_PaletteDataset KOF02_A_YAMAZAKI_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Yamazaki Select Portrait"), 0xb8962, 0xb89a2 },
+    { _T("Yamazaki Select Portrait"), 0xb8962, 0xb89a2, indexKOFSprites_02Extras, 0x18 },
 };
 
 const sGame_PaletteDataset KOF02_A_BLUEMARY_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Blue Mary Select Portrait"), 0xb89a2, 0xb89e2 },
+    { _T("Blue Mary Select Portrait"), 0xb89a2, 0xb89e2, indexKOFSprites_02Extras, 0x19 },
 };
 
 const sGame_PaletteDataset KOF02_A_BILLY_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Billy Select Portrait"), 0xb89e2, 0xb8a22 },
+    { _T("Billy Select Portrait"), 0xb89e2, 0xb8a22, indexKOFSprites_02Extras, 0x1a },
 };
 
 const sGame_PaletteDataset KOF02_A_YASHIRO_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Yashiro Select Portrait"), 0xb8a22, 0xb8a62 },
+    { _T("Yashiro Select Portrait"), 0xb8a22, 0xb8a62, indexKOFSprites_02Extras, 0x15 },
 };
 
 const sGame_PaletteDataset KOF02_A_SHERMIE_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Shermie Select Portrait"), 0xb8a62, 0xb8aa2 },
+    { _T("Shermie Select Portrait"), 0xb8a62, 0xb8aa2, indexKOFSprites_02Extras, 0x16 },
 };
 
 const sGame_PaletteDataset KOF02_A_CHRIS_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Chris Select Portrait"), 0xb8aa2, 0xb8ae2 },
+    { _T("Chris Select Portrait"), 0xb8aa2, 0xb8ae2, indexKOFSprites_02Extras, 0x17 },
 };
 
 const sGame_PaletteDataset KOF02_A_K_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("K' Select Portrait"), 0xb8ae2, 0xb8b22 },
+    { _T("K' Select Portrait"), 0xb8ae2, 0xb8b22, indexKOFSprites_02Extras, 0x29 },
 };
 
 const sGame_PaletteDataset KOF02_A_MAXIMA_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Maxima Select Portrait"), 0xb8b22, 0xb8b62 },
+    { _T("Maxima Select Portrait"), 0xb8b22, 0xb8b62, indexKOFSprites_02Extras, 0x2c },
 };
 
 const sGame_PaletteDataset KOF02_A_WHIP_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Whip Select Portrait"), 0xb8b62, 0xb8ba2 },
+    { _T("Whip Select Portrait"), 0xb8b62, 0xb8ba2, indexKOFSprites_02Extras, 0x32 },
 };
 
 const sGame_PaletteDataset KOF02_A_VANESSA_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Vanessa Select Portrait"), 0xb8ba2, 0xb8be2 },
+    { _T("Vanessa Select Portrait"), 0xb8ba2, 0xb8be2, indexKOFSprites_02Extras, 0x31 },
 };
 
 const sGame_PaletteDataset KOF02_A_SETH_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Seth Select Portrait"), 0xb8be2, 0xb8c22 },
+    { _T("Seth Select Portrait"), 0xb8be2, 0xb8c22, indexKOFSprites_02Extras, 0x30 },
 };
 
 const sGame_PaletteDataset KOF02_A_RAMON_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Ramon Select Portrait"), 0xb8c22, 0xb8c62 },
+    { _T("Ramon Select Portrait"), 0xb8c22, 0xb8c62, indexKOFSprites_02Extras, 0x2f },
 };
 
 const sGame_PaletteDataset KOF02_A_KULA_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Kula Select Portrait"), 0xb8c62, 0xb8ca2 },
+    { _T("Kula Select Portrait"), 0xb8c62, 0xb8ca2, indexKOFSprites_02Extras, 0x2a },
 };
 
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("K9999 Select Portrait"), 0xb8ca2, 0xb8ce2 },
+    { _T("K9999 Select Portrait"), 0xb8ca2, 0xb8ce2, indexKOFSprites_02Extras, 0x4d },
 };
 
 const sGame_PaletteDataset KOF02_A_ANGEL_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Angel Select Portrait"), 0xb8ce2, 0xb8d22 },
+    { _T("Angel Select Portrait"), 0xb8ce2, 0xb8d22, indexKOFSprites_02Extras, 0x26 },
 };
 
 const sGame_PaletteDataset KOF02_A_OMEGARUGAL_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Omega Rugal Select Portrait"), 0xb8d22, 0xb8d62 },
+    { _T("Omega Rugal Select Portrait"), 0xb8d22, 0xb8d62, indexKOFSprites_02Extras, 0x24 },
 };
 
 const sGame_PaletteDataset KOF02_A_KUSANAGI_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("KUSANAGI Select Portrait"), 0xb8d62, 0xb8da2 },
+    { _T("KUSANAGI Select Portrait"), 0xb8d62, 0xb8da2, indexKOFSprites_02Extras, 0x4a },
 };
 
 const sGame_PaletteDataset KOF02_A_OYASHIRO_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Orochi Yashiro Select Portrait"), 0xb8da2, 0xb8de2 },
+    { _T("Orochi Yashiro Select Portrait"), 0xb8da2, 0xb8de2, indexKOFSprites_02Extras, 0x51 }, 
 };
 
 const sGame_PaletteDataset KOF02_A_OSHERMIE_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Orochi Shermie Select Portrait"), 0xb8de2, 0xb8e22 },
+    { _T("Orochi Shermie Select Portrait"), 0xb8de2, 0xb8e22, indexKOFSprites_02Extras, 0x50 },
 };
 
 const sGame_PaletteDataset KOF02_A_OCHRIS_PALETTES_PORTRAITS_SELECT[] =
 {
-    { _T("Orochi Chris Select Portrait"), 0xb8e22, 0xb8e62 },
+    { _T("Orochi Chris Select Portrait"), 0xb8e22, 0xb8e62, indexKOFSprites_02Extras, 0x4f },
 };
 
 const sGame_PaletteDataset KOF02_A_KYO_PALETTES_A[] =
@@ -2914,7 +2914,7 @@ const sGame_PaletteDataset KOF02_A_OMEGARUGAL_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF02_A_KUSANAGI_PALETTES_A[] =
 {
-    { _T("Kusanagi A"), 0x009cb62, 0x009cb82, indexKOFSprites_02Kusanagi },
+    { _T("KUSANAGI A"), 0x009cb62, 0x009cb82, indexKOFSprites_02Kusanagi },
     { _T("A - Hidden Super Desperation Move 1"), 0x009cb82, 0x009cba2, indexKOFSprites_02Kusanagi },
     { _T("A - Desperation Move / Super Desperation Move"), 0x009cba2, 0x009cbc2, indexKOFSprites_02Kusanagi },
     { _T("A - Electric Shock Effect"), 0x009cbc2, 0x009cbe2, indexKOFSprites_02Kusanagi },
@@ -2926,7 +2926,7 @@ const sGame_PaletteDataset KOF02_A_KUSANAGI_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF02_A_KUSANAGI_PALETTES_B[] =
 {
-    { _T("Kusanagi B"), 0x009cd62, 0x009cd82, indexKOFSprites_02Kusanagi },
+    { _T("KUSANAGI B"), 0x009cd62, 0x009cd82, indexKOFSprites_02Kusanagi },
     { _T("B - Hidden Super Desperation Move 1"), 0x009cd82, 0x009cda2, indexKOFSprites_02Kusanagi },
     { _T("B - Desperation Move / Super Desperation Move"), 0x009cda2, 0x009cdc2, indexKOFSprites_02Kusanagi },
     { _T("B - Electric Shock Effect"), 0x009cdc2, 0x009cde2, indexKOFSprites_02Kusanagi },
@@ -2938,7 +2938,7 @@ const sGame_PaletteDataset KOF02_A_KUSANAGI_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF02_A_KUSANAGI_PALETTES_C[] =
 {
-    { _T("Kusanagi C"), 0x009cf62, 0x009cf82, indexKOFSprites_02Kusanagi },
+    { _T("KUSANAGI C"), 0x009cf62, 0x009cf82, indexKOFSprites_02Kusanagi },
     { _T("C - Hidden Super Desperation Move 1"), 0x009cf82, 0x009cfa2, indexKOFSprites_02Kusanagi },
     { _T("C - Desperation Move / Super Desperation Move"), 0x009cfa2, 0x009cfc2, indexKOFSprites_02Kusanagi },
     { _T("C - Electric Shock Effect"), 0x009cfc2, 0x009cfe2, indexKOFSprites_02Kusanagi },
@@ -2950,7 +2950,7 @@ const sGame_PaletteDataset KOF02_A_KUSANAGI_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF02_A_KUSANAGI_PALETTES_D[] =
 {
-    { _T("Kusanagi D"), 0x009d162, 0x009d182, indexKOFSprites_02Kusanagi },
+    { _T("KUSANAGI D"), 0x009d162, 0x009d182, indexKOFSprites_02Kusanagi },
     { _T("D - Hidden Super Desperation Move 1"), 0x009d182, 0x009d1a2, indexKOFSprites_02Kusanagi },
     { _T("D - Desperation Move / Super Desperation Move"), 0x009d1a2, 0x009d1c2, indexKOFSprites_02Kusanagi },
     { _T("D - Electric Shock Effect"), 0x009d1c2, 0x009d1e2, indexKOFSprites_02Kusanagi },
@@ -3661,7 +3661,7 @@ const sDescTreeNode KOF02_A_UNITS[KOF02_A_NUMUNIT] =
     { _T("Kensou"), DESC_NODETYPE_TREE, (void*)KOF02_A_KENSOU_COLLECTION, ARRAYSIZE(KOF02_A_KENSOU_COLLECTION) },
     { _T("Kim"), DESC_NODETYPE_TREE, (void*)KOF02_A_KIM_COLLECTION, ARRAYSIZE(KOF02_A_KIM_COLLECTION) },
     { _T("Kula"), DESC_NODETYPE_TREE, (void*)KOF02_A_KULA_COLLECTION, ARRAYSIZE(KOF02_A_KULA_COLLECTION) },
-    { _T("Kusanagi"), DESC_NODETYPE_TREE, (void*)KOF02_A_KUSANAGI_COLLECTION, ARRAYSIZE(KOF02_A_KUSANAGI_COLLECTION) },
+    { _T("KUSANAGI"), DESC_NODETYPE_TREE, (void*)KOF02_A_KUSANAGI_COLLECTION, ARRAYSIZE(KOF02_A_KUSANAGI_COLLECTION) },
     { _T("Kyo"), DESC_NODETYPE_TREE, (void*)KOF02_A_KYO_COLLECTION, ARRAYSIZE(KOF02_A_KYO_COLLECTION) },
     { _T("Leona"), DESC_NODETYPE_TREE, (void*)KOF02_A_LEONA_COLLECTION, ARRAYSIZE(KOF02_A_LEONA_COLLECTION) },
     { _T("Mai"), DESC_NODETYPE_TREE, (void*)KOF02_A_MAI_COLLECTION, ARRAYSIZE(KOF02_A_MAI_COLLECTION) },

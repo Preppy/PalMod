@@ -34,8 +34,8 @@ enum Supported_SFA2_PaletteListIndex
     // Following are revision 2 only
     index_SFA2_WWZangief,
     index_SFA2_WWDhalsim,
-    // Following are SFZ2A only
     index_SFA2_EvilRyu,
+    // Following are SFZ2A only
     index_SFA2_WWMBison,
     index_SFA2_WWSagat,
     index_SFA2_WWKen,
@@ -48,7 +48,7 @@ enum Supported_SFA2_PaletteListIndex
 constexpr auto SFA2_A_NUM_IND_07_0229 = index_SFA2_ChunLiAlt + 1;
 #define SFA2_A_EXTRALOC_07_0229 SFA2_A_NUM_IND_07_0229
 
-constexpr auto SFA2_A_NUM_IND_07_MAX = index_SFA2_WWDhalsim + 1;
+constexpr auto SFA2_A_NUM_IND_07_MAX = index_SFA2_EvilRyu + 1;
 #define SFA2_A_EXTRALOC_07_MAX SFA2_A_NUM_IND_07_MAX
 
 constexpr auto SFZ2A_A_NUM_IND_07 = index_SFA2_Last;
@@ -97,6 +97,7 @@ const UINT8 SFA2_A_UNITSORT_07_0306[SFA2_A_NUM_IND_07_MAX + 1] = // Plus 1 for t
     index_SFA2_Rolento,
     index_SFA2_Rose,
     index_SFA2_Ryu,
+    index_SFA2_EvilRyu,
     index_SFA2_Sagat,
     index_SFA2_Sakura,
     index_SFA2_Sodom,
@@ -213,7 +214,7 @@ const sGame_PaletteDataset SFA2_A_RYU_STATUS_PALETTES[] =
     { _T("Auto Guard Kick CC Shadow 1"), 0x73020, 0x73040, indexCPS2_Ryu, 0x00 },
     { _T("Auto Guard Kick CC Shadow 2"), 0x73040, 0x73060, indexCPS2_Ryu, 0x00 },
 };
-
+ 
 const sGame_PaletteDataset SFA2_A_KEN_PUNCH_PALETTES[] =
 {
     { _T("Punch"), 0x6e680, 0x6e6a0, indexCPS2_Ken, 0x00 },
@@ -2354,6 +2355,60 @@ const sDescTreeNode SFA2_A_EVILRYU_MOVE_COLLECTION[] =
     { _T("Auto Guard Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_AUTOGUARDKICK_MOVE_PALETTES, ARRAYSIZE(SFA2_A_EVILRYU_AUTOGUARDKICK_MOVE_PALETTES) },
 };
 
+const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_PUNCH_PALETTES[] =
+{
+    { _T("Punch"), 0x072720, 0x072740, indexCPS2_Ryu, 0x00 },
+    { _T("Punch Hadoken"), 0x072740, 0x072760, indexCPS2_Ryu, 0x01 },
+    { _T("Punch Hadoken Fire"), 0x072760, 0x072780, indexCPS2_Ryu, 0x00 },
+    { _T("Punch Super Trail Light"), 0x072780, 0x0727a0, indexCPS2_Ryu, 0x00 },
+    { _T("Punch Super Trail Dark"), 0x0727a0, 0x0727c0, indexCPS2_Ryu, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_KICK_PALETTES[] =
+{
+    { _T("Kick"), 0x0727c0, 0x0727e0, indexCPS2_Ryu, 0x00 },
+    { _T("Kick Hadoken"), 0x0727e0, 0x072800, indexCPS2_Ryu, 0x01 },
+    { _T("Kick Hadoken Fire"), 0x072800, 0x072820, indexCPS2_Ryu, 0x00 },
+    { _T("Kick Super Trail Light"), 0x072820, 0x072840, indexCPS2_Ryu, 0x00 },
+    { _T("Kick Super Trail Dark"), 0x072840, 0x072860, indexCPS2_Ryu, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_2PUNCHES_PALETTES[] =
+{
+    { _T("2 Punches"), 0x072860, 0x072880, indexCPS2_Ryu, 0x00 },
+    { _T("2 Punches Hadoken"), 0x072880, 0x0728a0, indexCPS2_Ryu, 0x01 },
+    { _T("2 Punches Hadoken Fire"), 0x0728a0, 0x0728c0, indexCPS2_Ryu, 0x00 },
+    { _T("2 Punches Super Trail Light"), 0x0728c0, 0x0728e0, indexCPS2_Ryu, 0x00 },
+    { _T("2 Punches Super Trail Dark"), 0x0728e0, 0x072900, indexCPS2_Ryu, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_2KICKS_PALETTES[] =
+{
+    { _T("2 Kicks"), 0x072900, 0x072920, indexCPS2_Ryu, 0x00 },
+    { _T("2 Kicks Hadoken"), 0x072920, 0x072940, indexCPS2_Ryu, 0x01 },
+    { _T("2 Kicks Hadoken Fire"), 0x072940, 0x072960, indexCPS2_Ryu, 0x00 },
+    { _T("2 Kicks Super Trail Light"), 0x072960, 0x072980, indexCPS2_Ryu, 0x00 },
+    { _T("2 Kicks Super Trail Dark"), 0x072980, 0x0729a0, indexCPS2_Ryu, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_AUTOGUARDPUNCH_PALETTES[] =
+{
+    { _T("Auto Guard Punch"), 0x0729a0, 0x0729c0, indexCPS2_Ryu, 0x00 },
+    { _T("Auto Guard Punch Hadoken"), 0x0729c0, 0x0729e0, indexCPS2_Ryu, 0x01 },
+    { _T("Auto Guard Punch Hadoken Fire"), 0x0729e0, 0x072a00, indexCPS2_Ryu, 0x00 },
+    { _T("Auto Guard Punch Super Trail Light"), 0x072a00, 0x072a20, indexCPS2_Ryu, 0x00 },
+    { _T("Auto Guard Punch Super Trail Dark"), 0x072a20, 0x072a40, indexCPS2_Ryu, 0x00 },
+};
+
+const sGame_PaletteDataset SFA2_A_EVILRYU_REV2_AUTOGUARDKICK_PALETTES[] =
+{
+    { _T("Auto Guard Kick"), 0x072a40, 0x072a60, indexCPS2_Ryu, 0x00 },
+    { _T("Auto Guard Kick Hadoken"), 0x072a60, 0x072a80, indexCPS2_Ryu, 0x01 },
+    { _T("Auto Guard Kick Hadoken Fire"), 0x072a80, 0x072aa0, indexCPS2_Ryu, 0x00 },
+    { _T("Auto Guard Kick Super Trail Light"), 0x072aa0, 0x072ac0, indexCPS2_Ryu, 0x00 },
+    { _T("Auto Guard Kick Super Trail Dark"), 0x072ac0, 0x072ae0, indexCPS2_Ryu, 0x00 },
+};
+
 const sGame_PaletteDataset SFA2_A_RYU_PUNCH_PORTRAIT_PALETTES[] =
 {
     { _T("Ryu Portrait"), 0x1c7c0, 0x1c820, indexCPS2_SFA2Portraits, 0x00 },
@@ -3713,6 +3768,16 @@ const sDescTreeNode SFA2_A_EVILRYU_COLLECTION[] =
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_STATUS_PALETTES, ARRAYSIZE(SFA2_A_EVILRYU_STATUS_PALETTES) },
 };
 
+const sDescTreeNode SFA2_A_EVILRYU_REV2_COLLECTION[] =
+{
+    { _T("Punch"),          DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_REV2_PUNCH_PALETTES, ARRAYSIZE(SFA2_A_EVILRYU_REV2_PUNCH_PALETTES) },
+    { _T("Kick"),           DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_REV2_KICK_PALETTES, ARRAYSIZE(SFA2_A_EVILRYU_REV2_KICK_PALETTES) },
+    { _T("2 Punches"),      DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_REV2_2PUNCHES_PALETTES, ARRAYSIZE(SFA2_A_EVILRYU_REV2_2PUNCHES_PALETTES) },
+    { _T("2 Kicks"),        DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_REV2_2KICKS_PALETTES, ARRAYSIZE(SFA2_A_EVILRYU_REV2_2KICKS_PALETTES) },
+    { _T("Auto Guard Punch"), DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_REV2_AUTOGUARDPUNCH_PALETTES, ARRAYSIZE(SFA2_A_EVILRYU_REV2_AUTOGUARDPUNCH_PALETTES) },
+    { _T("Auto Guard Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_REV2_AUTOGUARDKICK_PALETTES, ARRAYSIZE(SFA2_A_EVILRYU_REV2_AUTOGUARDKICK_PALETTES) },
+};
+
 const sDescTreeNode SFA2_A_ALTSAKURA_COLLECTION[] =
 {
     { _T("Punch"), DESC_NODETYPE_TREE, (void*)SFA2_A_ALTSAKURA_PUNCH_PALETTES, ARRAYSIZE(SFA2_A_ALTSAKURA_PUNCH_PALETTES) },
@@ -4231,6 +4296,7 @@ const sDescTreeNode SFA2_A_UNITS_07_MAX[SFA2_A_NUM_IND_07_MAX] =
     { _T("Rolento"),         DESC_NODETYPE_TREE, (void*)SFA2_A_ROLENTO_COLLECTION,       ARRAYSIZE(SFA2_A_ROLENTO_COLLECTION) },
     { _T("Rose"),            DESC_NODETYPE_TREE, (void*)SFA2_A_ROSE_COLLECTION,          ARRAYSIZE(SFA2_A_ROSE_COLLECTION) },
     { _T("Ryu"),             DESC_NODETYPE_TREE, (void*)SFA2_A_RYU_COLLECTION,           ARRAYSIZE(SFA2_A_RYU_COLLECTION) },
+    { _T("Evil Ryu (US Only)"), DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_REV2_COLLECTION,     ARRAYSIZE(SFA2_A_EVILRYU_REV2_COLLECTION) },
     { _T("Sagat"),           DESC_NODETYPE_TREE, (void*)SFA2_A_SAGAT_COLLECTION,         ARRAYSIZE(SFA2_A_SAGAT_COLLECTION) },
     { _T("Sakura"),          DESC_NODETYPE_TREE, (void*)SFA2_A_SAKURA_COLLECTION,        ARRAYSIZE(SFA2_A_SAKURA_COLLECTION) },
     { _T("Sodom"),           DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_COLLECTION,         ARRAYSIZE(SFA2_A_SODOM_COLLECTION) },
@@ -4310,7 +4376,7 @@ constexpr auto SFA2_A_NUM_IND_08_REV1 = ARRAYSIZE(SFA2_A_UNITS_08_REV1);
 const sDescTreeNode SFA2_A_UNITS_08_REV2[] =
 {
     { _T("Boss: Shin Akuma"),  DESC_NODETYPE_TREE, (void*)SFA2_A_SHINAKUMA_PARTIAL_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_SHINAKUMA_PARTIAL_MOVE_COLLECTION) },
-    { _T("Boss: Evil Ryu (US ROM only!)"),    DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_EVILRYU_MOVE_COLLECTION) },
+    { _T("Boss: Evil Ryu Extras (US ROM only!)"),  DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_EVILRYU_MOVE_COLLECTION) },
     { _T("Akuma Extras"),       DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_AKUMA_MOVE_COLLECTION) },
     { _T("Birdie Extras"),      DESC_NODETYPE_TREE, (void*)SFA2_A_BIRDIE_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_BIRDIE_MOVE_COLLECTION) },
     { _T("Dhalsim Extras"),     DESC_NODETYPE_TREE, (void*)SFA2_A_DHALSIM_MOVE_COLLECTION, ARRAYSIZE(SFA2_A_DHALSIM_MOVE_COLLECTION) },

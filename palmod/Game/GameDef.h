@@ -341,15 +341,15 @@ enum CHARACTERS_CPS2
     indexCPS2_Karin,        // 0x4B, // Karin
     indexCPS2_Juni,         // 0x4C, // Juni
     indexCPS2_Juli,         // 0x4D  // Juli
-    indexCPS2_SFA3Assets,   // x4e - SFA3 HUD, stages
-    indexCPS2_Apocalypse,   // x4f Apocalypse
-    indexCPS2_XMVSFAssets,  // x50 - XMVSF HUD, stages
-    indexCPS2_Anita,        // x51 - Anita
-    indexCPS2_MSHAssets,    // x52 - MSH HUD, stages
-    indexCPS2_Norimaro,     // x53 - Norimaro
-    indexCPS2_CyberAkuma,   // x54 - Cyber Gouki
-    indexCPS2_MSHVSFAssets, // x55 - HUD, stages
-    indexCPS2_COTAAssets,   // x56 - HUD, stages, etc
+    indexCPS2_SFA3Assets,   // 0x4e - SFA3 HUD, stages
+    indexCPS2_Apocalypse,   // 0x4f Apocalypse
+    indexCPS2_XMVSFAssets,  // 0x50 - XMVSF HUD, stages
+    indexCPS2_Anita,        // 0x51 - Anita
+    indexCPS2_MSHAssets,    // 0x52 - MSH HUD, stages
+    indexCPS2_Norimaro,     // 0x53 - Norimaro
+    indexCPS2_CyberAkuma,   // 0x54 - Cyber Gouki
+    indexCPS2_MSHVSFAssets, // 0x55 - HUD, stages
+    indexCPS2_COTAAssets,   // 0x56 - HUD, stages, etc
     indexCPS2_STAkuma,      // 0x57 - ST Akuma
     indexCPS2_SFA2Portraits, // 0x58
 
@@ -1191,6 +1191,8 @@ enum KOFSpriteList
     indexSVCSprites_ViolentKen, // 73
     indexSVCSprites_ShinAkuma,  // 74
 
+    indexKOFSprites_02Extras, // 75
+
     indexKOFSprites_Last,
 };
 
@@ -1253,7 +1255,7 @@ enum SupportedKOF98_A_PaletteListIndex
     indexKOF98_A_Choi,
     indexKOF98_A_Yashiro,
     indexKOF98_A_Shermie,
-    indexKOF98_A_Chris,
+    indexKOF98_A_Chris,     // aka OChris
     indexKOF98_A_Yamazaki,
     indexKOF98_A_BlueMary,
     indexKOF98_A_Billy,
@@ -1436,6 +1438,8 @@ const UINT8 KOF02_A_IMG_UNITS[] =
     indexKOFSprites_02Yuri,
 
     indexKOFSprites_02K9999,
+
+    indexKOFSprites_02Extras,
 };
 
 const int KOF02_A_NUM_IMG_UNITS = ARRAYSIZE(KOF02_A_IMG_UNITS);

@@ -1084,8 +1084,9 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
                 else if (_tcsicmp(pCurrentNode->szDesc, _T("Status Effects")) == 0)
                 {
-                    // Status effects are the last 8 palettes in the last node.
-                    UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId) - 1;
+                    // Status Effects follow main buttons but are before Extras, if any
+                    UINT16 nCollectionCount = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
+
                     nSrcStart = 0;
 
                     for (UINT16 iCollectionIndex = 0; iCollectionIndex < nCollectionCount; iCollectionIndex++)

@@ -82,7 +82,7 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
     ClearDataBuffer();
 
     const UINT32 nSafeCountFor07_0229 = 874;
-    const UINT32 nSafeCountFor07_MAX = 966;
+    const UINT32 nSafeCountFor07_MAX = 996;
     const UINT32 nSafeCountFor07_SFZ2A = 1296;
     const UINT32 nSafeCountFor08_Rev1 = 229;
     const UINT32 nSafeCountFor08_Rev2 = 270;
@@ -1546,9 +1546,13 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 break;
             case SFA2_SupportedROMRevision::SFA2_960306_or_960430:
                 // 0306 ROMs have a different location for palettes
-                if ((m_nCurrentPaletteROMLocation < 0x72a00) || // Handle up to Chun-Li OG (SF2 Costume)
-                    (((SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWDhalsim) || (SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWZangief)) &&
-                        (m_nCurrentPaletteROMLocation < 0x73900))) // Second check handles the inserted WW characters
+                if (SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_EvilRyu)
+                {
+                    ; // no-op: this is already handled
+                }
+                else if ((m_nCurrentPaletteROMLocation < 0x72a00) || // Handle up to Chun-Li OG (SF2 Costume)
+                        (((SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWDhalsim) || (SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWZangief)) &&
+                            (m_nCurrentPaletteROMLocation < 0x73900))) // Second check handles the inserted WW characters
                 {
                     m_nCurrentPaletteROMLocation -= 0x11e0;
                 }

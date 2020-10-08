@@ -916,92 +916,92 @@ const sGame_PaletteDataset SSF2T_A_KEN_PALETTES_OLD2P[] =
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_JAB[] =
 {
-    { _T("Jab"), 0x42e7e, 0x42e9e, 0x08 },
-    { _T("Jab Cape"), 0x42e9e, 0x42ebe },
-    { _T("Jab Super Trail 1"), 0x42ebe, 0x42ede, 0x08 },
-    { _T("Jab Super Trail 2"), 0x42ede, 0x42efe, 0x08 },
-    { _T("Jab Super Trail 3"), 0x42efe, 0x42f1e, 0x08 },
+    { _T("Jab"), 0x42e7e, 0x42f1e, indexSF2Sprites_Bison },
+    //{ _T("Jab Cape"), 0x42e9e, 0x42ebe },
+    //{ _T("Jab Super Trail 1"), 0x42ebe, 0x42ede, indexSF2Sprites_Bison },
+    //{ _T("Jab Super Trail 2"), 0x42ede, 0x42efe, indexSF2Sprites_Bison },
+    //{ _T("Jab Super Trail 3"), 0x42efe, 0x42f1e, indexSF2Sprites_Bison },
 };
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_STRONG[] =
 {
-    { _T("Strong"), 0x42f20, 0x42f40, 0x08 },
-    { _T("Strong Cape"), 0x42f40, 0x42f60 },
-    { _T("Strong Super Trail 1"), 0x42f60, 0x42f80, 0x08 },
-    { _T("Strong Super Trail 2"), 0x42f80, 0x42fa0, 0x08 },
-    { _T("Strong Super Trail 3"), 0x42fa0, 0x42fc0, 0x08 },
+    { _T("Strong"), 0x42f20, 0x42fc0, indexSF2Sprites_Bison },
+    //{ _T("Strong Cape"), 0x42f40, 0x42f60 },
+    //{ _T("Strong Super Trail 1"), 0x42f60, 0x42f80, indexSF2Sprites_Bison },
+    //{ _T("Strong Super Trail 2"), 0x42f80, 0x42fa0, indexSF2Sprites_Bison },
+    //{ _T("Strong Super Trail 3"), 0x42fa0, 0x42fc0, indexSF2Sprites_Bison },
 };
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_FIERCE[] =
 {
-    { _T("Fierce"), 0x42fc2, 0x42fe2, 0x08 },
-    { _T("Fierce Cape"), 0x42fe2, 0x43002 },
-    { _T("Fierce Super Trail 1"), 0x43002, 0x43022, 0x08 },
-    { _T("Fierce Super Trail 2"), 0x43022, 0x43042, 0x08 },
-    { _T("Fierce Super Trail 3"), 0x43042, 0x43062, 0x08 },
+    { _T("Fierce"), 0x42fc2, 0x43062, indexSF2Sprites_Bison },
+    //{ _T("Fierce Cape"), 0x42fe2, 0x43002 },
+    //{ _T("Fierce Super Trail 1"), 0x43002, 0x43022, indexSF2Sprites_Bison },
+    //{ _T("Fierce Super Trail 2"), 0x43022, 0x43042, indexSF2Sprites_Bison },
+    //{ _T("Fierce Super Trail 3"), 0x43042, 0x43062, indexSF2Sprites_Bison },
 };
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_SHORT[] =
 {
-    { _T("Short"), 0x43064, 0x43084, 0x08 },
-    { _T("Short Cape"), 0x43084, 0x430a4 },
-    { _T("Short Super Trail 1"), 0x430a4, 0x430c4, 0x08 },
-    { _T("Short Super Trail 2"), 0x430c4, 0x430e4, 0x08 },
-    { _T("Short Super Trail 3"), 0x430e4, 0x43104, 0x08 },
+    { _T("Short"), 0x43064, 0x43104, indexSF2Sprites_Bison },
+    //{ _T("Short Cape"), 0x43084, 0x430a4 },
+    //{ _T("Short Super Trail 1"), 0x430a4, 0x430c4, indexSF2Sprites_Bison },
+    //{ _T("Short Super Trail 2"), 0x430c4, 0x430e4, indexSF2Sprites_Bison },
+    //{ _T("Short Super Trail 3"), 0x430e4, 0x43104, indexSF2Sprites_Bison },
 };
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_FORWARD[] =
 {
-    { _T("Forward"), 0x43106, 0x43126, 0x08 },
-    { _T("Forward Cape"), 0x43126, 0x43146 },
-    { _T("Forward Super Trail 1"), 0x43146, 0x43166, 0x08 },
-    { _T("Forward Super Trail 2"), 0x43166, 0x43186, 0x08 },
-    { _T("Forward Super Trail 3"), 0x43186, 0x431a6, 0x08 },
+    { _T("Forward"), 0x43106, 0x431a6, indexSF2Sprites_Bison },
+    //{ _T("Forward Cape"), 0x43126, 0x43146 },
+    //{ _T("Forward Super Trail 1"), 0x43146, 0x43166, indexSF2Sprites_Bison },
+    //{ _T("Forward Super Trail 2"), 0x43166, 0x43186, indexSF2Sprites_Bison },
+    //{ _T("Forward Super Trail 3"), 0x43186, 0x431a6, indexSF2Sprites_Bison },
 };
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_ROUNDHOUSE[] =
 {
-    { _T("Roundhouse"), 0x431a8, 0x431c8, 0x08 },
-    { _T("Roundhouse Cape"), 0x431c8, 0x431e8 },
-    { _T("Roundhouse Super Trail 1"), 0x431e8, 0x43208, 0x08 },
-    { _T("Roundhouse Super Trail 2"), 0x43208, 0x43228, 0x08 },
-    { _T("Roundhouse Super Trail 3"), 0x43228, 0x43248, 0x08 },
+    { _T("Roundhouse"), 0x431a8, 0x43248, indexSF2Sprites_Bison },
+    //{ _T("Roundhouse Cape"), 0x431c8, 0x431e8 },
+    //{ _T("Roundhouse Super Trail 1"), 0x431e8, 0x43208, indexSF2Sprites_Bison },
+    //{ _T("Roundhouse Super Trail 2"), 0x43208, 0x43228, indexSF2Sprites_Bison },
+    //{ _T("Roundhouse Super Trail 3"), 0x43228, 0x43248, indexSF2Sprites_Bison },
 };
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_START[] =
 {
-    { _T("Start"), 0x4324a, 0x4326a, 0x08 },
-    { _T("Start Cape"), 0x4326a, 0x4328a },
-    { _T("Start Super Trail 1"), 0x4328a, 0x432aa, 0x08 },
-    { _T("Start Super Trail 2"), 0x432aa, 0x432ca, 0x08 },
-    { _T("Start Super Trail 3"), 0x432ca, 0x432ea, 0x08 },
+    { _T("Start"), 0x4324a, 0x432ea, indexSF2Sprites_Bison },
+    //{ _T("Start Cape"), 0x4326a, 0x4328a },
+    //{ _T("Start Super Trail 1"), 0x4328a, 0x432aa, indexSF2Sprites_Bison },
+    //{ _T("Start Super Trail 2"), 0x432aa, 0x432ca, indexSF2Sprites_Bison },
+    //{ _T("Start Super Trail 3"), 0x432ca, 0x432ea, indexSF2Sprites_Bison },
 };
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_HOLD[] =
 {
-    { _T("Hold"), 0x432ec, 0x4330c, 0x08 },
-    { _T("Hold Cape"), 0x4330c, 0x4332c },
-    { _T("Hold Super Trail 1"), 0x4332c, 0x4334c, 0x08 },
-    { _T("Hold Super Trail 2"), 0x4334c, 0x4336c, 0x08 },
-    { _T("Hold Super Trail 3"), 0x4336c, 0x4338c, 0x08 },
+    { _T("Hold"), 0x432ec, 0x4338c, indexSF2Sprites_Bison },
+    //{ _T("Hold Cape"), 0x4330c, 0x4332c },
+    //{ _T("Hold Super Trail 1"), 0x4332c, 0x4334c, indexSF2Sprites_Bison },
+    //{ _T("Hold Super Trail 2"), 0x4334c, 0x4336c, indexSF2Sprites_Bison },
+    //{ _T("Hold Super Trail 3"), 0x4336c, 0x4338c, indexSF2Sprites_Bison },
 };
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_OLD1P[] =
 {
-    { _T("Old 1P"), 0x4338e, 0x433ae, 0x08 },
-    { _T("Old 1P Cape"), 0x433ae, 0x433ce },
-    { _T("Old 1P Super Trail 1"), 0x433ce, 0x433ee, 0x08 },
-    { _T("Old 1P Super Trail 2"), 0x433ee, 0x4340e, 0x08 },
-    { _T("Old 1P Super Trail 3"), 0x4340e, 0x4342e, 0x08 },
+    { _T("Old 1P"), 0x4338e, 0x4342e, indexSF2Sprites_Bison },
+    //{ _T("Old 1P Cape"), 0x433ae, 0x433ce },
+    //{ _T("Old 1P Super Trail 1"), 0x433ce, 0x433ee, indexSF2Sprites_Bison },
+    //{ _T("Old 1P Super Trail 2"), 0x433ee, 0x4340e, indexSF2Sprites_Bison },
+    //{ _T("Old 1P Super Trail 3"), 0x4340e, 0x4342e, indexSF2Sprites_Bison },
 };
 
 const sGame_PaletteDataset SSF2T_A_MBISON_PALETTES_OLD2P[] =
 {
-    { _T("Old 2P"), 0x43430, 0x43450, 0x08 },
-    { _T("Old 2P Cape"), 0x43450, 0x43470 },
-    { _T("Old 2P Super Trail 1"), 0x43470, 0x43490, 0x08 },
-    { _T("Old 2P Super Trail 2"), 0x43490, 0x434b0, 0x08 },
-    { _T("Old 2P Super Trail 3"), 0x434b0, 0x434d0, 0x08 },
+    { _T("Old 2P"), 0x43430, 0x434d0, indexSF2Sprites_Bison },
+    //{ _T("Old 2P Cape"), 0x43450, 0x43470 },
+    //{ _T("Old 2P Super Trail 1"), 0x43470, 0x43490, indexSF2Sprites_Bison },
+    //{ _T("Old 2P Super Trail 2"), 0x43490, 0x434b0, indexSF2Sprites_Bison },
+    //{ _T("Old 2P Super Trail 3"), 0x434b0, 0x434d0, indexSF2Sprites_Bison },
 };
 
 const sGame_PaletteDataset SSF2T_A_RYU_PALETTES_JAB[] =

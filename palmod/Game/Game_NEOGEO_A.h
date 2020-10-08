@@ -3,7 +3,9 @@
 #include "NEOGEO_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_NEOGEO_A = _T("NEOGEOE.txt");
+constexpr auto EXTRA_FILENAME_NEO_GEO_A = _T("NEOGEOE.txt");
+constexpr auto EXTRA_FILENAME_UNKNOWN_A = _T("UnknownE.txt");
+
 #define GetExtraDefForNEOGEO(x)((stExtraDef *)&NEOGEO_A_EXTRA_CUSTOM[x])
 
 class CGame_NEOGEO_A : public CGameWithExtrasFile
@@ -46,6 +48,8 @@ public:
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
+
+    LPCTSTR GetGameName() override;
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
