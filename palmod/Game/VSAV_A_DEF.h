@@ -13,7 +13,7 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_LP[] =
     { _T("LP Weapons"), 0x0C1EC, 0x0C20C },
     { _T("LP Explosions"), 0x0C20C, 0x0C22C },
     { _T("LP Select Portrait"), 0x2BF0C, 0x2BF2C, indexCPS2_BBHood, 0x20 },
-    { _T("LP Win Portrait"), 0x2D60C, 0x2D6AC },
+    { _T("LP Win Portrait"), 0x2D60C, 0x2D6AC, indexCPS2_VSAV1_WinPortraits, indexCPS2_BBHood },
 };
 
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_MP[] =
@@ -23,7 +23,7 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_MP[] =
     { _T("MP Weapons"), 0x0C26C, 0x0C28C },
     { _T("MP Explosions"), 0x0C28C, 0x0C2AC },
     { _T("MP Select Portrait"), 0x2C10C, 0x2C12C, indexCPS2_BBHood, 0x20 },
-    { _T("MP Win Portrait"), 0x2E0AC, 0x2E14C },
+    { _T("MP Win Portrait"), 0x2E0AC, 0x2E14C, indexCPS2_VSAV1_WinPortraits, indexCPS2_BBHood },
 };
 
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_HP[] =
@@ -33,7 +33,7 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_HP[] =
     { _T("HP Weapons"), 0x0C2EC, 0x0C30C },
     { _T("HP Explosions"), 0x0C30C, 0x0C32C },
     { _T("HP Select Portrait"), 0x2C30C, 0x2C32C, indexCPS2_BBHood, 0x20 },
-    { _T("HP Win Portrait"), 0x2EB4C, 0x2EBEC },
+    { _T("HP Win Portrait"), 0x2EB4C, 0x2EBEC, indexCPS2_VSAV1_WinPortraits, indexCPS2_BBHood },
 };
 
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_LK[] =
@@ -43,7 +43,7 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_LK[] =
     { _T("LK Weapons"), 0x0C36C, 0x0C38C },
     { _T("LK Explosions"), 0x0C38C, 0x0C3AC },
     { _T("LK Select Portrait"), 0x2C50C, 0x2C52C, indexCPS2_BBHood, 0x20 },
-    { _T("LK Win Portrait"), 0x2F5EC, 0x2F68C },
+    { _T("LK Win Portrait"), 0x2F5EC, 0x2F68C, indexCPS2_VSAV1_WinPortraits, indexCPS2_BBHood },
 };
 
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_MK[] =
@@ -53,7 +53,7 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_MK[] =
     { _T("MK Weapons"), 0x0C3EC, 0x0C40C },
     { _T("MK Explosions"), 0x0C40C, 0x0C42C },
     { _T("MK Select Portrait"), 0x2C70C, 0x2C72C, indexCPS2_BBHood, 0x20 },
-    { _T("MK Win Portrait"), 0x3008C, 0x3012c },
+    { _T("MK Win Portrait"), 0x3008C, 0x3012c, indexCPS2_VSAV1_WinPortraits, indexCPS2_BBHood },
 };
 
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_HK[] =
@@ -63,7 +63,7 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_HK[] =
     { _T("HK Weapons"), 0x0C46C, 0x0C48C },
     { _T("HK Explosions"), 0x0C48C, 0x0C4AC },
     { _T("HK Select Portrait"), 0x2C90C, 0x2C92C, indexCPS2_BBHood, 0x20 },
-    { _T("HK Win Portrait"), 0x30B2C, 0x30BCC },
+    { _T("HK Win Portrait"), 0x30B2C, 0x30BCC, indexCPS2_VSAV1_WinPortraits, indexCPS2_BBHood },
 };
 
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_PP[] =
@@ -73,7 +73,7 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_PP[] =
     { _T("PP Weapons"), 0x0C4EC, 0x0C50C },
     { _T("PP Explosions"), 0x0C50C, 0x0C52C },
     { _T("PP Select Portrait"), 0x2CB0C, 0x2CB2C, indexCPS2_BBHood, 0x20 },
-    { _T("PP Win Portrait"), 0x315CC, 0x3166C },
+    { _T("PP Win Portrait"), 0x315CC, 0x3166C, indexCPS2_VSAV1_WinPortraits, indexCPS2_BBHood },
 };
 
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_KK[] =
@@ -83,7 +83,7 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_KK[] =
     { _T("KK Weapons"), 0x0C56C, 0x0C58C },
     { _T("KK Explosions"), 0x0C58C, 0x0C5AC },
     { _T("KK Select Portrait"), 0x2CD0C, 0x2CD2C, indexCPS2_BBHood, 0x20 },
-    { _T("KK Win Portrait"), 0x3206C, 0x3210C },
+    { _T("KK Win Portrait"), 0x3206C, 0x3210C, indexCPS2_VSAV1_WinPortraits, indexCPS2_BBHood },
 };
 
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_AP[] =
@@ -93,7 +93,7 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_AP[] =
     { _T("AP Weapons"), 0x0C5EC, 0x0C60C },
     { _T("AP Explosions"), 0x0C60C, 0x0C62C },
     { _T("AP Select Portrait"), 0x2CF0C, 0x2CF2C, indexCPS2_BBHood, 0x20 },
-    { _T("AP Win Portrait"), 0x32B0C, 0x32BAC },
+    { _T("AP Win Portrait"), 0x32B0C, 0x32BAC, indexCPS2_VSAV1_WinPortraits, indexCPS2_BBHood },
 };
 
 const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_AK[] =
@@ -103,7 +103,7 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_AK[] =
     { _T("AK Weapons"), 0x0C66C, 0x0C68C },
     { _T("AK Explosions"), 0x0C68C, 0x0C6AC },
     { _T("AK Select Portrait"), 0x2D10C, 0x2D12C, indexCPS2_BBHood, 0x20 },
-    { _T("AK Win Portrait"), 0x335AC, 0x3364C },
+    { _T("AK Win Portrait"), 0x335AC, 0x3364C, indexCPS2_VSAV1_WinPortraits, indexCPS2_BBHood },
 };
 
 const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_LP[] =
@@ -114,7 +114,7 @@ const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_LP[] =
     { _T("LP Teledash 2"), 0x0C6CC, 0x0C6EC, indexCPS2_Vamp_Demitri, 0 },
     { _T("LP Fireball"), 0x0C6EC, 0x0C70C },
     { _T("LP Select Portrait"), 0x2BF2C, 0x2BF4C, indexCPS2_Vamp_Demitri, 0x20 },
-    { _T("LP Win Portrait"), 0x2D6AC, 0x2D74C },
+    { _T("LP Win Portrait"), 0x2D6AC, 0x2D74C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_MP[] =
@@ -125,7 +125,7 @@ const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_MP[] =
     { _T("MP Teledash 2"), 0x0C74C, 0x0C76C, indexCPS2_Vamp_Demitri, 0 },
     { _T("MP Fireball"), 0x0C76C, 0x0C78C },
     { _T("MP Select Portrait"), 0x2C12C, 0x2C14C, indexCPS2_Vamp_Demitri, 0x20 },
-    { _T("MP Win Portrait"), 0x2E14C, 0x2E1EC },
+    { _T("MP Win Portrait"), 0x2E14C, 0x2E1EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_HP[] =
@@ -136,7 +136,7 @@ const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_HP[] =
     { _T("HP Teledash 2"), 0x0C7CC, 0x0C7EC, indexCPS2_Vamp_Demitri, 0 },
     { _T("HP Fireball"), 0x0C7EC, 0x0C80C },
     { _T("HP Select Portrait"), 0x2C32C, 0x2C34C, indexCPS2_Vamp_Demitri, 0x20 },
-    { _T("HP Win Portrait"), 0x2EBEC, 0x2EC8C },
+    { _T("HP Win Portrait"), 0x2EBEC, 0x2EC8C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_LK[] =
@@ -147,7 +147,7 @@ const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_LK[] =
     { _T("LK Teledash 2"), 0x0C84C, 0x0C86C, indexCPS2_Vamp_Demitri, 0 },
     { _T("LK Fireball"), 0x0C86C, 0x0C88C },
     { _T("LK Select Portrait"), 0x2C52C, 0x2C54C, indexCPS2_Vamp_Demitri, 0x20 },
-    { _T("LK Win Portrait"), 0x2F68C, 0x2F72C },
+    { _T("LK Win Portrait"), 0x2F68C, 0x2F72C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_MK[] =
@@ -158,7 +158,7 @@ const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_MK[] =
     { _T("MK Teledash 2"), 0x0C8CC, 0x0C8EC, indexCPS2_Vamp_Demitri, 0 },
     { _T("MK Fireball"), 0x0C8EC, 0x0C90C },
     { _T("MK Select Portrait"), 0x2C72C, 0x2C74C, indexCPS2_Vamp_Demitri, 0x20 },
-    { _T("MK Win Portrait"), 0x3012C, 0x301CC },
+    { _T("MK Win Portrait"), 0x3012C, 0x301CC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_HK[] =
@@ -169,7 +169,7 @@ const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_HK[] =
     { _T("HK Teledash 2"), 0x0C94C, 0x0C96C, indexCPS2_Vamp_Demitri, 0 },
     { _T("HK Fireball"), 0x0C96C, 0x0C98C },
     { _T("HK Select Portrait"), 0x2C92C, 0x2C94C, indexCPS2_Vamp_Demitri, 0x20 },
-    { _T("HK Win Portrait"), 0x30BCC, 0x30C6C },
+    { _T("HK Win Portrait"), 0x30BCC, 0x30C6C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_PP[] =
@@ -180,7 +180,7 @@ const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_PP[] =
     { _T("PP Teledash 2"), 0x0C9CC, 0x0C9EC, indexCPS2_Vamp_Demitri, 0 },
     { _T("PP Fireball"), 0x0C9EC, 0x0CA0C },
     { _T("PP Select Portrait"), 0x2CB2C, 0x2CB4C, indexCPS2_Vamp_Demitri, 0x20 },
-    { _T("PP Win Portrait"), 0x3166C, 0x3170C },
+    { _T("PP Win Portrait"), 0x3166C, 0x3170C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_KK[] =
@@ -191,7 +191,7 @@ const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_KK[] =
     { _T("KK Teledash 2"), 0x0CA4C, 0x0CA6C, indexCPS2_Vamp_Demitri, 0 },
     { _T("KK Fireball"), 0x0CA6C, 0x0CA8C },
     { _T("KK Select Portrait"), 0x2CD2C, 0x2CD4C, indexCPS2_Vamp_Demitri, 0x20 },
-    { _T("KK Win Portrait"), 0x3210C, 0x321AC },
+    { _T("KK Win Portrait"), 0x3210C, 0x321AC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_AP[] =
@@ -202,7 +202,7 @@ const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_AP[] =
     { _T("AP Teledash 2"), 0x0CACC, 0x0CAEC, indexCPS2_Vamp_Demitri, 0 },
     { _T("AP Fireball"), 0x0CAEC, 0x0CB0C },
     { _T("AP Select Portrait"), 0x2CF2C, 0x2CF4C, indexCPS2_Vamp_Demitri, 0x20 },
-    { _T("AP Win Portrait"), 0x32BAC, 0x32C4C },
+    { _T("AP Win Portrait"), 0x32BAC, 0x32C4C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_AK[] =
@@ -213,7 +213,7 @@ const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_AK[] =
     { _T("AK Teledash 2"), 0x0CB4C, 0x0CB6C, indexCPS2_Vamp_Demitri, 0 },
     { _T("AK Fireball"), 0x0CB6C, 0x0CB8C },
     { _T("AK Select Portrait"), 0x2D12C, 0x2D14C, indexCPS2_Vamp_Demitri, 0x20 },
-    { _T("AK Win Portrait"), 0x3364C, 0x336EC },
+    { _T("AK Win Portrait"), 0x3364C, 0x336EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Demitri },
 };
 
 const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_LP[] =
@@ -223,7 +223,7 @@ const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_LP[] =
     { _T("LP 236P/41236KK/j.HP"), 0x0CBEC, 0x0CC0C },
     { _T("LP 236P/28K/Outro Flash"), 0x0CC0C, 0x0CC2C },
     { _T("LP Select Portrait"), 0x2BF4C, 0x2BF6C, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("LP Win Portrait"), 0x2D74C, 0x2D7EC },
+    { _T("LP Win Portrait"), 0x2D74C, 0x2D7EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_MP[] =
@@ -233,7 +233,7 @@ const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_MP[] =
     { _T("MP 236P/41236KK/j.HP"), 0x0CC6C, 0x0CC8C },
     { _T("MP 236P/28K/Outro Flash"), 0x0CC8C, 0x0CCAC },
     { _T("MP Select Portrait"), 0x2C14C, 0x2C16C, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("MP Win Portrait"), 0x2E1EC, 0x2E28C },
+    { _T("MP Win Portrait"), 0x2E1EC, 0x2E28C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_HP[] =
@@ -243,7 +243,7 @@ const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_HP[] =
     { _T("HP 236P/41236KK/j.HP"), 0x0CCEC, 0x0CD0C },
     { _T("HP 236P/28K/Outro Flash"), 0x0CD0C, 0x0CD2C },
     { _T("HP Select Portrait"), 0x2C34C, 0x2C36C, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("HP Win Portrait"), 0x2EC8C, 0x2ED2C },
+    { _T("HP Win Portrait"), 0x2EC8C, 0x2ED2C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_LK[] =
@@ -253,7 +253,7 @@ const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_LK[] =
     { _T("LK 236P/41236KK/j.HP"), 0x0CD6C, 0x0CD8C },
     { _T("LK 236P/28K/Outro Flash"), 0x0CD8C, 0x0CDAC },
     { _T("LK Select Portrait"), 0x2C54C, 0x2C56C, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("LK Win Portrait"), 0x2F72C, 0x2F7CC },
+    { _T("LK Win Portrait"), 0x2F72C, 0x2F7CC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_MK[] =
@@ -263,7 +263,7 @@ const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_MK[] =
     { _T("MK 236P/41236KK/j.HP"), 0x0CDEC, 0x0CE0C },
     { _T("MK 236P/28K/Outro Flash"), 0x0CE0C, 0x0CE2C },
     { _T("MK Select Portrait"), 0x2C74C, 0x2C76C, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("MK Win Portrait"), 0x301CC, 0x3026C },
+    { _T("MK Win Portrait"), 0x301CC, 0x3026C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_HK[] =
@@ -273,7 +273,7 @@ const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_HK[] =
     { _T("HK 236P/41236KK/j.HP"), 0x0CE6C, 0x0CE8C },
     { _T("HK 236P/28K/Outro Flash"), 0x0CE8C, 0x0CEAC },
     { _T("HK Select Portrait"), 0x2C94C, 0x2C96C, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("HK Win Portrait"), 0x30C6C, 0x30D0C },
+    { _T("HK Win Portrait"), 0x30C6C, 0x30D0C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_PP[] =
@@ -283,7 +283,7 @@ const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_PP[] =
     { _T("PP 236P/41236KK/j.HP"), 0x0CEEC, 0x0CF0C },
     { _T("PP 236P/28K/Outro Flash"), 0x0CF0C, 0x0CF2C },
     { _T("PP Select Portrait"), 0x2CB4C, 0x2CB6C, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("PP Win Portrait"), 0x3170C, 0x317AC },
+    { _T("PP Win Portrait"), 0x3170C, 0x317AC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_KK[] =
@@ -293,7 +293,7 @@ const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_KK[] =
     { _T("KK 236P/41236KK/j.HP"), 0x0CF6C, 0x0CF8C },
     { _T("KK 236P/28K/Outro Flash"), 0x0CF8C, 0x0CFAC },
     { _T("KK Select Portrait"), 0x2CD4C, 0x2CD6C, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("KK Win Portrait"), 0x321AC, 0x3224C },
+    { _T("KK Win Portrait"), 0x321AC, 0x3224C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_AP[] =
@@ -303,7 +303,7 @@ const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_AP[] =
     { _T("AP 236P/41236KK/j.HP"), 0x0CFEC, 0x0D00C },
     { _T("AP 236P/28K/Outro Flash"), 0x0D00C, 0x0D02C },
     { _T("AP Select Portrait"), 0x2CF4C, 0x2CF6C, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("AP Win Portrait"), 0x32C4C, 0x32CEC },
+    { _T("AP Win Portrait"), 0x32C4C, 0x32CEC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_AK[] =
@@ -313,7 +313,7 @@ const sGame_PaletteDataset VSAV_A_GALLON_PALETTES_AK[] =
     { _T("AK 236P/41236KK/j.HP"), 0x0D06C, 0x0D08C },
     { _T("AK 236P/28K/Outro Flash"), 0x0D08C, 0x0D0AC },
     { _T("AK Select Portrait"), 0x2D14C, 0x2D16C, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("AK Win Portrait"), 0x336EC, 0x3378C },
+    { _T("AK Win Portrait"), 0x336EC, 0x3378C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_LP[] =
@@ -323,7 +323,7 @@ const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_LP[] =
     { _T("LP [2]8p/[4]6P/DF Startup"), 0x0D0CC, 0x0D0EC },
     { _T("LP Electricity"), 0x0D0EC, 0x0D10C },
     { _T("LP Select Portrait"), 0x2BF6C, 0x2BF8C, indexCPS2_Vamp_Victor, 0x20 },
-    { _T("LP Win Portrait"), 0x2D7EC, 0x2D88C },
+    { _T("LP Win Portrait"), 0x2D7EC, 0x2D88C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_MP[] =
@@ -333,7 +333,7 @@ const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_MP[] =
     { _T("MP [2]8p/[4]6P/DF Startup"), 0x0D14C, 0x0D16C },
     { _T("MP Electricity"), 0x0D16C, 0x0D18C },
     { _T("MP Select Portrait"), 0x2C16C, 0x2C18C, indexCPS2_Vamp_Victor, 0x20 },
-    { _T("MP Win Portrait"), 0x2E28C, 0x2E32C },
+    { _T("MP Win Portrait"), 0x2E28C, 0x2E32C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_HP[] =
@@ -343,7 +343,7 @@ const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_HP[] =
     { _T("HP [2]8p/[4]6P/DF Startup"), 0x0D1CC, 0x0D1EC },
     { _T("HP Electricity"), 0x0D1EC, 0x0D20C },
     { _T("HP Select Portrait"), 0x2C36C, 0x2C38C, indexCPS2_Vamp_Victor, 0x20 },
-    { _T("HP Win Portrait"), 0x2ED2C, 0x2EDCC },
+    { _T("HP Win Portrait"), 0x2ED2C, 0x2EDCC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_LK[] =
@@ -353,7 +353,7 @@ const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_LK[] =
     { _T("LK [2]8p/[4]6P/DF Startup"), 0x0D24C, 0x0D26C },
     { _T("LK Electricity"), 0x0D26C, 0x0D28C },
     { _T("LK Select Portrait"), 0x2C56C, 0x2C58C, indexCPS2_Vamp_Victor, 0x20 },
-    { _T("LK Win Portrait"), 0x2F7CC, 0x2F86C },
+    { _T("LK Win Portrait"), 0x2F7CC, 0x2F86C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_MK[] =
@@ -363,7 +363,7 @@ const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_MK[] =
     { _T("MK [2]8p/[4]6P/DF Startup"), 0x0D2CC, 0x0D2EC },
     { _T("MK Electricity"), 0x0D2EC, 0x0D30C },
     { _T("MK Select Portrait"), 0x2C76C, 0x2C78C, indexCPS2_Vamp_Victor, 0x20 },
-    { _T("MK Win Portrait"), 0x3026C, 0x3030C },
+    { _T("MK Win Portrait"), 0x3026C, 0x3030C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_HK[] =
@@ -373,7 +373,7 @@ const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_HK[] =
     { _T("HK [2]8p/[4]6P/DF Startup"), 0x0D34C, 0x0D36C },
     { _T("HK Electricity"), 0x0D36C, 0x0D38C },
     { _T("HK Select Portrait"), 0x2C96C, 0x2C98C, indexCPS2_Vamp_Victor, 0x20 },
-    { _T("HK Win Portrait"), 0x30D0C, 0x30DAC },
+    { _T("HK Win Portrait"), 0x30D0C, 0x30DAC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_PP[] =
@@ -383,7 +383,7 @@ const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_PP[] =
     { _T("PP [2]8p/[4]6P/DF Startup"), 0x0D3CC, 0x0D3EC },
     { _T("PP Electricity"), 0x0D3EC, 0x0D40C },
     { _T("PP Select Portrait"), 0x2CB6C, 0x2CB8C, indexCPS2_Vamp_Victor, 0x20 },
-    { _T("PP Win Portrait"), 0x317AC, 0x3184C },
+    { _T("PP Win Portrait"), 0x317AC, 0x3184C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_KK[] =
@@ -393,7 +393,7 @@ const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_KK[] =
     { _T("KK [2]8p/[4]6P/DF Startup"), 0x0D44C, 0x0D46C },
     { _T("KK Electricity"), 0x0D46C, 0x0D48C },
     { _T("KK Select Portrait"), 0x2CD6C, 0x2CD8C, indexCPS2_Vamp_Victor, 0x20 },
-    { _T("KK Win Portrait"), 0x3224C, 0x322EC },
+    { _T("KK Win Portrait"), 0x3224C, 0x322EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_AP[] =
@@ -403,7 +403,7 @@ const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_AP[] =
     { _T("AP [2]8p/[4]6P/DF Startup"), 0x0D4CC, 0x0D4EC },
     { _T("AP Electricity"), 0x0D4EC, 0x0D50C },
     { _T("AP Select Portrait"), 0x2CF6C, 0x2CF8C, indexCPS2_Vamp_Victor, 0x20 },
-    { _T("AP Win Portrait"), 0x32CEC, 0x32D8C },
+    { _T("AP Win Portrait"), 0x32CEC, 0x32D8C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_AK[] =
@@ -413,7 +413,7 @@ const sGame_PaletteDataset VSAV_A_VICTOR_PALETTES_AK[] =
     { _T("AK [2]8p/[4]6P/DF Startup"), 0x0D54C, 0x0D56C },
     { _T("AK Electricity"), 0x0D56C, 0x0D58C },
     { _T("AK Select Portrait"), 0x2D16C, 0x2D18C, indexCPS2_Vamp_Victor, 0x20 },
-    { _T("AK Win Portrait"), 0x3378C, 0x3382C },
+    { _T("AK Win Portrait"), 0x3378C, 0x3382C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Victor },
 };
 
 const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_LP[] =
@@ -423,7 +423,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_LP[] =
     { _T("LP Unused 1"), 0x0D5EC, 0x0D60C },
     { _T("LP Unused 2"), 0x0D60C, 0x0D62C },
     { _T("LP Select Portrait"), 0x2BF8C, 0x2BFAC, indexCPS2_Vamp_Zabel, 0x20 },
-    { _T("LP Win Portrait"), 0x2D88C, 0x2D92C },
+    { _T("LP Win Portrait"), 0x2D88C, 0x2D92C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_MP[] =
@@ -433,7 +433,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_MP[] =
     { _T("MP Unused 1"), 0x0D66C, 0x0D68C },
     { _T("MP Unused 2"), 0x0D68C, 0x0D6AC },
     { _T("MP Select Portrait"), 0x2C18C, 0x2C1AC, indexCPS2_Vamp_Zabel, 0x20 },
-    { _T("MP Win Portrait"), 0x2E32C, 0x2E3CC },
+    { _T("MP Win Portrait"), 0x2E32C, 0x2E3CC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_HP[] =
@@ -443,7 +443,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_HP[] =
     { _T("HP Unused 1"), 0x0D6EC, 0x0D70C },
     { _T("HP Unused 2"), 0x0D70C, 0x0D72C },
     { _T("HP Select Portrait"), 0x2C38C, 0x2C3AC, indexCPS2_Vamp_Zabel, 0x20 },
-    { _T("HP Win Portrait"), 0x2EDCC, 0x2EE6C },
+    { _T("HP Win Portrait"), 0x2EDCC, 0x2EE6C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_LK[] =
@@ -453,7 +453,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_LK[] =
     { _T("LK Unused 1"), 0x0d76C, 0x0d78c },
     { _T("LK Unused 2"), 0x0d78C, 0x0d7ac },
     { _T("LK Select Portrait"), 0x2C58C, 0x2C5AC, indexCPS2_Vamp_Zabel, 0x20 },
-    { _T("LK Win Portrait"), 0x2F86C, 0x2F90C },
+    { _T("LK Win Portrait"), 0x2F86C, 0x2F90C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_MK[] =
@@ -463,7 +463,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_MK[] =
     { _T("MK Unused 1"), 0x0d7eC, 0x0d80c },
     { _T("MK Unused 2"), 0x0d80C, 0x0d82c },
     { _T("MK Select Portrait"), 0x2C78C, 0x2C7AC, indexCPS2_Vamp_Zabel, 0x20 },
-    { _T("MK Win Portrait"), 0x3030C, 0x303AC },
+    { _T("MK Win Portrait"), 0x3030C, 0x303AC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_HK[] =
@@ -473,7 +473,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_HK[] =
     { _T("HK Unused 1"), 0x0d86C, 0x0d88c },
     { _T("HK Unused 2"), 0x0d88C, 0x0d8ac },
     { _T("HK Select Portrait"), 0x2C98C, 0x2C9AC, indexCPS2_Vamp_Zabel, 0x20 },
-    { _T("HK Win Portrait"), 0x30DAC, 0x30E4C },
+    { _T("HK Win Portrait"), 0x30DAC, 0x30E4C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_PP[] =
@@ -483,7 +483,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_PP[] =
     { _T("PP Unused 1"), 0x0d8eC, 0x0d90c },
     { _T("PP Unused 2"), 0x0d90C, 0x0d92c },
     { _T("PP Select Portrait"), 0x2CB8C, 0x2CBAC, indexCPS2_Vamp_Zabel, 0x20 },
-    { _T("PP Win Portrait"), 0x3184C, 0x318EC },
+    { _T("PP Win Portrait"), 0x3184C, 0x318EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_KK[] =
@@ -493,7 +493,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_KK[] =
     { _T("KK Unused 1"), 0x0d96C, 0x0d98c },
     { _T("KK Unused 2"), 0x0d98C, 0x0d9ac },
     { _T("KK Select Portrait"), 0x2CD8C, 0x2CDAC, indexCPS2_Vamp_Zabel, 0x20 },
-    { _T("KK Win Portrait"), 0x322EC, 0x3238C },
+    { _T("KK Win Portrait"), 0x322EC, 0x3238C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_AP[] =
@@ -503,7 +503,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_AP[] =
     { _T("AP Unused 1"), 0x0d9eC, 0x0da0c },
     { _T("AP Unused 2"), 0x0da0C, 0x0da2c },
     { _T("AP Select Portrait"), 0x2CF8C, 0x2CFAC, indexCPS2_Vamp_Zabel, 0x20 },
-    { _T("AP Win Portrait"), 0x32D8C, 0x32E2C },
+    { _T("AP Win Portrait"), 0x32D8C, 0x32E2C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_AK[] =
@@ -513,7 +513,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_AK[] =
     { _T("AK Unused 1"), 0x0da6C, 0x0da8c },
     { _T("AK Unused 2"), 0x0da8C, 0x0daac },
     { _T("AK Select Portrait"), 0x2D18C, 0x2D1AC, indexCPS2_Vamp_Zabel, 0x20 },
-    { _T("AK Win Portrait"), 0x3382C, 0x338CC },
+    { _T("AK Win Portrait"), 0x3382C, 0x338CC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Zabel },
 };
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LP[] =
@@ -523,7 +523,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LP[] =
     { _T("LP Bats"), 0x0daeC, 0x0db0c },
     { _T("LP Unknown Extra"), 0x0db0C, 0x0db2c },
     { _T("LP Select Portrait"), 0x2BFAC, 0x2BFCC, indexCPS2_Morrigan, 0x20 },
-    { _T("LP Win Portrait"), 0x2D92C, 0x2D9CC },
+    { _T("LP Win Portrait"), 0x2D92C, 0x2D9CC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MP[] =
@@ -533,7 +533,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MP[] =
     { _T("MP Bats"), 0x0db6C, 0x0db8c },
     { _T("MP Unknown Extra"), 0x0db8C, 0x0dbac },
     { _T("MP Select Portrait"), 0x2C1AC, 0x2C1CC, indexCPS2_Morrigan, 0x20 },
-    { _T("MP Win Portrait"), 0x2E3CC, 0x2E46C },
+    { _T("MP Win Portrait"), 0x2E3CC, 0x2E46C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HP[] =
@@ -543,7 +543,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HP[] =
     { _T("HP Bats"), 0x0dbeC, 0x0dc0c },
     { _T("HP Unknown Extra"), 0x0dc0C, 0x0dc2c },
     { _T("HP Select Portrait"), 0x2C3AC, 0x2C3CC, indexCPS2_Morrigan, 0x20 },
-    { _T("HP Win Portrait"), 0x2EE6C, 0x2EF0C },
+    { _T("HP Win Portrait"), 0x2EE6C, 0x2EF0C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LK[] =
@@ -553,7 +553,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LK[] =
     { _T("LK Bats"), 0x0dc6C, 0x0dc8c },
     { _T("LK Unknown Extra"), 0x0dc8C, 0x0dcac },
     { _T("LK Select Portrait"), 0x2C5AC, 0x2C5CC, indexCPS2_Morrigan, 0x20 },
-    { _T("LK Win Portrait"), 0x2F90C, 0x2F9AC },
+    { _T("LK Win Portrait"), 0x2F90C, 0x2F9AC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MK[] =
@@ -563,7 +563,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MK[] =
     { _T("MK Bats"), 0x0dceC, 0x0dd0c },
     { _T("MK Unknown Extra"), 0x0dd0C, 0x0dd2c },
     { _T("MK Select Portrait"), 0x2C7AC, 0x2C7CC, indexCPS2_Morrigan, 0x20 },
-    { _T("MK Win Portrait"), 0x303AC, 0x3044C },
+    { _T("MK Win Portrait"), 0x303AC, 0x3044C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HK[] =
@@ -573,7 +573,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HK[] =
     { _T("HK Bats"), 0x0dd6C, 0x0dd8c },
     { _T("HK Unknown Extra"), 0x0dd8C, 0x0ddac },
     { _T("HK Select Portrait"), 0x2C9AC, 0x2C9CC, indexCPS2_Morrigan, 0x20 },
-    { _T("HK Win Portrait"), 0x30E4C, 0x30EEC },
+    { _T("HK Win Portrait"), 0x30E4C, 0x30EEC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_PP[] =
@@ -583,7 +583,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_PP[] =
     { _T("PP Bats"), 0x0ddeC, 0x0de0c },
     { _T("PP Unknown Extra"), 0x0de0C, 0x0de2c },
     { _T("PP Select Portrait"), 0x2CBAC, 0x2CBCC, indexCPS2_Morrigan, 0x20 },
-    { _T("PP Win Portrait"), 0x318EC, 0x3198C },
+    { _T("PP Win Portrait"), 0x318EC, 0x3198C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_KK[] =
@@ -593,7 +593,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_KK[] =
     { _T("KK Bats"), 0x0de6C, 0x0de8c },
     { _T("KK Unknown Extra"), 0x0de8C, 0x0deac },
     { _T("KK Select Portrait"), 0x2CDAC, 0x2CDCC, indexCPS2_Morrigan, 0x20 },
-    { _T("KK Win Portrait"), 0x3238C, 0x3242C },
+    { _T("KK Win Portrait"), 0x3238C, 0x3242C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AP[] =
@@ -603,7 +603,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AP[] =
     { _T("AP Bats"), 0x0deeC, 0x0df0c },
     { _T("AP Unknown Extra"), 0x0df0C, 0x0df2c },
     { _T("AP Select Portrait"), 0x2CFAC, 0x2CFCC, indexCPS2_Morrigan, 0x20 },
-    { _T("AP Win Portrait"), 0x32E2C, 0x32ECC },
+    { _T("AP Win Portrait"), 0x32E2C, 0x32ECC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AK[] =
@@ -613,7 +613,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AK[] =
     { _T("AK Bats"), 0x0df6C, 0x0df8c },
     { _T("AK Unknown Extra"), 0x0df8C, 0x0dfac },
     { _T("AK Select Portrait"), 0x2D1AC, 0x2D1CC, indexCPS2_Morrigan, 0x20 },
-    { _T("AK Win Portrait"), 0x338CC, 0x3396C },
+    { _T("AK Win Portrait"), 0x338CC, 0x3396C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Morrigan },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_LP[] =
@@ -623,7 +623,7 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_LP[] =
     { _T("LP 426KK/62KK Light"), 0x0dfcC, 0x0dfec },
     { _T("LP Pharaoh Magic Orbs"), 0x0e00C, 0x0e02c, indexCPS2_Anakaris, 3 },
     { _T("LP Select Portrait"), 0x2BFCC, 0x2BFEC, indexCPS2_Anakaris, 0x20 },
-    { _T("LP Win Portrait"), 0x2D9CC, 0x2DA6C },
+    { _T("LP Win Portrait"), 0x2D9CC, 0x2DA6C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_MP[] =
@@ -633,7 +633,7 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_MP[] =
     { _T("MP 426KK/62KK Light"), 0x0e04C, 0x0e06c },
     { _T("MP Pharaoh Magic Orbs"), 0x0e08C, 0x0e0ac, indexCPS2_Anakaris, 3 },
     { _T("MP Select Portrait"), 0x2C1CC, 0x2C1EC, indexCPS2_Anakaris, 0x20 },
-    { _T("MP Win Portrait"), 0x2E46C, 0x2E50C },
+    { _T("MP Win Portrait"), 0x2E46C, 0x2E50C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_HP[] =
@@ -643,7 +643,7 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_HP[] =
     { _T("HP 426KK/62KK Light"), 0x0e0cC, 0x0e0ec },
     { _T("HP Pharaoh Magic Orbs"), 0x0e10C, 0x0e12c, indexCPS2_Anakaris, 3 },
     { _T("HP Select Portrait"), 0x2C3CC, 0x2C3EC, indexCPS2_Anakaris, 0x20 },
-    { _T("HP Win Portrait"), 0x2EF0C, 0x2EFAC },
+    { _T("HP Win Portrait"), 0x2EF0C, 0x2EFAC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_LK[] =
@@ -653,7 +653,7 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_LK[] =
     { _T("LK 426KK/62KK Light"), 0x0e14C, 0x0e16c },
     { _T("LK Pharaoh Magic Orbs"), 0x0e18C, 0x0e1ac, indexCPS2_Anakaris, 3 },
     { _T("LK Select Portrait"), 0x2C5CC, 0x2C5EC, indexCPS2_Anakaris, 0x20 },
-    { _T("LK Win Portrait"), 0x2F9AC, 0x2FA4C },
+    { _T("LK Win Portrait"), 0x2F9AC, 0x2FA4C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_MK[] =
@@ -663,7 +663,7 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_MK[] =
     { _T("MK 426KK/62KK Light"), 0x0e1cC, 0x0e1ec },
     { _T("MK Pharaoh Magic Orbs"), 0x0e20C, 0x0e22c, indexCPS2_Anakaris, 3 },
     { _T("MK Select Portrait"), 0x2C7CC, 0x2C7EC, indexCPS2_Anakaris, 0x20 },
-    { _T("MK Win Portrait"), 0x3044C, 0x304EC },
+    { _T("MK Win Portrait"), 0x3044C, 0x304EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_HK[] =
@@ -673,7 +673,7 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_HK[] =
     { _T("HK 426KK/62KK Light"), 0x0e24C, 0x0e26c },
     { _T("HK Pharaoh Magic Orbs"), 0x0e28C, 0x0e2ac, indexCPS2_Anakaris, 3 },
     { _T("HK Select Portrait"), 0x2C9CC, 0x2C9EC, indexCPS2_Anakaris, 0x20 },
-    { _T("HK Win Portrait"), 0x30EEC, 0x30F8C },
+    { _T("HK Win Portrait"), 0x30EEC, 0x30F8C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_PP[] =
@@ -683,7 +683,7 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_PP[] =
     { _T("PP 426KK/62KK Light"), 0x0e2cC, 0x0e2ec },
     { _T("PP Pharaoh Magic Orbs"), 0x0e30C, 0x0e32c, indexCPS2_Anakaris, 3 },
     { _T("PP Select Portrait"), 0x2CBCC, 0x2CBEC, indexCPS2_Anakaris, 0x20 },
-    { _T("PP Win Portrait"), 0x3198C, 0x31A2C },
+    { _T("PP Win Portrait"), 0x3198C, 0x31A2C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_KK[] =
@@ -693,7 +693,7 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_KK[] =
     { _T("KK 426KK/62KK Light"), 0x0e34C, 0x0e36c },
     { _T("KK Pharaoh Magic Orbs"), 0x0e38C, 0x0e3ac, indexCPS2_Anakaris, 3 },
     { _T("KK Select Portrait"), 0x2CDCC, 0x2CDEC, indexCPS2_Anakaris, 0x20 },
-    { _T("KK Win Portrait"), 0x3242C, 0x324CC },
+    { _T("KK Win Portrait"), 0x3242C, 0x324CC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_AP[] =
@@ -703,7 +703,7 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_AP[] =
     { _T("AP 426KK/62KK Light"), 0x0e3cC, 0x0e3ec },
     { _T("AP Pharaoh Magic Orbs"), 0x0e40C, 0x0e42c, indexCPS2_Anakaris, 3 },
     { _T("AP Select Portrait"), 0x2CFCC, 0x2CFEC, indexCPS2_Anakaris, 0x20 },
-    { _T("AP Win Portrait"), 0x32ECC, 0x32F6C },
+    { _T("AP Win Portrait"), 0x32ECC, 0x32F6C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_AK[] =
@@ -713,7 +713,7 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_AK[] =
     { _T("AK 426KK/62KK Light"), 0x0e44C, 0x0e46c },
     { _T("AK Pharaoh Magic Orbs"), 0x0e48C, 0x0e4ac, indexCPS2_Anakaris, 3 },
     { _T("AK Select Portrait"), 0x2D1CC, 0x2D1EC, indexCPS2_Anakaris, 0x20 },
-    { _T("AK Win Portrait"), 0x3396C, 0x33A0C },
+    { _T("AK Win Portrait"), 0x3396C, 0x33A0C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Anakaris },
 };
 
 const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_LP[] =
@@ -723,7 +723,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_LP[] =
     { _T("LP Bubble/Butterfly"), 0x0e4eC, 0x0e50c },
     { _T("LP Unknown Extra"), 0x0e50C, 0x0e52c },
     { _T("LP Select portrait"), 0x2BFEC, 0x2C00C, indexCPS2_Felicia, 0x20 },
-    { _T("LP Win Portrait"), 0x2DA6C, 0x2DB0C },
+    { _T("LP Win Portrait"), 0x2DA6C, 0x2DB0C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Felicia },
 };
 
 const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_MP[] =
@@ -733,7 +733,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_MP[] =
     { _T("MP Bubble/Butterfly"), 0x0e56C, 0x0e58c },
     { _T("MP Unknown Extra"), 0x0e58C, 0x0e5ac },
     { _T("MP Select Portrait"), 0x2C1EC, 0x2C20C, indexCPS2_Felicia, 0x20 },
-    { _T("MP Win Portrait"), 0x2E50C, 0x2E5AC },
+    { _T("MP Win Portrait"), 0x2E50C, 0x2E5AC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Felicia },
 };
 
 const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_HP[] =
@@ -743,7 +743,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_HP[] =
     { _T("HP Bubble/Butterfly"), 0x0e5eC, 0x0e60c },
     { _T("HP Unknown Extra"), 0x0e60C, 0x0e62c },
     { _T("HP Select Portrait"), 0x2C3EC, 0x2C40C, indexCPS2_Felicia, 0x20 },
-    { _T("HP Win Portrait"), 0x2EFAC, 0x2F04C },
+    { _T("HP Win Portrait"), 0x2EFAC, 0x2F04C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Felicia },
 };
 
 const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_LK[] =
@@ -753,7 +753,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_LK[] =
     { _T("LK Bubble/Butterfly"), 0x0e66C, 0x0e68c },
     { _T("LK Unknown Extra"), 0x0e68C, 0x0e6ac },
     { _T("LK Select Portrait"), 0x2C5EC, 0x2C60C, indexCPS2_Felicia, 0x20 },
-    { _T("LK Win Portrait"), 0x2FA4C, 0x2FAEC },
+    { _T("LK Win Portrait"), 0x2FA4C, 0x2FAEC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Felicia },
 };
 
 const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_MK[] =
@@ -763,7 +763,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_MK[] =
     { _T("MK Bubble/Butterfly"), 0x0e6eC, 0x0e70c },
     { _T("MK Unknown Extra"), 0x0e70C, 0x0e72c },
     { _T("MK Select Portrait"), 0x2C7EC, 0x2C80C, indexCPS2_Felicia, 0x20 },
-    { _T("MK Win Portrait"), 0x304EC, 0x3058C },
+    { _T("MK Win Portrait"), 0x304EC, 0x3058C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Felicia },
 };
 
 const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_HK[] =
@@ -773,7 +773,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_HK[] =
     { _T("HK Bubble/Butterfly"), 0x0e76C, 0x0e78c },
     { _T("HK Unknown Extra"), 0x0e78C, 0x0e7ac },
     { _T("HK Select Portrait"), 0x2C9EC, 0x2CA0C, indexCPS2_Felicia, 0x20 },
-    { _T("HK Win Portrait"), 0x30F8C, 0x3102C },
+    { _T("HK Win Portrait"), 0x30F8C, 0x3102C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Felicia },
 };
 
 const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_PP[] =
@@ -783,7 +783,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_PP[] =
     { _T("PP Bubble/Butterfly"), 0x0e7eC, 0x0e80c },
     { _T("PP Unknown Extra"), 0x0e80C, 0x0e82c },
     { _T("PP Select Portrait"), 0x2CBEC, 0x2CC0C, indexCPS2_Felicia, 0x20 },
-    { _T("PP Win Portrait"), 0x31A2C, 0x31ACC },
+    { _T("PP Win Portrait"), 0x31A2C, 0x31ACC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Felicia },
 };
 
 const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_KK[] =
@@ -793,7 +793,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_KK[] =
     { _T("KK Bubble/Butterfly"), 0x0e86C, 0x0e88c },
     { _T("KK Unknown Extra"), 0x0e88C, 0x0e8ac },
     { _T("KK Select Portrait"), 0x2CDEC, 0x2CE0C, indexCPS2_Felicia, 0x20 },
-    { _T("KK Win Portrait"), 0x324CC, 0x3256C },
+    { _T("KK Win Portrait"), 0x324CC, 0x3256C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Felicia },
 };
 
 const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_AP[] =
@@ -803,7 +803,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_AP[] =
     { _T("AP Bubble/Butterfly"), 0x0e8eC, 0x0e90c },
     { _T("AP Unknown Extra"), 0x0e90C, 0x0e92c },
     { _T("AP Select Portrait"), 0x2CFEC, 0x2D00C, indexCPS2_Felicia, 0x20 },
-    { _T("AP Win Portrait"), 0x32F6C, 0x3300C },
+    { _T("AP Win Portrait"), 0x32F6C, 0x3300C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Felicia },
 };
 
 const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_AK[] =
@@ -813,7 +813,7 @@ const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_AK[] =
     { _T("AK Bubble/Butterfly"), 0x0e96C, 0x0e98c },
     { _T("AK Unknown Extra"), 0x0e98C, 0x0e9ac },
     { _T("AK Select Portrait"), 0x2D1EC, 0x2D20C, indexCPS2_Felicia, 0x20 },
-    { _T("AK Win Portrait"), 0x33A0C, 0x33AAC },
+    { _T("AK Win Portrait"), 0x33A0C, 0x33AAC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Felicia },
 };
 
 const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_LP[] =
@@ -823,7 +823,7 @@ const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_LP[] =
     { _T("LP 41236KK"), 0x0e9cC, 0x0e9ec, indexCPS2_Vamp_Bishamon, 0 },
     { _T("LP Unknown Extra"), 0x0ea0C, 0x0ea2c },
     { _T("LP Select Portrait"), 0x2C00C, 0x2C02C, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("LP Win Portrait"), 0x2DB0C, 0x2DBAC },
+    { _T("LP Win Portrait"), 0x2DB0C, 0x2DBAC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_MP[] =
@@ -833,7 +833,7 @@ const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_MP[] =
     { _T("MP 41236KK"), 0x0ea4C, 0x0ea6c, indexCPS2_Vamp_Bishamon, 0 },
     { _T("MP Unknown Extra"), 0x0ea8C, 0x0eaac },
     { _T("MP Select Portrait"), 0x2C20C, 0x2C22C, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("MP Win Portrait"), 0x2E5AC, 0x2E64C },
+    { _T("MP Win Portrait"), 0x2E5AC, 0x2E64C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_HP[] =
@@ -843,7 +843,7 @@ const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_HP[] =
     { _T("HP 41236KK"), 0x0eacC, 0x0eaec, indexCPS2_Vamp_Bishamon, 0 },
     { _T("HP Unknown Extra"), 0x0eb0C, 0x0eb2c },
     { _T("HP Select Portrait"), 0x2C40C, 0x2C42C, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("HP Win Portrait"), 0x2F04C, 0x2F0EC },
+    { _T("HP Win Portrait"), 0x2F04C, 0x2F0EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_LK[] =
@@ -853,7 +853,7 @@ const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_LK[] =
     { _T("LK 41236KK"), 0x0eb4C, 0x0eb6c, indexCPS2_Vamp_Bishamon, 0 },
     { _T("LK Unknown Extra"), 0x0eb8C, 0x0ebac },
     { _T("LK Select Portrait"), 0x2C60C, 0x2C62C, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("LK Win Portrait"), 0x2FAEC, 0x2FB8C },
+    { _T("LK Win Portrait"), 0x2FAEC, 0x2FB8C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_MK[] =
@@ -863,7 +863,7 @@ const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_MK[] =
     { _T("MK 41236KK"), 0x0ebcC, 0x0ebec, indexCPS2_Vamp_Bishamon, 0 },
     { _T("MK Unknown Extra"), 0x0ec0C, 0x0ec2c },
     { _T("MK Select Portrait"), 0x2C80C, 0x2C82C, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("MK Win Portrait"), 0x3058C, 0x3062C },
+    { _T("MK Win Portrait"), 0x3058C, 0x3062C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_HK[] =
@@ -873,7 +873,7 @@ const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_HK[] =
     { _T("HK 41236KK"), 0x0ec4C, 0x0ec6c, indexCPS2_Vamp_Bishamon, 0 },
     { _T("HK Unknown Extra"), 0x0ec8C, 0x0ecac },
     { _T("HK Select Portrait"), 0x2CA0C, 0x2CA2C, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("HK Win Portrait"), 0x3102C, 0x310CC },
+    { _T("HK Win Portrait"), 0x3102C, 0x310CC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_PP[] =
@@ -883,7 +883,7 @@ const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_PP[] =
     { _T("PP 41236KK"), 0x0eccC, 0x0ecec, indexCPS2_Vamp_Bishamon, 0 },
     { _T("PP Unknown Extra"), 0x0ed0C, 0x0ed2c },
     { _T("PP Select Portrait"), 0x2CC0C, 0x2CC2C, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("PP Win Portrait"), 0x31ACC, 0x31B6C },
+    { _T("PP Win Portrait"), 0x31ACC, 0x31B6C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_KK[] =
@@ -893,7 +893,7 @@ const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_KK[] =
     { _T("KK 41236KK"), 0x0ed4C, 0x0ed6c, indexCPS2_Vamp_Bishamon, 0 },
     { _T("KK Unknown Extra"), 0x0ed8C, 0x0edac },
     { _T("KK Select Portrait"), 0x2CE0C, 0x2CE2C, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("KK Win Portrait"), 0x3256C, 0x3260C },
+    { _T("KK Win Portrait"), 0x3256C, 0x3260C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_AP[] =
@@ -903,7 +903,7 @@ const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_AP[] =
     { _T("AP 41236KK"), 0x0edcC, 0x0edec, indexCPS2_Vamp_Bishamon, 0 },
     { _T("AP Unknown Extra"), 0x0ee0C, 0x0ee2c },
     { _T("AP Select Portrait"), 0x2D00C, 0x2D02C, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("AP Win Portrait"), 0x3300C, 0x330AC },
+    { _T("AP Win Portrait"), 0x3300C, 0x330AC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_AK[] =
@@ -913,7 +913,7 @@ const sGame_PaletteDataset VSAV_A_BISHAMON_PALETTES_AK[] =
     { _T("AK 41236KK"), 0x0ee4C, 0x0ee6c, indexCPS2_Vamp_Bishamon, 0 },
     { _T("AK Unknown Extra"), 0x0ee8C, 0x0eeac },
     { _T("AK Select Portrait"), 0x2D20C, 0x2D22C, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("AK Win Portrait"), 0x33AAC, 0x33B4C },
+    { _T("AK Win Portrait"), 0x33AAC, 0x33B4C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_LP[] =
@@ -923,7 +923,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_LP[] =
     { _T("LP Poison Cloud"), 0x0ef0C, 0x0ef2c },
     { _T("LP Mach Crab (not full pal)"), 0x0eeeC, 0x0ef0c },
     { _T("LP Select Portrait"), 0x2C02C, 0x2C04C, indexCPS2_Vamp_Aulbath, 0x20 },
-    { _T("LP Win Portrait"), 0x2DBAC, 0x2DC4C },
+    { _T("LP Win Portrait"), 0x2DBAC, 0x2DC4C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_MP[] =
@@ -933,7 +933,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_MP[] =
     { _T("MP Poison Cloud"), 0x0ef8C, 0x0efac },
     { _T("MP Mach Crab (not full pal)"), 0x0ef6C, 0x0ef8c },
     { _T("MP Select Portrait"), 0x2C22C, 0x2C24C, indexCPS2_Vamp_Aulbath, 0x20 },
-    { _T("MP Win Portrait"), 0x2E64C, 0x2E6EC },
+    { _T("MP Win Portrait"), 0x2E64C, 0x2E6EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_HP[] =
@@ -943,7 +943,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_HP[] =
     { _T("HP Poison Cloud"), 0x0f00C, 0x0f02c },
     { _T("HP Mach Crab (not full pal)"), 0x0efeC, 0x0f00c },
     { _T("HP Select Portrait"), 0x2C42C, 0x2C44C, indexCPS2_Vamp_Aulbath, 0x20 },
-    { _T("HP Win Portrait"), 0x2F0EC, 0x2F18C },
+    { _T("HP Win Portrait"), 0x2F0EC, 0x2F18C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_LK[] =
@@ -953,7 +953,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_LK[] =
     { _T("LK Poison Cloud"), 0x0f08C, 0x0f0ac },
     { _T("LK Mach Crab (not full pal)"), 0x0f06C, 0x0f08c },
     { _T("LK Select Portrait"), 0x2C62C, 0x2C64C, indexCPS2_Vamp_Aulbath, 0x20 },
-    { _T("LK Win Portrait"), 0x2FB8C, 0x2FC2C },
+    { _T("LK Win Portrait"), 0x2FB8C, 0x2FC2C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_MK[] =
@@ -963,7 +963,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_MK[] =
     { _T("MK Poison Cloud"), 0x0f10C, 0x0f12c },
     { _T("MK Mach Crab (not full pal)"), 0x0f0eC, 0x0f10c },
     { _T("MK Select Portrait"), 0x2C82C, 0x2C84C, indexCPS2_Vamp_Aulbath, 0x20 },
-    { _T("MK Win Portrait"), 0x3062C, 0x306CC },
+    { _T("MK Win Portrait"), 0x3062C, 0x306CC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_HK[] =
@@ -973,7 +973,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_HK[] =
     { _T("HK Poison Cloud"), 0x0f18C, 0x0f1ac },
     { _T("HK Mach Crab (not full pal)"), 0x0f16C, 0x0f18c },
     { _T("HK Select Portrait"), 0x2CA2C, 0x2CA4C, indexCPS2_Vamp_Aulbath, 0x20 },
-    { _T("HK Win Portrait"), 0x310CC, 0x3116C },
+    { _T("HK Win Portrait"), 0x310CC, 0x3116C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_PP[] =
@@ -983,7 +983,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_PP[] =
     { _T("PP Water/s.MK/j.MP"), 0x0f1cC, 0x0f1ec },
     { _T("PP Mach Crab (not full pal)"), 0x0f1eC, 0x0f20c },
     { _T("PP Select Portrait"), 0x2CC2C, 0x2CC4C, indexCPS2_Vamp_Aulbath, 0x20 },
-    { _T("PP Win Portrait"), 0x31B6C, 0x31C0C },
+    { _T("PP Win Portrait"), 0x31B6C, 0x31C0C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_KK[] =
@@ -993,7 +993,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_KK[] =
     { _T("KK Poison Cloud"), 0x0f28C, 0x0f2ac },
     { _T("KK Mach Crab (not full pal)"), 0x0f26C, 0x0f28c },
     { _T("KK Select Portrait"), 0x2CE2C, 0x2CE4C, indexCPS2_Vamp_Aulbath, 0x20 },
-    { _T("KK Win Portrait"), 0x3260C, 0x326AC },
+    { _T("KK Win Portrait"), 0x3260C, 0x326AC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_AP[] =
@@ -1003,7 +1003,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_AP[] =
     { _T("AP Poison Cloud"), 0x0f30C, 0x0f32c },
     { _T("AP Mach Crab (not full pal)"), 0x0f2eC, 0x0f30c },
     { _T("AP Select Portrait"), 0x2D02C, 0x2D04C, indexCPS2_Vamp_Aulbath, 0x20 },
-    { _T("AP Win Portrait"), 0x330AC, 0x3314C },
+    { _T("AP Win Portrait"), 0x330AC, 0x3314C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_AK[] =
@@ -1013,7 +1013,7 @@ const sGame_PaletteDataset VSAV_A_AULBATH_PALETTES_AK[] =
     { _T("AK Poison Cloud"), 0x0f38C, 0x0f3ac },
     { _T("AK Mach Crab (not full pal)"), 0x0f36C, 0x0f38c },
     { _T("AK Select Portrait"), 0x2D22C, 0x2D24C, indexCPS2_Vamp_Aulbath, 0x20 },
-    { _T("AK Win Portrait"), 0x33B4C, 0x33BEC },
+    { _T("AK Win Portrait"), 0x33B4C, 0x33BEC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Aulbath },
 };
 
 const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_LP[] =
@@ -1023,7 +1023,7 @@ const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_LP[] =
     { _T("LP Banana"), 0x0f3cC, 0x0f3ec },
     { _T("LP Smoke"), 0x0f3eC, 0x0f40c },
     { _T("LP Select Portrait"), 0x2C04C, 0x2C06C, indexCPS2_Vamp_Sasquatch, 0x20 },
-    { _T("LP Win Portrait"), 0x2DC4C, 0x2DCEC },
+    { _T("LP Win Portrait"), 0x2DC4C, 0x2DCEC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_MP[] =
@@ -1033,7 +1033,7 @@ const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_MP[] =
     { _T("MP Banana"), 0x0f44C, 0x0f46c },
     { _T("MP Smoke"), 0x0f46C, 0x0f48c },
     { _T("MP Select Portrait"), 0x2C24C, 0x2C26C, indexCPS2_Vamp_Sasquatch, 0x20 },
-    { _T("MP Win Portrait"), 0x2E6EC, 0x2E78C },
+    { _T("MP Win Portrait"), 0x2E6EC, 0x2E78C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_HP[] =
@@ -1043,7 +1043,7 @@ const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_HP[] =
     { _T("HP Banana"), 0x0f4cC, 0x0f4ec },
     { _T("HP Smoke"), 0x0f4eC, 0x0f50c },
     { _T("HP Select Portrait"), 0x2C44C, 0x2C46C, indexCPS2_Vamp_Sasquatch, 0x20 },
-    { _T("HP Win Portrait"), 0x2F18C, 0x2F22C },
+    { _T("HP Win Portrait"), 0x2F18C, 0x2F22C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_LK[] =
@@ -1053,7 +1053,7 @@ const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_LK[] =
     { _T("LK Banana"), 0x0f54C, 0x0f56c },
     { _T("LK Smoke"), 0x0f56C, 0x0f58c },
     { _T("LK Select Portrait"), 0x2C64C, 0x2C66C, indexCPS2_Vamp_Sasquatch, 0x20 },
-    { _T("LK Win Portrait"), 0x2FC2C, 0x2FCCC },
+    { _T("LK Win Portrait"), 0x2FC2C, 0x2FCCC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_MK[] =
@@ -1063,7 +1063,7 @@ const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_MK[] =
     { _T("MK Banana"), 0x0f5cC, 0x0f5ec },
     { _T("MK Smoke"), 0x0f5eC, 0x0f60c },
     { _T("MK Select Portrait"), 0x2C84C, 0x2C86C, indexCPS2_Vamp_Sasquatch, 0x20 },
-    { _T("MK Win Portrait"), 0x306CC, 0x3076C },
+    { _T("MK Win Portrait"), 0x306CC, 0x3076C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_HK[] =
@@ -1073,7 +1073,7 @@ const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_HK[] =
     { _T("HK Banana"), 0x0f64c, 0x0f66c },
     { _T("HK Smoke"), 0x0f66c, 0x0f68c },
     { _T("HK Select Portrait"), 0x2A84C, 0x2A86C, indexCPS2_Vamp_Sasquatch, 0x20 },
-    { _T("HK Win Portrait"), 0x3116C, 0x3120C },
+    { _T("HK Win Portrait"), 0x3116C, 0x3120C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_PP[] =
@@ -1083,7 +1083,7 @@ const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_PP[] =
     { _T("PP Banana"), 0x0f6cC, 0x0f6ec },
     { _T("PP Smoke"), 0x0f6eC, 0x0f70c },
     { _T("PP Select Portrait"), 0x2CC4C, 0x2CC6C, indexCPS2_Vamp_Sasquatch, 0x20 },
-    { _T("PP Win Portrait"), 0x31C0C, 0x31CAC },
+    { _T("PP Win Portrait"), 0x31C0C, 0x31CAC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_KK[] =
@@ -1093,7 +1093,7 @@ const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_KK[] =
     { _T("KK Banana"), 0x0f74C, 0x0f76c },
     { _T("KK Smoke"), 0x0f76C, 0x0f78c },
     { _T("KK Select Portrait"), 0x2CE4C, 0x2CE6C, indexCPS2_Vamp_Sasquatch, 0x20 },
-    { _T("KK Win Portrait"), 0x326AC, 0x3274C },
+    { _T("KK Win Portrait"), 0x326AC, 0x3274C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_AP[] =
@@ -1103,7 +1103,7 @@ const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_AP[] =
     { _T("AP Banana"), 0x0f7cC, 0x0f7ec },
     { _T("AP Smoke"), 0x0f7eC, 0x0f80c },
     { _T("AP Select Portrait"), 0x2D04C, 0x2D06C, indexCPS2_Vamp_Sasquatch, 0x20 },
-    { _T("AP Win Portrait"), 0x3314C, 0x331EC },
+    { _T("AP Win Portrait"), 0x3314C, 0x331EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_AK[] =
@@ -1113,7 +1113,7 @@ const sGame_PaletteDataset VSAV_A_SASQUATCH_PALETTES_AK[] =
     { _T("AK Banana"), 0x0f84C, 0x0f86c },
     { _T("AK Smoke"), 0x0f86C, 0x0f88c },
     { _T("AK Select Portrait"), 0x2D24C, 0x2D26C, indexCPS2_Vamp_Sasquatch, 0x20 },
-    { _T("AK Win Portrait"), 0x33BEC, 0x33C8C },
+    { _T("AK Win Portrait"), 0x33BEC, 0x33C8C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Sasquatch },
 };
 
 const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_LP[] =
@@ -1132,7 +1132,7 @@ const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_LP[] =
     { _T("LP Intro/ES 412PP  7"), 0x1c10C, 0x1c12c, indexCPS2_Vamp_QBee, 0 },
     { _T("LP Intro/ES 412PP  8"), 0x1c14C, 0x1c16c, indexCPS2_Vamp_QBee, 0 },
     { _T("LP Select Portrait"), 0x2C08C, 0x2C0AC, indexCPS2_Vamp_QBee, 0x20 },
-    { _T("LP Win Portrait"), 0x2DD8C, 0x2DE2C },
+    { _T("LP Win Portrait"), 0x2DD8C, 0x2DE2C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_MP[] =
@@ -1151,7 +1151,7 @@ const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_MP[] =
     { _T("MP Intro/ES 412PP  7"), 0x1c30C, 0x1c32c, indexCPS2_Vamp_QBee, 0 },
     { _T("MP Intro/ES 412PP  8"), 0x1c34C, 0x1c36c, indexCPS2_Vamp_QBee, 0 },
     { _T("MP Select Portrait"), 0x2C28C, 0x2C2AC, indexCPS2_Vamp_QBee, 0x20 },
-    { _T("MP Win Portrait"), 0x2E82C, 0x2E8CC },
+    { _T("MP Win Portrait"), 0x2E82C, 0x2E8CC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_HP[] =
@@ -1170,7 +1170,7 @@ const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_HP[] =
     { _T("HP Intro/ES 412PP  7"), 0x1c50C, 0x1c52c, indexCPS2_Vamp_QBee, 0 },
     { _T("HP Intro/ES 412PP  8"), 0x1c54C, 0x1c56c, indexCPS2_Vamp_QBee, 0 },
     { _T("HP Select Portrait"), 0x2C48C, 0x2C4AC, indexCPS2_Vamp_QBee, 0x20 },
-    { _T("HP Win Portrait"), 0x2F2CC, 0x2F36C },
+    { _T("HP Win Portrait"), 0x2F2CC, 0x2F36C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_LK[] =
@@ -1189,7 +1189,7 @@ const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_LK[] =
     { _T("LK Intro/ES 412PP  7"), 0x1c70C, 0x1c72c, indexCPS2_Vamp_QBee, 0 },
     { _T("LK Intro/ES 412PP  8"), 0x1c74C, 0x1c76c, indexCPS2_Vamp_QBee, 0 },
     { _T("LK Select Portrait"), 0x2C68C, 0x2C6AC, indexCPS2_Vamp_QBee, 0x20 },
-    { _T("LK Win Portrait"), 0x2FD6C, 0x2FE0C },
+    { _T("LK Win Portrait"), 0x2FD6C, 0x2FE0C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_MK[] =
@@ -1208,7 +1208,7 @@ const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_MK[] =
     { _T("MK Intro/ES 412PP  7"), 0x1c90C, 0x1c92c, indexCPS2_Vamp_QBee, 0 },
     { _T("MK Intro/ES 412PP  8"), 0x1c94C, 0x1c96c, indexCPS2_Vamp_QBee, 0 },
     { _T("MK Select Portrait"), 0x2C88C, 0x2C8AC, indexCPS2_Vamp_QBee, 0x20 },
-    { _T("MK Win Portrait"), 0x3080C, 0x308AC },
+    { _T("MK Win Portrait"), 0x3080C, 0x308AC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_HK[] =
@@ -1227,7 +1227,7 @@ const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_HK[] =
     { _T("HK Intro/ES 412PP  7"), 0x1cb0C, 0x1cb2c, indexCPS2_Vamp_QBee, 0 },
     { _T("HK Intro/ES 412PP  8"), 0x1cb4C, 0x1cb6c, indexCPS2_Vamp_QBee, 0 },
     { _T("HK Select Portrait"), 0x2CA8C, 0x2CAAC, indexCPS2_Vamp_QBee, 0x20 },
-    { _T("HK Win Portrait"), 0x312AC, 0x3134C },
+    { _T("HK Win Portrait"), 0x312AC, 0x3134C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_PP[] =
@@ -1246,7 +1246,7 @@ const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_PP[] =
     { _T("PP Intro/ES 412PP  7"), 0x1cd0C, 0x1cd2c, indexCPS2_Vamp_QBee, 0 },
     { _T("PP Intro/ES 412PP  8"), 0x1cd4C, 0x1cd6c, indexCPS2_Vamp_QBee, 0 },
     { _T("PP Select Portrait"), 0x2CC8C, 0x2CCAC, indexCPS2_Vamp_QBee, 0x20 },
-    { _T("PP Win Portrait"), 0x31D4C, 0x31DEC },
+    { _T("PP Win Portrait"), 0x31D4C, 0x31DEC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_KK[] =
@@ -1265,7 +1265,7 @@ const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_KK[] =
     { _T("KK Intro/ES 412PP  7"), 0x1cf0C, 0x1cf2c, indexCPS2_Vamp_QBee, 0 },
     { _T("KK Intro/ES 412PP  8"), 0x1cf4C, 0x1cf6c, indexCPS2_Vamp_QBee, 0 },
     { _T("KK Select Portrait"), 0x2CE8C, 0x2CEAC, indexCPS2_Vamp_QBee, 0x20 },
-    { _T("KK Win Portrait"), 0x327EC, 0x3288C },
+    { _T("KK Win Portrait"), 0x327EC, 0x3288C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_AP[] =
@@ -1284,7 +1284,7 @@ const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_AP[] =
     { _T("AP Intro/ES 412PP  7"), 0x1d10C, 0x1d12c, indexCPS2_Vamp_QBee, 0 },
     { _T("AP Intro/ES 412PP  8"), 0x1d14C, 0x1d16c, indexCPS2_Vamp_QBee, 0 },
     { _T("AP Select Portrait"), 0x2D08C, 0x2D0AC, indexCPS2_Vamp_QBee, 0x20 },
-    { _T("AP Win Portrait"), 0x3328C, 0x3332C },
+    { _T("AP Win Portrait"), 0x3328C, 0x3332C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_AK[] =
@@ -1303,7 +1303,7 @@ const sGame_PaletteDataset VSAV_A_QUEENBEE_PALETTES_AK[] =
     { _T("AK Intro/ES 412PP  7"), 0x1d30C, 0x1d32c, indexCPS2_Vamp_QBee, 0 },
     { _T("AK Intro/ES 412PP  8"), 0x1d34C, 0x1d36c, indexCPS2_Vamp_QBee, 0 },
     { _T("AK Select Portrait"), 0x2D28C, 0x2D2AC, indexCPS2_Vamp_QBee, 0x20 },
-    { _T("AK Win Portrait"), 0x33D2C, 0x33DCC },
+    { _T("AK Win Portrait"), 0x33D2C, 0x33DCC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_QBee },
 };
 
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_LP[] =
@@ -1313,7 +1313,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_LP[] =
     { _T("LP Lin-Lin"), 0x101cC, 0x101ec },
     { _T("LP Unknown Extra"), 0x1020C, 0x1022c },
     { _T("LP Select Portrait"), 0x2C0AC, 0x2C0CC, indexCPS2_Vamp_LeiLei, 0x20 },
-    { _T("LP Win Portrait"), 0x2DE2C, 0x2DECC },
+    { _T("LP Win Portrait"), 0x2DE2C, 0x2DECC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_MP[] =
@@ -1323,7 +1323,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_MP[] =
     { _T("MP Lin-Lin"), 0x1024C, 0x1026c },
     { _T("MP Unknown Extra"), 0x1028C, 0x102ac },
     { _T("MP Select Portrait"), 0x2C2AC, 0x2C2CC, indexCPS2_Vamp_LeiLei, 0x20 },
-    { _T("MP Win Portrait"), 0x2E8CC, 0x2E96C },
+    { _T("MP Win Portrait"), 0x2E8CC, 0x2E96C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_HP[] =
@@ -1333,7 +1333,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_HP[] =
     { _T("HP Lin-Lin"), 0x102cC, 0x102ec },
     { _T("HP Unknown Extra"), 0x1030C, 0x1032c },
     { _T("HP Select Portrait"), 0x2C4AC, 0x2C4CC, indexCPS2_Vamp_LeiLei, 0x20 },
-    { _T("HP Win Portrait"), 0x2F36C, 0x2F40C },
+    { _T("HP Win Portrait"), 0x2F36C, 0x2F40C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_LK[] =
@@ -1343,7 +1343,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_LK[] =
     { _T("LK Lin-Lin"), 0x1034C, 0x1036c },
     { _T("LK Unknown Extra"), 0x1038C, 0x103ac },
     { _T("LK Select Portrait"), 0x2C6AC, 0x2C6CC, indexCPS2_Vamp_LeiLei, 0x20 },
-    { _T("LK Win Portrait"), 0x2FE0C, 0x2FEAC },
+    { _T("LK Win Portrait"), 0x2FE0C, 0x2FEAC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_MK[] =
@@ -1353,7 +1353,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_MK[] =
     { _T("MK Lin-Lin"), 0x103cC, 0x103ec },
     { _T("MK Unknown Extra"), 0x1040C, 0x1042c },
     { _T("MK Select Portrait"), 0x2C8AC, 0x2C8CC, indexCPS2_Vamp_LeiLei, 0x20 },
-    { _T("MK Win Portrait"), 0x308AC, 0x3094C },
+    { _T("MK Win Portrait"), 0x308AC, 0x3094C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_HK[] =
@@ -1363,7 +1363,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_HK[] =
     { _T("HK Lin-Lin"), 0x1044C, 0x1046c },
     { _T("HK Unknown Extra"), 0x1048C, 0x104ac },
     { _T("HK Select Portrait"), 0x2CAAC, 0x2CACC, indexCPS2_Vamp_LeiLei, 0x20 },
-    { _T("HK Win Portrait"), 0x3134C, 0x313EC },
+    { _T("HK Win Portrait"), 0x3134C, 0x313EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_PP[] =
@@ -1373,7 +1373,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_PP[] =
     { _T("PP Lin-Lin"), 0x104cC, 0x104ec },
     { _T("PP Unknown Extra"), 0x1050C, 0x1052c },
     { _T("PP Select Portrait"), 0x2CCAC, 0x2CCCC, indexCPS2_Vamp_LeiLei, 0x20 },
-    { _T("PP Win Portrait"), 0x31DEC, 0x31E8C },
+    { _T("PP Win Portrait"), 0x31DEC, 0x31E8C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_KK[] =
@@ -1383,7 +1383,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_KK[] =
     { _T("KK Lin-Lin"), 0x1054C, 0x1056c },
     { _T("KK Unknown Extra"), 0x1058C, 0x105ac },
     { _T("KK Select Portrait"), 0x2CEAC, 0x2CECC, indexCPS2_Vamp_LeiLei, 0x20 },
-    { _T("KK Win Portrait"), 0x3288C, 0x3292C },
+    { _T("KK Win Portrait"), 0x3288C, 0x3292C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_AP[] =
@@ -1393,7 +1393,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_AP[] =
     { _T("AP Lin-Lin"), 0x105cC, 0x105ec },
     { _T("AP Unknown Extra"), 0x1060C, 0x1062c },
     { _T("AP Select Portrait"), 0x2D0AC, 0x2D0CC, indexCPS2_Vamp_LeiLei, 0x20 },
-    { _T("AP Win Portrait"), 0x3332C, 0x333CC },
+    { _T("AP Win Portrait"), 0x3332C, 0x333CC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_AK[] =
@@ -1403,7 +1403,7 @@ const sGame_PaletteDataset VSAV_A_LEILEI_PALETTES_AK[] =
     { _T("AK Lin-Lin"), 0x1064C, 0x1066c },
     { _T("AK Unknown Extra"), 0x1068C, 0x106ac },
     { _T("AK Select Portrait"), 0x2D2AC, 0x2D2CC, indexCPS2_Vamp_LeiLei, 0x20 },
-    { _T("AK Win Portrait"), 0x33DCC, 0x33E6C },
+    { _T("AK Win Portrait"), 0x33DCC, 0x33E6C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_LeiLei },
 };
 
 const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_LP[] =
@@ -1413,7 +1413,7 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_LP[] =
     { _T("LP Luminous Illusion/62KKK bats"), 0x106eC, 0x1070c },
     { _T("LP Sparkles"), 0x1070C, 0x1072c },
     { _T("LP Select Portrait"), 0x2C0CC, 0x2C0EC, indexCPS2_Vamp_Lilith, 0x20 },
-    { _T("LP Win Portrait"), 0x2DECC, 0x2DF6C },
+    { _T("LP Win Portrait"), 0x2DECC, 0x2DF6C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_MP[] =
@@ -1423,7 +1423,7 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_MP[] =
     { _T("MP Luminous Illusion/62KKK bats"), 0x1076C, 0x1078c },
     { _T("MP Sparkles"), 0x1078C, 0x107ac },
     { _T("MP Select Portrait"), 0x2C2CC, 0x2C2EC, indexCPS2_Vamp_Lilith, 0x20 },
-    { _T("MP Win Portrait"), 0x2E96C, 0x2EA0C },
+    { _T("MP Win Portrait"), 0x2E96C, 0x2EA0C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_HP[] =
@@ -1433,7 +1433,7 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_HP[] =
     { _T("HP Luminous Illusion/62KKK bats"), 0x107eC, 0x1080c },
     { _T("HP Sparkles"), 0x1080C, 0x1082c },
     { _T("HP Select Portrait"), 0x2C4CC, 0x2C4EC, indexCPS2_Vamp_Lilith, 0x20 },
-    { _T("HP Win Portrait"), 0x2F40C, 0x2F4AC },
+    { _T("HP Win Portrait"), 0x2F40C, 0x2F4AC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_LK[] =
@@ -1443,7 +1443,7 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_LK[] =
     { _T("LK Luminous Illusion/62KKK bats"), 0x1086C, 0x1088c },
     { _T("LK Sparkles"), 0x1088C, 0x108ac },
     { _T("LK Select Portrait"), 0x2C6CC, 0x2C6EC, indexCPS2_Vamp_Lilith, 0x20 },
-    { _T("LK Win Portrait"), 0x2FEAC, 0x2FF4C },
+    { _T("LK Win Portrait"), 0x2FEAC, 0x2FF4C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_MK[] =
@@ -1453,7 +1453,7 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_MK[] =
     { _T("MK Luminous Illusion/62KKK bats"), 0x108eC, 0x1090c },
     { _T("MK Sparkles"), 0x1090C, 0x1092c },
     { _T("MK Select Portrait"), 0x2C8CC, 0x2C8EC, indexCPS2_Vamp_Lilith, 0x20 },
-    { _T("MK Win Portrait"), 0x3094C, 0x309EC },
+    { _T("MK Win Portrait"), 0x3094C, 0x309EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_HK[] =
@@ -1463,7 +1463,7 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_HK[] =
     { _T("HK Luminous Illusion/62KKK bats"), 0x1096C, 0x1098c },
     { _T("HK Sparkles"), 0x1098C, 0x109ac },
     { _T("HK Select Portrait"), 0x2CACC, 0x2CAEC, indexCPS2_Vamp_Lilith, 0x20 },
-    { _T("HK Win Portrait"), 0x313EC, 0x3148C },
+    { _T("HK Win Portrait"), 0x313EC, 0x3148C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_PP[] =
@@ -1473,7 +1473,7 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_PP[] =
     { _T("PP Luminous Illusion/62KKK bats"), 0x109eC, 0x10a0c },
     { _T("PP Sparkles"), 0x10a0C, 0x10a2c },
     { _T("PP Select Portrait"), 0x2CCCC, 0x2CCEC, indexCPS2_Vamp_Lilith, 0x20 },
-    { _T("PP Win Portrait"), 0x31E8C, 0x31F2C },
+    { _T("PP Win Portrait"), 0x31E8C, 0x31F2C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_KK[] =
@@ -1483,7 +1483,7 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_KK[] =
     { _T("KK Luminous Illusion/62KKK bats"), 0x10a6C, 0x10a8c },
     { _T("KK Sparkles"), 0x10a8C, 0x10aac },
     { _T("KK Select Portrait"), 0x2CECC, 0x2CEEC, indexCPS2_Vamp_Lilith, 0x20 },
-    { _T("KK Win Portrait"), 0x3292C, 0x329CC },
+    { _T("KK Win Portrait"), 0x3292C, 0x329CC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_AP[] =
@@ -1493,7 +1493,7 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_AP[] =
     { _T("AP Luminous Illusion/62KKK bats"), 0x10aeC, 0x10b0c },
     { _T("AP Sparkles"), 0x10b0C, 0x10b2c },
     { _T("AP Select Portrait"), 0x2D0CC, 0x2D0EC, indexCPS2_Vamp_Lilith, 0x20 },
-    { _T("AP Win Portrait"), 0x333CC, 0x3346C },
+    { _T("AP Win Portrait"), 0x333CC, 0x3346C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_AK[] =
@@ -1503,7 +1503,7 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_AK[] =
     { _T("AK Luminous Illusion/62KKK bats"), 0x10b6C, 0x10b8c },
     { _T("AK Sparkles"), 0x10b8C, 0x10bac },
     { _T("AK Select Portrait"), 0x2D2CC, 0x2D2EC, indexCPS2_Vamp_Lilith, 0x20 },
-    { _T("AK Win Portrait"), 0x33E6C, 0x33F0C },
+    { _T("AK Win Portrait"), 0x33E6C, 0x33F0C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Lilith },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LP[] =
@@ -1513,7 +1513,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LP[] =
     { _T("LP Blood"), 0x10beC, 0x10c0c },
     { _T("LP Intro"), 0x10c0C, 0x10c2c },
     { _T("LP Select Portrait"), 0x2C0EC, 0x2C10C, indexCPS2_Vamp_Jedah, 0x20 },
-    { _T("LP Win Portrait"), 0x2DF6C, 0x2E00C },
+    { _T("LP Win Portrait"), 0x2DF6C, 0x2E00C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MP[] =
@@ -1523,7 +1523,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MP[] =
     { _T("MP Blood"), 0x10c6C, 0x10c8c },
     { _T("MP Intro"), 0x10c8C, 0x10cac },
     { _T("MP Select Portrait"), 0x2C2EC, 0x2C30C, indexCPS2_Vamp_Jedah, 0x20 },
-    { _T("MP Win Portrait"), 0x2EA0C, 0x2EAAC },
+    { _T("MP Win Portrait"), 0x2EA0C, 0x2EAAC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HP[] =
@@ -1533,7 +1533,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HP[] =
     { _T("HP Blood"), 0x10ceC, 0x10d0c },
     { _T("HP Intro"), 0x10d0C, 0x10d2c },
     { _T("HP Select Portrait"), 0x2C4EC, 0x2C50C, indexCPS2_Vamp_Jedah, 0x20 },
-    { _T("HP Win Portrait"), 0x2F4AC, 0x2F54C },
+    { _T("HP Win Portrait"), 0x2F4AC, 0x2F54C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LK[] =
@@ -1543,7 +1543,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LK[] =
     { _T("LK Blood"), 0x10d6C, 0x10d8c },
     { _T("LK Intro"), 0x10d8C, 0x10dac },
     { _T("LK Select Portrait"), 0x2C6EC, 0x2C70C, indexCPS2_Vamp_Jedah, 0x20 },
-    { _T("LK Win Portrait"), 0x2FF4C, 0x2FFEC },
+    { _T("LK Win Portrait"), 0x2FF4C, 0x2FFEC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MK[] =
@@ -1553,7 +1553,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MK[] =
     { _T("MK Blood"), 0x10deC, 0x10e0c },
     { _T("MK Intro"), 0x10e0C, 0x10e2c },
     { _T("MK Select Portrait"), 0x2C8EC, 0x2C90C, indexCPS2_Vamp_Jedah, 0x20 },
-    { _T("MK Win Portrait"), 0x309EC, 0x30A8C },
+    { _T("MK Win Portrait"), 0x309EC, 0x30A8C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HK[] =
@@ -1563,7 +1563,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HK[] =
     { _T("HK Blood"), 0x10e6C, 0x10e8c },
     { _T("HK Intro"), 0x10e8C, 0x10eac },
     { _T("HK Select Portrait"), 0x2CAEC, 0x2CB0C, indexCPS2_Vamp_Jedah, 0x20 },
-    { _T("HK Win Portrait"), 0x3148C, 0x3152C },
+    { _T("HK Win Portrait"), 0x3148C, 0x3152C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_PP[] =
@@ -1573,7 +1573,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_PP[] =
     { _T("PP Blood"), 0x10eeC, 0x10f0c },
     { _T("PP Intro"), 0x10f0C, 0x10f2c },
     { _T("PP Select Portrait"), 0x2CCEC, 0x2CD0C, indexCPS2_Vamp_Jedah, 0x20 },
-    { _T("PP Win Portrait"), 0x31F2C, 0x31FCC },
+    { _T("PP Win Portrait"), 0x31F2C, 0x31FCC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_KK[] =
@@ -1583,7 +1583,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_KK[] =
     { _T("KK Blood"), 0x10f6C, 0x10f8c },
     { _T("KK Intro"), 0x10f8C, 0x10fac },
     { _T("KK Select Portrait"), 0x2CEEC, 0x2CF0C, indexCPS2_Vamp_Jedah, 0x20 },
-    { _T("KK Win Portrait"), 0x329CC, 0x32A6C },
+    { _T("KK Win Portrait"), 0x329CC, 0x32A6C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_AP[] =
@@ -1593,7 +1593,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_AP[] =
     { _T("AP Blood"), 0x10feC, 0x1100c },
     { _T("AP Intro"), 0x1100C, 0x1102c },
     { _T("AP Select Portrait"), 0x2D0EC, 0x2D10C, indexCPS2_Vamp_Jedah, 0x20 },
-    { _T("AP Win Portrait"), 0x3346C, 0x3350C },
+    { _T("AP Win Portrait"), 0x3346C, 0x3350C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_AK[] =
@@ -1603,7 +1603,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_AK[] =
     { _T("AK Blood"), 0x1106C, 0x1108c },
     { _T("AK Intro"), 0x1108C, 0x110ac },
     { _T("AK Select Portrait"), 0x2D2EC, 0x2D30C, indexCPS2_Vamp_Jedah, 0x20 },
-    { _T("AK Win Portrait"), 0x33F0C, 0x33FAC },
+    { _T("AK Win Portrait"), 0x33F0C, 0x33FAC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
 };
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_SHARED[] =
@@ -1626,7 +1626,7 @@ const sGame_PaletteDataset VSAV_A_DARKGALLON_PALETTES_DEFAULT[] =
     { _T("236P/41236KK/j.HP"), 0x110eC, 0x1110c },
     { _T("236P/28K/Outro Flash"), 0x1110C, 0x1112c },
     { _T("Dark Gallon Select"), 0x2d5CC, 0x2d5EC, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("Dark Gallon Win"), 0x3404C, 0x340EC },
+    { _T("Dark Gallon Win Portrait"), 0x3404C, 0x340EC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_DARKGALLON_PALETTES_ALT[] =
@@ -1641,7 +1641,7 @@ const sGame_PaletteDataset VSAV_A_DARKGALLON_PALETTES_ALT[] =
     { _T("236P/41236KK/j.HP"), 0x1116C, 0x1118c },
     { _T("236P/28K/Outro Flash"), 0x1118C, 0x111ac },
     { _T("Dark Gallon Alt Palette Select"), 0x2d5EC, 0x2d60C, indexCPS2_Vamp_Gallon, 0x20 },
-    { _T("Dark Gallon Alt Palette Win"), 0x340EC, 0x3418C },
+    { _T("Dark Gallon Alt Palette Win Portrait"), 0x340EC, 0x3418C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Gallon },
 };
 
 const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_LP[] =
@@ -1651,7 +1651,7 @@ const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_LP[] =
     { _T("LP Ghosts/Hitsparks"), 0x115ec, 0x1160c },
     { _T("LP Unknown Extra"), 0x1160c, 0x1162c },
     { _T("LP Select Portrait"), 0x2d50c, 0x2d52c, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("LP Win Portrait"), 0x3418c, 0x3422c },
+    { _T("LP Win Portrait"), 0x3418c, 0x3422c, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_MP[] =
@@ -1661,7 +1661,7 @@ const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_MP[] =
     { _T("MP Ghosts/Hitsparks"), 0x1166c, 0x1168c },
     { _T("MP Unknown Extra"), 0x1168c, 0x116ac },
     { _T("MP Select Portrait"), 0x2d52c, 0x2d54c, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("MP Win Portrait"), 0x3422c, 0x342cc },
+    { _T("MP Win Portrait"), 0x3422c, 0x342cc, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_HP[] =
@@ -1671,7 +1671,7 @@ const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_HP[] =
     { _T("HP Ghosts/Hitsparks"), 0x116ec, 0x1170c },
     { _T("HP Unknown Extra"), 0x1170c, 0x1172c },
     { _T("HP Select Portrait"), 0x2d54c, 0x2d56c, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("HP Win Portrait"), 0x342cc, 0x3436c },
+    { _T("HP Win Portrait"), 0x342cc, 0x3436c, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_LK[] =
@@ -1681,7 +1681,7 @@ const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_LK[] =
     { _T("LK Ghosts/Hitsparks"), 0x1176c, 0x1178c },
     { _T("LK Unknown Extra"), 0x1178c, 0x117ac },
     { _T("LK Select Portrait"), 0x2d56c, 0x2d58c, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("LK Win Portrait"), 0x3436c, 0x3440c },
+    { _T("LK Win Portrait"), 0x3436c, 0x3440c, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_MK[] =
@@ -1691,7 +1691,7 @@ const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_MK[] =
     { _T("MK Ghosts/Hitsparks"), 0x117ec, 0x1180c },
     { _T("MK Unknown Extra"), 0x1180c, 0x1182c },
     { _T("MK Select Portrait"), 0x2d58c, 0x2d5ac, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("MK Win Portrait"), 0x3440c, 0x344ac },
+    { _T("MK Win Portrait"), 0x3440c, 0x344ac, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_HK[] =
@@ -1701,7 +1701,7 @@ const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_HK[] =
     { _T("HK Ghosts/Hitsparks"), 0x1186c, 0x1188c },
     { _T("HK Unknown Extra"), 0x1188c, 0x118ac },
     { _T("HK Select Portrait"), 0x2d5ac, 0x2d5cc, indexCPS2_Vamp_Bishamon, 0x20 },
-    { _T("HK Win Portrait"), 0x344ac, 0x3454c },
+    { _T("HK Win Portrait"), 0x344ac, 0x3454c, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Bishamon },
 };
 
 const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_PP[] =

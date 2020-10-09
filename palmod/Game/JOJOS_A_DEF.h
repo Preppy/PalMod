@@ -306,12 +306,12 @@ const sGame_PaletteDataset JOJOS_A_HUD_PALETTE_NODES[] =
     { _T("Lifebar"), 0x07C01E0, 0x07C0200, indexJojos51Bonus, 0x27 },
     { _T("Stand Meter"), 0x07C0200, 0x07C0220, indexJojos51Bonus, 0x29 },
     { _T("Stand Text Under The Stand Gauge"), 0x07C0320, 0x07C0340, indexJojos51Bonus, 0x2a },
-    { _T("Combo Meter"), 0x07C01C0, 0x07C01E0 },
+    { _T("Combo Meter"), 0x07C01C0, 0x07C01E0, indexJojos51Bonus, 0x44 },
     { _T("Combo Messages"), 0x07C0220, 0x07C0240 },
     { _T("Text Above The Lifebars"),  0x07C0280, 0x07C02A0 }, // Could use 0x2a sprite here
     { _T("Stand Crash / First Hit / Etc. Messages"), 0x07C0340, 0x07C0360 },
-    { _T("Stand Meter / Near Stand Break"), 0x07C0B20, 0x07C0B60 },
-    { _T("Super Meter Bar"), 0x07C03A0, 0x07C0400 },
+    { _T("Stand Meter / Near Stand Break"), 0x07C0B20, 0x07C0B60, indexJojos51Bonus, 0x43 },
+    { _T("Super Meter Bar"), 0x07C03A0, 0x07C0400, indexJojos51Bonus, 0x42 },
     { _T("Mariah Level (Player 1 only)"), 0x07C01A0, 0x07C01C0 },
     { _T("Dev-menu Font Color"), 0x07C0000, 0x07C0020 },
     { _T("Player 1 and 2 counter icons"), 0x07C02E0, 0x07C0320, indexJojos51Bonus, 0x26 },
@@ -1071,8 +1071,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_HIEROPHANT_Start[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_A[] =
 {
-    { _T("Avdol & Magician's Red A"), 0x0337d00, 0x0337d80, indexJojos51Avdol, indexJojos51Character_Main, &pairHandledInCode },
-    { _T("Avdol Fire A"), 0x0338580, 0x03385c0, indexJojos51Avdol, 1, &pairHandledInCode },
+    { _T("Avdol & Magician's Red A"), 0x0337d00, 0x0337d80, indexJojos51Avdol, indexJojos51Character_Main, &pairNext },
+    { _T("Avdol Fire A"), 0x0338580, 0x03385c0, indexJojos51Avdol, 1, &pairPrevious },
     { _T("Avdol & MR Remote Activation A"), 0x0338180, 0x0338200, indexJojos51Avdol, 2 },
     { _T("Avdol Vs/Super A"), 0x0410600, 0x0410680, indexJojos51Avdol, indexJojos51Character_VsSuper },
     { _T("Avdol Challenger A"), 0x0410680, 0x0410700, indexJojos51Avdol, indexJojos51Character_Challenger },
@@ -1090,8 +1090,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_A[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_B[] =
 {
-    { _T("Avdol & Magician's Red B"), 0x034c200, 0x034c280, indexJojos51Avdol, indexJojos51Character_Main, &pairHandledInCode },
-    { _T("Avdol Fire B"), 0x034ca80, 0x034cac0, indexJojos51Avdol, 1, &pairHandledInCode },
+    { _T("Avdol & Magician's Red B"), 0x034c200, 0x034c280, indexJojos51Avdol, indexJojos51Character_Main, &pairNext },
+    { _T("Avdol Fire B"), 0x034ca80, 0x034cac0, indexJojos51Avdol, 1, &pairPrevious },
     { _T("Avdol & MR Remote Activation B"), 0x034c680, 0x034c700, indexJojos51Avdol, 2 },
     { _T("Avdol Vs / Super B"), 0x0415400, 0x0415480, indexJojos51Avdol, indexJojos51Character_VsSuper },
     { _T("Avdol Challenger B"), 0x0415480, 0x0415500, indexJojos51Avdol, indexJojos51Character_Challenger },
@@ -1109,8 +1109,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_B[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_C[] =
 {
-    { _T("Avdol & Magician's Red C"), 0x0360700, 0x0360780, indexJojos51Avdol, indexJojos51Character_Main, &pairHandledInCode },
-    { _T("Avdol Fire C"), 0x0360f80, 0x0360fc0, indexJojos51Avdol, 1, &pairHandledInCode },
+    { _T("Avdol & Magician's Red C"), 0x0360700, 0x0360780, indexJojos51Avdol, indexJojos51Character_Main, &pairNext },
+    { _T("Avdol Fire C"), 0x0360f80, 0x0360fc0, indexJojos51Avdol, 1, &pairPrevious },
     { _T("Avdol & MR Remote Activation C"), 0x0360b80, 0x0360c00, indexJojos51Avdol, 2 },
     { _T("Avdol Vs / Super C"), 0x041a200, 0x041a280, indexJojos51Avdol, indexJojos51Character_VsSuper },
     { _T("Avdol Challenger C"), 0x041a280, 0x041a300, indexJojos51Avdol, indexJojos51Character_Challenger },
@@ -1128,8 +1128,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_C[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_S[] =
 {
-    { _T("Avdol & Magician's Red S"), 0x0374c00, 0x0374c80, indexJojos51Avdol, indexJojos51Character_Main, &pairHandledInCode },
-    { _T("Avdol Fire S"), 0x0375480, 0x03754c0, indexJojos51Avdol, 1, &pairHandledInCode },
+    { _T("Avdol & Magician's Red S"), 0x0374c00, 0x0374c80, indexJojos51Avdol, indexJojos51Character_Main, &pairNext },
+    { _T("Avdol Fire S"), 0x0375480, 0x03754c0, indexJojos51Avdol, 1, &pairPrevious },
     { _T("Avdol & MR Remote Activation S"), 0x0375080, 0x0375100, indexJojos51Avdol, 2 },
     { _T("Avdol Vs / Super S"), 0x041f000, 0x041f080, indexJojos51Avdol, indexJojos51Character_VsSuper },
     { _T("Avdol Challenger S"), 0x041f080, 0x041f100, indexJojos51Avdol, indexJojos51Character_Challenger },
@@ -1147,8 +1147,8 @@ const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_S[] =
 
 const sGame_PaletteDataset JOJOS_A_CHARACTER_NODE_AVDOL_Start[] =
 {
-    { _T("Avdol & Magician's Red Start"), 0x0389100, 0x0389180, indexJojos51Avdol, indexJojos51Character_Main, &pairHandledInCode },
-    { _T("Avdol Fire Start"), 0x0389980, 0x03899c0, indexJojos51Avdol, 1, &pairHandledInCode },
+    { _T("Avdol & Magician's Red Start"), 0x0389100, 0x0389180, indexJojos51Avdol, indexJojos51Character_Main, &pairNext },
+    { _T("Avdol Fire Start"), 0x0389980, 0x03899c0, indexJojos51Avdol, 1, &pairPrevious },
     { _T("Avdol & MR Remote Activation Start"), 0x0389580, 0x0389600, indexJojos51Avdol, 2 },
     { _T("Avdol Vs / Super Start"), 0x0423e00, 0x0423e80, indexJojos51Avdol, indexJojos51Character_VsSuper },
     { _T("Avdol Challenger Start"), 0x0423e80, 0x0423f00, indexJojos51Avdol, indexJojos51Character_Challenger },

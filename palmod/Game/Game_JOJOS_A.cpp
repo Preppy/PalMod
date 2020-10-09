@@ -943,6 +943,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
                 else if (!UsePaletteSetFor50())
                 {
+                    // most of these can now be replaced with pairNext/pairPrevious when somebody has time
                     if (((nTargetImgId == indexJojos51Character_SelectWin1) || (nTargetImgId == indexJojos51Character_SelectWin2)) &&
                         ((NodeGet->uUnitId == indexJojos51Jotaro) ||
                             (NodeGet->uUnitId == indexJojos51Avdol) ||
@@ -973,25 +974,6 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             fUseDefaultPaletteLoad = false;
                         }
                     }
-                    else if (NodeGet->uUnitId == indexJojos51Avdol)
-                    {
-                        if (nTargetImgId == 0x0) // main
-                        {
-                            nXOffs = 48;
-                            nYOffs = 7;
-                            nPaletteOneDelta = 0;
-                            nPaletteTwoDelta = 1;
-                            fUseDefaultPaletteLoad = false;
-                        }
-                        else if (nTargetImgId == 0x1) // fire
-                        {
-                            nXOffs = -48;
-                            nYOffs = -7;
-                            nPaletteOneDelta = 0;
-                            nPaletteTwoDelta = -1;
-                            fUseDefaultPaletteLoad = false;
-                        }
-                    }
                     else if ((NodeGet->uUnitId == indexJojos51Kakyo) ||
                              (NodeGet->uUnitId == indexJojos51NewKakyo))
                     {
@@ -1015,6 +997,20 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             nPaletteTwoDelta = -1;
                             fUseDefaultPaletteLoad = false;
                         }
+                    }
+                    else if ((paletteDataSet->pPalettePairingInfo == &pairHandledInCode) ||
+                             (paletteDataSet->pPalettePairingInfo == &pairUnhandled))
+                    {
+                        OutputDebugString(L"Error: unhandled palette join!\n");
+                    }
+                    else
+                    {
+                        // this is for next/previous/etc
+                        nPaletteOneDelta = 0;
+                        nPaletteTwoDelta = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                        nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                        nYOffs= paletteDataSet->pPalettePairingInfo->nYOffs;
+                        fUseDefaultPaletteLoad = false;
                     }
 
                     if (!fUseDefaultPaletteLoad)

@@ -1086,92 +1086,92 @@ const sGame_PaletteDataset SSF2T_A_RYU_PALETTES_OLD2P[] =
 
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_JAB[] =
 {
-    { _T("Jab"), 0x434ea, 0x4350a, 0x09 },
-    { _T("Jab Extra"), 0x4350a, 0x4352a },
-    { _T("Jab Super Trail 1"), 0x4352a, 0x4354a, 0x09 },
-    { _T("Jab Super Trail 2"), 0x4354a, 0x4356a, 0x09 },
-    { _T("Jab Super Trail 3"), 0x4356a, 0x4358a, 0x09 },
+    { _T("Jab"), 0x434ea, 0x4350a, indexSF2Sprites_Sagat },
+    { _T("Jab Extra"), 0x4350a, 0x4352a, indexSF2Sprites_Sagat, 0x1 },
+    { _T("Jab Super Trail 1"), 0x4352a, 0x4354a, indexSF2Sprites_Sagat },
+    { _T("Jab Super Trail 2"), 0x4354a, 0x4356a, indexSF2Sprites_Sagat },
+    { _T("Jab Super Trail 3"), 0x4356a, 0x4358a, indexSF2Sprites_Sagat },
 };
 
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_STRONG[] =
 {
-    { _T("Strong"), 0x4358c, 0x435ac, 0x09 },
-    { _T("Strong Extra"), 0x435ac, 0x435cc },
-    { _T("Strong Super Trail 1"), 0x435cc, 0x435ec, 0x09 },
-    { _T("Strong Super Trail 2"), 0x435ec, 0x4360c, 0x09 },
-    { _T("Strong Super Trail 3"), 0x4360c, 0x4362c, 0x09 },
+    { _T("Strong"), 0x4358c, 0x435ac, indexSF2Sprites_Sagat },
+    { _T("Strong Extra"), 0x435ac, 0x435cc, indexSF2Sprites_Sagat, 0x1 },
+    { _T("Strong Super Trail 1"), 0x435cc, 0x435ec, indexSF2Sprites_Sagat },
+    { _T("Strong Super Trail 2"), 0x435ec, 0x4360c, indexSF2Sprites_Sagat },
+    { _T("Strong Super Trail 3"), 0x4360c, 0x4362c, indexSF2Sprites_Sagat },
 };
 
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_FIERCE[] =
 {
-    { _T("Fierce"), 0x4362e, 0x4364e, 0x09 },
-    { _T("Fierce Extra"), 0x4364e, 0x4366e },
-    { _T("Fierce Super Trail 1"), 0x4366e, 0x4368e, 0x09 },
-    { _T("Fierce Super Trail 2"), 0x4368e, 0x436ae, 0x09 },
-    { _T("Fierce Super Trail 3"), 0x436ae, 0x436ce, 0x09 },
+    { _T("Fierce"), 0x4362e, 0x4364e, indexSF2Sprites_Sagat },
+    { _T("Fierce Extra"), 0x4364e, 0x4366e, indexSF2Sprites_Sagat, 0x1 },
+    { _T("Fierce Super Trail 1"), 0x4366e, 0x4368e, indexSF2Sprites_Sagat },
+    { _T("Fierce Super Trail 2"), 0x4368e, 0x436ae, indexSF2Sprites_Sagat },
+    { _T("Fierce Super Trail 3"), 0x436ae, 0x436ce, indexSF2Sprites_Sagat },
 };
 
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_SHORT[] =
 {
-    { _T("Short"), 0x436d0, 0x436f0, 0x09 },
-    { _T("Short Extra"), 0x436f0, 0x43710 },
-    { _T("Short Super Trail 1"), 0x43710, 0x43730, 0x09 },
-    { _T("Short Super Trail 2"), 0x43730, 0x43750, 0x09 },
-    { _T("Short Super Trail 3"), 0x43750, 0x43770, 0x09 },
+    { _T("Short"), 0x436d0, 0x436f0, indexSF2Sprites_Sagat },
+    { _T("Short Extra"), 0x436f0, 0x43710, indexSF2Sprites_Sagat, 0x1 },
+    { _T("Short Super Trail 1"), 0x43710, 0x43730, indexSF2Sprites_Sagat },
+    { _T("Short Super Trail 2"), 0x43730, 0x43750, indexSF2Sprites_Sagat },
+    { _T("Short Super Trail 3"), 0x43750, 0x43770, indexSF2Sprites_Sagat },
 };
 
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_FORWARD[] =
 {
-    { _T("Forward"), 0x43772, 0x43792, 0x09 },
-    { _T("Forward Extra"), 0x43792, 0x437b2 },
-    { _T("Forward Super Trail 1"), 0x437b2, 0x437d2, 0x09 },
-    { _T("Forward Super Trail 2"), 0x437d2, 0x437f2, 0x09 },
-    { _T("Forward Super Trail 3"), 0x437f2, 0x43812, 0x09 },
+    { _T("Forward"), 0x43772, 0x43792, indexSF2Sprites_Sagat },
+    { _T("Forward Extra"), 0x43792, 0x437b2, indexSF2Sprites_Sagat, 0x1 },
+    { _T("Forward Super Trail 1"), 0x437b2, 0x437d2, indexSF2Sprites_Sagat },
+    { _T("Forward Super Trail 2"), 0x437d2, 0x437f2, indexSF2Sprites_Sagat },
+    { _T("Forward Super Trail 3"), 0x437f2, 0x43812, indexSF2Sprites_Sagat },
 };
 
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_ROUNDHOUSE[] =
 {
-    { _T("Roundhouse"), 0x43814, 0x43834, 0x09 },
-    { _T("Roundhouse Extra"), 0x43834, 0x43854 },
-    { _T("Roundhouse Super Trail 1"), 0x43854, 0x43874, 0x09 },
-    { _T("Roundhouse Super Trail 2"), 0x43874, 0x43894, 0x09 },
-    { _T("Roundhouse Super Trail 3"), 0x43894, 0x438b4, 0x09 },
+    { _T("Roundhouse"), 0x43814, 0x43834, indexSF2Sprites_Sagat },
+    { _T("Roundhouse Extra"), 0x43834, 0x43854, indexSF2Sprites_Sagat, 0x1 },
+    { _T("Roundhouse Super Trail 1"), 0x43854, 0x43874, indexSF2Sprites_Sagat },
+    { _T("Roundhouse Super Trail 2"), 0x43874, 0x43894, indexSF2Sprites_Sagat },
+    { _T("Roundhouse Super Trail 3"), 0x43894, 0x438b4, indexSF2Sprites_Sagat },
 };
 
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_START[] =
 {
-    { _T("Start"), 0x438b6, 0x438d6, 0x09 },
-    { _T("Start Extra"), 0x438d6, 0x438f6 },
-    { _T("Start Super Trail 1"), 0x438f6, 0x43916, 0x09 },
-    { _T("Start Super Trail 2"), 0x43916, 0x43936, 0x09 },
-    { _T("Start Super Trail 3"), 0x43936, 0x43956, 0x09 },
+    { _T("Start"), 0x438b6, 0x438d6, indexSF2Sprites_Sagat },
+    { _T("Start Extra"), 0x438d6, 0x438f6, indexSF2Sprites_Sagat, 0x1 },
+    { _T("Start Super Trail 1"), 0x438f6, 0x43916, indexSF2Sprites_Sagat },
+    { _T("Start Super Trail 2"), 0x43916, 0x43936, indexSF2Sprites_Sagat },
+    { _T("Start Super Trail 3"), 0x43936, 0x43956, indexSF2Sprites_Sagat },
 };
 
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_HOLD[] =
 {
-    { _T("Hold"), 0x43958, 0x43978, 0x09 },
-    { _T("Hold Extra"), 0x43978, 0x43998 },
-    { _T("Hold Super Trail 1"), 0x43998, 0x439b8, 0x09 },
-    { _T("Hold Super Trail 2"), 0x439b8, 0x439d8, 0x09 },
-    { _T("Hold Super Trail 3"), 0x439d8, 0x439f8, 0x09 },
+    { _T("Hold"), 0x43958, 0x43978, indexSF2Sprites_Sagat },
+    { _T("Hold Extra"), 0x43978, 0x43998, indexSF2Sprites_Sagat, 0x1 },
+    { _T("Hold Super Trail 1"), 0x43998, 0x439b8, indexSF2Sprites_Sagat },
+    { _T("Hold Super Trail 2"), 0x439b8, 0x439d8, indexSF2Sprites_Sagat },
+    { _T("Hold Super Trail 3"), 0x439d8, 0x439f8, indexSF2Sprites_Sagat },
 };
 
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_OLD1P[] =
 {
-    { _T("Old 1P"), 0x439fa, 0x43a1a, 0x09 },
-    { _T("Old 1P Extra"), 0x43a1a, 0x43a3a },
-    { _T("Old 1P Super Trail 1"), 0x43a3a, 0x43a5a, 0x09 },
-    { _T("Old 1P Super Trail 2"), 0x43a5a, 0x43a7a, 0x09 },
-    { _T("Old 1P Super Trail 3"), 0x43a7a, 0x43a9a, 0x09 },
+    { _T("Old 1P"), 0x439fa, 0x43a1a, indexSF2Sprites_Sagat },
+    { _T("Old 1P Extra"), 0x43a1a, 0x43a3a, indexSF2Sprites_Sagat, 0x1 },
+    { _T("Old 1P Super Trail 1"), 0x43a3a, 0x43a5a, indexSF2Sprites_Sagat },
+    { _T("Old 1P Super Trail 2"), 0x43a5a, 0x43a7a, indexSF2Sprites_Sagat },
+    { _T("Old 1P Super Trail 3"), 0x43a7a, 0x43a9a, indexSF2Sprites_Sagat },
 };
 
 const sGame_PaletteDataset SSF2T_A_SAGAT_PALETTES_OLD2P[] =
 {
-    { _T("Old 2P"), 0x43a9c, 0x43abc, 0x09 },
-    { _T("Old 2P Extra"), 0x43abc, 0x43adc },
-    { _T("Old 2P Super Trail 1"), 0x43adc, 0x43afc, 0x09 },
-    { _T("Old 2P Super Trail 2"), 0x43afc, 0x43b1c, 0x09 },
-    { _T("Old 2P Super Trail 3"), 0x43b1c, 0x43b3c, 0x09 },
+    { _T("Old 2P"), 0x43a9c, 0x43abc, indexSF2Sprites_Sagat },
+    { _T("Old 2P Extra"), 0x43abc, 0x43adc, indexSF2Sprites_Sagat, 0x1 },
+    { _T("Old 2P Super Trail 1"), 0x43adc, 0x43afc, indexSF2Sprites_Sagat },
+    { _T("Old 2P Super Trail 2"), 0x43afc, 0x43b1c, indexSF2Sprites_Sagat },
+    { _T("Old 2P Super Trail 3"), 0x43b1c, 0x43b3c, indexSF2Sprites_Sagat },
 };
 
 const sGame_PaletteDataset SSF2T_A_THAWK_PALETTES_JAB[] =

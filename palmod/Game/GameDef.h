@@ -386,6 +386,7 @@ enum CHARACTERS_CPS2
     indexCPS2_Vamp_Shadow,    // 0x75
     indexCPS2_Vamp_Victor,    // 0x76
     indexCPS2_Vamp_Zabel,     // 0x77
+    indexCPS2_VSAV1_WinPortraits, // 0x78
 };
 
 const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
@@ -2067,6 +2068,8 @@ const UINT8 VSAV_A_IMG_UNITS[] =
     indexCPS2_Vamp_Shadow,    // 0x75
     indexCPS2_Vamp_Victor,    // 0x76
     indexCPS2_Vamp_Zabel,     // 0x77
+
+    indexCPS2_VSAV1_WinPortraits, // 0x78
 };
 
 constexpr auto VSAV_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV_A_IMG_UNITS);
