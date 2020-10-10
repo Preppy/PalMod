@@ -24,7 +24,7 @@ void CGame_NEOGEO_A::InitializeStatics()
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_NEOGEO_A::InitDescTree());
+    MainDescTree.SetRootTree(InitDescTree());
 }
 
 CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
@@ -49,12 +49,13 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
+    createPalOptions = { NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
+
     if (GetExtraCt(m_nExtraUnit) == 0)
     {
         CString strIntro;
         strIntro = _T("Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random game ROM that PalMod does not already support. \n\n");
-        //strIntro += _T("PalMod will read / write specified RAM offsets as if they indicated colors for the pixel format specified in the Settings menu.\n\n");
-        strIntro += _T("PalMod will read / write specified RAM offsets as if they indicated RGB666 colors.\n\n");
+        strIntro += _T("PalMod will read / write specified RAM offsets as if they indicated colors for the color format specified in the Settings menu.\n\n");
         strIntro += _T("Right now, you don't have any entries in your UnknownE.txt Extras file: you will want to add entries there if you wish to use this \"dummy\" mode.\n\n");
         strIntro += _T("Please make sure to only change a copy of the ROM you're interested in: since you're directly playing around with the game ROM, weird things could happen.\n\n");
         strIntro += _T("Good luck!");
@@ -63,33 +64,7 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
 
     InitDataBuffer();
 
-    DWORD dwMystery = 4;
-
-    switch (dwMystery)
-    {
-    case 0:
-        SetColMode(ColMode::COLMODE_GBA);
-        BasePalGroup.SetMode(ePalType::PALTYPE_17);
-        break;
-    case 1:
-        SetColMode(ColMode::COLMODE_12A);
-        BasePalGroup.SetMode(ePalType::PALTYPE_17);
-        break;
-    case 2:
-        SetColMode(ColMode::COLMODE_15);
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
-        break;
-    case 3:
-        SetColMode(ColMode::COLMODE_15ALT);
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
-        break;
-    case 4:
-    default:
-        SetColMode(ColMode::COLMODE_NEOGEO);
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
-        break;
-    };
-
+    SetColModeInternal(CRegProc::GetColModeForUnknownGame());
 
     //Set game information
     nGameFlag = NEOGEO_A;
@@ -125,25 +100,6 @@ CDescTree* CGame_NEOGEO_A::GetMainTree()
     return &CGame_NEOGEO_A::MainDescTree;
 }
 
-LPCTSTR CGame_NEOGEO_A::GetGameName()
-{
-    switch (GetColMode())
-    {
-    case ColMode::COLMODE_GBA:
-        return L"RGB555 little endian (GBA)";
-    case ColMode::COLMODE_12A:
-        return L"RGB444 big endian (CPS1/CPS2)";
-    case ColMode::COLMODE_15:
-        return L"RGB555 little endian (CPS3)";
-    case ColMode::COLMODE_15ALT:
-        return L"RGB555 big endian";
-    case ColMode::COLMODE_NEOGEO:
-        return L"RGB666 (NEO*GEO)";
-    default:
-        return L"Unknown Game";
-    };
-}
-
 int CGame_NEOGEO_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
@@ -166,6 +122,43 @@ int CGame_NEOGEO_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
     }
 
     return rgExtraCountAll[nUnitId];
+}
+
+BOOL CGame_NEOGEO_A::SetColModeInternal(ColMode NewMode)
+{
+    // stomp the setting for posterity
+    CRegProc::SetColModeForUnknownGame(NewMode);
+
+    switch (NewMode)
+    {
+    case ColMode::COLMODE_GBA:
+        BasePalGroup.SetMode(ePalType::PALTYPE_17);
+        break;
+    case ColMode::COLMODE_12A:
+        BasePalGroup.SetMode(ePalType::PALTYPE_17);
+        break;
+    case ColMode::COLMODE_15:
+        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        break;
+    case ColMode::COLMODE_15ALT:
+        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        break;
+    default: // Something is wrong: reset
+        OutputDebugString(L"warning: unknown color mode was requested. Resetting to default\n");
+    case ColMode::COLMODE_NEOGEO:
+        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        break;
+    };
+
+    return CGameClass::SetColMode(NewMode);
+}
+
+BOOL CGame_NEOGEO_A::SetColMode(ColMode NewMode)
+{
+    CString strMsg = L"Updated.  The next palette displayed will use this color format.";
+    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
+
+    return SetColModeInternal(NewMode);
 }
 
 int CGame_NEOGEO_A::GetExtraLoc(UINT16 nUnitId)
@@ -584,8 +577,8 @@ BOOL CGame_NEOGEO_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = NEOGEO_A_UNITSORT[nUnitCtr];
+        //no need to re-sort this
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {

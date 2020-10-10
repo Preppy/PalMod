@@ -94,6 +94,14 @@ public:
 
     void SetColorsPerLineTo8();
     void SetColorsPerLineTo16();
+    void SetColorFormatTo(ColMode newColMode);
+    void SetColorFormatTo12A() { SetColorFormatTo(ColMode::COLMODE_12A); };
+    void SetColorFormatTo15() { SetColorFormatTo(ColMode::COLMODE_15); };
+    void SetColorFormatTo15ALT() { SetColorFormatTo(ColMode::COLMODE_15ALT); };
+    void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_GBA); };
+    void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_NEOGEO); };
+
+    void UpdateColorFormatMenu();
 
     void PostGameLoad();
     void UpdateCombo();

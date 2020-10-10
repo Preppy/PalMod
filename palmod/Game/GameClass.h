@@ -171,7 +171,8 @@ public:
     BOOL SetLoadDir(LPCTSTR szNewDir);
 
     ColMode GetColMode() { return CurrColMode; };
-    BOOL SetColMode(ColMode NewMode);
+    virtual BOOL SetColMode(ColMode NewMode);
+    virtual bool AllowUpdatingColorFormatForGame() { return false; };
 
     BOOL SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt = 1, int nMax = 6);
 

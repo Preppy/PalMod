@@ -86,7 +86,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("X-Men (Arcade)"),
    _T("MVC2 (Arcade)"),
    _T("Garou: MotW (Arcade)"),
-   _T("Unknown NEO•GEO (Arcade)"),
+   _T("Unknown Game"),
    _T("KOF: 98 (Arcade)"),
    _T("KOF: 02UM (Steam)"),
    _T("CVS2 (Arcade)"),
@@ -387,6 +387,7 @@ enum CHARACTERS_CPS2
     indexCPS2_Vamp_Victor,    // 0x76
     indexCPS2_Vamp_Zabel,     // 0x77
     indexCPS2_VSAV1_WinPortraits, // 0x78
+    indexCPS2_VSAV1_MidnightBliss, // 0x78
 };
 
 const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
@@ -2070,6 +2071,7 @@ const UINT8 VSAV_A_IMG_UNITS[] =
     indexCPS2_Vamp_Zabel,     // 0x77
 
     indexCPS2_VSAV1_WinPortraits, // 0x78
+    indexCPS2_VSAV1_MidnightBliss, // 0x79
 };
 
 constexpr auto VSAV_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV_A_IMG_UNITS);

@@ -26,9 +26,11 @@ public:
     void LoadReg(int src);
     void SaveReg(int src);
 
+    static void SetColModeForUnknownGame(ColMode colorMode);
     static void SetColorsPerLine(DWORD dwColors);
-    static UINT16 GetMaxColorsPerPageOverride();
+    static ColMode GetColModeForUnknownGame();
     static UINT16 GetColorsPerLine();
+    static UINT16 GetMaxColorsPerPageOverride();
     static UINT16 GetMaxPalettePageSize();
     static DWORD dwColorsPerLine;
     static bool ShouldForcePeerPreviewWindow();

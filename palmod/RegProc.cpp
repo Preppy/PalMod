@@ -10,6 +10,7 @@ constexpr auto c_mainAllowAlphaChanges = _T("main_AllowAlphaChanges"); // increm
 constexpr auto c_mainWndColorsPerLine = _T("main_wndColorsPerLine");
 constexpr auto c_mainWndMaxColorsPerPage = _T("extras_MaxColorsPerPage");
 constexpr auto c_mainWndForcePeerPreviewWindow = _T("extras_ForcePeerPreviewWindow");
+constexpr auto c_mainUnknownGameColMode = _T("main_UnknownGameColMode");
 
 constexpr auto c_nPrefSavePaletteToMemory = _T("pref_ShouldSavePaletteToMemory");
 
@@ -68,6 +69,18 @@ int CRegProc::GetUserSavePaletteToMemoryPreference()
     return nShouldAutoSavePalettesToMemory;
 }
 
+void CRegProc::SetColModeForUnknownGame(ColMode colorMode)
+{
+    HKEY hKey;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        RegSetValueEx(hKey, c_mainUnknownGameColMode, 0, REG_DWORD, (BYTE*)&colorMode, sizeof(DWORD));
+        RegCloseKey(hKey);
+    }
+}
+
 void CRegProc::SetColorsPerLine(DWORD dwColors)
 {
     HKEY hKey;
@@ -120,7 +133,7 @@ bool CRegProc::ShouldForcePeerPreviewWindow()
 
         shouldForcePeerWindow = 0;
 
-        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
+        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_READ, NULL, &hKey, NULL)
             == ERROR_SUCCESS)
         {
             DWORD RegType = REG_DWORD;
@@ -138,6 +151,28 @@ bool CRegProc::ShouldForcePeerPreviewWindow()
     return (shouldForcePeerWindow == 1);
 }
 
+ColMode CRegProc::GetColModeForUnknownGame()
+{
+    HKEY hKey;
+    DWORD dwColMode = (DWORD)ColMode::COLMODE_NEOGEO;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_READ, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        DWORD RegType = REG_DWORD;
+        DWORD GetSz = sizeof(DWORD);
+
+        if (RegQueryValueEx(hKey, c_mainUnknownGameColMode, 0, &RegType, (BYTE*)&dwColMode, &GetSz) != ERROR_SUCCESS)
+        {
+            dwColMode = (DWORD)ColMode::COLMODE_NEOGEO;
+        }
+
+        RegCloseKey(hKey);
+    }
+
+    return (ColMode)dwColMode;
+}
+
 UINT16 CRegProc::GetColorsPerLine()
 {
     // Since this affects UI we should only update it once per instance
@@ -145,7 +180,7 @@ UINT16 CRegProc::GetColorsPerLine()
     {
         HKEY hKey;
 
-        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
+        if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_READ, NULL, &hKey, NULL)
             == ERROR_SUCCESS)
         {
             DWORD RegType = REG_DWORD;

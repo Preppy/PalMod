@@ -23,6 +23,8 @@ private:
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
+    BOOL SetColModeInternal(ColMode NewMode);
+
 public:
     CGame_NEOGEO_A(UINT32 nConfirmedROMSize);
     ~CGame_NEOGEO_A(void);
@@ -49,7 +51,8 @@ public:
 
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
-    LPCTSTR GetGameName() override;
+    BOOL SetColMode(ColMode NewMode) override;
+    bool AllowUpdatingColorFormatForGame() override { return true; }
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);

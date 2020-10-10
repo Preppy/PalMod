@@ -225,6 +225,36 @@ void CPalModDlg::SetColorsPerLineTo16()
     pSettMenu->CheckMenuItem(ID_COLORSPERLINE_16COLORSPERLINE, MF_BYCOMMAND | MF_CHECKED);
 }
 
+void CPalModDlg::UpdateColorFormatMenu()
+{
+    if (GetHost()->GetCurrGame())
+    {
+        CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
+        ColMode currColMode = GetHost()->GetCurrGame()->GetColMode();
+        const bool canChangeFormat = GetHost()->GetCurrGame()->AllowUpdatingColorFormatForGame();
+
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB444, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_12A) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_15) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_ALT, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_15ALT) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_GBA, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_GBA) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB666, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_NEOGEO) ? MF_CHECKED : MF_UNCHECKED));
+
+        pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB444, !canChangeFormat);
+        pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555, !canChangeFormat);
+        pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_ALT, !canChangeFormat);
+        pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_GBA, !canChangeFormat);
+        pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB666, !canChangeFormat);
+    }
+}
+
+void CPalModDlg::SetColorFormatTo(ColMode newColMode)
+{
+    if (GetHost()->GetCurrGame())
+    {
+        GetHost()->GetCurrGame()->SetColMode(newColMode);
+    }
+}
+
 void CPalModDlg::LoadLastDir()
 {
     int nLastUsedGFlag;

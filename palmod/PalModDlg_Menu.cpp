@@ -19,13 +19,12 @@ void CPalModDlg::OnLoadGameByDirectory(int nGameFlag)
 void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 {
     CDialog::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);
-    // TODO: Add your message handler code here
 
     //Set the menu variables
     CMenu* m_SubFileMenu = GetMenu()->GetSubMenu(0);
     CMenu* m_SubEditMenu = GetMenu()->GetSubMenu(1);
-    CMenu* m_SubSettMenu = GetMenu()->GetSubMenu(3);
     CMenu* m_SubToolMenu = GetMenu()->GetSubMenu(2);
+    CMenu* m_SubSettMenu = GetMenu()->GetSubMenu(3);
 
     if (pPopupMenu == m_SubFileMenu)
     {
@@ -59,5 +58,9 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         // Right now we can only generate patches collecting changes that are for single-binary game sets
         const bool shouldEnable = fFileChanged && GetHost()->GetCurrGame() && !GetHost()->GetCurrGame()->GetIsDir();
         pPopupMenu->EnableMenuItem(ID_TOOLS_GENERATEPATCHFILE, !shouldEnable);
+    }
+    else if (pPopupMenu == m_SubSettMenu)
+    {
+        UpdateColorFormatMenu();
     }
 }
