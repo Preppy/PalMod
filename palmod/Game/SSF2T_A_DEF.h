@@ -1337,7 +1337,7 @@ const sGame_PaletteDataset SSF2T_A_VEGA_PALETTES_OLD2P[] =
 const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_JAB[] =
 {
     { _T("Jab"), 0x421a6, 0x421c6, 0x06 },
-    { _T("Jab Extra"), 0x421c6, 0x421e6 },
+    { _T("Jab Banishing Fist"), 0x421c6, 0x421e6, indexSF2Sprites_Zangief, 1 },
     { _T("Jab Super Trail 1"), 0x421e6, 0x42206, 0x06 },
     { _T("Jab Super Trail 2"), 0x42206, 0x42226, 0x06 },
     { _T("Jab Super Trail 3"), 0x42226, 0x42246, 0x06 },
@@ -1345,8 +1345,8 @@ const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_JAB[] =
 
 const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_STRONG[] =
 {
-    { _T("Strong"), 0x42248, 0x42268, 0x06 },
-    { _T("Strong Extra"), 0x42268, 0x42288 },
+    { _T("Strong"), 0x42248, 0x42268, 0x06, 0 },
+    { _T("Strong Banishing Fist"), 0x42268, 0x42288, indexSF2Sprites_Zangief, 1 },
     { _T("Strong Super Trail 1"), 0x42288, 0x422a8, 0x06 },
     { _T("Strong Super Trail 2"), 0x422a8, 0x422c8, 0x06 },
     { _T("Strong Super Trail 3"), 0x422c8, 0x422e8, 0x06 },
@@ -1355,7 +1355,7 @@ const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_STRONG[] =
 const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_FIERCE[] =
 {
     { _T("Fierce"), 0x422ea, 0x4230a, 0x06 },
-    { _T("Fierce Extra"), 0x4230a, 0x4232a },
+    { _T("Fierce Banishing Fist"), 0x4230a, 0x4232a, indexSF2Sprites_Zangief, 1 },
     { _T("Fierce Super Trail 1"), 0x4232a, 0x4234a, 0x06 },
     { _T("Fierce Super Trail 2"), 0x4234a, 0x4236a, 0x06 },
     { _T("Fierce Super Trail 3"), 0x4236a, 0x4238a, 0x06 },
@@ -1364,7 +1364,7 @@ const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_FIERCE[] =
 const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_SHORT[] =
 {
     { _T("Short"), 0x4238c, 0x423ac, 0x06 },
-    { _T("Short Extra"), 0x423ac, 0x423cc },
+    { _T("Short Banishing Fist"), 0x423ac, 0x423cc, indexSF2Sprites_Zangief, 1 },
     { _T("Short Super Trail 1"), 0x423cc, 0x423ec, 0x06 },
     { _T("Short Super Trail 2"), 0x423ec, 0x4240c, 0x06 },
     { _T("Short Super Trail 3"), 0x4240c, 0x4242c, 0x06 },
@@ -1373,7 +1373,7 @@ const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_SHORT[] =
 const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_FORWARD[] =
 {
     { _T("Forward"), 0x4242e, 0x4244e, 0x06 },
-    { _T("Forward Extra"), 0x4244e, 0x4246e },
+    { _T("Forward Banishing Fist"), 0x4244e, 0x4246e, indexSF2Sprites_Zangief, 1 },
     { _T("Forward Super Trail 1"), 0x4246e, 0x4248e, 0x06 },
     { _T("Forward Super Trail 2"), 0x4248e, 0x424ae, 0x06 },
     { _T("Forward Super Trail 3"), 0x424ae, 0x424ce, 0x06 },
@@ -1382,7 +1382,7 @@ const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_FORWARD[] =
 const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_ROUNDHOUSE[] =
 {
     { _T("Roundhouse"), 0x424d0, 0x424f0, 0x06 },
-    { _T("Roundhouse Extra"), 0x424f0, 0x42510 },
+    { _T("Roundhouse Banishing Fist"), 0x424f0, 0x42510, indexSF2Sprites_Zangief, 1 },
     { _T("Roundhouse Super Trail 1"), 0x42510, 0x42530, 0x06 },
     { _T("Roundhouse Super Trail 2"), 0x42530, 0x42550, 0x06 },
     { _T("Roundhouse Super Trail 3"), 0x42550, 0x42570, 0x06 },
@@ -1391,7 +1391,7 @@ const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_ROUNDHOUSE[] =
 const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_START[] =
 {
     { _T("Start"), 0x42572, 0x42592, 0x06 },
-    { _T("Start Extra"), 0x42592, 0x425b2 },
+    { _T("Start Banishing Fist"), 0x42592, 0x425b2, indexSF2Sprites_Zangief, 1 },
     { _T("Start Super Trail 1"), 0x425b2, 0x425d2, 0x06 },
     { _T("Start Super Trail 2"), 0x425d2, 0x425f2, 0x06 },
     { _T("Start Super Trail 3"), 0x425f2, 0x42612, 0x06 },
@@ -1400,7 +1400,7 @@ const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_START[] =
 const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_HOLD[] =
 {
     { _T("Hold"), 0x42614, 0x42634, 0x06 },
-    { _T("Hold Extra"), 0x42634, 0x42654 },
+    { _T("Hold Banishing Fist"), 0x42634, 0x42654, indexSF2Sprites_Zangief, 1 },
     { _T("Hold Super Trail 1"), 0x42654, 0x42674, 0x06 },
     { _T("Hold Super Trail 2"), 0x42674, 0x42694, 0x06 },
     { _T("Hold Super Trail 3"), 0x42694, 0x426b4, 0x06 },
@@ -1409,7 +1409,7 @@ const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_HOLD[] =
 const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_OLD1P[] =
 {
     { _T("Old 1P"), 0x426b6, 0x426d6, 0x06 },
-    { _T("Old 1P Extra"), 0x426d6, 0x426f6 },
+    { _T("Old 1P Banishing Fist"), 0x426d6, 0x426f6, indexSF2Sprites_Zangief, 1 },
     { _T("Old 1P Super Trail 1"), 0x426f6, 0x42716, 0x06 },
     { _T("Old 1P Super Trail 2"), 0x42716, 0x42736, 0x06 },
     { _T("Old 1P Super Trail 3"), 0x42736, 0x42756, 0x06 },
@@ -1418,7 +1418,7 @@ const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_OLD1P[] =
 const sGame_PaletteDataset SSF2T_A_ZANGIEF_PALETTES_OLD2P[] =
 {
     { _T("Old 2P"), 0x42758, 0x42778, 0x06 },
-    { _T("Old 2P Extra"), 0x42778, 0x42798 },
+    { _T("Old 2P Banishing Fist"), 0x42778, 0x42798, indexSF2Sprites_Zangief, 1 },
     { _T("Old 2P Super Trail 1"), 0x42798, 0x427b8, 0x06 },
     { _T("Old 2P Super Trail 2"), 0x427b8, 0x427d8, 0x06 },
     { _T("Old 2P Super Trail 3"), 0x427d8, 0x427f8, 0x06 },

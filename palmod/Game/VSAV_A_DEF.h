@@ -1508,9 +1508,9 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_AK[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LP[] =
 {
-    { _T("LP Jedah"), 0x10baC, 0x10bcc, indexCPS2_Vamp_Jedah, 0 },
+    { _T("LP Jedah"), 0x10baC, 0x10bcc, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
     { _T("LP Prova di Servo"), 0x10bcC, 0x10bec },
-    { _T("LP Blood"), 0x10beC, 0x10c0c },
+    { _T("LP Blood"), 0x10beC, 0x10c0c, indexCPS2_Vamp_Jedah, 1 },
     { _T("LP Intro"), 0x10c0C, 0x10c2c },
     { _T("LP Select Portrait"), 0x2C0EC, 0x2C10C, indexCPS2_Vamp_Jedah, 0x20 },
     { _T("LP Win Portrait"), 0x2DF6C, 0x2E00C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
@@ -1518,9 +1518,9 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LP[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MP[] =
 {
-    { _T("MP Jedah"), 0x10c2C, 0x10c4c, indexCPS2_Vamp_Jedah, 0 },
+    { _T("MP Jedah"), 0x10c2C, 0x10c4c, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
     { _T("MP Prova di Servo"), 0x10c4C, 0x10c6c },
-    { _T("MP Blood"), 0x10c6C, 0x10c8c },
+    { _T("MP Blood"), 0x10c6C, 0x10c8c, indexCPS2_Vamp_Jedah, 1 },
     { _T("MP Intro"), 0x10c8C, 0x10cac },
     { _T("MP Select Portrait"), 0x2C2EC, 0x2C30C, indexCPS2_Vamp_Jedah, 0x20 },
     { _T("MP Win Portrait"), 0x2EA0C, 0x2EAAC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
@@ -1528,9 +1528,9 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MP[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HP[] =
 {
-    { _T("HP Jedah"), 0x10caC, 0x10ccc, indexCPS2_Vamp_Jedah, 0 },
+    { _T("HP Jedah"), 0x10caC, 0x10ccc, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
     { _T("HP Prova di Servo"), 0x10ccC, 0x10cec },
-    { _T("HP Blood"), 0x10ceC, 0x10d0c },
+    { _T("HP Blood"), 0x10ceC, 0x10d0c, indexCPS2_Vamp_Jedah, 1 },
     { _T("HP Intro"), 0x10d0C, 0x10d2c },
     { _T("HP Select Portrait"), 0x2C4EC, 0x2C50C, indexCPS2_Vamp_Jedah, 0x20 },
     { _T("HP Win Portrait"), 0x2F4AC, 0x2F54C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
@@ -1538,9 +1538,9 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HP[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LK[] =
 {
-    { _T("LK Jedah"), 0x10d2C, 0x10d4c, indexCPS2_Vamp_Jedah, 0 },
+    { _T("LK Jedah"), 0x10d2C, 0x10d4c, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
     { _T("LK Prova di Servo"), 0x10d4C, 0x10d6c },
-    { _T("LK Blood"), 0x10d6C, 0x10d8c },
+    { _T("LK Blood"), 0x10d6C, 0x10d8c, indexCPS2_Vamp_Jedah, 1 },
     { _T("LK Intro"), 0x10d8C, 0x10dac },
     { _T("LK Select Portrait"), 0x2C6EC, 0x2C70C, indexCPS2_Vamp_Jedah, 0x20 },
     { _T("LK Win Portrait"), 0x2FF4C, 0x2FFEC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
@@ -1548,9 +1548,9 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LK[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MK[] =
 {
-    { _T("MK Jedah"), 0x10daC, 0x10dcc, indexCPS2_Vamp_Jedah, 0 },
+    { _T("MK Jedah"), 0x10daC, 0x10dcc, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
     { _T("MK Prova di Servo"), 0x10dcC, 0x10dec },
-    { _T("MK Blood"), 0x10deC, 0x10e0c },
+    { _T("MK Blood"), 0x10deC, 0x10e0c, indexCPS2_Vamp_Jedah, 1 },
     { _T("MK Intro"), 0x10e0C, 0x10e2c },
     { _T("MK Select Portrait"), 0x2C8EC, 0x2C90C, indexCPS2_Vamp_Jedah, 0x20 },
     { _T("MK Win Portrait"), 0x309EC, 0x30A8C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
@@ -1558,9 +1558,9 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MK[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HK[] =
 {
-    { _T("HK Jedah"), 0x10e2C, 0x10e4c, indexCPS2_Vamp_Jedah, 0 },
+    { _T("HK Jedah"), 0x10e2C, 0x10e4c, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
     { _T("HK Prova di Servo"), 0x10e4C, 0x10e6c },
-    { _T("HK Blood"), 0x10e6C, 0x10e8c },
+    { _T("HK Blood"), 0x10e6C, 0x10e8c, indexCPS2_Vamp_Jedah, 1 },
     { _T("HK Intro"), 0x10e8C, 0x10eac },
     { _T("HK Select Portrait"), 0x2CAEC, 0x2CB0C, indexCPS2_Vamp_Jedah, 0x20 },
     { _T("HK Win Portrait"), 0x3148C, 0x3152C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
@@ -1568,9 +1568,9 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HK[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_PP[] =
 {
-    { _T("PP Jedah"), 0x10eaC, 0x10ecc, indexCPS2_Vamp_Jedah, 0 },
+    { _T("PP Jedah"), 0x10eaC, 0x10ecc, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
     { _T("PP Prova di Servo"), 0x10ecC, 0x10eec },
-    { _T("PP Blood"), 0x10eeC, 0x10f0c },
+    { _T("PP Blood"), 0x10eeC, 0x10f0c, indexCPS2_Vamp_Jedah, 1 },
     { _T("PP Intro"), 0x10f0C, 0x10f2c },
     { _T("PP Select Portrait"), 0x2CCEC, 0x2CD0C, indexCPS2_Vamp_Jedah, 0x20 },
     { _T("PP Win Portrait"), 0x31F2C, 0x31FCC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
@@ -1578,9 +1578,9 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_PP[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_KK[] =
 {
-    { _T("KK Jedah"), 0x10f2C, 0x10f4c, indexCPS2_Vamp_Jedah, 0 },
+    { _T("KK Jedah"), 0x10f2C, 0x10f4c, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
     { _T("KK Prova di Servo"), 0x10f4C, 0x10f6c },
-    { _T("KK Blood"), 0x10f6C, 0x10f8c },
+    { _T("KK Blood"), 0x10f6C, 0x10f8c, indexCPS2_Vamp_Jedah, 1 },
     { _T("KK Intro"), 0x10f8C, 0x10fac },
     { _T("KK Select Portrait"), 0x2CEEC, 0x2CF0C, indexCPS2_Vamp_Jedah, 0x20 },
     { _T("KK Win Portrait"), 0x329CC, 0x32A6C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
@@ -1588,9 +1588,9 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_KK[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_AP[] =
 {
-    { _T("AP Jedah"), 0x10faC, 0x10fcc, indexCPS2_Vamp_Jedah, 0 },
+    { _T("AP Jedah"), 0x10faC, 0x10fcc, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
     { _T("AP Prova di Servo"), 0x10fcC, 0x10fec },
-    { _T("AP Blood"), 0x10feC, 0x1100c },
+    { _T("AP Blood"), 0x10feC, 0x1100c, indexCPS2_Vamp_Jedah, 1 },
     { _T("AP Intro"), 0x1100C, 0x1102c },
     { _T("AP Select Portrait"), 0x2D0EC, 0x2D10C, indexCPS2_Vamp_Jedah, 0x20 },
     { _T("AP Win Portrait"), 0x3346C, 0x3350C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
@@ -1598,9 +1598,9 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_AP[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_AK[] =
 {
-    { _T("AK Jedah"), 0x1102C, 0x1104c, indexCPS2_Vamp_Jedah, 0 },
+    { _T("AK Jedah"), 0x1102C, 0x1104c, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
     { _T("AK Prova di Servo"), 0x1104C, 0x1106c },
-    { _T("AK Blood"), 0x1106C, 0x1108c },
+    { _T("AK Blood"), 0x1106C, 0x1108c, indexCPS2_Vamp_Jedah, 1 },
     { _T("AK Intro"), 0x1108C, 0x110ac },
     { _T("AK Select Portrait"), 0x2D2EC, 0x2D30C, indexCPS2_Vamp_Jedah, 0x20 },
     { _T("AK Win Portrait"), 0x33F0C, 0x33FAC, indexCPS2_VSAV1_WinPortraits, indexCPS2_Vamp_Jedah },
@@ -1736,7 +1736,19 @@ const sGame_PaletteDataset VSAV_A_OBOROBISHAMON_PALETTES_AK[] =
     { _T("AK Unknown Extra"), 0x11a8c, 0x11aac },
 };
 
-const sGame_PaletteDataset VSAV_A_BONUS_PALETTES[] =
+const sGame_PaletteDataset VSAV_A_HUD_PALETTES[] =
+{
+    { _T("Lifebar and super meter"), 0x1A6EC, 0x1A70C },
+    { _T("Life bar blending 1"), 0x293FC, 0x2941C },
+    { _T("Life bar blending 2"), 0x2941C, 0x2943C },
+    { _T("Life bar blending 3"), 0x2943C, 0x2945C },
+    { _T("Life bar blending 4"), 0x2945C, 0x2947C },
+    { _T("Life bar blending 5"), 0x2947C, 0x2949C },
+    { _T("Combo Number/Win Counter/Combo Text"), 0x1A70C, 0x1A72C },
+    { _T("Flash Combo Counter/Timer/Fight Logo"), 0x1A72C, 0x1A74C }, 
+};
+
+const sGame_PaletteDataset VSAV_A_SHADOW_PALETTES[] =
 {
     { _T("Shadow"), 0x3584C, 0x3586C, indexCPS2_Vamp_Shadow, 0x0 },
 };
@@ -3188,7 +3200,8 @@ const sDescTreeNode VSAV_A_OBOROBISHAMON_COLLECTION[] =
 
 const sDescTreeNode VSAV_A_BONUS_COLLECTION[] =
 {
-    { _T("Palettes"),    DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_PALETTES,  ARRAYSIZE(VSAV_A_BONUS_PALETTES) },
+    { _T("HUD"),        DESC_NODETYPE_TREE, (void*)VSAV_A_HUD_PALETTES,     ARRAYSIZE(VSAV_A_HUD_PALETTES) },
+    { _T("Shadow"),     DESC_NODETYPE_TREE, (void*)VSAV_A_SHADOW_PALETTES,  ARRAYSIZE(VSAV_A_SHADOW_PALETTES) },
 };
 
 const sDescTreeNode VSAV_UNITS[] =
@@ -3210,7 +3223,7 @@ const sDescTreeNode VSAV_UNITS[] =
     { _T("Jedah"),              DESC_NODETYPE_TREE, (void*)VSAV_A_JEDAH_COLLECTION,         ARRAYSIZE(VSAV_A_JEDAH_COLLECTION) },
     { _T("Dark Gallon"),        DESC_NODETYPE_TREE, (void*)VSAV_A_DARKGALLON_COLLECTION,    ARRAYSIZE(VSAV_A_DARKGALLON_COLLECTION) },
     { _T("Oboro Bishamon"),     DESC_NODETYPE_TREE, (void*)VSAV_A_OBOROBISHAMON_COLLECTION, ARRAYSIZE(VSAV_A_OBOROBISHAMON_COLLECTION) },
-    { _T("Bonus Palettes"),     DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_COLLECTION, ARRAYSIZE(VSAV_A_BONUS_COLLECTION) },
+    { _T("Bonus Palettes"),     DESC_NODETYPE_TREE, (void*)VSAV_A_BONUS_COLLECTION,         ARRAYSIZE(VSAV_A_BONUS_COLLECTION) },
 };
 
 constexpr auto VSAV_A_NUMUNIT = ARRAYSIZE(VSAV_UNITS);

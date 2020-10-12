@@ -248,7 +248,7 @@ const sGame_PaletteDataset SFA3_A_KEN_STATUS[] =
 const sGame_PaletteDataset SFA3_A_GOUKI_XISMP[] =
 {
     { _T("X-Ism Punch"), 0x2c854, 0x2c874, 0x1e, 0x00 },
-    { _T("X-Ism Punch Extra 1"), 0x2c874, 0x2c894, 0x1e, 0x01 },
+    { _T("X-Ism Punch Extra 1"), 0x2c874, 0x2c894, 0x1e, 0x0c },
     { _T("X-Ism Punch Extra 2"), 0x2c894, 0x2c8b4 },
     { _T("X-Ism Punch Super Trail Light"), 0x2c8b4, 0x2c8d4, 0x1e, 0x00 },
     { _T("X-Ism Punch Super Trail Dark"), 0x2c8d4, 0x2c8f4, 0x1e, 0x00 },
@@ -257,7 +257,7 @@ const sGame_PaletteDataset SFA3_A_GOUKI_XISMP[] =
 const sGame_PaletteDataset SFA3_A_GOUKI_XISMK[] =
 {
     { _T("X-Ism Kick"), 0x2c8f4, 0x2c914, 0x1e, 0x00 },
-    { _T("X-Ism Kick Extra 1"), 0x2c914, 0x2c934, 0x1e, 0x01 },
+    { _T("X-Ism Kick Extra 1"), 0x2c914, 0x2c934, 0x1e, 0x0c },
     { _T("X-Ism Kick Extra 2"), 0x2c934, 0x2c954 },
     { _T("X-Ism Kick Super Trail Light"), 0x2c954, 0x2c974, 0x1e, 0x00 },
     { _T("X-Ism Kick Super Trail Dark"), 0x2c974, 0x2c994, 0x1e, 0x00 },
@@ -266,7 +266,7 @@ const sGame_PaletteDataset SFA3_A_GOUKI_XISMK[] =
 const sGame_PaletteDataset SFA3_A_GOUKI_AISMP[] =
 {
     { _T("A-Ism Punch"), 0x2c994, 0x2c9b4, 0x1e, 0x00 },
-    { _T("A-Ism Punch Extra 1"), 0x2c9b4, 0x2c9d4, 0x1e, 0x01 },
+    { _T("A-Ism Punch Extra 1"), 0x2c9b4, 0x2c9d4, 0x1e, 0x0c },
     { _T("A-Ism Punch Extra 2"), 0x2c9d4, 0x2c9f4 },
     { _T("A-Ism Punch Super Trail Light"), 0x2c9f4, 0x2ca14, 0x1e, 0x00 },
     { _T("A-Ism Punch Super Trail Dark"), 0x2ca14, 0x2ca34, 0x1e, 0x00 },
@@ -275,7 +275,7 @@ const sGame_PaletteDataset SFA3_A_GOUKI_AISMP[] =
 const sGame_PaletteDataset SFA3_A_GOUKI_AISMK[] =
 {
     { _T("A-Ism Kick"), 0x2ca34, 0x2ca54, 0x1e, 0x00 },
-    { _T("A-Ism Kick Extra 1"), 0x2ca54, 0x2ca74, 0x1e, 0x01 },
+    { _T("A-Ism Kick Extra 1"), 0x2ca54, 0x2ca74, 0x1e, 0x0c },
     { _T("A-Ism Kick Extra 2"), 0x2ca74, 0x2ca94 },
     { _T("A-Ism Kick Super Trail Light"), 0x2ca94, 0x2cab4, 0x1e, 0x00 },
     { _T("A-Ism Kick Super Trail Dark"), 0x2cab4, 0x2cad4, 0x1e, 0x00 },
@@ -284,7 +284,7 @@ const sGame_PaletteDataset SFA3_A_GOUKI_AISMK[] =
 const sGame_PaletteDataset SFA3_A_GOUKI_VISMP[] =
 {
     { _T("V-Ism Punch"), 0x2cad4, 0x2caf4, 0x1e, 0x00 },
-    { _T("V-Ism Punch Extra 1"), 0x2caf4, 0x2cb14, 0x1e, 0x01 },
+    { _T("V-Ism Punch Extra 1"), 0x2caf4, 0x2cb14, 0x1e, 0x0c },
     { _T("V-Ism Punch Extra 2"), 0x2cb14, 0x2cb34 },
     { _T("V-Ism Punch Super Trail Light"), 0x2cb34, 0x2cb54, 0x1e, 0x00 },
     { _T("V-Ism Punch Super Trail Dark"), 0x2cb54, 0x2cb74, 0x1e, 0x00 },
@@ -293,7 +293,7 @@ const sGame_PaletteDataset SFA3_A_GOUKI_VISMP[] =
 const sGame_PaletteDataset SFA3_A_GOUKI_VISMK[] =
 {
     { _T("V-Ism Kick"), 0x2cb74, 0x2cb94, 0x1e, 0x00 },
-    { _T("V-Ism Kick Extra 1"), 0x2cb94, 0x2cbb4, 0x1e, 0x01 },
+    { _T("V-Ism Kick Extra 1"), 0x2cb94, 0x2cbb4, 0x1e, 0x0c },
     { _T("V-Ism Kick Extra 2"), 0x2cbb4, 0x2cbd4 },
     { _T("V-Ism Kick Super Trail Light"), 0x2cbd4, 0x2cbf4, 0x1e, 0x00 },
     { _T("V-Ism Kick Super Trail Dark"), 0x2cbf4, 0x2cc14, 0x1e, 0x00 },

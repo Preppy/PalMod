@@ -1193,7 +1193,10 @@ enum KOFSpriteList
     indexSVCSprites_ViolentKen, // 73
     indexSVCSprites_ShinAkuma,  // 74
 
-    indexKOFSprites_02Extras, // 75
+    indexKOFSprites_02Extras,   // 75
+    indexKOFSprites_98OrderSelect, // 76
+    indexKOFSprites_98Lifebar,  // 77
+    indexKOFSprites_98WinPortrait, // 78
 
     indexKOFSprites_Last,
 };
@@ -1319,6 +1322,10 @@ const UINT8 KOF98_A_IMG_UNITS[] =
     indexKOF98_A_Brian,
     indexKOF98_A_Rugal,
     indexKOF98_A_Shingo,
+
+    indexKOFSprites_98OrderSelect,
+    indexKOFSprites_98Lifebar,      // 77
+    indexKOFSprites_98WinPortrait,  // 78
 };
 
 const int KOF98_A_NUM_IMG_UNITS = ARRAYSIZE(KOF98_A_IMG_UNITS);
@@ -2151,6 +2158,7 @@ const stPairedPaletteInfo pairHandledInCode = { 0, 0, 0 };
 const stPairedPaletteInfo pairFullyLinkedNode = { 0, 0, 0 };
 
 const stPairedPaletteInfo pairNext = { 1, 0, 0 };
+const stPairedPaletteInfo pairNextNext = { 2, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 
 // Vs Series

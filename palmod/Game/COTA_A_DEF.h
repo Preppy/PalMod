@@ -237,17 +237,17 @@ const sGame_PaletteDataset COTA_A_JUGGY_PALETTES_SHARED[] =
 const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P1[] = // boss
 {
     { _T("P1"),          0x2703e, 0x2705e, indexCPS2_Magneto },
-    { _T("P1 Extras 2"), 0x2705e, 0x2707e, indexCPS2_Magneto, 1 },
-    { _T("P1 Extras 2"), 0x2707e, 0x2709e, indexCPS2_Magneto, 2 },
-    { _T("P1 Extras 3"), 0x2709e, 0x270be, indexCPS2_Magneto, 3 },
+    { _T("P1 Extras 1"), 0x2705e, 0x2707e, indexCPS2_Magneto, 3 }, // shockwave
+    { _T("P1 Extras 2"), 0x2707e, 0x2709e, indexCPS2_Magneto, 2 }, // magnetic fx
+    { _T("P1 Extras 3"), 0x2709e, 0x270be, indexCPS2_Magneto, 1 }, // em disruptor, etc
 };
 
 const sGame_PaletteDataset COTA_A_MAGNETO_PALETTES_P2[] =
 {
     { _T("P2"),          0x270be, 0x270de, indexCPS2_Magneto },
-    { _T("P2 Extras 2"), 0x270de, 0x270fe, indexCPS2_Magneto, 1 },
+    { _T("P2 Extras 1"), 0x270de, 0x270fe, indexCPS2_Magneto, 3 },
     { _T("P2 Extras 2"), 0x270fe, 0x2711e, indexCPS2_Magneto, 2 },
-    { _T("P2 Extras 3"), 0x2711e, 0x2713e, indexCPS2_Magneto, 3 },
+    { _T("P2 Extras 3"), 0x2711e, 0x2713e, indexCPS2_Magneto, 1 },
 };
 
 const sGame_PaletteDataset COTA_A_OMEGARED_PALETTES_P1[] =
