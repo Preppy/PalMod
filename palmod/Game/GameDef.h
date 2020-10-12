@@ -2049,6 +2049,7 @@ const UINT8 VHUNT2_A_IMG_UNITS[] =
     indexCPS2_Vamp_Marionette, // 0x70
     indexCPS2_Vamp_QBee,      // 0x73
     indexCPS2_Vamp_Shadow,    // 0x75
+    indexCPS2_VSAV1_MidnightBliss,
 };
 
 constexpr auto VHUNT2_A_NUM_IMG_UNITS = ARRAYSIZE(VHUNT2_A_IMG_UNITS);
@@ -2107,6 +2108,7 @@ const UINT8 VSAV2_A_IMG_UNITS[] =
     indexCPS2_Vamp_Shadow,    // 0x75
     indexCPS2_Vamp_Victor,    // 0x76
     indexCPS2_Vamp_Zabel,     // 0x77
+    indexCPS2_VSAV1_MidnightBliss,
 };
 
 constexpr auto VSAV2_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV2_A_IMG_UNITS);
@@ -2159,6 +2161,7 @@ const stPairedPaletteInfo pairFullyLinkedNode = { 0, 0, 0 };
 
 const stPairedPaletteInfo pairNext = { 1, 0, 0 };
 const stPairedPaletteInfo pairNextNext = { 2, 0, 0 };
+const stPairedPaletteInfo pairNext3 = { 3, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 
 // Vs Series

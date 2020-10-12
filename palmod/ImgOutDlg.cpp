@@ -94,6 +94,7 @@ BOOL CImgOutDlg::OnInitDialog()
         nPalAmt == 7 ? m_CB_Amt.AddString(_T("7")) : NULL;
         break;
     case 8: // status effects or cvs2
+        m_CB_Amt.AddString(_T("6"));
         m_CB_Amt.AddString(_T("8"));
         break;
     case 9: // GBA!

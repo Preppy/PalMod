@@ -82,12 +82,12 @@ const sGame_PaletteDataset SF2HF_A_DHALSIM_P2_NODE[] =
 
 const sGame_PaletteDataset SF2HF_A_DICTATOR_P1_NODE[] =
 {
-    { _T("Dictator"), 0x1E7B8, 0x1e8b8, indexSF2Sprites_Bison },
+    { _T("Dictator"), 0x1E7B8, 0x1e8b8, indexSF2Sprites_Bison, 0x8 },
 };
 
 const sGame_PaletteDataset SF2HF_A_DICTATOR_P2_NODE[] =
 {
-    { _T("Dictator"), 0x1E960, 0x1ea60, indexSF2Sprites_Bison },
+    { _T("Dictator"), 0x1E960, 0x1ea60, indexSF2Sprites_Bison, 0x8 },
 };
 
 const sGame_PaletteDataset SF2HF_A_SAGAT_P1_NODE[] =
