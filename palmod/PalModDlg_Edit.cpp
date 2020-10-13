@@ -101,8 +101,19 @@ void CPalModDlg::OnEditCopy()
 
         sf.Write(CopyText, CopyText.GetLength());
 
-        // Reset for debug print-out:
-        CopyText.Format("Data as found in ROM at location 0x%x :\n\t", CurrGame->GetCurrentPaletteLocation());
+        HGLOBAL hMem = sf.Detach();
+        if (!hMem)
+        {
+            return;
+        }
+
+        pSource->CacheGlobalData(CF_TEXT, hMem);
+
+        // The above handles copying colors between palmod
+        // The below handles generating the string pasted to the Unicode clipboard. This contains more useful data.
+        CString strUnicodeData;
+        CString strFormatU;
+        strUnicodeData.Format(L"%S\n\nData as found in this ROM at location 0x%x :\n\t", CopyText.GetString(), CurrGame->GetCurrentPaletteLocation());
 
         for (int i = 0; i < nWorkingAmt; i++)
         {
@@ -111,21 +122,22 @@ void CPalModDlg::OnEditCopy()
                 uCurrData = CurrGame->ConvCol(CurrPal->GetBasePal()[i]);
                 uCurrData = _byteswap_ushort(uCurrData);
 
-                FormatTxt.Format("%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
-                CopyText.Append(FormatTxt);
+                strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
+                strUnicodeData.Append(strFormatU);
             }
         }
 
-        CopyText.Append("\n");
-        OutputDebugStringA(CopyText.GetString());
+        strUnicodeData.Append(L"\n");
+        OutputDebugString(strUnicodeData.GetString());
 
-        HGLOBAL hMem = sf.Detach();
-        if (!hMem)
+        CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
+        sfUnicode.Write(strUnicodeData, strUnicodeData.GetLength() * sizeof(WCHAR));
+        HGLOBAL hMemUnicode = sfUnicode.Detach();
+        if (hMemUnicode)
         {
-            return;
+            pSource->CacheGlobalData(CF_UNICODETEXT, hMemUnicode);
         }
 
-        pSource->CacheGlobalData(CF_TEXT, hMem);
         pSource->SetClipboard();
     }
 }

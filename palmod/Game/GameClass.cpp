@@ -305,7 +305,7 @@ UINT16 CGameClass::CONV_32_15(UINT32 inCol)
     auxg = (UINT16)round(auxg / 8);
     auxr = (UINT16)round(auxr / 8);
 
-    //auxr = auxr;
+    //auxr = auxr; no-op
     auxg = auxg << 5;
     auxb = auxb << 10;
 
@@ -314,20 +314,22 @@ UINT16 CGameClass::CONV_32_15(UINT32 inCol)
 
 UINT32 CGameClass::CONV_15ALT_32(UINT16 inCol)
 {
-    UINT32 auxa = (inCol & 0x8000) >> 8;
-    UINT32 auxr = (inCol & 0x7C00) >> 7;
-    UINT32 auxg = (inCol & 0x3E0) >> 2;
-    UINT32 auxb = (inCol & 0x1F) << 3;
+    UINT32 auxa = (inCol & 0x8000) >> 15;
+    UINT32 auxr = (inCol & 0x7C00) >> 10;
+    UINT32 auxg = (inCol & 0x3E0) >> 5;
+    UINT32 auxb = (inCol & 0x1F);
 
     // alpha is 1bit encoded
     auxa = auxa ? 0xFF : 0;
 
-    // Since the original resolution for each color is 5 bits,
-    // and the new resolution is 8 bits, the 3 least significant bits 
-    // must be padded with 1's if the 5th bit is 1, otherwise pad them with 0.
-    auxr = (auxr & 0x8) == 0x8 ? auxr | 0xF : auxr;
-    auxg = (auxg & 0x8) == 0x8 ? auxg | 0xF : auxg;
-    auxb = (auxb & 0x8) == 0x8 ? auxb | 0xF : auxb;
+    auxr = auxr << 3;
+    auxg = auxg << 3;
+    auxb = auxb << 3;
+
+    // account for rounding
+    auxr += auxr / 32;
+    auxg += auxg / 32;
+    auxb += auxb / 32;
 
     //auxr = auxr; no-op
     auxg = auxg << 8;
@@ -344,7 +346,7 @@ UINT16 CGameClass::CONV_32_15ALT(UINT32 inCol)
     UINT16 auxg = (inCol & 0x0000FF00) >> 8;
     UINT16 auxr = (inCol & 0x000000FF);
 
-    auxa = (UINT16)round(auxa / 8);
+    auxa = (auxa != 0) ? 1 : 0;
     auxb = (UINT16)round(auxb / 8);
     auxg = (UINT16)round(auxg / 8);
     auxr = (UINT16)round(auxr / 8);

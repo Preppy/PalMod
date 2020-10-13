@@ -1995,6 +1995,36 @@ const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_SPECIAL[] =
     { _T("Bulleta Q-Bee's QJ Honey"), 0x123c0 - 0xf4, 0x123e0 - 0xf4, indexCPS2_BBHood },
 };
 
+const sGame_PaletteDataset VSAV_A_BULLETA_PALETTES_SHARED[] =
+{
+    { _T("Apple for You"), 0x1a82c, 0x1a84c },
+    { _T("Man in suit"), 0x1a84c, 0x1a86c },
+    { _T("Bottle"), 0x1a86c, 0x1a88c },
+    { _T("LP Sentimental Typhoon 1"), 0x1a88c, 0x1a8ac },
+    { _T("LP Sentimental Typhoon 2"), 0x1a9cc, 0x1a9ec },
+    { _T("MP Sentimental Typhoon 1"), 0x1a8ac, 0x1a8cc },
+    { _T("MP Sentimental Typhoon 2"), 0x1a9ec, 0x1aa0c },
+    { _T("HP Sentimental Typhoon 1"), 0x1a8cc, 0x1a8ec },
+    { _T("HP Sentimental Typhoon 2"), 0x1aa0c, 0x1aa2c },
+    { _T("LK Sentimental Typhoon 1"), 0x1a8ec, 0x1a90c },
+    { _T("LK Sentimental Typhoon 2"), 0x1aa2c, 0x1aa4c },
+    { _T("MK Sentimental Typhoon 1"), 0x1a90c, 0x1a92c },
+    { _T("MK Sentimental Typhoon 2"), 0x1aa4c, 0x1aa6c },
+    { _T("HK Sentimental Typhoon 1"), 0x1a92c, 0x1a94c },
+    { _T("HK Sentimental Typhoon 2"), 0x1aa6c, 0x1aa8c },
+    { _T("3P Sentimental Typhoon 1"), 0x1a94c, 0x1a96c },
+    { _T("3P Sentimental Typhoon 2"), 0x1aa8c, 0x1aaac },
+    { _T("3K Sentimental Typhoon 1"), 0x1a96c, 0x1a98c },
+    { _T("3K Sentimental Typhoon 2"), 0x1aaac, 0x1aacc },
+    { _T("AP Sentimental Typhoon 1"), 0x1a98c, 0x1a9ac },
+    { _T("AP Sentimental Typhoon 2"), 0x1aacc, 0x1aaec },
+    { _T("AK Sentimental Typhoon 1"), 0x1a9ac, 0x1a9cc },
+    { _T("AK Sentimental Typhoon 2"), 0x1aaec, 0x1ab0c },
+    { _T("Water"), 0x1ab0c, 0x1ab2c },
+    { _T("Water (unused?)"), 0x1ab2c, 0x1ab4c },
+    { _T("Hunters"), 0x1abac, 0x1abcc },
+};
+
 const sGame_PaletteDataset VSAV_A_DEMITRI_PALETTES_SPECIAL[] =
 {
     { _T("Demitri LP Poisoned"), 0x123e0 - 0xf4, 0x12400 - 0xf4, indexCPS2_Vamp_Demitri },
@@ -3132,6 +3162,7 @@ const sDescTreeNode VSAV_A_BULLETA_COLLECTION[] =
     { _T("AP"), DESC_NODETYPE_TREE, (void*)VSAV_A_BULLETA_PALETTES_AP,         ARRAYSIZE(VSAV_A_BULLETA_PALETTES_AP) },
     { _T("AK"), DESC_NODETYPE_TREE, (void*)VSAV_A_BULLETA_PALETTES_AK,         ARRAYSIZE(VSAV_A_BULLETA_PALETTES_AK) },
     { _T("Special"), DESC_NODETYPE_TREE, (void*)VSAV_A_BULLETA_PALETTES_SPECIAL, ARRAYSIZE(VSAV_A_BULLETA_PALETTES_SPECIAL) },
+    { _T("Shared"), DESC_NODETYPE_TREE, (void*)VSAV_A_BULLETA_PALETTES_SHARED, ARRAYSIZE(VSAV_A_BULLETA_PALETTES_SHARED) },
 };
 
 const sDescTreeNode VSAV_A_DEMITRI_COLLECTION[] =
