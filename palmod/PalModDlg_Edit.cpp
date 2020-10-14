@@ -113,7 +113,7 @@ void CPalModDlg::OnEditCopy()
         // The below handles generating the string pasted to the Unicode clipboard. This contains more useful data.
         CString strUnicodeData;
         CString strFormatU;
-        strUnicodeData.Format(L"%S\n\nData as found in this ROM at location 0x%x :\n\t", CopyText.GetString(), CurrGame->GetCurrentPaletteLocation());
+        strUnicodeData.Format(L"%S\r\n\r\nData as found in this ROM at location 0x%x :\r\n\t", CopyText.GetString(), CurrGame->GetCurrentPaletteLocation());
 
         for (int i = 0; i < nWorkingAmt; i++)
         {
@@ -127,7 +127,7 @@ void CPalModDlg::OnEditCopy()
             }
         }
 
-        strUnicodeData.Append(L"\n");
+        strUnicodeData.Append(L"\r\n");
         OutputDebugString(strUnicodeData.GetString());
 
         CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
