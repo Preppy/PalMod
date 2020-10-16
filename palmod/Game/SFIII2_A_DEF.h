@@ -1455,8 +1455,6 @@ const sGame_PaletteDataset SFIII2_A_SHINGOUKI_PORTRAIT_PALETTES[] =
     { _T("Shin Gouki Green Blood Losing Portrait MK"), 0x3b1900, 0x3b1980, index3S_CPS3_Gouki, 0x25 },
     { _T("Shin Gouki Green Blood Losing Portrait HK"), 0x3b1a80, 0x3b1b00, index3S_CPS3_Gouki, 0x25 },
     { _T("Shin Gouki Green Blood Losing Portrait EX"), 0x3b1c00, 0x3b1c80, index3S_CPS3_Gouki, 0x25 },
-
-
 };
 
 const sGame_PaletteDataset SFIII2_A_GILL_LP_PALETTES[] =

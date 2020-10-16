@@ -42,19 +42,20 @@ enum Supported_SFA2_PaletteListIndex
     index_SFA2_WWRyu,
     index_SFA2_WWChunLi,
     index_SFA2_AltSakura,
+    index_SFA2_Bonus07,
     index_SFA2_Last
 };
 
-constexpr auto SFA2_A_NUM_IND_07_0229 = index_SFA2_ChunLiAlt + 1;
-#define SFA2_A_EXTRALOC_07_0229 SFA2_A_NUM_IND_07_0229
+constexpr auto SFA2_A_NUM_IND_07_REV1 = index_SFA2_ChunLiAlt + 1 + 1; // rev 1: +1 for extras, 1 for stages
+#define SFA2_A_EXTRALOC_07_REV1 SFA2_A_NUM_IND_07_REV1
 
-constexpr auto SFA2_A_NUM_IND_07_MAX = index_SFA2_EvilRyu + 1;
-#define SFA2_A_EXTRALOC_07_MAX SFA2_A_NUM_IND_07_MAX
+constexpr auto SFA2_A_NUM_IND_07_REV2 = index_SFA2_EvilRyu + 1 + 1; // rev 2: +1 for extras, +1 for bonus
+#define SFA2_A_EXTRALOC_07_REV2 SFA2_A_NUM_IND_07_REV2
 
-constexpr auto SFZ2A_A_NUM_IND_07 = index_SFA2_Last;
+constexpr auto SFZ2A_A_NUM_IND_07 = index_SFA2_Last - 1; // rev 3, except no Bonus yet
 #define SFZ2A_A_EXTRALOC_07 SFZ2A_A_NUM_IND_07
 
-const UINT8 SFA2_A_UNITSORT_07_0229[SFA2_A_NUM_IND_07_0229 + 1] = // Plus 1 for the extra palettes
+const UINT8 SFA2_A_UNITSORT_07_REV1[SFA2_A_NUM_IND_07_REV1 + 1] = // Plus 1 for the extra palettes
 {
     index_SFA2_Adon,
     index_SFA2_Akuma,
@@ -75,11 +76,13 @@ const UINT8 SFA2_A_UNITSORT_07_0229[SFA2_A_NUM_IND_07_0229 + 1] = // Plus 1 for 
     index_SFA2_Sakura,
     index_SFA2_Sodom,
     index_SFA2_Zangief,
+
+    index_SFA2_Bonus07,
    
-    SFA2_A_EXTRALOC_07_0229 // Extra palettes
+    SFA2_A_EXTRALOC_07_REV1 // Extra palettes
 };
 
-const UINT8 SFA2_A_UNITSORT_07_0306[SFA2_A_NUM_IND_07_MAX + 1] = // Plus 1 for the extra palettes
+const UINT8 SFA2_A_UNITSORT_07_0306[SFA2_A_NUM_IND_07_REV2 + 1] = // Plus 1 for the extra palettes
 {
     index_SFA2_Adon,
     index_SFA2_Akuma,
@@ -104,7 +107,9 @@ const UINT8 SFA2_A_UNITSORT_07_0306[SFA2_A_NUM_IND_07_MAX + 1] = // Plus 1 for t
     index_SFA2_Zangief,
     index_SFA2_WWZangief,
 
-    SFA2_A_EXTRALOC_07_MAX // Extra palettes
+    index_SFA2_Bonus07,
+
+    SFA2_A_EXTRALOC_07_REV2 // Extra palettes
 };
 
 const UINT8 SFZ2A_A_UNITSORT_07_0826[SFZ2A_A_NUM_IND_07 + 1] = // Plus 1 for the extra palettes
@@ -137,6 +142,8 @@ const UINT8 SFZ2A_A_UNITSORT_07_0826[SFZ2A_A_NUM_IND_07 + 1] = // Plus 1 for the
     index_SFA2_Sodom,
     index_SFA2_Zangief,
     index_SFA2_WWZangief,
+
+    //index_SFA2_Bonus07,
 
     SFZ2A_A_EXTRALOC_07 // Extra palettes
 };
@@ -2009,6 +2016,70 @@ const sDescTreeNode SFA2_A_WWZANGIEF_COLLECTION[] =
     { _T("Auto Guard Punch"), DESC_NODETYPE_TREE, (void*)SFA2_A_WWZANGIEF_AUTOGUARDPUNCH_PALETTES, ARRAYSIZE(SFA2_A_WWZANGIEF_AUTOGUARDPUNCH_PALETTES) },
     { _T("Auto Guard Kick"), DESC_NODETYPE_TREE, (void*)SFA2_A_WWZANGIEF_AUTOGUARDKICK_PALETTES, ARRAYSIZE(SFA2_A_WWZANGIEF_AUTOGUARDKICK_PALETTES) },
     { _T("Status Effects"), DESC_NODETYPE_TREE, (void*)SFA2_A_WWZANGIEF_STATUS_PALETTES, ARRAYSIZE(SFA2_A_WWZANGIEF_STATUS_PALETTES) },
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV1_KEN_PALETTES[] =
+{
+    { L"Front Guests", 0x75AA0, 0x75BC0 },
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV1_KEN_PALETTES[] =
+{
+    { L"Tables and Decorations",    0x6F40, 0x7340 },
+    { L"Guests and Some Decor",     0x11740, 0x11A80 },
+    { L"Candles",                   0x29D20, 0x29DE0 },
+    { L"Stage Preview",             0x23E20, 0x24180 },
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_REV2_KEN_PALETTES[] =
+{
+    { L"Front Guests", 0x75D20 + 0x180, 0x75E40 + 0x180 },
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_REV2_KEN_PALETTES[] =
+{
+    { L"Tables and Decorations",    0x69C0, 0x6DC0 },
+    { L"Guests and Some Decor",     0x10DC0, 0x11100 },
+    { L"Candles",                   0x29D20, 0x29DE0 },
+    { L"Stage Preview",             0x23E20, 0x24180 }, 
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES07_RYU_PALETTES[] =
+{
+    { L"Middle Mtns",   0x7C1C0 + 0x180, 0x7C220 + 0x180},
+    { L"Shadow",        0x75C40 + 0x180, 0x75C60 + 0x180 },
+    { L"Castle",        0x75C60 + 0x180, 0x75C80 + 0x180 },
+    { L"Clouds",        0x75CC0 + 0x180, 0x75CE0 + 0x180 },
+    { L"Bird",          0x75CE0 + 0x180, 0x75D00 + 0x180 },
+};
+
+const sGame_PaletteDataset SFA2_A_STAGES08_RYU_PALETTES[] =
+{
+    { L"Foreground",      0x65C0, 0x6740 },
+    { L"Far Background",  0x109C0, 0x10A40 },
+    { L"Preview",         0x23A20, 0x23B40 },
+};
+
+const sDescTreeNode SFA2_A_BONUS07_REV1_COLLECTION[] =
+{
+    { _T("Ken Stage (ROM 07 parts)"), DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV1_KEN_PALETTES, ARRAYSIZE(SFA2_A_STAGES07_REV1_KEN_PALETTES) },
+};
+
+const sDescTreeNode SFA2_A_BONUS08_REV1_COLLECTION[] =
+{
+    { _T("Ken Stage (ROM 08 parts)"),                   DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_KEN_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_REV1_KEN_PALETTES) },
+};
+
+const sDescTreeNode SFA2_A_BONUS07_REV2_COLLECTION[] =
+{
+    { _T("Ken Stage (ROM 07 parts)"), DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_REV2_KEN_PALETTES, ARRAYSIZE(SFA2_A_STAGES07_REV2_KEN_PALETTES) },
+    { _T("Ryu Stage - Japan (Winter)(ROM 07 Parts)"), DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES07_RYU_PALETTES, ARRAYSIZE(SFA2_A_STAGES07_RYU_PALETTES) },
+};
+
+const sDescTreeNode SFA2_A_BONUS08_REV2_COLLECTION[] =
+{
+    { _T("Ken Stage (ROM 08 parts)"),                   DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_KEN_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_REV2_KEN_PALETTES) },
+    { _T("Ryu Stage - Japan (Winter)(ROM 08 Parts)"),   DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_RYU_PALETTES, ARRAYSIZE(SFA2_A_STAGES08_RYU_PALETTES) },
 };
 
 #pragma region Extra palettes - auto-generated 
@@ -4251,7 +4322,7 @@ const sDescTreeNode SFZ2A_A_ALTSAKURA_PORTRAIT_COLLECTION[] =
 
 #pragma endregion
 
-const sDescTreeNode SFA2_A_UNITS_07_0229[SFA2_A_NUM_IND_07_0229] =
+const sDescTreeNode SFA2_A_UNITS_07_REV1[SFA2_A_NUM_IND_07_REV1] =
 {
     { _T("Adon"),            DESC_NODETYPE_TREE, (void*)SFA2_A_ADON_COLLECTION,          ARRAYSIZE(SFA2_A_ADON_COLLECTION) },
     { _T("Akuma"),           DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_COLLECTION,         ARRAYSIZE(SFA2_A_AKUMA_COLLECTION) },
@@ -4274,9 +4345,10 @@ const sDescTreeNode SFA2_A_UNITS_07_0229[SFA2_A_NUM_IND_07_0229] =
     { _T("Sakura"),          DESC_NODETYPE_TREE, (void*)SFA2_A_SAKURA_COLLECTION,        ARRAYSIZE(SFA2_A_SAKURA_COLLECTION) },
     { _T("Sodom"),           DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_COLLECTION,         ARRAYSIZE(SFA2_A_SODOM_COLLECTION) },
     { _T("Zangief"),         DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA2_A_ZANGIEF_COLLECTION) },
+    { _T("Stages"),          DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS07_REV1_COLLECTION,  ARRAYSIZE(SFA2_A_BONUS07_REV1_COLLECTION) },
 };
 
-const sDescTreeNode SFA2_A_UNITS_07_MAX[SFA2_A_NUM_IND_07_MAX] =
+const sDescTreeNode SFA2_A_UNITS_07_REV2[SFA2_A_NUM_IND_07_REV2] =
 {
     { _T("Adon"),            DESC_NODETYPE_TREE, (void*)SFA2_A_ADON_COLLECTION,          ARRAYSIZE(SFA2_A_ADON_COLLECTION) },
     { _T("Akuma"),           DESC_NODETYPE_TREE, (void*)SFA2_A_AKUMA_COLLECTION,         ARRAYSIZE(SFA2_A_AKUMA_COLLECTION) },
@@ -4296,12 +4368,13 @@ const sDescTreeNode SFA2_A_UNITS_07_MAX[SFA2_A_NUM_IND_07_MAX] =
     { _T("Rolento"),         DESC_NODETYPE_TREE, (void*)SFA2_A_ROLENTO_COLLECTION,       ARRAYSIZE(SFA2_A_ROLENTO_COLLECTION) },
     { _T("Rose"),            DESC_NODETYPE_TREE, (void*)SFA2_A_ROSE_COLLECTION,          ARRAYSIZE(SFA2_A_ROSE_COLLECTION) },
     { _T("Ryu"),             DESC_NODETYPE_TREE, (void*)SFA2_A_RYU_COLLECTION,           ARRAYSIZE(SFA2_A_RYU_COLLECTION) },
-    { _T("Evil Ryu (US Only)"), DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_REV2_COLLECTION,     ARRAYSIZE(SFA2_A_EVILRYU_REV2_COLLECTION) },
+    { _T("Evil Ryu (US Only)"), DESC_NODETYPE_TREE, (void*)SFA2_A_EVILRYU_REV2_COLLECTION, ARRAYSIZE(SFA2_A_EVILRYU_REV2_COLLECTION) },
     { _T("Sagat"),           DESC_NODETYPE_TREE, (void*)SFA2_A_SAGAT_COLLECTION,         ARRAYSIZE(SFA2_A_SAGAT_COLLECTION) },
     { _T("Sakura"),          DESC_NODETYPE_TREE, (void*)SFA2_A_SAKURA_COLLECTION,        ARRAYSIZE(SFA2_A_SAKURA_COLLECTION) },
     { _T("Sodom"),           DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_COLLECTION,         ARRAYSIZE(SFA2_A_SODOM_COLLECTION) },
     { _T("Zangief"),         DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA2_A_ZANGIEF_COLLECTION) },
     { _T("Zangief (WW)"),    DESC_NODETYPE_TREE, (void*)SFA2_A_WWZANGIEF_COLLECTION,     ARRAYSIZE(SFA2_A_WWZANGIEF_COLLECTION) },
+    { _T("Stages"),          DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS07_REV2_COLLECTION,  ARRAYSIZE(SFA2_A_BONUS07_REV2_COLLECTION) },
 };
 
 const sDescTreeNode SFZ2A_A_UNITS_07[SFZ2A_A_NUM_IND_07] =
@@ -4337,6 +4410,7 @@ const sDescTreeNode SFZ2A_A_UNITS_07[SFZ2A_A_NUM_IND_07] =
     { _T("Zangief"),         DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA2_A_ZANGIEF_COLLECTION) },
     { _T("Zangief (WW)"),    DESC_NODETYPE_TREE, (void*)SFA2_A_WWZANGIEF_COLLECTION,     ARRAYSIZE(SFA2_A_WWZANGIEF_COLLECTION) },
     // EX/WW versions of Ryu, Ken, Chun-Li, Sagat, M.Bison at this point for SFZ2A
+    //{ _T("Bonus"),           DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS07_COLLECTION,       ARRAYSIZE(SFA2_A_BONUS07_COLLECTION) },
 };
 
 const sDescTreeNode SFA2_A_UNITS_08_REV1[] =
@@ -4368,6 +4442,8 @@ const sDescTreeNode SFA2_A_UNITS_08_REV1[] =
     { _T("Sakura Portraits"), DESC_NODETYPE_TREE, (void*)SFA2_A_SAKURA_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_SAKURA_PORTRAIT_COLLECTION) },
     { _T("Sodom Portraits"), DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_SODOM_PORTRAIT_COLLECTION) },
     { _T("Zangief Portraits"), DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_ZANGIEF_PORTRAIT_COLLECTION) },
+
+    { L"Stages",                DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08_REV1_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08_REV1_COLLECTION) },
 };
 
 constexpr auto SFA2_A_NUM_IND_08_REV1 = ARRAYSIZE(SFA2_A_UNITS_08_REV1);
@@ -4408,6 +4484,8 @@ const sDescTreeNode SFA2_A_UNITS_08_REV2[] =
     { _T("Evil Ryu Portraits"),     DESC_NODETYPE_TREE, (void*)SFA2_A_REV2_EVILRYU_PORTRAIT_COLLECTION,     ARRAYSIZE(SFA2_A_REV2_EVILRYU_PORTRAIT_COLLECTION) },
     { _T("Dhalsim (WW) Portraits"), DESC_NODETYPE_TREE, (void*)SFA2_A_REV2_WWDHALSIM_PORTRAIT_COLLECTION,   ARRAYSIZE(SFA2_A_REV2_WWDHALSIM_PORTRAIT_COLLECTION) },
     { _T("Zangief (WW) Portraits"), DESC_NODETYPE_TREE, (void*)SFA2_A_REV2_WWZANGIEF_PORTRAIT_COLLECTION,   ARRAYSIZE(SFA2_A_REV2_WWZANGIEF_PORTRAIT_COLLECTION) },
+    
+    { L"Stages",                DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08_REV2_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08_REV2_COLLECTION) },
 };
 
 constexpr auto SFA2_A_NUM_IND_08_REV2 = ARRAYSIZE(SFA2_A_UNITS_08_REV2);
@@ -4454,6 +4532,8 @@ const sDescTreeNode SFZ2A_A_UNITS_08[] =
     { _T("Sagat (WW) Portraits"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWSAGAT_PORTRAIT_COLLECTION, ARRAYSIZE(SFZ2A_A_WWSAGAT_PORTRAIT_COLLECTION) },
     { _T("M. Bison (WW) Portraits"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWMBISON_PORTRAIT_COLLECTION, ARRAYSIZE(SFZ2A_A_WWMBISON_PORTRAIT_COLLECTION) },
     { _T("Sakura (Alt) Portraits"), DESC_NODETYPE_TREE, (void*)SFZ2A_A_ALTSAKURA_PORTRAIT_COLLECTION, ARRAYSIZE(SFZ2A_A_ALTSAKURA_PORTRAIT_COLLECTION) },
+
+    //{ L"Stages",                DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08_REV1_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08_REV1_COLLECTION) },
 };
 
 constexpr auto SFZ2A_A_NUM_IND_08 = ARRAYSIZE(SFZ2A_A_UNITS_08);

@@ -722,6 +722,34 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_AK[] =
     { _T("AK Win Portrait"), 0x3396C, 0x33A0C, indexCPS2_VSAV1_WinPortraits, indexCPS2_Anakaris },
 };
 
+const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_SHARED[] =
+{
+    { L"Anakaris Pharaoh Magic Orbs 2", 0x1b2e0, 0x1b300 },
+    { L"Anakaris Pharaoh Magic Orbs 3", 0x1b300, 0x1b320 },
+    { L"Anakaris Pharaoh Asteroids",    0x1b320, 0x1b340 },
+    { L"Anakaris Pharaoh Magic Orbs 4", 0x1b340, 0x1b360 },
+    { L"Anakaris Mini Mummy LP",        0x1b360, 0x1b380 },
+    { L"Anakaris Pharaoh Girls LP",     0x1b380, 0x1b3a0 },
+    { L"Anakaris Mini Mummy MP",        0x1b3a0, 0x1b3c0 },
+    { L"Anakaris Pharaoh Girls MP",     0x1b3c0, 0x1b3e0 },
+    { L"Anakaris Mini Mummy HP",        0x1b3e0, 0x1b400 },
+    { L"Anakaris Pharaoh Girls HP",     0x1b400, 0x1b420 },
+    { L"Anakaris Mini Mummy LK",        0x1b420, 0x1b440 },
+    { L"Anakaris Pharaoh Girls LK",     0x1b440, 0x1b460 },
+    { L"Anakaris Mini Mummy MK",        0x1b460, 0x1b480 },
+    { L"Anakaris Pharaoh Girls MK",     0x1b480, 0x1b4a0 },
+    { L"Anakaris Mini Mummy HK",        0x1b4a0, 0x1b4c0 },
+    { L"Anakaris Pharaoh Girls HK",     0x1b4c0, 0x1b4e0 },
+    { L"Anakaris Mini Mummy PP",        0x1b4e0, 0x1b500 },
+    { L"Anakaris Pharaoh Girls PP",     0x1b500, 0x1b520 },
+    { L"Anakaris Mini Mummy KK",        0x1b520, 0x1b540 },
+    { L"Anakaris Pharaoh Girls KK",     0x1b540, 0x1b560 },
+    { L"Anakaris Mini Mummy AP",        0x1b560, 0x1b580 },
+    { L"Anakaris Pharaoh Girls AP",     0x1b580, 0x1b5a0 },
+    { L"Anakaris Mini Mummy AK",        0x1b5a0, 0x1b5c0 },
+    { L"Anakaris Pharaoh Girls AK",     0x1b5c0, 0x1b5e0 },
+};
+
 const sGame_PaletteDataset VSAV_A_FELICIA_PALETTES_LP[] =
 {
     { _T("LP Felicia"), 0x0e4aC, 0x0e4cc, indexCPS2_Felicia, 0 },
@@ -3254,6 +3282,7 @@ const sDescTreeNode VSAV_A_ANAKARIS_COLLECTION[] =
     { _T("AP"), DESC_NODETYPE_TREE, (void*)VSAV_A_ANAKARIS_PALETTES_AP,         ARRAYSIZE(VSAV_A_ANAKARIS_PALETTES_AP) },
     { _T("AK"), DESC_NODETYPE_TREE, (void*)VSAV_A_ANAKARIS_PALETTES_AK,         ARRAYSIZE(VSAV_A_ANAKARIS_PALETTES_AK) },
     { _T("Special"), DESC_NODETYPE_TREE, (void*)VSAV_A_ANAKARIS_PALETTES_SPECIAL, ARRAYSIZE(VSAV_A_ANAKARIS_PALETTES_SPECIAL) },
+    { _T("Shared"), DESC_NODETYPE_TREE, (void*)VSAV_A_ANAKARIS_PALETTES_SHARED, ARRAYSIZE(VSAV_A_ANAKARIS_PALETTES_SHARED) },
 };
 
 const sDescTreeNode VSAV_A_FELICIA_COLLECTION[] =

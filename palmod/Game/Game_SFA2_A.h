@@ -21,22 +21,22 @@ private:
     int m_nBufferSelectedRom = 7;
     static int m_nSFA2SelectedRom;
     static SFA2_SupportedROMRevision m_currentSFA2ROMRevision;
-    static UINT32 m_nTotalPaletteCountForSFA2_07_0229;
-    static UINT32 m_nTotalPaletteCountForSFA2_07_MAX;
+    static UINT32 m_nTotalPaletteCountForSFA2_07_Rev1;
+    static UINT32 m_nTotalPaletteCountForSFA2_07_Rev2;
     static UINT32 m_nTotalPaletteCountForSFZ2A_07;
     static UINT32 m_nTotalPaletteCountForSFA2_08_Rev1;
     static UINT32 m_nTotalPaletteCountForSFA2_08_Rev2;
     static UINT32 m_nTotalPaletteCountForSFZ2A_08;
     static bool UsePaletteSetForCharacters() { return (m_nSFA2SelectedRom == 7); }
 
-    static int rgExtraCountAll_07_0229[SFA2_A_NUM_IND_07_0229 + 1];
-    static int rgExtraCountAll_07_MAX[SFA2_A_NUM_IND_07_MAX + 1];
+    static int rgExtraCountAll_07_Rev1[SFA2_A_NUM_IND_07_REV1 + 1];
+    static int rgExtraCountAll_07_Rev2[SFA2_A_NUM_IND_07_REV2 + 1];
     static int rgExtraCountAll_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1];
     static int rgExtraCountAll_08_Rev1[SFA2_A_NUM_IND_08_REV1 + 1];
     static int rgExtraCountAll_08_Rev2[SFA2_A_NUM_IND_08_REV2 + 1];
     static int rgExtraCountAll_08_SFZ2A[SFZ2A_A_NUM_IND_08 + 1];
-    static int rgExtraLoc_07_0229[SFA2_A_NUM_IND_07_0229 + 1];
-    static int rgExtraLoc_07_MAX[SFA2_A_NUM_IND_07_MAX + 1];
+    static int rgExtraLoc_07_Rev1[SFA2_A_NUM_IND_07_REV1 + 1];
+    static int rgExtraLoc_07_Rev2[SFA2_A_NUM_IND_07_REV2 + 1];
     static int rgExtraLoc_07_SFZ2A[SFZ2A_A_NUM_IND_07 + 1];
     static int rgExtraLoc_08_Rev1[SFA2_A_NUM_IND_08_REV1 + 1];
     static int rgExtraLoc_08_Rev2[SFA2_A_NUM_IND_08_REV2 + 1];
@@ -67,8 +67,8 @@ public:
     ~CGame_SFA2_A(void);
 
     //Static functions / variables
-    static CDescTree MainDescTree_07_0229;
-    static CDescTree MainDescTree_07_MAX;
+    static CDescTree MainDescTree_07_Rev1;
+    static CDescTree MainDescTree_07_Rev2;
     static CDescTree MainDescTree_07_SFZ2A;
     static CDescTree MainDescTree_08_Rev1;
     static CDescTree MainDescTree_08_Rev2;
@@ -102,8 +102,8 @@ public:
 
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
-    static stExtraDef* SFA2_A_EXTRA_CUSTOM_07_0229;
-    static stExtraDef* SFA2_A_EXTRA_CUSTOM_07_MAX;
+    static stExtraDef* SFA2_A_EXTRA_CUSTOM_07_REV1;
+    static stExtraDef* SFA2_A_EXTRA_CUSTOM_07_REV2;
     static stExtraDef* SFZ2A_A_EXTRA_CUSTOM_07;
     static stExtraDef* SFA2_A_EXTRA_CUSTOM_08_REV1;
     static stExtraDef* SFA2_A_EXTRA_CUSTOM_08_REV2;
