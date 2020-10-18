@@ -766,6 +766,11 @@ const sGame_PaletteDataset SFIII3_A_SEAN_Support_PALETTES[] =
     { _T("????"), 0x768b80, 0x768c00, index3S_CPS3_Sean, 0 },
 };
 
+const sGame_PaletteDataset SFIII3_A_SEAN_EXTRA_PALETTES[] =
+{
+    { L"Hado-Burst", 0x0706580, 0x0706600, index3S_CPS3_Sean, 0x02 },
+};
+
 const sGame_PaletteDataset SFIII3_A_URIEN_LP_PALETTES[] =
 {
     { _T("LP Main"), 0x703000, 0x703080, index3S_CPS3_Urien, 0x00 },
@@ -1566,6 +1571,7 @@ const sDescTreeNode SFIII3_A_SEAN_COLLECTION[] =
     { _T("EX"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SEAN_EX_PALETTES, ARRAYSIZE(SFIII3_A_SEAN_EX_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SEAN_Support_PALETTES, ARRAYSIZE(SFIII3_A_SEAN_Support_PALETTES) },
     { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SEAN_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_SEAN_PORTRAIT_PALETTES) },
+    { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SEAN_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_SEAN_EXTRA_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_URIEN_COLLECTION[] =

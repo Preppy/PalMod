@@ -192,7 +192,7 @@ void CGame_KOF02UM_S::DumpAllCharacters()
             nCurrentCharacterOffset += 0x20;
             nPaletteCount++;
 
-            const LPCTSTR pszMoveNames[] =
+            const LPCTSTR pszDefaultMoveNames[] =
             {
                 _T("Hidden Super Desperation Move 1"),
                 _T("Desperation Move / Super Desperation Move"),
@@ -207,6 +207,7 @@ void CGame_KOF02UM_S::DumpAllCharacters()
             {
                 LPCTSTR pszImageRefName = KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName ? KOF02UM_CharacterOffsetArray[iUnitCtr].pszImageRefName : _T("nullptr");
                 LPCTSTR pszExtraMoveName = nullptr;
+                UINT16 nCurrentImageNumber = 0;
 
                 // Get move name, allowing overrides,
                 switch (iCurrentExtra)
@@ -224,20 +225,22 @@ void CGame_KOF02UM_S::DumpAllCharacters()
                     pszExtraMoveName = KOF02UM_CharacterOffsetArray[iUnitCtr].pszHSDM3NameOverride;
                     break;
                 default:
-                case 3: // Use stock names for Shock/Flash/Soul
-                case 4:
-                case 6:
+                case 3: // Shock
+                case 6: // Soul
+                    nCurrentImageNumber = 0x18;
+                    __fallthrough;
+                case 4: // MAX Flash // Max Active
                     break;
                 };
 
                 if (pszExtraMoveName == nullptr)
                 {
-                    pszExtraMoveName = pszMoveNames[iCurrentExtra - 1];
+                    pszExtraMoveName = pszDefaultMoveNames[iCurrentExtra - 1];
                 }
 
-                strOutput.Format(_T("    { _T(\"%s - %s\"), 0x%07x, 0x%07x, %s },\r\n"), DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszExtraMoveName,
+                strOutput.Format(_T("    { _T(\"%s - %s\"), 0x%07x, 0x%07x, %s, 0x%02x },\r\n"), DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszExtraMoveName,
                                                                                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
-                                                                                        pszImageRefName);
+                                                                                        pszImageRefName, nCurrentImageNumber);
 
                 OutputDebugString(strOutput);
                 nCurrentCharacterOffset += 0x20;
@@ -259,8 +262,14 @@ void CGame_KOF02UM_S::DumpAllCharacters()
         OutputDebugString(strOutput);
         strOutput.Format(_T("    { _T(\"D\"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_%s_PALETTES_D, ARRAYSIZE(KOF02UM_S_%s_PALETTES_D) },\r\n"), szCodeDesc, szCodeDesc );
         OutputDebugString(strOutput);
-        strOutput.Format(_T("    { _T(\"Moves\"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_%s_PALETTES_MOVES, ARRAYSIZE(KOF02UM_S_%s_PALETTES_MOVES) },\r\n"), szCodeDesc, szCodeDesc);
-        OutputDebugString(strOutput);
+
+        if ((wcscmp(szCodeDesc, L"SHERMIE") != 0) &&
+            (wcscmp(szCodeDesc, L"ANGEL") != 0) &&
+            (wcscmp(szCodeDesc, L"SHINGO") != 0))
+        {
+            strOutput.Format(_T("    { _T(\"Moves\"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_%s_PALETTES_MOVES, ARRAYSIZE(KOF02UM_S_%s_PALETTES_MOVES) },\r\n"), szCodeDesc, szCodeDesc);
+            OutputDebugString(strOutput);
+        }
         strOutput.Format(_T("    { _T(\"Portraits\"), DESC_NODETYPE_TREE, (void*)KOF02UM_S_%s_PALETTES_PORTRAITS, ARRAYSIZE(KOF02UM_S_%s_PALETTES_PORTRAITS) },\r\n"), szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
 
@@ -460,7 +469,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
     m_nTotalPaletteCountForKOF02UM = nTotalPaletteCount;
 
     // For development purposes only...
-    //DumpAllCharacters();
+    DumpAllCharacters();
 
     return NewDescTree;
 }

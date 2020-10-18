@@ -410,6 +410,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_A[] =
     { _T("Mina A (Normal)"), 0x00ed000, 0x00ed040, indexSamSho5Sprites_Mina },
     { _T("Mina A (Rage)"), 0x00ed040, 0x00ed080, indexSamSho5Sprites_Mina },
     { L"Mina A (SON)", 0x00ed240, 0x00ed280, indexSamSho5Sprites_Mina },
+    { L"Chanpuru A", 0x00ed280, 0x00ed2A0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_B[] =
@@ -417,6 +418,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_B[] =
     { _T("Mina B (Normal)"), 0x00ed400, 0x00ed440, indexSamSho5Sprites_Mina },
     { _T("Mina B (Rage)"), 0x00ed440, 0x00ed480, indexSamSho5Sprites_Mina },
     { L"Mina B (SON)", 0x00ed640, 0x00ed680, indexSamSho5Sprites_Mina },
+    { L"Chanpuru B", 0x00ed680, 0x00ed6A0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_C[] =
@@ -424,6 +426,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_C[] =
     { _T("Mina C (Normal)"), 0x00ed800, 0x00ed840, indexSamSho5Sprites_Mina },
     { _T("Mina C (Rage)"), 0x00ed840, 0x00ed880, indexSamSho5Sprites_Mina },
     { L"Mina C (SON)", 0x00eda40, 0x00eda80, indexSamSho5Sprites_Mina },
+    { L"Chanpuru C", 0x00eda80, 0x00edaA0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_D[] =
@@ -431,6 +434,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_D[] =
     { _T("Mina D (Normal)"), 0x00edc00, 0x00edc40, indexSamSho5Sprites_Mina },
     { _T("Mina D (Rage)"), 0x00edc40, 0x00edc80, indexSamSho5Sprites_Mina },
     { L"Mina D (SON)", 0x00ede40, 0x00ede80, indexSamSho5Sprites_Mina },
+    { L"Chanpuru D", 0x00ede80, 0x00edeA0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mizuki_PALETTES_A[] =
@@ -526,6 +530,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_A[] =
     { _T("Rera A (Normal)"), 0x00e8000, 0x00e8040, indexSamSho5Sprites_Rera },
     { _T("Rera A (Rage)"), 0x00e8040, 0x00e8080, indexSamSho5Sprites_Rera },
     { L"Rera A (SON)", 0x00e8240, 0x00e8280, indexSamSho5Sprites_Rera },
+    { L"Shikuru A", 0x00e82A0, 0x00e82C0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_B[] =
@@ -533,6 +538,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_B[] =
     { _T("Rera B (Normal)"), 0x00e8400, 0x00e8440, indexSamSho5Sprites_Rera },
     { _T("Rera B (Rage)"), 0x00e8440, 0x00e8480, indexSamSho5Sprites_Rera },
     { L"Rera B (SON)", 0x00e8640, 0x00e8680, indexSamSho5Sprites_Rera },
+    { L"Shikuru B", 0x00e86A0, 0x00e86C0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_C[] =
@@ -540,6 +546,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_C[] =
     { _T("Rera C (Normal)"), 0x00e8800, 0x00e8840, indexSamSho5Sprites_Rera },
     { _T("Rera C (Rage)"), 0x00e8840, 0x00e8880, indexSamSho5Sprites_Rera },
     { L"Rera C (SON)", 0x00e8a40, 0x00e8a80, indexSamSho5Sprites_Rera },
+    { L"Shikuru C", 0x00e8aA0, 0x00e8aC0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_D[] =
@@ -547,6 +554,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_D[] =
     { _T("Rera D (Normal)"), 0x00e8c00, 0x00e8c40, indexSamSho5Sprites_Rera },
     { _T("Rera D (Rage)"), 0x00e8c40, 0x00e8c80, indexSamSho5Sprites_Rera },
     { L"Rera D (SON)", 0x00e8e40, 0x00e8e80, indexSamSho5Sprites_Rera },
+    { L"Shikuru D", 0x00e8eA0, 0x00e8eC0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_A[] =
@@ -554,6 +562,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_A[] =
     { _T("Rimururu A (Normal)"), 0x00d7000, 0x00d7040, indexSamSho5Sprites_Rimururu },
     { _T("Rimururu A (Rage)"), 0x00d7040, 0x00d7080, indexSamSho5Sprites_Rimururu },
     { L"Rimururu A (SON)", 0x00d7240, 0x00d7280, indexSamSho5Sprites_Rimururu },
+    { L"Konru A", 0x00d70C0, 0x00d70E0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_B[] =
@@ -561,6 +570,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_B[] =
     { _T("Rimururu B (Normal)"), 0x00d7400, 0x00d7440, indexSamSho5Sprites_Rimururu },
     { _T("Rimururu B (Rage)"), 0x00d7440, 0x00d7480, indexSamSho5Sprites_Rimururu },
     { L"Rimururu B (SON)", 0x00d7640, 0x00d7680, indexSamSho5Sprites_Rimururu },
+    { L"Konru B", 0x00d76C0, 0x00d76E0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_C[] =
@@ -568,6 +578,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_C[] =
     { _T("Rimururu C (Normal)"), 0x00d7800, 0x00d7840, indexSamSho5Sprites_Rimururu },
     { _T("Rimururu C (Rage)"), 0x00d7840, 0x00d7880, indexSamSho5Sprites_Rimururu },
     { L"Rimururu C (SON)", 0x00d7a40, 0x00d7a80, indexSamSho5Sprites_Rimururu },
+    { L"Konru C", 0x00d7aC0, 0x00d7aE0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_D[] =
@@ -575,6 +586,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_D[] =
     { _T("Rimururu D (Normal)"), 0x00d7c00, 0x00d7c40, indexSamSho5Sprites_Rimururu },
     { _T("Rimururu D (Rage)"), 0x00d7c40, 0x00d7c80, indexSamSho5Sprites_Rimururu },
     { L"Rimururu D (SON)", 0x00d7e40, 0x00d7e80, indexSamSho5Sprites_Rimururu },
+    { L"Konru D", 0x00d7eC0, 0x00d7eE0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_A[] =
@@ -801,229 +813,228 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Zankuro_PALETTES_D[] =
     { L"Zankuro D (SON)", 0x00e2e40, 0x00e2e80, indexSamSho5Sprites_Zankuro },
 };
 
-
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_PORTRAITS[] =
 {
-    { L"Amakusa A (Portrait)", 0x00e03a0, 0x00e03e0 },
-    { L"Amakusa B (Portrait)", 0x00e07a0, 0x00e07e0 },
-    { L"Amakusa C (Portrait)", 0x00e0ba0, 0x00e0be0 },
-    { L"Amakusa D (Portrait)", 0x00e0fa0, 0x00e0fe0 },
+    { L"Amakusa A (Portrait)", 0x00e03a0, 0x00e03e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa B (Portrait)", 0x00e07a0, 0x00e07e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa C (Portrait)", 0x00e0ba0, 0x00e0be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa D (Portrait)", 0x00e0fa0, 0x00e0fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_PORTRAITS[] =
 {
-    { L"Basara A (Portrait)", 0x00dd3a0, 0x00dd3e0 },
-    { L"Basara B (Portrait)", 0x00dd7a0, 0x00dd7e0 },
-    { L"Basara C (Portrait)", 0x00ddba0, 0x00ddbe0 },
-    { L"Basara D (Portrait)", 0x00ddfa0, 0x00ddfe0 },
+    { L"Basara A (Portrait)", 0x00dd3a0, 0x00dd3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
+    { L"Basara B (Portrait)", 0x00dd7a0, 0x00dd7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
+    { L"Basara C (Portrait)", 0x00ddba0, 0x00ddbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
+    { L"Basara D (Portrait)", 0x00ddfa0, 0x00ddfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_PORTRAITS[] =
 {
-    { L"Charlotte A (Portrait)", 0x00e33a0, 0x00e33e0 },
-    { L"Charlotte B (Portrait)", 0x00e37a0, 0x00e37e0 },
-    { L"Charlotte C (Portrait)", 0x00e3ba0, 0x00e3be0 },
-    { L"Charlotte D (Portrait)", 0x00e3fa0, 0x00e3fe0 },
+    { L"Charlotte A (Portrait)", 0x00e33a0, 0x00e33e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte B (Portrait)", 0x00e37a0, 0x00e37e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte C (Portrait)", 0x00e3ba0, 0x00e3be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte D (Portrait)", 0x00e3fa0, 0x00e3fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_PORTRAITS[] =
 {
-    { L"Enja A (Portrait)", 0x00e93a0, 0x00e93e0 },
-    { L"Enja B (Portrait)", 0x00e97a0, 0x00e97e0 },
-    { L"Enja C (Portrait)", 0x00e9ba0, 0x00e9be0 },
-    { L"Enja D (Portrait)", 0x00e9fa0, 0x00e9fe0 },
+    { L"Enja A (Portrait)", 0x00e93a0, 0x00e93e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
+    { L"Enja B (Portrait)", 0x00e97a0, 0x00e97e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
+    { L"Enja C (Portrait)", 0x00e9ba0, 0x00e9be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
+    { L"Enja D (Portrait)", 0x00e9fa0, 0x00e9fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_PORTRAITS[] =
 {
-    { L"Gaira A (Portrait)", 0x00df3a0, 0x00df3e0 },
-    { L"Gaira B (Portrait)", 0x00df7a0, 0x00df7e0 },
-    { L"Gaira C (Portrait)", 0x00dfba0, 0x00dfbe0 },
-    { L"Gaira D (Portrait)", 0x00dffa0, 0x00dffe0 },
+    { L"Gaira A (Portrait)", 0x00df3a0, 0x00df3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
+    { L"Gaira B (Portrait)", 0x00df7a0, 0x00df7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
+    { L"Gaira C (Portrait)", 0x00dfba0, 0x00dfbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
+    { L"Gaira D (Portrait)", 0x00dffa0, 0x00dffe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_PORTRAITS[] =
 {
-    { L"Galford A (Portrait)", 0x00d93a0, 0x00d93e0 },
-    { L"Galford B (Portrait)", 0x00d97a0, 0x00d97e0 },
-    { L"Galford C (Portrait)", 0x00d9ba0, 0x00d9be0 },
-    { L"Galford D (Portrait)", 0x00d9fa0, 0x00d9fe0 },
+    { L"Galford A (Portrait)", 0x00d93a0, 0x00d93e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
+    { L"Galford B (Portrait)", 0x00d97a0, 0x00d97e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
+    { L"Galford C (Portrait)", 0x00d9ba0, 0x00d9be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
+    { L"Galford D (Portrait)", 0x00d9fa0, 0x00d9fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaoh_PALETTES_PORTRAITS[] =
 {
-    { L"Gaoh A (Portrait)", 0x00ef3a0, 0x00ef3e0 },
-    { L"Gaoh B (Portrait)", 0x00ef7a0, 0x00ef7e0 },
-    { L"Gaoh C (Portrait)", 0x00efba0, 0x00efbe0 },
-    { L"Gaoh D (Portrait)", 0x00effa0, 0x00effe0 },
+    { L"Gaoh A (Portrait)", 0x00ef3a0, 0x00ef3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh B (Portrait)", 0x00ef7a0, 0x00ef7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh C (Portrait)", 0x00efba0, 0x00efbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh D (Portrait)", 0x00effa0, 0x00effe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_PORTRAITS[] =
 {
-    { L"Genjuro A (Portrait)", 0x00dc3a0, 0x00dc3e0 },
-    { L"Genjuro B (Portrait)", 0x00dc7a0, 0x00dc7e0 },
-    { L"Genjuro C (Portrait)", 0x00dcba0, 0x00dcbe0 },
-    { L"Genjuro D (Portrait)", 0x00dcfa0, 0x00dcfe0 },
+    { L"Genjuro A (Portrait)", 0x00dc3a0, 0x00dc3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro B (Portrait)", 0x00dc7a0, 0x00dc7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro C (Portrait)", 0x00dcba0, 0x00dcbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro D (Portrait)", 0x00dcfa0, 0x00dcfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Hanzo_PALETTES_PORTRAITS[] =
 {
-    { L"Hanzo A (Portrait)", 0x00d83a0, 0x00d83e0 },
-    { L"Hanzo B (Portrait)", 0x00d87a0, 0x00d87e0 },
-    { L"Hanzo C (Portrait)", 0x00d8ba0, 0x00d8be0 },
-    { L"Hanzo D (Portrait)", 0x00d8fa0, 0x00d8fe0 },
+    { L"Hanzo A (Portrait)", 0x00d83a0, 0x00d83e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo B (Portrait)", 0x00d87a0, 0x00d87e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo C (Portrait)", 0x00d8ba0, 0x00d8be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo D (Portrait)", 0x00d8fa0, 0x00d8fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_PORTRAITS[] =
 {
-    { L"Haohmaru A (Portrait)", 0x00d53a0, 0x00d53e0 },
-    { L"Haohmaru B (Portrait)", 0x00d57a0, 0x00d57e0 },
-    { L"Haohmaru C (Portrait)", 0x00d5ba0, 0x00d5be0 },
-    { L"Haohmaru D (Portrait)", 0x00d5fa0, 0x00d5fe0 },
+    { L"Haohmaru A (Portrait)", 0x00d53a0, 0x00d53e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru B (Portrait)", 0x00d57a0, 0x00d57e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru C (Portrait)", 0x00d5ba0, 0x00d5be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru D (Portrait)", 0x00d5fa0, 0x00d5fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_PORTRAITS[] =
 {
-    { L"Jubei A (Portrait)", 0x00e13a0, 0x00e13e0 },
-    { L"Jubei B (Portrait)", 0x00e17a0, 0x00e17e0 },
-    { L"Jubei C (Portrait)", 0x00e1ba0, 0x00e1be0 },
-    { L"Jubei D (Portrait)", 0x00e1fa0, 0x00e1fe0 },
+    { L"Jubei A (Portrait)", 0x00e13a0, 0x00e13e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
+    { L"Jubei B (Portrait)", 0x00e17a0, 0x00e17e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
+    { L"Jubei C (Portrait)", 0x00e1ba0, 0x00e1be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
+    { L"Jubei D (Portrait)", 0x00e1fa0, 0x00e1fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kazuki_PALETTES_PORTRAITS[] =
 {
-    { L"Kazuki A (Portrait)", 0x00e53a0, 0x00e53e0 },
-    { L"Kazuki B (Portrait)", 0x00e57a0, 0x00e57e0 },
-    { L"Kazuki C (Portrait)", 0x00e5ba0, 0x00e5be0 },
-    { L"Kazuki D (Portrait)", 0x00e5fa0, 0x00e5fe0 },
+    { L"Kazuki A (Portrait)", 0x00e53a0, 0x00e53e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki B (Portrait)", 0x00e57a0, 0x00e57e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki C (Portrait)", 0x00e5ba0, 0x00e5be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki D (Portrait)", 0x00e5fa0, 0x00e5fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kusaregedo_PALETTES_PORTRAITS[] =
 {
-    { L"Kusaregedo A (Portrait)", 0x00ee3a0, 0x00ee3e0 },
-    { L"Kusaregedo B (Portrait)", 0x00ee7a0, 0x00ee7e0 },
-    { L"Kusaregedo C (Portrait)", 0x00eeba0, 0x00eebe0 },
-    { L"Kusaregedo D (Portrait)", 0x00eefa0, 0x00eefe0 },
+    { L"Kusaregedo A (Portrait)", 0x00ee3a0, 0x00ee3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo B (Portrait)", 0x00ee7a0, 0x00ee7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo C (Portrait)", 0x00eeba0, 0x00eebe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo D (Portrait)", 0x00eefa0, 0x00eefe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_PORTRAITS[] =
 {
-    { L"Kyoshiro A (Portrait)", 0x00da3a0, 0x00da3e0 },
-    { L"Kyoshiro B (Portrait)", 0x00da7a0, 0x00da7e0 },
-    { L"Kyoshiro C (Portrait)", 0x00daba0, 0x00dabe0 },
-    { L"Kyoshiro D (Portrait)", 0x00dafa0, 0x00dafe0 },
+    { L"Kyoshiro A (Portrait)", 0x00da3a0, 0x00da3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro B (Portrait)", 0x00da7a0, 0x00da7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro C (Portrait)", 0x00daba0, 0x00dabe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro D (Portrait)", 0x00dafa0, 0x00dafe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_PORTRAITS[] =
 {
-    { L"Mina A (Portrait)", 0x00ed3a0, 0x00ed3e0 },
-    { L"Mina B (Portrait)", 0x00ed7a0, 0x00ed7e0 },
-    { L"Mina C (Portrait)", 0x00edba0, 0x00edbe0 },
-    { L"Mina D (Portrait)", 0x00edfa0, 0x00edfe0 },
+    { L"Mina A (Portrait)", 0x00ed3a0, 0x00ed3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
+    { L"Mina B (Portrait)", 0x00ed7a0, 0x00ed7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
+    { L"Mina C (Portrait)", 0x00edba0, 0x00edbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
+    { L"Mina D (Portrait)", 0x00edfa0, 0x00edfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mizuki_PALETTES_PORTRAITS[] =
 {
-    { L"Mizuki A (Portrait)", 0x00f03a0, 0x00f03e0 },
-    { L"Mizuki B (Portrait)", 0x00f07a0, 0x00f07e0 },
-    { L"Mizuki C (Portrait)", 0x00f0ba0, 0x00f0be0 },
-    { L"Mizuki D (Portrait)", 0x00f0fa0, 0x00f0fe0 },
+    { L"Mizuki A (Portrait)", 0x00f03a0, 0x00f03e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki B (Portrait)", 0x00f07a0, 0x00f07e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki C (Portrait)", 0x00f0ba0, 0x00f0be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki D (Portrait)", 0x00f0fa0, 0x00f0fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_PORTRAITS[] =
 {
-    { L"Nakoruru A (Portrait)", 0x00d63a0, 0x00d63e0 },
-    { L"Nakoruru B (Portrait)", 0x00d67a0, 0x00d67e0 },
-    { L"Nakoruru C (Portrait)", 0x00d6ba0, 0x00d6be0 },
-    { L"Nakoruru D (Portrait)", 0x00d6fa0, 0x00d6fe0 },
+    { L"Nakoruru A (Portrait)", 0x00d63a0, 0x00d63e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru B (Portrait)", 0x00d67a0, 0x00d67e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru C (Portrait)", 0x00d6ba0, 0x00d6be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru D (Portrait)", 0x00d6fa0, 0x00d6fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rasetsumaru_PALETTES_PORTRAITS[] =
 {
-    { L"Rasetsumaru A (Portrait)", 0x00e73a0, 0x00e73e0 },
-    { L"Rasetsumaru B (Portrait)", 0x00e77a0, 0x00e77e0 },
-    { L"Rasetsumaru C (Portrait)", 0x00e7ba0, 0x00e7be0 },
-    { L"Rasetsumaru D (Portrait)", 0x00e7fa0, 0x00e7fe0 },
+    { L"Rasetsumaru A (Portrait)", 0x00e73a0, 0x00e73e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru B (Portrait)", 0x00e77a0, 0x00e77e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru C (Portrait)", 0x00e7ba0, 0x00e7be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru D (Portrait)", 0x00e7fa0, 0x00e7fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_PORTRAITS[] =
 {
-    { L"Rera A (Portrait)", 0x00e83a0, 0x00e83e0 },
-    { L"Rera B (Portrait)", 0x00e87a0, 0x00e87e0 },
-    { L"Rera C (Portrait)", 0x00e8ba0, 0x00e8be0 },
-    { L"Rera D (Portrait)", 0x00e8fa0, 0x00e8fe0 },
+    { L"Rera A (Portrait)", 0x00e83a0, 0x00e83e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
+    { L"Rera B (Portrait)", 0x00e87a0, 0x00e87e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
+    { L"Rera C (Portrait)", 0x00e8ba0, 0x00e8be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
+    { L"Rera D (Portrait)", 0x00e8fa0, 0x00e8fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_PORTRAITS[] =
 {
-    { L"Rimururu A (Portrait)", 0x00d73a0, 0x00d73e0 },
-    { L"Rimururu B (Portrait)", 0x00d77a0, 0x00d77e0 },
-    { L"Rimururu C (Portrait)", 0x00d7ba0, 0x00d7be0 },
-    { L"Rimururu D (Portrait)", 0x00d7fa0, 0x00d7fe0 },
+    { L"Rimururu A (Portrait)", 0x00d73a0, 0x00d73e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu B (Portrait)", 0x00d77a0, 0x00d77e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu C (Portrait)", 0x00d7ba0, 0x00d7be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu D (Portrait)", 0x00d7fa0, 0x00d7fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_PORTRAITS[] =
 {
-    { L"Shizumaru A (Portrait)", 0x00de3a0, 0x00de3e0 },
-    { L"Shizumaru B (Portrait)", 0x00de7a0, 0x00de7e0 },
-    { L"Shizumaru C (Portrait)", 0x00deba0, 0x00debe0 },
-    { L"Shizumaru D (Portrait)", 0x00defa0, 0x00defe0 },
+    { L"Shizumaru A (Portrait)", 0x00de3a0, 0x00de3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru B (Portrait)", 0x00de7a0, 0x00de7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru C (Portrait)", 0x00deba0, 0x00debe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru D (Portrait)", 0x00defa0, 0x00defe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Sogetsu_PALETTES_PORTRAITS[] =
 {
-    { L"Sogetsu A (Portrait)", 0x00e63a0, 0x00e63e0 },
-    { L"Sogetsu B (Portrait)", 0x00e67a0, 0x00e67e0 },
-    { L"Sogetsu C (Portrait)", 0x00e6ba0, 0x00e6be0 },
-    { L"Sogetsu D (Portrait)", 0x00e6fa0, 0x00e6fe0 },
+    { L"Sogetsu A (Portrait)", 0x00e63a0, 0x00e63e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu B (Portrait)", 0x00e67a0, 0x00e67e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu C (Portrait)", 0x00e6ba0, 0x00e6be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu D (Portrait)", 0x00e6fa0, 0x00e6fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_PORTRAITS[] =
 {
-    { L"Suija A (Portrait)", 0x00ea3a0, 0x00ea3e0 },
-    { L"Suija B (Portrait)", 0x00ea7a0, 0x00ea7e0 },
-    { L"Suija C (Portrait)", 0x00eaba0, 0x00eabe0 },
-    { L"Suija D (Portrait)", 0x00eafa0, 0x00eafe0 },
+    { L"Suija A (Portrait)", 0x00ea3a0, 0x00ea3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
+    { L"Suija B (Portrait)", 0x00ea7a0, 0x00ea7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
+    { L"Suija C (Portrait)", 0x00eaba0, 0x00eabe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
+    { L"Suija D (Portrait)", 0x00eafa0, 0x00eafe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_TamTam_PALETTES_PORTRAITS[] =
 {
-    { L"Tam Tam A (Portrait)", 0x00e43a0, 0x00e43e0 },
-    { L"Tam Tam B (Portrait)", 0x00e47a0, 0x00e47e0 },
-    { L"Tam Tam C (Portrait)", 0x00e4ba0, 0x00e4be0 },
-    { L"Tam Tam D (Portrait)", 0x00e4fa0, 0x00e4fe0 },
+    { L"Tam Tam A (Portrait)", 0x00e43a0, 0x00e43e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam B (Portrait)", 0x00e47a0, 0x00e47e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam C (Portrait)", 0x00e4ba0, 0x00e4be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam D (Portrait)", 0x00e4fa0, 0x00e4fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_PORTRAITS[] =
 {
-    { L"Ukyo A (Portrait)", 0x00db3a0, 0x00db3e0 },
-    { L"Ukyo B (Portrait)", 0x00db7a0, 0x00db7e0 },
-    { L"Ukyo C (Portrait)", 0x00dbba0, 0x00dbbe0 },
-    { L"Ukyo D (Portrait)", 0x00dbfa0, 0x00dbfe0 },
+    { L"Ukyo A (Portrait)", 0x00db3a0, 0x00db3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo B (Portrait)", 0x00db7a0, 0x00db7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo C (Portrait)", 0x00dbba0, 0x00dbbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo D (Portrait)", 0x00dbfa0, 0x00dbfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_PORTRAITS[] =
 {
-    { L"Yoshitora A (Portrait)", 0x00eb3a0, 0x00eb3e0 },
-    { L"Yoshitora B (Portrait)", 0x00eb7a0, 0x00eb7e0 },
-    { L"Yoshitora C (Portrait)", 0x00ebba0, 0x00ebbe0 },
-    { L"Yoshitora D (Portrait)", 0x00ebfa0, 0x00ebfe0 },
+    { L"Yoshitora A (Portrait)", 0x00eb3a0, 0x00eb3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora B (Portrait)", 0x00eb7a0, 0x00eb7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora C (Portrait)", 0x00ebba0, 0x00ebbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora D (Portrait)", 0x00ebfa0, 0x00ebfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_PORTRAITS[] =
 {
-    { L"Yunfei A (Portrait)", 0x00ec3a0, 0x00ec3e0 },
-    { L"Yunfei B (Portrait)", 0x00ec7a0, 0x00ec7e0 },
-    { L"Yunfei C (Portrait)", 0x00ecba0, 0x00ecbe0 },
-    { L"Yunfei D (Portrait)", 0x00ecfa0, 0x00ecfe0 },
+    { L"Yunfei A (Portrait)", 0x00ec3a0, 0x00ec3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei B (Portrait)", 0x00ec7a0, 0x00ec7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei C (Portrait)", 0x00ecba0, 0x00ecbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei D (Portrait)", 0x00ecfa0, 0x00ecfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Zankuro_PALETTES_PORTRAITS[] =
 {
-    { L"Zankuro A (Portrait)", 0x00e23a0, 0x00e23e0 },
-    { L"Zankuro B (Portrait)", 0x00e27a0, 0x00e27e0 },
-    { L"Zankuro C (Portrait)", 0x00e2ba0, 0x00e2be0 },
-    { L"Zankuro D (Portrait)", 0x00e2fa0, 0x00e2fe0 },
+    { L"Zankuro A (Portrait)", 0x00e23a0, 0x00e23e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro B (Portrait)", 0x00e27a0, 0x00e27e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro C (Portrait)", 0x00e2ba0, 0x00e2be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro D (Portrait)", 0x00e2fa0, 0x00e2fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
 };
 
 const sDescTreeNode SAMSHO5SP_A_Amakusa_COLLECTION[] =
