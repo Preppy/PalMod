@@ -469,7 +469,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
     m_nTotalPaletteCountForKOF02UM = nTotalPaletteCount;
 
     // For development purposes only...
-    DumpAllCharacters();
+    // DumpAllCharacters();
 
     return NewDescTree;
 }
