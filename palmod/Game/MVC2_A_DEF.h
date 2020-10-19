@@ -4922,18 +4922,18 @@ const sGame_PaletteDataset MVC2_A_BBHOOD_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MVC2_A_BBHOOD_PALETTES_EXTRAS[] =
 {
-    { _T("09: Not Used"), 0x41ab560, 0x41ab580 },
-    { _T("0a: Not Used"), 0x41ab580, 0x41ab5a0 },
-    { _T("0b: Not Used"), 0x41ab5a0, 0x41ab5c0 },
-    { _T("0c: LP Cruel Hunting"), 0x41ab5c0, 0x41ab5e0 },
-    { _T("0d: LK Cruel Hunting"), 0x41ab5e0, 0x41ab600 },
-    { _T("0e: HP Cruel Hunting"), 0x41ab600, 0x41ab620 },
-    { _T("0f: HK Cruel Hunting"), 0x41ab620, 0x41ab640 },
-    { _T("10: A1 Cruel Hunting"), 0x41ab640, 0x41ab660 },
-    { _T("11: A2 Cruel Hunting"), 0x41ab660, 0x41ab680 },
+    { _T("09: Bottle"), 0x41ab560, 0x41ab580, indexCPS2_BBHood, 0x07 },
+    { _T("0a: Water"), 0x41ab580, 0x41ab5a0 },
+    { _T("0b: Water (unused)"), 0x41ab5a0, 0x41ab5c0 },
+    { _T("0c: LP Cruel Hunting"), 0x41ab5c0, 0x41ab5e0, indexCPS2_BBHood, 0x08 },
+    { _T("0d: LK Cruel Hunting"), 0x41ab5e0, 0x41ab600, indexCPS2_BBHood, 0x08 },
+    { _T("0e: HP Cruel Hunting"), 0x41ab600, 0x41ab620, indexCPS2_BBHood, 0x08 },
+    { _T("0f: HK Cruel Hunting"), 0x41ab620, 0x41ab640, indexCPS2_BBHood, 0x08 },
+    { _T("10: A1 Cruel Hunting"), 0x41ab640, 0x41ab660, indexCPS2_BBHood, 0x08 },
+    { _T("11: A2 Cruel Hunting"), 0x41ab660, 0x41ab680, indexCPS2_BBHood, 0x08 },
     { _T("12: Not Used"), 0x41ab680, 0x41ab6a0 },
     { _T("13: Not Used"), 0x41ab6a0, 0x41ab6c0 },
-    { _T("14: Man in suit"), 0x41ab6c0, 0x41ab6e0 },
+    { _T("14: Man in suit"), 0x41ab6c0, 0x41ab6e0, indexCPS2_BBHood, 0x09 },
 };
 
 const sDescTreeNode MVC2_A_BBHOOD_COLLECTION[] =

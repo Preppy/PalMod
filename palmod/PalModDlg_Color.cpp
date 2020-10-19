@@ -477,7 +477,6 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
             nColMax = nAAmt;
             nColMul = nAMul;
             nHLSHI = nColMax;
-            nSetFlag = 1;
         }
         else
         {

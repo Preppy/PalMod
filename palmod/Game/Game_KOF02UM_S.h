@@ -10,7 +10,6 @@ class CGame_KOF02UM_S : public CGameWithExtrasFile
 {
 private:
     static UINT32 m_nTotalPaletteCountForKOF02UM;
-    static void DumpAllCharacters();
 
     static int rgExtraCountAll[KOF02UM_S_NUMUNIT + 1];
     static int rgExtraLoc[KOF02UM_S_NUMUNIT + 1];
@@ -51,10 +50,6 @@ public:
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-
-    COLORREF* CreatePal2(UINT16 nUnitId, UINT16 nPalId);
-
-    void UpdatePalData2();
 
     static stExtraDef* KOF02UM_S_EXTRA_CUSTOM;
 };

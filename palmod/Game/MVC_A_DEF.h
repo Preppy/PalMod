@@ -43,32 +43,32 @@ constexpr auto MVC_A_NUMUNIT = indexMVCLast;
 
 const sGame_PaletteDataset MVC_A_RYU_PALETTES_P1[] =
 {
-    { _T("Ryu P1"), 0x487c4, 0x487e4, 0x0 },
-    { _T("Ryu P1 Hadouken"), 0x487e4, 0x48804, 0x0, 1 },
+    { _T("Ryu P1"), 0x487c4, 0x487e4, indexCPS2_Ryu, 0x09 },
+    { _T("Ryu P1 Hadouken"), 0x487e4, 0x48804, indexCPS2_Ryu, 1 },
     { _T("Ryu P1 Extra"), 0x48804, 0x48824 },
-    { _T("Ken P1"), 0x4ec44, 0x4ec64, 0x0 },
-    { _T("Ken P1 Hakouken"), 0x4ec64, 0x4ec84, 0x0, 1 },
-    { _T("Ken P1 Shoryuken"), 0x4ec84, 0x4eca4, 0x27, 2 },
-    { _T("Akuma P1"), 0x4ed04, 0x4ed24, 0x0 },
-    { _T("Akuma P1 Hadouken"), 0x4ed24, 0x4ed44, 0x1e, 1 },
+    { _T("Ken P1"), 0x4ec44, 0x4ec64, indexCPS2_Ryu, 0x09 },
+    { _T("Ken P1 Hakouken"), 0x4ec64, 0x4ec84, indexCPS2_Ryu, 1 },
+    { _T("Ken P1 Shoryuken"), 0x4ec84, 0x4eca4, indexCPS2_Ken, 2 },
+    { _T("Akuma P1"), 0x4ed04, 0x4ed24, indexCPS2_Ryu, 0x09 },
+    { _T("Akuma P1 Hadouken"), 0x4ed24, 0x4ed44, indexCPS2_Akuma, 1 },
     { _T("Akuma P1 Extra"), 0x4ed44, 0x4ed64 },
-    { _T("Ken (Background) P1"), 0x4ebC4, 0x4ebE4, 0x27, 0 },
-    { _T("Sean (Background) P1"), 0x4ebE4, 0x4ec04, 0x0, 0xb },
+    { _T("Ken (Background) P1"), 0x4ebC4, 0x4ebE4, indexCPS2_Ryu, 0xa },
+    { _T("Sean (Background) P1"), 0x4ebE4, 0x4ec04, indexCPS2_Ryu, 0xb },
 };
 
 const sGame_PaletteDataset MVC_A_RYU_PALETTES_P2[] =
 {
-    { _T("Ryu P2"), 0x48824, 0x48844, 0x0 },
-    { _T("Ryu P2 Hadouken"), 0x48844, 0x48864, 0x0, 1 },
+    { _T("Ryu P2"), 0x48824, 0x48844, indexCPS2_Ryu, 0x09 },
+    { _T("Ryu P2 Hadouken"), 0x48844, 0x48864, indexCPS2_Ryu, 1 },
     { _T("Ryu P2 Extra"), 0x48864, 0x48884 },
-    { _T("Ken P2"), 0x4eca4, 0x4ecc4, 0x0 },
-    { _T("Ken P2 Hadouken"), 0x4ecc4, 0x4ece4, 0x0, 1 },
-    { _T("Ken P2 Shoryuken"), 0x4ece4, 0x4ed04, 0x27, 2 },
-    { _T("Akuma P2"), 0x4ed64, 0x4ed84, 0x0 },
-    { _T("Akuma P2 Hadouken"), 0x4ed84, 0x4eda4, 0x1e, 1 },
+    { _T("Ken P2"), 0x4eca4, 0x4ecc4, indexCPS2_Ryu, 0x09 },
+    { _T("Ken P2 Hadouken"), 0x4ecc4, 0x4ece4, indexCPS2_Ryu, 1 },
+    { _T("Ken P2 Shoryuken"), 0x4ece4, 0x4ed04, indexCPS2_Ken, 2 },
+    { _T("Akuma P2"), 0x4ed64, 0x4ed84, indexCPS2_Ryu, 0x09 },
+    { _T("Akuma P2 Hadouken"), 0x4ed84, 0x4eda4, indexCPS2_Akuma, 1 },
     { _T("Akuma P2 Extra"), 0x4eda4, 0x4edc4 },
-    { _T("Ken (Background) P2"), 0x4ec04, 0x4ec24, 0x27, 0 },
-    { _T("Sean (Background) P2"), 0x4ec24, 0x4ec44, 0x0, 0xb },
+    { _T("Ken (Background) P2"), 0x4ec04, 0x4ec24, indexCPS2_Ryu, 0xa },
+    { _T("Sean (Background) P2"), 0x4ec24, 0x4ec44, indexCPS2_Ryu, 0xb },
 };
 
 const sGame_PaletteDataset MVC_A_GIEF_PALETTES_P1[] =
@@ -1250,17 +1250,17 @@ const sGame_PaletteDataset MVC_A_ROLL_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MVC_A_RYU_PALETTES_SHARED[] =
 {
-    { _T("Burning 1"), 0x4a744, 0x4a764, 0x00 },
-    { _T("Burning 2"), 0x4a764, 0x4a784, 0x00 },
-    { _T("Shocked 1"), 0x4a784, 0x4a7a4, 0x00 },
-    { _T("Shocked 2"), 0x4a7a4, 0x4a7c4, 0x00 },
-    { _T("Dark Burning 1"), 0x4a7c4, 0x4a7e4, 0x00 },
-    { _T("Dark Burning 2"), 0x4a7e4, 0x4a804, 0x00 },
-    { _T("Kinectic Charged 1"), 0x4a804, 0x4a824, 0x00 },
-    { _T("Kinectic Charged 2"), 0x4a824, 0x4a844, 0x00 },
-    { _T("Kinectic Charged 3"), 0x4a844, 0x4a864, 0x00 },
-    { _T("Shadows Light"), 0x49724, 0x49744, 0x00 },
-    { _T("Shadows Dark"), 0x49744, 0x49764, 0x00 },
+    { _T("Burning 1"), 0x4a744, 0x4a764, indexCPS2_Ryu, 0x09 },
+    { _T("Burning 2"), 0x4a764, 0x4a784, indexCPS2_Ryu, 0x09 },
+    { _T("Shocked 1"), 0x4a784, 0x4a7a4, indexCPS2_Ryu, 0x09 },
+    { _T("Shocked 2"), 0x4a7a4, 0x4a7c4, indexCPS2_Ryu, 0x09 },
+    { _T("Dark Burning 1"), 0x4a7c4, 0x4a7e4, indexCPS2_Ryu, 0x09 },
+    { _T("Dark Burning 2"), 0x4a7e4, 0x4a804, indexCPS2_Ryu, 0x09 },
+    { _T("Kinectic Charged 1"), 0x4a804, 0x4a824, indexCPS2_Ryu, 0x09 },
+    { _T("Kinectic Charged 2"), 0x4a824, 0x4a844, indexCPS2_Ryu, 0x09 },
+    { _T("Kinectic Charged 3"), 0x4a844, 0x4a864, indexCPS2_Ryu, 0x09 },
+    { _T("Shadows Light"), 0x49724, 0x49744, indexCPS2_Ryu, 0x09 },
+    { _T("Shadows Dark"), 0x49744, 0x49764, indexCPS2_Ryu, 0x09 },
 };
 
 const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_SHARED[] =
@@ -1692,6 +1692,32 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
     { _T("QSound Patent Text"), 0x3E57A, 0x3E59A, 0x3C, 0x55 },
 };
 
+const sGame_PaletteDataset MVC_A_COUNCIL_STAGE_PALETTES[] =
+{
+    { L"Scary Big Guy 1",           0x318FA, 0x31AFA, indexCPS2_MVCAssets, 0x5c, &pairFullyLinkedNode },
+    { L"Scary Big Guy 2",           0x31AFA, 0x31CFA, indexCPS2_MVCAssets, 0x5d },
+    { L"Center Light",              0x31CFA, 0x31D5A, indexCPS2_MVCAssets, 0x5e },
+    { L"Big World People 1",        0x3A4FA, 0x3A6FA, indexCPS2_MVCAssets, 0x5f },
+    { L"Big World People 2",        0x3A6FA, 0x3A8FA, indexCPS2_MVCAssets, 0x60 },
+    { L"Images 1",                  0x3511A, 0x3531A, indexCPS2_MVCAssets, 0x61 },
+    { L"Images 2",                  0x3531A, 0x3551A, indexCPS2_MVCAssets, 0x62 },
+    { L"Images 3",                  0x3551A, 0x3571A, indexCPS2_MVCAssets, 0x63 },
+    { L"Images 4",                  0x3571A, 0x3591A, indexCPS2_MVCAssets, 0x64 },
+    { L"Images 5",                  0x3591A, 0x35B1A, indexCPS2_MVCAssets, 0x65 },
+    { L"Images 6",                  0x35b1A, 0x35BDA, indexCPS2_MVCAssets, 0x66 },
+    { L"Standers Floaters Craters", 0x51764, 0x51824, indexCPS2_MVCAssets, 0x67 },
+};
+
+const sGame_PaletteDataset MVC_A_MEGAMAN_STAGE_PALETTES[] =
+{
+    { L"Sky",               0x314FA, 0x3165A, indexCPS2_MVCAssets, 0x56, &pairFullyLinkedNode },
+    { L"Foundry 1",         0x34D1A, 0x34F1A, indexCPS2_MVCAssets, 0x57 },
+    { L"Foundry 2",         0x34F1A, 0x3511A, indexCPS2_MVCAssets, 0x58 },
+    { L"Ground/Machines 1", 0x3A0FA, 0x3A2FA, indexCPS2_MVCAssets, 0x59 },
+    { L"Ground/Machines 2", 0x3A2FA, 0x3A4FA, indexCPS2_MVCAssets, 0x5a },
+    { L"WahweeRobotCrater", 0x516C4, 0x51764, indexCPS2_MVCAssets, 0x5b },
+};
+
 const sDescTreeNode MVC_A_WARMACHINE_COLLECTION[] =
 {
     { _T("P1"), DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_P1,         ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_P1) },
@@ -1874,6 +1900,8 @@ const sDescTreeNode MVC_A_PORTRAITS_COLLECTION[] =
 const sDescTreeNode MVC_A_BONUS_COLLECTION[] =
 {
    { _T("Bonus"),                         DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_PALETTES,            ARRAYSIZE(MVC_A_BONUS_PALETTES) },
+   { _T("Council Stage"),                 DESC_NODETYPE_TREE, (void*)MVC_A_COUNCIL_STAGE_PALETTES,    ARRAYSIZE(MVC_A_COUNCIL_STAGE_PALETTES) },
+   { _T("Megaman Stage"),                 DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_STAGE_PALETTES,    ARRAYSIZE(MVC_A_MEGAMAN_STAGE_PALETTES) },
 };
 
 const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes
@@ -1935,7 +1963,7 @@ const sDescTreeNode MVC_UNITS[MVC_A_NUMUNIT] =
     { _T("Assists"),                      DESC_NODETYPE_TREE, (void*)MVC_A_ASSIST_COLLECTION,           ARRAYSIZE(MVC_A_ASSIST_COLLECTION) },
     { _T("Portraits"),                    DESC_NODETYPE_TREE, (void*)MVC_A_PORTRAITS_COLLECTION,        ARRAYSIZE(MVC_A_PORTRAITS_COLLECTION) },
     { _T("Character Icons"),              DESC_NODETYPE_TREE, (void*)MVC_A_CSIS_COLLECTION,             ARRAYSIZE(MVC_A_CSIS_COLLECTION) },
-    { _T("Bonus"),                        DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_COLLECTION,            ARRAYSIZE(MVC_A_BONUS_COLLECTION) },
+    { _T("Bonus and Stages"),             DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_COLLECTION,            ARRAYSIZE(MVC_A_BONUS_COLLECTION) },
 };
 
 // We extend this array with data groveled from the mvce.txt extensible extras file, if any.

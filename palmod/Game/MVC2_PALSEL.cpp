@@ -905,6 +905,26 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
+    case 0x1f: // Sakura
+    {
+        if (CreateExtraPal(uUnitId, uPalId, 0x0c, 0x1, 0x08)) // Cruel Hunting
+        {
+            break;
+        }
+
+        if (uPalId == 0x09 + EXTRA_OMNI) //  bottle
+        {
+            SetExtraImg(0x07, uUnitId, uPalId);
+            break;
+        }
+        else if (uPalId == 0x14 + EXTRA_OMNI) //  man in suit
+        {
+            SetExtraImg(0x09, uUnitId, uPalId);
+            break;
+        }
+
+        break;
+    }
     case 0x22: // Sakura
     {
         CreateExtraPal(uUnitId, uPalId, 0x1D, 0x1, 0x00); // Dark Sakura

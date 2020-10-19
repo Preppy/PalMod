@@ -580,6 +580,26 @@ enum SF2Sprites
     indexSF2Sprites_Gouki,
     indexSF2Sprites_Bonus,
     indexSF2Sprites_Stages,
+
+    indexSF2GBASprites_Ryu = 0x20,
+    indexSF2GBASprites_EHonda,
+    indexSF2GBASprites_Blanka,
+    indexSF2GBASprites_Guile,
+    indexSF2GBASprites_Ken,
+    indexSF2GBASprites_ChunLi,
+    indexSF2GBASprites_Zangief,
+    indexSF2GBASprites_Dhalsim,
+    indexSF2GBASprites_Bison,
+    indexSF2GBASprites_Sagat,
+    indexSF2GBASprites_Balrog,
+    indexSF2GBASprites_Vega,
+    indexSF2GBASprites_Cammy,
+    indexSF2GBASprites_THawk,
+    indexSF2GBASprites_FeiLong,
+    indexSF2GBASprites_DeeJay,
+    indexSF2GBASprites_Gouki,
+    indexSF2GBASprites_Bonus,       // 0x31, // GBA_Bonus
+    indexSF2GBASprites_Stages,      // 0x32, // GBA_Stages
 };
 
 const UINT8 SSF2T_A_IMG_UNITS[] =
@@ -606,27 +626,6 @@ const UINT8 SSF2T_A_IMG_UNITS[] =
 };
 
 constexpr auto SSF2T_A_NUM_IMG_UNITS = ARRAYSIZE(SSF2T_A_IMG_UNITS);
-
-enum SF2GBASprites
-{
-    indexSF2GBASprites_Ryu = 0,
-    indexSF2GBASprites_EHonda,
-    indexSF2GBASprites_Blanka,
-    indexSF2GBASprites_Guile,
-    indexSF2GBASprites_Ken,
-    indexSF2GBASprites_ChunLi,
-    indexSF2GBASprites_Zangief,
-    indexSF2GBASprites_Dhalsim,
-    indexSF2GBASprites_Bison,
-    indexSF2GBASprites_Sagat,
-    indexSF2GBASprites_Balrog,
-    indexSF2GBASprites_Vega,
-    indexSF2GBASprites_Cammy,
-    indexSF2GBASprites_THawk,
-    indexSF2GBASprites_FeiLong,
-    indexSF2GBASprites_DeeJay,
-    indexSF2GBASprites_Gouki,
-};
 
 const UINT8 SSF2T_GBA_IMG_UNITS[] =
 {
@@ -2005,7 +2004,7 @@ const UINT8 SVCPLUSA_A_IMG_UNITS[] =
     indexSVCSprites_ShinAkuma,  // 74
 };
 
-enum SupportedSamSho6SP_A_PaletteListIndex
+enum SupportedSamSho5SP_A_PaletteListIndex
 {
     indexSamSho5_A_Amakusa = 0,
     indexSamSho5_A_Basara,
@@ -2035,6 +2034,7 @@ enum SupportedSamSho6SP_A_PaletteListIndex
     indexSamSho5_A_Yoshitora,
     indexSamSho5_A_Yunfei,
     indexSamSho5_A_Zankuro,
+    indexSamSho5_A_Bonus,
 
     indexSamSho5_A_Last,
 };
@@ -2086,6 +2086,7 @@ const UINT8 SAMSHO5SP_A_IMG_UNITS[] =
     indexSamSho5Sprites_Yoshitora,
     indexSamSho5Sprites_Yunfei,
     indexSamSho5Sprites_Zankuro,
+    indexSamSho5Sprites_Portrait,
 };
 
 enum SupportedKarnovsR_A_PaletteListIndex

@@ -436,7 +436,7 @@ const UINT16 MVC2_D_EXTRADEF[] =
     1, 1, 0, 0, 0, 0, 0,
     EXTRA_START | 0x1F, // B.B. Hood
     1, 1, 1, 1, 1, 1, 1,
-    0x0C, 0x11, 0x14, 0x14,
+    0x09, 0x09, 0x0C, 0x11, 0x14, 0x14,
     EXTRA_START | 0x20, // Felicia
     1, 1, 1, 0, 0, 0, 0,
     0,
