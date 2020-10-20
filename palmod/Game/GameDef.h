@@ -1591,6 +1591,8 @@ enum SupportedKOF02UM_S_PaletteListIndex
     indexKOF02UM_S_Yashiro,
     indexKOF02UM_S_Yuri,
 
+    indexKOF02UM_S_Bonus,
+
     indexKOF02UM_S_Last
 };
 

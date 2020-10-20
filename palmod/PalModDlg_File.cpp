@@ -613,11 +613,11 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
         ActFile.Read(pAct, nACTColorCount * 3);
         ActFile.Close();
 
-        UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
+        UINT8 nPalettePageCount = 1; // Force 1 page only. m_PalHost.GetCurrentPageCount();
         UINT16 iACTIndex = 0;
         int nCurrentPageWorkingAmt = 0;
 
-        // This doesn't work as it could.
+        // This doesn't work as it could: we force only paying attention to the current page.
         // Doing this on load involves updating the non-current page.  But that's only done
         // on a temporary basis: when the user changes pages, the updates get discarded.
         for (UINT8 nCurrentPage = 0; nCurrentPage < nPalettePageCount; nCurrentPage++)
@@ -723,11 +723,11 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
                             UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
                             int nPALColorCount = (dwDataSize / 4);
 
-                            UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
+                            UINT8 nPalettePageCount = 1; // Force one page only. m_PalHost.GetCurrentPageCount();
                             UINT16 iPALDataIndex = 0;
                             int nCurrentPageWorkingAmt = 0;
 
-                            // This doesn't work as it could.
+                            // This doesn't work as it could: we force one page only.
                             // Doing this on load involves updating the non-current page.  But that's only done
                             // on a temporary basis: when the user changes pages, the updates get discarded.
                             // It might be wise to save the other pages when we load palettes.
