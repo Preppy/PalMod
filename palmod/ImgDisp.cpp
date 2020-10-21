@@ -561,7 +561,12 @@ bool CImgDisp::LoadExternalSprite(TCHAR* pszTextureLocation)
                 if ((m_nTextureOverrideW > 0) && (m_nTextureOverrideW < 10000) &&
                     (m_nTextureOverrideH > 0) && (m_nTextureOverrideH < 10000))
                 {
-                    if ((m_nTextureOverrideW * m_nTextureOverrideH) != nSizeToRead)
+                    if (((3 * m_nTextureOverrideW * m_nTextureOverrideH)) == nSizeToRead)
+                    {
+                        // This is an RGB RAW...
+                        MessageBox(_T("This RAW is not using indexed color.  Please recreate it using indexed colors.  This will not look right."), GetHost()->GetAppName(), MB_ICONERROR);
+                    }
+                    else if ((m_nTextureOverrideW * m_nTextureOverrideH) != nSizeToRead)
                     {
                         MessageBox(_T("The W and H values specified in the RAW filename are wrong.  This will not look right."), GetHost()->GetAppName(), MB_ICONERROR);
                     }

@@ -525,13 +525,30 @@ void CPalModDlg::OnFileOpen()
 
     if (OpenDialog.DoModal() == IDOK)
     {
+        bool fSafeToContinue = true;
         OPENFILENAME ofn = OpenDialog.GetOFN();
 
-        for (const sSupportedGameList currentGame : SupportedGameList)
+        if (ofn.nFileExtension != 0)
         {
-            if (currentGame.nListedGameIndex == ofn.nFilterIndex)
+            if ((_wcsicmp(ofn.lpstrFile + ofn.nFileExtension, L"rar") == 0) ||
+                (_wcsicmp(ofn.lpstrFile + ofn.nFileExtension, L"zip") == 0))
             {
-                LoadGameFile(currentGame.nInternalGameIndex, (TCHAR*)ofn.lpstrFile);
+                CString strInfo = L"PalMod cannot use RAR or ZIP compressed files.  You must first extract out the files from those archives.  Then point PalMod to the files inside.\n\nAre you sure you wish to continue?";
+                if (MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONWARNING | MB_YESNO | MB_DEFBUTTON2) != IDYES)
+                {
+                    fSafeToContinue = false;
+                }
+            }
+        }
+
+        if (fSafeToContinue)
+        {
+            for (const sSupportedGameList currentGame : SupportedGameList)
+            {
+                if (currentGame.nListedGameIndex == ofn.nFilterIndex)
+                {
+                    LoadGameFile(currentGame.nInternalGameIndex, (TCHAR*)ofn.lpstrFile);
+                }
             }
         }
     }
@@ -1078,7 +1095,8 @@ bool CPalModDlg::SavePaletteToACT(LPCTSTR pszFileName)
         // In theory we should be able to just write a 768 byte file, but there appears to be a bug in PhotoShop's
         // ACT import wherein they mangle the parse for 768b files.  Thus we are forcibly using 772b here.
 
-        int nActSz = 256 * 3;
+        const int k_nMaxColorsAllowed = 256;
+        int nActSz = k_nMaxColorsAllowed * 3;
         UINT8* pAct = new UINT8[nActSz];
         memset(pAct, 0, nActSz);
 
@@ -1111,7 +1129,7 @@ bool CPalModDlg::SavePaletteToACT(LPCTSTR pszFileName)
             {
                 const int nNextPageWorkingAmt = pPalCtrlNextPage->GetWorkingAmt();
 
-                for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
+                for (int nActivePageIndex = 0; (nTotalColorsUsed < k_nMaxColorsAllowed) && (nActivePageIndex < nNextPageWorkingAmt); nActivePageIndex++)
                 {
                     pAct[nTotalColorsUsed * 3] = pPal[nTotalColorsUsed * 4];
                     pAct[nTotalColorsUsed * 3 + 1] = pPal[nTotalColorsUsed * 4 + 1];

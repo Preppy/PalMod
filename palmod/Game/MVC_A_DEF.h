@@ -1692,6 +1692,17 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
     { _T("QSound Patent Text"), 0x3E57A, 0x3E59A, 0x3C, 0x55 },
 };
 
+const sGame_PaletteDataset MVC_A_BLUEMOON_STAGE_PALETTES[] =
+{
+    { L"Sky 1",                 0x3ACFA, 0x3AEFA, indexCPS2_MVCAssets, 0x68, &pairFullyLinkedNode },
+    { L"Sky 2",                 0x3AEFA, 0x3B0FA, indexCPS2_MVCAssets, 0x69 },
+    { L"Left Side Ruins 1",     0x321FA, 0x323FA, indexCPS2_MVCAssets, 0x6a },
+    { L"Left Side Ruins 2",     0x323FA, 0x325FA, indexCPS2_MVCAssets, 0x6b },
+    { L"Right Side Ruins 1",    0x3619A, 0x3639A, indexCPS2_MVCAssets, 0x6d },
+    { L"Right Side Ruins 2",    0x3639A, 0x3659A, indexCPS2_MVCAssets, 0x6c },
+    { L"Sprites",               0x518A4, 0x51944, indexCPS2_MVCAssets, 0x6e },
+};
+
 const sGame_PaletteDataset MVC_A_COUNCIL_STAGE_PALETTES[] =
 {
     { L"Scary Big Guy 1",           0x318FA, 0x31AFA, indexCPS2_MVCAssets, 0x5c, &pairFullyLinkedNode },
@@ -1710,12 +1721,12 @@ const sGame_PaletteDataset MVC_A_COUNCIL_STAGE_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_MEGAMAN_STAGE_PALETTES[] =
 {
-    { L"Sky",               0x314FA, 0x3165A, indexCPS2_MVCAssets, 0x56, &pairFullyLinkedNode },
-    { L"Foundry 1",         0x34D1A, 0x34F1A, indexCPS2_MVCAssets, 0x57 },
-    { L"Foundry 2",         0x34F1A, 0x3511A, indexCPS2_MVCAssets, 0x58 },
-    { L"Ground/Machines 1", 0x3A0FA, 0x3A2FA, indexCPS2_MVCAssets, 0x59 },
-    { L"Ground/Machines 2", 0x3A2FA, 0x3A4FA, indexCPS2_MVCAssets, 0x5a },
-    { L"WahweeRobotCrater", 0x516C4, 0x51764, indexCPS2_MVCAssets, 0x5b },
+    { L"Sky",                   0x314FA, 0x3165A, indexCPS2_MVCAssets, 0x56, &pairFullyLinkedNode },
+    { L"Foundry 1",             0x34D1A, 0x34F1A, indexCPS2_MVCAssets, 0x57 },
+    { L"Foundry 2",             0x34F1A, 0x3511A, indexCPS2_MVCAssets, 0x58 },
+    { L"Ground/Machines 1",     0x3A0FA, 0x3A2FA, indexCPS2_MVCAssets, 0x59 },
+    { L"Ground/Machines 2",     0x3A2FA, 0x3A4FA, indexCPS2_MVCAssets, 0x5a },
+    { L"Wahwee Robot Crater",   0x516C4, 0x51764, indexCPS2_MVCAssets, 0x5b },
 };
 
 const sDescTreeNode MVC_A_WARMACHINE_COLLECTION[] =
@@ -1900,6 +1911,7 @@ const sDescTreeNode MVC_A_PORTRAITS_COLLECTION[] =
 const sDescTreeNode MVC_A_BONUS_COLLECTION[] =
 {
    { _T("Bonus"),                         DESC_NODETYPE_TREE, (void*)MVC_A_BONUS_PALETTES,            ARRAYSIZE(MVC_A_BONUS_PALETTES) },
+   { _T("Blue Area of the Moon Stage"),   DESC_NODETYPE_TREE, (void*)MVC_A_BLUEMOON_STAGE_PALETTES,   ARRAYSIZE(MVC_A_BLUEMOON_STAGE_PALETTES) },
    { _T("Council Stage"),                 DESC_NODETYPE_TREE, (void*)MVC_A_COUNCIL_STAGE_PALETTES,    ARRAYSIZE(MVC_A_COUNCIL_STAGE_PALETTES) },
    { _T("Megaman Stage"),                 DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_STAGE_PALETTES,    ARRAYSIZE(MVC_A_MEGAMAN_STAGE_PALETTES) },
 };
