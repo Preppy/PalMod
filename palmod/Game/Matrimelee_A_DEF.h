@@ -1,0 +1,1360 @@
+#pragma once
+
+const sGame_PaletteDataset Matrimelee_A_ANNY_A_PALETTES[] =
+{
+    { L"Anny A", 0x29c82c, 0x29c84c },
+    { L"236+P/46a13c angel", 0x29c84c, 0x29c86c },
+    { L"623+P/46a13c beam", 0x29c86c, 0x29c88c },
+    { L"Rolling/Super Jumps", 0x29c88c, 0x29c8ac },
+    { L"EX/Super trails", 0x29c8ac, 0x29c8cc },
+    { L"Guard Cancel", 0x29c8cc, 0x29c8ec },
+    { L"HUD Portrait", 0x29c8ec, 0x29c90c },
+};
+
+const sGame_PaletteDataset Matrimelee_A_ANNY_B_PALETTES[] =
+{
+    { L"Anny B", 0x29c90c, 0x29c92c },
+    { L"236+P/46a13c angel", 0x29c92c, 0x29c94c },
+    { L"623+P/46a13c beam", 0x29c94c, 0x29c96c },
+    { L"Rolling/Super Jumps", 0x29c96c, 0x29c98c },
+    { L"EX/Super trails", 0x29c98c, 0x29c9ac },
+    { L"Guard Cancel", 0x29c9ac, 0x29c9cc },
+    { L"HUD Portrait", 0x29c9cc, 0x29c9ec },
+};
+
+const sGame_PaletteDataset Matrimelee_A_ANNY_C_PALETTES[] =
+{
+    { L"Anny C", 0x29c9ec, 0x29ca0c },
+    { L"236+P/46a13c angel", 0x29ca0c, 0x29ca2c },
+    { L"623+P/46a13c beam", 0x29ca2c, 0x29ca4c },
+    { L"Rolling/Super Jumps", 0x29ca4c, 0x29ca6c },
+    { L"EX/Super trails", 0x29ca6c, 0x29ca8c },
+    { L"Guard Cancel", 0x29ca8c, 0x29caac },
+    { L"HUD Portrait", 0x29caac, 0x29cacc },
+};
+
+const sGame_PaletteDataset Matrimelee_A_ANNY_D_PALETTES[] =
+{
+    { L"Anny D", 0x29cacc, 0x29caec },
+    { L"236+P/46a13c angel", 0x29caec, 0x29cb0c },
+    { L"623+P/46a13c beam", 0x29cb0c, 0x29cb2c },
+    { L"Rolling/Super Jumps", 0x29cb2c, 0x29cb4c },
+    { L"EX/Super trails", 0x29cb4c, 0x29cb6c },
+    { L"Guard Cancel", 0x29cb6c, 0x29cb8c },
+    { L"HUD Portrait", 0x29cb8c, 0x29cbac },
+};
+
+const sGame_PaletteDataset Matrimelee_A_ANNY_PORTRAIT_PALETTES[] =
+{
+    { L"Anny Portrait", 0x29CBAc, 0x29CC4C },
+};
+
+const sGame_PaletteDataset Matrimelee_A_BUNTARO_A_PALETTES[] =
+{
+    { L"Buntaro A", 0x29f2fc, 0x29f31c },
+    { L"Rolling/Super Jumps", 0x29f31c, 0x29f33c },
+    { L"EX/Super trails", 0x29f33c, 0x29f35c },
+    { L"Guard Cancel", 0x29f35c, 0x29f37c },
+    { L"HUD Portrait", 0x29f37c, 0x29f39c },
+};
+
+const sGame_PaletteDataset Matrimelee_A_BUNTARO_B_PALETTES[] =
+{
+    { L"Buntaro B", 0x29f39c, 0x29f3bc },
+    { L"Rolling/Super Jumps", 0x29f3bc, 0x29f3dc },
+    { L"EX/Super trails", 0x29f3dc, 0x29f3fc },
+    { L"Guard Cancel", 0x29f3fc, 0x29f41c },
+    { L"HUD Portrait", 0x29f41c, 0x29f43c },
+};
+
+const sGame_PaletteDataset Matrimelee_A_BUNTARO_C_PALETTES[] =
+{
+    { L"Buntaro C", 0x29f43c, 0x29f45c },
+    { L"Rolling/Super Jumps", 0x29f45c, 0x29f47c },
+    { L"EX/Super trails", 0x29f47c, 0x29f49c },
+    { L"Guard Cancel", 0x29f49c, 0x29f4bc },
+    { L"HUD Portrait", 0x29f4bc, 0x29f4dc },
+};
+
+const sGame_PaletteDataset Matrimelee_A_BUNTARO_D_PALETTES[] =
+{
+    { L"Buntaro D", 0x29f4dc, 0x29f4fc },
+    { L"Rolling/Super Jumps", 0x29f4fc, 0x29f51c },
+    { L"EX/Super trails", 0x29f51c, 0x29f53c },
+    { L"Guard Cancel", 0x29f53c, 0x29f55c },
+    { L"HUD Portrait", 0x29f55c, 0x29f57c },
+};
+
+const sGame_PaletteDataset Matrimelee_A_BUNTARO_PORTRAIT_PALETTES[] =
+{
+    { L"Buntaro portrait", 0x29F57c, 0x29F61C },
+};
+
+const sGame_PaletteDataset Matrimelee_A_CHINNEN_A_PALETTES[] =
+{
+    { L"Chinnen A", 0x29b824, 0x29b844 },
+    { L"646+P / 426+K", 0x29b844, 0x29b864 },
+    { L"624+P", 0x29b864, 0x29b884 },
+    { L"426+AC", 0x29b884, 0x29b8a4 },
+    { L"Rolling/Super Jumps", 0x29b8a4, 0x29b8c4 },
+    { L"EX/Super trails", 0x29b8c4, 0x29b8e4 },
+    { L"Guard Cancel", 0x29b8e4, 0x29b904 },
+    { L"HUD Portrait", 0x29b904, 0x29b924 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_CHINNEN_B_PALETTES[] =
+{
+    { L"Chinnen B", 0x29b924, 0x29b944 },
+    { L"646+P / 426+K", 0x29b944, 0x29b964 },
+    { L"624+P", 0x29b964, 0x29b984 },
+    { L"426+AC", 0x29b984, 0x29b9a4 },
+    { L"Rolling/Super Jumps", 0x29b9a4, 0x29b9c4 },
+    { L"EX/Super trails", 0x29b9c4, 0x29b9e4 },
+    { L"Guard Cancel", 0x29b9e4, 0x29ba04 },
+    { L"HUD Portrait", 0x29ba04, 0x29ba24 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_CHINNEN_C_PALETTES[] =
+{
+    { L"Chinnen C", 0x29ba24, 0x29ba44 },
+    { L"646+P / 426+K", 0x29ba44, 0x29ba64 },
+    { L"624+P", 0x29ba64, 0x29ba84 },
+    { L"426+AC", 0x29ba84, 0x29baa4 },
+    { L"Rolling/Super Jumps", 0x29baa4, 0x29bac4 },
+    { L"EX/Super trails", 0x29bac4, 0x29bae4 },
+    { L"Guard Cancel", 0x29bae4, 0x29bb04 },
+    { L"HUD Portrait", 0x29bb04, 0x29bb24 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_CHINNEN_D_PALETTES[] =
+{
+    { L"Chinnen D", 0x29bb24, 0x29bb44 },
+    { L"646+P / 426+K", 0x29bb44, 0x29bb64 },
+    { L"624+P", 0x29bb64, 0x29bb84 },
+    { L"426+AC", 0x29bb84, 0x29bba4 },
+    { L"Rolling/Super Jumps", 0x29bba4, 0x29bbc4 },
+    { L"EX/Super trails", 0x29bbc4, 0x29bbe4 },
+    { L"Guard Cancel", 0x29bbe4, 0x29bc04 },
+    { L"HUD Portrait", 0x29bc04, 0x29bc24 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_CHINNEN_PORTRAIT_PALETTES[] =
+{
+    { L"Chinnen Shared Portrait", 0x29BC24, 0x29BCA4 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_CLARA_A_PALETTES[] =
+{
+    { L"Clara A", 0x29cc4e, 0x29cc6e },
+    { L"214+P", 0x29cc6e, 0x29cc8e },
+    { L"214+K", 0x29cc8e, 0x29ccae },
+    { L"236+P", 0x29ccae, 0x29ccce },
+    { L"641236+BD", 0x29ccce, 0x29ccee },
+    { L"Unknown extra 1", 0x29ccee, 0x29cd0e },
+    { L"Winpose transformation 1", 0x29cd0e, 0x29cd2e },
+    { L"Winpose transformation 2", 0x29cd2e, 0x29cd4e },
+    { L"436236C", 0x29cd4e, 0x29cd6e },
+    { L"436236C", 0x29cd6e, 0x29cd8e },
+    { L"436236C", 0x29cd8e, 0x29cdae },
+    { L"Rolling/Super Jumps", 0x29cdae, 0x29cdce },
+    { L"EX/Super trails/Dashing 214+K", 0x29cdce, 0x29cdee },
+    { L"Guard Cancel", 0x29cdee, 0x29ce0e },
+    { L"HUD Portrait", 0x29ce0e, 0x29ce2e },
+};
+
+const sGame_PaletteDataset Matrimelee_A_CLARA_B_PALETTES[] =
+{
+    { L"Clara B", 0x29ce2e, 0x29ce4e },
+    { L"214+P", 0x29ce4e, 0x29ce6e },
+    { L"214+K", 0x29ce6e, 0x29ce8e },
+    { L"236+P", 0x29ce8e, 0x29ceae },
+    { L"641236+BD", 0x29ceae, 0x29cece },
+    { L"Unknown extra 1", 0x29cece, 0x29ceee },
+    { L"Winpose transformation 1", 0x29ceee, 0x29cf0e },
+    { L"Winpose transformation 2", 0x29cf0e, 0x29cf2e },
+    { L"436236C", 0x29cf2e, 0x29cf4e },
+    { L"436236C", 0x29cf4e, 0x29cf6e },
+    { L"436236C", 0x29cf6e, 0x29cf8e },
+    { L"Rolling/Super Jumps", 0x29cf8e, 0x29cfae },
+    { L"EX/Super trails/Dashing 214+K", 0x29cfae, 0x29cfce },
+    { L"Guard Cancel", 0x29cfce, 0x29cfee },
+    { L"HUD Portrait", 0x29cfee, 0x29d00e },
+};
+
+const sGame_PaletteDataset Matrimelee_A_CLARA_C_PALETTES[] =
+{
+    { L"Clara C", 0x29d00e, 0x29d02e },
+    { L"214+P", 0x29d02e, 0x29d04e },
+    { L"214+K", 0x29d04e, 0x29d06e },
+    { L"236+P", 0x29d06e, 0x29d08e },
+    { L"641236+BD", 0x29d08e, 0x29d0ae },
+    { L"Unknown extra 1", 0x29d0ae, 0x29d0ce },
+    { L"Winpose transformation 1", 0x29d0ce, 0x29d0ee },
+    { L"Winpose transformation 2", 0x29d0ee, 0x29d10e },
+    { L"436236C", 0x29d10e, 0x29d12e },
+    { L"436236C", 0x29d12e, 0x29d14e },
+    { L"436236C", 0x29d14e, 0x29d16e },
+    { L"Rolling/Super Jumps", 0x29d16e, 0x29d18e },
+    { L"EX/Super trails/Dashing 214+K", 0x29d18e, 0x29d1ae },
+    { L"Guard Cancel", 0x29d1ae, 0x29d1ce },
+    { L"HUD Portrait", 0x29d1ce, 0x29d1ee },
+};
+
+const sGame_PaletteDataset Matrimelee_A_CLARA_D_PALETTES[] =
+{
+    { L"Clara D", 0x29d1ee, 0x29d20e },
+    { L"214+P", 0x29d20e, 0x29d22e },
+    { L"214+K", 0x29d22e, 0x29d24e },
+    { L"236+P", 0x29d24e, 0x29d26e },
+    { L"641236+BD", 0x29d26e, 0x29d28e },
+    { L"Unknown extra 1", 0x29d28e, 0x29d2Ae },
+    { L"Winpose transformation 1", 0x29d2Ae, 0x29d2ce },
+    { L"Winpose transformation 2", 0x29d2ce, 0x29d2ee },
+    { L"436236C", 0x29d2ee, 0x29d30e },
+    { L"436236C", 0x29d30e, 0x29d32e },
+    { L"436236C", 0x29d32e, 0x29d34e },
+    { L"Rolling/Super Jumps", 0x29d34e, 0x29d36e },
+    { L"EX/Super trails/Dashing 214+K", 0x29d36e, 0x29d38e },
+    { L"Guard Cancel", 0x29d38e, 0x29d3ae },
+    { L"HUD Portrait", 0x29d3ae, 0x29d3ce },
+};
+
+const sGame_PaletteDataset Matrimelee_A_CLARA_PORTRAIT_PALETTES[] =
+{
+    { L"Clara Shared Portrait", 0x29D3CE, 0x29D44E },
+};
+
+const sGame_PaletteDataset Matrimelee_A_ELIAS_A_PALETTES[] =
+{
+    { L"Elias A", 0x2A1240, 0x2A1260 },
+    { L"623P flames", 0x2A1260, 0x2A1280 },
+    { L"214P flames", 0x2A1280, 0x2A12A0 },
+    { L"632146P flames", 0x2A12A0, 0x2A12c0 },
+    { L"236P flames", 0x2A12c0, 0x2A12e0 },
+    { L"Rolling/Super Jumps", 0x2A12e0, 0x2A1300 },
+    { L"EX/Super trails", 0x2A1300, 0x2A1320 },
+    { L"Guard Cancel/632146P", 0x2A1320, 0x2A1340 },
+    { L"HUD Portrait", 0x2A1340, 0x2A1360 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_ELIAS_B_PALETTES[] =
+{
+    { L"Elias B", 0x2A1360, 0x2A1380 },
+    { L"623P flames", 0x2A1380, 0x2A13a0 },
+    { L"214P flames", 0x2A13a0, 0x2A13c0 },
+    { L"632146P flames", 0x2A13c0, 0x2A13e0 },
+    { L"236P flames", 0x2A13e0, 0x2A1400 },
+    { L"Rolling/Super Jumps", 0x2A1400, 0x2A1420 },
+    { L"EX/Super trails", 0x2A1420, 0x2A1440 },
+    { L"Guard Cancel/632146P", 0x2A1440, 0x2A1460 },
+    { L"HUD Portrait", 0x2A1460, 0x2A1480 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_ELIAS_C_PALETTES[] =
+{
+    { L"Elias C", 0x2A1480, 0x2A14a0 },
+    { L"623P flames", 0x2A14a0, 0x2A14c0 },
+    { L"214P flames", 0x2A14c0, 0x2A14e0 },
+    { L"632146P flames", 0x2A14e0, 0x2A1500 },
+    { L"236P flames", 0x2A1500, 0x2A1520 },
+    { L"Rolling/Super Jumps", 0x2A1520, 0x2A1540 },
+    { L"EX/Super trails", 0x2A1540, 0x2A1560 },
+    { L"Guard Cancel/632146P", 0x2A1560, 0x2A1580 },
+    { L"HUD Portrait", 0x2A1580, 0x2A15a0 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_ELIAS_D_PALETTES[] =
+{
+    { L"Elias D", 0x2A15a0, 0x2A15c0 },
+    { L"623P flames", 0x2A15c0, 0x2A15e0 },
+    { L"214P flames", 0x2A15e0, 0x2A1600 },
+    { L"632146P flames", 0x2A1600, 0x2A1620 },
+    { L"236P flames", 0x2A1620, 0x2A1640 },
+    { L"Rolling/Super Jumps", 0x2A1640, 0x2A1660 },
+    { L"EX/Super trails", 0x2A1660, 0x2A1680 },
+    { L"Guard Cancel/632146P", 0x2A1680, 0x2A16a0 },
+    { L"HUD Portrait", 0x2A16a0, 0x2A16c0 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_ELIAS_PORTRAIT_PALETTES[] =
+{
+    { L"Elias Portrait", 0x2A16C0, 0x2A1740 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_HIKARU_A_PALETTES[] =
+{
+    { L"Hikaru A", 0x29f920, 0x29f940 },
+    { L"Rolling/Super Jumps", 0x29f940, 0x29f960 },
+    { L"EX/Super trails", 0x29f960, 0x29f980 },
+    { L"Guard Cancel", 0x29f980, 0x29f9a0 },
+    { L"HUD Portrait", 0x29f9a0, 0x29f9c0 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_HIKARU_B_PALETTES[] =
+{
+    { L"Hikaru B", 0x29f9c0, 0x29f9e0 },
+    { L"Rolling/Super Jumps", 0x29f9e0, 0x29fa00 },
+    { L"EX/Super trails", 0x29fa00, 0x29fa20 },
+    { L"Guard Cancel", 0x29fa20, 0x29fa40 },
+    { L"HUD Portrait", 0x29fa40, 0x29fa60 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_HIKARU_C_PALETTES[] =
+{
+    { L"Hikaru C", 0x29fa60, 0x29fa80 },
+    { L"Rolling/Super Jumps", 0x29fa80, 0x29faa0 },
+    { L"EX/Super trails", 0x29faa0, 0x29fac0 },
+    { L"Guard Cancel", 0x29fac0, 0x29fae0 },
+    { L"HUD Portrait", 0x29fae0, 0x29fb00 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_HIKARU_D_PALETTES[] =
+{
+    { L"Hikaru D", 0x29fb00, 0x29fb20 },
+    { L"Rolling/Super Jumps", 0x29fb20, 0x29fb40 },
+    { L"EX/Super trails", 0x29fb40, 0x29fb60 },
+    { L"Guard Cancel", 0x29fb60, 0x29fb80 },
+    { L"HUD Portrait", 0x29fb80, 0x29fba0 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_HIKARU_PORTRAIT_PALETTES[] =
+{
+    { L"Hikaru Shared Portrait", 0x29FBA0, 0x29FC00 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_JIMMY_A_PALETTES[] =
+{
+    { L"Jimmy A", 0x2A1742, 0x2A1762 },
+    { L"Special attack effects", 0x2A1762, 0x2A1782 },
+    { L"Coat", 0x2A1782, 0x2A17a2 },
+    { L"Rolling/Super Jumps", 0x2A17a2, 0x2A17c2 },
+    { L"EX/Super trails", 0x2A17c2, 0x2A17e2 },
+    { L"Guard Cancel", 0x2A17e2, 0x2A1802 },
+    { L"HUD Portrait", 0x2A1802, 0x2A1822 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_JIMMY_B_PALETTES[] =
+{
+    { L"Jimmy B", 0x2A1822, 0x2A1842 },
+    { L"Special attack effects", 0x2A1842, 0x2A1862 },
+    { L"Coat", 0x2A1862, 0x2A1882 },
+    { L"Rolling/Super Jumps", 0x2A1882, 0x2A18a2 },
+    { L"EX/Super trails", 0x2A18a2, 0x2A18c2 },
+    { L"Guard Cancel", 0x2A18c2, 0x2A18e2 },
+    { L"HUD Portrait", 0x2A18e2, 0x2A1902 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_JIMMY_C_PALETTES[] =
+{
+    { L"Jimmy C", 0x2A1902, 0x2A1922 },
+    { L"Special attack effects", 0x2A1922, 0x2A1942 },
+    { L"Coat", 0x2A1942, 0x2A1962 },
+    { L"Rolling/Super Jumps", 0x2A1962, 0x2A1982 },
+    { L"EX/Super trails", 0x2A1982, 0x2A19a2 },
+    { L"Guard Cancel", 0x2A19a2, 0x2A19c2 },
+    { L"HUD Portrait", 0x2A19c2, 0x2A19e2 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_JIMMY_D_PALETTES[] =
+{
+    { L"Jimmy D", 0x2A19e2, 0x2A1a02 },
+    { L"Special attack effects", 0x2A1a02, 0x2A1a22 },
+    { L"Coat", 0x2A1a22, 0x2A1a42 },
+    { L"Rolling/Super Jumps", 0x2A1a42, 0x2A1a62 },
+    { L"EX/Super trails", 0x2A1a62, 0x2A1a82 },
+    { L"Guard Cancel", 0x2A1a82, 0x2A1aa2 },
+    { L"HUD Portrait", 0x2A1aa2, 0x2A1ac2 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_JIMMY_PORTRAIT_PALETTES[] =
+{
+    { L"Jimmy Shared Portrait", 0x2A1AC2, 0x2A1B22 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_JONES_A_PALETTES[] =
+{
+    { L"Jones A", 0x2A09dc, 0x2A09fc },
+    { L"236P", 0x2A09fc, 0x2A0a1c },
+    { L"236BD", 0x2A0a1c, 0x2A0a3c },
+    { L"Rolling/Super Jumps", 0x2A0a3c, 0x2A0a5c },
+    { L"EX/Super trails", 0x2A0a5c, 0x2A0a7c },
+    { L"Guard Cancel", 0x2A0a7c, 0x2A0a9c },
+    { L"HUD Portrait", 0x2A0a9c, 0x2A0abc },
+};
+
+const sGame_PaletteDataset Matrimelee_A_JONES_B_PALETTES[] =
+{
+    { L"Jones B", 0x2A0abc, 0x2A0adc },
+    { L"236P", 0x2A0adc, 0x2A0afc },
+    { L"236BD", 0x2A0afc, 0x2A0b1c },
+    { L"Rolling/Super Jumps", 0x2A0b1c, 0x2A0b3c },
+    { L"EX/Super trails", 0x2A0b3c, 0x2A0b5c },
+    { L"Guard Cancel", 0x2A0b5c, 0x2A0b7c },
+    { L"HUD Portrait", 0x2A0b7c, 0x2A0b9c },
+};
+
+const sGame_PaletteDataset Matrimelee_A_JONES_C_PALETTES[] =
+{
+    { L"Jones C", 0x2A0b9c, 0x2A0bbc },
+    { L"236P", 0x2A0bbc, 0x2A0bdc },
+    { L"236BD", 0x2A0bdc, 0x2A0bfc },
+    { L"Rolling/Super Jumps", 0x2A0bfc, 0x2A0c1c },
+    { L"EX/Super trails", 0x2A0c1c, 0x2A0c3c },
+    { L"Guard Cancel", 0x2A0c3c, 0x2A0c5c },
+    { L"HUD Portrait", 0x2A0c5c, 0x2A0c7c },
+};
+
+const sGame_PaletteDataset Matrimelee_A_JONES_D_PALETTES[] =
+{
+    { L"Jones D", 0x2A0c7c, 0x2A0c9c },
+    { L"236P", 0x2A0c9c, 0x2A0cbc },
+    { L"236BD", 0x2A0cbc, 0x2A0cdc },
+    { L"Rolling/Super Jumps", 0x2A0cdc, 0x2A0cfc },
+    { L"EX/Super trails", 0x2A0cfc, 0x2A0d1c },
+    { L"Guard Cancel", 0x2A0d1c, 0x2A0d3c },
+    { L"HUD Portrait", 0x2A0d3c, 0x2A0d5c },
+};
+
+const sGame_PaletteDataset Matrimelee_A_JONES_PORTRAIT_PALETTES[] =
+{
+    { L"Jones Shared Portrait", 0x2A0D5c, 0x2A0dbC },
+};
+
+const sGame_PaletteDataset Matrimelee_A_KANJI_A_PALETTES[] =
+{
+    { L"Kanji A", 0x29d450, 0x29d470 },
+    { L"Rising headbutt", 0x29d470, 0x29d490 },
+    { L"BD,B,B,D transformation flash", 0x29d490, 0x29d4b0 },
+    { L"[4]6+BD", 0x29d4b0, 0x29d4d0 },
+    { L"426P/BD,B,B,D effects", 0x29d4d0, 0x29d4f0 },
+    { L"Rolling/Super Jumps", 0x29d4f0, 0x29d510 },
+    { L"EX/Super trails", 0x29d510, 0x29d530 },
+    { L"Guard Cancel", 0x29d530, 0x29d550 },
+    { L"HUD Portrait", 0x29d550, 0x29d570 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_KANJI_B_PALETTES[] =
+{
+    { L"Kanji B", 0x29d570, 0x29d590 },
+    { L"Rising headbutt", 0x29d590, 0x29d5b0 },
+    { L"BD,B,B,D transformation flash", 0x29d5b0, 0x29d5d0 },
+    { L"[4]6+BD", 0x29d5d0, 0x29d5f0 },
+    { L"426P/BD,B,B,D effects", 0x29d5f0, 0x29d610 },
+    { L"Rolling/Super Jumps", 0x29d610, 0x29d630 },
+    { L"EX/Super trails", 0x29d630, 0x29d650 },
+    { L"Guard Cancel", 0x29d650, 0x29d670 },
+    { L"HUD Portrait", 0x29d670, 0x29d690 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_KANJI_C_PALETTES[] =
+{
+    { L"Kanji C", 0x29d690, 0x29d6b0 },
+    { L"Rising headbutt", 0x29d6b0, 0x29d6d0 },
+    { L"BD,B,B,D transformation flash", 0x29d6d0, 0x29d6f0 },
+    { L"[4]6+BD", 0x29d6f0, 0x29d710 },
+    { L"426P/BD,B,B,D effects", 0x29d710, 0x29d730 },
+    { L"Rolling/Super Jumps", 0x29d730, 0x29d750 },
+    { L"EX/Super trails", 0x29d750, 0x29d770 },
+    { L"Guard Cancel", 0x29d770, 0x29d790 },
+    { L"HUD Portrait", 0x29d790, 0x29d7b0 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_KANJI_D_PALETTES[] =
+{
+    { L"Kanji D", 0x29d7b0, 0x29d7d0 },
+    { L"Rising headbutt", 0x29d7d0, 0x29d7f0 },
+    { L"BD,B,B,D transformation flash", 0x29d7f0, 0x29d810 },
+    { L"[4]6+BD", 0x29d810, 0x29d830 },
+    { L"426P/BD,B,B,D effects", 0x29d830, 0x29d850 },
+    { L"Rolling/Super Jumps", 0x29d850, 0x29d870 },
+    { L"EX/Super trails", 0x29d870, 0x29d890 },
+    { L"Guard Cancel", 0x29d890, 0x29d8b0 },
+    { L"HUD Portrait", 0x29d8b0, 0x29d8d0 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_KANJI_PORTRAIT_PALETTES[] =
+{
+    { L"Kanji Shared Portrait", 0x29D8D0, 0x29D950 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_KEITH_A_PALETTES[] =
+{
+    { L"Keith A", 0x29b3a2, 0x29b3c2 },
+    { L"Special attack effects", 0x29b3c2, 0x29b3e2 },
+    { L"236236+C/214-1236+C", 0x29b3e2, 0x29b402 },
+    { L"Unknown extra", 0x29b402, 0x29b422 },
+    { L"Rolling/Super Jumps", 0x29b422, 0x29b442 },
+    { L"EX/Super trails", 0x29b442, 0x29b462 },
+    { L"Guard Cancel", 0x29b462, 0x29b482 },
+    { L"HUD Portrait", 0x29b482, 0x29b4a2 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_KEITH_B_PALETTES[] =
+{
+    { L"Keith B", 0x29b4a2, 0x29b4c2 },
+    { L"Special attack effects", 0x29b4c2, 0x29b4e2 },
+    { L"236236+C/214-1236+C", 0x29b4e2, 0x29b502 },
+    { L"Unknown extra", 0x29b502, 0x29b522 },
+    { L"Rolling/Super Jumps", 0x29b522, 0x29b542 },
+    { L"EX/Super trails", 0x29b542, 0x29b562 },
+    { L"Guard Cancel", 0x29b562, 0x29b582 },
+    { L"HUD Portrait", 0x29b582, 0x29b5a2 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_KEITH_C_PALETTES[] =
+{
+    { L"Keith C", 0x29b5a2, 0x29b5c2 },
+    { L"Special attack effects", 0x29b5c2, 0x29b5e2 },
+    { L"236236+C/214-1236+C", 0x29b5e2, 0x29b602 },
+    { L"Unknown extra", 0x29b602, 0x29b622 },
+    { L"Rolling/Super Jumps", 0x29b622, 0x29b642 },
+    { L"EX/Super trails", 0x29b642, 0x29b662 },
+    { L"Guard Cancel", 0x29b662, 0x29b682 },
+    { L"HUD Portrait", 0x29b682, 0x29b6a2 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_KEITH_D_PALETTES[] =
+{
+    { L"Keith D", 0x29b6a2, 0x29b6c2 },
+    { L"Special attack effects", 0x29b6c2, 0x29b6e2 },
+    { L"236236+C/214-1236+C", 0x29b6e2, 0x29b702 },
+    { L"Unknown extra", 0x29b702, 0x29b722 },
+    { L"Rolling/Super Jumps", 0x29b722, 0x29b742 },
+    { L"EX/Super trails", 0x29b742, 0x29b762 },
+    { L"Guard Cancel", 0x29b762, 0x29b782 },
+    { L"HUD Portrait", 0x29b782, 0x29b7a2 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_KEITH_PORTRAIT_PALETTES[] =
+{
+    { L"Keith Shared Portrait", 0x29B7A2, 0x29B822 }, 
+};
+
+const sGame_PaletteDataset Matrimelee_A_LYNN_A_PALETTES[] =
+{
+    { L"Lynn A", 0x2A0dbe, 0x2A0dde },
+    { L"Special attack effects", 0x2A0dde, 0x2A0dfe },
+    { L"236P", 0x2A0dfe, 0x2A0e1e },
+    { L"Unknown extra", 0x2A0e1e, 0x2A0e3e },
+    { L"Rolling/Super Jumps", 0x2A0e3e, 0x2A0e5e },
+    { L"EX/Super trails", 0x2A0e5e, 0x2A0e7e },
+    { L"Guard Cancel", 0x2A0e7e, 0x2A0e9e },
+    { L"HUD Portrait", 0x2A0e9e, 0x2A0ebe },
+};
+
+const sGame_PaletteDataset Matrimelee_A_LYNN_B_PALETTES[] =
+{
+    { L"Lynn B", 0x2A0ebe, 0x2A0ede },
+    { L"Special attack effects", 0x2A0ede, 0x2A0efe },
+    { L"236P", 0x2A0efe, 0x2A0f1e },
+    { L"Unknown extra", 0x2A0f1e, 0x2A0f3e },
+    { L"Rolling/Super Jumps", 0x2A0f3e, 0x2A0f5e },
+    { L"EX/Super trails", 0x2A0f5e, 0x2A0f7e },
+    { L"Guard Cancel", 0x2A0f7e, 0x2A0f9e },
+    { L"HUD Portrait", 0x2A0f9e, 0x2A0fbe },
+};
+
+const sGame_PaletteDataset Matrimelee_A_LYNN_C_PALETTES[] =
+{
+    { L"Lynn C", 0x2A0fbe, 0x2A0fde },
+    { L"Special attack effects", 0x2A0fde, 0x2A0ffe },
+    { L"236P", 0x2A0ffe, 0x2A101e },
+    { L"Unknown extra", 0x2A101e, 0x2A103e },
+    { L"Rolling/Super Jumps", 0x2A103e, 0x2A105e },
+    { L"EX/Super trails", 0x2A105e, 0x2A107e },
+    { L"Guard Cancel", 0x2A107e, 0x2A109e },
+    { L"HUD Portrait", 0x2A109e, 0x2A10be },
+};
+
+const sGame_PaletteDataset Matrimelee_A_LYNN_D_PALETTES[] =
+{
+    { L"Lynn C",                    0x2A10be, 0x2A10de },
+    { L"Special attack effects",   0x2A10de, 0x2A10fe },
+    { L"236P",                      0x2A10fe, 0x2A111e },
+    { L"Unknown extra",             0x2A111e, 0x2A113e },
+    { L"Rolling/Super Jumps",       0x2A113e, 0x2A115e },
+    { L"EX/Super trails",          0x2A115e, 0x2A117e },
+    { L"Guard Cancel",             0x2A117e, 0x2A119e },
+    { L"HUD Portrait",             0x2A119e, 0x2A11be },
+};
+
+const sGame_PaletteDataset Matrimelee_A_LYNN_PORTRAIT_PALETTES[] =
+{
+    { L"Lynn Shared Portrait", 0x2A11Be, 0x2A123e },
+};
+
+const sGame_PaletteDataset Matrimelee_A_OLOF_A_PALETTES[] =
+{
+    { L"Olof A", 0x29ed78, 0x29ed98 },
+    { L"624K", 0x29ed98, 0x29edb8 },
+    { L"Special attack effects", 0x29edb8, 0x29edd8 },
+    { L"4146C", 0x29edd8, 0x29edf8 },
+    { L"4146C", 0x29edf8, 0x29ee18 },
+    { L"Bandages/Blood", 0x29ee18, 0x29ee38 },
+    { L"Rolling/Super Jumps", 0x29ee38, 0x29ee58 },
+    { L"EX/Super trails", 0x29ee58, 0x29ee78 },
+    { L"Guard Cancel", 0x29ee78, 0x29ee98 },
+    { L"HUD Portrait", 0x29ee98, 0x29eeb8 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_OLOF_B_PALETTES[] =
+{
+    { L"Olof B", 0x29eeb8, 0x29eed8 },
+    { L"624K", 0x29eed8, 0x29eef8 },
+    { L"Special attack effects", 0x29eef8, 0x29ef18 },
+    { L"4146C", 0x29ef18, 0x29ef38 },
+    { L"4146C", 0x29ef38, 0x29ef58 },
+    { L"Bandages/Blood", 0x29ef58, 0x29ef78 },
+    { L"Rolling/Super Jumps", 0x29ef78, 0x29ef98 },
+    { L"EX/Super trails", 0x29ef98, 0x29efb8 },
+    { L"Guard Cancel", 0x29efb8, 0x29efd8 },
+    { L"HUD Portrait", 0x29efd8, 0x29eff8 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_OLOF_C_PALETTES[] =
+{
+    { L"Olof C", 0x29eff8, 0x29f018 },
+    { L"624K", 0x29f018, 0x29f038 },
+    { L"Special attack effects", 0x29f038, 0x29f058 },
+    { L"4146C", 0x29f058, 0x29f078 },
+    { L"4146C", 0x29f078, 0x29f098 },
+    { L"Bandages/Blood", 0x29f098, 0x29f0b8 },
+    { L"Rolling/Super Jumps", 0x29f0b8, 0x29f0d8 },
+    { L"EX/Super trails", 0x29f0d8, 0x29f0f8 },
+    { L"Guard Cancel", 0x29f0f8, 0x29f118 },
+    { L"HUD Portrait", 0x29f118, 0x29f138 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_OLOF_D_PALETTES[] =
+{
+    { L"Olof D", 0x29f138, 0x29f158 },
+    { L"624K", 0x29f158, 0x29f178 },
+    { L"Special attack effects", 0x29f178, 0x29f198 },
+    { L"4146C", 0x29f198, 0x29f1b8 },
+    { L"4146C", 0x29f1b8, 0x29f1d8 },
+    { L"Bandages/Blood", 0x29f1d8, 0x29f1f8 },
+    { L"Rolling/Super Jumps", 0x29f1f8, 0x29f218 },
+    { L"EX/Super trails", 0x29f218, 0x29f238 },
+    { L"Guard Cancel", 0x29f238, 0x29f258 },
+    { L"HUD Portrait", 0x29f258, 0x29f278 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_OLOF_PORTRAIT_PALETTES[] =
+{
+    { L"Olof Shared Portrait", 0x29F278, 0x29F2F8 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_POOCHY_A_PALETTES[] =
+{
+    { L"Poochy A", 0x29d952, 0x29d972 },
+    { L"214P items 1", 0x29d972, 0x29d992 },
+    { L"214P items 2", 0x29d992, 0x29d9b2 },
+    { L"236P", 0x29d9b2, 0x29d9d2 },
+    { L"A(hold), B(hold), C(hold)", 0x29d9d2, 0x29d9f2 },
+    { L"6-4-6-4-6-4-6-4", 0x29d9f2, 0x29da12 },
+    { L"Rolling/Super Jumps", 0x29da12, 0x29da32 },
+    { L"EX/Super trails", 0x29da32, 0x29da52 },
+    { L"Guard Cancel", 0x29da52, 0x29da72 },
+    { L"HUD Portrait", 0x29da72, 0x29da92 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_POOCHY_B_PALETTES[] =
+{
+    { L"Poochy B", 0x29da92, 0x29dab2 },
+    { L"214P items 1", 0x29dab2, 0x29dad2 },
+    { L"214P items 2", 0x29dad2, 0x29daf2 },
+    { L"236P", 0x29daf2, 0x29db12 },
+    { L"A(hold), B(hold), C(hold)", 0x29db12, 0x29db32 },
+    { L"6-4-6-4-6-4-6-4", 0x29db32, 0x29db52 },
+    { L"Rolling/Super Jumps", 0x29db52, 0x29db72 },
+    { L"EX/Super trails", 0x29db72, 0x29db92 },
+    { L"Guard Cancel", 0x29db92, 0x29dbb2 },
+    { L"HUD Portrait", 0x29dbb2, 0x29dbd2 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_POOCHY_C_PALETTES[] =
+{
+    { L"Poochy C", 0x29dbd2, 0x29dbf2 },
+    { L"214P items 1", 0x29dbf2, 0x29dc12 },
+    { L"214P items 2", 0x29dc12, 0x29dc32 },
+    { L"236P", 0x29dc32, 0x29dc52 },
+    { L"A(hold), B(hold), C(hold)", 0x29dc52, 0x29dc72 },
+    { L"6-4-6-4-6-4-6-4", 0x29dc72, 0x29dc92 },
+    { L"Rolling/Super Jumps", 0x29dc92, 0x29dcb2 },
+    { L"EX/Super trails", 0x29dcb2, 0x29dcd2 },
+    { L"Guard Cancel", 0x29dcd2, 0x29dcf2 },
+    { L"HUD Portrait", 0x29dcf2, 0x29dd12 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_POOCHY_D_PALETTES[] =
+{
+    { L"Poochy D", 0x29dd12, 0x29dd32 },
+    { L"214P items 1", 0x29dd32, 0x29dd52 },
+    { L"214P items 2", 0x29dd52, 0x29dd72 },
+    { L"236P", 0x29dd72, 0x29dd92 },
+    { L"A(hold), B(hold), C(hold)", 0x29dd92, 0x29ddb2 },
+    { L"6-4-6-4-6-4-6-4", 0x29ddb2, 0x29ddd2 },
+    { L"Rolling/Super Jumps", 0x29ddd2, 0x29ddf2 },
+    { L"EX/Super trails", 0x29ddf2, 0x29de12 },
+    { L"Guard Cancel", 0x29de12, 0x29de32 },
+    { L"HUD Portrait", 0x29de32, 0x29de52 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_POOCHY_PORTRAIT_PALETTES[] =
+{
+    { L"Poochy Shared Portrait", 0x29DE52, 0x29DED2 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_A_PALETTES[] =
+{
+    { L"Princess Sissy A", 0x29fc02, 0x29fc22 },
+    { L"Normal attack sprites", 0x29fc22, 0x29fc42 },
+    { L"236P/214-1236C Lazer", 0x29fc42, 0x29fc62 },
+    { L"Treasure chest", 0x29fc62, 0x29fc82 },
+    { L"624K/214-1236A Bomb", 0x29fc82, 0x29fca2 },
+    { L"624K/214-1236A Explosion", 0x29fca2, 0x29fcc2 },
+    { L"623P", 0x29fcc2, 0x29fce2 },
+    { L"214-1236C Gun/Cage", 0x29fce2, 0x29fd02 },
+    { L"Rolling/Super Jumps", 0x29fd02, 0x29fd22 },
+    { L"EX/Super trails", 0x29fd22, 0x29fd42 },
+    { L"Guard Cancel", 0x29fd42, 0x29fd62 },
+    { L"HUD Portrait", 0x29fd62, 0x29fd82 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_B_PALETTES[] =
+{
+    { L"Princess Sissy B", 0x29fd82, 0x29fda2 },
+    { L"Normal attack sprites", 0x29fda2, 0x29fdc2 },
+    { L"236P/214-1236C Lazer", 0x29fdc2, 0x29fde2 },
+    { L"Treasure chest", 0x29fde2, 0x29fe02 },
+    { L"624K/214-1236A Bomb", 0x29fe02, 0x29fe22 },
+    { L"624K/214-1236A Explosion", 0x29fe22, 0x29fe42 },
+    { L"623P", 0x29fe42, 0x29fe62 },
+    { L"214-1236C Gun/Cage", 0x29fe62, 0x29fe82 },
+    { L"Rolling/Super Jumps", 0x29fe82, 0x29fea2 },
+    { L"EX/Super trails", 0x29fea2, 0x29fec2 },
+    { L"Guard Cancel", 0x29fec2, 0x29fee2 },
+    { L"HUD Portrait", 0x29fee2, 0x29ff02 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_C_PALETTES[] =
+{
+    { L"Princess Sissy C", 0x29ff02, 0x29ff22 },
+    { L"Normal attack sprites", 0x29ff22, 0x29ff42 },
+    { L"236P/214-1236C Lazer", 0x29ff42, 0x29ff62 },
+    { L"Treasure chest", 0x29ff62, 0x29ff82 },
+    { L"624K/214-1236A Bomb", 0x29ff82, 0x29ffa2 },
+    { L"624K/214-1236A Explosion", 0x29ffa2, 0x29ffc2 },
+    { L"623P", 0x29ffc2, 0x29ffe2 },
+    { L"214-1236C Gun/Cage", 0x29ffe2, 0x2A0002 },
+    { L"Rolling/Super Jumps", 0x2A0002, 0x2A0022 },
+    { L"EX/Super trails", 0x2A0022, 0x2A0042 },
+    { L"Guard Cancel", 0x2A0042, 0x2A0062 },
+    { L"HUD Portrait", 0x2A0062, 0x2A0082 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_D_PALETTES[] =
+{
+    { L"Princess Sissy D", 0x2A0082, 0x2A00a2 },
+    { L"Normal attack sprites", 0x2A00a2, 0x2A00c2 },
+    { L"236P/214-1236C Lazer", 0x2A00c2, 0x2A00e2 },
+    { L"Treasure chest", 0x2A00e2, 0x2A0102 },
+    { L"624K/214-1236A Bomb", 0x2A0102, 0x2A0122 },
+    { L"624K/214-1236A Explosion", 0x2A0122, 0x2A0142 },
+    { L"623P", 0x2A0142, 0x2A0162 },
+    { L"214-1236C Gun/Cage", 0x2A0162, 0x2A0182 },
+    { L"Rolling/Super Jumps", 0x2A0182, 0x2A01a2 },
+    { L"EX/Super trails", 0x2A01a2, 0x2A01c2 },
+    { L"Guard Cancel", 0x2A01c2, 0x2A01e2 },
+    { L"HUD Portrait", 0x2A01e2, 0x2A0202 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_PORTRAIT_PALETTES[] =
+{
+    { L"Princess Sissy Shared Portrait", 0x2A0202, 0x2A02A2 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_REIJI_A_PALETTES[] =
+{
+    { L"Reiji A", 0x29afc0, 0x29afe0 },
+    { L"236+P/623+P/Mash B or D", 0x29afe0, 0x29b000 },
+    { L"236236+C", 0x29b000, 0x29b020 },
+    { L"Rolling/Super Jumps", 0x29b020, 0x29b040 },
+    { L"EX/Super trails", 0x29b040, 0x29b060 },
+    { L"Guard Cancel", 0x29b060, 0x29b080 },
+    { L"HUD Portrait", 0x29b080, 0x29b0a0 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_REIJI_B_PALETTES[] =
+{
+    { L"Reiji B", 0x29b0a0, 0x29b0c0 },
+    { L"236+P/623+P/Mash B or D", 0x29b0c0, 0x29b0e0 },
+    { L"236236+C", 0x29b0e0, 0x29b100 },
+    { L"Rolling/Super Jumps", 0x29b100, 0x29b120 },
+    { L"EX/Super trails", 0x29b120, 0x29b140 },
+    { L"Guard Cancel", 0x29b140, 0x29b160 },
+    { L"HUD Portrait", 0x29b160, 0x29b180 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_REIJI_C_PALETTES[] =
+{
+    { L"Reiji C", 0x29b180, 0x29b1a0 },
+    { L"236+P/623+P/Mash B or D", 0x29b1a0, 0x29b1c0 },
+    { L"236236+C", 0x29b1c0, 0x29b1e0 },
+    { L"Rolling/Super Jumps", 0x29b1e0, 0x29b200 },
+    { L"EX/Super trails", 0x29b200, 0x29b220 },
+    { L"Guard Cancel", 0x29b220, 0x29b240 },
+    { L"HUD Portrait", 0x29b240, 0x29b260 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_REIJI_D_PALETTES[] =
+{
+    { L"Reiji D", 0x29b260, 0x29b280 },
+    { L"236+P/623+P/Mash B or D", 0x29b280, 0x29b2A0 },
+    { L"236236+C", 0x29b2A0, 0x29b2c0 },
+    { L"Rolling/Super Jumps", 0x29b2c0, 0x29b2e0 },
+    { L"EX/Super trails", 0x29b2e0, 0x29b300 },
+    { L"Guard Cancel", 0x29b300, 0x29b320 },
+    { L"HUD Portrait", 0x29b320, 0x29b340 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_REIJI_PORTRAIT_PALETTES[] =
+{
+    { L"Reiji Shared Shared Portrait", 0x29B340, 0x29B3A0 }, 
+};
+
+const sGame_PaletteDataset Matrimelee_A_SAIZO_A_PALETTES[] =
+{
+    { L"Saizo A", 0x29bca6, 0x29bcc6 },
+    { L"QCF+P/HCF+K", 0x29bcc6, 0x29bce6 },
+    { L"Explosions", 0x29bce6, 0x29bd06 },
+    { L"Unknown 1", 0x29bd06, 0x29bd26 },
+    { L"QCF,HCB+C", 0x29bd26, 0x29bd46 },
+    { L"Unknown 2", 0x29bd46, 0x29bd66 },
+    { L"Bombs", 0x29bd66, 0x29bd86 },
+    { L"Rolling/Super Jumps", 0x29bd86, 0x29bda6 },
+    { L"EX/Super trails/Backdash", 0x29bda6, 0x29bdc6 },
+    { L"Guard Cancel", 0x29bdc6, 0x29bde6 },
+    { L"HUD Portrait", 0x29bde6, 0x29be06 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_SAIZO_B_PALETTES[] =
+{
+    { L"Saizo B", 0x29be06, 0x29be26 },
+    { L"QCF+P/HCF+K", 0x29be26, 0x29be46 },
+    { L"Explosions", 0x29be46, 0x29be66 },
+    { L"Unknown 1", 0x29be66, 0x29be86 },
+    { L"QCF,HCB+C", 0x29be86, 0x29bea6 },
+    { L"Unknown 2", 0x29bea6, 0x29bec6 },
+    { L"Bombs", 0x29bec6, 0x29bee6 },
+    { L"Rolling/Super Jumps", 0x29bee6, 0x29bf06 },
+    { L"EX/Super trails/Backdash", 0x29bf06, 0x29bf26 },
+    { L"Guard Cancel", 0x29bf26, 0x29bf46 },
+    { L"HUD Portrait", 0x29bf46, 0x29bf66 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_SAIZO_C_PALETTES[] =
+{
+    { L"Saizo C", 0x29bf66, 0x29bf86 },
+    { L"QCF+P/HCF+K", 0x29bf86, 0x29bfa6 },
+    { L"Explosions", 0x29bfa6, 0x29bfc6 },
+    { L"Unknown 1", 0x29bfc6, 0x29bfe6 },
+    { L"QCF,HCB+C", 0x29bfe6, 0x29c006 },
+    { L"Unknown 2", 0x29c006, 0x29c026 },
+    { L"Bombs", 0x29c026, 0x29c046 },
+    { L"Rolling/Super Jumps", 0x29c046, 0x29c066 },
+    { L"EX/Super trails/Backdash", 0x29c066, 0x29c086 },
+    { L"Guard Cancel", 0x29c086, 0x29c0a6 },
+    { L"HUD Portrait", 0x29c0a6, 0x29c0c6 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_SAIZO_D_PALETTES[] =
+{
+    { L"Saizo D", 0x29c0c6, 0x29c0e6 },
+    { L"QCF+P/HCF+K", 0x29c0e6, 0x29c106 },
+    { L"Explosions", 0x29c106, 0x29c126 },
+    { L"Unknown 1", 0x29c126, 0x29c146 },
+    { L"QCF,HCB+C", 0x29c146, 0x29c166 },
+    { L"Unknown 2", 0x29c166, 0x29c186 },
+    { L"Bombs", 0x29c186, 0x29c1a6 },
+    { L"Rolling/Super Jumps", 0x29c1a6, 0x29c1c6 },
+    { L"EX/Super trails/Backdash", 0x29c1c6, 0x29c1e6 },
+    { L"Guard Cancel", 0x29c1e6, 0x29c206 },
+    { L"HUD Portrait", 0x29c206, 0x29c226 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_SAIZO_PORTRAIT_PALETTES[] =
+{
+    { L"Saizo Shared Portrait", 0x29C226, 0x29C2A6 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_SHINTARO_A_PALETTES[] =
+{
+    { L"Shintaro A", 0x29f61e, 0x29f63e },
+    { L"Rolling/Super Jumps", 0x29f63e, 0x29f65e },
+    { L"EX/Super trails", 0x29f65e, 0x29f67e },
+    { L"Guard Cancel", 0x29f67e, 0x29f69e },
+    { L"HUD Portrait", 0x29f69e, 0x29f6be },
+};
+
+const sGame_PaletteDataset Matrimelee_A_SHINTARO_B_PALETTES[] =
+{
+    { L"Shintaro B", 0x29f6be, 0x29f6de },
+    { L"Rolling/Super Jumps", 0x29f6de, 0x29f6fe },
+    { L"EX/Super trails", 0x29f6fe, 0x29f71e },
+    { L"Guard Cancel", 0x29f71e, 0x29f73e },
+    { L"HUD Portrait", 0x29f73e, 0x29f75e },
+};
+
+const sGame_PaletteDataset Matrimelee_A_SHINTARO_C_PALETTES[] =
+{
+    { L"Shintaro C", 0x29f75e, 0x29f77e },
+    { L"Rolling/Super Jumps", 0x29f77e, 0x29f79e },
+    { L"EX/Super trails", 0x29f79e, 0x29f7be },
+    { L"Guard Cancel", 0x29f7be, 0x29f7de },
+    { L"HUD Portrait", 0x29f7de, 0x29f7fe },
+};
+
+const sGame_PaletteDataset Matrimelee_A_SHINTARO_D_PALETTES[] =
+{
+    { L"Shintaro D", 0x29f7fe, 0x29f81e },
+    { L"Rolling/Super Jumps", 0x29f81e, 0x29f83e },
+    { L"EX/Super trails", 0x29f83e, 0x29f85e },
+    { L"Guard Cancel", 0x29f85e, 0x29f87e },
+    { L"HUD Portrait", 0x29f87e, 0x29f89e },
+};
+
+const sGame_PaletteDataset Matrimelee_A_SHINTARO_PORTRAIT_PALETTES[] =
+{
+    { L"Shintaro Shared Portrait", 0x29F89e, 0x29F91E },
+};
+
+const sGame_PaletteDataset Matrimelee_A_TANE_A_PALETTES[] =
+{
+    { L"Tane A", 0x29ded4, 0x29def4 },
+    { L"[4]6P", 0x29def4, 0x29df14 },
+    { L"[4]6K", 0x29df14, 0x29df34 },
+    { L"624P/4146C", 0x29df34, 0x29df54 },
+    { L"4146C", 0x29df54, 0x29df74 },
+    { L"Intro animation", 0x29df74, 0x29df94 },
+    { L"Unknown", 0x29df94, 0x29dfb4 },
+    { L"Outro animation", 0x29dfb4, 0x29dfd4 },
+    { L"Outro animation", 0x29dfd4, 0x29dff4 },
+    { L"Outro animation", 0x29dff4, 0x29e014 },
+    { L"Outro animation", 0x29e014, 0x29e034 },
+    { L"Outro animation", 0x29e034, 0x29e054 },
+    { L"Rolling/Super Jumps", 0x29e054, 0x29e074 },
+    { L"EX/Super trails", 0x29e074, 0x29e094 },
+    { L"Guard Cancel", 0x29e094, 0x29e0b4 },
+    { L"HUD Portrait", 0x29e0b4, 0x29e0d4 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_TANE_B_PALETTES[] =
+{
+    { L"Tane B", 0x29e0d4, 0x29e0f4 },
+    { L"[4]6P", 0x29e0f4, 0x29e114 },
+    { L"[4]6K", 0x29e114, 0x29e134 },
+    { L"624P/4146C", 0x29e134, 0x29e154 },
+    { L"4146C", 0x29e154, 0x29e174 },
+    { L"Intro animation", 0x29e174, 0x29e194 },
+    { L"Unknown", 0x29e194, 0x29e1b4 },
+    { L"Outro animation", 0x29e1b4, 0x29e1d4 },
+    { L"Outro animation", 0x29e1d4, 0x29e1f4 },
+    { L"Outro animation", 0x29e1f4, 0x29e214 },
+    { L"Outro animation", 0x29e214, 0x29e234 },
+    { L"Outro animation", 0x29e234, 0x29e254 },
+    { L"Rolling/Super Jumps", 0x29e254, 0x29e274 },
+    { L"EX/Super trails", 0x29e274, 0x29e294 },
+    { L"Guard Cancel", 0x29e294, 0x29e2b4 },
+    { L"HUD Portrait", 0x29e2b4, 0x29e2d4 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_TANE_C_PALETTES[] =
+{
+    { L"Tane C", 0x29e2d4, 0x29e2f4 },
+    { L"[4]6P", 0x29e2f4, 0x29e314 },
+    { L"[4]6K", 0x29e314, 0x29e334 },
+    { L"624P/4146C", 0x29e334, 0x29e354 },
+    { L"4146C", 0x29e354, 0x29e374 },
+    { L"Intro animation", 0x29e374, 0x29e394 },
+    { L"Unknown", 0x29e394, 0x29e3b4 },
+    { L"Outro animation", 0x29e3b4, 0x29e3d4 },
+    { L"Outro animation", 0x29e3d4, 0x29e3f4 },
+    { L"Outro animation", 0x29e3f4, 0x29e414 },
+    { L"Outro animation", 0x29e414, 0x29e434 },
+    { L"Outro animation", 0x29e434, 0x29e454 },
+    { L"Rolling/Super Jumps", 0x29e454, 0x29e474 },
+    { L"EX/Super trails", 0x29e474, 0x29e494 },
+    { L"Guard Cancel", 0x29e494, 0x29e4b4 },
+    { L"HUD Portrait", 0x29e4b4, 0x29e4d4 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_TANE_D_PALETTES[] =
+{
+    { L"Tane D", 0x29e4d4, 0x29e4f4 },
+    { L"[4]6P", 0x29e4f4, 0x29e514 },
+    { L"[4]6K", 0x29e514, 0x29e534 },
+    { L"624P/4146C", 0x29e534, 0x29e554 },
+    { L"4146C", 0x29e554, 0x29e574 },
+    { L"Intro animation", 0x29e574, 0x29e594 },
+    { L"Unknown", 0x29e594, 0x29e5b4 },
+    { L"Outro animation", 0x29e5b4, 0x29e5d4 },
+    { L"Outro animation", 0x29e5d4, 0x29e5f4 },
+    { L"Outro animation", 0x29e5f4, 0x29e614 },
+    { L"Outro animation", 0x29e614, 0x29e634 },
+    { L"Outro animation", 0x29e634, 0x29e654 },
+    { L"Rolling/Super Jumps", 0x29e654, 0x29e674 },
+    { L"EX/Super trails", 0x29e674, 0x29e694 },
+    { L"Guard Cancel", 0x29e694, 0x29e6b4 },
+    { L"HUD Portrait", 0x29e6b4, 0x29e6d4 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_TANE_PORTRAIT_PALETTES[] =
+{
+    { L"Tane Shared Portrait", 0x29E6D4, 0x29e734 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_UME_A_PALETTES[] =
+{
+    { L"Ume A", 0x29e736, 0x29e756 },
+    { L"236P/236236P or K", 0x29e756, 0x29e776 },
+    { L"623P/(air)236K", 0x29e776, 0x29e796 },
+    { L"624P/1346A+C", 0x29e796, 0x29e7b6 },
+    { L"1346A+C", 0x29e7b6, 0x29e7d6 },
+    { L"Intro animation", 0x29e7d6, 0x29e7f6 },
+    { L"Unknown", 0x29e7f6, 0x29e816 },
+    { L"Unused(?)", 0x29e816, 0x29e836 },
+    { L"Unused(?)", 0x29e836, 0x29e856 },
+    { L"Unused(?)", 0x29e856, 0x29e876 },
+    { L"Rolling/Super Jumps", 0x29e876, 0x29e896 },
+    { L"EX/Super trails", 0x29e896, 0x29e8b6 },
+    { L"Guard Cancel", 0x29e8b6, 0x29e8d6 },
+    { L"HUD Portrait", 0x29e8d6, 0x29e8f6 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_UME_B_PALETTES[] =
+{
+    { L"Ume B", 0x29e8f6, 0x29e916 },
+    { L"236P/236236P or K", 0x29e916, 0x29e936 },
+    { L"623P/(air)236K", 0x29e936, 0x29e956 },
+    { L"624P/1346A+C", 0x29e956, 0x29e976 },
+    { L"1346A+C", 0x29e976, 0x29e996 },
+    { L"Intro animation", 0x29e996, 0x29e9b6 },
+    { L"Unknown", 0x29e9b6, 0x29e9d6 },
+    { L"Rolling/Super Jumps", 0x29e9d6, 0x29e9f6 },
+    { L"EX/Super trails", 0x29e9f6, 0x29ea16 },
+    { L"Guard Cancel", 0x29ea16, 0x29ea36 },
+    { L"HUD Portrait", 0x29ea36, 0x29ea56 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_UME_C_PALETTES[] =
+{
+    { L"Ume C", 0x29ea56, 0x29ea76 },
+    { L"236P/236236P or K", 0x29ea76, 0x29ea96 },
+    { L"623P/(air)236K", 0x29ea96, 0x29eab6 },
+    { L"624P/1346A+C", 0x29eab6, 0x29ead6 },
+    { L"1346A+C", 0x29ead6, 0x29eaf6 },
+    { L"Intro animation", 0x29eaf6, 0x29eb16 },
+    { L"Unknown", 0x29eb16, 0x29eb36 },
+    { L"Rolling/Super Jumps", 0x29eb36, 0x29eb56 },
+    { L"EX/Super trails", 0x29eb56, 0x29eb76 },
+    { L"Guard Cancel", 0x29eb76, 0x29eb96 },
+    { L"HUD Portrait", 0x29eb96, 0x29ebb6 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_UME_D_PALETTES[] =
+{
+    { L"Ume D", 0x29ebb6, 0x29ebd6 },
+    { L"236P/236236P or K", 0x29ebd6, 0x29ebf6 },
+    { L"623P/(air)236K", 0x29ebf6, 0x29ec16 },
+    { L"624P/1346A+C", 0x29ec16, 0x29ec36 },
+    { L"1346A+C", 0x29ec36, 0x29ec56 },
+    { L"Intro animation", 0x29ec56, 0x29ec76 },
+    { L"Unknown", 0x29ec76, 0x29ec96 },
+    { L"Rolling/Super Jumps", 0x29ec96, 0x29ecb6 },
+    { L"EX/Super trails", 0x29ecb6, 0x29ecd6 },
+    { L"Guard Cancel", 0x29ecd6, 0x29ecf6 },
+    { L"HUD Portrait", 0x29ecf6, 0x29ed16 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_UME_PORTRAIT_PALETTES[] =
+{
+    { L"Ume Shared Portrait", 0x29eD16, 0x29eD76 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_WHITE_A_PALETTES[] =
+{
+    { L"White A", 0x29c2A8, 0x29c2c8 },
+    { L"236+P", 0x29c2c8, 0x29c2e8 },
+    { L"[4]6+K", 0x29c2e8, 0x29c308 },
+    { L"(AIR)214+P", 0x29c308, 0x29c328 },
+    { L"236-3214+C", 0x29c328, 0x29c348 },
+    { L"Intro", 0x29c348, 0x29c368 },
+    { L"Rolling/Super Jumps", 0x29c368, 0x29c388 },
+    { L"EX/Super trails", 0x29c388, 0x29c3a8 },
+    { L"Guard Cancel", 0x29c3a8, 0x29c3c8 },
+    { L"HUD Portrait", 0x29c3c8, 0x29c3e8 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_WHITE_B_PALETTES[] =
+{
+    { L"White B", 0x29c3e8, 0x29c408 },
+    { L"236+P", 0x29c408, 0x29c428 },
+    { L"[b]f+K", 0x29c428, 0x29c448 },
+    { L"(AIR)214+P", 0x29c448, 0x29c468 },
+    { L"236-3214+C", 0x29c468, 0x29c488 },
+    { L"Intro", 0x29c488, 0x29c4a8 },
+    { L"Rolling/Super Jumps", 0x29c4a8, 0x29c4c8 },
+    { L"EX/Super trails", 0x29c4c8, 0x29c4e8 },
+    { L"Guard Cancel", 0x29c4e8, 0x29c508 },
+    { L"HUD Portrait", 0x29c508, 0x29c528 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_WHITE_C_PALETTES[] =
+{
+    { L"White C", 0x29c528, 0x29c548 },
+    { L"236+P", 0x29c548, 0x29c568 },
+    { L"[b]f+K", 0x29c568, 0x29c588 },
+    { L"(AIR)214+P", 0x29c588, 0x29c5a8 },
+    { L"236-3214+C", 0x29c5a8, 0x29c5c8 },
+    { L"Intro", 0x29c5c8, 0x29c5e8 },
+    { L"Rolling/Super Jumps", 0x29c5e8, 0x29c608 },
+    { L"EX/Super trails", 0x29c608, 0x29c628 },
+    { L"Guard Cancel", 0x29c628, 0x29c648 },
+    { L"HUD Portrait", 0x29c648, 0x29c668 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_WHITE_D_PALETTES[] =
+{
+    { L"White D", 0x29c668, 0x29c688 },
+    { L"236+P", 0x29c688, 0x29c6a8 },
+    { L"[b]f+K", 0x29c6a8, 0x29c6c8 },
+    { L"(AIR)214+P", 0x29c6c8, 0x29c6e8 },
+    { L"236-3214+C", 0x29c6e8, 0x29c708 },
+    { L"Intro", 0x29c708, 0x29c728 },
+    { L"Rolling/Super Jumps", 0x29c728, 0x29c748 },
+    { L"EX/Super trails", 0x29c748, 0x29c768 },
+    { L"Guard Cancel", 0x29c768, 0x29c788 },
+    { L"HUD Portrait", 0x29c788, 0x29c7a8 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_WHITE_PORTRAIT_PALETTES[] =
+{
+    { L"White Shared Portrait", 0x29C7A8, 0x29C828 },
+};
+	
+const sDescTreeNode Matrimelee_A_ANNY_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_ANNY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_ANNY_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_BUNTARO_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_A_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_B_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_C_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_D_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BUNTARO_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_BUNTARO_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_CHINNEN_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_A_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_B_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_C_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_D_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_CHINNEN_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_CHINNEN_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_CLARA_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_A_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_B_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_C_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_D_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_CLARA_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_CLARA_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_ELIAS_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_A_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_B_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_C_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_D_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_ELIAS_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_ELIAS_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_HIKARU_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_A_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_B_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_C_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_D_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_HIKARU_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_HIKARU_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_JIMMY_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_JIMMY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_JIMMY_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_JONES_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_A_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_B_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_C_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_D_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_JONES_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_JONES_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_KANJI_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_A_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_B_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_C_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_D_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_KANJI_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_KANJI_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_KEITH_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_A_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_B_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_C_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_D_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_KEITH_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_KEITH_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_LYNN_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_A_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_B_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_C_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_D_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_LYNN_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_LYNN_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_OLOF_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_A_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_B_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_C_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_D_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_OLOF_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_OLOF_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_POOCHY_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_POOCHY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_POOCHY_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_PRINCESSSISSY_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_PRINCESSSISSY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_REIJI_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_A_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_B_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_C_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_D_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_REIJI_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_REIJI_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_SAIZO_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_A_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_B_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_C_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_D_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_SAIZO_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_SAIZO_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_SHINTARO_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_A_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_B_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_C_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_D_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_SHINTARO_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_SHINTARO_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_TANE_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_A_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_B_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_C_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_D_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_TANE_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_TANE_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_UME_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_A_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_B_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_C_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_D_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_UME_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_UME_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_WHITE_COLLECTION[] =
+{
+    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_A_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_A_PALETTES) },
+    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_B_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_B_PALETTES) },
+    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_C_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_C_PALETTES) },
+    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_D_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_D_PALETTES) },
+    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_WHITE_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_WHITE_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_UNITS[] =
+{
+    { L"Anny",              DESC_NODETYPE_TREE, (void*)Matrimelee_A_ANNY_COLLECTION,      ARRAYSIZE(Matrimelee_A_ANNY_COLLECTION) },
+    { L"Buntaro",           DESC_NODETYPE_TREE, (void*)Matrimelee_A_BUNTARO_COLLECTION,      ARRAYSIZE(Matrimelee_A_BUNTARO_COLLECTION) },
+    { L"Chinnen",           DESC_NODETYPE_TREE, (void*)Matrimelee_A_CHINNEN_COLLECTION,      ARRAYSIZE(Matrimelee_A_CHINNEN_COLLECTION) },
+    { L"Clara",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_CLARA_COLLECTION,      ARRAYSIZE(Matrimelee_A_CLARA_COLLECTION) },
+    { L"Elias",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_ELIAS_COLLECTION,      ARRAYSIZE(Matrimelee_A_ELIAS_COLLECTION) },
+    { L"Hikaru",            DESC_NODETYPE_TREE, (void*)Matrimelee_A_HIKARU_COLLECTION,      ARRAYSIZE(Matrimelee_A_HIKARU_COLLECTION) },
+    { L"Jimmy",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_JIMMY_COLLECTION,      ARRAYSIZE(Matrimelee_A_JIMMY_COLLECTION) },
+    { L"Jones",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_JONES_COLLECTION,      ARRAYSIZE(Matrimelee_A_JONES_COLLECTION) },
+    { L"Kanji",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_KANJI_COLLECTION,      ARRAYSIZE(Matrimelee_A_KANJI_COLLECTION) },
+    { L"Keith",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_KEITH_COLLECTION,      ARRAYSIZE(Matrimelee_A_KEITH_COLLECTION) },
+    { L"Lynn",              DESC_NODETYPE_TREE, (void*)Matrimelee_A_LYNN_COLLECTION,      ARRAYSIZE(Matrimelee_A_LYNN_COLLECTION) },
+    { L"Olof",              DESC_NODETYPE_TREE, (void*)Matrimelee_A_OLOF_COLLECTION,      ARRAYSIZE(Matrimelee_A_OLOF_COLLECTION) },
+    { L"Poochy",            DESC_NODETYPE_TREE, (void*)Matrimelee_A_POOCHY_COLLECTION,      ARRAYSIZE(Matrimelee_A_POOCHY_COLLECTION) },
+    { L"Princess Sissy",    DESC_NODETYPE_TREE, (void*)Matrimelee_A_PRINCESSSISSY_COLLECTION,      ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_COLLECTION) },
+    { L"Reiji",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_REIJI_COLLECTION,      ARRAYSIZE(Matrimelee_A_REIJI_COLLECTION) },
+    { L"Saizo",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_SAIZO_COLLECTION,      ARRAYSIZE(Matrimelee_A_SAIZO_COLLECTION) },
+    { L"Shintaro",          DESC_NODETYPE_TREE, (void*)Matrimelee_A_SHINTARO_COLLECTION,      ARRAYSIZE(Matrimelee_A_SHINTARO_COLLECTION) },
+    { L"Tane",              DESC_NODETYPE_TREE, (void*)Matrimelee_A_TANE_COLLECTION,      ARRAYSIZE(Matrimelee_A_TANE_COLLECTION) },
+    { L"Ume",               DESC_NODETYPE_TREE, (void*)Matrimelee_A_UME_COLLECTION,      ARRAYSIZE(Matrimelee_A_UME_COLLECTION) },
+    { L"White",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_WHITE_COLLECTION,      ARRAYSIZE(Matrimelee_A_WHITE_COLLECTION) },
+};
+
+constexpr auto Matrimelee_A_NUMUNIT = ARRAYSIZE(Matrimelee_A_UNITS);
+#define Matrimelee_A_EXTRALOC Matrimelee_A_NUMUNIT
+
+const stExtraDef Matrimelee_A_EXTRA[] =
+{
+    //Start
+    { UNIT_START_VALUE },
+
+    //Extra
+    { INVALID_UNIT_VALUE }
+};

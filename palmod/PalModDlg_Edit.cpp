@@ -285,6 +285,7 @@ void CPalModDlg::OnEditPaste()
                     eColModeForPastedColor = ColMode::COLMODE_12A;
                     break;
                 }
+                case SFIII1_A:
                 case SFIII2_A:
                 case SFIII3_A:
                 case SFIII3_A_DIR:
@@ -309,12 +310,14 @@ void CPalModDlg::OnEditPaste()
                 case KarnovsR_A:
                 case KOF02_A:
                 case KOF98_A:
+                case MATRIMELEE_A:
                 case NEOGEO_A:
                 case RBFFS_A:
                 case SAMSHO3_A:
                 case SAMSHO5SP_A:
                 case SVCPLUSA_A:
                 case WakuWaku7_A:
+                case WINDJAMMERS_A:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_NEOGEO;
                     break;

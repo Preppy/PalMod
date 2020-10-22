@@ -431,6 +431,7 @@ void CPalModDlg::OnFileOpen()
         // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
         { KOF02_A, _T("KOF02|265*p2*|"), INVALID_UNIT_VALUE },
         { KOF02UM_S, _T("KOF02UM|pal_a*.bin|"), INVALID_UNIT_VALUE },
+        { MATRIMELEE_A, _T("Matrimelee|266-p2.sp2|"), INVALID_UNIT_VALUE },
         { MSH_A, _T("MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|"), INVALID_UNIT_VALUE },
         { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },
         { MVC_A, _T("MVC Arcade|mvc*.06*|"), INVALID_UNIT_VALUE },
@@ -445,8 +446,9 @@ void CPalModDlg::OnFileOpen()
         { SFA1_A, _T("SFA1|sfz.06|"), INVALID_UNIT_VALUE },
         { SFA2_A, _T("SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|"), INVALID_UNIT_VALUE },
         { SFA3_A, _T("SFA3 sz3.09c|*.09*|"), INVALID_UNIT_VALUE },
-        { SFIII2_A, _T("SFIII2 Arcade|50|"), INVALID_UNIT_VALUE },
-        { SFIII3_A, _T("SFIII3 Arcade (51), Gill glow (10)|10;51|"), INVALID_UNIT_VALUE },
+        { SFIII1_A, _T("SFIII:NG Arcade|50|"), INVALID_UNIT_VALUE },
+        { SFIII2_A, _T("SFIII:2I Arcade|50|"), INVALID_UNIT_VALUE },
+        { SFIII3_A, _T("SFIII:3S Arcade (51), Gill glow (10)|10;51|"), INVALID_UNIT_VALUE },
         { SF2CE_A, _T("SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|"), INVALID_UNIT_VALUE },
         { SF2HF_A, _T("SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f|"), INVALID_UNIT_VALUE },
         { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a)|sfx*.03*;sfx*.04a|"), INVALID_UNIT_VALUE },
@@ -457,6 +459,7 @@ void CPalModDlg::OnFileOpen()
         { VSAV_A, _T("Vampire Savior|vm3*.10b|"), INVALID_UNIT_VALUE },
         { VSAV2_A, _T("Vampire Savior 2|vs2j.10|"), INVALID_UNIT_VALUE },
         { WakuWaku7_A, _T("Waku Waku 7|225-p1.p1|"), INVALID_UNIT_VALUE },
+        { WINDJAMMERS_A, _T("Windjammers|065-p1.p1|"), INVALID_UNIT_VALUE },
         { XMVSF_A, _T("XMVSF|xvs*.05*|"), INVALID_UNIT_VALUE },
         { NEOGEO_A, _T("Unknown Game ROM|*.*|"), INVALID_UNIT_VALUE },
     };

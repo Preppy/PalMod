@@ -1,36 +1,35 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_KOF02UM_S.h"
-#include "..\PalMod.h"
+#include "Game_Windjammers_A.h"
 #include "..\RegProc.h"
 
-#define KOF02UM_S_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define Windjammers_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_Windjammers_A::Windjammers_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_KOF02UM_S::MainDescTree = nullptr;
+CDescTree CGame_Windjammers_A::MainDescTree = nullptr;
 
-int CGame_KOF02UM_S::rgExtraCountAll[KOF02UM_S_NUMUNIT + 1];
-int CGame_KOF02UM_S::rgExtraLoc[KOF02UM_S_NUMUNIT + 1];
+int CGame_Windjammers_A::rgExtraCountAll[Windjammers_A_NUMUNIT + 1];
+int CGame_Windjammers_A::rgExtraLoc[Windjammers_A_NUMUNIT + 1];
 
-UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM = 0;
-UINT32 CGame_KOF02UM_S::m_nExpectedGameROMSize = 0x606E0;  // 394976 bytes
-UINT32 CGame_KOF02UM_S::m_nConfirmedROMSize = -1;
+UINT32 CGame_Windjammers_A::m_nTotalPaletteCountForWindjammers = 0;
+const UINT32 CGame_Windjammers_A::m_nExpectedGameROMSize = 0x100000;  // 4194304 bytes
+UINT32 CGame_Windjammers_A::m_nConfirmedROMSize = -1;
 
-void CGame_KOF02UM_S::InitializeStatics()
+void CGame_Windjammers_A::InitializeStatics()
 {
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM);
+    safe_delete_array(CGame_Windjammers_A::Windjammers_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_KOF02UM_S::InitDescTree());
+    MainDescTree.SetRootTree(CGame_Windjammers_A::InitDescTree());
 }
 
-CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
+CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_KOF02UM_S::CGame_KOF02UM_S: Loading ROM...\n"));
+    strMessage.Format(_T("CGame_Windjammers_A::CGame_Windjammers_A: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
@@ -38,39 +37,37 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = KOF02UM_S_NUMUNIT;
-    m_nExtraUnit = KOF02UM_S_EXTRALOC;
+    m_nTotalInternalUnits = Windjammers_A_NUMUNIT;
+    m_nExtraUnit = Windjammers_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2672;
-    m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 12;
+    m_pszExtraFilename = EXTRA_FILENAME_Windjammers_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForWindjammers;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x2a0;
+    m_nLowestKnownPaletteRomLocation = 0x30400;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
 
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(ColMode::COLMODE_15ALT);
+    SetColMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     //Set game information
-    nGameFlag = KOF02UM_S;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    nImgUnitAmt = KOF02UM_S_NUM_IMG_UNITS;
+    nGameFlag = WINDJAMMERS_A;
+    nImgGameFlag = IMGDAT_SECTION_NEOGEO;
+    nImgUnitAmt = 0;
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
+    pButtonLabelSet = DEF_NOBUTTONS;
+    m_nNumberOfColorOptions = 1;
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -80,27 +77,27 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_KOF02UM_S::~CGame_KOF02UM_S(void)
+CGame_Windjammers_A::~CGame_Windjammers_A(void)
 {
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM);
+    safe_delete_array(CGame_Windjammers_A::Windjammers_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-CDescTree* CGame_KOF02UM_S::GetMainTree()
+CDescTree* CGame_Windjammers_A::GetMainTree()
 {
-    return &CGame_KOF02UM_S::MainDescTree;
+    return &CGame_Windjammers_A::MainDescTree;
 }
 
-int CGame_KOF02UM_S::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_Windjammers_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((KOF02UM_S_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((Windjammers_A_NUMUNIT + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForKOF02UM(0);
+        stExtraDef* pCurrDef = GetExtraDefForWindjammers(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -110,22 +107,22 @@ int CGame_KOF02UM_S::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForKOF02UM(nDefCtr);
+            pCurrDef = GetExtraDefForWindjammers(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-int CGame_KOF02UM_S::GetExtraLoc(UINT16 nUnitId)
+int CGame_Windjammers_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (KOF02UM_S_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (Windjammers_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForKOF02UM(0);
+        stExtraDef* pCurrDef = GetExtraDefForWindjammers(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -136,34 +133,34 @@ int CGame_KOF02UM_S::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForKOF02UM(nDefCtr);
+            pCurrDef = GetExtraDefForWindjammers(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
+sDescTreeNode* CGame_Windjammers_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM, KOF02UM_S_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_Windjammers_A, Windjammers_A_EXTRA, &Windjammers_A_EXTRA_CUSTOM, Windjammers_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KOF02UM_S_NUMUNIT + (GetExtraCt(KOF02UM_S_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = Windjammers_A_NUMUNIT + (GetExtraCt(Windjammers_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[KOF02UM_S]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[WINDJAMMERS_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(KOF02UM_S_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_KOF02UM_S::InitDescTree: Building desc tree for KOF02UM_S %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    bool fHaveExtras = (GetExtraCt(Windjammers_A_EXTRALOC) > 0);
+    strMsg.Format(_T("CGame_Windjammers_A::InitDescTree: Building desc tree for Windjammers_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -180,17 +177,17 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < KOF02UM_S_EXTRALOC)
+        if (iUnitCtr != Windjammers_A_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), KOF02UM_S_UNITS[iUnitCtr].szDesc);
+            _stprintf(UnitNode->szDesc, _T("%s"), Windjammers_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if KOF02UM_S_DEBUG
-            strMsg.Format(_T(";Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+#if Windjammers_A_DEBUG
+            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
@@ -211,8 +208,8 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if KOF02UM_S_DEBUG
-                strMsg.Format(_T(";\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+#if Windjammers_A_DEBUG
+                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -229,8 +226,8 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if KOF02UM_S_DEBUG
-                    strMsg.Format(_T(";\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+#if Windjammers_A_DEBUG
+                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
@@ -244,10 +241,6 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
                         strMsg.Format(_T(" no image available.\n"));
                     }
                     OutputDebugString(strMsg);
-
-                    strMsg.Format(_T("%s :: %s :: %s\n0x%X\n0x%X\n\n"), UnitNode->szDesc, CollectionNode->szDesc, ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
-                    OutputDebugString(strMsg);
-
 #endif
                 }
             }
@@ -261,8 +254,8 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if KOF02UM_S_DEBUG
-            strMsg.Format(_T(";Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+#if Windjammers_A_DEBUG
+            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -273,7 +266,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(KOF02UM_S_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(Windjammers_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _stprintf(CollectionNode->szDesc, _T("Extra"));
 
@@ -282,7 +275,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if KOF02UM_S_DEBUG
+#if Windjammers_A_DEBUG
             strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -291,21 +284,21 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForKOF02UM(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForWindjammers(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForKOF02UM(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForWindjammers(nExtraPos + nCurrExtra);
                 }
 
                 _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((KOF02UM_S_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((Windjammers_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if KOF02UM_S_DEBUG
+#if Windjammers_A_DEBUG
                 strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -316,20 +309,20 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_KOF02UM_S::InitDescTree: Loaded %u palettes for KOF02UM\n"), nTotalPaletteCount);
+    strMsg.Format(_T("CGame_Windjammers_A::InitDescTree: Loaded %u palettes for Windjammers\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForKOF02UM = nTotalPaletteCount;
+    m_nTotalPaletteCountForWindjammers = nTotalPaletteCount;
 
     return NewDescTree;
 }
 
-sFileRule CGame_KOF02UM_S::GetRule(UINT16 nUnitId)
+sFileRule CGame_Windjammers_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("pal_a.bin"));
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("066-p1.p1"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -337,55 +330,55 @@ sFileRule CGame_KOF02UM_S::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_KOF02UM_S::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_Windjammers_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == KOF02UM_S_EXTRALOC)
+    if (nUnitId == Windjammers_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return KOF02UM_S_UNITS[nUnitId].uChildAmt;
+        return Windjammers_A_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_KOF02UM_S::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_Windjammers_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == KOF02UM_S_EXTRALOC)
+    if (nUnitId == Windjammers_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(KOF02UM_S_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(Windjammers_A_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_KOF02UM_S::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_Windjammers_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == KOF02UM_S_EXTRALOC)
+    if (nUnitId == Windjammers_A_EXTRALOC)
     {
         return _T("Extra Palettes");
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)KOF02UM_S_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)Windjammers_A_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_KOF02UM_S::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_Windjammers_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == KOF02UM_S_EXTRALOC)
+    if (nUnitId == m_nExtraUnit)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = KOF02UM_S_UNITS;
+        const sDescTreeNode* pCompleteROMTree = Windjammers_A_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -395,9 +388,9 @@ UINT16 CGame_KOF02UM_S::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if KOF02UM_S_DEBUG
+#if Windjammers_A_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_KOF02UM_S::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_Windjammers_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -405,14 +398,14 @@ UINT16 CGame_KOF02UM_S::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_KOF02UM_S::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_Windjammers_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)KOF02UM_S_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)Windjammers_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_KOF02UM_S::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_Windjammers_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -425,7 +418,7 @@ const sDescTreeNode* CGame_KOF02UM_S::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == KOF02UM_S_EXTRALOC)
+        if (nUnitId == m_nExtraUnit)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -437,7 +430,7 @@ const sDescTreeNode* CGame_KOF02UM_S::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(KOF02UM_S_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(Windjammers_A_UNITS[nUnitId].ChildNodes);
             
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -463,7 +456,7 @@ const sDescTreeNode* CGame_KOF02UM_S::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_KOF02UM_S::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_Windjammers_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -487,9 +480,9 @@ const sGame_PaletteDataset* CGame_KOF02UM_S::GetSpecificPalette(UINT16 nUnitId, 
     return paletteToUse;
 }
 
-void CGame_KOF02UM_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_Windjammers_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != KOF02UM_S_EXTRALOC)
+     if (nUnitId != m_nExtraUnit)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -508,10 +501,10 @@ void CGame_KOF02UM_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // KOF02UM_S_EXTRALOC
+    else // m_nExtraUnit
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForKOF02UM(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForWindjammers(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
@@ -519,16 +512,17 @@ void CGame_KOF02UM_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_KOF02UM_S::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_Windjammers_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
+    // Windjammers is already decrypted
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
         UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = KOF02UM_S_UNITSORT[nUnitCtr];
+        // This layout is already sorted
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -543,13 +537,13 @@ BOOL CGame_KOF02UM_S::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-    
+
     CheckForErrorsInTables();
 
     return TRUE;
 }
 
-void CGame_KOF02UM_S::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+void CGame_Windjammers_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
@@ -587,7 +581,7 @@ void CGame_KOF02UM_S::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     }
 }
 
-BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_Windjammers_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -616,9 +610,11 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
     nTargetImgId = 0;
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
 
+    bool fShouldUseAlternateLoadLogic = false;
+
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != KOF02UM_S_EXTRALOC)
+    if (NodeGet->uUnitId != Windjammers_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -634,35 +630,77 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
+                if (paletteDataSet->pPalettePairingInfo)
                 {
-                    nSrcAmt = 4;
-                    nNodeIncrement = pCurrentNode->uChildAmt;
+                    const INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
-                    while (nSrcStart >= nNodeIncrement)
+                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+
+                    if (paletteDataSetToJoin)
                     {
-                        // The starting point is the absolute first palette for the sprite in question which is found in P1/A
-                        nSrcStart -= nNodeIncrement;
-                    }
-                }
-                else if (_tcsicmp(pCurrentNode->szDesc, _T("Portraits")) == 0) // Portraits is last
-                {
-                    nSrcAmt = 4;
-                    nSrcStart = GetPaletteCountForUnit(NodeGet->uUnitId) - pCurrentNode->uChildAmt;
-                    nNodeIncrement = 1;
+                        int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                        int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
 
+                        fShouldUseAlternateLoadLogic = true;
+
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
+                            MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                    }
                 }
             }
         }
     }
 
-    //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+    if (!fShouldUseAlternateLoadLogic)
+    {
+        //Create the default palette
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-    CreateDefPal(NodeGet, 0);
+        CreateDefPal(NodeGet, 0);
 
-    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+    }
 
     return TRUE;
+}
+
+void CGame_Windjammers_A::UpdatePalData()
+{
+    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
+    {
+        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
+
+        if (srcDef->bAvail)
+        {
+            // First color is the transparency color
+            const UINT16 nIndexStart = 1;
+            COLORREF* crSrc = srcDef->pPal;
+
+            for (UINT16 nPICtr = nIndexStart; nPICtr < srcDef->uPalSz; nPICtr++)
+            {
+                m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = ConvCol(crSrc[nPICtr]);
+
+            }
+
+            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
+            srcDef->bChanged = FALSE;
+            rgFileChanged[0] = TRUE;
+        }
+    }
 }

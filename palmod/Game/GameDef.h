@@ -56,6 +56,9 @@ enum SupportedGamesList
     SF2HF_A,
     SF2CE_A,
     SSF2T_GBA,
+    MATRIMELEE_A,
+    SFIII1_A,
+    WINDJAMMERS_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -79,7 +82,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("SFA3 (Arcade)"),
    _T("XVSF (Arcade)"),
    _T("MVC (Arcade)"),
-   _T("SFIII3 (Dreamcast)"),
+   _T("SFIII:3S (Dreamcast)"),
    _T("Jojo's (Japan)"),
    _T("MSH (Arcade)"),
    _T("MSHVSF (Arcade)"),
@@ -93,7 +96,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Garou: MotW (Steam)"),
    _T("KOF: 02 (Arcade)"),
    _T("SFA2 (Arcade)"),
-   _T("SFIII3 (Arcade Rerip)"),
+   _T("SFIII:3S (Arcade Rerip)"),
    _T("Jojo's 50 (Japanese Arcade Rerip)"),
    _T("Jojo's 51 (Japanese Arcade Rerip)"),
    _T("SVC Plus A"),
@@ -110,10 +113,13 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    _T("Real Bout Fatal Fury Special (Arcade)"),
    _T("Samurai Shodown 3"),
    _T("Vampire Hunter 2 (Arcade)"),
-   _T("SFIII2 (Arcade)"),
+   _T("SFIII:2I (Arcade)"),
    _T("SF2:HF (Arcade)"),
    _T("SF2:CE (Arcade)"),
    _T("SSF2T:Revival (GBA)"),
+   L"Matrimelee (Arcade)",
+   L"SFIII:NG (Arcade)",
+   L"Windjammers (Arcade)",
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -480,6 +486,26 @@ enum CHARACTERS_3S_CPS3
     index3S_CPS3_Gill,
     index2i_CPS3_Bonus,
 };
+
+const UINT8 SFIII1_A_IMG_UNITS[] =
+{
+    index3S_CPS3_Alex,
+    index3S_CPS3_Ryu,
+    index3S_CPS3_Yun,
+    index3S_CPS3_Dudley,
+    index3S_CPS3_Necro,
+    index3S_CPS3_Hugo,
+    index3S_CPS3_Ibuki,
+    index3S_CPS3_Elena,
+    index3S_CPS3_Oro,
+    index3S_CPS3_Yang,
+    index3S_CPS3_Ken,
+    index3S_CPS3_Sean,
+    index3S_CPS3_Gill,
+    index2i_CPS3_Bonus,
+};
+
+constexpr auto SFIII1_A_NUM_IMG_UNITS = ARRAYSIZE(SFIII1_A_IMG_UNITS);
 
 const UINT8 SFIII2_A_IMG_UNITS[] =
 {

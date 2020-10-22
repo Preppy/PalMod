@@ -12,6 +12,7 @@
 #include "Game_KOF02_A.h"
 #include "Game_KOF02UM_S.h"
 #include "Game_KOF98_A.h"
+#include "Game_Matrimelee_A.h"
 #include "Game_MSH_A.h"
 #include "Game_MSHVSF_A.h"
 #include "Game_MVC_A.h"
@@ -29,6 +30,7 @@
 #include "Game_SFA1_A.h"
 #include "Game_SFA2_A.h"
 #include "Game_SFA3_A.h"
+#include "Game_SFIII1_A.h"
 #include "Game_SFIII2_A.h"
 #include "Game_SFIII3_A.h"
 #include "Game_SFIII3_A_DIR.h"
@@ -42,6 +44,7 @@
 #include "Game_VSAV_A.h"
 #include "Game_VSAV2_A.h"
 #include "Game_WakuWaku7_A.h"
+#include "Game_Windjammers_A.h"
 #include "Game_XMVSF_A.h"
 
 #include "..\resource.h"
@@ -144,6 +147,12 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_KOF02UM_S::GetRule;
         return TRUE;
     }
+    case MATRIMELEE_A:
+    {
+        GetRule = &CGame_Matrimelee_A::GetRule;
+        return TRUE;
+    }
+    break;
     case MSH_A:
     {
         GetRule = &CGame_MSH_A::GetRule;
@@ -225,18 +234,21 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SAMSHO5SP_A::GetRule;
         return TRUE;
     }
+    case SFIII1_A:
+    {
+        GetRule = &CGame_SFIII1_A::GetRule;
+        return TRUE;
+    }
     case SFIII2_A:
     {
         GetRule = &CGame_SFIII2_A::GetRule;
         return TRUE;
     }
-    break;
     case SFIII3_A:
     {
         GetRule = &CGame_SFIII3_A::GetRule;
         return TRUE;
     }
-    break;
     case SFIII3_A_DIR:
     {
         GetRuleCtr = &CGame_SFIII3_A_DIR::GetRuleCtr;
@@ -246,7 +258,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
-    break;    
     case SFIII3_D:
     {
         GetRuleCtr = &CGame_SFIII3_D::GetRuleCtr;
@@ -256,7 +267,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
-    break;
     case SF2CE_A:
     {
         GetRule = &CGame_SF2CE_A::GetRule;
@@ -315,6 +325,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case WakuWaku7_A:
     {
         GetRule = &CGame_WakuWaku7_A::GetRule;
+        return TRUE;
+    }
+    case WINDJAMMERS_A:
+    {
+        GetRule = &CGame_Windjammers_A::GetRule;
         return TRUE;
     }
     case XMVSF_A:
@@ -384,6 +399,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_KOF02UM_S(nConfirmedROMSize);
     }
+    case MATRIMELEE_A:
+    {
+        return new CGame_Matrimelee_A(nConfirmedROMSize);
+    }
     case MSH_A:
     {
         return new CGame_MSH_A(nConfirmedROMSize, nExtraGameData);
@@ -435,6 +454,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SAMSHO5SP_A:
     {
         return new CGame_SAMSHO5SP_A(nConfirmedROMSize);
+    }
+    case SFIII1_A:
+    {
+        return new CGame_SFIII1_A(nConfirmedROMSize);
     }
     case SFIII2_A:
     {
@@ -500,6 +523,11 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_WakuWaku7_A(nConfirmedROMSize);
     }
+    case WINDJAMMERS_A:
+    {
+        return new CGame_Windjammers_A(nConfirmedROMSize);
+    }
+
     case XMVSF_A:
     {
         return new CGame_XMVSF_A(nConfirmedROMSize);

@@ -557,12 +557,12 @@ const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_MOVES[] =
 {
-    { L"Andy Hishouken and Darkness Kick",        0x18800, 0x18820 },
-    { L"Andy Geki Hishouken and Kunai Bullet",        0x18820, 0x18840 },
-    { L"Andy Sho Ryu Dan Effects",       0x18880, 0x188a0 },
-    { L"Andy SDM/MAX Fire",      0x188a0, 0x188c0 },
-    { L"Andy Zan Ei Comet Punch Main",   0x188c0, 0x188e0 },
-    { L"Andy Zan Ei Comet Punch Extra", 0x188e0, 0x18900 },
+    { L"Andy Hishouken and Darkness Kick",      0x18800, 0x18820, indexKOFSprites_02UM_Andy, 0x3 },
+    { L"Andy Geki Hishouken and Kunai Bullet",  0x18820, 0x18840, indexKOFSprites_02UM_Andy, 0x4 },
+    { L"Andy Sho Ryu Dan Effects",              0x18880, 0x188a0, indexKOFSprites_02UM_Andy, 0x2 },
+    { L"Andy SDM/MAX Fire",                     0x188a0, 0x188c0, indexKOFSprites_02UM_Andy, 0x12 },
+    { L"Andy Zan Ei Comet Punch Main",          0x188c0, 0x188e0, indexKOFSprites_02UM_Andy, 0x10 },
+    { L"Andy Zan Ei Comet Punch Extra",         0x188e0, 0x18900, indexKOFSprites_02UM_Andy, 0x11 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_ATHENA_PALETTES_MOVES[] =
@@ -653,9 +653,9 @@ const sGame_PaletteDataset KOF02UM_S_DAIMON_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_MOVES[] =
 {
-    { L"VS Igniz Win Stuff: Diana",             0x52a20, 0x52a40, indexKOFSprites_02UM_Foxy, 0x19 },
-    { L"VS Igniz Win Stuff: Kula",    0x52a40, 0x52a60 },
-    { L"VS Igniz Win Stuff: Foxy",   0x52a60, 0x52a80 },
+    { L"VS Igniz Win Stuff: Diana", 0x52a20, 0x52a40, indexKOFSprites_02UM_Foxy, 0x19 },
+    { L"VS Igniz Win Stuff: Kula",  0x52a40, 0x52a60 },
+    { L"VS Igniz Win Stuff: Foxy",  0x52a60, 0x52a80 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_GEESE_PALETTES_MOVES[] =
@@ -1321,7 +1321,7 @@ const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_A[] =
     { L"A - SDM Super Sonic Swirl and MAX2", 0x0004020, 0x0004040, indexKOFSprites_02UM_Andy, 0x00 },
     { L"A - MAX Super Sonic Swirl", 0x0004040, 0x0004060, indexKOFSprites_02UM_Andy, 0x00 },
     { L"A - Electric Shock Effect", 0x0004060, 0x0004080, indexKOFSprites_02UM_Andy, 0x18 },
-    { L"A - Max Flash", 0x0004080, 0x00040a0, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"A - Max Flash", 0x0004080, 0x00040a0, indexKOFSprites_02UM_Andy, 0x08 },
     { L"A - Hidden Super Desperation Move 2", 0x00040a0, 0x00040c0, indexKOFSprites_02UM_Andy, 0x00 },
     { L"A - Soul Palette", 0x00040c0, 0x00040e0, indexKOFSprites_02UM_Andy, 0x18 },
     { L"A - Hidden Super Desperation Move 3", 0x00040e0, 0x0004100, indexKOFSprites_02UM_Andy, 0x00 },
@@ -1333,7 +1333,7 @@ const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_B[] =
     { L"B - SDM Super Sonic Swirl and MAX2", 0x0004220, 0x0004240, indexKOFSprites_02UM_Andy, 0x00 },
     { L"B - MAX Super Sonic Swirl", 0x0004240, 0x0004260, indexKOFSprites_02UM_Andy, 0x00 },
     { L"B - Electric Shock Effect", 0x0004260, 0x0004280, indexKOFSprites_02UM_Andy, 0x18 },
-    { L"B - Max Flash", 0x0004280, 0x00042a0, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"B - Max Flash", 0x0004280, 0x00042a0, indexKOFSprites_02UM_Andy, 0x08 },
     { L"B - Hidden Super Desperation Move 2", 0x00042a0, 0x00042c0, indexKOFSprites_02UM_Andy, 0x00 },
     { L"B - Soul Palette", 0x00042c0, 0x00042e0, indexKOFSprites_02UM_Andy, 0x18 },
     { L"B - Hidden Super Desperation Move 3", 0x00042e0, 0x0004300, indexKOFSprites_02UM_Andy, 0x00 },
@@ -1345,7 +1345,7 @@ const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_C[] =
     { L"C - SDM Super Sonic Swirl and MAX2", 0x0004420, 0x0004440, indexKOFSprites_02UM_Andy, 0x00 },
     { L"C - MAX Super Sonic Swirl", 0x0004440, 0x0004460, indexKOFSprites_02UM_Andy, 0x00 },
     { L"C - Electric Shock Effect", 0x0004460, 0x0004480, indexKOFSprites_02UM_Andy, 0x18 },
-    { L"C - Max Flash", 0x0004480, 0x00044a0, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"C - Max Flash", 0x0004480, 0x00044a0, indexKOFSprites_02UM_Andy, 0x08 },
     { L"C - Hidden Super Desperation Move 2", 0x00044a0, 0x00044c0, indexKOFSprites_02UM_Andy, 0x00 },
     { L"C - Soul Palette", 0x00044c0, 0x00044e0, indexKOFSprites_02UM_Andy, 0x18 },
     { L"C - Hidden Super Desperation Move 3", 0x00044e0, 0x0004500, indexKOFSprites_02UM_Andy, 0x00 },
@@ -1357,7 +1357,7 @@ const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_D[] =
     { L"D - SDM Super Sonic Swirl and MAX2", 0x0004620, 0x0004640, indexKOFSprites_02UM_Andy, 0x00 },
     { L"D - MAX Super Sonic Swirl", 0x0004640, 0x0004660, indexKOFSprites_02UM_Andy, 0x00 },
     { L"D - Electric Shock Effect", 0x0004660, 0x0004680, indexKOFSprites_02UM_Andy, 0x18 },
-    { L"D - Max Flash", 0x0004680, 0x00046a0, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"D - Max Flash", 0x0004680, 0x00046a0, indexKOFSprites_02UM_Andy, 0x08 },
     { L"D - Hidden Super Desperation Move 2", 0x00046a0, 0x00046c0, indexKOFSprites_02UM_Andy, 0x00 },
     { L"D - Soul Palette", 0x00046c0, 0x00046e0, indexKOFSprites_02UM_Andy, 0x18 },
     { L"D - Hidden Super Desperation Move 3", 0x00046e0, 0x0004700, indexKOFSprites_02UM_Andy, 0x00 },
@@ -3579,48 +3579,48 @@ const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_A[] =
 {
     { L"O.Chris A", 0x0017800, 0x0017820, indexKOFSprites_02UM_ChrisOChi },
     { L"A - Hidden Super Desperation Move 1", 0x0017820, 0x0017840, indexKOFSprites_02UM_ChrisOChi, 0x00 },
-    { L"A - Orochi Fire Palette", 0x0017840, 0x0017860, indexKOFSprites_02UM_ChrisOChi, 0x19 },
+    { L"A - MAX2 Orochi", 0x0017840, 0x0017860, indexKOFSprites_02UM_ChrisOChi, 0x00 },
     { L"A - Electric Shock Effect", 0x0017860, 0x0017880, indexKOFSprites_02UM_ChrisOChi, 0x18 },
     { L"A - Max Flash", 0x0017880, 0x00178a0, indexKOFSprites_02UM_ChrisOChi, 0x08 },
     { L"A - Hidden Super Desperation Move 2", 0x00178a0, 0x00178c0, indexKOFSprites_02UM_ChrisOChi, 0x00 },
     { L"A - Soul Palette", 0x00178c0, 0x00178e0, indexKOFSprites_02UM_ChrisOChi, 0x18 },
-    { L"A - MAX2 Orochi", 0x00178e0, 0x0017900, indexKOFSprites_02UM_ChrisOChi, 0x00 },
+    { L"A - Orochi Fire Palette", 0x00178e0, 0x0017900, indexKOFSprites_02UM_ChrisOChi, 0x19 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_B[] =
 {
     { L"O.Chris B", 0x0017a00, 0x0017a20, indexKOFSprites_02UM_ChrisOChi },
     { L"B - Hidden Super Desperation Move 1", 0x0017a20, 0x0017a40, indexKOFSprites_02UM_ChrisOChi, 0x00 },
-    { L"B - Orochi Fire Palette", 0x0017a40, 0x0017a60, indexKOFSprites_02UM_ChrisOChi, 0x19 },
+    { L"B - MAX2 Orochi", 0x0017a40, 0x0017a60, indexKOFSprites_02UM_ChrisOChi, 0x00 },
     { L"B - Electric Shock Effect", 0x0017a60, 0x0017a80, indexKOFSprites_02UM_ChrisOChi, 0x18 },
     { L"B - Max Flash", 0x0017a80, 0x0017aa0, indexKOFSprites_02UM_ChrisOChi, 0x08 },
     { L"B - Hidden Super Desperation Move 2", 0x0017aa0, 0x0017ac0, indexKOFSprites_02UM_ChrisOChi, 0x00 },
     { L"B - Soul Palette", 0x0017ac0, 0x0017ae0, indexKOFSprites_02UM_ChrisOChi, 0x18 },
-    { L"B - MAX2 Orochi", 0x0017ae0, 0x0017b00, indexKOFSprites_02UM_ChrisOChi, 0x00 },
+    { L"B - Orochi Fire Palette", 0x0017ae0, 0x0017b00, indexKOFSprites_02UM_ChrisOChi, 0x19 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_C[] =
 {
     { L"O.Chris C", 0x0017c00, 0x0017c20, indexKOFSprites_02UM_ChrisOChi },
     { L"C - Hidden Super Desperation Move 1", 0x0017c20, 0x0017c40, indexKOFSprites_02UM_ChrisOChi, 0x00 },
-    { L"C - Orochi Fire Palette", 0x0017c40, 0x0017c60, indexKOFSprites_02UM_ChrisOChi, 0x19 },
+    { L"C - MAX2 Orochi", 0x0017c40, 0x0017c60, indexKOFSprites_02UM_ChrisOChi, 0x00 },
     { L"C - Electric Shock Effect", 0x0017c60, 0x0017c80, indexKOFSprites_02UM_ChrisOChi, 0x18 },
     { L"C - Max Flash", 0x0017c80, 0x0017ca0, indexKOFSprites_02UM_ChrisOChi, 0x08 },
     { L"C - Hidden Super Desperation Move 2", 0x0017ca0, 0x0017cc0, indexKOFSprites_02UM_ChrisOChi, 0x00 },
     { L"C - Soul Palette", 0x0017cc0, 0x0017ce0, indexKOFSprites_02UM_ChrisOChi, 0x18 },
-    { L"C - MAX2 Orochi", 0x0017ce0, 0x0017d00, indexKOFSprites_02UM_ChrisOChi, 0x00 },
+    { L"C - Orochi Fire Palette", 0x0017ce0, 0x0017d00, indexKOFSprites_02UM_ChrisOChi, 0x19 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_D[] =
 {
     { L"O.Chris D", 0x0017e00, 0x0017e20, indexKOFSprites_02UM_ChrisOChi },
     { L"D - Hidden Super Desperation Move 1", 0x0017e20, 0x0017e40, indexKOFSprites_02UM_ChrisOChi, 0x00 },
-    { L"D - Orochi Fire Palette", 0x0017e40, 0x0017e60, indexKOFSprites_02UM_ChrisOChi, 0x19 },
+    { L"D - MAX2 Orochi", 0x0017e40, 0x0017e60, indexKOFSprites_02UM_ChrisOChi, 0x00 },
     { L"D - Electric Shock Effect", 0x0017e60, 0x0017e80, indexKOFSprites_02UM_ChrisOChi, 0x18 },
     { L"D - Max Flash", 0x0017e80, 0x0017ea0, indexKOFSprites_02UM_ChrisOChi, 0x08 },
     { L"D - Hidden Super Desperation Move 2", 0x0017ea0, 0x0017ec0, indexKOFSprites_02UM_ChrisOChi, 0x00 },
     { L"D - Soul Palette", 0x0017ec0, 0x0017ee0, indexKOFSprites_02UM_ChrisOChi, 0x18 },
-    { L"D - MAX2 Orochi", 0x0017ee0, 0x0017f00, indexKOFSprites_02UM_ChrisOChi, 0x00 },
+    { L"D - Orochi Fire Palette", 0x0017ee0, 0x0017f00, indexKOFSprites_02UM_ChrisOChi, 0x19 },
 };
 
 const sDescTreeNode KOF02UM_S_OCHRIS_COLLECTION[] =
@@ -4216,7 +4216,7 @@ const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_A[] =
 {
     { L"Foxy A", 0x004ac00, 0x004ac20, indexKOFSprites_02UM_Foxy },
     { L"A - Sword Attacks Extra", 0x004ac20, 0x004ac40, indexKOFSprites_02UM_Foxy, 0x02 },
-    { L"A - Diana Win Stuff", 0x004ac40, 0x004ac60, indexKOFSprites_02UM_Foxy, 0x00 },
+    { L"A - Diana Win Stuff", 0x004ac40, 0x004ac60, indexKOFSprites_02UM_Foxy, 0x19 },
     { L"A - Electric Shock Effect", 0x004ac60, 0x004ac80, indexKOFSprites_02UM_Foxy, 0x18 },
     { L"A - Max Flash", 0x004ac80, 0x004aca0, indexKOFSprites_02UM_Foxy, 0x08 },
     { L"A - NESTS Flag Super", 0x004aca0, 0x004acc0, indexKOFSprites_02UM_Foxy, 0x1a },
@@ -4228,7 +4228,7 @@ const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_B[] =
 {
     { L"Foxy B", 0x004ad00, 0x004ad20, indexKOFSprites_02UM_Foxy },
     { L"B - Sword Attacks Extra", 0x004ad20, 0x004ad40, indexKOFSprites_02UM_Foxy, 0x02 },
-    { L"B - Diana Win Stuff", 0x004ad40, 0x004ad60, indexKOFSprites_02UM_Foxy, 0x00 },
+    { L"B - Diana Win Stuff", 0x004ad40, 0x004ad60, indexKOFSprites_02UM_Foxy, 0x19 },
     { L"B - Electric Shock Effect", 0x004ad60, 0x004ad80, indexKOFSprites_02UM_Foxy, 0x18 },
     { L"B - Max Flash", 0x004ad80, 0x004ada0, indexKOFSprites_02UM_Foxy, 0x08 },
     { L"B - NESTS Flag Super", 0x004ada0, 0x004adc0, indexKOFSprites_02UM_Foxy, 0x1a },
@@ -4240,7 +4240,7 @@ const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_C[] =
 {
     { L"Foxy C", 0x004ae00, 0x004ae20, indexKOFSprites_02UM_Foxy },
     { L"C - Sword Attacks Extra", 0x004ae20, 0x004ae40, indexKOFSprites_02UM_Foxy, 0x02 },
-    { L"C - Diana Win Stuff", 0x004ae40, 0x004ae60, indexKOFSprites_02UM_Foxy, 0x00 },
+    { L"C - Diana Win Stuff", 0x004ae40, 0x004ae60, indexKOFSprites_02UM_Foxy, 0x19 },
     { L"C - Electric Shock Effect", 0x004ae60, 0x004ae80, indexKOFSprites_02UM_Foxy, 0x18 },
     { L"C - Max Flash", 0x004ae80, 0x004aea0, indexKOFSprites_02UM_Foxy, 0x08 },
     { L"C - NESTS Flag Super", 0x004aea0, 0x004aec0, indexKOFSprites_02UM_Foxy, 0x1a },
@@ -4252,7 +4252,7 @@ const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_D[] =
 {
     { L"Foxy D", 0x004af00, 0x004af20, indexKOFSprites_02UM_Foxy },
     { L"D - Sword Attacks Extra", 0x004af20, 0x004af40, indexKOFSprites_02UM_Foxy, 0x02 },
-    { L"D - Diana Win Stuff", 0x004af40, 0x004af60, indexKOFSprites_02UM_Foxy, 0x00 },
+    { L"D - Diana Win Stuff", 0x004af40, 0x004af60, indexKOFSprites_02UM_Foxy, 0x19 },
     { L"D - Electric Shock Effect", 0x004af60, 0x004af80, indexKOFSprites_02UM_Foxy, 0x18 },
     { L"D - Max Flash", 0x004af80, 0x004afa0, indexKOFSprites_02UM_Foxy, 0x08 },
     { L"D - NESTS Flag Super", 0x004afa0, 0x004afc0, indexKOFSprites_02UM_Foxy, 0x1a },
@@ -4910,7 +4910,7 @@ const sDescTreeNode KOF02UM_S_IGNIZ_COLLECTION[] =
 
 #pragma endregion Character Palettes (Auto-Generated)
 
-const sGame_PaletteDataset KOF02UM_S_BONUS_PALETTES[] =
+const sGame_PaletteDataset KOF02UM_S_HUD_PALETTES[] =
 {
     { L"Main HUD Stuff and Meter", 0x53700, 0x53720 },
     { L"Timer", 0x53720, 0x53740 },
@@ -4924,11 +4924,31 @@ const sGame_PaletteDataset KOF02UM_S_BONUS_PALETTES[] =
     { L"FIGHT Text", 0x53840, 0x53880 },
     { L"Win Text KO", 0x53880, 0x538a0 },
     { L"Winner Text Outline", 0x538a0, 0x538c0 },
+    { L"MAX2 Background Effect 1P", 0x57e20, 0x57e40 },
+    { L"MAX2 Background Effect 2P", 0x57e00, 0x57e20 },
+};
+
+const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
+{
+    { L"Lin Poison Effect", 0x1400, 0x1600 },
+    { L"Main Fire Effect", 0x1600, 0x1800 },
+    { L"Main Orochi Fire Effect", 0x1800, 0x1a00 },
+    { L"Orochi Burn Effect", 0x1a00, 0x1c00 },
+    { L"Frozen Effect", 0x1c00, 0x1e00 },
+    { L"Blood Effects", 0x3c0, 0x3e0 },
+    { L"Grab Sparks", 0x380, 0x3a0 },
+    { L"Hitspark Effects", 0xa00, 0xa20 },
+    { L"Blocksparks Effects", 0x2a0, 0x2c0 },
+    { L"Special/Super Blocksparks", 0x2c0, 0x2e0 },
+    { L"MAX Mode and SDM Flash", 0x4c0, 0x4e0 },
+    { L"MAX Flash", 0xa80, 0xaa0 },
+    { L"MAX2 Flash", 0xaa0, 0xac0 },
 };
 
 const sDescTreeNode KOF02UM_S_BONUS_COLLECTION[] =
 {
-    { L"HUD", DESC_NODETYPE_TREE, (void*)KOF02UM_S_BONUS_PALETTES, ARRAYSIZE(KOF02UM_S_BONUS_PALETTES) },
+    { L"HUD", DESC_NODETYPE_TREE, (void*)KOF02UM_S_HUD_PALETTES, ARRAYSIZE(KOF02UM_S_HUD_PALETTES) },
+    { L"Extra Effects", DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXTRA_PALETTES, ARRAYSIZE(KOF02UM_S_EXTRA_PALETTES) },
 };
 
 const UINT8 KOF02UM_S_UNITSORT[KOF02UM_S_NUMUNIT + 1] // Plus 1 for extras

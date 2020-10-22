@@ -138,6 +138,7 @@
     <ClCompile Include="Game\Game_KOF02UM_S.cpp" />
     <ClCompile Include="Game\Game_KOF02_A.cpp" />
     <ClCompile Include="Game\Game_KOF98_A.cpp" />
+    <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
     <ClCompile Include="Game\Game_MSHVSF_A.cpp" />
     <ClCompile Include="Game\Game_MSH_A.cpp" />
     <ClCompile Include="Game\Game_MVC2_A.cpp" />
@@ -157,6 +158,7 @@
     <ClCompile Include="Game\Game_SFA1_A.cpp" />
     <ClCompile Include="Game\Game_SFA2_A.cpp" />
     <ClCompile Include="Game\Game_SFA3_A.cpp" />
+    <ClCompile Include="Game\Game_SFIII1_A.cpp" />
     <ClCompile Include="Game\Game_SFIII2_A.cpp" />
     <ClCompile Include="Game\Game_SFIII3_A.cpp" />
     <ClCompile Include="Game\Game_SFIII3_A_DIR.cpp" />
@@ -168,6 +170,7 @@
     <ClCompile Include="Game\Game_VSAV2_A.cpp" />
     <ClCompile Include="Game\Game_VSAV_A.cpp" />
     <ClCompile Include="Game\Game_WakuWaku7_A.cpp" />
+    <ClCompile Include="Game\Game_Windjammers_A.cpp" />
     <ClCompile Include="Game\Game_XMVSF_A.cpp" />
     <ClCompile Include="Game\MVC2_PALSEL.cpp" />
     <ClCompile Include="Game\MVC2_SUPP.cpp" />
@@ -219,6 +222,7 @@
     <ClInclude Include="Game\Game_KOF02UM_S.h" />
     <ClInclude Include="Game\Game_KOF02_A.h" />
     <ClInclude Include="Game\Game_KOF98_A.h" />
+    <ClInclude Include="Game\Game_Matrimelee_A.h" />
     <ClInclude Include="Game\Game_MSHVSF_A.h" />
     <ClInclude Include="Game\Game_MSH_A.h" />
     <ClInclude Include="Game\Game_MVC2_A.h" />
@@ -238,6 +242,7 @@
     <ClInclude Include="Game\Game_SFA1_A.h" />
     <ClInclude Include="Game\Game_SFA2_A.h" />
     <ClInclude Include="Game\Game_SFA3_A.h" />
+    <ClInclude Include="Game\Game_SFIII1_A.h" />
     <ClInclude Include="Game\Game_SFIII2_A.h" />
     <ClInclude Include="Game\Game_SFIII3_A.h" />
     <ClInclude Include="Game\Game_SFIII3_A_DIR.h" />
@@ -249,6 +254,7 @@
     <ClInclude Include="Game\Game_VSAV2_A.h" />
     <ClInclude Include="Game\Game_VSAV_A.h" />
     <ClInclude Include="Game\Game_WakuWaku7_A.h" />
+    <ClInclude Include="Game\Game_Windjammers_A.h" />
     <ClInclude Include="Game\Game_XMVSF_A.h" />
     <ClInclude Include="Game\Garou_A_DEF.h" />
     <ClInclude Include="Game\Garou_S_DEF.h" />
@@ -258,6 +264,7 @@
     <ClInclude Include="Game\KOF02UM_S_DEF.h" />
     <ClInclude Include="Game\KOF02_A_DEF.h" />
     <ClInclude Include="Game\KOF98_A_DEF.h" />
+    <ClInclude Include="Game\Matrimelee_A_DEF.h" />
     <ClInclude Include="Game\MSHVSF_A_DEF.h" />
     <ClInclude Include="Game\MSH_A_DEF.h" />
     <ClInclude Include="Game\MVC2_A_DEF.h" />
@@ -277,6 +284,7 @@
     <ClInclude Include="Game\SFA1_A_DEF.h" />
     <ClInclude Include="Game\SFA2_A_DEF.h" />
     <ClInclude Include="Game\SFA3_A_DEF.h" />
+    <ClInclude Include="Game\SFIII1_A_DEF.h" />
     <ClInclude Include="Game\SFIII2_A_DEF.h" />
     <ClInclude Include="Game\SFIII3_A_DEF.h" />
     <ClInclude Include="Game\SFIII3_D_DEF.h" />
@@ -288,6 +296,7 @@
     <ClInclude Include="Game\VSAV2_A_DEF.h" />
     <ClInclude Include="Game\VSAV_A_DEF.h" />
     <ClInclude Include="Game\WakuWaku7_A_DEF.h" />
+    <ClInclude Include="Game\Windjammers_A_DEF.h" />
     <ClInclude Include="Game\XMVSF_A_DEF.h" />
     <ClInclude Include="ImgDat.h" />
     <ClInclude Include="ImgDisp.h" />
