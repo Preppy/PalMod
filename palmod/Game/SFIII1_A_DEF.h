@@ -80,7 +80,8 @@ const sGame_PaletteDataset SFIII1_A_RYU_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_RYU_EXTRA_PALETTES[] =
 {
-    { L"Ryu Denjin Hadoken Charge", 0x3d3400, 0x3d3480 },
+    { L"Ryu Hadoken", 0x03d3480, 0x03d3500, index3S_CPS3_Ryu, 0x3 },
+    { L"Ryu Denjin Hadoken Charge", 0x3d3400, 0x3d3480, index3S_CPS3_Ryu },
 };
 
 const sGame_PaletteDataset SFIII1_A_YUNYANG_LP_PALETTES[] =
@@ -617,7 +618,6 @@ const sGame_PaletteDataset SFIII1_A_BONUS_PALETTES[] =
     { L"P2 Hitsparks/Other", 0x3d4300, 0x3d4380 },
     { L"Super Startup/Impact/Dust/Whatever", 0x3d4000, 0x3d4200 },
     { L"Universal Zap Skeleton", 0x3d4380, 0x3d4400 },
-    { L"All Hadokens/Hadoken Impact", 0x3d3480, 0x3d3500, index3S_CPS3_Ryu, 0x3 },
 };
 
 const sDescTreeNode SFIII1_A_BONUS_COLLECTION[] =

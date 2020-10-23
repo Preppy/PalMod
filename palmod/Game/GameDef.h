@@ -2078,6 +2078,7 @@ const UINT8 SAMSHO3_A_IMG_UNITS[] =
     indexSamSho5Sprites_Haohmaru,
     indexSamSho5Sprites_Kyoshiro,
     indexSamSho5Sprites_Nakoruru,
+    indexSamSho5Sprites_Rera, // not in the game: just want the shikuru sprite for nakoruru Bust form
     indexSamSho5Sprites_Rimururu,
     indexSamSho5Sprites_Shizumaru,
     indexSamSho5Sprites_Ukyo,
@@ -2327,6 +2328,7 @@ const stPairedPaletteInfo pairFullyLinkedNode = { 0, 0, 0 };
 const stPairedPaletteInfo pairNext = { 1, 0, 0 };
 const stPairedPaletteInfo pairNextNext = { 2, 0, 0 };
 const stPairedPaletteInfo pairNext3 = { 3, 0, 0 };
+const stPairedPaletteInfo pairNext10 = { 10, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 
 // Vs Series

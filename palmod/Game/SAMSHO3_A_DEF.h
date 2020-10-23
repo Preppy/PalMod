@@ -82,8 +82,8 @@ const sGame_PaletteDataset SAMSHO3_A_HAOHMARU_PALETTES_B2[] =
 
 const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_S1[] =
 {
-    { _T("Main"), 0x2000, 0x2040, indexSamSho5Sprites_Nakoruru },
-    { _T("Rage Flash"), 0x2040, 0x2080, indexSamSho5Sprites_Nakoruru },
+    { _T("Main"), 0x2000, 0x2040, indexSamSho5Sprites_Nakoruru, 0, &pairNext10 },
+    { _T("Rage Flash"), 0x2040, 0x2080, indexSamSho5Sprites_Nakoruru, 0, &pairNext10 },
     { _T("Extra Palette 2"), 0x2080, 0x20c0 },
     { _T("Extra Palette 3"), 0x20c0, 0x2100 },
     { _T("Shocked"), 0x2100, 0x2140, indexSamSho5Sprites_Nakoruru },
@@ -92,9 +92,9 @@ const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_S1[] =
     { _T("Extra Palette 7"), 0x21c0, 0x2200 },
     { _T("Daylight"), 0x2200, 0x2240, indexSamSho5Sprites_Nakoruru },
     { _T("Moonlight"), 0x2240, 0x2280, indexSamSho5Sprites_Nakoruru },
-    { _T("Extra Palette 10"), 0x2280, 0x22c0 },
-    { _T("Extra Palette 11"), 0x22c0, 0x2300 },
-    { _T("Extra Palette 12"), 0x2300, 0x2340 },
+    { _T("Extra Palette 10: Mamahaha"), 0x2280, 0x22c0, indexSamSho5Sprites_Nakoruru, 1 },
+    { _T("Extra Palette 11: Mamahaha"), 0x22c0, 0x2300, indexSamSho5Sprites_Nakoruru, 1 },
+    { _T("Extra Palette 12: Mamahaha"), 0x2300, 0x2340, indexSamSho5Sprites_Nakoruru, 1 },
     { _T("Slashes (1+2/3)"), 0x2340, 0x2380 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x2380, 0x23c0 },
     { _T("End of Portrait / Character Extra 5"), 0x23c0, 0x2400 },
@@ -102,8 +102,8 @@ const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_S1[] =
 
 const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_S2[] =
 {
-    { _T("Main"), 0x2400, 0x2440, indexSamSho5Sprites_Nakoruru },
-    { _T("Rage Flash"), 0x2440, 0x2480, indexSamSho5Sprites_Nakoruru },
+    { _T("Main"), 0x2400, 0x2440, indexSamSho5Sprites_Nakoruru, 0, &pairNext10 },
+    { _T("Rage Flash"), 0x2440, 0x2480, indexSamSho5Sprites_Nakoruru, 0, &pairNext10 },
     { _T("Extra Palette 2"), 0x2480, 0x24c0 },
     { _T("Extra Palette 3"), 0x24c0, 0x2500 },
     { _T("Shocked"), 0x2500, 0x2540, indexSamSho5Sprites_Nakoruru },
@@ -112,9 +112,9 @@ const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_S2[] =
     { _T("Extra Palette 7"), 0x25c0, 0x2600 },
     { _T("Daylight"), 0x2600, 0x2640, indexSamSho5Sprites_Nakoruru },
     { _T("Moonlight"), 0x2640, 0x2680, indexSamSho5Sprites_Nakoruru },
-    { _T("Extra Palette 10"), 0x2680, 0x26c0 },
-    { _T("Extra Palette 11"), 0x26c0, 0x2700 },
-    { _T("Extra Palette 12"), 0x2700, 0x2740 },
+    { _T("Extra Palette 10: Mamahaha"), 0x2680, 0x26c0, indexSamSho5Sprites_Nakoruru, 1 },
+    { _T("Extra Palette 11: Mamahaha"), 0x26c0, 0x2700, indexSamSho5Sprites_Nakoruru, 1 },
+    { _T("Extra Palette 12: Mamahaha"), 0x2700, 0x2740, indexSamSho5Sprites_Nakoruru, 1 },
     { _T("Slashes (1+2/3)"), 0x2740, 0x2780 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x2780, 0x27c0 },
     { _T("End of Portrait / Character Extra 5"), 0x27c0, 0x2800 },
@@ -122,8 +122,8 @@ const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_S2[] =
 
 const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_B1[] =
 {
-    { _T("Main"), 0x2800, 0x2840, indexSamSho5Sprites_Nakoruru },
-    { _T("Rage Flash"), 0x2840, 0x2880, indexSamSho5Sprites_Nakoruru },
+    { _T("Main"), 0x2800, 0x2840, indexSamSho5Sprites_Nakoruru, 0 },
+    { _T("Rage Flash"), 0x2840, 0x2880, indexSamSho5Sprites_Nakoruru, 0 },
     { _T("Extra Palette 2"), 0x2880, 0x28c0 },
     { _T("Extra Palette 3"), 0x28c0, 0x2900 },
     { _T("Shocked"), 0x2900, 0x2940, indexSamSho5Sprites_Nakoruru },
@@ -132,9 +132,9 @@ const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_B1[] =
     { _T("Extra Palette 7"), 0x29c0, 0x2a00 },
     { _T("Daylight"), 0x2a00, 0x2a40, indexSamSho5Sprites_Nakoruru },
     { _T("Moonlight"), 0x2a40, 0x2a80, indexSamSho5Sprites_Nakoruru },
-    { _T("Extra Palette 10"), 0x2a80, 0x2ac0 },
-    { _T("Extra Palette 11"), 0x2ac0, 0x2b00 },
-    { _T("Extra Palette 12"), 0x2b00, 0x2b40 },
+    { _T("Extra Palette 10: Shikuru"), 0x2aa0, 0x2ac0, indexSamSho5Sprites_Rera, 1 },
+    { _T("Extra Palette 11: Shikuru"), 0x2ae0, 0x2b00, indexSamSho5Sprites_Rera, 1 },
+    { _T("Extra Palette 12: Shikuru"), 0x2b20, 0x2b40, indexSamSho5Sprites_Rera, 1 },
     { _T("Slashes (1+2/3)"), 0x2b40, 0x2b80 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x2b80, 0x2bc0 },
     { _T("End of Portrait / Character Extra 5"), 0x2bc0, 0x2c00 },
@@ -142,8 +142,8 @@ const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_B1[] =
 
 const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_B2[] =
 {
-    { _T("Main"), 0x2c00, 0x2c40, indexSamSho5Sprites_Nakoruru },
-    { _T("Rage Flash"), 0x2c40, 0x2c80, indexSamSho5Sprites_Nakoruru },
+    { _T("Main"), 0x2c00, 0x2c40, indexSamSho5Sprites_Nakoruru, 0 },
+    { _T("Rage Flash"), 0x2c40, 0x2c80, indexSamSho5Sprites_Nakoruru, 0 },
     { _T("Extra Palette 2"), 0x2c80, 0x2cc0 },
     { _T("Extra Palette 3"), 0x2cc0, 0x2d00 },
     { _T("Shocked"), 0x2d00, 0x2d40, indexSamSho5Sprites_Nakoruru },
@@ -152,9 +152,9 @@ const sGame_PaletteDataset SAMSHO3_A_NAKORURU_PALETTES_B2[] =
     { _T("Extra Palette 7"), 0x2dc0, 0x2e00 },
     { _T("Daylight"), 0x2e00, 0x2e40, indexSamSho5Sprites_Nakoruru },
     { _T("Moonlight"), 0x2e40, 0x2e80, indexSamSho5Sprites_Nakoruru },
-    { _T("Extra Palette 10"), 0x2e80, 0x2ec0 },
-    { _T("Extra Palette 11"), 0x2ec0, 0x2f00 },
-    { _T("Extra Palette 12"), 0x2f00, 0x2f40 },
+    { _T("Extra Palette 10: Shikuru"), 0x2ea0, 0x2ec0, indexSamSho5Sprites_Rera, 1 },
+    { _T("Extra Palette 11: Shikuru"), 0x2ee0, 0x2f00, indexSamSho5Sprites_Rera, 1 },
+    { _T("Extra Palette 12: Shikuru"), 0x2f20, 0x2f40, indexSamSho5Sprites_Rera, 1 },
     { _T("Slashes (1+2/3)"), 0x2f40, 0x2f80 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x2f80, 0x2fc0 },
     { _T("End of Portrait / Character Extra 5"), 0x2fc0, 0x3000 },
@@ -322,8 +322,8 @@ const sGame_PaletteDataset SAMSHO3_A_HANZO_PALETTES_B2[] =
 
 const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_S1[] =
 {
-    { _T("Main"), 0x5000, 0x5040, indexSamSho5Sprites_Galford },
-    { _T("Rage Flash"), 0x5040, 0x5080, indexSamSho5Sprites_Galford },
+    { _T("Main"),   0x5000, 0x5040, indexSamSho5Sprites_Galford, 0, &pairNext10 },
+    { _T("Rage Flash"), 0x5040, 0x5080, indexSamSho5Sprites_Galford, 0, &pairNext10 },
     { _T("Extra Palette 2"), 0x5080, 0x50c0 },
     { _T("Extra Palette 3"), 0x50c0, 0x5100 },
     { _T("Shocked"), 0x5100, 0x5140, indexSamSho5Sprites_Galford },
@@ -332,9 +332,9 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_S1[] =
     { _T("Extra Palette 7"), 0x51c0, 0x5200 },
     { _T("Daylight"), 0x5200, 0x5240, indexSamSho5Sprites_Galford },
     { _T("Moonlight"), 0x5240, 0x5280, indexSamSho5Sprites_Galford },
-    { _T("Extra Palette 10"), 0x5280, 0x52c0 },
-    { _T("Extra Palette 11"), 0x52c0, 0x5300 },
-    { _T("Extra Palette 12"), 0x5300, 0x5340 },
+    { _T("Extra Palette 10: Poppy"), 0x5280, 0x52c0, indexSamSho5Sprites_Galford, 1 },
+    { _T("Extra Palette 11: Poppy"), 0x52c0, 0x5300, indexSamSho5Sprites_Galford, 1 },
+    { _T("Extra Palette 12: Poppy"), 0x5300, 0x5340, indexSamSho5Sprites_Galford, 1 },
     { _T("Slashes (1+2/3)"), 0x5340, 0x5380 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x5380, 0x53c0 },
     { _T("End of Portrait / Character Extra 5"), 0x53c0, 0x5400 },
@@ -342,8 +342,8 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_S1[] =
 
 const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_S2[] =
 {
-    { _T("Main"), 0x5400, 0x5440, indexSamSho5Sprites_Galford },
-    { _T("Rage Flash"), 0x5440, 0x5480, indexSamSho5Sprites_Galford },
+    { _T("Main"), 0x5400, 0x5440, indexSamSho5Sprites_Galford, 0, &pairNext10 },
+    { _T("Rage Flash"), 0x5440, 0x5480, indexSamSho5Sprites_Galford, 0, &pairNext10 },
     { _T("Extra Palette 2"), 0x5480, 0x54c0 },
     { _T("Extra Palette 3"), 0x54c0, 0x5500 },
     { _T("Shocked"), 0x5500, 0x5540, indexSamSho5Sprites_Galford },
@@ -352,9 +352,9 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_S2[] =
     { _T("Extra Palette 7"), 0x55c0, 0x5600 },
     { _T("Daylight"), 0x5600, 0x5640, indexSamSho5Sprites_Galford },
     { _T("Moonlight"), 0x5640, 0x5680, indexSamSho5Sprites_Galford },
-    { _T("Extra Palette 10"), 0x5680, 0x56c0 },
-    { _T("Extra Palette 11"), 0x56c0, 0x5700 },
-    { _T("Extra Palette 12"), 0x5700, 0x5740 },
+    { _T("Extra Palette 10: Poppy"), 0x5680, 0x56c0, indexSamSho5Sprites_Galford, 1 },
+    { _T("Extra Palette 11: Poppy"), 0x56c0, 0x5700, indexSamSho5Sprites_Galford, 1 },
+    { _T("Extra Palette 12: Poppy"), 0x5700, 0x5740, indexSamSho5Sprites_Galford, 1 },
     { _T("Slashes (1+2/3)"), 0x5740, 0x5780 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x5780, 0x57c0 },
     { _T("End of Portrait / Character Extra 5"), 0x57c0, 0x5800 },
@@ -362,8 +362,8 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_S2[] =
 
 const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B1[] =
 {
-    { _T("Main"), 0x5800, 0x5840, indexSamSho5Sprites_Galford },
-    { _T("Rage Flash"), 0x5840, 0x5880, indexSamSho5Sprites_Galford },
+    { _T("Main"), 0x5800, 0x5840, indexSamSho5Sprites_Galford, 0, &pairNext10 },
+    { _T("Rage Flash"), 0x5840, 0x5880, indexSamSho5Sprites_Galford, 0, &pairNext10 },
     { _T("Extra Palette 2"), 0x5880, 0x58c0 },
     { _T("Extra Palette 3"), 0x58c0, 0x5900 },
     { _T("Shocked"), 0x5900, 0x5940, indexSamSho5Sprites_Galford },
@@ -372,9 +372,9 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B1[] =
     { _T("Extra Palette 7"), 0x59c0, 0x5a00 },
     { _T("Daylight"), 0x5a00, 0x5a40, indexSamSho5Sprites_Galford },
     { _T("Moonlight"), 0x5a40, 0x5a80, indexSamSho5Sprites_Galford },
-    { _T("Extra Palette 10"), 0x5a80, 0x5ac0 },
-    { _T("Extra Palette 11"), 0x5ac0, 0x5b00 },
-    { _T("Extra Palette 12"), 0x5b00, 0x5b40 },
+    { _T("Extra Palette 10: Poppy"), 0x5a80, 0x5ac0, indexSamSho5Sprites_Galford, 1 },
+    { _T("Extra Palette 11: Poppy"), 0x5ac0, 0x5b00, indexSamSho5Sprites_Galford, 1 },
+    { _T("Extra Palette 12: Poppy"), 0x5b00, 0x5b40, indexSamSho5Sprites_Galford, 1 },
     { _T("Slashes (1+2/3)"), 0x5b40, 0x5b80 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x5b80, 0x5bc0 },
     { _T("End of Portrait / Character Extra 5"), 0x5bc0, 0x5c00 },
@@ -382,8 +382,8 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B1[] =
 
 const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B2[] =
 {
-    { _T("Main"), 0x5c00, 0x5c40, indexSamSho5Sprites_Galford },
-    { _T("Rage Flash"), 0x5c40, 0x5c80, indexSamSho5Sprites_Galford },
+    { _T("Main"), 0x5c00, 0x5c40, indexSamSho5Sprites_Galford, 0, &pairNext10 },
+    { _T("Rage Flash"), 0x5c40, 0x5c80, indexSamSho5Sprites_Galford, 0, &pairNext10 },
     { _T("Extra Palette 2"), 0x5c80, 0x5cc0 },
     { _T("Extra Palette 3"), 0x5cc0, 0x5d00 },
     { _T("Shocked"), 0x5d00, 0x5d40, indexSamSho5Sprites_Galford },
@@ -392,9 +392,9 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B2[] =
     { _T("Extra Palette 7"), 0x5dc0, 0x5e00 },
     { _T("Daylight"), 0x5e00, 0x5e40, indexSamSho5Sprites_Galford },
     { _T("Moonlight"), 0x5e40, 0x5e80, indexSamSho5Sprites_Galford },
-    { _T("Extra Palette 10"), 0x5e80, 0x5ec0 },
-    { _T("Extra Palette 11"), 0x5ec0, 0x5f00 },
-    { _T("Extra Palette 12"), 0x5f00, 0x5f40 },
+    { _T("Extra Palette 10: Poppy"), 0x5e80, 0x5ec0, indexSamSho5Sprites_Galford, 1 },
+    { _T("Extra Palette 11: Poppy"), 0x5ec0, 0x5f00, indexSamSho5Sprites_Galford, 1 },
+    { _T("Extra Palette 12: Poppy"), 0x5f00, 0x5f40, indexSamSho5Sprites_Galford, 1 },
     { _T("Slashes (1+2/3)"), 0x5f40, 0x5f80 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x5f80, 0x5fc0 },
     { _T("End of Portrait / Character Extra 5"), 0x5fc0, 0x6000 },
@@ -402,8 +402,8 @@ const sGame_PaletteDataset SAMSHO3_A_GALFORD_PALETTES_B2[] =
 
 const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_S1[] =
 {
-    { _T("Main"), 0x6000, 0x6040, indexSamSho5Sprites_Kyoshiro },
-    { _T("Rage Flash"), 0x6040, 0x6080, indexSamSho5Sprites_Kyoshiro },
+    { _T("Main"), 0x6000, 0x6040, indexSamSho5Sprites_Kyoshiro, 0, &pairNext10 },
+    { _T("Rage Flash"), 0x6040, 0x6080, indexSamSho5Sprites_Kyoshiro, 0, &pairNext10 },
     { _T("Extra Palette 2"), 0x6080, 0x60c0 },
     { _T("Extra Palette 3"), 0x60c0, 0x6100 },
     { _T("Shocked"), 0x6100, 0x6140, indexSamSho5Sprites_Kyoshiro },
@@ -412,9 +412,9 @@ const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_S1[] =
     { _T("Extra Palette 7"), 0x61c0, 0x6200 },
     { _T("Daylight"), 0x6200, 0x6240, indexSamSho5Sprites_Kyoshiro },
     { _T("Moonlight"), 0x6240, 0x6280, indexSamSho5Sprites_Kyoshiro },
-    { _T("Extra Palette 10"), 0x6280, 0x62c0 },
-    { _T("Extra Palette 11"), 0x62c0, 0x6300 },
-    { _T("Extra Palette 12"), 0x6300, 0x6340 },
+    { _T("Extra Palette 10: Toad"), 0x6280, 0x62c0, indexSamSho5Sprites_Kyoshiro, 1 },
+    { _T("Extra Palette 11: Toad"), 0x62c0, 0x6300, indexSamSho5Sprites_Kyoshiro, 1 },
+    { _T("Extra Palette 12: Toad"), 0x6300, 0x6340, indexSamSho5Sprites_Kyoshiro, 1 },
     { _T("Slashes (1+2/3)"), 0x6340, 0x6380 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x6380, 0x63c0 },
     { _T("End of Portrait / Character Extra 5"), 0x63c0, 0x6400 },
@@ -422,8 +422,8 @@ const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_S1[] =
 
 const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_S2[] =
 {
-    { _T("Main"), 0x6400, 0x6440, indexSamSho5Sprites_Kyoshiro },
-    { _T("Rage Flash"), 0x6440, 0x6480, indexSamSho5Sprites_Kyoshiro },
+    { _T("Main"), 0x6400, 0x6440, indexSamSho5Sprites_Kyoshiro, 0, &pairNext10 },
+    { _T("Rage Flash"), 0x6440, 0x6480, indexSamSho5Sprites_Kyoshiro, 0, &pairNext10 },
     { _T("Extra Palette 2"), 0x6480, 0x64c0 },
     { _T("Extra Palette 3"), 0x64c0, 0x6500 },
     { _T("Shocked"), 0x6500, 0x6540, indexSamSho5Sprites_Kyoshiro },
@@ -432,9 +432,9 @@ const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_S2[] =
     { _T("Extra Palette 7"), 0x65c0, 0x6600 },
     { _T("Daylight"), 0x6600, 0x6640, indexSamSho5Sprites_Kyoshiro },
     { _T("Moonlight"), 0x6640, 0x6680, indexSamSho5Sprites_Kyoshiro },
-    { _T("Extra Palette 10"), 0x6680, 0x66c0 },
-    { _T("Extra Palette 11"), 0x66c0, 0x6700 },
-    { _T("Extra Palette 12"), 0x6700, 0x6740 },
+    { _T("Extra Palette 10: Toad"), 0x6680, 0x66c0, indexSamSho5Sprites_Kyoshiro, 1 },
+    { _T("Extra Palette 11: Toad"), 0x66c0, 0x6700, indexSamSho5Sprites_Kyoshiro, 1 },
+    { _T("Extra Palette 12: Toad"), 0x6700, 0x6740, indexSamSho5Sprites_Kyoshiro, 1 },
     { _T("Slashes (1+2/3)"), 0x6740, 0x6780 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x6780, 0x67c0 },
     { _T("End of Portrait / Character Extra 5"), 0x67c0, 0x6800 },
@@ -442,8 +442,8 @@ const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_S2[] =
 
 const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_B1[] =
 {
-    { _T("Main"), 0x6800, 0x6840, indexSamSho5Sprites_Kyoshiro },
-    { _T("Rage Flash"), 0x6840, 0x6880, indexSamSho5Sprites_Kyoshiro },
+    { _T("Main"), 0x6800, 0x6840, indexSamSho5Sprites_Kyoshiro, 0, &pairNext10 },
+    { _T("Rage Flash"), 0x6840, 0x6880, indexSamSho5Sprites_Kyoshiro, 0, &pairNext10 },
     { _T("Extra Palette 2"), 0x6880, 0x68c0 },
     { _T("Extra Palette 3"), 0x68c0, 0x6900 },
     { _T("Shocked"), 0x6900, 0x6940, indexSamSho5Sprites_Kyoshiro },
@@ -452,9 +452,9 @@ const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_B1[] =
     { _T("Extra Palette 7"), 0x69c0, 0x6a00 },
     { _T("Daylight"), 0x6a00, 0x6a40, indexSamSho5Sprites_Kyoshiro },
     { _T("Moonlight"), 0x6a40, 0x6a80, indexSamSho5Sprites_Kyoshiro },
-    { _T("Extra Palette 10"), 0x6a80, 0x6ac0 },
-    { _T("Extra Palette 11"), 0x6ac0, 0x6b00 },
-    { _T("Extra Palette 12"), 0x6b00, 0x6b40 },
+    { _T("Extra Palette 10: Toad"), 0x6a80, 0x6ac0, indexSamSho5Sprites_Kyoshiro, 1 },
+    { _T("Extra Palette 11: Toad"), 0x6ac0, 0x6b00, indexSamSho5Sprites_Kyoshiro, 1 },
+    { _T("Extra Palette 12: Toad"), 0x6b00, 0x6b40, indexSamSho5Sprites_Kyoshiro, 1 },
     { _T("Slashes (1+2/3)"), 0x6b40, 0x6b80 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x6b80, 0x6bc0 },
     { _T("End of Portrait / Character Extra 5"), 0x6bc0, 0x6c00 },
@@ -462,8 +462,8 @@ const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_B1[] =
 
 const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_B2[] =
 {
-    { _T("Main"), 0x6c00, 0x6c40, indexSamSho5Sprites_Kyoshiro },
-    { _T("Rage Flash"), 0x6c40, 0x6c80, indexSamSho5Sprites_Kyoshiro },
+    { _T("Main"), 0x6c00, 0x6c40, indexSamSho5Sprites_Kyoshiro, 0, &pairNext10 },
+    { _T("Rage Flash"), 0x6c40, 0x6c80, indexSamSho5Sprites_Kyoshiro, 0, &pairNext10 },
     { _T("Extra Palette 2"), 0x6c80, 0x6cc0 },
     { _T("Extra Palette 3"), 0x6cc0, 0x6d00 },
     { _T("Shocked"), 0x6d00, 0x6d40, indexSamSho5Sprites_Kyoshiro },
@@ -472,9 +472,9 @@ const sGame_PaletteDataset SAMSHO3_A_KYOSHIRO_PALETTES_B2[] =
     { _T("Extra Palette 7"), 0x6dc0, 0x6e00 },
     { _T("Daylight"), 0x6e00, 0x6e40, indexSamSho5Sprites_Kyoshiro },
     { _T("Moonlight"), 0x6e40, 0x6e80, indexSamSho5Sprites_Kyoshiro },
-    { _T("Extra Palette 10"), 0x6e80, 0x6ec0 },
-    { _T("Extra Palette 11"), 0x6ec0, 0x6f00 },
-    { _T("Extra Palette 12"), 0x6f00, 0x6f40 },
+    { _T("Extra Palette 10: Toad"), 0x6e80, 0x6ec0, indexSamSho5Sprites_Kyoshiro, 1 },
+    { _T("Extra Palette 11: Toad"), 0x6ec0, 0x6f00, indexSamSho5Sprites_Kyoshiro, 1 },
+    { _T("Extra Palette 12: Toad"), 0x6f00, 0x6f40, indexSamSho5Sprites_Kyoshiro, 1 },
     { _T("Slashes (1+2/3)"), 0x6f40, 0x6f80 },
     { _T("Slashes (3/3) / Start of Portrait"), 0x6f80, 0x6fc0 },
     { _T("End of Portrait / Character Extra 5"), 0x6fc0, 0x7000 },
