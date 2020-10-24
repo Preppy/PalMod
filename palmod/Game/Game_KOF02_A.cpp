@@ -181,7 +181,7 @@ void CGame_KOF02_A::DumpAllCharacters()
                 L"Hidden Super Desperation Move 1",
                 L"Desperation Move / Super Desperation Move",
                 L"Electric Shock Effect",
-                L"Max Flash",
+                L"MAX Flash",
                 L"Hidden Super Desperation Move 2",
                 L"Soul Palette",
                 L"Hidden Super Desperation Move 3",
@@ -208,12 +208,21 @@ void CGame_KOF02_A::DumpAllCharacters()
                     }
                     nCurrentImageToUse = KOF02_A_CharacterOffsetArray[iUnitCtr].nDMSDMImageIndex;
                     break;
+                case 3: // electric shock
+                    nCurrentImageToUse = 0x18;
+                    break;
+                case 4: // MAX flash
+                    nCurrentImageToUse = 0x8;
+                    break;
                 case 5: // HSDM2
                     if (KOF02_A_CharacterOffsetArray[iUnitCtr].pszHSDM2NameOverride)
                     {
                         pszCurrentMoveName = KOF02_A_CharacterOffsetArray[iUnitCtr].pszHSDM2NameOverride;
                     }
                     nCurrentImageToUse = KOF02_A_CharacterOffsetArray[iUnitCtr].nHSDMI2ImageIndex;
+                    break;
+                case 6: // soul palette
+                    nCurrentImageToUse = 0x18;
                     break;
                 case 7: // HSDM3
                     if (KOF02_A_CharacterOffsetArray[iUnitCtr].pszHSDM3NameOverride)
@@ -459,7 +468,8 @@ sDescTreeNode* CGame_KOF02_A::InitDescTree()
     m_nTotalPaletteCountForKOF02 = nTotalPaletteCount;
 
     // For development purposes only...
-    DumpAllCharacters();
+    // Note that Chin uses 0x9 and Kensou uses 0x0 for their MAX Flash palette: the autogenerator currently doesn't account for that
+    //DumpAllCharacters();
 
     return NewDescTree;
 }

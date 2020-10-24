@@ -2233,12 +2233,12 @@ const sGame_PaletteDataset KOF98_A_DAIMON_EFFECT_PALETTES[] =
 
 const sGame_PaletteDataset KOF98_A_TERRY_EFFECT_PALETTES[] =
 {
-    { _T("Burn Knuckle"), 0x2eedf0, 0x2eee10 },
-    { _T("Power Dunk"), 0x2eee10, 0x2eee30 },
-    { _T("All Super Geysers (Max)"), 0x2eee30, 0x2eee50 },
-    { _T("Power Wave"), 0x2eee50, 0x2eee70 },
-    { _T("EX Power Wave"), 0x2eee70, 0x2eee90 },
-    { _T("EX PW Hit Spark"), 0x2eee90, 0x2eeeb0 },
+    { _T("Burn Knuckle"), 0x2eedf0, 0x2eee10, indexKOF98_A_Terry, 0x2 },
+    { _T("Power Dunk"), 0x2eee10, 0x2eee30, indexKOF98_A_Terry, 0x3 },
+    { _T("All Super Geysers (Max)"), 0x2eee30, 0x2eee50, indexKOF98_A_Terry, 0x4 },
+    { _T("Power Wave"), 0x2eee50, 0x2eee70, indexKOF98_A_Terry, 0x5 },
+    { _T("EX Power Wave"), 0x2eee70, 0x2eee90, indexKOF98_A_Terry, 0x6 },
+    { _T("EX PW Hit Spark"), 0x2eee90, 0x2eeeb0, indexKOF98_A_Terry, 07 },
     { _T("Zap Effect 1"), 0x2eef50, 0x2eef70, indexKOF98_A_Terry },
     { _T("Zap Effect 2"), 0x2eef70, 0x2eef90, indexKOF98_A_Terry },
     { _T("Super Trail 1"), 0x2eef90, 0x2eefb0, indexKOF98_A_Terry },
