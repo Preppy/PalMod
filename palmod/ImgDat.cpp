@@ -247,6 +247,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = VSAV2_A_IMG_UNITS[nUnitCtr];
             break;
         }
+        case WINDJAMMERS_A:
+        {
+            nImageUnitCounterToUse = WINDJAMMERS_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
         case XMVSF_A:
         {
             nImageUnitCounterToUse = XMVSF_A_IMG_UNITS[nUnitCtr];

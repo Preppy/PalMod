@@ -62,12 +62,12 @@ const sGame_PaletteDataset SF2CE_A_CHUNLI_P2_NODE[] =
 
 const sGame_PaletteDataset SF2CE_A_ZANGIEF_P1_NODE[] =
 {
-    { _T("Zangief"), 0x24348, 0x24368, indexSF2Sprites_Zangief },
+    { _T("Zangief"), 0x24348, 0x24368, indexSF2Sprites_Zangief, 0x08 },
 };
 
 const sGame_PaletteDataset SF2CE_A_ZANGIEF_P2_NODE[] =
 {
-    { _T("Zangief"), 0x16902, 0x16922, indexSF2Sprites_Zangief },
+    { _T("Zangief"), 0x16902, 0x16922, indexSF2Sprites_Zangief, 0x08 },
 };
 
 const sGame_PaletteDataset SF2CE_A_DHALSIM_P1_NODE[] =

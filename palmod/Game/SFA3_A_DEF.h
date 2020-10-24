@@ -577,8 +577,8 @@ const sGame_PaletteDataset SFA3_A_ADON_STATUS[] =
 const sGame_PaletteDataset SFA3_A_SODOM_XISMP[] =
 {
     { _T("X-Ism Punch"), 0x2d754, 0x2d774, 0x3e, 0x00 },
-    { _T("X-Ism Punch Swords"), 0x02D774, 0x02D794 },
-    { _T("X-Ism Punch Extra 2"), 0x2d794, 0x2d7b4 },
+    { _T("X-Ism Punch Swords"), 0x02D774, 0x02D794, indexCPS2_Sodom, 0x04 },
+    { _T("X-Ism Punch Intro"), 0x2d794, 0x2d7b4, indexCPS2_Sodom, 0x03 },
     { _T("X-Ism Punch Super Trail Light"), 0x2d7b4, 0x2d7d4, 0x3e, 0x00 },
     { _T("X-Ism Punch Super Trail Dark"), 0x2d7d4, 0x2d7f4, 0x3e, 0x00 },
 };
@@ -586,8 +586,8 @@ const sGame_PaletteDataset SFA3_A_SODOM_XISMP[] =
 const sGame_PaletteDataset SFA3_A_SODOM_XISMK[] =
 {
     { _T("X-Ism Kick"), 0x2d7f4, 0x2d814, 0x3e, 0x00 },
-    { _T("X-Ism Kick Swords"), 0x02D814, 0x02D834 },
-    { _T("X-Ism Kick Extra 2"), 0x2d834, 0x2d854 },
+    { _T("X-Ism Kick Swords"), 0x02D814, 0x02D834, indexCPS2_Sodom, 0x04 },
+    { _T("X-Ism Kick Intro"), 0x2d834, 0x2d854, indexCPS2_Sodom, 0x03 },
     { _T("X-Ism Kick Super Trail Light"), 0x2d854, 0x2d874, 0x3e, 0x00 },
     { _T("X-Ism Kick Super Trail Dark"), 0x2d874, 0x2d894, 0x3e, 0x00 },
 };
@@ -595,8 +595,8 @@ const sGame_PaletteDataset SFA3_A_SODOM_XISMK[] =
 const sGame_PaletteDataset SFA3_A_SODOM_AISMP[] =
 {
     { _T("A-Ism Punch"), 0x2d894, 0x2d8b4, 0x3e, 0x00 },
-    { _T("A-Ism Punch Slashes"), 0x02D8B4, 0x02D8D4 },
-    { _T("A-Ism Punch Extra 2"), 0x2d8d4, 0x2d8f4 },
+    { _T("A-Ism Punch Slashes"), 0x02D8B4, 0x02D8D4, indexCPS2_Sodom, 0x04 },
+    { _T("A-Ism Punch Intro"), 0x2d8d4, 0x2d8f4, indexCPS2_Sodom, 0x03 },
     { _T("A-Ism Punch Super Trail Light"), 0x2d8f4, 0x2d914, 0x3e, 0x00 },
     { _T("A-Ism Punch Super Trail Dark"), 0x2d914, 0x2d934, 0x3e, 0x00 },
 };
@@ -604,8 +604,8 @@ const sGame_PaletteDataset SFA3_A_SODOM_AISMP[] =
 const sGame_PaletteDataset SFA3_A_SODOM_AISMK[] =
 {
     { _T("A-Ism Kick"), 0x2d934, 0x2d954, 0x3e, 0x00 },
-    { _T("A-Ism Kick Slashes"), 0x02D954, 0x02D974 },
-    { _T("A-Ism Kick Extra 2"), 0x2d974, 0x2d994 },
+    { _T("A-Ism Kick Slashes"), 0x02D954, 0x02D974, indexCPS2_Sodom, 0x04 },
+    { _T("A-Ism Kick Intro"), 0x2d974, 0x2d994, indexCPS2_Sodom, 0x03 },
     { _T("A-Ism Kick Super Trail Light"), 0x2d994, 0x2d9b4, 0x3e, 0x00 },
     { _T("A-Ism Kick Super Trail Dark"), 0x2d9b4, 0x2d9d4, 0x3e, 0x00 },
 };
@@ -613,8 +613,8 @@ const sGame_PaletteDataset SFA3_A_SODOM_AISMK[] =
 const sGame_PaletteDataset SFA3_A_SODOM_VISMP[] =
 {
     { _T("V-Ism Punch"), 0x2d9d4, 0x2d9f4, 0x3e, 0x00 },
-    { _T("V-Ism Punch Slashes"), 0x02D9F4, 0x02DA14 },
-    { _T("V-Ism Punch Extra 2"), 0x2da14, 0x2da34 },
+    { _T("V-Ism Punch Slashes"), 0x02D9F4, 0x02DA14, indexCPS2_Sodom, 0x04 },
+    { _T("V-Ism Punch Intro"), 0x2da14, 0x2da34, indexCPS2_Sodom, 0x03 },
     { _T("V-Ism Punch Super Trail Light"), 0x2da34, 0x2da54, 0x3e, 0x00 },
     { _T("V-Ism Punch Super Trail Dark"), 0x2da54, 0x2da74, 0x3e, 0x00 },
 };
@@ -622,8 +622,8 @@ const sGame_PaletteDataset SFA3_A_SODOM_VISMP[] =
 const sGame_PaletteDataset SFA3_A_SODOM_VISMK[] =
 {
     { _T("V-Ism Kick"), 0x2da74, 0x2da94, 0x3e, 0x00 },
-    { _T("V-Ism Kick Slashes"), 0x02DA94, 0x02DAB4 },
-    { _T("V-Ism Kick Extra 2"), 0x2dab4, 0x2dad4 },
+    { _T("V-Ism Kick Slashes"), 0x02DA94, 0x02DAB4, indexCPS2_Sodom, 0x04 },
+    { _T("V-Ism Kick Intro"), 0x2dab4, 0x2dad4, indexCPS2_Sodom, 0x03 },
     { _T("V-Ism Kick Super Trail Light"), 0x2dad4, 0x2daf4, 0x3e, 0x00 },
     { _T("V-Ism Kick Super Trail Dark"), 0x2daf4, 0x2db14, 0x3e, 0x00 },
 };

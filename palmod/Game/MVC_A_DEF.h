@@ -47,7 +47,7 @@ const sGame_PaletteDataset MVC_A_RYU_PALETTES_P1[] =
     { _T("Ryu P1 Hadouken"), 0x487e4, 0x48804, indexCPS2_Ryu, 1 },
     { _T("Ryu P1 Extra"), 0x48804, 0x48824 },
     { _T("Ken P1"), 0x4ec44, 0x4ec64, indexCPS2_Ryu, 0x09 },
-    { _T("Ken P1 Hakouken"), 0x4ec64, 0x4ec84, indexCPS2_Ryu, 1 },
+    { _T("Ken P1 Hakouken"), 0x4ec64, 0x4ec84, indexCPS2_Ken, 1 },
     { _T("Ken P1 Shoryuken"), 0x4ec84, 0x4eca4, indexCPS2_Ken, 2 },
     { _T("Akuma P1"), 0x4ed04, 0x4ed24, indexCPS2_Ryu, 0x09 },
     { _T("Akuma P1 Hadouken"), 0x4ed24, 0x4ed44, indexCPS2_Akuma, 1 },
@@ -62,7 +62,7 @@ const sGame_PaletteDataset MVC_A_RYU_PALETTES_P2[] =
     { _T("Ryu P2 Hadouken"), 0x48844, 0x48864, indexCPS2_Ryu, 1 },
     { _T("Ryu P2 Extra"), 0x48864, 0x48884 },
     { _T("Ken P2"), 0x4eca4, 0x4ecc4, indexCPS2_Ryu, 0x09 },
-    { _T("Ken P2 Hadouken"), 0x4ecc4, 0x4ece4, indexCPS2_Ryu, 1 },
+    { _T("Ken P2 Hadouken"), 0x4ecc4, 0x4ece4, indexCPS2_Ken, 1 },
     { _T("Ken P2 Shoryuken"), 0x4ece4, 0x4ed04, indexCPS2_Ken, 2 },
     { _T("Akuma P2"), 0x4ed64, 0x4ed84, indexCPS2_Ryu, 0x09 },
     { _T("Akuma P2 Hadouken"), 0x4ed84, 0x4eda4, indexCPS2_Akuma, 1 },
@@ -890,49 +890,49 @@ const sGame_PaletteDataset MVC_A_CAPCOM_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P1[] =
 {
-    { _T("P1 Color"), 0x48ec4, 0x48ee4, 0x3 },
-    { _T("P1 Lilith"), 0x48ee4, 0x48f04, 0x3, 1 },
-    { _T("P1 Extra 2"), 0x48f04, 0x48f24, 0x3, 2 },
+    { _T("P1 Color"), 0x48ec4, 0x48ee4, indexCPS2_Morrigan },
+    { _T("P1 Lilith"), 0x48ee4, 0x48f04, indexCPS2_Morrigan, 1 },
+    { _T("P1 Extra 2"), 0x48f04, 0x48f24, indexCPS2_Morrigan, 2 },
 
-    { _T("P1 Soul Eraser 1"), 0x4edE4, 0x4ee04, 0x3, 11 },
-    { _T("P1 Soul Eraser 2"), 0x4ee04, 0x4ee24, 0x3, 11 },
+    { _T("P1 Soul Eraser 1"), 0x4edE4, 0x4ee04, indexCPS2_Morrigan, 11 },
+    { _T("P1 Soul Eraser 2"), 0x4ee04, 0x4ee24, indexCPS2_Morrigan, 11 },
 
-    { _T("Morrigan Intro Pose"), 0x4ee84, 0x4eeA4, 0x3, 13 },
-    { _T("Lilith Join Pose"), 0x4eeA4, 0x4eeC4, 0x3, 12 },
-    { _T("Lilith Join Pose 2"), 0x4eeC4, 0x4eEE4, 0x3, 12 },
-    { _T("Morrigan Join Pose"), 0x4eee4, 0x4ef04, 0x3, 13 },
-    { _T("Morrigan Join Pose 2"), 0x4ef04, 0x4ef24, 0x3, 13 },
-    { _T("Morrigan Intro Frame 1"), 0x4ef44, 0x4eF64, 0x3, 13 },
-    { _T("Morrigan Intro Frame 2"), 0x4ef64, 0x4eF84, 0x3, 13 },
-    { _T("Morrigan Intro Frame 3"), 0x4ef84, 0x4eFA4, 0x3, 13 },
-    { _T("Morrigan Intro Frame 4"), 0x4efA4, 0x4eFC4, 0x3, 13 },
+    { _T("Morrigan Intro Pose"), 0x4ee84, 0x4eeA4, indexCPS2_Morrigan, 13 },
+    { _T("Lilith Join Pose"), 0x4eeA4, 0x4eeC4, indexCPS2_Morrigan, 12 },
+    { _T("Lilith Join Pose 2"), 0x4eeC4, 0x4eEE4, indexCPS2_Morrigan, 12 },
+    { _T("Morrigan Join Pose"), 0x4eee4, 0x4ef04, indexCPS2_Morrigan, 13 },
+    { _T("Morrigan Join Pose 2"), 0x4ef04, 0x4ef24, indexCPS2_Morrigan, 13 },
+    { _T("Morrigan Intro Frame 1"), 0x4ef44, 0x4eF64, indexCPS2_Morrigan, 13 },
+    { _T("Morrigan Intro Frame 2"), 0x4ef64, 0x4eF84, indexCPS2_Morrigan, 13 },
+    { _T("Morrigan Intro Frame 3"), 0x4ef84, 0x4eFA4, indexCPS2_Morrigan, 13 },
+    { _T("Morrigan Intro Frame 4"), 0x4efA4, 0x4eFC4, indexCPS2_Morrigan, 13 },
    
 };
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_P2[] =
 {
-    { _T("P2 Color"), 0x48f24, 0x48f44, 0x3 },
-    { _T("P2 Lilith"), 0x48f44, 0x48f64, 0x3, 1 },
-    { _T("P2 Extra 2"), 0x48f64, 0x48f84, 0x3, 2 },
+    { _T("P2 Color"), 0x48f24, 0x48f44, indexCPS2_Morrigan },
+    { _T("P2 Lilith"), 0x48f44, 0x48f64, indexCPS2_Morrigan, 1 },
+    { _T("P2 Extra 2"), 0x48f64, 0x48f84, indexCPS2_Morrigan, 2 },
 
-    { _T("P2 Soul Eraser 1"), 0x4ee44, 0x4ee64, 0x3, 11 },
-    { _T("P2 Soul Eraser 2"), 0x4ee64, 0x4ee84, 0x3, 11 },
+    { _T("P2 Soul Eraser 1"), 0x4ee44, 0x4ee64, indexCPS2_Morrigan, 11 },
+    { _T("P2 Soul Eraser 2"), 0x4ee64, 0x4ee84, indexCPS2_Morrigan, 11 },
 
-    { _T("Morrigan P2 Intro Pose"), 0x4eFE4, 0x4f004, 0x3, 13 },
-    { _T("Lilith P2 Join Pose"), 0x4f004, 0x4f024, 0x3, 12 },
-    { _T("Lilith P2 Join Pose 2"), 0x4f024, 0x4f044, 0x3, 12 },
-    { _T("Morrigan P2 Join Pose"), 0x4f044, 0x4f064, 0x3, 13 },
-    { _T("Morrigan P2 Join Pose"), 0x4f064, 0x4f084, 0x3, 13 },
-    { _T("Morrigan Intro Frame 1"), 0x4f0A4, 0x4f0C4, 0x3, 13 },
-    { _T("Morrigan Intro Frame 2"), 0x4f0C4, 0x4f0E4, 0x3, 13 },
-    { _T("Morrigan Intro Frame 3"), 0x4f0E4, 0x4f104, 0x3, 13 },
-    { _T("Morrigan Intro Frame 4"), 0x4f104, 0x4f124, 0x3, 13 },
+    { _T("Morrigan P2 Intro Pose"), 0x4eFE4, 0x4f004, indexCPS2_Morrigan, 13 },
+    { _T("Lilith P2 Join Pose"), 0x4f004, 0x4f024, indexCPS2_Morrigan, 12 },
+    { _T("Lilith P2 Join Pose 2"), 0x4f024, 0x4f044, indexCPS2_Morrigan, 12 },
+    { _T("Morrigan P2 Join Pose"), 0x4f044, 0x4f064, indexCPS2_Morrigan, 13 },
+    { _T("Morrigan P2 Join Pose"), 0x4f064, 0x4f084, indexCPS2_Morrigan, 13 },
+    { _T("Morrigan Intro Frame 1"), 0x4f0A4, 0x4f0C4, indexCPS2_Morrigan, 13 },
+    { _T("Morrigan Intro Frame 2"), 0x4f0C4, 0x4f0E4, indexCPS2_Morrigan, 13 },
+    { _T("Morrigan Intro Frame 3"), 0x4f0E4, 0x4f104, indexCPS2_Morrigan, 13 },
+    { _T("Morrigan Intro Frame 4"), 0x4f104, 0x4f124, indexCPS2_Morrigan, 13 },
 };
 
 const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
 {
     // There isn't a direct p2 pair for this: ... ?
-    { _T("P1 Taunt"), 0x4efC4, 0x4eFE4, 0x3, 14 }, // This is Range 7 Palette IE9 in their doc
+    { _T("P1 Taunt"), 0x4efC4, 0x4eFE4, indexCPS2_Morrigan, 14 }, // This is Range 7 Palette IE9 in their doc
     { _T("Eternal Slumber Heart 1 (Shared)"), 0x4f124, 0x4f144 },
     { _T("Eternal Slumber Heart 2 (Shared)"), 0x4f144, 0x4f164 },
 
@@ -948,17 +948,17 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =
 {
-    { _T("P1 Color"), 0x493a4, 0x493c4, 0x3 },
-    { _T("P1 Extra 1"), 0x493c4, 0x493e4, 0x3, 1 },
-    { _T("P1 Extra 2"), 0x493e4, 0x49404, 0x3, 2 },
+    { _T("P1 Color"), 0x493a4, 0x493c4, indexCPS2_Morrigan },
+    { _T("P1 Extra 1"), 0x493c4, 0x493e4, indexCPS2_Morrigan, 1 },
+    { _T("P1 Extra 2"), 0x493e4, 0x49404, indexCPS2_Morrigan, 2 },
     { _T("P1 Floating Taunt Morrigan?"), 0x4fcc4, 0x4fce4 },
 };
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P2[] =
 {
-    { _T("P2 Color"), 0x49404, 0x49424, 0x3 },
-    { _T("P2 Extra 1"), 0x49424, 0x49444, 0x3, 1 },
-    { _T("P2 Extra 2"), 0x49444, 0x49464, 0x3, 2 },
+    { _T("P2 Color"), 0x49404, 0x49424, indexCPS2_Morrigan },
+    { _T("P2 Extra 1"), 0x49424, 0x49444, indexCPS2_Morrigan, 1 },
+    { _T("P2 Extra 2"), 0x49444, 0x49464, indexCPS2_Morrigan, 2 },
     { _T("P2 Floating Taunt Morrigan?"), 0x4fce4, 0x4fd04 },
 };
 

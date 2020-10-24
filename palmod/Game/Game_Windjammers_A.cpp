@@ -58,8 +58,8 @@ CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = WINDJAMMERS_A;
-    nImgGameFlag = IMGDAT_SECTION_NEOGEO;
-    nImgUnitAmt = 0;
+    nImgGameFlag = IMGDAT_SECTION_WINDJAMMERS;
+    nImgUnitAmt = WINDJAMMERS_A_NUM_IMG_UNITS;
 
     nFileAmt = 1;
 

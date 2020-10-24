@@ -2,38 +2,38 @@
 
 const sGame_PaletteDataset Windjammers_A_USA_PALETTES[] =
 {
-    { L"Character A", 0x30400, 0x30420 },
-    { L"Character B", 0x30420, 0x30440 },
+    { L"Character A", 0x30400, 0x30420, indexWindjammersSprites_USA },
+    { L"Character B", 0x30420, 0x30440, indexWindjammersSprites_USA },
 };
 
 const sGame_PaletteDataset Windjammers_A_SPAIN_PALETTES[] =
 {
-    { L"Character A", 0x30440, 0x30460 },
-    { L"Character B", 0x30460, 0x30480 },
+    { L"Character A", 0x30440, 0x30460, indexWindjammersSprites_Spain },
+    { L"Character B", 0x30460, 0x30480, indexWindjammersSprites_Spain },
 };
 
 const sGame_PaletteDataset Windjammers_A_GERMANY_PALETTES[] =
 {
-    { L"Character A", 0x30480, 0x304a0 },
-    { L"Character B", 0x304a0, 0x304c0 },
+    { L"Character A", 0x30480, 0x304a0, indexWindjammersSprites_Germany },
+    { L"Character B", 0x304a0, 0x304c0, indexWindjammersSprites_Germany },
 };
 
 const sGame_PaletteDataset Windjammers_A_BRITAIN_PALETTES[] =
 {
-    { L"Character A", 0x304c0, 0x304e0 },
-    { L"Character B", 0x304e0, 0x30500 },
+    { L"Character A", 0x304c0, 0x304e0, indexWindjammersSprites_UK_Korea },
+    { L"Character B", 0x304e0, 0x30500, indexWindjammersSprites_UK_Korea },
 };
 
 const sGame_PaletteDataset Windjammers_A_ITALY_PALETTES[] =
 {
-    { L"Character A", 0x30500, 0x30520 },
-    { L"Character B", 0x30520, 0x30540 },
+    { L"Character A", 0x30500, 0x30520, indexWindjammersSprites_Italy },
+    { L"Character B", 0x30520, 0x30540, indexWindjammersSprites_Italy },
 };
 
 const sGame_PaletteDataset Windjammers_A_JAPAN_PALETTES[] =
 {
-    { L"Character A", 0x30540, 0x30560 },
-    { L"Character B", 0x30560, 0x30580 },
+    { L"Character A", 0x30540, 0x30560, indexWindjammersSprites_Japan },
+    { L"Character B", 0x30560, 0x30580, indexWindjammersSprites_Japan },
 };
 
 const sDescTreeNode Windjammers_A_USA_COLLECTION[] =

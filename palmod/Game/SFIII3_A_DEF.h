@@ -901,8 +901,8 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_EXTRA_PALETTES[] =
 {
     { _T("Shun Goku Satsu KO Screen"), 0x706b80, 0x706c00, index3S_CPS3_Gouki, 0x0F },
 
-    { _T("Kongou Kokuretzu Zan / Fireball"), 0x706a00, 0x706a80 },
-    { _T("Messatsu Go Hadou / Air Fireball"), 0x706a80, 0x706b00 },
+    { _T("Kongou Kokuretzu Zan / Fireball"), 0x706a00, 0x706a80, index3S_CPS3_Gouki, 0x02 },
+    { _T("Messatsu Go Hadou / Air Fireball"), 0x706a80, 0x706b00, index3S_CPS3_Gouki, 0x03 },
 
     { _T("SA Animation 4"), 0x707900, 0x707980, 0x0D },
 
@@ -937,8 +937,8 @@ const sGame_PaletteDataset SFIII3_A_SHINGOUKI_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_EXTRA_PALETTES[] =
 {
-    { _T("Fireball"), 0x706C00, 0x706C80 },
-    { _T("Air Fireball"), 0x706C80, 0x706D00 },
+    { _T("Fireball"), 0x706C00, 0x706C80, index3S_CPS3_Gouki, 0x02 },
+    { _T("Air Fireball"), 0x706C80, 0x706D00, index3S_CPS3_Gouki, 0x03 },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_LP_PALETTES[] =

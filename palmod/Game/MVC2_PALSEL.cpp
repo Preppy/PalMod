@@ -380,7 +380,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         nExtraAmt = 1;
 
         if (
-            CreateExtraPal(uUnitId, uPalId, 0x0B, 1, 11)
+               CreateExtraPal(uUnitId, uPalId, 0x0B, 1, 11)
             || CreateExtraPal(uUnitId, uPalId, 0x0C, 1, 12)
             || CreateExtraPal(uUnitId, uPalId, 0x0D, 1, 13)
             || CreateExtraPal(uUnitId, uPalId, 0x0E, 1, 14)

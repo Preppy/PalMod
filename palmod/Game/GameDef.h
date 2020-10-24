@@ -1478,69 +1478,74 @@ enum SupportedKOF02_A_PaletteListIndex
 
 const UINT8 KOF02_A_IMG_UNITS[] =
 {
-    indexKOFSprites_98Kyo,
-    indexKOFSprites_98Benimaru,
-    indexKOFSprites_98Daimon,
-    indexKOFSprites_98Terry,
-    indexKOFSprites_98Andy,
-    indexKOFSprites_98Joe,
-    indexKOFSprites_98Ryo,
-    indexKOFSprites_98Robert,
-    indexKOFSprites_98Yuri,
-    indexKOFSprites_98Leona,
-    indexKOFSprites_98Athena,
-    indexKOFSprites_98Kensou,
-    indexKOFSprites_98Chin,
-    indexKOFSprites_98Chizuru,
-    indexKOFSprites_98Mai,
-    indexKOFSprites_98Kim,
-    indexKOFSprites_98Chang,
-    indexKOFSprites_98Choi,
-    indexKOFSprites_98Yashiro,
-    indexKOFSprites_98Shermie,
-    indexKOFSprites_98Chris,
-    indexKOFSprites_98Yamazaki,
-    indexKOFSprites_98BlueMary,
-    indexKOFSprites_98Billy,
-    indexKOFSprites_98Iori,
-    indexKOFSprites_98Mature,
-    indexKOFSprites_98Vice,
-    indexKOFSprites_98Takuma,
-    indexKOFSprites_98Saisyu,
-    indexKOFSprites_98HeavyD,
-    indexKOFSprites_98Lucky,
-    indexKOFSprites_98Brian,
-    indexKOFSprites_98Rugal,
-    indexKOFSprites_02Angel,
-    indexKOFSprites_02Athena,
-    indexKOFSprites_02Clark,
-    indexKOFSprites_02K,
-    indexKOFSprites_02Kula,
-    indexKOFSprites_02Kyo,
-    indexKOFSprites_02Maxima,
-    indexKOFSprites_02MayLee,
-    indexKOFSprites_02Ralf,
-    indexKOFSprites_02Ramon,
-    indexKOFSprites_02Seth,
-    indexKOFSprites_02Vanessa,
-    indexKOFSprites_02Whip,
-    indexKOFSprites_02Goenitz,
-    indexKOFSprites_02Bao,
-    indexKOFSprites_02Foxy,
-    indexKOFSprites_02Geese,
-    indexKOFSprites_02Igniz,
-    indexKOFSprites_02Kasumi,
-    indexKOFSprites_02Krizalid,
+    indexKOFSprites_02UM_Andy,    // 0x79
+    indexKOFSprites_02UM_Angel,    // 0x7A
+    indexKOFSprites_02UM_Athena,    // 0x7B
+    indexKOFSprites_02UM_Bao,    // 0x7C
+    indexKOFSprites_02UM_Benimaru,    // 0x7D
+    indexKOFSprites_02UM_Billy,    // 0x7E
+    indexKOFSprites_02UM_BlueMary,    // 0x7F
+    indexKOFSprites_02UM_Chang,    // 0x80
+    indexKOFSprites_02UM_Chin,    // 0x81
+    indexKOFSprites_02UM_Choi,    // 0x82
+    indexKOFSprites_02UM_Chris,    // 0x83
+    indexKOFSprites_02UM_ChrisOChi,    // 0x84
+    indexKOFSprites_02UM_Clark,    // 0x85
+    indexKOFSprites_02UM_CloneZero,    // 0x86
+    indexKOFSprites_02UM_Daimon,    // 0x87
+    indexKOFSprites_02UM_Foxy,    // 0x88
+    indexKOFSprites_02UM_Geese,    // 0x89
+    indexKOFSprites_02UM_GeeseNM,    // 0x8A
+    indexKOFSprites_02UM_Goenitz,    // 0x8B
+    indexKOFSprites_02UM_Heidern,    // 0x8C
+    indexKOFSprites_02UM_Hinako,    // 0x8D
+    indexKOFSprites_02UM_Igniz,    // 0x8E
+    indexKOFSprites_02UM_Iori,    // 0x8F
+    indexKOFSprites_02UM_Jhun,    // 0x90
+    indexKOFSprites_02UM_Joe,    // 0x91
+    indexKOFSprites_02UM_K,    // 0x92
+    indexKOFSprites_02UM_Kasumi,    // 0x93
+    indexKOFSprites_02UM_Kensou,    // 0x94
+    indexKOFSprites_02UM_KensouEX,    // 0x95
+    indexKOFSprites_02UM_Kim,    // 0x96
+    indexKOFSprites_02UM_King,    // 0x97
+    indexKOFSprites_02UM_Krizalid,    // 0x98
+    indexKOFSprites_02UM_Kula,    // 0x99
+    indexKOFSprites_02UM_Kusanagi,    // 0x9A
+    indexKOFSprites_02UM_KyoKusa,    // 0x9B
+    indexKOFSprites_02UM_Kyo1,    // 0x9C
+    indexKOFSprites_02UM_Kyo2,    // 0x9D
+    indexKOFSprites_02UM_Leona,    // 0x9E
+    indexKOFSprites_02UM_Lin,    // 0x9F
+    indexKOFSprites_02UM_Mai,    // 0xA0
+    indexKOFSprites_02UM_Mature,    // 0xA1
+    indexKOFSprites_02UM_Maxima,    // 0xA2
+    indexKOFSprites_02UM_MayLee,    // 0xA3
+    indexKOFSprites_02UM_Nameless,    // 0xA4
+    indexKOFSprites_02UM_OmegaRugal,    // 0xA5
+    indexKOFSprites_02UM_Ralf,    // 0xA6
+    indexKOFSprites_02UM_Ramon,    // 0xA7
+    indexKOFSprites_02UM_Robert,    // 0xA8
+    indexKOFSprites_02UM_RobertEX,    // 0xA9
+    indexKOFSprites_02UM_Ryo,    // 0xAA
+    indexKOFSprites_02UM_Seth,    // 0xAB
+    indexKOFSprites_02UM_Shermie,    // 0xAC
+    indexKOFSprites_02UM_ShermieOChi,    // 0xAD
+    indexKOFSprites_02UM_Shingo,    // 0xAE
+    indexKOFSprites_02UM_Takuma,    // 0xAF
+    indexKOFSprites_02UM_TakumaEX,    // 0xB0
+    indexKOFSprites_02UM_Terry,    // 0xB1
+    indexKOFSprites_02UM_Vanessa,    // 0xB2
+    indexKOFSprites_02UM_Vice,    // 0xB3
+    indexKOFSprites_02UM_Whip,    // 0xB4
+    indexKOFSprites_02UM_Xiangfei,    // 0xB5
+    indexKOFSprites_02UM_Yamazaki,    // 0xB6
+    indexKOFSprites_02UM_Yashiro,    // 0xB7
+    indexKOFSprites_02UM_YashiroOChi,    // 0xB8
+    indexKOFSprites_02UM_Yuri,    // 0xB9
+    indexKOFSprites_02UM_ZeroOG,    // 0xBA
 
-    indexKOFSprites_00Kasumi,
-    indexKOFSprites_00Robert,
-    indexKOFSprites_02Andy,
-    indexKOFSprites_02Chin,
-    indexKOFSprites_02Kusanagi,
-    indexKOFSprites_02Robert,
-    indexKOFSprites_02Yuri,
-
-    indexKOFSprites_02K9999,
+    indexKOFSprites_02UM_K9999,
 
     indexKOFSprites_02Extras,
 };
@@ -2286,6 +2291,29 @@ const UINT8 RBFFS_A_IMG_UNITS[] =
 
 const int RBFFS_A_NUM_IMG_UNITS = ARRAYSIZE(RBFFS_A_IMG_UNITS);
 
+enum SupportedWindjammers_A_PaletteListIndex
+{
+    indexWindjammersSprites_Germany,
+    indexWindjammersSprites_Italy,
+    indexWindjammersSprites_Japan,
+    indexWindjammersSprites_Spain,
+    indexWindjammersSprites_UK_Korea,
+    indexWindjammersSprites_USA,
+    indexWindjammersSprites_Last,
+};
+
+const UINT8 WINDJAMMERS_A_IMG_UNITS[] =
+{
+    indexWindjammersSprites_Germany,
+    indexWindjammersSprites_Italy,
+    indexWindjammersSprites_Japan,
+    indexWindjammersSprites_Spain,
+    indexWindjammersSprites_UK_Korea,
+    indexWindjammersSprites_USA,
+};
+
+constexpr auto WINDJAMMERS_A_NUM_IMG_UNITS = ARRAYSIZE(WINDJAMMERS_A_IMG_UNITS);
+
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_CVS2 = 0, // CVS2: has both Capcom and SNK images
@@ -2296,8 +2324,9 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
-    IMGDAT_SECTION_3S,      // Used for SFIII3.
-    IMGDAT_SECTION_ST,      // Used for ST.
+    IMGDAT_SECTION_3S,      // Used for SFIII3
+    IMGDAT_SECTION_ST,      // Used for ST
+    IMGDAT_SECTION_WINDJAMMERS,
 };
 
 // IMGDAT_SECTION_CPS2 ranges:
@@ -2319,6 +2348,7 @@ const int IMGAMT[] =
     indexSamuraiShodownSprites_Last,
     SFIII3_A_NUM_IMG_UNITS,
     SSF2T_A_NUM_IMG_UNITS,
+    WINDJAMMERS_A_NUM_IMG_UNITS,
 };
 
 const stPairedPaletteInfo pairUnhandled =     { 0, 0, 0 };

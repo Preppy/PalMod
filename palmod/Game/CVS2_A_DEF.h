@@ -43,7 +43,7 @@ const sCVS2_CharacterDump CVS2_CharacterOffsetArray[] =
     { _T("M.Bison"),    0x1d71a60, _T("indexCVS2Sprites_MBison") },
     { _T("Sakura"),     0x1e961A0, _T("indexCVS2Sprites_Sakura") },
     { _T("Cammy"),      0x1f6fc60, _T("indexCVS2Sprites_Cammy") },
-    { _T("Akuma"),      0x20759C0, _T("indexCVS2Sprites_Akuma"), { _T("Purple Fireball"), 1 }, { _T("Red Fireball"), 2 }, { _T("Dictator Smoke"), 3 }, { _T("Power Up"), 4} },
+    { _T("Akuma"),      0x20759C0, _T("indexCVS2Sprites_Akuma"), { _T("Purple Fireball"), 1 }, { _T("Red Fireball"), 2 }, { _T("Dictator Smoke"), 3 }, { _T("Power Up"), 4 } },
     { _T("Morrigan"),   0x21AD920, _T("indexCVS2Sprites_Morrigan") },
     { _T("Evil Ryu"),   0x22a4800, _T("indexCVS2Sprites_EvilRyu") },
     { _T("Kyo"),        0x23a5180, _T("indexCVS2Sprites_Kyo") },
@@ -68,14 +68,14 @@ const sCVS2_CharacterDump CVS2_CharacterOffsetArray[] =
     { _T("Eagle"),      0x342f920, _T("indexCVS2Sprites_Eagle") },
     { _T("Maki"),       0x34f71a0, _T("indexCVS2Sprites_Maki") },
     { _T("Kyosuke"),    0x36134a0, _T("indexCVS2Sprites_Kyosuke") },
-    { _T("Athena"),     0x36e48a0, _T("indexCVS2Sprites_Athena"), { _T("Pink Energy"), 1 }, { _T("School Outfit 1"), 2 }, { _T("Blue Energy"), 3 }, { _T("School Outfit 2"), 4} },
+    { _T("Athena"),     0x36e48a0, _T("indexCVS2Sprites_Athena"), { _T("Pink Energy"), 1 }, { _T("School Outfit 1"), 2 }, { _T("Blue Energy"), 3 }, { _T("School Outfit 2"), 4 } },
     { _T("Chang and Choi"), 0x38111a0, _T("indexCVS2Sprites_Chang") },
     { _T("Todoh"),      0x38fc140, _T("indexCVS2Sprites_RyuhakuTodoh") },
     { _T("Rock Howard"), 0x3a34ea0, _T("indexCVS2Sprites_Rock") },
     { _T("Hibiki"),     0x3b16dc0, _T("indexCVS2Sprites_Hibiki") },
     { _T("Haohmaru"),   0x3c4ed80, _T("indexCVS2Sprites_Haohmaru") },
     { _T("Yun"),        0x3d52a20, _T("indexCVS2Sprites_Yun") },
-    { _T("Shin Akuma"), 0x3e75a80, _T("indexCVS2Sprites_ShinAkuma"), { _T("Purple Fireball"), 1 }, { _T("Red Fireball"), 2 }, { _T("Dictator Smoke"), 3 }, { _T("Power Up"), 4} },
+    { _T("Shin Akuma"), 0x3e75a80, _T("indexCVS2Sprites_ShinAkuma"), { _T("Purple Fireball"), 1 }, { _T("Red Fireball"), 2 }, { _T("Dictator Smoke"), 3 }, { _T("Power Up"), 4 } },
     { _T("God Rugal"),  0x3fab320, _T("indexCVS2Sprites_GodRugal") },
     { _T("Rolento"),    0x40d69a0, _T("indexCVS2Sprites_Rolento") },
 
@@ -1288,80 +1288,80 @@ const sDescTreeNode CVS2_A_CAMMY_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_AKUMA_PALETTES_LP[] =
 {
     { _T("Main Sprite"), 0x20759c0, 0x20759e0, indexCVS2Sprites_Akuma },
-    { _T("Purple Fireball"), 0x20759e0, 0x2075a00, indexCVS2Sprites_Akuma, 1},
-    { _T("Red Fireball"), 0x2075a00, 0x2075a20, indexCVS2Sprites_Akuma, 2},
-    { _T("Dictator Smoke"), 0x2075a20, 0x2075a40, indexCVS2Sprites_Akuma, 3},
-    { _T("Power Up"), 0x2075a40, 0x2075a60, indexCVS2Sprites_Akuma, 4},
+    { _T("Purple Fireball"), 0x20759e0, 0x2075a00, indexCVS2Sprites_Akuma, 1 },
+    { _T("Red Fireball"), 0x2075a00, 0x2075a20, indexCVS2Sprites_Akuma, 2 },
+    { _T("Dictator Smoke"), 0x2075a20, 0x2075a40, indexCVS2Sprites_Akuma, 3 },
+    { _T("Power Up"), 0x2075a40, 0x2075a60, indexCVS2Sprites_Akuma, 4 },
     { _T("Extra 5"), 0x2075a60, 0x2075a80 },
 };
 
 const sGame_PaletteDataset CVS2_A_AKUMA_PALETTES_MP[] =
 {
     { _T("Main Sprite"), 0x2075a80, 0x2075aa0, indexCVS2Sprites_Akuma },
-    { _T("Purple Fireball"), 0x2075aa0, 0x2075ac0, indexCVS2Sprites_Akuma, 1},
-    { _T("Red Fireball"), 0x2075ac0, 0x2075ae0, indexCVS2Sprites_Akuma, 2},
-    { _T("Dictator Smoke"), 0x2075ae0, 0x2075b00, indexCVS2Sprites_Akuma, 3},
-    { _T("Power Up"), 0x2075b00, 0x2075b20, indexCVS2Sprites_Akuma, 4},
+    { _T("Purple Fireball"), 0x2075aa0, 0x2075ac0, indexCVS2Sprites_Akuma, 1 },
+    { _T("Red Fireball"), 0x2075ac0, 0x2075ae0, indexCVS2Sprites_Akuma, 2 },
+    { _T("Dictator Smoke"), 0x2075ae0, 0x2075b00, indexCVS2Sprites_Akuma, 3 },
+    { _T("Power Up"), 0x2075b00, 0x2075b20, indexCVS2Sprites_Akuma, 4 },
     { _T("Extra 5"), 0x2075b20, 0x2075b40 },
 };
 
 const sGame_PaletteDataset CVS2_A_AKUMA_PALETTES_HP[] =
 {
     { _T("Main Sprite"), 0x2075b40, 0x2075b60, indexCVS2Sprites_Akuma },
-    { _T("Purple Fireball"), 0x2075b60, 0x2075b80, indexCVS2Sprites_Akuma, 1},
-    { _T("Red Fireball"), 0x2075b80, 0x2075ba0, indexCVS2Sprites_Akuma, 2},
-    { _T("Dictator Smoke"), 0x2075ba0, 0x2075bc0, indexCVS2Sprites_Akuma, 3},
-    { _T("Power Up"), 0x2075bc0, 0x2075be0, indexCVS2Sprites_Akuma, 4},
+    { _T("Purple Fireball"), 0x2075b60, 0x2075b80, indexCVS2Sprites_Akuma, 1 },
+    { _T("Red Fireball"), 0x2075b80, 0x2075ba0, indexCVS2Sprites_Akuma, 2 },
+    { _T("Dictator Smoke"), 0x2075ba0, 0x2075bc0, indexCVS2Sprites_Akuma, 3 },
+    { _T("Power Up"), 0x2075bc0, 0x2075be0, indexCVS2Sprites_Akuma, 4 },
     { _T("Extra 5"), 0x2075be0, 0x2075c00 },
 };
 
 const sGame_PaletteDataset CVS2_A_AKUMA_PALETTES_LK[] =
 {
     { _T("Main Sprite"), 0x2075c00, 0x2075c20, indexCVS2Sprites_Akuma },
-    { _T("Purple Fireball"), 0x2075c20, 0x2075c40, indexCVS2Sprites_Akuma, 1},
-    { _T("Red Fireball"), 0x2075c40, 0x2075c60, indexCVS2Sprites_Akuma, 2},
-    { _T("Dictator Smoke"), 0x2075c60, 0x2075c80, indexCVS2Sprites_Akuma, 3},
-    { _T("Power Up"), 0x2075c80, 0x2075ca0, indexCVS2Sprites_Akuma, 4},
+    { _T("Purple Fireball"), 0x2075c20, 0x2075c40, indexCVS2Sprites_Akuma, 1 },
+    { _T("Red Fireball"), 0x2075c40, 0x2075c60, indexCVS2Sprites_Akuma, 2 },
+    { _T("Dictator Smoke"), 0x2075c60, 0x2075c80, indexCVS2Sprites_Akuma, 3 },
+    { _T("Power Up"), 0x2075c80, 0x2075ca0, indexCVS2Sprites_Akuma, 4 },
     { _T("Extra 5"), 0x2075ca0, 0x2075cc0 },
 };
 
 const sGame_PaletteDataset CVS2_A_AKUMA_PALETTES_MK[] =
 {
     { _T("Main Sprite"), 0x2075cc0, 0x2075ce0, indexCVS2Sprites_Akuma },
-    { _T("Purple Fireball"), 0x2075ce0, 0x2075d00, indexCVS2Sprites_Akuma, 1},
-    { _T("Red Fireball"), 0x2075d00, 0x2075d20, indexCVS2Sprites_Akuma, 2},
-    { _T("Dictator Smoke"), 0x2075d20, 0x2075d40, indexCVS2Sprites_Akuma, 3},
-    { _T("Power Up"), 0x2075d40, 0x2075d60, indexCVS2Sprites_Akuma, 4},
+    { _T("Purple Fireball"), 0x2075ce0, 0x2075d00, indexCVS2Sprites_Akuma, 1 },
+    { _T("Red Fireball"), 0x2075d00, 0x2075d20, indexCVS2Sprites_Akuma, 2 },
+    { _T("Dictator Smoke"), 0x2075d20, 0x2075d40, indexCVS2Sprites_Akuma, 3 },
+    { _T("Power Up"), 0x2075d40, 0x2075d60, indexCVS2Sprites_Akuma, 4 },
     { _T("Extra 5"), 0x2075d60, 0x2075d80 },
 };
 
 const sGame_PaletteDataset CVS2_A_AKUMA_PALETTES_HK[] =
 {
     { _T("Main Sprite"), 0x2075d80, 0x2075da0, indexCVS2Sprites_Akuma },
-    { _T("Purple Fireball"), 0x2075da0, 0x2075dc0, indexCVS2Sprites_Akuma, 1},
-    { _T("Red Fireball"), 0x2075dc0, 0x2075de0, indexCVS2Sprites_Akuma, 2},
-    { _T("Dictator Smoke"), 0x2075de0, 0x2075e00, indexCVS2Sprites_Akuma, 3},
-    { _T("Power Up"), 0x2075e00, 0x2075e20, indexCVS2Sprites_Akuma, 4},
+    { _T("Purple Fireball"), 0x2075da0, 0x2075dc0, indexCVS2Sprites_Akuma, 1 },
+    { _T("Red Fireball"), 0x2075dc0, 0x2075de0, indexCVS2Sprites_Akuma, 2 },
+    { _T("Dictator Smoke"), 0x2075de0, 0x2075e00, indexCVS2Sprites_Akuma, 3 },
+    { _T("Power Up"), 0x2075e00, 0x2075e20, indexCVS2Sprites_Akuma, 4 },
     { _T("Extra 5"), 0x2075e20, 0x2075e40 },
 };
 
 const sGame_PaletteDataset CVS2_A_AKUMA_PALETTES_3P[] =
 {
     { _T("Main Sprite"), 0x2075e40, 0x2075e60, indexCVS2Sprites_Akuma },
-    { _T("Purple Fireball"), 0x2075e60, 0x2075e80, indexCVS2Sprites_Akuma, 1},
-    { _T("Red Fireball"), 0x2075e80, 0x2075ea0, indexCVS2Sprites_Akuma, 2},
-    { _T("Dictator Smoke"), 0x2075ea0, 0x2075ec0, indexCVS2Sprites_Akuma, 3},
-    { _T("Power Up"), 0x2075ec0, 0x2075ee0, indexCVS2Sprites_Akuma, 4},
+    { _T("Purple Fireball"), 0x2075e60, 0x2075e80, indexCVS2Sprites_Akuma, 1 },
+    { _T("Red Fireball"), 0x2075e80, 0x2075ea0, indexCVS2Sprites_Akuma, 2 },
+    { _T("Dictator Smoke"), 0x2075ea0, 0x2075ec0, indexCVS2Sprites_Akuma, 3 },
+    { _T("Power Up"), 0x2075ec0, 0x2075ee0, indexCVS2Sprites_Akuma, 4 },
     { _T("Extra 5"), 0x2075ee0, 0x2075f00 },
 };
 
 const sGame_PaletteDataset CVS2_A_AKUMA_PALETTES_3K[] =
 {
     { _T("Main Sprite"), 0x2075f00, 0x2075f20, indexCVS2Sprites_Akuma },
-    { _T("Purple Fireball"), 0x2075f20, 0x2075f40, indexCVS2Sprites_Akuma, 1},
-    { _T("Red Fireball"), 0x2075f40, 0x2075f60, indexCVS2Sprites_Akuma, 2},
-    { _T("Dictator Smoke"), 0x2075f60, 0x2075f80, indexCVS2Sprites_Akuma, 3},
-    { _T("Power Up"), 0x2075f80, 0x2075fa0, indexCVS2Sprites_Akuma, 4},
+    { _T("Purple Fireball"), 0x2075f20, 0x2075f40, indexCVS2Sprites_Akuma, 1 },
+    { _T("Red Fireball"), 0x2075f40, 0x2075f60, indexCVS2Sprites_Akuma, 2 },
+    { _T("Dictator Smoke"), 0x2075f60, 0x2075f80, indexCVS2Sprites_Akuma, 3 },
+    { _T("Power Up"), 0x2075f80, 0x2075fa0, indexCVS2Sprites_Akuma, 4 },
     { _T("Extra 5"), 0x2075fa0, 0x2075fc0 },
 }; 
 
@@ -3588,80 +3588,80 @@ const sDescTreeNode CVS2_A_KYOSUKE_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_LP[] =
 {
     { _T("Main Sprite"), 0x36e48a0, 0x36e48c0, indexCVS2Sprites_Athena },
-    { _T("Pink Energy"), 0x36e48c0, 0x36e48e0, indexCVS2Sprites_Athena, 1},
-    { _T("School Outfit 1"), 0x36e48e0, 0x36e4900, indexCVS2Sprites_Athena, 2},
-    { _T("Blue Energy"), 0x36e4900, 0x36e4920, indexCVS2Sprites_Athena, 3},
-    { _T("School Outfit 2"), 0x36e4920, 0x36e4940, indexCVS2Sprites_Athena, 4},
+    { _T("Pink Energy"), 0x36e48c0, 0x36e48e0, indexCVS2Sprites_Athena, 1 },
+    { _T("School Outfit 1"), 0x36e48e0, 0x36e4900, indexCVS2Sprites_Athena, 2 },
+    { _T("Blue Energy"), 0x36e4900, 0x36e4920, indexCVS2Sprites_Athena, 3 },
+    { _T("School Outfit 2"), 0x36e4920, 0x36e4940, indexCVS2Sprites_Athena, 4 },
     { _T("Extra 5"), 0x36e4940, 0x36e4960 },
 };
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_MP[] =
 {
     { _T("Main Sprite"), 0x36e4960, 0x36e4980, indexCVS2Sprites_Athena },
-    { _T("Pink Energy"), 0x36e4980, 0x36e49a0, indexCVS2Sprites_Athena, 1},
-    { _T("School Outfit 1"), 0x36e49a0, 0x36e49c0, indexCVS2Sprites_Athena, 2},
-    { _T("Blue Energy"), 0x36e49c0, 0x36e49e0, indexCVS2Sprites_Athena, 3},
-    { _T("School Outfit 2"), 0x36e49e0, 0x36e4a00, indexCVS2Sprites_Athena, 4},
+    { _T("Pink Energy"), 0x36e4980, 0x36e49a0, indexCVS2Sprites_Athena, 1 },
+    { _T("School Outfit 1"), 0x36e49a0, 0x36e49c0, indexCVS2Sprites_Athena, 2 },
+    { _T("Blue Energy"), 0x36e49c0, 0x36e49e0, indexCVS2Sprites_Athena, 3 },
+    { _T("School Outfit 2"), 0x36e49e0, 0x36e4a00, indexCVS2Sprites_Athena, 4 },
     { _T("Extra 5"), 0x36e4a00, 0x36e4a20 },
 };
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_HP[] =
 {
     { _T("Main Sprite"), 0x36e4a20, 0x36e4a40, indexCVS2Sprites_Athena },
-    { _T("Pink Energy"), 0x36e4a40, 0x36e4a60, indexCVS2Sprites_Athena, 1},
-    { _T("School Outfit 1"), 0x36e4a60, 0x36e4a80, indexCVS2Sprites_Athena, 2},
-    { _T("Blue Energy"), 0x36e4a80, 0x36e4aa0, indexCVS2Sprites_Athena, 3},
-    { _T("School Outfit 2"), 0x36e4aa0, 0x36e4ac0, indexCVS2Sprites_Athena, 4},
+    { _T("Pink Energy"), 0x36e4a40, 0x36e4a60, indexCVS2Sprites_Athena, 1 },
+    { _T("School Outfit 1"), 0x36e4a60, 0x36e4a80, indexCVS2Sprites_Athena, 2 },
+    { _T("Blue Energy"), 0x36e4a80, 0x36e4aa0, indexCVS2Sprites_Athena, 3 },
+    { _T("School Outfit 2"), 0x36e4aa0, 0x36e4ac0, indexCVS2Sprites_Athena, 4 },
     { _T("Extra 5"), 0x36e4ac0, 0x36e4ae0 },
 };
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_LK[] =
 {
     { _T("Main Sprite"), 0x36e4ae0, 0x36e4b00, indexCVS2Sprites_Athena },
-    { _T("Pink Energy"), 0x36e4b00, 0x36e4b20, indexCVS2Sprites_Athena, 1},
-    { _T("School Outfit 1"), 0x36e4b20, 0x36e4b40, indexCVS2Sprites_Athena, 2},
-    { _T("Blue Energy"), 0x36e4b40, 0x36e4b60, indexCVS2Sprites_Athena, 3},
-    { _T("School Outfit 2"), 0x36e4b60, 0x36e4b80, indexCVS2Sprites_Athena, 4},
+    { _T("Pink Energy"), 0x36e4b00, 0x36e4b20, indexCVS2Sprites_Athena, 1 },
+    { _T("School Outfit 1"), 0x36e4b20, 0x36e4b40, indexCVS2Sprites_Athena, 2 },
+    { _T("Blue Energy"), 0x36e4b40, 0x36e4b60, indexCVS2Sprites_Athena, 3 },
+    { _T("School Outfit 2"), 0x36e4b60, 0x36e4b80, indexCVS2Sprites_Athena, 4 },
     { _T("Extra 5"), 0x36e4b80, 0x36e4ba0 },
 };
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_MK[] =
 {
     { _T("Main Sprite"), 0x36e4ba0, 0x36e4bc0, indexCVS2Sprites_Athena },
-    { _T("Pink Energy"), 0x36e4bc0, 0x36e4be0, indexCVS2Sprites_Athena, 1},
-    { _T("School Outfit 1"), 0x36e4be0, 0x36e4c00, indexCVS2Sprites_Athena, 2},
-    { _T("Blue Energy"), 0x36e4c00, 0x36e4c20, indexCVS2Sprites_Athena, 3},
-    { _T("School Outfit 2"), 0x36e4c20, 0x36e4c40, indexCVS2Sprites_Athena, 4},
+    { _T("Pink Energy"), 0x36e4bc0, 0x36e4be0, indexCVS2Sprites_Athena, 1 },
+    { _T("School Outfit 1"), 0x36e4be0, 0x36e4c00, indexCVS2Sprites_Athena, 2 },
+    { _T("Blue Energy"), 0x36e4c00, 0x36e4c20, indexCVS2Sprites_Athena, 3 },
+    { _T("School Outfit 2"), 0x36e4c20, 0x36e4c40, indexCVS2Sprites_Athena, 4 },
     { _T("Extra 5"), 0x36e4c40, 0x36e4c60 },
 };
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_HK[] =
 {
     { _T("Main Sprite"), 0x36e4c60, 0x36e4c80, indexCVS2Sprites_Athena },
-    { _T("Pink Energy"), 0x36e4c80, 0x36e4ca0, indexCVS2Sprites_Athena, 1},
-    { _T("School Outfit 1"), 0x36e4ca0, 0x36e4cc0, indexCVS2Sprites_Athena, 2},
-    { _T("Blue Energy"), 0x36e4cc0, 0x36e4ce0, indexCVS2Sprites_Athena, 3},
-    { _T("School Outfit 2"), 0x36e4ce0, 0x36e4d00, indexCVS2Sprites_Athena, 4},
+    { _T("Pink Energy"), 0x36e4c80, 0x36e4ca0, indexCVS2Sprites_Athena, 1 },
+    { _T("School Outfit 1"), 0x36e4ca0, 0x36e4cc0, indexCVS2Sprites_Athena, 2 },
+    { _T("Blue Energy"), 0x36e4cc0, 0x36e4ce0, indexCVS2Sprites_Athena, 3 },
+    { _T("School Outfit 2"), 0x36e4ce0, 0x36e4d00, indexCVS2Sprites_Athena, 4 },
     { _T("Extra 5"), 0x36e4d00, 0x36e4d20 },
 };
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_3P[] =
 {
     { _T("Main Sprite"), 0x36e4d20, 0x36e4d40, indexCVS2Sprites_Athena },
-    { _T("Pink Energy"), 0x36e4d40, 0x36e4d60, indexCVS2Sprites_Athena, 1},
-    { _T("School Outfit 1"), 0x36e4d60, 0x36e4d80, indexCVS2Sprites_Athena, 2},
-    { _T("Blue Energy"), 0x36e4d80, 0x36e4da0, indexCVS2Sprites_Athena, 3},
-    { _T("School Outfit 2"), 0x36e4da0, 0x36e4dc0, indexCVS2Sprites_Athena, 4},
+    { _T("Pink Energy"), 0x36e4d40, 0x36e4d60, indexCVS2Sprites_Athena, 1 },
+    { _T("School Outfit 1"), 0x36e4d60, 0x36e4d80, indexCVS2Sprites_Athena, 2 },
+    { _T("Blue Energy"), 0x36e4d80, 0x36e4da0, indexCVS2Sprites_Athena, 3 },
+    { _T("School Outfit 2"), 0x36e4da0, 0x36e4dc0, indexCVS2Sprites_Athena, 4 },
     { _T("Extra 5"), 0x36e4dc0, 0x36e4de0 },
 };
 
 const sGame_PaletteDataset CVS2_A_ATHENA_PALETTES_3K[] =
 {
     { _T("Main Sprite"), 0x36e4de0, 0x36e4e00, indexCVS2Sprites_Athena },
-    { _T("Pink Energy"), 0x36e4e00, 0x36e4e20, indexCVS2Sprites_Athena, 1},
-    { _T("School Outfit 1"), 0x36e4e20, 0x36e4e40, indexCVS2Sprites_Athena, 2},
-    { _T("Blue Energy"), 0x36e4e40, 0x36e4e60, indexCVS2Sprites_Athena, 3},
-    { _T("School Outfit 2"), 0x36e4e60, 0x36e4e80, indexCVS2Sprites_Athena, 4},
+    { _T("Pink Energy"), 0x36e4e00, 0x36e4e20, indexCVS2Sprites_Athena, 1 },
+    { _T("School Outfit 1"), 0x36e4e20, 0x36e4e40, indexCVS2Sprites_Athena, 2 },
+    { _T("Blue Energy"), 0x36e4e40, 0x36e4e60, indexCVS2Sprites_Athena, 3 },
+    { _T("School Outfit 2"), 0x36e4e60, 0x36e4e80, indexCVS2Sprites_Athena, 4 },
     { _T("Extra 5"), 0x36e4e80, 0x36e4ea0 },
 };
 

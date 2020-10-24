@@ -1346,8 +1346,8 @@ const sGame_PaletteDataset SFIII2_A_GOUKI_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_GOUKI_EXTRA_PALETTES[] =
 {
-    { _T("Kongou Kokuretzu Zan / Fireball"), 0x3dab00, 0x3dab80 },
-    { _T("Messatsu Go Hadou / Air Fireball"), 0x3dab80, 0x3dac00 },
+    { _T("Kongou Kokuretzu Zan / Fireball"), 0x3dab00, 0x3dab80, index3S_CPS3_Gouki, 0x04 },
+    { _T("Messatsu Go Hadou / Air Fireball"), 0x3dab80, 0x3dac00, index3S_CPS3_Gouki, 0x03 },
 
     { _T("SA Animation 4"), 0x3dac00, 0x3dac80 },
 };
@@ -1421,8 +1421,8 @@ const sGame_PaletteDataset SFIII2_A_SHINGOUKI_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII2_A_SHINGOUKI_EXTRA_PALETTES[] =
 {
-    { _T("Shin Gouki Fireball"), 0x3e0400, 0x3e0480 },
-    { _T("Shin Gouki MGH/Air Fireball"), 0x3e0480, 0x3e0500 },
+    { _T("Shin Gouki Fireball"), 0x3e0400, 0x3e0480, index3S_CPS3_Gouki, 0x04 },
+    { _T("Shin Gouki MGH/Air Fireball"), 0x3e0480, 0x3e0500, index3S_CPS3_Gouki, 0x03 },
     { _T("Shin Gouki something"), 0x3e0500, 0x3e0580 },
 };
 

@@ -906,29 +906,29 @@ const sGame_PaletteDataset KOF02UM_S_MAYLEE_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_NAMELESS_PALETTES_MOVES[] =
 {
-    { L"Nameless Special and MAX2 Fire",         0x1ca00, 0x1ca20, indexKOFSprites_02UM_Nameless, 0x02 },
-    { L"Nameless Rasen Dust",  0x1ca20, 0x1ca40, indexKOFSprites_02UM_Nameless, 0x0a },
-    { L"Nameless Shakuhou Extra Fire",          0x1ca40, 0x1ca60, indexKOFSprites_02UM_Nameless, 0x10 },
+    { L"Nameless Special and MAX2 Fire",    0x1ca00, 0x1ca20, indexKOFSprites_02UM_Nameless, 0x02 },
+    { L"Nameless Rasen Dust",               0x1ca20, 0x1ca40, indexKOFSprites_02UM_Nameless, 0x0a },
+    { L"Nameless Shakuhou Extra Fire",      0x1ca40, 0x1ca60, indexKOFSprites_02UM_Nameless, 0x10 },
     { L"Nameless Isolde Projection",        0x1ca60, 0x1ca80, indexKOFSprites_02UM_Nameless, 0x03 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_OMEGARUGAL_PALETTES_MOVES[] =
 {
     // It's Reppuken for KOF02UM, it's Reppuken and Win for 02 (NEOGEO)
-    { L"Omega Rugal Reppuken",               0x1ce00, 0x1ce20, indexKOFSprites_02UM_OmegaRugal, 0x07 },
-    { L"Omega Rugal Kaizer Wave",                    0x1ce20, 0x1ce40, indexKOFSprites_02UM_OmegaRugal, 0x05 },
-    { L"Omega Rugal Kaizer Wave Hit",                0x1ce40, 0x1ce60, indexKOFSprites_02UM_OmegaRugal, 0x06 },
-    { L"Omega Rugal Dark Barrier",                 0x1ce60, 0x1ce80, indexKOFSprites_02UM_OmegaRugal, 0x02 },
-    { L"Omega Rugal Genocide Cutter Effect 1",       0x1ce80, 0x1cea0, indexKOFSprites_02UM_OmegaRugal, 0x04 },
-    { L"Omega Rugal Genocide Cutter Effect 2",       0x1cea0, 0x1cec0, indexKOFSprites_02UM_OmegaRugal, 0x04 },
-    { L"Omega Rugal Divine Arrow and Gravity Smash", 0x1cec0, 0x1cee0, indexKOFSprites_02UM_OmegaRugal, 0x03 },
-    { L"Omega Rugal Gigantic Pressure and Intro/Win Stuff",                     0x1cee0, 0x1cf00, indexKOFSprites_02UM_OmegaRugal, 0x1a },
+    { L"Omega Rugal Reppuken",                          0x1ce00, 0x1ce20, indexKOFSprites_02UM_OmegaRugal, 0x07 },
+    { L"Omega Rugal Kaizer Wave",                       0x1ce20, 0x1ce40, indexKOFSprites_02UM_OmegaRugal, 0x05 },
+    { L"Omega Rugal Kaizer Wave Hit",                   0x1ce40, 0x1ce60, indexKOFSprites_02UM_OmegaRugal, 0x06 },
+    { L"Omega Rugal Dark Barrier",                      0x1ce60, 0x1ce80, indexKOFSprites_02UM_OmegaRugal, 0x02 },
+    { L"Omega Rugal Genocide Cutter Effect 1",          0x1ce80, 0x1cea0, indexKOFSprites_02UM_OmegaRugal, 0x04 },
+    { L"Omega Rugal Genocide Cutter Effect 2",          0x1cea0, 0x1cec0, indexKOFSprites_02UM_OmegaRugal, 0x04 },
+    { L"Omega Rugal Divine Arrow and Gravity Smash",    0x1cec0, 0x1cee0, indexKOFSprites_02UM_OmegaRugal, 0x03 },
+    { L"Omega Rugal Gigantic Pressure and Intro/Win Stuff", 0x1cee0, 0x1cf00, indexKOFSprites_02UM_OmegaRugal, 0x1a },
 };
 
 const sGame_PaletteDataset KOF02UM_S_ORIGINALZERO_PALETTES_MOVES[] =
 {
-    { L"Zero White Destroyer Spirit Supers",          0x53400, 0x53420, indexKOFSprites_02UM_ZeroOG, 0x02 },
-    { L"Zero MAX2 Finisher Effects",  0x534a0, 0x534c0 },
+    { L"Zero White Destroyer Spirit Supers",    0x53400, 0x53420, indexKOFSprites_02UM_ZeroOG, 0x02 },
+    { L"Zero MAX2 Finisher Effects",            0x534a0, 0x534c0 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_RALF_PALETTES_MOVES[] =
@@ -944,14 +944,14 @@ const sGame_PaletteDataset KOF02UM_S_RAMON_PALETTES_MOVES[] =
 const sGame_PaletteDataset KOF02UM_S_ROBERT_PALETTES_MOVES[] =
 {
     { L"Robert Hao Shokouken",       0x1a000, 0x1a020, indexKOFSprites_02UM_Robert, 0x04 },
-    { L"Robert MAX2 Tiger Finisher and Super Extras",    0x1a020, 0x1a040, indexKOFSprites_02UM_Robert, 0x05 },
+    { L"Robert MAX2 Tiger Finisher and Super Extras", 0x1a020, 0x1a040, indexKOFSprites_02UM_Robert, 0x05 },
     { L"Robert Projectile Hit",      0x1a0a0, 0x1a0c0, indexKOFSprites_02UM_Robert, 0x03 },
     { L"Robert Projectile",          0x1a0e0, 0x1a100, indexKOFSprites_02UM_Robert, 0x02 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_MOVES[] =
 {
-    { L"EX Robert Hao Shokouken and MAX2 Finisher",        0x52e00, 0x52e20, indexKOFSprites_02UM_RobertEX, 0x04 },
+    { L"EX Robert Hao Shokouken and MAX2 Finisher", 0x52e00, 0x52e20, indexKOFSprites_02UM_RobertEX, 0x04 },
     { L"EX Robert Hao Shokouken Hit",    0x52e20, 0x52e40, indexKOFSprites_02UM_RobertEX, 0x05 },
     { L"EX Robert Projectile Hit",       0x52ea0, 0x52ec0, indexKOFSprites_02UM_RobertEX, 0x03 },
     { L"EX Robert Projectile",           0x52ee0, 0x52f00, indexKOFSprites_02UM_RobertEX, 0x02 },
@@ -959,8 +959,8 @@ const sGame_PaletteDataset KOF02UM_S_EXROBERT_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_RYO_PALETTES_MOVES[] =
 {
-    { L"Ryo Special and Super Effects",             0x19e00, 0x19e20, indexKOFSprites_02UM_Ryo, 0x02 },
-    { L"Ryo Hao Shokouken Hit",    0x19e20, 0x19e40, indexKOFSprites_02UM_Ryo, 0x09 },
+    { L"Ryo Special and Super Effects", 0x19e00, 0x19e20, indexKOFSprites_02UM_Ryo, 0x02 },
+    { L"Ryo Hao Shokouken Hit",         0x19e20, 0x19e40, indexKOFSprites_02UM_Ryo, 0x09 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_SETH_PALETTES_MOVES[] =
@@ -971,14 +971,14 @@ const sGame_PaletteDataset KOF02UM_S_SETH_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_OSHERMIE_PALETTES_MOVES[] =
 {
-    { L"Orochi Shermie Shukumei-G.-Shinshi Super",          0x1d400, 0x1d420, indexKOFSprites_02UM_ShermieOChi, 0x05 },
-    { L"Orochi Shermie Idle Lightning and Kiss",                0x1d420, 0x1d440, indexKOFSprites_02UM_ShermieOChi, 0x07 },
-    { L"Orochi Shermie Lightning",           0x1d440, 0x1d460, indexKOFSprites_02UM_ShermieOChi, 0x04 },
-    { L"Orochi Shermie SDM Raikouken",       0x1d460, 0x1d480, indexKOFSprites_02UM_ShermieOChi, 0x10 },
-    { L"Orochi Shermie MAX Raikouken",       0x1d480, 0x1d4a0, indexKOFSprites_02UM_ShermieOChi, 0x10 },
-    { L"Orochi Shermie Takeru Mikazuchi Lightning",    0x1d4a0, 0x1d4c0, indexKOFSprites_02UM_ShermieOChi, 0x06 },
-    { L"Orochi Shermie Special Lightning Effects",     0x1d4c0, 0x1d4e0, indexKOFSprites_02UM_ShermieOChi, 0x02 },
-    { L"Orochi Shermie Yatanagi no Muchi Hit",    0x1d4e0, 0x1d500, indexKOFSprites_02UM_ShermieOChi, 0x03 },
+    { L"Orochi Shermie Shukumei-G.-Shinshi Super",      0x1d400, 0x1d420, indexKOFSprites_02UM_ShermieOChi, 0x05 },
+    { L"Orochi Shermie Idle Lightning and Kiss",        0x1d420, 0x1d440, indexKOFSprites_02UM_ShermieOChi, 0x07 },
+    { L"Orochi Shermie Lightning",                      0x1d440, 0x1d460, indexKOFSprites_02UM_ShermieOChi, 0x04 },
+    { L"Orochi Shermie SDM Raikouken",                  0x1d460, 0x1d480, indexKOFSprites_02UM_ShermieOChi, 0x10 },
+    { L"Orochi Shermie MAX Raikouken",                  0x1d480, 0x1d4a0, indexKOFSprites_02UM_ShermieOChi, 0x10 },
+    { L"Orochi Shermie Takeru Mikazuchi Lightning",     0x1d4a0, 0x1d4c0, indexKOFSprites_02UM_ShermieOChi, 0x06 },
+    { L"Orochi Shermie Special Lightning Effects",      0x1d4c0, 0x1d4e0, indexKOFSprites_02UM_ShermieOChi, 0x02 },
+    { L"Orochi Shermie Yatanagi no Muchi Hit",          0x1d4e0, 0x1d500, indexKOFSprites_02UM_ShermieOChi, 0x03 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_TAKUMA_PALETTES_MOVES[] =
@@ -1321,7 +1321,7 @@ const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_A[] =
     { L"A - SDM Super Sonic Swirl and MAX2", 0x0004020, 0x0004040, indexKOFSprites_02UM_Andy, 0x11 },
     { L"A - MAX Super Sonic Swirl", 0x0004040, 0x0004060, indexKOFSprites_02UM_Andy, 0x11 },
     { L"A - Electric Shock Effect", 0x0004060, 0x0004080, indexKOFSprites_02UM_Andy, 0x18 },
-    { L"A - MAX Flash", 0x0004080, 0x00040a0, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"A - MAX Flash", 0x0004080, 0x00040a0, indexKOFSprites_02UM_Andy, 0x08 },
     { L"A - Hidden Super Desperation Move 2", 0x00040a0, 0x00040c0, indexKOFSprites_02UM_Andy, 0x00 },
     { L"A - Soul Palette", 0x00040c0, 0x00040e0, indexKOFSprites_02UM_Andy, 0x18 },
     { L"A - Hidden Super Desperation Move 3", 0x00040e0, 0x0004100, indexKOFSprites_02UM_Andy, 0x00 },
@@ -1333,7 +1333,7 @@ const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_B[] =
     { L"B - SDM Super Sonic Swirl and MAX2", 0x0004220, 0x0004240, indexKOFSprites_02UM_Andy, 0x11 },
     { L"B - MAX Super Sonic Swirl", 0x0004240, 0x0004260, indexKOFSprites_02UM_Andy, 0x11 },
     { L"B - Electric Shock Effect", 0x0004260, 0x0004280, indexKOFSprites_02UM_Andy, 0x18 },
-    { L"B - MAX Flash", 0x0004280, 0x00042a0, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"B - MAX Flash", 0x0004280, 0x00042a0, indexKOFSprites_02UM_Andy, 0x08 },
     { L"B - Hidden Super Desperation Move 2", 0x00042a0, 0x00042c0, indexKOFSprites_02UM_Andy, 0x00 },
     { L"B - Soul Palette", 0x00042c0, 0x00042e0, indexKOFSprites_02UM_Andy, 0x18 },
     { L"B - Hidden Super Desperation Move 3", 0x00042e0, 0x0004300, indexKOFSprites_02UM_Andy, 0x00 },
@@ -1345,7 +1345,7 @@ const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_C[] =
     { L"C - SDM Super Sonic Swirl and MAX2", 0x0004420, 0x0004440, indexKOFSprites_02UM_Andy, 0x11 },
     { L"C - MAX Super Sonic Swirl", 0x0004440, 0x0004460, indexKOFSprites_02UM_Andy, 0x11 },
     { L"C - Electric Shock Effect", 0x0004460, 0x0004480, indexKOFSprites_02UM_Andy, 0x18 },
-    { L"C - MAX Flash", 0x0004480, 0x00044a0, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"C - MAX Flash", 0x0004480, 0x00044a0, indexKOFSprites_02UM_Andy, 0x08 },
     { L"C - Hidden Super Desperation Move 2", 0x00044a0, 0x00044c0, indexKOFSprites_02UM_Andy, 0x00 },
     { L"C - Soul Palette", 0x00044c0, 0x00044e0, indexKOFSprites_02UM_Andy, 0x18 },
     { L"C - Hidden Super Desperation Move 3", 0x00044e0, 0x0004500, indexKOFSprites_02UM_Andy, 0x00 },
@@ -1357,7 +1357,7 @@ const sGame_PaletteDataset KOF02UM_S_ANDY_PALETTES_D[] =
     { L"D - SDM Super Sonic Swirl and MAX2", 0x0004620, 0x0004640, indexKOFSprites_02UM_Andy, 0x11 },
     { L"D - MAX Super Sonic Swirl", 0x0004640, 0x0004660, indexKOFSprites_02UM_Andy, 0x11 },
     { L"D - Electric Shock Effect", 0x0004660, 0x0004680, indexKOFSprites_02UM_Andy, 0x18 },
-    { L"D - MAX Flash", 0x0004680, 0x00046a0, indexKOFSprites_02UM_Andy, 0x00 },
+    { L"D - MAX Flash", 0x0004680, 0x00046a0, indexKOFSprites_02UM_Andy, 0x08 },
     { L"D - Hidden Super Desperation Move 2", 0x00046a0, 0x00046c0, indexKOFSprites_02UM_Andy, 0x00 },
     { L"D - Soul Palette", 0x00046c0, 0x00046e0, indexKOFSprites_02UM_Andy, 0x18 },
     { L"D - Hidden Super Desperation Move 3", 0x00046e0, 0x0004700, indexKOFSprites_02UM_Andy, 0x00 },
