@@ -624,8 +624,9 @@ enum SF2Sprites
     indexSF2GBASprites_FeiLong,
     indexSF2GBASprites_DeeJay,
     indexSF2GBASprites_Gouki,
-    indexSF2GBASprites_Bonus,       // 0x31, // GBA_Bonus
-    indexSF2GBASprites_Stages,      // 0x32, // GBA_Stages
+    indexSF2GBASprites_ShinGouki,
+    indexSF2GBASprites_Bonus,       // 0x32, // GBA_Bonus
+    indexSF2GBASprites_Stages,      // 0x33, // GBA_Stages
 };
 
 const UINT8 SSF2T_A_IMG_UNITS[] =
@@ -672,6 +673,7 @@ const UINT8 SSF2T_GBA_IMG_UNITS[] =
     indexSF2GBASprites_FeiLong,
     indexSF2GBASprites_DeeJay,
     indexSF2GBASprites_Gouki,
+    indexSF2GBASprites_ShinGouki,
 };
 
 constexpr auto SSF2T_GBA_NUM_IMG_UNITS = ARRAYSIZE(SSF2T_GBA_IMG_UNITS);

@@ -916,6 +916,17 @@ const sGame_PaletteDataset MSHVSF_A_VSP_PALETTES_7B[] =
     { _T("Zangief P2 VSP"), 0x00006ae, 0x000074e, indexCPS2_Zangief, indexMSHVSF_VSP },
 };
 
+const sGame_PaletteDataset MSHVSF_A_STAGES_RIVER_PALETTES[] =
+{
+    { L"Background Sky",            0x56EF4, 0x570F4, indexCPS2_MSHVSFAssets, 0x00, &pairFullyLinkedNode },
+    { L"Background Reflection",     0x570F4, 0x572F4, indexCPS2_MSHVSFAssets, 0x01 },
+    { L"Ridge Trees",               0x5F554, 0x5F654, indexCPS2_MSHVSFAssets, 0x02 },
+    { L"Bridge",                    0x5A2F4, 0x5A354, indexCPS2_MSHVSFAssets, 0x03 },
+    { L"People Crater Water Posts", 0x7846E, 0x7854E, indexCPS2_MSHVSFAssets, 0x04 },
+    { L"Unknown",                   0x5A4F4, 0x5A6F4 },
+};
+
+
 const sDescTreeNode MSHVSF_A_APOCALYPSE_COLLECTION[] =
 {
     //{ _T("P1 Color (Punch)"),    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_APOCALYPSE_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_APOCALYPSE_PALETTES_P1COLOR_PUNCH) },
@@ -1098,14 +1109,27 @@ const sDescTreeNode MSHVSF_A_STATUS_COLLECTION[] =
 
 const sDescTreeNode MSHVSF_A_BONUS_COLLECTION[] =
 {
-    { _T("Character Select Icons"),    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CSI_PALETTES,    ARRAYSIZE(MSHVSF_A_CSI_PALETTES) },
-    { _T("Super Screen Portraits"),    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SSP_PALETTES,    ARRAYSIZE(MSHVSF_A_SSP_PALETTES) },
-    { _T("Victory Screen Portraits"),  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_VSP_PALETTES,    ARRAYSIZE(MSHVSF_A_VSP_PALETTES) },
+    { _T("Character Select Icons"),     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_CSI_PALETTES,    ARRAYSIZE(MSHVSF_A_CSI_PALETTES) },
+    { _T("Super Screen Portraits"),     DESC_NODETYPE_TREE,    (void*)MSHVSF_A_SSP_PALETTES,    ARRAYSIZE(MSHVSF_A_SSP_PALETTES) },
+    { _T("Victory Screen Portraits"),   DESC_NODETYPE_TREE,    (void*)MSHVSF_A_VSP_PALETTES,    ARRAYSIZE(MSHVSF_A_VSP_PALETTES) },
 };
 
 const sDescTreeNode MSHVSF_A_BONUS_COLLECTION_7B[] =
 {
     { _T("Victory Screen Portraits"),  DESC_NODETYPE_TREE,    (void*)MSHVSF_A_VSP_PALETTES_7B,    ARRAYSIZE(MSHVSF_A_VSP_PALETTES_7B) },
+};
+
+
+const sDescTreeNode MSHVSF_A_STAGE_COLLECTION[] =
+{
+    //{ L"Battle on the Hilltop",         DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_BATTLE_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_BATTLE_PALETTES) },
+    //{ L"The Cataract",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_CATARACT_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_CATARACT_PALETTES) },
+    //{ L"Death Valley",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_DVALLEY_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_DVALLEY_PALETTES) },
+    //{ L"Manhattan",                     DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_MANHATTAN_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_MANHATTAN_PALETTES) },
+    { L"River Bridge",                  DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_RIVER_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_RIVER_PALETTES) },
+    //{ L"Raging Inferno: Night Time",    DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_INFERNO_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_INFERNO_PALETTES) },
+    //{ L"Showdown in the Park",          DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_SHOWDOWN_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_SHOWDOWN_PALETTES) },
+    //{ L"Temple of Fists",               DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGES_TEMPLE_PALETTES, ARRAYSIZE(MSHVSF_A_STAGES_TEMPLE_PALETTES) },
 };
 
 const sDescTreeNode MSHVSF_A_UNITS_6A[] =
@@ -1136,7 +1160,8 @@ const sDescTreeNode MSHVSF_A_UNITS_6A[] =
     { _T("Zangief"),             DESC_NODETYPE_TREE, (void*)MSHVSF_A_ZANGIEF_COLLECTION,             ARRAYSIZE(MSHVSF_A_ZANGIEF_COLLECTION) },
     { _T("Apocalypse"),          DESC_NODETYPE_TREE, (void*)MSHVSF_A_APOCALYPSE_COLLECTION,          ARRAYSIZE(MSHVSF_A_APOCALYPSE_COLLECTION) },
     { _T("Status Effects"),      DESC_NODETYPE_TREE, (void*)MSHVSF_A_STATUS_COLLECTION,              ARRAYSIZE(MSHVSF_A_STATUS_COLLECTION) },
-    { _T("Bonus (Icons, Portraits)"), DESC_NODETYPE_TREE, (void*)MSHVSF_A_BONUS_COLLECTION,          ARRAYSIZE(MSHVSF_A_BONUS_COLLECTION) },
+    { L"Icons and Portraits",    DESC_NODETYPE_TREE, (void*)MSHVSF_A_BONUS_COLLECTION,               ARRAYSIZE(MSHVSF_A_BONUS_COLLECTION) },
+    { L"Stages",                 DESC_NODETYPE_TREE, (void*)MSHVSF_A_STAGE_COLLECTION,               ARRAYSIZE(MSHVSF_A_STAGE_COLLECTION) },
 };
 
 constexpr auto MSHVSF_A_NUM_IND_6A = ARRAYSIZE(MSHVSF_A_UNITS_6A);
@@ -1170,7 +1195,8 @@ enum Supported_MSHVSF_6A_PaletteListIndex
     index_MSHVSF_Zangief,
     index_MSHVSF_Apocalypse,
     index_MSHVSF_StatusEffects,
-    index_MSHVSF_Extras,
+    index_MSHVSF_IconsAndPortraits,
+    index_MSHVSF_Stages,
     index_MSHVSF_6A_Last
 };
 

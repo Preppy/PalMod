@@ -223,15 +223,15 @@ const sGame_PaletteDataset SSF2T_GBA_THAWK_BTNA_NODE[] =
 
 const sGame_PaletteDataset SSF2T_GBA_SHINGOUKI_BTNA_NODE[] =
 {
-    { _T("Shin Gouki A"), 0x7F3C04, 0x7F3C24, indexSF2GBASprites_Gouki },
-    { _T("Shin Gouki L"), 0x7F3C24, 0x7F3C44, indexSF2GBASprites_Gouki },
-    { _T("Shin Gouki R"), 0x7F3C44, 0x7F3C64, indexSF2GBASprites_Gouki },
-    { _T("Shin Gouki B"), 0x7F3C64, 0x7F3C84, indexSF2GBASprites_Gouki },
-    { _T("Shin Gouki Select + A"), 0x7F3C84, 0x7F3CA4, indexSF2GBASprites_Gouki },
-    { _T("Shin Gouki Select + L"), 0x7F3CA4, 0x7F3CC4, indexSF2GBASprites_Gouki },
-    { _T("Shin Gouki Select + R"), 0x7F3CC4, 0x7F3CE4, indexSF2GBASprites_Gouki },
-    { _T("Shin Gouki Select + B"), 0x7F3CE4, 0x7F3D04, indexSF2GBASprites_Gouki },
-    { _T("Shin Gouki Start"), 0x7F3D04, 0x7F3D24, indexSF2GBASprites_Gouki },
+    { _T("Shin Gouki A"), 0x7F3C04, 0x7F3C24, indexSF2GBASprites_ShinGouki },
+    { _T("Shin Gouki L"), 0x7F3C24, 0x7F3C44, indexSF2GBASprites_ShinGouki },
+    { _T("Shin Gouki R"), 0x7F3C44, 0x7F3C64, indexSF2GBASprites_ShinGouki },
+    { _T("Shin Gouki B"), 0x7F3C64, 0x7F3C84, indexSF2GBASprites_ShinGouki },
+    { _T("Shin Gouki Select + A"), 0x7F3C84, 0x7F3CA4, indexSF2GBASprites_ShinGouki },
+    { _T("Shin Gouki Select + L"), 0x7F3CA4, 0x7F3CC4, indexSF2GBASprites_ShinGouki },
+    { _T("Shin Gouki Select + R"), 0x7F3CC4, 0x7F3CE4, indexSF2GBASprites_ShinGouki },
+    { _T("Shin Gouki Select + B"), 0x7F3CE4, 0x7F3D04, indexSF2GBASprites_ShinGouki },
+    { _T("Shin Gouki Start"), 0x7F3D04, 0x7F3D24, indexSF2GBASprites_ShinGouki },
 };
 
 const sDescTreeNode SSF2T_GBA_BLANKA_COLLECTION[] =

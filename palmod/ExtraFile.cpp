@@ -512,7 +512,7 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     {
         if (m_nLowestRomLocationThisPass < GetLowestExpectedPaletteLocation())
         {
-            strText.Format(_T("Warning: This game is trying to write to ROM location 0x%06x which is lower than we usually write to (0x%06x).\n\nThis is a bug in PalMod.  Please report.\n"), m_nLowestRomLocationThisPass, GetLowestExpectedPaletteLocation());
+            strText.Format(_T("Warning: This game is trying to write to ROM location 0x%06x which is lower than we usually write to (0x%06x).\n\PalMod should be updated to use that new location for the safety check.  Please report.\n"), m_nLowestRomLocationThisPass, GetLowestExpectedPaletteLocation());
             OutputDebugString(strText);
             MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
         }

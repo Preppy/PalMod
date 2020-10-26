@@ -197,14 +197,13 @@ void CPalTool::EndSetPal()
 {
     if (nCurrPalAmt)
     {
-        int nCurrPgH = 0;
-        int nPgH = 0;
-        int nCurrPg = 0;
+        int nCurrentPageHeight = 0;
+        int nCurrentPage = 0;
         // Once we turn on navigation controls, make sure to lock that space in
         int nUsedNavigationSpace = 0;
         const int nNavigationControlSize = PAL_TXT_SPACE * 2;
 
-        rgPalRedir[nCurrPg] = 0;
+        rgPalRedir[nCurrentPage] = 0;
 
         // Verify whether or not we will be showing navigation controls for this set...
         int nTotalHeightNeeded = 0;
@@ -222,40 +221,50 @@ void CPalTool::EndSetPal()
         }
 
         const int nAvailablePageH = nPalViewH - nUsedNavigationSpace;
+        int nPalettesThisPage = 0;
 
-        for (int i = 0; i < nCurrPalAmt; i++)
+        for (int iCurrentPalette = 0; iCurrentPalette < nCurrPalAmt; iCurrentPalette++)
         {
-            if (pPalEntry[i].bAvail)
+            if (pPalEntry[iCurrentPalette].bAvail)
             {
                 // Need space for the palette and the descriptive text.  And maybe navigation arrows.
-                nCurrPgH = PalSize[i].cy + nFontHeight;
-                nPgH += nCurrPgH;
+                const int nCurrentPaletteHeight = PalSize[iCurrentPalette].cy + nFontHeight;
+                nCurrentPageHeight += nCurrentPaletteHeight;
 
                 // We want to know information about future pages so that we can display navigation controls appropriately.
-                const bool isNextPaletteAvailable = ((i + 1) < nCurrPalAmt) && (pPalEntry[i + 1].bAvail);
-                const int nNextPgH = isNextPaletteAvailable ? (PalSize[i + 1].cy + nFontHeight) : 0;
+                const bool isNextPaletteAvailable = ((iCurrentPalette + 1) < nCurrPalAmt) && (pPalEntry[iCurrentPalette + 1].bAvail);
+                const int nNextPaletteHeight = isNextPaletteAvailable ? (PalSize[iCurrentPalette + 1].cy + nFontHeight) : 0;
 
-                if ((nPgH + nNextPgH) > nAvailablePageH)
+                if ((nCurrentPageHeight + nNextPaletteHeight) > nAvailablePageH)
                 {
                     // We need to add a new page for the overflow
-                    nPgH = 0;
-                    rgPalRedir[nCurrPg] = (UINT8)i;
-                    nCurrPg++;
+                    nCurrentPageHeight = 0;
+
+                    if (nPalettesThisPage == 0)
+                    {
+                        // rgPalRedir indicates the first palette to show for any given page: set the indicator for the first palette every page
+                        rgPalRedir[nCurrentPage] = (UINT8)iCurrentPalette;
+                    }
+
+                    nCurrentPage++;
+                    nPalettesThisPage = 0;
                     
                     if (isNextPaletteAvailable)
                     {
                         // Ensure that a final palette has a page to show upon, as without this that final palette
                         // will not be associated in rgPalRedir
-                        rgPalRedir[nCurrPg] = (UINT8)(i + 1);
+                        rgPalRedir[nCurrentPage] = (UINT8)(iCurrentPalette + 1);
                     }
                 }
+
+                nPalettesThisPage++;
             }
         }
 
-        rgPalRedir[nCurrPg + 1] = 0xFF;
+        rgPalRedir[nCurrentPage + 1] = 0xFF;
 
         nCurrPage = 1;
-        nPageAmt = nCurrPg + 1;
+        nPageAmt = nCurrentPage + 1;
 
         m_PgSpin.SetRange(1, nPageAmt);
     }
@@ -303,7 +312,7 @@ void CPalTool::ShowAvailPal()
 
     for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
-        if ((i >= nPalStart) &&( i < nPalEnd) || !nCurrPalAmt)
+        if ((i >= nPalStart) && (i < nPalEnd) || !nCurrPalAmt)
         {
             if (pPalEntry[i].bAvail)
             {

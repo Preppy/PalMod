@@ -33,7 +33,7 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    const int m_uLowestKnownPaletteROMLocation_6A = 0x59EF4;
+    const int m_uLowestKnownPaletteROMLocation_6A = 0x56EF4;
     const int m_uLowestKnownPaletteROMLocation_7B = 0; // This is an odd file, yes.
 
 public:
@@ -61,6 +61,7 @@ public:
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
+    UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
