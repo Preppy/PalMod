@@ -82,10 +82,19 @@ void CPalModDlg::OnEditCopy()
 
         CopyText.Format("(%c%c", uCopyFlag1, uCopyFlag2);
 
+        int nInitialOffsetDelta = 0;
+        bool fHaveSetDelta = false;
+
         for (int i = 0; i < nWorkingAmt; i++)
         {
             if (pSelIndex[i] || bCopyAll)
             {
+                if (!fHaveSetDelta)
+                {
+                    fHaveSetDelta = true;
+                    nInitialOffsetDelta = i;
+                }
+
                 uCurrData = CurrGame->ConvCol(CurrPal->GetBasePal()[i]);
 
                 FormatTxt.Format("%04X", uCurrData);
@@ -113,7 +122,15 @@ void CPalModDlg::OnEditCopy()
         // The below handles generating the string pasted to the Unicode clipboard. This contains more useful data.
         CString strUnicodeData;
         CString strFormatU;
-        strUnicodeData.Format(L"%S\r\n\r\nData as found in this ROM at location 0x%x :\r\n\t", CopyText.GetString(), CurrGame->GetCurrentPaletteLocation());
+        strUnicodeData.Format(L"%S\r\n\r\nThis palette begins in the ROM at location 0x%x .", CopyText.GetString(), CurrGame->GetCurrentPaletteLocation());
+        
+        if (nInitialOffsetDelta != 0)
+        {
+            strFormatU.Format(L"  The current selection begins at ROM location 0x%x .", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * 2));
+            strUnicodeData.Append(strFormatU);
+        }
+
+        strUnicodeData.Append(L"  The data in the ROM at that location reads:\r\n\t");
 
         for (int i = 0; i < nWorkingAmt; i++)
         {
@@ -288,7 +305,8 @@ void CPalModDlg::OnEditPaste()
                 case SFIII1_A:
                 case SFIII2_A:
                 case SFIII3_A:
-                case SFIII3_A_DIR:
+                case SFIII3_A_DIR_10:
+                case SFIII3_A_DIR_51:
                 case JOJOS_A:
                 case JOJOS_A_DIR_50:
                 case JOJOS_A_DIR_51:

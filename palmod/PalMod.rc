@@ -331,7 +331,8 @@ BEGIN
             MENUITEM "MVC2 (PS2)(*)",               ID_LD_MVC2PS2USA
             MENUITEM "Red Earth / Warzard (Arcade)(*)", ID_LOADDIRECTORY_REDEARTH
             MENUITEM "SFIII3 (DC)(*)",              ID_LD_SFIII3DCALL
-            MENUITEM "SFIII3 (Arcade)(*)",          ID_LD_SFIII3ARCADEALL
+            MENUITEM "SFIII3 (Arcade)(*)",          ID_LD_SFIII3ARCADE51
+            MENUITEM "SFIII3 Gill Glow (Arcade)(*)", ID_LD_SFIII3ARCADE10
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
         MENUITEM SEPARATOR

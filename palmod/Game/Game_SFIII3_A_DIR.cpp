@@ -4,16 +4,19 @@
 
 UINT16 CGame_SFIII3_A_DIR::uRuleCtr = 0;
 
+SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_Unsupported;
+
 // sfiii3 is the USA 990512 revision
 // sfii3n is Japan 990512 NOCD
-constexpr auto SFIII_Arcade_USA_ROM_Base = _T("sfiii3-simm5.");
-constexpr auto SFIII_Arcade_JPN_ROM_Base = _T("sfiii3n-simm5.");
+constexpr auto SFIII_Arcade_USA_ROM_Base = _T("sfiii3-simm");
+constexpr auto SFIII_Arcade_JPN_ROM_Base = _T("sfiii3n-simm");
 
-CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize) :
-    CGame_SFIII3_A(0x800000) // Let the core game know it's safe to load Extras
+CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize /* = -1 */, int nSF3ModeToLoad /* = 51 */) :
+    CGame_SFIII3_A(0x800000, nSF3ModeToLoad) // Let the core game know it's safe to load Extras
 {
-    nGameFlag = SFIII3_A_DIR;
-    nFileAmt = 8; // 8 banks per SIMM
+    nGameFlag = (nSF3ModeToLoad == 51) ? SFIII3_A_DIR_51 : SFIII3_A_DIR_10;
+    nFileAmt = (nSF3ModeToLoad == 51) ? 8 : 4;
+    m_nSelectedRom = (nSF3ModeToLoad == 51) ? 51 : 10;
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
@@ -24,15 +27,17 @@ CGame_SFIII3_A_DIR::~CGame_SFIII3_A_DIR(void)
     FlushChangeTrackingArray();
 }
 
-sFileRule CGame_SFIII3_A_DIR::GetRule(UINT16 nUnitId)
+sFileRule CGame_SFIII3_A_DIR::GetRuleInternal(UINT16 nUnitId, int nSF3ModeToLoad)
 {
     sFileRule NewFileRule;
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u"), SFIII_Arcade_USA_ROM_Base, (nUnitId & 0x00FF));
+    m_nSelectedRom = nSF3ModeToLoad;
+
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u.%u"), SFIII_Arcade_USA_ROM_Base, (m_nSelectedRom == 10) ? 1 : 5, (nUnitId & 0x00FF));
 
     // This is clunky: we should shift the SIMM games to handle loads themselves.
     NewFileRule.fHasAltName = TRUE;
-    _stprintf_s(NewFileRule.szAltFileName, MAX_FILENAME_LENGTH, _T("%s%u"), SFIII_Arcade_JPN_ROM_Base, (nUnitId & 0x00FF));
+    _stprintf_s(NewFileRule.szAltFileName, MAX_FILENAME_LENGTH, _T("%s%u.%u"), SFIII_Arcade_JPN_ROM_Base, (m_nSelectedRom == 10) ? 1 : 5, (nUnitId & 0x00FF));
 
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
@@ -40,13 +45,16 @@ sFileRule CGame_SFIII3_A_DIR::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-sFileRule CGame_SFIII3_A_DIR::GetNextRule()
+sFileRule CGame_SFIII3_A_DIR::GetNextRuleInternal(int nSF3ModeToLoad)
 {
-    sFileRule NewFileRule = GetRule(uRuleCtr);
+    m_nSelectedRom = nSF3ModeToLoad;
+
+    const UINT16 nFilesNeeded = (m_nSelectedRom == 10) ? 2 : 8;
+    sFileRule NewFileRule = GetRuleInternal(uRuleCtr, m_nSelectedRom);
 
     uRuleCtr++;
 
-    if (uRuleCtr >= 8)
+    if (uRuleCtr >= nFilesNeeded)
     {
         uRuleCtr = INVALID_UNIT_VALUE;
     }
@@ -58,7 +66,16 @@ inline UINT32 CGame_SFIII3_A_DIR::GetSIMMLocationFromROMLocation(UINT32 nROMLoca
 {
     UINT32 nSIMMLocation = 0;
 
-    nSIMMLocation = nROMLocation / 2;
+    // the 10 and 51 roms are split differently
+    if (UsePaletteSetForGill())
+    {
+        nSIMMLocation = nROMLocation / 4;
+    }
+    else
+    {
+        nSIMMLocation = nROMLocation / 2;
+    }
+
     return nSIMMLocation;
 }
 
@@ -74,6 +91,86 @@ inline UINT32 CGame_SFIII3_A_DIR::GetLocationWithinSIMM(UINT32 nSIMMSetLocation)
     return nSIMMLocation;
 }
 
+SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::GetSFIII3ROMVersion(CFile* LoadedFile)
+{
+    if (!UsePaletteSetForGill())
+    {
+        return SFIII3_SupportedROMRevision::SFIII3_51;
+    }
+
+    // The two SF3 1.x simm variants have a shift in palette locations: account for that. 
+    // We use byte-sniffing to ensure we know which revision we're looking at.
+    const size_t nFileLengthToCheck = 32;
+    UINT16* prgFileStart = new UINT16[nFileLengthToCheck];
+    SFIII3_SupportedROMRevision detectedROMVersion = SFIII3_SupportedROMRevision::SFIII3_10_990512;
+
+    struct SFIII3_ROM_Identification_Data
+    {
+        SFIII3_SupportedROMRevision sRevision = SFIII3_SupportedROMRevision::SFIII3_Unsupported;
+        UINT16 nBytesToMatch[32] = {};
+    };
+
+    SFIII3_ROM_Identification_Data simm10s[] =
+    {
+        {
+            SFIII3_SupportedROMRevision::SFIII3_10_990512,
+            {   0x8843, 0x71e4, 0x08a3, 0x8459,     0x9463, 0x5e8f, 0xe2a8, 0x9134,     0x2047, 0x6d70, 0x083e, 0xf00b,
+                0xa3b8, 0x84c3, 0xc379, 0x5fde,     0x33e3, 0x1ca5, 0xb120, 0x8214,     0x5250, 0x5aee, 0xcec4, 0x7f4d, 
+                0xb6b3, 0x0efd, 0x1f84, 0x0d40,     0x02e5, 0x96c2, 0x6350, 0x3fa6 }
+        },
+        {
+            SFIII3_SupportedROMRevision::SFIII3_10_990608,
+            {   0xb80c, 0x0dc8, 0x72a3, 0x7735,     0x56fa, 0x2110, 0xe248, 0x224b,     0x2047, 0xe310, 0xaaf7, 0xb3a7,
+                0x9378, 0x6223, 0xc39c, 0xc3de,     0x5f91, 0xb0aa, 0x9aef, 0xb299,     0x2f9c, 0x8a11, 0x5f94, 0x2f42, 
+                0xd67c, 0xb1b2, 0x0f84, 0x71b0,     0x027a, 0x96c2, 0x2850, 0xb064  }
+        },
+    };
+
+    LoadedFile->Seek(0x5024, CFile::begin);
+    LoadedFile->Read(prgFileStart, nFileLengthToCheck * 2);
+
+    bool fFoundMatch = false;
+
+    for (UINT16 nROMInfoIndex = 0; nROMInfoIndex < ARRAYSIZE(simm10s); nROMInfoIndex++)
+    {
+        fFoundMatch = true;
+
+        for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
+        {
+            if (prgFileStart[nIndex] != simm10s[nROMInfoIndex].nBytesToMatch[nIndex])
+            {
+                fFoundMatch = false;
+                break;
+            }
+        }
+
+        if (fFoundMatch)
+        {
+            detectedROMVersion = simm10s[nROMInfoIndex].sRevision;
+            break;
+        }
+    }
+
+    CString strByteWatch;
+    OutputDebugString(_T("\tByte sniff for this ROM: \n"));
+    for (UINT16 nIndex = 0; nIndex < nFileLengthToCheck; nIndex++)
+    {
+        strByteWatch.Format(_T("0x%04x, "), prgFileStart[nIndex]);
+        OutputDebugString(strByteWatch);
+    }
+    OutputDebugString(_T("\n"));
+
+    if (detectedROMVersion == SFIII3_SupportedROMRevision::SFIII3_Unsupported)
+    {
+        OutputDebugString(_T("\tThis is an unknown SFIII3 ROM.\n"));
+        MessageBox(g_appHWnd, _T("This doesn't look like a supported SFIII3 ROM.  We'll try, but if it doesn't look right please don't use this ROM."), GetHost()->GetAppName(), MB_ICONWARNING);
+    }
+
+    safe_delete_array(prgFileStart);
+
+    return detectedROMVersion;
+}
+
 BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 {
     BOOL fSuccess = TRUE;
@@ -85,7 +182,8 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         OutputDebugString(strInfo);
         return TRUE;
     }
-    else if (nSIMMNumber < c_nFirstUsedSIMMOfSet)
+    else if (((UsePaletteSetForGill()) && (nSIMMNumber > 3)) ||
+             ((!UsePaletteSetForGill()) && (nSIMMNumber < 4)))
     {
         // Nothing useful on those SIMMs: that's ROM 50
         strInfo.Format(_T("CGame_SFIII3_A_DIR::SaveFile: SIMM %u is for ROM 50: skipping.\n"), nSIMMNumber);
@@ -93,17 +191,29 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         return TRUE;
     }
 
+    if (UsePaletteSetForGill())
+    {
+        m_currentSFIII3ROMRevision = GetSFIII3ROMVersion(LoadedFile);
+    }
+    else
+    {
+        m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_51;
+    }
+
     // OK, so the old 51 ROM in the SIMM redump is interleaved.
     // There is one byte from  5.0 followed by one byte from 5.1, up until the end of those SIMMs.
     // That is then followed by one byte from 5.6 followed by one byte from 5.7, repeat until end of SIMM.
     // So to read the SIMMs we need to perform shenanigans.
-    const UINT32 nBeginningRange = 0 + (c_nSFIII3SIMMLength * (nSIMMNumber - c_nFirstUsedSIMMOfSet));
-    const UINT32 nEndingRange = (c_nSFIII3SIMMLength * 2) + (c_nSFIII3SIMMLength * (nSIMMNumber - c_nFirstUsedSIMMOfSet));
+    // The 10 ROMs are interleaved into 4 files - 1.0, 1.1, 1.2, 1.3.
+    const UINT32 nSIMMSetAdjustment = (nSIMMNumber > 3) ? 4 : 0;
+    const UINT32 nBeginningRange = 0 + (c_nSFIII3SIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
+    const UINT32 nEndingRange = (c_nSFIII3SIMMLength * 2) + (c_nSFIII3SIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
 
     CFile FilePeer;
-    sFileRule PeerRule = GetNextRule();
+    sFileRule PeerRule = GetNextRuleInternal(m_nSelectedRom);
     CString strPeerFilename;
     strPeerFilename.Format(_T("%s\\%s"), GetLoadDir(), PeerRule.szFileName);
+    bool isUsingAltName = false;
 
     BOOL fFileOpened = FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary);
 
@@ -113,6 +223,20 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
         strAltFileName.Format(_T("%s\\%s"), GetLoadDir(), PeerRule.szAltFileName);
         fFileOpened = FilePeer.Open(strAltFileName, CFile::modeRead | CFile::typeBinary);
+        isUsingAltName = true;
+    }
+
+    CFile fileSIMM3;
+    CFile fileSIMM4;
+
+    if (UsePaletteSetForGill())
+    {
+        CString str10FileName;
+
+        str10FileName.Format(L"%s\\%s1.2", GetLoadDir(), isUsingAltName ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base);
+        fFileOpened = fFileOpened && fileSIMM3.Open(str10FileName, CFile::modeRead | CFile::typeBinary);
+        str10FileName.Format(L"%s\\%s1.3", GetLoadDir(), isUsingAltName ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base);
+        fFileOpened = fFileOpened && fileSIMM4.Open(str10FileName, CFile::modeRead | CFile::typeBinary);
     }
 
     if (fFileOpened)
@@ -133,7 +257,14 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                 memset(m_pppDataBuffer[nUnitCtr], 0, sizeof(UINT16 *) * nPalAmt);
             }
 
-            rgUnitRedir[nUnitCtr] = SFIII3_A_UNITSORT[nUnitCtr];
+            if (UsePaletteSetForGill())
+            {
+                rgUnitRedir[nUnitCtr] = nUnitCtr;
+            }
+            else
+            {
+                rgUnitRedir[nUnitCtr] = SFIII3_A_UNITSORT[nUnitCtr];
+            }
 
             for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
@@ -141,6 +272,11 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
                 if ((m_nCurrentPaletteROMLocation >= nBeginningRange) && (m_nCurrentPaletteROMLocation <= nEndingRange))
                 {
+                    if (m_currentSFIII3ROMRevision == SFIII3_SupportedROMRevision::SFIII3_10_990512)
+                    {
+                        m_nCurrentPaletteROMLocation += 0x14c;
+                    }
+
                     UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
                     m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
@@ -160,18 +296,50 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
                     memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(UINT16) * m_nCurrentPaletteSize);
 
-                    LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    nPaletteLoadCount++;
-
-                    for (UINT16 nWordsRead = 0; nWordsRead < m_nCurrentPaletteSize; nWordsRead++)
+                    if (UsePaletteSetForGill())
                     {
-                        BYTE high, low;
-                        
-                        LoadedFile->Read(&low, 1);
-                        FilePeer.Read(&high, 1);
+                        // this rom is encrypted
+                        UINT32 fourByteBlocks = m_nCurrentPaletteSize >> 1;
+                        const UINT8 cbStride = 4;
 
-                        m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = (UINT16)((high << 8) | low);
+                        LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                        FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                        fileSIMM3.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                        fileSIMM4.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                        nPaletteLoadCount++;
+                        UINT32 nNewData = 0;
+
+                        for (UINT16 nBlockCount = 0; nBlockCount < fourByteBlocks; nBlockCount++)
+                        {
+                            BYTE high, low, high2, low2;
+
+                            LoadedFile->Read(&low, 1);
+                            FilePeer.Read(&low2, 1);
+                            fileSIMM3.Read(&high, 1);
+                            fileSIMM4.Read(&high2, 1);
+
+                            nNewData = (low << 24) | (low2 << 16) | (high << 8) | high2;
+                            nNewData ^= (cps3_mask(0x6000000 + nOriginalROMLocation + (nBlockCount * cbStride), 0xA55432B4, 0x0C129981));
+                            nNewData = _byteswap_ulong(nNewData);
+                            *(m_pppDataBuffer[nUnitCtr][nPalCtr] + (2 * nBlockCount) + 1) = (nNewData & 0xFFFF0000) >> 16;
+                            *(m_pppDataBuffer[nUnitCtr][nPalCtr] + (2 * nBlockCount)) = nNewData & 0x0000FFFF;
+                        }
+                    }
+                    else
+                    {
+                        LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                        FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                        nPaletteLoadCount++;
+
+                        for (UINT16 nWordsRead = 0; nWordsRead < m_nCurrentPaletteSize; nWordsRead++)
+                        {
+                            BYTE high, low;
+
+                            LoadedFile->Read(&low, 1);
+                            FilePeer.Read(&high, 1);
+
+                            m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsRead] = (UINT16)((high << 8) | low);
+                        }
                     }
                 }
             }
@@ -181,21 +349,30 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         OutputDebugString(strInfo);
 
         FilePeer.Close();
+
+        if (fileSIMM3.m_hFile != CFile::hFileNull)
+        {
+            fileSIMM3.Close();
+        }
+
+        if (fileSIMM4.m_hFile != CFile::hFileNull)
+        {
+            fileSIMM4.Close();
+        }
     }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
-    if (nSIMMNumber == 6)
+    if (((nGameFlag == SFIII3_A_DIR_10) && (nSIMMNumber == 0)) ||
+        ((nGameFlag == SFIII3_A_DIR_51) && (nSIMMNumber == 6)))
+
     {
         // Only run the dupe checker for the second SIMM pair
         CheckForErrorsInTables();
 
         // We're done with our "files" but gameload has a loose mapping between files and unit count.  
         // We can handle that mapping by simply setting the "file" count to the unit count.
-        if (nSIMMNumber == 6)
-        {
-            nRedirCtr = nUnitAmt - 1;
-        }
+        nRedirCtr = nUnitAmt - 1;
     }
 
     return fSuccess;
@@ -210,20 +387,22 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
 {
     CString strInfo;
 
+    const UINT32 nSIMMSetAdjustment = (m_nSelectedRom == 51) ? 4 : 0;
+
     if ((nSIMMNumber % 2) == 1)
     {
         strInfo.Format(_T("\tCGame_SFIII3_A_DIR::SaveFile: SIMM %u is a peer SIMM: skipping.\n"), nSIMMNumber);
         OutputDebugString(strInfo);
         return TRUE;
     }
-    else if (nSIMMNumber < c_nFirstUsedSIMMOfSet)
+    else if (nSIMMNumber < nSIMMSetAdjustment)
     {
         // Nothing useful on those SIMMs: that's ROM 50
         strInfo.Format(_T("CGame_SFIII3_A_DIR::SaveFile: SIMM %u is for ROM 50: skipping.\n"), nSIMMNumber);
         OutputDebugString(strInfo);
         return TRUE;
     }
-    else if (nSIMMNumber > c_nFirstUsedSIMMOfSet)
+    else if (nSIMMNumber > nSIMMSetAdjustment)
     {
         strInfo.Format(_T("CGame_SFIII3_A_DIR::SaveFile: SIMM %u is already saved.\n"), nSIMMNumber);
         OutputDebugString(strInfo);
@@ -245,7 +424,8 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
     CString strSIMMName4;
 
     LPCTSTR pszBaseFormatString = SFIII_Arcade_USA_ROM_Base;
-    strSIMMName1.Format(_T("%s\\%s%u"), GetLoadDir(), pszBaseFormatString, nSIMMNumber);
+    const UINT16 nSIMMSetBaseNumber = (m_nSelectedRom == 10) ? 1 : 5;
+    strSIMMName1.Format(_T("%s\\%s%u.%u"), GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber);
 
     // We don't necessarily want the incoming file handle, so close it
     SaveFile->Abort();
@@ -255,13 +435,13 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
     if (!fSIMM1Opened)
     {
         pszBaseFormatString = SFIII_Arcade_JPN_ROM_Base;
-        strSIMMName1.Format(_T("%s\\%s%u"), GetLoadDir(), pszBaseFormatString, nSIMMNumber);
+        strSIMMName1.Format(_T("%s\\%s%u.%u"), GetLoadDir(), pszBaseFormatString, nSIMMNumber);
         fSIMM1Opened = fileSIMM1.Open(strSIMMName1, CFile::modeWrite | CFile::typeBinary);
     }
 
-    strSIMMName2.Format(_T("%s\\%s%u"), GetLoadDir(), pszBaseFormatString, nSIMMNumber + 1);
-    strSIMMName3.Format(_T("%s\\%s%u"), GetLoadDir(), pszBaseFormatString, nSIMMNumber + 2);
-    strSIMMName4.Format(_T("%s\\%s%u"), GetLoadDir(), pszBaseFormatString, nSIMMNumber + 3);
+    strSIMMName2.Format(_T("%s\\%s%u.%u"), GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 1);
+    strSIMMName3.Format(_T("%s\\%s%u.%u"), GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 2);
+    strSIMMName4.Format(_T("%s\\%s%u.%u"), GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 3);
 
     if (fSIMM1Opened &&
         (fileSIMM2.Open(strSIMMName2, CFile::modeWrite | CFile::typeBinary)) &&
@@ -282,27 +462,66 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
                 {
                     LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
+                    if (m_currentSFIII3ROMRevision == SFIII3_SupportedROMRevision::SFIII3_10_990512)
+                    {
+                        m_nCurrentPaletteROMLocation += 0x14c;
+                    }
+
+                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+
                     const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
 
-                    UINT32 nOriginalOffset = m_nCurrentPaletteROMLocation;
-                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
                     m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
-                    CFile* pSIMM1 = (nSIMMSetToUse == 0) ? &fileSIMM1 : &fileSIMM3;
-                    CFile* pSIMM2 = (nSIMMSetToUse == 0) ? &fileSIMM2 : &fileSIMM4;
-
-                    pSIMM1->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    nPaletteSaveCount++;
-
-                    for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
+                    if (UsePaletteSetForGill())
                     {
-                        BYTE high = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
-                        BYTE low = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
+                        UINT32 fourByteBlocks = m_nCurrentPaletteSize >> 1;
+                        const UINT8 cbStride = 4;
 
-                        pSIMM1->Write(&low, 1);
-                        pSIMM2->Write(&high, 1);
+                        fileSIMM1.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                        fileSIMM2.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                        fileSIMM3.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                        fileSIMM4.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+
+                        nPaletteSaveCount++;
+                        UINT32 nDataToWrite = 0;
+
+                        for (UINT16 nBlockCount = 0; nBlockCount < fourByteBlocks; nBlockCount++)
+                        {
+                            nDataToWrite = *(m_pppDataBuffer[nUnitCtr][nPalCtr] + (2 * nBlockCount));
+                            nDataToWrite |= (*(m_pppDataBuffer[nUnitCtr][nPalCtr] + (2 * nBlockCount) + 1) << 16);
+                            nDataToWrite = _byteswap_ulong(nDataToWrite);
+                            nDataToWrite ^= (cps3_mask(0x6000000 + nOriginalROMLocation + (nBlockCount * cbStride), 0xA55432B4, 0x0C129981));
+
+                            BYTE low1  = (nDataToWrite >> 24) & 0xFF;
+                            BYTE low2  = (nDataToWrite >> 16) & 0xFF;
+                            BYTE high1 = (nDataToWrite >>  8) & 0xFF;
+                            BYTE high2 = (nDataToWrite      ) & 0xFF;
+
+                            fileSIMM1.Write(&low1, 1);
+                            fileSIMM2.Write(&low2, 1);
+                            fileSIMM3.Write(&high1, 1);
+                            fileSIMM4.Write(&high2, 1);
+                        }
+                    }
+                    else
+                    {
+                        CFile* pSIMM1 = (nSIMMSetToUse == 0) ? &fileSIMM1 : &fileSIMM3;
+                        CFile* pSIMM2 = (nSIMMSetToUse == 0) ? &fileSIMM2 : &fileSIMM4;
+
+                        pSIMM1->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                        pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                        nPaletteSaveCount++;
+
+                        for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
+                        {
+                            BYTE high = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
+                            BYTE low = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
+
+                            pSIMM1->Write(&low, 1);
+                            pSIMM2->Write(&high, 1);
+                        }
                     }
                 }
             }
@@ -337,4 +556,20 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
     }
 
     return TRUE;
+}
+
+LPCTSTR CGame_SFIII3_A_DIR::GetGameName()
+{
+    switch (m_currentSFIII3ROMRevision)
+    {
+    case SFIII3_SupportedROMRevision::SFIII3_10_990512:
+        return L"SFIII:3S Gill Glow (990512 Arcade Rerip)";
+    case SFIII3_SupportedROMRevision::SFIII3_10_990608:
+        return L"SFIII:3S Gill Glow (990608 Arcade Rerip)";
+    case SFIII3_SupportedROMRevision::SFIII3_51:
+        return L"SFIII:3S (Arcade Rerip)";
+    default:
+    case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
+        return L"SFIII:3S Gill Glow (Arcade Rerip)";
+    };
 }

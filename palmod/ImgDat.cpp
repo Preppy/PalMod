@@ -201,7 +201,8 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             break;
         }
         case SFIII3_A:
-        case SFIII3_A_DIR:
+        case SFIII3_A_DIR_10:
+        case SFIII3_A_DIR_51:
         {
             nImageUnitCounterToUse = SFIII3_A_IMG_UNITS[nUnitCtr];
             break;

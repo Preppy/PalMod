@@ -261,7 +261,8 @@ public:
     afx_msg void OnLoadDir_MVC2PS2USA()     { OnLoadGameByDirectory(MVC2_P); };
     afx_msg void OnLoadDir_RedEarthAll()    { OnLoadGameByDirectory(REDEARTH_A_DIR); };
     afx_msg void OnLoadDir_SFIII3DCAll()    { OnLoadGameByDirectory(SFIII3_D); };
-    afx_msg void OnLoadDir_SFIII3ArcadeAll() { OnLoadGameByDirectory(SFIII3_A_DIR); };
+    afx_msg void OnLoadDir_SFIII3Arcade10() { OnLoadGameByDirectory(SFIII3_A_DIR_10); };
+    afx_msg void OnLoadDir_SFIII3Arcade51() { OnLoadGameByDirectory(SFIII3_A_DIR_51); };
 };
 
 extern BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);

@@ -159,7 +159,7 @@
 #define ID_COLORSPERLINE_16COLORSPERLINE 32839
 #define ID_ACC_LOADPALETTE              32840
 #define ID_ACC_SAVEPALETTE              32841
-#define ID_LD_SFIII3ARCADEALL           32842
+#define ID_LD_SFIII3ARCADE51            32842
 #define ID_LD_JOJOS50                   32843
 #define ID_LD_JOJOS51                   32844
 #define ID_LD_MVC2ARCADE                32845
@@ -177,13 +177,14 @@
 #define ID_COLORFORMAT_RGB557           32857
 #define ID_COLORFORMAT_RGB555_GBA       32858
 #define ID_COLORFORMAT_RGB555_ALT       32859
+#define ID_LD_SFIII3ARCADE10            32860
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32860
+#define _APS_NEXT_COMMAND_VALUE         32861
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

@@ -35,7 +35,7 @@ enum SupportedGamesList
     Garou_S,
     KOF02_A,
     SFA2_A,
-    SFIII3_A_DIR,
+    SFIII3_A_DIR_51,
     JOJOS_A_DIR_50,
     JOJOS_A_DIR_51,
     SVCPLUSA_A,
@@ -59,6 +59,7 @@ enum SupportedGamesList
     MATRIMELEE_A,
     SFIII1_A,
     WINDJAMMERS_A,
+    SFIII3_A_DIR_10,
     NUM_GAMES // This needs to be last
 };
 
@@ -120,6 +121,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Matrimelee (Arcade)",
    L"SFIII:NG (Arcade)",
    L"Windjammers (Arcade)",
+   L"SFIII:3S Gill Glow (Arcade Rerip)",
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;

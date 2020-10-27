@@ -926,7 +926,6 @@ const sGame_PaletteDataset MSHVSF_A_STAGES_RIVER_PALETTES[] =
     { L"Unknown",                   0x5A4F4, 0x5A6F4 },
 };
 
-
 const sDescTreeNode MSHVSF_A_APOCALYPSE_COLLECTION[] =
 {
     //{ _T("P1 Color (Punch)"),    DESC_NODETYPE_TREE,    (void*)MSHVSF_A_APOCALYPSE_PALETTES_P1COLOR_PUNCH,    ARRAYSIZE(MSHVSF_A_APOCALYPSE_PALETTES_P1COLOR_PUNCH) },

@@ -249,12 +249,21 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SFIII3_A::GetRule;
         return TRUE;
     }
-    case SFIII3_A_DIR:
+    case SFIII3_A_DIR_10:
     {
         GetRuleCtr = &CGame_SFIII3_A_DIR::GetRuleCtr;
         ResetRuleCtr = &CGame_SFIII3_A_DIR::ResetRuleCtr;
-        GetRule = &CGame_SFIII3_A_DIR::GetRule;
-        GetNextRule = &CGame_SFIII3_A_DIR::GetNextRule;
+        GetRule = &CGame_SFIII3_A_DIR::GetRule10;
+        GetNextRule = &CGame_SFIII3_A_DIR::GetNextRule10;
+
+        return TRUE;
+    }
+    case SFIII3_A_DIR_51:
+    {
+        GetRuleCtr = &CGame_SFIII3_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_SFIII3_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_SFIII3_A_DIR::GetRule51;
+        GetNextRule = &CGame_SFIII3_A_DIR::GetNextRule51;
 
         return TRUE;
     }
@@ -467,9 +476,13 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_SFIII3_A(nConfirmedROMSize, nExtraGameData);
     }
-    case SFIII3_A_DIR:
+    case SFIII3_A_DIR_10:
     {
-        return new CGame_SFIII3_A_DIR();
+        return new CGame_SFIII3_A_DIR(-1, 10);
+    }
+    case SFIII3_A_DIR_51:
+    {
+        return new CGame_SFIII3_A_DIR(-1, 51);
     }
     case SFIII3_D:
     {
@@ -913,7 +926,9 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     {
         for (UINT16 nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
         {
-            if ((rgFileIsChanged[nFileCtr]) || (CurrGame->GetGameFlag() == SFIII3_A_DIR))
+            if ((rgFileIsChanged[nFileCtr]) ||
+                (CurrGame->GetGameFlag() == SFIII3_A_DIR_51) || // the SF3 code is older, so just treat as dirty
+                (CurrGame->GetGameFlag() == SFIII3_A_DIR_10)) 
             {
                 nSaveLoadCount++;
 
