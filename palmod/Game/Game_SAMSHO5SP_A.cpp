@@ -41,11 +41,11 @@ CGame_SAMSHO5SP_A::CGame_SAMSHO5SP_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = SAMSHO5SP_A_NUMUNIT;
     m_nExtraUnit = SAMSHO5SP_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 470;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 488;
     m_pszExtraFilename = EXTRA_FILENAME_SAMSHO5SP_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSAMSHO5SP;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0xd4600;
+    m_nLowestKnownPaletteRomLocation = 0xd4000;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -871,7 +871,7 @@ BOOL CGame_SAMSHO5SP_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = 0;
+    UINT16 nSrcStart = NodeGet->uPalId;
     UINT16 nSrcAmt = 1;
     UINT16 nNodeIncrement = 1;
 
@@ -889,9 +889,6 @@ BOOL CGame_SAMSHO5SP_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
     if (NodeGet->uUnitId != SAMSHO5SP_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
-
-        nSrcStart = NodeGet->uPalId;
-        nSrcAmt = 1;
 
         if (paletteDataSet)
         {

@@ -512,7 +512,7 @@ void CImgDisp::AssignBackupPalette(UINT8* pBackupPalette)
 {
     m_pBackupPalette = (COLORREF*)pBackupPalette;
     m_pBackupAltPalette = nullptr;
-};
+}
 
 bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
 {
@@ -740,12 +740,10 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 {
     if (bLButtonDown && (nImgAmt || bCtrlDown))
     {
-        int nAdd;// = 1;
-
         fpDiffX += (fpPrevX - (double)point.x) / fpZoom;
         fpDiffY += (fpPrevY - (double)point.y) / fpZoom;
 
-        nAdd = 1;
+        int nAdd = 1;
 
         if (fpDiffX < 0)
         {
@@ -793,7 +791,9 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
         nAdd = 1;
 
         if (fpDiffY < 0)
+        {
             nAdd = -nAdd;
+        }
 
 #ifndef SETIMGPOS
 
@@ -809,13 +809,12 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
         {
             while (fabs(fpDiffY) >= 1.0f)
             {
-
                 rSrcRct.top += nAdd;
                 rSrcRct.bottom += nAdd;
 
                 if (rSrcRct.Height() > rImgRct.Height())
                 {
-                    if (rSrcRct.top > rImgRct.top || rSrcRct.bottom < rImgRct.bottom)
+                    if ((rSrcRct.top > rImgRct.top) || (rSrcRct.bottom < rImgRct.bottom))
                     {
                         rSrcRct.top -= nAdd;
                         rSrcRct.bottom -= nAdd;
@@ -823,7 +822,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
                 }
                 else
                 {
-                    if (rSrcRct.top < rImgRct.top || rSrcRct.bottom > rImgRct.bottom)
+                    if ((rSrcRct.top < rImgRct.top) || (rSrcRct.bottom > rImgRct.bottom))
                     {
                         rSrcRct.top -= nAdd;
                         rSrcRct.bottom -= nAdd;
@@ -870,6 +869,10 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
     MessageBox(szTemp);
 
 #endif
+
+    // Update the current palette selections based upon this click
+    COLORREF colorAtPixel = GetHost()->GetColorAtCurrentMouseCursorPosition();
+    GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(colorAtPixel);
 
     CWnd::OnLButtonUp(nFlags, point);
 }

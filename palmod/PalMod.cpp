@@ -146,6 +146,27 @@ void CPalModApp::SetGameClass(CGameClass* NewGame)
     }
 }
 
+COLORREF CPalModApp::GetColorAtCurrentMouseCursorPosition()
+{
+    HDC hdc = ::GetDC(0);
+    COLORREF colorAtPixel = CLR_INVALID;
+
+    if (hdc != nullptr)
+    {
+        POINT ptCursor;
+
+        if (GetCursorPos(&ptCursor))
+        {
+            colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
+            GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(colorAtPixel);
+        }
+
+        ::ReleaseDC(::GetDesktopWindow(), hdc);
+    }
+
+    return colorAtPixel;
+}
+
 void CPalModApp::CleanUp()
 {
 

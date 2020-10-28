@@ -827,7 +827,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = 0;
+    UINT16 nSrcStart = NodeGet->uPalId;
     UINT16 nSrcAmt = 1;
     UINT16 nNodeIncrement = 1;
 
@@ -846,9 +846,6 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                                        (NodeGet->uUnitId != MSHVSF_A_EXTRALOC_7B))
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
-
-        nSrcStart = NodeGet->uPalId;
-        nSrcAmt = 1;
 
         if (paletteDataSet)
         {

@@ -80,7 +80,7 @@ const sGame_PaletteDataset SFIII1_A_RYU_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_RYU_EXTRA_PALETTES[] =
 {
-    { L"Ryu Hadoken", 0x03d3480, 0x03d3500, index3S_CPS3_Ryu, 0x3 },
+    { L"Ryu Hadoken", 0x03d3480, 0x03d3500, index3S_CPS3_Ryu, 0x5 },
     { L"Ryu Denjin Hadoken Charge", 0x3d3400, 0x3d3480, index3S_CPS3_Ryu },
 };
 

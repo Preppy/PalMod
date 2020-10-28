@@ -620,14 +620,11 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
         return FALSE;
     }
 
-    UINT16 uUnitId = NodeGet->uUnitId;
-    UINT16 uPalId = NodeGet->uPalId;
-
     //Change the image id if we need to
     nTargetImgId = 0;
-    UINT16 nImgUnitId = uUnitId;
+    UINT16 nImgUnitId = NodeGet->uUnitId;
 
-    UINT16 nSrcStart = 0;
+    UINT16 nSrcStart = NodeGet->uPalId;
     UINT16 nSrcAmt = 1;
     UINT16 nNodeIncrement = 1;
 
@@ -637,12 +634,10 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     bool fShouldUseAlternateLoadLogic = false;
 
     //Select the image
-    if (m_nExtraUnit != uUnitId)
+    if (m_nExtraUnit != NodeGet->uUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
         const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
-
-        nSrcStart = NodeGet->uPalId;
 
         if (paletteDataSet)
         {
@@ -703,13 +698,12 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     }
     else // Extra region
     {
-        stExtraDef* pCurrDef = GetRedEarthExtraDef(GetExtraLoc(uUnitId) + uPalId);
+        stExtraDef* pCurrDef = GetRedEarthExtraDef(GetExtraLoc(NodeGet->uUnitId) + NodeGet->uPalId);
 
         if (pCurrDef->indexImgToUse != INVALID_UNIT_VALUE)
         {
             nImgUnitId = pCurrDef->indexImgToUse;
             nTargetImgId = pCurrDef->indexOffsetToUse;
-            nSrcStart = uPalId;
         }
         else
         {
@@ -720,7 +714,7 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
             // Only internal units get sprites
             ClearSetImgTicket(nullptr);
 
-            SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
+            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
         }
     }
 
@@ -732,7 +726,7 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
         // Only internal units get sprites
         ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-        SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
     }
 
     return TRUE;

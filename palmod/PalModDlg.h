@@ -227,6 +227,8 @@ public:
     afx_msg void OnEditCopy();
     afx_msg void OnEditPaste();
 
+    void SelectMatchingColorsInPalette(COLORREF crColorToMatch);
+
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
     afx_msg void OnSettingsSettings();
     afx_msg void OnEditUndo();

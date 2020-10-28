@@ -640,6 +640,18 @@ void CPalModDlg::OnEditSelectNone()
     }
 }
 
+void CPalModDlg::SelectMatchingColorsInPalette(COLORREF crColorToMatch)
+{
+    if (CurrPalCtrl)
+    {
+        // Update the CJunk controls to highlight the color desired
+        CurrPalCtrl->SelectMatchingColorsInPalette(crColorToMatch);
+        CurrPalCtrl->UpdateCtrl();
+        // Update the Edit Color options.
+        UpdateSliderSel();
+    }
+}
+
 void CPalModDlg::CustomEditProc(void* pPalCtrl, int nCtrlId, int nMethod)
 {
     switch (nMethod)

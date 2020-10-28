@@ -41,11 +41,14 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = 1246 + GetExtraCt(MVC_A_EXTRALOC);
+    m_nSafeCountForThisRom = 1250 + GetExtraCt(MVC_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
 
     createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
+
+    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+    m_nLowestKnownPaletteRomLocation = 0x030b1a;
 
     // 0x38xxx large body Onslaught sprites
     // 0x39xxx+ unknown
@@ -120,9 +123,6 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
         0x047fe4 Pure and Fur
         0x048004 Devilot
 #endif
-
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x0314fa;
 
     InitDataBuffer();
 
@@ -774,7 +774,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
    
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = 0;
+    UINT16 nSrcStart = NodeGet->uPalId;
     UINT16 nSrcAmt = 1;
     UINT16 nNodeIncrement = 1;
 
@@ -792,9 +792,6 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     if (MVC_A_EXTRALOC != NodeGet->uUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
-
-        nSrcStart = NodeGet->uPalId;
-        nSrcAmt = 1;
 
         if (paletteDataSet)
         {

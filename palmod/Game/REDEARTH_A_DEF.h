@@ -399,7 +399,8 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { _T("Capcom Logo25"), 0x320c80, 0x320d00 },
     { _T("Capcom Logo26"), 0x320d00, 0x320d80 },
     { _T("Capcom Logo27"), 0x320d80, 0x320e00 },
-        { _T("Intro - Red Earth"), 0x322ca0, 0x322d80 },
+
+    { _T("Intro - Red Earth"), 0x322ca0, 0x322d80 },
     { _T("Intro - Leo closeup"), 0x3226ae, 0x32272e },
     { _T("Intro - Emerald"), 0x321320, 0x321380 },
     { _T("Intro - Emerald BG1"), 0x321720, 0x3217a0 },
@@ -428,7 +429,8 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { _T("Intro - Emerald BG24"), 0x3222a0, 0x322320 },
     { _T("Intro - Emerald BG25"), 0x322320, 0x3223a0 },
     { _T("Intro - Emerald BG26"), 0x3223a0, 0x322420 },
-        { _T("Intro - Emerald FX"), 0x3216be, 0x32171e },
+    { _T("Intro - Emerald FX"), 0x3216be, 0x32171e },
+
     { _T("Intro - Hauzer"), 0x3213a0, 0x321420 },
     { _T("Intro - Kongou"), 0x321420, 0x3214a0 },
     { _T("Intro - Hydron"), 0x3214a0, 0x321520 },

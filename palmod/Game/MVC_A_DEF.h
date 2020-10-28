@@ -1729,6 +1729,14 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_STAGE_PALETTES[] =
     { L"Wahwee Robot Crater",   0x516C4, 0x51764, indexCPS2_MVCAssets, 0x5b },
 };
 
+const sGame_PaletteDataset MVC_A_ZABEL_STAGE_PALETTES[] =
+{
+    { L"Sprites",       0x51584, 0x51624 },
+    { L"Foreground",    0x30B1A, 0x310FA },
+    { L"Middle",        0x3421A, 0x346BA },
+    { L"Background",    0x397FA, 0x39C7A },
+};
+
 const sDescTreeNode MVC_A_WARMACHINE_COLLECTION[] =
 {
     { _T("P1"), DESC_NODETYPE_TREE, (void*)MVC_A_WARMACHINE_PALETTES_P1,         ARRAYSIZE(MVC_A_WARMACHINE_PALETTES_P1) },
@@ -1914,6 +1922,7 @@ const sDescTreeNode MVC_A_BONUS_COLLECTION[] =
    { _T("Blue Area of the Moon Stage"),   DESC_NODETYPE_TREE, (void*)MVC_A_BLUEMOON_STAGE_PALETTES,   ARRAYSIZE(MVC_A_BLUEMOON_STAGE_PALETTES) },
    { _T("Council Stage"),                 DESC_NODETYPE_TREE, (void*)MVC_A_COUNCIL_STAGE_PALETTES,    ARRAYSIZE(MVC_A_COUNCIL_STAGE_PALETTES) },
    { _T("Megaman Stage"),                 DESC_NODETYPE_TREE, (void*)MVC_A_MEGAMAN_STAGE_PALETTES,    ARRAYSIZE(MVC_A_MEGAMAN_STAGE_PALETTES) },
+   { _T("Zabel Stage"),                   DESC_NODETYPE_TREE, (void*)MVC_A_ZABEL_STAGE_PALETTES,      ARRAYSIZE(MVC_A_ZABEL_STAGE_PALETTES) },
 };
 
 const UINT8 MVC_A_UNITSORT[MVC_A_NUMUNIT + 1] = //Plus 1 for the extra palettes

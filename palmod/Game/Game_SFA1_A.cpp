@@ -706,7 +706,7 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     // Default values for multisprite image display for Export
-    UINT16 nSrcStart = 0;
+    UINT16 nSrcStart = NodeGet->uPalId;
     UINT16 nSrcAmt = 1;
     UINT16 nNodeIncrement = 1;
 
@@ -725,8 +725,6 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
         const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
-
-        nSrcStart = NodeGet->uPalId;
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
@@ -834,12 +832,6 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
             }
         }
-    }
-    else
-    {
-        // We don't have multisprite export for Extras.
-        nSrcAmt = 1;
-        nNodeIncrement = 1;
     }
 
     if (!fShouldUseAlternateLoadLogic)

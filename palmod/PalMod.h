@@ -59,6 +59,7 @@ public:
     CImgDisp* GetImgDispCtrl() { return &PreviewDlg->m_ImgDisp; };
     CString GetAppName(bool fIncludeGameName = true);
 
+    COLORREF GetColorAtCurrentMouseCursorPosition();
     CPalModDlg* GetPalModDlg() { return PalModDlg; };
     CPreviewDlg* GetPreviewDlg() { return PreviewDlg; };
 

@@ -783,7 +783,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
 
-    UINT16 nSrcStart = 0;
+    UINT16 nSrcStart = NodeGet->uPalId;
     UINT16 nSrcAmt = nCollectionCount;
     UINT16 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -802,8 +802,6 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                                       (SSF2T_A_EXTRALOC_4A != NodeGet->uUnitId))
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
-
-        nSrcStart = NodeGet->uPalId;
 
         if (paletteDataSet)
         {
@@ -830,7 +828,6 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     else
     {
         // We don't have multisprite export for Extras.
-        nSrcAmt = 1;
         nNodeIncrement = 1;
     }
 

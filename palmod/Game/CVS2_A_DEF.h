@@ -2484,7 +2484,7 @@ const sDescTreeNode CVS2_A_RUGAL_COLLECTION[] =
 const sGame_PaletteDataset CVS2_A_VICE_PALETTES_LP[] =
 {
     { _T("Main Sprite"), 0x2d18200, 0x2d18220, indexCVS2Sprites_Vice },
-    { _T("Extra 1"), 0x2d18220, 0x2d18240 },
+    { _T("Extra 1"), 0x2d18220, 0x2d18240, indexCVS2Sprites_Vice, 0x01 },
     { _T("Extra 2"), 0x2d18240, 0x2d18260 },
     { _T("Extra 3"), 0x2d18260, 0x2d18280 },
     { _T("Extra 4"), 0x2d18280, 0x2d182a0 },
@@ -2494,7 +2494,7 @@ const sGame_PaletteDataset CVS2_A_VICE_PALETTES_LP[] =
 const sGame_PaletteDataset CVS2_A_VICE_PALETTES_MP[] =
 {
     { _T("Main Sprite"), 0x2d182c0, 0x2d182e0, indexCVS2Sprites_Vice },
-    { _T("Extra 1"), 0x2d182e0, 0x2d18300 },
+    { _T("Extra 1"), 0x2d182e0, 0x2d18300, indexCVS2Sprites_Vice, 0x01 },
     { _T("Extra 2"), 0x2d18300, 0x2d18320 },
     { _T("Extra 3"), 0x2d18320, 0x2d18340 },
     { _T("Extra 4"), 0x2d18340, 0x2d18360 },
@@ -2504,7 +2504,7 @@ const sGame_PaletteDataset CVS2_A_VICE_PALETTES_MP[] =
 const sGame_PaletteDataset CVS2_A_VICE_PALETTES_HP[] =
 {
     { _T("Main Sprite"), 0x2d18380, 0x2d183a0, indexCVS2Sprites_Vice },
-    { _T("Extra 1"), 0x2d183a0, 0x2d183c0 },
+    { _T("Extra 1"), 0x2d183a0, 0x2d183c0, indexCVS2Sprites_Vice, 0x01 },
     { _T("Extra 2"), 0x2d183c0, 0x2d183e0 },
     { _T("Extra 3"), 0x2d183e0, 0x2d18400 },
     { _T("Extra 4"), 0x2d18400, 0x2d18420 },
@@ -2514,7 +2514,7 @@ const sGame_PaletteDataset CVS2_A_VICE_PALETTES_HP[] =
 const sGame_PaletteDataset CVS2_A_VICE_PALETTES_LK[] =
 {
     { _T("Main Sprite"), 0x2d18440, 0x2d18460, indexCVS2Sprites_Vice },
-    { _T("Extra 1"), 0x2d18460, 0x2d18480 },
+    { _T("Extra 1"), 0x2d18460, 0x2d18480, indexCVS2Sprites_Vice, 0x01 },
     { _T("Extra 2"), 0x2d18480, 0x2d184a0 },
     { _T("Extra 3"), 0x2d184a0, 0x2d184c0 },
     { _T("Extra 4"), 0x2d184c0, 0x2d184e0 },
@@ -2524,7 +2524,7 @@ const sGame_PaletteDataset CVS2_A_VICE_PALETTES_LK[] =
 const sGame_PaletteDataset CVS2_A_VICE_PALETTES_MK[] =
 {
     { _T("Main Sprite"), 0x2d18500, 0x2d18520, indexCVS2Sprites_Vice },
-    { _T("Extra 1"), 0x2d18520, 0x2d18540 },
+    { _T("Extra 1"), 0x2d18520, 0x2d18540, indexCVS2Sprites_Vice, 0x01 },
     { _T("Extra 2"), 0x2d18540, 0x2d18560 },
     { _T("Extra 3"), 0x2d18560, 0x2d18580 },
     { _T("Extra 4"), 0x2d18580, 0x2d185a0 },
@@ -2534,7 +2534,7 @@ const sGame_PaletteDataset CVS2_A_VICE_PALETTES_MK[] =
 const sGame_PaletteDataset CVS2_A_VICE_PALETTES_HK[] =
 {
     { _T("Main Sprite"), 0x2d185c0, 0x2d185e0, indexCVS2Sprites_Vice },
-    { _T("Extra 1"), 0x2d185e0, 0x2d18600 },
+    { _T("Extra 1"), 0x2d185e0, 0x2d18600, indexCVS2Sprites_Vice, 0x01 },
     { _T("Extra 2"), 0x2d18600, 0x2d18620 },
     { _T("Extra 3"), 0x2d18620, 0x2d18640 },
     { _T("Extra 4"), 0x2d18640, 0x2d18660 },
@@ -2544,7 +2544,7 @@ const sGame_PaletteDataset CVS2_A_VICE_PALETTES_HK[] =
 const sGame_PaletteDataset CVS2_A_VICE_PALETTES_3P[] =
 {
     { _T("Main Sprite"), 0x2d18680, 0x2d186a0, indexCVS2Sprites_Vice },
-    { _T("Extra 1"), 0x2d186a0, 0x2d186c0 },
+    { _T("Extra 1"), 0x2d186a0, 0x2d186c0, indexCVS2Sprites_Vice, 0x01 },
     { _T("Extra 2"), 0x2d186c0, 0x2d186e0 },
     { _T("Extra 3"), 0x2d186e0, 0x2d18700 },
     { _T("Extra 4"), 0x2d18700, 0x2d18720 },
@@ -2554,7 +2554,7 @@ const sGame_PaletteDataset CVS2_A_VICE_PALETTES_3P[] =
 const sGame_PaletteDataset CVS2_A_VICE_PALETTES_3K[] =
 {
     { _T("Main Sprite"), 0x2d18740, 0x2d18760, indexCVS2Sprites_Vice },
-    { _T("Extra 1"), 0x2d18760, 0x2d18780 },
+    { _T("Extra 1"), 0x2d18760, 0x2d18780, indexCVS2Sprites_Vice, 0x01 },
     { _T("Extra 2"), 0x2d18780, 0x2d187a0 },
     { _T("Extra 3"), 0x2d187a0, 0x2d187c0 },
     { _T("Extra 4"), 0x2d187c0, 0x2d187e0 },

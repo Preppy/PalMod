@@ -714,14 +714,11 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         return FALSE;
     }
 
-    UINT16 uUnitId = NodeGet->uUnitId;
-    UINT16 uPalId = NodeGet->uPalId;
-
     //Change the image id if we need to
     nTargetImgId = 0;
-    UINT16 nImgUnitId = uUnitId;
+    UINT16 nImgUnitId = NodeGet->uUnitId;
 
-    UINT16 nSrcStart = 0;
+    UINT16 nSrcStart = NodeGet->uPalId;
     UINT16 nSrcAmt = 1;
     UINT16 nNodeIncrement = 1;
 
@@ -731,12 +728,10 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     bool fShouldUseAlternateLoadLogic = false;
 
     //Select the image
-    if (m_nExtraUnit != uUnitId)
+    if (m_nExtraUnit != NodeGet->uUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
         const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, true);
-
-        nSrcStart = NodeGet->uPalId;
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
@@ -769,7 +764,7 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
 
-            switch (uUnitId)
+            switch (NodeGet->uUnitId)
             {
             case index3S_CPS3_ShinGouki: //Shin Gouki: only have two versions in this game
             {
@@ -789,7 +784,7 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (uUnitId == index3S_CPS3_Alex)
+                if (NodeGet->uUnitId == index3S_CPS3_Alex)
                 {
                     UINT16 nNodeCount = GetCollectionCountForUnit(NodeGet->uUnitId);
                     UINT16 nNextToLastPalette = GetPaletteCountForUnit(NodeGet->uUnitId) - 1;
@@ -822,30 +817,30 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         SetSourcePal(1, NodeGet->uUnitId, nNextToLastPalette, nSrcAmt, 0);
                     }
                 }
-                else if (uUnitId == index3S_CPS3_Urien) // Urien
+                else if (NodeGet->uUnitId == index3S_CPS3_Urien) // Urien
                 {
                     // Note that we deliberately use a different image for the paired palette than we do
                     // when displaying that palette normally.
                     fShouldUseAlternateLoadLogic = true;
 
-                    LoadSpecificPaletteData(uUnitId, uPalId);
+                    LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId);
 
-                    BasePalGroup.AddPal(CreatePal(uUnitId, uPalId), m_nCurrentPaletteSize, uUnitId, uPalId);
+                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSize, NodeGet->uUnitId, NodeGet->uPalId);
                     BasePalGroup.AddSep(0, _T("Morph"), 0, 64);
 
-                    LoadSpecificPaletteData(uUnitId, uPalId + 1);
+                    LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId + 1);
 
-                    BasePalGroup.AddPal(CreatePal(uUnitId, uPalId + 1), m_nCurrentPaletteSize, uUnitId, uPalId + 1);
+                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId + 1), m_nCurrentPaletteSize, NodeGet->uUnitId, NodeGet->uPalId + 1);
                     BasePalGroup.AddSep(1, _T("Suit"), 0, 64);
 
                     ClearSetImgTicket(
-                        CreateImgTicket(uUnitId, 2,
-                            CreateImgTicket(uUnitId, 3, NULL, 9, 0)
+                        CreateImgTicket(NodeGet->uUnitId, 2,
+                            CreateImgTicket(NodeGet->uUnitId, 3, NULL, 9, 0)
                         )
                     );
 
-                    SetSourcePal(0, uUnitId, uPalId, 1, 1);
-                    SetSourcePal(1, uUnitId, uPalId + 1, 1, 1);
+                    SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
+                    SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 1, 1);
                 }
                 else if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {
@@ -907,13 +902,12 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     }
     else // Extra region
     {
-        stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(uUnitId) + uPalId);
+        stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(NodeGet->uUnitId) + NodeGet->uPalId);
 
         if (pCurrDef->indexImgToUse != INVALID_UNIT_VALUE)
         {
             nImgUnitId = pCurrDef->indexImgToUse;
             nTargetImgId = pCurrDef->indexOffsetToUse;
-            nSrcStart = uPalId;
         }
         else
         {
@@ -924,7 +918,7 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             // Only internal units get sprites
             ClearSetImgTicket(nullptr);
 
-            SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, 1);
+            SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, 1);
         }
     }
 
@@ -936,7 +930,7 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         // Only internal units get sprites
         ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-        SetSourcePal(0, uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
     }
 
     return TRUE;
