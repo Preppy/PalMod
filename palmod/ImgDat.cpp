@@ -123,6 +123,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = KOF02_A_IMG_UNITS[nUnitCtr];
             break;
         }
+        case KOFXI_A:
+        {
+            nImageUnitCounterToUse = KOFXI_S_IMG_UNITS[nUnitCtr];
+            break;
+        }
         case KOF02UM_S:
         {
             nImageUnitCounterToUse = KOF02UM_S_IMG_UNITS[nUnitCtr];

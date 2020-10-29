@@ -20,10 +20,10 @@ struct sFileRule
 enum class ColMode
 {
     // If you change this list you must update CPalModDlg::OnEditCopy and CGame_NEOGEO_A::GetGameName and ::CGame_NEOGEO_A
-    COLMODE_GBA,       // RGB555 
+    COLMODE_GBA,       // RGB555 little endian for GBA
     COLMODE_12A,       // RGB444
-    COLMODE_15,        // BGR555
-    COLMODE_15ALT,     // RGB555
+    COLMODE_15,        // BGR555 little endian for CPS3
+    COLMODE_15ALT,     // RGB555 big endian 
     COLMODE_NEOGEO,    // RGB666
 };
 

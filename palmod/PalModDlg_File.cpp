@@ -430,6 +430,7 @@ void CPalModDlg::OnFileOpen()
         { KOF98_A, _T("KOF98|242-p2.sp2;kof98_p2.rom|"), INVALID_UNIT_VALUE },
         // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
         { KOF02_A, _T("KOF02|265*p2*|"), INVALID_UNIT_VALUE },
+        { KOFXI_A, _T("KOFXI|gdrom_KOFXI_v5_AllFighters.bin|"), INVALID_UNIT_VALUE },
         { KOF02UM_S, _T("KOF02UM|pal_a*.bin|"), INVALID_UNIT_VALUE },
         { MATRIMELEE_A, _T("Matrimelee|266-p2.sp2|"), INVALID_UNIT_VALUE },
         { MSH_A, _T("MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|"), INVALID_UNIT_VALUE },

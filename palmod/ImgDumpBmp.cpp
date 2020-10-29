@@ -701,6 +701,9 @@ int CImgDumpBmp::GetMaxImagesPerLine()
     case 10:
         w_mul = 5;
         break;
+    case 12:
+        w_mul = 6;
+        break;
     default:
         OutputDebugString(_T("CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option."));
         DebugBreak();

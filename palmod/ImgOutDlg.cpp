@@ -106,6 +106,11 @@ BOOL CImgOutDlg::OnInitDialog()
         m_CB_Amt.AddString(_T("6"));
         m_CB_Amt.AddString(_T("10"));
         break;
+    case 12:
+        m_CB_Amt.AddString(_T("4"));
+        m_CB_Amt.AddString(_T("8"));
+        m_CB_Amt.AddString(_T("12"));
+        break;
     }
 
     FillPalCombo();

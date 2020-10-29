@@ -524,7 +524,7 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_AK[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LP[] =
 {
-    { _T("LP Morrigan"), 0x0daaC, 0x0dacc, indexCPS2_Morrigan, 0x0f },
+    { _T("LP Morrigan"), 0x0daaC, 0x0dacc, indexCPS2_Morrigan, 0x00 },
     { _T("LP Idle sparkles/Raging demon"), 0x0dacC, 0x0daec, indexCPS2_Morrigan, 2 },
     { _T("LP Bats"), 0x0daeC, 0x0db0c, indexCPS2_Morrigan, 0x09 },
     { _T("LP Unknown Extra"), 0x0db0C, 0x0db2c },
@@ -534,7 +534,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LP[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MP[] =
 {
-    { _T("MP Morrigan"), 0x0db2C, 0x0db4c, indexCPS2_Morrigan, 0x0f },
+    { _T("MP Morrigan"), 0x0db2C, 0x0db4c, indexCPS2_Morrigan, 0x00 },
     { _T("MP Idle sparkles/Raging demon"), 0x0db4C, 0x0db6c, indexCPS2_Morrigan, 2 },
     { _T("MP Bats"), 0x0db6C, 0x0db8c, indexCPS2_Morrigan, 0x09 },
     { _T("MP Unknown Extra"), 0x0db8C, 0x0dbac },
@@ -544,7 +544,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MP[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HP[] =
 {
-    { _T("HP Morrigan"), 0x0dbaC, 0x0dbcc, indexCPS2_Morrigan, 0x0f },
+    { _T("HP Morrigan"), 0x0dbaC, 0x0dbcc, indexCPS2_Morrigan, 0x00 },
     { _T("HP Idle sparkles/Raging demon"), 0x0dbcC, 0x0dbec, indexCPS2_Morrigan, 2 },
     { _T("HP Bats"), 0x0dbeC, 0x0dc0c, indexCPS2_Morrigan, 0x09 },
     { _T("HP Unknown Extra"), 0x0dc0C, 0x0dc2c },
@@ -554,7 +554,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HP[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LK[] =
 {
-    { _T("LK Morrigan"), 0x0dc2C, 0x0dc4c, indexCPS2_Morrigan, 0x0f },
+    { _T("LK Morrigan"), 0x0dc2C, 0x0dc4c, indexCPS2_Morrigan, 0x00 },
     { _T("LK Idle sparkles/Raging demon"), 0x0dc4C, 0x0dc6c, indexCPS2_Morrigan, 2 },
     { _T("LK Bats"), 0x0dc6C, 0x0dc8c, indexCPS2_Morrigan, 0x09 },
     { _T("LK Unknown Extra"), 0x0dc8C, 0x0dcac },
@@ -564,7 +564,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_LK[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MK[] =
 {
-    { _T("MK Morrigan"), 0x0dcaC, 0x0dccc, indexCPS2_Morrigan, 0x0f },
+    { _T("MK Morrigan"), 0x0dcaC, 0x0dccc, indexCPS2_Morrigan, 0x00 },
     { _T("MK Idle sparkles/Raging demon"), 0x0dccC, 0x0dcec, indexCPS2_Morrigan, 2 },
     { _T("MK Bats"), 0x0dceC, 0x0dd0c, indexCPS2_Morrigan, 0x09 },
     { _T("MK Unknown Extra"), 0x0dd0C, 0x0dd2c },
@@ -574,7 +574,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_MK[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HK[] =
 {
-    { _T("HK Morrigan"), 0x0dd2C, 0x0dd4c, indexCPS2_Morrigan, 0x0f },
+    { _T("HK Morrigan"), 0x0dd2C, 0x0dd4c, indexCPS2_Morrigan, 0x00 },
     { _T("HK Idle sparkles/Raging demon"), 0x0dd4C, 0x0dd6c, indexCPS2_Morrigan, 2 },
     { _T("HK Bats"), 0x0dd6C, 0x0dd8c, indexCPS2_Morrigan, 0x09 },
     { _T("HK Unknown Extra"), 0x0dd8C, 0x0ddac },
@@ -584,7 +584,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_HK[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_PP[] =
 {
-    { _T("PP Morrigan"), 0x0ddaC, 0x0ddcc, indexCPS2_Morrigan, 0x0f },
+    { _T("PP Morrigan"), 0x0ddaC, 0x0ddcc, indexCPS2_Morrigan, 0x00 },
     { _T("PP Idle sparkles/Raging demon"), 0x0ddcC, 0x0ddec, indexCPS2_Morrigan, 2 },
     { _T("PP Bats"), 0x0ddeC, 0x0de0c, indexCPS2_Morrigan, 0x09 },
     { _T("PP Unknown Extra"), 0x0de0C, 0x0de2c },
@@ -594,7 +594,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_PP[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_KK[] =
 {
-    { _T("KK Morrigan"), 0x0de2C, 0x0de4c, indexCPS2_Morrigan, 0x0f },
+    { _T("KK Morrigan"), 0x0de2C, 0x0de4c, indexCPS2_Morrigan, 0x00 },
     { _T("KK Idle sparkles/Raging demon"), 0x0de4C, 0x0de6c, indexCPS2_Morrigan, 2 },
     { _T("KK Bats"), 0x0de6C, 0x0de8c, indexCPS2_Morrigan, 0x09 },
     { _T("KK Unknown Extra"), 0x0de8C, 0x0deac },
@@ -604,7 +604,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_KK[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AP[] =
 {
-    { _T("AP Morrigan"), 0x0deaC, 0x0decc, indexCPS2_Morrigan, 0x0f },
+    { _T("AP Morrigan"), 0x0deaC, 0x0decc, indexCPS2_Morrigan, 0x00 },
     { _T("AP Idle sparkles/Raging demon"), 0x0decC, 0x0deec, indexCPS2_Morrigan, 2 },
     { _T("AP Bats"), 0x0deeC, 0x0df0c, indexCPS2_Morrigan, 0x09 },
     { _T("AP Unknown Extra"), 0x0df0C, 0x0df2c },
@@ -614,7 +614,7 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AP[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_AK[] =
 {
-    { _T("AK Morrigan"), 0x0df2C, 0x0df4c, indexCPS2_Morrigan, 0x0f },
+    { _T("AK Morrigan"), 0x0df2C, 0x0df4c, indexCPS2_Morrigan, 0x00 },
     { _T("AK Idle sparkles/Raging demon"), 0x0df4C, 0x0df6c, indexCPS2_Morrigan, 2 },
     { _T("AK Bats"), 0x0df6C, 0x0df8c, indexCPS2_Morrigan, 0x09 },
     { _T("AK Unknown Extra"), 0x0df8C, 0x0dfac },
@@ -2324,16 +2324,16 @@ const sGame_PaletteDataset VSAV_A_ZABEL_PALETTES_SPECIAL[] =
 
 const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_SPECIAL[] =
 {
-    { _T("Morrigan LP Poisoned"), 0x144e0 - 0xf4, 0x14500 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan MP Poisoned"), 0x14500 - 0xf4, 0x14520 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan HP Poisoned"), 0x14520 - 0xf4, 0x14540 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan LK Poisoned"), 0x14540 - 0xf4, 0x14560 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan MK Poisoned"), 0x14560 - 0xf4, 0x14580 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan HK Poisoned"), 0x14580 - 0xf4, 0x145a0 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan PP Poisoned"), 0x145a0 - 0xf4, 0x145c0 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan KK Poisoned"), 0x145c0 - 0xf4, 0x145e0 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan AP Poisoned"), 0x145e0 - 0xf4, 0x14600 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan AK Poisoned"), 0x14600 - 0xf4, 0x14620 - 0xf4, indexCPS2_Morrigan, 0x0f },
+    { _T("Morrigan LP Poisoned"), 0x144e0 - 0xf4, 0x14500 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan MP Poisoned"), 0x14500 - 0xf4, 0x14520 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan HP Poisoned"), 0x14520 - 0xf4, 0x14540 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan LK Poisoned"), 0x14540 - 0xf4, 0x14560 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan MK Poisoned"), 0x14560 - 0xf4, 0x14580 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan HK Poisoned"), 0x14580 - 0xf4, 0x145a0 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan PP Poisoned"), 0x145a0 - 0xf4, 0x145c0 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan KK Poisoned"), 0x145c0 - 0xf4, 0x145e0 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan AP Poisoned"), 0x145e0 - 0xf4, 0x14600 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan AK Poisoned"), 0x14600 - 0xf4, 0x14620 - 0xf4, indexCPS2_Morrigan, 0x00 },
     { _T("Morrigan LP Zapped"), 0x14620 - 0xf4, 0x14640 - 0xf4 },
     { _T("Morrigan MP Zapped"), 0x14640 - 0xf4, 0x14660 - 0xf4 },
     { _T("Morrigan HP Zapped"), 0x14660 - 0xf4, 0x14680 - 0xf4 },
@@ -2344,16 +2344,16 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_SPECIAL[] =
     { _T("Morrigan KK Zapped"), 0x14700 - 0xf4, 0x14720 - 0xf4 },
     { _T("Morrigan AP Zapped"), 0x14720 - 0xf4, 0x14740 - 0xf4 },
     { _T("Morrigan AK Zapped"), 0x14740 - 0xf4, 0x14760 - 0xf4 },
-    { _T("Morrigan LP Burned"), 0x14760 - 0xf4, 0x14780 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan MP Burned"), 0x14780 - 0xf4, 0x147a0 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan HP Burned"), 0x147a0 - 0xf4, 0x147c0 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan LK Burned"), 0x147c0 - 0xf4, 0x147e0 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan MK Burned"), 0x147e0 - 0xf4, 0x14800 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan HK Burned"), 0x14800 - 0xf4, 0x14820 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan PP Burned"), 0x14820 - 0xf4, 0x14840 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan KK Burned"), 0x14840 - 0xf4, 0x14860 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan AP Burned"), 0x14860 - 0xf4, 0x14880 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan AK Burned"), 0x14880 - 0xf4, 0x148a0 - 0xf4, indexCPS2_Morrigan, 0x0f },
+    { _T("Morrigan LP Burned"), 0x14760 - 0xf4, 0x14780 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan MP Burned"), 0x14780 - 0xf4, 0x147a0 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan HP Burned"), 0x147a0 - 0xf4, 0x147c0 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan LK Burned"), 0x147c0 - 0xf4, 0x147e0 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan MK Burned"), 0x147e0 - 0xf4, 0x14800 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan HK Burned"), 0x14800 - 0xf4, 0x14820 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan PP Burned"), 0x14820 - 0xf4, 0x14840 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan KK Burned"), 0x14840 - 0xf4, 0x14860 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan AP Burned"), 0x14860 - 0xf4, 0x14880 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan AK Burned"), 0x14880 - 0xf4, 0x148a0 - 0xf4, indexCPS2_Morrigan, 0x00 },
     { _T("Morrigan LP Kotodama Gaeshi"), 0x148a0 - 0xf4, 0x148c0 - 0xf4 },
     { _T("Morrigan MP Kotodama Gaeshi"), 0x148c0 - 0xf4, 0x148e0 - 0xf4 },
     { _T("Morrigan HP Kotodama Gaeshi"), 0x148e0 - 0xf4, 0x14900 - 0xf4 },
@@ -2374,22 +2374,22 @@ const sGame_PaletteDataset VSAV_A_MORRIGAN_PALETTES_SPECIAL[] =
     { _T("Morrigan KK Midnight Bliss"), 0x14ca0 - 0xf4, 0x14cc0 - 0xf4, indexCPS2_VSAV1_MidnightBliss, indexCPS2_Morrigan },
     { _T("Morrigan AP Midnight Bliss"), 0x14cc0 - 0xf4, 0x14ce0 - 0xf4, indexCPS2_VSAV1_MidnightBliss, indexCPS2_Morrigan },
     { _T("Morrigan AK Midnight Bliss"), 0x14ce0 - 0xf4, 0x14d00 - 0xf4, indexCPS2_VSAV1_MidnightBliss, indexCPS2_Morrigan },
-    { _T("Morrigan ES 1"), 0x149e0 - 0xf4, 0x14a00 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan ES 2"), 0x14a00 - 0xf4, 0x14a20 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan ES 3"), 0x14a20 - 0xf4, 0x14a40 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan ES 4"), 0x14a40 - 0xf4, 0x14a60 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan EX 1"), 0x14a60 - 0xf4, 0x14a80 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan EX 2"), 0x14a80 - 0xf4, 0x14aa0 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan EX 3"), 0x14aa0 - 0xf4, 0x14ac0 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan EX 4"), 0x14ac0 - 0xf4, 0x14ae0 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan EX 5"), 0x14ae0 - 0xf4, 0x14b00 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan EX 6"), 0x14b00 - 0xf4, 0x14b20 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan EX 7"), 0x14b20 - 0xf4, 0x14b40 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan EX 8"), 0x14b40 - 0xf4, 0x14b60 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan Prova di Servo"), 0x14b60 - 0xf4, 0x14b80 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan Finale Rosso"), 0x14b80 - 0xf4, 0x14ba0 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan Stone"), 0x14ba0 - 0xf4, 0x14bc0 - 0xf4, indexCPS2_Morrigan, 0x0f },
-    { _T("Morrigan Q-Bee's QJ Honey"), 0x14d00 - 0xf4, 0x14d20 - 0xf4, indexCPS2_Morrigan, 0x0f },
+    { _T("Morrigan ES 1"), 0x149e0 - 0xf4, 0x14a00 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan ES 2"), 0x14a00 - 0xf4, 0x14a20 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan ES 3"), 0x14a20 - 0xf4, 0x14a40 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan ES 4"), 0x14a40 - 0xf4, 0x14a60 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan EX 1"), 0x14a60 - 0xf4, 0x14a80 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan EX 2"), 0x14a80 - 0xf4, 0x14aa0 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan EX 3"), 0x14aa0 - 0xf4, 0x14ac0 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan EX 4"), 0x14ac0 - 0xf4, 0x14ae0 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan EX 5"), 0x14ae0 - 0xf4, 0x14b00 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan EX 6"), 0x14b00 - 0xf4, 0x14b20 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan EX 7"), 0x14b20 - 0xf4, 0x14b40 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan EX 8"), 0x14b40 - 0xf4, 0x14b60 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan Prova di Servo"), 0x14b60 - 0xf4, 0x14b80 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan Finale Rosso"), 0x14b80 - 0xf4, 0x14ba0 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan Stone"), 0x14ba0 - 0xf4, 0x14bc0 - 0xf4, indexCPS2_Morrigan, 0x00 },
+    { _T("Morrigan Q-Bee's QJ Honey"), 0x14d00 - 0xf4, 0x14d20 - 0xf4, indexCPS2_Morrigan, 0x00 },
 };
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_SPECIAL[] =

@@ -181,6 +181,9 @@
     <Filter Include="Game\SNK Games\Windjammers_A">
       <UniqueIdentifier>{c8028836-64ab-4644-b186-e41111f5dd09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\KOF_XI_A">
+      <UniqueIdentifier>{d12dfc26-a331-4ac9-928f-89a7c1753af3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -407,6 +410,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_Matrimelee_A.cpp">
       <Filter>Game\SNK Games\Matrimelee_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOFXI_A.cpp">
+      <Filter>Game\SNK Games\KOF_XI_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -748,6 +754,12 @@
     </ClInclude>
     <ClInclude Include="Game\Matrimelee_A_DEF.h">
       <Filter>Game\SNK Games\Matrimelee_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOFXI_A.h">
+      <Filter>Game\SNK Games\KOF_XI_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOFXI_A_DEF.h">
+      <Filter>Game\SNK Games\KOF_XI_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

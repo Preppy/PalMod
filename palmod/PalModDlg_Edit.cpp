@@ -318,6 +318,7 @@ void CPalModDlg::OnEditPaste()
                 }
                 case CVS2_A:
                 case KOF02UM_S:
+                case KOFXI_A:
                 case SFIII3_D:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_15ALT;

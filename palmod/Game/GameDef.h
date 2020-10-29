@@ -60,6 +60,7 @@ enum SupportedGamesList
     SFIII1_A,
     WINDJAMMERS_A,
     SFIII3_A_DIR_10,
+    KOFXI_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -122,6 +123,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"SFIII:NG (Arcade)",
    L"Windjammers (Arcade)",
    L"SFIII:3S Gill Glow (Arcade Rerip)",
+   L"KOF:XI (Atomiswave)",
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -239,6 +241,11 @@ const LPCTSTR DEF_LABEL_STATUS_EFFECTS[] =
 const LPCTSTR DEF_BUTTONLABEL_VSAV[] =
 {
    _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("PP"), _T("KK"), _T("AP"), _T("AK")
+};
+
+const LPCTSTR DEF_BUTTONLABEL_KOFXI[] =
+{
+    L"A", L"B", L"C", L"D", L"E+A", L"E+B", L"E+C", L"E+D", L"Start+A", L"Start+B", L"Start+C", L"Start+D"
 };
 
 struct stExtraDef
@@ -1779,6 +1786,19 @@ const UINT8 KOF02UM_S_IMG_UNITS[] =
 };
 
 const int KOF02UM_S_NUM_IMG_UNITS = ARRAYSIZE(KOF02UM_S_IMG_UNITS);
+
+const UINT8 KOFXI_S_IMG_UNITS[] =
+{
+    indexKOFSprites_02UM_Iori,
+    indexKOFSprites_02UM_K,    // 0x92
+    indexKOFSprites_02UM_King,    // 0x97
+    indexKOFSprites_02UM_Kula,    // 0x99
+    indexKOFSprites_02UM_Maxima,    // 0xA2
+    indexKOFSprites_02UM_Ramon,    // 0xA7
+    indexKOFSprites_02UM_Ryo,    // 0xAA
+    indexKOFSprites_02UM_Shingo,    // 0xAE
+    indexKOFSprites_02UM_Vanessa,    // 0xB2
+};
 
 enum SupportedCVS2_A_PaletteListIndex
 {
