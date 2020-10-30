@@ -128,6 +128,7 @@
     <ClCompile Include="Game\DescTree.cpp" />
     <ClCompile Include="Game\GameClass.cpp" />
     <ClCompile Include="Game\GameLoad.cpp" />
+    <ClCompile Include="Game\Game_Breakers_A.cpp" />
     <ClCompile Include="Game\Game_COTA_A.cpp" />
     <ClCompile Include="Game\Game_CVS2_A.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
@@ -206,6 +207,7 @@
   <ItemGroup>
     <ClInclude Include="CRC32.h" />
     <ClInclude Include="ExtraFile.h" />
+    <ClInclude Include="Game\Breakers_A_DEF.h" />
     <ClInclude Include="Game\ColorScale.h" />
     <ClInclude Include="Game\COTA_A_DEF.h" />
     <ClInclude Include="Game\CVS2_A_DEF.h" />
@@ -214,6 +216,7 @@
     <ClInclude Include="Game\GameClass.h" />
     <ClInclude Include="Game\GameDef.h" />
     <ClInclude Include="Game\GameLoad.h" />
+    <ClInclude Include="Game\Game_Breakers_A.h" />
     <ClInclude Include="Game\Game_COTA_A.h" />
     <ClInclude Include="Game\Game_CVS2_A.h" />
     <ClInclude Include="Game\Game_Garou_A.h" />

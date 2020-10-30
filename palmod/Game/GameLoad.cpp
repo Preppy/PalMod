@@ -2,6 +2,7 @@
 #include "GameLoad.h"
 #include "..\CRC32.h"
 
+#include "Game_Breakers_A.h"
 #include "Game_COTA_A.h"
 #include "Game_CVS2_A.h"
 #include "Game_Garou_A.h"
@@ -89,6 +90,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 {
     switch (nGameFlag)
     {
+    case BREAKERS_A:
+    {
+        GetRule = &CGame_BREAKERS_A::GetRule;
+        return TRUE;
+    }
     case COTA_A:
     {
         GetRule = &CGame_COTA_A::GetRule;
@@ -371,6 +377,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
 {
     switch (nGameFlag)
     {
+    case BREAKERS_A:
+    {
+        return new CGame_BREAKERS_A(nConfirmedROMSize);
+    }
     case COTA_A:
     {
         return new CGame_COTA_A(nConfirmedROMSize);

@@ -62,6 +62,7 @@ enum SupportedGamesList
     SFIII3_A_DIR_10,
     KOFXI_A,
     NGBC_A,
+    BREAKERS_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -126,6 +127,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"SFIII:3S Gill Glow (Arcade Rerip)",
    L"KOF:XI (Atomiswave)",
    L"NGBC (Atomiswave)",
+   L"Breakers Revenge (Arcade)",
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -1804,6 +1806,13 @@ const UINT8 KOFXI_A_IMG_UNITS[] =
 
 const UINT8 NGBC_A_IMG_UNITS[] =
 {
+    // Currently we're only using this one sprite. :(
+    indexKOFSprites_02UM_Ryo,
+};
+
+const UINT8 BREAKERS_A_IMG_UNITS[] =
+{
+    // We're not using any sprites for this currently.
     indexKOFSprites_02UM_Ryo,
 };
 

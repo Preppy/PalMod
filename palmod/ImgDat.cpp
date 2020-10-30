@@ -80,6 +80,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
 
         switch (uGameFlag)
         {
+        case BREAKERS_A:
+        {
+            nImageUnitCounterToUse = BREAKERS_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
         case COTA_A:
         {
             nImageUnitCounterToUse = COTA_A_IMG_UNITS[nUnitCtr];

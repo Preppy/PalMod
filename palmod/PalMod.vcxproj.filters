@@ -187,6 +187,9 @@
     <Filter Include="Game\SNK Games\Unknown Game">
       <UniqueIdentifier>{acaea0b1-3907-4bbd-a2f0-32edc189a18a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\Breakers Revenge">
+      <UniqueIdentifier>{5145a37d-8a16-4461-834b-518532cc6a53}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -419,6 +422,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_NGBC_A.cpp">
       <Filter>Game\SNK Games\NeoGeo Battle Colliseum</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_Breakers_A.cpp">
+      <Filter>Game\SNK Games\Breakers Revenge</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -772,6 +778,12 @@
     </ClInclude>
     <ClInclude Include="Game\NGBC_A_DEF.h">
       <Filter>Game\SNK Games\NeoGeo Battle Colliseum</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Breakers_A_DEF.h">
+      <Filter>Game\SNK Games\Breakers Revenge</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_Breakers_A.h">
+      <Filter>Game\SNK Games\Breakers Revenge</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

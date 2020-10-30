@@ -357,6 +357,7 @@ void CPalModDlg::OnEditPaste()
                     eColModeForPastedColor = ColMode::COLMODE_15ALT;
                     break;
                 }
+                case BREAKERS_A:
                 case Garou_A:
                 case Garou_S:
                 case KarnovsR_A:
@@ -686,6 +687,9 @@ COLORREF CPalModDlg::GetColorAtCurrentMouseCursorPosition()
         if (GetCursorPos(&ptCursor))
         {
             colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
+            CString strOutput;
+            strOutput.Format(L"Color at cursor is: 0x%08x\n", colorAtPixel);
+            OutputDebugString(strOutput);
         }
 
         ::ReleaseDC(::GetDesktopWindow(), hdc);

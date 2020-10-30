@@ -1,36 +1,36 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_NGBC_A.h"
+#include "Game_BREAKERS_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define NGBC_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define BREAKERS_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_NGBC_A::NGBC_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_BREAKERS_A::BREAKERS_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_NGBC_A::MainDescTree = nullptr;
+CDescTree CGame_BREAKERS_A::MainDescTree = nullptr;
 
-int CGame_NGBC_A::rgExtraCountAll[NGBC_A_NUMUNIT + 1];
-int CGame_NGBC_A::rgExtraLoc[NGBC_A_NUMUNIT + 1];
+int CGame_BREAKERS_A::rgExtraCountAll[BREAKERS_A_NUMUNIT + 1];
+int CGame_BREAKERS_A::rgExtraLoc[BREAKERS_A_NUMUNIT + 1];
 
-UINT32 CGame_NGBC_A::m_nTotalPaletteCountForNGBC = 0;
-UINT32 CGame_NGBC_A::m_nExpectedGameROMSize = 0xf000000;
-UINT32 CGame_NGBC_A::m_nConfirmedROMSize = -1;
+UINT32 CGame_BREAKERS_A::m_nTotalPaletteCountForBreakers = 0;
+UINT32 CGame_BREAKERS_A::m_nExpectedGameROMSize = 0x200000;
+UINT32 CGame_BREAKERS_A::m_nConfirmedROMSize = -1;
 
-void CGame_NGBC_A::InitializeStatics()
+void CGame_BREAKERS_A::InitializeStatics()
 {
-    safe_delete_array(CGame_NGBC_A::NGBC_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_BREAKERS_A::BREAKERS_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_NGBC_A::InitDescTree());
+    MainDescTree.SetRootTree(CGame_BREAKERS_A::InitDescTree());
 }
 
-CGame_NGBC_A::CGame_NGBC_A(UINT32 nConfirmedROMSize)
+CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_NGBC_A::CGame_NGBC_A: Loading ROM...\n"));
+    strMessage.Format(_T("CGame_BREAKERS_A::CGame_BREAKERS_A: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
@@ -38,39 +38,37 @@ CGame_NGBC_A::CGame_NGBC_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = NGBC_A_NUMUNIT;
-    m_nExtraUnit = NGBC_A_EXTRALOC;
+    m_nTotalInternalUnits = BREAKERS_A_NUMUNIT;
+    m_nExtraUnit = BREAKERS_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 3840;
-    m_pszExtraFilename = EXTRA_FILENAME_NGBC_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForNGBC;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 90;
+    m_pszExtraFilename = EXTRA_FILENAME_BREAKERS_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForBreakers;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x1013000;
+    m_nLowestKnownPaletteRomLocation = 0x135eaa;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
 
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(ColMode::COLMODE_15ALT);
+    SetColMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     //Set game information
-    nGameFlag = NGBC_A;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    nImgUnitAmt = ARRAYSIZE(NGBC_A_IMG_UNITS);
+    nGameFlag = BREAKERS_A;
+    nImgGameFlag = IMGDAT_SECTION_NEOGEO;
+    nImgUnitAmt = ARRAYSIZE(BREAKERS_A_IMG_UNITS);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_KOFXI;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_KOFXI);
+    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -80,27 +78,27 @@ CGame_NGBC_A::CGame_NGBC_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_NGBC_A::~CGame_NGBC_A(void)
+CGame_BREAKERS_A::~CGame_BREAKERS_A(void)
 {
-    safe_delete_array(CGame_NGBC_A::NGBC_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_BREAKERS_A::BREAKERS_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-CDescTree* CGame_NGBC_A::GetMainTree()
+CDescTree* CGame_BREAKERS_A::GetMainTree()
 {
-    return &CGame_NGBC_A::MainDescTree;
+    return &CGame_BREAKERS_A::MainDescTree;
 }
 
-int CGame_NGBC_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_BREAKERS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((NGBC_A_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((BREAKERS_A_NUMUNIT + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForNGBC(0);
+        stExtraDef* pCurrDef = GetExtraDefForBreakers(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -110,22 +108,22 @@ int CGame_NGBC_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForNGBC(nDefCtr);
+            pCurrDef = GetExtraDefForBreakers(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-int CGame_NGBC_A::GetExtraLoc(UINT16 nUnitId)
+int CGame_BREAKERS_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (NGBC_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (BREAKERS_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForNGBC(0);
+        stExtraDef* pCurrDef = GetExtraDefForBreakers(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -136,102 +134,92 @@ int CGame_NGBC_A::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForNGBC(nDefCtr);
+            pCurrDef = GetExtraDefForBreakers(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-struct sNGBC_CharacterDump
+struct sBreakers_CharacterDump
 {
     LPCTSTR pszCharacterName = nullptr;
     UINT32 baseLocation = 0;
     LPCTSTR pszImageRefName = nullptr;
 };
 
-sNGBC_CharacterDump NGBCCharacterList[] =
+sBreakers_CharacterDump breakersCharacterList[] =
 {
-    { L"Yuuki", 0x1013000 }, // 0x1014000
-    { L"Ai", 0x1250000 }, // 0x1251000
-    { L"Kyo", 0x13fe800 }, // 0x13ff800
-    { L"Iori", 0x15d9800 }, // 0x15da800
-    { L"Ryo", 0x17cb000, L"indexKOFSprites_02UM_Ryo" }, // 0x17cc000
-    { L"Terry", 0x190a000 }, // 0x190b000
-    { L"Haohmaru", 0x1aa8800 }, // 0x1aa9800
-    { L"Genjuro", 0x1c71000 }, // 0x1c72000
-    { L"Kaede", 0x1e32800 }, // 0x1e33800
-    { L"Moriya", 0x1fd7800 }, // 0x1fd8800
-    { L"K'", 0x21b0800 }, // 0x21b1800
-    { L"Rock", 0x2338000 }, // 0x2339000
-    { L"Mai", 0x2552000 }, // 0x2553000
-    { L"Shermie", 0x26d3800 }, // 0x26d4800
-    { L"Geese", 0x2867000 }, // 0x2868000
-    { L"Mr. Big", 0x2a0a800 }, // 0x2a0b800
-    { L"Nakoruru", 0x2b6b800 }, // 0x2b6c800
-    { L"Hotaru", 0x2cad000 }, // 0x2cae000
-    { L"Keiichiro", 0x2e13000 }, // 0x2e14000
-    { L"Kim", 0x2fc0800 }, // 0x2fc1800
-    { L"Akari", 0x30d3800 }, // 0x30d4800
-    { L"Shiki", 0x32e1000 }, // 0x32e2000
-    { L"Hanzo", 0x344d800 }, // 0x344e800
-    { L"Fuuma", 0x35f0800 }, // 0x35f1800
-    { L"Mudman", 0x37d6000 }, // 0x37d7000
-    { L"Tung Fu Rue", 0x399d800 }, // 0x399e800
-    { L"Marco", 0x3b12000 }, // 0x3b13000
-    { L"Mars People", 0x3ce5800 }, // 0x3ce6800
-    { L"King Lion", 0x3e95000 }, // 0x3e96000
-    { L"Cyber Woo", 0x406f000 }, // 0x4070000
-    { L"Goddess Athena", 0x4236000 }, // 0x4237000
-    { L"Kisarah", 0x43f0800 }, // 0x43f1800
-    { L"Chonshu", 0x455a000 }, // 0x455b000
-    { L"Chonrei", 0x46a4800 }, // 0x46a5800
-    { L"Neo Dio", 0x47f1000 }, // 0x47f2000
-    { L"Asura", 0x49a4800 }, // 0x49a5800
-    { L"Mizuchi", 0x4b77800 }, // 0x4b78800
-    { L"Robert", 0x4d01800 }, // 0x4d02800
-    { L"Lee Pai Long", 0x4e77000 }, // 0x4e78000
-    { L"Goodman", 0x4f7b800 }, // 0x4f7c800
+    { L"Ash", 0x1011000 }, // 0x1012800
+    { L"Oswald", 0x11e2800 }, // 0x11e4000
+    { L"Shen", 0x13ab000 }, // 0x13ac800
+    { L"Elizabeth", 0x1522800 }, // 0x1524000
+    { L"Duo Lon", 0x16bf000 }, // 0x16c0800
+    { L"Benimaru", 0x1861800 }, // 0x1863000
+    { L"Terry", 0x19b8000 }, // 0x19b9800
+    { L"Kim", 0x1b58000 }, // 0x1b59800
+    { L"Duck King", 0x1c8f800 }, // 0x1c91000
+    { L"Ryo", 0x1df4000, L"indexKOFSprites_02UM_Ryo" }, // 0x1df5800
+    { L"Yuri", 0x1f5f000 }, // 0x1f60800
+    { L"King", 0x20ba800, L"indexKOFSprites_02UM_King" }, // 0x20bc000
+    { L"B. Jenet", 0x21c5800 }, // 0x21c7000
+    { L"Gato", 0x2381000 }, // 0x2382800
+    { L"Tizoc/The Griffon", 0x24e1000 }, // 0x24e2800
+    { L"Ralf", 0x2680000 }, // 0x2681800
+    { L"Clark", 0x27c1000 }, // 0x27c2800
+    { L"Whip", 0x28ed000 }, // 0x28ee800
+    { L"Athena", 0x2a9d800 }, // 0x2a9f000
+    { L"Kensou", 0x2c52800 }, // 0x2c54000
+    { L"Momoko", 0x2dd9000 }, // 0x2dda800
+    { L"Vanessa", 0x2f98000, L"indexKOFSprites_02UM_Vanessa" }, // 0x2f99800
+    { L"Blue Mary", 0x30ef000 }, // 0x30f0800
+    { L"Ramon", 0x3257000, L"indexKOFSprites_02UM_Ramon" }, // 0x3258800
+    { L"Malin", 0x33b3800 }, // 0x33b5000
+    { L"Kasumi", 0x34e4800 }, // 0x34e6000
+    { L"Eiji", 0x3609800 }, // 0x360b000
+    { L"K'", 0x3763800, L"indexKOFSprites_02UM_K" }, // 0x3765000
+    { L"Kula", 0x3901800, L"indexKOFSprites_02UM_Kula" }, // 0x3903000
+    { L"Maxima", 0x3ab6800, L"indexKOFSprites_02UM_Maxima" }, // 0x3ab8000
+    { L"Kyo", 0x3c57800 }, // 0x3c59000
+    { L"Iori", 0x3df6000, L"indexKOFSprites_02UM_Iori" }, // 0x3df7800
+    { L"Shingo", 0x3fc5800, L"indexKOFSprites_02UM_Shingo" }, // 0x3fc7000
+    { L"Gai", 0x40d3000 }, // 0x40d4800
+    { L"Sho", 0x420f800 }, // 0x4211000
+    { L"Adelheid", 0x4366800 }, // 0x4368000
+    { L"Silber", 0x44b1000 }, // 0x44b2800
+    { L"Jyazu", 0x45fa800 }, // 0x45fc000
+    { L"Shion", 0x47cb800 }, // 0x47cd000
+    { L"Magaki", 0x499a000 }, // 0x499b600
 };
 
-const LPCWSTR DEF_BUTTONLABEL_KOFXI_FOR_UI[] =
+void CGame_BREAKERS_A::DumpAllCharacters()
 {
-    L"A", L"B", L"C", L"D", L"E + A", L"E + B", L"E + C", L"E + D", L"Start + A", L"Start + B", L"Start + C", L"Start + D"
-};
-
-void CGame_NGBC_A::DumpAllCharacters()
-{
-    const LPCWSTR DEF_BUTTONLABEL_KOFXI_FOR_CODE[] =
-    {
-        L"A", L"B", L"C", L"D", L"EA", L"EB", L"EC", L"ED", L"SA", L"SB", L"SC", L"SD"
-    };
-
     //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(NGBCCharacterList); iUnitCtr++)
+    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(breakersCharacterList); iUnitCtr++)
     {
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
         TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_KOFXI); iButtonIndex++)
+        for (UINT16 iButtonIndex = 0; iButtonIndex < ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO); iButtonIndex++)
         {
-            nCurrentCharacterOffset = NGBCCharacterList[iUnitCtr].baseLocation + (0x100 * iButtonIndex);
+            nCurrentCharacterOffset = breakersCharacterList[iUnitCtr].baseLocation + (0x200 * iButtonIndex);
 
-            strOutput.Format(L"const sGame_PaletteDataset NGBC_A_%s_PALETTES_%s[] =\r\n{\r\n", szCodeDesc, DEF_BUTTONLABEL_KOFXI_FOR_CODE[iButtonIndex]);
+            strOutput.Format(L"const sGame_PaletteDataset BREAKERS_A_%s_PALETTES_%s[] =\r\n{\r\n", szCodeDesc, DEF_BUTTONLABEL_NEOGEO[iButtonIndex]);
             OutputDebugString(strOutput);
 
-            if (NGBCCharacterList[iUnitCtr].pszImageRefName)
+            if (breakersCharacterList[iUnitCtr].pszImageRefName)
             {
-                strOutput.Format(L"    { L\"%s %s\", 0x%07x, 0x%07x, %s },\r\n", NGBCCharacterList[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_KOFXI_FOR_CODE[iButtonIndex],
+                strOutput.Format(L"    { L\"%s %s\", 0x%07x, 0x%07x, %s },\r\n", breakersCharacterList[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
                     nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
-                    NGBCCharacterList[iUnitCtr].pszImageRefName);
+                    breakersCharacterList[iUnitCtr].pszImageRefName);
             }
             else
             {
-                strOutput.Format(L"    { L\"%s %s\", 0x%07x, 0x%07x },\r\n", NGBCCharacterList[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_KOFXI_FOR_CODE[iButtonIndex],
+                strOutput.Format(L"    { L\"%s %s\", 0x%07x, 0x%07x },\r\n", breakersCharacterList[iUnitCtr].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[iButtonIndex],
                     nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
             }
 
@@ -242,12 +230,22 @@ void CGame_NGBC_A::DumpAllCharacters()
             const LPCTSTR pszMoveNames[] =
             {
                 L"Super Trail",
-                L"Extra Move 1",
-                L"Extra Move 2",
-                L"Extra Move 3",
-                L"Extra Move 4",
-                L"Extra Move 5",
-                L"Extra Move 6",
+                L"Pure Black",
+                L"Pure White"
+                L"Fire",
+                L"Fire Cycled",
+                L"Elec1",
+                L"Elec2",
+                L"Poisoned 1",
+                L"Poisoned 2",
+                L"Blue Gradient",
+                L"Orange Gradient",
+                L"Elbow Dash / Aura Flicker",
+                L"Aura Flicker / Poison 1",
+                L"Anubis Palette",
+                L"Teleport Palette",
+                L"Drop Palette",
+                L"Poison 2", 
             };
 
             for (UINT16 iCurrentExtra = 0; iCurrentExtra < ARRAYSIZE(pszMoveNames); iCurrentExtra++)
@@ -255,15 +253,15 @@ void CGame_NGBC_A::DumpAllCharacters()
                 LPCWSTR pszCurrentMoveName = pszMoveNames[iCurrentExtra];
                 UINT32 nCurrentImageToUse = 0;
 
-                if (NGBCCharacterList[iUnitCtr].pszImageRefName)
+                if (breakersCharacterList[iUnitCtr].pszImageRefName)
                 {
-                    strOutput.Format(L"    { L\"%s - %s\", 0x%07x, 0x%07x, %s, 0x%02x },\r\n", DEF_BUTTONLABEL_KOFXI[iButtonIndex], pszCurrentMoveName,
+                    strOutput.Format(L"    { L\"%s - %s\", 0x%07x, 0x%07x, %s, 0x%02x },\r\n", DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszCurrentMoveName,
                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
-                        NGBCCharacterList[iUnitCtr].pszImageRefName, nCurrentImageToUse);
+                        breakersCharacterList[iUnitCtr].pszImageRefName, nCurrentImageToUse);
                 }
                 else
                 {
-                    strOutput.Format(L"    { L\"%s - %s\", 0x%07x, 0x%07x },\r\n", DEF_BUTTONLABEL_KOFXI[iButtonIndex], pszCurrentMoveName,
+                    strOutput.Format(L"    { L\"%s - %s\", 0x%07x, 0x%07x },\r\n", DEF_BUTTONLABEL_NEOGEO[iButtonIndex], pszCurrentMoveName,
                         nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
                 }
 
@@ -277,61 +275,61 @@ void CGame_NGBC_A::DumpAllCharacters()
     }
 
     // Now create the collections...
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(NGBCCharacterList); iUnitCtr++)
+    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(breakersCharacterList); iUnitCtr++)
     {
         CString strOutput;
         TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
-        strOutput.Format(L"const sDescTreeNode NGBC_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
+        strOutput.Format(L"const sDescTreeNode BREAKERS_A_%s_COLLECTION[] =\r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 nButtonNameIndex = 0; nButtonNameIndex < ARRAYSIZE(DEF_BUTTONLABEL_KOFXI_FOR_UI); nButtonNameIndex++)
+        for (UINT16 nButtonNameIndex = 0; nButtonNameIndex < ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO); nButtonNameIndex++)
         {
-            strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)NGBC_A_%s_PALETTES_%s, ARRAYSIZE(NGBC_A_%s_PALETTES_%s) },\r\n", DEF_BUTTONLABEL_KOFXI_FOR_UI[nButtonNameIndex], szCodeDesc, DEF_BUTTONLABEL_KOFXI_FOR_CODE[nButtonNameIndex],
-                                                                                                                                            szCodeDesc, DEF_BUTTONLABEL_KOFXI_FOR_CODE[nButtonNameIndex] );
+            strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)BREAKERS_A_%s_PALETTES_%s, ARRAYSIZE(BREAKERS_A_%s_PALETTES_%s) },\r\n", DEF_BUTTONLABEL_NEOGEO[nButtonNameIndex], szCodeDesc, DEF_BUTTONLABEL_NEOGEO[nButtonNameIndex],
+                                                                                                                                            szCodeDesc, DEF_BUTTONLABEL_NEOGEO[nButtonNameIndex] );
             OutputDebugString(strOutput);
         }
         
         OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(NGBCCharacterList); iUnitCtr++)
+    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(breakersCharacterList); iUnitCtr++)
     {
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
         TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
-        strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)NGBC_A_%s_COLLECTION, ARRAYSIZE(NGBC_A_%s_COLLECTION) },\r\n", NGBCCharacterList[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
+        strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)BREAKERS_A_%s_COLLECTION, ARRAYSIZE(BREAKERS_A_%s_COLLECTION) },\r\n", breakersCharacterList[iUnitCtr].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
     }
 }
 
-sDescTreeNode* CGame_NGBC_A::InitDescTree()
+sDescTreeNode* CGame_BREAKERS_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_NGBC_A, NGBC_A_EXTRA, &NGBC_A_EXTRA_CUSTOM, NGBC_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_BREAKERS_A, BREAKERS_A_EXTRA, &BREAKERS_A_EXTRA_CUSTOM, BREAKERS_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = NGBC_A_NUMUNIT + (GetExtraCt(NGBC_A_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = BREAKERS_A_NUMUNIT + (GetExtraCt(BREAKERS_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[NGBC_A]);
+    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[BREAKERS_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(NGBC_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_NGBC_A::InitDescTree: Building desc tree for NGBC_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    bool fHaveExtras = (GetExtraCt(BREAKERS_A_EXTRALOC) > 0);
+    strMsg.Format(_T("CGame_BREAKERS_A::InitDescTree: Building desc tree for BREAKERS_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -348,16 +346,16 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < NGBC_A_EXTRALOC)
+        if (iUnitCtr < BREAKERS_A_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), NGBC_A_UNITS[iUnitCtr].szDesc);
+            _stprintf(UnitNode->szDesc, _T("%s"), BREAKERS_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if NGBC_A_DEBUG
+#if BREAKERS_A_DEBUG
             strMsg.Format(_T(";Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -379,7 +377,7 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if NGBC_A_DEBUG
+#if BREAKERS_A_DEBUG
                 strMsg.Format(_T(";\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -397,7 +395,7 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if NGBC_A_DEBUG
+#if BREAKERS_A_DEBUG
                     strMsg.Format(_T(";\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
@@ -429,7 +427,7 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if NGBC_A_DEBUG
+#if BREAKERS_A_DEBUG
             strMsg.Format(_T(";Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -441,7 +439,7 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(NGBC_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(BREAKERS_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _stprintf(CollectionNode->szDesc, _T("Extra"));
 
@@ -450,7 +448,7 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if NGBC_A_DEBUG
+#if BREAKERS_A_DEBUG
             strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -459,21 +457,21 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForNGBC(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForBreakers(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForNGBC(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForBreakers(nExtraPos + nCurrExtra);
                 }
 
                 _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((NGBC_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((BREAKERS_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if NGBC_A_DEBUG
+#if BREAKERS_A_DEBUG
                 strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -484,10 +482,10 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_NGBC_A::InitDescTree: Loaded %u palettes for NGBC\n"), nTotalPaletteCount);
+    strMsg.Format(_T("CGame_BREAKERS_A::InitDescTree: Loaded %u palettes for Breakers Revenge\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForNGBC = nTotalPaletteCount;
+    m_nTotalPaletteCountForBreakers = nTotalPaletteCount;
 
     // This is used during development to produce the palette data for the header
     //DumpAllCharacters();
@@ -495,12 +493,12 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
     return NewDescTree;
 }
 
-sFileRule CGame_NGBC_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_BREAKERS_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, L"NeoGeoBattleColliseum.bin");
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, L"245-p1.p1");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -508,55 +506,55 @@ sFileRule CGame_NGBC_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_NGBC_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_BREAKERS_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == NGBC_A_EXTRALOC)
+    if (nUnitId == BREAKERS_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return NGBC_A_UNITS[nUnitId].uChildAmt;
+        return BREAKERS_A_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_NGBC_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_BREAKERS_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == NGBC_A_EXTRALOC)
+    if (nUnitId == BREAKERS_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(NGBC_A_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(BREAKERS_A_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_NGBC_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_BREAKERS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == NGBC_A_EXTRALOC)
+    if (nUnitId == BREAKERS_A_EXTRALOC)
     {
         return _T("Extra Palettes");
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)NGBC_A_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)BREAKERS_A_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_NGBC_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_BREAKERS_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == NGBC_A_EXTRALOC)
+    if (nUnitId == BREAKERS_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = NGBC_A_UNITS;
+        const sDescTreeNode* pCompleteROMTree = BREAKERS_A_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -566,9 +564,9 @@ UINT16 CGame_NGBC_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if NGBC_A_DEBUG
+#if BREAKERS_A_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_NGBC_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_BREAKERS_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -576,14 +574,14 @@ UINT16 CGame_NGBC_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_NGBC_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_BREAKERS_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)NGBC_A_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)BREAKERS_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_NGBC_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_BREAKERS_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -596,7 +594,7 @@ const sDescTreeNode* CGame_NGBC_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == NGBC_A_EXTRALOC)
+        if (nUnitId == BREAKERS_A_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -608,7 +606,7 @@ const sDescTreeNode* CGame_NGBC_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(NGBC_A_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(BREAKERS_A_UNITS[nUnitId].ChildNodes);
             
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -634,7 +632,7 @@ const sDescTreeNode* CGame_NGBC_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_NGBC_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_BREAKERS_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -658,9 +656,9 @@ const sGame_PaletteDataset* CGame_NGBC_A::GetSpecificPalette(UINT16 nUnitId, UIN
     return paletteToUse;
 }
 
-void CGame_NGBC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_BREAKERS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != NGBC_A_EXTRALOC)
+     if (nUnitId != BREAKERS_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -679,10 +677,10 @@ void CGame_NGBC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // NGBC_A_EXTRALOC
+    else // BREAKERS_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForNGBC(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForBreakers(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
@@ -690,7 +688,7 @@ void CGame_NGBC_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_NGBC_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_BREAKERS_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -720,7 +718,7 @@ BOOL CGame_NGBC_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     return TRUE;
 }
 
-void CGame_NGBC_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+void CGame_BREAKERS_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
@@ -758,7 +756,7 @@ void CGame_NGBC_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     }
 }
 
-BOOL CGame_NGBC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_BREAKERS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -789,7 +787,7 @@ BOOL CGame_NGBC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != NGBC_A_EXTRALOC)
+    if (NodeGet->uUnitId != BREAKERS_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
