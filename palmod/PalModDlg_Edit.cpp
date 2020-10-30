@@ -14,6 +14,38 @@
 // We use the first non-white space printable character '!' as the base for edit/paste calculations.
 constexpr auto k_nASCIICharacterOffset = 33;
 
+void CPalModDlg::OnCopyColorAtPointer()
+{
+    COLORREF colorAtPixel = GetColorAtCurrentMouseCursorPosition();
+
+    if (!bOleInit)
+    {
+        return;
+    }
+
+    COleDataSource* pSource = new COleDataSource();
+    CSharedFile sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
+
+    CStringA CopyText;
+    CopyText.Format("#%08x", colorAtPixel);
+    sf.Write(CopyText, CopyText.GetLength());
+
+    HGLOBAL hMem = sf.Detach();
+    if (!hMem)
+    {
+        return;
+    }
+
+    pSource->CacheGlobalData(CF_TEXT, hMem);
+    pSource->SetClipboard();
+}
+
+void CPalModDlg::OnPasteColorAtPointer()
+{
+    OnCopyColorAtPointer();
+    OnEditPaste();
+}
+
 void CPalModDlg::OnEditCopy()
 {
     if (bEnabled)
@@ -319,6 +351,7 @@ void CPalModDlg::OnEditPaste()
                 case CVS2_A:
                 case KOF02UM_S:
                 case KOFXI_A:
+                case NGBC_A:
                 case SFIII3_D:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_15ALT;
@@ -639,6 +672,26 @@ void CPalModDlg::OnEditSelectNone()
         // Update the Edit Color options.
         UpdateSliderSel();
     }
+}
+
+COLORREF CPalModDlg::GetColorAtCurrentMouseCursorPosition()
+{
+    HDC hdc = ::GetDC(0);
+    COLORREF colorAtPixel = CLR_INVALID;
+
+    if (hdc != nullptr)
+    {
+        POINT ptCursor;
+
+        if (GetCursorPos(&ptCursor))
+        {
+            colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
+        }
+
+        ::ReleaseDC(::GetDesktopWindow(), hdc);
+    }
+
+    return colorAtPixel;
 }
 
 void CPalModDlg::SelectMatchingColorsInPalette(COLORREF crColorToMatch)

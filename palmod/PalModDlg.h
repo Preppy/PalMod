@@ -226,7 +226,10 @@ public:
 
     afx_msg void OnEditCopy();
     afx_msg void OnEditPaste();
+    afx_msg void OnCopyColorAtPointer();
+    afx_msg void OnPasteColorAtPointer();
 
+    COLORREF GetColorAtCurrentMouseCursorPosition();
     void SelectMatchingColorsInPalette(COLORREF crColorToMatch);
 
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);

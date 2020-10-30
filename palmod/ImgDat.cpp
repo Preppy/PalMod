@@ -125,7 +125,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
         }
         case KOFXI_A:
         {
-            nImageUnitCounterToUse = KOFXI_S_IMG_UNITS[nUnitCtr];
+            nImageUnitCounterToUse = KOFXI_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case KOF02UM_S:
@@ -158,6 +158,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
         case MVC2_P:
         {
             nImageUnitCounterToUse = MVC2_IMG_UNITS[nUnitCtr];
+            break;
+        }
+        case NGBC_A:
+        {
+            nImageUnitCounterToUse = NGBC_A_IMG_UNITS[nUnitCtr];
             break;
         }
         case RBFFS_A:

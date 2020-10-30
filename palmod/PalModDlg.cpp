@@ -130,6 +130,8 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_ACC_FILEPATCH, &CPalModDlg::OnFilePatch)
     ON_COMMAND(ID_ACC_LOADPALETTE, &CPalModDlg::OnImportPalette)
     ON_COMMAND(ID_ACC_SAVEPALETTE, &CPalModDlg::OnExportPalette)
+    ON_COMMAND(ID_ACC_SNIFFCOLOR, &CPalModDlg::OnCopyColorAtPointer)
+    ON_COMMAND(ID_ACC_SNIFFPASTE, &CPalModDlg::OnPasteColorAtPointer)
 
     ON_COMMAND(ID_EDIT_UNDO, &CPalModDlg::OnEditUndo)
     ON_COMMAND(ID_EDIT_REDO, &CPalModDlg::OnEditRedo)

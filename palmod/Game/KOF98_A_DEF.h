@@ -533,7 +533,7 @@ const sGame_PaletteDataset KOF98_A_Leona_PALETTE_D[] =
 const sGame_PaletteDataset KOF98_A_Ralf_PALETTE_A[] =
 {
     { _T("Ralf A - Main"),  0x2de7f0, 0x2de810, indexKOF98_A_Ralf },
-    { _T("Ralf A - Extra 1"),  0x2de810, 0x2de830, indexKOF98_A_Ralf },
+    { _T("Ralf A - Extra 1: Bandana"),  0x2de810, 0x2de830 },
     { _T("Ralf A - Extra 2"),  0x2de830, 0x2de850, indexKOF98_A_Ralf },
     { _T("Ralf A - Max Mode"),  0x2de850, 0x2de870, indexKOF98_A_Ralf },
     { _T("Ralf A - Extra 3"),  0x2de870, 0x2de890, indexKOF98_A_Ralf },
@@ -546,7 +546,7 @@ const sGame_PaletteDataset KOF98_A_Ralf_PALETTE_A[] =
 const sGame_PaletteDataset KOF98_A_Ralf_PALETTE_B[] =
 {
     { _T("Ralf B - Main"),  0x2de9f0, 0x2dea10, indexKOF98_A_Ralf },
-    { _T("Ralf B - Extra 1"),  0x2dea10, 0x2dea30, indexKOF98_A_Ralf },
+    { _T("Ralf B - Extra 1: Bandana"),  0x2dea10, 0x2dea30 },
     { _T("Ralf B - Extra 2"),  0x2dea30, 0x2dea50, indexKOF98_A_Ralf },
     { _T("Ralf B - Max Mode"),  0x2dea50, 0x2dea70, indexKOF98_A_Ralf },
     { _T("Ralf B - Extra 3"),  0x2dea70, 0x2dea90, indexKOF98_A_Ralf },
@@ -559,7 +559,7 @@ const sGame_PaletteDataset KOF98_A_Ralf_PALETTE_B[] =
 const sGame_PaletteDataset KOF98_A_Ralf_PALETTE_C[] =
 {
     { _T("Ralf C - Main"),  0x2debf0, 0x2dec10, indexKOF98_A_Ralf },
-    { _T("Ralf C - Extra 1"),  0x2dec10, 0x2dec30, indexKOF98_A_Ralf },
+    { _T("Ralf C - Extra 1: Bandana"),  0x2dec10, 0x2dec30 },
     { _T("Ralf C - Extra 2"),  0x2dec30, 0x2dec50, indexKOF98_A_Ralf },
     { _T("Ralf C - Max Mode"),  0x2dec50, 0x2dec70, indexKOF98_A_Ralf },
     { _T("Ralf C - Extra 3"),  0x2dec70, 0x2dec90, indexKOF98_A_Ralf },
@@ -572,7 +572,7 @@ const sGame_PaletteDataset KOF98_A_Ralf_PALETTE_C[] =
 const sGame_PaletteDataset KOF98_A_Ralf_PALETTE_D[] =
 {
     { _T("Ralf D - Main"),  0x2dedf0, 0x2dee10, indexKOF98_A_Ralf },
-    { _T("Ralf D - Extra 1"),  0x2dee10, 0x2dee30, indexKOF98_A_Ralf },
+    { _T("Ralf D - Extra 1: Bandana"),  0x2dee10, 0x2dee30 },
     { _T("Ralf D - Extra 2"),  0x2dee30, 0x2dee50, indexKOF98_A_Ralf },
     { _T("Ralf D - Max Mode"),  0x2dee50, 0x2dee70, indexKOF98_A_Ralf },
     { _T("Ralf D - Extra 3"),  0x2dee70, 0x2dee90, indexKOF98_A_Ralf },

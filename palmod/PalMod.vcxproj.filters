@@ -109,9 +109,6 @@
     <Filter Include="Game\SNK Games\SVCPLUSA_A">
       <UniqueIdentifier>{b5984ab2-a10f-400e-b1ff-4766bfb767c1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\SNK Games\NEOGEO_A">
-      <UniqueIdentifier>{acaea0b1-3907-4bbd-a2f0-32edc189a18a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\SNK Games\Garou_S">
       <UniqueIdentifier>{a88dc215-a7e2-4efe-b6ea-bd7491c26694}</UniqueIdentifier>
     </Filter>
@@ -183,6 +180,12 @@
     </Filter>
     <Filter Include="Game\SNK Games\KOF_XI_A">
       <UniqueIdentifier>{d12dfc26-a331-4ac9-928f-89a7c1753af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\NeoGeo Battle Colliseum">
+      <UniqueIdentifier>{194b886e-8492-41d0-a398-00cbb161e244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Unknown Game">
+      <UniqueIdentifier>{acaea0b1-3907-4bbd-a2f0-32edc189a18a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -319,7 +322,7 @@
       <Filter>Game\SNK Games\Garou_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_NEOGEO_A.cpp">
-      <Filter>Game\SNK Games\NEOGEO_A</Filter>
+      <Filter>Game\SNK Games\Unknown Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOF98_A.cpp">
       <Filter>Game\SNK Games\KOF98_A</Filter>
@@ -413,6 +416,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_KOFXI_A.cpp">
       <Filter>Game\SNK Games\KOF_XI_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_NGBC_A.cpp">
+      <Filter>Game\SNK Games\NeoGeo Battle Colliseum</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -585,10 +591,10 @@
       <Filter>Game\SNK Games\Garou_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_NEOGEO_A.h">
-      <Filter>Game\SNK Games\NEOGEO_A</Filter>
+      <Filter>Game\SNK Games\Unknown Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\NEOGEO_A_DEF.h">
-      <Filter>Game\SNK Games\NEOGEO_A</Filter>
+      <Filter>Game\SNK Games\Unknown Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOF98_A.h">
       <Filter>Game\SNK Games\KOF98_A</Filter>
@@ -760,6 +766,12 @@
     </ClInclude>
     <ClInclude Include="Game\KOFXI_A_DEF.h">
       <Filter>Game\SNK Games\KOF_XI_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_NGBC_A.h">
+      <Filter>Game\SNK Games\NeoGeo Battle Colliseum</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NGBC_A_DEF.h">
+      <Filter>Game\SNK Games\NeoGeo Battle Colliseum</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

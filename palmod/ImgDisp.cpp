@@ -871,8 +871,7 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
 #endif
 
     // Update the current palette selections based upon this click
-    COLORREF colorAtPixel = GetHost()->GetColorAtCurrentMouseCursorPosition();
-    GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(colorAtPixel);
+    GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition());
 
     CWnd::OnLButtonUp(nFlags, point);
 }

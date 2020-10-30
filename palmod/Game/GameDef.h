@@ -61,6 +61,7 @@ enum SupportedGamesList
     WINDJAMMERS_A,
     SFIII3_A_DIR_10,
     KOFXI_A,
+    NGBC_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -124,6 +125,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Windjammers (Arcade)",
    L"SFIII:3S Gill Glow (Arcade Rerip)",
    L"KOF:XI (Atomiswave)",
+   L"NGBC (Atomiswave)",
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -1787,7 +1789,7 @@ const UINT8 KOF02UM_S_IMG_UNITS[] =
 
 const int KOF02UM_S_NUM_IMG_UNITS = ARRAYSIZE(KOF02UM_S_IMG_UNITS);
 
-const UINT8 KOFXI_S_IMG_UNITS[] =
+const UINT8 KOFXI_A_IMG_UNITS[] =
 {
     indexKOFSprites_02UM_Iori,
     indexKOFSprites_02UM_K,    // 0x92
@@ -1798,6 +1800,11 @@ const UINT8 KOFXI_S_IMG_UNITS[] =
     indexKOFSprites_02UM_Ryo,    // 0xAA
     indexKOFSprites_02UM_Shingo,    // 0xAE
     indexKOFSprites_02UM_Vanessa,    // 0xB2
+};
+
+const UINT8 NGBC_A_IMG_UNITS[] =
+{
+    indexKOFSprites_02UM_Ryo,
 };
 
 enum SupportedCVS2_A_PaletteListIndex

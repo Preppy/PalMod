@@ -1,19 +1,19 @@
 #pragma once
 #include "gameclass.h"
-#include "KOFXI_A_DEF.h"
+#include "NGBC_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOFXI_A = _T("KOFXIe.txt");
-#define GetExtraDefForKOFXI(x)((stExtraDef *)&KOFXI_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_NGBC_A = _T("NGBCe.txt");
+#define GetExtraDefForNGBC(x)((stExtraDef *)&NGBC_A_EXTRA_CUSTOM[x])
 
-class CGame_KOFXI_A : public CGameWithExtrasFile
+class CGame_NGBC_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForKOFXI;
+    static UINT32 m_nTotalPaletteCountForNGBC;
     static void DumpAllCharacters();
 
-    static int rgExtraCountAll[KOFXI_A_NUMUNIT + 1];
-    static int rgExtraLoc[KOFXI_A_NUMUNIT + 1];
+    static int rgExtraCountAll[NGBC_A_NUMUNIT + 1];
+    static int rgExtraLoc[NGBC_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -23,8 +23,8 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
 public:
-    CGame_KOFXI_A(UINT32 nConfirmedROMSize);
-    ~CGame_KOFXI_A(void);
+    CGame_NGBC_A(UINT32 nConfirmedROMSize);
+    ~CGame_NGBC_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -52,5 +52,5 @@ public:
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    static stExtraDef* KOFXI_A_EXTRA_CUSTOM;
+    static stExtraDef* NGBC_A_EXTRA_CUSTOM;
 };

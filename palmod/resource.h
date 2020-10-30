@@ -178,13 +178,15 @@
 #define ID_COLORFORMAT_RGB555_GBA       32858
 #define ID_COLORFORMAT_RGB555_ALT       32859
 #define ID_LD_SFIII3ARCADE10            32860
+#define ID_ACC_SNIFFCOLOR               32861
+#define ID_ACC_SNIFFPASTE               32862
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32861
+#define _APS_NEXT_COMMAND_VALUE         32863
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

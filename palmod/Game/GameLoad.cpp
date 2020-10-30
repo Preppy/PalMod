@@ -22,6 +22,7 @@
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
 #include "Game_NEOGEO_A.h"
+#include "Game_NGBC_A.h"
 #include "Game_GEMFIGHTER_A.h"
 #include "Game_RBFFS_A.h"
 #include "Game_REDEARTH_A.h"
@@ -158,7 +159,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_Matrimelee_A::GetRule;
         return TRUE;
     }
-    break;
     case MSH_A:
     {
         GetRule = &CGame_MSH_A::GetRule;
@@ -209,6 +209,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case NEOGEO_A:
     {
         GetRule = &CGame_NEOGEO_A::GetRule;
+        return TRUE;
+    }
+    case NGBC_A:
+    {
+        GetRule = &CGame_NGBC_A::GetRule;
         return TRUE;
     }
     case RBFFS_A:
@@ -453,6 +458,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case NEOGEO_A:
     {
         return new CGame_NEOGEO_A(nConfirmedROMSize);
+    }
+    case NGBC_A:
+    {
+        return new CGame_NGBC_A(nConfirmedROMSize);
     }
     case RBFFS_A:
     {

@@ -439,6 +439,7 @@ void CPalModDlg::OnFileOpen()
         // MarvelVsCapcom2.bin
         // Unlocked\MarvelVsCapcom2_unlocked.bin
         { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|"), INVALID_UNIT_VALUE },
+        { NGBC_A, L"NGBC|NeoGeoBattleColliseum.bin|", INVALID_UNIT_VALUE },
         // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
         { RBFFS_A, _T("Real Bout Fatal Fury Special|223*p1*|"), INVALID_UNIT_VALUE },
         { REDEARTH_A, _T("Red Earth|31|"), INVALID_UNIT_VALUE },
