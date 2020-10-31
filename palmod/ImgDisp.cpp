@@ -485,9 +485,6 @@ void CImgDisp::OnPaint()
 
 BOOL CImgDisp::OnEraseBkgnd(CDC* pDC)
 {
-    // TODO: Add your message handler code here and/or call default
-
-    //return CWnd::OnEraseBkgnd(pDC);
     return TRUE;
 }
 
@@ -516,7 +513,7 @@ void CImgDisp::AssignBackupPalette(UINT8* pBackupPalette)
 
 bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
 {
-    if (pImgBuffer && (pImgBuffer[nIndex]))
+    if (pImgBuffer && pImgBuffer[nIndex])
     {
         return true;
     }
@@ -870,8 +867,11 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
 
 #endif
 
-    // Update the current palette selections based upon this click
-    GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition());
+    if (GetClickToFindColor())
+    {
+        // Update the current palette selections based upon this click
+        GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition());
+    }
 
     CWnd::OnLButtonUp(nFlags, point);
 }

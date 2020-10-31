@@ -13,6 +13,7 @@ constexpr auto c_mainWndForcePeerPreviewWindow = _T("extras_ForcePeerPreviewWind
 constexpr auto c_mainUnknownGameColMode = _T("main_UnknownGameColMode");
 
 constexpr auto c_nPrefSavePaletteToMemory = _T("pref_ShouldSavePaletteToMemory");
+constexpr auto c_prevClickToFind = L"PreviewClickToFind";
 
 extern int GetDpiForScreen();
 
@@ -282,6 +283,9 @@ void CRegProc::LoadReg(int src)
             if (RegQueryValueEx(hKey, _T("UseBGCol"), 0, &RegType, (BYTE*)&bUseBGCol, &GetSz) != ERROR_SUCCESS)
                 bUseBGCol = TRUE;
 
+            if (RegQueryValueEx(hKey, c_prevClickToFind, 0, &RegType, (BYTE*)&bClickToFind, &GetSz) != ERROR_SUCCESS)
+                bClickToFind = TRUE;
+
             int nTranslation = 0;
             if (RegQueryValueEx(hKey, _T("PreviewZoom"), 0, &RegType, (BYTE*)&nTranslation, &GetSz) == ERROR_SUCCESS)
             {
@@ -410,6 +414,7 @@ void CRegProc::SaveReg(int src)
             RegSetValueEx(hKey, _T("PreviewBGXOffset"), 0, REG_DWORD, (BYTE*)&nBGXOffs, sizeof(int));
             RegSetValueEx(hKey, _T("PreviewBGYOffset"), 0, REG_DWORD, (BYTE*)&nBGYOffs, sizeof(int));
             RegSetValueEx(hKey, _T("UseBGCol"), 0, REG_DWORD, (BYTE*)&bUseBGCol, sizeof(int));
+            RegSetValueEx(hKey, c_prevClickToFind, 0, REG_DWORD, (BYTE*)&bClickToFind, sizeof(int));
 
             int nTranslation = (int)dPreviewZoom;
             RegSetValueEx(hKey, _T("PreviewZoom"), 0, REG_DWORD, (BYTE*)&nTranslation, sizeof(int));

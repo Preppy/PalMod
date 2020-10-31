@@ -497,7 +497,12 @@ void CPalModDlg::OnEditPaste()
         LPCSTR pszFormatStringToUse = fIsARGB ? szFormatStrARGB : szFormatStrRGB;
 
         DWORD argbColor = strtoul(pszFormatStringToUse, NULL, 16);
-        argbColor |= ((0xFF * (nAMul == 0)) << 24);
+        if ((nAMul == 0) || // if the game doesn't care about alpha or
+            !fIsARGB) // we have an incoming RGB string
+        {
+            // force a usable alpha value
+            argbColor |= (0xFF << 24);
+        }
 
         colPasteCol = (GetAValue(argbColor) << 24) +
                       (GetRValue(argbColor) << 16) +
@@ -686,7 +691,7 @@ COLORREF CPalModDlg::GetColorAtCurrentMouseCursorPosition()
 
         if (GetCursorPos(&ptCursor))
         {
-            colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
+            colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y) | 0xFF000000; // GetPixel returns RGB: we need ARGB
             CString strOutput;
             strOutput.Format(L"Color at cursor is: 0x%08x\n", colorAtPixel);
             OutputDebugString(strOutput);

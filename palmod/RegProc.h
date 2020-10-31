@@ -60,6 +60,7 @@ public:
     int nBGYOffs;
     BOOL bTileBG;
     BOOL bUseBGCol;
+    BOOL bClickToFind;
     double dPreviewZoom = 0.0;
 
     //New Image

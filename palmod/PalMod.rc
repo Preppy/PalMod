@@ -408,6 +408,7 @@ BEGIN
         MENUITEM "Tile Image Background",       ID_SETTINGS_TILEIMAGEBACKGROUND
         MENUITEM "Reset Background Offset",     ID_SETTINGS_RESETBACKGROUNDOFFSET
         MENUITEM "Use Background Color",        ID_SETTINGS_USEBGCOLOR
+        MENUITEM "Clicks show color in palette", ID_SETTINGS_CLICKANDFIND
     END
     POPUP "&Zoom"
     BEGIN

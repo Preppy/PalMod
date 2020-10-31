@@ -46,20 +46,21 @@ public:
     afx_msg void OnZoom2x() { UpdateZoomSetting(2.0); };
     afx_msg void OnZoom3x() { UpdateZoomSetting(3.0); };
     afx_msg void OnZoom4x() { UpdateZoomSetting(4.0); };
-    afx_msg void OnSetBGCol();
+    afx_msg void OnSetBackgroundCol();
     afx_msg void OnSetBlinkCol();
-    afx_msg void OnSetBGImage();
+    afx_msg void OnSetBackgroundImage();
     afx_msg void OnDestroy();
     afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
     afx_msg void OnClose();
     afx_msg void OnFileClose();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual BOOL OnInitDialog();
-    afx_msg void OnTileBg();
+    afx_msg void OnTileBackground();
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
-    afx_msg void OnResetBGOffset();
+    afx_msg void OnResetBackgroundOffset();
     afx_msg void OnFileExportImg();
-    afx_msg void OnSettingsUsebgcolor();
+    afx_msg void OnSettingsUseBackgroundColor();
+    afx_msg void OnSettingsClickToFindColor();
     afx_msg void OnLoadCustomSprite();
 };
 

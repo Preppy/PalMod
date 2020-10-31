@@ -35,21 +35,22 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_COMMAND(ID_ZOOM_2X, &CPreviewDlg::OnZoom2x)
     ON_COMMAND(ID_ZOOM_3X, &CPreviewDlg::OnZoom3x)
     ON_COMMAND(ID_ZOOM_4X, &CPreviewDlg::OnZoom4x)
-    ON_COMMAND(ID_SETTINGS_SETBACKGROUNDCOLOR, &CPreviewDlg::OnSetBGCol)
+    ON_COMMAND(ID_SETTINGS_SETBACKGROUNDCOLOR, &CPreviewDlg::OnSetBackgroundCol)
     ON_COMMAND(ID_SETTINGS_SETBLINKCOLOR, &CPreviewDlg::OnSetBlinkCol)
-    ON_COMMAND(ID_SETTINGS_SETBACKGROUNDIMAGE, &CPreviewDlg::OnSetBGImage)
+    ON_COMMAND(ID_SETTINGS_SETBACKGROUNDIMAGE, &CPreviewDlg::OnSetBackgroundImage)
     ON_COMMAND(ID_ACC_ADDZOOM, &CPreviewDlg::AddZoom)
     ON_COMMAND(ID_ACC_SUBZOOM, &CPreviewDlg::SubZoom)
     ON_WM_CLOSE()
     ON_WM_DESTROY()
     ON_WM_CREATE()
     ON_COMMAND(ID_FILE_CLOSE, &CPreviewDlg::OnFileClose)
-    ON_COMMAND(ID_SETTINGS_TILEIMAGEBACKGROUND, &CPreviewDlg::OnTileBg)
+    ON_COMMAND(ID_SETTINGS_TILEIMAGEBACKGROUND, &CPreviewDlg::OnTileBackground)
     ON_WM_INITMENUPOPUP()
-    ON_COMMAND(ID_SETTINGS_RESETBACKGROUNDOFFSET, &CPreviewDlg::OnResetBGOffset)
+    ON_COMMAND(ID_SETTINGS_RESETBACKGROUNDOFFSET, &CPreviewDlg::OnResetBackgroundOffset)
     ON_COMMAND(ID_FILE_EXPORTIMAGE, &CPreviewDlg::OnFileExportImg)
     ON_COMMAND(ID_FILE_LOADSPRITE, &CPreviewDlg::OnLoadCustomSprite)
-    ON_COMMAND(ID_SETTINGS_USEBGCOLOR, &CPreviewDlg::OnSettingsUsebgcolor)
+    ON_COMMAND(ID_SETTINGS_USEBGCOLOR, &CPreviewDlg::OnSettingsUseBackgroundColor)
+    ON_COMMAND(ID_SETTINGS_CLICKANDFIND, &CPreviewDlg::OnSettingsClickToFindColor)
 END_MESSAGE_MAP()
 
 void CPreviewDlg::InitDispCtrl()
@@ -104,7 +105,7 @@ void CPreviewDlg::OnSize(UINT nType, int cx, int cy)
     }
 }
 
-void CPreviewDlg::OnSetBGCol()
+void CPreviewDlg::OnSetBackgroundCol()
 {
     CColorDialog ColorDlg(m_ImgDisp.GetBGCol());
 
@@ -134,7 +135,7 @@ void CPreviewDlg::OnSetBlinkCol()
     }
 }
 
-void CPreviewDlg::OnSetBGImage()
+void CPreviewDlg::OnSetBackgroundImage()
 {
     CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, _T("Standard graphics files|*.bmp; *.png; *.gif; *.jpg; *.jpeg||"), this);
 
@@ -174,6 +175,7 @@ void CPreviewDlg::LoadSettings()
     m_ImgDisp.SetBGYOffs(LoadSett.nBGYOffs);
     m_ImgDisp.SetUseBGCol(LoadSett.bUseBGCol);
     m_ImgDisp.SetZoom(LoadSett.dPreviewZoom);
+    m_ImgDisp.SetClickToFindColor(LoadSett.bClickToFind);
 
     if (LoadSett.bUseBGCol)
     {
@@ -242,6 +244,7 @@ void CPreviewDlg::SaveSettings()
     SaveSett.nBGYOffs = m_ImgDisp.GetBGYOffs();
     SaveSett.bUseBGCol = m_ImgDisp.IsUsingBGCol();
     SaveSett.dPreviewZoom = m_ImgDisp.GetZoom();
+    SaveSett.bClickToFind = m_ImgDisp.GetClickToFindColor();
 
     RECT window_rect;
 
@@ -317,7 +320,7 @@ BOOL CPreviewDlg::OnInitDialog()
     // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-void CPreviewDlg::OnTileBg()
+void CPreviewDlg::OnTileBackground()
 {
     m_ImgDisp.SetBGTiled(!m_ImgDisp.IsBGTiled());
     m_ImgDisp.UpdateCtrl();
@@ -333,11 +336,12 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
     {
         pSettMenu->CheckMenuItem(ID_SETTINGS_TILEIMAGEBACKGROUND, m_ImgDisp.IsBGTiled() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_USEBGCOLOR, m_ImgDisp.IsUsingBGCol() ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColor() ? MF_CHECKED : MF_UNCHECKED);
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
     }
 }
 
-void CPreviewDlg::OnResetBGOffset()
+void CPreviewDlg::OnResetBackgroundOffset()
 {
     m_ImgDisp.SetBGXOffs(0);
     m_ImgDisp.SetBGYOffs(0);
@@ -435,7 +439,7 @@ void  CPreviewDlg::UpdateZoomSetting(double fpNewZoom)
     pSettMenu->CheckMenuItem(ID_ZOOM_4X, MF_BYCOMMAND | ((fpNewZoom == 4.0) ? MF_CHECKED : MF_UNCHECKED));
 }
 
-void CPreviewDlg::OnSettingsUsebgcolor()
+void CPreviewDlg::OnSettingsUseBackgroundColor()
 {
     m_ImgDisp.SetUseBGCol(!(m_ImgDisp.IsUsingBGCol()));
 
@@ -443,4 +447,9 @@ void CPreviewDlg::OnSettingsUsebgcolor()
     {
         m_ImgDisp.UpdateCtrl();
     }
+}
+
+void CPreviewDlg::OnSettingsClickToFindColor()
+{
+    m_ImgDisp.SetClickToFindColor(!m_ImgDisp.GetClickToFindColor());
 }

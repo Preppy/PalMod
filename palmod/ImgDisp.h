@@ -68,6 +68,7 @@ private:
     BOOL bTileBGBmp = FALSE;
     BOOL bUseBGCol = FALSE;
     BOOL bFirstInit = TRUE;
+    BOOL m_fClickToFindColor = TRUE;
 
     COLORREF crBGCol = 0x00FF0000;
     COLORREF crBlinkCol = 0x00FFFFFF;
@@ -143,6 +144,8 @@ public:
     void SetBGYOffs(int nOffs) { nBGYOffs = nOffs; };
     void SetBGTiled(BOOL bTiled) { bTileBGBmp = bTiled; };
     void SetUseBGCol(BOOL bUse) { bUseBGCol = bUse; };
+    void SetClickToFindColor(BOOL fClickToFind) { m_fClickToFindColor = fClickToFind; };
+    BOOL GetClickToFindColor() { return m_fClickToFindColor; };
     BOOL CanForceBGBitmapAvailable();
 
     int GetBGXOffs() { return nBGXOffs; };
