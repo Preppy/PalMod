@@ -216,6 +216,11 @@ UINT32 CGameClass::CONV_GBA_32(UINT16 inCol)
     UINT32 blue =  ((inCol >> 10) & 31) << 3;
     UINT32 alpha = ((inCol >> 15) &  1) << 3;
 
+    // account for rounding
+    red += red / 32;
+    green += green / 32;
+    blue += blue / 32;
+
     if (alpha == 0x8)
     {
         alpha = 0xFF;
