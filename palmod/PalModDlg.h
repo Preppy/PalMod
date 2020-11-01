@@ -12,6 +12,7 @@
 #include "UndoRedo.h"
 
 #include "afxcmn.h"
+#include <afxole.h> // for drag and drop support
 
 #define round(x)(x > 0.0 ? x + 0.5 : x + -0.5)
 
@@ -28,6 +29,18 @@ enum class eVerifyType
 
 constexpr auto DEFAULT_STATUS_TEXT = _T("Always keep a backup of files!");
 
+class CPalDropTarget : public COleDropTarget
+{
+
+    DROPEFFECT OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, DWORD dwKeyState, CPoint point) override;
+    BOOL OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT dropEffect, CPoint point) override;
+    // maintain state until we have a new enter event
+    DROPEFFECT OnDragOver(CWnd*, COleDataObject*, DWORD, CPoint) { return m_currentEffectState; };
+
+private:
+    DROPEFFECT m_currentEffectState = DROPEFFECT_NONE;
+};
+
 // CPalModDlg dialog
 class CPalModDlg : public CDialog
 {
@@ -37,6 +50,7 @@ public:
     CPalGroup* MainPalGroup = nullptr;
     CImgDisp* ImgDispCtrl = nullptr;
     CImgDat* ImgFile = nullptr;
+    CPalDropTarget m_dropTarget;
 
     BOOL bOleInit = TRUE;
     BOOL bEnabled = FALSE;
@@ -114,6 +128,7 @@ public:
     bool LoadPaletteFromACT(LPCTSTR pszFileName);
     bool LoadPaletteFromPAL(LPCTSTR pszFileName);
     bool LoadPaletteFromPNG(LPCTSTR pszFileName);
+    // if you add a new palette type here, please update the CPalDropTarget support
 
     bool SavePaletteToACT(LPCTSTR pszFileName);
     bool SavePaletteToGPL(LPCTSTR pszFileName);

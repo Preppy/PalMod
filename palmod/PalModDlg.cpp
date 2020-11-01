@@ -243,6 +243,8 @@ BOOL CPalModDlg::OnInitDialog()
         m_ToolTip.Activate(TRUE);
     }
 
+    m_dropTarget.Register(this);
+
     //Load the settings
     LoadSettings();
 

@@ -46,6 +46,120 @@ void CPalModDlg::OnPasteColorAtPointer()
     OnEditPaste();
 }
 
+DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, DWORD dwKeyState, CPoint point)
+{
+    m_currentEffectState = DROPEFFECT_NONE;
+
+    if (GetHost()->GetCurrGame())
+    {
+        if (pDataObject->IsDataAvailable(CF_HDROP))
+        {
+            HGLOBAL hg;
+            HDROP hDrop;
+
+            // Get the HDROP data from the data object.
+            hg = pDataObject->GetGlobalData(CF_HDROP);
+
+            if (!hg)
+            {
+                return DROPEFFECT_NONE;
+            }
+
+            hDrop = (HDROP)GlobalLock(hg);
+
+            if (hDrop)
+            {
+                UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
+
+                if (nFilesAvailable == 1)
+                {
+                    wchar_t szPath[MAX_PATH];
+
+                    if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
+                    {
+                        // It's a file: is it a file type we know about?
+                        // act, pal, png
+                        LPCWSTR pszExtension = wcsrchr(szPath, L'.');
+
+                        if (pszExtension)
+                        {
+                            if ((_wcsicmp(pszExtension, L".act") == 0) ||
+                                (_wcsicmp(pszExtension, L".pal") == 0) ||
+                                (_wcsicmp(pszExtension, L".png") == 0))
+                            {
+                                m_currentEffectState = DROPEFFECT_COPY;
+                            }
+                        }
+                    }
+                }
+            }
+
+            GlobalUnlock(hg);
+        }
+    }
+
+    return m_currentEffectState;
+}
+
+BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT dropEffect, CPoint point)
+{
+    if (GetHost()->GetCurrGame())
+    {
+        LPCWSTR pszExtension = nullptr;
+        wchar_t szPath[MAX_PATH];
+
+        if (pDataObject->IsDataAvailable(CF_HDROP))
+        {
+            HGLOBAL hg;
+            HDROP hDrop;
+
+            // Get the HDROP data from the data object.
+            hg = pDataObject->GetGlobalData(CF_HDROP);
+
+            if (!hg)
+            {
+                return FALSE;
+            }
+
+            hDrop = (HDROP)GlobalLock(hg);
+
+            if (hDrop)
+            {
+                UINT nFilesAvailable = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
+
+                if (nFilesAvailable == 1)
+                {
+                    if (DragQueryFile(hDrop, 0, szPath, ARRAYSIZE(szPath)))
+                    {
+                        // we just need the filename right now: test later
+                        pszExtension = wcsrchr(szPath, L'.');
+                    }
+                }
+            }
+
+            GlobalUnlock(hg);
+        }
+
+        if (pszExtension)
+        {
+            if (_wcsicmp(pszExtension, L".act") == 0)
+            {
+                GetHost()->GetPalModDlg()->LoadPaletteFromACT(szPath);
+            }
+            else if (_wcsicmp(pszExtension, L".pal") == 0)
+            {
+                GetHost()->GetPalModDlg()->LoadPaletteFromPAL(szPath);
+            }
+            else if (_wcsicmp(pszExtension, L".png") == 0)
+            {
+                GetHost()->GetPalModDlg()->LoadPaletteFromPNG(szPath);
+            }
+        }
+    }
+
+    return TRUE;
+}
+
 void CPalModDlg::OnEditCopy()
 {
     if (bEnabled)
