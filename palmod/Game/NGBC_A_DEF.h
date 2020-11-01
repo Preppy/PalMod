@@ -4614,9 +4614,9 @@ const sGame_PaletteDataset NGBC_A_KISARAH_PALETTES_SD[] =
     { L"Start+D - Extra Move 6", 0x43f13e0, 0x43f1400 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_A[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_A[] =
 {
-    { L"Chonshu A", 0x455a000, 0x455a020 },
+    { L"Chonrei A", 0x455a000, 0x455a020 },
     { L"A - Super Trail", 0x455a020, 0x455a040 },
     { L"A - Extra Move 1", 0x455a040, 0x455a060 },
     { L"A - Extra Move 2", 0x455a060, 0x455a080 },
@@ -4626,9 +4626,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_A[] =
     { L"A - Extra Move 6", 0x455a0e0, 0x455a100 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_B[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_B[] =
 {
-    { L"Chonshu B", 0x455a100, 0x455a120 },
+    { L"Chonrei B", 0x455a100, 0x455a120 },
     { L"B - Super Trail", 0x455a120, 0x455a140 },
     { L"B - Extra Move 1", 0x455a140, 0x455a160 },
     { L"B - Extra Move 2", 0x455a160, 0x455a180 },
@@ -4638,9 +4638,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_B[] =
     { L"B - Extra Move 6", 0x455a1e0, 0x455a200 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_C[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_C[] =
 {
-    { L"Chonshu C", 0x455a200, 0x455a220 },
+    { L"Chonrei C", 0x455a200, 0x455a220 },
     { L"C - Super Trail", 0x455a220, 0x455a240 },
     { L"C - Extra Move 1", 0x455a240, 0x455a260 },
     { L"C - Extra Move 2", 0x455a260, 0x455a280 },
@@ -4650,9 +4650,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_C[] =
     { L"C - Extra Move 6", 0x455a2e0, 0x455a300 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_D[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_D[] =
 {
-    { L"Chonshu D", 0x455a300, 0x455a320 },
+    { L"Chonrei D", 0x455a300, 0x455a320 },
     { L"D - Super Trail", 0x455a320, 0x455a340 },
     { L"D - Extra Move 1", 0x455a340, 0x455a360 },
     { L"D - Extra Move 2", 0x455a360, 0x455a380 },
@@ -4662,9 +4662,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_D[] =
     { L"D - Extra Move 6", 0x455a3e0, 0x455a400 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_EA[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_EA[] =
 {
-    { L"Chonshu EA", 0x455a400, 0x455a420 },
+    { L"Chonrei EA", 0x455a400, 0x455a420 },
     { L"E+A - Super Trail", 0x455a420, 0x455a440 },
     { L"E+A - Extra Move 1", 0x455a440, 0x455a460 },
     { L"E+A - Extra Move 2", 0x455a460, 0x455a480 },
@@ -4674,9 +4674,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_EA[] =
     { L"E+A - Extra Move 6", 0x455a4e0, 0x455a500 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_EB[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_EB[] =
 {
-    { L"Chonshu EB", 0x455a500, 0x455a520 },
+    { L"Chonrei EB", 0x455a500, 0x455a520 },
     { L"E+B - Super Trail", 0x455a520, 0x455a540 },
     { L"E+B - Extra Move 1", 0x455a540, 0x455a560 },
     { L"E+B - Extra Move 2", 0x455a560, 0x455a580 },
@@ -4686,9 +4686,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_EB[] =
     { L"E+B - Extra Move 6", 0x455a5e0, 0x455a600 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_EC[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_EC[] =
 {
-    { L"Chonshu EC", 0x455a600, 0x455a620 },
+    { L"Chonrei EC", 0x455a600, 0x455a620 },
     { L"E+C - Super Trail", 0x455a620, 0x455a640 },
     { L"E+C - Extra Move 1", 0x455a640, 0x455a660 },
     { L"E+C - Extra Move 2", 0x455a660, 0x455a680 },
@@ -4698,9 +4698,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_EC[] =
     { L"E+C - Extra Move 6", 0x455a6e0, 0x455a700 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_ED[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_ED[] =
 {
-    { L"Chonshu ED", 0x455a700, 0x455a720 },
+    { L"Chonrei ED", 0x455a700, 0x455a720 },
     { L"E+D - Super Trail", 0x455a720, 0x455a740 },
     { L"E+D - Extra Move 1", 0x455a740, 0x455a760 },
     { L"E+D - Extra Move 2", 0x455a760, 0x455a780 },
@@ -4710,9 +4710,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_ED[] =
     { L"E+D - Extra Move 6", 0x455a7e0, 0x455a800 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SA[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_SA[] =
 {
-    { L"Chonshu SA", 0x455a800, 0x455a820 },
+    { L"Chonrei SA", 0x455a800, 0x455a820 },
     { L"Start+A - Super Trail", 0x455a820, 0x455a840 },
     { L"Start+A - Extra Move 1", 0x455a840, 0x455a860 },
     { L"Start+A - Extra Move 2", 0x455a860, 0x455a880 },
@@ -4722,9 +4722,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SA[] =
     { L"Start+A - Extra Move 6", 0x455a8e0, 0x455a900 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SB[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_SB[] =
 {
-    { L"Chonshu SB", 0x455a900, 0x455a920 },
+    { L"Chonrei SB", 0x455a900, 0x455a920 },
     { L"Start+B - Super Trail", 0x455a920, 0x455a940 },
     { L"Start+B - Extra Move 1", 0x455a940, 0x455a960 },
     { L"Start+B - Extra Move 2", 0x455a960, 0x455a980 },
@@ -4734,9 +4734,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SB[] =
     { L"Start+B - Extra Move 6", 0x455a9e0, 0x455aa00 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SC[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_SC[] =
 {
-    { L"Chonshu SC", 0x455aa00, 0x455aa20 },
+    { L"Chonrei SC", 0x455aa00, 0x455aa20 },
     { L"Start+C - Super Trail", 0x455aa20, 0x455aa40 },
     { L"Start+C - Extra Move 1", 0x455aa40, 0x455aa60 },
     { L"Start+C - Extra Move 2", 0x455aa60, 0x455aa80 },
@@ -4746,9 +4746,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SC[] =
     { L"Start+C - Extra Move 6", 0x455aae0, 0x455ab00 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SD[] =
+const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_SD[] =
 {
-    { L"Chonshu SD", 0x455ab00, 0x455ab20 },
+    { L"Chonrei SD", 0x455ab00, 0x455ab20 },
     { L"Start+D - Super Trail", 0x455ab20, 0x455ab40 },
     { L"Start+D - Extra Move 1", 0x455ab40, 0x455ab60 },
     { L"Start+D - Extra Move 2", 0x455ab60, 0x455ab80 },
@@ -4758,9 +4758,9 @@ const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SD[] =
     { L"Start+D - Extra Move 6", 0x455abe0, 0x455ac00 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_A[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_A[] =
 {
-    { L"Chonrei A", 0x46a4800, 0x46a4820 },
+    { L"Chonshu A", 0x46a4800, 0x46a4820 },
     { L"A - Super Trail", 0x46a4820, 0x46a4840 },
     { L"A - Extra Move 1", 0x46a4840, 0x46a4860 },
     { L"A - Extra Move 2", 0x46a4860, 0x46a4880 },
@@ -4770,9 +4770,9 @@ const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_A[] =
     { L"A - Extra Move 6", 0x46a48e0, 0x46a4900 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_B[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_B[] =
 {
-    { L"Chonrei B", 0x46a4900, 0x46a4920 },
+    { L"Chonshu B", 0x46a4900, 0x46a4920 },
     { L"B - Super Trail", 0x46a4920, 0x46a4940 },
     { L"B - Extra Move 1", 0x46a4940, 0x46a4960 },
     { L"B - Extra Move 2", 0x46a4960, 0x46a4980 },
@@ -4782,9 +4782,9 @@ const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_B[] =
     { L"B - Extra Move 6", 0x46a49e0, 0x46a4a00 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_C[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_C[] =
 {
-    { L"Chonrei C", 0x46a4a00, 0x46a4a20 },
+    { L"Chonshu C", 0x46a4a00, 0x46a4a20 },
     { L"C - Super Trail", 0x46a4a20, 0x46a4a40 },
     { L"C - Extra Move 1", 0x46a4a40, 0x46a4a60 },
     { L"C - Extra Move 2", 0x46a4a60, 0x46a4a80 },
@@ -4794,9 +4794,9 @@ const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_C[] =
     { L"C - Extra Move 6", 0x46a4ae0, 0x46a4b00 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_D[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_D[] =
 {
-    { L"Chonrei D", 0x46a4b00, 0x46a4b20 },
+    { L"Chonshu D", 0x46a4b00, 0x46a4b20 },
     { L"D - Super Trail", 0x46a4b20, 0x46a4b40 },
     { L"D - Extra Move 1", 0x46a4b40, 0x46a4b60 },
     { L"D - Extra Move 2", 0x46a4b60, 0x46a4b80 },
@@ -4806,9 +4806,9 @@ const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_D[] =
     { L"D - Extra Move 6", 0x46a4be0, 0x46a4c00 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_EA[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_EA[] =
 {
-    { L"Chonrei EA", 0x46a4c00, 0x46a4c20 },
+    { L"Chonshu EA", 0x46a4c00, 0x46a4c20 },
     { L"E+A - Super Trail", 0x46a4c20, 0x46a4c40 },
     { L"E+A - Extra Move 1", 0x46a4c40, 0x46a4c60 },
     { L"E+A - Extra Move 2", 0x46a4c60, 0x46a4c80 },
@@ -4818,9 +4818,9 @@ const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_EA[] =
     { L"E+A - Extra Move 6", 0x46a4ce0, 0x46a4d00 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_EB[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_EB[] =
 {
-    { L"Chonrei EB", 0x46a4d00, 0x46a4d20 },
+    { L"Chonshu EB", 0x46a4d00, 0x46a4d20 },
     { L"E+B - Super Trail", 0x46a4d20, 0x46a4d40 },
     { L"E+B - Extra Move 1", 0x46a4d40, 0x46a4d60 },
     { L"E+B - Extra Move 2", 0x46a4d60, 0x46a4d80 },
@@ -4830,9 +4830,9 @@ const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_EB[] =
     { L"E+B - Extra Move 6", 0x46a4de0, 0x46a4e00 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_EC[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_EC[] =
 {
-    { L"Chonrei EC", 0x46a4e00, 0x46a4e20 },
+    { L"Chonshu EC", 0x46a4e00, 0x46a4e20 },
     { L"E+C - Super Trail", 0x46a4e20, 0x46a4e40 },
     { L"E+C - Extra Move 1", 0x46a4e40, 0x46a4e60 },
     { L"E+C - Extra Move 2", 0x46a4e60, 0x46a4e80 },
@@ -4842,9 +4842,9 @@ const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_EC[] =
     { L"E+C - Extra Move 6", 0x46a4ee0, 0x46a4f00 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_ED[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_ED[] =
 {
-    { L"Chonrei ED", 0x46a4f00, 0x46a4f20 },
+    { L"Chonshu ED", 0x46a4f00, 0x46a4f20 },
     { L"E+D - Super Trail", 0x46a4f20, 0x46a4f40 },
     { L"E+D - Extra Move 1", 0x46a4f40, 0x46a4f60 },
     { L"E+D - Extra Move 2", 0x46a4f60, 0x46a4f80 },
@@ -4854,9 +4854,9 @@ const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_ED[] =
     { L"E+D - Extra Move 6", 0x46a4fe0, 0x46a5000 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_SA[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SA[] =
 {
-    { L"Chonrei SA", 0x46a5000, 0x46a5020 },
+    { L"Chonshu SA", 0x46a5000, 0x46a5020 },
     { L"Start+A - Super Trail", 0x46a5020, 0x46a5040 },
     { L"Start+A - Extra Move 1", 0x46a5040, 0x46a5060 },
     { L"Start+A - Extra Move 2", 0x46a5060, 0x46a5080 },
@@ -4866,9 +4866,9 @@ const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_SA[] =
     { L"Start+A - Extra Move 6", 0x46a50e0, 0x46a5100 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_SB[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SB[] =
 {
-    { L"Chonrei SB", 0x46a5100, 0x46a5120 },
+    { L"Chonshu SB", 0x46a5100, 0x46a5120 },
     { L"Start+B - Super Trail", 0x46a5120, 0x46a5140 },
     { L"Start+B - Extra Move 1", 0x46a5140, 0x46a5160 },
     { L"Start+B - Extra Move 2", 0x46a5160, 0x46a5180 },
@@ -4878,9 +4878,9 @@ const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_SB[] =
     { L"Start+B - Extra Move 6", 0x46a51e0, 0x46a5200 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_SC[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SC[] =
 {
-    { L"Chonrei SC", 0x46a5200, 0x46a5220 },
+    { L"Chonshu SC", 0x46a5200, 0x46a5220 },
     { L"Start+C - Super Trail", 0x46a5220, 0x46a5240 },
     { L"Start+C - Extra Move 1", 0x46a5240, 0x46a5260 },
     { L"Start+C - Extra Move 2", 0x46a5260, 0x46a5280 },
@@ -4890,9 +4890,9 @@ const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_SC[] =
     { L"Start+C - Extra Move 6", 0x46a52e0, 0x46a5300 },
 };
 
-const sGame_PaletteDataset NGBC_A_CHONREI_PALETTES_SD[] =
+const sGame_PaletteDataset NGBC_A_CHONSHU_PALETTES_SD[] =
 {
-    { L"Chonrei SD", 0x46a5300, 0x46a5320 },
+    { L"Chonshu SD", 0x46a5300, 0x46a5320 },
     { L"Start+D - Super Trail", 0x46a5320, 0x46a5340 },
     { L"Start+D - Extra Move 1", 0x46a5340, 0x46a5360 },
     { L"Start+D - Extra Move 2", 0x46a5360, 0x46a5380 },
