@@ -831,13 +831,13 @@ const sGame_PaletteDataset SFIII3_A_URIEN_EXTRA_PALETTES[] =
 {
     { _T("P1 Intro"), 0x706600, 0x706680, index3S_CPS3_Urien, 0x00, &pairHandledInCode },
     { _T("P1 Suit"), 0x706680, 0x706700, index3S_CPS3_Urien, 0x03 }, // Note that for pairing we use an alt image.
-    { _T("P1 SA3 / Fire"), 0x706700, 0x706780 },
+    { _T("P1 SA3 / Fire"), 0x706700, 0x706780, index3S_CPS3_Urien, 0x05 },
 
     { _T("P2 Intro"), 0x706880, 0x706900, index3S_CPS3_Urien, 0x00, &pairHandledInCode },
     { _T("P2 Suit"), 0x706900, 0x706980, index3S_CPS3_Urien, 0x03 },
-    { _T("P2 SA3 / Fire?"), 0x706980, 0x706A00 },
+    { _T("P2 SA3 / Fire?"), 0x706980, 0x706A00, index3S_CPS3_Urien, 0x05 },
 
-    { _T("Electroball"), 0x706780, 0x706800 },
+    { _T("Electroball"), 0x706780, 0x706800, index3S_CPS3_Urien, 0x06 },
     { _T("SA2 / Big Electroball"), 0x706800, 0x706880, index3S_CPS3_Urien, 0x04 },
 };
 

@@ -1068,7 +1068,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                     ClearSetImgTicket(
                         CreateImgTicket(NodeGet->uUnitId, 2,
-                            CreateImgTicket(NodeGet->uUnitId, 3, NULL, 9, 0)
+                            CreateImgTicket(NodeGet->uUnitId, 3, NULL, 0, 0)
                         )
                     );
 
