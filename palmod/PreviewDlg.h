@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ImgDisp.h"
+#include "PalModDlg.h"
 
 // CPreviewDlg dialog
 
@@ -32,6 +33,7 @@ public:
 
 //Additional data
     CImgDisp m_ImgDisp;
+    CPalDropTarget m_dropTarget;
 
 protected:
     HICON m_hIcon;
@@ -62,6 +64,8 @@ public:
     afx_msg void OnSettingsUseBackgroundColor();
     afx_msg void OnSettingsClickToFindColor();
     afx_msg void OnLoadCustomSprite();
+
+    void LoadCustomSpriteFromPath(TCHAR* pszPath);
 };
 
 

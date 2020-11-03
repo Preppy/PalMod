@@ -135,7 +135,7 @@ public:
     void ClearSelected();
     void ClearSelView();
     void ClearHighlighted();
-    void SelectMatchingColorsInPalette(COLORREF crColorToMatch);
+    void SelectMatchingColorsInPalette(DWORD dwColorToMatch);
 
     void SelectAll();
 

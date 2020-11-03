@@ -31,11 +31,11 @@ constexpr auto DEFAULT_STATUS_TEXT = _T("Always keep a backup of files!");
 
 class CPalDropTarget : public COleDropTarget
 {
-
+public:
     DROPEFFECT OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, DWORD dwKeyState, CPoint point) override;
     BOOL OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT dropEffect, CPoint point) override;
     // maintain state until we have a new enter event
-    DROPEFFECT OnDragOver(CWnd*, COleDataObject*, DWORD, CPoint) { return m_currentEffectState; };
+    DROPEFFECT OnDragOver(CWnd*, COleDataObject*, DWORD, CPoint) override{ return m_currentEffectState; };
 
 private:
     DROPEFFECT m_currentEffectState = DROPEFFECT_NONE;
@@ -244,8 +244,8 @@ public:
     afx_msg void OnCopyColorAtPointer();
     afx_msg void OnPasteColorAtPointer();
 
-    COLORREF GetColorAtCurrentMouseCursorPosition();
-    void SelectMatchingColorsInPalette(COLORREF crColorToMatch);
+    DWORD GetColorAtCurrentMouseCursorPosition();
+    void SelectMatchingColorsInPalette(DWORD dwColorToMatch);
 
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
     afx_msg void OnSettingsSettings();

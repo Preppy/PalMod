@@ -54,13 +54,13 @@ void CJunk::ClearSelView()
     iHLAmt = 0;
 }
 
-void CJunk::SelectMatchingColorsInPalette(COLORREF crColorToMatch)
+void CJunk::SelectMatchingColorsInPalette(DWORD dwColorToMatch)
 {
     if (Selected)
     {
         for (int i = 0; i < iWorkingAmt; i++)
         {
-            Selected[i] = ((BasePal[i] & 0xFFFFFF) == (crColorToMatch & 0xFFFFFF));
+            Selected[i] = ((BasePal[i] & 0xFFFFFF) == (dwColorToMatch & 0xFFFFFF));
         }
     }
 }

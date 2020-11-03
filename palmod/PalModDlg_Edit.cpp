@@ -85,7 +85,8 @@ DROPEFFECT CPalDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
                         {
                             if ((_wcsicmp(pszExtension, L".act") == 0) ||
                                 (_wcsicmp(pszExtension, L".pal") == 0) ||
-                                (_wcsicmp(pszExtension, L".png") == 0))
+                                (_wcsicmp(pszExtension, L".png") == 0) ||
+                                (_wcsicmp(pszExtension, L".raw") == 0))
                             {
                                 m_currentEffectState = DROPEFFECT_COPY;
                             }
@@ -153,6 +154,10 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             else if (_wcsicmp(pszExtension, L".png") == 0)
             {
                 GetHost()->GetPalModDlg()->LoadPaletteFromPNG(szPath);
+            }
+            else if (_wcsicmp(pszExtension, L".raw") == 0)
+            {
+                GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(szPath);
             }
         }
     }
@@ -794,10 +799,10 @@ void CPalModDlg::OnEditSelectNone()
     }
 }
 
-COLORREF CPalModDlg::GetColorAtCurrentMouseCursorPosition()
+DWORD CPalModDlg::GetColorAtCurrentMouseCursorPosition()
 {
     HDC hdc = ::GetDC(0);
-    COLORREF colorAtPixel = CLR_INVALID;
+    DWORD colorAsDWORD = CLR_INVALID;
 
     if (hdc != nullptr)
     {
@@ -805,7 +810,10 @@ COLORREF CPalModDlg::GetColorAtCurrentMouseCursorPosition()
 
         if (GetCursorPos(&ptCursor))
         {
-            colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y) | 0xFF000000; // GetPixel returns RGB: we need ARGB
+            COLORREF colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
+            // COLORREF is aaBBggRR we want aaRRggBB
+            colorAsDWORD = (0xFF << 24) | (GetRValue(colorAtPixel) << 16) | (GetGValue(colorAtPixel) << 8) | GetBValue(colorAtPixel);
+
             CString strOutput;
             strOutput.Format(L"Color at cursor is: 0x%08x\n", colorAtPixel);
             OutputDebugString(strOutput);
@@ -814,15 +822,15 @@ COLORREF CPalModDlg::GetColorAtCurrentMouseCursorPosition()
         ::ReleaseDC(::GetDesktopWindow(), hdc);
     }
 
-    return colorAtPixel;
+    return colorAsDWORD;
 }
 
-void CPalModDlg::SelectMatchingColorsInPalette(COLORREF crColorToMatch)
+void CPalModDlg::SelectMatchingColorsInPalette(DWORD dwColorToMatch)
 {
     if (CurrPalCtrl)
     {
         // Update the CJunk controls to highlight the color desired
-        CurrPalCtrl->SelectMatchingColorsInPalette(crColorToMatch);
+        CurrPalCtrl->SelectMatchingColorsInPalette(dwColorToMatch);
         CurrPalCtrl->UpdateCtrl();
         // Update the Edit Color options.
         UpdateSliderSel();

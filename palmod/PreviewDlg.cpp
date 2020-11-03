@@ -271,6 +271,8 @@ int CPreviewDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
     LoadSettings();
 
+    m_dropTarget.Register(this);
+
     return 0;
 }
 
@@ -349,6 +351,22 @@ void CPreviewDlg::OnResetBackgroundOffset()
     m_ImgDisp.UpdateCtrl();
 }
 
+void CPreviewDlg::LoadCustomSpriteFromPath(TCHAR *pszPath)
+{
+    if (m_ImgDisp.LoadExternalSprite(pszPath))
+    {
+        m_ImgDisp.UpdateCtrl();
+    }
+    else
+    {
+        CString strError;
+        if (strError.LoadString(IDS_ERROR_TEXTURE_LOAD))
+        {
+            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+        }
+    }
+}
+
 void CPreviewDlg::OnLoadCustomSprite()
 {
     if (GetHost()->GetCurrGame())
@@ -357,18 +375,7 @@ void CPreviewDlg::OnLoadCustomSprite()
 
         if (OpenDialog.DoModal() == IDOK)
         {
-            if (m_ImgDisp.LoadExternalSprite(OpenDialog.GetPathName().GetBuffer()))
-            {
-                m_ImgDisp.UpdateCtrl();
-            }
-            else
-            {
-                CString strError;
-                if (strError.LoadString(IDS_ERROR_TEXTURE_LOAD))
-                {
-                    MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-                }
-            }
+            LoadCustomSpriteFromPath(OpenDialog.GetPathName().GetBuffer());
         }
     }
     else
