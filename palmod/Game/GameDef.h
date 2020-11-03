@@ -1810,10 +1810,32 @@ const UINT8 NGBC_A_IMG_UNITS[] =
     indexKOFSprites_02UM_Ryo,
 };
 
+enum SupportedBreakersSprites
+{
+    indexBreakersSprites_AlsionIII,
+    indexBreakersSprites_BaiHu,
+    indexBreakersSprites_Condor,
+    indexBreakersSprites_DaoLong,
+    indexBreakersSprites_Maherl,
+    indexBreakersSprites_Pielle,
+    indexBreakersSprites_Rila,
+    indexBreakersSprites_Saizo,
+    indexBreakersSprites_Sho,
+    indexBreakersSprites_Tia,
+};
+
 const UINT8 BREAKERS_A_IMG_UNITS[] =
 {
-    // We're not using any sprites for this currently.
-    indexKOFSprites_02UM_Ryo,
+    indexBreakersSprites_AlsionIII,
+    indexBreakersSprites_BaiHu,
+    indexBreakersSprites_Condor,
+    indexBreakersSprites_DaoLong,
+    indexBreakersSprites_Maherl,
+    indexBreakersSprites_Pielle,
+    indexBreakersSprites_Rila,
+    indexBreakersSprites_Saizo,
+    indexBreakersSprites_Sho,
+    indexBreakersSprites_Tia,
 };
 
 enum SupportedCVS2_A_PaletteListIndex
@@ -2356,7 +2378,8 @@ constexpr auto WINDJAMMERS_A_NUM_IMG_UNITS = ARRAYSIZE(WINDJAMMERS_A_IMG_UNITS);
 
 enum eIMGDat_Sections
 {
-    IMGDAT_SECTION_CVS2 = 0, // CVS2: has both Capcom and SNK images
+    IMGDAT_SECTION_BREAKREV = 0,
+    IMGDAT_SECTION_CVS2, // CVS2: has both Capcom and SNK images
     IMGDAT_SECTION_NEOGEO,  // NEOGEO: Garou
     IMGDAT_SECTION_JOJOS,
     IMGDAT_SECTION_KARNOVSR,

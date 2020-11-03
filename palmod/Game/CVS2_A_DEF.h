@@ -4047,8 +4047,8 @@ const sDescTreeNode CVS2_A_HIBIKI_COLLECTION[] =
 
 const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_LP[] =
 {
-    { _T("Main Sprite"), 0x3c4ed80, 0x3c4eda0, indexCVS2Sprites_Haohmaru },
-    { _T("Extra 1"), 0x3c4eda0, 0x3c4edc0 },
+    { _T("Main Sprite"), 0x3c4ed80, 0x3c4eda0, indexCVS2Sprites_Haohmaru, 0, &pairNext },
+    { _T("Extra 1: Sword"), 0x3c4eda0, 0x3c4edc0, indexCVS2Sprites_Haohmaru, 1 },
     { _T("Extra 2"), 0x3c4edc0, 0x3c4ede0 },
     { _T("Extra 3"), 0x3c4ede0, 0x3c4ee00 },
     { _T("Extra 4"), 0x3c4ee00, 0x3c4ee20 },
@@ -4057,8 +4057,8 @@ const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_LP[] =
 
 const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_MP[] =
 {
-    { _T("Main Sprite"), 0x3c4ee40, 0x3c4ee60, indexCVS2Sprites_Haohmaru },
-    { _T("Extra 1"), 0x3c4ee60, 0x3c4ee80 },
+    { _T("Main Sprite"), 0x3c4ee40, 0x3c4ee60, indexCVS2Sprites_Haohmaru, 0, &pairNext },
+    { _T("Extra 1: Sword"), 0x3c4ee60, 0x3c4ee80, indexCVS2Sprites_Haohmaru, 1 },
     { _T("Extra 2"), 0x3c4ee80, 0x3c4eea0 },
     { _T("Extra 3"), 0x3c4eea0, 0x3c4eec0 },
     { _T("Extra 4"), 0x3c4eec0, 0x3c4eee0 },
@@ -4067,8 +4067,8 @@ const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_MP[] =
 
 const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_HP[] =
 {
-    { _T("Main Sprite"), 0x3c4ef00, 0x3c4ef20, indexCVS2Sprites_Haohmaru },
-    { _T("Extra 1"), 0x3c4ef20, 0x3c4ef40 },
+    { _T("Main Sprite"), 0x3c4ef00, 0x3c4ef20, indexCVS2Sprites_Haohmaru, 0, &pairNext },
+    { _T("Extra 1: Sword"), 0x3c4ef20, 0x3c4ef40, indexCVS2Sprites_Haohmaru, 1 },
     { _T("Extra 2"), 0x3c4ef40, 0x3c4ef60 },
     { _T("Extra 3"), 0x3c4ef60, 0x3c4ef80 },
     { _T("Extra 4"), 0x3c4ef80, 0x3c4efa0 },
@@ -4077,8 +4077,8 @@ const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_HP[] =
 
 const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_LK[] =
 {
-    { _T("Main Sprite"), 0x3c4efc0, 0x3c4efe0, indexCVS2Sprites_Haohmaru },
-    { _T("Extra 1"), 0x3c4efe0, 0x3c4f000 },
+    { _T("Main Sprite"), 0x3c4efc0, 0x3c4efe0, indexCVS2Sprites_Haohmaru, 0, &pairNext },
+    { _T("Extra 1: Sword"), 0x3c4efe0, 0x3c4f000, indexCVS2Sprites_Haohmaru, 1 },
     { _T("Extra 2"), 0x3c4f000, 0x3c4f020 },
     { _T("Extra 3"), 0x3c4f020, 0x3c4f040 },
     { _T("Extra 4"), 0x3c4f040, 0x3c4f060 },
@@ -4087,8 +4087,8 @@ const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_LK[] =
 
 const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_MK[] =
 {
-    { _T("Main Sprite"), 0x3c4f080, 0x3c4f0a0, indexCVS2Sprites_Haohmaru },
-    { _T("Extra 1"), 0x3c4f0a0, 0x3c4f0c0 },
+    { _T("Main Sprite"), 0x3c4f080, 0x3c4f0a0, indexCVS2Sprites_Haohmaru, 0, &pairNext },
+    { _T("Extra 1: Sword"), 0x3c4f0a0, 0x3c4f0c0, indexCVS2Sprites_Haohmaru, 1 },
     { _T("Extra 2"), 0x3c4f0c0, 0x3c4f0e0 },
     { _T("Extra 3"), 0x3c4f0e0, 0x3c4f100 },
     { _T("Extra 4"), 0x3c4f100, 0x3c4f120 },
@@ -4097,8 +4097,8 @@ const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_MK[] =
 
 const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_HK[] =
 {
-    { _T("Main Sprite"), 0x3c4f140, 0x3c4f160, indexCVS2Sprites_Haohmaru },
-    { _T("Extra 1"), 0x3c4f160, 0x3c4f180 },
+    { _T("Main Sprite"), 0x3c4f140, 0x3c4f160, indexCVS2Sprites_Haohmaru, 0, &pairNext },
+    { _T("Extra 1: Sword"), 0x3c4f160, 0x3c4f180, indexCVS2Sprites_Haohmaru, 1 },
     { _T("Extra 2"), 0x3c4f180, 0x3c4f1a0 },
     { _T("Extra 3"), 0x3c4f1a0, 0x3c4f1c0 },
     { _T("Extra 4"), 0x3c4f1c0, 0x3c4f1e0 },
@@ -4107,8 +4107,8 @@ const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_HK[] =
 
 const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_3P[] =
 {
-    { _T("Main Sprite"), 0x3c4f200, 0x3c4f220, indexCVS2Sprites_Haohmaru },
-    { _T("Extra 1"), 0x3c4f220, 0x3c4f240 },
+    { _T("Main Sprite"), 0x3c4f200, 0x3c4f220, indexCVS2Sprites_Haohmaru, 0, &pairNext },
+    { _T("Extra 1: Sword"), 0x3c4f220, 0x3c4f240, indexCVS2Sprites_Haohmaru, 1 },
     { _T("Extra 2"), 0x3c4f240, 0x3c4f260 },
     { _T("Extra 3"), 0x3c4f260, 0x3c4f280 },
     { _T("Extra 4"), 0x3c4f280, 0x3c4f2a0 },
@@ -4117,8 +4117,8 @@ const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_3P[] =
 
 const sGame_PaletteDataset CVS2_A_HAOHMARU_PALETTES_3K[] =
 {
-    { _T("Main Sprite"), 0x3c4f2c0, 0x3c4f2e0, indexCVS2Sprites_Haohmaru },
-    { _T("Extra 1"), 0x3c4f2e0, 0x3c4f300 },
+    { _T("Main Sprite"), 0x3c4f2c0, 0x3c4f2e0, indexCVS2Sprites_Haohmaru, 0, &pairNext },
+    { _T("Extra 1: Sword"), 0x3c4f2e0, 0x3c4f300, indexCVS2Sprites_Haohmaru, 1 },
     { _T("Extra 2"), 0x3c4f300, 0x3c4f320 },
     { _T("Extra 3"), 0x3c4f320, 0x3c4f340 },
     { _T("Extra 4"), 0x3c4f340, 0x3c4f360 },
