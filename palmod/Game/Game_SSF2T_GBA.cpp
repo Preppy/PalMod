@@ -813,7 +813,7 @@ void CGame_SSF2T_GBA::UpdatePalData()
         sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
         if (srcDef->bAvail)
         {
-            // First color is the transparency color
+            // First color needs to be the transparency color
             const UINT16 nIndexStart = createPalOptions.nStartingPosition;
 
             COLORREF* crSrc = srcDef->pPal;

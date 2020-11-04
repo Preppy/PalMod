@@ -3,7 +3,7 @@
 #include "NEWGAME_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_NEWGAME_A = _T("NewGameE.txt");
+constexpr auto EXTRA_FILENAME_NEWGAME_A = L"NewGameE.txt";
 #define GetExtraDefForNEWGAME(x)((stExtraDef *)&NEWGAME_A_EXTRA_CUSTOM[x])
 
 class CGame_NEWGAME_A : public CGameWithExtrasFile

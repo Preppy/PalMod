@@ -30,7 +30,7 @@ void CGame_NEWGAME_A::InitializeStatics()
 CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_NEWGAME_A::CGame_NEWGAME_A: Loading ROM...\n"));
+    strMessage.Format(L"CGame_NEWGAME_A::CGame_NEWGAME_A: Loading ROM...\n";
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that we can truncate bad Extras correctly.
@@ -41,13 +41,23 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = NEWGAME_A_NUMUNIT;
     m_nExtraUnit = NEWGAME_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 4; // You will need to update this, but PalMod will prompt you to do so
+    // You will need to update this once you modify palettes, but PalMod will prompt you to do so.
+    // Exact count will be shown in debug output in the debugger
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 4;
     m_pszExtraFilename = EXTRA_FILENAME_NEWGAME_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForNEWGAME;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForNEWGAME; // This value is calculated at runtime: don't change this.
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0xbadf00d; // You will need to update this, but PalMod will prompt you to do so
+     // You will need to update this, but PalMod will prompt you to do so.  Exact location will be shown and also
+    // visible in debug output in the debugger.
+    m_nLowestKnownPaletteRomLocation = 0xbadf00d;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+
+    createPalOptions = {
+                        NO_SPECIAL_OPTIONS, // Set to SKIP_FIRST_COLOR for most CPS2 games.  Use the nStartingPosition version of UpdatePalData as found in CPS2 game code.
+                        NO_SPECIAL_OPTIONS, // Set to FORCE_ALPHA_ON_EVERY_COLOR if your game only uses RGB color: we require alpha to display sprites.
+                        NO_SPECIAL_OPTIONS  // Set to FORCE_ALPHA_ON_FIRST_COLOR if needed, but generally this is obsolete (unused).
+                       };
 
     InitDataBuffer();
 
@@ -153,7 +163,7 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[NEWGAME_A]);
+    _stprintf(NewDescTree->szDesc, L"%s", g_GameFriendlyName[NEWGAME_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -161,7 +171,7 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
 
     CString strMsg;
     bool fHaveExtras = (GetExtraCt(NEWGAME_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_NEWGAME_A::InitDescTree: Building desc tree for NEWGAME_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    strMsg.Format(L"CGame_NEWGAME_A::InitDescTree: Building desc tree for NEWGAME_A %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -181,14 +191,14 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
         if (iUnitCtr < NEWGAME_A_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), NEWGAME_A_UNITS[iUnitCtr].szDesc);
+            _stprintf(UnitNode->szDesc, L"%s", NEWGAME_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if NEWGAME_A_DEBUG
-            strMsg.Format(_T(";Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+            strMsg.Format(L";Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
@@ -210,7 +220,7 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if NEWGAME_A_DEBUG
-                strMsg.Format(_T(";\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L";\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -221,29 +231,29 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if NEWGAME_A_DEBUG
-                    strMsg.Format(_T(";\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L";\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 
-                    strMsg.Format(_T("%s :: %s :: %s\n0x%X\n0x%X\n\n"), UnitNode->szDesc, CollectionNode->szDesc, ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
+                    strMsg.Format(L"%s :: %s :: %s\n0x%X\n0x%X\n\n", UnitNode->szDesc, CollectionNode->szDesc, ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
                     OutputDebugString(strMsg);
 
 #endif
@@ -254,13 +264,13 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
+            _stprintf(UnitNode->szDesc, L"Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if NEWGAME_A_DEBUG
-            strMsg.Format(_T(";Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L";Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -273,7 +283,7 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(NEWGAME_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            _stprintf(CollectionNode->szDesc, _T("Extra"));
+            _stprintf(CollectionNode->szDesc, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -281,7 +291,7 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if NEWGAME_A_DEBUG
-            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -304,7 +314,7 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
                 ChildNode->uPalId = (((NEWGAME_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if NEWGAME_A_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -314,7 +324,7 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_NEWGAME_A::InitDescTree: Loaded %u palettes for NEWGAME Revenge\n"), nTotalPaletteCount);
+    strMsg.Format(L"CGame_NEWGAME_A::InitDescTree: Loaded %u palettes for NEWGAME Revenge\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     m_nTotalPaletteCountForNEWGAME = nTotalPaletteCount;
@@ -365,7 +375,7 @@ LPCTSTR CGame_NEWGAME_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCol
 {
     if (nUnitId == NEWGAME_A_EXTRALOC)
     {
-        return _T("Extra Palettes");
+        return L"Extra Palettes";
     }
     else
     {
@@ -395,7 +405,7 @@ UINT16 CGame_NEWGAME_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if NEWGAME_A_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_NEWGAME_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_NEWGAME_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -561,7 +571,7 @@ void CGame_NEWGAME_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (!fCanFitWithinCurrentPageLayout)
     {
         CString strWarning;
-        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
+        strWarning.Format(L"ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n", MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
         OutputDebugString(strWarning);
     }
 
@@ -574,7 +584,7 @@ void CGame_NEWGAME_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
         {
-            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
+            strPageDescription.Format(L"%s (%u/%u)", srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
             BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
             nColorsRemaining -= s_nColorsPerPage;
         }

@@ -39,7 +39,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
     {
         // I was hitting a compiler bug for a bit, so added this in.
         // You shouldn't be able to hit this any longer: the revisions to make LoadExtraFile a common function worked around the compiler issue.
-        OutputDebugString(_T("BUGBUG: MEMORY CORRUPTION!\n"));
+        OutputDebugString(L"BUGBUG: MEMORY CORRUPTION!\n");
     }
 
     const int nMaxExtraBufferSize = 10000;
@@ -60,7 +60,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
 
             _tcscat(szTargetFile, pszExtraFileName);
 
-            strOutputText.Format(_T("Loading extra file for '%s'...\n"), pszExtraFileName);
+            strOutputText.Format(L"Loading extra file for '%s'...\n", pszExtraFileName);
             OutputDebugString(strOutputText);
 
             DWORD nFileAttrib = GetFileAttributes(szTargetFile);
@@ -98,7 +98,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                         {
                             if (iswspace(aszFinalLine[0]) && (strlen(aszFinalLine) == 1))
                             {
-                                strOutputText.Format(_T("Warning: Bogus entry in extension file with text '%S'.  Skipping.\n"), aszFinalLine);
+                                strOutputText.Format(L"Warning: Bogus entry in extension file with text '%S'.  Skipping.\n", aszFinalLine);
                                 OutputDebugString(strOutputText);
                                 continue;
                             }
@@ -123,8 +123,8 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                                     (aszFinalLine[0] > 'f'))
                                 {
                                     CString strError;
-                                    strError.Format(_T("In file \"%s\", Extra \"%S\" appears to be broken: it is trying to display from starting offset \"%S\".  If that's not a number, your Extras file isn't correct.\n"), pszExtraFileName, aszCurrDesc, aszFinalLine);
-                                    MessageBox(g_appHWnd, strError, _T("PalMod"), MB_ICONERROR);
+                                    strError.Format(L"In file \"%s\", Extra \"%S\" appears to be broken: it is trying to display from starting offset \"%S\".  If that's not a number, your Extras file isn't correct.\n", pszExtraFileName, aszCurrDesc, aszFinalLine);
+                                    MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONERROR);
                                 }
                             }
                         }
@@ -138,8 +138,8 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                             if (nCurrEnd <= nCurrStart)
                             {
                                 CString strError;
-                                strError.Format(_T("In file \"%s\", Extra \"%S\" is broken: trying to display from starting offset 0x%06x to ending offset 0x%06x: that ending offset actually starts before the starting offset!\n\nPlease fix: this isn't going to work right.\n"), pszExtraFileName, aszCurrDesc, nCurrStart, nCurrEnd);
-                                MessageBox(g_appHWnd, strError, _T("PalMod"), MB_ICONERROR);
+                                strError.Format(L"In file \"%s\", Extra \"%S\" is broken: trying to display from starting offset 0x%06x to ending offset 0x%06x: that ending offset actually starts before the starting offset!\n\nPlease fix: this isn't going to work right.\n", pszExtraFileName, aszCurrDesc, nCurrStart, nCurrEnd);
+                                MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONERROR);
 
                                 nCurrEnd = nCurrStart + (16 * 2);
                             }
@@ -150,7 +150,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                                 if (!fAlertedToTruncation)
                                 {
                                     CString strQuestion;
-                                    strQuestion.Format(_T("In file \"%s\", Extra \"%S\" is broken.\n\nThis game ROM size is 0x%06x bytes. This Extra starts at offset 0x%06x and ends at offset 0x%06x.  That won't work.\n\nPalMod is truncating this Extra so that you do not corrupt your ROM."), pszExtraFileName, aszCurrDesc, nGameROMSize, nCurrStart, nCurrEnd);
+                                    strQuestion.Format(L"In file \"%s\", Extra \"%S\" is broken.\n\nThis game ROM size is 0x%06x bytes. This Extra starts at offset 0x%06x and ends at offset 0x%06x.  That won't work.\n\nPalMod is truncating this Extra so that you do not corrupt your ROM.", pszExtraFileName, aszCurrDesc, nGameROMSize, nCurrStart, nCurrEnd);
 
                                     MessageBox(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_OK | MB_ICONSTOP);
                                     fAlertedToTruncation = true;
@@ -170,8 +170,8 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                                 {
                                     s_fShownOnce = true;
                                     CString strError;
-                                    strError.Format(_T("In file \"%s\", Extra \"%S\" is trying to display %u colors (from 0x%06x to 0x%06x).  This is broken, so PalMod is overriding it.\n"), pszExtraFileName, aszCurrDesc, nColorsUsed, nCurrStart, nCurrEnd);
-                                    MessageBox(g_appHWnd, strError, _T("PalMod"), MB_ICONINFORMATION);
+                                    strError.Format(L"In file \"%s\", Extra \"%S\" is trying to display %u colors (from 0x%06x to 0x%06x).  This is broken, so PalMod is overriding it.\n", pszExtraFileName, aszCurrDesc, nColorsUsed, nCurrStart, nCurrEnd);
+                                    MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONINFORMATION);
                                 }
 
                                 nColorsUsed = 16;
@@ -188,14 +188,14 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
 
                             if (fPaletteUsesMultiplePages)
                             {
-                                OutputDebugString(_T("#ifdef USE_LARGE_PALETTES\n"));
+                                OutputDebugString(L"#ifdef USE_LARGE_PALETTES\n");
                             }
 
-                            strText.Format(_T("    { \"%S\", 0x%07x, 0x%07x }, \n"), aszCurrDesc, nCurrStart, nCurrEnd);
+                            strText.Format(L"    { L\"%S\", 0x%07x, 0x%07x }, \n", aszCurrDesc, nCurrStart, nCurrEnd);
                             OutputDebugString(strText);
                             if (fPaletteUsesMultiplePages)
                             {
-                                OutputDebugString(_T("#else\n"));
+                                OutputDebugString(L"#else\n");
                             }
 #endif
 
@@ -236,11 +236,11 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                                     if (nTotalPagesNeeded > 1)
                                     {
                                         //pCurrDef->isInvisible = (nCurrentPage == 1);
-                                        _sntprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), _T("%S (%u/%u) 0x%x"), aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * 2 * nPos));
+                                        _sntprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), L"%S (%u/%u) 0x%x", aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * 2 * nPos));
                                     }
                                     else
                                     {
-                                        _sntprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), _T("%S"), aszCurrDesc);
+                                        _sntprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), L"%S", aszCurrDesc);
                                         //pCurrDef->isInvisible = false;
                                     }
                                     pCurrDef->uOffset = nCurrStart + (k_colorsPerPage * 2 * nPos);
@@ -251,7 +251,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
 #ifdef DUMP_EXTRAS_ON_LOAD
                                 if (fPaletteUsesMultiplePages)
                                 {
-                                    strText.Format(_T("    { \"%s\", 0x%07x, 0x%07x }, \n"), pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + pCurrDef->cbPaletteSize);
+                                    strText.Format(L"    { L\"%s\", 0x%07x, 0x%07x }, \n", pCurrDef->szDesc, pCurrDef->uOffset, pCurrDef->uOffset + pCurrDef->cbPaletteSize);
                                     OutputDebugString(strText);
                                 }
 #endif
@@ -263,7 +263,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
 #ifdef DUMP_EXTRAS_ON_LOAD
                             if (fPaletteUsesMultiplePages)
                             {
-                                OutputDebugString(_T("#endif\n"));
+                                OutputDebugString(L"#endif\n");
                             }
 #endif
 
@@ -277,20 +277,20 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
 
                 if (nArrayOffsetDesired >= nMaxExtraBufferSize)
                 {
-                    strOutputText.Format(_T("WARNING: The '%s' Extra file exceeds maximum palette count (%u defined).\n\nPalmod has added the first %u palettes."), pszExtraFileName, nArrayOffsetDesired, nMaxExtraBufferSize);
+                    strOutputText.Format(L"WARNING: The '%s' Extra file exceeds maximum palette count (%u defined).\n\nPalmod has added the first %u palettes.", pszExtraFileName, nArrayOffsetDesired, nMaxExtraBufferSize);
                     // Note that this crash occurs so early we don't get to load strings.
-                    MessageBox(g_appHWnd, strOutputText, _T("PalMod"), MB_ICONERROR);
+                    MessageBox(g_appHWnd, strOutputText, L"PalMod", MB_ICONERROR);
                 }
             }
             else
             {
-                strOutputText.Format(_T("\tExtras file '%s' does not exist. Skipping.\n"), pszExtraFileName);
+                strOutputText.Format(L"\tExtras file '%s' does not exist. Skipping.\n", pszExtraFileName);
                 OutputDebugString(strOutputText);
             }
         }
         else
         {
-            OutputDebugString(_T("\tExtras file will not be loaded as the ROM size is unknown.\n"));
+            OutputDebugString(L"\tExtras file will not be loaded as the ROM size is unknown.\n");
         }
     }
 
@@ -305,7 +305,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
 
         (*pCompleteExtraDefs)[nExtraArraySize].uUnitN = INVALID_UNIT_VALUE;
 
-        strOutputText.Format(_T("\tAdded %u palette Extras total, including the '%s' Extra file.\n"), nExtraArraySize, pszExtraFileName);
+        strOutputText.Format(L"\tAdded %u palette Extras total, including the '%s' Extra file.\n", nExtraArraySize, pszExtraFileName);
         OutputDebugString(strOutputText);
     }
 
@@ -358,7 +358,7 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
                 {
                     m_pszDupedPaletteName = m_pszCurrentPaletteName;
                     nTotalDupesFound++;
-                    strDupeText.Format(_T("ERROR: Unit 0x%02x pal 0x%02x ('%s', 0x%x to 0x%x) is a duplicate of unit 0x%02x pal 0x%02x (0x%x to 0x%x)!\n"), nUnitCtr, nPalCtr, m_pszCurrentPaletteName, m_nCurrentPaletteROMLocation, nCurrentEndOfPaletteRegion, nUnitId, nPalId, nStartingOffsetToCheck, nEndOfRegionToCheck);
+                    strDupeText.Format(L"ERROR: Unit 0x%02x pal 0x%02x ('%s', 0x%x to 0x%x) is a duplicate of unit 0x%02x pal 0x%02x (0x%x to 0x%x)!\n", nUnitCtr, nPalCtr, m_pszCurrentPaletteName, m_nCurrentPaletteROMLocation, nCurrentEndOfPaletteRegion, nUnitId, nPalId, nStartingOffsetToCheck, nEndOfRegionToCheck);
                     OutputDebugString(strDupeText);
                     break;
                 }
@@ -404,7 +404,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
             if (m_nCurrentPaletteSize == 0)
             {
                 CString strText;
-                strText.Format(_T("WARNING: Bogus zero-length palette found: unit 0x%02x id 0x%02x '%s'.  Please fix this.\n"), nUnitCtr, nPalCtr, m_pszCurrentPaletteName);
+                strText.Format(L"WARNING: Bogus zero-length palette found: unit 0x%02x id 0x%02x '%s'.  Please fix this.\n", nUnitCtr, nPalCtr, m_pszCurrentPaletteName);
                 OutputDebugString(strText);
                 MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
             }
@@ -422,7 +422,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
         }
     }
 
-    strDupeText.Format(_T("CGameWithExtrasFile::AreThereDupesInDataset: Checked %u core palettes, %u dupes found.\n"), nTotalPalettesChecked, nTotalDupesFound);
+    strDupeText.Format(L"CGameWithExtrasFile::AreThereDupesInDataset: Checked %u core palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
     OutputDebugString(strDupeText);
 
     return nTotalDupesFound;
@@ -458,14 +458,14 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
             {
                 fHaveShownDupeWarning = true;
                 CString strText;
-                strText.Format(_T("WARNING: In the %s Extras file the palette named '%s' overlaps with '%s'.  That will block patching the first palette.  Please fix this.\n"), m_pszExtraFilename, pszExtraPaletteBeingChecked, m_pszDupedPaletteName);
+                strText.Format(L"WARNING: In the %s Extras file the palette named '%s' overlaps with '%s'.  That will block patching the first palette.  Please fix this.\n", m_pszExtraFilename, pszExtraPaletteBeingChecked, m_pszDupedPaletteName);
                 OutputDebugString(strText);
                 MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
             }
         }
     }
 
-    strDupeText.Format(_T("CGameWithExtrasFile::AreThereDupesInExtrasDataset: Checked %u Extras palettes, %u dupes found.\n"), nTotalPalettesChecked, nTotalDupesFound);
+    strDupeText.Format(L"CGameWithExtrasFile::AreThereDupesInExtrasDataset: Checked %u Extras palettes, %u dupes found.\n", nTotalPalettesChecked, nTotalDupesFound);
     OutputDebugString(strDupeText);
 
     return nTotalDupesFound;
@@ -479,7 +479,7 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
 
     CString strText;
-    strText.Format(_T("CGameWithExtrasFile::CheckForErrorsInTables: Safe palette count for ROM is %u.  We found %u now including extras.\n"), m_nSafeCountForThisRom, nPaletteCountForRom);
+    strText.Format(L"CGameWithExtrasFile::CheckForErrorsInTables: Safe palette count for ROM is %u.  We found %u now including extras.\n", m_nSafeCountForThisRom, nPaletteCountForRom);
     OutputDebugString(strText);
 
     int nInternalDupeCount = (nPaletteCountForRom == m_nSafeCountForThisRom) ? 0 : GetDupeCountInDataset();
@@ -489,15 +489,15 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     {
         if (nExtraDupeCount)
         {
-            strText.Format(_T("WARNING: The %s Extras file contains %u duplicate palettes (including splitting).  Dupe palettes will prevent patching correctly.  Please remove them.\n"), m_pszExtraFilename, nExtraDupeCount);
+            strText.Format(L"WARNING: The %s Extras file contains %u duplicate palettes (including splitting).  Dupe palettes will prevent patching correctly.  Please remove them.\n", m_pszExtraFilename, nExtraDupeCount);
         }
         else if (nInternalDupeCount)
         {
-            strText.Format(_T("WARNING: There are currently %u duplicates in the hex tables.\n\nThis is a bug in PalMod.  Please report.\n"), nInternalDupeCount);
+            strText.Format(L"WARNING: There are currently %u duplicates in the hex tables.\n\nThis is a bug in PalMod.  Please report.\n", nInternalDupeCount);
         }
         else
         {
-            strText.Format(_T("Warning: This game's duplicate check count (m_nSafeCountForThisRom) should be updated.\n\nNo duplicates were found thankfully.\n"));
+            strText.Format(L"Warning: This game's duplicate check count (m_nSafeCountForThisRom) should be updated.\n\nNo duplicates were found thankfully.\n");
         }
 
         OutputDebugString(strText);
@@ -505,26 +505,26 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     }
     else
     {
-        OutputDebugString(_T("\tCGameWithExtrasFile::CheckForErrorsInTables: This matches the last known palette count: we're good.\n"));
+        OutputDebugString(L"\tCGameWithExtrasFile::CheckForErrorsInTables: This matches the last known palette count: we're good.\n");
     }
 
     if (m_nLowestRomLocationThisPass != k_nBogusHighValue)
     {
         if (m_nLowestRomLocationThisPass < GetLowestExpectedPaletteLocation())
         {
-            strText.Format(_T("Warning: This game is trying to write to ROM location 0x%06x which is lower than we usually write to (0x%06x).\n\nPalMod should be updated to use that new location for the safety check.  Please report.\n"), m_nLowestRomLocationThisPass, GetLowestExpectedPaletteLocation());
+            strText.Format(L"Warning: This game is trying to write to ROM location 0x%06x which is lower than we usually write to (0x%06x).\n\nPalMod should be updated to use that new location for the safety check.  Please report.\n", m_nLowestRomLocationThisPass, GetLowestExpectedPaletteLocation());
             OutputDebugString(strText);
             MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
         }
         else
         {
-            strText.Format(_T("\tCGameWithExtrasFile::CheckForErrorsInTables: All palettes were modifying expected ROM ranges (lowest was 0x%06x, we expect no lower than 0x%06x).  We're good.\n"), m_nLowestRomLocationThisPass, GetLowestExpectedPaletteLocation());
+            strText.Format(L"\tCGameWithExtrasFile::CheckForErrorsInTables: All palettes were modifying expected ROM ranges (lowest was 0x%06x, we expect no lower than 0x%06x).  We're good.\n", m_nLowestRomLocationThisPass, GetLowestExpectedPaletteLocation());
             OutputDebugString(strText);
         }
     }
     else
     {
-        strText.Format(_T("\tCGameWithExtrasFile::CheckForErrorsInTables: Skipped the ROM location safety check since the tables checked out.\n"));
+        strText.Format(L"\tCGameWithExtrasFile::CheckForErrorsInTables: Skipped the ROM location safety check since the tables checked out.\n");
         OutputDebugString(strText);
     }
 
@@ -532,13 +532,13 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     {
         if (m_nLowestRomExtrasLocationThisPass < GetLowestExpectedPaletteLocation())
         {
-            strText.Format(_T("Warning: The currently loaded Extras file wants to write to ROM location 0x%06x which is lower than we usually write to (0x%06x).\n\nThis is possibly intentional, but: just a heads-up.\n"), m_nLowestRomExtrasLocationThisPass, GetLowestExpectedPaletteLocation());
+            strText.Format(L"Warning: The currently loaded Extras file wants to write to ROM location 0x%06x which is lower than we usually write to (0x%06x).\n\nThis is possibly intentional, but: just a heads-up.\n", m_nLowestRomExtrasLocationThisPass, GetLowestExpectedPaletteLocation());
             OutputDebugString(strText);
             MessageBox(g_appHWnd, strText, GetHost()->GetAppName(), MB_ICONERROR);
         }
         else
         {
-            strText.Format(_T("\tCGameWithExtrasFile::CheckForErrorsInTables: All Extras palettes were modifying expected ROM ranges (lowest was 0x%06x, we expect no lower than 0x%06x).  We're good.\n"), m_nLowestRomExtrasLocationThisPass, GetLowestExpectedPaletteLocation());
+            strText.Format(L"\tCGameWithExtrasFile::CheckForErrorsInTables: All Extras palettes were modifying expected ROM ranges (lowest was 0x%06x, we expect no lower than 0x%06x).  We're good.\n", m_nLowestRomExtrasLocationThisPass, GetLowestExpectedPaletteLocation());
             OutputDebugString(strText);
         }
     }
