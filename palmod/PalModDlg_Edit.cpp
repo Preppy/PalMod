@@ -579,6 +579,8 @@ void CPalModDlg::OnEditPaste()
 
             safe_delete_array(rgPasteCol);
         }
+
+        SetStatusText(CString("Pasted a PalMod color string. Colors may be rounded as required by the game."));
     }
     else if (IsPasteRGB())
     {
@@ -662,6 +664,12 @@ void CPalModDlg::OnEditPaste()
         CurrPalCtrl->UpdateCtrl();
 
         UpdateSliderSel();
+
+        SetStatusText(CString("Pasted RGB color. Colors may be rounded as required by the game."));
+    }
+    else
+    {
+        SetStatusText(CString("Unsupported paste option."));
     }
 }
 

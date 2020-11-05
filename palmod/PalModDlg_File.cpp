@@ -263,9 +263,9 @@ void CPalModDlg::LoadLastDir()
 
     if (GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &bIsDir))
     {
-        if (VerifyMsg(eVerifyType::VM_FILECHANGE))
+        if (VerifyMsg(eVerifyType::VM_FILECHANGE)) // Save current changes if needed
         {
-            if (nLastUsedGFlag > NUM_GAMES || nLastUsedGFlag < 0)
+            if ((nLastUsedGFlag > NUM_GAMES) || (nLastUsedGFlag < 0))
             {
                 CString strError;
                 if (strError.LoadString(IDS_ERROR_PARAMETERS))
@@ -289,7 +289,8 @@ void CPalModDlg::LoadLastDir()
     }
     else
     {
-        SetStatusText(CString("Could not load previous file or directory"));
+        // No previous game information: give them the normal prompts.
+        OnFileOpen();
     }
 }
 
@@ -491,7 +492,7 @@ void CPalModDlg::OnFileOpen()
             // If we're here, that means that they have never used PalMod to load a game before.  Help them.
             CString strInfo;
             LPCTSTR pszParagraph1 = _T("Howdy!  You appear to be new to PalMod.  Welcome!\n\n");
-            LPCTSTR pszParagraph2 = _T("The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog helps show the right one for your game.\n\n");
+            LPCTSTR pszParagraph2 = _T("The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n");
 
             TCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
             _tcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
@@ -505,7 +506,7 @@ void CPalModDlg::OnFileOpen()
                 pszPipe[0] = 0;
             }
 
-            strInfo.Format(_T("%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you probably want to change that to the game you're interested in so that your ROM shows up."), pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
+            strInfo.Format(_T("%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up."), pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
             MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
         }
     }

@@ -189,7 +189,7 @@ UINT16 CRegProc::GetColorsPerLine()
 
             if (RegQueryValueEx(hKey, c_mainWndColorsPerLine, 0, &RegType, (BYTE*)&dwColorsPerLine, &GetSz) != ERROR_SUCCESS)
             {
-                dwColorsPerLine = PAL_MAXWIDTH_8COLORSPERLINE;
+                dwColorsPerLine = PAL_MAXWIDTH_16COLORSPERLINE;
             }
 
             RegCloseKey(hKey);

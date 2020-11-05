@@ -552,6 +552,7 @@ BEGIN
                             "Save failed: output file '%s' does not exist."
     IDS_ROMMISMATCH_CHECK   "ERROR!  This ROM is not the expected size, which means PalMod writing to where it expects the ROM to be may corrupt it.  Are you sure you wish to continue? "
     IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM.  If you want to PalMod Venture, let people in the HFTF Discord server know and they'll walk you through it.\n\nAre you sure you wish to continue?"
+    ID_WARNING_1SPRITE2PALS "While multiple palettes are currently being shown, this sprite preview override will only be used with the first palette."
 END
 
 #endif    // English (United States) resources

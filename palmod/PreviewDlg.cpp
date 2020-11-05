@@ -353,6 +353,18 @@ void CPreviewDlg::OnResetBackgroundOffset()
 
 void CPreviewDlg::LoadCustomSpriteFromPath(TCHAR *pszPath)
 {
+    if (GetHost()->GetPalModDlg()->MainPalGroup->GetPalAmt() > 1)
+    {
+        // We are currently displaying multiple palettes, probably paired.
+        // But since we only allow override one sprite, let the user know that only the first
+        // palette is going to be used in the preview.
+        CString strError;
+        if (strError.LoadString(ID_WARNING_1SPRITE2PALS))
+        {
+            MessageBox(strError, GetHost()->GetAppName(), MB_ICONEXCLAMATION);
+        }
+    }
+
     if (m_ImgDisp.LoadExternalSprite(pszPath))
     {
         m_ImgDisp.UpdateCtrl();

@@ -638,20 +638,27 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
 
     if (m_pSpriteOverrideTexture != nullptr)
     {
-        OutputDebugString(_T("CImgDisp::CustomBlt: Loading alternate sprite.\n"));
-        pImgData = m_pSpriteOverrideTexture;
-        nWidth = m_nTextureOverrideW;
-        nHeight = m_nTextureOverrideH;
+        // Only replace the base sprite.  We just won't show any further paired sprites.
+        if (nSrcIndex == 0)
+        {
+            OutputDebugString(_T("CImgDisp::CustomBlt: Loading alternate sprite.\n"));
+            pImgData = m_pSpriteOverrideTexture;
+            nWidth = m_nTextureOverrideW;
+            nHeight = m_nTextureOverrideH;
 
-        // Reset the rect now that W/H have changed...
-        rImgRct.left = -(m_nTextureOverrideW / 2) + (MAIN_W / 2);
-        rImgRct.right = (m_nTextureOverrideW / 2) + (MAIN_W / 2);
-        rImgRct.top = -(m_nTextureOverrideH / 2) + (MAIN_H / 2);
-        rImgRct.bottom = (m_nTextureOverrideH / 2) + (MAIN_H / 2);
+            // Reset the rect now that W/H have changed...
+            rImgRct.left = -(m_nTextureOverrideW / 2) + (MAIN_W / 2);
+            rImgRct.right = (m_nTextureOverrideW / 2) + (MAIN_W / 2);
+            rImgRct.top = -(m_nTextureOverrideH / 2) + (MAIN_H / 2);
+            rImgRct.bottom = (m_nTextureOverrideH / 2) + (MAIN_H / 2);
 
-        xWidth = rImgRct.left;
-        yHeight = rImgRct.top;
-
+            xWidth = rImgRct.left;
+            yHeight = rImgRct.top;
+        }
+        else
+        {
+            return FALSE;
+        }
     }
 
     if (pImgData == nullptr)
