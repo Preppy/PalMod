@@ -1081,21 +1081,7 @@ BOOL CGame_SF2CE_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    sDescNode* NodeGet;
-    
-    switch (m_nSelectedRom)
-    {
-    case 21:
-        NodeGet = MainDescTree_21.GetDescNode(Node01, Node02, Node03, Node04);
-        break;
-    case 22:
-    default:
-        NodeGet = MainDescTree_22.GetDescNode(Node01, Node02, Node03, Node04);
-        break;
-    case 23:
-        NodeGet = MainDescTree_23.GetDescNode(Node01, Node02, Node03, Node04);
-        break;
-    };
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == NULL)
     {

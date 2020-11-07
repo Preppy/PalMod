@@ -643,7 +643,6 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         {
             // Step forward to the filename
             pszFileName++;
-            _tcslwr(pszFileName);
             nGameRule = ((_tcsstr(pszFileName, _T(".08")) != nullptr) ? 8 : 7);
         }
         break;
@@ -656,7 +655,6 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         {
             // Step forward to the filename
             pszFileName++;
-            _tcslwr(pszFileName);
             nGameRule = ((_tcsstr(pszFileName, _T("10")) != nullptr) ? 10 : 51);
         }
         break;
@@ -670,8 +668,6 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         {
             // Step forward to the filename
             pszFileName++;
-            _tcslwr(pszFileName);
-
             if (_tcsstr(pszFileName, _T("21")) != nullptr)
             {
                 nGameRule = 21;
@@ -695,8 +691,18 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         {
             // Step forward to the filename
             pszFileName++;
-            _tcslwr(pszFileName);
-            nGameRule = ((_tcsstr(pszFileName, _T(".03")) != nullptr) ? 3 : 4);
+            if (_tcsstr(pszFileName, _T(".03")) != nullptr)
+            {
+                nGameRule = 3;
+            }
+            else if (_tcsstr(pszFileName, _T(".08")) != nullptr)
+            {
+                nGameRule = 8;
+            }
+            else
+            {
+                nGameRule = 4;
+            }
         }
         break;
     }

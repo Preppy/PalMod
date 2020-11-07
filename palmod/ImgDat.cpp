@@ -138,6 +138,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = KOF02UM_S_IMG_UNITS[nUnitCtr];
             break;
         }
+        case MATRIMELEE_A:
+        {
+            nImageUnitCounterToUse = MATRIM_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
         case MSH_A:
         {
             nImageUnitCounterToUse = MSH_A_IMG_UNITS[nUnitCtr];

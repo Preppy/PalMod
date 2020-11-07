@@ -707,7 +707,7 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         return FALSE;
     }
 
-    sDescNode* NodeGet = MainDescTree_50.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == NULL)
     {
@@ -804,8 +804,8 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                         //Set each palette
                         sDescNode* JoinedNode[2] = {
-                            MainDescTree_50.GetDescNode(Node01, Node02, Node03, -1),
-                            MainDescTree_50.GetDescNode(Node01, nNodeCount - 1, 0, -1)  // The cross-chop is palette 0 in the final node
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                            GetMainTree()->GetDescNode(Node01, nNodeCount - 1, 0, -1)  // The cross-chop is palette 0 in the final node
                         };
 
                         //Set each palette
@@ -858,7 +858,7 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                             pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
 
                             //Set each palette
-                            sDescNode* JoinedNode = MainDescTree_50.GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                            sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
                             CreateDefPal(JoinedNode, nStageIndex);
                             SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
                         }
@@ -885,8 +885,8 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                         //Set each palette
                         sDescNode* JoinedNode[2] = {
-                            MainDescTree_50.GetDescNode(Node01, Node02, Node03, -1),
-                            MainDescTree_50.GetDescNode(Node01, Node02, Node03 + nDeltaToSecondElement, -1)
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nDeltaToSecondElement, -1)
                         };
 
                         //Set each palette

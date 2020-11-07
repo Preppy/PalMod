@@ -237,8 +237,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,68,0
- PRODUCTVERSION 1,0,68,0
+ FILEVERSION 1,0,69,0
+ PRODUCTVERSION 1,0,69,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -255,12 +255,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.68.0"
+            VALUE "FileVersion", "1.0.69.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.68.0"
+            VALUE "ProductVersion", "1.0.69.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -519,7 +519,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.68"
+    IDS_CURRENTAPPNAME      "PalMod 1.69"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
     IDS_ERROR_NO_IMAGES     "No images available."
@@ -552,6 +552,10 @@ BEGIN
                             "Save failed: output file '%s' does not exist."
     IDS_ROMMISMATCH_CHECK   "ERROR!  This ROM is not the expected size, which means PalMod writing to where it expects the ROM to be may corrupt it.  Are you sure you wish to continue? "
     IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM.  If you want to PalMod Venture, let people in the HFTF Discord server know and they'll walk you through it.\n\nAre you sure you wish to continue?"
+END
+
+STRINGTABLE
+BEGIN
     ID_WARNING_1SPRITE2PALS "While multiple palettes are currently being shown, this sprite preview override will only be used with the first palette."
 END
 

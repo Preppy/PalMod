@@ -887,7 +887,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
         return FALSE;
     }
 
-    sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == nullptr)
     {
@@ -961,10 +961,10 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                     //Set each palette
                     sDescNode* JoinedNode[4] = {
-                        MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                        MainDescTree.GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1),
-                        MainDescTree.GetDescNode(Node01, Node02, Node03 + nPaletteThreeDelta, -1),
-                        MainDescTree.GetDescNode(Node01, Node02, Node03 + nPaletteFourDelta, -1)
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteThreeDelta, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteFourDelta, -1)
                     };
 
                     //Set each palette
@@ -1009,8 +1009,8 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
                         //Set each palette
                         sDescNode* JoinedNode[2] = {
-                            MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                            MainDescTree.GetDescNode(Node01, 2, nSecondPaletteWithinNode, -1)
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                            GetMainTree()->GetDescNode(Node01, 2, nSecondPaletteWithinNode, -1)
                         };
 
                         //Set each palette

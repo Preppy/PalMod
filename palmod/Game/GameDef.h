@@ -1101,6 +1101,54 @@ const UINT8 GAROU_A_IMG_UNITS[] =
 const int GAROU_A_NUM_IMG_UNITS = ARRAYSIZE(GAROU_A_IMG_UNITS);
 const int GAROU_S_NUM_IMG_UNITS = ARRAYSIZE(GAROU_A_IMG_UNITS);
 
+enum SupportedMatriM_A_PaletteListIndex
+{
+    indexMatriMSprites_Anny,
+    indexMatriMSprites_Buntaro,
+    indexMatriMSprites_Chinnen,
+    indexMatriMSprites_Clara,
+    indexMatriMSprites_Elias,
+    indexMatriMSprites_Hikaru,
+    indexMatriMSprites_Jimmy,
+    indexMatriMSprites_Jones,
+    indexMatriMSprites_Kanji,
+    indexMatriMSprites_Keith,
+    indexMatriMSprites_Lynn,
+    indexMatriMSprites_Olof,
+    indexMatriMSprites_Poochy,
+    indexMatriMSprites_PrincessSissy,
+    indexMatriMSprites_Reiji,
+    indexMatriMSprites_Saizo,
+    indexMatriMSprites_Shintaro,
+    indexMatriMSprites_Tane,
+    indexMatriMSprites_Ume,
+    indexMatriMSprites_White,
+};
+
+const UINT8 MATRIM_A_IMG_UNITS[] =
+{
+    indexMatriMSprites_Anny,
+    indexMatriMSprites_Buntaro,
+    indexMatriMSprites_Chinnen,
+    indexMatriMSprites_Clara,
+    indexMatriMSprites_Elias,
+    indexMatriMSprites_Hikaru,
+    indexMatriMSprites_Jimmy,
+    indexMatriMSprites_Jones,
+    indexMatriMSprites_Kanji,
+    indexMatriMSprites_Keith,
+    indexMatriMSprites_Lynn,
+    indexMatriMSprites_Olof,
+    indexMatriMSprites_Poochy,
+    indexMatriMSprites_PrincessSissy,
+    indexMatriMSprites_Reiji,
+    indexMatriMSprites_Saizo,
+    indexMatriMSprites_Shintaro,
+    indexMatriMSprites_Tane,
+    indexMatriMSprites_Ume,
+    indexMatriMSprites_White,
+};
+
 enum SupportedNEOGEO_A_PaletteListIndex
 {
     indexNEOGEO_A_Stub,
@@ -2379,11 +2427,12 @@ constexpr auto WINDJAMMERS_A_NUM_IMG_UNITS = ARRAYSIZE(WINDJAMMERS_A_IMG_UNITS);
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_BREAKREV = 0,
-    IMGDAT_SECTION_CVS2, // CVS2: has both Capcom and SNK images
-    IMGDAT_SECTION_NEOGEO,  // NEOGEO: Garou
+    IMGDAT_SECTION_CVS2,    // CVS2: has both Capcom and SNK images
+    IMGDAT_SECTION_GAROU,   // Garou
     IMGDAT_SECTION_JOJOS,
     IMGDAT_SECTION_KARNOVSR,
     IMGDAT_SECTION_KOF,     // KOF98 + KOF02UM
+    IMGDAT_SECTION_MATRIM,  // Matrimelee
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games

@@ -78,7 +78,6 @@ const sCVS2_CharacterDump CVS2_CharacterOffsetArray[] =
     { _T("Shin Akuma"), 0x3e75a80, _T("indexCVS2Sprites_ShinAkuma"), { _T("Purple Fireball"), 1 }, { _T("Red Fireball"), 2 }, { _T("Dictator Smoke"), 3 }, { _T("Power Up"), 4 } },
     { _T("God Rugal"),  0x3fab320, _T("indexCVS2Sprites_GodRugal") },
     { _T("Rolento"),    0x40d69a0, _T("indexCVS2Sprites_Rolento") },
-
 };
 
 // max x600 color range
@@ -2851,7 +2850,7 @@ const sDescTreeNode CVS2_A_KING_COLLECTION[] =
 
 const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_LP[] =
 {
-    { _T("Main Sprite"), 0x3069680, 0x30696a0, indexCVS2Sprites_Nakoruru },
+    { _T("Main Sprite"), 0x3069680, 0x30696a0, indexCVS2Sprites_Nakoruru, 0, &pairHandledInCode },
     { _T("Slashes"), 0x30696a0, 0x30696c0, indexCVS2Sprites_Nakoruru, 1 },
     { _T("Birdie"), 0x30696c0, 0x30696e0, indexCVS2Sprites_Nakoruru, 2 },
     { _T("Fireball"), 0x30696e0, 0x3069700, indexCVS2Sprites_Nakoruru, 3 },
@@ -2861,7 +2860,7 @@ const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_LP[] =
 
 const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_MP[] =
 {
-    { _T("Main Sprite"), 0x3069740, 0x3069760, indexCVS2Sprites_Nakoruru },
+    { _T("Main Sprite"), 0x3069740, 0x3069760, indexCVS2Sprites_Nakoruru, 0, &pairHandledInCode },
     { _T("Slashes"), 0x3069760, 0x3069780, indexCVS2Sprites_Nakoruru, 1 },
     { _T("Birdie"), 0x3069780, 0x30697a0, indexCVS2Sprites_Nakoruru, 2 },
     { _T("Fireball"), 0x30697a0, 0x30697c0, indexCVS2Sprites_Nakoruru, 3 },
@@ -2871,7 +2870,7 @@ const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_MP[] =
 
 const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_HP[] =
 {
-    { _T("Main Sprite"), 0x3069800, 0x3069820, indexCVS2Sprites_Nakoruru },
+    { _T("Main Sprite"), 0x3069800, 0x3069820, indexCVS2Sprites_Nakoruru, 0, &pairHandledInCode },
     { _T("Slashes"), 0x3069820, 0x3069840, indexCVS2Sprites_Nakoruru, 1 },
     { _T("Birdie"), 0x3069840, 0x3069860, indexCVS2Sprites_Nakoruru, 2 },
     { _T("Fireball"), 0x3069860, 0x3069880, indexCVS2Sprites_Nakoruru, 3 },
@@ -2881,7 +2880,7 @@ const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_HP[] =
 
 const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_LK[] =
 {
-    { _T("Main Sprite"), 0x30698c0, 0x30698e0, indexCVS2Sprites_Nakoruru },
+    { _T("Main Sprite"), 0x30698c0, 0x30698e0, indexCVS2Sprites_Nakoruru, 0, &pairHandledInCode },
     { _T("Slashes"), 0x30698e0, 0x3069900, indexCVS2Sprites_Nakoruru, 1 },
     { _T("Birdie"), 0x3069900, 0x3069920, indexCVS2Sprites_Nakoruru, 2 },
     { _T("Fireball"), 0x3069920, 0x3069940, indexCVS2Sprites_Nakoruru, 3 },
@@ -2891,7 +2890,7 @@ const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_LK[] =
 
 const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_MK[] =
 {
-    { _T("Main Sprite"), 0x3069980, 0x30699a0, indexCVS2Sprites_Nakoruru },
+    { _T("Main Sprite"), 0x3069980, 0x30699a0, indexCVS2Sprites_Nakoruru, 0, &pairHandledInCode },
     { _T("Slashes"), 0x30699a0, 0x30699c0, indexCVS2Sprites_Nakoruru, 1 },
     { _T("Birdie"), 0x30699c0, 0x30699e0, indexCVS2Sprites_Nakoruru, 2 },
     { _T("Fireball"), 0x30699e0, 0x3069a00, indexCVS2Sprites_Nakoruru, 3 },
@@ -2901,7 +2900,7 @@ const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_MK[] =
 
 const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_HK[] =
 {
-    { _T("Main Sprite"), 0x3069a40, 0x3069a60, indexCVS2Sprites_Nakoruru },
+    { _T("Main Sprite"), 0x3069a40, 0x3069a60, indexCVS2Sprites_Nakoruru, 0, &pairHandledInCode },
     { _T("Slashes"), 0x3069a60, 0x3069a80, indexCVS2Sprites_Nakoruru, 1 },
     { _T("Birdie"), 0x3069a80, 0x3069aa0, indexCVS2Sprites_Nakoruru, 2 },
     { _T("Fireball"), 0x3069aa0, 0x3069ac0, indexCVS2Sprites_Nakoruru, 3 },
@@ -2911,7 +2910,7 @@ const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_HK[] =
 
 const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_3P[] =
 {
-    { _T("Main Sprite"), 0x3069b00, 0x3069b20, indexCVS2Sprites_Nakoruru },
+    { _T("Main Sprite"), 0x3069b00, 0x3069b20, indexCVS2Sprites_Nakoruru, 0, &pairHandledInCode },
     { _T("Slashes"), 0x3069b20, 0x3069b40, indexCVS2Sprites_Nakoruru, 1 },
     { _T("Birdie"), 0x3069b40, 0x3069b60, indexCVS2Sprites_Nakoruru, 2 },
     { _T("Fireball"), 0x3069b60, 0x3069b80, indexCVS2Sprites_Nakoruru, 3 },
@@ -2921,7 +2920,7 @@ const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_3P[] =
 
 const sGame_PaletteDataset CVS2_A_NAKORURU_PALETTES_3K[] =
 {
-    { _T("Main Sprite"), 0x3069bc0, 0x3069be0, indexCVS2Sprites_Nakoruru },
+    { _T("Main Sprite"), 0x3069bc0, 0x3069be0, indexCVS2Sprites_Nakoruru, 0, &pairHandledInCode },
     { _T("Slashes"), 0x3069be0, 0x3069c00, indexCVS2Sprites_Nakoruru, 1 },
     { _T("Birdie"), 0x3069c00, 0x3069c20, indexCVS2Sprites_Nakoruru, 2 },
     { _T("Fireball"), 0x3069c20, 0x3069c40, indexCVS2Sprites_Nakoruru, 3 },

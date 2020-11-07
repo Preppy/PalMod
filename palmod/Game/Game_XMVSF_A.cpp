@@ -607,7 +607,7 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == nullptr)
     {
@@ -677,8 +677,8 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                     //Set each palette
                     sDescNode* JoinedNode[2] = {
-                        MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                        MainDescTree.GetDescNode(Node01, Node02, Node03 + 1, -1)
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + 1, -1)
                     };
 
                     //Set each palette

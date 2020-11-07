@@ -26,7 +26,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     BOOL bLoadDefPal = TRUE;
     bool fImgIsFromNewImgDatRange = false;
 
-    sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == NULL)
     {
@@ -134,8 +134,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeGet[2] = {
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 0, -1),
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 1, -1)
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1)
             };
 
             //Set each palette
@@ -202,8 +202,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeGet[2] = {
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 0, -1),
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 1, -1)
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1)
             };
 
             //Set each palette
@@ -261,8 +261,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             );
 
             sDescNode* DoomPoseNode[2] = {
-                MainDescTree.GetDescNode(Node01, Node02, Node03 + 1, -1),
-                MainDescTree.GetDescNode(Node01, Node02, Node03, -1)
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + 1, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1)
 
             };
 
@@ -301,8 +301,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeGet[2] = {
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 0, -1),
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 1, -1)
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1)
             };
 
             //Set each palette
@@ -360,8 +360,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             );
 
             sDescNode* NodeGet[2] = {
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 0, -1),
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 1, -1)
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1)
             };
 
             //Set each palette
@@ -422,8 +422,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeGet[2] = {
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 0, -1),
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 1, -1)
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1)
             };
 
             //Set each palette
@@ -494,8 +494,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeRushDrill[2] = {
-                MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
             };
 
             //Set each palette
@@ -554,8 +554,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeRushDrill[2] = {
-                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1),
-                MainDescTree.GetDescNode(Node01, Node02, Node03, -1)
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1)
             };
 
             //Set each palette
@@ -601,8 +601,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeHMMM[2] = {
-                MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
             };
 
             //Set each palette
@@ -638,8 +638,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeHMMM[2] = {
-                MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
             };
 
             //Set each palette
@@ -681,8 +681,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeHMMM[2] = {
-                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1),
-                MainDescTree.GetDescNode(Node01, Node02, Node03, -1)
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1)
             };
 
             //Set each palette
@@ -711,9 +711,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeHMMM[3] = {
-                MainDescTree.GetDescNode(Node01, Node02, Node03 + nDistanceToArmor, -1),
-                MainDescTree.GetDescNode(Node01, Node02, Node03 + nDistanceToBody, -1),
-                MainDescTree.GetDescNode(Node01, Node02, Node03, -1)
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nDistanceToArmor, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nDistanceToBody, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1)
             };
 
             //Set each palette
@@ -816,8 +816,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeRushDrill[2] = {
-                MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
             };
 
             //Set each palette
@@ -871,8 +871,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeRushDrill[2] = {
-                MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1),
-                MainDescTree.GetDescNode(Node01, Node02, Node03, -1)
+                GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1),
+                GetMainTree()->GetDescNode(Node01, Node02, Node03, -1)
             };
 
             //Set each palette
@@ -1056,8 +1056,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 );
 
                 sDescNode* JoinedNode[2] = {
-                    MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                    MainDescTree.GetDescNode(Node01, Node02, Node03 + 1, -1),
+                    GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                    GetMainTree()->GetDescNode(Node01, Node02, Node03 + 1, -1),
                 };
 
                 //Set each palette
@@ -1107,9 +1107,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             );
 
             sDescNode* NodeGet[3] = {
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 0, -1),
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 1, -1),
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 3, -1)
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 3, -1)
             };
 
             //Set each palette
@@ -1168,8 +1168,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Set each palette
             sDescNode* NodeGet[2] = {
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 1, -1),
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 2, -1)
+               GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1),
+               GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 2, -1)
             };
 
             //Set each palette
@@ -1216,8 +1216,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             );
 
             sDescNode* NodeGet[2] = {
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 0, -1),
-                MainDescTree.GetDescNode(uUnitId, nSpecOffs, 1, -1)
+               GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+               GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1)
             };
 
             //Set each palette
@@ -1377,9 +1377,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         //Set each palette
         sDescNode* JoinedNode[3] = {
-            MainDescTree.GetDescNode(nJoinedUnit1, nNodeIndex, 0, -1),
-            MainDescTree.GetDescNode(nJoinedUnit2, nNodeIndex, 0, -1),
-            MainDescTree.GetDescNode(nJoinedUnit3, nNodeIndex, 0, -1)
+           GetMainTree()->GetDescNode(nJoinedUnit1, nNodeIndex, 0, -1),
+           GetMainTree()->GetDescNode(nJoinedUnit2, nNodeIndex, 0, -1),
+           GetMainTree()->GetDescNode(nJoinedUnit3, nNodeIndex, 0, -1)
         };
 
         //Set each palette

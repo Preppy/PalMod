@@ -722,7 +722,7 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
         return FALSE;
     }
 
-    sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == NULL)
     {

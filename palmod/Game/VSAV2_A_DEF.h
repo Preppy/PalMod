@@ -1450,7 +1450,7 @@ const sGame_PaletteDataset VSAV2_A_LILITH_PALETTES_AK[] =
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_LP[] =
 {
     { _T("LP Jedah"), 0x1b79c, 0x1b7bc, indexCPS2_Vamp_Jedah, 0x0, &pairNextNext },
-    { _T("LP Prova di Servo"), 0x1b7bc, 0x1b7dc },
+    { _T("LP Prova di Servo"), 0x1b7bc, 0x1b7dc, indexCPS2_Vamp_Jedah, 0x03 },
     { _T("LP Blood"), 0x1b7dc, 0x1b7fc, indexCPS2_Vamp_Jedah, 1 },
     { _T("LP Intro"), 0x1b7fc, 0x1b81c },
     { _T("LP Select Portrait"), 0x4135c, 0x4137c, indexCPS2_Vamp_Jedah, 0x20 },
@@ -1460,7 +1460,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_LP[] =
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_MP[] =
 {
     { _T("MP Jedah"), 0x1b81c, 0x1b83c, indexCPS2_Vamp_Jedah, 0x0, &pairNextNext },
-    { _T("MP Prova di Servo"), 0x1b83c, 0x1b85c },
+    { _T("MP Prova di Servo"), 0x1b83c, 0x1b85c, indexCPS2_Vamp_Jedah, 0x03 },
     { _T("MP Blood"), 0x1b85c, 0x1b87c, indexCPS2_Vamp_Jedah, 1 },
     { _T("MP Intro"), 0x1b87c, 0x1b89c },
     { _T("MP Select Portrait"), 0x4155c, 0x4157c, indexCPS2_Vamp_Jedah, 0x20 },
@@ -1470,7 +1470,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_MP[] =
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_HP[] =
 {
     { _T("HP Jedah"), 0x1b89c, 0x1b8bc, indexCPS2_Vamp_Jedah, 0x0, &pairNextNext },
-    { _T("HP Prova di Servo"), 0x1b8bc, 0x1b8dc },
+    { _T("HP Prova di Servo"), 0x1b8bc, 0x1b8dc, indexCPS2_Vamp_Jedah, 0x03 },
     { _T("HP Blood"), 0x1b8dc, 0x1b8fc, indexCPS2_Vamp_Jedah, 1 },
     { _T("HP Intro"), 0x1b8fc, 0x1b91c },
     { _T("HP Select Portrait"), 0x4175c, 0x4177c, indexCPS2_Vamp_Jedah, 0x20 },
@@ -1480,7 +1480,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_HP[] =
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_LK[] =
 {
 	{ _T("LK Jedah"), 0x1b91c, 0x1b93c, indexCPS2_Vamp_Jedah, 0x0, &pairNextNext },
-    { _T("LK Prova di Servo"), 0x1b93c, 0x1b95c },
+    { _T("LK Prova di Servo"), 0x1b93c, 0x1b95c, indexCPS2_Vamp_Jedah, 0x03 },
     { _T("LK Blood"), 0x1b95c, 0x1b97c, indexCPS2_Vamp_Jedah, 1 },
     { _T("LK Intro"), 0x1b97c, 0x1b99c },
     { _T("LK Select Portrait"), 0x4195c, 0x4197c, indexCPS2_Vamp_Jedah, 0x20 },
@@ -1490,7 +1490,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_LK[] =
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_MK[] =
 {
     { _T("MK Jedah"), 0x1b99c, 0x1b9bc, indexCPS2_Vamp_Jedah, 0x0, &pairNextNext },
-    { _T("MK Prova di Servo"), 0x1b9bc, 0x1b9dc },
+    { _T("MK Prova di Servo"), 0x1b9bc, 0x1b9dc, indexCPS2_Vamp_Jedah, 0x03 },
     { _T("MK Blood"), 0x1b9dc, 0x1b9fc, indexCPS2_Vamp_Jedah, 1 },
     { _T("MK Intro"), 0x1b9fc, 0x1ba1c },
     { _T("MK Select Portrait"), 0x41b5c, 0x41b7c, indexCPS2_Vamp_Jedah, 0x20 },
@@ -1500,7 +1500,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_MK[] =
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_HK[] =
 {
     { _T("HK Jedah"), 0x1ba1c, 0x1ba3c, indexCPS2_Vamp_Jedah, 0x0, &pairNextNext },
-    { _T("HK Prova di Servo"), 0x1ba3c, 0x1ba5c },
+    { _T("HK Prova di Servo"), 0x1ba3c, 0x1ba5c, indexCPS2_Vamp_Jedah, 0x03 },
     { _T("HK Blood"), 0x1ba5c, 0x1ba7c, indexCPS2_Vamp_Jedah, 1 },
     { _T("HK Intro"), 0x1ba7c, 0x1ba9c },
     { _T("HK Select Portrait"), 0x41d5c, 0x41d7c, indexCPS2_Vamp_Jedah, 0x20 },
@@ -1510,7 +1510,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_HK[] =
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_PP[] =
 {
     { _T("PP Jedah"), 0x1ba9c, 0x1babc, indexCPS2_Vamp_Jedah, 0x0, &pairNextNext },
-    { _T("PP Prova di Servo"), 0x1babc, 0x1badc },
+    { _T("PP Prova di Servo"), 0x1babc, 0x1badc, indexCPS2_Vamp_Jedah, 0x03 },
     { _T("PP Blood"), 0x1badc, 0x1bafc, indexCPS2_Vamp_Jedah, 1 },
     { _T("PP Intro"), 0x1bafc, 0x1bb1c },
     { _T("PP Select Portrait"), 0x41f5c, 0x41f7c, indexCPS2_Vamp_Jedah, 0x20 },
@@ -1520,7 +1520,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_PP[] =
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_KK[] =
 {
     { _T("KK Jedah"), 0x1bb1c, 0x1bb3c, indexCPS2_Vamp_Jedah, 0x0, &pairNextNext },
-    { _T("KK Prova di Servo"), 0x1bb3c, 0x1bb5c },
+    { _T("KK Prova di Servo"), 0x1bb3c, 0x1bb5c, indexCPS2_Vamp_Jedah, 0x03 },
     { _T("KK Blood"), 0x1bb5c, 0x1bb7c, indexCPS2_Vamp_Jedah, 1 },
     { _T("KK Intro"), 0x1bb7c, 0x1bb9c },
     { _T("KK Select Portrait"), 0x4215c, 0x4217c, indexCPS2_Vamp_Jedah, 0x20 },
@@ -1530,7 +1530,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_KK[] =
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_AP[] =
 {
     { _T("AP Jedah"), 0x1bb9c, 0x1bbbc, indexCPS2_Vamp_Jedah, 0x0, &pairNextNext },
-    { _T("AP Prova di Servo"), 0x1bbbc, 0x1bbdc },
+    { _T("AP Prova di Servo"), 0x1bbbc, 0x1bbdc, indexCPS2_Vamp_Jedah, 0x03 },
     { _T("AP Blood"), 0x1bbdc, 0x1bbfc, indexCPS2_Vamp_Jedah, 1 },
     { _T("AP Intro"), 0x1bbfc, 0x1bc1c },
     { _T("AP Select Portrait"), 0x4235c, 0x4237c, indexCPS2_Vamp_Jedah, 0x20 },
@@ -1540,7 +1540,7 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_AP[] =
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_AK[] =
 {
     { _T("AK Jedah"), 0x1bc1c, 0x1bc3c, indexCPS2_Vamp_Jedah, 0x0, &pairNextNext },
-    { _T("AK Prova di Servo"), 0x1bc3c, 0x1bc5c },
+    { _T("AK Prova di Servo"), 0x1bc3c, 0x1bc5c, indexCPS2_Vamp_Jedah, 0x03 },
     { _T("AK Blood"), 0x1bc5c, 0x1bc7c, indexCPS2_Vamp_Jedah, 1 },
     { _T("AK Intro"), 0x1bc7c, 0x1bc9c },
     { _T("AK Select Portrait"), 0x4255c, 0x4257c, indexCPS2_Vamp_Jedah, 0x20 },
@@ -1549,10 +1549,10 @@ const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_AK[] =
 
 const sGame_PaletteDataset VSAV2_A_JEDAH_PALETTES_SHARED[] =
 {
-    { _T("Shared blood"),           0x35a9c, 0x35abc },
-    { _T("Shared blood 2"),         0x35abc, 0x35adc },
-    { _T("Shared Prova di Servo "), 0x35adc, 0x35afc },
-    { _T("Shared Prova di Servo 2"), 0x35afc, 0x35b1c },
+    { _T("Shared blood"),           0x35a9c, 0x35abc, indexCPS2_Vamp_Jedah, 0x01 },
+    { _T("Shared blood 2"),         0x35abc, 0x35adc, indexCPS2_Vamp_Jedah, 0x01 },
+    { _T("Shared Prova di Servo "), 0x35adc, 0x35afc, indexCPS2_Vamp_Jedah, 0x03 },
+    { _T("Shared Prova di Servo 2"), 0x35afc, 0x35b1c, indexCPS2_Vamp_Jedah, 0x03 },
 };
 
 const sGame_PaletteDataset VSAV2_A_PHOBOS_PALETTES_LP[] =
@@ -3669,16 +3669,16 @@ const sGame_PaletteDataset VSAV2_A_Jedah_PALETTES_SPECIAL[] =
     { _T("Jedah KK Poisoned"),        0x2119C + (11 * 0xDC0) + (7 * 0x20), 0x211BC + (11 * 0xDC0) + (7 * 0x20), indexCPS2_Vamp_Jedah },
     { _T("Jedah AP Poisoned"),        0x2119C + (11 * 0xDC0) + (8 * 0x20), 0x211BC + (11 * 0xDC0) + (8 * 0x20), indexCPS2_Vamp_Jedah },
     { _T("Jedah AK Poisoned"),        0x2119C + (11 * 0xDC0) + (9 * 0x20), 0x211BC + (11 * 0xDC0) + (9 * 0x20), indexCPS2_Vamp_Jedah },
-    { _T("Jedah LP Zapped"),          0x2119C + (11 * 0xDC0) + (10 * 0x20), 0x211BC + (11 * 0xDC0) + (10 * 0x20) },
-    { _T("Jedah MP Zapped"),          0x2119C + (11 * 0xDC0) + (11 * 0x20), 0x211BC + (11 * 0xDC0) + (11 * 0x20) },
-    { _T("Jedah HP Zapped"),          0x2119C + (11 * 0xDC0) + (12 * 0x20), 0x211BC + (11 * 0xDC0) + (12 * 0x20) },
-    { _T("Jedah LK Zapped"),          0x2119C + (11 * 0xDC0) + (13 * 0x20), 0x211BC + (11 * 0xDC0) + (13 * 0x20) },
-    { _T("Jedah MK Zapped"),          0x2119C + (11 * 0xDC0) + (14 * 0x20), 0x211BC + (11 * 0xDC0) + (14 * 0x20) },
-    { _T("Jedah HK Zapped"),          0x2119C + (11 * 0xDC0) + (15 * 0x20), 0x211BC + (11 * 0xDC0) + (15 * 0x20) },
-    { _T("Jedah PP Zapped"),          0x2119C + (11 * 0xDC0) + (16 * 0x20), 0x211BC + (11 * 0xDC0) + (16 * 0x20) },
-    { _T("Jedah KK Zapped"),          0x2119C + (11 * 0xDC0) + (17 * 0x20), 0x211BC + (11 * 0xDC0) + (17 * 0x20) },
-    { _T("Jedah AP Zapped"),          0x2119C + (11 * 0xDC0) + (18 * 0x20), 0x211BC + (11 * 0xDC0) + (18 * 0x20) },
-    { _T("Jedah AK Zapped"),          0x2119C + (11 * 0xDC0) + (19 * 0x20), 0x211BC + (11 * 0xDC0) + (19 * 0x20) },
+    { _T("Jedah LP Zapped"),          0x2119C + (11 * 0xDC0) + (10 * 0x20), 0x211BC + (11 * 0xDC0) + (10 * 0x20), indexCPS2_Vamp_Jedah, 0x0c },
+    { _T("Jedah MP Zapped"),          0x2119C + (11 * 0xDC0) + (11 * 0x20), 0x211BC + (11 * 0xDC0) + (11 * 0x20), indexCPS2_Vamp_Jedah, 0x0c },
+    { _T("Jedah HP Zapped"),          0x2119C + (11 * 0xDC0) + (12 * 0x20), 0x211BC + (11 * 0xDC0) + (12 * 0x20), indexCPS2_Vamp_Jedah, 0x0c },
+    { _T("Jedah LK Zapped"),          0x2119C + (11 * 0xDC0) + (13 * 0x20), 0x211BC + (11 * 0xDC0) + (13 * 0x20), indexCPS2_Vamp_Jedah, 0x0c },
+    { _T("Jedah MK Zapped"),          0x2119C + (11 * 0xDC0) + (14 * 0x20), 0x211BC + (11 * 0xDC0) + (14 * 0x20), indexCPS2_Vamp_Jedah, 0x0c },
+    { _T("Jedah HK Zapped"),          0x2119C + (11 * 0xDC0) + (15 * 0x20), 0x211BC + (11 * 0xDC0) + (15 * 0x20), indexCPS2_Vamp_Jedah, 0x0c },
+    { _T("Jedah PP Zapped"),          0x2119C + (11 * 0xDC0) + (16 * 0x20), 0x211BC + (11 * 0xDC0) + (16 * 0x20), indexCPS2_Vamp_Jedah, 0x0c },
+    { _T("Jedah KK Zapped"),          0x2119C + (11 * 0xDC0) + (17 * 0x20), 0x211BC + (11 * 0xDC0) + (17 * 0x20), indexCPS2_Vamp_Jedah, 0x0c },
+    { _T("Jedah AP Zapped"),          0x2119C + (11 * 0xDC0) + (18 * 0x20), 0x211BC + (11 * 0xDC0) + (18 * 0x20), indexCPS2_Vamp_Jedah, 0x0c },
+    { _T("Jedah AK Zapped"),          0x2119C + (11 * 0xDC0) + (19 * 0x20), 0x211BC + (11 * 0xDC0) + (19 * 0x20), indexCPS2_Vamp_Jedah, 0x0c },
     { _T("Jedah LP Burned"),          0x2119C + (11 * 0xDC0) + (20 * 0x20), 0x211BC + (11 * 0xDC0) + (20 * 0x20), indexCPS2_Vamp_Jedah },
     { _T("Jedah MP Burned"),          0x2119C + (11 * 0xDC0) + (21 * 0x20), 0x211BC + (11 * 0xDC0) + (21 * 0x20), indexCPS2_Vamp_Jedah },
     { _T("Jedah HP Burned"),          0x2119C + (11 * 0xDC0) + (22 * 0x20), 0x211BC + (11 * 0xDC0) + (22 * 0x20), indexCPS2_Vamp_Jedah },
@@ -3689,16 +3689,16 @@ const sGame_PaletteDataset VSAV2_A_Jedah_PALETTES_SPECIAL[] =
     { _T("Jedah KK Burned"),          0x2119C + (11 * 0xDC0) + (27 * 0x20), 0x211BC + (11 * 0xDC0) + (27 * 0x20), indexCPS2_Vamp_Jedah },
     { _T("Jedah AP Burned"),          0x2119C + (11 * 0xDC0) + (28 * 0x20), 0x211BC + (11 * 0xDC0) + (28 * 0x20), indexCPS2_Vamp_Jedah },
     { _T("Jedah AK Burned"),          0x2119C + (11 * 0xDC0) + (29 * 0x20), 0x211BC + (11 * 0xDC0) + (29 * 0x20), indexCPS2_Vamp_Jedah },
-    { _T("Jedah LP Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (30 * 0x20), 0x211BC + (11 * 0xDC0) + (30 * 0x20) },
-    { _T("Jedah MP Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (31 * 0x20), 0x211BC + (11 * 0xDC0) + (31 * 0x20) },
-    { _T("Jedah HP Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (32 * 0x20), 0x211BC + (11 * 0xDC0) + (32 * 0x20) },
-    { _T("Jedah LK Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (33 * 0x20), 0x211BC + (11 * 0xDC0) + (33 * 0x20) },
-    { _T("Jedah MK Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (34 * 0x20), 0x211BC + (11 * 0xDC0) + (34 * 0x20) },
-    { _T("Jedah HK Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (35 * 0x20), 0x211BC + (11 * 0xDC0) + (35 * 0x20) },
-    { _T("Jedah PP Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (36 * 0x20), 0x211BC + (11 * 0xDC0) + (36 * 0x20) },
-    { _T("Jedah KK Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (37 * 0x20), 0x211BC + (11 * 0xDC0) + (37 * 0x20) },
-    { _T("Jedah AP Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (38 * 0x20), 0x211BC + (11 * 0xDC0) + (38 * 0x20) },
-    { _T("Jedah AK Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (39 * 0x20), 0x211BC + (11 * 0xDC0) + (39 * 0x20) },
+    { _T("Jedah LP Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (30 * 0x20), 0x211BC + (11 * 0xDC0) + (30 * 0x20), indexCPS2_Vamp_Jedah, 0x0d },
+    { _T("Jedah MP Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (31 * 0x20), 0x211BC + (11 * 0xDC0) + (31 * 0x20), indexCPS2_Vamp_Jedah, 0x0d },
+    { _T("Jedah HP Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (32 * 0x20), 0x211BC + (11 * 0xDC0) + (32 * 0x20), indexCPS2_Vamp_Jedah, 0x0d },
+    { _T("Jedah LK Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (33 * 0x20), 0x211BC + (11 * 0xDC0) + (33 * 0x20), indexCPS2_Vamp_Jedah, 0x0d },
+    { _T("Jedah MK Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (34 * 0x20), 0x211BC + (11 * 0xDC0) + (34 * 0x20), indexCPS2_Vamp_Jedah, 0x0d },
+    { _T("Jedah HK Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (35 * 0x20), 0x211BC + (11 * 0xDC0) + (35 * 0x20), indexCPS2_Vamp_Jedah, 0x0d },
+    { _T("Jedah PP Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (36 * 0x20), 0x211BC + (11 * 0xDC0) + (36 * 0x20), indexCPS2_Vamp_Jedah, 0x0d },
+    { _T("Jedah KK Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (37 * 0x20), 0x211BC + (11 * 0xDC0) + (37 * 0x20), indexCPS2_Vamp_Jedah, 0x0d },
+    { _T("Jedah AP Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (38 * 0x20), 0x211BC + (11 * 0xDC0) + (38 * 0x20), indexCPS2_Vamp_Jedah, 0x0d },
+    { _T("Jedah AK Kotodama Gaeshi"), 0x2119C + (11 * 0xDC0) + (39 * 0x20), 0x211BC + (11 * 0xDC0) + (39 * 0x20), indexCPS2_Vamp_Jedah, 0x0d },
     { _T("Jedah ES 1"),               0x2119C + (11 * 0xDC0) + (40 * 0x20), 0x211BC + (11 * 0xDC0) + (40 * 0x20), indexCPS2_Vamp_Jedah },
     { _T("Jedah ES 2"),               0x2119C + (11 * 0xDC0) + (41 * 0x20), 0x211BC + (11 * 0xDC0) + (41 * 0x20), indexCPS2_Vamp_Jedah },
     { _T("Jedah ES 3"),               0x2119C + (11 * 0xDC0) + (42 * 0x20), 0x211BC + (11 * 0xDC0) + (42 * 0x20), indexCPS2_Vamp_Jedah },

@@ -850,9 +850,7 @@ BOOL CGame_SF2HF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    sDescNode* NodeGet = UsePaletteSetForSelect() ?
-                            MainDescTree_21.GetDescNode(Node01, Node02, Node03, Node04) :
-                            MainDescTree_22.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == NULL)
     {

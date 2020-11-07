@@ -58,7 +58,7 @@ CGame_WakuWaku7_A::CGame_WakuWaku7_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = WakuWaku7_A;
-    nImgGameFlag = IMGDAT_SECTION_NEOGEO;
+    nImgGameFlag = IMGDAT_SECTION_GAROU;
     nImgUnitAmt = 0;
 
     nFileAmt = 1;
@@ -591,7 +591,7 @@ BOOL CGame_WakuWaku7_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
         return FALSE;
     }
 
-    sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == nullptr)
     {
@@ -660,8 +660,8 @@ BOOL CGame_WakuWaku7_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
 
                         //Set each palette
                         sDescNode* JoinedNode[2] = {
-                            MainDescTree.GetDescNode(Node01, Node02, Node03, -1),
-                            MainDescTree.GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
                         };
 
                         //Set each palette

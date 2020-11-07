@@ -700,7 +700,7 @@ void CPalModDlg::DoUndoRedo(BOOL bUndo)
 {
     CUndoNode* PopNode = bUndo ? UndoProc.PopUndo() : UndoProc.PopRedo();
 
-    bUndo ? NewUndoData(FALSE) : NewUndoData();
+    NewUndoData(!bUndo);
 
     //Copy data to the program
     sPalRedir* rgRedir = MainPalGroup->GetRedir();
@@ -721,6 +721,10 @@ void CPalModDlg::DoUndoRedo(BOOL bUndo)
 
     m_PalHost.GetPalCtrl(PopNode->nPalIndex)->UpdateCtrl();
     ImgDispCtrl->UpdateCtrl();
+
+    // OnBnUpdate locks in changes at an unknown point on the undoredo stack, so just mark dirty
+    fFileChanged = TRUE;  
+    bPalChanged = TRUE;
 }
 
 void CPalModDlg::UpdateSettingsMenuItems()

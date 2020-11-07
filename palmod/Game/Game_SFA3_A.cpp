@@ -776,7 +776,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         return FALSE;
     }
 
-    sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == nullptr)
     {
@@ -891,7 +891,7 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                             pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
 
                             //Set each palette
-                            sDescNode* JoinedNode = MainDescTree.GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                            sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
                             CreateDefPal(JoinedNode, nStageIndex);
                             SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
                         }
@@ -948,8 +948,8 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                             //Set each palette
                             sDescNode* JoinedNode[2] = {
-                                MainDescTree.GetDescNode(NodeGet->uUnitId, Node02, Node03, -1),
-                                MainDescTree.GetDescNode(NodeGet->uUnitId, Node02, nPeerPaletteIdInNode, -1)
+                                GetMainTree()->GetDescNode(NodeGet->uUnitId, Node02, Node03, -1),
+                                GetMainTree()->GetDescNode(NodeGet->uUnitId, Node02, nPeerPaletteIdInNode, -1)
                             };
 
                             //Set each palette
