@@ -749,9 +749,7 @@ BOOL CGame_CVS2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if ((paletteDataSet->indexImgToUse == indexCVS2Sprites_Nakoruru) &&
-                    (paletteDataSet->indexOffsetToUse == 0) &&
-                    (paletteDataSet->pPalettePairingInfo == &pairHandledInCode))
+                if (paletteDataSet->pPalettePairingInfo == &pairNextAndNext)
                 {
                     const INT8 nPeerPaletteDistance1 = 1;
                     const INT8 nPeerPaletteDistance2 = 2;

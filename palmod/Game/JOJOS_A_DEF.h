@@ -4,6 +4,8 @@
 #define USE_LARGE_PALETTES
 #endif
 
+const stPairedPaletteInfo pairCoffinRoom = { 1, 31, -32 };
+
 const TCHAR JOJOS_A_UNITDESC_50[][32] =
 {
     _T("HUD"),           // JOJOS_A_50_HUD_COLLECTION
@@ -530,7 +532,7 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_INHOUSE[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_CROOM[] =
 {
-    { _T("Coffin Room (1/6)"), 0x07e4300, 0x07e4500, indexJojos51Stages, 0x5 },
+    { _T("Coffin Room (1/6)"), 0x07e4300, 0x07e4500, indexJojos51Stages, 0x5, &pairCoffinRoom },
     { _T("Coffin Room (2/6)"), 0x07e4500, 0x07e4700, indexJojos51Stages, 0x6 },
     { _T("Coffin Room (3/6)"), 0x07e4700, 0x07e4900, indexJojos51Stages, 0x7 },
     { _T("Coffin Room (4/6)"), 0x07e4900, 0x07e4b00, indexJojos51Stages, 0x8 },
@@ -795,12 +797,12 @@ const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW6[] =
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW7[] =
 {
-    { _T("New 7 (1/6)"), 0x07e4f00, 0x07e5100 },
-    { _T("New 7 (2/6)"), 0x07e5100, 0x07e5300 },
-    { _T("New 7 (3/6)"), 0x07e5300, 0x07e5500 },
-    { _T("New 7 (4/6)"), 0x07e5500, 0x07e5700 },
-    { _T("New 7 (5/6)"), 0x07e5700, 0x07e5900 },
-    { _T("New 7 (6/6)"), 0x07e5900, 0x07e5a00 },
+    { _T("New 7 (1/6)"), 0x07e4f00, 0x07e5100, indexJojos51Stages, 0x5, &pairCoffinRoom },
+    { _T("New 7 (2/6)"), 0x07e5100, 0x07e5300, indexJojos51Stages, 0x6 },
+    { _T("New 7 (3/6)"), 0x07e5300, 0x07e5500, indexJojos51Stages, 0x7 },
+    { _T("New 7 (4/6)"), 0x07e5500, 0x07e5700, indexJojos51Stages, 0x8 },
+    { _T("New 7 (5/6)"), 0x07e5700, 0x07e5900, indexJojos51Stages, 0x9 },
+    { _T("New 7 (6/6)"), 0x07e5900, 0x07e5a00, indexJojos51Stages, 0xa },
 };
 
 const sGame_PaletteDataset JOJOS_A_STAGE_NODE_NEW8[] =

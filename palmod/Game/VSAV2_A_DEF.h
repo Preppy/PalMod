@@ -1026,9 +1026,9 @@ const sGame_PaletteDataset VSAV2_A_AULBATH_PALETTES_AK[] =
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_LP[] =
 {
     { _T("LP Sasquatch"), 0x19e9c, 0x19ebc, indexCPS2_Vamp_Sasquatch, 0x0 },
-    { _T("LP Ice Extras"), 0x19efc, 0x19f1c },
-    { _T("LP Banana"), 0x19ebc, 0x19edc },
-    { _T("LP Smoke"), 0x19edc, 0x19efc },
+    { _T("LP Ice Extras"), 0x19efc, 0x19f1c, indexCPS2_Vamp_Sasquatch, 0x01 },
+    { _T("LP Banana"), 0x19ebc, 0x19edc, indexCPS2_Vamp_Sasquatch, 0x02 },
+    { _T("LP Smoke"), 0x19edc, 0x19efc, indexCPS2_Vamp_Sasquatch, 0x03 },
     { _T("LP Select Portrait"), 0x412bc, 0x412dc, indexCPS2_Vamp_Sasquatch, 0x20 },
     { _T("LP Win Portrait"), 0x431fc, 0x4329c },
 };
@@ -1036,9 +1036,9 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_LP[] =
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_MP[] =
 {
     { _T("MP Sasquatch"), 0x19f1c, 0x19f3c, indexCPS2_Vamp_Sasquatch, 0x0 },
-    { _T("MP Ice Extras"), 0x19f7c, 0x19f9c },
-    { _T("MP Banana"), 0x19f3c, 0x19f5c },
-    { _T("MP Smoke"), 0x19f5c, 0x19f7c },
+    { _T("MP Ice Extras"), 0x19f7c, 0x19f9c, indexCPS2_Vamp_Sasquatch, 0x01 },
+    { _T("MP Banana"), 0x19f3c, 0x19f5c, indexCPS2_Vamp_Sasquatch, 0x02 },
+    { _T("MP Smoke"), 0x19f5c, 0x19f7c, indexCPS2_Vamp_Sasquatch, 0x03 },
     { _T("MP Select Portrait"), 0x414bc, 0x414dc, indexCPS2_Vamp_Sasquatch, 0x20 },
     { _T("MP Win Portrait"), 0x43d3c, 0x43ddc },
 };
@@ -1046,9 +1046,9 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_MP[] =
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_HP[] =
 {
     { _T("HP Sasquatch"), 0x19f9c, 0x19fbc, indexCPS2_Vamp_Sasquatch, 0x0 },
-    { _T("HP Ice Extras"), 0x19ffc, 0x1a01c },
-    { _T("HP Banana"), 0x19fbc, 0x19fdc },
-    { _T("HP Smoke"), 0x19fdc, 0x19ffc },
+    { _T("HP Ice Extras"), 0x19ffc, 0x1a01c, indexCPS2_Vamp_Sasquatch, 0x01 },
+    { _T("HP Banana"), 0x19fbc, 0x19fdc, indexCPS2_Vamp_Sasquatch, 0x02 },
+    { _T("HP Smoke"), 0x19fdc, 0x19ffc, indexCPS2_Vamp_Sasquatch, 0x03 },
     { _T("HP Select Portrait"), 0x416bc, 0x416dc, indexCPS2_Vamp_Sasquatch, 0x20 },
     { _T("HP Win Portrait"), 0x4487c, 0x4491c },
 };
@@ -1056,9 +1056,9 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_HP[] =
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_LK[] =
 {
     { _T("LK Sasquatch"), 0x1a01c, 0x1a03c, indexCPS2_Vamp_Sasquatch, 0x0 },
-    { _T("LK Ice Extras"), 0x1a07c, 0x1a09c },
-    { _T("LK Banana"), 0x1a03c, 0x1a05c },
-    { _T("LK Smoke"), 0x1a05c, 0x1a07c },
+    { _T("LK Ice Extras"), 0x1a07c, 0x1a09c, indexCPS2_Vamp_Sasquatch, 0x01 },
+    { _T("LK Banana"), 0x1a03c, 0x1a05c, indexCPS2_Vamp_Sasquatch, 0x02 },
+    { _T("LK Smoke"), 0x1a05c, 0x1a07c, indexCPS2_Vamp_Sasquatch, 0x03 },
     { _T("LK Select Portrait"), 0x418bc, 0x418dc, indexCPS2_Vamp_Sasquatch, 0x20 },
     { _T("LK Win Portrait"), 0x453bc, 0x4545c },
 };
@@ -1066,9 +1066,9 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_LK[] =
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_MK[] =
 {
     { _T("MK Sasquatch"), 0x1a09c, 0x1a0bc, indexCPS2_Vamp_Sasquatch, 0x0 },
-    { _T("MK Ice Extras"), 0x1a0fc, 0x1a11c },
-    { _T("MK Banana"), 0x1a0bc, 0x1a0dc },
-    { _T("MK Smoke"), 0x1a0dc, 0x1a0fc },
+    { _T("MK Ice Extras"), 0x1a0fc, 0x1a11c, indexCPS2_Vamp_Sasquatch, 0x01 },
+    { _T("MK Banana"), 0x1a0bc, 0x1a0dc, indexCPS2_Vamp_Sasquatch, 0x02 },
+    { _T("MK Smoke"), 0x1a0dc, 0x1a0fc, indexCPS2_Vamp_Sasquatch, 0x03 },
     { _T("MK Select Portrait"), 0x41abc, 0x41adc, indexCPS2_Vamp_Sasquatch, 0x20 },
     { _T("MK Win Portrait"), 0x45efc, 0x45f9c },
 };
@@ -1076,9 +1076,9 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_MK[] =
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_HK[] =
 {
     { _T("HK Sasquatch"), 0x1a11c, 0x1a13c, indexCPS2_Vamp_Sasquatch, 0x0 },
-    { _T("HK Ice Extras"), 0x1a17c, 0x1a19c },
-    { _T("HK Banana"), 0x1a13c, 0x1a15c },
-    { _T("HK Smoke"), 0x1a15c, 0x1a17c },
+    { _T("HK Ice Extras"), 0x1a17c, 0x1a19c, indexCPS2_Vamp_Sasquatch, 0x01 },
+    { _T("HK Banana"), 0x1a13c, 0x1a15c, indexCPS2_Vamp_Sasquatch, 0x02 },
+    { _T("HK Smoke"), 0x1a15c, 0x1a17c, indexCPS2_Vamp_Sasquatch, 0x03 },
     { _T("HK Select Portrait"), 0x3fabc, 0x3fadc, indexCPS2_Vamp_Sasquatch, 0x20 },
     { _T("HK Win Portrait"), 0x46a3c, 0x46adc },
 };
@@ -1086,9 +1086,9 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_HK[] =
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_PP[] =
 {
     { _T("PP Sasquatch"), 0x1a19c, 0x1a1bc, indexCPS2_Vamp_Sasquatch, 0x0 },
-    { _T("PP Ice Extras"), 0x1a1fc, 0x1a21c },
-    { _T("PP Banana"), 0x1a1bc, 0x1a1dc },
-    { _T("PP Smoke"), 0x1a1dc, 0x1a1fc },
+    { _T("PP Ice Extras"), 0x1a1fc, 0x1a21c, indexCPS2_Vamp_Sasquatch, 0x01 },
+    { _T("PP Banana"), 0x1a1bc, 0x1a1dc, indexCPS2_Vamp_Sasquatch, 0x02 },
+    { _T("PP Smoke"), 0x1a1dc, 0x1a1fc, indexCPS2_Vamp_Sasquatch, 0x03 },
     { _T("PP Select Portrait"), 0x41ebc, 0x41edc, indexCPS2_Vamp_Sasquatch, 0x20 },
     { _T("PP Win Portrait"), 0x4757c, 0x4761c },
 };
@@ -1096,9 +1096,9 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_PP[] =
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_KK[] =
 {
     { _T("KK Sasquatch"), 0x1a21c, 0x1a23c, indexCPS2_Vamp_Sasquatch, 0x0 },
-    { _T("KK Ice Extras"), 0x1a27c, 0x1a29c },
-    { _T("KK Banana"), 0x1a23c, 0x1a25c },
-    { _T("KK Smoke"), 0x1a25c, 0x1a27c },
+    { _T("KK Ice Extras"), 0x1a27c, 0x1a29c, indexCPS2_Vamp_Sasquatch, 0x01 },
+    { _T("KK Banana"), 0x1a23c, 0x1a25c, indexCPS2_Vamp_Sasquatch, 0x02 },
+    { _T("KK Smoke"), 0x1a25c, 0x1a27c, indexCPS2_Vamp_Sasquatch, 0x03 },
     { _T("KK Select Portrait"), 0x420bc, 0x420dc, indexCPS2_Vamp_Sasquatch, 0x20 },
     { _T("KK Win Portrait"), 0x480bc, 0x4815c },
 };
@@ -1106,9 +1106,9 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_KK[] =
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_AP[] =
 {
     { _T("AP Sasquatch"), 0x1a29c, 0x1a2bc, indexCPS2_Vamp_Sasquatch, 0x0 },
-    { _T("AP Ice Extras"), 0x1a2fc, 0x1a31c },
-    { _T("AP Banana"), 0x1a2bc, 0x1a2dc },
-    { _T("AP Smoke"), 0x1a2dc, 0x1a2fc },
+    { _T("AP Ice Extras"), 0x1a2fc, 0x1a31c, indexCPS2_Vamp_Sasquatch, 0x01 },
+    { _T("AP Banana"), 0x1a2bc, 0x1a2dc, indexCPS2_Vamp_Sasquatch, 0x02 },
+    { _T("AP Smoke"), 0x1a2dc, 0x1a2fc, indexCPS2_Vamp_Sasquatch, 0x03 },
     { _T("AP Select Portrait"), 0x422bc, 0x422dc, indexCPS2_Vamp_Sasquatch, 0x20 },
     { _T("AP Win Portrait"), 0x48bfc, 0x48c9c },
 };
@@ -1116,9 +1116,9 @@ const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_AP[] =
 const sGame_PaletteDataset VSAV2_A_SASQUATCH_PALETTES_AK[] =
 {
     { _T("AK Sasquatch"), 0x1a31c, 0x1a33c, indexCPS2_Vamp_Sasquatch, 0x0 },
-    { _T("AK Ice Extras"), 0x1a37c, 0x1a39c },
-    { _T("AK Banana"), 0x1a33c, 0x1a35c },
-    { _T("AK Smoke"), 0x1a35c, 0x1a37c },
+    { _T("AK Ice Extras"), 0x1a37c, 0x1a39c, indexCPS2_Vamp_Sasquatch, 0x01 },
+    { _T("AK Banana"), 0x1a33c, 0x1a35c, indexCPS2_Vamp_Sasquatch, 0x02 },
+    { _T("AK Smoke"), 0x1a35c, 0x1a37c, indexCPS2_Vamp_Sasquatch, 0x03 },
     { _T("AK Select Portrait"), 0x424bc, 0x424dc, indexCPS2_Vamp_Sasquatch, 0x20 },
     { _T("AK Win Portrait"), 0x4973c, 0x497dc },
 };
@@ -3213,16 +3213,16 @@ const sGame_PaletteDataset VSAV2_A_Sasquatch_PALETTES_SPECIAL[] =
     { _T("Sasquatch KK Poisoned"),        0x2119C + (6 * 0xDC0) + (7 * 0x20), 0x211BC + (6 * 0xDC0) + (7 * 0x20), indexCPS2_Vamp_Sasquatch },
     { _T("Sasquatch AP Poisoned"),        0x2119C + (6 * 0xDC0) + (8 * 0x20), 0x211BC + (6 * 0xDC0) + (8 * 0x20), indexCPS2_Vamp_Sasquatch },
     { _T("Sasquatch AK Poisoned"),        0x2119C + (6 * 0xDC0) + (9 * 0x20), 0x211BC + (6 * 0xDC0) + (9 * 0x20), indexCPS2_Vamp_Sasquatch },
-    { _T("Sasquatch LP Zapped"),          0x2119C + (6 * 0xDC0) + (10 * 0x20), 0x211BC + (6 * 0xDC0) + (10 * 0x20) },
-    { _T("Sasquatch MP Zapped"),          0x2119C + (6 * 0xDC0) + (11 * 0x20), 0x211BC + (6 * 0xDC0) + (11 * 0x20) },
-    { _T("Sasquatch HP Zapped"),          0x2119C + (6 * 0xDC0) + (12 * 0x20), 0x211BC + (6 * 0xDC0) + (12 * 0x20) },
-    { _T("Sasquatch LK Zapped"),          0x2119C + (6 * 0xDC0) + (13 * 0x20), 0x211BC + (6 * 0xDC0) + (13 * 0x20) },
-    { _T("Sasquatch MK Zapped"),          0x2119C + (6 * 0xDC0) + (14 * 0x20), 0x211BC + (6 * 0xDC0) + (14 * 0x20) },
-    { _T("Sasquatch HK Zapped"),          0x2119C + (6 * 0xDC0) + (15 * 0x20), 0x211BC + (6 * 0xDC0) + (15 * 0x20) },
-    { _T("Sasquatch PP Zapped"),          0x2119C + (6 * 0xDC0) + (16 * 0x20), 0x211BC + (6 * 0xDC0) + (16 * 0x20) },
-    { _T("Sasquatch KK Zapped"),          0x2119C + (6 * 0xDC0) + (17 * 0x20), 0x211BC + (6 * 0xDC0) + (17 * 0x20) },
-    { _T("Sasquatch AP Zapped"),          0x2119C + (6 * 0xDC0) + (18 * 0x20), 0x211BC + (6 * 0xDC0) + (18 * 0x20) },
-    { _T("Sasquatch AK Zapped"),          0x2119C + (6 * 0xDC0) + (19 * 0x20), 0x211BC + (6 * 0xDC0) + (19 * 0x20) },
+    { _T("Sasquatch LP Zapped"),          0x2119C + (6 * 0xDC0) + (10 * 0x20), 0x211BC + (6 * 0xDC0) + (10 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0c },
+    { _T("Sasquatch MP Zapped"),          0x2119C + (6 * 0xDC0) + (11 * 0x20), 0x211BC + (6 * 0xDC0) + (11 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0c },
+    { _T("Sasquatch HP Zapped"),          0x2119C + (6 * 0xDC0) + (12 * 0x20), 0x211BC + (6 * 0xDC0) + (12 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0c },
+    { _T("Sasquatch LK Zapped"),          0x2119C + (6 * 0xDC0) + (13 * 0x20), 0x211BC + (6 * 0xDC0) + (13 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0c },
+    { _T("Sasquatch MK Zapped"),          0x2119C + (6 * 0xDC0) + (14 * 0x20), 0x211BC + (6 * 0xDC0) + (14 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0c },
+    { _T("Sasquatch HK Zapped"),          0x2119C + (6 * 0xDC0) + (15 * 0x20), 0x211BC + (6 * 0xDC0) + (15 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0c },
+    { _T("Sasquatch PP Zapped"),          0x2119C + (6 * 0xDC0) + (16 * 0x20), 0x211BC + (6 * 0xDC0) + (16 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0c },
+    { _T("Sasquatch KK Zapped"),          0x2119C + (6 * 0xDC0) + (17 * 0x20), 0x211BC + (6 * 0xDC0) + (17 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0c },
+    { _T("Sasquatch AP Zapped"),          0x2119C + (6 * 0xDC0) + (18 * 0x20), 0x211BC + (6 * 0xDC0) + (18 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0c },
+    { _T("Sasquatch AK Zapped"),          0x2119C + (6 * 0xDC0) + (19 * 0x20), 0x211BC + (6 * 0xDC0) + (19 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0c },
     { _T("Sasquatch LP Burned"),          0x2119C + (6 * 0xDC0) + (20 * 0x20), 0x211BC + (6 * 0xDC0) + (20 * 0x20), indexCPS2_Vamp_Sasquatch },
     { _T("Sasquatch MP Burned"),          0x2119C + (6 * 0xDC0) + (21 * 0x20), 0x211BC + (6 * 0xDC0) + (21 * 0x20), indexCPS2_Vamp_Sasquatch },
     { _T("Sasquatch HP Burned"),          0x2119C + (6 * 0xDC0) + (22 * 0x20), 0x211BC + (6 * 0xDC0) + (22 * 0x20), indexCPS2_Vamp_Sasquatch },
@@ -3233,16 +3233,16 @@ const sGame_PaletteDataset VSAV2_A_Sasquatch_PALETTES_SPECIAL[] =
     { _T("Sasquatch KK Burned"),          0x2119C + (6 * 0xDC0) + (27 * 0x20), 0x211BC + (6 * 0xDC0) + (27 * 0x20), indexCPS2_Vamp_Sasquatch },
     { _T("Sasquatch AP Burned"),          0x2119C + (6 * 0xDC0) + (28 * 0x20), 0x211BC + (6 * 0xDC0) + (28 * 0x20), indexCPS2_Vamp_Sasquatch },
     { _T("Sasquatch AK Burned"),          0x2119C + (6 * 0xDC0) + (29 * 0x20), 0x211BC + (6 * 0xDC0) + (29 * 0x20), indexCPS2_Vamp_Sasquatch },
-    { _T("Sasquatch LP Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (30 * 0x20), 0x211BC + (6 * 0xDC0) + (30 * 0x20) },
-    { _T("Sasquatch MP Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (31 * 0x20), 0x211BC + (6 * 0xDC0) + (31 * 0x20) },
-    { _T("Sasquatch HP Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (32 * 0x20), 0x211BC + (6 * 0xDC0) + (32 * 0x20) },
-    { _T("Sasquatch LK Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (33 * 0x20), 0x211BC + (6 * 0xDC0) + (33 * 0x20) },
-    { _T("Sasquatch MK Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (34 * 0x20), 0x211BC + (6 * 0xDC0) + (34 * 0x20) },
-    { _T("Sasquatch HK Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (35 * 0x20), 0x211BC + (6 * 0xDC0) + (35 * 0x20) },
-    { _T("Sasquatch PP Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (36 * 0x20), 0x211BC + (6 * 0xDC0) + (36 * 0x20) },
-    { _T("Sasquatch KK Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (37 * 0x20), 0x211BC + (6 * 0xDC0) + (37 * 0x20) },
-    { _T("Sasquatch AP Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (38 * 0x20), 0x211BC + (6 * 0xDC0) + (38 * 0x20) },
-    { _T("Sasquatch AK Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (39 * 0x20), 0x211BC + (6 * 0xDC0) + (39 * 0x20) },
+    { _T("Sasquatch LP Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (30 * 0x20), 0x211BC + (6 * 0xDC0) + (30 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0d },
+    { _T("Sasquatch MP Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (31 * 0x20), 0x211BC + (6 * 0xDC0) + (31 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0d },
+    { _T("Sasquatch HP Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (32 * 0x20), 0x211BC + (6 * 0xDC0) + (32 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0d },
+    { _T("Sasquatch LK Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (33 * 0x20), 0x211BC + (6 * 0xDC0) + (33 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0d },
+    { _T("Sasquatch MK Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (34 * 0x20), 0x211BC + (6 * 0xDC0) + (34 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0d },
+    { _T("Sasquatch HK Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (35 * 0x20), 0x211BC + (6 * 0xDC0) + (35 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0d },
+    { _T("Sasquatch PP Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (36 * 0x20), 0x211BC + (6 * 0xDC0) + (36 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0d },
+    { _T("Sasquatch KK Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (37 * 0x20), 0x211BC + (6 * 0xDC0) + (37 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0d },
+    { _T("Sasquatch AP Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (38 * 0x20), 0x211BC + (6 * 0xDC0) + (38 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0d },
+    { _T("Sasquatch AK Kotodama Gaeshi"), 0x2119C + (6 * 0xDC0) + (39 * 0x20), 0x211BC + (6 * 0xDC0) + (39 * 0x20), indexCPS2_Vamp_Sasquatch, 0x0d },
     { _T("Sasquatch ES 1"),               0x2119C + (6 * 0xDC0) + (40 * 0x20), 0x211BC + (6 * 0xDC0) + (40 * 0x20), indexCPS2_Vamp_Sasquatch },
     { _T("Sasquatch ES 2"),               0x2119C + (6 * 0xDC0) + (41 * 0x20), 0x211BC + (6 * 0xDC0) + (41 * 0x20), indexCPS2_Vamp_Sasquatch },
     { _T("Sasquatch ES 3"),               0x2119C + (6 * 0xDC0) + (42 * 0x20), 0x211BC + (6 * 0xDC0) + (42 * 0x20), indexCPS2_Vamp_Sasquatch },

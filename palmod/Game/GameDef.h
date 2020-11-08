@@ -2473,6 +2473,8 @@ const stPairedPaletteInfo pairNext3 = { 3, 0, 0 };
 const stPairedPaletteInfo pairNext10 = { 10, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 
+const stPairedPaletteInfo pairNextAndNext = { 1, 0, 0 }; // triple display... requires special handling in code
+
 // Vs Series
 const stPairedPaletteInfo pairCapComNinjas =  { 1, 28, 4 };
 const stPairedPaletteInfo pairMVCDevilotNormal = { 1, 0, 0 }; // Don't use pairNext here: we manually tweak z-order

@@ -1098,6 +1098,37 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         SetSourcePal(3, NodeGet->uUnitId, nSrcStart + nPaletteFourDelta, nSrcAmt, nNodeIncrement);
                         SetSourcePal(4, NodeGet->uUnitId, nSrcStart + nPaletteFiveDelta, nSrcAmt, nNodeIncrement);
                     }
+                    else
+                    {
+                        // this is for next/previous/etc
+                        nPaletteOneDelta = 0;
+                        nPaletteTwoDelta = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+                        nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                        nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+                        fUseDefaultPaletteLoad = false;
+
+                        const sGame_PaletteDataset* paletteDataSetOne = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteOneDelta);
+                        const sGame_PaletteDataset* paletteDataSetTwo = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteTwoDelta);
+
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSetOne->indexImgToUse, paletteDataSetOne->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetTwo->indexImgToUse, paletteDataSetTwo->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteOneDelta, -1),
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart + nPaletteOneDelta, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPaletteTwoDelta, nSrcAmt, nNodeIncrement);
+                    }
                 }
             }
         }
