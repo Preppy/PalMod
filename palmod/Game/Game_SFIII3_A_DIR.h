@@ -6,6 +6,7 @@ enum class SFIII3_SupportedROMRevision
     SFIII3_10_990512,
     SFIII3_10_990608,
     SFIII3_51,
+    SFIII3_4rd,
     SFIII3_Unsupported,
 };
 
@@ -36,8 +37,10 @@ public:
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     static sFileRule GetNextRule10() { return GetNextRuleInternal(10); };
+    static sFileRule GetNextRule4() { return GetNextRuleInternal(4); };
     static sFileRule GetNextRule51() { return GetNextRuleInternal(51); };
     static sFileRule GetRule10(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 10); };
+    static sFileRule GetRule4(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 4); };
     static sFileRule GetRule51(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 51); };
 
     BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber);

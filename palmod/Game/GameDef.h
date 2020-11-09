@@ -63,6 +63,7 @@ enum SupportedGamesList
     KOFXI_A,
     NGBC_A,
     BREAKERS_A,
+    SFIII3_A_DIR_4,
     NUM_GAMES // This needs to be last
 };
 
@@ -128,6 +129,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"KOF:XI (Atomiswave)",
    L"NGBC (Atomiswave)",
    L"Breakers Revenge (Arcade)",
+   L"SFIII:4rd (Arcade)",
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;

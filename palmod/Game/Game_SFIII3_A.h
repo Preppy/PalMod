@@ -16,6 +16,7 @@ public:
     static UINT32 m_nTotalPaletteCountForSFIII3_10;
     static UINT32 m_nTotalPaletteCountForSFIII3_51;
     static bool UsePaletteSetForGill() { return (m_nSelectedRom == 10); }
+    static bool UsePaletteSetFor4rd() { return (m_nSelectedRom == 4); }
 
     static int rgExtraCountAll_10[SFIII3_A_10_NUMUNIT + 1];
     static int rgExtraCountAll_51[SFIII3_A_51_NUMUNIT + 1];
@@ -43,6 +44,7 @@ public:
 
     //Static functions / variables
     static CDescTree MainDescTree_10;
+    static CDescTree MainDescTree_4;
     static CDescTree MainDescTree_51;
 
     static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);

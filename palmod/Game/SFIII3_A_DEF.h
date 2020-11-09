@@ -941,6 +941,38 @@ const sGame_PaletteDataset SFIII3_A_SHINGOUKI_EXTRA_PALETTES[] =
     { _T("Air Fireball"), 0x706C80, 0x706D00, index3S_CPS3_Gouki, 0x03 },
 };
 
+const sGame_PaletteDataset SFIII3_A_USEAN_LP_PALETTES[] =
+{
+    { _T("P1 Main"), 0x703700, 0x703780, index3S_CPS3_Sean, 0x00 },
+    { _T("P1 Portrait"), 0x764820, 0x764840, index3S_CPS3_Sean, 0x01 },
+};
+
+const sGame_PaletteDataset SFIII3_A_USEAN_MP_PALETTES[] =
+{
+    { _T("P2 Main"), 0x703780, 0x703800, index3S_CPS3_Sean, 0x00 },
+    { _T("P2 Portrait"), 0x764840, 0x764860, index3S_CPS3_Sean, 0x01 },
+};
+
+const sGame_PaletteDataset SFIII3_A_USEAN_Support_PALETTES[] =
+{
+    { _T("EX Attack (1)"), 0x765500, 0x765580, index3S_CPS3_Sean, 0 },
+    { _T("EX Attack (2)"), 0x76b500, 0x76b580, index3S_CPS3_Sean, 0 },
+    { _T("????"), 0x769400, 0x769480, index3S_CPS3_Sean, 0 },
+    { _T("????"), 0x769480, 0x769500, index3S_CPS3_Sean, 0 },
+    { _T("????"), 0x769500, 0x769580, index3S_CPS3_Sean, 0 },
+    { _T("????"), 0x769580, 0x769600, index3S_CPS3_Sean, 0 },
+    { _T("????"), 0x769600, 0x769680, index3S_CPS3_Sean, 0 },
+    { _T("????"), 0x769680, 0x769700, index3S_CPS3_Sean, 0 },
+    { _T("????"), 0x769700, 0x769780, index3S_CPS3_Sean, 0 },
+    { _T("????"), 0x769780, 0x769800, index3S_CPS3_Sean, 0 },
+};
+
+const sGame_PaletteDataset SFIII3_A_USEAN_EXTRA_PALETTES[] =
+{
+    { _T("Fireball"), 0x706C00, 0x706C80, index3S_CPS3_Sean, 0x02 },
+    { _T("Air Fireball"), 0x706C80, 0x706D00, index3S_CPS3_Sean, 0x03 },
+};
+
 const sGame_PaletteDataset SFIII3_A_CHUNLI_LP_PALETTES[] =
 {
     { _T("LP Main"), 0x703800, 0x703880, index3S_CPS3_ChunLi, 0x00 },
@@ -1367,6 +1399,11 @@ const sGame_PaletteDataset SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES[] =
     { _T("Shin Gouki Character Select Icon"), 0x070BE80, 0x070BF00, index3S_CPS3_ShinGouki, 0x22 },
 };
 
+const sGame_PaletteDataset SFIII3_A_USEAN_PORTRAIT_PALETTES[] =
+{
+    { _T("Shin Gouki Character Select Icon"), 0x070BE80, 0x070BF00, index3S_CPS3_ShinGouki, 0x22 },
+};
+
 const sGame_PaletteDataset SFIII3_A_CHUNLI_PORTRAIT_PALETTES[] =
 {
     { _T("Chun-Li portrait (Normal)"), 0x070E080, 0x070E200, index3S_CPS3_ChunLi, 0x20 },
@@ -1602,12 +1639,21 @@ const sDescTreeNode SFIII3_A_GOUKI_COLLECTION[] =
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_EXTRA_PALETTES) },
 };
 
+const sDescTreeNode SFIII3_A_USEAN_COLLECTION[] =
+{
+    { _T("P1"), DESC_NODETYPE_TREE, (void*)SFIII3_A_USEAN_LP_PALETTES, ARRAYSIZE(SFIII3_A_USEAN_LP_PALETTES) },
+    { _T("P2"), DESC_NODETYPE_TREE, (void*)SFIII3_A_USEAN_MP_PALETTES, ARRAYSIZE(SFIII3_A_USEAN_MP_PALETTES) },
+    { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_USEAN_Support_PALETTES, ARRAYSIZE(SFIII3_A_USEAN_Support_PALETTES) },
+    { _T("Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_USEAN_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_USEAN_PORTRAIT_PALETTES) },
+    { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_USEAN_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_USEAN_EXTRA_PALETTES) },
+};
+
 const sDescTreeNode SFIII3_A_SHINGOUKI_COLLECTION[] =
 {
     { _T("P1"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_LP_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_LP_PALETTES) },
     { _T("P2"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_MP_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_MP_PALETTES) },
     { _T("Support"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_Support_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_Support_PALETTES) },
-    { _T("Portraits and Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES) },
+    { _T("Select Icon"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES) },
     { _T("Extras"), DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_SHINGOUKI_EXTRA_PALETTES) },
 };
 
@@ -1702,6 +1748,24 @@ const sGame_PaletteDataset SFIII3_A_STAGES_AKUMA_FADED_PALETTES[] =
     { _T("Gouki Stage (Faded) (3/5)"), 0x74CE00, 0x74D000, index3S_CPS3_Stages, 0x11 },
     { _T("Gouki Stage (Faded) (4/5)"), 0x74D000, 0x74D200, index3S_CPS3_Stages, 0x12 },
     { _T("Gouki Stage (Faded) (5/5)"), 0x74D200, 0x74D280, index3S_CPS3_Stages, 0x13 },
+};
+
+const sGame_PaletteDataset SFIII3_A_STAGES_SHINGOUKI_PALETTES[] =
+{
+    { _T("Shin Gouki Stage (1/5)"), 0x74D280, 0x74D480, index3S_CPS3_Stages, 0x0F, &pairFullyLinkedNode },
+    { _T("Shin Gouki Stage (2/5)"), 0x74D480, 0x74D680, index3S_CPS3_Stages, 0x10 },
+    { _T("Shin Gouki Stage (3/5)"), 0x74D680, 0x74D880, index3S_CPS3_Stages, 0x11 },
+    { _T("Shin Gouki Stage (4/5)"), 0x74D880, 0x74Da80, index3S_CPS3_Stages, 0x12 },
+    { _T("Shin Gouki Stage (5/5)"), 0x74Da80, 0x74DB00, index3S_CPS3_Stages, 0x13 },
+};
+
+const sGame_PaletteDataset SFIII3_A_STAGES_SHINGOUKI_FADED_PALETTES[] =
+{
+    { _T("Shin Gouki Stage (Faded) (1/5)"), 0x74DB00, 0x74DD00, index3S_CPS3_Stages, 0x0F, &pairFullyLinkedNode },
+    { _T("Shin Gouki Stage (Faded) (2/5)"), 0x74DD00, 0x74DF00, index3S_CPS3_Stages, 0x10 },
+    { _T("Shin Gouki Stage (Faded) (3/5)"), 0x74DF00, 0x74e100, index3S_CPS3_Stages, 0x11 },
+    { _T("Shin Gouki Stage (Faded) (4/5)"), 0x74e100, 0x74e300, index3S_CPS3_Stages, 0x12 },
+    { _T("Shin Gouki Stage (Faded) (5/5)"), 0x74e300, 0x74E380, index3S_CPS3_Stages, 0x13 },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_ELENA_PALETTES[] =
@@ -2279,6 +2343,9 @@ const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
     { _T("Sean Stage"),            DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_SEAN_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_SEAN_PALETTES) },
     { _T("Sean Stage (Faded)"),    DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_SEAN_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_SEAN_FADED_PALETTES) },
 
+    { _T("Shin Gouki Stage"),            DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_SHINGOUKI_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_SHINGOUKI_PALETTES) },
+    { _T("Shin Gouki Stage (Faded)"),    DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_SHINGOUKI_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_SHINGOUKI_FADED_PALETTES) },
+
     { _T("Urien Stage"),            DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_URIEN_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_URIEN_PALETTES) },
     { _T("Urien Stage (Faded)"),    DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_URIEN_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_URIEN_FADED_PALETTES) },
 
@@ -2323,7 +2390,6 @@ const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_RIGHT[] =
     { _T("Gill glow 10"), 0x1C9128, 0x1C91a8, index3S_CPS3_Gill },
     { _T("Gill glow 11"), 0x1C91a8, 0x1C9228, index3S_CPS3_Gill },
     { _T("Gill glow 12"), 0x1C9228, 0x1C92a8, index3S_CPS3_Gill },
-
 };
 
 const sDescTreeNode SFIII3_A_GILL_COLLECTION[] =
@@ -2335,6 +2401,32 @@ const sDescTreeNode SFIII3_A_GILL_COLLECTION[] =
 const sDescTreeNode SFIII3_A_10_UNITS[] =
 {
     { _T("Gill (glow)"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_COLLECTION) },
+};
+
+const sDescTreeNode SFIII3_A_4_UNITS[] =
+{
+    { _T("Alex"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_COLLECTION, ARRAYSIZE(SFIII3_A_ALEX_COLLECTION) },
+    { _T("Ryu"),    DESC_NODETYPE_TREE, (void*)SFIII3_A_RYU_COLLECTION, ARRAYSIZE(SFIII3_A_RYU_COLLECTION) },
+    { _T("Yun"),    DESC_NODETYPE_TREE, (void*)SFIII3_A_YUN_COLLECTION, ARRAYSIZE(SFIII3_A_YUN_COLLECTION) },
+    { _T("Dudley"), DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_COLLECTION, ARRAYSIZE(SFIII3_A_DUDLEY_COLLECTION) },
+    { _T("Necro"),  DESC_NODETYPE_TREE, (void*)SFIII3_A_NECRO_COLLECTION, ARRAYSIZE(SFIII3_A_NECRO_COLLECTION) },
+    { _T("Hugo"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_HUGO_COLLECTION, ARRAYSIZE(SFIII3_A_HUGO_COLLECTION) },
+    { _T("Ibuki"),  DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_COLLECTION, ARRAYSIZE(SFIII3_A_IBUKI_COLLECTION) },
+    { _T("Elena"),  DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_COLLECTION, ARRAYSIZE(SFIII3_A_ELENA_COLLECTION) },
+    { _T("Oro"),    DESC_NODETYPE_TREE, (void*)SFIII3_A_ORO_COLLECTION, ARRAYSIZE(SFIII3_A_ORO_COLLECTION) },
+    { _T("Yang"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_YANG_COLLECTION, ARRAYSIZE(SFIII3_A_YANG_COLLECTION) },
+    { _T("Ken"),    DESC_NODETYPE_TREE, (void*)SFIII3_A_KEN_COLLECTION, ARRAYSIZE(SFIII3_A_KEN_COLLECTION) },
+    { _T("Sean"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_SEAN_COLLECTION, ARRAYSIZE(SFIII3_A_SEAN_COLLECTION) },
+    { _T("Urien"),  DESC_NODETYPE_TREE, (void*)SFIII3_A_URIEN_COLLECTION, ARRAYSIZE(SFIII3_A_URIEN_COLLECTION) },
+    { _T("Gouki"),  DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_COLLECTION, ARRAYSIZE(SFIII3_A_GOUKI_COLLECTION) },
+    { _T("Ultra-Sean"), DESC_NODETYPE_TREE, (void*)SFIII3_A_USEAN_COLLECTION, ARRAYSIZE(SFIII3_A_USEAN_COLLECTION) },
+    { _T("Chun-Li"), DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_COLLECTION, ARRAYSIZE(SFIII3_A_CHUNLI_COLLECTION) },
+    { _T("Makoto"), DESC_NODETYPE_TREE, (void*)SFIII3_A_MAKOTO_COLLECTION, ARRAYSIZE(SFIII3_A_MAKOTO_COLLECTION) },
+    { _T("Q"),      DESC_NODETYPE_TREE, (void*)SFIII3_A_Q_COLLECTION, ARRAYSIZE(SFIII3_A_Q_COLLECTION) },
+    { _T("Twelve"), DESC_NODETYPE_TREE, (void*)SFIII3_A_TWELVE_COLLECTION, ARRAYSIZE(SFIII3_A_TWELVE_COLLECTION) },
+    { _T("Remy"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_COLLECTION, ARRAYSIZE(SFIII3_A_REMY_COLLECTION) },
+    { _T("Bonus and Stage Palettes"), DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGE_COLLECTION, ARRAYSIZE(SFIII3_A_STAGE_COLLECTION) },
+    { _T("Gill"),   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_51_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_51_COLLECTION) },
 };
 
 const sDescTreeNode SFIII3_A_51_UNITS[] =

@@ -329,16 +329,17 @@ BEGIN
             END
             POPUP "MvC2"
             BEGIN
-                MENUITEM "Arcade(*)",            ID_LD_MVC2ARCADE
+                MENUITEM "Arcade(*)",             ID_LD_MVC2ARCADE
                 MENUITEM "DC (USA)",              ID_LD_MVC2DCUSA
                 MENUITEM "PS2 (*)",               ID_LD_MVC2PS2USA
             END
             MENUITEM "Red Earth / Warzard (Arcade)(*)", ID_LOADDIRECTORY_REDEARTH
             POPUP "SFIII3"
             BEGIN
-                MENUITEM "Dreamcast (*)",              ID_LD_SFIII3DCALL
-                MENUITEM "Arcade (*)",          ID_LD_SFIII3ARCADE51
+                MENUITEM "Dreamcast (*)",          ID_LD_SFIII3DCALL
+                MENUITEM "Arcade (*)",             ID_LD_SFIII3ARCADE51
                 MENUITEM "Arcade - Gill Glow (*)", ID_LD_SFIII3ARCADE10
+                MENUITEM "4rd Strike (*)",         ID_LD_SFIII3ARCADE4rd
             END
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
