@@ -222,20 +222,33 @@ void CRegProc::LoadReg(int src)
             RegType = REG_DWORD;
             GetSz = sizeof(BOOL);
 
-            if (RegQueryValueEx(hKey, _T("main_getcolor"), 0, &RegType, (BYTE*)&main_bGetColor, &GetSz) != ERROR_SUCCESS)
-                main_bGetColor = c_mainDefaultGetColor;
-
             if (RegQueryValueEx(hKey, c_mainAllowAlphaChanges, 0, &RegType, (BYTE*)&main_fAllowAlphaChanges, &GetSz) != ERROR_SUCCESS)
+            {
                 main_fAllowAlphaChanges = c_mainDefaultAllowAlphaChanges;
+            }
 
             if (RegQueryValueEx(hKey, _T("main_show32"), 0, &RegType, (BYTE*)&main_bShow32, &GetSz) != ERROR_SUCCESS)
+            {
                 main_bShow32 = c_mainDefaultShowAs32;
+            }
 
             if (RegQueryValueEx(hKey, _T("main_procsupps"), 0, &RegType, (BYTE*)&main_bProcSupp, &GetSz) != ERROR_SUCCESS)
+            {
                 main_bProcSupp = c_mainDefaultProcSupp;
+            }
+
+#ifdef ENABLE_OLD_OPTIONS
+            // These were classic PalMod 2008 options, but ... I don't really see a reason for continuing to include them
+            if (RegQueryValueEx(hKey, _T("main_getcolor"), 0, &RegType, (BYTE*)&main_bGetColor, &GetSz) != ERROR_SUCCESS)
+            {
+                main_bGetColor = c_mainDefaultGetColor;
+            }
 
             if (RegQueryValueEx(hKey, _T("AutoSetColor"), 0, &RegType, (BYTE*)&main_bAutoSetCol, &GetSz) != ERROR_SUCCESS)
+            {
                 main_bAutoSetCol = c_mainDefaultAutoSetCol;
+            }
+#endif
 
             RegType = REG_SZ;
             GetSz = RECT_STRSZ;
@@ -386,12 +399,10 @@ void CRegProc::SaveReg(int src)
         {
         case REG_MAIN:
         {
-            RegSetValueEx(hKey, _T("main_getcolor"), 0, REG_DWORD, (BYTE*)&main_bGetColor, sizeof(BOOL));
             RegSetValueEx(hKey, c_mainAllowAlphaChanges, 0, REG_DWORD, (BYTE*)&main_fAllowAlphaChanges, sizeof(BOOL));
             RegSetValueEx(hKey, _T("main_show32"), 0, REG_DWORD, (BYTE*)&main_bShow32, sizeof(BOOL));
             RegSetValueEx(hKey, _T("main_procsupps"), 0, REG_DWORD, (BYTE*)&main_bProcSupp, sizeof(BOOL));
-            RegSetValueEx(hKey, _T("AutoSetColor"), 0, REG_DWORD, (BYTE*)&main_bAutoSetCol, sizeof(BOOL));
-
+            
             conv_str = RectToStr(main_szpos);
 
             CString strPosAndDpi;

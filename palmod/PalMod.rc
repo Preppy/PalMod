@@ -124,7 +124,6 @@ BEGIN
     EDITTEXT        IDC_EDIT_ADESC,258,76,9,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT_A,267,74,23,12,ES_AUTOHSCROLL
     CONTROL         "",IDC_A_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,294,74,81,12
-    PUSHBUTTON      "Set Color",IDC_BSETCOL,265,95,49,13,NOT WS_VISIBLE
     PUSHBUTTON      "Pick Color",IDC_BNEWCOL,321,95,49,13
     PUSHBUTTON      "Check My Edits",IDC_BCHECKMIX,10,209,64,13,NOT WS_VISIBLE
     COMBOBOX        IDC_CHARCOMBO,249,129,147,147,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
@@ -169,7 +168,6 @@ BEGIN
     EDITTEXT        IDC_EDIT_A,177,74,23,12,ES_AUTOHSCROLL
     CONTROL         "",IDC_A_SLIDER,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,204,74,81,12
     CONTROL         "",IDC_SPIN_A,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,285,73,13,12
-    PUSHBUTTON      "Set Color",IDC_BSETCOL,175,95,49,13,NOT WS_VISIBLE
     PUSHBUTTON      "Pick Color",IDC_BNEWCOL,231,95,49,13
     PUSHBUTTON      "Check My Edits",IDC_BCHECKMIX,10,209,64,13,NOT WS_VISIBLE
     COMBOBOX        IDC_CHARCOMBO,159,129,135,147,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
@@ -324,15 +322,24 @@ BEGIN
         MENUITEM "L&oad ROM\tCtrl+O",           ID_FILE_OPEN
         POPUP "&Load Directory"
         BEGIN
-            MENUITEM "Jojo's Characters (Arcade)(Japan)", ID_LD_JOJOS51
-            MENUITEM "Jojo's HUD and Stages (Arcade)(Japan)", ID_LD_JOJOS50
-            MENUITEM "MVC2 (Arcade)(*)",            ID_LD_MVC2ARCADE
-            MENUITEM "MVC2 (DC)(USA)",              ID_LD_MVC2DCUSA
-            MENUITEM "MVC2 (PS2)(*)",               ID_LD_MVC2PS2USA
+            POPUP "Jojo's"
+            BEGIN
+                MENUITEM "Characters (Japan Arcade)", ID_LD_JOJOS51
+                MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
+            END
+            POPUP "MvC2"
+            BEGIN
+                MENUITEM "Arcade(*)",            ID_LD_MVC2ARCADE
+                MENUITEM "DC (USA)",              ID_LD_MVC2DCUSA
+                MENUITEM "PS2 (*)",               ID_LD_MVC2PS2USA
+            END
             MENUITEM "Red Earth / Warzard (Arcade)(*)", ID_LOADDIRECTORY_REDEARTH
-            MENUITEM "SFIII3 (DC)(*)",              ID_LD_SFIII3DCALL
-            MENUITEM "SFIII3 (Arcade)(*)",          ID_LD_SFIII3ARCADE51
-            MENUITEM "SFIII3 Gill Glow (Arcade)(*)", ID_LD_SFIII3ARCADE10
+            POPUP "SFIII3"
+            BEGIN
+                MENUITEM "Dreamcast (*)",              ID_LD_SFIII3DCALL
+                MENUITEM "Arcade (*)",          ID_LD_SFIII3ARCADE51
+                MENUITEM "Arcade - Gill Glow (*)", ID_LD_SFIII3ARCADE10
+            END
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
         MENUITEM SEPARATOR
@@ -367,8 +374,6 @@ BEGIN
     POPUP "&Settings"
     BEGIN
         MENUITEM "Show 32-bit values for 8-bit colors (will round!)", ID_SHOW32BITRGB
-        MENUITEM "Get Color On Select",         ID_GETCOLORONSELECT
-        MENUITEM "Auto-Set Color On Adjust",    ID_AUTOSETCOL
         MENUITEM "MvC2 &Settings...",           ID_SETTINGS_SETTINGS
         POPUP "Colors Per Line (restart required)"
         BEGIN
@@ -544,7 +549,6 @@ BEGIN
     IDS_BCHECKMIX_TOOLTIP   "Verifies that Extra edits were made: avoid flashing Storm and etc."
     IDS_TOOLTIP_UPDATE      "Saves the current changes to memory.  ROM is only updated on patch."
     IDS_TOOLTIP_REVERT      "Reverts to the last saved colors. Use CTRL+Z for just the last change."
-    IDS_TOOLTIP_SETCOLOR    "If Auto-Set Color is off, updates the selected palette color."
     IDS_TOOLTIP_GETCOLOR    "Use the color picker to update the selected palette color."
     IDS_ERROR_TEXTURE_LOAD  "Error loading RAW texture file.  Filename must be of form WHATEVER-W-width-H-height.data"
     IDS_ERROR_TEXTURE_NOGAME "A game must be loaded first."

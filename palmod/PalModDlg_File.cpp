@@ -131,29 +131,6 @@ void CPalModDlg::OnSavePatchFile()
     SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 }
 
-void CPalModDlg::OnGetCol()
-{
-    bGetCol = !bGetCol;
-
-    CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
-
-    pSettMenu->CheckMenuItem(ID_GETCOLORONSELECT, MF_BYCOMMAND | (bGetCol ? MF_CHECKED : MF_UNCHECKED));
-
-    //Enable/Disable get color button
-    GetDlgItem(IDC_BNEWCOL)->EnableWindow(bGetCol && !bAutoSetCol);
-}
-
-void CPalModDlg::OnAutoSetCol()
-{
-    bAutoSetCol = !bAutoSetCol;
-
-    CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
-
-    pSettMenu->CheckMenuItem(ID_AUTOSETCOL, MF_BYCOMMAND | (bAutoSetCol ? MF_CHECKED : MF_UNCHECKED));
-
-    UpdateSliderSel();
-}
-
 void CPalModDlg::OnNMReleasedCaptureAll(NMHDR* pNMHDR, LRESULT* pResult)
 {
     if (!bGetSliderUndo)

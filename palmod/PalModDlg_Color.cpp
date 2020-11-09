@@ -145,12 +145,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 
         nPalSelAmt = CurrPalCtrl->GetSelAmt();
 
-        if (nPalSelAmt == 0)
-        {
-            bEnableSlider = !bAutoSetCol;
-            bEnableAlpha = !bAutoSetCol * nAAmt;
-        }
-        else if ((nPalSelAmt == 1) || !bAutoSetCol)
+        if (nPalSelAmt == 1)
         {
             bEnableSlider = TRUE;
             bEnableAlpha = (nAAmt != 0);
@@ -189,7 +184,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
                 GetSetSingleCol();
             }
         }
-        else if (bAutoSetCol)
+        else
         {
             bEnableSlider = TRUE;
             bEnableAlpha = TRUE * nAAmt;
@@ -224,10 +219,6 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
 
         // Games have to opt in to allow editing alpha
         bEnableAlpha = bEnableAlpha && CurrGame->AllowTransparency();
-
-        //Enable/disable set color button
-        GetDlgItem(IDC_BSETCOL)->EnableWindow(!bAutoSetCol);
-        GetDlgItem(IDC_BSETCOL)->ShowWindow(bAutoSetCol ? SW_HIDE : SW_SHOW);
     }
     else
     {
@@ -242,7 +233,7 @@ void CPalModDlg::UpdateSliderSel(BOOL bModeChange, BOOL bResetRF)
         ResetSlider();
     }
 
-    GetDlgItem(IDC_BNEWCOL)->EnableWindow(nPalSelAmt || !bAutoSetCol);
+    GetDlgItem(IDC_BNEWCOL)->EnableWindow(nPalSelAmt);
 
     if (bEnableSlider != bSliderEnabled)
     {
@@ -308,7 +299,7 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
     }
 
     //Update the slider undo data before changing
-    if (bAutoSetCol && bGetSliderUndo)
+    if (bGetSliderUndo)
     {
         ProcChange();
 
@@ -352,7 +343,7 @@ void CPalModDlg::SetColMode(int nColMode)
 {
     if (bRGB != nColMode)
     {
-        if ((nPalSelAmt == 1) || !bAutoSetCol)
+        if (nPalSelAmt == 1)
         {
             double dH, dS, dL;
 
@@ -623,7 +614,7 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
     int nAVal = nAMul ? m_ASlider.GetPos() : 0xFF;
     nAVal = (int)round((double)nAVal * (nAMul ? nAMul : 1));
 
-    if (bAutoSetCol && CurrPalCtrl)
+    if (CurrPalCtrl)
     {
         switch (nPalSelAmt)
         {
@@ -777,7 +768,7 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
 
 void CPalModDlg::GetSetSingleCol()
 {
-    if (bGetCol && CurrPalCtrl)
+    if (CurrPalCtrl)
     {
         COLORREF crSrc = CurrPalCtrl->GetBasePal()[CurrPalCtrl->GetSS()];
 
@@ -871,7 +862,7 @@ void CPalModDlg::OnBnNewCol()
 
         COLORREF crNewCol = ColorDlg->GetColor();
 
-        if ((nSelAmt == 1) || !bAutoSetCol)
+        if (nSelAmt == 1)
         {
             SetSliderCol(
                 GetRValue(crNewCol),
@@ -881,18 +872,15 @@ void CPalModDlg::OnBnNewCol()
 
             ResetSlider(FALSE);
 
-            if (bAutoSetCol)
-            {
-                int nSelIndex = CurrPalCtrl->GetSS();
-                CurrPalCtrl->GetBasePal()[nSelIndex] = (crNewCol | ((COLORREF)nAVal << 24));
+            int nSelIndex = CurrPalCtrl->GetSS();
+            CurrPalCtrl->GetBasePal()[nSelIndex] = (crNewCol | ((COLORREF)nAVal << 24));
 
-                CurrPalCtrl->UpdateIndex(nSelIndex);
-                CurrPalCtrl->UpdateCtrl();
+            CurrPalCtrl->UpdateIndex(nSelIndex);
+            CurrPalCtrl->UpdateCtrl();
 
-                ImgDispCtrl->UpdateCtrl();
+            ImgDispCtrl->UpdateCtrl();
 
-                UpdateMultiEdit(TRUE);
-            }
+            UpdateMultiEdit(TRUE);
         }
         else
         {
@@ -924,11 +912,6 @@ void CPalModDlg::OnBnNewCol()
     }
 
     safe_delete(ColorDlg);
-}
-
-void CPalModDlg::OnBnSetCol()
-{
-    UpdatePalSel(TRUE);
 }
 
 void CPalModDlg::OnColSett()

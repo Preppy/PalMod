@@ -9,11 +9,9 @@
 #define BGBMPFILE _T("bgbmp.bmp")
 constexpr auto c_badWindowPosValue = -512;
 
-constexpr auto c_mainDefaultGetColor = TRUE;
 constexpr auto c_mainDefaultAllowAlphaChanges = FALSE;
 constexpr auto c_mainDefaultShowAs32 = FALSE;
 constexpr auto c_mainDefaultProcSupp = TRUE;
-constexpr auto c_mainDefaultAutoSetCol = TRUE;
 
 constexpr auto c_AppRegistryRoot = _T("Software\\knarxed\\PalMod");
 
@@ -42,11 +40,9 @@ public:
 
     RECT main_szpos = { c_badWindowPosValue };
 
-    BOOL main_bGetColor = c_mainDefaultGetColor;
     BOOL main_fAllowAlphaChanges = c_mainDefaultAllowAlphaChanges;
     BOOL main_bShow32 = c_mainDefaultShowAs32;
     BOOL main_bProcSupp = c_mainDefaultProcSupp;
-    BOOL main_bAutoSetCol = c_mainDefaultAutoSetCol;
 
     //Preview
 

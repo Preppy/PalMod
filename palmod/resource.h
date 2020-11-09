@@ -22,7 +22,6 @@
 #define IDS_BCHECKMIX_TOOLTIP           112
 #define IDS_TOOLTIP_UPDATE              113
 #define IDS_TOOLTIP_REVERT              114
-#define IDS_TOOLTIP_SETCOLOR            115
 #define IDS_TOOLTIP_GETCOLOR            116
 #define IDS_ERROR_TEXTURE_LOAD          117
 #define IDS_ERROR_TEXTURE_NOGAME        118
@@ -68,7 +67,6 @@
 #define IDC_APPLY                       1023
 #define IDC_BUPDATE                     1023
 #define IDC_STATUS                      1024
-#define IDC_BSETCOL                     1024
 #define IDC_SHOWPREVIEW                 1025
 #define IDC_COLORIZE                    1026
 #define IDC_EDIT_ADESC                  1026
@@ -112,11 +110,9 @@
 #define ID_ZOOM_3X                      32781
 #define ID_ZOOM_4X                      32782
 #define ID_SHOW32BITRGB                 32783
-#define ID_GETCOLORONSELECT             32784
 #define ID_AUTO                         32785
 #define ID_FILE_PATCHCHANGES            32786
 #define ID_FILE_PATCH                   32787
-#define ID_AUTOSETCOL                   32788
 #define ID_EDIT_SELECTALL               32793
 #define ID_EDIT_SELECTNONE              32794
 #define ID_ABOUT_ABOUTPALMOD            32795

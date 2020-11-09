@@ -109,13 +109,10 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_EN_KILLFOCUS(IDC_EDIT_BL, &CPalModDlg::OnKillFocusEditBL)
     ON_EN_KILLFOCUS(IDC_EDIT_A, &CPalModDlg::OnKillFocusEditA)
     ON_BN_CLICKED(IDC_BNEWCOL, &CPalModDlg::OnBnNewCol)
-    ON_BN_CLICKED(IDC_BSETCOL, &CPalModDlg::OnBnSetCol)
     ON_COMMAND(ID_SHOW32BITRGB, &CPalModDlg::OnColSett)
     ON_BN_CLICKED(IDC_BUPDATE, &CPalModDlg::OnBnUpdate)
     ON_COMMAND(ID_FILE_PATCH, &CPalModDlg::OnFilePatch)
     ON_COMMAND(ID_TOOLS_GENERATEPATCHFILE, &CPalModDlg::OnSavePatchFile)
-    ON_COMMAND(ID_GETCOLORONSELECT, &CPalModDlg::OnGetCol)
-    ON_COMMAND(ID_AUTOSETCOL, &CPalModDlg::OnAutoSetCol)
     ON_WM_INITMENUPOPUP()
     ON_COMMAND(ID_SETTINGS_SETTINGS, &CPalModDlg::OnSettingsSettings)
     ON_COMMAND(ID_ACC_UNDO, &CPalModDlg::OnEditUndo)
@@ -237,7 +234,6 @@ BOOL CPalModDlg::OnInitDialog()
         m_ToolTip.AddTool(GetDlgItem(IDC_BCHECKMIX), IDS_BCHECKMIX_TOOLTIP);
         m_ToolTip.AddTool(GetDlgItem(IDC_BUPDATE), IDS_TOOLTIP_UPDATE);
         m_ToolTip.AddTool(GetDlgItem(IDC_BREVERT), IDS_TOOLTIP_REVERT);
-        m_ToolTip.AddTool(GetDlgItem(IDC_BSETCOL), IDS_TOOLTIP_SETCOLOR);
         m_ToolTip.AddTool(GetDlgItem(IDC_BNEWCOL), IDS_TOOLTIP_GETCOLOR);
 
         m_ToolTip.Activate(TRUE);
@@ -356,16 +352,9 @@ BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam)
     case IDC_SHOWPREVIEW:
         break;
     case IDC_BNEWCOL:
-    {
-        EnableWindow(hwnd, ((CPalModDlg*)lParam)->bEnabled * !((CPalModDlg*)lParam)->bAutoSetCol);
-    }
-    break;
-
     default:
-    {
         EnableWindow(hwnd, ((CPalModDlg*)lParam)->bEnabled);
-    }
-    break;
+        break;
     }
 
     return TRUE;

@@ -281,7 +281,7 @@ void CPalModDlg::OnEditCopy()
             strUnicodeData.Append(strFormatU);
         }
 
-        strUnicodeData.Append(L"  The data in the ROM at that location reads:\r\n\t");
+        strUnicodeData.Append(L"  PalMod's version of the data in the ROM at that location reads:\r\n\t");
 
         for (int i = 0; i < nWorkingAmt; i++)
         {
@@ -732,8 +732,6 @@ void CPalModDlg::UpdateSettingsMenuItems()
     CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
 
     pSettMenu->CheckMenuItem(ID_SHOW32BITRGB, bShow32 ? MF_CHECKED : MF_UNCHECKED);
-    pSettMenu->CheckMenuItem(ID_GETCOLORONSELECT, bGetCol ? MF_CHECKED : MF_UNCHECKED);
-    pSettMenu->CheckMenuItem(ID_AUTOSETCOL, bAutoSetCol ? MF_CHECKED : MF_UNCHECKED);
 
     bool show8ColorPerLine = (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE);
 

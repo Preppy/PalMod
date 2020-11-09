@@ -56,8 +56,6 @@ public:
     BOOL bEnabled = FALSE;
 
     BOOL bShow32 = TRUE;
-    BOOL bGetCol = TRUE;
-    BOOL bAutoSetCol = TRUE;
     BOOL bRGB = TRUE;
     BOOL bCopyFromBase = FALSE;
 
@@ -231,13 +229,10 @@ public:
     CString m_EditADesc = _T("A");
 
     afx_msg void OnBnNewCol();
-    afx_msg void OnBnSetCol();
     afx_msg void OnColSett();
     afx_msg void OnBnUpdate();
     afx_msg void OnFilePatch();
     afx_msg void OnSavePatchFile();
-    afx_msg void OnGetCol();
-    afx_msg void OnAutoSetCol();
 
     afx_msg void OnEditCopy();
     afx_msg void OnEditPaste();

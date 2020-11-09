@@ -828,4 +828,3 @@ BOOL CGame_CVS2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     return TRUE;
 }
-
