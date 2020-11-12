@@ -199,7 +199,7 @@ void CPalModDlg::OnEditCopy()
         // copied colors.
         // Here we map the color mode to the poster child game for that color mode.  Would make more sense
         // to just use color mode, but that'd break compatibility.
-        switch (CurrGame->GetColMode())
+        switch (CurrGame->GetColorMode())
         {
         case ColMode::COLMODE_GBA:
             // RGB444
@@ -414,7 +414,7 @@ void CPalModDlg::OnEditPaste()
         {
             CGameClass* CurrGame = GetHost()->GetCurrGame();
             UINT8 uCurrGFlag = CurrGame->GetGameFlag();
-            ColMode eCurrColMode = CurrGame->GetColMode();
+            ColMode eCurrColMode = CurrGame->GetColorMode();
             ColMode eColModeForPastedColor = eCurrColMode;
 
             COLORREF* rgPasteCol = new COLORREF[uPasteAmt];
@@ -505,7 +505,7 @@ void CPalModDlg::OnEditPaste()
                 if (eCurrColMode != eColModeForPastedColor)
                 {
                     OutputDebugString(_T("Pasted color is using a different color mode: switching to that game's color mode to ensure correct values...\n"));
-                    CurrGame->SetColMode(eColModeForPastedColor);
+                    CurrGame->SetColorMode(eColModeForPastedColor);
                 }
             }
 
@@ -530,7 +530,7 @@ void CPalModDlg::OnEditPaste()
                 //Set the color mode back
                 //Round the values with the switched game flag
                 OutputDebugString(_T("Reverting color mode back to this game's desired color mode...\n"));
-                CurrGame->SetColMode(eCurrColMode);
+                CurrGame->SetColorMode(eCurrColMode);
 
                 for (UINT16 i = 0; i < uPasteAmt; i++)
                 {
@@ -597,7 +597,7 @@ void CPalModDlg::OnEditPaste()
 
         CGameClass* CurrGame = GetHost()->GetCurrGame();
         UINT8 uCurrGFlag = CurrGame->GetGameFlag();
-        ColMode eCurrColMode = CurrGame->GetColMode();
+        ColMode eCurrColMode = CurrGame->GetColorMode();
 
         COLORREF colPasteCol = 0x0;
 

@@ -53,7 +53,7 @@ public:
 
     void SetExtraImg(UINT16 nImgId, UINT16 nUnitId, UINT16 nPalId);
 
-    void UpdatePalData();
+    void UpdatePalData(); // This is old code and uses its own logic
 
     UINT16** GetDataBuffer() { return ppDataBuffer; };
     void PostSetPal(UINT16 nUnitId, UINT16 nPalId);

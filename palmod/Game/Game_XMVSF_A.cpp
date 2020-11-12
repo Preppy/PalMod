@@ -48,8 +48,9 @@ CGame_XMVSF_A::CGame_XMVSF_A(UINT32 nConfirmedROMSize)
 
     InitDataBuffer();
 
-    //Set color mode
-    SetColMode(ColMode::COLMODE_12A);
+    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_17);
@@ -721,29 +722,4 @@ COLORREF* CGame_XMVSF_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
     NewPal[0] = 0xFF000000;
 
     return NewPal;
-}
-
-void CGame_XMVSF_A::UpdatePalData()
-{
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
-    {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-
-        if (srcDef->bAvail)
-        {
-            int nIndexStart = 1;
-
-            COLORREF* crSrc = srcDef->pPal;
-            UINT16 uAmt = srcDef->uPalSz;
-
-            for (UINT16 nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
-            {
-                m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr - 1] = (ConvCol(crSrc[nPICtr]) & 0x0FFF);
-            }
-
-            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
-        }
-    }
 }

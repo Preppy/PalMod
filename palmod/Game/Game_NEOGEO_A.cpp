@@ -49,8 +49,6 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_EVERY_COLOR, NO_SPECIAL_OPTIONS };
-
     if (GetExtraCt(m_nExtraUnit) == 0)
     {
         CString strIntro;
@@ -64,7 +62,8 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
 
     InitDataBuffer();
 
-    SetColModeInternal(CRegProc::GetColModeForUnknownGame());
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaAndColorModeInternal(CRegProc::GetColorModeForUnknownGame(), CRegProc::GetAlphaModeForUnknownGame());
 
     //Set game information
     nGameFlag = NEOGEO_A;
@@ -124,41 +123,81 @@ int CGame_NEOGEO_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
     return rgExtraCountAll[nUnitId];
 }
 
-BOOL CGame_NEOGEO_A::SetColModeInternal(ColMode NewMode)
+void CGame_NEOGEO_A::SetAlphaModeInternal(AlphaMode NewMode)
 {
+    return CGameClass::SetAlphaMode(NewMode);
+}
+
+void CGame_NEOGEO_A::SetAlphaMode(AlphaMode NewMode)
+{
+    CString strMsg = L"Updated.  Further palette changes will use this alpha setting.";
+    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
+
     // stomp the setting for posterity
-    CRegProc::SetColModeForUnknownGame(NewMode);
+    // We set this here as this is an explicit action overriding the implicit default for any
+    // given color format.
+    CRegProc::SetAlphaModeForUnknownGame(NewMode);
+
+    return SetAlphaModeInternal(NewMode);
+}
+
+BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting)
+{
+    // ColorMode and AlphaMode need to be loosely tied together.  However, we do want to allow
+    // people to override alpha mode for a given color mode.  The logic here allows for this.
+
+    // stomp the setting for posterity
+    CRegProc::SetColorModeForUnknownGame(NewMode);
+
+    bool fShouldSetAlpha = CurrentAlphaSetting == AlphaMode::Unknown;
+    AlphaMode suggestedAlphaSetting = CurrentAlphaSetting;
 
     switch (NewMode)
     {
     case ColMode::COLMODE_GBA:
+        suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_17);
         break;
     case ColMode::COLMODE_12A:
+        suggestedAlphaSetting= AlphaMode::GameDoesNotUseAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_17);
         break;
     case ColMode::COLMODE_15:
+        suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_8);
         break;
     case ColMode::COLMODE_15ALT:
+        suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_8);
         break;
     default: // Something is wrong: reset
         OutputDebugString(L"warning: unknown color mode was requested. Resetting to default\n");
+        __fallthrough;
     case ColMode::COLMODE_NEOGEO:
+        fShouldSetAlpha = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
+        suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_8);
         break;
     };
 
-    return CGameClass::SetColMode(NewMode);
+    if (fShouldSetAlpha)
+    {
+        SetAlphaModeInternal(suggestedAlphaSetting);
+    }
+
+    return CGameClass::SetColorMode(NewMode);
 }
 
-BOOL CGame_NEOGEO_A::SetColMode(ColMode NewMode)
+BOOL CGame_NEOGEO_A::SetColorMode(ColMode NewMode)
 {
     CString strMsg = L"Updated.  The next palette displayed will use this color format.";
+
     MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
 
-    return SetColModeInternal(NewMode);
+    // Reset alpha mode since we're switching color formats...
+    CRegProc::SetAlphaModeForUnknownGame(AlphaMode::Unknown);
+
+    return SetAlphaAndColorModeInternal(NewMode, AlphaMode::Unknown);
 }
 
 int CGame_NEOGEO_A::GetExtraLoc(UINT16 nUnitId)
@@ -674,46 +713,4 @@ BOOL CGame_NEOGEO_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
 
     return TRUE;
-}
-
-void CGame_NEOGEO_A::UpdatePalData()
-{
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
-    {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-
-        if (srcDef->bAvail)
-        {
-            COLORREF* crSrc = srcDef->pPal;
-
-            INT16 nTotalColorsRemaining = srcDef->uPalSz;
-            UINT16 nCurrentTotalWrites = 0;
-            const UINT16 nMaxSafeColorsToWrite = 16;
-            // First color is the transparency color.  For Unknown support, allow full writing of small chunks for now.
-            const UINT16 iFixedCounterPosition = (nTotalColorsRemaining >= nMaxSafeColorsToWrite) ? 0 : 0xFFFF;
-
-            while (nTotalColorsRemaining > 0)
-            {
-                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
-
-                for (UINT16 nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
-                {
-                    if (nPICtr == iFixedCounterPosition)
-                    {
-                        continue;
-                    }
-
-                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
-                }
-
-                nCurrentTotalWrites += nMaxSafeColorsToWrite;
-                nTotalColorsRemaining -= nMaxSafeColorsToWrite;
-            }
-
-            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
-        }
-    }
 }

@@ -44,15 +44,14 @@ CGame_VHUNT2_A::CGame_VHUNT2_A(UINT32 nConfirmedROMSize)
     m_pszExtraFilename = EXTRA_FILENAME_VHUNT2;
     m_nTotalPaletteCount = m_nTotalPaletteCountForVHUNT2;
 
-    createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
-
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     m_nLowestKnownPaletteRomLocation = 0x16c9c;
 
     InitDataBuffer();
 
-    //Set color mode
-    SetColMode(ColMode::COLMODE_12A);
+    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_17);
@@ -705,46 +704,4 @@ BOOL CGame_VHUNT2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     }
 
     return TRUE;
-}
-
-void CGame_VHUNT2_A::UpdatePalData()
-{
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
-    {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-
-        if (srcDef->bAvail)
-        {
-            COLORREF* crSrc = srcDef->pPal;
-
-            INT16 nTotalColorsRemaining = srcDef->uPalSz;
-            UINT16 nCurrentTotalWrites = 0;
-            // Every 16 colors there is another counter WORD (color length) to preserve.
-            const UINT16 nMaxSafeColorsToWrite = 16;
-            const UINT16 iFixedCounterPosition = 0; // The lead 'color' is a counter and needs to be preserved.
-
-            while (nTotalColorsRemaining > 0)
-            {
-                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
-
-                for (UINT16 nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
-                {
-                    if (nPICtr == iFixedCounterPosition)
-                    {
-                        continue;
-                    }
-
-                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
-                }
-
-                nCurrentTotalWrites += nMaxSafeColorsToWrite;
-                nTotalColorsRemaining -= nMaxSafeColorsToWrite;
-            }
-
-            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
-        }
-    }
 }

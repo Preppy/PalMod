@@ -50,8 +50,9 @@ CGame_WakuWaku7_A::CGame_WakuWaku7_A(UINT32 nConfirmedROMSize)
 
     InitDataBuffer();
 
-    //Set color mode
-    SetColMode(ColMode::COLMODE_NEOGEO);
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_8);
@@ -687,29 +688,4 @@ BOOL CGame_WakuWaku7_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
     }
 
     return TRUE;
-}
-
-void CGame_WakuWaku7_A::UpdatePalData()
-{
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
-    {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-
-        if (srcDef->bAvail)
-        {
-            // First color is the transparency color
-            const UINT16 nIndexStart = 1;
-            COLORREF* crSrc = srcDef->pPal;
-
-            for (UINT16 nPICtr = nIndexStart; nPICtr < srcDef->uPalSz; nPICtr++)
-            {
-                m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = ConvCol(crSrc[nPICtr]);
-
-            }
-
-            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
-        }
-    }
 }

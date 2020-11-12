@@ -10,6 +10,7 @@ constexpr auto c_mainAllowAlphaChanges = _T("main_AllowAlphaChanges"); // increm
 constexpr auto c_mainWndColorsPerLine = _T("main_wndColorsPerLine");
 constexpr auto c_mainWndMaxColorsPerPage = _T("extras_MaxColorsPerPage");
 constexpr auto c_mainWndForcePeerPreviewWindow = _T("extras_ForcePeerPreviewWindow");
+constexpr auto c_mainUnknownGameAlphaMode = _T("main_UnknownGameAlphaMode");
 constexpr auto c_mainUnknownGameColMode = _T("main_UnknownGameColMode");
 
 constexpr auto c_nPrefSavePaletteToMemory = _T("pref_ShouldSavePaletteToMemory");
@@ -70,7 +71,19 @@ int CRegProc::GetUserSavePaletteToMemoryPreference()
     return nShouldAutoSavePalettesToMemory;
 }
 
-void CRegProc::SetColModeForUnknownGame(ColMode colorMode)
+void CRegProc::SetAlphaModeForUnknownGame(AlphaMode alphaMode)
+{
+    HKEY hKey;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        RegSetValueEx(hKey, c_mainUnknownGameAlphaMode, 0, REG_DWORD, (BYTE*)&alphaMode, sizeof(DWORD));
+        RegCloseKey(hKey);
+    }
+}
+
+void CRegProc::SetColorModeForUnknownGame(ColMode colorMode)
 {
     HKEY hKey;
 
@@ -152,7 +165,29 @@ bool CRegProc::ShouldForcePeerPreviewWindow()
     return (shouldForcePeerWindow == 1);
 }
 
-ColMode CRegProc::GetColModeForUnknownGame()
+AlphaMode CRegProc::GetAlphaModeForUnknownGame()
+{
+    HKEY hKey;
+    DWORD dwAlphaMode = (DWORD)AlphaMode::Unknown;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_READ, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        DWORD RegType = REG_DWORD;
+        DWORD GetSz = sizeof(DWORD);
+
+        if (RegQueryValueEx(hKey, c_mainUnknownGameAlphaMode, 0, &RegType, (BYTE*)&dwAlphaMode, &GetSz) != ERROR_SUCCESS)
+        {
+            dwAlphaMode = (DWORD)AlphaMode::Unknown;
+        }
+
+        RegCloseKey(hKey);
+    }
+
+    return (AlphaMode)dwAlphaMode;
+}
+
+ColMode CRegProc::GetColorModeForUnknownGame()
 {
     HKEY hKey;
     DWORD dwColMode = (DWORD)ColMode::COLMODE_NEOGEO;

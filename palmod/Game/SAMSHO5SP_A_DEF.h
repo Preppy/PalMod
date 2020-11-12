@@ -562,7 +562,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_A[] =
     { L"Rimururu A (Normal)", 0x00d7000, 0x00d7040, indexSamSho5Sprites_Rimururu },
     { L"Rimururu A (Rage)", 0x00d7040, 0x00d7080, indexSamSho5Sprites_Rimururu },
     { L"Rimururu A (SON)", 0x00d7240, 0x00d7280, indexSamSho5Sprites_Rimururu },
-    { L"Konru A", 0x00d70C0, 0x00d70E0 },
+    { L"Konru A", 0x00d72C0, 0x00d72E0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_B[] =

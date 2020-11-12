@@ -51,8 +51,9 @@ CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
 
     InitDataBuffer();
 
-    //Set color mode
-    SetColMode(ColMode::COLMODE_NEOGEO);
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_8);

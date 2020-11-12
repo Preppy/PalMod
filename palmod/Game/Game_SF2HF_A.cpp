@@ -69,8 +69,9 @@ CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
 
     InitDataBuffer();
 
-    //Set color mode
-    SetColMode(ColMode::COLMODE_12A);
+    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode=
     BasePalGroup.SetMode(ePalType::PALTYPE_17);
@@ -79,8 +80,6 @@ CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
     nGameFlag = SF2HF_A;
     nImgGameFlag = IMGDAT_SECTION_ST;
     nImgUnitAmt = SF2HF_A_NUM_IMG_UNITS;
-
-    createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
 
     nFileAmt = 1;
 
@@ -937,29 +936,4 @@ BOOL CGame_SF2HF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     return TRUE;
-}
-
-void CGame_SF2HF_A::UpdatePalData()
-{
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
-    {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-        if (srcDef->bAvail)
-        {
-            // First color is the transparency color
-            const UINT16 nIndexStart = 1;
-
-            COLORREF* crSrc = srcDef->pPal;
-            UINT16 uAmt = srcDef->uPalSz;
-
-            for (UINT16 nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
-            {
-                m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr - 1] = ConvCol(crSrc[nPICtr]) & 0xFFF;
-            }
-
-            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
-        }
-    }
 }

@@ -4,6 +4,7 @@
 
 BOOL CGameClass::bPostSetPalProc = TRUE;
 BOOL CGameClass::m_fAllowTransparency = FALSE;
+AlphaMode CGameClass::CurrAlphaMode = AlphaMode::Unknown;
 
 #define GAMECLASS_DBG 0
 
@@ -138,7 +139,7 @@ void CGameClass::ClearSetImgTicket(sImgTicket* NewImgTicket)
     CurrImgTicket = NewImgTicket;
 }
 
-BOOL CGameClass::SetColMode(ColMode NewMode)
+BOOL CGameClass::SetColorMode(ColMode NewMode)
 {
     if (CurrColMode != NewMode)
     {
@@ -147,22 +148,22 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
         switch (NewMode)
         {
         case ColMode::COLMODE_GBA:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMOD_GBA (ARGB555)"));
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMOD_GBA (ARGB555)"));
             break;
         case ColMode::COLMODE_12A:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMOD_12A (ARGB444)"));
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMOD_12A (ARGB444)"));
             break;
         case ColMode::COLMODE_15:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMODE_15 (BGR555)"));
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_15 (BGR555)"));
             break;
         case ColMode::COLMODE_15ALT:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMODE_15ALT (RGB555)"));
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_15ALT (RGB555)"));
             break;
         case ColMode::COLMODE_NEOGEO:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : Switching color mode to '%s'.\n"), _T("COLMODE_NEOGEO (RGB666)"));
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_NEOGEO (RGB666)"));
             break;
         default:
-            strDebugInfo.Format(_T("CGameClass::SetColMode : unsupported color mode.\n"));
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : unsupported color mode.\n"));
             break;
         }
         OutputDebugString(strDebugInfo);
@@ -197,31 +198,19 @@ BOOL CGameClass::SetColMode(ColMode NewMode)
     }
 }
 
-UINT16 CGameClass::CONV_32_GBA(UINT32 inCol)
-{
-    UINT16 auxa = ((inCol & 0xFF000000) >> 24);
-    UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
-    UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
-    UINT16 auxr = ((inCol & 0x000000FF));
-
-    auxa = (auxa == 0xFF) ? 0x1 : 0;
-
-    return (((auxr >> 3) & 31) | (((auxg >> 3) & 31) << 5) | (((auxb >> 3) & 31) << 10)) | (auxa << 15);
-}
-
 UINT32 CGameClass::CONV_GBA_32(UINT16 inCol)
 {
-    UINT32 red =    (inCol        & 31) << 3;
-    UINT32 green = ((inCol >> 5)  & 31) << 3;
-    UINT32 blue =  ((inCol >> 10) & 31) << 3;
-    UINT32 alpha = ((inCol >> 15) &  1) << 3;
+    UINT32 red = (inCol & 31) << 3;
+    UINT32 green = ((inCol >> 5) & 31) << 3;
+    UINT32 blue = ((inCol >> 10) & 31) << 3;
+    UINT32 alpha = ((inCol >> 15) & 1) << 3;
 
     // account for rounding
     red += red / 32;
     green += green / 32;
     blue += blue / 32;
 
-    if (alpha == 0x8)
+    if ((alpha == 0x8) || (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha))
     {
         alpha = 0xFF;
     }
@@ -229,31 +218,23 @@ UINT32 CGameClass::CONV_GBA_32(UINT16 inCol)
     return ((alpha << 24) | (blue << 16) | (green << 8) | (red));
 }
 
-UINT16 CGameClass::CONV_32_12A(UINT32 inCol)
+UINT16 CGameClass::CONV_32_GBA(UINT32 inCol)
 {
-    //UINT16 swapped = SWAP_16(inCol);
-
     UINT16 auxa = ((inCol & 0xFF000000) >> 24);
     UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
     UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
     UINT16 auxr = ((inCol & 0x000000FF));
 
-    auxa = (auxa > (15 * 17)) ? (15 * 17) : auxa;
-    auxr = (auxr > (15 * 17)) ? (15 * 17) : auxr;
-    auxg = (auxg > (15 * 17)) ? (15 * 17) : auxg;
-    auxb = (auxb > (15 * 17)) ? (15 * 17) : auxb;
+    if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
+    {
+        auxa = 0;
+    }
+    else
+    {
+        auxa = (auxa == 0xFF) ? 0x1 : 0;
+    }
 
-    auxr = (UINT16)round(auxr / 17.0);
-    auxg = (UINT16)round(auxg / 17.0);
-    auxb = (UINT16)round(auxb / 17.0);
-    auxa = (UINT16)round(auxa / 17.0);
-
-    //auxb = auxb;
-    auxg = auxg << (4);
-    auxr = auxr << (8);
-    auxa = auxa << (12);
-
-    return (auxb | auxg | auxr | auxa);
+    return (((auxr >> 3) & 31) | (((auxg >> 3) & 31) << 5) | (((auxb >> 3) & 31) << 10)) | (auxa << 15);
 }
 
 UINT32 CGameClass::CONV_12A_32(UINT16 inCol)
@@ -268,10 +249,48 @@ UINT32 CGameClass::CONV_12A_32(UINT16 inCol)
     auxb *= 17;
     auxa *= 17;
 
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xFF;
+    }
+
     //auxr = auxr;
     auxg = auxg << 8;
     auxb = auxb << 16;
     auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT16 CGameClass::CONV_32_12A(UINT32 inCol)
+{
+    UINT16 auxa = ((inCol & 0xFF000000) >> 24);
+    UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
+    UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT16 auxr = ((inCol & 0x000000FF));
+
+    auxr = (auxr > (15 * 17)) ? (15 * 17) : auxr;
+    auxg = (auxg > (15 * 17)) ? (15 * 17) : auxg;
+    auxb = (auxb > (15 * 17)) ? (15 * 17) : auxb;
+
+    auxr = (UINT16)round(auxr / 17.0);
+    auxg = (UINT16)round(auxg / 17.0);
+    auxb = (UINT16)round(auxb / 17.0);
+
+    //auxb = auxb;
+    auxg = auxg << 4;
+    auxr = auxr << 8;
+
+    if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
+    {
+        auxa = 0;
+    }
+    else
+    {
+        auxa = (auxa > (15 * 17)) ? (15 * 17) : auxa;
+        auxa = (UINT16)round(auxa / 17.0);
+        auxa = auxa << 12;
+    }
 
     return (auxb | auxg | auxr | auxa);
 }
@@ -283,6 +302,12 @@ UINT32 CGameClass::CONV_15_32(UINT16 inCol)
     UINT32 auxb = (swapped & 0x7C00) >> 10;
     UINT32 auxg = (swapped & 0x3E0) >> 5;
     UINT32 auxr = (swapped & 0x1F);
+    UINT32 auxa = 0x0;
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xFF;
+    }
 
     auxr = auxr << 3;
     auxg = auxg << 3;
@@ -296,8 +321,9 @@ UINT32 CGameClass::CONV_15_32(UINT16 inCol)
     //auxr = auxr;
     auxg = auxg << 8;
     auxb = auxb << 16;
+    auxa = auxa << 24;
 
-    return (auxb | auxg | auxr | 0xFF000000);
+    return (auxb | auxg | auxr | auxa);
 }
 
 UINT16 CGameClass::CONV_32_15(UINT32 inCol)
@@ -336,6 +362,11 @@ UINT32 CGameClass::CONV_15ALT_32(UINT16 inCol)
     auxg += auxg / 32;
     auxb += auxb / 32;
 
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xFF;
+    }
+
     //auxr = auxr; no-op
     auxg = auxg << 8;
     auxb = auxb << 16;
@@ -351,15 +382,23 @@ UINT16 CGameClass::CONV_32_15ALT(UINT32 inCol)
     UINT16 auxg = (inCol & 0x0000FF00) >> 8;
     UINT16 auxr = (inCol & 0x000000FF);
 
-    auxa = (auxa != 0) ? 1 : 0;
     auxb = (UINT16)round(auxb / 8);
     auxg = (UINT16)round(auxg / 8);
     auxr = (UINT16)round(auxr / 8);
 
-    auxa = auxa << 15;
     auxr = auxr << 10;
     auxg = auxg << 5;
     //auxb = auxb; no-op
+
+    if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
+    {
+        auxa = 0;
+    }
+    else
+    {
+        auxa = (auxa != 0) ? 1 : 0;
+        auxa = auxa << 15;
+    }
 
     return auxb | auxg | auxr | auxa;
 }
@@ -441,12 +480,13 @@ UINT32 CGameClass::CONV_NEOGEO_32(UINT16 nColorData)
     UINT8 greenm = ((nColorData >> 0x4) & 0x0f) * 4;
     UINT8 blue1 = ((nColorData >> 0xc) & 0x01) * 2;
     UINT8 bluem = ((nColorData >> 0x0) & 0x0f) * 4;
+    UINT32 auxa = 0xFF;
 
     UINT8 blue =  NGColorVals[((blue1 + bluem) - darkbit) + 1];
     UINT8 green = NGColorVals[((green1 + greenm) - darkbit) + 1];
     UINT8 red =   NGColorVals[((red1 + redm) - darkbit) + 1];
 
-    UINT32 color = 0xff000000 | (blue << 16) | (green << 8) | (red);
+    UINT32 color = (auxa << 24) | (blue << 16) | (green << 8) | (red);
 
     //CString strColor;
     //strColor.Format(_T("ROM : neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n"), nColorData, color, red, green, blue);
@@ -614,17 +654,6 @@ COLORREF* CGameClass::CreatePal(UINT16 nUnitId, UINT16 nPalId)
         const UINT16 nCurrentPos = i + createPalOptions.nStartingPosition;
 
         NewPal[nCurrentPos] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
-
-        if (nCurrentPos != 0)
-        {
-            // First color is the transparency color: we want to leave that alone
-            NewPal[nCurrentPos] |= createPalOptions.crForcedColorValues;
-        }
-    }
-
-    if (createPalOptions.crForcedFirstColorValue != 0)
-    {
-        NewPal[0] = createPalOptions.crForcedFirstColorValue;
     }
 
     return NewPal;
@@ -732,13 +761,11 @@ BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int n
         }
 
         //Create the palette
-        const UINT32 uForcedAlphaForDisplay = m_fGameUsesAlphaValue ? 0 : 0xFF000000;
-
         *pNewPal = new COLORREF[nNewPalSzCpy];
 
         for (int nPICtr = 0; nPICtr < nNewPalSzCpy; nPICtr++)
         {
-            (*pNewPal)[nPICtr] = ConvPal(pMulRg[nPICtr]) | uForcedAlphaForDisplay;
+            (*pNewPal)[nPICtr] = ConvPal(pMulRg[nPICtr]);
         }
 
         *nNewPalSz = nNewPalSzCpy;
@@ -762,12 +789,11 @@ void CGameClass::UpdatePalData()
         if (srcDef->bAvail)
         {
             COLORREF* crSrc = srcDef->pPal;
-
             INT16 nTotalColorsRemaining = srcDef->uPalSz;
             UINT16 nCurrentTotalWrites = 0;
             // Every 16 colors there is another counter WORD (color length) to preserve.
-            const UINT16 nMaxSafeColorsToWrite = 16;
-            const UINT16 iFixedCounterPosition = 0; // The lead 'color' is a counter and needs to be preserved.
+            const UINT16 nMaxSafeColorsToWrite = (UINT16)createPalOptions.eWriteOutputOptions;
+            const UINT16 iFixedCounterPosition = 0; // The lead 'color' in some games is a counter, in others it's the transparency color.  Don't touch.
 
             while (nTotalColorsRemaining > 0)
             {
@@ -781,7 +807,7 @@ void CGameClass::UpdatePalData()
                     }
 
                     const UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
+                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - createPalOptions.nStartingPosition] = ConvCol(crSrc[iCurrentArrayOffset]);
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;

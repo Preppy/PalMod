@@ -172,8 +172,9 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
 
     ResetActiveSFA2Revision();
 
-    //Set color mode
-    SetColMode(ColMode::COLMODE_12A);
+    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_17);
@@ -182,8 +183,6 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     nGameFlag = SFA2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = SFA2_A_NUM_IMG_UNITS;
-
-    createPalOptions = { SKIP_FIRST_COLOR, FORCE_ALPHA_ON_EVERY_COLOR, FORCE_ALPHA_ON_FIRST_COLOR };
 
     nFileAmt = 1;
 
@@ -2016,46 +2015,4 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     return TRUE;
-}
-
-void CGame_SFA2_A::UpdatePalData()
-{
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
-    {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-
-        if (srcDef->bAvail)
-        {
-            COLORREF* crSrc = srcDef->pPal;
-
-            INT16 nTotalColorsRemaining = srcDef->uPalSz;
-            UINT16 nCurrentTotalWrites = 0;
-            // Every 16 colors there is another counter WORD (color length) to preserve.
-            const UINT16 nMaxSafeColorsToWrite = 16;
-            const UINT16 iFixedCounterPosition = 0; // The lead 'color' is a counter and needs to be preserved.
-
-            while (nTotalColorsRemaining > 0)
-            {
-                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
-
-                for (UINT16 nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
-                {
-                    if (nPICtr == iFixedCounterPosition)
-                    {
-                        continue;
-                    }
-
-                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - 1] = (ConvCol(crSrc[iCurrentArrayOffset]) & 0x0FFF);
-                }
-
-                nCurrentTotalWrites += nMaxSafeColorsToWrite;
-                nTotalColorsRemaining -= nMaxSafeColorsToWrite;
-            }
-
-            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
-        }
-    }
 }

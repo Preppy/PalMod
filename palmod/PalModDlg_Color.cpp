@@ -328,18 +328,18 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 void CPalModDlg::OnRadioHLS()
 {
     UpdateData();
-    SetColMode(FALSE);
+    SetColorMode(FALSE);
     UpdateData(FALSE);
 }
 
 void CPalModDlg::OnRadioRGB()
 {
     UpdateData();
-    SetColMode(TRUE);
+    SetColorMode(TRUE);
     UpdateData(FALSE);
 }
 
-void CPalModDlg::SetColMode(int nColMode)
+void CPalModDlg::SetColorMode(int nColMode)
 {
     if (bRGB != nColMode)
     {

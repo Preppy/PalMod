@@ -204,11 +204,15 @@ void CPalModDlg::SetColorsPerLineTo16()
 
 void CPalModDlg::UpdateColorFormatMenu()
 {
+    bool canChangeFormat = false;
+    bool canChangeAlpha = false;
+    CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
+
     if (GetHost()->GetCurrGame())
     {
-        CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
-        ColMode currColMode = GetHost()->GetCurrGame()->GetColMode();
-        const bool canChangeFormat = GetHost()->GetCurrGame()->AllowUpdatingColorFormatForGame();
+        ColMode currColMode = GetHost()->GetCurrGame()->GetColorMode();
+        AlphaMode currAlphaMode = GetHost()->GetCurrGame()->GetAlphaMode();
+        canChangeAlpha = canChangeFormat = GetHost()->GetCurrGame()->AllowUpdatingColorFormatForGame();
 
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB444, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_12A) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_15) ? MF_CHECKED : MF_UNCHECKED));
@@ -216,11 +220,33 @@ void CPalModDlg::UpdateColorFormatMenu()
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_GBA, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_GBA) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB666, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_NEOGEO) ? MF_CHECKED : MF_UNCHECKED));
 
-        pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB444, !canChangeFormat);
-        pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555, !canChangeFormat);
-        pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_ALT, !canChangeFormat);
-        pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_GBA, !canChangeFormat);
-        pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB666, !canChangeFormat);
+        // There's no allowance for alpha with NEOGEO colors
+        canChangeAlpha = canChangeAlpha && (currColMode != ColMode::COLMODE_NEOGEO);
+
+        pSettMenu->CheckMenuItem(ID_ALPHASETTING_FIXED, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameUsesFixedAlpha) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_ALPHASETTING_VARIABLE, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameUsesVariableAlpha) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_ALPHASETTING_UNUSED, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameDoesNotUseAlpha) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_ALPHASETTING_CHAOTIC, MF_BYCOMMAND | ((currAlphaMode == AlphaMode::GameUsesChaoticAlpha) ? MF_CHECKED : MF_UNCHECKED));
+    }
+
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB444, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_ALT, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_GBA, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB666, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+
+    pSettMenu->EnableMenuItem(ID_ALPHASETTING_FIXED, canChangeAlpha ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_ALPHASETTING_UNUSED, canChangeAlpha ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_ALPHASETTING_VARIABLE, MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_ALPHASETTING_CHAOTIC, MF_DISABLED);
+
+}
+
+void CPalModDlg::SetAlphaModeTo(AlphaMode newAlphaMode)
+{
+    if (GetHost()->GetCurrGame())
+    {
+        GetHost()->GetCurrGame()->SetAlphaMode(newAlphaMode);
     }
 }
 
@@ -228,7 +254,7 @@ void CPalModDlg::SetColorFormatTo(ColMode newColMode)
 {
     if (GetHost()->GetCurrGame())
     {
-        GetHost()->GetCurrGame()->SetColMode(newColMode);
+        GetHost()->GetCurrGame()->SetColorMode(newColMode);
     }
 }
 

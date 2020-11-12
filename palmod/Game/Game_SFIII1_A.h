@@ -61,7 +61,5 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
     BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) override;
 
-    void UpdatePalData();
-
     static stExtraDef* SFIII1_A_50_EXTRA_CUSTOM;
 };

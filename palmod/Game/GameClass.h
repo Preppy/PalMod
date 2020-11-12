@@ -17,6 +17,15 @@ struct sFileRule
     TCHAR szAltFileName[MAX_FILENAME_LENGTH] = _T("uninit");
 };
 
+enum class AlphaMode
+{
+    GameDoesNotUseAlpha,
+    GameUsesFixedAlpha,
+    Unknown,
+    GameUsesVariableAlpha,  // Modifiable, as in the case of MvC2.
+    GameUsesChaoticAlpha,   // Yes, this is odd.  ST-GBA appears doesn't have alpha consistently set.
+};
+
 enum class ColMode
 {
     // If you change this list you must update CPalModDlg::OnEditCopy and CGame_NEOGEO_A::GetGameName and ::CGame_NEOGEO_A
@@ -68,6 +77,7 @@ protected:
     int nSrcPalAmt[MAX_PALETTES_DISPLAYABLE] = { 0 };
     int nSrcPalInc[MAX_PALETTES_DISPLAYABLE] = { 0 };
 
+    static AlphaMode CurrAlphaMode;
     ColMode CurrColMode = ColMode::COLMODE_12A;
     sImgTicket* CurrImgTicket = nullptr;
     CPalGroup BasePalGroup;
@@ -100,17 +110,20 @@ protected:
     enum PALOptionValues
     {
         NO_SPECIAL_OPTIONS = 0,
-        SKIP_FIRST_COLOR = 1,
-        FORCE_ALPHA_ON_EVERY_COLOR = 0xFF000000,
-        FORCE_ALPHA_ON_FIRST_COLOR = 0xFF000000,
+        OFFSET_PALETTE_BY_ONE = 1,
+    };
+
+    enum PALWriteOutputOptions
+    {
+        WRITE_16 = 16,
+        WRITE_MAX = 256,
     };
 
     struct sCreatePalOptions
     {
         // Normally zero, but we can offset by one in some cases.
         UINT8 nStartingPosition =     NO_SPECIAL_OPTIONS;
-        int crForcedColorValues =     NO_SPECIAL_OPTIONS;
-        int crForcedFirstColorValue = NO_SPECIAL_OPTIONS;
+        PALWriteOutputOptions eWriteOutputOptions = PALWriteOutputOptions::WRITE_16;
     };
 
     sCreatePalOptions createPalOptions;
@@ -170,8 +183,11 @@ public:
     LPCTSTR GetLoadDir() { return szDir; };
     BOOL SetLoadDir(LPCTSTR szNewDir);
 
-    ColMode GetColMode() { return CurrColMode; };
-    virtual BOOL SetColMode(ColMode NewMode);
+    AlphaMode GetAlphaMode() { return CurrAlphaMode; };
+    virtual void SetAlphaMode(AlphaMode NewMode) { CurrAlphaMode = NewMode; };
+
+    ColMode GetColorMode() { return CurrColMode; };
+    virtual BOOL SetColorMode(ColMode NewMode);
     virtual bool AllowUpdatingColorFormatForGame() { return false; };
 
     BOOL SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt = 1, int nMax = 6);

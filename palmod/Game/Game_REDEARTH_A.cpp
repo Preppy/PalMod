@@ -42,16 +42,15 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize)
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 448;
     m_nLowestKnownPaletteRomLocation = 0x1de000;
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, NO_SPECIAL_OPTIONS, NO_SPECIAL_OPTIONS };
-
     CString strInfo;
     strInfo.Format(_T("CGame_REDEARTH_A::CGame_REDEARTH_A: Loaded REDEARTH_A with %u Extras\n"), GetExtraCt(m_nExtraUnit));
     OutputDebugString(strInfo);
 
     InitDataBuffer();
 
-    //Set color mode
-    SetColMode(ColMode::COLMODE_15);
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX};
+    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
+    SetColorMode(ColMode::COLMODE_15);
 
     //Set palette conversion mode=
     BasePalGroup.SetMode(ePalType::PALTYPE_8);
@@ -730,40 +729,4 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     }
 
     return TRUE;
-}
-
-void CGame_REDEARTH_A::UpdatePalData()
-{
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
-    {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-        if (srcDef->bAvail)
-        {
-            // First color is the transparency color
-            const UINT16 nIndexStart = 1;
-
-            COLORREF* crSrc = srcDef->pPal;
-            UINT16 uAmt = srcDef->uPalSz;
-
-            // This was in the 2008 code base, but ... there's no reason to do this.  The gridlines are shown in-game, even if not in PalMod.
-#ifdef OBSOLETE
-            UINT16 nBasicAmt = GetBasicAmt(srcDef->uUnitId);
-
-            if ((srcDef->uPalId >= nBasicAmt) && (srcDef->uPalId < (nBasicAmt * 2)) && (srcDef->uUnitId != REDEARTH_A_EXTRALOC)) //Portrait
-            {
-                nIndexStart = 3; //Skip surrounding portrait indexes: those gridlines aren't visible in the preview
-            }
-#endif
-
-            for (UINT16 nPICtr = nIndexStart; nPICtr < uAmt; nPICtr++)
-            {
-                m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = ConvCol(crSrc[nPICtr]);
-
-            }
-
-            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
-        }
-    }
 }

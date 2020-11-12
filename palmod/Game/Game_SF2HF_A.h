@@ -68,8 +68,6 @@ public:
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
     BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) override;
 
-    void UpdatePalData();
-
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* SF2HF_A_21_EXTRA_CUSTOM;

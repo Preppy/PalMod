@@ -179,6 +179,10 @@
 #define ID_SETTINGS_CLICKANDFIND        32863
 #define ID_WARNING_1SPRITE2PALS         32864
 #define ID_LD_SFIII3ARCADE4rd           32865
+#define ID_ALPHASETTING_FIXED           32866
+#define ID_ALPHASETTING_VARIABLE        32867
+#define ID_ALPHASETTING_UNUSED          32868
+#define ID_ALPHASETTING_CHAOTIC         32869
 
 // Next default values for new objects
 // 

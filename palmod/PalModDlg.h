@@ -113,6 +113,12 @@ public:
     void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_GBA); };
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_NEOGEO); };
 
+    void SetAlphaModeTo(AlphaMode newAlphaMode);
+    void SetAlphaModeToFixed() { SetAlphaModeTo(AlphaMode::GameUsesFixedAlpha); };
+    void SetAlphaModeToUnused() { SetAlphaModeTo(AlphaMode::GameDoesNotUseAlpha); };
+    void SetAlphaModeToVariable() { SetAlphaModeTo(AlphaMode::GameUsesVariableAlpha); };
+    void SetAlphaModeToChaotic() { SetAlphaModeTo(AlphaMode::GameUsesChaoticAlpha); };
+
     void UpdateColorFormatMenu();
 
     void PostGameLoad();
@@ -133,7 +139,7 @@ public:
     bool SavePaletteToPAL(LPCTSTR pszFileName);
 
     void UpdateSliderSel(BOOL bModeChange = FALSE, BOOL bResetRF = FALSE);
-    void SetColMode(int nColMode);
+    void SetColorMode(int nColMode);
     void GetPlaneData();
     void UpdatePalSel(BOOL bSetSingleCol = FALSE);
 

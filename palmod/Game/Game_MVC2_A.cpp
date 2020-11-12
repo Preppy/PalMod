@@ -52,12 +52,12 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, NO_SPECIAL_OPTIONS, FORCE_ALPHA_ON_FIRST_COLOR };
-
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(ColMode::COLMODE_12A);
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
+    SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_17);

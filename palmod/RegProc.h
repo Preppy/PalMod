@@ -24,9 +24,11 @@ public:
     void LoadReg(int src);
     void SaveReg(int src);
 
-    static void SetColModeForUnknownGame(ColMode colorMode);
+    static void SetAlphaModeForUnknownGame(AlphaMode alphaMode);
+    static void SetColorModeForUnknownGame(ColMode colorMode);
     static void SetColorsPerLine(DWORD dwColors);
-    static ColMode GetColModeForUnknownGame();
+    static AlphaMode GetAlphaModeForUnknownGame();
+    static ColMode GetColorModeForUnknownGame();
     static UINT16 GetColorsPerLine();
     static UINT16 GetMaxColorsPerPageOverride();
     static UINT16 GetMaxPalettePageSize();

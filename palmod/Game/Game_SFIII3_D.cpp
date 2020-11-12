@@ -21,7 +21,9 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(ColMode::COLMODE_15ALT);
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
+    SetColorMode(ColMode::COLMODE_15ALT);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_8);
@@ -282,28 +284,4 @@ COLORREF* CGame_SFIII3_D::CreatePal(UINT16 nUnitId, UINT16 nPalId)
     }
 
     return NewPal;
-}
-
-// Update the specific changed palettes for this character.
-void CGame_SFIII3_D::UpdatePalData()
-{
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
-    {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-        if (srcDef->bAvail)
-        {
-            COLORREF* crSrc = srcDef->pPal;
-            UINT16 uAmt = srcDef->uPalSz;
-
-            // First color is the transparency color
-            for (UINT16 nPICtr = 1; nPICtr < uAmt; nPICtr++)
-            {
-                m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][nPICtr] = ConvCol(crSrc[nPICtr]);
-            }
-
-            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
-            rgFileChanged[srcDef->uUnitId] = TRUE;
-        }
-    }
 }

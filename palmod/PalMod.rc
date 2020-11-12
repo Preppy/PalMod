@@ -388,6 +388,11 @@ BEGIN
             MENUITEM "RGB555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
             MENUITEM "RGB666 (NEO*GEO)",            ID_COLORFORMAT_RGB666
+            MENUITEM SEPARATOR
+            MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
+            MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED
+            MENUITEM "Variable Alpha",              ID_ALPHASETTING_VARIABLE
+            MENUITEM "Unknown Alpha",               ID_ALPHASETTING_CHAOTIC
         END
     END
     POPUP "&About"

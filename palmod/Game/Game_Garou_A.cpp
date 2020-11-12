@@ -51,8 +51,9 @@ CGame_Garou_A::CGame_Garou_A(UINT32 nConfirmedROMSize)
 
     InitDataBuffer();
 
-    //Set color mode
-    SetColMode(ColMode::COLMODE_NEOGEO);
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_8);
@@ -668,46 +669,4 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     }
 
     return TRUE;
-}
-
-void CGame_Garou_A::UpdatePalData()
-{
-    for (UINT16 nPalCtr = 0; nPalCtr < MAX_PALETTES_DISPLAYABLE; nPalCtr++)
-    {
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
-
-        if (srcDef->bAvail)
-        {
-            COLORREF* crSrc = srcDef->pPal;
-
-            INT16 nTotalColorsRemaining = srcDef->uPalSz;
-            UINT16 nCurrentTotalWrites = 0;
-            const UINT16 nMaxSafeColorsToWrite = 16;
-            // First color is the transparency color
-            const UINT16 iFixedCounterPosition = 0;
-
-            while (nTotalColorsRemaining > 0)
-            {
-                UINT16 nCurrentColorCountToWrite = min(nMaxSafeColorsToWrite, nTotalColorsRemaining);
-
-                for (UINT16 nPICtr = 0; nPICtr < nCurrentColorCountToWrite; nPICtr++)
-                {
-                    if (nPICtr == iFixedCounterPosition)
-                    {
-                        continue;
-                    }
-
-                    UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset] = ConvCol(crSrc[iCurrentArrayOffset]);
-                }
-
-                nCurrentTotalWrites += nMaxSafeColorsToWrite;
-                nTotalColorsRemaining -= nMaxSafeColorsToWrite;
-            }
-
-            MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
-            srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
-        }
-    }
 }

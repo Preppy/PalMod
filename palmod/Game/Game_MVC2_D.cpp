@@ -30,7 +30,9 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     InitDataBuffer();
 
     //Set color mode
-    SetColMode(ColMode::COLMODE_12A);
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
+    SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_17);
@@ -639,7 +641,7 @@ void CGame_MVC2_D::UpdatePalData()
                 else
                 {
                     // Force opaque
-                    ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ((ConvCol(crSrc[nPICtr]) & 0xFFF) | 0xF000);
+                    ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ((ConvCol(crSrc[nPICtr]) & 0x0FFF) | 0xF000);
                 }
             }
 
