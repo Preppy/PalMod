@@ -677,4 +677,3 @@ BOOL CGame_Windjammers_A::UpdatePalImg(int Node01, int Node02, int Node03, int N
 
     return TRUE;
 }
-        sPalDef* srcDef = BasePalGroup.GetPalDef(nPalCtr);
