@@ -7,6 +7,7 @@ constexpr auto c_previewWndPos = _T("prev_wndpos");
 constexpr auto c_mainWndPos_8ColorsPerLine = _T("main_wndpos_02"); // changed default app size so incrementing this
 constexpr auto c_mainWndPos_16ColorsPerLine = _T("main_wndpos_02_16c");
 constexpr auto c_mainAllowAlphaChanges = _T("main_AllowAlphaChanges"); // incremented for warning.
+constexpr auto c_mainExtraCopyInfo = _T("main_ExtraCopyInfo");
 constexpr auto c_mainWndColorsPerLine = _T("main_wndColorsPerLine");
 constexpr auto c_mainWndMaxColorsPerPage = _T("extras_MaxColorsPerPage");
 constexpr auto c_mainWndForcePeerPreviewWindow = _T("extras_ForcePeerPreviewWindow");
@@ -285,6 +286,11 @@ void CRegProc::LoadReg(int src)
             }
 #endif
 
+            if (RegQueryValueEx(hKey, c_mainExtraCopyInfo, 0, &RegType, (BYTE*)&main_bExtraCopyData, &GetSz) != ERROR_SUCCESS)
+            {
+                main_bExtraCopyData = c_mainDefaultExtraCopyData;
+            }
+
             RegType = REG_SZ;
             GetSz = RECT_STRSZ;
 
@@ -437,7 +443,8 @@ void CRegProc::SaveReg(int src)
             RegSetValueEx(hKey, c_mainAllowAlphaChanges, 0, REG_DWORD, (BYTE*)&main_fAllowAlphaChanges, sizeof(BOOL));
             RegSetValueEx(hKey, _T("main_show32"), 0, REG_DWORD, (BYTE*)&main_bShow32, sizeof(BOOL));
             RegSetValueEx(hKey, _T("main_procsupps"), 0, REG_DWORD, (BYTE*)&main_bProcSupp, sizeof(BOOL));
-            
+            RegSetValueEx(hKey, c_mainExtraCopyInfo, 0, REG_DWORD, (BYTE*)&main_bExtraCopyData, sizeof(BOOL));
+
             conv_str = RectToStr(main_szpos);
 
             CString strPosAndDpi;

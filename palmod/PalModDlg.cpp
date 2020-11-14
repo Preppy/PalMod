@@ -115,6 +115,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_TOOLS_GENERATEPATCHFILE, &CPalModDlg::OnSavePatchFile)
     ON_WM_INITMENUPOPUP()
     ON_COMMAND(ID_SETTINGS_SETTINGS, &CPalModDlg::OnSettingsSettings)
+    ON_COMMAND(ID_SETTINGS_EXTCOPYDATA, &CPalModDlg::OnChangeExtendedCopyData)    
     ON_COMMAND(ID_ACC_UNDO, &CPalModDlg::OnEditUndo)
     ON_COMMAND(ID_ACC_REDO, &CPalModDlg::OnEditRedo)
     ON_COMMAND(ID_ACC_COPY, &CPalModDlg::OnEditCopy)
@@ -378,7 +379,7 @@ BOOL CPalModDlg::SetLoadDir(CString* szOut)
         bi.hwndOwner = GetSafeHwnd();
         bi.pidlRoot = NULL;
         bi.pszDisplayName = pszBuffer;
-        bi.lpszTitle = _T("Select a target Directory"); //bugbug: hard-coded string
+        bi.lpszTitle = _T("Select a target Directory");
         bi.ulFlags = BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
         bi.lpfn = OnBrowseDialog;
         bi.lParam = 0;

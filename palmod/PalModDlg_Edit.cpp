@@ -222,13 +222,13 @@ void CPalModDlg::OnEditCopy()
             uCopyFlag1 = NEOGEO_A + k_nASCIICharacterOffset;
             break;
         default:
-            {
-                CString strMsg;
-                strMsg.Format(_T("Warning: The current color mode needs to have copy support added."));
-                MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-                uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
-                break;
-            }
+        {
+            CString strMsg;
+            strMsg.Format(_T("Warning: The current color mode needs to have copy support added."));
+            MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+            uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
+            break;
+        }
         }
 
         CopyText.Format("(%c%c", uCopyFlag1, uCopyFlag2);
@@ -256,7 +256,7 @@ void CPalModDlg::OnEditCopy()
                 CopyText.Append(FormatTxt);
             }
         }
-    
+
         CopyText.Append(")");
 
         sf.Write(CopyText, CopyText.GetLength());
@@ -272,30 +272,42 @@ void CPalModDlg::OnEditCopy()
         // The above handles copying colors between palmod
         // The below handles generating the string pasted to the Unicode clipboard. This contains more useful data.
         CString strUnicodeData;
-        CString strFormatU;
-        strUnicodeData.Format(L"%S\r\n\r\nThis palette begins in the ROM at location 0x%x .", CopyText.GetString(), CurrGame->GetCurrentPaletteLocation());
-        
-        if (nInitialOffsetDelta != 0)
+
+        strUnicodeData.Format(L"%S", CopyText.GetString());
+        if (bExtraCopyData)
         {
-            strFormatU.Format(L"  The current selection begins at ROM location 0x%x .", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * 2));
+            CString strFormatU;
+
+            strUnicodeData.Append(L"\r\n\r\nThe above data starting at '(' and ending at ')' is the color string you give to PalMod to copy a color, as in (\"\"0000) .");
+            strUnicodeData.Append(L" PalMod handles this automatically on CTRL+C /CTRL+V, but you're seeing 'secret' extra data right now using clipboard tricks.");
+            strUnicodeData.Append(L" The following data is additional debug information useful for ROM hacking:");
+
+            strFormatU.Format(L"\r\n\r\nThis palette begins in the ROM at location 0x%x .", CurrGame->GetCurrentPaletteLocation());
             strUnicodeData.Append(strFormatU);
-        }
 
-        strUnicodeData.Append(L"  PalMod's version of the data in the ROM at that location reads:\r\n\t");
-
-        for (int i = 0; i < nWorkingAmt; i++)
-        {
-            if (pSelIndex[i] || bCopyAll)
+            if (nInitialOffsetDelta != 0)
             {
-                uCurrData = CurrGame->ConvCol(CurrPal->GetBasePal()[i]);
-                uCurrData = _byteswap_ushort(uCurrData);
-
-                strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
+                strFormatU.Format(L"  The current selection begins at ROM location 0x%x .", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * 2));
                 strUnicodeData.Append(strFormatU);
             }
+
+            strUnicodeData.Append(L"  PalMod's version of the data in the ROM at that location reads:\r\n\t");
+
+            for (int i = 0; i < nWorkingAmt; i++)
+            {
+                if (pSelIndex[i] || bCopyAll)
+                {
+                    uCurrData = CurrGame->ConvCol(CurrPal->GetBasePal()[i]);
+                    uCurrData = _byteswap_ushort(uCurrData);
+
+                    strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
+                    strUnicodeData.Append(strFormatU);
+                }
+            }
+
+            strUnicodeData.Append(L"\r\n\r\nYou can turn off this secret extended data by going to PalMod's Settings menu.\r\n");
         }
 
-        strUnicodeData.Append(L"\r\n");
         OutputDebugString(strUnicodeData.GetString());
 
         CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
@@ -420,6 +432,7 @@ void CPalModDlg::OnEditPaste()
             COLORREF* rgPasteCol = new COLORREF[uPasteAmt];
 
             int nIndexCtr = 0, nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+            bool fWasColorImportedFromDifferentGame = false;
 
             if (uCurrGFlag != uPasteGFlag)
             {
@@ -504,6 +517,7 @@ void CPalModDlg::OnEditPaste()
 
                 if (eCurrColMode != eColModeForPastedColor)
                 {
+                    fWasColorImportedFromDifferentGame = true;
                     OutputDebugString(_T("Pasted color is using a different color mode: switching to that game's color mode to ensure correct values...\n"));
                     CurrGame->SetColorMode(eColModeForPastedColor);
                 }
@@ -578,9 +592,16 @@ void CPalModDlg::OnEditPaste()
             UpdateSliderSel();
 
             safe_delete_array(rgPasteCol);
-        }
 
-        SetStatusText(CString("Pasted a PalMod color string. Colors may be rounded as required by the game."));
+            if (fWasColorImportedFromDifferentGame)
+            {
+                SetStatusText(CString("Pasted a PalMod color string. Colors may be rounded as required by this game."));
+            }
+            else
+            {
+                SetStatusText(CString("Pasted a PalMod color string."));
+            }
+        }
     }
     else if (IsPasteRGB())
     {
@@ -737,6 +758,8 @@ void CPalModDlg::UpdateSettingsMenuItems()
 
     pSettMenu->CheckMenuItem(ID_COLORSPERLINE_8COLORSPERLINE, MF_BYCOMMAND | (show8ColorPerLine ? MF_CHECKED : MF_UNCHECKED));
     pSettMenu->CheckMenuItem(ID_COLORSPERLINE_16COLORSPERLINE, MF_BYCOMMAND | (show8ColorPerLine ? MF_UNCHECKED : MF_CHECKED));
+
+    pSettMenu->CheckMenuItem(ID_SETTINGS_EXTCOPYDATA, bExtraCopyData ? MF_CHECKED : MF_UNCHECKED);
 }
 
 void CPalModDlg::OnSettingsSettings()
@@ -767,6 +790,14 @@ void CPalModDlg::OnSettingsSettings()
             OnPalSelChange(0);
         }
     }
+}
+
+void CPalModDlg::OnChangeExtendedCopyData()
+{
+    bExtraCopyData = !bExtraCopyData;
+
+    CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
+    pSettMenu->CheckMenuItem(ID_SETTINGS_EXTCOPYDATA, bExtraCopyData ? MF_CHECKED : MF_UNCHECKED);
 }
 
 void CPalModDlg::OnEditUndo()

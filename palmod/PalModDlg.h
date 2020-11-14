@@ -58,6 +58,7 @@ public:
     BOOL bShow32 = TRUE;
     BOOL bRGB = TRUE;
     BOOL bCopyFromBase = FALSE;
+    BOOL bExtraCopyData = TRUE;
 
     BOOL fFileChanged = FALSE;
     BOOL bPalChanged = FALSE;
@@ -274,6 +275,7 @@ public:
     afx_msg void OnImportPalette();
     afx_msg void OnExportPalette();
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
+    afx_msg void OnChangeExtendedCopyData();
 
     afx_msg void OnLoadDir_Jojos50()        { OnLoadGameByDirectory(JOJOS_A_DIR_50); };
     afx_msg void OnLoadDir_Jojos51()        { OnLoadGameByDirectory(JOJOS_A_DIR_51); };

@@ -626,7 +626,7 @@ const sGame_PaletteDataset KOF02UM_S_CHRIS_PALETTES_MOVES[] =
 {
     { L"Chris MAX2 Transformation",    0x1ba00, 0x1ba20, indexKOFSprites_02UM_Chris, 0x04 },
     { L"Chris Super and Special Effects 1",   0x1ba20, 0x1ba40, indexKOFSprites_02UM_Chris, 0x02 },
-    { L"Chris Super and Special Effects 2",     0x1ba40, 0x1ba60, indexKOFSprites_02UM_Chris, 0x02 },
+    { L"Chris Super and Special Effects 2",   0x1ba40, 0x1ba60, indexKOFSprites_02UM_Chris, 0x02 },
     { L"Chris Chain Slide Touch Effects",     0x1ba60, 0x1ba80, indexKOFSprites_02UM_Chris, 0x03 },
 };
 
@@ -634,7 +634,7 @@ const sGame_PaletteDataset KOF02UM_S_OCHRIS_PALETTES_MOVES[] =
 {
     { L"Orochi Chris Orochi Fire",  0x1d600, 0x1d620, indexKOFSprites_02UM_ChrisOChi, 0x02 },
     { L"Orochi Chris Idle Orochi Fire",  0x1d640, 0x1d660, indexKOFSprites_02UM_ChrisOChi, 0x03 },
-    { L"Orochi Chris Ankoku Orochinagi Fire 1",    0x1d660, 0x1d680 },
+    { L"Orochi Chris Ankoku Orochinagi Fire 1",  0x1d660, 0x1d680 },
     { L"Orochi Chris Ankoku Orochinagi Fire 2",  0x1d6a0, 0x1d6c0, indexKOFSprites_02UM_ChrisOChi, 0x04 },
 };
 
@@ -645,10 +645,10 @@ const sGame_PaletteDataset KOF02UM_S_CLARK_PALETTES_MOVES[] =
 
 const sGame_PaletteDataset KOF02UM_S_DAIMON_PALETTES_MOVES[] =
 {
-    { L"Daimon MAX2 Text",       0x18400, 0x18420, indexKOFSprites_02UM_Daimon, 0x0a },
-    { L"Daimon MAX2 Ground Pound",    0x18420, 0x18440, indexKOFSprites_02UM_Daimon, 0x02 },
-    { L"Daimon MAX2 Explosion Finisher",       0x18460, 0x18480, indexKOFSprites_02UM_Daimon, 0x09 },
-    { L"Daimon MAX2 Dust Effects",     0x18480, 0x184a0, indexKOFSprites_02UM_Daimon, 0x19 },
+    { L"Daimon MAX2 Text",              0x18400, 0x18420, indexKOFSprites_02UM_Daimon, 0x0a },
+    { L"Daimon MAX2 Ground Pound",      0x18420, 0x18440, indexKOFSprites_02UM_Daimon, 0x02 },
+    { L"Daimon MAX2 Explosion Finisher", 0x18460, 0x18480, indexKOFSprites_02UM_Daimon, 0x09 },
+    { L"Daimon MAX2 Dust Effects",      0x18480, 0x184a0, indexKOFSprites_02UM_Daimon, 0x19 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_FOXY_PALETTES_MOVES[] =
@@ -4912,37 +4912,37 @@ const sDescTreeNode KOF02UM_S_IGNIZ_COLLECTION[] =
 
 const sGame_PaletteDataset KOF02UM_S_HUD_PALETTES[] =
 {
-    { L"Main HUD Stuff and Meter", 0x53700, 0x53720 },
-    { L"Timer", 0x53720, 0x53740 },
-    { L"Names, Win Count, and Meter", 0x53740, 0x53760 },
-    { L"GUARD, Win Text and Remaining Characters", 0x53760, 0x53780 },
-    { L"MAX ON Text, Win Count Flash", 0x53780, 0x537a0 },
-    { L"Round Text Outline", 0x537a0, 0x537c0 },
-    { L"General Text on HUD", 0x537c0, 0x537e0 },
-    { L"PERFECT", 0x537e0, 0x53800 },
-    { L"Combo Number", 0x53800, 0x53820 },
-    { L"FIGHT Text", 0x53840, 0x53880 },
-    { L"Win Text KO", 0x53880, 0x538a0 },
-    { L"Winner Text Outline", 0x538a0, 0x538c0 },
-    { L"MAX2 Background Effect 1P", 0x57e20, 0x57e40 },
-    { L"MAX2 Background Effect 2P", 0x57e00, 0x57e20 },
+    { L"Main HUD Stuff and Meter",                  0x53700, 0x53720 },
+    { L"Timer",                                     0x53720, 0x53740 },
+    { L"Names, Win Count, and Meter",               0x53740, 0x53760 },
+    { L"GUARD, Win Text and Remaining Characters",  0x53760, 0x53780 },
+    { L"MAX ON Text, Win Count Flash",              0x53780, 0x537a0 },
+    { L"Round Text Outline",                        0x537a0, 0x537c0 },
+    { L"General Text on HUD",                       0x537c0, 0x537e0 },
+    { L"PERFECT",                                   0x537e0, 0x53800 },
+    { L"Combo Number",                              0x53800, 0x53820 },
+    { L"FIGHT Text",                                0x53840, 0x53880 },
+    { L"Win Text KO",                               0x53880, 0x538a0 },
+    { L"Winner Text Outline",                       0x538a0, 0x538c0 },
+    { L"MAX2 Background Effect 1P",                 0x57e20, 0x57e40 },
+    { L"MAX2 Background Effect 2P",                 0x57e00, 0x57e20 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
 {
-    { L"Lin Poison Effect", 0x1400, 0x1600 },
-    { L"Main Fire Effect", 0x1600, 0x1800 },
-    { L"Main Orochi Fire Effect", 0x1800, 0x1a00 },
-    { L"Orochi Burn Effect", 0x1a00, 0x1c00 },
-    { L"Frozen Effect", 0x1c00, 0x1e00 },
-    { L"Blood Effects", 0x3c0, 0x3e0 },
-    { L"Grab Sparks", 0x380, 0x3a0 },
-    { L"Hitspark Effects", 0xa00, 0xa20 },
-    { L"Blocksparks Effects", 0x2a0, 0x2c0 },
+    { L"Lin Poison Effect",         0x1400, 0x1600 },
+    { L"Main Fire Effect",          0x1600, 0x1800 },
+    { L"Main Orochi Fire Effect",   0x1800, 0x1a00 },
+    { L"Orochi Burn Effect",        0x1a00, 0x1c00 },
+    { L"Frozen Effect",             0x1c00, 0x1e00 },
+    { L"Blood Effects",             0x3c0, 0x3e0 },
+    { L"Grab Sparks",               0x380, 0x3a0 },
+    { L"Hitspark Effects",          0xa00, 0xa20 },
+    { L"Blocksparks Effects",       0x2a0, 0x2c0 },
     { L"Special/Super Blocksparks", 0x2c0, 0x2e0 },
-    { L"MAX Mode and SDM Flash", 0x4c0, 0x4e0 },
-    { L"MAX Flash", 0xa80, 0xaa0 },
-    { L"MAX2 Flash", 0xaa0, 0xac0 },
+    { L"MAX Mode and SDM Flash",    0x4c0, 0x4e0 },
+    { L"MAX Flash",                 0xa80, 0xaa0 },
+    { L"MAX2 Flash",                0xaa0, 0xac0 },
 };
 
 const sDescTreeNode KOF02UM_S_BONUS_COLLECTION[] =

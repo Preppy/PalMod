@@ -823,9 +823,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         //OutGame->rgUnitRedir[OutGame->nRedirCtr] = INVALID_UNIT_VALUE;
     }
 
-    int nOut = OutGame ? 1 : 0;
-
-    szLoadSaveStr.Format(_T("%d of %d files loaded successfully (%d error%s)"), nOut, 1, !nOut, nOut == 0 ? _T("") : _T("s"));
+    szLoadSaveStr.Format(L"Game %s successfully.", OutGame ? L"loaded" : L"did not load");
 
     return OutGame;
 }
@@ -948,7 +946,13 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
         OutGame->rgUnitRedir[OutGame->nRedirCtr] = INVALID_UNIT_VALUE;
     }
 
-    szLoadSaveStr.Format(_T("%d of %d files loaded successfully (%d error%s)"), nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? _T("") : _T("s"));
+    CString strErrorText = L"";
+    if (nSaveLoadErr)
+    {
+        strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
+    }
+    
+    szLoadSaveStr.Format(L"%d of %d files loaded successfully%s.", nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
 
     // Perhaps we could be less strict here, but -- we also will crash elsewhere if we don't have the full PL set.
     return (nSaveLoadErr == 0) ? OutGame : nullptr;

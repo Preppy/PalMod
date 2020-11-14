@@ -12,7 +12,7 @@ constexpr auto c_badWindowPosValue = -512;
 constexpr auto c_mainDefaultAllowAlphaChanges = FALSE;
 constexpr auto c_mainDefaultShowAs32 = FALSE;
 constexpr auto c_mainDefaultProcSupp = TRUE;
-
+constexpr auto c_mainDefaultExtraCopyData = FALSE;
 constexpr auto c_AppRegistryRoot = _T("Software\\knarxed\\PalMod");
 
 class CRegProc
@@ -45,6 +45,7 @@ public:
     BOOL main_fAllowAlphaChanges = c_mainDefaultAllowAlphaChanges;
     BOOL main_bShow32 = c_mainDefaultShowAs32;
     BOOL main_bProcSupp = c_mainDefaultProcSupp;
+    BOOL main_bExtraCopyData = c_mainDefaultExtraCopyData;
 
     //Preview
 

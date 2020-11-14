@@ -394,6 +394,7 @@ BEGIN
             MENUITEM "Variable Alpha",              ID_ALPHASETTING_VARIABLE
             MENUITEM "Unknown Alpha",               ID_ALPHASETTING_CHAOTIC
         END
+        MENUITEM "Include bonus data in CTRL+C copy", ID_SETTINGS_EXTCOPYDATA
     END
     POPUP "&About"
     BEGIN

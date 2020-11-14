@@ -55,12 +55,15 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
 
     createPalOptions = {
                         NO_SPECIAL_OPTIONS, // Set to SKIP_FIRST_COLOR for most CPS2 games.  Use the nStartingPosition version of UpdatePalData as found in CPS2 game code.
-                        NO_SPECIAL_OPTIONS, // Set to FORCE_ALPHA_ON_EVERY_COLOR if your game only uses RGB color: we require alpha to display sprites.
-                        NO_SPECIAL_OPTIONS  // Set to FORCE_ALPHA_ON_FIRST_COLOR if needed, but generally this is obsolete (unused).
+                        WRITE_16            // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter UINT16.
+                                            // You can set this to WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
                        };
 
     InitDataBuffer();
 
+    // Set alpha mode: this determines whether or not we set alpha values for the data we write back to the game ROM.
+    // For color mode 12A you usually want it not set, for NEOGEO you cannot use it (there's no bit(s) for it), and for 15/15ALT you probably want it on.
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     //Set color mode: see the definitions in GameClass.h
     SetColMode(ColMode::COLMODE_12A);
 
