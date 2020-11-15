@@ -83,7 +83,7 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
 
     const UINT32 nSafeCountFor07_Rev1 = 875;
     const UINT32 nSafeCountFor07_Rev2 = 1002;
-    const UINT32 nSafeCountFor07_SFZ2A = 1296;
+    const UINT32 nSafeCountFor07_SFZ2A = 1288;
     const UINT32 nSafeCountFor08_Rev1 = 233;
     const UINT32 nSafeCountFor08_Rev2 = 277;
     const UINT32 nSafeCountFor08_SFZ2A = 324;

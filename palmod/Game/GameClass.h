@@ -173,7 +173,8 @@ public:
     int nTargetImgId = 0;
 
     UINT16*** GetDataBuffer() { return m_pppDataBuffer; };
-    UINT32 GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation; };
+    // This is called as part of Edit's debug information.  It wants the true ROM location, so correct for the nStartingPosition offset
+    UINT32 GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation - (createPalOptions.nStartingPosition * sizeof(UINT16)); };
     UINT32 GetLowestExpectedPaletteLocation();
 
     UINT16(*ConvCol)(UINT32 inCol);

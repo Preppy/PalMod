@@ -3740,17 +3740,6 @@ const sGame_PaletteDataset SFA2_A_ALTSAKURA_AUTOGUARDKICK_PALETTES[] =
     { _T("Auto Guard Kick Extra 2"), 0x716e0 - 0xA1BC, 0x71700 - 0xA1BC },
     { _T("Auto Guard Kick Super Trail Light"), 0x71700 - 0xA1BC, 0x71720 - 0xA1BC, indexCPS2_Sakura, 0x00 },
     { _T("Auto Guard Kick Super Trail Dark"), 0x71720 - 0xA1BC, 0x67584, indexCPS2_Sakura, 0x00 },
-    
-    { _T("1TESTESTSET"), 0x67584, 0x675a4, indexCPS2_Sakura, 0x00 },
-    { _T("2TESTESTSET"), 0x67584 + ( 5 * 0x20), 0x675a4 + (5 * 0x20), indexCPS2_Sakura, 0x00 },
-    { _T("3TESTESTSET"), 0x67584 + (10 * 0x20), 0x675a4 + (10 * 0x20), indexCPS2_Sakura, 0x00 },
-    { _T("4TESTESTSET"), 0x67584 + (15 * 0x20), 0x675a4 + (15 * 0x20), indexCPS2_Sakura, 0x00 },
-    { _T("5TESTESTSET"), 0x67584 + (20 * 0x20), 0x675a4 + (20 * 0x20), indexCPS2_Sakura, 0x00 },
-    { _T("6TESTESTSET"), 0x67584 + (25 * 0x20), 0x675a4 + (25 * 0x20), indexCPS2_Sakura, 0x00 },
-    
-    { _T("ZTESTESTSET"), 0x67584 + (30 * 0x20), 0x675a4 + (30 * 0x20), indexCPS2_Sakura, 0x00 },
-    { _T("CTESTESTSET"), 0x67584 + (35 * 0x20), 0x675a4 + (35 * 0x20), indexCPS2_Sakura, 0x00 },
-
 };
 
 const sGame_PaletteDataset SFA2_A_ALTSAKURA_STATUS_PALETTES[] =
