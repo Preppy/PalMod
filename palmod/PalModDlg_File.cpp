@@ -614,6 +614,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
         UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
         int nFileSz = (int)ActFile.GetLength();
         int nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
+        bool fHadToFlip = false;
 
         if (nFileSz == 772) // The documentation states that 768b ACT files do not include color count, but 772b files do.
         {
@@ -655,17 +656,56 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
             {
                 nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
 
+                UINT32 nBlackColorCount = 0;
+                bool fStillStuckOnBlack = true;
                 for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
                 {
-                    pPal[iActivePageIndex * 4] = MainPalGroup->ROUND_R(pAct[iACTIndex * 3]);
-                    pPal[iActivePageIndex * 4 + 1] = MainPalGroup->ROUND_G(pAct[iACTIndex * 3 + 1]);
-                    pPal[iActivePageIndex * 4 + 2] = MainPalGroup->ROUND_B(pAct[iACTIndex * 3 + 2]);
+                    pPal[(iActivePageIndex * 4)]      = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
+                    pPal[(iActivePageIndex * 4) + 1]  = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
+                    pPal[(iActivePageIndex * 4) + 2]  = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
                     pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
+
+                    // This code exists because Fighter Factory writes upside-down color tables.
+                    if (fStillStuckOnBlack &&
+                        (pPal[iActivePageIndex * 4] == 0) &&
+                        (pPal[(iActivePageIndex * 4) + 1] == 0) &&
+                        (pPal[(iActivePageIndex * 4) + 2] == 0))
+                    {
+                        nBlackColorCount++;
+                    }
+                    else
+                    {
+                        fStillStuckOnBlack = false;
+                    }
 
                     if (++iACTIndex >= nACTColorCount)
                     {
                         // If the palette is larger than our ACT, loop it.
                         iACTIndex = 0;
+                    }
+                }
+
+                if ((nBlackColorCount > 32) || (nBlackColorCount == nCurrentPageWorkingAmt))
+                {
+                    // TODO: Maybe ask the user before flipping?
+                    iACTIndex = nACTColorCount - 1;
+                    fHadToFlip = true;
+
+                    OutputDebugString(_T("This appears to be a bogus SFF ACT... flipping our ACT table logic...\n"));
+
+                    for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                    {
+                        pPal[(iActivePageIndex * 4)] =     MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
+                        pPal[(iActivePageIndex * 4) + 1] = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
+                        pPal[(iActivePageIndex * 4) + 2] = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
+                        pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
+
+                        // This code exists because Fighter Factory writes upside-down color tables.
+                        if (--iACTIndex >= nACTColorCount)
+                        {
+                            // If the palette is larger than our ACT, loop it.
+                            iACTIndex = nCurrentPageWorkingAmt;
+                        }
                     }
                 }
             }
@@ -681,7 +721,14 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
 
         fSuccess = true;
         CString strStatus;
-        strStatus.Format(_T("Loaded %u colors from %u color %s file."), nCurrentPageWorkingAmt, nACTColorCount, _T("ACT"));
+        if (fHadToFlip)
+        {
+            strStatus.Format(_T("ACT appears to have a reversed color table: loaded %u colors backwards."), min(nCurrentPageWorkingAmt, nACTColorCount));
+        }
+        else
+        {
+            strStatus.Format(_T("Loaded %u colors from %u color %s file."), nCurrentPageWorkingAmt, nACTColorCount, _T("ACT"));
+        }
         SetStatusText(strStatus);
 
         if (nPalettePageCount > 1)
@@ -939,7 +986,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                         bool fStillStuckOnBlack = true;
                         for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
                         {
-                            pPal[(iActivePageIndex * 4)]     = MainPalGroup->ROUND_R(paszPaletteData[iPNGIndex * 3]);
+                            pPal[(iActivePageIndex * 4)]     = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
                             pPal[(iActivePageIndex * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
                             pPal[(iActivePageIndex * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
                             pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
@@ -967,7 +1014,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                         if ((nBlackColorCount > 32) || (nBlackColorCount == nCurrentPageWorkingAmt))
                         {
                             // TODO: Maybe ask the user before flipping?
-                            UINT16 iPNGIndex = nPNGColorCount - 1;
+                            iPNGIndex = nPNGColorCount - 1;
                             fHadToFlip = true;
 
                             OutputDebugString(_T("This appears to be a bogus SFF PNG... flipping our PNG table logic...\n"));

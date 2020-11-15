@@ -8,13 +8,17 @@
 #define SFIII3_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 stExtraDef* CGame_SFIII3_A::SFIII3_A_10_EXTRA_CUSTOM = NULL;
+stExtraDef* CGame_SFIII3_A::SFIII3_A_4_EXTRA_CUSTOM = NULL;
 stExtraDef* CGame_SFIII3_A::SFIII3_A_51_EXTRA_CUSTOM = NULL;
 
 int CGame_SFIII3_A::rgExtraCountAll_10[SFIII3_A_10_NUMUNIT + 1] = { -1 };
+int CGame_SFIII3_A::rgExtraCountAll_4[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountAll_51[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly_10[SFIII3_A_10_NUMUNIT + 1] = { -1 };
+int CGame_SFIII3_A::rgExtraCountVisibleOnly_4[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly_51[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraLoc_10[SFIII3_A_10_NUMUNIT + 1] = { -1 };
+int CGame_SFIII3_A::rgExtraLoc_4[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraLoc_51[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 
 CDescTree CGame_SFIII3_A::MainDescTree_10 = nullptr;
@@ -25,18 +29,23 @@ UINT32 CGame_SFIII3_A::m_nConfirmedROMSize = -1;
 
 int CGame_SFIII3_A::m_nSelectedRom = 51;
 UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_10 = 0;
+UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_4 = 0;
 UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_51 = 0;
 
 void CGame_SFIII3_A::InitializeStatics()
 {
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_10_EXTRA_CUSTOM);
+    safe_delete_array(CGame_SFIII3_A::SFIII3_A_4_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_51_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll_10, -1, sizeof(rgExtraCountAll_10));
+    memset(rgExtraCountAll_4, -1, sizeof(rgExtraCountAll_4));
     memset(rgExtraCountAll_51, -1, sizeof(rgExtraCountAll_51));
     memset(rgExtraCountVisibleOnly_10, -1, sizeof(rgExtraCountVisibleOnly_10));
+    memset(rgExtraCountVisibleOnly_4, -1, sizeof(rgExtraCountVisibleOnly_4));
     memset(rgExtraCountVisibleOnly_51, -1, sizeof(rgExtraCountVisibleOnly_51));
     memset(rgExtraLoc_10, -1, sizeof(rgExtraLoc_10));
+    memset(rgExtraLoc_4, -1, sizeof(rgExtraLoc_4));
     memset(rgExtraLoc_51, -1, sizeof(rgExtraLoc_51));
 
     MainDescTree_10.SetRootTree(CGame_SFIII3_A::InitDescTree(10));
@@ -62,7 +71,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForGill() ? 24 : 1010);
-    m_nTotalPaletteCount = UsePaletteSetForGill() ? m_nTotalPaletteCountForSFIII3_10 : m_nTotalPaletteCountForSFIII3_51;
+    m_nTotalPaletteCount = UsePaletteSetForGill() ? m_nTotalPaletteCountForSFIII3_10 : (UsePaletteSetFor51() ? m_nTotalPaletteCountForSFIII3_51 : m_nTotalPaletteCountForSFIII3_4);
     m_nLowestKnownPaletteRomLocation = UsePaletteSetForGill() ? 0x1C86A8 : 0x700000;
 
     CString strInfo;
@@ -101,6 +110,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
 CGame_SFIII3_A::~CGame_SFIII3_A(void)
 {
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_10_EXTRA_CUSTOM);
+    safe_delete_array(CGame_SFIII3_A::SFIII3_A_4_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_51_EXTRA_CUSTOM);
     //Get rid of the file changed flag
     ClearDataBuffer();
@@ -128,6 +138,34 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
                 if (!pCurrDef->isInvisible)
                 {
                     rgExtraCountVisibleOnly_10[pCurrDef->uUnitN]++;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetCurrentExtraDef(nDefCtr);
+            }
+        }
+
+        return rgExtraCt[nUnitId];
+    }
+    else if (UsePaletteSetFor4rd())
+    {
+        int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_4 : (int*)rgExtraCountAll_4;
+
+        if (rgExtraCountAll_4[0] == -1)
+        {
+            int nDefCtr = 0;
+            memset(rgExtraCountAll_4, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
+            memset(rgExtraCountVisibleOnly_4, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
+
+            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            {
+                rgExtraCountAll_4[pCurrDef->uUnitN]++;
+
+                if (!pCurrDef->isInvisible)
+                {
+                    rgExtraCountVisibleOnly_4[pCurrDef->uUnitN]++;
                 }
 
                 nDefCtr++;
@@ -193,6 +231,31 @@ int CGame_SFIII3_A::GetExtraLoc(UINT16 nUnitId)
         }
 
         return rgExtraLoc_10[nUnitId];
+    }
+    else if (UsePaletteSetFor4rd())
+    {
+        if (rgExtraLoc_4[0] == -1)
+        {
+            int nDefCtr = 0;
+            int nCurrUnit = UNIT_START_VALUE;
+            memset(rgExtraLoc_4, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
+
+            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            {
+                if (pCurrDef->uUnitN != nCurrUnit)
+                {
+                    rgExtraLoc_4[pCurrDef->uUnitN] = nDefCtr;
+                    nCurrUnit = pCurrDef->uUnitN;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetCurrentExtraDef(nDefCtr);
+            }
+        }
+
+        return rgExtraLoc_4[nUnitId];
     }
     else
     {
@@ -271,6 +334,10 @@ stExtraDef* CGame_SFIII3_A::GetCurrentExtraDef(int nDefCtr)
     {
         return (stExtraDef*)&SFIII3_A_10_EXTRA_CUSTOM[nDefCtr];
     }
+    else if (UsePaletteSetFor4rd())
+    {
+        return (stExtraDef*)&SFIII3_A_4_EXTRA_CUSTOM[nDefCtr];
+    }
     else
     {
         return (stExtraDef*)&SFIII3_A_51_EXTRA_CUSTOM[nDefCtr];
@@ -296,9 +363,9 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
     else if (UsePaletteSetFor4rd())
     {
         nExtraUnitLocation = SFIII3_A_51_EXTRALOC;
-        // set up extra arrays, but don't bother with the file
-        LoadExtraFileForGame(nullptr, SFIII3_A_EXTRA, &SFIII3_A_51_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
-        fHaveExtras = false;
+        // Don't load extras for this version: it's only half the expected size so early extras woudl be in space
+        LoadExtraFileForGame(nullptr, SFIII3_A_EXTRA, &SFIII3_A_4_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
         nUnitCt = SFIII3_A_51_NUMUNIT + (fHaveExtras ? 1 : 0);
     }
     else
@@ -468,6 +535,10 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
     if (UsePaletteSetForGill())
     {
         m_nTotalPaletteCountForSFIII3_10 = nTotalPaletteCount;
+    }
+    else if (UsePaletteSetFor4rd())
+    {
+        m_nTotalPaletteCountForSFIII3_4 = nTotalPaletteCount;
     }
     else
     {

@@ -14,15 +14,20 @@ public:
     int m_nBufferSelectedRom = 51;
     static int m_nSelectedRom;
     static UINT32 m_nTotalPaletteCountForSFIII3_10;
+    static UINT32 m_nTotalPaletteCountForSFIII3_4;
     static UINT32 m_nTotalPaletteCountForSFIII3_51;
     static bool UsePaletteSetForGill() { return (m_nSelectedRom == 10); }
+    static bool UsePaletteSetFor51() { return (m_nSelectedRom == 51); }
     static bool UsePaletteSetFor4rd() { return (m_nSelectedRom == 4); }
 
     static int rgExtraCountAll_10[SFIII3_A_10_NUMUNIT + 1];
+    static int rgExtraCountAll_4[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraCountAll_51[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly_10[SFIII3_A_10_NUMUNIT + 1];
+    static int rgExtraCountVisibleOnly_4[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly_51[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraLoc_10[SFIII3_A_10_NUMUNIT + 1];
+    static int rgExtraLoc_4[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraLoc_51[SFIII3_A_51_NUMUNIT + 1];
 
     void InitDataBuffer() override;
@@ -73,5 +78,6 @@ public:
     BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) override;
 
     static stExtraDef* SFIII3_A_10_EXTRA_CUSTOM;
+    static stExtraDef* SFIII3_A_4_EXTRA_CUSTOM;
     static stExtraDef* SFIII3_A_51_EXTRA_CUSTOM;
 };
