@@ -631,7 +631,7 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
             if (pCurrentNode)
             {
                 if ((_tcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
+                    (_tcsicmp(pCurrentNode->szDesc, _T("C")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
                 {
                     nSrcAmt = 4;
                     nNodeIncrement = pCurrentNode->uChildAmt;

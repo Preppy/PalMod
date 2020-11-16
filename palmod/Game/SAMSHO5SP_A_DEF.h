@@ -562,7 +562,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_A[] =
     { L"Rimururu A (Normal)", 0x00d7000, 0x00d7040, indexSamSho5Sprites_Rimururu },
     { L"Rimururu A (Rage)", 0x00d7040, 0x00d7080, indexSamSho5Sprites_Rimururu },
     { L"Rimururu A (SON)", 0x00d7240, 0x00d7280, indexSamSho5Sprites_Rimururu },
-    { L"Konru A", 0x00d72C0, 0x00d72E0 },
+    { L"Konru A", 0x00d72C0, 0x00d72E0, indexSamSho5Sprites_Rimururu, 0x01 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_B[] =
@@ -570,7 +570,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_B[] =
     { L"Rimururu B (Normal)", 0x00d7400, 0x00d7440, indexSamSho5Sprites_Rimururu },
     { L"Rimururu B (Rage)", 0x00d7440, 0x00d7480, indexSamSho5Sprites_Rimururu },
     { L"Rimururu B (SON)", 0x00d7640, 0x00d7680, indexSamSho5Sprites_Rimururu },
-    { L"Konru B", 0x00d76C0, 0x00d76E0 },
+    { L"Konru B", 0x00d76C0, 0x00d76E0, indexSamSho5Sprites_Rimururu, 0x01 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_C[] =
@@ -578,7 +578,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_C[] =
     { L"Rimururu C (Normal)", 0x00d7800, 0x00d7840, indexSamSho5Sprites_Rimururu },
     { L"Rimururu C (Rage)", 0x00d7840, 0x00d7880, indexSamSho5Sprites_Rimururu },
     { L"Rimururu C (SON)", 0x00d7a40, 0x00d7a80, indexSamSho5Sprites_Rimururu },
-    { L"Konru C", 0x00d7aC0, 0x00d7aE0 },
+    { L"Konru C", 0x00d7aC0, 0x00d7aE0, indexSamSho5Sprites_Rimururu, 0x01 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_D[] =
@@ -586,7 +586,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_D[] =
     { L"Rimururu D (Normal)", 0x00d7c00, 0x00d7c40, indexSamSho5Sprites_Rimururu },
     { L"Rimururu D (Rage)", 0x00d7c40, 0x00d7c80, indexSamSho5Sprites_Rimururu },
     { L"Rimururu D (SON)", 0x00d7e40, 0x00d7e80, indexSamSho5Sprites_Rimururu },
-    { L"Konru D", 0x00d7eC0, 0x00d7eE0 },
+    { L"Konru D", 0x00d7eC0, 0x00d7eE0, indexSamSho5Sprites_Rimururu, 0x01 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_A[] =

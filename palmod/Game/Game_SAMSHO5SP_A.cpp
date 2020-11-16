@@ -901,7 +901,7 @@ BOOL CGame_SAMSHO5SP_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
             if (pCurrentNode)
             {
                 if ((_tcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
+                    (_tcsicmp(pCurrentNode->szDesc, _T("C")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
                 {
                     nSrcAmt = 4;
                     nNodeIncrement = pCurrentNode->uChildAmt;

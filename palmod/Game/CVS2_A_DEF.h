@@ -2022,8 +2022,8 @@ const sDescTreeNode CVS2_A_MAI_COLLECTION[] =
 
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_LP[] =
 {
-    { _T("Main Sprite"), 0x27d80a0, 0x27d80c0, indexCVS2Sprites_Kim },
-    { _T("Extra 1"), 0x27d80c0, 0x27d80e0 },
+    { _T("Main Sprite"), 0x27d80a0, 0x27d80c0, indexCVS2Sprites_Kim, 0, &pairNext },
+    { _T("Extra 1"), 0x27d80c0, 0x27d80e0, indexCVS2Sprites_Kim, 0x01 },
     { _T("Extra 2"), 0x27d80e0, 0x27d8100 },
     { _T("Extra 3"), 0x27d8100, 0x27d8120 },
     { _T("Extra 4"), 0x27d8120, 0x27d8140 },
@@ -2032,8 +2032,8 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_LP[] =
 
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_MP[] =
 {
-    { _T("Main Sprite"), 0x27d8160, 0x27d8180, indexCVS2Sprites_Kim },
-    { _T("Extra 1"), 0x27d8180, 0x27d81a0 },
+    { _T("Main Sprite"), 0x27d8160, 0x27d8180, indexCVS2Sprites_Kim, 0, &pairNext },
+    { _T("Extra 1"), 0x27d8180, 0x27d81a0, indexCVS2Sprites_Kim, 0x01 },
     { _T("Extra 2"), 0x27d81a0, 0x27d81c0 },
     { _T("Extra 3"), 0x27d81c0, 0x27d81e0 },
     { _T("Extra 4"), 0x27d81e0, 0x27d8200 },
@@ -2042,8 +2042,8 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_MP[] =
 
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_HP[] =
 {
-    { _T("Main Sprite"), 0x27d8220, 0x27d8240, indexCVS2Sprites_Kim },
-    { _T("Extra 1"), 0x27d8240, 0x27d8260 },
+    { _T("Main Sprite"), 0x27d8220, 0x27d8240, indexCVS2Sprites_Kim, 0, &pairNext },
+    { _T("Extra 1"), 0x27d8240, 0x27d8260, indexCVS2Sprites_Kim, 0x01 },
     { _T("Extra 2"), 0x27d8260, 0x27d8280 },
     { _T("Extra 3"), 0x27d8280, 0x27d82a0 },
     { _T("Extra 4"), 0x27d82a0, 0x27d82c0 },
@@ -2052,8 +2052,8 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_HP[] =
 
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_LK[] =
 {
-    { _T("Main Sprite"), 0x27d82e0, 0x27d8300, indexCVS2Sprites_Kim },
-    { _T("Extra 1"), 0x27d8300, 0x27d8320 },
+    { _T("Main Sprite"), 0x27d82e0, 0x27d8300, indexCVS2Sprites_Kim, 0, &pairNext },
+    { _T("Extra 1"), 0x27d8300, 0x27d8320, indexCVS2Sprites_Kim, 0x01 },
     { _T("Extra 2"), 0x27d8320, 0x27d8340 },
     { _T("Extra 3"), 0x27d8340, 0x27d8360 },
     { _T("Extra 4"), 0x27d8360, 0x27d8380 },
@@ -2062,8 +2062,8 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_LK[] =
 
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_MK[] =
 {
-    { _T("Main Sprite"), 0x27d83a0, 0x27d83c0, indexCVS2Sprites_Kim },
-    { _T("Extra 1"), 0x27d83c0, 0x27d83e0 },
+    { _T("Main Sprite"), 0x27d83a0, 0x27d83c0, indexCVS2Sprites_Kim, 0, &pairNext },
+    { _T("Extra 1"), 0x27d83c0, 0x27d83e0, indexCVS2Sprites_Kim, 0x01 },
     { _T("Extra 2"), 0x27d83e0, 0x27d8400 },
     { _T("Extra 3"), 0x27d8400, 0x27d8420 },
     { _T("Extra 4"), 0x27d8420, 0x27d8440 },
@@ -2072,8 +2072,8 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_MK[] =
 
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_HK[] =
 {
-    { _T("Main Sprite"), 0x27d8460, 0x27d8480, indexCVS2Sprites_Kim },
-    { _T("Extra 1"), 0x27d8480, 0x27d84a0 },
+    { _T("Main Sprite"), 0x27d8460, 0x27d8480, indexCVS2Sprites_Kim, 0, &pairNext },
+    { _T("Extra 1"), 0x27d8480, 0x27d84a0, indexCVS2Sprites_Kim, 0x01 },
     { _T("Extra 2"), 0x27d84a0, 0x27d84c0 },
     { _T("Extra 3"), 0x27d84c0, 0x27d84e0 },
     { _T("Extra 4"), 0x27d84e0, 0x27d8500 },
@@ -2082,8 +2082,8 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_HK[] =
 
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_3P[] =
 {
-    { _T("Main Sprite"), 0x27d8520, 0x27d8540, indexCVS2Sprites_Kim },
-    { _T("Extra 1"), 0x27d8540, 0x27d8560 },
+    { _T("Main Sprite"), 0x27d8520, 0x27d8540, indexCVS2Sprites_Kim, 0, &pairNext },
+    { _T("Extra 1"), 0x27d8540, 0x27d8560, indexCVS2Sprites_Kim, 0x01 },
     { _T("Extra 2"), 0x27d8560, 0x27d8580 },
     { _T("Extra 3"), 0x27d8580, 0x27d85a0 },
     { _T("Extra 4"), 0x27d85a0, 0x27d85c0 },
@@ -2092,8 +2092,8 @@ const sGame_PaletteDataset CVS2_A_KIM_PALETTES_3P[] =
 
 const sGame_PaletteDataset CVS2_A_KIM_PALETTES_3K[] =
 {
-    { _T("Main Sprite"), 0x27d85e0, 0x27d8600, indexCVS2Sprites_Kim },
-    { _T("Extra 1"), 0x27d8600, 0x27d8620 },
+    { _T("Main Sprite"), 0x27d85e0, 0x27d8600, indexCVS2Sprites_Kim, 0, &pairNext },
+    { _T("Extra 1"), 0x27d8600, 0x27d8620, indexCVS2Sprites_Kim, 0x01 },
     { _T("Extra 2"), 0x27d8620, 0x27d8640 },
     { _T("Extra 3"), 0x27d8640, 0x27d8660 },
     { _T("Extra 4"), 0x27d8660, 0x27d8680 },
@@ -2578,7 +2578,7 @@ const sGame_PaletteDataset CVS2_A_BENIMARU_PALETTES_LP[] =
     { _T("Extra 1"), 0x2e38320, 0x2e38340 },
     { _T("Extra 2"), 0x2e38340, 0x2e38360 },
     { _T("Extra 3"), 0x2e38360, 0x2e38380 },
-    { _T("Extra 4"), 0x2e38380, 0x2e383a0 },
+    { _T("Extra 4: Daimon"), 0x2e38380, 0x2e383a0, indexCVS2Sprites_Benimaru, 0x04 },
     { _T("Extra 5"), 0x2e383a0, 0x2e383c0 },
 };
 
@@ -2588,7 +2588,7 @@ const sGame_PaletteDataset CVS2_A_BENIMARU_PALETTES_MP[] =
     { _T("Extra 1"), 0x2e383e0, 0x2e38400 },
     { _T("Extra 2"), 0x2e38400, 0x2e38420 },
     { _T("Extra 3"), 0x2e38420, 0x2e38440 },
-    { _T("Extra 4"), 0x2e38440, 0x2e38460 },
+    { _T("Extra 4: Daimon"), 0x2e38440, 0x2e38460, indexCVS2Sprites_Benimaru, 0x04 },
     { _T("Extra 5"), 0x2e38460, 0x2e38480 },
 };
 
@@ -2598,7 +2598,7 @@ const sGame_PaletteDataset CVS2_A_BENIMARU_PALETTES_HP[] =
     { _T("Extra 1"), 0x2e384a0, 0x2e384c0 },
     { _T("Extra 2"), 0x2e384c0, 0x2e384e0 },
     { _T("Extra 3"), 0x2e384e0, 0x2e38500 },
-    { _T("Extra 4"), 0x2e38500, 0x2e38520 },
+    { _T("Extra 4: Daimon"), 0x2e38500, 0x2e38520, indexCVS2Sprites_Benimaru, 0x04 },
     { _T("Extra 5"), 0x2e38520, 0x2e38540 },
 };
 
@@ -2608,7 +2608,7 @@ const sGame_PaletteDataset CVS2_A_BENIMARU_PALETTES_LK[] =
     { _T("Extra 1"), 0x2e38560, 0x2e38580 },
     { _T("Extra 2"), 0x2e38580, 0x2e385a0 },
     { _T("Extra 3"), 0x2e385a0, 0x2e385c0 },
-    { _T("Extra 4"), 0x2e385c0, 0x2e385e0 },
+    { _T("Extra 4: Daimon"), 0x2e385c0, 0x2e385e0, indexCVS2Sprites_Benimaru, 0x04 },
     { _T("Extra 5"), 0x2e385e0, 0x2e38600 },
 };
 
@@ -2618,7 +2618,7 @@ const sGame_PaletteDataset CVS2_A_BENIMARU_PALETTES_MK[] =
     { _T("Extra 1"), 0x2e38620, 0x2e38640 },
     { _T("Extra 2"), 0x2e38640, 0x2e38660 },
     { _T("Extra 3"), 0x2e38660, 0x2e38680 },
-    { _T("Extra 4"), 0x2e38680, 0x2e386a0 },
+    { _T("Extra 4: Daimon"), 0x2e38680, 0x2e386a0, indexCVS2Sprites_Benimaru, 0x04 },
     { _T("Extra 5"), 0x2e386a0, 0x2e386c0 },
 };
 
@@ -2628,7 +2628,7 @@ const sGame_PaletteDataset CVS2_A_BENIMARU_PALETTES_HK[] =
     { _T("Extra 1"), 0x2e386e0, 0x2e38700 },
     { _T("Extra 2"), 0x2e38700, 0x2e38720 },
     { _T("Extra 3"), 0x2e38720, 0x2e38740 },
-    { _T("Extra 4"), 0x2e38740, 0x2e38760 },
+    { _T("Extra 4: Daimon"), 0x2e38740, 0x2e38760, indexCVS2Sprites_Benimaru, 0x04 },
     { _T("Extra 5"), 0x2e38760, 0x2e38780 },
 };
 
@@ -2638,7 +2638,7 @@ const sGame_PaletteDataset CVS2_A_BENIMARU_PALETTES_3P[] =
     { _T("Extra 1"), 0x2e387a0, 0x2e387c0 },
     { _T("Extra 2"), 0x2e387c0, 0x2e387e0 },
     { _T("Extra 3"), 0x2e387e0, 0x2e38800 },
-    { _T("Extra 4"), 0x2e38800, 0x2e38820 },
+    { _T("Extra 4: Daimon"), 0x2e38800, 0x2e38820, indexCVS2Sprites_Benimaru, 0x04 },
     { _T("Extra 5"), 0x2e38820, 0x2e38840 },
 };
 
@@ -2648,7 +2648,7 @@ const sGame_PaletteDataset CVS2_A_BENIMARU_PALETTES_3K[] =
     { _T("Extra 1"), 0x2e38860, 0x2e38880 },
     { _T("Extra 2"), 0x2e38880, 0x2e388a0 },
     { _T("Extra 3"), 0x2e388a0, 0x2e388c0 },
-    { _T("Extra 4"), 0x2e388c0, 0x2e388e0 },
+    { _T("Extra 4: Daimon"), 0x2e388c0, 0x2e388e0, indexCVS2Sprites_Benimaru, 0x04 },
     { _T("Extra 5"), 0x2e388e0, 0x2e38900 },
 };
 

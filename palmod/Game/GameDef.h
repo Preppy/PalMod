@@ -1317,44 +1317,84 @@ enum KOFSpriteList
     indexKOFSprites_02UM_K9999,     // 0x93
     indexKOFSprites_02UM_Kasumi,    // 0x94
     indexKOFSprites_02UM_Kensou,    // 0x95
-    indexKOFSprites_02UM_KensouEX,    // 0x96
-    indexKOFSprites_02UM_Kim,    // 0x97
-    indexKOFSprites_02UM_King,    // 0x98
-    indexKOFSprites_02UM_Krizalid,    // 0x99
-    indexKOFSprites_02UM_Kula,    // 0x9a
-    indexKOFSprites_02UM_Kusanagi,    // 0x9b
-    indexKOFSprites_02UM_KyoKusa,    // 0x9c
-    indexKOFSprites_02UM_Kyo1,    // 0x9d
-    indexKOFSprites_02UM_Kyo2,    // 0x9e
-    indexKOFSprites_02UM_Leona,    // 0x9f
-    indexKOFSprites_02UM_Lin,    // 0xa0
-    indexKOFSprites_02UM_Mai,    // 0xA1
+    indexKOFSprites_02UM_KensouEX,  // 0x96
+    indexKOFSprites_02UM_Kim,       // 0x97
+    indexKOFSprites_02UM_King,      // 0x98
+    indexKOFSprites_02UM_Krizalid,  // 0x99
+    indexKOFSprites_02UM_Kula,      // 0x9a
+    indexKOFSprites_02UM_Kusanagi,  // 0x9b
+    indexKOFSprites_02UM_KyoKusa,   // 0x9c
+    indexKOFSprites_02UM_Kyo1,      // 0x9d
+    indexKOFSprites_02UM_Kyo2,      // 0x9e
+    indexKOFSprites_02UM_Leona,     // 0x9f
+    indexKOFSprites_02UM_Lin,       // 0xa0
+    indexKOFSprites_02UM_Mai,       // 0xA1
     indexKOFSprites_02UM_Mature,    // 0xA2
     indexKOFSprites_02UM_Maxima,    // 0xA3
     indexKOFSprites_02UM_MayLee,    // 0xA4
-    indexKOFSprites_02UM_Nameless,    // 0xA5
+    indexKOFSprites_02UM_Nameless,  // 0xA5
     indexKOFSprites_02UM_OmegaRugal,    // 0xA6
-    indexKOFSprites_02UM_Ralf,    // 0xA7
-    indexKOFSprites_02UM_Ramon,    // 0xa8
+    indexKOFSprites_02UM_Ralf,      // 0xA7
+    indexKOFSprites_02UM_Ramon,     // 0xa8
     indexKOFSprites_02UM_Robert,    // 0xA9
-    indexKOFSprites_02UM_RobertEX,    // 0xAa
-    indexKOFSprites_02UM_Ryo,    // 0xAb
-    indexKOFSprites_02UM_Seth,    // 0xAc
-    indexKOFSprites_02UM_Shermie,    // 0xAd
+    indexKOFSprites_02UM_RobertEX,  // 0xAa
+    indexKOFSprites_02UM_Ryo,       // 0xAb
+    indexKOFSprites_02UM_Seth,      // 0xAc
+    indexKOFSprites_02UM_Shermie,   // 0xAd
     indexKOFSprites_02UM_ShermieOChi,    // 0xAe
     indexKOFSprites_02UM_Shingo,    // 0xAf
     indexKOFSprites_02UM_Takuma,    // 0xb0
-    indexKOFSprites_02UM_TakumaEX,    // 0xB1
-    indexKOFSprites_02UM_Terry,    // 0xB2
-    indexKOFSprites_02UM_Vanessa,    // 0xB3
-    indexKOFSprites_02UM_Vice,    // 0xB4
-    indexKOFSprites_02UM_Whip,    // 0xB5
-    indexKOFSprites_02UM_Xiangfei,    // 0xB6
-    indexKOFSprites_02UM_Yamazaki,    // 0xB7
-    indexKOFSprites_02UM_Yashiro,    // 0xB8
+    indexKOFSprites_02UM_TakumaEX,  // 0xB1
+    indexKOFSprites_02UM_Terry,     // 0xB2
+    indexKOFSprites_02UM_Vanessa,   // 0xB3
+    indexKOFSprites_02UM_Vice,      // 0xB4
+    indexKOFSprites_02UM_Whip,      // 0xB5
+    indexKOFSprites_02UM_Xiangfei,  // 0xB6
+    indexKOFSprites_02UM_Yamazaki,  // 0xB7
+    indexKOFSprites_02UM_Yashiro,   // 0xB8
     indexKOFSprites_02UM_YashiroOChi,    // 0xB9
-    indexKOFSprites_02UM_Yuri,    // 0xBa
+    indexKOFSprites_02UM_Yuri,      // 0xBa
     indexKOFSprites_02UM_ZeroOG,    // 0xBb
+
+    indexNGBCSprites_Ai,        // 0xbc
+    indexNGBCSprites_Akari,     // 0xbd
+    indexNGBCSprites_Asura,     // 0xbe
+    indexNGBCSprites_Chonrei,   // 0xbf
+    indexNGBCSprites_Chonshu,   // 0xc0
+    indexNGBCSprites_CyberWoo,  // 0xc1
+    indexNGBCSprites_Fuuma,     // 0xc2
+    indexNGBCSprites_Geese,     // 0xc3
+    indexNGBCSprites_Genjuro,   // 0xc4
+    indexNGBCSprites_GoddessAthena, // 0xc5
+    indexNGBCSprites_Goodman,   // 0xc6
+    indexNGBCSprites_Hanzo,     // 0xc7
+    indexNGBCSprites_Haohmaru,  // 0xc8
+    indexNGBCSprites_Hotaru,    // 0xc9
+    indexNGBCSprites_Iori,      // 0xca
+    indexNGBCSprites_K,         // 0xcb
+    indexNGBCSprites_Kaede,     // 0xcc
+    indexNGBCSprites_Keiichiro, // 0xcd
+    indexNGBCSprites_Kim,       // 0xce
+    indexNGBCSprites_KingLion,  // 0xcf
+    indexNGBCSprites_Kisarah,   // 0xd0
+    indexNGBCSprites_Kyo,       // 0xd1
+    indexNGBCSprites_LeePaiLong, // 0xd2
+    indexNGBCSprites_Mai,       // 0xd3
+    indexNGBCSprites_Marco,     // 0xd4
+    indexNGBCSprites_MarsPeople, // 0xd5
+    indexNGBCSprites_Mizuchi,   // 0xd6
+    indexNGBCSprites_Moriya,    // 0xd7
+    indexNGBCSprites_MrBig,     // 0xd8
+    indexNGBCSprites_Mudman,    // 0xd9
+    indexNGBCSprites_Nakoruru,  // 0xda
+    indexNGBCSprites_NeoDio,    // 0xdb
+    indexNGBCSprites_Robert,    // 0xdc
+    indexNGBCSprites_Rock,      // 0xdd
+    indexNGBCSprites_Shermie,   // 0xde
+    indexNGBCSprites_Shiki,     // 0xdf
+    indexNGBCSprites_Terry,     // 0xe0
+    indexNGBCSprites_TungFuRue, // 0xe1
+    indexNGBCSprites_Yuuki,     // 0xe2
 
     indexKOFSprites_Last,
 };
@@ -1844,20 +1884,59 @@ const int KOF02UM_S_NUM_IMG_UNITS = ARRAYSIZE(KOF02UM_S_IMG_UNITS);
 const UINT8 KOFXI_A_IMG_UNITS[] =
 {
     indexKOFSprites_02UM_Iori,
-    indexKOFSprites_02UM_K,    // 0x92
-    indexKOFSprites_02UM_King,    // 0x97
-    indexKOFSprites_02UM_Kula,    // 0x99
+    indexKOFSprites_02UM_K,         // 0x92
+    indexKOFSprites_02UM_King,      // 0x97
+    indexKOFSprites_02UM_Kula,      // 0x99
     indexKOFSprites_02UM_Maxima,    // 0xA2
-    indexKOFSprites_02UM_Ramon,    // 0xA7
-    indexKOFSprites_02UM_Ryo,    // 0xAA
+    indexKOFSprites_02UM_Ramon,     // 0xA7
+    indexKOFSprites_02UM_Ryo,       // 0xAA
     indexKOFSprites_02UM_Shingo,    // 0xAE
-    indexKOFSprites_02UM_Vanessa,    // 0xB2
+    indexKOFSprites_02UM_Vanessa,   // 0xB2
 };
 
 const UINT8 NGBC_A_IMG_UNITS[] =
 {
-    // Currently we're only using this one sprite. :(
     indexKOFSprites_02UM_Ryo,
+
+    indexNGBCSprites_Ai,        // 0xbc
+    indexNGBCSprites_Akari,     // 0xbd
+    indexNGBCSprites_Asura,     // 0xbe
+    indexNGBCSprites_Chonrei,   // 0xbf
+    indexNGBCSprites_Chonshu,   // 0xc0
+    indexNGBCSprites_CyberWoo,  // 0xc1
+    indexNGBCSprites_Fuuma,     // 0xc2
+    indexNGBCSprites_Geese,     // 0xc3
+    indexNGBCSprites_Genjuro,   // 0xc4
+    indexNGBCSprites_GoddessAthena, // 0xc5
+    indexNGBCSprites_Goodman,   // 0xc6
+    indexNGBCSprites_Hanzo,     // 0xc7
+    indexNGBCSprites_Haohmaru,  // 0xc8
+    indexNGBCSprites_Hotaru,    // 0xc9
+    indexNGBCSprites_Iori,      // 0xca
+    indexNGBCSprites_K,         // 0xcb
+    indexNGBCSprites_Kaede,     // 0xcc
+    indexNGBCSprites_Keiichiro, // 0xcd
+    indexNGBCSprites_Kim,       // 0xce
+    indexNGBCSprites_KingLion,  // 0xcf
+    indexNGBCSprites_Kisarah,   // 0xd0
+    indexNGBCSprites_Kyo,       // 0xd1
+    indexNGBCSprites_LeePaiLong, // 0xd2
+    indexNGBCSprites_Mai,       // 0xd3
+    indexNGBCSprites_Marco,     // 0xd4
+    indexNGBCSprites_MarsPeople, // 0xd5
+    indexNGBCSprites_Mizuchi,   // 0xd6
+    indexNGBCSprites_Moriya,    // 0xd7
+    indexNGBCSprites_MrBig,     // 0xd8
+    indexNGBCSprites_Mudman,    // 0xd9
+    indexNGBCSprites_Nakoruru,  // 0xda
+    indexNGBCSprites_NeoDio,    // 0xdb
+    indexNGBCSprites_Robert,    // 0xdc
+    indexNGBCSprites_Rock,      // 0xdd
+    indexNGBCSprites_Shermie,   // 0xde
+    indexNGBCSprites_Shiki,     // 0xdf
+    indexNGBCSprites_Terry,     // 0xe0
+    indexNGBCSprites_TungFuRue, // 0xe1
+    indexNGBCSprites_Yuuki,     // 0xe2
 };
 
 enum SupportedBreakersSprites

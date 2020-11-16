@@ -1727,31 +1727,36 @@ const sDescTreeNode SFIII3_A_REMY_COLLECTION[] =
 
 const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
 {
+    { L"Combo Messages",                    0x708c80, 0x708ca0, index3S_CPS3_Bonus, 0x03 },
+    { L"Bonus Game Score",                  0x708d60, 0x708d80, index3S_CPS3_Bonus, 0x02 },
+    { L"Timer",                             0x708c00, 0x708c20, index3S_CPS3_Bonus, 0x11 },
+    { L"Timer Countdown Flash 1",           0x708c20, 0x708c40, index3S_CPS3_Bonus, 0x11 },
+    { L"Timer Countdown Flash 2",           0x708c40, 0x708c60, index3S_CPS3_Bonus, 0x11 },
+    { L"Round Markers",                     0x708c60, 0x708c80, index3S_CPS3_Bonus, 0x07 },
+
+    { L"Final Results", 0x70bf00, 0x70bf80, index3S_CPS3_Bonus, 0x01 },
     { L"Select Background", 0x709D80, 0x709E00, index3S_CPS3_Bonus, 0x0 },
-    { L"Final Results", 0x70bf00, 0x70bf80, index3S_CPS3_Bonus, 0x01},
     { L"Vs Text", 0x70C780, 0x70C880 },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUD_PALETTES[] =
 {
-    { L"Super Meter 'TIME'", 0x708ce0, 0x708d00 },
-    { L"Super Meter Base", 0x708d20, 0x708d40 },
-    { L"Super Meter Base Full", 0x708d00, 0x708d20 },
-    { L"Super Art Icons and End of Meter", 0x708d40, 0x708d60 },
-    { L"Super Meter Flashing", 0x708da0, 0x708dc0 },
-    { L"Super Meter Flashing 2", 0x708dc0, 0x708de0 },
-    { L"Super Meter Flashing 3", 0x708de0, 0x708e00 },
-    { L"Green Health Bar and Names", 0x708ba0, 0x708bc0 },
-    { L"Yellow Health Bar", 0x708bc0, 0x708be0 },
-    { L"Red Health Bar", 0x708be0, 0x708c00 },
-    { L"Timer", 0x708c00, 0x708c20 },
-    { L"Timer Countdown Flash 1", 0x708c20, 0x708c40 },
-    { L"Timer Countdown Flash 2", 0x708c40, 0x708c60 },
-    { L"Round Markers", 0x708c60, 0x708c80 },
-    { L"Combo Messages", 0x708c80, 0x708ca0 },
-    { L"HUD Base and Text", 0x708ca0, 0x708cc0 },
-    { L"Stun Bar", 0x708cc0, 0x708ce0 },
-    { L"Bonus Game Score", 0x708d60, 0x708d80 },
+    { L"Green Health Bar and Names",        0x708ba0, 0x708bc0, index3S_CPS3_Bonus, 0x04, &pairFullyLinkedNode },
+    { L"Yellow Health Bar",                 0x708bc0, 0x708be0, index3S_CPS3_Bonus, 0x06 },
+    { L"Red Health Bar",                    0x708be0, 0x708c00, index3S_CPS3_Bonus, 0x05 },
+    { L"Stun Bar",                          0x708cc0, 0x708ce0, index3S_CPS3_Bonus, 0x08 },
+    { L"HUD Base and Text",                 0x708ca0, 0x708cc0, index3S_CPS3_Bonus, 0x10 },
+};
+
+const sGame_PaletteDataset SFIII3_A_SUPERMETER_PALETTES[] =
+{
+    { L"Super Meter 'TIME'",                0x708ce0, 0x708d00, index3S_CPS3_Bonus, 0x0f, &pairFullyLinkedNode },
+    { L"Super Meter Base",                  0x708d20, 0x708d40, index3S_CPS3_Bonus, 0x09 },
+    { L"Super Meter Base Full",             0x708d00, 0x708d20, index3S_CPS3_Bonus, 0x0a },
+    { L"Super Art Icons and End of Meter",  0x708d40, 0x708d60, index3S_CPS3_Bonus, 0x0b },
+    { L"Super Meter Flashing",              0x708da0, 0x708dc0, index3S_CPS3_Bonus, 0x0c },
+    { L"Super Meter Flashing 2",            0x708dc0, 0x708de0, index3S_CPS3_Bonus, 0x0d },
+    { L"Super Meter Flashing 3",            0x708de0, 0x708e00, index3S_CPS3_Bonus, 0x0e },
 };
 
 const sGame_PaletteDataset SFIII3_A_STAGES_AKUMA_PALETTES[] =
@@ -2318,9 +2323,9 @@ const sGame_PaletteDataset SFIII3_A_STAGES_REMY_FADED_PALETTES[] =
 
 const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
 {
-    { L"Bonus", DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_PALETTES) },
-
-    { L"HUD",   DESC_NODETYPE_TREE, (void*)SFIII3_A_HUD_PALETTES, ARRAYSIZE(SFIII3_A_HUD_PALETTES) },
+    { L"HUD",                   DESC_NODETYPE_TREE, (void*)SFIII3_A_HUD_PALETTES, ARRAYSIZE(SFIII3_A_HUD_PALETTES) },
+    { L"Super Meter",           DESC_NODETYPE_TREE, (void*)SFIII3_A_SUPERMETER_PALETTES, ARRAYSIZE(SFIII3_A_SUPERMETER_PALETTES) },
+    { L"Bonus",                 DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_PALETTES, ARRAYSIZE(SFIII3_A_BONUS_PALETTES) },
 
     { L"Alex Stage",            DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_ALEX_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_ALEX_PALETTES) },
     { L"Alex Stage (Faded)",    DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_ALEX_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_ALEX_FADED_PALETTES) },
