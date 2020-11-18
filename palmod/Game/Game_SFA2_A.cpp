@@ -1912,7 +1912,8 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 (_tcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[4]) == 0) ||
                 (_tcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[5]) == 0))
             {
-                nSrcAmt = 6;
+                nSrcAmt = min(GetCollectionCountForUnit(NodeGet->uUnitId), 6); // This min is specifically needed for SFA2 due to Shin Akuma's variable node count between rev 2 and 3
+                                                                               // In rev 2, it's just Punch.  In rev 3, it's all colors as expected.
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                 while (nSrcStart >= nNodeIncrement)

@@ -2178,7 +2178,7 @@ const sDescTreeNode SVCPLUSA_A_UNITS[SVCPLUSA_A_NUMUNIT] =
     { L"Red Arremer", DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_REDARREMER_COLLECTION, ARRAYSIZE(SVCPLUSA_A_REDARREMER_COLLECTION) },
 };
 
-// We extend this array with data groveled from the GarouE.txt extensible extras file, if any.
+// We extend this array with data groveled from the extras file, if any.
 const stExtraDef SVCPLUSA_A_EXTRA[] =
 {
     // Start

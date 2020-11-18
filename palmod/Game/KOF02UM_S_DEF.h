@@ -5095,7 +5095,7 @@ const sDescTreeNode KOF02UM_S_UNITS[KOF02UM_S_NUMUNIT] =
     { L"Bonus", DESC_NODETYPE_TREE, (void*)KOF02UM_S_BONUS_COLLECTION, ARRAYSIZE(KOF02UM_S_BONUS_COLLECTION) },
 };
 
-// We extend this array with data groveled from the GarouE.txt extensible extras file, if any.
+// We extend this array with data groveled from the extras file, if any.
 const stExtraDef KOF02UM_S_EXTRA[] =
 {
     // Start

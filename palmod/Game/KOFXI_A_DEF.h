@@ -10294,7 +10294,7 @@ constexpr auto KOFXI_A_NUMUNIT = ARRAYSIZE(KOFXI_A_UNITS);
 
 #define KOFXI_A_EXTRALOC KOFXI_A_NUMUNIT
 
-// We extend this array with data groveled from the GarouE.txt extensible extras file, if any.
+// We extend this array with data groveled from the extras file, if any.
 const stExtraDef KOFXI_A_EXTRA[] =
 {
     // Start

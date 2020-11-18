@@ -1742,7 +1742,7 @@ const sDescTreeNode Garou_A_UNITS[Garou_A_NUMUNIT] =
     { _T("Bonus Stuff"), DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_COLLECTION, ARRAYSIZE(Garou_A_BONUS_COLLECTION) },
 };
 
-// We extend this array with data groveled from the GarouE.txt extensible extras file, if any.
+// We extend this array with data groveled from the extras file, if any.
 const stExtraDef Garou_A_EXTRA[] =
 {
     // Start

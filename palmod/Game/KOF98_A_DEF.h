@@ -3216,7 +3216,7 @@ const sDescTreeNode KOF98_A_UNITS[KOF98_A_NUMUNIT] =
     { _T("Omega Rugal"), DESC_NODETYPE_TREE, (void*)KOF98_A_OmegaRugal_COLLECTION, ARRAYSIZE(KOF98_A_OmegaRugal_COLLECTION) },
 };
 
-// We extend this array with data groveled from the GarouE.txt extensible extras file, if any.
+// We extend this array with data groveled from the extras file, if any.
 const stExtraDef KOF98_A_EXTRA[] =
 {
     // Start

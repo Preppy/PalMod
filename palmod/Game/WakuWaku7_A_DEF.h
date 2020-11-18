@@ -233,36 +233,36 @@ const sGame_PaletteDataset WakuWaku7_A_SLASH_DARK_PALETTES[] =
 
 const sGame_PaletteDataset WakuWaku7_A_TESSE_A_PALETTES[] =
 {
-    { _T("Tesse A"), 0x0e91C, 0x0e93C },
-    { _T("Tesse A SEL Portrait"), 0x01189C, 0x0118BC },
+    { _T("Tesse A"), 0x0e91a, 0x0e93a },
+    { _T("Tesse A SEL Portrait"), 0x01189a, 0x0118Ba },
     { _T("Tesse A HUD Portrait"), 0x017826, 0x017846 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_TESSE_B_PALETTES[] =
 {
-    { _T("Tesse B"), 0x0E93C, 0x0E95C },
-    { _T("Tesse B SEL Portrait"), 0x0118BC, 0x0118DC },
+    { _T("Tesse B"), 0x0E93a, 0x0E95a },
+    { _T("Tesse B SEL Portrait"), 0x0118Ba, 0x0118Da },
     { _T("Tesse B HUD Portrait"), 0x017846, 0x017866 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_TESSE_C_PALETTES[] =
 {
-    { _T("Tesse C"), 0x0E95C, 0x0E97C },
-    { _T("Tesse C SEL Portrait"), 0x0118DC, 0x0118FC },
+    { _T("Tesse C"), 0x0E95a, 0x0E97a },
+    { _T("Tesse C SEL Portrait"), 0x0118Da, 0x0118Fa },
     { _T("Tesse C HUD Portrait"), 0x017866, 0x017886 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_TESSE_D_PALETTES[] =
 {
-    { _T("Tesse D"), 0x0E97C, 0x0E99C },
-    { _T("Tesse D SEL Portrait"), 0x0118FC, 0x01191C },
+    { _T("Tesse D"), 0x0E97a, 0x0E99a },
+    { _T("Tesse D SEL Portrait"), 0x0118Fa, 0x01191a },
     { _T("Tesse D HUD Portrait"), 0x017886, 0x0178A6 },
 };
 
 const sGame_PaletteDataset WakuWaku7_A_TESSE_DARK_PALETTES[] =
 {
-    { _T("Tesse Dark"), 0xED18, 0xED38 },
-    { _T("Tesse Dark SEL Portrait"), 0x01191C, 0x01193C },
+    { _T("Tesse Dark"), 0xED1a, 0xED3a },
+    { _T("Tesse Dark SEL Portrait"), 0x01191a, 0x01193a },
     { _T("Tesse Dark HUD Portrait"), 0x0178A6, 0x0178C6 },
 };
 

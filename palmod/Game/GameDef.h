@@ -943,24 +943,6 @@ const UINT8 COTA_A_IMG_UNITS[] =
 
 const int COTA_A_NUM_IMG_UNITS = ARRAYSIZE(COTA_A_IMG_UNITS);
 
-enum GEMFIGHTER_CHARACTERS
-{
-    indexGemFighterChars_Ryu,
-    indexGemFighterChars_Ken,
-    indexGemFighterChars_ChunLi,
-    indexGemFighterChars_Sakura,
-    indexGemFighterChars_Morrigan,
-    indexGemFighterChars_HsienKo,
-    indexGemFighterChars_Felicia,
-    indexGemFighterChars_Tessa,
-    indexGemFighterChars_Ibuki,
-    indexGemFighterChars_Zangief,
-    indexGemFighterChars_Dan,
-    indexGemFighterChars_Akuma,
-    indexGemFighterChars_Bonus,
-    indexGemFighterChars_Last,
-};
-
 const UINT8 GEMFIGHTER_A_IMG_UNITS[] =
 {
     indexCPS2_SPF_Ryu,      // 0x59

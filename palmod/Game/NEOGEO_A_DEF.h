@@ -36,7 +36,7 @@ const sDescTreeNode NEOGEO_A_UNITS[NEOGEO_A_NUMUNIT] =
     { _T("Stub Unit 2"), DESC_NODETYPE_TREE, (void*)NEOGEO_A_STUB2_COLLECTION, ARRAYSIZE(NEOGEO_A_STUB2_COLLECTION) },
 };
 
-// We extend this array with data groveled from the GarouE.txt extensible extras file, if any.
+// We extend this array with data groveled from the extras file, if any.
 const stExtraDef NEOGEO_A_EXTRA[] =
 {
     // Start

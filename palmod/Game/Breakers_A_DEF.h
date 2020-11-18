@@ -374,7 +374,7 @@ constexpr auto BREAKERS_A_NUMUNIT = ARRAYSIZE(BREAKERS_A_UNITS);
 
 #define BREAKERS_A_EXTRALOC BREAKERS_A_NUMUNIT
 
-// We extend this array with data groveled from the GarouE.txt extensible extras file, if any.
+// We extend this array with data groveled from the extras file, if any.
 const stExtraDef BREAKERS_A_EXTRA[] =
 {
     // Start
