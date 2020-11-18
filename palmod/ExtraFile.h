@@ -27,4 +27,3 @@ public:
     // Checks for duplicate entries and surprisingly low entries.
     void CheckForErrorsInTables();
 };
-

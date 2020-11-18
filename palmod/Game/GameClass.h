@@ -122,7 +122,7 @@ protected:
     struct sCreatePalOptions
     {
         // Normally zero, but we can offset by one in some cases.
-        UINT8 nStartingPosition =     NO_SPECIAL_OPTIONS;
+        UINT8 nStartingPosition = NO_SPECIAL_OPTIONS;
         PALWriteOutputOptions eWriteOutputOptions = PALWriteOutputOptions::WRITE_16;
     };
 

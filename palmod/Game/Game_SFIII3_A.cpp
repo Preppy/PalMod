@@ -70,7 +70,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForGill() ? 24 : 1010);
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForGill() ? 24 : 1028);
     m_nTotalPaletteCount = UsePaletteSetForGill() ? m_nTotalPaletteCountForSFIII3_10 : (UsePaletteSetFor51() ? m_nTotalPaletteCountForSFIII3_51 : m_nTotalPaletteCountForSFIII3_4);
     m_nLowestKnownPaletteRomLocation = UsePaletteSetForGill() ? 0x1C86A8 : 0x700000;
 
@@ -836,14 +836,8 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        if (UsePaletteSetForGill())
-        {
-            rgUnitRedir[nUnitCtr] = nUnitCtr;
-        }
-        else
-        {
-            rgUnitRedir[nUnitCtr] = SFIII3_A_UNITSORT[nUnitCtr];
-        }
+        // Layout is presorted
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -1056,9 +1050,11 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
 
-            switch (NodeGet->uUnitId)
-            {
-            case index3S_CPS3_ShinGouki: //Shin Gouki: only have two versions in this game
+            sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+
+            // These characters only have two nodes in this game
+            if ((_tcscmp(charUnit->szDesc, k_sf3NameKey_ShinGouki) == 0) ||
+                (_tcscmp(charUnit->szDesc, k_sf3NameKey_UltraSean) == 0))
             {
                 nSrcAmt = 2;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
@@ -1067,16 +1063,11 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                 {
                     nSrcStart -= nNodeIncrement;
                 }
-
-                break;
-            }
-            default:
-                break;
             }
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (NodeGet->uUnitId == index3S_CPS3_Alex)
+                if (_tcscmp(charUnit->szDesc, k_sf3NameKey_Alex) == 0)
                 {
                     UINT16 nNodeCount = GetCollectionCountForUnit(NodeGet->uUnitId);
                     UINT16 nNextToLastPalette = GetPaletteCountForUnit(NodeGet->uUnitId) - 1;
@@ -1109,7 +1100,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         SetSourcePal(1, NodeGet->uUnitId, nNextToLastPalette, nSrcAmt, 0);
                     }
                 }
-                else if (NodeGet->uUnitId == index3S_CPS3_Oro) // Oro
+                else if (_tcscmp(charUnit->szDesc, k_sf3NameKey_Oro) == 0)
                 {
                     fShouldUseAlternateLoadLogic = true;
 
@@ -1136,7 +1127,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
                     SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 1, 1);
                 }
-                else if (NodeGet->uUnitId == index3S_CPS3_Urien) // Urien
+                else if (_tcscmp(charUnit->szDesc, k_sf3NameKey_Urien) == 0)
                 {
                     // Note that we deliberately use a different image for the paired palette than we do
                     // when displaying that palette normally.

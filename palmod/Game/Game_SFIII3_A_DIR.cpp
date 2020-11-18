@@ -299,14 +299,8 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                 memset(m_pppDataBuffer[nUnitCtr], 0, sizeof(UINT16 *) * nPalAmt);
             }
 
-            if (UsePaletteSetForGill())
-            {
-                rgUnitRedir[nUnitCtr] = nUnitCtr;
-            }
-            else
-            {
-                rgUnitRedir[nUnitCtr] = SFIII3_A_UNITSORT[nUnitCtr];
-            }
+            // Layout is presorted
+            rgUnitRedir[nUnitCtr] = nUnitCtr;
 
             for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {

@@ -472,6 +472,56 @@ const sDescTreeNode GEMFIGHTER_A_CARDS_COLLECTION[] =
     { L"Defeated Cards", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_CARDS_DEFEATED_PALETTES, ARRAYSIZE(GEMFIGHTER_A_CARDS_DEFEATED_PALETTES) },
 };
 
+const sGame_PaletteDataset GEMFIGHTER_A_INTRO_PALETTES[] =
+{
+    { L"Intro/Menu/??? Text", 0xe042, 0xe102 },
+    { L"Intro Big Gem", 0xe102, 0xe142 },
+    { L"Ken Intro", 0xe142, 0xe1a2 },
+    { L"Ryu Intro", 0xe242, 0xe2a2 },
+    { L"Blue Ken 1/2 Intro", 0xe1a2, 0xe1e2 },
+    { L"Blue Ken 2/2 Intro", 0xe2a2, 0xe2c2 },
+    { L"Blue Ryu Intro", 0xe1e2, 0xe242 },
+    { L"Intro Bars", 0xe2c2, 0xe2e2 },
+    { L"Lightning Intro", 0xe2e2, 0xe302 },
+    { L"Morrigan 1 Intro", 0xe302, 0xe362 },
+    { L"Morrigan Bats & Effects Intro", 0xe6c2, 0xe702 },
+    { L"Geisha Morrigan Intro", 0xe362, 0xe402 },
+    { L"Pastry Chef Morrigan Intro", 0xe402, 0xe4a2 },
+    { L"Maid Morrigan Intro", 0xe4a2, 0xe562 },
+    { L"Nurse Morrigan Intro", 0xe562, 0xe6c2 },
+    { L"Ibuki 1/2 Intro", 0xe702, 0xe7a2 },
+    { L"Ibuki 2/2 Intro", 0xe802, 0xe822 },
+    { L"Chun-Li Intro", 0xe7a2, 0xe802 },
+    { L"Bench Chair Intro", 0xe862, 0xe882 },
+    { L"Felicia Intro", 0xe822, 0xe862 },
+    { L"Tessa Gem Intro", 0xe882, 0xe8a2 },
+    { L"Hsien-Ko Intro", 0xe8a2, 0xe8e2 },
+    { L"Ibuki & Hsien-Ko Shadow Intro", 0xe902, 0xe922 },
+    { L"Chun-Li & Felicia Shadow Intro", 0xe922, 0xe942 },
+    { L"NO MERCY Text Intro", 0xea82, 0xeb02 },
+
+    { L"Ryu End Intro", 0xeb02, 0xeb62 },
+    { L"Ken End Intro", 0xeb62, 0xebc2 },
+    { L"Chun-Li End Intro", 0xebc2, 0xec22 },
+    { L"Sakura End Intro", 0xec22, 0xec82 },
+    { L"Morrigan End Intro", 0xec82, 0xece2 },
+    { L"Hsien-Ko End Intro", 0xece2, 0xed42 },
+    { L"Felicia End Intro", 0xed42, 0xeda2 },
+    { L"Tessa End Intro", 0xeda2, 0xee02 },
+    { L"Ibuki End Intro", 0xee02, 0xee62 },
+    { L"Zangief End Intro", 0xee62, 0xeec2 },
+    { L"Bikini Sakura Intro", 0xef02, 0xefa2 },
+    { L"Sun's Light", 0xefa2, 0xefc2 },
+    { L"??? Intro", 0xea42, 0xea82 },
+    { L"??? 2 Intro", 0xeec2, 0xef02 },
+    { L"??? 3 Intro", 0xefc2, 0xefe2 },
+};
+
+const sDescTreeNode GEMFIGHTER_A_INTROS_COLLECTION[] =
+{
+    { L"Intro Palettes", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_INTRO_PALETTES, ARRAYSIZE(GEMFIGHTER_A_INTRO_PALETTES) },
+};
+
 const sGame_PaletteDataset GEMFIGHTER_A_BONUS_PALETTES[] =
 {
     { L"Insert Coin / Char Names / After Battle Text / Timer Numbers", 0xbde6, 0xbe06 },
@@ -526,7 +576,10 @@ const sDescTreeNode GEMFIGHTER_A_UNITS[] =
     { L"Ryu", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_RYU_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_RYU_COLLECTION) },
     { L"Tessa", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_TESSA_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_TESSA_COLLECTION) },
     { L"Zangief", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_ZANGIEF_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_ZANGIEF_COLLECTION) },
+
     { L"Cards", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_CARDS_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_CARDS_COLLECTION) },
+
+    { L"Intros", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_INTROS_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_INTROS_COLLECTION) },
 
     { L"Bonus Stuff", DESC_NODETYPE_TREE, (void*)GEMFIGHTER_A_BONUS_COLLECTION, ARRAYSIZE(GEMFIGHTER_A_BONUS_COLLECTION) },
 };
@@ -534,7 +587,6 @@ const sDescTreeNode GEMFIGHTER_A_UNITS[] =
 constexpr auto GEMFIGHTER_A_NUMUNITS = ARRAYSIZE(GEMFIGHTER_A_UNITS);
 
 #define GEMFIGHTER_A_EXTRALOC GEMFIGHTER_A_NUMUNITS
-
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef GEMFIGHTER_A_EXTRA[] =
