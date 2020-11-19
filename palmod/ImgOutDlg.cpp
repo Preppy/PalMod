@@ -8,6 +8,7 @@
 #include "gdiplus.h"
 #include "RegProc.h"
 #include "CRC32.h"
+#include "lodepng/lodepng.h"
 
 using namespace Gdiplus;
 
@@ -389,7 +390,22 @@ void CImgOutDlg::ResizeBmp()
 
 void CImgOutDlg::OnFileSave()
 {
-    static LPCTSTR szSaveFilter[] =
+    const bool isIndexedPNGAllowed = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
+
+    // These two structs should match minus the preferred lead option, Indexed PNG.
+    // We only expose that for solo sprites, since we only get one PLTE table to work with
+    static LPCTSTR szSaveFilterSingle[] =
+    {
+        _T("Indexed PNG|*.png|")
+        _T("PNG Image|*.png|")
+        _T("GIF Image|*.gif|")
+        _T("BMP Image|*.bmp|")
+        _T("JPEG Image|*.jpg|")
+        _T("RAW texture|*.raw|")
+        _T("|")
+    };
+
+    static LPCTSTR szSaveFilterMultiple[] =
     {
         _T("PNG Image|*.png|")
         _T("GIF Image|*.gif|")
@@ -404,7 +420,7 @@ void CImgOutDlg::OnFileSave()
         NULL,
         NULL,
         OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY,
-        *szSaveFilter
+        isIndexedPNGAllowed  ? *szSaveFilterSingle : *szSaveFilterMultiple
     );
 
     if (sfd.DoModal() == IDOK)
@@ -416,35 +432,43 @@ void CImgOutDlg::OnFileSave()
         GUID img_format = ImageFormatPNG;
         DWORD dwExportFlags = 0;
 
-        switch (sfd.GetOFN().nFilterIndex)
+        const DWORD nAdjustedFilterIndex = sfd.GetOFN().nFilterIndex + (isIndexedPNGAllowed ? 0 : 1);
+
+        switch (nAdjustedFilterIndex)
         {
         default:
         case 1:
+        {
+            img_format = ImageFormatUndefined;
+            output_ext = _T(".png");
+            break;
+        }
+        case 2:
         {
             img_format = ImageFormatPNG;
             output_ext = _T(".png");
             dwExportFlags = bTransPNG ? CImage::createAlphaChannel : 0;
             break;
         }
-        case 2:
+        case 3:
         {
             img_format = ImageFormatGIF;
             output_ext = _T(".gif");
             break;
         }
-        case 3:
+        case 4:
         {
             img_format = ImageFormatBMP;
             output_ext = _T(".bmp");
             break;
         }
-        case 4:
+        case 5:
         {
             img_format = ImageFormatJPEG;
             output_ext = _T(".jpg");
             break;
         }
-        case 5:
+        case 6:
         {
             img_format = ImageFormatUndefined;
             output_ext = _T(".raw");
@@ -471,38 +495,112 @@ void CImgOutDlg::OnFileSave()
             output_str.Format(_T("%s%s"), sfd_ofn.lpstrFile, output_ext.GetString());
         }
 
-        if (img_format == ImageFormatUndefined)
+        if (img_format == ImageFormatUndefined) // this path is RAW and indexed PNG using custom encoders
         {
-            // raw
-            const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
-            sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
-            CString strDimensions;
-
-            // We want to ensure filename syntax, so strip the extension in order to rebuild it
-            save_str.Replace(output_ext.GetString(), _T(""));
-
-            for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
+            if (output_ext.CompareNoCase(_T(".png")) == 0)
             {
-                strDimensions.Format(_T("-w-%u-h-%u"), rgSrcImg[nImageIndex]->uImgW, rgSrcImg[nImageIndex]->uImgH);
+                // Indexed PNG: use the lodePNG encoder
+                const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
+                sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
 
-                // Ensure that the filename includes the W/H values so the RAW is usable
-                const bool fNeedDimensions = (_tcsstr(sfd_ofn.lpstrFile, strDimensions.GetString()) == nullptr);
+                // We only export the primary sprite
+                const int nImageIndex = 0;
 
-                // RAW export
-                if (nImageCount == 1)
+                const unsigned width = rgSrcImg[nImageIndex]->uImgW;
+                const unsigned height = rgSrcImg[nImageIndex]->uImgH;
+
+                // Establish the raw image data
+                std::vector<unsigned char> image(width * height);
+                const unsigned totalSize = width * height;
+                for (unsigned y = 0; y < height; y++)
                 {
-                    output_str.Format(_T("%s%s%s"), save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+                    for (unsigned x = 0; x < width; x++)
+                    {
+                        // do shenanigans to flip the sprite
+                        int destIndex = y * width + x;
+                        int srcIndex = totalSize - 1 - destIndex;
+
+                        image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex];
+                    }
+                }
+
+                lodepng::State state;
+
+                // Establish the PLTE header data.
+                sImgNode* psCurrentImage = m_DumpBmp.rgSrcImg[0];
+                for (size_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
+                {
+                    if (iCurrentColor < (size_t)psCurrentImage->uPalSz) // actual colors
+                    {
+                        const COLORREF pThisColor = psCurrentImage->pPalette[iCurrentColor];
+                        lodepng_palette_add(&state.info_png.color, GetRValue(pThisColor), GetGValue(pThisColor), GetBValue(pThisColor), GetAValue(pThisColor));
+                        lodepng_palette_add(&state.info_raw, GetRValue(pThisColor), GetGValue(pThisColor), GetBValue(pThisColor), GetAValue(pThisColor));
+                    }
+                    else // filler
+                    {
+                        lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
+                        lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
+                    }
+                }
+
+                // lodepng options: going from RAW to indexed PNG
+                state.info_raw.colortype = LCT_PALETTE;
+                state.info_raw.bitdepth = 8;
+
+                state.info_png.color.colortype = LCT_PALETTE;
+                state.info_png.color.bitdepth = 8;
+                state.encoder.auto_convert = 0;
+
+                //encode and save
+                std::vector<unsigned char> buffer;
+                unsigned error = lodepng::encode(buffer, &image[0], width, height, state);
+                if (error)
+                {
+                    CString strError;
+                    strError.Format(L"PNG encoder error: %u - %S\n", error, lodepng_error_text(error));
+                    MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+                    OutputDebugString(strError);
                 }
                 else
                 {
-                    output_str.Format(_T("%s-%02x%s%s"), save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+                    CStringA strAnsiString;
+                    strAnsiString.Format("%S", output_str.GetString());
+                    lodepng::save_file(buffer, strAnsiString.GetString());
                 }
+            }
+            else
+            {
+                // raw
+                const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
+                sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
+                CString strDimensions;
 
-                CFile rawFile;
-                if (rawFile.Open(output_str, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+                // We want to ensure filename syntax, so strip the extension in order to rebuild it
+                save_str.Replace(output_ext.GetString(), _T(""));
+
+                for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
                 {
-                    rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW);
-                    rawFile.Abort();
+                    strDimensions.Format(_T("-w-%u-h-%u"), rgSrcImg[nImageIndex]->uImgW, rgSrcImg[nImageIndex]->uImgH);
+
+                    // Ensure that the filename includes the W/H values so the RAW is usable
+                    const bool fNeedDimensions = (_tcsstr(sfd_ofn.lpstrFile, strDimensions.GetString()) == nullptr);
+
+                    // RAW export
+                    if (nImageCount == 1)
+                    {
+                        output_str.Format(_T("%s%s%s"), save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+                    }
+                    else
+                    {
+                        output_str.Format(_T("%s-%02x%s%s"), save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+                    }
+
+                    CFile rawFile;
+                    if (rawFile.Open(output_str, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+                    {
+                        rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW);
+                        rawFile.Abort();
+                    }
                 }
             }
         }

@@ -186,6 +186,7 @@
     <ClCompile Include="ImgInfoList.cpp" />
     <ClCompile Include="ImgOutDlg.cpp" />
     <ClCompile Include="Junk.cpp" />
+    <ClCompile Include="lodepng\lodepng.cpp" />
     <ClCompile Include="PalMod.cpp" />
     <ClCompile Include="PalModDlg.cpp" />
     <ClCompile Include="PalModDlg_Color.cpp" />

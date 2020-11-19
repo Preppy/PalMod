@@ -426,6 +426,9 @@
     <ClCompile Include="Game\Game_Breakers_A.cpp">
       <Filter>Game\SNK Games\Breakers Revenge</Filter>
     </ClCompile>
+    <ClCompile Include="lodepng\lodepng.cpp">
+      <Filter>Additional Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImgDisp.h">
