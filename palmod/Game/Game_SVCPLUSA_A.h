@@ -37,11 +37,13 @@ private:
         LPCTSTR pszRevisionName = _T("SVC Plus A");
         eSVCRevisionName rev = eSVCRevisionName::SVCPlusA;
         std::vector<LPCTSTR> fileList;
+        int nOffsetForReads = 0;
+        bool allowWrites = true;
     };
 
     SVCRevisionInfo m_loadedROMRevision;
 
-    void UpdateGameName(LPCTSTR pszROMFileName);
+    void UpdateGameName(CFile* LoadedFile);
 
 public:
     CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize);
@@ -74,6 +76,8 @@ public:
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+
+    BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) override;
 
     static stExtraDef* SVCPLUSA_A_EXTRA_CUSTOM;
 };

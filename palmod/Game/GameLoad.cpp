@@ -737,6 +737,11 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
                 // Samurai Shodown has a second ROM variant, but we only use the first half here, and things align.
                 isSafeToRunGame = true;
             }
+            else if ((nGameFlag == SVCPLUSA_A) && (nGameFileLength == 0x200000))
+            {
+                // SVCPlus uses different ROM sizes that the code accounts for
+                isSafeToRunGame = true;
+            }
         }
 
         if (!isSafeToRunGame) // we could hook people trying to load Venture here... file size is 4194304

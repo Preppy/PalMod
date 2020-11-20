@@ -17,6 +17,171 @@ UINT32 CGame_SVCPLUSA_A::m_nTotalPaletteCountForSVCPLUSA = 0;
 UINT32 CGame_SVCPLUSA_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
 UINT32 CGame_SVCPLUSA_A::m_nConfirmedROMSize = -1;
 
+#pragma region MAME_svc_decryption
+
+// This section is:
+// license:BSD-3-Clause
+// copyright-holders:Aaron Giles, Vas Crabb
+
+/// \brief Extract a single bit from an integer
+///
+/// Extracts a single bit from an integer into the least significant bit
+/// position.
+///
+/// \param [in] x The integer to extract the bit from.
+/// \param [in] n The bit to extract, where zero is the least
+///   significant bit of the input.
+/// \return Zero if the specified bit is unset, or one if it is set.
+/// \sa bitswap
+template <typename T, typename U> constexpr T BIT(T x, U n) noexcept { return (x >> n) & T(1); }
+
+
+/// \brief Extract a bit field from an integer
+///
+/// Extracts and right-aligns a bit field from an integer.
+///
+/// \param [in] x The integer to extract the bit field from.
+/// \param [in] n The least significant bit position of the field to
+///   extract, where zero is the least significant bit of the input.
+/// \param [in] w The width of the field to extract in bits.
+/// \return The field [n..(n+w-1)] from the input.
+/// \sa bitswap
+template <typename T, typename U, typename V> constexpr T BIT(T x, U n, V w)
+{
+    return (x >> n) & make_bitmask<T>(w);
+}
+
+/// \brief Extract and right-align a single bit field
+///
+/// This overload is used to terminate a recursive template
+/// implementation.  It is functionally equivalent to the BIT
+/// function for extracting a single bit.
+///
+/// \param [in] val The integer to extract the bit from.
+/// \param [in] b The bit to extract, where zero is the least
+///   significant bit of the input.
+/// \return The specified bit of the input extracted to the least
+///   significant position.
+template <typename T, typename U> constexpr T bitswap(T val, U b) noexcept { return BIT(val, b) << 0U; }
+
+
+/// \brief Extract bits in arbitrary order
+///
+/// Extracts bits from an integer.  Specify the bits in the order they
+/// should be arranged in the output, from most significant to least
+/// significant.  The extracted bits will be packed into a right-aligned
+/// field in the output.
+///
+/// \param [in] val The integer to extract bits from.
+/// \param [in] b The first bit to extract from the input
+///   extract, where zero is the least significant bit of the input.
+///   This bit will appear in the most significant position of the
+///   right-aligned output field.
+/// \param [in] c The remaining bits to extract, where zero is the
+///   least significant bit of the input.
+/// \return The extracted bits packed into a right-aligned field.
+template <typename T, typename U, typename... V> constexpr T bitswap(T val, U b, V... c) noexcept
+{
+    return (BIT(val, b) << sizeof...(c)) | bitswap(val, c...);
+}
+
+
+/// \brief Extract bits in arbitrary order with explicit count
+///
+/// Extracts bits from an integer.  Specify the bits in the order they
+/// should be arranged in the output, from most significant to least
+/// significant.  The extracted bits will be packed into a right-aligned
+/// field in the output.  The number of bits to extract must be supplied
+/// as a template argument.
+///
+/// A compile error will be generated if the number of bit positions
+/// supplied does not match the specified number of bits to extract, or
+/// if the output type is too small to hold the extracted bits.  This
+/// guards against some simple errors.
+///
+/// \tparam B The number of bits to extract.  Must match the number of
+///   bit positions supplied.
+/// \param [in] val The integer to extract bits from.
+/// \param [in] b Bits to extract, where zero is the least significant
+///   bit of the input.  Specify bits in the order they should appear in
+///   the output field, from most significant to least significant.
+/// \return The extracted bits packed into a right-aligned field.
+template <unsigned B, typename T, typename... U> T bitswap(T val, U... b) noexcept
+{
+    static_assert(sizeof...(b) == B, "wrong number of bits");
+    static_assert((sizeof(std::remove_reference_t<T>) * 8) >= B, "return type too small for result");
+    return bitswap(val, b...);
+}
+
+void sx_decrypt(uint8_t* fixed, uint32_t fixed_size, int value)
+{
+    int sx_size = fixed_size;
+    uint8_t* rom = fixed;
+
+    if (value == 1)
+    {
+        std::vector<uint8_t> buf(sx_size);
+        memcpy(&buf[0], rom, sx_size);
+
+        for (int i = 0; i < sx_size; i += 0x10)
+        {
+            memcpy(&rom[i], &buf[i + 8], 8);
+            memcpy(&rom[i + 8], &buf[i], 8);
+        }
+    }
+    else if (value == 2)
+    {
+        for (int i = 0; i < sx_size; i++)
+            rom[i] = bitswap<8>(rom[i], 7, 6, 0, 4, 3, 2, 1, 5);
+    }
+}
+
+void svcplus_px_decrypt(uint8_t* cpurom, uint32_t cpurom_size)
+{
+    static const int sec[] = { 0x00, 0x03, 0x02, 0x05, 0x04, 0x01 };
+    int size = cpurom_size;
+    uint8_t* src = cpurom;
+    std::vector<uint8_t> dst(size);
+
+    memcpy(&dst[0], src, size);
+    for (int i = 0; i < size / 2; i++)
+    {
+        int ofst = bitswap<24>((i & 0xfffff), 0x17, 0x16, 0x15, 0x14, 0x13, 0x00, 0x01, 0x02,
+            0x0f, 0x0e, 0x0d, 0x0c, 0x0b, 0x0a, 0x09, 0x08,
+            0x07, 0x06, 0x05, 0x04, 0x03, 0x10, 0x11, 0x12);
+        ofst ^= 0x0f0007;
+        ofst += (i & 0xff00000);
+        memcpy(&src[i * 0x02], &dst[ofst * 0x02], 0x02);
+    }
+
+    memcpy(&dst[0], src, size);
+    for (int i = 0; i < 6; i++)
+    {
+        memcpy(&src[i * 0x100000], &dst[sec[i] * 0x100000], 0x100000);
+    }
+}
+
+void svcsplus_px_decrypt(uint8_t* cpurom, uint32_t cpurom_size)
+{
+    static const int sec[] = { 0x06, 0x07, 0x01, 0x02, 0x03, 0x04, 0x05, 0x00 };
+    int size = cpurom_size;
+    uint8_t* src = cpurom;
+    std::vector<uint8_t> dst(size);
+
+    memcpy(&dst[0], src, size);
+    for (int i = 0; i < size / 2; i++)
+    {
+        int ofst = bitswap<16>((i & 0x007fff), 0x0f, 0x00, 0x08, 0x09, 0x0b, 0x0a, 0x0c, 0x0d,
+            0x04, 0x03, 0x01, 0x07, 0x06, 0x02, 0x05, 0x0e);
+
+        ofst += (i & 0x078000);
+        ofst += sec[(i & 0xf80000) >> 19] << 19;
+        memcpy(&src[i * 2], &dst[ofst * 2], 0x02);
+    }
+}
+
+#pragma endregion MAME_svc_decryption
+
 void CGame_SVCPLUSA_A::InitializeStatics()
 {
     safe_delete_array(CGame_SVCPLUSA_A::SVCPLUSA_A_EXTRA_CUSTOM);
@@ -740,6 +905,9 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            // shift for different roms as needed
+            m_nCurrentPaletteROMLocation += m_loadedROMRevision.nOffsetForReads;
         }
         else
         {
@@ -758,52 +926,198 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-void CGame_SVCPLUSA_A::UpdateGameName(LPCTSTR pszROMFileName)
+void CGame_SVCPLUSA_A::UpdateGameName(CFile* LoadedFile)
 {
-    if (_tcsicmp(pszROMFileName, _T("svc-p2sp.bin")) == 0) // svcsplus: we can read this if we use the svcsplus_px_decrypt implementations
+    if (_tcsicmp(LoadedFile->GetFileName(), _T("svc-p2sp.bin")) == 0) // svcSplus: we encrypted, so we can only read it
     {
         m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Super Plus (bootleg)");
         m_loadedROMRevision.rev = eSVCRevisionName::SVCSPlus;
         m_loadedROMRevision.fileList = { _T("svc-p1sp.bin"), _T("svc-p2sp.bin") };
+        m_loadedROMRevision.nOffsetForReads = 0x200000;
+        m_loadedROMRevision.allowWrites = false;
+
     }
-    else if (_tcsicmp(pszROMFileName, _T("svc-p2p.bin")) == 0) // svcplus
+    else if (_tcsicmp(LoadedFile->GetFileName(), _T("svc-p2p.bin")) == 0) // svcplus: encrypted, so we can only read it
     {
         m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 1)");
         m_loadedROMRevision.rev = eSVCRevisionName::SVCPlus;
         m_loadedROMRevision.fileList = { _T("svc-p1p.bin"), _T("svc-p2p.bin"), _T("svc-p3p.bin") };
+        m_loadedROMRevision.nOffsetForReads = 0x100000;
+        m_loadedROMRevision.allowWrites = false;
     }
-    else if (_tcsicmp(pszROMFileName, _T("svc-p2pl.bin")) == 0) // svcplusa: no encryption: we can read and write this
+    else if (_tcsicmp(LoadedFile->GetFileName(), _T("svc-p2pl.bin")) == 0) // svcplusa: no encryption: we can read and write this
     {
         m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 2)");
         m_loadedROMRevision.rev = eSVCRevisionName::SVCPlusA;
         m_loadedROMRevision.fileList = { _T("svc-p2pl.bin") };
+        m_loadedROMRevision.nOffsetForReads = 0;
+        m_loadedROMRevision.allowWrites = true;
     }
-    else // if (_tcsicmp(pszROMFileName, _T("269-p2.p2")) == 0) // svc
+    else // if (_tcsicmp(LoadedFile->GetFileName(), _T("269-p2.p2")) == 0) // svc: we cannot read nor write this
     {
         m_loadedROMRevision.pszRevisionName = _T("SVC (NEO*GEO)");
         m_loadedROMRevision.rev = eSVCRevisionName::SVC;
         m_loadedROMRevision.fileList = { _T("269-p1.p1"), _T("269-p2.p2") };
+        m_loadedROMRevision.nOffsetForReads = 0;
+        m_loadedROMRevision.allowWrites = false;
     }
 }
 
 BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
-    UpdateGameName(LoadedFile->GetFileName());
+    BOOL fSuccess = TRUE;
+
+    UpdateGameName(LoadedFile);
 
     uint8_t* decryptedROM = nullptr;
 
     switch (m_loadedROMRevision.rev)
     {
+    case eSVCRevisionName::SVCSPlus:
+        {
+            decryptedROM = new uint8_t[m_nConfirmedROMSize * 2];
+            ZeroMemory(decryptedROM, m_nConfirmedROMSize * 2);
+
+            CString strPeerFileName;
+            CFile pPeerFile;
+            strPeerFileName.Format(_T("%s\\..\\%s"), LoadedFile->GetFilePath().GetString(), _T("svc-p1sp.bin"));
+
+            fSuccess = pPeerFile.Open(strPeerFileName, CFile::modeRead | CFile::typeBinary);
+
+            if (fSuccess)
+            {
+                CString strMsg;
+                strMsg = (_T("This version of SNK vs. Capcom uses encryption that PalMod can read but cannot write. Palettes will show up correctly.  Do not patch: we cannot write correctly to encrypted ROMs."));
+                strMsg.Append(L"\n\nAre you sure you wish to continue?  Decryption will take a minute.");
+                if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP | MB_YESNO) == IDYES)
+                {
+                    pPeerFile.Read(decryptedROM, m_nConfirmedROMSize);
+                    LoadedFile->Read(decryptedROM + m_nConfirmedROMSize, m_nConfirmedROMSize);
+
+                    pPeerFile.Abort();
+
+                    {
+                        CWaitCursor wait;
+                        GetHost()->GetPalModDlg()->SetStatusText(L"Decrypting game: please wait...");
+                        svcsplus_px_decrypt(decryptedROM, m_nConfirmedROMSize * 2);
+                        GetHost()->GetPalModDlg()->SetStatusText(L"Decryption complete!");
+                    }
+
+#ifdef dump_decrypted_file
+                    CFile pOutput;
+                    CString strFN;
+                    strFN.Format(_T("%s\\..\\%s"), GetLoadDir(), _T("SVCPlusA-decrypt.bin"));
+
+                    if (pOutput.Open(strFN, CFile::modeWrite | CFile::typeBinary | CFile::modeCreate))
+                    {
+                        pOutput.Write(decryptedROM, m_nConfirmedROMSize * 2);
+                        pOutput.Abort();
+                    }
+#endif
+
+                    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                    {
+                        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+                        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+
+                        // Use a sorted layout
+                        rgUnitRedir[nUnitCtr] = SVCPLUSA_A_UNITSORT[nUnitCtr];
+
+                        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                        {
+                            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+                            memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], m_nCurrentPaletteSize * 2);
+                        }
+                    }
+                }
+                else
+                {
+                    fSuccess = FALSE;
+                }
+            }
+        }
+        break;
+    case eSVCRevisionName::SVCPlus: // svc-p2p.bin
+        {
+            const UINT32 nROMSetSize = 0x600000;
+            decryptedROM = new uint8_t[nROMSetSize];
+            ZeroMemory(decryptedROM, nROMSetSize);
+
+            LoadedFile->Abort();
+
+            CString strMsg;
+            strMsg = (_T("This version of SNK vs. Capcom uses encryption that PalMod can read but cannot write. Palettes will show up correctly.  Do not patch: we cannot write correctly to encrypted ROMs."));
+            strMsg.Append(L"\n\nAre you sure you wish to continue?  Decryption will take a minute.");
+            if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP | MB_YESNO) == IDYES)
+            {
+                UINT32 nCurrentROMOffset = 0;
+                for (LPCTSTR romName : m_loadedROMRevision.fileList)
+                {
+                    CString strPeerFileName;
+                    CFile pPeerFile;
+                    strPeerFileName.Format(_T("%s\\..\\%s"), GetLoadDir(), romName);
+                    if (pPeerFile.Open(strPeerFileName, CFile::modeRead | CFile::typeBinary))
+                    {
+                        pPeerFile.Read(&decryptedROM[nCurrentROMOffset], 0x200000);
+                        pPeerFile.Abort();
+                    }
+                    nCurrentROMOffset += 0x200000;
+                }
+
+                {
+                    CWaitCursor wait;
+                    GetHost()->GetPalModDlg()->SetStatusText(L"Decrypting game: please wait...");
+                    svcplus_px_decrypt(decryptedROM, nROMSetSize);
+                    GetHost()->GetPalModDlg()->SetStatusText(L"Decryption complete!");
+                }
+
+#ifdef save_decrypted_output
+                CFile pOutput;
+                CString strFN;
+                strFN.Format(_T("%s\\..\\%s"), GetLoadDir(), _T("SVCPlus-decrypt.bin"));
+
+                if (pOutput.Open(strFN, CFile::modeWrite | CFile::typeBinary | CFile::modeCreate))
+                {
+                    pOutput.Write(decryptedROM, nROMSetSize);
+                    pOutput.Abort();
+                }
+#endif
+
+                for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+                {
+                    UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+                    m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+
+                    // Use a sorted layout
+                    rgUnitRedir[nUnitCtr] = SVCPLUSA_A_UNITSORT[nUnitCtr];
+
+                    for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                    {
+                        LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                        m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+                        memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], m_nCurrentPaletteSize * 2);
+                    }
+                }
+            }
+            else
+            {
+                fSuccess = FALSE;
+            }
+        }
+        break;
     case eSVCRevisionName::SVC:
-    case eSVCRevisionName::SVCPlus:
         {
             CString strMsg;
             strMsg = (_T("This version of SNK vs. Capcom uses encryption that PalMod cannot read nor write. Palettes will not show up correctly.  Do not patch: we cannot write correctly to encrypted ROMs."));
             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+            __fallthrough;
         }
     default:
-    case eSVCRevisionName::SVCSPlus:
-        // We can edit SVCSPlusA, which uses the same filenames as SVCSPlus
     case eSVCRevisionName::SVCPlusA:
         {
             // SVCPlusA is already decrypted
@@ -823,7 +1137,6 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
                     m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
 
                     LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
                     LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
                 }
             }
@@ -837,7 +1150,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
     CheckForErrorsInTables();
 
-    return TRUE;
+    return fSuccess;
 }
 
 void CGame_SVCPLUSA_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
@@ -1040,4 +1353,18 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
     }
 
     return TRUE;
+}
+
+BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
+{
+    if (m_loadedROMRevision.allowWrites)
+    {
+        return CGameClass::SaveFile(SaveFile, nUnitId);
+    }
+    else
+    {
+        CString strMsg;
+        strMsg = (_T("Patching is currently disabled: PalMod can only read this encrypted ROM.  PalMod cannot write to this encrypted ROM at this time."));
+        MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP);
+    }
 }
