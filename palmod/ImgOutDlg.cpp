@@ -512,13 +512,15 @@ void CImgOutDlg::OnFileSave()
                 // Establish the raw image data
                 std::vector<unsigned char> image(width * height);
                 const unsigned totalSize = width * height;
+
                 for (unsigned y = 0; y < height; y++)
                 {
                     for (unsigned x = 0; x < width; x++)
                     {
-                        // do shenanigans to flip the sprite
+                        // make sure to flip the sprite
                         int destIndex = y * width + x;
-                        int srcIndex = totalSize - 1 - destIndex;
+                        // read bottom up, starting at the beginning of the last row
+                        int srcIndex = totalSize + x - ((y + 1) * width);
 
                         image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex];
                     }
@@ -530,7 +532,12 @@ void CImgOutDlg::OnFileSave()
                 sImgNode* psCurrentImage = m_DumpBmp.rgSrcImg[0];
                 for (size_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
                 {
-                    if (iCurrentColor < (size_t)psCurrentImage->uPalSz) // actual colors
+                    if (iCurrentColor == 0) // transparency color
+                    {
+                        lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
+                        lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
+                    }
+                    else if (iCurrentColor < (size_t)psCurrentImage->uPalSz) // actual colors
                     {
                         const COLORREF pThisColor = psCurrentImage->pPalette[iCurrentColor];
                         lodepng_palette_add(&state.info_png.color, GetRValue(pThisColor), GetGValue(pThisColor), GetBValue(pThisColor), GetAValue(pThisColor));

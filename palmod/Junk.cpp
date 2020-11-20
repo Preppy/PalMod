@@ -58,9 +58,11 @@ void CJunk::SelectMatchingColorsInPalette(DWORD dwColorToMatch)
 {
     if (Selected)
     {
+        COLORREF dwordAsColor = RGB(GetBValue(dwColorToMatch), GetGValue(dwColorToMatch), GetRValue(dwColorToMatch));
+
         for (int i = 0; i < iWorkingAmt; i++)
         {
-            Selected[i] = ((BasePal[i] & 0xFFFFFF) == (dwColorToMatch & 0xFFFFFF));
+            Selected[i] = ((BasePal[i] & 0xFFFFFF) == dwordAsColor);
         }
     }
 }
@@ -113,7 +115,33 @@ void CJunk::SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
     {
         s_fShownOnce = true;
         CString strError;
-        strError.Format(_T("Error: %s code tried writing to %u but array is 0-%u.\nPreviously this code would have crashed, but now this check saved you.  Please report this message text to me - thanks!"), pszFunctionName, nIndex, nAllocationLength);
+        strError.Format(_T("SetSelView Error: %s code tried writing to %u but array is 0-%u.\nPreviously this code would have crashed, but now this check saved you.  Please report this message text to me - thanks!"), pszFunctionName, nIndex, nAllocationLength);
+        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+    }
+#endif
+}
+
+void CJunk::SetSelected(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
+{
+    bool fSuccess = false;
+    if (Selected)
+    {
+        if ((nIndex >= 0) && (nIndex < nAllocationLength))
+        {
+            Selected[nIndex] = nValue;
+            fSuccess = true;
+        }
+    }
+
+#ifdef DEBUG
+    // 
+    static bool s_fShownOnce = false;
+
+    if (!fSuccess && !s_fShownOnce)
+    {
+        s_fShownOnce = true;
+        CString strError;
+        strError.Format(_T("SetSelected Error: %s code tried writing to %u but array is 0-%u.\nPreviously this code would have crashed, but now this check saved you.  Please report this message text to me - thanks!"), pszFunctionName, nIndex, nAllocationLength);
         MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
     }
 #endif
@@ -776,7 +804,7 @@ void CJunk::OnLButtonUp(UINT nFlags, CPoint point)
                     {
                         if (!Selected[(iy * iPalW) + ix])
                         {
-                            Selected[(iy * iPalW) + ix] = TRUE;
+                            SetSelected(L"OnLButtonUp", (iy * iPalW) + ix, TRUE);
                         }
 
                         SetSelViewItem(L"OnLButtonUp::HLAmt > 1", (iy * iPalW) + ix, FALSE);
