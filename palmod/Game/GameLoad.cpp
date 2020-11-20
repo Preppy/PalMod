@@ -1088,7 +1088,20 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
     if (nSaveLoadCount > 0)
     {
-        szLoadSaveStr.Format(_T("%d of %d files patched successfully (%d error%s)"), nSaveLoadSucc, nSaveLoadCount, nSaveLoadErr, nSaveLoadErr == 1 ? _T("") : _T("s"));
+        CString strErrorText = L"";
+        if (nSaveLoadErr)
+        {
+            strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
+        }
+
+        if (nSaveLoadCount == 1)
+        {
+            szLoadSaveStr.Format(L"Game patched successfully%s.", strErrorText.GetString());
+        }
+        else
+        {
+            szLoadSaveStr.Format(L"%d of %d files patched successfully%s.", nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
+        }
     }
     else
     {

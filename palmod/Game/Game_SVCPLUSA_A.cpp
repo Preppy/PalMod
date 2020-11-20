@@ -1366,5 +1366,6 @@ BOOL CGame_SVCPLUSA_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
         CString strMsg;
         strMsg = (_T("Patching is currently disabled: PalMod can only read this encrypted ROM.  PalMod cannot write to this encrypted ROM at this time."));
         MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP);
+        return FALSE;
     }
 }

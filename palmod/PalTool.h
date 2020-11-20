@@ -31,7 +31,7 @@ private:
     bool m_fFontIsBold = true;
     int nFontHeight = -1;
 
-    int nNotifyCtrlIndex = 0;
+    UINT_PTR nNotifyCtrlIndex = 0;
 
     CSpinButtonCtrl m_PgSpin;
 
@@ -50,9 +50,9 @@ private:
     void ClearBG(CPaintDC* PaintDC);
     void DrawText();
 
-    void OnPalSelChange(int nCtrlId, BOOL bCurrPage = TRUE);
+    void OnPalSelChange(UINT_PTR nCtrlId, BOOL bCurrPage = TRUE);
 
-    void SendPalMsg(int nCtrlId, int nType);
+    void SendPalMsg(UINT_PTR nCtrlId, int nType);
     void SetFontToBold(bool beBold);
 
 public:
@@ -64,10 +64,10 @@ public:
     void BeginSetPal();
     void EndSetPal();
     void SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, TCHAR* szNewPalStr);
-    int GetNotifyIndex() { return nNotifyCtrlIndex; };
+    UINT_PTR GetNotifyIndex() { return nNotifyCtrlIndex; };
     CJunk* GetNotifyPal() { return pPalEntry[nNotifyCtrlIndex].PaletteCtrl; };
-    CJunk* GetPalCtrl(int nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].PaletteCtrl : NULL; };
-    LPCTSTR GetPalName(int nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].szPalStr : _T("Untitled Palette"); };
+    CJunk* GetPalCtrl(UINT_PTR nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].PaletteCtrl : NULL; };
+    LPCTSTR GetPalName(UINT_PTR nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].szPalStr : _T("Untitled Palette"); };
 
     void ResetNotifyIndex() { nNotifyCtrlIndex = 0; };
 

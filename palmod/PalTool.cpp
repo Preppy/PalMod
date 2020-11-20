@@ -52,7 +52,7 @@ BOOL CPalTool::RegisterWindowClass()
     return TRUE;
 }
 
-void CPalTool::SendPalMsg(int nCtrlId, int nType)
+void CPalTool::SendPalMsg(UINT_PTR nCtrlId, int nType)
 {
     static NMHDR hdr;
 
@@ -63,7 +63,7 @@ void CPalTool::SendPalMsg(int nCtrlId, int nType)
     GetParent()->PostMessage(WM_NOTIFY, 0, (LPARAM)&hdr);
 }
 
-void CPalTool::OnPalSelChange(int nCtrlId, BOOL bCurrPage)
+void CPalTool::OnPalSelChange(UINT_PTR nCtrlId, BOOL bCurrPage)
 {
     //Deselect each palette that is not selected
     int nPalStart = rgPalRedir[nCurrPage - 1];
@@ -390,7 +390,7 @@ void CPalTool::DrawText()
         {
             if (pPalEntry[i].bAvail)
             {
-                if (i == nNotifyCtrlIndex)
+                if (i == (int)nNotifyCtrlIndex)
                 {
                     dc.SetTextColor(RGB(0, 0, 0)); //Black for selected palette
                 }

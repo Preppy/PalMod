@@ -139,7 +139,7 @@ void CPalModDlg::UpdateCombo()
         //OnEditSelectNone();
 
         //Update the display palette selection
-        const int nNotifyIndex = m_PalHost.GetNotifyIndex();
+        const UINT_PTR nNotifyIndex = m_PalHost.GetNotifyIndex();
 
         if (m_PalHost.GetPalCtrl(nNotifyIndex))
         {
@@ -311,7 +311,7 @@ void CPalModDlg::PostPalSel()
     bForceImg = FALSE;
 }
 
-void CPalModDlg::OnPalSelChange(int nCtrlId)
+void CPalModDlg::OnPalSelChange(UINT_PTR nCtrlId)
 {
     //Update the base palette if multi-edit
     UpdateMultiEdit();
@@ -326,7 +326,7 @@ void CPalModDlg::OnPalSelChange(int nCtrlId)
     UpdateSliderSel();
 }
 
-void CPalModDlg::OnPalHLChange(void* pPalCtrl, int nCtrlId)
+void CPalModDlg::OnPalHLChange(void* pPalCtrl, UINT_PTR nCtrlId)
 {
     CJunk* pNotifyCtrl = (CJunk*)pPalCtrl;
     int nHLAmt = pNotifyCtrl->GetHLAmt();
@@ -339,7 +339,7 @@ void CPalModDlg::OnPalHLChange(void* pPalCtrl, int nCtrlId)
     {
         TCHAR szIndex[32];
         // this is the status bar area text
-        _stprintf(szIndex, _T("(%d: %d)"), nCtrlId, pNotifyCtrl->GetHighlightIndex());
+        _stprintf(szIndex, _T("(%d: %d)"), (int)nCtrlId, pNotifyCtrl->GetHighlightIndex());
 
         m_StatusBar.SetPaneText(1, szIndex);
     }

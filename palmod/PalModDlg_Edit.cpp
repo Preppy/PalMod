@@ -878,7 +878,7 @@ void CPalModDlg::SelectMatchingColorsInPalette(DWORD dwColorToMatch)
     }
 }
 
-void CPalModDlg::CustomEditProc(void* pPalCtrl, int nCtrlId, int nMethod)
+void CPalModDlg::CustomEditProc(void* pPalCtrl, UINT_PTR nCtrlId, int nMethod)
 {
     switch (nMethod)
     {

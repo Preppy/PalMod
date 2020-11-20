@@ -864,7 +864,7 @@ BOOL CJunk::ProcessHovered(CPoint hPoint, CPoint& PalPos)
     return TRUE;
 
 }
-void CJunk::OnTimer(UINT nIDEvent)
+void CJunk::OnTimer(UINT_PTR nIDEvent)
 {
     CPoint p(GetMessagePos());
     ScreenToClient(&p);

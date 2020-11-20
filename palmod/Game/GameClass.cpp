@@ -938,7 +938,7 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
 
     UINT32 nTotalPalettesSaved = 0;
     LPCSTR szIPSOpener = "PATCH";
-    PatchFile->Write(szIPSOpener, strlen(szIPSOpener));
+    PatchFile->Write(szIPSOpener, (UINT)strlen(szIPSOpener));
 
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -973,7 +973,7 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
     }
 
     LPCSTR szIPSCloser = "EOF";
-    PatchFile->Write(szIPSCloser, strlen(szIPSCloser));
+    PatchFile->Write(szIPSCloser, (UINT)strlen(szIPSCloser));
 
 #ifdef WANT_IPS_DAT_FILES
     // This code works, but I'm discussing what we want to do with it if anything.

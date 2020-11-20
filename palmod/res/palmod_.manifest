@@ -6,14 +6,14 @@
     name="Microsoft.Windows.PalMod_"
     type="win32" 
 /> 
-<description>Your app description here</description> 
+<description>PALette MODification for fighting games</description> 
 <dependency> 
     <dependentAssembly> 
         <assemblyIdentity 
             type="win32" 
             name="Microsoft.Windows.Common-Controls" 
             version="6.0.0.0" 
-            processorArchitecture="X86" 
+            processorArchitecture="*" 
             publicKeyToken="6595b64144ccf1df" 
             language="*" 
         /> 

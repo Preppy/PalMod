@@ -73,7 +73,7 @@ public:
     COLORREF* pTempPalCopy = nullptr;
 
     BOOL bForceImg = FALSE; 
-    int nCurrSelPal = 0;
+    UINT_PTR nCurrSelPal = 0;
     int nPalSelAmt = 0;
 
     int nPalImgIndex = 0;
@@ -167,9 +167,9 @@ public:
 // Dialog Data
     enum { IDD = IDD_PALMOD_DIALOG };
     
-    void OnPalSelChange(int nCtrlId);
-    void OnPalHLChange(void * pPalCtrl, int nCtrlId);
-    void CustomEditProc(void * pPalCtrl, int nCtrlId, int nMethod);
+    void OnPalSelChange(UINT_PTR nCtrlId);
+    void OnPalHLChange(void * pPalCtrl, UINT_PTR nCtrlId);
+    void CustomEditProc(void * pPalCtrl, UINT_PTR nCtrlId, int nMethod);
     //void OnPalMHL(void * pPalCtrl, int nCtrlId);
 
     void UpdateSliderPos(int nCtrlId);
