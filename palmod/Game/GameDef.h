@@ -64,6 +64,7 @@ enum SupportedGamesList
     NGBC_A,
     BREAKERS_A,
     SFIII3_A_DIR_4,
+    BLEACH_DS,
     NUM_GAMES // This needs to be last
 };
 
@@ -130,6 +131,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"NGBC (Atomiswave)",
    L"Breakers Revenge (Arcade)",
    L"SFIII:4rd (Arcade)",
+   L"Bleach DS (Nintendo DS)"
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -252,6 +254,11 @@ const LPCTSTR DEF_BUTTONLABEL_VSAV[] =
 const LPCTSTR DEF_BUTTONLABEL_KOFXI[] =
 {
     L"A", L"B", L"C", L"D", L"E+A", L"E+B", L"E+C", L"E+D", L"Start+A", L"Start+B", L"Start+C", L"Start+D"
+};
+
+const LPCTSTR DEF_BUTTONLABEL_BLEACH[] =
+{
+    L"Palette 1", L"Palette 2", L"Palette 3", L"Palette 4", L"Palette 5", L"Palette 6", L"Palette 7", L"Palette 8"
 };
 
 struct stExtraDef

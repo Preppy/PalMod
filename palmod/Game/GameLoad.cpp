@@ -49,6 +49,7 @@
 #include "Game_WakuWaku7_A.h"
 #include "Game_Windjammers_A.h"
 #include "Game_XMVSF_A.h"
+#include "Game_Bleach_DS.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
@@ -373,6 +374,12 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
 
+    case BLEACH_DS:
+    {
+        GetRule = &CGame_BLEACH_DS::GetRule;
+        return TRUE;
+    }
+
     default:
         OutputDebugString(_T("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n"));
         return FALSE;
@@ -587,6 +594,11 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_XMVSF_A(nConfirmedROMSize);
     }
+    case BLEACH_DS:
+    {
+        return new CGame_BLEACH_DS(nConfirmedROMSize);
+    }
+
     default:
         OutputDebugString(_T("CGameLoad::CreateGame:: BUGBUG: New game has not been properly added yet.\n"));
         return NULL;
