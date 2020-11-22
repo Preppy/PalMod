@@ -507,6 +507,11 @@ void CPalModDlg::OnEditPaste()
                     eColModeForPastedColor = ColMode::COLMODE_NEOGEO;
                     break;
                 }
+                case BLEACH_DS:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_GBA;
+                    break;
+                }
                 default:
                 {
                     // Do nothing: hopefully this is from a newer version of PalMod and they're pasting from/to the same game.

@@ -426,6 +426,7 @@ void CPalModDlg::OnFileOpen()
     sSupportedGameList SupportedGameList[] =
     {
         { BREAKERS_A, _T("Breakers Revenge|245-p1.p1|"), INVALID_UNIT_VALUE },
+        { BLEACH_DS, L"Bleach DS|*nds|", INVALID_UNIT_VALUE },
         { COTA_A, _T("COTA|xmn*.05*|"), INVALID_UNIT_VALUE },
         { CVS2_A, _T("CVS2|SNKGD_SL.bin|"), INVALID_UNIT_VALUE },
         { Garou_A, _T("Garou|kf.neo-sma|"), INVALID_UNIT_VALUE },

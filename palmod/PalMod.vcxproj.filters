@@ -190,6 +190,12 @@
     <Filter Include="Game\SNK Games\Breakers Revenge">
       <UniqueIdentifier>{5145a37d-8a16-4461-834b-518532cc6a53}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Nintendo">
+      <UniqueIdentifier>{b03bb639-d714-4d8f-b664-84b1bc5fc6d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\BLEACH_DS">
+      <UniqueIdentifier>{2188a85d-12e7-4b62-a7bd-8ceea29c95e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -428,6 +434,9 @@
     </ClCompile>
     <ClCompile Include="lodepng\lodepng.cpp">
       <Filter>Additional Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GAME_Bleach_DS.cpp">
+      <Filter>Game\Nintendo\BLEACH_DS</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -787,6 +796,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_Breakers_A.h">
       <Filter>Game\SNK Games\Breakers Revenge</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Bleach_DS_DEF.h">
+      <Filter>Game\Nintendo\BLEACH_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GAME_Bleach_DS.h">
+      <Filter>Game\Nintendo\BLEACH_DS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
