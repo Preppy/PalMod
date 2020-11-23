@@ -152,46 +152,46 @@ struct sNGBC_CharacterDump
 
 sNGBC_CharacterDump NGBCCharacterList[] =
 {
-    { L"Yuuki", 0x1013000 }, // 0x1014000
-    { L"Ai", 0x1250000 }, // 0x1251000
-    { L"Kyo", 0x13fe800 }, // 0x13ff800
-    { L"Iori", 0x15d9800 }, // 0x15da800
-    { L"Ryo", 0x17cb000, L"indexKOFSprites_02UM_Ryo" }, // 0x17cc000
-    { L"Terry", 0x190a000 }, // 0x190b000
-    { L"Haohmaru", 0x1aa8800 }, // 0x1aa9800
-    { L"Genjuro", 0x1c71000 }, // 0x1c72000
-    { L"Kaede", 0x1e32800 }, // 0x1e33800
-    { L"Moriya", 0x1fd7800 }, // 0x1fd8800
-    { L"K'", 0x21b0800 }, // 0x21b1800
-    { L"Rock", 0x2338000 }, // 0x2339000
-    { L"Mai", 0x2552000 }, // 0x2553000
-    { L"Shermie", 0x26d3800 }, // 0x26d4800
-    { L"Geese", 0x2867000 }, // 0x2868000
-    { L"Mr. Big", 0x2a0a800 }, // 0x2a0b800
-    { L"Nakoruru", 0x2b6b800 }, // 0x2b6c800
-    { L"Hotaru", 0x2cad000 }, // 0x2cae000
-    { L"Keiichiro", 0x2e13000 }, // 0x2e14000
-    { L"Kim", 0x2fc0800 }, // 0x2fc1800
-    { L"Akari", 0x30d3800 }, // 0x30d4800
-    { L"Shiki", 0x32e1000 }, // 0x32e2000
-    { L"Hanzo", 0x344d800 }, // 0x344e800
-    { L"Fuuma", 0x35f0800 }, // 0x35f1800
-    { L"Mudman", 0x37d6000 }, // 0x37d7000
-    { L"Tung Fu Rue", 0x399d800 }, // 0x399e800
-    { L"Marco", 0x3b12000 }, // 0x3b13000
-    { L"Mars People", 0x3ce5800 }, // 0x3ce6800
-    { L"King Lion", 0x3e95000 }, // 0x3e96000
-    { L"Cyber Woo", 0x406f000 }, // 0x4070000
-    { L"Goddess Athena", 0x4236000 }, // 0x4237000
-    { L"Kisarah", 0x43f0800 }, // 0x43f1800
-    { L"Chonshu", 0x455a000 }, // 0x455b000
-    { L"Chonrei", 0x46a4800 }, // 0x46a5800
-    { L"Neo Dio", 0x47f1000 }, // 0x47f2000
-    { L"Asura", 0x49a4800 }, // 0x49a5800
-    { L"Mizuchi", 0x4b77800 }, // 0x4b78800
-    { L"Robert", 0x4d01800 }, // 0x4d02800
-    { L"Lee Pai Long", 0x4e77000 }, // 0x4e78000
-    { L"Goodman", 0x4f7b800 }, // 0x4f7c800
+    { L"Yuuki",             0x1013000, L"indexNGBCSprites_Yuuki" }, // 0x1014000
+    { L"Ai",                0x1250000, L"indexNGBCSprites_Ai" }, // 0x1251000
+    { L"Kyo",               0x13fe800, L"indexNGBCSprites_Kyo" }, // 0x13ff800
+    { L"Iori",              0x15d9800, L"indexNGBCSprites_Iori" }, // 0x15da800
+    { L"Ryo",               0x17cb000, L"indexKOFSprites_02UM_Ryo" }, // 0x17cc000
+    { L"Terry",             0x190a000, L"indexNGBCSprites_Terry" }, // 0x190b000
+    { L"Haohmaru",          0x1aa8800, L"indexNGBCSprites_Haohmaru" }, // 0x1aa9800
+    { L"Genjuro",           0x1c71000, L"indexNGBCSprites_Genjuro" }, // 0x1c72000
+    { L"Kaede",             0x1e32800, L"indexNGBCSprites_Kaede" }, // 0x1e33800
+    { L"Moriya",            0x1fd7800, L"indexNGBCSprites_Moriya" }, // 0x1fd8800
+    { L"K'",                0x21b0800, L"indexNGBCSprites_K" }, // 0x21b1800
+    { L"Rock",              0x2338000, L"indexNGBCSprites_Rock" }, // 0x2339000
+    { L"Mai",               0x2552000, L"indexNGBCSprites_Mai" }, // 0x2553000
+    { L"Shermie",           0x26d3800, L"indexNGBCSprites_Shermie" }, // 0x26d4800
+    { L"Geese",             0x2867000, L"indexNGBCSprites_Geese" }, // 0x2868000
+    { L"Mr. Big",           0x2a0a800, L"indexNGBCSprites_MrBig" }, // 0x2a0b800
+    { L"Nakoruru",          0x2b6b800, L"indexNGBCSprites_Nakoruru" }, // 0x2b6c800
+    { L"Hotaru",            0x2cad000, L"indexNGBCSprites_Hotaru" }, // 0x2cae000
+    { L"Keiichiro",         0x2e13000, L"indexNGBCSprites_Keiichiro" }, // 0x2e14000
+    { L"Kim",               0x2fc0800, L"indexNGBCSprites_Kim" }, // 0x2fc1800
+    { L"Akari",             0x30d3800, L"indexNGBCSprites_Akari" }, // 0x30d4800
+    { L"Shiki",             0x32e1000, L"indexNGBCSprites_Shiki" }, // 0x32e2000
+    { L"Hanzo",             0x344d800, L"indexNGBCSprites_Hanzo" }, // 0x344e800
+    { L"Fuuma",             0x35f0800, L"indexNGBCSprites_Fuuma" }, // 0x35f1800
+    { L"Mudman",            0x37d6000, L"indexNGBCSprites_Mudman" }, // 0x37d7000
+    { L"Tung Fu Rue",       0x399d800, L"indexNGBCSprites_TungFuRue" }, // 0x399e800
+    { L"Marco",             0x3b12000, L"indexNGBCSprites_Marco" }, // 0x3b13000
+    { L"Mars People",       0x3ce5800, L"indexNGBCSprites_MarsPeople" }, // 0x3ce6800
+    { L"King Lion",         0x3e95000, L"indexNGBCSprites_KingLion" }, // 0x3e96000
+    { L"Cyber Woo",         0x406f000, L"indexNGBCSprites_CyberWoo" }, // 0x4070000
+    { L"Goddess Athena",    0x4236000, L"indexNGBCSprites_GoddessAthena" }, // 0x4237000
+    { L"Kisarah",           0x43f0800, L"indexNGBCSprites_Kisarah" }, // 0x43f1800
+    { L"Chonshu",           0x455a000, L"indexNGBCSprites_Chonshu" }, // 0x455b000
+    { L"Chonrei",           0x46a4800, L"indexNGBCSprites_Chonrei" }, // 0x46a5800
+    { L"Neo Dio",           0x47f1000, L"indexNGBCSprites_NeoDio" }, // 0x47f2000
+    { L"Asura",             0x49a4800, L"indexNGBCSprites_Asura" }, // 0x49a5800
+    { L"Mizuchi",           0x4b77800, L"indexNGBCSprites_Mizuchi" }, // 0x4b78800
+    { L"Robert",            0x4d01800, L"indexNGBCSprites_Robert" }, // 0x4d02800
+    { L"Lee Pai Long",      0x4e77000, L"indexNGBCSprites_LeePaiLong" }, // 0x4e78000
+    { L"Goodman",           0x4f7b800, L"indexNGBCSprites_Goodman" }, // 0x4f7c800
 };
 
 const LPCWSTR DEF_BUTTONLABEL_KOFXI_FOR_UI[] =
@@ -253,7 +253,7 @@ void CGame_NGBC_A::DumpAllCharacters()
             for (UINT16 iCurrentExtra = 0; iCurrentExtra < ARRAYSIZE(pszMoveNames); iCurrentExtra++)
             {
                 LPCWSTR pszCurrentMoveName = pszMoveNames[iCurrentExtra];
-                UINT32 nCurrentImageToUse = 0;
+                UINT32 nCurrentImageToUse = iCurrentExtra; // Starts at Super trail, which wants main sprite, then moves to Extras
 
                 if (NGBCCharacterList[iUnitCtr].pszImageRefName)
                 {
@@ -490,6 +490,7 @@ sDescTreeNode* CGame_NGBC_A::InitDescTree()
     m_nTotalPaletteCountForNGBC = nTotalPaletteCount;
 
     // This is used during development to produce the palette data for the header
+    // Please note you'll want to reinsert the pairing (pairHandledInCode) for Goddess Athena
     //DumpAllCharacters();
 
     return NewDescTree;
@@ -787,6 +788,8 @@ BOOL CGame_NGBC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     nTargetImgId = 0;
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
 
+    bool fShouldUseAlternateLoadLogic = false;
+
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
     if (NodeGet->uUnitId != NGBC_A_EXTRALOC)
@@ -825,15 +828,58 @@ BOOL CGame_NGBC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
                 }
             }
+
+            if (paletteDataSet->pPalettePairingInfo)
+            {
+                sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+
+                if (_tcscmp(charUnit->szDesc, k_ngbcNameKey_GoddessAthena) == 0)
+                {
+                    fShouldUseAlternateLoadLogic = true;
+
+                    int nPaletteTwoDelta = 2;
+                    int nPaletteThreeDelta = 3;
+
+                    const sGame_PaletteDataset* paletteDataSetOne = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+                    const sGame_PaletteDataset* paletteDataSetTwo = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteTwoDelta);
+                    const sGame_PaletteDataset* paletteDataSetThree = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPaletteThreeDelta);
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSetOne->indexImgToUse, paletteDataSetOne->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetTwo->indexImgToUse, paletteDataSetTwo->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetThree->indexImgToUse, paletteDataSetThree->indexOffsetToUse
+                                    ))));
+
+
+                    //Set each palette
+                    sDescNode* JoinedNode[] = {
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteTwoDelta, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPaletteThreeDelta, -1),
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+                    CreateDefPal(JoinedNode[2], 2);
+
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPaletteTwoDelta, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPaletteThreeDelta, nSrcAmt, nNodeIncrement);
+                }
+            }
         }
     }
 
-    //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+    if (!fShouldUseAlternateLoadLogic)
+    {
+        //Create the default palette
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-    CreateDefPal(NodeGet, 0);
+        CreateDefPal(NodeGet, 0);
 
-    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+    }
 
     return TRUE;
 }

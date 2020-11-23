@@ -294,24 +294,27 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Create the img ticket
             ClearSetImgTicket(
-                CreateImgTicket(0x10, 0,
-                    CreateImgTicket(0x10, 1, NULL, -4, -50)
+                CreateImgTicket(indexCPS2_Tron, 0,
+                    CreateImgTicket(indexCPS2_Tron, 1,
+                        CreateImgTicket(indexCPS2_Tron, 3)
+                    )
                 )
             );
 
-            //Set each palette
-            sDescNode* NodeGet[2] = {
+            sDescNode* NodeGet[] = {
                 GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
-                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1)
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 3, -1)
             };
 
             //Set each palette
             CreateDefPal(NodeGet[0], 0);
             CreateDefPal(NodeGet[1], 1);
+            CreateDefPal(NodeGet[2], 2);
 
             SetSourcePal(0, uUnitId, 0, 6, 8);
             SetSourcePal(1, uUnitId, 1, 6, 8);
-
+            SetSourcePal(2, uUnitId, 3, 6, 8);
             break;
         }
 

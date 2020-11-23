@@ -1,3 +1,5 @@
+// This software has been modified to work better with PalMod, given that PalMod is Unicode.
+
 /*
 LodePNG version 20201017
 
@@ -388,9 +390,9 @@ unsigned lodepng_load_file(unsigned char** out, size_t* outsize, const char* fil
 }
 
 /*write given buffer to the file, overwriting the file, it doesn't append to it.*/
-unsigned lodepng_save_file(const unsigned char* buffer, size_t buffersize, const char* filename) {
+unsigned lodepng_save_file(const unsigned char* buffer, size_t buffersize, const WCHAR* filename) {
   FILE* file;
-  file = fopen(filename, "wb" );
+  file = _wfopen(filename, L"wb" );
   if(!file) return 79;
   fwrite(buffer, 1, buffersize, file);
   fclose(file);
@@ -6097,7 +6099,7 @@ unsigned lodepng_encode24(unsigned char** out, size_t* outsize, const unsigned c
 }
 
 #ifdef LODEPNG_COMPILE_DISK
-unsigned lodepng_encode_file(const char* filename, const unsigned char* image, unsigned w, unsigned h,
+unsigned lodepng_encode_file(const WCHAR* filename, const unsigned char* image, unsigned w, unsigned h,
                              LodePNGColorType colortype, unsigned bitdepth) {
   unsigned char* buffer;
   size_t buffersize;
@@ -6107,11 +6109,11 @@ unsigned lodepng_encode_file(const char* filename, const unsigned char* image, u
   return error;
 }
 
-unsigned lodepng_encode32_file(const char* filename, const unsigned char* image, unsigned w, unsigned h) {
+unsigned lodepng_encode32_file(const WCHAR* filename, const unsigned char* image, unsigned w, unsigned h) {
   return lodepng_encode_file(filename, image, w, h, LCT_RGBA, 8);
 }
 
-unsigned lodepng_encode24_file(const char* filename, const unsigned char* image, unsigned w, unsigned h) {
+unsigned lodepng_encode24_file(const WCHAR* filename, const unsigned char* image, unsigned w, unsigned h) {
   return lodepng_encode_file(filename, image, w, h, LCT_RGB, 8);
 }
 #endif /*LODEPNG_COMPILE_DISK*/
@@ -6282,7 +6284,7 @@ unsigned load_file(std::vector<unsigned char>& buffer, const std::string& filena
 }
 
 /*write given buffer to the file, overwriting the file, it doesn't append to it.*/
-unsigned save_file(const std::vector<unsigned char>& buffer, const std::string& filename) {
+unsigned save_file(const std::vector<unsigned char>& buffer, const std::wstring& filename) {
   return lodepng_save_file(buffer.empty() ? 0 : &buffer[0], buffer.size(), filename.c_str());
 }
 #endif /* LODEPNG_COMPILE_DISK */
@@ -6443,7 +6445,7 @@ unsigned encode(std::vector<unsigned char>& out,
 }
 
 #ifdef LODEPNG_COMPILE_DISK
-unsigned encode(const std::string& filename,
+unsigned encode(const std::wstring& filename,
                 const unsigned char* in, unsigned w, unsigned h,
                 LodePNGColorType colortype, unsigned bitdepth) {
   std::vector<unsigned char> buffer;
@@ -6452,7 +6454,7 @@ unsigned encode(const std::string& filename,
   return error;
 }
 
-unsigned encode(const std::string& filename,
+unsigned encode(const std::wstring& filename,
                 const std::vector<unsigned char>& in, unsigned w, unsigned h,
                 LodePNGColorType colortype, unsigned bitdepth) {
   if(lodepng_get_raw_size_lct(w, h, colortype, bitdepth) > in.size()) return 84;

@@ -1039,30 +1039,30 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Zankuro_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset SAMSHOW5SP_A_BONUS_PALETTES[] =
 {
-    { L"Blood", 0xd4600, 0xd4620 },
-    { L"Blood 2 (unused ? )", 0xd4620, 0xd4640 },
+    { L"Blood",                 0xd4600, 0xd4620, indexSamSho5Sprites_Bonus, 0x00 },
+    { L"Blood 2 (unused ? )",   0xd4620, 0xd4640, indexSamSho5Sprites_Bonus, 0x00 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_HUD_PALETTES[] =
 {
-   { L"Generic text", 0xd4000, 0xd4020 },
-   { L"KO/POW", 0xd4020, 0xd4040 },
-   { L"Counter Text", 0xd4040, 0xd4060 },
-   { L"Top Bar", 0xd4060, 0xd4080 },
-   { L"Low Health", 0xd4080, 0xd40a0 },
-   { L"Bottom bar", 0xd40a0, 0xd40c0 },
-   { L"Timer/Names/Rage Active Bar/New Challenger", 0xd40c0, 0xd40e0 },
-   { L"Round Wins", 0xd4100, 0xd4120 },
-   { L"Rage Meter Flash (1/8)", 0xd4120, 0xd4140 },
-   { L"Rage Meter Flash (2/8)", 0xfbe40, 0xfbe60 },
-   { L"Rage Meter Flash (3/8)", 0xfbe60, 0xfbe80 },
-   { L"Rage Meter Flash (4/8)", 0xfbe80, 0xfbea0 },
-   { L"Rage Meter Flash (5/8)", 0xfbea0, 0xfbec0 },
-   { L"Rage Meter Flash (6/8)", 0xfbec0, 0xfbee0 },
-   { L"Rage Meter Flash (7/8)", 0xfbee0, 0xfbf00 },
-   { L"Rage Meter Flash (8/8)", 0xfbf00, 0xfbf20 },
-   { L"Rage Meter Full Flash (1/8)", 0xd4140, 0xd4160 },
-   { L"Rage Meter Full Flash (2/8)", 0xfbf20, 0xfbf40 },
+   { L"Timer/Names/Rage Active Bar/New Challenger", 0xd40c0, 0xd40e0, indexSamSho5Sprites_Bonus, 0x08 },
+   { L"KO/POW",                                     0xd4020, 0xd4040, indexSamSho5Sprites_Bonus, 0x04 },
+   { L"Counter Text",                               0xd4040, 0xd4060, indexSamSho5Sprites_Bonus, 0x05 },
+   { L"Top Bar",                                    0xd4060, 0xd4080, indexSamSho5Sprites_Bonus, 0x02 },
+   { L"Low Health",                                 0xd4080, 0xd40a0, indexSamSho5Sprites_Bonus, 0x01 },
+   { L"Bottom bar",                                 0xd40a0, 0xd40c0, indexSamSho5Sprites_Bonus, 0x03 },
+   { L"Generic text",                               0xd4000, 0xd4020 },
+   { L"Round Wins",                                 0xd4100, 0xd4120 },
+   { L"Rage Meter Flash (1/8)",                     0xd4120, 0xd4140, indexSamSho5Sprites_Bonus, 0x06 },
+   { L"Rage Meter Flash (2/8)",                     0xfbe40, 0xfbe60, indexSamSho5Sprites_Bonus, 0x06 },
+   { L"Rage Meter Flash (3/8)",                     0xfbe60, 0xfbe80, indexSamSho5Sprites_Bonus, 0x06 },
+   { L"Rage Meter Flash (4/8)",                     0xfbe80, 0xfbea0, indexSamSho5Sprites_Bonus, 0x06 },
+   { L"Rage Meter Flash (5/8)",                     0xfbea0, 0xfbec0, indexSamSho5Sprites_Bonus, 0x06 },
+   { L"Rage Meter Flash (6/8)",                     0xfbec0, 0xfbee0, indexSamSho5Sprites_Bonus, 0x06 },
+   { L"Rage Meter Flash (7/8)",                     0xfbee0, 0xfbf00, indexSamSho5Sprites_Bonus, 0x06 },
+   { L"Rage Meter Flash (8/8)",                     0xfbf00, 0xfbf20, indexSamSho5Sprites_Bonus, 0x06 },
+   { L"Rage Meter Full Flash (1/8)",                0xd4140, 0xd4160, indexSamSho5Sprites_Bonus, 0x06 },
+   { L"Rage Meter Full Flash (2/8)",                0xfbf20, 0xfbf40, indexSamSho5Sprites_Bonus, 0x06 },
 };
 
 const sDescTreeNode SAMSHO5SP_A_Amakusa_COLLECTION[] =

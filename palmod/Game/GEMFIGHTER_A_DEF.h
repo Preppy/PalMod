@@ -32,25 +32,25 @@ const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_X3[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_A[] =
 {
-    { L"Ken A", 0x9c66, 0x9c86 },
+    { L"Ken A", 0x9c66, 0x9c86, indexCPS2_SPF_Ken, 0x00 },
     { L"Ken Portrait A", 0xc406, 0xc466 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_B[] =
 {
-    { L"Ken B", 0x9d06, 0x9d26 },
+    { L"Ken B", 0x9d06, 0x9d26, indexCPS2_SPF_Ken, 0x00 },
     { L"Ken Portrait B", 0xc466, 0xc4c6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_C[] =
 {
-    { L"Ken C", 0x9da6, 0x9dc6 },
+    { L"Ken C", 0x9da6, 0x9dc6, indexCPS2_SPF_Ken, 0x00 },
     { L"Ken Portrait C", 0xc4c6, 0xc526 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_X3[] =
 {
-    { L"Ken x3", 0x9e46, 0x9e66 },
+    { L"Ken x3", 0x9e46, 0x9e66, indexCPS2_SPF_Ken, 0x00 },
     { L"Ken Portrait x3", 0xc526, 0xc586 },
 };
 

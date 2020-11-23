@@ -1367,16 +1367,17 @@ enum KOFSpriteList
     indexNGBCSprites_Mizuchi,   // 0xd6
     indexNGBCSprites_Moriya,    // 0xd7
     indexNGBCSprites_MrBig,     // 0xd8
-    indexNGBCSprites_Mudman,    // 0xd9
-    indexNGBCSprites_Nakoruru,  // 0xda
-    indexNGBCSprites_NeoDio,    // 0xdb
-    indexNGBCSprites_Robert,    // 0xdc
-    indexNGBCSprites_Rock,      // 0xdd
-    indexNGBCSprites_Shermie,   // 0xde
-    indexNGBCSprites_Shiki,     // 0xdf
-    indexNGBCSprites_Terry,     // 0xe0
-    indexNGBCSprites_TungFuRue, // 0xe1
-    indexNGBCSprites_Yuuki,     // 0xe2
+    indexNGBCSprites_MrKarate,  // 0xd9
+    indexNGBCSprites_Mudman,    // 0xda
+    indexNGBCSprites_Nakoruru,  // 0xdb
+    indexNGBCSprites_NeoDio,    // 0xdc
+    indexNGBCSprites_Robert,    // 0xdd
+    indexNGBCSprites_Rock,      // 0xde
+    indexNGBCSprites_Shermie,   // 0xdf
+    indexNGBCSprites_Shiki,     // 0xe0
+    indexNGBCSprites_Terry,     // 0xe1
+    indexNGBCSprites_TungFuRue, // 0xe2
+    indexNGBCSprites_Yuuki,     // 0xe3
 
     indexKOFSprites_Last,
 };
@@ -1412,6 +1413,7 @@ enum SamuraiShodownSpriteList
     indexSamSho5Sprites_Yunfei,     // 1a
     indexSamSho5Sprites_Zankuro,    // 1b
     indexSamSho5Sprites_Portrait,   // 1c
+    indexSamSho5Sprites_Bonus,      // 1d
 
     indexSamuraiShodownSprites_Last,
 };
@@ -2294,6 +2296,7 @@ const UINT8 SAMSHO5SP_A_IMG_UNITS[] =
     indexSamSho5Sprites_Yunfei,
     indexSamSho5Sprites_Zankuro,
     indexSamSho5Sprites_Portrait,
+    indexSamSho5Sprites_Bonus
 };
 
 enum SupportedKarnovsR_A_PaletteListIndex
@@ -2544,7 +2547,7 @@ const stPairedPaletteInfo pairMVCDevilotNormal = { 1, 0, 0 }; // Don't use pairN
 const stPairedPaletteInfo pairMVCDevilotBurnt = { 1, 7, 3 };
 const stPairedPaletteInfo pairMVCLou = { 1, -80, -15 };
 const stPairedPaletteInfo pairOnslaught = { 1, -24, 86 };
-const stPairedPaletteInfo pairTronBody = { 1, -4, -50 };
+//const stPairedPaletteInfo pairTronBody = { 1, -4, -50 };
 const stPairedPaletteInfo pairBonerineClaws = { 1, 25, 6 };
 
 // Please note that the palette sort order in PalMod differs for MM in MvC1 and MvC2

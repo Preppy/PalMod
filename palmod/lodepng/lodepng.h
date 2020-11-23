@@ -193,16 +193,16 @@ Converts raw pixel data into a PNG file on disk.
 Same as the other encode functions, but instead takes a filename as output.
 NOTE: This overwrites existing files without warning!
 */
-unsigned lodepng_encode_file(const char* filename,
+unsigned lodepng_encode_file(const WCHAR* filename,
                              const unsigned char* image, unsigned w, unsigned h,
                              LodePNGColorType colortype, unsigned bitdepth);
 
 /*Same as lodepng_encode_file, but always encodes from 32-bit RGBA raw image.*/
-unsigned lodepng_encode32_file(const char* filename,
+unsigned lodepng_encode32_file(const WCHAR* filename,
                                const unsigned char* image, unsigned w, unsigned h);
 
 /*Same as lodepng_encode_file, but always encodes from 24-bit RGB raw image.*/
-unsigned lodepng_encode24_file(const char* filename,
+unsigned lodepng_encode24_file(const WCHAR* filename,
                                const unsigned char* image, unsigned w, unsigned h);
 #endif /*LODEPNG_COMPILE_DISK*/
 #endif /*LODEPNG_COMPILE_ENCODER*/
@@ -245,10 +245,10 @@ Converts 32-bit RGBA raw pixel data into a PNG file on disk.
 Same as the other encode functions, but instead takes a filename as output.
 NOTE: This overwrites existing files without warning!
 */
-unsigned encode(const std::string& filename,
+unsigned encode(const std::wstring& filename,
                 const unsigned char* in, unsigned w, unsigned h,
                 LodePNGColorType colortype = LCT_RGBA, unsigned bitdepth = 8);
-unsigned encode(const std::string& filename,
+unsigned encode(const std::wstring& filename,
                 const std::vector<unsigned char>& in, unsigned w, unsigned h,
                 LodePNGColorType colortype = LCT_RGBA, unsigned bitdepth = 8);
 #endif /* LODEPNG_COMPILE_DISK */
@@ -987,7 +987,7 @@ buffersize: size of the buffer to write
 filename: the path to the file to save to
 return value: error code (0 means ok)
 */
-unsigned lodepng_save_file(const unsigned char* buffer, size_t buffersize, const char* filename);
+unsigned lodepng_save_file(const unsigned char* buffer, size_t buffersize, const WCHAR* filename);
 #endif /*LODEPNG_COMPILE_DISK*/
 
 #ifdef LODEPNG_COMPILE_CPP
@@ -1033,7 +1033,7 @@ unsigned load_file(std::vector<unsigned char>& buffer, const std::string& filena
 Save the binary data in an std::vector to a file on disk. The file is overwritten
 without warning.
 */
-unsigned save_file(const std::vector<unsigned char>& buffer, const std::string& filename);
+unsigned save_file(const std::vector<unsigned char>& buffer, const std::wstring& filename);
 #endif /* LODEPNG_COMPILE_DISK */
 #endif /* LODEPNG_COMPILE_PNG */
 

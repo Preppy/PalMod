@@ -77,8 +77,8 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
 
     //Set the MVC2 supp game
-    CurrMVC2 = (CGame_MVC2_D*)this; //bugbug: lazy
-    CurrMVC2_Arcade = this; //bugbug: lazy
+    CurrMVC2 = (CGame_MVC2_D*)this;
+    CurrMVC2_Arcade = this;
     //Prepare it
     prep_supp(false);
 
@@ -187,7 +187,7 @@ sMVC2A_CharacterData MVC2ArcadeCharacterArray[] =
     { _T("indexCPS2_Hulk"), 0x0D, _T("Hulk,"), _T("HULK"), 0x31C9402, 0xa, 0xa },
     { _T("indexCPS2_Venom"), 0x0E, _T("Venom"), _T("VENOM"), 0x32Ed122 , 0, 0},
     { _T("indexCPS2_DrDoom"), 0x0F, _T("Dr. Doom"), _T("DRDOOM"), 0x33ffa42 , 0x9, 0x98 },
-    { _T("indexCPS2_Tron"), 0x10, _T("Tron Bonne"), _T("TRON"), 0x35175c2 , 0x11, 0x15, _T("pairTronBody") },
+    { _T("indexCPS2_Tron"), 0x10, _T("Tron Bonne"), _T("TRON"), 0x35175c2 , 0x11, 0x15, _T("pairNext") },
     { _T("indexCPS2_Jill"), 0x11, _T("Jill Valentine"), _T("JILL"), 0x35f3162 , 0x9, 0xb },
     { _T("indexCPS2_Hayato"), 0x12, _T("Hayato"), _T("HAYATO"), 0x36f0742, 0x14, 0x17, _T("pairHayatoSword") },
     { _T("indexCPS2_Ruby"), 0x13, _T("Ruby Heart"), _T("RUBY"), 0x37f9ce2 , 0xb, 0x10 },
@@ -1106,7 +1106,8 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
                 else
                 {
-                    if ((NodeGet->uUnitId == indexMVC2ASentinel) && (paletteDataSet->pPalettePairingInfo == &pairHandledInCode))
+                    if (((NodeGet->uUnitId == indexMVC2ASentinel) && (paletteDataSet->pPalettePairingInfo == &pairHandledInCode)) ||
+                        ((NodeGet->uUnitId == indexMVC2ATron) && (paletteDataSet->pPalettePairingInfo == &pairHandledInCode)))
                     {
                         INT8 nPeerPaletteDistance1 = 1;
                         INT8 nPeerPaletteDistance2 = 3;
@@ -1122,7 +1123,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         );
 
                         //Set each palette
-                        sDescNode* JoinedNode[3] = {
+                        sDescNode* JoinedNode[] = {
                             GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)

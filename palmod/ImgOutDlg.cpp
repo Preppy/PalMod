@@ -390,23 +390,9 @@ void CImgOutDlg::ResizeBmp()
 
 void CImgOutDlg::OnFileSave()
 {
-    const bool isIndexedPNGAllowed = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
-
-    // These two structs should match minus the preferred lead option, Indexed PNG.
-    // We only expose that for solo sprites, since we only get one PLTE table to work with
-    static LPCTSTR szSaveFilterSingle[] =
+    static LPCTSTR szSaveFilter[] =
     {
         _T("Indexed PNG|*.png|")
-        _T("PNG Image|*.png|")
-        _T("GIF Image|*.gif|")
-        _T("BMP Image|*.bmp|")
-        _T("JPEG Image|*.jpg|")
-        _T("RAW texture|*.raw|")
-        _T("|")
-    };
-
-    static LPCTSTR szSaveFilterMultiple[] =
-    {
         _T("PNG Image|*.png|")
         _T("GIF Image|*.gif|")
         _T("BMP Image|*.bmp|")
@@ -420,7 +406,7 @@ void CImgOutDlg::OnFileSave()
         NULL,
         NULL,
         OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY,
-        isIndexedPNGAllowed  ? *szSaveFilterSingle : *szSaveFilterMultiple
+        *szSaveFilter
     );
 
     if (sfd.DoModal() == IDOK)
@@ -432,9 +418,7 @@ void CImgOutDlg::OnFileSave()
         GUID img_format = ImageFormatPNG;
         DWORD dwExportFlags = 0;
 
-        const DWORD nAdjustedFilterIndex = sfd.GetOFN().nFilterIndex + (isIndexedPNGAllowed ? 0 : 1);
-
-        switch (nAdjustedFilterIndex)
+        switch (sfd.GetOFN().nFilterIndex)
         {
         default:
         case 1:
@@ -497,93 +481,110 @@ void CImgOutDlg::OnFileSave()
 
         if (img_format == ImageFormatUndefined) // this path is RAW and indexed PNG using custom encoders
         {
+            const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
+            sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
+
+            // We want to ensure filename syntax, so strip the extension in order to rebuild it below
+            save_str.Replace(output_ext.GetString(), _T(""));
+
             if (output_ext.CompareNoCase(_T(".png")) == 0)
             {
                 // Indexed PNG: use the lodePNG encoder
-                const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
-                sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
-
-                // We only export the primary sprite
-                const int nImageIndex = 0;
-
-                const unsigned width = rgSrcImg[nImageIndex]->uImgW;
-                const unsigned height = rgSrcImg[nImageIndex]->uImgH;
-
-                // Establish the raw image data
-                std::vector<unsigned char> image(width * height);
-                const unsigned totalSize = width * height;
-
-                for (unsigned y = 0; y < height; y++)
+                for (int nNodeIndex = 0; nNodeIndex < m_DumpBmp.m_nTotalImagesToDisplay; nNodeIndex++)
                 {
-                    for (unsigned x = 0; x < width; x++)
+                    LPCWSTR pszCurrentNodeName = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? L"" : pButtonLabelSet[nNodeIndex];
+                    int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.nPalIndex : nNodeIndex;
+
+                    for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
                     {
-                        // make sure to flip the sprite
-                        int destIndex = y * width + x;
-                        // read bottom up, starting at the beginning of the last row
-                        int srcIndex = totalSize + x - ((y + 1) * width);
+                        const unsigned width = rgSrcImg[nImageIndex]->uImgW;
+                        const unsigned height = rgSrcImg[nImageIndex]->uImgH;
 
-                        image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex];
+                        // Establish the raw image data
+                        std::vector<unsigned char> image(width * height);
+                        const unsigned totalSize = width * height;
+
+                        for (unsigned y = 0; y < height; y++)
+                        {
+                            for (unsigned x = 0; x < width; x++)
+                            {
+                                // make sure to flip the sprite
+                                int destIndex = y * width + x;
+                                // read bottom up, starting at the beginning of the last row
+                                int srcIndex = totalSize + x - ((y + 1) * width);
+
+                                image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex];
+                            }
+                        }
+
+                        lodepng::State state;
+
+                        // Establish the PLTE header data.
+                        UINT8* pCurrPal = (UINT8*)m_DumpBmp.pppPalettes[nImageIndex][nCurrentPalIndex];
+                        CGameClass* CurrGame = GetHost()->GetCurrGame();
+                        // lodepng expects 256 color palettes, so force it out to that length, appending transparent black as needed
+                        for (size_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
+                        {
+                            if (iCurrentColor == 0) // transparency color
+                            {
+                                lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
+                                lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
+                            }
+                            else if (iCurrentColor < (size_t)m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz) // actual colors
+                            {
+                                size_t nCurrentPosition = iCurrentColor * 4;
+                                const UINT8 currAVal = pCurrPal[nCurrentPosition + 3];
+                                const UINT8 currBVal = pCurrPal[nCurrentPosition + 2];
+                                const UINT8 currGVal = pCurrPal[nCurrentPosition + 1];
+                                const UINT8 currRVal = pCurrPal[nCurrentPosition];
+                                lodepng_palette_add(&state.info_png.color, currRVal, currGVal, currBVal, currAVal);
+                                lodepng_palette_add(&state.info_raw, currRVal, currGVal, currBVal, currAVal);
+                            }
+                            else // filler
+                            {
+                                lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
+                                lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
+                            }
+                        }
+
+                        // lodepng options: going from RAW to indexed PNG
+                        state.info_raw.colortype = LCT_PALETTE;
+                        state.info_raw.bitdepth = 8;
+
+                        state.info_png.color.colortype = LCT_PALETTE;
+                        state.info_png.color.bitdepth = 8;
+                        state.encoder.auto_convert = 0;
+
+                        //encode and save
+                        std::vector<unsigned char> buffer;
+                        unsigned error = lodepng::encode(buffer, &image[0], width, height, state);
+                        if (error)
+                        {
+                            CString strError;
+                            strError.Format(L"PNG encoder error: %u - %S\n", error, lodepng_error_text(error));
+                            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+                            OutputDebugString(strError);
+                        }
+                        else
+                        {
+                            if (nImageCount == 1)
+                            {
+                                output_str.Format(_T("%s%s%s"), save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
+                            }
+                            else
+                            {
+                                output_str.Format(_T("%s%s-%02x%s"), save_str.GetString(), pszCurrentNodeName, nImageIndex, output_ext.GetString());
+                            }
+
+                            lodepng::save_file(buffer, output_str.GetString());
+                        }
                     }
-                }
-
-                lodepng::State state;
-
-                // Establish the PLTE header data.
-                sImgNode* psCurrentImage = m_DumpBmp.rgSrcImg[0];
-                for (size_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
-                {
-                    if (iCurrentColor == 0) // transparency color
-                    {
-                        lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
-                        lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
-                    }
-                    else if (iCurrentColor < (size_t)psCurrentImage->uPalSz) // actual colors
-                    {
-                        const COLORREF pThisColor = psCurrentImage->pPalette[iCurrentColor];
-                        lodepng_palette_add(&state.info_png.color, GetRValue(pThisColor), GetGValue(pThisColor), GetBValue(pThisColor), GetAValue(pThisColor));
-                        lodepng_palette_add(&state.info_raw, GetRValue(pThisColor), GetGValue(pThisColor), GetBValue(pThisColor), GetAValue(pThisColor));
-                    }
-                    else // filler
-                    {
-                        lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
-                        lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
-                    }
-                }
-
-                // lodepng options: going from RAW to indexed PNG
-                state.info_raw.colortype = LCT_PALETTE;
-                state.info_raw.bitdepth = 8;
-
-                state.info_png.color.colortype = LCT_PALETTE;
-                state.info_png.color.bitdepth = 8;
-                state.encoder.auto_convert = 0;
-
-                //encode and save
-                std::vector<unsigned char> buffer;
-                unsigned error = lodepng::encode(buffer, &image[0], width, height, state);
-                if (error)
-                {
-                    CString strError;
-                    strError.Format(L"PNG encoder error: %u - %S\n", error, lodepng_error_text(error));
-                    MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-                    OutputDebugString(strError);
-                }
-                else
-                {
-                    CStringA strAnsiString;
-                    strAnsiString.Format("%S", output_str.GetString());
-                    lodepng::save_file(buffer, strAnsiString.GetString());
                 }
             }
             else
             {
                 // raw
-                const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
-                sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
                 CString strDimensions;
-
-                // We want to ensure filename syntax, so strip the extension in order to rebuild it
-                save_str.Replace(output_ext.GetString(), _T(""));
 
                 for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
                 {

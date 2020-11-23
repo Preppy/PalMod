@@ -2257,7 +2257,7 @@ const sDescTreeNode MVC2_A_DRDOOM_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LP[] =
 {
-    { _T("Main Color LP"), 0x35175c0, 0x35175e0, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Main Color LP"), 0x35175c0, 0x35175e0, indexCPS2_Tron, 0, &pairHandledInCode },
     { _T("(02) Tron Bonne (girl)"), 0x35175e0, 0x3517600, indexCPS2_Tron, 1 },
     { _T("(03) Kobun"), 0x3517600, 0x3517620, indexCPS2_Tron, 2 },
     { _T("(04) ID:01-08 - drill, lk, rock"), 0x3517620, 0x3517640, indexCPS2_Tron, 3 },
@@ -2269,7 +2269,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LK[] =
 {
-    { _T("Main Color LK"), 0x35176c0, 0x35176e0, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Main Color LK"), 0x35176c0, 0x35176e0, indexCPS2_Tron, 0, &pairHandledInCode },
     { _T("(02) Tron Bonne (girl)"), 0x35176e0, 0x3517700, indexCPS2_Tron, 1 },
     { _T("(03) Kobun"), 0x3517700, 0x3517720, indexCPS2_Tron, 2 },
     { _T("(04) ID:01-08 - drill, lk, rock"), 0x3517720, 0x3517740, indexCPS2_Tron, 3 },
@@ -2281,7 +2281,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HP[] =
 {
-    { _T("Main Color HP"), 0x35177c0, 0x35177e0, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Main Color HP"), 0x35177c0, 0x35177e0, indexCPS2_Tron, 0, &pairHandledInCode },
     { _T("(02) Tron Bonne (girl)"), 0x35177e0, 0x3517800, indexCPS2_Tron, 1 },
     { _T("(03) Kobun"), 0x3517800, 0x3517820, indexCPS2_Tron, 2 },
     { _T("(04) ID:01-08 - drill, lk, rock"), 0x3517820, 0x3517840, indexCPS2_Tron, 3 },
@@ -2293,7 +2293,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HK[] =
 {
-    { _T("Main Color HK"), 0x35178c0, 0x35178e0, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Main Color HK"), 0x35178c0, 0x35178e0, indexCPS2_Tron, 0, &pairHandledInCode },
     { _T("(02) Tron Bonne (girl)"), 0x35178e0, 0x3517900, indexCPS2_Tron, 1 },
     { _T("(03) Kobun"), 0x3517900, 0x3517920, indexCPS2_Tron, 2 },
     { _T("(04) ID:01-08 - drill, lk, rock"), 0x3517920, 0x3517940, indexCPS2_Tron, 3 },
@@ -2305,7 +2305,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A1[] =
 {
-    { _T("Main Color A1"), 0x35179c0, 0x35179e0, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Main Color A1"), 0x35179c0, 0x35179e0, indexCPS2_Tron, 0, &pairHandledInCode },
     { _T("(02) Tron Bonne (girl)"), 0x35179e0, 0x3517a00, indexCPS2_Tron, 1 },
     { _T("(03) Kobun"), 0x3517a00, 0x3517a20, indexCPS2_Tron, 2 },
     { _T("(04) ID:01-08 - drill, lk, rock"), 0x3517a20, 0x3517a40, indexCPS2_Tron, 3 },
@@ -2317,7 +2317,7 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A2[] =
 {
-    { _T("Main Color A2"), 0x3517ac0, 0x3517ae0, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Main Color A2"), 0x3517ac0, 0x3517ae0, indexCPS2_Tron, 0, &pairHandledInCode },
     { _T("(02) Tron Bonne (girl)"), 0x3517ae0, 0x3517b00, indexCPS2_Tron, 1 },
     { _T("(03) Kobun"), 0x3517b00, 0x3517b20, indexCPS2_Tron, 2 },
     { _T("(04) ID:01-08 - drill, lk, rock"), 0x3517b20, 0x3517b40, indexCPS2_Tron, 3 },
@@ -2329,21 +2329,21 @@ const sGame_PaletteDataset MVC2_A_TRON_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_TRON_PALETTES_SHARED[] =
 {
-    { _T("Burning Dark"), 0x3517bc0, 0x3517be0, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Burning Dark"), 0x3517bc0, 0x3517be0, indexCPS2_Tron, 0, &pairNext },
     { _T("Burning Dark 2"), 0x3517be0, 0x3517c00, indexCPS2_Tron, 1 },
-    { _T("Burning Light"), 0x3517c00, 0x3517c20, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Burning Light"), 0x3517c00, 0x3517c20, indexCPS2_Tron, 0, &pairNext },
     { _T("Burning Light 2"), 0x3517c20, 0x3517c40, indexCPS2_Tron, 1 },
-    { _T("Shocked Dark"), 0x3517c40, 0x3517c60, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Shocked Dark"), 0x3517c40, 0x3517c60, indexCPS2_Tron, 0, &pairNext },
     { _T("Shocked Dark 2"), 0x3517c60, 0x3517c80, indexCPS2_Tron, 1 },
-    { _T("Shocked Light"), 0x3517c80, 0x3517ca0, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Shocked Light"), 0x3517c80, 0x3517ca0, indexCPS2_Tron, 0, &pairNext },
     { _T("Shocked Light 2"), 0x3517ca0, 0x3517cc0, indexCPS2_Tron, 1 },
-    { _T("Dark Burning Dark"), 0x3517cc0, 0x3517ce0, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Dark Burning Dark"), 0x3517cc0, 0x3517ce0, indexCPS2_Tron, 0, &pairNext },
     { _T("Dark Burning Dark 2"), 0x3517ce0, 0x3517d00, indexCPS2_Tron, 1 },
-    { _T("Dark Burning Light"), 0x3517d00, 0x3517d20, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Dark Burning Light"), 0x3517d00, 0x3517d20, indexCPS2_Tron, 0, &pairNext },
     { _T("Dark Burning Light 2"), 0x3517d20, 0x3517d40, indexCPS2_Tron, 1 },
-    { _T("Kinetic Charge Dark"), 0x3517d40, 0x3517d60, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Kinetic Charge Dark"), 0x3517d40, 0x3517d60, indexCPS2_Tron, 0, &pairNext },
     { _T("Kinetic Charge Dark 2"), 0x3517d60, 0x3517d80, indexCPS2_Tron, 1 },
-    { _T("Kinetic Charge Light"), 0x3517d80, 0x3517da0, indexCPS2_Tron, 0, &pairTronBody },
+    { _T("Kinetic Charge Light"), 0x3517d80, 0x3517da0, indexCPS2_Tron, 0, &pairNext },
     { _T("Kinetic Charge Light 2"), 0x3517da0, 0x3517dc0, indexCPS2_Tron, 1 },
 };
 
