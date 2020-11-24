@@ -12,8 +12,6 @@ public:
     static int rgExtraCountVisibleOnly[SSF2T_GBA_NUMUNIT + 1];
     static int rgExtraLoc[SSF2T_GBA_NUMUNIT + 1];
     
-    void InitDataBuffer() override;
-    void ClearDataBuffer() override;
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;

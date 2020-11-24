@@ -156,7 +156,7 @@ sNGBC_CharacterDump NGBCCharacterList[] =
     { L"Ai",                0x1250000, L"indexNGBCSprites_Ai" }, // 0x1251000
     { L"Kyo",               0x13fe800, L"indexNGBCSprites_Kyo" }, // 0x13ff800
     { L"Iori",              0x15d9800, L"indexNGBCSprites_Iori" }, // 0x15da800
-    { L"Ryo",               0x17cb000, L"indexKOFSprites_02UM_Ryo" }, // 0x17cc000
+    { L"Mr. Karate",        0x17cb000, L"indexNGBCSprites_MrKarate" }, // 0x17cc000
     { L"Terry",             0x190a000, L"indexNGBCSprites_Terry" }, // 0x190b000
     { L"Haohmaru",          0x1aa8800, L"indexNGBCSprites_Haohmaru" }, // 0x1aa9800
     { L"Genjuro",           0x1c71000, L"indexNGBCSprites_Genjuro" }, // 0x1c72000
@@ -866,6 +866,38 @@ BOOL CGame_NGBC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
                     SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPaletteTwoDelta, nSrcAmt, nNodeIncrement);
                     SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPaletteThreeDelta, nSrcAmt, nNodeIncrement);
+                }
+                else
+                {
+                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+                    INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+
+                    const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+
+                    if (paletteDataSetToJoin)
+                    {
+                        fShouldUseAlternateLoadLogic = true;
+
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                    }
                 }
             }
         }

@@ -337,7 +337,31 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
         nExtraAmt = 1;
 
-        if (
+        if (SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // Jill and weapons
+        {
+            bLoadDefPal = FALSE;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(indexCPS2_Jill, 0,
+                    CreateImgTicket(indexCPS2_Jill, 1, NULL, 0, 0)
+                )
+            );
+
+            sDescNode* NodeGet[2] = {
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeGet[0], 0);
+            CreateDefPal(NodeGet[1], 1);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(1, uUnitId, 1, 6, 8);
+            break;
+        }
+        else  if (
             CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11)  // ? not present
             || CreateExtraPal(uUnitId, uPalId, 0x0A, 1, 12)  // healing
             || CreateExtraPal(uUnitId, uPalId, 0x0B, 1, 2) // flame zombie

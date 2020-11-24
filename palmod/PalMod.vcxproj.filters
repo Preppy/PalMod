@@ -196,6 +196,9 @@
     <Filter Include="Game\Nintendo\BLEACH_DS">
       <UniqueIdentifier>{2188a85d-12e7-4b62-a7bd-8ceea29c95e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\KOF03_A">
+      <UniqueIdentifier>{da1faa02-bdd1-465d-9b23-9e4504204406}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -437,6 +440,9 @@
     </ClCompile>
     <ClCompile Include="Game\GAME_Bleach_DS.cpp">
       <Filter>Game\Nintendo\BLEACH_DS</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF03_A.cpp">
+      <Filter>Game\SNK Games\KOF03_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -802,6 +808,12 @@
     </ClInclude>
     <ClInclude Include="Game\GAME_Bleach_DS.h">
       <Filter>Game\Nintendo\BLEACH_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF03_A.h">
+      <Filter>Game\SNK Games\KOF03_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF03_A_DEF.h">
+      <Filter>Game\SNK Games\KOF03_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

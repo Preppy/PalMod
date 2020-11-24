@@ -65,6 +65,7 @@ enum SupportedGamesList
     BREAKERS_A,
     SFIII3_A_DIR_4,
     BLEACH_DS,
+    KOF03_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -131,7 +132,8 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"NGBC (Atomiswave)",
    L"Breakers Revenge (Arcade)",
    L"SFIII:4rd (Arcade)",
-   L"Bleach DS (Nintendo DS)"
+   L"Bleach DS (Nintendo DS)",
+   L"KOF03: 2004 EX Ultra Plus",
 };
 
 constexpr auto MVC2_D_NUMUNIT = 59;
@@ -1872,6 +1874,15 @@ const UINT8 KOF02UM_S_IMG_UNITS[] =
 
 const int KOF02UM_S_NUM_IMG_UNITS = ARRAYSIZE(KOF02UM_S_IMG_UNITS);
 
+const UINT8 KOF03_A_IMG_UNITS[] =
+{
+    indexKOFSprites_02UM_Chang,    // 0x80
+    indexKOFSprites_02UM_Daimon,    // 0x87
+    indexKOFSprites_02UM_Kim,    // 0x96
+};
+
+const int KOF03_A_NUM_IMG_UNITS = ARRAYSIZE(KOF03_A_IMG_UNITS);
+
 const UINT8 KOFXI_A_IMG_UNITS[] =
 {
     indexKOFSprites_02UM_Iori,
@@ -1887,8 +1898,6 @@ const UINT8 KOFXI_A_IMG_UNITS[] =
 
 const UINT8 NGBC_A_IMG_UNITS[] =
 {
-    indexKOFSprites_02UM_Ryo,
-
     indexNGBCSprites_Ai,        // 0xbc
     indexNGBCSprites_Akari,     // 0xbd
     indexNGBCSprites_Asura,     // 0xbe
@@ -1918,16 +1927,17 @@ const UINT8 NGBC_A_IMG_UNITS[] =
     indexNGBCSprites_Mizuchi,   // 0xd6
     indexNGBCSprites_Moriya,    // 0xd7
     indexNGBCSprites_MrBig,     // 0xd8
-    indexNGBCSprites_Mudman,    // 0xd9
-    indexNGBCSprites_Nakoruru,  // 0xda
-    indexNGBCSprites_NeoDio,    // 0xdb
-    indexNGBCSprites_Robert,    // 0xdc
-    indexNGBCSprites_Rock,      // 0xdd
-    indexNGBCSprites_Shermie,   // 0xde
-    indexNGBCSprites_Shiki,     // 0xdf
-    indexNGBCSprites_Terry,     // 0xe0
-    indexNGBCSprites_TungFuRue, // 0xe1
-    indexNGBCSprites_Yuuki,     // 0xe2
+    indexNGBCSprites_MrKarate,  // 0xd9
+    indexNGBCSprites_Mudman,    // 0xda
+    indexNGBCSprites_Nakoruru,  // 0xdb
+    indexNGBCSprites_NeoDio,    // 0xdc
+    indexNGBCSprites_Robert,    // 0xdd
+    indexNGBCSprites_Rock,      // 0xde
+    indexNGBCSprites_Shermie,   // 0xdf
+    indexNGBCSprites_Shiki,     // 0xe0
+    indexNGBCSprites_Terry,     // 0xe1
+    indexNGBCSprites_TungFuRue, // 0xe2
+    indexNGBCSprites_Yuuki,     // 0xe3
 };
 
 enum SupportedBreakersSprites
@@ -2543,6 +2553,8 @@ const stPairedPaletteInfo pairFullyLinkedNode = { 0, 0, 0 };
 const stPairedPaletteInfo pairNext = { 1, 0, 0 };
 const stPairedPaletteInfo pairNextNext = { 2, 0, 0 };
 const stPairedPaletteInfo pairNext3 = { 3, 0, 0 };
+const stPairedPaletteInfo pairNext4 = { 4, 0, 0 };
+const stPairedPaletteInfo pairNext6 = { 6, 0, 0 };
 const stPairedPaletteInfo pairNext10 = { 10, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 

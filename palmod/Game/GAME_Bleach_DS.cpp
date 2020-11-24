@@ -13,7 +13,7 @@ CDescTree CGame_BLEACH_DS::MainDescTree = nullptr;
 int CGame_BLEACH_DS::rgExtraCountAll[BLEACH_DS_NUMUNIT + 1];
 int CGame_BLEACH_DS::rgExtraLoc[BLEACH_DS_NUMUNIT + 1];
 
-UINT32 CGame_BLEACH_DS::m_nTotalPaletteCountForNEWGAME = 0;
+UINT32 CGame_BLEACH_DS::m_nTotalPaletteCountForBleach = 0;
 UINT32 CGame_BLEACH_DS::m_nExpectedGameROMSize = 0x08000000; // Update to the actual size of the ROM you expect
 UINT32 CGame_BLEACH_DS::m_nConfirmedROMSize = -1;
 
@@ -43,17 +43,17 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
 
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 816; // You will need to update this, but PalMod will prompt you to do so
     m_pszExtraFilename = EXTRA_FILENAME_BLEACH_DS;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForNEWGAME;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForBleach;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     m_nLowestKnownPaletteRomLocation = 0x1fd2fa0; // You will need to update this, but PalMod will prompt you to do so
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-
     InitDataBuffer();
 
     //Set color mode: see the definitions in GameClass.h
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
 
     //Set palette conversion mode: 12A uses a step of PALTYPE_17, everything else uses PALTYPE_8 at this point
@@ -86,6 +86,28 @@ CGame_BLEACH_DS::~CGame_BLEACH_DS(void)
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
+}
+
+UINT32 CGame_BLEACH_DS::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Bleach DS (Europe - Nintendo DS)", L"3494 - Bleach - Dark Souls (Europe) (En,Fr,De,Es,It).nds",  0, 0 },
+        { L"Bleach DS (US - Nintendo DS)", L"2761 Bleach - Dark Souls (US).nds", 0, -0x5DBA00 },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
 }
 
 CDescTree* CGame_BLEACH_DS::GetMainTree()
@@ -319,7 +341,7 @@ sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
     strMsg.Format(_T("CGame_BLEACH_DS::InitDescTree: Loaded %u palettes for BleachDS\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForNEWGAME = nTotalPaletteCount;
+    m_nTotalPaletteCountForBleach = nTotalPaletteCount;
 
     return NewDescTree;
 }
@@ -329,7 +351,7 @@ sFileRule CGame_BLEACH_DS::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, L"NEWGAME.ROM"); // Update with the primary expected ROM name here.
+    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, L"Bleach.nds"); // Update with the primary expected ROM name here.
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -501,6 +523,12 @@ void CGame_BLEACH_DS::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            // Adjust for ROM-specific variant locations
+            if (m_pCRC32SpecificData)
+            {
+                m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
+            }
         }
         else
         {

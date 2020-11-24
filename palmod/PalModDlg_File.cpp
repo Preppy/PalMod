@@ -426,7 +426,7 @@ void CPalModDlg::OnFileOpen()
     sSupportedGameList SupportedGameList[] =
     {
         { BREAKERS_A, _T("Breakers Revenge|245-p1.p1|"), INVALID_UNIT_VALUE },
-        { BLEACH_DS, L"Bleach DS|*nds|", INVALID_UNIT_VALUE },
+        { BLEACH_DS, L"Bleach Dark Souls|3494*Europe*nds;2761*US*nds|", INVALID_UNIT_VALUE },
         { COTA_A, _T("COTA|xmn*.05*|"), INVALID_UNIT_VALUE },
         { CVS2_A, _T("CVS2|SNKGD_SL.bin|"), INVALID_UNIT_VALUE },
         { Garou_A, _T("Garou|kf.neo-sma|"), INVALID_UNIT_VALUE },
@@ -438,6 +438,7 @@ void CPalModDlg::OnFileOpen()
         { KOF02_A, _T("KOF02|265*p2*|"), INVALID_UNIT_VALUE },
         { KOFXI_A, _T("KOFXI|gdrom_KOFXI_v5_AllFighters.bin|"), INVALID_UNIT_VALUE },
         { KOF02UM_S, _T("KOF02UM|pal_a*.bin|"), INVALID_UNIT_VALUE },
+        { KOF03_A, _T("KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|"), INVALID_UNIT_VALUE },
         { MATRIMELEE_A, _T("Matrimelee|266-p2.sp2|"), INVALID_UNIT_VALUE },
         { MSH_A, _T("MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|"), INVALID_UNIT_VALUE },
         { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },

@@ -1,18 +1,18 @@
 #pragma once
 #include "gameclass.h"
-#include "Bleach_DS_DEF.h"
+#include "KOF03_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_BLEACH_DS = _T("BleachDSE.txt");
-#define GetExtraDefForBLEACHDS(x)((stExtraDef *)&BLEACH_DS_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_KOF03_A = _T("KOF03E.txt");
+#define GetExtraDefForKOF03(x)((stExtraDef *)&KOF03_A_EXTRA_CUSTOM[x])
 
-class CGame_BLEACH_DS : public CGameWithExtrasFile
+class CGame_KOF03_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForBleach;
+    static UINT32 m_nTotalPaletteCountForKOF03;
 
-    static int rgExtraCountAll[BLEACH_DS_NUMUNIT + 1];
-    static int rgExtraLoc[BLEACH_DS_NUMUNIT + 1];
+    static int rgExtraCountAll[KOF03_A_NUMUNIT + 1];
+    static int rgExtraLoc[KOF03_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -22,8 +22,8 @@ private:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
 public:
-    CGame_BLEACH_DS(UINT32 nConfirmedROMSize);
-    ~CGame_BLEACH_DS(void);
+    CGame_KOF03_A(UINT32 nConfirmedROMSize);
+    ~CGame_KOF03_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -51,7 +51,5 @@ public:
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
-
-    static stExtraDef* BLEACH_DS_EXTRA_CUSTOM;
+    static stExtraDef* KOF03_A_EXTRA_CUSTOM;
 };

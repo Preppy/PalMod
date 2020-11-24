@@ -237,6 +237,7 @@
     <ClCompile Include="Game\Game_KarnovsR_A.cpp" />
     <ClCompile Include="Game\Game_KOF02UM_S.cpp" />
     <ClCompile Include="Game\Game_KOF02_A.cpp" />
+    <ClCompile Include="Game\Game_KOF03_A.cpp" />
     <ClCompile Include="Game\Game_KOF98_A.cpp" />
     <ClCompile Include="Game\Game_KOFXI_A.cpp" />
     <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
@@ -330,6 +331,7 @@
     <ClInclude Include="Game\Game_KarnovsR_A.h" />
     <ClInclude Include="Game\Game_KOF02UM_S.h" />
     <ClInclude Include="Game\Game_KOF02_A.h" />
+    <ClInclude Include="Game\Game_KOF03_A.h" />
     <ClInclude Include="Game\Game_KOF98_A.h" />
     <ClInclude Include="Game\Game_KOFXI_A.h" />
     <ClInclude Include="Game\Game_Matrimelee_A.h" />
@@ -374,6 +376,7 @@
     <ClInclude Include="Game\KarnovsR_A_DEF.h" />
     <ClInclude Include="Game\KOF02UM_S_DEF.h" />
     <ClInclude Include="Game\KOF02_A_DEF.h" />
+    <ClInclude Include="Game\KOF03_A_DEF.h" />
     <ClInclude Include="Game\KOF98_A_DEF.h" />
     <ClInclude Include="Game\KOFXI_A_DEF.h" />
     <ClInclude Include="Game\Matrimelee_A_DEF.h" />

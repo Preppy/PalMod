@@ -411,53 +411,50 @@ void CImgOutDlg::OnFileSave()
 
     if (sfd.DoModal() == IDOK)
     {
-        int output_width = m_DumpBmp.GetOutputW();
-        int output_height = m_DumpBmp.GetOutputH();
-
         CString output_ext = _T(".png");
         GUID img_format = ImageFormatPNG;
         DWORD dwExportFlags = 0;
 
         switch (sfd.GetOFN().nFilterIndex)
         {
-        default:
-        case 1:
-        {
-            img_format = ImageFormatUndefined;
-            output_ext = _T(".png");
-            break;
-        }
-        case 2:
-        {
-            img_format = ImageFormatPNG;
-            output_ext = _T(".png");
-            dwExportFlags = bTransPNG ? CImage::createAlphaChannel : 0;
-            break;
-        }
-        case 3:
-        {
-            img_format = ImageFormatGIF;
-            output_ext = _T(".gif");
-            break;
-        }
-        case 4:
-        {
-            img_format = ImageFormatBMP;
-            output_ext = _T(".bmp");
-            break;
-        }
-        case 5:
-        {
-            img_format = ImageFormatJPEG;
-            output_ext = _T(".jpg");
-            break;
-        }
-        case 6:
-        {
-            img_format = ImageFormatUndefined;
-            output_ext = _T(".raw");
-            break;
-        }
+            default:
+            case 1:
+            {
+                img_format = ImageFormatUndefined;
+                output_ext = _T(".png");
+                break;
+            }
+            case 2:
+            {
+                img_format = ImageFormatPNG;
+                output_ext = _T(".png");
+                dwExportFlags = bTransPNG ? CImage::createAlphaChannel : 0;
+                break;
+            }
+            case 3:
+            {
+                img_format = ImageFormatGIF;
+                output_ext = _T(".gif");
+                break;
+            }
+            case 4:
+            {
+                img_format = ImageFormatBMP;
+                output_ext = _T(".bmp");
+                break;
+            }
+            case 5:
+            {
+                img_format = ImageFormatJPEG;
+                output_ext = _T(".jpg");
+                break;
+            }
+            case 6:
+            {
+                img_format = ImageFormatUndefined;
+                output_ext = _T(".raw");
+                break;
+            }
         }
 
         OPENFILENAME sfd_ofn = sfd.GetOFN();
@@ -483,6 +480,7 @@ void CImgOutDlg::OnFileSave()
         {
             const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
             sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
+            const UINT8 currentZoom = (UINT8)m_DumpBmp.zoom;
 
             // We want to ensure filename syntax, so strip the extension in order to rebuild it below
             save_str.Replace(output_ext.GetString(), _T(""));
@@ -497,23 +495,32 @@ void CImgOutDlg::OnFileSave()
 
                     for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
                     {
-                        const unsigned width = rgSrcImg[nImageIndex]->uImgW;
-                        const unsigned height = rgSrcImg[nImageIndex]->uImgH;
+                        const unsigned srcWidth = rgSrcImg[nImageIndex]->uImgW;
+                        const unsigned srcHeight = rgSrcImg[nImageIndex]->uImgH;
+                        const unsigned destWidth = rgSrcImg[nImageIndex]->uImgW * currentZoom;
+                        const unsigned destHeight = rgSrcImg[nImageIndex]->uImgH * currentZoom;
 
                         // Establish the raw image data
-                        std::vector<unsigned char> image(width * height);
-                        const unsigned totalSize = width * height;
+                        std::vector<unsigned char> image(destWidth * destHeight);
+                        const unsigned srcSize = srcWidth * srcHeight;
 
-                        for (unsigned y = 0; y < height; y++)
+                        // Handle zoom stretching inline
+                        for (unsigned destY = 0; destY < (srcHeight * currentZoom); destY += currentZoom)
                         {
-                            for (unsigned x = 0; x < width; x++)
+                            for (unsigned zoomY = 0; zoomY < currentZoom; zoomY++)
                             {
-                                // make sure to flip the sprite
-                                int destIndex = y * width + x;
-                                // read bottom up, starting at the beginning of the last row
-                                int srcIndex = totalSize + x - ((y + 1) * width);
+                                for (unsigned destX = 0; destX < (srcWidth * currentZoom); destX += currentZoom)
+                                {
+                                    for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
+                                    {
+                                        // make sure to flip the sprite
+                                        int destIndex = (destY + zoomY) * (destWidth) + (destX + zoomX);
+                                        // read bottom up, starting at the beginning of the last row
+                                        int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
 
-                                image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex];
+                                        image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex];
+                                    }
+                                }
                             }
                         }
 
@@ -557,7 +564,7 @@ void CImgOutDlg::OnFileSave()
 
                         //encode and save
                         std::vector<unsigned char> buffer;
-                        unsigned error = lodepng::encode(buffer, &image[0], width, height, state);
+                        unsigned error = lodepng::encode(buffer, &image[0], destWidth, destHeight, state);
                         if (error)
                         {
                             CString strError;
@@ -615,6 +622,9 @@ void CImgOutDlg::OnFileSave()
         else // specific image type guid available
         {
             CImage out_img;
+            int output_width = m_DumpBmp.GetOutputW();
+            int output_height = m_DumpBmp.GetOutputH();
+
             if (out_img.Create(output_width, output_height, 32, dwExportFlags))
             {
                 if (dwExportFlags == CImage::createAlphaChannel)

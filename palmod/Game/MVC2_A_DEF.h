@@ -2370,7 +2370,7 @@ const sDescTreeNode MVC2_A_TRON_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_LP[] =
 {
-    { _T("Main Color LP"), 0x35f3160, 0x35f3180, indexCPS2_Jill, 0 },
+    { _T("Main Color LP"), 0x35f3160, 0x35f3180, indexCPS2_Jill, 0, &pairNext },
     { _T("(02) Rocket Launcher / Ribbon / Granade Launcher / Key"), 0x35f3180, 0x35f31a0, indexCPS2_Jill, 1 },
     { _T("(03) Zombie"), 0x35f31a0, 0x35f31c0, indexCPS2_Jill, 2 },
     { _T("(04) Dog / Crow / Fire Zombie"), 0x35f31c0, 0x35f31e0, indexCPS2_Jill, 3 },
@@ -2382,7 +2382,7 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_LK[] =
 {
-    { _T("Main Color LK"), 0x35f3260, 0x35f3280, indexCPS2_Jill, 0 },
+    { _T("Main Color LK"), 0x35f3260, 0x35f3280, indexCPS2_Jill, 0, &pairNext },
     { _T("(02) Rocket Launcher / Ribbon / Granade Launcher / Key"), 0x35f3280, 0x35f32a0, indexCPS2_Jill, 1 },
     { _T("(03) Zombie"), 0x35f32a0, 0x35f32c0, indexCPS2_Jill, 2 },
     { _T("(04) Dog / Crow / Fire Zombie"), 0x35f32c0, 0x35f32e0, indexCPS2_Jill, 3 },
@@ -2394,7 +2394,7 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HP[] =
 {
-    { _T("Main Color HP"), 0x35f3360, 0x35f3380, indexCPS2_Jill, 0 },
+    { _T("Main Color HP"), 0x35f3360, 0x35f3380, indexCPS2_Jill, 0, &pairNext },
     { _T("(02) Rocket Launcher / Ribbon / Granade Launcher / Key"), 0x35f3380, 0x35f33a0, indexCPS2_Jill, 1 },
     { _T("(03) Zombie"), 0x35f33a0, 0x35f33c0, indexCPS2_Jill, 2 },
     { _T("(04) Dog / Crow / Fire Zombie"), 0x35f33c0, 0x35f33e0, indexCPS2_Jill, 3 },
@@ -2406,7 +2406,7 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HK[] =
 {
-    { _T("Main Color HK"), 0x35f3460, 0x35f3480, indexCPS2_Jill, 0 },
+    { _T("Main Color HK"), 0x35f3460, 0x35f3480, indexCPS2_Jill, 0, &pairNext },
     { _T("(02) Rocket Launcher / Ribbon / Granade Launcher / Key"), 0x35f3480, 0x35f34a0, indexCPS2_Jill, 1 },
     { _T("(03) Zombie"), 0x35f34a0, 0x35f34c0, indexCPS2_Jill, 2 },
     { _T("(04) Dog / Crow / Fire Zombie"), 0x35f34c0, 0x35f34e0, indexCPS2_Jill, 3 },
@@ -2418,7 +2418,7 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_A1[] =
 {
-    { _T("Main Color A1"), 0x35f3560, 0x35f3580, indexCPS2_Jill, 0 },
+    { _T("Main Color A1"), 0x35f3560, 0x35f3580, indexCPS2_Jill, 0, &pairNext },
     { _T("(02) Rocket Launcher / Ribbon / Granade Launcher / Key"), 0x35f3580, 0x35f35a0, indexCPS2_Jill, 1 },
     { _T("(03) Zombie"), 0x35f35a0, 0x35f35c0, indexCPS2_Jill, 2 },
     { _T("(04) Dog / Crow / Fire Zombie"), 0x35f35c0, 0x35f35e0, indexCPS2_Jill, 3 },
@@ -2430,7 +2430,7 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_A2[] =
 {
-    { _T("Main Color A2"), 0x35f3660, 0x35f3680, indexCPS2_Jill, 0 },
+    { _T("Main Color A2"), 0x35f3660, 0x35f3680, indexCPS2_Jill, 0, &pairNext },
     { _T("(02) Rocket Launcher / Ribbon / Granade Launcher / Key"), 0x35f3680, 0x35f36a0, indexCPS2_Jill, 1 },
     { _T("(03) Zombie"), 0x35f36a0, 0x35f36c0, indexCPS2_Jill, 2 },
     { _T("(04) Dog / Crow / Fire Zombie"), 0x35f36c0, 0x35f36e0, indexCPS2_Jill, 3 },
