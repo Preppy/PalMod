@@ -613,11 +613,11 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
     {
         ProcChange();
 
-        UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
         int nFileSz = (int)ActFile.GetLength();
         int nACTColorCount = 256; // An ACT by default has 256 (768 bytes / 3 bytes per color) colors.
         bool fHadToFlip = false;
 
+        // Read data from the ACT...
         if (nFileSz == 772) // The documentation states that 768b ACT files do not include color count, but 772b files do.
         {
             WORD wColorCount;
@@ -643,78 +643,117 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
         ActFile.Read(pAct, nACTColorCount * 3);
         ActFile.Close();
 
-        UINT8 nPalettePageCount = 1; // Force 1 page only. m_PalHost.GetCurrentPageCount();
-        UINT16 iACTIndex = 0;
-        int nCurrentPageWorkingAmt = 0;
+        // Now consume those colors...
+        const UINT8 nTotalPaletteCount = MainPalGroup->GetPalAmt();
+        int nTotalNumberOfCurrentColors = 0;
 
-        // This doesn't work as it could: we force only paying attention to the current page.
-        // Doing this on load involves updating the non-current page.  But that's only done
-        // on a temporary basis: when the user changes pages, the updates get discarded.
-        for (UINT8 nCurrentPage = 0; nCurrentPage < nPalettePageCount; nCurrentPage++)
+        for (int iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
         {
-            CJunk* pPalCtrlCurrentPage = m_PalHost.GetPalCtrl(nCurrentPage);
+            nTotalNumberOfCurrentColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
+        }
 
-            if (pPalCtrlCurrentPage)
+        UINT16 iACTIndex = 0;
+        UINT16 nCurrentPalette = 0;
+        UINT16 nTotalColorsUsed = 0;
+        bool fHaveLooped = false;
+        int iCurrentIndexInPalette = 0;
+        UINT8* pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+
+        UINT32 nBlackColorCount = 0;
+        bool fStillStuckOnBlack = true;
+
+        for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
+        {
+            pPal[(iCurrentIndexInPalette * 4)]      = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
+            pPal[(iCurrentIndexInPalette * 4) + 1]  = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
+            pPal[(iCurrentIndexInPalette * 4) + 2]  = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
+
+            // This code exists because Fighter Factory writes upside-down color tables.
+            if (fStillStuckOnBlack &&
+                (pPal[(iCurrentIndexInPalette * 4)] == 0) &&
+                (pPal[(iCurrentIndexInPalette * 4) + 1] == 0) &&
+                (pPal[(iCurrentIndexInPalette * 4) + 2] == 0))
             {
-                nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
+                nBlackColorCount++;
+            }
+            else
+            {
+                fStillStuckOnBlack = false;
+            }
 
-                UINT32 nBlackColorCount = 0;
-                bool fStillStuckOnBlack = true;
-                for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+            if (++iACTIndex >= nACTColorCount)
+            {
+                // If the palette is larger than our ACT, loop it.
+                iACTIndex = 0;
+                fHaveLooped = true;
+            }
+
+            iCurrentIndexInPalette++;
+            if (((nCurrentPalette + 1) < nTotalPaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
+            {
+                if (fHaveLooped)
                 {
-                    pPal[(iActivePageIndex * 4)]      = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
-                    pPal[(iActivePageIndex * 4) + 1]  = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
-                    pPal[(iActivePageIndex * 4) + 2]  = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
-                    pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
+                    // Applying a looping palette to a secondary palette will be generally illogical, so don't
+                    nTotalColorsUsed++;
+                    break;
+                }
+                else
+                {
+                    // advance to the next palette
+                    nCurrentPalette++;
+                    iCurrentIndexInPalette = 0;
+                    pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                }
+            }
+        }
 
-                    // This code exists because Fighter Factory writes upside-down color tables.
-                    if (fStillStuckOnBlack &&
-                        (pPal[iActivePageIndex * 4] == 0) &&
-                        (pPal[(iActivePageIndex * 4) + 1] == 0) &&
-                        (pPal[(iActivePageIndex * 4) + 2] == 0))
+        if ((nBlackColorCount > 32) || (nBlackColorCount == nTotalNumberOfCurrentColors))
+        {
+            // TODO: Maybe ask the user before flipping?
+            iACTIndex = nACTColorCount - 1;
+            fHadToFlip = true;
+            iCurrentIndexInPalette = 0;
+            nCurrentPalette = 0;
+            fHaveLooped = false;
+            pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+
+            OutputDebugString(L"This appears to be a bogus SFF ACT... flipping our ACT table logic...\n");
+
+            for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++)
+            {
+                pPal[(iCurrentIndexInPalette * 4)]     = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
+                pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
+                pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
+
+                // This code exists because Fighter Factory writes upside-down color tables.
+                if (--iACTIndex >= nACTColorCount)
+                {
+                    // If the palette is larger than our ACT, loop it.
+                    iACTIndex = nTotalNumberOfCurrentColors;
+                    fHaveLooped = true;
+                }
+
+                iCurrentIndexInPalette++;
+                if (((nCurrentPalette + 1) < nTotalPaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
+                {
+                    if (fHaveLooped)
                     {
-                        nBlackColorCount++;
+                        // Applying a looping palette to a secondary palette will be generally illogical, so don't
+                        break;
                     }
                     else
                     {
-                        fStillStuckOnBlack = false;
-                    }
-
-                    if (++iACTIndex >= nACTColorCount)
-                    {
-                        // If the palette is larger than our ACT, loop it.
-                        iACTIndex = 0;
-                    }
-                }
-
-                if ((nBlackColorCount > 32) || (nBlackColorCount == nCurrentPageWorkingAmt))
-                {
-                    // TODO: Maybe ask the user before flipping?
-                    iACTIndex = nACTColorCount - 1;
-                    fHadToFlip = true;
-
-                    OutputDebugString(L"This appears to be a bogus SFF ACT... flipping our ACT table logic...\n");
-
-                    for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
-                    {
-                        pPal[(iActivePageIndex * 4)] =     MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
-                        pPal[(iActivePageIndex * 4) + 1] = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
-                        pPal[(iActivePageIndex * 4) + 2] = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
-                        pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
-
-                        // This code exists because Fighter Factory writes upside-down color tables.
-                        if (--iACTIndex >= nACTColorCount)
-                        {
-                            // If the palette is larger than our ACT, loop it.
-                            iACTIndex = nCurrentPageWorkingAmt;
-                        }
+                        // advance to the next palette
+                        nCurrentPalette++;
+                        iCurrentIndexInPalette = 0;
+                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
                     }
                 }
             }
         }
 
         ImgDispCtrl->UpdateCtrl();
-        CurrPalCtrl->UpdateCtrl();
+        m_PalHost.UpdateAllPalCtrls();
 
         UpdateMultiEdit(TRUE);
         UpdateSliderSel();
@@ -725,21 +764,14 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
         CString strStatus;
         if (fHadToFlip)
         {
-            strStatus.Format(L"ACT appears to have a reversed color table: loaded %u colors backwards.", min(nCurrentPageWorkingAmt, nACTColorCount));
+            strStatus.Format(L"ACT appears to have a reversed color table: loaded %u colors backwards.", nTotalColorsUsed);
         }
         else
         {
-            strStatus.Format(L"Loaded %u colors from %u color %s file.", nCurrentPageWorkingAmt, nACTColorCount, L"ACT");
+            strStatus.Format(L"Loaded %u colors from %u color %s file.", nTotalColorsUsed, nACTColorCount, L"ACT");
         }
-        SetStatusText(strStatus);
 
-        if (nPalettePageCount > 1)
-        {
-            if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
-            {
-                MessageBox(L"Heads-up: you are loading an ACT for a multipage palette.  PalMod can only use the ACT to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
-            }
-        }
+        SetStatusText(strStatus);
     }
 
     if (!fSuccess)
@@ -796,60 +828,66 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
                             // party.
                             ProcChange();
 
-                            UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
-                            int nPALColorCount = (dwDataSize / 4);
+                            const UINT8 nActivePaletteCount = MainPalGroup->GetPalAmt();
+                            const int nPALColorCount = (dwDataSize / 4);
 
-                            UINT8 nPalettePageCount = 1; // Force one page only. m_PalHost.GetCurrentPageCount();
                             UINT16 iPALDataIndex = 0;
-                            int nCurrentPageWorkingAmt = 0;
+                            UINT16 nCurrentPalette = 0;
+                            UINT16 nTotalColorsUsed = 0;
+                            bool fHaveLooped = false;
+                            int iCurrentIndexInPalette = 0;
+                            int nTotalNumberOfCurrentPaletteColors = 0;
 
-                            // This doesn't work as it could: we force one page only.
-                            // Doing this on load involves updating the non-current page.  But that's only done
-                            // on a temporary basis: when the user changes pages, the updates get discarded.
-                            // It might be wise to save the other pages when we load palettes.
-                            for (UINT8 nCurrentPage = 0; nCurrentPage < nPalettePageCount; nCurrentPage++)
+                            for (UINT8 iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
                             {
-                                CJunk* pPalCtrlCurrentPage = m_PalHost.GetPalCtrl(nCurrentPage);
+                                nTotalNumberOfCurrentPaletteColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
+                            }
 
-                                if (pPalCtrlCurrentPage)
+                            UINT8* pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+
+                            for (int iAbsoluteColorIndex = 0; iAbsoluteColorIndex < nTotalNumberOfCurrentPaletteColors; iAbsoluteColorIndex++, nTotalColorsUsed++)
+                            {
+                                // copy over the RGB data, skipping the A value
+                                pPal[(iCurrentIndexInPalette * 4)]     = MainPalGroup->ROUND_R(pPALFileData[(iPALDataIndex * 4)]);
+                                pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(pPALFileData[(iPALDataIndex * 4) + 1]);
+                                pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(pPALFileData[(iPALDataIndex * 4) + 2]);
+
+                                if (++iPALDataIndex >= nPALColorCount)
                                 {
-                                    nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
+                                    // If the palette is larger than our PAL, loop it.
+                                    iPALDataIndex = 0;
+                                    fHaveLooped = true;
+                                }
 
-                                    for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                                iCurrentIndexInPalette++;
+                                if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
+                                {
+                                    if (fHaveLooped)
                                     {
-                                        // copy over the RGB data, skipping the A value
-                                        pPal[iActivePageIndex * 4] =     MainPalGroup->ROUND_R(pPALFileData[iPALDataIndex * 4]);
-                                        pPal[(iActivePageIndex * 4) + 1] = MainPalGroup->ROUND_G(pPALFileData[(iPALDataIndex * 4) + 1]);
-                                        pPal[(iActivePageIndex * 4) + 2] = MainPalGroup->ROUND_B(pPALFileData[(iPALDataIndex * 4) + 2]);
-                                        pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
-
-                                        if (++iPALDataIndex >= nPALColorCount)
-                                        {
-                                            // If the palette is larger than our ACT, loop it.
-                                            iPALDataIndex = 0;
-                                        }
+                                        // Applying a looping palette to a secondary palette will be generally illogical, so don't
+                                        nTotalColorsUsed++;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        // advance to the next palette
+                                        nCurrentPalette++;
+                                        iCurrentIndexInPalette = 0;
+                                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
                                     }
                                 }
                             }
 
                             ImgDispCtrl->UpdateCtrl();
-                            CurrPalCtrl->UpdateCtrl();
+                            m_PalHost.UpdateAllPalCtrls();
 
                             UpdateMultiEdit(TRUE);
                             UpdateSliderSel();
 
                             fSuccess = true;
                             CString strStatus;
-                            strStatus.Format(L"Loaded %u colors from %u color %s file.", nCurrentPageWorkingAmt, nPALColorCount - 1, L"PAL");
+                            strStatus.Format(L"Loaded %u colors from %u color %s file.", nTotalColorsUsed, nPALColorCount, L"PAL");
                             SetStatusText(strStatus);
-
-                            if (nPalettePageCount > 1)
-                            {
-                                if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
-                                {
-                                    MessageBox(L"Heads-up: you are loading a PAL for a multipage palette.  PalMod can only use the PAL to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
-                                }
-                            }
                         }
 
                         safe_delete_array(pPALFileData);
@@ -907,7 +945,6 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
             (aszSignature[7] == (char)0x0A))
         {
             CString strInfo;
-            int nPNGColorCount = 0;
             bool fHadToFlip = false;
 
             OutputDebugString(L"this is a png.... reading chunks now...\n");
@@ -971,37 +1008,38 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                     OutputDebugString(L"pngreader: processing PLTE header...\n");
 
                     const UINT8 nActivePaletteCount = MainPalGroup->GetPalAmt();
-                    nPNGColorCount = (chunkLength / 3);
+                    const int nPNGColorCount = (chunkLength / 3);
 
                     strInfo.Format(L"\tpngreader: processing %u colors...\n", nPNGColorCount);
                     OutputDebugString(strInfo);
 
-                    int nCurrentPageWorkingAmt = 0;
+                    int nTotalNumberOfCurrentPaletteColors = 0;
 
                     for (int iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
                     {
-                        nCurrentPageWorkingAmt += MainPalGroup->GetPalDef(iPalette)->uPalSz;
+                        nTotalNumberOfCurrentPaletteColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
                     }
 
                     UINT16 iPNGIndex = 0;
+                    UINT16 nCurrentPalette = 0;
+                    UINT16 nTotalColorsUsed = 0;
                     UINT32 nBlackColorCount = 0;
                     bool fStillStuckOnBlack = true;
                     bool fHaveLooped = false;
-                    int iCurrentIndexForPalette = 0;
-                    UINT16 nCurrentPalette = 0;
+                    int iCurrentIndexInPalette = 0;
                     UINT8* pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
 
-                    for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                    for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                     {
-                        pPal[(iCurrentIndexForPalette * 4)]     = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
-                        pPal[(iCurrentIndexForPalette * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
-                        pPal[(iCurrentIndexForPalette * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
+                        pPal[(iCurrentIndexInPalette * 4)]     = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
+                        pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
+                        pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
                            
                         // This code exists because Fighter Factory writes upside-down color tables.
                         if (fStillStuckOnBlack &&
-                            (pPal[iCurrentIndexForPalette * 4] == 0) &&
-                            (pPal[(iCurrentIndexForPalette * 4) + 1] == 0) &&
-                            (pPal[(iCurrentIndexForPalette * 4) + 2] == 0))
+                            (pPal[iCurrentIndexInPalette * 4] == 0) &&
+                            (pPal[(iCurrentIndexInPalette * 4) + 1] == 0) &&
+                            (pPal[(iCurrentIndexInPalette * 4) + 2] == 0))
                         {
                             nBlackColorCount++;
                         }
@@ -1017,25 +1055,26 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                             fHaveLooped = true;
                         }
 
-                        iCurrentIndexForPalette++;
-                        if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexForPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
+                        iCurrentIndexInPalette++;
+                        if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
                         {
                             if (fHaveLooped)
                             {
                                 // Applying a looping palette to a secondary palette will be generally illogical, so don't
+                                nTotalColorsUsed++;
                                 break;
                             }
                             else
                             {
                                 // advance to the next palette
                                 nCurrentPalette++;
-                                iCurrentIndexForPalette = 0;
+                                iCurrentIndexInPalette = 0;
                                 pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
                             }
                         }
                     }
 
-                    if ((nBlackColorCount > 32) || (nBlackColorCount == nCurrentPageWorkingAmt))
+                    if ((nBlackColorCount > 32) || (nBlackColorCount == nTotalNumberOfCurrentPaletteColors))
                     {
                         // TODO: Maybe ask the user before flipping?
                         iPNGIndex = nPNGColorCount - 1;
@@ -1043,26 +1082,26 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
 
                         OutputDebugString(L"This appears to be a bogus SFF PNG... flipping our PNG table logic...\n");
 
-                        iCurrentIndexForPalette = 0;
+                        iCurrentIndexInPalette = 0;
                         nCurrentPalette = 0;
                         fHaveLooped = false;
                         pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
-                        for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                        for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++)
                         {
-                            pPal[(iCurrentIndexForPalette * 4)] = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
-                            pPal[(iCurrentIndexForPalette * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
-                            pPal[(iCurrentIndexForPalette * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
+                            pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
+                            pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
+                            pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
 
                             // This code exists because Fighter Factory writes upside-down color tables.
                             if (--iPNGIndex >= nPNGColorCount)
                             {
                                 // If the palette is larger than our PNG, loop it.
                                 fHaveLooped = true;
-                                iPNGIndex = nCurrentPageWorkingAmt;
+                                iPNGIndex = nTotalNumberOfCurrentPaletteColors;
                             }
 
-                            iCurrentIndexForPalette++;
-                            if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexForPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
+                            iCurrentIndexInPalette++;
+                            if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
                             {
                                 if (fHaveLooped)
                                 {
@@ -1073,7 +1112,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                                 {
                                     // advance to the next palette
                                     nCurrentPalette++;
-                                    iCurrentIndexForPalette = 0;
+                                    iCurrentIndexInPalette = 0;
                                     pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
                                 }
                             }
@@ -1081,36 +1120,22 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                     }
 
                     ImgDispCtrl->UpdateCtrl();
-
-                    for (UINT8 nCurPalSet = 0; nCurPalSet < nActivePaletteCount; nCurPalSet++)
-                    {
-                        m_PalHost.GetPalCtrl(nCurPalSet)->UpdateIndexAll();
-                        m_PalHost.GetPalCtrl(nCurPalSet)->UpdateCtrl();
-                    }
+                    m_PalHost.UpdateAllPalCtrls();
 
                     UpdateMultiEdit(TRUE);
                     UpdateSliderSel();
 
                     if (fHadToFlip)
                     {
-                        strInfo.Format(L"PNG appears to have a reversed color table: loaded %u colors backwards.", min(nCurrentPageWorkingAmt, nPNGColorCount));
+                        strInfo.Format(L"PNG appears to have a reversed color table: loaded %u colors backwards.", nTotalColorsUsed);
                     }
                     else
                     {
-                        strInfo.Format(L"Loaded %u colors from the %u color indexed %s file.", nCurrentPageWorkingAmt, nPNGColorCount, L"PNG");
+                        strInfo.Format(L"Loaded %u colors from the %u color indexed %s file.", nTotalColorsUsed, nPNGColorCount, L"PNG");
                     }
                     SetStatusText(strInfo);
 
                     fSuccess = true;
-
-                    UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
-                    if (nPalettePageCount > 1)
-                    {
-                        if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
-                        {
-                            MessageBox(L"Heads-up: you are loading a PNG for a multipage palette.  PalMod can only use the PNG to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
-                        }
-                    }
 
                     safe_delete_array(paszPaletteData);
                     break;

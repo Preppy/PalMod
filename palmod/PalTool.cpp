@@ -290,6 +290,15 @@ void CPalTool::EndSetPal()
     nPrevPalAmt = nCurrPalAmt;
 }
 
+void CPalTool::UpdateAllPalCtrls()
+{
+    for (UINT8 nCurPalSet = 0; nCurPalSet < nCurrPalAmt; nCurPalSet++)
+    {
+        GetPalCtrl(nCurPalSet)->UpdateIndexAll();
+        GetPalCtrl(nCurPalSet)->UpdateCtrl();
+    }
+}
+
 void CPalTool::UpdateCtrl()
 {
     DrawText();
