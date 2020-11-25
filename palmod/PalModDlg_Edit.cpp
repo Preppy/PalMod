@@ -282,16 +282,16 @@ void CPalModDlg::OnEditCopy()
             strUnicodeData.Append(L" PalMod handles this automatically on CTRL+C /CTRL+V, but you're seeing 'secret' extra data right now using clipboard tricks.");
             strUnicodeData.Append(L" The following data is additional debug information useful for ROM hacking:");
 
-            strFormatU.Format(L"\r\n\r\nThis palette begins in the ROM at location 0x%x .", CurrGame->GetCurrentPaletteLocation());
+            strFormatU.Format(L"\r\n\r\nThis palette begins in the ROM at location:\r\n\t0x%x\r\n", CurrGame->GetCurrentPaletteLocation());
             strUnicodeData.Append(strFormatU);
 
             if (nInitialOffsetDelta != 0)
             {
-                strFormatU.Format(L"  The current selection begins at ROM location 0x%x .", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * 2));
+                strFormatU.Format(L"The current selection begins at ROM location:\r\n\t0x%x\r\n", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * 2));
                 strUnicodeData.Append(strFormatU);
             }
 
-            strUnicodeData.Append(L"  PalMod's version of the data in the ROM at that location reads:\r\n\t");
+            strUnicodeData.Append(L"PalMod's version of the data in the ROM at that location reads:\r\n\t");
 
             for (int i = 0; i < nWorkingAmt; i++)
             {

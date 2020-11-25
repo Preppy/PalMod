@@ -60,8 +60,8 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     OutputDebugString(strMessage);
 
     const UINT32 nSafeCountFor3C = 160;
-    const UINT32 nSafeCountFor4A = 671;
-    const UINT32 nSafeCountFor8 = 4;
+    const UINT32 nSafeCountFor4A = 672;
+    const UINT32 nSafeCountFor8 = 7;
 
     switch (m_nSSF2TSelectedRom)
     {
@@ -947,7 +947,7 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
 
     UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = nCollectionCount;
+    UINT16 nSrcAmt = 1;
     UINT16 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
     //Get rid of any palettes if there are any
@@ -981,10 +981,16 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             }
             else // Characters and portraits
             {
-                while (nSrcStart >= nNodeIncrement)
+                sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+
+                if (wcscmp(charUnit->szDesc, k_stNameKey_Bonus) != 0) // Bonus is all unrelated, so leave those out of this logic
                 {
-                    // The starting point is the absolute first palette for the sprite in question which is found in P1
-                    nSrcStart -= nNodeIncrement;
+                    nSrcAmt = nCollectionCount;
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        nSrcStart -= nNodeIncrement;
+                    }
                 }
             }
 

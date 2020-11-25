@@ -417,7 +417,12 @@ enum CHARACTERS_CPS2
     indexCPS2_Vamp_Victor,    // 0x76
     indexCPS2_Vamp_Zabel,     // 0x77
     indexCPS2_VSAV1_WinPortraits, // 0x78
-    indexCPS2_VSAV1_MidnightBliss, // 0x78
+    indexCPS2_VSAV1_MidnightBliss, // 0x79
+
+    indexCPS2_Vamp_DarkGallon,    // 0x7a
+    indexCPS2_Vamp_OboroBishamon, // 0x7b
+    indexCPS2_VSAV1_Bonus,  // 0x7c
+
 };
 
 const UINT8 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
@@ -2414,6 +2419,7 @@ const UINT8 VHUNT2_A_IMG_UNITS[] =
     indexCPS2_Vamp_QBee,      // 0x73
     indexCPS2_Vamp_Shadow,    // 0x75
     indexCPS2_VSAV1_MidnightBliss,
+    indexCPS2_Vamp_DarkGallon,
 };
 
 constexpr auto VHUNT2_A_NUM_IMG_UNITS = ARRAYSIZE(VHUNT2_A_IMG_UNITS);
@@ -2444,6 +2450,8 @@ const UINT8 VSAV_A_IMG_UNITS[] =
 
     indexCPS2_VSAV1_WinPortraits, // 0x78
     indexCPS2_VSAV1_MidnightBliss, // 0x79
+    indexCPS2_Vamp_DarkGallon,
+    indexCPS2_VSAV1_Bonus, // 0x7c
 };
 
 constexpr auto VSAV_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV_A_IMG_UNITS);
@@ -2473,6 +2481,7 @@ const UINT8 VSAV2_A_IMG_UNITS[] =
     indexCPS2_Vamp_Victor,    // 0x76
     indexCPS2_Vamp_Zabel,     // 0x77
     indexCPS2_VSAV1_MidnightBliss,
+    indexCPS2_Vamp_DarkGallon,
 };
 
 constexpr auto VSAV2_A_NUM_IMG_UNITS = ARRAYSIZE(VSAV2_A_IMG_UNITS);

@@ -1400,7 +1400,7 @@ const sGame_PaletteDataset VHUNT2_A_PYRON_PALETTES_AK[] =
 
 const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_LP[] =
 {
-    { L"LP Dark Gallon", 0x1C69C, 0x1c1bc + 0x500, indexCPS2_Vamp_Gallon, 0x0 },
+    { L"LP Dark Gallon", 0x1C69C, 0x1c1bc + 0x500, indexCPS2_Vamp_DarkGallon, 0x0 },
     { L"LP Intro/Outro", 0x1c1bc + 0x500, 0x1c1dc + 0x500 },
     { L"LP 236P/41236KK/j.HP", 0x1c1dc + 0x500, 0x1c1fc + 0x500 },
     { L"LP 236P/28K/Outro Flash", 0x1c1fc + 0x500, 0x1c21c + 0x500 },
@@ -1408,7 +1408,7 @@ const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_LP[] =
 
 const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_MP[] =
 {
-    { L"MP Dark Gallon", 0x1c21c + 0x500, 0x1c23c + 0x500, indexCPS2_Vamp_Gallon, 0x0 },
+    { L"MP Dark Gallon", 0x1c21c + 0x500, 0x1c23c + 0x500, indexCPS2_Vamp_DarkGallon, 0x0 },
     { L"MP Intro/Outro", 0x1c23c + 0x500, 0x1c25c + 0x500 },
     { L"MP 236P/41236KK/j.HP", 0x1c25c + 0x500, 0x1c27c + 0x500 },
     { L"MP 236P/28K/Outro Flash", 0x1c27c + 0x500, 0x1c29c + 0x500 },
@@ -1416,7 +1416,7 @@ const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_MP[] =
 
 const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_HP[] =
 {
-    { L"HP Dark Gallon", 0x1c29c + 0x500, 0x1c2bc + 0x500, indexCPS2_Vamp_Gallon, 0x0 },
+    { L"HP Dark Gallon", 0x1c29c + 0x500, 0x1c2bc + 0x500, indexCPS2_Vamp_DarkGallon, 0x0 },
     { L"HP Intro/Outro", 0x1c2bc + 0x500, 0x1c2dc + 0x500 },
     { L"HP 236P/41236KK/j.HP", 0x1c2dc + 0x500, 0x1c2fc + 0x500 },
     { L"HP 236P/28K/Outro Flash", 0x1c2fc + 0x500, 0x1c31c + 0x500 },
@@ -1424,7 +1424,7 @@ const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_HP[] =
 
 const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_LK[] =
 {
-    { L"LK Dark Gallon", 0x1c31c + 0x500, 0x1c33c + 0x500, indexCPS2_Vamp_Gallon, 0x0 },
+    { L"LK Dark Gallon", 0x1c31c + 0x500, 0x1c33c + 0x500, indexCPS2_Vamp_DarkGallon, 0x0 },
     { L"LK Intro/Outro", 0x1c33c + 0x500, 0x1c35c + 0x500 },
     { L"LK 236P/41236KK/j.HP", 0x1c35c + 0x500, 0x1c37c + 0x500 },
     { L"LK 236P/28K/Outro Flash", 0x1c37c + 0x500, 0x1c39c + 0x500 },
@@ -1432,7 +1432,7 @@ const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_LK[] =
 
 const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_MK[] =
 {
-    { L"MK Dark Gallon", 0x1c39c + 0x500, 0x1c3bc + 0x500, indexCPS2_Vamp_Gallon, 0x0 },
+    { L"MK Dark Gallon", 0x1c39c + 0x500, 0x1c3bc + 0x500, indexCPS2_Vamp_DarkGallon, 0x0 },
     { L"MK Intro/Outro", 0x1c3bc + 0x500, 0x1c3dc + 0x500 },
     { L"MK 236P/41236KK/j.HP", 0x1c3dc + 0x500, 0x1c3fc + 0x500 },
     { L"MK 236P/28K/Outro Flash", 0x1c3fc + 0x500, 0x1c41c + 0x500 },
@@ -1440,7 +1440,7 @@ const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_MK[] =
 
 const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_HK[] =
 {
-    { L"HK Dark Gallon", 0x1c41c + 0x500, 0x1c43c + 0x500, indexCPS2_Vamp_Gallon, 0x0 },
+    { L"HK Dark Gallon", 0x1c41c + 0x500, 0x1c43c + 0x500, indexCPS2_Vamp_DarkGallon, 0x0 },
     { L"HK Intro/Outro", 0x1c43c + 0x500, 0x1c45c + 0x500 },
     { L"HK 236P/41236KK/j.HP", 0x1c45c + 0x500, 0x1c47c + 0x500 },
     { L"HK 236P/28K/Outro Flash", 0x1c47c + 0x500, 0x1c49c + 0x500 },
@@ -1448,7 +1448,7 @@ const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_HK[] =
 
 const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_PP[] =
 {
-    { L"PP Dark Gallon", 0x1c49c + 0x500, 0x1c4bc + 0x500, indexCPS2_Vamp_Gallon, 0x0 },
+    { L"PP Dark Gallon", 0x1c49c + 0x500, 0x1c4bc + 0x500, indexCPS2_Vamp_DarkGallon, 0x0 },
     { L"PP Intro/Outro", 0x1c4bc + 0x500, 0x1c4dc + 0x500 },
     { L"PP 236P/41236KK/j.HP", 0x1c4dc + 0x500, 0x1c4fc + 0x500 },
     { L"PP 236P/28K/Outro Flash", 0x1c4fc + 0x500, 0x1c51c + 0x500 },
@@ -1456,7 +1456,7 @@ const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_PP[] =
 
 const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_KK[] =
 {
-    { L"KK Dark Gallon", 0x1c51c + 0x500, 0x1c53c + 0x500, indexCPS2_Vamp_Gallon, 0x0 },
+    { L"KK Dark Gallon", 0x1c51c + 0x500, 0x1c53c + 0x500, indexCPS2_Vamp_DarkGallon, 0x0 },
     { L"KK Intro/Outro", 0x1c53c + 0x500, 0x1c55c + 0x500 },
     { L"KK 236P/41236KK/j.HP", 0x1c55c + 0x500, 0x1c57c + 0x500 },
     { L"KK 236P/28K/Outro Flash", 0x1c57c + 0x500, 0x1c59c + 0x500 },
@@ -1464,7 +1464,7 @@ const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_KK[] =
 
 const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_AP[] =
 {
-    { L"AP Dark Gallon", 0x1c59c + 0x500, 0x1c5bc + 0x500, indexCPS2_Vamp_Gallon, 0x0 },
+    { L"AP Dark Gallon", 0x1c59c + 0x500, 0x1c5bc + 0x500, indexCPS2_Vamp_DarkGallon, 0x0 },
     { L"AP Intro/Outro", 0x1c5bc + 0x500, 0x1c5dc + 0x500 },
     { L"AP 236P/41236KK/j.HP", 0x1c5dc + 0x500, 0x1c5fc + 0x500 },
     { L"AP 236P/28K/Outro Flash", 0x1c5fc + 0x500, 0x1c61c + 0x500 },
@@ -1472,7 +1472,7 @@ const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_AP[] =
 
 const sGame_PaletteDataset VHUNT2_A_DARKGALLON_PALETTES_AK[] =
 {
-    { L"AK Dark Gallon", 0x1c61c + 0x500, 0x1c63c + 0x500, indexCPS2_Vamp_Gallon, 0x0 },
+    { L"AK Dark Gallon", 0x1c61c + 0x500, 0x1c63c + 0x500, indexCPS2_Vamp_DarkGallon, 0x0 },
     { L"AK Intro/Outro", 0x1c63c + 0x500, 0x1c65c + 0x500 },
     { L"AK 236P/41236KK/j.HP", 0x1c65c + 0x500, 0x1c67c + 0x500 },
     { L"AK 236P/28K/Outro Flash", 0x1c67c + 0x500, 0x1CB9C },

@@ -42,7 +42,7 @@ private:
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     const int m_uLowestKnownPaletteROMLocation_3C = 0x31c00;
     const int m_uLowestKnownPaletteROMLocation_4A = 0x3FB00;
-    const int m_uLowestKnownPaletteROMLocation_8 = 0x623fe;
+    const int m_uLowestKnownPaletteROMLocation_8 = 0x603be;
 
 public:
     CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad);

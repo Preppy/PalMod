@@ -1,5 +1,6 @@
 #pragma once
 #include "game\Default.h"
+#include "game\palgroup.h"
 
 #define aadd(x, y) ((x)+(y) > 255 ? 255 : (x)+(y))
 #define fabs(x) (x < 0.0f ? -x : x)
@@ -116,7 +117,7 @@ private:
 
     // This should be converted over to an sImageNode probably...
     UINT8* m_pSpriteOverrideTexture = nullptr;
-    COLORREF* m_pBackupPalette = nullptr;
+    sPalDef* m_pBackupPaletteDef = nullptr;
     COLORREF* m_pBackupAltPalette = nullptr;
     int m_nTextureOverrideW = 0;
     int m_nTextureOverrideH = 0;
@@ -157,7 +158,7 @@ public:
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
     bool LoadExternalSprite(TCHAR* szTextureLocation);
-    void AssignBackupPalette(UINT8* pBackupPalette);
+    void AssignBackupPalette(sPalDef* pBackupPaletteDef);
     bool DoWeHaveImageForIndex(int nIndex);
     
     void SetZoom(double fpNewZoom)

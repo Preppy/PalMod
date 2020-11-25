@@ -6,8 +6,8 @@
 
 #include "Game\GameDef.h"
 
-constexpr auto c_strLastUsedPath = _T("LastUsedPath");
-constexpr auto c_strLastUsedGFlag = _T("LastUsedGFlag");
+constexpr auto c_strLastUsedPath = L"LastUsedPath";
+constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
 
 void CPalModDlg::LoadGameDir(int nGameFlag, TCHAR* szLoadDir)
 {
@@ -43,7 +43,7 @@ void CPalModDlg::PostGameLoad()
     CPalModApp* ProgHost = GetHost();
 
     CString strDebugInfo;
-    strDebugInfo.Format(_T("CPalModDlg::PostGameLoad : Successfully loaded files for '%s'\n"), g_GameFriendlyName[ProgHost->GetCurrGame()->GetGameFlag()]);
+    strDebugInfo.Format(L"CPalModDlg::PostGameLoad : Successfully loaded files for '%s'\n", g_GameFriendlyName[ProgHost->GetCurrGame()->GetGameFlag()]);
     OutputDebugString(strDebugInfo);
 
     //Set pal, img, and img ctrl pointers
@@ -412,7 +412,7 @@ void CPalModDlg::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
 
 void CPalModDlg::OnFileOpen()
 {
-    CString szGameFileDef = _T("");
+    CString szGameFileDef = L"";
 
     struct sSupportedGameList
     {
@@ -425,52 +425,52 @@ void CPalModDlg::OnFileOpen()
     // CGameLoad::LoadFile to pass the appropriate gameflag to that game.
     sSupportedGameList SupportedGameList[] =
     {
-        { BREAKERS_A, _T("Breakers Revenge|245-p1.p1|"), INVALID_UNIT_VALUE },
-        { BLEACH_DS, L"Bleach Dark Souls|3494*Europe*nds;2761*US*nds|", INVALID_UNIT_VALUE },
-        { COTA_A, _T("COTA|xmn*.05*|"), INVALID_UNIT_VALUE },
-        { CVS2_A, _T("CVS2|SNKGD_SL.bin|"), INVALID_UNIT_VALUE },
-        { Garou_A, _T("Garou|kf.neo-sma|"), INVALID_UNIT_VALUE },
-        { Garou_S, _T("Garou for Steam|p1.bin|"), INVALID_UNIT_VALUE },
-        { JOJOS_A, _T("Jojos (Japan): HUDs and menus (50), Characters (51)|50;51|"), INVALID_UNIT_VALUE },
-        { KarnovsR_A, _T("Karnov's Revenge|066-p1.p1|"), INVALID_UNIT_VALUE },
-        { KOF98_A, _T("KOF98|242-p2.sp2;kof98_p2.rom|"), INVALID_UNIT_VALUE },
+        { BREAKERS_A,       L"Breakers Revenge|245-p1.p1|", INVALID_UNIT_VALUE },
+        { BLEACH_DS,        L"Bleach Dark Souls|3494*Europe*nds;2761*US*nds|", INVALID_UNIT_VALUE },
+        { COTA_A,           L"COTA|xmn*.05*|", INVALID_UNIT_VALUE },
+        { CVS2_A,           L"CVS2|SNKGD_SL.bin|", INVALID_UNIT_VALUE },
+        { Garou_A,          L"Garou|kf.neo-sma|", INVALID_UNIT_VALUE },
+        { Garou_S,          L"Garou for Steam|p1.bin|", INVALID_UNIT_VALUE },
+        { JOJOS_A,          L"Jojos (Japan): HUDs and menus (50), Characters (51)|50;51|", INVALID_UNIT_VALUE },
+        { KarnovsR_A,       L"Karnov's Revenge|066-p1.p1|", INVALID_UNIT_VALUE },
+        { KOF98_A,          L"KOF98|242-p2.sp2;kof98_p2.rom|", INVALID_UNIT_VALUE },
         // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
-        { KOF02_A, _T("KOF02|265*p2*|"), INVALID_UNIT_VALUE },
-        { KOFXI_A, _T("KOFXI|gdrom_KOFXI_v5_AllFighters.bin|"), INVALID_UNIT_VALUE },
-        { KOF02UM_S, _T("KOF02UM|pal_a*.bin|"), INVALID_UNIT_VALUE },
-        { KOF03_A, _T("KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|"), INVALID_UNIT_VALUE },
-        { MATRIMELEE_A, _T("Matrimelee|266-p2.sp2|"), INVALID_UNIT_VALUE },
-        { MSH_A, _T("MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|"), INVALID_UNIT_VALUE },
-        { MSHVSF_A, _T("MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|"), INVALID_UNIT_VALUE },
-        { MVC_A, _T("MVC Arcade|mvc*.06*|"), INVALID_UNIT_VALUE },
+        { KOF02_A,          L"KOF02|265*p2*|", INVALID_UNIT_VALUE },
+        { KOF02UM_S,        L"KOF02UM|pal_a*.bin|", INVALID_UNIT_VALUE },
+        { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", INVALID_UNIT_VALUE },
+        { KOFXI_A,          L"KOFXI|gdrom_KOFXI_v5_AllFighters.bin|", INVALID_UNIT_VALUE },
+        { MATRIMELEE_A,     L"Matrimelee|266-p2.sp2|", INVALID_UNIT_VALUE },
+        { MSH_A,            L"MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|", INVALID_UNIT_VALUE },
+        { MSHVSF_A,         L"MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", INVALID_UNIT_VALUE },
+        { MVC_A,            L"MVC Arcade|mvc*.06*|", INVALID_UNIT_VALUE },
         // MarvelVsCapcom2.bin
         // Unlocked\MarvelVsCapcom2_unlocked.bin
-        { MVC2_A, _T("MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|"), INVALID_UNIT_VALUE },
-        { NGBC_A, L"NGBC|NeoGeoBattleColliseum.bin|", INVALID_UNIT_VALUE },
+        { MVC2_A,           L"MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|", INVALID_UNIT_VALUE },
+        { NGBC_A,           L"NGBC|NeoGeoBattleColliseum.bin|", INVALID_UNIT_VALUE },
         // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
-        { RBFFS_A, _T("Real Bout Fatal Fury Special|223*p1*|"), INVALID_UNIT_VALUE },
-        { REDEARTH_A, _T("Red Earth|31|"), INVALID_UNIT_VALUE },
-        { SAMSHO3_A, _T("Samurai Shodown 3|087-p5.p5|"), INVALID_UNIT_VALUE},
-        { SAMSHO5SP_A, _T("Samurai Shodown 5 Special|272-p1*.p1;p1*h*.bin|"), INVALID_UNIT_VALUE},
-        { SFA1_A, _T("SFA1|sfz.06|"), INVALID_UNIT_VALUE },
-        { SFA2_A, _T("SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|"), INVALID_UNIT_VALUE },
-        { SFA3_A, _T("SFA3 sz3.09c|*.09*|"), INVALID_UNIT_VALUE },
-        { SFIII1_A, _T("SFIII:NG Arcade|50|"), INVALID_UNIT_VALUE },
-        { SFIII2_A, _T("SFIII:2I Arcade|50|"), INVALID_UNIT_VALUE },
-        { SFIII3_A, _T("SFIII:3S Arcade (51), Gill glow (10)|10;51|"), INVALID_UNIT_VALUE },
-        { SF2CE_A, _T("SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|"), INVALID_UNIT_VALUE },
-        { SF2HF_A, _T("SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f|"), INVALID_UNIT_VALUE },
-        { SSF2T_A, _T("SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|"), INVALID_UNIT_VALUE },
-        { SSF2T_GBA, _T("SSF2T: Revival (GBA)|Super*Street*Fighter*.gba|"), INVALID_UNIT_VALUE },
-        { GEMFIGHTER_A, _T("Super Gem Fighter|pcf*.07|"), INVALID_UNIT_VALUE },
-        { SVCPLUSA_A, _T("SVC PlusA|svc-p2pl.bin|"), INVALID_UNIT_VALUE },
-        { VHUNT2_A, _T("Vampire Hunter 2|vh2j.09|"), INVALID_UNIT_VALUE },
-        { VSAV_A, _T("Vampire Savior|vm3*.10b|"), INVALID_UNIT_VALUE },
-        { VSAV2_A, _T("Vampire Savior 2|vs2j.10|"), INVALID_UNIT_VALUE },
-        { WakuWaku7_A, _T("Waku Waku 7|225-p1.p1|"), INVALID_UNIT_VALUE },
-        { WINDJAMMERS_A, _T("Windjammers|065-p1.p1|"), INVALID_UNIT_VALUE },
-        { XMVSF_A, _T("XMVSF|xvs*.05*|"), INVALID_UNIT_VALUE },
-        { NEOGEO_A, _T("Unknown Game ROM|*.*|"), INVALID_UNIT_VALUE },
+        { RBFFS_A,          L"Real Bout Fatal Fury Special|223*p1*|", INVALID_UNIT_VALUE },
+        { REDEARTH_A,       L"Red Earth|31|", INVALID_UNIT_VALUE },
+        { SAMSHO3_A,        L"Samurai Shodown 3|087-p5.p5|", INVALID_UNIT_VALUE},
+        { SAMSHO5SP_A,      L"Samurai Shodown 5 Special|272-p1*.p1;p1*h*.bin|", INVALID_UNIT_VALUE},
+        { SFA1_A,           L"SFA1|sfz.06|", INVALID_UNIT_VALUE },
+        { SFA2_A,           L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", INVALID_UNIT_VALUE },
+        { SFA3_A,           L"SFA3 sz3.09c|*.09*|", INVALID_UNIT_VALUE },
+        { SFIII1_A,         L"SFIII:NG Arcade|50|", INVALID_UNIT_VALUE },
+        { SFIII2_A,         L"SFIII:2I Arcade|50|", INVALID_UNIT_VALUE },
+        { SFIII3_A,         L"SFIII:3S Arcade (51), Gill glow (10)|10;51|", INVALID_UNIT_VALUE },
+        { SF2CE_A,          L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", INVALID_UNIT_VALUE },
+        { SF2HF_A,          L"SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f|", INVALID_UNIT_VALUE },
+        { SSF2T_A,          L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|", INVALID_UNIT_VALUE },
+        { SSF2T_GBA,        L"SSF2T: Revival (GBA)|Super*Street*Fighter*.gba|", INVALID_UNIT_VALUE },
+        { GEMFIGHTER_A,     L"Super Gem Fighter|pcf*.07|", INVALID_UNIT_VALUE },
+        { SVCPLUSA_A,       L"SVC PlusA|svc-p2pl.bin|", INVALID_UNIT_VALUE },
+        { VHUNT2_A,         L"Vampire Hunter 2|vh2j.09|", INVALID_UNIT_VALUE },
+        { VSAV_A,           L"Vampire Savior|vm3*.10b|", INVALID_UNIT_VALUE },
+        { VSAV2_A,          L"Vampire Savior 2|vs2j.10|", INVALID_UNIT_VALUE },
+        { WakuWaku7_A,      L"Waku Waku 7|225-p1.p1|", INVALID_UNIT_VALUE },
+        { WINDJAMMERS_A,    L"Windjammers|065-p1.p1|", INVALID_UNIT_VALUE },
+        { XMVSF_A,          L"XMVSF|xvs*.05*|", INVALID_UNIT_VALUE },
+        { NEOGEO_A,         L"Unknown Game ROM|*.*|", INVALID_UNIT_VALUE },
     };
 
     // The following logic ensures that their last used selection is the default filter view.
@@ -496,14 +496,14 @@ void CPalModDlg::OnFileOpen()
         {
             // If we're here, that means that they have never used PalMod to load a game before.  Help them.
             CString strInfo;
-            LPCTSTR pszParagraph1 = _T("Howdy!  You appear to be new to PalMod.  Welcome!\n\n");
-            LPCTSTR pszParagraph2 = _T("The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n");
+            LPCTSTR pszParagraph1 = L"Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
+            LPCTSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
 
             TCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
             _tcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
             szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
        
-            LPTSTR pszPipe = _tcsstr(szGameFilter, _T("|"));
+            LPTSTR pszPipe = _tcsstr(szGameFilter, L"|");
 
             if (pszPipe != nullptr)
             {
@@ -511,7 +511,7 @@ void CPalModDlg::OnFileOpen()
                 pszPipe[0] = 0;
             }
 
-            strInfo.Format(_T("%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up."), pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
+            strInfo.Format(L"%s%sRight now this is going to be set to \'%s\' for the default game, \'%s\': you need to change that to the game you're interested in so that your ROM shows up.", pszParagraph1, pszParagraph2, szGameFilter, g_GameFriendlyName[SupportedGameList[0].nInternalGameIndex]);
             MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONINFORMATION);
         }
     }
@@ -525,7 +525,7 @@ void CPalModDlg::OnFileOpen()
         }
     }
 
-    szGameFileDef.Append(_T("|")); //End
+    szGameFileDef.Append(L"|"); //End
 
     CFileDialog OpenDialog(
         TRUE,
@@ -693,7 +693,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
                     iACTIndex = nACTColorCount - 1;
                     fHadToFlip = true;
 
-                    OutputDebugString(_T("This appears to be a bogus SFF ACT... flipping our ACT table logic...\n"));
+                    OutputDebugString(L"This appears to be a bogus SFF ACT... flipping our ACT table logic...\n");
 
                     for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
                     {
@@ -725,11 +725,11 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
         CString strStatus;
         if (fHadToFlip)
         {
-            strStatus.Format(_T("ACT appears to have a reversed color table: loaded %u colors backwards."), min(nCurrentPageWorkingAmt, nACTColorCount));
+            strStatus.Format(L"ACT appears to have a reversed color table: loaded %u colors backwards.", min(nCurrentPageWorkingAmt, nACTColorCount));
         }
         else
         {
-            strStatus.Format(_T("Loaded %u colors from %u color %s file."), nCurrentPageWorkingAmt, nACTColorCount, _T("ACT"));
+            strStatus.Format(L"Loaded %u colors from %u color %s file.", nCurrentPageWorkingAmt, nACTColorCount, L"ACT");
         }
         SetStatusText(strStatus);
 
@@ -737,7 +737,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
         {
             if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
             {
-                MessageBox(_T("Heads-up: you are loading an ACT for a multipage palette.  PalMod can only use the ACT to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once."), GetHost()->GetAppName(), MB_ICONERROR);
+                MessageBox(L"Heads-up: you are loading an ACT for a multipage palette.  PalMod can only use the ACT to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
             }
         }
     }
@@ -749,7 +749,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
         {
             MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
-        SetStatusText(CString(_T("Failed loading ACT file.")));
+        SetStatusText(CString(L"Failed loading ACT file."));
     }
 
     return fSuccess;
@@ -840,14 +840,14 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
 
                             fSuccess = true;
                             CString strStatus;
-                            strStatus.Format(_T("Loaded %u colors from %u color %s file."), nCurrentPageWorkingAmt, nPALColorCount - 1, _T("PAL"));
+                            strStatus.Format(L"Loaded %u colors from %u color %s file.", nCurrentPageWorkingAmt, nPALColorCount - 1, L"PAL");
                             SetStatusText(strStatus);
 
                             if (nPalettePageCount > 1)
                             {
                                 if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
                                 {
-                                    MessageBox(_T("Heads-up: you are loading a PAL for a multipage palette.  PalMod can only use the PAL to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once."), GetHost()->GetAppName(), MB_ICONERROR);
+                                    MessageBox(L"Heads-up: you are loading a PAL for a multipage palette.  PalMod can only use the PAL to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
                                 }
                             }
                         }
@@ -863,8 +863,8 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
 
     if (!fFoundPALChunk)
     {
-        MessageBox(_T("Error: This is not a Microsoft PAL RIFF file."), GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(CString(_T("Failed loading PAL file.")));
+        MessageBox(L"Error: This is not a Microsoft PAL RIFF file.", GetHost()->GetAppName(), MB_ICONERROR);
+        SetStatusText(CString(L"Failed loading PAL file."));
     }
     else if (!fSuccess)
     {
@@ -873,7 +873,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
         {
             MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
-        SetStatusText(CString(_T("Failed loading PAL file.")));
+        SetStatusText(CString(L"Failed loading PAL file."));
     }
 
     return fSuccess;
@@ -910,7 +910,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
             int nPNGColorCount = 0;
             bool fHadToFlip = false;
 
-            OutputDebugString(_T("this is a png.... reading chunks now...\n"));
+            OutputDebugString(L"this is a png.... reading chunks now...\n");
 
 #define READFROMFILEANDDECREMENT(buffer, cbchunk) { if (cbchunk > nFileSizeRemaining) {break;} PNGFile.Read(buffer, cbchunk); nFileSizeRemaining -= cbchunk; }
 
@@ -923,7 +923,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                 READFROMFILEANDDECREMENT(chunkType, sizeof(chunkType) - 1);
                 chunkType[sizeof(chunkType) - 1] = 0;
 
-                strInfo.Format(_T("Chunk: %4S, size 0x%x\n"), chunkType, chunkLength);
+                strInfo.Format(L"Chunk: %4S, size 0x%x\n", chunkType, chunkLength);
                 OutputDebugString(strInfo);
 
                 char crcBuffer[4];
@@ -948,16 +948,16 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                     if ((colorType == 0) || (colorType == 4)) // grayscale options
                     {
                         // PLTE entry cannot appear for this type
-                        OutputDebugString(_T("pngreader: grayscale: PLTE cannot be present.\n"));
+                        OutputDebugString(L"pngreader: grayscale: PLTE cannot be present.\n");
                         break;
                     }
                     else if (colorType == 3) // indexed color
                     {
-                        OutputDebugString(_T("pngreader: indexed: PLTE must be present.\n"));
+                        OutputDebugString(L"pngreader: indexed: PLTE must be present.\n");
                     }
                     else // 2 - truecolor and 6 - truecolor with alpha
                     {
-                        OutputDebugString(_T("pngreader: truecolor: PLTE may be present.\n"));
+                        OutputDebugString(L"pngreader: truecolor: PLTE may be present.\n");
                     }
                 }
                 else if (strcmp(chunkType, "PLTE") == 0)
@@ -968,100 +968,147 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                     READFROMFILEANDDECREMENT(paszPaletteData, chunkLength);
                     READFROMFILEANDDECREMENT(crcBuffer, sizeof(crcBuffer));
 
-                    OutputDebugString(_T("pngreader: processing PLTE header...\n"));
+                    OutputDebugString(L"pngreader: processing PLTE header...\n");
 
-                    UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
+                    const UINT8 nActivePaletteCount = MainPalGroup->GetPalAmt();
                     nPNGColorCount = (chunkLength / 3);
 
-                    strInfo.Format(_T("\tpngreader: processing %u colors...\n"), nPNGColorCount);
+                    strInfo.Format(L"\tpngreader: processing %u colors...\n", nPNGColorCount);
                     OutputDebugString(strInfo);
 
-                    // We can only update the active page: ignore further pages.
-                    CJunk* pPalCtrlCurrentPage = m_PalHost.GetPalCtrl(0);
+                    int nCurrentPageWorkingAmt = 0;
 
-                    if (pPalCtrlCurrentPage)
+                    for (int iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
                     {
-                        const int nCurrentPageWorkingAmt = pPalCtrlCurrentPage->GetWorkingAmt();
-                        UINT16 iPNGIndex = 0;
+                        nCurrentPageWorkingAmt += MainPalGroup->GetPalDef(iPalette)->uPalSz;
+                    }
 
-                        UINT32 nBlackColorCount = 0;
-                        bool fStillStuckOnBlack = true;
-                        for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                    UINT16 iPNGIndex = 0;
+                    UINT32 nBlackColorCount = 0;
+                    bool fStillStuckOnBlack = true;
+                    bool fHaveLooped = false;
+                    int iCurrentIndexForPalette = 0;
+                    UINT16 nCurrentPalette = 0;
+                    UINT8* pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+
+                    for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                    {
+                        pPal[(iCurrentIndexForPalette * 4)]     = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
+                        pPal[(iCurrentIndexForPalette * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
+                        pPal[(iCurrentIndexForPalette * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
+                           
+                        // This code exists because Fighter Factory writes upside-down color tables.
+                        if (fStillStuckOnBlack &&
+                            (pPal[iCurrentIndexForPalette * 4] == 0) &&
+                            (pPal[(iCurrentIndexForPalette * 4) + 1] == 0) &&
+                            (pPal[(iCurrentIndexForPalette * 4) + 2] == 0))
                         {
-                            pPal[(iActivePageIndex * 4)]     = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
-                            pPal[(iActivePageIndex * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
-                            pPal[(iActivePageIndex * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
-                            pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
-
-                            // This code exists because Fighter Factory writes upside-down color tables.
-                            if (fStillStuckOnBlack &&
-                                (pPal[iActivePageIndex * 4] == 0) &&
-                                (pPal[(iActivePageIndex * 4) + 1] == 0) &&
-                                (pPal[(iActivePageIndex * 4) + 2] == 0))
-                            {
-                                nBlackColorCount++;
-                            }
-                            else
-                            {
-                                fStillStuckOnBlack = false;
-                            }
-
-                            if (++iPNGIndex >= nPNGColorCount)
-                            {
-                                // If the palette is larger than our PNG, loop it.
-                                iPNGIndex = 0;
-                            }
-                        }
-
-                        if ((nBlackColorCount > 32) || (nBlackColorCount == nCurrentPageWorkingAmt))
-                        {
-                            // TODO: Maybe ask the user before flipping?
-                            iPNGIndex = nPNGColorCount - 1;
-                            fHadToFlip = true;
-
-                            OutputDebugString(_T("This appears to be a bogus SFF PNG... flipping our PNG table logic...\n"));
-
-                            for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
-                            {
-                                pPal[(iActivePageIndex * 4)] = MainPalGroup->ROUND_R(paszPaletteData[iPNGIndex * 3]);
-                                pPal[(iActivePageIndex * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
-                                pPal[(iActivePageIndex * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
-                                pPalCtrlCurrentPage->UpdateIndex(iActivePageIndex);
-
-                                // This code exists because Fighter Factory writes upside-down color tables.
-                                if (--iPNGIndex >= nPNGColorCount)
-                                {
-                                    // If the palette is larger than our PNG, loop it.
-                                    iPNGIndex = nCurrentPageWorkingAmt;
-                                }
-                            }
-                        }
-
-                        ImgDispCtrl->UpdateCtrl();
-                        CurrPalCtrl->UpdateCtrl();
-
-                        UpdateMultiEdit(TRUE);
-                        UpdateSliderSel();
-
-                        if (fHadToFlip)
-                        {
-                            strInfo.Format(_T("PNG appears to have a reversed color table: loaded %u colors backwards."), min(nCurrentPageWorkingAmt, nPNGColorCount));
+                            nBlackColorCount++;
                         }
                         else
                         {
-                            strInfo.Format(_T("Loaded %u colors from the %u color indexed %s file."), nCurrentPageWorkingAmt, nPNGColorCount, _T("PNG"));
+                            fStillStuckOnBlack = false;
                         }
-                        SetStatusText(strInfo);
 
-                        fSuccess = true;
-
-                        UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
-                        if (nPalettePageCount > 1)
+                        if (++iPNGIndex >= nPNGColorCount)
                         {
-                            if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
+                            // If the palette is larger than our PNG, loop it.
+                            iPNGIndex = 0;
+                            fHaveLooped = true;
+                        }
+
+                        iCurrentIndexForPalette++;
+                        if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexForPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
+                        {
+                            if (fHaveLooped)
                             {
-                                MessageBox(_T("Heads-up: you are loading a PNG for a multipage palette.  PalMod can only use the PNG to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once."), GetHost()->GetAppName(), MB_ICONERROR);
+                                // Applying a looping palette to a secondary palette will be generally illogical, so don't
+                                break;
                             }
+                            else
+                            {
+                                // advance to the next palette
+                                nCurrentPalette++;
+                                iCurrentIndexForPalette = 0;
+                                pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                            }
+                        }
+                    }
+
+                    if ((nBlackColorCount > 32) || (nBlackColorCount == nCurrentPageWorkingAmt))
+                    {
+                        // TODO: Maybe ask the user before flipping?
+                        iPNGIndex = nPNGColorCount - 1;
+                        fHadToFlip = true;
+
+                        OutputDebugString(L"This appears to be a bogus SFF PNG... flipping our PNG table logic...\n");
+
+                        iCurrentIndexForPalette = 0;
+                        nCurrentPalette = 0;
+                        fHaveLooped = false;
+                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                        for (int iActivePageIndex = 0; iActivePageIndex < nCurrentPageWorkingAmt; iActivePageIndex++)
+                        {
+                            pPal[(iCurrentIndexForPalette * 4)] = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
+                            pPal[(iCurrentIndexForPalette * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
+                            pPal[(iCurrentIndexForPalette * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
+
+                            // This code exists because Fighter Factory writes upside-down color tables.
+                            if (--iPNGIndex >= nPNGColorCount)
+                            {
+                                // If the palette is larger than our PNG, loop it.
+                                fHaveLooped = true;
+                                iPNGIndex = nCurrentPageWorkingAmt;
+                            }
+
+                            iCurrentIndexForPalette++;
+                            if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexForPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
+                            {
+                                if (fHaveLooped)
+                                {
+                                    // Applying a looping palette to a secondary palette will be generally illogical, so don't
+                                    break;
+                                }
+                                else
+                                {
+                                    // advance to the next palette
+                                    nCurrentPalette++;
+                                    iCurrentIndexForPalette = 0;
+                                    pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                }
+                            }
+                        }
+                    }
+
+                    ImgDispCtrl->UpdateCtrl();
+
+                    for (UINT8 nCurPalSet = 0; nCurPalSet < nActivePaletteCount; nCurPalSet++)
+                    {
+                        m_PalHost.GetPalCtrl(nCurPalSet)->UpdateIndexAll();
+                        m_PalHost.GetPalCtrl(nCurPalSet)->UpdateCtrl();
+                    }
+
+                    UpdateMultiEdit(TRUE);
+                    UpdateSliderSel();
+
+                    if (fHadToFlip)
+                    {
+                        strInfo.Format(L"PNG appears to have a reversed color table: loaded %u colors backwards.", min(nCurrentPageWorkingAmt, nPNGColorCount));
+                    }
+                    else
+                    {
+                        strInfo.Format(L"Loaded %u colors from the %u color indexed %s file.", nCurrentPageWorkingAmt, nPNGColorCount, L"PNG");
+                    }
+                    SetStatusText(strInfo);
+
+                    fSuccess = true;
+
+                    UINT8 nPalettePageCount = m_PalHost.GetCurrentPageCount();
+                    if (nPalettePageCount > 1)
+                    {
+                        if (CRegProc::GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE)
+                        {
+                            MessageBox(L"Heads-up: you are loading a PNG for a multipage palette.  PalMod can only use the PNG to update the colors that are currently being displayed.\n\nYou may want to switch to 16 color per line mode in the Settings menu: that will display the maximum 256 colors at once.", GetHost()->GetAppName(), MB_ICONERROR);
                         }
                     }
 
@@ -1071,7 +1118,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                 else if (strcmp(chunkType, "IDAT") == 0)
                 {
                     // PLTE data if present must be present before the IDAT chunks
-                    OutputDebugString(_T("pngreader: IDAT section hit: PLTE cannot be present from here on out.\n"));
+                    OutputDebugString(L"pngreader: IDAT section hit: PLTE cannot be present from here on out.\n");
                     break;
                 }
                 else
@@ -1086,7 +1133,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                 }
             }
 
-            OutputDebugString(_T("pngreader: done!\n"));
+            OutputDebugString(L"pngreader: done!\n");
         }
 
         PNGFile.Close();
@@ -1094,13 +1141,13 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
 
     if (!fFoundPaletteData)
     {
-        MessageBox(_T("Error: This PNG file is not using indexed color.  PalMod cannot use it."), GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(CString(_T("Failed loading PNG file.")));
+        MessageBox(L"Error: This PNG file is not using indexed color.  PalMod cannot use it.", GetHost()->GetAppName(), MB_ICONERROR);
+        SetStatusText(CString(L"Failed loading PNG file."));
     }
     else if (!fSuccess)
     {
-        MessageBox(_T("Error: This is not a valid PNG file."), GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(CString(_T("Failed loading PNG file.")));
+        MessageBox(L"Error: This is not a valid PNG file.", GetHost()->GetAppName(), MB_ICONERROR);
+        SetStatusText(CString(L"Failed loading PNG file."));
     }
 
     return fSuccess;
@@ -1110,11 +1157,11 @@ void CPalModDlg::OnImportPalette()
 {
     if (bEnabled)
     {
-        static LPCTSTR szOpenFilter[] = { _T("Supported Palette Files|*.act;*.png;*.pal|")
-                                          _T("ACT Palette|*.act|")
-                                          _T("Indexed PNG|*.png|")
-                                          _T("Microsoft PAL|*.pal|")
-                                          _T("|") };
+        static LPCTSTR szOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal|"
+                                          L"ACT Palette|*.act|"
+                                          L"Indexed PNG|*.png|"
+                                          L"Microsoft PAL|*.pal|"
+                                          L"|" };
 
         CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, *szOpenFilter);
 
@@ -1126,11 +1173,11 @@ void CPalModDlg::OnImportPalette()
             TCHAR szExtension[_MAX_EXT];
             _tsplitpath(strFileName, nullptr, nullptr, nullptr, szExtension);
 
-            if (_tcsicmp(szExtension, _T(".png")) == 0)
+            if (_tcsicmp(szExtension, L".png") == 0)
             {
                 LoadPaletteFromPNG(strFileName);
             }
-            else if (_tcsicmp(szExtension, _T(".pal")) == 0)
+            else if (_tcsicmp(szExtension, L".pal") == 0)
             {
                 LoadPaletteFromPAL(strFileName);
             }
@@ -1285,7 +1332,7 @@ bool CPalModDlg::SavePaletteToGPL(LPCTSTR pszFileName)
         fSuccess = true;
     }
 
-    SetStatusText(CString(fSuccess ? "GPL file saved successfully." : "Error saving GPL file."));
+    SetStatusText(CString(fSuccess ? L"GPL file saved successfully." : L"Error saving GPL file."));
     return fSuccess;
 }
 
@@ -1335,12 +1382,12 @@ bool CPalModDlg::SavePaletteToPAL(LPCTSTR pszFileName)
 
 void CPalModDlg::OnExportPalette()
 {
-    static LPCTSTR szSaveFilter[] = { _T("ACT Palette|*.act|")
-                                      _T("GIMP Palette File|*.gpl|")
-                                      _T("Microsoft PAL|*.pal|")
-                                      _T("|") };
+    static LPCTSTR szSaveFilter[] = { L"ACT Palette|*.act|"
+                                      L"GIMP Palette File|*.gpl|"
+                                      L"Microsoft PAL|*.pal|"
+                                      L"|" };
 
-    CFileDialog ActSave(FALSE, _T("act"), nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, *szSaveFilter);
+    CFileDialog ActSave(FALSE, L"act", nullptr, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, *szSaveFilter);
 
     if (ActSave.DoModal() == IDOK)
     {
@@ -1352,11 +1399,11 @@ void CPalModDlg::OnExportPalette()
         _tsplitpath(szFile, nullptr, nullptr, nullptr, szExtension);
         bool fSuccess = false;
 
-        if (_tcsicmp(szExtension, _T(".gpl")) == 0)
+        if (_tcsicmp(szExtension, L".gpl") == 0)
         {
             fSuccess = SavePaletteToGPL(ActSave.GetOFN().lpstrFile);
         }
-        else if (_tcsicmp(szExtension, _T(".pal")) == 0)
+        else if (_tcsicmp(szExtension, L".pal") == 0)
         {
             fSuccess = SavePaletteToPAL(ActSave.GetOFN().lpstrFile);
         }

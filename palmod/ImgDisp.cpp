@@ -505,9 +505,9 @@ void CImgDisp::OnSize(UINT nType, int cx, int cy)
     }
 }
 
-void CImgDisp::AssignBackupPalette(UINT8* pBackupPalette)
+void CImgDisp::AssignBackupPalette(sPalDef* pBackupPaletteDef)
 {
-    m_pBackupPalette = (COLORREF*)pBackupPalette;
+    m_pBackupPaletteDef = pBackupPaletteDef;
     m_pBackupAltPalette = nullptr;
 }
 
@@ -590,7 +590,7 @@ bool CImgDisp::LoadExternalSprite(TCHAR* pszTextureLocation)
                     else
                     {
                         // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
-                        AddImageNode(0, m_nTextureOverrideW, m_nTextureOverrideH, m_pSpriteOverrideTexture, m_pBackupPalette, 0, 0, 0);
+                        AddImageNode(0, m_nTextureOverrideW, m_nTextureOverrideH, m_pSpriteOverrideTexture, m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
                     }
 
                     ResizeMainBitmap();
@@ -627,9 +627,9 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
     }
     else
     {
-        if (m_pBackupPalette != nullptr)
+        if (m_pBackupPaletteDef != nullptr)
         {
-            pCurrPal = (UINT8*)(fUseAltPal ? m_pBackupAltPalette : m_pBackupPalette);
+            pCurrPal = (UINT8*)(fUseAltPal ? m_pBackupAltPalette : m_pBackupPaletteDef->pPal);
         }
         else
         {

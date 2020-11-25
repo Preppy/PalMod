@@ -473,7 +473,6 @@ void CJunk::UpdateIndex(int index)
 
 void CJunk::UpdateFace()
 {
-    //return;
     static int nNewCt = 0;
     static int nDelCt = 0;
 
