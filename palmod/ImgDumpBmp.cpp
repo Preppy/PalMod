@@ -435,8 +435,6 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
 
     int row_ctr = 0;
     int nPal = 0;
-    int nXOffs = 0;
-    int nYOffs = 0;
     int nTargetX = 0, nTargetY = 0;
 
     UINT8* pMainData;
@@ -476,13 +474,8 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
             nTargetX = (i / 2);
         }
 
-        //pMainBmpData[0] = 0x00FFFFFF;
-
         for (int nImgCtr = 0; nImgCtr < img_amt; nImgCtr++)
         {
-            nXOffs = rgSrcImg[nImgCtr]->nXOffs;
-            nYOffs = rgSrcImg[nImgCtr]->nYOffs;
-
             CustomBlt(nImgCtr, nPal,
 
                 //Left

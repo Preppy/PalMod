@@ -489,32 +489,52 @@ void CImgOutDlg::OnFileSave()
 
             if (output_ext.CompareNoCase(_T(".png")) == 0)
             {
-                const bool fIsOnePalette = fShowingSingleVersion && (nImageCount == 1);
                 bool fShouldExportAsIndexed = true;
 
-                if (!fIsOnePalette)
+                // Establish the raw image data
+                unsigned maxSrcWidth = 0;
+                unsigned maxSrcHeight = 0;
+                size_t nTotalPaletteSize = 0;
+                bool fImageUsesOffsets = false;
+
+                for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
+                {
+                    maxSrcWidth = max(maxSrcWidth, rgSrcImg[nImageIndex]->uImgW);
+                    maxSrcHeight = max(maxSrcHeight, rgSrcImg[nImageIndex]->uImgH);
+                    nTotalPaletteSize += m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
+                    fImageUsesOffsets = fImageUsesOffsets || (rgSrcImg[nImageIndex]->nXOffs != 0) || (rgSrcImg[nImageIndex]->nYOffs != 0);
+                }
+
+                bool fTooManyColorsForIndexedPNG = (nTotalPaletteSize > 256);
+
+                if (!fShowingSingleVersion || fImageUsesOffsets || fTooManyColorsForIndexedPNG)
                 {
                     CString strWarning;
+                    strWarning = L"This preview is not suited for indexed PNG.  This is because:\n";
+                    UINT mbFlags = MB_OKCANCEL | MB_ICONWARNING;
 
-                    if (fIsOnePalette)
+                    if (fTooManyColorsForIndexedPNG)
                     {
-                        strWarning = L"The current preview is showing multiple versions of this sprite.  As such, PalMod would need to export each of those versions to its own indexed PNG file: you want one palette per PNG.";
-                        strWarning.Append(L"\n\nIf you wish to continue, click OK.  Otherwise, click Cancel and then either switch to just one version or export as normal PNG.");
+                        strWarning = L"*This preview cannot be used with indexed PNG: indexed PNGs can only use up to 256 colors.  This won't work: please export as a different image format such as normal PNG.\n";
+                        mbFlags = MB_OK | MB_ICONSTOP;
                     }
                     else
                     {
+                        if (fImageUsesOffsets)
+                        {
+                            strWarning.Append(L"* The preview uses offsets, which will not be adjusted for in the output PNG.  It may look odd, but the palette will work.\n");
+                        }
+
                         if (!fShowingSingleVersion)
                         {
-                            strWarning = L"The current preview is showing multiple versions of this multiple-palette sprite.  As such, PalMod would need to export each of those versions and palettes to its own indexed PNG file: you want one palette per PNG.";
+                            strWarning.Append(L"* The preview is showing multiple versions of this sprite.  PalMod will need to export each of those versions to its own indexed PNG file.\n");
                         }
-                        else
-                        {
-                            strWarning = L"The current preview is not one single palette: it uses multiple palettes.  As such, PalMod would need to export each of those palettes to its own indexed PNG file: you want one palette per PNG.";
-                        }
-                        strWarning.Append(L"\n\nIf you wish to continue, click OK.  Otherwise, click Cancel and then export as a different image format.");
+                        strWarning.Append(L"\nIf you wish to continue, click OK.  Otherwise, click Cancel and then export as normal PNG.");
                     }
-                    fShouldExportAsIndexed = (MessageBox(strWarning, GetHost()->GetAppName(), MB_ICONERROR | MB_OKCANCEL) == IDOK);
+
+                    fShouldExportAsIndexed = (MessageBox(strWarning, GetHost()->GetAppName(), mbFlags) == IDOK) && !fTooManyColorsForIndexedPNG;
                 }
+
 
                 if (fShouldExportAsIndexed)
                 {
@@ -524,15 +544,18 @@ void CImgOutDlg::OnFileSave()
                         LPCWSTR pszCurrentNodeName = fShowingSingleVersion ? L"" : pButtonLabelSet[nNodeIndex];
                         int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.nPalIndex : nNodeIndex;
 
+                        const unsigned destWidth = maxSrcWidth * currentZoom;
+                        const unsigned destHeight = maxSrcHeight * currentZoom;
+
+                        std::vector<unsigned char> image(destWidth* destHeight);
+                        lodepng::State state;
+
+                        unsigned nPaletteOffset = 0;
+
                         for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
                         {
                             const unsigned srcWidth = rgSrcImg[nImageIndex]->uImgW;
                             const unsigned srcHeight = rgSrcImg[nImageIndex]->uImgH;
-                            const unsigned destWidth = rgSrcImg[nImageIndex]->uImgW * currentZoom;
-                            const unsigned destHeight = rgSrcImg[nImageIndex]->uImgH * currentZoom;
-
-                            // Establish the raw image data
-                            std::vector<unsigned char> image(destWidth * destHeight);
                             const unsigned srcSize = srcWidth * srcHeight;
 
                             // Handle zoom stretching inline
@@ -545,17 +568,19 @@ void CImgOutDlg::OnFileSave()
                                         for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
                                         {
                                             // make sure to flip the sprite
-                                            int destIndex = (destY + zoomY) * (destWidth)+(destX + zoomX);
+                                            int destIndex = ((destY + zoomY) * destWidth) + (destX + zoomX);
                                             // read bottom up, starting at the beginning of the last row
                                             int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
 
-                                            image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex];
+                                            // only write used pixels
+                                            if (rgSrcImg[nImageIndex]->pImgData[srcIndex] != 0)
+                                            {
+                                                image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset;
+                                            }
                                         }
                                     }
                                 }
                             }
-
-                            lodepng::State state;
 
                             // Establish the PLTE header data.
                             UINT8* pCurrPal = (UINT8*)m_DumpBmp.pppPalettes[nImageIndex][nCurrentPalIndex];
@@ -584,39 +609,29 @@ void CImgOutDlg::OnFileSave()
                                 }
                             }
 
-                            // lodepng options: going from RAW to indexed PNG
-                            state.info_raw.colortype = LCT_PALETTE;
-                            state.info_raw.bitdepth = 8;
-                            state.info_raw.palettesize = (size_t)m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
+                            nPaletteOffset += m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
+                        }
 
-                            state.info_png.color.colortype = LCT_PALETTE;
-                            state.info_png.color.bitdepth = 8;
-                            state.info_png.color.palettesize = (size_t)m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
-                            state.encoder.auto_convert = 0;
+                        // lodepng options: going from RAW to indexed PNG
+                        state.info_png.color.colortype = state.info_raw.colortype = LCT_PALETTE;
+                        state.info_png.color.bitdepth = state.info_raw.bitdepth = 8;
+                        state.info_png.color.palettesize = state.info_raw.palettesize = nTotalPaletteSize;
+                        state.encoder.auto_convert = 0;
 
-                            //encode and save
-                            std::vector<unsigned char> buffer;
-                            unsigned error = lodepng::encode(buffer, &image[0], destWidth, destHeight, state);
-                            if (error)
-                            {
-                                CString strError;
-                                strError.Format(L"PNG encoder error: %u - %S\n", error, lodepng_error_text(error));
-                                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-                                OutputDebugString(strError);
-                            }
-                            else
-                            {
-                                if (nImageCount == 1)
-                                {
-                                    output_str.Format(_T("%s%s%s"), save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
-                                }
-                                else
-                                {
-                                    output_str.Format(_T("%s%s-%02x%s"), save_str.GetString(), pszCurrentNodeName, nImageIndex, output_ext.GetString());
-                                }
-
-                                lodepng::save_file(buffer, output_str.GetString());
-                            }
+                        //encode and save
+                        std::vector<unsigned char> buffer;
+                        unsigned error = lodepng::encode(buffer, &image[0], destWidth, destHeight, state);
+                        if (error)
+                        {
+                            CString strError;
+                            strError.Format(L"PNG encoder error: %u - %S\n", error, lodepng_error_text(error));
+                            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+                            OutputDebugString(strError);
+                        }
+                        else
+                        {
+                            output_str.Format(_T("%s%s%s"), save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
+                            lodepng::save_file(buffer, output_str.GetString());
                         }
                     }
                 }

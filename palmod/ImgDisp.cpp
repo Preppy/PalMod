@@ -418,11 +418,6 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
     {
         if (pImgBuffer[nImgCtr])
         {
-            int nXOffs = pImgBuffer[nImgCtr]->nXOffs;
-            int nYOffs = pImgBuffer[nImgCtr]->nYOffs;
-            int nWidth = pImgBuffer[nImgCtr]->uImgW;
-            int nHeight = pImgBuffer[nImgCtr]->uImgH;
-
             //Draw the img
             CustomBlt(
                 nImgCtr,
