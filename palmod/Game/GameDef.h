@@ -1881,9 +1881,16 @@ const int KOF02UM_S_NUM_IMG_UNITS = ARRAYSIZE(KOF02UM_S_IMG_UNITS);
 
 const UINT8 KOF03_A_IMG_UNITS[] =
 {
-    indexKOFSprites_02UM_Chang,    // 0x80
+    indexKOFSprites_02UM_Clark,
+    indexKOFSprites_02UM_Chang,     // 0x80
     indexKOFSprites_02UM_Daimon,    // 0x87
-    indexKOFSprites_02UM_Kim,    // 0x96
+    indexKOFSprites_02UM_Iori,
+    indexKOFSprites_02UM_K,         // 0x92
+    indexKOFSprites_02UM_Kim,       // 0x96
+    indexKOFSprites_02UM_Leona,
+    indexKOFSprites_02UM_Maxima,    // 0xA2
+    indexKOFSprites_02UM_Ralf,
+    indexKOFSprites_02UM_Whip,
 };
 
 const int KOF03_A_NUM_IMG_UNITS = ARRAYSIZE(KOF03_A_IMG_UNITS);

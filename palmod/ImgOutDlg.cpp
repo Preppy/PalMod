@@ -89,6 +89,10 @@ BOOL CImgOutDlg::OnInitDialog()
         break;
     case 6: // MvC, MvC2
     case 7: // 3S
+        if (CurrGame->GetGameFlag() == SFA2_A) // SFA2's 5-6 colors are only with autoguard on
+        {
+            m_CB_Amt.AddString(_T("4"));
+        }
         m_CB_Amt.AddString(_T("6"));
         // Allow the user to export either the "normal" 6 sprite set or to export
         // the entire 7 sprite set
@@ -510,7 +514,6 @@ void CImgOutDlg::OnFileSave()
                 if (!fShowingSingleVersion || fImageUsesOffsets || fTooManyColorsForIndexedPNG)
                 {
                     CString strWarning;
-                    strWarning = L"This preview is not suited for indexed PNG.  This is because:\n";
                     UINT mbFlags = MB_OKCANCEL | MB_ICONWARNING;
 
                     if (fTooManyColorsForIndexedPNG)
@@ -520,6 +523,8 @@ void CImgOutDlg::OnFileSave()
                     }
                     else
                     {
+                        strWarning = L"This preview is not suited for indexed PNG.  This is because:\n";
+
                         if (fImageUsesOffsets)
                         {
                             strWarning.Append(L"* The preview uses offsets, which will not be adjusted for in the output PNG.  It may look odd, but the palette will work.\n");

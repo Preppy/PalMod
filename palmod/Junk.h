@@ -93,8 +93,10 @@ private:
     UCHAR* Selected = nullptr;
     UCHAR* SelView = nullptr;
 
-    inline void SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
+    inline void SetJunkState(UCHAR* State, LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
+    inline void SetHighlighted(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
     inline void SetSelected(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
+    inline void SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
 
     int iHLAmt = 0;
     int iWorkingAmt = 0;

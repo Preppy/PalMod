@@ -95,14 +95,14 @@ void CJunk::ClearHighlighted()
     //iHLAmt = 0;
 }
 
-void CJunk::SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
+void CJunk::SetJunkState(UCHAR* State, LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
 {
     bool fSuccess = false;
-    if (SelView)
+    if (State)
     {
         if ((nIndex >= 0) && (nIndex < nAllocationLength))
         {
-            SelView[nIndex] = nValue;
+            State[nIndex] = nValue;
             fSuccess = true;
         }
     }
@@ -115,36 +115,25 @@ void CJunk::SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
     {
         s_fShownOnce = true;
         CString strError;
-        strError.Format(_T("SetSelView Error: %s code tried writing to %u but array is 0-%u.\nPreviously this code would have crashed, but now this check saved you.  Please report this message text to me - thanks!"), pszFunctionName, nIndex, nAllocationLength);
+        strError.Format(_T("SetJunkState Error: %s code tried writing to %u but array is 0-%u.\nPreviously this code would have crashed, but now this check saved you.  Please report this message text to me - thanks!"), pszFunctionName, nIndex, nAllocationLength);
         MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
     }
 #endif
 }
 
+void CJunk::SetHighlighted(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
+{
+    SetJunkState(Highlighted, pszFunctionName, nIndex, nValue);
+}
+
+void CJunk::SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
+{
+    SetJunkState(SelView, pszFunctionName, nIndex, nValue);
+}
+
 void CJunk::SetSelected(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
 {
-    bool fSuccess = false;
-    if (Selected)
-    {
-        if ((nIndex >= 0) && (nIndex < nAllocationLength))
-        {
-            Selected[nIndex] = nValue;
-            fSuccess = true;
-        }
-    }
-
-#ifdef DEBUG
-    // 
-    static bool s_fShownOnce = false;
-
-    if (!fSuccess && !s_fShownOnce)
-    {
-        s_fShownOnce = true;
-        CString strError;
-        strError.Format(_T("SetSelected Error: %s code tried writing to %u but array is 0-%u.\nPreviously this code would have crashed, but now this check saved you.  Please report this message text to me - thanks!"), pszFunctionName, nIndex, nAllocationLength);
-        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-    }
-#endif
+    SetJunkState(Selected, pszFunctionName, nIndex, nValue);
 }
 
 void CJunk::LoadDefaultPal()
@@ -614,7 +603,7 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 
     if ((xHLOld != -1 ) && (yHLOld != -1))
     {
-        Highlighted[(yHLOld * iPalW) + xHLOld] = FALSE;
+        SetHighlighted(L"OnMouseMove", (yHLOld * iPalW) + xHLOld, FALSE);
     }
 
     if (!bOverControl)
@@ -634,7 +623,7 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
         {
             if (!((PalIndex.y >= iPalH) || (PalIndex.x >= iPalW)))
             {
-                Highlighted[(PalIndex.y * iPalW) + PalIndex.x] = TRUE;
+                SetHighlighted(L"OnMouseMove Hover", (PalIndex.y * iPalW) + PalIndex.x, TRUE);
             }
 
             if (PalIndex.y != yHLOld || PalIndex.x != xHLOld)
@@ -657,7 +646,7 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
         {
             if ((xHLOld != -1) && (yHLOld != -1))
             {
-                Highlighted[(yHLOld * iPalW) + xHLOld] = FALSE;
+                SetHighlighted(L"OnMouseMove", (yHLOld * iPalW) + xHLOld, FALSE);
             }
         }
     }
@@ -672,7 +661,7 @@ void CJunk::OnMouseMove(UINT nFlags, CPoint point)
 
                 if ((PalIndex.y == yInSelStart) && (PalIndex.x == xInSelStart))
                 {
-                    Highlighted[(PalIndex.y * iPalW) + PalIndex.x] = TRUE;
+                    SetHighlighted(L"OnMouseMove", (PalIndex.y * iPalW) + PalIndex.x, TRUE);
                     iHLAmt = 1;
                 }
                 else

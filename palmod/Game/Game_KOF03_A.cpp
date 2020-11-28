@@ -41,7 +41,7 @@ CGame_KOF03_A::CGame_KOF03_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF03_A_NUMUNIT;
     m_nExtraUnit = KOF03_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 754;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 806;
     m_pszExtraFilename = EXTRA_FILENAME_KOF03_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF03;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
