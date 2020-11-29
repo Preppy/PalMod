@@ -59,16 +59,16 @@ CGame_WakuWaku7_A::CGame_WakuWaku7_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = WakuWaku7_A;
-    nImgGameFlag = IMGDAT_SECTION_GAROU;
-    nImgUnitAmt = 0;
+    nImgGameFlag = IMGDAT_SECTION_WAKUWAKU7;
+    nImgUnitAmt = WAKUWAKU7_A_NUM_IMG_UNITS;
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_2_PK;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_PK);
+    pButtonLabelSet = DEF_BUTTONLABEL_WAKUWAKU7_FIVE;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_WAKUWAKU7_FIVE);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -628,14 +628,29 @@ BOOL CGame_WakuWaku7_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("Punch")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("Kick")) == 0))
+                switch (GetCollectionCountForUnit(NodeGet->uUnitId))
                 {
-                    nSrcAmt = 2;
+                case 4:
+                    nSrcAmt = 4;
+                    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
+                    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
+                    break;
+                case 5:
+                    nSrcAmt = 5;
+                    pButtonLabelSet = DEF_BUTTONLABEL_WAKUWAKU7_FIVE;
+                    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_WAKUWAKU7_FIVE);
+                    break;
+                default:
+                    break;
+                }
+
+                if (nSrcAmt != 1)
+                {
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)
                     {
-                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        // The starting point is the absolute first palette for the sprite in question which is found in A
                         nSrcStart -= nNodeIncrement;
                     }
                 }

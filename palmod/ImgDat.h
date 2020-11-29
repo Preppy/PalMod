@@ -9,7 +9,7 @@
 class CImgDat {
 private:
 
-    std::map<UINT8, ImgInfoList*>* nImgMap = nullptr;
+    std::map<UINT16, ImgInfoList*>* nImgMap = nullptr;
 
     UINT16 nCurGameImgAmt = 0x0000;
 
@@ -42,8 +42,8 @@ public:
     UINT8* RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight);
     UINT8* BitMaskRLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight);
 
-    int GetCurrImgFlag() { return nCurImgGameFlag; };
-    UINT8* GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitId, int nCurrentImgId);
+    UINT16 GetCurrImgFlag() { return nCurImgGameFlag; };
+    UINT8* GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, UINT16 nCurrentUnitId, UINT8 nCurrentImgId);
 
     void CloseImgFile();
 };

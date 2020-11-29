@@ -12,7 +12,7 @@ void OutputDebugString_ImgDat(LPCTSTR pszString)
 #endif
 }
 
-typedef std::map<UINT8, ImgInfoList*>::iterator imgMapIter;
+typedef std::map<UINT16, ImgInfoList*>::iterator imgMapIter;
 
 CImgDat::CImgDat(void)
 {
@@ -65,7 +65,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
         imageBufferFlushed = FlushImageBuffer();
     }
 
-    nImgMap = new  std::map<UINT8, ImgInfoList*>;
+    nImgMap = new  std::map<UINT16, ImgInfoList*>;
 
 #if IMGDAT_DEBUG
     CString strDebugInfo;
@@ -76,7 +76,7 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
     // We have an individual entry here for every game so we can optimize image loads
     for (UINT16 nUnitCtr = 0; nUnitCtr < nGameImageUnitAmt; nUnitCtr++)
     {
-        UINT8 nImageUnitCounterToUse = 0;
+        UINT16 nImageUnitCounterToUse = 0;
 
         switch (uGameFlag)
         {
@@ -274,6 +274,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = VSAV2_A_IMG_UNITS[nUnitCtr];
             break;
         }
+        case WakuWaku7_A:
+        {
+            nImageUnitCounterToUse = WAKUWAKU7_A_IMG_UNITS[nUnitCtr];
+            break;
+        }
         case WINDJAMMERS_A:
         {
             nImageUnitCounterToUse = WINDJAMMERS_A_IMG_UNITS[nUnitCtr];
@@ -318,7 +323,7 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
         OutputDebugString(strDebugInfo);
 #endif
 
-        imgMapIter it = nImgMap->find((UINT8)uUnitId);
+        imgMapIter it = nImgMap->find((UINT16)uUnitId);
         if (it != nImgMap->cend())
         {
             // it->second->listAllImgIDs();
@@ -357,7 +362,7 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
     return nullptr;
 }
 
-UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitId, int nCurrentImgId)
+UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, UINT16 nCurrentUnitId, UINT8 nCurrentImgId)
 {
 #if IMGDAT_DEBUG
     CString strDebugInfo;
@@ -394,7 +399,7 @@ UINT8* CImgDat::GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitI
         break;
     case 1: // RLE
     {
-        UINT8 * pTmpData = pNewImgData;
+        UINT8* pTmpData = pNewImgData;
 
         pNewImgData = RLEDecodeImg(
             pTmpData,
@@ -545,7 +550,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
             ImgDatFile.Read(&uReadNextImgLoc, 0x04);
 
 #if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::LoadImage : Detected gameID 0x%X ; game has %u images; first imgLoc is 0x%X .\n"), uReadGameFlag, uReadNumImgs, uReadNextImgLoc);
+            strDebugInfo.Format(_T("CImgDat::LoadImage : Detected gameID 0x%02X ; game has %u images; first imgLoc is 0x%X .\n"), uReadGameFlag, uReadNumImgs, uReadNextImgLoc);
             OutputDebugString(strDebugInfo);
 #endif
 
@@ -554,7 +559,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
                 nCurGameImgAmt = uReadNumImgs;
 
 #if IMGDAT_DEBUG
-                strDebugInfo.Format(_T("CImgDat::LoadImage : Read matching uImgGameFlag: 0x%X for current uGameFlag: 0x%X \n"), uImgGameFlag, uGameFlag);
+                strDebugInfo.Format(_T("CImgDat::LoadImage : Read matching uImgGameFlag: 0x%X for current uGameFlag: 0x%02X \n"), uImgGameFlag, uGameFlag);
                 OutputDebugString(strDebugInfo);
 #endif
 
@@ -568,15 +573,16 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
                 while (uReadNextImgLoc != 0)
                 {
                     ImgDatFile.Seek(uReadNextImgLoc, CFile::begin);
-                    UINT8 uCurrUnitId, uCurrImgId;
-                    ImgDatFile.Read(&uCurrUnitId, 0x01);
+                    UINT16 uCurrUnitId;
+                    UINT8 uCurrImgId;
+                    ImgDatFile.Read(&uCurrUnitId, 0x02);
                     ImgDatFile.Read(&uCurrImgId, 0x01);
 #if IMGDAT_DEBUG
                     strDebugInfo.Format(_T("CImgDat::LoadImage : Seeing UnitID:0x%02X imgID:0x%02X \n"), uCurrUnitId, uCurrImgId);
                     OutputDebugString_ImgDat(strDebugInfo);
 #endif
 
-                    std::map<UINT8, ImgInfoList*>::iterator it = nImgMap->find(uCurrUnitId);
+                    std::map<UINT16, ImgInfoList*>::iterator it = nImgMap->find(uCurrUnitId);
                     if (nImgMap->find(uCurrUnitId) != nImgMap->cend())
                     {
                         it->second->insertNode(uCurrImgId);

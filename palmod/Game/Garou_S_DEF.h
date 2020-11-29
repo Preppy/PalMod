@@ -6,10 +6,6 @@
 // * Update every array using Garou_S_NUMUNIT below
 // That should be it.  Good luck.
 
-constexpr auto Garou_S_NUMUNIT = indexGarouALast;
-
-#define Garou_S_EXTRALOC Garou_S_NUMUNIT
-
 const sGame_PaletteDataset Garou_S_ROCKHOWARD_PALETTES_A[] =
 {
     { _T("Rock A - Main"), 0xc0000 + 0xff00, 0xc0000 + 0xff20, indexGarouARockHoward },
@@ -817,16 +813,16 @@ const sGame_PaletteDataset Garou_S_KEVIN_PALETTES_BOSS[] =
 
 const sGame_PaletteDataset Garou_S_GRANT_PALETTES_A[] =
 {
-    { _T("Grant A - Main"), 0xc0000 + 0x13b00, 0xc0000 + 0x13b20 },
-    { _T("Grant A - Line1"), 0xc0000 + 0x13b20, 0xc0000 + 0x13b40 },
-    { _T("Grant A - Line2"), 0xc0000 + 0x13b40, 0xc0000 + 0x13b60 },
-    { _T("Grant A - On Fire"), 0xc0000 + 0x13b60, 0xc0000 + 0x13b80 },
-    { _T("Grant A - On Purple"), 0xc0000 + 0x13b80, 0xc0000 + 0x13ba0 },
-    { _T("Grant A - Gold"), 0xc0000 + 0x13ba0, 0xc0000 + 0x13bc0 },
-    { _T("Grant A - T.O.P."), 0xc0000 + 0x13bc0, 0xc0000 + 0x13be0 },
-    { _T("Grant A - Shade"), 0xc0000 + 0x13be0, 0xc0000 + 0x13c00 },
-    { _T("Grant A - Dark Red"), 0xc0000 + 0x13c00, 0xc0000 + 0x13c20 },
-    { _T("Grant A - Blue"), 0xc0000 + 0x13c20, 0xc0000 + 0x13c40 },
+    { _T("Grant A - Main"), 0xc0000 + 0x13b00, 0xc0000 + 0x13b20, indexGarouAGrant },
+    { _T("Grant A - Line1"), 0xc0000 + 0x13b20, 0xc0000 + 0x13b40, indexGarouAGrant },
+    { _T("Grant A - Line2"), 0xc0000 + 0x13b40, 0xc0000 + 0x13b60, indexGarouAGrant },
+    { _T("Grant A - On Fire"), 0xc0000 + 0x13b60, 0xc0000 + 0x13b80, indexGarouAGrant },
+    { _T("Grant A - On Purple"), 0xc0000 + 0x13b80, 0xc0000 + 0x13ba0, indexGarouAGrant },
+    { _T("Grant A - Gold"), 0xc0000 + 0x13ba0, 0xc0000 + 0x13bc0, indexGarouAGrant },
+    { _T("Grant A - T.O.P."), 0xc0000 + 0x13bc0, 0xc0000 + 0x13be0, indexGarouAGrant },
+    { _T("Grant A - Shade"), 0xc0000 + 0x13be0, 0xc0000 + 0x13c00, indexGarouAGrant },
+    { _T("Grant A - Dark Red"), 0xc0000 + 0x13c00, 0xc0000 + 0x13c20, indexGarouAGrant },
+    { _T("Grant A - Blue"), 0xc0000 + 0x13c20, 0xc0000 + 0x13c40, indexGarouAGrant },
     { _T("Grant A - Projectile1"), 0xc0000 + 0x13c40, 0xc0000 + 0x13c60 },
     { _T("Grant A - Projectile2"), 0xc0000 + 0x13c60, 0xc0000 + 0x13c80 },
     { _T("Grant A - Projectile3"), 0xc0000 + 0x13c80, 0xc0000 + 0x13ca0 },
@@ -837,16 +833,16 @@ const sGame_PaletteDataset Garou_S_GRANT_PALETTES_A[] =
 
 const sGame_PaletteDataset Garou_S_GRANT_PALETTES_B[] =
 {
-    { _T("Grant B - Main"), 0xc0000 + 0x13d00, 0xc0000 + 0x13d20 },
+    { _T("Grant B - Main"), 0xc0000 + 0x13d00, 0xc0000 + 0x13d20, indexGarouAGrant },
     { _T("Grant B - Line1"), 0xc0000 + 0x13d20, 0xc0000 + 0x13d40 },
     { _T("Grant B - Line2"), 0xc0000 + 0x13d40, 0xc0000 + 0x13d60 },
-    { _T("Grant B - On Fire"), 0xc0000 + 0x13d60, 0xc0000 + 0x13d80 },
-    { _T("Grant B - On Purple"), 0xc0000 + 0x13d80, 0xc0000 + 0x13da0 },
-    { _T("Grant B - Gold"), 0xc0000 + 0x13da0, 0xc0000 + 0x13dc0 },
-    { _T("Grant B - T.O.P."), 0xc0000 + 0x13dc0, 0xc0000 + 0x13de0 },
-    { _T("Grant B - Shade"), 0xc0000 + 0x13de0, 0xc0000 + 0x13e00 },
-    { _T("Grant B - Dark Red"), 0xc0000 + 0x13e00, 0xc0000 + 0x13e20 },
-    { _T("Grant B - Blue"), 0xc0000 + 0x13e20, 0xc0000 + 0x13e40 },
+    { _T("Grant B - On Fire"), 0xc0000 + 0x13d60, 0xc0000 + 0x13d80, indexGarouAGrant },
+    { _T("Grant B - On Purple"), 0xc0000 + 0x13d80, 0xc0000 + 0x13da0, indexGarouAGrant },
+    { _T("Grant B - Gold"), 0xc0000 + 0x13da0, 0xc0000 + 0x13dc0, indexGarouAGrant },
+    { _T("Grant B - T.O.P."), 0xc0000 + 0x13dc0, 0xc0000 + 0x13de0, indexGarouAGrant },
+    { _T("Grant B - Shade"), 0xc0000 + 0x13de0, 0xc0000 + 0x13e00, indexGarouAGrant },
+    { _T("Grant B - Dark Red"), 0xc0000 + 0x13e00, 0xc0000 + 0x13e20, indexGarouAGrant },
+    { _T("Grant B - Blue"), 0xc0000 + 0x13e20, 0xc0000 + 0x13e40, indexGarouAGrant },
     { _T("Grant B - Projectile1"), 0xc0000 + 0x13e40, 0xc0000 + 0x13e60 },
     { _T("Grant B - Projectile2"), 0xc0000 + 0x13e60, 0xc0000 + 0x13e80 },
     { _T("Grant B - Projectile3"), 0xc0000 + 0x13e80, 0xc0000 + 0x13ea0 },
@@ -857,16 +853,16 @@ const sGame_PaletteDataset Garou_S_GRANT_PALETTES_B[] =
 
 const sGame_PaletteDataset Garou_S_GRANT_PALETTES_C[] =
 {
-    { _T("Grant C - Main"), 0xc0000 + 0x13f00, 0xc0000 + 0x13f20 },
+    { _T("Grant C - Main"), 0xc0000 + 0x13f00, 0xc0000 + 0x13f20, indexGarouAGrant },
     { _T("Grant C - Line1"), 0xc0000 + 0x13f20, 0xc0000 + 0x13f40 },
     { _T("Grant C - Line2"), 0xc0000 + 0x13f40, 0xc0000 + 0x13f60 },
-    { _T("Grant C - On Fire"), 0xc0000 + 0x13f60, 0xc0000 + 0x13f80 },
-    { _T("Grant C - On Purple"), 0xc0000 + 0x13f80, 0xc0000 + 0x13fa0 },
-    { _T("Grant C - Gold"), 0xc0000 + 0x13fa0, 0xc0000 + 0x13fc0 },
-    { _T("Grant C - T.O.P."), 0xc0000 + 0x13fc0, 0xc0000 + 0x13fe0 },
-    { _T("Grant C - Shade"), 0xc0000 + 0x13fe0, 0xc0000 + 0x14000 },
-    { _T("Grant C - Dark Red"), 0xc0000 + 0x14000, 0xc0000 + 0x14020 },
-    { _T("Grant C - Blue"), 0xc0000 + 0x14020, 0xc0000 + 0x14040 },
+    { _T("Grant C - On Fire"), 0xc0000 + 0x13f60, 0xc0000 + 0x13f80, indexGarouAGrant },
+    { _T("Grant C - On Purple"), 0xc0000 + 0x13f80, 0xc0000 + 0x13fa0, indexGarouAGrant },
+    { _T("Grant C - Gold"), 0xc0000 + 0x13fa0, 0xc0000 + 0x13fc0, indexGarouAGrant },
+    { _T("Grant C - T.O.P."), 0xc0000 + 0x13fc0, 0xc0000 + 0x13fe0, indexGarouAGrant },
+    { _T("Grant C - Shade"), 0xc0000 + 0x13fe0, 0xc0000 + 0x14000, indexGarouAGrant },
+    { _T("Grant C - Dark Red"), 0xc0000 + 0x14000, 0xc0000 + 0x14020, indexGarouAGrant },
+    { _T("Grant C - Blue"), 0xc0000 + 0x14020, 0xc0000 + 0x14040, indexGarouAGrant },
     { _T("Grant C - Projectile1"), 0xc0000 + 0x14040, 0xc0000 + 0x14060 },
     { _T("Grant C - Projectile2"), 0xc0000 + 0x14060, 0xc0000 + 0x14080 },
     { _T("Grant C - Projectile3"), 0xc0000 + 0x14080, 0xc0000 + 0x140a0 },
@@ -877,16 +873,16 @@ const sGame_PaletteDataset Garou_S_GRANT_PALETTES_C[] =
 
 const sGame_PaletteDataset Garou_S_GRANT_PALETTES_D[] =
 {
-    { _T("Grant D - Main"), 0xc0000 + 0x14100, 0xc0000 + 0x14120 },
+    { _T("Grant D - Main"), 0xc0000 + 0x14100, 0xc0000 + 0x14120, indexGarouAGrant },
     { _T("Grant D - Line1"), 0xc0000 + 0x14120, 0xc0000 + 0x14140 },
     { _T("Grant D - Line2"), 0xc0000 + 0x14140, 0xc0000 + 0x14160 },
-    { _T("Grant D - On Fire"), 0xc0000 + 0x14160, 0xc0000 + 0x14180 },
-    { _T("Grant D - On Purple"), 0xc0000 + 0x14180, 0xc0000 + 0x141a0 },
-    { _T("Grant D - Gold"), 0xc0000 + 0x141a0, 0xc0000 + 0x141c0 },
-    { _T("Grant D - T.O.P."), 0xc0000 + 0x141c0, 0xc0000 + 0x141e0 },
-    { _T("Grant D - Shade"), 0xc0000 + 0x141e0, 0xc0000 + 0x14200 },
-    { _T("Grant D - Dark Red"), 0xc0000 + 0x14200, 0xc0000 + 0x14220 },
-    { _T("Grant D - Blue"), 0xc0000 + 0x14220, 0xc0000 + 0x14240 },
+    { _T("Grant D - On Fire"), 0xc0000 + 0x14160, 0xc0000 + 0x14180, indexGarouAGrant },
+    { _T("Grant D - On Purple"), 0xc0000 + 0x14180, 0xc0000 + 0x141a0, indexGarouAGrant },
+    { _T("Grant D - Gold"), 0xc0000 + 0x141a0, 0xc0000 + 0x141c0, indexGarouAGrant },
+    { _T("Grant D - T.O.P."), 0xc0000 + 0x141c0, 0xc0000 + 0x141e0, indexGarouAGrant },
+    { _T("Grant D - Shade"), 0xc0000 + 0x141e0, 0xc0000 + 0x14200, indexGarouAGrant },
+    { _T("Grant D - Dark Red"), 0xc0000 + 0x14200, 0xc0000 + 0x14220, indexGarouAGrant },
+    { _T("Grant D - Blue"), 0xc0000 + 0x14220, 0xc0000 + 0x14240, indexGarouAGrant },
     { _T("Grant D - Projectile1"), 0xc0000 + 0x14240, 0xc0000 + 0x14260 },
     { _T("Grant D - Projectile2"), 0xc0000 + 0x14260, 0xc0000 + 0x14280 },
     { _T("Grant D - Projectile3"), 0xc0000 + 0x14280, 0xc0000 + 0x142a0 },
@@ -897,16 +893,16 @@ const sGame_PaletteDataset Garou_S_GRANT_PALETTES_D[] =
 
 const sGame_PaletteDataset Garou_S_GRANT_PALETTES_BOSS[] =
 {
-    { _T("Grant Boss? - Main"), 0xc0000 + 0x14300, 0xc0000 + 0x14320 },
+    { _T("Grant Boss? - Main"), 0xc0000 + 0x14300, 0xc0000 + 0x14320, indexGarouAGrant },
     { _T("Grant Boss? - Line1"), 0xc0000 + 0x14320, 0xc0000 + 0x14340 },
     { _T("Grant Boss? - Line2"), 0xc0000 + 0x14340, 0xc0000 + 0x14360 },
-    { _T("Grant Boss? - On Fire"), 0xc0000 + 0x14360, 0xc0000 + 0x14380 },
-    { _T("Grant Boss? - On Purple"), 0xc0000 + 0x14380, 0xc0000 + 0x143a0 },
-    { _T("Grant Boss? - Gold"), 0xc0000 + 0x143a0, 0xc0000 + 0x143c0 },
-    { _T("Grant Boss? - T.O.P."), 0xc0000 + 0x143c0, 0xc0000 + 0x143e0 },
-    { _T("Grant Boss? - Shade"), 0xc0000 + 0x143e0, 0xc0000 + 0x14400 },
-    { _T("Grant Boss? - Dark Red"), 0xc0000 + 0x14400, 0xc0000 + 0x14420 },
-    { _T("Grant Boss? - Blue"), 0xc0000 + 0x14420, 0xc0000 + 0x14440 },
+    { _T("Grant Boss? - On Fire"), 0xc0000 + 0x14360, 0xc0000 + 0x14380, indexGarouAGrant },
+    { _T("Grant Boss? - On Purple"), 0xc0000 + 0x14380, 0xc0000 + 0x143a0, indexGarouAGrant },
+    { _T("Grant Boss? - Gold"), 0xc0000 + 0x143a0, 0xc0000 + 0x143c0, indexGarouAGrant },
+    { _T("Grant Boss? - T.O.P."), 0xc0000 + 0x143c0, 0xc0000 + 0x143e0, indexGarouAGrant },
+    { _T("Grant Boss? - Shade"), 0xc0000 + 0x143e0, 0xc0000 + 0x14400, indexGarouAGrant },
+    { _T("Grant Boss? - Dark Red"), 0xc0000 + 0x14400, 0xc0000 + 0x14420, indexGarouAGrant },
+    { _T("Grant Boss? - Blue"), 0xc0000 + 0x14420, 0xc0000 + 0x14440, indexGarouAGrant },
     { _T("Grant Boss? - Projectile1"), 0xc0000 + 0x14440, 0xc0000 + 0x14460 },
     { _T("Grant Boss? - Projectile2"), 0xc0000 + 0x14460, 0xc0000 + 0x14480 },
     { _T("Grant Boss? - Projectile3"), 0xc0000 + 0x14480, 0xc0000 + 0x144a0 },
@@ -1317,16 +1313,16 @@ const sGame_PaletteDataset Garou_S_TIZOC_PALETTES_BOSS[] =
 
 const sGame_PaletteDataset Garou_S_KAIN_PALETTES_A[] =
 {
-    { _T("Kain A - Main"), 0xc0000 + 0x16d00, 0xc0000 + 0x16d20 },
+    { _T("Kain A - Main"), 0xc0000 + 0x16d00, 0xc0000 + 0x16d20, indexGarouAKain },
     { _T("Kain A - Line1"), 0xc0000 + 0x16d20, 0xc0000 + 0x16d40 },
     { _T("Kain A - Line2"), 0xc0000 + 0x16d40, 0xc0000 + 0x16d60 },
-    { _T("Kain A - On Fire"), 0xc0000 + 0x16d60, 0xc0000 + 0x16d80 },
-    { _T("Kain A - On Purple"), 0xc0000 + 0x16d80, 0xc0000 + 0x16da0 },
-    { _T("Kain A - Gold"), 0xc0000 + 0x16da0, 0xc0000 + 0x16dc0 },
-    { _T("Kain A - T.O.P."), 0xc0000 + 0x16dc0, 0xc0000 + 0x16de0 },
-    { _T("Kain A - Shade"), 0xc0000 + 0x16de0, 0xc0000 + 0x16e00 },
-    { _T("Kain A - Dark Red"), 0xc0000 + 0x16e00, 0xc0000 + 0x16e20 },
-    { _T("Kain A - Blue"), 0xc0000 + 0x16e20, 0xc0000 + 0x16e40 },
+    { _T("Kain A - On Fire"), 0xc0000 + 0x16d60, 0xc0000 + 0x16d80, indexGarouAKain },
+    { _T("Kain A - On Purple"), 0xc0000 + 0x16d80, 0xc0000 + 0x16da0, indexGarouAKain },
+    { _T("Kain A - Gold"), 0xc0000 + 0x16da0, 0xc0000 + 0x16dc0, indexGarouAKain },
+    { _T("Kain A - T.O.P."), 0xc0000 + 0x16dc0, 0xc0000 + 0x16de0, indexGarouAKain },
+    { _T("Kain A - Shade"), 0xc0000 + 0x16de0, 0xc0000 + 0x16e00, indexGarouAKain },
+    { _T("Kain A - Dark Red"), 0xc0000 + 0x16e00, 0xc0000 + 0x16e20, indexGarouAKain },
+    { _T("Kain A - Blue"), 0xc0000 + 0x16e20, 0xc0000 + 0x16e40, indexGarouAKain },
     { _T("Kain A - Projectile1"), 0xc0000 + 0x16e40, 0xc0000 + 0x16e60 },
     { _T("Kain A - Projectile2"), 0xc0000 + 0x16e60, 0xc0000 + 0x16e80 },
     { _T("Kain A - Projectile3"), 0xc0000 + 0x16e80, 0xc0000 + 0x16ea0 },
@@ -1337,16 +1333,16 @@ const sGame_PaletteDataset Garou_S_KAIN_PALETTES_A[] =
 
 const sGame_PaletteDataset Garou_S_KAIN_PALETTES_B[] =
 {
-    { _T("Kain B - Main"), 0xc0000 + 0x16f00, 0xc0000 + 0x16f20 },
+    { _T("Kain B - Main"), 0xc0000 + 0x16f00, 0xc0000 + 0x16f20, indexGarouAKain },
     { _T("Kain B - Line1"), 0xc0000 + 0x16f20, 0xc0000 + 0x16f40 },
     { _T("Kain B - Line2"), 0xc0000 + 0x16f40, 0xc0000 + 0x16f60 },
-    { _T("Kain B - On Fire"), 0xc0000 + 0x16f60, 0xc0000 + 0x16f80 },
-    { _T("Kain B - On Purple"), 0xc0000 + 0x16f80, 0xc0000 + 0x16fa0 },
-    { _T("Kain B - Gold"), 0xc0000 + 0x16fa0, 0xc0000 + 0x16fc0 },
-    { _T("Kain B - T.O.P."), 0xc0000 + 0x16fc0, 0xc0000 + 0x16fe0 },
-    { _T("Kain B - Shade"), 0xc0000 + 0x16fe0, 0xc0000 + 0x17000 },
-    { _T("Kain B - Dark Red"), 0xc0000 + 0x17000, 0xc0000 + 0x17020 },
-    { _T("Kain B - Blue"), 0xc0000 + 0x17020, 0xc0000 + 0x17040 },
+    { _T("Kain B - On Fire"), 0xc0000 + 0x16f60, 0xc0000 + 0x16f80, indexGarouAKain },
+    { _T("Kain B - On Purple"), 0xc0000 + 0x16f80, 0xc0000 + 0x16fa0, indexGarouAKain },
+    { _T("Kain B - Gold"), 0xc0000 + 0x16fa0, 0xc0000 + 0x16fc0, indexGarouAKain },
+    { _T("Kain B - T.O.P."), 0xc0000 + 0x16fc0, 0xc0000 + 0x16fe0, indexGarouAKain },
+    { _T("Kain B - Shade"), 0xc0000 + 0x16fe0, 0xc0000 + 0x17000, indexGarouAKain },
+    { _T("Kain B - Dark Red"), 0xc0000 + 0x17000, 0xc0000 + 0x17020, indexGarouAKain },
+    { _T("Kain B - Blue"), 0xc0000 + 0x17020, 0xc0000 + 0x17040, indexGarouAKain },
     { _T("Kain B - Projectile1"), 0xc0000 + 0x17040, 0xc0000 + 0x17060 },
     { _T("Kain B - Projectile2"), 0xc0000 + 0x17060, 0xc0000 + 0x17080 },
     { _T("Kain B - Projectile3"), 0xc0000 + 0x17080, 0xc0000 + 0x170a0 },
@@ -1357,16 +1353,16 @@ const sGame_PaletteDataset Garou_S_KAIN_PALETTES_B[] =
 
 const sGame_PaletteDataset Garou_S_KAIN_PALETTES_C[] =
 {
-    { _T("Kain C - Main"), 0xc0000 + 0x17100, 0xc0000 + 0x17120 },
+    { _T("Kain C - Main"), 0xc0000 + 0x17100, 0xc0000 + 0x17120, indexGarouAKain },
     { _T("Kain C - Line1"), 0xc0000 + 0x17120, 0xc0000 + 0x17140 },
     { _T("Kain C - Line2"), 0xc0000 + 0x17140, 0xc0000 + 0x17160 },
-    { _T("Kain C - On Fire"), 0xc0000 + 0x17160, 0xc0000 + 0x17180 },
-    { _T("Kain C - On Purple"), 0xc0000 + 0x17180, 0xc0000 + 0x171a0 },
-    { _T("Kain C - Gold"), 0xc0000 + 0x171a0, 0xc0000 + 0x171c0 },
-    { _T("Kain C - T.O.P."), 0xc0000 + 0x171c0, 0xc0000 + 0x171e0 },
-    { _T("Kain C - Shade"), 0xc0000 + 0x171e0, 0xc0000 + 0x17200 },
-    { _T("Kain C - Dark Red"), 0xc0000 + 0x17200, 0xc0000 + 0x17220 },
-    { _T("Kain C - Blue"), 0xc0000 + 0x17220, 0xc0000 + 0x17240 },
+    { _T("Kain C - On Fire"), 0xc0000 + 0x17160, 0xc0000 + 0x17180, indexGarouAKain },
+    { _T("Kain C - On Purple"), 0xc0000 + 0x17180, 0xc0000 + 0x171a0, indexGarouAKain },
+    { _T("Kain C - Gold"), 0xc0000 + 0x171a0, 0xc0000 + 0x171c0, indexGarouAKain },
+    { _T("Kain C - T.O.P."), 0xc0000 + 0x171c0, 0xc0000 + 0x171e0, indexGarouAKain },
+    { _T("Kain C - Shade"), 0xc0000 + 0x171e0, 0xc0000 + 0x17200, indexGarouAKain },
+    { _T("Kain C - Dark Red"), 0xc0000 + 0x17200, 0xc0000 + 0x17220, indexGarouAKain },
+    { _T("Kain C - Blue"), 0xc0000 + 0x17220, 0xc0000 + 0x17240, indexGarouAKain },
     { _T("Kain C - Projectile1"), 0xc0000 + 0x17240, 0xc0000 + 0x17260 },
     { _T("Kain C - Projectile2"), 0xc0000 + 0x17260, 0xc0000 + 0x17280 },
     { _T("Kain C - Projectile3"), 0xc0000 + 0x17280, 0xc0000 + 0x172a0 },
@@ -1377,16 +1373,16 @@ const sGame_PaletteDataset Garou_S_KAIN_PALETTES_C[] =
 
 const sGame_PaletteDataset Garou_S_KAIN_PALETTES_D[] =
 {
-    { _T("Kain D - Main"), 0xc0000 + 0x17300, 0xc0000 + 0x17320 },
+    { _T("Kain D - Main"), 0xc0000 + 0x17300, 0xc0000 + 0x17320, indexGarouAKain },
     { _T("Kain D - Line1"), 0xc0000 + 0x17320, 0xc0000 + 0x17340 },
     { _T("Kain D - Line2"), 0xc0000 + 0x17340, 0xc0000 + 0x17360 },
-    { _T("Kain D - On Fire"), 0xc0000 + 0x17360, 0xc0000 + 0x17380 },
-    { _T("Kain D - On Purple"), 0xc0000 + 0x17380, 0xc0000 + 0x173a0 },
-    { _T("Kain D - Gold"), 0xc0000 + 0x173a0, 0xc0000 + 0x173c0 },
-    { _T("Kain D - T.O.P."), 0xc0000 + 0x173c0, 0xc0000 + 0x173e0 },
-    { _T("Kain D - Shade"), 0xc0000 + 0x173e0, 0xc0000 + 0x17400 },
-    { _T("Kain D - Dark Red"), 0xc0000 + 0x17400, 0xc0000 + 0x17420 },
-    { _T("Kain D - Blue"), 0xc0000 + 0x17420, 0xc0000 + 0x17440 },
+    { _T("Kain D - On Fire"), 0xc0000 + 0x17360, 0xc0000 + 0x17380, indexGarouAKain },
+    { _T("Kain D - On Purple"), 0xc0000 + 0x17380, 0xc0000 + 0x173a0, indexGarouAKain },
+    { _T("Kain D - Gold"), 0xc0000 + 0x173a0, 0xc0000 + 0x173c0, indexGarouAKain },
+    { _T("Kain D - T.O.P."), 0xc0000 + 0x173c0, 0xc0000 + 0x173e0, indexGarouAKain },
+    { _T("Kain D - Shade"), 0xc0000 + 0x173e0, 0xc0000 + 0x17400, indexGarouAKain },
+    { _T("Kain D - Dark Red"), 0xc0000 + 0x17400, 0xc0000 + 0x17420, indexGarouAKain },
+    { _T("Kain D - Blue"), 0xc0000 + 0x17420, 0xc0000 + 0x17440, indexGarouAKain },
     { _T("Kain D - Projectile1"), 0xc0000 + 0x17440, 0xc0000 + 0x17460 },
     { _T("Kain D - Projectile2"), 0xc0000 + 0x17460, 0xc0000 + 0x17480 },
     { _T("Kain D - Projectile3"), 0xc0000 + 0x17480, 0xc0000 + 0x174a0 },
@@ -1397,16 +1393,16 @@ const sGame_PaletteDataset Garou_S_KAIN_PALETTES_D[] =
 
 const sGame_PaletteDataset Garou_S_KAIN_PALETTES_BOSS[] =
 {
-    { _T("Kain Boss? - Main"), 0xc0000 + 0x17500, 0xc0000 + 0x17520 },
+    { _T("Kain Boss? - Main"), 0xc0000 + 0x17500, 0xc0000 + 0x17520, indexGarouAKain },
     { _T("Kain Boss? - Line1"), 0xc0000 + 0x17520, 0xc0000 + 0x17540 },
     { _T("Kain Boss? - Line2"), 0xc0000 + 0x17540, 0xc0000 + 0x17560 },
-    { _T("Kain Boss? - On Fire"), 0xc0000 + 0x17560, 0xc0000 + 0x17580 },
-    { _T("Kain Boss? - On Purple"), 0xc0000 + 0x17580, 0xc0000 + 0x175a0 },
-    { _T("Kain Boss? - Gold"), 0xc0000 + 0x175a0, 0xc0000 + 0x175c0 },
-    { _T("Kain Boss? - T.O.P."), 0xc0000 + 0x175c0, 0xc0000 + 0x175e0 },
-    { _T("Kain Boss? - Shade"), 0xc0000 + 0x175e0, 0xc0000 + 0x17600 },
-    { _T("Kain Boss? - Dark Red"), 0xc0000 + 0x17600, 0xc0000 + 0x17620 },
-    { _T("Kain Boss? - Blue"), 0xc0000 + 0x17620, 0xc0000 + 0x17640 },
+    { _T("Kain Boss? - On Fire"), 0xc0000 + 0x17560, 0xc0000 + 0x17580, indexGarouAKain },
+    { _T("Kain Boss? - On Purple"), 0xc0000 + 0x17580, 0xc0000 + 0x175a0, indexGarouAKain },
+    { _T("Kain Boss? - Gold"), 0xc0000 + 0x175a0, 0xc0000 + 0x175c0, indexGarouAKain },
+    { _T("Kain Boss? - T.O.P."), 0xc0000 + 0x175c0, 0xc0000 + 0x175e0, indexGarouAKain },
+    { _T("Kain Boss? - Shade"), 0xc0000 + 0x175e0, 0xc0000 + 0x17600, indexGarouAKain },
+    { _T("Kain Boss? - Dark Red"), 0xc0000 + 0x17600, 0xc0000 + 0x17620, indexGarouAKain },
+    { _T("Kain Boss? - Blue"), 0xc0000 + 0x17620, 0xc0000 + 0x17640, indexGarouAKain },
     { _T("Kain Boss? - Projectile1"), 0xc0000 + 0x17640, 0xc0000 + 0x17660 },
     { _T("Kain Boss? - Projectile2"), 0xc0000 + 0x17660, 0xc0000 + 0x17680 },
     { _T("Kain Boss? - Projectile3"), 0xc0000 + 0x17680, 0xc0000 + 0x176a0 },
@@ -1481,10 +1477,10 @@ const sGame_PaletteDataset Garou_S_KEVIN_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset Garou_S_GRANT_PALETTES_PORTRAITS[] =
 {
-    { _T("Grant Portrait Palette - A"), 0xc0000 + 0x2b500, 0xc0000 + 0x2b540 },
-    { _T("Grant Portrait Palette - B"), 0xc0000 + 0x2b540, 0xc0000 + 0x2b580 },
-    { _T("Grant Portrait Palette - C"), 0xc0000 + 0x2b580, 0xc0000 + 0x2b5c0 },
-    { _T("Grant Portrait Palette - D"), 0xc0000 + 0x2b5c0, 0xc0000 + 0x2b600 },
+    { _T("Grant Portrait Palette - A"), 0xc0000 + 0x2b500, 0xc0000 + 0x2b540, indexGarouAPortraits, indexGarouAGrant },
+    { _T("Grant Portrait Palette - B"), 0xc0000 + 0x2b540, 0xc0000 + 0x2b580, indexGarouAPortraits, indexGarouAGrant },
+    { _T("Grant Portrait Palette - C"), 0xc0000 + 0x2b580, 0xc0000 + 0x2b5c0, indexGarouAPortraits, indexGarouAGrant },
+    { _T("Grant Portrait Palette - D"), 0xc0000 + 0x2b5c0, 0xc0000 + 0x2b600, indexGarouAPortraits, indexGarouAGrant },
 };
 
 const sGame_PaletteDataset Garou_S_BJENNET_PALETTES_PORTRAITS[] =
@@ -1521,10 +1517,10 @@ const sGame_PaletteDataset Garou_S_TIZOC_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset Garou_S_KAIN_PALETTES_PORTRAITS[] =
 {
-    { _T("Kain Portrait Palette - A"), 0xc0000 + 0x2b600, 0xc0000 + 0x2b640 },
-    { _T("Kain Portrait Palette - B"), 0xc0000 + 0x2b640, 0xc0000 + 0x2b680 },
-    { _T("Kain Portrait Palette - C"), 0xc0000 + 0x2b680, 0xc0000 + 0x2b6c0 },
-    { _T("Kain Portrait Palette - D"), 0xc0000 + 0x2b6c0, 0xc0000 + 0x2b700 },
+    { _T("Kain Portrait Palette - A"), 0xc0000 + 0x2b600, 0xc0000 + 0x2b640, indexGarouAPortraits, indexGarouAKain },
+    { _T("Kain Portrait Palette - B"), 0xc0000 + 0x2b640, 0xc0000 + 0x2b680, indexGarouAPortraits, indexGarouAKain },
+    { _T("Kain Portrait Palette - C"), 0xc0000 + 0x2b680, 0xc0000 + 0x2b6c0, indexGarouAPortraits, indexGarouAKain },
+    { _T("Kain Portrait Palette - D"), 0xc0000 + 0x2b6c0, 0xc0000 + 0x2b700, indexGarouAPortraits, indexGarouAKain },
 };
 
 const sDescTreeNode Garou_S_ROCKHOWARD_COLLECTION[] =
@@ -1699,6 +1695,30 @@ const sDescTreeNode Garou_S_BONUS_COLLECTION[] =
     { _T("Bonus"), DESC_NODETYPE_TREE, (void*)Garou_S_BONUS_PALETTES, ARRAYSIZE(Garou_S_BONUS_PALETTES) },
 };
 
+const sDescTreeNode Garou_S_UNITS[] =
+{
+    { _T("Rock Howard"), DESC_NODETYPE_TREE, (void*)Garou_S_ROCKHOWARD_COLLECTION, ARRAYSIZE(Garou_S_ROCKHOWARD_COLLECTION) },
+    { _T("Terry Bogard"), DESC_NODETYPE_TREE, (void*)Garou_S_TERRY_COLLECTION, ARRAYSIZE(Garou_S_TERRY_COLLECTION) },
+    { _T("Khushnood Butt"), DESC_NODETYPE_TREE, (void*)Garou_S_KHUSHNOOD_COLLECTION, ARRAYSIZE(Garou_S_KHUSHNOOD_COLLECTION) },
+    { _T("Dong Hwan"), DESC_NODETYPE_TREE, (void*)Garou_S_DONG_COLLECTION, ARRAYSIZE(Garou_S_DONG_COLLECTION) },
+    { _T("Jae Hoon"), DESC_NODETYPE_TREE, (void*)Garou_S_JAE_COLLECTION, ARRAYSIZE(Garou_S_JAE_COLLECTION) },
+    { _T("Hotaru"), DESC_NODETYPE_TREE, (void*)Garou_S_HOTARU_COLLECTION, ARRAYSIZE(Garou_S_HOTARU_COLLECTION) },
+    { _T("Gato"), DESC_NODETYPE_TREE, (void*)Garou_S_GATO_COLLECTION, ARRAYSIZE(Garou_S_GATO_COLLECTION) },
+    { _T("Kevin"), DESC_NODETYPE_TREE, (void*)Garou_S_KEVIN_COLLECTION, ARRAYSIZE(Garou_S_KEVIN_COLLECTION) },
+    { _T("Grant"), DESC_NODETYPE_TREE, (void*)Garou_S_GRANT_COLLECTION, ARRAYSIZE(Garou_S_GRANT_COLLECTION) },
+    { _T("B.Jenet"), DESC_NODETYPE_TREE, (void*)Garou_S_BJENNET_COLLECTION, ARRAYSIZE(Garou_S_BJENNET_COLLECTION) },
+    { _T("Hokutomaro"), DESC_NODETYPE_TREE, (void*)Garou_S_HOKUTOMARO_COLLECTION, ARRAYSIZE(Garou_S_HOKUTOMARO_COLLECTION) },
+    { _T("Freeman"), DESC_NODETYPE_TREE, (void*)Garou_S_FREEMAN_COLLECTION, ARRAYSIZE(Garou_S_FREEMAN_COLLECTION) },
+    { _T("Tizoc"), DESC_NODETYPE_TREE, (void*)Garou_S_TIZOC_COLLECTION, ARRAYSIZE(Garou_S_TIZOC_COLLECTION) },
+    { _T("Kain"), DESC_NODETYPE_TREE, (void*)Garou_S_KAIN_COLLECTION, ARRAYSIZE(Garou_S_KAIN_COLLECTION) },
+    { _T("Portraits"), DESC_NODETYPE_TREE, (void*)Garou_S_PORTRAITS_COLLECTION, ARRAYSIZE(Garou_S_PORTRAITS_COLLECTION) },
+    { _T("Bonus Stuff"), DESC_NODETYPE_TREE, (void*)Garou_S_BONUS_COLLECTION, ARRAYSIZE(Garou_S_BONUS_COLLECTION) },
+};
+
+constexpr auto Garou_S_NUMUNIT = ARRAYSIZE(Garou_S_UNITS);
+
+#define Garou_S_EXTRALOC Garou_S_NUMUNIT
+
 const UINT8 Garou_S_UNITSORT[Garou_S_NUMUNIT + 1] // Plus for extras
 {
     indexGarouARockHoward,
@@ -1717,28 +1737,8 @@ const UINT8 Garou_S_UNITSORT[Garou_S_NUMUNIT + 1] // Plus for extras
     indexGarouAKain,
     indexGarouAPortraits,
     indexGarouABonus,
-    
-    Garou_S_EXTRALOC
-};
 
-const sDescTreeNode Garou_S_UNITS[Garou_S_NUMUNIT] =
-{
-    { _T("Rock Howard"), DESC_NODETYPE_TREE, (void*)Garou_S_ROCKHOWARD_COLLECTION, ARRAYSIZE(Garou_S_ROCKHOWARD_COLLECTION) },
-    { _T("Terry Bogard"), DESC_NODETYPE_TREE, (void*)Garou_S_TERRY_COLLECTION, ARRAYSIZE(Garou_S_TERRY_COLLECTION) },
-    { _T("Khushnood Butt"), DESC_NODETYPE_TREE, (void*)Garou_S_KHUSHNOOD_COLLECTION, ARRAYSIZE(Garou_S_KHUSHNOOD_COLLECTION) },
-    { _T("Dong Hwan"), DESC_NODETYPE_TREE, (void*)Garou_S_DONG_COLLECTION, ARRAYSIZE(Garou_S_DONG_COLLECTION) },
-    { _T("Jae Hoon"), DESC_NODETYPE_TREE, (void*)Garou_S_JAE_COLLECTION, ARRAYSIZE(Garou_S_JAE_COLLECTION) },
-    { _T("Hotaru"), DESC_NODETYPE_TREE, (void*)Garou_S_HOTARU_COLLECTION, ARRAYSIZE(Garou_S_HOTARU_COLLECTION) },
-    { _T("Gato"), DESC_NODETYPE_TREE, (void*)Garou_S_GATO_COLLECTION, ARRAYSIZE(Garou_S_GATO_COLLECTION) },
-    { _T("Kevin"), DESC_NODETYPE_TREE, (void*)Garou_S_KEVIN_COLLECTION, ARRAYSIZE(Garou_S_KEVIN_COLLECTION) },
-    { _T("Grant"), DESC_NODETYPE_TREE, (void*)Garou_S_GRANT_COLLECTION, ARRAYSIZE(Garou_S_GRANT_COLLECTION) },
-    { _T("B.Jenet"), DESC_NODETYPE_TREE, (void*)Garou_S_BJENNET_COLLECTION, ARRAYSIZE(Garou_S_BJENNET_COLLECTION) },
-    { _T("Hokutomaro"), DESC_NODETYPE_TREE, (void*)Garou_S_HOKUTOMARO_COLLECTION, ARRAYSIZE(Garou_S_HOKUTOMARO_COLLECTION) },
-    { _T("Freeman"), DESC_NODETYPE_TREE, (void*)Garou_S_FREEMAN_COLLECTION, ARRAYSIZE(Garou_S_FREEMAN_COLLECTION) },
-    { _T("Tizoc"), DESC_NODETYPE_TREE, (void*)Garou_S_TIZOC_COLLECTION, ARRAYSIZE(Garou_S_TIZOC_COLLECTION) },
-    { _T("Kain"), DESC_NODETYPE_TREE, (void*)Garou_S_KAIN_COLLECTION, ARRAYSIZE(Garou_S_KAIN_COLLECTION) },
-    { _T("Portraits"), DESC_NODETYPE_TREE, (void*)Garou_S_PORTRAITS_COLLECTION, ARRAYSIZE(Garou_S_PORTRAITS_COLLECTION) },
-    { _T("Bonus Stuff"), DESC_NODETYPE_TREE, (void*)Garou_S_BONUS_COLLECTION, ARRAYSIZE(Garou_S_BONUS_COLLECTION) },
+    Garou_S_EXTRALOC
 };
 
 // We extend this array with data groveled from the extras file, if any.
