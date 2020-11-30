@@ -260,7 +260,7 @@ const LPCTSTR DEF_BUTTONLABEL_VSAV[] =
 
 const LPCTSTR DEF_BUTTONLABEL_KOFXI[] =
 {
-    L"A", L"B", L"C", L"D", L"E+A", L"E+B", L"E+C", L"E+D", L"Start+A", L"Start+B", L"Start+C", L"Start+D"
+    L"A", L"B", L"C", L"D", L"E + A", L"E + B", L"E + C", L"E + D", L"Start + A", L"Start + B", L"Start + C", L"Start + D"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_BLEACH[] =
