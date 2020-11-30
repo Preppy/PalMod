@@ -51,9 +51,9 @@ const sGame_PaletteDataset REDEARTH_A_LEO_BONUS_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
 {
-    { _T("Kenji Punch"),                            0x40B200, 0x40B280 },
-    { _T("Kenji Punch Vs/Winning/Losing Screen"),   0x1E4800, 0x1E4900 },
-    { _T("Kenji Punch LifeBar Portrait"),           0x406900, 0x406940 },
+    { _T("Kenji Punch"),                            0x40B200, 0x40B280, indexRedEarthSprites_Kenji, 0x0 },
+    { _T("Kenji Punch Vs/Winning/Losing Screen"),   0x1E4800, 0x1E4900, indexRedEarthSprites_Kenji, 0x13 },
+    { _T("Kenji Punch LifeBar Portrait"),           0x406900, 0x406940, indexRedEarthSprites_Kenji, 0x10 },
     
     // All of these are for Punch
     { _T("Hat intro"),                              0x40B300, 0x40B380 },
@@ -73,24 +73,24 @@ const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
 {
-    { _T("Kenji Kick"),                             0x417A00, 0x417A80 },
-    { _T("Kenji Kick Vs/Winning/Losing Screen"),    0x1E4E00, 0x1E4F00 },
-    { _T("Kenji Kick LifeBar Portrait"),            0x406940, 0x406980 },
+    { _T("Kenji Kick"),                             0x417A00, 0x417A80, indexRedEarthSprites_Kenji, 0x0 },
+    { _T("Kenji Kick Vs/Winning/Losing Screen"),    0x1E4E00, 0x1E4F00, indexRedEarthSprites_Kenji, 0x13 },
+    { _T("Kenji Kick LifeBar Portrait"),            0x406940, 0x406980, indexRedEarthSprites_Kenji, 0x10 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =
 {
-    { _T("Kenji Character Select"),                 0x1DF380, 0x1DF400 },
-    { _T("Kenji Character Selected"),               0x1DED00, 0x1DED80 },
-    { _T("Kenji Character Select Portrait"),        0x1DF000, 0x1DF080 },
+    { _T("Kenji Character Select"),                 0x1DF380, 0x1DF400, indexRedEarthSprites_Kenji, 0x11 },
+    { _T("Kenji Character Selected"),               0x1DED00, 0x1DED80, indexRedEarthSprites_Kenji, 0x11 },
+    { _T("Kenji Character Select Portrait"),        0x1DF000, 0x1DF080, indexRedEarthSprites_Kenji, 0x12 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
 {
-    { _T("Tessa Punch"), 0x40E400, 0x40E480 },
-    { _T("Tessa Punch Changing Pal"), 0x40E480, 0x40E500 },
-    { _T("Tessa Punch Vs/Winning/Losing Screen"), 0x1E4600, 0x1E4680 },
-    { _T("Tessa Punch LifeBar Portrait"), 0x406980, 0x4069C0 },
+    { _T("Tessa Punch"), 0x40E400, 0x40E480, indexRedEarthSprites_Tessa, 0 },
+    { _T("Tessa Punch Changing Pal"), 0x40E480, 0x40E500, indexRedEarthSprites_Tessa, 0 },
+    { _T("Tessa Punch Vs/Winning/Losing Screen"), 0x1E4600, 0x1E4680, indexRedEarthSprites_Tessa, 0x13 },
+    { _T("Tessa Punch LifeBar Portrait"), 0x406980, 0x4069C0, indexRedEarthSprites_Tessa, 0x10 },
 
     { _T("Tessa Punch Bottled Ice"), 0x40E500, 0x40E580 },
     { _T("Tessa Punch Al (Aru) Cat"), 0x40E780, 0x40E800 },
@@ -146,10 +146,10 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
 {
-    { _T("Tessa Kick"), 0x41AC00, 0x41AC80 },
-    { _T("Tessa Kick Changing Pal"), 0x41AC80, 0x41AD00 },
-    { _T("Tessa Kick Vs/Winning/Losing Screen"), 0x1E4C80, 0x1E4D00 },
-    { _T("Tessa Kick LifeBar Portrait"), 0x4069C0, 0x406A00 },
+    { _T("Tessa Kick"), 0x41AC00, 0x41AC80, indexRedEarthSprites_Tessa, 0x00 },
+    { _T("Tessa Kick Changing Pal"), 0x41AC80, 0x41AD00, indexRedEarthSprites_Tessa, 0x00 },
+    { _T("Tessa Kick Vs/Winning/Losing Screen"), 0x1E4C80, 0x1E4D00, indexRedEarthSprites_Tessa, 0x13 },
+    { _T("Tessa Kick LifeBar Portrait"), 0x4069C0, 0x406A00, indexRedEarthSprites_Tessa, 0x10 },
 
     { _T("Tessa Kick Bottled Ice"), 0x41AD00, 0x41AD80 },
     { _T("Tessa Kick Ultimate Guard Flash and Burn 1"), 0x41D600, 0x41D680 },
@@ -172,9 +172,9 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_TESSA_BONUS_PALETTES[] =
 {
-    { _T("Tessa Character Select"),                 0x1DF180, 0x1DF200 },
-    { _T("Tessa Character Selected"),               0x1DEB00, 0x1DEB80 },
-    { _T("Tessa Character Select Portrait "),       0x1DEF80, 0x1DF000 },
+    { _T("Tessa Character Select"),                 0x1DF180, 0x1DF200, indexRedEarthSprites_Tessa, 0x11 },
+    { _T("Tessa Character Selected"),               0x1DEB00, 0x1DEB80, indexRedEarthSprites_Tessa, 0x11 },
+    { _T("Tessa Character Select Portrait "),       0x1DEF80, 0x1DF000, indexRedEarthSprites_Tessa, 0x12 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_PUNCH_PALETTES[] =
@@ -235,9 +235,9 @@ const sGame_PaletteDataset REDEARTH_A_MAILING_KICK_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_MAILING_BONUS_PALETTES[] =
 {
-    { _T("Mai Ling Character Select"),          0x1DF300, 0x1DF380 },
-    { _T("Mai Ling Character Selected"),        0x1DEC80, 0x1DED00 },
-    { _T("Mai Ling Character Select Portrait"), 0x1DF080, 0x1DF100 },
+    { _T("Mai Ling Character Select"),          0x1DF300, 0x1DF380, indexRedEarthSprites_MaiLing, 0x11 },
+    { _T("Mai Ling Character Selected"),        0x1DEC80, 0x1DED00, indexRedEarthSprites_MaiLing, 0x11 },
+    { _T("Mai Ling Character Select Portrait"), 0x1DF080, 0x1DF100, indexRedEarthSprites_MaiLing, 0x12 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_HAUZER_PALETTES[] =
@@ -271,7 +271,7 @@ const sGame_PaletteDataset REDEARTH_A_HYDRON_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_RAVANGE_PALETTES[] =
 {
-    { _T("Ravange"), 0x42d800, 0x42d880 },
+    { _T("Ravange"), 0x42d800, 0x42d880, indexRedEarthSprites_Ravange, 0x00 },
     { _T("Fire FX"), 0x42d880, 0x42d900 },
     { _T("Beam FX"), 0x42d900, 0x42d980 },
     { _T("Sand FX"), 0x42d980, 0x42da00 },
@@ -450,7 +450,7 @@ const sGame_PaletteDataset REDEARTH_A_INTRO_PALETTES[] =
     { _T("Intro - Tessa 7"), 0x323a20, 0x323aa0 },
     { _T("Intro - Tessa 8"), 0x323aa0, 0x323b20 },
     { _T("Intro - VS Blade Sky"), 0x321220, 0x321260 },
-        { _T("Intro - VS Blade Trees"), 0x324120, 0x324160 },
+    { _T("Intro - VS Blade Trees"), 0x324120, 0x324160 },
     { _T("Intro - Blade"), 0x323f00, 0x323fa0 },
     { _T("Intro - Leo Cliffside"), 0x323fa0, 0x324020 },
     { _T("Intro - Leo C.Thunder"), 0x324020, 0x3240a0 },

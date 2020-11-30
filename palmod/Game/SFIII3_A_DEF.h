@@ -906,7 +906,7 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_EXTRA_PALETTES[] =
 
     { L"SA Animation 4", 0x707900, 0x707980, index3S_CPS3_Gouki },
 
-    { L"Gouki Fire Hadoken", 0x706B00, 0x706B80 },
+    { L"Gouki Fire Hadoken", 0x706B00, 0x706B80, index3S_CPS3_Ryu, 0x04 },
 
     { L"Burning Effects", 0x708480, 0x708500, index3S_CPS3_Gouki },
 };

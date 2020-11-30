@@ -710,8 +710,8 @@ BOOL CGame_KOF98_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = KOF98_A_UNITSORT[nUnitCtr];
+        // layout is presorted
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
