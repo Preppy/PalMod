@@ -338,7 +338,7 @@ BEGIN
             BEGIN
                 MENUITEM "Dreamcast (*)",          ID_LD_SFIII3DCALL
                 MENUITEM "Arcade (*)",             ID_LD_SFIII3ARCADE51
-                MENUITEM "Arcade - Gill Glow (*)", ID_LD_SFIII3ARCADE10
+                MENUITEM "Arcade - Gill Glow/X.C.O.P.Y. (*)", ID_LD_SFIII3ARCADE10
                 MENUITEM "4rd Strike (*)",         ID_LD_SFIII3ARCADE4rd
             END
         END
