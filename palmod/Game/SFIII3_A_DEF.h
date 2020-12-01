@@ -906,7 +906,7 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_EXTRA_PALETTES[] =
 
     { L"SA Animation 4", 0x707900, 0x707980, index3S_CPS3_Gouki },
 
-    { L"Gouki Fire Hadoken", 0x706B00, 0x706B80 },
+    { L"Gouki Fire Hadoken", 0x706B00, 0x706B80, index3S_CPS3_Ryu, 0x04 },
 
     { L"Burning Effects", 0x708480, 0x708500, index3S_CPS3_Gouki },
 };
@@ -2456,9 +2456,200 @@ const sDescTreeNode SFIII3_A_GILL_COLLECTION[] =
     { L"Right",   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_RIGHT, ARRAYSIZE(SFIII3_A_GILL_PALETTES_RIGHT) },
 };
 
+const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_LP[] =
+{
+    { L"Gill Left", 0x0600b5c, 0x0600bdc, index3S_CPS3_Gill, 0x01 },
+    { L"Gill Right", 0x0600bdc, 0x0600c5c, index3S_CPS3_Gill },
+    { L"Alex", 0x060125c, 0x06012dc, index3S_CPS3_Alex, 0x0 },
+    { L"Ryu", 0x06015dc, 0x060165c, index3S_CPS3_Ryu, 0x00 },
+    { L"Yun", 0x060195c, 0x06019dc, index3S_CPS3_Yun, 0x00 },
+    { L"Dudley", 0x0601cdc, 0x0601d5c, index3S_CPS3_Dudley, 0x00 },
+    { L"Necro", 0x060205c, 0x06020dc, index3S_CPS3_Necro, 0x00 },
+    { L"Hugo", 0x06023dc, 0x060245c, index3S_CPS3_Hugo, 0x00 },
+    { L"Ibuki", 0x060275c, 0x06027dc, index3S_CPS3_Ibuki, 0x00 },
+    { L"Elena", 0x0602adc, 0x0602b5c, index3S_CPS3_Elena, 0x00 },
+    { L"Oro", 0x0602e5c, 0x0602edc, index3S_CPS3_Oro, 0x00 },
+    { L"Yang", 0x06031dc, 0x060325c, index3S_CPS3_Yang, 0x00 },
+    { L"Ken", 0x060355c, 0x06035dc, index3S_CPS3_Ken, 0x00 },
+    { L"Sean", 0x06038dc, 0x060395c, index3S_CPS3_Sean, 0x00 },
+    { L"Urien", 0x0603c5c, 0x0603cdc, index3S_CPS3_Urien, 0x00 },
+    { L"Gouki", 0x0603fdc, 0x060405c, index3S_CPS3_Gouki, 0x00 },
+    { L"Chun-Li", 0x060435c, 0x06043dc, index3S_CPS3_ChunLi, 0x00 },
+    { L"Makoto", 0x06046dc, 0x060475c, index3S_CPS3_Makoto, 0x00 },
+    { L"Q", 0x0604a5c, 0x0604adc, index3S_CPS3_Q, 0x00 },
+    { L"Twelve", 0x0604ddc, 0x0604e5c, index3S_CPS3_Twelve, 0x00 },
+    { L"Remy", 0x060515c, 0x06051dc, index3S_CPS3_Remy, 0x00 },
+};
+
+const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_MP[] =
+{
+    { L"Gill Left", 0x0600c5c, 0x0600cdc, index3S_CPS3_Gill, 0x01 },
+    { L"Gill Right", 0x0600cdc, 0x0600d5c, index3S_CPS3_Gill },
+    { L"Alex", 0x06012dc, 0x060135c, index3S_CPS3_Alex, 0x0 },
+    { L"Ryu", 0x060165c, 0x06016dc, index3S_CPS3_Ryu, 0x00 },
+    { L"Yun", 0x06019dc, 0x0601a5c, index3S_CPS3_Yun, 0x00 },
+    { L"Dudley", 0x0601d5c, 0x0601ddc, index3S_CPS3_Dudley, 0x00 },
+    { L"Necro", 0x06020dc, 0x060215c, index3S_CPS3_Necro, 0x00 },
+    { L"Hugo", 0x060245c, 0x06024dc, index3S_CPS3_Hugo, 0x00 },
+    { L"Ibuki", 0x06027dc, 0x060285c, index3S_CPS3_Ibuki, 0x00 },
+    { L"Elena", 0x0602b5c, 0x0602bdc, index3S_CPS3_Elena, 0x00 },
+    { L"Oro", 0x0602edc, 0x0602f5c, index3S_CPS3_Oro, 0x00 },
+    { L"Yang", 0x060325c, 0x06032dc, index3S_CPS3_Yang, 0x00 },
+    { L"Ken", 0x06035dc, 0x060365c, index3S_CPS3_Ken, 0x00 },
+    { L"Sean", 0x060395c, 0x06039dc, index3S_CPS3_Sean, 0x00 },
+    { L"Urien", 0x0603cdc, 0x0603d5c, index3S_CPS3_Urien, 0x00 },
+    { L"Gouki", 0x060405c, 0x06040dc, index3S_CPS3_Gouki, 0x00 },
+    { L"Chun-Li", 0x06043dc, 0x060445c, index3S_CPS3_ChunLi, 0x00 },
+    { L"Makoto", 0x060475c, 0x06047dc, index3S_CPS3_Makoto, 0x00 },
+    { L"Q", 0x0604adc, 0x0604b5c, index3S_CPS3_Q, 0x00 },
+    { L"Twelve", 0x0604e5c, 0x0604edc, index3S_CPS3_Twelve, 0x00 },
+    { L"Remy", 0x06051dc, 0x060525c, index3S_CPS3_Remy, 0x00 },
+
+};
+
+const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_HP[] =
+{
+    { L"Gill Left", 0x0600d5c, 0x0600ddc, index3S_CPS3_Gill, 0x01 },
+    { L"Gill Right", 0x0600ddc, 0x0600e5c, index3S_CPS3_Gill },
+    { L"Alex", 0x060135c, 0x06013dc, index3S_CPS3_Alex, 0x0 },
+    { L"Ryu", 0x06016dc, 0x060175c, index3S_CPS3_Ryu, 0x00 },
+    { L"Yun", 0x0601a5c, 0x0601adc, index3S_CPS3_Yun, 0x00 },
+    { L"Dudley", 0x0601ddc, 0x0601e5c, index3S_CPS3_Dudley, 0x00 },
+    { L"Necro", 0x060215c, 0x06021dc, index3S_CPS3_Necro, 0x00 },
+    { L"Hugo", 0x06024dc, 0x060255c, index3S_CPS3_Hugo, 0x00 },
+    { L"Ibuki", 0x060285c, 0x06028dc, index3S_CPS3_Ibuki, 0x00 },
+    { L"Elena", 0x0602bdc, 0x0602c5c, index3S_CPS3_Elena, 0x00 },
+    { L"Oro", 0x0602f5c, 0x0602fdc, index3S_CPS3_Oro, 0x00 },
+    { L"Yang", 0x06032dc, 0x060335c, index3S_CPS3_Yang, 0x00 },
+    { L"Ken", 0x060365c, 0x06036dc, index3S_CPS3_Ken, 0x00 },
+    { L"Sean", 0x06039dc, 0x0603a5c, index3S_CPS3_Sean, 0x00 },
+    { L"Urien", 0x0603d5c, 0x0603ddc, index3S_CPS3_Urien, 0x00 },
+    { L"Gouki", 0x06040dc, 0x060415c, index3S_CPS3_Gouki, 0x00 },
+    { L"Chun-Li", 0x060445c, 0x06044dc, index3S_CPS3_ChunLi, 0x00 },
+    { L"Makoto", 0x06047dc, 0x060485c, index3S_CPS3_Makoto, 0x00 },
+    { L"Q", 0x0604b5c, 0x0604bdc, index3S_CPS3_Q, 0x00 },
+    { L"Twelve", 0x0604edc, 0x0604f5c, index3S_CPS3_Twelve, 0x00 },
+    { L"Remy", 0x060525c, 0x06052dc, index3S_CPS3_Remy, 0x00 },
+};
+
+const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_LK[] =
+{
+    { L"Gill Left", 0x0600e5c, 0x0600edc, index3S_CPS3_Gill, 0x01 },
+    { L"Gill Right", 0x0600edc, 0x0600f5c, index3S_CPS3_Gill },
+    { L"Alex", 0x06013dc, 0x060145c, index3S_CPS3_Alex, 0x0 },
+    { L"Ryu", 0x060175c, 0x06017dc, index3S_CPS3_Ryu, 0x00 },
+    { L"Yun", 0x0601adc, 0x0601b5c, index3S_CPS3_Yun, 0x00 },
+    { L"Dudley", 0x0601e5c, 0x0601edc, index3S_CPS3_Dudley, 0x00 },
+    { L"Necro", 0x06021dc, 0x060225c, index3S_CPS3_Necro, 0x00 },
+    { L"Hugo", 0x060255c, 0x06025dc, index3S_CPS3_Hugo, 0x00 },
+    { L"Ibuki", 0x06028dc, 0x060295c, index3S_CPS3_Ibuki, 0x00 },
+    { L"Elena", 0x0602c5c, 0x0602cdc, index3S_CPS3_Elena, 0x00 },
+    { L"Oro", 0x0602fdc, 0x060305c, index3S_CPS3_Oro, 0x00 },
+    { L"Yang", 0x060335c, 0x06033dc, index3S_CPS3_Yang, 0x00 },
+    { L"Ken", 0x06036dc, 0x060375c, index3S_CPS3_Ken, 0x00 },
+    { L"Sean", 0x0603a5c, 0x0603adc, index3S_CPS3_Sean, 0x00 },
+    { L"Urien", 0x0603ddc, 0x0603e5c, index3S_CPS3_Urien, 0x00 },
+    { L"Gouki", 0x060415c, 0x06041dc, index3S_CPS3_Gouki, 0x00 },
+    { L"Chun-Li", 0x06044dc, 0x060455c, index3S_CPS3_ChunLi, 0x00 },
+    { L"Makoto", 0x060485c, 0x06048dc, index3S_CPS3_Makoto, 0x00 },
+    { L"Q", 0x0604bdc, 0x0604c5c, index3S_CPS3_Q, 0x00 },
+    { L"Twelve", 0x0604f5c, 0x0604fdc, index3S_CPS3_Twelve, 0x00 },
+    { L"Remy", 0x06052dc, 0x060535c, index3S_CPS3_Remy, 0x00 },
+};
+
+const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_MK[] =
+{
+    { L"Gill Left", 0x0600f5c, 0x0600fdc, index3S_CPS3_Gill, 0x01 },
+    { L"Gill Right", 0x0600fdc, 0x060105c, index3S_CPS3_Gill },
+    { L"Alex", 0x060145c, 0x06014dc, index3S_CPS3_Alex, 0x0 },
+    { L"Ryu", 0x06017dc, 0x060185c, index3S_CPS3_Ryu, 0x00 },
+    { L"Yun", 0x0601b5c, 0x0601bdc, index3S_CPS3_Yun, 0x00 },
+    { L"Dudley", 0x0601edc, 0x0601f5c, index3S_CPS3_Dudley, 0x00 },
+    { L"Necro", 0x060225c, 0x06022dc, index3S_CPS3_Necro, 0x00 },
+    { L"Hugo", 0x06025dc, 0x060265c, index3S_CPS3_Hugo, 0x00 },
+    { L"Ibuki", 0x060295c, 0x06029dc, index3S_CPS3_Ibuki, 0x00 },
+    { L"Elena", 0x0602cdc, 0x0602d5c, index3S_CPS3_Elena, 0x00 },
+    { L"Oro", 0x060305c, 0x06030dc, index3S_CPS3_Oro, 0x00 },
+    { L"Yang", 0x06033dc, 0x060345c, index3S_CPS3_Yang, 0x00 },
+    { L"Ken", 0x060375c, 0x06037dc, index3S_CPS3_Ken, 0x00 },
+    { L"Sean", 0x0603adc, 0x0603b5c, index3S_CPS3_Sean, 0x00 },
+    { L"Urien", 0x0603e5c, 0x0603edc, index3S_CPS3_Urien, 0x00 },
+    { L"Gouki", 0x06041dc, 0x060425c, index3S_CPS3_Gouki, 0x00 },
+    { L"Chun-Li", 0x060455c, 0x06045dc, index3S_CPS3_ChunLi, 0x00 },
+    { L"Makoto", 0x06048dc, 0x060495c, index3S_CPS3_Makoto, 0x00 },
+    { L"Q", 0x0604c5c, 0x0604cdc, index3S_CPS3_Q, 0x00 },
+    { L"Twelve", 0x0604fdc, 0x060505c, index3S_CPS3_Twelve, 0x00 },
+    { L"Remy", 0x060535c, 0x06053dc, index3S_CPS3_Remy, 0x00 },
+};
+
+const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_HK[] =
+{
+    { L"Gill Left", 0x060105c, 0x06010dc, index3S_CPS3_Gill, 0x01 },
+    { L"Gill Right", 0x06010dc, 0x060115c, index3S_CPS3_Gill },
+    { L"Alex", 0x06014dc, 0x060155c, index3S_CPS3_Alex, 0x0 },
+    { L"Ryu", 0x060185c, 0x06018dc, index3S_CPS3_Ryu, 0x00 },
+    { L"Yun", 0x0601bdc, 0x0601c5c, index3S_CPS3_Yun, 0x00 },
+    { L"Dudley", 0x0601f5c, 0x0601fdc, index3S_CPS3_Dudley, 0x00 },
+    { L"Necro", 0x06022dc, 0x060235c, index3S_CPS3_Necro, 0x00 },
+    { L"Hugo", 0x060265c, 0x06026dc, index3S_CPS3_Hugo, 0x00 },
+    { L"Ibuki", 0x06029dc, 0x0602a5c, index3S_CPS3_Ibuki, 0x00 },
+    { L"Elena", 0x0602d5c, 0x0602ddc, index3S_CPS3_Elena, 0x00 },
+    { L"Oro", 0x06030dc, 0x060315c, index3S_CPS3_Oro, 0x00 },
+    { L"Yang", 0x060345c, 0x06034dc, index3S_CPS3_Yang, 0x00 },
+    { L"Ken", 0x06037dc, 0x060385c, index3S_CPS3_Ken, 0x00 },
+    { L"Sean", 0x0603b5c, 0x0603bdc, index3S_CPS3_Sean, 0x00 },
+    { L"Urien", 0x0603edc, 0x0603f5c, index3S_CPS3_Urien, 0x00 },
+    { L"Gouki", 0x060425c, 0x06042dc, index3S_CPS3_Gouki, 0x00 },
+    { L"Chun-Li", 0x06045dc, 0x060465c, index3S_CPS3_ChunLi, 0x00 },
+    { L"Makoto", 0x060495c, 0x06049dc, index3S_CPS3_Makoto, 0x00 },
+    { L"Q", 0x0604cdc, 0x0604d5c, index3S_CPS3_Q, 0x00 },
+    { L"Twelve", 0x060505c, 0x06050dc, index3S_CPS3_Twelve, 0x00 },
+    { L"Remy", 0x06053dc, 0x060545c, index3S_CPS3_Remy, 0x00 },
+
+};
+
+const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_EX[] =
+{
+    { L"Gill Left", 0x060115c, 0x06011dc, index3S_CPS3_Gill, 0x01 },
+    { L"Gill Right", 0x06011dc, 0x060125c, index3S_CPS3_Gill },
+    { L"Alex", 0x060155c, 0x06015dc, index3S_CPS3_Alex, 0x0 },
+    { L"Ryu", 0x06018dc, 0x060195c, index3S_CPS3_Ryu, 0x00 },
+    { L"Yun", 0x0601c5c, 0x0601cdc, index3S_CPS3_Yun, 0x00 },
+    { L"Dudley", 0x0601fdc, 0x060205c, index3S_CPS3_Dudley, 0x00 },
+    { L"Necro", 0x060235c, 0x06023dc, index3S_CPS3_Necro, 0x00 },
+    { L"Hugo", 0x06026dc, 0x060275c, index3S_CPS3_Hugo, 0x00 },
+    { L"Ibuki", 0x0602a5c, 0x0602adc, index3S_CPS3_Ibuki, 0x00 },
+    { L"Elena", 0x0602ddc, 0x0602e5c, index3S_CPS3_Elena, 0x00 },
+    { L"Oro", 0x060315c, 0x06031dc, index3S_CPS3_Oro, 0x00 },
+    { L"Yang", 0x06034dc, 0x060355c, index3S_CPS3_Yang, 0x00 },
+    { L"Ken", 0x060385c, 0x06038dc, index3S_CPS3_Ken, 0x00 },
+    { L"Sean", 0x0603bdc, 0x0603c5c, index3S_CPS3_Sean, 0x00 },
+    { L"Urien", 0x0603f5c, 0x0603fdc, index3S_CPS3_Urien, 0x00 },
+    { L"Gouki", 0x06042dc, 0x060435c, index3S_CPS3_Gouki, 0x00 },
+    { L"Chun-Li", 0x060465c, 0x06046dc, index3S_CPS3_ChunLi, 0x00 },
+    { L"Makoto", 0x06049dc, 0x0604a5c, index3S_CPS3_Makoto, 0x00 },
+    { L"Q", 0x0604d5c, 0x0604ddc, index3S_CPS3_Q, 0x00 },
+    { L"Twelve", 0x06050dc, 0x060515c, index3S_CPS3_Twelve, 0x00 },
+    { L"Remy", 0x060545c, 0x06054dc, index3S_CPS3_Remy, 0x00 },
+
+};
+
+const sDescTreeNode SFIII3_A_XCOPY_COLLECTION[] =
+{
+    { L"LP",    DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_PALETTES_LP, ARRAYSIZE(SFIII3_A_XCOPY_PALETTES_LP) },
+    { L"MP",    DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_PALETTES_MP, ARRAYSIZE(SFIII3_A_XCOPY_PALETTES_MP) },
+    { L"HP",    DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_PALETTES_HP, ARRAYSIZE(SFIII3_A_XCOPY_PALETTES_HP) },
+    { L"LK",    DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_PALETTES_LK, ARRAYSIZE(SFIII3_A_XCOPY_PALETTES_LK) },
+    { L"MK",    DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_PALETTES_MK, ARRAYSIZE(SFIII3_A_XCOPY_PALETTES_MK) },
+    { L"HK",    DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_PALETTES_HK, ARRAYSIZE(SFIII3_A_XCOPY_PALETTES_HK) },
+    { L"EX",    DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_PALETTES_EX, ARRAYSIZE(SFIII3_A_XCOPY_PALETTES_EX) },
+
+};
+
 const sDescTreeNode SFIII3_A_10_UNITS[] =
 {
     { L"Gill (glow)",   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_COLLECTION) },
+    { L"Twelve's X.C.O.P.Y.",   DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_COLLECTION, ARRAYSIZE(SFIII3_A_XCOPY_COLLECTION) },
 };
 
 #define k_sf3NameKey_Alex L"Alex"
