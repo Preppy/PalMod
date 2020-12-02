@@ -41,11 +41,11 @@ CGame_KOF02_A::CGame_KOF02_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = KOF02_A_NUMUNIT;
     m_nExtraUnit = KOF02_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1804;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1955;
     m_pszExtraFilename = EXTRA_FILENAME_KOF02_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x88b62;
+    m_nLowestKnownPaletteRomLocation = 0x01b4e0;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 

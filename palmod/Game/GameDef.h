@@ -82,48 +82,48 @@ enum SupportedGamesList
 // Note that the games can override these values: these are just the defaults.
 const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
 {
-   _T("MvC2 (Dreamcast)"),
-   _T("SFIII3 (Arcade)"),
-   _T("MVC2 (Playstation)"),
-   _T("SSF2T (Arcade)"),
-   _T("SFA3 (Arcade)"),
-   _T("XVSF (Arcade)"),
-   _T("MVC (Arcade)"),
-   _T("SFIII:3S (Dreamcast)"),
-   _T("Jojo's (Japan)"),
-   _T("MSH (Arcade)"),
-   _T("MSHVSF (Arcade)"),
-   _T("X-Men (Arcade)"),
-   _T("MVC2 (Arcade)"),
-   _T("Garou: MotW (Arcade)"),
-   _T("Unknown Game"),
-   _T("KOF: 98 (Arcade)"),
-   _T("KOF: 02UM (Steam)"),
-   _T("CVS2 (Arcade)"),
-   _T("Garou: MotW (Steam)"),
-   _T("KOF: 02 (Arcade)"),
-   _T("SFA2 (Arcade)"),
-   _T("SFIII:3S (Arcade Rerip)"),
-   _T("Jojo's 50 (Japanese Arcade Rerip)"),
-   _T("Jojo's 51 (Japanese Arcade Rerip)"),
-   _T("SVC Plus A"),
-   _T("Samurai Shodown V Special"),
-   _T("MVC2 (Arcade rerip)"),
-   _T("Super Gem Fighter Mini Mix (USA 970904)"),
-   _T("Red Earth (Arcade)"),
-   _T("Red Earth (Arcade Rerip)"),
-   _T("Karnov's Revenge / Fighter's History Dynamite"),
-   _T("Waku Waku 7"),
-   _T("SFA1 (Arcade)"),
-   _T("Vampire Savior (Arcade)"),
-   _T("Vampire Savior 2 (Arcade)"),
-   _T("Real Bout Fatal Fury Special (Arcade)"),
-   _T("Samurai Shodown 3"),
-   _T("Vampire Hunter 2 (Arcade)"),
-   _T("SFIII:2I (Arcade)"),
-   _T("SF2:HF (Arcade)"),
-   _T("SF2:CE (Arcade)"),
-   _T("SSF2T:Revival (GBA)"),
+   L"MvC2 (Dreamcast)",
+   L"SFIII3 (Arcade)",
+   L"MVC2 (Playstation)",
+   L"SSF2T (Arcade)",
+   L"SFA3 (Arcade)",
+   L"XVSF (Arcade)",
+   L"MVC (Arcade)",
+   L"SFIII:3S (Dreamcast)",
+   L"Jojo's (Japan)",
+   L"MSH (Arcade)",
+   L"MSHVSF (Arcade)",
+   L"X-Men (Arcade)",
+   L"MVC2 (Arcade)",
+   L"Garou: MotW (Arcade)",
+   L"Unknown Game",
+   L"KOF: 98 (Arcade)",
+   L"KOF: 02UM (Steam)",
+   L"CVS2 (Arcade)",
+   L"Garou: MotW (Steam)",
+   L"KOF: 02 (Arcade)",
+   L"SFA2 (Arcade)",
+   L"SFIII:3S (Arcade Rerip)",
+   L"Jojo's 50 (Japanese Arcade Rerip)",
+   L"Jojo's 51 (Japanese Arcade Rerip)",
+   L"SVC Plus A",
+   L"Samurai Shodown V Special",
+   L"MVC2 (Arcade rerip)",
+   L"Super Gem Fighter Mini Mix (USA 970904)",
+   L"Red Earth (Arcade)",
+   L"Red Earth (Arcade Rerip)",
+   L"Karnov's Revenge / Fighter's History Dynamite",
+   L"Waku Waku 7",
+   L"SFA1 (Arcade)",
+   L"Vampire Savior (Arcade)",
+   L"Vampire Savior 2 (Arcade)",
+   L"Real Bout Fatal Fury Special (Arcade)",
+   L"Samurai Shodown 3",
+   L"Vampire Hunter 2 (Arcade)",
+   L"SFIII:2I (Arcade)",
+   L"SF2:HF (Arcade)",
+   L"SF2:CE (Arcade)",
+   L"SSF2T:Revival (GBA)",
    L"Matrimelee (Arcade)",
    L"SFIII:NG (Arcade)",
    L"Windjammers (Arcade)",
@@ -165,97 +165,97 @@ enum class eImageOutputSpriteDisplay
 // If you add button labels, be sure to update CImgOutDlg::OnInitDialog and CImgDumpBmp::GetImagesPerLine as well.
 const LPCTSTR DEF_BUTTONLABEL_2[] =
 {
-    _T("P1"), _T("P2")
+    L"P1", L"P2"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_2_PK[] =
 {
-    _T("Punch"), _T("Kick")
+    L"Punch", L"Kick"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_NEOGEO[] =
 {
-    _T("A"), _T("B"), _T("C"), _T("D")
+    L"A", L"B", L"C", L"D"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_SAMSHO3[] =
 {
-    _T("S1"), _T("S2"), _T("B1"), _T("B2")
+    L"S1", L"S2", L"B1", L"B2"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_NEOGEO_FIVE[] =
 {
-   _T("A"), _T("B"), _T("C"), _T("D"), _T("Boss")
+   L"A", L"B", L"C", L"D", L"Boss"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_WAKUWAKU7_FIVE[] =
 {
-   _T("A"), _T("B"), _T("C"), _T("D"), _T("Dark")
+   L"A", L"B", L"C", L"D", L"Dark"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_JOJOS_5[] =
 {
-   _T("A"), _T("B"), _T("C"), _T("S"), _T("Start")
+   L"A", L"B", L"C", L"S", L"Start"
 };
 
 const LPCTSTR DEF_BUTTONLABEL6[] =
 {
-   _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK")
+   L"LP", L"MP", L"HP", L"LK", L"MK", L"HK"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_GBA[] =
 {
-    _T("A"), _T("L"), _T("R"), _T("B"), _T("Sel+A"), _T("Sel+L"), _T("Sel+R"), _T("Sel+B"), _T("Start")
+    L"A", L"L", L"R", L"B", L"Sel+A", L"Sel+L", L"Sel+R", L"Sel+B", L"Start"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_ISMS[] =
 {
-   _T("X-Ism P"), _T("X-Ism K"), _T("A-Ism P"), _T("A-Ism K"), _T("V-Ism P"), _T("V-Ism K")
+   L"X-Ism P", L"X-Ism K", L"A-Ism P", L"A-Ism K", L"V-Ism P", L"V-Ism K"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_SFA2[] =
 {
-   _T("P"), _T("K"), _T("PP"), _T("KK"), _T("Auto P"), _T("Auto K")
+   L"P", L"K", L"PP", L"KK", L"Auto P", L"Auto K"
 };
 
 const LPCTSTR DEF_BUTTONLABEL6_MVC2[] =
 {
-   _T("LP"), _T("LK"), _T("HP"), _T("HK"), _T("A1"), _T("A2")
+   L"LP", L"LK", L"HP", L"HK", L"A1", L"A2"
 };
 
 const LPCTSTR DEF_BUTTONLABEL7_SF3[] =
 {
-   _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("EX")
+   L"LP", L"MP", L"HP", L"LK", L"MK", L"HK", L"EX"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_CVS2[] =
 {
-   _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("3P"), _T("3K")
+   L"LP", L"MP", L"HP", L"LK", L"MK", L"HK", L"3P", L"3K"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_ST10[] =
 {
-   _T("Jab"), _T("Strong"), _T("Fierce"), _T("Short"), _T("Forward"), _T("RH"), _T("Start"), _T("Hold"), _T("Old 1P"), _T("Old 2P")
+   L"Jab", L"Strong", L"Fierce", L"Short", L"Forward", L"RH", L"Start", L"Hold", L"Old 1P", L"Old 2P"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_GEMFIGHTER[] =
 {
-    _T("A"), _T("B"), _T("C"), _T("X3")
+    L"A", L"B", L"C", L"X3"
 };
 
 const LPCTSTR DEF_NOBUTTONS[] =
 {
-   _T("Special")
+   L"Special"
 };
 
 const LPCTSTR DEF_LABEL_STATUS_EFFECTS[] =
 {
-   _T("Burn 1"), _T("Burn 2"), _T("Shock 1"), _T("Shock 2"), _T("Dark 1"), _T("Dark 2"), _T("Kinetic 1"), _T("Kinetic 2")
+   L"Burn 1", L"Burn 2", L"Shock 1", L"Shock 2", L"Dark 1", L"Dark 2", L"Kinetic 1", L"Kinetic 2"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_VSAV[] =
 {
-   _T("LP"), _T("MP"), _T("HP"), _T("LK"), _T("MK"), _T("HK"), _T("PP"), _T("KK"), _T("AP"), _T("AK")
+   L"LP", L"MP", L"HP", L"LK", L"MK", L"HK", L"PP", L"KK", L"AP", L"AK"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_KOFXI[] =
@@ -271,7 +271,7 @@ const LPCTSTR DEF_BUTTONLABEL_BLEACH[] =
 struct stExtraDef
 {
     UINT16 uUnitN = INVALID_UNIT_VALUE;
-    TCHAR szDesc[MAX_DESCRIPTION_LENGTH] = _T("uninit");
+    TCHAR szDesc[MAX_DESCRIPTION_LENGTH] = L"uninit";
     UINT32 uOffset = 0;
     UINT16 cbPaletteSize = 0;
     bool isInvisible = false;
@@ -288,7 +288,7 @@ struct stPairedPaletteInfo
 
 struct sGame_PaletteDataset
 {
-    LPCTSTR szPaletteName = _T("uninit");
+    LPCWSTR szPaletteName = L"uninit";
     UINT32 nPaletteOffset = 0;
     UINT32 nPaletteOffsetEnd = 0;
     UINT16 indexImgToUse = INVALID_UNIT_VALUE; // the major character/collection index

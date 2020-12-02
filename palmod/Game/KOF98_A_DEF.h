@@ -594,7 +594,7 @@ const sGame_PaletteDataset KOF98_A_Clark_PALETTE_A[] =
 const sGame_PaletteDataset KOF98_A_Clark_PALETTE_B[] =
 {
     { L"Clark B - Main",  0x2df1f0, 0x2df210, indexKOFSprites_98Clark, 0, &pairNext },
-    { L"Clark B - Extra 1",  0x2df210, 0x2df230, indexKOFSprites_98Clark },
+    { L"Clark B - Extra 1",  0x2df210, 0x2df230, indexKOFSprites_98Clark, 0x01 },
     { L"Clark B - Extra 2",  0x2df230, 0x2df250, indexKOFSprites_98Clark },
     { L"Clark B - Max Mode",  0x2df250, 0x2df270, indexKOFSprites_98Clark, 0, &pairNext },
     { L"Clark B - Extra 3",  0x2df270, 0x2df290, indexKOFSprites_98Clark, 0x01 },
@@ -607,7 +607,7 @@ const sGame_PaletteDataset KOF98_A_Clark_PALETTE_B[] =
 const sGame_PaletteDataset KOF98_A_Clark_PALETTE_C[] =
 {
     { L"Clark C - Main",  0x2df3f0, 0x2df410, indexKOFSprites_98Clark, 0, &pairNext },
-    { L"Clark C - Extra 1",  0x2df410, 0x2df430, indexKOFSprites_98Clark },
+    { L"Clark C - Extra 1",  0x2df410, 0x2df430, indexKOFSprites_98Clark, 0x01 },
     { L"Clark C - Extra 2",  0x2df430, 0x2df450, indexKOFSprites_98Clark },
     { L"Clark C - Max Mode",  0x2df450, 0x2df470, indexKOFSprites_98Clark, 0, &pairNext },
     { L"Clark C - Extra 3",  0x2df470, 0x2df490, indexKOFSprites_98Clark, 0x01 },
@@ -620,7 +620,7 @@ const sGame_PaletteDataset KOF98_A_Clark_PALETTE_C[] =
 const sGame_PaletteDataset KOF98_A_Clark_PALETTE_D[] =
 {
     { L"Clark D - Main",  0x2df5f0, 0x2df610, indexKOFSprites_98Clark, 0, &pairNext },
-    { L"Clark D - Extra 1",  0x2df610, 0x2df630, indexKOFSprites_98Clark },
+    { L"Clark D - Extra 1",  0x2df610, 0x2df630, indexKOFSprites_98Clark, 0x01 },
     { L"Clark D - Extra 2",  0x2df630, 0x2df650, indexKOFSprites_98Clark },
     { L"Clark D - Max Mode",  0x2df650, 0x2df670, indexKOFSprites_98Clark, 0, &pairNext },
     { L"Clark D - Extra 3",  0x2df670, 0x2df690, indexKOFSprites_98Clark, 0x01 },

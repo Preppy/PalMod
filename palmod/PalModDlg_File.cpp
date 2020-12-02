@@ -190,7 +190,7 @@ void CPalModDlg::SetColorsPerLineTo8()
     CMenu* pSettMenu = GetMenu()->GetSubMenu(3); //3 = settings menu
 
     pSettMenu->CheckMenuItem(ID_COLORSPERLINE_8COLORSPERLINE, MF_BYCOMMAND | MF_CHECKED);
-    pSettMenu->CheckMenuItem(ID_COLORSPERLINE_16COLORSPERLINE, MF_BYCOMMAND |MF_UNCHECKED);
+    pSettMenu->CheckMenuItem(ID_COLORSPERLINE_16COLORSPERLINE, MF_BYCOMMAND | MF_UNCHECKED);
 }
 
 void CPalModDlg::SetColorsPerLineTo16()
@@ -457,7 +457,7 @@ void CPalModDlg::OnFileOpen()
         { SFA3_A,           L"SFA3 sz3.09c|*.09*|", INVALID_UNIT_VALUE },
         { SFIII1_A,         L"SFIII:NG Arcade|50|", INVALID_UNIT_VALUE },
         { SFIII2_A,         L"SFIII:2I Arcade|50|", INVALID_UNIT_VALUE },
-        { SFIII3_A,         L"SFIII:3S Arcade (51), Gill glow (10)|10;51|", INVALID_UNIT_VALUE },
+        { SFIII3_A,         L"SFIII:3S Arcade (51), Gill glow/X.C.O.P.Y. (10)|10;51|", INVALID_UNIT_VALUE },
         { SF2CE_A,          L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", INVALID_UNIT_VALUE },
         { SF2HF_A,          L"SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f|", INVALID_UNIT_VALUE },
         { SSF2T_A,          L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|", INVALID_UNIT_VALUE },
@@ -502,7 +502,7 @@ void CPalModDlg::OnFileOpen()
             TCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
             _tcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
             szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
-       
+
             LPTSTR pszPipe = _tcsstr(szGameFilter, L"|");
 
             if (pszPipe != nullptr)
@@ -664,9 +664,9 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
 
         for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
         {
-            pPal[(iCurrentIndexInPalette * 4)]      = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
-            pPal[(iCurrentIndexInPalette * 4) + 1]  = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
-            pPal[(iCurrentIndexInPalette * 4) + 2]  = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
+            pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
+            pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
+            pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
 
             // This code exists because Fighter Factory writes upside-down color tables.
             if (fStillStuckOnBlack &&
@@ -721,7 +721,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
 
             for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++)
             {
-                pPal[(iCurrentIndexInPalette * 4)]     = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
+                pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
                 pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
                 pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
 
@@ -848,7 +848,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
                             for (int iAbsoluteColorIndex = 0; iAbsoluteColorIndex < nTotalNumberOfCurrentPaletteColors; iAbsoluteColorIndex++, nTotalColorsUsed++)
                             {
                                 // copy over the RGB data, skipping the A value
-                                pPal[(iCurrentIndexInPalette * 4)]     = MainPalGroup->ROUND_R(pPALFileData[(iPALDataIndex * 4)]);
+                                pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(pPALFileData[(iPALDataIndex * 4)]);
                                 pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(pPALFileData[(iPALDataIndex * 4) + 1]);
                                 pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(pPALFileData[(iPALDataIndex * 4) + 2]);
 
@@ -1031,10 +1031,10 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
 
                     for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                     {
-                        pPal[(iCurrentIndexInPalette * 4)]     = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
+                        pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
                         pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
                         pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
-                           
+
                         // This code exists because Fighter Factory writes upside-down color tables.
                         if (fStillStuckOnBlack &&
                             (pPal[iCurrentIndexInPalette * 4] == 0) &&
@@ -1436,7 +1436,7 @@ void CPalModDlg::OnExportPalette()
         {
             fSuccess = SavePaletteToACT(ActSave.GetOFN().lpstrFile);
         }
-        
+
         if (!fSuccess)
         {
             CString strError;
