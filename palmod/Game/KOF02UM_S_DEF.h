@@ -6,9 +6,9 @@
 // * Update every array using KOF02UM_S_NUMUNIT below
 // That should be it.  Good luck.
 
-constexpr auto KOF02UM_S_NUMUNIT = indexKOF02UM_S_Last;
+constexpr auto KOF02UM_S_NUMUNIT_MAIN = indexKOF02UM_S_Last;
 
-#define KOF02UM_S_EXTRALOC KOF02UM_S_NUMUNIT
+#define KOF02UM_S_EXTRALOC_MAIN KOF02UM_S_NUMUNIT_MAIN
 
 struct sKOF02_CharacterDump
 {
@@ -4945,13 +4945,38 @@ const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
     { L"MAX2 Flash",                0xaa0, 0xac0 },
 };
 
+const sGame_PaletteDataset KOF02UM_S_NEXTSTAGE_PALETTES[] =
+{
+    { L"Next Stage", 0x57c00, 0x57e00 },
+};
+
 const sDescTreeNode KOF02UM_S_BONUS_COLLECTION[] =
 {
     { L"HUD", DESC_NODETYPE_TREE, (void*)KOF02UM_S_HUD_PALETTES, ARRAYSIZE(KOF02UM_S_HUD_PALETTES) },
     { L"Extra Effects", DESC_NODETYPE_TREE, (void*)KOF02UM_S_EXTRA_PALETTES, ARRAYSIZE(KOF02UM_S_EXTRA_PALETTES) },
+    { L"Next Stage", DESC_NODETYPE_TREE, (void*)KOF02UM_S_NEXTSTAGE_PALETTES, ARRAYSIZE(KOF02UM_S_NEXTSTAGE_PALETTES) },
 };
 
-const UINT8 KOF02UM_S_UNITSORT[KOF02UM_S_NUMUNIT + 1] // Plus 1 for extras
+const sGame_PaletteDataset KOF02UM_S_BAR_HUD_PALETTES[] =
+{
+    { L"Healthbar Above 30%", 0x0, 0x20 },
+    { L"Healthbar Under 30%", 0x20, 0x40 },
+    { L"0 Meter Bar", 0x40, 0x60 },
+    { L"1 Meter Bar", 0x60, 0x80 },
+    { L"2 Meter Bar", 0x80, 0xa0 },
+    { L"3 Meter Bar", 0xa0, 0xc0 },
+    { L"4 Meter Bar", 0xc0, 0xe0 },
+    { L"Guard Meter", 0xe0, 0x100 },
+    { L"MAX Time Bar", 0x100, 0x120 },
+    { L"Lin Poison Healthbar", 0x140, 0x160 },
+};
+
+const sDescTreeNode KOF02UM_S_BAR_HUD_COLLECTION[] =
+{
+    { L"HUD", DESC_NODETYPE_TREE, (void*)KOF02UM_S_BAR_HUD_PALETTES, ARRAYSIZE(KOF02UM_S_BAR_HUD_PALETTES) },
+};
+
+const UINT8 KOF02UM_S_UNITSORT[KOF02UM_S_NUMUNIT_MAIN + 1] // Plus 1 for extras
 {
     indexKOF02UM_S_Andy,
     indexKOF02UM_S_Angel,
@@ -5021,10 +5046,19 @@ const UINT8 KOF02UM_S_UNITSORT[KOF02UM_S_NUMUNIT + 1] // Plus 1 for extras
     indexKOF02UM_S_Yuri,
     indexKOF02UM_S_Bonus,
 
-    KOF02UM_S_EXTRALOC
+    KOF02UM_S_EXTRALOC_MAIN
 };
 
-const sDescTreeNode KOF02UM_S_UNITS[KOF02UM_S_NUMUNIT] =
+const sDescTreeNode KOF02UM_S_UNITS_BAR[] =
+{
+    { L"HUD", DESC_NODETYPE_TREE, (void*)KOF02UM_S_BAR_HUD_COLLECTION, ARRAYSIZE(KOF02UM_S_BAR_HUD_COLLECTION) },
+};
+
+constexpr auto KOF02UM_S_NUMUNIT_BAR = ARRAYSIZE(KOF02UM_S_UNITS_BAR);
+
+#define KOF02UM_S_EXTRALOC_BAR KOF02UM_S_NUMUNIT_BAR
+
+const sDescTreeNode KOF02UM_S_UNITS_MAIN[KOF02UM_S_NUMUNIT_MAIN] =
 {
     { L"Andy", DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANDY_COLLECTION, ARRAYSIZE(KOF02UM_S_ANDY_COLLECTION) },
     { L"Angel", DESC_NODETYPE_TREE, (void*)KOF02UM_S_ANGEL_COLLECTION, ARRAYSIZE(KOF02UM_S_ANGEL_COLLECTION) },

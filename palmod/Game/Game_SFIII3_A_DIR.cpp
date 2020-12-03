@@ -246,10 +246,20 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     // There is one byte from  5.0 followed by one byte from 5.1, up until the end of those SIMMs.
     // That is then followed by one byte from 5.6 followed by one byte from 5.7, repeat until end of SIMM.
     // So to read the SIMMs we need to perform shenanigans.
-    // The 10 ROMs are interleaved into 4 files - 1.0, 1.1, 1.2, 1.3.
+    // The 10 ROMs are interleaved into 4 files - 1.0, 1.1, 1.2, 1.3 and read at once
     const UINT32 nSIMMSetAdjustment = (nSIMMNumber > 3) ? 4 : 0;
     const UINT32 nBeginningRange = 0 + (c_nSFIII3SIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
-    const UINT32 nEndingRange = (c_nSFIII3SIMMLength * 2) + (c_nSFIII3SIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
+    UINT32 nEndingRange;
+
+    if (UsePaletteSetForGill())
+    {
+        // handle as a full set
+        nEndingRange = (c_nSFIII3SIMMLength * 2) + (c_nSFIII3SIMMLength * (4 - nSIMMSetAdjustment));
+    }
+    else
+    {
+        nEndingRange = (c_nSFIII3SIMMLength * 2) + (c_nSFIII3SIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
+    }
 
     CFile FilePeer;
     sFileRule PeerRule = GetNextRuleInternal(m_nSelectedRom);

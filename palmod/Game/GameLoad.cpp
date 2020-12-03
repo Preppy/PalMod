@@ -449,7 +449,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     }
     case KOF02UM_S:
     {
-        return new CGame_KOF02UM_S(nConfirmedROMSize);
+        return new CGame_KOF02UM_S(nConfirmedROMSize, nExtraGameData);
     }
     case KOF03_A:
     {
@@ -630,79 +630,45 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
     int nGameRule = 0;
 
     // Handle games that support multiple ROMs here
-    switch (nGameFlag)
-    {
-    case JOJOS_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
+    TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
 
-        if (pszFileName)
+    if (pszFileName)
+    {
+        // Step forward to the filename
+        pszFileName++;
+        _tcslwr(pszFileName);
+
+        switch (nGameFlag)
         {
-            // Step forward to the filename
-            pszFileName++;
+        case JOJOS_A:
             nGameRule = ((_tcscmp(pszFileName, _T("50")) == 0) ? 50 : 51);
-        }
-        break;
-    }
-    case MSHVSF_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+            break;
+        case KOF02UM_S:
+            nGameRule = ((_tcscmp(pszFileName, _T("bar.bin")) == 0) ? 1 : 0);
+            break;
+        case MSHVSF_A:
         {
-            // Step forward to the filename
-            pszFileName++;
-            _tcslwr(pszFileName);
             nGameRule = ((_tcsstr(pszFileName, _T(".06a")) != nullptr) ? 6 : 7);
+            break;
         }
-        break;
-    }
-    case MSH_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+        case MSH_A:
         {
-            // Step forward to the filename
-            pszFileName++;
-            _tcslwr(pszFileName);
             nGameRule = ((_tcsstr(pszFileName, _T(".05")) != nullptr) ? 5 : 6);
+            break;
         }
-        break;
-    }
-    case SFA2_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+        case SFA2_A:
         {
-            // Step forward to the filename
-            pszFileName++;
             nGameRule = ((_tcsstr(pszFileName, _T(".08")) != nullptr) ? 8 : 7);
+            break;
         }
-        break;
-    }
-    case SFIII3_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+        case SFIII3_A:
         {
-            // Step forward to the filename
-            pszFileName++;
             nGameRule = ((_tcsstr(pszFileName, _T("10")) != nullptr) ? 10 : 51);
+            break;
         }
-        break;
-    }
-    case SF2CE_A: // these two share logic until we care about 23
-    case SF2HF_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+        case SF2CE_A: // these two share logic until we care about 23
+        case SF2HF_A:
         {
-            // Step forward to the filename
-            pszFileName++;
             if (_tcsstr(pszFileName, _T("21")) != nullptr)
             {
                 nGameRule = 21;
@@ -715,17 +681,10 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             {
                 nGameRule = 22;
             }
+            break;
         }
-        break;
-    }
-    case SSF2T_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+        case SSF2T_A:
         {
-            // Step forward to the filename
-            pszFileName++;
             if (_tcsstr(pszFileName, _T(".03")) != nullptr)
             {
                 nGameRule = 3;
@@ -738,12 +697,12 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             {
                 nGameRule = 4;
             }
-        }
-        break;
-    }
-    default:
             break;
-    };
+        }
+        default:
+            break;
+        }
+    }
 
     CurrRule = GetRule(nGameRule);
 
