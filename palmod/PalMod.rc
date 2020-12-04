@@ -320,6 +320,7 @@ BEGIN
     POPUP "&File"
     BEGIN
         MENUITEM "L&oad ROM\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "Load ROM by game",            ID_FILE_OPEN_BY_GAME
         POPUP "&Load Directory"
         BEGIN
             POPUP "Jojo's"

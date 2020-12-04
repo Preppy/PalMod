@@ -193,6 +193,8 @@ protected:
 protected:
     HICON m_hIcon;
 
+    void OnFileOpenInternal(UINT nDefaultGameFilter = NUM_GAMES);
+
     // Generated message map functions
     virtual BOOL OnInitDialog();
     afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
@@ -266,7 +268,7 @@ public:
     afx_msg void OnBnShowPrev();
     afx_msg void OnSetFocus(CWnd* pOldWnd);
     afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
-    afx_msg void OnFileOpen();
+    afx_msg void OnFileOpen() { OnFileOpenInternal(); };
     afx_msg void OnButtonClickCheckEdits();
     afx_msg void OnBnRevert();
     afx_msg void OnBnBlink();

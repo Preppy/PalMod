@@ -48,7 +48,7 @@ CGame_SFIII2_A::CGame_SFIII2_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 780;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 846;
     m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII2_50;
     m_nLowestKnownPaletteRomLocation = 0x398000;
 
@@ -833,8 +833,8 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     BasePalGroup.AddSep(1, _T("Suit"), 0, 64);
 
                     ClearSetImgTicket(
-                        CreateImgTicket(NodeGet->uUnitId, 2,
-                            CreateImgTicket(NodeGet->uUnitId, 3, NULL, 9, 0)
+                        CreateImgTicket(index3S_CPS3_Urien, 2,
+                            CreateImgTicket(index3S_CPS3_Urien, 3, NULL, 0, 0)
                         )
                     );
 

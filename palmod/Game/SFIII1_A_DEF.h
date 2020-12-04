@@ -203,18 +203,18 @@ const sGame_PaletteDataset SFIII1_A_NECRO_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII1_A_NECRO_EXTRA_PALETTES[] =
 {
-    { L"Necro LP SA1 Pulse", 0x3d5980, 0x3d5a00 },
-    { L"Necro LP SA1 Trails", 0x3d5a00, 0x3d5a80 },
-    { L"Necro MP SA1 Pulse", 0x3d5b00, 0x3d5b80 },
-    { L"Necro MP SA1 Trails", 0x3d5b80, 0x3d5c00 },
-    { L"Necro HP SA1 Pulse", 0x3d5c80, 0x3d5d00 },
-    { L"Necro HP SA1 Trails", 0x3d5d00, 0x3d5d80 },
-    { L"Necro LK SA1 Pulse", 0x3d5e00, 0x3d5e80 },
-    { L"Necro LK SA1 Trails", 0x3d5e80, 0x3d5f00 },
-    { L"Necro MK SA1 Trails", 0x3d5f80, 0x3d6000 },
-    { L"Necro MK SA1 Trails", 0x3d6000, 0x3d6080 },
-    { L"Necro HK SA1 Trails", 0x3d6100, 0x3d6180 },
-    { L"Necro HK SA1 Trails", 0x3d6180, 0x3d6200 },
+    { L"Necro LP SA1 Pulse", 0x3d5980, 0x3d5a00, index3S_CPS3_Necro, 0x00 },
+    { L"Necro LP SA1 Trails", 0x3d5a00, 0x3d5a80, index3S_CPS3_Necro, 0x00 },
+    { L"Necro MP SA1 Pulse", 0x3d5b00, 0x3d5b80, index3S_CPS3_Necro, 0x00 },
+    { L"Necro MP SA1 Trails", 0x3d5b80, 0x3d5c00, index3S_CPS3_Necro, 0x00 },
+    { L"Necro HP SA1 Pulse", 0x3d5c80, 0x3d5d00, index3S_CPS3_Necro, 0x00 },
+    { L"Necro HP SA1 Trails", 0x3d5d00, 0x3d5d80, index3S_CPS3_Necro, 0x00 },
+    { L"Necro LK SA1 Pulse", 0x3d5e00, 0x3d5e80, index3S_CPS3_Necro, 0x00 },
+    { L"Necro LK SA1 Trails", 0x3d5e80, 0x3d5f00, index3S_CPS3_Necro, 0x00 },
+    { L"Necro MK SA1 Trails", 0x3d5f80, 0x3d6000, index3S_CPS3_Necro, 0x00 },
+    { L"Necro MK SA1 Trails", 0x3d6000, 0x3d6080, index3S_CPS3_Necro, 0x00 },
+    { L"Necro HK SA1 Trails", 0x3d6100, 0x3d6180, index3S_CPS3_Necro, 0x00 },
+    { L"Necro HK SA1 Trails", 0x3d6180, 0x3d6200, index3S_CPS3_Necro, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII1_A_HUGO_LP_PALETTES[] =

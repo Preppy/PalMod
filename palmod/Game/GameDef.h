@@ -136,6 +136,32 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"KOF03: 2004 EX Ultra Plus",
 };
 
+enum class GamePlatform
+{
+    CapcomCPS12 = 0,
+    CapcomCPS3,
+    NEOGEO,
+    Nintendo,
+    SammyAtomiswave,
+    SegaNAOMI,
+    Steam,
+    Unknown,
+    Last,
+};
+
+struct sSupportedGameList
+{
+    int nInternalGameIndex;
+    LPCTSTR szGameFriendlyName;
+    LPCTSTR szGameFilterString;
+    int nListedGameIndex = INVALID_UNIT_VALUE;
+    GamePlatform publisherKey = GamePlatform::Unknown;
+};
+
+const int nGameLoadROMListMask = 0xf0000;
+extern sSupportedGameList* pSupportedGameList;
+extern int nNumberOfLoadROMOptions;
+
 constexpr auto MVC2_D_NUMUNIT = 59;
 constexpr auto MVC2_D_NUMUNIT_WITH_TEAMVIEW = MVC2_D_NUMUNIT + 1;
 

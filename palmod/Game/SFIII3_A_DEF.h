@@ -302,26 +302,26 @@ const sGame_PaletteDataset SFIII3_A_NECRO_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_NECRO_EXTRA_PALETTES[] =
 {
-    { L"LP SA1 pulse", 0x704E00, 0x704E80 },
-    { L"LP SA1 Trails", 0x704E80, 0x704F00 },
+    { L"LP SA1 pulse", 0x704E00, 0x704E80, index3S_CPS3_Necro, 0x00 },
+    { L"LP SA1 Trails", 0x704E80, 0x704F00, index3S_CPS3_Necro, 0x00 },
     { L"LP Effie", 0x704F00, 0x704F80, index3S_CPS3_Necro, 0x2 },
-    { L"MP SA1 pulse", 0x704F80, 0x705000 },
-    { L"MP SA1 Trails", 0x705000, 0x705080 },
+    { L"MP SA1 pulse", 0x704F80, 0x705000, index3S_CPS3_Necro, 0x00 },
+    { L"MP SA1 Trails", 0x705000, 0x705080, index3S_CPS3_Necro, 0x00 },
     { L"MP Effie", 0x705080, 0x705100, index3S_CPS3_Necro, 0x2 },
-    { L"HP SA1 pulse", 0x705100, 0x705180 },
-    { L"HP SA1 Trails", 0x705180, 0x705200 },
+    { L"HP SA1 pulse", 0x705100, 0x705180, index3S_CPS3_Necro, 0x00 },
+    { L"HP SA1 Trails", 0x705180, 0x705200, index3S_CPS3_Necro, 0x00 },
     { L"HP Effie", 0x705200, 0x705280, index3S_CPS3_Necro, 0x2 },
-    { L"LK SA1 pulse", 0x705280, 0x705300 },
-    { L"LK SA1 Trails", 0x705300, 0x705380 },
+    { L"LK SA1 pulse", 0x705280, 0x705300, index3S_CPS3_Necro, 0x00 },
+    { L"LK SA1 Trails", 0x705300, 0x705380, index3S_CPS3_Necro, 0x00 },
     { L"LK Effie", 0x705380, 0x705400, index3S_CPS3_Necro, 0x2 },
-    { L"MK SA1 pulse", 0x705400, 0x705480  },
-    { L"MK SA1 Trails", 0x705480, 0x705500 },
+    { L"MK SA1 pulse", 0x705400, 0x705480 , index3S_CPS3_Necro, 0x00 },
+    { L"MK SA1 Trails", 0x705480, 0x705500, index3S_CPS3_Necro, 0x00 },
     { L"MK Effie", 0x705500, 0x705580, index3S_CPS3_Necro, 0x2 },
-    { L"HK SA1 pulse", 0x705580 , 0x705600  },
-    { L"HK SA1 Trails", 0x705600, 0x705680 },
+    { L"HK SA1 pulse", 0x705580 , 0x705600 , index3S_CPS3_Necro, 0x00 },
+    { L"HK SA1 Trails", 0x705600, 0x705680, index3S_CPS3_Necro, 0x00 },
     { L"HK Effie", 0x705680, 0x705700, index3S_CPS3_Necro, 0x2 },
-    { L"EX SA1 pulse", 0x705700, 0x705780  },
-    { L"EX SA1 Trails", 0x705780, 0x705800 },
+    { L"EX SA1 pulse", 0x705700, 0x705780 , index3S_CPS3_Necro, 0x00 },
+    { L"EX SA1 Trails", 0x705780, 0x705800, index3S_CPS3_Necro, 0x00 },
     { L"EX Effie", 0x705800, 0x705880, index3S_CPS3_Necro, 0x2 },
 };
 
@@ -835,7 +835,7 @@ const sGame_PaletteDataset SFIII3_A_URIEN_EXTRA_PALETTES[] =
 
     { L"P2 Intro", 0x706880, 0x706900, index3S_CPS3_Urien, 0x00, &pairHandledInCode },
     { L"P2 Suit", 0x706900, 0x706980, index3S_CPS3_Urien, 0x03 },
-    { L"P2 SA3 / Fire?", 0x706980, 0x706A00, index3S_CPS3_Urien, 0x05 },
+    { L"P2 SA3 / Fire", 0x706980, 0x706A00, index3S_CPS3_Urien, 0x05 },
 
     { L"Electroball", 0x706780, 0x706800, index3S_CPS3_Urien, 0x06 },
     { L"SA2 / Big Electroball", 0x706800, 0x706880, index3S_CPS3_Urien, 0x04 },
@@ -885,8 +885,8 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_EX_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_Support_PALETTES[] =
 {
-    { L"EX Attack (1)", 0x765480, 0x765500, index3S_CPS3_Gouki, 0 },
-    { L"EX Attack (2)", 0x76b480, 0x76b500, index3S_CPS3_Gouki, 0 },
+    { L"EX Attack (1) (Unused)", 0x765480, 0x765500, index3S_CPS3_Gouki, 0 },
+    { L"EX Attack (2) (Unused)", 0x76b480, 0x76b500, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769000, 0x769080, index3S_CPS3_Gouki, 0 },
     { L"SA Animation 1/Parry", 0x769080, 0x769100, index3S_CPS3_Gouki, 0 },
     { L"SA Animation 2", 0x769100, 0x769180, index3S_CPS3_Gouki, 0 },
@@ -925,8 +925,8 @@ const sGame_PaletteDataset SFIII3_A_SHINGOUKI_MP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_Support_PALETTES[] =
 {
-    { L"EX Attack (1)", 0x765500, 0x765580, index3S_CPS3_Gouki, 0 },
-    { L"EX Attack (2)", 0x76b500, 0x76b580, index3S_CPS3_Gouki, 0 },
+    { L"EX Attack (1) (Unused)", 0x765500, 0x765580, index3S_CPS3_Gouki, 0 },
+    { L"EX Attack (2) (Unused)", 0x76b500, 0x76b580, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769400, 0x769480, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769480, 0x769500, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769500, 0x769580, index3S_CPS3_Gouki, 0 },
@@ -957,8 +957,8 @@ const sGame_PaletteDataset SFIII3_A_USEAN_MP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_USEAN_Support_PALETTES[] =
 {
-    { L"EX Attack (1)", 0x765500, 0x765580, index3S_CPS3_Sean, 0 },
-    { L"EX Attack (2)", 0x76b500, 0x76b580, index3S_CPS3_Sean, 0 },
+    { L"EX Attack (1) (Unused)", 0x765500, 0x765580, index3S_CPS3_Sean, 0 },
+    { L"EX Attack (2) (Unused)", 0x76b500, 0x76b580, index3S_CPS3_Sean, 0 },
     { L"????", 0x769400, 0x769480, index3S_CPS3_Sean, 0 },
     { L"????", 0x769480, 0x769500, index3S_CPS3_Sean, 0 },
     { L"????", 0x769500, 0x769580, index3S_CPS3_Sean, 0 },
@@ -1755,7 +1755,7 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Vs Text",                           0x70C780, 0x70C880 },
 
     { L"Opening ring animation + SA Text",  0x709D00, 0x709D80 },
-    { L"SA Animation?",                     0x77A280, 0x77A2A0 },
+    { L"SA Animation",                      0x77A280, 0x77A2A0 },
     { L"P1 Impacts",                        0x76AC80, 0x76AD00 },
     { L"P2 Impacts",                        0x76AC00, 0x76AC80 },
     { L"Numerals, Inputs, Buttons: Super Art Selector", 0x709E00, 0x709E80 },

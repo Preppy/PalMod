@@ -3082,7 +3082,7 @@ const sDescTreeNode JOJOS_A_CHARACTER_COLLECTION_GRAYFLY[] =
 const sGame_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
 {
     { L"Mode select - Challenge & Story signs", 0x030d480, 0x030d500 },
-    { L"Character Select Background", 0x0310100, 0x0310180 },
+    { L"Character Select Background", 0x0310100, 0x0310180, indexJojos51Bonus, 0x46 },
     { L"Selector Rings", 0x0310080, 0x0310100 },
     { L"Character Select Comic", 0x0310000, 0x0310080 },
     { L"Extra characters page arrows", 0x0310500, 0x0310580 },
@@ -3151,7 +3151,7 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
 
 const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
 {
-    { L"Aja Stone", 0x0335800, 0x0335820 },
+    { L"Aja Stone", 0x0335800, 0x0335820, indexJojos51Bonus, 0x45 },
     { L"Extra Character Dust and Blood", 0x0335860, 0x0335880 },
     { L"Super Flash / Zap Effects", 0x0335840, 0x0335860 },
     { L"Blocksparks/OldSeph 360/Small Explosions", 0x03358a0, 0x0335900 },

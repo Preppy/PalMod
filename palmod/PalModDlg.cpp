@@ -185,6 +185,8 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_LD_SFIII3ARCADE10, &CPalModDlg::OnLoadDir_SFIII3Arcade10)
     ON_COMMAND(ID_LD_SFIII3ARCADE51, &CPalModDlg::OnLoadDir_SFIII3Arcade51)
     ON_COMMAND(ID_LD_SFIII3ARCADE4rd, &CPalModDlg::OnLoadDir_SFIII3Arcade4rd)
+
+    ON_COMMAND_RANGE(nGameLoadROMListMask, nGameLoadROMListMask + NUM_GAMES, &CPalModDlg::OnFileOpenInternal)
 END_MESSAGE_MAP()
 
 #pragma warning( pop )
@@ -424,8 +426,8 @@ BOOL CPalModDlg::PreTranslateMessage(MSG* pMsg)
         {
             pMsg->wParam = NULL;
         }
+        break;
     }
-    break;
 
     case WM_NOTIFY:
     {

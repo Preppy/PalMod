@@ -9,6 +9,61 @@
 constexpr auto c_strLastUsedPath = L"LastUsedPath";
 constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
 
+// NOTE: If you add a multiple-ROM option below, you will also need to update
+// CGameLoad::LoadFile to pass the appropriate gameflag to that game.
+sSupportedGameList SupportedGameList[] =
+{
+    { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.p1|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls|3494*Europe*nds;2761*US*nds|", INVALID_UNIT_VALUE, GamePlatform::Nintendo }, // Sega
+    { COTA_A,           L"COTA", L"COTA|xmn*.05*|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { CVS2_A,           L"CVS2", L"CVS2|SNKGD_SL.bin|", INVALID_UNIT_VALUE, GamePlatform::SegaNAOMI },
+    { Garou_A,          L"Garou", L"Garou|kf.neo-sma|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { Garou_S,          L"Garou for Steam", L"Garou for Steam|p1.bin|", INVALID_UNIT_VALUE, GamePlatform::Steam },
+    { JOJOS_A,          L"Jojo's: HFTF", L"Jojos (Japan): HUDs and menus (50), Characters (51)|50;51|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS3 },
+    { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO }, // DataEast
+    { KOF98_A,          L"KOF98", L"KOF98|242-p2.sp2;kof98_p2.rom|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
+    { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { KOF02UM_S,        L"KOF02UM for Steam", L"KOF02UM|pal_a*.bin;bar.bin|", INVALID_UNIT_VALUE, GamePlatform::Steam },
+    { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)", L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { KOFXI_A,          L"KOFXI", L"KOFXI|gdrom_KOFXI_v5_AllFighters.bin|", INVALID_UNIT_VALUE, GamePlatform::SammyAtomiswave },
+    { MATRIMELEE_A,     L"Matrimelee", L"Matrimelee|266-p2.sp2|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { MSHVSF_A,         L"MSHVSF", L"MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { MVC_A,            L"Marvel vs Capcom", L"MVC Arcade|mvc*.06*|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    // MarvelVsCapcom2.bin
+    // Unlocked\MarvelVsCapcom2_unlocked.bin
+    { MVC2_A,           L"MVC2", L"MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|", INVALID_UNIT_VALUE, GamePlatform::SegaNAOMI },
+    { NGBC_A,           L"NGBC", L"NGBC|NeoGeoBattleColliseum.bin|", INVALID_UNIT_VALUE, GamePlatform::SammyAtomiswave },
+    // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
+    { RBFFS_A,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special|223*p1*|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { REDEARTH_A,       L"Red Earth", L"Red Earth|31|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS3 },
+    { SAMSHO3_A,        L"Samurai Shodown 3", L"Samurai Shodown 3|087-p5.p5|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { SAMSHO5SP_A,      L"Samurai Shodown 5 Special", L"Samurai Shodown 5 Special|272-p1*.p1;p1*h*.bin|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { SFA1_A,           L"SFA1", L"SFA1|sfz.06|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { SFA3_A,           L"SFA3", L"SFA3 sz3.09c|*.09*|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { SFIII1_A,         L"SFIII:NG", L"SFIII:NG Arcade|50|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS3 },
+    { SFIII2_A,         L"SFIII:2I", L"SFIII:2I Arcade|50|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS3 },
+    { SFIII3_A,         L"SFIII:3S", L"SFIII:3S Arcade (51), Gill glow/X.C.O.P.Y. (10)|10;51|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS3 },
+    { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { SSF2T_GBA,        L"SSF2T: Revival (GBA)", L"SSF2T: Revival (GBA)|Super*Street*Fighter*.gba|", INVALID_UNIT_VALUE, GamePlatform::Nintendo },
+    { GEMFIGHTER_A,     L"Super Gem Fighter", L"Super Gem Fighter|pcf*.07|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { SVCPLUSA_A,       L"SVC Plus A", L"SVC PlusA|svc-p2pl.bin|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { VHUNT2_A,         L"Vampire Hunter 2", L"Vampire Hunter 2|vh2j.09|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { VSAV_A,           L"Vampire Savior", L"Vampire Savior|vm3*.10b|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { VSAV2_A,          L"Vampire Savior 2", L"Vampire Savior 2|vs2j.10|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { WakuWaku7_A,      L"Waku Waku 7", L"Waku Waku 7|225-p1.p1|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { WINDJAMMERS_A,    L"Windjammers", L"Windjammers|065-p1.p1|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO }, // Data East on NEOGEO
+    { XMVSF_A,          L"XMVSF", L"XMVSF|xvs*.05*|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
+    { NEOGEO_A,         L"Unknown Game Mode", L"Unknown Game ROM|*.*|", INVALID_UNIT_VALUE },
+};
+
+sSupportedGameList* pSupportedGameList = SupportedGameList;
+int nNumberOfLoadROMOptions = ARRAYSIZE(SupportedGameList);
+
 void CPalModDlg::LoadGameDir(int nGameFlag, TCHAR* szLoadDir)
 {
     ClearGameVar();
@@ -410,77 +465,21 @@ void CPalModDlg::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
     // TODO: Add your message handler code here
 }
 
-void CPalModDlg::OnFileOpen()
+void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
 {
     CString szGameFileDef = L"";
 
-    struct sSupportedGameList
-    {
-        int nInternalGameIndex;
-        LPCTSTR szGameFilterString;
-        int nListedGameIndex = INVALID_UNIT_VALUE;
-    };
-
-    // NOTE: If you add a multiple-ROM option below, you will also need to update
-    // CGameLoad::LoadFile to pass the appropriate gameflag to that game.
-    sSupportedGameList SupportedGameList[] =
-    {
-        { BREAKERS_A,       L"Breakers Revenge|245-p1.p1|", INVALID_UNIT_VALUE },
-        { BLEACH_DS,        L"Bleach Dark Souls|3494*Europe*nds;2761*US*nds|", INVALID_UNIT_VALUE },
-        { COTA_A,           L"COTA|xmn*.05*|", INVALID_UNIT_VALUE },
-        { CVS2_A,           L"CVS2|SNKGD_SL.bin|", INVALID_UNIT_VALUE },
-        { Garou_A,          L"Garou|kf.neo-sma|", INVALID_UNIT_VALUE },
-        { Garou_S,          L"Garou for Steam|p1.bin|", INVALID_UNIT_VALUE },
-        { JOJOS_A,          L"Jojos (Japan): HUDs and menus (50), Characters (51)|50;51|", INVALID_UNIT_VALUE },
-        { KarnovsR_A,       L"Karnov's Revenge|066-p1.p1|", INVALID_UNIT_VALUE },
-        { KOF98_A,          L"KOF98|242-p2.sp2;kof98_p2.rom|", INVALID_UNIT_VALUE },
-        // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
-        { KOF02_A,          L"KOF02|265*p2*|", INVALID_UNIT_VALUE },
-        { KOF02UM_S,        L"KOF02UM|pal_a*.bin;bar.bin|", INVALID_UNIT_VALUE },
-        { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", INVALID_UNIT_VALUE },
-        { KOFXI_A,          L"KOFXI|gdrom_KOFXI_v5_AllFighters.bin|", INVALID_UNIT_VALUE },
-        { MATRIMELEE_A,     L"Matrimelee|266-p2.sp2|", INVALID_UNIT_VALUE },
-        { MSH_A,            L"MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|", INVALID_UNIT_VALUE },
-        { MSHVSF_A,         L"MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", INVALID_UNIT_VALUE },
-        { MVC_A,            L"MVC Arcade|mvc*.06*|", INVALID_UNIT_VALUE },
-        // MarvelVsCapcom2.bin
-        // Unlocked\MarvelVsCapcom2_unlocked.bin
-        { MVC2_A,           L"MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|", INVALID_UNIT_VALUE },
-        { NGBC_A,           L"NGBC|NeoGeoBattleColliseum.bin|", INVALID_UNIT_VALUE },
-        // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
-        { RBFFS_A,          L"Real Bout Fatal Fury Special|223*p1*|", INVALID_UNIT_VALUE },
-        { REDEARTH_A,       L"Red Earth|31|", INVALID_UNIT_VALUE },
-        { SAMSHO3_A,        L"Samurai Shodown 3|087-p5.p5|", INVALID_UNIT_VALUE},
-        { SAMSHO5SP_A,      L"Samurai Shodown 5 Special|272-p1*.p1;p1*h*.bin|", INVALID_UNIT_VALUE},
-        { SFA1_A,           L"SFA1|sfz.06|", INVALID_UNIT_VALUE },
-        { SFA2_A,           L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", INVALID_UNIT_VALUE },
-        { SFA3_A,           L"SFA3 sz3.09c|*.09*|", INVALID_UNIT_VALUE },
-        { SFIII1_A,         L"SFIII:NG Arcade|50|", INVALID_UNIT_VALUE },
-        { SFIII2_A,         L"SFIII:2I Arcade|50|", INVALID_UNIT_VALUE },
-        { SFIII3_A,         L"SFIII:3S Arcade (51), Gill glow/X.C.O.P.Y. (10)|10;51|", INVALID_UNIT_VALUE },
-        { SF2CE_A,          L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", INVALID_UNIT_VALUE },
-        { SF2HF_A,          L"SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f|", INVALID_UNIT_VALUE },
-        { SSF2T_A,          L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|", INVALID_UNIT_VALUE },
-        { SSF2T_GBA,        L"SSF2T: Revival (GBA)|Super*Street*Fighter*.gba|", INVALID_UNIT_VALUE },
-        { GEMFIGHTER_A,     L"Super Gem Fighter|pcf*.07|", INVALID_UNIT_VALUE },
-        { SVCPLUSA_A,       L"SVC PlusA|svc-p2pl.bin|", INVALID_UNIT_VALUE },
-        { VHUNT2_A,         L"Vampire Hunter 2|vh2j.09|", INVALID_UNIT_VALUE },
-        { VSAV_A,           L"Vampire Savior|vm3*.10b|", INVALID_UNIT_VALUE },
-        { VSAV2_A,          L"Vampire Savior 2|vs2j.10|", INVALID_UNIT_VALUE },
-        { WakuWaku7_A,      L"Waku Waku 7|225-p1.p1|", INVALID_UNIT_VALUE },
-        { WINDJAMMERS_A,    L"Windjammers|065-p1.p1|", INVALID_UNIT_VALUE },
-        { XMVSF_A,          L"XMVSF|xvs*.05*|", INVALID_UNIT_VALUE },
-        { NEOGEO_A,         L"Unknown Game ROM|*.*|", INVALID_UNIT_VALUE },
-    };
+    nDefaultGameFilter = nDefaultGameFilter & 0xffff; // eliminate the applied mask that we use to avoid existing menu items
 
     // The following logic ensures that their last used selection is the default filter view.
     int nCurrentGameListIndex = 1; // 0 is for special data in OFN
 
     {
-        int nLastUsedGFlag;
+        int nLastUsedGFlag = nDefaultGameFilter;
         TCHAR szLastDir[MAX_PATH];
 
-        if (GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, nullptr))
+        if ((nLastUsedGFlag != NUM_GAMES) ||
+            GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, nullptr))
         {
             for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
             {
@@ -560,9 +559,16 @@ void CPalModDlg::OnFileOpen()
                 if (currentGame.nListedGameIndex == ofn.nFilterIndex)
                 {
                     LoadGameFile(currentGame.nInternalGameIndex, (TCHAR*)ofn.lpstrFile);
+                    break;
                 }
             }
         }
+    }
+
+    // Reset the sort
+    for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
+    {
+        SupportedGameList[nArrayPosition].nListedGameIndex = INVALID_UNIT_VALUE;
     }
 }
 
