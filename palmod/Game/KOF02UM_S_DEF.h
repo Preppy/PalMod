@@ -600,7 +600,7 @@ const sGame_PaletteDataset KOF02UM_S_BILLY_PALETTES_MOVES[] =
 {
     { L"Billy Fire Wheel",       0x1b400, 0x1b420, indexKOFSprites_02UM_Billy, 0x03 },
     { L"Billy Fire Wheel Hit",   0x1b420, 0x1b440, indexKOFSprites_02UM_Billy, 0x04 },
-    // Unused: { L"Billy Fire Pillar",      0x1b4c0, 0x1b4e0, indexKOFSprites_02UM_Billy, 0x02 },
+    { L"Billy Fire Pillar",      0x1b4c0, 0x1b4e0, indexKOFSprites_02UM_Billy, 0x02 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_CHANG_PALETTES_MOVES[] =

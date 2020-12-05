@@ -3173,8 +3173,8 @@ const sGame_PaletteDataset KOF02_A_Choi_PALETTES_SHARED[] =
 const sGame_PaletteDataset KOF02_A_Athena_PALETTES_SHARED[] =
 {
     { L"SDM Orbs",                          0x9fd62, 0x9fd82, indexKOFSprites_02UM_Athena, 0x10 },
-    { L"Psycho Ball Hit",                   0x9fde2, 0x9fe02, indexKOFSprites_02UM_Athena, 0x0b },
-    { L"SDM Stuff and Portals",             0x9fe02, 0x9fe22, indexKOFSprites_02UM_Athena, 0x03 },
+    { L"Psycho Ball Hit",                   0x9fde2, 0x9fe02, indexKOFSprites_02UM_Athena, 0x03 },
+    { L"SDM Stuff and Portals",             0x9fe02, 0x9fe22, indexKOFSprites_02UM_Athena, 0x11 },
     { L"Psycho Reflector and SDM Finisher", 0x9fe42, 0x9fe62 },
 };
 
@@ -3265,14 +3265,15 @@ const sGame_PaletteDataset KOF02_A_Mature_PALETTES_SHARED[] =
     { L"Ebony Tears and SDM/MAX Finisher",  0xa1762, 0xa1782, indexKOFSprites_02UM_Mature, 0x02 },
     { L"Special Attack Effects",            0xa1782, 0xa17a2, indexKOFSprites_02UM_Mature, 0x02 },
     { L"SDM Heaven's Gate",                 0xa17a2, 0xa17c2, indexKOFSprites_02UM_Mature, 0x10 },
-    { L"MAX Heaven's Gate",                 0xa17e2, 0xa1802, indexKOFSprites_02UM_Mature, 0x09 },
+    //This isn't heaven's gate ... { L"MAX Heaven's Gate",                 0xa17e2, 0xa1802, indexKOFSprites_02UM_Mature, 0x09 },
+    { L"MAX Heaven's Gate",                 0xa1802, 0xa1822, indexKOFSprites_02UM_Mature, 0x09 },
 };
 
 const sGame_PaletteDataset KOF02_A_Vice_PALETTES_SHARED[] =
 {
     { L"Outrage and Ravenous",  0xa1962, 0xa1982, indexKOFSprites_02UM_Vice, 0x02 },
     { L"SDM Effects",           0xa19a2, 0xa19c2, indexKOFSprites_02UM_Vice, 0x10 },
-    { L"MAX Effects",           0xa19c2, 0xa19e2, indexKOFSprites_02UM_Vice, 0x1a },
+    { L"MAX Effects",           0xa19c2, 0xa19e2, indexKOFSprites_02UM_Vice, 0x0a },
 };
 
 const sGame_PaletteDataset KOF02_A_Yamazaki_PALETTES_SHARED[] =
@@ -3295,7 +3296,6 @@ const sGame_PaletteDataset KOF02_A_Billy_PALETTES_SHARED[] =
     { L"Fire Wheel",        0xa1f62, 0xa1f82, indexKOFSprites_02UM_Billy, 0x03 },
     { L"Fire Wheel Hit",    0xa1f82, 0xa1fa2, indexKOFSprites_02UM_Billy, 0x04 },
     { L"Fire Pillar",       0xa2042, 0xa2062, indexKOFSprites_02UM_Billy, 0x02 },
-    { L"02UM Fire Pillar",  0x1b4e0, 0x1b500, indexKOFSprites_02UM_Billy, 0x02 },
 };
 
 const sGame_PaletteDataset KOF02_A_Yashiro_PALETTES_SHARED[] =
@@ -3370,9 +3370,9 @@ const sGame_PaletteDataset KOF02_A_Kula_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset KOF02_A_K9999_PALETTES_SHARED[] =
 {
-    { L"Special Move Fire",         0xa3562, 0xa3582 },
-    { L"Special Move Dust",         0xa3582, 0xa35a2 },
-    { L"SDM Explosion and Effects", 0xa35a2, 0xa35c2 },
+    { L"Special Move Fire",         0xa3562, 0xa3582, indexKOFSprites_02K9999, 0x10 },
+    { L"Special Move Dust",         0xa3582, 0xa35a2, indexKOFSprites_02K9999, 0x08 },
+    { L"SDM Explosion and Effects", 0xa35a2, 0xa35c2, indexKOFSprites_02K9999, 0x09 },
 };
 
 const sGame_PaletteDataset KOF02_A_OmegaRugal_PALETTES_SHARED[] =
@@ -3418,9 +3418,9 @@ const sGame_PaletteDataset KOF02_A_OrochiShermie_PALETTES_SHARED[] =
 const sGame_PaletteDataset KOF02_A_OrochiChris_PALETTES_SHARED[] =
 {
     { L"Orochi Fire",               0xa4162, 0xa4182, indexKOFSprites_02UM_ChrisOChi, 0x02 },
-    { L"Idle Orochi Flames",        0xa41e2, 0xa4202, indexKOFSprites_02UM_ChrisOChi, 0x02 },
+    { L"Idle Orochi Flames",        0xa41e2, 0xa4202, indexKOFSprites_02UM_ChrisOChi, 0x03 },
     { L"Ankoku Orochinagi Fire 1",  0xa41c2, 0xa41e2, indexKOFSprites_02UM_ChrisOChi, 0x02 },
-    { L"Ankoku Orochinagi Fire 2",  0xa4202, 0xa4222, indexKOFSprites_02UM_ChrisOChi, 0x02 },
+    { L"Ankoku Orochinagi Fire 2",  0xa4202, 0xa4222, indexKOFSprites_02UM_ChrisOChi, 0x04 },
 };
 
 const sDescTreeNode KOF02_A_KYO_COLLECTION[] =

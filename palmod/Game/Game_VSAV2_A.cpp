@@ -10,7 +10,6 @@ stExtraDef* CGame_VSAV2_A::VSAV2_A_EXTRA_CUSTOM = nullptr;
 CDescTree CGame_VSAV2_A::MainDescTree = nullptr;
 
 int CGame_VSAV2_A::rgExtraCountAll[VSAV2_A_NUMUNIT + 1] = { -1 };
-int CGame_VSAV2_A::rgExtraCountVisibleOnly[VSAV2_A_NUMUNIT + 1] = { -1 };
 int CGame_VSAV2_A::rgExtraLoc[VSAV2_A_NUMUNIT + 1] = { -1 };
 
 UINT32 CGame_VSAV2_A::m_nTotalPaletteCountForVSAV2 = 0;
@@ -23,7 +22,6 @@ void CGame_VSAV2_A::InitializeStatics()
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
-    memset(rgExtraCountVisibleOnly, -1, sizeof(rgExtraCountVisibleOnly));
 
     MainDescTree.SetRootTree(CGame_VSAV2_A::InitDescTree());
 }
@@ -32,6 +30,7 @@ CGame_VSAV2_A::CGame_VSAV2_A(UINT32 nConfirmedROMSize)
 {
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
+
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
@@ -107,31 +106,22 @@ UINT32 CGame_VSAV2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
 
 int CGame_VSAV2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly : (int*)rgExtraCountAll;
-
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
         memset(rgExtraCountAll, 0, (VSAV2_A_NUMUNIT + 1) * sizeof(int));
-        memset(rgExtraCountVisibleOnly, 0, (VSAV2_A_NUMUNIT + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetExtraDefForVSAV2(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
             rgExtraCountAll[pCurrDef->uUnitN]++;
-
-            if (!pCurrDef->isInvisible)
-            {
-                rgExtraCountVisibleOnly[pCurrDef->uUnitN]++;
-            }
-
             nDefCtr++;
             pCurrDef = GetExtraDefForVSAV2(nDefCtr);
         }
     }
 
-    return rgExtraCt[nUnitId];
+    return rgExtraCountAll[nUnitId];
 }
 
 int CGame_VSAV2_A::GetExtraLoc(UINT16 nUnitId)

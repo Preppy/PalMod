@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "ImgDat.h"
 #include "Game\GameDef.h"
+#include "PalMod.h"
 
 #define IMGDAT_DEBUG 0
 
@@ -535,13 +536,46 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
 
     bOnTheFly = !bLoadAll;
 
-    //Skip image verification
-    ImgDatFile.Seek(0x04, CFile::current);
+    UINT16 nYear = 0;
+    UINT8 nMonth = 0, nDay = 0, nDailyRevision = 0;
+
+    ImgDatFile.Read(&nYear, 0x02);
+    ImgDatFile.Read(&nMonth, 0x01);
+    ImgDatFile.Read(&nDay, 0x01);
+    ImgDatFile.Read(&nDailyRevision, 0x01);
+
     ImgDatFile.Read(&uNumGames, 0x01);
-    ImgDatFile.Seek(0x01, CFile::current);
+
+    const UINT16 nExpectedYear = 2020;
+    const UINT8 nExpectedMonth = 12;
+    const UINT8 nExpectedDay = 4;
+    const UINT8 nExpectedRevision = 0;
+
+    strDebugInfo.Format(L"CImgDat::LoadImage: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames);
+    OutputDebugString(strDebugInfo);
 
     if (uNumGames)
     {
+        static bool s_fHavePerformedVersionCheck = false;
+
+        if (!s_fHavePerformedVersionCheck)
+        {
+            s_fHavePerformedVersionCheck = true;
+            if (uNumGames != IMGDAT_SECTION_LAST)
+            {
+                strDebugInfo.Format(L"Warning: You didn't copy the new img2020.dat.  Images may not show up correctly.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
+                MessageBox(g_appHWnd, strDebugInfo, GetHost()->GetAppName(), MB_ICONERROR);
+            }
+            else if ((nYear != nExpectedYear) ||
+                     (nMonth != nExpectedMonth) ||
+                     (nDay != nExpectedDay) ||
+                     (nDailyRevision != nExpectedRevision))
+            {
+                strDebugInfo.Format(L"Please note that you are using an out of date version of img2020.dat.  Some newly added images will not be available.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
+                MessageBox(g_appHWnd, strDebugInfo, GetHost()->GetAppName(), MB_ICONWARNING);
+            }
+        }
+
         for (int nGameCtr = 0; nGameCtr < uNumGames; nGameCtr++)
         {
             ImgDatFile.Read(&uReadGameFlag, 0x01);

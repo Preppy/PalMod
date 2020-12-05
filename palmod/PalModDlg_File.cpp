@@ -473,25 +473,13 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
 
     // The following logic ensures that their last used selection is the default filter view.
     int nCurrentGameListIndex = 1; // 0 is for special data in OFN
+    int nLastUsedGFlag = nDefaultGameFilter;
 
     {
-        int nLastUsedGFlag = nDefaultGameFilter;
         TCHAR szLastDir[MAX_PATH];
 
-        if ((nLastUsedGFlag != NUM_GAMES) ||
-            GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, nullptr))
-        {
-            for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
-            {
-                if (SupportedGameList[nArrayPosition].nInternalGameIndex == nLastUsedGFlag)
-                {
-                    szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
-                    SupportedGameList[nArrayPosition].nListedGameIndex = nCurrentGameListIndex++;
-                    break;
-                }
-            }
-        }
-        else
+        if ((nLastUsedGFlag == NUM_GAMES) &&
+            !GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, nullptr))
         {
             // If we're here, that means that they have never used PalMod to load a game before.  Help them.
             CString strInfo;
@@ -515,6 +503,21 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
         }
     }
 
+    // Add the chosen game if any
+    for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
+    {
+        if (SupportedGameList[nArrayPosition].nInternalGameIndex == nLastUsedGFlag)
+        {
+            szGameFileDef.Append(SupportedGameList[nArrayPosition].szGameFilterString);
+            SupportedGameList[nArrayPosition].nListedGameIndex = nCurrentGameListIndex++;
+        }
+        else
+        {
+            SupportedGameList[nArrayPosition].nListedGameIndex = INVALID_UNIT_VALUE;
+        }
+    }
+
+    // Add everything else
     for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
     {
         if (SupportedGameList[nArrayPosition].nListedGameIndex == INVALID_UNIT_VALUE)
@@ -563,12 +566,6 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
                 }
             }
         }
-    }
-
-    // Reset the sort
-    for (int nArrayPosition = 0; nArrayPosition < ARRAYSIZE(SupportedGameList); nArrayPosition++)
-    {
-        SupportedGameList[nArrayPosition].nListedGameIndex = INVALID_UNIT_VALUE;
     }
 }
 
@@ -1312,13 +1309,13 @@ bool CPalModDlg::SavePaletteToGPL(LPCTSTR pszFileName)
 
         // Write the header...
         strcpy(szBuffer, "GIMP Palette\n");
-        GPLFile.Write(szBuffer, strlen(szBuffer));
+        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
         sprintf(szBuffer, "Name: %S\n", m_PalHost.GetPalName(0));
-        GPLFile.Write(szBuffer, strlen(szBuffer));
+        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
         strcpy(szBuffer, "Columns: 0\n");
-        GPLFile.Write(szBuffer, strlen(szBuffer));
+        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
         strcpy(szBuffer, "# Created by PalMod\n");
-        GPLFile.Write(szBuffer, strlen(szBuffer));
+        GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
 
         // Write out the colors...
         UINT8* pPal = (UINT8*)CurrPalCtrl->GetBasePal();
@@ -1339,7 +1336,7 @@ bool CPalModDlg::SavePaletteToGPL(LPCTSTR pszFileName)
         for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
         {
             sprintf(szBuffer, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
-            GPLFile.Write(szBuffer, strlen(szBuffer));
+            GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
         }
 
         for (UINT8 nCurrentPage = 1; nCurrentPage < nPalettePageCount; nCurrentPage++)
@@ -1353,7 +1350,7 @@ bool CPalModDlg::SavePaletteToGPL(LPCTSTR pszFileName)
                 for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
                 {
                     sprintf(szBuffer, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
-                    GPLFile.Write(szBuffer, strlen(szBuffer));
+                    GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
                     nTotalColorsUsed++;
                 }
             }

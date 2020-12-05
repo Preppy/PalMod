@@ -133,7 +133,7 @@ const sGame_PaletteDataset WakuWaku7_A_DANDYJ_DARK_PALETTES[] =
 
 const sGame_PaletteDataset WakuWaku7_A_MAURU_A_PALETTES[] =
 {
-    { L"Mauru A", 0xee1C, 0xee3C, indexWakuWaku7Sprites_Mauru, 0x00 },
+    { L"Mauru A", 0xee1C, 0xee3C, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
     { L"Mugi A", 0xF298, 0xF2B8, indexWakuWaku7Sprites_Mauru, 0x12 },
     { L"Mauru A SEL Portrait", 0x11d58, 0x11db8, indexWakuWaku7Sprites_Mauru, 0x10 },
     { L"Mauru A HUD Portrait", 0x178d8, 0x178f8, indexWakuWaku7Sprites_Mauru, 0x11 },
@@ -141,7 +141,7 @@ const sGame_PaletteDataset WakuWaku7_A_MAURU_A_PALETTES[] =
 
 const sGame_PaletteDataset WakuWaku7_A_MAURU_B_PALETTES[] =
 {
-    { L"Mauru B", 0xEE3C, 0xEE5C, indexWakuWaku7Sprites_Mauru, 0x00 },
+    { L"Mauru B", 0xEE3C, 0xEE5C, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
     { L"Mugi B", 0xF2B8, 0xF2D8, indexWakuWaku7Sprites_Mauru, 0x12 },
     { L"Mauru B SEL Portrait", 0x11db8, 0x11e18, indexWakuWaku7Sprites_Mauru, 0x10 },
     { L"Mauru B HUD Portrait", 0x178f8, 0x17918, indexWakuWaku7Sprites_Mauru, 0x11 },
@@ -149,7 +149,7 @@ const sGame_PaletteDataset WakuWaku7_A_MAURU_B_PALETTES[] =
 
 const sGame_PaletteDataset WakuWaku7_A_MAURU_C_PALETTES[] =
 {
-    { L"Mauru C", 0xEE5C, 0xEE7C, indexWakuWaku7Sprites_Mauru, 0x00 },
+    { L"Mauru C", 0xEE5C, 0xEE7C, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
     { L"Mugi C", 0xF2D8, 0xF2F8, indexWakuWaku7Sprites_Mauru, 0x12 },
     { L"Mauru C SEL Portrait", 0x11e18, 0x11e78, indexWakuWaku7Sprites_Mauru, 0x10 },
     { L"Mauru C HUD Portrait", 0x17918, 0x17938, indexWakuWaku7Sprites_Mauru, 0x11 },
@@ -157,7 +157,7 @@ const sGame_PaletteDataset WakuWaku7_A_MAURU_C_PALETTES[] =
 
 const sGame_PaletteDataset WakuWaku7_A_MAURU_D_PALETTES[] =
 {
-    { L"Mauru D", 0xEE7C, 0xEE9C, indexWakuWaku7Sprites_Mauru, 0x00 },
+    { L"Mauru D", 0xEE7C, 0xEE9C, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
     { L"Mugi D", 0xF2F8, 0xF318, indexWakuWaku7Sprites_Mauru, 0x12 },
     { L"Mauru D SEL Portrait", 0x11e78, 0x11ed8, indexWakuWaku7Sprites_Mauru, 0x10 },
     { L"Mauru D HUD Portrait", 0x17938, 0x17958, indexWakuWaku7Sprites_Mauru, 0x11 },
@@ -165,7 +165,7 @@ const sGame_PaletteDataset WakuWaku7_A_MAURU_D_PALETTES[] =
 
 const sGame_PaletteDataset WakuWaku7_A_MAURU_DARK_PALETTES[] =
 {
-    { L"Mauru Dark", 0xf21c, 0xf23c, indexWakuWaku7Sprites_Mauru, 0x00 },
+    { L"Mauru Dark", 0xf21c, 0xf23c, indexWakuWaku7Sprites_Mauru, 0x00, &pairNext },
     { L"Mugi Dark", 0xF698, 0xF6B8, indexWakuWaku7Sprites_Mauru, 0x12 },
     { L"Mauru Dark SEL Portrait", 0x11ED8, 0x11F38, indexWakuWaku7Sprites_Mauru, 0x10 },
     { L"Mauru Dark HUD Portrait", 0x17958, 0x17978, indexWakuWaku7Sprites_Mauru, 0x11 },

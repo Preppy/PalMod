@@ -334,10 +334,10 @@ BOOL IsPasteFromPalMod()
     }
 
     HGLOBAL hmem = obj.GetGlobalData(CF_TEXT);
-    CMemFile sf((BYTE*) ::GlobalLock(hmem), ::GlobalSize(hmem));
+    CMemFile sf((BYTE*) ::GlobalLock(hmem), (UINT)::GlobalSize(hmem));
 
-    LPSTR szTempStr = szPasteStr.GetBufferSetLength(::GlobalSize(hmem));
-    sf.Read(szTempStr, ::GlobalSize(hmem));
+    LPSTR szTempStr = szPasteStr.GetBufferSetLength((int)::GlobalSize(hmem));
+    sf.Read(szTempStr, (UINT)::GlobalSize(hmem));
     ::GlobalUnlock(hmem);
 
     szPasteStr.Remove(' ');
@@ -379,10 +379,10 @@ BOOL IsPasteRGB()
     }
 
     HGLOBAL hmem = obj.GetGlobalData(CF_TEXT);
-    CMemFile sf((BYTE*) ::GlobalLock(hmem), ::GlobalSize(hmem));
+    CMemFile sf((BYTE*) ::GlobalLock(hmem), (UINT)::GlobalSize(hmem));
 
-    LPSTR szTempStr = szPasteStr.GetBufferSetLength(::GlobalSize(hmem));
-    sf.Read(szTempStr, ::GlobalSize(hmem));
+    LPSTR szTempStr = szPasteStr.GetBufferSetLength((int)::GlobalSize(hmem));
+    sf.Read(szTempStr, (UINT)::GlobalSize(hmem));
     ::GlobalUnlock(hmem);
 
     szPasteStr.Remove(' ');
@@ -710,7 +710,7 @@ void CPalModDlg::NewUndoData(BOOL bUndo)
 
     int nPalSz = srcSep->nAmt;
 
-    NewNode->nPalIndex = nCurrSelPal;
+    NewNode->nPalIndex = (int)nCurrSelPal;
     NewNode->nPalSz = nPalSz;
 
     NewNode->rgPalData = new COLORREF[nPalSz];

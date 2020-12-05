@@ -53,7 +53,7 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
     m_nTotalInternalUnits = UseMainPaletteSet() ? KOF02UM_S_NUMUNIT_MAIN : KOF02UM_S_NUMUNIT_BAR;
     m_nExtraUnit = UseMainPaletteSet() ?  KOF02UM_S_EXTRALOC_MAIN : KOF02UM_S_EXTRALOC_BAR;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + UseMainPaletteSet() ? 2673 : 10;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + UseMainPaletteSet() ? 2674 : 10;
     m_pszExtraFilename = UseMainPaletteSet() ? EXTRA_FILENAME_KOF02UM_S_MAIN : EXTRA_FILENAME_KOF02UM_S_BAR;
     m_nTotalPaletteCount = UseMainPaletteSet() ?  m_nTotalPaletteCountForKOF02UM_Main : m_nTotalPaletteCountForKOF02UM_Bar;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

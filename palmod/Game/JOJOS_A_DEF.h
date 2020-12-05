@@ -3257,10 +3257,11 @@ const sGame_PaletteDataset JOJOS_BONUS_TAROT_CARDS[] =
              I know a few people are figuring those out"
 #endif
     //{ L"Coffin Scene: Crusaders ", 0x02eb680, 0x02eb880 },
-    //{ L"Jotaro Story: Imprisoned Jotaro", 0x02E8400, 0x02E8500? },
+    //{ L"Jotaro Story: Imprisoned Jotaro", 0x02E8400, 0x02E8500, indexJojos51StoryMode, 0x00 },
     //{ L"Jotaro Story: Scared Holly", 0x02e8380, 0x02E8400 },
     //{ L"Joseph Story: \"Let's Go!\" ", 0x02e7600, 0x02e7800 },
     //{ L"Midler Story Ending", 0x02E6300, 0x02E6500 },
+    // Selector Arrows: , indexJojos51Bonus, 0x47
 
     { L"Menu Cards", 0x030db40, 0x030db80, indexJojos51TarotCards, 0x00 },
     //{ L"Card Backs", 0x030DB00, 0x030DB40 },

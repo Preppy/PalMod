@@ -924,7 +924,9 @@ const UINT16 MSH_A_IMG_UNITS[] =
     indexCPS2_Blackheart,
     indexCPS2_Thanos,
     indexCPS2_Anita,
-    indexCPS2_MSHAssets
+    indexCPS2_MSHAssets,
+
+    indexCPS2_STAkuma,        // used by anita
 };
 
 constexpr auto MSH_A_NUM_IMG_UNITS = ARRAYSIZE(MSH_A_IMG_UNITS);
@@ -1037,6 +1039,7 @@ enum JOJOS_51_CHARACTERS
     indexJojos50HUDPortraits, // 0x1C
     indexJojos51GrayFly,
     indexJojos51TarotCards,
+    indexJojos51StoryMode,
 };
 
 enum JOJOS_51_CHARACTER_PALETTES
@@ -1734,6 +1737,7 @@ const UINT16 KOF02_A_IMG_UNITS[] =
     indexKOFSprites_02UM_ZeroOG,    // 0xBA
 
     indexKOFSprites_02UM_K9999,
+    indexKOFSprites_02K9999,
 
     indexKOFSprites_02Extras,
 };
@@ -1975,7 +1979,6 @@ const UINT16 KOF03_A_IMG_UNITS[] =
     indexKOFSprites_02UM_Leona,
     indexKOFSprites_02UM_Maxima,    // 0xA2
     indexKOFSprites_02UM_Ralf,
-    indexKOFSprites_02UM_Whip,
 
     indexKOF03Sprites_Adelheid,     // 0xe4
     indexKOF03Sprites_Ash,          // 0xe5
@@ -2754,6 +2757,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_ST,      // Used for ST
     IMGDAT_SECTION_WAKUWAKU7,
     IMGDAT_SECTION_WINDJAMMERS,
+    IMGDAT_SECTION_LAST,    // for comparing to the imgdat we try to load
 };
 
 // IMGDAT_SECTION_CPS2 ranges:
