@@ -526,7 +526,7 @@ void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
     }
 }
 
-BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, UINT16 uImgUnitAmt, UINT16 uImgAmt, BOOL bLoadAll)
+BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, UINT16 uImgUnitAmt, BOOL bLoadAll)
 {
     UINT8 uNumGames = 0xFF;
 

@@ -223,8 +223,6 @@ public:
 
     void Revert(int nPalId);
 
-    int GetImgCt() { return IMGAMT[GetImgGameFlag()]; };
-
     BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz);
 
     static void AllowTransparency(BOOL fAllow) { m_fAllowTransparency = fAllow; };
