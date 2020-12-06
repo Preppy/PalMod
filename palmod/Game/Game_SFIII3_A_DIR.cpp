@@ -53,15 +53,15 @@ sFileRule CGame_SFIII3_A_DIR::GetRuleInternal(UINT16 nUnitId, int nSF3ModeToLoad
 
     if (m_nSelectedRom != 4)
     {
-        _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u.%u"), SFIII_Arcade_USA_ROM_Base, (m_nSelectedRom == 10) ? 1 : 5, (nUnitId & 0x00FF));
+        _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u.%u"), SFIII_Arcade_USA_ROM_Base, (m_nSelectedRom == 10) ? 1 : 5, (nUnitId & 0x00FF));
 
         // This is clunky: we should shift the SIMM games to handle loads themselves.
         NewFileRule.fHasAltName = TRUE;
-        _stprintf_s(NewFileRule.szAltFileName, MAX_FILENAME_LENGTH, _T("%s%u.%u"), SFIII_Arcade_JPN_ROM_Base, (m_nSelectedRom == 10) ? 1 : 5, (nUnitId & 0x00FF));
+        _sntprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, _T("%s%u.%u"), SFIII_Arcade_JPN_ROM_Base, (m_nSelectedRom == 10) ? 1 : 5, (nUnitId & 0x00FF));
     }
     else
     {
-        _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u.%u"), SFIII_Arcade_4rd_ROM_Base, 5, ((nUnitId & 0x00FF) + 6));
+        _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u.%u"), SFIII_Arcade_4rd_ROM_Base, 5, ((nUnitId & 0x00FF) + 6));
     }
 
     NewFileRule.uUnitId = nUnitId;

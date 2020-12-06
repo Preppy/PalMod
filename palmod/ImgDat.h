@@ -27,6 +27,8 @@ private:
     bool sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag);
     void getBMRLEData(UINT8 chunkSize, UINT8* inputData, UINT8* output_data, UINT32& i_byteCtr, UINT32& o_dataCtr);
 
+    void VersionCheckImgDat(UINT32 nCurrentDaystamp, UINT8 nNumGames);
+
     CFile ImgDatFile;
 
     BOOL bOnTheFly = FALSE;

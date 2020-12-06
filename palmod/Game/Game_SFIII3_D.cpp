@@ -68,7 +68,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     sDescNode* ChildNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[SFIII3_D]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[SFIII3_D]);
     NewDescTree->ChildNodes = new sDescTreeNode[SFIII3_D_NUMUNIT];
     NewDescTree->uChildAmt = SFIII3_D_NUMUNIT;
 
@@ -80,7 +80,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     {
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
         //Set each description
-        _stprintf(UnitNode->szDesc, _T("%s"), SFIII3_D_UNITDESC[iUnitCtr]);
+        _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), SFIII3_D_UNITDESC[iUnitCtr]);
 
         //Init each character to have all 6 basic buttons + extra
         UnitNode->ChildNodes = new sDescTreeNode[1];
@@ -96,7 +96,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
             //Set each button data
-            _stprintf(ButtonNode->szDesc, _T("Palettes"));//, DEF_BUTTONLABEL7_SF3[iButtonCtr]);
+            _sntprintf_s(ButtonNode->szDesc, ARRAYSIZE(ButtonNode->szDesc), _TRUNCATE, _T("Palettes"));//, DEF_BUTTONLABEL7_SF3[iButtonCtr]);
 
             //Button children have nodes
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
@@ -109,7 +109,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr];
 
                 ChildNode->uUnitId = iUnitCtr;
-                _stprintf(ChildNode->szDesc, _T("Palette %02X"), nChildCtr);
+                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("Palette %02X"), nChildCtr);
 
                 ChildNode->uPalId = nChildCtr;
             }
@@ -132,7 +132,7 @@ sFileRule CGame_SFIII3_D::GetRule(UINT16 nUnitId)
         nRuleId++;
     }
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("PL%02dPL.BIN"), nRuleId);
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("PL%02dPL.BIN"), nRuleId);
 
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = -1;

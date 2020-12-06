@@ -16,6 +16,7 @@
 #include "Game_KOF98_A.h"
 #include "Game_KOFXI_A.h"
 #include "Game_Matrimelee_A.h"
+#include "Game_MMPR_SNES.h"
 #include "Game_MSH_A.h"
 #include "Game_MSHVSF_A.h"
 #include "Game_MVC_A.h"
@@ -170,6 +171,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case MATRIMELEE_A:
     {
         GetRule = &CGame_Matrimelee_A::GetRule;
+        return TRUE;
+    }
+    case MMPR_SNES:
+    {
+        GetRule = &CGame_MMPR_SNES::GetRule;
         return TRUE;
     }
     case MSH_A:
@@ -462,6 +468,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case MATRIMELEE_A:
     {
         return new CGame_Matrimelee_A(nConfirmedROMSize);
+    }
+    case MMPR_SNES:
+    {
+        return new CGame_MMPR_SNES(nConfirmedROMSize);
     }
     case MSH_A:
     {

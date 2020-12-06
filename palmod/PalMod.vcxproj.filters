@@ -199,6 +199,9 @@
     <Filter Include="Game\SNK Games\KOF03_A">
       <UniqueIdentifier>{da1faa02-bdd1-465d-9b23-9e4504204406}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Nintendo\MMPR_SNES">
+      <UniqueIdentifier>{90c0e8ff-821b-4e54-a53c-bcaae5916403}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -443,6 +446,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_KOF03_A.cpp">
       <Filter>Game\SNK Games\KOF03_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MMPR_SNES.cpp">
+      <Filter>Game\Nintendo\MMPR_SNES</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -814,6 +820,12 @@
     </ClInclude>
     <ClInclude Include="Game\KOF03_A_DEF.h">
       <Filter>Game\SNK Games\KOF03_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MMPR_SNES.h">
+      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MMPR_SNES_DEF.h">
+      <Filter>Game\Nintendo\MMPR_SNES</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

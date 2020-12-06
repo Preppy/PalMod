@@ -85,7 +85,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[MVC2_D]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[MVC2_D]);
     NewDescTree->ChildNodes = new sDescTreeNode[MVC2_D_NUMUNIT_WITH_TEAMVIEW];
     NewDescTree->uChildAmt = MVC2_D_NUMUNIT_WITH_TEAMVIEW;
     //All units have tree children
@@ -107,7 +107,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
         //Set each description
-        _stprintf(UnitNode->szDesc, _T("%s"), MVC2_D_UNITDESC[iUnitCtr]);
+        _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), MVC2_D_UNITDESC[iUnitCtr]);
 
         //Init each character to have all 6 basic buttons + extra
         UnitNode->ChildNodes = new sDescTreeNode[BUTTON6 + (nNumExtra ? 1 : 0)];
@@ -131,7 +131,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
             //Set each button data
-            _stprintf(ButtonNode->szDesc, _T("%s"), DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
+            _sntprintf_s(ButtonNode->szDesc, ARRAYSIZE(ButtonNode->szDesc), _TRUNCATE, _T("%s"), DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
 
             //Button children have nodes
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
@@ -179,12 +179,12 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 {
                     if (nButtonExtra == 0)
                     {
-                        _stprintf(ChildNode->szDesc, _T("%s Main"), DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
+                        _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s Main"), DEF_BUTTONLABEL6_MVC2[iButtonCtr]);
                         bSetInfo = true;
                     }
                     else if (!nBasicStart || 1)//MVC2_D_EXTRADEF[nBasicStart + (nButtonExtra - 1)])
                     {
-                        _stprintf(ChildNode->szDesc, _T("%02X %s (Extra - %02X)"), nExtraPos, DEF_BUTTONLABEL6_MVC2[iButtonCtr],
+                        _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%02X %s (Extra - %02X)"), nExtraPos, DEF_BUTTONLABEL6_MVC2[iButtonCtr],
                             (iButtonCtr * nButtonExtraTotal) + nExtraPos + 1);
 
                         bSetInfo = true;
@@ -230,7 +230,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nExtraCtr];
 
-                    _stprintf(ChildNode->szDesc, _T("(%02X Extra)"), nExtraCtr + 1);
+                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("(%02X Extra)"), nExtraCtr + 1);
 
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = (8 * k_mvc2_character_coloroption_count) + nExtraCtr;
@@ -275,7 +275,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
 
                         if (!bSetInfo)
                         {
-                            _stprintf(ChildNode->szDesc, _T("(%02X Extra)"), nCurrentExtraValue);
+                            _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("(%02X Extra)"), nCurrentExtraValue);
                         }
 
                         ChildNode->uUnitId = iUnitCtr;
@@ -308,7 +308,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
         //Set each description
-        _stprintf(UnitNode->szDesc, _T("%s"), MVC2_D_UNITDESC[iUnitCtr]);
+        _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), MVC2_D_UNITDESC[iUnitCtr]);
 
         const UINT32 nTeamCount = ARRAYSIZE(mvc2TeamList);
         const UINT32 nColorOptionCount = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
@@ -329,7 +329,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
             TeamNode->uChildType = DESC_NODETYPE_NODE;
             TeamNode->uChildAmt = nColorOptionCount;
             TeamNode->ChildNodes = (sDescTreeNode*)new sDescNode[nColorOptionCount];
-            _stprintf(TeamNode->szDesc, _T("%s"), mvc2TeamList[iTeamIndex].pszTeamName);
+            _sntprintf_s(TeamNode->szDesc, ARRAYSIZE(TeamNode->szDesc), _TRUNCATE, _T("%s"), mvc2TeamList[iTeamIndex].pszTeamName);
 
 #if MV2C_D_DEBUG
             strMsg.Format(_T("\t\"%s\" Collection: \"%s\", %u of %u, %u children\n"), UnitNode->szDesc, TeamNode->szDesc, iTeamIndex + 1, UnitNode->uChildAmt, nColorOptionCount);
@@ -445,7 +445,7 @@ sFileRule CGame_MVC2_D::GetRule(UINT16 nRuleId)
     sFileRule NewFileRule;
 
     nRuleId = (nRuleId & 0xFF00) == 0xFF00 ? (nRuleId & 0x00FF) : MVC2_D_UNITSORT[nRuleId];
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("PL%02X_DAT.BIN"), nRuleId);
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("PL%02X_DAT.BIN"), nRuleId);
 
     NewFileRule.uUnitId = nRuleId;
     NewFileRule.uVerifyVar = MVC2_D_FILESZ[nRuleId];

@@ -6,6 +6,7 @@
 //P = Playstation 2
 //S = Steam
 //GBA = GameBoy
+//SNES = ...
 
 // Needed for game tables
 void StrRemoveNonASCII(TCHAR* pszOutput, size_t ccSize, LPCTSTR pszInput);
@@ -66,6 +67,7 @@ enum SupportedGamesList
     SFIII3_A_DIR_4,
     BLEACH_DS,
     KOF03_A,
+    MMPR_SNES,
     NUM_GAMES // This needs to be last
 };
 
@@ -134,6 +136,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"SFIII:4rd (Arcade)",
    L"Bleach DS (Nintendo DS)",
    L"KOF03: 2004 EX Ultra Plus",
+   L"MMPR:TFE (SNES)",
 };
 
 enum class GamePlatform
@@ -197,6 +200,11 @@ const LPCTSTR DEF_BUTTONLABEL_2[] =
 const LPCTSTR DEF_BUTTONLABEL_2_PK[] =
 {
     L"Punch", L"Kick"
+};
+
+const LPCTSTR DEF_BUTTONLABEL_2_AB[] =
+{
+    L"A", L"B"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_NEOGEO[] =

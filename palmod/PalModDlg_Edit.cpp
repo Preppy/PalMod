@@ -438,11 +438,6 @@ void CPalModDlg::OnEditPaste()
             {
                 switch (uPasteGFlag)
                 {
-                case SSF2T_GBA:
-                {
-                    eColModeForPastedColor = ColMode::COLMODE_GBA;
-                    break;
-                }
                 case COTA_A:
                 case MSHVSF_A:
                 case MSH_A:
@@ -509,6 +504,8 @@ void CPalModDlg::OnEditPaste()
                     break;
                 }
                 case BLEACH_DS:
+                case MMPR_SNES:
+                case SSF2T_GBA:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_GBA;
                     break;

@@ -28,6 +28,7 @@ sSupportedGameList SupportedGameList[] =
     { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)", L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
     { KOFXI_A,          L"KOFXI", L"KOFXI|gdrom_KOFXI_v5_AllFighters.bin|", INVALID_UNIT_VALUE, GamePlatform::SammyAtomiswave },
     { MATRIMELEE_A,     L"Matrimelee", L"Matrimelee|266-p2.sp2|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { MMPR_SNES,        L"MMPR:TFE (SNES)", L"MMPR:TFE (SNES)|Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc|", INVALID_UNIT_VALUE, GamePlatform::Nintendo },
     { MSH_A,            L"Marvel Super Heroes", L"MSH: Characters (*.05), Portraits (*.06b)|*.05*;*.06b|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
     { MSHVSF_A,         L"MSHVSF", L"MSHVSF: Characters (*.06a), Portraits (*.07b)|*.06a;*.07b|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
     { MVC_A,            L"Marvel vs Capcom", L"MVC Arcade|mvc*.06*|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
@@ -1310,7 +1311,7 @@ bool CPalModDlg::SavePaletteToGPL(LPCTSTR pszFileName)
         // Write the header...
         strcpy(szBuffer, "GIMP Palette\n");
         GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
-        sprintf(szBuffer, "Name: %S\n", m_PalHost.GetPalName(0));
+        _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "Name: %S\n", m_PalHost.GetPalName(0));
         GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
         strcpy(szBuffer, "Columns: 0\n");
         GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
@@ -1335,7 +1336,7 @@ bool CPalModDlg::SavePaletteToGPL(LPCTSTR pszFileName)
         int nTotalColorsUsed = 1;
         for (; nTotalColorsUsed < nWorkingAmt; nTotalColorsUsed++)
         {
-            sprintf(szBuffer, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
+            _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
             GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
         }
 
@@ -1349,7 +1350,7 @@ bool CPalModDlg::SavePaletteToGPL(LPCTSTR pszFileName)
 
                 for (int nActivePageIndex = 0; nActivePageIndex < nNextPageWorkingAmt; nActivePageIndex++)
                 {
-                    sprintf(szBuffer, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
+                    _snprintf_s(szBuffer, ARRAYSIZE(szBuffer), _TRUNCATE, "%3u %3u %3u\n", pPal[nTotalColorsUsed * 4], pPal[nTotalColorsUsed * 4 + 1], pPal[nTotalColorsUsed * 4 + 2]);
                     GPLFile.Write(szBuffer, (UINT)strlen(szBuffer));
                     nTotalColorsUsed++;
                 }

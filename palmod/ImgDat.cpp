@@ -497,6 +497,35 @@ bool CImgDat::sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag)
     return (uImgGameFlag == nCurImgGameFlag) && (uGameFlag == nCurGameFlag);
 }
 
+void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
+{
+    static bool s_havePerformedVersionCheck = false;
+
+    if (!s_havePerformedVersionCheck)
+    {
+        const UINT16 nExpectedYear = 2020;
+        const UINT8 nExpectedMonth = 12;
+        const UINT8 nExpectedDay = 4;
+        const UINT8 nExpectedRevision = 0;
+
+        const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay << 8);
+
+        CString strMsg;
+
+        s_havePerformedVersionCheck = true;
+        if (nNumGames != IMGDAT_SECTION_LAST)
+        {
+            strMsg.Format(L"Warning: You didn't copy the new img2020.dat.  Images may not show up correctly.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
+            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+        }
+        else if (nExpectedDatestamp > nCurrentDatestamp)
+        {
+            strMsg.Format(L"Please note that you are using an out of date version of img2020.dat.  Some newly added images will not be available.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
+            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING);
+        }
+    }
+}
+
 BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, UINT16 uImgUnitAmt, UINT16 uImgAmt, BOOL bLoadAll)
 {
     UINT8 uNumGames = 0xFF;
@@ -546,35 +575,12 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
 
     ImgDatFile.Read(&uNumGames, 0x01);
 
-    const UINT16 nExpectedYear = 2020;
-    const UINT8 nExpectedMonth = 12;
-    const UINT8 nExpectedDay = 4;
-    const UINT8 nExpectedRevision = 0;
-
     strDebugInfo.Format(L"CImgDat::LoadImage: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames);
     OutputDebugString(strDebugInfo);
 
     if (uNumGames)
     {
-        static bool s_fHavePerformedVersionCheck = false;
-
-        if (!s_fHavePerformedVersionCheck)
-        {
-            s_fHavePerformedVersionCheck = true;
-            if (uNumGames != IMGDAT_SECTION_LAST)
-            {
-                strDebugInfo.Format(L"Warning: You didn't copy the new img2020.dat.  Images may not show up correctly.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
-                MessageBox(g_appHWnd, strDebugInfo, GetHost()->GetAppName(), MB_ICONERROR);
-            }
-            else if ((nYear != nExpectedYear) ||
-                     (nMonth != nExpectedMonth) ||
-                     (nDay != nExpectedDay) ||
-                     (nDailyRevision != nExpectedRevision))
-            {
-                strDebugInfo.Format(L"Please note that you are using an out of date version of img2020.dat.  Some newly added images will not be available.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
-                MessageBox(g_appHWnd, strDebugInfo, GetHost()->GetAppName(), MB_ICONWARNING);
-            }
-        }
+        VersionCheckImgDat((nYear << 16) | (nMonth << 8) | (nDay << 8), uNumGames);
 
         for (int nGameCtr = 0; nGameCtr < uNumGames; nGameCtr++)
         {

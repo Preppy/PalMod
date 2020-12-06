@@ -29,7 +29,7 @@ sFileRule CGame_RedEarth_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u"), RedEarth_Arcade_ROM_Base, (nUnitId & 0x00FF));
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u"), RedEarth_Arcade_ROM_Base, (nUnitId & 0x00FF));
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 

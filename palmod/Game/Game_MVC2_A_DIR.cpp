@@ -32,7 +32,7 @@ sFileRule CGame_MVC2_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u.ic%u"), MVC2_Arcade_ROM_Base, (nUnitId & 0x00FF) + 51, (nUnitId & 0x00FF) + 20);
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u.ic%u"), MVC2_Arcade_ROM_Base, (nUnitId & 0x00FF) + 51, (nUnitId & 0x00FF) + 20);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 

@@ -1,82 +1,74 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_NEOGEO_A.h"
+#include "Game_MMPR_SNES.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define NEOGEO_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define MMPR_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_NEOGEO_A::NEOGEO_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_MMPR_SNES::MMPR_SNES_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_NEOGEO_A::MainDescTree = nullptr;
+CDescTree CGame_MMPR_SNES::MainDescTree = nullptr;
 
-int CGame_NEOGEO_A::rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
-int CGame_NEOGEO_A::rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
+int CGame_MMPR_SNES::rgExtraCountAll[MMPR_SNES_NUMUNIT + 1];
+int CGame_MMPR_SNES::rgExtraLoc[MMPR_SNES_NUMUNIT + 1];
 
-UINT32 CGame_NEOGEO_A::m_nTotalPaletteCountForNEOGEO = 0;
-UINT32 CGame_NEOGEO_A::m_nExpectedGameROMSize = -1; // This is a stub: we can't care about size
-UINT32 CGame_NEOGEO_A::m_nConfirmedROMSize = -1;
+UINT32 CGame_MMPR_SNES::m_nTotalPaletteCountForMMPR = 0;
+UINT32 CGame_MMPR_SNES::m_nExpectedGameROMSize = 0x180000;
+UINT32 CGame_MMPR_SNES::m_nConfirmedROMSize = -1;
 
-void CGame_NEOGEO_A::InitializeStatics()
+void CGame_MMPR_SNES::InitializeStatics()
 {
-    safe_delete_array(CGame_NEOGEO_A::NEOGEO_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_MMPR_SNES::MMPR_SNES_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(InitDescTree());
+    MainDescTree.SetRootTree(CGame_MMPR_SNES::InitDescTree());
 }
 
-CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
+CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_NEOGEO_A::CGame_NEOGEO_A: Loading ROM...\n") );
+    strMessage.Format(_T("CGame_MMPR_SNES::CGame_MMPR_SNES: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
+    // We need this set before we initialize so that we can truncate bad Extras correctly.
+    // Otherwise the new user could inadvertently corrupt their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = NEOGEO_A_NUMUNIT;
-    m_nExtraUnit = NEOGEO_A_EXTRALOC;
+    m_nTotalInternalUnits = MMPR_SNES_NUMUNIT;
+    m_nExtraUnit = MMPR_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2;
-    m_pszExtraFilename = EXTRA_FILENAME_UNKNOWN_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForNEOGEO;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 18;
+    m_pszExtraFilename = EXTRA_FILENAME_MMPR_SNES;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForMMPR;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x0; // Don't worry about locations for a stubbed game...
+    m_nLowestKnownPaletteRomLocation = 0x141b24;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    if (GetExtraCt(m_nExtraUnit) == 0)
-    {
-        CString strIntro;
-        strIntro = _T("Howdy!  This \"dummy\" game mode is designed to allow you to spelunk any random game ROM that PalMod does not already support. \n\n");
-        strIntro += _T("PalMod will read / write specified RAM offsets as if they indicated colors for the color format specified in the Settings menu.\n\n");
-        strIntro += _T("Right now, you don't have any entries in your UnknownE.txt Extras file: you will want to add entries there if you wish to use this \"dummy\" mode.\n\n");
-        strIntro += _T("Please make sure to only change a copy of the ROM you're interested in: since you're directly playing around with the game ROM, weird things could happen.\n\n");
-        strIntro += _T("Good luck!");
-        MessageBox(g_appHWnd, strIntro, GetHost()->GetAppName(), MB_ICONINFORMATION);
-    }
-
     InitDataBuffer();
 
+    //Set color mode: see the definitions in GameClass.h
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-    SetAlphaAndColorModeInternal(CRegProc::GetColorModeForUnknownGame(), CRegProc::GetAlphaModeForUnknownGame());
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_GBA);
 
-    //Set game information
-    nGameFlag = NEOGEO_A;
-    nImgGameFlag = IMGDAT_SECTION_GAROU;
-    nImgUnitAmt = 0; // This is a stub game.  No images will be used.
+    BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
-    nFileAmt = 1;
+    nGameFlag = MMPR_SNES;
+    nImgGameFlag = IMGDAT_SECTION_CPS2; // not present in imgdat yet
+    nImgUnitAmt = 0; // ARRAYSIZE(MMPR_SNES_IMG_UNITS); // This is the size of the array tracking which IDs to load from the game's image section
+
+    nFileAmt = 1; // Always 1 for monolithic rom games
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    // Button labels are used for the Export Image dialog: we don't need them for a game stub.
-    pButtonLabelSet = DEF_NOBUTTONS;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
+    // Button labels are used for the Export Image dialog
+    pButtonLabelSet = DEF_BUTTONLABEL_2_AB;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_AB);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -86,27 +78,48 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_NEOGEO_A::~CGame_NEOGEO_A(void)
+CGame_MMPR_SNES::~CGame_MMPR_SNES(void)
 {
-    safe_delete_array(CGame_NEOGEO_A::NEOGEO_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_MMPR_SNES::MMPR_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-CDescTree* CGame_NEOGEO_A::GetMainTree()
+UINT32 CGame_MMPR_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
-    return &CGame_NEOGEO_A::MainDescTree;
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"MMPR:TFE (SNES)", L"Mighty Morphin Power Rangers - The Fighting Edition (USA)",  0, 0 },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
 }
 
-int CGame_NEOGEO_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+CDescTree* CGame_MMPR_SNES::GetMainTree()
+{
+    return &CGame_MMPR_SNES::MainDescTree;
+}
+
+int CGame_MMPR_SNES::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((NEOGEO_A_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((MMPR_SNES_NUMUNIT + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForNEOGEO(0);
+        stExtraDef* pCurrDef = GetExtraDefForMMPR(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -116,99 +129,22 @@ int CGame_NEOGEO_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForNEOGEO(nDefCtr);
+            pCurrDef = GetExtraDefForMMPR(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-void CGame_NEOGEO_A::SetAlphaModeInternal(AlphaMode NewMode)
-{
-    return CGameClass::SetAlphaMode(NewMode);
-}
-
-void CGame_NEOGEO_A::SetAlphaMode(AlphaMode NewMode)
-{
-    CString strMsg = L"Updated.  Further palette changes will use this alpha setting.";
-    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
-
-    // stomp the setting for posterity
-    // We set this here as this is an explicit action overriding the implicit default for any
-    // given color format.
-    CRegProc::SetAlphaModeForUnknownGame(NewMode);
-
-    return SetAlphaModeInternal(NewMode);
-}
-
-BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode CurrentAlphaSetting)
-{
-    // ColorMode and AlphaMode need to be loosely tied together.  However, we do want to allow
-    // people to override alpha mode for a given color mode.  The logic here allows for this.
-
-    // stomp the setting for posterity
-    CRegProc::SetColorModeForUnknownGame(NewMode);
-
-    bool fShouldSetAlpha = CurrentAlphaSetting == AlphaMode::Unknown;
-    AlphaMode suggestedAlphaSetting = CurrentAlphaSetting;
-
-    switch (NewMode)
-    {
-    case ColMode::COLMODE_GBA:
-        suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_17);
-        break;
-    case ColMode::COLMODE_12A:
-        suggestedAlphaSetting= AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_17);
-        break;
-    case ColMode::COLMODE_15:
-        suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
-        break;
-    case ColMode::COLMODE_15ALT:
-        suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
-        break;
-    default: // Something is wrong: reset
-        OutputDebugString(L"warning: unknown color mode was requested. Resetting to default\n");
-        __fallthrough;
-    case ColMode::COLMODE_NEOGEO:
-        fShouldSetAlpha = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
-        suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
-        break;
-    };
-
-    if (fShouldSetAlpha)
-    {
-        SetAlphaModeInternal(suggestedAlphaSetting);
-    }
-
-    return CGameClass::SetColorMode(NewMode);
-}
-
-BOOL CGame_NEOGEO_A::SetColorMode(ColMode NewMode)
-{
-    CString strMsg = L"Updated.  The next palette displayed will use this color format.";
-
-    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
-
-    // Reset alpha mode since we're switching color formats...
-    CRegProc::SetAlphaModeForUnknownGame(AlphaMode::Unknown);
-
-    return SetAlphaAndColorModeInternal(NewMode, AlphaMode::Unknown);
-}
-
-int CGame_NEOGEO_A::GetExtraLoc(UINT16 nUnitId)
+int CGame_MMPR_SNES::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (NEOGEO_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (MMPR_SNES_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForNEOGEO(0);
+        stExtraDef* pCurrDef = GetExtraDefForMMPR(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -219,44 +155,34 @@ int CGame_NEOGEO_A::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForNEOGEO(nDefCtr);
+            pCurrDef = GetExtraDefForMMPR(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
+sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_UNKNOWN_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_MMPR_SNES, MMPR_SNES_EXTRA, &MMPR_SNES_EXTRA_CUSTOM, MMPR_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    if (GetExtraCt(NEOGEO_A_EXTRALOC) == 0)
-    {
-        // Fall over to the old filename option
-        safe_delete_array(NEOGEO_A_EXTRA_CUSTOM);
-        memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-        memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+    UINT16 nUnitCt = MMPR_SNES_NUMUNIT + (GetExtraCt(MMPR_SNES_EXTRALOC) ? 1 : 0);
 
-        LoadExtraFileForGame(EXTRA_FILENAME_NEO_GEO_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize);
-    }
-
-    UINT16 nUnitCt = NEOGEO_A_NUMUNIT + (GetExtraCt(NEOGEO_A_EXTRALOC) ? 1 : 0);
-    
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[NEOGEO_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[MMPR_SNES]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(NEOGEO_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_NEOGEO_A::InitDescTree: Building desc tree for NEOGEO_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    bool fHaveExtras = (GetExtraCt(MMPR_SNES_EXTRALOC) > 0);
+    strMsg.Format(_T("CGame_MMPR_SNES::InitDescTree: Building desc tree for MMPR_SNES %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -273,20 +199,20 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < NEOGEO_A_EXTRALOC)
+        if (iUnitCtr < MMPR_SNES_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), NEOGEO_A_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), MMPR_SNES_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if NEOGEO_A_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+#if MMPR_SNES_DEBUG
+            strMsg.Format(_T(";Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
-            
+
             UINT16 nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
@@ -304,8 +230,8 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if NEOGEO_A_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+#if MMPR_SNES_DEBUG
+                strMsg.Format(_T(";\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -322,8 +248,8 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if NEOGEO_A_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+#if MMPR_SNES_DEBUG
+                    strMsg.Format(_T(";\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
@@ -337,6 +263,10 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
                         strMsg.Format(_T(" no image available.\n"));
                     }
                     OutputDebugString(strMsg);
+
+                    strMsg.Format(_T("%s :: %s :: %s\n0x%X\n0x%X\n\n"), UnitNode->szDesc, CollectionNode->szDesc, ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
+                    OutputDebugString(strMsg);
+
 #endif
                 }
             }
@@ -350,8 +280,8 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if NEOGEO_A_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+#if MMPR_SNES_DEBUG
+            strMsg.Format(_T(";Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -362,7 +292,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(NEOGEO_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MMPR_SNES_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
@@ -371,7 +301,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if NEOGEO_A_DEBUG
+#if MMPR_SNES_DEBUG
             strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -380,21 +310,21 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForNEOGEO(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForMMPR(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForNEOGEO(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForMMPR(nExtraPos + nCurrExtra);
                 }
 
                 _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((NEOGEO_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((MMPR_SNES_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if NEOGEO_A_DEBUG
+#if MMPR_SNES_DEBUG
                 strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -405,76 +335,76 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_NEOGEO_A::InitDescTree: Loaded %u palettes for NEOGEO\n"), nTotalPaletteCount);
+    strMsg.Format(_T("CGame_MMPR_SNES::InitDescTree: Loaded %u palettes for MMPR\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForNEOGEO = nTotalPaletteCount;
+    m_nTotalPaletteCountForMMPR = nTotalPaletteCount;
 
     return NewDescTree;
 }
 
-sFileRule CGame_NEOGEO_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_MMPR_SNES::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("stub.stb")); // use a stub value here
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc"); // Update with the primary expected ROM name here.
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = -1; // this game is a stub only
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
 
-UINT16 CGame_NEOGEO_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_MMPR_SNES::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == NEOGEO_A_EXTRALOC)
+    if (nUnitId == MMPR_SNES_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return NEOGEO_A_UNITS[nUnitId].uChildAmt;
+        return MMPR_SNES_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_NEOGEO_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_MMPR_SNES::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == NEOGEO_A_EXTRALOC)
+    if (nUnitId == MMPR_SNES_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(NEOGEO_A_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(MMPR_SNES_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_NEOGEO_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_MMPR_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == NEOGEO_A_EXTRALOC)
+    if (nUnitId == MMPR_SNES_EXTRALOC)
     {
         return _T("Extra Palettes");
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)NEOGEO_A_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)MMPR_SNES_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_NEOGEO_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_MMPR_SNES::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == NEOGEO_A_EXTRALOC)
+    if (nUnitId == MMPR_SNES_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = NEOGEO_A_UNITS;
+        const sDescTreeNode* pCompleteROMTree = MMPR_SNES_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -484,9 +414,9 @@ UINT16 CGame_NEOGEO_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if NEOGEO_A_DEBUG
+#if MMPR_SNES_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_NEOGEO_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_MMPR_SNES::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -494,14 +424,14 @@ UINT16 CGame_NEOGEO_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_NEOGEO_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_MMPR_SNES::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)NEOGEO_A_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)MMPR_SNES_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_NEOGEO_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_MMPR_SNES::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -514,7 +444,7 @@ const sDescTreeNode* CGame_NEOGEO_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == NEOGEO_A_EXTRALOC)
+        if (nUnitId == MMPR_SNES_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -526,8 +456,8 @@ const sDescTreeNode* CGame_NEOGEO_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(NEOGEO_A_UNITS[nUnitId].ChildNodes);
-            
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(MMPR_SNES_UNITS[nUnitId].ChildNodes);
+
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
             if (nDistanceFromZero < nNodeCount)
@@ -552,7 +482,7 @@ const sDescTreeNode* CGame_NEOGEO_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_NEOGEO_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_MMPR_SNES::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -576,9 +506,9 @@ const sGame_PaletteDataset* CGame_NEOGEO_A::GetSpecificPalette(UINT16 nUnitId, U
     return paletteToUse;
 }
 
-void CGame_NEOGEO_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_MMPR_SNES::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != NEOGEO_A_EXTRALOC)
+    if (nUnitId != MMPR_SNES_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -590,6 +520,12 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            // Adjust for ROM-specific variant locations
+            if (m_pCRC32SpecificData)
+            {
+                m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
+            }
         }
         else
         {
@@ -597,10 +533,10 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // NEOGEO_A_EXTRALOC
+    else // MMPR_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForNEOGEO(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForMMPR(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
@@ -608,7 +544,7 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_NEOGEO_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_MMPR_SNES::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -616,7 +552,7 @@ BOOL CGame_NEOGEO_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        //no need to re-sort this
+        // The layout is presorted
         rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -632,13 +568,13 @@ BOOL CGame_NEOGEO_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-    
+
     CheckForErrorsInTables();
 
     return TRUE;
 }
 
-void CGame_NEOGEO_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+void CGame_MMPR_SNES::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
@@ -676,7 +612,7 @@ void CGame_NEOGEO_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     }
 }
 
-BOOL CGame_NEOGEO_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_MMPR_SNES::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -686,7 +622,7 @@ BOOL CGame_NEOGEO_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
         return FALSE;
     }
 
-    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == nullptr)
     {
@@ -705,8 +641,49 @@ BOOL CGame_NEOGEO_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
     nTargetImgId = 0;
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
 
+    // Only load images for internal units, since we don't currently have a methodology for associating
+    // external loads to internal sprites.
+    if (NodeGet->uUnitId != MMPR_SNES_EXTRALOC)
+    {
+        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+
+        if (paletteDataSet)
+        {
+            nImgUnitId = paletteDataSet->indexImgToUse;
+            nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
+
+            if (pCurrentNode)
+            {
+                bool fIsCorePalette = false;
+
+                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
+                {
+                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                    {
+                        fIsCorePalette = true;
+                        break;
+                    }
+                }
+
+                if (fIsCorePalette)
+                {
+                    nSrcAmt = m_nNumberOfColorOptions;
+                    nNodeIncrement = pCurrentNode->uChildAmt;
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1/A
+                        nSrcStart -= nNodeIncrement;
+                    }
+                }
+            }
+        }
+    }
+
     //Create the default palette
-    ClearSetImgTicket(nullptr);
+    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
     CreateDefPal(NodeGet, 0);
 
