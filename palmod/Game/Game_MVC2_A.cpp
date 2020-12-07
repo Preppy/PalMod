@@ -996,7 +996,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     // Fudge some visual offsets here so fatter sprites don't collide.
                     int nXOffsetForSecond = 100;
                     int nYOffsetForSecond = 0;
-                    int nXOffsetForThird = nXOffsetForSecond + 100;
+                    int nXOffsetForThird = nXOffsetForSecond + 80;
                     int nYOffsetForThird = 0;
 
                     if (nJoinedUnit2 == indexMVC2ASentinel)
@@ -1007,11 +1007,15 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     else if (nJoinedUnit2 == indexMVC2AStrider)
                     {
                         nXOffsetForSecond += 280;
-                        nXOffsetForThird += 280;
+                        nXOffsetForThird += 80;
                     }
                     else if (nJoinedUnit2 == indexMVC2ADrDoom)
                     {
                         nXOffsetForSecond += 80;
+                        nXOffsetForThird += 80;
+                    }
+                    else if (nJoinedUnit2 == indexMVC2AColossus)
+                    {
                         nXOffsetForThird += 80;
                     }
 
@@ -1021,11 +1025,11 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
                     else if (nJoinedUnit3 == indexMVC2ACaptainCommando)
                     {
-                        nXOffsetForThird += 150;
+                        nXOffsetForThird += 50;
                     }
                     else if (nJoinedUnit3 == indexMVC2AAkuma)
                     {
-                        nXOffsetForThird += 180;
+                        nXOffsetForThird += 20;
                     }
 
                     UINT16 nNodeIndex = (NodeGet->uPalId % 6);
@@ -1038,9 +1042,9 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     fShouldUseAlternateLoadLogic = true;
 
                     ClearSetImgTicket(
-                        CreateImgTicket(palette1ToJoin->indexImgToUse, palette1ToJoin->indexOffsetToUse,
-                            CreateImgTicket(palette2ToJoin->indexImgToUse, palette2ToJoin->indexOffsetToUse, 
-                                CreateImgTicket(palette3ToJoin->indexImgToUse, palette3ToJoin->indexOffsetToUse, nullptr, nXOffsetForThird, nYOffsetForThird),
+                        CreateImgTicket(palette1ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex,
+                            CreateImgTicket(palette2ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex,
+                                CreateImgTicket(palette3ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex, nullptr, nXOffsetForThird, nYOffsetForThird),
                                 nXOffsetForSecond, nYOffsetForSecond)
                         )
                     );

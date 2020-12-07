@@ -2,12 +2,12 @@
 
 const sGame_PaletteDataset MMPR_TMEGAZORD_PALETTES_A[] =
 {
-    { L"Thunder Megazord A", 0x141c24, 0x141c64 },
+    { L"Thunder Megazord A", 0x141c24, 0x141c64, indexMMPRSprites_ThunderMegazord },
 };
 
 const sGame_PaletteDataset MMPR_TMEGAZORD_PALETTES_B[] =
 {
-    { L"Thunder Megazord B", 0x141c64, 0x141ca4 },
+    { L"Thunder Megazord B", 0x141c64, 0x141ca4, indexMMPRSprites_ThunderMegazord },
 };
 
 const sDescTreeNode MMPR_TMEGAZORD_COLLECTION[] =
@@ -18,12 +18,12 @@ const sDescTreeNode MMPR_TMEGAZORD_COLLECTION[] =
 
 const sGame_PaletteDataset MMPR_MTIGERZORD_PALETTES_A[] =
 {
-    { L"Mega Tigerzord A", 0x141ca4, 0x141ce4 },
+    { L"Mega Tigerzord A", 0x141ca4, 0x141ce4, indexMMPRSprites_MegaTigerzord },
 };
 
 const sGame_PaletteDataset MMPR_MTIGERZORD_PALETTES_B[] =
 {
-    { L"Mega Tigerzord B", 0x141ce4, 0x141d24 },
+    { L"Mega Tigerzord B", 0x141ce4, 0x141d24, indexMMPRSprites_MegaTigerzord },
 };
 
 const sDescTreeNode MMPR_MTIGERZORD_COLLECTION[] =
@@ -34,12 +34,12 @@ const sDescTreeNode MMPR_MTIGERZORD_COLLECTION[] =
 
 const sGame_PaletteDataset MMPR_SMEGAZORD_PALETTES_A[] =
 {
-    { L"Shogun Megazord A", 0x141d24, 0x141d64 },
+    { L"Shogun Megazord A", 0x141d24, 0x141d64, indexMMPRSprites_ShogunMegazord },
 };
 
 const sGame_PaletteDataset MMPR_SMEGAZORD_PALETTES_B[] =
 {
-    { L"Shogun Megazord B", 0x141d64, 0x141da4 },
+    { L"Shogun Megazord B", 0x141d64, 0x141da4, indexMMPRSprites_ShogunMegazord },
 };
 
 const sDescTreeNode MMPR_SMEGAZORD_COLLECTION[] =
@@ -50,12 +50,12 @@ const sDescTreeNode MMPR_SMEGAZORD_COLLECTION[] =
 
 const sGame_PaletteDataset MMPR_NMEGAZORD_PALETTES_A[] =
 {
-    { L"Ninja Megazord A", 0x141e24, 0x141e64 },
+    { L"Ninja Megazord A", 0x141e24, 0x141e64, indexMMPRSprites_NinjaMegazord },
 };
 
 const sGame_PaletteDataset MMPR_NMEGAZORD_PALETTES_B[] =
 {
-    { L"Ninja Megazord B", 0x141e64, 0x141ea4 },
+    { L"Ninja Megazord B", 0x141e64, 0x141ea4, indexMMPRSprites_NinjaMegazord },
 };
 
 const sDescTreeNode MMPR_NMEGAZORD_COLLECTION[] =
@@ -66,12 +66,12 @@ const sDescTreeNode MMPR_NMEGAZORD_COLLECTION[] =
 
 const sGame_PaletteDataset MMPR_LIPSYNCER_PALETTES_A[] =
 {
-    { L"Lip Syncer A", 0x141da4, 0x141de4 },
+    { L"Lip Syncer A", 0x141da4, 0x141de4, indexMMPRSprites_LipSyncer },
 };
 
 const sGame_PaletteDataset MMPR_LIPSYNCER_PALETTES_B[] =
 {
-    { L"Lip Syncer B", 0x141de4, 0x141e24 },
+    { L"Lip Syncer B", 0x141de4, 0x141e24, indexMMPRSprites_LipSyncer },
 };
 
 const sDescTreeNode MMPR_LIPSYNCER_COLLECTION[] =
@@ -82,12 +82,12 @@ const sDescTreeNode MMPR_LIPSYNCER_COLLECTION[] =
 
 const sGame_PaletteDataset MMPR_GOLDAR_PALETTES_A[] =
 {
-    { L"Goldar A", 0x141ea4, 0x141ee4 },
+    { L"Goldar A", 0x141ea4, 0x141ee4, indexMMPRSprites_Goldar },
 };
 
 const sGame_PaletteDataset MMPR_GOLDAR_PALETTES_B[] =
 {
-    { L"Goldar B", 0x141ee4, 0x141f24 },
+    { L"Goldar B", 0x141ee4, 0x141f24, indexMMPRSprites_Goldar },
 };
 
 const sDescTreeNode MMPR_GOLDAR_COLLECTION[] =
@@ -98,12 +98,12 @@ const sDescTreeNode MMPR_GOLDAR_COLLECTION[] =
 
 const sGame_PaletteDataset MMPR_SILVERHORNS_PALETTES_A[] =
 {
-    { L"Silver Horns A", 0x141f24, 0x141f64 },
+    { L"Silver Horns A", 0x141f24, 0x141f64, indexMMPRSprites_SilverHorns },
 };
 
 const sGame_PaletteDataset MMPR_SILVERHORNS_PALETTES_B[] =
 {
-    { L"Silver Horns B", 0x141f64, 0x141fa4 },
+    { L"Silver Horns B", 0x141f64, 0x141fa4, indexMMPRSprites_SilverHorns },
 };
 
 const sDescTreeNode MMPR_SILVERHORNS_COLLECTION[] =
@@ -114,12 +114,12 @@ const sDescTreeNode MMPR_SILVERHORNS_COLLECTION[] =
 
 const sGame_PaletteDataset MMPR_LORDZEDD_PALETTES_A[] =
 {
-    { L"Lord Zedd A", 0x141fa4, 0x141fe4 },
+    { L"Lord Zedd A", 0x141fa4, 0x141fe4, indexMMPRSprites_LordZedd },
 };
 
 const sGame_PaletteDataset MMPR_LORDZEDD_PALETTES_B[] =
 {
-    { L"Lord Zedd B", 0x141fe4, 0x142024 },
+    { L"Lord Zedd B", 0x141fe4, 0x142024, indexMMPRSprites_LordZedd },
 };
 
 const sDescTreeNode MMPR_LORDZEDD_COLLECTION[] =
@@ -130,12 +130,12 @@ const sDescTreeNode MMPR_LORDZEDD_COLLECTION[] =
 
 const sGame_PaletteDataset MMPR_IVANOOZE_PALETTES_A[] =
 {
-    { L"Ivan Ooze A", 0x141b24, 0x141b64 },
+    { L"Ivan Ooze A", 0x141b24, 0x141b64, indexMMPRSprites_IvanOoze },
 };
 
 const sGame_PaletteDataset MMPR_IVANOOZE_PALETTES_B[] =
 {
-    { L"Ivan Ooze B", 0x141b64, 0x141ba4 },
+    { L"Ivan Ooze B", 0x141b64, 0x141ba4, indexMMPRSprites_IvanOoze },
 };
 
 const sDescTreeNode MMPR_IVANOOZE_COLLECTION[] =

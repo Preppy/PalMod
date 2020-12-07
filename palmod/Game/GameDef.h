@@ -2749,6 +2749,32 @@ const UINT16 WINDJAMMERS_A_IMG_UNITS[] =
 
 constexpr auto WINDJAMMERS_A_NUM_IMG_UNITS = ARRAYSIZE(WINDJAMMERS_A_IMG_UNITS);
 
+enum SupportedSNES_PaletteListIndex
+{
+    indexMMPRSprites_Goldar,
+    indexMMPRSprites_IvanOoze,
+    indexMMPRSprites_LipSyncer,
+    indexMMPRSprites_LordZedd,
+    indexMMPRSprites_MegaTigerzord,
+    indexMMPRSprites_NinjaMegazord,
+    indexMMPRSprites_ShogunMegazord,
+    indexMMPRSprites_SilverHorns,
+    indexMMPRSprites_ThunderMegazord,
+};
+
+const UINT16 MMPR_SNES_IMG_UNITS[] =
+{
+    indexMMPRSprites_Goldar,
+    indexMMPRSprites_IvanOoze,
+    indexMMPRSprites_LipSyncer,
+    indexMMPRSprites_LordZedd,
+    indexMMPRSprites_MegaTigerzord,
+    indexMMPRSprites_NinjaMegazord,
+    indexMMPRSprites_ShogunMegazord,
+    indexMMPRSprites_SilverHorns,
+    indexMMPRSprites_ThunderMegazord,
+};
+
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_BREAKREV = 0,
@@ -2761,7 +2787,8 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
-    IMGDAT_SECTION_3S,      // Used for SFIII3
+    IMGDAT_SECTION_SF3,
+    IMGDAT_SECTION_SNES,
     IMGDAT_SECTION_ST,      // Used for ST
     IMGDAT_SECTION_WAKUWAKU7,
     IMGDAT_SECTION_WINDJAMMERS,

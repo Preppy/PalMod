@@ -4,6 +4,18 @@
 #define USE_LARGE_PALETTES
 #endif
 
+// Saving these for ... later:
+
+//{ L"Coffin Scene: Crusaders ", 0x02eb680, 0x02eb880 },
+//{ L"Jotaro Story: Imprisoned Jotaro", 0x02E8400, 0x02E8500, indexJojos51StoryMode, 0x00 },
+//{ L"Jotaro Story: Scared Holly", 0x02e8380, 0x02E8400 },
+//{ L"Joseph Story: \"Let's Go!\" ", 0x02e7600, 0x02e7800 },
+//{ L"Midler Story Ending", 0x02E6300, 0x02E6500 },
+// Selector Arrows: , indexJojos51Bonus, 0x47
+// JoJo_Story - DIOPoint             || 0x1F - 0x01
+// JoJo_Story - ScaredKakyoin || 0x1F - 0x02
+// JoJo_Story - ShadowDIOStanding || 0x1F - 0x03
+
 const stPairedPaletteInfo pairCoffinRoom = { 1, 31, -32 };
 
 const TCHAR JOJOS_A_UNITDESC_50[][32] =
@@ -3084,9 +3096,9 @@ const sGame_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
     { L"Mode select - Challenge & Story signs", 0x030d480, 0x030d500 },
     { L"Character Select Background", 0x0310100, 0x0310180, indexJojos51Bonus, 0x46 },
     { L"Selector Rings", 0x0310080, 0x0310100 },
-    { L"Character Select Comic", 0x0310000, 0x0310080 },
+    { L"Character Select Comic", 0x0310000, 0x0310080, indexJojos51Bonus, 0x48 },
     { L"Extra characters page arrows", 0x0310500, 0x0310580 },
-    { L"Vs screen Background", 0x030d000, 0x030d080 },
+    { L"Vs screen Background", 0x030d000, 0x030d080, indexJojos51Bonus, 0x49 },
     { L"Win screen Background", 0x0310200, 0x0310280 },
     { L"D'Arby", 0x0311a00, 0x0311a80, indexJojos51Bonus, 0x2C },
     { L"Darby Chips", 0x0311d00, 0x0311d80, indexJojos51Bonus, 0x2D },
@@ -3256,12 +3268,6 @@ const sGame_PaletteDataset JOJOS_BONUS_TAROT_CARDS[] =
     string: "I say we should wait until we have more of them before adding to the program (also midler is annoying)
              I know a few people are figuring those out"
 #endif
-    //{ L"Coffin Scene: Crusaders ", 0x02eb680, 0x02eb880 },
-    //{ L"Jotaro Story: Imprisoned Jotaro", 0x02E8400, 0x02E8500, indexJojos51StoryMode, 0x00 },
-    //{ L"Jotaro Story: Scared Holly", 0x02e8380, 0x02E8400 },
-    //{ L"Joseph Story: \"Let's Go!\" ", 0x02e7600, 0x02e7800 },
-    //{ L"Midler Story Ending", 0x02E6300, 0x02E6500 },
-    // Selector Arrows: , indexJojos51Bonus, 0x47
 
     { L"Menu Cards", 0x030db40, 0x030db80, indexJojos51TarotCards, 0x00 },
     //{ L"Card Backs", 0x030DB00, 0x030DB40 },

@@ -100,49 +100,49 @@ const sGame_PaletteDataset KOF03_A_DUO_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_SHEN_PALETTES_A[] =
 {
-    { L"Shen Woo A", 0x003000, 0x003020 },
+    { L"Shen Woo A", 0x003000, 0x003020, indexKOF03Sprites_Shen, 0x00 },
     { L"Zetsu Gekiken A", 0x003020, 0x003040 },
     { L"Bakushin Burst A", 0x003100, 0x003120 },
-    { L"Bakushin Glow A", 0x0031c0, 0x0031e0 },
-    { L"Shen Woo Electricity A", 0x003040, 0x003060 },
-    { L"Shen Woo Soul A", 0x003080, 0x0030a0 },
-    { L"Shen Woo Shikai A", 0x0030c0, 0x0030e0 },
+    { L"Bakushin Glow A", 0x0031c0, 0x0031e0, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Electricity A", 0x003040, 0x003060, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Soul A", 0x003080, 0x0030a0, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Shikai A", 0x0030c0, 0x0030e0, indexKOF03Sprites_Shen, 0x00 },
     { L"Shen Woo Victory A", 0x01f320, 0x01f360 },
 };
 
 const sGame_PaletteDataset KOF03_A_SHEN_PALETTES_B[] =
 {
-    { L"Shen Woo B", 0x003200, 0x003220 },
+    { L"Shen Woo B", 0x003200, 0x003220, indexKOF03Sprites_Shen, 0x00 },
     { L"Zetsu Gekiken B", 0x003220, 0x003240 },
     { L"Bakushin Burst B", 0x003300, 0x003320 },
-    { L"Bakushin Glow B", 0x0033c0, 0x0033e0 },
-    { L"Shen Woo Electricity B", 0x003240, 0x003260 },
-    { L"Shen Woo Soul B", 0x003280, 0x0032a0 },
-    { L"Shen Woo Shikai B", 0x0032c0, 0x0032e0 },
+    { L"Bakushin Glow B", 0x0033c0, 0x0033e0, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Electricity B", 0x003240, 0x003260, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Soul B", 0x003280, 0x0032a0, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Shikai B", 0x0032c0, 0x0032e0, indexKOF03Sprites_Shen, 0x00 },
     { L"Shen Woo Victory B", 0x01f360, 0x01f3a0 },
 };
 
 const sGame_PaletteDataset KOF03_A_SHEN_PALETTES_C[] =
 {
-    { L"Shen Woo C", 0x003400, 0x003420 },
+    { L"Shen Woo C", 0x003400, 0x003420, indexKOF03Sprites_Shen, 0x00 },
     { L"Zetsu Gekiken C", 0x003420, 0x003440 },
     { L"Bakushin Burst C", 0x003500, 0x003520 },
-    { L"Bakushin Glow C", 0x0035c0, 0x0035e0 },
-    { L"Shen Woo Electricity C", 0x003440, 0x003460 },
-    { L"Shen Woo Soul C", 0x003480, 0x0034a0 },
-    { L"Shen Woo Shikai C", 0x0034c0, 0x0034e0 },
+    { L"Bakushin Glow C", 0x0035c0, 0x0035e0, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Electricity C", 0x003440, 0x003460, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Soul C", 0x003480, 0x0034a0, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Shikai C", 0x0034c0, 0x0034e0, indexKOF03Sprites_Shen, 0x00 },
     { L"Shen Woo Victory C", 0x01f3a0, 0x01f3e0 },
 };
 
 const sGame_PaletteDataset KOF03_A_SHEN_PALETTES_D[] =
 {
-    { L"Shen Woo D", 0x003600, 0x003620 },
+    { L"Shen Woo D", 0x003600, 0x003620, indexKOF03Sprites_Shen, 0x00 },
     { L"Zetsu Gekiken D", 0x003620, 0x003640 },
     { L"Bakushin Burst D", 0x003700, 0x003720 },
-    { L"Bakushin Glow D", 0x0037c0, 0x0037e0 },
-    { L"Shen Woo Electricity D", 0x003640, 0x003660 },
-    { L"Shen Woo Soul D", 0x003680, 0x0036a0 },
-    { L"Shen Woo Shikai D", 0x0036c0, 0x0036e0 },
+    { L"Bakushin Glow D", 0x0037c0, 0x0037e0, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Electricity D", 0x003640, 0x003660, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Soul D", 0x003680, 0x0036a0, indexKOF03Sprites_Shen, 0x00 },
+    { L"Shen Woo Shikai D", 0x0036c0, 0x0036e0, indexKOF03Sprites_Shen, 0x00 },
     { L"Shen Woo Victory D", 0x01f3e0, 0x01f420 },
 };
 

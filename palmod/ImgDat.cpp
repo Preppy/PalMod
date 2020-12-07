@@ -149,6 +149,11 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
             nImageUnitCounterToUse = MATRIM_A_IMG_UNITS[nUnitCtr];
             break;
         }
+        case MMPR_SNES:
+        {
+            nImageUnitCounterToUse = MMPR_SNES_IMG_UNITS[nUnitCtr];
+            break;
+        }
         case MSH_A:
         {
             nImageUnitCounterToUse = MSH_A_IMG_UNITS[nUnitCtr];
@@ -505,7 +510,7 @@ void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
     {
         const UINT16 nExpectedYear = 2020;
         const UINT8 nExpectedMonth = 12;
-        const UINT8 nExpectedDay = 4;
+        const UINT8 nExpectedDay = 6;
         const UINT8 nExpectedRevision = 0;
 
         const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay << 8);

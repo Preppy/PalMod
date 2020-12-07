@@ -8869,6 +8869,8 @@ struct MVC2_TEAM_GROUPING
     UINT16 nCharacterThree = indexMVC2ARyu;
 };
 
+constexpr auto k_nSpecialTeamSpriteImageIndex = 0x80;
+
 const MVC2_TEAM_GROUPING mvc2TeamList[] =
 {
     { L"MSP", indexMVC2AMagneto, indexMVC2AStorm, indexMVC2APsylocke },

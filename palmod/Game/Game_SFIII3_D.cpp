@@ -30,7 +30,7 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
 
     //Set game information
     nGameFlag = SFIII3_D;
-    nImgGameFlag = IMGDAT_SECTION_3S;
+    nImgGameFlag = IMGDAT_SECTION_SF3;
     nImgUnitAmt = SFIII3_D_NUM_IMG_UNITS;
 
     nFileAmt = SFIII3_D_NUMUNIT;
