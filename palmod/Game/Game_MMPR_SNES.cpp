@@ -59,10 +59,10 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
     BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     nGameFlag = MMPR_SNES;
-    nImgGameFlag = IMGDAT_SECTION_CPS2; // not present in imgdat yet
-    nImgUnitAmt = 0; // ARRAYSIZE(MMPR_SNES_IMG_UNITS); // This is the size of the array tracking which IDs to load from the game's image section
+    nImgGameFlag = IMGDAT_SECTION_SNES;
+    nImgUnitAmt = ARRAYSIZE(MMPR_SNES_IMG_UNITS);
 
-    nFileAmt = 1; // Always 1 for monolithic rom games
+    nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
