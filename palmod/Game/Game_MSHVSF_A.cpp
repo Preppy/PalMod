@@ -75,6 +75,7 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
     nGameFlag = MSHVSF_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = MSHVSF_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = MSHVSF_A_IMG_UNITS;
 
     nFileAmt = 1;
 

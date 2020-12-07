@@ -62,6 +62,7 @@ CGame_KOFXI_A::CGame_KOFXI_A(UINT32 nConfirmedROMSize)
     nGameFlag = KOFXI_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
     nImgUnitAmt = ARRAYSIZE(KOFXI_A_IMG_UNITS);
+    m_prgGameImageSet = KOFXI_A_IMG_UNITS;
 
     nFileAmt = 1;
 

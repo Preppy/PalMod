@@ -62,6 +62,7 @@ CGame_Garou_S::CGame_Garou_S(UINT32 nConfirmedROMSize)
     nGameFlag = Garou_S;
     nImgGameFlag = IMGDAT_SECTION_GAROU;
     nImgUnitAmt = GAROU_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = GAROU_A_IMG_UNITS;
 
     nFileAmt = 1;
 

@@ -109,6 +109,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     nGameFlag = SSF2T_A;
     nImgGameFlag = IMGDAT_SECTION_ST;
     nImgUnitAmt = SSF2T_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = SSF2T_A_IMG_UNITS;
 
     nFileAmt = 1;
 

@@ -8,10 +8,6 @@
 // * Update the various character references along the lines of how we handle indexKOF02_A_Kyo for Kyo
 // That should be it.  Good luck.
 
-constexpr auto KOF02_A_NUMUNIT = indexKOF02_A_Last;
-
-#define KOF02_A_EXTRALOC KOF02_A_NUMUNIT
-
 struct sKOF02_A_CharacterDump
 {
     LPCTSTR pszCharacterName = nullptr;
@@ -3947,58 +3943,7 @@ const sDescTreeNode KOF02_A_OCHRIS_COLLECTION[] =
     { L"Select Portrait", DESC_NODETYPE_TREE, (void*)KOF02_A_OCHRIS_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02_A_OCHRIS_PALETTES_PORTRAITS_SELECT) },
 };
 
-const UINT8 KOF02_A_UNITSORT[KOF02_A_NUMUNIT + 1] // Plus 1 for extras
-{
-    indexKOF02_A_Andy,
-    indexKOF02_A_Angel,
-    indexKOF02_A_Athena,
-    indexKOF02_A_Benimaru,
-    indexKOF02_A_Billy,
-    indexKOF02_A_BlueMary,
-    indexKOF02_A_Chang,
-    indexKOF02_A_Chin,
-    indexKOF02_A_Choi,
-    indexKOF02_A_Chris,
-    indexKOF02_A_Clark,
-    indexKOF02_A_Daimon,
-    indexKOF02_A_Iori,
-    indexKOF02_A_Joe,
-    indexKOF02_A_K,
-    indexKOF02_A_K9999,
-    indexKOF02_A_Kensou,
-    indexKOF02_A_Kim,
-    indexKOF02_A_Kula,
-    indexKOF02_A_Kusanagi,
-    indexKOF02_A_Kyo,
-    indexKOF02_A_Leona,
-    indexKOF02_A_Mai,
-    indexKOF02_A_Mature,
-    indexKOF02_A_Maxima,
-    indexKOF02_A_MayLee,
-    indexKOF02_A_Ralf,
-    indexKOF02_A_Ramon,
-    indexKOF02_A_Robert,
-    indexKOF02_A_Ryo,
-    indexKOF02_A_Seth,
-    indexKOF02_A_Shermie,
-    indexKOF02_A_Takuma,
-    indexKOF02_A_Terry,
-    indexKOF02_A_Vanessa,
-    indexKOF02_A_Vice,
-    indexKOF02_A_Whip,
-    indexKOF02_A_Yamazaki,
-    indexKOF02_A_Yashiro,
-    indexKOF02_A_Yuri,
-
-    indexKOF02_A_OChris,
-    indexKOF02_A_OShermie,
-    indexKOF02_A_OYashiro,
-    indexKOF02_A_OmegaRugal,
-
-    KOF02_A_EXTRALOC
-};
-
-const sDescTreeNode KOF02_A_UNITS[KOF02_A_NUMUNIT] =
+const sDescTreeNode KOF02_A_UNITS[] =
 {
     { L"Andy", DESC_NODETYPE_TREE, (void*)KOF02_A_ANDY_COLLECTION, ARRAYSIZE(KOF02_A_ANDY_COLLECTION) },
     { L"Angel", DESC_NODETYPE_TREE, (void*)KOF02_A_ANGEL_COLLECTION, ARRAYSIZE(KOF02_A_ANGEL_COLLECTION) },
@@ -4047,6 +3992,10 @@ const sDescTreeNode KOF02_A_UNITS[KOF02_A_NUMUNIT] =
 
     { L"Omega Rugal", DESC_NODETYPE_TREE, (void*)KOF02_A_OMEGARUGAL_COLLECTION, ARRAYSIZE(KOF02_A_OMEGARUGAL_COLLECTION) },
 };
+
+constexpr auto KOF02_A_NUMUNIT = ARRAYSIZE(KOF02_A_UNITS);
+
+#define KOF02_A_EXTRALOC KOF02_A_NUMUNIT
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef KOF02_A_EXTRA[] =

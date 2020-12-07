@@ -61,7 +61,8 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = CVS2_A;
     nImgGameFlag = IMGDAT_SECTION_CVS2;
-    nImgUnitAmt = indexCVS2Sprites_Last;
+    nImgUnitAmt = ARRAYSIZE(CVS2_A_IMG_UNITS);
+    m_prgGameImageSet = CVS2_A_IMG_UNITS;
 
     nFileAmt = 1;
 

@@ -68,6 +68,7 @@ enum SupportedGamesList
     BLEACH_DS,
     KOF03_A,
     MMPR_SNES,
+    KOF01_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -75,7 +76,6 @@ enum SupportedGamesList
 //    CGameLoad::SetGame            Needed to load the game class
 //    CGameLoad::CreateGame         Needed to load the game class
 //    CPalModDlg::OnFileOpen        Ensures the user can open the game
-//    CImgDat::PrepImageBuffer      Ensures that images can load
 //    CPalModDlg::OnEditPaste       Ensures that pastes work correctly
 // 
 
@@ -137,6 +137,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Bleach DS (Nintendo DS)",
    L"KOF03: 2004 EX Ultra Plus",
    L"MMPR:TFE (SNES)",
+   L"KOF01 (Arcade)",
 };
 
 enum class GamePlatform
@@ -154,9 +155,9 @@ enum class GamePlatform
 
 struct sSupportedGameList
 {
-    int nInternalGameIndex;
-    LPCTSTR szGameFriendlyName;
-    LPCTSTR szGameFilterString;
+    int nInternalGameIndex = 0;
+    LPCWSTR szGameFriendlyName = L"uninit";
+    LPCWSTR szGameFilterString = L"uninit";
     int nListedGameIndex = INVALID_UNIT_VALUE;
     GamePlatform publisherKey = GamePlatform::Unknown;
 };
@@ -1339,7 +1340,7 @@ enum KOFSpriteList
     indexKOFSprites_02UM_ChrisOChi,    // 0x84
     indexKOFSprites_02UM_Clark,    // 0x85
     indexKOFSprites_02UM_CloneZero,    // 0x86
-    indexKOFSprites_02UM_Daimon,    // 0x87
+    indexKOFSprites_02UM_Daimon,    // 0x87 aka Goro
     indexKOFSprites_02UM_Foxy,    // 0x88
     indexKOFSprites_02UM_Geese,    // 0x89
     indexKOFSprites_02UM_GeeseNM,    // 0x8A
@@ -1623,56 +1624,51 @@ const UINT16 KOF98_A_IMG_UNITS[] =
 
 const int KOF98_A_NUM_IMG_UNITS = ARRAYSIZE(KOF98_A_IMG_UNITS);
 
-enum SupportedKOF02_A_PaletteListIndex
+const UINT16 KOF01_A_IMG_UNITS[] =
 {
-    indexKOF02_A_Andy,
-    indexKOF02_A_Angel,
-    indexKOF02_A_Athena,
-    indexKOF02_A_Benimaru,
-    indexKOF02_A_Billy,
-    indexKOF02_A_BlueMary,
-    indexKOF02_A_Chang,
-    indexKOF02_A_Chin,
-    indexKOF02_A_Choi,
-    indexKOF02_A_Chris,
-    indexKOF02_A_Clark,
-    indexKOF02_A_Daimon,
-    indexKOF02_A_Iori,
-    indexKOF02_A_Joe,
-    indexKOF02_A_K,
-    indexKOF02_A_K9999,
-    indexKOF02_A_Kensou,
-    indexKOF02_A_Kim,
-    indexKOF02_A_Kula,
-    indexKOF02_A_Kusanagi,
-    indexKOF02_A_Kyo,
-    indexKOF02_A_Leona,
-    indexKOF02_A_Mai,
-    indexKOF02_A_Mature,
-    indexKOF02_A_Maxima,
-    indexKOF02_A_MayLee,
-    indexKOF02_A_Ralf,
-    indexKOF02_A_Ramon,
-    indexKOF02_A_Robert,
-    indexKOF02_A_Ryo,
-    indexKOF02_A_Seth,
-    indexKOF02_A_Shermie,
-    indexKOF02_A_Takuma,
-    indexKOF02_A_Terry,
-    indexKOF02_A_Vanessa,
-    indexKOF02_A_Vice,
-    indexKOF02_A_Whip,
-    indexKOF02_A_Yamazaki,
-    indexKOF02_A_Yashiro,
-    indexKOF02_A_Yuri,
-
-    indexKOF02_A_OChris,
-    indexKOF02_A_OShermie,
-    indexKOF02_A_OYashiro,
-
-    indexKOF02_A_OmegaRugal,
-
-    indexKOF02_A_Last
+    indexKOFSprites_02UM_K,
+    indexKOFSprites_02UM_Maxima,
+    indexKOFSprites_02UM_Whip,
+    indexKOFSprites_02UM_Lin,
+    indexKOFSprites_02UM_KyoKusa,
+    indexKOFSprites_02UM_Benimaru,
+    indexKOF03Sprites_Goro,
+    indexKOFSprites_02UM_Shingo,
+    indexKOFSprites_02UM_Iori,
+    indexKOFSprites_02UM_Vanessa,
+    indexKOFSprites_02UM_Seth,
+    indexKOFSprites_02UM_Ramon,
+    indexKOFSprites_02UM_Leona,
+    indexKOFSprites_02UM_Ralf,
+    indexKOFSprites_02UM_Clark,
+    indexKOFSprites_98Heidern,
+    indexKOFSprites_02UM_Terry,
+    indexKOFSprites_02UM_Andy,
+    indexKOFSprites_02UM_Joe,
+    indexKOFSprites_02UM_BlueMary,
+    indexKOFSprites_02UM_Ryo,
+    indexKOFSprites_02UM_Robert,
+    indexKOFSprites_02UM_Yuri,
+    indexKOFSprites_02UM_Takuma,
+    indexKOFSprites_02UM_King,
+    indexKOFSprites_02UM_Mai,
+    indexKOFSprites_02UM_Hinako,
+    indexKOFSprites_01Xiangfei,
+    indexKOFSprites_02UM_Kula,
+    indexKOFSprites_02UM_K9999,
+    indexKOFSprites_02UM_Angel,
+    indexKOFSprites_02UM_Kensou,
+    indexKOFSprites_02UM_Chin,
+    indexKOFSprites_02UM_Kim,
+    indexKOFSprites_02UM_Chang,
+    indexKOFSprites_02UM_Choi,
+    indexKOFSprites_02UM_MayLee,
+    indexKOFSprites_02UM_CloneZero,
+    indexKOFSprites_02UM_Igniz, 
+    indexKOFSprites_02UM_Daimon,
+    indexKOFSprites_02UM_Bao,
+    indexKOFSprites_02UM_Foxy,
+    indexKOFSprites_02UM_Athena,
 };
 
 const UINT16 KOF02_A_IMG_UNITS[] =

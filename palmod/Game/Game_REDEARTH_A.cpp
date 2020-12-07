@@ -39,7 +39,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 448;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 485;
     m_nLowestKnownPaletteRomLocation = 0x1de000;
 
     CString strInfo;
@@ -59,6 +59,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize)
     nGameFlag = REDEARTH_A;
     nImgGameFlag = IMGDAT_SECTION_REDEARTH;
     nImgUnitAmt = REDEARTH_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = REDEARTH_A_IMG_UNITS;
 
     nFileAmt = 1;
 

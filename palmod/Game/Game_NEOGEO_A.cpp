@@ -69,6 +69,7 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     nGameFlag = NEOGEO_A;
     nImgGameFlag = IMGDAT_SECTION_GAROU;
     nImgUnitAmt = 0; // This is a stub game.  No images will be used.
+    m_prgGameImageSet = nullptr;
 
     nFileAmt = 1;
 

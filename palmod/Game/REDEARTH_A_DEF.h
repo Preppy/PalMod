@@ -94,56 +94,8 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_PUNCH_PALETTES[] =
 
     { L"Tessa Punch Bottled Ice", 0x40E500, 0x40E580, indexRedEarthSprites_Tessa, 0x02 },
 
-    { L"Tessa Punch Ultimate Guard Flash and Burn 1", 0x410E00, 0x410E80, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Burn 2", 0x410E80, 0x410F00, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Shocked 1", 0x410F00, 0x410F80, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Shocked 2", 0x410F80, 0x411000, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Poisoned 1", 0x411000, 0x411080, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Poisoned 2", 0x411080, 0x411100, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Poisoned 3", 0x411100, 0x411180, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Poisoned 4", 0x411180, 0x411200, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Petrified 1", 0x411200, 0x411280, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Petrified 2", 0x411280, 0x411300, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Petrified 3", 0x411300, 0x411380, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Frozen 1", 0x411380, 0x411400, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Frozen 2", 0x411400, 0x411480, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Frozen 3", 0x411480, 0x411500, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Frozen 4", 0x411500, 0x411580, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Punch Frozen 5", 0x411580, 0x411600, indexRedEarthSprites_Tessa, 0 },
-};
-
-const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
-{
-    { L"Tessa Kick", 0x41AC00, 0x41AC80, indexRedEarthSprites_Tessa, 0x00 },
-    { L"Tessa Kick Changing Pal", 0x41AC80, 0x41AD00, indexRedEarthSprites_Tessa, 0x00 },
-    { L"Tessa Kick Vs/Winning/Losing Screen", 0x1E4C80, 0x1E4D00, indexRedEarthSprites_Tessa, 0x17 },
-    { L"Tessa Kick LifeBar Portrait", 0x4069C0, 0x406A00, indexRedEarthSprites_Tessa, 0x10 },
-
-    { L"Tessa Kick Bottled Ice", 0x41AD00, 0x41AD80, indexRedEarthSprites_Tessa, 0x02 },
-
-    { L"Tessa Kick Ultimate Guard Flash and Burn 1", 0x41D600, 0x41D680, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Burn 2", 0x41D680, 0x41D700, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Shocked 1", 0x41D700, 0x41D780, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Shocked 2", 0x41D780, 0x41D800, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Poisoned 1", 0x41D800, 0x41D880, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Poisoned 2", 0x41D880, 0x41D900, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Poisoned 3", 0x41D900, 0x41D980, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Poisoned 4", 0x41D980, 0x41DA00, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Petrified 1", 0x41DA00, 0x41DA80, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Petrified 2", 0x41DA80, 0x41DB00, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Petrified 3", 0x41DB00, 0x41DB80, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Frozen 1", 0x41DB80, 0x41DC00, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Frozen 2", 0x41DC00, 0x41DC80, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Frozen 3", 0x41DC80, 0x41DD00, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Frozen 4", 0x41DD00, 0x41DD80, indexRedEarthSprites_Tessa, 0 },
-    { L"Tessa Kick Frozen 5", 0x41DD80, 0x41DE00, indexRedEarthSprites_Tessa, 0 },
-};
-
-const sGame_PaletteDataset REDEARTH_A_TESSA_BONUS_PALETTES[] =
-{
-    // Currently unused sprites:
-    // RedEarth_Tessa - MageShieldBlock     || 0x0B - 0x18
-    // RedEarth_Tessa - MageShieldPreblock || 0x0B - 0x19
+    { L"Tessa Punch Mage Shield Block", 0x40EA00, 0x40EA80, indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Punch Mage Shield Preblock", 0x40EA80, 0x40EB00, indexRedEarthSprites_Tessa, 0x19 },
 
     { L"Tessa Punch Al (Aru) Cat", 0x40E780, 0x40E800, indexRedEarthSprites_Tessa, 0x22 },
     { L"Tessa Punch Al (Aru) Cat Returning", 0x40E800, 0x40E880, indexRedEarthSprites_Tessa, 0x22 },
@@ -179,6 +131,91 @@ const sGame_PaletteDataset REDEARTH_A_TESSA_BONUS_PALETTES[] =
     { L"Tessa Punch Ultimate Guard Wall and Lever", 0x40EB00, 0x40EB80, indexRedEarthSprites_Tessa, 0x1b },
     { L"Tessa Punch Ultimate Guard Batteries", 0x40EE00, 0x40EE80, indexRedEarthSprites_Tessa, 0x01a },
 
+
+    { L"Tessa Punch Ultimate Guard Flash and Burn 1", 0x410E00, 0x410E80, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Burn 2", 0x410E80, 0x410F00, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 1", 0x410F00, 0x410F80, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Shocked 2", 0x410F80, 0x411000, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 1", 0x411000, 0x411080, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 2", 0x411080, 0x411100, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 3", 0x411100, 0x411180, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Poisoned 4", 0x411180, 0x411200, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 1", 0x411200, 0x411280, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 2", 0x411280, 0x411300, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Petrified 3", 0x411300, 0x411380, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 1", 0x411380, 0x411400, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 2", 0x411400, 0x411480, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 3", 0x411480, 0x411500, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 4", 0x411500, 0x411580, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Punch Frozen 5", 0x411580, 0x411600, indexRedEarthSprites_Tessa, 0 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_TESSA_KICK_PALETTES[] =
+{
+    { L"Tessa Kick", 0x41AC00, 0x41AC80, indexRedEarthSprites_Tessa, 0x00 },
+    { L"Tessa Kick Changing Pal", 0x41AC80, 0x41AD00, indexRedEarthSprites_Tessa, 0x00 },
+    { L"Tessa Kick Vs/Winning/Losing Screen", 0x1E4C80, 0x1E4D00, indexRedEarthSprites_Tessa, 0x17 },
+    { L"Tessa Kick LifeBar Portrait", 0x4069C0, 0x406A00, indexRedEarthSprites_Tessa, 0x10 },
+
+    { L"Tessa Kick Bottled Ice", 0x41AD00, 0x41AD80, indexRedEarthSprites_Tessa, 0x02 },
+
+    { L"Tessa Kick Mage Shield Block", 0x40EA00 + 0xc800, 0x40EA80 + 0xc800, indexRedEarthSprites_Tessa, 0x18 },
+    { L"Tessa Kick Mage Shield Preblock", 0x40EA80 + 0xc800, 0x40EB00 + 0xc800, indexRedEarthSprites_Tessa, 0x19 },
+
+    { L"Tessa Kick Al (Aru) Cat", 0x40E780 + 0xc800, 0x40E800 + 0xc800, indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Al (Aru) Cat Returning", 0x40E800 + 0xc800, 0x40E880 + 0xc800, indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Ivan (Ibun) Cat", 0x40E880 + 0xc800, 0x40E900 + 0xc800, indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Ivan (Ibun) Cat Returning", 0x40E900 + 0xc800, 0x40E980 + 0xc800, indexRedEarthSprites_Tessa, 0x22 },
+    { L"Tessa Kick Ice", 0x40E980 + 0xc800, 0x40EA00 + 0xc800, indexRedEarthSprites_Tessa, 0x0d },
+    { L"Tessa Kick Reverie Sword", 0x40EB80 + 0xc800, 0x40EC00 + 0xc800, indexRedEarthSprites_Tessa, 0x1d },
+    { L"Tessa Kick Staves", 0x40EC00 + 0xc800, 0x40EC80 + 0xc800, indexRedEarthSprites_Tessa, 0x1e },
+    { L"Tessa Kick Kaeru (Frog)", 0x40EE80 + 0xc800, 0x40EF00 + 0xc800, indexRedEarthSprites_Tessa, 0x0f },
+    { L"Tessa Kick Hato (Dove)", 0x40EF80 + 0xc800, 0x40F000 + 0xc800, indexRedEarthSprites_Tessa, 0x0b },
+    { L"Tessa Kick Suitcat", 0x40FF00 + 0xc800, 0x40FF80 + 0xc800, indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Suitcat (Mustard)", 0x40FF80 + 0xc800, 0x410000 + 0xc800, indexRedEarthSprites_Tessa, 0x1f },
+    { L"Tessa Kick Chakra Wave", 0x40EF00 + 0xc800, 0x40EF80 + 0xc800, indexRedEarthSprites_Tessa, 0x05 },
+    { L"Tessa Kick Cannon Magic Pattern", 0x40E700 + 0xc800, 0x40E780 + 0xc800, indexRedEarthSprites_Tessa, 0x04 },
+    { L"Tessa Kick Cannon Transition", 0x40F880 + 0xc800, 0x40F900 + 0xc800, indexRedEarthSprites_Tessa, 0x03 },
+    { L"Tessa Kick Hyper Cannon (Superball and Winscreen)", 0x40F900 + 0xc800, 0x40F980 + 0xc800, indexRedEarthSprites_Tessa, 0x0c },
+    { L"Tessa Kick Glace Cannon", 0x40F980 + 0xc800, 0x40FA00 + 0xc800, indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Glace Pixies", 0x40F600 + 0xc800, 0x40F680 + 0xc800 },
+    { L"Tessa Kick Glace Pixies Changing Pal", 0x40F580 + 0xc800, 0x40F600 + 0xc800 },
+    { L"Tessa Kick Flamma Cannon", 0x40FA00 + 0xc800, 0x40FA80 + 0xc800, indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Flamma Pixies", 0x40F500 + 0xc800, 0x40F580 + 0xc800 },
+    { L"Tessa Kick Flamma Pixies Changing Pal", 0x40F480 + 0xc800, 0x40F500 + 0xc800 },
+    { L"Tessa Kick Electron Cannon", 0x40FA80 + 0xc800, 0x40FB00 + 0xc800, indexRedEarthSprites_Tessa, 0x08 },
+    { L"Tessa Kick Electron Pixies Changing Pal", 0x40F400 + 0xc800, 0x40F480 + 0xc800 },
+    { L"Tessa Kick Death Phenomenon - On Hit", 0x40FD80 + 0xc800, 0x40FE00 + 0xc800, indexRedEarthSprites_Tessa, 0x06 },
+    { L"Tessa Kick Death Phenomenon - On Whiff", 0x40FE00 + 0xc800, 0x40FE80 + 0xc800, indexRedEarthSprites_Tessa, 0x07 },
+    { L"Tessa Kick Jammin' Ghost", 0x40F780 + 0xc800, 0x40F800 + 0xc800, indexRedEarthSprites_Tessa, 0x0e },
+    { L"Tessa Kick Manot Arm", 0x40F200 + 0xc800, 0x40F280 + 0xc800, indexRedEarthSprites_Tessa, 0x1c },
+    { L"Tessa Kick GC/Pursuit Wrecking Ball", 0x40F300 + 0xc800, 0x40F380 + 0xc800, indexRedEarthSprites_Tessa, 0x21 },
+    { L"Tessa Kick Wrecking Ball Angels and Electron Pixies", 0x40F380 + 0xc800, 0x40F400 + 0xc800, indexRedEarthSprites_Tessa, 0x20 },
+    { L"Tessa Kick Grab Saw", 0x40F080 + 0xc800, 0x40F100 + 0xc800, indexRedEarthSprites_Tessa, 0x0a },
+    { L"Tessa Kick GC/Grab/Pursuit Lever", 0x40F100 + 0xc800, 0x40F180 + 0xc800, indexRedEarthSprites_Tessa, 0x09 },
+    { L"Tessa Kick Ultimate Guard Wall and Lever", 0x40EB00 + 0xc800, 0x40EB80 + 0xc800, indexRedEarthSprites_Tessa, 0x1b },
+    { L"Tessa Kick Ultimate Guard Batteries", 0x40EE00 + 0xc800, 0x40EE80 + 0xc800, indexRedEarthSprites_Tessa, 0x01a },
+
+    { L"Tessa Kick Ultimate Guard Flash and Burn 1", 0x41D600, 0x41D680, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Burn 2", 0x41D680, 0x41D700, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 1", 0x41D700, 0x41D780, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Shocked 2", 0x41D780, 0x41D800, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 1", 0x41D800, 0x41D880, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 2", 0x41D880, 0x41D900, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 3", 0x41D900, 0x41D980, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Poisoned 4", 0x41D980, 0x41DA00, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 1", 0x41DA00, 0x41DA80, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 2", 0x41DA80, 0x41DB00, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Petrified 3", 0x41DB00, 0x41DB80, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 1", 0x41DB80, 0x41DC00, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 2", 0x41DC00, 0x41DC80, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 3", 0x41DC80, 0x41DD00, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 4", 0x41DD00, 0x41DD80, indexRedEarthSprites_Tessa, 0 },
+    { L"Tessa Kick Frozen 5", 0x41DD80, 0x41DE00, indexRedEarthSprites_Tessa, 0 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_TESSA_BONUS_PALETTES[] =
+{
     { L"Tessa Character Select",                 0x1DF180, 0x1DF200, indexRedEarthSprites_Tessa, 0x11 },
     { L"Tessa Character Selected",               0x1DEB00, 0x1DEB80, indexRedEarthSprites_Tessa, 0x11 },
     { L"Tessa Character Select Portrait ",       0x1DEF80, 0x1DF000, indexRedEarthSprites_Tessa, 0x12 },

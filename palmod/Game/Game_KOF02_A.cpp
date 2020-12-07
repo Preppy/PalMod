@@ -62,6 +62,7 @@ CGame_KOF02_A::CGame_KOF02_A(UINT32 nConfirmedROMSize)
     nGameFlag = KOF02_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
     nImgUnitAmt = KOF02_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = KOF02_A_IMG_UNITS;
 
     nFileAmt = 1;
 
@@ -678,8 +679,8 @@ BOOL CGame_KOF02_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = KOF02_A_UNITSORT[nUnitCtr];
+        // Use a presorted layout
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {

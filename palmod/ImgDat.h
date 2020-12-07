@@ -23,7 +23,7 @@ private:
 
     bool imageBufferFlushed = false;
     bool imageBufferPrepped = false;
-    bool PrepImageBuffer(UINT16 nGameImageUnitAmt, UINT8 uGameFlag);
+    bool PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameImageUnitAmt, UINT8 uGameFlag);
     bool sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag);
     void getBMRLEData(UINT8 chunkSize, UINT8* inputData, UINT8* output_data, UINT32& i_byteCtr, UINT32& o_dataCtr);
 
@@ -37,7 +37,7 @@ public:
     CImgDat(void);
     ~CImgDat(void);
 
-    BOOL LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, UINT16 uImgUnitAmt, BOOL bLoadAll = TRUE);
+    BOOL LoadGameImages(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, const UINT16* prgGameImageSet, UINT16 uImgUnitAmt, BOOL bLoadAll = TRUE);
     sImgDef* GetImageDef(UINT16 uUnitId, UINT16 uImgId);
     bool FlushImageBuffer();
     UINT8* DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);

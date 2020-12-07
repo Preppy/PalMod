@@ -66,6 +66,7 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     nGameFlag = MVC2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = MVC2_D_NUM_IMG_UNITS;
+    m_prgGameImageSet = MVC2_IMG_UNITS;
 
     m_fGameUsesAlphaValue = true;
 

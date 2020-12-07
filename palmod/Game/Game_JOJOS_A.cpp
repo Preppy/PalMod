@@ -90,6 +90,7 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     nGameFlag = JOJOS_A;
     nImgGameFlag = IMGDAT_SECTION_JOJOS;
     nImgUnitAmt = JOJOS_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = JOJOS_A_IMG_UNITS;
 
     nFileAmt = 1;
 

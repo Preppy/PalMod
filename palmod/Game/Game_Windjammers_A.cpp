@@ -61,6 +61,7 @@ CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
     nGameFlag = WINDJAMMERS_A;
     nImgGameFlag = IMGDAT_SECTION_WINDJAMMERS;
     nImgUnitAmt = WINDJAMMERS_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = WINDJAMMERS_A_IMG_UNITS;
 
     nFileAmt = 1;
 

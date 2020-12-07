@@ -61,6 +61,7 @@ CGame_WakuWaku7_A::CGame_WakuWaku7_A(UINT32 nConfirmedROMSize)
     nGameFlag = WakuWaku7_A;
     nImgGameFlag = IMGDAT_SECTION_WAKUWAKU7;
     nImgUnitAmt = WAKUWAKU7_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = WAKUWAKU7_A_IMG_UNITS;
 
     nFileAmt = 1;
 

@@ -59,7 +59,7 @@ bool CImgDat::FlushImageBuffer()
     return true;
 }
 
-bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameFlag)
+bool CImgDat::PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameImageUnitAmt, const UINT8 uGameFlag)
 {
     if (!imageBufferFlushed)
     {
@@ -74,232 +74,16 @@ bool CImgDat::PrepImageBuffer(const UINT16 nGameImageUnitAmt, const UINT8 uGameF
     OutputDebugString(strDebugInfo);
 #endif
 
+    if (prgGameImageSet == nullptr)
+    {
+        OutputDebugString(_T("CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n"));
+        return false;
+    }
+
     // We have an individual entry here for every game so we can optimize image loads
     for (UINT16 nUnitCtr = 0; nUnitCtr < nGameImageUnitAmt; nUnitCtr++)
     {
-        UINT16 nImageUnitCounterToUse = 0;
-
-        switch (uGameFlag)
-        {
-        case BREAKERS_A:
-        {
-            nImageUnitCounterToUse = BREAKERS_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case COTA_A:
-        {
-            nImageUnitCounterToUse = COTA_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case CVS2_A:
-        {
-            nImageUnitCounterToUse = CVS2_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case Garou_A:
-        case Garou_S:
-        {
-            nImageUnitCounterToUse = GAROU_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case GEMFIGHTER_A:
-        {
-            nImageUnitCounterToUse = GEMFIGHTER_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case JOJOS_A:
-        case JOJOS_A_DIR_50:
-        case JOJOS_A_DIR_51:
-        {
-            nImageUnitCounterToUse = JOJOS_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case KarnovsR_A:
-        {
-            nImageUnitCounterToUse = KARNOVSR_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case KOF98_A:
-        {
-            nImageUnitCounterToUse = KOF98_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case KOF02_A:
-        {
-            nImageUnitCounterToUse = KOF02_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case KOFXI_A:
-        {
-            nImageUnitCounterToUse = KOFXI_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case KOF02UM_S:
-        {
-            nImageUnitCounterToUse = KOF02UM_S_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case KOF03_A:
-        {
-            nImageUnitCounterToUse = KOF03_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case MATRIMELEE_A:
-        {
-            nImageUnitCounterToUse = MATRIM_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case MMPR_SNES:
-        {
-            nImageUnitCounterToUse = MMPR_SNES_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case MSH_A:
-        {
-            nImageUnitCounterToUse = MSH_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case MSHVSF_A:
-        {
-            nImageUnitCounterToUse = MSHVSF_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case MVC_A:
-        {
-            nImageUnitCounterToUse = MVC_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case MVC2_A:
-        case MVC2_D:
-        case MVC2_A_DIR:
-        {
-            nImageUnitCounterToUse = MVC2_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case MVC2_P:
-        {
-            nImageUnitCounterToUse = MVC2_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case NGBC_A:
-        {
-            nImageUnitCounterToUse = NGBC_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case RBFFS_A:
-        {
-            nImageUnitCounterToUse = RBFFS_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case REDEARTH_A:
-        {
-            nImageUnitCounterToUse = REDEARTH_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SAMSHO3_A:
-        {
-            nImageUnitCounterToUse = SAMSHO3_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SAMSHO5SP_A:
-        {
-            nImageUnitCounterToUse = SAMSHO5SP_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SFA1_A:
-        {
-            nImageUnitCounterToUse = SFA1_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SFA2_A:
-        {
-            nImageUnitCounterToUse = SFA2_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SFA3_A:
-        {
-            nImageUnitCounterToUse = SFA3_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SFIII1_A:
-        {
-            nImageUnitCounterToUse = SFIII1_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SFIII2_A:
-        {
-            nImageUnitCounterToUse = SFIII2_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SFIII3_A:
-        case SFIII3_A_DIR_10:
-        case SFIII3_A_DIR_4:
-        case SFIII3_A_DIR_51:
-        {
-            nImageUnitCounterToUse = SFIII3_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SFIII3_D:
-        {
-            nImageUnitCounterToUse = SFIII3_D_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SF2CE_A: // these two are the same currently
-        case SF2HF_A:
-        {
-            nImageUnitCounterToUse = SF2HF_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SSF2T_A:
-        {
-            nImageUnitCounterToUse = SSF2T_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SSF2T_GBA:
-        {
-            nImageUnitCounterToUse = SSF2T_GBA_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case SVCPLUSA_A:
-        {
-            nImageUnitCounterToUse = SVCPLUSA_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case VHUNT2_A:
-        {
-            nImageUnitCounterToUse = VHUNT2_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case VSAV_A:
-        {
-            nImageUnitCounterToUse = VSAV_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case VSAV2_A:
-        {
-            nImageUnitCounterToUse = VSAV2_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case WakuWaku7_A:
-        {
-            nImageUnitCounterToUse = WAKUWAKU7_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case WINDJAMMERS_A:
-        {
-            nImageUnitCounterToUse = WINDJAMMERS_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        case XMVSF_A:
-        {
-            nImageUnitCounterToUse = XMVSF_A_IMG_UNITS[nUnitCtr];
-            break;
-        }
-        default:
-            OutputDebugString(_T("CImgDat::PrepImageBuffer : WARNING: Unhandled game id.  You won't get images for this game.\n"));
-            return NULL;
-            break;
-        }
+        UINT16 nImageUnitCounterToUse = prgGameImageSet[nUnitCtr];
 
 #if IMGDAT_DEBUG
         strDebugInfo.Format(_T("CImgDat::PrepImageBuffer : Trying to insert unitID: 0x%02X into nImgMap\n"), nImageUnitCounterToUse);
@@ -355,7 +139,7 @@ sImgDef* CImgDat::GetImageDef(UINT16 uUnitId, UINT16 uImgId)
             if (uUnitId != INVALID_UNIT_VALUE)
             {
                 CString strWarning;
-                strWarning.Format(_T("\n    **************\nCImgDat::GetImageDef : WARNING: UnitId 0x%02x was not found in the image map for this game.  Did you forget to update gamedef.h or CImgDat::PrepImageBuffer?\n    **************\n"), uUnitId);
+                strWarning.Format(_T("\n    **************\nCImgDat::GetImageDef : WARNING: UnitId 0x%02x was not found in the image map for this game.  Did you forget to update this game's array in gamedef.h?\n    **************\n"), uUnitId);
                 OutputDebugString(strWarning);
             }
         }
@@ -531,14 +315,14 @@ void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
     }
 }
 
-BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, UINT16 uImgUnitAmt, BOOL bLoadAll)
+BOOL CImgDat::LoadGameImages(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, const UINT16* prgGameImageSet, UINT16 uImgUnitAmt, BOOL bLoadAll)
 {
     UINT8 uNumGames = 0xFF;
 
     CString strDebugInfo;
-    strDebugInfo.Format(_T("CImgDat::LoadImage : Opening image file '%s'\n"), lpszLoadFile);
+    strDebugInfo.Format(_T("CImgDat::LoadGameImages : Opening image file '%s'\n"), lpszLoadFile);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format(_T("CImgDat::LoadImage : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n"), uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, uImgUnitAmt);
+    strDebugInfo.Format(_T("CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n"), uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, uImgUnitAmt);
     OutputDebugString(strDebugInfo);
 
     if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag))
@@ -549,14 +333,14 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
     {
 
 #if IMGDAT_DEBUG
-        strDebugInfo.Format(_T("CImgDat::LoadImage : New game being loaded gameFlag:0x%02X with imgGameFlag:0x%02X, flushing image buffer.'\n"), uGameFlag, uImgGameFlag);
+        strDebugInfo.Format(_T("CImgDat::LoadGameImages : New game being loaded gameFlag:0x%02X with imgGameFlag:0x%02X, flushing image buffer.'\n"), uGameFlag, uImgGameFlag);
         OutputDebugString(strDebugInfo);
 #endif
 
         imageBufferFlushed = false;
         imageBufferFlushed = FlushImageBuffer();
 #if IMGDAT_DEBUG
-        strDebugInfo.Format(_T("CImgDat::LoadImage : Image buffer has been flushed. imageBuffer: %u '\n"), imageBufferPrepped);
+        strDebugInfo.Format(_T("CImgDat::LoadGameImages : Image buffer has been flushed. imageBuffer: %u '\n"), imageBufferPrepped);
         OutputDebugString(strDebugInfo);
 #endif
         CloseImgFile();
@@ -580,7 +364,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
 
     ImgDatFile.Read(&uNumGames, 0x01);
 
-    strDebugInfo.Format(L"CImgDat::LoadImage: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames);
+    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames);
     OutputDebugString(strDebugInfo);
 
     if (uNumGames)
@@ -595,7 +379,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
             ImgDatFile.Read(&uReadNextImgLoc, 0x04);
 
 #if IMGDAT_DEBUG
-            strDebugInfo.Format(_T("CImgDat::LoadImage : Detected gameID 0x%02X ; game has %u images; first imgLoc is 0x%X .\n"), uReadGameFlag, uReadNumImgs, uReadNextImgLoc);
+            strDebugInfo.Format(_T("CImgDat::LoadGameImages : Detected gameID 0x%02X ; game has %u images; first imgLoc is 0x%X .\n"), uReadGameFlag, uReadNumImgs, uReadNextImgLoc);
             OutputDebugString(strDebugInfo);
 #endif
 
@@ -604,7 +388,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
                 nCurGameImgAmt = uReadNumImgs;
 
 #if IMGDAT_DEBUG
-                strDebugInfo.Format(_T("CImgDat::LoadImage : Read matching uImgGameFlag: 0x%X for current uGameFlag: 0x%02X \n"), uImgGameFlag, uGameFlag);
+                strDebugInfo.Format(_T("CImgDat::LoadGameImages : Read matching uImgGameFlag: 0x%X for current uGameFlag: 0x%02X \n"), uImgGameFlag, uGameFlag);
                 OutputDebugString(strDebugInfo);
 #endif
 
@@ -613,7 +397,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
                     imageBufferFlushed = FlushImageBuffer();
                 }
 
-                imageBufferPrepped = PrepImageBuffer(uImgUnitAmt, uGameFlag);
+                imageBufferPrepped = PrepImageBuffer(prgGameImageSet, uImgUnitAmt, uGameFlag);
 
                 while (uReadNextImgLoc != 0)
                 {
@@ -623,7 +407,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
                     ImgDatFile.Read(&uCurrUnitId, 0x02);
                     ImgDatFile.Read(&uCurrImgId, 0x01);
 #if IMGDAT_DEBUG
-                    strDebugInfo.Format(_T("CImgDat::LoadImage : Seeing UnitID:0x%02X imgID:0x%02X \n"), uCurrUnitId, uCurrImgId);
+                    strDebugInfo.Format(_T("CImgDat::LoadGameImages : Seeing UnitID:0x%02X imgID:0x%02X \n"), uCurrUnitId, uCurrImgId);
                     OutputDebugString_ImgDat(strDebugInfo);
 #endif
 
@@ -633,7 +417,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
                         it->second->insertNode(uCurrImgId);
 
 #if IMGDAT_DEBUG
-                        strDebugInfo.Format(_T("CImgDat::LoadImage : node[0x%X][0x%X] Inserted\n"), uCurrUnitId, uCurrImgId);
+                        strDebugInfo.Format(_T("CImgDat::LoadGameImages : node[0x%X][0x%X] Inserted\n"), uCurrUnitId, uCurrImgId);
                         OutputDebugString_ImgDat(strDebugInfo);
 #endif
 
@@ -654,7 +438,7 @@ BOOL CImgDat::LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag
                         }
 
 #if IMGDAT_DEBUG
-                        strDebugInfo.Format(_T("CImgDat::LoadImage : Image info for unit 0x%02X img 0x%02X has been loaded.\n"), uCurrUnitId, uCurrImgId);
+                        strDebugInfo.Format(_T("CImgDat::LoadGameImages : Image info for unit 0x%02X img 0x%02X has been loaded.\n"), uCurrUnitId, uCurrImgId);
                         OutputDebugString_ImgDat(strDebugInfo);
                         strDebugInfo.Format(_T(" W: 0x%x (%u), H: 0x%x (%u), compressed: %u, size 0x%x, offset 0x%x (%lu) to offset 0x%x\n\n"), pCurrImg->uImgWidth, pCurrImg->uImgWidth, pCurrImg->uImgHeight, pCurrImg->uImgHeight, pCurrImg->nCompressionType, pCurrImg->uDataSize, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc, pCurrImg->uThisImgLoc + pCurrImg->uDataSize);
                         OutputDebugString_ImgDat(strDebugInfo);

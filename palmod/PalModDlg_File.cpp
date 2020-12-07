@@ -22,6 +22,7 @@ sSupportedGameList SupportedGameList[] =
     { JOJOS_A,          L"Jojo's: HFTF", L"Jojos (Japan): HUDs and menus (50), Characters (51)|50;51|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS3 },
     { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO }, // DataEast
     { KOF98_A,          L"KOF98", L"KOF98|242-p2.sp2;kof98_p2.rom|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
     // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
     { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
     { KOF02UM_S,        L"KOF02UM for Steam", L"KOF02UM|pal_a*.bin;bar.bin|", INVALID_UNIT_VALUE, GamePlatform::Steam },

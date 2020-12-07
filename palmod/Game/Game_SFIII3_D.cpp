@@ -32,6 +32,7 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     nGameFlag = SFIII3_D;
     nImgGameFlag = IMGDAT_SECTION_SF3;
     nImgUnitAmt = SFIII3_D_NUM_IMG_UNITS;
+    m_prgGameImageSet = SFIII3_D_IMG_UNITS;
 
     nFileAmt = SFIII3_D_NUMUNIT;
 

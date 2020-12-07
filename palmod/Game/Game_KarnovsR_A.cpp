@@ -61,6 +61,7 @@ CGame_KarnovsR_A::CGame_KarnovsR_A(UINT32 nConfirmedROMSize)
     nGameFlag = KarnovsR_A;
     nImgGameFlag = IMGDAT_SECTION_KARNOVSR;
     nImgUnitAmt = ARRAYSIZE(KARNOVSR_A_IMG_UNITS);
+    m_prgGameImageSet = KARNOVSR_A_IMG_UNITS;
 
     nFileAmt = 1;
 

@@ -10,6 +10,7 @@
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
 #include "Game_KarnovsR_A.h"
+#include "Game_KOF01_A.h"
 #include "Game_KOF02_A.h"
 #include "Game_KOF02UM_S.h"
 #include "Game_KOF03_A.h"
@@ -146,6 +147,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case KOF98_A:
     {
         GetRule = &CGame_KOF98_A::GetRule;
+        return TRUE;
+    }
+    case KOF01_A:
+    {
+        GetRule = &CGame_KOF01_A::GetRule;
         return TRUE;
     }
     case KOF02_A:
@@ -448,6 +454,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case KOF98_A:
     {
         return new CGame_KOF98_A(nConfirmedROMSize);
+    }
+    case KOF01_A:
+    {
+        return new CGame_KOF01_A(nConfirmedROMSize);
     }
     case KOF02_A:
     {

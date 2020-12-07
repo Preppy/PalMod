@@ -11,6 +11,8 @@
 //{ L"Jotaro Story: Scared Holly", 0x02e8380, 0x02E8400 },
 //{ L"Joseph Story: \"Let's Go!\" ", 0x02e7600, 0x02e7800 },
 //{ L"Midler Story Ending", 0x02E6300, 0x02E6500 },
+//{ L"Lockdown Staredown (Jotaro)", 0x2ec000, 0x2ec080 },
+
 // Selector Arrows: , indexJojos51Bonus, 0x47
 // JoJo_Story - DIOPoint             || 0x1F - 0x01
 // JoJo_Story - ScaredKakyoin || 0x1F - 0x02

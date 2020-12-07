@@ -59,6 +59,7 @@ CGame_SFA1_A::CGame_SFA1_A(UINT32 nConfirmedROMSize)
     nGameFlag = SFA1_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = SFA1_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = SFA1_A_IMG_UNITS;
 
     nFileAmt = 1;
 

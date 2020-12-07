@@ -63,6 +63,7 @@ CGame_NGBC_A::CGame_NGBC_A(UINT32 nConfirmedROMSize)
     nGameFlag = NGBC_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
     nImgUnitAmt = ARRAYSIZE(NGBC_A_IMG_UNITS);
+    m_prgGameImageSet = NGBC_A_IMG_UNITS;
 
     nFileAmt = 1;
 

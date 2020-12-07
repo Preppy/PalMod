@@ -61,6 +61,7 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
     nGameFlag = MMPR_SNES;
     nImgGameFlag = IMGDAT_SECTION_SNES;
     nImgUnitAmt = ARRAYSIZE(MMPR_SNES_IMG_UNITS);
+    m_prgGameImageSet = MMPR_SNES_IMG_UNITS;
 
     nFileAmt = 1;
 

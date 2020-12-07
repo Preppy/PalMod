@@ -73,6 +73,7 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = NEWGAME_A; // This value is defined in gamedef.h.  See usage of other values defined there
     nImgGameFlag = IMGDAT_SECTION_CPS2; // This value is used to determine which section of the image file is used
+    m_prgGameImageSet = nullptr;  // NEWGAME_A_IMG_UNITS -- this is the array of images present in imgdat once that happens
     nImgUnitAmt = 0; // ARRAYSIZE(NEWGAME_A_IMG_UNITS); // This is the size of the array tracking which IDs to load from the game's image section
 
     nFileAmt = 1; // Always 1 for monolithic rom games

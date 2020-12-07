@@ -40,7 +40,8 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     //Set game information
     nGameFlag = MVC2_D;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = nUnitAmt;
+    nImgUnitAmt = MVC2_D_NUM_IMG_UNITS;
+    m_prgGameImageSet = MVC2_IMG_UNITS;
 
     m_fGameUsesAlphaValue = true;
 

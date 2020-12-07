@@ -1,77 +1,76 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_Bleach_DS.h"
+#include "Game_KOF01_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define BLEACH_DS_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define KOF01_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_BLEACH_DS::BLEACH_DS_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_KOF01_A::KOF01_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_BLEACH_DS::MainDescTree = nullptr;
+CDescTree CGame_KOF01_A::MainDescTree = nullptr;
 
-int CGame_BLEACH_DS::rgExtraCountAll[BLEACH_DS_NUMUNIT + 1];
-int CGame_BLEACH_DS::rgExtraLoc[BLEACH_DS_NUMUNIT + 1];
+int CGame_KOF01_A::rgExtraCountAll[KOF01_A_NUMUNIT + 1];
+int CGame_KOF01_A::rgExtraLoc[KOF01_A_NUMUNIT + 1];
 
-UINT32 CGame_BLEACH_DS::m_nTotalPaletteCountForBleach = 0;
-UINT32 CGame_BLEACH_DS::m_nExpectedGameROMSize = 0x08000000; // Update to the actual size of the ROM you expect
-UINT32 CGame_BLEACH_DS::m_nConfirmedROMSize = -1;
+UINT32 CGame_KOF01_A::m_nTotalPaletteCountForKOF01 = 0;
+UINT32 CGame_KOF01_A::m_nExpectedGameROMSize = 0x400000;
+UINT32 CGame_KOF01_A::m_nConfirmedROMSize = -1;
 
-void CGame_BLEACH_DS::InitializeStatics()
+void CGame_KOF01_A::InitializeStatics()
 {
-    safe_delete_array(CGame_BLEACH_DS::BLEACH_DS_EXTRA_CUSTOM);
+    safe_delete_array(CGame_KOF01_A::KOF01_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_BLEACH_DS::InitDescTree());
+    MainDescTree.SetRootTree(CGame_KOF01_A::InitDescTree());
 }
 
-CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
+CGame_KOF01_A::CGame_KOF01_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_BLEACH_DS::CGame_BLEACH_DS: Loading ROM...\n"));
+    strMessage.Format(_T("CGame_KOF01_A::CGame_KOF01_A: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
-    // We need this set before we initialize so that we can truncate bad Extras correctly.
-    // Otherwise the new user could inadvertently corrupt their ROM.
+    // We need this set before we initialize so that corrupt Extras truncate correctly.
+    // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = BLEACH_DS_NUMUNIT;
-    m_nExtraUnit = BLEACH_DS_EXTRALOC;
+    m_nTotalInternalUnits = KOF01_A_NUMUNIT;
+    m_nExtraUnit = KOF01_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 816; // You will need to update this, but PalMod will prompt you to do so
-    m_pszExtraFilename = EXTRA_FILENAME_BLEACH_DS;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForBleach;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 90;
+    m_pszExtraFilename = EXTRA_FILENAME_KOF01_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForKOF01;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x1fd2fa0; // You will need to update this, but PalMod will prompt you to do so
+    m_nLowestKnownPaletteRomLocation = 0x387122;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
-    //Set color mode: see the definitions in GameClass.h
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_GBA);
+    SetColorMode(ColMode::COLMODE_NEOGEO);
 
-    //Set palette conversion mode: 12A uses a step of PALTYPE_17, everything else uses PALTYPE_8 at this point
+    //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     //Set game information
-    nGameFlag = BLEACH_DS; // This value is defined in gamedef.h.  See usage of other values defined there
-    nImgGameFlag = IMGDAT_SECTION_CPS2; // Kept default as i have no img2020.dat file to mess with
-    nImgUnitAmt = 0; // ARRAYSIZE(BLEACH_DS_IMG_UNITS); // This is the size of the array tracking which IDs to load from the game's image section
-    m_prgGameImageSet = nullptr; // nothing yet
+    nGameFlag = KOF01_A;
+    nImgGameFlag = IMGDAT_SECTION_KOF;
+    m_prgGameImageSet = KOF01_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(KOF01_A_IMG_UNITS);
 
-    nFileAmt = 1; // Always 1 for monolithic rom games
+    nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_BLEACH; // Check out the available options in gamedef.h
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_BLEACH);
+    pButtonLabelSet = DEF_BUTTONLABEL_2_PK;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_PK);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -81,49 +80,27 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_BLEACH_DS::~CGame_BLEACH_DS(void)
+CGame_KOF01_A::~CGame_KOF01_A(void)
 {
-    safe_delete_array(CGame_BLEACH_DS::BLEACH_DS_EXTRA_CUSTOM);
+    safe_delete_array(CGame_KOF01_A::KOF01_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_BLEACH_DS::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+CDescTree* CGame_KOF01_A::GetMainTree()
 {
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Bleach DS (Europe - Nintendo DS)", L"3494 - Bleach - Dark Souls (Europe) (En,Fr,De,Es,It).nds",  0, 0 },
-        { L"Bleach DS (US - Nintendo DS)", L"2761 Bleach - Dark Souls (US).nds", 0, -0x5DBA00 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
+    return &CGame_KOF01_A::MainDescTree;
 }
 
-CDescTree* CGame_BLEACH_DS::GetMainTree()
-{
-    return &CGame_BLEACH_DS::MainDescTree;
-}
-
-int CGame_BLEACH_DS::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_KOF01_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((BLEACH_DS_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((KOF01_A_NUMUNIT + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForBLEACHDS(0);
+        stExtraDef* pCurrDef = GetExtraDefForKOF01(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -133,22 +110,22 @@ int CGame_BLEACH_DS::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForBLEACHDS(nDefCtr);
+            pCurrDef = GetExtraDefForKOF01(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-int CGame_BLEACH_DS::GetExtraLoc(UINT16 nUnitId)
+int CGame_KOF01_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (BLEACH_DS_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (KOF01_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForBLEACHDS(0);
+        stExtraDef* pCurrDef = GetExtraDefForKOF01(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -159,34 +136,34 @@ int CGame_BLEACH_DS::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForBLEACHDS(nDefCtr);
+            pCurrDef = GetExtraDefForKOF01(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
+sDescTreeNode* CGame_KOF01_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_BLEACH_DS, BLEACH_DS_EXTRA, &BLEACH_DS_EXTRA_CUSTOM, BLEACH_DS_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_KOF01_A, KOF01_A_EXTRA, &KOF01_A_EXTRA_CUSTOM, KOF01_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = BLEACH_DS_NUMUNIT + (GetExtraCt(BLEACH_DS_EXTRALOC) ? 1 : 0);
-
+    UINT16 nUnitCt = KOF01_A_NUMUNIT + (GetExtraCt(KOF01_A_EXTRALOC) ? 1 : 0);
+    
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[BLEACH_DS]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[KOF01_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(BLEACH_DS_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_BLEACH_DS::InitDescTree: Building desc tree for BLEACH_DS %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    bool fHaveExtras = (GetExtraCt(KOF01_A_EXTRALOC) > 0);
+    strMsg.Format(_T("CGame_KOF01_A::InitDescTree: Building desc tree for KOF01_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -203,20 +180,20 @@ sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < BLEACH_DS_EXTRALOC)
+        if (iUnitCtr < KOF01_A_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), BLEACH_DS_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), KOF01_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if BLEACH_DS_DEBUG
+#if KOF01_A_DEBUG
             strMsg.Format(_T(";Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
-
+            
             UINT16 nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
@@ -234,7 +211,7 @@ sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if BLEACH_DS_DEBUG
+#if KOF01_A_DEBUG
                 strMsg.Format(_T(";\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -252,7 +229,7 @@ sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if BLEACH_DS_DEBUG
+#if KOF01_A_DEBUG
                     strMsg.Format(_T(";\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
@@ -284,7 +261,7 @@ sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if BLEACH_DS_DEBUG
+#if KOF01_A_DEBUG
             strMsg.Format(_T(";Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -296,7 +273,7 @@ sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(BLEACH_DS_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(KOF01_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
@@ -305,7 +282,7 @@ sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if BLEACH_DS_DEBUG
+#if KOF01_A_DEBUG
             strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -314,21 +291,21 @@ sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForBLEACHDS(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForKOF01(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForBLEACHDS(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForKOF01(nExtraPos + nCurrExtra);
                 }
 
                 _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((BLEACH_DS_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((KOF01_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if BLEACH_DS_DEBUG
+#if KOF01_A_DEBUG
                 strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -339,20 +316,20 @@ sDescTreeNode* CGame_BLEACH_DS::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_BLEACH_DS::InitDescTree: Loaded %u palettes for BleachDS\n"), nTotalPaletteCount);
+    strMsg.Format(_T("CGame_KOF01_A::InitDescTree: Loaded %u palettes for KOF01\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForBleach = nTotalPaletteCount;
+    m_nTotalPaletteCountForKOF01 = nTotalPaletteCount;
 
     return NewDescTree;
 }
 
-sFileRule CGame_BLEACH_DS::GetRule(UINT16 nUnitId)
+sFileRule CGame_KOF01_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"Bleach.nds"); // Update with the primary expected ROM name here.
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("pal_a.bin"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -360,55 +337,55 @@ sFileRule CGame_BLEACH_DS::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_BLEACH_DS::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_KOF01_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == BLEACH_DS_EXTRALOC)
+    if (nUnitId == KOF01_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return BLEACH_DS_UNITS[nUnitId].uChildAmt;
+        return KOF01_A_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_BLEACH_DS::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_KOF01_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == BLEACH_DS_EXTRALOC)
+    if (nUnitId == KOF01_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(BLEACH_DS_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(KOF01_A_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_BLEACH_DS::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_KOF01_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == BLEACH_DS_EXTRALOC)
+    if (nUnitId == KOF01_A_EXTRALOC)
     {
         return _T("Extra Palettes");
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)BLEACH_DS_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)KOF01_A_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_BLEACH_DS::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_KOF01_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == BLEACH_DS_EXTRALOC)
+    if (nUnitId == KOF01_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = BLEACH_DS_UNITS;
+        const sDescTreeNode* pCompleteROMTree = KOF01_A_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -418,9 +395,9 @@ UINT16 CGame_BLEACH_DS::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if BLEACH_DS_DEBUG
+#if KOF01_A_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_BLEACH_DS::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_KOF01_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -428,14 +405,14 @@ UINT16 CGame_BLEACH_DS::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_BLEACH_DS::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_KOF01_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)BLEACH_DS_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)KOF01_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_BLEACH_DS::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_KOF01_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -448,7 +425,7 @@ const sDescTreeNode* CGame_BLEACH_DS::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == BLEACH_DS_EXTRALOC)
+        if (nUnitId == KOF01_A_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -460,8 +437,8 @@ const sDescTreeNode* CGame_BLEACH_DS::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(BLEACH_DS_UNITS[nUnitId].ChildNodes);
-
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(KOF01_A_UNITS[nUnitId].ChildNodes);
+            
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
             if (nDistanceFromZero < nNodeCount)
@@ -486,7 +463,7 @@ const sDescTreeNode* CGame_BLEACH_DS::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_BLEACH_DS::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_KOF01_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -510,9 +487,9 @@ const sGame_PaletteDataset* CGame_BLEACH_DS::GetSpecificPalette(UINT16 nUnitId, 
     return paletteToUse;
 }
 
-void CGame_BLEACH_DS::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_KOF01_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-    if (nUnitId != BLEACH_DS_EXTRALOC)
+     if (nUnitId != KOF01_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -524,12 +501,6 @@ void CGame_BLEACH_DS::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
-
-            // Adjust for ROM-specific variant locations
-            if (m_pCRC32SpecificData)
-            {
-                m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
-            }
         }
         else
         {
@@ -537,10 +508,10 @@ void CGame_BLEACH_DS::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // BLEACH_DS_EXTRALOC
+    else // KOF01_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForBLEACHDS(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForKOF01(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
@@ -548,7 +519,7 @@ void CGame_BLEACH_DS::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_BLEACH_DS::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_KOF01_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -556,7 +527,7 @@ BOOL CGame_BLEACH_DS::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        // The layout is presorted
+        // layout is presorted
         rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -572,13 +543,13 @@ BOOL CGame_BLEACH_DS::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-
+    
     CheckForErrorsInTables();
 
     return TRUE;
 }
 
-void CGame_BLEACH_DS::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+void CGame_KOF01_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
@@ -616,7 +587,7 @@ void CGame_BLEACH_DS::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     }
 }
 
-BOOL CGame_BLEACH_DS::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_KOF01_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -626,7 +597,7 @@ BOOL CGame_BLEACH_DS::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
         return FALSE;
     }
 
-    sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == nullptr)
     {
@@ -647,7 +618,7 @@ BOOL CGame_BLEACH_DS::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != BLEACH_DS_EXTRALOC)
+    if (NodeGet->uUnitId != KOF01_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -660,18 +631,7 @@ BOOL CGame_BLEACH_DS::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
             if (pCurrentNode)
             {
-                bool fIsCorePalette = false;
-
-                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
-                {
-                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
-                    {
-                        fIsCorePalette = true;
-                        break;
-                    }
-                }
-
-                if (fIsCorePalette)
+                if ((_tcsicmp(pCurrentNode->szDesc, L"P") == 0) || (_tcsicmp(pCurrentNode->szDesc, L"K") == 0))
                 {
                     nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;

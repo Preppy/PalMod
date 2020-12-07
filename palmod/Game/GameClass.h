@@ -70,6 +70,7 @@ protected:
     int nGameFlag = 0;
     int nImgGameFlag = 0;
     int nImgUnitAmt = 0;
+    const UINT16* m_prgGameImageSet = nullptr;
 
     //Values used for image out
     int nSrcPalUnit[MAX_PALETTES_DISPLAYABLE] = { 0 };
@@ -197,6 +198,7 @@ public:
     int GetImgGameFlag() { return nImgGameFlag; };
     int GetUnitCt() { return nUnitAmt; };
     int GetImgUnitCt() { return nImgUnitAmt; };
+    const UINT16* GetImageSetForGame() { return m_prgGameImageSet; };
     sImgTicket* GetImgTicket() { return CurrImgTicket; };
 
     CPalGroup* GetPalGroup() { return &BasePalGroup; };

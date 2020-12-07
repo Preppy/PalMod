@@ -74,6 +74,7 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
     nGameFlag = KOF02UM_S;
     nImgGameFlag = IMGDAT_SECTION_KOF;
     nImgUnitAmt = KOF02UM_S_NUM_IMG_UNITS;
+    m_prgGameImageSet = KOF02UM_S_IMG_UNITS;
 
     nFileAmt = 1;
 

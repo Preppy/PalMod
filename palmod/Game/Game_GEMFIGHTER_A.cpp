@@ -61,7 +61,8 @@ CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = GEMFIGHTER_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = sizeof(GEMFIGHTER_A_IMG_UNITS);
+    nImgUnitAmt = ARRAYSIZE(GEMFIGHTER_A_IMG_UNITS);
+    m_prgGameImageSet = GEMFIGHTER_A_IMG_UNITS;
 
     nFileAmt = 1;
 

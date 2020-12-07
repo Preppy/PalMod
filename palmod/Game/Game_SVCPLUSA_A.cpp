@@ -226,7 +226,8 @@ CGame_SVCPLUSA_A::CGame_SVCPLUSA_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SVCPLUSA_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    nImgUnitAmt = sizeof(SVCPLUSA_A_IMG_UNITS);
+    nImgUnitAmt = ARRAYSIZE(SVCPLUSA_A_IMG_UNITS);
+    m_prgGameImageSet = SVCPLUSA_A_IMG_UNITS;
 
     nFileAmt = 1;
 
