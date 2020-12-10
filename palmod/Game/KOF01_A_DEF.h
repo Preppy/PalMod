@@ -466,12 +466,12 @@ const sDescTreeNode KOF01_A_Kula_COLLECTION[] =
 
 const sGame_PaletteDataset KOF01_A_Foxy_PALETTES_P[] =
 {
-    { L"Foxy P", 0x38e522, 0x38e542, indexKOFSprites_02UM_Foxy, 0x00 },
+    { L"Foxy P", 0x38e522, 0x38e542, indexKOF01Sprites_Foxy, 0x00 },
 };
 
 const sGame_PaletteDataset KOF01_A_Foxy_PALETTES_K[] =
 {
-    { L"Foxy K", 0x38e722, 0x38e742, indexKOFSprites_02UM_Foxy, 0x00 },
+    { L"Foxy K", 0x38e722, 0x38e742, indexKOF01Sprites_Foxy, 0x00 },
 };
 
 const sDescTreeNode KOF01_A_Foxy_COLLECTION[] =
@@ -514,12 +514,12 @@ const sDescTreeNode KOF01_A_Angel_COLLECTION[] =
 
 const sGame_PaletteDataset KOF01_A_Athena_PALETTES_P[] =
 {
-    { L"Athena P", 0x38f122, 0x38f142, indexKOFSprites_02UM_Athena, 0x00 },
+    { L"Athena P", 0x38f122, 0x38f142, indexKOF01Sprites_Athena, 0x00 },
 };
 
 const sGame_PaletteDataset KOF01_A_Athena_PALETTES_K[] =
 {
-    { L"Athena K", 0x38f322, 0x38f342, indexKOFSprites_02UM_Athena, 0x00 },
+    { L"Athena K", 0x38f322, 0x38f342, indexKOF01Sprites_Athena, 0x00 },
 };
 
 const sDescTreeNode KOF01_A_Athena_COLLECTION[] =

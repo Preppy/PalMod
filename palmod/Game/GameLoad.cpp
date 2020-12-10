@@ -25,6 +25,7 @@
 #include "Game_MVC2_A_DIR.h"
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
+#include "Game_NeoBomberman_A.h"
 #include "Game_NEOGEO_A.h"
 #include "Game_NGBC_A.h"
 #include "Game_GEMFIGHTER_A.h"
@@ -229,6 +230,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_MVC2_P::GetRule;
         GetNextRule = &CGame_MVC2_P::GetNextRule;
 
+        return TRUE;
+    }
+    case NeoBomberman_A:
+    {
+        GetRule = &CGame_NeoBomberman_A::GetRule;
         return TRUE;
     }
     case NEOGEO_A:
@@ -510,6 +516,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case MVC2_P:
     {
         return new CGame_MVC2_P;
+    }
+    case NeoBomberman_A:
+    {
+        return new CGame_NeoBomberman_A(nConfirmedROMSize);
     }
     case NEOGEO_A:
     {

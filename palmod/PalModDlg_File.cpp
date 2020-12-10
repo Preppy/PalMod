@@ -36,12 +36,13 @@ sSupportedGameList SupportedGameList[] =
     // MarvelVsCapcom2.bin
     // Unlocked\MarvelVsCapcom2_unlocked.bin
     { MVC2_A,           L"MVC2", L"MVC2 Arcade (MarvelVsCapcom2_unlocked.bin)|m*.dat;m*.bin|", INVALID_UNIT_VALUE, GamePlatform::SegaNAOMI },
+    { NeoBomberman_A,   L"Neo Bomberman", L"Neo Bomberman|093-p1.*|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
     { NGBC_A,           L"NGBC", L"NGBC|NeoGeoBattleColliseum.bin|", INVALID_UNIT_VALUE, GamePlatform::SammyAtomiswave },
     // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin
     { RBFFS_A,          L"Real Bout Fatal Fury Special", L"Real Bout Fatal Fury Special|223*p1*|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
     { REDEARTH_A,       L"Red Earth", L"Red Earth|31|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS3 },
     { SAMSHO3_A,        L"Samurai Shodown 3", L"Samurai Shodown 3|087-p5.p5|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
-    { SAMSHO5SP_A,      L"Samurai Shodown 5 Special", L"Samurai Shodown 5 Special|272-p1*.p1;p1*h*.bin|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
+    { SAMSHO5SP_A,      L"Samurai Shodown 5 Special", L"Samurai Shodown 5 Special|272-p1.*;p1*h*.bin|", INVALID_UNIT_VALUE, GamePlatform::NEOGEO },
     { SFA1_A,           L"SFA1", L"SFA1|sfz.06|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
     { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },
     { SFA3_A,           L"SFA3", L"SFA3 sz3.09c|*.09*|", INVALID_UNIT_VALUE, GamePlatform::CapcomCPS12 },

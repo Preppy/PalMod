@@ -69,6 +69,7 @@ enum SupportedGamesList
     KOF03_A,
     MMPR_SNES,
     KOF01_A,
+    NeoBomberman_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -138,6 +139,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"KOF03: 2004 EX Ultra Plus",
    L"MMPR:TFE (SNES)",
    L"KOF01 (Arcade)",
+   L"Neo Bomberman (Arcade)",
 };
 
 enum class GamePlatform
@@ -463,6 +465,7 @@ enum CHARACTERS_CPS2
     indexCPS2_Vamp_OboroBishamon, // 0x7b
     indexCPS2_VSAV1_Bonus,  // 0x7c
 
+    indexCPS2_SPF_Bonus,    // 0x7d
 };
 
 const UINT16 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
@@ -1013,6 +1016,8 @@ const UINT16 GEMFIGHTER_A_IMG_UNITS[] =
     indexCPS2_SPF_Zangief,  // 0x62
     indexCPS2_SPF_Dan,      // 0x63
     indexCPS2_SPF_Akuma,    // 0x64
+
+    indexCPS2_SPF_Bonus,    // 0x7d
 };
 
 enum JOJOS_51_CHARACTERS
@@ -1536,6 +1541,9 @@ enum KOFSpriteList
     indexRBFFSSprites_Terry,        // 0x144
     indexRBFFSSprites_Tung,         // 0x145
     indexRBFFSSprites_Yamazaki,     // 0x146
+    indexKOF01Sprites_Athena,       // 0x147
+    indexKOF01Sprites_Bao,          // 0x148
+    indexKOF01Sprites_Foxy,         // 0x149
 
     indexKOFSprites_Last,
 };
@@ -1669,6 +1677,10 @@ const UINT16 KOF01_A_IMG_UNITS[] =
     indexKOFSprites_02UM_Bao,
     indexKOFSprites_02UM_Foxy,
     indexKOFSprites_02UM_Athena,
+
+    indexKOF01Sprites_Athena,       // 0x147
+    indexKOF01Sprites_Bao,          // 0x148
+    indexKOF01Sprites_Foxy,         // 0x149
 };
 
 const UINT16 KOF02_A_IMG_UNITS[] =
@@ -1983,6 +1995,17 @@ const UINT16 KOF03_A_IMG_UNITS[] =
     indexKOFSprites_02UM_Leona,
     indexKOFSprites_02UM_Maxima,    // 0xA2
     indexKOFSprites_02UM_Ralf,
+
+    indexKOFSprites_02UM_Joe,
+    indexKOFSprites_02UM_Kusanagi,
+    indexKOFSprites_02UM_Mai,
+
+    indexKOFXISprites_Adelheid,
+    indexKOFXISprites_BlueMary,
+    indexKOFXISprites_Kyo,
+    indexKOFXISprites_Ryo,
+    indexKOFXISprites_Shingo,
+    indexKOFXISprites_Yuri,
 
     indexKOF03Sprites_Adelheid,     // 0xe4
     indexKOF03Sprites_Ash,          // 0xe5
@@ -2771,6 +2794,54 @@ const UINT16 MMPR_SNES_IMG_UNITS[] =
     indexMMPRSprites_ThunderMegazord,
 };
 
+enum SupportedNEOGEO_PaletteListIndex
+{
+    indexNeoBombermanSprites_AtomicBomber,     // 0x00
+    indexNeoBombermanSprites_Baketama,     // 0x01
+    indexNeoBombermanSprites_Bomberman,     // 0x02
+    indexNeoBombermanSprites_CatBomber,     // 0x03
+    indexNeoBombermanSprites_Charge,     // 0x04
+    indexNeoBombermanSprites_Dachon,     // 0x05
+    indexNeoBombermanSprites_Dokyuun,     // 0x06
+    indexNeoBombermanSprites_FakeBomber,     // 0x07
+    indexNeoBombermanSprites_Gaikottsu,     // 0x08
+    indexNeoBombermanSprites_GoldenBomber,     // 0x09
+    indexNeoBombermanSprites_HayateBomber,     // 0x0A
+    indexNeoBombermanSprites_Honey,     // 0x0B
+    indexNeoBombermanSprites_Kotetsu,     // 0x0C
+    indexNeoBombermanSprites_MrBird,     // 0x0D
+    indexNeoBombermanSprites_Nucha,     // 0x0E
+    indexNeoBombermanSprites_Onbu,     // 0x0F
+    indexNeoBombermanSprites_RidgeRazor,     // 0x10
+    indexNeoBombermanSprites_RubberBomber,     // 0x11
+    indexNeoBombermanSprites_Tamagon,     // 0x12
+    indexNeoBombermanSprites_Bonus,     // 0x13
+};
+
+const UINT16 NEOBOMBERMAN_A_IMG_UNITS[] =
+{
+    indexNeoBombermanSprites_AtomicBomber,     // 0x00
+    indexNeoBombermanSprites_Baketama,     // 0x01
+    indexNeoBombermanSprites_Bomberman,     // 0x02
+    indexNeoBombermanSprites_CatBomber,     // 0x03
+    indexNeoBombermanSprites_Charge,     // 0x04
+    indexNeoBombermanSprites_Dachon,     // 0x05
+    indexNeoBombermanSprites_Dokyuun,     // 0x06
+    indexNeoBombermanSprites_FakeBomber,     // 0x07
+    indexNeoBombermanSprites_Gaikottsu,     // 0x08
+    indexNeoBombermanSprites_GoldenBomber,     // 0x09
+    indexNeoBombermanSprites_HayateBomber,     // 0x0A
+    indexNeoBombermanSprites_Honey,     // 0x0B
+    indexNeoBombermanSprites_Kotetsu,     // 0x0C
+    indexNeoBombermanSprites_MrBird,     // 0x0D
+    indexNeoBombermanSprites_Nucha,     // 0x0E
+    indexNeoBombermanSprites_Onbu,     // 0x0F
+    indexNeoBombermanSprites_RidgeRazor,     // 0x10
+    indexNeoBombermanSprites_RubberBomber,     // 0x11
+    indexNeoBombermanSprites_Tamagon,     // 0x12
+    indexNeoBombermanSprites_Bonus,     // 0x13
+};
+
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_BREAKREV = 0,
@@ -2781,6 +2852,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_KOF,     // KOF98 + KOF02UM
     IMGDAT_SECTION_MATRIM,  // Matrimelee
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
+    IMGDAT_SECTION_NEOGEO,  // generic set for NeoGeo games
     IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
     IMGDAT_SECTION_SF3,
@@ -2790,6 +2862,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_WINDJAMMERS,
     IMGDAT_SECTION_LAST,    // for comparing to the imgdat we try to load
 };
+
 
 const stPairedPaletteInfo pairUnhandled =     { 0, 0, 0 };
 const stPairedPaletteInfo pairHandledInCode = { 0, 0, 0 };

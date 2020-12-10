@@ -205,6 +205,9 @@
     <Filter Include="Game\SNK Games\KOF01_A">
       <UniqueIdentifier>{3d941f32-066d-4805-bf2c-c68239ba6d21}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\NeoBomberman_A">
+      <UniqueIdentifier>{5b3ee8d1-5bef-46b3-b139-fc30deec57e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -455,6 +458,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_KOF01_A.cpp">
       <Filter>Game\SNK Games\KOF01_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_NeoBomberman_A.cpp">
+      <Filter>Game\SNK Games\NeoBomberman_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -838,6 +844,12 @@
     </ClInclude>
     <ClInclude Include="Game\KOF01_A_DEF.h">
       <Filter>Game\SNK Games\KOF01_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_NeoBomberman_A.h">
+      <Filter>Game\SNK Games\NeoBomberman_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NeoBomberman_A_DEF.h">
+      <Filter>Game\SNK Games\NeoBomberman_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

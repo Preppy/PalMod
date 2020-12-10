@@ -1,36 +1,36 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_GEMFIGHTER_A.h"
+#include "Game_NeoBomberman_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define GEMFIGHTER_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define NeoBomberman_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_GEMFIGHTER_A::GEMFIGHTER_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_NeoBomberman_A::NeoBomberman_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_GEMFIGHTER_A::MainDescTree = nullptr;
+CDescTree CGame_NeoBomberman_A::MainDescTree = nullptr;
 
-int CGame_GEMFIGHTER_A::rgExtraCountAll[GEMFIGHTER_A_NUMUNITS + 1];
-int CGame_GEMFIGHTER_A::rgExtraLoc[GEMFIGHTER_A_NUMUNITS + 1];
+int CGame_NeoBomberman_A::rgExtraCountAll[NeoBomberman_A_NUMUNIT + 1];
+int CGame_NeoBomberman_A::rgExtraLoc[NeoBomberman_A_NUMUNIT + 1];
 
-UINT32 CGame_GEMFIGHTER_A::m_nTotalPaletteCountForGemFighter = 0;
-UINT32 CGame_GEMFIGHTER_A::m_nExpectedGameROMSize = 0x80000;
-UINT32 CGame_GEMFIGHTER_A::m_nConfirmedROMSize = -1;
+UINT32 CGame_NeoBomberman_A::m_nTotalPaletteCountForNeoBomberman = 0;
+UINT32 CGame_NeoBomberman_A::m_nExpectedGameROMSize = 0x100000;
+UINT32 CGame_NeoBomberman_A::m_nConfirmedROMSize = -1;
 
-void CGame_GEMFIGHTER_A::InitializeStatics()
+void CGame_NeoBomberman_A::InitializeStatics()
 {
-    safe_delete_array(CGame_GEMFIGHTER_A::GEMFIGHTER_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_NeoBomberman_A::NeoBomberman_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_GEMFIGHTER_A::InitDescTree());
+    MainDescTree.SetRootTree(CGame_NeoBomberman_A::InitDescTree());
 }
 
-CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize)
+CGame_NeoBomberman_A::CGame_NeoBomberman_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A: Loading ROM...\n"));
+    strMessage.Format(_T("CGame_NeoBomberman_A::CGame_NeoBomberman_A: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
@@ -38,39 +38,39 @@ CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = GEMFIGHTER_A_NUMUNITS;
-    m_nExtraUnit = GEMFIGHTER_A_EXTRALOC;
+    m_nTotalInternalUnits = NeoBomberman_A_NUMUNIT;
+    m_nExtraUnit = NeoBomberman_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 227; // 263;
-    m_pszExtraFilename = EXTRA_FILENAME_GEMFIGHTER_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForGemFighter;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 43;
+    m_pszExtraFilename = EXTRA_FILENAME_NeoBomberman_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForNeoBomberman;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x99e6;
+    m_nLowestKnownPaletteRomLocation = 0x0c14ea;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_12A);
+    SetColorMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
     //Set game information
-    nGameFlag = GEMFIGHTER_A;
-    nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = ARRAYSIZE(GEMFIGHTER_A_IMG_UNITS);
-    m_prgGameImageSet = GEMFIGHTER_A_IMG_UNITS;
+    nGameFlag = NeoBomberman_A;
+    nImgGameFlag = IMGDAT_SECTION_NEOGEO;
+    m_prgGameImageSet = NEOBOMBERMAN_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(NEOBOMBERMAN_A_IMG_UNITS);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_GEMFIGHTER;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_GEMFIGHTER);
+    pButtonLabelSet = DEF_NOBUTTONS;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -80,52 +80,27 @@ CGame_GEMFIGHTER_A::CGame_GEMFIGHTER_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_GEMFIGHTER_A::~CGame_GEMFIGHTER_A(void)
+CGame_NeoBomberman_A::~CGame_NeoBomberman_A(void)
 {
-    safe_delete_array(CGame_GEMFIGHTER_A::GEMFIGHTER_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_NeoBomberman_A::NeoBomberman_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_GEMFIGHTER_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+CDescTree* CGame_NeoBomberman_A::GetMainTree()
 {
-    static sCRC32ValueSet knownROMs[] =
-    {
-        // sgemf    Super Gem Fighter: Mini Mix (US 970904)
-        // sgemfa   Super Gem Fighter: Mini Mix (Asia 970904)
-        // pfghtj   Pocket Fighter (Japan 970904)
-        // sgemfh   Super Gem Fighter: Mini Mix (Hispanic 970904)
-        { _T("Super Gem Fighter: Mini Mix (USA 970904)"), _T("pcf.07"),  0x5ac6d5ea, 0 },
-    };
-
-    if (ppKnownROMSet)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
+    return &CGame_NeoBomberman_A::MainDescTree;
 }
 
-CDescTree* CGame_GEMFIGHTER_A::GetMainTree()
-{
-    return &CGame_GEMFIGHTER_A::MainDescTree;
-}
-
-int CGame_GEMFIGHTER_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_NeoBomberman_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((GEMFIGHTER_A_NUMUNITS + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((NeoBomberman_A_NUMUNIT + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForGemFighter(0);
+        stExtraDef* pCurrDef = GetExtraDefForNeoBomberman(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -135,22 +110,22 @@ int CGame_GEMFIGHTER_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForGemFighter(nDefCtr);
+            pCurrDef = GetExtraDefForNeoBomberman(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-int CGame_GEMFIGHTER_A::GetExtraLoc(UINT16 nUnitId)
+int CGame_NeoBomberman_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (GEMFIGHTER_A_NUMUNITS + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (NeoBomberman_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForGemFighter(0);
+        stExtraDef* pCurrDef = GetExtraDefForNeoBomberman(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -161,34 +136,34 @@ int CGame_GEMFIGHTER_A::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForGemFighter(nDefCtr);
+            pCurrDef = GetExtraDefForNeoBomberman(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
+sDescTreeNode* CGame_NeoBomberman_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_GEMFIGHTER_A, GEMFIGHTER_A_EXTRA, &GEMFIGHTER_A_EXTRA_CUSTOM, GEMFIGHTER_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_NeoBomberman_A, NeoBomberman_A_EXTRA, &NeoBomberman_A_EXTRA_CUSTOM, NeoBomberman_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = GEMFIGHTER_A_NUMUNITS + (GetExtraCt(GEMFIGHTER_A_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = NeoBomberman_A_NUMUNIT + (GetExtraCt(NeoBomberman_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[GEMFIGHTER_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[NeoBomberman_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(GEMFIGHTER_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_GEMFIGHTER_A::InitDescTree: Building desc tree for GEMFIGHTER_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    bool fHaveExtras = (GetExtraCt(NeoBomberman_A_EXTRALOC) > 0);
+    strMsg.Format(_T("CGame_NeoBomberman_A::InitDescTree: Building desc tree for NeoBomberman_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -205,17 +180,17 @@ sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < GEMFIGHTER_A_EXTRALOC)
+        if (iUnitCtr != NeoBomberman_A_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), GEMFIGHTER_A_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), NeoBomberman_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if GEMFIGHTER_A_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+#if NeoBomberman_A_DEBUG
+            strMsg.Format(_T(";Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
@@ -236,8 +211,8 @@ sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if GEMFIGHTER_A_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+#if NeoBomberman_A_DEBUG
+                strMsg.Format(_T(";\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -254,8 +229,8 @@ sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if GEMFIGHTER_A_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+#if NeoBomberman_A_DEBUG
+                    strMsg.Format(_T(";\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
@@ -269,6 +244,10 @@ sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
                         strMsg.Format(_T(" no image available.\n"));
                     }
                     OutputDebugString(strMsg);
+
+                    strMsg.Format(_T("%s :: %s :: %s\n0x%X\n0x%X\n\n"), UnitNode->szDesc, CollectionNode->szDesc, ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
+                    OutputDebugString(strMsg);
+
 #endif
                 }
             }
@@ -282,8 +261,8 @@ sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if GEMFIGHTER_A_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+#if NeoBomberman_A_DEBUG
+            strMsg.Format(_T(";Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -294,7 +273,7 @@ sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(GEMFIGHTER_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(NeoBomberman_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
@@ -303,7 +282,7 @@ sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if GEMFIGHTER_A_DEBUG
+#if NeoBomberman_A_DEBUG
             strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -312,21 +291,21 @@ sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForGemFighter(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForNeoBomberman(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForGemFighter(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForNeoBomberman(nExtraPos + nCurrExtra);
                 }
 
                 _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((GEMFIGHTER_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((NeoBomberman_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if GEMFIGHTER_A_DEBUG
+#if NeoBomberman_A_DEBUG
                 strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -337,20 +316,20 @@ sDescTreeNode* CGame_GEMFIGHTER_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_GEMFIGHTER_A::InitDescTree: Loaded %u palettes for GEMFIGHTER\n"), nTotalPaletteCount);
+    strMsg.Format(_T("CGame_NeoBomberman_A::InitDescTree: Loaded %u palettes for NeoBomberman\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForGemFighter = nTotalPaletteCount;
+    m_nTotalPaletteCountForNeoBomberman = nTotalPaletteCount;
 
     return NewDescTree;
 }
 
-sFileRule CGame_GEMFIGHTER_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_NeoBomberman_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("pcf.07"));
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("pal_a.bin"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -358,55 +337,55 @@ sFileRule CGame_GEMFIGHTER_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_GEMFIGHTER_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_NeoBomberman_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == GEMFIGHTER_A_EXTRALOC)
+    if (nUnitId == NeoBomberman_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return GEMFIGHTER_A_UNITS[nUnitId].uChildAmt;
+        return NeoBomberman_A_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_GEMFIGHTER_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_NeoBomberman_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == GEMFIGHTER_A_EXTRALOC)
+    if (nUnitId == NeoBomberman_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(GEMFIGHTER_A_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(NeoBomberman_A_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_GEMFIGHTER_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_NeoBomberman_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == GEMFIGHTER_A_EXTRALOC)
+    if (nUnitId == NeoBomberman_A_EXTRALOC)
     {
         return _T("Extra Palettes");
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)GEMFIGHTER_A_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)NeoBomberman_A_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_GEMFIGHTER_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_NeoBomberman_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == GEMFIGHTER_A_EXTRALOC)
+    if (nUnitId == NeoBomberman_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = GEMFIGHTER_A_UNITS;
+        const sDescTreeNode* pCompleteROMTree = NeoBomberman_A_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -416,9 +395,9 @@ UINT16 CGame_GEMFIGHTER_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if GEMFIGHTER_A_DEBUG
+#if NeoBomberman_A_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_GEMFIGHTER_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_NeoBomberman_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -426,14 +405,14 @@ UINT16 CGame_GEMFIGHTER_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_GEMFIGHTER_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_NeoBomberman_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)GEMFIGHTER_A_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)NeoBomberman_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_GEMFIGHTER_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_NeoBomberman_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -446,7 +425,7 @@ const sDescTreeNode* CGame_GEMFIGHTER_A::GetNodeFromPaletteId(UINT16 nUnitId, UI
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == GEMFIGHTER_A_EXTRALOC)
+        if (nUnitId == NeoBomberman_A_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -458,7 +437,7 @@ const sDescTreeNode* CGame_GEMFIGHTER_A::GetNodeFromPaletteId(UINT16 nUnitId, UI
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(GEMFIGHTER_A_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(NeoBomberman_A_UNITS[nUnitId].ChildNodes);
             
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -484,7 +463,7 @@ const sDescTreeNode* CGame_GEMFIGHTER_A::GetNodeFromPaletteId(UINT16 nUnitId, UI
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_GEMFIGHTER_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_NeoBomberman_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -508,9 +487,9 @@ const sGame_PaletteDataset* CGame_GEMFIGHTER_A::GetSpecificPalette(UINT16 nUnitI
     return paletteToUse;
 }
 
-void CGame_GEMFIGHTER_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_NeoBomberman_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != GEMFIGHTER_A_EXTRALOC)
+     if (nUnitId != NeoBomberman_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -529,10 +508,10 @@ void CGame_GEMFIGHTER_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // GEMFIGHTER_A_EXTRALOC
+    else // NeoBomberman_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForGemFighter(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForNeoBomberman(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
@@ -540,7 +519,7 @@ void CGame_GEMFIGHTER_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_GEMFIGHTER_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_NeoBomberman_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -548,7 +527,7 @@ BOOL CGame_GEMFIGHTER_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        // Layout is already sorted
+        // layout is presorted
         rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
@@ -570,7 +549,7 @@ BOOL CGame_GEMFIGHTER_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     return TRUE;
 }
 
-void CGame_GEMFIGHTER_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+void CGame_NeoBomberman_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
@@ -608,7 +587,7 @@ void CGame_GEMFIGHTER_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     }
 }
 
-BOOL CGame_GEMFIGHTER_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_NeoBomberman_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -639,7 +618,7 @@ BOOL CGame_GEMFIGHTER_A::UpdatePalImg(int Node01, int Node02, int Node03, int No
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != GEMFIGHTER_A_EXTRALOC)
+    if (NodeGet->uUnitId != NeoBomberman_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -647,24 +626,6 @@ BOOL CGame_GEMFIGHTER_A::UpdatePalImg(int Node01, int Node02, int Node03, int No
         {
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
-
-            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
-
-            if (pCurrentNode)
-            {
-                if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_GEMFIGHTER[0]) == 0) || (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_GEMFIGHTER[1]) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_GEMFIGHTER[2]) == 0) || (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_GEMFIGHTER[3]) == 0))
-                {
-                    nSrcAmt = 4;
-                    nNodeIncrement = pCurrentNode->uChildAmt;
-
-                    while (nSrcStart >= nNodeIncrement)
-                    {
-                        // The starting point is the absolute first palette for the sprite in question which is found in P1/A
-                        nSrcStart -= nNodeIncrement;
-                    }
-                }
-            }
         }
     }
 
