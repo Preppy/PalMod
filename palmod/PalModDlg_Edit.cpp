@@ -506,6 +506,7 @@ void CPalModDlg::OnEditPaste()
                     break;
                 }
                 case BLEACH_DS:
+                case GUNDAM_SNES:
                 case MMPR_SNES:
                 case SSF2T_GBA:
                 {

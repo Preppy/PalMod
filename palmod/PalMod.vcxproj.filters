@@ -208,6 +208,9 @@
     <Filter Include="Game\SNK Games\NeoBomberman_A">
       <UniqueIdentifier>{5b3ee8d1-5bef-46b3-b139-fc30deec57e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Nintendo\Gundam Endless Duel">
+      <UniqueIdentifier>{e8835cfd-2974-45fb-8fdc-2a63b9b76d73}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -461,6 +464,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_NeoBomberman_A.cpp">
       <Filter>Game\SNK Games\NeoBomberman_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_GUNDAM_SNES.cpp">
+      <Filter>Game\Nintendo\Gundam Endless Duel</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -850,6 +856,12 @@
     </ClInclude>
     <ClInclude Include="Game\NeoBomberman_A_DEF.h">
       <Filter>Game\SNK Games\NeoBomberman_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GUNDAM_SNES.h">
+      <Filter>Game\Nintendo\Gundam Endless Duel</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GUNDAM_SNES_DEF.h">
+      <Filter>Game\Nintendo\Gundam Endless Duel</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

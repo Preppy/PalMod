@@ -70,6 +70,7 @@ enum SupportedGamesList
     MMPR_SNES,
     KOF01_A,
     NeoBomberman_A,
+    GUNDAM_SNES,
     NUM_GAMES // This needs to be last
 };
 
@@ -140,6 +141,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"MMPR:TFE (SNES)",
    L"KOF01 (Arcade)",
    L"Neo Bomberman (Arcade)",
+   L"Gundam Wing: Endless Duel (SNES)",
 };
 
 enum class GamePlatform
@@ -160,8 +162,8 @@ struct sSupportedGameList
     int nInternalGameIndex = 0;
     LPCWSTR szGameFriendlyName = L"uninit";
     LPCWSTR szGameFilterString = L"uninit";
-    int nListedGameIndex = INVALID_UNIT_VALUE;
     GamePlatform publisherKey = GamePlatform::Unknown;
+    int nListedGameIndex = INVALID_UNIT_VALUE;
 };
 
 const int nGameLoadROMListMask = 0xf0000;

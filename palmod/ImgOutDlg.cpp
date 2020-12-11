@@ -540,7 +540,6 @@ void CImgOutDlg::OnFileSave()
                     fShouldExportAsIndexed = (MessageBox(strWarning, GetHost()->GetAppName(), mbFlags) == IDOK) && !fTooManyColorsForIndexedPNG;
                 }
 
-
                 if (fShouldExportAsIndexed)
                 {
                     // Indexed PNG: use the lodePNG encoder
@@ -549,8 +548,8 @@ void CImgOutDlg::OnFileSave()
                         LPCWSTR pszCurrentNodeName = fShowingSingleVersion ? L"" : pButtonLabelSet[nNodeIndex];
                         int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.nPalIndex : nNodeIndex;
 
-                        const unsigned destWidth = maxSrcWidth * currentZoom;
-                        const unsigned destHeight = maxSrcHeight * currentZoom;
+                        const unsigned destWidth = (maxSrcWidth * currentZoom) + (2 * m_DumpBmp.border_sz);
+                        const unsigned destHeight = (maxSrcHeight * currentZoom) + (2 * m_DumpBmp.border_sz);
 
                         std::vector<unsigned char> image(destWidth* destHeight);
                         lodepng::State state;
@@ -573,7 +572,7 @@ void CImgOutDlg::OnFileSave()
                                         for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
                                         {
                                             // make sure to flip the sprite
-                                            int destIndex = ((destY + zoomY) * destWidth) + (destX + zoomX);
+                                            int destIndex = ((m_DumpBmp.border_sz + destY + zoomY) * destWidth) + (m_DumpBmp.border_sz + destX + zoomX);
                                             // read bottom up, starting at the beginning of the last row
                                             int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
 
@@ -595,8 +594,17 @@ void CImgOutDlg::OnFileSave()
                             {
                                 if (iCurrentColor == 0) // transparency color
                                 {
-                                    lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
-                                    lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
+                                    if (bTransPNG)
+                                    {
+                                        lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
+                                        lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
+                                    }
+                                    else
+                                    {
+                                        // Use the background color, but be sure to force alpha
+                                        lodepng_palette_add(&state.info_png.color, GetRValue(m_DumpBmp.crBGCol), GetGValue(m_DumpBmp.crBGCol), GetBValue(m_DumpBmp.crBGCol), 0xFF);
+                                        lodepng_palette_add(&state.info_raw, GetRValue(m_DumpBmp.crBGCol), GetGValue(m_DumpBmp.crBGCol), GetBValue(m_DumpBmp.crBGCol), 0xFF);
+                                    }
                                 }
                                 else if (iCurrentColor < (size_t)m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz) // actual colors
                                 {

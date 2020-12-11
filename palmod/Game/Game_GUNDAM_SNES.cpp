@@ -1,36 +1,36 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_MMPR_SNES.h"
+#include "Game_GUNDAM_SNES.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define MMPR_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define GUNDAM_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_MMPR_SNES::MMPR_SNES_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_GUNDAM_SNES::GUNDAM_SNES_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_MMPR_SNES::MainDescTree = nullptr;
+CDescTree CGame_GUNDAM_SNES::MainDescTree = nullptr;
 
-int CGame_MMPR_SNES::rgExtraCountAll[MMPR_SNES_NUMUNIT + 1];
-int CGame_MMPR_SNES::rgExtraLoc[MMPR_SNES_NUMUNIT + 1];
+int CGame_GUNDAM_SNES::rgExtraCountAll[GUNDAM_SNES_NUMUNIT + 1];
+int CGame_GUNDAM_SNES::rgExtraLoc[GUNDAM_SNES_NUMUNIT + 1];
 
-UINT32 CGame_MMPR_SNES::m_nTotalPaletteCountForMMPR = 0;
-UINT32 CGame_MMPR_SNES::m_nExpectedGameROMSize = 0x180000;
-UINT32 CGame_MMPR_SNES::m_nConfirmedROMSize = -1;
+UINT32 CGame_GUNDAM_SNES::m_nTotalPaletteCountForGUNDAM = 0;
+UINT32 CGame_GUNDAM_SNES::m_nExpectedGameROMSize = 0x200000;
+UINT32 CGame_GUNDAM_SNES::m_nConfirmedROMSize = -1;
 
-void CGame_MMPR_SNES::InitializeStatics()
+void CGame_GUNDAM_SNES::InitializeStatics()
 {
-    safe_delete_array(CGame_MMPR_SNES::MMPR_SNES_EXTRA_CUSTOM);
+    safe_delete_array(CGame_GUNDAM_SNES::GUNDAM_SNES_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_MMPR_SNES::InitDescTree());
+    MainDescTree.SetRootTree(CGame_GUNDAM_SNES::InitDescTree());
 }
 
-CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
+CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_MMPR_SNES::CGame_MMPR_SNES: Loading ROM...\n"));
+    strMessage.Format(_T("CGame_GUNDAM_SNES::CGame_GUNDAM_SNES: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that we can truncate bad Extras correctly.
@@ -38,14 +38,14 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = MMPR_SNES_NUMUNIT;
-    m_nExtraUnit = MMPR_SNES_EXTRALOC;
+    m_nTotalInternalUnits = GUNDAM_SNES_NUMUNIT;
+    m_nExtraUnit = GUNDAM_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 18;
-    m_pszExtraFilename = EXTRA_FILENAME_MMPR_SNES;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForMMPR;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 69;
+    m_pszExtraFilename = EXTRA_FILENAME_GUNDAM_SNES;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForGUNDAM;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x141b24;
+    m_nLowestKnownPaletteRomLocation = 0x0ac400;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -58,18 +58,18 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
 
     BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
-    nGameFlag = MMPR_SNES;
+    nGameFlag = GUNDAM_SNES;
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    nImgUnitAmt = ARRAYSIZE(MMPR_SNES_IMG_UNITS);
-    m_prgGameImageSet = MMPR_SNES_IMG_UNITS;
+    m_prgGameImageSet = nullptr;
+    nImgUnitAmt = 0;
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_2_AB;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_AB);
+    pButtonLabelSet = DEF_BUTTONLABEL_2;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -79,19 +79,19 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_MMPR_SNES::~CGame_MMPR_SNES(void)
+CGame_GUNDAM_SNES::~CGame_GUNDAM_SNES(void)
 {
-    safe_delete_array(CGame_MMPR_SNES::MMPR_SNES_EXTRA_CUSTOM);
+    safe_delete_array(CGame_GUNDAM_SNES::GUNDAM_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-UINT32 CGame_MMPR_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+UINT32 CGame_GUNDAM_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"MMPR:TFE (SNES)", L"Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc", 0, 0 },
+        { L"Gundam Wing: Endless Duel", L"Shin Kidou Senki Gundam W - Endless Duel (Japan).sfc", 0, 0 },
     };
 
     if (ppKnownROMSet)
@@ -108,19 +108,19 @@ UINT32 CGame_MMPR_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
     return ARRAYSIZE(knownROMs);
 }
 
-CDescTree* CGame_MMPR_SNES::GetMainTree()
+CDescTree* CGame_GUNDAM_SNES::GetMainTree()
 {
-    return &CGame_MMPR_SNES::MainDescTree;
+    return &CGame_GUNDAM_SNES::MainDescTree;
 }
 
-int CGame_MMPR_SNES::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_GUNDAM_SNES::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((MMPR_SNES_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((GUNDAM_SNES_NUMUNIT + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForMMPR(0);
+        stExtraDef* pCurrDef = GetExtraDefForGUNDAM(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -130,22 +130,22 @@ int CGame_MMPR_SNES::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForMMPR(nDefCtr);
+            pCurrDef = GetExtraDefForGUNDAM(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-int CGame_MMPR_SNES::GetExtraLoc(UINT16 nUnitId)
+int CGame_GUNDAM_SNES::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (MMPR_SNES_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (GUNDAM_SNES_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForMMPR(0);
+        stExtraDef* pCurrDef = GetExtraDefForGUNDAM(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -156,34 +156,34 @@ int CGame_MMPR_SNES::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForMMPR(nDefCtr);
+            pCurrDef = GetExtraDefForGUNDAM(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
+sDescTreeNode* CGame_GUNDAM_SNES::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_MMPR_SNES, MMPR_SNES_EXTRA, &MMPR_SNES_EXTRA_CUSTOM, MMPR_SNES_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_GUNDAM_SNES, GUNDAM_SNES_EXTRA, &GUNDAM_SNES_EXTRA_CUSTOM, GUNDAM_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = MMPR_SNES_NUMUNIT + (GetExtraCt(MMPR_SNES_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = GUNDAM_SNES_NUMUNIT + (GetExtraCt(GUNDAM_SNES_EXTRALOC) ? 1 : 0);
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[MMPR_SNES]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[GUNDAM_SNES]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(MMPR_SNES_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_MMPR_SNES::InitDescTree: Building desc tree for MMPR_SNES %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    bool fHaveExtras = (GetExtraCt(GUNDAM_SNES_EXTRALOC) > 0);
+    strMsg.Format(_T("CGame_GUNDAM_SNES::InitDescTree: Building desc tree for GUNDAM_SNES %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -200,16 +200,16 @@ sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < MMPR_SNES_EXTRALOC)
+        if (iUnitCtr < GUNDAM_SNES_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), MMPR_SNES_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), GUNDAM_SNES_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if MMPR_SNES_DEBUG
+#if GUNDAM_SNES_DEBUG
             strMsg.Format(_T(";Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -231,7 +231,7 @@ sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if MMPR_SNES_DEBUG
+#if GUNDAM_SNES_DEBUG
                 strMsg.Format(_T(";\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -249,7 +249,7 @@ sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if MMPR_SNES_DEBUG
+#if GUNDAM_SNES_DEBUG
                     strMsg.Format(_T(";\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
@@ -281,7 +281,7 @@ sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if MMPR_SNES_DEBUG
+#if GUNDAM_SNES_DEBUG
             strMsg.Format(_T(";Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -293,7 +293,7 @@ sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MMPR_SNES_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(GUNDAM_SNES_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
@@ -302,7 +302,7 @@ sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if MMPR_SNES_DEBUG
+#if GUNDAM_SNES_DEBUG
             strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -311,21 +311,21 @@ sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForMMPR(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForGUNDAM(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForMMPR(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForGUNDAM(nExtraPos + nCurrExtra);
                 }
 
                 _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((MMPR_SNES_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((GUNDAM_SNES_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if MMPR_SNES_DEBUG
+#if GUNDAM_SNES_DEBUG
                 strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -336,20 +336,20 @@ sDescTreeNode* CGame_MMPR_SNES::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_MMPR_SNES::InitDescTree: Loaded %u palettes for MMPR\n"), nTotalPaletteCount);
+    strMsg.Format(_T("CGame_GUNDAM_SNES::InitDescTree: Loaded %u palettes for GUNDAM\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForMMPR = nTotalPaletteCount;
+    m_nTotalPaletteCountForGUNDAM = nTotalPaletteCount;
 
     return NewDescTree;
 }
 
-sFileRule CGame_MMPR_SNES::GetRule(UINT16 nUnitId)
+sFileRule CGame_GUNDAM_SNES::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc"); // Update with the primary expected ROM name here.
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"Shin Kidou Senki Gundam W - Endless Duel (Japan).sfc"); // Update with the primary expected ROM name here.
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -357,55 +357,55 @@ sFileRule CGame_MMPR_SNES::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_MMPR_SNES::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_GUNDAM_SNES::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == MMPR_SNES_EXTRALOC)
+    if (nUnitId == GUNDAM_SNES_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return MMPR_SNES_UNITS[nUnitId].uChildAmt;
+        return GUNDAM_SNES_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_MMPR_SNES::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_GUNDAM_SNES::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == MMPR_SNES_EXTRALOC)
+    if (nUnitId == GUNDAM_SNES_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(MMPR_SNES_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(GUNDAM_SNES_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_MMPR_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_GUNDAM_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == MMPR_SNES_EXTRALOC)
+    if (nUnitId == GUNDAM_SNES_EXTRALOC)
     {
         return _T("Extra Palettes");
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)MMPR_SNES_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)GUNDAM_SNES_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_MMPR_SNES::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_GUNDAM_SNES::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == MMPR_SNES_EXTRALOC)
+    if (nUnitId == GUNDAM_SNES_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = MMPR_SNES_UNITS;
+        const sDescTreeNode* pCompleteROMTree = GUNDAM_SNES_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -415,9 +415,9 @@ UINT16 CGame_MMPR_SNES::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if MMPR_SNES_DEBUG
+#if GUNDAM_SNES_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_MMPR_SNES::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_GUNDAM_SNES::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -425,14 +425,14 @@ UINT16 CGame_MMPR_SNES::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_MMPR_SNES::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_GUNDAM_SNES::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)MMPR_SNES_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)GUNDAM_SNES_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_MMPR_SNES::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_GUNDAM_SNES::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -445,7 +445,7 @@ const sDescTreeNode* CGame_MMPR_SNES::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == MMPR_SNES_EXTRALOC)
+        if (nUnitId == GUNDAM_SNES_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -457,7 +457,7 @@ const sDescTreeNode* CGame_MMPR_SNES::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(MMPR_SNES_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(GUNDAM_SNES_UNITS[nUnitId].ChildNodes);
 
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -483,7 +483,7 @@ const sDescTreeNode* CGame_MMPR_SNES::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_MMPR_SNES::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_GUNDAM_SNES::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -507,9 +507,9 @@ const sGame_PaletteDataset* CGame_MMPR_SNES::GetSpecificPalette(UINT16 nUnitId, 
     return paletteToUse;
 }
 
-void CGame_MMPR_SNES::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_GUNDAM_SNES::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-    if (nUnitId != MMPR_SNES_EXTRALOC)
+    if (nUnitId != GUNDAM_SNES_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -534,10 +534,10 @@ void CGame_MMPR_SNES::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // MMPR_SNES_EXTRALOC
+    else // GUNDAM_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForMMPR(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForGUNDAM(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
@@ -545,7 +545,7 @@ void CGame_MMPR_SNES::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_MMPR_SNES::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_GUNDAM_SNES::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -575,7 +575,7 @@ BOOL CGame_MMPR_SNES::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     return TRUE;
 }
 
-void CGame_MMPR_SNES::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+void CGame_GUNDAM_SNES::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
@@ -613,7 +613,7 @@ void CGame_MMPR_SNES::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     }
 }
 
-BOOL CGame_MMPR_SNES::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_GUNDAM_SNES::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -644,7 +644,7 @@ BOOL CGame_MMPR_SNES::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != MMPR_SNES_EXTRALOC)
+    if (NodeGet->uUnitId != GUNDAM_SNES_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 

@@ -7,6 +7,7 @@
 #include "Game_CVS2_A.h"
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
+#include "Game_GUNDAM_SNES.h"
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
 #include "Game_KarnovsR_A.h"
@@ -123,6 +124,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case GEMFIGHTER_A:
     {
         GetRule = &CGame_GEMFIGHTER_A::GetRule;
+        return TRUE;
+    }
+    case GUNDAM_SNES:
+    {
+        GetRule = &CGame_GUNDAM_SNES::GetRule;
         return TRUE;
     }
     case JOJOS_A:
@@ -440,6 +446,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case GEMFIGHTER_A:
     {
         return new CGame_GEMFIGHTER_A(nConfirmedROMSize);
+    }
+    case GUNDAM_SNES:
+    {
+        return new CGame_GUNDAM_SNES(nConfirmedROMSize);
     }
     case JOJOS_A:
     {

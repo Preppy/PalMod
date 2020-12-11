@@ -1188,7 +1188,7 @@ const sGame_PaletteDataset KOF03_A_WHIP_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_KYO_PALETTES_A[] =
 {
-    { L"Kyo Kusanagi A", 0x011000, 0x011020, indexKOFXISprites_Kyo },
+    { L"Kyo Kusanagi A", 0x011000, 0x011020, indexKOF03Sprites_Kyo },
     { L"Intro/Victory Flame A", 0x011130, 0x011140 },
     { L"Rekkas/Shiki A", 0x011140, 0x011160 },
     { L"Oniyaki A", 0x011160, 0x011180 },
@@ -1199,7 +1199,7 @@ const sGame_PaletteDataset KOF03_A_KYO_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_KYO_PALETTES_B[] =
 {
-    { L"Kyo Kusanagi B", 0x011200, 0x011220, indexKOFXISprites_Kyo },
+    { L"Kyo Kusanagi B", 0x011200, 0x011220, indexKOF03Sprites_Kyo },
     { L"Intro/Victory Flame B", 0x011330, 0x011340 },
     { L"Rekkas/Shiki B", 0x011340, 0x011360 },
     { L"Oniyaki B", 0x011360, 0x011380 },
@@ -1210,7 +1210,7 @@ const sGame_PaletteDataset KOF03_A_KYO_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_KYO_PALETTES_C[] =
 {
-    { L"Kyo Kusanagi C", 0x011400, 0x011420, indexKOFXISprites_Kyo },
+    { L"Kyo Kusanagi C", 0x011400, 0x011420, indexKOF03Sprites_Kyo },
     { L"Intro/Victory Flame C", 0x011530, 0x011540 },
     { L"Rekkas/Shiki C", 0x011540, 0x011560 },
     { L"Oniyaki C", 0x011560, 0x011580 },
@@ -1221,7 +1221,7 @@ const sGame_PaletteDataset KOF03_A_KYO_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_KYO_PALETTES_D[] =
 {
-    { L"Kyo Kusanagi D", 0x011600, 0x011620, indexKOFXISprites_Kyo },
+    { L"Kyo Kusanagi D", 0x011600, 0x011620, indexKOF03Sprites_Kyo },
     { L"Intro/Victory Flame D", 0x011730, 0x011740 },
     { L"Rekkas/Shiki D", 0x011740, 0x011760 },
     { L"Oniyaki D", 0x011760, 0x011780 },
