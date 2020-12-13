@@ -14,10 +14,8 @@
 // We use the first non-white space printable character '!' as the base for edit/paste calculations.
 constexpr auto k_nASCIICharacterOffset = 33;
 
-void CPalModDlg::OnCopyColorAtPointer()
+void CPalModDlg::CopyColorToClipboard(COLORREF crColor)
 {
-    COLORREF colorAtPixel = GetColorAtCurrentMouseCursorPosition();
-
     if (!bOleInit)
     {
         return;
@@ -27,7 +25,7 @@ void CPalModDlg::OnCopyColorAtPointer()
     CSharedFile sf(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
 
     CStringA CopyText;
-    CopyText.Format("#%08x", colorAtPixel);
+    CopyText.Format("#%08x", crColor);
     sf.Write(CopyText, CopyText.GetLength());
 
     HGLOBAL hMem = sf.Detach();
@@ -38,6 +36,11 @@ void CPalModDlg::OnCopyColorAtPointer()
 
     pSource->CacheGlobalData(CF_TEXT, hMem);
     pSource->SetClipboard();
+}
+
+void CPalModDlg::OnCopyColorAtPointer()
+{
+    CopyColorToClipboard(GetColorAtCurrentMouseCursorPosition());
 }
 
 void CPalModDlg::OnPasteColorAtPointer()
@@ -847,16 +850,24 @@ void CPalModDlg::OnEditSelectNone()
     }
 }
 
-DWORD CPalModDlg::GetColorAtCurrentMouseCursorPosition()
+DWORD CPalModDlg::GetColorAtCurrentMouseCursorPosition(int ptX /* = -1 */, int ptY /* = -1 */)
 {
     HDC hdc = ::GetDC(0);
     DWORD colorAsDWORD = CLR_INVALID;
 
     if (hdc != nullptr)
     {
-        POINT ptCursor;
+        POINT ptCursor = { ptX, ptY };
 
-        if (GetCursorPos(&ptCursor))
+        if (ptCursor.x == -1)
+        {
+            if (!GetCursorPos(&ptCursor))
+            {
+                ptCursor.x = -1;
+            }
+        }
+
+        if (ptCursor.x != -1)
         {
             COLORREF colorAtPixel = GetPixel(hdc, ptCursor.x, ptCursor.y);
             // COLORREF is aaBBggRR we want aaRRggBB
@@ -873,16 +884,19 @@ DWORD CPalModDlg::GetColorAtCurrentMouseCursorPosition()
     return colorAsDWORD;
 }
 
-void CPalModDlg::SelectMatchingColorsInPalette(DWORD dwColorToMatch)
+bool CPalModDlg::SelectMatchingColorsInPalette(DWORD dwColorToMatch)
 {
+    bool fFoundColor = false;
     if (CurrPalCtrl)
     {
         // Update the CJunk controls to highlight the color desired
-        CurrPalCtrl->SelectMatchingColorsInPalette(dwColorToMatch);
+        fFoundColor = CurrPalCtrl->SelectMatchingColorsInPalette(dwColorToMatch);
         CurrPalCtrl->UpdateCtrl();
         // Update the Edit Color options.
         UpdateSliderSel();
     }
+
+    return fFoundColor;
 }
 
 void CPalModDlg::CustomEditProc(void* pPalCtrl, UINT_PTR nCtrlId, int nMethod)

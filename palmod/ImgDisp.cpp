@@ -65,6 +65,7 @@ BEGIN_MESSAGE_MAP(CImgDisp, CWnd)
     ON_WM_ERASEBKGND()
     ON_WM_SIZE()
     ON_WM_LBUTTONDOWN()
+    ON_WM_RBUTTONDOWN()
     ON_WM_MOUSEMOVE()
     ON_WM_LBUTTONUP()
 END_MESSAGE_MAP()
@@ -772,7 +773,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 
                 if (rSrcRct.Width() > rImgRct.Width())
                 {
-                    if (rSrcRct.left > rImgRct.left || rSrcRct.right < rImgRct.right)
+                    if ((rSrcRct.left > rImgRct.left) || (rSrcRct.right < rImgRct.right))
                     {
                         rSrcRct.left -= nAdd;
                         rSrcRct.right -= nAdd;
@@ -780,7 +781,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
                 }
                 else
                 {
-                    if (rSrcRct.left < rImgRct.left || rSrcRct.right > rImgRct.right)
+                    if ((rSrcRct.left < rImgRct.left) || (rSrcRct.right > rImgRct.right))
                     {
                         rSrcRct.left -= nAdd;
                         rSrcRct.right -= nAdd;
@@ -873,7 +874,7 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
 
 #endif
 
-    if (GetClickToFindColor())
+    if (GetClickToFindColorSetting())
     {
         // Update the current palette selections based upon this click
         GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition());
@@ -890,4 +891,54 @@ void CImgDisp::SetAltPal(int nIndex, COLORREF* pAltPal)
     }
 
     m_pBackupAltPalette = pAltPal;
+}
+
+void CImgDisp::OnRButtonDown(UINT nFlags, CPoint point)
+{
+    if (GetHost()->GetCurrGame())
+    {
+        CMenu PopupMenu;
+
+        if (PopupMenu.CreatePopupMenu())
+        {
+            RECT rWnd; GetWindowRect(&rWnd);
+            point.x += rWnd.left;
+            point.y += rWnd.top;
+
+            bool canPasteFromCliboard = IsPasteSupported();
+
+            constexpr auto CUSTOM_FINDCOLOR = WM_USER + 20;
+            constexpr auto CUSTOM_COPYCOLOR = WM_USER + 21;
+            constexpr auto CUSTOM_PASTECOLOR = WM_USER + 22;
+
+            PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_FINDCOLOR, L"Find this color in palette");
+            PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
+            PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_COPYCOLOR, L"&Copy this color");
+            PopupMenu.AppendMenu(canPasteFromCliboard ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTECOLOR, L"&Paste to this color");
+
+            int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, point.x, point.y, this, NULL);
+
+            switch (result)
+            {
+            case CUSTOM_FINDCOLOR:
+                GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y));
+                break;
+            case CUSTOM_COPYCOLOR:
+                GetHost()->GetPalModDlg()->CopyColorToClipboard(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y));
+                break;
+            case CUSTOM_PASTECOLOR:
+                if (GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y)))
+                {
+                    GetHost()->GetPalModDlg()->OnEditPaste();
+                }
+                break;
+            }
+        }
+        else
+        {
+            OutputDebugString(L"ERROR: Couldn't create popup menu.\n");
+        }
+    }
+
+    CWnd::OnRButtonDown(nFlags, point);
 }

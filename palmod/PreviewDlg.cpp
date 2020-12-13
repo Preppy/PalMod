@@ -175,7 +175,7 @@ void CPreviewDlg::LoadSettings()
     m_ImgDisp.SetBGYOffs(LoadSett.nBGYOffs);
     m_ImgDisp.SetUseBGCol(LoadSett.bUseBGCol);
     m_ImgDisp.SetZoom(LoadSett.dPreviewZoom);
-    m_ImgDisp.SetClickToFindColor(LoadSett.bClickToFind);
+    m_ImgDisp.SetClickToFindColorSetting(LoadSett.bClickToFind);
 
     if (LoadSett.bUseBGCol)
     {
@@ -244,7 +244,7 @@ void CPreviewDlg::SaveSettings()
     SaveSett.nBGYOffs = m_ImgDisp.GetBGYOffs();
     SaveSett.bUseBGCol = m_ImgDisp.IsUsingBGCol();
     SaveSett.dPreviewZoom = m_ImgDisp.GetZoom();
-    SaveSett.bClickToFind = m_ImgDisp.GetClickToFindColor();
+    SaveSett.bClickToFind = m_ImgDisp.GetClickToFindColorSetting();
 
     RECT window_rect;
 
@@ -338,7 +338,7 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
     {
         pSettMenu->CheckMenuItem(ID_SETTINGS_TILEIMAGEBACKGROUND, m_ImgDisp.IsBGTiled() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_USEBGCOLOR, m_ImgDisp.IsUsingBGCol() ? MF_CHECKED : MF_UNCHECKED);
-        pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColor() ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColorSetting() ? MF_CHECKED : MF_UNCHECKED);
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
     }
 }
@@ -470,5 +470,5 @@ void CPreviewDlg::OnSettingsUseBackgroundColor()
 
 void CPreviewDlg::OnSettingsClickToFindColor()
 {
-    m_ImgDisp.SetClickToFindColor(!m_ImgDisp.GetClickToFindColor());
+    m_ImgDisp.SetClickToFindColorSetting(!m_ImgDisp.GetClickToFindColorSetting());
 }

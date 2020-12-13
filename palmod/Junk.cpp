@@ -54,17 +54,24 @@ void CJunk::ClearSelView()
     iHLAmt = 0;
 }
 
-void CJunk::SelectMatchingColorsInPalette(DWORD dwColorToMatch)
+bool CJunk::SelectMatchingColorsInPalette(DWORD dwColorToMatch)
 {
+    bool fFoundColor = false;
     if (Selected)
     {
         COLORREF dwordAsColor = RGB(GetBValue(dwColorToMatch), GetGValue(dwColorToMatch), GetRValue(dwColorToMatch));
 
         for (int i = 0; i < iWorkingAmt; i++)
         {
-            Selected[i] = ((BasePal[i] & 0xFFFFFF) == dwordAsColor);
+            bool fIsSameColorAtIndex = ((BasePal[i] & 0xFFFFFF) == dwordAsColor);
+            Selected[i] = fIsSameColorAtIndex ? 1 : 0;
+            fFoundColor = fFoundColor || fIsSameColorAtIndex;
         }
     }
+
+    UpdateSelAmt();
+
+    return fFoundColor;
 }
 
 void CJunk::ClearSelected()

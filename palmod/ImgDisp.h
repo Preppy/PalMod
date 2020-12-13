@@ -145,8 +145,8 @@ public:
     void SetBGYOffs(int nOffs) { nBGYOffs = nOffs; };
     void SetBGTiled(BOOL bTiled) { bTileBGBmp = bTiled; };
     void SetUseBGCol(BOOL bUse) { bUseBGCol = bUse; };
-    void SetClickToFindColor(BOOL fClickToFind) { m_fClickToFindColor = fClickToFind; };
-    BOOL GetClickToFindColor() { return m_fClickToFindColor; };
+    void SetClickToFindColorSetting(BOOL fClickToFind) { m_fClickToFindColor = fClickToFind; };
+    BOOL GetClickToFindColorSetting() { return m_fClickToFindColor; };
     BOOL CanForceBGBitmapAvailable();
 
     int GetBGXOffs() { return nBGXOffs; };
@@ -190,4 +190,5 @@ public:
     afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
     afx_msg void OnMouseMove(UINT nFlags, CPoint point);
     afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
+    afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
 };

@@ -160,6 +160,8 @@ public:
 
     BOOL VerifyMsg(eVerifyType eType);
 
+    void CopyColorToClipboard(COLORREF crColor);
+
 // Construction
 public:
     CPalModDlg(CWnd* pParent = NULL);    // standard constructor
@@ -248,8 +250,8 @@ public:
     afx_msg void OnCopyColorAtPointer();
     afx_msg void OnPasteColorAtPointer();
 
-    DWORD GetColorAtCurrentMouseCursorPosition();
-    void SelectMatchingColorsInPalette(DWORD dwColorToMatch);
+    DWORD GetColorAtCurrentMouseCursorPosition(int ptX = -1, int ptY = -1);
+    bool SelectMatchingColorsInPalette(DWORD dwColorToMatch);
 
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
     afx_msg void OnSettingsSettings();

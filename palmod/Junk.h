@@ -138,7 +138,7 @@ public:
     void ClearSelected();
     void ClearSelView();
     void ClearHighlighted();
-    void SelectMatchingColorsInPalette(DWORD dwColorToMatch);
+    bool SelectMatchingColorsInPalette(DWORD dwColorToMatch);
 
     void SelectAll();
 
