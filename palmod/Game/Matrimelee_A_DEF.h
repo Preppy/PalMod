@@ -1142,185 +1142,233 @@ const sGame_PaletteDataset Matrimelee_A_WHITE_PORTRAIT_PALETTES[] =
 {
     { L"White Shared Portrait", 0x29C7A8, 0x29C828 },
 };
-	
+
+const sGame_PaletteDataset Matrimelee_A_HUD_PORTRAIT_PALETTES[] =
+{
+    { L"VS Text Transition", 0x2a20c4, 0x2a20e4 },
+    { L"VS Background Transition", 0x2a20e4, 0x2a2104 },
+    { L"VS Text Pre-Battle", 0x2a2144, 0x2a2164 },
+    { L"VS Dialogue 1P", 0x2a1c84, 0x2a1ca4 },
+    { L"VS Dialogue 2P", 0x2a1ca4, 0x2a1cc4 },
+    { L"VS Background 1P", 0x2cbcb0, 0x2cbcd0 },
+    { L"VS Background 2P", 0x2cbcd0, 0x2cbcf0 },
+    { L"VS Character Name", 0x2a2124, 0x2a2144 },
+    { L"Character Select 1P/2P", 0x2a27a4, 0x2a27c4 },
+    { L"Round Text", 0x29ac9e, 0x29acbe },
+    { L"Round Number Text", 0x29acbe, 0x29acde },
+    { L"KO Text", 0x29acde, 0x29acfe },
+    { L"Character Fire Palette", 0x29abbe, 0x29abde },
+    { L"Character Electric Palette", 0x29abde, 0x29abfe },
+    { L"Dialogue Text", 0x2a2866, 0x2a2886 },
+
+    { L"'How to Play' Joystick", 0x2a2886, 0x2a28a6 },
+    { L"'How to Play' A Button Arrow", 0x2a27e6, 0x2a2806 },
+    { L"'How to Play' B Button", 0x2a28a6, 0x2a28c6 },
+    { L"'How to Play' B Button Arrow", 0x2a2806, 0x2a2826 },
+    { L"'How to Play' C Button", 0x2a28e6, 0x2a2906 },
+    { L"'How to Play' C Button Arrow", 0x2a2826, 0x2a2846 },
+    { L"'How to Play' D Button", 0x2a2906, 0x2a2926 },
+    { L"'How to Play' D Button Arrow", 0x2a2846, 0x2a2866 },
+    { L"'How to Play' A Button", 0x2a28c6, 0x2a28e6 },
+    { L"'How to Play' Joystick Arrow", 0x2a27c6, 0x2a27e6 },
+};
+
+const sGame_PaletteDataset Matrimelee_A_JUDGE_PORTRAIT_PALETTES[] =
+{
+    { L"The Judge", 0x29adde, 0x29adfe },
+};
+
+const sGame_PaletteDataset Matrimelee_A_BBM_PORTRAIT_PALETTES[] =
+{
+    { L"Bloodline Battles TV", 0x29ac5e, 0x29ac7e },
+    { L"Bloodline Battles Attack Buttons", 0x29ac3e, 0x29ac5e },
+};
+
 const sDescTreeNode Matrimelee_A_ANNY_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_ANNY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_ANNY_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_ANNY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_ANNY_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_BUNTARO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_A_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_B_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_C_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_D_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BUNTARO_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_BUNTARO_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_A_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_B_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_C_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_BUNTARO_D_PALETTES,    ARRAYSIZE(Matrimelee_A_BUNTARO_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BUNTARO_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_BUNTARO_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_CHINNEN_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_A_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_B_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_C_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_D_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_CHINNEN_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_CHINNEN_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_A_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_B_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_C_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CHINNEN_D_PALETTES,    ARRAYSIZE(Matrimelee_A_CHINNEN_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_CHINNEN_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_CHINNEN_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_CLARA_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_A_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_B_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_C_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_D_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_CLARA_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_CLARA_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_A_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_B_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_C_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_CLARA_D_PALETTES,    ARRAYSIZE(Matrimelee_A_CLARA_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_CLARA_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_CLARA_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_ELIAS_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_A_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_B_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_C_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_D_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_ELIAS_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_ELIAS_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_A_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_B_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_C_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ELIAS_D_PALETTES,    ARRAYSIZE(Matrimelee_A_ELIAS_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_ELIAS_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_ELIAS_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_HIKARU_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_A_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_B_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_C_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_D_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_HIKARU_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_HIKARU_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_A_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_B_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_C_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_HIKARU_D_PALETTES,    ARRAYSIZE(Matrimelee_A_HIKARU_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_HIKARU_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_HIKARU_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_JIMMY_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_JIMMY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_JIMMY_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JIMMY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_JIMMY_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_JIMMY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_JIMMY_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_JONES_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_A_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_B_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_C_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_D_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_JONES_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_JONES_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_A_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_B_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_C_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_JONES_D_PALETTES,    ARRAYSIZE(Matrimelee_A_JONES_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_JONES_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_JONES_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_KANJI_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_A_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_B_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_C_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_D_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_KANJI_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_KANJI_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_A_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_B_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_C_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KANJI_D_PALETTES,    ARRAYSIZE(Matrimelee_A_KANJI_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_KANJI_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_KANJI_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_KEITH_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_A_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_B_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_C_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_D_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_KEITH_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_KEITH_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_A_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_B_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_C_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_KEITH_D_PALETTES,    ARRAYSIZE(Matrimelee_A_KEITH_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_KEITH_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_KEITH_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_LYNN_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_A_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_B_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_C_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_D_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_LYNN_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_LYNN_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_A_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_B_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_C_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_LYNN_D_PALETTES,    ARRAYSIZE(Matrimelee_A_LYNN_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_LYNN_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_LYNN_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_OLOF_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_A_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_B_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_C_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_D_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_OLOF_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_OLOF_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_A_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_B_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_C_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_OLOF_D_PALETTES,    ARRAYSIZE(Matrimelee_A_OLOF_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_OLOF_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_OLOF_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_POOCHY_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_POOCHY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_POOCHY_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_POOCHY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_POOCHY_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_POOCHY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_POOCHY_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_PRINCESSSISSY_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_PRINCESSSISSY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_PRINCESSSISSY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_PRINCESSSISSY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_PRINCESSSISSY_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_REIJI_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_A_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_B_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_C_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_D_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_REIJI_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_REIJI_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_A_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_B_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_C_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_REIJI_D_PALETTES,    ARRAYSIZE(Matrimelee_A_REIJI_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_REIJI_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_REIJI_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_SAIZO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_A_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_B_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_C_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_D_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_SAIZO_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_SAIZO_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_A_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_B_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_C_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SAIZO_D_PALETTES,    ARRAYSIZE(Matrimelee_A_SAIZO_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_SAIZO_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_SAIZO_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_SHINTARO_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_A_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_B_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_C_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_D_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_SHINTARO_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_SHINTARO_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_A_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_B_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_C_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_SHINTARO_D_PALETTES,    ARRAYSIZE(Matrimelee_A_SHINTARO_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_SHINTARO_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_SHINTARO_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_TANE_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_A_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_B_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_C_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_D_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_TANE_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_TANE_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_A_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_B_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_C_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_TANE_D_PALETTES,    ARRAYSIZE(Matrimelee_A_TANE_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_TANE_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_TANE_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_UME_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_A_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_B_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_C_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_D_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_UME_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_UME_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_A_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_B_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_C_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_UME_D_PALETTES,    ARRAYSIZE(Matrimelee_A_UME_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_UME_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_UME_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_WHITE_COLLECTION[] =
 {
-    { _T("A"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_A_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_A_PALETTES) },
-    { _T("B"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_B_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_B_PALETTES) },
-    { _T("C"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_C_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_C_PALETTES) },
-    { _T("D"), DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_D_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_D_PALETTES) },
-    { _T("Portrait"), DESC_NODETYPE_TREE,   (void*)Matrimelee_A_WHITE_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_WHITE_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_A_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_B_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_C_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_WHITE_D_PALETTES,    ARRAYSIZE(Matrimelee_A_WHITE_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_WHITE_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_WHITE_PORTRAIT_PALETTES) },
+};
+
+const sDescTreeNode Matrimelee_A_BONUS_COLLECTION[] =
+{
+    { L"HUD",                       DESC_NODETYPE_TREE,   (void*)Matrimelee_A_HUD_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_HUD_PORTRAIT_PALETTES) },
+    { L"The Judge",                 DESC_NODETYPE_TREE,   (void*)Matrimelee_A_JUDGE_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_JUDGE_PORTRAIT_PALETTES) },
+    { L"Bloodline Battle Monitor",  DESC_NODETYPE_TREE,   (void*)Matrimelee_A_BBM_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_BBM_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_UNITS[] =
@@ -1345,6 +1393,7 @@ const sDescTreeNode Matrimelee_A_UNITS[] =
     { L"Tane",              DESC_NODETYPE_TREE, (void*)Matrimelee_A_TANE_COLLECTION,      ARRAYSIZE(Matrimelee_A_TANE_COLLECTION) },
     { L"Ume",               DESC_NODETYPE_TREE, (void*)Matrimelee_A_UME_COLLECTION,      ARRAYSIZE(Matrimelee_A_UME_COLLECTION) },
     { L"White",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_WHITE_COLLECTION,      ARRAYSIZE(Matrimelee_A_WHITE_COLLECTION) },
+    { L"Bonus",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_BONUS_COLLECTION,      ARRAYSIZE(Matrimelee_A_BONUS_COLLECTION) },
 };
 
 constexpr auto Matrimelee_A_NUMUNIT = ARRAYSIZE(Matrimelee_A_UNITS);

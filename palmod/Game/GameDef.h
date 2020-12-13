@@ -71,6 +71,7 @@ enum SupportedGamesList
     KOF01_A,
     NeoBomberman_A,
     GUNDAM_SNES,
+    KOF94_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -142,6 +143,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"KOF01 (Arcade)",
    L"Neo Bomberman (Arcade)",
    L"Gundam Wing: Endless Duel (SNES)",
+   L"KOF: 94 (Arcade)",
 };
 
 enum class GamePlatform
@@ -210,6 +212,11 @@ const LPCTSTR DEF_BUTTONLABEL_2_PK[] =
 const LPCTSTR DEF_BUTTONLABEL_2_AB[] =
 {
     L"A", L"B"
+};
+
+const LPCTSTR DEF_BUTTONLABEL_2_NEOGEO[] =
+{
+    L"Main", L"Alt"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_NEOGEO[] =

@@ -15,6 +15,7 @@
 #include "Game_KOF02_A.h"
 #include "Game_KOF02UM_S.h"
 #include "Game_KOF03_A.h"
+#include "Game_KOF94_A.h"
 #include "Game_KOF98_A.h"
 #include "Game_KOFXI_A.h"
 #include "Game_Matrimelee_A.h"
@@ -149,6 +150,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case KarnovsR_A:
     {
         GetRule = &CGame_KarnovsR_A::GetRule;
+        return TRUE;
+    }
+    case KOF94_A:
+    {
+        GetRule = &CGame_KOF94_A::GetRule;
         return TRUE;
     }
     case KOF98_A:
@@ -466,6 +472,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case KarnovsR_A:
     {
         return new CGame_KarnovsR_A(nConfirmedROMSize);
+    }
+    case KOF94_A:
+    {
+        return new CGame_KOF94_A(nConfirmedROMSize);
     }
     case KOF98_A:
     {

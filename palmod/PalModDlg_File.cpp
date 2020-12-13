@@ -22,6 +22,7 @@ sSupportedGameList SupportedGameList[] =
     { GUNDAM_SNES,      L"Gundam Wing: Endless Duel", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).sfc|", GamePlatform::Nintendo },
     { JOJOS_A,          L"Jojo's: HFTF", L"Jojos (Japan): HUDs and menus (50), Characters (51)|50;51|", GamePlatform::CapcomCPS3 },
     { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", GamePlatform::NEOGEO }, // DataEast
+    { KOF94_A,          L"KOF94", L"KOF94|055-p1.p1|", GamePlatform::NEOGEO },
     { KOF98_A,          L"KOF98", L"KOF98|242-p2.sp2;kof98_p2.rom|", GamePlatform::NEOGEO },
     { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2|", GamePlatform::NEOGEO },
     // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
