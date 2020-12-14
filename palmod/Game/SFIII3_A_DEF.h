@@ -1751,7 +1751,14 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Round Markers",                     0x708c60, 0x708c80, index3S_CPS3_Bonus, 0x07 },
 
     { L"Final Results",                     0x70bf00, 0x70bf80, index3S_CPS3_Bonus, 0x01 },
-    { L"Select Background",                 0x709D80, 0x709E00, index3S_CPS3_Bonus, 0x0 },
+    { L"Select Background",                 0x709D80, 0x709E00, index3S_CPS3_Bonus, 0x00 },
+    { L"Select Background - Tinted",        0x70EB80, 0x70EC00, index3S_CPS3_Bonus, 0x00 },
+    // I don't love the offsets here, so am not including this for now.
+    //{ L"Select Screen - Blue Arrows",       0x709AC0, 0x709B00 },
+    // ... these are just solid black...?
+    //{ L"Character Select Screen - 1P and 2P selector cursor rings", 0x709A20, 0x709A30 },
+    // This is a very long chunk... leaving out for now as well.
+    //{ L"In Game Misc - Versus Screen",      0x70A680, 0x70B280 },
     { L"Vs Text",                           0x70C780, 0x70C880 },
 
     { L"Opening ring animation + SA Text",  0x709D00, 0x709D80 },

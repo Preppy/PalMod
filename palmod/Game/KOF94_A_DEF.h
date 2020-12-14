@@ -36,12 +36,6 @@ const sGame_PaletteDataset KOF94_A_HEIDERN_ALT_PALETTES[] =
     { L"Extra 4", 0x176360, 0x176380 },
 };
 
-const sGame_PaletteDataset KOF94_A_HEIDERN_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b780, 0x17b7a0 },
-    { L"Gigantic Pressure Palette", 0x17bb00, 0x17bb20 },
-};
-
 const sGame_PaletteDataset KOF94_A_RALF_MAIN_PALETTES[] =
 {
     { L"Ralf", 0x176380, 0x1763a0 },
@@ -70,12 +64,6 @@ const sGame_PaletteDataset KOF94_A_RALF_ALT_PALETTES[] =
     { L"Extra 3", 0x1766a0, 0x1766c0 },
     { L"MAX Flash", 0x1766c0, 0x1766e0 },
     { L"MAX Flash Extra", 0x1766e0, 0x176700 },
-};
-
-const sGame_PaletteDataset KOF94_A_RALF_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b7a0, 0x17b7c0 },
-    { L"Gigantic Pressure Palette", 0x17bb20, 0x17bb40 },
 };
 
 const sGame_PaletteDataset KOF94_A_CLARK_MAIN_PALETTES[] =
@@ -108,12 +96,6 @@ const sGame_PaletteDataset KOF94_A_CLARK_ALT_PALETTES[] =
     { L"MAX Flash Extra", 0x176a60, 0x176a80 },
 };
 
-const sGame_PaletteDataset KOF94_A_CLARK_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b7c0, 0x17b7e0 },
-    { L"Gigantic Pressure Palette", 0x17bb40, 0x17bb60 },
-};
-
 const sGame_PaletteDataset KOF94_A_ATHENA_MAIN_PALETTES[] =
 {
     { L"Athena", 0x176a80, 0x176aa0 },
@@ -142,12 +124,6 @@ const sGame_PaletteDataset KOF94_A_ATHENA_ALT_PALETTES[] =
     { L"Extra 3", 0x176da0, 0x176dc0 },
     { L"MAX Flash", 0x176dc0, 0x176de0 },
     { L"Extra 4", 0x176de0, 0x176e00 },
-};
-
-const sGame_PaletteDataset KOF94_A_ATHENA_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b7e0, 0x17b800 },
-    { L"Gigantic Pressure Palette", 0x17bb60, 0x17bb80 },
 };
 
 const sGame_PaletteDataset KOF94_A_KENSOU_MAIN_PALETTES[] =
@@ -180,12 +156,6 @@ const sGame_PaletteDataset KOF94_A_KENSOU_ALT_PALETTES[] =
     { L"Extra 4", 0x177160, 0x177180 },
 };
 
-const sGame_PaletteDataset KOF94_A_KENSOU_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b800, 0x17b820 },
-    { L"Gigantic Pressure Palette", 0x17bb80, 0x17bba0 },
-};
-
 const sGame_PaletteDataset KOF94_A_CHIN_MAIN_PALETTES[] =
 {
     { L"Chin", 0x177180, 0x1771a0 },
@@ -214,12 +184,6 @@ const sGame_PaletteDataset KOF94_A_CHIN_ALT_PALETTES[] =
     { L"Extra 3", 0x1774a0, 0x1774c0 },
     { L"MAX Flash", 0x1774c0, 0x1774e0 },
     { L"Extra 4", 0x1774e0, 0x177500 },
-};
-
-const sGame_PaletteDataset KOF94_A_CHIN_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b820, 0x17b840 },
-    { L"Gigantic Pressure Palette", 0x17bba0, 0x17bbc0 },
 };
 
 const sGame_PaletteDataset KOF94_A_KYO_MAIN_PALETTES[] =
@@ -252,12 +216,6 @@ const sGame_PaletteDataset KOF94_A_KYO_ALT_PALETTES[] =
     { L"Extra 4", 0x177860, 0x177880 },
 };
 
-const sGame_PaletteDataset KOF94_A_KYO_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b840, 0x17b860 },
-    { L"Gigantic Pressure Palette", 0x17bbc0, 0x17bbe0 },
-};
-
 const sGame_PaletteDataset KOF94_A_BENIMARU_MAIN_PALETTES[] =
 {
     { L"Benimaru", 0x177880, 0x1778a0 },
@@ -286,12 +244,6 @@ const sGame_PaletteDataset KOF94_A_BENIMARU_ALT_PALETTES[] =
     { L"Extra 3", 0x177ba0, 0x177bc0 },
     { L"MAX Flash", 0x177bc0, 0x177be0 },
     { L"Extra 4", 0x177be0, 0x177c00 },
-};
-
-const sGame_PaletteDataset KOF94_A_BENIMARU_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b860, 0x17b880 },
-    { L"Gigantic Pressure Palette", 0x17bbe0, 0x17bc00 },
 };
 
 const sGame_PaletteDataset KOF94_A_DAIMON_MAIN_PALETTES[] =
@@ -324,12 +276,6 @@ const sGame_PaletteDataset KOF94_A_DAIMON_ALT_PALETTES[] =
     { L"Extra 4", 0x177f60, 0x177f80 },
 };
 
-const sGame_PaletteDataset KOF94_A_DAIMON_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b880, 0x17b8a0 },
-    { L"Gigantic Pressure Palette", 0x17bc00, 0x17bc20 },
-};
-
 const sGame_PaletteDataset KOF94_A_HEAVYD_MAIN_PALETTES[] =
 {
     { L"Heavy D!", 0x177f80, 0x177fa0 },
@@ -358,12 +304,6 @@ const sGame_PaletteDataset KOF94_A_HEAVYD_ALT_PALETTES[] =
     { L"Extra 3", 0x1782a0, 0x1782c0 },
     { L"MAX Flash", 0x1782c0, 0x1782e0 },
     { L"Extra 4", 0x1782e0, 0x178300 },
-};
-
-const sGame_PaletteDataset KOF94_A_HEAVYD_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b8a0, 0x17b8c0 },
-    { L"Gigantic Pressure Palette", 0x17bc20, 0x17bc40 },
 };
 
 const sGame_PaletteDataset KOF94_A_LUCKY_MAIN_PALETTES[] =
@@ -396,12 +336,6 @@ const sGame_PaletteDataset KOF94_A_LUCKY_ALT_PALETTES[] =
     { L"MAX Flash Extra", 0x178660, 0x178680 },
 };
 
-const sGame_PaletteDataset KOF94_A_LUCKY_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b8c0, 0x17b8e0 },
-    { L"Gigantic Pressure Palette", 0x17bc40, 0x17bc60 },
-};
-
 const sGame_PaletteDataset KOF94_A_BRIAN_MAIN_PALETTES[] =
 {
     { L"Brian", 0x178680, 0x1786a0 },
@@ -430,12 +364,6 @@ const sGame_PaletteDataset KOF94_A_BRIAN_ALT_PALETTES[] =
     { L"Extra 3", 0x1789a0, 0x1789c0 },
     { L"MAX Flash", 0x1789c0, 0x1789e0 },
     { L"Extra 4", 0x1789e0, 0x178a00 },
-};
-
-const sGame_PaletteDataset KOF94_A_BRIAN_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b8e0, 0x17b900 },
-    { L"Gigantic Pressure Palette", 0x17bc60, 0x17bc80 },
 };
 
 const sGame_PaletteDataset KOF94_A_KIM_MAIN_PALETTES[] =
@@ -468,12 +396,6 @@ const sGame_PaletteDataset KOF94_A_KIM_ALT_PALETTES[] =
     { L"Extra 4", 0x178d60, 0x178d80 },
 };
 
-const sGame_PaletteDataset KOF94_A_KIM_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b900, 0x17b920 },
-    { L"Gigantic Pressure Palette", 0x17bc80, 0x17bca0 },
-};
-
 const sGame_PaletteDataset KOF94_A_CHANG_MAIN_PALETTES[] =
 {
     { L"Chang", 0x178d80, 0x178da0 },
@@ -502,12 +424,6 @@ const sGame_PaletteDataset KOF94_A_CHANG_ALT_PALETTES[] =
     { L"Extra 3", 0x1790a0, 0x1790c0 },
     { L"MAX Flash", 0x1790c0, 0x1790e0 },
     { L"MAX Flash Extra", 0x1790e0, 0x179100 },
-};
-
-const sGame_PaletteDataset KOF94_A_CHANG_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b920, 0x17b940 },
-    { L"Gigantic Pressure Palette", 0x17bca0, 0x17bcc0 },
 };
 
 const sGame_PaletteDataset KOF94_A_CHOI_MAIN_PALETTES[] =
@@ -540,12 +456,6 @@ const sGame_PaletteDataset KOF94_A_CHOI_ALT_PALETTES[] =
     { L"Extra 4", 0x179460, 0x179480 },
 };
 
-const sGame_PaletteDataset KOF94_A_CHOI_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b940, 0x17b960 },
-    { L"Gigantic Pressure Palette", 0x17bcc0, 0x17bce0 },
-};
-
 const sGame_PaletteDataset KOF94_A_TERRY_MAIN_PALETTES[] =
 {
     { L"Terry", 0x179480, 0x1794a0 },
@@ -574,12 +484,6 @@ const sGame_PaletteDataset KOF94_A_TERRY_ALT_PALETTES[] =
     { L"Extra 3", 0x1797a0, 0x1797c0 },
     { L"MAX Flash", 0x1797c0, 0x1797e0 },
     { L"Extra 4", 0x1797e0, 0x179800 },
-};
-
-const sGame_PaletteDataset KOF94_A_TERRY_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b960, 0x17b980 },
-    { L"Gigantic Pressure Palette", 0x17bce0, 0x17bd00 },
 };
 
 const sGame_PaletteDataset KOF94_A_ANDY_MAIN_PALETTES[] =
@@ -612,12 +516,6 @@ const sGame_PaletteDataset KOF94_A_ANDY_ALT_PALETTES[] =
     { L"Extra 4", 0x179b60, 0x179b80 },
 };
 
-const sGame_PaletteDataset KOF94_A_ANDY_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b980, 0x17b9a0 },
-    { L"Gigantic Pressure Palette", 0x17bd00, 0x17bd20 },
-};
-
 const sGame_PaletteDataset KOF94_A_JOE_MAIN_PALETTES[] =
 {
     { L"Joe", 0x179b80, 0x179ba0 },
@@ -646,12 +544,6 @@ const sGame_PaletteDataset KOF94_A_JOE_ALT_PALETTES[] =
     { L"Extra 3", 0x179ea0, 0x179ec0 },
     { L"MAX Flash", 0x179ec0, 0x179ee0 },
     { L"Extra 4", 0x179ee0, 0x179f00 },
-};
-
-const sGame_PaletteDataset KOF94_A_JOE_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b9a0, 0x17b9c0 },
-    { L"Gigantic Pressure Palette", 0x17bd20, 0x17bd40 },
 };
 
 const sGame_PaletteDataset KOF94_A_RYO_MAIN_PALETTES[] =
@@ -684,12 +576,6 @@ const sGame_PaletteDataset KOF94_A_RYO_ALT_PALETTES[] =
     { L"Extra 4", 0x17a260, 0x17a280 },
 };
 
-const sGame_PaletteDataset KOF94_A_RYO_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b9c0, 0x17b9e0 },
-    { L"Gigantic Pressure Palette", 0x17bd40, 0x17bd60 },
-};
-
 const sGame_PaletteDataset KOF94_A_ROBERT_MAIN_PALETTES[] =
 {
     { L"Robert", 0x17a280, 0x17a2a0 },
@@ -718,12 +604,6 @@ const sGame_PaletteDataset KOF94_A_ROBERT_ALT_PALETTES[] =
     { L"Extra 3", 0x17a5a0, 0x17a5c0 },
     { L"MAX Flash", 0x17a5c0, 0x17a5e0 },
     { L"Extra 4", 0x17a5e0, 0x17a600 },
-};
-
-const sGame_PaletteDataset KOF94_A_ROBERT_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17b9e0, 0x17ba00 },
-    { L"Gigantic Pressure Palette", 0x17bd60, 0x17bd80 },
 };
 
 const sGame_PaletteDataset KOF94_A_TAKUMA_MAIN_PALETTES[] =
@@ -756,12 +636,6 @@ const sGame_PaletteDataset KOF94_A_TAKUMA_ALT_PALETTES[] =
     { L"Extra 4", 0x17a960, 0x17a980 },
 };
 
-const sGame_PaletteDataset KOF94_A_TAKUMA_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17ba00, 0x17ba20 },
-    { L"Gigantic Pressure Palette", 0x17bd80, 0x17bda0 },
-};
-
 const sGame_PaletteDataset KOF94_A_YURI_MAIN_PALETTES[] =
 {
     { L"Yuri", 0x17a980, 0x17a9a0 },
@@ -790,12 +664,6 @@ const sGame_PaletteDataset KOF94_A_YURI_ALT_PALETTES[] =
     { L"Extra 3", 0x17aca0, 0x17acc0 },
     { L"MAX Flash", 0x17acc0, 0x17ace0 },
     { L"Extra 4", 0x17ace0, 0x17ad00 },
-};
-
-const sGame_PaletteDataset KOF94_A_YURI_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17ba20, 0x17ba40 },
-    { L"Gigantic Pressure Palette", 0x17bda0, 0x17bdc0 },
 };
 
 const sGame_PaletteDataset KOF94_A_MAI_MAIN_PALETTES[] =
@@ -828,12 +696,6 @@ const sGame_PaletteDataset KOF94_A_MAI_ALT_PALETTES[] =
     { L"Extra 4", 0x17b060, 0x17b080 },
 };
 
-const sGame_PaletteDataset KOF94_A_MAI_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17ba40, 0x17ba60 },
-    { L"Gigantic Pressure Palette", 0x17bdc0, 0x17bde0 },
-};
-
 const sGame_PaletteDataset KOF94_A_KING_MAIN_PALETTES[] =
 {
     { L"King", 0x17b080, 0x17b0a0 },
@@ -862,12 +724,6 @@ const sGame_PaletteDataset KOF94_A_KING_ALT_PALETTES[] =
     { L"Extra 3", 0x17b3a0, 0x17b3c0 },
     { L"MAX Flash", 0x17b3c0, 0x17b3e0 },
     { L"Extra 4", 0x17b3e0, 0x17b400 },
-};
-
-const sGame_PaletteDataset KOF94_A_KING_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17ba60, 0x17ba80 },
-    { L"Gigantic Pressure Palette", 0x17bde0, 0x17be00 },
 };
 
 const sGame_PaletteDataset KOF94_A_RUGAL_MAIN_PALETTES[] =
@@ -900,185 +756,166 @@ const sGame_PaletteDataset KOF94_A_RUGAL_ALT_PALETTES[] =
     { L"MAX Flash Extra", 0x17b760, 0x17b780 },
 };
 
-const sGame_PaletteDataset KOF94_A_RUGAL_EFFECTS_PALETTES[] =
-{
-    { L"Fire Palette", 0x17ba80, 0x17baa0 },
-    { L"Gigantic Pressure Palette", 0x17be00, 0x17be20 },
-};
-
 const sDescTreeNode KOF94_A_HEIDERN_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_HEIDERN_MAIN_PALETTES, ARRAYSIZE(KOF94_A_HEIDERN_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_HEIDERN_ALT_PALETTES, ARRAYSIZE(KOF94_A_HEIDERN_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_HEIDERN_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_HEIDERN_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_RALF_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_RALF_MAIN_PALETTES, ARRAYSIZE(KOF94_A_RALF_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_RALF_ALT_PALETTES, ARRAYSIZE(KOF94_A_RALF_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_RALF_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_RALF_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_CLARK_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_CLARK_MAIN_PALETTES, ARRAYSIZE(KOF94_A_CLARK_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_CLARK_ALT_PALETTES, ARRAYSIZE(KOF94_A_CLARK_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_CLARK_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_CLARK_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_ATHENA_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_ATHENA_MAIN_PALETTES, ARRAYSIZE(KOF94_A_ATHENA_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_ATHENA_ALT_PALETTES, ARRAYSIZE(KOF94_A_ATHENA_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_ATHENA_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_ATHENA_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_KENSOU_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_KENSOU_MAIN_PALETTES, ARRAYSIZE(KOF94_A_KENSOU_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_KENSOU_ALT_PALETTES, ARRAYSIZE(KOF94_A_KENSOU_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_KENSOU_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_KENSOU_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_CHIN_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_CHIN_MAIN_PALETTES, ARRAYSIZE(KOF94_A_CHIN_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_CHIN_ALT_PALETTES, ARRAYSIZE(KOF94_A_CHIN_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_CHIN_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_CHIN_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_KYO_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_KYO_MAIN_PALETTES, ARRAYSIZE(KOF94_A_KYO_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_KYO_ALT_PALETTES, ARRAYSIZE(KOF94_A_KYO_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_KYO_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_KYO_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_BENIMARU_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_BENIMARU_MAIN_PALETTES, ARRAYSIZE(KOF94_A_BENIMARU_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_BENIMARU_ALT_PALETTES, ARRAYSIZE(KOF94_A_BENIMARU_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_BENIMARU_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_BENIMARU_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_DAIMON_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_DAIMON_MAIN_PALETTES, ARRAYSIZE(KOF94_A_DAIMON_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_DAIMON_ALT_PALETTES, ARRAYSIZE(KOF94_A_DAIMON_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_DAIMON_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_DAIMON_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_HEAVYD_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_HEAVYD_MAIN_PALETTES, ARRAYSIZE(KOF94_A_HEAVYD_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_HEAVYD_ALT_PALETTES, ARRAYSIZE(KOF94_A_HEAVYD_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_HEAVYD_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_HEAVYD_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_LUCKY_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_LUCKY_MAIN_PALETTES, ARRAYSIZE(KOF94_A_LUCKY_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_LUCKY_ALT_PALETTES, ARRAYSIZE(KOF94_A_LUCKY_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_LUCKY_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_LUCKY_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_BRIAN_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_BRIAN_MAIN_PALETTES, ARRAYSIZE(KOF94_A_BRIAN_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_BRIAN_ALT_PALETTES, ARRAYSIZE(KOF94_A_BRIAN_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_BRIAN_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_BRIAN_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_KIM_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_KIM_MAIN_PALETTES, ARRAYSIZE(KOF94_A_KIM_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_KIM_ALT_PALETTES, ARRAYSIZE(KOF94_A_KIM_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_KIM_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_KIM_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_CHANG_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_CHANG_MAIN_PALETTES, ARRAYSIZE(KOF94_A_CHANG_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_CHANG_ALT_PALETTES, ARRAYSIZE(KOF94_A_CHANG_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_CHANG_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_CHANG_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_CHOI_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_CHOI_MAIN_PALETTES, ARRAYSIZE(KOF94_A_CHOI_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_CHOI_ALT_PALETTES, ARRAYSIZE(KOF94_A_CHOI_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_CHOI_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_CHOI_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_TERRY_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_TERRY_MAIN_PALETTES, ARRAYSIZE(KOF94_A_TERRY_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_TERRY_ALT_PALETTES, ARRAYSIZE(KOF94_A_TERRY_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_TERRY_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_TERRY_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_ANDY_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_ANDY_MAIN_PALETTES, ARRAYSIZE(KOF94_A_ANDY_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_ANDY_ALT_PALETTES, ARRAYSIZE(KOF94_A_ANDY_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_ANDY_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_ANDY_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_JOE_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_JOE_MAIN_PALETTES, ARRAYSIZE(KOF94_A_JOE_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_JOE_ALT_PALETTES, ARRAYSIZE(KOF94_A_JOE_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_JOE_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_JOE_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_RYO_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_RYO_MAIN_PALETTES, ARRAYSIZE(KOF94_A_RYO_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_RYO_ALT_PALETTES, ARRAYSIZE(KOF94_A_RYO_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_RYO_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_RYO_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_ROBERT_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_ROBERT_MAIN_PALETTES, ARRAYSIZE(KOF94_A_ROBERT_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_ROBERT_ALT_PALETTES, ARRAYSIZE(KOF94_A_ROBERT_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_ROBERT_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_ROBERT_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_TAKUMA_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_TAKUMA_MAIN_PALETTES, ARRAYSIZE(KOF94_A_TAKUMA_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_TAKUMA_ALT_PALETTES, ARRAYSIZE(KOF94_A_TAKUMA_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_TAKUMA_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_TAKUMA_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_YURI_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_YURI_MAIN_PALETTES, ARRAYSIZE(KOF94_A_YURI_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_YURI_ALT_PALETTES, ARRAYSIZE(KOF94_A_YURI_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_YURI_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_YURI_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_MAI_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_MAI_MAIN_PALETTES, ARRAYSIZE(KOF94_A_MAI_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_MAI_ALT_PALETTES, ARRAYSIZE(KOF94_A_MAI_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_MAI_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_MAI_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_KING_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_KING_MAIN_PALETTES, ARRAYSIZE(KOF94_A_KING_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_KING_ALT_PALETTES, ARRAYSIZE(KOF94_A_KING_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_KING_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_KING_EFFECTS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_RUGAL_COLLECTION[] =
 {
     { L"Main", DESC_NODETYPE_TREE, (void*)KOF94_A_RUGAL_MAIN_PALETTES, ARRAYSIZE(KOF94_A_RUGAL_MAIN_PALETTES) },
     { L"Alt", DESC_NODETYPE_TREE, (void*)KOF94_A_RUGAL_ALT_PALETTES, ARRAYSIZE(KOF94_A_RUGAL_ALT_PALETTES) },
-//    { L"Effects", DESC_NODETYPE_TREE, (void*)KOF94_A_RUGAL_EFFECTS_PALETTES, ARRAYSIZE(KOF94_A_RUGAL_EFFECTS_PALETTES) },
+};
+
+
+const sGame_PaletteDataset KOF94_A_BONUS_PALETTES[] =
+{
+    { L"Fire Palette", 0x17b780, 0x17b980 },
+    { L"Gigantic Pressure Palette", 0x17bb00, 0x17bd00 },
+};
+
+const sDescTreeNode KOF94_A_BONUS_COLLECTION[] =
+{
+    { L"Effect Palettes", DESC_NODETYPE_TREE, (void*)KOF94_A_BONUS_PALETTES, ARRAYSIZE(KOF94_A_BONUS_PALETTES) },
 };
 
 const sDescTreeNode KOF94_A_UNITS[] =
@@ -1108,6 +945,7 @@ const sDescTreeNode KOF94_A_UNITS[] =
     { L"Mai", DESC_NODETYPE_TREE, (void*)KOF94_A_MAI_COLLECTION, ARRAYSIZE(KOF94_A_MAI_COLLECTION) },
     { L"King", DESC_NODETYPE_TREE, (void*)KOF94_A_KING_COLLECTION, ARRAYSIZE(KOF94_A_KING_COLLECTION) },
     { L"Rugal", DESC_NODETYPE_TREE, (void*)KOF94_A_RUGAL_COLLECTION, ARRAYSIZE(KOF94_A_RUGAL_COLLECTION) },
+    { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)KOF94_A_BONUS_COLLECTION, ARRAYSIZE(KOF94_A_BONUS_COLLECTION) },
 };
 
 constexpr auto KOF94_A_NUMUNIT = ARRAYSIZE(KOF94_A_UNITS);

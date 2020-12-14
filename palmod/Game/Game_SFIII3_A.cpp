@@ -70,7 +70,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForGill() ? 171 : 1028);
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForGill() ? 171 : 1029);
     m_nTotalPaletteCount = UsePaletteSetForGill() ? m_nTotalPaletteCountForSFIII3_10 : (UsePaletteSetFor51() ? m_nTotalPaletteCountForSFIII3_51 : m_nTotalPaletteCountForSFIII3_4);
     m_nLowestKnownPaletteRomLocation = UsePaletteSetForGill() ? 0x1C86A8 : 0x700000;
 

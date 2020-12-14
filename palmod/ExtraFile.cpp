@@ -64,7 +64,41 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
             OutputDebugString(strOutputText);
 
             DWORD nFileAttrib = GetFileAttributes(szTargetFile);
-            if (((nFileAttrib & FILE_ATTRIBUTE_ARCHIVE) == FILE_ATTRIBUTE_ARCHIVE) && (nFileAttrib != INVALID_FILE_ATTRIBUTES))
+
+            bool fShouldOpenFile = ((nFileAttrib & FILE_ATTRIBUTE_ARCHIVE) == FILE_ATTRIBUTE_ARCHIVE) && (nFileAttrib != INVALID_FILE_ATTRIBUTES);
+
+            if (fShouldOpenFile)
+            {
+                CFile extraFile;
+
+                if (extraFile.Open(szTargetFile, CFile::modeRead))
+                {
+                    CFileStatus extraInfo;
+
+                    if (extraFile.GetStatus(extraInfo))
+                    {
+                        DWORD nFileSize = (DWORD)extraInfo.m_size;
+
+                        if (nFileSize == 0)
+                        {
+                            fShouldOpenFile = false;
+                        }
+                        else if (CRegProc::WasExtraFileCanaryKilledLastTime(pszExtraFileName, nFileSize))
+                        {
+                            CString strWarning;
+                            strWarning.Format(L"Last time we tried to load the Extra file \"%s\", PalMod crashed.  This indicates that this Extra file is very probably incorrectly written and should be fixed.\n", pszExtraFileName);
+                            strWarning.Append(L"\nAre you sure you wish to load this Extra file?");
+                            fShouldOpenFile = (MessageBox(g_appHWnd, strWarning, L"PalMod", MB_ICONSTOP | MB_YESNO | MB_DEFBUTTON2) == IDYES);
+                        }
+
+                        CRegProc::SetExtraFileLoadingCanary(pszExtraFileName, nFileSize);
+                    }
+
+                    extraFile.Abort();
+                }
+            }
+
+            if (fShouldOpenFile)
             {
                 // This is raw file and deliberately char
                 char aszCurrLine[MAX_PATH]; // arbitrary line length: in practice it should be MAX_DESCRIPTION_LENGTH + 1
@@ -281,6 +315,9 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                     // Note that this crash occurs so early we don't get to load strings.
                     MessageBox(g_appHWnd, strOutputText, L"PalMod", MB_ICONERROR);
                 }
+
+                // We've made it without crashing, so release our loading canary
+                CRegProc::ClearExtraFileLoadingCanary(pszExtraFileName);
             }
             else
             {

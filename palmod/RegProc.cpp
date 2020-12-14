@@ -13,6 +13,7 @@ constexpr auto c_mainWndMaxColorsPerPage = _T("extras_MaxColorsPerPage");
 constexpr auto c_mainWndForcePeerPreviewWindow = _T("extras_ForcePeerPreviewWindow");
 constexpr auto c_mainUnknownGameAlphaMode = _T("main_UnknownGameAlphaMode");
 constexpr auto c_mainUnknownGameColMode = _T("main_UnknownGameColMode");
+constexpr auto c_mainExtraFileCanaryKey = _T("main_lastExtraFileSize_%s");
 
 constexpr auto c_nPrefSavePaletteToMemory = _T("pref_ShouldSavePaletteToMemory");
 constexpr auto c_prevClickToFind = L"PreviewClickToFind";
@@ -238,6 +239,49 @@ UINT16 CRegProc::GetColorsPerLine()
 UINT16 CRegProc::GetMaxPalettePageSize()
 {
     return (GetColorsPerLine() == PAL_MAXWIDTH_8COLORSPERLINE) ? PAL_MAXAMT_8COLORSPERLINE : PAL_MAXAMT_16COLORSPERLINE;
+}
+
+void CRegProc::SetExtraFileLoadingCanary(LPCWSTR pszExtraFileName, DWORD nExtraFileSize)
+{
+    CRegKey extraKey;
+
+    if (extraKey.Create(HKEY_CURRENT_USER, c_AppRegistryRoot) == ERROR_SUCCESS)
+    {
+        CString strValueName;
+        strValueName.Format(c_mainExtraFileCanaryKey, pszExtraFileName);
+        extraKey.SetDWORDValue(strValueName.GetString(), nExtraFileSize);
+    }
+}
+
+bool CRegProc::WasExtraFileCanaryKilledLastTime(LPCWSTR pszExtraFileName, DWORD nExtraFileSize)
+{
+    CRegKey extraKey;
+    bool fWasItKilled = false;
+
+    if (extraKey.Open(HKEY_CURRENT_USER, c_AppRegistryRoot) == ERROR_SUCCESS)
+    {
+        DWORD dwLastKnownSize;
+        CString strValueName;
+        strValueName.Format(c_mainExtraFileCanaryKey, pszExtraFileName);
+        if (extraKey.QueryDWORDValue(strValueName.GetString(), dwLastKnownSize) == ERROR_SUCCESS)
+        {
+            fWasItKilled = (nExtraFileSize == dwLastKnownSize);
+        }
+    }
+
+    return fWasItKilled;
+}
+
+void CRegProc::ClearExtraFileLoadingCanary(LPCWSTR pszExtraFileName)
+{
+    CRegKey extraKey;
+
+    if (extraKey.Open(HKEY_CURRENT_USER, c_AppRegistryRoot) == ERROR_SUCCESS)
+    {
+        CString strValueName;
+        strValueName.Format(c_mainExtraFileCanaryKey, pszExtraFileName);
+        extraKey.DeleteValue(strValueName.GetString());
+    }
 }
 
 void CRegProc::LoadReg(int src)
