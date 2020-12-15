@@ -1755,8 +1755,7 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Select Background - Tinted",        0x70EB80, 0x70EC00, index3S_CPS3_Bonus, 0x00 },
     // I don't love the offsets here, so am not including this for now.
     //{ L"Select Screen - Blue Arrows",       0x709AC0, 0x709B00 },
-    // ... these are just solid black...?
-    //{ L"Character Select Screen - 1P and 2P selector cursor rings", 0x709A20, 0x709A30 },
+    { L"Select Screen - Cursor Rings",      0x70A000, 0x070A080 },
     // This is a very long chunk... leaving out for now as well.
     //{ L"In Game Misc - Versus Screen",      0x70A680, 0x70B280 },
     { L"Vs Text",                           0x70C780, 0x70C880 },

@@ -9,11 +9,6 @@ public:
     ~CGame_MVC2_P(void);
 
     //Static functions
-    static UINT16 uRuleCtr;
-
-    static UINT16 GetRuleCtr() { return uRuleCtr; };
-    static void ResetRuleCtr() { uRuleCtr = 0; };
-
     static sFileRule GetNextRule();
     static sFileRule GetRule(UINT16 nRuleId);
 };

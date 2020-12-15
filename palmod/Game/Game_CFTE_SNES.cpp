@@ -1,88 +1,75 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_KOF02UM_S.h"
+#include "Game_CFTE_SNES.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define KOF02UM_S_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define CFTE_SNES_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN = nullptr;
-stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR = nullptr;
+stExtraDef* CGame_CFTE_SNES::CFTE_SNES_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_KOF02UM_S::MainDescTree_Main = nullptr;
-CDescTree CGame_KOF02UM_S::MainDescTree_Bar = nullptr;
+CDescTree CGame_CFTE_SNES::MainDescTree = nullptr;
 
-int CGame_KOF02UM_S::rgExtraCountAll_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
-int CGame_KOF02UM_S::rgExtraCountAll_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
-int CGame_KOF02UM_S::rgExtraLoc_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
-int CGame_KOF02UM_S::rgExtraLoc_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
+int CGame_CFTE_SNES::rgExtraCountAll[CFTE_SNES_NUMUNIT + 1];
+int CGame_CFTE_SNES::rgExtraLoc[CFTE_SNES_NUMUNIT + 1];
 
-int CGame_KOF02UM_S::m_nSelectedRom = 0;
-UINT32 CGame_KOF02UM_S::m_nExpectedGameROMSize = 0x606E0;  // 394976 bytes for the main rom
-UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Main = 0;
-UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Bar = 0;
-UINT32 CGame_KOF02UM_S::m_nConfirmedROMSize = -1;
+UINT32 CGame_CFTE_SNES::m_nTotalPaletteCountForCFTE = 0;
+UINT32 CGame_CFTE_SNES::m_nExpectedGameROMSize = 0x300000;
+UINT32 CGame_CFTE_SNES::m_nConfirmedROMSize = -1;
 
-void CGame_KOF02UM_S::InitializeStatics()
+void CGame_CFTE_SNES::InitializeStatics()
 {
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR);
+    safe_delete_array(CGame_CFTE_SNES::CFTE_SNES_EXTRA_CUSTOM);
 
-    memset(rgExtraCountAll_Main, -1, sizeof(rgExtraCountAll_Main));
-    memset(rgExtraCountAll_Bar, -1, sizeof(rgExtraCountAll_Bar));
-    memset(rgExtraLoc_Main, -1, sizeof(rgExtraLoc_Main));
-    memset(rgExtraLoc_Bar, -1, sizeof(rgExtraLoc_Bar));
+    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
+    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree_Main.SetRootTree(CGame_KOF02UM_S::InitDescTree(0));
-    MainDescTree_Bar.SetRootTree(CGame_KOF02UM_S::InitDescTree(1));
+    MainDescTree.SetRootTree(CGame_CFTE_SNES::InitDescTree());
 }
 
-CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
+CGame_CFTE_SNES::CGame_CFTE_SNES(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_KOF02UM_S::CGame_KOF02UM_S: Loading ROM...\n"));
+    strMessage.Format(_T("CGame_CFTE_SNES::CGame_CFTE_SNES: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
-    // We need this set before we initialize so that corrupt Extras truncate correctly.
-    // Otherwise the new user inadvertently corrupts their ROM.
+    // We need this set before we initialize so that we can truncate bad Extras correctly.
+    // Otherwise the new user could inadvertently corrupt their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nSelectedRom = (nRomToLoad == 0) ? 0 : 1;
+    m_nTotalInternalUnits = CFTE_SNES_NUMUNIT;
+    m_nExtraUnit = CFTE_SNES_EXTRALOC;
 
-    m_nTotalInternalUnits = UseMainPaletteSet() ? KOF02UM_S_NUMUNIT_MAIN : KOF02UM_S_NUMUNIT_BAR;
-    m_nExtraUnit = UseMainPaletteSet() ?  KOF02UM_S_EXTRALOC_MAIN : KOF02UM_S_EXTRALOC_BAR;
-
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + UseMainPaletteSet() ? 2674 : 10;
-    m_pszExtraFilename = UseMainPaletteSet() ? EXTRA_FILENAME_KOF02UM_S_MAIN : EXTRA_FILENAME_KOF02UM_S_BAR;
-    m_nTotalPaletteCount = UseMainPaletteSet() ?  m_nTotalPaletteCountForKOF02UM_Main : m_nTotalPaletteCountForKOF02UM_Bar;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 56;
+    m_pszExtraFilename = EXTRA_FILENAME_CFTE_SNES;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForCFTE;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = UseMainPaletteSet() ?  0x2a0 : 0;
+    m_nLowestKnownPaletteRomLocation = 0x010000;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
+    //Set color mode: see the definitions in GameClass.h
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-    SetColorMode(UseMainPaletteSet() ? ColMode::COLMODE_15ALT : ColMode::COLMODE_GBA);
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_GBA);
 
-    //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_8);
 
-    //Set game information
-    nGameFlag = KOF02UM_S;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    nImgUnitAmt = KOF02UM_S_NUM_IMG_UNITS;
-    m_prgGameImageSet = KOF02UM_S_IMG_UNITS;
+    nGameFlag = CFTE_SNES;
+    nImgGameFlag = IMGDAT_SECTION_SNES;
+    m_prgGameImageSet = nullptr;
+    nImgUnitAmt = 0;
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
+    pButtonLabelSet = DEF_NOBUTTONS;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -92,59 +79,73 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_KOF02UM_S::~CGame_KOF02UM_S(void)
+CGame_CFTE_SNES::~CGame_CFTE_SNES(void)
 {
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN);
-    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR);
+    safe_delete_array(CGame_CFTE_SNES::CFTE_SNES_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-CDescTree* CGame_KOF02UM_S::GetMainTree()
+UINT32 CGame_CFTE_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
-    return UseMainPaletteSet() ? &CGame_KOF02UM_S::MainDescTree_Main : &CGame_KOF02UM_S::MainDescTree_Bar;
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Clay Fighter: TE", L"Clay Fighter - Tournament Edition (USA).sfc", 0, 0 },
+    };
+
+    if (ppKnownROMSet)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
 }
 
-int CGame_KOF02UM_S::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+CDescTree* CGame_CFTE_SNES::GetMainTree()
 {
-    int *rgExtraCt = UseMainPaletteSet() ? rgExtraCountAll_Main : rgExtraCountAll_Bar;
-    int nUnitCount = UseMainPaletteSet() ? KOF02UM_S_NUMUNIT_MAIN : KOF02UM_S_NUMUNIT_BAR;
+    return &CGame_CFTE_SNES::MainDescTree;
+}
 
-    if (rgExtraCt[0] == -1)
+int CGame_CFTE_SNES::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+{
+    if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCt, 0, ((nUnitCount + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((CFTE_SNES_NUMUNIT + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
+        stExtraDef* pCurrDef = GetExtraDefForCFTE(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
             if (!pCurrDef->isInvisible || !bCountVisibleOnly)
             {
-                rgExtraCt[pCurrDef->uUnitN]++;
+                rgExtraCountAll[pCurrDef->uUnitN]++;
             }
 
             nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
+            pCurrDef = GetExtraDefForCFTE(nDefCtr);
         }
     }
 
-    return rgExtraCt[nUnitId];
+    return rgExtraCountAll[nUnitId];
 }
 
-int CGame_KOF02UM_S::GetExtraLoc(UINT16 nUnitId)
+int CGame_CFTE_SNES::GetExtraLoc(UINT16 nUnitId)
 {
-    int* rgExtraLoc = UseMainPaletteSet() ? rgExtraLoc_Main : rgExtraLoc_Bar;
-    int nUnitCount = UseMainPaletteSet() ? KOF02UM_S_NUMUNIT_MAIN : KOF02UM_S_NUMUNIT_BAR;
-
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (nUnitCount + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (CFTE_SNES_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
+        stExtraDef* pCurrDef = GetExtraDefForCFTE(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -155,66 +156,34 @@ int CGame_KOF02UM_S::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetCurrentExtraDef(nDefCtr);
+            pCurrDef = GetExtraDefForCFTE(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-const sDescTreeNode* CGame_KOF02UM_S::GetCurrentUnitSet()
-{
-    return UseMainPaletteSet() ? KOF02UM_S_UNITS_MAIN : KOF02UM_S_UNITS_BAR;
-}
-
-UINT16 CGame_KOF02UM_S::GetCurrentExtraLoc()
-{
-    return UseMainPaletteSet() ? KOF02UM_S_EXTRALOC_MAIN : KOF02UM_S_EXTRALOC_BAR;
-}
-
-stExtraDef* CGame_KOF02UM_S::GetCurrentExtraDef(int nDefCtr)
-{
-    if (UseMainPaletteSet())
-    {
-        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_MAIN[nDefCtr];
-    }
-    else
-    {
-        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_BAR[nDefCtr];
-    }
-}
-
-sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
+sDescTreeNode* CGame_CFTE_SNES::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
-    m_nSelectedRom = nROMPaletteSetToUse;
 
-    UINT16 nUnitCt;
-    UINT8 nExtraUnitLocation;
+    //Load extra file if we're using it
+    LoadExtraFileForGame(EXTRA_FILENAME_CFTE_SNES, CFTE_SNES_EXTRA, &CFTE_SNES_EXTRA_CUSTOM, CFTE_SNES_EXTRALOC, m_nConfirmedROMSize);
 
-    if (UseMainPaletteSet())
-    {
-        nExtraUnitLocation = KOF02UM_S_EXTRALOC_MAIN;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_MAIN, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_MAIN, nExtraUnitLocation, m_nConfirmedROMSize);
-        nUnitCt = KOF02UM_S_NUMUNIT_MAIN + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
-    }
-    else
-    {
-        nExtraUnitLocation = KOF02UM_S_EXTRALOC_BAR;
-        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_BAR, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_BAR, nExtraUnitLocation, m_nConfirmedROMSize);
-        nUnitCt = KOF02UM_S_NUMUNIT_BAR + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
-    }
-    
+    UINT16 nUnitCt = CFTE_SNES_NUMUNIT + (GetExtraCt(CFTE_SNES_EXTRALOC) ? 1 : 0);
+
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[KOF02UM_S]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[CFTE_SNES]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
-    CString strMsg = _T("CGame_KOF02UM_S::InitDescTree: Building desc tree for KOF02UM_S ...\n");
+    CString strMsg;
+    bool fHaveExtras = (GetExtraCt(CFTE_SNES_EXTRALOC) > 0);
+    strMsg.Format(_T("CGame_CFTE_SNES::InitDescTree: Building desc tree for CFTE_SNES %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -231,20 +200,20 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr != nExtraUnitLocation)
+        if (iUnitCtr < CFTE_SNES_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), GetCurrentUnitSet()[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), CFTE_SNES_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if KOF02UM_S_DEBUG
+#if CFTE_SNES_DEBUG
             strMsg.Format(_T(";Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
-            
+
             UINT16 nTotalPalettesUsedInUnit = 0;
 
             //Set data for each child group ("collection")
@@ -262,7 +231,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if KOF02UM_S_DEBUG
+#if CFTE_SNES_DEBUG
                 strMsg.Format(_T(";\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -280,7 +249,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if KOF02UM_S_DEBUG
+#if CFTE_SNES_DEBUG
                     strMsg.Format(_T(";\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
@@ -312,7 +281,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if KOF02UM_S_DEBUG
+#if CFTE_SNES_DEBUG
             strMsg.Format(_T(";Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -324,7 +293,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(GetCurrentExtraLoc() > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(CFTE_SNES_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
@@ -333,7 +302,7 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if KOF02UM_S_DEBUG
+#if CFTE_SNES_DEBUG
             strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -342,21 +311,21 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForCFTE(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForCFTE(nExtraPos + nCurrExtra);
                 }
 
                 _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((GetCurrentExtraLoc() > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((CFTE_SNES_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if KOF02UM_S_DEBUG
+#if CFTE_SNES_DEBUG
                 strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -367,35 +336,20 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
         }
     }
 
-    strMsg.Format(_T("CGame_KOF02UM_S::InitDescTree: Loaded %u palettes for KOF02UM\n"), nTotalPaletteCount);
+    strMsg.Format(_T("CGame_CFTE_SNES::InitDescTree: Loaded %u palettes for CFTE\n"), nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    if (UseMainPaletteSet())
-    {
-        m_nTotalPaletteCountForKOF02UM_Main = nTotalPaletteCount;
-    }
-    else
-    {
-        m_nTotalPaletteCountForKOF02UM_Bar = nTotalPaletteCount;
-    }
+    m_nTotalPaletteCountForCFTE = nTotalPaletteCount;
 
     return NewDescTree;
 }
 
-sFileRule CGame_KOF02UM_S::GetRule(UINT16 nUnitId)
+sFileRule CGame_CFTE_SNES::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    if (nUnitId == 1) // BAR.BIN palettes
-    {
-        m_nExpectedGameROMSize = 0x2200;
-        _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("bar.bin"));
-    }
-    else // main palettes
-    {
-        m_nExpectedGameROMSize = 0x606e0;
-        _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("pal_a.bin"));
-    }
+    // This value is only used for directory-based games
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"Clay Fighter - Tournament Edition (USA).sfc"); // Update with the primary expected ROM name here.
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -403,55 +357,55 @@ sFileRule CGame_KOF02UM_S::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_KOF02UM_S::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_CFTE_SNES::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == GetCurrentExtraLoc())
+    if (nUnitId == CFTE_SNES_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return GetCurrentUnitSet()[nUnitId].uChildAmt;
+        return CFTE_SNES_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_KOF02UM_S::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_CFTE_SNES::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == GetCurrentExtraLoc())
+    if (nUnitId == CFTE_SNES_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(CFTE_SNES_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_KOF02UM_S::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_CFTE_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == GetCurrentExtraLoc())
+    if (nUnitId == CFTE_SNES_EXTRALOC)
     {
         return _T("Extra Palettes");
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)CFTE_SNES_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_KOF02UM_S::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_CFTE_SNES::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == GetCurrentExtraLoc())
+    if (nUnitId == CFTE_SNES_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = GetCurrentUnitSet();
+        const sDescTreeNode* pCompleteROMTree = CFTE_SNES_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -461,9 +415,9 @@ UINT16 CGame_KOF02UM_S::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if KOF02UM_S_DEBUG
+#if CFTE_SNES_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_KOF02UM_S::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(_T("CGame_CFTE_SNES::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -471,14 +425,14 @@ UINT16 CGame_KOF02UM_S::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_KOF02UM_S::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_CFTE_SNES::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)CFTE_SNES_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_KOF02UM_S::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_CFTE_SNES::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -491,7 +445,7 @@ const sDescTreeNode* CGame_KOF02UM_S::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == GetCurrentExtraLoc())
+        if (nUnitId == CFTE_SNES_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -503,8 +457,8 @@ const sDescTreeNode* CGame_KOF02UM_S::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
-            
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(CFTE_SNES_UNITS[nUnitId].ChildNodes);
+
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
             if (nDistanceFromZero < nNodeCount)
@@ -529,7 +483,7 @@ const sDescTreeNode* CGame_KOF02UM_S::GetNodeFromPaletteId(UINT16 nUnitId, UINT1
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_KOF02UM_S::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_CFTE_SNES::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -553,9 +507,9 @@ const sGame_PaletteDataset* CGame_KOF02UM_S::GetSpecificPalette(UINT16 nUnitId, 
     return paletteToUse;
 }
 
-void CGame_KOF02UM_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_CFTE_SNES::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != GetCurrentExtraLoc())
+    if (nUnitId != CFTE_SNES_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -567,6 +521,12 @@ void CGame_KOF02UM_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            // Adjust for ROM-specific variant locations
+            if (m_pCRC32SpecificData)
+            {
+                m_nCurrentPaletteROMLocation += m_pCRC32SpecificData->nROMSpecificOffset;
+            }
         }
         else
         {
@@ -574,10 +534,10 @@ void CGame_KOF02UM_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // KOF02UM_S_EXTRALOC
+    else // CFTE_SNES_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForCFTE(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
@@ -585,7 +545,7 @@ void CGame_KOF02UM_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_KOF02UM_S::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+BOOL CGame_CFTE_SNES::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
     for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
     {
@@ -593,8 +553,8 @@ BOOL CGame_KOF02UM_S::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = KOF02UM_S_UNITSORT[nUnitCtr];
+        // The layout is presorted
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {
@@ -609,13 +569,13 @@ BOOL CGame_KOF02UM_S::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-    
+
     CheckForErrorsInTables();
 
     return TRUE;
 }
 
-void CGame_KOF02UM_S::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+void CGame_CFTE_SNES::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 {
     UINT16 nUnitId = srcNode->uUnitId;
     UINT16 nPalId = srcNode->uPalId;
@@ -653,7 +613,7 @@ void CGame_KOF02UM_S::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     }
 }
 
-BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_CFTE_SNES::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -663,7 +623,7 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
         return FALSE;
     }
 
-    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
+    sDescNode* NodeGet = MainDescTree.GetDescNode(Node01, Node02, Node03, Node04);
 
     if (NodeGet == nullptr)
     {
@@ -684,7 +644,7 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != GetCurrentExtraLoc())
+    if (NodeGet->uUnitId != CFTE_SNES_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -697,10 +657,20 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("C")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
+                bool fIsCorePalette = false;
+
+                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
                 {
-                    nSrcAmt = 4;
+                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                    {
+                        fIsCorePalette = true;
+                        break;
+                    }
+                }
+
+                if (fIsCorePalette)
+                {
+                    nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)
@@ -708,13 +678,6 @@ BOOL CGame_KOF02UM_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                         // The starting point is the absolute first palette for the sprite in question which is found in P1/A
                         nSrcStart -= nNodeIncrement;
                     }
-                }
-                else if (_tcsicmp(pCurrentNode->szDesc, _T("Portraits")) == 0) // Portraits is last
-                {
-                    nSrcAmt = 4;
-                    nSrcStart = GetPaletteCountForUnit(NodeGet->uUnitId) - pCurrentNode->uChildAmt;
-                    nNodeIncrement = 1;
-
                 }
             }
         }

@@ -72,6 +72,9 @@ enum SupportedGamesList
     NeoBomberman_A,
     GUNDAM_SNES,
     KOF94_A,
+    KOF99_A,
+    CFTE_SNES,
+
     NUM_GAMES // This needs to be last
 };
 
@@ -89,7 +92,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
 {
    L"MvC2 (Dreamcast)",
    L"SFIII3 (Arcade)",
-   L"MVC2 (Playstation)",
+   L"MVC2 (Playstation 2)",
    L"SSF2T (Arcade)",
    L"SFA3 (Arcade)",
    L"XVSF (Arcade)",
@@ -133,7 +136,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"SFIII:NG (Arcade)",
    L"Windjammers (Arcade)",
    L"SFIII:3S Gill Glow (Arcade Rerip)",
-   L"KOF:XI (Atomiswave)",
+   L"KOF: XI (Atomiswave)",
    L"NGBC (Atomiswave)",
    L"Breakers Revenge (Arcade)",
    L"SFIII:4rd (Arcade)",
@@ -144,6 +147,8 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Neo Bomberman (Arcade)",
    L"Gundam Wing: Endless Duel (SNES)",
    L"KOF: 94 (Arcade)",
+   L"KOF: 99AE (Arcade)",
+   L"Clay Fighter: TE (SNES)",
 };
 
 enum class GamePlatform
@@ -542,30 +547,30 @@ const UINT16 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
 
 enum CHARACTERS_3S_CPS3
 {
-    index3S_CPS3_Alex,
-    index3S_CPS3_Ryu,
-    index3S_CPS3_Yun,
-    index3S_CPS3_Dudley,
-    index3S_CPS3_Necro,
-    index3S_CPS3_Hugo,
-    index3S_CPS3_Ibuki,
-    index3S_CPS3_Elena,
-    index3S_CPS3_Oro,
-    index3S_CPS3_Yang,
-    index3S_CPS3_Ken,
-    index3S_CPS3_Sean,
-    index3S_CPS3_Urien,
-    index3S_CPS3_Gouki,
-    index3S_CPS3_ShinGouki,
-    index3S_CPS3_ChunLi,
-    index3S_CPS3_Makoto,
-    index3S_CPS3_Q,
-    index3S_CPS3_Twelve,
-    index3S_CPS3_Remy,
-    index3S_CPS3_Bonus,
-    index3S_CPS3_Stages,
-    index3S_CPS3_Gill,
-    index2i_CPS3_Bonus,
+    index3S_CPS3_Alex,      // 0x00
+    index3S_CPS3_Ryu,       // 0x01
+    index3S_CPS3_Yun,       // 0x02
+    index3S_CPS3_Dudley,    // 0x03
+    index3S_CPS3_Necro,     // 0x04
+    index3S_CPS3_Hugo,      // 0x05
+    index3S_CPS3_Ibuki,     // 0x06
+    index3S_CPS3_Elena,     // 0x07
+    index3S_CPS3_Oro,       // 0x08
+    index3S_CPS3_Yang,      // 0x09
+    index3S_CPS3_Ken,       // 0x0a
+    index3S_CPS3_Sean,      // 0x0b
+    index3S_CPS3_Urien,     // 0x0c
+    index3S_CPS3_Gouki,     // 0x0d
+    index3S_CPS3_ShinGouki, // 0x0e
+    index3S_CPS3_ChunLi,    // 0x0f
+    index3S_CPS3_Makoto,    // 0x10
+    index3S_CPS3_Q,         // 0x11
+    index3S_CPS3_Twelve,    // 0x12
+    index3S_CPS3_Remy,      // 0x13
+    index3S_CPS3_Bonus,     // 0x14
+    index3S_CPS3_Stages,    // 0x15
+    index3S_CPS3_Gill,      // 0x16
+    index2i_CPS3_Bonus,     // 0x17
 };
 
 const UINT16 SFIII1_A_IMG_UNITS[] =
@@ -1250,6 +1255,7 @@ enum KOFSpriteList
     indexKOFSprites_98Brian,
     indexKOFSprites_98Rugal,
     indexKOFSprites_98Shingo, // 25
+
     indexKOFSprites_02Angel,
     indexKOFSprites_02Athena,
     indexKOFSprites_02Clark,
@@ -1340,32 +1346,32 @@ enum KOFSpriteList
     indexKOFSprites_98Lifebar,  // 77
     indexKOFSprites_98WinPortrait, // 78
 
-    indexKOFSprites_02UM_Andy,    // 0x79
-    indexKOFSprites_02UM_Angel,    // 0x7A
+    indexKOFSprites_02UM_Andy,      // 0x79
+    indexKOFSprites_02UM_Angel,     // 0x7A
     indexKOFSprites_02UM_Athena,    // 0x7B
-    indexKOFSprites_02UM_Bao,    // 0x7C
-    indexKOFSprites_02UM_Benimaru,    // 0x7D
-    indexKOFSprites_02UM_Billy,    // 0x7E
-    indexKOFSprites_02UM_BlueMary,    // 0x7F
-    indexKOFSprites_02UM_Chang,    // 0x80
-    indexKOFSprites_02UM_Chin,    // 0x81
-    indexKOFSprites_02UM_Choi,    // 0x82
-    indexKOFSprites_02UM_Chris,    // 0x83
-    indexKOFSprites_02UM_ChrisOChi,    // 0x84
-    indexKOFSprites_02UM_Clark,    // 0x85
-    indexKOFSprites_02UM_CloneZero,    // 0x86
+    indexKOFSprites_02UM_Bao,       // 0x7C
+    indexKOFSprites_02UM_Benimaru,  // 0x7D
+    indexKOFSprites_02UM_Billy,     // 0x7E
+    indexKOFSprites_02UM_BlueMary,  // 0x7F
+    indexKOFSprites_02UM_Chang,     // 0x80
+    indexKOFSprites_02UM_Chin,      // 0x81
+    indexKOFSprites_02UM_Choi,      // 0x82
+    indexKOFSprites_02UM_Chris,     // 0x83
+    indexKOFSprites_02UM_ChrisOChi, // 0x84
+    indexKOFSprites_02UM_Clark,     // 0x85
+    indexKOFSprites_02UM_CloneZero, // 0x86
     indexKOFSprites_02UM_Daimon,    // 0x87 aka Goro
-    indexKOFSprites_02UM_Foxy,    // 0x88
-    indexKOFSprites_02UM_Geese,    // 0x89
-    indexKOFSprites_02UM_GeeseNM,    // 0x8A
-    indexKOFSprites_02UM_Goenitz,    // 0x8B
-    indexKOFSprites_02UM_Heidern,    // 0x8C
+    indexKOFSprites_02UM_Foxy,      // 0x88
+    indexKOFSprites_02UM_Geese,     // 0x89
+    indexKOFSprites_02UM_GeeseNM,   // 0x8A
+    indexKOFSprites_02UM_Goenitz,   // 0x8B
+    indexKOFSprites_02UM_Heidern,   // 0x8C
     indexKOFSprites_02UM_Hinako,    // 0x8D
-    indexKOFSprites_02UM_Igniz,    // 0x8E
-    indexKOFSprites_02UM_Iori,    // 0x8F
-    indexKOFSprites_02UM_Jhun,    // 0x90
-    indexKOFSprites_02UM_Joe,    // 0x91
-    indexKOFSprites_02UM_K,    // 0x92
+    indexKOFSprites_02UM_Igniz,     // 0x8E
+    indexKOFSprites_02UM_Iori,      // 0x8F
+    indexKOFSprites_02UM_Jhun,      // 0x90
+    indexKOFSprites_02UM_Joe,       // 0x91
+    indexKOFSprites_02UM_K,         // 0x92
     indexKOFSprites_02UM_K9999,     // 0x93
     indexKOFSprites_02UM_Kasumi,    // 0x94
     indexKOFSprites_02UM_Kensou,    // 0x95
@@ -1553,6 +1559,8 @@ enum KOFSpriteList
     indexKOF01Sprites_Athena,       // 0x147
     indexKOF01Sprites_Bao,          // 0x148
     indexKOF01Sprites_Foxy,         // 0x149
+
+    indexKOF02Sprites_OrochiChris,  // 0x14a
 
     indexKOFSprites_Last,
 };
@@ -2849,6 +2857,22 @@ const UINT16 NEOBOMBERMAN_A_IMG_UNITS[] =
     indexNeoBombermanSprites_RubberBomber,     // 0x11
     indexNeoBombermanSprites_Tamagon,     // 0x12
     indexNeoBombermanSprites_Bonus,     // 0x13
+};
+
+enum SupportedGundam_PaletteListIndex
+{
+    indexGundamSprites_DeathScythe,
+    indexGundamSprites_Epyon,
+    indexGundamSprites_HeavyArms,
+    indexGundamSprites_Mercurius,
+    indexGundamSprites_SandRock,
+    indexGundamSprites_ShenLong,
+    indexGundamSprites_Tallgeese,
+    indexGundamSprites_Vayaeae,
+    indexGundamSprites_Wing,
+    indexGundamSprites_WingZero,
+    indexGundamSprites_Bonus,
+    indexGundamSprites_Stages,
 };
 
 enum eIMGDat_Sections

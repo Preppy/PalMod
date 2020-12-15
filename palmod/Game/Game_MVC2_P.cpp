@@ -1,8 +1,6 @@
 #include "StdAfx.h"
 #include "Game_MVC2_P.h"
 
-UINT16 CGame_MVC2_P::uRuleCtr = 0;
-
 CGame_MVC2_P::CGame_MVC2_P(void)
 {
     //CGame_MVC2_D();
@@ -34,7 +32,7 @@ sFileRule CGame_MVC2_P::GetNextRule()
 
     uRuleCtr++;
 
-    if (uRuleCtr >= MVC2_D_NUMUNIT)
+    if (uRuleCtr >= MVC2_D_NUMUNIT_WITH_TEAMVIEW)
     {
         uRuleCtr = INVALID_UNIT_VALUE;
     }

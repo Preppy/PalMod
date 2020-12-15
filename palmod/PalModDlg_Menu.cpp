@@ -33,6 +33,43 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         pPopupMenu->EnableMenuItem(ID_FILE_CLOSEFILEDIR, (GetHost()->GetCurrGame() == nullptr));
         pPopupMenu->EnableMenuItem(ID_FILE_LOADLASTUSEDDIR, !GetLastUsedDirectory(NULL, NULL, NULL, TRUE));
 
+        pPopupMenu->DeleteMenu(ID_FILE_CROSSPATCH, MF_BYCOMMAND);
+
+        if (GetHost()->GetCurrGame() &&
+            ((GetHost()->GetCurrGame()->GetGameFlag() == MVC2_D) || (GetHost()->GetCurrGame()->GetGameFlag() == MVC2_P)))
+        {
+            LPCWSTR pszMvC2CrossPlatform;
+
+            if (GetHost()->GetCurrGame()->GetGameFlag() == MVC2_D)
+            {
+                pszMvC2CrossPlatform = L"Copy colors to PS2";
+            }
+            else
+            {
+                pszMvC2CrossPlatform = L"Copy colors to DC";
+            }
+
+            MENUITEMINFO mii = { 0 };
+
+            mii.cbSize = sizeof(MENUITEMINFO);
+            mii.fMask = MIIM_ID | MIIM_STRING;
+            mii.wID = ID_FILE_CROSSPATCH;
+            mii.dwTypeData = (LPWSTR)pszMvC2CrossPlatform;
+
+            int iMenuPos = pPopupMenu->GetMenuItemCount() - 1;
+            for (; iMenuPos >= 0; iMenuPos--)
+            {
+                if (pPopupMenu->GetMenuItemID(iMenuPos) == ID_FILE_PATCH)
+                {
+                    // we want it after Patch changes
+                    iMenuPos++;
+                    break;
+                }
+            }
+
+            pPopupMenu->InsertMenuItem(iMenuPos, &mii, TRUE);
+        }
+
         CMenu gameMenu;
         gameMenu.CreatePopupMenu();
         MENUITEMINFO mii = { 0 };

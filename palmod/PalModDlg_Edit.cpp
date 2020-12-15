@@ -493,6 +493,7 @@ void CPalModDlg::OnEditPaste()
                 case KarnovsR_A:
                 case KOF94_A:
                 case KOF98_A:
+                case KOF99_A:
                 case KOF01_A:
                 case KOF02_A:
                 case KOF03_A:
@@ -510,6 +511,7 @@ void CPalModDlg::OnEditPaste()
                     break;
                 }
                 case BLEACH_DS:
+                case CFTE_SNES:
                 case GUNDAM_SNES:
                 case MMPR_SNES:
                 case SSF2T_GBA:

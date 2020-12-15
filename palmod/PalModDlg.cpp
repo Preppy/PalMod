@@ -112,6 +112,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_SHOW32BITRGB, &CPalModDlg::OnColSett)
     ON_BN_CLICKED(IDC_BUPDATE, &CPalModDlg::OnBnUpdate)
     ON_COMMAND(ID_FILE_PATCH, &CPalModDlg::OnFilePatch)
+    ON_COMMAND(ID_FILE_CROSSPATCH, &CPalModDlg::OnFileCrossPatch)
     ON_COMMAND(ID_TOOLS_GENERATEPATCHFILE, &CPalModDlg::OnSavePatchFile)
     ON_WM_INITMENUPOPUP()
     ON_COMMAND(ID_SETTINGS_SETTINGS, &CPalModDlg::OnSettingsSettings)
@@ -375,13 +376,13 @@ BOOL CPalModDlg::SetLoadDir(CString* szOut)
     if (::SHGetMalloc(&pMalloc) == NOERROR)
     {
         BROWSEINFO      bi;
-        TCHAR            pszBuffer[MAX_PATH];
+        TCHAR           pszBuffer[MAX_PATH];
         LPITEMIDLIST    pidl;
 
         bi.hwndOwner = GetSafeHwnd();
         bi.pidlRoot = NULL;
         bi.pszDisplayName = pszBuffer;
-        bi.lpszTitle = _T("Select a target Directory");
+        bi.lpszTitle = _T("Select a target directory");
         bi.ulFlags = BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
         bi.lpfn = OnBrowseDialog;
         bi.lParam = 0;

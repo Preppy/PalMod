@@ -13,7 +13,6 @@ private:
     UINT16** ppDataBuffer = nullptr;
 
     int GetFirstExtraValueFromExtraPaletteId(int nExtraPaletteIdint, int nStartOfRange, int nPalettePositionIncrements, int nRangeLength);
-   
 
 public:
     CGame_MVC2_D(void);

@@ -386,7 +386,7 @@ BEGIN
         BEGIN
             MENUITEM "RGB444 (big endian for CPS1/CPS2)", ID_COLORFORMAT_RGB444
             MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555
-            MENUITEM "RGB555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA
+            MENUITEM "BGR555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
             MENUITEM "RGB666 (NEO*GEO)",            ID_COLORFORMAT_RGB666
             MENUITEM SEPARATOR

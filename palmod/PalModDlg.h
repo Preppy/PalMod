@@ -243,6 +243,7 @@ public:
     afx_msg void OnColSett();
     afx_msg void OnBnUpdate();
     afx_msg void OnFilePatch();
+    afx_msg void OnFileCrossPatch();
     afx_msg void OnSavePatchFile();
 
     afx_msg void OnEditCopy();

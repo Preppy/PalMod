@@ -214,6 +214,9 @@
     <Filter Include="Game\SNK Games\KOFXI_A">
       <UniqueIdentifier>{d12dfc26-a331-4ac9-928f-89a7c1753af3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Nintendo\Clay Fighter: TE">
+      <UniqueIdentifier>{8fce122e-fa29-4397-8fe1-518222d624ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -473,6 +476,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_KOF94_A.cpp">
       <Filter>Game\SNK Games\KOF94_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_CFTE_SNES.cpp">
+      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -874,6 +880,12 @@
     </ClInclude>
     <ClInclude Include="Game\KOF94_A_DEF.h">
       <Filter>Game\SNK Games\KOF94_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CFTE_SNES_DEF.h">
+      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_CFTE_SNES.h">
+      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

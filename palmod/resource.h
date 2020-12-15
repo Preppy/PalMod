@@ -111,7 +111,7 @@
 #define ID_ZOOM_4X                      32782
 #define ID_SHOW32BITRGB                 32783
 #define ID_AUTO                         32785
-#define ID_FILE_PATCHCHANGES            32786
+#define ID_FILE_CROSSPATCH              32786
 #define ID_FILE_PATCH                   32787
 #define ID_EDIT_SELECTALL               32793
 #define ID_EDIT_SELECTNONE              32794

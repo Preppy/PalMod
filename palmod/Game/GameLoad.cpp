@@ -2,7 +2,9 @@
 #include "GameLoad.h"
 #include "..\CRC32.h"
 
+#include "Game_Bleach_DS.h"
 #include "Game_Breakers_A.h"
+#include "Game_CFTE_SNES.h"
 #include "Game_COTA_A.h"
 #include "Game_CVS2_A.h"
 #include "Game_Garou_A.h"
@@ -55,7 +57,6 @@
 #include "Game_WakuWaku7_A.h"
 #include "Game_Windjammers_A.h"
 #include "Game_XMVSF_A.h"
-#include "Game_Bleach_DS.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
@@ -100,6 +101,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case BREAKERS_A:
     {
         GetRule = &CGame_BREAKERS_A::GetRule;
+        return TRUE;
+    }
+    case CFTE_SNES:
+    {
+        GetRule = &CGame_CFTE_SNES::GetRule;
         return TRUE;
     }
     case COTA_A:
@@ -432,6 +438,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case BREAKERS_A:
     {
         return new CGame_BREAKERS_A(nConfirmedROMSize);
+    }
+    case CFTE_SNES:
+    {
+        return new CGame_CFTE_SNES(nConfirmedROMSize);
     }
     case COTA_A:
     {
@@ -948,7 +958,9 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
                 OutputDebugString(_T("CGameLoad::LoadDir : Gouki doesn't exist for SF3-DC: skipping.\n"));
                 nSaveLoadSucc++;
             }
-            else if (OutGame && (nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION))
+            else if (OutGame && 
+                   ((nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
+                   ((nGameFlag == MVC2_P) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION)))
             {
                 OutputDebugString(_T("CGameLoad::LoadDir : Team View for MvC2. Ignoring file open.\n"));
                 if (OutGame->LoadFile(nullptr, CurrRule.uUnitId))
@@ -1021,7 +1033,11 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             {
                 nSaveLoadCount++;
 
-                if (!((CurrGame->GetGameFlag() == MVC2_D) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION))) // ignore the virtual team view
+                // Ignore the virtualized team view
+                bool fIsMvC2TeamView = ((CurrGame->GetGameFlag() == MVC2_D) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
+                                       ((CurrGame->GetGameFlag() == MVC2_P) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION));
+
+                if (!fIsMvC2TeamView)
                 {
                     CString szLoad;
                     sFileRule CurrRule = GetRule(nFileCtr | 0xFF00);
@@ -1137,6 +1153,111 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     else
     {
         szLoadSaveStr = _T("No changes detected: nothing to patch.");
+    }
+}
+
+void CGameLoad::CrosscopyGame(CGameClass* CurrGame)
+{
+    CString strTargetDirectory;
+
+    if (GetHost()->GetPalModDlg()->SetLoadDir(&strTargetDirectory))
+    {
+        CFile FileSave;
+
+        nSaveLoadCount = 0;
+        nSaveLoadSucc = 0;
+        nSaveLoadErr = 0;
+
+        SetGame(CurrGame->GetGameFlag());
+
+        UINT16 nFileAmt = CurrGame->GetFileAmt();
+        CString strErrorFile;
+        const bool fIsDreamcast = CurrGame->GetGameFlag() == MVC2_D;
+
+        if (CurrGame->GetIsDir())
+        {
+            for (UINT16 nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
+            {
+                nSaveLoadCount++;
+
+                // Ignore the virtualized team view
+                bool fIsMvC2TeamView = (nFileCtr == MVC2_D_TEAMVIEW_LOCATION);
+
+                if (!fIsMvC2TeamView)
+                {
+                    CString szLoad;
+                    sFileRule CurrRule = fIsDreamcast ? CGame_MVC2_P::GetRule(nFileCtr | 0xFF00) : CGame_MVC2_D::GetRule(nFileCtr | 0xFF00);
+
+                    szLoad.Format(_T("%s\\%s"), strTargetDirectory.GetString(), CurrRule.szFileName);
+
+                    BOOL fFileOpened = FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary);
+
+                    if (fFileOpened)
+                    {
+                        if (CurrGame->SaveFile(&FileSave, nFileCtr))
+                        {
+                            nSaveLoadSucc++;
+                        }
+                        else
+                        {
+                            strErrorFile = szLoad;
+                            nSaveLoadErr++;
+                        }
+
+                        if (FileSave.m_hFile != CFile::hFileNull)
+                        {
+                            FileSave.Abort();
+                        }
+                    }
+                    else
+                    {
+                        strErrorFile = szLoad;
+                        nSaveLoadErr++;
+                    }
+                }
+                else
+                {
+                    // Ignore the virtual team view
+                    nSaveLoadSucc++;
+                }
+            }
+        }
+
+        if (!strErrorFile.IsEmpty())
+        {
+            CString strError;
+            UINT uErrorString;
+            if ((GetFileAttributes(strErrorFile)) == INVALID_FILE_ATTRIBUTES)
+            {
+                uErrorString = IDS_ERROR_FILENOTFOUND_FORMAT;
+            }
+            else
+            {
+                uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
+            }
+
+            strError.Format(uErrorString, strErrorFile);
+            MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+        }
+
+        CString strErrorText = L"";
+        if (nSaveLoadErr)
+        {
+            strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
+        }
+
+        if (nSaveLoadCount == 1)
+        {
+            szLoadSaveStr.Format(L"Game crosscopied successfully%s.", strErrorText.GetString());
+        }
+        else
+        {
+            szLoadSaveStr.Format(L"%d of %d files crosscopied successfully%s.", nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
+        }
+    }
+    else
+    {
+        szLoadSaveStr = (L"No directory specified.");
     }
 }
 
