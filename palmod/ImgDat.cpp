@@ -292,9 +292,11 @@ void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
 
     if (!s_havePerformedVersionCheck)
     {
+        // here we keep track of the imgdat version we expect.
+        // not super critical for daily updates, but still useful
         const UINT16 nExpectedYear = 2020;
         const UINT8 nExpectedMonth = 12;
-        const UINT8 nExpectedDay = 8;
+        const UINT8 nExpectedDay = 15;
         const UINT8 nExpectedRevision = 0;
 
         const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);

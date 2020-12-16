@@ -132,25 +132,65 @@ const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_X3[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_A[] =
 {
-    { L"Sakura A", 0xa166, 0xa186 },
+    { L"Sakura A", 0xa166, 0xa186, indexCPS2_SPF_Sakura },
+    { L"Sakura Samurai Suit A", 0x2c85a, 0x2c87a },
+    { L"Sakura Bunny Suit A", 0x2c8da, 0x2c8fa },
+    { L"Sakura Swim Suit A", 0x2c95a, 0x2c97a },
+    { L"Sakura Tennis Player A", 0x2c9da, 0x2c9fa },
+    { L"Watermelon/Motorcycle A", 0x2cada, 0x2cafa, indexCPS2_SPF_Sakura, 0x02 },
+    { L"Umbrella A", 0x2cb5a, 0x2cb7a },
+    { L"Bloomer guys A", 0x2cbda, 0x2cbfa },
+    { L"Bottle Pop Effect A", 0x2cc5a, 0x2cc7a },
+    { L"Hadouken A", 0x2ccda, 0x2ccfa },
+    { L"Shinku Hadouken A", 0x2cd5a, 0x2cd7a },
     { L"Sakura Portrait A", 0xc706, 0xc766 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_B[] =
 {
-    { L"Sakura B", 0xa206, 0xa226 },
+    { L"Sakura B", 0xa206, 0xa226, indexCPS2_SPF_Sakura },
+    { L"Sakura Samurai Suit B", 0x2c87a, 0x2c89a },
+    { L"Sakura Bunny Suit B", 0x2c8fa, 0x2c91a },
+    { L"Sakura Swim Suit B", 0x2c97a, 0x2c99a },
+    { L"Sakura Tennis Player B", 0x2c9fa, 0x2ca1a },
+    { L"Watermelon/Motorcycle B", 0x2cafa, 0x2cb1a, indexCPS2_SPF_Sakura, 0x02 },
+    { L"Umbrella B", 0x2cb7a, 0x2cb9a },
+    { L"Bloomer guys B", 0x2cbfa, 0x2cc1a },
+    { L"Bottle Pop Effect B", 0x2cc7a, 0x2cc9a },
+    { L"Hadouken B", 0x2ccfa, 0x2cd1a },
+    { L"Shinku Hadouken B", 0x2cd7a, 0x2cd9a },
     { L"Sakura Portrait B", 0xc766, 0xc7c6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_C[] =
 {
-    { L"Sakura C", 0xa2a6, 0xa2c6 },
+    { L"Sakura C", 0xa2a6, 0xa2c6, indexCPS2_SPF_Sakura },
+    { L"Sakura Samurai Suit C", 0x2c89a, 0x2c8ba },
+    { L"Sakura Bunny Suit C", 0x2c91a, 0x2c93a },
+    { L"Sakura Swim Suit C", 0x2c99a, 0x2c9ba },
+    { L"Sakura Tennis Player C", 0x2ca1a, 0x2ca3a },
+    { L"Watermelon/Motorcycle C", 0x2cb1a, 0x2cb3a, indexCPS2_SPF_Sakura, 0x02 },
+    { L"Umbrella C", 0x2cb9a, 0x2cbba },
+    { L"Bloomer guys C", 0x2cc1a, 0x2cc3a },
+    { L"Bottle Pop Effect C", 0x2cc9a, 0x2ccba },
+    { L"Hadouken C", 0x2cd1a, 0x2cd3a },
+    { L"Shinku Hadouken C", 0x2cd9a, 0x2cdba },
     { L"Sakura Portrait C", 0xc7c6, 0xc826 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_X3[] =
 {
-    { L"Sakura x3", 0xa346, 0xa366 },
+    { L"Sakura x3", 0xa346, 0xa366, indexCPS2_SPF_Sakura },
+    { L"Sakura Samurai Suit x3", 0x2c8ba, 0x2c8da },
+    { L"Sakura Bunny Suit x3", 0x2c93a, 0x2c95a },
+    { L"Sakura Swim Suit x3", 0x2c9ba, 0x2c9da },
+    { L"Sakura Tennis Player x3", 0x2ca3a, 0x2ca5a },
+    { L"Watermelon/Motorcycle x3", 0x2cb3a, 0x2cb5a, indexCPS2_SPF_Sakura, 0x02 },
+    { L"Umbrella x3", 0x2cbba, 0x2cbda },
+    { L"Bloomer guys x3", 0x2cc3a, 0x2cc5a },
+    { L"Bottle Pop Effect x3", 0x2ccba, 0x2ccda },
+    { L"Hadouken x3", 0x2cd3a, 0x2cd5a },
+    { L"Shinku Hadouken x3", 0x2cdba, 0x2cdda },
     { L"Sakura Portrait x3", 0xc826, 0xc886 },
 };
 

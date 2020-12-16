@@ -294,6 +294,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_A[] =
     { L"Jubei A (Normal)", 0x00e1000, 0x00e1040, indexSamSho5Sprites_Jubei },
     { L"Jubei A (Rage)", 0x00e1040, 0x00e1080, indexSamSho5Sprites_Jubei },
     { L"Jubei A (SON)", 0x00e1240, 0x00e1280, indexSamSho5Sprites_Jubei },
+    { L"Bird/Slashes A", 0xe1340, 0xe1360 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_B[] =
@@ -301,6 +302,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_B[] =
     { L"Jubei B (Normal)", 0x00e1400, 0x00e1440, indexSamSho5Sprites_Jubei },
     { L"Jubei B (Rage)", 0x00e1440, 0x00e1480, indexSamSho5Sprites_Jubei },
     { L"Jubei B (SON)", 0x00e1640, 0x00e1680, indexSamSho5Sprites_Jubei },
+    { L"Bird/Slashes B", 0x00e1740, 0x00e1760 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_C[] =
@@ -308,6 +310,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_C[] =
     { L"Jubei C (Normal)", 0x00e1800, 0x00e1840, indexSamSho5Sprites_Jubei },
     { L"Jubei C (Rage)", 0x00e1840, 0x00e1880, indexSamSho5Sprites_Jubei },
     { L"Jubei C (SON)", 0x00e1a40, 0x00e1a80, indexSamSho5Sprites_Jubei },
+    { L"Bird/Slashes C", 0x00e1b40, 0x00e1b60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_D[] =
@@ -315,6 +318,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_D[] =
     { L"Jubei D (Normal)", 0x00e1c00, 0x00e1c40, indexSamSho5Sprites_Jubei },
     { L"Jubei D (Rage)", 0x00e1c40, 0x00e1c80, indexSamSho5Sprites_Jubei },
     { L"Jubei D (SON)", 0x00e1e40, 0x00e1e80, indexSamSho5Sprites_Jubei },
+    { L"Bird/Slashes D", 0x00e1f40, 0x00e1f60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kazuki_PALETTES_A[] =

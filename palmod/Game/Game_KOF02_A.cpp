@@ -277,7 +277,6 @@ void CGame_KOF02_A::DumpAllCharacters()
         strOutput.Format(L"    { L\"Select Portrait\", DESC_NODETYPE_TREE, (void*)KOF02_A_%s_PALETTES_PORTRAITS_SELECT, ARRAYSIZE(KOF02_A_%s_PALETTES_PORTRAITS_SELECT) },\r\n", szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
 
-
         OutputDebugString(L"};\r\n\r\n");
     }
 

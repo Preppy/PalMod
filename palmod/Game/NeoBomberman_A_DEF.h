@@ -17,16 +17,16 @@ const sGame_PaletteDataset NeoBomberman_A_RubberBomber_PALETTES[] =
 
 const sGame_PaletteDataset NeoBomberman_A_FakeBomber_PALETTES[] =
 {
-    { L"Fake Bomber P1", 0x0c3d0a, 0x0c3d4a },
-    { L"Fake Bomber P2", 0x0cac6a, 0x0cacaa },
-    { L"Fake Bomber CPU", 0x0d550a, 0x0d554a },
+    { L"Fake Bomber P1", 0x0c3d0a, 0x0c3d4a, indexNeoBombermanSprites_FakeBomber, 0x00 },
+    { L"Fake Bomber P2", 0x0cac6a, 0x0cacaa, indexNeoBombermanSprites_FakeBomber, 0x00 },
+    { L"Fake Bomber CPU", 0x0d550a, 0x0d554a, indexNeoBombermanSprites_FakeBomber, 0x00 },
 };
 
 const sGame_PaletteDataset NeoBomberman_A_CatBomber_PALETTES[] =
 {
-    { L"Cat Bomber P1", 0x0c3cca, 0x0c3d0a },
-    { L"Cat Bomber P2", 0x0cac2a, 0x0cac6a },
-    { L"Cat Bomber CPU", 0x0d4faa, 0x0d4fea },
+    { L"Cat Bomber P1", 0x0c3cca, 0x0c3d0a, indexNeoBombermanSprites_CatBomber, 0x00 },
+    { L"Cat Bomber P2", 0x0cac2a, 0x0cac6a, indexNeoBombermanSprites_CatBomber, 0x00 },
+    { L"Cat Bomber CPU", 0x0d4faa, 0x0d4fea, indexNeoBombermanSprites_CatBomber, 0x00 },
 };
 
 const sGame_PaletteDataset NeoBomberman_A_Honey_PALETTES[] =
@@ -38,9 +38,9 @@ const sGame_PaletteDataset NeoBomberman_A_Honey_PALETTES[] =
 
 const sGame_PaletteDataset NeoBomberman_A_HayateBomber_PALETTES[] =
 {
-    { L"Hayate Bomber P1", 0x0c1a2a, 0x0c1a6a },
-    { L"Hayate Bomber P2", 0x0cadaa, 0x0cadea },
-    { L"Hayate Bomber CPU", 0x0d558a, 0x0d55ca },
+    { L"Hayate Bomber P1", 0x0c1a2a, 0x0c1a6a, indexNeoBombermanSprites_HayateBomber, 0x00 },
+    { L"Hayate Bomber P2", 0x0cadaa, 0x0cadea, indexNeoBombermanSprites_HayateBomber, 0x00 },
+    { L"Hayate Bomber CPU", 0x0d558a, 0x0d55ca, indexNeoBombermanSprites_HayateBomber, 0x00 },
 };
 
 const sGame_PaletteDataset NeoBomberman_A_Kotetsu_PALETTES[] =

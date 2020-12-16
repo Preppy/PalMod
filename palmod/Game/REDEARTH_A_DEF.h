@@ -51,31 +51,46 @@ const sGame_PaletteDataset REDEARTH_A_LEO_BONUS_PALETTES[] =
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_PUNCH_PALETTES[] =
 {
-    { L"Kenji Punch",                            0x40B200, 0x40B280, indexRedEarthSprites_Kenji, 0x0 },
-    { L"Kenji Punch Vs/Winning/Losing Screen",   0x1E4800, 0x1E4900, indexRedEarthSprites_Kenji, 0x13 },
+    { L"Kenji Punch",                            0x40B200, 0x40B280, indexRedEarthSprites_Kenji, 0x0, &pairNext4 },
+    { L"Kenji Punch Vs/Winning/Losing Screen",   0x1E4800, 0x1E4900, indexRedEarthSprites_Kenji, 0x09 },
     { L"Kenji Punch LifeBar Portrait",           0x406900, 0x406940, indexRedEarthSprites_Kenji, 0x10 },
     
     // All of these are for Punch
-    { L"Hat intro",                              0x40B300, 0x40B380 },
-    { L"Chains, Kunai",                          0x40B380, 0x40B400 },
-    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x40B400, 0x40B480 },
-    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x40B480, 0x40B500 },
-    { L"Hk Flash (3/3), DP.1/2/3, Teleport ",    0x40B500, 0x40B580 },
-    { L"DP.1/2/3 Spark",                         0x40B580, 0x40B600 },
-    { L"HCF.4/5/6 Slash",                        0x40B600, 0x40B680 },
-    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x40B700, 0x40B780 },
-    { L"Teleport Frame (2/3)",                   0x40B680, 0x40B700 },
-    { L"Teleport Frame (3/3)",                   0x40B780, 0x40B800 },
-    { L"Kunai Throwing Shine (1/3)",             0x40BF00, 0x40BF80 },
-    { L"Kunai Throwing Shine (2/3)",             0x40BE80, 0x40BF00 },
-    { L"Kunai Throwing Shine (3/3)",             0x40BE00, 0x40BE80 },
+    { L"Hat intro",                              0x40B300, 0x40B380, indexRedEarthSprites_Kenji, 0x03 },
+    { L"Chains, Kunai",                          0x40B380, 0x40B400, indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x40B400, 0x40B480, indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x40B480, 0x40B500, indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport ",    0x40B500, 0x40B580, indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x40B580, 0x40B600, indexRedEarthSprites_Kenji, 0x02 },
+    { L"HCF.4/5/6 Slash",                        0x40B600, 0x40B680, indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x40B700, 0x40B780, indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x40B680, 0x40B700, indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x40B780, 0x40B800, indexRedEarthSprites_Kenji, 0x08 },
+    { L"Kunai Throwing Shine (1/3)",             0x40BF00, 0x40BF80, indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x40BE80, 0x40BF00, indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x40BE00, 0x40BE80, indexRedEarthSprites_Kenji, 0x01 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_KICK_PALETTES[] =
 {
-    { L"Kenji Kick",                             0x417A00, 0x417A80, indexRedEarthSprites_Kenji, 0x0 },
-    { L"Kenji Kick Vs/Winning/Losing Screen",    0x1E4E00, 0x1E4F00, indexRedEarthSprites_Kenji, 0x13 },
+    { L"Kenji Kick",                             0x417A00, 0x417A80, indexRedEarthSprites_Kenji, 0x0, &pairNext4 },
+    { L"Kenji Kick Vs/Winning/Losing Screen",    0x1E4E00, 0x1E4F00, indexRedEarthSprites_Kenji, 0x09 },
     { L"Kenji Kick LifeBar Portrait",            0x406940, 0x406980, indexRedEarthSprites_Kenji, 0x10 },
+
+    { L"Hat intro",                              0x417b00, 0x417b80, indexRedEarthSprites_Kenji, 0x03 },
+    { L"Chains, Kunai",                          0x417b80, 0x417c00, indexRedEarthSprites_Kenji, 0x01 },
+    { L"Hk Flash (1/3), R.DP.1/2/3 Leaves",      0x417c00, 0x417c80, indexRedEarthSprites_Kenji, 0x05 },
+    { L"Hk Flash (2/3), DP.1/2/3, QCBQCB.1/2/3", 0x417c80, 0x417d00, indexRedEarthSprites_Kenji, 0x06 },
+    { L"Hk Flash (3/3), DP.1/2/3, Teleport ",    0x417d00, 0x417d80, indexRedEarthSprites_Kenji, 0x07 },
+    { L"DP.1/2/3 Spark",                         0x417d80, 0x417e00, indexRedEarthSprites_Kenji, 0x02 },
+    { L"HCF.4/5/6 Slash",                        0x417e00, 0x417e80, indexRedEarthSprites_Kenji, 0x04 },
+    { L"Teleport Frame (1/3) - HCF.4/5/6 Flash", 0x417f00, 0x417f80, indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (2/3)",                   0x417e80, 0x417f00, indexRedEarthSprites_Kenji, 0x08 },
+    { L"Teleport Frame (3/3)",                   0x417f80, 0x418000, indexRedEarthSprites_Kenji, 0x08 },
+    
+    { L"Kunai Throwing Shine (1/3)",             0x418700, 0x418780, indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (2/3)",             0x418680, 0x418700, indexRedEarthSprites_Kenji, 0x01 },
+    { L"Kunai Throwing Shine (3/3)",             0x418600, 0x418680, indexRedEarthSprites_Kenji, 0x01 },
 };
 
 const sGame_PaletteDataset REDEARTH_A_KENJI_BONUS_PALETTES[] =

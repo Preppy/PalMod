@@ -41,7 +41,7 @@ CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = GUNDAM_SNES_NUMUNIT;
     m_nExtraUnit = GUNDAM_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 69;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 49;
     m_pszExtraFilename = EXTRA_FILENAME_GUNDAM_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForGUNDAM;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -60,8 +60,8 @@ CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(UINT32 nConfirmedROMSize)
 
     nGameFlag = GUNDAM_SNES;
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    m_prgGameImageSet = GUNDAM_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(GUNDAM_A_IMG_UNITS);
 
     nFileAmt = 1;
 

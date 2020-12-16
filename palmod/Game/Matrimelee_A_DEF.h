@@ -1,52 +1,52 @@
 #pragma once
 
-const sGame_PaletteDataset Matrimelee_A_ANNY_A_PALETTES[] =
+const sGame_PaletteDataset Matrimelee_A_Annie_A_PALETTES[] =
 {
-    { L"Anny A", 0x29c82c, 0x29c84c, indexMatriMSprites_Anny, 0x00 },
+    { L"Annie A", 0x29c82c, 0x29c84c, indexMatriMSprites_Annie, 0x00 },
     { L"236+P/46a13c angel", 0x29c84c, 0x29c86c },
     { L"623+P/46a13c beam", 0x29c86c, 0x29c88c },
-    { L"Rolling/Super Jumps", 0x29c88c, 0x29c8ac, indexMatriMSprites_Anny, 0x00 },
-    { L"EX/Super trails", 0x29c8ac, 0x29c8cc, indexMatriMSprites_Anny, 0x00 },
-    { L"Guard Cancel", 0x29c8cc, 0x29c8ec, indexMatriMSprites_Anny, 0x00 },
+    { L"Rolling/Super Jumps", 0x29c88c, 0x29c8ac, indexMatriMSprites_Annie, 0x00 },
+    { L"EX/Super trails", 0x29c8ac, 0x29c8cc, indexMatriMSprites_Annie, 0x00 },
+    { L"Guard Cancel", 0x29c8cc, 0x29c8ec, indexMatriMSprites_Annie, 0x00 },
     { L"HUD Portrait", 0x29c8ec, 0x29c90c },
 };
 
-const sGame_PaletteDataset Matrimelee_A_ANNY_B_PALETTES[] =
+const sGame_PaletteDataset Matrimelee_A_Annie_B_PALETTES[] =
 {
-    { L"Anny B", 0x29c90c, 0x29c92c, indexMatriMSprites_Anny, 0x00 },
+    { L"Annie B", 0x29c90c, 0x29c92c, indexMatriMSprites_Annie, 0x00 },
     { L"236+P/46a13c angel", 0x29c92c, 0x29c94c },
     { L"623+P/46a13c beam", 0x29c94c, 0x29c96c },
-    { L"Rolling/Super Jumps", 0x29c96c, 0x29c98c, indexMatriMSprites_Anny, 0x00 },
-    { L"EX/Super trails", 0x29c98c, 0x29c9ac, indexMatriMSprites_Anny, 0x00 },
-    { L"Guard Cancel", 0x29c9ac, 0x29c9cc, indexMatriMSprites_Anny, 0x00 },
+    { L"Rolling/Super Jumps", 0x29c96c, 0x29c98c, indexMatriMSprites_Annie, 0x00 },
+    { L"EX/Super trails", 0x29c98c, 0x29c9ac, indexMatriMSprites_Annie, 0x00 },
+    { L"Guard Cancel", 0x29c9ac, 0x29c9cc, indexMatriMSprites_Annie, 0x00 },
     { L"HUD Portrait", 0x29c9cc, 0x29c9ec },
 };
 
-const sGame_PaletteDataset Matrimelee_A_ANNY_C_PALETTES[] =
+const sGame_PaletteDataset Matrimelee_A_Annie_C_PALETTES[] =
 {
-    { L"Anny C", 0x29c9ec, 0x29ca0c, indexMatriMSprites_Anny, 0x00 },
+    { L"Annie C", 0x29c9ec, 0x29ca0c, indexMatriMSprites_Annie, 0x00 },
     { L"236+P/46a13c angel", 0x29ca0c, 0x29ca2c },
     { L"623+P/46a13c beam", 0x29ca2c, 0x29ca4c },
-    { L"Rolling/Super Jumps", 0x29ca4c, 0x29ca6c, indexMatriMSprites_Anny, 0x00 },
-    { L"EX/Super trails", 0x29ca6c, 0x29ca8c, indexMatriMSprites_Anny, 0x00 },
-    { L"Guard Cancel", 0x29ca8c, 0x29caac, indexMatriMSprites_Anny, 0x00 },
+    { L"Rolling/Super Jumps", 0x29ca4c, 0x29ca6c, indexMatriMSprites_Annie, 0x00 },
+    { L"EX/Super trails", 0x29ca6c, 0x29ca8c, indexMatriMSprites_Annie, 0x00 },
+    { L"Guard Cancel", 0x29ca8c, 0x29caac, indexMatriMSprites_Annie, 0x00 },
     { L"HUD Portrait", 0x29caac, 0x29cacc },
 };
 
-const sGame_PaletteDataset Matrimelee_A_ANNY_D_PALETTES[] =
+const sGame_PaletteDataset Matrimelee_A_Annie_D_PALETTES[] =
 {
-    { L"Anny D", 0x29cacc, 0x29caec, indexMatriMSprites_Anny, 0x00 },
+    { L"Annie D", 0x29cacc, 0x29caec, indexMatriMSprites_Annie, 0x00 },
     { L"236+P/46a13c angel", 0x29caec, 0x29cb0c },
     { L"623+P/46a13c beam", 0x29cb0c, 0x29cb2c },
-    { L"Rolling/Super Jumps", 0x29cb2c, 0x29cb4c, indexMatriMSprites_Anny, 0x00 },
-    { L"EX/Super trails", 0x29cb4c, 0x29cb6c, indexMatriMSprites_Anny, 0x00 },
-    { L"Guard Cancel", 0x29cb6c, 0x29cb8c, indexMatriMSprites_Anny, 0x00 },
+    { L"Rolling/Super Jumps", 0x29cb2c, 0x29cb4c, indexMatriMSprites_Annie, 0x00 },
+    { L"EX/Super trails", 0x29cb4c, 0x29cb6c, indexMatriMSprites_Annie, 0x00 },
+    { L"Guard Cancel", 0x29cb6c, 0x29cb8c, indexMatriMSprites_Annie, 0x00 },
     { L"HUD Portrait", 0x29cb8c, 0x29cbac },
 };
 
-const sGame_PaletteDataset Matrimelee_A_ANNY_PORTRAIT_PALETTES[] =
+const sGame_PaletteDataset Matrimelee_A_Annie_PORTRAIT_PALETTES[] =
 {
-    { L"Anny Portrait", 0x29CBAc, 0x29CC4C },
+    { L"Annie Portrait", 0x29CBAc, 0x29CC4C },
 };
 
 const sGame_PaletteDataset Matrimelee_A_BUNTARO_A_PALETTES[] =
@@ -1184,13 +1184,13 @@ const sGame_PaletteDataset Matrimelee_A_BBM_PORTRAIT_PALETTES[] =
     { L"Bloodline Battles Attack Buttons", 0x29ac3e, 0x29ac5e },
 };
 
-const sDescTreeNode Matrimelee_A_ANNY_COLLECTION[] =
+const sDescTreeNode Matrimelee_A_Annie_COLLECTION[] =
 {
-    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_A_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_A_PALETTES) },
-    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_B_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_B_PALETTES) },
-    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_C_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_C_PALETTES) },
-    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_ANNY_D_PALETTES,    ARRAYSIZE(Matrimelee_A_ANNY_D_PALETTES) },
-    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_ANNY_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_ANNY_PORTRAIT_PALETTES) },
+    { L"A", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_Annie_A_PALETTES,    ARRAYSIZE(Matrimelee_A_Annie_A_PALETTES) },
+    { L"B", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_Annie_B_PALETTES,    ARRAYSIZE(Matrimelee_A_Annie_B_PALETTES) },
+    { L"C", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_Annie_C_PALETTES,    ARRAYSIZE(Matrimelee_A_Annie_C_PALETTES) },
+    { L"D", DESC_NODETYPE_TREE,          (void*)Matrimelee_A_Annie_D_PALETTES,    ARRAYSIZE(Matrimelee_A_Annie_D_PALETTES) },
+    { L"Portrait", DESC_NODETYPE_TREE,   (void*)Matrimelee_A_Annie_PORTRAIT_PALETTES, ARRAYSIZE(Matrimelee_A_Annie_PORTRAIT_PALETTES) },
 };
 
 const sDescTreeNode Matrimelee_A_BUNTARO_COLLECTION[] =
@@ -1373,7 +1373,7 @@ const sDescTreeNode Matrimelee_A_BONUS_COLLECTION[] =
 
 const sDescTreeNode Matrimelee_A_UNITS[] =
 {
-    { L"Anny",              DESC_NODETYPE_TREE, (void*)Matrimelee_A_ANNY_COLLECTION,      ARRAYSIZE(Matrimelee_A_ANNY_COLLECTION) },
+    { L"Annie",              DESC_NODETYPE_TREE, (void*)Matrimelee_A_Annie_COLLECTION,      ARRAYSIZE(Matrimelee_A_Annie_COLLECTION) },
     { L"Buntaro",           DESC_NODETYPE_TREE, (void*)Matrimelee_A_BUNTARO_COLLECTION,      ARRAYSIZE(Matrimelee_A_BUNTARO_COLLECTION) },
     { L"Chinnen",           DESC_NODETYPE_TREE, (void*)Matrimelee_A_CHINNEN_COLLECTION,      ARRAYSIZE(Matrimelee_A_CHINNEN_COLLECTION) },
     { L"Clara",             DESC_NODETYPE_TREE, (void*)Matrimelee_A_CLARA_COLLECTION,      ARRAYSIZE(Matrimelee_A_CLARA_COLLECTION) },

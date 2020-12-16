@@ -960,7 +960,7 @@ const sGame_PaletteDataset KOF03_A_GORO_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_A[] =
 {
-    { L"Athena Asamiya A", 0x00e000, 0x00e020 },
+    { L"Athena Asamiya A", 0x00e000, 0x00e020, indexKOF03Sprites_Athena, 0x00 },
     { L"Psycho Energy A", 0x00e1c0, 0x00e1e0 },
     { L"Psychic 10 1-2-3 A", 0x00e120, 0x00e140 },
     { L"Psychic 10 4~10 A", 0x00e100, 0x00e120 },
@@ -974,7 +974,7 @@ const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_B[] =
 {
-    { L"Athena Asamiya B", 0x00e200, 0x00e220 },
+    { L"Athena Asamiya B", 0x00e200, 0x00e220, indexKOF03Sprites_Athena, 0x00 },
     { L"Psycho Energy B", 0x00e3c0, 0x00e3e0 },
     { L"Psychic 10 1-2-3 B", 0x00e320, 0x00e340 },
     { L"Psychic 10 4~10 B", 0x00e300, 0x00e320 },
@@ -988,7 +988,7 @@ const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_C[] =
 {
-    { L"Athena Asamiya C", 0x00e400, 0x00e420 },
+    { L"Athena Asamiya C", 0x00e400, 0x00e420, indexKOF03Sprites_Athena, 0x00 },
     { L"Psycho Energy C", 0x00e5c0, 0x00e5e0 },
     { L"Psychic 10 1-2-3 C", 0x00e520, 0x00e540 },
     { L"Psychic 10 4~10 C", 0x00e500, 0x00e520 },
@@ -1002,7 +1002,7 @@ const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_ATHENA_PALETTES_D[] =
 {
-    { L"Athena Asamiya D", 0x00e600, 0x00e620 },
+    { L"Athena Asamiya D", 0x00e600, 0x00e620, indexKOF03Sprites_Athena, 0x00 },
     { L"Psycho Energy D", 0x00e7c0, 0x00e7e0 },
     { L"Psychic 10 1-2-3 D", 0x00e720, 0x00e740 },
     { L"Psychic 10 4~10 D", 0x00e700, 0x00e720 },
@@ -1300,7 +1300,7 @@ const sGame_PaletteDataset KOF03_A_CHIZURU_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_KUSANAGI_PALETTES_A[] =
 {
-    { L"KUSANAGI A", 0x012800, 0x012820, indexKOFSprites_02UM_Kusanagi },
+    { L"KUSANAGI A", 0x012800, 0x012820, indexKOF03Sprites_KUSANAGI },
     { L"K-Yami Barai/Oroch. br. A", 0x012980, 0x0129a0 },
     { L"K-Oniyaki A", 0x012960, 0x012980 },
     { L"Orochinagi Body A", 0x012900, 0x012920 },
@@ -1311,7 +1311,7 @@ const sGame_PaletteDataset KOF03_A_KUSANAGI_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_KUSANAGI_PALETTES_B[] =
 {
-    { L"KUSANAGI B", 0x012a00, 0x012a20, indexKOFSprites_02UM_Kusanagi },
+    { L"KUSANAGI B", 0x012a00, 0x012a20, indexKOF03Sprites_KUSANAGI },
     { L"K-Yami Barai/Oroch. br. B", 0x012b80, 0x012ba0 },
     { L"K-Oniyaki B", 0x012b60, 0x012b80 },
     { L"Orochinagi Body B", 0x012b00, 0x012b20 },
@@ -1322,7 +1322,7 @@ const sGame_PaletteDataset KOF03_A_KUSANAGI_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_KUSANAGI_PALETTES_C[] =
 {
-    { L"KUSANAGI C", 0x012c00, 0x012c20, indexKOFSprites_02UM_Kusanagi },
+    { L"KUSANAGI C", 0x012c00, 0x012c20, indexKOF03Sprites_KUSANAGI },
     { L"K-Yami Barai/Oroch. br. C", 0x012d80, 0x012da0 },
     { L"K-Oniyaki C", 0x012d60, 0x012d80 },
     { L"Orochinagi Body C", 0x012d00, 0x012d20 },
@@ -1333,7 +1333,7 @@ const sGame_PaletteDataset KOF03_A_KUSANAGI_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_KUSANAGI_PALETTES_D[] =
 {
-    { L"KUSANAGI D", 0x012e00, 0x012e20, indexKOFSprites_02UM_Kusanagi },
+    { L"KUSANAGI D", 0x012e00, 0x012e20, indexKOF03Sprites_KUSANAGI },
     { L"K-Yami Barai/Oroch. br. D", 0x012f80, 0x012fa0 },
     { L"K-Oniyaki D", 0x012f60, 0x012f80 },
     { L"Orochinagi Body D", 0x012f00, 0x012f20 },
@@ -1388,7 +1388,7 @@ const sGame_PaletteDataset KOF03_A_ADELHEID_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_MUKAI_PALETTES_A[] =
 {
-    { L"Mukai A", 0x013800, 0x013820 },
+    { L"Mukai A", 0x013800, 0x013820, indexKOF03Sprites_Mukai, 0x00 },
     { L"Touha/Chishou/Tenshou A", 0x013900, 0x013920 },
     { L"Shikai A", 0x013920, 0x013940 },
     { L"Mukai Victory A", 0x021420, 0x021460 },
@@ -1396,7 +1396,7 @@ const sGame_PaletteDataset KOF03_A_MUKAI_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_MUKAI_PALETTES_B[] =
 {
-    { L"Mukai B", 0x013a00, 0x013a20 },
+    { L"Mukai B", 0x013a00, 0x013a20, indexKOF03Sprites_Mukai, 0x00 },
     { L"Touha/Chishou/Tenshou B", 0x013b00, 0x013b20 },
     { L"Shikai B", 0x013b20, 0x013b40 },
     { L"Mukai Victory B", 0x021460, 0x0214a0 },
@@ -1404,7 +1404,7 @@ const sGame_PaletteDataset KOF03_A_MUKAI_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_MUKAI_PALETTES_C[] =
 {
-    { L"Mukai C", 0x013c00, 0x013c20 },
+    { L"Mukai C", 0x013c00, 0x013c20, indexKOF03Sprites_Mukai, 0x00 },
     { L"Touha/Chishou/Tenshou C", 0x013d00, 0x013d20 },
     { L"Shikai C", 0x013d20, 0x013d40 },
     { L"Mukai Victory C", 0x0214a0, 0x0214e0 },
@@ -1412,7 +1412,7 @@ const sGame_PaletteDataset KOF03_A_MUKAI_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_MUKAI_PALETTES_D[] =
 {
-    { L"Mukai D", 0x013e00, 0x013e20 },
+    { L"Mukai D", 0x013e00, 0x013e20, indexKOF03Sprites_Mukai, 0x00 },
     { L"Touha/Chishou/Tenshou D", 0x013f00, 0x013f20 },
     { L"Shikai D", 0x013f20, 0x013f40 },
     { L"Mukai Victory D", 0x0214e0, 0x021520 },

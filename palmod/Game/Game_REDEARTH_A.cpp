@@ -39,7 +39,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 485;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 498;
     m_nLowestKnownPaletteRomLocation = 0x1de000;
 
     CString strInfo;
