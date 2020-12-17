@@ -83,8 +83,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_LP[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260aa20, 0x260aa40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260aa40, 0x260aa60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260aa60, 0x260aa80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used", 0x260aa80, 0x260aaa0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used", 0x260aaa0, 0x260aac0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260aa80, 0x260aaa0, indexCPS2_Ryu, 6 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aaa0, 0x260aac0, indexCPS2_Ryu, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_LK[] =
@@ -95,8 +95,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_LK[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ab20, 0x260ab40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260ab40, 0x260ab60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260ab60, 0x260ab80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used", 0x260ab80, 0x260aba0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used", 0x260aba0, 0x260abc0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260ab80, 0x260aba0, indexCPS2_Ryu, 6 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aba0, 0x260abc0, indexCPS2_Ryu, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_HP[] =
@@ -107,8 +107,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_HP[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ac20, 0x260ac40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260ac40, 0x260ac60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260ac60, 0x260ac80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used", 0x260ac80, 0x260aca0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used", 0x260aca0, 0x260acc0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260ac80, 0x260aca0, indexCPS2_Ryu, 6 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aca0, 0x260acc0, indexCPS2_Ryu, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_HK[] =
@@ -119,8 +119,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_HK[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ad20, 0x260ad40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260ad40, 0x260ad60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260ad60, 0x260ad80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used", 0x260ad80, 0x260ada0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used", 0x260ada0, 0x260adc0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260ad80, 0x260ada0, indexCPS2_Ryu, 6 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260ada0, 0x260adc0, indexCPS2_Ryu, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_A1[] =
@@ -131,8 +131,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_A1[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ae20, 0x260ae40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260ae40, 0x260ae60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260ae60, 0x260ae80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used", 0x260ae80, 0x260aea0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used", 0x260aea0, 0x260aec0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260ae80, 0x260aea0, indexCPS2_Ryu, 6 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aea0, 0x260aec0, indexCPS2_Ryu, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_A2[] =
@@ -143,8 +143,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_A2[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260af20, 0x260af40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260af40, 0x260af60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260af60, 0x260af80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used", 0x260af80, 0x260afa0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used", 0x260afa0, 0x260afc0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260af80, 0x260afa0, indexCPS2_Ryu, 6 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260afa0, 0x260afc0, indexCPS2_Ryu, 7 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_SHARED[] =

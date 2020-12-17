@@ -677,6 +677,19 @@ const sDescTreeNode REDEARTH_A_UNITS[] =
     { L"Bonus",              DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_BONUS_COLLECTION) },
 };
 
+#ifdef UseStagePalettes
+;; RedEarth: Stages in File 30
+    { L"Greedia Ruins", 0x734000, 0x734d00 },
+    { L"Zipang on Fire", 0x734d00, 0x737000 },
+    { L"Icelarn", 0x737000, 0x737d00 },
+    { L"Sangypt+Gora", 0x737d00, 0x73a400 },
+    { L"Crypt", 0x737d00, 0x73b780 },
+    { L"Darminor", 0x73b780, 0x73c000 },
+    { L"Scions Lair", 0x73c000, 0x73cc00 },
+    { L"Leo's Swing PALFX", 0x73f000, 0x749e00 },
+    { L"Hauzer Fire PALFX", 0x74a000, 0x74d000 },
+#endif
+
 constexpr auto REDEARTH_A_NUMUNIT = ARRAYSIZE(REDEARTH_A_UNITS);
 #define REDEARTH_A_EXTRALOC REDEARTH_A_NUMUNIT
 

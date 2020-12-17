@@ -56,7 +56,6 @@ public:
     BOOL SetColorMode(ColMode NewMode) override;
     bool AllowUpdatingColorFormatForGame() override { return true; }
 
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 

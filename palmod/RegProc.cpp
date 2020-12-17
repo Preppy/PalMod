@@ -14,6 +14,7 @@ constexpr auto c_mainWndForcePeerPreviewWindow = _T("extras_ForcePeerPreviewWind
 constexpr auto c_mainUnknownGameAlphaMode = _T("main_UnknownGameAlphaMode");
 constexpr auto c_mainUnknownGameColMode = _T("main_UnknownGameColMode");
 constexpr auto c_mainExtraFileCanaryKey = _T("main_lastExtraFileSize_%s");
+constexpr auto c_regWINEOverrideValue = _T("extras_HelpImUsingWINE");
 
 constexpr auto c_nPrefSavePaletteToMemory = _T("pref_ShouldSavePaletteToMemory");
 constexpr auto c_prevClickToFind = L"PreviewClickToFind";
@@ -282,6 +283,23 @@ void CRegProc::ClearExtraFileLoadingCanary(LPCWSTR pszExtraFileName)
         strValueName.Format(c_mainExtraFileCanaryKey, pszExtraFileName);
         extraKey.DeleteValue(strValueName.GetString());
     }
+}
+
+bool CRegProc::UserIsOnWINE()
+{
+    CRegKey extraKey;
+    bool fUserIsOnWINE = false;
+
+    if (extraKey.Open(HKEY_CURRENT_USER, c_AppRegistryRoot) == ERROR_SUCCESS)
+    {
+        DWORD dwUserIsOnWINE;
+        if (extraKey.QueryDWORDValue(c_regWINEOverrideValue, dwUserIsOnWINE) == ERROR_SUCCESS)
+        {
+            fUserIsOnWINE = (dwUserIsOnWINE == 1);
+        }
+    }
+
+    return fUserIsOnWINE;
 }
 
 void CRegProc::LoadReg(int src)

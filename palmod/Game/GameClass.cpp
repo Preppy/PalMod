@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "GameClass.h"
 #include "..\PalMod.h"
+#include "..\regproc.h"
 
 BOOL CGameClass::bPostSetPalProc = TRUE;
 BOOL CGameClass::m_fAllowTransparency = FALSE;
@@ -642,6 +643,12 @@ COLORREF* CGameClass::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
 
+    if (m_uOneTimeWINEViewportSizeOverride != 0)
+    {
+        m_nCurrentPaletteSize = m_uOneTimeWINEViewportSizeOverride;
+        m_uOneTimeWINEViewportSizeOverride = 0;
+    }
+
     COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
 
     if (createPalOptions.nStartingPosition != 0)
@@ -823,6 +830,59 @@ void CGameClass::UpdatePalData()
                 PostSetPal(srcDef->uUnitId, srcDef->uPalId);
             }
         }
+    }
+}
+
+void CGameClass::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+{
+    UINT16 nUnitId = srcNode->uUnitId;
+    UINT16 nPalId = srcNode->uPalId;
+    static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
+
+    LoadSpecificPaletteData(nUnitId, nPalId);
+
+    // temporary(?) workaround for WINE problem
+    // Override the palette size here once and once in CreatePal so that we get one maximum sized palette
+    // for the first display, which seems to work around a display issue in WINE
+    static bool s_fHaveCheckedForWINEOverride = false;
+
+    if (!s_fHaveCheckedForWINEOverride)
+    {
+        s_fHaveCheckedForWINEOverride = true;
+        if (CRegProc::UserIsOnWINE())
+        {
+            m_uOneTimeWINEViewportSizeOverride = s_nColorsPerPage;
+            m_nCurrentPaletteSize = m_uOneTimeWINEViewportSizeOverride;
+        }
+    }
+
+    const UINT8 nTotalPagesNeeded = (UINT8)ceil((double)m_nCurrentPaletteSize / (double)s_nColorsPerPage);
+    const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
+
+    if (!fCanFitWithinCurrentPageLayout)
+    {
+        CString strWarning;
+        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
+        OutputDebugString(strWarning);
+    }
+
+    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
+
+    if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
+    {
+        CString strPageDescription;
+        INT16 nColorsRemaining = m_nCurrentPaletteSize;
+
+        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
+        {
+            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
+            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
+            nColorsRemaining -= s_nColorsPerPage;
+        }
+    }
+    else
+    {
+        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
     }
 }
 

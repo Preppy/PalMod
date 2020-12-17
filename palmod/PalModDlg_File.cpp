@@ -25,7 +25,7 @@ sSupportedGameList SupportedGameList[] =
     { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", GamePlatform::NEOGEO }, // DataEast
     { KOF94_A,          L"KOF94", L"KOF94|055-p1.p1|", GamePlatform::NEOGEO },
     { KOF98_A,          L"KOF98", L"KOF98|242-p2.sp2;kof98_p2.rom|", GamePlatform::NEOGEO },
-    //{ KOF99_A,          L"KOF98", L"KOF98|242-p2.sp2;kof98_p2.rom|", GamePlatform::NEOGEO },
+    //{ KOF99_A,          L"KOF99AE", L"KOF99|kof99ae_p3.bin|", GamePlatform::NEOGEO },
     { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2|", GamePlatform::NEOGEO },
     // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
     { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", GamePlatform::NEOGEO },
@@ -1184,8 +1184,13 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
 
     if (!fFoundPaletteData)
     {
-        MessageBox(L"Error: This PNG file is not using indexed color.  PalMod cannot use it.", GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(CString(L"Failed loading PNG file."));
+        CString strMessage;
+        strMessage = L"Error: This PNG file is not using indexed color and cannot be used.  Only type 3 (indexed color) PNGs contain the palette information PalMod needs.\n";
+        strMessage.Append(L"\nYou might want to ask the person who made this to provide you an indexed color PNG or the ACT.\n");
+        strMessage.Append(L"Failing that, open up the PNG in a picture viewer.  While PalMod is the foreground application, select a color in PalMod. ");
+        strMessage.Append(L"Then hover your mouse over the \"new\" color in your image, and press CTRL+SHIFT+V to copy that color to PalMod.  Repeat until you're done.");
+        MessageBox(strMessage, GetHost()->GetAppName(), MB_ICONERROR);
+        SetStatusText(CString(L"Cannot use this PNG: it does not contain a palette table."));
     }
     else if (!fSuccess)
     {

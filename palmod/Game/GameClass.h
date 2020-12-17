@@ -29,9 +29,9 @@ enum class AlphaMode
 enum class ColMode
 {
     // If you change this list you must update CPalModDlg::OnEditCopy and CGame_NEOGEO_A::GetGameName and ::CGame_NEOGEO_A
-    COLMODE_GBA,       // RGB555 little endian for GBA
+    COLMODE_GBA,       // BGR555 little endian for GBA
     COLMODE_12A,       // RGB444
-    COLMODE_15,        // BGR555 little endian for CPS3
+    COLMODE_15,        // RGB555 little endian for CPS3
     COLMODE_15ALT,     // RGB555 big endian 
     COLMODE_NEOGEO,    // RGB666
 };
@@ -90,6 +90,8 @@ protected:
     UINT8 m_nNumberOfColorOptions = 0;
 
     bool m_fGameUsesAlphaValue = false;
+    UINT32 m_uOneTimeWINEViewportSizeOverride = 0;
+
     BOOL bUsesHybrid = FALSE;
     UINT16* pIndexRedir = nullptr;
     int nHybridSz = 0;
@@ -250,6 +252,8 @@ public:
     virtual void PostSetPal(UINT16 nUnitId, UINT16 nPalId) {};
     virtual void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId) {};
     virtual UINT16 GetPaletteCountForUnit(UINT16 nUnitId) { return INVALID_UNIT_VALUE; };
+
+    virtual void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
 
     COLORREF*** CreateImgOutPal();
 

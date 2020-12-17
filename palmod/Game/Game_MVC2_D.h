@@ -56,7 +56,7 @@ public:
 
     UINT16** GetDataBuffer() { return ppDataBuffer; };
     void PostSetPal(UINT16 nUnitId, UINT16 nPalId);
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
+    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId) override;
     BOOL CreateExtraPal(UINT16 nUnitId, UINT16 nPalId, int nStart, int nInc, int nImgId, int nSepId = 0, int nAmt = 1);
     void ResetChangeFlag(UINT16 nUnitId);
 };

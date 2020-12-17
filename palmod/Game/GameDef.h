@@ -408,6 +408,7 @@ enum CHARACTERS_CPS2
     indexCPS2_CapCom,       // 0x38, // Captain Commando
     indexCPS2_Bonerine,     // 0x39
     indexCPS2_Kobun,        // 0x3A
+
     indexCPS2_Onslaught,    // 0x3B
     indexCPS2_MVCAssets,    // 0x3C
     indexCPS2_Adon,         // 0x3D
@@ -1719,6 +1720,7 @@ const UINT16 KOF01_A_IMG_UNITS[] =
     indexKOFSprites_02UM_Bao,
     indexKOFSprites_02UM_Foxy,
     indexKOFSprites_02UM_Athena,
+    indexKOFSprites_02UM_ZeroOG,
 
     indexKOF01Sprites_Athena,       // 0x147
     indexKOF01Sprites_Bao,          // 0x148

@@ -642,18 +642,18 @@ const sDescTreeNode KOF01_A_MayLee_COLLECTION[] =
 
 const sGame_PaletteDataset KOF01_A_Zero_PALETTES_P[] =
 {
-    { L"Zero P", 0x391122, 0x391142, indexKOFSprites_02UM_CloneZero, 0x00 },
-    { L"Zero Assist A P", 0x391922, 0x391942, indexKOFSprites_02UM_CloneZero, 0x00 },
-    { L"Zero Assist B P", 0x391d22, 0x391d42, indexKOFSprites_02UM_CloneZero, 0x00 },
-    { L"Zero Assist C P", 0x392122, 0x392142, indexKOFSprites_02UM_CloneZero, 0x00 },
+    { L"Zero P", 0x391122, 0x391142, indexKOFSprites_02UM_ZeroOG, 0x00 },
+    { L"Zero Assist A P", 0x391922, 0x391942, indexKOFSprites_02UM_ZeroOG, 0x00 },
+    { L"Zero Assist B P", 0x391d22, 0x391d42, indexKOFSprites_02UM_ZeroOG, 0x00 },
+    { L"Zero Assist C P: Striker Lon", 0x392122, 0x392142, indexKOFSprites_02UM_ZeroOG, 0x1b },
 };
 
 const sGame_PaletteDataset KOF01_A_Zero_PALETTES_K[] =
 {
-    { L"Zero K", 0x391322, 0x391342, indexKOFSprites_02UM_CloneZero, 0x00 },
-    { L"Zero Assist A K", 0x391b22, 0x391b42, indexKOFSprites_02UM_CloneZero, 0x00 },
-    { L"Zero Assist B K", 0x391f22, 0x391f42, indexKOFSprites_02UM_CloneZero, 0x00 },
-    { L"Zero Assist C K", 0x392322, 0x392342, indexKOFSprites_02UM_CloneZero, 0x00 },
+    { L"Zero K", 0x391322, 0x391342, indexKOFSprites_02UM_ZeroOG, 0x00 },
+    { L"Zero Assist A K", 0x391b22, 0x391b42, indexKOFSprites_02UM_ZeroOG, 0x00 },
+    { L"Zero Assist B K", 0x391f22, 0x391f42, indexKOFSprites_02UM_ZeroOG, 0x00 },
+    { L"Zero Assist C K: Striker Lon", 0x392322, 0x392342, indexKOFSprites_02UM_ZeroOG, 0x1b },
 };
 
 const sDescTreeNode KOF01_A_Zero_COLLECTION[] =
