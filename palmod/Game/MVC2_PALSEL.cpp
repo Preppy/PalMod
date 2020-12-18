@@ -37,7 +37,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     UINT16 uPalId = NodeGet->uPalId;
 
     //Change the image id if we need to
-    nTargetImgId = 0;
+    nTargetImgId = -1;
     nImgUnitId = uUnitId;
 
     //Get rid of any palettes if there are any
@@ -45,7 +45,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     switch (uUnitId)
     {
-    case 0x00: // Ryu
+    case indexCPS2_Ryu: // Ryu
     {
         if ((uPalId == 0x2) ||
             (uPalId == 0xA) ||
@@ -57,7 +57,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             // Reuse the Ken Shoryuken sprite
             bLoadDefPal = FALSE;
 
-            nImgUnitId = 0x27;
+            nImgUnitId = indexCPS2_Ken;
             nTargetImgId = 0x02;
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
@@ -68,9 +68,18 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             break;
         }
+
+        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        {
+            // super shadow trail...?
+            nTargetImgId = 0;
+            break;
+        }
+
         break;
     }
-    case 0x01: //Zangief
+    case indexCPS2_Zangief: //Zangief
     {
         if (
             // MechaGief
@@ -86,8 +95,29 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case 0x03: //Morrigan
+
+    case indexCPS2_Guile:
     {
+        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        {
+            // super shadow trail...?
+            nTargetImgId = 0;
+            break;
+        }
+
+        break;
+    }
+
+    case indexCPS2_Morrigan: //Morrigan
+    {
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
+        }
+
         if (   CreateExtraPal(uUnitId, uPalId, 0x3A, 3, 11, 0, 2) // super gun
             || CreateExtraPal(uUnitId, uPalId, 0x4B, 9, 12, 0, 2) // lilith phase-in
             || CreateExtraPal(uUnitId, uPalId, 0x4D, 9, 13, 0, 7) // morrigan phase-in
@@ -99,10 +129,24 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x06: //Cyclops
+    case indexCPS2_Anakaris:
+    {
+        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        {
+            // super shadow trail...?
+            nTargetImgId = 0;
+            break;
+        }
+
+        break;
+    }
+
+    case indexCPS2_Cyclops: //Cyclops
     {
         // these are shared, not per character
-        if (uPalId >= (0x19 + EXTRA_OMNI) && uPalId <= (0x1D + EXTRA_OMNI))
+        if ((uPalId >= (0x19 + EXTRA_OMNI)) &&
+            (uPalId <= (0x1D + EXTRA_OMNI)))
         {
             SetExtraImg(11, uUnitId, uPalId);
             break;
@@ -119,32 +163,41 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case 0x07: //Wolverine
+    case indexCPS2_Wolverine: //Wolverine
     {
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        if (SpecSel(&nSpecOffs, uPalId, 0, 8) || // core sprite
+            SpecSel(&nSpecOffs, uPalId, 6, 8))   // unknown highlight
+
         {
             bLoadDefPal = FALSE;
 
             //Create the img ticket
             ClearSetImgTicket(
-                CreateImgTicket(0x07, 0,
-                    CreateImgTicket(0x07, 1, NULL)
+                CreateImgTicket(uUnitId, 0,
+                    CreateImgTicket(uUnitId, 1, NULL)
                 )
             );
 
             //Set each palette
             sDescNode* NodeGet[2] = {
-                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
-                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1)
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, uPalId % 8, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, (uPalId + 1) % 8, -1)
             };
 
             //Set each palette
             CreateDefPal(NodeGet[0], 0);
             CreateDefPal(NodeGet[1], 1);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 1, 6, 8);
+            SetSourcePal(0, uUnitId, uPalId % 8, 6, 8);
+            SetSourcePal(1, uUnitId, (uPalId + 1) % 8, 6, 8);
 
+            break;
+        }
+
+        if (SpecSel(&nSpecOffs, uPalId, 7, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 1;
             break;
         }
 
@@ -154,7 +207,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x09: //Iceman
+    case indexCPS2_Iceman: //Iceman
     {
         if (SpecSel(&nSpecOffs, uPalId, 1, 8) || SpecSel(&nSpecOffs, uPalId, 2, 8))
         {
@@ -172,8 +225,15 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case 0x0A: //Rogue
+    case indexCPS2_Rogue: //Rogue
     {
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
+        }
+
         if (CreateExtraPal(uUnitId, uPalId, 0x1D, 1, 11)) // win pose
         {
             break;
@@ -186,7 +246,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x0B: //Captain America
+    case indexCPS2_CapAm: //Captain America
     {
         // Handle his shield
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
@@ -216,8 +276,15 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x0C: //Spider-Man
+    case indexCPS2_Spidey: //Spider-Man
     {
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
+        }
+
         if (
             CreateExtraPal(uUnitId, uPalId, 0x09, 0x10, 11, 0, 8)
             || CreateExtraPal(uUnitId, uPalId, 0x11, 0x10, 12)
@@ -232,14 +299,21 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x0D: //Hulk
+    case indexCPS2_Hulk: //Hulk
     {
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
+        }
+
         nExtraAmt = 1;
         CreateExtraPal(uUnitId, uPalId, 0x0A, 1, 11);
         break;
     }
 
-    case 0x0F: //Dr Doom
+    case indexCPS2_DrDoom: //Dr Doom
     {
         // Turning off throne/doom joint display:
             // If we show it backwards the lead palette is throne 0xA, which means you can't paste ACTs into body 0x9
@@ -286,7 +360,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x10: //Tron
+    case indexCPS2_Tron: //Tron
     {
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
         {
@@ -333,7 +407,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x11: //Jill Valentine
+    case indexCPS2_Jill: //Jill Valentine
     {
         nExtraAmt = 1;
 
@@ -373,7 +447,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x12: //Hayato
+    case indexCPS2_Hayato: //Hayato
     {
         if (SpecSel(&nSpecOffs, uPalId, 0, 8) && (nSpecOffs < 6)) // Hayato and laser sword
         {
@@ -381,8 +455,8 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             //Create the img ticket
             ClearSetImgTicket(
-                CreateImgTicket(0x12, 0,
-                    CreateImgTicket(0x12, 1, NULL, 0, 0)
+                CreateImgTicket(indexCPS2_Hayato, 0,
+                    CreateImgTicket(indexCPS2_Hayato, 1, NULL, 0, 0)
                 )
             );
 
@@ -397,12 +471,21 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             SetSourcePal(0, uUnitId, 0, 6, 8);
             SetSourcePal(1, uUnitId, 1, 6, 8);
+            break;
+        }
+
+        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        {
+            // super shadow trail...?
+            nTargetImgId = 0;
+            break;
         }
 
         break;
     }
 
-    case 0x13: //Ruby Heart
+    case indexCPS2_Ruby: //Ruby Heart
     {
         nExtraAmt = 1;
 
@@ -420,7 +503,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x14: //SonSon
+    case indexCPS2_SonSon: //SonSon
     {
         if (
                CreateExtraPal(uUnitId, uPalId, 0x0F, 1, 11) // giant monkey
@@ -433,7 +516,42 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x1b: // Chun-Li
+    case indexCPS2_Amingo: //Amingo
+    {
+        nExtraAmt = 1;
+
+        if (CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11) ||
+            CreateExtraPal(uUnitId, uPalId, 0x0B, 1, 11))
+        {
+            break;
+        }
+
+        break;
+    }
+
+    case indexCPS2_Cable:
+    {
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
+        }
+
+        break;
+    }
+
+    case indexCPS2_Abyss1:
+    {
+        // Handle his super armor frame
+        if (SpecSel(&nSpecOffs, uPalId, 4, 8))
+        {
+            nTargetImgId = 0;
+            break;
+        }
+        break;
+    }
+    case indexCPS2_ChunLi: // Chun-Li
     {
         // Handle her legs
         if (SpecSel(&nSpecOffs, uPalId, 0, 8))
@@ -462,7 +580,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
         break;
     }
-    case 0x1C: // Megaman
+    case indexCPS2_Megaman: // Megaman
     {
         // Megaman has an extra range per button of 0x57 palettes.
         if (CreateExtraPal(uUnitId, uPalId, 0x09, 0x57, 0x26) || // hair
@@ -489,7 +607,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             bLoadDefPal = FALSE;
 
-            nImgUnitId = 0x1d;
+            nImgUnitId = indexCPS2_Roll;
             nTargetImgId = 0;
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, 0));
@@ -760,16 +878,16 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x1D: // Roll
+    case indexCPS2_Roll: // Roll
     {
         // Handle the cross-unit Megaman sprites first...
-        if (CreateExtraPal(0x1C, uPalId, 0x09, 0x57, 0x26) || // hair
-            CreateExtraPal(0x1C, uPalId, 0x0A, 0x57, 0x0B) || // teleport intro
-            CreateExtraPal(0x1C, uPalId, 0x14, 0x57, 0x01, 0, 9) || // Rush
-            CreateExtraPal(0x1C, uPalId, 0x1D, 0x57, 0x02, 0, 9) || // Beat
-            CreateExtraPal(0x1C, uPalId, 0x26, 0x57, 0x24, 0, 9) || // Beat Plane
-            CreateExtraPal(0x1C, uPalId, 0x42, 0x57, 0x25) || // Dr Light
-            CreateExtraPal(0x1C, uPalId, 0x5E, 0x57, 0x00) // Megaman
+        if (CreateExtraPal(indexCPS2_Megaman, uPalId, 0x09, 0x57, 0x26) || // hair
+            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x0A, 0x57, 0x0B) || // teleport intro
+            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x14, 0x57, 0x01, 0, 9) || // Rush
+            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x1D, 0x57, 0x02, 0, 9) || // Beat
+            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x26, 0x57, 0x24, 0, 9) || // Beat Plane
+            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x42, 0x57, 0x25) || // Dr Light
+            CreateExtraPal(indexCPS2_Megaman, uPalId, 0x5E, 0x57, 0x00) // Megaman
             //CreateExtraPal(uUnitId, uPalId, 0x55, 0x57, 0x29) // Hyper Roll Missiles: no sprite available
             )
         {
@@ -811,7 +929,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         {
             bLoadDefPal = FALSE;
 
-            nImgUnitId = 0x1C;
+            nImgUnitId = indexCPS2_Megaman;
             nTargetImgId = 0x2; // Beat!
 
             ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
@@ -918,21 +1036,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case 0x15: //Amingo
-    {
-        nExtraAmt = 1;
-
-        if (
-            CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11)
-            || CreateExtraPal(uUnitId, uPalId, 0x0B, 1, 11)
-            )
-        {
-            break;
-        }
-
-        break;
-    }
-    case 0x1f: // Sakura
+    case indexCPS2_BBHood: // BBHood
     {
         if (CreateExtraPal(uUnitId, uPalId, 0x0c, 0x1, 0x08)) // Cruel Hunting
         {
@@ -952,33 +1056,65 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case 0x22: // Sakura
+
+    case indexCPS2_Charlie:
     {
-        CreateExtraPal(uUnitId, uPalId, 0x1D, 0x1, 0x00); // Dark Sakura
-        break;
-    }
-    case 0x23: //Dan
-    {
-        if (SpecSel(&nSpecOffs, uPalId, 2, 8))
+        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
         {
-            SetExtraImg(1, uUnitId, uPalId);
+            // super shadow trail...?
+            nTargetImgId = 0;
+            break;
         }
 
         break;
     }
 
-    case 0x24: //Cammy
+    case indexCPS2_Sakura: // Sakura
+    {
+        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        {
+            // super shadow trail...?
+            nTargetImgId = 0;
+            break;
+        }
+
+        CreateExtraPal(uUnitId, uPalId, 0x1D, 0x1, 0x00); // Dark Sakura
+        break;
+    }
+
+    case indexCPS2_Dan: //Dan
+    {
+        if (SpecSel(&nSpecOffs, uPalId, 2, 8))
+        {
+            SetExtraImg(1, uUnitId, uPalId);
+            break;
+        }
+
+        if ((SpecSel(&nSpecOffs, uPalId, 6, 8)) ||
+            (SpecSel(&nSpecOffs, uPalId, 7, 8)))
+        {
+            // super shadow trail...?
+            nTargetImgId = 0;
+            break;
+        }
+
+        break;
+    }
+
+    case indexCPS2_Cammy: //Cammy
     {
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x09, 11, 0, 9); // Counter flash
         break;
     }
-    case 0x25: //Dhalsim
+    case indexCPS2_Dhalsim: //Dhalsim
     {
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x05, 11, 0, 5); // teleport frames
         break;
     }
 #ifdef THESE_ARENT_IN_IMGDAT
-    case 0x26: //M.Bison
+    case indexCPS2_Bison: //M.Bison
     {
         if (
             CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11)
@@ -991,55 +1127,100 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 #endif
-    case 0x28: //Gambit
+
+    case indexCPS2_Ken:
     {
-        CreateExtraPal(uUnitId, uPalId, 0x09, 0x05, 0, 0, 5); // win pose. 11 looks broken so I'm using 0.
-        break;
-    }
-    case 0x29: //Juggernaut
-    {
-        CreateExtraPal(uUnitId, uPalId, 0x09, 0x0A, 11, 0, 10); // Headcrush + power up.
-        break;
-    }
-    case 0x2A: //Storm
-    {
-        nExtraAmt = 3;
-
-        if (CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11))
-            break;
-
-        nExtraAmt = 4;
-
-        if (CreateExtraPal(uUnitId, uPalId, 0x0F, 1, 12))
-            break;
-
-        nExtraAmt = 4;
-
-        if (CreateExtraPal(uUnitId, uPalId, 0x13, 1, 13))
-            break;
-
-        nExtraAmt = 1;
-
-        if (CreateExtraPal(uUnitId, uPalId, 0x1B, 1, 14))
-            break;
-
-        nExtraAmt = 18;
-        if (CreateExtraPal(uUnitId, uPalId, 0x19, 1, 15))
-            break;
-
-        break;
-    }
-    case 0x2C: // Magneto
-    {
-        if (uPalId == 0x0A + EXTRA_OMNI) //  c.mp (ball - all buttons) / c.hk (effect after c.mp)
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
         {
-            SetExtraImg(11, uUnitId, uPalId);
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
         }
 
         break;
     }
 
-    case 0x2D: // Shuma Gorath
+    case indexCPS2_Gambit: //Gambit
+    {
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
+        }
+
+        CreateExtraPal(uUnitId, uPalId, 0x09, 0x05, 0, 0, 5); // win pose. 11 looks broken so I'm using 0.
+        break;
+    }
+    case indexCPS2_Juggy: //Juggernaut
+    {
+        CreateExtraPal(uUnitId, uPalId, 0x09, 0x0A, 11, 0, 10); // Headcrush + power up.
+        break;
+    }
+    case indexCPS2_Storm: //Storm
+    {
+        nExtraAmt = 3;
+
+        if (CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11))
+        {
+            break;
+        }
+
+        nExtraAmt = 4;
+
+        if (CreateExtraPal(uUnitId, uPalId, 0x0F, 1, 12) ||
+            CreateExtraPal(uUnitId, uPalId, 0x13, 1, 13))
+        {
+            break;
+        }
+
+        nExtraAmt = 1;
+
+        if (CreateExtraPal(uUnitId, uPalId, 0x1B, 1, 14))
+        {
+            break;
+        }
+
+        nExtraAmt = 18;
+        if (CreateExtraPal(uUnitId, uPalId, 0x19, 1, 15))
+        {
+            break;
+        }
+
+        break;
+    }
+
+    case indexCPS2_Sabretooth:
+    {
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
+        }
+
+        break;
+    }
+
+    case indexCPS2_Magneto: // Magneto
+    {
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
+        }
+
+        if (uPalId == (0x0A + EXTRA_OMNI)) //  c.mp (ball - all buttons) / c.hk (effect after c.mp)
+        {
+            SetExtraImg(11, uUnitId, uPalId);
+            break;
+        }
+
+        break;
+    }
+
+    case indexCPS2_Shuma: // Shuma Gorath
     {
         if (!CreateExtraPal(uUnitId, uPalId, 0x11, 0x30, 0x00, 0, 0x30))
         {
@@ -1050,17 +1231,24 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         break;
     }
 
-    case 0x2F: //Silver Samurai
+    case indexCPS2_SilverSamurai: //Silver Samurai
     {
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
+        }
+
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x08, 0x00, 0, 8);
         break;
     }
-    case 0x30: //Omega Red
+    case indexCPS2_OmegaRed: //Omega Red
     {
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x04, 0x0B, 0, 4);
         break;
     }
-    case 0x31: //Spiral
+    case indexCPS2_Spiral: //Spiral
     {
         if ((uPalId >= (0x09 + EXTRA_OMNI)) && (uPalId <= (0x2A + EXTRA_OMNI)))
         {
@@ -1113,8 +1301,15 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case 0x32: //Colossus
+    case indexCPS2_Colossus: //Colossus
     {
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
+        }
+
         CreateExtraPal(uUnitId, uPalId, 0x09, 32, 0, 0, 32);
         break;
     }
@@ -1147,11 +1342,19 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             SetSourcePal(0, uUnitId, 0, 6, 8);
             SetSourcePal(1, uUnitId, 1, 6, 8);
             SetSourcePal(2, uUnitId, 3, 6, 8);
+            break;
+        }
+
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
         }
 
         break;
     }
-    case 0x35: // Blackheart
+    case indexCPS2_Blackheart: // Blackheart
     {
         nExtraAmt = 1; // These are all one-offs
         if (CreateExtraPal(uUnitId, uPalId, 0x0D, 1, 2) || // LP, HP, A1 demons
@@ -1166,7 +1369,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
         break;
     }
-    case 0x37: //Jin
+    case indexCPS2_Jin: //Jin
     {
         if (CreateExtraPal(uUnitId, uPalId, 0x09, 6, 0, 0, 6) || // Power-up glow
             CreateExtraPal(uUnitId, uPalId, 0x2D, 6, 11, 0, 6) ||
@@ -1179,7 +1382,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case 0x38: //CapCom
+    case indexCPS2_CapCom: //CapCom
     {
         // Handle the joined ninja sprites
         if (SpecSel(&nSpecOffs, uPalId, 1, 8) || SpecSel(&nSpecOffs, uPalId, 2, 8))
@@ -1209,29 +1412,41 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             break;
         }
 
+        if (SpecSel(&nSpecOffs, uPalId, 6, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 0;
+            break;
+        }
+
         nExtraAmt = 4;
 
         if (CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11))
+        {
             break;
+        }
 
         nExtraAmt = 1;
 
         if (CreateExtraPal(uUnitId, uPalId, 0x0D, 1, 12))
+        {
             break;
+        }
 
         nExtraAmt = 6;
 
-        if (
-            CreateExtraPal(uUnitId, uPalId, 0x0E, 2, 15)
-            || CreateExtraPal(uUnitId, uPalId, 0x0F, 2, 14)
-            )
+        if (CreateExtraPal(uUnitId, uPalId, 0x0E, 2, 15) ||
+            CreateExtraPal(uUnitId, uPalId, 0x0F, 2, 14))
+        {
             break;
+        }
 
         break;
     }
-    case 0x39: //Bonerine
+    case indexCPS2_Bonerine: //Bonerine
     {
-        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        if (SpecSel(&nSpecOffs, uPalId, 0, 8) || // core sprite
+            SpecSel(&nSpecOffs, uPalId, 6, 8))   // unknown highlight
         {
             bLoadDefPal = FALSE;
 
@@ -1243,21 +1458,30 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             );
 
             sDescNode* NodeGet[2] = {
-               GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
-               GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1)
+               GetMainTree()->GetDescNode(uUnitId, nSpecOffs, uPalId % 8, -1),
+               GetMainTree()->GetDescNode(uUnitId, nSpecOffs, (uPalId + 1) % 8, -1)
             };
 
             //Set each palette
             CreateDefPal(NodeGet[0], 0);
             CreateDefPal(NodeGet[1], 1);
 
-            SetSourcePal(0, uUnitId, 0, 6, 8);
-            SetSourcePal(1, uUnitId, 1, 6, 8);
+            SetSourcePal(0, uUnitId, uPalId % 8, 6, 8);
+            SetSourcePal(1, uUnitId, (uPalId + 1) % 8, 6, 8);
+            break;
         }
+
+        if (SpecSel(&nSpecOffs, uPalId, 7, 8))
+        {
+            // unknown core palette highlight
+            nTargetImgId = 1;
+            break;
+        }
+
 
         break;
     }
-    case 0x3A: // Kobun
+    case indexCPS2_Kobun: // Kobun
     {
         if ((uPalId == 0x1) ||
             (uPalId == 0x9) ||
@@ -1432,7 +1656,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     {
         int nBasicOffset = GetBasicOffset(uPalId);
 
-        if ((nImgUnitId == 0xA) && (nBasicOffset == 5))
+        if ((nImgUnitId == indexCPS2_Rogue) && (nBasicOffset == 5))
         {
             // Rogue's darkened dash sprite is missing a sprite association in img.dat, so just reuse the normal dash sprite
             nBasicOffset = 4;
@@ -1443,12 +1667,12 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         const int nBitFlagToUse = fImgIsFromNewImgDatRange ? 0xFF : 0x0F;
 
         // Old extra targetimgids will be 0xFF0x, so allow for that.
-        if ((0xFF & nTargetImgId) > nBitFlagToUse)
+        if ((nTargetImgId != -1) && ((0xFF & nTargetImgId) > nBitFlagToUse))
         {
             OutputDebugString(_T("WARNING: The desired nTargetImgId is out of range and is being modified\n"));
         }
 
-        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId ? (nTargetImgId & nBitFlagToUse) : nBasicOffset));
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, (nTargetImgId != -1) ? (nTargetImgId & nBitFlagToUse) : nBasicOffset));
 
         CreateDefPal(NodeGet, 0);
 

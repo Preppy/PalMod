@@ -72,7 +72,7 @@ enum SupportedGamesList
     NeoBomberman_A,
     GUNDAM_SNES,
     KOF94_A,
-    KOF99_A,
+    KOF99AE_A,
     CFTE_SNES,
 
     NUM_GAMES // This needs to be last
@@ -1674,6 +1674,45 @@ const UINT16 KOF98_A_IMG_UNITS[] =
 };
 
 const int KOF98_A_NUM_IMG_UNITS = ARRAYSIZE(KOF98_A_IMG_UNITS);
+
+const UINT16 KOF99AE_A_IMG_UNITS[] =
+{
+    indexKOFSprites_98Benimaru,
+    indexKOFSprites_98Shingo,
+    indexKOFSprites_98Terry,
+    indexKOFSprites_98Andy,
+    indexKOFSprites_98Joe,
+    indexKOFSprites_98Mai,
+    indexKOFSprites_98Ryo,
+    indexKOFSprites_98Robert,
+    indexKOFSprites_98Yuri,
+    indexKOFSprites_98Takuma,
+    indexKOFSprites_98Leona,
+    indexKOFSprites_98Athena,
+    indexKOFSprites_98Kensou,
+    indexKOFSprites_98Chin,
+    indexKOFSprites_98King,
+    indexKOFSprites_98BlueMary,
+    indexKOFSprites_98Kim,
+    indexKOFSprites_98Chang,
+    indexKOFSprites_98Choi,
+    indexKOFSprites_98Kyo,
+
+    indexKOFSprites_01Xiangfei,
+
+    indexKOFSprites_02UM_Bao,
+    indexKOFSprites_02UM_K,
+    indexKOFSprites_02UM_Maxima,
+    indexKOFSprites_02UM_Ralf,
+    indexKOFSprites_02UM_Clark,
+    indexKOFSprites_02UM_Whip,
+    indexKOFSprites_02UM_Kasumi,
+    indexKOFSprites_02UM_Jhun,
+    indexKOFSprites_02UM_Kyo1,
+    indexKOFSprites_02UM_Iori,
+    indexKOFSprites_02UM_Krizalid,
+    indexKOFSprites_02UM_Kyo2,
+};
 
 const UINT16 KOF01_A_IMG_UNITS[] =
 {

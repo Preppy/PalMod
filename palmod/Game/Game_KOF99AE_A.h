@@ -1,18 +1,18 @@
 #pragma once
 #include "gameclass.h"
-#include "NEWGAME_A_DEF.h"
+#include "KOF99AE_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_NEWGAME_A = L"NewGameE.txt";
-#define GetExtraDefForNEWGAME(x)((stExtraDef *)&NEWGAME_A_EXTRA_CUSTOM[x])
+constexpr auto EXTRA_FILENAME_KOF99AE_A = _T("KOF99AEE.txt");
+#define GetExtraDefForKOF99AE(x)((stExtraDef *)&KOF99AE_A_EXTRA_CUSTOM[x])
 
-class CGame_NEWGAME_A : public CGameWithExtrasFile
+class CGame_KOF99AE_A : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForNEWGAME;
+    static UINT32 m_nTotalPaletteCountForKOF99AE;
 
-    static int rgExtraCountAll[NEWGAME_A_NUMUNIT + 1];
-    static int rgExtraLoc[NEWGAME_A_NUMUNIT + 1];
+    static int rgExtraCountAll[KOF99AE_A_NUMUNIT + 1];
+    static int rgExtraLoc[KOF99AE_A_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -21,9 +21,12 @@ private:
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
+    // Developer-only mode to regenerate the header file quickly.
+    static void DumpPaletteHeaders();
+
 public:
-    CGame_NEWGAME_A(UINT32 nConfirmedROMSize);
-    ~CGame_NEWGAME_A(void);
+    CGame_KOF99AE_A(UINT32 nConfirmedROMSize);
+    ~CGame_KOF99AE_A(void);
 
     //Static functions / variables
     static CDescTree MainDescTree;
@@ -50,5 +53,7 @@ public:
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    static stExtraDef* NEWGAME_A_EXTRA_CUSTOM;
+    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+
+    static stExtraDef* KOF99AE_A_EXTRA_CUSTOM;
 };

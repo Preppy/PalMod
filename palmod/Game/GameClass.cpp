@@ -86,11 +86,13 @@ void CGameClass::ClearSrcPal()
     memset(nSrcPalInc, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
 }
 
+// For a given palette ID (such as palette 4 in a nInc long palette set), verify if that paltte ID is an
+// iteration of nStart
 BOOL CGameClass::SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt, int nMax)
 {
     int nOffset = nPalId - nStart;
 
-    if ((nPalId >= nStart) && ((nOffset) % nInc < nAmt))
+    if ((nPalId >= nStart) && (((nOffset) % nInc) < nAmt))
     {
         *nVarSet = ((nOffset) / nInc);
 

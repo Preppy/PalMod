@@ -19,6 +19,7 @@
 #include "Game_KOF03_A.h"
 #include "Game_KOF94_A.h"
 #include "Game_KOF98_A.h"
+#include "Game_KOF99AE_A.h"
 #include "Game_KOFXI_A.h"
 #include "Game_Matrimelee_A.h"
 #include "Game_MMPR_SNES.h"
@@ -166,6 +167,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case KOF98_A:
     {
         GetRule = &CGame_KOF98_A::GetRule;
+        return TRUE;
+    }
+    case KOF99AE_A:
+    {
+        GetRule = &CGame_KOF99AE_A::GetRule;
         return TRUE;
     }
     case KOF01_A:
@@ -490,6 +496,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case KOF98_A:
     {
         return new CGame_KOF98_A(nConfirmedROMSize);
+    }
+    case KOF99AE_A:
+    {
+        return new CGame_KOF99AE_A(nConfirmedROMSize);
     }
     case KOF01_A:
     {

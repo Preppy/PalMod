@@ -83,8 +83,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_LP[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260aa20, 0x260aa40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260aa40, 0x260aa60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260aa60, 0x260aa80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used: A-Groove/Super trail light", 0x260aa80, 0x260aaa0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aaa0, 0x260aac0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260aa80, 0x260aaa0, indexCPS2_Ryu, 0 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aaa0, 0x260aac0, indexCPS2_Ryu, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_LK[] =
@@ -95,8 +95,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_LK[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ab20, 0x260ab40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260ab40, 0x260ab60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260ab60, 0x260ab80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used: A-Groove/Super trail light", 0x260ab80, 0x260aba0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aba0, 0x260abc0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260ab80, 0x260aba0, indexCPS2_Ryu, 0 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aba0, 0x260abc0, indexCPS2_Ryu, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_HP[] =
@@ -107,8 +107,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_HP[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ac20, 0x260ac40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260ac40, 0x260ac60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260ac60, 0x260ac80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used: A-Groove/Super trail light", 0x260ac80, 0x260aca0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aca0, 0x260acc0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260ac80, 0x260aca0, indexCPS2_Ryu, 0 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aca0, 0x260acc0, indexCPS2_Ryu, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_HK[] =
@@ -119,8 +119,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_HK[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ad20, 0x260ad40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260ad40, 0x260ad60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260ad60, 0x260ad80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used: A-Groove/Super trail light", 0x260ad80, 0x260ada0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used: A-Groove/Super trail dark", 0x260ada0, 0x260adc0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260ad80, 0x260ada0, indexCPS2_Ryu, 0 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260ada0, 0x260adc0, indexCPS2_Ryu, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_A1[] =
@@ -131,8 +131,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_A1[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260ae20, 0x260ae40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260ae40, 0x260ae60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260ae60, 0x260ae80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used: A-Groove/Super trail light", 0x260ae80, 0x260aea0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aea0, 0x260aec0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260ae80, 0x260aea0, indexCPS2_Ryu, 0 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260aea0, 0x260aec0, indexCPS2_Ryu, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_A2[] =
@@ -143,8 +143,8 @@ const sGame_PaletteDataset MVC2_A_RYU_PALETTES_A2[] =
     { L"(04) Hurricane Kick Super (ground effects) ID:09-14 - Not used", 0x260af20, 0x260af40, indexCPS2_Ryu, 3 },
     { L"(05) Not Used", 0x260af40, 0x260af60, indexCPS2_Ryu, 4 },
     { L"(06) Not Used", 0x260af60, 0x260af80, indexCPS2_Ryu, 5 },
-    { L"(07) Not Used: A-Groove/Super trail light", 0x260af80, 0x260afa0, indexCPS2_Ryu, 6 },
-    { L"(08) Not Used: A-Groove/Super trail dark", 0x260afa0, 0x260afc0, indexCPS2_Ryu, 7 },
+    { L"(07) Not Used: A-Groove/Super trail light", 0x260af80, 0x260afa0, indexCPS2_Ryu, 0 },
+    { L"(08) Not Used: A-Groove/Super trail dark", 0x260afa0, 0x260afc0, indexCPS2_Ryu, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_RYU_PALETTES_SHARED[] =
@@ -328,8 +328,8 @@ const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_LP[] =
     { L"(04) Not used", 0x27751c0, 0x27751e0, indexCPS2_Guile, 3 },
     { L"(05) Not used", 0x27751e0, 0x2775200, indexCPS2_Guile, 4 },
     { L"(06) Not used", 0x2775200, 0x2775220, indexCPS2_Guile, 5 },
-    { L"(07) Not used", 0x2775220, 0x2775240, indexCPS2_Guile, 6 },
-    { L"(08) Not used", 0x2775240, 0x2775260, indexCPS2_Guile, 7 },
+    { L"(07) Not used", 0x2775220, 0x2775240, indexCPS2_Guile, 0 },
+    { L"(08) Not used", 0x2775240, 0x2775260, indexCPS2_Guile, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_LK[] =
@@ -340,8 +340,8 @@ const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_LK[] =
     { L"(04) Not used", 0x27752c0, 0x27752e0, indexCPS2_Guile, 3 },
     { L"(05) Not used", 0x27752e0, 0x2775300, indexCPS2_Guile, 4 },
     { L"(06) Not used", 0x2775300, 0x2775320, indexCPS2_Guile, 5 },
-    { L"(07) Not used", 0x2775320, 0x2775340, indexCPS2_Guile, 6 },
-    { L"(08) Not used", 0x2775340, 0x2775360, indexCPS2_Guile, 7 },
+    { L"(07) Not used", 0x2775320, 0x2775340, indexCPS2_Guile, 0 },
+    { L"(08) Not used", 0x2775340, 0x2775360, indexCPS2_Guile, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_HP[] =
@@ -352,8 +352,8 @@ const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_HP[] =
     { L"(04) Not used", 0x27753c0, 0x27753e0, indexCPS2_Guile, 3 },
     { L"(05) Not used", 0x27753e0, 0x2775400, indexCPS2_Guile, 4 },
     { L"(06) Not used", 0x2775400, 0x2775420, indexCPS2_Guile, 5 },
-    { L"(07) Not used", 0x2775420, 0x2775440, indexCPS2_Guile, 6 },
-    { L"(08) Not used", 0x2775440, 0x2775460, indexCPS2_Guile, 7 },
+    { L"(07) Not used", 0x2775420, 0x2775440, indexCPS2_Guile, 0 },
+    { L"(08) Not used", 0x2775440, 0x2775460, indexCPS2_Guile, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_HK[] =
@@ -364,8 +364,8 @@ const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_HK[] =
     { L"(04) Not used", 0x27754c0, 0x27754e0, indexCPS2_Guile, 3 },
     { L"(05) Not used", 0x27754e0, 0x2775500, indexCPS2_Guile, 4 },
     { L"(06) Not used", 0x2775500, 0x2775520, indexCPS2_Guile, 5 },
-    { L"(07) Not used", 0x2775520, 0x2775540, indexCPS2_Guile, 6 },
-    { L"(08) Not used", 0x2775540, 0x2775560, indexCPS2_Guile, 7 },
+    { L"(07) Not used", 0x2775520, 0x2775540, indexCPS2_Guile, 0 },
+    { L"(08) Not used", 0x2775540, 0x2775560, indexCPS2_Guile, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_A1[] =
@@ -376,8 +376,8 @@ const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_A1[] =
     { L"(04) Not used", 0x27755c0, 0x27755e0, indexCPS2_Guile, 3 },
     { L"(05) Not used", 0x27755e0, 0x2775600, indexCPS2_Guile, 4 },
     { L"(06) Not used", 0x2775600, 0x2775620, indexCPS2_Guile, 5 },
-    { L"(07) Not used", 0x2775620, 0x2775640, indexCPS2_Guile, 6 },
-    { L"(08) Not used", 0x2775640, 0x2775660, indexCPS2_Guile, 7 },
+    { L"(07) Not used", 0x2775620, 0x2775640, indexCPS2_Guile, 0 },
+    { L"(08) Not used", 0x2775640, 0x2775660, indexCPS2_Guile, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_A2[] =
@@ -388,8 +388,8 @@ const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_A2[] =
     { L"(04) Not used", 0x27756c0, 0x27756e0, indexCPS2_Guile, 3 },
     { L"(05) Not used", 0x27756e0, 0x2775700, indexCPS2_Guile, 4 },
     { L"(06) Not used", 0x2775700, 0x2775720, indexCPS2_Guile, 5 },
-    { L"(07) Not used", 0x2775720, 0x2775740, indexCPS2_Guile, 6 },
-    { L"(08) Not used", 0x2775740, 0x2775760, indexCPS2_Guile, 7 },
+    { L"(07) Not used", 0x2775720, 0x2775740, indexCPS2_Guile, 0 },
+    { L"(08) Not used", 0x2775740, 0x2775760, indexCPS2_Guile, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_GUILE_PALETTES_SHARED[] =
@@ -423,7 +423,7 @@ const sGame_PaletteDataset MVC2_A_MORRIGAN_PALETTES_LP[] =
     { L"(04) ID: 01-08 Soul Fist ID: 09-15 Soul Fist (skull)", 0x283a3c0, 0x283a3e0, indexCPS2_Morrigan, 3 },
     { L"(05) ID: 01-08 Soul Eraser Laser ID: 09-15 Not used", 0x283a3e0, 0x283a400, indexCPS2_Morrigan, 4 },
     { L"(06) Not used", 0x283a400, 0x283a420, indexCPS2_Morrigan, 5 },
-    { L"(07) Not used", 0x283a420, 0x283a440, indexCPS2_Morrigan, 6 },
+    { L"(07) Not used", 0x283a420, 0x283a440, indexCPS2_Morrigan, 0 },
     { L"(08) Not used", 0x283a440, 0x283a460, indexCPS2_Morrigan, 7 },
 };
 
@@ -435,7 +435,7 @@ const sGame_PaletteDataset MVC2_A_MORRIGAN_PALETTES_LK[] =
     { L"(04) ID: 01-08 Soul Fist ID: 09-15 Soul Fist (skull)", 0x283a4c0, 0x283a4e0, indexCPS2_Morrigan, 3 },
     { L"(05) ID: 01-08 Soul Eraser Laser ID: 09-15 Not used", 0x283a4e0, 0x283a500, indexCPS2_Morrigan, 4 },
     { L"(06) Not used", 0x283a500, 0x283a520, indexCPS2_Morrigan, 5 },
-    { L"(07) Not used", 0x283a520, 0x283a540, indexCPS2_Morrigan, 6 },
+    { L"(07) Not used", 0x283a520, 0x283a540, indexCPS2_Morrigan, 0 },
     { L"(08) Not used", 0x283a540, 0x283a560, indexCPS2_Morrigan, 7 },
 };
 
@@ -447,7 +447,7 @@ const sGame_PaletteDataset MVC2_A_MORRIGAN_PALETTES_HP[] =
     { L"(04) ID: 01-08 Soul Fist ID: 09-15 Soul Fist (skull)", 0x283a5c0, 0x283a5e0, indexCPS2_Morrigan, 3 },
     { L"(05) ID: 01-08 Soul Eraser Laser ID: 09-15 Not used", 0x283a5e0, 0x283a600, indexCPS2_Morrigan, 4 },
     { L"(06) Not used", 0x283a600, 0x283a620, indexCPS2_Morrigan, 5 },
-    { L"(07) Not used", 0x283a620, 0x283a640, indexCPS2_Morrigan, 6 },
+    { L"(07) Not used", 0x283a620, 0x283a640, indexCPS2_Morrigan, 0 },
     { L"(08) Not used", 0x283a640, 0x283a660, indexCPS2_Morrigan, 7 },
 };
 
@@ -459,7 +459,7 @@ const sGame_PaletteDataset MVC2_A_MORRIGAN_PALETTES_HK[] =
     { L"(04) ID: 01-08 Soul Fist ID: 09-15 Soul Fist (skull)", 0x283a6c0, 0x283a6e0, indexCPS2_Morrigan, 3 },
     { L"(05) ID: 01-08 Soul Eraser Laser ID: 09-15 Not used", 0x283a6e0, 0x283a700, indexCPS2_Morrigan, 4 },
     { L"(06) Not used", 0x283a700, 0x283a720, indexCPS2_Morrigan, 5 },
-    { L"(07) Not used", 0x283a720, 0x283a740, indexCPS2_Morrigan, 6 },
+    { L"(07) Not used", 0x283a720, 0x283a740, indexCPS2_Morrigan, 0 },
     { L"(08) Not used", 0x283a740, 0x283a760, indexCPS2_Morrigan, 7 },
 };
 
@@ -471,7 +471,7 @@ const sGame_PaletteDataset MVC2_A_MORRIGAN_PALETTES_A1[] =
     { L"(04) ID: 01-08 Soul Fist ID: 09-15 Soul Fist (skull)", 0x283a7c0, 0x283a7e0, indexCPS2_Morrigan, 3 },
     { L"(05) ID: 01-08 Soul Eraser Laser ID: 09-15 Not used", 0x283a7e0, 0x283a800, indexCPS2_Morrigan, 4 },
     { L"(06) Not used", 0x283a800, 0x283a820, indexCPS2_Morrigan, 5 },
-    { L"(07) Not used", 0x283a820, 0x283a840, indexCPS2_Morrigan, 6 },
+    { L"(07) Not used", 0x283a820, 0x283a840, indexCPS2_Morrigan, 0 },
     { L"(08) Not used", 0x283a840, 0x283a860, indexCPS2_Morrigan, 7 },
 };
 
@@ -483,7 +483,7 @@ const sGame_PaletteDataset MVC2_A_MORRIGAN_PALETTES_A2[] =
     { L"(04) ID: 01-08 Soul Fist ID: 09-15 Soul Fist (skull)", 0x283a8c0, 0x283a8e0, indexCPS2_Morrigan, 3 },
     { L"(05) ID: 01-08 Soul Eraser Laser ID: 09-15 Not used", 0x283a8e0, 0x283a900, indexCPS2_Morrigan, 4 },
     { L"(06) Not used", 0x283a900, 0x283a920, indexCPS2_Morrigan, 5 },
-    { L"(07) Not used", 0x283a920, 0x283a940, indexCPS2_Morrigan, 6 },
+    { L"(07) Not used", 0x283a920, 0x283a940, indexCPS2_Morrigan, 0 },
     { L"(08) Not used", 0x283a940, 0x283a960, indexCPS2_Morrigan, 7 },
 };
 
@@ -649,8 +649,8 @@ const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_LP[] =
     { L"(04) Pharaoh Magic (Special Ball)", 0x2954660, 0x2954680, indexCPS2_Anakaris, 3 },
     { L"(05) Pharaoh Illusion (Background Anakaris)", 0x2954680, 0x29546a0, indexCPS2_Anakaris, 4 },
     { L"(06) Pharaoh Judgement (Dummy)", 0x29546a0, 0x29546c0, indexCPS2_Anakaris, 5 },
-    { L"(07) Not Used", 0x29546c0, 0x29546e0, indexCPS2_Anakaris, 6 },
-    { L"(08) Not Used", 0x29546e0, 0x2954700, indexCPS2_Anakaris, 7 },
+    { L"(07) Not Used", 0x29546c0, 0x29546e0, indexCPS2_Anakaris, 0 },
+    { L"(08) Not Used", 0x29546e0, 0x2954700, indexCPS2_Anakaris, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_LK[] =
@@ -661,8 +661,8 @@ const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_LK[] =
     { L"(04) Pharaoh Magic (Special Ball)", 0x2954760, 0x2954780, indexCPS2_Anakaris, 3 },
     { L"(05) Pharaoh Illusion (Background Anakaris)", 0x2954780, 0x29547a0, indexCPS2_Anakaris, 4 },
     { L"(06) Pharaoh Judgement (Dummy)", 0x29547a0, 0x29547c0, indexCPS2_Anakaris, 5 },
-    { L"(07) Not Used", 0x29547c0, 0x29547e0, indexCPS2_Anakaris, 6 },
-    { L"(08) Not Used", 0x29547e0, 0x2954800, indexCPS2_Anakaris, 7 },
+    { L"(07) Not Used", 0x29547c0, 0x29547e0, indexCPS2_Anakaris, 0 },
+    { L"(08) Not Used", 0x29547e0, 0x2954800, indexCPS2_Anakaris, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_HP[] =
@@ -673,8 +673,8 @@ const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_HP[] =
     { L"(04) Pharaoh Magic (Special Ball)", 0x2954860, 0x2954880, indexCPS2_Anakaris, 3 },
     { L"(05) Pharaoh Illusion (Background Anakaris)", 0x2954880, 0x29548a0, indexCPS2_Anakaris, 4 },
     { L"(06) Pharaoh Judgement (Dummy)", 0x29548a0, 0x29548c0, indexCPS2_Anakaris, 5 },
-    { L"(07) Not Used", 0x29548c0, 0x29548e0, indexCPS2_Anakaris, 6 },
-    { L"(08) Not Used", 0x29548e0, 0x2954900, indexCPS2_Anakaris, 7 },
+    { L"(07) Not Used", 0x29548c0, 0x29548e0, indexCPS2_Anakaris, 0 },
+    { L"(08) Not Used", 0x29548e0, 0x2954900, indexCPS2_Anakaris, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_HK[] =
@@ -685,8 +685,8 @@ const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_HK[] =
     { L"(04) Pharaoh Magic (Special Ball)", 0x2954960, 0x2954980, indexCPS2_Anakaris, 3 },
     { L"(05) Pharaoh Illusion (Background Anakaris)", 0x2954980, 0x29549a0, indexCPS2_Anakaris, 4 },
     { L"(06) Pharaoh Judgement (Dummy)", 0x29549a0, 0x29549c0, indexCPS2_Anakaris, 5 },
-    { L"(07) Not Used", 0x29549c0, 0x29549e0, indexCPS2_Anakaris, 6 },
-    { L"(08) Not Used", 0x29549e0, 0x2954a00, indexCPS2_Anakaris, 7 },
+    { L"(07) Not Used", 0x29549c0, 0x29549e0, indexCPS2_Anakaris, 0 },
+    { L"(08) Not Used", 0x29549e0, 0x2954a00, indexCPS2_Anakaris, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_A1[] =
@@ -697,8 +697,8 @@ const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_A1[] =
     { L"(04) Pharaoh Magic (Special Ball)", 0x2954a60, 0x2954a80, indexCPS2_Anakaris, 3 },
     { L"(05) Pharaoh Illusion (Background Anakaris)", 0x2954a80, 0x2954aa0, indexCPS2_Anakaris, 4 },
     { L"(06) Pharaoh Judgement (Dummy)", 0x2954aa0, 0x2954ac0, indexCPS2_Anakaris, 5 },
-    { L"(07) Not Used", 0x2954ac0, 0x2954ae0, indexCPS2_Anakaris, 6 },
-    { L"(08) Not Used", 0x2954ae0, 0x2954b00, indexCPS2_Anakaris, 7 },
+    { L"(07) Not Used", 0x2954ac0, 0x2954ae0, indexCPS2_Anakaris, 0 },
+    { L"(08) Not Used", 0x2954ae0, 0x2954b00, indexCPS2_Anakaris, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_A2[] =
@@ -709,8 +709,8 @@ const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_A2[] =
     { L"(04) Pharaoh Magic (Special Ball)", 0x2954b60, 0x2954b80, indexCPS2_Anakaris, 3 },
     { L"(05) Pharaoh Illusion (Background Anakaris)", 0x2954b80, 0x2954ba0, indexCPS2_Anakaris, 4 },
     { L"(06) Pharaoh Judgement (Dummy)", 0x2954ba0, 0x2954bc0, indexCPS2_Anakaris, 5 },
-    { L"(07) Not Used", 0x2954bc0, 0x2954be0, indexCPS2_Anakaris, 6 },
-    { L"(08) Not Used", 0x2954be0, 0x2954c00, indexCPS2_Anakaris, 7 },
+    { L"(07) Not Used", 0x2954bc0, 0x2954be0, indexCPS2_Anakaris, 0 },
+    { L"(08) Not Used", 0x2954be0, 0x2954c00, indexCPS2_Anakaris, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_ANAKARIS_PALETTES_SHARED[] =
@@ -1031,8 +1031,8 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_LP[] =
     { L"(04) Not Used", 0x2c0ec00, 0x2c0ec20, indexCPS2_Wolverine, 3 },
     { L"(05) Not Used", 0x2c0ec20, 0x2c0ec40, indexCPS2_Wolverine, 4 },
     { L"(06) Not Used", 0x2c0ec40, 0x2c0ec60, indexCPS2_Wolverine, 5 },
-    { L"(07) Not Used", 0x2c0ec60, 0x2c0ec80, indexCPS2_Wolverine, 6 },
-    { L"(08) Not Used", 0x2c0ec80, 0x2c0eca0, indexCPS2_Wolverine, 7 },
+    { L"(07) Not Used", 0x2c0ec60, 0x2c0ec80, indexCPS2_Wolverine, 0, &pairNext },
+    { L"(08) Not Used", 0x2c0ec80, 0x2c0eca0, indexCPS2_Wolverine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_LK[] =
@@ -1043,8 +1043,8 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_LK[] =
     { L"(04) Not Used", 0x2c0ed00, 0x2c0ed20, indexCPS2_Wolverine, 3 },
     { L"(05) Not Used", 0x2c0ed20, 0x2c0ed40, indexCPS2_Wolverine, 4 },
     { L"(06) Not Used", 0x2c0ed40, 0x2c0ed60, indexCPS2_Wolverine, 5 },
-    { L"(07) Not Used", 0x2c0ed60, 0x2c0ed80, indexCPS2_Wolverine, 6 },
-    { L"(08) Not Used", 0x2c0ed80, 0x2c0eda0, indexCPS2_Wolverine, 7 },
+    { L"(07) Not Used", 0x2c0ed60, 0x2c0ed80, indexCPS2_Wolverine, 0, &pairNext },
+    { L"(08) Not Used", 0x2c0ed80, 0x2c0eda0, indexCPS2_Wolverine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HP[] =
@@ -1055,8 +1055,8 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HP[] =
     { L"(04) Not Used", 0x2c0ee00, 0x2c0ee20, indexCPS2_Wolverine, 3 },
     { L"(05) Not Used", 0x2c0ee20, 0x2c0ee40, indexCPS2_Wolverine, 4 },
     { L"(06) Not Used", 0x2c0ee40, 0x2c0ee60, indexCPS2_Wolverine, 5 },
-    { L"(07) Not Used", 0x2c0ee60, 0x2c0ee80, indexCPS2_Wolverine, 6 },
-    { L"(08) Not Used", 0x2c0ee80, 0x2c0eea0, indexCPS2_Wolverine, 7 },
+    { L"(07) Not Used", 0x2c0ee60, 0x2c0ee80, indexCPS2_Wolverine, 0, &pairNext },
+    { L"(08) Not Used", 0x2c0ee80, 0x2c0eea0, indexCPS2_Wolverine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HK[] =
@@ -1067,8 +1067,8 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_HK[] =
     { L"(04) Not Used", 0x2c0ef00, 0x2c0ef20, indexCPS2_Wolverine, 3 },
     { L"(05) Not Used", 0x2c0ef20, 0x2c0ef40, indexCPS2_Wolverine, 4 },
     { L"(06) Not Used", 0x2c0ef40, 0x2c0ef60, indexCPS2_Wolverine, 5 },
-    { L"(07) Not Used", 0x2c0ef60, 0x2c0ef80, indexCPS2_Wolverine, 6 },
-    { L"(08) Not Used", 0x2c0ef80, 0x2c0efa0, indexCPS2_Wolverine, 7 },
+    { L"(07) Not Used", 0x2c0ef60, 0x2c0ef80, indexCPS2_Wolverine, 0, &pairNext },
+    { L"(08) Not Used", 0x2c0ef80, 0x2c0efa0, indexCPS2_Wolverine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A1[] =
@@ -1079,8 +1079,8 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A1[] =
     { L"(04) Not Used", 0x2c0f000, 0x2c0f020, indexCPS2_Wolverine, 3 },
     { L"(05) Not Used", 0x2c0f020, 0x2c0f040, indexCPS2_Wolverine, 4 },
     { L"(06) Not Used", 0x2c0f040, 0x2c0f060, indexCPS2_Wolverine, 5 },
-    { L"(07) Not Used", 0x2c0f060, 0x2c0f080, indexCPS2_Wolverine, 6 },
-    { L"(08) Not Used", 0x2c0f080, 0x2c0f0a0, indexCPS2_Wolverine, 7 },
+    { L"(07) Not Used", 0x2c0f060, 0x2c0f080, indexCPS2_Wolverine, 0, &pairNext },
+    { L"(08) Not Used", 0x2c0f080, 0x2c0f0a0, indexCPS2_Wolverine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A2[] =
@@ -1091,8 +1091,8 @@ const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_A2[] =
     { L"(04) Not Used", 0x2c0f100, 0x2c0f120, indexCPS2_Wolverine, 3 },
     { L"(05) Not Used", 0x2c0f120, 0x2c0f140, indexCPS2_Wolverine, 4 },
     { L"(06) Not Used", 0x2c0f140, 0x2c0f160, indexCPS2_Wolverine, 5 },
-    { L"(07) Not Used", 0x2c0f160, 0x2c0f180, indexCPS2_Wolverine, 6 },
-    { L"(08) Not Used", 0x2c0f180, 0x2c0f1a0, indexCPS2_Wolverine, 7 },
+    { L"(07) Not Used", 0x2c0f160, 0x2c0f180, indexCPS2_Wolverine, 0, &pairNext },
+    { L"(08) Not Used", 0x2c0f180, 0x2c0f1a0, indexCPS2_Wolverine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_WOLVERINE_PALETTES_SHARED[] =
@@ -1401,7 +1401,7 @@ const sGame_PaletteDataset MVC2_A_ROGUE_PALETTES_LP[] =
     { L"(04) Not Used", 0x2ee21a0, 0x2ee21c0, indexCPS2_Rogue, 3 },
     { L"(05) Dash Shadows", 0x2ee21c0, 0x2ee21e0, indexCPS2_Rogue, 4 },
     { L"(06) Not Used", 0x2ee21e0, 0x2ee2200, indexCPS2_Rogue, 5 },
-    { L"(07) Not Used", 0x2ee2200, 0x2ee2220, indexCPS2_Rogue, 6 },
+    { L"(07) Not Used", 0x2ee2200, 0x2ee2220, indexCPS2_Rogue, 0 },
     { L"(08) Not Used", 0x2ee2220, 0x2ee2240, indexCPS2_Rogue, 7 },
 };
 
@@ -1413,7 +1413,7 @@ const sGame_PaletteDataset MVC2_A_ROGUE_PALETTES_LK[] =
     { L"(04) Not Used", 0x2ee22a0, 0x2ee22c0, indexCPS2_Rogue, 3 },
     { L"(05) Dash Shadows", 0x2ee22c0, 0x2ee22e0, indexCPS2_Rogue, 4 },
     { L"(06) Not Used", 0x2ee22e0, 0x2ee2300, indexCPS2_Rogue, 5 },
-    { L"(07) Not Used", 0x2ee2300, 0x2ee2320, indexCPS2_Rogue, 6 },
+    { L"(07) Not Used", 0x2ee2300, 0x2ee2320, indexCPS2_Rogue, 0 },
     { L"(08) Not Used", 0x2ee2320, 0x2ee2340, indexCPS2_Rogue, 7 },
 };
 
@@ -1425,7 +1425,7 @@ const sGame_PaletteDataset MVC2_A_ROGUE_PALETTES_HP[] =
     { L"(04) Not Used", 0x2ee23a0, 0x2ee23c0, indexCPS2_Rogue, 3 },
     { L"(05) Dash Shadows", 0x2ee23c0, 0x2ee23e0, indexCPS2_Rogue, 4 },
     { L"(06) Not Used", 0x2ee23e0, 0x2ee2400, indexCPS2_Rogue, 5 },
-    { L"(07) Not Used", 0x2ee2400, 0x2ee2420, indexCPS2_Rogue, 6 },
+    { L"(07) Not Used", 0x2ee2400, 0x2ee2420, indexCPS2_Rogue, 0 },
     { L"(08) Not Used", 0x2ee2420, 0x2ee2440, indexCPS2_Rogue, 7 },
 };
 
@@ -1437,7 +1437,7 @@ const sGame_PaletteDataset MVC2_A_ROGUE_PALETTES_HK[] =
     { L"(04) Not Used", 0x2ee24a0, 0x2ee24c0, indexCPS2_Rogue, 3 },
     { L"(05) Dash Shadows", 0x2ee24c0, 0x2ee24e0, indexCPS2_Rogue, 4 },
     { L"(06) Not Used", 0x2ee24e0, 0x2ee2500, indexCPS2_Rogue, 5 },
-    { L"(07) Not Used", 0x2ee2500, 0x2ee2520, indexCPS2_Rogue, 6 },
+    { L"(07) Not Used", 0x2ee2500, 0x2ee2520, indexCPS2_Rogue, 0 },
     { L"(08) Not Used", 0x2ee2520, 0x2ee2540, indexCPS2_Rogue, 7 },
 };
 
@@ -1449,7 +1449,7 @@ const sGame_PaletteDataset MVC2_A_ROGUE_PALETTES_A1[] =
     { L"(04) Not Used", 0x2ee25a0, 0x2ee25c0, indexCPS2_Rogue, 3 },
     { L"(05) Dash Shadows", 0x2ee25c0, 0x2ee25e0, indexCPS2_Rogue, 4 },
     { L"(06) Not Used", 0x2ee25e0, 0x2ee2600, indexCPS2_Rogue, 5 },
-    { L"(07) Not Used", 0x2ee2600, 0x2ee2620, indexCPS2_Rogue, 6 },
+    { L"(07) Not Used", 0x2ee2600, 0x2ee2620, indexCPS2_Rogue, 0 },
     { L"(08) Not Used", 0x2ee2620, 0x2ee2640, indexCPS2_Rogue, 7 },
 };
 
@@ -1461,7 +1461,7 @@ const sGame_PaletteDataset MVC2_A_ROGUE_PALETTES_A2[] =
     { L"(04) Not Used", 0x2ee26a0, 0x2ee26c0, indexCPS2_Rogue, 3 },
     { L"(05) Dash Shadows", 0x2ee26c0, 0x2ee26e0, indexCPS2_Rogue, 4 },
     { L"(06) Not Used", 0x2ee26e0, 0x2ee2700, indexCPS2_Rogue, 5 },
-    { L"(07) Not Used", 0x2ee2700, 0x2ee2720, indexCPS2_Rogue, 6 },
+    { L"(07) Not Used", 0x2ee2700, 0x2ee2720, indexCPS2_Rogue, 0 },
     { L"(08) Not Used", 0x2ee2720, 0x2ee2740, indexCPS2_Rogue, 7 },
 };
 
@@ -1630,7 +1630,7 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_LP[] =
     { L"(04) Not Used", 0x30aea20, 0x30aea40, indexCPS2_Spidey, 3 },
     { L"(05) Not Used", 0x30aea40, 0x30aea60, indexCPS2_Spidey, 4 },
     { L"(06) Not Used", 0x30aea60, 0x30aea80, indexCPS2_Spidey, 5 },
-    { L"(07) Not Used", 0x30aea80, 0x30aeaa0, indexCPS2_Spidey, 6 },
+    { L"(07) Not Used", 0x30aea80, 0x30aeaa0, indexCPS2_Spidey, 0 },
     { L"(08) Not Used", 0x30aeaa0, 0x30aeac0, indexCPS2_Spidey, 7 },
 };
 
@@ -1642,7 +1642,7 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_LK[] =
     { L"(04) Not Used", 0x30aeb20, 0x30aeb40, indexCPS2_Spidey, 3 },
     { L"(05) Not Used", 0x30aeb40, 0x30aeb60, indexCPS2_Spidey, 4 },
     { L"(06) Not Used", 0x30aeb60, 0x30aeb80, indexCPS2_Spidey, 5 },
-    { L"(07) Not Used", 0x30aeb80, 0x30aeba0, indexCPS2_Spidey, 6 },
+    { L"(07) Not Used", 0x30aeb80, 0x30aeba0, indexCPS2_Spidey, 0 },
     { L"(08) Not Used", 0x30aeba0, 0x30aebc0, indexCPS2_Spidey, 7 },
 };
 
@@ -1654,7 +1654,7 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_HP[] =
     { L"(04) Not Used", 0x30aec20, 0x30aec40, indexCPS2_Spidey, 3 },
     { L"(05) Not Used", 0x30aec40, 0x30aec60, indexCPS2_Spidey, 4 },
     { L"(06) Not Used", 0x30aec60, 0x30aec80, indexCPS2_Spidey, 5 },
-    { L"(07) Not Used", 0x30aec80, 0x30aeca0, indexCPS2_Spidey, 6 },
+    { L"(07) Not Used", 0x30aec80, 0x30aeca0, indexCPS2_Spidey, 0 },
     { L"(08) Not Used", 0x30aeca0, 0x30aecc0, indexCPS2_Spidey, 7 },
 };
 
@@ -1666,7 +1666,7 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_HK[] =
     { L"(04) Not Used", 0x30aed20, 0x30aed40, indexCPS2_Spidey, 3 },
     { L"(05) Not Used", 0x30aed40, 0x30aed60, indexCPS2_Spidey, 4 },
     { L"(06) Not Used", 0x30aed60, 0x30aed80, indexCPS2_Spidey, 5 },
-    { L"(07) Not Used", 0x30aed80, 0x30aeda0, indexCPS2_Spidey, 6 },
+    { L"(07) Not Used", 0x30aed80, 0x30aeda0, indexCPS2_Spidey, 0 },
     { L"(08) Not Used", 0x30aeda0, 0x30aedc0, indexCPS2_Spidey, 7 },
 };
 
@@ -1678,7 +1678,7 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_A1[] =
     { L"(04) Not Used", 0x30aee20, 0x30aee40, indexCPS2_Spidey, 3 },
     { L"(05) Not Used", 0x30aee40, 0x30aee60, indexCPS2_Spidey, 4 },
     { L"(06) Not Used", 0x30aee60, 0x30aee80, indexCPS2_Spidey, 5 },
-    { L"(07) Not Used", 0x30aee80, 0x30aeea0, indexCPS2_Spidey, 6 },
+    { L"(07) Not Used", 0x30aee80, 0x30aeea0, indexCPS2_Spidey, 0 },
     { L"(08) Not Used", 0x30aeea0, 0x30aeec0, indexCPS2_Spidey, 7 },
 };
 
@@ -1690,7 +1690,7 @@ const sGame_PaletteDataset MVC2_A_SPIDERMAN_PALETTES_A2[] =
     { L"(04) Not Used", 0x30aef20, 0x30aef40, indexCPS2_Spidey, 3 },
     { L"(05) Not Used", 0x30aef40, 0x30aef60, indexCPS2_Spidey, 4 },
     { L"(06) Not Used", 0x30aef60, 0x30aef80, indexCPS2_Spidey, 5 },
-    { L"(07) Not Used", 0x30aef80, 0x30aefa0, indexCPS2_Spidey, 6 },
+    { L"(07) Not Used", 0x30aef80, 0x30aefa0, indexCPS2_Spidey, 0 },
     { L"(08) Not Used", 0x30aefa0, 0x30aefc0, indexCPS2_Spidey, 7 },
 };
 
@@ -1822,7 +1822,7 @@ const sGame_PaletteDataset MVC2_A_HULK_PALETTES_LP[] =
     { L"(04) Gamma Crush (Meteor)", 0x31c9460, 0x31c9480, indexCPS2_Hulk, 3 },
     { L"(05) Not Used", 0x31c9480, 0x31c94a0, indexCPS2_Hulk, 4 },
     { L"(06) Not Used", 0x31c94a0, 0x31c94c0, indexCPS2_Hulk, 5 },
-    { L"(07) Not Used", 0x31c94c0, 0x31c94e0, indexCPS2_Hulk, 6 },
+    { L"(07) Not Used", 0x31c94c0, 0x31c94e0, indexCPS2_Hulk, 0 },
     { L"(08) Not Used", 0x31c94e0, 0x31c9500, indexCPS2_Hulk, 7 },
 };
 
@@ -1834,7 +1834,7 @@ const sGame_PaletteDataset MVC2_A_HULK_PALETTES_LK[] =
     { L"(04) Gamma Crush (Meteor)", 0x31c9560, 0x31c9580, indexCPS2_Hulk, 3 },
     { L"(05) Not Used", 0x31c9580, 0x31c95a0, indexCPS2_Hulk, 4 },
     { L"(06) Not Used", 0x31c95a0, 0x31c95c0, indexCPS2_Hulk, 5 },
-    { L"(07) Not Used", 0x31c95c0, 0x31c95e0, indexCPS2_Hulk, 6 },
+    { L"(07) Not Used", 0x31c95c0, 0x31c95e0, indexCPS2_Hulk, 0 },
     { L"(08) Not Used", 0x31c95e0, 0x31c9600, indexCPS2_Hulk, 7 },
 };
 
@@ -1846,7 +1846,7 @@ const sGame_PaletteDataset MVC2_A_HULK_PALETTES_HP[] =
     { L"(04) Gamma Crush (Meteor)", 0x31c9660, 0x31c9680, indexCPS2_Hulk, 3 },
     { L"(05) Not Used", 0x31c9680, 0x31c96a0, indexCPS2_Hulk, 4 },
     { L"(06) Not Used", 0x31c96a0, 0x31c96c0, indexCPS2_Hulk, 5 },
-    { L"(07) Not Used", 0x31c96c0, 0x31c96e0, indexCPS2_Hulk, 6 },
+    { L"(07) Not Used", 0x31c96c0, 0x31c96e0, indexCPS2_Hulk, 0 },
     { L"(08) Not Used", 0x31c96e0, 0x31c9700, indexCPS2_Hulk, 7 },
 };
 
@@ -1858,7 +1858,7 @@ const sGame_PaletteDataset MVC2_A_HULK_PALETTES_HK[] =
     { L"(04) Gamma Crush (Meteor)", 0x31c9760, 0x31c9780, indexCPS2_Hulk, 3 },
     { L"(05) Not Used", 0x31c9780, 0x31c97a0, indexCPS2_Hulk, 4 },
     { L"(06) Not Used", 0x31c97a0, 0x31c97c0, indexCPS2_Hulk, 5 },
-    { L"(07) Not Used", 0x31c97c0, 0x31c97e0, indexCPS2_Hulk, 6 },
+    { L"(07) Not Used", 0x31c97c0, 0x31c97e0, indexCPS2_Hulk, 0 },
     { L"(08) Not Used", 0x31c97e0, 0x31c9800, indexCPS2_Hulk, 7 },
 };
 
@@ -1870,7 +1870,7 @@ const sGame_PaletteDataset MVC2_A_HULK_PALETTES_A1[] =
     { L"(04) Gamma Crush (Meteor)", 0x31c9860, 0x31c9880, indexCPS2_Hulk, 3 },
     { L"(05) Not Used", 0x31c9880, 0x31c98a0, indexCPS2_Hulk, 4 },
     { L"(06) Not Used", 0x31c98a0, 0x31c98c0, indexCPS2_Hulk, 5 },
-    { L"(07) Not Used", 0x31c98c0, 0x31c98e0, indexCPS2_Hulk, 6 },
+    { L"(07) Not Used", 0x31c98c0, 0x31c98e0, indexCPS2_Hulk, 0 },
     { L"(08) Not Used", 0x31c98e0, 0x31c9900, indexCPS2_Hulk, 7 },
 };
 
@@ -1882,7 +1882,7 @@ const sGame_PaletteDataset MVC2_A_HULK_PALETTES_A2[] =
     { L"(04) Gamma Crush (Meteor)", 0x31c9960, 0x31c9980, indexCPS2_Hulk, 3 },
     { L"(05) Not Used", 0x31c9980, 0x31c99a0, indexCPS2_Hulk, 4 },
     { L"(06) Not Used", 0x31c99a0, 0x31c99c0, indexCPS2_Hulk, 5 },
-    { L"(07) Not Used", 0x31c99c0, 0x31c99e0, indexCPS2_Hulk, 6 },
+    { L"(07) Not Used", 0x31c99c0, 0x31c99e0, indexCPS2_Hulk, 0 },
     { L"(08) Not Used", 0x31c99e0, 0x31c9a00, indexCPS2_Hulk, 7 },
 };
 
@@ -2479,8 +2479,8 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LP[] =
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f07a0, 0x36f07c0, indexCPS2_Hayato, 3 },
     { L"(05) Intro: Motorcycle", 0x36f07c0, 0x36f07e0, indexCPS2_Hayato, 4 },
     { L"(06) Dark Hayato", 0x36f07e0, 0x36f0800, indexCPS2_Hayato, 5 },
-    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0800, 0x36f0820, indexCPS2_Hayato, 6 },
-    { L"(08) Super Flash Frame 2", 0x36f0820, 0x36f0840, indexCPS2_Hayato, 7 },
+    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0800, 0x36f0820, indexCPS2_Hayato, 0 },
+    { L"(08) Super Flash Frame 2", 0x36f0820, 0x36f0840, indexCPS2_Hayato, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LK[] =
@@ -2491,8 +2491,8 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_LK[] =
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f08a0, 0x36f08c0, indexCPS2_Hayato, 3 },
     { L"(05) Intro: Motorcycle", 0x36f08c0, 0x36f08e0, indexCPS2_Hayato, 4 },
     { L"(06) Dark Hayato", 0x36f08e0, 0x36f0900, indexCPS2_Hayato, 5 },
-    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0900, 0x36f0920, indexCPS2_Hayato, 6 },
-    { L"(08) Super Flash Frame 2", 0x36f0920, 0x36f0940, indexCPS2_Hayato, 7 },
+    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0900, 0x36f0920, indexCPS2_Hayato, 0 },
+    { L"(08) Super Flash Frame 2", 0x36f0920, 0x36f0940, indexCPS2_Hayato, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HP[] =
@@ -2503,8 +2503,8 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HP[] =
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f09a0, 0x36f09c0, indexCPS2_Hayato, 3 },
     { L"(05) Intro: Motorcycle", 0x36f09c0, 0x36f09e0, indexCPS2_Hayato, 4 },
     { L"(06) Dark Hayato", 0x36f09e0, 0x36f0a00, indexCPS2_Hayato, 5 },
-    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0a00, 0x36f0a20, indexCPS2_Hayato, 6 },
-    { L"(08) Super Flash Frame 2", 0x36f0a20, 0x36f0a40, indexCPS2_Hayato, 7 },
+    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0a00, 0x36f0a20, indexCPS2_Hayato, 0 },
+    { L"(08) Super Flash Frame 2", 0x36f0a20, 0x36f0a40, indexCPS2_Hayato, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HK[] =
@@ -2515,8 +2515,8 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_HK[] =
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f0aa0, 0x36f0ac0, indexCPS2_Hayato, 3 },
     { L"(05) Intro: Motorcycle", 0x36f0ac0, 0x36f0ae0, indexCPS2_Hayato, 4 },
     { L"(06) Dark Hayato", 0x36f0ae0, 0x36f0b00, indexCPS2_Hayato, 5 },
-    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0b00, 0x36f0b20, indexCPS2_Hayato, 6 },
-    { L"(08) Super Flash Frame 2", 0x36f0b20, 0x36f0b40, indexCPS2_Hayato, 7 },
+    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0b00, 0x36f0b20, indexCPS2_Hayato, 0 },
+    { L"(08) Super Flash Frame 2", 0x36f0b20, 0x36f0b40, indexCPS2_Hayato, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A1[] =
@@ -2527,8 +2527,8 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A1[] =
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f0ba0, 0x36f0bc0, indexCPS2_Hayato, 3 },
     { L"(05) Intro: Motorcycle", 0x36f0bc0, 0x36f0be0, indexCPS2_Hayato, 4 },
     { L"(06) Dark Hayato", 0x36f0be0, 0x36f0c00, indexCPS2_Hayato, 5 },
-    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0c00, 0x36f0c20, indexCPS2_Hayato, 6 },
-    { L"(08) Super Flash Frame 2", 0x36f0c20, 0x36f0c40, indexCPS2_Hayato, 7 },
+    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0c00, 0x36f0c20, indexCPS2_Hayato, 0 },
+    { L"(08) Super Flash Frame 2", 0x36f0c20, 0x36f0c40, indexCPS2_Hayato, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A2[] =
@@ -2539,8 +2539,8 @@ const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_A2[] =
     { L"(04) Engetsu (shockwave) / Plasma Field / Intro: motorcycle tires", 0x36f0ca0, 0x36f0cc0, indexCPS2_Hayato, 3 },
     { L"(05) Intro: Motorcycle", 0x36f0cc0, 0x36f0ce0, indexCPS2_Hayato, 4 },
     { L"(06) Dark Hayato", 0x36f0ce0, 0x36f0d00, indexCPS2_Hayato, 5 },
-    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0d00, 0x36f0d20, indexCPS2_Hayato, 6 },
-    { L"(08) Super Flash Frame 2", 0x36f0d20, 0x36f0d40, indexCPS2_Hayato, 7 },
+    { L"(07) Super Flash Frame 1 / Shiden Shadows", 0x36f0d00, 0x36f0d20, indexCPS2_Hayato, 0 },
+    { L"(08) Super Flash Frame 2", 0x36f0d20, 0x36f0d40, indexCPS2_Hayato, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_HAYATO_PALETTES_SHARED[] =
@@ -3032,7 +3032,7 @@ const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_LP[] =
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2d600, 0x3c2d620, indexCPS2_Cable, 3 },
     { L"(05) ID: 01-08: Hyper Viper Beam (Laser)", 0x3c2d620, 0x3c2d640, indexCPS2_Cable, 4 },
     { L"(06) ID: 01-08: Psy-Charge (Explosion)", 0x3c2d640, 0x3c2d660, indexCPS2_Cable, 5 },
-    { L"(07) Not Used", 0x3c2d660, 0x3c2d680, indexCPS2_Cable, 6 },
+    { L"(07) Not Used", 0x3c2d660, 0x3c2d680, indexCPS2_Cable, 0 },
     { L"(08) Not Used", 0x3c2d680, 0x3c2d6a0, indexCPS2_Cable, 7 },
 };
 
@@ -3044,7 +3044,7 @@ const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_LK[] =
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2d700, 0x3c2d720, indexCPS2_Cable, 3 },
     { L"(05) ID: 01-08: Hyper Viper Beam (Laser)", 0x3c2d720, 0x3c2d740, indexCPS2_Cable, 4 },
     { L"(06) ID: 01-08: Psy-Charge (Explosion)", 0x3c2d740, 0x3c2d760, indexCPS2_Cable, 5 },
-    { L"(07) Not Used", 0x3c2d760, 0x3c2d780, indexCPS2_Cable, 6 },
+    { L"(07) Not Used", 0x3c2d760, 0x3c2d780, indexCPS2_Cable, 0 },
     { L"(08) Not Used", 0x3c2d780, 0x3c2d7a0, indexCPS2_Cable, 7 },
 };
 
@@ -3056,7 +3056,7 @@ const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_HP[] =
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2d800, 0x3c2d820, indexCPS2_Cable, 3 },
     { L"(05) ID: 01-08: Hyper Viper Beam (Laser)", 0x3c2d820, 0x3c2d840, indexCPS2_Cable, 4 },
     { L"(06) ID: 01-08: Psy-Charge (Explosion)", 0x3c2d840, 0x3c2d860, indexCPS2_Cable, 5 },
-    { L"(07) Not Used", 0x3c2d860, 0x3c2d880, indexCPS2_Cable, 6 },
+    { L"(07) Not Used", 0x3c2d860, 0x3c2d880, indexCPS2_Cable, 0 },
     { L"(08) Not Used", 0x3c2d880, 0x3c2d8a0, indexCPS2_Cable, 7 },
 };
 
@@ -3068,7 +3068,7 @@ const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_HK[] =
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2d900, 0x3c2d920, indexCPS2_Cable, 3 },
     { L"(05) ID: 01-08: Hyper Viper Beam (Laser)", 0x3c2d920, 0x3c2d940, indexCPS2_Cable, 4 },
     { L"(06) ID: 01-08: Psy-Charge (Explosion)", 0x3c2d940, 0x3c2d960, indexCPS2_Cable, 5 },
-    { L"(07) Not Used", 0x3c2d960, 0x3c2d980, indexCPS2_Cable, 6 },
+    { L"(07) Not Used", 0x3c2d960, 0x3c2d980, indexCPS2_Cable, 0 },
     { L"(08) Not Used", 0x3c2d980, 0x3c2d9a0, indexCPS2_Cable, 7 },
 };
 
@@ -3080,7 +3080,7 @@ const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_A1[] =
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2da00, 0x3c2da20, indexCPS2_Cable, 3 },
     { L"(05) ID: 01-08: Hyper Viper Beam (Laser)", 0x3c2da20, 0x3c2da40, indexCPS2_Cable, 4 },
     { L"(06) ID: 01-08: Psy-Charge (Explosion)", 0x3c2da40, 0x3c2da60, indexCPS2_Cable, 5 },
-    { L"(07) Not Used", 0x3c2da60, 0x3c2da80, indexCPS2_Cable, 6 },
+    { L"(07) Not Used", 0x3c2da60, 0x3c2da80, indexCPS2_Cable, 0 },
     { L"(08) Not Used", 0x3c2da80, 0x3c2daa0, indexCPS2_Cable, 7 },
 };
 
@@ -3092,7 +3092,7 @@ const sGame_PaletteDataset MVC2_A_CABLE_PALETTES_A2[] =
     { L"(04) ID: 01-08: Gunshot ID: 09-15 : Viper Beam Gun / HVB Gun / ElecTrap (Grandes)", 0x3c2db00, 0x3c2db20, indexCPS2_Cable, 3 },
     { L"(05) ID: 01-08: Hyper Viper Beam (Laser)", 0x3c2db20, 0x3c2db40, indexCPS2_Cable, 4 },
     { L"(06) ID: 01-08: Psy-Charge (Explosion)", 0x3c2db40, 0x3c2db60, indexCPS2_Cable, 5 },
-    { L"(07) Not Used", 0x3c2db60, 0x3c2db80, indexCPS2_Cable, 6 },
+    { L"(07) Not Used", 0x3c2db60, 0x3c2db80, indexCPS2_Cable, 0 },
     { L"(08) Not Used", 0x3c2db80, 0x3c2dba0, indexCPS2_Cable, 7 },
 };
 
@@ -3125,7 +3125,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_LP[] =
     { L"(02) ID:02-09 Titan Dash // Electric Sphere ID: 10-15 Not Used", 0x3d194a0, 0x3d194c0, indexCPS2_Abyss1, 1 },
     { L"(03) ID:02-09 Titan Laser // Elecric Sphere (Hand effect) ID: 10-15 Titan Laser", 0x3d194c0, 0x3d194e0, indexCPS2_Abyss1, 2 },
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d194e0, 0x3d19500, indexCPS2_Abyss1, 3 },
-    { L"(05) Super Armor Frame (when being hit)", 0x3d19500, 0x3d19520, indexCPS2_Abyss1, 4 },
+    { L"(05) Super Armor Frame (when being hit)", 0x3d19500, 0x3d19520, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19520, 0x3d19540, indexCPS2_Abyss1, 5 },
     { L"(07) Not Used", 0x3d19540, 0x3d19560, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19560, 0x3d19580, indexCPS2_Abyss1, 7 },
@@ -3137,7 +3137,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_LK[] =
     { L"(02) ID:02-09 Titan Dash // Electric Sphere ID: 10-15 Not Used", 0x3d195a0, 0x3d195c0, indexCPS2_Abyss1, 1 },
     { L"(03) ID:02-09 Titan Laser // Elecric Sphere (Hand effect) ID: 10-15 Titan Laser", 0x3d195c0, 0x3d195e0, indexCPS2_Abyss1, 2 },
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d195e0, 0x3d19600, indexCPS2_Abyss1, 3 },
-    { L"(05) Super Armor Frame (when being hit)", 0x3d19600, 0x3d19620, indexCPS2_Abyss1, 4 },
+    { L"(05) Super Armor Frame (when being hit)", 0x3d19600, 0x3d19620, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19620, 0x3d19640, indexCPS2_Abyss1, 5 },
     { L"(07) Not Used", 0x3d19640, 0x3d19660, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19660, 0x3d19680, indexCPS2_Abyss1, 7 },
@@ -3149,7 +3149,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_HP[] =
     { L"(02) ID:02-09 Titan Dash // Electric Sphere ID: 10-15 Not Used", 0x3d196a0, 0x3d196c0, indexCPS2_Abyss1, 1 },
     { L"(03) ID:02-09 Titan Laser // Elecric Sphere (Hand effect) ID: 10-15 Titan Laser", 0x3d196c0, 0x3d196e0, indexCPS2_Abyss1, 2 },
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d196e0, 0x3d19700, indexCPS2_Abyss1, 3 },
-    { L"(05) Super Armor Frame (when being hit)", 0x3d19700, 0x3d19720, indexCPS2_Abyss1, 4 },
+    { L"(05) Super Armor Frame (when being hit)", 0x3d19700, 0x3d19720, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19720, 0x3d19740, indexCPS2_Abyss1, 5 },
     { L"(07) Not Used", 0x3d19740, 0x3d19760, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19760, 0x3d19780, indexCPS2_Abyss1, 7 },
@@ -3161,7 +3161,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_HK[] =
     { L"(02) ID:02-09 Titan Dash // Electric Sphere ID: 10-15 Not Used", 0x3d197a0, 0x3d197c0, indexCPS2_Abyss1, 1 },
     { L"(03) ID:02-09 Titan Laser // Elecric Sphere (Hand effect) ID: 10-15 Titan Laser", 0x3d197c0, 0x3d197e0, indexCPS2_Abyss1, 2 },
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d197e0, 0x3d19800, indexCPS2_Abyss1, 3 },
-    { L"(05) Super Armor Frame (when being hit)", 0x3d19800, 0x3d19820, indexCPS2_Abyss1, 4 },
+    { L"(05) Super Armor Frame (when being hit)", 0x3d19800, 0x3d19820, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19820, 0x3d19840, indexCPS2_Abyss1, 5 },
     { L"(07) Not Used", 0x3d19840, 0x3d19860, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19860, 0x3d19880, indexCPS2_Abyss1, 7 },
@@ -3173,7 +3173,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_A1[] =
     { L"(02) ID:02-09 Titan Dash // Electric Sphere ID: 10-15 Not Used", 0x3d198a0, 0x3d198c0, indexCPS2_Abyss1, 1 },
     { L"(03) ID:02-09 Titan Laser // Elecric Sphere (Hand effect) ID: 10-15 Titan Laser", 0x3d198c0, 0x3d198e0, indexCPS2_Abyss1, 2 },
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d198e0, 0x3d19900, indexCPS2_Abyss1, 3 },
-    { L"(05) Super Armor Frame (when being hit)", 0x3d19900, 0x3d19920, indexCPS2_Abyss1, 4 },
+    { L"(05) Super Armor Frame (when being hit)", 0x3d19900, 0x3d19920, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19920, 0x3d19940, indexCPS2_Abyss1, 5 },
     { L"(07) Not Used", 0x3d19940, 0x3d19960, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19960, 0x3d19980, indexCPS2_Abyss1, 7 },
@@ -3185,7 +3185,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_A2[] =
     { L"(02) ID:02-09 Titan Dash // Electric Sphere ID: 10-15 Not Used", 0x3d199a0, 0x3d199c0, indexCPS2_Abyss1, 1 },
     { L"(03) ID:02-09 Titan Laser // Elecric Sphere (Hand effect) ID: 10-15 Titan Laser", 0x3d199c0, 0x3d199e0, indexCPS2_Abyss1, 2 },
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d199e0, 0x3d19a00, indexCPS2_Abyss1, 3 },
-    { L"(05) Super Armor Frame (when being hit)", 0x3d19a00, 0x3d19a20, indexCPS2_Abyss1, 4 },
+    { L"(05) Super Armor Frame (when being hit)", 0x3d19a00, 0x3d19a20, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19a20, 0x3d19a40, indexCPS2_Abyss1, 5 },
     { L"(07) Not Used", 0x3d19a40, 0x3d19a60, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19a60, 0x3d19a80, indexCPS2_Abyss1, 7 },
@@ -5051,8 +5051,8 @@ const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_LP[] =
     { L"(04) Not Used", 0x433f160, 0x433f180, indexCPS2_Charlie, 3 },
     { L"(05) Not Used", 0x433f180, 0x433f1a0, indexCPS2_Charlie, 4 },
     { L"(06) Not Used", 0x433f1a0, 0x433f1c0, indexCPS2_Charlie, 5 },
-    { L"(07) Not Used", 0x433f1c0, 0x433f1e0, indexCPS2_Charlie, 6 },
-    { L"(08) Not Used", 0x433f1e0, 0x433f200, indexCPS2_Charlie, 7 },
+    { L"(07) Not Used", 0x433f1c0, 0x433f1e0, indexCPS2_Charlie, 0 },
+    { L"(08) Not Used", 0x433f1e0, 0x433f200, indexCPS2_Charlie, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_LK[] =
@@ -5063,8 +5063,8 @@ const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_LK[] =
     { L"(04) Not Used", 0x433f260, 0x433f280, indexCPS2_Charlie, 3 },
     { L"(05) Not Used", 0x433f280, 0x433f2a0, indexCPS2_Charlie, 4 },
     { L"(06) Not Used", 0x433f2a0, 0x433f2c0, indexCPS2_Charlie, 5 },
-    { L"(07) Not Used", 0x433f2c0, 0x433f2e0, indexCPS2_Charlie, 6 },
-    { L"(08) Not Used", 0x433f2e0, 0x433f300, indexCPS2_Charlie, 7 },
+    { L"(07) Not Used", 0x433f2c0, 0x433f2e0, indexCPS2_Charlie, 0 },
+    { L"(08) Not Used", 0x433f2e0, 0x433f300, indexCPS2_Charlie, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_HP[] =
@@ -5075,8 +5075,8 @@ const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_HP[] =
     { L"(04) Not Used", 0x433f360, 0x433f380, indexCPS2_Charlie, 3 },
     { L"(05) Not Used", 0x433f380, 0x433f3a0, indexCPS2_Charlie, 4 },
     { L"(06) Not Used", 0x433f3a0, 0x433f3c0, indexCPS2_Charlie, 5 },
-    { L"(07) Not Used", 0x433f3c0, 0x433f3e0, indexCPS2_Charlie, 6 },
-    { L"(08) Not Used", 0x433f3e0, 0x433f400, indexCPS2_Charlie, 7 },
+    { L"(07) Not Used", 0x433f3c0, 0x433f3e0, indexCPS2_Charlie, 0 },
+    { L"(08) Not Used", 0x433f3e0, 0x433f400, indexCPS2_Charlie, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_HK[] =
@@ -5087,8 +5087,8 @@ const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_HK[] =
     { L"(04) Not Used", 0x433f460, 0x433f480, indexCPS2_Charlie, 3 },
     { L"(05) Not Used", 0x433f480, 0x433f4a0, indexCPS2_Charlie, 4 },
     { L"(06) Not Used", 0x433f4a0, 0x433f4c0, indexCPS2_Charlie, 5 },
-    { L"(07) Not Used", 0x433f4c0, 0x433f4e0, indexCPS2_Charlie, 6 },
-    { L"(08) Not Used", 0x433f4e0, 0x433f500, indexCPS2_Charlie, 7 },
+    { L"(07) Not Used", 0x433f4c0, 0x433f4e0, indexCPS2_Charlie, 0 },
+    { L"(08) Not Used", 0x433f4e0, 0x433f500, indexCPS2_Charlie, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_A1[] =
@@ -5099,8 +5099,8 @@ const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_A1[] =
     { L"(04) Not Used", 0x433f560, 0x433f580, indexCPS2_Charlie, 3 },
     { L"(05) Not Used", 0x433f580, 0x433f5a0, indexCPS2_Charlie, 4 },
     { L"(06) Not Used", 0x433f5a0, 0x433f5c0, indexCPS2_Charlie, 5 },
-    { L"(07) Not Used", 0x433f5c0, 0x433f5e0, indexCPS2_Charlie, 6 },
-    { L"(08) Not Used", 0x433f5e0, 0x433f600, indexCPS2_Charlie, 7 },
+    { L"(07) Not Used", 0x433f5c0, 0x433f5e0, indexCPS2_Charlie, 0 },
+    { L"(08) Not Used", 0x433f5e0, 0x433f600, indexCPS2_Charlie, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_A2[] =
@@ -5111,8 +5111,8 @@ const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_A2[] =
     { L"(04) Not Used", 0x433f660, 0x433f680, indexCPS2_Charlie, 3 },
     { L"(05) Not Used", 0x433f680, 0x433f6a0, indexCPS2_Charlie, 4 },
     { L"(06) Not Used", 0x433f6a0, 0x433f6c0, indexCPS2_Charlie, 5 },
-    { L"(07) Not Used", 0x433f6c0, 0x433f6e0, indexCPS2_Charlie, 6 },
-    { L"(08) Not Used", 0x433f6e0, 0x433f700, indexCPS2_Charlie, 7 },
+    { L"(07) Not Used", 0x433f6c0, 0x433f6e0, indexCPS2_Charlie, 0 },
+    { L"(08) Not Used", 0x433f6e0, 0x433f700, indexCPS2_Charlie, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_CHARLIE_PALETTES_SHARED[] =
@@ -5146,8 +5146,8 @@ const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_LP[] =
     { L"(04) Not Used", 0x4405bc0, 0x4405be0, indexCPS2_Sakura, 3 },
     { L"(05) Not Used", 0x4405be0, 0x4405c00, indexCPS2_Sakura, 4 },
     { L"(06) Not Used", 0x4405c00, 0x4405c20, indexCPS2_Sakura, 5 },
-    { L"(07) Not Used", 0x4405c20, 0x4405c40, indexCPS2_Sakura, 6 },
-    { L"(08) Not Used", 0x4405c40, 0x4405c60, indexCPS2_Sakura, 7 },
+    { L"(07) Not Used", 0x4405c20, 0x4405c40, indexCPS2_Sakura, 0 },
+    { L"(08) Not Used", 0x4405c40, 0x4405c60, indexCPS2_Sakura, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_LK[] =
@@ -5158,8 +5158,8 @@ const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_LK[] =
     { L"(04) Not Used", 0x4405cc0, 0x4405ce0, indexCPS2_Sakura, 3 },
     { L"(05) Not Used", 0x4405ce0, 0x4405d00, indexCPS2_Sakura, 4 },
     { L"(06) Not Used", 0x4405d00, 0x4405d20, indexCPS2_Sakura, 5 },
-    { L"(07) Not Used", 0x4405d20, 0x4405d40, indexCPS2_Sakura, 6 },
-    { L"(08) Not Used", 0x4405d40, 0x4405d60, indexCPS2_Sakura, 7 },
+    { L"(07) Not Used", 0x4405d20, 0x4405d40, indexCPS2_Sakura, 0 },
+    { L"(08) Not Used", 0x4405d40, 0x4405d60, indexCPS2_Sakura, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_HP[] =
@@ -5170,8 +5170,8 @@ const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_HP[] =
     { L"(04) Not Used", 0x4405dc0, 0x4405de0, indexCPS2_Sakura, 3 },
     { L"(05) Not Used", 0x4405de0, 0x4405e00, indexCPS2_Sakura, 4 },
     { L"(06) Not Used", 0x4405e00, 0x4405e20, indexCPS2_Sakura, 5 },
-    { L"(07) Not Used", 0x4405e20, 0x4405e40, indexCPS2_Sakura, 6 },
-    { L"(08) Not Used", 0x4405e40, 0x4405e60, indexCPS2_Sakura, 7 },
+    { L"(07) Not Used", 0x4405e20, 0x4405e40, indexCPS2_Sakura, 0 },
+    { L"(08) Not Used", 0x4405e40, 0x4405e60, indexCPS2_Sakura, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_HK[] =
@@ -5182,8 +5182,8 @@ const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_HK[] =
     { L"(04) Not Used", 0x4405ec0, 0x4405ee0, indexCPS2_Sakura, 3 },
     { L"(05) Not Used", 0x4405ee0, 0x4405f00, indexCPS2_Sakura, 4 },
     { L"(06) Not Used", 0x4405f00, 0x4405f20, indexCPS2_Sakura, 5 },
-    { L"(07) Not Used", 0x4405f20, 0x4405f40, indexCPS2_Sakura, 6 },
-    { L"(08) Not Used", 0x4405f40, 0x4405f60, indexCPS2_Sakura, 7 },
+    { L"(07) Not Used", 0x4405f20, 0x4405f40, indexCPS2_Sakura, 0 },
+    { L"(08) Not Used", 0x4405f40, 0x4405f60, indexCPS2_Sakura, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_A1[] =
@@ -5194,8 +5194,8 @@ const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_A1[] =
     { L"(04) Not Used", 0x4405fc0, 0x4405fe0, indexCPS2_Sakura, 3 },
     { L"(05) Not Used", 0x4405fe0, 0x4406000, indexCPS2_Sakura, 4 },
     { L"(06) Not Used", 0x4406000, 0x4406020, indexCPS2_Sakura, 5 },
-    { L"(07) Not Used", 0x4406020, 0x4406040, indexCPS2_Sakura, 6 },
-    { L"(08) Not Used", 0x4406040, 0x4406060, indexCPS2_Sakura, 7 },
+    { L"(07) Not Used", 0x4406020, 0x4406040, indexCPS2_Sakura, 0 },
+    { L"(08) Not Used", 0x4406040, 0x4406060, indexCPS2_Sakura, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_A2[] =
@@ -5206,8 +5206,8 @@ const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_A2[] =
     { L"(04) Not Used", 0x44060c0, 0x44060e0, indexCPS2_Sakura, 3 },
     { L"(05) Not Used", 0x44060e0, 0x4406100, indexCPS2_Sakura, 4 },
     { L"(06) Not Used", 0x4406100, 0x4406120, indexCPS2_Sakura, 5 },
-    { L"(07) Not Used", 0x4406120, 0x4406140, indexCPS2_Sakura, 6 },
-    { L"(08) Not Used", 0x4406140, 0x4406160, indexCPS2_Sakura, 7 },
+    { L"(07) Not Used", 0x4406120, 0x4406140, indexCPS2_Sakura, 0 },
+    { L"(08) Not Used", 0x4406140, 0x4406160, indexCPS2_Sakura, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_SHARED[] =
@@ -5272,8 +5272,8 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_LP[] =
     { L"(04) Not Used", 0x4454120, 0x4454140, indexCPS2_Dan, 3 },
     { L"(05) Not Used", 0x4454140, 0x4454160, indexCPS2_Dan, 4 },
     { L"(06) Not Used", 0x4454160, 0x4454180, indexCPS2_Dan, 5 },
-    { L"(07) Not Used", 0x4454180, 0x44541a0, indexCPS2_Dan, 6 },
-    { L"(08) Not Used", 0x44541a0, 0x44541c0, indexCPS2_Dan, 7 },
+    { L"(07) Not Used", 0x4454180, 0x44541a0, indexCPS2_Dan, 0 },
+    { L"(08) Not Used", 0x44541a0, 0x44541c0, indexCPS2_Dan, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_DAN_PALETTES_LK[] =
@@ -5284,8 +5284,8 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_LK[] =
     { L"(04) Not Used", 0x4454220, 0x4454240, indexCPS2_Dan, 3 },
     { L"(05) Not Used", 0x4454240, 0x4454260, indexCPS2_Dan, 4 },
     { L"(06) Not Used", 0x4454260, 0x4454280, indexCPS2_Dan, 5 },
-    { L"(07) Not Used", 0x4454280, 0x44542a0, indexCPS2_Dan, 6 },
-    { L"(08) Not Used", 0x44542a0, 0x44542c0, indexCPS2_Dan, 7 },
+    { L"(07) Not Used", 0x4454280, 0x44542a0, indexCPS2_Dan, 0 },
+    { L"(08) Not Used", 0x44542a0, 0x44542c0, indexCPS2_Dan, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_DAN_PALETTES_HP[] =
@@ -5296,8 +5296,8 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_HP[] =
     { L"(04) Not Used", 0x4454320, 0x4454340, indexCPS2_Dan, 3 },
     { L"(05) Not Used", 0x4454340, 0x4454360, indexCPS2_Dan, 4 },
     { L"(06) Not Used", 0x4454360, 0x4454380, indexCPS2_Dan, 5 },
-    { L"(07) Not Used", 0x4454380, 0x44543a0, indexCPS2_Dan, 6 },
-    { L"(08) Not Used", 0x44543a0, 0x44543c0, indexCPS2_Dan, 7 },
+    { L"(07) Not Used", 0x4454380, 0x44543a0, indexCPS2_Dan, 0 },
+    { L"(08) Not Used", 0x44543a0, 0x44543c0, indexCPS2_Dan, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_DAN_PALETTES_HK[] =
@@ -5308,8 +5308,8 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_HK[] =
     { L"(04) Not Used", 0x4454420, 0x4454440, indexCPS2_Dan, 3 },
     { L"(05) Not Used", 0x4454440, 0x4454460, indexCPS2_Dan, 4 },
     { L"(06) Not Used", 0x4454460, 0x4454480, indexCPS2_Dan, 5 },
-    { L"(07) Not Used", 0x4454480, 0x44544a0, indexCPS2_Dan, 6 },
-    { L"(08) Not Used", 0x44544a0, 0x44544c0, indexCPS2_Dan, 7 },
+    { L"(07) Not Used", 0x4454480, 0x44544a0, indexCPS2_Dan, 0 },
+    { L"(08) Not Used", 0x44544a0, 0x44544c0, indexCPS2_Dan, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_DAN_PALETTES_A1[] =
@@ -5320,8 +5320,8 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_A1[] =
     { L"(04) Not Used", 0x4454520, 0x4454540, indexCPS2_Dan, 3 },
     { L"(05) Not Used", 0x4454540, 0x4454560, indexCPS2_Dan, 4 },
     { L"(06) Not Used", 0x4454560, 0x4454580, indexCPS2_Dan, 5 },
-    { L"(07) Not Used", 0x4454580, 0x44545a0, indexCPS2_Dan, 6 },
-    { L"(08) Not Used", 0x44545a0, 0x44545c0, indexCPS2_Dan, 7 },
+    { L"(07) Not Used", 0x4454580, 0x44545a0, indexCPS2_Dan, 0 },
+    { L"(08) Not Used", 0x44545a0, 0x44545c0, indexCPS2_Dan, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_DAN_PALETTES_A2[] =
@@ -5332,8 +5332,8 @@ const sGame_PaletteDataset MVC2_A_DAN_PALETTES_A2[] =
     { L"(04) Not Used", 0x4454620, 0x4454640, indexCPS2_Dan, 3 },
     { L"(05) Not Used", 0x4454640, 0x4454660, indexCPS2_Dan, 4 },
     { L"(06) Not Used", 0x4454660, 0x4454680, indexCPS2_Dan, 5 },
-    { L"(07) Not Used", 0x4454680, 0x44546a0, indexCPS2_Dan, 6 },
-    { L"(08) Not Used", 0x44546a0, 0x44546c0, indexCPS2_Dan, 7 },
+    { L"(07) Not Used", 0x4454680, 0x44546a0, indexCPS2_Dan, 0 },
+    { L"(08) Not Used", 0x44546a0, 0x44546c0, indexCPS2_Dan, 0 },
 };
 
 const sGame_PaletteDataset MVC2_A_DAN_PALETTES_SHARED[] =
@@ -5763,7 +5763,7 @@ const sGame_PaletteDataset MVC2_A_KEN_PALETTES_LP[] =
     { L"(04) ID:01-08 Shippu JinraiKyaku (fire)", 0x46b56c0, 0x46b56e0, indexCPS2_Ken, 3 },
     { L"(05) Not Used", 0x46b56e0, 0x46b5700, indexCPS2_Ken, 4 },
     { L"(06) Not Used", 0x46b5700, 0x46b5720, indexCPS2_Ken, 5 },
-    { L"(07) Not Used", 0x46b5720, 0x46b5740, indexCPS2_Ken, 6 },
+    { L"(07) Not Used", 0x46b5720, 0x46b5740, indexCPS2_Ken, 0 },
     { L"(08) Not Used", 0x46b5740, 0x46b5760, indexCPS2_Ken, 7 },
 };
 
@@ -5775,7 +5775,7 @@ const sGame_PaletteDataset MVC2_A_KEN_PALETTES_LK[] =
     { L"(04) ID:01-08 Shippu JinraiKyaku (fire)", 0x46b57c0, 0x46b57e0, indexCPS2_Ken, 3 },
     { L"(05) Not Used", 0x46b57e0, 0x46b5800, indexCPS2_Ken, 4 },
     { L"(06) Not Used", 0x46b5800, 0x46b5820, indexCPS2_Ken, 5 },
-    { L"(07) Not Used", 0x46b5820, 0x46b5840, indexCPS2_Ken, 6 },
+    { L"(07) Not Used", 0x46b5820, 0x46b5840, indexCPS2_Ken, 0 },
     { L"(08) Not Used", 0x46b5840, 0x46b5860, indexCPS2_Ken, 7 },
 };
 
@@ -5787,7 +5787,7 @@ const sGame_PaletteDataset MVC2_A_KEN_PALETTES_HP[] =
     { L"(04) ID:01-08 Shippu JinraiKyaku (fire)", 0x46b58c0, 0x46b58e0, indexCPS2_Ken, 3 },
     { L"(05) Not Used", 0x46b58e0, 0x46b5900, indexCPS2_Ken, 4 },
     { L"(06) Not Used", 0x46b5900, 0x46b5920, indexCPS2_Ken, 5 },
-    { L"(07) Not Used", 0x46b5920, 0x46b5940, indexCPS2_Ken, 6 },
+    { L"(07) Not Used", 0x46b5920, 0x46b5940, indexCPS2_Ken, 0 },
     { L"(08) Not Used", 0x46b5940, 0x46b5960, indexCPS2_Ken, 7 },
 };
 
@@ -5799,7 +5799,7 @@ const sGame_PaletteDataset MVC2_A_KEN_PALETTES_HK[] =
     { L"(04) ID:01-08 Shippu JinraiKyaku (fire)", 0x46b59c0, 0x46b59e0, indexCPS2_Ken, 3 },
     { L"(05) Not Used", 0x46b59e0, 0x46b5a00, indexCPS2_Ken, 4 },
     { L"(06) Not Used", 0x46b5a00, 0x46b5a20, indexCPS2_Ken, 5 },
-    { L"(07) Not Used", 0x46b5a20, 0x46b5a40, indexCPS2_Ken, 6 },
+    { L"(07) Not Used", 0x46b5a20, 0x46b5a40, indexCPS2_Ken, 0 },
     { L"(08) Not Used", 0x46b5a40, 0x46b5a60, indexCPS2_Ken, 7 },
 };
 
@@ -5811,7 +5811,7 @@ const sGame_PaletteDataset MVC2_A_KEN_PALETTES_A1[] =
     { L"(04) ID:01-08 Shippu JinraiKyaku (fire)", 0x46b5ac0, 0x46b5ae0, indexCPS2_Ken, 3 },
     { L"(05) Not Used", 0x46b5ae0, 0x46b5b00, indexCPS2_Ken, 4 },
     { L"(06) Not Used", 0x46b5b00, 0x46b5b20, indexCPS2_Ken, 5 },
-    { L"(07) Not Used", 0x46b5b20, 0x46b5b40, indexCPS2_Ken, 6 },
+    { L"(07) Not Used", 0x46b5b20, 0x46b5b40, indexCPS2_Ken, 0 },
     { L"(08) Not Used", 0x46b5b40, 0x46b5b60, indexCPS2_Ken, 7 },
 };
 
@@ -5823,7 +5823,7 @@ const sGame_PaletteDataset MVC2_A_KEN_PALETTES_A2[] =
     { L"(04) ID:01-08 Shippu JinraiKyaku (fire)", 0x46b5bc0, 0x46b5be0, indexCPS2_Ken, 3 },
     { L"(05) Not Used", 0x46b5be0, 0x46b5c00, indexCPS2_Ken, 4 },
     { L"(06) Not Used", 0x46b5c00, 0x46b5c20, indexCPS2_Ken, 5 },
-    { L"(07) Not Used", 0x46b5c20, 0x46b5c40, indexCPS2_Ken, 6 },
+    { L"(07) Not Used", 0x46b5c20, 0x46b5c40, indexCPS2_Ken, 0 },
     { L"(08) Not Used", 0x46b5c40, 0x46b5c60, indexCPS2_Ken, 7 },
 };
 
@@ -5858,7 +5858,7 @@ const sGame_PaletteDataset MVC2_A_GAMBIT_PALETTES_LP[] =
     { L"(04) Not Used", 0x479ece0, 0x479ed00, indexCPS2_Gambit, 3 },
     { L"(05) Not Used", 0x479ed00, 0x479ed20, indexCPS2_Gambit, 4 },
     { L"(06) Not Used", 0x479ed20, 0x479ed40, indexCPS2_Gambit, 5 },
-    { L"(07) Not Used", 0x479ed40, 0x479ed60, indexCPS2_Gambit, 6 },
+    { L"(07) Not Used", 0x479ed40, 0x479ed60, indexCPS2_Gambit, 0 },
     { L"(08) Not Used", 0x479ed60, 0x479ed80, indexCPS2_Gambit, 7 },
 };
 
@@ -5870,7 +5870,7 @@ const sGame_PaletteDataset MVC2_A_GAMBIT_PALETTES_LK[] =
     { L"(04) Not Used", 0x479ede0, 0x479ee00, indexCPS2_Gambit, 3 },
     { L"(05) Not Used", 0x479ee00, 0x479ee20, indexCPS2_Gambit, 4 },
     { L"(06) Not Used", 0x479ee20, 0x479ee40, indexCPS2_Gambit, 5 },
-    { L"(07) Not Used", 0x479ee40, 0x479ee60, indexCPS2_Gambit, 6 },
+    { L"(07) Not Used", 0x479ee40, 0x479ee60, indexCPS2_Gambit, 0 },
     { L"(08) Not Used", 0x479ee60, 0x479ee80, indexCPS2_Gambit, 7 },
 };
 
@@ -5882,7 +5882,7 @@ const sGame_PaletteDataset MVC2_A_GAMBIT_PALETTES_HP[] =
     { L"(04) Not Used", 0x479eee0, 0x479ef00, indexCPS2_Gambit, 3 },
     { L"(05) Not Used", 0x479ef00, 0x479ef20, indexCPS2_Gambit, 4 },
     { L"(06) Not Used", 0x479ef20, 0x479ef40, indexCPS2_Gambit, 5 },
-    { L"(07) Not Used", 0x479ef40, 0x479ef60, indexCPS2_Gambit, 6 },
+    { L"(07) Not Used", 0x479ef40, 0x479ef60, indexCPS2_Gambit, 0 },
     { L"(08) Not Used", 0x479ef60, 0x479ef80, indexCPS2_Gambit, 7 },
 };
 
@@ -5894,7 +5894,7 @@ const sGame_PaletteDataset MVC2_A_GAMBIT_PALETTES_HK[] =
     { L"(04) Not Used", 0x479efe0, 0x479f000, indexCPS2_Gambit, 3 },
     { L"(05) Not Used", 0x479f000, 0x479f020, indexCPS2_Gambit, 4 },
     { L"(06) Not Used", 0x479f020, 0x479f040, indexCPS2_Gambit, 5 },
-    { L"(07) Not Used", 0x479f040, 0x479f060, indexCPS2_Gambit, 6 },
+    { L"(07) Not Used", 0x479f040, 0x479f060, indexCPS2_Gambit, 0 },
     { L"(08) Not Used", 0x479f060, 0x479f080, indexCPS2_Gambit, 7 },
 };
 
@@ -5906,7 +5906,7 @@ const sGame_PaletteDataset MVC2_A_GAMBIT_PALETTES_A1[] =
     { L"(04) Not Used", 0x479f0e0, 0x479f100, indexCPS2_Gambit, 3 },
     { L"(05) Not Used", 0x479f100, 0x479f120, indexCPS2_Gambit, 4 },
     { L"(06) Not Used", 0x479f120, 0x479f140, indexCPS2_Gambit, 5 },
-    { L"(07) Not Used", 0x479f140, 0x479f160, indexCPS2_Gambit, 6 },
+    { L"(07) Not Used", 0x479f140, 0x479f160, indexCPS2_Gambit, 0 },
     { L"(08) Not Used", 0x479f160, 0x479f180, indexCPS2_Gambit, 7 },
 };
 
@@ -5918,7 +5918,7 @@ const sGame_PaletteDataset MVC2_A_GAMBIT_PALETTES_A2[] =
     { L"(04) Not Used", 0x479f1e0, 0x479f200, indexCPS2_Gambit, 3 },
     { L"(05) Not Used", 0x479f200, 0x479f220, indexCPS2_Gambit, 4 },
     { L"(06) Not Used", 0x479f220, 0x479f240, indexCPS2_Gambit, 5 },
-    { L"(07) Not Used", 0x479f240, 0x479f260, indexCPS2_Gambit, 6 },
+    { L"(07) Not Used", 0x479f240, 0x479f260, indexCPS2_Gambit, 0 },
     { L"(08) Not Used", 0x479f260, 0x479f280, indexCPS2_Gambit, 7 },
 };
 
@@ -6282,7 +6282,7 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_LP[] =
     { L"(04) Sabre's Limo", 0x4adb3c0, 0x4adb3e0, indexCPS2_Sabretooth, 3 },
     { L"(05) Not Used", 0x4adb3e0, 0x4adb400, indexCPS2_Sabretooth, 4 },
     { L"(06) Not Used", 0x4adb400, 0x4adb420, indexCPS2_Sabretooth, 5 },
-    { L"(07) Not Used", 0x4adb420, 0x4adb440, indexCPS2_Sabretooth, 6 },
+    { L"(07) Not Used", 0x4adb420, 0x4adb440, indexCPS2_Sabretooth, 0 },
     { L"(08) Not Used", 0x4adb440, 0x4adb460, indexCPS2_Sabretooth, 7 },
 };
 
@@ -6294,7 +6294,7 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_LK[] =
     { L"(04) Sabre's Limo", 0x4adb4c0, 0x4adb4e0, indexCPS2_Sabretooth, 3 },
     { L"(05) Not Used", 0x4adb4e0, 0x4adb500, indexCPS2_Sabretooth, 4 },
     { L"(06) Not Used", 0x4adb500, 0x4adb520, indexCPS2_Sabretooth, 5 },
-    { L"(07) Not Used", 0x4adb520, 0x4adb540, indexCPS2_Sabretooth, 6 },
+    { L"(07) Not Used", 0x4adb520, 0x4adb540, indexCPS2_Sabretooth, 0 },
     { L"(08) Not Used", 0x4adb540, 0x4adb560, indexCPS2_Sabretooth, 7 },
 };
 
@@ -6306,7 +6306,7 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_HP[] =
     { L"(04) Sabre's Limo", 0x4adb5c0, 0x4adb5e0, indexCPS2_Sabretooth, 3 },
     { L"(05) Not Used", 0x4adb5e0, 0x4adb600, indexCPS2_Sabretooth, 4 },
     { L"(06) Not Used", 0x4adb600, 0x4adb620, indexCPS2_Sabretooth, 5 },
-    { L"(07) Not Used", 0x4adb620, 0x4adb640, indexCPS2_Sabretooth, 6 },
+    { L"(07) Not Used", 0x4adb620, 0x4adb640, indexCPS2_Sabretooth, 0 },
     { L"(08) Not Used", 0x4adb640, 0x4adb660, indexCPS2_Sabretooth, 7 },
 };
 
@@ -6318,7 +6318,7 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_HK[] =
     { L"(04) Sabre's Limo", 0x4adb6c0, 0x4adb6e0, indexCPS2_Sabretooth, 3 },
     { L"(05) Not Used", 0x4adb6e0, 0x4adb700, indexCPS2_Sabretooth, 4 },
     { L"(06) Not Used", 0x4adb700, 0x4adb720, indexCPS2_Sabretooth, 5 },
-    { L"(07) Not Used", 0x4adb720, 0x4adb740, indexCPS2_Sabretooth, 6 },
+    { L"(07) Not Used", 0x4adb720, 0x4adb740, indexCPS2_Sabretooth, 0 },
     { L"(08) Not Used", 0x4adb740, 0x4adb760, indexCPS2_Sabretooth, 7 },
 };
 
@@ -6330,7 +6330,7 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_A1[] =
     { L"(04) Sabre's Limo", 0x4adb7c0, 0x4adb7e0, indexCPS2_Sabretooth, 3 },
     { L"(05) Not Used", 0x4adb7e0, 0x4adb800, indexCPS2_Sabretooth, 4 },
     { L"(06) Not Used", 0x4adb800, 0x4adb820, indexCPS2_Sabretooth, 5 },
-    { L"(07) Not Used", 0x4adb820, 0x4adb840, indexCPS2_Sabretooth, 6 },
+    { L"(07) Not Used", 0x4adb820, 0x4adb840, indexCPS2_Sabretooth, 0 },
     { L"(08) Not Used", 0x4adb840, 0x4adb860, indexCPS2_Sabretooth, 7 },
 };
 
@@ -6342,7 +6342,7 @@ const sGame_PaletteDataset MVC2_A_SABRETOOTH_PALETTES_A2[] =
     { L"(04) Sabre's Limo", 0x4adb8c0, 0x4adb8e0, indexCPS2_Sabretooth, 3 },
     { L"(05) Not Used", 0x4adb8e0, 0x4adb900, indexCPS2_Sabretooth, 4 },
     { L"(06) Not Used", 0x4adb900, 0x4adb920, indexCPS2_Sabretooth, 5 },
-    { L"(07) Not Used", 0x4adb920, 0x4adb940, indexCPS2_Sabretooth, 6 },
+    { L"(07) Not Used", 0x4adb920, 0x4adb940, indexCPS2_Sabretooth, 0 },
     { L"(08) Not Used", 0x4adb940, 0x4adb960, indexCPS2_Sabretooth, 7 },
 };
 
@@ -6377,7 +6377,7 @@ const sGame_PaletteDataset MVC2_A_MAGNETO_PALETTES_LP[] =
     { L"(04) ID:01-09 Magnetic Shockwave ID:10-15 Not Used", 0x4bf2220, 0x4bf2240, indexCPS2_Magneto, 3 },
     { L"(05) Not Used", 0x4bf2240, 0x4bf2260, indexCPS2_Magneto, 4 },
     { L"(06) Not Used", 0x4bf2260, 0x4bf2280, indexCPS2_Magneto, 5 },
-    { L"(07) Not Used", 0x4bf2280, 0x4bf22a0, indexCPS2_Magneto, 6 },
+    { L"(07) Not Used", 0x4bf2280, 0x4bf22a0, indexCPS2_Magneto, 0 },
     { L"(08) Not Used", 0x4bf22a0, 0x4bf22c0, indexCPS2_Magneto, 7 },
 };
 
@@ -6389,7 +6389,7 @@ const sGame_PaletteDataset MVC2_A_MAGNETO_PALETTES_LK[] =
     { L"(04) ID:01-09 Magnetic Shockwave ID:10-15 Not Used", 0x4bf2320, 0x4bf2340, indexCPS2_Magneto, 3 },
     { L"(05) Not Used", 0x4bf2340, 0x4bf2360, indexCPS2_Magneto, 4 },
     { L"(06) Not Used", 0x4bf2360, 0x4bf2380, indexCPS2_Magneto, 5 },
-    { L"(07) Not Used", 0x4bf2380, 0x4bf23a0, indexCPS2_Magneto, 6 },
+    { L"(07) Not Used", 0x4bf2380, 0x4bf23a0, indexCPS2_Magneto, 0 },
     { L"(08) Not Used", 0x4bf23a0, 0x4bf23c0, indexCPS2_Magneto, 7 },
 };
 
@@ -6401,7 +6401,7 @@ const sGame_PaletteDataset MVC2_A_MAGNETO_PALETTES_HP[] =
     { L"(04) ID:01-09 Magnetic Shockwave ID:10-15 Not Used", 0x4bf2420, 0x4bf2440, indexCPS2_Magneto, 3 },
     { L"(05) Not Used", 0x4bf2440, 0x4bf2460, indexCPS2_Magneto, 4 },
     { L"(06) Not Used", 0x4bf2460, 0x4bf2480, indexCPS2_Magneto, 5 },
-    { L"(07) Not Used", 0x4bf2480, 0x4bf24a0, indexCPS2_Magneto, 6 },
+    { L"(07) Not Used", 0x4bf2480, 0x4bf24a0, indexCPS2_Magneto, 0 },
     { L"(08) Not Used", 0x4bf24a0, 0x4bf24c0, indexCPS2_Magneto, 7 },
 };
 
@@ -6413,7 +6413,7 @@ const sGame_PaletteDataset MVC2_A_MAGNETO_PALETTES_HK[] =
     { L"(04) ID:01-09 Magnetic Shockwave ID:10-15 Not Used", 0x4bf2520, 0x4bf2540, indexCPS2_Magneto, 3 },
     { L"(05) Not Used", 0x4bf2540, 0x4bf2560, indexCPS2_Magneto, 4 },
     { L"(06) Not Used", 0x4bf2560, 0x4bf2580, indexCPS2_Magneto, 5 },
-    { L"(07) Not Used", 0x4bf2580, 0x4bf25a0, indexCPS2_Magneto, 6 },
+    { L"(07) Not Used", 0x4bf2580, 0x4bf25a0, indexCPS2_Magneto, 0 },
     { L"(08) Not Used", 0x4bf25a0, 0x4bf25c0, indexCPS2_Magneto, 7 },
 };
 
@@ -6425,7 +6425,7 @@ const sGame_PaletteDataset MVC2_A_MAGNETO_PALETTES_A1[] =
     { L"(04) ID:01-09 Magnetic Shockwave ID:10-15 Not Used", 0x4bf2620, 0x4bf2640, indexCPS2_Magneto, 3 },
     { L"(05) Not Used", 0x4bf2640, 0x4bf2660, indexCPS2_Magneto, 4 },
     { L"(06) Not Used", 0x4bf2660, 0x4bf2680, indexCPS2_Magneto, 5 },
-    { L"(07) Not Used", 0x4bf2680, 0x4bf26a0, indexCPS2_Magneto, 6 },
+    { L"(07) Not Used", 0x4bf2680, 0x4bf26a0, indexCPS2_Magneto, 0 },
     { L"(08) Not Used", 0x4bf26a0, 0x4bf26c0, indexCPS2_Magneto, 7 },
 };
 
@@ -6437,7 +6437,7 @@ const sGame_PaletteDataset MVC2_A_MAGNETO_PALETTES_A2[] =
     { L"(04) ID:01-09 Magnetic Shockwave ID:10-15 Not Used", 0x4bf2720, 0x4bf2740, indexCPS2_Magneto, 3 },
     { L"(05) Not Used", 0x4bf2740, 0x4bf2760, indexCPS2_Magneto, 4 },
     { L"(06) Not Used", 0x4bf2760, 0x4bf2780, indexCPS2_Magneto, 5 },
-    { L"(07) Not Used", 0x4bf2780, 0x4bf27a0, indexCPS2_Magneto, 6 },
+    { L"(07) Not Used", 0x4bf2780, 0x4bf27a0, indexCPS2_Magneto, 0 },
     { L"(08) Not Used", 0x4bf27a0, 0x4bf27c0, indexCPS2_Magneto, 7 },
 };
 
@@ -6970,7 +6970,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_LP[] =
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6180, 0x4ef61a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef61a0, 0x4ef61c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef61c0, 0x4ef61e0, indexCPS2_SilverSamurai, 5 },
-    { L"(07) Not Used", 0x4ef61e0, 0x4ef6200, indexCPS2_SilverSamurai, 6 },
+    { L"(07) Not Used", 0x4ef61e0, 0x4ef6200, indexCPS2_SilverSamurai, 0 },
     { L"(08) Icicle", 0x4ef6200, 0x4ef6220, indexCPS2_SilverSamurai, 7 },
 };
 
@@ -6982,7 +6982,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_LK[] =
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6280, 0x4ef62a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef62a0, 0x4ef62c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef62c0, 0x4ef62e0, indexCPS2_SilverSamurai, 5 },
-    { L"(07) Not Used", 0x4ef62e0, 0x4ef6300, indexCPS2_SilverSamurai, 6 },
+    { L"(07) Not Used", 0x4ef62e0, 0x4ef6300, indexCPS2_SilverSamurai, 0 },
     { L"(08) Icicle", 0x4ef6300, 0x4ef6320, indexCPS2_SilverSamurai, 7 },
 };
 
@@ -6994,7 +6994,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_HP[] =
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6380, 0x4ef63a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef63a0, 0x4ef63c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef63c0, 0x4ef63e0, indexCPS2_SilverSamurai, 5 },
-    { L"(07) Not Used", 0x4ef63e0, 0x4ef6400, indexCPS2_SilverSamurai, 6 },
+    { L"(07) Not Used", 0x4ef63e0, 0x4ef6400, indexCPS2_SilverSamurai, 0 },
     { L"(08) Icicle", 0x4ef6400, 0x4ef6420, indexCPS2_SilverSamurai, 7 },
 };
 
@@ -7006,7 +7006,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_HK[] =
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6480, 0x4ef64a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef64a0, 0x4ef64c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef64c0, 0x4ef64e0, indexCPS2_SilverSamurai, 5 },
-    { L"(07) Not Used", 0x4ef64e0, 0x4ef6500, indexCPS2_SilverSamurai, 6 },
+    { L"(07) Not Used", 0x4ef64e0, 0x4ef6500, indexCPS2_SilverSamurai, 0 },
     { L"(08) Icicle", 0x4ef6500, 0x4ef6520, indexCPS2_SilverSamurai, 7 },
 };
 
@@ -7018,7 +7018,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_A1[] =
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6580, 0x4ef65a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef65a0, 0x4ef65c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef65c0, 0x4ef65e0, indexCPS2_SilverSamurai, 5 },
-    { L"(07) Not Used", 0x4ef65e0, 0x4ef6600, indexCPS2_SilverSamurai, 6 },
+    { L"(07) Not Used", 0x4ef65e0, 0x4ef6600, indexCPS2_SilverSamurai, 0 },
     { L"(08) Icicle", 0x4ef6600, 0x4ef6620, indexCPS2_SilverSamurai, 7 },
 };
 
@@ -7030,7 +7030,7 @@ const sGame_PaletteDataset MVC2_A_SILVERSAMURAI_PALETTES_A2[] =
     { L"(04) Fire Effect (Sword) / Lightning Super / Shuriken (hand shadow)", 0x4ef6680, 0x4ef66a0, indexCPS2_SilverSamurai, 3 },
     { L"(05) Thunder Effect (sword)", 0x4ef66a0, 0x4ef66c0, indexCPS2_SilverSamurai, 4 },
     { L"(06) Ice Effect (sword)", 0x4ef66c0, 0x4ef66e0, indexCPS2_SilverSamurai, 5 },
-    { L"(07) Not Used", 0x4ef66e0, 0x4ef6700, indexCPS2_SilverSamurai, 6 },
+    { L"(07) Not Used", 0x4ef66e0, 0x4ef6700, indexCPS2_SilverSamurai, 0 },
     { L"(08) Icicle", 0x4ef6700, 0x4ef6720, indexCPS2_SilverSamurai, 7 },
 };
 
@@ -7543,7 +7543,7 @@ const sGame_PaletteDataset MVC2_A_COLOSSUS_PALETTES_LP[] =
     { L"(04) Stance Frame Main Color + lum-4", 0x5235ac0, 0x5235ae0, indexCPS2_Colossus, 0 },
     { L"(05) ID:01-13 Dash Throw (effect)", 0x5235ae0, 0x5235b00, indexCPS2_Colossus, 4 },
     { L"(06) Not Used", 0x5235b00, 0x5235b20, indexCPS2_Colossus, 5 },
-    { L"(07) Not Used", 0x5235b20, 0x5235b40, indexCPS2_Colossus, 6 },
+    { L"(07) Not Used", 0x5235b20, 0x5235b40, indexCPS2_Colossus, 0 },
     { L"(08) Not Used", 0x5235b40, 0x5235b60, indexCPS2_Colossus, 7 },
 };
 
@@ -7555,7 +7555,7 @@ const sGame_PaletteDataset MVC2_A_COLOSSUS_PALETTES_LK[] =
     { L"(04) Stance Frame Main Color + lum-4", 0x5235bc0, 0x5235be0, indexCPS2_Colossus, 0 },
     { L"(05) ID:01-13 Dash Throw (effect)", 0x5235be0, 0x5235c00, indexCPS2_Colossus, 4 },
     { L"(06) Not Used", 0x5235c00, 0x5235c20, indexCPS2_Colossus, 5 },
-    { L"(07) Not Used", 0x5235c20, 0x5235c40, indexCPS2_Colossus, 6 },
+    { L"(07) Not Used", 0x5235c20, 0x5235c40, indexCPS2_Colossus, 0 },
     { L"(08) Not Used", 0x5235c40, 0x5235c60, indexCPS2_Colossus, 7 },
 };
 
@@ -7567,7 +7567,7 @@ const sGame_PaletteDataset MVC2_A_COLOSSUS_PALETTES_HP[] =
     { L"(04) Stance Frame Main Color + lum-4", 0x5235cc0, 0x5235ce0, indexCPS2_Colossus, 0 },
     { L"(05) ID:01-13 Dash Throw (effect)", 0x5235ce0, 0x5235d00, indexCPS2_Colossus, 4 },
     { L"(06) Not Used", 0x5235d00, 0x5235d20, indexCPS2_Colossus, 5 },
-    { L"(07) Not Used", 0x5235d20, 0x5235d40, indexCPS2_Colossus, 6 },
+    { L"(07) Not Used", 0x5235d20, 0x5235d40, indexCPS2_Colossus, 0 },
     { L"(08) Not Used", 0x5235d40, 0x5235d60, indexCPS2_Colossus, 7 },
 };
 
@@ -7579,7 +7579,7 @@ const sGame_PaletteDataset MVC2_A_COLOSSUS_PALETTES_HK[] =
     { L"(04) Stance Frame Main Color + lum-4", 0x5235dc0, 0x5235de0, indexCPS2_Colossus, 0 },
     { L"(05) ID:01-13 Dash Throw (effect)", 0x5235de0, 0x5235e00, indexCPS2_Colossus, 4 },
     { L"(06) Not Used", 0x5235e00, 0x5235e20, indexCPS2_Colossus, 5 },
-    { L"(07) Not Used", 0x5235e20, 0x5235e40, indexCPS2_Colossus, 6 },
+    { L"(07) Not Used", 0x5235e20, 0x5235e40, indexCPS2_Colossus, 0 },
     { L"(08) Not Used", 0x5235e40, 0x5235e60, indexCPS2_Colossus, 7 },
 };
 
@@ -7591,7 +7591,7 @@ const sGame_PaletteDataset MVC2_A_COLOSSUS_PALETTES_A1[] =
     { L"(04) Stance Frame Main Color + lum-4", 0x5235ec0, 0x5235ee0, indexCPS2_Colossus, 0 },
     { L"(05) ID:01-13 Dash Throw (effect)", 0x5235ee0, 0x5235f00, indexCPS2_Colossus, 4 },
     { L"(06) Not Used", 0x5235f00, 0x5235f20, indexCPS2_Colossus, 5 },
-    { L"(07) Not Used", 0x5235f20, 0x5235f40, indexCPS2_Colossus, 6 },
+    { L"(07) Not Used", 0x5235f20, 0x5235f40, indexCPS2_Colossus, 0 },
     { L"(08) Not Used", 0x5235f40, 0x5235f60, indexCPS2_Colossus, 7 },
 };
 
@@ -7603,7 +7603,7 @@ const sGame_PaletteDataset MVC2_A_COLOSSUS_PALETTES_A2[] =
     { L"(04) Stance Frame Main Color + lum-4", 0x5235fc0, 0x5235fe0, indexCPS2_Colossus, 0 },
     { L"(05) ID:01-13 Dash Throw (effect)", 0x5235fe0, 0x5236000, indexCPS2_Colossus, 4 },
     { L"(06) Not Used", 0x5236000, 0x5236020, indexCPS2_Colossus, 5 },
-    { L"(07) Not Used", 0x5236020, 0x5236040, indexCPS2_Colossus, 6 },
+    { L"(07) Not Used", 0x5236020, 0x5236040, indexCPS2_Colossus, 0 },
     { L"(08) Not Used", 0x5236040, 0x5236060, indexCPS2_Colossus, 7 },
 };
 
@@ -7930,7 +7930,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LP[] =
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e480, 0x545e4a0, indexCPS2_Sentinel, 3 },
     { L"(05) Not Used", 0x545e4a0, 0x545e4c0, indexCPS2_Sentinel, 4 },
     { L"(06) Not Used", 0x545e4c0, 0x545e4e0, indexCPS2_Sentinel, 5 },
-    { L"(07) Not Used", 0x545e4e0, 0x545e500, indexCPS2_Sentinel, 6 },
+    { L"(07) Not Used", 0x545e4e0, 0x545e500, indexCPS2_Sentinel, 0 },
     { L"(08) Not Used", 0x545e500, 0x545e520, indexCPS2_Sentinel, 7 },
 };
 
@@ -7942,7 +7942,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_LK[] =
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e580, 0x545e5a0, indexCPS2_Sentinel, 3 },
     { L"(05) Not Used", 0x545e5a0, 0x545e5c0, indexCPS2_Sentinel, 4 },
     { L"(06) Not Used", 0x545e5c0, 0x545e5e0, indexCPS2_Sentinel, 5 },
-    { L"(07) Not Used", 0x545e5e0, 0x545e600, indexCPS2_Sentinel, 6 },
+    { L"(07) Not Used", 0x545e5e0, 0x545e600, indexCPS2_Sentinel, 0 },
     { L"(08) Not Used", 0x545e600, 0x545e620, indexCPS2_Sentinel, 7 },
 };
 
@@ -7954,7 +7954,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HP[] =
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e680, 0x545e6a0, indexCPS2_Sentinel, 3 },
     { L"(05) Not Used", 0x545e6a0, 0x545e6c0, indexCPS2_Sentinel, 4 },
     { L"(06) Not Used", 0x545e6c0, 0x545e6e0, indexCPS2_Sentinel, 5 },
-    { L"(07) Not Used", 0x545e6e0, 0x545e700, indexCPS2_Sentinel, 6 },
+    { L"(07) Not Used", 0x545e6e0, 0x545e700, indexCPS2_Sentinel, 0 },
     { L"(08) Not Used", 0x545e700, 0x545e720, indexCPS2_Sentinel, 7 },
 };
 
@@ -7966,7 +7966,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_HK[] =
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e780, 0x545e7a0, indexCPS2_Sentinel, 3 },
     { L"(05) Not Used", 0x545e7a0, 0x545e7c0, indexCPS2_Sentinel, 4 },
     { L"(06) Not Used", 0x545e7c0, 0x545e7e0, indexCPS2_Sentinel, 5 },
-    { L"(07) Not Used", 0x545e7e0, 0x545e800, indexCPS2_Sentinel, 6 },
+    { L"(07) Not Used", 0x545e7e0, 0x545e800, indexCPS2_Sentinel, 0 },
     { L"(08) Not Used", 0x545e800, 0x545e820, indexCPS2_Sentinel, 7 },
 };
 
@@ -7978,7 +7978,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A1[] =
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e880, 0x545e8a0, indexCPS2_Sentinel, 3 },
     { L"(05) Not Used", 0x545e8a0, 0x545e8c0, indexCPS2_Sentinel, 4 },
     { L"(06) Not Used", 0x545e8c0, 0x545e8e0, indexCPS2_Sentinel, 5 },
-    { L"(07) Not Used", 0x545e8e0, 0x545e900, indexCPS2_Sentinel, 6 },
+    { L"(07) Not Used", 0x545e8e0, 0x545e900, indexCPS2_Sentinel, 0 },
     { L"(08) Not Used", 0x545e900, 0x545e920, indexCPS2_Sentinel, 7 },
 };
 
@@ -7990,7 +7990,7 @@ const sGame_PaletteDataset MVC2_A_SENTINEL_PALETTES_A2[] =
     { L"(04) ID:02-07: Plasma Storm ID:08-15: FP, c.FP, Flight (flames)", 0x545e980, 0x545e9a0, indexCPS2_Sentinel, 3 },
     { L"(05) Not Used", 0x545e9a0, 0x545e9c0, indexCPS2_Sentinel, 4 },
     { L"(06) Not Used", 0x545e9c0, 0x545e9e0, indexCPS2_Sentinel, 5 },
-    { L"(07) Not Used", 0x545e9e0, 0x545ea00, indexCPS2_Sentinel, 6 },
+    { L"(07) Not Used", 0x545e9e0, 0x545ea00, indexCPS2_Sentinel, 0 },
     { L"(08) Not Used", 0x545ea00, 0x545ea20, indexCPS2_Sentinel, 7 },
 };
 
@@ -8509,7 +8509,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_LP[] =
     { L"(04) Captain Corridor // Captain Sword", 0x5847f20, 0x5847f40, indexCPS2_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5847f40, 0x5847f60, indexCPS2_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5847f60, 0x5847f80, indexCPS2_CapCom, 5 },
-    { L"(07) Not Used", 0x5847f80, 0x5847fa0, indexCPS2_CapCom, 6 },
+    { L"(07) Not Used", 0x5847f80, 0x5847fa0, indexCPS2_CapCom, 0 },
     { L"(08) Not Used Commando Strike", 0x5847fa0, 0x5847fc0, indexCPS2_CapCom, 7 },
 };
 
@@ -8521,7 +8521,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_LK[] =
     { L"(04) Captain Corridor // Captain Sword", 0x5848020, 0x5848040, indexCPS2_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848040, 0x5848060, indexCPS2_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5848060, 0x5848080, indexCPS2_CapCom, 5 },
-    { L"(07) Not Used", 0x5848080, 0x58480a0, indexCPS2_CapCom, 6 },
+    { L"(07) Not Used", 0x5848080, 0x58480a0, indexCPS2_CapCom, 0 },
     { L"(08) Not Used Commando Strike", 0x58480a0, 0x58480c0, indexCPS2_CapCom, 7 },
 };
 
@@ -8533,7 +8533,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_HP[] =
     { L"(04) Captain Corridor // Captain Sword", 0x5848120, 0x5848140, indexCPS2_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848140, 0x5848160, indexCPS2_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5848160, 0x5848180, indexCPS2_CapCom, 5 },
-    { L"(07) Not Used", 0x5848180, 0x58481a0, indexCPS2_CapCom, 6 },
+    { L"(07) Not Used", 0x5848180, 0x58481a0, indexCPS2_CapCom, 0 },
     { L"(08) Not Used Commando Strike", 0x58481a0, 0x58481c0, indexCPS2_CapCom, 7 },
 };
 
@@ -8545,7 +8545,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_HK[] =
     { L"(04) Captain Corridor // Captain Sword", 0x5848220, 0x5848240, indexCPS2_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848240, 0x5848260, indexCPS2_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5848260, 0x5848280, indexCPS2_CapCom, 5 },
-    { L"(07) Not Used", 0x5848280, 0x58482a0, indexCPS2_CapCom, 6 },
+    { L"(07) Not Used", 0x5848280, 0x58482a0, indexCPS2_CapCom, 0 },
     { L"(08) Not Used Commando Strike", 0x58482a0, 0x58482c0, indexCPS2_CapCom, 7 },
 };
 
@@ -8557,7 +8557,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_A1[] =
     { L"(04) Captain Corridor // Captain Sword", 0x5848320, 0x5848340, indexCPS2_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848340, 0x5848360, indexCPS2_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5848360, 0x5848380, indexCPS2_CapCom, 5 },
-    { L"(07) Not Used", 0x5848380, 0x58483a0, indexCPS2_CapCom, 6 },
+    { L"(07) Not Used", 0x5848380, 0x58483a0, indexCPS2_CapCom, 0 },
     { L"(08) Not Used Commando Strike", 0x58483a0, 0x58483c0, indexCPS2_CapCom, 7 },
 };
 
@@ -8569,7 +8569,7 @@ const sGame_PaletteDataset MVC2_A_CAPTAINCOMMANDO_PALETTES_A2[] =
     { L"(04) Captain Corridor // Captain Sword", 0x5848420, 0x5848440, indexCPS2_CapCom, 3 },
     { L"(05) ID:01-08 FP // Captain Fire // Captain Kick ID:09-15 Shoo's Shuriken (HP throw)", 0x5848440, 0x5848460, indexCPS2_CapCom, 4 },
     { L"(06) Hoover's Missile Burst (HP throw)", 0x5848460, 0x5848480, indexCPS2_CapCom, 5 },
-    { L"(07) Not Used", 0x5848480, 0x58484a0, indexCPS2_CapCom, 6 },
+    { L"(07) Not Used", 0x5848480, 0x58484a0, indexCPS2_CapCom, 0 },
     { L"(08) Not Used Commando Strike", 0x58484a0, 0x58484c0, indexCPS2_CapCom, 7 },
 };
 
@@ -8626,8 +8626,8 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_LP[] =
     { L"(04) Not Used", 0x5947300, 0x5947320, indexCPS2_Bonerine, 3 },
     { L"(05) Not Used", 0x5947320, 0x5947340, indexCPS2_Bonerine, 4 },
     { L"(06) Not Used", 0x5947340, 0x5947360, indexCPS2_Bonerine, 5 },
-    { L"(07) Not Used", 0x5947360, 0x5947380, indexCPS2_Bonerine, 6 },
-    { L"(08) Not Used", 0x5947380, 0x59473a0, indexCPS2_Bonerine, 7 },
+    { L"(07) Not Used", 0x5947360, 0x5947380, indexCPS2_Bonerine, 0, &pairNext },
+    { L"(08) Not Used", 0x5947380, 0x59473a0, indexCPS2_Bonerine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_LK[] =
@@ -8638,8 +8638,8 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_LK[] =
     { L"(04) Not Used", 0x5947400, 0x5947420, indexCPS2_Bonerine, 3 },
     { L"(05) Not Used", 0x5947420, 0x5947440, indexCPS2_Bonerine, 4 },
     { L"(06) Not Used", 0x5947440, 0x5947460, indexCPS2_Bonerine, 5 },
-    { L"(07) Not Used", 0x5947460, 0x5947480, indexCPS2_Bonerine, 6 },
-    { L"(08) Not Used", 0x5947480, 0x59474a0, indexCPS2_Bonerine, 7 },
+    { L"(07) Not Used", 0x5947460, 0x5947480, indexCPS2_Bonerine, 0, &pairNext },
+    { L"(08) Not Used", 0x5947480, 0x59474a0, indexCPS2_Bonerine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HP[] =
@@ -8650,8 +8650,8 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HP[] =
     { L"(04) Not Used", 0x5947500, 0x5947520, indexCPS2_Bonerine, 3 },
     { L"(05) Not Used", 0x5947520, 0x5947540, indexCPS2_Bonerine, 4 },
     { L"(06) Not Used", 0x5947540, 0x5947560, indexCPS2_Bonerine, 5 },
-    { L"(07) Not Used", 0x5947560, 0x5947580, indexCPS2_Bonerine, 6 },
-    { L"(08) Not Used", 0x5947580, 0x59475a0, indexCPS2_Bonerine, 7 },
+    { L"(07) Not Used", 0x5947560, 0x5947580, indexCPS2_Bonerine, 0, &pairNext },
+    { L"(08) Not Used", 0x5947580, 0x59475a0, indexCPS2_Bonerine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HK[] =
@@ -8662,8 +8662,8 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HK[] =
     { L"(04) Not Used", 0x5947600, 0x5947620, indexCPS2_Bonerine, 3 },
     { L"(05) Not Used", 0x5947620, 0x5947640, indexCPS2_Bonerine, 4 },
     { L"(06) Not Used", 0x5947640, 0x5947660, indexCPS2_Bonerine, 5 },
-    { L"(07) Not Used", 0x5947660, 0x5947680, indexCPS2_Bonerine, 6 },
-    { L"(08) Not Used", 0x5947680, 0x59476a0, indexCPS2_Bonerine, 7 },
+    { L"(07) Not Used", 0x5947660, 0x5947680, indexCPS2_Bonerine, 0, &pairNext },
+    { L"(08) Not Used", 0x5947680, 0x59476a0, indexCPS2_Bonerine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A1[] =
@@ -8674,8 +8674,8 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A1[] =
     { L"(04) Not Used", 0x5947700, 0x5947720, indexCPS2_Bonerine, 3 },
     { L"(05) Not Used", 0x5947720, 0x5947740, indexCPS2_Bonerine, 4 },
     { L"(06) Not Used", 0x5947740, 0x5947760, indexCPS2_Bonerine, 5 },
-    { L"(07) Not Used", 0x5947760, 0x5947780, indexCPS2_Bonerine, 6 },
-    { L"(08) Not Used", 0x5947780, 0x59477a0, indexCPS2_Bonerine, 7 },
+    { L"(07) Not Used", 0x5947760, 0x5947780, indexCPS2_Bonerine, 0, &pairNext },
+    { L"(08) Not Used", 0x5947780, 0x59477a0, indexCPS2_Bonerine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A2[] =
@@ -8686,8 +8686,8 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A2[] =
     { L"(04) Not Used", 0x5947800, 0x5947820, indexCPS2_Bonerine, 3 },
     { L"(05) Not Used", 0x5947820, 0x5947840, indexCPS2_Bonerine, 4 },
     { L"(06) Not Used", 0x5947840, 0x5947860, indexCPS2_Bonerine, 5 },
-    { L"(07) Not Used", 0x5947860, 0x5947880, indexCPS2_Bonerine, 6 },
-    { L"(08) Not Used", 0x5947880, 0x59478a0, indexCPS2_Bonerine, 7 },
+    { L"(07) Not Used", 0x5947860, 0x5947880, indexCPS2_Bonerine, 0, &pairNext },
+    { L"(08) Not Used", 0x5947880, 0x59478a0, indexCPS2_Bonerine, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_SHARED[] =

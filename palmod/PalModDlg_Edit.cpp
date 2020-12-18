@@ -493,7 +493,7 @@ void CPalModDlg::OnEditPaste()
                 case KarnovsR_A:
                 case KOF94_A:
                 case KOF98_A:
-                case KOF99_A:
+                case KOF99AE_A:
                 case KOF01_A:
                 case KOF02_A:
                 case KOF03_A:

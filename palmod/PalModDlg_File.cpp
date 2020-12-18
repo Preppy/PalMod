@@ -25,7 +25,7 @@ sSupportedGameList SupportedGameList[] =
     { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", GamePlatform::NEOGEO }, // DataEast
     { KOF94_A,          L"KOF94", L"KOF94|055-p1.p1|", GamePlatform::NEOGEO },
     { KOF98_A,          L"KOF98", L"KOF98|242-p2.sp2;kof98_p2.rom|", GamePlatform::NEOGEO },
-    //{ KOF99_A,          L"KOF99AE", L"KOF99|kof99ae_p3.bin|", GamePlatform::NEOGEO },
+    { KOF99AE_A,          L"KOF99AE", L"KOF99AE|kof99ae_p3.bin|", GamePlatform::NEOGEO },
     { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2|", GamePlatform::NEOGEO },
     // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
     { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", GamePlatform::NEOGEO },
@@ -415,7 +415,7 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
     if (ERROR_SUCCESS == RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey))
     {
         DWORD dwRegType = REG_SZ;
-        TCHAR szPath[MAX_PATH];
+        TCHAR szPath[MAX_PATH] = {};
         DWORD cbDataSize = sizeof(szPath);
 
         //Get the directory
@@ -677,55 +677,60 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
         int iCurrentIndexInPalette = 0;
         UINT8* pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
 
-        UINT32 nBlackColorCount = 0;
-        bool fStillStuckOnBlack = true;
+        UINT16 nBlackColorCount = 0;
 
-        for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
+        // This code exists because Fighter Factory writes upside-down color tables.
+        for (iACTIndex = 0; iACTIndex < nACTColorCount; iACTIndex++)
         {
-            pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
-            pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
-            pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
-
-            // This code exists because Fighter Factory writes upside-down color tables.
-            if (fStillStuckOnBlack &&
-                (pPal[(iCurrentIndexInPalette * 4)] == 0) &&
-                (pPal[(iCurrentIndexInPalette * 4) + 1] == 0) &&
-                (pPal[(iCurrentIndexInPalette * 4) + 2] == 0))
+            if ((pAct[(iACTIndex * 3)] == 0) &&
+                (pAct[(iACTIndex * 3) + 1] == 0) &&
+                (pAct[(iACTIndex * 3) + 2] == 0))
             {
                 nBlackColorCount++;
             }
             else
             {
-                fStillStuckOnBlack = false;
-            }
-
-            if (++iACTIndex >= nACTColorCount)
-            {
-                // If the palette is larger than our ACT, loop it.
-                iACTIndex = 0;
-                fHaveLooped = true;
-            }
-
-            iCurrentIndexInPalette++;
-            if (((nCurrentPalette + 1) < nTotalPaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
-            {
-                if (fHaveLooped)
-                {
-                    // Applying a looping palette to a secondary palette will be generally illogical, so don't
-                    nTotalColorsUsed++;
-                    break;
-                }
-                else
-                {
-                    // advance to the next palette
-                    nCurrentPalette++;
-                    iCurrentIndexInPalette = 0;
-                    pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
-                }
+                break;
             }
         }
 
-        if ((nBlackColorCount > 32) || (nBlackColorCount == nTotalNumberOfCurrentColors))
+        if ((nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentColors))
+        {
+            iACTIndex = 0;
+
+            for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
+            {
+                pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
+                pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
+                pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
+
+                if (++iACTIndex >= nACTColorCount)
+                {
+                    // If the palette is larger than our ACT, loop it.
+                    iACTIndex = 0;
+                    fHaveLooped = true;
+                }
+
+                iCurrentIndexInPalette++;
+                if (((nCurrentPalette + 1) < nTotalPaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
+                {
+                    if (fHaveLooped)
+                    {
+                        // Applying a looping palette to a secondary palette will be generally illogical, so don't
+                        nTotalColorsUsed++;
+                        break;
+                    }
+                    else
+                    {
+                        // advance to the next palette
+                        nCurrentPalette++;
+                        iCurrentIndexInPalette = 0;
+                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                    }
+                }
+            }
+        }
+        else
         {
             // TODO: Maybe ask the user before flipping?
             iACTIndex = nACTColorCount - 1;
@@ -737,7 +742,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
 
             OutputDebugString(L"This appears to be a bogus SFF ACT... flipping our ACT table logic...\n");
 
-            for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++)
+            for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
             {
                 pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
                 pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
@@ -757,16 +762,26 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
                     if (fHaveLooped)
                     {
                         // Applying a looping palette to a secondary palette will be generally illogical, so don't
+                        nTotalColorsUsed++;
                         break;
                     }
                     else
                     {
-                        // advance to the next palette
-                        nCurrentPalette++;
-                        iCurrentIndexInPalette = 0;
-                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                        if (iACTIndex >= nBlackColorCount)
+                        {
+                            // advance to the next palette
+                            nCurrentPalette++;
+                            iCurrentIndexInPalette = 0;
+                            pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                        }
+                        else
+                        {
+                            // The next palette chunk is all black: don't stomp on a further palette with reversed black/empty colors
+                            nTotalColorsUsed++;
+                            break;
+                        }
                     }
-                }
+                }               
             }
         }
 
@@ -1031,9 +1046,9 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                     strInfo.Format(L"\tpngreader: processing %u colors...\n", nPNGColorCount);
                     OutputDebugString(strInfo);
 
-                    int nTotalNumberOfCurrentPaletteColors = 0;
+                    UINT32 nTotalNumberOfCurrentPaletteColors = 0;
 
-                    for (int iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
+                    for (UINT16 iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
                     {
                         nTotalNumberOfCurrentPaletteColors += MainPalGroup->GetPalDef(iPalette)->uPalSz;
                     }
@@ -1042,69 +1057,74 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                     UINT16 nCurrentPalette = 0;
                     UINT16 nTotalColorsUsed = 0;
                     UINT32 nBlackColorCount = 0;
-                    bool fStillStuckOnBlack = true;
                     bool fHaveLooped = false;
                     int iCurrentIndexInPalette = 0;
                     UINT8* pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
 
-                    for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
+                    // This code exists because Fighter Factory writes upside-down color tables.
+                    for (iPNGIndex = 0; iPNGIndex < nPNGColorCount; iPNGIndex++)
                     {
-                        pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
-                        pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
-                        pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
-
-                        // This code exists because Fighter Factory writes upside-down color tables.
-                        if (fStillStuckOnBlack &&
-                            (pPal[iCurrentIndexInPalette * 4] == 0) &&
-                            (pPal[(iCurrentIndexInPalette * 4) + 1] == 0) &&
-                            (pPal[(iCurrentIndexInPalette * 4) + 2] == 0))
+                        if ((paszPaletteData[(iPNGIndex * 3)] == 0) &&
+                            (paszPaletteData[(iPNGIndex * 3) + 1] == 0) &&
+                            (paszPaletteData[(iPNGIndex * 3) + 2] == 0))
                         {
                             nBlackColorCount++;
                         }
                         else
                         {
-                            fStillStuckOnBlack = false;
-                        }
-
-                        if (++iPNGIndex >= nPNGColorCount)
-                        {
-                            // If the palette is larger than our PNG, loop it.
-                            iPNGIndex = 0;
-                            fHaveLooped = true;
-                        }
-
-                        iCurrentIndexInPalette++;
-                        if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
-                        {
-                            if (fHaveLooped)
-                            {
-                                // Applying a looping palette to a secondary palette will be generally illogical, so don't
-                                nTotalColorsUsed++;
-                                break;
-                            }
-                            else
-                            {
-                                // advance to the next palette
-                                nCurrentPalette++;
-                                iCurrentIndexInPalette = 0;
-                                pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
-                            }
+                            break;
                         }
                     }
 
-                    if ((nBlackColorCount > 32) || (nBlackColorCount == nTotalNumberOfCurrentPaletteColors))
+                    if ((nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentPaletteColors))
+                    {
+                        iPNGIndex = 0;
+
+                        for (UINT32 iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
+                        {
+                            pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
+                            pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
+                            pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(paszPaletteData[(iPNGIndex * 3) + 2]);
+
+                            if (++iPNGIndex >= nPNGColorCount)
+                            {
+                                // If the palette is larger than our PNG, loop it.
+                                iPNGIndex = 0;
+                                fHaveLooped = true;
+                            }
+
+                            iCurrentIndexInPalette++;
+                            if (((nCurrentPalette + 1) < nActivePaletteCount) && (iCurrentIndexInPalette == MainPalGroup->GetPalDef(nCurrentPalette)->uPalSz))
+                            {
+                                if (fHaveLooped)
+                                {
+                                    // Applying a looping palette to a secondary palette will be generally illogical, so don't
+                                    nTotalColorsUsed++;
+                                    break;
+                                }
+                                else
+                                {
+                                    // advance to the next palette
+                                    nCurrentPalette++;
+                                    iCurrentIndexInPalette = 0;
+                                    pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                }
+                            }
+                        }
+                    }
+                    else
                     {
                         // TODO: Maybe ask the user before flipping?
                         iPNGIndex = nPNGColorCount - 1;
                         fHadToFlip = true;
-
-                        OutputDebugString(L"This appears to be a bogus SFF PNG... flipping our PNG table logic...\n");
-
                         iCurrentIndexInPalette = 0;
                         nCurrentPalette = 0;
                         fHaveLooped = false;
                         pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
-                        for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++)
+
+                        OutputDebugString(L"This appears to be a bogus SFF PNG... flipping our PNG table logic...\n");
+
+                        for (UINT32 iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentPaletteColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
                         {
                             pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(paszPaletteData[(iPNGIndex * 3)]);
                             pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(paszPaletteData[(iPNGIndex * 3) + 1]);
@@ -1124,14 +1144,24 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                                 if (fHaveLooped)
                                 {
                                     // Applying a looping palette to a secondary palette will be generally illogical, so don't
+                                    nTotalColorsUsed++;
                                     break;
                                 }
                                 else
                                 {
-                                    // advance to the next palette
-                                    nCurrentPalette++;
-                                    iCurrentIndexInPalette = 0;
-                                    pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                    if (iPNGIndex >= nBlackColorCount)
+                                    {
+                                        // advance to the next palette
+                                        nCurrentPalette++;
+                                        iCurrentIndexInPalette = 0;
+                                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                    }
+                                    else
+                                    {
+                                        // The next palette chunk is all black: don't stomp on a further palette with reversed black/empty colors
+                                        nTotalColorsUsed++;
+                                        break;
+                                    }
                                 }
                             }
                         }
@@ -1393,7 +1423,7 @@ bool CPalModDlg::SavePaletteToPAL(LPCTSTR pszFileName)
 
     if (hRIFFFile)
     {
-        MMCKINFO mmckInfo;
+        MMCKINFO mmckInfo = {};
         mmckInfo.fccType = mmioFOURCC('P', 'A', 'L', ' ');
         mmckInfo.cksize = 0;
         mmckInfo.dwFlags = MMIO_DIRTY;
