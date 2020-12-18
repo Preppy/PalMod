@@ -229,6 +229,11 @@ const LPCTSTR DEF_BUTTONLABEL_NEOGEO[] =
     L"A", L"B", L"C", L"D"
 };
 
+const LPCTSTR DEF_BUTTONLABEL_KOF99AE_P3[] =
+{
+    L"C", L"D", L"AC", L"BD"
+};
+
 const LPCTSTR DEF_BUTTONLABEL_SAMSHO3[] =
 {
     L"S1", L"S2", L"B1", L"B2"
@@ -1684,19 +1689,19 @@ const UINT16 KOF99AE_A_IMG_UNITS[] =
     indexKOFSprites_98Joe,
     indexKOFSprites_98Mai,
     indexKOFSprites_98Ryo,
-    indexKOFSprites_98Robert,
+    indexKOFSprites_02UM_Robert,
     indexKOFSprites_98Yuri,
     indexKOFSprites_98Takuma,
     indexKOFSprites_98Leona,
     indexKOFSprites_98Athena,
     indexKOFSprites_98Kensou,
-    indexKOFSprites_98Chin,
+    indexKOFSprites_02UM_Chin,
     indexKOFSprites_98King,
     indexKOFSprites_98BlueMary,
     indexKOFSprites_98Kim,
     indexKOFSprites_98Chang,
     indexKOFSprites_98Choi,
-    indexKOFSprites_98Kyo,
+    indexKOFSprites_02UM_KyoKusa,
 
     indexKOFSprites_01Xiangfei,
 

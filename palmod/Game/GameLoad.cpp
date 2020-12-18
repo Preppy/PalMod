@@ -499,7 +499,7 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     }
     case KOF99AE_A:
     {
-        return new CGame_KOF99AE_A(nConfirmedROMSize);
+        return new CGame_KOF99AE_A(nConfirmedROMSize, nExtraGameData);
     }
     case KOF01_A:
     {
@@ -712,6 +712,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
         {
         case JOJOS_A:
             nGameRule = ((_tcscmp(pszFileName, _T("50")) == 0) ? 50 : 51);
+            break;
+        case KOF99AE_A:
+            nGameRule = ((_tcsstr(pszFileName, _T("p2")) != nullptr) ? 2 : 3);
             break;
         case KOF02UM_S:
             nGameRule = ((_tcscmp(pszFileName, _T("bar.bin")) == 0) ? 1 : 0);

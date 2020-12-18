@@ -25,7 +25,7 @@ sSupportedGameList SupportedGameList[] =
     { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", GamePlatform::NEOGEO }, // DataEast
     { KOF94_A,          L"KOF94", L"KOF94|055-p1.p1|", GamePlatform::NEOGEO },
     { KOF98_A,          L"KOF98", L"KOF98|242-p2.sp2;kof98_p2.rom|", GamePlatform::NEOGEO },
-    { KOF99AE_A,          L"KOF99AE", L"KOF99AE|kof99ae_p3.bin|", GamePlatform::NEOGEO },
+    { KOF99AE_A,        L"KOF99AE", L"KOF99AE|kof99ae_p2.bin;kof99ae_p3.bin|", GamePlatform::NEOGEO },
     { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2|", GamePlatform::NEOGEO },
     // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
     { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", GamePlatform::NEOGEO },

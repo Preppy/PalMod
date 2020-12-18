@@ -22,12 +22,13 @@ public:
     static int rgExtraLoc_21[SF2HF_A_21_NUMUNIT + 1];
     static int rgExtraLoc_22[SF2HF_A_22_NUMUNIT + 1];
 
-    void InitDataBuffer() override;
-    void ClearDataBuffer() override;
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
 
+    // Needed for multiple ROM support
+    void InitDataBuffer() override;
+    void ClearDataBuffer() override;
     static const sDescTreeNode* GetCurrentUnitSet();
     static UINT16 GetCurrentExtraLoc();
     static stExtraDef* GetCurrentExtraDef(int nDefCtr);

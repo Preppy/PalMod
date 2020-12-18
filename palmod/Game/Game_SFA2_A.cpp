@@ -81,9 +81,9 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
 {
     ClearDataBuffer();
 
-    const UINT32 nSafeCountFor07_Rev1 = 875;
-    const UINT32 nSafeCountFor07_Rev2 = 1002;
-    const UINT32 nSafeCountFor07_SFZ2A = 1288;
+    const UINT32 nSafeCountFor07_Rev1 = 926;
+    const UINT32 nSafeCountFor07_Rev2 = 1048;
+    const UINT32 nSafeCountFor07_SFZ2A = 1334;
     const UINT32 nSafeCountFor08_Rev1 = 233;
     const UINT32 nSafeCountFor08_Rev2 = 277;
     const UINT32 nSafeCountFor08_SFZ2A = 324;
@@ -1553,7 +1553,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 {
                     ; // no-op: this is already handled
                 }
-                else if ((m_nCurrentPaletteROMLocation < 0x72a00) || // Handle up to Chun-Li OG (SF2 Costume)
+                else if ((m_nCurrentPaletteROMLocation < 0x72DC0) || // Handle up to Gen (Crane Stance)
                         (((SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWDhalsim) || (SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWZangief)) &&
                             (m_nCurrentPaletteROMLocation < 0x73900))) // Second check handles the inserted WW characters
                 {
@@ -1580,7 +1580,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 {
                     // use real locations for SFZ2A unique characters
                 }
-                else if (m_nCurrentPaletteROMLocation < 0x72a00) // Handle up to Chun-Li OG (SF2 Costume)
+                else if (m_nCurrentPaletteROMLocation < 0x72DC0) // Handle up to Gen (Crane Stance)
                 {
                     // This handles all the character palettes
                     m_nCurrentPaletteROMLocation -= 0xDDBC;
