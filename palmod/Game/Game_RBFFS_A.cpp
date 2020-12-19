@@ -56,7 +56,7 @@ CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
     SetColorMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = RBFFS_A;

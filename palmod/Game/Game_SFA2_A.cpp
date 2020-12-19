@@ -82,11 +82,11 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
     ClearDataBuffer();
 
     const UINT32 nSafeCountFor07_Rev1 = 926;
-    const UINT32 nSafeCountFor07_Rev2 = 1048;
+    const UINT32 nSafeCountFor07_Rev2 = 1053;
     const UINT32 nSafeCountFor07_SFZ2A = 1334;
-    const UINT32 nSafeCountFor08_Rev1 = 233;
-    const UINT32 nSafeCountFor08_Rev2 = 277;
-    const UINT32 nSafeCountFor08_SFZ2A = 324;
+    const UINT32 nSafeCountFor08_Rev1 = 233 - 5; // -5 as a temporary stop on the Bonus additions while research continues
+    const UINT32 nSafeCountFor08_Rev2 = 282 - 5;
+    const UINT32 nSafeCountFor08_SFZ2A = 329 - 5;
 
     if (UsePaletteSetForCharacters())
     {
@@ -177,7 +177,7 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
     SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
 
     //Set game information
     nGameFlag = SFA2_A;
@@ -1630,7 +1630,8 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 // 0x11ce4: dan
                 // 0x12144: shin akuma
                 // 0x12504: evil ryu
-                if ((nUnitId > 0) && (nUnitId < 27))
+                if (((nUnitId > 0) && (nUnitId < 27)) ||
+                    (nUnitId == 0x25))                    
                 {
                     if (m_nCurrentPaletteROMLocation < 0x1b780)
                     {

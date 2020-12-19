@@ -41,7 +41,7 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
 
     m_nTotalInternalUnits = MVC_A_NUMUNIT;
     m_nExtraUnit = MVC_A_EXTRALOC;
-    m_nSafeCountForThisRom = 1251 + GetExtraCt(MVC_A_EXTRALOC);
+    m_nSafeCountForThisRom = 1255 + GetExtraCt(MVC_A_EXTRALOC);
     m_pszExtraFilename = EXTRA_FILENAME_MVC;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMVC;
 
@@ -129,7 +129,7 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
     SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
 
     //Set game information
     nGameFlag = MVC_A;

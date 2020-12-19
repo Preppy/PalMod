@@ -103,7 +103,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
 
     //Set game information
     nGameFlag = SSF2T_A;

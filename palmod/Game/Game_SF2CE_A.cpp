@@ -118,7 +118,7 @@ CGame_SF2CE_A::CGame_SF2CE_A(UINT32 nConfirmedROMSize, int nSF2CEROMToLoad)
     SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode=
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
 
     //Set game information
     nGameFlag = SF2CE_A;

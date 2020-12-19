@@ -56,8 +56,8 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
 
-    //Set palette conversion mode: 12A uses a step of PALTYPE_17, everything else uses PALTYPE_8 at this point
-    BasePalGroup.SetMode(ePalType::PALTYPE_8);
+    //Set palette conversion mode: 12A uses a step of PALTYPE_16STEPS, everything else uses PALTYPE_32STEPS at this point
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = BLEACH_DS; // This value is defined in gamedef.h.  See usage of other values defined there

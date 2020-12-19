@@ -944,6 +944,8 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
     { L"Eternal Slumber XXX 6 (Shared)", 0x4f204, 0x4f224 },
     { L"Eternal Slumber XXX 7 (Shared)", 0x4f224, 0x4f244 },
     { L"Eternal Slumber XXX 8 (Shared)", 0x4f244, 0x4f264 },
+
+    { L"Eternal Slumber Background", 0x424A4, 0x424E4 },
 };
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =
@@ -1691,6 +1693,10 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
     { L"Marvel License Text", 0x3E55A, 0x3E57A, 0x3C, 0x54 },
     { L"QSound Patent Text", 0x3E57A, 0x3E59A, 0x3C, 0x55 },
     { L"Hitsparks", 0x590E4, 0x59124 },
+
+    { L"Blue Super BG", 0x423E4, 0x42424 },
+    { L"Yellow Crossover BG", 0x42444, 0x42484 },
+    { L"Red Duo BG (Flickering off)", 0x46A04, 0x46A44 },
 };
 
 const sGame_PaletteDataset MVC_A_BLUEMOON_STAGE_PALETTES[] =

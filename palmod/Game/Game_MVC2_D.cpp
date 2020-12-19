@@ -35,7 +35,7 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
 
     //Set game information
     nGameFlag = MVC2_D;

@@ -56,7 +56,7 @@ CGame_Garou_S::CGame_Garou_S(UINT32 nConfirmedROMSize)
     SetColorMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = Garou_S;

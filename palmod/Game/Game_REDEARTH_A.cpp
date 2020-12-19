@@ -53,7 +53,7 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize)
     SetColorMode(ColMode::COLMODE_15);
 
     //Set palette conversion mode=
-    BasePalGroup.SetMode(ePalType::PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = REDEARTH_A;

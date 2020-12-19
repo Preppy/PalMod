@@ -53,7 +53,7 @@ CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
     SetColorMode(ColMode::COLMODE_12A);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
 
     //Set game information
     nGameFlag = SFA3_A;

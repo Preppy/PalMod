@@ -55,9 +55,7 @@ CGame_SSF2T_GBA::CGame_SSF2T_GBA(UINT32 nConfirmedROMSize)
     // GBA actually has alpha values on some colors, but not all of them.  Force it everywhere for sanity.
     SetAlphaMode(AlphaMode::GameUsesChaoticAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
-
-    //Set palette conversion mode=
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = SSF2T_GBA;

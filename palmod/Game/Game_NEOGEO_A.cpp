@@ -157,19 +157,19 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     {
     case ColMode::COLMODE_GBA:
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_17);
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     case ColMode::COLMODE_12A:
         suggestedAlphaSetting= AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_17);
+        BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
         break;
     case ColMode::COLMODE_15:
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     case ColMode::COLMODE_15ALT:
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     default: // Something is wrong: reset
         OutputDebugString(L"warning: unknown color mode was requested. Resetting to default\n");
@@ -177,7 +177,7 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     case ColMode::COLMODE_NEOGEO:
         fShouldSetAlpha = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     };
 

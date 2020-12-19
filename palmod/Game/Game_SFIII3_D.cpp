@@ -26,7 +26,7 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
     SetColorMode(ColMode::COLMODE_15ALT);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = SFIII3_D;

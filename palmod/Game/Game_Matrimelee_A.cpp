@@ -55,7 +55,7 @@ CGame_Matrimelee_A::CGame_Matrimelee_A(UINT32 nConfirmedROMSize)
     SetColorMode(ColMode::COLMODE_15ALT);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = MATRIMELEE_A;

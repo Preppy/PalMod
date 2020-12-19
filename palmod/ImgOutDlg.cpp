@@ -625,6 +625,15 @@ void CImgOutDlg::OnFileSave()
                             nPaletteOffset += m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
                         }
 
+#ifdef DEBUG
+                        // If we want to add metadata, this is what is needed.
+                        // But currently, I don't know what metadata I would want, so I'm leaving it alone for now.
+                        state.encoder.text_compression = 0; // use tExt
+                        LodePNGInfo& info = state.info_png;
+                        lodepng_add_text(&info, "Title", "...");
+                        lodepng_add_text(&info, "Software", "PalMod");
+#endif
+
                         // lodepng options: going from RAW to indexed PNG
                         state.info_png.color.colortype = state.info_raw.colortype = LCT_PALETTE;
                         state.info_png.color.bitdepth = state.info_raw.bitdepth = 8;

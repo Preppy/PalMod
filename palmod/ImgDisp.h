@@ -104,9 +104,9 @@ private:
     int nImgRctW = 0;
     int nImgRctH = 0;
 
-    UINT8 bUsed[MAX_IMAGES_DISPLAYABLE];
+    UINT8 bUsed[MAX_IMAGES_DISPLAYABLE] = {};
 
-    POINT ptOffs[MAX_IMAGES_DISPLAYABLE];
+    POINT ptOffs[MAX_IMAGES_DISPLAYABLE] = {};
     
     CString m_strBackgroundLoc = _T("");
 

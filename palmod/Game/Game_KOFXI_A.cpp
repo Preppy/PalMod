@@ -56,7 +56,7 @@ CGame_KOFXI_A::CGame_KOFXI_A(UINT32 nConfirmedROMSize)
     SetColorMode(ColMode::COLMODE_15ALT);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = KOFXI_A;

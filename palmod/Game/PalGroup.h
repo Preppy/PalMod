@@ -44,8 +44,8 @@ struct sPalDef
 
 enum ePalType
 {
-    PALTYPE_8,
-    PALTYPE_17,
+    PALTYPE_32STEPS,
+    PALTYPE_16STEPS,
 };
 
 class CPalGroup
@@ -56,7 +56,7 @@ private:
     int nRedirCtr = 0;
     int nCurrPalAmt = 0;
 
-    ePalType PalMode = ePalType::PALTYPE_8;
+    ePalType PalMode = ePalType::PALTYPE_32STEPS;
 
     void InitPal();
 

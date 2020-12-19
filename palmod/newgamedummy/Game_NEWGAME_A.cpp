@@ -67,8 +67,8 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
     //Set color mode: see the definitions in GameClass.h
     SetColMode(ColMode::COLMODE_12A);
 
-    //Set palette conversion mode: 12A uses a step of PALTYPE_17, everything else uses PALTYPE_8 at this point
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
+    //Set palette conversion mode: 12A uses a step of PALTYPE_16STEPS, everything else uses PALTYPE_32STEPS at this point
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = NEWGAME_A; // This value is defined in gamedef.h.  See usage of other values defined there
