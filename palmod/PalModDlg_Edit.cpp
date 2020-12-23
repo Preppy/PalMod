@@ -205,7 +205,7 @@ void CPalModDlg::OnEditCopy()
         switch (CurrGame->GetColorMode())
         {
         case ColMode::COLMODE_GBA:
-            // RGB444
+            // BGR555
             uCopyFlag1 = SSF2T_GBA + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_12A:
@@ -213,7 +213,7 @@ void CPalModDlg::OnEditCopy()
             uCopyFlag1 = MVC2_P + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_15:
-            // BGR555
+            // RGB555
             uCopyFlag1 = SFIII3_A + k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_15ALT:

@@ -439,6 +439,8 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
     {
         // For development use to speed things up.
         // I just dump them once in sequence to avoid needing to cull the ROM loading output
+
+        //Note that this doesn't actually handle fIsMultipart support yet: update the code for that
         //DumpPaletteHeaders(2);
         //DumpPaletteHeaders(3);
 
@@ -458,6 +460,7 @@ struct sKOF99AE_A_PaletteData
     UINT32 nROMOffset = 0;
     UINT32 nIgnored = 0; // I don't want to reparse the data I got, so just ignoring this
     LPCTSTR pszImageSet = nullptr;
+    bool fIsMultipart = false;
 };
 
 sKOF99AE_A_PaletteData KOF99AE_A_CharacterPalettes[] =
@@ -475,10 +478,10 @@ sKOF99AE_A_PaletteData KOF99AE_A_CharacterPalettes[] =
     { L"Yuri",              0x2dbff0, 0x2dc1f0, L"indexKOFSprites_98Yuri" },
     { L"Takuma",            0x2dc3f0, 0x2dc5f0, L"indexKOFSprites_98Takuma" },
     { L"Leona",             0x2dc7f0, 0x2dc9f0, L"indexKOFSprites_98Leona" },
-    { L"Ralf",              0x2dcbf0, 0x2dcdf0, L"indexKOFSprites_02UM_Ralf" },
+    { L"Ralf",              0x2dcbf0, 0x2dcdf0, L"indexKOF99Sprites_Ralf" },
     { L"Clark",             0x2dcff0, 0x2dd1f0, L"indexKOFSprites_02UM_Clark" },
     { L"Whip",              0x2dd3f0, 0x2dd5f0, L"indexKOFSprites_02UM_Whip" },
-    { L"Athena",            0x2dd7f0, 0x2dd9f0, L"indexKOFSprites_98Athena" },
+    { L"Athena",            0x2dd7f0, 0x2dd9f0, L"indexKOF99Sprites_Athena" },
     { L"Kensou",            0x2ddbf0, 0x2dddf0, L"indexKOFSprites_98Kensou" },
     { L"Chin",              0x2ddff0, 0x2de1f0, L"indexKOFSprites_02UM_Chin" },
     { L"Bao",               0x2de3f0, 0x2de5f0, L"indexKOFSprites_02UM_Bao" },
@@ -487,14 +490,14 @@ sKOF99AE_A_PaletteData KOF99AE_A_CharacterPalettes[] =
     { L"Kasumi",            0x2deff0, 0x2df1f0, L"indexKOFSprites_02UM_Kasumi" },
     { L"Xiangfei",          0x2df3f0, 0x2df5f0, L"indexKOFSprites_01Xiangfei" },
     { L"Kim",               0x2df7f0, 0x2df9f0, L"indexKOFSprites_98Kim" },
-    { L"Chang",             0x2dfbf0, 0x2dfdf0, L"indexKOFSprites_98Chang" },
+    { L"Chang",             0x2dfbf0, 0x2dfdf0, L"indexKOF99Sprites_Chang", true },
     { L"Choi",              0x2dfff0, 0x2e01f0, L"indexKOFSprites_98Choi" },
-    { L"Jhun",              0x2e03f0, 0x2e05f0, L"indexKOFSprites_02UM_Jhun" },
+    { L"Jhun",              0x2e03f0, 0x2e05f0, L"indexKOF99Sprites_Jhun", true },
     { L"Kyo",               0x2e07f0, 0x2e09f0, L"indexKOFSprites_02UM_KyoKusa" },
     { L"Kyo-1",             0x2e0bf0, 0x2e0df0, L"indexKOFSprites_02UM_Kyo1" },
     { L"Iori",              0x2e0ff0, 0x2e11f0, L"indexKOFSprites_02UM_Iori" },
-    { L"Jacket Krizalid",   0x2e13f0, 0x2e15f0, L"indexKOFSprites_02UM_Krizalid" },
-    { L"Boss Krizalid",     0x2e17f0, 0x2e19f0, L"indexKOFSprites_02UM_Krizalid" },
+    { L"Jacket Krizalid",   0x2e13f0, 0x2e15f0, L"indexKOF99Sprites_JacketKrizalid", true },
+    { L"Boss Krizalid",     0x2e17f0, 0x2e19f0, L"indexKOF99Sprites_BossKrizalid" },
     { L"Kyo-2",             0x2fb1f0, 0x2fb3f0, L"indexKOFSprites_02UM_Kyo2" },
 };
 

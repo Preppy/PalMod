@@ -10,9 +10,9 @@ const sGame_PaletteDataset NeoBomberman_A_Bomberman_PALETTES[] =
 
 const sGame_PaletteDataset NeoBomberman_A_RubberBomber_PALETTES[] =
 {
-    { L"Rubber Bomber P1", 0x0c3e2a, 0x0c3e6a },
-    { L"Rubber Bomber P2", 0x0cad6a, 0x0cadaa },
-    { L"Rubber Bomber CPU", 0x0d560a, 0x0d564a },
+    { L"Rubber Bomber P1", 0x0c3e2a, 0x0c3e6a, indexNeoBombermanSprites_RubberBomber, 0x00 },
+    { L"Rubber Bomber P2", 0x0cad6a, 0x0cadaa, indexNeoBombermanSprites_RubberBomber, 0x00 },
+    { L"Rubber Bomber CPU", 0x0d560a, 0x0d564a, indexNeoBombermanSprites_RubberBomber, 0x00 },
 };
 
 const sGame_PaletteDataset NeoBomberman_A_FakeBomber_PALETTES[] =
@@ -45,43 +45,43 @@ const sGame_PaletteDataset NeoBomberman_A_HayateBomber_PALETTES[] =
 
 const sGame_PaletteDataset NeoBomberman_A_Kotetsu_PALETTES[] =
 {
-    { L"Kotetsu P1", 0x0c186a, 0x0c18aa },
-    { L"Kotetsu P2", 0x0cacea, 0x0cad2a },
-    { L"Kotetsu CPU", 0x0d56ca, 0x0d570a },
+    { L"Kotetsu P1", 0x0c186a, 0x0c18aa, indexNeoBombermanSprites_Kotetsu, 0x00 },
+    { L"Kotetsu P2", 0x0cacea, 0x0cad2a, indexNeoBombermanSprites_Kotetsu, 0x00 },
+    { L"Kotetsu CPU", 0x0d56ca, 0x0d570a, indexNeoBombermanSprites_Kotetsu, 0x00 },
 };
 
 const sGame_PaletteDataset NeoBomberman_A_GoldBomber_PALETTES[] =
 {
-    { L"Gold Bomber P1", 0x0cadea, 0x0cae2a },
-    { L"Gold Bomber P2", 0x0cacaa, 0x0cacea },
-    { L"Gold Bomber CPU", 0x0d554a, 0x0d558a },
+    { L"Gold Bomber P1", 0x0cadea, 0x0cae2a, indexNeoBombermanSprites_GoldenBomber, 0x00 },
+    { L"Gold Bomber P2", 0x0cacaa, 0x0cacea, indexNeoBombermanSprites_GoldenBomber, 0x00 },
+    { L"Gold Bomber CPU", 0x0d554a, 0x0d558a, indexNeoBombermanSprites_GoldenBomber, 0x00 },
 };
 
 const sGame_PaletteDataset NeoBomberman_A_AtomicBomber_PALETTES[] =
 {
-    { L"Atomic Bomber P1", 0x0c1a6a, 0x0c1aaa },
-    { L"Atomic Bomber P2", 0x0cab6a, 0x0cabaa },
-    { L"Atomic Bomber CPU", 0x0d4eea, 0x0d4f2a },
+    { L"Atomic Bomber P1", 0x0c1a6a, 0x0c1aaa, indexNeoBombermanSprites_AtomicBomber, 0x00 },
+    { L"Atomic Bomber P2", 0x0cab6a, 0x0cabaa, indexNeoBombermanSprites_AtomicBomber, 0x00 },
+    { L"Atomic Bomber CPU", 0x0d4eea, 0x0d4f2a, indexNeoBombermanSprites_AtomicBomber, 0x00 },
 };
 
 const sGame_PaletteDataset NeoBomberman_A_CharacterScreen_PALETTES[] =
 {
-    { L"White Bomberman", 0x0c3bca, 0x0c3c0a },
-    { L"Honey P1", 0x0c3e6a, 0x0c3eaa },
-    { L"Hayate Bomber P1", 0x0c3dea, 0x0c3e2a },
-    { L"Kotetsu P1", 0x0c3eaa, 0x0c3eea },
-    { L"Gold Bomber P1", 0x0c3daa, 0x0c3dea },
-    { L"Atomic Bomber P1", 0x0c3b6a, 0x0c3baa },
+    { L"White Bomberman", 0x0c3bca, 0x0c3c0a, indexNeoBombermanSprites_Bomberman, 0x00 },
+    { L"Honey P1", 0x0c3e6a, 0x0c3eaa, indexNeoBombermanSprites_Honey, 0x00 },
+    { L"Hayate Bomber P1", 0x0c3dea, 0x0c3e2a, indexNeoBombermanSprites_HayateBomber, 0x00 },
+    { L"Kotetsu P1", 0x0c3eaa, 0x0c3eea, indexNeoBombermanSprites_Kotetsu, 0x00 },
+    { L"Gold Bomber P1", 0x0c3daa, 0x0c3dea, indexNeoBombermanSprites_GoldenBomber, 0x00 },
+    { L"Atomic Bomber P1", 0x0c3b6a, 0x0c3baa, indexNeoBombermanSprites_AtomicBomber, 0x00 },
 };
 
 const sGame_PaletteDataset NeoBomberman_A_Effects_PALETTES[] =
 {
-    { L"P1 Water Effect", 0x0c72aa, 0x0c72ea },
-    { L"P2 Water Effect", 0x0c72ea, 0x0c732a },
-    { L"Bombermans & Kotetsu Skull Effect", 0x0c522a, 0x0c526a },
-    { L"Rubber Skull Effect", 0x0c526a, 0x0c52aa },
-    { L"Cat Skull Effect", 0x0c52aa, 0x0c52ea },
-    { L"Honey Skull Effect", 0x0c52ea, 0x0c532a },
+    { L"P1 Water Effect", 0x0c72aa, 0x0c72ea, indexNeoBombermanSprites_Bomberman, 0x00 },
+    { L"P2 Water Effect", 0x0c72ea, 0x0c732a, indexNeoBombermanSprites_Bomberman, 0x00 },
+    { L"Bombermans & Kotetsu Skull Effect", 0x0c522a, 0x0c526a, indexNeoBombermanSprites_Bomberman, 0x00 },
+    { L"Rubber Skull Effect", 0x0c526a, 0x0c52aa, indexNeoBombermanSprites_RubberBomber, 0x00 },
+    { L"Cat Skull Effect", 0x0c52aa, 0x0c52ea, indexNeoBombermanSprites_CatBomber, 0x00 },
+    { L"Honey Skull Effect", 0x0c52ea, 0x0c532a, indexNeoBombermanSprites_Honey, 0x00 },
 };
 
 const sGame_PaletteDataset NeoBomberman_A_BONUS_PALETTES[] =

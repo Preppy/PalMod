@@ -1048,7 +1048,7 @@ const sMoveDescription MVC2_MOVE_DESCRIPTIONS_ABYSS1[] =
     { 0x03, L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used" },
     { 0x04, L"(05) Super Armor Frame (when being hit)" },
     { 0x05, L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn" },
-    { 0x06, L"(07) Not Used" },
+    { 0x06, L"(07) Titan Flame" },
     { 0x07, L"(08) Not Used" },
     { 0x09, L"Not Used" },
 };

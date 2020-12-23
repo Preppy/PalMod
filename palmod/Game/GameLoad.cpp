@@ -972,8 +972,8 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
                 nSaveLoadSucc++;
             }
             else if (OutGame && 
-                   ((nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
-                   ((nGameFlag == MVC2_P) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION)))
+                   (((nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
+                    ((nGameFlag == MVC2_P) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION))))
             {
                 OutputDebugString(_T("CGameLoad::LoadDir : Team View for MvC2. Ignoring file open.\n"));
                 if (OutGame->LoadFile(nullptr, CurrRule.uUnitId))

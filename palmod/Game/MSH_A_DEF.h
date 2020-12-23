@@ -6,32 +6,6 @@
 // * Update every array using MSH_A_NUMUNIT below
 // That should be it.  Good luck.
 
-#define ALLOW_256_COLOR_PALETTES 1
-
-enum SupportedMSHPaletteListIndex_05
-{
-    indexMSHAnita = 0,
-    indexMSHBlackheart,
-    indexMSHCaptainAmerica,
-    indexMSHDoom,
-    indexMSHHulk,
-    indexMSHIronMan,
-    indexMSHJuggy,
-    indexMSHMagneto,
-    indexMSHPsylocke,
-    indexMSHShuma,
-    indexMSHSpiderman,
-    indexMSHThanos,
-    indexMSHWolverine,
-    indexMSH_05_Last
-};
-
-enum SupportedMSHPaletteListIndex_06
-{
-    indexMSHCSPs,
-    indexMSH_06_Last
-};
-
 #ifdef LOOKINGFORSORTORDER
 
 const sGame_PaletteDataset MSH_A_SPIDERMAN_PALETTES_P1[] =
@@ -66,10 +40,6 @@ const sGame_PaletteDataset MSH_A_THANOS_PALETTES_P1[] =
     p2 shuma at 641ae
 
 #endif
-
-constexpr auto MSH_A_NUMUNIT_06 = indexMSH_06_Last;
-
-#define MSH_A_EXTRALOC_06 MSH_A_NUMUNIT_06
 
 const sGame_PaletteDataset MSH_A_ANITA_PALETTES_P1[] =
 {
@@ -151,12 +121,14 @@ const sGame_PaletteDataset MSH_A_HULK_PALETTES_P1[] =
 {
     { L"P1 Main", 0x61DCE, 0x61DEE, indexCPS2_Hulk },
     { L"P1 Gamma Charge / Clap", 0x61DEE, 0x61E0E, indexCPS2_Hulk, 1 },
+    { L"P1 Gamma Crush", 0x61E0E, 0x61E2E, indexCPS2_Hulk, 2 },
 };
 
 const sGame_PaletteDataset MSH_A_HULK_PALETTES_P2[] =
 {
     { L"P2 Main", 0x61E4E, 0x61E6E, indexCPS2_Hulk },
     { L"P2 Gamma Charge / Clap", 0x61E6E, 0x61E8E, indexCPS2_Hulk, 1 },
+    { L"P2 Gamma Crush", 0x61E8E, 0x61EAE, indexCPS2_Hulk, 2 },
 };
 
 const sGame_PaletteDataset MSH_A_IRONMAN_PALETTES_P1[] =
@@ -186,6 +158,13 @@ const sGame_PaletteDataset MSH_A_JUGGY_PALETTES_P2[] =
 const sGame_PaletteDataset MSH_A_JUGGY_PALETTES_EXTRAS[] =
 {
     { L"P1 + P2 Extra (Super Armor)", 0x6EC6E, 0x6EC8E, indexCPS2_Juggy, 11 },
+
+    { L"Space Gem Armor 1 (Shared)", 0x64ECE, 0x64EEE, indexCPS2_Juggy },
+    { L"Space Gem Armor 2 (Shared)", 0x64EEE, 0x64F0E, indexCPS2_Juggy },
+    { L"Space Gem Armor 3 (Shared)", 0x64F0E, 0x64F2E, indexCPS2_Juggy },
+    { L"Space Gem Armor 4 (Shared)", 0x64F2E, 0x64F4E, indexCPS2_Juggy },
+    { L"Space Gem Armor 5 (Shared)", 0x64F4E, 0x64F6E, indexCPS2_Juggy },
+    { L"Space Gem Armor 6 (Shared)", 0x64F6E, 0x64F8E, indexCPS2_Juggy },
 };
 
 const sGame_PaletteDataset MSH_A_MAGNETO_PALETTES_P1[] =
@@ -437,143 +416,142 @@ const sGame_PaletteDataset MSH_A_CSP_PALETTES[] =
     { L"Thanos P2 CSP",          0x000df80, 0x000e180, indexCPS2_Thanos, indexCSP2Images_MSH_CSPs },
 };
 
+const sGame_PaletteDataset MSH_A_VSP_PALETTES[] = 
+{
+    { L"Spider-Man P1 VSP",         0x75F0, 0x7770 },
+    { L"Captain America P1 VSP",    0x7770, 0x7970 },
+    { L"Hulk P1 VSP",               0x7970, 0x79D0 },
+    { L"Iron Man P1 VSP",           0x79D0, 0x7B50 },
+    { L"Wolverine P1 VSP",          0x7B50, 0x7D30 },
+    { L"Psylocke P1 VSP",           0x7D30, 0x7E50 },
+    { L"BlackHeart P1 VSP",         0x7E50, 0x7E90 },
+    { L"Shuma-Gorath P1 VSP",       0x7E90, 0x7F90 },
+    { L"Juggernaut P1 VSP",         0x7F90, 0x8090 },
+    { L"Magneto P1 VSP",            0x8090, 0x82B0 },
+    { L"Dr. Doom P1 VSP",           0x82B0, 0x8490 },
+    { L"Thanos P1 VSP",             0x8490, 0x8619 },
+};
+
 const sDescTreeNode MSH_A_ANITA_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_PALETTES_P1,             ARRAYSIZE(MSH_A_ANITA_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_PALETTES_P2,             ARRAYSIZE(MSH_A_ANITA_PALETTES_P2) },
-    { L"Shared", DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_PALETTES_SHARED,             ARRAYSIZE(MSH_A_ANITA_PALETTES_SHARED) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_PALETTES_P1,            ARRAYSIZE(MSH_A_ANITA_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_PALETTES_P2,            ARRAYSIZE(MSH_A_ANITA_PALETTES_P2) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_PALETTES_SHARED,    ARRAYSIZE(MSH_A_ANITA_PALETTES_SHARED) },
 };
 
 const sDescTreeNode MSH_A_BLACKHEART_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_PALETTES_P1,      ARRAYSIZE(MSH_A_BLACKHEART_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_PALETTES_P2,      ARRAYSIZE(MSH_A_BLACKHEART_PALETTES_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_PALETTES_P1,       ARRAYSIZE(MSH_A_BLACKHEART_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_PALETTES_P2,       ARRAYSIZE(MSH_A_BLACKHEART_PALETTES_P2) },
 };
 
 const sDescTreeNode MSH_A_CAPTAINAMERICA_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_CAPTAINAMERICA_PALETTES_P1,  ARRAYSIZE(MSH_A_CAPTAINAMERICA_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_CAPTAINAMERICA_PALETTES_P2,  ARRAYSIZE(MSH_A_CAPTAINAMERICA_PALETTES_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_CAPTAINAMERICA_PALETTES_P1,   ARRAYSIZE(MSH_A_CAPTAINAMERICA_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_CAPTAINAMERICA_PALETTES_P2,   ARRAYSIZE(MSH_A_CAPTAINAMERICA_PALETTES_P2) },
 };
 
 const sDescTreeNode MSH_A_DRDOOM_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_P1,          ARRAYSIZE(MSH_A_DRDOOM_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_P2,          ARRAYSIZE(MSH_A_DRDOOM_PALETTES_P2) },
-    { L"Extras", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_EXTRAS,  ARRAYSIZE(MSH_A_DRDOOM_PALETTES_EXTRAS) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_P1,           ARRAYSIZE(MSH_A_DRDOOM_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_P2,           ARRAYSIZE(MSH_A_DRDOOM_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_EXTRAS,   ARRAYSIZE(MSH_A_DRDOOM_PALETTES_EXTRAS) },
 };
 
 const sDescTreeNode MSH_A_HULK_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_HULK_PALETTES_P1,            ARRAYSIZE(MSH_A_HULK_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_HULK_PALETTES_P2,            ARRAYSIZE(MSH_A_HULK_PALETTES_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_HULK_PALETTES_P1,             ARRAYSIZE(MSH_A_HULK_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_HULK_PALETTES_P2,             ARRAYSIZE(MSH_A_HULK_PALETTES_P2) },
 };
 
 const sDescTreeNode MSH_A_IRONMAN_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_IRONMAN_PALETTES_P1,         ARRAYSIZE(MSH_A_IRONMAN_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_IRONMAN_PALETTES_P2,         ARRAYSIZE(MSH_A_IRONMAN_PALETTES_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_IRONMAN_PALETTES_P1,          ARRAYSIZE(MSH_A_IRONMAN_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_IRONMAN_PALETTES_P2,          ARRAYSIZE(MSH_A_IRONMAN_PALETTES_P2) },
 };
 
 const sDescTreeNode MSH_A_JUGGY_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_P1,           ARRAYSIZE(MSH_A_JUGGY_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_P2,           ARRAYSIZE(MSH_A_JUGGY_PALETTES_P2) },
-    { L"Extras", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_EXTRAS,   ARRAYSIZE(MSH_A_JUGGY_PALETTES_EXTRAS) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_P1,            ARRAYSIZE(MSH_A_JUGGY_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_P2,            ARRAYSIZE(MSH_A_JUGGY_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_EXTRAS,    ARRAYSIZE(MSH_A_JUGGY_PALETTES_EXTRAS) },
 };
 
 const sDescTreeNode MSH_A_MAGNETO_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_MAGNETO_PALETTES_P1,         ARRAYSIZE(MSH_A_MAGNETO_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_MAGNETO_PALETTES_P2,         ARRAYSIZE(MSH_A_MAGNETO_PALETTES_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_MAGNETO_PALETTES_P1,          ARRAYSIZE(MSH_A_MAGNETO_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_MAGNETO_PALETTES_P2,          ARRAYSIZE(MSH_A_MAGNETO_PALETTES_P2) },
 };
 
 const sDescTreeNode MSH_A_PSYLOCKE_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_PSYLOCKE_PALETTES_P1,        ARRAYSIZE(MSH_A_PSYLOCKE_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_PSYLOCKE_PALETTES_P2,        ARRAYSIZE(MSH_A_PSYLOCKE_PALETTES_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_PSYLOCKE_PALETTES_P1,         ARRAYSIZE(MSH_A_PSYLOCKE_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_PSYLOCKE_PALETTES_P2,         ARRAYSIZE(MSH_A_PSYLOCKE_PALETTES_P2) },
 };
 
 const sDescTreeNode MSH_A_SHUMA_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_SHUMA_PALETTES_P1,         ARRAYSIZE(MSH_A_SHUMA_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_SHUMA_PALETTES_P2,         ARRAYSIZE(MSH_A_SHUMA_PALETTES_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_SHUMA_PALETTES_P1,            ARRAYSIZE(MSH_A_SHUMA_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_SHUMA_PALETTES_P2,            ARRAYSIZE(MSH_A_SHUMA_PALETTES_P2) },
 };
 
 const sDescTreeNode MSH_A_SPIDERMAN_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_PALETTES_P1,       ARRAYSIZE(MSH_A_SPIDERMAN_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_PALETTES_P2,       ARRAYSIZE(MSH_A_SPIDERMAN_PALETTES_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_PALETTES_P1,        ARRAYSIZE(MSH_A_SPIDERMAN_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_PALETTES_P2,        ARRAYSIZE(MSH_A_SPIDERMAN_PALETTES_P2) },
 };
 
 const sDescTreeNode MSH_A_THANOS_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_P1,          ARRAYSIZE(MSH_A_THANOS_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_P2,          ARRAYSIZE(MSH_A_THANOS_PALETTES_P2) },
-    { L"Extras", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_EXTRAS,  ARRAYSIZE(MSH_A_THANOS_PALETTES_EXTRAS) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_P1,           ARRAYSIZE(MSH_A_THANOS_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_P2,           ARRAYSIZE(MSH_A_THANOS_PALETTES_P2) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_EXTRAS,   ARRAYSIZE(MSH_A_THANOS_PALETTES_EXTRAS) },
 };
 
 const sDescTreeNode MSH_A_WOLVERINE_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_PALETTES_P1,       ARRAYSIZE(MSH_A_WOLVERINE_PALETTES_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_PALETTES_P2,       ARRAYSIZE(MSH_A_WOLVERINE_PALETTES_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_PALETTES_P1,        ARRAYSIZE(MSH_A_WOLVERINE_PALETTES_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_PALETTES_P2,        ARRAYSIZE(MSH_A_WOLVERINE_PALETTES_P2) },
 };
 
 const sDescTreeNode MSH_A_CSP_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSH_A_CSP_PALETTES,               ARRAYSIZE(MSH_A_CSP_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSH_A_CSP_PALETTES,           ARRAYSIZE(MSH_A_CSP_PALETTES) },
 };
 
-const UINT8 MSH_A_UNITSORT_06[MSH_A_NUMUNIT_06 + 1] = // Plus 1 for the extra palettes
+const sDescTreeNode MSH_A_VSP_COLLECTION[] =
 {
-    indexMSHCSPs,
-
-    MSH_A_EXTRALOC_06 // Extra palettes
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSH_A_VSP_PALETTES,           ARRAYSIZE(MSH_A_VSP_PALETTES) },
 };
 
 const sDescTreeNode MSH_UNITS_05[] =
 {
-    { L"Blackheart",                   DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_COLLECTION,       ARRAYSIZE(MSH_A_BLACKHEART_COLLECTION) },
-    { L"Captain America",              DESC_NODETYPE_TREE, (void*)MSH_A_CAPTAINAMERICA_COLLECTION,   ARRAYSIZE(MSH_A_CAPTAINAMERICA_COLLECTION) },
-    { L"Doctor Doom",                  DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_COLLECTION,           ARRAYSIZE(MSH_A_DRDOOM_COLLECTION) },
-    { L"Hulk",                         DESC_NODETYPE_TREE, (void*)MSH_A_HULK_COLLECTION,             ARRAYSIZE(MSH_A_HULK_COLLECTION) },
-    { L"Iron Man",                     DESC_NODETYPE_TREE, (void*)MSH_A_IRONMAN_COLLECTION,          ARRAYSIZE(MSH_A_IRONMAN_COLLECTION) },
-    { L"Juggernaut",                   DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_COLLECTION,            ARRAYSIZE(MSH_A_JUGGY_COLLECTION) },
-    { L"Magneto",                      DESC_NODETYPE_TREE, (void*)MSH_A_MAGNETO_COLLECTION,          ARRAYSIZE(MSH_A_MAGNETO_COLLECTION) },
-    { L"Psylocke",                     DESC_NODETYPE_TREE, (void*)MSH_A_PSYLOCKE_COLLECTION,         ARRAYSIZE(MSH_A_PSYLOCKE_COLLECTION) },
-    { L"Shuma-Gorath",                 DESC_NODETYPE_TREE, (void*)MSH_A_SHUMA_COLLECTION,            ARRAYSIZE(MSH_A_SHUMA_COLLECTION) },
-    { L"Spider-Man",                   DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_COLLECTION,        ARRAYSIZE(MSH_A_SPIDERMAN_COLLECTION) },
-    { L"Thanos",                       DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_COLLECTION,           ARRAYSIZE(MSH_A_THANOS_COLLECTION) },
-    { L"Wolverine",                    DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_COLLECTION,        ARRAYSIZE(MSH_A_WOLVERINE_COLLECTION) },
-    { L"Anita (Japan-only)",           DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_COLLECTION,            ARRAYSIZE(MSH_A_ANITA_COLLECTION) },
+    { L"Blackheart",                    DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_COLLECTION,       ARRAYSIZE(MSH_A_BLACKHEART_COLLECTION) },
+    { L"Captain America",               DESC_NODETYPE_TREE, (void*)MSH_A_CAPTAINAMERICA_COLLECTION,   ARRAYSIZE(MSH_A_CAPTAINAMERICA_COLLECTION) },
+    { L"Doctor Doom",                   DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_COLLECTION,           ARRAYSIZE(MSH_A_DRDOOM_COLLECTION) },
+    { L"Hulk",                          DESC_NODETYPE_TREE, (void*)MSH_A_HULK_COLLECTION,             ARRAYSIZE(MSH_A_HULK_COLLECTION) },
+    { L"Iron Man",                      DESC_NODETYPE_TREE, (void*)MSH_A_IRONMAN_COLLECTION,          ARRAYSIZE(MSH_A_IRONMAN_COLLECTION) },
+    { L"Juggernaut",                    DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_COLLECTION,            ARRAYSIZE(MSH_A_JUGGY_COLLECTION) },
+    { L"Magneto",                       DESC_NODETYPE_TREE, (void*)MSH_A_MAGNETO_COLLECTION,          ARRAYSIZE(MSH_A_MAGNETO_COLLECTION) },
+    { L"Psylocke",                      DESC_NODETYPE_TREE, (void*)MSH_A_PSYLOCKE_COLLECTION,         ARRAYSIZE(MSH_A_PSYLOCKE_COLLECTION) },
+    { L"Shuma-Gorath",                  DESC_NODETYPE_TREE, (void*)MSH_A_SHUMA_COLLECTION,            ARRAYSIZE(MSH_A_SHUMA_COLLECTION) },
+    { L"Spider-Man",                    DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_COLLECTION,        ARRAYSIZE(MSH_A_SPIDERMAN_COLLECTION) },
+    { L"Thanos",                        DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_COLLECTION,           ARRAYSIZE(MSH_A_THANOS_COLLECTION) },
+    { L"Wolverine",                     DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_COLLECTION,        ARRAYSIZE(MSH_A_WOLVERINE_COLLECTION) },
+    { L"Anita (Japan-only)",            DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_COLLECTION,            ARRAYSIZE(MSH_A_ANITA_COLLECTION) },
 };
 
 constexpr auto MSH_A_NUMUNIT_05 = ARRAYSIZE(MSH_UNITS_05);
 #define MSH_A_EXTRALOC_05 MSH_A_NUMUNIT_05
 
-const UINT8 MSH_A_UNITSORT_05[MSH_A_NUMUNIT_05 + 1] = // Plus 1 for the extra palettes
+const sDescTreeNode MSH_UNITS_06[] =
 {
-    indexMSHBlackheart,
-    indexMSHCaptainAmerica,
-    indexMSHDoom,
-    indexMSHHulk,
-    indexMSHIronMan,
-    indexMSHJuggy,
-    indexMSHMagneto,
-    indexMSHPsylocke,
-    indexMSHShuma,
-    indexMSHSpiderman,
-    indexMSHThanos,
-    indexMSHWolverine,
-    indexMSHAnita, // last since she's Japan-only and broken
-
-    MSH_A_EXTRALOC_05 // Extra palettes
+    { L"Character Select Portraits",    DESC_NODETYPE_TREE, (void*)MSH_A_CSP_COLLECTION,              ARRAYSIZE(MSH_A_CSP_COLLECTION) },
+    { L"Victory Screen Portraits",      DESC_NODETYPE_TREE, (void*)MSH_A_VSP_COLLECTION,              ARRAYSIZE(MSH_A_VSP_COLLECTION) },
 };
 
-const sDescTreeNode MSH_UNITS_06[MSH_A_NUMUNIT_06] =
-{
-    { L"Character Select Portraits",   DESC_NODETYPE_TREE, (void*)MSH_A_CSP_COLLECTION,              ARRAYSIZE(MSH_A_CSP_COLLECTION) },
-};
+constexpr auto MSH_A_NUMUNIT_06 = ARRAYSIZE(MSH_UNITS_06);
+#define MSH_A_EXTRALOC_06 MSH_A_NUMUNIT_06
 
 // We extend this array with data groveled from the MSHe.txt extensible extras file, if any.
 const stExtraDef MSH_A_EXTRA[] =

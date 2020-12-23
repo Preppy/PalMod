@@ -2376,8 +2376,8 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_LP[] =
     { L"(04) Dog / Crow / Fire Zombie", 0x35f31c0, 0x35f31e0, indexCPS2_Jill, 3 },
     { L"(05) Tyrant", 0x35f31e0, 0x35f3200, indexCPS2_Jill, 4 },
     { L"(06) Shoulder Dash / Shoulder Torpedo / Bullet Fire 1 / Rocket (Fire)", 0x35f3200, 0x35f3220, indexCPS2_Jill, 5 },
-    { L"(07) Not Used", 0x35f3220, 0x35f3240, indexCPS2_Jill, 6 },
-    { L"(08) Not Used", 0x35f3240, 0x35f3260, indexCPS2_Jill, 7 },
+    { L"(07) Not Used", 0x35f3220, 0x35f3240, indexCPS2_Jill, 0, &pairNext },
+    { L"(08) Not Used", 0x35f3240, 0x35f3260, indexCPS2_Jill, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_LK[] =
@@ -2388,8 +2388,8 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_LK[] =
     { L"(04) Dog / Crow / Fire Zombie", 0x35f32c0, 0x35f32e0, indexCPS2_Jill, 3 },
     { L"(05) Tyrant", 0x35f32e0, 0x35f3300, indexCPS2_Jill, 4 },
     { L"(06) Shoulder Dash / Shoulder Torpedo / Bullet Fire 1 / Rocket (Fire)", 0x35f3300, 0x35f3320, indexCPS2_Jill, 5 },
-    { L"(07) Not Used", 0x35f3320, 0x35f3340, indexCPS2_Jill, 6 },
-    { L"(08) Not Used", 0x35f3340, 0x35f3360, indexCPS2_Jill, 7 },
+    { L"(07) Not Used", 0x35f3320, 0x35f3340, indexCPS2_Jill, 0, &pairNext },
+    { L"(08) Not Used", 0x35f3340, 0x35f3360, indexCPS2_Jill, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HP[] =
@@ -2400,8 +2400,8 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HP[] =
     { L"(04) Dog / Crow / Fire Zombie", 0x35f33c0, 0x35f33e0, indexCPS2_Jill, 3 },
     { L"(05) Tyrant", 0x35f33e0, 0x35f3400, indexCPS2_Jill, 4 },
     { L"(06) Shoulder Dash / Shoulder Torpedo / Bullet Fire 1 / Rocket (Fire)", 0x35f3400, 0x35f3420, indexCPS2_Jill, 5 },
-    { L"(07) Not Used", 0x35f3420, 0x35f3440, indexCPS2_Jill, 6 },
-    { L"(08) Not Used", 0x35f3440, 0x35f3460, indexCPS2_Jill, 7 },
+    { L"(07) Not Used", 0x35f3420, 0x35f3440, indexCPS2_Jill, 0, &pairNext },
+    { L"(08) Not Used", 0x35f3440, 0x35f3460, indexCPS2_Jill, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HK[] =
@@ -2412,8 +2412,8 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_HK[] =
     { L"(04) Dog / Crow / Fire Zombie", 0x35f34c0, 0x35f34e0, indexCPS2_Jill, 3 },
     { L"(05) Tyrant", 0x35f34e0, 0x35f3500, indexCPS2_Jill, 4 },
     { L"(06) Shoulder Dash / Shoulder Torpedo / Bullet Fire 1 / Rocket (Fire)", 0x35f3500, 0x35f3520, indexCPS2_Jill, 5 },
-    { L"(07) Not Used", 0x35f3520, 0x35f3540, indexCPS2_Jill, 6 },
-    { L"(08) Not Used", 0x35f3540, 0x35f3560, indexCPS2_Jill, 7 },
+    { L"(07) Not Used", 0x35f3520, 0x35f3540, indexCPS2_Jill, 0, &pairNext },
+    { L"(08) Not Used", 0x35f3540, 0x35f3560, indexCPS2_Jill, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_A1[] =
@@ -2424,8 +2424,8 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_A1[] =
     { L"(04) Dog / Crow / Fire Zombie", 0x35f35c0, 0x35f35e0, indexCPS2_Jill, 3 },
     { L"(05) Tyrant", 0x35f35e0, 0x35f3600, indexCPS2_Jill, 4 },
     { L"(06) Shoulder Dash / Shoulder Torpedo / Bullet Fire 1 / Rocket (Fire)", 0x35f3600, 0x35f3620, indexCPS2_Jill, 5 },
-    { L"(07) Not Used", 0x35f3620, 0x35f3640, indexCPS2_Jill, 6 },
-    { L"(08) Not Used", 0x35f3640, 0x35f3660, indexCPS2_Jill, 7 },
+    { L"(07) Not Used", 0x35f3620, 0x35f3640, indexCPS2_Jill, 0, &pairNext },
+    { L"(08) Not Used", 0x35f3640, 0x35f3660, indexCPS2_Jill, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_A2[] =
@@ -2436,8 +2436,8 @@ const sGame_PaletteDataset MVC2_A_JILL_PALETTES_A2[] =
     { L"(04) Dog / Crow / Fire Zombie", 0x35f36c0, 0x35f36e0, indexCPS2_Jill, 3 },
     { L"(05) Tyrant", 0x35f36e0, 0x35f3700, indexCPS2_Jill, 4 },
     { L"(06) Shoulder Dash / Shoulder Torpedo / Bullet Fire 1 / Rocket (Fire)", 0x35f3700, 0x35f3720, indexCPS2_Jill, 5 },
-    { L"(07) Not Used", 0x35f3720, 0x35f3740, indexCPS2_Jill, 6 },
-    { L"(08) Not Used", 0x35f3740, 0x35f3760, indexCPS2_Jill, 7 },
+    { L"(07) Not Used", 0x35f3720, 0x35f3740, indexCPS2_Jill, 0, &pairNext },
+    { L"(08) Not Used", 0x35f3740, 0x35f3760, indexCPS2_Jill, 1 },
 };
 
 const sGame_PaletteDataset MVC2_A_JILL_PALETTES_SHARED[] =
@@ -2782,8 +2782,8 @@ const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_EXTRAS[] =
 {
     { L"09: Not Used", 0x3913dc0, 0x3913de0 },
     { L"0a: Not Used", 0x3913de0, 0x3913e00 },
-    { L"0b: Strawberry / Watermelon", 0x3913e00, 0x3913e20 },
-    { L"0c: Peach", 0x3913e20, 0x3913e40 },
+    { L"0b: Strawberry / Watermelon", 0x3913e00, 0x3913e20, indexCPS2_SonSon, 0x09 },
+    { L"0c: Peach", 0x3913e20, 0x3913e40, indexCPS2_SonSon, 0x08 },
     { L"0d: Not Used", 0x3913e40, 0x3913e60 },
     { L"0e: Not Used", 0x3913e60, 0x3913e80 },
     { L"0f: LP - Monkey King", 0x3913e80, 0x3913ea0, indexCPS2_SonSon, 11 },
@@ -3127,7 +3127,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_LP[] =
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d194e0, 0x3d19500, indexCPS2_Abyss1, 3 },
     { L"(05) Super Armor Frame (when being hit)", 0x3d19500, 0x3d19520, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19520, 0x3d19540, indexCPS2_Abyss1, 5 },
-    { L"(07) Not Used", 0x3d19540, 0x3d19560, indexCPS2_Abyss1, 6 },
+    { L"(07) Titan Flame", 0x3d19540, 0x3d19560, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19560, 0x3d19580, indexCPS2_Abyss1, 7 },
 };
 
@@ -3139,7 +3139,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_LK[] =
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d195e0, 0x3d19600, indexCPS2_Abyss1, 3 },
     { L"(05) Super Armor Frame (when being hit)", 0x3d19600, 0x3d19620, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19620, 0x3d19640, indexCPS2_Abyss1, 5 },
-    { L"(07) Not Used", 0x3d19640, 0x3d19660, indexCPS2_Abyss1, 6 },
+    { L"(07) Titan Flame", 0x3d19640, 0x3d19660, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19660, 0x3d19680, indexCPS2_Abyss1, 7 },
 };
 
@@ -3151,7 +3151,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_HP[] =
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d196e0, 0x3d19700, indexCPS2_Abyss1, 3 },
     { L"(05) Super Armor Frame (when being hit)", 0x3d19700, 0x3d19720, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19720, 0x3d19740, indexCPS2_Abyss1, 5 },
-    { L"(07) Not Used", 0x3d19740, 0x3d19760, indexCPS2_Abyss1, 6 },
+    { L"(07) Titan Flame", 0x3d19740, 0x3d19760, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19760, 0x3d19780, indexCPS2_Abyss1, 7 },
 };
 
@@ -3163,7 +3163,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_HK[] =
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d197e0, 0x3d19800, indexCPS2_Abyss1, 3 },
     { L"(05) Super Armor Frame (when being hit)", 0x3d19800, 0x3d19820, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19820, 0x3d19840, indexCPS2_Abyss1, 5 },
-    { L"(07) Not Used", 0x3d19840, 0x3d19860, indexCPS2_Abyss1, 6 },
+    { L"(07) Titan Flame", 0x3d19840, 0x3d19860, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19860, 0x3d19880, indexCPS2_Abyss1, 7 },
 };
 
@@ -3175,7 +3175,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_A1[] =
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d198e0, 0x3d19900, indexCPS2_Abyss1, 3 },
     { L"(05) Super Armor Frame (when being hit)", 0x3d19900, 0x3d19920, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19920, 0x3d19940, indexCPS2_Abyss1, 5 },
-    { L"(07) Not Used", 0x3d19940, 0x3d19960, indexCPS2_Abyss1, 6 },
+    { L"(07) Titan Flame", 0x3d19940, 0x3d19960, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19960, 0x3d19980, indexCPS2_Abyss1, 7 },
 };
 
@@ -3187,7 +3187,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS1_PALETTES_A2[] =
     { L"(04) ID:01-11 Titan Smash (hand swipe) ID: 11-15 Not Used", 0x3d199e0, 0x3d19a00, indexCPS2_Abyss1, 3 },
     { L"(05) Super Armor Frame (when being hit)", 0x3d19a00, 0x3d19a20, indexCPS2_Abyss1, 0 },
     { L"(06) Trident (Winpose) / Titan Rage (Super) / Titan Horn", 0x3d19a20, 0x3d19a40, indexCPS2_Abyss1, 5 },
-    { L"(07) Not Used", 0x3d19a40, 0x3d19a60, indexCPS2_Abyss1, 6 },
+    { L"(07) Titan Flame", 0x3d19a40, 0x3d19a60, indexCPS2_Abyss1, 6 },
     { L"(08) Not Used", 0x3d19a60, 0x3d19a80, indexCPS2_Abyss1, 7 },
 };
 
@@ -5226,7 +5226,7 @@ const sGame_PaletteDataset MVC2_A_SAKURA_PALETTES_EXTRAS[] =
 {
     { L"09: Not Used", 0x4406260, 0x4406280 },
     { L"0a: Not Used", 0x4406280, 0x44062a0 },
-    { L"0b: Winpose - Cherry Blossoms", 0x44062a0, 0x44062c0 },
+    { L"0b: Winpose - Cherry Blossoms", 0x44062a0, 0x44062c0, indexCPS2_Sakura, 0x08 },
     { L"0c: Not Used", 0x44062c0, 0x44062e0 },
     { L"0d: Not Used", 0x44062e0, 0x4406300 },
     { L"0e: Not Used", 0x4406300, 0x4406320 },

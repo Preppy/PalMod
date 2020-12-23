@@ -1697,6 +1697,7 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
     { L"Blue Super BG", 0x423E4, 0x42424 },
     { L"Yellow Crossover BG", 0x42444, 0x42484 },
     { L"Red Duo BG (Flickering off)", 0x46A04, 0x46A44 },
+    { L"Level 3 Super BG", 0x42564, 0x425C4 },
 };
 
 const sGame_PaletteDataset MVC_A_BLUEMOON_STAGE_PALETTES[] =
@@ -1738,10 +1739,19 @@ const sGame_PaletteDataset MVC_A_MEGAMAN_STAGE_PALETTES[] =
 
 const sGame_PaletteDataset MVC_A_ZABEL_STAGE_PALETTES[] =
 {
-    { L"Sprites",       0x51584, 0x51624 },
-    { L"Foreground",    0x30B1A, 0x310FA },
-    { L"Middle",        0x3421A, 0x346BA },
-    { L"Background",    0x397FA, 0x39C7A },
+    { L"Background 1",  0x397FA, 0x399FA, indexCPS2_MVCAssets, 0x70, &pairFullyLinkedNode },
+    { L"Background 2 (Unused)",  0x399FA, 0x39BFA },
+    { L"Background 3",  0x39BFA, 0x39C7A, indexCPS2_MVCAssets, 0x6f },
+
+    { L"Middle 1",      0x3421A, 0x3441A, indexCPS2_MVCAssets, 0x73 },
+    { L"Middle 2",      0x3441A, 0x3461A, indexCPS2_MVCAssets, 0x72 },
+    { L"Middle 3",      0x3461A, 0x346BA, indexCPS2_MVCAssets, 0x71 },
+
+    { L"Foreground 1",  0x30B1A, 0x30d1A, indexCPS2_MVCAssets, 0x76 },
+    { L"Foreground 2",  0x30D1A, 0x30f1A, indexCPS2_MVCAssets, 0x75 },
+    { L"Foreground 3",  0x30f1A, 0x310FA, indexCPS2_MVCAssets, 0x74 },
+
+    { L"Sprites",       0x51584, 0x51624, indexCPS2_MVCAssets, 0x77 },
 };
 
 const sDescTreeNode MVC_A_WARMACHINE_COLLECTION[] =

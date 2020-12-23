@@ -39,7 +39,7 @@ CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = COTA_A_NUMUNIT;
     m_nExtraUnit = COTA_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = 330 + GetExtraCt(m_nExtraUnit);
+    m_nSafeCountForThisRom = 331 + GetExtraCt(m_nExtraUnit);
     m_pszExtraFilename = EXTRA_FILENAME_COTA;
     m_nTotalPaletteCount = m_nTotalPaletteCountForCOTA;
     m_nLowestKnownPaletteRomLocation = 0x2600e;

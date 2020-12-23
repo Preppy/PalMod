@@ -2082,12 +2082,58 @@ const sGame_PaletteDataset SFA2_A_STAGES08_RYU_PALETTES[] =
 
 const sGame_PaletteDataset SFA2_A_INTROPORTRAIT_PALETTES[] =
 {
-    { L"Sakura",    0x20E1E, 0x20E7E }, // 2171c, 20e20, 176a0
-    { L"Gen",       0x20D5E, 0x20D9E },
-    { L"Rolento",   0x20F3E, 0x20F7E },
-    { L"Dhalsim",   0x20FFE, 0x2103E },
-    { L"Zangief",   0x210BE, 0x210FE },
+    { L"Sakura",    0x20E20, 0x20E80, indexCPS2_SFA2_Bonus, 0x0a }, // 2171c, 20e20, 176a0
+    { L"Gen",       0x20D60, 0x20Da0, indexCPS2_SFA2_Bonus, 0x05  },
+    { L"Rolento",   0x20F40, 0x20F80, indexCPS2_SFA2_Bonus, 0x07 },
+    { L"Dhalsim",   0x21000, 0x21040, indexCPS2_SFA2_Bonus, 0x04 },
+    { L"Zangief",   0x210c0, 0x21100, indexCPS2_SFA2_Bonus, 0x0b },
+    //{ L"Birdie Intro", 0x1260, 0x1320, indexCPS2_SFA2_Bonus, 0x01 },
+    //{ L"Sagat Intro", 0xB880, 0xB8E0, indexCPS2_SFA2_Bonus, 0x09 },
+    // the bison intro sprite should be joined
+    //{ L"M.Bison Intro", 0xB8FE 0xB91E
+
+#ifdef MORENOTES
+    { L"Rose (Intro) (.08)", 0xB65E, 0xB73E },
+    { L"Rose (Intro) (.08) - Unk/E", 0xB660, 0xB740 },
+    { L"Bison (Intro) (.08)", 0xB73E, 0xB87E },
+    { L"Bison (Intro) (.08) - Unk/E", 0xB740, 0xB880 },
+    { L"Rose' Tarot Cards (Intro) (.07)", 0x7709E, 0x770BE },
+    { L"Rose' Tarot Cards (Intro) (.07) - Unk/E", 0x770A0, 0x770C0 },
+    { L"Intro - Blue BG pt.1 (.08)", 0x2117E, 0x2119E },
+    { L"Intro - Blue BG pt.1 (.08) Unk/E", 0x21180, 0x211A0 },
+    { L"Intro - Blue BG pt.2 (.08)", 0x2CD7E, 0x2CD9E },
+    { L"Intro - Blue BG pt.2 (.08) Unk/E", 0x2CD80, 0x2CDA0 },
+    { L"Intro - Purple BG pt. 2 (.08)", 0x15A1E, 0x15A3E },
+    { L"Intro - Purple BG pt. 2 (.08) - Unk/E", 0x15A20, 0x15A40 },
+    { L"Intro - Purple BG pt.1 (.07)", 0x76F5E, 0x76F7E },
+    { L"Intro - Purple BG pt.1 (.07) - Unk/E", 0x76F60, 0x76F80 },
+
+// SFA2 notes for devs with correct offsets
+    { L"Charlie (Intro) (.07)", 0x76E7E, 0x76EDE },
+    { L"Chun-Li (Intro) (.07)", 0x76DDE, 0x76E7E },
+    { L"Foreground Flames (Intro) (.07)", 0x76DBE, 0x76DDE },
+    { L"Rose' Tarot Cards (Intro) (.07)", 0x7709E, 0x770BE },
+    { L"Rose (Intro) (.08)", 0xB65E, 0xB73E },
+    { L"Bison (Intro) (Incomplete) (.08)", 0xB73E, 0xB87E },
+    { L"Blue BG (Intro) pt.1 (.08)", 0x2117E, 0x2119E },
+    { L"Blue BG (Intro) (.08)", 0x2CD7E, 0x2CD9E },
+#endif
 };
+
+#ifdef IMGDAT_LOCATIONS
+SFA2_Bonus - AdonIntroPants || 0x7F - 0x00
+    SFA2_Bonus - BirdieIntro || 0x7F - 0x01
+SFA2_Bonus - DanIntro || 0x7F - 0x03
+SFA2_Bonus - DanIntroRocks || 0x7F - 0x02
+    SFA2_Bonus - DhalsimIntro || 0x7F - 0x04
+    SFA2_Bonus - GenIntro || 0x7F - 0x05
+SFA2_Bonus - KenIntro1 || 0x7F - 0x06
+    SFA2_Bonus - RolentoIntro || 0x7F - 0x07
+SFA2_Bonus - RyuIntro1 || 0x7F - 0x08
+    SFA2_Bonus - SagatIntro || 0x7F - 0x09
+    SFA2_Bonus - SakuraIntro || 0x7F - 0x0A
+    SFA2_Bonus - ZangiefIntro || 0x7F - 0x0B
+#endif
 
 const sDescTreeNode SFA2_A_STAGES07_REV1_COLLECTION[] =
 {
@@ -4466,7 +4512,7 @@ const sDescTreeNode SFA2_A_UNITS_08_REV1[] =
     { L"Sodom Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_SODOM_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_SODOM_PORTRAIT_COLLECTION) },
     { L"Zangief Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_ZANGIEF_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_ZANGIEF_PORTRAIT_COLLECTION) },
 
-    { L"Bonus",     DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08_COLLECTION) },
+    // { L"Bonus",     DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08_COLLECTION) },
 
     { L"Stages",    DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_COLLECTION, ARRAYSIZE(SFA2_A_STAGES08_REV1_COLLECTION) },
 };
@@ -4510,7 +4556,7 @@ const sDescTreeNode SFA2_A_UNITS_08_REV2[] =
     { L"Dhalsim (WW) Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_REV2_WWDHALSIM_PORTRAIT_COLLECTION,   ARRAYSIZE(SFA2_A_REV2_WWDHALSIM_PORTRAIT_COLLECTION) },
     { L"Zangief (WW) Portraits", DESC_NODETYPE_TREE, (void*)SFA2_A_REV2_WWZANGIEF_PORTRAIT_COLLECTION,   ARRAYSIZE(SFA2_A_REV2_WWZANGIEF_PORTRAIT_COLLECTION) },
     
-    { L"Bonus",                 DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08_COLLECTION) },
+    //{ L"Bonus",                 DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08_COLLECTION) },
     { L"Stages",                DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV2_COLLECTION, ARRAYSIZE(SFA2_A_STAGES08_REV2_COLLECTION) },
 };
 
@@ -4559,7 +4605,7 @@ const sDescTreeNode SFZ2A_A_UNITS_08[] =
     { L"M. Bison (WW) Portraits", DESC_NODETYPE_TREE, (void*)SFZ2A_A_WWMBISON_PORTRAIT_COLLECTION, ARRAYSIZE(SFZ2A_A_WWMBISON_PORTRAIT_COLLECTION) },
     { L"Sakura (Alt) Portraits", DESC_NODETYPE_TREE, (void*)SFZ2A_A_ALTSAKURA_PORTRAIT_COLLECTION, ARRAYSIZE(SFZ2A_A_ALTSAKURA_PORTRAIT_COLLECTION) },
 
-    { L"Bonus", DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08_COLLECTION) },
+    //{ L"Bonus", DESC_NODETYPE_TREE, (void*)SFA2_A_BONUS08_COLLECTION, ARRAYSIZE(SFA2_A_BONUS08_COLLECTION) },
     //{ L"Stages",                DESC_NODETYPE_TREE, (void*)SFA2_A_STAGES08_REV1_COLLECTION, ARRAYSIZE(SFA2_A_STAGES08_REV1_COLLECTION) },
 };
 

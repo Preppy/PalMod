@@ -286,7 +286,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
 
         if (
-            CreateExtraPal(uUnitId, uPalId, 0x09, 0x10, 11, 0, 8)
+               CreateExtraPal(uUnitId, uPalId, 0x09, 0x10, 11, 0, 8)
             || CreateExtraPal(uUnitId, uPalId, 0x11, 0x10, 12)
             || CreateExtraPal(uUnitId, uPalId, 0x12, 0x10, 13)
             || CreateExtraPal(uUnitId, uPalId, 0x13, 0x10, 14)
@@ -395,7 +395,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         nExtraAmt = 1;
 
         if (
-            CreateExtraPal(uUnitId, uPalId, 0x11, 1, 11) // food cart
+               CreateExtraPal(uUnitId, uPalId, 0x11, 1, 11) // food cart
             || CreateExtraPal(uUnitId, uPalId, 0x13, 1, 12) // lunch!
             || CreateExtraPal(uUnitId, uPalId, 0x14, 1, 13) // rings
             || CreateExtraPal(uUnitId, uPalId, 0x15, 1, 14) // drill jet flame
@@ -436,9 +436,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             break;
         }
         else  if (
-            CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11)  // ? not present
+               CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11)  // ? not present
             || CreateExtraPal(uUnitId, uPalId, 0x0A, 1, 12)  // healing
-            || CreateExtraPal(uUnitId, uPalId, 0x0B, 1, 2) // flame zombie
+            || CreateExtraPal(uUnitId, uPalId, 0x0B, 1, 2)   // flame zombie
             )
         {
             break;
@@ -505,11 +505,17 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2_SonSon: //SonSon
     {
-        if (
-               CreateExtraPal(uUnitId, uPalId, 0x0F, 1, 11) // giant monkey
-            || CreateExtraPal(uUnitId, uPalId, 0x17, 1, 11) // giant monkey
-            || CreateExtraPal(uUnitId, uPalId, 0x1D, 2, 11, 0, 2) // giant monkey
-            )
+        nExtraAmt = 1;
+        if (CreateExtraPal(uUnitId, uPalId, 0x0B, 1, 0x09) || // strawberry
+            CreateExtraPal(uUnitId, uPalId, 0x0C, 1, 0x08)) // peach
+        {
+            break;
+        }
+
+        nExtraAmt = 6;
+        if (CreateExtraPal(uUnitId, uPalId, 0x0F, 1, 11) || // giant monkey
+            CreateExtraPal(uUnitId, uPalId, 0x17, 1, 11) || // giant monkey
+            CreateExtraPal(uUnitId, uPalId, 0x1D, 2, 11, 0, 2)) // giant monkey
         {
             break;
         }
@@ -1081,6 +1087,9 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
 
         CreateExtraPal(uUnitId, uPalId, 0x1D, 0x1, 0x00); // Dark Sakura
+
+        // Cherry blossoms
+        CreateExtraPal(uUnitId, uPalId, 0x0B, 0x1, 0x08, 0, 1);
         break;
     }
 

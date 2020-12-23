@@ -16,30 +16,30 @@ const sGame_PaletteDataset GUNDAM_WING_PALETTES_P2[] =
 
 const sGame_PaletteDataset GUNDAM_HEAVYARMS_PALETTES_P1[] =
 {
-    { L"Heavy Arms P1", 0xAC700, 0xAC740, indexGundamSprites_HeavyArms },
-    //{ L"Heavy Arms P1 Extras 1", 0xAC720, 0xAC740 },
-    { L"Heavy Arms P1 Extras 2", 0xAC740, 0xAC760 },
+    { L"Heavyarms P1", 0xAC700, 0xAC740, indexGundamSprites_HeavyArms },
+    //{ L"Heavyarms P1 Extras 1", 0xAC720, 0xAC740 },
+    { L"Heavyarms P1 Extras 2", 0xAC740, 0xAC760 },
 };
 
 const sGame_PaletteDataset GUNDAM_HEAVYARMS_PALETTES_P2[] =
 {
-    { L"Heavy Arms P2", 0xAC780, 0xAC7c0, indexGundamSprites_HeavyArms },
-    //{ L"Heavy Arms P2 Extras 1", 0xAC7A0, 0xAC7C0 },
-    { L"Heavy Arms P2 Extras 2", 0xAC7C0, 0xAC7E0 },
+    { L"Heavyarms P2", 0xAC780, 0xAC7c0, indexGundamSprites_HeavyArms },
+    //{ L"Heavyarms P2 Extras 1", 0xAC7A0, 0xAC7C0 },
+    { L"Heavyarms P2 Extras 2", 0xAC7C0, 0xAC7E0 },
 };
 
 const sGame_PaletteDataset GUNDAM_DEATHSCYTHE_PALETTES_P1[] =
 {
-    { L"Death Scythe P1", 0xAC500, 0xAC540, indexGundamSprites_DeathScythe },
-    //{ L"Death Scythe P1 Extras 1", 0xAC520, 0xAC540 },
-    { L"Death Scythe P1 Extras 2", 0xAC540, 0xAC560 },
+    { L"Deathscythe P1", 0xAC500, 0xAC540, indexGundamSprites_DeathScythe },
+    //{ L"Deathscythe P1 Extras 1", 0xAC520, 0xAC540 },
+    { L"Deathscythe P1 Extras 2", 0xAC540, 0xAC560 },
 };
 
 const sGame_PaletteDataset GUNDAM_DEATHSCYTHE_PALETTES_P2[] =
 {
-    { L"Death Scythe P2", 0xAC580, 0xAC5c0, indexGundamSprites_DeathScythe },
-    //{ L"Death Scythe P2 Extras 1", 0xAC5A0, 0xAC5C0 },
-    { L"Death Scythe P2 Extras 2", 0xAC5C0, 0xAC5E0 },
+    { L"Deathscythe P2", 0xAC580, 0xAC5c0, indexGundamSprites_DeathScythe },
+    //{ L"Deathscythe P2 Extras 1", 0xAC5A0, 0xAC5C0 },
+    { L"Deathscythe P2 Extras 2", 0xAC5C0, 0xAC5E0 },
 };
 
 const sGame_PaletteDataset GUNDAM_SHENLONG_PALETTES_P1[] =
@@ -58,16 +58,16 @@ const sGame_PaletteDataset GUNDAM_SHENLONG_PALETTES_P2[] =
 
 const sGame_PaletteDataset GUNDAM_SANDROCK_PALETTES_P1[] =
 {
-    { L"Sand Rock P1", 0xAC800, 0xAC840, indexGundamSprites_SandRock },
-    //{ L"Sand Rock P1 Extras 1", 0xAC820, 0xAC840 },
-    { L"Sand Rock P1 Extras 2", 0xAC840, 0xAC860 },
+    { L"Sandrock P1", 0xAC800, 0xAC840, indexGundamSprites_SandRock },
+    //{ L"Sandrock P1 Extras 1", 0xAC820, 0xAC840 },
+    { L"Sandrock P1 Extras 2", 0xAC840, 0xAC860 },
 };
 
 const sGame_PaletteDataset GUNDAM_SANDROCK_PALETTES_P2[] =
 {
-    { L"Sand Rock P2", 0xAC880, 0xAC8c0, indexGundamSprites_SandRock },
-    //{ L"Sand Rock P2 Extras 1", 0xAC8A0, 0xAC8C0 },
-    { L"Sand Rock P2 Extras 2", 0xAC8C0, 0xAC8E0 },
+    { L"Sandrock P2", 0xAC880, 0xAC8c0, indexGundamSprites_SandRock },
+    //{ L"Sandrock P2 Extras 1", 0xAC8A0, 0xAC8C0 },
+    { L"Sandrock P2 Extras 2", 0xAC8C0, 0xAC8E0 },
 };
 
 const sGame_PaletteDataset GUNDAM_WINGZERO_PALETTES_P1[] =
@@ -142,15 +142,67 @@ const sGame_PaletteDataset GUNDAM_EPYON_PALETTES_P2[] =
 
 const sGame_PaletteDataset GUNDAM_BONUS_PALETTES[] =
 {
+    { L"HUD P1", 0xAC320, 0xAC340 },
+    { L"HUD P2", 0xAC340, 0xAC360 },
     { L"Player 1 Select Icon", 0xAD4C0, 0xAD4E0 },
     { L"Player 2 Select Icon", 0xAD4E0, 0xAD500 },
     { L"CSI's (Wings', Shen-Long, Tallgeese)", 0xAD500, 0xAD520 },
-    { L"CSI's (Death Scythe, Sand Rock)", 0xAD520, 0xAD540 },
-    { L"CSI's (Heavy Arms, Mercurius)", 0xAD540, 0xAD560 },
+    { L"CSI's (Deathscythe, Sandrock)", 0xAD520, 0xAD540 },
+    { L"CSI's (Heavyarms, Mercurius)", 0xAD540, 0xAD560 },
     { L"CSI's (Vayeate)", 0xAD560, 0xAD580 },
     { L"Player Select Text Cycle 1", 0xAD4A0, 0xAD4C0 },
     { L"Player Select Text Cycle 2", 0xAD5A0, 0xAD5C0 },
     { L"Player Select Text Cycle 3", 0xAD600, 0xAD700 },
+};
+
+const sGame_PaletteDataset GUNDAM_WING_STAGE_PALETTES[] =
+{
+    { L"BG1 - Colony Panorama", 0xAF380, 0xAF3A0 },
+    { L"BG2 - Tan Buildings, Windows", 0xAF3A0, 0xAF3C0 },
+    { L"BG2 - Greenery, Road, Buildings", 0xAF3C0, 0xAF3E0 },
+    { L"BG2 - Water, Dark Gray Buildings", 0xAF3E0, 0xAF400 },
+};
+
+const sGame_PaletteDataset GUNDAM_DEATHSCYTHE_STAGE_PALETTES[] =
+{
+    { L"Water (BG)", 0xAF180, 0xAF1A0 },
+    { L"Sky (BG)", 0xAF1A0, 0xAF1C0 },
+    { L"Port (BG)", 0xAF1C0, 0xAF1E0 },
+    { L"Runway, Jets (FG)", 0xAF160, 0xAF180 },
+    { L"Runway, Flames (FG, Cycle)", 0xAF100, 0xAF160 },
+};
+
+const sGame_PaletteDataset GUNDAM_HEAVYARMS_STAGE_PALETTES[] =
+{
+    { L"Airport (BG)", 0xAF0A0, 0xAF0C0 },
+    { L"Road, rubble, flames (FG)", 0xAF080, 0xAF0A0 },
+    { L"Road, rubble cont. (FG)", 0xAF0C0, 0xAF0E0 },
+    { L"Rubble mech (right) (FG)", 0xAF0E0, 0xAF100 },
+};
+
+const sGame_PaletteDataset GUNDAM_SANDROCK_STAGE_PALETTES[] =
+{
+    { L"Desert, Mobile Suits (FG)", 0xAF460, 0xAF480 },
+    { L"Desert, Mobile Suits cont. (FG)", 0xAF4A0, 0xAF4C0 },
+    { L"Sunset, Panels (BG)", 0xAF480, 0xAF4A0 },
+    { L"Desert (BG)", 0xAF4C0, 0xAF4E0 },
+};
+
+const sGame_PaletteDataset GUNDAM_SHENLONG_STAGE_PALETTES[] =
+{
+    { L"Terrain, Water, Greenery (FG)", 0xAF280, 0xAF2C0 },
+    { L"Mountains (BG)", 0xAF260, 0xAF280 },
+    { L"Mountains, Water, Sky (BG)", 0xAF2C0, 0xAF300 },
+};
+
+const sGame_PaletteDataset GUNDAM_TALLGEESE_STAGE_PALETTES[] =
+{
+    { L"Glacier / Floor (FG)", 0xAF660, 0xAF680 },
+    { L"Colony, Stars, lower horizon (BG)", 0xAF6A0, 0xAF6C0 },
+    { L"Aurora Borealis 1 (BG)", 0xAF640, 0xAF660 },
+    { L"Aurora Borealis 2 (BG)", 0xAF680, 0xAF6A0 },
+    { L"Aurora Borealis 3 (BG)", 0xAF6C0, 0xAF6E0 },
+    { L"Aurora Borealis 4 (BG)", 0xAF6E0, 0xAF700 },
 };
 
 const sDescTreeNode GUNDAM_WING_COLLECTION[] =
@@ -218,19 +270,31 @@ const sDescTreeNode GUNDAM_BONUS_COLLECTION[] =
     { L"Bonus", DESC_NODETYPE_TREE, (void*)GUNDAM_BONUS_PALETTES, ARRAYSIZE(GUNDAM_BONUS_PALETTES) },
 };
 
+const sDescTreeNode GUNDAM_STAGES_COLLECTION[] =
+{
+    { L"Deathscythe Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_DEATHSCYTHE_STAGE_PALETTES, ARRAYSIZE(GUNDAM_DEATHSCYTHE_STAGE_PALETTES) },
+    { L"Heavyarms Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_HEAVYARMS_STAGE_PALETTES, ARRAYSIZE(GUNDAM_HEAVYARMS_STAGE_PALETTES) },
+    { L"Sandrock Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_SANDROCK_STAGE_PALETTES, ARRAYSIZE(GUNDAM_SANDROCK_STAGE_PALETTES) },
+    { L"Shenlong Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_SHENLONG_STAGE_PALETTES, ARRAYSIZE(GUNDAM_SHENLONG_STAGE_PALETTES) },
+    { L"Tallgeese Stage - Arctic", DESC_NODETYPE_TREE, (void*)GUNDAM_TALLGEESE_STAGE_PALETTES, ARRAYSIZE(GUNDAM_TALLGEESE_STAGE_PALETTES) },
+    { L"Wing Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_WING_STAGE_PALETTES, ARRAYSIZE(GUNDAM_WING_STAGE_PALETTES) },
+    
+};
+
 const sDescTreeNode GUNDAM_SNES_UNITS[] =
 {
     { L"Wing", DESC_NODETYPE_TREE, (void*)GUNDAM_WING_COLLECTION, ARRAYSIZE(GUNDAM_WING_COLLECTION) },
-    { L"Heavy Arms", DESC_NODETYPE_TREE, (void*)GUNDAM_HEAVYARMS_COLLECTION, ARRAYSIZE(GUNDAM_HEAVYARMS_COLLECTION) },
-    { L"Death Scythe", DESC_NODETYPE_TREE, (void*)GUNDAM_DEATHSCYTHE_COLLECTION, ARRAYSIZE(GUNDAM_DEATHSCYTHE_COLLECTION) },
-    { L"Shen Long", DESC_NODETYPE_TREE, (void*)GUNDAM_SHENLONG_COLLECTION, ARRAYSIZE(GUNDAM_SHENLONG_COLLECTION) },
-    { L"Sand Rock", DESC_NODETYPE_TREE, (void*)GUNDAM_SANDROCK_COLLECTION, ARRAYSIZE(GUNDAM_SANDROCK_COLLECTION) },
+    { L"Heavyarms", DESC_NODETYPE_TREE, (void*)GUNDAM_HEAVYARMS_COLLECTION, ARRAYSIZE(GUNDAM_HEAVYARMS_COLLECTION) },
+    { L"Deathscythe", DESC_NODETYPE_TREE, (void*)GUNDAM_DEATHSCYTHE_COLLECTION, ARRAYSIZE(GUNDAM_DEATHSCYTHE_COLLECTION) },
+    { L"Shenlong", DESC_NODETYPE_TREE, (void*)GUNDAM_SHENLONG_COLLECTION, ARRAYSIZE(GUNDAM_SHENLONG_COLLECTION) },
+    { L"Sandrock", DESC_NODETYPE_TREE, (void*)GUNDAM_SANDROCK_COLLECTION, ARRAYSIZE(GUNDAM_SANDROCK_COLLECTION) },
     { L"Wing Zero", DESC_NODETYPE_TREE, (void*)GUNDAM_WINGZERO_COLLECTION, ARRAYSIZE(GUNDAM_WINGZERO_COLLECTION) },
     { L"Mercurius", DESC_NODETYPE_TREE, (void*)GUNDAM_MERCURIUS_COLLECTION, ARRAYSIZE(GUNDAM_MERCURIUS_COLLECTION) },
     { L"Tallgeese", DESC_NODETYPE_TREE, (void*)GUNDAM_TALLGEESE_COLLECTION, ARRAYSIZE(GUNDAM_TALLGEESE_COLLECTION) },
     { L"Vayaeae", DESC_NODETYPE_TREE, (void*)GUNDAM_VAYAEAE_COLLECTION, ARRAYSIZE(GUNDAM_VAYAEAE_COLLECTION) },
     { L"Epyon", DESC_NODETYPE_TREE, (void*)GUNDAM_EPYON_COLLECTION, ARRAYSIZE(GUNDAM_EPYON_COLLECTION) },
     { L"Bonus", DESC_NODETYPE_TREE, (void*)GUNDAM_BONUS_COLLECTION, ARRAYSIZE(GUNDAM_BONUS_COLLECTION) },
+    { L"Stages", DESC_NODETYPE_TREE, (void*)GUNDAM_STAGES_COLLECTION, ARRAYSIZE(GUNDAM_STAGES_COLLECTION) },
 };
 
 constexpr auto GUNDAM_SNES_NUMUNIT = ARRAYSIZE(GUNDAM_SNES_UNITS);

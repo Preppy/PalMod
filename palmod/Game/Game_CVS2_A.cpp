@@ -631,8 +631,8 @@ BOOL CGame_CVS2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
         m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
 
-        // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = CVS2_A_UNITSORT[nUnitCtr];
+        // Use a pre-sorted layout
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
 
         for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
         {

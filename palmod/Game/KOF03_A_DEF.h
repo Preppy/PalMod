@@ -336,6 +336,7 @@ const sGame_PaletteDataset KOF03_A_ROBERT_PALETTES_A[] =
     { L"RyuuGeki Ken A", 0x005920, 0x005936 },
     { L"RyuGeki Ken Impact A", 0x005900, 0x005910 },
     { L"RG Haoh Shokou Ken A", 0x005940, 0x005952 },
+    { L"Intro Bouquet A", 0x005960, 0x005980 },
     { L"Robert A Electricity", 0x005840, 0x005860, indexKOF03Sprites_Robert, 0x00 },
     { L"Robert A Soul", 0x005880, 0x0058a0, indexKOF03Sprites_Robert, 0x00 },
     { L"Robert A Shikai", 0x0058c0, 0x0058e0, indexKOF03Sprites_Robert, 0x00 },
@@ -348,6 +349,7 @@ const sGame_PaletteDataset KOF03_A_ROBERT_PALETTES_B[] =
     { L"RyuuGeki Ken B", 0x005b20, 0x005b36 },
     { L"RyuGeki Ken Impact B", 0x005b00, 0x005b10 },
     { L"RG Haoh Shokou Ken B", 0x005b40, 0x005b52 },
+    { L"Intro Bouquet B", 0x005b60, 0x005b80 },
     { L"Robert B Electricity", 0x005a40, 0x005a60, indexKOF03Sprites_Robert, 0x00 },
     { L"Robert B Soul", 0x005a80, 0x005aa0, indexKOF03Sprites_Robert, 0x00 },
     { L"Robert B Shikai", 0x005ac0, 0x005ae0, indexKOF03Sprites_Robert, 0x00 },
@@ -360,6 +362,7 @@ const sGame_PaletteDataset KOF03_A_ROBERT_PALETTES_C[] =
     { L"RyuuGeki Ken C", 0x005d20, 0x005d36 },
     { L"RyuGeki Ken Impact C", 0x005d00, 0x005d10 },
     { L"RG Haoh Shokou Ken C", 0x005d40, 0x005d52 },
+    { L"Intro Bouquet C", 0x005d60, 0x005d80 },
     { L"Robert C Electricity", 0x005c40, 0x005c60, indexKOF03Sprites_Robert, 0x00 },
     { L"Robert C Soul", 0x005c80, 0x005ca0, indexKOF03Sprites_Robert, 0x00 },
     { L"Robert C Shikai", 0x005cc0, 0x005ce0, indexKOF03Sprites_Robert, 0x00 },
@@ -372,6 +375,7 @@ const sGame_PaletteDataset KOF03_A_ROBERT_PALETTES_D[] =
     { L"RyuuGeki Ken D", 0x005f20, 0x005f36 },
     { L"RyuGeki Ken Impact D", 0x005f00, 0x005f10 },
     { L"RG Haoh Shokou Ken D", 0x005f40, 0x005f52 },
+    { L"Intro Bouquet D", 0x005f60, 0x005f80 },
     { L"Robert D Electricity", 0x005e40, 0x005e60, indexKOF03Sprites_Robert, 0x00 },
     { L"Robert D Soul", 0x005e80, 0x005ea0, indexKOF03Sprites_Robert, 0x00 },
     { L"Robert D Shikai", 0x005ec0, 0x005ee0, indexKOF03Sprites_Robert, 0x00 },
@@ -1357,28 +1361,28 @@ const sGame_PaletteDataset KOF03_A_IORI_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_CHIZURU_PALETTES_A[] =
 {
-    { L"Chizuru Kagura A", 0x012000, 0x012020 },
+    { L"Chizuru Kagura A", 0x012000, 0x012020, indexKOF03Sprites_Chizuru, 0x00 },
     { L"Reigi no Ishizue A", 0x012100, 0x012120 },
     { L"Chizuru Victory A", 0x021120, 0x021160 },
 };
 
 const sGame_PaletteDataset KOF03_A_CHIZURU_PALETTES_B[] =
 {
-    { L"Chizuru Kagura B", 0x012200, 0x012220 },
+    { L"Chizuru Kagura B", 0x012200, 0x012220, indexKOF03Sprites_Chizuru, 0x00 },
     { L"Reigi no Ishizue B", 0x012300, 0x012320 },
     { L"Chizuru Victory B", 0x021160, 0x0211a0 },
 };
 
 const sGame_PaletteDataset KOF03_A_CHIZURU_PALETTES_C[] =
 {
-    { L"Chizuru Kagura C", 0x012400, 0x012420 },
+    { L"Chizuru Kagura C", 0x012400, 0x012420, indexKOF03Sprites_Chizuru, 0x00 },
     { L"Reigi no Ishizue C", 0x012500, 0x012520 },
     { L"Chizuru Victory C", 0x0211a0, 0x0211e0 },
 };
 
 const sGame_PaletteDataset KOF03_A_CHIZURU_PALETTES_D[] =
 {
-    { L"Chizuru Kagura D", 0x012600, 0x012620 },
+    { L"Chizuru Kagura D", 0x012600, 0x012620, indexKOF03Sprites_Chizuru, 0x00 },
     { L"Reigi no Ishizue D", 0x012700, 0x012720 },
     { L"Chizuru Victory D", 0x0211e0, 0x021220 },
 };
@@ -1505,36 +1509,36 @@ const sGame_PaletteDataset KOF03_A_MUKAI_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_MAKI_PALETTES_A[] =
 {
-    { L"Maki Kagura A", 0x014000, 0x014020 },
+    { L"Maki Kagura A", 0x014000, 0x014020, indexKOF03Sprites_Maki, 0x00 },
     { L"Iotsu no Utamai A", 0x014100, 0x014112 },
-    { L"M-Chizuru A", 0x014120, 0x014140 },
+    { L"M-Chizuru A", 0x014120, 0x014140, indexKOF03Sprites_Chizuru, 0x00 },
     { L"M-Reigi no Ishizue A", 0x014140, 0x014152 },
     { L"Maki Victory A", 0x021520, 0x021560 },
 };
 
 const sGame_PaletteDataset KOF03_A_MAKI_PALETTES_B[] =
 {
-    { L"Maki Kagura B", 0x014200, 0x014220 },
+    { L"Maki Kagura B", 0x014200, 0x014220, indexKOF03Sprites_Maki, 0x00 },
     { L"Iotsu no Utamai B", 0x014300, 0x014312 },
-    { L"M-Chizuru B", 0x014320, 0x014340 },
+    { L"M-Chizuru B", 0x014320, 0x014340, indexKOF03Sprites_Chizuru, 0x00 },
     { L"M-Reigi no Ishizue B", 0x014340, 0x014352 },
     { L"Maki Victory B", 0x021560, 0x0215a0 },
 };
 
 const sGame_PaletteDataset KOF03_A_MAKI_PALETTES_C[] =
 {
-    { L"Maki Kagura C", 0x014400, 0x014420 },
+    { L"Maki Kagura C", 0x014400, 0x014420, indexKOF03Sprites_Maki, 0x00 },
     { L"Iotsu no Utamai C", 0x014500, 0x014512 },
-    { L"M-Chizuru C", 0x014520, 0x014540 },
+    { L"M-Chizuru C", 0x014520, 0x014540, indexKOF03Sprites_Chizuru, 0x00 },
     { L"M-Reigi no Ishizue C", 0x014540, 0x014552 },
     { L"Maki Victory C", 0x0215a0, 0x0215e0 },
 };
 
 const sGame_PaletteDataset KOF03_A_MAKI_PALETTES_D[] =
 {
-    { L"Maki Kagura D", 0x014600, 0x014620 },
+    { L"Maki Kagura D", 0x014600, 0x014620, indexKOF03Sprites_Maki, 0x00 },
     { L"Iotsu no Utamai D", 0x014700, 0x014712 },
-    { L"M-Chizuru D", 0x014720, 0x014740 },
+    { L"M-Chizuru D", 0x014720, 0x014740, indexKOF03Sprites_Chizuru, 0x00 },
     { L"M-Reigi no Ishizue D", 0x014740, 0x014752 },
     { L"Maki Victory D", 0x0215e0, 0x021620 },
 };
