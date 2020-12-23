@@ -81,12 +81,12 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
 {
     ClearDataBuffer();
 
-    const UINT32 nSafeCountFor07_Rev1 = 926;
+    const UINT32 nSafeCountFor07_Rev1 = 931;
     const UINT32 nSafeCountFor07_Rev2 = 1053;
-    const UINT32 nSafeCountFor07_SFZ2A = 1334;
-    const UINT32 nSafeCountFor08_Rev1 = 233 - 5; // -5 as a temporary stop on the Bonus additions while research continues
-    const UINT32 nSafeCountFor08_Rev2 = 282 - 5;
-    const UINT32 nSafeCountFor08_SFZ2A = 329 - 5;
+    const UINT32 nSafeCountFor07_SFZ2A = 1340;
+    const UINT32 nSafeCountFor08_Rev1 = 245;
+    const UINT32 nSafeCountFor08_Rev2 = 289;
+    const UINT32 nSafeCountFor08_SFZ2A = 335;
 
     if (UsePaletteSetForCharacters())
     {
@@ -140,7 +140,7 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
     }
 
     const UINT32 nLowestPaletteIn07 = 0x2C000;
-    const UINT32 nLowestPaletteIn08 = 0x65c0;
+    const UINT32 nLowestPaletteIn08 = 0x1260;
 
     m_nLowestKnownPaletteRomLocation = UsePaletteSetForCharacters() ? nLowestPaletteIn07 : nLowestPaletteIn08;
 
@@ -1561,6 +1561,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 }
                 else if (SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_Bonus07)
                 {
+                    // this is handling stages right now
                     m_nCurrentPaletteROMLocation -= 0x180;
                 }
                 else
@@ -1573,9 +1574,9 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 break;
             case SFA2_SupportedROMRevision::SFZ2A_960826: // 0x1bbe0: ryu
                 if (((SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWRyu) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWKen) ||
-                    (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWChunLi) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWSagat) ||
-                    (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWMBison) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_EvilRyu) ||
-                    (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_AltSakura)) &&
+                     (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWChunLi) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWSagat) ||
+                     (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWMBison) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_EvilRyu) ||
+                     (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_AltSakura)) &&
                     (m_nCurrentPaletteROMLocation < 0x73900))
                 {
                     // use real locations for SFZ2A unique characters

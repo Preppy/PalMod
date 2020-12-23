@@ -5729,18 +5729,18 @@ const sGame_PaletteDataset MVC2_A_MBISON_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset MVC2_A_MBISON_PALETTES_EXTRAS[] =
 {
-    { L"09: c.FP / Psycho Crusher (Glow Frame 1) LP color", 0x462fa40, 0x462fa60 },
-    { L"0a: Psycho Crusher (Glow Frame 2) LP color", 0x462fa60, 0x462fa80 },
-    { L"0b: c.FP / Psycho Crusher (Glow Frame 1) LK color", 0x462fa80, 0x462faa0 },
-    { L"0c: Psycho Crusher (Glow Frame 2) LK color", 0x462faa0, 0x462fac0 },
-    { L"0d: c.FP / Psycho Crusher (Glow Frame 1) HP color", 0x462fac0, 0x462fae0 },
-    { L"0e: Psycho Crusher (Glow Frame 2) HP color", 0x462fae0, 0x462fb00 },
-    { L"0f: c.FP / Psycho Crusher (Glow Frame 1) HK color", 0x462fb00, 0x462fb20 },
-    { L"10: Psycho Crusher (Glow Frame 2) HK color", 0x462fb20, 0x462fb40 },
-    { L"11: c.FP / Psycho Crusher (Glow Frame 1) A1 color", 0x462fb40, 0x462fb60 },
-    { L"12: Psycho Crusher (Glow Frame 2) A1 color", 0x462fb60, 0x462fb80 },
-    { L"13: c.FP / Psycho Crusher (Glow Frame 1) A2 color", 0x462fb80, 0x462fba0 },
-    { L"14: Psycho Crusher (Glow Frame 2) A2 color", 0x462fba0, 0x462fbc0 },
+    { L"09: c.FP / Psycho Crusher (Glow Frame 1) LP color", 0x462fa40, 0x462fa60, indexCPS2_Bison, 0x08 },
+    { L"0a: Psycho Crusher (Glow Frame 2) LP color", 0x462fa60, 0x462fa80, indexCPS2_Bison, 0x09 },
+    { L"0b: c.FP / Psycho Crusher (Glow Frame 1) LK color", 0x462fa80, 0x462faa0, indexCPS2_Bison, 0x08 },
+    { L"0c: Psycho Crusher (Glow Frame 2) LK color", 0x462faa0, 0x462fac0, indexCPS2_Bison, 0x09 },
+    { L"0d: c.FP / Psycho Crusher (Glow Frame 1) HP color", 0x462fac0, 0x462fae0, indexCPS2_Bison, 0x08 },
+    { L"0e: Psycho Crusher (Glow Frame 2) HP color", 0x462fae0, 0x462fb00, indexCPS2_Bison, 0x09 },
+    { L"0f: c.FP / Psycho Crusher (Glow Frame 1) HK color", 0x462fb00, 0x462fb20, indexCPS2_Bison, 0x08 },
+    { L"10: Psycho Crusher (Glow Frame 2) HK color", 0x462fb20, 0x462fb40, indexCPS2_Bison, 0x09 },
+    { L"11: c.FP / Psycho Crusher (Glow Frame 1) A1 color", 0x462fb40, 0x462fb60, indexCPS2_Bison, 0x08 },
+    { L"12: Psycho Crusher (Glow Frame 2) A1 color", 0x462fb60, 0x462fb80, indexCPS2_Bison, 0x09 },
+    { L"13: c.FP / Psycho Crusher (Glow Frame 1) A2 color", 0x462fb80, 0x462fba0, indexCPS2_Bison, 0x08 },
+    { L"14: Psycho Crusher (Glow Frame 2) A2 color", 0x462fba0, 0x462fbc0, indexCPS2_Bison, 0x09 },
 };
 
 const sDescTreeNode MVC2_A_MBISON_COLLECTION[] =
@@ -8620,7 +8620,7 @@ const sDescTreeNode MVC2_A_CAPTAINCOMMANDO_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x59472a0, 0x59472c0, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Main Color LP", 0x59472a0, 0x59472c0, indexCPS2_Bonerine, 0, &pairNext },
     { L"(02) Claws", 0x59472c0, 0x59472e0, indexCPS2_Bonerine, 1 },
     { L"(03) Berserker Barrage", 0x59472e0, 0x5947300, indexCPS2_Bonerine, 2 },
     { L"(04) Not Used", 0x5947300, 0x5947320, indexCPS2_Bonerine, 3 },
@@ -8632,7 +8632,7 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x59473a0, 0x59473c0, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Main Color LK", 0x59473a0, 0x59473c0, indexCPS2_Bonerine, 0, &pairNext },
     { L"(02) Claws", 0x59473c0, 0x59473e0, indexCPS2_Bonerine, 1 },
     { L"(03) Berserker Barrage", 0x59473e0, 0x5947400, indexCPS2_Bonerine, 2 },
     { L"(04) Not Used", 0x5947400, 0x5947420, indexCPS2_Bonerine, 3 },
@@ -8644,7 +8644,7 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x59474a0, 0x59474c0, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Main Color HP", 0x59474a0, 0x59474c0, indexCPS2_Bonerine, 0, &pairNext },
     { L"(02) Claws", 0x59474c0, 0x59474e0, indexCPS2_Bonerine, 1 },
     { L"(03) Berserker Barrage", 0x59474e0, 0x5947500, indexCPS2_Bonerine, 2 },
     { L"(04) Not Used", 0x5947500, 0x5947520, indexCPS2_Bonerine, 3 },
@@ -8656,7 +8656,7 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x59475a0, 0x59475c0, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Main Color HK", 0x59475a0, 0x59475c0, indexCPS2_Bonerine, 0, &pairNext },
     { L"(02) Claws", 0x59475c0, 0x59475e0, indexCPS2_Bonerine, 1 },
     { L"(03) Berserker Barrage", 0x59475e0, 0x5947600, indexCPS2_Bonerine, 2 },
     { L"(04) Not Used", 0x5947600, 0x5947620, indexCPS2_Bonerine, 3 },
@@ -8668,7 +8668,7 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x59476a0, 0x59476c0, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Main Color A1", 0x59476a0, 0x59476c0, indexCPS2_Bonerine, 0, &pairNext },
     { L"(02) Claws", 0x59476c0, 0x59476e0, indexCPS2_Bonerine, 1 },
     { L"(03) Berserker Barrage", 0x59476e0, 0x5947700, indexCPS2_Bonerine, 2 },
     { L"(04) Not Used", 0x5947700, 0x5947720, indexCPS2_Bonerine, 3 },
@@ -8680,7 +8680,7 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x59477a0, 0x59477c0, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Main Color A2", 0x59477a0, 0x59477c0, indexCPS2_Bonerine, 0, &pairNext },
     { L"(02) Claws", 0x59477c0, 0x59477e0, indexCPS2_Bonerine, 1 },
     { L"(03) Berserker Barrage", 0x59477e0, 0x5947800, indexCPS2_Bonerine, 2 },
     { L"(04) Not Used", 0x5947800, 0x5947820, indexCPS2_Bonerine, 3 },
@@ -8692,21 +8692,21 @@ const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_A2[] =
 
 const sGame_PaletteDataset MVC2_A_BONERINE_PALETTES_SHARED[] =
 {
-    { L"Burning Dark", 0x59478a0, 0x59478c0, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Burning Dark", 0x59478a0, 0x59478c0, indexCPS2_Bonerine, 0, &pairNext },
     { L"Burning Dark 2", 0x59478c0, 0x59478e0, indexCPS2_Bonerine, 1 },
-    { L"Burning Light", 0x59478e0, 0x5947900, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Burning Light", 0x59478e0, 0x5947900, indexCPS2_Bonerine, 0, &pairNext },
     { L"Burning Light 2", 0x5947900, 0x5947920, indexCPS2_Bonerine, 1 },
-    { L"Shocked Dark", 0x5947920, 0x5947940, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Shocked Dark", 0x5947920, 0x5947940, indexCPS2_Bonerine, 0, &pairNext },
     { L"Shocked Dark 2", 0x5947940, 0x5947960, indexCPS2_Bonerine, 1 },
-    { L"Shocked Light", 0x5947960, 0x5947980, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Shocked Light", 0x5947960, 0x5947980, indexCPS2_Bonerine, 0, &pairNext },
     { L"Shocked Light 2", 0x5947980, 0x59479a0, indexCPS2_Bonerine, 1 },
-    { L"Dark Burning Dark", 0x59479a0, 0x59479c0, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Dark Burning Dark", 0x59479a0, 0x59479c0, indexCPS2_Bonerine, 0, &pairNext },
     { L"Dark Burning Dark 2", 0x59479c0, 0x59479e0, indexCPS2_Bonerine, 1 },
-    { L"Dark Burning Light", 0x59479e0, 0x5947a00, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Dark Burning Light", 0x59479e0, 0x5947a00, indexCPS2_Bonerine, 0, &pairNext },
     { L"Dark Burning Light 2", 0x5947a00, 0x5947a20, indexCPS2_Bonerine, 1 },
-    { L"Kinetic Charge Dark", 0x5947a20, 0x5947a40, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Kinetic Charge Dark", 0x5947a20, 0x5947a40, indexCPS2_Bonerine, 0, &pairNext },
     { L"Kinetic Charge Dark 2", 0x5947a40, 0x5947a60, indexCPS2_Bonerine, 1 },
-    { L"Kinetic Charge Light", 0x5947a60, 0x5947a80, indexCPS2_Bonerine, 0, &pairBonerineClaws },
+    { L"Kinetic Charge Light", 0x5947a60, 0x5947a80, indexCPS2_Bonerine, 0, &pairNext },
     { L"Kinetic Charge Light 2", 0x5947a80, 0x5947aa0, indexCPS2_Bonerine, 1 },
 };
 

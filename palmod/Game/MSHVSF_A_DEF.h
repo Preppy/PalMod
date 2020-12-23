@@ -246,19 +246,19 @@ const sGame_PaletteDataset MSHVSF_A_KEN_PALETTES_P2COLOR_KICK[] =
 const sGame_PaletteDataset MSHVSF_A_MBIPSON_PALETTES_P1COLOR_PUNCH[] =
 {
     { L"P1 Color (Punch)",       0x72B0E, 0x72B2E, indexCPS2_Bison },
-    { L"P1 Extras 1",            0x72B2E, 0x72B4E, },
-    { L"P1 Extras 2",            0x72B4E, 0x72B6E, },
-    { L"P1 Extras 3",            0x7708E, 0x770AE, },
-    { L"P1 Extras 4",            0x770AE, 0x770CE, },
+    { L"P1 Extras 1",            0x72B2E, 0x72B4E, indexCPS2_Bison, 0x08 },
+    { L"P1 Extras 2",            0x72B4E, 0x72B6E, indexCPS2_Bison, 0x09 },
+    { L"P1 Extras 3",            0x7708E, 0x770AE, indexCPS2_Bison, 0x08 },
+    { L"P1 Extras 4",            0x770AE, 0x770CE, indexCPS2_Bison, 0x09 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MBIPSON_PALETTES_P2COLOR_KICK[] =
 {
     { L"P2 Color (Kick)",        0x72B6E, 0x72B8E, indexCPS2_Bison },
-    { L"P2 Extras 1",            0x72B8E, 0x72BAE, },
-    { L"P2 Extras 2",            0x72BAE, 0x72BCE, },
-    { L"P2 Extras 3",            0x770CE, 0x770EE, },
-    { L"P2 Extras 4",            0x770EE, 0x7710E, }, 
+    { L"P2 Extras 1",            0x72B8E, 0x72BAE, indexCPS2_Bison, 0x08 },
+    { L"P2 Extras 2",            0x72BAE, 0x72BCE, indexCPS2_Bison, 0x09 },
+    { L"P2 Extras 3",            0x770CE, 0x770EE, indexCPS2_Bison, 0x08 },
+    { L"P2 Extras 4",            0x770EE, 0x7710E, indexCPS2_Bison, 0x09 },
 };
 
 const sGame_PaletteDataset MSHVSF_A_MECH_ZANGIEF_PALETTES_P1COLOR_PUNCH[] =

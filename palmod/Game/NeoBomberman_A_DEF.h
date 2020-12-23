@@ -78,7 +78,7 @@ const sGame_PaletteDataset NeoBomberman_A_Effects_PALETTES[] =
 {
     { L"P1 Water Effect", 0x0c72aa, 0x0c72ea, indexNeoBombermanSprites_Bomberman, 0x00 },
     { L"P2 Water Effect", 0x0c72ea, 0x0c732a, indexNeoBombermanSprites_Bomberman, 0x00 },
-    { L"Bombermans & Kotetsu Skull Effect", 0x0c522a, 0x0c526a, indexNeoBombermanSprites_Bomberman, 0x00 },
+    { L"Bombermans & Kotetsu Skull Effect", 0x0c522a, 0x0c526a, indexNeoBombermanSprites_Kotetsu, 0x01 },
     { L"Rubber Skull Effect", 0x0c526a, 0x0c52aa, indexNeoBombermanSprites_RubberBomber, 0x00 },
     { L"Cat Skull Effect", 0x0c52aa, 0x0c52ea, indexNeoBombermanSprites_CatBomber, 0x00 },
     { L"Honey Skull Effect", 0x0c52ea, 0x0c532a, indexNeoBombermanSprites_Honey, 0x00 },

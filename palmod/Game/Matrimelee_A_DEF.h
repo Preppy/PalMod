@@ -580,7 +580,7 @@ const sGame_PaletteDataset Matrimelee_A_LYNN_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_LYNN_PORTRAIT_PALETTES[] =
 {
-    { L"Lynn Shared Portrait", 0x2A11Be, 0x2A123e },
+    { L"Lynn Shared Portrait", 0x2A11Be, 0x2A123e, indexMatriMSprites_Lynn, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_OLOF_A_PALETTES[] =

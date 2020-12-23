@@ -332,7 +332,7 @@ const sGame_PaletteDataset KOF03_A_RYO_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_ROBERT_PALETTES_A[] =
 {
-    { L"Robert Garcia A", 0x005800, 0x005820 },
+    { L"Robert Garcia A", 0x005800, 0x005820, indexKOF03Sprites_Robert, 0x00 },
     { L"RyuuGeki Ken A", 0x005920, 0x005936 },
     { L"RyuGeki Ken Impact A", 0x005900, 0x005910 },
     { L"RG Haoh Shokou Ken A", 0x005940, 0x005952 },
@@ -345,7 +345,7 @@ const sGame_PaletteDataset KOF03_A_ROBERT_PALETTES_A[] =
 
 const sGame_PaletteDataset KOF03_A_ROBERT_PALETTES_B[] =
 {
-    { L"Robert Garcia B", 0x005a00, 0x005a20 },
+    { L"Robert Garcia B", 0x005a00, 0x005a20, indexKOF03Sprites_Robert, 0x00 },
     { L"RyuuGeki Ken B", 0x005b20, 0x005b36 },
     { L"RyuGeki Ken Impact B", 0x005b00, 0x005b10 },
     { L"RG Haoh Shokou Ken B", 0x005b40, 0x005b52 },
@@ -358,7 +358,7 @@ const sGame_PaletteDataset KOF03_A_ROBERT_PALETTES_B[] =
 
 const sGame_PaletteDataset KOF03_A_ROBERT_PALETTES_C[] =
 {
-    { L"Robert Garcia C", 0x005c00, 0x005c20 },
+    { L"Robert Garcia C", 0x005c00, 0x005c20, indexKOF03Sprites_Robert, 0x00 },
     { L"RyuuGeki Ken C", 0x005d20, 0x005d36 },
     { L"RyuGeki Ken Impact C", 0x005d00, 0x005d10 },
     { L"RG Haoh Shokou Ken C", 0x005d40, 0x005d52 },
@@ -371,7 +371,7 @@ const sGame_PaletteDataset KOF03_A_ROBERT_PALETTES_C[] =
 
 const sGame_PaletteDataset KOF03_A_ROBERT_PALETTES_D[] =
 {
-    { L"Robert Garcia D", 0x005e00, 0x005e20 },
+    { L"Robert Garcia D", 0x005e00, 0x005e20, indexKOF03Sprites_Robert, 0x00 },
     { L"RyuuGeki Ken D", 0x005f20, 0x005f36 },
     { L"RyuGeki Ken Impact D", 0x005f00, 0x005f10 },
     { L"RG Haoh Shokou Ken D", 0x005f40, 0x005f52 },

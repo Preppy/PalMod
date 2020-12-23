@@ -3148,9 +3148,10 @@ const stPairedPaletteInfo pairMVCDevilotBurnt = { 1, 7, 3 };
 const stPairedPaletteInfo pairMVCLou = { 1, -80, -15 };
 const stPairedPaletteInfo pairOnslaught = { 1, -24, 86 };
 //const stPairedPaletteInfo pairTronBody = { 1, -4, -50 };
-const stPairedPaletteInfo pairBonerineClaws = { 1, 25, 6 };
 
 // Please note that the palette sort order in PalMod differs for MM in MvC1 and MvC2
 const stPairedPaletteInfo pairMVC1RushDrill = { 9, 0, 0 };
 const stPairedPaletteInfo pairMVC2RushDrill = { 30, 0, 0 };
 const stPairedPaletteInfo pairHyperMegaman =  { 9, 31, 12 };
+
+const stPairedPaletteInfo pairSFA2BisonHand = { 1, -141, -16 };

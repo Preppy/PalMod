@@ -1698,6 +1698,8 @@ const sGame_PaletteDataset MVC_A_BONUS_PALETTES[] =
     { L"Yellow Crossover BG", 0x42444, 0x42484 },
     { L"Red Duo BG (Flickering off)", 0x46A04, 0x46A44 },
     { L"Level 3 Super BG", 0x42564, 0x425C4 },
+    { L"Character Select Background - Space", 0x3EBFA, 0x3ECBA },
+    { L"Character Select Background - Earth", 0x3E7DA, 0x3E91A },
 };
 
 const sGame_PaletteDataset MVC_A_BLUEMOON_STAGE_PALETTES[] =

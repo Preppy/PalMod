@@ -1122,20 +1122,17 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         CreateExtraPal(uUnitId, uPalId, 0x09, 0x05, 11, 0, 5); // teleport frames
         break;
     }
-#ifdef THESE_ARENT_IN_IMGDAT
+
     case indexCPS2_Bison: //M.Bison
     {
-        if (
-            CreateExtraPal(uUnitId, uPalId, 0x09, 1, 11)
-            || CreateExtraPal(uUnitId, uPalId, 0x0A, 1, 12)
-            )
+        if (CreateExtraPal(uUnitId, uPalId, 0x09, 2, 0x08) ||
+            CreateExtraPal(uUnitId, uPalId, 0x0A, 2, 0x09))
         {
             break;
         }
 
         break;
     }
-#endif
 
     case indexCPS2_Ken:
     {
@@ -1462,7 +1459,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             //Create the img ticket
             ClearSetImgTicket(
                 CreateImgTicket(uUnitId, 0,
-                    CreateImgTicket(uUnitId, 1, NULL, 25, 6)
+                    CreateImgTicket(uUnitId, 1, NULL, 0, 0)
                 )
             );
 

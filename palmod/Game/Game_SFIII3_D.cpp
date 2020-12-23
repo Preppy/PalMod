@@ -177,7 +177,7 @@ BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
     m_pppDataBuffer[nUnitId] = new UINT16 * [nPalAmt];
 
-    rgUnitRedir[nUnitId] = nUnitId; //Fix later for unit sort
+    rgUnitRedir[nUnitId] = nUnitId; // this is presorted
 
     for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
