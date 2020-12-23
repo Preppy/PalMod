@@ -50,7 +50,6 @@ public:
     UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     static stExtraDef* SAMSHO3_A_EXTRA_CUSTOM;

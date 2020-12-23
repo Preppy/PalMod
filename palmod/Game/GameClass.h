@@ -237,7 +237,8 @@ public:
 
     virtual LPCTSTR GetGameName();
 
-    virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId) = 0;
+    virtual void CheckForErrorsInTables() {};
+    virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId);
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
     virtual UINT32 SavePatchFile(CFile* PatchFile, UINT16 nUnitId);
     void SetSpecificValuesForCRC(UINT32 nCRCForFile);

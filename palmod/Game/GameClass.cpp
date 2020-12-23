@@ -36,10 +36,10 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
     {
         switch (CurrColMode)
         {
-        case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_12A:
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneAmtForRGB444;
+        case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_15:
         case ColMode::COLMODE_15ALT:
             return k_nRGBPlaneAmtForRGB555;
@@ -60,10 +60,10 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
     {
         switch (CurrColMode)
         {
-        case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_12A:
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneMulForRGB444;
+        case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_15:
         case ColMode::COLMODE_15ALT:
             return k_nRGBPlaneMulForRGB555;
@@ -952,6 +952,36 @@ bool CGameClass::IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
     auto it = std::find_if(m_vDirtyPaletteList.begin(), m_vDirtyPaletteList.end(), DoPalettesMatch(&sPaletteOfInterest));
 
     return it != m_vDirtyPaletteList.end();
+}
+
+BOOL CGameClass::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+{
+    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+    {
+        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+
+        // Anything using the base implementation is presorted
+        rgUnitRedir[nUnitCtr] = nUnitCtr;
+
+        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+        {
+            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+
+            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+
+            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+        }
+    }
+
+    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
+
+    CheckForErrorsInTables();
+
+    return TRUE;
 }
 
 BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)

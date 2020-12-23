@@ -41,7 +41,7 @@ CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = GUNDAM_SNES_NUMUNIT;
     m_nExtraUnit = GUNDAM_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 77;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 80;
     m_pszExtraFilename = EXTRA_FILENAME_GUNDAM_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForGUNDAM;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -52,7 +52,7 @@ CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(UINT32 nConfirmedROMSize)
     InitDataBuffer();
 
     //Set color mode: see the definitions in GameClass.h
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
 
@@ -543,36 +543,6 @@ void CGame_GUNDAM_SNES::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
-}
-
-BOOL CGame_GUNDAM_SNES::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
-{
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-    {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
-
-        // The layout is presorted
-        rgUnitRedir[nUnitCtr] = nUnitCtr;
-
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-        {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-
-            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
-            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
-        }
-    }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-
-    CheckForErrorsInTables();
-
-    return TRUE;
 }
 
 BOOL CGame_GUNDAM_SNES::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)

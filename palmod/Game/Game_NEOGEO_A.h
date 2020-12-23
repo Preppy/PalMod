@@ -56,7 +56,6 @@ public:
     BOOL SetColorMode(ColMode NewMode) override;
     bool AllowUpdatingColorFormatForGame() override { return true; }
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     static stExtraDef* NEOGEO_A_EXTRA_CUSTOM;
