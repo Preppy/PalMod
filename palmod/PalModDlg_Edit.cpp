@@ -544,9 +544,9 @@ void CPalModDlg::OnEditPaste()
 
                 rgPasteCol[i] = CurrGame->ConvPal((UINT16)strtol(szFormatStr, NULL, 16));
 
-                if (nAMul == 0x0)
+                if ((nAMul == 0x0) || !CurrGame->AllowTransparency())
                 {
-                    // this game doesn't use alpha, but we need alpha to display properly
+                    // this game doesn't use/want alpha, but we need alpha to display properly
                     ((UINT8*)rgPasteCol)[(i * 4) + 3] |= 0xFF;
                 }
             }

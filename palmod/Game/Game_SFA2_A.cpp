@@ -81,12 +81,12 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
 {
     ClearDataBuffer();
 
-    const UINT32 nSafeCountFor07_Rev1 = 931;
-    const UINT32 nSafeCountFor07_Rev2 = 1053;
-    const UINT32 nSafeCountFor07_SFZ2A = 1340;
-    const UINT32 nSafeCountFor08_Rev1 = 245;
-    const UINT32 nSafeCountFor08_Rev2 = 289;
-    const UINT32 nSafeCountFor08_SFZ2A = 335;
+    const UINT32 nSafeCountFor07_Rev1 = 933;
+    const UINT32 nSafeCountFor07_Rev2 = 1055;
+    const UINT32 nSafeCountFor07_SFZ2A = 1342;
+    const UINT32 nSafeCountFor08_Rev1 = 255;
+    const UINT32 nSafeCountFor08_Rev2 = 299;
+    const UINT32 nSafeCountFor08_SFZ2A = 345;
 
     if (UsePaletteSetForCharacters())
     {

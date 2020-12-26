@@ -784,33 +784,45 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 {
                     INT8 nPeerPaletteDistance1 = 1;
                     INT8 nPeerPaletteDistance2 = 2;
+                    INT8 nPeerPaletteDistance3 = 3;
+                    INT8 nPeerPaletteDistance4 = 4;
                     const sGame_PaletteDataset* paletteDataSetToJoin1 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance1);
                     const sGame_PaletteDataset* paletteDataSetToJoin2 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance2);
+                    const sGame_PaletteDataset* paletteDataSetToJoin3 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance3);
+                    const sGame_PaletteDataset* paletteDataSetToJoin4 = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance4);
                     fShouldUseAlternateLoadLogic = true;
 
                     // we want the platform first for z-order reasons
                     ClearSetImgTicket(
                         CreateImgTicket(paletteDataSetToJoin2->indexImgToUse, paletteDataSetToJoin2->indexOffsetToUse,
                                 CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                                    CreateImgTicket(paletteDataSetToJoin1->indexImgToUse, paletteDataSetToJoin1->indexOffsetToUse
-                                )))
+                                    CreateImgTicket(paletteDataSetToJoin1->indexImgToUse, paletteDataSetToJoin1->indexOffsetToUse,
+                                        CreateImgTicket(paletteDataSetToJoin3->indexImgToUse, paletteDataSetToJoin3->indexOffsetToUse,
+                                            CreateImgTicket(paletteDataSetToJoin4->indexImgToUse, paletteDataSetToJoin4->indexOffsetToUse
+                                )))))
                     );
 
                     //Set each palette
-                    sDescNode* JoinedNode[3] = {
+                    sDescNode* JoinedNode[] = {
                         GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1),
                         GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1)
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance3, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance4, -1),
                     };
 
                     //Set each palette
                     CreateDefPal(JoinedNode[0], 0);
                     CreateDefPal(JoinedNode[1], 1);
                     CreateDefPal(JoinedNode[2], 2);
+                    CreateDefPal(JoinedNode[3], 3);
+                    CreateDefPal(JoinedNode[4], 4);
 
                     SetSourcePal(0, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
                     SetSourcePal(1, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
                     SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(3, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance3, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(4, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance4, nSrcAmt, nNodeIncrement);
                 }
                 else if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {

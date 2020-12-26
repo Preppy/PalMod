@@ -533,49 +533,49 @@ const sGame_PaletteDataset Matrimelee_A_KEITH_PORTRAIT_PALETTES[] =
 const sGame_PaletteDataset Matrimelee_A_LYNN_A_PALETTES[] =
 {
     { L"Lynn A", 0x2A0dbe, 0x2A0dde, indexMatriMSprites_Lynn, 0x00 },
-    { L"Special attack effects", 0x2A0dde, 0x2A0dfe },
-    { L"236P", 0x2A0dfe, 0x2A0e1e },
+    { L"Special attack effects", 0x2A0dde, 0x2A0dfe, indexMatriMSprites_Lynn, 0x02 },
+    { L"236P", 0x2A0dfe, 0x2A0e1e, indexMatriMSprites_Lynn, 0x01 },
     { L"Unknown extra", 0x2A0e1e, 0x2A0e3e },
     { L"Rolling/Super Jumps", 0x2A0e3e, 0x2A0e5e, indexMatriMSprites_Lynn, 0x00 },
     { L"EX/Super trails", 0x2A0e5e, 0x2A0e7e, indexMatriMSprites_Lynn, 0x00 },
     { L"Guard Cancel", 0x2A0e7e, 0x2A0e9e, indexMatriMSprites_Lynn, 0x00 },
-    { L"HUD Portrait", 0x2A0e9e, 0x2A0ebe },
+    { L"HUD Portrait", 0x2A0e9e, 0x2A0ebe, indexMatriMSprites_Lynn, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_LYNN_B_PALETTES[] =
 {
     { L"Lynn B", 0x2A0ebe, 0x2A0ede, indexMatriMSprites_Lynn, 0x00 },
-    { L"Special attack effects", 0x2A0ede, 0x2A0efe },
-    { L"236P", 0x2A0efe, 0x2A0f1e },
+    { L"Special attack effects", 0x2A0ede, 0x2A0efe, indexMatriMSprites_Lynn, 0x02 },
+    { L"236P", 0x2A0efe, 0x2A0f1e, indexMatriMSprites_Lynn, 0x01 },
     { L"Unknown extra", 0x2A0f1e, 0x2A0f3e },
     { L"Rolling/Super Jumps", 0x2A0f3e, 0x2A0f5e, indexMatriMSprites_Lynn, 0x00 },
     { L"EX/Super trails", 0x2A0f5e, 0x2A0f7e, indexMatriMSprites_Lynn, 0x00 },
     { L"Guard Cancel", 0x2A0f7e, 0x2A0f9e, indexMatriMSprites_Lynn, 0x00 },
-    { L"HUD Portrait", 0x2A0f9e, 0x2A0fbe },
+    { L"HUD Portrait", 0x2A0f9e, 0x2A0fbe, indexMatriMSprites_Lynn, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_LYNN_C_PALETTES[] =
 {
     { L"Lynn C", 0x2A0fbe, 0x2A0fde, indexMatriMSprites_Lynn, 0x00 },
-    { L"Special attack effects", 0x2A0fde, 0x2A0ffe },
-    { L"236P", 0x2A0ffe, 0x2A101e },
+    { L"Special attack effects", 0x2A0fde, 0x2A0ffe, indexMatriMSprites_Lynn, 0x02 },
+    { L"236P", 0x2A0ffe, 0x2A101e, indexMatriMSprites_Lynn, 0x01 },
     { L"Unknown extra", 0x2A101e, 0x2A103e },
     { L"Rolling/Super Jumps", 0x2A103e, 0x2A105e, indexMatriMSprites_Lynn, 0x00 },
     { L"EX/Super trails", 0x2A105e, 0x2A107e, indexMatriMSprites_Lynn, 0x00 },
     { L"Guard Cancel", 0x2A107e, 0x2A109e, indexMatriMSprites_Lynn, 0x00 },
-    { L"HUD Portrait", 0x2A109e, 0x2A10be },
+    { L"HUD Portrait", 0x2A109e, 0x2A10be, indexMatriMSprites_Lynn, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_LYNN_D_PALETTES[] =
 {
     { L"Lynn D",                    0x2A10be, 0x2A10de, indexMatriMSprites_Lynn, 0x00 },
-    { L"Special attack effects",    0x2A10de, 0x2A10fe },
-    { L"236P",                      0x2A10fe, 0x2A111e },
+    { L"Special attack effects",    0x2A10de, 0x2A10fe, indexMatriMSprites_Lynn, 0x02 },
+    { L"236P",                      0x2A10fe, 0x2A111e, indexMatriMSprites_Lynn, 0x01 },
     { L"Unknown extra",             0x2A111e, 0x2A113e },
     { L"Rolling/Super Jumps",       0x2A113e, 0x2A115e, indexMatriMSprites_Lynn, 0x00 },
     { L"EX/Super trails",           0x2A115e, 0x2A117e, indexMatriMSprites_Lynn, 0x00 },
     { L"Guard Cancel",              0x2A117e, 0x2A119e, indexMatriMSprites_Lynn, 0x00 },
-    { L"HUD Portrait",              0x2A119e, 0x2A11be },
+    { L"HUD Portrait",              0x2A119e, 0x2A11be, indexMatriMSprites_Lynn, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_LYNN_PORTRAIT_PALETTES[] =

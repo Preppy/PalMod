@@ -113,7 +113,17 @@ void CPreviewDlg::OnSetBackgroundCol()
     {
         m_ImgDisp.SetBGCol(ColorDlg.GetColor());
 
-        if (m_ImgDisp.IsBGTiled())
+        bool fShouldSwitchToUseColor = (m_ImgDisp.IsBGTiled() || m_ImgDisp.IsUsingBGCol());
+
+        if (!fShouldSwitchToUseColor)
+        {
+            CString strQuestion;
+            strQuestion = L"Do you want to switch to only use this background color and not also use the image?";
+
+            fShouldSwitchToUseColor = (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON1) == IDYES);
+        }
+
+        if (fShouldSwitchToUseColor)
         {
             m_ImgDisp.SetUseBGCol(TRUE);
         }

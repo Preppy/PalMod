@@ -638,8 +638,8 @@ const sGame_PaletteDataset KOF94_A_TAKUMA_ALT_PALETTES[] =
 
 const sGame_PaletteDataset KOF94_A_YURI_MAIN_PALETTES[] =
 {
-    { L"Yuri", 0x17a980, 0x17a9a0, indexKOF94Sprites_Yuri, 0x00 },
-    { L"Extra 1", 0x17a9a0, 0x17a9c0 },
+    { L"Yuri", 0x17a980, 0x17a9a0, indexKOF94Sprites_Yuri, 0x00, &pairNext },
+    { L"Extra 1", 0x17a9a0, 0x17a9c0, indexKOF94Sprites_Yuri, 0x01 },
     { L"Electric Palette", 0x17a9c0, 0x17a9e0, indexKOF94Sprites_Yuri, 0x00 },
     { L"Extra 2", 0x17a9e0, 0x17aa00 },
     { L"Win Portrait", 0x17aa00, 0x17aa80, indexKOF94Sprites_Yuri, 0x30 },
@@ -653,8 +653,8 @@ const sGame_PaletteDataset KOF94_A_YURI_MAIN_PALETTES[] =
 
 const sGame_PaletteDataset KOF94_A_YURI_ALT_PALETTES[] =
 {
-    { L"Yuri", 0x17ab40, 0x17ab60, indexKOF94Sprites_Yuri, 0x00 },
-    { L"Extra 1", 0x17ab60, 0x17ab80 },
+    { L"Yuri", 0x17ab40, 0x17ab60, indexKOF94Sprites_Yuri, 0x00, &pairNext },
+    { L"Extra 1", 0x17ab60, 0x17ab80, indexKOF94Sprites_Yuri, 0x01 },
     { L"Electric Palette", 0x17ab80, 0x17aba0, indexKOF94Sprites_Yuri, 0x00 },
     { L"Extra 2", 0x17aba0, 0x17abc0 },
     { L"Win Portrait", 0x17abc0, 0x17ac40, indexKOF94Sprites_Yuri, 0x30 },
