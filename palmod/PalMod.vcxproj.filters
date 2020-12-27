@@ -220,6 +220,9 @@
     <Filter Include="Game\SNK Games\KOF99AE_A">
       <UniqueIdentifier>{9fc92127-41e6-4ee1-a53b-9c31a9fd3903}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Nintendo\Fatal Fury Special %28SNES%29">
+      <UniqueIdentifier>{e923f483-9252-4955-9dd2-53b0b2448939}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -485,6 +488,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_KOF99AE_A.cpp">
       <Filter>Game\SNK Games\KOF99AE_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp">
+      <Filter>Game\Nintendo\Fatal Fury Special %28SNES%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -898,6 +904,12 @@
     </ClInclude>
     <ClInclude Include="Game\KOF99AE_A_DEF.h">
       <Filter>Game\SNK Games\KOF99AE_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FatalFuryS_SNES_DEF.h">
+      <Filter>Game\Nintendo\Fatal Fury Special %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FatalFuryS_SNES.h">
+      <Filter>Game\Nintendo\Fatal Fury Special %28SNES%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

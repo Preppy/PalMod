@@ -74,6 +74,7 @@ enum SupportedGamesList
     KOF94_A,
     KOF99AE_A,
     CFTE_SNES,
+    FatalFuryS_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -149,6 +150,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"KOF: 94 (Arcade)",
    L"KOF: 99AE (Arcade)",
    L"Clay Fighter: TE (SNES)",
+   L"Fatal Fury Special (SNES)",
 };
 
 enum class GamePlatform

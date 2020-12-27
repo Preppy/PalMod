@@ -7,6 +7,7 @@
 #include "Game_CFTE_SNES.h"
 #include "Game_COTA_A.h"
 #include "Game_CVS2_A.h"
+#include "Game_FatalFuryS_SNES.h"
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
 #include "Game_GUNDAM_SNES.h"
@@ -117,6 +118,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case CVS2_A:
     {
         GetRule = &CGame_CVS2_A::GetRule;
+        return TRUE;
+    }
+    case FatalFuryS_SNES:
+    {
+        GetRule = &CGame_FatalFuryS_SNES::GetRule;
         return TRUE;
     }
     case Garou_A:
@@ -456,6 +462,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case CVS2_A:
     {
         return new CGame_CVS2_A(nConfirmedROMSize);
+    }
+    case FatalFuryS_SNES:
+    {
+        return new CGame_FatalFuryS_SNES(nConfirmedROMSize);
     }
     case Garou_A:
     {

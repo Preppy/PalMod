@@ -18,6 +18,7 @@ sSupportedGameList SupportedGameList[] =
     { CFTE_SNES,        L"Clay Fighter:TE", L"Clay Fighter:TE|Clay Fighter - Tournament Edition (USA).sfc|", GamePlatform::Nintendo },
     { COTA_A,           L"COTA", L"COTA|xmn*.05*|", GamePlatform::CapcomCPS12 },
     { CVS2_A,           L"CVS2", L"CVS2|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
+    { FatalFuryS_SNES,  L"Fatal Fury Special (SNES)", L"Fatal Fury Special (SNES)|Fatal Fury Special (USA).sfc|", GamePlatform::Nintendo },
     { Garou_A,          L"Garou", L"Garou|kf.neo-sma|", GamePlatform::NEOGEO },
     { Garou_S,          L"Garou for Steam", L"Garou for Steam|p1.bin|", GamePlatform::Steam },
     { GUNDAM_SNES,      L"Gundam Wing: Endless Duel", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).sfc|", GamePlatform::Nintendo },
