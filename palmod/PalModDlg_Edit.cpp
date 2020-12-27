@@ -204,6 +204,10 @@ void CPalModDlg::OnEditCopy()
         // to just use color mode, but that'd break compatibility.
         switch (CurrGame->GetColorMode())
         {
+        case ColMode::COLMODE_9:
+            // RGB333
+            uCopyFlag1 = DUMMY_RGB9 + k_nASCIICharacterOffset;
+            break;
         case ColMode::COLMODE_GBA:
             // BGR555
             uCopyFlag1 = SSF2T_GBA + k_nASCIICharacterOffset;
@@ -441,6 +445,11 @@ void CPalModDlg::OnEditPaste()
             {
                 switch (uPasteGFlag)
                 {
+                case DUMMY_RGB9:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_9;
+                    break;
+                }
                 case COTA_A:
                 case MSHVSF_A:
                 case MSH_A:

@@ -75,6 +75,7 @@ enum SupportedGamesList
     KOF99AE_A,
     CFTE_SNES,
     FatalFuryS_SNES,
+    DUMMY_RGB9,          // ... we need a game ID to use for transmitting colors.
 
     NUM_GAMES // This needs to be last
 };
@@ -151,6 +152,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"KOF: 99AE (Arcade)",
    L"Clay Fighter: TE (SNES)",
    L"Fatal Fury Special (SNES)",
+   L"Fake game ID for RGB9",
 };
 
 enum class GamePlatform

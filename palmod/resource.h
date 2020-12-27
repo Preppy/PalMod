@@ -185,6 +185,7 @@
 #define ID_ALPHASETTING_CHAOTIC         32869
 #define ID_SETTINGS_EXTCOPYDATA         32870
 #define ID_FILE_OPEN_BY_GAME            32871
+#define ID_COLORFORMAT_RGB333           32872
 
 // Please note that the F0000 range (983040) is reserved for the dynamic game menu
 
@@ -193,7 +194,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32872
+#define _APS_NEXT_COMMAND_VALUE         32873
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

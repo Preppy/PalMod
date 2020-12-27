@@ -36,6 +36,8 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
     {
         switch (CurrColMode)
         {
+        case ColMode::COLMODE_9:
+            return k_nRGBPlaneAmtForRGB333;
         case ColMode::COLMODE_12A:
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneAmtForRGB444;
@@ -60,6 +62,8 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
     {
         switch (CurrColMode)
         {
+        case ColMode::COLMODE_9:
+            return k_nRGBPlaneMulForRGB333;
         case ColMode::COLMODE_12A:
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneMulForRGB444;
@@ -150,6 +154,9 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
         // See also MEDIASUBTYPE_555
         switch (NewMode)
         {
+        case ColMode::COLMODE_9:
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMOD_9 (RGB333)"));
+            break;
         case ColMode::COLMODE_GBA:
             strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMOD_GBA (ARGB555)"));
             break;
@@ -176,6 +183,10 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
 
     switch (NewMode)
     {
+    case ColMode::COLMODE_9:
+        ConvPal = &CGameClass::CONV_9_32;
+        ConvCol = &CGameClass::CONV_32_9;
+        return TRUE;
     case ColMode::COLMODE_GBA:
         ConvPal = &CGameClass::CONV_GBA_32;
         ConvCol = &CGameClass::CONV_32_GBA;
@@ -199,6 +210,32 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
     default:
         return FALSE;
     }
+}
+
+UINT32 CGameClass::CONV_9_32(UINT16 inCol)
+{
+    // xxxxBBBx GGGxRRRx, where x is 0
+    // conversion code mostly by sega16
+    UINT8* palP = (UINT8*)&inCol;
+    UINT8 b = (*palP++ & 14) * 18;
+    UINT8 g = ((*palP & 240) >> 5) * 36;
+    UINT8 r = (*palP & 14) * 18;
+
+    return (0xFF << 24) | (b << 16) | (g << 8) | r;
+}
+
+UINT16 CGameClass::CONV_32_9(UINT32 inCol)
+{
+    UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
+    UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT16 auxr = ((inCol & 0x000000FF));
+
+    auxr = (auxr + 18) / 36;
+    auxg = (auxg + 18) / 36;
+    auxb = (auxb + 18) / 36;
+    
+    // emit as GRxB
+    return (auxb << 1) | (auxr << 9) | (auxg << 13);
 }
 
 UINT32 CGameClass::CONV_GBA_32(UINT16 inCol)

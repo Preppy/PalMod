@@ -87,6 +87,19 @@ CGame_FatalFuryS_SNES::~CGame_FatalFuryS_SNES(void)
     FlushChangeTrackingArray();
 }
 
+sFileRule CGame_FatalFuryS_SNES::GetRule(UINT16 nUnitId)
+{
+    sFileRule NewFileRule;
+
+    // This value is only used for directory-based games
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"Fatal Fury Special (USA).sfc"); // Update with the primary expected ROM name here.
+
+    NewFileRule.uUnitId = 0;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
+
+    return NewFileRule;
+}
+
 UINT32 CGame_FatalFuryS_SNES::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
@@ -342,19 +355,6 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
     m_nTotalPaletteCountForFatalFuryS = nTotalPaletteCount;
 
     return NewDescTree;
-}
-
-sFileRule CGame_FatalFuryS_SNES::GetRule(UINT16 nUnitId)
-{
-    sFileRule NewFileRule;
-
-    // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"Mighty Morphin Power Rangers - The Fighting Edition (USA).sfc"); // Update with the primary expected ROM name here.
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
 }
 
 UINT16 CGame_FatalFuryS_SNES::GetCollectionCountForUnit(UINT16 nUnitId)

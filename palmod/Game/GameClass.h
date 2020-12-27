@@ -34,6 +34,7 @@ enum class ColMode
     COLMODE_15,        // RGB555 little endian for CPS3
     COLMODE_15ALT,     // RGB555 big endian 
     COLMODE_NEOGEO,    // RGB666
+    COLMODE_9,         // RGB333 for Sega Genesis/MegaDrive
 };
 
 enum class ColFlag
@@ -58,9 +59,11 @@ protected:
     LPCTSTR m_pszCurrentPaletteName = nullptr;
     UINT32 m_nConfirmedCRCValue = 0;
 
+    const int k_nRGBPlaneAmtForRGB333 =  7;
     const int k_nRGBPlaneAmtForRGB444 = 15;
     const int k_nRGBPlaneAmtForRGB555 = 31;
    
+    const double k_nRGBPlaneMulForRGB333 = 36.428;
     const double k_nRGBPlaneMulForRGB444 = 17.0;
     const double k_nRGBPlaneMulForRGB555 = 8.225;
 
@@ -98,10 +101,12 @@ protected:
 
     static BOOL m_fAllowTransparency;
 
-    static UINT16 CONV_32_GBA(UINT32 inCol);
-    static UINT32 CONV_GBA_32(UINT16 inCol);
+    static UINT16 CONV_32_9(UINT32 inCol);
+    static UINT32 CONV_9_32(UINT16 inCol);
     static UINT16 CONV_32_12A(UINT32 inCol);
     static UINT32 CONV_12A_32(UINT16 inCol);
+    static UINT16 CONV_32_GBA(UINT32 inCol);
+    static UINT32 CONV_GBA_32(UINT16 inCol);
     static UINT16 CONV_32_15(UINT32 inCol);
     static UINT32 CONV_15_32(UINT16 inCol);
     static UINT16 CONV_32_15ALT(UINT32 inCol);

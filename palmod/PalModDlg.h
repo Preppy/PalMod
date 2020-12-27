@@ -108,6 +108,7 @@ public:
     void SetColorsPerLineTo8();
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
+    void SetColorFormatTo9() { SetColorFormatTo(ColMode::COLMODE_9); };
     void SetColorFormatTo12A() { SetColorFormatTo(ColMode::COLMODE_12A); };
     void SetColorFormatTo15() { SetColorFormatTo(ColMode::COLMODE_15); };
     void SetColorFormatTo15ALT() { SetColorFormatTo(ColMode::COLMODE_15ALT); };
