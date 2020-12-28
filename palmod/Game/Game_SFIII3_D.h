@@ -41,7 +41,7 @@ public:
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
     void CreateDefPal(sDescNode* srcNode, UINT16 nSepId) override;
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0) override;
     BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 

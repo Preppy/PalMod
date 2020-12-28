@@ -8,79 +8,6 @@
 //       - look for usage of index_SFA3_Ryu to find them
 // That should be it.  Good luck.
 
-enum Supported_SFA3_PaletteListIndex
-{
-    index_SFA3_Ryu,
-    index_SFA3_Ken,
-    index_SFA3_Gouki,
-    index_SFA3_Charlie,
-    index_SFA3_ChunLi,
-    index_SFA3_Adon,
-    index_SFA3_Sodom,
-    index_SFA3_Guy,
-    index_SFA3_Birdie,
-    index_SFA3_Rose,
-    index_SFA3_MBison,
-    index_SFA3_Sagat,
-    index_SFA3_Dan,
-    index_SFA3_Sakura,
-    index_SFA3_Rolento,
-    index_SFA3_Dhalsim,
-    index_SFA3_Zangief,
-    index_SFA3_Gen,
-    index_SFA3_Balrog,
-    index_SFA3_Cammy,
-    index_SFA3_EdHonda,
-    index_SFA3_Blanka,
-    index_SFA3_RMika,
-    index_SFA3_Cody,
-    index_SFA3_Vega,
-    index_SFA3_Karin,
-    index_SFA3_Juni,
-    index_SFA3_Juli,
-    index_SFA3_Stages,
-    index_SFA3_Last
-};
-
-constexpr auto SFA3_A_NUM_IND = index_SFA3_Last;
-
-#define SFA3_A_EXTRALOC SFA3_A_NUM_IND
-
-const UINT8 SFA3_A_UNITSORT[SFA3_A_NUM_IND + 1] = // Plus 1 for the extra palettes
-{
-    index_SFA3_Adon,
-    index_SFA3_Balrog,
-    index_SFA3_Birdie,
-    index_SFA3_Blanka,
-    index_SFA3_Cammy,
-    index_SFA3_Charlie,
-    index_SFA3_ChunLi,
-    index_SFA3_Cody,
-    index_SFA3_Dan,
-    index_SFA3_Dhalsim,
-    index_SFA3_EdHonda,
-    index_SFA3_Gen,
-    index_SFA3_Gouki,
-    index_SFA3_Guy,
-    index_SFA3_Juli,
-    index_SFA3_Juni,
-    index_SFA3_Karin,
-    index_SFA3_Ken,
-    index_SFA3_MBison,
-    index_SFA3_RMika,
-    index_SFA3_Rolento,
-    index_SFA3_Rose,
-    index_SFA3_Ryu,
-    index_SFA3_Sagat,
-    index_SFA3_Sakura,
-    index_SFA3_Sodom,
-    index_SFA3_Vega,
-    index_SFA3_Zangief,
-    index_SFA3_Stages,
-
-    SFA3_A_EXTRALOC // Extra palettes
-};
-
 const sGame_PaletteDataset SFA3_A_RYU_XISMP[] =
 {
     { L"X-Ism Punch", 0x2c0d4, 0x2c0f4, 0x00, 0x00 },
@@ -3351,7 +3278,10 @@ const sDescTreeNode SFA3_A_STAGES_COLLECTION[] =
     { L"Nash Stage", DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_NASH_NODE, ARRAYSIZE(SFA3_A_STAGES_NASH_NODE) },
 };
 
-const sDescTreeNode SFA3_A_UNITS[SFA3_A_NUM_IND] =
+#define k_sfa3NameKey_ChunLi L"Chun-Li"
+#define k_sfa3NameKey_Sodom L"Sodom"
+
+const sDescTreeNode SFA3_A_UNITS[] =
 {
     { L"Adon",            DESC_NODETYPE_TREE, (void*)SFA3_A_ADON_COLLECTION,          ARRAYSIZE(SFA3_A_ADON_COLLECTION) },
     { L"Balrog",          DESC_NODETYPE_TREE, (void*)SFA3_A_BALROG_COLLECTION,        ARRAYSIZE(SFA3_A_BALROG_COLLECTION) },
@@ -3359,7 +3289,7 @@ const sDescTreeNode SFA3_A_UNITS[SFA3_A_NUM_IND] =
     { L"Blanka",          DESC_NODETYPE_TREE, (void*)SFA3_A_BLANKA_COLLECTION,        ARRAYSIZE(SFA3_A_BLANKA_COLLECTION) },
     { L"Cammy",           DESC_NODETYPE_TREE, (void*)SFA3_A_CAMMY_COLLECTION,         ARRAYSIZE(SFA3_A_CAMMY_COLLECTION) },
     { L"Charlie",         DESC_NODETYPE_TREE, (void*)SFA3_A_CHARLIE_COLLECTION,       ARRAYSIZE(SFA3_A_CHARLIE_COLLECTION) },
-    { L"Chun-Li",         DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_COLLECTION,        ARRAYSIZE(SFA3_A_CHUNLI_COLLECTION) },
+    { k_sfa3NameKey_ChunLi, DESC_NODETYPE_TREE, (void*)SFA3_A_CHUNLI_COLLECTION,        ARRAYSIZE(SFA3_A_CHUNLI_COLLECTION) },
     { L"Cody",            DESC_NODETYPE_TREE, (void*)SFA3_A_CODY_COLLECTION,          ARRAYSIZE(SFA3_A_CODY_COLLECTION) },
     { L"Dan",             DESC_NODETYPE_TREE, (void*)SFA3_A_DAN_COLLECTION,           ARRAYSIZE(SFA3_A_DAN_COLLECTION) },
     { L"Dhalsim",         DESC_NODETYPE_TREE, (void*)SFA3_A_DHALSIM_COLLECTION,       ARRAYSIZE(SFA3_A_DHALSIM_COLLECTION) },
@@ -3378,11 +3308,16 @@ const sDescTreeNode SFA3_A_UNITS[SFA3_A_NUM_IND] =
     { L"Ryu",             DESC_NODETYPE_TREE, (void*)SFA3_A_RYU_COLLECTION,           ARRAYSIZE(SFA3_A_RYU_COLLECTION) },
     { L"Sagat",           DESC_NODETYPE_TREE, (void*)SFA3_A_SAGAT_COLLECTION,         ARRAYSIZE(SFA3_A_SAGAT_COLLECTION) },
     { L"Sakura",          DESC_NODETYPE_TREE, (void*)SFA3_A_SAKURA_COLLECTION,        ARRAYSIZE(SFA3_A_SAKURA_COLLECTION) },
-    { L"Sodom",           DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_COLLECTION,         ARRAYSIZE(SFA3_A_SODOM_COLLECTION) },
+    { k_sfa3NameKey_Sodom, DESC_NODETYPE_TREE, (void*)SFA3_A_SODOM_COLLECTION,         ARRAYSIZE(SFA3_A_SODOM_COLLECTION) },
     { L"Vega",            DESC_NODETYPE_TREE, (void*)SFA3_A_VEGA_COLLECTION,          ARRAYSIZE(SFA3_A_VEGA_COLLECTION) },
     { L"Zangief",         DESC_NODETYPE_TREE, (void*)SFA3_A_ZANGIEF_COLLECTION,       ARRAYSIZE(SFA3_A_ZANGIEF_COLLECTION) },
     { L"Stages",          DESC_NODETYPE_TREE, (void*)SFA3_A_STAGES_COLLECTION,        ARRAYSIZE(SFA3_A_STAGES_COLLECTION) },
 };
+
+constexpr auto SFA3_A_NUM_IND = ARRAYSIZE(SFA3_A_UNITS);
+
+#define SFA3_A_EXTRALOC SFA3_A_NUM_IND
+
 
 // We extend this array with data groveled from the SFA3e.txt extensible extras file, if any.
 const stExtraDef SFA3_A_EXTRA[] =

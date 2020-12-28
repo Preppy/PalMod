@@ -216,6 +216,7 @@ UINT32 CGameClass::CONV_9_32(UINT16 inCol)
 {
     // xxxxBBBx GGGxRRRx, where x is 0
     // conversion code mostly by sega16
+    // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
     UINT8* palP = (UINT8*)&inCol;
     UINT8 b = (*palP++ & 14) * 18;
     UINT8 g = ((*palP & 240) >> 5) * 36;

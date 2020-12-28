@@ -43,7 +43,7 @@ public:
     static sFileRule GetRule4(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 4); };
     static sFileRule GetRule51(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 51); };
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber);
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override;
     BOOL SaveFile(CFile* SaveFile, UINT16 nSIMMNumber) override;
 
     LPCTSTR GetGameName() override;

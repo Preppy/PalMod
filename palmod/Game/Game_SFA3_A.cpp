@@ -763,8 +763,10 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 if (_tcsicmp(prospectivePalette->szPaletteName, _T("X-Ism Punch")) == 0)
                 {
-                    if ((SFA3_A_UNITSORT[NodeGet->uUnitId] != index_SFA3_ChunLi) && // different portraits for X vs non-X
-                        (SFA3_A_UNITSORT[NodeGet->uUnitId] != index_SFA3_Sodom)) // different win portraits for X vs non-X
+                    sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+
+                    if ((wcscmp(charUnit->szDesc, k_sfa3NameKey_ChunLi) == 0) ||  // different portraits for X vs non-X
+                        (wcscmp(charUnit->szDesc, k_sfa3NameKey_Sodom) == 0))     // different win portraits for X vs non-X
                     {
                         // OK, we've arrived where we expected to
                         nSrcAmt = 6;

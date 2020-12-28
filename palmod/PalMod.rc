@@ -384,7 +384,7 @@ BEGIN
         END
         POPUP "Color Format"
         BEGIN
-            MENUITEM "RGB333 (Sega Genesis)",       ID_COLORFORMAT_RGB333
+            MENUITEM "RGB333 (big endian for Sega Genesis)", ID_COLORFORMAT_RGB333
             MENUITEM "RGB444 (big endian for CPS1/CPS2)", ID_COLORFORMAT_RGB444
             MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555
             MENUITEM "BGR555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA

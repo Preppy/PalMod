@@ -72,7 +72,7 @@ public:
     UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
     BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) override;
 
