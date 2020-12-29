@@ -252,7 +252,7 @@ public:
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
     virtual void UpdatePalData();
-    void FlushChangeTrackingArray() { safe_delete_array(rgFileChanged); ClearDirtyPaletteTracker();  };
+    void FlushChangeTrackingArray() { safe_delete_array(rgFileChanged); ClearDirtyPaletteTracker(); };
     virtual void PrepChangeTrackingArray();
     virtual void ValidateMixExtraColors(BOOL* pfChangesWereMade) {};
     virtual void PostSetPal(UINT16 nUnitId, UINT16 nPalId) {};

@@ -7,6 +7,7 @@ enum class SFIII3_SupportedROMRevision
     SFIII3_10_990608,
     SFIII3_51,
     SFIII3_4rd,
+    SFIII3_3Ex,
     SFIII3_Unsupported,
 };
 
@@ -39,9 +40,11 @@ public:
     static sFileRule GetNextRule10() { return GetNextRuleInternal(10); };
     static sFileRule GetNextRule4() { return GetNextRuleInternal(4); };
     static sFileRule GetNextRule51() { return GetNextRuleInternal(51); };
+    static sFileRule GetNextRule3Ex() { return GetNextRuleInternal(70); };
     static sFileRule GetRule10(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 10); };
     static sFileRule GetRule4(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 4); };
     static sFileRule GetRule51(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 51); };
+    static sFileRule GetRule3Ex(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 70); };
 
     BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override;
     BOOL SaveFile(CFile* SaveFile, UINT16 nSIMMNumber) override;

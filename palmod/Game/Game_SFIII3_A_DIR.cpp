@@ -9,9 +9,11 @@ SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::m_currentSFIII3ROMRevision = SFI
 // sfiii3 is the USA 990512 revision
 // sfii3n is Japan 990512 NOCD
 // 4rd is the SF3 4rd Remix
+// 3S EX is a palette expansion of 3S
 constexpr auto SFIII_Arcade_USA_ROM_Base = _T("sfiii3-simm");
 constexpr auto SFIII_Arcade_JPN_ROM_Base = _T("sfiii3n-simm");
 constexpr auto SFIII_Arcade_4rd_ROM_Base = _T("4rd-simm");
+constexpr auto SFIII_Arcade_3Ex_ROM_Base = _T("sfiii3ex-simm");
 
 CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize /* = -1 */, int nSF3ModeToLoad /* = 51 */) :
     CGame_SFIII3_A(0x800000, nSF3ModeToLoad) // Let the core game know it's safe to load Extras
@@ -34,6 +36,11 @@ CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize /* = -1 */, int 
         nGameFlag = SFIII3_A_DIR_51;
         nFileAmt = 8;
         break;
+    case 70:
+        m_nSelectedRom = 70;
+        nGameFlag = SFIII3_A_DIR_EX;
+        nFileAmt = 4;
+        break;
     }
 
     FlushChangeTrackingArray();
@@ -51,17 +58,23 @@ sFileRule CGame_SFIII3_A_DIR::GetRuleInternal(UINT16 nUnitId, int nSF3ModeToLoad
 
     m_nSelectedRom = nSF3ModeToLoad;
 
-    if (m_nSelectedRom != 4)
+    switch (m_nSelectedRom)
     {
-        _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u.%u"), SFIII_Arcade_USA_ROM_Base, (m_nSelectedRom == 10) ? 1 : 5, (nUnitId & 0x00FF));
+        case 4:
+            _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u.%u"), SFIII_Arcade_4rd_ROM_Base, 5, ((nUnitId & 0x00FF) + 6));
+            break;
+        case 70:
+            _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u.%u"), SFIII_Arcade_3Ex_ROM_Base, 7, (nUnitId & 0x00FF));
+            break;
+        default:
+        {
+            _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u.%u"), SFIII_Arcade_USA_ROM_Base, (m_nSelectedRom == 10) ? 1 : 5, (nUnitId & 0x00FF));
 
-        // This is clunky: we should shift the SIMM games to handle loads themselves.
-        NewFileRule.fHasAltName = TRUE;
-        _sntprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, _T("%s%u.%u"), SFIII_Arcade_JPN_ROM_Base, (m_nSelectedRom == 10) ? 1 : 5, (nUnitId & 0x00FF));
-    }
-    else
-    {
-        _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u.%u"), SFIII_Arcade_4rd_ROM_Base, 5, ((nUnitId & 0x00FF) + 6));
+            // This is clunky: we should shift the SIMM games to handle loads themselves.
+            NewFileRule.fHasAltName = TRUE;
+            _sntprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, _T("%s%u.%u"), SFIII_Arcade_JPN_ROM_Base, (m_nSelectedRom == 10) ? 1 : 5, (nUnitId & 0x00FF));
+            break;
+        }
     }
 
     NewFileRule.uUnitId = nUnitId;
@@ -120,13 +133,14 @@ SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::GetSFIII3ROMVersion(CFile* Loade
 {
     if (!UsePaletteSetForGill())
     {
-        if (m_nSelectedRom != 4)
+        switch (m_nSelectedRom)
         {
+        default:
             return SFIII3_SupportedROMRevision::SFIII3_51;
-        }
-        else
-        {
+        case 4:
             return SFIII3_SupportedROMRevision::SFIII3_4rd;
+        case 70:
+            return SFIII3_SupportedROMRevision::SFIII3_3Ex;
         }
     }
 
@@ -220,8 +234,16 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         OutputDebugString(strInfo);
         return TRUE;
     }
-    else if (((UsePaletteSetForGill()) && (nSIMMNumber > 3)) ||
-             ((!UsePaletteSetForGill()) && (nSIMMNumber < 4)))
+    else if (UsePaletteSetForGill() || UsePaletteSetFor3Ex())
+    {
+        if (nSIMMNumber > 3)
+        {
+            strInfo.Format(_T("CGame_SFIII3_A_DIR::SaveFile: SIMM %u is not used for this set: skipping.\n"), nSIMMNumber);
+            OutputDebugString(strInfo);
+            return TRUE;
+        }
+    }
+    else if ((!UsePaletteSetForGill()) && (nSIMMNumber < 4))
     {
         // Nothing useful on those SIMMs: that's ROM 50
         strInfo.Format(_T("CGame_SFIII3_A_DIR::SaveFile: SIMM %u is for ROM 50: skipping.\n"), nSIMMNumber);
@@ -237,6 +259,10 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     {
         m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_4rd;
     }
+    else if (UsePaletteSetFor3Ex())
+    {
+        m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_3Ex;
+    }
     else
     {
         m_currentSFIII3ROMRevision = SFIII3_SupportedROMRevision::SFIII3_51;
@@ -251,7 +277,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     const UINT32 nBeginningRange = 0 + (c_nSFIII3SIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
     UINT32 nEndingRange;
 
-    if (UsePaletteSetForGill())
+    if (UsePaletteSetForGill() || UsePaletteSetFor3Ex())
     {
         // handle as a full set
         nEndingRange = (c_nSFIII3SIMMLength * 2) + (c_nSFIII3SIMMLength * (4 - nSIMMSetAdjustment));
@@ -283,6 +309,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
     if (UsePaletteSetForGill())
     {
+        // We need all four files for Gill
         CString str10FileName;
 
         str10FileName.Format(L"%s\\%s1.2", GetLoadDir(), isUsingAltName ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base);
@@ -411,6 +438,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
     if (((nGameFlag == SFIII3_A_DIR_10) && (nSIMMNumber == 0)) ||
         ((nGameFlag == SFIII3_A_DIR_4) && (nSIMMNumber == 6)) ||
+        ((nGameFlag == SFIII3_A_DIR_EX) && (nSIMMNumber == 0)) ||
         ((nGameFlag == SFIII3_A_DIR_51) && (nSIMMNumber == 6)))
     {
         // Only run the dupe checker for the second SIMM pair
@@ -438,7 +466,18 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
         nSIMMNumber += 4;
     }
 
-    UINT32 nSIMMSetAdjustment = 0 + ((m_nSelectedRom != 10) ? 4 : 0);
+    UINT32 nSIMMSetAdjustment = 0;
+
+    switch (m_nSelectedRom)
+    {
+    case 10:
+    case 70:
+        // We want the first four files
+        break;
+    default:
+        nSIMMSetAdjustment += 4;
+        break;
+    }
 
     if ((nSIMMNumber % 2) == 1)
     {
@@ -475,8 +514,25 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
     CFile fileSIMM4;
     CString strSIMMName4;
 
-    LPCTSTR pszBaseFormatString = (nGameFlag == SFIII3_A_DIR_4) ? SFIII_Arcade_4rd_ROM_Base : SFIII_Arcade_USA_ROM_Base;
-    const UINT16 nSIMMSetBaseNumber = (m_nSelectedRom == 10) ? 1 : 5;
+    LPCTSTR pszBaseFormatString;
+    UINT16 nSIMMSetBaseNumber;
+
+    switch (nGameFlag)
+    {
+    case SFIII3_A_DIR_4:
+        pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
+        nSIMMSetBaseNumber = 1;
+        break;
+    case SFIII3_A_DIR_EX:
+        pszBaseFormatString = SFIII_Arcade_3Ex_ROM_Base;
+        nSIMMSetBaseNumber = 1;
+        break;
+    default:
+        pszBaseFormatString = SFIII_Arcade_USA_ROM_Base;
+        nSIMMSetBaseNumber = 5;
+        break;
+    }
+
     strSIMMName1.Format(_T("%s\\%s%u.%u"), GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber);
 
     // We don't necessarily want the incoming file handle, so close it
@@ -622,6 +678,8 @@ LPCTSTR CGame_SFIII3_A_DIR::GetGameName()
         return L"SFIII:3S (Arcade Rerip)";
     case SFIII3_SupportedROMRevision::SFIII3_4rd:
         return L"SFIII:4rd (3S Hack)";
+    case SFIII3_SupportedROMRevision::SFIII3_3Ex:
+        return L"SFIII:3S Ex";
     default:
     case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
         return L"SFIII:3S Gill Glow (Arcade Rerip)";

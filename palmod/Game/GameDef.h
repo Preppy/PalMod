@@ -76,6 +76,7 @@ enum SupportedGamesList
     CFTE_SNES,
     FatalFuryS_SNES,
     DUMMY_RGB9,          // ... we need a game ID to use for transmitting colors.
+    SFIII3_A_DIR_EX,
 
     NUM_GAMES // This needs to be last
 };
@@ -153,6 +154,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Clay Fighter: TE (SNES)",
    L"Fatal Fury Special (SNES)",
    L"Fake game ID for RGB9",
+   L"SFIII:3S EX",
 };
 
 enum class GamePlatform
