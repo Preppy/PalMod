@@ -59,10 +59,10 @@ protected:
     LPCTSTR m_pszCurrentPaletteName = nullptr;
     UINT32 m_nConfirmedCRCValue = 0;
 
-    const int k_nRGBPlaneAmtForRGB333 =  7;
+    const int k_nRGBPlaneAmtForRGB333 = 7;
     const int k_nRGBPlaneAmtForRGB444 = 15;
     const int k_nRGBPlaneAmtForRGB555 = 31;
-   
+
     const double k_nRGBPlaneMulForRGB333 = 36.428;
     const double k_nRGBPlaneMulForRGB444 = 17.0;
     const double k_nRGBPlaneMulForRGB555 = 8.225;
@@ -88,11 +88,12 @@ protected:
 
     eImageOutputSpriteDisplay DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Used for the Export Image listbox
-    const LPCTSTR *pButtonLabelSet = nullptr;
+    const LPCTSTR* pButtonLabelSet = nullptr;
     // How many colors a game has: P1/P2 (2), LP-HK/A2 (6), etc
     UINT8 m_nNumberOfColorOptions = 0;
 
     bool m_fGameUsesAlphaValue = false;
+    bool m_fAllowIPSPatching = false;
     UINT32 m_uOneTimeWINEViewportSizeOverride = 0;
 
     BOOL bUsesHybrid = FALSE;
@@ -215,6 +216,7 @@ public:
 
     void SetIsDir(BOOL bNewIsDir = TRUE) { bIsDir = bNewIsDir; };
     BOOL GetIsDir() { return bIsDir; };
+    bool AllowIPSPatchGeneration() { return !bIsDir || m_fAllowIPSPatching; };
 
     int GetPlaneAmt(ColFlag Flag);
     double GetPlaneMul(ColFlag Flag);
@@ -225,7 +227,7 @@ public:
     int GetImgOutPalAmt() { return nSrcPalAmt[0]; };
     void ClearSrcPal();
 
-    const LPCTSTR *GetButtonDescSet() { return pButtonLabelSet; };
+    const LPCTSTR* GetButtonDescSet() { return pButtonLabelSet; };
     eImageOutputSpriteDisplay GetImgDispType() { return DisplayType; };
 
     void SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc);
@@ -246,6 +248,7 @@ public:
     virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId);
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
     virtual UINT32 SavePatchFile(CFile* PatchFile, UINT16 nUnitId);
+    virtual UINT32 SaveMultiplePatchFiles(CString strTargetDirectory) { return 0; };
     void SetSpecificValuesForCRC(UINT32 nCRCForFile);
     virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
 

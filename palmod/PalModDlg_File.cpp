@@ -197,7 +197,19 @@ void CPalModDlg::OnSavePatchFile()
     }
 
     // Generate an IPS file of the current changes
-    GetHost()->GetLoader()->SavePatchFile(GetHost()->GetCurrGame());
+    if (GetHost()->GetCurrGame()->GetIsDir())
+    {
+        CString strTargetDirectory;
+
+        if (SetLoadDir(&strTargetDirectory))
+        {
+            GetHost()->GetLoader()->SaveMultiplePatchFiles(GetHost()->GetCurrGame(), strTargetDirectory);
+        }
+    }
+    else
+    {
+        GetHost()->GetLoader()->SavePatchFile(GetHost()->GetCurrGame());
+    }
 
     SetStatusText(GetHost()->GetLoader()->GetLoadSaveStr());
 }

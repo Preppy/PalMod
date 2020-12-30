@@ -32,6 +32,7 @@ CGame_SFIII3_A_DIR::CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize /* = -1 */, int 
         break;
     case 51:
     default:
+        m_fAllowIPSPatching = true;
         m_nSelectedRom = 51;
         nGameFlag = SFIII3_A_DIR_51;
         nFileAmt = 8;
@@ -230,7 +231,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 
     if ((nSIMMNumber % 2) == 1)
     {
-        strInfo.Format(_T("\tCGame_SFIII3_A_DIR::SaveFile: SIMM %u is a peer SIMM: skipping.\n"), nSIMMNumber);
+        strInfo.Format(_T("\tCGame_SFIII3_A_DIR::LoadFile: SIMM %u is a peer SIMM: skipping.\n"), nSIMMNumber);
         OutputDebugString(strInfo);
         return TRUE;
     }
@@ -238,7 +239,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     {
         if (nSIMMNumber > 3)
         {
-            strInfo.Format(_T("CGame_SFIII3_A_DIR::SaveFile: SIMM %u is not used for this set: skipping.\n"), nSIMMNumber);
+            strInfo.Format(_T("CGame_SFIII3_A_DIR::LoadFile: SIMM %u is not used for this set: skipping.\n"), nSIMMNumber);
             OutputDebugString(strInfo);
             return TRUE;
         }
@@ -246,7 +247,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     else if ((!UsePaletteSetForGill()) && (nSIMMNumber < 4))
     {
         // Nothing useful on those SIMMs: that's ROM 50
-        strInfo.Format(_T("CGame_SFIII3_A_DIR::SaveFile: SIMM %u is for ROM 50: skipping.\n"), nSIMMNumber);
+        strInfo.Format(_T("CGame_SFIII3_A_DIR::LoadFile: SIMM %u is for ROM 50: skipping.\n"), nSIMMNumber);
         OutputDebugString(strInfo);
         return TRUE;
     }
@@ -622,14 +623,27 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
                         pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                         nPaletteSaveCount++;
 
-                        for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
-                        {
-                            BYTE high = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
-                            BYTE low = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
+                        UINT16 nCurrentWriteLength = m_nCurrentPaletteSize / 2;
 
-                            pSIMM1->Write(&low, 1);
-                            pSIMM2->Write(&high, 1);
+                        BYTE* pbWrite1 = nullptr, * pbWrite2 = nullptr;
+
+                        pbWrite1 = new BYTE[nCurrentWriteLength];
+                        pbWrite2 = new BYTE[nCurrentWriteLength];
+
+                        if (pbWrite1 && pbWrite2)
+                        {
+                            for (UINT16 nWordsWritten = 0; nWordsWritten < nCurrentWriteLength; nWordsWritten++)
+                            {
+                                pbWrite1[nWordsWritten] = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
+                                pbWrite2[nWordsWritten] = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
+                            }
+
+                            pSIMM1->Write(pbWrite1, nCurrentWriteLength);
+                            pSIMM2->Write(pbWrite2, nCurrentWriteLength);
                         }
+
+                        safe_delete_array(pbWrite1);
+                        safe_delete_array(pbWrite2);
                     }
                 }
             }
@@ -684,4 +698,207 @@ LPCTSTR CGame_SFIII3_A_DIR::GetGameName()
     case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
         return L"SFIII:3S Gill Glow (Arcade Rerip)";
     };
+}
+
+UINT32 CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
+{
+    CString strInfo;
+    UINT32 nPaletteSaveCount = 0;
+    UINT16 nSIMMNumber = 0;
+
+    // 50 maps to 5.0-5.3
+    // 51 maps to 5.4-5.7
+    // Adjust up to the 5.4 set for 3S/4rd Strike
+    switch (m_nSelectedRom)
+    {
+    case 10:
+    case 70:
+        // We want the first four files
+        break;
+    default:
+        nSIMMNumber = 4;
+        break;
+    }
+
+    // OK, so the old 51 ROM in the SIMM redump is interleaved.
+    // There is one byte from 5.0 followed by one byte from 5.1, up until the end of those SIMMs.
+    // That is then followed by one byte from 5.6 followed by one byte from 5.7, repeat until end of SIMM.
+    // So we need some shenanigans to generate correct IPS files
+
+    CFile fileIPS1;
+    CString strIPSName1;
+    CFile fileIPS2;
+    CString strIPSName2;
+    CFile fileIPS3;
+    CString strIPSName3;
+    CFile fileIPS4;
+    CString strIPSName4;
+
+    LPCTSTR pszBaseFormatString;
+    UINT16 nSIMMSetBaseNumber;
+
+    switch (nGameFlag)
+    {
+    case SFIII3_A_DIR_4:
+        pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
+        nSIMMSetBaseNumber = 1;
+        break;
+    case SFIII3_A_DIR_EX:
+        pszBaseFormatString = SFIII_Arcade_3Ex_ROM_Base;
+        nSIMMSetBaseNumber = 1;
+        break;
+    default:
+        pszBaseFormatString = SFIII_Arcade_USA_ROM_Base;
+        nSIMMSetBaseNumber = 5;
+        break;
+    }
+
+    strIPSName1.Format(_T("%s\\%s%u.%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber);
+
+    BOOL fIPS1Opened = fileIPS1.Open(strIPSName1, CFile::modeWrite | CFile::typeBinary);
+
+    if (!fIPS1Opened && !UsePaletteSetFor4rd())
+    {
+        pszBaseFormatString = SFIII_Arcade_JPN_ROM_Base;
+        strIPSName1.Format(_T("%s\\%s%u.%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber);
+        fIPS1Opened = fileIPS1.Open(strIPSName1, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary);
+    }
+
+    strIPSName2.Format(_T("%s\\%s%u.%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 1);
+    strIPSName3.Format(_T("%s\\%s%u.%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 2);
+    strIPSName4.Format(_T("%s\\%s%u.%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 3);
+
+    if ((UsePaletteSetFor4rd() || fIPS1Opened) &&
+        (UsePaletteSetFor4rd() || (fileIPS2.Open(strIPSName2, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary))) &&
+        (fileIPS3.Open(strIPSName3, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary)) &&
+        (fileIPS4.Open(strIPSName4, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary)))
+    {
+        // Verify extent
+        CString strOptions;
+        strOptions.Format(_T("Do you want this to be a complete game patch of all possible palettes?  They are much larger and are usually very wasteful.  Select Yes for that, or No to just include the %u palette%s you changed in this current session."), m_vDirtyPaletteList.size(), (m_vDirtyPaletteList.size() > 1) ? _T("s") : _T(""));
+
+        const bool fUserWantsAllChanges = (MessageBox(g_appHWnd, strOptions, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON2) == IDYES);
+
+        // Write the headers...
+        LPCSTR szIPSOpener = "PATCH";
+        fileIPS1.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
+        fileIPS2.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
+        fileIPS3.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
+        fileIPS4.Write(szIPSOpener, (UINT)strlen(szIPSOpener));
+
+        strInfo.Format(_T("CGame_SFIII3_A_DIR::SaveMultiplePatchFiles: Preparing to save IPS patches...\n"));
+        OutputDebugString(strInfo);
+
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        {
+            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+            for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            {
+                if (fUserWantsAllChanges || IsPaletteDirty(nUnitCtr, nPalCtr))
+                {
+                    LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                    if (m_currentSFIII3ROMRevision == SFIII3_SupportedROMRevision::SFIII3_10_990512)
+                    {
+                        m_nCurrentPaletteROMLocation += 0x14c;
+                    }
+
+                    UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
+
+                    const UINT8 nSIMMSetToUse = GetSIMMSetForROMLocation(m_nCurrentPaletteROMLocation);
+
+                    m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
+                    m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
+
+                    if (UsePaletteSetForGill())
+                    {
+                        // E_NOTIMPL at this time
+                    }
+                    else
+                    {
+                        nPaletteSaveCount++;
+
+                        CFile* pIPS1 = (nSIMMSetToUse == 0) ? &fileIPS1 : &fileIPS3;
+                        CFile* pIPS2 = (nSIMMSetToUse == 0) ? &fileIPS2 : &fileIPS4;
+
+                        // Location
+                        BYTE b1 = (m_nCurrentPaletteROMLocation & 0xFF0000) >> 16;
+                        BYTE b2 = (m_nCurrentPaletteROMLocation & 0xFF00) >> 8;
+                        BYTE b3 = m_nCurrentPaletteROMLocation & 0xFF;
+                        pIPS1->Write(&b1, 1);
+                        pIPS1->Write(&b2, 1);
+                        pIPS1->Write(&b3, 1);
+
+                        pIPS2->Write(&b1, 1);
+                        pIPS2->Write(&b2, 1);
+                        pIPS2->Write(&b3, 1);
+
+                        // Size
+                        b1 = ((m_nCurrentPaletteSize) & 0xFF00) >> 8;
+                        b2 = (m_nCurrentPaletteSize) & 0xFF;
+                        pIPS1->Write(&b1, 1);
+                        pIPS1->Write(&b2, 1);
+
+                        pIPS2->Write(&b1, 1);
+                        pIPS2->Write(&b2, 1);
+
+                        BYTE* pbWrite1 = nullptr, * pbWrite2 = nullptr;
+
+                        pbWrite1 = new BYTE[m_nCurrentPaletteSize];
+                        pbWrite2 = new BYTE[m_nCurrentPaletteSize];
+
+                        if (pbWrite1 && pbWrite2)
+                        {
+                            for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
+                            {
+                                pbWrite1[nWordsWritten] = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
+                                pbWrite2[nWordsWritten] = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
+                            }
+
+                            pIPS1->Write(pbWrite1, m_nCurrentPaletteSize);
+                            pIPS2->Write(pbWrite2, m_nCurrentPaletteSize);
+                        }
+
+                        safe_delete_array(pbWrite1);
+                        safe_delete_array(pbWrite2);
+                    }
+                }
+            }
+        }
+
+        strInfo.Format(_T("\tCGame_SFIII3_A_DIR::SaveMultiplePatchFiles: complete for 0x%x palettes\n"), nPaletteSaveCount);
+        OutputDebugString(strInfo);
+    }
+    else
+    {
+        OutputDebugString(_T("CGame_SFIII3_A_DIR::SaveMultiplePatchFiles: Failed to open full SIMM patch set: skipping patch generation.\n"));
+    }
+
+    LPCSTR szIPSCloser = "EOF";
+    if (fileIPS1.m_hFile != CFile::hFileNull)
+    {
+        fileIPS1.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS1.Close();
+    }
+
+    if (fileIPS2.m_hFile != CFile::hFileNull)
+    {
+        fileIPS2.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS2.Close();
+    }
+
+    if (fileIPS3.m_hFile != CFile::hFileNull)
+    {
+        fileIPS3.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS3.Close();
+    }
+
+    if (fileIPS4.m_hFile != CFile::hFileNull)
+    {
+        fileIPS4.Write(szIPSCloser, (UINT)strlen(szIPSCloser));
+        fileIPS4.Close();
+    }
+
+    return nPaletteSaveCount;
 }

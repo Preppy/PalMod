@@ -1307,7 +1307,7 @@ void CGameLoad::SavePatchFile(CGameClass* CurrGame)
     if (rgFileIsChanged[0] && !CurrGame->GetIsDir())
     {
         static LPCTSTR szPatchFilter[] = { _T("IPS Patch File|*.ips|")
-                                          _T("|") };
+                                           _T("|") };
 
         LPCTSTR pszLoadedFile = CurrGame->GetLoadDir();
         LPCTSTR pszFileName = _tcsrchr(pszLoadedFile, _T('\\'));
@@ -1345,6 +1345,27 @@ void CGameLoad::SavePatchFile(CGameClass* CurrGame)
                 MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
             }
         }
+    }
+
+    if (nNumberOfChangesSaved > 0)
+    {
+        szLoadSaveStr.Format(_T("%u change%s saved to patch file."), nNumberOfChangesSaved, nNumberOfChangesSaved == 1 ? _T("") : _T("s"));
+    }
+    else
+    {
+        szLoadSaveStr = _T("No changes detected: nothing to put in patch file.");
+    }
+}
+
+void CGameLoad::SaveMultiplePatchFiles(CGameClass* CurrGame, CString strTargetDirectory)
+{
+    SetGame(CurrGame->GetGameFlag());
+    UINT32 nNumberOfChangesSaved = 0;
+    UINT16* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
+
+    if (rgFileIsChanged[0] && CurrGame->GetIsDir())
+    {
+        nNumberOfChangesSaved = CurrGame->SaveMultiplePatchFiles(strTargetDirectory);
     }
 
     if (nNumberOfChangesSaved > 0)
