@@ -249,6 +249,7 @@ public:
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
     virtual UINT32 SavePatchFile(CFile* PatchFile, UINT16 nUnitId);
     virtual UINT32 SaveMultiplePatchFiles(CString strTargetDirectory) { return 0; };
+    bool UserWantsAllPalettesInPatch();
     void SetSpecificValuesForCRC(UINT32 nCRCForFile);
     virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
 

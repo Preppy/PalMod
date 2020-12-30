@@ -1059,12 +1059,17 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     return TRUE;
 }
 
-UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
+bool CGameClass::UserWantsAllPalettesInPatch()
 {
     CString strOptions;
     strOptions.Format(_T("Do you want this to be a complete game patch of all possible palettes?  They are much larger and are usually very wasteful.  Select Yes for that, or No to just include the %u palette%s you changed in this current session."), m_vDirtyPaletteList.size(), (m_vDirtyPaletteList.size() > 1) ? _T("s") : _T(""));
-    
-    const bool fUserWantsAllChanges = (MessageBox(g_appHWnd, strOptions, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON2) == IDYES);
+
+    return (MessageBox(g_appHWnd, strOptions, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON2) == IDYES);
+}
+
+UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
+{
+    const bool fUserWantsAllChanges = UserWantsAllPalettesInPatch();
 
     UINT32 nTotalPalettesSaved = 0;
     LPCSTR szIPSOpener = "PATCH";

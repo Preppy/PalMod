@@ -637,7 +637,7 @@ void CPalModDlg::OnBnBlink()
     Blink();
 }
 
-bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
+bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName, bool fReadUpsideDown)
 {
     bool fSuccess = false;
     CFile ActFile;
@@ -708,7 +708,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName)
             }
         }
 
-        if ((nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentColors))
+        if (!fReadUpsideDown && (nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentColors))
         {
             iACTIndex = 0;
 
@@ -964,7 +964,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
     return fSuccess;
 }
 
-bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
+bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName, bool fReadUpsideDown)
 {
     bool fSuccess = false;
     bool fFoundPaletteData = false;
@@ -1090,7 +1090,7 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName)
                         }
                     }
 
-                    if ((nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentPaletteColors))
+                    if (!fReadUpsideDown && (nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentPaletteColors))
                     {
                         iPNGIndex = 0;
 
@@ -1253,6 +1253,8 @@ void CPalModDlg::OnImportPalette()
                                           L"ACT Palette|*.act|"
                                           L"Indexed PNG|*.png|"
                                           L"Microsoft PAL|*.pal|"
+                                          L"Upside-down ACT Palette|*.act|"
+                                          L"Upside-down Indexed PNG|*.png|"
                                           L"|" };
 
         CFileDialog PaletteLoad(TRUE, NULL, NULL, NULL, *szOpenFilter);
@@ -1267,7 +1269,7 @@ void CPalModDlg::OnImportPalette()
 
             if (_tcsicmp(szExtension, L".png") == 0)
             {
-                LoadPaletteFromPNG(strFileName);
+                LoadPaletteFromPNG(strFileName, (PaletteLoad.GetOFN().nFilterIndex > 3));
             }
             else if (_tcsicmp(szExtension, L".pal") == 0)
             {
@@ -1275,7 +1277,7 @@ void CPalModDlg::OnImportPalette()
             }
             else
             {
-                LoadPaletteFromACT(strFileName);
+                LoadPaletteFromACT(strFileName, (PaletteLoad.GetOFN().nFilterIndex > 3));
             }
         }
     }

@@ -26,4 +26,6 @@ public:
 
     BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override;
     BOOL SaveFile(CFile* SaveFile, UINT16 nSaveUnit) override;
+
+    UINT32 SaveMultiplePatchFiles(CString strTargetDirectory) override;
 };

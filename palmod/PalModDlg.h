@@ -131,9 +131,9 @@ public:
     void SaveSettings();
     void UpdateSettingsMenuItems();
 
-    bool LoadPaletteFromACT(LPCTSTR pszFileName);
+    bool LoadPaletteFromACT(LPCTSTR pszFileName, bool fReadUpsideDown = false);
     bool LoadPaletteFromPAL(LPCTSTR pszFileName);
-    bool LoadPaletteFromPNG(LPCTSTR pszFileName);
+    bool LoadPaletteFromPNG(LPCTSTR pszFileName, bool fReadUpsideDown = false);
     // if you add a new palette type here, please update the CPalDropTarget support
 
     bool SavePaletteToACT(LPCTSTR pszFileName);

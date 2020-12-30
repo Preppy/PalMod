@@ -21,6 +21,9 @@ private:
     static SFIII3_SupportedROMRevision m_currentSFIII3ROMRevision;
     SFIII3_SupportedROMRevision GetSFIII3ROMVersion(CFile* LoadedFile);
 
+    // The user can supply either EN or JPN files - track that here.
+    bool m_fUseJPNFileNames = false;
+
 public:
     CGame_SFIII3_A_DIR(UINT32 nConfirmedROMSize = -1, int nSF3ModeToLoad = 51);
     ~CGame_SFIII3_A_DIR(void);
