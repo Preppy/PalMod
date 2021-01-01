@@ -1175,31 +1175,6 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
                     SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 1, 1);
                 }
-                else if (_tcscmp(charUnit->szDesc, k_sf3NameKey_Urien) == 0)
-                {
-                    // Note that we deliberately use a different image for the paired palette than we do
-                    // when displaying that palette normally.
-                    fShouldUseAlternateLoadLogic = true;
-
-                    LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId);
-
-                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSize, NodeGet->uUnitId, NodeGet->uPalId);
-                    BasePalGroup.AddSep(0, _T("Morph"), 0, 64);
-
-                    LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId + 1);
-
-                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId + 1), m_nCurrentPaletteSize, NodeGet->uUnitId, NodeGet->uPalId + 1);
-                    BasePalGroup.AddSep(1, _T("Suit"), 0, 64);
-
-                    ClearSetImgTicket(
-                        CreateImgTicket(index3S_CPS3_Urien, 2,
-                            CreateImgTicket(index3S_CPS3_Urien, 3, NULL, 0, 0)
-                        )
-                    );
-
-                    SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
-                    SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 1, 1);
-                }
                 else if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {
                     const UINT16 nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);

@@ -234,7 +234,7 @@ public:
 
     void Revert(int nPalId);
 
-    BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz);
+    BOOL CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz);
 
     static void AllowTransparency(BOOL fAllow) { m_fAllowTransparency = fAllow; };
     static BOOL AllowTransparency() { return m_fAllowTransparency; };
@@ -247,6 +247,7 @@ public:
     virtual void CheckForErrorsInTables() {};
     virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId);
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
+
     virtual UINT32 SavePatchFile(CFile* PatchFile, UINT16 nUnitId);
     virtual UINT32 SaveMultiplePatchFiles(CString strTargetDirectory) { return 0; };
     bool UserWantsAllPalettesInPatch();

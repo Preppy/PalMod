@@ -459,7 +459,7 @@ UINT32 CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
         }
     }
 
-    strInfo.Format(_T("\CGame_JOJOS_A_DIR::SaveMultiplePatchFiles: complete for 0x%x palettes\n"), nPaletteSaveCount);
+    strInfo.Format(_T("\tCGame_JOJOS_A_DIR::SaveMultiplePatchFiles: complete for 0x%x palettes\n"), nPaletteSaveCount);
     OutputDebugString(strInfo);
 
     LPCSTR szIPSCloser = "EOF";

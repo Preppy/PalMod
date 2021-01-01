@@ -829,11 +829,11 @@ const sGame_PaletteDataset SFIII3_A_URIEN_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_URIEN_EXTRA_PALETTES[] =
 {
-    { L"P1 Intro", 0x706600, 0x706680, index3S_CPS3_Urien, 0x00, &pairHandledInCode },
-    { L"P1 Suit", 0x706680, 0x706700, index3S_CPS3_Urien, 0x03 }, // Note that for pairing we use an alt image.
+    { L"P1 Intro", 0x706600, 0x706680, index3S_CPS3_Urien, 0x02, &pairNext },
+    { L"P1 Suit", 0x706680, 0x706700, index3S_CPS3_Urien, 0x03 },
     { L"P1 SA3 / Fire", 0x706700, 0x706780, index3S_CPS3_Urien, 0x05 },
 
-    { L"P2 Intro", 0x706880, 0x706900, index3S_CPS3_Urien, 0x00, &pairHandledInCode },
+    { L"P2 Intro", 0x706880, 0x706900, index3S_CPS3_Urien, 0x02, &pairNext },
     { L"P2 Suit", 0x706900, 0x706980, index3S_CPS3_Urien, 0x03 },
     { L"P2 SA3 / Fire", 0x706980, 0x706A00, index3S_CPS3_Urien, 0x05 },
 
