@@ -390,6 +390,7 @@ BEGIN
             MENUITEM "BGR555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
             MENUITEM "RGB666 (NEO*GEO)",            ID_COLORFORMAT_RGB666
+            MENUITEM "RGB888 (Arc Sys)",            ID_COLORFORMAT_ARGB7888
             MENUITEM SEPARATOR
             MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
             MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED

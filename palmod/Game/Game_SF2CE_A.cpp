@@ -930,7 +930,7 @@ void CGame_SF2CE_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
 
-        m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
 
         // Adjust for ROM-specific variant locations
@@ -962,7 +962,7 @@ void CGame_SF2CE_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }

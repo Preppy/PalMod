@@ -176,6 +176,7 @@ void CPalModDlg::OnEditCopy()
         CJunk* CurrPal = m_PalHost.GetNotifyPal();
         int nWorkingAmt = CurrPal->GetWorkingAmt();
         UINT8* pSelIndex = CurrPal->GetSelIndex();
+        UINT8 cbColor = 2;
 
         UINT16 nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset;
         UINT8 uCopyFlag1;
@@ -195,7 +196,6 @@ void CPalModDlg::OnEditCopy()
         CStringA CopyText;
         CStringA FormatTxt;
 
-        UINT16 uCurrData = 0;
         BOOL bCopyAll = !CurrPal->GetSelAmt();
 
         // You want to update this table so that older or newer versions of PalMod know the bpp of the 
@@ -228,14 +228,18 @@ void CPalModDlg::OnEditCopy()
             // RGB666
             uCopyFlag1 = NEOGEO_A + k_nASCIICharacterOffset;
             break;
-        default:
-        {
-            CString strMsg;
-            strMsg.Format(_T("Warning: The current color mode needs to have copy support added."));
-            MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
-            uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
+        case ColMode::COLMODE_ARGB7888:
+            cbColor = 4;
+            uCopyFlag1 = DUMMY_ARGB7888 + k_nASCIICharacterOffset;
             break;
-        }
+        default:
+            {
+                CString strMsg;
+                strMsg.Format(_T("Warning: The current color mode needs to have copy support added."));
+                MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+                uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
+                break;
+            }
         }
 
         CopyText.Format("(%c%c", uCopyFlag1, uCopyFlag2);
@@ -253,12 +257,27 @@ void CPalModDlg::OnEditCopy()
                     nInitialOffsetDelta = i;
                 }
 
-                uCurrData = CurrGame->ConvCol(CurrPal->GetBasePal()[i]);
+                switch (cbColor)
+                {
+                default:
+                case 2:
+                {
+                    UINT16 uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[i]);
 
-                FormatTxt.Format("%04X", uCurrData);
+                    FormatTxt.Format("%04X", uCurrData);
 
-                //Only changed:
-                //FormatTxt.Format("%04X", (UINT16)((uCurrData << 8) | (uCurrData >> 8) & (UINT16)0xFF0F));
+                    //Only changed:
+                    //FormatTxt.Format("%04X", (UINT16)((uCurrData << 8) | (uCurrData >> 8) & (UINT16)0xFF0F));
+                    break;
+                }
+                case 4:
+                {
+                    UINT32 uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[i]);
+
+                    FormatTxt.Format("%08X", uCurrData);
+                    break;
+                }
+                }
 
                 CopyText.Append(FormatTxt);
             }
@@ -294,7 +313,7 @@ void CPalModDlg::OnEditCopy()
 
             if (nInitialOffsetDelta != 0)
             {
-                strFormatU.Format(L"The current selection begins at ROM location:\r\n\t0x%x\r\n", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * 2));
+                strFormatU.Format(L"The current selection begins at ROM location:\r\n\t0x%x\r\n", CurrGame->GetCurrentPaletteLocation() + (nInitialOffsetDelta * cbColor));
                 strUnicodeData.Append(strFormatU);
             }
 
@@ -304,10 +323,28 @@ void CPalModDlg::OnEditCopy()
             {
                 if (pSelIndex[i] || bCopyAll)
                 {
-                    uCurrData = CurrGame->ConvCol(CurrPal->GetBasePal()[i]);
-                    uCurrData = _byteswap_ushort(uCurrData);
+                    switch (cbColor)
+                    {
+                    default:
+                    case 2:
+                    {
+                        UINT16 uCurrData = CurrGame->ConvCol16(CurrPal->GetBasePal()[i]);
+                        uCurrData = _byteswap_ushort(uCurrData);
 
-                    strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
+                        strFormatU.Format(L"%02X %02X ", (uCurrData & 0xFF00) >> 8, uCurrData & 0x00FF);
+                        break;
+                    }
+                    case 4:
+                    {
+                        UINT32 uCurrData = CurrGame->ConvCol32(CurrPal->GetBasePal()[i]);
+                        uCurrData = _byteswap_ulong(uCurrData);
+
+                        strFormatU.Format(L"%02X %02X %02X %02X ", (uCurrData & 0xFF000000) >> 24, (uCurrData & 0xFF0000) >> 16,
+                                                                   (uCurrData & 0xFF00) >> 8, uCurrData & 0xFF);
+                        break;
+                    }
+                    }
+
                     strUnicodeData.Append(strFormatU);
                 }
             }
@@ -355,15 +392,16 @@ BOOL IsPasteFromPalMod()
         if ((szTempStr[1] - k_nASCIICharacterOffset) < NUM_GAMES) //Gameflag
         {
             UINT16 nPaletteCount = (0xFF & szTempStr[2]) - k_nASCIICharacterOffset;
+            UINT8 cbColorSize = GetCbForColorForGameFlag(szTempStr[1] - k_nASCIICharacterOffset);
 
             if (nPaletteCount == 0)
             {
-                nPaletteCount = (UINT16)((strlen(szTempStr) - 3) / 4);
+                nPaletteCount = (UINT16)((strlen(szTempStr) - 3) / (cbColorSize * 2));
             }
 
             if (nPaletteCount <= CRegProc::GetMaxPalettePageSize())
             {
-                if (szTempStr[(nPaletteCount * 4) + 3] == ')')
+                if (szTempStr[(nPaletteCount * (cbColorSize * 2)) + 3] == ')')
                 {
                     bCanPaste = TRUE;
                 }
@@ -422,12 +460,11 @@ void CPalModDlg::OnEditPaste()
         char* szPasteBuff = szPasteStr.GetBuffer();
 
         // Do something with the data in 'buffer'
-
-        char szFormatStr[] = "0x0000";
-
         UINT8 uPasteGFlag = szPasteBuff[1] - k_nASCIICharacterOffset;
+        UINT8 cbColor = GetCbForColorForGameFlag(uPasteGFlag);
+
         // We want the number of colors per paste minus the () and game flag
-        UINT16 uPasteAmt = (UINT16)((strlen(szPasteBuff) - 3) / 4);
+        UINT16 uPasteAmt = (UINT16)((strlen(szPasteBuff) - 3) / (cbColor * 2));
 
         if (uPasteAmt)
         {
@@ -448,6 +485,11 @@ void CPalModDlg::OnEditPaste()
                 case DUMMY_RGB9:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_9;
+                    break;
+                }
+                case DUMMY_ARGB7888:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_ARGB7888;
                     break;
                 }
                 case COTA_A:
@@ -548,30 +590,65 @@ void CPalModDlg::OnEditPaste()
             //Notify the change data
             ProcChange();
 
-            for (UINT16 i = 0; i < uPasteAmt; i++)
+            switch (cbColor)
             {
-                memcpy(&szFormatStr[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
-
-                rgPasteCol[i] = CurrGame->ConvPal((UINT16)strtol(szFormatStr, NULL, 16));
-
-                if ((nAMul == 0x0) || !CurrGame->AllowTransparency())
-                {
-                    // this game doesn't use/want alpha, but we need alpha to display properly
-                    ((UINT8*)rgPasteCol)[(i * 4) + 3] |= 0xFF;
-                }
-            }
-
-            if (eCurrColMode != eColModeForPastedColor)
+            default:
+            case 2:
             {
-                //Set the color mode back
-                //Round the values with the switched game flag
-                OutputDebugString(_T("Reverting color mode back to this game's desired color mode...\n"));
-                CurrGame->SetColorMode(eCurrColMode);
+                char szFormatStr16[] = "0x0000";
 
                 for (UINT16 i = 0; i < uPasteAmt; i++)
                 {
-                    rgPasteCol[i] = CurrGame->ConvPal(CurrGame->ConvCol(rgPasteCol[i]));
+                    memcpy(&szFormatStr16[2], &szPasteBuff[3 + (4 * i)], sizeof(UINT8) * 4);
+
+                    rgPasteCol[i] = CurrGame->ConvPal16((UINT16)strtoul(szFormatStr16, NULL, 16));
+
+                    if ((nAMul == 0x0) || !CurrGame->AllowTransparency())
+                    {
+                        // this game doesn't use/want alpha, but we need alpha to display properly
+                        ((UINT8*)rgPasteCol)[(i * 4) + 3] |= 0xFF;
+                    }
                 }
+
+                if (eCurrColMode != eColModeForPastedColor)
+                {
+                    //Set the color mode back
+                    //Round the values with the switched game flag
+                    OutputDebugString(_T("Reverting color mode back to this game's desired color mode...\n"));
+                    CurrGame->SetColorMode(eCurrColMode);
+
+                    for (UINT16 i = 0; i < uPasteAmt; i++)
+                    {
+                        rgPasteCol[i] = CurrGame->ConvPal16(CurrGame->ConvCol16(rgPasteCol[i]));
+                    }
+                }
+                break;
+            }
+            case 4:
+            {
+                char szFormatStr32[] = "0x00000000";
+
+                for (UINT16 i = 0; i < uPasteAmt; i++)
+                {
+                    memcpy(&szFormatStr32[2], &szPasteBuff[3 + (8 * i)], sizeof(UINT8) * 8);
+
+                    rgPasteCol[i] = CurrGame->ConvPal32((UINT32)strtoul(szFormatStr32, NULL, 16));
+                }
+
+                if (eCurrColMode != eColModeForPastedColor)
+                {
+                    //Set the color mode back
+                    //Round the values with the switched game flag
+                    OutputDebugString(_T("Reverting color mode back to this game's desired color mode...\n"));
+                    CurrGame->SetColorMode(eCurrColMode);
+
+                    for (UINT16 i = 0; i < uPasteAmt; i++)
+                    {
+                        rgPasteCol[i] = CurrGame->ConvPal32(CurrGame->ConvCol32(rgPasteCol[i]));
+                    }
+                }
+                break;
+            }
             }
 
             if (!CurrPalCtrl->GetSelAmt())
@@ -673,7 +750,14 @@ void CPalModDlg::OnEditPaste()
                       (GetGValue(argbColor) <<  8) +
                       (GetBValue(argbColor));
       
-        colPasteCol = CurrGame->ConvPal(CurrGame->ConvCol(colPasteCol));
+        if (CurrGame->GameIsUsing16BitColor())
+        {
+            colPasteCol = CurrGame->ConvPal16(CurrGame->ConvCol16(colPasteCol));
+        }
+        else
+        {
+            colPasteCol = CurrGame->ConvPal32(CurrGame->ConvCol32(colPasteCol));
+        }
 
         if (!CurrPalCtrl->GetSelAmt())
         {

@@ -118,22 +118,22 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                 OutputDebugString(strInfo);
 #endif
 
-                if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSize) > c_nMVC2SIMMLength)
+                if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSizeInColors) > c_nMVC2SIMMLength)
                 {
                     if (!fShownCrossSIMMErrorOnce)
                     {
                         fShownCrossSIMMErrorOnce = true;
-                        strInfo.Format(_T("Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."), nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSize * 2));
+                        strInfo.Format(_T("Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."), nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * 2));
                         MessageBox(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_ICONERROR);
                     }
 
                     fSuccess = FALSE;
                 }
 
-                m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+                m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
 
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
             }
         }
     }
@@ -215,7 +215,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 #endif
 
                     fileSIMMs[nSIMMSetToUse].Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    fileSIMMs[nSIMMSetToUse].Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                    fileSIMMs[nSIMMSetToUse].Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
                 }
             }
         }

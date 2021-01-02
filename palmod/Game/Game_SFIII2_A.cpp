@@ -578,7 +578,7 @@ void CGame_SFIII2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
 
-        m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
     }
     else // SFIII2_A_EXTRALOC
@@ -587,7 +587,7 @@ void CGame_SFIII2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }
@@ -720,12 +720,12 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                     LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId);
 
-                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSize, NodeGet->uUnitId, NodeGet->uPalId);
+                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId);
                     BasePalGroup.AddSep(0, _T("Morph"), 0, 64);
 
                     LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId + 1);
 
-                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId + 1), m_nCurrentPaletteSize, NodeGet->uUnitId, NodeGet->uPalId + 1);
+                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId + 1), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId + 1);
                     BasePalGroup.AddSep(1, _T("Suit"), 0, 64);
 
                     ClearSetImgTicket(

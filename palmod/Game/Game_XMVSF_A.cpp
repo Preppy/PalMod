@@ -544,7 +544,7 @@ void CGame_XMVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
     }
@@ -554,7 +554,7 @@ void CGame_XMVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForXMVSF(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }
@@ -673,11 +673,11 @@ COLORREF* CGame_XMVSF_A::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     COLORREF* NewPal = NULL;
 
-    NewPal = new COLORREF[m_nCurrentPaletteSize];
+    NewPal = new COLORREF[m_nCurrentPaletteSizeInColors];
 
-    for (UINT16 i = 1; i < m_nCurrentPaletteSize; i++)
+    for (UINT16 i = 1; i < m_nCurrentPaletteSizeInColors; i++)
     {
-        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i - 1]) | 0xFF000000;
+        NewPal[i] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][i - 1]) | 0xFF000000;
     }
 
     NewPal[0] = 0xFF000000;

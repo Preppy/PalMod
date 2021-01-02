@@ -355,25 +355,25 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     m_nCurrentPaletteROMLocation = GetSIMMLocationFromROMLocation(m_nCurrentPaletteROMLocation);
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
-                    if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSize) > c_nSFIII3SIMMLength)
+                    if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSizeInColors) > c_nSFIII3SIMMLength)
                     {
                         if (!fShownCrossSIMMErrorOnce)
                         {
                             fShownCrossSIMMErrorOnce = true;
-                            strInfo.Format(_T("Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM set boundaries.  This is not supported. Please remove that."), nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSize * 2));
+                            strInfo.Format(_T("Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM set boundaries.  This is not supported. Please remove that."), nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * 2));
                             MessageBox(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_ICONERROR);
                         }
 
                         fSuccess = FALSE;
                     }
 
-                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-                    memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(UINT16) * m_nCurrentPaletteSize);
+                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
+                    memset(m_pppDataBuffer[nUnitCtr][nPalCtr], 0, sizeof(UINT16) * m_nCurrentPaletteSizeInColors);
 
                     if (UsePaletteSetForGill())
                     {
                         // this rom is encrypted
-                        UINT32 fourByteBlocks = m_nCurrentPaletteSize >> 1;
+                        UINT32 fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
                         const UINT8 cbStride = 4;
 
                         LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -405,7 +405,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                         FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                         nPaletteLoadCount++;
 
-                        for (UINT16 nWordsRead = 0; nWordsRead < m_nCurrentPaletteSize; nWordsRead++)
+                        for (UINT16 nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
                         {
                             BYTE high, low;
 
@@ -576,7 +576,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
 
                     if (UsePaletteSetForGill())
                     {
-                        UINT32 fourByteBlocks = m_nCurrentPaletteSize >> 1;
+                        UINT32 fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
                         const UINT8 cbStride = 4;
 
                         fileSIMM1.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -614,7 +614,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
                         pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                         nPaletteSaveCount++;
 
-                        UINT16 nCurrentWriteLength = m_nCurrentPaletteSize / 2;
+                        UINT16 nCurrentWriteLength = m_nCurrentPaletteSizeInColors / 2;
 
                         BYTE* pbWrite1 = new BYTE[nCurrentWriteLength];
                         BYTE* pbWrite2 = new BYTE[nCurrentWriteLength];
@@ -838,8 +838,8 @@ UINT32 CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
                     pIPS2->Write(&b3, 1);
 
                     // Size
-                    b1 = ((m_nCurrentPaletteSize) & 0xFF00) >> 8;
-                    b2 = (m_nCurrentPaletteSize) & 0xFF;
+                    b1 = ((m_nCurrentPaletteSizeInColors) & 0xFF00) >> 8;
+                    b2 = (m_nCurrentPaletteSizeInColors) & 0xFF;
                     pIPS1->Write(&b1, 1);
                     pIPS1->Write(&b2, 1);
 
@@ -848,19 +848,19 @@ UINT32 CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
 
                     BYTE* pbWrite1 = nullptr, * pbWrite2 = nullptr;
 
-                    pbWrite1 = new BYTE[m_nCurrentPaletteSize];
-                    pbWrite2 = new BYTE[m_nCurrentPaletteSize];
+                    pbWrite1 = new BYTE[m_nCurrentPaletteSizeInColors];
+                    pbWrite2 = new BYTE[m_nCurrentPaletteSizeInColors];
 
                     if (pbWrite1 && pbWrite2)
                     {
-                        for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
+                        for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSizeInColors; nWordsWritten++)
                         {
                             pbWrite1[nWordsWritten] = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
                             pbWrite2[nWordsWritten] = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
                         }
 
-                        pIPS1->Write(pbWrite1, m_nCurrentPaletteSize);
-                        pIPS2->Write(pbWrite2, m_nCurrentPaletteSize);
+                        pIPS1->Write(pbWrite1, m_nCurrentPaletteSizeInColors);
+                        pIPS2->Write(pbWrite2, m_nCurrentPaletteSizeInColors);
                     }
 
                     safe_delete_array(pbWrite1);

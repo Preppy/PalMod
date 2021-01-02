@@ -813,7 +813,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 
     m_nCurrentPaletteROMLocation = nOffset;
-    m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+    m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
 }
 
 BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)

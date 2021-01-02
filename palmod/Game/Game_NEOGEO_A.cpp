@@ -60,10 +60,10 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
         MessageBox(g_appHWnd, strIntro, GetHost()->GetAppName(), MB_ICONINFORMATION);
     }
 
-    InitDataBuffer();
-
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaAndColorModeInternal(CRegProc::GetColorModeForUnknownGame(), CRegProc::GetAlphaModeForUnknownGame());
+
+    InitDataBuffer();
 
     //Set game information
     nGameFlag = NEOGEO_A;
@@ -152,34 +152,77 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
 
     bool fShouldSetAlpha = CurrentAlphaSetting == AlphaMode::Unknown;
     AlphaMode suggestedAlphaSetting = CurrentAlphaSetting;
+    
+    const UINT8 cbPreviousColorSize = m_nSizeOfColorsInBytes;
+    UINT8 cbRequiredColorSize = 0;
 
     switch (NewMode)
     {
+    case ColMode::COLMODE_9:
+        cbRequiredColorSize = 2;
+        suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
+        BasePalGroup.SetMode(ePalType::PALTYPE_8STEPS);
+        break;
     case ColMode::COLMODE_GBA:
+        cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     case ColMode::COLMODE_12A:
+        cbRequiredColorSize = 2;
         suggestedAlphaSetting= AlphaMode::GameDoesNotUseAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
         break;
     case ColMode::COLMODE_15:
+        cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     case ColMode::COLMODE_15ALT:
+        cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+        break;
+    case ColMode::COLMODE_ARGB7888:
+        cbRequiredColorSize = 4;
+        suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
+        BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
         break;
     default: // Something is wrong: reset
         OutputDebugString(L"warning: unknown color mode was requested. Resetting to default\n");
         __fallthrough;
     case ColMode::COLMODE_NEOGEO:
+        cbRequiredColorSize = 2;
         fShouldSetAlpha = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     };
+
+    if (cbRequiredColorSize != cbPreviousColorSize)
+    {
+        if (!m_fHaveDoneInitialSet)
+        {
+            m_nSizeOfColorsInBytes = cbRequiredColorSize;
+        }
+        else
+        {
+            CString strMsg = L"Configured.  You must now reload this game to use this setting.";
+
+            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
+        }
+    }
+    else
+    {
+        if (m_fHaveDoneInitialSet)
+        {
+            CString strMsg = L"Updated.  The next palette displayed will use this color format.";
+
+            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
+        }
+    }
+
+    m_fHaveDoneInitialSet = true;
 
     if (fShouldSetAlpha)
     {
@@ -191,10 +234,6 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
 
 BOOL CGame_NEOGEO_A::SetColorMode(ColMode NewMode)
 {
-    CString strMsg = L"Updated.  The next palette displayed will use this color format.";
-
-    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
-
     // Reset alpha mode since we're switching color formats...
     CRegProc::SetAlphaModeForUnknownGame(AlphaMode::Unknown);
 
@@ -589,7 +628,7 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
         else
@@ -604,7 +643,7 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForNEOGEO(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }

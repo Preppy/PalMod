@@ -275,7 +275,7 @@ COLORREF* CGame_SFIII3_D::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < nCurrPalSz - 1; i++)
     {
-        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
+        NewPal[i] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][i]);
 
         if (i != 0)
         {

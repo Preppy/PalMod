@@ -55,7 +55,7 @@ int CRegProc::GetUserSavePaletteToMemoryPreference()
     if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_READ, NULL, &hKey, NULL)
         == ERROR_SUCCESS)
     {
-        DWORD dwValue;
+        DWORD dwValue = 0;
         DWORD RegType = REG_DWORD;
         DWORD GetSz = sizeof(DWORD);
 

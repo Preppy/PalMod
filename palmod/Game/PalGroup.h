@@ -46,6 +46,8 @@ enum ePalType
 {
     PALTYPE_32STEPS,
     PALTYPE_16STEPS,
+    PALTYPE_8STEPS,
+    PALTYPE_256STEPS,
 };
 
 class CPalGroup
@@ -71,8 +73,10 @@ public:
     UINT8(*ROUND_G)(UINT8 rVal);
     UINT8(*ROUND_B)(UINT8 rVal);
 
+    static UINT8 ROUND_1(UINT8 rVal) { return rVal; };
     static UINT8 ROUND_8(UINT8 rVal);
     static UINT8 ROUND_17(UINT8 rVal);
+    static UINT8 ROUND_32(UINT8 rVal);
 
     void SortPal(int nIndex, int nStartIndex, int nSortFlag);
     COLORREF* GetUnsortedPal(int nIndex);

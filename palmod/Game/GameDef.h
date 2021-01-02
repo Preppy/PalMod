@@ -77,9 +77,12 @@ enum SupportedGamesList
     FatalFuryS_SNES,
     DUMMY_RGB9,          // ... we need a game ID to use for transmitting colors.
     SFIII3_A_DIR_EX,
+    DUMMY_ARGB7888,
 
     NUM_GAMES // This needs to be last
 };
+
+UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag);
 
 // If you're adding a new game you also must update 
 //    CGameLoad::SetGame            Needed to load the game class
@@ -155,6 +158,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Fatal Fury Special (SNES)",
    L"Fake game ID for RGB9",
    L"SFIII:3S EX",
+   L"Fake game for ARGB7888",
 };
 
 enum class GamePlatform

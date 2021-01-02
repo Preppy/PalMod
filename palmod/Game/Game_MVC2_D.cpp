@@ -581,7 +581,7 @@ COLORREF* CGame_MVC2_D::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < MVC2_D_PALSZ; i++)
     {
-        NewPal[i] = ConvPal(ppDataBuffer[nUnitId][(nPalId * 16) + i]);
+        NewPal[i] = ConvPal16(ppDataBuffer[nUnitId][(nPalId * 16) + i]);
     }
 
     return NewPal;
@@ -637,12 +637,12 @@ void CGame_MVC2_D::UpdatePalData()
             {
                 if (m_fAllowTransparency)
                 {
-                    ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ConvCol(crSrc[nPICtr]);
+                    ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ConvCol16(crSrc[nPICtr]);
                 }
                 else
                 {
                     // Force opaque
-                    ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ((ConvCol(crSrc[nPICtr]) & 0x0FFF) | 0xF000);
+                    ppDataBuffer[srcDef->uUnitId][(srcDef->uPalId * 16) + nPICtr] = ((ConvCol16(crSrc[nPICtr]) & 0x0FFF) | 0xF000);
                 }
             }
 

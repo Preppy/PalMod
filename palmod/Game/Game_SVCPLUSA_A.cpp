@@ -904,7 +904,7 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
 
             // shift for different roms as needed
@@ -922,7 +922,7 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForSVCPLUSA(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }
@@ -1029,8 +1029,8 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
                         {
                             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-                            memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], m_nCurrentPaletteSize * 2);
+                            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
+                            memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], m_nCurrentPaletteSizeInColors * 2);
                         }
                     }
                 }
@@ -1100,8 +1100,8 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
                     {
                         LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                        m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-                        memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], m_nCurrentPaletteSize * 2);
+                        m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
+                        memcpy(m_pppDataBuffer[nUnitCtr][nPalCtr], &decryptedROM[m_nCurrentPaletteROMLocation], m_nCurrentPaletteSizeInColors * 2);
                     }
                 }
             }
@@ -1135,10 +1135,10 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
                 {
                     LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
 
                     LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                    LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
                 }
             }
         }

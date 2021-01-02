@@ -114,6 +114,7 @@ public:
     void SetColorFormatTo15ALT() { SetColorFormatTo(ColMode::COLMODE_15ALT); };
     void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_GBA); };
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_NEOGEO); };
+    void SetColorFormatToARGB7888() { SetColorFormatTo(ColMode::COLMODE_ARGB7888); };
 
     void SetAlphaModeTo(AlphaMode newAlphaMode);
     void SetAlphaModeToFixed() { SetAlphaModeTo(AlphaMode::GameUsesFixedAlpha); };

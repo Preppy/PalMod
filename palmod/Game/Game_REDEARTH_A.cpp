@@ -499,7 +499,7 @@ void CGame_REDEARTH_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
 
-        m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
     }
     else // REDEARTH_A_EXTRALOC
@@ -508,7 +508,7 @@ void CGame_REDEARTH_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetRedEarthExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }

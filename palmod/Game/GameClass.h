@@ -35,6 +35,7 @@ enum class ColMode
     COLMODE_15ALT,     // RGB555 big endian 
     COLMODE_NEOGEO,    // RGB666
     COLMODE_9,         // RGB333 for Sega Genesis/MegaDrive
+    COLMODE_ARGB7888,  // 32bit color for guilty gear
 };
 
 enum class ColFlag
@@ -55,17 +56,21 @@ protected:
     UINT16 m_nTotalInternalUnits = INVALID_UNIT_VALUE;
     UINT32 m_nCurrentPaletteROMLocation = 0;
     UINT32 m_nLowestKnownPaletteRomLocation = k_nBogusHighValue;
-    UINT16 m_nCurrentPaletteSize = 0;
+    UINT16 m_nCurrentPaletteSizeInColors = 0;
     LPCTSTR m_pszCurrentPaletteName = nullptr;
     UINT32 m_nConfirmedCRCValue = 0;
 
     const int k_nRGBPlaneAmtForRGB333 = 7;
     const int k_nRGBPlaneAmtForRGB444 = 15;
     const int k_nRGBPlaneAmtForRGB555 = 31;
+    const int k_nRGBPlaneAmtForRGB777 = 127;
+    const int k_nRGBPlaneAmtForRGB888 = 255;
 
     const double k_nRGBPlaneMulForRGB333 = 36.428;
     const double k_nRGBPlaneMulForRGB444 = 17.0;
     const double k_nRGBPlaneMulForRGB555 = 8.225;
+    const double k_nRGBPlaneMulForRGB777 = 2;
+    const double k_nRGBPlaneMulForRGB888 = 1;
 
     BOOL bIsDir = FALSE;
 
@@ -114,6 +119,8 @@ protected:
     static UINT32 CONV_15ALT_32(UINT16 inCol);
     static UINT16 CONV_32_NEOGEO(UINT32 inCol);
     static UINT32 CONV_NEOGEO_32(UINT16 inCol);
+    static UINT32 CONV_32_ARGB7888(UINT32 inCol);
+    static UINT32 CONV_ARGB7888_32(UINT32 inCol);
     static UINT16 SWAP_16(UINT16 palv);
 
     enum PALOptionValues
@@ -155,7 +162,10 @@ protected:
 
     void ClearDirtyPaletteTracker() { m_vDirtyPaletteList.clear(); };
     std::vector<sPaletteIdentifier> m_vDirtyPaletteList;
+    
+    UINT8 m_nSizeOfColorsInBytes = 2;
     UINT16*** m_pppDataBuffer = nullptr;
+    UINT32*** m_pppDataBuffer32 = nullptr;
 
     struct sCRC32ValueSet
     {
@@ -181,13 +191,18 @@ public:
     //Used for image selection
     int nTargetImgId = 0;
 
+    // Currently only used by MVC2
     UINT16*** GetDataBuffer() { return m_pppDataBuffer; };
     // This is called as part of Edit's debug information.  It wants the true ROM location, so correct for the nStartingPosition offset
     UINT32 GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation - (createPalOptions.nStartingPosition * sizeof(UINT16)); };
     UINT32 GetLowestExpectedPaletteLocation();
 
-    UINT16(*ConvCol)(UINT32 inCol);
-    UINT32(*ConvPal)(UINT16 inCol);
+    inline bool GameIsUsing16BitColor() { return m_nSizeOfColorsInBytes == 2; };
+
+    UINT16(*ConvCol16)(UINT32 inCol);
+    UINT32(*ConvCol32)(UINT32 inCol);
+    UINT32(*ConvPal16)(UINT16 inCol);
+    UINT32(*ConvPal32)(UINT32 inCol);
 
     LPCTSTR GetROMFileName();
     LPCTSTR GetLoadDir() { return szDir; };

@@ -369,7 +369,7 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
             if ( !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)))
             {
                 bool fIsDupe = false;
-                const UINT32 nCurrentEndOfPaletteRegion = (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSize * 2));
+                const UINT32 nCurrentEndOfPaletteRegion = (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * 2));
                 if ((nStartingOffsetToCheck >= m_nCurrentPaletteROMLocation) &&
                     (nStartingOffsetToCheck < nCurrentEndOfPaletteRegion))
                 {
@@ -445,7 +445,7 @@ int CGameWithExtrasFile::GetDupeCountInDataset()
 
             m_nLowestRomLocationThisPass = min(m_nLowestRomLocationThisPass, m_nCurrentPaletteROMLocation);
 
-            if (m_nCurrentPaletteSize == 0)
+            if (m_nCurrentPaletteSizeInColors == 0)
             {
                 CString strText;
                 strText.Format(L"WARNING: Bogus zero-length palette found: unit 0x%02x id 0x%02x '%s'.  Please fix this.\n", nUnitCtr, nPalCtr, m_pszCurrentPaletteName);
@@ -489,7 +489,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
         nTotalPalettesChecked++;
 
         UINT32 nCurrentROMOffset = m_nCurrentPaletteROMLocation;
-        UINT32 nEndOfROMOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSize * 2);
+        UINT32 nEndOfROMOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * 2);
         LPCTSTR pszExtraPaletteBeingChecked = m_pszCurrentPaletteName;
         m_nLowestRomExtrasLocationThisPass = min(m_nLowestRomExtrasLocationThisPass, m_nCurrentPaletteROMLocation);
 

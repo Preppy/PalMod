@@ -868,7 +868,7 @@ void CGame_SFIII3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
 
-        m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
     }
     else // SFIII3_A_EXTRALOC
@@ -877,7 +877,7 @@ void CGame_SFIII3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }
@@ -929,11 +929,11 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
 
             if (UsePaletteSetForGill())
             {
-                UINT32 fourByteBlocks = m_nCurrentPaletteSize >> 1;
+                UINT32 fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
                 const UINT8 cbStride = 4;
 
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -960,7 +960,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
             else
             {
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
             }
         }
     }
@@ -997,7 +997,7 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 
                 if (UsePaletteSetForGill())
                 {
-                    UINT32 fourByteBlocks = m_nCurrentPaletteSize >> 1;
+                    UINT32 fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
                     const UINT8 cbStride = 4;
 
                     SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
@@ -1017,7 +1017,7 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                 else
                 {
                     SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                    SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                    SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
                 }
                 nTotalPalettesSaved++;
             }
@@ -1154,7 +1154,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                     LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId);
 
-                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSize, NodeGet->uUnitId, NodeGet->uPalId);
+                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId);
 
                     BasePalGroup.AddSep(0, _T("Concrete"), 0, 16);
                     BasePalGroup.AddSep(0, _T("Dinosaur / Stone"), 32, 16);
@@ -1162,7 +1162,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                     LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId + 1);
 
-                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId + 1), m_nCurrentPaletteSize, NodeGet->uUnitId, NodeGet->uPalId + 1);
+                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId + 1), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId + 1);
 
                     BasePalGroup.AddSep(1, _T("Brick"), 0, 16);
 

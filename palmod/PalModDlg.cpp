@@ -147,6 +147,8 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_COLORFORMAT_RGB555_ALT, &CPalModDlg::SetColorFormatTo15ALT)
     ON_COMMAND(ID_COLORFORMAT_RGB555_GBA, &CPalModDlg::SetColorFormatToGBA)
     ON_COMMAND(ID_COLORFORMAT_RGB666, &CPalModDlg::SetColorFormatToNEOGEO)
+    ON_COMMAND(ID_COLORFORMAT_ARGB7888, &CPalModDlg::SetColorFormatToARGB7888)
+    
     ON_COMMAND(ID_ALPHASETTING_FIXED, &CPalModDlg::SetAlphaModeToFixed)
     ON_COMMAND(ID_ALPHASETTING_VARIABLE, &CPalModDlg::SetAlphaModeToVariable)
     ON_COMMAND(ID_ALPHASETTING_UNUSED, &CPalModDlg::SetAlphaModeToUnused)
@@ -377,8 +379,8 @@ BOOL CPalModDlg::SetLoadDir(CString* szOut)
 
     if (::SHGetMalloc(&pMalloc) == NOERROR)
     {
-        BROWSEINFO      bi;
-        TCHAR           pszBuffer[MAX_PATH];
+        BROWSEINFO      bi = {};
+        TCHAR           pszBuffer[MAX_PATH] = {};
         LPITEMIDLIST    pidl;
 
         bi.hwndOwner = GetSafeHwnd();
