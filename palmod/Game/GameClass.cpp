@@ -5,6 +5,7 @@
 
 BOOL CGameClass::bPostSetPalProc = TRUE;
 BOOL CGameClass::m_fAllowTransparency = FALSE;
+UINT8 CGameClass::m_nSizeOfColorsInBytes = 2;
 AlphaMode CGameClass::CurrAlphaMode = AlphaMode::Unknown;
 
 #define GAMECLASS_DBG 0
@@ -218,30 +219,37 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
     switch (NewMode)
     {
     case ColMode::COLMODE_9:
+        m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_9_32;
         ConvCol16 = &CGameClass::CONV_32_9;
         return TRUE;
     case ColMode::COLMODE_GBA:
+        m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_GBA_32;
         ConvCol16 = &CGameClass::CONV_32_GBA;
         return TRUE;
     case ColMode::COLMODE_12A:
+        m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_12A_32;
         ConvCol16 = &CGameClass::CONV_32_12A;
         return TRUE;
     case ColMode::COLMODE_15:
+        m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_15_32;
         ConvCol16 = &CGameClass::CONV_32_15;
         return TRUE;
     case ColMode::COLMODE_15ALT:
+        m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_15ALT_32;
         ConvCol16 = &CGameClass::CONV_32_15ALT;
         return TRUE;
     case ColMode::COLMODE_NEOGEO:
+        m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_NEOGEO_32;
         ConvCol16 = &CGameClass::CONV_32_NEOGEO;
         return TRUE;
     case ColMode::COLMODE_ARGB7888:
+        m_nSizeOfColorsInBytes = 4;
         ConvPal32 = &CGameClass::CONV_ARGB7888_32;
         ConvCol32 = &CGameClass::CONV_32_ARGB7888;
         return TRUE;
@@ -1120,7 +1128,7 @@ bool CGameClass::IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
 
 BOOL CGameClass::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 {
-    if (GameIsUsing16BitColor())
+    if (GameIsUsing16BitColor() && m_pppDataBuffer)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
@@ -1142,7 +1150,7 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
             }
         }
     }
-    else
+    else if (!GameIsUsing16BitColor() && m_pppDataBuffer32)
     {
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
@@ -1163,7 +1171,11 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
                 LoadedFile->Read(m_pppDataBuffer32[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
             }
         }
-
+    }
+    else
+    {
+        MessageBox(g_appHWnd, L"Error: this game is using the wrong color size.  This needs to be fixed for the game to work.", GetHost()->GetAppName(), MB_ICONERROR);
+        return FALSE;
     }
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 

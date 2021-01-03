@@ -33,6 +33,13 @@ void CGame_SFIII1_A::InitializeStatics()
 
 CGame_SFIII1_A::CGame_SFIII1_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
 {
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
+    SetColorMode(ColMode::COLMODE_15);
+
+    //Set palette conversion mode=
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -57,13 +64,6 @@ CGame_SFIII1_A::CGame_SFIII1_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     OutputDebugString(strInfo);
 
     InitDataBuffer();
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-    SetColorMode(ColMode::COLMODE_15);
-
-    //Set palette conversion mode=
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = SFIII1_A;
@@ -578,7 +578,7 @@ void CGame_SFIII1_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
 
-        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
     }
     else // SFIII1_A_EXTRALOC
@@ -587,7 +587,7 @@ void CGame_SFIII1_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }

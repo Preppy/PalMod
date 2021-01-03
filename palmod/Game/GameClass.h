@@ -163,7 +163,7 @@ protected:
     void ClearDirtyPaletteTracker() { m_vDirtyPaletteList.clear(); };
     std::vector<sPaletteIdentifier> m_vDirtyPaletteList;
     
-    UINT8 m_nSizeOfColorsInBytes = 2;
+    static UINT8 m_nSizeOfColorsInBytes;
     UINT16*** m_pppDataBuffer = nullptr;
     UINT32*** m_pppDataBuffer32 = nullptr;
 

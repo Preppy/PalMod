@@ -33,6 +33,13 @@ CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
     strMessage.Format(_T("CGame_BREAKERS_A::CGame_BREAKERS_A: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_NEOGEO);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -50,13 +57,6 @@ CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_NEOGEO);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = BREAKERS_A;
@@ -670,7 +670,7 @@ void CGame_BREAKERS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
         else
@@ -685,7 +685,7 @@ void CGame_BREAKERS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForBreakers(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }

@@ -13,7 +13,7 @@ using namespace std;
 
 UINT32 CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 
-void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart, UINT32 nGameROMSize)
+void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize /* = 2 */)
 {
     ifstream extraFile;
     TCHAR szTargetFile[MAX_PATH];
@@ -143,13 +143,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                         break;
                         case 1:
                         {
-                            nCurrStart = strtol(aszFinalLine, nullptr, 16);
-
-                            if (nCurrStart < 0)
-                            {
-                                // Make sure it's not negative: the terminal write check will check start vs rom size
-                                nCurrStart = 0;
-                            }
+                            nCurrStart = strtoul(aszFinalLine, nullptr, 16);
 
                             if (nCurrStart == 0)
                             {
@@ -167,7 +161,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                         {
                             int nPos = 0;
 
-                            nCurrEnd = strtol(aszFinalLine, nullptr, 16);
+                            nCurrEnd = strtoul(aszFinalLine, nullptr, 16);
 
                             if (nCurrEnd <= nCurrStart)
                             {
@@ -175,7 +169,7 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                                 strError.Format(L"In file \"%s\", Extra \"%S\" is broken: trying to display from starting offset 0x%06x to ending offset 0x%06x: that ending offset actually starts before the starting offset!\n\nPlease fix: this isn't going to work right.\n", pszExtraFileName, aszCurrDesc, nCurrStart, nCurrEnd);
                                 MessageBox(g_appHWnd, strError, L"PalMod", MB_ICONERROR);
 
-                                nCurrEnd = nCurrStart + (16 * 2);
+                                nCurrEnd = nCurrStart + (16 * cbColorSize);
                             }
 
                             // Validate that they're not trying to read off the end of the ROM...
@@ -191,11 +185,11 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                                 }
 
                                 strcpy(aszCurrDesc, "Broken: Truncated");
-                                nCurrStart = min(nCurrStart, (int)(nGameROMSize - (16 * 2)));
+                                nCurrStart = min(nCurrStart, (int)(nGameROMSize - (16 * cbColorSize)));
                                 nCurrEnd = min(nCurrEnd, (int)nGameROMSize);
                             }
 
-                            UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / 2; // 2 bytes per color.
+                            UINT32 nColorsUsed = (nCurrEnd - nCurrStart) / cbColorSize; // usually 2 bytes per color.
 
                             static bool s_fShownOnce = false;
                             if (nCurrStart > nCurrEnd) // This file is broken: just make the best of it.
@@ -270,15 +264,15 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
                                     if (nTotalPagesNeeded > 1)
                                     {
                                         //pCurrDef->isInvisible = (nCurrentPage == 1);
-                                        _sntprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), L"%S (%u/%u) 0x%x", aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * 2 * nPos));
+                                        _sntprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), L"%S (%u/%u) 0x%x", aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * cbColorSize * nPos));
                                     }
                                     else
                                     {
                                         _sntprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), L"%S", aszCurrDesc);
                                         //pCurrDef->isInvisible = false;
                                     }
-                                    pCurrDef->uOffset = nCurrStart + (k_colorsPerPage * 2 * nPos);
-                                    pCurrDef->cbPaletteSize = nCurrentPaletteEntries * 2;
+                                    pCurrDef->uOffset = nCurrStart + (k_colorsPerPage * cbColorSize * nPos);
+                                    pCurrDef->cbPaletteSize = nCurrentPaletteEntries * cbColorSize;
                                     pCurrDef->isInvisible = false;
                                 }
 
@@ -369,7 +363,7 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
             if ( !((nUnitId == nUnitCtr) && (nPalId == nPalCtr)))
             {
                 bool fIsDupe = false;
-                const UINT32 nCurrentEndOfPaletteRegion = (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * 2));
+                const UINT32 nCurrentEndOfPaletteRegion = (m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes));
                 if ((nStartingOffsetToCheck >= m_nCurrentPaletteROMLocation) &&
                     (nStartingOffsetToCheck < nCurrentEndOfPaletteRegion))
                 {
@@ -489,7 +483,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
         nTotalPalettesChecked++;
 
         UINT32 nCurrentROMOffset = m_nCurrentPaletteROMLocation;
-        UINT32 nEndOfROMOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * 2);
+        UINT32 nEndOfROMOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
         LPCTSTR pszExtraPaletteBeingChecked = m_pszCurrentPaletteName;
         m_nLowestRomExtrasLocationThisPass = min(m_nLowestRomExtrasLocationThisPass, m_nCurrentPaletteROMLocation);
 

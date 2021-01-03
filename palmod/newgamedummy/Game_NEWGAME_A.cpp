@@ -33,6 +33,17 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
     strMessage.Format(L"CGame_NEWGAME_A::CGame_NEWGAME_A: Loading ROM...\n";
     OutputDebugString(strMessage);
 
+    // Set alpha mode: this determines whether or not we set alpha values for the data we write back to the game ROM.
+    // For color mode 12A you usually want it not set, for NEOGEO you cannot use it (there's no bit(s) for it), and for 15/15ALT you probably want it on.
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    // Set color mode: see the definitions in GameClass.h
+    // We need to set color mode before calling InitializeStatics as color mode affects color size (2 bytes vs 4 bytes)
+    // which in turn affects all our calculations involving colors
+    SetColMode(ColMode::COLMODE_12A);
+
+    //Set palette conversion mode: 12A uses a step of PALTYPE_16STEPS, everything else uses PALTYPE_32STEPS at this point
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+
     // We need this set before we initialize so that we can truncate bad Extras correctly.
     // Otherwise the new user could inadvertently corrupt their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -60,15 +71,6 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
                        };
 
     InitDataBuffer();
-
-    // Set alpha mode: this determines whether or not we set alpha values for the data we write back to the game ROM.
-    // For color mode 12A you usually want it not set, for NEOGEO you cannot use it (there's no bit(s) for it), and for 15/15ALT you probably want it on.
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    //Set color mode: see the definitions in GameClass.h
-    SetColMode(ColMode::COLMODE_12A);
-
-    //Set palette conversion mode: 12A uses a step of PALTYPE_16STEPS, everything else uses PALTYPE_32STEPS at this point
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = NEWGAME_A; // This value is defined in gamedef.h.  See usage of other values defined there
@@ -244,7 +246,7 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
 #if NEWGAME_A_DEBUG
                     strMsg.Format(L";\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / m_nSizeOfColorsInBytes);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
@@ -511,7 +513,7 @@ void CGame_NEWGAME_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
         else
@@ -526,7 +528,7 @@ void CGame_NEWGAME_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForNEWGAME(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }

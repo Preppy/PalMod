@@ -33,6 +33,13 @@ CGame_FatalFuryS_SNES::CGame_FatalFuryS_SNES(UINT32 nConfirmedROMSize)
     strMessage.Format(_T("CGame_FatalFuryS_SNES::CGame_FatalFuryS_SNES: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
+    //Set color mode: see the definitions in GameClass.h
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_GBA);
+
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+
     // We need this set before we initialize so that we can truncate bad Extras correctly.
     // Otherwise the new user could inadvertently corrupt their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -50,13 +57,6 @@ CGame_FatalFuryS_SNES::CGame_FatalFuryS_SNES(UINT32 nConfirmedROMSize)
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
-
-    //Set color mode: see the definitions in GameClass.h
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_GBA);
-
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     nGameFlag = FatalFuryS_SNES;
     nImgGameFlag = IMGDAT_SECTION_SNES;
@@ -519,7 +519,7 @@ void CGame_FatalFuryS_SNES::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalI
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
 
             // Adjust for ROM-specific variant locations
@@ -540,7 +540,7 @@ void CGame_FatalFuryS_SNES::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalI
         stExtraDef* pCurrDef = GetExtraDefForFatalFuryS(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }

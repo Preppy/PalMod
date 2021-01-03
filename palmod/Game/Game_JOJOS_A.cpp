@@ -46,6 +46,14 @@ void CGame_JOJOS_A::InitializeStatics()
 
 CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
 {
+    //Set color mode
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
+    SetColorMode(ColMode::COLMODE_15);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -77,14 +85,6 @@ CGame_JOJOS_A::CGame_JOJOS_A(UINT32 nConfirmedROMSize, int nJojosModeToLoad)
     m_nLowestKnownPaletteRomLocation = UsePaletteSetFor50() ? 0x7c0000 : 0x2d0000;
 
     InitDataBuffer();
-
-    //Set color mode
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
-    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-    SetColorMode(ColMode::COLMODE_15);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = JOJOS_A;
@@ -813,7 +813,7 @@ void CGame_JOJOS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 
     m_nCurrentPaletteROMLocation = nOffset;
-    m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
+    m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
 }
 
 BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)

@@ -30,6 +30,12 @@ void CGame_SSF2T_GBA::InitializeStatics()
 
 CGame_SSF2T_GBA::CGame_SSF2T_GBA(UINT32 nConfirmedROMSize)
 {
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    // GBA actually has alpha values on some colors, but not all of them.  Force it everywhere for sanity.
+    SetAlphaMode(AlphaMode::GameUsesChaoticAlpha);
+    SetColorMode(ColMode::COLMODE_GBA);
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -50,12 +56,6 @@ CGame_SSF2T_GBA::CGame_SSF2T_GBA(UINT32 nConfirmedROMSize)
     OutputDebugString(strInfo);
 
     InitDataBuffer();
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-    // GBA actually has alpha values on some colors, but not all of them.  Force it everywhere for sanity.
-    SetAlphaMode(AlphaMode::GameUsesChaoticAlpha);
-    SetColorMode(ColMode::COLMODE_GBA);
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = SSF2T_GBA;
@@ -557,7 +557,7 @@ void CGame_SSF2T_GBA::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
 
-        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
 
         // Adjust for ROM-specific variant locations
@@ -572,7 +572,7 @@ void CGame_SSF2T_GBA::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }

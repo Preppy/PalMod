@@ -13,13 +13,6 @@ void CGame_SFIII3_D::InitializeStatics()
 
 CGame_SFIII3_D::CGame_SFIII3_D(void)
 {
-    InitializeStatics();
-
-    //We need the proper unit amt before we init the main buffer
-    nUnitAmt = SFIII3_D_NUMUNIT;
-
-    InitDataBuffer();
-
     //Set color mode
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -27,6 +20,13 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+
+    InitializeStatics();
+
+    //We need the proper unit amt before we init the main buffer
+    nUnitAmt = SFIII3_D_NUMUNIT;
+
+    InitDataBuffer();
 
     //Set game information
     nGameFlag = SFIII3_D;

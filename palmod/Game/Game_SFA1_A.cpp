@@ -31,6 +31,13 @@ void CGame_SFA1_A::InitializeStatics()
 
 CGame_SFA1_A::CGame_SFA1_A(UINT32 nConfirmedROMSize)
 {
+    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_12A);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
+
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -47,13 +54,6 @@ CGame_SFA1_A::CGame_SFA1_A(UINT32 nConfirmedROMSize)
     m_nLowestKnownPaletteRomLocation = 0x67960;
 
     InitDataBuffer();
-
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_12A);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
 
     //Set game information
     nGameFlag = SFA1_A;
@@ -607,7 +607,7 @@ void CGame_SFA1_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / 2;
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
     }
     else // SFA1_A_EXTRALOC
@@ -616,7 +616,7 @@ void CGame_SFA1_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForSFA1(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }

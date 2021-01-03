@@ -22,13 +22,6 @@ void CGame_MVC2_D::InitializeStatics()
 
 CGame_MVC2_D::CGame_MVC2_D(void)
 {
-    InitializeStatics();
-
-    // InitDataBuffer uses this value so make sure to set first
-    nUnitAmt = MVC2_D_NUMUNIT_WITH_TEAMVIEW;
-
-    InitDataBuffer();
-
     //Set color mode
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
@@ -36,6 +29,13 @@ CGame_MVC2_D::CGame_MVC2_D(void)
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
+
+    InitializeStatics();
+
+    // InitDataBuffer uses this value so make sure to set first
+    nUnitAmt = MVC2_D_NUMUNIT_WITH_TEAMVIEW;
+
+    InitDataBuffer();
 
     //Set game information
     nGameFlag = MVC2_D;
