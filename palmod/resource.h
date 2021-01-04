@@ -43,7 +43,6 @@
 #define IDC_EDIT_BL                     1002
 #define IDC_EDIT_BDRSZ                  1002
 #define IDC_EDIT_GS                     1003
-#define IDC_EDIT_SPCSZ                  1003
 #define IDC_EDIT_A                      1004
 #define IDC_RADIO_RGB                   1007
 #define IDC_RADIO_HLS                   1008
@@ -93,9 +92,7 @@
 #define IDC_SZOOM                       1063
 #define IDC_SBDR                        1064
 #define IDC_SSPC                        1065
-#define IDC_SPCSPN2                     1066
 #define IDC_UPDATE                      1067
-#define IDC_EDIT3                       1069
 #define IDC_ABOUTNAME                   1070
 #define IDC_ABOUTNAME2                  1071
 #define ID_FILE_LOADDIRECTORY           32771
@@ -188,6 +185,8 @@
 #define ID_COLORFORMAT_RGB333           32872
 #define ID_LD_SFIII3ARCADEEX            32873
 #define ID_COLORFORMAT_ARGB7888         32874
+#define ID_TOOLS_REVERSE                32875
+#define ID_ACC_ESCAPE                   32876
 
 // Please note that the F0000 range (983040) is reserved for the dynamic game menu
 
@@ -196,7 +195,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32875
+#define _APS_NEXT_COMMAND_VALUE         32877
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

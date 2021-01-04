@@ -370,8 +370,8 @@ UINT32 CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
                     CString strIPSName1;
                     CString strIPSName2;
 
-                    strIPSName1.Format(_T("%s\\%s%u.%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber);
-                    strIPSName2.Format(_T("%s\\%s%u.%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 1);
+                    strIPSName1.Format(_T("%s\\%s%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber);
+                    strIPSName2.Format(_T("%s\\%s%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber + 1);
 
                     if (fileIPS1.Open(strIPSName1, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary) &&
                         fileIPS2.Open(strIPSName2, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary))
@@ -392,8 +392,8 @@ UINT32 CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
                     CString strIPSName3;
                     CString strIPSName4;
 
-                    strIPSName3.Format(_T("%s\\%s%u.%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 2);
-                    strIPSName4.Format(_T("%s\\%s%u.%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 3);
+                    strIPSName3.Format(_T("%s\\%s%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber + 2);
+                    strIPSName4.Format(_T("%s\\%s%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber + 3);
 
                     if (fileIPS3.Open(strIPSName3, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary) &&
                         fileIPS4.Open(strIPSName4, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary))

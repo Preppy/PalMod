@@ -276,6 +276,7 @@ public:
     afx_msg void OnFileOpen() { OnFileOpenInternal(); };
     afx_msg void OnButtonClickCheckEdits();
     afx_msg void OnBnRevert();
+    afx_msg void OnBnClickedReverse();
     afx_msg void OnBnBlink();
     afx_msg void OnAboutAboutpalmod();
     afx_msg void OnBnClickedBinvert();

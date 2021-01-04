@@ -12,1033 +12,1233 @@ constexpr auto SAMSHO5SP_A_NUMUNIT = indexSamSho5_A_Last;
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_A[] =
 {
-    { L"Amakusa A (Normal)", 0x00e0000, 0x00e0040, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa A (Rage)", 0x00e0040, 0x00e0080, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa A (SON)", 0x00e0240, 0x00e0280, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Normal)", 0xe0000, 0xe0040, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Rage)", 0xe0040, 0xe0080, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (SON)", 0xe0240, 0xe0280, indexSamSho5Sprites_Amakusa },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_B[] =
 {
-    { L"Amakusa B (Normal)", 0x00e0400, 0x00e0440, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa B (Rage)", 0x00e0440, 0x00e0480, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa B (SON)", 0x00e0640, 0x00e0680, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa B (Normal)", 0xe0400, 0xe0440, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa B (Rage)", 0xe0440, 0xe0480, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa B (SON)", 0xe0640, 0xe0680, indexSamSho5Sprites_Amakusa },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_C[] =
 {
-    { L"Amakusa C (Normal)", 0x00e0800, 0x00e0840, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa C (Rage)", 0x00e0840, 0x00e0880, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa C (SON)", 0x00e0a40, 0x00e0a80, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa C (Normal)", 0xe0800, 0xe0840, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa C (Rage)", 0xe0840, 0xe0880, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa C (SON)", 0xe0a40, 0xe0a80, indexSamSho5Sprites_Amakusa },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_D[] =
 {
-    { L"Amakusa D (Normal)", 0x00e0c00, 0x00e0c40, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa D (Rage)", 0x00e0c40, 0x00e0c80, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa D (SON)", 0x00e0e40, 0x00e0e80, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa D (Normal)", 0xe0c00, 0xe0c40, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa D (Rage)", 0xe0c40, 0xe0c80, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa D (SON)", 0xe0e40, 0xe0e80, indexSamSho5Sprites_Amakusa },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_A[] =
 {
-    { L"Basara A (Normal/Rage)", 0x00dd000, 0x00dd040, indexSamSho5Sprites_Basara },
-    { L"Basara A (SON)", 0x00dd240, 0x00dd280, indexSamSho5Sprites_Basara },
+    { L"Basara A (Normal/Rage)", 0xdd000, 0xdd040, indexSamSho5Sprites_Basara },
+    { L"Basara A (SON)", 0xdd240, 0xdd280, indexSamSho5Sprites_Basara },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_B[] =
 {
-    { L"Basara B (Normal/Rage)", 0x00dd400, 0x00dd440, indexSamSho5Sprites_Basara },
-    { L"Basara B (SON)", 0x00dd640, 0x00dd680, indexSamSho5Sprites_Basara },
+    { L"Basara B (Normal/Rage)", 0xdd400, 0xdd440, indexSamSho5Sprites_Basara },
+    { L"Basara B (SON)", 0xdd640, 0xdd680, indexSamSho5Sprites_Basara },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_C[] =
 {
-    { L"Basara C (Normal/Rage)", 0x00dd800, 0x00dd840, indexSamSho5Sprites_Basara },
-    { L"Basara C (SON)", 0x00dda40, 0x00dda80, indexSamSho5Sprites_Basara },
+    { L"Basara C (Normal/Rage)", 0xdd800, 0xdd840, indexSamSho5Sprites_Basara },
+    { L"Basara C (SON)", 0xdda40, 0xdda80, indexSamSho5Sprites_Basara },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_D[] =
 {
-    { L"Basara D (Normal/Rage)", 0x00ddc00, 0x00ddc40, indexSamSho5Sprites_Basara },
-    { L"Basara D (SON)", 0x00dde40, 0x00dde80, indexSamSho5Sprites_Basara },
+    { L"Basara D (Normal/Rage)", 0xddc00, 0xddc40, indexSamSho5Sprites_Basara },
+    { L"Basara D (SON)", 0xdde40, 0xdde80, indexSamSho5Sprites_Basara },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_A[] =
 {
-    { L"Charlotte A (Normal)", 0x00e3000, 0x00e3040, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte A (Rage)", 0x00e3040, 0x00e3080, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte A (SON)", 0x00e3240, 0x00e3280, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte A (Normal)", 0xe3000, 0xe3040, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte A (Rage)", 0xe3040, 0xe3080, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte A (SON)", 0xe3240, 0xe3280, indexSamSho5Sprites_Charlotte },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_B[] =
 {
-    { L"Charlotte B (Normal)", 0x00e3400, 0x00e3440, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte B (Rage)", 0x00e3440, 0x00e3480, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte B (SON)", 0x00e3640, 0x00e3680, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte B (Normal)", 0xe3400, 0xe3440, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte B (Rage)", 0xe3440, 0xe3480, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte B (SON)", 0xe3640, 0xe3680, indexSamSho5Sprites_Charlotte },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_C[] =
 {
-    { L"Charlotte C (Normal)", 0x00e3800, 0x00e3840, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte C (Rage)", 0x00e3840, 0x00e3880, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte C (SON)", 0x00e3a40, 0x00e3a80, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte C (Normal)", 0xe3800, 0xe3840, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte C (Rage)", 0xe3840, 0xe3880, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte C (SON)", 0xe3a40, 0xe3a80, indexSamSho5Sprites_Charlotte },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_D[] =
 {
-    { L"Charlotte D (Normal)", 0x00e3c00, 0x00e3c40, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte D (Rage)", 0x00e3c40, 0x00e3c80, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte D (SON)", 0x00e3e40, 0x00e3e80, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte D (Normal)", 0xe3c00, 0xe3c40, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte D (Rage)", 0xe3c40, 0xe3c80, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte D (SON)", 0xe3e40, 0xe3e80, indexSamSho5Sprites_Charlotte },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_A[] =
 {
-    { L"Enja A (Normal)", 0x00e9000, 0x00e9040, indexSamSho5Sprites_Enja },
-    { L"Enja A (Rage)", 0x00e9040, 0x00e9080, indexSamSho5Sprites_Enja },
-    { L"Enja A (SON)", 0x00e9240, 0x00e9280, indexSamSho5Sprites_Enja },
+    { L"Enja A (Normal)", 0xe9000, 0xe9040, indexSamSho5Sprites_Enja },
+    { L"Enja A (Rage)", 0xe9040, 0xe9080, indexSamSho5Sprites_Enja },
+    { L"Enja A (SON)", 0xe9240, 0xe9280, indexSamSho5Sprites_Enja },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_B[] =
 {
-    { L"Enja B (Normal)", 0x00e9400, 0x00e9440, indexSamSho5Sprites_Enja },
-    { L"Enja B (Rage)", 0x00e9440, 0x00e9480, indexSamSho5Sprites_Enja },
-    { L"Enja B (SON)", 0x00e9640, 0x00e9680, indexSamSho5Sprites_Enja },
+    { L"Enja B (Normal)", 0xe9400, 0xe9440, indexSamSho5Sprites_Enja },
+    { L"Enja B (Rage)", 0xe9440, 0xe9480, indexSamSho5Sprites_Enja },
+    { L"Enja B (SON)", 0xe9640, 0xe9680, indexSamSho5Sprites_Enja },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_C[] =
 {
-    { L"Enja C (Normal)", 0x00e9800, 0x00e9840, indexSamSho5Sprites_Enja },
-    { L"Enja C (Rage)", 0x00e9840, 0x00e9880, indexSamSho5Sprites_Enja },
-    { L"Enja C (SON)", 0x00e9a40, 0x00e9a80, indexSamSho5Sprites_Enja },
+    { L"Enja C (Normal)", 0xe9800, 0xe9840, indexSamSho5Sprites_Enja },
+    { L"Enja C (Rage)", 0xe9840, 0xe9880, indexSamSho5Sprites_Enja },
+    { L"Enja C (SON)", 0xe9a40, 0xe9a80, indexSamSho5Sprites_Enja },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_D[] =
 {
-    { L"Enja D (Normal)", 0x00e9c00, 0x00e9c40, indexSamSho5Sprites_Enja },
-    { L"Enja D (Rage)", 0x00e9c40, 0x00e9c80, indexSamSho5Sprites_Enja },
-    { L"Enja D (SON)", 0x00e9e40, 0x00e9e80, indexSamSho5Sprites_Enja },
+    { L"Enja D (Normal)", 0xe9c00, 0xe9c40, indexSamSho5Sprites_Enja },
+    { L"Enja D (Rage)", 0xe9c40, 0xe9c80, indexSamSho5Sprites_Enja },
+    { L"Enja D (SON)", 0xe9e40, 0xe9e80, indexSamSho5Sprites_Enja },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_A[] =
 {
-    { L"Gaira A (Normal)", 0x00df000, 0x00df040, indexSamSho5Sprites_Gaira },
-    { L"Gaira A (Rage)", 0x00df040, 0x00df080, indexSamSho5Sprites_Gaira },
-    { L"Gaira A (SON)", 0x00df240, 0x00df280, indexSamSho5Sprites_Gaira },
+    { L"Gaira A (Normal)", 0xdf000, 0xdf040, indexSamSho5Sprites_Gaira },
+    { L"Gaira A (Rage)", 0xdf040, 0xdf080, indexSamSho5Sprites_Gaira },
+    { L"Gaira A (SON)", 0xdf240, 0xdf280, indexSamSho5Sprites_Gaira },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_B[] =
 {
-    { L"Gaira B (Normal)", 0x00df400, 0x00df440, indexSamSho5Sprites_Gaira },
-    { L"Gaira B (Rage)", 0x00df440, 0x00df480, indexSamSho5Sprites_Gaira },
-    { L"Gaira B (SON)", 0x00df640, 0x00df680, indexSamSho5Sprites_Gaira },
+    { L"Gaira B (Normal)", 0xdf400, 0xdf440, indexSamSho5Sprites_Gaira },
+    { L"Gaira B (Rage)", 0xdf440, 0xdf480, indexSamSho5Sprites_Gaira },
+    { L"Gaira B (SON)", 0xdf640, 0xdf680, indexSamSho5Sprites_Gaira },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_C[] =
 {
-    { L"Gaira C (Normal)", 0x00df800, 0x00df840, indexSamSho5Sprites_Gaira },
-    { L"Gaira C (Rage)", 0x00df840, 0x00df880, indexSamSho5Sprites_Gaira },
-    { L"Gaira C (SON)", 0x00dfa40, 0x00dfa80, indexSamSho5Sprites_Gaira },
+    { L"Gaira C (Normal)", 0xdf800, 0xdf840, indexSamSho5Sprites_Gaira },
+    { L"Gaira C (Rage)", 0xdf840, 0xdf880, indexSamSho5Sprites_Gaira },
+    { L"Gaira C (SON)", 0xdfa40, 0xdfa80, indexSamSho5Sprites_Gaira },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_D[] =
 {
-    { L"Gaira D (Normal)", 0x00dfc00, 0x00dfc40, indexSamSho5Sprites_Gaira },
-    { L"Gaira D (Rage)", 0x00dfc40, 0x00dfc80, indexSamSho5Sprites_Gaira },
-    { L"Gaira D (SON)", 0x00dfe40, 0x00dfe80, indexSamSho5Sprites_Gaira },
+    { L"Gaira D (Normal)", 0xdfc00, 0xdfc40, indexSamSho5Sprites_Gaira },
+    { L"Gaira D (Rage)", 0xdfc40, 0xdfc80, indexSamSho5Sprites_Gaira },
+    { L"Gaira D (SON)", 0xdfe40, 0xdfe80, indexSamSho5Sprites_Gaira },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_A[] =
 {
-    { L"Galford A (Normal)", 0x00d9000, 0x00d9040, indexSamSho5Sprites_Galford, 0, &pairNext3 },
-    { L"Galford A (Rage)", 0x00d9040, 0x00d9080, indexSamSho5Sprites_Galford, 0, &pairNextNext },
-    { L"Galford A (SON)", 0x00d9240, 0x00d9280, indexSamSho5Sprites_Galford, 0, &pairNext },
-    { L"Poppy A", 0x00d9280, 0x00d92A0, indexSamSho5Sprites_Galford, 1 },
+    { L"Galford A (Normal)", 0xd9000, 0xd9040, indexSamSho5Sprites_Galford, 0, &pairNext3 },
+    { L"Galford A (Rage)", 0xd9040, 0xd9080, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford A (SON)", 0xd9240, 0xd9280, indexSamSho5Sprites_Galford, 0, &pairNext },
+    { L"Poppy A", 0xd9280, 0xd92A0, indexSamSho5Sprites_Galford, 1 },
+
+    { L"Galford A (Burning)", 0xd90c0, 0xd9100, indexSamSho5Sprites_Galford },
+    { L"Galford A (Shocked)", 0xd9100, 0xd9140, indexSamSho5Sprites_Galford },
+    { L"Galford A (Frozen/Wet)", 0xd9140, 0xd9180, indexSamSho5Sprites_Galford },
+    { L"Galford A (Ki)", 0xd9180, 0xd91c0, indexSamSho5Sprites_Galford },
+    { L"Galford A (Issen Trail)", 0xd9200, 0xd9240, indexSamSho5Sprites_Galford },
+    { L"Galford A (Plasma Factor)", 0xd92b0, 0xd92c0 },
+    { L"Galford A (Plasma Blade)", 0xd92c0, 0xd92e0 },
+    { L"Galford A (Strike Heads/Poppy)", 0xd92e0, 0xd9300 },
+    { L"Galford A (Replica Effect)", 0xd9320, 0xd9340 },
+    { L"Galford A (Slash Effects)", 0xd9350, 0xd9360 },
+    { L"Galford A (Imitate Replica)", 0xd9360, 0xd9370 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_B[] =
 {
-    { L"Galford B (Normal)", 0x00d9400, 0x00d9440, indexSamSho5Sprites_Galford, 0, &pairNext3 },
-    { L"Galford B (Rage)", 0x00d9440, 0x00d9480, indexSamSho5Sprites_Galford, 0, &pairNextNext },
-    { L"Galford B (SON)", 0x00d9640, 0x00d9680, indexSamSho5Sprites_Galford, 0, &pairNext },
-    { L"Poppy B", 0x00d9680, 0x00d96A0, indexSamSho5Sprites_Galford, 1 },
+    { L"Galford B (Normal)", 0xd9400, 0xd9440, indexSamSho5Sprites_Galford, 0, &pairNext3 },
+    { L"Galford B (Rage)", 0xd9440, 0xd9480, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford B (SON)", 0xd9640, 0xd9680, indexSamSho5Sprites_Galford, 0, &pairNext },
+    { L"Poppy B", 0xd9680, 0xd96A0, indexSamSho5Sprites_Galford, 1 },
+
+    { L"Galford B (Burning)", 0xd94c0, 0xd9500, indexSamSho5Sprites_Galford },
+    { L"Galford B (Shocked)", 0xd9500, 0xd9540, indexSamSho5Sprites_Galford },
+    { L"Galford B (Frozen/Wet)", 0xd9540, 0xd9580, indexSamSho5Sprites_Galford },
+    { L"Galford B (Ki)", 0xd9580, 0xd95c0, indexSamSho5Sprites_Galford },
+    { L"Galford B (Issen Trail)", 0xd9600, 0xd9640, indexSamSho5Sprites_Galford },
+    { L"Galford B (Plasma Factor)", 0xd96b0, 0xd96c0 },
+    { L"Galford B (Plasma Blade)", 0xd96c0, 0xd96e0 },
+    { L"Galford B (Strike Heads/Poppy)", 0xd96e0, 0xd9700 },
+    { L"Galford B (Replica Effect)", 0xd9720, 0xd9740 },
+    { L"Galford B (Slash Effects)", 0xd9750, 0xd9760 },
+    { L"Galford B (Imitate Replica)", 0xd9760, 0xd9770 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_C[] =
 {
-    { L"Galford C (Normal)", 0x00d9800, 0x00d9840, indexSamSho5Sprites_Galford, 0, &pairNext3 },
-    { L"Galford C (Rage)", 0x00d9840, 0x00d9880, indexSamSho5Sprites_Galford, 0, &pairNextNext },
-    { L"Galford C (SON)", 0x00d9a40, 0x00d9a80, indexSamSho5Sprites_Galford, 0, &pairNext },
-    { L"Poppy C", 0x00d9A80, 0x00d9AA0, indexSamSho5Sprites_Galford, 1 },
+    { L"Galford C (Normal)", 0xd9800, 0xd9840, indexSamSho5Sprites_Galford, 0, &pairNext3 },
+    { L"Galford C (Rage)", 0xd9840, 0xd9880, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford C (SON)", 0xd9a40, 0xd9a80, indexSamSho5Sprites_Galford, 0, &pairNext },
+    { L"Poppy C", 0xd9A80, 0xd9AA0, indexSamSho5Sprites_Galford, 1 },
+
+    { L"Galford C (Burning)", 0xd98c0, 0xd9900, indexSamSho5Sprites_Galford },
+    { L"Galford C (Shocked)", 0xd9900, 0xd9940, indexSamSho5Sprites_Galford },
+    { L"Galford C (Frozen/Wet)", 0xd9940, 0xd9980, indexSamSho5Sprites_Galford },
+    { L"Galford C (Ki)", 0xd9980, 0xd99c0, indexSamSho5Sprites_Galford },
+    { L"Galford C (Issen Trail)", 0xd9a00, 0xd9a40, indexSamSho5Sprites_Galford },
+    { L"Galford C (Plasma Factor)", 0xd9ab0, 0xd9ac0 },
+    { L"Galford C (Plasma Blade)", 0xd9ac0, 0xd9ae0 },
+    { L"Galford C (Strike Heads/Poppy)", 0xd9ae0, 0xd9b00 },
+    { L"Galford C (Replica Effect)", 0xd9b20, 0xd9b40 },
+    { L"Galford C (Slash Effects)", 0xd9b50, 0xd9b60 },
+    { L"Galford C (Imitate Replica)", 0xd9b60, 0xd9b70 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_D[] =
 {
-    { L"Galford D (Normal)", 0x00d9c00, 0x00d9c40, indexSamSho5Sprites_Galford, 0, &pairNext3 },
-    { L"Galford D (Rage)", 0x00d9c40, 0x00d9c80, indexSamSho5Sprites_Galford, 0, &pairNextNext },
-    { L"Galford D (SON)", 0x00d9e40, 0x00d9e80, indexSamSho5Sprites_Galford, 0, &pairNext },
-    { L"Poppy D", 0x00d9e80, 0x00d9eA0, indexSamSho5Sprites_Galford, 1 },
+    { L"Galford D (Normal)", 0xd9c00, 0xd9c40, indexSamSho5Sprites_Galford, 0, &pairNext3 },
+    { L"Galford D (Rage)", 0xd9c40, 0xd9c80, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford D (SON)", 0xd9e40, 0xd9e80, indexSamSho5Sprites_Galford, 0, &pairNext },
+    { L"Poppy D", 0xd9e80, 0xd9eA0, indexSamSho5Sprites_Galford, 1 },
+
+    { L"Galford D (Burning)", 0xd9cc0, 0xd9d00, indexSamSho5Sprites_Galford },
+    { L"Galford D (Shocked)", 0xd9d00, 0xd9d40, indexSamSho5Sprites_Galford },
+    { L"Galford D (Frozen/Wet)", 0xd9d40, 0xd9d80, indexSamSho5Sprites_Galford },
+    { L"Galford D (Ki)", 0xd9d80, 0xd9dc0, indexSamSho5Sprites_Galford },
+    { L"Galford D (Issen Trail)", 0xd9e00, 0xd9e40, indexSamSho5Sprites_Galford },
+    { L"Galford D (Plasma Factor)", 0xd9eb0, 0xd9ec0 },
+    { L"Galford D (Plasma Blade)", 0xd9ec0, 0xd9ee0 },
+    { L"Galford D (Strike Heads/Poppy)", 0xd9ee0, 0xd9f00 },
+    { L"Galford D (Replica Effect)", 0xd9f20, 0xd9f40 },
+    { L"Galford D (Slash Effects)", 0xd9f50, 0xd9f60 },
+    { L"Galford D (Imitate Replica)", 0xd9f60, 0xd9f70 },
 };
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaoh_PALETTES_A[] =
 {
-    { L"Gaoh A (Normal)", 0x00ef000, 0x00ef040, indexSamSho5Sprites_Gaoh },
-    { L"Gaoh A (Rage)", 0x00ef040, 0x00ef080, indexSamSho5Sprites_Gaoh },
-    { L"Gaoh A (SON)", 0x00ef240, 0x00ef280, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh A (Normal)", 0xef000, 0xef040, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh A (Rage)", 0xef040, 0xef080, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh A (SON)", 0xef240, 0xef280, indexSamSho5Sprites_Gaoh },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaoh_PALETTES_B[] =
 {
-    { L"Gaoh B (Normal)", 0x00ef400, 0x00ef440, indexSamSho5Sprites_Gaoh },
-    { L"Gaoh B (Rage)", 0x00ef440, 0x00ef480, indexSamSho5Sprites_Gaoh },
-    { L"Gaoh B (SON)", 0x00ef640, 0x00ef680, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh B (Normal)", 0xef400, 0xef440, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh B (Rage)", 0xef440, 0xef480, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh B (SON)", 0xef640, 0xef680, indexSamSho5Sprites_Gaoh },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaoh_PALETTES_C[] =
 {
-    { L"Gaoh C (Normal)", 0x00ef800, 0x00ef840, indexSamSho5Sprites_Gaoh },
-    { L"Gaoh C (Rage)", 0x00ef840, 0x00ef880, indexSamSho5Sprites_Gaoh },
-    { L"Gaoh C (SON)", 0x00efa40, 0x00efa80, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh C (Normal)", 0xef800, 0xef840, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh C (Rage)", 0xef840, 0xef880, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh C (SON)", 0xefa40, 0xefa80, indexSamSho5Sprites_Gaoh },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaoh_PALETTES_D[] =
 {
-    { L"Gaoh D (Normal)", 0x00efc00, 0x00efc40, indexSamSho5Sprites_Gaoh },
-    { L"Gaoh D (Rage)", 0x00efc40, 0x00efc80, indexSamSho5Sprites_Gaoh },
-    { L"Gaoh D (SON)", 0x00efe40, 0x00efe80, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh D (Normal)", 0xefc00, 0xefc40, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh D (Rage)", 0xefc40, 0xefc80, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh D (SON)", 0xefe40, 0xefe80, indexSamSho5Sprites_Gaoh },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_A[] =
 {
-    { L"Genjuro A (Normal)", 0x00dc000, 0x00dc040, indexSamSho5Sprites_Genjuro },
-    { L"Genjuro A (Rage)", 0x00dc040, 0x00dc080, indexSamSho5Sprites_Genjuro },
-    { L"Genjuro A (SON)", 0x00dc240, 0x00dc280, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro A (Normal)", 0xdc000, 0xdc040, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro A (Rage)", 0xdc040, 0xdc080, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro A (SON)", 0xdc240, 0xdc280, indexSamSho5Sprites_Genjuro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_B[] =
 {
-    { L"Genjuro B (Normal)", 0x00dc400, 0x00dc440, indexSamSho5Sprites_Genjuro },
-    { L"Genjuro B (Rage)", 0x00dc440, 0x00dc480, indexSamSho5Sprites_Genjuro },
-    { L"Genjuro B (SON)", 0x00dc640, 0x00dc680, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro B (Normal)", 0xdc400, 0xdc440, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro B (Rage)", 0xdc440, 0xdc480, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro B (SON)", 0xdc640, 0xdc680, indexSamSho5Sprites_Genjuro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_C[] =
 {
-    { L"Genjuro C (Normal)", 0x00dc800, 0x00dc840, indexSamSho5Sprites_Genjuro },
-    { L"Genjuro C (Rage)", 0x00dc840, 0x00dc880, indexSamSho5Sprites_Genjuro },
-    { L"Genjuro C (SON)", 0x00dca40, 0x00dca80, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro C (Normal)", 0xdc800, 0xdc840, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro C (Rage)", 0xdc840, 0xdc880, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro C (SON)", 0xdca40, 0xdca80, indexSamSho5Sprites_Genjuro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_D[] =
 {
-    { L"Genjuro D (Normal)", 0x00dcc00, 0x00dcc40, indexSamSho5Sprites_Genjuro },
-    { L"Genjuro D (Rage)", 0x00dcc40, 0x00dcc80, indexSamSho5Sprites_Genjuro },
-    { L"Genjuro D (SON)", 0x00dce40, 0x00dce80, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro D (Normal)", 0xdcc00, 0xdcc40, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro D (Rage)", 0xdcc40, 0xdcc80, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro D (SON)", 0xdce40, 0xdce80, indexSamSho5Sprites_Genjuro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Hanzo_PALETTES_A[] =
 {
-    { L"Hanzo A (Normal)", 0x00d8000, 0x00d8040, indexSamSho5Sprites_Hanzo },
-    { L"Hanzo A (Rage)", 0x00d8040, 0x00d8080, indexSamSho5Sprites_Hanzo },
-    { L"Hanzo A (SON)", 0x00d8240, 0x00d8280, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo A (Normal)", 0xd8000, 0xd8040, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo A (Rage)", 0xd8040, 0xd8080, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo A (SON)", 0xd8240, 0xd8280, indexSamSho5Sprites_Hanzo },
+
+    { L"Hanzo A (Burning)", 0xd80c0, 0xd8100, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo A (Shocked)", 0xd8100, 0xd8140, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo A (Frozen/Wet)", 0xd8140, 0xd8180, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo A (Ki)", 0xd8180, 0xd81c0, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo A (Issen Trail)", 0xd8200, 0xd8240, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo A (Baku'en Ryuu/Mozu Otoshi)", 0xd8280, 0xd82a0 },
+    { L"Hanzo A (Bone Break Effect)", 0xd82a0, 0xd82c0 },
+    { L"Hanzo A (Ninpou Effect/Shuriken)", 0xd8320, 0xd8340 },
+    { L"Hanzo A (Overkill Flame Pose)", 0xd8340, 0xd8350 },
+    { L"Hanzo A (Slash Effects)", 0xd8350, 0xd8360 },
+    { L"Hanzo A (Migawari no Jutsu)", 0xd8360, 0xd8370 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Hanzo_PALETTES_B[] =
 {
-    { L"Hanzo B (Normal)", 0x00d8400, 0x00d8440, indexSamSho5Sprites_Hanzo },
-    { L"Hanzo B (Rage)", 0x00d8440, 0x00d8480, indexSamSho5Sprites_Hanzo },
-    { L"Hanzo B (SON)", 0x00d8640, 0x00d8680, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo B (Normal)", 0xd8400, 0xd8440, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo B (Rage)", 0xd8440, 0xd8480, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo B (SON)", 0xd8640, 0xd8680, indexSamSho5Sprites_Hanzo },
+
+    { L"Hanzo B (Burning)", 0xd84c0, 0xd8500, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo B (Shocked)", 0xd8500, 0xd8540, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo B (Frozen/Wet)", 0xd8540, 0xd8580, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo B (Ki)", 0xd8580, 0xd85c0, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo B (Issen Trail)", 0xd8600, 0xd8640, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo B (Baku'en Ryuu/Mozu Otoshi)", 0xd8680, 0xd86a0 },
+    { L"Hanzo B (Bone Break Effect)", 0xd86a0, 0xd86c0 },
+    { L"Hanzo B (Ninpou Effect/Shuriken)", 0xd8720, 0xd8740 },
+    { L"Hanzo B (Overkill Flame Pose)", 0xd8740, 0xd8750 },
+    { L"Hanzo B (Slash Effects)", 0xd8750, 0xd8760 },
+    { L"Hanzo B (Migawari no Jutsu)", 0xd8760, 0xd8770 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Hanzo_PALETTES_C[] =
 {
-    { L"Hanzo C (Normal)", 0x00d8800, 0x00d8840, indexSamSho5Sprites_Hanzo },
-    { L"Hanzo C (Rage)", 0x00d8840, 0x00d8880, indexSamSho5Sprites_Hanzo },
-    { L"Hanzo C (SON)", 0x00d8a40, 0x00d8a80, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo C (Normal)", 0xd8800, 0xd8840, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo C (Rage)", 0xd8840, 0xd8880, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo C (SON)", 0xd8a40, 0xd8a80, indexSamSho5Sprites_Hanzo },
+
+    { L"Hanzo C (Burning)", 0xd88c0, 0xd8900, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo C (Shocked)", 0xd8900, 0xd8940, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo C (Frozen/Wet)", 0xd8940, 0xd8980, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo C (Ki)", 0xd8980, 0xd89c0, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo C (Issen Trail)", 0xd8a00, 0xd8a40, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo C (Baku'en Ryuu/Mozu Otoshi)", 0xd8a80, 0xd8aa0 },
+    { L"Hanzo C (Bone Break Effect)", 0xd8aa0, 0xd8ac0 },
+    { L"Hanzo C (Ninpou Effect/Shuriken)", 0xd8b20, 0xd8b40 },
+    { L"Hanzo C (Overkill Flame Pose)", 0xd8b40, 0xd8b50 },
+    { L"Hanzo C (Slash Effects)", 0xd8b50, 0xd8b60 },
+    { L"Hanzo C (Migawari no Jutsu)", 0xd8b60, 0xd8b70 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Hanzo_PALETTES_D[] =
 {
-    { L"Hanzo D (Normal)", 0x00d8c00, 0x00d8c40, indexSamSho5Sprites_Hanzo },
-    { L"Hanzo D (Rage)", 0x00d8c40, 0x00d8c80, indexSamSho5Sprites_Hanzo },
-    { L"Hanzo D (SON)", 0x00d8e40, 0x00d8e80, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo D (Normal)", 0xd8c00, 0xd8c40, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo D (Rage)", 0xd8c40, 0xd8c80, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo D (SON)", 0xd8e40, 0xd8e80, indexSamSho5Sprites_Hanzo },
+
+    { L"Hanzo D (Burning)", 0xd8cc0, 0xd8d00, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo D (Shocked)", 0xd8d00, 0xd8d40, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo D (Frozen/Wet)", 0xd8d40, 0xd8d80, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo D (Ki)", 0xd8d80, 0xd8dc0, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo D (Issen Trail)", 0xd8e00, 0xd8e40, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo D (Baku'en Ryuu/Mozu Otoshi)", 0xd8e80, 0xd8ea0 },
+    { L"Hanzo D (Bone Break Effect)", 0xd8ea0, 0xd8ec0 },
+    { L"Hanzo D (Ninpou Effect/Shuriken)", 0xd8f20, 0xd8f40 },
+    { L"Hanzo D (Overkill Flame Pose)", 0xd8f40, 0xd8f50 },
+    { L"Hanzo D (Slash Effects)", 0xd8f50, 0xd8f60 },
+    { L"Hanzo D (Migawari no Jutsu)", 0xd8f60, 0xd8f70 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_A[] =
 {
-    { L"Haohmaru A (Normal)", 0x00d5000, 0x00d5040, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru A (Rage)", 0x00d5040, 0x00d5080, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru A (SON)", 0x00d5240, 0x00d5280, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru A (Normal)", 0xd5000, 0xd5040, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru A (Rage)", 0xd5040, 0xd5080, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru A (SON)", 0xd5240, 0xd5280, indexSamSho5Sprites_Haohmaru },
+
+    { L"Haohmaru A (Burning)", 0xd50c0, 0xd5100, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru A (Shocked)", 0xd5100, 0xd5140, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru A (Frozen/Wet)", 0xd5140, 0xd5180, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru A (Ki)", 0xd5180, 0xd51c0, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru A (Senpuuretsuzan)", 0xd51c0, 0xd51e0 },
+    { L"Haohmaru A (Kogetsuzan/Resshinzan)", 0xd51f0, 0xd5200 },
+    { L"Haohmaru A (Issen Trail)", 0xd5200, 0xd5240, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru A (Fatality)", 0xd5280, 0xd52a0 },
+    { L"Haohmaru A (Kogetsuzan Trail)", 0xd52c0, 0xd5300, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru A (Slash Effects)", 0xd5350, 0xd5360 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_B[] =
 {
-    { L"Haohmaru B (Normal)", 0x00d5400, 0x00d5440, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru B (Rage)", 0x00d5440, 0x00d5480, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru B (SON)", 0x00d5640, 0x00d5680, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru B (Normal)", 0xd5400, 0xd5440, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru B (Rage)", 0xd5440, 0xd5480, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru B (SON)", 0xd5640, 0xd5680, indexSamSho5Sprites_Haohmaru },
+
+    { L"Haohmaru B (Burning)", 0xd54c0, 0xd5500, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru B (Shocked)", 0xd5500, 0xd5540, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru B (Frozen/Wet)", 0xd5540, 0xd5580, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru B (Ki)", 0xd5580, 0xd55c0, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru B (Senpuuretsuzan)", 0xd55c0, 0xd55e0 },
+    { L"Haohmaru B (Kogetsuzan/Resshinzan)", 0xd55f0, 0xd5600 },
+    { L"Haohmaru B (Issen Trail)", 0xd5600, 0xd5640, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru B (Fatality)", 0xd5680, 0xd56a0 },
+    { L"Haohmaru B (Kogetsuzan Trail)", 0xd56c0, 0xd5700, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru B (Slash Effects)", 0xd5750, 0xd5760 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_C[] =
 {
-    { L"Haohmaru C (Normal)", 0x00d5800, 0x00d5840, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru C (Rage)", 0x00d5840, 0x00d5880, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru C (SON)", 0x00d5a40, 0x00d5a80, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru C (Normal)", 0xd5800, 0xd5840, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru C (Rage)", 0xd5840, 0xd5880, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru C (SON)", 0xd5a40, 0xd5a80, indexSamSho5Sprites_Haohmaru },
+
+    { L"Haohmaru C (Burning)", 0xd58c0, 0xd5900, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru C (Shocked)", 0xd5900, 0xd5940, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru C (Frozen/Wet)", 0xd5940, 0xd5980, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru C (Ki)", 0xd5980, 0xd59c0, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru C (Senpuuretsuzan)", 0xd59c0, 0xd59e0 },
+    { L"Haohmaru C (Kogetsuzan/Resshinzan)", 0xd59f0, 0xd5a00 },
+    { L"Haohmaru C (Issen Trail)", 0xd5a00, 0xd5a40, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru C (Fatality)", 0xd5a80, 0xd5aa0 },
+    { L"Haohmaru C (Kogetsuzan Trail)", 0xd5ac0, 0xd5b00, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru C (Slash Effects)", 0xd5b50, 0xd5b60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_D[] =
 {
-    { L"Haohmaru D (Normal)", 0x00d5c00, 0x00d5c40, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru D (Rage)", 0x00d5c40, 0x00d5c80, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru D (SON)", 0x00d5e40, 0x00d5e80, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru D (Normal)", 0xd5c00, 0xd5c40, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru D (Rage)", 0xd5c40, 0xd5c80, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru D (SON)", 0xd5e40, 0xd5e80, indexSamSho5Sprites_Haohmaru },
+
+    { L"Haohmaru D (Burning)", 0xd5cc0, 0xd5d00, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru D (Shocked)", 0xd5d00, 0xd5d40, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru D (Frozen/Wet)", 0xd5d40, 0xd5d80, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru D (Ki)", 0xd5d80, 0xd5dc0, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru D (Senpuuretsuzan)", 0xd5dc0, 0xd5de0 },
+    { L"Haohmaru D (Kogetsuzan/Resshinzan)", 0xd5df0, 0xd5e00 },
+    { L"Haohmaru D (Issen Trail)", 0xd5e00, 0xd5e40, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru D (Fatality)", 0xd5e80, 0xd5ea0 },
+    { L"Haohmaru D (Kogetsuzan Trail)", 0xd5ec0, 0xd5f00, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru D (Slash Effects)", 0xd5f50, 0xd5f60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_A[] =
 {
-    { L"Jubei A (Normal)", 0x00e1000, 0x00e1040, indexSamSho5Sprites_Jubei },
-    { L"Jubei A (Rage)", 0x00e1040, 0x00e1080, indexSamSho5Sprites_Jubei },
-    { L"Jubei A (SON)", 0x00e1240, 0x00e1280, indexSamSho5Sprites_Jubei },
+    { L"Jubei A (Normal)", 0xe1000, 0xe1040, indexSamSho5Sprites_Jubei },
+    { L"Jubei A (Rage)", 0xe1040, 0xe1080, indexSamSho5Sprites_Jubei },
+    { L"Jubei A (SON)", 0xe1240, 0xe1280, indexSamSho5Sprites_Jubei },
     { L"Bird/Slashes A", 0xe1340, 0xe1360 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_B[] =
 {
-    { L"Jubei B (Normal)", 0x00e1400, 0x00e1440, indexSamSho5Sprites_Jubei },
-    { L"Jubei B (Rage)", 0x00e1440, 0x00e1480, indexSamSho5Sprites_Jubei },
-    { L"Jubei B (SON)", 0x00e1640, 0x00e1680, indexSamSho5Sprites_Jubei },
-    { L"Bird/Slashes B", 0x00e1740, 0x00e1760 },
+    { L"Jubei B (Normal)", 0xe1400, 0xe1440, indexSamSho5Sprites_Jubei },
+    { L"Jubei B (Rage)", 0xe1440, 0xe1480, indexSamSho5Sprites_Jubei },
+    { L"Jubei B (SON)", 0xe1640, 0xe1680, indexSamSho5Sprites_Jubei },
+    { L"Bird/Slashes B", 0xe1740, 0xe1760 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_C[] =
 {
-    { L"Jubei C (Normal)", 0x00e1800, 0x00e1840, indexSamSho5Sprites_Jubei },
-    { L"Jubei C (Rage)", 0x00e1840, 0x00e1880, indexSamSho5Sprites_Jubei },
-    { L"Jubei C (SON)", 0x00e1a40, 0x00e1a80, indexSamSho5Sprites_Jubei },
-    { L"Bird/Slashes C", 0x00e1b40, 0x00e1b60 },
+    { L"Jubei C (Normal)", 0xe1800, 0xe1840, indexSamSho5Sprites_Jubei },
+    { L"Jubei C (Rage)", 0xe1840, 0xe1880, indexSamSho5Sprites_Jubei },
+    { L"Jubei C (SON)", 0xe1a40, 0xe1a80, indexSamSho5Sprites_Jubei },
+    { L"Bird/Slashes C", 0xe1b40, 0xe1b60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_D[] =
 {
-    { L"Jubei D (Normal)", 0x00e1c00, 0x00e1c40, indexSamSho5Sprites_Jubei },
-    { L"Jubei D (Rage)", 0x00e1c40, 0x00e1c80, indexSamSho5Sprites_Jubei },
-    { L"Jubei D (SON)", 0x00e1e40, 0x00e1e80, indexSamSho5Sprites_Jubei },
-    { L"Bird/Slashes D", 0x00e1f40, 0x00e1f60 },
+    { L"Jubei D (Normal)", 0xe1c00, 0xe1c40, indexSamSho5Sprites_Jubei },
+    { L"Jubei D (Rage)", 0xe1c40, 0xe1c80, indexSamSho5Sprites_Jubei },
+    { L"Jubei D (SON)", 0xe1e40, 0xe1e80, indexSamSho5Sprites_Jubei },
+    { L"Bird/Slashes D", 0xe1f40, 0xe1f60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kazuki_PALETTES_A[] =
 {
-    { L"Kazuki A (Normal)", 0x00e5000, 0x00e5040, indexSamSho5Sprites_Kazuki },
-    { L"Kazuki A (Rage)", 0x00e5040, 0x00e5080, indexSamSho5Sprites_Kazuki },
-    { L"Kazuki A (SON)", 0x00e5240, 0x00e5280, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki A (Normal)", 0xe5000, 0xe5040, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki A (Rage)", 0xe5040, 0xe5080, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki A (SON)", 0xe5240, 0xe5280, indexSamSho5Sprites_Kazuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kazuki_PALETTES_B[] =
 {
-    { L"Kazuki B (Normal)", 0x00e5400, 0x00e5440, indexSamSho5Sprites_Kazuki },
-    { L"Kazuki B (Rage)", 0x00e5440, 0x00e5480, indexSamSho5Sprites_Kazuki },
-    { L"Kazuki B (SON)", 0x00e5640, 0x00e5680, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki B (Normal)", 0xe5400, 0xe5440, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki B (Rage)", 0xe5440, 0xe5480, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki B (SON)", 0xe5640, 0xe5680, indexSamSho5Sprites_Kazuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kazuki_PALETTES_C[] =
 {
-    { L"Kazuki C (Normal)", 0x00e5800, 0x00e5840, indexSamSho5Sprites_Kazuki },
-    { L"Kazuki C (Rage)", 0x00e5840, 0x00e5880, indexSamSho5Sprites_Kazuki },
-    { L"Kazuki C (SON)", 0x00e5a40, 0x00e5a80, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki C (Normal)", 0xe5800, 0xe5840, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki C (Rage)", 0xe5840, 0xe5880, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki C (SON)", 0xe5a40, 0xe5a80, indexSamSho5Sprites_Kazuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kazuki_PALETTES_D[] =
 {
-    { L"Kazuki D (Normal)", 0x00e5c00, 0x00e5c40, indexSamSho5Sprites_Kazuki },
-    { L"Kazuki D (Rage)", 0x00e5c40, 0x00e5c80, indexSamSho5Sprites_Kazuki },
-    { L"Kazuki D (SON)", 0x00e5e40, 0x00e5e80, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki D (Normal)", 0xe5c00, 0xe5c40, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki D (Rage)", 0xe5c40, 0xe5c80, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki D (SON)", 0xe5e40, 0xe5e80, indexSamSho5Sprites_Kazuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kusaregedo_PALETTES_A[] =
 {
-    { L"Kusaregedo A (Normal)", 0x00ee000, 0x00ee040, indexSamSho5Sprites_Kusaregedo },
-    { L"Kusaregedo A (Rage)", 0x00ee040, 0x00ee080, indexSamSho5Sprites_Kusaregedo },
-    { L"Kusaregedo A (SON)", 0x00ee240, 0x00ee280, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo A (Normal)", 0xee000, 0xee040, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo A (Rage)", 0xee040, 0xee080, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo A (SON)", 0xee240, 0xee280, indexSamSho5Sprites_Kusaregedo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kusaregedo_PALETTES_B[] =
 {
-    { L"Kusaregedo B (Normal)", 0x00ee400, 0x00ee440, indexSamSho5Sprites_Kusaregedo },
-    { L"Kusaregedo B (Rage)", 0x00ee440, 0x00ee480, indexSamSho5Sprites_Kusaregedo },
-    { L"Kusaregedo B (SON)", 0x00ee640, 0x00ee680, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo B (Normal)", 0xee400, 0xee440, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo B (Rage)", 0xee440, 0xee480, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo B (SON)", 0xee640, 0xee680, indexSamSho5Sprites_Kusaregedo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kusaregedo_PALETTES_C[] =
 {
-    { L"Kusaregedo C (Normal)", 0x00ee800, 0x00ee840, indexSamSho5Sprites_Kusaregedo },
-    { L"Kusaregedo C (Rage)", 0x00ee840, 0x00ee880, indexSamSho5Sprites_Kusaregedo },
-    { L"Kusaregedo C (SON)", 0x00eea40, 0x00eea80, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo C (Normal)", 0xee800, 0xee840, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo C (Rage)", 0xee840, 0xee880, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo C (SON)", 0xeea40, 0xeea80, indexSamSho5Sprites_Kusaregedo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kusaregedo_PALETTES_D[] =
 {
-    { L"Kusaregedo D (Normal)", 0x00eec00, 0x00eec40, indexSamSho5Sprites_Kusaregedo },
-    { L"Kusaregedo D (Rage)", 0x00eec40, 0x00eec80, indexSamSho5Sprites_Kusaregedo },
-    { L"Kusaregedo D (SON)", 0x00eee40, 0x00eee80, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo D (Normal)", 0xeec00, 0xeec40, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo D (Rage)", 0xeec40, 0xeec80, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo D (SON)", 0xeee40, 0xeee80, indexSamSho5Sprites_Kusaregedo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_A[] =
 {
-    { L"Kyoshiro A (Normal)", 0x00da000, 0x00da040, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
-    { L"Kyoshiro A (Rage)", 0x00da040, 0x00da080, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
-    { L"Kyoshiro A (SON)", 0x00da240, 0x00da280, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
-    { L"Kyoshiro A (Toad)", 0x00da280, 0x00da2a0, indexSamSho5Sprites_Kyoshiro, 1 },
+    { L"Kyoshiro A (Normal)", 0xda000, 0xda040, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
+    { L"Kyoshiro A (Rage)", 0xda040, 0xda080, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
+    { L"Kyoshiro A (SON)", 0xda240, 0xda280, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
+    { L"Kyoshiro A (Toad)", 0xda280, 0xda2a0, indexSamSho5Sprites_Kyoshiro, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_B[] =
 {
-    { L"Kyoshiro B (Normal)", 0x00da400, 0x00da440, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
-    { L"Kyoshiro B (Rage)", 0x00da440, 0x00da480, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
-    { L"Kyoshiro B (SON)", 0x00da640, 0x00da680, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
-    { L"Kyoshiro B (Toad)", 0x00da680, 0x00da6a0, indexSamSho5Sprites_Kyoshiro, 1 },
+    { L"Kyoshiro B (Normal)", 0xda400, 0xda440, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
+    { L"Kyoshiro B (Rage)", 0xda440, 0xda480, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
+    { L"Kyoshiro B (SON)", 0xda640, 0xda680, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
+    { L"Kyoshiro B (Toad)", 0xda680, 0xda6a0, indexSamSho5Sprites_Kyoshiro, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_C[] =
 {
-    { L"Kyoshiro C (Normal)", 0x00da800, 0x00da840, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
-    { L"Kyoshiro C (Rage)", 0x00da840, 0x00da880, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
-    { L"Kyoshiro C (SON)", 0x00daa40, 0x00daa80, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
-    { L"Kyoshiro C (Toad)", 0x00daa80, 0x00daaa0, indexSamSho5Sprites_Kyoshiro, 1 },
+    { L"Kyoshiro C (Normal)", 0xda800, 0xda840, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
+    { L"Kyoshiro C (Rage)", 0xda840, 0xda880, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
+    { L"Kyoshiro C (SON)", 0xdaa40, 0xdaa80, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
+    { L"Kyoshiro C (Toad)", 0xdaa80, 0xdaaa0, indexSamSho5Sprites_Kyoshiro, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_D[] =
 {
-    { L"Kyoshiro D (Normal)", 0x00dac00, 0x00dac40, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
-    { L"Kyoshiro D (Rage)", 0x00dac40, 0x00dac80, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
-    { L"Kyoshiro D (SON)", 0x00dae40, 0x00dae80, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
-    { L"Kyoshiro D (Toad)", 0x00dae80, 0x00daea0, indexSamSho5Sprites_Kyoshiro, 1 },
+    { L"Kyoshiro D (Normal)", 0xdac00, 0xdac40, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
+    { L"Kyoshiro D (Rage)", 0xdac40, 0xdac80, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
+    { L"Kyoshiro D (SON)", 0xdae40, 0xdae80, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
+    { L"Kyoshiro D (Toad)", 0xdae80, 0xdaea0, indexSamSho5Sprites_Kyoshiro, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_A[] =
 {
-    { L"Mina A (Normal)", 0x00ed000, 0x00ed040, indexSamSho5Sprites_Mina, 0, &pairNext3 },
-    { L"Mina A (Rage)", 0x00ed040, 0x00ed080, indexSamSho5Sprites_Mina, 0, &pairNextNext },
-    { L"Mina A (SON)", 0x00ed240, 0x00ed280, indexSamSho5Sprites_Mina, 0, &pairNext },
-    { L"Chanpuru A", 0x00ed280, 0x00ed2A0, indexSamSho5Sprites_Mina, 1 },
+    { L"Mina A (Normal)", 0xed000, 0xed040, indexSamSho5Sprites_Mina, 0, &pairNext3 },
+    { L"Mina A (Rage)", 0xed040, 0xed080, indexSamSho5Sprites_Mina, 0, &pairNextNext },
+    { L"Mina A (SON)", 0xed240, 0xed280, indexSamSho5Sprites_Mina, 0, &pairNext },
+    { L"Chanpuru A", 0xed280, 0xed2A0, indexSamSho5Sprites_Mina, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_B[] =
 {
-    { L"Mina B (Normal)", 0x00ed400, 0x00ed440, indexSamSho5Sprites_Mina, 0, &pairNext3 },
-    { L"Mina B (Rage)", 0x00ed440, 0x00ed480, indexSamSho5Sprites_Mina, 0, &pairNextNext },
-    { L"Mina B (SON)", 0x00ed640, 0x00ed680, indexSamSho5Sprites_Mina, 0, &pairNext },
-    { L"Chanpuru B", 0x00ed680, 0x00ed6A0, indexSamSho5Sprites_Mina, 1 },
+    { L"Mina B (Normal)", 0xed400, 0xed440, indexSamSho5Sprites_Mina, 0, &pairNext3 },
+    { L"Mina B (Rage)", 0xed440, 0xed480, indexSamSho5Sprites_Mina, 0, &pairNextNext },
+    { L"Mina B (SON)", 0xed640, 0xed680, indexSamSho5Sprites_Mina, 0, &pairNext },
+    { L"Chanpuru B", 0xed680, 0xed6A0, indexSamSho5Sprites_Mina, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_C[] =
 {
-    { L"Mina C (Normal)", 0x00ed800, 0x00ed840, indexSamSho5Sprites_Mina, 0, &pairNext3 },
-    { L"Mina C (Rage)", 0x00ed840, 0x00ed880, indexSamSho5Sprites_Mina, 0, &pairNextNext },
-    { L"Mina C (SON)", 0x00eda40, 0x00eda80, indexSamSho5Sprites_Mina, 0, &pairNext },
-    { L"Chanpuru C", 0x00eda80, 0x00edaA0, indexSamSho5Sprites_Mina, 1 },
+    { L"Mina C (Normal)", 0xed800, 0xed840, indexSamSho5Sprites_Mina, 0, &pairNext3 },
+    { L"Mina C (Rage)", 0xed840, 0xed880, indexSamSho5Sprites_Mina, 0, &pairNextNext },
+    { L"Mina C (SON)", 0xeda40, 0xeda80, indexSamSho5Sprites_Mina, 0, &pairNext },
+    { L"Chanpuru C", 0xeda80, 0xedaA0, indexSamSho5Sprites_Mina, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_D[] =
 {
-    { L"Mina D (Normal)", 0x00edc00, 0x00edc40, indexSamSho5Sprites_Mina, 0, &pairNext3 },
-    { L"Mina D (Rage)", 0x00edc40, 0x00edc80, indexSamSho5Sprites_Mina, 0, &pairNextNext },
-    { L"Mina D (SON)", 0x00ede40, 0x00ede80, indexSamSho5Sprites_Mina, 0, &pairNext },
-    { L"Chanpuru D", 0x00ede80, 0x00edeA0, indexSamSho5Sprites_Mina, 1 },
+    { L"Mina D (Normal)", 0xedc00, 0xedc40, indexSamSho5Sprites_Mina, 0, &pairNext3 },
+    { L"Mina D (Rage)", 0xedc40, 0xedc80, indexSamSho5Sprites_Mina, 0, &pairNextNext },
+    { L"Mina D (SON)", 0xede40, 0xede80, indexSamSho5Sprites_Mina, 0, &pairNext },
+    { L"Chanpuru D", 0xede80, 0xedeA0, indexSamSho5Sprites_Mina, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mizuki_PALETTES_A[] =
 {
-    { L"Mizuki A (Normal)", 0x00f0000, 0x00f0040, indexSamSho5Sprites_Mizuki },
-    { L"Mizuki A (Rage)", 0x00f0040, 0x00f0080, indexSamSho5Sprites_Mizuki },
-    { L"Mizuki A (SON)", 0x00f0240, 0x00f0280, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki A (Normal)", 0xf0000, 0xf0040, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki A (Rage)", 0xf0040, 0xf0080, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki A (SON)", 0xf0240, 0xf0280, indexSamSho5Sprites_Mizuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mizuki_PALETTES_B[] =
 {
-    { L"Mizuki B (Normal)", 0x00f0400, 0x00f0440, indexSamSho5Sprites_Mizuki },
-    { L"Mizuki B (Rage)", 0x00f0440, 0x00f0480, indexSamSho5Sprites_Mizuki },
-    { L"Mizuki B (SON)", 0x00f0640, 0x00f0680, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki B (Normal)", 0xf0400, 0xf0440, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki B (Rage)", 0xf0440, 0xf0480, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki B (SON)", 0xf0640, 0xf0680, indexSamSho5Sprites_Mizuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mizuki_PALETTES_C[] =
 {
-    { L"Mizuki C (Normal)", 0x00f0800, 0x00f0840, indexSamSho5Sprites_Mizuki },
-    { L"Mizuki C (Rage)", 0x00f0840, 0x00f0880, indexSamSho5Sprites_Mizuki },
-    { L"Mizuki C (SON)", 0x00f0a40, 0x00f0a80, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki C (Normal)", 0xf0800, 0xf0840, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki C (Rage)", 0xf0840, 0xf0880, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki C (SON)", 0xf0a40, 0xf0a80, indexSamSho5Sprites_Mizuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mizuki_PALETTES_D[] =
 {
-    { L"Mizuki D (Normal)", 0x00f0c00, 0x00f0c40, indexSamSho5Sprites_Mizuki },
-    { L"Mizuki D (Rage)", 0x00f0c40, 0x00f0c80, indexSamSho5Sprites_Mizuki },
-    { L"Mizuki D (SON)", 0x00f0e40, 0x00f0e80, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki D (Normal)", 0xf0c00, 0xf0c40, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki D (Rage)", 0xf0c40, 0xf0c80, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki D (SON)", 0xf0e40, 0xf0e80, indexSamSho5Sprites_Mizuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_A[] =
 {
-    { L"Nakoruru A (Normal)", 0x00d6000, 0x00d6040, indexSamSho5Sprites_Nakoruru, 0, &pairNext3 },
-    { L"Nakoruru A (Rage)", 0x00d6040, 0x00d6080, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
-    { L"Nakoruru A (SON)", 0x00d6240, 0x00d6280, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
-    { L"Mamahaha A", 0x00d6280, 0x00d62A0, indexSamSho5Sprites_Nakoruru, 1 },
+    { L"Nakoruru A (Normal)", 0xd6000, 0xd6040, indexSamSho5Sprites_Nakoruru, 0, &pairNext3 },
+    { L"Nakoruru A (Rage)", 0xd6040, 0xd6080, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
+    { L"Nakoruru A (SON)", 0xd6240, 0xd6280, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
+    { L"Mamahaha A", 0xd6280, 0xd62A0, indexSamSho5Sprites_Nakoruru, 1 },
+
+    { L"Nakoruru A (Burning)", 0xd60c0, 0xd6100, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru A (Shocked)", 0xd6100, 0xd6140, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru A (Frozen/Wet)", 0xd6140, 0xd6180, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru A (Ki)", 0xd6180, 0xd61c0, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru A (Annu/Rera Mutsube)", 0xd62e0, 0xd6300 },
+    { L"Nakoruru A (Kamui Rimse/Slash Effect)", 0xd6340, 0xd6360 },
+    { L"Nakoruru A (Issen Trail)", 0xd6200, 0xd6240, indexSamSho5Sprites_Nakoruru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_B[] =
 {
-    { L"Nakoruru B (Normal)", 0x00d6400, 0x00d6440, indexSamSho5Sprites_Nakoruru, 0, &pairNext3 },
-    { L"Nakoruru B (Rage)", 0x00d6440, 0x00d6480, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
-    { L"Nakoruru B (SON)", 0x00d6640, 0x00d6680, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
-    { L"Mamahaha B", 0x00d6680, 0x00d66A0, indexSamSho5Sprites_Nakoruru, 1 },
+    { L"Nakoruru B (Normal)", 0xd6400, 0xd6440, indexSamSho5Sprites_Nakoruru, 0, &pairNext3 },
+    { L"Nakoruru B (Rage)", 0xd6440, 0xd6480, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
+    { L"Nakoruru B (SON)", 0xd6640, 0xd6680, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
+    { L"Mamahaha B", 0xd6680, 0xd66A0, indexSamSho5Sprites_Nakoruru, 1 },
+
+    { L"Nakoruru B (Burning)", 0xd64c0, 0xd6500, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru B (Shocked)", 0xd6500, 0xd6540, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru B (Frozen/Wet)", 0xd6540, 0xd6580, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru B (Ki)", 0xd6580, 0xd65c0, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru B (Annu/Rera Mutsube)", 0xd66e0, 0xd6700 },
+    { L"Nakoruru B (Kamui Rimse/Slash Effect)", 0xd6740, 0xd6760 },
+    { L"Nakoruru B (Issen Trail)", 0xd6600, 0xd6640, indexSamSho5Sprites_Nakoruru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_C[] =
 {
-    { L"Nakoruru C (Normal)", 0x00d6800, 0x00d6840, indexSamSho5Sprites_Nakoruru, 0, &pairNext3  },
-    { L"Nakoruru C (Rage)", 0x00d6840, 0x00d6880, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
-    { L"Nakoruru C (SON)", 0x00d6a40, 0x00d6a80, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
-    { L"Mamahaha C", 0x00d6a80, 0x00d6aA0, indexSamSho5Sprites_Nakoruru, 1 },
+    { L"Nakoruru C (Normal)", 0xd6800, 0xd6840, indexSamSho5Sprites_Nakoruru, 0, &pairNext3  },
+    { L"Nakoruru C (Rage)", 0xd6840, 0xd6880, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
+    { L"Nakoruru C (SON)", 0xd6a40, 0xd6a80, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
+    { L"Mamahaha C", 0xd6a80, 0xd6aA0, indexSamSho5Sprites_Nakoruru, 1 },
+
+    { L"Nakoruru C (Burning)", 0xd68c0, 0xd6900, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru C (Shocked)", 0xd6900, 0xd6940, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru C (Frozen/Wet)", 0xd6940, 0xd6980, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru C (Ki)", 0xd6980, 0xd69c0, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru C (Annu/Rera Mutsube)", 0xd6ae0, 0xd6b00 },
+    { L"Nakoruru C (Issen Trail)", 0xd6a00, 0xd6a40 },
+    { L"Nakoruru C (Kamui Rimse/Slash Effect)", 0xd6b40, 0xd6b60, indexSamSho5Sprites_Nakoruru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_D[] =
 {
-    { L"Nakoruru D (Normal)", 0x00d6c00, 0x00d6c40, indexSamSho5Sprites_Nakoruru, 0, &pairNext3 },
-    { L"Nakoruru D (Rage)", 0x00d6c40, 0x00d6c80, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
-    { L"Nakoruru D (SON)", 0x00d6e40, 0x00d6e80, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
-    { L"Mamahaha D", 0x00d6e80, 0x00d6eA0, indexSamSho5Sprites_Nakoruru, 1 },
+    { L"Nakoruru D (Normal)", 0xd6c00, 0xd6c40, indexSamSho5Sprites_Nakoruru, 0, &pairNext3 },
+    { L"Nakoruru D (Rage)", 0xd6c40, 0xd6c80, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
+    { L"Nakoruru D (SON)", 0xd6e40, 0xd6e80, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
+    { L"Mamahaha D", 0xd6e80, 0xd6eA0, indexSamSho5Sprites_Nakoruru, 1 },
+
+    { L"Nakoruru D (Burning)", 0xd6cc0, 0xd6d00, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru D (Shocked)", 0xd6d00, 0xd6d40, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru D (Frozen/Wet)", 0xd6d40, 0xd6d80, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru D (Ki)", 0xd6d80, 0xd6dc0, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru D (Annu/Rera Mutsube)", 0xd6ee0, 0xd6f00 },
+    { L"Nakoruru D (Kamui Rimse/Slash Effect)", 0xd6f40, 0xd6f60 },
+    { L"Nakoruru D (Issen Trail)", 0xd6e00, 0xd6e40, indexSamSho5Sprites_Nakoruru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rasetsumaru_PALETTES_A[] =
 {
-    { L"Rasetsumaru A (Normal)", 0x00e7000, 0x00e7040, indexSamSho5Sprites_Rasetsumaru },
-    { L"Rasetsumaru A (Rage)", 0x00e7040, 0x00e7080, indexSamSho5Sprites_Rasetsumaru },
-    { L"Rasetsumaru A (SON)", 0x00e7240, 0x00e7280, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru A (Normal)", 0xe7000, 0xe7040, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru A (Rage)", 0xe7040, 0xe7080, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru A (SON)", 0xe7240, 0xe7280, indexSamSho5Sprites_Rasetsumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rasetsumaru_PALETTES_B[] =
 {
-    { L"Rasetsumaru B (Normal)", 0x00e7400, 0x00e7440, indexSamSho5Sprites_Rasetsumaru },
-    { L"Rasetsumaru B (Rage)", 0x00e7440, 0x00e7480, indexSamSho5Sprites_Rasetsumaru },
-    { L"Rasetsumaru B (SON)", 0x00e7640, 0x00e7680, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru B (Normal)", 0xe7400, 0xe7440, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru B (Rage)", 0xe7440, 0xe7480, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru B (SON)", 0xe7640, 0xe7680, indexSamSho5Sprites_Rasetsumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rasetsumaru_PALETTES_C[] =
 {
-    { L"Rasetsumaru C (Normal)", 0x00e7800, 0x00e7840, indexSamSho5Sprites_Rasetsumaru },
-    { L"Rasetsumaru C (Rage)", 0x00e7840, 0x00e7880, indexSamSho5Sprites_Rasetsumaru },
-    { L"Rasetsumaru C (SON)", 0x00e7a40, 0x00e7a80, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru C (Normal)", 0xe7800, 0xe7840, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru C (Rage)", 0xe7840, 0xe7880, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru C (SON)", 0xe7a40, 0xe7a80, indexSamSho5Sprites_Rasetsumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rasetsumaru_PALETTES_D[] =
 {
-    { L"Rasetsumaru D (Normal)", 0x00e7c00, 0x00e7c40, indexSamSho5Sprites_Rasetsumaru },
-    { L"Rasetsumaru D (Rage)", 0x00e7c40, 0x00e7c80, indexSamSho5Sprites_Rasetsumaru },
-    { L"Rasetsumaru D (SON)", 0x00e7e40, 0x00e7e80, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru D (Normal)", 0xe7c00, 0xe7c40, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru D (Rage)", 0xe7c40, 0xe7c80, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru D (SON)", 0xe7e40, 0xe7e80, indexSamSho5Sprites_Rasetsumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_A[] =
 {
-    { L"Rera A (Normal)", 0x00e8000, 0x00e8040, indexSamSho5Sprites_Rera, 0, &pairNext3 },
-    { L"Rera A (Rage)", 0x00e8040, 0x00e8080, indexSamSho5Sprites_Rera, 0, &pairNextNext },
-    { L"Rera A (SON)", 0x00e8240, 0x00e8280, indexSamSho5Sprites_Rera, 0, &pairNext },
-    { L"Shikuru A", 0x00e82A0, 0x00e82C0, indexSamSho5Sprites_Rera, 1 },
+    { L"Rera A (Normal)", 0xe8000, 0xe8040, indexSamSho5Sprites_Rera, 0, &pairNext3 },
+    { L"Rera A (Rage)", 0xe8040, 0xe8080, indexSamSho5Sprites_Rera, 0, &pairNextNext },
+    { L"Rera A (SON)", 0xe8240, 0xe8280, indexSamSho5Sprites_Rera, 0, &pairNext },
+    { L"Shikuru A", 0xe82A0, 0xe82C0, indexSamSho5Sprites_Rera, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_B[] =
 {
-    { L"Rera B (Normal)", 0x00e8400, 0x00e8440, indexSamSho5Sprites_Rera, 0, &pairNext3 },
-    { L"Rera B (Rage)", 0x00e8440, 0x00e8480, indexSamSho5Sprites_Rera, 0, &pairNextNext },
-    { L"Rera B (SON)", 0x00e8640, 0x00e8680, indexSamSho5Sprites_Rera, 0, &pairNext },
-    { L"Shikuru B", 0x00e86A0, 0x00e86C0, indexSamSho5Sprites_Rera, 1 },
+    { L"Rera B (Normal)", 0xe8400, 0xe8440, indexSamSho5Sprites_Rera, 0, &pairNext3 },
+    { L"Rera B (Rage)", 0xe8440, 0xe8480, indexSamSho5Sprites_Rera, 0, &pairNextNext },
+    { L"Rera B (SON)", 0xe8640, 0xe8680, indexSamSho5Sprites_Rera, 0, &pairNext },
+    { L"Shikuru B", 0xe86A0, 0xe86C0, indexSamSho5Sprites_Rera, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_C[] =
 {
-    { L"Rera C (Normal)", 0x00e8800, 0x00e8840, indexSamSho5Sprites_Rera, 0, &pairNext3 },
-    { L"Rera C (Rage)", 0x00e8840, 0x00e8880, indexSamSho5Sprites_Rera, 0, &pairNextNext },
-    { L"Rera C (SON)", 0x00e8a40, 0x00e8a80, indexSamSho5Sprites_Rera, 0, &pairNext },
-    { L"Shikuru C", 0x00e8aA0, 0x00e8aC0, indexSamSho5Sprites_Rera, 1 },
+    { L"Rera C (Normal)", 0xe8800, 0xe8840, indexSamSho5Sprites_Rera, 0, &pairNext3 },
+    { L"Rera C (Rage)", 0xe8840, 0xe8880, indexSamSho5Sprites_Rera, 0, &pairNextNext },
+    { L"Rera C (SON)", 0xe8a40, 0xe8a80, indexSamSho5Sprites_Rera, 0, &pairNext },
+    { L"Shikuru C", 0xe8aA0, 0xe8aC0, indexSamSho5Sprites_Rera, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_D[] =
 {
-    { L"Rera D (Normal)", 0x00e8c00, 0x00e8c40, indexSamSho5Sprites_Rera, 0, &pairNext3 },
-    { L"Rera D (Rage)", 0x00e8c40, 0x00e8c80, indexSamSho5Sprites_Rera, 0, &pairNextNext },
-    { L"Rera D (SON)", 0x00e8e40, 0x00e8e80, indexSamSho5Sprites_Rera, 0, &pairNext },
-    { L"Shikuru D", 0x00e8eA0, 0x00e8eC0, indexSamSho5Sprites_Rera, 1 },
+    { L"Rera D (Normal)", 0xe8c00, 0xe8c40, indexSamSho5Sprites_Rera, 0, &pairNext3 },
+    { L"Rera D (Rage)", 0xe8c40, 0xe8c80, indexSamSho5Sprites_Rera, 0, &pairNextNext },
+    { L"Rera D (SON)", 0xe8e40, 0xe8e80, indexSamSho5Sprites_Rera, 0, &pairNext },
+    { L"Shikuru D", 0xe8eA0, 0xe8eC0, indexSamSho5Sprites_Rera, 1 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_A[] =
 {
-    { L"Rimururu A (Normal)", 0x00d7000, 0x00d7040, indexSamSho5Sprites_Rimururu },
-    { L"Rimururu A (Rage)", 0x00d7040, 0x00d7080, indexSamSho5Sprites_Rimururu },
-    { L"Rimururu A (SON)", 0x00d7240, 0x00d7280, indexSamSho5Sprites_Rimururu },
-    { L"Konru A", 0x00d72C0, 0x00d72E0, indexSamSho5Sprites_Rimururu, 0x01 },
+    { L"Rimururu A (Normal)", 0xd7000, 0xd7040, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu A (Rage)", 0xd7040, 0xd7080, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu A (SON)", 0xd7240, 0xd7280, indexSamSho5Sprites_Rimururu },
+    { L"Konru A", 0xd72C0, 0xd72E0, indexSamSho5Sprites_Rimururu, 0x01 },
+
+    { L"Rimururu A (Burning)", 0xd70c0, 0xd7100, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu A (Shocked)", 0xd7100, 0xd7140, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu A (Frozen/Wet)", 0xd7140, 0xd7180, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu A (Ki)", 0xd7180, 0xd71c0, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu A (Issen Trail)", 0xd7200, 0xd7240, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu A (Slash Effects)", 0xd7350, 0xd7360 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_B[] =
 {
-    { L"Rimururu B (Normal)", 0x00d7400, 0x00d7440, indexSamSho5Sprites_Rimururu },
-    { L"Rimururu B (Rage)", 0x00d7440, 0x00d7480, indexSamSho5Sprites_Rimururu },
-    { L"Rimururu B (SON)", 0x00d7640, 0x00d7680, indexSamSho5Sprites_Rimururu },
-    { L"Konru B", 0x00d76C0, 0x00d76E0, indexSamSho5Sprites_Rimururu, 0x01 },
+    { L"Rimururu B (Normal)", 0xd7400, 0xd7440, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu B (Rage)", 0xd7440, 0xd7480, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu B (SON)", 0xd7640, 0xd7680, indexSamSho5Sprites_Rimururu },
+    { L"Konru B", 0xd76C0, 0xd76E0, indexSamSho5Sprites_Rimururu, 0x01 },
+
+    { L"Rimururu B (Burning)", 0xd74c0, 0xd7500, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu B (Shocked)", 0xd7500, 0xd7540, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu B (Frozen/Wet)", 0xd7540, 0xd7580, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu B (Ki)", 0xd7580, 0xd75c0, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu B (Issen Trail)", 0xd7600, 0xd7640, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu B (Slash Effects)", 0xd7750, 0xd7760 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_C[] =
 {
-    { L"Rimururu C (Normal)", 0x00d7800, 0x00d7840, indexSamSho5Sprites_Rimururu },
-    { L"Rimururu C (Rage)", 0x00d7840, 0x00d7880, indexSamSho5Sprites_Rimururu },
-    { L"Rimururu C (SON)", 0x00d7a40, 0x00d7a80, indexSamSho5Sprites_Rimururu },
-    { L"Konru C", 0x00d7aC0, 0x00d7aE0, indexSamSho5Sprites_Rimururu, 0x01 },
+    { L"Rimururu C (Normal)", 0xd7800, 0xd7840, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu C (Rage)", 0xd7840, 0xd7880, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu C (SON)", 0xd7a40, 0xd7a80, indexSamSho5Sprites_Rimururu },
+    { L"Konru C", 0xd7aC0, 0xd7aE0, indexSamSho5Sprites_Rimururu, 0x01 },
+
+    { L"Rimururu C (Burning)", 0xd78c0, 0xd7900, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu C (Shocked)", 0xd7900, 0xd7940, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu C (Frozen/Wet)", 0xd7940, 0xd7980, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu C (Ki)", 0xd7980, 0xd79c0, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu C (Issen Trail)", 0xd7a00, 0xd7a40, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu C (Slash Effects)", 0xd7b50, 0xd7b60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_D[] =
 {
-    { L"Rimururu D (Normal)", 0x00d7c00, 0x00d7c40, indexSamSho5Sprites_Rimururu },
-    { L"Rimururu D (Rage)", 0x00d7c40, 0x00d7c80, indexSamSho5Sprites_Rimururu },
-    { L"Rimururu D (SON)", 0x00d7e40, 0x00d7e80, indexSamSho5Sprites_Rimururu },
-    { L"Konru D", 0x00d7eC0, 0x00d7eE0, indexSamSho5Sprites_Rimururu, 0x01 },
+    { L"Rimururu D (Normal)", 0xd7c00, 0xd7c40, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu D (Rage)", 0xd7c40, 0xd7c80, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu D (SON)", 0xd7e40, 0xd7e80, indexSamSho5Sprites_Rimururu },
+    { L"Konru D", 0xd7eC0, 0xd7eE0, indexSamSho5Sprites_Rimururu, 0x01 },
+
+    { L"Rimururu D (Burning)", 0xd7cc0, 0xd7d00, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu D (Shocked)", 0xd7d00, 0xd7d40, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu D (Frozen/Wet)", 0xd7d40, 0xd7d80, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu D (Ki)", 0xd7d80, 0xd7dc0, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu D (Issen Trail)", 0xd7e00, 0xd7e40, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu D (Slash Effects)", 0xd7f50, 0xd7f60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_A[] =
 {
-    { L"Shizumaru A (Normal)", 0x00de000, 0x00de040, indexSamSho5Sprites_Shizumaru },
-    { L"Shizumaru A (Rage)", 0x00de040, 0x00de080, indexSamSho5Sprites_Shizumaru },
-    { L"Shizumaru A (SON)", 0x00de240, 0x00de280, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru A (Normal)", 0xde000, 0xde040, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru A (Rage)", 0xde040, 0xde080, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru A (SON)", 0xde240, 0xde280, indexSamSho5Sprites_Shizumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_B[] =
 {
-    { L"Shizumaru B (Normal)", 0x00de400, 0x00de440, indexSamSho5Sprites_Shizumaru },
-    { L"Shizumaru B (Rage)", 0x00de440, 0x00de480, indexSamSho5Sprites_Shizumaru },
-    { L"Shizumaru B (SON)", 0x00de640, 0x00de680, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru B (Normal)", 0xde400, 0xde440, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru B (Rage)", 0xde440, 0xde480, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru B (SON)", 0xde640, 0xde680, indexSamSho5Sprites_Shizumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_C[] =
 {
-    { L"Shizumaru C (Normal)", 0x00de800, 0x00de840, indexSamSho5Sprites_Shizumaru },
-    { L"Shizumaru C (Rage)", 0x00de840, 0x00de880, indexSamSho5Sprites_Shizumaru },
-    { L"Shizumaru C (SON)", 0x00dea40, 0x00dea80, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru C (Normal)", 0xde800, 0xde840, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru C (Rage)", 0xde840, 0xde880, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru C (SON)", 0xdea40, 0xdea80, indexSamSho5Sprites_Shizumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_D[] =
 {
-    { L"Shizumaru D (Normal)", 0x00dec00, 0x00dec40, indexSamSho5Sprites_Shizumaru },
-    { L"Shizumaru D (Rage)", 0x00dec40, 0x00dec80, indexSamSho5Sprites_Shizumaru },
-    { L"Shizumaru D (SON)", 0x00dee40, 0x00dee80, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru D (Normal)", 0xdec00, 0xdec40, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru D (Rage)", 0xdec40, 0xdec80, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru D (SON)", 0xdee40, 0xdee80, indexSamSho5Sprites_Shizumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Sogetsu_PALETTES_A[] =
 {
-    { L"Sogetsu A (Normal)", 0x00e6000, 0x00e6040, indexSamSho5Sprites_Sogetsu },
-    { L"Sogetsu A (Rage)", 0x00e6040, 0x00e6080, indexSamSho5Sprites_Sogetsu },
-    { L"Sogetsu A (SON)", 0x00e6240, 0x00e6280, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu A (Normal)", 0xe6000, 0xe6040, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu A (Rage)", 0xe6040, 0xe6080, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu A (SON)", 0xe6240, 0xe6280, indexSamSho5Sprites_Sogetsu },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Sogetsu_PALETTES_B[] =
 {
-    { L"Sogetsu B (Normal)", 0x00e6400, 0x00e6440, indexSamSho5Sprites_Sogetsu },
-    { L"Sogetsu B (Rage)", 0x00e6440, 0x00e6480, indexSamSho5Sprites_Sogetsu },
-    { L"Sogetsu B (SON)", 0x00e6640, 0x00e6680, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu B (Normal)", 0xe6400, 0xe6440, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu B (Rage)", 0xe6440, 0xe6480, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu B (SON)", 0xe6640, 0xe6680, indexSamSho5Sprites_Sogetsu },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Sogetsu_PALETTES_C[] =
 {
-    { L"Sogetsu C (Normal)", 0x00e6800, 0x00e6840, indexSamSho5Sprites_Sogetsu },
-    { L"Sogetsu C (Rage)", 0x00e6840, 0x00e6880, indexSamSho5Sprites_Sogetsu },
-    { L"Sogetsu C (SON)", 0x00e6a40, 0x00e6a80, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu C (Normal)", 0xe6800, 0xe6840, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu C (Rage)", 0xe6840, 0xe6880, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu C (SON)", 0xe6a40, 0xe6a80, indexSamSho5Sprites_Sogetsu },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Sogetsu_PALETTES_D[] =
 {
-    { L"Sogetsu D (Normal)", 0x00e6c00, 0x00e6c40, indexSamSho5Sprites_Sogetsu },
-    { L"Sogetsu D (Rage)", 0x00e6c40, 0x00e6c80, indexSamSho5Sprites_Sogetsu },
-    { L"Sogetsu D (SON)", 0x00e6e40, 0x00e6e80, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu D (Normal)", 0xe6c00, 0xe6c40, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu D (Rage)", 0xe6c40, 0xe6c80, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu D (SON)", 0xe6e40, 0xe6e80, indexSamSho5Sprites_Sogetsu },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_A[] =
 {
-    { L"Suija A (Normal)", 0x00ea000, 0x00ea040, indexSamSho5Sprites_Suija },
-    { L"Suija A (Rage)", 0x00ea040, 0x00ea080, indexSamSho5Sprites_Suija },
-    { L"Suija A (SON)", 0x00ea240, 0x00ea280, indexSamSho5Sprites_Suija },
+    { L"Suija A (Normal)", 0xea000, 0xea040, indexSamSho5Sprites_Suija },
+    { L"Suija A (Rage)", 0xea040, 0xea080, indexSamSho5Sprites_Suija },
+    { L"Suija A (SON)", 0xea240, 0xea280, indexSamSho5Sprites_Suija },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_B[] =
 {
-    { L"Suija B (Normal)", 0x00ea400, 0x00ea440, indexSamSho5Sprites_Suija },
-    { L"Suija B (Rage)", 0x00ea440, 0x00ea480, indexSamSho5Sprites_Suija },
-    { L"Suija B (SON)", 0x00ea640, 0x00ea680, indexSamSho5Sprites_Suija },
+    { L"Suija B (Normal)", 0xea400, 0xea440, indexSamSho5Sprites_Suija },
+    { L"Suija B (Rage)", 0xea440, 0xea480, indexSamSho5Sprites_Suija },
+    { L"Suija B (SON)", 0xea640, 0xea680, indexSamSho5Sprites_Suija },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_C[] =
 {
-    { L"Suija C (Normal)", 0x00ea800, 0x00ea840, indexSamSho5Sprites_Suija },
-    { L"Suija C (Rage)", 0x00ea840, 0x00ea880, indexSamSho5Sprites_Suija },
-    { L"Suija C (SON)", 0x00eaa40, 0x00eaa80, indexSamSho5Sprites_Suija },
+    { L"Suija C (Normal)", 0xea800, 0xea840, indexSamSho5Sprites_Suija },
+    { L"Suija C (Rage)", 0xea840, 0xea880, indexSamSho5Sprites_Suija },
+    { L"Suija C (SON)", 0xeaa40, 0xeaa80, indexSamSho5Sprites_Suija },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_D[] =
 {
-    { L"Suija D (Normal)", 0x00eac00, 0x00eac40, indexSamSho5Sprites_Suija },
-    { L"Suija D (Rage)", 0x00eac40, 0x00eac80, indexSamSho5Sprites_Suija },
-    { L"Suija D (SON)", 0x00eae40, 0x00eae80, indexSamSho5Sprites_Suija },
+    { L"Suija D (Normal)", 0xeac00, 0xeac40, indexSamSho5Sprites_Suija },
+    { L"Suija D (Rage)", 0xeac40, 0xeac80, indexSamSho5Sprites_Suija },
+    { L"Suija D (SON)", 0xeae40, 0xeae80, indexSamSho5Sprites_Suija },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_TamTam_PALETTES_A[] =
 {
-    { L"Tam Tam A (Normal)", 0x00e4000, 0x00e4040, indexSamSho5Sprites_TamTam },
-    { L"Tam Tam A (Rage)", 0x00e4040, 0x00e4080, indexSamSho5Sprites_TamTam },
-    { L"Tam Tam A (SON)", 0x00e4240, 0x00e4280, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam A (Normal)", 0xe4000, 0xe4040, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam A (Rage)", 0xe4040, 0xe4080, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam A (SON)", 0xe4240, 0xe4280, indexSamSho5Sprites_TamTam },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_TamTam_PALETTES_B[] =
 {
-    { L"Tam Tam B (Normal)", 0x00e4400, 0x00e4440, indexSamSho5Sprites_TamTam },
-    { L"Tam Tam B (Rage)", 0x00e4440, 0x00e4480, indexSamSho5Sprites_TamTam },
-    { L"Tam Tam B (SON)", 0x00e4640, 0x00e4680, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam B (Normal)", 0xe4400, 0xe4440, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam B (Rage)", 0xe4440, 0xe4480, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam B (SON)", 0xe4640, 0xe4680, indexSamSho5Sprites_TamTam },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_TamTam_PALETTES_C[] =
 {
-    { L"Tam Tam C (Normal)", 0x00e4800, 0x00e4840, indexSamSho5Sprites_TamTam },
-    { L"Tam Tam C (Rage)", 0x00e4840, 0x00e4880, indexSamSho5Sprites_TamTam },
-    { L"Tam Tam C (SON)", 0x00e4a40, 0x00e4a80, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam C (Normal)", 0xe4800, 0xe4840, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam C (Rage)", 0xe4840, 0xe4880, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam C (SON)", 0xe4a40, 0xe4a80, indexSamSho5Sprites_TamTam },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_TamTam_PALETTES_D[] =
 {
-    { L"Tam Tam D (Normal)", 0x00e4c00, 0x00e4c40, indexSamSho5Sprites_TamTam },
-    { L"Tam Tam D (Rage)", 0x00e4c40, 0x00e4c80, indexSamSho5Sprites_TamTam },
-    { L"Tam Tam D (SON)", 0x00e4e40, 0x00e4e80, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam D (Normal)", 0xe4c00, 0xe4c40, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam D (Rage)", 0xe4c40, 0xe4c80, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam D (SON)", 0xe4e40, 0xe4e80, indexSamSho5Sprites_TamTam },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_A[] =
 {
-    { L"Ukyo A (Normal)", 0x00db000, 0x00db040, indexSamSho5Sprites_Ukyo },
-    { L"Ukyo A (Rage)", 0x00db040, 0x00db080, indexSamSho5Sprites_Ukyo },
-    { L"Ukyo A (SON)", 0x00db240, 0x00db280, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo A (Normal)", 0xdb000, 0xdb040, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo A (Rage)", 0xdb040, 0xdb080, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo A (SON)", 0xdb240, 0xdb280, indexSamSho5Sprites_Ukyo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_B[] =
 {
-    { L"Ukyo B (Normal)", 0x00db400, 0x00db440, indexSamSho5Sprites_Ukyo },
-    { L"Ukyo B (Rage)", 0x00db440, 0x00db480, indexSamSho5Sprites_Ukyo },
-    { L"Ukyo B (SON)", 0x00db640, 0x00db680, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo B (Normal)", 0xdb400, 0xdb440, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo B (Rage)", 0xdb440, 0xdb480, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo B (SON)", 0xdb640, 0xdb680, indexSamSho5Sprites_Ukyo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_C[] =
 {
-    { L"Ukyo C (Normal)", 0x00db800, 0x00db840, indexSamSho5Sprites_Ukyo },
-    { L"Ukyo C (Rage)", 0x00db840, 0x00db880, indexSamSho5Sprites_Ukyo },
-    { L"Ukyo C (SON)", 0x00dba40, 0x00dba80, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo C (Normal)", 0xdb800, 0xdb840, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo C (Rage)", 0xdb840, 0xdb880, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo C (SON)", 0xdba40, 0xdba80, indexSamSho5Sprites_Ukyo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_D[] =
 {
-    { L"Ukyo D (Normal)", 0x00dbc00, 0x00dbc40, indexSamSho5Sprites_Ukyo },
-    { L"Ukyo D (Rage)", 0x00dbc40, 0x00dbc80, indexSamSho5Sprites_Ukyo },
-    { L"Ukyo D (SON)", 0x00dbe40, 0x00dbe80, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo D (Normal)", 0xdbc00, 0xdbc40, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo D (Rage)", 0xdbc40, 0xdbc80, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo D (SON)", 0xdbe40, 0xdbe80, indexSamSho5Sprites_Ukyo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_A[] =
 {
-    { L"Yoshitora A (Normal)", 0x00eb000, 0x00eb040, indexSamSho5Sprites_Yoshitora },
-    { L"Yoshitora A (Rage)", 0x00eb040, 0x00eb080, indexSamSho5Sprites_Yoshitora },
-    { L"Yoshitora A (SON)", 0x00eb240, 0x00eb280, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora A (Normal)", 0xeb000, 0xeb040, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora A (Rage)", 0xeb040, 0xeb080, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora A (SON)", 0xeb240, 0xeb280, indexSamSho5Sprites_Yoshitora },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_B[] =
 {
-    { L"Yoshitora B (Normal)", 0x00eb400, 0x00eb440, indexSamSho5Sprites_Yoshitora },
-    { L"Yoshitora B (Rage)", 0x00eb440, 0x00eb480, indexSamSho5Sprites_Yoshitora },
-    { L"Yoshitora B (SON)", 0x00eb640, 0x00eb680, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora B (Normal)", 0xeb400, 0xeb440, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora B (Rage)", 0xeb440, 0xeb480, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora B (SON)", 0xeb640, 0xeb680, indexSamSho5Sprites_Yoshitora },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_C[] =
 {
-    { L"Yoshitora C (Normal)", 0x00eb800, 0x00eb840, indexSamSho5Sprites_Yoshitora },
-    { L"Yoshitora C (Rage)", 0x00eb840, 0x00eb880, indexSamSho5Sprites_Yoshitora },
-    { L"Yoshitora C (SON)", 0x00eba40, 0x00eba80, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora C (Normal)", 0xeb800, 0xeb840, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora C (Rage)", 0xeb840, 0xeb880, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora C (SON)", 0xeba40, 0xeba80, indexSamSho5Sprites_Yoshitora },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_D[] =
 {
-    { L"Yoshitora D (Normal)", 0x00ebc00, 0x00ebc40, indexSamSho5Sprites_Yoshitora },
-    { L"Yoshitora D (Rage)", 0x00ebc40, 0x00ebc80, indexSamSho5Sprites_Yoshitora },
-    { L"Yoshitora D (SON)", 0x00ebe40, 0x00ebe80, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora D (Normal)", 0xebc00, 0xebc40, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora D (Rage)", 0xebc40, 0xebc80, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora D (SON)", 0xebe40, 0xebe80, indexSamSho5Sprites_Yoshitora },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_A[] =
 {
-    { L"Yunfei A (Normal)", 0x00ec000, 0x00ec040, indexSamSho5Sprites_Yunfei },
-    { L"Yunfei A (Rage)", 0x00ec040, 0x00ec080, indexSamSho5Sprites_Yunfei },
-    { L"Yunfei A (SON)", 0x00ec240, 0x00ec280, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei A (Normal)", 0xec000, 0xec040, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei A (Rage)", 0xec040, 0xec080, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei A (SON)", 0xec240, 0xec280, indexSamSho5Sprites_Yunfei },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_B[] =
 {
-    { L"Yunfei B (Normal)", 0x00ec400, 0x00ec440, indexSamSho5Sprites_Yunfei },
-    { L"Yunfei B (Rage)", 0x00ec440, 0x00ec480, indexSamSho5Sprites_Yunfei },
-    { L"Yunfei B (SON)", 0x00ec640, 0x00ec680, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei B (Normal)", 0xec400, 0xec440, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei B (Rage)", 0xec440, 0xec480, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei B (SON)", 0xec640, 0xec680, indexSamSho5Sprites_Yunfei },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_C[] =
 {
-    { L"Yunfei C (Normal)", 0x00ec800, 0x00ec840, indexSamSho5Sprites_Yunfei },
-    { L"Yunfei C (Rage)", 0x00ec840, 0x00ec880, indexSamSho5Sprites_Yunfei },
-    { L"Yunfei C (SON)", 0x00eca40, 0x00eca80, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei C (Normal)", 0xec800, 0xec840, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei C (Rage)", 0xec840, 0xec880, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei C (SON)", 0xeca40, 0xeca80, indexSamSho5Sprites_Yunfei },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_D[] =
 {
-    { L"Yunfei D (Normal)", 0x00ecc00, 0x00ecc40, indexSamSho5Sprites_Yunfei },
-    { L"Yunfei D (Rage)", 0x00ecc40, 0x00ecc80, indexSamSho5Sprites_Yunfei },
-    { L"Yunfei D (SON)", 0x00ece40, 0x00ece80, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei D (Normal)", 0xecc00, 0xecc40, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei D (Rage)", 0xecc40, 0xecc80, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei D (SON)", 0xece40, 0xece80, indexSamSho5Sprites_Yunfei },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Zankuro_PALETTES_A[] =
 {
-    { L"Zankuro A (Normal)", 0x00e2000, 0x00e2040, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro A (Rage)", 0x00e2040, 0x00e2080, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro A (SON)", 0x00e2240, 0x00e2280, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro A (Normal)", 0xe2000, 0xe2040, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro A (Rage)", 0xe2040, 0xe2080, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro A (SON)", 0xe2240, 0xe2280, indexSamSho5Sprites_Zankuro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Zankuro_PALETTES_B[] =
 {
-    { L"Zankuro B (Normal)", 0x00e2400, 0x00e2440, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro B (Rage)", 0x00e2440, 0x00e2480, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro B (SON)", 0x00e2640, 0x00e2680, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro B (Normal)", 0xe2400, 0xe2440, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro B (Rage)", 0xe2440, 0xe2480, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro B (SON)", 0xe2640, 0xe2680, indexSamSho5Sprites_Zankuro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Zankuro_PALETTES_C[] =
 {
-    { L"Zankuro C (Normal)", 0x00e2800, 0x00e2840, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro C (Rage)", 0x00e2840, 0x00e2880, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro C (SON)", 0x00e2a40, 0x00e2a80, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro C (Normal)", 0xe2800, 0xe2840, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro C (Rage)", 0xe2840, 0xe2880, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro C (SON)", 0xe2a40, 0xe2a80, indexSamSho5Sprites_Zankuro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Zankuro_PALETTES_D[] =
 {
-    { L"Zankuro D (Normal)", 0x00e2c00, 0x00e2c40, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro D (Rage)", 0x00e2c40, 0x00e2c80, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro D (SON)", 0x00e2e40, 0x00e2e80, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro D (Normal)", 0xe2c00, 0xe2c40, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro D (Rage)", 0xe2c40, 0xe2c80, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro D (SON)", 0xe2e40, 0xe2e80, indexSamSho5Sprites_Zankuro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_PORTRAITS[] =
 {
-    { L"Amakusa A (Portrait)", 0x00e03a0, 0x00e03e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa B (Portrait)", 0x00e07a0, 0x00e07e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa C (Portrait)", 0x00e0ba0, 0x00e0be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
-    { L"Amakusa D (Portrait)", 0x00e0fa0, 0x00e0fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Portrait)", 0xe03a0, 0xe03e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa B (Portrait)", 0xe07a0, 0xe07e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa C (Portrait)", 0xe0ba0, 0xe0be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa D (Portrait)", 0xe0fa0, 0xe0fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Amakusa },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_PORTRAITS[] =
 {
-    { L"Basara A (Portrait)", 0x00dd3a0, 0x00dd3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
-    { L"Basara B (Portrait)", 0x00dd7a0, 0x00dd7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
-    { L"Basara C (Portrait)", 0x00ddba0, 0x00ddbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
-    { L"Basara D (Portrait)", 0x00ddfa0, 0x00ddfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
+    { L"Basara A (Portrait)", 0xdd3a0, 0xdd3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
+    { L"Basara B (Portrait)", 0xdd7a0, 0xdd7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
+    { L"Basara C (Portrait)", 0xddba0, 0xddbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
+    { L"Basara D (Portrait)", 0xddfa0, 0xddfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Basara },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_PORTRAITS[] =
 {
-    { L"Charlotte A (Portrait)", 0x00e33a0, 0x00e33e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte B (Portrait)", 0x00e37a0, 0x00e37e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte C (Portrait)", 0x00e3ba0, 0x00e3be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
-    { L"Charlotte D (Portrait)", 0x00e3fa0, 0x00e3fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte A (Portrait)", 0xe33a0, 0xe33e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte B (Portrait)", 0xe37a0, 0xe37e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte C (Portrait)", 0xe3ba0, 0xe3be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
+    { L"Charlotte D (Portrait)", 0xe3fa0, 0xe3fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Charlotte },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Enja_PALETTES_PORTRAITS[] =
 {
-    { L"Enja A (Portrait)", 0x00e93a0, 0x00e93e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
-    { L"Enja B (Portrait)", 0x00e97a0, 0x00e97e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
-    { L"Enja C (Portrait)", 0x00e9ba0, 0x00e9be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
-    { L"Enja D (Portrait)", 0x00e9fa0, 0x00e9fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
+    { L"Enja A (Portrait)", 0xe93a0, 0xe93e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
+    { L"Enja B (Portrait)", 0xe97a0, 0xe97e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
+    { L"Enja C (Portrait)", 0xe9ba0, 0xe9be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
+    { L"Enja D (Portrait)", 0xe9fa0, 0xe9fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Enja },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_PORTRAITS[] =
 {
-    { L"Gaira A (Portrait)", 0x00df3a0, 0x00df3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
-    { L"Gaira B (Portrait)", 0x00df7a0, 0x00df7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
-    { L"Gaira C (Portrait)", 0x00dfba0, 0x00dfbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
-    { L"Gaira D (Portrait)", 0x00dffa0, 0x00dffe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
+    { L"Gaira A (Portrait)", 0xdf3a0, 0xdf3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
+    { L"Gaira B (Portrait)", 0xdf7a0, 0xdf7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
+    { L"Gaira C (Portrait)", 0xdfba0, 0xdfbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
+    { L"Gaira D (Portrait)", 0xdffa0, 0xdffe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaira },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_PORTRAITS[] =
 {
-    { L"Galford A (Portrait)", 0x00d93a0, 0x00d93e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
-    { L"Galford B (Portrait)", 0x00d97a0, 0x00d97e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
-    { L"Galford C (Portrait)", 0x00d9ba0, 0x00d9be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
-    { L"Galford D (Portrait)", 0x00d9fa0, 0x00d9fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
+    { L"Galford A (Portrait)", 0xd93a0, 0xd93e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
+    { L"Galford B (Portrait)", 0xd97a0, 0xd97e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
+    { L"Galford C (Portrait)", 0xd9ba0, 0xd9be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
+    { L"Galford D (Portrait)", 0xd9fa0, 0xd9fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Galford },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaoh_PALETTES_PORTRAITS[] =
 {
-    { L"Gaoh A (Portrait)", 0x00ef3a0, 0x00ef3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
-    { L"Gaoh B (Portrait)", 0x00ef7a0, 0x00ef7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
-    { L"Gaoh C (Portrait)", 0x00efba0, 0x00efbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
-    { L"Gaoh D (Portrait)", 0x00effa0, 0x00effe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh A (Portrait)", 0xef3a0, 0xef3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh B (Portrait)", 0xef7a0, 0xef7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh C (Portrait)", 0xefba0, 0xefbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
+    { L"Gaoh D (Portrait)", 0xeffa0, 0xeffe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Gaoh },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_PORTRAITS[] =
 {
-    { L"Genjuro A (Portrait)", 0x00dc3a0, 0x00dc3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
-    { L"Genjuro B (Portrait)", 0x00dc7a0, 0x00dc7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
-    { L"Genjuro C (Portrait)", 0x00dcba0, 0x00dcbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
-    { L"Genjuro D (Portrait)", 0x00dcfa0, 0x00dcfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro A (Portrait)", 0xdc3a0, 0xdc3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro B (Portrait)", 0xdc7a0, 0xdc7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro C (Portrait)", 0xdcba0, 0xdcbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro D (Portrait)", 0xdcfa0, 0xdcfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Genjuro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Hanzo_PALETTES_PORTRAITS[] =
 {
-    { L"Hanzo A (Portrait)", 0x00d83a0, 0x00d83e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
-    { L"Hanzo B (Portrait)", 0x00d87a0, 0x00d87e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
-    { L"Hanzo C (Portrait)", 0x00d8ba0, 0x00d8be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
-    { L"Hanzo D (Portrait)", 0x00d8fa0, 0x00d8fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo A (Portrait)", 0xd83a0, 0xd83e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo B (Portrait)", 0xd87a0, 0xd87e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo C (Portrait)", 0xd8ba0, 0xd8be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
+    { L"Hanzo D (Portrait)", 0xd8fa0, 0xd8fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Hanzo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Haohmaru_PALETTES_PORTRAITS[] =
 {
-    { L"Haohmaru A (Portrait)", 0x00d53a0, 0x00d53e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru B (Portrait)", 0x00d57a0, 0x00d57e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru C (Portrait)", 0x00d5ba0, 0x00d5be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
-    { L"Haohmaru D (Portrait)", 0x00d5fa0, 0x00d5fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru A (Portrait)", 0xd53a0, 0xd53e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru B (Portrait)", 0xd57a0, 0xd57e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru C (Portrait)", 0xd5ba0, 0xd5be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
+    { L"Haohmaru D (Portrait)", 0xd5fa0, 0xd5fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Haohmaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Jubei_PALETTES_PORTRAITS[] =
 {
-    { L"Jubei A (Portrait)", 0x00e13a0, 0x00e13e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
-    { L"Jubei B (Portrait)", 0x00e17a0, 0x00e17e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
-    { L"Jubei C (Portrait)", 0x00e1ba0, 0x00e1be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
-    { L"Jubei D (Portrait)", 0x00e1fa0, 0x00e1fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
+    { L"Jubei A (Portrait)", 0xe13a0, 0xe13e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
+    { L"Jubei B (Portrait)", 0xe17a0, 0xe17e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
+    { L"Jubei C (Portrait)", 0xe1ba0, 0xe1be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
+    { L"Jubei D (Portrait)", 0xe1fa0, 0xe1fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Jubei },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kazuki_PALETTES_PORTRAITS[] =
 {
-    { L"Kazuki A (Portrait)", 0x00e53a0, 0x00e53e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
-    { L"Kazuki B (Portrait)", 0x00e57a0, 0x00e57e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
-    { L"Kazuki C (Portrait)", 0x00e5ba0, 0x00e5be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
-    { L"Kazuki D (Portrait)", 0x00e5fa0, 0x00e5fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki A (Portrait)", 0xe53a0, 0xe53e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki B (Portrait)", 0xe57a0, 0xe57e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki C (Portrait)", 0xe5ba0, 0xe5be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
+    { L"Kazuki D (Portrait)", 0xe5fa0, 0xe5fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kazuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kusaregedo_PALETTES_PORTRAITS[] =
 {
-    { L"Kusaregedo A (Portrait)", 0x00ee3a0, 0x00ee3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
-    { L"Kusaregedo B (Portrait)", 0x00ee7a0, 0x00ee7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
-    { L"Kusaregedo C (Portrait)", 0x00eeba0, 0x00eebe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
-    { L"Kusaregedo D (Portrait)", 0x00eefa0, 0x00eefe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo A (Portrait)", 0xee3a0, 0xee3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo B (Portrait)", 0xee7a0, 0xee7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo C (Portrait)", 0xeeba0, 0xeebe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
+    { L"Kusaregedo D (Portrait)", 0xeefa0, 0xeefe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kusaregedo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_PORTRAITS[] =
 {
-    { L"Kyoshiro A (Portrait)", 0x00da3a0, 0x00da3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
-    { L"Kyoshiro B (Portrait)", 0x00da7a0, 0x00da7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
-    { L"Kyoshiro C (Portrait)", 0x00daba0, 0x00dabe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
-    { L"Kyoshiro D (Portrait)", 0x00dafa0, 0x00dafe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro A (Portrait)", 0xda3a0, 0xda3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro B (Portrait)", 0xda7a0, 0xda7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro C (Portrait)", 0xdaba0, 0xdabe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro D (Portrait)", 0xdafa0, 0xdafe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Kyoshiro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_PORTRAITS[] =
 {
-    { L"Mina A (Portrait)", 0x00ed3a0, 0x00ed3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
-    { L"Mina B (Portrait)", 0x00ed7a0, 0x00ed7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
-    { L"Mina C (Portrait)", 0x00edba0, 0x00edbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
-    { L"Mina D (Portrait)", 0x00edfa0, 0x00edfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
+    { L"Mina A (Portrait)", 0xed3a0, 0xed3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
+    { L"Mina B (Portrait)", 0xed7a0, 0xed7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
+    { L"Mina C (Portrait)", 0xedba0, 0xedbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
+    { L"Mina D (Portrait)", 0xedfa0, 0xedfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mina },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mizuki_PALETTES_PORTRAITS[] =
 {
-    { L"Mizuki A (Portrait)", 0x00f03a0, 0x00f03e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
-    { L"Mizuki B (Portrait)", 0x00f07a0, 0x00f07e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
-    { L"Mizuki C (Portrait)", 0x00f0ba0, 0x00f0be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
-    { L"Mizuki D (Portrait)", 0x00f0fa0, 0x00f0fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki A (Portrait)", 0xf03a0, 0xf03e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki B (Portrait)", 0xf07a0, 0xf07e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki C (Portrait)", 0xf0ba0, 0xf0be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
+    { L"Mizuki D (Portrait)", 0xf0fa0, 0xf0fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Mizuki },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_PORTRAITS[] =
 {
-    { L"Nakoruru A (Portrait)", 0x00d63a0, 0x00d63e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
-    { L"Nakoruru B (Portrait)", 0x00d67a0, 0x00d67e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
-    { L"Nakoruru C (Portrait)", 0x00d6ba0, 0x00d6be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
-    { L"Nakoruru D (Portrait)", 0x00d6fa0, 0x00d6fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru A (Portrait)", 0xd63a0, 0xd63e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru B (Portrait)", 0xd67a0, 0xd67e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru C (Portrait)", 0xd6ba0, 0xd6be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
+    { L"Nakoruru D (Portrait)", 0xd6fa0, 0xd6fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Nakoruru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rasetsumaru_PALETTES_PORTRAITS[] =
 {
-    { L"Rasetsumaru A (Portrait)", 0x00e73a0, 0x00e73e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
-    { L"Rasetsumaru B (Portrait)", 0x00e77a0, 0x00e77e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
-    { L"Rasetsumaru C (Portrait)", 0x00e7ba0, 0x00e7be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
-    { L"Rasetsumaru D (Portrait)", 0x00e7fa0, 0x00e7fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru A (Portrait)", 0xe73a0, 0xe73e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru B (Portrait)", 0xe77a0, 0xe77e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru C (Portrait)", 0xe7ba0, 0xe7be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
+    { L"Rasetsumaru D (Portrait)", 0xe7fa0, 0xe7fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rasetsumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_PORTRAITS[] =
 {
-    { L"Rera A (Portrait)", 0x00e83a0, 0x00e83e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
-    { L"Rera B (Portrait)", 0x00e87a0, 0x00e87e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
-    { L"Rera C (Portrait)", 0x00e8ba0, 0x00e8be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
-    { L"Rera D (Portrait)", 0x00e8fa0, 0x00e8fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
+    { L"Rera A (Portrait)", 0xe83a0, 0xe83e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
+    { L"Rera B (Portrait)", 0xe87a0, 0xe87e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
+    { L"Rera C (Portrait)", 0xe8ba0, 0xe8be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
+    { L"Rera D (Portrait)", 0xe8fa0, 0xe8fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rera },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Rimururu_PALETTES_PORTRAITS[] =
 {
-    { L"Rimururu A (Portrait)", 0x00d73a0, 0x00d73e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
-    { L"Rimururu B (Portrait)", 0x00d77a0, 0x00d77e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
-    { L"Rimururu C (Portrait)", 0x00d7ba0, 0x00d7be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
-    { L"Rimururu D (Portrait)", 0x00d7fa0, 0x00d7fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu A (Portrait)", 0xd73a0, 0xd73e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu B (Portrait)", 0xd77a0, 0xd77e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu C (Portrait)", 0xd7ba0, 0xd7be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
+    { L"Rimururu D (Portrait)", 0xd7fa0, 0xd7fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Rimururu },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_PORTRAITS[] =
 {
-    { L"Shizumaru A (Portrait)", 0x00de3a0, 0x00de3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
-    { L"Shizumaru B (Portrait)", 0x00de7a0, 0x00de7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
-    { L"Shizumaru C (Portrait)", 0x00deba0, 0x00debe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
-    { L"Shizumaru D (Portrait)", 0x00defa0, 0x00defe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru A (Portrait)", 0xde3a0, 0xde3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru B (Portrait)", 0xde7a0, 0xde7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru C (Portrait)", 0xdeba0, 0xdebe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru D (Portrait)", 0xdefa0, 0xdefe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Shizumaru },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Sogetsu_PALETTES_PORTRAITS[] =
 {
-    { L"Sogetsu A (Portrait)", 0x00e63a0, 0x00e63e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
-    { L"Sogetsu B (Portrait)", 0x00e67a0, 0x00e67e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
-    { L"Sogetsu C (Portrait)", 0x00e6ba0, 0x00e6be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
-    { L"Sogetsu D (Portrait)", 0x00e6fa0, 0x00e6fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu A (Portrait)", 0xe63a0, 0xe63e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu B (Portrait)", 0xe67a0, 0xe67e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu C (Portrait)", 0xe6ba0, 0xe6be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
+    { L"Sogetsu D (Portrait)", 0xe6fa0, 0xe6fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Sogetsu },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Suija_PALETTES_PORTRAITS[] =
 {
-    { L"Suija A (Portrait)", 0x00ea3a0, 0x00ea3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
-    { L"Suija B (Portrait)", 0x00ea7a0, 0x00ea7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
-    { L"Suija C (Portrait)", 0x00eaba0, 0x00eabe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
-    { L"Suija D (Portrait)", 0x00eafa0, 0x00eafe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
+    { L"Suija A (Portrait)", 0xea3a0, 0xea3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
+    { L"Suija B (Portrait)", 0xea7a0, 0xea7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
+    { L"Suija C (Portrait)", 0xeaba0, 0xeabe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
+    { L"Suija D (Portrait)", 0xeafa0, 0xeafe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Suija },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_TamTam_PALETTES_PORTRAITS[] =
 {
-    { L"Tam Tam A (Portrait)", 0x00e43a0, 0x00e43e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
-    { L"Tam Tam B (Portrait)", 0x00e47a0, 0x00e47e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
-    { L"Tam Tam C (Portrait)", 0x00e4ba0, 0x00e4be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
-    { L"Tam Tam D (Portrait)", 0x00e4fa0, 0x00e4fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam A (Portrait)", 0xe43a0, 0xe43e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam B (Portrait)", 0xe47a0, 0xe47e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam C (Portrait)", 0xe4ba0, 0xe4be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
+    { L"Tam Tam D (Portrait)", 0xe4fa0, 0xe4fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_TamTam },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_PORTRAITS[] =
 {
-    { L"Ukyo A (Portrait)", 0x00db3a0, 0x00db3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
-    { L"Ukyo B (Portrait)", 0x00db7a0, 0x00db7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
-    { L"Ukyo C (Portrait)", 0x00dbba0, 0x00dbbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
-    { L"Ukyo D (Portrait)", 0x00dbfa0, 0x00dbfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo A (Portrait)", 0xdb3a0, 0xdb3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo B (Portrait)", 0xdb7a0, 0xdb7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo C (Portrait)", 0xdbba0, 0xdbbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo D (Portrait)", 0xdbfa0, 0xdbfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Ukyo },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_PORTRAITS[] =
 {
-    { L"Yoshitora A (Portrait)", 0x00eb3a0, 0x00eb3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
-    { L"Yoshitora B (Portrait)", 0x00eb7a0, 0x00eb7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
-    { L"Yoshitora C (Portrait)", 0x00ebba0, 0x00ebbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
-    { L"Yoshitora D (Portrait)", 0x00ebfa0, 0x00ebfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora A (Portrait)", 0xeb3a0, 0xeb3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora B (Portrait)", 0xeb7a0, 0xeb7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora C (Portrait)", 0xebba0, 0xebbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
+    { L"Yoshitora D (Portrait)", 0xebfa0, 0xebfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yoshitora },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yunfei_PALETTES_PORTRAITS[] =
 {
-    { L"Yunfei A (Portrait)", 0x00ec3a0, 0x00ec3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
-    { L"Yunfei B (Portrait)", 0x00ec7a0, 0x00ec7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
-    { L"Yunfei C (Portrait)", 0x00ecba0, 0x00ecbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
-    { L"Yunfei D (Portrait)", 0x00ecfa0, 0x00ecfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei A (Portrait)", 0xec3a0, 0xec3e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei B (Portrait)", 0xec7a0, 0xec7e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei C (Portrait)", 0xecba0, 0xecbe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
+    { L"Yunfei D (Portrait)", 0xecfa0, 0xecfe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Yunfei },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Zankuro_PALETTES_PORTRAITS[] =
 {
-    { L"Zankuro A (Portrait)", 0x00e23a0, 0x00e23e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro B (Portrait)", 0x00e27a0, 0x00e27e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro C (Portrait)", 0x00e2ba0, 0x00e2be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
-    { L"Zankuro D (Portrait)", 0x00e2fa0, 0x00e2fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro A (Portrait)", 0xe23a0, 0xe23e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro B (Portrait)", 0xe27a0, 0xe27e0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro C (Portrait)", 0xe2ba0, 0xe2be0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
+    { L"Zankuro D (Portrait)", 0xe2fa0, 0xe2fe0, indexSamSho5Sprites_Portrait, indexSamSho5Sprites_Zankuro },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_BONUS_PALETTES[] =

@@ -306,7 +306,7 @@ BOOL CPreviewDlg::PreTranslateMessage(MSG* pMsg)
     {
     case WM_KEYDOWN:
     {
-        if (pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
+        if ((pMsg->wParam == VK_RETURN) || (pMsg->wParam == VK_ESCAPE))
         {
             pMsg->wParam = NULL;
         }
@@ -320,8 +320,6 @@ BOOL CPreviewDlg::PreTranslateMessage(MSG* pMsg)
 BOOL CPreviewDlg::OnInitDialog()
 {
     CDialog::OnInitDialog();
-
-    // TODO:  Add extra initialization here
 
     // Set the icon for this dialog.  The framework does this automatically
     //  when the application's main window is not a dialog

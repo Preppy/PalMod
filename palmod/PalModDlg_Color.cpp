@@ -1065,6 +1065,77 @@ void CPalModDlg::OnBnRevert()
     }
 }
 
+void CPalModDlg::OnBnClickedReverse()
+{
+    if (bEnabled)
+    {
+        UINT16 nSelectionAmt = CurrPalCtrl->GetSelAmt();
+
+        if (nSelectionAmt > 1)
+        {
+            ProcChange();
+
+            UINT8* rgSel = (UINT8*)CurrPalCtrl->GetSelIndex();
+            UINT8* pCurrPal = (UINT8*)CurrPalCtrl->GetBasePal();
+            UINT8* pFlippedPal = new UINT8[nSelectionAmt * 4];
+            const UINT16 nWorkingAmount = CurrPalCtrl->GetWorkingAmt();
+
+            // walk backwards to get the flipped ordering
+            int iFlippedPos = nSelectionAmt - 1;
+            for (int iCurPos = 0; iCurPos < nWorkingAmount; iCurPos++)
+            {
+                if (rgSel[iCurPos])
+                {
+                    const UINT16 nPaletteIndex = iCurPos * 4;
+                    const UINT16 nFlippedIndex = iFlippedPos * 4;
+
+                    pFlippedPal[nFlippedIndex]     = pCurrPal[nPaletteIndex];
+                    pFlippedPal[nFlippedIndex + 1] = pCurrPal[nPaletteIndex + 1];
+                    pFlippedPal[nFlippedIndex + 2] = pCurrPal[nPaletteIndex + 2];
+                    pFlippedPal[nFlippedIndex + 3] = pCurrPal[nPaletteIndex + 3];
+
+                    if (iFlippedPos == 0)
+                    {
+                        // We've traversed the list completely
+                        break;
+                    }
+                    else
+                    {
+                        iFlippedPos--;
+                    }                    
+                }
+            }
+
+            for (int iCurPos = 0; iCurPos < nWorkingAmount; iCurPos++)
+            {
+                if (rgSel[iCurPos])
+                {
+                    const UINT16 nPaletteIndex = iCurPos * 4;
+                    const UINT16 nFlippedIndex = iFlippedPos * 4;
+
+                    pCurrPal[nPaletteIndex]     = pFlippedPal[nFlippedIndex];
+                    pCurrPal[nPaletteIndex + 1] = pFlippedPal[nFlippedIndex + 1];
+                    pCurrPal[nPaletteIndex + 2] = pFlippedPal[nFlippedIndex + 2];
+                    pCurrPal[nPaletteIndex + 3] = pFlippedPal[nFlippedIndex + 3];
+
+                    iFlippedPos++;
+
+                    CurrPalCtrl->UpdateIndex(iCurPos);
+                }
+            }
+
+            safe_delete_array(pFlippedPal);
+
+            ImgDispCtrl->UpdateCtrl();
+
+            CurrPalCtrl->UpdateCtrl();
+
+            UpdateMultiEdit(TRUE);
+            UpdateSliderSel();
+        }
+    }
+}
+
 void CPalModDlg::OnBnClickedBinvert()
 {
     if (bEnabled)
@@ -1080,7 +1151,7 @@ void CPalModDlg::OnBnClickedBinvert()
         {
             if (rgSel[i] || bForce)
             {
-                nPaletteIndex = (i * 4);
+                nPaletteIndex = i * 4;
 
                 pCurrPal[nPaletteIndex] = MainPalGroup->ROUND_R(~pCurrPal[nPaletteIndex]);
                 pCurrPal[nPaletteIndex + 1] = MainPalGroup->ROUND_G(~pCurrPal[nPaletteIndex + 1]);

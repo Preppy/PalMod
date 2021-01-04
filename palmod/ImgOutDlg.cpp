@@ -34,7 +34,6 @@ void CImgOutDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_PAL, m_CB_Pal);
     DDX_Control(pDX, IDC_ZOOM, m_CB_Zoom); // see also m_zoomSelIndex
     DDX_Text(pDX, IDC_EDIT_BDRSZ, border_sz);
-    DDX_Text(pDX, IDC_EDIT_SPCSZ, outline_sz);
     DDX_CBIndex(pDX, IDC_PAL, m_pal);
     DDX_CBIndex(pDX, IDC_ZOOM, m_zoomSelIndex); // see also m_CB_Zoom
     DDX_Control(pDX, IDC_BDRSPN, m_BdrSpn);
@@ -135,7 +134,7 @@ BOOL CImgOutDlg::OnInitDialog()
     m_BdrSpn.SetRange(0, 999);
     m_BdrSpn.SetBuddy(GetDlgItem(IDC_EDIT_BDRSZ));
 
-    //Get the size of the dummy rect
+    //Get the size of the dummy rect so that we offset the preview bitmap correctly
     GetDlgItem(IDC_DUMMY)->GetClientRect(&rct_dummy);
 
     bCanSize = TRUE;
@@ -195,7 +194,6 @@ BEGIN_MESSAGE_MAP(CImgOutDlg, CDialog)
     ON_CBN_SELCHANGE(IDC_PAL, UpdateImg)
     ON_CBN_SELCHANGE(IDC_ZOOM, UpdateImg)
     //ON_EN_CHANGE(IDC_EDIT_BDRSZ, UpdateImg)
-    ON_EN_CHANGE(IDC_EDIT_SPCSZ, UpdateImg)
     //ON_COMMAND(REQ_VAR, UpdImgVar)
     ON_NOTIFY(UDN_DELTAPOS, IDC_BDRSPN, OnDeltaposBdrspn)
     ON_COMMAND(ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR, OnSettingsSetBackgroundColor)
@@ -207,6 +205,7 @@ BEGIN_MESSAGE_MAP(CImgOutDlg, CDialog)
 
     ON_COMMAND(ID_ACC_ADDZOOM, AddZoom)
     ON_COMMAND(ID_ACC_SUBZOOM, SubZoom)
+    ON_COMMAND(ID_ACC_ESCAPE, OnClose)
     ON_COMMAND(ID_SETTINGS_USETRANSPARENTPNG, OnSettingsUseTransparentPNG)
     ON_WM_INITMENUPOPUP()
 END_MESSAGE_MAP()
@@ -241,7 +240,7 @@ void CImgOutDlg::UpdImgVar(BOOL bResize)
     }
 
     m_DumpBmp.zoom = (float)(1 + m_zoomSelIndex);
-    m_DumpBmp.outline_sz = outline_sz;
+    m_DumpBmp.outline_sz = 0;
     m_DumpBmp.border_sz = border_sz;
 
     m_DumpBmp.GetOutputW();
@@ -774,7 +773,7 @@ BOOL CImgOutDlg::PreTranslateMessage(MSG* pMsg)
 
     if (pMsg->message == WM_KEYDOWN)
     {
-        if (pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
+        if ((pMsg->wParam == VK_RETURN) || (pMsg->wParam == VK_ESCAPE))
         {
             pMsg->wParam = NULL;
         }

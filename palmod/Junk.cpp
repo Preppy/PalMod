@@ -252,7 +252,7 @@ void CJunk::CleanUp()
 
 void CJunk::NotifyParent(int iCustomMessage)
 {
-    static NMHDR myhdr;
+    static NMHDR myhdr = {};
 
     myhdr.hwndFrom = GetSafeHwnd();
     myhdr.idFrom = nArrayIndex;
@@ -902,18 +902,30 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         point.y += rWnd.top;
 
         bool canCopyOrPaste = false;
+        bool canReverse = false;
 
         for (int i = 0; i < iWorkingAmt; i++)
         {
-            if (Selected[i])
+            if (!canCopyOrPaste)
             {
-                canCopyOrPaste = true;
-                break;
+                if (Selected[i])
+                {
+                    canCopyOrPaste = true;
+                }
+            }
+            else
+            {
+                if (Selected[i])
+                {
+                    canReverse = true;
+                    break;
+                }
             }
         }
 
         PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_COPY, _T("&Copy"));
         PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTE, _T("&Paste"));
+        PopupMenu.AppendMenu(canReverse ? MF_ENABLED : MF_DISABLED, CUSTOM_REVERSE, _T("&Reverse"));
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, _T(""));
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, _T("Select &All"));
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SNONE, _T("Select &None"));
@@ -933,6 +945,9 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
         case CUSTOM_SNONE:
             ClearSelected();
             UpdateCtrl();
+            break;
+        case CUSTOM_REVERSE:
+            GetHost()->GetPalModDlg()->OnBnClickedReverse();
             break;
         }
     }

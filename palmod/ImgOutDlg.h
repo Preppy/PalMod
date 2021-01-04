@@ -50,7 +50,6 @@ public:
     int m_pal = 0;
     int m_zoomSelIndex = 0;
     int border_sz = 0;
-    int outline_sz = 0;
 
     const int m_nZoomSelOptionsMin = 0;
     const int m_nZoomSelOptionsMax = 3;
