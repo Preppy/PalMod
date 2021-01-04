@@ -127,8 +127,6 @@ void CImgDumpBmp::OnSize(UINT nType, int cx, int cy)
         UpdateBltRect();
         ClearCtrlBG();
     }
-
-    //UpdateCtrl();
 }
 
 int CImgDumpBmp::ScrollBounds(int in_val, BOOL horiz)
@@ -247,20 +245,23 @@ void CImgDumpBmp::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
 void CImgDumpBmp::UpdateBltRect(BOOL reset_flag)
 {
-    int scroll_h = m_VScroll.GetScrollPos();
-    int scroll_w = m_HScroll.GetScrollPos();
-
-    main_blt.top = 0 + (scroll_h * reset_flag);
-    //main_blt.bottom = cl_height + scroll_h;
-
-    main_blt.left = 0 + (scroll_w * reset_flag);
-
-    if (!reset_flag)
+    if (m_VScroll) // functionally, this is a FirstRun check
     {
-        m_VScroll.SetScrollPos(0, 0);
-        m_HScroll.SetScrollPos(0, 0);
+        int scroll_h = m_VScroll.GetScrollPos();
+        int scroll_w = m_HScroll.GetScrollPos();
+
+        main_blt.top = 0 + (scroll_h * reset_flag);
+        //main_blt.bottom = cl_height + scroll_h;
+
+        main_blt.left = 0 + (scroll_w * reset_flag);
+
+        if (!reset_flag)
+        {
+            m_VScroll.SetScrollPos(0, 0);
+            m_HScroll.SetScrollPos(0, 0);
+        }
+        //main_blt.right = cl_width + scroll_w;
     }
-    //main_blt.right = cl_width + scroll_w;
 }
 
 void CImgDumpBmp::SetClientSize()
@@ -273,17 +274,20 @@ void CImgDumpBmp::SetClientSize()
 
 void CImgDumpBmp::UpdateClip()
 {
-    clip_right = nMainW - cl_width;
-    clip_bottom = nMainH - cl_height;
+    if (m_HScroll) // functionally this is a FirstRun check
+    {
+        clip_right = nMainW - cl_width;
+        clip_bottom = nMainH - cl_height;
 
-    m_HScroll.SetScrollRange(0, clip_right);
-    m_VScroll.SetScrollRange(0, clip_bottom);
+        m_HScroll.SetScrollRange(0, clip_right);
+        m_VScroll.SetScrollRange(0, clip_bottom);
 
-    HScroll_Enabled = cl_width < nMainW;
-    VScroll_Enabled = cl_height < nMainH;
+        HScroll_Enabled = cl_width < nMainW;
+        VScroll_Enabled = cl_height < nMainH;
 
-    m_HScroll.EnableWindow(HScroll_Enabled);
-    m_VScroll.EnableWindow(VScroll_Enabled);
+        m_HScroll.EnableWindow(HScroll_Enabled);
+        m_VScroll.EnableWindow(VScroll_Enabled);
+    }
 }
 
 void CImgDumpBmp::OnMouseMove(UINT nFlags, CPoint point)
@@ -429,75 +433,78 @@ void CImgDumpBmp::ClearCtrlBG()
 
 void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
 {
-    ClearCtrlBG();
-
-    MainDC.FillSolidRect(CRect(0, 0, nMainW, nMainH), crBGCol);
-
-    int row_ctr = 0;
-    int nPal = 0;
-    int nTargetX = 0, nTargetY = 0;
-
-    UINT8* pMainData;
-
-    if (pDstData)
+    if (!FirstRun)
     {
-        pMainData = (UINT8*)pMainBmpData;
-        pMainBmpData = (UINT32*)pDstData;
-    }
+        ClearCtrlBG();
 
-    const int nImageCountOnFirstLine = GetImageCountForFirstLine();
+        MainDC.FillSolidRect(CRect(0, 0, nMainW, nMainH), crBGCol);
 
-    for (int i = 0; i < m_nTotalImagesToDisplay; i++)
-    {
-        nPal = (m_nTotalImagesToDisplay > 1) ? i : nPalIndex;
+        int row_ctr = 0;
+        int nPal = 0;
+        int nTargetX = 0, nTargetY = 0;
 
-        if (DispType == eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT)
+        UINT8* pMainData;
+
+        if (pDstData)
         {
-            if (i >= nImageCountOnFirstLine)
-            {
-                row_ctr = 1;
-            }
-
-            nTargetX = (i - (row_ctr * nImageCountOnFirstLine));
-        }
-        else if (DispType == eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM)
-        {
-            if (i % 2)
-            {
-                row_ctr = 1;
-            }
-            else
-            {
-                row_ctr = 0;
-            }
-
-            nTargetX = (i / 2);
+            pMainData = (UINT8*)pMainBmpData;
+            pMainBmpData = (UINT32*)pDstData;
         }
 
-        for (int nImgCtr = 0; nImgCtr < img_amt; nImgCtr++)
+        const int nImageCountOnFirstLine = GetImageCountForFirstLine();
+
+        for (int i = 0; i < m_nTotalImagesToDisplay; i++)
         {
-            CustomBlt(nImgCtr, nPal,
+            nPal = (m_nTotalImagesToDisplay > 1) ? i : nPalIndex;
 
-                //Left
-                (int)((nTargetX * (blt_w * zoom))
-                + border_sz + (border_sz * nTargetX) + abs(rImgRct.left * zoom) + (ptOffs[nImgCtr].x * zoom)),
+            if (DispType == eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT)
+            {
+                if (i >= nImageCountOnFirstLine)
+                {
+                    row_ctr = 1;
+                }
 
-                //Top
-                (int)((row_ctr * (blt_h * zoom))
-                + border_sz + (border_sz * row_ctr) + abs(rImgRct.top * zoom) + (ptOffs[nImgCtr].y * zoom)),
+                nTargetX = (i - (row_ctr * nImageCountOnFirstLine));
+            }
+            else if (DispType == eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM)
+            {
+                if (i % 2)
+                {
+                    row_ctr = 1;
+                }
+                else
+                {
+                    row_ctr = 0;
+                }
 
-                zoom, (pDstData != nullptr)
-            );
+                nTargetX = (i / 2);
+            }
+
+            for (int nImgCtr = 0; nImgCtr < img_amt; nImgCtr++)
+            {
+                CustomBlt(nImgCtr, nPal,
+
+                    //Left
+                    (int)((nTargetX * (blt_w * zoom))
+                    + border_sz + (border_sz * nTargetX) + abs(rImgRct.left * zoom) + (ptOffs[nImgCtr].x * zoom)),
+
+                    //Top
+                    (int)((row_ctr * (blt_h * zoom))
+                    + border_sz + (border_sz * row_ctr) + abs(rImgRct.top * zoom) + (ptOffs[nImgCtr].y * zoom)),
+
+                    zoom, (pDstData != nullptr)
+                );
+            }
         }
-    }
 
-    if (pDstData)
-    {
-        pMainBmpData = (UINT32*)pMainData;
-    }
+        if (pDstData)
+        {
+            pMainBmpData = (UINT32*)pMainData;
+        }
 
-    bDraw ? Draw() : NULL;
-    UpdateClip();
+        bDraw ? Draw() : NULL;
+        UpdateClip();
+    }
 }
 
 BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, double fpZoom, BOOL bTransBG)

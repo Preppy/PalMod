@@ -901,7 +901,8 @@ void CImgDisp::OnRButtonDown(UINT nFlags, CPoint point)
 
         if (PopupMenu.CreatePopupMenu())
         {
-            RECT rWnd; GetWindowRect(&rWnd);
+            RECT rWnd;
+            GetWindowRect(&rWnd);
             point.x += rWnd.left;
             point.y += rWnd.top;
 

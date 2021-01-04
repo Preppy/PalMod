@@ -925,6 +925,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
 
         PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_COPY, _T("&Copy"));
         PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTE, _T("&Paste"));
+        PopupMenu.AppendMenu(MF_SEPARATOR, 0, _T(""));
         PopupMenu.AppendMenu(canReverse ? MF_ENABLED : MF_DISABLED, CUSTOM_REVERSE, _T("&Reverse"));
         PopupMenu.AppendMenu(MF_SEPARATOR, 0, _T(""));
         PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, _T("Select &All"));

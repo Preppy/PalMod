@@ -137,9 +137,10 @@ BOOL CImgOutDlg::OnInitDialog()
     //Get the size of the dummy rect so that we offset the preview bitmap correctly
     GetDlgItem(IDC_DUMMY)->GetClientRect(&rct_dummy);
 
+    LoadSettings();
+
     bCanSize = TRUE;
 
-    LoadSettings();
     UpdateData(FALSE);
 
     UpdImgVar(FALSE);
@@ -220,7 +221,8 @@ void CImgOutDlg::OnShowWindow(BOOL bShow, UINT nStatus)
 
     m_CB_Amt.SetCurSel(0);
     m_CB_Pal.SetCurSel(0);
-    //m_CB_Zoom.SetCurSel(0);
+
+    ResizeBmp();
 }
 
 void CImgOutDlg::UpdImgVar(BOOL bResize)
@@ -344,9 +346,6 @@ void CImgOutDlg::LoadSettings()
 
     UpdateData(FALSE);
 
-    // This logic is turned off because it causes the imgdumpbmp code to redraw before the
-    // sprite is loaded, which results in all bad.
-    /*
     RECT window_rect;
 
     window_rect = sett.imgout_szpos;
@@ -354,8 +353,7 @@ void CImgOutDlg::LoadSettings()
     if (window_rect.top != c_badWindowPosValue)
     {
         MoveWindow(&window_rect);
-        ResizeBmp();
-    } */
+    }
 }
 
 void CImgOutDlg::SaveSettings()
