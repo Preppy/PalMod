@@ -54,7 +54,7 @@ inline UINT32 CGame_JOJOS_A_DIR::GetSIMMLocationFromROMLocation(UINT32 nROMLocat
 {
     UINT32 nSIMMLocation = 0;
 
-    nSIMMLocation = nROMLocation / 2;
+    nSIMMLocation = nROMLocation / m_nSizeOfColorsInBytes;
     return nSIMMLocation;
 }
 
@@ -144,7 +144,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                         if (!fShownCrossSIMMErrorOnce)
                         {
                             fShownCrossSIMMErrorOnce = true;
-                            strInfo.Format(_T("Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM set boundaries.  This is not supported. Please remove that."), nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * 2));
+                            strInfo.Format(_T("Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM set boundaries.  This is not supported. Please remove that."), nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes));
                             MessageBox(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_ICONERROR);
                         }
 
@@ -260,7 +260,8 @@ BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
                     pSIMM1->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-                    UINT16 nCurrentWriteLength = m_nCurrentPaletteSizeInColors / 2;
+                    // write length will be number of *bytes* in the sequence across 2 files
+                    UINT16 nCurrentWriteLength = (m_nCurrentPaletteSizeInColors / m_nSizeOfColorsInBytes) * 2;
 
                     BYTE* pbWrite1 = new BYTE[nCurrentWriteLength];
                     BYTE* pbWrite2 = new BYTE[nCurrentWriteLength];
