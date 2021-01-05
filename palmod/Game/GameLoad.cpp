@@ -2,6 +2,7 @@
 #include "GameLoad.h"
 #include "..\CRC32.h"
 
+#include "Game_AOF3_A.h"
 #include "Game_Bleach_DS.h"
 #include "Game_Breakers_A.h"
 #include "Game_CFTE_SNES.h"
@@ -100,6 +101,19 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 {
     switch (nGameFlag)
     {
+
+    case AOF3_A:
+    {
+        GetRule = &CGame_AOF3_A::GetRule;
+        return TRUE;
+    }
+
+    case BLEACH_DS:
+    {
+        GetRule = &CGame_BLEACH_DS::GetRule;
+        return TRUE;
+    }
+
     case BREAKERS_A:
     {
         GetRule = &CGame_BREAKERS_A::GetRule;
@@ -437,12 +451,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
 
-    case BLEACH_DS:
-    {
-        GetRule = &CGame_BLEACH_DS::GetRule;
-        return TRUE;
-    }
-
     default:
         OutputDebugString(_T("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n"));
         return FALSE;
@@ -456,6 +464,16 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
 {
     switch (nGameFlag)
     {
+    case AOF3_A:
+    {
+        return new CGame_AOF3_A(nConfirmedROMSize, nExtraGameData);
+    }
+
+    case BLEACH_DS:
+    {
+        return new CGame_BLEACH_DS(nConfirmedROMSize);
+    }
+
     case BREAKERS_A:
     {
         return new CGame_BREAKERS_A(nConfirmedROMSize);
@@ -697,10 +715,6 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_XMVSF_A(nConfirmedROMSize);
     }
-    case BLEACH_DS:
-    {
-        return new CGame_BLEACH_DS(nConfirmedROMSize);
-    }
 
     default:
         OutputDebugString(_T("CGameLoad::CreateGame:: BUGBUG: New game has not been properly added yet.\n"));
@@ -733,6 +747,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
 
         switch (nGameFlag)
         {
+        case AOF3_A:
+            nGameRule = ((_tcsstr(pszFileName, _T("p1")) != nullptr) ? 1 : 2);
+            break;
         case JOJOS_A:
             nGameRule = ((_tcscmp(pszFileName, _T("50")) == 0) ? 50 : 51);
             break;

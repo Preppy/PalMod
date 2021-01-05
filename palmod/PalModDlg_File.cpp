@@ -13,6 +13,7 @@ constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
 // CGameLoad::LoadFile to pass the appropriate gameflag to that game.
 sSupportedGameList SupportedGameList[] =
 {
+    { AOF3_A,           L"Art of Fighting 3", L"AoF3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO },
     { BREAKERS_A,       L"Breakers Revenge", L"Breakers Revenge|245-p1.p1|", GamePlatform::NEOGEO },
     { BLEACH_DS,        L"Bleach Dark Souls (DS)", L"Bleach Dark Souls|3494*Europe*nds;2761*US*nds|", GamePlatform::Nintendo }, // Sega
     { CFTE_SNES,        L"Clay Fighter:TE", L"Clay Fighter:TE|Clay Fighter - Tournament Edition (USA).sfc|", GamePlatform::Nintendo },

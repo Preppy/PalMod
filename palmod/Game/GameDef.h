@@ -78,6 +78,7 @@ enum SupportedGamesList
     DUMMY_RGB9,          // ... we need a game ID to use for transmitting colors.
     SFIII3_A_DIR_EX,
     DUMMY_ARGB7888,
+    AOF3_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -159,6 +160,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Fake game ID for RGB9",
    L"SFIII:3S EX",
    L"Fake game for ARGB7888",
+   L"Art of Fighting 3 (Arcade)",
 };
 
 enum class GamePlatform
@@ -232,6 +234,11 @@ const LPCTSTR DEF_BUTTONLABEL_2_AB[] =
 const LPCTSTR DEF_BUTTONLABEL_2_NEOGEO[] =
 {
     L"Main", L"Alt"
+};
+
+const LPCTSTR DEF_BUTTONLABEL_2_AOF3[] =
+{
+    L"A", L"D"
 };
 
 const LPCTSTR DEF_BUTTONLABEL_NEOGEO[] =

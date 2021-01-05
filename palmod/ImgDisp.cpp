@@ -276,7 +276,7 @@ BOOL CImgDisp::LoadBGBmp(TCHAR* szBmpLoc)
         BGBrush.CreatePatternBrush(&BGBitmap);
 
         //Get the bitmap dimensions
-        BITMAP bmp;
+        BITMAP bmp = {};
 
         if (GetObject(hBGBitmap, sizeof(BITMAP), (BITMAP*)&bmp))
         {

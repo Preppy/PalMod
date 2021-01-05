@@ -223,6 +223,9 @@
     <Filter Include="Game\Nintendo\Fatal Fury Special %28SNES%29">
       <UniqueIdentifier>{e923f483-9252-4955-9dd2-53b0b2448939}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\Art of Fighting 3">
+      <UniqueIdentifier>{0fb8dfe4-7c4f-44ba-a82b-b15d13c2b3f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -491,6 +494,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp">
       <Filter>Game\Nintendo\Fatal Fury Special %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_AOF3_A.cpp">
+      <Filter>Game\SNK Games\Art of Fighting 3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -910,6 +916,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_FatalFuryS_SNES.h">
       <Filter>Game\Nintendo\Fatal Fury Special %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AOF3_A_DEF.h">
+      <Filter>Game\SNK Games\Art of Fighting 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_AOF3_A.h">
+      <Filter>Game\SNK Games\Art of Fighting 3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

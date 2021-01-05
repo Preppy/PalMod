@@ -538,6 +538,7 @@ void CPalModDlg::OnEditPaste()
                     eColModeForPastedColor = ColMode::COLMODE_15ALT;
                     break;
                 }
+                case AOF3_A:
                 case BREAKERS_A:
                 case Garou_A:
                 case Garou_S:
