@@ -15,13 +15,25 @@ void CPalModDlg::LoadSettings()
     CGameClass::bPostSetPalProc = RegSett.main_bProcSupp;
     bExtraCopyData = RegSett.main_bExtraCopyData;
 
+    RECT previous_window_rect;
+
+    GetWindowRect(&previous_window_rect);
+
+    const LONG lPreviousDialogWidth = previous_window_rect.right - previous_window_rect.left;
+
     RECT window_rect;
     window_rect = RegSett.main_szpos;
     if (window_rect.top != c_badWindowPosValue)
     {
         // Do we want this?  I kind of like it.  At the same time it makes having multiple copies open at once a PITA.
         // Might be more interesting to just force PREV to a known offset.
-        MoveWindow(&window_rect);
+
+        const LONG lNewDialogWidth = window_rect.right - window_rect.left;
+
+        if (lPreviousDialogWidth == lNewDialogWidth)
+        {
+            MoveWindow(&window_rect);
+        }
     }
 }
 
