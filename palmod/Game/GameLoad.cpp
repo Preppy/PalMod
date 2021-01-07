@@ -8,6 +8,7 @@
 #include "Game_CFTE_SNES.h"
 #include "Game_COTA_A.h"
 #include "Game_CVS2_A.h"
+#include "Game_DanKuGa_A.h"
 #include "Game_FatalFuryS_SNES.h"
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
@@ -132,6 +133,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case CVS2_A:
     {
         GetRule = &CGame_CVS2_A::GetRule;
+        return TRUE;
+    }
+    case DANKUGA_A:
+    {
+        GetRuleCtr = &CGame_DanKuGa_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_DanKuGa_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_DanKuGa_A_DIR::GetRule;
+        GetNextRule = &CGame_DanKuGa_A_DIR::GetNextRule;
+
         return TRUE;
     }
     case FatalFuryS_SNES:
@@ -489,6 +499,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case CVS2_A:
     {
         return new CGame_CVS2_A(nConfirmedROMSize);
+    }
+    case DANKUGA_A:
+    {
+        return new CGame_DanKuGa_A_DIR(-1);
     }
     case FatalFuryS_SNES:
     {
@@ -1070,7 +1084,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     SetGame(CurrGame->GetGameFlag());
 
     UINT16 nFileAmt = CurrGame->GetFileAmt();
-    UINT16* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
+    BOOL* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
     LPCTSTR pszLoadDir = CurrGame->GetLoadDir();
     UINT16* rgUnitRedir = CurrGame->rgUnitRedir;
     CString strErrorFile;
@@ -1189,18 +1203,25 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
     if (nSaveLoadCount > 0)
     {
-        CString strErrorText = L"";
-        if (nSaveLoadErr)
-        {
-            strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
-        }
-
         if (nSaveLoadCount == 1)
         {
-            szLoadSaveStr.Format(L"Game patched successfully%s.", strErrorText.GetString());
+            if (nSaveLoadErr)
+            {
+                szLoadSaveStr = L"Game patching failed.";
+            }
+            else
+            {
+                szLoadSaveStr = L"Game patched successfully.";
+            }
         }
         else
         {
+            CString strErrorText = L"";
+            if (nSaveLoadErr)
+            {
+                strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
+            }
+
             szLoadSaveStr.Format(L"%d of %d files patched successfully%s.", nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
         }
     }
@@ -1319,7 +1340,7 @@ void CGameLoad::SavePatchFile(CGameClass* CurrGame)
 {
     SetGame(CurrGame->GetGameFlag());
     UINT32 nNumberOfChangesSaved = 0;
-    UINT16* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
+    BOOL* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
 
     if (rgFileIsChanged[0] && !CurrGame->GetIsDir())
     {
@@ -1378,7 +1399,7 @@ void CGameLoad::SaveMultiplePatchFiles(CGameClass* CurrGame, CString strTargetDi
 {
     SetGame(CurrGame->GetGameFlag());
     UINT32 nNumberOfChangesSaved = 0;
-    UINT16* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
+    BOOL* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
 
     if (rgFileIsChanged[0] && CurrGame->GetIsDir())
     {

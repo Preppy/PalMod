@@ -226,6 +226,9 @@
     <Filter Include="Game\SNK Games\Art of Fighting 3">
       <UniqueIdentifier>{0fb8dfe4-7c4f-44ba-a82b-b15d13c2b3f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Other Platforms">
+      <UniqueIdentifier>{3e8ed08b-6c31-4d0d-affc-0f6a12a8dcb7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -497,6 +500,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_AOF3_A.cpp">
       <Filter>Game\SNK Games\Art of Fighting 3</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_DANKUGA_A.cpp">
+      <Filter>Game\Other Platforms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -922,6 +928,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_AOF3_A.h">
       <Filter>Game\SNK Games\Art of Fighting 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DANKUGA_A_DEF.h">
+      <Filter>Game\Other Platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DANKUGA_A.h">
+      <Filter>Game\Other Platforms</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

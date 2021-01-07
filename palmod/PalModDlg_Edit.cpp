@@ -228,6 +228,9 @@ void CPalModDlg::OnEditCopy()
             // RGB666
             uCopyFlag1 = NEOGEO_A + k_nASCIICharacterOffset;
             break;
+        case ColMode::COLMODE_SHARPRGB:
+            uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
+            break;
         case ColMode::COLMODE_ARGB7888:
             cbColor = 4;
             uCopyFlag1 = DUMMY_ARGB7888 + k_nASCIICharacterOffset;
@@ -570,6 +573,11 @@ void CPalModDlg::OnEditPaste()
                 case SSF2T_GBA:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_GBA;
+                    break;
+                }
+                case DANKUGA_A:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_SHARPRGB;
                     break;
                 }
                 default:

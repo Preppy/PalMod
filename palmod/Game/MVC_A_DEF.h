@@ -944,7 +944,7 @@ const sGame_PaletteDataset MVC_A_MORRIGAN_PALETTES_EXTRAS[] =
     { L"Eternal Slumber XXX 7 (Shared)", 0x4f224, 0x4f244 },
     { L"Eternal Slumber XXX 8 (Shared)", 0x4f244, 0x4f264 },
 
-    { L"Eternal Slumber Background", 0x424A4, 0x424E4 },
+    { L"Eternal Slumber Background", 0x424A6, 0x424E6 },
 };
 
 const sGame_PaletteDataset MVC_A_LILITH_PALETTES_P1[] =

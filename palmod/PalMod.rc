@@ -319,6 +319,7 @@ BEGIN
         MENUITEM "Load ROM by game",            ID_FILE_OPEN_BY_GAME
         POPUP "&Load Directory"
         BEGIN
+            MENUITEM "Dan-Ku-Ga",               ID_LOADDIRECTORY_DANKUGA
             POPUP "Jojo's"
             BEGIN
                 MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
@@ -326,14 +327,14 @@ BEGIN
             END
             POPUP "MvC2"
             BEGIN
-                MENUITEM "Arcade (*)",                   ID_LD_MVC2ARCADE
+                MENUITEM "Arcade (*)",                  ID_LD_MVC2ARCADE
                 MENUITEM "DC (USA)",                    ID_LD_MVC2DCUSA
                 MENUITEM "PS2 (*)",                     ID_LD_MVC2PS2USA
             END
             MENUITEM "Red Earth / Warzard (Arcade)(*)", ID_LOADDIRECTORY_REDEARTH
             POPUP "SFIII3"
             BEGIN
-                MENUITEM "Dreamcast (*)",               ID_LD_SFIII3DCALL
+                MENUITEM "Dreamcast/PS2 (*)",           ID_LD_SFIII3DCALL
                 MENUITEM "Arcade (*)",                  ID_LD_SFIII3ARCADE51
                 MENUITEM "Arcade - Gill Glow/X.C.O.P.Y. (*)", ID_LD_SFIII3ARCADE10
                 MENUITEM "4rd Strike (*)",              ID_LD_SFIII3ARCADE4rd
@@ -386,6 +387,7 @@ BEGIN
             MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555
             MENUITEM "BGR555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
+            MENUITEM "RGB555 (Sharp X68000)",       ID_COLORFORMAT_SHARPRGB
             MENUITEM "RGB666 (NEO*GEO)",            ID_COLORFORMAT_RGB666
             MENUITEM "RGB888 (Arc Sys)",            ID_COLORFORMAT_ARGB7888
             MENUITEM SEPARATOR

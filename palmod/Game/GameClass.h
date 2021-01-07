@@ -36,6 +36,7 @@ enum class ColMode
     COLMODE_NEOGEO,    // RGB666
     COLMODE_9,         // RGB333 for Sega Genesis/MegaDrive
     COLMODE_ARGB7888,  // 32bit color for guilty gear
+    COLMODE_SHARPRGB,  // sharp x68000 rgb
 };
 
 enum class ColFlag
@@ -50,7 +51,7 @@ class CGameClass
 {
 protected:
     LPTSTR szDir = nullptr;
-    UINT16* rgFileChanged = nullptr;
+    BOOL* rgFileChanged = nullptr;
     UINT16 nFileAmt = 0;
 
     UINT16 m_nTotalInternalUnits = INVALID_UNIT_VALUE;
@@ -119,8 +120,11 @@ protected:
     static UINT32 CONV_15ALT_32(UINT16 inCol);
     static UINT16 CONV_32_NEOGEO(UINT32 inCol);
     static UINT32 CONV_NEOGEO_32(UINT16 inCol);
+    static UINT16 CONV_32_SHARPRGB(UINT32 inCol);
+    static UINT32 CONV_SHARPRGB_32(UINT16 inCol);
     static UINT32 CONV_32_ARGB7888(UINT32 inCol);
     static UINT32 CONV_ARGB7888_32(UINT32 inCol);
+
     static UINT16 SWAP_16(UINT16 palv);
 
     enum PALOptionValues
@@ -227,7 +231,7 @@ public:
     CPalGroup* GetPalGroup() { return &BasePalGroup; };
 
     UINT16 GetFileAmt() { return nFileAmt; };
-    UINT16* GetChangeTrackingArray() { return rgFileChanged; };
+    BOOL* GetChangeTrackingArray() { return rgFileChanged; };
 
     void SetIsDir(BOOL bNewIsDir = TRUE) { bIsDir = bNewIsDir; };
     BOOL GetIsDir() { return bIsDir; };

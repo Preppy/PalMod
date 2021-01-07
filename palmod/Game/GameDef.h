@@ -79,6 +79,7 @@ enum SupportedGamesList
     SFIII3_A_DIR_EX,
     DUMMY_ARGB7888,
     AOF3_A,
+    DANKUGA_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -161,6 +162,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"SFIII:3S EX",
    L"Fake game for ARGB7888",
    L"Art of Fighting 3 (Arcade)",
+   L"Dan-Ku-Ga (Arcade)",
 };
 
 enum class GamePlatform

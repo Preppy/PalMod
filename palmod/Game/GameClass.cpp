@@ -58,6 +58,7 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
         case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_15:
         case ColMode::COLMODE_15ALT:
+        case ColMode::COLMODE_SHARPRGB:
             return k_nRGBPlaneAmtForRGB555;
         case ColMode::COLMODE_ARGB7888:
             if (Flag == ColFlag::COL_A)
@@ -93,6 +94,7 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
         case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_15:
         case ColMode::COLMODE_15ALT:
+        case ColMode::COLMODE_SHARPRGB:
             return k_nRGBPlaneMulForRGB555;
         case ColMode::COLMODE_ARGB7888:
             if (Flag == ColFlag::COL_A)
@@ -202,7 +204,10 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
             strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_15ALT (RGB555)"));
             break;
         case ColMode::COLMODE_NEOGEO:
-            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_NEOGEO (RGB666)"));
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_NEOGEO (RGB555)"));
+            break;
+        case ColMode::COLMODE_SHARPRGB:
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_SHARPRGB (RGB555)"));
             break;
         case ColMode::COLMODE_ARGB7888:
             strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_ARGB7888 (ARGB7888)"));
@@ -247,6 +252,11 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_NEOGEO_32;
         ConvCol16 = &CGameClass::CONV_32_NEOGEO;
+        return TRUE;
+    case ColMode::COLMODE_SHARPRGB:
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_SHARPRGB_32;
+        ConvCol16 = &CGameClass::CONV_32_SHARPRGB;
         return TRUE;
     case ColMode::COLMODE_ARGB7888:
         m_nSizeOfColorsInBytes = 4;
@@ -603,9 +613,74 @@ UINT16 CGameClass::CONV_32_NEOGEO(UINT32 inCol)
 
     UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
 
-    //CString strColor;
-    //strColor.Format(_T("BACK: neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n"), outColor, inCol, red, green, blue);
-    //OutputDebugString(strColor);
+    return outColor;
+}
+
+UINT8 SharpRGBColorVals[] = {
+    0x00, 0x2e, 0x34, 0x3a, 0x40, 0x44, 0x48, 0x4e,
+    0x54, 0x5a, 0x60, 0x66, 0x6c, 0x72, 0x78, 0x7e,
+    0x84, 0x8a, 0x90, 0x98, 0xa0, 0xa8, 0xb0, 0xb8,
+    0xc0, 0xca, 0xd4, 0xde, 0xe8, 0xf2, 0xfc, 0xff
+};
+
+UINT8 Convert32ToSharpRGB(UINT8 nColor)
+{
+    UINT8 nColorIndex = 0;
+
+    for (; nColorIndex < ARRAYSIZE(SharpRGBColorVals); nColorIndex++)
+    {
+        if (SharpRGBColorVals[nColorIndex] >= nColor)
+        {
+            break;
+        }
+    }
+
+    return nColorIndex;
+}
+
+UINT32 CGameClass::CONV_SHARPRGB_32(UINT16 nColorData)
+{
+    // raw view
+    // RRRR GGGG BBBB RGB#
+    // 0xf008 is pure red
+    // 0x0f04 is pure green
+    // 0x00f2 pure blue
+    // 0x000e <-> 2e2e2e
+    UINT8 bm = (nColorData >> 0xb) & 0x1e;
+    UINT8 b1 = (nColorData >> 0x3) & 0x01;
+    UINT8 bluf = SharpRGBColorVals[bm + b1];
+
+    UINT8 gm = (nColorData >> 0x7) & 0x1e;
+    UINT8 g1 = (nColorData >> 0x2) & 0x01;
+    UINT8 grnf = SharpRGBColorVals[gm + g1];
+
+    UINT8 rm = (nColorData >> 0x3) & 0x1e;
+    UINT8 r1 = (nColorData >> 0x1) & 0x01;
+    UINT8 redf = SharpRGBColorVals[rm + r1];
+
+    UINT32 color = (redf << 16) | (grnf << 8) | (bluf) | 0xff000000;
+
+    return color;
+}
+
+UINT16 CGameClass::CONV_32_SHARPRGB(UINT32 inCol)
+{
+    UINT8 auxr = ((inCol & 0x00FF0000) >> 16);
+    UINT8 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT8 auxb = ((inCol & 0x000000FF));
+
+    UINT8 red =   Convert32ToSharpRGB(auxr);
+    UINT8 green = Convert32ToSharpRGB(auxg);
+    UINT8 blue =  Convert32ToSharpRGB(auxb);
+
+    UINT16 red1 =       (red   & 0x01) << 0x1;
+    UINT16 redMain =    (red   & 0x1e) << 0x3;
+    UINT16 green1 =     (green & 0x01) << 0x2;
+    UINT16 greenMain =  (green & 0x1e) << 0x7;
+    UINT16 blue1 =      (blue  & 0x01) << 0x3;
+    UINT16 blueMain =   (blue  & 0x1e) << 0xb;
+
+    UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
 
     return outColor;
 }
@@ -968,7 +1043,7 @@ void CGameClass::UpdatePalData()
 
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
             srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
+            rgFileChanged[srcDef->uUnitId] = TRUE;
 
             if (bPostSetPalProc)
             {
@@ -1094,8 +1169,8 @@ void CGameClass::PrepChangeTrackingArray()
     if (!rgFileChanged)
     {
         const UINT16 rgCountChangableUnits = max(nUnitAmt, nFileAmt) + 1;
-        rgFileChanged = new UINT16[rgCountChangableUnits];
-        memset(rgFileChanged, NULL, sizeof(UINT16) * rgCountChangableUnits);
+        rgFileChanged = new BOOL[rgCountChangableUnits];
+        memset(rgFileChanged, FALSE, sizeof(BOOL) * rgCountChangableUnits);
     }
 }
 

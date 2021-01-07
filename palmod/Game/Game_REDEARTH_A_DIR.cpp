@@ -198,7 +198,7 @@ inline UINT8 CGame_RedEarth_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
 BOOL CGame_RedEarth_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 {
     CString strInfo;
-    strInfo.Format(_T("CGame_RedEarth_A_DIR::SaveFile: Preparing to save data for RedEarth ROM setu\n"));
+    strInfo.Format(_T("CGame_RedEarth_A_DIR::SaveFile: Preparing to save data for RedEarth ROM set\n"));
     OutputDebugString(strInfo);
 
     // OK, so the old 31 ROM in the SIMM redump is interleaved.
