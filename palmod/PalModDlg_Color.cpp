@@ -983,6 +983,7 @@ void CPalModDlg::PerformBlink()
 
     UINT8* rgSel = CurrPalCtrl->GetSelIndex();
     int nWorkingAmt = CurrPalCtrl->GetWorkingAmt();
+    BOOL fSelectAll = !CurrPalCtrl->GetSelAmt();
     int nOffs = MainPalGroup->GetSep(
         MainPalGroup->GetRedir()[nCurrSelPal].nDefIndex,
         MainPalGroup->GetRedir()[nCurrSelPal].nSepIndex
@@ -999,7 +1000,7 @@ void CPalModDlg::PerformBlink()
 
             for (int i = 0; i < nWorkingAmt; i++)
             {
-                if (rgSel[i])
+                if (rgSel[i] || fSelectAll)
                 {
                     pTempPalCopy[i + nOffs] = crBlinkCol;
                 }
@@ -1071,20 +1072,25 @@ void CPalModDlg::OnBnClickedReverse()
     {
         UINT16 nSelectionAmt = CurrPalCtrl->GetSelAmt();
 
-        if (nSelectionAmt > 1)
+        if (nSelectionAmt != 1) // we can't flip just one color
         {
             ProcChange();
+
+            BOOL fSelectAll = (nSelectionAmt == 0);
+            const UINT16 nWorkingAmount = CurrPalCtrl->GetWorkingAmt();
+
+            // if they want to flip all, we ignore the first transparent color
+            nSelectionAmt = fSelectAll ? (nWorkingAmount - 1) : nSelectionAmt;
 
             UINT8* rgSel = (UINT8*)CurrPalCtrl->GetSelIndex();
             UINT8* pCurrPal = (UINT8*)CurrPalCtrl->GetBasePal();
             UINT8* pFlippedPal = new UINT8[nSelectionAmt * 4];
-            const UINT16 nWorkingAmount = CurrPalCtrl->GetWorkingAmt();
 
             // walk backwards to get the flipped ordering
             int iFlippedPos = nSelectionAmt - 1;
-            for (int iCurPos = 0; iCurPos < nWorkingAmount; iCurPos++)
+            for (int iCurPos = 1; iCurPos < nWorkingAmount; iCurPos++)
             {
-                if (rgSel[iCurPos])
+                if (rgSel[iCurPos] || fSelectAll)
                 {
                     const UINT16 nPaletteIndex = iCurPos * 4;
                     const UINT16 nFlippedIndex = iFlippedPos * 4;
@@ -1106,9 +1112,9 @@ void CPalModDlg::OnBnClickedReverse()
                 }
             }
 
-            for (int iCurPos = 0; iCurPos < nWorkingAmount; iCurPos++)
+            for (int iCurPos = 1; iCurPos < nWorkingAmount; iCurPos++)
             {
-                if (rgSel[iCurPos])
+                if (rgSel[iCurPos] || fSelectAll)
                 {
                     const UINT16 nPaletteIndex = iCurPos * 4;
                     const UINT16 nFlippedIndex = iFlippedPos * 4;
@@ -1145,11 +1151,11 @@ void CPalModDlg::OnBnClickedBinvert()
         UINT8* rgSel = (UINT8*)CurrPalCtrl->GetSelIndex();
         UINT8* pCurrPal = (UINT8*)CurrPalCtrl->GetBasePal();
         UINT16 nPaletteIndex;
-        BOOL bForce = !CurrPalCtrl->GetSelAmt();
+        BOOL fSelectAll = !CurrPalCtrl->GetSelAmt();
 
         for (int i = 0; i < CurrPalCtrl->GetWorkingAmt(); i++)
         {
-            if (rgSel[i] || bForce)
+            if (rgSel[i] || fSelectAll)
             {
                 nPaletteIndex = i * 4;
 

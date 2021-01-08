@@ -389,6 +389,265 @@ void CImgOutDlg::ResizeBmp()
     }
 }
 
+void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CString output_ext)
+{
+    const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
+    const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
+    sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
+
+    const UINT8 currentZoom = (UINT8)m_DumpBmp.zoom;
+
+    // We want to ensure filename syntax, so strip the extension in order to rebuild it below
+    save_str.Replace(output_ext.GetString(), _T(""));
+
+    bool fShouldExportAsIndexed = true;
+
+    // Establish the raw image data
+    unsigned maxSrcWidth = 0;
+    unsigned maxSrcHeight = 0;
+    size_t nTotalPaletteSize = 0;
+    bool fImageUsesOffsets = false;
+
+    for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
+    {
+        maxSrcWidth = max(maxSrcWidth, rgSrcImg[nImageIndex]->uImgW);
+        maxSrcHeight = max(maxSrcHeight, rgSrcImg[nImageIndex]->uImgH);
+        nTotalPaletteSize += m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
+        fImageUsesOffsets = fImageUsesOffsets || (rgSrcImg[nImageIndex]->nXOffs != 0) || (rgSrcImg[nImageIndex]->nYOffs != 0);
+    }
+
+    bool fTooManyColorsForIndexedPNG = (nTotalPaletteSize > 256);
+
+    if (!fShowingSingleVersion || fImageUsesOffsets || fTooManyColorsForIndexedPNG)
+    {
+        CString strWarning;
+        UINT mbFlags = MB_OKCANCEL | MB_ICONWARNING;
+
+        if (fTooManyColorsForIndexedPNG)
+        {
+            strWarning = L"*This preview cannot be used with indexed PNG: indexed PNGs can only use up to 256 colors.  This won't work: please export as a different image format such as normal PNG.\n";
+            mbFlags = MB_OK | MB_ICONSTOP;
+        }
+        else
+        {
+            strWarning = L"This preview is not suited for indexed PNG.  This is because:\n";
+
+            if (fImageUsesOffsets)
+            {
+                strWarning.Append(L"* The preview uses offsets, which will not be adjusted for in the output PNG.  It may look odd, but the palette will work.\n");
+            }
+
+            if (!fShowingSingleVersion)
+            {
+                strWarning.Append(L"* The preview is showing multiple versions of this sprite.  PalMod will need to export each of those versions to its own indexed PNG file.\n");
+            }
+            strWarning.Append(L"\nIf you wish to continue, click OK.  Otherwise, click Cancel and then export as normal PNG.");
+        }
+
+        fShouldExportAsIndexed = (MessageBox(strWarning, GetHost()->GetAppName(), mbFlags) == IDOK) && !fTooManyColorsForIndexedPNG;
+    }
+
+    if (fShouldExportAsIndexed)
+    {
+        // Indexed PNG: use the lodePNG encoder
+        for (int nNodeIndex = 0; nNodeIndex < m_DumpBmp.m_nTotalImagesToDisplay; nNodeIndex++)
+        {
+            LPCWSTR pszCurrentNodeName = fShowingSingleVersion ? L"" : pButtonLabelSet[nNodeIndex];
+            int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.nPalIndex : nNodeIndex;
+
+            const unsigned destWidth = (maxSrcWidth * currentZoom) + (2 * m_DumpBmp.border_sz);
+            const unsigned destHeight = (maxSrcHeight * currentZoom) + (2 * m_DumpBmp.border_sz);
+
+            std::vector<unsigned char> image(destWidth * destHeight);
+            lodepng::State state;
+
+            unsigned nPaletteOffset = 0;
+
+            for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
+            {
+                const unsigned srcWidth = rgSrcImg[nImageIndex]->uImgW;
+                const unsigned srcHeight = rgSrcImg[nImageIndex]->uImgH;
+                const unsigned srcSize = srcWidth * srcHeight;
+
+                // Handle zoom stretching inline
+                for (unsigned destY = 0; destY < (srcHeight * currentZoom); destY += currentZoom)
+                {
+                    for (unsigned zoomY = 0; zoomY < currentZoom; zoomY++)
+                    {
+                        for (unsigned destX = 0; destX < (srcWidth * currentZoom); destX += currentZoom)
+                        {
+                            for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
+                            {
+                                // make sure to flip the sprite
+                                int destIndex = ((m_DumpBmp.border_sz + destY + zoomY) * destWidth) + (m_DumpBmp.border_sz + destX + zoomX);
+                                // read bottom up, starting at the beginning of the last row
+                                int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
+
+                                // only write used pixels
+                                if (rgSrcImg[nImageIndex]->pImgData[srcIndex] != 0)
+                                {
+                                    image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Establish the PLTE header data.
+                UINT8* pCurrPal = (UINT8*)m_DumpBmp.pppPalettes[nImageIndex][nCurrentPalIndex];
+                CGameClass* CurrGame = GetHost()->GetCurrGame();
+                // the PNG PLTE section goes up to 256 colors, so use that as our initial cap
+                for (size_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
+                {
+                    if (iCurrentColor == 0) // transparency color
+                    {
+                        if (bTransPNG)
+                        {
+                            lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
+                            lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
+                        }
+                        else
+                        {
+                            // Use the background color, but be sure to force alpha
+                            lodepng_palette_add(&state.info_png.color, GetRValue(m_DumpBmp.crBGCol), GetGValue(m_DumpBmp.crBGCol), GetBValue(m_DumpBmp.crBGCol), 0xFF);
+                            lodepng_palette_add(&state.info_raw, GetRValue(m_DumpBmp.crBGCol), GetGValue(m_DumpBmp.crBGCol), GetBValue(m_DumpBmp.crBGCol), 0xFF);
+                        }
+                    }
+                    else if (iCurrentColor < (size_t)m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz) // actual colors
+                    {
+                        size_t nCurrentPosition = iCurrentColor * 4;
+                        const UINT8 currAVal = pCurrPal[nCurrentPosition + 3];
+                        const UINT8 currBVal = pCurrPal[nCurrentPosition + 2];
+                        const UINT8 currGVal = pCurrPal[nCurrentPosition + 1];
+                        const UINT8 currRVal = pCurrPal[nCurrentPosition];
+                        lodepng_palette_add(&state.info_png.color, currRVal, currGVal, currBVal, currAVal);
+                        lodepng_palette_add(&state.info_raw, currRVal, currGVal, currBVal, currAVal);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                nPaletteOffset += m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
+            }
+
+#ifdef DEBUG
+            // If we want to add metadata, this is what is needed.
+            // But currently, I don't know what metadata I would want, so I'm leaving it alone for now.
+            state.encoder.text_compression = 0; // use tExt
+            LodePNGInfo& info = state.info_png;
+            lodepng_add_text(&info, "Title", "...");
+            lodepng_add_text(&info, "Software", "PalMod");
+#endif
+
+            // lodepng options: going from RAW to indexed PNG
+            state.info_png.color.colortype = state.info_raw.colortype = LCT_PALETTE;
+            state.info_png.color.bitdepth = state.info_raw.bitdepth = 8;
+            state.info_png.color.palettesize = state.info_raw.palettesize = nTotalPaletteSize;
+            state.encoder.auto_convert = 0;
+
+            //encode and save
+            std::vector<unsigned char> buffer;
+            unsigned error = lodepng::encode(buffer, &image[0], destWidth, destHeight, state);
+            if (error)
+            {
+                CString strError;
+                strError.Format(L"PNG encoder error: %u - %S\n", error, lodepng_error_text(error));
+                MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
+                OutputDebugString(strError);
+            }
+            else
+            {
+                output_str.Format(_T("%s%s%s"), save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
+                lodepng::save_file(buffer, output_str.GetString());
+            }
+        }
+    }
+}
+
+void CImgOutDlg::ExportToRAW(CString save_str, CString output_str, CString output_ext, LPCWSTR pszSuggestedFileName)
+{
+    // raw
+    CString strDimensions;
+    const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
+    const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
+    sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
+
+    const UINT8 currentZoom = (UINT8)m_DumpBmp.zoom;
+
+    // We want to ensure filename syntax, so strip the extension in order to rebuild it below
+    save_str.Replace(output_ext.GetString(), _T(""));
+
+    for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
+    {
+        strDimensions.Format(_T("-w-%u-h-%u"), rgSrcImg[nImageIndex]->uImgW, rgSrcImg[nImageIndex]->uImgH);
+
+        // Ensure that the filename includes the W/H values so the RAW is usable
+        const bool fNeedDimensions = (_tcsstr(pszSuggestedFileName, strDimensions.GetString()) == nullptr);
+
+        // RAW export
+        if (nImageCount == 1)
+        {
+            output_str.Format(_T("%s%s%s"), save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+        }
+        else
+        {
+            output_str.Format(_T("%s-%02x%s%s"), save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+        }
+
+        CFile rawFile;
+        if (rawFile.Open(output_str, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+        {
+            rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW);
+            rawFile.Abort();
+        }
+    }
+}
+
+void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD dwExportFlags)
+{
+    CImage out_img;
+    int output_width = m_DumpBmp.GetOutputW();
+    int output_height = m_DumpBmp.GetOutputH();
+
+    if (out_img.Create(output_width, output_height, 32, dwExportFlags))
+    {
+        if (dwExportFlags == CImage::createAlphaChannel)
+        {
+            m_DumpBmp.UpdateCtrl(FALSE, (UINT8*)out_img.GetBits());
+        }
+        else
+        {
+            CDC* output_DC = CDC::FromHandle(out_img.GetDC());
+            output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.MainDC, 0, 0, SRCCOPY);
+        }
+
+        HRESULT hr = out_img.Save(output_str, img_format);
+
+        if (FAILED(hr))
+        {
+            CString strInfo;
+            strInfo.Format(_T("Image export to file '%s' failed.\n\nThe error code is 0x%x"), output_str.GetString(), hr);
+            MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
+        }
+
+        if (!bTransPNG)
+        {
+            out_img.ReleaseDC();
+        }
+        else
+        {
+            m_DumpBmp.UpdateCtrl();
+        }
+    }
+    else
+    {
+        MessageBox(_T("Image export failed: Failed to create the image file."), GetHost()->GetAppName(), MB_ICONERROR);
+    }
+
+}
+
 void CImgOutDlg::OnFileSave()
 {
     static LPCTSTR szSaveFilter[] =
@@ -479,253 +738,18 @@ void CImgOutDlg::OnFileSave()
 
         if (img_format == ImageFormatUndefined) // this path is RAW and indexed PNG using custom encoders
         {
-            const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
-            const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
-            sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
-
-            const UINT8 currentZoom = (UINT8)m_DumpBmp.zoom;
-
-            // We want to ensure filename syntax, so strip the extension in order to rebuild it below
-            save_str.Replace(output_ext.GetString(), _T(""));
-
             if (output_ext.CompareNoCase(_T(".png")) == 0)
             {
-                bool fShouldExportAsIndexed = true;
-
-                // Establish the raw image data
-                unsigned maxSrcWidth = 0;
-                unsigned maxSrcHeight = 0;
-                size_t nTotalPaletteSize = 0;
-                bool fImageUsesOffsets = false;
-
-                for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
-                {
-                    maxSrcWidth = max(maxSrcWidth, rgSrcImg[nImageIndex]->uImgW);
-                    maxSrcHeight = max(maxSrcHeight, rgSrcImg[nImageIndex]->uImgH);
-                    nTotalPaletteSize += m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
-                    fImageUsesOffsets = fImageUsesOffsets || (rgSrcImg[nImageIndex]->nXOffs != 0) || (rgSrcImg[nImageIndex]->nYOffs != 0);
-                }
-
-                bool fTooManyColorsForIndexedPNG = (nTotalPaletteSize > 256);
-
-                if (!fShowingSingleVersion || fImageUsesOffsets || fTooManyColorsForIndexedPNG)
-                {
-                    CString strWarning;
-                    UINT mbFlags = MB_OKCANCEL | MB_ICONWARNING;
-
-                    if (fTooManyColorsForIndexedPNG)
-                    {
-                        strWarning = L"*This preview cannot be used with indexed PNG: indexed PNGs can only use up to 256 colors.  This won't work: please export as a different image format such as normal PNG.\n";
-                        mbFlags = MB_OK | MB_ICONSTOP;
-                    }
-                    else
-                    {
-                        strWarning = L"This preview is not suited for indexed PNG.  This is because:\n";
-
-                        if (fImageUsesOffsets)
-                        {
-                            strWarning.Append(L"* The preview uses offsets, which will not be adjusted for in the output PNG.  It may look odd, but the palette will work.\n");
-                        }
-
-                        if (!fShowingSingleVersion)
-                        {
-                            strWarning.Append(L"* The preview is showing multiple versions of this sprite.  PalMod will need to export each of those versions to its own indexed PNG file.\n");
-                        }
-                        strWarning.Append(L"\nIf you wish to continue, click OK.  Otherwise, click Cancel and then export as normal PNG.");
-                    }
-
-                    fShouldExportAsIndexed = (MessageBox(strWarning, GetHost()->GetAppName(), mbFlags) == IDOK) && !fTooManyColorsForIndexedPNG;
-                }
-
-                if (fShouldExportAsIndexed)
-                {
-                    // Indexed PNG: use the lodePNG encoder
-                    for (int nNodeIndex = 0; nNodeIndex < m_DumpBmp.m_nTotalImagesToDisplay; nNodeIndex++)
-                    {
-                        LPCWSTR pszCurrentNodeName = fShowingSingleVersion ? L"" : pButtonLabelSet[nNodeIndex];
-                        int nCurrentPalIndex = (m_DumpBmp.m_nTotalImagesToDisplay == 1) ? m_DumpBmp.nPalIndex : nNodeIndex;
-
-                        const unsigned destWidth = (maxSrcWidth * currentZoom) + (2 * m_DumpBmp.border_sz);
-                        const unsigned destHeight = (maxSrcHeight * currentZoom) + (2 * m_DumpBmp.border_sz);
-
-                        std::vector<unsigned char> image(destWidth* destHeight);
-                        lodepng::State state;
-
-                        unsigned nPaletteOffset = 0;
-
-                        for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
-                        {
-                            const unsigned srcWidth = rgSrcImg[nImageIndex]->uImgW;
-                            const unsigned srcHeight = rgSrcImg[nImageIndex]->uImgH;
-                            const unsigned srcSize = srcWidth * srcHeight;
-
-                            // Handle zoom stretching inline
-                            for (unsigned destY = 0; destY < (srcHeight * currentZoom); destY += currentZoom)
-                            {
-                                for (unsigned zoomY = 0; zoomY < currentZoom; zoomY++)
-                                {
-                                    for (unsigned destX = 0; destX < (srcWidth * currentZoom); destX += currentZoom)
-                                    {
-                                        for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
-                                        {
-                                            // make sure to flip the sprite
-                                            int destIndex = ((m_DumpBmp.border_sz + destY + zoomY) * destWidth) + (m_DumpBmp.border_sz + destX + zoomX);
-                                            // read bottom up, starting at the beginning of the last row
-                                            int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
-
-                                            // only write used pixels
-                                            if (rgSrcImg[nImageIndex]->pImgData[srcIndex] != 0)
-                                            {
-                                                image[destIndex] = rgSrcImg[nImageIndex]->pImgData[srcIndex] + nPaletteOffset;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            // Establish the PLTE header data.
-                            UINT8* pCurrPal = (UINT8*)m_DumpBmp.pppPalettes[nImageIndex][nCurrentPalIndex];
-                            CGameClass* CurrGame = GetHost()->GetCurrGame();
-                            // the PNG PLTE section goes up to 256 colors, so use that as our initial cap
-                            for (size_t iCurrentColor = 0; iCurrentColor < 256; iCurrentColor++)
-                            {
-                                if (iCurrentColor == 0) // transparency color
-                                {
-                                    if (bTransPNG)
-                                    {
-                                        lodepng_palette_add(&state.info_png.color, 0, 0, 0, 0);
-                                        lodepng_palette_add(&state.info_raw, 0, 0, 0, 0);
-                                    }
-                                    else
-                                    {
-                                        // Use the background color, but be sure to force alpha
-                                        lodepng_palette_add(&state.info_png.color, GetRValue(m_DumpBmp.crBGCol), GetGValue(m_DumpBmp.crBGCol), GetBValue(m_DumpBmp.crBGCol), 0xFF);
-                                        lodepng_palette_add(&state.info_raw, GetRValue(m_DumpBmp.crBGCol), GetGValue(m_DumpBmp.crBGCol), GetBValue(m_DumpBmp.crBGCol), 0xFF);
-                                    }
-                                }
-                                else if (iCurrentColor < (size_t)m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz) // actual colors
-                                {
-                                    size_t nCurrentPosition = iCurrentColor * 4;
-                                    const UINT8 currAVal = pCurrPal[nCurrentPosition + 3];
-                                    const UINT8 currBVal = pCurrPal[nCurrentPosition + 2];
-                                    const UINT8 currGVal = pCurrPal[nCurrentPosition + 1];
-                                    const UINT8 currRVal = pCurrPal[nCurrentPosition];
-                                    lodepng_palette_add(&state.info_png.color, currRVal, currGVal, currBVal, currAVal);
-                                    lodepng_palette_add(&state.info_raw, currRVal, currGVal, currBVal, currAVal);
-                                }
-                                else
-                                {
-                                    break;
-                                }
-                            }
-
-                            nPaletteOffset += m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
-                        }
-
-#ifdef DEBUG
-                        // If we want to add metadata, this is what is needed.
-                        // But currently, I don't know what metadata I would want, so I'm leaving it alone for now.
-                        state.encoder.text_compression = 0; // use tExt
-                        LodePNGInfo& info = state.info_png;
-                        lodepng_add_text(&info, "Title", "...");
-                        lodepng_add_text(&info, "Software", "PalMod");
-#endif
-
-                        // lodepng options: going from RAW to indexed PNG
-                        state.info_png.color.colortype = state.info_raw.colortype = LCT_PALETTE;
-                        state.info_png.color.bitdepth = state.info_raw.bitdepth = 8;
-                        state.info_png.color.palettesize = state.info_raw.palettesize = nTotalPaletteSize;
-                        state.encoder.auto_convert = 0;
-
-                        //encode and save
-                        std::vector<unsigned char> buffer;
-                        unsigned error = lodepng::encode(buffer, &image[0], destWidth, destHeight, state);
-                        if (error)
-                        {
-                            CString strError;
-                            strError.Format(L"PNG encoder error: %u - %S\n", error, lodepng_error_text(error));
-                            MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-                            OutputDebugString(strError);
-                        }
-                        else
-                        {
-                            output_str.Format(_T("%s%s%s"), save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
-                            lodepng::save_file(buffer, output_str.GetString());
-                        }
-                    }
-                }
+                ExportToIndexedPNG(save_str, output_str, output_ext);
             }
             else
             {
-                // raw
-                CString strDimensions;
-
-                for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
-                {
-                    strDimensions.Format(_T("-w-%u-h-%u"), rgSrcImg[nImageIndex]->uImgW, rgSrcImg[nImageIndex]->uImgH);
-
-                    // Ensure that the filename includes the W/H values so the RAW is usable
-                    const bool fNeedDimensions = (_tcsstr(sfd_ofn.lpstrFile, strDimensions.GetString()) == nullptr);
-
-                    // RAW export
-                    if (nImageCount == 1)
-                    {
-                        output_str.Format(_T("%s%s%s"), save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
-                    }
-                    else
-                    {
-                        output_str.Format(_T("%s-%02x%s%s"), save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
-                    }
-
-                    CFile rawFile;
-                    if (rawFile.Open(output_str, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
-                    {
-                        rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW);
-                        rawFile.Abort();
-                    }
-                }
+                ExportToRAW(save_str, output_str, output_ext, sfd_ofn.lpstrFile);
             }
         }
         else // specific image type guid available
         {
-            CImage out_img;
-            int output_width = m_DumpBmp.GetOutputW();
-            int output_height = m_DumpBmp.GetOutputH();
-
-            if (out_img.Create(output_width, output_height, 32, dwExportFlags))
-            {
-                if (dwExportFlags == CImage::createAlphaChannel)
-                {
-                    m_DumpBmp.UpdateCtrl(FALSE, (UINT8*)out_img.GetBits());
-                }
-                else
-                {
-                    CDC* output_DC = CDC::FromHandle(out_img.GetDC());
-                    output_DC->BitBlt(0, 0, output_width, output_height, &m_DumpBmp.MainDC, 0, 0, SRCCOPY);
-                }
-
-                HRESULT hr = out_img.Save(output_str, img_format);
-
-                if (FAILED(hr))
-                {
-                    CString strInfo;
-                    strInfo.Format(_T("Image export to file '%s' failed.\n\nThe error code is 0x%x"), output_str.GetString(), hr);
-                    MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
-                }
-
-                if (!bTransPNG)
-                {
-                    out_img.ReleaseDC();
-                }
-                else
-                {
-                    m_DumpBmp.UpdateCtrl();
-                }
-            }
-            else
-            {
-                MessageBox(_T("Image export failed: Failed to create the image file."), GetHost()->GetAppName(), MB_ICONERROR);
-            }
+            ExportToCImageType(output_str, img_format, dwExportFlags);
         }
     }
 }

@@ -645,7 +645,8 @@ void CPalModDlg::ClearGameVar()
 
     bCopyFromBase = FALSE;
 
-    bEnabled = FALSE;
+    // Indicate no game is loaded
+    Enable(FALSE);
 
     UpdateAppTitle();
 }
