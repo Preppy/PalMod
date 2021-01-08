@@ -713,7 +713,35 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName, bool fReadUpsideDown)
             }
         }
 
-        if (!fReadUpsideDown && (nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentColors))
+        const bool fShouldProcessTopdown = !fReadUpsideDown && (nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentColors);
+
+        bool fHaveMultiplePalettes = (nTotalPaletteCount != 1);
+        bool* rgfACTHasColorsForThisPalette = new bool[nTotalPaletteCount];
+        memset(rgfACTHasColorsForThisPalette, false, sizeof(bool) * nTotalPaletteCount);
+
+        if (fHaveMultiplePalettes)
+        {
+            // we have multiple palettes: ensure that we only use useful data from the ACT
+            int nOffsetThisPass = 0;
+            for (int iPalette = 0; iPalette < nTotalPaletteCount; iPalette++)
+            {
+                for (iACTIndex = nOffsetThisPass; (iACTIndex < nACTColorCount) && ((iACTIndex - nOffsetThisPass) < MainPalGroup->GetPalDef(iPalette)->uPalSz); iACTIndex++)
+                {
+                    int iIndexToUse= fShouldProcessTopdown ? iACTIndex : (nACTColorCount - iACTIndex);
+                    if ((pAct[(iIndexToUse * 3)] != 0) ||
+                        (pAct[(iIndexToUse * 3) + 1] != 0) ||
+                        (pAct[(iIndexToUse * 3) + 2] != 0))
+                    {
+                        rgfACTHasColorsForThisPalette[iPalette] = true;
+                        break;
+                    }
+                }
+
+                nOffsetThisPass += MainPalGroup->GetPalDef(iPalette)->uPalSz;
+            }
+        }
+
+        if (fShouldProcessTopdown)
         {
             iACTIndex = 0;
 
@@ -743,8 +771,16 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName, bool fReadUpsideDown)
                     {
                         // advance to the next palette
                         nCurrentPalette++;
-                        iCurrentIndexInPalette = 0;
-                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+
+                        if (rgfACTHasColorsForThisPalette[nCurrentPalette])
+                        {
+                            iCurrentIndexInPalette = 0;
+                            pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                 }
             }
@@ -763,7 +799,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName, bool fReadUpsideDown)
 
             for (int iAbsolutePaletteIndex = 0; iAbsolutePaletteIndex < nTotalNumberOfCurrentColors; iAbsolutePaletteIndex++, nTotalColorsUsed++)
             {
-                pPal[(iCurrentIndexInPalette * 4)] = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
+                pPal[(iCurrentIndexInPalette * 4)]     = MainPalGroup->ROUND_R(pAct[(iACTIndex * 3)]);
                 pPal[(iCurrentIndexInPalette * 4) + 1] = MainPalGroup->ROUND_G(pAct[(iACTIndex * 3) + 1]);
                 pPal[(iCurrentIndexInPalette * 4) + 2] = MainPalGroup->ROUND_B(pAct[(iACTIndex * 3) + 2]);
 
@@ -790,8 +826,16 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName, bool fReadUpsideDown)
                         {
                             // advance to the next palette
                             nCurrentPalette++;
-                            iCurrentIndexInPalette = 0;
-                            pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+
+                            if (rgfACTHasColorsForThisPalette[nCurrentPalette])
+                            {
+                                iCurrentIndexInPalette = 0;
+                                pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                            }
+                            else
+                            {
+                                break;
+                            }
                         }
                         else
                         {
@@ -803,6 +847,8 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName, bool fReadUpsideDown)
                 }               
             }
         }
+
+        safe_delete_array(rgfACTHasColorsForThisPalette);
 
         ImgDispCtrl->UpdateCtrl();
         m_PalHost.UpdateAllPalCtrls();
@@ -1095,7 +1141,34 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName, bool fReadUpsideDown)
                         }
                     }
 
-                    if (!fReadUpsideDown && (nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentPaletteColors))
+                    const bool fShouldProcessTopdown = !fReadUpsideDown && (nBlackColorCount < 32) && (nBlackColorCount < nTotalNumberOfCurrentPaletteColors);
+
+                    bool fHaveMultiplePalettes = (nActivePaletteCount != 1);
+                    bool* rgfPNGHasColorsForThisPalette = new bool[nActivePaletteCount];
+                    memset(rgfPNGHasColorsForThisPalette, false, sizeof(bool) * nActivePaletteCount);
+
+                    if (fHaveMultiplePalettes)
+                    {
+                        int nOffsetThisPass = 0;
+                        for (int iPalette = 0; iPalette < nActivePaletteCount; iPalette++)
+                        {
+                            for (iPNGIndex = nOffsetThisPass; (iPNGIndex < nTotalNumberOfCurrentPaletteColors) && ((iPNGIndex - nOffsetThisPass) < MainPalGroup->GetPalDef(iPalette)->uPalSz) && (iPNGIndex < nPNGColorCount); iPNGIndex++)
+                            {
+                                int iIndexToUse = fShouldProcessTopdown ? iPNGIndex : (nPNGColorCount - iPNGIndex);
+                                if ((paszPaletteData[(iIndexToUse * 3)] != 0) ||
+                                    (paszPaletteData[(iIndexToUse * 3) + 1] != 0) ||
+                                    (paszPaletteData[(iIndexToUse * 3) + 2] != 0))
+                                {
+                                    rgfPNGHasColorsForThisPalette[iPalette] = true;
+                                    break;
+                                }
+                            }
+
+                            nOffsetThisPass += MainPalGroup->GetPalDef(iPalette)->uPalSz;
+                        }
+                    }
+
+                    if (fShouldProcessTopdown)
                     {
                         iPNGIndex = 0;
 
@@ -1125,8 +1198,17 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName, bool fReadUpsideDown)
                                 {
                                     // advance to the next palette
                                     nCurrentPalette++;
-                                    iCurrentIndexInPalette = 0;
-                                    pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+
+                                    if (rgfPNGHasColorsForThisPalette[nCurrentPalette])
+                                    {
+                                        iCurrentIndexInPalette = 0;
+                                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                    }
+                                    else
+                                    {
+                                        nTotalColorsUsed++;
+                                        break;
+                                    }
                                 }
                             }
                         }
@@ -1172,8 +1254,17 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName, bool fReadUpsideDown)
                                     {
                                         // advance to the next palette
                                         nCurrentPalette++;
-                                        iCurrentIndexInPalette = 0;
-                                        pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+
+                                        if (rgfPNGHasColorsForThisPalette[nCurrentPalette])
+                                        {
+                                            iCurrentIndexInPalette = 0;
+                                            pPal = (UINT8*)MainPalGroup->GetPalDef(nCurrentPalette)->pPal;
+                                        }
+                                        else
+                                        {
+                                            nTotalColorsUsed++;
+                                            break;
+                                        }
                                     }
                                     else
                                     {
@@ -1185,6 +1276,8 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName, bool fReadUpsideDown)
                             }
                         }
                     }
+
+                    safe_delete_array(rgfPNGHasColorsForThisPalette);
 
                     ImgDispCtrl->UpdateCtrl();
                     m_PalHost.UpdateAllPalCtrls();

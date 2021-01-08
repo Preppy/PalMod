@@ -962,37 +962,88 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     int nXOffsetForThird = nXOffsetForSecond + 80;
                     int nYOffsetForThird = 0;
 
-                    if (nJoinedUnit2 == indexMVC2ASentinel)
-                    {
-                        nXOffsetForSecond += 40;
-                        nXOffsetForThird += 40;
-                    }
-                    else if (nJoinedUnit2 == indexMVC2AStrider)
-                    {
-                        nXOffsetForSecond += 280;
-                        nXOffsetForThird += 80;
-                    }
-                    else if (nJoinedUnit2 == indexMVC2ADrDoom)
-                    {
-                        nXOffsetForSecond += 80;
-                        nXOffsetForThird += 80;
-                    }
-                    else if (nJoinedUnit2 == indexMVC2AColossus)
-                    {
-                        nXOffsetForThird += 80;
-                    }
-
-                    if (nJoinedUnit3 == indexMVC2ASentinel)
-                    {
-                        nXOffsetForThird += 40;
-                    }
-                    else if (nJoinedUnit3 == indexMVC2ACaptainCommando)
-                    {
-                        nXOffsetForThird += 50;
-                    }
-                    else if (nJoinedUnit3 == indexMVC2AAkuma)
+                    if ((nJoinedUnit2 == indexMVC2AStorm) && (nJoinedUnit3 == indexMVC2APsylocke))
                     {
                         nXOffsetForThird += 20;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2AStorm) && (nJoinedUnit2 == indexMVC2ASentinel) && (nJoinedUnit3 == indexMVC2ACaptainCommando))
+                    {
+                        // Santhrax
+                        nXOffsetForSecond += 40;
+                        nXOffsetForThird += 90;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2ACable) && (nJoinedUnit2 == indexMVC2ASentinel) && (nJoinedUnit3 == indexMVC2ACaptainCommando))
+                    {
+                        // scrub
+                        nXOffsetForSecond += 40;
+                        nXOffsetForThird += 90;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2AMagneto) && (nJoinedUnit2 == indexMVC2ACable) && (nJoinedUnit3 == indexMVC2ASentinel))
+                    {
+                        // rowtron
+                        nXOffsetForThird += 40;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2AStorm) && (nJoinedUnit2 == indexMVC2ASentinel) && (nJoinedUnit3 == indexMVC2ACyclops))
+                    {
+                        // matrix
+                        nXOffsetForSecond += 40;
+                        nXOffsetForThird += 70;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2ASpiral) && (nJoinedUnit2 == indexMVC2ACable) && (nJoinedUnit3 == indexMVC2ASentinel))
+                    {
+                        // duc
+                        nXOffsetForThird += 60;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2ASentinel) && (nJoinedUnit2 == indexMVC2AStrider) && (nJoinedUnit3 == indexMVC2ADrDoom))
+                    {
+                        // clockw0rk
+                        nXOffsetForSecond += 60;
+                        nXOffsetForThird += 40;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2AMagneto) && (nJoinedUnit2 == indexMVC2AIronMan) && (nJoinedUnit3 == indexMVC2ASentinel))
+                    {
+                        // combofiend
+                        nXOffsetForThird += 60;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2ARogue) && (nJoinedUnit2 == indexMVC2AColossus) && (nJoinedUnit3 == indexMVC2AKen))
+                    {
+                        // vdo
+                        nXOffsetForThird += 40;
+                    }
+                    else
+                    {
+                        if (nJoinedUnit2 == indexMVC2ASentinel)
+                        {
+                            nXOffsetForSecond += 40;
+                            nXOffsetForThird += 40;
+                        }
+                        else if (nJoinedUnit2 == indexMVC2AStrider)
+                        {
+                            nXOffsetForSecond += 280;
+                            nXOffsetForThird += 40;
+                        }
+                        else if (nJoinedUnit2 == indexMVC2ADrDoom)
+                        {
+                            nXOffsetForSecond += 80;
+                            nXOffsetForThird += 80;
+                        }
+                        else if (nJoinedUnit2 == indexMVC2AColossus)
+                        {
+                            nXOffsetForThird += 40;
+                        }
+
+                        if (nJoinedUnit3 == indexMVC2ASentinel)
+                        {
+                            nXOffsetForThird += 40;
+                        }
+                        else if (nJoinedUnit3 == indexMVC2ACaptainCommando)
+                        {
+                            nXOffsetForThird += 50;
+                        }
+                        else if (nJoinedUnit3 == indexMVC2AAkuma)
+                        {
+                            nXOffsetForThird += 20;
+                        }
                     }
 
                     UINT16 nNodeIndex = (NodeGet->uPalId % 6);

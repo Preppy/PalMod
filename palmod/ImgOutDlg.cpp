@@ -406,19 +406,29 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
     unsigned maxSrcWidth = 0;
     unsigned maxSrcHeight = 0;
     size_t nTotalPaletteSize = 0;
-    bool fImageUsesOffsets = false;
+
+    RECT rectCompleteDimensions = {};
 
     for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
     {
-        maxSrcWidth = max(maxSrcWidth, rgSrcImg[nImageIndex]->uImgW);
-        maxSrcHeight = max(maxSrcHeight, rgSrcImg[nImageIndex]->uImgH);
+        // this represents the maximum rect, establishing needed skew
+        rectCompleteDimensions.left = min(rectCompleteDimensions.left, 0 + rgSrcImg[nImageIndex]->nXOffs);
+        rectCompleteDimensions.right = max(rectCompleteDimensions.right, rgSrcImg[nImageIndex]->uImgW + rgSrcImg[nImageIndex]->nXOffs);
+        rectCompleteDimensions.top = min(rectCompleteDimensions.top, 0 + rgSrcImg[nImageIndex]->nYOffs);
+        rectCompleteDimensions.bottom = max(rectCompleteDimensions.bottom, rgSrcImg[nImageIndex]->uImgH + rgSrcImg[nImageIndex]->nYOffs);
+
         nTotalPaletteSize += m_DumpBmp.rgSrcImg[nImageIndex]->uPalSz;
-        fImageUsesOffsets = fImageUsesOffsets || (rgSrcImg[nImageIndex]->nXOffs != 0) || (rgSrcImg[nImageIndex]->nYOffs != 0);
     }
+
+    maxSrcWidth = rectCompleteDimensions.right - rectCompleteDimensions.left;
+    maxSrcHeight = rectCompleteDimensions.bottom - rectCompleteDimensions.top;
+
+    int nXSkew = abs(rectCompleteDimensions.left);
+    int nYSkew = abs(rectCompleteDimensions.top);
 
     bool fTooManyColorsForIndexedPNG = (nTotalPaletteSize > 256);
 
-    if (!fShowingSingleVersion || fImageUsesOffsets || fTooManyColorsForIndexedPNG)
+    if (!fShowingSingleVersion || fTooManyColorsForIndexedPNG)
     {
         CString strWarning;
         UINT mbFlags = MB_OKCANCEL | MB_ICONWARNING;
@@ -431,16 +441,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
         else
         {
             strWarning = L"This preview is not suited for indexed PNG.  This is because:\n";
-
-            if (fImageUsesOffsets)
-            {
-                strWarning.Append(L"* The preview uses offsets, which will not be adjusted for in the output PNG.  It may look odd, but the palette will work.\n");
-            }
-
-            if (!fShowingSingleVersion)
-            {
-                strWarning.Append(L"* The preview is showing multiple versions of this sprite.  PalMod will need to export each of those versions to its own indexed PNG file.\n");
-            }
+            strWarning.Append(L"* The preview is showing multiple versions of this sprite.  PalMod will need to export each of those versions to its own indexed PNG file.\n");
             strWarning.Append(L"\nIf you wish to continue, click OK.  Otherwise, click Cancel and then export as normal PNG.");
         }
 
@@ -469,17 +470,24 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
                 const unsigned srcHeight = rgSrcImg[nImageIndex]->uImgH;
                 const unsigned srcSize = srcWidth * srcHeight;
 
+                unsigned skewYForImage = nYSkew + rgSrcImg[nImageIndex]->nYOffs;
+                unsigned skewXForImage = nXSkew + rgSrcImg[nImageIndex]->nXOffs;
+
                 // Handle zoom stretching inline
                 for (unsigned destY = 0; destY < (srcHeight * currentZoom); destY += currentZoom)
                 {
+                    unsigned adjustedY = skewYForImage + destY;
+
                     for (unsigned zoomY = 0; zoomY < currentZoom; zoomY++)
                     {
                         for (unsigned destX = 0; destX < (srcWidth * currentZoom); destX += currentZoom)
                         {
+                            unsigned adjustedX = skewXForImage + destX;
+
                             for (unsigned zoomX = 0; zoomX < currentZoom; zoomX++)
                             {
                                 // make sure to flip the sprite
-                                int destIndex = ((m_DumpBmp.border_sz + destY + zoomY) * destWidth) + (m_DumpBmp.border_sz + destX + zoomX);
+                                int destIndex = ((m_DumpBmp.border_sz + adjustedY + zoomY) * destWidth) + (m_DumpBmp.border_sz + adjustedX + zoomX);
                                 // read bottom up, starting at the beginning of the last row
                                 int srcIndex = srcSize + (destX / currentZoom) - (((destY / currentZoom) + 1) * srcWidth);
 
