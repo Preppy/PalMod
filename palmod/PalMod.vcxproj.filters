@@ -229,6 +229,9 @@
     <Filter Include="Game\Other Platforms">
       <UniqueIdentifier>{3e8ed08b-6c31-4d0d-affc-0f6a12a8dcb7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown 4">
+      <UniqueIdentifier>{dc385e4d-7b94-4805-8871-c401b54bd681}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -503,6 +506,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_DANKUGA_A.cpp">
       <Filter>Game\Other Platforms</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SAMSHO4_A.cpp">
+      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -934,6 +940,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_DANKUGA_A.h">
       <Filter>Game\Other Platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SAMSHO4_A.h">
+      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMSHO4_A_DEF.h">
+      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

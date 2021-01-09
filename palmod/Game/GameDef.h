@@ -80,6 +80,7 @@ enum SupportedGamesList
     DUMMY_ARGB7888,
     AOF3_A,
     DANKUGA_A,
+    SAMSHO4_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -163,6 +164,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Fake game for ARGB7888",
    L"Art of Fighting 3 (Arcade)",
    L"Dan-Ku-Ga (Arcade)",
+   L"Samurai Shodown IV (Arcade)",
 };
 
 enum class GamePlatform
@@ -2738,6 +2740,31 @@ const UINT16 SAMSHO3_A_IMG_UNITS[] =
     indexSamSho5Sprites_Shizumaru,
     indexSamSho5Sprites_Ukyo,
     indexSamSho5Sprites_Zankuro,
+};
+
+const UINT16 SAMSHO4_A_IMG_UNITS[] =
+{
+    indexSamSho5Sprites_Amakusa,
+    indexSamSho5Sprites_Basara,
+    indexSamSho5Sprites_Charlotte,
+    indexSamSho5Sprites_Gaira,
+    indexSamSho5Sprites_Galford,
+    indexSamSho5Sprites_Genjuro,
+    indexSamSho5Sprites_Hanzo,
+    indexSamSho5Sprites_Haohmaru,
+    indexSamSho5Sprites_Jubei,
+    indexSamSho5Sprites_Kazuki,
+    indexSamSho5Sprites_Kyoshiro,
+    indexSamSho5Sprites_Nakoruru,
+    indexSamSho5Sprites_Rera, // not in the game: just want the shikuru sprite for nakoruru Bust form
+    indexSamSho5Sprites_Rimururu,
+    indexSamSho5Sprites_Shizumaru,
+    indexSamSho5Sprites_Sogetsu,
+    indexSamSho5Sprites_TamTam,
+    indexSamSho5Sprites_Ukyo,
+    indexSamSho5Sprites_Zankuro,
+
+    indexSamSho5Sprites_Portrait,
 };
 
 const UINT16 SAMSHO5SP_A_IMG_UNITS[] =

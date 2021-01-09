@@ -41,6 +41,7 @@
 #include "Game_REDEARTH_A.h"
 #include "Game_REDEARTH_A_DIR.h"
 #include "Game_SAMSHO3_A.h"
+#include "Game_SAMSHO4_A.h"
 #include "Game_SAMSHO5SP_A.h"
 #include "Game_SFA1_A.h"
 #include "Game_SFA2_A.h"
@@ -323,6 +324,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case SAMSHO3_A:
     {
         GetRule = &CGame_SAMSHO3_A::GetRule;
+        return TRUE;
+    }
+    case SAMSHO4_A:
+    {
+        GetRule = &CGame_SAMSHO4_A::GetRule;
         return TRUE;
     }
     case SAMSHO5SP_A:
@@ -635,6 +641,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SAMSHO3_A:
     {
         return new CGame_SAMSHO3_A(nConfirmedROMSize);
+    }
+    case SAMSHO4_A:
+    {
+        return new CGame_SAMSHO4_A(nConfirmedROMSize);
     }
     case SAMSHO5SP_A:
     {
@@ -1162,7 +1172,14 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     }
     else
     {
-        if (rgFileIsChanged[0])
+        BOOL fSomethingChanged = FALSE;
+
+        for (UINT16 nPos = 0; rgUnitRedir[nPos] != INVALID_UNIT_VALUE; nPos++)
+        {
+            fSomethingChanged = fSomethingChanged || rgFileIsChanged[rgUnitRedir[nPos]];
+        }
+
+        if (fSomethingChanged)
         {
             nSaveLoadCount = 1;
 

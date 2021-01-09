@@ -6,13 +6,13 @@ const sGame_PaletteDataset DANKUGA_A_KAZUYA_PALETTES[] =
     { L"Kazuya Character Kick", 0x2d578, 0x2d5b8 },
     { L"Kazuya Character Start", 0x2d5b8, 0x2d5f8 },
     { L"Kazuya Character Training", 0x2d5f8, 0x2d638 },
+    { L"Kazuya Winquote Portrait Punch", 0x47180, 0x471c0 },
+    { L"Kazuya Winquote Portrait Kick", 0x471c0, 0x47200 },
+    { L"Kazuya Winquote Portrait Start", 0x47200, 0x47240 },
+    { L"Kazuya Winquote Portrait Unused", 0x47240, 0x47280 },
     { L"Kazuya Select Screen Punch", 0x2e5b8, 0x2e5f8 },
     { L"Kazuya Select Screen Kick", 0x2e5f8, 0x2e638 },
     { L"Kazuya Select Screen Start", 0x2e638, 0x2e678 },
-    { L"Kazuya Winquote Portrait Punch", 0x47180, 0x47280 },
-    { L"Kazuya Winquote Portrait Kick", 0x47280, 0x47380 },
-    { L"Kazuya Winquote Portrait Start", 0x47380, 0x47480 },
-    { L"Kazuya Winquote Portrait Unused", 0x47480, 0x47580 },
 };
 
 const sGame_PaletteDataset DANKUGA_A_BARTS_PALETTES[] =
@@ -21,13 +21,13 @@ const sGame_PaletteDataset DANKUGA_A_BARTS_PALETTES[] =
     { L"Barts Character Kick", 0x2d678, 0x2d6b8 },
     { L"Barts Character Start", 0x2d6b8, 0x2d6f8 },
     { L"Barts Character Training", 0x2d6f8, 0x2d738 },
+    { L"Barts Winquote Portrait Punch", 0x47280, 0x472c0 },
+    { L"Barts Winquote Portrait Kick", 0x472c0, 0x47300 },
+    { L"Barts Winquote Portrait Start", 0x47300, 0x47340 },
+    { L"Barts Winquote Portrait Unused", 0x47340, 0x47380 },
     { L"Barts Select Screen Punch", 0x2e678, 0x2e6b8 },
     { L"Barts Select Screen Kick", 0x2e6b8, 0x2e6f8 },
     { L"Barts Select Screen Start", 0x2e6f8, 0x2e738 },
-    { L"Barts Winquote Portrait Punch", 0x47580, 0x47680 },
-    { L"Barts Winquote Portrait Kick", 0x47680, 0x47780 },
-    { L"Barts Winquote Portrait Start", 0x47780, 0x47880 },
-    { L"Barts Winquote Portrait Unused", 0x47880, 0x47980 },
 };
 
 const sGame_PaletteDataset DANKUGA_A_GEKKOU_PALETTES[] =
@@ -36,13 +36,13 @@ const sGame_PaletteDataset DANKUGA_A_GEKKOU_PALETTES[] =
     { L"Gekkou Character Kick", 0x2d778, 0x2d7b8 },
     { L"Gekkou Character Start", 0x2d7b8, 0x2d7f8 },
     { L"Gekkou Character Training", 0x2d7f8, 0x2d838 },
+    { L"Gekkou Winquote Portrait Punch", 0x47380, 0x473c0 },
+    { L"Gekkou Winquote Portrait Kick", 0x473c0, 0x47400 },
+    { L"Gekkou Winquote Portrait Start", 0x47400, 0x47440 },
+    { L"Gekkou Winquote Portrait Unused", 0x47440, 0x47480 },
     { L"Gekkou Select Screen Punch", 0x2e738, 0x2e778 },
     { L"Gekkou Select Screen Kick", 0x2e778, 0x2e7b8 },
     { L"Gekkou Select Screen Start", 0x2e7b8, 0x2e7f8 },
-    { L"Gekkou Winquote Portrait Punch", 0x47980, 0x47a80 },
-    { L"Gekkou Winquote Portrait Kick", 0x47a80, 0x47b80 },
-    { L"Gekkou Winquote Portrait Start", 0x47b80, 0x47c80 },
-    { L"Gekkou Winquote Portrait Unused", 0x47c80, 0x47d80 },
 };
 
 const sGame_PaletteDataset DANKUGA_A_WULONG_PALETTES[] =
@@ -51,13 +51,13 @@ const sGame_PaletteDataset DANKUGA_A_WULONG_PALETTES[] =
     { L"Wulong Character Kick", 0x2d878, 0x2d8b8 },
     { L"Wulong Character Start", 0x2d8b8, 0x2d8f8 },
     { L"Wulong Character Training", 0x2d8f8, 0x2d938 },
+    { L"Wulong Winquote Portrait Punch", 0x47480, 0x474c0 },
+    { L"Wulong Winquote Portrait Kick", 0x474c0, 0x47500 },
+    { L"Wulong Winquote Portrait Start", 0x47500, 0x47540 },
+    { L"Wulong Winquote Portrait Unused", 0x47540, 0x47580 },
     { L"Wulong Select Screen Punch", 0x2e7f8, 0x2e838 },
     { L"Wulong Select Screen Kick", 0x2e838, 0x2e878 },
     { L"Wulong Select Screen Start", 0x2e878, 0x2e8b8 },
-    { L"Wulong Winquote Portrait Punch", 0x47d80, 0x47e80 },
-    { L"Wulong Winquote Portrait Kick", 0x47e80, 0x47f80 },
-    { L"Wulong Winquote Portrait Start", 0x47f80, 0x48080 },
-    { L"Wulong Winquote Portrait Unused", 0x48080, 0x48180 },
 };
 
 const sGame_PaletteDataset DANKUGA_A_LIHUA_PALETTES[] =
@@ -66,13 +66,13 @@ const sGame_PaletteDataset DANKUGA_A_LIHUA_PALETTES[] =
     { L"Lihua Character Kick", 0x2d978, 0x2d9b8 },
     { L"Lihua Character Start", 0x2d9b8, 0x2d9f8 },
     { L"Lihua Character Training", 0x2d9f8, 0x2da38 },
+    { L"Lihua Winquote Portrait Punch", 0x47580, 0x475c0 },
+    { L"Lihua Winquote Portrait Kick", 0x475c0, 0x47600 },
+    { L"Lihua Winquote Portrait Start", 0x47600, 0x47640 },
+    { L"Lihua Winquote Portrait Unused", 0x47640, 0x47680 },
     { L"Lihua Select Screen Punch", 0x2e8b8, 0x2e8f8 },
     { L"Lihua Select Screen Kick", 0x2e8f8, 0x2e938 },
     { L"Lihua Select Screen Start", 0x2e938, 0x2e978 },
-    { L"Lihua Winquote Portrait Punch", 0x48180, 0x48280 },
-    { L"Lihua Winquote Portrait Kick", 0x48280, 0x48380 },
-    { L"Lihua Winquote Portrait Start", 0x48380, 0x48480 },
-    { L"Lihua Winquote Portrait Unused", 0x48480, 0x48580 },
 };
 
 const sGame_PaletteDataset DANKUGA_A_LIZA_PALETTES[] =
@@ -81,13 +81,13 @@ const sGame_PaletteDataset DANKUGA_A_LIZA_PALETTES[] =
     { L"Liza Character Kick", 0x2da78, 0x2dab8 },
     { L"Liza Character Start", 0x2dab8, 0x2daf8 },
     { L"Liza Character Training", 0x2daf8, 0x2db38 },
+    { L"Liza Winquote Portrait Punch", 0x47680, 0x476c0 },
+    { L"Liza Winquote Portrait Kick", 0x476c0, 0x47700 },
+    { L"Liza Winquote Portrait Start", 0x47700, 0x47740 },
+    { L"Liza Winquote Portrait Unused", 0x47740, 0x47780 },
     { L"Liza Select Screen Punch", 0x2e978, 0x2e9b8 },
     { L"Liza Select Screen Kick", 0x2e9b8, 0x2e9f8 },
     { L"Liza Select Screen Start", 0x2e9f8, 0x2ea38 },
-    { L"Liza Winquote Portrait Punch", 0x48580, 0x48680 },
-    { L"Liza Winquote Portrait Kick", 0x48680, 0x48780 },
-    { L"Liza Winquote Portrait Start", 0x48780, 0x48880 },
-    { L"Liza Winquote Portrait Unused", 0x48880, 0x48980 },
 };
 
 const sGame_PaletteDataset DANKUGA_A_MCCOY_PALETTES[] =
@@ -96,13 +96,13 @@ const sGame_PaletteDataset DANKUGA_A_MCCOY_PALETTES[] =
     { L"McCoy Character Kick", 0x2db78, 0x2dbb8 },
     { L"McCoy Character Start", 0x2dbb8, 0x2dbf8 },
     { L"McCoy Character Training", 0x2dbf8, 0x2dc38 },
+    { L"McCoy Winquote Portrait Punch", 0x47780, 0x477c0 },
+    { L"McCoy Winquote Portrait Kick", 0x477c0, 0x47800 },
+    { L"McCoy Winquote Portrait Start", 0x47800, 0x47840 },
+    { L"McCoy Winquote Portrait Unused", 0x47840, 0x47880 },
     { L"McCoy Select Screen Punch", 0x2ea38, 0x2ea78 },
     { L"McCoy Select Screen Kick", 0x2ea78, 0x2eab8 },
     { L"McCoy Select Screen Start", 0x2eab8, 0x2eaf8 },
-    { L"McCoy Winquote Portrait Punch", 0x48980, 0x48a80 },
-    { L"McCoy Winquote Portrait Kick", 0x48a80, 0x48b80 },
-    { L"McCoy Winquote Portrait Start", 0x48b80, 0x48c80 },
-    { L"McCoy Winquote Portrait Unused", 0x48c80, 0x48d80 },
 };
 
 const sGame_PaletteDataset DANKUGA_A_BOGGY_PALETTES[] =
@@ -111,13 +111,13 @@ const sGame_PaletteDataset DANKUGA_A_BOGGY_PALETTES[] =
     { L"Boggy Character Kick", 0x2dc78, 0x2dcb8 },
     { L"Boggy Character Start", 0x2dcb8, 0x2dcf8 },
     { L"Boggy Character Training", 0x2dcf8, 0x2dd38 },
+    { L"Boggy Winquote Portrait Punch", 0x47880, 0x478c0 },
+    { L"Boggy Winquote Portrait Kick", 0x478c0, 0x47900 },
+    { L"Boggy Winquote Portrait Start", 0x47900, 0x47940 },
+    { L"Boggy Winquote Portrait Unused", 0x47940, 0x47980 },
     { L"Boggy Select Screen Punch", 0x2eaf8, 0x2eb38 },
     { L"Boggy Select Screen Kick", 0x2eb38, 0x2eb78 },
     { L"Boggy Select Screen Start", 0x2eb78, 0x2ebb8 },
-    { L"Boggy Winquote Portrait Punch", 0x48d80, 0x48e80 },
-    { L"Boggy Winquote Portrait Kick", 0x48e80, 0x48f80 },
-    { L"Boggy Winquote Portrait Start", 0x48f80, 0x49080 },
-    { L"Boggy Winquote Portrait Unused", 0x49080, 0x49180 },
 };
 
 const sGame_PaletteDataset DANKUGA_A_GONZALES_PALETTES[] =
@@ -126,13 +126,13 @@ const sGame_PaletteDataset DANKUGA_A_GONZALES_PALETTES[] =
     { L"Gonzales Character Kick", 0x2dd78, 0x2ddb8 },
     { L"Gonzales Character Start", 0x2ddb8, 0x2ddf8 },
     { L"Gonzales Character Training", 0x2ddf8, 0x2de38 },
+    { L"Gonzales Winquote Portrait Punch", 0x47980, 0x479c0 },
+    { L"Gonzales Winquote Portrait Kick", 0x479c0, 0x47a00 },
+    { L"Gonzales Winquote Portrait Start", 0x47a00, 0x47a40 },
+    { L"Gonzales Winquote Portrait Unused", 0x47a40, 0x47a80 },
     { L"Gonzales Select Screen Punch", 0x2ebb8, 0x2ebf8 },
     { L"Gonzales Select Screen Kick", 0x2ebf8, 0x2ec38 },
     { L"Gonzales Select Screen Start", 0x2ec38, 0x2ec78 },
-    { L"Gonzales Winquote Portrait Punch", 0x49180, 0x49280 },
-    { L"Gonzales Winquote Portrait Kick", 0x49280, 0x49380 },
-    { L"Gonzales Winquote Portrait Start", 0x49380, 0x49480 },
-    { L"Gonzales Winquote Portrait Unused", 0x49480, 0x49580 },
 };
 
 const sGame_PaletteDataset DANKUGA_A_AZTECA_PALETTES[] =
@@ -141,13 +141,13 @@ const sGame_PaletteDataset DANKUGA_A_AZTECA_PALETTES[] =
     { L"Azteca Character Kick", 0x2de78, 0x2deb8 },
     { L"Azteca Character Start", 0x2deb8, 0x2def8 },
     { L"Azteca Character Training", 0x2def8, 0x2df38 },
+    { L"Azteca Winquote Portrait Punch", 0x47a80, 0x47ac0 },
+    { L"Azteca Winquote Portrait Kick", 0x47ac0, 0x47b00 },
+    { L"Azteca Winquote Portrait Start", 0x47b00, 0x47b40 },
+    { L"Azteca Winquote Portrait Unused", 0x47b40, 0x47b80 },
     { L"Azteca Select Screen Punch", 0x2ec78, 0x2ecb8 },
     { L"Azteca Select Screen Kick", 0x2ecb8, 0x2ecf8 },
     { L"Azteca Select Screen Start", 0x2ecf8, 0x2ed38 },
-    { L"Azteca Winquote Portrait Punch", 0x49580, 0x49680 },
-    { L"Azteca Winquote Portrait Kick", 0x49680, 0x49780 },
-    { L"Azteca Winquote Portrait Start", 0x49780, 0x49880 },
-    { L"Azteca Winquote Portrait Unused", 0x49880, 0x49980 },
 };
 
 const sGame_PaletteDataset DANKUGA_A_MARCO_PALETTES[] =
@@ -156,15 +156,14 @@ const sGame_PaletteDataset DANKUGA_A_MARCO_PALETTES[] =
     { L"Marco Character Kick", 0x2df78, 0x2dfb8 },
     { L"Marco Character Start", 0x2dfb8, 0x2dff8 },
     { L"Marco Character Training", 0x2dff8, 0x2e038 },
+    { L"Marco Winquote Portrait Punch", 0x47b80, 0x47bc0 },
+    { L"Marco Winquote Portrait Kick", 0x47bc0, 0x47c00 },
+    { L"Marco Winquote Portrait Start", 0x47c00, 0x47c40 },
+    { L"Marco Winquote Portrait Unused", 0x47c40, 0x47c80 },
     { L"Marco Select Screen Punch", 0x2ed38, 0x2ed78 },
     { L"Marco Select Screen Kick", 0x2ed78, 0x2edb8 },
     { L"Marco Select Screen Start", 0x2edb8, 0x2edf8 },
-    { L"Marco Winquote Portrait Punch", 0x49980, 0x49a80 },
-    { L"Marco Winquote Portrait Kick", 0x49a80, 0x49b80 },
-    { L"Marco Winquote Portrait Start", 0x49b80, 0x49c80 },
-    { L"Marco Winquote Portrait Unused", 0x49c80, 0x49d80 },
 };
-
 
 const sGame_PaletteDataset DANKUGA_A_GENERAL_PALETTES[] =
 {
@@ -172,13 +171,13 @@ const sGame_PaletteDataset DANKUGA_A_GENERAL_PALETTES[] =
     { L"General Character Kick", 0x2e078, 0x2e0b8 },
     { L"General Character Start", 0x2e0b8, 0x2e0f8 },
     { L"General Character Training", 0x2e0f8, 0x2e138 },
+    { L"General Winquote Portrait Punch", 0x47c80, 0x47cc0 },
+    { L"General Winquote Portrait Kick", 0x47cc0, 0x47d00 },
+    { L"General Winquote Portrait Start", 0x47d00, 0x47d40 },
+    { L"General Winquote Portrait Unused", 0x47d40, 0x47d80 },
     { L"General Select Screen Punch", 0x2edf8, 0x2ee38 },
     { L"General Select Screen Kick", 0x2ee38, 0x2ee78 },
     { L"General Select Screen Start", 0x2ee78, 0x2eeb8 },
-    { L"General Winquote Portrait Punch", 0x49d80, 0x49e80 },
-    { L"General Winquote Portrait Kick", 0x49e80, 0x49f80 },
-    { L"General Winquote Portrait Start", 0x49f80, 0x4a080 },
-    { L"General Winquote Portrait Unused", 0x4a080, 0x4a180 },
 };
 
 const sGame_PaletteDataset DANKUGA_A_BONUS_PALETTES[] =

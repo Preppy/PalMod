@@ -557,6 +557,7 @@ void CPalModDlg::OnEditPaste()
                 case NEOGEO_A:
                 case RBFFS_A:
                 case SAMSHO3_A:
+                case SAMSHO4_A:
                 case SAMSHO5SP_A:
                 case SVCPLUSA_A:
                 case WakuWaku7_A:

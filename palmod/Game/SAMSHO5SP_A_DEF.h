@@ -15,6 +15,9 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_A[] =
     { L"Amakusa A (Normal)", 0xe0000, 0xe0040, indexSamSho5Sprites_Amakusa },
     { L"Amakusa A (Rage)", 0xe0040, 0xe0080, indexSamSho5Sprites_Amakusa },
     { L"Amakusa A (SON)", 0xe0240, 0xe0280, indexSamSho5Sprites_Amakusa },
+
+    { L"214/236D - 623S - Weapon Flashing A", 0x0e0300, 0x0e0320 },
+    { L"214S Portal A", 0x0e02c0, 0x0e02e0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_B[] =
@@ -22,6 +25,9 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_B[] =
     { L"Amakusa B (Normal)", 0xe0400, 0xe0440, indexSamSho5Sprites_Amakusa },
     { L"Amakusa B (Rage)", 0xe0440, 0xe0480, indexSamSho5Sprites_Amakusa },
     { L"Amakusa B (SON)", 0xe0640, 0xe0680, indexSamSho5Sprites_Amakusa },
+
+    { L"214/236D - 623S - Weapon Flashing B", 0x0e0700, 0x0e0720 },
+    { L"214S Portal B", 0x0e06c0, 0x0e06e0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_C[] =
@@ -29,6 +35,9 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_C[] =
     { L"Amakusa C (Normal)", 0xe0800, 0xe0840, indexSamSho5Sprites_Amakusa },
     { L"Amakusa C (Rage)", 0xe0840, 0xe0880, indexSamSho5Sprites_Amakusa },
     { L"Amakusa C (SON)", 0xe0a40, 0xe0a80, indexSamSho5Sprites_Amakusa },
+
+    { L"214/236D - 623S - Weapon Flashing C", 0x0e0b00, 0x0e0b20 },
+    { L"214S Portal C", 0x0e0ac0, 0x0e0ae0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_D[] =
@@ -36,6 +45,9 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_D[] =
     { L"Amakusa D (Normal)", 0xe0c00, 0xe0c40, indexSamSho5Sprites_Amakusa },
     { L"Amakusa D (Rage)", 0xe0c40, 0xe0c80, indexSamSho5Sprites_Amakusa },
     { L"Amakusa D (SON)", 0xe0e40, 0xe0e80, indexSamSho5Sprites_Amakusa },
+
+    { L"214/236D - 623S - Weapon Flashing D", 0x0e0f00, 0x0e0f20 },
+    { L"214S Portal D", 0x0e0ec0, 0x0e0ee0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_A[] =
@@ -258,6 +270,21 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_A[] =
     { L"Genjuro A (Normal)", 0xdc000, 0xdc040, indexSamSho5Sprites_Genjuro },
     { L"Genjuro A (Rage)", 0xdc040, 0xdc080, indexSamSho5Sprites_Genjuro },
     { L"Genjuro A (SON)", 0xdc240, 0xdc280, indexSamSho5Sprites_Genjuro },
+
+    { L"Genjuro A (Darkest Card Effects)", 0xdc0a0, 0xdc0c0 },
+    { L"Genjuro A (Burning)", 0xdc0c0, 0xdc100, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro A (Shocked)", 0xdc100, 0xdc140, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro A (Frozen/Wet)", 0xdc140, 0xdc180, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro A (Ki)", 0xdc180, 0xdc1c0, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro A (Colored Card Effect)", 0xdc1c0, 0xdc1e0 },
+    { L"Genjuro A (Darker Card Effect)", 0xdc1e0, 0xdc200 },
+    { L"Genjuro A (Issen Trail)", 0xdc200, 0xdc240, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro A (Oukazan 1)", 0xdc280, 0xdc2a0 },
+    { L"Genjuro A (Bowl Pose)", 0xdc2a0, 0xdc2b0 },
+    { L"Genjuro A (Specials Slash Effect)", 0xdc2b0, 0xdc2c0 },
+    { L"Genjuro A (Oukazan 2)", 0xdc340, 0xdc350 },
+    { L"Genjuro A (Oukazan 3/Slash Effects)", 0xdc350, 0xdc360 },
+    { L"Genjuro A (White & Blue Card)", 0xdc3e0, 0xdc400 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_B[] =
@@ -265,6 +292,21 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_B[] =
     { L"Genjuro B (Normal)", 0xdc400, 0xdc440, indexSamSho5Sprites_Genjuro },
     { L"Genjuro B (Rage)", 0xdc440, 0xdc480, indexSamSho5Sprites_Genjuro },
     { L"Genjuro B (SON)", 0xdc640, 0xdc680, indexSamSho5Sprites_Genjuro },
+
+    { L"Genjuro B (Darkest Card Effects)", 0xdc4a0, 0xdc4c0 },
+    { L"Genjuro B (Burning)", 0xdc4c0, 0xdc500, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro B (Shocked)", 0xdc500, 0xdc540, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro B (Frozen/Wet)", 0xdc540, 0xdc580, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro B (Ki)", 0xdc580, 0xdc5c0, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro B (Colored Card Effect)", 0xdc5c0, 0xdc5e0 },
+    { L"Genjuro B (Darker Card Effect)", 0xdc5e0, 0xdc600 },
+    { L"Genjuro B (Issen Trail)", 0xdc600, 0xdc640, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro B (Oukazan 1)", 0xdc680, 0xdc6a0 },
+    { L"Genjuro B (Bowl Pose)", 0xdc6a0, 0xdc6b0 },
+    { L"Genjuro B (Specials Slash Effect)", 0xdc6b0, 0xdc6c0 },
+    { L"Genjuro B (Oukazan 2)", 0xdc740, 0xdc750 },
+    { L"Genjuro B (Oukazan 3/Slash Effects)", 0xdc750, 0xdc760 },
+    { L"Genjuro B (White & Blue Card)", 0xdc7e0, 0xdc800 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_C[] =
@@ -272,6 +314,21 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_C[] =
     { L"Genjuro C (Normal)", 0xdc800, 0xdc840, indexSamSho5Sprites_Genjuro },
     { L"Genjuro C (Rage)", 0xdc840, 0xdc880, indexSamSho5Sprites_Genjuro },
     { L"Genjuro C (SON)", 0xdca40, 0xdca80, indexSamSho5Sprites_Genjuro },
+
+    { L"Genjuro C (Darkest Card Effects)", 0xdc8a0, 0xdc8c0 },
+    { L"Genjuro C (Burning)", 0xdc8c0, 0xdc900, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro C (Shocked)", 0xdc900, 0xdc940, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro C (Frozen/Wet)", 0xdc940, 0xdc980, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro C (Ki)", 0xdc980, 0xdc9c0, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro C (Colored Card Effect)", 0xdc9c0, 0xdc9e0 },
+    { L"Genjuro C (Darker Card Effect)", 0xdc9e0, 0xdca00 },
+    { L"Genjuro C (Issen Trail)", 0xdca00, 0xdca40, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro C (Oukazan 1)", 0xdca80, 0xdcaa0 },
+    { L"Genjuro C (Bowl Pose)", 0xdcaa0, 0xdcab0 },
+    { L"Genjuro C (Specials Slash Effect)", 0xdcab0, 0xdcac0 },
+    { L"Genjuro C (Oukazan 2)", 0xdcb40, 0xdcb50 },
+    { L"Genjuro C (Oukazan 3/Slash Effects)", 0xdcb50, 0xdcb60 },
+    { L"Genjuro C (White & Blue Card)", 0xdcbe0, 0xdcc00 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_D[] =
@@ -279,6 +336,21 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Genjuro_PALETTES_D[] =
     { L"Genjuro D (Normal)", 0xdcc00, 0xdcc40, indexSamSho5Sprites_Genjuro },
     { L"Genjuro D (Rage)", 0xdcc40, 0xdcc80, indexSamSho5Sprites_Genjuro },
     { L"Genjuro D (SON)", 0xdce40, 0xdce80, indexSamSho5Sprites_Genjuro },
+
+    { L"Genjuro D (Darkest Card Effects)", 0xdcca0, 0xdccc0 },
+    { L"Genjuro D (Burning)", 0xdccc0, 0xdcd00, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro D (Shocked)", 0xdcd00, 0xdcd40, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro D (Frozen/Wet)", 0xdcd40, 0xdcd80, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro D (Ki)", 0xdcd80, 0xdcdc0, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro D (Colored Card Effect)", 0xdcdc0, 0xdcde0 },
+    { L"Genjuro D (Darker Card Effect)", 0xdcde0, 0xdce00 },
+    { L"Genjuro D (Issen Trail)", 0xdce00, 0xdce40, indexSamSho5Sprites_Genjuro },
+    { L"Genjuro D (Oukazan 1)", 0xdce80, 0xdcea0 },
+    { L"Genjuro D (Bowl Pose)", 0xdcea0, 0xdceb0 },
+    { L"Genjuro D (Specials Slash Effect)", 0xdceb0, 0xdcec0 },
+    { L"Genjuro D (Oukazan 2)", 0xdcf40, 0xdcf50 },
+    { L"Genjuro D (Oukazan 3/Slash Effects)", 0xdcf50, 0xdcf60 },
+    { L"Genjuro D (White & Blue Card)", 0xdcfe0, 0xdd000 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Hanzo_PALETTES_A[] =
@@ -523,6 +595,19 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_A[] =
     { L"Kyoshiro A (Rage)", 0xda040, 0xda080, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
     { L"Kyoshiro A (SON)", 0xda240, 0xda280, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Kyoshiro A (Toad)", 0xda280, 0xda2a0, indexSamSho5Sprites_Kyoshiro, 1 },
+
+    { L"Kyoshiro A (Burning)", 0xda0c0, 0xda100, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro A (Shocked)", 0xda100, 0xda140, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro A (Frozen/Wet)", 0xda140, 0xda180, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro A (Ki)", 0xda180, 0xda1c0, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro A (Ootsunami)", 0xda1c0, 0xda1e0 },
+    { L"Kyoshiro A (Toad Effect/Overkill)", 0xda1e0, 0xda200, indexSamSho5Sprites_Kyoshiro, 0x1 },
+    { L"Kyoshiro A (Issen Trail)", 0xda200, 0xda240, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro A (Choubi Jishi/Kaen Kyokubu)", 0xda2a0, 0xda2c0 },
+    { L"Kyoshiro A (Overkill Curtains)", 0xda320, 0xda340 },
+    { L"Kyoshiro A (Kaiten Kyo/Chikemuri Kuru)", 0xda340, 0xda350 },
+    { L"Kyoshiro A (Slash Effects)", 0xda350, 0xda360 },
+    { L"Kyoshiro A (Overkill Kuroko)", 0xda380, 0xda3a0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_B[] =
@@ -531,6 +616,19 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_B[] =
     { L"Kyoshiro B (Rage)", 0xda440, 0xda480, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
     { L"Kyoshiro B (SON)", 0xda640, 0xda680, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Kyoshiro B (Toad)", 0xda680, 0xda6a0, indexSamSho5Sprites_Kyoshiro, 1 },
+
+    { L"Kyoshiro B (Burning)", 0xda4c0, 0xda500, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro B (Shocked)", 0xda500, 0xda540, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro B (Frozen/Wet)", 0xda540, 0xda580, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro B (Ki)", 0xda580, 0xda5c0, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro B (Ootsunami)", 0xda5c0, 0xda5e0 },
+    { L"Kyoshiro B (Toad Effect/Overkill)", 0xda5e0, 0xda600, indexSamSho5Sprites_Kyoshiro, 0x1 },
+    { L"Kyoshiro B (Issen Trail)", 0xda600, 0xda640, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro B (Choubi Jishi/Kaen Kyokubu)", 0xda6a0, 0xda6c0 },
+    { L"Kyoshiro B (Overkill Curtains)", 0xda720, 0xda740 },
+    { L"Kyoshiro B (Kaiten Kyo/Chikemuri Kuru)", 0xda740, 0xda750 },
+    { L"Kyoshiro B (Slash Effects)", 0xda750, 0xda760 },
+    { L"Kyoshiro B (Overkill Kuroko)", 0xda780, 0xda7a0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_C[] =
@@ -539,6 +637,19 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_C[] =
     { L"Kyoshiro C (Rage)", 0xda840, 0xda880, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
     { L"Kyoshiro C (SON)", 0xdaa40, 0xdaa80, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Kyoshiro C (Toad)", 0xdaa80, 0xdaaa0, indexSamSho5Sprites_Kyoshiro, 1 },
+
+    { L"Kyoshiro C (Burning)", 0xda8c0, 0xda900, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro C (Shocked)", 0xda900, 0xda940, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro C (Frozen/Wet)", 0xda940, 0xda980, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro C (Ki)", 0xda980, 0xda9c0, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro C (Ootsunami)", 0xda9c0, 0xda9e0 },
+    { L"Kyoshiro C (Toad Effect/Overkill)", 0xda9e0, 0xdaa00, indexSamSho5Sprites_Kyoshiro, 0x1 },
+    { L"Kyoshiro C (Issen Trail)", 0xdaa00, 0xdaa40, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro C (Choubi Jishi/Kaen Kyokubu)", 0xdaaa0, 0xdaac0 },
+    { L"Kyoshiro C (Overkill Curtains)", 0xdab20, 0xdab40 },
+    { L"Kyoshiro C (Kaiten Kyo/Chikemuri Kuru)", 0xdab40, 0xdab50 },
+    { L"Kyoshiro C (Slash Effects)", 0xdab50, 0xdab60 },
+    { L"Kyoshiro C (Overkill Kuroko)", 0xdab80, 0xdaba0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_D[] =
@@ -547,6 +658,19 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_D[] =
     { L"Kyoshiro D (Rage)", 0xdac40, 0xdac80, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
     { L"Kyoshiro D (SON)", 0xdae40, 0xdae80, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Kyoshiro D (Toad)", 0xdae80, 0xdaea0, indexSamSho5Sprites_Kyoshiro, 1 },
+
+    { L"Kyoshiro D (Burning)", 0xdacc0, 0xdad00, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro D (Shocked)", 0xdad00, 0xdad40, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro D (Frozen/Wet)", 0xdad40, 0xdad80, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro D (Ki)", 0xdad80, 0xdadc0, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro D (Ootsunami)", 0xdadc0, 0xdade0 },
+    { L"Kyoshiro D (Toad Effect/Overkill)", 0xdade0, 0xdae00, indexSamSho5Sprites_Kyoshiro, 0x1 },
+    { L"Kyoshiro D (Issen Trail)", 0xdae00, 0xdae40, indexSamSho5Sprites_Kyoshiro },
+    { L"Kyoshiro D (Choubi Jishi/Kaen Kyokubu)", 0xdaea0, 0xdaec0 },
+    { L"Kyoshiro D (Overkill Curtains)", 0xdaf20, 0xdaf40 },
+    { L"Kyoshiro D (Kaiten Kyo/Chikemuri Kuru)", 0xdaf40, 0xdaf50 },
+    { L"Kyoshiro D (Slash Effects)", 0xdaf50, 0xdaf60 },
+    { L"Kyoshiro D (Overkill Kuroko)", 0xdaf80, 0xdafa0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_A[] =
@@ -910,6 +1034,18 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_A[] =
     { L"Ukyo A (Normal)", 0xdb000, 0xdb040, indexSamSho5Sprites_Ukyo },
     { L"Ukyo A (Rage)", 0xdb040, 0xdb080, indexSamSho5Sprites_Ukyo },
     { L"Ukyo A (SON)", 0xdb240, 0xdb280, indexSamSho5Sprites_Ukyo },
+
+    { L"Ukyo A (Tsubame Gaeshi Trail)", 0xdb0a0, 0xdb0c0, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo A (Burning)", 0xdb0c0, 0xdb100, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo A (Shocked)", 0xdb100, 0xdb140, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo A (Frozen/Wet)", 0xdb140, 0xdb180, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo A (Ki)", 0xdb180, 0xdb1c0, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo A (Tsubame Gaeshi Flame)", 0xdb1c0, 0xdb1e0 },
+    { L"Ukyo A (Issen Trail)", 0xdb200, 0xdb240, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo A (Zanzou Fumikomi)", 0xdb290, 0xdb2a0 },
+    { L"Ukyo A (Overkill Symbols)", 0xdb2e0, 0xdb2f0 },
+    { L"Ukyo A (Hi'Ken Sasameyuki)", 0xdb340, 0xdb350 },
+    { L"Ukyo A (Slash Effects)", 0xdb350, 0xdb360 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_B[] =
@@ -917,6 +1053,18 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_B[] =
     { L"Ukyo B (Normal)", 0xdb400, 0xdb440, indexSamSho5Sprites_Ukyo },
     { L"Ukyo B (Rage)", 0xdb440, 0xdb480, indexSamSho5Sprites_Ukyo },
     { L"Ukyo B (SON)", 0xdb640, 0xdb680, indexSamSho5Sprites_Ukyo },
+
+    { L"Ukyo B (Tsubame Gaeshi Trail)", 0xdb4a0, 0xdb4c0, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo B (Burning)", 0xdb4c0, 0xdb500, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo B (Shocked)", 0xdb500, 0xdb540, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo B (Frozen/Wet)", 0xdb540, 0xdb580, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo B (Ki)", 0xdb580, 0xdb5c0, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo B (Tsubame Gaeshi Flame)", 0xdb5c0, 0xdb5e0 },
+    { L"Ukyo B (Issen Trail)", 0xdb600, 0xdb640, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo B (Zanzou Fumikomi)", 0xdb690, 0xdb6a0 },
+    { L"Ukyo B (Overkill Symbols)", 0xdb6e0, 0xdb6f0 },
+    { L"Ukyo B (Hi'Ken Sasameyuki)", 0xdb740, 0xdb750 },
+    { L"Ukyo B (Slash Effects)", 0xdb750, 0xdb760 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_C[] =
@@ -924,6 +1072,18 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_C[] =
     { L"Ukyo C (Normal)", 0xdb800, 0xdb840, indexSamSho5Sprites_Ukyo },
     { L"Ukyo C (Rage)", 0xdb840, 0xdb880, indexSamSho5Sprites_Ukyo },
     { L"Ukyo C (SON)", 0xdba40, 0xdba80, indexSamSho5Sprites_Ukyo },
+
+    { L"Ukyo C (Tsubame Gaeshi Trail)", 0xdb8a0, 0xdb8c0, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo C (Burning)", 0xdb8c0, 0xdb900, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo C (Shocked)", 0xdb900, 0xdb940, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo C (Frozen/Wet)", 0xdb940, 0xdb980, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo C (Ki)", 0xdb980, 0xdb9c0, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo C (Tsubame Gaeshi Flame)", 0xdb9c0, 0xdb9e0 },
+    { L"Ukyo C (Issen Trail)", 0xdba00, 0xdba40, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo C (Zanzou Fumikomi)", 0xdba90, 0xdbaa0 },
+    { L"Ukyo C (Overkill Symbols)", 0xdbae0, 0xdbaf0 },
+    { L"Ukyo C (Hi'Ken Sasameyuki)", 0xdbb40, 0xdbb50 },
+    { L"Ukyo C (Slash Effects)", 0xdbb50, 0xdbb60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_D[] =
@@ -931,6 +1091,18 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Ukyo_PALETTES_D[] =
     { L"Ukyo D (Normal)", 0xdbc00, 0xdbc40, indexSamSho5Sprites_Ukyo },
     { L"Ukyo D (Rage)", 0xdbc40, 0xdbc80, indexSamSho5Sprites_Ukyo },
     { L"Ukyo D (SON)", 0xdbe40, 0xdbe80, indexSamSho5Sprites_Ukyo },
+
+    { L"Ukyo D (Tsubame Gaeshi Trail)", 0xdbca0, 0xdbcc0, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo D (Burning)", 0xdbcc0, 0xdbd00, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo D (Shocked)", 0xdbd00, 0xdbd40, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo D (Frozen/Wet)", 0xdbd40, 0xdbd80, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo D (Ki)", 0xdbd80, 0xdbdc0, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo D (Tsubame Gaeshi Flame)", 0xdbdc0, 0xdbde0 },
+    { L"Ukyo D (Issen Trail)", 0xdbe00, 0xdbe40, indexSamSho5Sprites_Ukyo },
+    { L"Ukyo D (Zanzou Fumikomi)", 0xdbe90, 0xdbea0 },
+    { L"Ukyo D (Overkill Symbols)", 0xdbee0, 0xdbef0 },
+    { L"Ukyo D (Hi'Ken Sasameyuki)", 0xdbf40, 0xdbf50 },
+    { L"Ukyo D (Slash Effects)", 0xdbf50, 0xdbf60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Yoshitora_PALETTES_A[] =
