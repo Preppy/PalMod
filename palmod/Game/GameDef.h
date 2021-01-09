@@ -2803,19 +2803,20 @@ const UINT16 SAMSHO5SP_A_IMG_UNITS[] =
 
 enum SupportedKarnovsR_A_PaletteListIndex
 {
-    indexKarnovsRSprites_Clown,
-    indexKarnovsRSprites_Felin,
-    indexKarnovsRSprites_Jean,
-    indexKarnovsRSprites_Karnov,
-    indexKarnovsRSprites_Lee,
-    indexKarnovsRSprites_Marstorius,
-    indexKarnovsRSprites_Matlok,
-    indexKarnovsRSprites_Mizoguchi,
-    indexKarnovsRSprites_Ray,
-    indexKarnovsRSprites_Ryoko,
-    indexKarnovsRSprites_Samchay,
-    indexKarnovsRSprites_Yungmie,
-    indexKarnovsRSprites_Zazie,
+    indexKarnovsRSprites_Clown,         // 0x00
+    indexKarnovsRSprites_Felin,         // 0x01
+    indexKarnovsRSprites_Jean,          // 0x02
+    indexKarnovsRSprites_Karnov,        // 0x03
+    indexKarnovsRSprites_Lee,           // 0x04
+    indexKarnovsRSprites_Marstorius,    // 0x05
+    indexKarnovsRSprites_Matlok,        // 0x06
+    indexKarnovsRSprites_Mizoguchi,     // 0x07
+    indexKarnovsRSprites_Ray,           // 0x08
+    indexKarnovsRSprites_Ryoko,         // 0x09
+    indexKarnovsRSprites_Samchay,       // 0x0a
+    indexKarnovsRSprites_Yungmie,       // 0x0b
+    indexKarnovsRSprites_Zazie,         // 0x0c
+    indexKarnovsRSprites_Bonus,         // 0x0d
 };
 
 const UINT16 KARNOVSR_A_IMG_UNITS[] =
@@ -2833,6 +2834,7 @@ const UINT16 KARNOVSR_A_IMG_UNITS[] =
     indexKarnovsRSprites_Samchay,
     indexKarnovsRSprites_Yungmie,
     indexKarnovsRSprites_Zazie,
+    indexKarnovsRSprites_Bonus,         // 0x0d
 };
 
 enum SupportedRedEarth_A_PaletteListIndex
