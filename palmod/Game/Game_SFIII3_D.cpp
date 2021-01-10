@@ -46,6 +46,8 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
 
     //Create the file changed flag array
     PrepChangeTrackingArray();
+    // the DC and PS2 games use one file per character/unit: we can handle those slightly differently
+    m_fGameUnitsMapToIndividualFiles = TRUE;
 }
 
 CGame_SFIII3_D::~CGame_SFIII3_D(void)

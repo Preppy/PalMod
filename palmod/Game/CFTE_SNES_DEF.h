@@ -2,11 +2,11 @@
 
 const sGame_PaletteDataset CFTE_MRFROSTY_PALETTES[] =
 {
+    { L"Bad Mr. Frosty - Blue Hat", 0x10040, 0x10060, INVALID_UNIT_VALUE, 0x0, &pairNext4 },
+    { L"Bad Mr. Frosty - Green Hat", 0x241B4D, 0x241B6D, INVALID_UNIT_VALUE, 0x0, &pairNext3 },
+    { L"Bad Mr. Frosty - Yellow Hat", 0x241CED, 0x241D0D, INVALID_UNIT_VALUE, 0x0, &pairNextNext },
+    { L"Bad Mr. Frosty - Red Hat", 0x241D0D, 0x241D2D, INVALID_UNIT_VALUE, 0x0, &pairNext },
     { L"Bad Mr. Frosty - Main Sprite (Shared)", 0x10000, 0x10020 },
-    { L"Bad Mr. Frosty - Blue Hat", 0x10040, 0x10060 },
-    { L"Bad Mr. Frosty - Green Hat", 0x241B4D, 0x241B6D },
-    { L"Bad Mr. Frosty - Yellow Hat", 0x241CED, 0x241D0D },
-    { L"Bad Mr. Frosty - Red Hat", 0x241D0D, 0x241D2D },
 };
 
 const sGame_PaletteDataset CFTE_TAFFY_PALETTES[] =
@@ -19,11 +19,11 @@ const sGame_PaletteDataset CFTE_TAFFY_PALETTES[] =
 
 const sGame_PaletteDataset CFTE_TINY_PALETTES[] =
 {
+    { L"Tiny - Red", 0x100C0, 0x100E0, INVALID_UNIT_VALUE, 0x0, &pairNext4 },
+    { L"Tiny - Purple", 0x241B8D, 0x241BAD, INVALID_UNIT_VALUE, 0x0, &pairNext3 },
+    { L"Tiny - Green", 0x241DED, 0x241E0D, INVALID_UNIT_VALUE, 0x0, &pairNextNext },
+    { L"Tiny - Blue", 0x241E0D, 0x241E2D, INVALID_UNIT_VALUE, 0x0, &pairNext },
     { L"Tiny - Main", 0x100A0, 0x100C0 },
-    { L"Tiny - Red ", 0x100C0, 0x100E0 },
-    { L"Tiny - Purple ", 0x241B8D, 0x241BAD },
-    { L"Tiny - Green ", 0x241DED, 0x241E0D },
-    { L"Tiny - Blue", 0x241E0D, 0x241E2D },
 };
 
 const sGame_PaletteDataset CFTE_BLOB_PALETTES[] =
@@ -36,38 +36,38 @@ const sGame_PaletteDataset CFTE_BLOB_PALETTES[] =
 
 const sGame_PaletteDataset CFTE_BLUESUEDEGOO_PALETTES[] =
 {
+    { L"Blue Suede Goo - Silver", 0x10200, 0x10220, INVALID_UNIT_VALUE, 0x0, &pairNext4 },
+    { L"Blue Suede Goo - Gold", 0x241AED, 0x241B0D, INVALID_UNIT_VALUE, 0x0, &pairNext3 },
+    { L"Blue Suede Goo - Purple", 0x241CCD, 0x241CED, INVALID_UNIT_VALUE, 0x0, &pairNextNext },
+    { L"Blue Suede Goo - Red", 0x241CAD, 0x241CCD, INVALID_UNIT_VALUE, 0x0, &pairNext },
     { L"Blue Suede Goo - Main Sprite (Shared)", 0x10220, 0x10240 },
-    { L"Blue Suede Goo - Silver", 0x10200, 0x10220 },
-    { L"Blue Suede Goo - Gold", 0x241AED, 0x241B0D },
-    { L"Blue Suede Goo - Purple", 0x241CCD, 0x241CED },
-    { L"Blue Suede Goo - Red", 0x241CAD, 0x241CCD },
 };
 
 const sGame_PaletteDataset CFTE_ICKYBOD_PALETTES[] =
 {
+    { L"Ickybod Clay - Orange", 0x10260, 0x10280, INVALID_UNIT_VALUE, 0x0, &pairNext4 },
+    { L"Ickybod Clay - Green", 0x241ACD, 0x241AED, INVALID_UNIT_VALUE, 0x0, &pairNext3 },
+    { L"Ickybod Clay - Blue", 0x241D8D, 0x241DAD, INVALID_UNIT_VALUE, 0x0, &pairNextNext },
+    { L"Ickybod Clay - Pink", 0x241D6D, 0x241D8D, INVALID_UNIT_VALUE, 0x0, &pairNext },
     { L"Ickybod Clay - Main Sprite (Shared)", 0x10240, 0x10260 },
-    { L"Ickybod Clay - Orange ", 0x10260, 0x10280 },
-    { L"Ickybod Clay - Green ", 0x241ACD, 0x241AED },
-    { L"Ickybod Clay - Blue", 0x241D8D, 0x241DAD },
-    { L"Ickybod Clay - Pink", 0x241D6D, 0x241D8D },
 };
 
 const sGame_PaletteDataset CFTE_HELGA_PALETTES[] =
 {
+    { L"Helga - Blue", 0x10280, 0x102A0, INVALID_UNIT_VALUE, 0x0, &pairNext4 },
+    { L"Helga - Green", 0x241D2D, 0x241D4D, INVALID_UNIT_VALUE, 0x0, &pairNext3 },
+    { L"Helga - Purple", 0x241B2D, 0x241B4D, INVALID_UNIT_VALUE, 0x0, &pairNextNext },
+    { L"Helga - Yellow", 0x241D4D, 0x241D6D, INVALID_UNIT_VALUE, 0x0, &pairNext },
     { L"Helga - Main Sprite (Shared)", 0x102A0, 0x102C0 },
-    { L"Helga - Blue", 0x10280, 0x102A0 },
-    { L"Helga - Green", 0x241D2D, 0x241D4D },
-    { L"Helga - Purple", 0x241B2D, 0x241B4D },
-    { L"Helga - Yellow", 0x241D4D, 0x241D6D },
 };
 
 const sGame_PaletteDataset CFTE_BONKER_PALETTES[] =
 {
+    { L"Bonker - Blue", 0x10100, 0x10120, INVALID_UNIT_VALUE, 0x0, &pairNext4 },
+    { L"Bonker - Green", 0x241AAD, 0x241ACD, INVALID_UNIT_VALUE, 0x0, &pairNext3 },
+    { L"Bonker - Yellow", 0x241C8D, 0x241CAD, INVALID_UNIT_VALUE, 0x0, &pairNextNext },
+    { L"Bonker - Purple", 0x241C6D, 0x241C8D, INVALID_UNIT_VALUE, 0x0, &pairNext },
     { L"Bonker - Clown Makeup (Shared)", 0x10120, 0x10140 },
-    { L"Bonker - Blue", 0x10100, 0x10120 },
-    { L"Bonker - Green", 0x241AAD, 0x241ACD },
-    { L"Bonker - Yellow", 0x241C8D, 0x241CAD },
-    { L"Bonker - Purple", 0x241C6D, 0x241C8D },
 };
 
 const sGame_PaletteDataset CFTE_PORTRAITS_VSMODE_PALETTES[] =

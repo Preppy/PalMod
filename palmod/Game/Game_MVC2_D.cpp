@@ -49,6 +49,8 @@ CGame_MVC2_D::CGame_MVC2_D(void)
 
     //Prepare the file list
     PrepChangeTrackingArray();
+    // the DC and PS2 games use one file per character/unit: we can handle those slightly differently
+    m_fGameUnitsMapToIndividualFiles = TRUE;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM;

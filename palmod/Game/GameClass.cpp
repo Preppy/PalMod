@@ -1161,7 +1161,24 @@ void CGameClass::ClearDataBuffer()
 
         safe_delete_array(m_pppDataBuffer32);
     }
+}
 
+void CGameClass::ResetFileChangeTrackingArray()
+{
+    safe_delete_array(rgFileChanged);
+    PrepChangeTrackingArray();
+}
+
+BOOL CGameClass::WasGameFileChangedInSession()
+{
+    BOOL fSomethingChanged = FALSE;
+
+    for (UINT16 nPos = 0; rgUnitRedir[nPos] != INVALID_UNIT_VALUE; nPos++)
+    {
+        fSomethingChanged = fSomethingChanged || rgFileChanged[rgUnitRedir[nPos]];
+    }
+
+    return fSomethingChanged;
 }
 
 void CGameClass::PrepChangeTrackingArray()

@@ -51,6 +51,8 @@ class CGameClass
 {
 protected:
     LPTSTR szDir = nullptr;
+    // This is an old array used to determine if the character-file or the ROM has been updated
+    // Don't use this for SIMM-based games: use IsPaletteDirty there instead
     BOOL* rgFileChanged = nullptr;
     UINT16 nFileAmt = 0;
 
@@ -73,7 +75,8 @@ protected:
     const double k_nRGBPlaneMulForRGB777 = 2;
     const double k_nRGBPlaneMulForRGB888 = 1;
 
-    BOOL bIsDir = FALSE;
+    BOOL m_fIsDirectoryBasedGame = FALSE;
+    BOOL m_fGameUnitsMapToIndividualFiles = FALSE;
 
     UINT16 nUnitAmt = 0;
     int nGameFlag = 0;
@@ -231,11 +234,15 @@ public:
     CPalGroup* GetPalGroup() { return &BasePalGroup; };
 
     UINT16 GetFileAmt() { return nFileAmt; };
-    BOOL* GetChangeTrackingArray() { return rgFileChanged; };
 
-    void SetIsDir(BOOL bNewIsDir = TRUE) { bIsDir = bNewIsDir; };
-    BOOL GetIsDir() { return bIsDir; };
-    bool AllowIPSPatchGeneration() { return !bIsDir || m_fAllowIPSPatching; };
+    void ResetFileChangeTrackingArray();
+    BOOL* GetFileChangeTrackingArray() { return rgFileChanged; };
+    BOOL WasGameFileChangedInSession();
+
+    void SetIsDir(BOOL bNewIsDir = TRUE) { m_fIsDirectoryBasedGame = bNewIsDir; };
+    BOOL GetIsDir() { return m_fIsDirectoryBasedGame; };
+    BOOL GetGameMapsUnitsToFiles() { return m_fGameUnitsMapToIndividualFiles; };
+    bool AllowIPSPatchGeneration() { return !m_fIsDirectoryBasedGame || m_fAllowIPSPatching; };
 
     int GetPlaneAmt(ColFlag Flag);
     double GetPlaneMul(ColFlag Flag);

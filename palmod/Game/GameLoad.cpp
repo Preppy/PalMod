@@ -1094,20 +1094,19 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     SetGame(CurrGame->GetGameFlag());
 
     UINT16 nFileAmt = CurrGame->GetFileAmt();
-    BOOL* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
     LPCTSTR pszLoadDir = CurrGame->GetLoadDir();
     UINT16* rgUnitRedir = CurrGame->rgUnitRedir;
     CString strErrorFile;
 
     if (CurrGame->GetIsDir())
     {
+        BOOL* rgFileIsChanged = CurrGame->GetFileChangeTrackingArray();
+        BOOL fWasGameChangedInSession = CurrGame->WasGameFileChangedInSession();
+        BOOL fGameMapsUnitsToFiles = CurrGame->GetGameMapsUnitsToFiles();
+
         for (UINT16 nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
         {
-            if ((rgFileIsChanged[nFileCtr]) ||
-                (CurrGame->GetGameFlag() == SFIII3_A_DIR_51) || // the SF3 code is older, so just treat as dirty
-                (CurrGame->GetGameFlag() == SFIII3_A_DIR_4) ||
-                (CurrGame->GetGameFlag() == SFIII3_A_DIR_10) ||
-                (CurrGame->GetGameFlag() == SFIII3_A_DIR_EX))
+            if (fGameMapsUnitsToFiles ? rgFileIsChanged[nFileCtr] : fWasGameChangedInSession)
             {
                 nSaveLoadCount++;
 
@@ -1139,9 +1138,14 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                     {
                         if (CurrGame->SaveFile(&FileSave, nFileCtr))
                         {
-                            // Mark as clean so we don't save it out until it gets dirtied again.
-                            rgFileIsChanged[nFileCtr] = FALSE;
                             nSaveLoadSucc++;
+
+                            if (fGameMapsUnitsToFiles)
+                            {
+                                // Mark as clean so we don't save it out until it gets dirtied again.
+                                rgFileIsChanged[nFileCtr] = FALSE;
+                            }
+
                         }
                         else
                         {
@@ -1172,14 +1176,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     }
     else
     {
-        BOOL fSomethingChanged = FALSE;
-
-        for (UINT16 nPos = 0; rgUnitRedir[nPos] != INVALID_UNIT_VALUE; nPos++)
-        {
-            fSomethingChanged = fSomethingChanged || rgFileIsChanged[rgUnitRedir[nPos]];
-        }
-
-        if (fSomethingChanged)
+        if (CurrGame->WasGameFileChangedInSession())
         {
             nSaveLoadCount = 1;
 
@@ -1187,7 +1184,6 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             {
                 if (CurrGame->SaveFile(&FileSave, 0))
                 {
-                    rgFileIsChanged[0] = FALSE;
                     nSaveLoadSucc++;
                 }
 
@@ -1240,6 +1236,11 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             }
 
             szLoadSaveStr.Format(L"%d of %d files patched successfully%s.", nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
+        }
+
+        if (nSaveLoadErr == 0)
+        {
+            CurrGame->ResetFileChangeTrackingArray();
         }
     }
     else
@@ -1357,47 +1358,49 @@ void CGameLoad::SavePatchFile(CGameClass* CurrGame)
 {
     SetGame(CurrGame->GetGameFlag());
     UINT32 nNumberOfChangesSaved = 0;
-    BOOL* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
-
-    if (rgFileIsChanged[0] && !CurrGame->GetIsDir())
+    
+    if (!CurrGame->GetIsDir())
     {
-        static LPCTSTR szPatchFilter[] = { _T("IPS Patch File|*.ips|")
-                                           _T("|") };
-
-        LPCTSTR pszLoadedFile = CurrGame->GetLoadDir();
-        LPCTSTR pszFileName = _tcsrchr(pszLoadedFile, _T('\\'));
-        pszFileName = (pszFileName) ? (pszFileName + 1) : _T("unknown");
-        CString strSuggestedFileName = pszFileName;
-        strSuggestedFileName += _T(".ips");        
-
-        CFileDialog PatchFileLoad(FALSE, _T("ips"), strSuggestedFileName.GetString(), OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY, *szPatchFilter);
-
-        if (PatchFileLoad.DoModal() == IDOK)
+        if (CurrGame->WasGameFileChangedInSession())
         {
-            CString strFileName = PatchFileLoad.GetOFN().lpstrFile;
-            CFile PatchFile;
-            nSaveLoadCount = 1;
+            static LPCTSTR szPatchFilter[] = { _T("IPS Patch File|*.ips|")
+                                               _T("|") };
 
-            if (PatchFile.Open(strFileName, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary))
+            LPCTSTR pszLoadedFile = CurrGame->GetLoadDir();
+            LPCTSTR pszFileName = _tcsrchr(pszLoadedFile, _T('\\'));
+            pszFileName = (pszFileName) ? (pszFileName + 1) : _T("unknown");
+            CString strSuggestedFileName = pszFileName;
+            strSuggestedFileName += _T(".ips");
+
+            CFileDialog PatchFileLoad(FALSE, _T("ips"), strSuggestedFileName.GetString(), OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY, *szPatchFilter);
+
+            if (PatchFileLoad.DoModal() == IDOK)
             {
-                nNumberOfChangesSaved = CurrGame->SavePatchFile(&PatchFile, 0);
-                PatchFile.Abort();
-            }
-            else
-            {
-                CString strError;
-                UINT uErrorString;
-                if ((GetFileAttributes(strFileName)) == INVALID_FILE_ATTRIBUTES)
+                CString strFileName = PatchFileLoad.GetOFN().lpstrFile;
+                CFile PatchFile;
+                nSaveLoadCount = 1;
+
+                if (PatchFile.Open(strFileName, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary))
                 {
-                    uErrorString = IDS_ERROR_FILENOTFOUND_FORMAT;
+                    nNumberOfChangesSaved = CurrGame->SavePatchFile(&PatchFile, 0);
+                    PatchFile.Abort();
                 }
                 else
                 {
-                    uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
-                }
+                    CString strError;
+                    UINT uErrorString;
+                    if ((GetFileAttributes(strFileName)) == INVALID_FILE_ATTRIBUTES)
+                    {
+                        uErrorString = IDS_ERROR_FILENOTFOUND_FORMAT;
+                    }
+                    else
+                    {
+                        uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
+                    }
 
-                strError.Format(uErrorString, strFileName);
-                MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+                    strError.Format(uErrorString, strFileName);
+                    MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+                }
             }
         }
     }
@@ -1416,9 +1419,9 @@ void CGameLoad::SaveMultiplePatchFiles(CGameClass* CurrGame, CString strTargetDi
 {
     SetGame(CurrGame->GetGameFlag());
     UINT32 nNumberOfChangesSaved = 0;
-    BOOL* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
+    BOOL fGameWasChanged = CurrGame->WasGameFileChangedInSession();
 
-    if (rgFileIsChanged[0] && CurrGame->GetIsDir())
+    if (fGameWasChanged && CurrGame->GetIsDir())
     {
         nNumberOfChangesSaved = CurrGame->SaveMultiplePatchFiles(strTargetDirectory);
     }
