@@ -2839,36 +2839,35 @@ const UINT16 KARNOVSR_A_IMG_UNITS[] =
 
 enum SupportedRedEarth_A_PaletteListIndex
 {
-    indexRedEarthSprites_Blade,
-    indexRedEarthSprites_GiGi,
-    indexRedEarthSprites_Hauzer,
-    indexRedEarthSprites_Hydron,
-    indexRedEarthSprites_Kenji,
-    indexRedEarthSprites_Kongou,
-    indexRedEarthSprites_Lavia,
-    indexRedEarthSprites_Leo,
-    indexRedEarthSprites_MaiLing,
-    indexRedEarthSprites_Ravange,
-    indexRedEarthSprites_Scion,
-    indexRedEarthSprites_Tessa,
+    indexRedEarthSprites_Blade,     // 0x00
+    indexRedEarthSprites_GiGi,      // 0x01
+    indexRedEarthSprites_Hauzer,    // 0x02
+    indexRedEarthSprites_Hydron,    // 0x03
+    indexRedEarthSprites_Kenji,     // 0x04
+    indexRedEarthSprites_Kongou,    // 0x05
+    indexRedEarthSprites_Lavia,     // 0x06
+    indexRedEarthSprites_Leo,       // 0x07
+    indexRedEarthSprites_MaiLing,   // 0x08
+    indexRedEarthSprites_Ravange,   // 0x09
+    indexRedEarthSprites_Scion,     // 0x0a
+    indexRedEarthSprites_Tessa,     // 0x0b
     indexRedEarthSprites_Last
 };
 
 const UINT16 REDEARTH_A_IMG_UNITS[] =
 {
-    
-    indexRedEarthSprites_Blade,
-    indexRedEarthSprites_GiGi,
-    indexRedEarthSprites_Hauzer,
-    indexRedEarthSprites_Hydron,
-    indexRedEarthSprites_Kenji,
-    indexRedEarthSprites_Kongou,
-    indexRedEarthSprites_Lavia,
-    indexRedEarthSprites_Leo,
-    indexRedEarthSprites_MaiLing,
-    indexRedEarthSprites_Ravange,
-    indexRedEarthSprites_Scion,
-    indexRedEarthSprites_Tessa,
+    indexRedEarthSprites_Blade,     // 0x00
+    indexRedEarthSprites_GiGi,      // 0x01
+    indexRedEarthSprites_Hauzer,    // 0x02
+    indexRedEarthSprites_Hydron,    // 0x03
+    indexRedEarthSprites_Kenji,     // 0x04
+    indexRedEarthSprites_Kongou,    // 0x05
+    indexRedEarthSprites_Lavia,     // 0x06
+    indexRedEarthSprites_Leo,       // 0x07
+    indexRedEarthSprites_MaiLing,   // 0x08
+    indexRedEarthSprites_Ravange,   // 0x09
+    indexRedEarthSprites_Scion,     // 0x0a
+    indexRedEarthSprites_Tessa,     // 0x0b
 };
 
 constexpr auto REDEARTH_A_NUM_IMG_UNITS = ARRAYSIZE(REDEARTH_A_IMG_UNITS);
@@ -3049,32 +3048,41 @@ constexpr auto WINDJAMMERS_A_NUM_IMG_UNITS = ARRAYSIZE(WINDJAMMERS_A_IMG_UNITS);
 
 enum SupportedSNES_PaletteListIndex
 {
-    indexMMPRSprites_Goldar,
-    indexMMPRSprites_IvanOoze,
-    indexMMPRSprites_LipSyncer,
-    indexMMPRSprites_LordZedd,
-    indexMMPRSprites_MegaTigerzord,
-    indexMMPRSprites_NinjaMegazord,
-    indexMMPRSprites_ShogunMegazord,
-    indexMMPRSprites_SilverHorns,
-    indexMMPRSprites_ThunderMegazord,
+    indexMMPRSprites_Goldar,        // 0x00
+    indexMMPRSprites_IvanOoze,      // 0x01
+    indexMMPRSprites_LipSyncer,     // 0x02
+    indexMMPRSprites_LordZedd,      // 0x03
+    indexMMPRSprites_MegaTigerzord, // 0x04
+    indexMMPRSprites_NinjaMegazord, // 0x05
+    indexMMPRSprites_ShogunMegazord, // 0x06
+    indexMMPRSprites_SilverHorns,   // 0x07
+    indexMMPRSprites_ThunderMegazord, // 0x08
 
-    indexMMPRSprites_Bonus,
-    indexMMPRSprites_Stages,
+    indexMMPRSprites_Bonus,         // 0x09
+    indexMMPRSprites_Stages,        // 0x0a
 
+    indexGundamSprites_DeathScythe, // 0x0b
+    indexGundamSprites_Epyon,       // 0x0c
+    indexGundamSprites_HeavyArms,   // 0x0d
+    indexGundamSprites_Mercurius,   // 0x0e
+    indexGundamSprites_SandRock,    // 0x0f
+    indexGundamSprites_ShenLong,    // 0x10
+    indexGundamSprites_Tallgeese,   // 0x11
+    indexGundamSprites_Vayaeae,     // 0x12
+    indexGundamSprites_Wing,        // 0x13
+    indexGundamSprites_WingZero,    // 0x14
+    indexGundamSprites_Bonus,       // 0x15
+    indexGundamSprites_Stages,      // 0x16
 
-    indexGundamSprites_DeathScythe,
-    indexGundamSprites_Epyon,
-    indexGundamSprites_HeavyArms,
-    indexGundamSprites_Mercurius,
-    indexGundamSprites_SandRock,
-    indexGundamSprites_ShenLong,
-    indexGundamSprites_Tallgeese,
-    indexGundamSprites_Vayaeae,
-    indexGundamSprites_Wing,
-    indexGundamSprites_WingZero,
-    indexGundamSprites_Bonus,
-    indexGundamSprites_Stages,
+    indexCFTESprites_BadMrFrosty,   // 0x17
+    indexCFTESprites_BlueSuedeGoo,  // 0x18
+    indexCFTESprites_Bonker,        // 0x19
+    indexCFTESprites_Helga,         // 0x1a
+    indexCFTESprites_IckyBodClay,   // 0x1b
+    indexCFTESprites_Taffy,         // 0x1c
+    indexCFTESprites_TheBlob,       // 0x1d
+    indexCFTESprites_Tiny,          // 0x1e
+    indexCFTESprites_Bonus,         // 0x1f
 };
 
 const UINT16 MMPR_SNES_IMG_UNITS[] =
@@ -3104,6 +3112,19 @@ const UINT16 GUNDAM_A_IMG_UNITS[] =
     indexGundamSprites_WingZero,
     indexGundamSprites_Bonus,
     indexGundamSprites_Stages,
+};
+
+const UINT16 CFTE_SNES_IMG_UNITS[] =
+{
+    indexCFTESprites_BadMrFrosty,   // 0x17
+    indexCFTESprites_BlueSuedeGoo,  // 0x18
+    indexCFTESprites_Bonker,        // 0x19
+    indexCFTESprites_Helga,         // 0x1a
+    indexCFTESprites_IckyBodClay,   // 0x1b
+    indexCFTESprites_Taffy,         // 0x1c
+    indexCFTESprites_TheBlob,       // 0x1d
+    indexCFTESprites_Tiny,          // 0x1e
+    indexCFTESprites_Bonus,         // 0x1f
 };
 
 enum SupportedNEOGEO_PaletteListIndex
