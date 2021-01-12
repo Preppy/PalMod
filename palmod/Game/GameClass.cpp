@@ -1071,6 +1071,8 @@ void CGameClass::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
         s_fHaveCheckedForWINEOverride = true;
         if (CRegProc::UserIsOnWINE())
         {
+            MessageBox(g_appHWnd, L"You're using WINE.  WINE has visual refresh bugs.  PalMod tries to hack around them: please switch AWAY from this palette and then back: this is a "
+                                    L"virtual palette attempting to work around parts of those bugs.  Thanks!", GetHost()->GetAppName(), MB_ICONINFORMATION);
             m_uOneTimeWINEViewportSizeOverride = s_nColorsPerPage;
             m_nCurrentPaletteSizeInColors = m_uOneTimeWINEViewportSizeOverride;
         }

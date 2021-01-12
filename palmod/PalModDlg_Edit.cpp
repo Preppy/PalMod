@@ -504,6 +504,7 @@ void CPalModDlg::OnEditPaste()
                 case MVC2_P:
                 case MVC_A:
                 case GEMFIGHTER_A:
+                case RODSM2_A:
                 case SFA1_A:
                 case SFA2_A:
                 case SFA3_A:

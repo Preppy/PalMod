@@ -232,6 +232,9 @@
     <Filter Include="Game\SNK Games\Samurai Shodown 4">
       <UniqueIdentifier>{dc385e4d-7b94-4805-8871-c401b54bd681}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\Slam Masters 2">
+      <UniqueIdentifier>{790c3553-43d8-4e6d-9b0f-b36f7b64f595}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -509,6 +512,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO4_A.cpp">
       <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_RODSM2_A.cpp">
+      <Filter>Game\Capcom Games\Slam Masters 2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -946,6 +952,12 @@
     </ClInclude>
     <ClInclude Include="Game\SAMSHO4_A_DEF.h">
       <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_RODSM2_A.h">
+      <Filter>Game\Capcom Games\Slam Masters 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\RODSM2_A_DEF.h">
+      <Filter>Game\Capcom Games\Slam Masters 2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

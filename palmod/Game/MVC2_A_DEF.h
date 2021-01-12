@@ -8,63 +8,63 @@
 
 enum SupportedMVC2_A_PaletteListIndex
 {
-    indexMVC2ARyu,
-    indexMVC2AZangief,
-    indexMVC2AGuile,
-    indexMVC2AMorrigan,
-    indexMVC2AAnakaris,
-    indexMVC2AStrider,
-    indexMVC2ACyclops,
-    indexMVC2AWolverine,
-    indexMVC2APsylocke,
-    indexMVC2AIceman,
-    indexMVC2ARogue,
-    indexMVC2ACaptainAmerica,
-    indexMVC2ASpiderman,
-    indexMVC2AHulk,
-    indexMVC2AVenom,
-    indexMVC2ADrDoom,
-    indexMVC2ATron,
-    indexMVC2AJill,
-    indexMVC2AHayato,
-    indexMVC2ARuby,
-    indexMVC2ASonson,
-    indexMVC2AAmingo,
-    indexMVC2AMarrow,
-    indexMVC2ACable,
-    indexMVC2AAbyss1,
-    indexMVC2AAbyss2,
-    indexMVC2AAbyss3,
-    indexMVC2AChunLi,
-    indexMVC2AMegaman,
-    indexMVC2ARoll,
-    indexMVC2AAkuma,
-    indexMVC2ABBHood,
-    indexMVC2AFelicia,
-    indexMVC2ANash,
-    indexMVC2ASakura,
-    indexMVC2ADan,
-    indexMVC2ACammy,
-    indexMVC2ADhalsim,
-    indexMVC2MBison,
-    indexMVC2AKen,
-    indexMVC2AGambit,
-    indexMVC2AJuggernaut,
-    indexMVC2AStorm,
-    indexMVC2ASabretooth,
-    indexMVC2AMagneto,
-    indexMVC2AShuma,
-    indexMVC2AWarMachine,
-    indexMVC2ASilverSamurai,
-    indexMVC2AOmegaRed,
-    indexMVC2ASpiral,
-    indexMVC2AColossus,
-    indexMVC2AIronMan,
-    indexMVC2ASentinel,
-    indexMVC2ABlackheart,
-    indexMVC2AThanos,
-    indexMVC2AJin,
-    indexMVC2ACaptainCommando,
+    indexMVC2ARyu,              // 0x00
+    indexMVC2AZangief,          // 0x01
+    indexMVC2AGuile,            // 0x02
+    indexMVC2AMorrigan,         // 0x03
+    indexMVC2AAnakaris,         // 0x04
+    indexMVC2AStrider,          // 0x05
+    indexMVC2ACyclops,          // 0x06
+    indexMVC2AWolverine,        // 0x07
+    indexMVC2APsylocke,         // 0x08
+    indexMVC2AIceman,           // 0x09
+    indexMVC2ARogue,            // 0x0a
+    indexMVC2ACaptainAmerica,   // 0x0b
+    indexMVC2ASpiderman,        // 0x0c
+    indexMVC2AHulk,             // 0x0d
+    indexMVC2AVenom,            // 0x0e
+    indexMVC2ADrDoom,           // 0x0f
+    indexMVC2ATron,             // 0x10
+    indexMVC2AJill,             // 0x11
+    indexMVC2AHayato,           // 0x12
+    indexMVC2ARuby,             // 0x13
+    indexMVC2ASonson,           // 0x14
+    indexMVC2AAmingo,           // 0x15
+    indexMVC2AMarrow,           // 0x16
+    indexMVC2ACable,            // 0x17
+    indexMVC2AAbyss1,           // 0x18
+    indexMVC2AAbyss2,           // 0x19
+    indexMVC2AAbyss3,           // 0x1a
+    indexMVC2AChunLi,           // 0x1b
+    indexMVC2AMegaman,          // 0x1c
+    indexMVC2ARoll,             // 0x1d
+    indexMVC2AAkuma,            // 0x1e
+    indexMVC2ABBHood,           // 0x1f
+    indexMVC2AFelicia,          
+    indexMVC2ANash,             
+    indexMVC2ASakura,           
+    indexMVC2ADan,              
+    indexMVC2ACammy,            
+    indexMVC2ADhalsim,          
+    indexMVC2MBison,            
+    indexMVC2AKen,              
+    indexMVC2AGambit,           
+    indexMVC2AJuggernaut,       
+    indexMVC2AStorm,            
+    indexMVC2ASabretooth,       
+    indexMVC2AMagneto,          
+    indexMVC2AShuma,            
+    indexMVC2AWarMachine,       
+    indexMVC2ASilverSamurai,    
+    indexMVC2AOmegaRed,         
+    indexMVC2ASpiral,           
+    indexMVC2AColossus,         
+    indexMVC2AIronMan,          
+    indexMVC2ASentinel,         
+    indexMVC2ABlackheart,       
+    indexMVC2AThanos,           
+    indexMVC2AJin,              
+    indexMVC2ACaptainCommando,      
     indexMVC2ABonerine,
     indexMVC2AServbot,
     indexMVC2ATeamView,

@@ -74,8 +74,8 @@ CGame_AOF3_A::CGame_AOF3_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
     //Set game information
     nGameFlag = AOF3_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    m_prgGameImageSet = AOF3_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(AOF3_A_IMG_UNITS);
 
     nFileAmt = 1;
 

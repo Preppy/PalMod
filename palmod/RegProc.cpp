@@ -14,7 +14,6 @@ constexpr auto c_mainWndForcePeerPreviewWindow = _T("extras_ForcePeerPreviewWind
 constexpr auto c_mainUnknownGameAlphaMode = _T("main_UnknownGameAlphaMode");
 constexpr auto c_mainUnknownGameColMode = _T("main_UnknownGameColMode");
 constexpr auto c_mainExtraFileCanaryKey = _T("main_lastExtraFileSize_%s");
-constexpr auto c_regWINEOverrideValue = _T("extras_HelpImUsingWINE");
 
 constexpr auto c_nPrefSavePaletteToMemory = _T("pref_ShouldSavePaletteToMemory");
 constexpr auto c_prevClickToFind = L"PreviewClickToFind";
@@ -287,19 +286,16 @@ void CRegProc::ClearExtraFileLoadingCanary(LPCWSTR pszExtraFileName)
 
 bool CRegProc::UserIsOnWINE()
 {
-    CRegKey extraKey;
-    bool fUserIsOnWINE = false;
+    HMODULE ntdll = GetModuleHandle(L"ntdll.dll");
 
-    if (extraKey.Open(HKEY_CURRENT_USER, c_AppRegistryRoot) == ERROR_SUCCESS)
+    if (!ntdll)
     {
-        DWORD dwUserIsOnWINE;
-        if (extraKey.QueryDWORDValue(c_regWINEOverrideValue, dwUserIsOnWINE) == ERROR_SUCCESS)
-        {
-            fUserIsOnWINE = (dwUserIsOnWINE == 1);
-        }
+        return false;
     }
 
-    return fUserIsOnWINE;
+    void* pWGV = (void*)GetProcAddress(ntdll, "wine_get_version");
+
+    return (pWGV);
 }
 
 void CRegProc::LoadReg(int src)
