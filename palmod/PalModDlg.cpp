@@ -484,13 +484,24 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
         if (bPalChanged)
         {
             const int nMBDefault = CRegProc::GetUserSavePaletteToMemoryPreference();
+            // WINE currently muffs their implementation of SHMessageBoxCheck - special-case handling there
+            // Filed https://bugs.winehq.org/show_bug.cgi?id=50488 to track this for them
+            static bool s_fIsUserOnWINE = CRegProc::UserIsOnWINE();
 
             int nUserAnswer = IDCANCEL;
             
             CString strQuestion;
             if (strQuestion.LoadString(IDS_SAVE_PALETTE_CHANGES))
             {
-                nUserAnswer = SHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), MB_YESNOCANCEL | MB_ICONEXCLAMATION, nMBDefault, _T("{11BFAC2D-42CA-40e2-967C-1017C1B2676A}"));
+                const UINT uiButtonFlag = s_fIsUserOnWINE ? MB_YESNO : MB_YESNOCANCEL;
+
+                nUserAnswer = SHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), uiButtonFlag | MB_ICONEXCLAMATION, nMBDefault, _T("{11BFAC2D-42CA-40e2-967C-1017C1B2676A}"));
+            }
+
+            if (s_fIsUserOnWINE && (nUserAnswer == IDCANCEL))
+            {
+                // You'll note that the user never got an option for CANCEL: WINE treated their NO as CANCEL for no good reason
+                nUserAnswer = IDNO;
             }
 
             CRegProc::SetUserSavePaletteToMemoryPreference(nUserAnswer);
@@ -498,6 +509,9 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
             switch (nUserAnswer)
             {
             case IDYES:
+            // If you're playing along at home, you'll note that IDOK isn't a legal value.  But WINE
+            // is currently returning IDOK when users press YES, so we'll work with that
+            case IDOK:
             {
                 OnBnUpdate();
                 return TRUE;

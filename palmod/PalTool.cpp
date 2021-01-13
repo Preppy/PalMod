@@ -453,7 +453,7 @@ BOOL CPalTool::OnEraseBkgnd(CDC* pDC)
 {
     // TODO: Add your message handler code here and/or call default
 
-    return TRUE;
+    return FALSE;
 
     //CWnd::OnEraseBkgnd(pDC);    
 }

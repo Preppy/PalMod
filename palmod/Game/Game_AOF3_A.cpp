@@ -54,7 +54,7 @@ CGame_AOF3_A::CGame_AOF3_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
     m_nTotalInternalUnits = UsePaletteSetForP1() ? AOF3_A_P1_NUMUNIT : AOF3_A_P2_NUMUNIT;
     m_nExtraUnit = UsePaletteSetForP1() ? AOF3_A_P1_EXTRALOC : AOF3_A_P2_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForP1() ? 203 : 63);
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForP1() ? 209 : 63);
     m_pszExtraFilename = UsePaletteSetForP1() ? EXTRA_FILENAME_AOF3_A_P1 : EXTRA_FILENAME_AOF3_A_P2;
     m_nTotalPaletteCount = UsePaletteSetForP1() ? m_nTotalPaletteCountForAOF3_P1 : m_nTotalPaletteCountForAOF3_P2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -778,10 +778,22 @@ BOOL CGame_AOF3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         )
                     );
 
+                    sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+                    INT8 nNodeDistance = 0;
+                    INT8 nPeerNodeDistance = nPeerPaletteDistance;
+
+                    if ((nPeerPaletteDistance > 2) && (wcsstr(charUnit->szDesc, L"Sinclair")))
+                    {
+                        // Sinclair reaches into the Shared node for Sword Portrait
+                        nSrcAmt = 1;
+                        nNodeDistance = (Node02 == 0) ? 3 : 2;
+                        nPeerNodeDistance = -Node03;
+                    }
+
                     //Set each palette
                     sDescNode* JoinedNode[2] = {
                         GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
-                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                        GetMainTree()->GetDescNode(Node01, Node02 + nNodeDistance, Node03 + nPeerNodeDistance, -1)
                     };
 
                     //Set each palette

@@ -72,23 +72,23 @@ const sGame_PaletteDataset CFTE_BONKER_PALETTES[] =
 
 const sGame_PaletteDataset CFTE_PORTRAITS_VSMODE_PALETTES[] =
 {
-    { L"Bad Mr. Frosty", 0x244043, 0x244103 },
-    { L"Taffy", 0x244103, 0x2441C3 },
-    { L"Tiny", 0x2441C3, 0x244283 },
-    { L"Blob", 0x244283, 0x244343 },
-    { L"Blue Suede Goo", 0x244343, 0x244403 },
-    { L"Ickybod Clay", 0x244403, 0x2444C3 },
-    { L"Helga", 0x2444C3, 0x244583 },
-    { L"Bonker", 0x244583, 0x244643 },
+    { L"Bad Mr. Frosty", 0x244043, 0x244103, indexCFTESprites_BadMrFrosty, 0x10 },
+    { L"Taffy", 0x244103, 0x2441C3, indexCFTESprites_Taffy, 0x10 },
+    { L"Tiny", 0x2441C3, 0x244283, indexCFTESprites_Tiny, 0x10 },
+    { L"Blob", 0x244283, 0x244343, indexCFTESprites_TheBlob, 0x10 },
+    { L"Blue Suede Goo", 0x244343, 0x244403, indexCFTESprites_BlueSuedeGoo, 0x10 },
+    { L"Ickybod Clay", 0x244403, 0x2444C3, indexCFTESprites_IckyBodClay, 0x10 },
+    { L"Helga", 0x2444C3, 0x244583, indexCFTESprites_Helga, 0x10 },
+    { L"Bonker", 0x244583, 0x244643, indexCFTESprites_Bonker, 0x10 },
 };
 
 const sGame_PaletteDataset CFTE_BONUS_PALETTES[] =
 {
     { L"Interplay Logo", 0x1F0A3B, 0x1F0A5B, indexCFTESprites_Bonus, 0x00 },
-    { L"Visual Concepts Logo", 0x1EEA8B, 0x1EEB8B },
-    { L"Clay Fighter Logo", 0x1B2EF9, 0x1B2F59 },
+    { L"Visual Concepts Logo", 0x1EEA8B, 0x1EEB8B, indexCFTESprites_Bonus, 0x03 },
+    { L"Clay Fighter Logo", 0x1B2EF9, 0x1B2F59, indexCFTESprites_Bonus, 0x02 },
     { L"Clay Fighter Logo Subtitle", 0x107A0, 0x107C0 },
-    { L"Intro Gradient", 0x1ABC84, 0x1ABCA4 },
+    { L"Intro Gradient", 0x1ABC84, 0x1ABCA4, indexCFTESprites_Bonus, 0x01 },
     { L"Title Screen BG", 0x1A6B0D, 0x1A6B2D },
     { L"Mode Select Text", 0x1A0C06, 0x1A0C26 },
     { L"Pre-Match 'VS.' Icon", 0x10760, 0x10780 },

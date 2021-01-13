@@ -1157,23 +1157,14 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId);
 
                     BasePalGroup.AddSep(0, _T("Concrete"), 0, 16);
+                    BasePalGroup.AddSep(0, _T("Turtle"), 16, 16);
                     BasePalGroup.AddSep(0, _T("Dinosaur / Stone"), 32, 16);
                     BasePalGroup.AddSep(0, _T("Rocket"), 48, 16);
+                    BasePalGroup.AddSep(0, _T("Brick"), 64, 16);
 
-                    LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId + 1);
-
-                    BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId + 1), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId + 1);
-
-                    BasePalGroup.AddSep(1, _T("Brick"), 0, 16);
-
-                    ClearSetImgTicket(
-                        CreateImgTicket(index3S_CPS3_Oro, 2,
-                            CreateImgTicket(index3S_CPS3_Oro, 3, NULL, -2, 129)
-                        )
-                    );
+                    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
                     SetSourcePal(0, NodeGet->uUnitId, NodeGet->uPalId, 1, 1);
-                    SetSourcePal(1, NodeGet->uUnitId, NodeGet->uPalId + 1, 1, 1);
                 }
                 else if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
                 {

@@ -6,10 +6,6 @@
 // * Update every array using SAMSHO5SP_A_NUMUNIT below
 // That should be it.  Good luck.
 
-constexpr auto SAMSHO5SP_A_NUMUNIT = indexSamSho5_A_Last;
-
-#define SAMSHO5SP_A_EXTRALOC SAMSHO5SP_A_NUMUNIT
-
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_A[] =
 {
     { L"Amakusa A (Normal)", 0xe0000, 0xe0040, indexSamSho5Sprites_Amakusa },
@@ -1699,42 +1695,7 @@ const sDescTreeNode SAMSHO5SP_A_BONUS_COLLECTION[] =
     { L"HUD",   DESC_NODETYPE_TREE, (void*)SAMSHOW5SP_A_HUD_PALETTES,   ARRAYSIZE(SAMSHOW5SP_A_HUD_PALETTES) },
 };
 
-const UINT8 SAMSHO5SP_A_UNITSORT[SAMSHO5SP_A_NUMUNIT + 1] // Plus 1 for extras
-{
-    indexSamSho5_A_Amakusa,
-    indexSamSho5_A_Basara,
-    indexSamSho5_A_Charlotte,
-    indexSamSho5_A_Enja,
-    indexSamSho5_A_Gaira,
-    indexSamSho5_A_Galford,
-    indexSamSho5_A_Gaoh,
-    indexSamSho5_A_Genjuro,
-    indexSamSho5_A_Hanzo,
-    indexSamSho5_A_Haohmaru,
-    indexSamSho5_A_Jubei,
-    indexSamSho5_A_Kazuki,
-    indexSamSho5_A_Kusaregedo,
-    indexSamSho5_A_Kyoshiro,
-    indexSamSho5_A_Mina,
-    indexSamSho5_A_Mizuki,
-    indexSamSho5_A_Nakoruru,
-    indexSamSho5_A_Rasetsumaru,
-    indexSamSho5_A_Rera,
-    indexSamSho5_A_Rimururu,
-    indexSamSho5_A_Shizumaru,
-    indexSamSho5_A_Sogetsu,
-    indexSamSho5_A_Suija,
-    indexSamSho5_A_TamTam,
-    indexSamSho5_A_Ukyo,
-    indexSamSho5_A_Yoshitora,
-    indexSamSho5_A_Yunfei,
-    indexSamSho5_A_Zankuro,
-    indexSamSho5_A_Bonus,
-
-    SAMSHO5SP_A_EXTRALOC
-};
-
-const sDescTreeNode SAMSHO5SP_A_UNITS[SAMSHO5SP_A_NUMUNIT] =
+const sDescTreeNode SAMSHO5SP_A_UNITS[] =
 {
     { L"Amakusa", DESC_NODETYPE_TREE, (void*)SAMSHO5SP_A_Amakusa_COLLECTION, ARRAYSIZE(SAMSHO5SP_A_Amakusa_COLLECTION) },
     { L"Basara", DESC_NODETYPE_TREE, (void*)SAMSHO5SP_A_Basara_COLLECTION, ARRAYSIZE(SAMSHO5SP_A_Basara_COLLECTION) },
@@ -1766,6 +1727,12 @@ const sDescTreeNode SAMSHO5SP_A_UNITS[SAMSHO5SP_A_NUMUNIT] =
     { L"Zankuro", DESC_NODETYPE_TREE, (void*)SAMSHO5SP_A_Zankuro_COLLECTION, ARRAYSIZE(SAMSHO5SP_A_Zankuro_COLLECTION) },
     { L"Bonus", DESC_NODETYPE_TREE, (void*)SAMSHO5SP_A_BONUS_COLLECTION, ARRAYSIZE(SAMSHO5SP_A_BONUS_COLLECTION) },
 };
+
+constexpr auto SAMSHO5SP_A_NUMUNIT = ARRAYSIZE(SAMSHO5SP_A_UNITS);
+
+#define SAMSHO5SP_A_EXTRALOC SAMSHO5SP_A_NUMUNIT
+
+
 
 // We extend this array with data groveled from the extras file, if any.
 const stExtraDef SAMSHO5SP_A_EXTRA[] =

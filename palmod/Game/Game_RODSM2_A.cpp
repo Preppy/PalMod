@@ -61,8 +61,8 @@ CGame_RODSM2_A::CGame_RODSM2_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = RODSM2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    m_prgGameImageSet = RODSM2_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(RODSM2_A_IMG_UNITS);
 
     nFileAmt = 1;
 

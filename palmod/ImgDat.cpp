@@ -294,9 +294,9 @@ void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
     {
         // here we keep track of the imgdat version we expect.
         // not super critical for daily updates, but still useful
-        const UINT16 nExpectedYear = 2020;
-        const UINT8 nExpectedMonth = 12;
-        const UINT8 nExpectedDay = 24;
+        const UINT16 nExpectedYear = 2021;
+        const UINT8 nExpectedMonth = 1;
+        const UINT8 nExpectedDay = 12;
         const UINT8 nExpectedRevision = 0;
 
         const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
@@ -309,10 +309,17 @@ void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
             strMsg.Format(L"Warning: You didn't copy the new img2020.dat.  Images may not show up correctly.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
         }
-        else if (nExpectedDatestamp > nCurrentDatestamp)
+        else if (nExpectedDatestamp != nCurrentDatestamp)
         {
-            strMsg.Format(L"Please note that you are using an out of date version of img2020.dat.  Some newly added images will not be available.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
-            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING);
+            if (nExpectedDatestamp > nCurrentDatestamp)
+            {
+                strMsg.Format(L"Please note that you are using an out of date version of img2020.dat.  Some newly added images will not be available.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
+                MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONWARNING);
+            }
+            else
+            {
+                OutputDebugString(L"WARNING: new imgdat is being used.  You may want to update the known date values in CImgDat::VersionCheckImgDat\n");
+            }
         }
     }
 }

@@ -448,19 +448,19 @@ const sGame_PaletteDataset SFIII3_A_IBUKI_Support_PALETTES[] =
 const sGame_PaletteDataset SFIII3_A_IBUKI_EXTRA_PALETTES[] =
 {
     { L"LP Extras", 0x705A00, 0x705A80, index3S_CPS3_Ibuki, 0x02 },
-    { L"LP Extras 2", 0x705A80, 0x705B00 },
+    { L"LP Extras 2", 0x705A80, 0x705B00, index3S_CPS3_Ibuki, 0x03 },
     { L"MP Extras", 0x705B00, 0x705B80, index3S_CPS3_Ibuki, 0x02 },
-    { L"MP Extras 2", 0x705B80, 0x705C00 },
+    { L"MP Extras 2", 0x705B80, 0x705C00, index3S_CPS3_Ibuki, 0x03 },
     { L"HP Extras", 0x705C00, 0x705C80, index3S_CPS3_Ibuki, 0x02 },
-    { L"HP Extras 2", 0x705C80, 0x705D00 },
+    { L"HP Extras 2", 0x705C80, 0x705D00, index3S_CPS3_Ibuki, 0x03 },
     { L"LK Extras", 0x705D00, 0x705D80, index3S_CPS3_Ibuki, 0x02 },
-    { L"LK Extras 2", 0x705D80, 0x705E00 },
+    { L"LK Extras 2", 0x705D80, 0x705E00, index3S_CPS3_Ibuki, 0x03 },
     { L"MK Extras", 0x705E00, 0x705E80, index3S_CPS3_Ibuki, 0x02 },
-    { L"MK Extras 2", 0x705E80, 0x705F00 },
+    { L"MK Extras 2", 0x705E80, 0x705F00, index3S_CPS3_Ibuki, 0x03 },
     { L"HK Extras", 0x705F00, 0x705F80, index3S_CPS3_Ibuki, 0x02 },
-    { L"HK Extras 2", 0x705F80, 0x706000 },
+    { L"HK Extras 2", 0x705F80, 0x706000, index3S_CPS3_Ibuki, 0x03 },
     { L"EX Extras", 0x706000, 0x706080, index3S_CPS3_Ibuki, 0x02 },
-    { L"EX Extras 2", 0x706080, 0x706100 },
+    { L"EX Extras 2", 0x706080, 0x706100, index3S_CPS3_Ibuki, 0x03 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_LP_PALETTES[] =
@@ -509,6 +509,7 @@ const sGame_PaletteDataset SFIII3_A_ELENA_EXTRA_PALETTES[] =
 {
     { L"Dust", 0x706100, 0x706180, index3S_CPS3_Elena, 0x02 },
     { L"Music notes", 0x706180, 0x706200, index3S_CPS3_Elena, 0x03 },
+    { L"Healing", 0x706200, 0x706280, index3S_CPS3_Elena, 0x04 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_Support_PALETTES[] =
@@ -583,12 +584,10 @@ const sGame_PaletteDataset SFIII3_A_ORO_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_ORO_EXTRA_PALETTES[] =
 {
-    { L"Tengu Stones", 0x763100, 0x763180, index3S_CPS3_Oro, 2, &pairHandledInCode },
-    // Bricks are folded into the Tengu Stones display
-    { L"Bricks", 0x763180, 0x7631A0, index3S_CPS3_Oro, 3 },
+    { L"Tengu Objects", 0x763100, 0x7631a0, index3S_CPS3_Oro, 2, &pairHandledInCode },
 
-    { L"Fireball + Green Yagyou Dama (SA2)", 0x706280, 0x706300 },
-    { L"Fireball + Yellow Yagyou Dama (SA2)", 0x706380, 0x706400 },
+    { L"Fireball + Green Yagyou Dama (SA2)", 0x706280, 0x706300, index3S_CPS3_Oro, 0x04 },
+    { L"Fireball + Yellow Yagyou Dama (SA2)", 0x706380, 0x706400, index3S_CPS3_Oro, 0x05 },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_LP_PALETTES[] =

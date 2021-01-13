@@ -3216,7 +3216,7 @@ const sDescTreeNode MVC2_A_ABYSS1_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_LP[] =
 {
-    { L"Main Color (button specific) LP", 0x3da68e0, 0x3da6900, indexCPS2_Abyss2, 0 },
+    { L"Main Color (button specific) LP", 0x3da68e0, 0x3da6900, indexCPS2_Abyss2, 0, &pairFullyLinkedNode },
     { L"(02) Not Used", 0x3da6900, 0x3da6920, indexCPS2_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6920, 0x3da6940, indexCPS2_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6940, 0x3da6960, indexCPS2_Abyss2, 3 },
@@ -3228,7 +3228,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_LK[] =
 {
-    { L"Main Color (button specific) LK", 0x3da69e0, 0x3da6a00, indexCPS2_Abyss2, 0 },
+    { L"Main Color (button specific) LK", 0x3da69e0, 0x3da6a00, indexCPS2_Abyss2, 0, &pairFullyLinkedNode },
     { L"(02) Not Used", 0x3da6a00, 0x3da6a20, indexCPS2_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6a20, 0x3da6a40, indexCPS2_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6a40, 0x3da6a60, indexCPS2_Abyss2, 3 },
@@ -3240,7 +3240,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_HP[] =
 {
-    { L"Main Color (button specific) HP", 0x3da6ae0, 0x3da6b00, indexCPS2_Abyss2, 0 },
+    { L"Main Color (button specific) HP", 0x3da6ae0, 0x3da6b00, indexCPS2_Abyss2, 0, &pairFullyLinkedNode },
     { L"(02) Not Used", 0x3da6b00, 0x3da6b20, indexCPS2_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6b20, 0x3da6b40, indexCPS2_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6b40, 0x3da6b60, indexCPS2_Abyss2, 3 },
@@ -3252,7 +3252,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_HK[] =
 {
-    { L"Main Color (button specific) HK", 0x3da6be0, 0x3da6c00, indexCPS2_Abyss2, 0 },
+    { L"Main Color (button specific) HK", 0x3da6be0, 0x3da6c00, indexCPS2_Abyss2, 0, &pairFullyLinkedNode },
     { L"(02) Not Used", 0x3da6c00, 0x3da6c20, indexCPS2_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6c20, 0x3da6c40, indexCPS2_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6c40, 0x3da6c60, indexCPS2_Abyss2, 3 },
@@ -3264,7 +3264,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_A1[] =
 {
-    { L"Main Color (button specific) A1", 0x3da6ce0, 0x3da6d00, indexCPS2_Abyss2, 0 },
+    { L"Main Color (button specific) A1", 0x3da6ce0, 0x3da6d00, indexCPS2_Abyss2, 0, &pairFullyLinkedNode },
     { L"(02) Not Used", 0x3da6d00, 0x3da6d20, indexCPS2_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6d20, 0x3da6d40, indexCPS2_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6d40, 0x3da6d60, indexCPS2_Abyss2, 3 },
@@ -3276,7 +3276,7 @@ const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_ABYSS2_PALETTES_A2[] =
 {
-    { L"Main Color (button specific) A2", 0x3da6de0, 0x3da6e00, indexCPS2_Abyss2, 0 },
+    { L"Main Color (button specific) A2", 0x3da6de0, 0x3da6e00, indexCPS2_Abyss2, 0, &pairFullyLinkedNode },
     { L"(02) Not Used", 0x3da6e00, 0x3da6e20, indexCPS2_Abyss2, 1 },
     { L"(03) ID:01-09 Not Used ID:10-14 Plasma Bubble ID:15 Not Used", 0x3da6e20, 0x3da6e40, indexCPS2_Abyss2, 2 },
     { L"(04) Not Used", 0x3da6e40, 0x3da6e60, indexCPS2_Abyss2, 3 },

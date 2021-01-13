@@ -367,7 +367,7 @@ void CJunk::OnPaint()
 
 BOOL CJunk::OnEraseBkgnd(CDC* pDC)
 {
-    return TRUE;
+    return FALSE;
 }
 
 BOOL CJunk::ProcBaseBMP()

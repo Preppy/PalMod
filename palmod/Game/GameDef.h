@@ -193,7 +193,7 @@ struct sSupportedGameList
 
 const int nGameLoadROMListMask = 0xf0000;
 extern sSupportedGameList* pSupportedGameList;
-extern int nNumberOfLoadROMOptions;
+extern const int nNumberOfLoadROMOptions;
 
 constexpr auto MVC2_D_NUMUNIT = 59;
 constexpr auto MVC2_D_NUMUNIT_WITH_TEAMVIEW = MVC2_D_NUMUNIT + 1;
@@ -513,6 +513,23 @@ enum CHARACTERS_CPS2
     indexCPS2_SFA2_Bonus,   // 0x7f
     indexCPS2_SFA2_Stages,  // 0x80
     indexCPS2_VSAV1_Stages, // 0x81
+
+    indexSM2Sprites_Biff,       // 0x82
+    indexSM2Sprites_Grater,     // 0x83
+    indexSM2Sprites_Gunloc,     // 0x84
+    indexSM2Sprites_Haggar,     // 0x85
+    indexSM2Sprites_Jumbo,      // 0x86
+    indexSM2Sprites_Oni,        // 0x87
+    indexSM2Sprites_Ortega,     // 0x88
+    indexSM2Sprites_Rasta,      // 0x89
+    indexSM2Sprites_Rip,        // 0x8a
+    indexSM2Sprites_Scorpion,   // 0x8b
+    indexSM2Sprites_Stingray,   // 0x8c
+    indexSM2Sprites_Tim,        // 0x8d
+    indexSM2Sprites_Widow,      // 0x8e
+    indexSM2Sprites_Wraith,     // 0x8f
+    indexSM2Sprites_Bonus,      // 0x90
+    indexSM2Sprites_Stages,     // 0x91
 };
 
 const UINT16 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
@@ -1687,8 +1704,8 @@ enum KOFSpriteList
     indexKOF99Sprites_Bonus,        // 0x1a2
 
     indexAoF3Sprites_Jin,           // 0x1A3
-    indexAoF3Sprites_Kasumi,        // 0x1A4
-    indexAoF3Sprites_Karman,        // 0x1A5
+    indexAoF3Sprites_Karman,        // 0x1A4
+    indexAoF3Sprites_Kasumi,        // 0x1A5
     indexAoF3Sprites_Lenny,         // 0x1A6
     indexAoF3Sprites_Robert,        // 0x1A7
     indexAoF3Sprites_Rody,          // 0x1A8
@@ -1700,42 +1717,6 @@ enum KOFSpriteList
     indexAoF3Sprites_Stages,        // 0x1AE
 
     indexKOFSprites_Last,
-};
-
-enum SamuraiShodownSpriteList
-{
-    indexSamSho5Sprites_Amakusa = 0,
-    indexSamSho5Sprites_Basara,     // 1
-    indexSamSho5Sprites_Charlotte,  // 2
-    indexSamSho5Sprites_Enja,       // 3
-    indexSamSho5Sprites_Gaira,      // 4
-    indexSamSho5Sprites_Galford,    // 5
-    indexSamSho5Sprites_Gaoh,       // 6
-    indexSamSho5Sprites_Genjuro,    // 7
-    indexSamSho5Sprites_Hanzo,      // 8
-    indexSamSho5Sprites_Haohmaru,   // 9
-    indexSamSho5Sprites_Jubei,      // a
-    indexSamSho5Sprites_Kazuki,     // b
-    indexSamSho5Sprites_Kusaregedo, // c
-    indexSamSho5Sprites_Kyoshiro,   // d
-    indexSamSho5Sprites_Mina,       // e
-    indexSamSho5Sprites_Mizuki,     // f
-    indexSamSho5Sprites_Nakoruru,   // 10
-    indexSamSho5Sprites_Rasetsumaru, // 11
-    indexSamSho5Sprites_Rera,       // 12
-    indexSamSho5Sprites_Rimururu,   // 13
-    indexSamSho5Sprites_Shizumaru,  // 14
-    indexSamSho5Sprites_Sogetsu,    // 15
-    indexSamSho5Sprites_Suija,      // 16
-    indexSamSho5Sprites_TamTam,     // 17
-    indexSamSho5Sprites_Ukyo,       // 18
-    indexSamSho5Sprites_Yoshitora,  // 19
-    indexSamSho5Sprites_Yunfei,     // 1a
-    indexSamSho5Sprites_Zankuro,    // 1b
-    indexSamSho5Sprites_Portrait,   // 1c
-    indexSamSho5Sprites_Bonus,      // 1d
-
-    indexSamuraiShodownSprites_Last,
 };
 
 const UINT16 KOF94_A_IMG_UNITS[] =
@@ -2475,8 +2456,8 @@ const UINT16 NGBC_A_IMG_UNITS[] =
 const UINT16 AOF3_A_IMG_UNITS[] =
 {
     indexAoF3Sprites_Jin,           // 0x1A3
-    indexAoF3Sprites_Kasumi,        // 0x1A4
-    indexAoF3Sprites_Karman,        // 0x1A5
+    indexAoF3Sprites_Karman,        // 0x1A4
+    indexAoF3Sprites_Kasumi,        // 0x1A5
     indexAoF3Sprites_Lenny,         // 0x1A6
     indexAoF3Sprites_Robert,        // 0x1A7
     indexAoF3Sprites_Rody,          // 0x1A8
@@ -2720,57 +2701,60 @@ const UINT16 SVCPLUSA_A_IMG_UNITS[] =
     indexSVCSprites_ShinAkuma,  // 74
 };
 
-enum SupportedSamSho5SP_A_PaletteListIndex
+enum SamuraiShodownSpriteList
 {
-    indexSamSho5_A_Amakusa = 0,
-    indexSamSho5_A_Basara,
-    indexSamSho5_A_Charlotte,
-    indexSamSho5_A_Enja,
-    indexSamSho5_A_Gaira,
-    indexSamSho5_A_Galford,
-    indexSamSho5_A_Gaoh,
-    indexSamSho5_A_Genjuro,
-    indexSamSho5_A_Hanzo,
-    indexSamSho5_A_Haohmaru,
-    indexSamSho5_A_Jubei,
-    indexSamSho5_A_Kazuki,
-    indexSamSho5_A_Kusaregedo,
-    indexSamSho5_A_Kyoshiro,
-    indexSamSho5_A_Mina,
-    indexSamSho5_A_Mizuki,
-    indexSamSho5_A_Nakoruru,
-    indexSamSho5_A_Rasetsumaru,
-    indexSamSho5_A_Rera,
-    indexSamSho5_A_Rimururu,
-    indexSamSho5_A_Shizumaru,
-    indexSamSho5_A_Sogetsu,
-    indexSamSho5_A_Suija,
-    indexSamSho5_A_TamTam,
-    indexSamSho5_A_Ukyo,
-    indexSamSho5_A_Yoshitora,
-    indexSamSho5_A_Yunfei,
-    indexSamSho5_A_Zankuro,
-    indexSamSho5_A_Bonus,
+    indexSamSho5Sprites_Amakusa = 0,
+    indexSamSho5Sprites_Basara,     // 1
+    indexSamSho5Sprites_Charlotte,  // 2
+    indexSamSho5Sprites_Enja,       // 3
+    indexSamSho5Sprites_Gaira,      // 4
+    indexSamSho5Sprites_Galford,    // 5
+    indexSamSho5Sprites_Gaoh,       // 6
+    indexSamSho5Sprites_Genjuro,    // 7
+    indexSamSho5Sprites_Hanzo,      // 8
+    indexSamSho5Sprites_Haohmaru,   // 9
+    indexSamSho5Sprites_Jubei,      // a
+    indexSamSho5Sprites_Kazuki,     // b
+    indexSamSho5Sprites_Kusaregedo, // c
+    indexSamSho5Sprites_Kyoshiro,   // d
+    indexSamSho5Sprites_Mina,       // e
+    indexSamSho5Sprites_Mizuki,     // f
+    indexSamSho5Sprites_Nakoruru,   // 10
+    indexSamSho5Sprites_Rasetsumaru, // 11
+    indexSamSho5Sprites_Rera,       // 12
+    indexSamSho5Sprites_Rimururu,   // 13
+    indexSamSho5Sprites_Shizumaru,  // 14
+    indexSamSho5Sprites_Sogetsu,    // 15
+    indexSamSho5Sprites_Suija,      // 16
+    indexSamSho5Sprites_TamTam,     // 17
+    indexSamSho5Sprites_Ukyo,       // 18
+    indexSamSho5Sprites_Yoshitora,  // 19
+    indexSamSho5Sprites_Yunfei,     // 1a
+    indexSamSho5Sprites_Zankuro,    // 1b
+    indexSamSho5Sprites_Portrait,   // 1c
+    indexSamSho5Sprites_Bonus,      // 1d
+    indexSamSho5Sprites_Stages,     // 1e
 
-    indexSamSho5_A_Last,
-};
+    indexSamSho3Sprites_Amakusa,    // 1F
+    indexSamSho3Sprites_Basara,     // 20
+    indexSamSho3Sprites_Gaira,      // 21
+    indexSamSho3Sprites_Galford,    // 22
+    indexSamSho3Sprites_Genjuro,    // 23
+    indexSamSho3Sprites_Hanzo,      // 24
+    indexSamSho3Sprites_Haohmaru,   // 25
+    indexSamSho3Sprites_Jubei,      // 26
+    indexSamSho3Sprites_KimUngChe,  // 27
+    indexSamSho3Sprites_Kuroko,     // 28
+    indexSamSho3Sprites_Kyoshiro,   // 29
+    indexSamSho3Sprites_Nakoruru,   // 2A
+    indexSamSho3Sprites_Rimururu,   // 2B
+    indexSamSho3Sprites_Shizumaru,  // 2C
+    indexSamSho3Sprites_Ukyo,       // 2D
+    indexSamSho3Sprites_Zankuro,    // 2E
+    indexSamSho3Sprites_Bonus,      // 2F
+    indexSamSho3Sprites_Stages,     // 30
 
-const UINT16 SAMSHO3_A_IMG_UNITS[] =
-{
-    indexSamSho5Sprites_Amakusa,
-    indexSamSho5Sprites_Basara,
-    indexSamSho5Sprites_Gaira,
-    indexSamSho5Sprites_Galford,
-    indexSamSho5Sprites_Genjuro,
-    indexSamSho5Sprites_Hanzo,
-    indexSamSho5Sprites_Haohmaru,
-    indexSamSho5Sprites_Kyoshiro,
-    indexSamSho5Sprites_Nakoruru,
-    indexSamSho5Sprites_Rera, // not in the game: just want the shikuru sprite for nakoruru Bust form
-    indexSamSho5Sprites_Rimururu,
-    indexSamSho5Sprites_Shizumaru,
-    indexSamSho5Sprites_Ukyo,
-    indexSamSho5Sprites_Zankuro,
+    indexSamuraiShodownSprites_Last,
 };
 
 const UINT16 SAMSHO4_A_IMG_UNITS[] =
@@ -2848,24 +2832,26 @@ enum SupportedKarnovsR_A_PaletteListIndex
     indexKarnovsRSprites_Yungmie,       // 0x0b
     indexKarnovsRSprites_Zazie,         // 0x0c
     indexKarnovsRSprites_Bonus,         // 0x0d
+    indexKarnovsRSprites_Stages,        // 0x0e
 };
 
 const UINT16 KARNOVSR_A_IMG_UNITS[] =
 {
-    indexKarnovsRSprites_Clown,
-    indexKarnovsRSprites_Felin,
-    indexKarnovsRSprites_Jean,
-    indexKarnovsRSprites_Karnov,
-    indexKarnovsRSprites_Lee,
-    indexKarnovsRSprites_Marstorius,
-    indexKarnovsRSprites_Matlok,
-    indexKarnovsRSprites_Mizoguchi,
-    indexKarnovsRSprites_Ray,
-    indexKarnovsRSprites_Ryoko,
-    indexKarnovsRSprites_Samchay,
-    indexKarnovsRSprites_Yungmie,
-    indexKarnovsRSprites_Zazie,
+    indexKarnovsRSprites_Clown,         // 0x00
+    indexKarnovsRSprites_Felin,         // 0x01
+    indexKarnovsRSprites_Jean,          // 0x02
+    indexKarnovsRSprites_Karnov,        // 0x03
+    indexKarnovsRSprites_Lee,           // 0x04
+    indexKarnovsRSprites_Marstorius,    // 0x05
+    indexKarnovsRSprites_Matlok,        // 0x06
+    indexKarnovsRSprites_Mizoguchi,     // 0x07
+    indexKarnovsRSprites_Ray,           // 0x08
+    indexKarnovsRSprites_Ryoko,         // 0x09
+    indexKarnovsRSprites_Samchay,       // 0x0a
+    indexKarnovsRSprites_Yungmie,       // 0x0b
+    indexKarnovsRSprites_Zazie,         // 0x0c
     indexKarnovsRSprites_Bonus,         // 0x0d
+    indexKarnovsRSprites_Stages,        // 0x0e
 };
 
 enum SupportedRedEarth_A_PaletteListIndex
@@ -3114,6 +3100,7 @@ enum SupportedSNES_PaletteListIndex
     indexCFTESprites_TheBlob,       // 0x1d
     indexCFTESprites_Tiny,          // 0x1e
     indexCFTESprites_Bonus,         // 0x1f
+    indexCFTESprites_Stages,        // 0x20
 };
 
 const UINT16 MMPR_SNES_IMG_UNITS[] =
@@ -3156,6 +3143,7 @@ const UINT16 CFTE_SNES_IMG_UNITS[] =
     indexCFTESprites_TheBlob,       // 0x1d
     indexCFTESprites_Tiny,          // 0x1e
     indexCFTESprites_Bonus,         // 0x1f
+    indexCFTESprites_Stages,        // 0x20
 };
 
 enum SupportedNEOGEO_PaletteListIndex
@@ -3209,13 +3197,13 @@ const UINT16 NEOBOMBERMAN_A_IMG_UNITS[] =
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_BREAKREV = 0,
+    IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_CVS2,    // CVS2: has both Capcom and SNK images
     IMGDAT_SECTION_GAROU,   // Garou
     IMGDAT_SECTION_JOJOS,
     IMGDAT_SECTION_KARNOVSR,
     IMGDAT_SECTION_KOF,     // KOF98 + KOF02UM
     IMGDAT_SECTION_MATRIM,  // Matrimelee
-    IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_NEOGEO,  // generic set for NeoGeo games
     IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
@@ -3236,6 +3224,7 @@ const stPairedPaletteInfo pairNextNext = { 2, 0, 0 };
 const stPairedPaletteInfo pairNext3 = { 3, 0, 0 };
 const stPairedPaletteInfo pairNext4 = { 4, 0, 0 };
 const stPairedPaletteInfo pairNext6 = { 6, 0, 0 };
+const stPairedPaletteInfo pairNext8 = { 8, 0, 0 };
 const stPairedPaletteInfo pairNext10 = { 10, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 

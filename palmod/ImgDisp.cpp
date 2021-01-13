@@ -481,7 +481,7 @@ void CImgDisp::OnPaint()
 
 BOOL CImgDisp::OnEraseBkgnd(CDC* pDC)
 {
-    return TRUE;
+    return FALSE;
 }
 
 void CImgDisp::OnSize(UINT nType, int cx, int cy)
