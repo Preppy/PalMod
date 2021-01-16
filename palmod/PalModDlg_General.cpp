@@ -208,7 +208,7 @@ void CPalModDlg::PostPalSel()
         CurrPalDef = MainPalGroup->GetPalDef(i);
         nCurrSepAmt = CurrPalDef->uSepAmt;
 
-        ImgDispCtrl->AssignBackupPalette((UINT8 *)CurrPalDef->pPal);
+        ImgDispCtrl->AssignBackupPalette(CurrPalDef);
 
         //Fill the palette control
         for (int nSepCtr = 0; nSepCtr < nCurrSepAmt; nSepCtr++)
@@ -339,7 +339,7 @@ void CPalModDlg::OnPalHLChange(void* pPalCtrl, UINT_PTR nCtrlId)
     {
         TCHAR szIndex[32];
         // this is the status bar area text
-        _stprintf(szIndex, _T("(%d: %d)"), (int)nCtrlId, pNotifyCtrl->GetHighlightIndex());
+        _sntprintf_s(szIndex, ARRAYSIZE(szIndex), _TRUNCATE, _T("(%d: %d)"), (int)nCtrlId, pNotifyCtrl->GetHighlightIndex());
 
         m_StatusBar.SetPaneText(1, szIndex);
     }

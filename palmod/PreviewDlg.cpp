@@ -113,7 +113,17 @@ void CPreviewDlg::OnSetBackgroundCol()
     {
         m_ImgDisp.SetBGCol(ColorDlg.GetColor());
 
-        if (m_ImgDisp.IsBGTiled())
+        bool fShouldSwitchToUseColor = (m_ImgDisp.IsBGTiled() || m_ImgDisp.IsUsingBGCol());
+
+        if (!fShouldSwitchToUseColor)
+        {
+            CString strQuestion;
+            strQuestion = L"Do you want to switch to only use this background color and not also use the image?";
+
+            fShouldSwitchToUseColor = (MessageBox(strQuestion, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON1) == IDYES);
+        }
+
+        if (fShouldSwitchToUseColor)
         {
             m_ImgDisp.SetUseBGCol(TRUE);
         }
@@ -175,7 +185,7 @@ void CPreviewDlg::LoadSettings()
     m_ImgDisp.SetBGYOffs(LoadSett.nBGYOffs);
     m_ImgDisp.SetUseBGCol(LoadSett.bUseBGCol);
     m_ImgDisp.SetZoom(LoadSett.dPreviewZoom);
-    m_ImgDisp.SetClickToFindColor(LoadSett.bClickToFind);
+    m_ImgDisp.SetClickToFindColorSetting(LoadSett.bClickToFind);
 
     if (LoadSett.bUseBGCol)
     {
@@ -244,7 +254,7 @@ void CPreviewDlg::SaveSettings()
     SaveSett.nBGYOffs = m_ImgDisp.GetBGYOffs();
     SaveSett.bUseBGCol = m_ImgDisp.IsUsingBGCol();
     SaveSett.dPreviewZoom = m_ImgDisp.GetZoom();
-    SaveSett.bClickToFind = m_ImgDisp.GetClickToFindColor();
+    SaveSett.bClickToFind = m_ImgDisp.GetClickToFindColorSetting();
 
     RECT window_rect;
 
@@ -296,7 +306,7 @@ BOOL CPreviewDlg::PreTranslateMessage(MSG* pMsg)
     {
     case WM_KEYDOWN:
     {
-        if (pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
+        if ((pMsg->wParam == VK_RETURN) || (pMsg->wParam == VK_ESCAPE))
         {
             pMsg->wParam = NULL;
         }
@@ -310,8 +320,6 @@ BOOL CPreviewDlg::PreTranslateMessage(MSG* pMsg)
 BOOL CPreviewDlg::OnInitDialog()
 {
     CDialog::OnInitDialog();
-
-    // TODO:  Add extra initialization here
 
     // Set the icon for this dialog.  The framework does this automatically
     //  when the application's main window is not a dialog
@@ -338,7 +346,7 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
     {
         pSettMenu->CheckMenuItem(ID_SETTINGS_TILEIMAGEBACKGROUND, m_ImgDisp.IsBGTiled() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_USEBGCOLOR, m_ImgDisp.IsUsingBGCol() ? MF_CHECKED : MF_UNCHECKED);
-        pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColor() ? MF_CHECKED : MF_UNCHECKED);
+        pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColorSetting() ? MF_CHECKED : MF_UNCHECKED);
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
     }
 }
@@ -470,5 +478,5 @@ void CPreviewDlg::OnSettingsUseBackgroundColor()
 
 void CPreviewDlg::OnSettingsClickToFindColor()
 {
-    m_ImgDisp.SetClickToFindColor(!m_ImgDisp.GetClickToFindColor());
+    m_ImgDisp.SetClickToFindColorSetting(!m_ImgDisp.GetClickToFindColorSetting());
 }

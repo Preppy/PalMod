@@ -67,5 +67,3 @@ public:
 
     void LoadCustomSpriteFromPath(TCHAR* pszPath);
 };
-
-

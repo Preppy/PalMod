@@ -213,18 +213,14 @@ BEGIN
     CONTROL         "ImgDumpBmp",IDC_IMGDBMP,"ImgDumpBmp",WS_TABSTOP,56,0,287,278
     LTEXT           "Amount",IDC_SAMT,4,18,39,11
     COMBOBOX        IDC_AMT,6,29,44,56,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Palette",IDC_SPAL,3,46,39,11
-    COMBOBOX        IDC_PAL,5,57,44,84,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Zoom",IDC_SZOOM,5,74,39,11
+    LTEXT           "Palette",IDC_SPAL,4,46,39,11
+    COMBOBOX        IDC_PAL,6,57,44,84,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Zoom",IDC_SZOOM,4,74,39,11
     COMBOBOX        IDC_ZOOM,6,85,44,73,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Border Size",IDC_SBDR,5,101,39,11
+    LTEXT           "Border Size",IDC_SBDR,4,101,39,11
     CONTROL         "",IDC_BDRSPN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,40,123,11,12
-    EDITTEXT        IDC_EDIT_BDRSZ,5,114,44,12,ES_AUTOHSCROLL
-    LTEXT           "Outline Size",IDC_SSPC,5,132,39,11,NOT WS_VISIBLE
-    CONTROL         "",IDC_SPCSPN2,"msctls_updown32",UDS_ALIGNRIGHT | UDS_ARROWKEYS | NOT WS_VISIBLE,41,153,11,12
-    EDITTEXT        IDC_EDIT_SPCSZ,5,145,44,12,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_BDRSZ,6,114,44,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Update",IDC_UPDATE,6,180,39,14,NOT WS_VISIBLE
-    EDITTEXT        IDC_EDIT3,6,193,40,15,ES_AUTOHSCROLL | NOT WS_VISIBLE
     LTEXT           "Dummy",IDC_DUMMY,129,48,56,137,NOT WS_VISIBLE
 END
 
@@ -235,8 +231,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,69,0
- PRODUCTVERSION 1,0,69,0
+ FILEVERSION 1,0,70,0
+ PRODUCTVERSION 1,0,70,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -253,12 +249,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.69.0"
+            VALUE "FileVersion", "1.0.70.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.69.0"
+            VALUE "ProductVersion", "1.0.70.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -320,26 +316,28 @@ BEGIN
     POPUP "&File"
     BEGIN
         MENUITEM "L&oad ROM\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "Load ROM by game",            ID_FILE_OPEN_BY_GAME
         POPUP "&Load Directory"
         BEGIN
+            MENUITEM "Dan-Ku-Ga",               ID_LOADDIRECTORY_DANKUGA
             POPUP "Jojo's"
             BEGIN
-                MENUITEM "Characters (Japan Arcade)", ID_LD_JOJOS51
+                MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
                 MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
             END
             POPUP "MvC2"
             BEGIN
-                MENUITEM "Arcade(*)",             ID_LD_MVC2ARCADE
-                MENUITEM "DC (USA)",              ID_LD_MVC2DCUSA
-                MENUITEM "PS2 (*)",               ID_LD_MVC2PS2USA
+                MENUITEM "Arcade (*)",                  ID_LD_MVC2ARCADE
+                MENUITEM "DC (USA)",                    ID_LD_MVC2DCUSA
+                MENUITEM "PS2 (*)",                     ID_LD_MVC2PS2USA
             END
             MENUITEM "Red Earth / Warzard (Arcade)(*)", ID_LOADDIRECTORY_REDEARTH
             POPUP "SFIII3"
             BEGIN
-                MENUITEM "Dreamcast (*)",          ID_LD_SFIII3DCALL
-                MENUITEM "Arcade (*)",             ID_LD_SFIII3ARCADE51
+                MENUITEM "Dreamcast/PS2 (*)",           ID_LD_SFIII3DCALL
+                MENUITEM "Arcade (*)",                  ID_LD_SFIII3ARCADE51
                 MENUITEM "Arcade - Gill Glow/X.C.O.P.Y. (*)", ID_LD_SFIII3ARCADE10
-                MENUITEM "4rd Strike (*)",         ID_LD_SFIII3ARCADE4rd
+                MENUITEM "4rd Strike (*)",              ID_LD_SFIII3ARCADE4rd
             END
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
@@ -364,13 +362,14 @@ BEGIN
     POPUP "&Tools"
     BEGIN
         MENUITEM "&Invert",                     ID_TOOLS_INVERT
+        MENUITEM "Re&verse",                    ID_TOOLS_REVERSE
         MENUITEM "&Revert",                     ID_TOOLS_REVERT
         MENUITEM "&Blink",                      ID_TOOLS_BLINK
         MENUITEM SEPARATOR
         MENUITEM "&Load Palette\tCtrl+L",       ID_TOOLS_LOADACTPALETTE
         MENUITEM "&Save Palette\tCtrl+P",       ID_TOOLS_SAVEACTPALETTE
         MENUITEM SEPARATOR
-        MENUITEM "Generate IPS Patch File",     ID_TOOLS_GENERATEPATCHFILE
+        MENUITEM "&Generate IPS Patch File",    ID_TOOLS_GENERATEPATCHFILE
     END
     POPUP "&Settings"
     BEGIN
@@ -383,11 +382,14 @@ BEGIN
         END
         POPUP "Color Format"
         BEGIN
+            MENUITEM "RGB333 (big endian for Sega Genesis)", ID_COLORFORMAT_RGB333
             MENUITEM "RGB444 (big endian for CPS1/CPS2)", ID_COLORFORMAT_RGB444
             MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555
-            MENUITEM "RGB555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA
+            MENUITEM "BGR555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
+            MENUITEM "RGB555 (Sharp X68000)",       ID_COLORFORMAT_SHARPRGB
             MENUITEM "RGB666 (NEO*GEO)",            ID_COLORFORMAT_RGB666
+            MENUITEM "RGB888 (Arc Sys)",            ID_COLORFORMAT_ARGB7888
             MENUITEM SEPARATOR
             MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
             MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED
@@ -471,6 +473,7 @@ BEGIN
     "Z",            ID_ACC_UNDO,            VIRTKEY, CONTROL, NOINVERT
     "L",            ID_ACC_LOADPALETTE,     VIRTKEY, CONTROL, NOINVERT
     "P",            ID_ACC_SAVEPALETTE,     VIRTKEY, CONTROL, NOINVERT
+    VK_ESCAPE,      ID_ACC_ESCAPE,          VIRTKEY
 END
 
 
@@ -531,7 +534,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.69"
+    IDS_CURRENTAPPNAME      "PalMod 1.70"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
     IDS_ERROR_NO_IMAGES     "No images available."

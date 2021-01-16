@@ -65,6 +65,7 @@ BEGIN_MESSAGE_MAP(CImgDisp, CWnd)
     ON_WM_ERASEBKGND()
     ON_WM_SIZE()
     ON_WM_LBUTTONDOWN()
+    ON_WM_RBUTTONDOWN()
     ON_WM_MOUSEMOVE()
     ON_WM_LBUTTONUP()
 END_MESSAGE_MAP()
@@ -275,7 +276,7 @@ BOOL CImgDisp::LoadBGBmp(TCHAR* szBmpLoc)
         BGBrush.CreatePatternBrush(&BGBitmap);
 
         //Get the bitmap dimensions
-        BITMAP bmp;
+        BITMAP bmp = {};
 
         if (GetObject(hBGBitmap, sizeof(BITMAP), (BITMAP*)&bmp))
         {
@@ -418,11 +419,6 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
     {
         if (pImgBuffer[nImgCtr])
         {
-            int nXOffs = pImgBuffer[nImgCtr]->nXOffs;
-            int nYOffs = pImgBuffer[nImgCtr]->nYOffs;
-            int nWidth = pImgBuffer[nImgCtr]->uImgW;
-            int nHeight = pImgBuffer[nImgCtr]->uImgH;
-
             //Draw the img
             CustomBlt(
                 nImgCtr,
@@ -485,7 +481,7 @@ void CImgDisp::OnPaint()
 
 BOOL CImgDisp::OnEraseBkgnd(CDC* pDC)
 {
-    return TRUE;
+    return FALSE;
 }
 
 void CImgDisp::OnSize(UINT nType, int cx, int cy)
@@ -505,9 +501,9 @@ void CImgDisp::OnSize(UINT nType, int cx, int cy)
     }
 }
 
-void CImgDisp::AssignBackupPalette(UINT8* pBackupPalette)
+void CImgDisp::AssignBackupPalette(sPalDef* pBackupPaletteDef)
 {
-    m_pBackupPalette = (COLORREF*)pBackupPalette;
+    m_pBackupPaletteDef = pBackupPaletteDef;
     m_pBackupAltPalette = nullptr;
 }
 
@@ -590,7 +586,7 @@ bool CImgDisp::LoadExternalSprite(TCHAR* pszTextureLocation)
                     else
                     {
                         // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
-                        AddImageNode(0, m_nTextureOverrideW, m_nTextureOverrideH, m_pSpriteOverrideTexture, m_pBackupPalette, 0, 0, 0);
+                        AddImageNode(0, m_nTextureOverrideW, m_nTextureOverrideH, m_pSpriteOverrideTexture, m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
                     }
 
                     ResizeMainBitmap();
@@ -627,9 +623,9 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
     }
     else
     {
-        if (m_pBackupPalette != nullptr)
+        if (m_pBackupPaletteDef != nullptr)
         {
-            pCurrPal = (UINT8*)(fUseAltPal ? m_pBackupAltPalette : m_pBackupPalette);
+            pCurrPal = (UINT8*)(fUseAltPal ? m_pBackupAltPalette : m_pBackupPaletteDef->pPal);
         }
         else
         {
@@ -777,7 +773,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
 
                 if (rSrcRct.Width() > rImgRct.Width())
                 {
-                    if (rSrcRct.left > rImgRct.left || rSrcRct.right < rImgRct.right)
+                    if ((rSrcRct.left > rImgRct.left) || (rSrcRct.right < rImgRct.right))
                     {
                         rSrcRct.left -= nAdd;
                         rSrcRct.right -= nAdd;
@@ -785,7 +781,7 @@ void CImgDisp::OnMouseMove(UINT nFlags, CPoint point)
                 }
                 else
                 {
-                    if (rSrcRct.left < rImgRct.left || rSrcRct.right > rImgRct.right)
+                    if ((rSrcRct.left < rImgRct.left) || (rSrcRct.right > rImgRct.right))
                     {
                         rSrcRct.left -= nAdd;
                         rSrcRct.right -= nAdd;
@@ -878,7 +874,7 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
 
 #endif
 
-    if (GetClickToFindColor())
+    if (GetClickToFindColorSetting())
     {
         // Update the current palette selections based upon this click
         GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition());
@@ -895,4 +891,55 @@ void CImgDisp::SetAltPal(int nIndex, COLORREF* pAltPal)
     }
 
     m_pBackupAltPalette = pAltPal;
+}
+
+void CImgDisp::OnRButtonDown(UINT nFlags, CPoint point)
+{
+    if (GetHost()->GetCurrGame())
+    {
+        CMenu PopupMenu;
+
+        if (PopupMenu.CreatePopupMenu())
+        {
+            RECT rWnd;
+            GetWindowRect(&rWnd);
+            point.x += rWnd.left;
+            point.y += rWnd.top;
+
+            bool canPasteFromCliboard = IsPasteSupported();
+
+            constexpr auto CUSTOM_FINDCOLOR = WM_USER + 20;
+            constexpr auto CUSTOM_COPYCOLOR = WM_USER + 21;
+            constexpr auto CUSTOM_PASTECOLOR = WM_USER + 22;
+
+            PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_FINDCOLOR, L"Find this color in palette");
+            PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
+            PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_COPYCOLOR, L"&Copy this color");
+            PopupMenu.AppendMenu(canPasteFromCliboard ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTECOLOR, L"&Paste to this color");
+
+            int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, point.x, point.y, this, NULL);
+
+            switch (result)
+            {
+            case CUSTOM_FINDCOLOR:
+                GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y));
+                break;
+            case CUSTOM_COPYCOLOR:
+                GetHost()->GetPalModDlg()->CopyColorToClipboard(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y));
+                break;
+            case CUSTOM_PASTECOLOR:
+                if (GetHost()->GetPalModDlg()->SelectMatchingColorsInPalette(GetHost()->GetPalModDlg()->GetColorAtCurrentMouseCursorPosition(point.x, point.y)))
+                {
+                    GetHost()->GetPalModDlg()->OnEditPaste();
+                }
+                break;
+            }
+        }
+        else
+        {
+            OutputDebugString(L"ERROR: Couldn't create popup menu.\n");
+        }
+    }
+
+    CWnd::OnRButtonDown(nFlags, point);
 }

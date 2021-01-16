@@ -108,11 +108,14 @@ public:
     void SetColorsPerLineTo8();
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
+    void SetColorFormatTo9() { SetColorFormatTo(ColMode::COLMODE_9); };
     void SetColorFormatTo12A() { SetColorFormatTo(ColMode::COLMODE_12A); };
     void SetColorFormatTo15() { SetColorFormatTo(ColMode::COLMODE_15); };
     void SetColorFormatTo15ALT() { SetColorFormatTo(ColMode::COLMODE_15ALT); };
     void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_GBA); };
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_NEOGEO); };
+    void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_SHARPRGB); };
+    void SetColorFormatToARGB7888() { SetColorFormatTo(ColMode::COLMODE_ARGB7888); };
 
     void SetAlphaModeTo(AlphaMode newAlphaMode);
     void SetAlphaModeToFixed() { SetAlphaModeTo(AlphaMode::GameUsesFixedAlpha); };
@@ -130,9 +133,9 @@ public:
     void SaveSettings();
     void UpdateSettingsMenuItems();
 
-    bool LoadPaletteFromACT(LPCTSTR pszFileName);
+    bool LoadPaletteFromACT(LPCTSTR pszFileName, bool fReadUpsideDown = false);
     bool LoadPaletteFromPAL(LPCTSTR pszFileName);
-    bool LoadPaletteFromPNG(LPCTSTR pszFileName);
+    bool LoadPaletteFromPNG(LPCTSTR pszFileName, bool fReadUpsideDown = false);
     // if you add a new palette type here, please update the CPalDropTarget support
 
     bool SavePaletteToACT(LPCTSTR pszFileName);
@@ -159,6 +162,8 @@ public:
     void PerformBlink();
 
     BOOL VerifyMsg(eVerifyType eType);
+
+    void CopyColorToClipboard(COLORREF crColor);
 
 // Construction
 public:
@@ -192,6 +197,8 @@ protected:
 // Implementation
 protected:
     HICON m_hIcon;
+
+    void OnFileOpenInternal(UINT nDefaultGameFilter = NUM_GAMES);
 
     // Generated message map functions
     virtual BOOL OnInitDialog();
@@ -239,6 +246,7 @@ public:
     afx_msg void OnColSett();
     afx_msg void OnBnUpdate();
     afx_msg void OnFilePatch();
+    afx_msg void OnFileCrossPatch();
     afx_msg void OnSavePatchFile();
 
     afx_msg void OnEditCopy();
@@ -246,8 +254,8 @@ public:
     afx_msg void OnCopyColorAtPointer();
     afx_msg void OnPasteColorAtPointer();
 
-    DWORD GetColorAtCurrentMouseCursorPosition();
-    void SelectMatchingColorsInPalette(DWORD dwColorToMatch);
+    DWORD GetColorAtCurrentMouseCursorPosition(int ptX = -1, int ptY = -1);
+    bool SelectMatchingColorsInPalette(DWORD dwColorToMatch);
 
     afx_msg void OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu);
     afx_msg void OnSettingsSettings();
@@ -266,9 +274,10 @@ public:
     afx_msg void OnBnShowPrev();
     afx_msg void OnSetFocus(CWnd* pOldWnd);
     afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
-    afx_msg void OnFileOpen();
+    afx_msg void OnFileOpen() { OnFileOpenInternal(); };
     afx_msg void OnButtonClickCheckEdits();
     afx_msg void OnBnRevert();
+    afx_msg void OnBnClickedReverse();
     afx_msg void OnBnBlink();
     afx_msg void OnAboutAboutpalmod();
     afx_msg void OnBnClickedBinvert();
@@ -277,6 +286,7 @@ public:
     afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
     afx_msg void OnChangeExtendedCopyData();
 
+    afx_msg void OnLoadDir_Dankuga()        { OnLoadGameByDirectory(DANKUGA_A); };
     afx_msg void OnLoadDir_Jojos50()        { OnLoadGameByDirectory(JOJOS_A_DIR_50); };
     afx_msg void OnLoadDir_Jojos51()        { OnLoadGameByDirectory(JOJOS_A_DIR_51); };
     afx_msg void OnLoadDir_MVC2ArcadeAll()  { OnLoadGameByDirectory(MVC2_A_DIR); };
@@ -287,7 +297,7 @@ public:
     afx_msg void OnLoadDir_SFIII3Arcade10() { OnLoadGameByDirectory(SFIII3_A_DIR_10); };
     afx_msg void OnLoadDir_SFIII3Arcade51() { OnLoadGameByDirectory(SFIII3_A_DIR_51); };
     afx_msg void OnLoadDir_SFIII3Arcade4rd() { OnLoadGameByDirectory(SFIII3_A_DIR_4); };
-    
+    afx_msg void OnLoadDir_SFIII3ArcadeEx() { OnLoadGameByDirectory(SFIII3_A_DIR_EX); };
 };
 
 extern BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);

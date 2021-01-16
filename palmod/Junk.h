@@ -15,6 +15,7 @@
 #define CUSTOM_PASTE           WM_USER +12
 #define CUSTOM_SALL            WM_USER +13
 #define CUSTOM_SNONE           WM_USER +14
+#define CUSTOM_REVERSE         WM_USER +15
 
 #define BASE_PALETTE_SQUARE_SIZE 15
 #define BDR_SZ 1
@@ -93,8 +94,10 @@ private:
     UCHAR* Selected = nullptr;
     UCHAR* SelView = nullptr;
 
-    inline void SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
+    inline void SetJunkState(UCHAR* State, LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
+    inline void SetHighlighted(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
     inline void SetSelected(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
+    inline void SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
 
     int iHLAmt = 0;
     int iWorkingAmt = 0;
@@ -136,7 +139,7 @@ public:
     void ClearSelected();
     void ClearSelView();
     void ClearHighlighted();
-    void SelectMatchingColorsInPalette(DWORD dwColorToMatch);
+    bool SelectMatchingColorsInPalette(DWORD dwColorToMatch);
 
     void SelectAll();
 
