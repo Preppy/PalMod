@@ -8,49 +8,49 @@
 
 const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_A[] =
 {
-    { L"Ryu A", 0x99e6, 0x9a06 },
+    { L"Ryu A", 0x99e6, 0x9a06, indexCPS2_SPF_Ryu, 0x00 },
     { L"Ryu Portrait A", 0xc226, 0xc286 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_B[] =
 {
-    { L"Ryu B", 0x9a86, 0x9aa6 },
+    { L"Ryu B", 0x9a86, 0x9aa6, indexCPS2_SPF_Ryu, 0x00 },
     { L"Ryu Portrait B", 0xc286, 0xc2e6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_C[] =
 {
-    { L"Ryu C", 0x9b26, 0x9b46 },
+    { L"Ryu C", 0x9b26, 0x9b46, indexCPS2_SPF_Ryu, 0x00 },
     { L"Ryu Portrait C", 0xc2e6, 0xc346 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_X3[] =
 {
-    { L"Ryu x3", 0x9bc6, 0x9be6 },
+    { L"Ryu x3", 0x9bc6, 0x9be6, indexCPS2_SPF_Ryu, 0x00 },
     { L"Ryu Portrait x3", 0xc346, 0xc3a6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_A[] =
 {
-    { L"Ken A", 0x9c66, 0x9c86 },
+    { L"Ken A", 0x9c66, 0x9c86, indexCPS2_SPF_Ken, 0x00 },
     { L"Ken Portrait A", 0xc406, 0xc466 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_B[] =
 {
-    { L"Ken B", 0x9d06, 0x9d26 },
+    { L"Ken B", 0x9d06, 0x9d26, indexCPS2_SPF_Ken, 0x00 },
     { L"Ken Portrait B", 0xc466, 0xc4c6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_C[] =
 {
-    { L"Ken C", 0x9da6, 0x9dc6 },
+    { L"Ken C", 0x9da6, 0x9dc6, indexCPS2_SPF_Ken, 0x00 },
     { L"Ken Portrait C", 0xc4c6, 0xc526 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_KEN_PALETTES_X3[] =
 {
-    { L"Ken x3", 0x9e46, 0x9e66 },
+    { L"Ken x3", 0x9e46, 0x9e66, indexCPS2_SPF_Ken, 0x00 },
     { L"Ken Portrait x3", 0xc526, 0xc586 },
 };
 
@@ -59,6 +59,17 @@ const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_A[] =
     { L"Chun-Li A", 0x9ee6, 0x9f06 },
     { L"Chun-Li A: Kikouken", 0x9f26, 0x9f46 },
     { L"Chun-Li A: Kikou Shou", 0x9f46, 0x9f66 },
+#ifdef SHOWSUITS
+    { L"Chun-Li A: Jill Suit", 0x2c0ba, 0x2c0da },
+    { L"Chun-Li A: Jill Guns", 0x2c13a, 0x2c15a },
+    { L"Chun-Li A: Cheerleader Suit", 0x2c1ba, 0x2c1da },
+    { L"Chun-Li A: Cheerleader Suit extra", 0x2c23a, 0x2c25a },
+    { L"Chun-Li A: Traffic Suit", 0x2c2ba, 0x2c2da },
+    { L"Chun-Li A: Traffic Spot", 0x2c33a, 0x2c35a },
+    { L"Chun-Li A: Bikers", 0x2c3ba, 0x2c3da },
+    { L"Chun-Li A: After-4s Suit", 0x2c43a, 0x2c45a },
+    { L"Chun-Li A: 4s Flower thing", 0x2c4ba, 0x2c4da },
+#endif
     { L"Chun-Li Portrait A", 0xc586, 0xc5e6 },
 };
 
@@ -67,6 +78,17 @@ const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_B[] =
     { L"Chun-Li B", 0x9f86, 0x9fa6 },
     { L"Chun-Li B: Kikouken", 0x9fc6, 0x9fe6 },
     { L"Chun-Li B: Kikou Shou", 0x9fe6, 0xa006 },
+#ifdef SHOWSUITS
+    { L"Chun-Li B: Jill Suit", 0x2c0da, 0x2c0fa },
+    { L"Chun-Li B: Jill Guns", 0x2c15a, 0x2c17a },
+    { L"Chun-Li B: Cheerleader Suit", 0x2c1da, 0x2c1fa },
+    { L"Chun-Li B: Cheerleader Suit extra", 0x2c25a, 0x2c27a },
+    { L"Chun-Li B: Traffic Suit", 0x2c2da, 0x2c2fa },
+    { L"Chun-Li B: Traffic Spot", 0x2c35a, 0x2c37a },
+    { L"Chun-Li B: Bikers", 0x2c3da, 0x2c3fa },
+    { L"Chun-Li B: After-4s Suit", 0x2c45a, 0x2c47a },
+    { L"Chun-Li B: 4s Flower thing", 0x2c4da, 0x2c4fa },
+#endif
     { L"Chun-Li Portrait B", 0xc5e6, 0xc646 },
 };
 
@@ -75,6 +97,17 @@ const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_C[] =
     { L"Chun-Li C", 0xa026, 0xa046 },
     { L"Chun-Li C: Kikouken", 0xa066, 0xa086 },
     { L"Chun-Li C: Kikou Shou", 0xa086, 0xa0a6 },
+#ifdef SHOWSUITS
+    { L"Chun-Li C: Jill Suit", 0x2c0fa, 0x2c11a },
+    { L"Chun-Li C: Jill Guns", 0x2c17a, 0x2c19a },
+    { L"Chun-Li C: Cheerleader Suit", 0x2c1fa, 0x2c21a },
+    { L"Chun-Li C: Cheerleader Suit extra", 0x2c27a, 0x2c29a },
+    { L"Chun-Li C: Traffic Suit", 0x2c2fa, 0x2c31a },
+    { L"Chun-Li C: Traffic Spot", 0x2c37a, 0x2c39a },
+    { L"Chun-Li C: Bikers", 0x2c3fa, 0x2c41a },
+    { L"Chun-Li C: After-4s Suit", 0x2c47a, 0x2c49a },
+    { L"Chun-Li C: 4s Flower thing", 0x2c4fa, 0x2c51a },
+#endif
     { L"Chun-Li Portrait C", 0xc646, 0xc6a6 },
 };
 
@@ -83,30 +116,81 @@ const sGame_PaletteDataset GEMFIGHTER_A_CHUNLI_PALETTES_X3[] =
     { L"Chun-Li x3", 0xa0c6, 0xa0e6 },
     { L"Chun-Li x3: Kikouken", 0xa106, 0xa126 },
     { L"Chun-Li x3: Kikou Shou", 0xa126, 0xa146 },
+#ifdef SHOWSUITS
+    { L"Chun-Li x3: Jill Suit", 0x2c11a, 0x2c13a },
+    { L"Chun-Li x3: Jill Guns", 0x2c19a, 0x2c1ba },
+    { L"Chun-Li x3: Cheerleader Suit", 0x2c21a, 0x2c23a },
+    { L"Chun-Li x3: Cheerleader Suit extra", 0x2c29a, 0x2c2ba },
+    { L"Chun-Li x3: Traffic Suit", 0x2c31a, 0x2c33a },
+    { L"Chun-Li x3: Traffic Spot", 0x2c39a, 0x2c3ba },
+    { L"Chun-Li x3: Bikers", 0x2c41a, 0x2c43a },
+    { L"Chun-Li x3: After-4s Suit", 0x2c49a, 0x2c4ba },
+    { L"Chun-Li x3: 4s Flower thing", 0x2c51a, 0x2c53a },
+#endif
     { L"Chun-Li Portrait x3", 0xc6a6, 0xc706 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_A[] =
 {
-    { L"Sakura A", 0xa166, 0xa186 },
+    { L"Sakura A", 0xa166, 0xa186, indexCPS2_SPF_Sakura },
+    { L"Sakura Samurai Suit A", 0x2c85a, 0x2c87a },
+    { L"Sakura Bunny Suit A", 0x2c8da, 0x2c8fa },
+    { L"Sakura Swim Suit A", 0x2c95a, 0x2c97a },
+    { L"Sakura Tennis Player A", 0x2c9da, 0x2c9fa },
+    { L"Watermelon/Motorcycle A", 0x2cada, 0x2cafa, indexCPS2_SPF_Sakura, 0x02 },
+    { L"Umbrella A", 0x2cb5a, 0x2cb7a },
+    { L"Bloomer guys A", 0x2cbda, 0x2cbfa },
+    { L"Bottle Pop Effect A", 0x2cc5a, 0x2cc7a },
+    { L"Hadouken A", 0x2ccda, 0x2ccfa },
+    { L"Shinku Hadouken A", 0x2cd5a, 0x2cd7a },
     { L"Sakura Portrait A", 0xc706, 0xc766 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_B[] =
 {
-    { L"Sakura B", 0xa206, 0xa226 },
+    { L"Sakura B", 0xa206, 0xa226, indexCPS2_SPF_Sakura },
+    { L"Sakura Samurai Suit B", 0x2c87a, 0x2c89a },
+    { L"Sakura Bunny Suit B", 0x2c8fa, 0x2c91a },
+    { L"Sakura Swim Suit B", 0x2c97a, 0x2c99a },
+    { L"Sakura Tennis Player B", 0x2c9fa, 0x2ca1a },
+    { L"Watermelon/Motorcycle B", 0x2cafa, 0x2cb1a, indexCPS2_SPF_Sakura, 0x02 },
+    { L"Umbrella B", 0x2cb7a, 0x2cb9a },
+    { L"Bloomer guys B", 0x2cbfa, 0x2cc1a },
+    { L"Bottle Pop Effect B", 0x2cc7a, 0x2cc9a },
+    { L"Hadouken B", 0x2ccfa, 0x2cd1a },
+    { L"Shinku Hadouken B", 0x2cd7a, 0x2cd9a },
     { L"Sakura Portrait B", 0xc766, 0xc7c6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_C[] =
 {
-    { L"Sakura C", 0xa2a6, 0xa2c6 },
+    { L"Sakura C", 0xa2a6, 0xa2c6, indexCPS2_SPF_Sakura },
+    { L"Sakura Samurai Suit C", 0x2c89a, 0x2c8ba },
+    { L"Sakura Bunny Suit C", 0x2c91a, 0x2c93a },
+    { L"Sakura Swim Suit C", 0x2c99a, 0x2c9ba },
+    { L"Sakura Tennis Player C", 0x2ca1a, 0x2ca3a },
+    { L"Watermelon/Motorcycle C", 0x2cb1a, 0x2cb3a, indexCPS2_SPF_Sakura, 0x02 },
+    { L"Umbrella C", 0x2cb9a, 0x2cbba },
+    { L"Bloomer guys C", 0x2cc1a, 0x2cc3a },
+    { L"Bottle Pop Effect C", 0x2cc9a, 0x2ccba },
+    { L"Hadouken C", 0x2cd1a, 0x2cd3a },
+    { L"Shinku Hadouken C", 0x2cd9a, 0x2cdba },
     { L"Sakura Portrait C", 0xc7c6, 0xc826 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_SAKURA_PALETTES_X3[] =
 {
-    { L"Sakura x3", 0xa346, 0xa366 },
+    { L"Sakura x3", 0xa346, 0xa366, indexCPS2_SPF_Sakura },
+    { L"Sakura Samurai Suit x3", 0x2c8ba, 0x2c8da },
+    { L"Sakura Bunny Suit x3", 0x2c93a, 0x2c95a },
+    { L"Sakura Swim Suit x3", 0x2c9ba, 0x2c9da },
+    { L"Sakura Tennis Player x3", 0x2ca3a, 0x2ca5a },
+    { L"Watermelon/Motorcycle x3", 0x2cb3a, 0x2cb5a, indexCPS2_SPF_Sakura, 0x02 },
+    { L"Umbrella x3", 0x2cbba, 0x2cbda },
+    { L"Bloomer guys x3", 0x2cc3a, 0x2cc5a },
+    { L"Bottle Pop Effect x3", 0x2ccba, 0x2ccda },
+    { L"Hadouken x3", 0x2cd3a, 0x2cd5a },
+    { L"Shinku Hadouken x3", 0x2cdba, 0x2cdda },
     { L"Sakura Portrait x3", 0xc826, 0xc886 },
 };
 
@@ -264,25 +348,25 @@ const sGame_PaletteDataset GEMFIGHTER_A_IBUKI_PALETTES_X3[] =
 
 const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_A[] =
 {
-    { L"Zangief A", 0xb066, 0xb086 },
+    { L"Zangief A", 0xb066, 0xb086, indexCPS2_SPF_Zangief, 0x00 },
     { L"Zangief Portrait A", 0xd006, 0xd066 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_B[] =
 {
-    { L"Zangief B", 0xb106, 0xb126 },
+    { L"Zangief B", 0xb106, 0xb126, indexCPS2_SPF_Zangief, 0x00 },
     { L"Zangief Portrait B", 0xd066, 0xd0c6 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_C[] =
 {
-    { L"Zangief C", 0xb1a6, 0xb1c6 },
+    { L"Zangief C", 0xb1a6, 0xb1c6, indexCPS2_SPF_Zangief, 0x00 },
     { L"Zangief Portrait C", 0xd0c6, 0xd126 },
 };
 
 const sGame_PaletteDataset GEMFIGHTER_A_ZANGIEF_PALETTES_X3[] =
 {
-    { L"Zangief x3", 0xb246, 0xb266 },
+    { L"Zangief x3", 0xb246, 0xb266, indexCPS2_SPF_Zangief, 0x00 },
     { L"Zangief Portrait x3", 0xd126, 0xd186 },
 };
 
@@ -531,7 +615,7 @@ const sGame_PaletteDataset GEMFIGHTER_A_BONUS_PALETTES[] =
 
     { L"Char Select Back Card", 0xd7a6, 0xd7c6 },
     { L"Player Select Text", 0xd806, 0xd826 },
-    { L"Character Names Select/VS", 0xd826, 0xd846 },
+    { L"Character Names Select/VS", 0xd826, 0xd846, indexCPS2_SPF_Bonus, 0x00 },
 
 
     { L"Logo G 1", 0xdd02, 0xdd22 },

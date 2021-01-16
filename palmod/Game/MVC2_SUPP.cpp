@@ -511,7 +511,7 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destinati
 
     for (int i = index_start; i < (index_start + index_inc); i++)
     {
-        input_col = CurrMVC2->ConvPal(dst_16[i]);
+        input_col = CurrMVC2->ConvPal16(dst_16[i]);
 
         RGBtoHLS(input_col, &src_h, &src_l, &src_s);
 
@@ -524,7 +524,7 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destinati
         src_l = CurrMVC2->GetPalGroup()->LimitHLS(src_l);
 
         dst_16[i] &= 0xF000;
-        dst_16[i] |= CurrMVC2->ConvCol(HLStoRGB(src_h, src_l, src_s));
+        dst_16[i] |= CurrMVC2->ConvCol16(HLStoRGB(src_h, src_l, src_s));
     }
 }
 
@@ -545,7 +545,7 @@ void supp_mod_tint(UINT16 char_id, UINT16 source_palette, UINT16 destination_pal
 
     for (UINT8 offset = 0; offset < index_amt; offset++)
     {
-        COLORREF input_col = CurrMVC2->ConvPal(src_16[offset + src_index]);
+        COLORREF input_col = CurrMVC2->ConvPal16(src_16[offset + src_index]);
 
         BYTE newR = min(255, max(0, (int)GetRValue(input_col) + ((int)17 * tint_factor_r)));
         BYTE newG = min(255, max(0, (int)GetGValue(input_col) + ((int)17 * tint_factor_g)));

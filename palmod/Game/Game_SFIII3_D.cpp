@@ -13,6 +13,14 @@ void CGame_SFIII3_D::InitializeStatics()
 
 CGame_SFIII3_D::CGame_SFIII3_D(void)
 {
+    //Set color mode
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
+    SetColorMode(ColMode::COLMODE_15ALT);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+
     InitializeStatics();
 
     //We need the proper unit amt before we init the main buffer
@@ -20,18 +28,11 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
 
     InitDataBuffer();
 
-    //Set color mode
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
-    SetColorMode(ColMode::COLMODE_15ALT);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_8);
-
     //Set game information
     nGameFlag = SFIII3_D;
-    nImgGameFlag = IMGDAT_SECTION_3S;
+    nImgGameFlag = IMGDAT_SECTION_SF3;
     nImgUnitAmt = SFIII3_D_NUM_IMG_UNITS;
+    m_prgGameImageSet = SFIII3_D_IMG_UNITS;
 
     nFileAmt = SFIII3_D_NUMUNIT;
 
@@ -45,6 +46,8 @@ CGame_SFIII3_D::CGame_SFIII3_D(void)
 
     //Create the file changed flag array
     PrepChangeTrackingArray();
+    // the DC and PS2 games use one file per character/unit: we can handle those slightly differently
+    m_fGameUnitsMapToIndividualFiles = TRUE;
 }
 
 CGame_SFIII3_D::~CGame_SFIII3_D(void)
@@ -68,7 +71,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     sDescNode* ChildNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[SFIII3_D]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[SFIII3_D]);
     NewDescTree->ChildNodes = new sDescTreeNode[SFIII3_D_NUMUNIT];
     NewDescTree->uChildAmt = SFIII3_D_NUMUNIT;
 
@@ -80,7 +83,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     {
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
         //Set each description
-        _stprintf(UnitNode->szDesc, _T("%s"), SFIII3_D_UNITDESC[iUnitCtr]);
+        _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), SFIII3_D_UNITDESC[iUnitCtr]);
 
         //Init each character to have all 6 basic buttons + extra
         UnitNode->ChildNodes = new sDescTreeNode[1];
@@ -96,7 +99,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
             //Set each button data
-            _stprintf(ButtonNode->szDesc, _T("Palettes"));//, DEF_BUTTONLABEL7_SF3[iButtonCtr]);
+            _sntprintf_s(ButtonNode->szDesc, ARRAYSIZE(ButtonNode->szDesc), _TRUNCATE, _T("Palettes"));//, DEF_BUTTONLABEL7_SF3[iButtonCtr]);
 
             //Button children have nodes
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
@@ -109,7 +112,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr];
 
                 ChildNode->uUnitId = iUnitCtr;
-                _stprintf(ChildNode->szDesc, _T("Palette %02X"), nChildCtr);
+                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("Palette %02X"), nChildCtr);
 
                 ChildNode->uPalId = nChildCtr;
             }
@@ -132,7 +135,7 @@ sFileRule CGame_SFIII3_D::GetRule(UINT16 nUnitId)
         nRuleId++;
     }
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("PL%02dPL.BIN"), nRuleId);
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("PL%02dPL.BIN"), nRuleId);
 
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = -1;
@@ -176,7 +179,7 @@ BOOL CGame_SFIII3_D::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
     m_pppDataBuffer[nUnitId] = new UINT16 * [nPalAmt];
 
-    rgUnitRedir[nUnitId] = nUnitId; //Fix later for unit sort
+    rgUnitRedir[nUnitId] = nUnitId; // this is presorted
 
     for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
     {
@@ -274,7 +277,7 @@ COLORREF* CGame_SFIII3_D::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 
     for (UINT16 i = 0; i < nCurrPalSz - 1; i++)
     {
-        NewPal[i] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
+        NewPal[i] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][i]);
 
         if (i != 0)
         {

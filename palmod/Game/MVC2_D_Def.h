@@ -197,7 +197,7 @@ const TCHAR MVC2_D_UNITDESC[MVC2_D_NUMUNIT_WITH_TEAMVIEW][MAX_DESCRIPTION_LENGTH
     _T("Jin"),
     _T("Captain Commando"),
     _T("Bonerine"),
-    _T("Servbot"),
+    _T("Kobun / Servbot"),
     _T("Team View")
 };
 

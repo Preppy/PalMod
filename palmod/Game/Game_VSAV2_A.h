@@ -12,7 +12,6 @@ private:
     static UINT32 m_nTotalPaletteCountForVSAV2;
 
     static int rgExtraCountAll[VSAV2_A_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly[VSAV2_A_NUMUNIT + 1];
     static int rgExtraLoc[VSAV2_A_NUMUNIT + 1];
 
     static void InitializeStatics();
@@ -49,8 +48,6 @@ public:
 
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;

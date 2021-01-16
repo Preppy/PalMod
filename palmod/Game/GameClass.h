@@ -29,11 +29,14 @@ enum class AlphaMode
 enum class ColMode
 {
     // If you change this list you must update CPalModDlg::OnEditCopy and CGame_NEOGEO_A::GetGameName and ::CGame_NEOGEO_A
-    COLMODE_GBA,       // RGB555 little endian for GBA
+    COLMODE_GBA,       // BGR555 little endian for GBA
     COLMODE_12A,       // RGB444
-    COLMODE_15,        // BGR555 little endian for CPS3
+    COLMODE_15,        // RGB555 little endian for CPS3
     COLMODE_15ALT,     // RGB555 big endian 
     COLMODE_NEOGEO,    // RGB666
+    COLMODE_9,         // RGB333 for Sega Genesis/MegaDrive
+    COLMODE_ARGB7888,  // 32bit color for guilty gear
+    COLMODE_SHARPRGB,  // sharp x68000 rgb
 };
 
 enum class ColFlag
@@ -48,28 +51,38 @@ class CGameClass
 {
 protected:
     LPTSTR szDir = nullptr;
-    UINT16* rgFileChanged = nullptr;
+    // This is an old array used to determine if the character-file or the ROM has been updated
+    // Don't use this for SIMM-based games: use IsPaletteDirty there instead
+    BOOL* rgFileChanged = nullptr;
     UINT16 nFileAmt = 0;
 
     UINT16 m_nTotalInternalUnits = INVALID_UNIT_VALUE;
     UINT32 m_nCurrentPaletteROMLocation = 0;
     UINT32 m_nLowestKnownPaletteRomLocation = k_nBogusHighValue;
-    UINT16 m_nCurrentPaletteSize = 0;
+    UINT16 m_nCurrentPaletteSizeInColors = 0;
     LPCTSTR m_pszCurrentPaletteName = nullptr;
     UINT32 m_nConfirmedCRCValue = 0;
 
+    const int k_nRGBPlaneAmtForRGB333 = 7;
     const int k_nRGBPlaneAmtForRGB444 = 15;
     const int k_nRGBPlaneAmtForRGB555 = 31;
-   
+    const int k_nRGBPlaneAmtForRGB777 = 127;
+    const int k_nRGBPlaneAmtForRGB888 = 255;
+
+    const double k_nRGBPlaneMulForRGB333 = 36.428;
     const double k_nRGBPlaneMulForRGB444 = 17.0;
     const double k_nRGBPlaneMulForRGB555 = 8.225;
+    const double k_nRGBPlaneMulForRGB777 = 2;
+    const double k_nRGBPlaneMulForRGB888 = 1;
 
-    BOOL bIsDir = FALSE;
+    BOOL m_fIsDirectoryBasedGame = FALSE;
+    BOOL m_fGameUnitsMapToIndividualFiles = FALSE;
 
     UINT16 nUnitAmt = 0;
     int nGameFlag = 0;
     int nImgGameFlag = 0;
     int nImgUnitAmt = 0;
+    const UINT16* m_prgGameImageSet = nullptr;
 
     //Values used for image out
     int nSrcPalUnit[MAX_PALETTES_DISPLAYABLE] = { 0 };
@@ -84,27 +97,37 @@ protected:
 
     eImageOutputSpriteDisplay DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Used for the Export Image listbox
-    const LPCTSTR *pButtonLabelSet = nullptr;
+    const LPCTSTR* pButtonLabelSet = nullptr;
     // How many colors a game has: P1/P2 (2), LP-HK/A2 (6), etc
     UINT8 m_nNumberOfColorOptions = 0;
 
     bool m_fGameUsesAlphaValue = false;
+    bool m_fAllowIPSPatching = false;
+    UINT32 m_uOneTimeWINEViewportSizeOverride = 0;
+
     BOOL bUsesHybrid = FALSE;
     UINT16* pIndexRedir = nullptr;
     int nHybridSz = 0;
 
     static BOOL m_fAllowTransparency;
 
-    static UINT16 CONV_32_GBA(UINT32 inCol);
-    static UINT32 CONV_GBA_32(UINT16 inCol);
+    static UINT16 CONV_32_9(UINT32 inCol);
+    static UINT32 CONV_9_32(UINT16 inCol);
     static UINT16 CONV_32_12A(UINT32 inCol);
     static UINT32 CONV_12A_32(UINT16 inCol);
+    static UINT16 CONV_32_GBA(UINT32 inCol);
+    static UINT32 CONV_GBA_32(UINT16 inCol);
     static UINT16 CONV_32_15(UINT32 inCol);
     static UINT32 CONV_15_32(UINT16 inCol);
     static UINT16 CONV_32_15ALT(UINT32 inCol);
     static UINT32 CONV_15ALT_32(UINT16 inCol);
     static UINT16 CONV_32_NEOGEO(UINT32 inCol);
     static UINT32 CONV_NEOGEO_32(UINT16 inCol);
+    static UINT16 CONV_32_SHARPRGB(UINT32 inCol);
+    static UINT32 CONV_SHARPRGB_32(UINT16 inCol);
+    static UINT32 CONV_32_ARGB7888(UINT32 inCol);
+    static UINT32 CONV_ARGB7888_32(UINT32 inCol);
+
     static UINT16 SWAP_16(UINT16 palv);
 
     enum PALOptionValues
@@ -146,7 +169,10 @@ protected:
 
     void ClearDirtyPaletteTracker() { m_vDirtyPaletteList.clear(); };
     std::vector<sPaletteIdentifier> m_vDirtyPaletteList;
+    
+    static UINT8 m_nSizeOfColorsInBytes;
     UINT16*** m_pppDataBuffer = nullptr;
+    UINT32*** m_pppDataBuffer32 = nullptr;
 
     struct sCRC32ValueSet
     {
@@ -172,13 +198,18 @@ public:
     //Used for image selection
     int nTargetImgId = 0;
 
+    // Currently only used by MVC2
     UINT16*** GetDataBuffer() { return m_pppDataBuffer; };
     // This is called as part of Edit's debug information.  It wants the true ROM location, so correct for the nStartingPosition offset
     UINT32 GetCurrentPaletteLocation() { return m_nCurrentPaletteROMLocation - (createPalOptions.nStartingPosition * sizeof(UINT16)); };
     UINT32 GetLowestExpectedPaletteLocation();
 
-    UINT16(*ConvCol)(UINT32 inCol);
-    UINT32(*ConvPal)(UINT16 inCol);
+    inline bool GameIsUsing16BitColor() { return m_nSizeOfColorsInBytes == 2; };
+
+    UINT16(*ConvCol16)(UINT32 inCol);
+    UINT32(*ConvCol32)(UINT32 inCol);
+    UINT32(*ConvPal16)(UINT16 inCol);
+    UINT32(*ConvPal32)(UINT32 inCol);
 
     LPCTSTR GetROMFileName();
     LPCTSTR GetLoadDir() { return szDir; };
@@ -197,15 +228,21 @@ public:
     int GetImgGameFlag() { return nImgGameFlag; };
     int GetUnitCt() { return nUnitAmt; };
     int GetImgUnitCt() { return nImgUnitAmt; };
+    const UINT16* GetImageSetForGame() { return m_prgGameImageSet; };
     sImgTicket* GetImgTicket() { return CurrImgTicket; };
 
     CPalGroup* GetPalGroup() { return &BasePalGroup; };
 
     UINT16 GetFileAmt() { return nFileAmt; };
-    UINT16* GetChangeTrackingArray() { return rgFileChanged; };
 
-    void SetIsDir(BOOL bNewIsDir = TRUE) { bIsDir = bNewIsDir; };
-    BOOL GetIsDir() { return bIsDir; };
+    void ResetFileChangeTrackingArray();
+    BOOL* GetFileChangeTrackingArray() { return rgFileChanged; };
+    BOOL WasGameFileChangedInSession();
+
+    void SetIsDir(BOOL bNewIsDir = TRUE) { m_fIsDirectoryBasedGame = bNewIsDir; };
+    BOOL GetIsDir() { return m_fIsDirectoryBasedGame; };
+    BOOL GetGameMapsUnitsToFiles() { return m_fGameUnitsMapToIndividualFiles; };
+    bool AllowIPSPatchGeneration() { return !m_fIsDirectoryBasedGame || m_fAllowIPSPatching; };
 
     int GetPlaneAmt(ColFlag Flag);
     double GetPlaneMul(ColFlag Flag);
@@ -216,16 +253,14 @@ public:
     int GetImgOutPalAmt() { return nSrcPalAmt[0]; };
     void ClearSrcPal();
 
-    const LPCTSTR *GetButtonDescSet() { return pButtonLabelSet; };
+    const LPCTSTR* GetButtonDescSet() { return pButtonLabelSet; };
     eImageOutputSpriteDisplay GetImgDispType() { return DisplayType; };
 
     void SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc);
 
     void Revert(int nPalId);
 
-    int GetImgCt() { return IMGAMT[GetImgGameFlag()]; };
-
-    BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz);
+    BOOL CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int nExclusion, COLORREF** pNewPal, int* nNewPalSz);
 
     static void AllowTransparency(BOOL fAllow) { m_fAllowTransparency = fAllow; };
     static BOOL AllowTransparency() { return m_fAllowTransparency; };
@@ -235,21 +270,27 @@ public:
 
     virtual LPCTSTR GetGameName();
 
-    virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId) = 0;
+    virtual void CheckForErrorsInTables() {};
+    virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId);
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
+
     virtual UINT32 SavePatchFile(CFile* PatchFile, UINT16 nUnitId);
+    virtual UINT32 SaveMultiplePatchFiles(CString strTargetDirectory) { return 0; };
+    bool UserWantsAllPalettesInPatch();
     void SetSpecificValuesForCRC(UINT32 nCRCForFile);
     virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
 
     virtual BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1) = 0;
     virtual COLORREF* CreatePal(UINT16 nUnitId, UINT16 nPalId);
     virtual void UpdatePalData();
-    void FlushChangeTrackingArray() { safe_delete_array(rgFileChanged); ClearDirtyPaletteTracker();  };
+    void FlushChangeTrackingArray() { safe_delete_array(rgFileChanged); ClearDirtyPaletteTracker(); };
     virtual void PrepChangeTrackingArray();
     virtual void ValidateMixExtraColors(BOOL* pfChangesWereMade) {};
     virtual void PostSetPal(UINT16 nUnitId, UINT16 nPalId) {};
     virtual void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId) {};
     virtual UINT16 GetPaletteCountForUnit(UINT16 nUnitId) { return INVALID_UNIT_VALUE; };
+
+    virtual void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
 
     COLORREF*** CreateImgOutPal();
 

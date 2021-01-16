@@ -71,12 +71,20 @@ BOOL CPalGroup::SetMode(ePalType NewPalMode)
 
     switch (PalMode)
     {
-    case ePalType::PALTYPE_8:
+    case ePalType::PALTYPE_32STEPS:
         ROUND = ROUND_R = ROUND_G = ROUND_B = &CPalGroup::ROUND_8;
         return TRUE;
         break;
-    case ePalType::PALTYPE_17:
+    case ePalType::PALTYPE_16STEPS:
         ROUND = ROUND_R = ROUND_G = ROUND_B = &CPalGroup::ROUND_17;
+        return TRUE;
+        break;
+    case ePalType::PALTYPE_8STEPS:
+        ROUND = ROUND_R = ROUND_G = ROUND_B = &CPalGroup::ROUND_32;
+        return TRUE;
+        break;
+    case ePalType::PALTYPE_256STEPS:
+        ROUND = ROUND_R = ROUND_G = ROUND_B = &CPalGroup::ROUND_1;
         return TRUE;
         break;
     default:
@@ -332,6 +340,13 @@ UINT8 CPalGroup::ROUND_8(UINT8 rVal)
 UINT8 CPalGroup::ROUND_17(UINT8 rVal)
 {
     UINT8 outVal = (UINT8)(round(rVal / 17.0)) * 17;
+
+    return outVal;
+}
+
+UINT8 CPalGroup::ROUND_32(UINT8 rVal)
+{
+    UINT8 outVal = (UINT8)(round(rVal / 32.0)) * 32;
 
     return outVal;
 }

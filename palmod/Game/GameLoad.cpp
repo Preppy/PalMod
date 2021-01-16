@@ -2,19 +2,31 @@
 #include "GameLoad.h"
 #include "..\CRC32.h"
 
+#include "Game_AOF3_A.h"
+#include "Game_Bleach_DS.h"
 #include "Game_Breakers_A.h"
+#include "Game_CFTE_SNES.h"
 #include "Game_COTA_A.h"
 #include "Game_CVS2_A.h"
+#include "Game_DanKuGa_A.h"
+#include "Game_FatalFuryS_SNES.h"
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
+#include "Game_GUNDAM_SNES.h"
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
 #include "Game_KarnovsR_A.h"
+#include "Game_KOF01_A.h"
 #include "Game_KOF02_A.h"
 #include "Game_KOF02UM_S.h"
+#include "Game_KOF03_A.h"
+#include "Game_KOF94_A.h"
 #include "Game_KOF98_A.h"
+#include "Game_KOF99AE_A.h"
 #include "Game_KOFXI_A.h"
+#include "Game_LASTBLADE2_A.h"
 #include "Game_Matrimelee_A.h"
+#include "Game_MMPR_SNES.h"
 #include "Game_MSH_A.h"
 #include "Game_MSHVSF_A.h"
 #include "Game_MVC_A.h"
@@ -22,13 +34,16 @@
 #include "Game_MVC2_A_DIR.h"
 #include "Game_MVC2_D.h"
 #include "Game_MVC2_P.h"
+#include "Game_NeoBomberman_A.h"
 #include "Game_NEOGEO_A.h"
 #include "Game_NGBC_A.h"
 #include "Game_GEMFIGHTER_A.h"
 #include "Game_RBFFS_A.h"
 #include "Game_REDEARTH_A.h"
 #include "Game_REDEARTH_A_DIR.h"
+#include "Game_RODSM2_A.h"
 #include "Game_SAMSHO3_A.h"
+#include "Game_SAMSHO4_A.h"
 #include "Game_SAMSHO5SP_A.h"
 #include "Game_SFA1_A.h"
 #include "Game_SFA2_A.h"
@@ -49,7 +64,6 @@
 #include "Game_WakuWaku7_A.h"
 #include "Game_Windjammers_A.h"
 #include "Game_XMVSF_A.h"
-#include "Game_Bleach_DS.h"
 
 #include "..\resource.h"
 #include "..\palmod.h"
@@ -91,9 +105,27 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 {
     switch (nGameFlag)
     {
+
+    case AOF3_A:
+    {
+        GetRule = &CGame_AOF3_A::GetRule;
+        return TRUE;
+    }
+
+    case BLEACH_DS:
+    {
+        GetRule = &CGame_BLEACH_DS::GetRule;
+        return TRUE;
+    }
+
     case BREAKERS_A:
     {
         GetRule = &CGame_BREAKERS_A::GetRule;
+        return TRUE;
+    }
+    case CFTE_SNES:
+    {
+        GetRule = &CGame_CFTE_SNES::GetRule;
         return TRUE;
     }
     case COTA_A:
@@ -104,6 +136,20 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case CVS2_A:
     {
         GetRule = &CGame_CVS2_A::GetRule;
+        return TRUE;
+    }
+    case DANKUGA_A:
+    {
+        GetRuleCtr = &CGame_DanKuGa_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_DanKuGa_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_DanKuGa_A_DIR::GetRule;
+        GetNextRule = &CGame_DanKuGa_A_DIR::GetNextRule;
+
+        return TRUE;
+    }
+    case FatalFuryS_SNES:
+    {
+        GetRule = &CGame_FatalFuryS_SNES::GetRule;
         return TRUE;
     }
     case Garou_A:
@@ -119,6 +165,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case GEMFIGHTER_A:
     {
         GetRule = &CGame_GEMFIGHTER_A::GetRule;
+        return TRUE;
+    }
+    case GUNDAM_SNES:
+    {
+        GetRule = &CGame_GUNDAM_SNES::GetRule;
         return TRUE;
     }
     case JOJOS_A:
@@ -141,9 +192,24 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_KarnovsR_A::GetRule;
         return TRUE;
     }
+    case KOF94_A:
+    {
+        GetRule = &CGame_KOF94_A::GetRule;
+        return TRUE;
+    }
     case KOF98_A:
     {
         GetRule = &CGame_KOF98_A::GetRule;
+        return TRUE;
+    }
+    case KOF99AE_A:
+    {
+        GetRule = &CGame_KOF99AE_A::GetRule;
+        return TRUE;
+    }
+    case KOF01_A:
+    {
+        GetRule = &CGame_KOF01_A::GetRule;
         return TRUE;
     }
     case KOF02_A:
@@ -156,14 +222,29 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_KOF02UM_S::GetRule;
         return TRUE;
     }
+    case KOF03_A:
+    {
+        GetRule = &CGame_KOF03_A::GetRule;
+        return TRUE;
+    }
     case KOFXI_A:
     {
         GetRule = &CGame_KOFXI_A::GetRule;
         return TRUE;
     }
+    case LASTBLADE2_A:
+    {
+        GetRule = &CGame_LASTBLADE2_A::GetRule;
+        return TRUE;
+    }
     case MATRIMELEE_A:
     {
         GetRule = &CGame_Matrimelee_A::GetRule;
+        return TRUE;
+    }
+    case MMPR_SNES:
+    {
+        GetRule = &CGame_MMPR_SNES::GetRule;
         return TRUE;
     }
     case MSH_A:
@@ -213,6 +294,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
+    case NeoBomberman_A:
+    {
+        GetRule = &CGame_NeoBomberman_A::GetRule;
+        return TRUE;
+    }
     case NEOGEO_A:
     {
         GetRule = &CGame_NEOGEO_A::GetRule;
@@ -242,9 +328,19 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
+    case RODSM2_A:
+    {
+        GetRule = &CGame_RODSM2_A::GetRule;
+        return TRUE;
+    }
     case SAMSHO3_A:
     {
         GetRule = &CGame_SAMSHO3_A::GetRule;
+        return TRUE;
+    }
+    case SAMSHO4_A:
+    {
+        GetRule = &CGame_SAMSHO4_A::GetRule;
         return TRUE;
     }
     case SAMSHO5SP_A:
@@ -291,6 +387,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         ResetRuleCtr = &CGame_SFIII3_A_DIR::ResetRuleCtr;
         GetRule = &CGame_SFIII3_A_DIR::GetRule51;
         GetNextRule = &CGame_SFIII3_A_DIR::GetNextRule51;
+
+        return TRUE;
+    }
+    case SFIII3_A_DIR_EX:
+    {
+        GetRuleCtr = &CGame_SFIII3_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_SFIII3_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_SFIII3_A_DIR::GetRule3Ex;
+        GetNextRule = &CGame_SFIII3_A_DIR::GetNextRule3Ex;
 
         return TRUE;
     }
@@ -374,12 +479,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         return TRUE;
     }
 
-    case BLEACH_DS:
-    {
-        GetRule = &CGame_BLEACH_DS::GetRule;
-        return TRUE;
-    }
-
     default:
         OutputDebugString(_T("CGameLoad::SetGame:: BUGBUG: New game has not been properly added yet\n"));
         return FALSE;
@@ -393,9 +492,23 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
 {
     switch (nGameFlag)
     {
+    case AOF3_A:
+    {
+        return new CGame_AOF3_A(nConfirmedROMSize, nExtraGameData);
+    }
+
+    case BLEACH_DS:
+    {
+        return new CGame_BLEACH_DS(nConfirmedROMSize);
+    }
+
     case BREAKERS_A:
     {
         return new CGame_BREAKERS_A(nConfirmedROMSize);
+    }
+    case CFTE_SNES:
+    {
+        return new CGame_CFTE_SNES(nConfirmedROMSize);
     }
     case COTA_A:
     {
@@ -404,6 +517,14 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case CVS2_A:
     {
         return new CGame_CVS2_A(nConfirmedROMSize);
+    }
+    case DANKUGA_A:
+    {
+        return new CGame_DanKuGa_A_DIR(-1);
+    }
+    case FatalFuryS_SNES:
+    {
+        return new CGame_FatalFuryS_SNES(nConfirmedROMSize);
     }
     case Garou_A:
     {
@@ -416,6 +537,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case GEMFIGHTER_A:
     {
         return new CGame_GEMFIGHTER_A(nConfirmedROMSize);
+    }
+    case GUNDAM_SNES:
+    {
+        return new CGame_GUNDAM_SNES(nConfirmedROMSize);
     }
     case JOJOS_A:
     {
@@ -433,9 +558,21 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_KarnovsR_A(nConfirmedROMSize);
     }
+    case KOF94_A:
+    {
+        return new CGame_KOF94_A(nConfirmedROMSize);
+    }
     case KOF98_A:
     {
         return new CGame_KOF98_A(nConfirmedROMSize);
+    }
+    case KOF99AE_A:
+    {
+        return new CGame_KOF99AE_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case KOF01_A:
+    {
+        return new CGame_KOF01_A(nConfirmedROMSize);
     }
     case KOF02_A:
     {
@@ -443,15 +580,27 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     }
     case KOF02UM_S:
     {
-        return new CGame_KOF02UM_S(nConfirmedROMSize);
+        return new CGame_KOF02UM_S(nConfirmedROMSize, nExtraGameData);
+    }
+    case KOF03_A:
+    {
+        return new CGame_KOF03_A(nConfirmedROMSize);
     }
     case KOFXI_A:
     {
         return new CGame_KOFXI_A(nConfirmedROMSize);
     }
+    case LASTBLADE2_A:
+    {
+        return new CGame_LASTBLADE2_A(nConfirmedROMSize);
+    }
     case MATRIMELEE_A:
     {
         return new CGame_Matrimelee_A(nConfirmedROMSize);
+    }
+    case MMPR_SNES:
+    {
+        return new CGame_MMPR_SNES(nConfirmedROMSize);
     }
     case MSH_A:
     {
@@ -481,6 +630,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_MVC2_P;
     }
+    case NeoBomberman_A:
+    {
+        return new CGame_NeoBomberman_A(nConfirmedROMSize);
+    }
     case NEOGEO_A:
     {
         return new CGame_NEOGEO_A(nConfirmedROMSize);
@@ -501,9 +654,17 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_RedEarth_A_DIR(-1);
     }
+    case RODSM2_A:
+    {
+        return new CGame_RODSM2_A(nConfirmedROMSize);
+    }
     case SAMSHO3_A:
     {
         return new CGame_SAMSHO3_A(nConfirmedROMSize);
+    }
+    case SAMSHO4_A:
+    {
+        return new CGame_SAMSHO4_A(nConfirmedROMSize);
     }
     case SAMSHO5SP_A:
     {
@@ -532,6 +693,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SFIII3_A_DIR_51:
     {
         return new CGame_SFIII3_A_DIR(-1, 51);
+    }
+    case SFIII3_A_DIR_EX:
+    {
+        return new CGame_SFIII3_A_DIR(-1, 70);
     }
     case SFIII3_D:
     {
@@ -594,10 +759,6 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_XMVSF_A(nConfirmedROMSize);
     }
-    case BLEACH_DS:
-    {
-        return new CGame_BLEACH_DS(nConfirmedROMSize);
-    }
 
     default:
         OutputDebugString(_T("CGameLoad::CreateGame:: BUGBUG: New game has not been properly added yet.\n"));
@@ -620,79 +781,51 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
     int nGameRule = 0;
 
     // Handle games that support multiple ROMs here
-    switch (nGameFlag)
-    {
-    case JOJOS_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
+    TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
 
-        if (pszFileName)
+    if (pszFileName)
+    {
+        // Step forward to the filename
+        pszFileName++;
+        _tcslwr(pszFileName);
+
+        switch (nGameFlag)
         {
-            // Step forward to the filename
-            pszFileName++;
+        case AOF3_A:
+            nGameRule = ((_tcsstr(pszFileName, _T("p1")) != nullptr) ? 1 : 2);
+            break;
+        case JOJOS_A:
             nGameRule = ((_tcscmp(pszFileName, _T("50")) == 0) ? 50 : 51);
-        }
-        break;
-    }
-    case MSHVSF_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+            break;
+        case KOF99AE_A:
+            nGameRule = ((_tcsstr(pszFileName, _T("p2")) != nullptr) ? 2 : 3);
+            break;
+        case KOF02UM_S:
+            nGameRule = ((_tcscmp(pszFileName, _T("bar.bin")) == 0) ? 1 : 0);
+            break;
+        case MSHVSF_A:
         {
-            // Step forward to the filename
-            pszFileName++;
-            _tcslwr(pszFileName);
             nGameRule = ((_tcsstr(pszFileName, _T(".06a")) != nullptr) ? 6 : 7);
+            break;
         }
-        break;
-    }
-    case MSH_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+        case MSH_A:
         {
-            // Step forward to the filename
-            pszFileName++;
-            _tcslwr(pszFileName);
             nGameRule = ((_tcsstr(pszFileName, _T(".05")) != nullptr) ? 5 : 6);
+            break;
         }
-        break;
-    }
-    case SFA2_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+        case SFA2_A:
         {
-            // Step forward to the filename
-            pszFileName++;
             nGameRule = ((_tcsstr(pszFileName, _T(".08")) != nullptr) ? 8 : 7);
+            break;
         }
-        break;
-    }
-    case SFIII3_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+        case SFIII3_A:
         {
-            // Step forward to the filename
-            pszFileName++;
             nGameRule = ((_tcsstr(pszFileName, _T("10")) != nullptr) ? 10 : 51);
+            break;
         }
-        break;
-    }
-    case SF2CE_A: // these two share logic until we care about 23
-    case SF2HF_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+        case SF2CE_A: // these two share logic until we care about 23
+        case SF2HF_A:
         {
-            // Step forward to the filename
-            pszFileName++;
             if (_tcsstr(pszFileName, _T("21")) != nullptr)
             {
                 nGameRule = 21;
@@ -705,17 +838,10 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             {
                 nGameRule = 22;
             }
+            break;
         }
-        break;
-    }
-    case SSF2T_A:
-    {
-        TCHAR* pszFileName = _tcsrchr(szLoadFile, _T('\\'));
-
-        if (pszFileName)
+        case SSF2T_A:
         {
-            // Step forward to the filename
-            pszFileName++;
             if (_tcsstr(pszFileName, _T(".03")) != nullptr)
             {
                 nGameRule = 3;
@@ -728,12 +854,12 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             {
                 nGameRule = 4;
             }
-        }
-        break;
-    }
-    default:
             break;
-    };
+        }
+        default:
+            break;
+        }
+    }
 
     CurrRule = GetRule(nGameRule);
 
@@ -929,7 +1055,9 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
                 OutputDebugString(_T("CGameLoad::LoadDir : Gouki doesn't exist for SF3-DC: skipping.\n"));
                 nSaveLoadSucc++;
             }
-            else if (OutGame && (nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION))
+            else if (OutGame && 
+                   (((nGameFlag == MVC2_D) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
+                    ((nGameFlag == MVC2_P) && (nCurrRuleCtr == MVC2_D_TEAMVIEW_LOCATION))))
             {
                 OutputDebugString(_T("CGameLoad::LoadDir : Team View for MvC2. Ignoring file open.\n"));
                 if (OutGame->LoadFile(nullptr, CurrRule.uUnitId))
@@ -969,7 +1097,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, TCHAR* szLoadDir)
         strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
     }
     
-    szLoadSaveStr.Format(L"%d of %d files loaded successfully%s.", nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
+    szLoadSaveStr.Format(L"%d of %d file%s loaded successfully%s.", nSaveLoadSucc, nSaveLoadCount, (nSaveLoadCount == 1) ? L"" : L"s", strErrorText.GetString());
 
     // Perhaps we could be less strict here, but -- we also will crash elsewhere if we don't have the full PL set.
     return (nSaveLoadErr == 0) ? OutGame : nullptr;
@@ -986,23 +1114,27 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     SetGame(CurrGame->GetGameFlag());
 
     UINT16 nFileAmt = CurrGame->GetFileAmt();
-    UINT16* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
     LPCTSTR pszLoadDir = CurrGame->GetLoadDir();
     UINT16* rgUnitRedir = CurrGame->rgUnitRedir;
     CString strErrorFile;
 
     if (CurrGame->GetIsDir())
     {
+        BOOL* rgFileIsChanged = CurrGame->GetFileChangeTrackingArray();
+        BOOL fWasGameChangedInSession = CurrGame->WasGameFileChangedInSession();
+        BOOL fGameMapsUnitsToFiles = CurrGame->GetGameMapsUnitsToFiles();
+
         for (UINT16 nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
         {
-            if ((rgFileIsChanged[nFileCtr]) ||
-                (CurrGame->GetGameFlag() == SFIII3_A_DIR_51) || // the SF3 code is older, so just treat as dirty
-                (CurrGame->GetGameFlag() == SFIII3_A_DIR_4) ||
-                (CurrGame->GetGameFlag() == SFIII3_A_DIR_10)) 
+            if (fGameMapsUnitsToFiles ? rgFileIsChanged[nFileCtr] : fWasGameChangedInSession)
             {
                 nSaveLoadCount++;
 
-                if (!((CurrGame->GetGameFlag() == MVC2_D) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION))) // ignore the virtual team view
+                // Ignore the virtualized team view
+                bool fIsMvC2TeamView = ((CurrGame->GetGameFlag() == MVC2_D) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION)) ||
+                                       ((CurrGame->GetGameFlag() == MVC2_P) && (nFileCtr == MVC2_D_TEAMVIEW_LOCATION));
+
+                if (!fIsMvC2TeamView)
                 {
                     CString szLoad;
                     sFileRule CurrRule = GetRule(nFileCtr | 0xFF00);
@@ -1026,9 +1158,14 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
                     {
                         if (CurrGame->SaveFile(&FileSave, nFileCtr))
                         {
-                            // Mark as clean so we don't save it out until it gets dirtied again.
-                            rgFileIsChanged[nFileCtr] = FALSE;
                             nSaveLoadSucc++;
+
+                            if (fGameMapsUnitsToFiles)
+                            {
+                                // Mark as clean so we don't save it out until it gets dirtied again.
+                                rgFileIsChanged[nFileCtr] = FALSE;
+                            }
+
                         }
                         else
                         {
@@ -1059,7 +1196,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     }
     else
     {
-        if (rgFileIsChanged[0])
+        if (CurrGame->WasGameFileChangedInSession())
         {
             nSaveLoadCount = 1;
 
@@ -1067,7 +1204,6 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             {
                 if (CurrGame->SaveFile(&FileSave, 0))
                 {
-                    rgFileIsChanged[0] = FALSE;
                     nSaveLoadSucc++;
                 }
 
@@ -1100,19 +1236,31 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
 
     if (nSaveLoadCount > 0)
     {
-        CString strErrorText = L"";
-        if (nSaveLoadErr)
-        {
-            strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
-        }
-
         if (nSaveLoadCount == 1)
         {
-            szLoadSaveStr.Format(L"Game patched successfully%s.", strErrorText.GetString());
+            if (nSaveLoadErr)
+            {
+                szLoadSaveStr = L"Game patching failed.";
+            }
+            else
+            {
+                szLoadSaveStr = L"Game patched successfully.";
+            }
         }
         else
         {
+            CString strErrorText = L"";
+            if (nSaveLoadErr)
+            {
+                strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
+            }
+
             szLoadSaveStr.Format(L"%d of %d files patched successfully%s.", nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
+        }
+
+        if (nSaveLoadErr == 0)
+        {
+            CurrGame->ResetFileChangeTrackingArray();
         }
     }
     else
@@ -1121,53 +1269,181 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     }
 }
 
+void CGameLoad::CrosscopyGame(CGameClass* CurrGame)
+{
+    CString strTargetDirectory;
+
+    if (GetHost()->GetPalModDlg()->SetLoadDir(&strTargetDirectory))
+    {
+        CFile FileSave;
+
+        nSaveLoadCount = 0;
+        nSaveLoadSucc = 0;
+        nSaveLoadErr = 0;
+
+        SetGame(CurrGame->GetGameFlag());
+
+        UINT16 nFileAmt = CurrGame->GetFileAmt();
+        CString strErrorFile;
+        const bool fIsDreamcast = CurrGame->GetGameFlag() == MVC2_D;
+
+        if (CurrGame->GetIsDir())
+        {
+            for (UINT16 nFileCtr = 0; nFileCtr < nFileAmt; nFileCtr++)
+            {
+                nSaveLoadCount++;
+
+                // Ignore the virtualized team view
+                bool fIsMvC2TeamView = (nFileCtr == MVC2_D_TEAMVIEW_LOCATION);
+
+                if (!fIsMvC2TeamView)
+                {
+                    CString szLoad;
+                    sFileRule CurrRule = fIsDreamcast ? CGame_MVC2_P::GetRule(nFileCtr | 0xFF00) : CGame_MVC2_D::GetRule(nFileCtr | 0xFF00);
+
+                    szLoad.Format(_T("%s\\%s"), strTargetDirectory.GetString(), CurrRule.szFileName);
+
+                    BOOL fFileOpened = FileSave.Open(szLoad, CFile::modeReadWrite | CFile::typeBinary);
+
+                    if (fFileOpened)
+                    {
+                        if (CurrGame->SaveFile(&FileSave, nFileCtr))
+                        {
+                            nSaveLoadSucc++;
+                        }
+                        else
+                        {
+                            strErrorFile = szLoad;
+                            nSaveLoadErr++;
+                        }
+
+                        if (FileSave.m_hFile != CFile::hFileNull)
+                        {
+                            FileSave.Abort();
+                        }
+                    }
+                    else
+                    {
+                        strErrorFile = szLoad;
+                        nSaveLoadErr++;
+                    }
+                }
+                else
+                {
+                    // Ignore the virtual team view
+                    nSaveLoadSucc++;
+                }
+            }
+        }
+
+        if (!strErrorFile.IsEmpty())
+        {
+            CString strError;
+            UINT uErrorString;
+            if ((GetFileAttributes(strErrorFile)) == INVALID_FILE_ATTRIBUTES)
+            {
+                uErrorString = IDS_ERROR_FILENOTFOUND_FORMAT;
+            }
+            else
+            {
+                uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
+            }
+
+            strError.Format(uErrorString, strErrorFile);
+            MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+        }
+
+        CString strErrorText = L"";
+        if (nSaveLoadErr)
+        {
+            strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
+        }
+
+        if (nSaveLoadCount == 1)
+        {
+            szLoadSaveStr.Format(L"Game crosscopied successfully%s.", strErrorText.GetString());
+        }
+        else
+        {
+            szLoadSaveStr.Format(L"%d of %d files crosscopied successfully%s.", nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
+        }
+    }
+    else
+    {
+        szLoadSaveStr = (L"No directory specified.");
+    }
+}
+
 void CGameLoad::SavePatchFile(CGameClass* CurrGame)
 {
     SetGame(CurrGame->GetGameFlag());
     UINT32 nNumberOfChangesSaved = 0;
-    UINT16* rgFileIsChanged = CurrGame->GetChangeTrackingArray();
-
-    if (rgFileIsChanged[0] && !CurrGame->GetIsDir())
+    
+    if (!CurrGame->GetIsDir())
     {
-        static LPCTSTR szPatchFilter[] = { _T("IPS Patch File|*.ips|")
-                                          _T("|") };
-
-        LPCTSTR pszLoadedFile = CurrGame->GetLoadDir();
-        LPCTSTR pszFileName = _tcsrchr(pszLoadedFile, _T('\\'));
-        pszFileName = (pszFileName) ? (pszFileName + 1) : _T("unknown");
-        CString strSuggestedFileName = pszFileName;
-        strSuggestedFileName += _T(".ips");        
-
-        CFileDialog PatchFileLoad(FALSE, _T("ips"), strSuggestedFileName.GetString(), OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY, *szPatchFilter);
-
-        if (PatchFileLoad.DoModal() == IDOK)
+        if (CurrGame->WasGameFileChangedInSession())
         {
-            CString strFileName = PatchFileLoad.GetOFN().lpstrFile;
-            CFile PatchFile;
-            nSaveLoadCount = 1;
+            static LPCTSTR szPatchFilter[] = { _T("IPS Patch File|*.ips|")
+                                               _T("|") };
 
-            if (PatchFile.Open(strFileName, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary))
+            LPCTSTR pszLoadedFile = CurrGame->GetLoadDir();
+            LPCTSTR pszFileName = _tcsrchr(pszLoadedFile, _T('\\'));
+            pszFileName = (pszFileName) ? (pszFileName + 1) : _T("unknown");
+            CString strSuggestedFileName = pszFileName;
+            strSuggestedFileName += _T(".ips");
+
+            CFileDialog PatchFileLoad(FALSE, _T("ips"), strSuggestedFileName.GetString(), OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY, *szPatchFilter);
+
+            if (PatchFileLoad.DoModal() == IDOK)
             {
-                nNumberOfChangesSaved = CurrGame->SavePatchFile(&PatchFile, 0);
-                PatchFile.Abort();
-            }
-            else
-            {
-                CString strError;
-                UINT uErrorString;
-                if ((GetFileAttributes(strFileName)) == INVALID_FILE_ATTRIBUTES)
+                CString strFileName = PatchFileLoad.GetOFN().lpstrFile;
+                CFile PatchFile;
+                nSaveLoadCount = 1;
+
+                if (PatchFile.Open(strFileName, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary))
                 {
-                    uErrorString = IDS_ERROR_FILENOTFOUND_FORMAT;
+                    nNumberOfChangesSaved = CurrGame->SavePatchFile(&PatchFile, 0);
+                    PatchFile.Abort();
                 }
                 else
                 {
-                    uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
-                }
+                    CString strError;
+                    UINT uErrorString;
+                    if ((GetFileAttributes(strFileName)) == INVALID_FILE_ATTRIBUTES)
+                    {
+                        uErrorString = IDS_ERROR_FILENOTFOUND_FORMAT;
+                    }
+                    else
+                    {
+                        uErrorString = IDS_ERROR_NOTWRITABLE_FORMAT;
+                    }
 
-                strError.Format(uErrorString, strFileName);
-                MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+                    strError.Format(uErrorString, strFileName);
+                    MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
+                }
             }
         }
+    }
+
+    if (nNumberOfChangesSaved > 0)
+    {
+        szLoadSaveStr.Format(_T("%u change%s saved to patch file."), nNumberOfChangesSaved, nNumberOfChangesSaved == 1 ? _T("") : _T("s"));
+    }
+    else
+    {
+        szLoadSaveStr = _T("No changes detected: nothing to put in patch file.");
+    }
+}
+
+void CGameLoad::SaveMultiplePatchFiles(CGameClass* CurrGame, CString strTargetDirectory)
+{
+    SetGame(CurrGame->GetGameFlag());
+    UINT32 nNumberOfChangesSaved = 0;
+    BOOL fGameWasChanged = CurrGame->WasGameFileChangedInSession();
+
+    if (fGameWasChanged && CurrGame->GetIsDir())
+    {
+        nNumberOfChangesSaved = CurrGame->SaveMultiplePatchFiles(strTargetDirectory);
     }
 
     if (nNumberOfChangesSaved > 0)

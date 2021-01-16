@@ -16,19 +16,24 @@ public:
     static UINT32 m_nTotalPaletteCountForSFIII3_10;
     static UINT32 m_nTotalPaletteCountForSFIII3_4;
     static UINT32 m_nTotalPaletteCountForSFIII3_51;
+    static UINT32 m_nTotalPaletteCountForSFIII3_70;
     static bool UsePaletteSetForGill() { return (m_nSelectedRom == 10); }
     static bool UsePaletteSetFor51() { return (m_nSelectedRom == 51); }
     static bool UsePaletteSetFor4rd() { return (m_nSelectedRom == 4); }
+    static bool UsePaletteSetFor3Ex() { return (m_nSelectedRom == 70); }
 
     static int rgExtraCountAll_10[SFIII3_A_10_NUMUNIT + 1];
     static int rgExtraCountAll_4[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraCountAll_51[SFIII3_A_51_NUMUNIT + 1];
+    static int rgExtraCountAll_70[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly_10[SFIII3_A_10_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly_4[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly_51[SFIII3_A_51_NUMUNIT + 1];
+    static int rgExtraCountVisibleOnly_70[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraLoc_10[SFIII3_A_10_NUMUNIT + 1];
     static int rgExtraLoc_4[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraLoc_51[SFIII3_A_51_NUMUNIT + 1];
+    static int rgExtraLoc_70[SFIII3_A_51_NUMUNIT + 1];
 
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
@@ -51,6 +56,7 @@ public:
     static CDescTree MainDescTree_10;
     static CDescTree MainDescTree_4;
     static CDescTree MainDescTree_51;
+    static CDescTree MainDescTree_70;
 
     static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
     static sFileRule GetRule(UINT16 nUnitId);
@@ -72,12 +78,12 @@ public:
     UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
     BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) override;
 
     static stExtraDef* SFIII3_A_10_EXTRA_CUSTOM;
     static stExtraDef* SFIII3_A_4_EXTRA_CUSTOM;
     static stExtraDef* SFIII3_A_51_EXTRA_CUSTOM;
+    static stExtraDef* SFIII3_A_70_EXTRA_CUSTOM;
 };

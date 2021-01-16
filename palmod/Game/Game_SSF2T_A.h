@@ -42,7 +42,7 @@ private:
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     const int m_uLowestKnownPaletteROMLocation_3C = 0x31c00;
     const int m_uLowestKnownPaletteROMLocation_4A = 0x3FB00;
-    const int m_uLowestKnownPaletteROMLocation_8 = 0x623fe;
+    const int m_uLowestKnownPaletteROMLocation_8 = 0x603be;
 
 public:
     CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad);
@@ -72,8 +72,6 @@ public:
 
     UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
 
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;

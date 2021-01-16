@@ -1897,6 +1897,18 @@ const sGame_PaletteDataset SSF2T_A_BONUS_NODE[] =
     { L"Cammy Intro", 0x05be5c, 0x05bf5c, indexSF2Sprites_Bonus, 0 },
 };
 
+const sGame_PaletteDataset SSF2T_A_RYU_STAGE_NODE_4[] =
+{
+    { L"Background Castle", 0x541DC, 0x5423C, indexSF2Sprites_Stages, 0x0b },
+};
+
+const sGame_PaletteDataset SSF2T_A_RYU_STAGE_NODE[] =
+{
+    { L"Sky",           0x603c0, 0x603e0, indexSF2Sprites_Stages, 0x08, &pairFullyLinkedNode },
+    { L"Wall",          0x70400, 0x704a0, indexSF2Sprites_Stages, 0x09 },
+    { L"Foreground",    0x68000, 0x68120, indexSF2Sprites_Stages, 0x0a },
+};
+
 // Sagat Stage - Lady+Floor    6A3FE        6A75E
 // Sagat Stage - FarBG        727FE        7291E
 // Sagat Stage - MG        623FE        627FE
@@ -1910,7 +1922,7 @@ const sGame_PaletteDataset SSF2T_A_SAGAT_STAGE_NODE[] =
 
     { L"Background",    0x72800, 0x72920, indexSF2Sprites_Stages, 0x00, &pairFullyLinkedNode },
     //{ L"Midground 1",   0x62400, 0x62600, indexSF2Sprites_Stages, 0x01 }, // nothing useful here
-    { L"Midground",   0x62600, 0x62800, indexSF2Sprites_Stages, 0x01 },
+    { L"Midground",     0x62600, 0x62800, indexSF2Sprites_Stages, 0x01 },
     { L"Buddha 1",      0x6A400, 0x6A600, indexSF2Sprites_Stages, 0x04 },
     { L"Buddha 2",      0x6A600, 0x6A760, indexSF2Sprites_Stages, 0x03 },
 };
@@ -1937,11 +1949,13 @@ const sDescTreeNode SSF2T_A_PORTRAITS_COLLECTION[] =
 
 const sDescTreeNode SSF2T_A_BONUS_COLLECTION[] =
 {
-    { L"Palettes",     DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_NODE,      ARRAYSIZE(SSF2T_A_BONUS_NODE) },
+    { L"Palettes",          DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_NODE,      ARRAYSIZE(SSF2T_A_BONUS_NODE) },
+    { L"Ryu Stage (04)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,       ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
 };
 
 const sDescTreeNode SSF2T_A_STAGES_COLLECTION[] =
 {
+    { L"Ryu Stage",     DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE,       ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE) },
     { L"Sagat Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE,       ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE) },
 };
 
@@ -1949,6 +1963,8 @@ const sDescTreeNode SSF2T_A_UNITS_3C[SSF2T_A_NUM_IND_3C] =
 {
     { L"Portraits",  DESC_NODETYPE_TREE, (void*)SSF2T_A_PORTRAITS_COLLECTION,    ARRAYSIZE(SSF2T_A_PORTRAITS_COLLECTION) },
 };
+
+#define k_stNameKey_Bonus L"Bonus"
 
 const sDescTreeNode SSF2T_A_UNITS_4A[SSF2T_A_NUM_IND_4A] =
 {
@@ -1969,7 +1985,8 @@ const sDescTreeNode SSF2T_A_UNITS_4A[SSF2T_A_NUM_IND_4A] =
     { L"T-Hawk",      DESC_NODETYPE_TREE, (void*)SSF2T_A_THAWK_COLLECTION,      ARRAYSIZE(SSF2T_A_THAWK_COLLECTION) },
     { L"Vega",        DESC_NODETYPE_TREE, (void*)SSF2T_A_VEGA_COLLECTION,       ARRAYSIZE(SSF2T_A_VEGA_COLLECTION) },
     { L"Zangief",     DESC_NODETYPE_TREE, (void*)SSF2T_A_ZANGIEF_COLLECTION,    ARRAYSIZE(SSF2T_A_ZANGIEF_COLLECTION) },
-    { L"Bonus",       DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_COLLECTION,      ARRAYSIZE(SSF2T_A_BONUS_COLLECTION) },
+    // We special-case handling this, so use a namekey
+    { k_stNameKey_Bonus,       DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_COLLECTION,      ARRAYSIZE(SSF2T_A_BONUS_COLLECTION) },
 };
 
 const sDescTreeNode SSF2T_A_UNITS_8[] =
