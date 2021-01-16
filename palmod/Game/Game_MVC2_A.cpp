@@ -36,6 +36,14 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     strMessage.Format(_T("CGame_MVC2_A::CGame_MVC2_A: Loading ROM...\n"));
     OutputDebugString(strMessage);
 
+    //Set color mode
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
+    SetColorMode(ColMode::COLMODE_12A);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
+
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -54,18 +62,11 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
 
     InitDataBuffer();
 
-    //Set color mode
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-    SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
-    SetColorMode(ColMode::COLMODE_12A);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
-
     //Set game information
     nGameFlag = MVC2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = MVC2_D_NUM_IMG_UNITS;
+    m_prgGameImageSet = MVC2_IMG_UNITS;
 
     m_fGameUsesAlphaValue = true;
 
@@ -77,8 +78,8 @@ CGame_MVC2_A::CGame_MVC2_A(UINT32 nConfirmedROMSize)
     m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);
 
     //Set the MVC2 supp game
-    CurrMVC2 = (CGame_MVC2_D*)this; //bugbug: lazy
-    CurrMVC2_Arcade = this; //bugbug: lazy
+    CurrMVC2 = (CGame_MVC2_D*)this;
+    CurrMVC2_Arcade = this;
     //Prepare it
     prep_supp(false);
 
@@ -187,7 +188,7 @@ sMVC2A_CharacterData MVC2ArcadeCharacterArray[] =
     { _T("indexCPS2_Hulk"), 0x0D, _T("Hulk,"), _T("HULK"), 0x31C9402, 0xa, 0xa },
     { _T("indexCPS2_Venom"), 0x0E, _T("Venom"), _T("VENOM"), 0x32Ed122 , 0, 0},
     { _T("indexCPS2_DrDoom"), 0x0F, _T("Dr. Doom"), _T("DRDOOM"), 0x33ffa42 , 0x9, 0x98 },
-    { _T("indexCPS2_Tron"), 0x10, _T("Tron Bonne"), _T("TRON"), 0x35175c2 , 0x11, 0x15, _T("pairTronBody") },
+    { _T("indexCPS2_Tron"), 0x10, _T("Tron Bonne"), _T("TRON"), 0x35175c2 , 0x11, 0x15, _T("pairNext") },
     { _T("indexCPS2_Jill"), 0x11, _T("Jill Valentine"), _T("JILL"), 0x35f3162 , 0x9, 0xb },
     { _T("indexCPS2_Hayato"), 0x12, _T("Hayato"), _T("HAYATO"), 0x36f0742, 0x14, 0x17, _T("pairHayatoSword") },
     { _T("indexCPS2_Ruby"), 0x13, _T("Ruby Heart"), _T("RUBY"), 0x37f9ce2 , 0xb, 0x10 },
@@ -437,7 +438,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[MVC2_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[MVC2_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -465,7 +466,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
         if (iUnitCtr < MVC2_A_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), MVC2_A_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), MVC2_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
@@ -486,7 +487,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -535,7 +536,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
@@ -554,7 +555,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MVC2_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            _stprintf(CollectionNode->szDesc, _T("Extra"));
+            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -579,7 +580,7 @@ sDescTreeNode* CGame_MVC2_A::InitDescTree()
                     pCurrDef = GetExtraDefForMVC2(nExtraPos + nCurrExtra);
                 }
 
-                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((MVC2_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
@@ -611,7 +612,7 @@ sFileRule CGame_MVC2_A::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("Marvel vs. Capcom 2.dat"));
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("Marvel vs. Capcom 2.dat"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -692,6 +693,31 @@ const sGame_PaletteDataset* CGame_MVC2_A::GetPaletteSet(UINT16 nUnitId, UINT16 n
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)MVC2_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+}
+
+UINT16 CGame_MVC2_A::GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId)
+{
+    // Don't use this for Extra palettes.
+    UINT16 nNodeSize = 0;
+    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
+    const sGame_PaletteDataset* paletteSetToUse = nullptr;
+    int nDistanceFromZero = nPaletteId;
+
+    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
+    {
+        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
+        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
+
+        if (nDistanceFromZero < nNodeCount)
+        {
+            nNodeSize = nNodeCount;
+            break;
+        }
+
+        nDistanceFromZero -= nNodeCount;
+    }
+
+    return nNodeSize;
 }
 
 const sDescTreeNode* CGame_MVC2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
@@ -781,7 +807,7 @@ void CGame_MVC2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
         else
@@ -796,7 +822,7 @@ void CGame_MVC2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForMVC2(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }
@@ -816,20 +842,20 @@ BOOL CGame_MVC2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
 
             if (nUnitCtr == indexMVC2ATeamView)
             {
                 // This is a virtual group.
                 // We just need to be indexed in the rgUnitRedir
-                ZeroMemory(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize);
+                ZeroMemory(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors);
                 continue;
             }
             else
             {
                 LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-                LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
             }
         }
     }
@@ -872,7 +898,7 @@ BOOL CGame_MVC2_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                 }
 
                 SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
                 nTotalPalettesSaved++;
             }
         }
@@ -883,44 +909,6 @@ BOOL CGame_MVC2_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     OutputDebugString(strMsg);
 
     return TRUE;
-}
-
-void CGame_MVC2_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
-{
-    UINT16 nUnitId = srcNode->uUnitId;
-    UINT16 nPalId = srcNode->uPalId;
-    static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
-
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    const UINT8 nTotalPagesNeeded = (UINT8)ceil((double)m_nCurrentPaletteSize / (double)s_nColorsPerPage);
-    const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
-
-    if (!fCanFitWithinCurrentPageLayout)
-    {
-        CString strWarning;
-        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
-        OutputDebugString(strWarning);
-    }
-
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
-
-    if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
-    {
-        CString strPageDescription;
-        INT16 nColorsRemaining = m_nCurrentPaletteSize;
-
-        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
-        {
-            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
-            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
-            nColorsRemaining -= s_nColorsPerPage;
-        }
-    }
-    else
-    {
-        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
-    }
 }
 
 BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
@@ -996,36 +984,91 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     // Fudge some visual offsets here so fatter sprites don't collide.
                     int nXOffsetForSecond = 100;
                     int nYOffsetForSecond = 0;
-                    int nXOffsetForThird = nXOffsetForSecond + 100;
+                    int nXOffsetForThird = nXOffsetForSecond + 80;
                     int nYOffsetForThird = 0;
 
-                    if (nJoinedUnit2 == indexMVC2ASentinel)
+                    if ((nJoinedUnit2 == indexMVC2AStorm) && (nJoinedUnit3 == indexMVC2APsylocke))
                     {
+                        nXOffsetForThird += 20;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2AStorm) && (nJoinedUnit2 == indexMVC2ASentinel) && (nJoinedUnit3 == indexMVC2ACaptainCommando))
+                    {
+                        // Santhrax
                         nXOffsetForSecond += 40;
+                        nXOffsetForThird += 90;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2ACable) && (nJoinedUnit2 == indexMVC2ASentinel) && (nJoinedUnit3 == indexMVC2ACaptainCommando))
+                    {
+                        // scrub
+                        nXOffsetForSecond += 40;
+                        nXOffsetForThird += 90;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2AMagneto) && (nJoinedUnit2 == indexMVC2ACable) && (nJoinedUnit3 == indexMVC2ASentinel))
+                    {
+                        // rowtron
                         nXOffsetForThird += 40;
                     }
-                    else if (nJoinedUnit2 == indexMVC2AStrider)
+                    else if ((nJoinedUnit1 == indexMVC2AStorm) && (nJoinedUnit2 == indexMVC2ASentinel) && (nJoinedUnit3 == indexMVC2ACyclops))
                     {
-                        nXOffsetForSecond += 280;
-                        nXOffsetForThird += 280;
+                        // matrix
+                        nXOffsetForSecond += 40;
+                        nXOffsetForThird += 70;
                     }
-                    else if (nJoinedUnit2 == indexMVC2ADrDoom)
+                    else if ((nJoinedUnit1 == indexMVC2ASpiral) && (nJoinedUnit2 == indexMVC2ACable) && (nJoinedUnit3 == indexMVC2ASentinel))
                     {
-                        nXOffsetForSecond += 80;
-                        nXOffsetForThird += 80;
+                        // duc
+                        nXOffsetForThird += 60;
                     }
+                    else if ((nJoinedUnit1 == indexMVC2ASentinel) && (nJoinedUnit2 == indexMVC2AStrider) && (nJoinedUnit3 == indexMVC2ADrDoom))
+                    {
+                        // clockw0rk
+                        nXOffsetForSecond += 60;
+                        nXOffsetForThird += 40;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2AMagneto) && (nJoinedUnit2 == indexMVC2AIronMan) && (nJoinedUnit3 == indexMVC2ASentinel))
+                    {
+                        // combofiend
+                        nXOffsetForThird += 60;
+                    }
+                    else if ((nJoinedUnit1 == indexMVC2ARogue) && (nJoinedUnit2 == indexMVC2AColossus) && (nJoinedUnit3 == indexMVC2AKen))
+                    {
+                        // vdo
+                        nXOffsetForThird += 40;
+                    }
+                    else
+                    {
+                        if (nJoinedUnit2 == indexMVC2ASentinel)
+                        {
+                            nXOffsetForSecond += 40;
+                            nXOffsetForThird += 40;
+                        }
+                        else if (nJoinedUnit2 == indexMVC2AStrider)
+                        {
+                            nXOffsetForSecond += 280;
+                            nXOffsetForThird += 40;
+                        }
+                        else if (nJoinedUnit2 == indexMVC2ADrDoom)
+                        {
+                            nXOffsetForSecond += 80;
+                            nXOffsetForThird += 80;
+                        }
+                        else if (nJoinedUnit2 == indexMVC2AColossus)
+                        {
+                            nXOffsetForThird += 40;
+                        }
 
-                    if (nJoinedUnit3 == indexMVC2ASentinel)
-                    {
-                        nXOffsetForThird += 40;
-                    }
-                    else if (nJoinedUnit3 == indexMVC2ACaptainCommando)
-                    {
-                        nXOffsetForThird += 150;
-                    }
-                    else if (nJoinedUnit3 == indexMVC2AAkuma)
-                    {
-                        nXOffsetForThird += 180;
+                        if (nJoinedUnit3 == indexMVC2ASentinel)
+                        {
+                            nXOffsetForThird += 40;
+                        }
+                        else if (nJoinedUnit3 == indexMVC2ACaptainCommando)
+                        {
+                            nXOffsetForThird += 50;
+                        }
+                        else if (nJoinedUnit3 == indexMVC2AAkuma)
+                        {
+                            nXOffsetForThird += 20;
+                        }
                     }
 
                     UINT16 nNodeIndex = (NodeGet->uPalId % 6);
@@ -1038,9 +1081,9 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     fShouldUseAlternateLoadLogic = true;
 
                     ClearSetImgTicket(
-                        CreateImgTicket(palette1ToJoin->indexImgToUse, palette1ToJoin->indexOffsetToUse,
-                            CreateImgTicket(palette2ToJoin->indexImgToUse, palette2ToJoin->indexOffsetToUse, 
-                                CreateImgTicket(palette3ToJoin->indexImgToUse, palette3ToJoin->indexOffsetToUse, nullptr, nXOffsetForThird, nYOffsetForThird),
+                        CreateImgTicket(palette1ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex,
+                            CreateImgTicket(palette2ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex,
+                                CreateImgTicket(palette3ToJoin->indexImgToUse, k_nSpecialTeamSpriteImageIndex, nullptr, nXOffsetForThird, nYOffsetForThird),
                                 nXOffsetForSecond, nYOffsetForSecond)
                         )
                     );
@@ -1106,7 +1149,8 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 }
                 else
                 {
-                    if ((NodeGet->uUnitId == indexMVC2ASentinel) && (paletteDataSet->pPalettePairingInfo == &pairHandledInCode))
+                    if (((NodeGet->uUnitId == indexMVC2ASentinel) && (paletteDataSet->pPalettePairingInfo == &pairHandledInCode)) ||
+                        ((NodeGet->uUnitId == indexMVC2ATron) && (paletteDataSet->pPalettePairingInfo == &pairHandledInCode)))
                     {
                         INT8 nPeerPaletteDistance1 = 1;
                         INT8 nPeerPaletteDistance2 = 3;
@@ -1122,7 +1166,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         );
 
                         //Set each palette
-                        sDescNode* JoinedNode[3] = {
+                        sDescNode* JoinedNode[] = {
                             GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance1, -1),
                             GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance2, -1)
@@ -1136,6 +1180,30 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
                         SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance1, nSrcAmt, nNodeIncrement);
                         SetSourcePal(2, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance2, nSrcAmt, nNodeIncrement);
+                    }
+                    else if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                    {
+                        const UINT16 nStageCount = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
+
+                        fShouldUseAlternateLoadLogic = true;
+                        sImgTicket* pImgArray = nullptr;
+
+                        for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                        {
+                            // The palettes get added forward, but the image tickets need to be generated in reverse order
+                            const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex));
+                            if (paletteDataSetToJoin)
+                            {
+                                pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
+
+                                //Set each palette
+                                sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                                CreateDefPal(JoinedNode, nStageIndex);
+                                SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                            }
+                        }
+
+                        ClearSetImgTicket(pImgArray);
                     }
                     else
                     {

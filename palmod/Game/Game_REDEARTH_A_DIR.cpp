@@ -29,7 +29,7 @@ sFileRule CGame_RedEarth_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("%s%u"), RedEarth_Arcade_ROM_Base, (nUnitId & 0x00FF));
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u"), RedEarth_Arcade_ROM_Base, (nUnitId & 0x00FF));
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
@@ -138,25 +138,25 @@ BOOL CGame_RedEarth_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     OutputDebugString(strInfo);
 #endif
 
-                    if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSize) > c_nRedEarthSIMMLength)
+                    if ((m_nCurrentPaletteROMLocation + m_nCurrentPaletteSizeInColors) > c_nRedEarthSIMMLength)
                     {
                         if (!fShownCrossSIMMErrorOnce)
                         {
                             fShownCrossSIMMErrorOnce = true;
-                            strInfo.Format(_T("Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM set boundaries.  This is not supported. Please remove that."), nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSize * 2));
+                            strInfo.Format(_T("Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM set boundaries.  This is not supported. Please remove that."), nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * 2));
                             MessageBox(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_ICONERROR);
                         }
 
                         fSuccess = FALSE;
                     }
 
-                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-                    memset(m_pppDataBuffer[nUnitCtr][nPalCtr], NULL, sizeof(UINT16) * m_nCurrentPaletteSize);
+                    m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
+                    memset(m_pppDataBuffer[nUnitCtr][nPalCtr], NULL, sizeof(UINT16) * m_nCurrentPaletteSizeInColors);
 
                     LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     FilePeer.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-                    for (UINT16 nWordsRead = 0; nWordsRead < m_nCurrentPaletteSize; nWordsRead++)
+                    for (UINT16 nWordsRead = 0; nWordsRead < m_nCurrentPaletteSizeInColors; nWordsRead++)
                     {
                         BYTE high, low;
                         
@@ -198,7 +198,7 @@ inline UINT8 CGame_RedEarth_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
 BOOL CGame_RedEarth_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 {
     CString strInfo;
-    strInfo.Format(_T("CGame_RedEarth_A_DIR::SaveFile: Preparing to save data for RedEarth ROM setu\n"));
+    strInfo.Format(_T("CGame_RedEarth_A_DIR::SaveFile: Preparing to save data for RedEarth ROM set\n"));
     OutputDebugString(strInfo);
 
     // OK, so the old 31 ROM in the SIMM redump is interleaved.
@@ -258,7 +258,7 @@ BOOL CGame_RedEarth_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
                     pSIMM1->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
                     pSIMM2->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-                    for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSize; nWordsWritten++)
+                    for (UINT16 nWordsWritten = 0; nWordsWritten < m_nCurrentPaletteSizeInColors; nWordsWritten++)
                     {
                         BYTE high = (m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF00) >> 8;
                         BYTE low = m_pppDataBuffer[nUnitCtr][nPalCtr][nWordsWritten] & 0xFF;
