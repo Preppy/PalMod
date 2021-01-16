@@ -1390,7 +1390,7 @@ const sGame_PaletteDataset SVCPLUSA_A_ZERO_EFFECTS_PALETTES[] =
     { L"Effect 0: Charging", 0x396538, 0x396558, indexSVCSprites_Zero, 0x02 },
     { L"Effect 1", 0x396558, 0x396578 },
     { L"Effect 2: Spiral Shot", 0x396578, 0x396598, indexSVCSprites_Zero, 0x03 },
-    { L"Effect 3: Charge Shot/Sword Impacts", 0x396598, 0x3965b8 },
+    { L"Effect 3: Charge Shot/Sword Impacts", 0x396598, 0x3965b8, indexSVCSprites_Zero, 0x0d },
     { L"Effect 4", 0x3965b8, 0x3965d8 },
     { L"Effect 5", 0x3965d8, 0x3965f8 },
     { L"Shared: Red Arremer Transform 2/2", 0x3965f8, 0x396618, indexSVCSprites_Zero, 12 },
