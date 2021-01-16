@@ -290,6 +290,15 @@ void CPalTool::EndSetPal()
     nPrevPalAmt = nCurrPalAmt;
 }
 
+void CPalTool::UpdateAllPalCtrls()
+{
+    for (UINT8 nCurPalSet = 0; nCurPalSet < nCurrPalAmt; nCurPalSet++)
+    {
+        GetPalCtrl(nCurPalSet)->UpdateIndexAll();
+        GetPalCtrl(nCurPalSet)->UpdateCtrl();
+    }
+}
+
 void CPalTool::UpdateCtrl()
 {
     DrawText();
@@ -444,7 +453,7 @@ BOOL CPalTool::OnEraseBkgnd(CDC* pDC)
 {
     // TODO: Add your message handler code here and/or call default
 
-    return TRUE;
+    return FALSE;
 
     //CWnd::OnEraseBkgnd(pDC);    
 }

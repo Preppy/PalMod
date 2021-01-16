@@ -12,8 +12,6 @@ public:
     static int rgExtraCountVisibleOnly[SSF2T_GBA_NUMUNIT + 1];
     static int rgExtraLoc[SSF2T_GBA_NUMUNIT + 1];
     
-    void InitDataBuffer() override;
-    void ClearDataBuffer() override;
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
@@ -52,10 +50,7 @@ public:
     UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
-    BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) override;
 
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
 

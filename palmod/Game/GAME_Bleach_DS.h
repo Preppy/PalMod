@@ -9,7 +9,7 @@ constexpr auto EXTRA_FILENAME_BLEACH_DS = _T("BleachDSE.txt");
 class CGame_BLEACH_DS : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForNEWGAME;
+    static UINT32 m_nTotalPaletteCountForBleach;
 
     static int rgExtraCountAll[BLEACH_DS_NUMUNIT + 1];
     static int rgExtraLoc[BLEACH_DS_NUMUNIT + 1];
@@ -47,9 +47,9 @@ public:
 
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
+
+    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;
 
     static stExtraDef* BLEACH_DS_EXTRA_CUSTOM;
 };

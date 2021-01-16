@@ -32,6 +32,11 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 
+private:
+    void ExportToIndexedPNG(CString save_str, CString output_str, CString output_ext);
+    void ExportToRAW(CString save_str, CString output_str, CString output_ext, LPCWSTR pszSuggestedFileName);
+    void ExportToCImageType(CString output_str, GUID img_format, DWORD dwExportFlags);
+
 public:
     BOOL bDlgInit = FALSE;
 
@@ -50,7 +55,6 @@ public:
     int m_pal = 0;
     int m_zoomSelIndex = 0;
     int border_sz = 0;
-    int outline_sz = 0;
 
     const int m_nZoomSelOptionsMin = 0;
     const int m_nZoomSelOptionsMax = 3;

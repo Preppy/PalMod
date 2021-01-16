@@ -1,17 +1,32 @@
 #include "StdAfx.h"
 #include "GameClass.h"
 #include "..\PalMod.h"
+#include "..\regproc.h"
 
 BOOL CGameClass::bPostSetPalProc = TRUE;
 BOOL CGameClass::m_fAllowTransparency = FALSE;
+UINT8 CGameClass::m_nSizeOfColorsInBytes = 2;
 AlphaMode CGameClass::CurrAlphaMode = AlphaMode::Unknown;
 
 #define GAMECLASS_DBG 0
 
+UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag)
+{
+    switch (uGameFlag)
+    {
+    case DUMMY_ARGB7888:
+        return 4;
+    default:
+        return 2;
+    }
+}
+
 CGameClass::CGameClass(void)
     :
-    ConvPal(NULL),
-    ConvCol(NULL)
+    ConvPal16(nullptr),
+    ConvCol16(nullptr),
+    ConvPal32(nullptr),
+    ConvCol32(nullptr)
 {
 }
 
@@ -35,13 +50,25 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
     {
         switch (CurrColMode)
         {
-        case ColMode::COLMODE_GBA:
+        case ColMode::COLMODE_9:
+            return k_nRGBPlaneAmtForRGB333;
         case ColMode::COLMODE_12A:
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneAmtForRGB444;
+        case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_15:
         case ColMode::COLMODE_15ALT:
+        case ColMode::COLMODE_SHARPRGB:
             return k_nRGBPlaneAmtForRGB555;
+        case ColMode::COLMODE_ARGB7888:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneAmtForRGB777;
+            }
+            else
+            {
+                return k_nRGBPlaneAmtForRGB888;
+            }
         default:
             return 0;
         }
@@ -59,13 +86,25 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
     {
         switch (CurrColMode)
         {
-        case ColMode::COLMODE_GBA:
+        case ColMode::COLMODE_9:
+            return k_nRGBPlaneMulForRGB333;
         case ColMode::COLMODE_12A:
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneMulForRGB444;
+        case ColMode::COLMODE_GBA:
         case ColMode::COLMODE_15:
         case ColMode::COLMODE_15ALT:
+        case ColMode::COLMODE_SHARPRGB:
             return k_nRGBPlaneMulForRGB555;
+        case ColMode::COLMODE_ARGB7888:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneMulForRGB777;
+            }
+            else
+            {
+                return k_nRGBPlaneMulForRGB888;
+            }
         default:
             return 0;
         }
@@ -85,11 +124,13 @@ void CGameClass::ClearSrcPal()
     memset(nSrcPalInc, -1, sizeof(int) * MAX_PALETTES_DISPLAYABLE);
 }
 
+// For a given palette ID (such as palette 4 in a nInc long palette set), verify if that paltte ID is an
+// iteration of nStart
 BOOL CGameClass::SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt, int nMax)
 {
     int nOffset = nPalId - nStart;
 
-    if ((nPalId >= nStart) && ((nOffset) % nInc < nAmt))
+    if ((nPalId >= nStart) && (((nOffset) % nInc) < nAmt))
     {
         *nVarSet = ((nOffset) / nInc);
 
@@ -147,6 +188,9 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
         // See also MEDIASUBTYPE_555
         switch (NewMode)
         {
+        case ColMode::COLMODE_9:
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMOD_9 (RGB333)"));
+            break;
         case ColMode::COLMODE_GBA:
             strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMOD_GBA (ARGB555)"));
             break;
@@ -160,7 +204,13 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
             strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_15ALT (RGB555)"));
             break;
         case ColMode::COLMODE_NEOGEO:
-            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_NEOGEO (RGB666)"));
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_NEOGEO (RGB555)"));
+            break;
+        case ColMode::COLMODE_SHARPRGB:
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_SHARPRGB (RGB555)"));
+            break;
+        case ColMode::COLMODE_ARGB7888:
+            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_ARGB7888 (ARGB7888)"));
             break;
         default:
             strDebugInfo.Format(_T("CGameClass::SetColorMode : unsupported color mode.\n"));
@@ -173,29 +223,76 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
 
     switch (NewMode)
     {
+    case ColMode::COLMODE_9:
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_9_32;
+        ConvCol16 = &CGameClass::CONV_32_9;
+        return TRUE;
     case ColMode::COLMODE_GBA:
-        ConvPal = &CGameClass::CONV_GBA_32;
-        ConvCol = &CGameClass::CONV_32_GBA;
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_GBA_32;
+        ConvCol16 = &CGameClass::CONV_32_GBA;
         return TRUE;
     case ColMode::COLMODE_12A:
-        ConvPal = &CGameClass::CONV_12A_32;
-        ConvCol = &CGameClass::CONV_32_12A;
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_12A_32;
+        ConvCol16 = &CGameClass::CONV_32_12A;
         return TRUE;
     case ColMode::COLMODE_15:
-        ConvPal = &CGameClass::CONV_15_32;
-        ConvCol = &CGameClass::CONV_32_15;
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_15_32;
+        ConvCol16 = &CGameClass::CONV_32_15;
         return TRUE;
     case ColMode::COLMODE_15ALT:
-        ConvPal = &CGameClass::CONV_15ALT_32;
-        ConvCol = &CGameClass::CONV_32_15ALT;
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_15ALT_32;
+        ConvCol16 = &CGameClass::CONV_32_15ALT;
         return TRUE;
     case ColMode::COLMODE_NEOGEO:
-        ConvPal = &CGameClass::CONV_NEOGEO_32;
-        ConvCol = &CGameClass::CONV_32_NEOGEO;
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_NEOGEO_32;
+        ConvCol16 = &CGameClass::CONV_32_NEOGEO;
+        return TRUE;
+    case ColMode::COLMODE_SHARPRGB:
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_SHARPRGB_32;
+        ConvCol16 = &CGameClass::CONV_32_SHARPRGB;
+        return TRUE;
+    case ColMode::COLMODE_ARGB7888:
+        m_nSizeOfColorsInBytes = 4;
+        ConvPal32 = &CGameClass::CONV_ARGB7888_32;
+        ConvCol32 = &CGameClass::CONV_32_ARGB7888;
         return TRUE;
     default:
         return FALSE;
     }
+}
+
+UINT32 CGameClass::CONV_9_32(UINT16 inCol)
+{
+    // xxxxBBBx GGGxRRRx, where x is 0
+    // conversion code mostly by sega16
+    // see also https://segaretro.org/Sega_Mega_Drive/Palettes_and_CRAM
+    UINT8* palP = (UINT8*)&inCol;
+    UINT8 b = (*palP++ & 14) * 18;
+    UINT8 g = ((*palP & 240) >> 5) * 36;
+    UINT8 r = (*palP & 14) * 18;
+
+    return (0xFF << 24) | (b << 16) | (g << 8) | r;
+}
+
+UINT16 CGameClass::CONV_32_9(UINT32 inCol)
+{
+    UINT16 auxb = ((inCol & 0x00FF0000) >> 16);
+    UINT16 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT16 auxr = ((inCol & 0x000000FF));
+
+    auxr = (auxr + 18) / 36;
+    auxg = (auxg + 18) / 36;
+    auxb = (auxb + 18) / 36;
+    
+    // emit as GRxB
+    return (auxb << 1) | (auxr << 9) | (auxg << 13);
 }
 
 UINT32 CGameClass::CONV_GBA_32(UINT16 inCol)
@@ -516,9 +613,74 @@ UINT16 CGameClass::CONV_32_NEOGEO(UINT32 inCol)
 
     UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
 
-    //CString strColor;
-    //strColor.Format(_T("BACK: neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n"), outColor, inCol, red, green, blue);
-    //OutputDebugString(strColor);
+    return outColor;
+}
+
+UINT8 SharpRGBColorVals[] = {
+    0x00, 0x2e, 0x34, 0x3a, 0x40, 0x44, 0x48, 0x4e,
+    0x54, 0x5a, 0x60, 0x66, 0x6c, 0x72, 0x78, 0x7e,
+    0x84, 0x8a, 0x90, 0x98, 0xa0, 0xa8, 0xb0, 0xb8,
+    0xc0, 0xca, 0xd4, 0xde, 0xe8, 0xf2, 0xfc, 0xff
+};
+
+UINT8 Convert32ToSharpRGB(UINT8 nColor)
+{
+    UINT8 nColorIndex = 0;
+
+    for (; nColorIndex < ARRAYSIZE(SharpRGBColorVals); nColorIndex++)
+    {
+        if (SharpRGBColorVals[nColorIndex] >= nColor)
+        {
+            break;
+        }
+    }
+
+    return nColorIndex;
+}
+
+UINT32 CGameClass::CONV_SHARPRGB_32(UINT16 nColorData)
+{
+    // raw view
+    // RRRR GGGG BBBB RGB#
+    // 0xf008 is pure red
+    // 0x0f04 is pure green
+    // 0x00f2 pure blue
+    // 0x000e <-> 2e2e2e
+    UINT8 bm = (nColorData >> 0xb) & 0x1e;
+    UINT8 b1 = (nColorData >> 0x3) & 0x01;
+    UINT8 bluf = SharpRGBColorVals[bm + b1];
+
+    UINT8 gm = (nColorData >> 0x7) & 0x1e;
+    UINT8 g1 = (nColorData >> 0x2) & 0x01;
+    UINT8 grnf = SharpRGBColorVals[gm + g1];
+
+    UINT8 rm = (nColorData >> 0x3) & 0x1e;
+    UINT8 r1 = (nColorData >> 0x1) & 0x01;
+    UINT8 redf = SharpRGBColorVals[rm + r1];
+
+    UINT32 color = (redf << 16) | (grnf << 8) | (bluf) | 0xff000000;
+
+    return color;
+}
+
+UINT16 CGameClass::CONV_32_SHARPRGB(UINT32 inCol)
+{
+    UINT8 auxr = ((inCol & 0x00FF0000) >> 16);
+    UINT8 auxg = ((inCol & 0x0000FF00) >> 8);
+    UINT8 auxb = ((inCol & 0x000000FF));
+
+    UINT8 red =   Convert32ToSharpRGB(auxr);
+    UINT8 green = Convert32ToSharpRGB(auxg);
+    UINT8 blue =  Convert32ToSharpRGB(auxb);
+
+    UINT16 red1 =       (red   & 0x01) << 0x1;
+    UINT16 redMain =    (red   & 0x1e) << 0x3;
+    UINT16 green1 =     (green & 0x01) << 0x2;
+    UINT16 greenMain =  (green & 0x1e) << 0x7;
+    UINT16 blue1 =      (blue  & 0x01) << 0x3;
+    UINT16 blueMain =   (blue  & 0x1e) << 0xb;
+
+    UINT16 outColor = (red1 | redMain | green1 | greenMain | blue1 | blueMain);
 
     return outColor;
 }
@@ -529,6 +691,50 @@ UINT16 CGameClass::SWAP_16(UINT16 palv)
     aux |= palv << 8;
     aux |= palv >> 8;
     return aux;
+}
+
+UINT32 CGameClass::CONV_ARGB7888_32(UINT32 inCol)
+{
+    UINT32 auxb = GetBValue(inCol);
+    UINT32 auxg = GetGValue(inCol);
+    UINT32 auxr = GetRValue(inCol);
+    UINT32 auxa = min(GetAValue(inCol) * 2, 0xFF);
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xFF;
+    }
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT32 CGameClass::CONV_32_ARGB7888(UINT32 inCol)
+{
+    UINT32 auxa = (inCol & 0xFF000000) >> 24;
+    UINT32 auxb = (inCol & 0x00FF0000) >> 16;
+    UINT32 auxg = (inCol & 0x0000FF00) >> 8;
+    UINT32 auxr = (inCol & 0x000000FF);
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0x80;
+    }
+    else
+    {
+        auxa = (UINT32)floor((auxa + 1) / 2);
+    }
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
 }
 
 UINT32 CGameClass::GetLowestExpectedPaletteLocation()
@@ -642,18 +848,31 @@ COLORREF* CGameClass::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
 
-    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSize];
+    if (m_uOneTimeWINEViewportSizeOverride != 0)
+    {
+        m_nCurrentPaletteSizeInColors = m_uOneTimeWINEViewportSizeOverride;
+        m_uOneTimeWINEViewportSizeOverride = 0;
+    }
+
+    COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSizeInColors];
 
     if (createPalOptions.nStartingPosition != 0)
     {
         NewPal[0] = 0x0;
     }
 
-    for (UINT16 i = 0; i < (m_nCurrentPaletteSize - createPalOptions.nStartingPosition); i++)
+    for (UINT16 i = 0; i < (m_nCurrentPaletteSizeInColors - createPalOptions.nStartingPosition); i++)
     {
         const UINT16 nCurrentPos = i + createPalOptions.nStartingPosition;
 
-        NewPal[nCurrentPos] = ConvPal(m_pppDataBuffer[nUnitId][nPalId][i]);
+        if (GameIsUsing16BitColor())
+        {
+            NewPal[nCurrentPos] = ConvPal16(m_pppDataBuffer[nUnitId][nPalId][i]);
+        }
+        else
+        {
+            NewPal[nCurrentPos] = ConvPal32(m_pppDataBuffer32[nUnitId][nPalId][i]);
+        }
     }
 
     return NewPal;
@@ -765,7 +984,7 @@ BOOL CGameClass::CreateHybridPal(int nIndexAmt, int nPalSz, UINT16* pData, int n
 
         for (int nPICtr = 0; nPICtr < nNewPalSzCpy; nPICtr++)
         {
-            (*pNewPal)[nPICtr] = ConvPal(pMulRg[nPICtr]);
+            (*pNewPal)[nPICtr] = ConvPal16(pMulRg[nPICtr]);
         }
 
         *nNewPalSz = nNewPalSzCpy;
@@ -807,7 +1026,15 @@ void CGameClass::UpdatePalData()
                     }
 
                     const UINT16 iCurrentArrayOffset = nPICtr + nCurrentTotalWrites;
-                    m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - createPalOptions.nStartingPosition] = ConvCol(crSrc[iCurrentArrayOffset]);
+
+                    if (GameIsUsing16BitColor())
+                    {
+                        m_pppDataBuffer[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - createPalOptions.nStartingPosition] = ConvCol16(crSrc[iCurrentArrayOffset]);
+                    }
+                    else
+                    {
+                        m_pppDataBuffer32[srcDef->uUnitId][srcDef->uPalId][iCurrentArrayOffset - createPalOptions.nStartingPosition] = ConvCol32(crSrc[iCurrentArrayOffset]);
+                    }
                 }
 
                 nCurrentTotalWrites += nMaxSafeColorsToWrite;
@@ -816,7 +1043,7 @@ void CGameClass::UpdatePalData()
 
             MarkPaletteDirty(srcDef->uUnitId, srcDef->uPalId);
             srcDef->bChanged = FALSE;
-            rgFileChanged[0] = TRUE;
+            rgFileChanged[srcDef->uUnitId] = TRUE;
 
             if (bPostSetPalProc)
             {
@@ -826,10 +1053,73 @@ void CGameClass::UpdatePalData()
     }
 }
 
+void CGameClass::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
+{
+    UINT16 nUnitId = srcNode->uUnitId;
+    UINT16 nPalId = srcNode->uPalId;
+    static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
+
+    LoadSpecificPaletteData(nUnitId, nPalId);
+
+    // temporary(?) workaround for WINE problem
+    // Override the palette size here once and once in CreatePal so that we get one maximum sized palette
+    // for the first display, which seems to work around a display issue in WINE
+    static bool s_fHaveCheckedForWINEOverride = false;
+
+    if (!s_fHaveCheckedForWINEOverride)
+    {
+        s_fHaveCheckedForWINEOverride = true;
+        if (CRegProc::UserIsOnWINE())
+        {
+            MessageBox(g_appHWnd, L"You're using WINE.  WINE has visual refresh bugs.  PalMod tries to hack around them: please switch AWAY from this palette and then back: this is a "
+                                    L"virtual palette attempting to work around parts of those bugs.  Thanks!", GetHost()->GetAppName(), MB_ICONINFORMATION);
+            m_uOneTimeWINEViewportSizeOverride = s_nColorsPerPage;
+            m_nCurrentPaletteSizeInColors = m_uOneTimeWINEViewportSizeOverride;
+        }
+    }
+
+    const UINT8 nTotalPagesNeeded = (UINT8)ceil((double)m_nCurrentPaletteSizeInColors / (double)s_nColorsPerPage);
+    const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
+
+    if (!fCanFitWithinCurrentPageLayout)
+    {
+        CString strWarning;
+        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
+        OutputDebugString(strWarning);
+    }
+
+    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSizeInColors, nUnitId, nPalId);
+
+    if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSizeInColors > s_nColorsPerPage))
+    {
+        CString strPageDescription;
+        INT16 nColorsRemaining = m_nCurrentPaletteSizeInColors;
+
+        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSizeInColors; nCurrentPage++)
+        {
+            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
+            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
+            nColorsRemaining -= s_nColorsPerPage;
+        }
+    }
+    else
+    {
+        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSizeInColors);
+    }
+}
+
 void CGameClass::InitDataBuffer()
 {
-    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    if (GameIsUsing16BitColor())
+    {
+        m_pppDataBuffer = new UINT16 * *[nUnitAmt];
+        memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+    }
+    else
+    {
+        m_pppDataBuffer32 = new UINT32 * *[nUnitAmt];
+        memset(m_pppDataBuffer32, NULL, sizeof(UINT32**) * nUnitAmt);
+    }
 }
 
 void CGameClass::ClearDataBuffer()
@@ -853,6 +1143,44 @@ void CGameClass::ClearDataBuffer()
 
         safe_delete_array(m_pppDataBuffer);
     }
+
+    if (m_pppDataBuffer32)
+    {
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        {
+            if (m_pppDataBuffer32[nUnitCtr])
+            {
+                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                {
+                    safe_delete_array(m_pppDataBuffer32[nUnitCtr][nPalCtr]);
+                }
+
+                safe_delete_array(m_pppDataBuffer32[nUnitCtr]);
+            }
+        }
+
+        safe_delete_array(m_pppDataBuffer32);
+    }
+}
+
+void CGameClass::ResetFileChangeTrackingArray()
+{
+    safe_delete_array(rgFileChanged);
+    PrepChangeTrackingArray();
+}
+
+BOOL CGameClass::WasGameFileChangedInSession()
+{
+    BOOL fSomethingChanged = FALSE;
+
+    for (UINT16 nPos = 0; rgUnitRedir[nPos] != INVALID_UNIT_VALUE; nPos++)
+    {
+        fSomethingChanged = fSomethingChanged || rgFileChanged[rgUnitRedir[nPos]];
+    }
+
+    return fSomethingChanged;
 }
 
 void CGameClass::PrepChangeTrackingArray()
@@ -860,8 +1188,8 @@ void CGameClass::PrepChangeTrackingArray()
     if (!rgFileChanged)
     {
         const UINT16 rgCountChangableUnits = max(nUnitAmt, nFileAmt) + 1;
-        rgFileChanged = new UINT16[rgCountChangableUnits];
-        memset(rgFileChanged, NULL, sizeof(UINT16) * rgCountChangableUnits);
+        rgFileChanged = new BOOL[rgCountChangableUnits];
+        memset(rgFileChanged, FALSE, sizeof(BOOL) * rgCountChangableUnits);
     }
 }
 
@@ -892,6 +1220,64 @@ bool CGameClass::IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID)
     return it != m_vDirtyPaletteList.end();
 }
 
+BOOL CGameClass::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
+{
+    if (GameIsUsing16BitColor() && m_pppDataBuffer)
+    {
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        {
+            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+            m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
+
+            // Anything using the base implementation is presorted
+            rgUnitRedir[nUnitCtr] = nUnitCtr;
+
+            for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            {
+                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
+
+                LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+            }
+        }
+    }
+    else if (!GameIsUsing16BitColor() && m_pppDataBuffer32)
+    {
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        {
+            UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+            m_pppDataBuffer32[nUnitCtr] = new UINT32 * [nPalAmt];
+
+            // Anything using the base implementation is presorted
+            rgUnitRedir[nUnitCtr] = nUnitCtr;
+
+            for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+            {
+                LoadSpecificPaletteData(nUnitCtr, nPalCtr);
+
+                m_pppDataBuffer32[nUnitCtr][nPalCtr] = new UINT32[m_nCurrentPaletteSizeInColors];
+
+                LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
+                LoadedFile->Read(m_pppDataBuffer32[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+            }
+        }
+    }
+    else
+    {
+        MessageBox(g_appHWnd, L"Error: this game is using the wrong color size.  This needs to be fixed for the game to work.", GetHost()->GetAppName(), MB_ICONERROR);
+        return FALSE;
+    }
+    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
+
+    CheckForErrorsInTables();
+
+    return TRUE;
+}
+
 BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 {
     UINT32 nTotalPalettesSaved = 0;
@@ -910,13 +1296,20 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                 if (!fShownOnce && (m_nCurrentPaletteROMLocation < GetLowestExpectedPaletteLocation())) // This magic number is the lowest known ROM location.
                 {
                     CString strMsg;
-                    strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
+                    strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
                     MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                     fShownOnce = true;
                 }
 
                 SaveFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-                SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                if (GameIsUsing16BitColor())
+                {
+                    SaveFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                }
+                else
+                {
+                    SaveFile->Write(m_pppDataBuffer32[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                }
                 nTotalPalettesSaved++;
             }
         }
@@ -929,12 +1322,17 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     return TRUE;
 }
 
-UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
+bool CGameClass::UserWantsAllPalettesInPatch()
 {
     CString strOptions;
     strOptions.Format(_T("Do you want this to be a complete game patch of all possible palettes?  They are much larger and are usually very wasteful.  Select Yes for that, or No to just include the %u palette%s you changed in this current session."), m_vDirtyPaletteList.size(), (m_vDirtyPaletteList.size() > 1) ? _T("s") : _T(""));
-    
-    const bool fUserWantsAllChanges = (MessageBox(g_appHWnd, strOptions, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON2) == IDYES);
+
+    return (MessageBox(g_appHWnd, strOptions, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON2) == IDYES);
+}
+
+UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
+{
+    const bool fUserWantsAllChanges = UserWantsAllPalettesInPatch();
 
     UINT32 nTotalPalettesSaved = 0;
     LPCSTR szIPSOpener = "PATCH";
@@ -959,13 +1357,20 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
                 PatchFile->Write(&b3, 1);
 
                 // Size
-                b1 = ((m_nCurrentPaletteSize * 2) & 0xFF00) >> 8;
-                b2 = (m_nCurrentPaletteSize * 2) & 0xFF;
+                b1 = ((m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes) & 0xFF00) >> 8;
+                b2 = (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes) & 0xFF;
                 PatchFile->Write(&b1, 1);
                 PatchFile->Write(&b2, 1);
 
                 // Actual data
-                PatchFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+                if (GameIsUsing16BitColor())
+                {
+                    PatchFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                }
+                else
+                {
+                    PatchFile->Write(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
+                }
 
                 nTotalPalettesSaved++;
             }

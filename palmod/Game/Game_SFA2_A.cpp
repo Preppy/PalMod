@@ -81,12 +81,12 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
 {
     ClearDataBuffer();
 
-    const UINT32 nSafeCountFor07_Rev1 = 875;
-    const UINT32 nSafeCountFor07_Rev2 = 1002;
-    const UINT32 nSafeCountFor07_SFZ2A = 1288;
-    const UINT32 nSafeCountFor08_Rev1 = 233;
-    const UINT32 nSafeCountFor08_Rev2 = 277;
-    const UINT32 nSafeCountFor08_SFZ2A = 324;
+    const UINT32 nSafeCountFor07_Rev1 = 933;
+    const UINT32 nSafeCountFor07_Rev2 = 1055;
+    const UINT32 nSafeCountFor07_SFZ2A = 1342;
+    const UINT32 nSafeCountFor08_Rev1 = 255;
+    const UINT32 nSafeCountFor08_Rev2 = 299;
+    const UINT32 nSafeCountFor08_SFZ2A = 345;
 
     if (UsePaletteSetForCharacters())
     {
@@ -140,7 +140,7 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
     }
 
     const UINT32 nLowestPaletteIn07 = 0x2C000;
-    const UINT32 nLowestPaletteIn08 = 0x65c0;
+    const UINT32 nLowestPaletteIn08 = 0x1260;
 
     m_nLowestKnownPaletteRomLocation = UsePaletteSetForCharacters() ? nLowestPaletteIn07 : nLowestPaletteIn08;
 
@@ -157,6 +157,13 @@ void CGame_SFA2_A::ResetActiveSFA2Revision()
 
 CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
 {
+    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_12A);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
+
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -172,17 +179,11 @@ CGame_SFA2_A::CGame_SFA2_A(UINT32 nConfirmedROMSize, int nSFA2RomToLoad)
 
     ResetActiveSFA2Revision();
 
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_12A);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
-
     //Set game information
     nGameFlag = SFA2_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = SFA2_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = SFA2_A_IMG_UNITS;
 
     nFileAmt = 1;
 
@@ -822,7 +823,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[SFA2_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[SFA2_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -849,7 +850,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
         if (iUnitCtr != nExtraUnitLocation)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), GetCurrentUnitSet()[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), GetCurrentUnitSet()[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
@@ -870,7 +871,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -889,7 +890,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _stprintf(ChildNode->szDesc, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
@@ -918,7 +919,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
@@ -936,7 +937,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
             int nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(nExtraUnitLocation > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            _stprintf(CollectionNode->szDesc, _T("Extra"));
+            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -961,7 +962,7 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
                     pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
                 }
 
-                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((nExtraUnitLocation > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
@@ -1312,7 +1313,7 @@ sFileRule CGame_SFA2_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 7) ? _T("sz2.07") : _T("sz2.08"));
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, (nUnitId == 7) ? _T("sz2.07") : _T("sz2.08"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -1552,7 +1553,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 {
                     ; // no-op: this is already handled
                 }
-                else if ((m_nCurrentPaletteROMLocation < 0x72a00) || // Handle up to Chun-Li OG (SF2 Costume)
+                else if ((m_nCurrentPaletteROMLocation < 0x72DC0) || // Handle up to Gen (Crane Stance)
                         (((SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWDhalsim) || (SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_WWZangief)) &&
                             (m_nCurrentPaletteROMLocation < 0x73900))) // Second check handles the inserted WW characters
                 {
@@ -1560,6 +1561,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 }
                 else if (SFA2_A_UNITSORT_07_0306[nUnitId] == index_SFA2_Bonus07)
                 {
+                    // this is handling stages right now
                     m_nCurrentPaletteROMLocation -= 0x180;
                 }
                 else
@@ -1572,14 +1574,14 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 break;
             case SFA2_SupportedROMRevision::SFZ2A_960826: // 0x1bbe0: ryu
                 if (((SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWRyu) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWKen) ||
-                    (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWChunLi) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWSagat) ||
-                    (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWMBison) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_EvilRyu) ||
-                    (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_AltSakura)) &&
+                     (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWChunLi) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWSagat) ||
+                     (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_WWMBison) || (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_EvilRyu) ||
+                     (SFZ2A_A_UNITSORT_07_0826[nUnitId] == index_SFA2_AltSakura)) &&
                     (m_nCurrentPaletteROMLocation < 0x73900))
                 {
                     // use real locations for SFZ2A unique characters
                 }
-                else if (m_nCurrentPaletteROMLocation < 0x72a00) // Handle up to Chun-Li OG (SF2 Costume)
+                else if (m_nCurrentPaletteROMLocation < 0x72DC0) // Handle up to Gen (Crane Stance)
                 {
                     // This handles all the character palettes
                     m_nCurrentPaletteROMLocation -= 0xDDBC;
@@ -1629,7 +1631,8 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 // 0x11ce4: dan
                 // 0x12144: shin akuma
                 // 0x12504: evil ryu
-                if ((nUnitId > 0) && (nUnitId < 27))
+                if (((nUnitId > 0) && (nUnitId < 27)) ||
+                    (nUnitId == 0x25))                    
                 {
                     if (m_nCurrentPaletteROMLocation < 0x1b780)
                     {
@@ -1648,7 +1651,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             };
         }
 
-        m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
     }
     else // SFA2_A_EXTRALOC
@@ -1657,7 +1660,7 @@ void CGame_SFA2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
 }
@@ -1811,11 +1814,11 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
         {
             LoadSpecificPaletteData(nUnitCtr, nPalCtr);
 
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
+            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
 
             LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
-            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
+            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSizeInColors * 2);
         }
     }
 
@@ -1824,44 +1827,6 @@ BOOL CGame_SFA2_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     CheckForErrorsInTables();
 
     return TRUE;
-}
-
-void CGame_SFA2_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
-{
-    UINT16 nUnitId = srcNode->uUnitId;
-    UINT16 nPalId = srcNode->uPalId;
-    static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
-
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    const UINT8 nTotalPagesNeeded = (UINT8)ceil((double)m_nCurrentPaletteSize / (double)s_nColorsPerPage);
-    const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
-
-    if (!fCanFitWithinCurrentPageLayout)
-    {
-        CString strWarning;
-        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
-        OutputDebugString(strWarning);
-    }
-
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
-
-    if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
-    {
-        CString strPageDescription;
-        INT16 nColorsRemaining = m_nCurrentPaletteSize;
-
-        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
-        {
-            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
-            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
-            nColorsRemaining -= s_nColorsPerPage;
-        }
-    }
-    else
-    {
-        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
-    }
 }
 
 BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)

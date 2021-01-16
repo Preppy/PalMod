@@ -38,6 +38,13 @@ void CGame_MSHVSF_A::InitializeStatics()
 
 CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
 {
+    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_12A);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
+
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -64,17 +71,11 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
 
     InitDataBuffer();
 
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_12A);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
-
     //Set game information
     nGameFlag = MSHVSF_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = MSHVSF_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = MSHVSF_A_IMG_UNITS;
 
     nFileAmt = 1;
 
@@ -273,7 +274,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[MSHVSF_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[MSHVSF_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -303,7 +304,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
         if (UsePaletteSetForCharacters() ? (iUnitCtr < MSHVSF_A_EXTRALOC_6A) : (iUnitCtr < MSHVSF_A_EXTRALOC_7B))
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), UsePaletteSetForCharacters() ? MSHVSF_A_UNITS_6A[iUnitCtr].szDesc : MSHVSF_A_UNITS_7B[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), UsePaletteSetForCharacters() ? MSHVSF_A_UNITS_6A[iUnitCtr].szDesc : MSHVSF_A_UNITS_7B[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
@@ -324,7 +325,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -343,7 +344,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _stprintf(ChildNode->szDesc, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
@@ -372,7 +373,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
@@ -398,7 +399,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MSHVSF_A_EXTRALOC_7B > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
             }
 
-            _stprintf(CollectionNode->szDesc, _T("Extra"));
+            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -423,7 +424,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
                     pCurrDef = GetExtraDefForMSHVSF(nExtraPos + nCurrExtra);
                 }
 
-                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 if (UsePaletteSetForCharacters())
@@ -465,7 +466,7 @@ sFileRule CGame_MSHVSF_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, (nUnitId == 6) ? _T("mvs.06a" ): _T("mvs.07b"));
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, (nUnitId == 6) ? _T("mvs.06a" ): _T("mvs.07b"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -753,7 +754,7 @@ void CGame_MSHVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-        m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
     }
     else // MSHVSF_A_EXTRALOC
@@ -762,49 +763,9 @@ void CGame_MSHVSF_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForMSHVSF(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
     }
-}
-
-BOOL CGame_MSHVSF_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
-{
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-    {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
-
-        rgUnitRedir[nUnitCtr] = nUnitCtr;
-
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-        {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-
-            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
-            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
-        }
-    }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-
-    CheckForErrorsInTables();
-
-    return TRUE;
-}
-
-void CGame_MSHVSF_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
-{
-    UINT16 nUnitId = srcNode->uUnitId;
-    UINT16 nPalId = srcNode->uPalId;
-
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
-    BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
 }
 
 BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)

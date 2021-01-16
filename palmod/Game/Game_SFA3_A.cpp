@@ -31,6 +31,13 @@ void CGame_SFA3_A::InitializeStatics()
 
 CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
 {
+    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_12A);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
+
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -48,17 +55,11 @@ CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
 
     InitDataBuffer();
 
-    createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_12A);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_17);
-
     //Set game information
     nGameFlag = SFA3_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
     nImgUnitAmt = SFA3_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = SFA3_A_IMG_UNITS;
 
     nFileAmt = 1;
 
@@ -226,7 +227,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[SFA3_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[SFA3_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -253,7 +254,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
         if (iUnitCtr < SFA3_A_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), SFA3_A_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), SFA3_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
@@ -274,7 +275,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -293,7 +294,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _stprintf(ChildNode->szDesc, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
@@ -322,7 +323,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
@@ -340,7 +341,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
             int nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(SFA3_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            _stprintf(CollectionNode->szDesc, _T("Extra"));
+            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -365,7 +366,7 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
                     pCurrDef = GetExtraDefForSFA3(nExtraPos + nCurrExtra);
                 }
 
-                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((SFA3_A_EXTRALOC > iUnitCtr) ? 1 : 0)* nUnitChildCount * 2) + nCurrExtra;
@@ -485,7 +486,7 @@ sFileRule CGame_SFA3_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("sz3.09c"));
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("sz3.09c"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -676,7 +677,7 @@ void CGame_SFA3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
         m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-        m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+        m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = paletteData->szPaletteName;
 
         // Adjust for ROM-specific variant locations
@@ -692,76 +693,8 @@ void CGame_SFA3_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForSFA3(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
-BOOL CGame_SFA3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
-{
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-    {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
-
-        // These are already sorted: no need to reorder
-        rgUnitRedir[nUnitCtr] = nUnitCtr;
-
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-        {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-
-            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
-            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
-        }
-    }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-
-    CheckForErrorsInTables();
-
-    return TRUE;
-}
-
-void CGame_SFA3_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
-{
-    UINT16 nUnitId = srcNode->uUnitId;
-    UINT16 nPalId = srcNode->uPalId;
-    static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
-
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    const UINT8 nTotalPagesNeeded = (UINT8)ceil((double)m_nCurrentPaletteSize / (double)s_nColorsPerPage);
-    const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
-
-    if (!fCanFitWithinCurrentPageLayout)
-    {
-        CString strWarning;
-        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
-        OutputDebugString(strWarning);
-    }
-
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
-
-    if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
-    {
-        CString strPageDescription;
-        INT16 nColorsRemaining = m_nCurrentPaletteSize;
-
-        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
-        {
-            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
-            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
-            nColorsRemaining -= s_nColorsPerPage;
-        }
-    }
-    else
-    {
-        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
     }
 }
 
@@ -830,8 +763,10 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 if (_tcsicmp(prospectivePalette->szPaletteName, _T("X-Ism Punch")) == 0)
                 {
-                    if ((SFA3_A_UNITSORT[NodeGet->uUnitId] != index_SFA3_ChunLi) && // different portraits for X vs non-X
-                        (SFA3_A_UNITSORT[NodeGet->uUnitId] != index_SFA3_Sodom)) // different win portraits for X vs non-X
+                    sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+
+                    if ((wcscmp(charUnit->szDesc, k_sfa3NameKey_ChunLi) == 0) ||  // different portraits for X vs non-X
+                        (wcscmp(charUnit->szDesc, k_sfa3NameKey_Sodom) == 0))     // different win portraits for X vs non-X
                     {
                         // OK, we've arrived where we expected to
                         nSrcAmt = 6;

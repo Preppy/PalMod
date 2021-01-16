@@ -40,31 +40,46 @@ const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_A[] =
 {
     { L"Dao A", 0x13ee5a, 0x13ee7a, indexBreakersSprites_DaoLong },
     { L"Dao A Super Trail", 0x13eefa, 0x13ef1a, indexBreakersSprites_DaoLong },
+    { L"Dao A Fireball", 0x13f05a, 0x13f07a },
+    { L"Dao A Bright", 0x13f0da, 0x13f0fa, indexBreakersSprites_DaoLong },
 };
 
 const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_B[] =
 {
     { L"Dao B", 0x13ee7a, 0x13ee9a, indexBreakersSprites_DaoLong },
     { L"Dao B Super Trail", 0x13ef1a, 0x13ef3a, indexBreakersSprites_DaoLong },
+    { L"Dao B Fireball", 0x13f07a, 0x13f09a },
+    { L"Dao B Bright", 0x13f0fa, 0x13f11a, indexBreakersSprites_DaoLong },
 };
 
 const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_C[] =
 {
     { L"Dao C", 0x13ee9a, 0x13eeba, indexBreakersSprites_DaoLong },
     { L"Dao C Super Trail", 0x13ef3a, 0x13ef5a, indexBreakersSprites_DaoLong },
+    { L"Dao C Fireball", 0x13f09a, 0x13f0ba },
+    { L"Dao C Bright", 0x13f11a, 0x13f13a, indexBreakersSprites_DaoLong },
 };
 
 const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_D[] =
 {
     { L"Dao D", 0x13eeba, 0x13eeda, indexBreakersSprites_DaoLong },
     { L"Dao D Super Trail", 0x13ef5a, 0x13ef7a, indexBreakersSprites_DaoLong },
+    { L"Dao D Fireball", 0x13f0ba, 0x13f0da },
+    { L"Dao D Bright", 0x13f13a, 0x13f15a, indexBreakersSprites_DaoLong },
 };
 
 const sGame_PaletteDataset BREAKERS_A_LIU_PALETTES[] =
 {
     { L"Liu", 0x13eeda, 0x13eefa, indexBreakersSprites_DaoLong },
     { L"Liu Super Trail", 0x13ef7a, 0x13ef9a, indexBreakersSprites_DaoLong },
+    { L"Liu-Khai CPU ONLY Bright", 0x13f15a, 0x13f17a, indexBreakersSprites_DaoLong },
 };
+
+const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_SHARED[] =
+{
+    { L"Dao Super Fireball Charge", 0x13ee1a, 0x13ee3a },
+    { L"Dao Super Fireball", 0x13f17a, 0x13f19a },
+};  
 
 const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_A[] =
 {
@@ -292,6 +307,7 @@ const sDescTreeNode BREAKERS_A_DAO_COLLECTION[] =
     { L"C", DESC_NODETYPE_TREE, (void*)BREAKERS_A_DAO_PALETTES_C, ARRAYSIZE(BREAKERS_A_DAO_PALETTES_C) },
     { L"D", DESC_NODETYPE_TREE, (void*)BREAKERS_A_DAO_PALETTES_D, ARRAYSIZE(BREAKERS_A_DAO_PALETTES_D) },
     { L"Liu", DESC_NODETYPE_TREE, (void*)BREAKERS_A_LIU_PALETTES, ARRAYSIZE(BREAKERS_A_LIU_PALETTES) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)BREAKERS_A_DAO_PALETTES_SHARED, ARRAYSIZE(BREAKERS_A_DAO_PALETTES_SHARED) },
 };
 
 const sDescTreeNode BREAKERS_A_CONDOR_COLLECTION[] =

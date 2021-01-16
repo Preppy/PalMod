@@ -302,26 +302,26 @@ const sGame_PaletteDataset SFIII3_A_NECRO_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_NECRO_EXTRA_PALETTES[] =
 {
-    { L"LP SA1 pulse", 0x704E00, 0x704E80 },
-    { L"LP SA1 Trails", 0x704E80, 0x704F00 },
+    { L"LP SA1 pulse", 0x704E00, 0x704E80, index3S_CPS3_Necro, 0x00 },
+    { L"LP SA1 Trails", 0x704E80, 0x704F00, index3S_CPS3_Necro, 0x00 },
     { L"LP Effie", 0x704F00, 0x704F80, index3S_CPS3_Necro, 0x2 },
-    { L"MP SA1 pulse", 0x704F80, 0x705000 },
-    { L"MP SA1 Trails", 0x705000, 0x705080 },
+    { L"MP SA1 pulse", 0x704F80, 0x705000, index3S_CPS3_Necro, 0x00 },
+    { L"MP SA1 Trails", 0x705000, 0x705080, index3S_CPS3_Necro, 0x00 },
     { L"MP Effie", 0x705080, 0x705100, index3S_CPS3_Necro, 0x2 },
-    { L"HP SA1 pulse", 0x705100, 0x705180 },
-    { L"HP SA1 Trails", 0x705180, 0x705200 },
+    { L"HP SA1 pulse", 0x705100, 0x705180, index3S_CPS3_Necro, 0x00 },
+    { L"HP SA1 Trails", 0x705180, 0x705200, index3S_CPS3_Necro, 0x00 },
     { L"HP Effie", 0x705200, 0x705280, index3S_CPS3_Necro, 0x2 },
-    { L"LK SA1 pulse", 0x705280, 0x705300 },
-    { L"LK SA1 Trails", 0x705300, 0x705380 },
+    { L"LK SA1 pulse", 0x705280, 0x705300, index3S_CPS3_Necro, 0x00 },
+    { L"LK SA1 Trails", 0x705300, 0x705380, index3S_CPS3_Necro, 0x00 },
     { L"LK Effie", 0x705380, 0x705400, index3S_CPS3_Necro, 0x2 },
-    { L"MK SA1 pulse", 0x705400, 0x705480  },
-    { L"MK SA1 Trails", 0x705480, 0x705500 },
+    { L"MK SA1 pulse", 0x705400, 0x705480 , index3S_CPS3_Necro, 0x00 },
+    { L"MK SA1 Trails", 0x705480, 0x705500, index3S_CPS3_Necro, 0x00 },
     { L"MK Effie", 0x705500, 0x705580, index3S_CPS3_Necro, 0x2 },
-    { L"HK SA1 pulse", 0x705580 , 0x705600  },
-    { L"HK SA1 Trails", 0x705600, 0x705680 },
+    { L"HK SA1 pulse", 0x705580 , 0x705600 , index3S_CPS3_Necro, 0x00 },
+    { L"HK SA1 Trails", 0x705600, 0x705680, index3S_CPS3_Necro, 0x00 },
     { L"HK Effie", 0x705680, 0x705700, index3S_CPS3_Necro, 0x2 },
-    { L"EX SA1 pulse", 0x705700, 0x705780  },
-    { L"EX SA1 Trails", 0x705780, 0x705800 },
+    { L"EX SA1 pulse", 0x705700, 0x705780 , index3S_CPS3_Necro, 0x00 },
+    { L"EX SA1 Trails", 0x705780, 0x705800, index3S_CPS3_Necro, 0x00 },
     { L"EX Effie", 0x705800, 0x705880, index3S_CPS3_Necro, 0x2 },
 };
 
@@ -448,19 +448,19 @@ const sGame_PaletteDataset SFIII3_A_IBUKI_Support_PALETTES[] =
 const sGame_PaletteDataset SFIII3_A_IBUKI_EXTRA_PALETTES[] =
 {
     { L"LP Extras", 0x705A00, 0x705A80, index3S_CPS3_Ibuki, 0x02 },
-    { L"LP Extras 2", 0x705A80, 0x705B00 },
+    { L"LP Extras 2", 0x705A80, 0x705B00, index3S_CPS3_Ibuki, 0x03 },
     { L"MP Extras", 0x705B00, 0x705B80, index3S_CPS3_Ibuki, 0x02 },
-    { L"MP Extras 2", 0x705B80, 0x705C00 },
+    { L"MP Extras 2", 0x705B80, 0x705C00, index3S_CPS3_Ibuki, 0x03 },
     { L"HP Extras", 0x705C00, 0x705C80, index3S_CPS3_Ibuki, 0x02 },
-    { L"HP Extras 2", 0x705C80, 0x705D00 },
+    { L"HP Extras 2", 0x705C80, 0x705D00, index3S_CPS3_Ibuki, 0x03 },
     { L"LK Extras", 0x705D00, 0x705D80, index3S_CPS3_Ibuki, 0x02 },
-    { L"LK Extras 2", 0x705D80, 0x705E00 },
+    { L"LK Extras 2", 0x705D80, 0x705E00, index3S_CPS3_Ibuki, 0x03 },
     { L"MK Extras", 0x705E00, 0x705E80, index3S_CPS3_Ibuki, 0x02 },
-    { L"MK Extras 2", 0x705E80, 0x705F00 },
+    { L"MK Extras 2", 0x705E80, 0x705F00, index3S_CPS3_Ibuki, 0x03 },
     { L"HK Extras", 0x705F00, 0x705F80, index3S_CPS3_Ibuki, 0x02 },
-    { L"HK Extras 2", 0x705F80, 0x706000 },
+    { L"HK Extras 2", 0x705F80, 0x706000, index3S_CPS3_Ibuki, 0x03 },
     { L"EX Extras", 0x706000, 0x706080, index3S_CPS3_Ibuki, 0x02 },
-    { L"EX Extras 2", 0x706080, 0x706100 },
+    { L"EX Extras 2", 0x706080, 0x706100, index3S_CPS3_Ibuki, 0x03 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_LP_PALETTES[] =
@@ -509,6 +509,7 @@ const sGame_PaletteDataset SFIII3_A_ELENA_EXTRA_PALETTES[] =
 {
     { L"Dust", 0x706100, 0x706180, index3S_CPS3_Elena, 0x02 },
     { L"Music notes", 0x706180, 0x706200, index3S_CPS3_Elena, 0x03 },
+    { L"Healing", 0x706200, 0x706280, index3S_CPS3_Elena, 0x04 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_Support_PALETTES[] =
@@ -583,12 +584,10 @@ const sGame_PaletteDataset SFIII3_A_ORO_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_ORO_EXTRA_PALETTES[] =
 {
-    { L"Tengu Stones", 0x763100, 0x763180, index3S_CPS3_Oro, 2, &pairHandledInCode },
-    // Bricks are folded into the Tengu Stones display
-    { L"Bricks", 0x763180, 0x7631A0, index3S_CPS3_Oro, 3 },
+    { L"Tengu Objects", 0x763100, 0x7631a0, index3S_CPS3_Oro, 2, &pairHandledInCode },
 
-    { L"Fireball + Green Yagyou Dama (SA2)", 0x706280, 0x706300 },
-    { L"Fireball + Yellow Yagyou Dama (SA2)", 0x706380, 0x706400 },
+    { L"Fireball + Green Yagyou Dama (SA2)", 0x706280, 0x706300, index3S_CPS3_Oro, 0x04 },
+    { L"Fireball + Yellow Yagyou Dama (SA2)", 0x706380, 0x706400, index3S_CPS3_Oro, 0x05 },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_LP_PALETTES[] =
@@ -829,13 +828,13 @@ const sGame_PaletteDataset SFIII3_A_URIEN_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_URIEN_EXTRA_PALETTES[] =
 {
-    { L"P1 Intro", 0x706600, 0x706680, index3S_CPS3_Urien, 0x00, &pairHandledInCode },
-    { L"P1 Suit", 0x706680, 0x706700, index3S_CPS3_Urien, 0x03 }, // Note that for pairing we use an alt image.
+    { L"P1 Intro", 0x706600, 0x706680, index3S_CPS3_Urien, 0x02, &pairNext },
+    { L"P1 Suit", 0x706680, 0x706700, index3S_CPS3_Urien, 0x03 },
     { L"P1 SA3 / Fire", 0x706700, 0x706780, index3S_CPS3_Urien, 0x05 },
 
-    { L"P2 Intro", 0x706880, 0x706900, index3S_CPS3_Urien, 0x00, &pairHandledInCode },
+    { L"P2 Intro", 0x706880, 0x706900, index3S_CPS3_Urien, 0x02, &pairNext },
     { L"P2 Suit", 0x706900, 0x706980, index3S_CPS3_Urien, 0x03 },
-    { L"P2 SA3 / Fire?", 0x706980, 0x706A00, index3S_CPS3_Urien, 0x05 },
+    { L"P2 SA3 / Fire", 0x706980, 0x706A00, index3S_CPS3_Urien, 0x05 },
 
     { L"Electroball", 0x706780, 0x706800, index3S_CPS3_Urien, 0x06 },
     { L"SA2 / Big Electroball", 0x706800, 0x706880, index3S_CPS3_Urien, 0x04 },
@@ -885,8 +884,8 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_EX_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_Support_PALETTES[] =
 {
-    { L"EX Attack (1)", 0x765480, 0x765500, index3S_CPS3_Gouki, 0 },
-    { L"EX Attack (2)", 0x76b480, 0x76b500, index3S_CPS3_Gouki, 0 },
+    { L"EX Attack (1) (Unused)", 0x765480, 0x765500, index3S_CPS3_Gouki, 0 },
+    { L"EX Attack (2) (Unused)", 0x76b480, 0x76b500, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769000, 0x769080, index3S_CPS3_Gouki, 0 },
     { L"SA Animation 1/Parry", 0x769080, 0x769100, index3S_CPS3_Gouki, 0 },
     { L"SA Animation 2", 0x769100, 0x769180, index3S_CPS3_Gouki, 0 },
@@ -925,8 +924,8 @@ const sGame_PaletteDataset SFIII3_A_SHINGOUKI_MP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_Support_PALETTES[] =
 {
-    { L"EX Attack (1)", 0x765500, 0x765580, index3S_CPS3_Gouki, 0 },
-    { L"EX Attack (2)", 0x76b500, 0x76b580, index3S_CPS3_Gouki, 0 },
+    { L"EX Attack (1) (Unused)", 0x765500, 0x765580, index3S_CPS3_Gouki, 0 },
+    { L"EX Attack (2) (Unused)", 0x76b500, 0x76b580, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769400, 0x769480, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769480, 0x769500, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769500, 0x769580, index3S_CPS3_Gouki, 0 },
@@ -957,8 +956,8 @@ const sGame_PaletteDataset SFIII3_A_USEAN_MP_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_USEAN_Support_PALETTES[] =
 {
-    { L"EX Attack (1)", 0x765500, 0x765580, index3S_CPS3_Sean, 0 },
-    { L"EX Attack (2)", 0x76b500, 0x76b580, index3S_CPS3_Sean, 0 },
+    { L"EX Attack (1) (Unused)", 0x765500, 0x765580, index3S_CPS3_Sean, 0 },
+    { L"EX Attack (2) (Unused)", 0x76b500, 0x76b580, index3S_CPS3_Sean, 0 },
     { L"????", 0x769400, 0x769480, index3S_CPS3_Sean, 0 },
     { L"????", 0x769480, 0x769500, index3S_CPS3_Sean, 0 },
     { L"????", 0x769500, 0x769580, index3S_CPS3_Sean, 0 },
@@ -1291,7 +1290,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_NORMAL_PALETTES[] =
     { L"Intro Robe", 0x078F600, 0x078F680, index3S_CPS3_Gill, 0x04 },
     { L"Ice / Fire", 0x0704A00, 0x0704A80, index3S_CPS3_Gill, 0x02 },
     { L"Ice / Fire Impacts", 0x0704980, 0x0704a00, index3S_CPS3_Gill, 0x03 },
-    
+
     { L"Seraphic Wings Start", 0x078AE00, 0x078Ae80, index3S_CPS3_Gill, 0x06 },
     { L"Seraphic Wings End", 0x078AE80, 0x078AF00, index3S_CPS3_Gill, 0x07 },
 
@@ -1751,11 +1750,17 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Round Markers",                     0x708c60, 0x708c80, index3S_CPS3_Bonus, 0x07 },
 
     { L"Final Results",                     0x70bf00, 0x70bf80, index3S_CPS3_Bonus, 0x01 },
-    { L"Select Background",                 0x709D80, 0x709E00, index3S_CPS3_Bonus, 0x0 },
+    { L"Select Background",                 0x709D80, 0x709E00, index3S_CPS3_Bonus, 0x00 },
+    { L"Select Background - Tinted",        0x70EB80, 0x70EC00, index3S_CPS3_Bonus, 0x00 },
+    // I don't love the offsets here, so am not including this for now.
+    //{ L"Select Screen - Blue Arrows",       0x709AC0, 0x709B00 },
+    { L"Select Screen - Cursor Rings",      0x70A000, 0x070A080, index3S_CPS3_Bonus, 0x12 },
+    // This is a very long chunk... leaving out for now as well.
+    //{ L"In Game Misc - Versus Screen",      0x70A680, 0x70B280 },
     { L"Vs Text",                           0x70C780, 0x70C880 },
 
     { L"Opening ring animation + SA Text",  0x709D00, 0x709D80 },
-    { L"SA Animation?",                     0x77A280, 0x77A2A0 },
+    { L"SA Animation",                      0x77A280, 0x77A2A0 },
     { L"P1 Impacts",                        0x76AC80, 0x76AD00 },
     { L"P2 Impacts",                        0x76AC00, 0x76AC80 },
     { L"Numerals, Inputs, Buttons: Super Art Selector", 0x709E00, 0x709E80 },
@@ -2504,7 +2509,6 @@ const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_MP[] =
     { L"Q", 0x0604adc, 0x0604b5c, index3S_CPS3_Q, 0x00 },
     { L"Twelve", 0x0604e5c, 0x0604edc, index3S_CPS3_Twelve, 0x00 },
     { L"Remy", 0x06051dc, 0x060525c, index3S_CPS3_Remy, 0x00 },
-
 };
 
 const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_HP[] =
@@ -2605,7 +2609,6 @@ const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_HK[] =
     { L"Q", 0x0604cdc, 0x0604d5c, index3S_CPS3_Q, 0x00 },
     { L"Twelve", 0x060505c, 0x06050dc, index3S_CPS3_Twelve, 0x00 },
     { L"Remy", 0x06053dc, 0x060545c, index3S_CPS3_Remy, 0x00 },
-
 };
 
 const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_EX[] =
@@ -2631,7 +2634,6 @@ const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_EX[] =
     { L"Q", 0x0604d5c, 0x0604ddc, index3S_CPS3_Q, 0x00 },
     { L"Twelve", 0x06050dc, 0x060515c, index3S_CPS3_Twelve, 0x00 },
     { L"Remy", 0x060545c, 0x06054dc, index3S_CPS3_Remy, 0x00 },
-
 };
 
 const sDescTreeNode SFIII3_A_XCOPY_COLLECTION[] =
@@ -2643,7 +2645,6 @@ const sDescTreeNode SFIII3_A_XCOPY_COLLECTION[] =
     { L"MK",    DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_PALETTES_MK, ARRAYSIZE(SFIII3_A_XCOPY_PALETTES_MK) },
     { L"HK",    DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_PALETTES_HK, ARRAYSIZE(SFIII3_A_XCOPY_PALETTES_HK) },
     { L"EX",    DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_PALETTES_EX, ARRAYSIZE(SFIII3_A_XCOPY_PALETTES_EX) },
-
 };
 
 const sDescTreeNode SFIII3_A_10_UNITS[] =
@@ -2718,7 +2719,7 @@ constexpr auto SFIII3_A_10_NUMUNIT = ARRAYSIZE(SFIII3_A_10_UNITS);
 constexpr auto SFIII3_A_51_NUMUNIT = ARRAYSIZE(SFIII3_A_51_UNITS);
 #define SFIII3_A_51_EXTRALOC SFIII3_A_51_NUMUNIT
 
-const stExtraDef SFIII3_A_EXTRA[] = 
+const stExtraDef SFIII3_A_EXTRA[] =
 {
     //Start
     { UNIT_START_VALUE },

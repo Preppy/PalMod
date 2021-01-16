@@ -73,6 +73,7 @@ public:
 
     BOOL CurrPalAvail() { return pPalEntry[nNotifyCtrlIndex].bAvail; };
     void ShowAvailPal();
+    void UpdateAllPalCtrls();
     void UpdateCtrl();
 
     int GetCurrentPageCount() { return nPageAmt; };
@@ -85,7 +86,6 @@ public:
     afx_msg void OnPaint();
     afx_msg BOOL OnEraseBkgnd(CDC* pDC);
     afx_msg void OnDeltaposSpin(NMHDR* pNMHDR, LRESULT* pResult);
-    void SetNotifyFunc(int (*ExtPalSelChange)(int), int (*ExtPalHLChange)(int), int (*ExtPalMHL)(int));
 
 public:
     void UpdateEveryIndex();

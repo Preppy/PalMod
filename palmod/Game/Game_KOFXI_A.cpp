@@ -56,12 +56,13 @@ CGame_KOFXI_A::CGame_KOFXI_A(UINT32 nConfirmedROMSize)
     SetColorMode(ColMode::COLMODE_15ALT);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = KOFXI_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
     nImgUnitAmt = ARRAYSIZE(KOFXI_A_IMG_UNITS);
+    m_prgGameImageSet = KOFXI_A_IMG_UNITS;
 
     nFileAmt = 1;
 
@@ -151,46 +152,46 @@ struct sKOFXI_CharacterDump
 
 sKOFXI_CharacterDump kofXICharacterList[] =
 {
-    { L"Ash", 0x1011000 }, // 0x1012800
-    { L"Oswald", 0x11e2800 }, // 0x11e4000
-    { L"Shen", 0x13ab000 }, // 0x13ac800
-    { L"Elizabeth", 0x1522800 }, // 0x1524000
-    { L"Duo Lon", 0x16bf000 }, // 0x16c0800
-    { L"Benimaru", 0x1861800 }, // 0x1863000
-    { L"Terry", 0x19b8000 }, // 0x19b9800
-    { L"Kim", 0x1b58000 }, // 0x1b59800
-    { L"Duck King", 0x1c8f800 }, // 0x1c91000
-    { L"Ryo", 0x1df4000, L"indexKOFSprites_02UM_Ryo" }, // 0x1df5800
-    { L"Yuri", 0x1f5f000 }, // 0x1f60800
-    { L"King", 0x20ba800, L"indexKOFSprites_02UM_King" }, // 0x20bc000
-    { L"B. Jenet", 0x21c5800 }, // 0x21c7000
-    { L"Gato", 0x2381000 }, // 0x2382800
-    { L"Tizoc/The Griffon", 0x24e1000 }, // 0x24e2800
-    { L"Ralf", 0x2680000 }, // 0x2681800
-    { L"Clark", 0x27c1000 }, // 0x27c2800
-    { L"Whip", 0x28ed000 }, // 0x28ee800
-    { L"Athena", 0x2a9d800 }, // 0x2a9f000
-    { L"Kensou", 0x2c52800 }, // 0x2c54000
-    { L"Momoko", 0x2dd9000 }, // 0x2dda800
-    { L"Vanessa", 0x2f98000, L"indexKOFSprites_02UM_Vanessa" }, // 0x2f99800
-    { L"Blue Mary", 0x30ef000 }, // 0x30f0800
-    { L"Ramon", 0x3257000, L"indexKOFSprites_02UM_Ramon" }, // 0x3258800
-    { L"Malin", 0x33b3800 }, // 0x33b5000
-    { L"Kasumi", 0x34e4800 }, // 0x34e6000
-    { L"Eiji", 0x3609800 }, // 0x360b000
-    { L"K'", 0x3763800, L"indexKOFSprites_02UM_K" }, // 0x3765000
-    { L"Kula", 0x3901800, L"indexKOFSprites_02UM_Kula" }, // 0x3903000
-    { L"Maxima", 0x3ab6800, L"indexKOFSprites_02UM_Maxima" }, // 0x3ab8000
-    { L"Kyo", 0x3c57800 }, // 0x3c59000
-    { L"Iori", 0x3df6000, L"indexKOFSprites_02UM_Iori" }, // 0x3df7800
-    { L"Shingo", 0x3fc5800, L"indexKOFSprites_02UM_Shingo" }, // 0x3fc7000
-    { L"Gai", 0x40d3000 }, // 0x40d4800
-    { L"Sho", 0x420f800 }, // 0x4211000
-    { L"Adelheid", 0x4366800 }, // 0x4368000
-    { L"Silber", 0x44b1000 }, // 0x44b2800
-    { L"Jyazu", 0x45fa800 }, // 0x45fc000
-    { L"Shion", 0x47cb800 }, // 0x47cd000
-    { L"Magaki", 0x499a000 }, // 0x499b600
+    { L"Ash",       0x1011000, L"indexKOFXISprites_Ash" }, // 0x1012800
+    { L"Oswald",    0x11e2800, L"indexKOFXISprites_Oswald" }, // 0x11e4000
+    { L"Shen",      0x13ab000, L"indexKOFXISprites_Shen" }, // 0x13ac800
+    { L"Elizabeth", 0x1522800, L"indexKOFXISprites_Elizabeth" }, // 0x1524000
+    { L"Duo Lon",   0x16bf000, L"indexKOFXISprites_Duo" }, // 0x16c0800
+    { L"Benimaru",  0x1861800, L"indexKOFXISprites_Benimaru" }, // 0x1863000
+    { L"Terry",     0x19b8000, L"indexKOFXISprites_Terry" }, // 0x19b9800
+    { L"Kim",       0x1b58000, L"indexKOFXISprites_Kim" }, // 0x1b59800
+    { L"Duck King", 0x1c8f800, L"indexKOFXISprites_DuckKing" }, // 0x1c91000
+    { L"Ryo",       0x1df4000, L"indexKOFXISprites_Ryo" }, // 0x1df5800
+    { L"Yuri",      0x1f5f000, L"indexKOFXISprites_Yuri" }, // 0x1f60800
+    { L"King",      0x20ba800, L"indexKOFXISprites_King" }, // 0x20bc000
+    { L"B. Jenet",  0x21c5800, L"indexKOFXISprites_BJenet" }, // 0x21c7000
+    { L"Gato",      0x2381000, L"indexKOFXISprites_Gato" }, // 0x2382800
+    { L"Tizoc/The Griffon", 0x24e1000, L"indexKOFXISprites_Tizoc" }, // 0x24e2800
+    { L"Ralf",      0x2680000, L"indexKOFXISprites_Ralf" }, // 0x2681800
+    { L"Clark",     0x27c1000, L"indexKOFXISprites_Clark" }, // 0x27c2800
+    { L"Whip",      0x28ed000, L"indexKOFXISprites_Whip" }, // 0x28ee800
+    { L"Athena",    0x2a9d800, L"indexKOFXISprites_Athena" }, // 0x2a9f000
+    { L"Kensou",    0x2c52800, L"indexKOFXISprites_Kensou" }, // 0x2c54000
+    { L"Momoko",    0x2dd9000, L"indexKOFXISprites_Momoko" }, // 0x2dda800
+    { L"Vanessa",   0x2f98000, L"indexKOFXISprites_Vanessa" }, // 0x2f99800
+    { L"Blue Mary", 0x30ef000, L"indexKOFXISprites_BlueMary" }, // 0x30f0800
+    { L"Ramon",     0x3257000, L"indexKOFXISprites_Ramon" }, // 0x3258800
+    { L"Malin",     0x33b3800, L"indexKOFXISprites_Malin" }, // 0x33b5000
+    { L"Kasumi",    0x34e4800, L"indexKOFXISprites_Kasumi" }, // 0x34e6000
+    { L"Eiji",      0x3609800, L"indexKOFXISprites_Eiji" }, // 0x360b000
+    { L"K'",        0x3763800, L"indexKOFXISprites_K" }, // 0x3765000
+    { L"Kula",      0x3901800, L"indexKOFXISprites_Kula" }, // 0x3903000
+    { L"Maxima",    0x3ab6800, L"indexKOFXISprites_Maxima" }, // 0x3ab8000
+    { L"Kyo",       0x3c57800, L"indexKOFXISprites_Kyo" }, // 0x3c59000
+    { L"Iori",      0x3df6000, L"indexKOFXISprites_Iori" }, // 0x3df7800
+    { L"Shingo",    0x3fc5800, L"indexKOFXISprites_Shingo" }, // 0x3fc7000
+    { L"Gai",       0x40d3000, L"indexKOFXISprites_Gai" }, // 0x40d4800
+    { L"Sho",       0x420f800, L"indexKOFXISprites_Sho" }, // 0x4211000
+    { L"Adelheid",  0x4366800, L"indexKOFXISprites_Adelheid" }, // 0x4368000
+    { L"Silber",    0x44b1000, L"indexKOFXISprites_Silber" }, // 0x44b2800
+    { L"Jyazu",     0x45fa800, L"indexKOFXISprites_Jyazu" }, // 0x45fc000
+    { L"Shion",     0x47cb800, L"indexKOFXISprites_Shion" }, // 0x47cd000
+    { L"Magaki",    0x499a000, L"indexKOFXISprites_Magaki" }, // 0x499b600
 };
 
 const LPCWSTR DEF_BUTTONLABEL_KOFXI_FOR_UI[] =
@@ -238,41 +239,35 @@ void CGame_KOFXI_A::DumpAllCharacters()
             nCurrentCharacterOffset += 0x20;
             nPaletteCount++;
 
-            const LPCTSTR pszMoveNames[] =
+            struct MoveWithImage
             {
-                L"Super Stuff 1",
-                L"Electric Palette",
-                L"Darker Palette",
-                L"Super Stuff 2",
-                L"Character Extra 1",
-                L"Character Extra 2",
-                L"Character Extra 3",
-                L"Extra Move 1",
-                L"Extra Move 2",
-                L"Extra Move 3",
-                L"Extra Move 4",
-                L"Extra Move 5",
-                L"Extra Move 6",
-                L"Extra Move 7",
-                L"Extra Move 8",
+                LPCWSTR pszMoveName = L"";
+                UINT32 nCurrentImageToUse = 0x00;
             };
 
-            for (UINT16 iCurrentExtra = 0; iCurrentExtra < ARRAYSIZE(pszMoveNames); iCurrentExtra++)
+            const MoveWithImage rgMoveInfo[] =
             {
-                LPCWSTR pszCurrentMoveName = pszMoveNames[iCurrentExtra];
-                UINT32 nCurrentImageToUse = 0;
+                { L"Super Stuff 1", 0x20 },
+                { L"Electric Palette", 0x41 },
+                { L"Darker Palette", 0x40 },
+                { L"Super Stuff 2", 0x21 },
+                { L"Character Extra 1", 0x30 },
+                { L"Character Extra 2", 0x31 },
+                { L"Character Extra 3", 0x32 },
+                { L"Extra Move 1", 0x10 },
+                { L"Extra Move 2", 0x11 },
+                { L"Extra Move 3", 0x12 },
+                { L"Extra Move 4", 0x13 },
+                { L"Extra Move 5", 0x14 },
+                { L"Extra Move 6", 0x15 },
+                { L"Extra Move 7", 0x16 },
+                { L"Extra Move 8", 0x17 },
+            };
 
-                switch (iCurrentExtra)
-                {
-                case 1: // electric shock
-                    nCurrentImageToUse = 0x18;
-                    break;
-                //case 4: // MAX flash
-                  //  nCurrentImageToUse = 0x8;
-                    //break;
-                default:
-                    break;
-                }
+            for (UINT16 iCurrentExtra = 0; iCurrentExtra < ARRAYSIZE(rgMoveInfo); iCurrentExtra++)
+            {
+                LPCWSTR pszCurrentMoveName = rgMoveInfo[iCurrentExtra].pszMoveName;
+                UINT32 nCurrentImageToUse = rgMoveInfo[iCurrentExtra].nCurrentImageToUse;
 
                 if (kofXICharacterList[iUnitCtr].pszImageRefName)
                 {
@@ -342,7 +337,7 @@ sDescTreeNode* CGame_KOFXI_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[KOFXI_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[KOFXI_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -370,7 +365,7 @@ sDescTreeNode* CGame_KOFXI_A::InitDescTree()
         if (iUnitCtr < KOFXI_A_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), KOFXI_A_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), KOFXI_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
@@ -391,7 +386,7 @@ sDescTreeNode* CGame_KOFXI_A::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -443,7 +438,7 @@ sDescTreeNode* CGame_KOFXI_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
@@ -462,7 +457,7 @@ sDescTreeNode* CGame_KOFXI_A::InitDescTree()
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(KOFXI_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            _stprintf(CollectionNode->szDesc, _T("Extra"));
+            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -487,7 +482,7 @@ sDescTreeNode* CGame_KOFXI_A::InitDescTree()
                     pCurrDef = GetExtraDefForKOFXI(nExtraPos + nCurrExtra);
                 }
 
-                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((KOFXI_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
@@ -519,7 +514,7 @@ sFileRule CGame_KOFXI_A::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, L"gdrom_KOFXI_v5_AllFighters.bin");
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"gdrom_KOFXI_v5_AllFighters.bin");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -689,7 +684,7 @@ void CGame_KOFXI_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
         else
@@ -704,76 +699,8 @@ void CGame_KOFXI_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForKOFXI(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
-BOOL CGame_KOFXI_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
-{
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-    {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
-
-        // The layout is presorted
-        rgUnitRedir[nUnitCtr] = nUnitCtr;
-
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-        {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-
-            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
-            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
-        }
-    }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-    
-    CheckForErrorsInTables();
-
-    return TRUE;
-}
-
-void CGame_KOFXI_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
-{
-    UINT16 nUnitId = srcNode->uUnitId;
-    UINT16 nPalId = srcNode->uPalId;
-    static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
-
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    const UINT8 nTotalPagesNeeded = (UINT8)ceil((double)m_nCurrentPaletteSize / (double)s_nColorsPerPage);
-    const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
-
-    if (!fCanFitWithinCurrentPageLayout)
-    {
-        CString strWarning;
-        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
-        OutputDebugString(strWarning);
-    }
-
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
-
-    if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
-    {
-        CString strPageDescription;
-        INT16 nColorsRemaining = m_nCurrentPaletteSize;
-
-        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
-        {
-            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
-            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
-            nColorsRemaining -= s_nColorsPerPage;
-        }
-    }
-    else
-    {
-        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
     }
 }
 

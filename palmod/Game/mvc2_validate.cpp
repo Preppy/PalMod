@@ -2799,7 +2799,7 @@ bool AreEditsOutOfSync()
     return editsAreOutofSync;
 }
 
-void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT16* rgPaletteChangeArray)
+void ValidateAllPalettes(BOOL *pfChangesWereMade, BOOL* rgPaletteChangeArray)
 {
     // Reset the validation...
     for (palette_validation paletteToCheck : char_val_array)
@@ -2868,7 +2868,7 @@ void ValidateAllPalettes(BOOL *pfChangesWereMade, UINT16* rgPaletteChangeArray)
     }
 }
 
-void FixAllProblemPalettes(UINT16* rgPaletteChangeArray)
+void FixAllProblemPalettes(BOOL* rgPaletteChangeArray)
 {
     UINT16 lastFixedCharacter = 0xFFFF;
     UINT16 lastFixedPalette = 0xFFFF;
@@ -2919,14 +2919,14 @@ void FixAllProblemPalettes(UINT16* rgPaletteChangeArray)
     }
 
     // Spiral logic... just bulk copy if we have a problem, since it's a flat copy instead of tinting or anything special.
-    if (g_rgfCharacterHasIssues[0x31])
+    if (g_rgfCharacterHasIssues[indexCPS2_Spiral])
     {
         for (palette_validation paletteToCheck : char_val_array_spiral)
         {
             supp_copy_spiral(paletteToCheck.character_number, paletteToCheck.source_palette, paletteToCheck.destination_palette);
         }
 
-        rgPaletteChangeArray[0x31] = TRUE;
+        rgPaletteChangeArray[indexCPS2_Spiral] = TRUE;
     }
 
     for (palette_validation paletteToCheck : char_val_array)

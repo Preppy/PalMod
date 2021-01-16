@@ -178,9 +178,6 @@
     <Filter Include="Game\SNK Games\Windjammers_A">
       <UniqueIdentifier>{c8028836-64ab-4644-b186-e41111f5dd09}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\SNK Games\KOF_XI_A">
-      <UniqueIdentifier>{d12dfc26-a331-4ac9-928f-89a7c1753af3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\SNK Games\NeoGeo Battle Colliseum">
       <UniqueIdentifier>{194b886e-8492-41d0-a398-00cbb161e244}</UniqueIdentifier>
     </Filter>
@@ -195,6 +192,51 @@
     </Filter>
     <Filter Include="Game\Nintendo\BLEACH_DS">
       <UniqueIdentifier>{2188a85d-12e7-4b62-a7bd-8ceea29c95e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF03_A">
+      <UniqueIdentifier>{da1faa02-bdd1-465d-9b23-9e4504204406}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\MMPR_SNES">
+      <UniqueIdentifier>{90c0e8ff-821b-4e54-a53c-bcaae5916403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF01_A">
+      <UniqueIdentifier>{3d941f32-066d-4805-bf2c-c68239ba6d21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\NeoBomberman_A">
+      <UniqueIdentifier>{5b3ee8d1-5bef-46b3-b139-fc30deec57e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\Gundam Endless Duel">
+      <UniqueIdentifier>{e8835cfd-2974-45fb-8fdc-2a63b9b76d73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF94_A">
+      <UniqueIdentifier>{d81962ef-76db-489b-9043-ffcab6bc9adc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOFXI_A">
+      <UniqueIdentifier>{d12dfc26-a331-4ac9-928f-89a7c1753af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\Clay Fighter: TE">
+      <UniqueIdentifier>{8fce122e-fa29-4397-8fe1-518222d624ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\KOF99AE_A">
+      <UniqueIdentifier>{9fc92127-41e6-4ee1-a53b-9c31a9fd3903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Nintendo\Fatal Fury Special %28SNES%29">
+      <UniqueIdentifier>{e923f483-9252-4955-9dd2-53b0b2448939}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Art of Fighting 3">
+      <UniqueIdentifier>{0fb8dfe4-7c4f-44ba-a82b-b15d13c2b3f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms">
+      <UniqueIdentifier>{3e8ed08b-6c31-4d0d-affc-0f6a12a8dcb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown 4">
+      <UniqueIdentifier>{dc385e4d-7b94-4805-8871-c401b54bd681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\Slam Masters 2">
+      <UniqueIdentifier>{790c3553-43d8-4e6d-9b0f-b36f7b64f595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\LASTBLADE2_A">
+      <UniqueIdentifier>{ea5d1d11-34f6-4c93-978c-c8c8f5209fb1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -424,7 +466,7 @@
       <Filter>Game\SNK Games\Matrimelee_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOFXI_A.cpp">
-      <Filter>Game\SNK Games\KOF_XI_A</Filter>
+      <Filter>Game\SNK Games\KOFXI_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_NGBC_A.cpp">
       <Filter>Game\SNK Games\NeoGeo Battle Colliseum</Filter>
@@ -437,6 +479,48 @@
     </ClCompile>
     <ClCompile Include="Game\GAME_Bleach_DS.cpp">
       <Filter>Game\Nintendo\BLEACH_DS</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF03_A.cpp">
+      <Filter>Game\SNK Games\KOF03_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MMPR_SNES.cpp">
+      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF01_A.cpp">
+      <Filter>Game\SNK Games\KOF01_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_NeoBomberman_A.cpp">
+      <Filter>Game\SNK Games\NeoBomberman_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_GUNDAM_SNES.cpp">
+      <Filter>Game\Nintendo\Gundam Endless Duel</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF94_A.cpp">
+      <Filter>Game\SNK Games\KOF94_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_CFTE_SNES.cpp">
+      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF99AE_A.cpp">
+      <Filter>Game\SNK Games\KOF99AE_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp">
+      <Filter>Game\Nintendo\Fatal Fury Special %28SNES%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_AOF3_A.cpp">
+      <Filter>Game\SNK Games\Art of Fighting 3</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_DANKUGA_A.cpp">
+      <Filter>Game\Other Platforms</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SAMSHO4_A.cpp">
+      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_RODSM2_A.cpp">
+      <Filter>Game\Capcom Games\Slam Masters 2</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_LASTBLADE2_A.cpp">
+      <Filter>Game\SNK Games\LASTBLADE2_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -780,10 +864,10 @@
       <Filter>Game\SNK Games\Matrimelee_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_KOFXI_A.h">
-      <Filter>Game\SNK Games\KOF_XI_A</Filter>
+      <Filter>Game\SNK Games\KOFXI_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\KOFXI_A_DEF.h">
-      <Filter>Game\SNK Games\KOF_XI_A</Filter>
+      <Filter>Game\SNK Games\KOFXI_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_NGBC_A.h">
       <Filter>Game\SNK Games\NeoGeo Battle Colliseum</Filter>
@@ -802,6 +886,90 @@
     </ClInclude>
     <ClInclude Include="Game\GAME_Bleach_DS.h">
       <Filter>Game\Nintendo\BLEACH_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF03_A.h">
+      <Filter>Game\SNK Games\KOF03_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF03_A_DEF.h">
+      <Filter>Game\SNK Games\KOF03_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MMPR_SNES.h">
+      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MMPR_SNES_DEF.h">
+      <Filter>Game\Nintendo\MMPR_SNES</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF01_A.h">
+      <Filter>Game\SNK Games\KOF01_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF01_A_DEF.h">
+      <Filter>Game\SNK Games\KOF01_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_NeoBomberman_A.h">
+      <Filter>Game\SNK Games\NeoBomberman_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NeoBomberman_A_DEF.h">
+      <Filter>Game\SNK Games\NeoBomberman_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GUNDAM_SNES.h">
+      <Filter>Game\Nintendo\Gundam Endless Duel</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GUNDAM_SNES_DEF.h">
+      <Filter>Game\Nintendo\Gundam Endless Duel</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF94_A.h">
+      <Filter>Game\SNK Games\KOF94_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF94_A_DEF.h">
+      <Filter>Game\SNK Games\KOF94_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CFTE_SNES_DEF.h">
+      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_CFTE_SNES.h">
+      <Filter>Game\Nintendo\Clay Fighter: TE</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF99AE_A.h">
+      <Filter>Game\SNK Games\KOF99AE_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF99AE_A_DEF.h">
+      <Filter>Game\SNK Games\KOF99AE_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FatalFuryS_SNES_DEF.h">
+      <Filter>Game\Nintendo\Fatal Fury Special %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_FatalFuryS_SNES.h">
+      <Filter>Game\Nintendo\Fatal Fury Special %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AOF3_A_DEF.h">
+      <Filter>Game\SNK Games\Art of Fighting 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_AOF3_A.h">
+      <Filter>Game\SNK Games\Art of Fighting 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DANKUGA_A_DEF.h">
+      <Filter>Game\Other Platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DANKUGA_A.h">
+      <Filter>Game\Other Platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SAMSHO4_A.h">
+      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMSHO4_A_DEF.h">
+      <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_RODSM2_A.h">
+      <Filter>Game\Capcom Games\Slam Masters 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\RODSM2_A_DEF.h">
+      <Filter>Game\Capcom Games\Slam Masters 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_LASTBLADE2_A.h">
+      <Filter>Game\SNK Games\LASTBLADE2_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\LASTBLADE2_A_DEF.h">
+      <Filter>Game\SNK Games\LASTBLADE2_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

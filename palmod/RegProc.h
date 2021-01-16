@@ -38,6 +38,12 @@ public:
     static int GetUserSavePaletteToMemoryPreference();
     static void SetUserSavePaletteToMemoryPreference(int nPreference);
 
+    static void SetExtraFileLoadingCanary(LPCWSTR pszExtraFileName, DWORD nExtraFileSize);
+    static bool WasExtraFileCanaryKilledLastTime(LPCWSTR pszExtraFileName, DWORD nExtraFileSize);
+    static void ClearExtraFileLoadingCanary(LPCWSTR pszExtraFileName);
+
+    static bool UserIsOnWINE();
+
     //Main
 
     RECT main_szpos = { c_badWindowPosValue };

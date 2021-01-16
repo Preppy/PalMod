@@ -56,12 +56,13 @@ CGame_Garou_S::CGame_Garou_S(UINT32 nConfirmedROMSize)
     SetColorMode(ColMode::COLMODE_NEOGEO);
 
     //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_8);
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = Garou_S;
     nImgGameFlag = IMGDAT_SECTION_GAROU;
     nImgUnitAmt = GAROU_A_NUM_IMG_UNITS;
+    m_prgGameImageSet = GAROU_A_IMG_UNITS;
 
     nFileAmt = 1;
 
@@ -154,7 +155,7 @@ sDescTreeNode* CGame_Garou_S::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[Garou_S]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[Garou_S]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -182,7 +183,7 @@ sDescTreeNode* CGame_Garou_S::InitDescTree()
         if (iUnitCtr < Garou_S_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), Garou_S_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), Garou_S_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
@@ -203,7 +204,7 @@ sDescTreeNode* CGame_Garou_S::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -251,7 +252,7 @@ sDescTreeNode* CGame_Garou_S::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
@@ -270,7 +271,7 @@ sDescTreeNode* CGame_Garou_S::InitDescTree()
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(Garou_S_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            _stprintf(CollectionNode->szDesc, _T("Extra"));
+            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -295,7 +296,7 @@ sDescTreeNode* CGame_Garou_S::InitDescTree()
                     pCurrDef = GetExtraDefForGarou_S(nExtraPos + nCurrExtra);
                 }
 
-                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((Garou_S_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
@@ -324,7 +325,7 @@ sFileRule CGame_Garou_S::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("p1.bin"));
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("p1.bin"));
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -494,7 +495,7 @@ void CGame_Garou_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
         else
@@ -509,76 +510,8 @@ void CGame_Garou_S::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForGarou_S(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
         m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
-BOOL CGame_Garou_S::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
-{
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-    {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
-
-        // Use a sorted layout
-        rgUnitRedir[nUnitCtr] = Garou_S_UNITSORT[nUnitCtr];
-
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-        {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-
-            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
-            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
-        }
-    }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-    
-    CheckForErrorsInTables();
-
-    return TRUE;
-}
-
-void CGame_Garou_S::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
-{
-    UINT16 nUnitId = srcNode->uUnitId;
-    UINT16 nPalId = srcNode->uPalId;
-    static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
-
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    const UINT8 nTotalPagesNeeded = (UINT8)ceil((double)m_nCurrentPaletteSize / (double)s_nColorsPerPage);
-    const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
-
-    if (!fCanFitWithinCurrentPageLayout)
-    {
-        CString strWarning;
-        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
-        OutputDebugString(strWarning);
-    }
-
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
-
-    if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
-    {
-        CString strPageDescription;
-        INT16 nColorsRemaining = m_nCurrentPaletteSize;
-
-        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
-        {
-            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
-            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
-            nColorsRemaining -= s_nColorsPerPage;
-        }
-    }
-    else
-    {
-        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
     }
 }
 
@@ -628,7 +561,9 @@ BOOL CGame_Garou_S::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                if (Garou_S_UNITSORT[NodeGet->uUnitId] == indexGarouAPortraits)
+                sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+
+                if (wcscmp(charUnit->szDesc, k_garouNameKey_Portraits) == 0)
                 {
                     nSrcAmt = 4;
                     nSrcStart = NodeGet->uPalId - (NodeGet->uPalId % 4);

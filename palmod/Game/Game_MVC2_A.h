@@ -48,10 +48,10 @@ public:
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
+    UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0) override;
     BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 

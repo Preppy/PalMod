@@ -9,7 +9,7 @@
 class CImgDat {
 private:
 
-    std::map<UINT8, ImgInfoList*>* nImgMap = nullptr;
+    std::map<UINT16, ImgInfoList*>* nImgMap = nullptr;
 
     UINT16 nCurGameImgAmt = 0x0000;
 
@@ -23,9 +23,11 @@ private:
 
     bool imageBufferFlushed = false;
     bool imageBufferPrepped = false;
-    bool PrepImageBuffer(UINT16 nGameImageUnitAmt, UINT8 uGameFlag);
+    bool PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameImageUnitAmt, UINT8 uGameFlag);
     bool sameGameAlreadyLoaded(UINT8 uGameFlag, UINT8 uImgGameFlag);
     void getBMRLEData(UINT8 chunkSize, UINT8* inputData, UINT8* output_data, UINT32& i_byteCtr, UINT32& o_dataCtr);
+
+    void VersionCheckImgDat(UINT32 nCurrentDaystamp, UINT8 nNumGames);
 
     CFile ImgDatFile;
 
@@ -35,15 +37,15 @@ public:
     CImgDat(void);
     ~CImgDat(void);
 
-    BOOL LoadImage(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, UINT16 uImgUnitAmt, UINT16 uImgAmt = MAX_IMAGE, BOOL bLoadAll = TRUE);
+    BOOL LoadGameImages(TCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGameFlag, UINT16 uGameUnitAmt, const UINT16* prgGameImageSet, UINT16 uImgUnitAmt, BOOL bLoadAll = TRUE);
     sImgDef* GetImageDef(UINT16 uUnitId, UINT16 uImgId);
     bool FlushImageBuffer();
     UINT8* DecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight, UINT8 uiBPP);
     UINT8* RLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight);
     UINT8* BitMaskRLEDecodeImg(UINT8* pSrcImgData, UINT32 uiDataSz, UINT16 uiImgWidth, UINT16 uiImgHeight);
 
-    int GetCurrImgFlag() { return nCurImgGameFlag; };
-    UINT8* GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, int nCurrentUnitId, int nCurrentImgId);
+    UINT16 GetCurrImgFlag() { return nCurImgGameFlag; };
+    UINT8* GetImgData(sImgDef* pCurrImg, UINT8 uGameFlag, UINT16 nCurrentUnitId, UINT8 nCurrentImgId);
 
     void CloseImgFile();
 };

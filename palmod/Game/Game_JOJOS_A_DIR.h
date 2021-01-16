@@ -24,6 +24,8 @@ public:
     static sFileRule GetNextRule();
     static sFileRule GetRule(UINT16 nRuleId);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber);
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override;
     BOOL SaveFile(CFile* SaveFile, UINT16 nSaveUnit) override;
+
+    UINT32 SaveMultiplePatchFiles(CString strTargetDirectory) override;
 };

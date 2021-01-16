@@ -19,6 +19,7 @@ private:
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
     static UINT32 m_nConfirmedROMSize;
+    bool m_fHaveDoneInitialSet = false;
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
@@ -56,8 +57,6 @@ public:
     BOOL SetColorMode(ColMode NewMode) override;
     bool AllowUpdatingColorFormatForGame() override { return true; }
 
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0);
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     static stExtraDef* NEOGEO_A_EXTRA_CUSTOM;

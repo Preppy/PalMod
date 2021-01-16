@@ -13,7 +13,6 @@ private:
     UINT16** ppDataBuffer = nullptr;
 
     int GetFirstExtraValueFromExtraPaletteId(int nExtraPaletteIdint, int nStartOfRange, int nPalettePositionIncrements, int nRangeLength);
-   
 
 public:
     CGame_MVC2_D(void);
@@ -42,7 +41,7 @@ public:
     //Normal functions
     CDescTree* GetMainTree();
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId);
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId) override;
     BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId) override;
 
     void ValidateMixExtraColors(BOOL* pfChangesWereMade);
@@ -57,7 +56,7 @@ public:
 
     UINT16** GetDataBuffer() { return ppDataBuffer; };
     void PostSetPal(UINT16 nUnitId, UINT16 nPalId);
-    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId);
+    void CreateDefPal(sDescNode* srcNode, UINT16 nSepId) override;
     BOOL CreateExtraPal(UINT16 nUnitId, UINT16 nPalId, int nStart, int nInc, int nImgId, int nSepId = 0, int nAmt = 1);
     void ResetChangeFlag(UINT16 nUnitId);
 };

@@ -36,6 +36,11 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
+
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    SetAlphaAndColorModeInternal(CRegProc::GetColorModeForUnknownGame(), CRegProc::GetAlphaModeForUnknownGame());
+
+    // InitStatics needs color size configured by color mode, so call after that
     InitializeStatics();
 
     m_nTotalInternalUnits = NEOGEO_A_NUMUNIT;
@@ -60,15 +65,14 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
         MessageBox(g_appHWnd, strIntro, GetHost()->GetAppName(), MB_ICONINFORMATION);
     }
 
+    // InitDataBuffer needs color size configured by color mode, so call after that
     InitDataBuffer();
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-    SetAlphaAndColorModeInternal(CRegProc::GetColorModeForUnknownGame(), CRegProc::GetAlphaModeForUnknownGame());
 
     //Set game information
     nGameFlag = NEOGEO_A;
     nImgGameFlag = IMGDAT_SECTION_GAROU;
     nImgUnitAmt = 0; // This is a stub game.  No images will be used.
+    m_prgGameImageSet = nullptr;
 
     nFileAmt = 1;
 
@@ -151,49 +155,102 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
 
     bool fShouldSetAlpha = CurrentAlphaSetting == AlphaMode::Unknown;
     AlphaMode suggestedAlphaSetting = CurrentAlphaSetting;
+    
+    const UINT8 cbPreviousColorSize = m_nSizeOfColorsInBytes;
+    UINT8 cbRequiredColorSize = 0;
+    bool fChangedColorSize = false;
 
     switch (NewMode)
     {
-    case ColMode::COLMODE_GBA:
+    case ColMode::COLMODE_9:
+        cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_17);
+        BasePalGroup.SetMode(ePalType::PALTYPE_8STEPS);
+        break;
+    case ColMode::COLMODE_GBA:
+        cbRequiredColorSize = 2;
+        suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     case ColMode::COLMODE_12A:
+        cbRequiredColorSize = 2;
         suggestedAlphaSetting= AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_17);
+        BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
         break;
     case ColMode::COLMODE_15:
+        cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     case ColMode::COLMODE_15ALT:
+        cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+        break;
+    case ColMode::COLMODE_SHARPRGB:
+        cbRequiredColorSize = 2;
+        suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+        break;
+    case ColMode::COLMODE_ARGB7888:
+        cbRequiredColorSize = 4;
+        suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
+        BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
         break;
     default: // Something is wrong: reset
         OutputDebugString(L"warning: unknown color mode was requested. Resetting to default\n");
         __fallthrough;
     case ColMode::COLMODE_NEOGEO:
+        cbRequiredColorSize = 2;
         fShouldSetAlpha = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_8);
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     };
+
+    if (cbRequiredColorSize != cbPreviousColorSize)
+    {
+        if (!m_fHaveDoneInitialSet)
+        {
+            m_nSizeOfColorsInBytes = cbRequiredColorSize;
+        }
+        else
+        {
+            fChangedColorSize = true;
+            CString strMsg = L"Configured.  You must now reload this game to use this setting.  PalMod will not work correctly until you reload.";
+
+            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP);
+        }
+    }
+    else
+    {
+        if (m_fHaveDoneInitialSet)
+        {
+            CString strMsg = L"Updated.  The next palette displayed will use this color format.";
+
+            MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
+        }
+    }
+
+    m_fHaveDoneInitialSet = true;
 
     if (fShouldSetAlpha)
     {
         SetAlphaModeInternal(suggestedAlphaSetting);
     }
 
-    return CGameClass::SetColorMode(NewMode);
+    if (!fChangedColorSize)
+    {
+        return CGameClass::SetColorMode(NewMode);
+    }
+    else
+    {
+        return FALSE;
+    }
 }
 
 BOOL CGame_NEOGEO_A::SetColorMode(ColMode NewMode)
 {
-    CString strMsg = L"Updated.  The next palette displayed will use this color format.";
-
-    MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONINFORMATION);
-
     // Reset alpha mode since we're switching color formats...
     CRegProc::SetAlphaModeForUnknownGame(AlphaMode::Unknown);
 
@@ -231,7 +288,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_UNKNOWN_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_UNKNOWN_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
 
     if (GetExtraCt(NEOGEO_A_EXTRALOC) == 0)
     {
@@ -240,7 +297,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
         memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
         memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-        LoadExtraFileForGame(EXTRA_FILENAME_NEO_GEO_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize);
+        LoadExtraFileForGame(EXTRA_FILENAME_NEO_GEO_A, NEOGEO_A_EXTRA, &NEOGEO_A_EXTRA_CUSTOM, NEOGEO_A_EXTRALOC, m_nConfirmedROMSize, m_nSizeOfColorsInBytes);
     }
 
     UINT16 nUnitCt = NEOGEO_A_NUMUNIT + (GetExtraCt(NEOGEO_A_EXTRALOC) ? 1 : 0);
@@ -248,7 +305,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _stprintf(NewDescTree->szDesc, _T("%s"), g_GameFriendlyName[NEOGEO_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[NEOGEO_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -276,7 +333,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
         if (iUnitCtr < NEOGEO_A_EXTRALOC)
         {
             //Set each description
-            _stprintf(UnitNode->szDesc, _T("%s"), NEOGEO_A_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), NEOGEO_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
@@ -297,7 +354,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _stprintf(CollectionNode->szDesc, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -325,7 +382,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
 #if NEOGEO_A_DEBUG
                     strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / m_nSizeOfColorsInBytes);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
@@ -345,7 +402,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _stprintf(UnitNode->szDesc, _T("Extra Palettes"));
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
@@ -364,7 +421,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(NEOGEO_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            _stprintf(CollectionNode->szDesc, _T("Extra"));
+            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -389,7 +446,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
                     pCurrDef = GetExtraDefForNEOGEO(nExtraPos + nCurrExtra);
                 }
 
-                _stprintf(ChildNode->szDesc, pCurrDef->szDesc);
+                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((NEOGEO_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
@@ -418,7 +475,7 @@ sFileRule CGame_NEOGEO_A::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _stprintf_s(NewFileRule.szFileName, MAX_FILENAME_LENGTH, _T("stub.stb")); // use a stub value here
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("stub.stb")); // use a stub value here
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = -1; // this game is a stub only
@@ -588,7 +645,7 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             cbPaletteSizeOnDisc = (int)max(0, (paletteData->nPaletteOffsetEnd - paletteData->nPaletteOffset));
 
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
-            m_nCurrentPaletteSize = cbPaletteSizeOnDisc / 2;
+            m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
         }
         else
@@ -603,76 +660,8 @@ void CGame_NEOGEO_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
         stExtraDef* pCurrDef = GetExtraDefForNEOGEO(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
-        m_nCurrentPaletteSize = (pCurrDef->cbPaletteSize / 2);
+        m_nCurrentPaletteSizeInColors = pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes;
         m_pszCurrentPaletteName = pCurrDef->szDesc;
-    }
-}
-
-BOOL CGame_NEOGEO_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
-{
-    for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
-    {
-        UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
-
-        m_pppDataBuffer[nUnitCtr] = new UINT16 * [nPalAmt];
-
-        //no need to re-sort this
-        rgUnitRedir[nUnitCtr] = nUnitCtr;
-
-        for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
-        {
-            LoadSpecificPaletteData(nUnitCtr, nPalCtr);
-
-            m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSize];
-
-            LoadedFile->Seek(m_nCurrentPaletteROMLocation, CFile::begin);
-
-            LoadedFile->Read(m_pppDataBuffer[nUnitCtr][nPalCtr], m_nCurrentPaletteSize * 2);
-        }
-    }
-
-    rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
-    
-    CheckForErrorsInTables();
-
-    return TRUE;
-}
-
-void CGame_NEOGEO_A::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
-{
-    UINT16 nUnitId = srcNode->uUnitId;
-    UINT16 nPalId = srcNode->uPalId;
-    static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
-
-    LoadSpecificPaletteData(nUnitId, nPalId);
-
-    const UINT8 nTotalPagesNeeded = (UINT8)ceil((double)m_nCurrentPaletteSize / (double)s_nColorsPerPage);
-    const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
-
-    if (!fCanFitWithinCurrentPageLayout)
-    {
-        CString strWarning;
-        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
-        OutputDebugString(strWarning);
-    }
-
-    BasePalGroup.AddPal(CreatePal(nUnitId, nPalId), m_nCurrentPaletteSize, nUnitId, nPalId);
-
-    if (fCanFitWithinCurrentPageLayout && (m_nCurrentPaletteSize > s_nColorsPerPage))
-    {
-        CString strPageDescription;
-        INT16 nColorsRemaining = m_nCurrentPaletteSize;
-
-        for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSize; nCurrentPage++)
-        {
-            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
-            BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
-            nColorsRemaining -= s_nColorsPerPage;
-        }
-    }
-    else
-    {
-        BasePalGroup.AddSep(nSepId, srcNode->szDesc, 0, m_nCurrentPaletteSize);
     }
 }
 
