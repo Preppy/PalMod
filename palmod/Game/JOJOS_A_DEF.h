@@ -3101,7 +3101,7 @@ const sGame_PaletteDataset JOJOS_BONUS_MENU_PALETTES[] =
     { L"Character Select Comic", 0x0310000, 0x0310080, indexJojos51Bonus, 0x48 },
     { L"Extra characters page arrows", 0x0310500, 0x0310580 },
     { L"Vs screen Background", 0x030d000, 0x030d080, indexJojos51Bonus, 0x49 },
-    { L"Win screen Background", 0x0310200, 0x0310280 },
+    { L"Win screen Background", 0x0310200, 0x0310280, indexJojos51Bonus, 0x4a },
     { L"D'Arby", 0x0311a00, 0x0311a80, indexJojos51Bonus, 0x2C },
     { L"Darby Chips", 0x0311d00, 0x0311d80, indexJojos51Bonus, 0x2D },
     { L"Osiris Arms", 0x0311b80, 0x0311c00, indexJojos51Bonus, 0x2E },

@@ -242,12 +242,12 @@ const sDescTreeNode KOF01_A_Clark_COLLECTION[] =
 
 const sGame_PaletteDataset KOF01_A_Heidern_PALETTES_P[] =
 {
-    { L"Heidern P", 0x38ad22, 0x38ad42, indexKOFSprites_98Heidern, 0x00 },
+    { L"Heidern P", 0x38ad22, 0x38ad42, indexKOF01Sprites_Heidern, 0x00 },
 };
 
 const sGame_PaletteDataset KOF01_A_Heidern_PALETTES_K[] =
 {
-    { L"Heidern K", 0x38af22, 0x38af42, indexKOFSprites_98Heidern, 0x00 },
+    { L"Heidern K", 0x38af22, 0x38af42, indexKOF01Sprites_Heidern, 0x00 },
 };
 
 const sDescTreeNode KOF01_A_Heidern_COLLECTION[] =
@@ -434,12 +434,12 @@ const sDescTreeNode KOF01_A_Hinako_COLLECTION[] =
 
 const sGame_PaletteDataset KOF01_A_Xiangfei_PALETTES_P[] =
 {
-    { L"Xiangfei P", 0x38dd22, 0x38dd42, indexKOFSprites_01Xiangfei, 0x00 },
+    { L"Xiangfei P", 0x38dd22, 0x38dd42, indexKOF01Sprites_Xiangfei, 0x00 },
 };
 
 const sGame_PaletteDataset KOF01_A_Xiangfei_PALETTES_K[] =
 {
-    { L"Xiangfei K", 0x38df22, 0x38df42, indexKOFSprites_01Xiangfei, 0x00 },
+    { L"Xiangfei K", 0x38df22, 0x38df42, indexKOF01Sprites_Xiangfei, 0x00 },
 };
 
 const sDescTreeNode KOF01_A_Xiangfei_COLLECTION[] =

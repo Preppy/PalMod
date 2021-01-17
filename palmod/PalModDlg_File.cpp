@@ -11,6 +11,7 @@ constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
 
 // NOTE: If you add a multiple-ROM option below, you will also need to update
 // CGameLoad::LoadFile to pass the appropriate gameflag to that game.
+// When you or change the data here, please also update the Read Me with that data.
 sSupportedGameList SupportedGameList[] =
 {
     { AOF3_A,           L"Art of Fighting 3", L"Art of Fighting 3: Characters (p1), Stages (p2)|096-p1.*;096-p2.*|", GamePlatform::NEOGEO },
@@ -27,7 +28,7 @@ sSupportedGameList SupportedGameList[] =
     { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", GamePlatform::NEOGEO }, // DataEast
     { KOF94_A,          L"KOF94", L"KOF94|055-p1.p1|", GamePlatform::NEOGEO },
     { KOF98_A,          L"KOF98", L"KOF98|242-p2.sp2;kof98_p2.rom|", GamePlatform::NEOGEO },
-    { KOF99AE_A,        L"KOF99AE", L"KOF99AE|kof99ae_p2.bin;kof99ae_p3.bin|", GamePlatform::NEOGEO },
+    { KOF99AE_A,        L"KOF99AE", L"KOF99AE: A,B (p2), C,D,AC,BD (p3)|kof99ae_p2.bin;kof99ae_p3.bin|", GamePlatform::NEOGEO },
     { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2|", GamePlatform::NEOGEO },
     // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
     { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", GamePlatform::NEOGEO },
@@ -49,7 +50,7 @@ sSupportedGameList SupportedGameList[] =
     { REDEARTH_A,       L"Red Earth", L"Red Earth|31|", GamePlatform::CapcomCPS3 },
     { RODSM2_A,         L"Ring of Destruction: Slam Masters 2", L"Ring of Destruction: Slam Masters 2|smbe.05b|", GamePlatform::CapcomCPS12 },
     { SAMSHO3_A,        L"Samurai Shodown III", L"Samurai Shodown III|087-p5.p5|", GamePlatform::NEOGEO },
-    { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom|", GamePlatform::NEOGEO },
+    { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom;222-p1.bin;222_p1.p1|", GamePlatform::NEOGEO },
     { SAMSHO5SP_A,      L"Samurai Shodown V Special", L"Samurai Shodown V Special|272-p1.*;p1*h*.bin|", GamePlatform::NEOGEO },
     { SFA1_A,           L"SFA1", L"SFA1|sfz.06|", GamePlatform::CapcomCPS12 },
     { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", GamePlatform::CapcomCPS12 },

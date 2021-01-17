@@ -1909,6 +1909,21 @@ const sGame_PaletteDataset SSF2T_A_RYU_STAGE_NODE[] =
     { L"Foreground",    0x68000, 0x68120, indexSF2Sprites_Stages, 0x0a },
 };
 
+const sGame_PaletteDataset SSF2T_A_CAMMY_STAGE_NODE_4[] =
+{
+    { L"Bird Castle Entrance", 0x5717C, 0x5723C, indexSF2Sprites_Stages, 0x13 },
+};
+
+const sGame_PaletteDataset SSF2T_A_CAMMY_STAGE_NODE[] =
+{
+    { L"Cammy Town BG", 0x73400, 0x73600, indexSF2Sprites_Stages, 0x0e, &pairFullyLinkedNode },
+    { L"Cammy Town BG - mansions", 0x73600, 0x73800, indexSF2Sprites_Stages, 0x0d },
+    { L"Cammy Bridge", 0x6B000, 0x6B200, indexSF2Sprites_Stages, 0x10 },
+    { L"Cammy Sky", 0x6B200, 0x6B400, indexSF2Sprites_Stages, 0x0f },
+    { L"Cammy Castle", 0x63000, 0x63200, indexSF2Sprites_Stages, 0x12 },
+    { L"Cammy Castle", 0x63200, 0x63400, indexSF2Sprites_Stages, 0x11 },
+};
+
 // Sagat Stage - Lady+Floor    6A3FE        6A75E
 // Sagat Stage - FarBG        727FE        7291E
 // Sagat Stage - MG        623FE        627FE
@@ -1949,14 +1964,17 @@ const sDescTreeNode SSF2T_A_PORTRAITS_COLLECTION[] =
 
 const sDescTreeNode SSF2T_A_BONUS_COLLECTION[] =
 {
-    { L"Palettes",          DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_NODE,      ARRAYSIZE(SSF2T_A_BONUS_NODE) },
-    { L"Ryu Stage (04)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,       ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
+    { L"Palettes",          DESC_NODETYPE_TREE, (void*)SSF2T_A_BONUS_NODE,          ARRAYSIZE(SSF2T_A_BONUS_NODE) },
+    { L"Cammy Stage (04)",  DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE_4,  ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE_4) },
+    { L"Ryu Stage (04)",    DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE_4,    ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE_4) },
 };
 
 const sDescTreeNode SSF2T_A_STAGES_COLLECTION[] =
 {
-    { L"Ryu Stage",     DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE,       ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE) },
-    { L"Sagat Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE,       ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE) },
+    
+    { L"Cammy Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_CAMMY_STAGE_NODE,    ARRAYSIZE(SSF2T_A_CAMMY_STAGE_NODE) },
+    { L"Ryu Stage",     DESC_NODETYPE_TREE, (void*)SSF2T_A_RYU_STAGE_NODE,      ARRAYSIZE(SSF2T_A_RYU_STAGE_NODE) },
+    { L"Sagat Stage",   DESC_NODETYPE_TREE, (void*)SSF2T_A_SAGAT_STAGE_NODE,    ARRAYSIZE(SSF2T_A_SAGAT_STAGE_NODE) },
 };
 
 const sDescTreeNode SSF2T_A_UNITS_3C[SSF2T_A_NUM_IND_3C] =

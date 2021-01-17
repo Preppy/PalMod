@@ -231,8 +231,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,70,0
- PRODUCTVERSION 1,0,70,0
+ FILEVERSION 1,0,71,0
+ PRODUCTVERSION 1,0,71,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -249,12 +249,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.70.0"
+            VALUE "FileVersion", "1.0.71.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.70.0"
+            VALUE "ProductVersion", "1.0.71.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -319,7 +319,7 @@ BEGIN
         MENUITEM "Load ROM by game",            ID_FILE_OPEN_BY_GAME
         POPUP "&Load Directory"
         BEGIN
-            MENUITEM "Dan-Ku-Ga",               ID_LOADDIRECTORY_DANKUGA
+            MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
             POPUP "Jojo's"
             BEGIN
                 MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
@@ -473,7 +473,7 @@ BEGIN
     "Z",            ID_ACC_UNDO,            VIRTKEY, CONTROL, NOINVERT
     "L",            ID_ACC_LOADPALETTE,     VIRTKEY, CONTROL, NOINVERT
     "P",            ID_ACC_SAVEPALETTE,     VIRTKEY, CONTROL, NOINVERT
-    VK_ESCAPE,      ID_ACC_ESCAPE,          VIRTKEY
+    VK_ESCAPE,      ID_ACC_ESCAPE,          VIRTKEY 
 END
 
 
@@ -534,7 +534,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.70"
+    IDS_CURRENTAPPNAME      "PalMod 1.71"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
     IDS_ERROR_NO_IMAGES     "No images available."
