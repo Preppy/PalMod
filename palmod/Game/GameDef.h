@@ -82,6 +82,7 @@ enum SupportedGamesList
     DANKUGA_A,
     SAMSHO4_A,
     RODSM2_A,
+    LASTBLADE2_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -167,6 +168,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Dan-Ku-Ga (Arcade)",
    L"Samurai Shodown IV (Arcade)",
    L"Ring of Destruction: Slam Master's II",
+   L"The Last Blade 2 (Arcade)",
 };
 
 enum class GamePlatform
@@ -345,6 +347,11 @@ const LPCTSTR DEF_BUTTONLABEL_KOFXI[] =
 const LPCTSTR DEF_BUTTONLABEL_BLEACH[] =
 {
     L"Palette 1", L"Palette 2", L"Palette 3", L"Palette 4", L"Palette 5", L"Palette 6", L"Palette 7", L"Palette 8"
+};
+
+const LPCTSTR DEF_BUTTONLABEL_LASTBLADE2[] =
+{
+    L"Power A", L"Power D", L"Speed A", L"Speed D", L"EX A", L"EX D"
 };
 
 struct stExtraDef

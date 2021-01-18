@@ -1505,7 +1505,7 @@ const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_PORTRAITS[] =
     { L"Freeman Portrait Palette - A", 0x2b200, 0x2b240, indexGarouAPortraits, indexGarouAFreeman },
     { L"Freeman Portrait Palette - B", 0x2b240, 0x2b280, indexGarouAPortraits, indexGarouAFreeman },
     { L"Freeman Portrait Palette - C", 0x2b280, 0x2b2c0, indexGarouAPortraits, indexGarouAFreeman },
-    { L"Freeman Portrait Palette - D", 0x2b2c0, 0x2b300, indexGarouAPortraits, indexGarouATizoc },
+    { L"Freeman Portrait Palette - D", 0x2b2c0, 0x2b300, indexGarouAPortraits, indexGarouAFreeman },
 };
 
 const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_PORTRAITS[] =

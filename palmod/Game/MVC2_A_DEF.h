@@ -2696,7 +2696,7 @@ const sDescTreeNode MVC2_A_RUBY_COLLECTION[] =
 
 const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_LP[] =
 {
-    { L"Main Color LP", 0x39136c0, 0x39136e0, indexCPS2_SonSon, 0 },
+    { L"Main Color LP", 0x39136c0, 0x39136e0, indexCPS2_SonSon, 0, &pairFullyLinkedNode },
     { L"(02) Monkeys", 0x39136e0, 0x3913700, indexCPS2_SonSon, 1 },
     { L"(03) Cane Effects / Pot and Fire", 0x3913700, 0x3913720, indexCPS2_SonSon, 2 },
     { L"(04) Bottled Enemy", 0x3913720, 0x3913740, indexCPS2_SonSon, 3 },
@@ -2708,7 +2708,7 @@ const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_LP[] =
 
 const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_LK[] =
 {
-    { L"Main Color LK", 0x39137c0, 0x39137e0, indexCPS2_SonSon, 0 },
+    { L"Main Color LK", 0x39137c0, 0x39137e0, indexCPS2_SonSon, 0, &pairFullyLinkedNode },
     { L"(02) Monkeys", 0x39137e0, 0x3913800, indexCPS2_SonSon, 1 },
     { L"(03) Cane Effects / Pot and Fire", 0x3913800, 0x3913820, indexCPS2_SonSon, 2 },
     { L"(04) Bottled Enemy", 0x3913820, 0x3913840, indexCPS2_SonSon, 3 },
@@ -2720,7 +2720,7 @@ const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_LK[] =
 
 const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_HP[] =
 {
-    { L"Main Color HP", 0x39138c0, 0x39138e0, indexCPS2_SonSon, 0 },
+    { L"Main Color HP", 0x39138c0, 0x39138e0, indexCPS2_SonSon, 0, &pairFullyLinkedNode },
     { L"(02) Monkeys", 0x39138e0, 0x3913900, indexCPS2_SonSon, 1 },
     { L"(03) Cane Effects / Pot and Fire", 0x3913900, 0x3913920, indexCPS2_SonSon, 2 },
     { L"(04) Bottled Enemy", 0x3913920, 0x3913940, indexCPS2_SonSon, 3 },
@@ -2732,7 +2732,7 @@ const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_HP[] =
 
 const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_HK[] =
 {
-    { L"Main Color HK", 0x39139c0, 0x39139e0, indexCPS2_SonSon, 0 },
+    { L"Main Color HK", 0x39139c0, 0x39139e0, indexCPS2_SonSon, 0, &pairFullyLinkedNode },
     { L"(02) Monkeys", 0x39139e0, 0x3913a00, indexCPS2_SonSon, 1 },
     { L"(03) Cane Effects / Pot and Fire", 0x3913a00, 0x3913a20, indexCPS2_SonSon, 2 },
     { L"(04) Bottled Enemy", 0x3913a20, 0x3913a40, indexCPS2_SonSon, 3 },
@@ -2744,7 +2744,7 @@ const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_HK[] =
 
 const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_A1[] =
 {
-    { L"Main Color A1", 0x3913ac0, 0x3913ae0, indexCPS2_SonSon, 0 },
+    { L"Main Color A1", 0x3913ac0, 0x3913ae0, indexCPS2_SonSon, 0, &pairFullyLinkedNode },
     { L"(02) Monkeys", 0x3913ae0, 0x3913b00, indexCPS2_SonSon, 1 },
     { L"(03) Cane Effects / Pot and Fire", 0x3913b00, 0x3913b20, indexCPS2_SonSon, 2 },
     { L"(04) Bottled Enemy", 0x3913b20, 0x3913b40, indexCPS2_SonSon, 3 },
@@ -2756,7 +2756,7 @@ const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_A1[] =
 
 const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_A2[] =
 {
-    { L"Main Color A2", 0x3913bc0, 0x3913be0, indexCPS2_SonSon, 0 },
+    { L"Main Color A2", 0x3913bc0, 0x3913be0, indexCPS2_SonSon, 0, &pairFullyLinkedNode },
     { L"(02) Monkeys", 0x3913be0, 0x3913c00, indexCPS2_SonSon, 1 },
     { L"(03) Cane Effects / Pot and Fire", 0x3913c00, 0x3913c20, indexCPS2_SonSon, 2 },
     { L"(04) Bottled Enemy", 0x3913c20, 0x3913c40, indexCPS2_SonSon, 3 },
@@ -2793,7 +2793,7 @@ const sGame_PaletteDataset MVC2_A_SONSON_PALETTES_EXTRAS[] =
     { L"13: A1 - Monkey King", 0x3913f00, 0x3913f20, indexCPS2_SonSon, 11 },
     { L"14: A2 - Monkey King", 0x3913f20, 0x3913f40, indexCPS2_SonSon, 11 },
     { L"15: Not Used", 0x3913f40, 0x3913f60 },
-    { L"16: Monkey King (Laser) - all buttons", 0x3913f60, 0x3913f80 },
+    { L"16: Monkey King (Laser) - all buttons", 0x3913f60, 0x3913f80, indexCPS2_SonSon, 0x0c },
     { L"17: LP - Monkey King (when hit)", 0x3913f80, 0x3913fa0, indexCPS2_SonSon, 11 },
     { L"18: LK - Monkey King (when hit)", 0x3913fa0, 0x3913fc0, indexCPS2_SonSon, 11 },
     { L"19: HP - Monkey King (when hit)", 0x3913fc0, 0x3913fe0, indexCPS2_SonSon, 11 },

@@ -168,8 +168,22 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
     return TRUE;
 }
 
+#define DEBUG_PRINT(a) if (fDebugFileIsOpen) { debugNotes.Write(a, ARRAYSIZE(a)); }
+
 void CPalModDlg::OnEditCopy()
 {
+    CFile debugNotes;
+    WCHAR szPath[MAX_PATH];
+    bool fDebugFileIsOpen = false;
+
+    if (false && GetCurrentDirectory(ARRAYSIZE(szPath), szPath))
+    {
+        wcscat(szPath, L".\\palmod-debug.txt");
+
+        fDebugFileIsOpen = (debugNotes.Open(szPath, CFile::modeWrite | CFile::typeUnicode | CFile::modeCreate));
+    }
+
+    DEBUG_PRINT("OnEditCopy::Start\r\n");
     if (bEnabled)
     {
         CGameClass* CurrGame = GetHost()->GetCurrGame();
@@ -187,6 +201,7 @@ void CPalModDlg::OnEditCopy()
 
         if (!bOleInit)
         {
+            DEBUG_PRINT("OnEditCopy:: Failed OLEInit\r\n");
             return;
         }
 
@@ -197,6 +212,8 @@ void CPalModDlg::OnEditCopy()
         CStringA FormatTxt;
 
         BOOL bCopyAll = !CurrPal->GetSelAmt();
+
+        DEBUG_PRINT("OnEditCopy::Checking color mode\r\n");
 
         // You want to update this table so that older or newer versions of PalMod know the bpp of the 
         // copied colors.
@@ -247,6 +264,8 @@ void CPalModDlg::OnEditCopy()
 
         CopyText.Format("(%c%c", uCopyFlag1, uCopyFlag2);
 
+        DEBUG_PRINT("OnEditCopy::Formatting colors\r\n");
+
         int nInitialOffsetDelta = 0;
         bool fHaveSetDelta = false;
 
@@ -288,20 +307,25 @@ void CPalModDlg::OnEditCopy()
 
         CopyText.Append(")");
 
+        DEBUG_PRINT("OnEditCopy::Writing to shared file\r\n");
+
         sf.Write(CopyText, CopyText.GetLength());
 
         HGLOBAL hMem = sf.Detach();
         if (!hMem)
         {
+            DEBUG_PRINT("OnEditCopy::Memory detach failed\r\n");
             return;
         }
 
+        DEBUG_PRINT("OnEditCopy::Cacheing to global data\r\n");
         pSource->CacheGlobalData(CF_TEXT, hMem);
 
         // The above handles copying colors between palmod
         // The below handles generating the string pasted to the Unicode clipboard. This contains more useful data.
         CString strUnicodeData;
 
+        DEBUG_PRINT("OnEditCopy::Debug output part\r\n");
         strUnicodeData.Format(L"%S", CopyText.GetString());
         if (bExtraCopyData)
         {
@@ -357,16 +381,24 @@ void CPalModDlg::OnEditCopy()
 
         OutputDebugString(strUnicodeData.GetString());
 
+        DEBUG_PRINT("OnEditCopy::Generating unicode form\r\n");
+
         CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
         sfUnicode.Write(strUnicodeData, strUnicodeData.GetLength() * sizeof(WCHAR));
         HGLOBAL hMemUnicode = sfUnicode.Detach();
         if (hMemUnicode)
         {
+            DEBUG_PRINT("OnEditCopy::Cacheing unicode form\r\n");
             pSource->CacheGlobalData(CF_UNICODETEXT, hMemUnicode);
         }
 
+        DEBUG_PRINT("OnEditCopy::Setting clipboard\r\n");
         pSource->SetClipboard();
+        DEBUG_PRINT("OnEditCopy::Complete!\r\n");
     }
+
+    DEBUG_PRINT("OnEditCopy::Exit\r\n");
+    //debugNotes.Abort();
 }
 
 BOOL IsPasteFromPalMod()

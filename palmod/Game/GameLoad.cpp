@@ -24,6 +24,7 @@
 #include "Game_KOF98_A.h"
 #include "Game_KOF99AE_A.h"
 #include "Game_KOFXI_A.h"
+#include "Game_LASTBLADE2_A.h"
 #include "Game_Matrimelee_A.h"
 #include "Game_MMPR_SNES.h"
 #include "Game_MSH_A.h"
@@ -229,6 +230,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case KOFXI_A:
     {
         GetRule = &CGame_KOFXI_A::GetRule;
+        return TRUE;
+    }
+    case LASTBLADE2_A:
+    {
+        GetRule = &CGame_LASTBLADE2_A::GetRule;
         return TRUE;
     }
     case MATRIMELEE_A:
@@ -583,6 +589,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case KOFXI_A:
     {
         return new CGame_KOFXI_A(nConfirmedROMSize);
+    }
+    case LASTBLADE2_A:
+    {
+        return new CGame_LASTBLADE2_A(nConfirmedROMSize);
     }
     case MATRIMELEE_A:
     {

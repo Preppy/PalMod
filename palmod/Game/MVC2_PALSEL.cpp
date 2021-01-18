@@ -308,6 +308,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             break;
         }
 
+        // Gamma crush
         nExtraAmt = 1;
         CreateExtraPal(uUnitId, uPalId, 0x0A, 1, 11);
         break;
@@ -505,17 +506,65 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     case indexCPS2_SonSon: //SonSon
     {
+        // Core sprite join
+        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        {
+            bLoadDefPal = FALSE;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0,
+                    CreateImgTicket(uUnitId, 1,
+                        CreateImgTicket(uUnitId, 2,
+                            CreateImgTicket(uUnitId, 3,
+                                CreateImgTicket(uUnitId, 4,
+                                    CreateImgTicket(uUnitId, 5,
+                                        CreateImgTicket(uUnitId, 6
+                )))))))
+            );
+
+            //Set each palette
+            sDescNode* NodeGet[7] = {
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 1, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 2, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 3, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 4, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 5, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 6, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeGet[0], 0);
+            CreateDefPal(NodeGet[1], 1);
+            CreateDefPal(NodeGet[2], 2);
+            CreateDefPal(NodeGet[3], 3);
+            CreateDefPal(NodeGet[4], 4);
+            CreateDefPal(NodeGet[5], 5);
+            CreateDefPal(NodeGet[6], 6);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(1, uUnitId, 1, 6, 8);
+            SetSourcePal(2, uUnitId, 2, 6, 8);
+            SetSourcePal(3, uUnitId, 3, 6, 8);
+            SetSourcePal(4, uUnitId, 4, 6, 8);
+            SetSourcePal(5, uUnitId, 5, 6, 8);
+            SetSourcePal(6, uUnitId, 6, 6, 8);
+            break;
+        }
+
         nExtraAmt = 1;
         if (CreateExtraPal(uUnitId, uPalId, 0x0B, 1, 0x09) || // strawberry
-            CreateExtraPal(uUnitId, uPalId, 0x0C, 1, 0x08)) // peach
+            CreateExtraPal(uUnitId, uPalId, 0x0C, 1, 0x08) ||  // peach
+            CreateExtraPal(uUnitId, uPalId, 0x16, 1, 0x0c)) // giant monkey lasers
         {
             break;
         }
 
         nExtraAmt = 6;
         if (CreateExtraPal(uUnitId, uPalId, 0x0F, 1, 11) || // giant monkey
-            CreateExtraPal(uUnitId, uPalId, 0x17, 1, 11) || // giant monkey
-            CreateExtraPal(uUnitId, uPalId, 0x1D, 2, 11, 0, 2)) // giant monkey
+            CreateExtraPal(uUnitId, uPalId, 0x17, 1, 11) || // giant monkey when hit
+            CreateExtraPal(uUnitId, uPalId, 0x1D, 2, 11, 0, 2)) // giant monkey laser reflect
         {
             break;
         }
@@ -557,6 +606,47 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
         break;
     }
+    
+    case indexCPS2_Abyss2:
+    {
+        // Core sprite join
+        if (SpecSel(&nSpecOffs, uPalId, 0, 8))
+        {
+            bLoadDefPal = FALSE;
+
+            //Create the img ticket
+            ClearSetImgTicket(
+                CreateImgTicket(uUnitId, 0,
+                                CreateImgTicket(uUnitId, 4,
+                                    CreateImgTicket(uUnitId, 5,
+                                        CreateImgTicket(uUnitId, 6
+                                        ))))
+            );
+
+            //Set each palette
+            sDescNode* NodeGet[7] = {
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 0, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 4, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 5, -1),
+                GetMainTree()->GetDescNode(uUnitId, nSpecOffs, 6, -1)
+            };
+
+            //Set each palette
+            CreateDefPal(NodeGet[0], 0);
+            CreateDefPal(NodeGet[1], 1);
+            CreateDefPal(NodeGet[2], 2);
+            CreateDefPal(NodeGet[3], 3);
+
+            SetSourcePal(0, uUnitId, 0, 6, 8);
+            SetSourcePal(1, uUnitId, 4, 6, 8);
+            SetSourcePal(2, uUnitId, 5, 6, 8);
+            SetSourcePal(3, uUnitId, 6, 6, 8);
+            break;
+        }
+
+        break;
+    }
+
     case indexCPS2_ChunLi: // Chun-Li
     {
         // Handle her legs

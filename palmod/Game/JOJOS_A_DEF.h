@@ -3113,7 +3113,7 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
 {
     { L"Capcom Presents (text under intro logo)", 0x030b040, 0x030b060, indexJojos51Bonus, 0x37 },
     { L"Capcom logo",            0x030b080, 0x030b0a0, indexJojos51Bonus, 0x36 },
-    { L"Capcom Backgrounds",     0x030C300, 0x030C340, indexJojos51Bonus, 0x35 },
+    { L"Capcom Backgrounds",     0x030C300, 0x030C340, indexJojos51Bonus, 0x4b },
     { L"Hol Horse intro Body",   0x030c600, 0x030c680, indexJojos51Bonus, 0x3C },
     { L"Hol Horse intro Hand",   0x030c580, 0x030c600, indexJojos51Bonus, 0x3D },
     { L"Hol Horse shoot scene",  0x030C400, 0x030C480, indexJojos51Bonus, 0x3E },

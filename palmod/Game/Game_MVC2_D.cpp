@@ -425,18 +425,8 @@ int CGame_MVC2_D::CountExtraRg(UINT16 nUnitId, BOOL bOmniExtra)
         }
         else
         {
-            int nStart = rgExtraChrLoc[nUnitId] + 1;
-            int nRetVal = 0;
-
-            for (int i = 0; i < 7; i++)
-            {
-                //if (1)//MVC2_D_EXTRADEF[nStart + i])
-                {
-                    nRetVal++;
-                }
-            }
-
-            return nRetVal;
+            // There are seven extras for all core button colors
+            return 7;
         }
     }
 
