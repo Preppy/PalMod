@@ -841,7 +841,10 @@ void CGameClass::Revert(int nPalId)
 
     delete[] pTempPal;
 
-    MarkPaletteClean(CurrPalDef->uUnitId, CurrPalDef->uPalId);
+    // Concern: you can make a change, Update to save that, make another change, then Revert.
+    // Revert will revert back to the stored changed, not the base palette.  So we don't want to
+    // lose the dirty bit here.
+    //MarkPaletteClean(CurrPalDef->uUnitId, CurrPalDef->uPalId);
 }
 
 COLORREF* CGameClass::CreatePal(UINT16 nUnitId, UINT16 nPalId)
