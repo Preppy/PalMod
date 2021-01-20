@@ -202,6 +202,7 @@ void CPalTool::EndSetPal()
         // Once we turn on navigation controls, make sure to lock that space in
         int nUsedNavigationSpace = 0;
         const int nNavigationControlSize = PAL_TXT_SPACE * 2;
+        const int nSpaceRequiredForText = nFontHeight + (PAL_TXT_SPACE * 2);
 
         rgPalRedir[nCurrentPage] = 0;
 
@@ -211,7 +212,8 @@ void CPalTool::EndSetPal()
         {
             if (pPalEntry[nIndex].bAvail)
             {
-                nTotalHeightNeeded += PalSize[nIndex].cy + nFontHeight;
+                nTotalHeightNeeded += PalSize[nIndex].cy + nSpaceRequiredForText;
+
                 if (nTotalHeightNeeded > nPalViewH)
                 {
                     nUsedNavigationSpace = nNavigationControlSize;
@@ -228,12 +230,12 @@ void CPalTool::EndSetPal()
             if (pPalEntry[iCurrentPalette].bAvail)
             {
                 // Need space for the palette and the descriptive text.  And maybe navigation arrows.
-                const int nCurrentPaletteHeight = PalSize[iCurrentPalette].cy + nFontHeight;
+                const int nCurrentPaletteHeight = PalSize[iCurrentPalette].cy + nSpaceRequiredForText;
                 nCurrentPageHeight += nCurrentPaletteHeight;
 
                 // We want to know information about future pages so that we can display navigation controls appropriately.
                 const bool isNextPaletteAvailable = ((iCurrentPalette + 1) < nCurrPalAmt) && (pPalEntry[iCurrentPalette + 1].bAvail);
-                const int nNextPaletteHeight = isNextPaletteAvailable ? (PalSize[iCurrentPalette + 1].cy + nFontHeight) : 0;
+                const int nNextPaletteHeight = isNextPaletteAvailable ? (PalSize[iCurrentPalette + 1].cy + nSpaceRequiredForText) : 0;
 
                 if ((nCurrentPageHeight + nNextPaletteHeight) > nAvailablePageH)
                 {
@@ -246,13 +248,13 @@ void CPalTool::EndSetPal()
                         rgPalRedir[nCurrentPage] = (UINT8)iCurrentPalette;
                     }
 
-                    nCurrentPage++;
                     nPalettesThisPage = 0;
                     
                     if (isNextPaletteAvailable)
                     {
                         // Ensure that a final palette has a page to show upon, as without this that final palette
                         // will not be associated in rgPalRedir
+                        nCurrentPage++;
                         rgPalRedir[nCurrentPage] = (UINT8)(iCurrentPalette + 1);
                     }
                 }
