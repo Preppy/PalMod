@@ -11,6 +11,8 @@
 #include "Game\GameDef.h"
 #include "Game\GameClass.h"
 
+#include "debugutil.h"
+
 // We use the first non-white space printable character '!' as the base for edit/paste calculations.
 constexpr auto k_nASCIICharacterOffset = 33;
 
@@ -170,6 +172,10 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
 
 void CPalModDlg::OnEditCopy()
 {
+    g_DebugHelper.AddCanary(k_ContextMenuCopyCanary);
+
+    g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Start\r\n");
+
     if (bEnabled)
     {
         CGameClass* CurrGame = GetHost()->GetCurrGame();
@@ -187,6 +193,7 @@ void CPalModDlg::OnEditCopy()
 
         if (!bOleInit)
         {
+            g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy:: Failed OLEInit\r\n");
             return;
         }
 
@@ -197,6 +204,8 @@ void CPalModDlg::OnEditCopy()
         CStringA FormatTxt;
 
         BOOL bCopyAll = !CurrPal->GetSelAmt();
+
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Checking color mode\r\n");
 
         // You want to update this table so that older or newer versions of PalMod know the bpp of the 
         // copied colors.
@@ -247,6 +256,8 @@ void CPalModDlg::OnEditCopy()
 
         CopyText.Format("(%c%c", uCopyFlag1, uCopyFlag2);
 
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Formatting colors\r\n");
+
         int nInitialOffsetDelta = 0;
         bool fHaveSetDelta = false;
 
@@ -288,20 +299,25 @@ void CPalModDlg::OnEditCopy()
 
         CopyText.Append(")");
 
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Writing to shared file\r\n");
+
         sf.Write(CopyText, CopyText.GetLength());
 
         HGLOBAL hMem = sf.Detach();
         if (!hMem)
         {
+            g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Memory detach failed\r\n");
             return;
         }
 
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Cacheing to global data\r\n");
         pSource->CacheGlobalData(CF_TEXT, hMem);
 
         // The above handles copying colors between palmod
         // The below handles generating the string pasted to the Unicode clipboard. This contains more useful data.
         CString strUnicodeData;
 
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Debug output part\r\n");
         strUnicodeData.Format(L"%S", CopyText.GetString());
         if (bExtraCopyData)
         {
@@ -357,16 +373,25 @@ void CPalModDlg::OnEditCopy()
 
         OutputDebugString(strUnicodeData.GetString());
 
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Generating unicode form\r\n");
+
         CSharedFile sfUnicode(GMEM_MOVEABLE | GMEM_DDESHARE | GMEM_ZEROINIT);
         sfUnicode.Write(strUnicodeData, strUnicodeData.GetLength() * sizeof(WCHAR));
         HGLOBAL hMemUnicode = sfUnicode.Detach();
         if (hMemUnicode)
         {
+            g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Cacheing unicode form\r\n");
             pSource->CacheGlobalData(CF_UNICODETEXT, hMemUnicode);
         }
 
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Setting clipboard\r\n");
         pSource->SetClipboard();
+        g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Complete!\r\n");
     }
+
+    g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Exit\r\n");
+    
+    g_DebugHelper.FreeCanary(k_ContextMenuCopyCanary);
 }
 
 BOOL IsPasteFromPalMod()

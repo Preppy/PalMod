@@ -221,6 +221,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CRC32.cpp" />
+    <ClCompile Include="debugutil.cpp" />
     <ClCompile Include="ExtraFile.cpp" />
     <ClCompile Include="Game\ColorScale.cpp" />
     <ClCompile Include="Game\DescTree.cpp" />

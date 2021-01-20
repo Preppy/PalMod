@@ -561,7 +561,7 @@ CString RectToStr(RECT in_rect)
 
 RECT StrToRect(CString in_str)
 {
-    RECT out_rect;
+    RECT out_rect = {};
 
     TCHAR* rect_val = in_str.GetBuffer();
 
