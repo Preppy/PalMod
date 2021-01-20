@@ -67,6 +67,28 @@ const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P1[] =
     { L"P1 HP + HK Demons", 0x62F2E, 0x62F4E, indexCPS2_Blackheart, 0x02 },
     { L"P1 Dark Thunder", 0x62F8E, 0x62FAE, indexCPS2_Blackheart, 0x01 },
     { L"P1 Armageddon", 0x632EE, 0x6330E, indexCPS2_Blackheart, 0x0B },
+
+    { L"P1 Intro 1/16 and Inferno palette", 0x62cee, 0x62d0e, indexCPS2_Blackheart },
+    { L"P1 Intro 2/16", 0x62d0e, 0x62d2e, indexCPS2_Blackheart },
+    { L"P1 Intro 3/16 and post-Inferno palette", 0x62d2e, 0x62d4e, indexCPS2_Blackheart },
+    { L"P1 Intro 4/16", 0x62d4e, 0x62d6e, indexCPS2_Blackheart },
+    { L"P1 Intro 5/16", 0x62d6e, 0x62d8e, indexCPS2_Blackheart },
+    { L"P1 Intro 6/16", 0x62d8e, 0x62dae, indexCPS2_Blackheart },
+    { L"P1 Intro 7/16", 0x62dae, 0x62dce, indexCPS2_Blackheart },
+    { L"P1 Intro 8/16", 0x62dce, 0x62dee, indexCPS2_Blackheart },
+    { L"P1 Intro 9/16", 0x62dee, 0x62e0e, indexCPS2_Blackheart },
+    { L"P1 Intro 10/16", 0x62e0e, 0x62e2e, indexCPS2_Blackheart },
+    { L"P1 Intro 11/16", 0x62e2e, 0x62e4e, indexCPS2_Blackheart },
+    { L"P1 Intro 12/16", 0x62e4e, 0x62e6e, indexCPS2_Blackheart },
+    { L"P1 Intro 13/16", 0x62e6e, 0x62e8e, indexCPS2_Blackheart },
+    { L"P1 Intro 14/16", 0x62e8e, 0x62eae, indexCPS2_Blackheart },
+    { L"P1 Intro 15/16", 0x62eae, 0x62ece, indexCPS2_Blackheart },
+    { L"P1 Intro 16/16", 0x62ece, 0x62eee, indexCPS2_Blackheart },
+    { L"P1 Unknown", 0x62eee, 0x62f0e, indexCPS2_Blackheart },
+
+    { L"P1 Unknown 1/3", 0x6326e, 0x6328e, indexCPS2_Blackheart },
+    { L"P1 Unknown 2/3", 0x6328e, 0x632ae, indexCPS2_Blackheart },
+    { L"P1 Unknown 3/3", 0x632ae, 0x632ce, indexCPS2_Blackheart },
 };
 
 const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P2[] =
@@ -75,6 +97,28 @@ const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_P2[] =
     { L"P2 HP + HK Demons",  0x6372E, 0x6374E, indexCPS2_Blackheart, 0x02 },
     { L"P2 Dark Thunder",  0x6378E, 0x637AE, indexCPS2_Blackheart, 0x01 },
     { L"P2 Armageddon", 0x63AEE, 0x63B0E, indexCPS2_Blackheart, 0x0B },
+
+    { L"P2 Intro 1/16 and Inferno palette", 0x634ee, 0x6350e, indexCPS2_Blackheart },
+    { L"P2 Intro 2/16", 0x6350e, 0x6352e, indexCPS2_Blackheart },
+    { L"P2 Intro 3/16 and post-Inferno palette", 0x6352e, 0x6354e, indexCPS2_Blackheart },
+    { L"P2 Intro 4/16", 0x6354e, 0x6356e, indexCPS2_Blackheart },
+    { L"P2 Intro 5/16", 0x6356e, 0x6358e, indexCPS2_Blackheart },
+    { L"P2 Intro 6/16", 0x6358e, 0x635ae, indexCPS2_Blackheart },
+    { L"P2 Intro 7/16", 0x635ae, 0x635ce, indexCPS2_Blackheart },
+    { L"P2 Intro 8/16", 0x635ce, 0x635ee, indexCPS2_Blackheart },
+    { L"P2 Intro 9/16", 0x635ee, 0x6360e, indexCPS2_Blackheart },
+    { L"P2 Intro 10/16", 0x6360e, 0x6362e, indexCPS2_Blackheart },
+    { L"P2 Intro 11/16", 0x6362e, 0x6364e, indexCPS2_Blackheart },
+    { L"P2 Intro 12/16", 0x6364e, 0x6366e, indexCPS2_Blackheart },
+    { L"P2 Intro 13/16", 0x6366e, 0x6368e, indexCPS2_Blackheart },
+    { L"P2 Intro 14/16", 0x6368e, 0x636ae, indexCPS2_Blackheart },
+    { L"P2 Intro 15/16", 0x636ae, 0x636ce, indexCPS2_Blackheart },
+    { L"P2 Intro 16/16", 0x636ce, 0x636ee, indexCPS2_Blackheart },
+    { L"P2 Unknown", 0x636ee, 0x6370e, indexCPS2_Blackheart },
+
+    { L"P2 Unknown 1/3", 0x63a6e, 0x63a8e, indexCPS2_Blackheart },
+    { L"P2 Unknown 2/3", 0x63a8e, 0x63aae, indexCPS2_Blackheart },
+    { L"P2 Unknown 3/3", 0x63aae, 0x63ace, indexCPS2_Blackheart },
 };
 
 const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES_P1[] =
@@ -136,6 +180,8 @@ const sGame_PaletteDataset MSH_A_IRONMAN_PALETTES_P1[] =
     { L"P1 Main", 0x61EAE, 0x61ECE, indexCPS2_IronMan },
     { L"P1 Proton Cannon", 0x61ECE, 0x61EEE, indexCPS2_IronMan, 1 },
     { L"P1 Proton Canon laser / unibeam", 0x61EEE, 0x61F0E, indexCPS2_IronMan, 2 },
+
+    { L"P1 Unknown", 0x6324e, 0x6326e, indexCPS2_IronMan },
 };
 
 const sGame_PaletteDataset MSH_A_IRONMAN_PALETTES_P2[] =
@@ -143,6 +189,15 @@ const sGame_PaletteDataset MSH_A_IRONMAN_PALETTES_P2[] =
     { L"P2 Main", 0x61F2E, 0x61F4E, indexCPS2_IronMan },
     { L"P2 Proton Cannon", 0x61F4E, 0x61F6E, indexCPS2_IronMan, 1 },
     { L"P2 Proton Canon laser / unibeam", 0x61F6E, 0x61F8E, indexCPS2_IronMan, 2 },
+
+    { L"P2 Unknown", 0x63a4e, 0x63a6e, indexCPS2_IronMan },
+};
+
+const sGame_PaletteDataset MSH_A_IRONMAN_PALETTES_SHARED[] =
+{
+    { L"End Pose Glimmer 1/3", 0x62c8e, 0x62cae, indexCPS2_IronMan },
+    { L"End Pose Glimmer 2/3", 0x62cae, 0x62cce, indexCPS2_IronMan },
+    { L"End Pose Glimmer 3/3", 0x62cce, 0x62cee, indexCPS2_IronMan },
 };
 
 const sGame_PaletteDataset MSH_A_JUGGY_PALETTES_P1[] =
@@ -157,7 +212,7 @@ const sGame_PaletteDataset MSH_A_JUGGY_PALETTES_P2[] =
 
 const sGame_PaletteDataset MSH_A_JUGGY_PALETTES_EXTRAS[] =
 {
-    { L"P1 + P2 Extra (Super Armor)", 0x6EC6E, 0x6EC8E, indexCPS2_Juggy, 11 },
+    { L"P1 + P2 Extra (Super Armor) / Burning 1/2 Dark", 0x6EC6E, 0x6EC8E, indexCPS2_Juggy, 11 },
 
     { L"Space Gem Armor 1 (Shared)", 0x64ECE, 0x64EEE, indexCPS2_Juggy },
     { L"Space Gem Armor 2 (Shared)", 0x64EEE, 0x64F0E, indexCPS2_Juggy },
@@ -432,6 +487,193 @@ const sGame_PaletteDataset MSH_A_VSP_PALETTES[] =
     { L"Thanos P1 VSP",             0x8490, 0x8619 },
 };
 
+const sGame_PaletteDataset MSH_A_STATUSPALETTES_PINK[] =
+{
+    { L"Spider-Man",         0x6620e, 0x6622e, indexCPS2_Spidey },
+    { L"Captain America",    0x6622e, 0x6624e, indexCPS2_CapAm },
+    { L"Hulk",               0x6624e, 0x6626e, indexCPS2_Hulk },
+    { L"Iron Man",           0x6626e, 0x6628e, indexCPS2_IronMan },
+    { L"Wolverine",          0x6628e, 0x662ae, indexCPS2_Wolverine },
+    { L"Psylocke",           0x662ae, 0x662ce, indexCPS2_Psylocke },
+    { L"BlackHeart",         0x662ce, 0x662ee, indexCPS2_Blackheart },
+    { L"Shuma-Gorath",       0x662ee, 0x6630e, indexCPS2_Shuma },
+    { L"Juggernaut",         0x6630e, 0x6632e, indexCPS2_Juggy },
+    { L"Magneto",            0x6632e, 0x6634e, indexCPS2_Magneto },
+    { L"Dr. Doom",           0x6634e, 0x6636e, indexCPS2_DrDoom},
+    { L"Thanos",             0x6636e, 0x6638e, indexCPS2_Thanos },
+    { L"Anita",              0x6638e, 0x663ae, indexCPS2_Anita },
+    //{ L"Akuma",             0x663ae, 0x663ce, indexCPS2_STAkuma },
+};
+
+const sGame_PaletteDataset MSH_A_STATUSPALETTES_BLUE[] =
+{
+    { L"Spider-Man",         0x6640e, 0x6642e, indexCPS2_Spidey },
+    { L"Captain America",    0x6642e, 0x6644e, indexCPS2_CapAm },
+    { L"Hulk",               0x6644e, 0x6646e, indexCPS2_Hulk },
+    { L"Iron Man",           0x6646e, 0x6648e, indexCPS2_IronMan },
+    { L"Wolverine",          0x6648e, 0x664ae, indexCPS2_Wolverine },
+    { L"Psylocke",           0x664ae, 0x664ce, indexCPS2_Psylocke },
+    { L"BlackHeart",         0x664ce, 0x664ee, indexCPS2_Blackheart },
+    { L"Shuma-Gorath",       0x664ee, 0x6650e, indexCPS2_Shuma },
+    { L"Juggernaut",         0x6650e, 0x6652e, indexCPS2_Juggy },
+    { L"Magneto",            0x6652e, 0x6654e, indexCPS2_Magneto },
+    { L"Dr. Doom",           0x6654e, 0x6656e, indexCPS2_DrDoom },
+    { L"Thanos",             0x6656e, 0x6658e, indexCPS2_Thanos },
+    { L"Anita",              0x6658e, 0x665ae, indexCPS2_Anita },
+    //{ L"Akuma",             0x665ae, 0x665ce, indexCPS2_STAkuma },
+};
+
+const sGame_PaletteDataset MSH_A_SPIDERMAN_PALETTES_STATUS[] =
+{
+    { L"Burning 1/2 Dark",  0x6e36e, 0x6e38e, indexCPS2_Spidey },
+    { L"Burning 2/2 Light", 0x6e38e, 0x6e3ae, indexCPS2_Spidey },
+    { L"Iced 1/2 Dark",     0x6e3ae, 0x6e3ce, indexCPS2_Spidey },
+    { L"Iced 2/2 Light",    0x6e3ce, 0x6e3ee, indexCPS2_Spidey },
+    { L"Stun Demons? 1/2",  0x6e3ee, 0x6e40e, indexCPS2_Spidey },
+    { L"Stun Demons? 2/2",  0x6e40e, 0x6e42e, indexCPS2_Spidey },
+    { L"Soul Drain? 1/2",   0x6e42e, 0x6e44e, indexCPS2_Spidey },
+    { L"Soul Drain? 2/2",   0x6e44e, 0x6e46e, indexCPS2_Spidey },
+};
+
+const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES_STATUS[] =
+{
+    { L"Burning 1/2 Dark",  0x6e36e + (0x100 * 0x01), 0x6e38e + (0x100 * 0x01), indexCPS2_CapAm, 0x00, &pairNext },
+    { L"Burning 1/2 Dark",  0x6e36e + (0x100 * 0x02), 0x6e38e + (0x100 * 0x02), indexCPS2_CapAm, 0x01 },
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x01), 0x6e3ae + (0x100 * 0x01), indexCPS2_CapAm, 0x00, &pairNext },
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x02), 0x6e3ae + (0x100 * 0x02), indexCPS2_CapAm, 0x01 },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x01), 0x6e3ce + (0x100 * 0x01), indexCPS2_CapAm, 0x00, &pairNext },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x02), 0x6e3ce + (0x100 * 0x02), indexCPS2_CapAm, 0x01 },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x01), 0x6e3ee + (0x100 * 0x01), indexCPS2_CapAm, 0x00, &pairNext },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x02), 0x6e3ee + (0x100 * 0x02), indexCPS2_CapAm, 0x01 },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x01), 0x6e40e + (0x100 * 0x01), indexCPS2_CapAm, 0x00, &pairNext },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x02), 0x6e40e + (0x100 * 0x02), indexCPS2_CapAm, 0x01 },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x01), 0x6e42e + (0x100 * 0x01), indexCPS2_CapAm, 0x00, &pairNext },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x02), 0x6e42e + (0x100 * 0x02), indexCPS2_CapAm, 0x01 },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x01), 0x6e44e + (0x100 * 0x01), indexCPS2_CapAm, 0x00, &pairNext },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x02), 0x6e44e + (0x100 * 0x02), indexCPS2_CapAm, 0x01 },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x01), 0x6e46e + (0x100 * 0x01), indexCPS2_CapAm, 0x00, &pairNext },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x02), 0x6e46e + (0x100 * 0x02), indexCPS2_CapAm, 0x01 },
+};
+
+const sGame_PaletteDataset MSH_A_HULK_PALETTES_STATUS[] =
+{
+    { L"Burning 1/2 Dark",  0x6e36e + (0x100 * 0x03), 0x6e38e + (0x100 * 0x03), indexCPS2_Hulk },
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x03), 0x6e3ae + (0x100 * 0x03), indexCPS2_Hulk },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x03), 0x6e3ce + (0x100 * 0x03), indexCPS2_Hulk },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x03), 0x6e3ee + (0x100 * 0x03), indexCPS2_Hulk },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x03), 0x6e40e + (0x100 * 0x03), indexCPS2_Hulk },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x03), 0x6e42e + (0x100 * 0x03), indexCPS2_Hulk },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x03), 0x6e44e + (0x100 * 0x03), indexCPS2_Hulk },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x03), 0x6e46e + (0x100 * 0x03), indexCPS2_Hulk },
+};
+
+const sGame_PaletteDataset MSH_A_IRONMAN_PALETTES_STATUS[] =
+{
+    { L"Burning 1/2 Dark",  0x6e36e + (0x100 * 0x04), 0x6e38e + (0x100 * 0x04), indexCPS2_IronMan },
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x04), 0x6e3ae + (0x100 * 0x04), indexCPS2_IronMan },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x04), 0x6e3ce + (0x100 * 0x04), indexCPS2_IronMan },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x04), 0x6e3ee + (0x100 * 0x04), indexCPS2_IronMan },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x04), 0x6e40e + (0x100 * 0x04), indexCPS2_IronMan },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x04), 0x6e42e + (0x100 * 0x04), indexCPS2_IronMan },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x04), 0x6e44e + (0x100 * 0x04), indexCPS2_IronMan },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x04), 0x6e46e + (0x100 * 0x04), indexCPS2_IronMan },
+};
+
+const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_STATUS[] =
+{
+    { L"Burning 1/2 Dark",  0x6e36e + (0x100 * 0x05), 0x6e38e + (0x100 * 0x05), indexCPS2_Wolverine },
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x05), 0x6e3ae + (0x100 * 0x05), indexCPS2_Wolverine },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x05), 0x6e3ce + (0x100 * 0x05), indexCPS2_Wolverine },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x05), 0x6e3ee + (0x100 * 0x05), indexCPS2_Wolverine },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x05), 0x6e40e + (0x100 * 0x05), indexCPS2_Wolverine },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x05), 0x6e42e + (0x100 * 0x05), indexCPS2_Wolverine },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x05), 0x6e44e + (0x100 * 0x05), indexCPS2_Wolverine },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x05), 0x6e46e + (0x100 * 0x05), indexCPS2_Wolverine },
+};
+
+const sGame_PaletteDataset MSH_A_PSYLOCKE_PALETTES_STATUS[] =
+{
+    { L"Burning 1/2 Dark",  0x6e36e + (0x100 * 0x06), 0x6e38e + (0x100 * 0x06), indexCPS2_Psylocke },
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x06), 0x6e3ae + (0x100 * 0x06), indexCPS2_Psylocke },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x06), 0x6e3ce + (0x100 * 0x06), indexCPS2_Psylocke },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x06), 0x6e3ee + (0x100 * 0x06), indexCPS2_Psylocke },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x06), 0x6e40e + (0x100 * 0x06), indexCPS2_Psylocke },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x06), 0x6e42e + (0x100 * 0x06), indexCPS2_Psylocke },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x06), 0x6e44e + (0x100 * 0x06), indexCPS2_Psylocke },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x06), 0x6e46e + (0x100 * 0x06), indexCPS2_Psylocke },
+};
+
+const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_STATUS[] =
+{
+    { L"Burning 1/2 Dark",  0x6e36e + (0x100 * 0x07), 0x6e38e + (0x100 * 0x07), indexCPS2_Blackheart },
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x07), 0x6e3ae + (0x100 * 0x07), indexCPS2_Blackheart },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x07), 0x6e3ce + (0x100 * 0x07), indexCPS2_Blackheart },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x07), 0x6e3ee + (0x100 * 0x07), indexCPS2_Blackheart },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x07), 0x6e40e + (0x100 * 0x07), indexCPS2_Blackheart },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x07), 0x6e42e + (0x100 * 0x07), indexCPS2_Blackheart },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x07), 0x6e44e + (0x100 * 0x07), indexCPS2_Blackheart },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x07), 0x6e46e + (0x100 * 0x07), indexCPS2_Blackheart },
+};
+
+const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_STATUS[] =
+{
+    { L"Burning 1/2 Dark",  0x6e36e + (0x100 * 0x08), 0x6e38e + (0x100 * 0x08), indexCPS2_Shuma },
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x08), 0x6e3ae + (0x100 * 0x08), indexCPS2_Shuma },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x08), 0x6e3ce + (0x100 * 0x08), indexCPS2_Shuma },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x08), 0x6e3ee + (0x100 * 0x08), indexCPS2_Shuma },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x08), 0x6e40e + (0x100 * 0x08), indexCPS2_Shuma },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x08), 0x6e42e + (0x100 * 0x08), indexCPS2_Shuma },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x08), 0x6e44e + (0x100 * 0x08), indexCPS2_Shuma },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x08), 0x6e46e + (0x100 * 0x08), indexCPS2_Shuma },
+};
+
+const sGame_PaletteDataset MSH_A_JUGGERNAUT_PALETTES_STATUS[] =
+{
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x09), 0x6e3ae + (0x100 * 0x09), indexCPS2_Juggy },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x09), 0x6e3ce + (0x100 * 0x09), indexCPS2_Juggy },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x09), 0x6e3ee + (0x100 * 0x09), indexCPS2_Juggy },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x09), 0x6e40e + (0x100 * 0x09), indexCPS2_Juggy },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x09), 0x6e42e + (0x100 * 0x09), indexCPS2_Juggy },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x09), 0x6e44e + (0x100 * 0x09), indexCPS2_Juggy },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x09), 0x6e46e + (0x100 * 0x09), indexCPS2_Juggy },
+};
+
+const sGame_PaletteDataset MSH_A_MAGNETO_PALETTES_STATUS[] =
+{
+    { L"Burning 1/2 Dark",  0x6e36e + (0x100 * 0x0a), 0x6e38e + (0x100 * 0x0a), indexCPS2_Magneto },
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x0a), 0x6e3ae + (0x100 * 0x0a), indexCPS2_Magneto },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x0a), 0x6e3ce + (0x100 * 0x0a), indexCPS2_Magneto },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x0a), 0x6e3ee + (0x100 * 0x0a), indexCPS2_Magneto },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x0a), 0x6e40e + (0x100 * 0x0a), indexCPS2_Magneto },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x0a), 0x6e42e + (0x100 * 0x0a), indexCPS2_Magneto },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x0a), 0x6e44e + (0x100 * 0x0a), indexCPS2_Magneto },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x0a), 0x6e46e + (0x100 * 0x0a), indexCPS2_Magneto },
+};
+
+const sGame_PaletteDataset MSH_A_DOOM_PALETTES_STATUS[] =
+{
+    { L"Burning 1/2 Dark",  0x6e36e + (0x100 * 0x0b), 0x6e38e + (0x100 * 0x0b), indexCPS2_DrDoom },
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x0b), 0x6e3ae + (0x100 * 0x0b), indexCPS2_DrDoom },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x0b), 0x6e3ce + (0x100 * 0x0b), indexCPS2_DrDoom },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x0b), 0x6e3ee + (0x100 * 0x0b), indexCPS2_DrDoom },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x0b), 0x6e40e + (0x100 * 0x0b), indexCPS2_DrDoom },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x0b), 0x6e42e + (0x100 * 0x0b), indexCPS2_DrDoom },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x0b), 0x6e44e + (0x100 * 0x0b), indexCPS2_DrDoom },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x0b), 0x6e46e + (0x100 * 0x0b), indexCPS2_DrDoom },
+};
+
+const sGame_PaletteDataset MSH_A_THANOS_PALETTES_STATUS[] =
+{
+    { L"Burning 1/2 Dark",  0x6e36e + (0x100 * 0x0c), 0x6e38e + (0x100 * 0x0c), indexCPS2_Thanos },
+    { L"Burning 2/2 Light", 0x6e38e + (0x100 * 0x0c), 0x6e3ae + (0x100 * 0x0c), indexCPS2_Thanos },
+    { L"Iced 1/2 Dark",     0x6e3ae + (0x100 * 0x0c), 0x6e3ce + (0x100 * 0x0c), indexCPS2_Thanos },
+    { L"Iced 2/2 Light",    0x6e3ce + (0x100 * 0x0c), 0x6e3ee + (0x100 * 0x0c), indexCPS2_Thanos },
+    { L"Stun Demons? 1/2",  0x6e3ee + (0x100 * 0x0c), 0x6e40e + (0x100 * 0x0c), indexCPS2_Thanos },
+    { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x0c), 0x6e42e + (0x100 * 0x0c), indexCPS2_Thanos },
+    { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x0c), 0x6e44e + (0x100 * 0x0c), indexCPS2_Thanos },
+    { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x0c), 0x6e46e + (0x100 * 0x0c), indexCPS2_Thanos },
+};
+
 const sDescTreeNode MSH_A_ANITA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_PALETTES_P1,            ARRAYSIZE(MSH_A_ANITA_PALETTES_P1) },
@@ -439,79 +681,98 @@ const sDescTreeNode MSH_A_ANITA_COLLECTION[] =
     { L"Shared", DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_PALETTES_SHARED,    ARRAYSIZE(MSH_A_ANITA_PALETTES_SHARED) },
 };
 
+const sDescTreeNode MSH_A_BONUS_COLLECTION[] =
+{
+    { L"Pink Effects", DESC_NODETYPE_TREE, (void*)MSH_A_STATUSPALETTES_PINK,    ARRAYSIZE(MSH_A_STATUSPALETTES_PINK) },
+    { L"Blue Effects", DESC_NODETYPE_TREE, (void*)MSH_A_STATUSPALETTES_BLUE,    ARRAYSIZE(MSH_A_STATUSPALETTES_BLUE) },
+};
+
 const sDescTreeNode MSH_A_BLACKHEART_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_PALETTES_P1,       ARRAYSIZE(MSH_A_BLACKHEART_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_PALETTES_P2,       ARRAYSIZE(MSH_A_BLACKHEART_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_PALETTES_STATUS, ARRAYSIZE(MSH_A_BLACKHEART_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_CAPTAINAMERICA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_CAPTAINAMERICA_PALETTES_P1,   ARRAYSIZE(MSH_A_CAPTAINAMERICA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_CAPTAINAMERICA_PALETTES_P2,   ARRAYSIZE(MSH_A_CAPTAINAMERICA_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_CAPTAINAMERICA_PALETTES_STATUS, ARRAYSIZE(MSH_A_CAPTAINAMERICA_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_DRDOOM_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_P1,           ARRAYSIZE(MSH_A_DRDOOM_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_P2,           ARRAYSIZE(MSH_A_DRDOOM_PALETTES_P2) },
-    { L"Extras", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_EXTRAS,   ARRAYSIZE(MSH_A_DRDOOM_PALETTES_EXTRAS) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)MSH_A_DRDOOM_PALETTES_EXTRAS,   ARRAYSIZE(MSH_A_DRDOOM_PALETTES_EXTRAS) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_DOOM_PALETTES_STATUS, ARRAYSIZE(MSH_A_DOOM_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_HULK_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_HULK_PALETTES_P1,             ARRAYSIZE(MSH_A_HULK_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_HULK_PALETTES_P2,             ARRAYSIZE(MSH_A_HULK_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_HULK_PALETTES_STATUS, ARRAYSIZE(MSH_A_HULK_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_IRONMAN_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_IRONMAN_PALETTES_P1,          ARRAYSIZE(MSH_A_IRONMAN_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_IRONMAN_PALETTES_P2,          ARRAYSIZE(MSH_A_IRONMAN_PALETTES_P2) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)MSH_A_IRONMAN_PALETTES_SHARED,  ARRAYSIZE(MSH_A_IRONMAN_PALETTES_SHARED) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_IRONMAN_PALETTES_STATUS, ARRAYSIZE(MSH_A_IRONMAN_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_JUGGY_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_P1,            ARRAYSIZE(MSH_A_JUGGY_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_P2,            ARRAYSIZE(MSH_A_JUGGY_PALETTES_P2) },
-    { L"Extras", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_EXTRAS,    ARRAYSIZE(MSH_A_JUGGY_PALETTES_EXTRAS) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGY_PALETTES_EXTRAS,    ARRAYSIZE(MSH_A_JUGGY_PALETTES_EXTRAS) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_JUGGERNAUT_PALETTES_STATUS, ARRAYSIZE(MSH_A_JUGGERNAUT_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_MAGNETO_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_MAGNETO_PALETTES_P1,          ARRAYSIZE(MSH_A_MAGNETO_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_MAGNETO_PALETTES_P2,          ARRAYSIZE(MSH_A_MAGNETO_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_MAGNETO_PALETTES_STATUS, ARRAYSIZE(MSH_A_MAGNETO_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_PSYLOCKE_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_PSYLOCKE_PALETTES_P1,         ARRAYSIZE(MSH_A_PSYLOCKE_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_PSYLOCKE_PALETTES_P2,         ARRAYSIZE(MSH_A_PSYLOCKE_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_PSYLOCKE_PALETTES_STATUS, ARRAYSIZE(MSH_A_PSYLOCKE_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_SHUMA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_SHUMA_PALETTES_P1,            ARRAYSIZE(MSH_A_SHUMA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_SHUMA_PALETTES_P2,            ARRAYSIZE(MSH_A_SHUMA_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_SHUMA_PALETTES_STATUS, ARRAYSIZE(MSH_A_SHUMA_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_SPIDERMAN_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_PALETTES_P1,        ARRAYSIZE(MSH_A_SPIDERMAN_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_PALETTES_P2,        ARRAYSIZE(MSH_A_SPIDERMAN_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_SPIDERMAN_PALETTES_STATUS, ARRAYSIZE(MSH_A_SPIDERMAN_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_THANOS_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_P1,           ARRAYSIZE(MSH_A_THANOS_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_P2,           ARRAYSIZE(MSH_A_THANOS_PALETTES_P2) },
-    { L"Extras", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_EXTRAS,   ARRAYSIZE(MSH_A_THANOS_PALETTES_EXTRAS) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_EXTRAS,   ARRAYSIZE(MSH_A_THANOS_PALETTES_EXTRAS) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_PALETTES_STATUS, ARRAYSIZE(MSH_A_THANOS_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_WOLVERINE_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_PALETTES_P1,        ARRAYSIZE(MSH_A_WOLVERINE_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_PALETTES_P2,        ARRAYSIZE(MSH_A_WOLVERINE_PALETTES_P2) },
+    { L"Status Effects", DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_PALETTES_STATUS, ARRAYSIZE(MSH_A_WOLVERINE_PALETTES_STATUS) },
 };
 
 const sDescTreeNode MSH_A_CSP_COLLECTION[] =
@@ -539,6 +800,7 @@ const sDescTreeNode MSH_UNITS_05[] =
     { L"Thanos",                        DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_COLLECTION,           ARRAYSIZE(MSH_A_THANOS_COLLECTION) },
     { L"Wolverine",                     DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_COLLECTION,        ARRAYSIZE(MSH_A_WOLVERINE_COLLECTION) },
     { L"Anita (Japan-only)",            DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_COLLECTION,            ARRAYSIZE(MSH_A_ANITA_COLLECTION) },
+    { L"Gem Status Effects",            DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_COLLECTION,            ARRAYSIZE(MSH_A_BONUS_COLLECTION) },
 };
 
 constexpr auto MSH_A_NUMUNIT_05 = ARRAYSIZE(MSH_UNITS_05);
@@ -561,5 +823,3 @@ const stExtraDef MSH_A_EXTRA[] =
 
     { INVALID_UNIT_VALUE }
 };
-
-#undef USE_LARGE_PALETTES

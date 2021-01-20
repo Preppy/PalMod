@@ -529,17 +529,24 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
 
     if (nInternalDupeCount || nExtraDupeCount || (m_nSafeCountForThisRom != nPaletteCountForRom))
     {
+        CString strError;
+        strText.Empty();
+
         if (nExtraDupeCount)
         {
-            strText.Format(L"WARNING: The %s Extras file contains %u duplicate palettes (including splitting).  Dupe palettes will prevent patching correctly.  Please remove them.\n", m_pszExtraFilename, nExtraDupeCount);
+            strError.Format(L"WARNING: The %s Extras file contains %u duplicate palettes (including splitting).  Dupe palettes will prevent patching correctly.  Please remove them.\n", m_pszExtraFilename, nExtraDupeCount);
+            strText.Append(strError);
         }
-        else if (nInternalDupeCount)
+        
+        if (nInternalDupeCount)
         {
-            strText.Format(L"WARNING: There are currently %u duplicates in the hex tables.\n\nThis is a bug in PalMod.  Please report.\n", nInternalDupeCount);
+            strError.Format(L"WARNING: There are currently %u duplicates in PalMod's internal palettes tables for this game.\n\nThis is a bug in PalMod.  Please report.\n", nInternalDupeCount);
+            strText.Append(strError);
         }
-        else
+        else if (m_nSafeCountForThisRom != nPaletteCountForRom)
         {
-            strText.Format(L"Warning: This game's duplicate check count (m_nSafeCountForThisRom) should be updated.\n\nNo duplicates were found thankfully.\n");
+            strError.Format(L"Warning: This game's known palette count (m_nSafeCountForThisRom) should be updated.\n\nNo duplicates were found thankfully.\n");
+            strText.Append(strError);
         }
 
         OutputDebugString(strText);
