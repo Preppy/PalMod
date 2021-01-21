@@ -15,6 +15,7 @@ private:
 
     static int rgExtraCountAll[NEOGEO_A_NUMUNIT + 1];
     static int rgExtraLoc[NEOGEO_A_NUMUNIT + 1];
+    const static UINT8 NEOGEO_A_EXTRALOC = NEOGEO_A_NUMUNIT;
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;

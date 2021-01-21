@@ -46,7 +46,7 @@ CGame_NEOGEO_A::CGame_NEOGEO_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = NEOGEO_A_NUMUNIT;
     m_nExtraUnit = NEOGEO_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1;
     m_pszExtraFilename = EXTRA_FILENAME_UNKNOWN_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForNEOGEO;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -330,7 +330,7 @@ sDescTreeNode* CGame_NEOGEO_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < NEOGEO_A_EXTRALOC)
+        if (iUnitCtr != NEOGEO_A_EXTRALOC)
         {
             //Set each description
             _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), NEOGEO_A_UNITS[iUnitCtr].szDesc);

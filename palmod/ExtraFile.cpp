@@ -351,8 +351,11 @@ bool CGameWithExtrasFile::IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, U
     // If we're in Extras territory, check it against itself.
     UINT16 nUnitCountToCheck = (m_nTotalInternalUnits == nUnitId) ? m_nTotalInternalUnits + 1 : m_nTotalInternalUnits;
 
+    // skip the internal stub unit for Unknown Game mode: it's a dummy unit
+    const INT16 nStartingUnit = (nGameFlag == NEOGEO_A) ? m_nTotalInternalUnits : 0;
+
     //Go through each character
-    for (INT16 nUnitCtr = 0; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
+    for (INT16 nUnitCtr = nStartingUnit; nUnitCtr < nUnitCountToCheck; nUnitCtr++)
     {
         UINT16 nPalCount = GetPaletteCountForUnit(nUnitCtr);
         for (UINT16 nPalCtr = 0; nPalCtr < nPalCount; nPalCtr++)

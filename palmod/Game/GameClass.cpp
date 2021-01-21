@@ -1236,6 +1236,13 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
             // Anything using the base implementation is presorted
             rgUnitRedir[nUnitCtr] = nUnitCtr;
 
+            // For Unknown Game mode, show the Extra Palettes first if they exist since they're
+            // the only reason you would use Unknown Game mode
+            if ((nGameFlag == NEOGEO_A) && (nUnitAmt != 1))
+            {
+                rgUnitRedir[nUnitCtr] = (nUnitCtr == 0) ? 1 : 0;
+            }
+
             for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
             {
                 LoadSpecificPaletteData(nUnitCtr, nPalCtr);

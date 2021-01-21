@@ -487,42 +487,6 @@ const sGame_PaletteDataset MSH_A_VSP_PALETTES[] =
     { L"Thanos P1 VSP",             0x8490, 0x8619 },
 };
 
-const sGame_PaletteDataset MSH_A_STATUSPALETTES_PINK[] =
-{
-    { L"Spider-Man",         0x6620e, 0x6622e, indexCPS2_Spidey },
-    { L"Captain America",    0x6622e, 0x6624e, indexCPS2_CapAm },
-    { L"Hulk",               0x6624e, 0x6626e, indexCPS2_Hulk },
-    { L"Iron Man",           0x6626e, 0x6628e, indexCPS2_IronMan },
-    { L"Wolverine",          0x6628e, 0x662ae, indexCPS2_Wolverine },
-    { L"Psylocke",           0x662ae, 0x662ce, indexCPS2_Psylocke },
-    { L"BlackHeart",         0x662ce, 0x662ee, indexCPS2_Blackheart },
-    { L"Shuma-Gorath",       0x662ee, 0x6630e, indexCPS2_Shuma },
-    { L"Juggernaut",         0x6630e, 0x6632e, indexCPS2_Juggy },
-    { L"Magneto",            0x6632e, 0x6634e, indexCPS2_Magneto },
-    { L"Dr. Doom",           0x6634e, 0x6636e, indexCPS2_DrDoom},
-    { L"Thanos",             0x6636e, 0x6638e, indexCPS2_Thanos },
-    { L"Anita",              0x6638e, 0x663ae, indexCPS2_Anita },
-    //{ L"Akuma",             0x663ae, 0x663ce, indexCPS2_STAkuma },
-};
-
-const sGame_PaletteDataset MSH_A_STATUSPALETTES_BLUE[] =
-{
-    { L"Spider-Man",         0x6640e, 0x6642e, indexCPS2_Spidey },
-    { L"Captain America",    0x6642e, 0x6644e, indexCPS2_CapAm },
-    { L"Hulk",               0x6644e, 0x6646e, indexCPS2_Hulk },
-    { L"Iron Man",           0x6646e, 0x6648e, indexCPS2_IronMan },
-    { L"Wolverine",          0x6648e, 0x664ae, indexCPS2_Wolverine },
-    { L"Psylocke",           0x664ae, 0x664ce, indexCPS2_Psylocke },
-    { L"BlackHeart",         0x664ce, 0x664ee, indexCPS2_Blackheart },
-    { L"Shuma-Gorath",       0x664ee, 0x6650e, indexCPS2_Shuma },
-    { L"Juggernaut",         0x6650e, 0x6652e, indexCPS2_Juggy },
-    { L"Magneto",            0x6652e, 0x6654e, indexCPS2_Magneto },
-    { L"Dr. Doom",           0x6654e, 0x6656e, indexCPS2_DrDoom },
-    { L"Thanos",             0x6656e, 0x6658e, indexCPS2_Thanos },
-    { L"Anita",              0x6658e, 0x665ae, indexCPS2_Anita },
-    //{ L"Akuma",             0x665ae, 0x665ce, indexCPS2_STAkuma },
-};
-
 const sGame_PaletteDataset MSH_A_SPIDERMAN_PALETTES_STATUS[] =
 {
     { L"Burning 1/2 Dark",  0x6e36e, 0x6e38e, indexCPS2_Spidey },
@@ -533,6 +497,8 @@ const sGame_PaletteDataset MSH_A_SPIDERMAN_PALETTES_STATUS[] =
     { L"Stun Demons? 2/2",  0x6e40e, 0x6e42e, indexCPS2_Spidey },
     { L"Soul Drain? 1/2",   0x6e42e, 0x6e44e, indexCPS2_Spidey },
     { L"Soul Drain? 2/2",   0x6e44e, 0x6e46e, indexCPS2_Spidey },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x6620e, 0x6622e, indexCPS2_Spidey },
+    { L"Soul Gem Slowdown 2/2 Blue", 0x6640e, 0x6642e, indexCPS2_Spidey },
 };
 
 const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES_STATUS[] =
@@ -553,6 +519,8 @@ const sGame_PaletteDataset MSH_A_CAPTAINAMERICA_PALETTES_STATUS[] =
     { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x02), 0x6e44e + (0x100 * 0x02), indexCPS2_CapAm, 0x01 },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x01), 0x6e46e + (0x100 * 0x01), indexCPS2_CapAm, 0x00, &pairNext },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x02), 0x6e46e + (0x100 * 0x02), indexCPS2_CapAm, 0x01 },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x6622e, 0x6624e, indexCPS2_CapAm },
+    { L"Soul Gem Slowdown 2/2 Blue", 0x6642e, 0x6644e, indexCPS2_CapAm },
 };
 
 const sGame_PaletteDataset MSH_A_HULK_PALETTES_STATUS[] =
@@ -565,6 +533,8 @@ const sGame_PaletteDataset MSH_A_HULK_PALETTES_STATUS[] =
     { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x03), 0x6e42e + (0x100 * 0x03), indexCPS2_Hulk },
     { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x03), 0x6e44e + (0x100 * 0x03), indexCPS2_Hulk },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x03), 0x6e46e + (0x100 * 0x03), indexCPS2_Hulk },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x6624e, 0x6626e, indexCPS2_Hulk },
+    { L"Soul Gem Slowdown 2/2 Blue", 0x6644e, 0x6646e, indexCPS2_Hulk },
 };
 
 const sGame_PaletteDataset MSH_A_IRONMAN_PALETTES_STATUS[] =
@@ -577,6 +547,8 @@ const sGame_PaletteDataset MSH_A_IRONMAN_PALETTES_STATUS[] =
     { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x04), 0x6e42e + (0x100 * 0x04), indexCPS2_IronMan },
     { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x04), 0x6e44e + (0x100 * 0x04), indexCPS2_IronMan },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x04), 0x6e46e + (0x100 * 0x04), indexCPS2_IronMan },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x6626e, 0x6628e, indexCPS2_IronMan },
+    { L"Soul Gem Slowdown 2/2 Blue", 0x6646e, 0x6648e, indexCPS2_IronMan },
 };
 
 const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_STATUS[] =
@@ -589,6 +561,8 @@ const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_STATUS[] =
     { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x05), 0x6e42e + (0x100 * 0x05), indexCPS2_Wolverine },
     { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x05), 0x6e44e + (0x100 * 0x05), indexCPS2_Wolverine },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x05), 0x6e46e + (0x100 * 0x05), indexCPS2_Wolverine },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x6628e, 0x662ae, indexCPS2_Wolverine },
+    { L"Soul Gem Slowdown 2/2 Blue", 0x6648e, 0x664ae, indexCPS2_Wolverine },
 };
 
 const sGame_PaletteDataset MSH_A_PSYLOCKE_PALETTES_STATUS[] =
@@ -601,6 +575,8 @@ const sGame_PaletteDataset MSH_A_PSYLOCKE_PALETTES_STATUS[] =
     { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x06), 0x6e42e + (0x100 * 0x06), indexCPS2_Psylocke },
     { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x06), 0x6e44e + (0x100 * 0x06), indexCPS2_Psylocke },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x06), 0x6e46e + (0x100 * 0x06), indexCPS2_Psylocke },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x662ae, 0x662ce, indexCPS2_Psylocke },
+    { L"Soul Gem Slowdown 2/2 Blue", 0x664ae, 0x664ce, indexCPS2_Psylocke },
 };
 
 const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_STATUS[] =
@@ -613,6 +589,8 @@ const sGame_PaletteDataset MSH_A_BLACKHEART_PALETTES_STATUS[] =
     { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x07), 0x6e42e + (0x100 * 0x07), indexCPS2_Blackheart },
     { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x07), 0x6e44e + (0x100 * 0x07), indexCPS2_Blackheart },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x07), 0x6e46e + (0x100 * 0x07), indexCPS2_Blackheart },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x662ce, 0x662ee, indexCPS2_Blackheart },
+    { L"Soul Gem Slowdown 2/2 Blue", 0x664ce, 0x664ee, indexCPS2_Blackheart },
 };
 
 const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_STATUS[] =
@@ -625,6 +603,8 @@ const sGame_PaletteDataset MSH_A_SHUMA_PALETTES_STATUS[] =
     { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x08), 0x6e42e + (0x100 * 0x08), indexCPS2_Shuma },
     { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x08), 0x6e44e + (0x100 * 0x08), indexCPS2_Shuma },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x08), 0x6e46e + (0x100 * 0x08), indexCPS2_Shuma },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x662ee, 0x6630e, indexCPS2_Shuma },
+    { L"Soul Gem Slowdown 2/2 Blue", 0x664ee, 0x6650e, indexCPS2_Shuma },
 };
 
 const sGame_PaletteDataset MSH_A_JUGGERNAUT_PALETTES_STATUS[] =
@@ -636,6 +616,8 @@ const sGame_PaletteDataset MSH_A_JUGGERNAUT_PALETTES_STATUS[] =
     { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x09), 0x6e42e + (0x100 * 0x09), indexCPS2_Juggy },
     { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x09), 0x6e44e + (0x100 * 0x09), indexCPS2_Juggy },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x09), 0x6e46e + (0x100 * 0x09), indexCPS2_Juggy },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x6630e, 0x6632e, indexCPS2_Juggy },
+    { L"Soul Gem Slowdown 2/2 Blue", 0x6650e, 0x6652e, indexCPS2_Juggy },
 };
 
 const sGame_PaletteDataset MSH_A_MAGNETO_PALETTES_STATUS[] =
@@ -648,6 +630,8 @@ const sGame_PaletteDataset MSH_A_MAGNETO_PALETTES_STATUS[] =
     { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x0a), 0x6e42e + (0x100 * 0x0a), indexCPS2_Magneto },
     { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x0a), 0x6e44e + (0x100 * 0x0a), indexCPS2_Magneto },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x0a), 0x6e46e + (0x100 * 0x0a), indexCPS2_Magneto },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x6632e, 0x6634e, indexCPS2_Magneto },
+    { L"Soul Gem Slowdown 2/2 Blue", 0x6652e, 0x6654e, indexCPS2_Magneto },
 };
 
 const sGame_PaletteDataset MSH_A_DOOM_PALETTES_STATUS[] =
@@ -660,6 +644,8 @@ const sGame_PaletteDataset MSH_A_DOOM_PALETTES_STATUS[] =
     { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x0b), 0x6e42e + (0x100 * 0x0b), indexCPS2_DrDoom },
     { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x0b), 0x6e44e + (0x100 * 0x0b), indexCPS2_DrDoom },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x0b), 0x6e46e + (0x100 * 0x0b), indexCPS2_DrDoom },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x6634e, 0x6636e, indexCPS2_DrDoom},
+    { L"Soul Gem Slowdown 2/2 Blue", 0x6654e, 0x6656e, indexCPS2_DrDoom },
 };
 
 const sGame_PaletteDataset MSH_A_THANOS_PALETTES_STATUS[] =
@@ -672,19 +658,22 @@ const sGame_PaletteDataset MSH_A_THANOS_PALETTES_STATUS[] =
     { L"Stun Demons? 2/2",  0x6e40e + (0x100 * 0x0c), 0x6e42e + (0x100 * 0x0c), indexCPS2_Thanos },
     { L"Soul Drain? 1/2",   0x6e42e + (0x100 * 0x0c), 0x6e44e + (0x100 * 0x0c), indexCPS2_Thanos },
     { L"Soul Drain? 2/2",   0x6e44e + (0x100 * 0x0c), 0x6e46e + (0x100 * 0x0c), indexCPS2_Thanos },
+    { L"Soul Gem Slowdown 1/2 Pink", 0x6636e, 0x6638e, indexCPS2_Thanos },
+    { L"Soul Gem Slowdown 2/2 Blue", 0x6656e, 0x6658e, indexCPS2_Thanos },
 };
+
+// This is present but using a base palette not effects colors
+//{ L"Soul Gem Slowdown 1/2", 0x6638e, 0x663ae, indexCPS2_Anita },
+//{ L"Soul Gem Slowdown 2/2", 0x6658e, 0x665ae, indexCPS2_Anita },
+// This is present but not correct for the ST Akuma sprite
+//{ L"Soul Gem Slowdown 1/2", 0x663ae, 0x663ce, indexCPS2_STAkuma },
+//{ L"Soul Gem Slowdown 2/2", 0x665ae, 0x665ce, indexCPS2_STAkuma },
 
 const sDescTreeNode MSH_A_ANITA_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_PALETTES_P1,            ARRAYSIZE(MSH_A_ANITA_PALETTES_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_PALETTES_P2,            ARRAYSIZE(MSH_A_ANITA_PALETTES_P2) },
     { L"Shared", DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_PALETTES_SHARED,    ARRAYSIZE(MSH_A_ANITA_PALETTES_SHARED) },
-};
-
-const sDescTreeNode MSH_A_BONUS_COLLECTION[] =
-{
-    { L"Pink Effects", DESC_NODETYPE_TREE, (void*)MSH_A_STATUSPALETTES_PINK,    ARRAYSIZE(MSH_A_STATUSPALETTES_PINK) },
-    { L"Blue Effects", DESC_NODETYPE_TREE, (void*)MSH_A_STATUSPALETTES_BLUE,    ARRAYSIZE(MSH_A_STATUSPALETTES_BLUE) },
 };
 
 const sDescTreeNode MSH_A_BLACKHEART_COLLECTION[] =
@@ -800,7 +789,6 @@ const sDescTreeNode MSH_UNITS_05[] =
     { L"Thanos",                        DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_COLLECTION,           ARRAYSIZE(MSH_A_THANOS_COLLECTION) },
     { L"Wolverine",                     DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_COLLECTION,        ARRAYSIZE(MSH_A_WOLVERINE_COLLECTION) },
     { L"Anita (Japan-only)",            DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_COLLECTION,            ARRAYSIZE(MSH_A_ANITA_COLLECTION) },
-    { L"Gem Status Effects",            DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_COLLECTION,            ARRAYSIZE(MSH_A_BONUS_COLLECTION) },
 };
 
 constexpr auto MSH_A_NUMUNIT_05 = ARRAYSIZE(MSH_UNITS_05);

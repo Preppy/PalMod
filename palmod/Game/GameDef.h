@@ -1266,13 +1266,6 @@ const UINT16 MATRIM_A_IMG_UNITS[] =
     indexMatriMSprites_White,
 };
 
-enum SupportedNEOGEO_A_PaletteListIndex
-{
-    indexNEOGEO_A_Stub,
-    indexNEOGEO_A_Stub2,
-    indexNEOGEO_A_Last
-};
-
 enum KOFSpriteList
 {
     indexKOFSprites_98Kyo,
