@@ -129,7 +129,7 @@ public:
     void AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs);
     void FlushImageNode(int nIndex);
     void FlushImages();
-    void UpdateCtrl(BOOL bRedraw = TRUE, int bUseAltPal = FALSE);
+    void UpdateCtrl(BOOL bRedraw = TRUE, int nUseAltPal = 0);
     void Redraw();
     void SetBGCol(COLORREF crNewCol) { crBGCol = crNewCol; };
     void SetBlinkCol(COLORREF crNewCol) { crBlinkCol = crNewCol; };

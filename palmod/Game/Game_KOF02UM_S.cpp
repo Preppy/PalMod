@@ -8,33 +8,42 @@
 
 stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN = nullptr;
 stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR = nullptr;
+stExtraDef* CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAX2 = nullptr;
 
 CDescTree CGame_KOF02UM_S::MainDescTree_Main = nullptr;
 CDescTree CGame_KOF02UM_S::MainDescTree_Bar = nullptr;
+CDescTree CGame_KOF02UM_S::MainDescTree_MAX2 = nullptr;
 
 int CGame_KOF02UM_S::rgExtraCountAll_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
 int CGame_KOF02UM_S::rgExtraCountAll_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
+int CGame_KOF02UM_S::rgExtraCountAll_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
 int CGame_KOF02UM_S::rgExtraLoc_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
 int CGame_KOF02UM_S::rgExtraLoc_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
+int CGame_KOF02UM_S::rgExtraLoc_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
 
 int CGame_KOF02UM_S::m_nSelectedRom = 0;
 UINT32 CGame_KOF02UM_S::m_nExpectedGameROMSize = 0x606E0;  // 394976 bytes for the main rom
 UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Main = 0;
 UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_Bar = 0;
+UINT32 CGame_KOF02UM_S::m_nTotalPaletteCountForKOF02UM_MAX2 = 0;
 UINT32 CGame_KOF02UM_S::m_nConfirmedROMSize = -1;
 
 void CGame_KOF02UM_S::InitializeStatics()
 {
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN);
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR);
+    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAX2);
 
     memset(rgExtraCountAll_Main, -1, sizeof(rgExtraCountAll_Main));
     memset(rgExtraCountAll_Bar, -1, sizeof(rgExtraCountAll_Bar));
+    memset(rgExtraCountAll_MAX2, -1, sizeof(rgExtraCountAll_MAX2));
     memset(rgExtraLoc_Main, -1, sizeof(rgExtraLoc_Main));
     memset(rgExtraLoc_Bar, -1, sizeof(rgExtraLoc_Bar));
+    memset(rgExtraLoc_MAX2, -1, sizeof(rgExtraLoc_MAX2));
 
     MainDescTree_Main.SetRootTree(CGame_KOF02UM_S::InitDescTree(0));
     MainDescTree_Bar.SetRootTree(CGame_KOF02UM_S::InitDescTree(1));
+    MainDescTree_MAX2.SetRootTree(CGame_KOF02UM_S::InitDescTree(2));
 }
 
 CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
@@ -48,16 +57,41 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nSelectedRom = (nRomToLoad == 0) ? 0 : 1;
+    m_nSelectedRom = (nRomToLoad < 3) ? nRomToLoad : 0;
 
-    m_nTotalInternalUnits = UseMainPaletteSet() ? KOF02UM_S_NUMUNIT_MAIN : KOF02UM_S_NUMUNIT_BAR;
-    m_nExtraUnit = UseMainPaletteSet() ?  KOF02UM_S_EXTRALOC_MAIN : KOF02UM_S_EXTRALOC_BAR;
+    switch (m_nSelectedRom)
+    {
+    case 0:
+        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_MAIN;
+        m_nExtraUnit = KOF02UM_S_EXTRALOC_MAIN;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + UseMainPaletteSet() ? 2674 : 10;
-    m_pszExtraFilename = UseMainPaletteSet() ? EXTRA_FILENAME_KOF02UM_S_MAIN : EXTRA_FILENAME_KOF02UM_S_BAR;
-    m_nTotalPaletteCount = UseMainPaletteSet() ?  m_nTotalPaletteCountForKOF02UM_Main : m_nTotalPaletteCountForKOF02UM_Bar;
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = UseMainPaletteSet() ?  0x2a0 : 0;
+        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2674;
+        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_MAIN;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_Main;
+        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+        m_nLowestKnownPaletteRomLocation = 0x2a0;
+        break;
+    case 1:
+        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_BAR;
+        m_nExtraUnit = KOF02UM_S_EXTRALOC_BAR;
+
+        m_nSafeCountForThisRom = 10;
+        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_BAR;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_Bar;
+        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+        m_nLowestKnownPaletteRomLocation = 0;
+        break;
+    case 2:
+        m_nTotalInternalUnits = KOF02UM_S_NUMUNIT_MAX2;
+        m_nExtraUnit = KOF02UM_S_EXTRALOC_MAX2;
+
+        m_nSafeCountForThisRom = 2;
+        m_pszExtraFilename = EXTRA_FILENAME_KOF02UM_S_MAX2;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForKOF02UM_MAX2;
+        // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+        m_nLowestKnownPaletteRomLocation = 0;
+        break;
+    }
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -92,10 +126,11 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
     PrepChangeTrackingArray();
 }
 
-CGame_KOF02UM_S::~CGame_KOF02UM_S(void)
+CGame_KOF02UM_S::~CGame_KOF02UM_S()
 {
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAIN);
     safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_BAR);
+    safe_delete_array(CGame_KOF02UM_S::KOF02UM_S_EXTRA_CUSTOM_MAX2);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
@@ -103,13 +138,13 @@ CGame_KOF02UM_S::~CGame_KOF02UM_S(void)
 
 CDescTree* CGame_KOF02UM_S::GetMainTree()
 {
-    return UseMainPaletteSet() ? &CGame_KOF02UM_S::MainDescTree_Main : &CGame_KOF02UM_S::MainDescTree_Bar;
+    return UseMainPaletteSet() ? &CGame_KOF02UM_S::MainDescTree_Main : (UseBarPaletteSet() ? &CGame_KOF02UM_S::MainDescTree_Bar : &CGame_KOF02UM_S::MainDescTree_MAX2);
 }
 
 int CGame_KOF02UM_S::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int *rgExtraCt = UseMainPaletteSet() ? rgExtraCountAll_Main : rgExtraCountAll_Bar;
-    int nUnitCount = UseMainPaletteSet() ? KOF02UM_S_NUMUNIT_MAIN : KOF02UM_S_NUMUNIT_BAR;
+    int *rgExtraCt = UseMainPaletteSet() ? rgExtraCountAll_Main : (UseBarPaletteSet() ? rgExtraCountAll_Bar : rgExtraCountAll_MAX2);
+    int nUnitCount = UseMainPaletteSet() ? KOF02UM_S_NUMUNIT_MAIN : (UseBarPaletteSet() ? KOF02UM_S_NUMUNIT_BAR : KOF02UM_S_NUMUNIT_MAX2);
 
     if (rgExtraCt[0] == -1)
     {
@@ -135,8 +170,8 @@ int CGame_KOF02UM_S::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
 int CGame_KOF02UM_S::GetExtraLoc(UINT16 nUnitId)
 {
-    int* rgExtraLoc = UseMainPaletteSet() ? rgExtraLoc_Main : rgExtraLoc_Bar;
-    int nUnitCount = UseMainPaletteSet() ? KOF02UM_S_NUMUNIT_MAIN : KOF02UM_S_NUMUNIT_BAR;
+    int* rgExtraLoc = UseMainPaletteSet() ? rgExtraLoc_Main : (UseBarPaletteSet() ? rgExtraLoc_Bar : rgExtraLoc_MAX2);
+    int nUnitCount = UseMainPaletteSet() ? KOF02UM_S_NUMUNIT_MAIN : (UseBarPaletteSet() ? KOF02UM_S_NUMUNIT_BAR : KOF02UM_S_NUMUNIT_MAX2);
 
     if (rgExtraLoc[0] == -1)
     {
@@ -164,12 +199,12 @@ int CGame_KOF02UM_S::GetExtraLoc(UINT16 nUnitId)
 
 const sDescTreeNode* CGame_KOF02UM_S::GetCurrentUnitSet()
 {
-    return UseMainPaletteSet() ? KOF02UM_S_UNITS_MAIN : KOF02UM_S_UNITS_BAR;
+    return UseMainPaletteSet() ? KOF02UM_S_UNITS_MAIN : (UseBarPaletteSet() ? KOF02UM_S_UNITS_BAR : KOF02UM_S_UNITS_MAX2);
 }
 
 UINT16 CGame_KOF02UM_S::GetCurrentExtraLoc()
 {
-    return UseMainPaletteSet() ? KOF02UM_S_EXTRALOC_MAIN : KOF02UM_S_EXTRALOC_BAR;
+    return UseMainPaletteSet() ? KOF02UM_S_EXTRALOC_MAIN : (UseBarPaletteSet() ? KOF02UM_S_EXTRALOC_BAR : KOF02UM_S_EXTRALOC_MAX2);
 }
 
 stExtraDef* CGame_KOF02UM_S::GetCurrentExtraDef(int nDefCtr)
@@ -178,9 +213,13 @@ stExtraDef* CGame_KOF02UM_S::GetCurrentExtraDef(int nDefCtr)
     {
         return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_MAIN[nDefCtr];
     }
-    else
+    else if (UseBarPaletteSet())
     {
         return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_BAR[nDefCtr];
+    }
+    else
+    {
+        return (stExtraDef*)&KOF02UM_S_EXTRA_CUSTOM_MAX2[nDefCtr];
     }
 }
 
@@ -198,13 +237,19 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
         LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_MAIN, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_MAIN, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = KOF02UM_S_NUMUNIT_MAIN + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
     }
-    else
+    else if(UseBarPaletteSet())
     {
         nExtraUnitLocation = KOF02UM_S_EXTRALOC_BAR;
         LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_BAR, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_BAR, nExtraUnitLocation, m_nConfirmedROMSize);
         nUnitCt = KOF02UM_S_NUMUNIT_BAR + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
     }
-    
+    else
+    {
+        nExtraUnitLocation = KOF02UM_S_EXTRALOC_MAX2;
+        LoadExtraFileForGame(EXTRA_FILENAME_KOF02UM_S_MAX2, KOF02UM_S_EXTRA, &KOF02UM_S_EXTRA_CUSTOM_MAX2, nExtraUnitLocation, m_nConfirmedROMSize);
+        nUnitCt = KOF02UM_S_NUMUNIT_MAX2 + (GetExtraCt(nExtraUnitLocation) ? 1 : 0);
+    }
+
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
@@ -374,9 +419,13 @@ sDescTreeNode* CGame_KOF02UM_S::InitDescTree(int nROMPaletteSetToUse)
     {
         m_nTotalPaletteCountForKOF02UM_Main = nTotalPaletteCount;
     }
-    else
+    else if (UseBarPaletteSet())
     {
         m_nTotalPaletteCountForKOF02UM_Bar = nTotalPaletteCount;
+    }
+    else
+    {
+        m_nTotalPaletteCountForKOF02UM_MAX2 = nTotalPaletteCount;
     }
 
     return NewDescTree;
@@ -386,7 +435,12 @@ sFileRule CGame_KOF02UM_S::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    if (nUnitId == 1) // BAR.BIN palettes
+    if (nUnitId == 2) // MAX2BG.BIN palettes
+    {
+        m_nExpectedGameROMSize = 0x9800;
+        _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("MAX2BG.bin"));
+    }
+    else if (nUnitId == 1) // BAR.BIN palettes
     {
         m_nExpectedGameROMSize = 0x2200;
         _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("bar.bin"));

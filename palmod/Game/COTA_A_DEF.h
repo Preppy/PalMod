@@ -146,7 +146,8 @@ const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_EXTRAS[] =
     { L"Shared Optic Blast 4", 0x2871e, 0x2873e, indexCPS2_Cyclops, 11 },
     { L"Shared Optic Blast 5", 0x2869e, 0x286be, indexCPS2_Cyclops, 11 },
 
-    { L"Shared Optic FX", 0x2873E, 0x2875E, indexCPS2_Cyclops, 3 },
+    { L"Shared Optic FX 1", 0x2873E, 0x2875E, indexCPS2_Cyclops, 3 },
+    { L"Shared Optic FX 2", 0x2875E, 0x2877E, indexCPS2_Cyclops, 3 },
 };
 
 const sGame_PaletteDataset COTA_A_CYCLOPS_PALETTES_P2[] =

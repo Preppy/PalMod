@@ -577,38 +577,54 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
 void CImgOutDlg::ExportToRAW(CString save_str, CString output_str, CString output_ext, LPCWSTR pszSuggestedFileName)
 {
     // raw
-    CString strDimensions;
-    const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
     const int nImageCount = m_DumpBmp.pMainImgCtrl->GetImgAmt();
-    sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
+    bool fShouldExport = true;
 
-    const UINT8 currentZoom = (UINT8)m_DumpBmp.zoom;
-
-    // We want to ensure filename syntax, so strip the extension in order to rebuild it below
-    save_str.Replace(output_ext.GetString(), _T(""));
-
-    for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
+    if (nImageCount > 1)
     {
-        strDimensions.Format(_T("-w-%u-h-%u"), rgSrcImg[nImageIndex]->uImgW, rgSrcImg[nImageIndex]->uImgH);
+        CString strWarning;
 
-        // Ensure that the filename includes the W/H values so the RAW is usable
-        const bool fNeedDimensions = (_tcsstr(pszSuggestedFileName, strDimensions.GetString()) == nullptr);
+        strWarning = L"This preview is not suited for export to RAW.  This is because this preview uses multiple RAWs.\n";
+        strWarning.Append(L"PalMod will need to export each of those RAWs to its own RAW file.\n");
+        strWarning.Append(L"\nIf you wish to continue, click OK.");
 
-        // RAW export
-        if (nImageCount == 1)
-        {
-            output_str.Format(_T("%s%s%s"), save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
-        }
-        else
-        {
-            output_str.Format(_T("%s-%02x%s%s"), save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
-        }
+        fShouldExport = (MessageBox(strWarning, GetHost()->GetAppName(), MB_OKCANCEL | MB_ICONWARNING) == IDOK);
+    }
 
-        CFile rawFile;
-        if (rawFile.Open(output_str, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+    if (fShouldExport)
+    {
+        CString strDimensions;
+        const bool fShowingSingleVersion = (m_DumpBmp.m_nTotalImagesToDisplay == 1);
+        sImgNode** rgSrcImg = m_DumpBmp.pMainImgCtrl->GetImgBuffer();
+
+        const UINT8 currentZoom = (UINT8)m_DumpBmp.zoom;
+
+        // We want to ensure filename syntax, so strip the extension in order to rebuild it below
+        save_str.Replace(output_ext.GetString(), _T(""));
+
+        for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
         {
-            rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW);
-            rawFile.Abort();
+            strDimensions.Format(_T("-w-%u-h-%u"), rgSrcImg[nImageIndex]->uImgW, rgSrcImg[nImageIndex]->uImgH);
+
+            // Ensure that the filename includes the W/H values so the RAW is usable
+            const bool fNeedDimensions = (_tcsstr(pszSuggestedFileName, strDimensions.GetString()) == nullptr);
+
+            // RAW export
+            if (nImageCount == 1)
+            {
+                output_str.Format(_T("%s%s%s"), save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+            }
+            else
+            {
+                output_str.Format(_T("%s-%02x%s%s"), save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+            }
+
+            CFile rawFile;
+            if (rawFile.Open(output_str, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
+            {
+                rawFile.Write(rgSrcImg[nImageIndex]->pImgData, rgSrcImg[nImageIndex]->uImgH * rgSrcImg[nImageIndex]->uImgW);
+                rawFile.Abort();
+            }
         }
     }
 }

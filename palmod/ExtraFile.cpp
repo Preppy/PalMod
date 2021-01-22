@@ -537,7 +537,7 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
 
         if (nExtraDupeCount)
         {
-            strError.Format(L"WARNING: The %s Extras file contains %u duplicate palettes (including splitting).  Dupe palettes will prevent patching correctly.  Please remove them.\n", m_pszExtraFilename, nExtraDupeCount);
+            strError.Format(L"WARNING: The %s Extras file contains %u duplicate palettes (including splitting).  Dupe palettes will prevent patching correctly.  Please remove them.\n\n", m_pszExtraFilename, nExtraDupeCount);
             strText.Append(strError);
         }
         

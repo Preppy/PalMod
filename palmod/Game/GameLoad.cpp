@@ -801,7 +801,18 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, TCHAR* szLoadFile)
             nGameRule = ((_tcsstr(pszFileName, _T("p2")) != nullptr) ? 2 : 3);
             break;
         case KOF02UM_S:
-            nGameRule = ((_tcscmp(pszFileName, _T("bar.bin")) == 0) ? 1 : 0);
+            if (_tcscmp(pszFileName, _T("bar.bin")) == 0)
+            {
+                nGameRule = 1;
+            }
+            else if (_tcscmp(pszFileName, _T("max2bg.bin")) == 0)
+            {
+                nGameRule = 2;
+            }
+            else
+            {
+                nGameRule = 0;
+            }
             break;
         case MSHVSF_A:
         {

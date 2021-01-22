@@ -5,6 +5,7 @@
 
 constexpr auto EXTRA_FILENAME_KOF02UM_S_MAIN = _T("KOF02UME.txt");
 constexpr auto EXTRA_FILENAME_KOF02UM_S_BAR = _T("KOF02UMBarE.txt");
+constexpr auto EXTRA_FILENAME_KOF02UM_S_MAX2 = _T("KOF02UMMAX2E.txt");
 
 class CGame_KOF02UM_S : public CGameWithExtrasFile
 {
@@ -14,13 +15,18 @@ private:
 
     static UINT32 m_nTotalPaletteCountForKOF02UM_Main;
     static UINT32 m_nTotalPaletteCountForKOF02UM_Bar;
+    static UINT32 m_nTotalPaletteCountForKOF02UM_MAX2;
 
     static bool UseMainPaletteSet() { return (m_nSelectedRom == 0); }
+    static bool UseBarPaletteSet() { return (m_nSelectedRom == 1); }
+    static bool UseMAX2PaletteSet() { return (m_nSelectedRom == 2); }
 
     static int rgExtraCountAll_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
     static int rgExtraCountAll_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
+    static int rgExtraCountAll_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
     static int rgExtraLoc_Main[KOF02UM_S_NUMUNIT_MAIN + 1];
     static int rgExtraLoc_Bar[KOF02UM_S_NUMUNIT_BAR + 1];
+    static int rgExtraLoc_MAX2[KOF02UM_S_NUMUNIT_MAX2 + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize;
@@ -40,6 +46,7 @@ public:
     //Static functions / variables
     static CDescTree MainDescTree_Main;
     static CDescTree MainDescTree_Bar;
+    static CDescTree MainDescTree_MAX2;
 
     static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
     static sFileRule GetRule(UINT16 nUnitId);
@@ -64,4 +71,5 @@ public:
 
     static stExtraDef* KOF02UM_S_EXTRA_CUSTOM_MAIN;
     static stExtraDef* KOF02UM_S_EXTRA_CUSTOM_BAR;
+    static stExtraDef* KOF02UM_S_EXTRA_CUSTOM_MAX2;
 };

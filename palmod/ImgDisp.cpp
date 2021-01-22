@@ -396,7 +396,7 @@ void CImgDisp::DrawMainBG()
     }
 }
 
-void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
+void CImgDisp::UpdateCtrl(BOOL bRedraw, int nUseAltPal)
 {
     //Do nothing on a hidden window
     if (!IsWindowVisible())
@@ -410,7 +410,7 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int bUseAltPal)
     //Reset the BLT rect
     //memset(&rBlt, 0, sizof(RECT));
 
-    int nAltPalIndex = (bUseAltPal ? (bUseAltPal & 0x00FF) : MAX_IMAGES_DISPLAYABLE);
+    int nAltPalIndex = (nUseAltPal ? (nUseAltPal & 0x00FF) : MAX_IMAGES_DISPLAYABLE);
 
     BOOL bFirst = TRUE;
     bool fImageFound = false;
