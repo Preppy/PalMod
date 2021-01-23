@@ -353,30 +353,31 @@ void CPalModDlg::OnTimer(UINT_PTR nIDEvent)
 {
     switch (nIDEvent)
     {
-    case TIMER_STATUS:
-    {
-        // Why would we reset this and stomp data?
-        //m_StatusBar.SetPaneText(0, DEFAULT_STATUS_TEXT);
-        KillTimer(TIMER_STATUS);
-    }
-    break;
-    case TIMER_BLINK:
-    {
-        PerformBlink();
-
-        if (!nBlinkState)
+        case TIMER_STATUS:
         {
-            KillTimer(TIMER_BLINK);
-
-            bCanBlink = TRUE;
-
-            safe_delete_array(pTempPalCopy);
+            // Why would we reset this and stomp data?
+            //m_StatusBar.SetPaneText(0, DEFAULT_STATUS_TEXT);
+            KillTimer(TIMER_STATUS);
+            break;
         }
+        case TIMER_BLINK:
+        {
+            PerformBlink();
 
-        ImgDispCtrl->Redraw();
+            if (!nBlinkState)
+            {
+                KillTimer(TIMER_BLINK);
 
-    }
-    break;
+                bCanBlink = TRUE;
+
+                safe_delete_array(pTempPalCopy);
+            }
+
+            ImgDispCtrl->Redraw();
+            break;
+        }
+        default:
+            break;
     }
 
     CDialog::OnTimer(nIDEvent);

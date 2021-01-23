@@ -44,7 +44,6 @@ private:
     sImgNode* pImgBuffer[MAX_IMAGES_DISPLAYABLE] = {};
     int nImgAmt = 0;
 
-    CPaintDC* PaintDC = nullptr;
     CDC* MainDC = nullptr;
     CDC* ImageDC = nullptr;
 
@@ -75,7 +74,7 @@ private:
     COLORREF crBlinkCol = 0x00FFFFFF;
     double fpZoom = DEF_ZOOM;
 
-    void InitDC();
+    void InitDC(CPaintDC& PaintDC);
     void DrawMainBG();
     void InitImgBuffer();
 

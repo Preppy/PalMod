@@ -82,19 +82,19 @@ void CImgDisp::InitImgBuffer()
 
 void CImgDisp::ResizeMainBitmap()
 {
-    DeleteObject(hBmp);
-
-    Bmpi.bmiHeader.biWidth = MAIN_W;
-    Bmpi.bmiHeader.biHeight = -MAIN_H;
-    Bmpi.bmiHeader.biPlanes = 1;
-    Bmpi.bmiHeader.biBitCount = 32;
-    Bmpi.bmiHeader.biCompression = BI_RGB;
-    Bmpi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
-
-    hBmp = CreateDIBSection(MainDC->GetSafeHdc(), &Bmpi, DIB_RGB_COLORS, (void**)&pBmpData, NULL, 0);
-
-    if (!bFirstInit)
+    if (MainDC)
     {
+        DeleteObject(hBmp);
+
+        Bmpi.bmiHeader.biWidth = MAIN_W;
+        Bmpi.bmiHeader.biHeight = -MAIN_H;
+        Bmpi.bmiHeader.biPlanes = 1;
+        Bmpi.bmiHeader.biBitCount = 32;
+        Bmpi.bmiHeader.biCompression = BI_RGB;
+        Bmpi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+
+        hBmp = CreateDIBSection(MainDC->GetSafeHdc(), &Bmpi, DIB_RGB_COLORS, (void**)&pBmpData, NULL, 0);
+
         MainDC->SelectObject(hBmp);
     }
 }
@@ -148,15 +148,6 @@ void CImgDisp::FlushUnused()
 
         rImgRct.bottom += abs(rImgRct.top);
         rImgRct.top = 0;
-
-        //int nRW = rImgRct.Width();
-        //int nRH = rImgRct.Height();
-
-        //rImgRct.left -= (nRW);
-        //rImgRct.right -= (nRW);
-
-        //rImgRct.top-= (nRH);
-        //rImgRct.bottom -= (nRH);
 
         nImgRctW = rImgRct.Width();
         nImgRctH = rImgRct.Height();
@@ -304,16 +295,15 @@ BOOL CImgDisp::CanForceBGBitmapAvailable()
     return m_bBGAvail; 
 };
 
-void CImgDisp::InitDC()
+void CImgDisp::InitDC(CPaintDC& PaintDC)
 {
     if (bFirstInit)
     {
-        PaintDC = new CPaintDC(this); // bugbug: leaking
         MainDC = new CDC;
         ImageDC = new CDC;
 
-        MainDC->CreateCompatibleDC(PaintDC);
-        ImageDC->CreateCompatibleDC(PaintDC);
+        MainDC->CreateCompatibleDC(&PaintDC);
+        ImageDC->CreateCompatibleDC(&PaintDC);
 
         bFirstInit = FALSE;
 
@@ -323,7 +313,7 @@ void CImgDisp::InitDC()
         //ResizeMainBitmap(rCtrlRct.Width(), rCtrlRct.Height());
         MainDC->SelectObject(hBmp); //OnSize should be called first
 
-        UpdateCtrl();
+        UpdateCtrl(FALSE);
     }
 }
 
@@ -359,7 +349,6 @@ void CImgDisp::ModifySrcRect()
     rImgRct.right = (nImgRctW / 2) + (MAIN_W / 2);
     rImgRct.top = -(nImgRctH / 2) + (MAIN_H / 2);
     rImgRct.bottom = (nImgRctH / 2) + (MAIN_H / 2);
-
 }
 
 void CImgDisp::ModifyClRect()
@@ -369,34 +358,32 @@ void CImgDisp::ModifyClRect()
 
 void CImgDisp::DrawMainBG()
 {
-    if (!MainDC)
+    if (MainDC)
     {
-        InitDC();
-    }
+        if (bTileBGBmp && !bUseBGCol && CanForceBGBitmapAvailable())
+        {
+            MainDC->FillRect(CRect(0, 0, MAIN_W, MAIN_H), &BGBrush);
+        }
+        else
+        {
+            MainDC->FillSolidRect(CRect(0, 0, MAIN_W, MAIN_H), crBGCol);
+        }
 
-    if (bTileBGBmp && !bUseBGCol && CanForceBGBitmapAvailable())
-    {
-        MainDC->FillRect(CRect(0, 0, MAIN_W, MAIN_H), &BGBrush);
-    }
-    else
-    {
-        MainDC->FillSolidRect(CRect(0, 0, MAIN_W, MAIN_H), crBGCol);
-    }
+        if (!bTileBGBmp && !bUseBGCol && CanForceBGBitmapAvailable())
+        {
+            ImageDC->SelectObject(&BGBitmap);
 
-    if (!bTileBGBmp && !bUseBGCol && CanForceBGBitmapAvailable())
-    {
-        ImageDC->SelectObject(&BGBitmap);
-
-        MainDC->BitBlt(
-            (MAIN_W / 2) - (nBGBmpW / 2) + nBGXOffs,
-            (MAIN_H / 2) - (nBGBmpH / 2) + nBGYOffs,
-            nBGBmpW, nBGBmpH,
-            ImageDC,
-            0, 0, SRCCOPY);
+            MainDC->BitBlt(
+                (MAIN_W / 2) - (nBGBmpW / 2) + nBGXOffs,
+                (MAIN_H / 2) - (nBGBmpH / 2) + nBGYOffs,
+                nBGBmpW, nBGBmpH,
+                ImageDC,
+                0, 0, SRCCOPY);
+        }
     }
 }
 
-void CImgDisp::UpdateCtrl(BOOL bRedraw, int nUseAltPal)
+void CImgDisp::UpdateCtrl(BOOL bRedraw /* = TRUE */, int nUseAltPal /* = 0 */)
 {
     //Do nothing on a hidden window
     if (!IsWindowVisible())
@@ -439,8 +426,8 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int nUseAltPal)
 
             CustomBlt(
                 -1,
-                -1, // overriden 
-                -1, // overriden 
+                -1, // overridden 
+                -1, // overridden 
                 (nAltPalIndex == 0)); // We're the only live image.
         }
     }
@@ -454,9 +441,11 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw, int nUseAltPal)
 
 void CImgDisp::Redraw()
 {
-    if (PaintDC)
+    if (MainDC)
     {
-        PaintDC->StretchBlt(
+        CClientDC* cdc = new CClientDC(this);
+
+        cdc->StretchBlt(
             rCtrlRct.left,
             rCtrlRct.top,
             rCtrlRct.right,
@@ -467,16 +456,22 @@ void CImgDisp::Redraw()
             rSrcRct.right - rSrcRct.left,
             rSrcRct.bottom - rSrcRct.top,
             SRCCOPY);
+
+        safe_delete(cdc);
     }
 }
 
 void CImgDisp::OnPaint()
 {
-    InitDC();
+    CPaintDC *PaintDC = new CPaintDC(this);
+
+    InitDC(*PaintDC);
 
     Redraw();
 
     CWnd::OnPaint();
+
+    safe_delete(PaintDC);
 }
 
 BOOL CImgDisp::OnEraseBkgnd(CDC* pDC)
