@@ -35,7 +35,7 @@ private:
     void CleanUp();
 
     //Drawing functions
-    void InitDC();
+    void InitDC(CPaintDC &PaintDC);
     void DrawBG();
     BOOL ProcBaseBMP();
     void ClearBaseBMP();
@@ -61,8 +61,6 @@ private:
 
     //Draw variables
     RECT rIndexRect;
-
-    CPaintDC* dcPaintDC = nullptr;
 
     HBITMAP hBmp = nullptr;
     BITMAPINFO Bmpi;

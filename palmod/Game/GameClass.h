@@ -103,7 +103,6 @@ protected:
 
     bool m_fGameUsesAlphaValue = false;
     bool m_fAllowIPSPatching = false;
-    UINT32 m_uOneTimeWINEViewportSizeOverride = 0;
 
     BOOL bUsesHybrid = FALSE;
     UINT16* pIndexRedir = nullptr;

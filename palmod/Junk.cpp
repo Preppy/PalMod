@@ -107,25 +107,14 @@ void CJunk::SetJunkState(UCHAR* State, LPCTSTR pszFunctionName, int nIndex, UCHA
     bool fSuccess = false;
     if (State)
     {
+        // The user can be mousing over the palette boxes while they are also updating the palettes being
+        // shown.  As such, we want to ensure that we aren't processing a message relevant to a larger palette set.
         if ((nIndex >= 0) && (nIndex < nAllocationLength))
         {
             State[nIndex] = nValue;
             fSuccess = true;
         }
     }
-
-#ifdef DEBUG
-    // I'm turning this off for now as I haven't gotten meaningful data showing how the user got to here.
-    static bool s_fShownOnce = false;
-
-    if (!fSuccess && !s_fShownOnce)
-    {
-        s_fShownOnce = true;
-        CString strError;
-        strError.Format(_T("SetJunkState Error: %s code tried writing to %u but array is 0-%u.\nPreviously this code would have crashed, but now this check saved you.  Please report this message text to me - thanks!"), pszFunctionName, nIndex, nAllocationLength);
-        MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
-    }
-#endif
 }
 
 void CJunk::SetHighlighted(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
@@ -359,10 +348,14 @@ BOOL CJunk::RegisterWindowClass()
 
 void CJunk::OnPaint()
 {
-    InitDC();
+    CPaintDC* PaintDC = new CPaintDC(this);
+
+    InitDC(*PaintDC);
     UpdateCtrl(FALSE);
 
     CWnd::OnPaint();
+
+    safe_delete(PaintDC);
 }
 
 BOOL CJunk::OnEraseBkgnd(CDC* pDC)
@@ -405,14 +398,12 @@ void CJunk::ClearBaseBMP()
     safe_delete_array(pBmpData);
 }
 
-void CJunk::InitDC()
+void CJunk::InitDC(CPaintDC &PaintDC)
 {
     if (bFirstDCInit)
     {
-        dcPaintDC = new CPaintDC(this);
-
         //Init base
-        dcBaseDC.CreateCompatibleDC(dcPaintDC);
+        dcBaseDC.CreateCompatibleDC(&PaintDC);
         dcBaseDC.SelectObject(hBmp);
         dcBaseDC.SelectStockObject(NULL_BRUSH);
 
@@ -588,14 +579,18 @@ void CJunk::UpdateIndexAll()
 
 BOOL CJunk::UpdateCtrl(BOOL bUpdFace)
 {
-    if (dcPaintDC)
+    if (dcBaseDC)
     {
+        CClientDC* cdc = new CClientDC(this);
+
         if (bUpdFace)
         {
             UpdateFace();
         }
 
-        dcPaintDC->BitBlt(0, 0, iBaseW, iBaseH, &dcBaseDC, 0, 0, SRCCOPY);
+        cdc->BitBlt(0, 0, iBaseW, iBaseH, &dcBaseDC, 0, 0, SRCCOPY);
+
+        safe_delete(cdc);
     }
 
     return TRUE;

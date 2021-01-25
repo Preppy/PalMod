@@ -851,12 +851,6 @@ COLORREF* CGameClass::CreatePal(UINT16 nUnitId, UINT16 nPalId)
 {
     LoadSpecificPaletteData(nUnitId, nPalId);
 
-    if (m_uOneTimeWINEViewportSizeOverride != 0)
-    {
-        m_nCurrentPaletteSizeInColors = m_uOneTimeWINEViewportSizeOverride;
-        m_uOneTimeWINEViewportSizeOverride = 0;
-    }
-
     COLORREF* NewPal = new COLORREF[m_nCurrentPaletteSizeInColors];
 
     if (createPalOptions.nStartingPosition != 0)
@@ -1063,23 +1057,6 @@ void CGameClass::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     static UINT16 s_nColorsPerPage = CRegProc::GetMaxPalettePageSize();
 
     LoadSpecificPaletteData(nUnitId, nPalId);
-
-    // temporary(?) workaround for WINE problem
-    // Override the palette size here once and once in CreatePal so that we get one maximum sized palette
-    // for the first display, which seems to work around a display issue in WINE
-    static bool s_fHaveCheckedForWINEOverride = false;
-
-    if (!s_fHaveCheckedForWINEOverride)
-    {
-        s_fHaveCheckedForWINEOverride = true;
-        if (CRegProc::UserIsOnWINE())
-        {
-            MessageBox(g_appHWnd, L"You're using WINE.  WINE has visual refresh bugs.  PalMod tries to hack around them: please switch AWAY from this palette and then back: this is a "
-                                    L"virtual palette attempting to work around parts of those bugs.  Thanks!", GetHost()->GetAppName(), MB_ICONINFORMATION);
-            m_uOneTimeWINEViewportSizeOverride = s_nColorsPerPage;
-            m_nCurrentPaletteSizeInColors = m_uOneTimeWINEViewportSizeOverride;
-        }
-    }
 
     const UINT8 nTotalPagesNeeded = (UINT8)ceil((double)m_nCurrentPaletteSizeInColors / (double)s_nColorsPerPage);
     const bool fCanFitWithinCurrentPageLayout = (nTotalPagesNeeded <= MAX_PALETTE_PAGES);
