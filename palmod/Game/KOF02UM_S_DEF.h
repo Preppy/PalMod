@@ -2479,7 +2479,7 @@ const sGame_PaletteDataset KOF02UM_S_YAMAZAKI_PALETTES_A[] =
 {
     { L"Yamazaki A", 0x000e000, 0x000e020, indexKOFSprites_02UM_Yamazaki },
     { L"A - Drill Super Extras", 0x000e020, 0x000e040, indexKOFSprites_02UM_Yamazaki, 0x03 },
-    { L"A - Intro Stuff", 0x000e040, 0x000e060, indexKOFSprites_02UM_Yamazaki, 0x02 },
+    { L"A - Intro Stuff", 0x000e040, 0x000e060, indexKOFSprites_02UM_Yamazaki, 0x19 },
     { L"A - Electric Shock Effect", 0x000e060, 0x000e080, indexKOFSprites_02UM_Yamazaki, 0x18 },
     { L"A - MAX Flash", 0x000e080, 0x000e0a0, indexKOFSprites_02UM_Yamazaki, 0x08 },
     { L"A - Hidden Super Desperation Move 2", 0x000e0a0, 0x000e0c0, indexKOFSprites_02UM_Yamazaki, 0x00 },
@@ -2491,7 +2491,7 @@ const sGame_PaletteDataset KOF02UM_S_YAMAZAKI_PALETTES_B[] =
 {
     { L"Yamazaki B", 0x000e200, 0x000e220, indexKOFSprites_02UM_Yamazaki },
     { L"B - Drill Super Extras", 0x000e220, 0x000e240, indexKOFSprites_02UM_Yamazaki, 0x03 },
-    { L"B - Intro Stuff", 0x000e240, 0x000e260, indexKOFSprites_02UM_Yamazaki, 0x02 },
+    { L"B - Intro Stuff", 0x000e240, 0x000e260, indexKOFSprites_02UM_Yamazaki, 0x19 },
     { L"B - Electric Shock Effect", 0x000e260, 0x000e280, indexKOFSprites_02UM_Yamazaki, 0x18 },
     { L"B - MAX Flash", 0x000e280, 0x000e2a0, indexKOFSprites_02UM_Yamazaki, 0x08 },
     { L"B - Hidden Super Desperation Move 2", 0x000e2a0, 0x000e2c0, indexKOFSprites_02UM_Yamazaki, 0x00 },
@@ -2503,7 +2503,7 @@ const sGame_PaletteDataset KOF02UM_S_YAMAZAKI_PALETTES_C[] =
 {
     { L"Yamazaki C", 0x000e400, 0x000e420, indexKOFSprites_02UM_Yamazaki },
     { L"C - Drill Super Extras", 0x000e420, 0x000e440, indexKOFSprites_02UM_Yamazaki, 0x03 },
-    { L"C - Intro Stuff", 0x000e440, 0x000e460, indexKOFSprites_02UM_Yamazaki, 0x02 },
+    { L"C - Intro Stuff", 0x000e440, 0x000e460, indexKOFSprites_02UM_Yamazaki, 0x19 },
     { L"C - Electric Shock Effect", 0x000e460, 0x000e480, indexKOFSprites_02UM_Yamazaki, 0x18 },
     { L"C - MAX Flash", 0x000e480, 0x000e4a0, indexKOFSprites_02UM_Yamazaki, 0x08 },
     { L"C - Hidden Super Desperation Move 2", 0x000e4a0, 0x000e4c0, indexKOFSprites_02UM_Yamazaki, 0x00 },
@@ -2515,7 +2515,7 @@ const sGame_PaletteDataset KOF02UM_S_YAMAZAKI_PALETTES_D[] =
 {
     { L"Yamazaki D", 0x000e600, 0x000e620, indexKOFSprites_02UM_Yamazaki },
     { L"D - Drill Super Extras", 0x000e620, 0x000e640, indexKOFSprites_02UM_Yamazaki, 0x03 },
-    { L"D - Intro Stuff", 0x000e640, 0x000e660, indexKOFSprites_02UM_Yamazaki, 0x02 },
+    { L"D - Intro Stuff", 0x000e640, 0x000e660, indexKOFSprites_02UM_Yamazaki, 0x19 },
     { L"D - Electric Shock Effect", 0x000e660, 0x000e680, indexKOFSprites_02UM_Yamazaki, 0x18 },
     { L"D - MAX Flash", 0x000e680, 0x000e6a0, indexKOFSprites_02UM_Yamazaki, 0x08 },
     { L"D - Hidden Super Desperation Move 2", 0x000e6a0, 0x000e6c0, indexKOFSprites_02UM_Yamazaki, 0x00 },

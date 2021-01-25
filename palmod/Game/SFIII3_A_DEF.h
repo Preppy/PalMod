@@ -46,6 +46,7 @@ const sGame_PaletteDataset SFIII3_A_ALEX_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x764e00, 0x764e80, index3S_CPS3_Alex, 0 },
     { L"EX Attack (2)", 0x76ae00, 0x76ae80, index3S_CPS3_Alex, 0 },
+    { L"Burned/Red Parry", 0x707D80, 0x707E00, index3S_CPS3_Alex, 0x00 },
     { L"????", 0x765c00, 0x765c80, index3S_CPS3_Alex, 0 },
     { L"????", 0x765c80, 0x765d00, index3S_CPS3_Alex, 0 },
     { L"????", 0x765d00, 0x765d80, index3S_CPS3_Alex, 0 },
@@ -108,6 +109,7 @@ const sGame_PaletteDataset SFIII3_A_RYU_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x764e80, 0x764f00, index3S_CPS3_Ryu, 0 },
     { L"EX Attack (2)", 0x76ae80, 0x76af00, index3S_CPS3_Ryu, 0 },
+    { L"Burned/Red Parry", 0x707E00, 0x707E80, index3S_CPS3_Ryu, 0x00 },
     { L"????", 0x766000, 0x766080, index3S_CPS3_Ryu, 0 },
     { L"????", 0x766080, 0x766100, index3S_CPS3_Ryu, 0 },
     { L"????", 0x766100, 0x766180, index3S_CPS3_Ryu, 0 },
@@ -171,6 +173,7 @@ const sGame_PaletteDataset SFIII3_A_YUN_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x764f00, 0x764f80, index3S_CPS3_Yun, 0 },
     { L"EX Attack (2)", 0x76af00, 0x76af80, index3S_CPS3_Yun, 0 },
+    { L"Burned/Red Parry", 0x707E80, 0x707F00, index3S_CPS3_Yun, 0x00 },
     { L"????", 0x766400, 0x766480, index3S_CPS3_Yun, 0 },
     { L"????", 0x766480, 0x766500, index3S_CPS3_Yun, 0 },
     { L"????", 0x766500, 0x766580, index3S_CPS3_Yun, 0 },
@@ -227,6 +230,7 @@ const sGame_PaletteDataset SFIII3_A_DUDLEY_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x764f80, 0x765000, index3S_CPS3_Dudley, 0 },
     { L"EX Attack (2)", 0x76af80, 0x76b000, index3S_CPS3_Dudley, 0 },
+    { L"Burned/Red Parry", 0x707F00, 0x707F80, index3S_CPS3_Dudley, 0x00 },
     { L"????", 0x766800, 0x766880, index3S_CPS3_Dudley, 0 },
     { L"????", 0x766880, 0x766900, index3S_CPS3_Dudley, 0 },
     { L"????", 0x766900, 0x766980, index3S_CPS3_Dudley, 0 },
@@ -290,6 +294,7 @@ const sGame_PaletteDataset SFIII3_A_NECRO_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765000, 0x765080, index3S_CPS3_Necro, 0 },
     { L"EX Attack (2)", 0x76b000, 0x76b080, index3S_CPS3_Necro, 0 },
+    { L"Burned/Red Parry", 0x707F80, 0x708000, index3S_CPS3_Necro, 0x00 },
     { L"????", 0x766c00, 0x766c80, index3S_CPS3_Necro, 0 },
     { L"????", 0x766c80, 0x766d00, index3S_CPS3_Necro, 0 },
     { L"????", 0x766d00, 0x766d80, index3S_CPS3_Necro, 0 },
@@ -371,6 +376,7 @@ const sGame_PaletteDataset SFIII3_A_HUGO_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765080, 0x765100, index3S_CPS3_Hugo, 0 },
     { L"EX Attack (2)", 0x76b080, 0x76b100, index3S_CPS3_Hugo, 0 },
+    { L"Burned/Red Parry", 0x708000, 0x708080, index3S_CPS3_Hugo, 0x00 },
     { L"????", 0x767000, 0x767080, index3S_CPS3_Hugo, 0 },
     { L"????", 0x767080, 0x767100, index3S_CPS3_Hugo, 0 },
     { L"????", 0x767100, 0x767180, index3S_CPS3_Hugo, 0 },
@@ -435,6 +441,7 @@ const sGame_PaletteDataset SFIII3_A_IBUKI_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765100, 0x765180, index3S_CPS3_Ibuki, 0 },
     { L"EX Attack (2)", 0x76b100, 0x76b180, index3S_CPS3_Ibuki, 0 },
+    { L"Burned/Red Parry", 0x708080, 0x708100, index3S_CPS3_Ibuki, 0x00 },
     { L"????", 0x767400, 0x767480, index3S_CPS3_Ibuki, 0 },
     { L"????", 0x767480, 0x767500, index3S_CPS3_Ibuki, 0 },
     { L"????", 0x767500, 0x767580, index3S_CPS3_Ibuki, 0 },
@@ -516,6 +523,7 @@ const sGame_PaletteDataset SFIII3_A_ELENA_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765180, 0x765200, index3S_CPS3_Elena, 0 },
     { L"EX Attack (2)", 0x76b180, 0x76b200, index3S_CPS3_Elena, 0 },
+    { L"Burned/Red Parry", 0x708100, 0x708180, index3S_CPS3_Elena, 0x00 },
     { L"????", 0x767800, 0x767880, index3S_CPS3_Elena, 0 },
     { L"????", 0x767880, 0x767900, index3S_CPS3_Elena, 0 },
     { L"????", 0x767900, 0x767980, index3S_CPS3_Elena, 0 },
@@ -572,6 +580,7 @@ const sGame_PaletteDataset SFIII3_A_ORO_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765200, 0x765280, index3S_CPS3_Oro, 0 },
     { L"EX Attack (2)", 0x76b200, 0x76b280, index3S_CPS3_Oro, 0 },
+    { L"Burned/Red Parry", 0x708180, 0x708200, index3S_CPS3_Oro, 0x00 },
     { L"????", 0x767c00, 0x767c80, index3S_CPS3_Oro, 0 },
     { L"????", 0x767c80, 0x767d00, index3S_CPS3_Oro, 0 },
     { L"????", 0x767d00, 0x767d80, index3S_CPS3_Oro, 0 },
@@ -636,6 +645,7 @@ const sGame_PaletteDataset SFIII3_A_YANG_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765280, 0x765300, index3S_CPS3_Yang, 0 },
     { L"EX Attack (2)", 0x76b280, 0x76b300, index3S_CPS3_Yang, 0 },
+    { L"Burned/Red Parry", 0x708200, 0x708280, index3S_CPS3_Yang, 0x00 },
     { L"????", 0x768000, 0x768080, index3S_CPS3_Yang, 0 },
     { L"????", 0x768080, 0x768100, index3S_CPS3_Yang, 0 },
     { L"????", 0x768100, 0x768180, index3S_CPS3_Yang, 0 },
@@ -692,6 +702,7 @@ const sGame_PaletteDataset SFIII3_A_KEN_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765300, 0x765380, index3S_CPS3_Ken, 0 },
     { L"EX Attack (2)", 0x76b300, 0x76b380, index3S_CPS3_Ken, 0 },
+    { L"Burned/Red Parry", 0x708280, 0x708300, index3S_CPS3_Ken, 0x00 },
     { L"????", 0x768400, 0x768480, index3S_CPS3_Ken, 0 },
     { L"????", 0x768480, 0x768500, index3S_CPS3_Ken, 0 },
     { L"????", 0x768500, 0x768580, index3S_CPS3_Ken, 0 },
@@ -755,6 +766,7 @@ const sGame_PaletteDataset SFIII3_A_SEAN_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765380, 0x765400, index3S_CPS3_Sean, 0 },
     { L"EX Attack (2)", 0x76b380, 0x76b400, index3S_CPS3_Sean, 0 },
+    { L"Burned/Red Parry", 0x708300, 0x708380, index3S_CPS3_Sean, 0x00 },
     { L"????", 0x768800, 0x768880, index3S_CPS3_Sean, 0 },
     { L"????", 0x768880, 0x768900, index3S_CPS3_Sean, 0 },
     { L"????", 0x768900, 0x768980, index3S_CPS3_Sean, 0 },
@@ -816,6 +828,7 @@ const sGame_PaletteDataset SFIII3_A_URIEN_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765400, 0x765480, index3S_CPS3_Urien, 0 },
     { L"EX Attack (2)", 0x76b400, 0x76b480, index3S_CPS3_Urien, 0 },
+    { L"Burned/Red Parry", 0x708380, 0x708400, index3S_CPS3_Urien, 0x00 },
     { L"????", 0x768c00, 0x768c80, index3S_CPS3_Urien, 0 },
     { L"????", 0x768c80, 0x768d00, index3S_CPS3_Urien, 0 },
     { L"????", 0x768d00, 0x768d80, index3S_CPS3_Urien, 0 },
@@ -886,6 +899,8 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_Support_PALETTES[] =
 {
     { L"EX Attack (1) (Unused)", 0x765480, 0x765500, index3S_CPS3_Gouki, 0 },
     { L"EX Attack (2) (Unused)", 0x76b480, 0x76b500, index3S_CPS3_Gouki, 0 },
+    { L"Burned/Red Parry", 0x708480, 0x708500, index3S_CPS3_Gouki },
+    //{ L"Burned/Red Parry", 0x708480, 0x708500, index3S_CPS3_Gouki, 0x00 },
     { L"????", 0x769000, 0x769080, index3S_CPS3_Gouki, 0 },
     { L"SA Animation 1/Parry", 0x769080, 0x769100, index3S_CPS3_Gouki, 0 },
     { L"SA Animation 2", 0x769100, 0x769180, index3S_CPS3_Gouki, 0 },
@@ -906,8 +921,6 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_EXTRA_PALETTES[] =
     { L"SA Animation 4", 0x707900, 0x707980, index3S_CPS3_Gouki },
 
     { L"Gouki Fire Hadoken", 0x706B00, 0x706B80, index3S_CPS3_Ryu, 0x04 },
-
-    { L"Burning Effects", 0x708480, 0x708500, index3S_CPS3_Gouki },
 };
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_LP_PALETTES[] =
@@ -926,6 +939,7 @@ const sGame_PaletteDataset SFIII3_A_SHINGOUKI_Support_PALETTES[] =
 {
     { L"EX Attack (1) (Unused)", 0x765500, 0x765580, index3S_CPS3_Gouki, 0 },
     { L"EX Attack (2) (Unused)", 0x76b500, 0x76b580, index3S_CPS3_Gouki, 0 },
+    { L"Burned/Red Parry", 0x708500, 0x708580, index3S_CPS3_Gouki, 0x00 },
     { L"????", 0x769400, 0x769480, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769480, 0x769500, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769500, 0x769580, index3S_CPS3_Gouki, 0 },
@@ -1020,6 +1034,7 @@ const sGame_PaletteDataset SFIII3_A_CHUNLI_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765580, 0x765600, index3S_CPS3_ChunLi, 0 },
     { L"EX Attack (2)", 0x76b580, 0x76b600, index3S_CPS3_ChunLi, 0 },
+    { L"Burned/Red Parry", 0x708580, 0x708600, index3S_CPS3_ChunLi, 0x00 },
     { L"????", 0x769800, 0x769880, index3S_CPS3_ChunLi, 0 },
     { L"????", 0x769880, 0x769900, index3S_CPS3_ChunLi, 0 },
     { L"????", 0x769900, 0x769980, index3S_CPS3_ChunLi, 0 },
@@ -1081,6 +1096,7 @@ const sGame_PaletteDataset SFIII3_A_MAKOTO_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765600, 0x765680, index3S_CPS3_Makoto, 0 },
     { L"EX Attack (2)", 0x76b600, 0x76b680, index3S_CPS3_Makoto, 0 },
+    { L"Burned/Red Parry", 0x708600, 0x708680, index3S_CPS3_Makoto, 0x00 },
     { L"????", 0x769c00, 0x769c80, index3S_CPS3_Makoto, 0 },
     { L"????", 0x769c80, 0x769d00, index3S_CPS3_Makoto, 0 },
     { L"????", 0x769d00, 0x769d80, index3S_CPS3_Makoto, 0 },
@@ -1137,6 +1153,8 @@ const sGame_PaletteDataset SFIII3_A_Q_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765680, 0x765700, index3S_CPS3_Q, 0 },
     { L"EX Attack (2)", 0x76b680, 0x76b700, index3S_CPS3_Q, 0 },
+    // This is in Extras...
+    //{ L"Burned/Red Parry", 0x708680, 0x708700, index3S_CPS3_Q, 0x00 },
     { L"????", 0x76a000, 0x76a080, index3S_CPS3_Q, 0 },
     { L"????", 0x76a080, 0x76a100, index3S_CPS3_Q, 0 },
     { L"????", 0x76a100, 0x76a180, index3S_CPS3_Q, 0 },
@@ -1149,8 +1167,9 @@ const sGame_PaletteDataset SFIII3_A_Q_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_Q_EXTRA_PALETTES[] =
 {
-    { L"SA3 charge / all arts burning", 0x708680, 0x708700 },
-    { L"SA3 main explosion", 0x708700, 0x708780 },
+    { L"SA3 charge / Red Parry / Burned", 0x708680, 0x708700, index3S_CPS3_Q },
+    // This appears to be Twelve's burning palette...?
+    //{ L"SA3 main explosion", 0x708700, 0x708780 },
     { L"SA3 explosion flames", 0x708a80, 0x708b00 },
 
     { L"Boys", 0x706E80, 0x706F00 },
@@ -1205,6 +1224,7 @@ const sGame_PaletteDataset SFIII3_A_TWELVE_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765700, 0x765780, index3S_CPS3_Twelve, 0 },
     { L"EX Attack (2)", 0x76b700, 0x76b780, index3S_CPS3_Twelve, 0 },
+    { L"Burned/Red Parry", 0x708700, 0x708780, index3S_CPS3_Twelve, 0x00 },
     { L"????", 0x76a400, 0x76a480, index3S_CPS3_Twelve, 0 },
     { L"????", 0x76a480, 0x76a500, index3S_CPS3_Twelve, 0 },
     { L"????", 0x76a500, 0x76a580, index3S_CPS3_Twelve, 0 },
@@ -1261,6 +1281,7 @@ const sGame_PaletteDataset SFIII3_A_REMY_Support_PALETTES[] =
 {
     { L"EX Attack (1)", 0x765780, 0x765800, index3S_CPS3_Remy, 0 },
     { L"EX Attack (2)", 0x76b780, 0x76b800, index3S_CPS3_Remy, 0 },
+    { L"Burned/Red Parry", 0x708780, 0x708800, index3S_CPS3_Remy, 0x00 },
     { L"????", 0x76a800, 0x76a880, index3S_CPS3_Remy, 0 },
     { L"????", 0x76a880, 0x76a900, index3S_CPS3_Remy, 0 },
     { L"????", 0x76a900, 0x76a980, index3S_CPS3_Remy, 0 },
