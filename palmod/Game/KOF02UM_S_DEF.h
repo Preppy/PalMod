@@ -4924,8 +4924,8 @@ const sGame_PaletteDataset KOF02UM_S_HUD_PALETTES[] =
     { L"FIGHT Text",                                0x53840, 0x53880 },
     { L"Win Text KO",                               0x53880, 0x538a0 },
     { L"Winner Text Outline",                       0x538a0, 0x538c0 },
-    { L"MAX2 Background Effect 1P",                 0x57e20, 0x57e40 },
-    { L"MAX2 Background Effect 2P",                 0x57e00, 0x57e20 },
+    { L"MAX2 Background Effect 1P",                 0x57e20, 0x57e40, indexKOFSprites_02UM_Bonus, 0x01 },
+    { L"MAX2 Background Effect 2P",                 0x57e00, 0x57e20, indexKOFSprites_02UM_Bonus, 0x01 },
 };
 
 const sGame_PaletteDataset KOF02UM_S_EXTRA_PALETTES[] =
@@ -4986,7 +4986,7 @@ constexpr auto KOF02UM_S_NUMUNIT_BAR = ARRAYSIZE(KOF02UM_S_UNITS_BAR);
 
 const sGame_PaletteDataset KOF02UM_S_MAX2_BG_PALETTES[] =
 {
-    { L"MAX2 BG Main", 0x0, 0x20 },
+    { L"MAX2 BG Main", 0x0, 0x20, indexKOFSprites_02UM_Bonus, 0x00 },
     { L"MAX2 BG Extra", 0x20, 0x40 },
 };
 

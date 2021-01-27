@@ -167,6 +167,7 @@ const sGame_PaletteDataset GUNDAM_DEATHSCYTHE_STAGE_PALETTES[] =
     { L"Port (BG)", 0xAF1C0, 0xAF1E0 },
     { L"Runway, Jets (FG)", 0xAF160, 0xAF180 },
     { L"Runway, Flames (FG, Cycle)", 0xAF100, 0xAF160 },
+    { L"Runway, Flames (FG, Cycle) cont.", 0xAF1E0, 0xAF200 },
 };
 
 const sGame_PaletteDataset GUNDAM_EPYON_STAGE_PALETTES[] =
@@ -174,6 +175,8 @@ const sGame_PaletteDataset GUNDAM_EPYON_STAGE_PALETTES[] =
     { L"Tower (BG)", 0xAF760, 0xAF780 },
     { L"Tower cont. (BG)",  0xAF7C0, 0xAF7E0 },
     { L"Elevator Platform (FG)",  0xAF780, 0xAF7C0 },
+    { L"Blue Electricity", 0xAF700, 0xAF720 },
+    { L"Yellow Flash", 0xAF740, 0xAF760 },
 };
 
 const sGame_PaletteDataset GUNDAM_HEAVYARMS_STAGE_PALETTES[] =
@@ -207,6 +210,30 @@ const sGame_PaletteDataset GUNDAM_TALLGEESE_STAGE_PALETTES[] =
     { L"Aurora Borealis 2 (BG)", 0xAF680, 0xAF6A0 },
     { L"Aurora Borealis 3 (BG)", 0xAF6C0, 0xAF6E0 },
     { L"Aurora Borealis 4 (BG)", 0xAF6E0, 0xAF700 },
+};
+
+const sGame_PaletteDataset GUNDAM_MERCURIUS_STAGE_PALETTES[] =
+{
+    { L"Docking Bay (top)", 0xAFC80, 0xAFCA0 },
+    { L"MS Docking Bay (bottom)", 0xAFCE0, 0xAFD00 },
+    { L"Earth from Hatch", 0xAFCC0, 0xAFCE0 },
+    { L"Floor/Foreground", 0xAFCA0, 0xAFCC0 },
+};
+
+const sGame_PaletteDataset GUNDAM_VAYEATE_STAGE_PALETTES[] =
+{
+    { L"Docking Bay (top)", 0xAF580, 0xAF5A0 },
+    { L"Docking Bay (bottom)", 0xAF5E0, 0xAF600 },
+    { L"Earth view from Hatch ", 0xAF5C0, 0xAF5E0 },
+    { L"Floor/Foreground", 0xAF5A0, 0xAF5C0 },
+};
+
+const sGame_PaletteDataset GUNDAM_MVSHARED_STAGE_PALETTES[] =
+{
+    { L"Mobile Dolls + Lights 1", 0xAF500, 0xAF520 },
+    { L"Mobile Dolls + Lights 2", 0xAF520, 0xAF540 },
+    { L"Lighting 3", 0xAF540, 0xAF560 },
+    { L"Lighting 4", 0xAF560, 0xAF580}
 };
 
 const sDescTreeNode GUNDAM_WING_COLLECTION[] =
@@ -279,11 +306,15 @@ const sDescTreeNode GUNDAM_STAGES_COLLECTION[] =
     { L"Deathscythe Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_DEATHSCYTHE_STAGE_PALETTES, ARRAYSIZE(GUNDAM_DEATHSCYTHE_STAGE_PALETTES) },
     { L"Epyon Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_EPYON_STAGE_PALETTES, ARRAYSIZE(GUNDAM_EPYON_STAGE_PALETTES) },
     { L"Heavyarms Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_HEAVYARMS_STAGE_PALETTES, ARRAYSIZE(GUNDAM_HEAVYARMS_STAGE_PALETTES) },
+
+    { L"Mercurius Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_MERCURIUS_STAGE_PALETTES, ARRAYSIZE(GUNDAM_MERCURIUS_STAGE_PALETTES) },
+    { L"Vayeate Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_VAYEATE_STAGE_PALETTES, ARRAYSIZE(GUNDAM_VAYEATE_STAGE_PALETTES) },
+    { L"Mercurius + Vayeate Shared Stage Palettes", DESC_NODETYPE_TREE, (void*)GUNDAM_MVSHARED_STAGE_PALETTES, ARRAYSIZE(GUNDAM_MVSHARED_STAGE_PALETTES) },
+
     { L"Sandrock Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_SANDROCK_STAGE_PALETTES, ARRAYSIZE(GUNDAM_SANDROCK_STAGE_PALETTES) },
     { L"Shenlong Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_SHENLONG_STAGE_PALETTES, ARRAYSIZE(GUNDAM_SHENLONG_STAGE_PALETTES) },
     { L"Tallgeese Stage - Arctic", DESC_NODETYPE_TREE, (void*)GUNDAM_TALLGEESE_STAGE_PALETTES, ARRAYSIZE(GUNDAM_TALLGEESE_STAGE_PALETTES) },
     { L"Wing Stage", DESC_NODETYPE_TREE, (void*)GUNDAM_WING_STAGE_PALETTES, ARRAYSIZE(GUNDAM_WING_STAGE_PALETTES) },
-    
 };
 
 const sDescTreeNode GUNDAM_SNES_UNITS[] =

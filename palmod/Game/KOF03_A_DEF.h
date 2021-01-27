@@ -1173,28 +1173,28 @@ const sGame_PaletteDataset KOF03_A_MALIN_PALETTES_D[] =
 
 const sGame_PaletteDataset KOF03_A_K_PALETTES_A[] =
 {
-    { L"K' A", 0x00f800, 0x00f820, indexKOFSprites_02UM_K },
+    { L"K' A", 0x00f800, 0x00f820, indexKOF03Sprites_K },
     { L"Heat A", 0x00f900, 0x00f920 },
     { L"K' Victory A", 0x020c20, 0x020c60 },
 };
 
 const sGame_PaletteDataset KOF03_A_K_PALETTES_B[] =
 {
-    { L"K' B", 0x00fa00, 0x00fa20, indexKOFSprites_02UM_K },
+    { L"K' B", 0x00fa00, 0x00fa20, indexKOF03Sprites_K },
     { L"Heat B", 0x00fb00, 0x00fb20 },
     { L"K' Victory B", 0x020c60, 0x020ca0 },
 };
 
 const sGame_PaletteDataset KOF03_A_K_PALETTES_C[] =
 {
-    { L"K' C", 0x00fc00, 0x00fc20, indexKOFSprites_02UM_K },
+    { L"K' C", 0x00fc00, 0x00fc20, indexKOF03Sprites_K },
     { L"Heat C", 0x00fd00, 0x00fd20 },
     { L"K' Victory C", 0x020ca0, 0x020ce0 },
 };
 
 const sGame_PaletteDataset KOF03_A_K_PALETTES_D[] =
 {
-    { L"K' D", 0x00fe00, 0x00fe20, indexKOFSprites_02UM_K },
+    { L"K' D", 0x00fe00, 0x00fe20, indexKOF03Sprites_K },
     { L"Heat D", 0x00ff00, 0x00ff20 },
     { L"K' Victory D", 0x020ce0, 0x020d20 },
 };

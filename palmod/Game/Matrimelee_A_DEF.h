@@ -585,12 +585,12 @@ const sGame_PaletteDataset Matrimelee_A_LYNN_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_OLOF_A_PALETTES[] =
 {
-    { L"Olof A", 0x29ed78, 0x29ed98, indexMatriMSprites_Olof, 0x00 },
+    { L"Olof A", 0x29ed78, 0x29ed98, indexMatriMSprites_Olof, 0x00, &pairNext5 },
     { L"624K", 0x29ed98, 0x29edb8 },
     { L"Special attack effects", 0x29edb8, 0x29edd8 },
     { L"4146C", 0x29edd8, 0x29edf8 },
     { L"4146C", 0x29edf8, 0x29ee18 },
-    { L"Bandages/Blood", 0x29ee18, 0x29ee38 },
+    { L"Bandages/Blood", 0x29ee18, 0x29ee38, indexMatriMSprites_Olof, 0x01 },
     { L"Rolling/Super Jumps", 0x29ee38, 0x29ee58, indexMatriMSprites_Olof, 0x00 },
     { L"EX/Super trails", 0x29ee58, 0x29ee78, indexMatriMSprites_Olof, 0x00 },
     { L"Guard Cancel", 0x29ee78, 0x29ee98, indexMatriMSprites_Olof, 0x00 },
@@ -599,12 +599,12 @@ const sGame_PaletteDataset Matrimelee_A_OLOF_A_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_OLOF_B_PALETTES[] =
 {
-    { L"Olof B", 0x29eeb8, 0x29eed8, indexMatriMSprites_Olof, 0x00 },
+    { L"Olof B", 0x29eeb8, 0x29eed8, indexMatriMSprites_Olof, 0x00, &pairNext5 },
     { L"624K", 0x29eed8, 0x29eef8 },
     { L"Special attack effects", 0x29eef8, 0x29ef18 },
     { L"4146C", 0x29ef18, 0x29ef38 },
     { L"4146C", 0x29ef38, 0x29ef58 },
-    { L"Bandages/Blood", 0x29ef58, 0x29ef78 },
+    { L"Bandages/Blood", 0x29ef58, 0x29ef78, indexMatriMSprites_Olof, 0x01 },
     { L"Rolling/Super Jumps", 0x29ef78, 0x29ef98, indexMatriMSprites_Olof, 0x00 },
     { L"EX/Super trails", 0x29ef98, 0x29efb8, indexMatriMSprites_Olof, 0x00 },
     { L"Guard Cancel", 0x29efb8, 0x29efd8, indexMatriMSprites_Olof, 0x00 },
@@ -613,12 +613,12 @@ const sGame_PaletteDataset Matrimelee_A_OLOF_B_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_OLOF_C_PALETTES[] =
 {
-    { L"Olof C", 0x29eff8, 0x29f018, indexMatriMSprites_Olof, 0x00 },
+    { L"Olof C", 0x29eff8, 0x29f018, indexMatriMSprites_Olof, 0x00, &pairNext5 },
     { L"624K", 0x29f018, 0x29f038 },
     { L"Special attack effects", 0x29f038, 0x29f058 },
     { L"4146C", 0x29f058, 0x29f078 },
     { L"4146C", 0x29f078, 0x29f098 },
-    { L"Bandages/Blood", 0x29f098, 0x29f0b8 },
+    { L"Bandages/Blood", 0x29f098, 0x29f0b8, indexMatriMSprites_Olof, 0x01 },
     { L"Rolling/Super Jumps", 0x29f0b8, 0x29f0d8, indexMatriMSprites_Olof, 0x00 },
     { L"EX/Super trails", 0x29f0d8, 0x29f0f8, indexMatriMSprites_Olof, 0x00 },
     { L"Guard Cancel", 0x29f0f8, 0x29f118, indexMatriMSprites_Olof, 0x00 },
@@ -627,12 +627,12 @@ const sGame_PaletteDataset Matrimelee_A_OLOF_C_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_OLOF_D_PALETTES[] =
 {
-    { L"Olof D", 0x29f138, 0x29f158, indexMatriMSprites_Olof, 0x00 },
+    { L"Olof D", 0x29f138, 0x29f158, indexMatriMSprites_Olof, 0x00, &pairNext5 },
     { L"624K", 0x29f158, 0x29f178 },
     { L"Special attack effects", 0x29f178, 0x29f198 },
     { L"4146C", 0x29f198, 0x29f1b8 },
     { L"4146C", 0x29f1b8, 0x29f1d8 },
-    { L"Bandages/Blood", 0x29f1d8, 0x29f1f8 },
+    { L"Bandages/Blood", 0x29f1d8, 0x29f1f8, indexMatriMSprites_Olof, 0x01 },
     { L"Rolling/Super Jumps", 0x29f1f8, 0x29f218, indexMatriMSprites_Olof, 0x00 },
     { L"EX/Super trails", 0x29f218, 0x29f238, indexMatriMSprites_Olof, 0x00 },
     { L"Guard Cancel", 0x29f238, 0x29f258, indexMatriMSprites_Olof, 0x00 },

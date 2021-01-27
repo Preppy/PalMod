@@ -1759,6 +1759,11 @@ enum KOFSpriteList
     indexKOF01Sprites_Yuri,         // 0x1d3
     indexKOF01Sprites_Zero,         // 0x1d4
 
+    indexKOFSprites_01_Bonus,       // 0x1d5
+    indexKOFSprites_01_Stages,      // 0x1d6
+    indexKOFSprites_02UM_Bonus,     // 0x1d7
+    indexKOFSprites_02UM_Stages,    // 0x1d8
+
     indexKOFSprites_Last,
 };
 
@@ -2368,6 +2373,8 @@ const UINT16 KOF02UM_S_IMG_UNITS[] =
     indexKOFSprites_02UM_YashiroOChi, // 0xB9
     indexKOFSprites_02UM_Yuri,      // 0xBa
     indexKOFSprites_02UM_ZeroOG,    // 0xBb
+
+    indexKOFSprites_02UM_Bonus,     // 0x1d7
 
     indexKOFSprites_02UMExtras,
 };
@@ -3308,6 +3315,7 @@ const stPairedPaletteInfo pairNext = { 1, 0, 0 };
 const stPairedPaletteInfo pairNextNext = { 2, 0, 0 };
 const stPairedPaletteInfo pairNext3 = { 3, 0, 0 };
 const stPairedPaletteInfo pairNext4 = { 4, 0, 0 };
+const stPairedPaletteInfo pairNext5 = { 5, 0, 0 };
 const stPairedPaletteInfo pairNext6 = { 6, 0, 0 };
 const stPairedPaletteInfo pairNext8 = { 8, 0, 0 };
 const stPairedPaletteInfo pairNext10 = { 10, 0, 0 };

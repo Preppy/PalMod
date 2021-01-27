@@ -429,9 +429,23 @@ BOOL IsPasteFromPalMod()
 
             if (nPaletteCount <= CRegProc::GetMaxPalettePageSize())
             {
-                if (szTempStr[(nPaletteCount * (cbColorSize * 2)) + 3] == ')')
+                UINT16 nTerminalLocation = (UINT16)min(strlen(szTempStr), (size_t)(nPaletteCount * (cbColorSize * 2)) + 3);
+                
+                if (szTempStr[nTerminalLocation] == ')')
                 {
                     bCanPaste = TRUE;
+                }
+                else
+                {
+                    // So we're in "technically wrong" space here, but maybe it's workable...
+                    nPaletteCount = (UINT16)((strlen(szTempStr) - 3) / (cbColorSize * 2));
+
+                    nTerminalLocation = (UINT16)min(strlen(szTempStr), (size_t)(nPaletteCount * (cbColorSize * 2)) + 3);
+
+                    if (szTempStr[nTerminalLocation] == ')')
+                    {
+                        bCanPaste = TRUE;
+                    }
                 }
             }
         }

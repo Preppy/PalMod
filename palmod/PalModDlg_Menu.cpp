@@ -31,7 +31,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
     {
         pPopupMenu->EnableMenuItem(ID_FILE_PATCH, !fFileChanged);
         pPopupMenu->EnableMenuItem(ID_FILE_CLOSEFILEDIR, (GetHost()->GetCurrGame() == nullptr));
-        pPopupMenu->EnableMenuItem(ID_FILE_LOADLASTUSEDDIR, !GetLastUsedDirectory(NULL, NULL, NULL, TRUE));
+        pPopupMenu->EnableMenuItem(ID_FILE_LOADLASTUSEDDIR, !GetLastUsedDirectory(NULL, 0, NULL, TRUE));
 
         pPopupMenu->DeleteMenu(ID_FILE_CROSSPATCH, MF_BYCOMMAND);
 

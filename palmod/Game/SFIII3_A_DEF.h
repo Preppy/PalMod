@@ -2092,6 +2092,28 @@ const sGame_PaletteDataset SFIII3_A_STAGES_NECRO_FADED_PALETTES[] =
     { L"Necro Stage (Faded) (5/5)", 0x739400 + (4 * 0x200), 0x739C80, index3S_CPS3_Stages, 0x60 },
 };
 
+const sGame_PaletteDataset SFIII3_A_STAGES_TWELVE_PALETTES[] =
+{
+    { L"Twelve Stage (1/7)", 0x739C80 + (0 * 0x200), 0x739C80 + (1 * 0x200), index3S_CPS3_Stages, 0xac, &pairFullyLinkedNode },
+    { L"Twelve Stage (2/7)", 0x739C80 + (1 * 0x200), 0x739C80 + (2 * 0x200), index3S_CPS3_Stages, 0xad },
+    { L"Twelve Stage (3/7)", 0x739C80 + (2 * 0x200), 0x739C80 + (3 * 0x200), index3S_CPS3_Stages, 0xae },
+    { L"Twelve Stage (4/7)", 0x739C80 + (3 * 0x200), 0x739C80 + (4 * 0x200), index3S_CPS3_Stages, 0xaf },
+    { L"Twelve Stage (5/7)", 0x739C80 + (4 * 0x200), 0x739C80 + (5 * 0x200), index3S_CPS3_Stages, 0xb0 },
+    { L"Twelve Stage (6/7)", 0x739C80 + (5 * 0x200), 0x739C80 + (6 * 0x200), index3S_CPS3_Stages, 0xb1 },
+    { L"Twelve Stage (7/7)", 0x739C80 + (6 * 0x200), 0x73aa00, index3S_CPS3_Stages, 0xb2 },
+};
+
+const sGame_PaletteDataset SFIII3_A_STAGES_TWELVE_FADED_PALETTES[] =
+{
+    { L"Twelve Stage (Faded) (1/7)", 0x73AA00 + (0 * 0x200), 0x73AA00 + (1 * 0x200), index3S_CPS3_Stages, 0xac, &pairFullyLinkedNode },
+    { L"Twelve Stage (Faded) (2/7)", 0x73AA00 + (1 * 0x200), 0x73AA00 + (2 * 0x200), index3S_CPS3_Stages, 0xad },
+    { L"Twelve Stage (Faded) (3/7)", 0x73AA00 + (2 * 0x200), 0x73AA00 + (3 * 0x200), index3S_CPS3_Stages, 0xae },
+    { L"Twelve Stage (Faded) (4/7)", 0x73AA00 + (3 * 0x200), 0x73AA00 + (4 * 0x200), index3S_CPS3_Stages, 0xaf },
+    { L"Twelve Stage (Faded) (5/7)", 0x73AA00 + (4 * 0x200), 0x73AA00 + (5 * 0x200), index3S_CPS3_Stages, 0xb0 },
+    { L"Twelve Stage (Faded) (6/7)", 0x73AA00 + (5 * 0x200), 0x73AA00 + (6 * 0x200), index3S_CPS3_Stages, 0xb1 },
+    { L"Twelve Stage (Faded) (7/7)", 0x73AA00 + (6 * 0x200), 0x73B780, index3S_CPS3_Stages, 0xb2 },
+};
+
 const sGame_PaletteDataset SFIII3_A_STAGES_HUGO_PALETTES[] =
 {
     { L"Hugo Stage (1/13)", 0x73B780 + (0 * 0x200), 0x73B780 + (1 * 0x200), index3S_CPS3_Stages, 0x4f, &pairFullyLinkedNode },
@@ -2429,6 +2451,9 @@ const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
 
     { L"Shin Gouki Stage",          DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_SHINGOUKI_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_SHINGOUKI_PALETTES) },
     { L"Shin Gouki Stage (Faded)",  DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_SHINGOUKI_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_SHINGOUKI_FADED_PALETTES) },
+
+    { L"Twelve Stage",              DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_TWELVE_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_TWELVE_PALETTES) },
+    { L"Twelve Stage (Faded)",      DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_TWELVE_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_TWELVE_FADED_PALETTES) },
 
     { L"Urien Stage",               DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_URIEN_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_URIEN_PALETTES) },
     { L"Urien Stage (Faded)",       DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_URIEN_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_URIEN_FADED_PALETTES) },

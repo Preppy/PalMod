@@ -430,7 +430,7 @@ void SetLastUsedDirectory(LPCTSTR ptszPath, int nGameFlag)
     return;
 }
 
-BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bCheck, BOOL* bIsDir)
+BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bCheckOnly, BOOL* bIsDir)
 {
     BOOL fFound = FALSE;
     HKEY hKey = NULL;
@@ -445,7 +445,7 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
         if ((ERROR_SUCCESS == RegQueryValueEx(hKey, c_strLastUsedPath, 0, &dwRegType, (LPBYTE)szPath, &cbDataSize))
             && (REG_SZ == dwRegType))
         {
-            if (bCheck)
+            if (bCheckOnly)
             {
                 fFound = TRUE;
             }
@@ -514,10 +514,8 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     int nLastUsedGFlag = nDefaultGameFilter;
 
     {
-        TCHAR szLastDir[MAX_PATH];
-
         if ((nLastUsedGFlag == NUM_GAMES) &&
-            !GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, nullptr))
+            !GetLastUsedDirectory(nullptr, 0, &nLastUsedGFlag, TRUE, nullptr))
         {
             // If we're here, that means that they have never used PalMod to load a game before.  Help them.
             CString strInfo;

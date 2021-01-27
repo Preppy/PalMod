@@ -307,4 +307,4 @@ extern CStringA szPasteStr;
 
 extern int CALLBACK OnBrowseDialog( HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData );
 extern void SetLastUsedDirectory( LPCTSTR ptszPath, int nGameFlag );
-extern BOOL GetLastUsedDirectory( LPTSTR ptszPath, DWORD cbSize, int * nGameFlag, BOOL bCheck = FALSE, BOOL * bIsDir = NULL);
+extern BOOL GetLastUsedDirectory( LPTSTR ptszPath, DWORD cbSize, int * nGameFlag, BOOL bCheckOnly = FALSE, BOOL * bIsDir = NULL);
