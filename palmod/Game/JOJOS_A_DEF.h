@@ -3196,9 +3196,9 @@ const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { L"Story Mode Episodes Text", 0x030CC00, 0x030CC20, indexJojos51Bonus, 0x24 },
     { L"Stand Summon & Tandem Aura", 0x0335920, 0x0335940, indexJojos51Bonus, 0x3F },
     { L"S.Dio 2c Stone & Requiem Zzz", 0x0335940, 0x0335980, indexJojos51Bonus, 0x41 },
-    { L"Base TCHAR Dust & Floor Bounce", 0x0335B40, 0x0335B60 },
+    { L"Base Char Dust & Floor Bounce", 0x0335B40, 0x0335B60 },
     // Folded into another one
-    //{ L"Extra TCHAR Dust & Floor Bounce", 0x0335860, 0x0335878 },
+    //{ L"Extra Char Dust & Floor Bounce", 0x0335860, 0x0335878 },
     { L"Story Mode Metal Objects", 0x0335B20, 0x0335B40 },
     { L"Speedwagon Pilot", 0x0335880, 0x03358A0 },
     // Duped to "Various..."
@@ -3208,7 +3208,6 @@ const sGame_PaletteDataset JOJOS_BONUS_INGAME_PALETTES[] =
     { L"S.Dio Effects/Round Start/Wallbounce/etc", 0x0335980, 0x03359C0 },
     // Also a dupe
     //{ L"Various 236x Effects", 0x03358E0, 0x0335900 },
-
 };
 
 const sGame_PaletteDataset JOJOS_A_BONUS_NODE_SUPERBACKGROUND[] =

@@ -85,6 +85,7 @@ enum SupportedGamesList
     LASTBLADE2_A,
     SAMSHO5_A,
     RBFF1_A,
+    RBFF2_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -173,6 +174,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"The Last Blade 2 (Arcade)",
    L"Samurai Shodown 5",
    L"Real Bout Fatal Fury",
+   L"Real Bout Fatal Fury 2",
 };
 
 enum class GamePlatform
@@ -3109,8 +3111,6 @@ const UINT16 RBFFS_A_IMG_UNITS[] =
     indexRBFFSSprites_Tung,         // 0x145
     indexRBFFSSprites_Yamazaki,     // 0x146
 };
-
-const int RBFFS_A_NUM_IMG_UNITS = ARRAYSIZE(RBFFS_A_IMG_UNITS);
 
 enum SupportedWakuWaku7_PaletteList
 {

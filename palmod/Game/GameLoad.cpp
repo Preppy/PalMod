@@ -39,6 +39,7 @@
 #include "Game_NGBC_A.h"
 #include "Game_GEMFIGHTER_A.h"
 #include "Game_RBFF1_A.h"
+#include "Game_RBFF2_A.h"
 #include "Game_RBFFS_A.h"
 #include "Game_REDEARTH_A.h"
 #include "Game_REDEARTH_A_DIR.h"
@@ -314,6 +315,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case RBFF1_A: 
     {
         GetRule = &CGame_RBFF1_A::GetRule;
+        return TRUE;
+    }
+    case RBFF2_A:
+    {
+        GetRule = &CGame_RBFF2_A::GetRule;
         return TRUE;
     }
     case RBFFS_A:
@@ -657,6 +663,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case RBFF1_A:
     {
         return new CGame_RBFF1_A(nConfirmedROMSize);
+    }
+    case RBFF2_A:
+    {
+        return new CGame_RBFF2_A(nConfirmedROMSize);
     }
     case RBFFS_A:
     {

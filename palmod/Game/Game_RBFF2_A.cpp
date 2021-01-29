@@ -1,36 +1,36 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_RBFFS_A.h"
+#include "Game_RBFF2_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define RBFFS_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define RBFF2_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_RBFFS_A::RBFFS_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_RBFF2_A::RBFF2_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_RBFFS_A::MainDescTree = nullptr;
+CDescTree CGame_RBFF2_A::MainDescTree = nullptr;
 
-int CGame_RBFFS_A::rgExtraCountAll[RBFFS_A_NUMUNIT + 1];
-int CGame_RBFFS_A::rgExtraLoc[RBFFS_A_NUMUNIT + 1];
+int CGame_RBFF2_A::rgExtraCountAll[RBFF2_A_NUMUNIT + 1];
+int CGame_RBFF2_A::rgExtraLoc[RBFF2_A_NUMUNIT + 1];
 
-UINT32 CGame_RBFFS_A::m_nTotalPaletteCountForRBFFS = 0;
-UINT32 CGame_RBFFS_A::m_nExpectedGameROMSize = 0x100000;
-UINT32 CGame_RBFFS_A::m_nConfirmedROMSize = -1;
+UINT32 CGame_RBFF2_A::m_nTotalPaletteCountForRBFF2 = 0;
+UINT32 CGame_RBFF2_A::m_nExpectedGameROMSize = 0x100000;
+UINT32 CGame_RBFF2_A::m_nConfirmedROMSize = -1;
 
-void CGame_RBFFS_A::InitializeStatics()
+void CGame_RBFF2_A::InitializeStatics()
 {
-    safe_delete_array(CGame_RBFFS_A::RBFFS_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_RBFF2_A::RBFF2_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_RBFFS_A::InitDescTree());
+    MainDescTree.SetRootTree(CGame_RBFF2_A::InitDescTree());
 }
 
-CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
+CGame_RBFF2_A::CGame_RBFF2_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_RBFFS_A::CGame_RBFFS_A: Loading ROM...\n"));
+    strMessage.Format(L"CGame_RBFF2_A::CGame_RBFF2_A: Loading ROM...\n");
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
@@ -38,14 +38,14 @@ CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = RBFFS_A_NUMUNIT;
-    m_nExtraUnit = RBFFS_A_EXTRALOC;
+    m_nTotalInternalUnits = RBFF2_A_NUMUNIT;
+    m_nExtraUnit = RBFF2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 680;
-    m_pszExtraFilename = EXTRA_FILENAME_RBFFS_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForRBFFS;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 640;
+    m_pszExtraFilename = EXTRA_FILENAME_RBFF2_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForRBFF2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0xd2000;
+    m_nLowestKnownPaletteRomLocation = 0xd0000;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -59,7 +59,7 @@ CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
     BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
-    nGameFlag = RBFFS_A;
+    nGameFlag = RBFF2_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
     m_prgGameImageSet = RBFFS_A_IMG_UNITS;
     nImgUnitAmt = ARRAYSIZE(RBFFS_A_IMG_UNITS);
@@ -80,25 +80,24 @@ CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_RBFFS_A::~CGame_RBFFS_A(void)
+CGame_RBFF2_A::~CGame_RBFF2_A(void)
 {
-    safe_delete_array(CGame_RBFFS_A::RBFFS_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_RBFF2_A::RBFF2_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-CDescTree* CGame_RBFFS_A::GetMainTree()
+CDescTree* CGame_RBFF2_A::GetMainTree()
 {
-    return &CGame_RBFFS_A::MainDescTree;
+    return &CGame_RBFF2_A::MainDescTree;
 }
 
-UINT32 CGame_RBFFS_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+UINT32 CGame_RBFF2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { _T("Real Bout Fatal Fury Special"), _T("223-p1.p1"), 0xf84a2d1d, 0 },
-        { _T("Real Bout Fatal Fury Special (Korea)"), _T("223-p1k.p1"), 0xb78c8391, 0 },
+        { L"Real Bout Fatal Fury 2", L"240-p1.bin", 0, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
@@ -115,14 +114,14 @@ UINT32 CGame_RBFFS_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     return ARRAYSIZE(knownROMs);
 }
 
-int CGame_RBFFS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_RBFF2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((RBFFS_A_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((RBFF2_A_NUMUNIT + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForRBFFS(0);
+        stExtraDef* pCurrDef = GetExtraDefForRBFF2(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -132,22 +131,22 @@ int CGame_RBFFS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForRBFFS(nDefCtr);
+            pCurrDef = GetExtraDefForRBFF2(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-int CGame_RBFFS_A::GetExtraLoc(UINT16 nUnitId)
+int CGame_RBFF2_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (RBFFS_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (RBFF2_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForRBFFS(0);
+        stExtraDef* pCurrDef = GetExtraDefForRBFF2(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -158,34 +157,34 @@ int CGame_RBFFS_A::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForRBFFS(nDefCtr);
+            pCurrDef = GetExtraDefForRBFF2(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-sDescTreeNode* CGame_RBFFS_A::InitDescTree()
+sDescTreeNode* CGame_RBFF2_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_RBFFS_A, RBFFS_A_EXTRA, &RBFFS_A_EXTRA_CUSTOM, RBFFS_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_RBFF2_A, RBFF2_A_EXTRA, &RBFF2_A_EXTRA_CUSTOM, RBFF2_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = RBFFS_A_NUMUNIT + (GetExtraCt(RBFFS_A_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = RBFF2_A_NUMUNIT + (GetExtraCt(RBFF2_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[RBFFS_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[RBFF2_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(RBFFS_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_RBFFS_A::InitDescTree: Building desc tree for RBFFS_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    bool fHaveExtras = (GetExtraCt(RBFF2_A_EXTRALOC) > 0);
+    strMsg.Format(L"CGame_RBFF2_A::InitDescTree: Building desc tree for RBFF2_A %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -202,23 +201,23 @@ sDescTreeNode* CGame_RBFFS_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < RBFFS_A_EXTRALOC)
+        if (iUnitCtr < RBFF2_A_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), RBFFS_A_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", RBFF2_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if RBFFS_A_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+#if RBFF2_A_DEBUG
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection")
+            //Set data for each child group ("collection"
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -233,8 +232,8 @@ sDescTreeNode* CGame_RBFFS_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if RBFFS_A_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+#if RBFF2_A_DEBUG
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -245,25 +244,25 @@ sDescTreeNode* CGame_RBFFS_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if RBFFS_A_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+#if RBFF2_A_DEBUG
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -274,13 +273,13 @@ sDescTreeNode* CGame_RBFFS_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if RBFFS_A_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+#if RBFF2_A_DEBUG
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -291,17 +290,17 @@ sDescTreeNode* CGame_RBFFS_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(RBFFS_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(RBFF2_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if RBFFS_A_DEBUG
-            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+#if RBFF2_A_DEBUG
+            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -309,22 +308,22 @@ sDescTreeNode* CGame_RBFFS_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForRBFFS(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForRBFF2(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForRBFFS(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForRBFF2(nExtraPos + nCurrExtra);
                 }
 
                 _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((RBFFS_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((RBFF2_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if RBFFS_A_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+#if RBFF2_A_DEBUG
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -334,10 +333,10 @@ sDescTreeNode* CGame_RBFFS_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_RBFFS_A::InitDescTree: Loaded %u palettes for RBFFS\n"), nTotalPaletteCount);
+    strMsg.Format(L"CGame_RBFF2_A::InitDescTree: Loaded %u palettes for RBFF2\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForRBFFS = nTotalPaletteCount;
+    m_nTotalPaletteCountForRBFF2 = nTotalPaletteCount;
 
     // debug
     //DumpPaletteHeaders();
@@ -345,41 +344,50 @@ sDescTreeNode* CGame_RBFFS_A::InitDescTree()
     return NewDescTree;
 }
 
-void CGame_RBFFS_A::DumpPaletteHeaders()
+void CGame_RBFF2_A::DumpPaletteHeaders()
 {
     CString strOutput;
-    const UINT32 RBFFS_PALETTE_LENGTH = 0x20;
+    const UINT32 RBFF2_PALETTE_LENGTH = 0x20;
 
-    LPCTSTR rgCharacters[] = {
-                                _T("Terry"),
-                                _T("Andy"),
-                                _T("Joe"),
-                                _T("Mai"),
-                                _T("Franco"),
-                                _T("Hon Fu"),
-                                _T("Bob"),
-                                _T("Blue Mary"),
-                                _T("Sokaku"),
-                                _T("Geese"),
-                                _T("Yamazaki"),
-                                _T("Chonrei"),
-                                _T("Chonshu"),
-                                _T("Duck King"),
-                                _T("Kim"),
-                                _T("Billy"),
-                                _T("Cheng"),
-                                _T("Tung"),
-                                _T("Laurence"),
-                                _T("Krauser")
+    struct rbff2CharacterData
+    {
+        LPCWSTR pszCharacterName = nullptr;
+        LPCWSTR pszImageName = nullptr;
+        bool fShowImage[16] = { false };
     };
 
-    const UINT32 k_nBasePalette = 0xd2000;
+    rbff2CharacterData rgCharacterData[] =
+    {   //                            base   bg     2      3     4       5      6      7     8      9       10    11   burn   13    elec  15
+        { L"Terry",     L"Terry",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Andy",      L"Andy",    { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Joe",       L"Joe",     { true, true, false, false, false, false, true, false, false, true, false, true, true, true, true, true } },
+        { L"Mai",       L"Mai",     { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Geese",     L"Geese",   { true, true, false, false, false, false, true, false, false, false, false, true, true, true, true, true } },
+        { L"Sokaku",    L"Sokaku",  { true, true, false, false, false, true, false, false, false, false, false, true, true, true, true, true } },
+        { L"Bob",       L"Bob",     { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Hon Fu",    L"Hon",     { true, true, true, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Blue Mary", L"BlueMary", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Franco",    L"Franco",  { true, true, false, true, false, false, true, true, false, false, false, true, true, true, true, true } },
+        { L"Yamazaki",  L"Yamazaki", { true, true, false, false, false, true, true, false, false, false, false, true, true, true, true, true } },
+        { L"Chonrei",   L"Chonrei", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Chonshu",   L"Chonshu", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Duck King", L"DuckKing", { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Kim",       L"Kim",     { true, true, false, true, false, true, true, false, false, false, false, true, true, true, true, true } },
+        { L"Billy",     L"Billy",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Cheng",     L"Cheng",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Tung",      L"Tung",    { true, true, false, true, true, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Laurence",  L"Laurence", { true, true, false, false, false, false, true, false, false, false, false, true, true, true, true, true } },
+        { L"Krauser",   L"Krauser", { true, true, false, false, false, false, false, true, false, false, false, true, true, true, true, true } },
+        //                            base   bg     2      3     4       5      6      7     8      9       10    11   burn   13    elec  15
+    };
+
+    const UINT32 k_nBasePalette = 0xd0000;
     UINT32 nCurrentPalettePosition = k_nBasePalette;
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
     {
         TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
 
         // Status effects
         for (UINT16 nStatusIndex = 0; nStatusIndex < 32; nStatusIndex++)
@@ -388,7 +396,7 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
 
             if ((nStatusIndex == 0) || (nStatusIndex == 16))
             {
-                strOutput.Format(_T("const sGame_PaletteDataset RBFFS_A_%s_PALETTES_%s[] = \r\n{\r\n"), szCodeDesc, (nStatusIndex < 10) ? _T("P1") : _T("P2"));
+                strOutput.Format(L"const sGame_PaletteDataset RBFF2_A_%s_PALETTES_%s[] = \r\n{\r\n", szCodeDesc, (nStatusIndex < 10) ? L"P1" : L"P2");
                 OutputDebugString(strOutput);
             }
 
@@ -397,73 +405,82 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
             switch (nAdjustedIndex)
             {
             case 0:
-                strPaletteName = _T("Main Palette");
+                strPaletteName = L"Main Palette";
                 break;
             case 1:
-                strPaletteName = _T("Background Palette");
+                strPaletteName = L"Background Palette";
                 break;
             case 12:
-                strPaletteName = _T("Burn Palette");
+                strPaletteName = L"Burn Palette";
                 break;
             case 14:
-                strPaletteName = _T("Electricity Palette");
+                strPaletteName = L"Electricity Palette";
                 break;
             default:
-                strPaletteName.Format(_T("Extra Palette %u"), nAdjustedIndex);
+                strPaletteName.Format(L"Extra Palette %u", nAdjustedIndex);
                 break;
             }
 
-            strOutput.Format(_T("    { _T(\"%s\"), 0x%x, 0x%x },\r\n"), strPaletteName.GetString(), nCurrentPalettePosition, nCurrentPalettePosition + RBFFS_PALETTE_LENGTH);
+            if (rgCharacterData[nCharIndex].fShowImage[nAdjustedIndex])
+            {
+                strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, indexRBFFSSprites_%s },\r\n", strPaletteName.GetString(), nCurrentPalettePosition,
+                                                                                            nCurrentPalettePosition + RBFF2_PALETTE_LENGTH, rgCharacterData[nCharIndex].pszImageName);
+            }
+            else
+            {
+                strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x },\r\n", strPaletteName.GetString(), nCurrentPalettePosition, nCurrentPalettePosition + RBFF2_PALETTE_LENGTH );
+            }
             OutputDebugString(strOutput);
-            nCurrentPalettePosition += RBFFS_PALETTE_LENGTH;
+            nCurrentPalettePosition += RBFF2_PALETTE_LENGTH;
 
             if ((nStatusIndex == 15) || (nStatusIndex == 31))
             {
-                strOutput.Format(_T("};\r\n\r\n"));
+                strOutput.Format(L"};\r\n\r\n");
                 OutputDebugString(strOutput);
             }
         }
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
     {
         TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
 
-        strOutput.Format(_T("const sDescTreeNode RBFFS_A_%s_COLLECTION[] = \r\n{\r\n"), szCodeDesc);
+        strOutput.Format(L"const sDescTreeNode RBFF2_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
-        strOutput.Format(_T("    { _T(\"P1\"), DESC_NODETYPE_TREE, (void*)RBFFS_A_%s_PALETTES_P1, ARRAYSIZE(RBFFS_A_%s_PALETTES_P1) },\r\n"), szCodeDesc, szCodeDesc);
+        strOutput.Format(L"    { L\"P1\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_PALETTES_P1, ARRAYSIZE(RBFF2_A_%s_PALETTES_P1) },\r\n", szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
-        strOutput.Format(_T("    { _T(\"P2\"), DESC_NODETYPE_TREE, (void*)RBFFS_A_%s_PALETTES_P2, ARRAYSIZE(RBFFS_A_%s_PALETTES_P2) },\r\n"), szCodeDesc, szCodeDesc);
+        strOutput.Format(L"    { L\"P2\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_PALETTES_P2, ARRAYSIZE(RBFF2_A_%s_PALETTES_P2) },\r\n", szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
-        strOutput.Format(_T("    { _T(\"Lifebar Portraits\"), DESC_NODETYPE_TREE, (void*)RBFFS_A_%s_PALETTES_LIFEBAR, ARRAYSIZE(RBFFS_A_%s_PALETTES_LIFEBAR) },\r\n"), szCodeDesc, szCodeDesc);
-        OutputDebugString(strOutput);
-        strOutput.Format(_T("};\r\n\r\n"));
+        // We don't have these offsets yet
+        //strOutput.Format(L"    { L\"Lifebar Portraits\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_PALETTES_LIFEBAR, ARRAYSIZE(RBFF2_A_%s_PALETTES_LIFEBAR) },\r\n", szCodeDesc, szCodeDesc);
+        //OutputDebugString(strOutput);
+        strOutput.Format(L"};\r\n\r\n");
         OutputDebugString(strOutput);
     }
 
-    strOutput.Format(_T("const sDescTreeNode RBFFS_A_UNITS[] = \r\n{\r\n"));
+    strOutput.Format(L"const sDescTreeNode RBFF2_A_UNITS[] = \r\n{\r\n");
     OutputDebugString(strOutput);
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
+    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
     {
         TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
 
-        strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)RBFFS_A_%s_COLLECTION, ARRAYSIZE(RBFFS_A_%s_COLLECTION) },\r\n"), rgCharacters[nCharIndex], szCodeDesc, szCodeDesc);
+        strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_COLLECTION, ARRAYSIZE(RBFF2_A_%s_COLLECTION) },\r\n", rgCharacterData[nCharIndex].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
     }
 
-    strOutput.Format(_T("};\r\n\r\n"));
+    strOutput.Format(L"};\r\n\r\n");
     OutputDebugString(strOutput);
 }
 
-sFileRule CGame_RBFFS_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_RBFF2_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("223-p1.p1"));
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"240-p1.bin");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -471,55 +488,55 @@ sFileRule CGame_RBFFS_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_RBFFS_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_RBFF2_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == RBFFS_A_EXTRALOC)
+    if (nUnitId == RBFF2_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return RBFFS_A_UNITS[nUnitId].uChildAmt;
+        return RBFF2_A_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_RBFFS_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_RBFF2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == RBFFS_A_EXTRALOC)
+    if (nUnitId == RBFF2_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(RBFFS_A_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(RBFF2_A_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_RBFFS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_RBFF2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == RBFFS_A_EXTRALOC)
+    if (nUnitId == RBFF2_A_EXTRALOC)
     {
-        return _T("Extra Palettes");
+        return L"Extra Palettes";
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)RBFFS_A_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)RBFF2_A_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_RBFFS_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_RBFF2_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == RBFFS_A_EXTRALOC)
+    if (nUnitId == RBFF2_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = RBFFS_A_UNITS;
+        const sDescTreeNode* pCompleteROMTree = RBFF2_A_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -529,9 +546,9 @@ UINT16 CGame_RBFFS_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if RBFFS_A_DEBUG
+#if RBFF2_A_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_RBFFS_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_RBFF2_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -539,14 +556,14 @@ UINT16 CGame_RBFFS_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_RBFFS_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_RBFF2_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)RBFFS_A_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)RBFF2_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_RBFFS_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_RBFF2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -559,7 +576,7 @@ const sDescTreeNode* CGame_RBFFS_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == RBFFS_A_EXTRALOC)
+        if (nUnitId == RBFF2_A_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -571,7 +588,7 @@ const sDescTreeNode* CGame_RBFFS_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(RBFFS_A_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(RBFF2_A_UNITS[nUnitId].ChildNodes);
             
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -597,7 +614,7 @@ const sDescTreeNode* CGame_RBFFS_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_RBFFS_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_RBFF2_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -621,9 +638,9 @@ const sGame_PaletteDataset* CGame_RBFFS_A::GetSpecificPalette(UINT16 nUnitId, UI
     return paletteToUse;
 }
 
-void CGame_RBFFS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_RBFF2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != RBFFS_A_EXTRALOC)
+     if (nUnitId != RBFF2_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -642,10 +659,10 @@ void CGame_RBFFS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // RBFFS_A_EXTRALOC
+    else // RBFF2_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForRBFFS(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForRBFF2(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
@@ -653,7 +670,7 @@ void CGame_RBFFS_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_RBFFS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_RBFF2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -684,7 +701,7 @@ BOOL CGame_RBFFS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != RBFFS_A_EXTRALOC)
+    if (NodeGet->uUnitId != RBFF2_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -697,7 +714,7 @@ BOOL CGame_RBFFS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("P1")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("P2")) == 0))
+                if ((_tcsicmp(pCurrentNode->szDesc, L"P1") == 0) || (_tcsicmp(pCurrentNode->szDesc, L"P2") == 0))
                 {
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;

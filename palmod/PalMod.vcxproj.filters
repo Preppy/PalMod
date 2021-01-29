@@ -103,9 +103,6 @@
     <Filter Include="Game\SNK Games\KOF02_A">
       <UniqueIdentifier>{a54da33d-5b19-45ec-81c8-38f230908bd8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\SNK Games\SAMSHO5SP_A">
-      <UniqueIdentifier>{fe714ae2-392a-409d-93fc-c41ebecf4c94}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\SNK Games\SVCPLUSA_A">
       <UniqueIdentifier>{b5984ab2-a10f-400e-b1ff-4766bfb767c1}</UniqueIdentifier>
     </Filter>
@@ -150,9 +147,6 @@
     </Filter>
     <Filter Include="Game\SNK Games\Real Bout Fatal Fury Special">
       <UniqueIdentifier>{8443d0ef-6c99-4658-b287-180c5fa4e7e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\SNK Games\SamSho3">
-      <UniqueIdentifier>{1bc29372-5f2a-4d1f-b949-f5fd9a70efe5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\Capcom Games\Vampire Hunter 2_A">
       <UniqueIdentifier>{1787a1ba-4222-49af-b2a1-e0d7642736cf}</UniqueIdentifier>
@@ -243,6 +237,15 @@
     </Filter>
     <Filter Include="Game\SNK Games\Real Bout Fatal Fury 1">
       <UniqueIdentifier>{1bde8d50-ba03-407d-a49b-fe58c356b932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown 3">
+      <UniqueIdentifier>{1bc29372-5f2a-4d1f-b949-f5fd9a70efe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown 5 Special">
+      <UniqueIdentifier>{fe714ae2-392a-409d-93fc-c41ebecf4c94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Real Bout Fatal Fury 2">
+      <UniqueIdentifier>{82710d2e-de00-4ee9-a2bc-77447da7e830}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -409,7 +412,7 @@
       <Filter>Game\SNK Games\SVCPLUSA_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp">
-      <Filter>Game\SNK Games\SAMSHO5SP_A</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown 5 Special</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MVC2_A_DIR.cpp">
       <Filter>Game\Capcom Games\MVC2_A_DIR</Filter>
@@ -445,7 +448,7 @@
       <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO3_A.cpp">
-      <Filter>Game\SNK Games\SamSho3</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown 3</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_VHUNT2_A.cpp">
       <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
@@ -536,6 +539,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_RBFF1_A.cpp">
       <Filter>Game\SNK Games\Real Bout Fatal Fury 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_RBFF2_A.cpp">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -762,10 +768,10 @@
       <Filter>Game\SNK Games\SVCPLUSA_A</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO5SP_A.h">
-      <Filter>Game\SNK Games\SAMSHO5SP_A</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown 5 Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO5SP_A_DEF.h">
-      <Filter>Game\SNK Games\SAMSHO5SP_A</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown 5 Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_MVC2_A_DIR.h">
       <Filter>Game\Capcom Games\MVC2_A_DIR</Filter>
@@ -825,10 +831,10 @@
       <Filter>Game\SNK Games\Real Bout Fatal Fury Special</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO3_A.h">
-      <Filter>Game\SNK Games\SamSho3</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown 3</Filter>
     </ClInclude>
     <ClInclude Include="Game\SAMSHO3_A_DEF.h">
-      <Filter>Game\SNK Games\SamSho3</Filter>
+      <Filter>Game\SNK Games\Samurai Shodown 3</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game_VHUNT2_A.h">
       <Filter>Game\Capcom Games\Vampire Hunter 2_A</Filter>
@@ -997,6 +1003,12 @@
     </ClInclude>
     <ClInclude Include="Game\RBFF1_A_DEF.h">
       <Filter>Game\SNK Games\Real Bout Fatal Fury 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_RBFF2_A.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\RBFF2_A_DEF.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
