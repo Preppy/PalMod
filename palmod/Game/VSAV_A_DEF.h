@@ -741,7 +741,7 @@ const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_AK[] =
 
 const sGame_PaletteDataset VSAV_A_ANAKARIS_PALETTES_SHARED[] =
 {
-    { L"Anakaris Pharaoh Magic Orbs 2", 0x1b2e0 - 0xf4, 0x1b320 - 0xf4, indexCPS2_Anakaris, 0x0b, &pairNextNext },
+    { L"Anakaris Pharaoh Magic Orbs 2", 0x1b2e0 - 0xf4, 0x1b320 - 0xf4, indexCPS2_Anakaris, 0x0b, &pairNext2 },
     { L"Anakaris Pharaoh Asteroids",    0x1b320 - 0xf4, 0x1b340 - 0xf4, indexCPS2_Anakaris, 0x08 },
     { L"Anakaris Pharaoh Magic Orbs 3", 0x1b340 - 0xf4, 0x1b360 - 0xf4, indexCPS2_Anakaris, 0x0e },
     { L"Anakaris Pharaoh Girls/Mini Mummy LP",        0x1b360 - 0xf4, 0x1b3a0 - 0xf4, indexCPS2_Anakaris, 0x09 },
@@ -1645,7 +1645,7 @@ const sGame_PaletteDataset VSAV_A_LILITH_PALETTES_SHARED[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LP[] =
 {
-    { L"LP Jedah", 0x10baC, 0x10bcc, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
+    { L"LP Jedah", 0x10baC, 0x10bcc, indexCPS2_Vamp_Jedah, 0, &pairNext2 },
     { L"LP Prova di Servo", 0x10bcC, 0x10bec, indexCPS2_Vamp_Jedah, 0x03 },
     { L"LP Blood", 0x10beC, 0x10c0c, indexCPS2_Vamp_Jedah, 1 },
     { L"LP Intro", 0x10c0C, 0x10c2c, indexCPS2_Vamp_Jedah, 0x02 },
@@ -1655,7 +1655,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LP[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MP[] =
 {
-    { L"MP Jedah", 0x10c2C, 0x10c4c, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
+    { L"MP Jedah", 0x10c2C, 0x10c4c, indexCPS2_Vamp_Jedah, 0, &pairNext2 },
     { L"MP Prova di Servo", 0x10c4C, 0x10c6c, indexCPS2_Vamp_Jedah, 0x03 },
     { L"MP Blood", 0x10c6C, 0x10c8c, indexCPS2_Vamp_Jedah, 1 },
     { L"MP Intro", 0x10c8C, 0x10cac, indexCPS2_Vamp_Jedah, 0x02 },
@@ -1665,7 +1665,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MP[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HP[] =
 {
-    { L"HP Jedah", 0x10caC, 0x10ccc, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
+    { L"HP Jedah", 0x10caC, 0x10ccc, indexCPS2_Vamp_Jedah, 0, &pairNext2 },
     { L"HP Prova di Servo", 0x10ccC, 0x10cec, indexCPS2_Vamp_Jedah, 0x03 },
     { L"HP Blood", 0x10ceC, 0x10d0c, indexCPS2_Vamp_Jedah, 1 },
     { L"HP Intro", 0x10d0C, 0x10d2c, indexCPS2_Vamp_Jedah, 0x02 },
@@ -1675,7 +1675,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HP[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LK[] =
 {
-    { L"LK Jedah", 0x10d2C, 0x10d4c, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
+    { L"LK Jedah", 0x10d2C, 0x10d4c, indexCPS2_Vamp_Jedah, 0, &pairNext2 },
     { L"LK Prova di Servo", 0x10d4C, 0x10d6c, indexCPS2_Vamp_Jedah, 0x03 },
     { L"LK Blood", 0x10d6C, 0x10d8c, indexCPS2_Vamp_Jedah, 1 },
     { L"LK Intro", 0x10d8C, 0x10dac, indexCPS2_Vamp_Jedah, 0x02 },
@@ -1685,7 +1685,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_LK[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MK[] =
 {
-    { L"MK Jedah", 0x10daC, 0x10dcc, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
+    { L"MK Jedah", 0x10daC, 0x10dcc, indexCPS2_Vamp_Jedah, 0, &pairNext2 },
     { L"MK Prova di Servo", 0x10dcC, 0x10dec, indexCPS2_Vamp_Jedah, 0x03 },
     { L"MK Blood", 0x10deC, 0x10e0c, indexCPS2_Vamp_Jedah, 1 },
     { L"MK Intro", 0x10e0C, 0x10e2c, indexCPS2_Vamp_Jedah, 0x02 },
@@ -1695,7 +1695,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_MK[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HK[] =
 {
-    { L"HK Jedah", 0x10e2C, 0x10e4c, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
+    { L"HK Jedah", 0x10e2C, 0x10e4c, indexCPS2_Vamp_Jedah, 0, &pairNext2 },
     { L"HK Prova di Servo", 0x10e4C, 0x10e6c, indexCPS2_Vamp_Jedah, 0x03 },
     { L"HK Blood", 0x10e6C, 0x10e8c, indexCPS2_Vamp_Jedah, 1 },
     { L"HK Intro", 0x10e8C, 0x10eac, indexCPS2_Vamp_Jedah, 0x02 },
@@ -1705,7 +1705,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_HK[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_PP[] =
 {
-    { L"PP Jedah", 0x10eaC, 0x10ecc, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
+    { L"PP Jedah", 0x10eaC, 0x10ecc, indexCPS2_Vamp_Jedah, 0, &pairNext2 },
     { L"PP Prova di Servo", 0x10ecC, 0x10eec, indexCPS2_Vamp_Jedah, 0x03 },
     { L"PP Blood", 0x10eeC, 0x10f0c, indexCPS2_Vamp_Jedah, 1 },
     { L"PP Intro", 0x10f0C, 0x10f2c, indexCPS2_Vamp_Jedah, 0x02 },
@@ -1715,7 +1715,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_PP[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_KK[] =
 {
-    { L"KK Jedah", 0x10f2C, 0x10f4c, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
+    { L"KK Jedah", 0x10f2C, 0x10f4c, indexCPS2_Vamp_Jedah, 0, &pairNext2 },
     { L"KK Prova di Servo", 0x10f4C, 0x10f6c, indexCPS2_Vamp_Jedah, 0x03 },
     { L"KK Blood", 0x10f6C, 0x10f8c, indexCPS2_Vamp_Jedah, 1 },
     { L"KK Intro", 0x10f8C, 0x10fac, indexCPS2_Vamp_Jedah, 0x02 },
@@ -1725,7 +1725,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_KK[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_AP[] =
 {
-    { L"AP Jedah", 0x10faC, 0x10fcc, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
+    { L"AP Jedah", 0x10faC, 0x10fcc, indexCPS2_Vamp_Jedah, 0, &pairNext2 },
     { L"AP Prova di Servo", 0x10fcC, 0x10fec, indexCPS2_Vamp_Jedah, 0x03 },
     { L"AP Blood", 0x10feC, 0x1100c, indexCPS2_Vamp_Jedah, 1 },
     { L"AP Intro", 0x1100C, 0x1102c, indexCPS2_Vamp_Jedah, 0x02 },
@@ -1735,7 +1735,7 @@ const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_AP[] =
 
 const sGame_PaletteDataset VSAV_A_JEDAH_PALETTES_AK[] =
 {
-    { L"AK Jedah", 0x1102C, 0x1104c, indexCPS2_Vamp_Jedah, 0, &pairNextNext },
+    { L"AK Jedah", 0x1102C, 0x1104c, indexCPS2_Vamp_Jedah, 0, &pairNext2 },
     { L"AK Prova di Servo", 0x1104C, 0x1106c, indexCPS2_Vamp_Jedah, 0x03 },
     { L"AK Blood", 0x1106C, 0x1108c, indexCPS2_Vamp_Jedah, 1 },
     { L"AK Intro", 0x1108C, 0x110ac, indexCPS2_Vamp_Jedah, 0x02 },

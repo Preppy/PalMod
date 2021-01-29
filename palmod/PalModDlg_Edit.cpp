@@ -596,9 +596,11 @@ void CPalModDlg::OnEditPaste()
                 case MATRIMELEE_A:
                 case NeoBomberman_A:
                 case NEOGEO_A:
+                case RBFF1_A:
                 case RBFFS_A:
                 case SAMSHO3_A:
                 case SAMSHO4_A:
+                case SAMSHO5_A:
                 case SAMSHO5SP_A:
                 case SVCPLUSA_A:
                 case WakuWaku7_A:

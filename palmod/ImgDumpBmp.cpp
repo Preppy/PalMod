@@ -354,9 +354,9 @@ void CImgDumpBmp::OnPaint()
 {
     if (FirstRun)
     {
-        PaintDC = new CPaintDC(this);
+        CPaintDC cdc(this);
 
-        MainDC.CreateCompatibleDC(PaintDC);
+        MainDC.CreateCompatibleDC(&cdc);
         MainDC.SelectObject(MainHBmp);
 
         //Get the control size
@@ -417,18 +417,25 @@ void CImgDumpBmp::SetBG(COLORREF new_crBGCol)
 
 void CImgDumpBmp::ClearCtrlBG()
 {
-    COLORREF crCol = GetSysColor(COLOR_3DFACE);
-    if (cl_width > nMainW)
+    if (MainDC)
     {
-        PaintDC->FillSolidRect(CRect(nMainW, 0, cl_width, cl_height), crCol);
-    }
+        CClientDC* cdc = new CClientDC(this);
 
-    if (cl_height > nMainH)
-    {
-        PaintDC->FillSolidRect(CRect(0, nMainH, cl_width, cl_height), crCol);
-    }
+        COLORREF crCol = GetSysColor(COLOR_3DFACE);
+        if (cl_width > nMainW)
+        {
+            cdc->FillSolidRect(CRect(nMainW, 0, cl_width, cl_height), crCol);
+        }
 
-    PaintDC->FillSolidRect(CRect(ctrl_rect.right - SCROLL_W, ctrl_rect.bottom - SCROLL_W, ctrl_rect.right, ctrl_rect.bottom), crCol);
+        if (cl_height > nMainH)
+        {
+            cdc->FillSolidRect(CRect(0, nMainH, cl_width, cl_height), crCol);
+        }
+
+        cdc->FillSolidRect(CRect(ctrl_rect.right - SCROLL_W, ctrl_rect.bottom - SCROLL_W, ctrl_rect.right, ctrl_rect.bottom), crCol);
+
+        safe_delete(cdc);
+    }
 }
 
 void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
@@ -635,7 +642,14 @@ BOOL CImgDumpBmp::CustomBlt(int nSrcIndex, int nPalIndex, int nDstX, int nDstY, 
 
 void CImgDumpBmp::Draw()
 {
-    PaintDC->BitBlt(0, 0, cl_width, cl_height, &MainDC, main_blt.left, main_blt.top, SRCCOPY);
+    if (MainDC)
+    {
+        CClientDC* cdc = new CClientDC(this);
+
+        cdc->BitBlt(0, 0, cl_width, cl_height, &MainDC, main_blt.left, main_blt.top, SRCCOPY);
+
+        safe_delete(cdc);
+    }
 }
 
 void CImgDumpBmp::CleanUp()

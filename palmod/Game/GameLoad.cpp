@@ -38,12 +38,14 @@
 #include "Game_NEOGEO_A.h"
 #include "Game_NGBC_A.h"
 #include "Game_GEMFIGHTER_A.h"
+#include "Game_RBFF1_A.h"
 #include "Game_RBFFS_A.h"
 #include "Game_REDEARTH_A.h"
 #include "Game_REDEARTH_A_DIR.h"
 #include "Game_RODSM2_A.h"
 #include "Game_SAMSHO3_A.h"
 #include "Game_SAMSHO4_A.h"
+#include "Game_SAMSHO5_A.h"
 #include "Game_SAMSHO5SP_A.h"
 #include "Game_SFA1_A.h"
 #include "Game_SFA2_A.h"
@@ -309,6 +311,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_NGBC_A::GetRule;
         return TRUE;
     }
+    case RBFF1_A: 
+    {
+        GetRule = &CGame_RBFF1_A::GetRule;
+        return TRUE;
+    }
     case RBFFS_A:
     {
         GetRule = &CGame_RBFFS_A::GetRule;
@@ -341,6 +348,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case SAMSHO4_A:
     {
         GetRule = &CGame_SAMSHO4_A::GetRule;
+        return TRUE;
+    }
+    case SAMSHO5_A:
+    {
+        GetRule = &CGame_SAMSHO5_A::GetRule;
         return TRUE;
     }
     case SAMSHO5SP_A:
@@ -642,6 +654,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_NGBC_A(nConfirmedROMSize);
     }
+    case RBFF1_A:
+    {
+        return new CGame_RBFF1_A(nConfirmedROMSize);
+    }
     case RBFFS_A:
     {
         return new CGame_RBFFS_A(nConfirmedROMSize);
@@ -665,6 +681,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SAMSHO4_A:
     {
         return new CGame_SAMSHO4_A(nConfirmedROMSize);
+    }
+    case SAMSHO5_A:
+    {
+        return new CGame_SAMSHO5_A(nConfirmedROMSize);
     }
     case SAMSHO5SP_A:
     {

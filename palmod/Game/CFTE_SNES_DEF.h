@@ -4,7 +4,7 @@ const sGame_PaletteDataset CFTE_MRFROSTY_PALETTES[] =
 {
     { L"Bad Mr. Frosty - Blue Hat", 0x10040, 0x10060, indexCFTESprites_BadMrFrosty, 0x0, &pairNext4 },
     { L"Bad Mr. Frosty - Green Hat", 0x241B4D, 0x241B6D, indexCFTESprites_BadMrFrosty, 0x0, &pairNext3 },
-    { L"Bad Mr. Frosty - Yellow Hat", 0x241CED, 0x241D0D, indexCFTESprites_BadMrFrosty, 0x0, &pairNextNext },
+    { L"Bad Mr. Frosty - Yellow Hat", 0x241CED, 0x241D0D, indexCFTESprites_BadMrFrosty, 0x0, &pairNext2 },
     { L"Bad Mr. Frosty - Red Hat", 0x241D0D, 0x241D2D, indexCFTESprites_BadMrFrosty, 0x0, &pairNext },
     { L"Bad Mr. Frosty - Main Sprite (Shared)", 0x10000, 0x10020, indexCFTESprites_BadMrFrosty, 0x01 },
 };
@@ -21,7 +21,7 @@ const sGame_PaletteDataset CFTE_TINY_PALETTES[] =
 {
     { L"Tiny - Red", 0x100C0, 0x100E0, indexCFTESprites_Tiny, 0x0, &pairNext4 },
     { L"Tiny - Purple", 0x241B8D, 0x241BAD, indexCFTESprites_Tiny, 0x0, &pairNext3 },
-    { L"Tiny - Green", 0x241DED, 0x241E0D, indexCFTESprites_Tiny, 0x0, &pairNextNext },
+    { L"Tiny - Green", 0x241DED, 0x241E0D, indexCFTESprites_Tiny, 0x0, &pairNext2 },
     { L"Tiny - Blue", 0x241E0D, 0x241E2D, indexCFTESprites_Tiny, 0x0, &pairNext },
     { L"Tiny - Main", 0x100A0, 0x100C0, indexCFTESprites_Tiny, 0x01 },
 };
@@ -38,7 +38,7 @@ const sGame_PaletteDataset CFTE_BLUESUEDEGOO_PALETTES[] =
 {
     { L"Blue Suede Goo - Silver", 0x10200, 0x10220, indexCFTESprites_BlueSuedeGoo, 0x0, &pairNext4 },
     { L"Blue Suede Goo - Gold", 0x241AED, 0x241B0D, indexCFTESprites_BlueSuedeGoo, 0x0, &pairNext3 },
-    { L"Blue Suede Goo - Purple", 0x241CCD, 0x241CED, indexCFTESprites_BlueSuedeGoo, 0x0, &pairNextNext },
+    { L"Blue Suede Goo - Purple", 0x241CCD, 0x241CED, indexCFTESprites_BlueSuedeGoo, 0x0, &pairNext2 },
     { L"Blue Suede Goo - Red", 0x241CAD, 0x241CCD, indexCFTESprites_BlueSuedeGoo, 0x0, &pairNext },
     { L"Blue Suede Goo - Main Sprite (Shared)", 0x10220, 0x10240, indexCFTESprites_BlueSuedeGoo, 0x01 },
 };
@@ -47,7 +47,7 @@ const sGame_PaletteDataset CFTE_ICKYBOD_PALETTES[] =
 {
     { L"Ickybod Clay - Orange", 0x10260, 0x10280, indexCFTESprites_IckyBodClay, 0x0, &pairNext4 },
     { L"Ickybod Clay - Green", 0x241ACD, 0x241AED, indexCFTESprites_IckyBodClay, 0x0, &pairNext3 },
-    { L"Ickybod Clay - Blue", 0x241D8D, 0x241DAD, indexCFTESprites_IckyBodClay, 0x0, &pairNextNext },
+    { L"Ickybod Clay - Blue", 0x241D8D, 0x241DAD, indexCFTESprites_IckyBodClay, 0x0, &pairNext2 },
     { L"Ickybod Clay - Pink", 0x241D6D, 0x241D8D, indexCFTESprites_IckyBodClay, 0x0, &pairNext },
     { L"Ickybod Clay - Main Sprite (Shared)", 0x10240, 0x10260, indexCFTESprites_IckyBodClay, 0x01 },
 };
@@ -56,7 +56,7 @@ const sGame_PaletteDataset CFTE_HELGA_PALETTES[] =
 {
     { L"Helga - Blue", 0x10280, 0x102A0, indexCFTESprites_Helga, 0x0, &pairNext4 },
     { L"Helga - Green", 0x241D2D, 0x241D4D, indexCFTESprites_Helga, 0x0, &pairNext3 },
-    { L"Helga - Purple", 0x241B2D, 0x241B4D, indexCFTESprites_Helga, 0x0, &pairNextNext },
+    { L"Helga - Purple", 0x241B2D, 0x241B4D, indexCFTESprites_Helga, 0x0, &pairNext2 },
     { L"Helga - Yellow", 0x241D4D, 0x241D6D, indexCFTESprites_Helga, 0x0, &pairNext },
     { L"Helga - Main Sprite (Shared)", 0x102A0, 0x102C0, indexCFTESprites_Helga, 0x01 },
 };
@@ -65,7 +65,7 @@ const sGame_PaletteDataset CFTE_BONKER_PALETTES[] =
 {
     { L"Bonker - Blue", 0x10100, 0x10120, indexCFTESprites_Bonker, 0x0, &pairNext4 },
     { L"Bonker - Green", 0x241AAD, 0x241ACD, indexCFTESprites_Bonker, 0x0, &pairNext3 },
-    { L"Bonker - Yellow", 0x241C8D, 0x241CAD, indexCFTESprites_Bonker, 0x0, &pairNextNext },
+    { L"Bonker - Yellow", 0x241C8D, 0x241CAD, indexCFTESprites_Bonker, 0x0, &pairNext2 },
     { L"Bonker - Purple", 0x241C6D, 0x241C8D, indexCFTESprites_Bonker, 0x0, &pairNext },
     { L"Bonker - Clown Makeup (Shared)", 0x10120, 0x10140, indexCFTESprites_Bonker, 0x01 },
 };

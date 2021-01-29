@@ -83,6 +83,8 @@ enum SupportedGamesList
     SAMSHO4_A,
     RODSM2_A,
     LASTBLADE2_A,
+    SAMSHO5_A,
+    RBFF1_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -169,6 +171,8 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Samurai Shodown IV (Arcade)",
    L"Ring of Destruction: Slam Master's II",
    L"The Last Blade 2 (Arcade)",
+   L"Samurai Shodown 5",
+   L"Real Bout Fatal Fury",
 };
 
 enum class GamePlatform
@@ -2847,6 +2851,9 @@ enum SamuraiShodownSpriteList
     indexSamSho3Sprites_Bonus,      // 2F
     indexSamSho3Sprites_Stages,     // 30
 
+    indexSamSho5Sprites_Sankuro,    // 31
+    indexSamSho5Sprites_Yumeji,     // 32
+
     indexSamuraiShodownSprites_Last,
 };
 
@@ -3313,12 +3320,14 @@ const stPairedPaletteInfo pairHandledInCode = { 0, 0, 0 };
 const stPairedPaletteInfo pairFullyLinkedNode = { 0, 0, 0 };
 
 const stPairedPaletteInfo pairNext = { 1, 0, 0 };
-const stPairedPaletteInfo pairNextNext = { 2, 0, 0 };
+const stPairedPaletteInfo pairNext2 = { 2, 0, 0 };
 const stPairedPaletteInfo pairNext3 = { 3, 0, 0 };
 const stPairedPaletteInfo pairNext4 = { 4, 0, 0 };
 const stPairedPaletteInfo pairNext5 = { 5, 0, 0 };
 const stPairedPaletteInfo pairNext6 = { 6, 0, 0 };
+const stPairedPaletteInfo pairNext7 = { 7, 0, 0 };
 const stPairedPaletteInfo pairNext8 = { 8, 0, 0 };
+const stPairedPaletteInfo pairNext9 = { 9, 0, 0 };
 const stPairedPaletteInfo pairNext10 = { 10, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
 

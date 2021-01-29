@@ -41,10 +41,7 @@ public:
     POINT ptOffs[MAX_IMAGES_DISPLAYABLE] = {};
     CRect rImgRct = {};
 
-    CPaintDC *PaintDC = nullptr;
-
-    CDC    MainDC;
-    //CBitmap MainBmp;
+    CDC MainDC;
 
     COLORREF*** pppPalettes = nullptr;
     

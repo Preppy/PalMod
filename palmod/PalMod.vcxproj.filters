@@ -238,6 +238,12 @@
     <Filter Include="Game\SNK Games\Last Blade 2">
       <UniqueIdentifier>{882354da-0a66-45a8-a19f-7582fcd08abc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\Samurai Shodown 5">
+      <UniqueIdentifier>{41152932-6857-4875-a1a1-40ed18d6bd80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Real Bout Fatal Fury 1">
+      <UniqueIdentifier>{1bde8d50-ba03-407d-a49b-fe58c356b932}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -524,6 +530,12 @@
     </ClCompile>
     <ClCompile Include="debugutil.cpp">
       <Filter>Main DLG/APP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SAMSHO5_A.cpp">
+      <Filter>Game\SNK Games\Samurai Shodown 5</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_RBFF1_A.cpp">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -973,6 +985,18 @@
     </ClInclude>
     <ClInclude Include="Game\LASTBLADE2_A_DEF.h">
       <Filter>Game\SNK Games\Last Blade 2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SAMSHO5_A.h">
+      <Filter>Game\SNK Games\Samurai Shodown 5</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SAMSHO5_A_DEF.h">
+      <Filter>Game\SNK Games\Samurai Shodown 5</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_RBFF1_A.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\RBFF1_A_DEF.h">
+      <Filter>Game\SNK Games\Real Bout Fatal Fury 1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

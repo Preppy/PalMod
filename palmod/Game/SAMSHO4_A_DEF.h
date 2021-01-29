@@ -30,7 +30,7 @@ const sGame_PaletteDataset SAMSHO4_A_HAOHMARU_PALETTES_B2[] =
 
 const sGame_PaletteDataset SAMSHO4_A_NAKORURU_PALETTES_S1[] =
 {
-    { L"Nakoruru Slash A", 0x0c2000, 0x0c2040, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
+    { L"Nakoruru Slash A", 0x0c2000, 0x0c2040, indexSamSho5Sprites_Nakoruru, 0, &pairNext2 },
     { L"Nakoruru Slash Rage A", 0x0c2040, 0x0c2080, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
     { L"Mamahaha A", 0x0c2280, 0x0c22a0, indexSamSho5Sprites_Nakoruru, 1 },
     { L"Nakoruru Slash A Victory", 0x0c23a0, 0x0c23e0 },
@@ -39,7 +39,7 @@ const sGame_PaletteDataset SAMSHO4_A_NAKORURU_PALETTES_S1[] =
 
 const sGame_PaletteDataset SAMSHO4_A_NAKORURU_PALETTES_S2[] =
 {
-    { L"Nakoruru Slash B", 0x0c2400, 0x0c2440, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
+    { L"Nakoruru Slash B", 0x0c2400, 0x0c2440, indexSamSho5Sprites_Nakoruru, 0, &pairNext2 },
     { L"Nakoruru Slash Rage B", 0x0c2440, 0x0c2480, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
     { L"Mamahaha B", 0x0c2680, 0x0c26a0, indexSamSho5Sprites_Nakoruru, 1 },
     { L"Nakoruru Slash B Victory", 0x0c27a0, 0x0c27e0 },
@@ -126,7 +126,7 @@ const sGame_PaletteDataset SAMSHO4_A_HANZO_PALETTES_B2[] =
 
 const sGame_PaletteDataset SAMSHO4_A_GALFORD_PALETTES_S1[] =
 {
-    { L"Galford Slash A", 0x0c5000, 0x0c5040, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford Slash A", 0x0c5000, 0x0c5040, indexSamSho5Sprites_Galford, 0, &pairNext2 },
     { L"Galford Slash A Rage", 0x0c5040, 0x0c5080, indexSamSho5Sprites_Galford, 0, &pairNext },
     { L"Poppy Slash A", 0x0c5280, 0x0c52a0, indexSamSho5Sprites_Galford, 1 },
     { L"Galford Slash A Victory", 0x0c53a0, 0x0c53e0 },
@@ -135,7 +135,7 @@ const sGame_PaletteDataset SAMSHO4_A_GALFORD_PALETTES_S1[] =
 
 const sGame_PaletteDataset SAMSHO4_A_GALFORD_PALETTES_S2[] =
 {
-    { L"Galford Slash B", 0x0c5400, 0x0c5440, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford Slash B", 0x0c5400, 0x0c5440, indexSamSho5Sprites_Galford, 0, &pairNext2 },
     { L"Galford Slash B Rage", 0x0c5440, 0x0c5480, indexSamSho5Sprites_Galford, 0, &pairNext },
     { L"Poppy Slash B", 0x0c5680, 0x0c56a0, indexSamSho5Sprites_Galford, 1 },
     { L"Galford Slash B Victory ", 0x0c57a0, 0x0c57e0 },
@@ -144,7 +144,7 @@ const sGame_PaletteDataset SAMSHO4_A_GALFORD_PALETTES_S2[] =
 
 const sGame_PaletteDataset SAMSHO4_A_GALFORD_PALETTES_B1[] =
 {
-    { L"Galford Bust A", 0x0c5800, 0x0c5840, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford Bust A", 0x0c5800, 0x0c5840, indexSamSho5Sprites_Galford, 0, &pairNext2 },
     { L"Galford Bust A Rage", 0x0c5840, 0x0c5880, indexSamSho5Sprites_Galford, 0, &pairNext },
     { L"Poppy Bust A", 0x0c5a80, 0x0c5aa0, indexSamSho5Sprites_Galford, 1 },
     { L"Galford Bust A Victory", 0x0c5ba0, 0x0c5be0 },
@@ -152,7 +152,7 @@ const sGame_PaletteDataset SAMSHO4_A_GALFORD_PALETTES_B1[] =
 
 const sGame_PaletteDataset SAMSHO4_A_GALFORD_PALETTES_B2[] =
 {
-    { L"Galford Bust B", 0x0c5c00, 0x0c5c40, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford Bust B", 0x0c5c00, 0x0c5c40, indexSamSho5Sprites_Galford, 0, &pairNext2 },
     { L"Galford Bust B Rage", 0x0c5c40, 0x0c5c80, indexSamSho5Sprites_Galford, 0, &pairNext },
     { L"Poppy Bust B", 0x0c5e80, 0x0c5ea0, indexSamSho5Sprites_Galford, 1 },
     { L"Galford Bust B Victory", 0x0c5fa0, 0x0c5fe0 },
@@ -160,7 +160,7 @@ const sGame_PaletteDataset SAMSHO4_A_GALFORD_PALETTES_B2[] =
 
 const sGame_PaletteDataset SAMSHO4_A_KYOSHIRO_PALETTES_S1[] =
 {
-    { L"Kyoshiro Slash A", 0x0c6000, 0x0c6040, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
+    { L"Kyoshiro Slash A", 0x0c6000, 0x0c6040, indexSamSho5Sprites_Kyoshiro, 0, &pairNext2 },
     { L"Kyoshiro Slash A Rage", 0x0c6040, 0x0c6080, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Toad A", 0x0c6280, 0x0c62a0, indexSamSho5Sprites_Kyoshiro, 1 },
     { L"Kyoshiro Slash A Victory", 0x0c63a0, 0x0c63e0 },
@@ -168,7 +168,7 @@ const sGame_PaletteDataset SAMSHO4_A_KYOSHIRO_PALETTES_S1[] =
 
 const sGame_PaletteDataset SAMSHO4_A_KYOSHIRO_PALETTES_S2[] =
 {
-    { L"Kyoshiro Slash B", 0x0c6400, 0x0c6440, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
+    { L"Kyoshiro Slash B", 0x0c6400, 0x0c6440, indexSamSho5Sprites_Kyoshiro, 0, &pairNext2 },
     { L"Kyoshiro Slash B Rage", 0x0c6440, 0x0c6480, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Toad B", 0x0c6680, 0x0c66a0, indexSamSho5Sprites_Kyoshiro, 1 },
     { L"Kyoshiro Slash B Victory", 0x0c67a0, 0x0c67e0 },

@@ -157,7 +157,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_D[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_A[] =
 {
     { L"Galford A (Normal)", 0xd9000, 0xd9040, indexSamSho5Sprites_Galford, 0, &pairNext3 },
-    { L"Galford A (Rage)", 0xd9040, 0xd9080, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford A (Rage)", 0xd9040, 0xd9080, indexSamSho5Sprites_Galford, 0, &pairNext2 },
     { L"Galford A (SON)", 0xd9240, 0xd9280, indexSamSho5Sprites_Galford, 0, &pairNext },
     { L"Poppy A", 0xd9280, 0xd92A0, indexSamSho5Sprites_Galford, 1 },
 
@@ -177,7 +177,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_A[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_B[] =
 {
     { L"Galford B (Normal)", 0xd9400, 0xd9440, indexSamSho5Sprites_Galford, 0, &pairNext3 },
-    { L"Galford B (Rage)", 0xd9440, 0xd9480, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford B (Rage)", 0xd9440, 0xd9480, indexSamSho5Sprites_Galford, 0, &pairNext2 },
     { L"Galford B (SON)", 0xd9640, 0xd9680, indexSamSho5Sprites_Galford, 0, &pairNext },
     { L"Poppy B", 0xd9680, 0xd96A0, indexSamSho5Sprites_Galford, 1 },
 
@@ -197,7 +197,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_B[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_C[] =
 {
     { L"Galford C (Normal)", 0xd9800, 0xd9840, indexSamSho5Sprites_Galford, 0, &pairNext3 },
-    { L"Galford C (Rage)", 0xd9840, 0xd9880, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford C (Rage)", 0xd9840, 0xd9880, indexSamSho5Sprites_Galford, 0, &pairNext2 },
     { L"Galford C (SON)", 0xd9a40, 0xd9a80, indexSamSho5Sprites_Galford, 0, &pairNext },
     { L"Poppy C", 0xd9A80, 0xd9AA0, indexSamSho5Sprites_Galford, 1 },
 
@@ -217,7 +217,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_C[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_D[] =
 {
     { L"Galford D (Normal)", 0xd9c00, 0xd9c40, indexSamSho5Sprites_Galford, 0, &pairNext3 },
-    { L"Galford D (Rage)", 0xd9c40, 0xd9c80, indexSamSho5Sprites_Galford, 0, &pairNextNext },
+    { L"Galford D (Rage)", 0xd9c40, 0xd9c80, indexSamSho5Sprites_Galford, 0, &pairNext2 },
     { L"Galford D (SON)", 0xd9e40, 0xd9e80, indexSamSho5Sprites_Galford, 0, &pairNext },
     { L"Poppy D", 0xd9e80, 0xd9eA0, indexSamSho5Sprites_Galford, 1 },
 
@@ -588,7 +588,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Kusaregedo_PALETTES_D[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_A[] =
 {
     { L"Kyoshiro A (Normal)", 0xda000, 0xda040, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
-    { L"Kyoshiro A (Rage)", 0xda040, 0xda080, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
+    { L"Kyoshiro A (Rage)", 0xda040, 0xda080, indexSamSho5Sprites_Kyoshiro, 0, &pairNext2 },
     { L"Kyoshiro A (SON)", 0xda240, 0xda280, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Kyoshiro A (Toad)", 0xda280, 0xda2a0, indexSamSho5Sprites_Kyoshiro, 1 },
 
@@ -609,7 +609,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_A[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_B[] =
 {
     { L"Kyoshiro B (Normal)", 0xda400, 0xda440, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
-    { L"Kyoshiro B (Rage)", 0xda440, 0xda480, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
+    { L"Kyoshiro B (Rage)", 0xda440, 0xda480, indexSamSho5Sprites_Kyoshiro, 0, &pairNext2 },
     { L"Kyoshiro B (SON)", 0xda640, 0xda680, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Kyoshiro B (Toad)", 0xda680, 0xda6a0, indexSamSho5Sprites_Kyoshiro, 1 },
 
@@ -630,7 +630,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_B[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_C[] =
 {
     { L"Kyoshiro C (Normal)", 0xda800, 0xda840, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
-    { L"Kyoshiro C (Rage)", 0xda840, 0xda880, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
+    { L"Kyoshiro C (Rage)", 0xda840, 0xda880, indexSamSho5Sprites_Kyoshiro, 0, &pairNext2 },
     { L"Kyoshiro C (SON)", 0xdaa40, 0xdaa80, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Kyoshiro C (Toad)", 0xdaa80, 0xdaaa0, indexSamSho5Sprites_Kyoshiro, 1 },
 
@@ -651,7 +651,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_C[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_D[] =
 {
     { L"Kyoshiro D (Normal)", 0xdac00, 0xdac40, indexSamSho5Sprites_Kyoshiro, 0, &pairNext3 },
-    { L"Kyoshiro D (Rage)", 0xdac40, 0xdac80, indexSamSho5Sprites_Kyoshiro, 0, &pairNextNext },
+    { L"Kyoshiro D (Rage)", 0xdac40, 0xdac80, indexSamSho5Sprites_Kyoshiro, 0, &pairNext2 },
     { L"Kyoshiro D (SON)", 0xdae40, 0xdae80, indexSamSho5Sprites_Kyoshiro, 0, &pairNext },
     { L"Kyoshiro D (Toad)", 0xdae80, 0xdaea0, indexSamSho5Sprites_Kyoshiro, 1 },
 
@@ -672,7 +672,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Kyoshiro_PALETTES_D[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_A[] =
 {
     { L"Mina A (Normal)", 0xed000, 0xed040, indexSamSho5Sprites_Mina, 0, &pairNext3 },
-    { L"Mina A (Rage)", 0xed040, 0xed080, indexSamSho5Sprites_Mina, 0, &pairNextNext },
+    { L"Mina A (Rage)", 0xed040, 0xed080, indexSamSho5Sprites_Mina, 0, &pairNext2 },
     { L"Mina A (SON)", 0xed240, 0xed280, indexSamSho5Sprites_Mina, 0, &pairNext },
     { L"Chanpuru A", 0xed280, 0xed2A0, indexSamSho5Sprites_Mina, 1 },
 };
@@ -680,7 +680,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_A[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_B[] =
 {
     { L"Mina B (Normal)", 0xed400, 0xed440, indexSamSho5Sprites_Mina, 0, &pairNext3 },
-    { L"Mina B (Rage)", 0xed440, 0xed480, indexSamSho5Sprites_Mina, 0, &pairNextNext },
+    { L"Mina B (Rage)", 0xed440, 0xed480, indexSamSho5Sprites_Mina, 0, &pairNext2 },
     { L"Mina B (SON)", 0xed640, 0xed680, indexSamSho5Sprites_Mina, 0, &pairNext },
     { L"Chanpuru B", 0xed680, 0xed6A0, indexSamSho5Sprites_Mina, 1 },
 };
@@ -688,7 +688,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_B[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_C[] =
 {
     { L"Mina C (Normal)", 0xed800, 0xed840, indexSamSho5Sprites_Mina, 0, &pairNext3 },
-    { L"Mina C (Rage)", 0xed840, 0xed880, indexSamSho5Sprites_Mina, 0, &pairNextNext },
+    { L"Mina C (Rage)", 0xed840, 0xed880, indexSamSho5Sprites_Mina, 0, &pairNext2 },
     { L"Mina C (SON)", 0xeda40, 0xeda80, indexSamSho5Sprites_Mina, 0, &pairNext },
     { L"Chanpuru C", 0xeda80, 0xedaA0, indexSamSho5Sprites_Mina, 1 },
 };
@@ -696,7 +696,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_C[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Mina_PALETTES_D[] =
 {
     { L"Mina D (Normal)", 0xedc00, 0xedc40, indexSamSho5Sprites_Mina, 0, &pairNext3 },
-    { L"Mina D (Rage)", 0xedc40, 0xedc80, indexSamSho5Sprites_Mina, 0, &pairNextNext },
+    { L"Mina D (Rage)", 0xedc40, 0xedc80, indexSamSho5Sprites_Mina, 0, &pairNext2 },
     { L"Mina D (SON)", 0xede40, 0xede80, indexSamSho5Sprites_Mina, 0, &pairNext },
     { L"Chanpuru D", 0xede80, 0xedeA0, indexSamSho5Sprites_Mina, 1 },
 };
@@ -732,7 +732,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Mizuki_PALETTES_D[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_A[] =
 {
     { L"Nakoruru A (Normal)", 0xd6000, 0xd6040, indexSamSho5Sprites_Nakoruru, 0, &pairNext3 },
-    { L"Nakoruru A (Rage)", 0xd6040, 0xd6080, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
+    { L"Nakoruru A (Rage)", 0xd6040, 0xd6080, indexSamSho5Sprites_Nakoruru, 0, &pairNext2 },
     { L"Nakoruru A (SON)", 0xd6240, 0xd6280, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
     { L"Mamahaha A", 0xd6280, 0xd62A0, indexSamSho5Sprites_Nakoruru, 1 },
 
@@ -748,7 +748,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_A[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_B[] =
 {
     { L"Nakoruru B (Normal)", 0xd6400, 0xd6440, indexSamSho5Sprites_Nakoruru, 0, &pairNext3 },
-    { L"Nakoruru B (Rage)", 0xd6440, 0xd6480, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
+    { L"Nakoruru B (Rage)", 0xd6440, 0xd6480, indexSamSho5Sprites_Nakoruru, 0, &pairNext2 },
     { L"Nakoruru B (SON)", 0xd6640, 0xd6680, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
     { L"Mamahaha B", 0xd6680, 0xd66A0, indexSamSho5Sprites_Nakoruru, 1 },
 
@@ -764,7 +764,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_B[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_C[] =
 {
     { L"Nakoruru C (Normal)", 0xd6800, 0xd6840, indexSamSho5Sprites_Nakoruru, 0, &pairNext3  },
-    { L"Nakoruru C (Rage)", 0xd6840, 0xd6880, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
+    { L"Nakoruru C (Rage)", 0xd6840, 0xd6880, indexSamSho5Sprites_Nakoruru, 0, &pairNext2 },
     { L"Nakoruru C (SON)", 0xd6a40, 0xd6a80, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
     { L"Mamahaha C", 0xd6a80, 0xd6aA0, indexSamSho5Sprites_Nakoruru, 1 },
 
@@ -780,7 +780,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_C[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Nakoruru_PALETTES_D[] =
 {
     { L"Nakoruru D (Normal)", 0xd6c00, 0xd6c40, indexSamSho5Sprites_Nakoruru, 0, &pairNext3 },
-    { L"Nakoruru D (Rage)", 0xd6c40, 0xd6c80, indexSamSho5Sprites_Nakoruru, 0, &pairNextNext },
+    { L"Nakoruru D (Rage)", 0xd6c40, 0xd6c80, indexSamSho5Sprites_Nakoruru, 0, &pairNext2 },
     { L"Nakoruru D (SON)", 0xd6e40, 0xd6e80, indexSamSho5Sprites_Nakoruru, 0, &pairNext },
     { L"Mamahaha D", 0xd6e80, 0xd6eA0, indexSamSho5Sprites_Nakoruru, 1 },
 
@@ -824,7 +824,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rasetsumaru_PALETTES_D[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_A[] =
 {
     { L"Rera A (Normal)", 0xe8000, 0xe8040, indexSamSho5Sprites_Rera, 0, &pairNext3 },
-    { L"Rera A (Rage)", 0xe8040, 0xe8080, indexSamSho5Sprites_Rera, 0, &pairNextNext },
+    { L"Rera A (Rage)", 0xe8040, 0xe8080, indexSamSho5Sprites_Rera, 0, &pairNext2 },
     { L"Rera A (SON)", 0xe8240, 0xe8280, indexSamSho5Sprites_Rera, 0, &pairNext },
     { L"Shikuru A", 0xe82A0, 0xe82C0, indexSamSho5Sprites_Rera, 1 },
 };
@@ -832,7 +832,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_A[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_B[] =
 {
     { L"Rera B (Normal)", 0xe8400, 0xe8440, indexSamSho5Sprites_Rera, 0, &pairNext3 },
-    { L"Rera B (Rage)", 0xe8440, 0xe8480, indexSamSho5Sprites_Rera, 0, &pairNextNext },
+    { L"Rera B (Rage)", 0xe8440, 0xe8480, indexSamSho5Sprites_Rera, 0, &pairNext2 },
     { L"Rera B (SON)", 0xe8640, 0xe8680, indexSamSho5Sprites_Rera, 0, &pairNext },
     { L"Shikuru B", 0xe86A0, 0xe86C0, indexSamSho5Sprites_Rera, 1 },
 };
@@ -840,7 +840,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_B[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_C[] =
 {
     { L"Rera C (Normal)", 0xe8800, 0xe8840, indexSamSho5Sprites_Rera, 0, &pairNext3 },
-    { L"Rera C (Rage)", 0xe8840, 0xe8880, indexSamSho5Sprites_Rera, 0, &pairNextNext },
+    { L"Rera C (Rage)", 0xe8840, 0xe8880, indexSamSho5Sprites_Rera, 0, &pairNext2 },
     { L"Rera C (SON)", 0xe8a40, 0xe8a80, indexSamSho5Sprites_Rera, 0, &pairNext },
     { L"Shikuru C", 0xe8aA0, 0xe8aC0, indexSamSho5Sprites_Rera, 1 },
 };
@@ -848,7 +848,7 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_C[] =
 const sGame_PaletteDataset SAMSHOW5SP_A_Rera_PALETTES_D[] =
 {
     { L"Rera D (Normal)", 0xe8c00, 0xe8c40, indexSamSho5Sprites_Rera, 0, &pairNext3 },
-    { L"Rera D (Rage)", 0xe8c40, 0xe8c80, indexSamSho5Sprites_Rera, 0, &pairNextNext },
+    { L"Rera D (Rage)", 0xe8c40, 0xe8c80, indexSamSho5Sprites_Rera, 0, &pairNext2 },
     { L"Rera D (SON)", 0xe8e40, 0xe8e80, indexSamSho5Sprites_Rera, 0, &pairNext },
     { L"Shikuru D", 0xe8eA0, 0xe8eC0, indexSamSho5Sprites_Rera, 1 },
 };
