@@ -194,7 +194,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_LD_SFIII3ARCADE4rd, &CPalModDlg::OnLoadDir_SFIII3Arcade4rd)
     ON_COMMAND(ID_LD_SFIII3ARCADEEX, &CPalModDlg::OnLoadDir_SFIII3ArcadeEx)
 
-    ON_COMMAND_RANGE(nGameLoadROMListMask, nGameLoadROMListMask + NUM_GAMES, &CPalModDlg::OnFileOpenInternal)
+    ON_COMMAND_RANGE(k_nGameLoadROMListMask, k_nGameLoadROMListMask + NUM_GAMES, &CPalModDlg::OnFileOpenInternal)
 END_MESSAGE_MAP()
 
 #pragma warning( pop )
@@ -308,6 +308,7 @@ void CPalModDlg::OnPaint()
         // Center icon in client rectangle
         int cxIcon = GetSystemMetrics(SM_CXICON);
         int cyIcon = GetSystemMetrics(SM_CYICON);
+
         CRect rect;
         GetClientRect(&rect);
         int x = (rect.Width() - cxIcon + 1) / 2;

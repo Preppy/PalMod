@@ -252,6 +252,19 @@ void CPalModDlg::PostPalSel()
                             CurrTicket->nXOffs,
                             CurrTicket->nYOffs);
                     }
+                    else
+                    {
+                        // Set up stub nodes so that custom sprites can access the palettes
+                        ImgDispCtrl->AddImageNode(
+                            nImgIndexCtr,
+                            0,
+                            0,
+                            nullptr,
+                            MainPalGroup->GetPalDef(i)->pPal,
+                            MainPalGroup->GetPalDef(i)->uPalSz,
+                            CurrTicket->nXOffs,
+                            CurrTicket->nYOffs);
+                    }
                 }
                 else
                 {

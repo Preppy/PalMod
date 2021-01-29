@@ -27,7 +27,10 @@ CImgDisp::~CImgDisp()
     safe_delete(MainDC);
     safe_delete(ImageDC);
 
-    safe_delete_array(m_pSpriteOverrideTexture);
+    for (int iPos = 0; iPos < MAX_IMAGES_DISPLAYABLE; iPos++)
+    {
+        safe_delete_array(m_ppSpriteOverrideTexture[iPos]);
+    }
 
     DeleteObject(hBmp);
 }
@@ -128,7 +131,10 @@ void CImgDisp::ClearUsed()
     nImgRctW = 0;
     nImgRctH = 0;
 
-    safe_delete_array(m_pSpriteOverrideTexture);
+    for (int iPos = 0; iPos < MAX_IMAGES_DISPLAYABLE; iPos++)
+    {
+        safe_delete_array(m_ppSpriteOverrideTexture[iPos]);
+    }
 }
 
 void CImgDisp::FlushUnused()
@@ -157,7 +163,10 @@ void CImgDisp::FlushUnused()
         ResizeMainBitmap();
     }
 
-    safe_delete_array(m_pSpriteOverrideTexture);
+    for (int iPos = 0; iPos < MAX_IMAGES_DISPLAYABLE; iPos++)
+    {
+        safe_delete_array(m_ppSpriteOverrideTexture[iPos]);
+    }
 }
 
 void CImgDisp::AddImageNode(int nIndex, UINT16 uImgW, UINT16 uImgH, UINT8* pImgData, COLORREF* pPalette, int uPalSz, int nXOffs, int nYOffs)
@@ -420,15 +429,25 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw /* = TRUE */, int nUseAltPal /* = 0 */)
 
     if (!fImageFound)
     {
-        if (m_pSpriteOverrideTexture)
+        for (int nImgCtr = 0; nImgCtr < MAX_IMAGES_DISPLAYABLE; nImgCtr++)
         {
-            OutputDebugString(_T("Trying to load alternate sprite for character with no sprite... \n"));
+            if (m_ppSpriteOverrideTexture[nImgCtr])
+            {
+                //Draw the img
+                CustomBlt(
+                    nImgCtr,
+                    -1, // overridden 
+                    -1, // overridden 
+                    (nAltPalIndex == nImgCtr)
+                );
 
-            CustomBlt(
-                -1,
-                -1, // overridden 
-                -1, // overridden 
-                (nAltPalIndex == 0)); // We're the only live image.
+                fImageFound = true;
+            }
+        }
+
+        if (fImageFound)
+        {
+            OutputDebugString(_T("Loaded alternate sprite for character with no sprite... \n"));
         }
     }
 
@@ -508,7 +527,7 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
     {
         return true;
     }
-    else if (m_pSpriteOverrideTexture)
+    else if (m_ppSpriteOverrideTexture[nIndex])
     {
         return true;
     }
@@ -516,14 +535,14 @@ bool CImgDisp::DoWeHaveImageForIndex(int nIndex)
     return false;
 }
 
-bool CImgDisp::LoadExternalSprite(TCHAR* pszTextureLocation)
+bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocation)
 {
     CFile TextureFile;
 
     if (TextureFile.Open(pszTextureLocation, CFile::modeRead | CFile::typeBinary))
     {
         const int nSizeToRead = (int)TextureFile.GetLength();
-        safe_delete_array(m_pSpriteOverrideTexture);
+        safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
 
         // Filename of form: MvC2_D-offset-2230419-W-60-H-98
         pszTextureLocation = _tcslwr(pszTextureLocation);
@@ -543,45 +562,46 @@ bool CImgDisp::LoadExternalSprite(TCHAR* pszTextureLocation)
             pszDataH += ARRAYSIZE(_T("H-"));
             pszTermination[0] = 0;
 
-            if (_stscanf_s(pszDataW, _T("%u"), &m_nTextureOverrideW) &&
-                _stscanf_s(pszDataH, _T("%u"), &m_nTextureOverrideH))
+            if (_stscanf_s(pszDataW, _T("%u"), &m_nTextureOverrideW[nPositionToLoadTo]) &&
+                _stscanf_s(pszDataH, _T("%u"), &m_nTextureOverrideH[nPositionToLoadTo]))
             {
-                if ((m_nTextureOverrideW > 0) && (m_nTextureOverrideW < 10000) &&
-                    (m_nTextureOverrideH > 0) && (m_nTextureOverrideH < 10000))
+                if ((m_nTextureOverrideW[nPositionToLoadTo] > 0) && (m_nTextureOverrideW[nPositionToLoadTo] < 10000) &&
+                    (m_nTextureOverrideH[nPositionToLoadTo] > 0) && (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
                 {
-                    if (((3 * m_nTextureOverrideW * m_nTextureOverrideH)) == nSizeToRead)
+                    if (((3 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
                     {
                         // This is an RGB RAW...
                         MessageBox(_T("This RAW is not using indexed color.  Please recreate it using indexed colors.  This will not look right."), GetHost()->GetAppName(), MB_ICONERROR);
                     }
-                    else if (((2 * m_nTextureOverrideW * m_nTextureOverrideH)) == nSizeToRead)
+                    else if (((2 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
                     {
+                        // I think it's GIMP that doubles the RAW for no apparent reason
                         GetHost()->GetPalModDlg()->SetStatusText(CString(L"This RAW contains extra data and may not look right."));
                     }
-                    else if ((m_nTextureOverrideW * m_nTextureOverrideH) != nSizeToRead)
+                    else if ((m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo]) != nSizeToRead)
                     {
                         MessageBox(_T("The W and H values specified in the RAW filename are wrong.  This will not look right."), GetHost()->GetAppName(), MB_ICONERROR);
                     }
 
-                    m_pSpriteOverrideTexture = new UINT8[nSizeToRead];
+                    m_ppSpriteOverrideTexture[nPositionToLoadTo] = new UINT8[nSizeToRead];
 
                     CString _tcsstr;
-                    _tcsstr.Format(_T("CImgDisp::LoadExternalSprite texture file is: %u x %u\n"), m_nTextureOverrideW, m_nTextureOverrideH);
+                    _tcsstr.Format(_T("CImgDisp::LoadExternalSprite texture file is: %u x %u\n"), m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
                     OutputDebugString(_tcsstr);
 
                     TextureFile.SeekToBegin();
-                    TextureFile.Read(m_pSpriteOverrideTexture, nSizeToRead);
+                    TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
 
                     TextureFile.Close();
 
-                    if (pImgBuffer[0])
+                    if (pImgBuffer[nPositionToLoadTo])
                     {
-                        AddImageNode(0, m_nTextureOverrideW, m_nTextureOverrideH, m_pSpriteOverrideTexture, pImgBuffer[0]->pPalette, pImgBuffer[0]->uPalSz, 0, 0);
+                        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo], pImgBuffer[nPositionToLoadTo]->pPalette, pImgBuffer[nPositionToLoadTo]->uPalSz, 0, 0);
                     }
                     else
                     {
                         // We really wanted the palette from pImgBuffer, but oh well we'll just use the backup palette
-                        AddImageNode(0, m_nTextureOverrideW, m_nTextureOverrideH, m_pSpriteOverrideTexture, m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
+                        AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo], m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
                     }
 
                     ResizeMainBitmap();
@@ -629,31 +649,23 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
         }
     }
 
-    CString _tcsstr;
-
-    if (m_pSpriteOverrideTexture != nullptr)
+    if (m_ppSpriteOverrideTexture[nSrcIndex])
     {
-        // Only replace the base sprite.  We just won't show any further paired sprites.
-        if (nSrcIndex == 0)
-        {
-            OutputDebugString(_T("CImgDisp::CustomBlt: Loading alternate sprite.\n"));
-            pImgData = m_pSpriteOverrideTexture;
-            nWidth = m_nTextureOverrideW;
-            nHeight = m_nTextureOverrideH;
+        CString strInfo;
+        strInfo.Format(L"CImgDisp::CustomBlt: Loading alternate sprite for sprite %u", nSrcIndex);
+        OutputDebugString(strInfo.GetString());
+        pImgData = m_ppSpriteOverrideTexture[nSrcIndex];
+        nWidth = m_nTextureOverrideW[nSrcIndex];
+        nHeight = m_nTextureOverrideH[nSrcIndex];
 
-            // Reset the rect now that W/H have changed...
-            rImgRct.left = -(m_nTextureOverrideW / 2) + (MAIN_W / 2);
-            rImgRct.right = (m_nTextureOverrideW / 2) + (MAIN_W / 2);
-            rImgRct.top = -(m_nTextureOverrideH / 2) + (MAIN_H / 2);
-            rImgRct.bottom = (m_nTextureOverrideH / 2) + (MAIN_H / 2);
+        // Reset the rect now that W/H have changed...
+        rImgRct.left = -(m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
+        rImgRct.right = (m_nTextureOverrideW[nSrcIndex] / 2) + (MAIN_W / 2);
+        rImgRct.top = -(m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
+        rImgRct.bottom = (m_nTextureOverrideH[nSrcIndex] / 2) + (MAIN_H / 2);
 
-            xWidth = rImgRct.left;
-            yHeight = rImgRct.top;
-        }
-        else
-        {
-            return FALSE;
-        }
+        xWidth = ptOffs[nSrcIndex].x + rImgRct.left + abs(nXOffsTop);
+        yHeight = ptOffs[nSrcIndex].y + rImgRct.top + abs(nYOffsTop);
     }
 
     if (pImgData == nullptr)

@@ -86,7 +86,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
                 {
                     mii.cbSize = sizeof(MENUITEMINFO);
                     mii.fMask = MIIM_ID | MIIM_STRING;
-                    mii.wID = pSupportedGameList[nGamePos].nInternalGameIndex | nGameLoadROMListMask;
+                    mii.wID = pSupportedGameList[nGamePos].nInternalGameIndex | k_nGameLoadROMListMask;
                     mii.dwTypeData = (LPWSTR)pSupportedGameList[nGamePos].szGameFriendlyName;
 
                     platformMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
@@ -135,7 +135,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         miiNew.hSubMenu = gameMenu.Detach();   // Detach() to keep the pop-up menu alive
         miiNew.dwTypeData = L"Load ROM by game";
 
-        pPopupMenu->SetMenuItemInfoW(ID_FILE_OPEN_BY_GAME, &miiNew, FALSE);
+        pPopupMenu->SetMenuItemInfo(ID_FILE_OPEN_BY_GAME, &miiNew, FALSE);
     }
     else if (pPopupMenu == m_SubEditMenu)
     {

@@ -637,7 +637,8 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
 
     if (out_img.Create(output_width, output_height, 32, dwExportFlags))
     {
-        if (dwExportFlags == CImage::createAlphaChannel)
+        const bool fUsingAlphaChannel = dwExportFlags == CImage::createAlphaChannel;
+        if (fUsingAlphaChannel)
         {
             m_DumpBmp.UpdateCtrl(FALSE, (UINT8*)out_img.GetBits());
         }
@@ -656,7 +657,7 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
             MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
         }
 
-        if (!bTransPNG)
+        if (!fUsingAlphaChannel)
         {
             out_img.ReleaseDC();
         }
@@ -669,7 +670,6 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
     {
         MessageBox(_T("Image export failed: Failed to create the image file."), GetHost()->GetAppName(), MB_ICONERROR);
     }
-
 }
 
 void CImgOutDlg::OnFileSave()

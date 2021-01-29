@@ -63,7 +63,8 @@ public:
     afx_msg void OnFileExportImg();
     afx_msg void OnSettingsUseBackgroundColor();
     afx_msg void OnSettingsClickToFindColor();
-    afx_msg void OnLoadCustomSprite();
+    afx_msg void OnLoadCustomSprite(UINT nPositionToLoadTo = 0);
+    afx_msg void OnLoadCustomSpriteForZero() { OnLoadCustomSprite(0); };
 
-    void LoadCustomSpriteFromPath(TCHAR* pszPath);
+    void LoadCustomSpriteFromPath(UINT nPositionToLoadTo, WCHAR* pszPath);
 };

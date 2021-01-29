@@ -48,9 +48,12 @@ BEGIN_MESSAGE_MAP(CPreviewDlg, CDialog)
     ON_WM_INITMENUPOPUP()
     ON_COMMAND(ID_SETTINGS_RESETBACKGROUNDOFFSET, &CPreviewDlg::OnResetBackgroundOffset)
     ON_COMMAND(ID_FILE_EXPORTIMAGE, &CPreviewDlg::OnFileExportImg)
-    ON_COMMAND(ID_FILE_LOADSPRITE, &CPreviewDlg::OnLoadCustomSprite)
+    ON_COMMAND(ID_FILE_LOADSPRITE, &CPreviewDlg::OnLoadCustomSpriteForZero)
     ON_COMMAND(ID_SETTINGS_USEBGCOLOR, &CPreviewDlg::OnSettingsUseBackgroundColor)
     ON_COMMAND(ID_SETTINGS_CLICKANDFIND, &CPreviewDlg::OnSettingsClickToFindColor)
+
+    ON_COMMAND_RANGE(k_nTextureLoadCommandMask, k_nTextureLoadCommandMask + MAX_IMAGES_DISPLAYABLE, &CPreviewDlg::OnLoadCustomSprite)
+
 END_MESSAGE_MAP()
 
 void CPreviewDlg::InitDispCtrl()
@@ -82,14 +85,6 @@ void CPreviewDlg::OnShowWindow(BOOL bShow, UINT nStatus)
     {
         InitDispCtrl();
     }
-
-    CMenu* pSettMenu = GetMenu()->GetSubMenu(2); //2 = zoom menu
-
-    double fpCurrZoom = m_ImgDisp.GetZoom();
-    pSettMenu->CheckMenuItem(ID_ZOOM_1X, MF_BYCOMMAND | ((fpCurrZoom == 1.0) ? MF_CHECKED : MF_UNCHECKED));
-    pSettMenu->CheckMenuItem(ID_ZOOM_2X, MF_BYCOMMAND | ((fpCurrZoom == 2.0) ? MF_CHECKED : MF_UNCHECKED));
-    pSettMenu->CheckMenuItem(ID_ZOOM_3X, MF_BYCOMMAND | ((fpCurrZoom == 3.0) ? MF_CHECKED : MF_UNCHECKED));
-    pSettMenu->CheckMenuItem(ID_ZOOM_4X, MF_BYCOMMAND | ((fpCurrZoom == 4.0) ? MF_CHECKED : MF_UNCHECKED));
 }
 
 void CPreviewDlg::OnSize(UINT nType, int cx, int cy)
@@ -340,6 +335,60 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
 {
     CDialog::OnInitMenuPopup(pPopupMenu, nIndex, bSysMenu);
 
+    CMenu* pFileMenu = GetMenu()->GetSubMenu(0); // edit menu
+
+    if (pFileMenu == pPopupMenu)
+    {
+        const bool fGameLoaded = GetHost()->GetCurrGame();
+        pPopupMenu->EnableMenuItem(ID_FILE_EXPORTIMAGE, !fGameLoaded);
+        pPopupMenu->EnableMenuItem(ID_FILE_LOADSPRITE, !fGameLoaded);
+
+        if (fGameLoaded)
+        {
+            // Since the optional submenu is dynamically sized, reset everything...
+            pPopupMenu->DeleteMenu(ID_FILE_LOADSPRITE, MF_BYCOMMAND);
+
+            const int nPaletteCount = GetHost()->GetPalModDlg()->MainPalGroup->GetPalAmt();
+
+            MENUITEMINFO miiNew = { 0 };
+            miiNew.cbSize = sizeof(MENUITEMINFO);
+            miiNew.dwTypeData = L"Load Texture";
+            miiNew.wID = ID_FILE_LOADSPRITE;
+
+            // For multisprite palettes, enable loading to any given sprite slot
+            if (nPaletteCount > 1)
+            {
+                MENUITEMINFO mii = { 0 };
+                int nCurrentPosition = 1; // after Export
+                CMenu spriteMenu;
+                spriteMenu.CreatePopupMenu();
+                CString strMenuName;
+
+                for (int nSpritePos = 0; nSpritePos < nPaletteCount; nSpritePos++)
+                {
+                    mii.cbSize = sizeof(MENUITEMINFO);
+                    mii.fMask = MIIM_ID | MIIM_STRING;
+                    mii.wID = nSpritePos | k_nTextureLoadCommandMask;
+                    strMenuName.Format(L"Load Texture for Palette %u", nSpritePos);
+
+                    mii.dwTypeData = (LPWSTR)strMenuName.GetString();
+
+                    spriteMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
+                }
+
+                miiNew.fMask = MIIM_ID | MIIM_SUBMENU | MIIM_STRING;
+                miiNew.hSubMenu = spriteMenu.Detach();   // Detach() to keep the pop-up menu alive
+            }
+            else
+            {
+                miiNew.fMask = MIIM_ID | MIIM_STRING;
+                miiNew.hSubMenu = nullptr;
+            }
+
+            pPopupMenu->InsertMenuItemW(1, &miiNew, TRUE);
+        }
+    }
+
     CMenu* pSettMenu = GetMenu()->GetSubMenu(1); //1 = settings menu
 
     if (pSettMenu == pPopupMenu)
@@ -348,6 +397,17 @@ void CPreviewDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
         pSettMenu->CheckMenuItem(ID_SETTINGS_USEBGCOLOR, m_ImgDisp.IsUsingBGCol() ? MF_CHECKED : MF_UNCHECKED);
         pSettMenu->CheckMenuItem(ID_SETTINGS_CLICKANDFIND, m_ImgDisp.GetClickToFindColorSetting() ? MF_CHECKED : MF_UNCHECKED);
         //pSettMenu->EnableMenuItem(ID_SETTINGS_RESETBACKGROUNDOFFSET, m_ImgDisp.IsBGTiled());
+    }
+
+    CMenu* pZoomMenu = GetMenu()->GetSubMenu(2); //2 = Zoom menu
+
+    if (pZoomMenu == pPopupMenu)
+    {
+        double fpCurrZoom = m_ImgDisp.GetZoom();
+        pZoomMenu->CheckMenuItem(ID_ZOOM_1X, MF_BYCOMMAND | ((fpCurrZoom == 1.0) ? MF_CHECKED : MF_UNCHECKED));
+        pZoomMenu->CheckMenuItem(ID_ZOOM_2X, MF_BYCOMMAND | ((fpCurrZoom == 2.0) ? MF_CHECKED : MF_UNCHECKED));
+        pZoomMenu->CheckMenuItem(ID_ZOOM_3X, MF_BYCOMMAND | ((fpCurrZoom == 3.0) ? MF_CHECKED : MF_UNCHECKED));
+        pZoomMenu->CheckMenuItem(ID_ZOOM_4X, MF_BYCOMMAND | ((fpCurrZoom == 4.0) ? MF_CHECKED : MF_UNCHECKED));
     }
 }
 
@@ -359,21 +419,9 @@ void CPreviewDlg::OnResetBackgroundOffset()
     m_ImgDisp.UpdateCtrl();
 }
 
-void CPreviewDlg::LoadCustomSpriteFromPath(TCHAR *pszPath)
+void CPreviewDlg::LoadCustomSpriteFromPath(UINT nPositionToLoadTo, WCHAR* pszPath)
 {
-    if (GetHost()->GetPalModDlg()->MainPalGroup->GetPalAmt() > 1)
-    {
-        // We are currently displaying multiple palettes, probably paired.
-        // But since we only allow override one sprite, let the user know that only the first
-        // palette is going to be used in the preview.
-        CString strError;
-        if (strError.LoadString(ID_WARNING_1SPRITE2PALS))
-        {
-            MessageBox(strError, GetHost()->GetAppName(), MB_ICONEXCLAMATION);
-        }
-    }
-
-    if (m_ImgDisp.LoadExternalSprite(pszPath))
+    if (m_ImgDisp.LoadExternalSprite(nPositionToLoadTo, pszPath))
     {
         m_ImgDisp.UpdateCtrl();
     }
@@ -387,7 +435,7 @@ void CPreviewDlg::LoadCustomSpriteFromPath(TCHAR *pszPath)
     }
 }
 
-void CPreviewDlg::OnLoadCustomSprite()
+void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/)
 {
     if (GetHost()->GetCurrGame())
     {
@@ -395,7 +443,9 @@ void CPreviewDlg::OnLoadCustomSprite()
 
         if (OpenDialog.DoModal() == IDOK)
         {
-            LoadCustomSpriteFromPath(OpenDialog.GetPathName().GetBuffer());
+            UINT nCorrectedPosition = (nPositionToLoadTo >= k_nTextureLoadCommandMask) ? nPositionToLoadTo - k_nTextureLoadCommandMask : nPositionToLoadTo;
+            // eliminate the k_nTextureLoadCommandMask mask for usage...
+            LoadCustomSpriteFromPath(nCorrectedPosition, OpenDialog.GetPathName().GetBuffer());
         }
     }
     else
@@ -410,7 +460,7 @@ void CPreviewDlg::OnLoadCustomSprite()
 
 void CPreviewDlg::OnFileExportImg()
 {
-    if (m_ImgDisp.GetImgBuffer()[0])
+    if (m_ImgDisp.HaveImageData())
     {
         if (GetHost()->GetCurrGame())
         {

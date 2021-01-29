@@ -193,7 +193,8 @@ struct sSupportedGameList
     int nListedGameIndex = INVALID_UNIT_VALUE;
 };
 
-const int nGameLoadROMListMask = 0xf0000;
+const int k_nTextureLoadCommandMask = 0xff00;
+const int k_nGameLoadROMListMask = 0xf0000;
 extern sSupportedGameList* pSupportedGameList;
 extern const int nNumberOfLoadROMOptions;
 

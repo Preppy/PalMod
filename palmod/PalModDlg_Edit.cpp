@@ -162,7 +162,7 @@ BOOL CPalDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT 
             }
             else if (_wcsicmp(pszExtension, L".raw") == 0)
             {
-                GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(szPath);
+                GetHost()->GetPreviewDlg()->LoadCustomSpriteFromPath(0, szPath);
             }
         }
     }

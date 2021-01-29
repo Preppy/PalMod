@@ -568,11 +568,6 @@ BEGIN
     IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM.  If you want to PalMod Venture, let people in the HFTF Discord server know and they'll walk you through it.\n\nAre you sure you wish to continue?"
 END
 
-STRINGTABLE
-BEGIN
-    ID_WARNING_1SPRITE2PALS "While multiple palettes are currently being shown, this sprite preview override will only be used with the first palette."
-END
-
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 

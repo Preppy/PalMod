@@ -115,11 +115,12 @@ private:
     int MAIN_W = 0, MAIN_H = 0;
 
     // This should be converted over to an sImageNode probably...
-    UINT8* m_pSpriteOverrideTexture = nullptr;
+    UINT8* m_ppSpriteOverrideTexture[MAX_IMAGES_DISPLAYABLE] = { nullptr };
+    int m_nTextureOverrideW[MAX_IMAGES_DISPLAYABLE] = { 0 };
+    int m_nTextureOverrideH[MAX_IMAGES_DISPLAYABLE] = { 0 };
+
     sPalDef* m_pBackupPaletteDef = nullptr;
     COLORREF* m_pBackupAltPalette = nullptr;
-    int m_nTextureOverrideW = 0;
-    int m_nTextureOverrideH = 0;
 
 public:
     CImgDisp();
@@ -152,11 +153,13 @@ public:
     int GetBGYOffs() { return nBGYOffs; };
 
     sImgNode** GetImgBuffer() { return pImgBuffer; };
+    // Note that we only check for the 0 sprite: export keys off of that.
+    bool HaveImageData() { return pImgBuffer[0] && pImgBuffer[0]->pImgData; };
     CRect GetImgRct() { return rImgRct; }; // currently unused: commented out in imgdumpbmp.cpp
 
     void UpdateImgPalette(int nIndex, COLORREF* pPalette, int nPalSz);
 
-    bool LoadExternalSprite(TCHAR* szTextureLocation);
+    bool LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* szTextureLocation);
     void AssignBackupPalette(sPalDef* pBackupPaletteDef);
     bool DoWeHaveImageForIndex(int nIndex);
     
