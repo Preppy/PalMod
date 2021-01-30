@@ -241,6 +241,7 @@
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
     <ClCompile Include="Game\Game_KarnovsR_A.cpp" />
+    <ClCompile Include="Game\Game_Kizuna_A.cpp" />
     <ClCompile Include="Game\Game_KOF01_A.cpp" />
     <ClCompile Include="Game\Game_KOF02UM_S.cpp" />
     <ClCompile Include="Game\Game_KOF02_A.cpp" />
@@ -355,6 +356,7 @@
     <ClInclude Include="Game\Game_JOJOS_A.h" />
     <ClInclude Include="Game\Game_JOJOS_A_DIR.h" />
     <ClInclude Include="Game\Game_KarnovsR_A.h" />
+    <ClInclude Include="Game\Game_Kizuna_A.h" />
     <ClInclude Include="Game\Game_KOF01_A.h" />
     <ClInclude Include="Game\Game_KOF02UM_S.h" />
     <ClInclude Include="Game\Game_KOF02_A.h" />
@@ -412,6 +414,7 @@
     <ClInclude Include="Game\ImgTicket.h" />
     <ClInclude Include="Game\JOJOS_A_DEF.h" />
     <ClInclude Include="Game\KarnovsR_A_DEF.h" />
+    <ClInclude Include="Game\KIZUNA_A_DEF.h" />
     <ClInclude Include="Game\KOF01_A_DEF.h" />
     <ClInclude Include="Game\KOF02UM_S_DEF.h" />
     <ClInclude Include="Game\KOF02_A_DEF.h" />

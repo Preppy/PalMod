@@ -16,6 +16,7 @@
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
 #include "Game_KarnovsR_A.h"
+#include "Game_Kizuna_A.h"
 #include "Game_KOF01_A.h"
 #include "Game_KOF02_A.h"
 #include "Game_KOF02UM_S.h"
@@ -193,6 +194,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case KarnovsR_A:
     {
         GetRule = &CGame_KarnovsR_A::GetRule;
+        return TRUE;
+    }
+    case KIZUNA_A:
+    {
+        GetRule = &CGame_Kizuna_A::GetRule;
         return TRUE;
     }
     case KOF94_A:
@@ -575,6 +581,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case KarnovsR_A:
     {
         return new CGame_KarnovsR_A(nConfirmedROMSize);
+    }
+    case KIZUNA_A:
+    {
+        return new CGame_Kizuna_A(nConfirmedROMSize);
     }
     case KOF94_A:
     {

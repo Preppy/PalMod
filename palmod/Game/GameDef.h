@@ -86,6 +86,7 @@ enum SupportedGamesList
     SAMSHO5_A,
     RBFF1_A,
     RBFF2_A,
+    KIZUNA_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -175,6 +176,7 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Samurai Shodown 5",
    L"Real Bout Fatal Fury",
    L"Real Bout Fatal Fury 2",
+   L"Kizuna Encounter",
 };
 
 enum class GamePlatform
