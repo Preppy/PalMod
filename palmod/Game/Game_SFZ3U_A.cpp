@@ -1,36 +1,36 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_CVS2_A.h"
+#include "Game_SFZ3U_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define CVS2_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define SFZ3U_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_CVS2_A::CVS2_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_SFZ3U_A::SFZ3U_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_CVS2_A::MainDescTree = nullptr;
+CDescTree CGame_SFZ3U_A::MainDescTree = nullptr;
 
-int CGame_CVS2_A::rgExtraCountAll[CVS2_A_NUMUNIT + 1];
-int CGame_CVS2_A::rgExtraLoc[CVS2_A_NUMUNIT + 1];
+int CGame_SFZ3U_A::rgExtraCountAll[SFZ3U_A_NUMUNIT + 1];
+int CGame_SFZ3U_A::rgExtraLoc[SFZ3U_A_NUMUNIT + 1];
 
-UINT32 CGame_CVS2_A::m_nTotalPaletteCountForCVS2 = 0;
-UINT32 CGame_CVS2_A::m_nExpectedGameROMSize = 0x9800000;  // 159,383,552 bytes
-UINT32 CGame_CVS2_A::m_nConfirmedROMSize = -1;
+UINT32 CGame_SFZ3U_A::m_nTotalPaletteCountForSFZ3U = 0;
+UINT32 CGame_SFZ3U_A::m_nExpectedGameROMSize = 0xac00000;
+UINT32 CGame_SFZ3U_A::m_nConfirmedROMSize = -1;
 
-void CGame_CVS2_A::InitializeStatics()
+void CGame_SFZ3U_A::InitializeStatics()
 {
-    safe_delete_array(CGame_CVS2_A::CVS2_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_SFZ3U_A::SFZ3U_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_CVS2_A::InitDescTree());
+    MainDescTree.SetRootTree(CGame_SFZ3U_A::InitDescTree());
 }
 
-CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
+CGame_SFZ3U_A::CGame_SFZ3U_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_CVS2_A::CGame_CVS2_A: Loading ROM...\n"));
+    strMessage.Format(L"CGame_SFZ3U_A::CGame_SFZ3U_A: Loading ROM...\n");
     OutputDebugString(strMessage);
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
@@ -45,24 +45,24 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = CVS2_A_NUMUNIT;
-    m_nExtraUnit = CVS2_A_EXTRALOC;
+    m_nTotalInternalUnits = SFZ3U_A_NUMUNIT;
+    m_nExtraUnit = SFZ3U_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2296;
-    m_pszExtraFilename = EXTRA_FILENAME_CVS2_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForCVS2;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1140;
+    m_pszExtraFilename = EXTRA_FILENAME_SFZ3U_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForSFZ3U;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x1488e80;
+    m_nLowestKnownPaletteRomLocation = 0x5ff0000;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
     //Set game information
-    nGameFlag = CVS2_A;
-    nImgGameFlag = IMGDAT_SECTION_CVS2;
-    m_prgGameImageSet = CVS2_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(CVS2_A_IMG_UNITS);
+    nGameFlag = SFZ3U_A;
+    nImgGameFlag = IMGDAT_SECTION_CPS2;
+    m_prgGameImageSet = SFZ3U_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SFZ3U_A_IMG_UNITS);
 
     nFileAmt = 1;
 
@@ -70,8 +70,8 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_CVS2;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_CVS2);
+    pButtonLabelSet = DEF_BUTTONLABEL_ISMS;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_ISMS);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -81,27 +81,27 @@ CGame_CVS2_A::CGame_CVS2_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_CVS2_A::~CGame_CVS2_A(void)
+CGame_SFZ3U_A::~CGame_SFZ3U_A(void)
 {
-    safe_delete_array(CGame_CVS2_A::CVS2_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_SFZ3U_A::SFZ3U_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-CDescTree* CGame_CVS2_A::GetMainTree()
+CDescTree* CGame_SFZ3U_A::GetMainTree()
 {
-    return &CGame_CVS2_A::MainDescTree;
+    return &CGame_SFZ3U_A::MainDescTree;
 }
 
-int CGame_CVS2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_SFZ3U_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((CVS2_A_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((SFZ3U_A_NUMUNIT + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForCVS2(0);
+        stExtraDef* pCurrDef = GetExtraDefForSFZ3U(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -111,22 +111,22 @@ int CGame_CVS2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForCVS2(nDefCtr);
+            pCurrDef = GetExtraDefForSFZ3U(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-int CGame_CVS2_A::GetExtraLoc(UINT16 nUnitId)
+int CGame_SFZ3U_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (CVS2_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (SFZ3U_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForCVS2(0);
+        stExtraDef* pCurrDef = GetExtraDefForSFZ3U(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -137,138 +137,191 @@ int CGame_CVS2_A::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForCVS2(nDefCtr);
+            pCurrDef = GetExtraDefForSFZ3U(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-void CGame_CVS2_A::DumpAllCharacters()
+struct sSFZ3U_A_CharacterData
 {
-    //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
+    LPCWSTR pszCharacterName = nullptr;
+    LPCWSTR pszCharacterImageName = nullptr;
+    UINT32 nROMOffset = 0;
+    UINT32 nImagePortraitSetIndex = 0;
+    UINT32 nImageMainSpriteIndex = 0;
+    bool fSpriteIsPaired = false;
+};
+
+sSFZ3U_A_CharacterData SFZ3U_A_CharacterDataArray[] =
+{
+    { L"Ryu",       L"Ryu",     0x5ff0000, 0xB4 },
+    { L"Ken",       L"Ken",     0x60bd800, 0xAF },
+    { L"Akuma",     L"Akuma",   0x61B7000, 0xA1 }, // Gouki
+    { L"Charlie",   L"Charlie", 0x634b000, 0xA5 }, // Nash
+    { L"Chun-Li",   L"ChunLi",  0x6428000, 0xA6, 0x0c, true }, // Chun (NOTE: Chun has a special non-X-ISM portrait, A7)
+    { L"Adon",      L"Adon",    0x65d7000, 0xA0 },
+    { L"Sodom",     L"Sodom",   0x66de000, 0xB7 },
+    { L"Guy",       L"Guy",     0x68bd000, 0xAD },
+    { L"Birdie",    L"Birdie",  0x69d4000, 0xA2 },
+    { L"Rose",      L"Rose",    0x6b01000, 0xB3 },
+    { L"M.Bison",   L"Bison",   0x6c3d000, 0xB0 }, // Dict
+    { L"Sagat",     L"Sagat",   0x6d43800, 0xB5 },
+    { L"Dan",       L"Dan",     0x6e09800, 0xA9 },
+    { L"Sakura",    L"Sakura",  0x6f54000, 0xB6 },
+    { L"Rolento",   L"Rolento", 0x7076800, 0xB2 },
+    { L"Dhalsim",   L"Dhalsim", 0x7190000, 0xAA },
+
+    { L"Zangief",   L"Zangief", 0x732c000, 0xB9 },
+    { L"Gen",       L"Gen",     0x7451000, 0xAC },
+    { L"Chun-Li (X-Ism)", L"ChunLi", 0x64eb000, 0xa6, 0x00, true },
+    { L"Gen (Crane stance)", L"Gen", 0x7546800, 0xac },
+    { L"Sodom (X-Ism)", L"Sodom", 0x67EC000, 0xB7 },
+    { L"Balrog",    L"Balrog",  0x75fd000, 0xff },
+    { L"Cammy",     L"Cammy",   0x77ee000, 0xA4 },
+    { L"Evil Ryu",  L"Ryu",     0x791e000, 0xb4 },
+    { L"E.Honda",   L"EHonda",  0x7a0b800, 0xAB },
+    { L"Blanka",    L"Blanka",  0x7b8a800, 0xA3 },
+    { L"R.Mika",    L"RMika",   0x7d0e800, 0xB1 },
+    { L"Cody",      L"Cody",    0x7e78000, 0xA8 },
+    { L"Vega",      L"Vega",    0x7fb4000, 0xB8, 0x00, true },
+    { L"Karin",     L"Karin",   0x80eb000, 0xAE },
+    { L"Juli",      L"Juli",    0x820f800, 0xff },
+    { L"Juni",      L"Juni",    0x831e000, 0xff },
+
+    { L"Guile",     L"Guile",   0x8444000, 0xff },
+    { L"Fei Long",  L"FeiLong", 0x8562000, 0xff },
+    { L"Dee Jay",   L"DeeJay",  0x8660000, 0xff },
+    { L"T-Hawk",    L"THawk",   0x87b6800, 0xff },
+    { L"Shin Akuma", L"Akuma",  0x627B000, 0xA1 },
+    { L"Balrog (Finished)", L"Balrog",  0x76EC000, 0xff },
+    // ... is Eagle actually present?
+    //{ L"Eagle",     L"Eagle",   0x8c26b40, 0xff },
+};
+
+const LPCWSTR SFZ3U_ColorOptionNames[] =
+{
+    L"X-Ism Punch",
+    L"X-Ism Kick",
+    L"A-Ism Punch",
+    L"A-Ism Kick",
+    L"V-Ism Punch",
+    L"V-Ism Kick"
+};
+
+const LPCWSTR SFZ3U_CharacterPaletteNames[] =
+{
+    L"",
+    L" Extra 1",
+    L" Extra 2",
+    L" Super Trail Light",
+    L" Super Trail Dark"
+};
+
+void CGame_SFZ3U_A::DumpAllCharacters()
+{
+    CString strOutput;
+
+    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFZ3U_A_CharacterDataArray); nIndex++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
-        const UINT16 k_nCharacterColorCount = ARRAYSIZE(DEF_BUTTONLABEL_CVS2);
-        CString strOutput;
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFZ3U_A_CharacterDataArray[nIndex].pszCharacterName);
 
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
-
-        for (UINT16 iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
+        for (UINT16 nColorIndex = 0; nColorIndex < ARRAYSIZE(SFZ3U_ColorOptionNames); nColorIndex++)
         {
-            nCurrentCharacterOffset = CVS2_CharacterOffsetArray[iUnitCtr].romOffset + (0xc0 * iButtonIndex);
+            WCHAR szIsmDesc[MAX_DESCRIPTION_LENGTH];
+            StrRemoveNonASCII(szIsmDesc, ARRAYSIZE(szIsmDesc), SFZ3U_ColorOptionNames[nColorIndex]);
 
-            strOutput.Format(_T("const sGame_PaletteDataset CVS2_A_%s_PALETTES_%s[] =\r\n{\r\n"), szCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex]);
+            const UINT16 nPortraitsPerCharacter = 6;
+            strOutput.Format(L"const sGame_PaletteDataset SFZ3U_A_%s_PALETTES_%s[] = \r\n{\r\n", szCodeDesc, szIsmDesc);
             OutputDebugString(strOutput);
 
-            strOutput.Format(_T("    { _T(\"Main Sprite\"), 0x%07x, 0x%07x, %s },\r\n"), 
-                nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
-                CVS2_CharacterOffsetArray[iUnitCtr].pszImageRefName);
-
-            OutputDebugString(strOutput);
-            nCurrentCharacterOffset += 0x20;
-            nPaletteCount++;
-
-            for (UINT16 iCurrentExtra = 1; iCurrentExtra < 6; iCurrentExtra++)
+            for (UINT16 nPaletteIndex = 0; nPaletteIndex < ARRAYSIZE(SFZ3U_CharacterPaletteNames); nPaletteIndex++)
             {
-                const sCVS2_ExtraPair* extraPairInfo = nullptr;
+                const UINT32 PALETTE_LENGTH = 0x20;
+                CString strColorName;
+                strColorName.Format(L"%s%s", SFZ3U_ColorOptionNames[nColorIndex], SFZ3U_CharacterPaletteNames[nPaletteIndex]);
+                UINT16 nPaletteSpriteIndex;
 
-                switch (iCurrentExtra)
+                switch (nPaletteIndex)
                 {
+                default:
+                    nPaletteSpriteIndex = SFZ3U_A_CharacterDataArray[nIndex].nImageMainSpriteIndex;
+                    break;
                 case 1:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra1);
+                    nPaletteSpriteIndex = 1;
                     break;
                 case 2:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra2);
-                    break;
-                case 3:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra3);
-                    break;
-                case 4:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra4);
-                    break;
-                case 5:
-                    extraPairInfo = &(CVS2_CharacterOffsetArray[iUnitCtr].sExtra5);
+                    nPaletteSpriteIndex = 2;
                     break;
                 }
 
-                if (extraPairInfo && extraPairInfo->pszExtraName)
-                {
-                    strOutput.Format(_T("    { _T(\"%s\"), 0x%07x, 0x%07x, %s, %u },\r\n"), 
-                        extraPairInfo->pszExtraName, 
-                        nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20,
-                        CVS2_CharacterOffsetArray[iUnitCtr].pszImageRefName, extraPairInfo->nImgIndex);
-                }
-                else
-                {
-                    strOutput.Format(_T("    { _T(\"Extra %u\"), 0x%07x, 0x%07x },\r\n"), iCurrentExtra,
-                        nCurrentCharacterOffset, nCurrentCharacterOffset + 0x20);
-                }
-
+                strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, indexCPS2_%s, 0x%02x%s },\r\n", strColorName.GetString(), 
+                    SFZ3U_A_CharacterDataArray[nIndex].nROMOffset + (PALETTE_LENGTH * nPaletteIndex) + (nColorIndex * ARRAYSIZE(SFZ3U_CharacterPaletteNames) * PALETTE_LENGTH),
+                    SFZ3U_A_CharacterDataArray[nIndex].nROMOffset + (PALETTE_LENGTH * (nPaletteIndex + 1)) + (nColorIndex * ARRAYSIZE(SFZ3U_CharacterPaletteNames) * PALETTE_LENGTH),
+                    SFZ3U_A_CharacterDataArray[nIndex].pszCharacterImageName, nPaletteSpriteIndex, SFZ3U_A_CharacterDataArray[nIndex].fSpriteIsPaired ? L", &pairNext" : L"");
                 OutputDebugString(strOutput);
-                nCurrentCharacterOffset += 0x20;
-                nPaletteCount++;
             }
-
-            OutputDebugString(_T("};\r\n\r\n"));
+            OutputDebugString(L"};\r\n\r\n");
         }
+    }
 
-        // Now create the collection...
-        strOutput.Format(_T("const sDescTreeNode CVS2_A_%s_COLLECTION[] =\r\n{\r\n"), szCodeDesc);
+    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFZ3U_A_CharacterDataArray); nIndex++)
+    {
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFZ3U_A_CharacterDataArray[nIndex].pszCharacterName);
+
+        strOutput.Format(L"const sDescTreeNode SFZ3U_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
-        for (UINT16 iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
+        for (UINT16 nColorIndex = 0; nColorIndex < ARRAYSIZE(SFZ3U_ColorOptionNames); nColorIndex++)
         {
-            strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)CVS2_A_%s_PALETTES_%s, ARRAYSIZE(CVS2_A_%s_PALETTES_%s) },\r\n"),
-                DEF_BUTTONLABEL_CVS2[iButtonIndex],
-                szCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex],
-                szCodeDesc, DEF_BUTTONLABEL_CVS2[iButtonIndex]);
+            WCHAR szIsmDesc[MAX_DESCRIPTION_LENGTH];
+            StrRemoveNonASCII(szIsmDesc, ARRAYSIZE(szIsmDesc), SFZ3U_ColorOptionNames[nColorIndex]);
+
+            strOutput.Format(L"    {  L\"%s\", DESC_NODETYPE_TREE, (void*)SFZ3U_A_%s_PALETTES_%s, ARRAYSIZE(SFZ3U_A_%s_PALETTES_%s) },\r\n", SFZ3U_ColorOptionNames[nColorIndex], szCodeDesc, szIsmDesc, szCodeDesc, szIsmDesc);
             OutputDebugString(strOutput);
         }
 
-        OutputDebugString(_T("};\r\n\r\n"));
+        OutputDebugString(L"};\r\n\r\n");
     }
 
-    for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(CVS2_CharacterOffsetArray); iUnitCtr++)
+    OutputDebugString(L"const sDescTreeNode SFZ3U_A_UNITS[] =\r\n    {\r\n");
+
+    for (UINT16 nIndex = 0; nIndex < ARRAYSIZE(SFZ3U_A_CharacterDataArray); nIndex++)
     {
-        UINT32 nCurrentCharacterOffset = 0;
-        UINT16 nPaletteCount = 0;
-        CString strOutput;
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFZ3U_A_CharacterDataArray[nIndex].pszCharacterName);
 
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
-
-
-        strOutput.Format(_T("    { \"%s\", DESC_NODETYPE_TREE, (void*)CVS2_A_%s_COLLECTION, ARRAYSIZE(CVS2_A_%s_COLLECTION) },\r\n"), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName,
-                                        szCodeDesc, szCodeDesc);
+        strOutput.Format(L"    {  L\"%s\", DESC_NODETYPE_TREE, (void*)SFZ3U_A_%s_COLLECTION, ARRAYSIZE(SFZ3U_A_%s_COLLECTION) },\r\n", SFZ3U_A_CharacterDataArray[nIndex].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
     }
+
+    OutputDebugString(L"};\r\n\r\n");
 }
 
-sDescTreeNode* CGame_CVS2_A::InitDescTree()
+sDescTreeNode* CGame_SFZ3U_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_CVS2_A, CVS2_A_EXTRA, &CVS2_A_EXTRA_CUSTOM, CVS2_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_SFZ3U_A, SFZ3U_A_EXTRA, &SFZ3U_A_EXTRA_CUSTOM, SFZ3U_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = CVS2_A_NUMUNIT + (GetExtraCt(CVS2_A_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = SFZ3U_A_NUMUNIT + (GetExtraCt(SFZ3U_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[CVS2_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[SFZ3U_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(CVS2_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_CVS2_A::InitDescTree: Building desc tree for CVS2_A %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    bool fHaveExtras = (GetExtraCt(SFZ3U_A_EXTRALOC) > 0);
+    strMsg.Format(L"CGame_SFZ3U_A::InitDescTree: Building desc tree for SFZ3U_A %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -285,23 +338,23 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < CVS2_A_EXTRALOC)
+        if (iUnitCtr < SFZ3U_A_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), CVS2_A_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", SFZ3U_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if CVS2_A_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+#if SFZ3U_A_DEBUG
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection")
+            //Set data for each child group ("collection"
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -316,8 +369,8 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if CVS2_A_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+#if SFZ3U_A_DEBUG
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -328,25 +381,25 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if CVS2_A_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+#if SFZ3U_A_DEBUG
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -357,13 +410,13 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if CVS2_A_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+#if SFZ3U_A_DEBUG
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -374,17 +427,17 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(CVS2_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(SFZ3U_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if CVS2_A_DEBUG
-            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+#if SFZ3U_A_DEBUG
+            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -392,22 +445,22 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForCVS2(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForSFZ3U(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForCVS2(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForSFZ3U(nExtraPos + nCurrExtra);
                 }
 
                 _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((CVS2_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((SFZ3U_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if CVS2_A_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+#if SFZ3U_A_DEBUG
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -417,23 +470,23 @@ sDescTreeNode* CGame_CVS2_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_CVS2_A::InitDescTree: Loaded %u palettes for CVS2\n"), nTotalPaletteCount);
+    strMsg.Format(L"CGame_SFZ3U_A::InitDescTree: Loaded %u palettes for SFZ3U\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForCVS2 = nTotalPaletteCount;
+    m_nTotalPaletteCountForSFZ3U = nTotalPaletteCount;
 
     // For development purposes only...
-    // DumpAllCharacters();
+    DumpAllCharacters();
 
     return NewDescTree;
 }
 
-sFileRule CGame_CVS2_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_SFZ3U_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("242-p2.sp2"));
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"StreetFighterZero3Upper.bin");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -441,55 +494,55 @@ sFileRule CGame_CVS2_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_CVS2_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_SFZ3U_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == CVS2_A_EXTRALOC)
+    if (nUnitId == SFZ3U_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return CVS2_A_UNITS[nUnitId].uChildAmt;
+        return SFZ3U_A_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_CVS2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_SFZ3U_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == CVS2_A_EXTRALOC)
+    if (nUnitId == SFZ3U_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(CVS2_A_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(SFZ3U_A_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_CVS2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_SFZ3U_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == CVS2_A_EXTRALOC)
+    if (nUnitId == SFZ3U_A_EXTRALOC)
     {
-        return _T("Extra Palettes");
+        return L"Extra Palettes";
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)CVS2_A_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)SFZ3U_A_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_CVS2_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_SFZ3U_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == CVS2_A_EXTRALOC)
+    if (nUnitId == SFZ3U_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = CVS2_A_UNITS;
+        const sDescTreeNode* pCompleteROMTree = SFZ3U_A_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -499,9 +552,9 @@ UINT16 CGame_CVS2_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if CVS2_A_DEBUG
+#if SFZ3U_A_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_CVS2_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_SFZ3U_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -509,14 +562,14 @@ UINT16 CGame_CVS2_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_CVS2_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_SFZ3U_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)CVS2_A_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)SFZ3U_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_SFZ3U_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -529,7 +582,7 @@ const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == CVS2_A_EXTRALOC)
+        if (nUnitId == SFZ3U_A_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -541,7 +594,7 @@ const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(CVS2_A_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(SFZ3U_A_UNITS[nUnitId].ChildNodes);
             
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -567,7 +620,7 @@ const sDescTreeNode* CGame_CVS2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 n
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_CVS2_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_SFZ3U_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -591,9 +644,9 @@ const sGame_PaletteDataset* CGame_CVS2_A::GetSpecificPalette(UINT16 nUnitId, UIN
     return paletteToUse;
 }
 
-void CGame_CVS2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_SFZ3U_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != CVS2_A_EXTRALOC)
+     if (nUnitId != SFZ3U_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -612,10 +665,10 @@ void CGame_CVS2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // CVS2_A_EXTRALOC
+    else // SFZ3U_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForCVS2(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForSFZ3U(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
@@ -623,7 +676,7 @@ void CGame_CVS2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_CVS2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_SFZ3U_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -656,7 +709,7 @@ BOOL CGame_CVS2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != CVS2_A_EXTRALOC)
+    if (NodeGet->uUnitId != SFZ3U_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 

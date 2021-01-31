@@ -87,6 +87,7 @@ enum SupportedGamesList
     RBFF1_A,
     RBFF2_A,
     KIZUNA_A,
+    SFZ3U_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -173,10 +174,11 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Samurai Shodown IV (Arcade)",
    L"Ring of Destruction: Slam Master's II",
    L"The Last Blade 2 (Arcade)",
-   L"Samurai Shodown 5",
-   L"Real Bout Fatal Fury",
-   L"Real Bout Fatal Fury 2",
-   L"Kizuna Encounter",
+   L"Samurai Shodown 5 (NEOGEO)",
+   L"Real Bout Fatal Fury (NEOGEO)",
+   L"Real Bout Fatal Fury 2 (NEOGEO)",
+   L"Kizuna Encounter (NEOGEO)",
+   L"Street Fighter Zero 3 Upper (NAOMI)"
 };
 
 enum class GamePlatform
@@ -546,6 +548,11 @@ enum CHARACTERS_CPS2
     indexSM2Sprites_Wraith,     // 0x8f
     indexSM2Sprites_Bonus,      // 0x90
     indexSM2Sprites_Stages,     // 0x91
+
+    indexCPS2_DeeJay,
+    indexCPS2_Eagle,
+    indexCPS2_FeiLong,
+    indexCPS2_THawk,
 };
 
 const UINT16 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =

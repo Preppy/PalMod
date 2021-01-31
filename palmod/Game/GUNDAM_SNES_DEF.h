@@ -236,6 +236,18 @@ const sGame_PaletteDataset GUNDAM_MVSHARED_STAGE_PALETTES[] =
     { L"Lighting 4", 0xAF560, 0xAF580}
 };
 
+const sGame_PaletteDataset GUNDAM_PORTRAIT_PALETTES[] =
+{
+    { L"Heero Yuy", 0xAE800, 0xAE820 },
+    { L"Duo Maxwell", 0xAE820, 0xAE840 },
+    { L"Trowa Barton", 0xAE840, 0xAE860 },
+    { L"Quatre Raberba Winner", 0xAE860, 0xAE880 },
+    { L"Chang Wufei", 0xAE880, 0xAE8A0 },
+    { L"Lady Une", 0xAE8A0, 0xAE8C0 },
+    { L"Lucrezia Noin", 0xAE8C0, 0xAE8E0 },
+    { L"Zechs Marquise", 0xAE8E0, 0xAE900 },
+};
+
 const sDescTreeNode GUNDAM_WING_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)GUNDAM_WING_PALETTES_P1, ARRAYSIZE(GUNDAM_WING_PALETTES_P1) },
@@ -298,6 +310,7 @@ const sDescTreeNode GUNDAM_EPYON_COLLECTION[] =
 
 const sDescTreeNode GUNDAM_BONUS_COLLECTION[] =
 {
+    { L"Portraits", DESC_NODETYPE_TREE, (void*)GUNDAM_PORTRAIT_PALETTES, ARRAYSIZE(GUNDAM_PORTRAIT_PALETTES) },
     { L"Bonus", DESC_NODETYPE_TREE, (void*)GUNDAM_BONUS_PALETTES, ARRAYSIZE(GUNDAM_BONUS_PALETTES) },
 };
 

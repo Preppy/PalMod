@@ -58,14 +58,15 @@ CGame_SFA3_A::CGame_SFA3_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = SFA3_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = SFA3_A_NUM_IMG_UNITS;
     m_prgGameImageSet = SFA3_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(SFA3_A_IMG_UNITS);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_ISMS;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_ISMS);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

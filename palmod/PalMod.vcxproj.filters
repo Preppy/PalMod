@@ -250,6 +250,9 @@
     <Filter Include="Game\SNK Games\Kizuna Encounter">
       <UniqueIdentifier>{1e4fa757-134f-414d-8da1-fba2711f6999}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\SFZ3U_A">
+      <UniqueIdentifier>{ca5516ef-e807-4de5-b889-e11da544a6e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -548,6 +551,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_Kizuna_A.cpp">
       <Filter>Game\SNK Games\Kizuna Encounter</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFZ3U_A.cpp">
+      <Filter>Game\Capcom Games\SFZ3U_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1021,6 +1027,12 @@
     </ClInclude>
     <ClInclude Include="Game\KIZUNA_A_DEF.h">
       <Filter>Game\SNK Games\Kizuna Encounter</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFZ3U_A.h">
+      <Filter>Game\Capcom Games\SFZ3U_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SFZ3U_A_DEF.h">
+      <Filter>Game\Capcom Games\SFZ3U_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
