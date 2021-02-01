@@ -60,7 +60,7 @@ CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = RBFFS_A;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
+    nImgGameFlag = IMGDAT_SECTION_SNK;
     m_prgGameImageSet = RBFFS_A_IMG_UNITS;
     nImgUnitAmt = ARRAYSIZE(RBFFS_A_IMG_UNITS);
 

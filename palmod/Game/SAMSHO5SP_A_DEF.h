@@ -12,8 +12,16 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_A[] =
     { L"Amakusa A (Rage)", 0xe0040, 0xe0080, indexSamSho5Sprites_Amakusa },
     { L"Amakusa A (SON)", 0xe0240, 0xe0280, indexSamSho5Sprites_Amakusa },
 
-    { L"214/236D - 623S - Weapon Flashing A", 0x0e0300, 0x0e0320 },
-    { L"214S Portal A", 0x0e02c0, 0x0e02e0 },
+    { L"Amakusa A (Burning)", 0xe00c0, 0xe0100, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Shocked)", 0xe0100, 0xe0140, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Frozen/Wet)", 0xe0140, 0xe0180, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Ki)", 0xe0180, 0xe01c0, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Issen Trail)", 0xe0200, 0xe0240, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa A (Tenshou Fuu'ou Jin)", 0xe0280, 0xe0290 },
+    { L"Amakusa A (Misc Poses/Effects)", 0xe02a0, 0xe02c0 },
+    { L"Amakusa A (Oumagatoki/Misc)", 0xe02c0, 0xe02e0 },
+    { L"Amakusa A (Nanji/Misc)", 0xe0300, 0xe0320 },
+    { L"Amakusa A (Orb Slash Effect)", 0xe0390, 0xe03a0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_B[] =
@@ -22,8 +30,16 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_B[] =
     { L"Amakusa B (Rage)", 0xe0440, 0xe0480, indexSamSho5Sprites_Amakusa },
     { L"Amakusa B (SON)", 0xe0640, 0xe0680, indexSamSho5Sprites_Amakusa },
 
-    { L"214/236D - 623S - Weapon Flashing B", 0x0e0700, 0x0e0720 },
-    { L"214S Portal B", 0x0e06c0, 0x0e06e0 },
+    { L"Amakusa B (Burning)", 0xe04c0, 0xe0500, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa B (Shocked)", 0xe0500, 0xe0540, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa B (Frozen/Wet)", 0xe0540, 0xe0580, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa B (Ki)", 0xe0580, 0xe05c0, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa B (Issen Trail)", 0xe0600, 0xe0640, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa B (Tenshou Fuu'ou Jin)", 0xe0680, 0xe0690 },
+    { L"Amakusa B (Misc Poses/Effects)", 0xe06a0, 0xe06c0 },
+    { L"Amakusa B (Oumagatoki/Misc)", 0xe06c0, 0xe06e0 },
+    { L"Amakusa B (Nanji/Misc)", 0xe0700, 0xe0720 },
+    { L"Amakusa B (Orb Slash Effect)", 0xe0790, 0xe07a0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_C[] =
@@ -32,8 +48,16 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_C[] =
     { L"Amakusa C (Rage)", 0xe0840, 0xe0880, indexSamSho5Sprites_Amakusa },
     { L"Amakusa C (SON)", 0xe0a40, 0xe0a80, indexSamSho5Sprites_Amakusa },
 
-    { L"214/236D - 623S - Weapon Flashing C", 0x0e0b00, 0x0e0b20 },
-    { L"214S Portal C", 0x0e0ac0, 0x0e0ae0 },
+    { L"Amakusa C (Burning)", 0xe08c0, 0xe0900, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa C (Shocked)", 0xe0900, 0xe0940, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa C (Frozen/Wet)", 0xe0940, 0xe0980, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa C (Ki)", 0xe0980, 0xe09c0, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa C (Issen Trail)", 0xe0a00, 0xe0a40, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa C (Tenshou Fuu'ou Jin)", 0xe0a80, 0xe0a90 },
+    { L"Amakusa C (Misc Poses/Effects)", 0xe0aa0, 0xe0ac0 },
+    { L"Amakusa C (Oumagatoki/Misc)", 0xe0ac0, 0xe0ae0 },
+    { L"Amakusa C (Nanji/Misc)", 0xe0b00, 0xe0b20 },
+    { L"Amakusa C (Orb Slash Effect)", 0xe0b90, 0xe0ba0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_D[] =
@@ -42,32 +66,88 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Amakusa_PALETTES_D[] =
     { L"Amakusa D (Rage)", 0xe0c40, 0xe0c80, indexSamSho5Sprites_Amakusa },
     { L"Amakusa D (SON)", 0xe0e40, 0xe0e80, indexSamSho5Sprites_Amakusa },
 
-    { L"214/236D - 623S - Weapon Flashing D", 0x0e0f00, 0x0e0f20 },
-    { L"214S Portal D", 0x0e0ec0, 0x0e0ee0 },
+    { L"Amakusa D (Burning)", 0xe0cc0, 0xe0d00, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa D (Shocked)", 0xe0d00, 0xe0d40, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa D (Frozen/Wet)", 0xe0d40, 0xe0d80, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa D (Ki)", 0xe0d80, 0xe0dc0, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa D (Issen Trail)", 0xe0e00, 0xe0e40, indexSamSho5Sprites_Amakusa },
+    { L"Amakusa D (Tenshou Fuu'ou Jin)", 0xe0e80, 0xe0e90 },
+    { L"Amakusa D (Misc Poses/Effects)", 0xe0ea0, 0xe0ec0 },
+    { L"Amakusa D (Oumagatoki/Misc)", 0xe0ec0, 0xe0ee0 },
+    { L"Amakusa D (Nanji/Misc)", 0xe0f00, 0xe0f20 },
+    { L"Amakusa D (Orb Slash Effect)", 0xe0f90, 0xe0fa0 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_A[] =
 {
     { L"Basara A (Normal/Rage)", 0xdd000, 0xdd040, indexSamSho5Sprites_Basara },
     { L"Basara A (SON)", 0xdd240, 0xdd280, indexSamSho5Sprites_Basara },
+
+    { L"Basara A (Burning)", 0xdd0c0, 0xdd100, indexSamSho5Sprites_Basara },
+    { L"Basara A (Shocked)", 0xdd100, 0xdd140, indexSamSho5Sprites_Basara },
+    { L"Basara A (Frozen/Wet)", 0xdd140, 0xdd180, indexSamSho5Sprites_Basara },
+    { L"Basara A (Ki)", 0xdd180, 0xdd1c0, indexSamSho5Sprites_Basara },
+    { L"Basara A (Nuedama/Sashiashi)", 0xdd1c0, 0xdd1e0 },
+    { L"Basara A (Issen Trail)", 0xdd200, 0xdd240, indexSamSho5Sprites_Basara },
+    { L"Basara A (Bats)", 0xdd280, 0xdd2a0 },
+    { L"Basara A (Kagaribi)", 0xdd2a0, 0xdd2c0 },
+    { L"Basara A (Kage Damashi)", 0xdd300, 0xdd340, indexSamSho5Sprites_Basara },
+    { L"Basara A (Chisashi/Sorashi)", 0xdd340, 0xdd350 },
+    { L"Basara A (Slash Effects)", 0xdd350, 0xdd360 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_B[] =
 {
     { L"Basara B (Normal/Rage)", 0xdd400, 0xdd440, indexSamSho5Sprites_Basara },
     { L"Basara B (SON)", 0xdd640, 0xdd680, indexSamSho5Sprites_Basara },
+
+    { L"Basara B (Burning)", 0xdd4c0, 0xdd500, indexSamSho5Sprites_Basara },
+    { L"Basara B (Shocked)", 0xdd500, 0xdd540, indexSamSho5Sprites_Basara },
+    { L"Basara B (Frozen/Wet)", 0xdd540, 0xdd580, indexSamSho5Sprites_Basara },
+    { L"Basara B (Ki)", 0xdd580, 0xdd5c0, indexSamSho5Sprites_Basara },
+    { L"Basara B (Nuedama/Sashiashi)", 0xdd5c0, 0xdd5e0 },
+    { L"Basara B (Issen Trail)", 0xdd600, 0xdd640, indexSamSho5Sprites_Basara },
+    { L"Basara B (Bats)", 0xdd680, 0xdd6a0 },
+    { L"Basara B (Kagaribi)", 0xdd6a0, 0xdd6c0 },
+    { L"Basara B (Kage Damashi)", 0xdd700, 0xdd740, indexSamSho5Sprites_Basara },
+    { L"Basara B (Chisashi/Sorashi)", 0xdd740, 0xdd750 },
+    { L"Basara B (Slash Effects)", 0xdd750, 0xdd760 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_C[] =
 {
     { L"Basara C (Normal/Rage)", 0xdd800, 0xdd840, indexSamSho5Sprites_Basara },
     { L"Basara C (SON)", 0xdda40, 0xdda80, indexSamSho5Sprites_Basara },
+
+    { L"Basara C (Burning)", 0xdd8c0, 0xdd900, indexSamSho5Sprites_Basara },
+    { L"Basara C (Shocked)", 0xdd900, 0xdd940, indexSamSho5Sprites_Basara },
+    { L"Basara C (Frozen/Wet)", 0xdd940, 0xdd980, indexSamSho5Sprites_Basara },
+    { L"Basara C (Ki)", 0xdd980, 0xdd9c0, indexSamSho5Sprites_Basara },
+    { L"Basara C (Nuedama/Sashiashi)", 0xdd9c0, 0xdd9e0 },
+    { L"Basara C (Issen Trail)", 0xdda00, 0xdda40, indexSamSho5Sprites_Basara },
+    { L"Basara C (Bats)", 0xdda80, 0xddaa0 },
+    { L"Basara C (Kagaribi)", 0xddaa0, 0xddac0 },
+    { L"Basara C (Kage Damashi)", 0xddb00, 0xddb40, indexSamSho5Sprites_Basara },
+    { L"Basara C (Chisashi/Sorashi)", 0xddb40, 0xddb50 },
+    { L"Basara C (Slash Effects)", 0xddb50, 0xddb60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Basara_PALETTES_D[] =
 {
     { L"Basara D (Normal/Rage)", 0xddc00, 0xddc40, indexSamSho5Sprites_Basara },
     { L"Basara D (SON)", 0xdde40, 0xdde80, indexSamSho5Sprites_Basara },
+
+    { L"Basara D (Burning)", 0xddcc0, 0xddd00, indexSamSho5Sprites_Basara },
+    { L"Basara D (Shocked)", 0xddd00, 0xddd40, indexSamSho5Sprites_Basara },
+    { L"Basara D (Frozen/Wet)", 0xddd40, 0xddd80, indexSamSho5Sprites_Basara },
+    { L"Basara D (Ki)", 0xddd80, 0xdddc0, indexSamSho5Sprites_Basara },
+    { L"Basara D (Nuedama/Sashiashi)", 0xdddc0, 0xddde0 },
+    { L"Basara D (Issen Trail)", 0xdde00, 0xdde40, indexSamSho5Sprites_Basara },
+    { L"Basara D (Bats)", 0xdde80, 0xddea0 },
+    { L"Basara D (Kagaribi)", 0xddea0, 0xddec0 },
+    { L"Basara D (Kage Damashi)", 0xddf00, 0xddf40, indexSamSho5Sprites_Basara },
+    { L"Basara D (Chisashi/Sorashi)", 0xddf40, 0xddf50 },
+    { L"Basara D (Slash Effects)", 0xddf50, 0xddf60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Charlotte_PALETTES_A[] =
@@ -131,6 +211,19 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_A[] =
     { L"Gaira A (Normal)", 0xdf000, 0xdf040, indexSamSho5Sprites_Gaira },
     { L"Gaira A (Rage)", 0xdf040, 0xdf080, indexSamSho5Sprites_Gaira },
     { L"Gaira A (SON)", 0xdf240, 0xdf280, indexSamSho5Sprites_Gaira },
+
+    { L"Gaira A (Enshinsatsu)", 0xdf080, 0xdf090 },
+    { L"Gaira A (Burning)", 0xdf0c0, 0xdf100, indexSamSho5Sprites_Gaira },
+    { L"Gaira A (Shocked)", 0xdf100, 0xdf140, indexSamSho5Sprites_Gaira },
+    { L"Gaira A (Frozen/Wet)", 0xdf140, 0xdf180, indexSamSho5Sprites_Gaira },
+    { L"Gaira A (Ki)", 0xdf180, 0xdf1c0, indexSamSho5Sprites_Gaira },
+    { L"Gaira A (Beads Slash Effect)", 0xdf1c0, 0xdf1e0 },
+    { L"Gaira A (Jishin Gan/Overkill)", 0xdf1e0, 0xdf200 },
+    { L"Gaira A (Issen Trail)", 0xdf200, 0xdf240, indexSamSho5Sprites_Gaira },
+    { L"Gaira A (Niou Bakushin Satsu 1)", 0xdf280, 0xdf290 },
+    { L"Gaira A (Niou Bakushin Satsu 2)", 0xdf2c0, 0xdf2d0 },
+    { L"Gaira A (Standing Bell Pose)", 0xdf2e0, 0xdf300 },
+    { L"Gaira A (Stone Gaira/Overkill)", 0xdf300, 0xdf320 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_B[] =
@@ -138,6 +231,19 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_B[] =
     { L"Gaira B (Normal)", 0xdf400, 0xdf440, indexSamSho5Sprites_Gaira },
     { L"Gaira B (Rage)", 0xdf440, 0xdf480, indexSamSho5Sprites_Gaira },
     { L"Gaira B (SON)", 0xdf640, 0xdf680, indexSamSho5Sprites_Gaira },
+
+    { L"Gaira B (Enshinsatsu)", 0xdf480, 0xdf490 },
+    { L"Gaira B (Burning)", 0xdf4c0, 0xdf500, indexSamSho5Sprites_Gaira },
+    { L"Gaira B (Shocked)", 0xdf500, 0xdf540, indexSamSho5Sprites_Gaira },
+    { L"Gaira B (Frozen/Wet)", 0xdf540, 0xdf580, indexSamSho5Sprites_Gaira },
+    { L"Gaira B (Ki)", 0xdf580, 0xdf5c0, indexSamSho5Sprites_Gaira },
+    { L"Gaira B (Beads Slash Effect)", 0xdf5c0, 0xdf5e0 },
+    { L"Gaira B (Jishin Gan/Overkill)", 0xdf5e0, 0xdf600 },
+    { L"Gaira B (Issen Trail)", 0xdf600, 0xdf640, indexSamSho5Sprites_Gaira },
+    { L"Gaira B (Niou Bakushin Satsu 1)", 0xdf680, 0xdf690 },
+    { L"Gaira B (Niou Bakushin Satsu 2)", 0xdf6c0, 0xdf6d0 },
+    { L"Gaira B (Standing Bell Pose)", 0xdf6e0, 0xdf700 },
+    { L"Gaira B (Stone Gaira/Overkill)", 0xdf700, 0xdf720 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_C[] =
@@ -145,6 +251,19 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_C[] =
     { L"Gaira C (Normal)", 0xdf800, 0xdf840, indexSamSho5Sprites_Gaira },
     { L"Gaira C (Rage)", 0xdf840, 0xdf880, indexSamSho5Sprites_Gaira },
     { L"Gaira C (SON)", 0xdfa40, 0xdfa80, indexSamSho5Sprites_Gaira },
+
+    { L"Gaira C (Enshinsatsu)", 0xdf880, 0xdf890 },
+    { L"Gaira C (Burning)", 0xdf8c0, 0xdf900, indexSamSho5Sprites_Gaira },
+    { L"Gaira C (Shocked)", 0xdf900, 0xdf940, indexSamSho5Sprites_Gaira },
+    { L"Gaira C (Frozen/Wet)", 0xdf940, 0xdf980, indexSamSho5Sprites_Gaira },
+    { L"Gaira C (Ki)", 0xdf980, 0xdf9c0, indexSamSho5Sprites_Gaira },
+    { L"Gaira C (Beads Slash Effect)", 0xdf9c0, 0xdf9e0 },
+    { L"Gaira C (Jishin Gan/Overkill)", 0xdf9e0, 0xdfa00 },
+    { L"Gaira C (Issen Trail)", 0xdfa00, 0xdfa40, indexSamSho5Sprites_Gaira },
+    { L"Gaira C (Niou Bakushin Satsu 1)", 0xdfa80, 0xdfa90 },
+    { L"Gaira C (Niou Bakushin Satsu 2)", 0xdfac0, 0xdfad0 },
+    { L"Gaira C (Standing Bell Pose)", 0xdfae0, 0xdfb00 },
+    { L"Gaira C (Stone Gaira/Overkill)", 0xdfb00, 0xdfb20 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_D[] =
@@ -152,6 +271,19 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Gaira_PALETTES_D[] =
     { L"Gaira D (Normal)", 0xdfc00, 0xdfc40, indexSamSho5Sprites_Gaira },
     { L"Gaira D (Rage)", 0xdfc40, 0xdfc80, indexSamSho5Sprites_Gaira },
     { L"Gaira D (SON)", 0xdfe40, 0xdfe80, indexSamSho5Sprites_Gaira },
+
+    { L"Gaira D (Enshinsatsu)", 0xdfc80, 0xdfc90 },
+    { L"Gaira D (Burning)", 0xdfcc0, 0xdfd00, indexSamSho5Sprites_Gaira },
+    { L"Gaira D (Shocked)", 0xdfd00, 0xdfd40, indexSamSho5Sprites_Gaira },
+    { L"Gaira D (Frozen/Wet)", 0xdfd40, 0xdfd80, indexSamSho5Sprites_Gaira },
+    { L"Gaira D (Ki)", 0xdfd80, 0xdfdc0, indexSamSho5Sprites_Gaira },
+    { L"Gaira D (Beads Slash Effect)", 0xdfdc0, 0xdfde0 },
+    { L"Gaira D (Jishin Gan/Overkill)", 0xdfde0, 0xdfe00 },
+    { L"Gaira D (Issen Trail)", 0xdfe00, 0xdfe40, indexSamSho5Sprites_Gaira },
+    { L"Gaira D (Niou Bakushin Satsu 1)", 0xdfe80, 0xdfe90 },
+    { L"Gaira D (Niou Bakushin Satsu 2)", 0xdfec0, 0xdfed0 },
+    { L"Gaira D (Standing Bell Pose)", 0xdfee0, 0xdff00 },
+    { L"Gaira D (Stone Gaira/Overkill)", 0xdff00, 0xdff20 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Galford_PALETTES_A[] =
@@ -918,6 +1050,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_A[] =
     { L"Shizumaru A (Normal)", 0xde000, 0xde040, indexSamSho5Sprites_Shizumaru },
     { L"Shizumaru A (Rage)", 0xde040, 0xde080, indexSamSho5Sprites_Shizumaru },
     { L"Shizumaru A (SON)", 0xde240, 0xde280, indexSamSho5Sprites_Shizumaru },
+
+    { L"Shizumaru A (Burning)", 0xde0c0, 0xde100, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru A (Shocked)", 0xde100, 0xde140, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru A (Frozen/Wet)", 0xde140, 0xde180, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru A (Ki)", 0xde180, 0xde1c0, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru A (Issen Trail)", 0xde200, 0xde240, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru A (Overkill Zankuro)", 0xde280, 0xde2c0, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru A (Slash Effects)", 0xde2d0, 0xde2e0 },
+    { L"Shizumaru A (Overkill Projectile)", 0xde2e0, 0xde300 },
+    { L"Shizumaru A (Hitouryuu Kinjite)", 0xde340, 0xde350 },
+    { L"Shizumaru A (Baiu Ensatsujin)", 0xde350, 0xde360 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_B[] =
@@ -925,6 +1068,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_B[] =
     { L"Shizumaru B (Normal)", 0xde400, 0xde440, indexSamSho5Sprites_Shizumaru },
     { L"Shizumaru B (Rage)", 0xde440, 0xde480, indexSamSho5Sprites_Shizumaru },
     { L"Shizumaru B (SON)", 0xde640, 0xde680, indexSamSho5Sprites_Shizumaru },
+
+    { L"Shizumaru B (Burning)", 0xde4c0, 0xde500, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru B (Shocked)", 0xde500, 0xde540, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru B (Frozen/Wet)", 0xde540, 0xde580, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru B (Ki)", 0xde580, 0xde5c0, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru B (Issen Trail)", 0xde600, 0xde640, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru B (Overkill Zankuro)", 0xde680, 0xde6c0, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru B (Slash Effects)", 0xde6d0, 0xde6e0 },
+    { L"Shizumaru B (Overkill Projectile)", 0xde6e0, 0xde700 },
+    { L"Shizumaru B (Hitouryuu Kinjite)", 0xde740, 0xde750 },
+    { L"Shizumaru B (Baiu Ensatsujin)", 0xde750, 0xde760 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_C[] =
@@ -932,6 +1086,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_C[] =
     { L"Shizumaru C (Normal)", 0xde800, 0xde840, indexSamSho5Sprites_Shizumaru },
     { L"Shizumaru C (Rage)", 0xde840, 0xde880, indexSamSho5Sprites_Shizumaru },
     { L"Shizumaru C (SON)", 0xdea40, 0xdea80, indexSamSho5Sprites_Shizumaru },
+
+    { L"Shizumaru C (Burning)", 0xde8c0, 0xde900, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru C (Shocked)", 0xde900, 0xde940, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru C (Frozen/Wet)", 0xde940, 0xde980, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru C (Ki)", 0xde980, 0xde9c0, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru C (Issen Trail)", 0xdea00, 0xdea40, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru C (Overkill Zankuro)", 0xdea80, 0xdeac0, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru C (Slash Effects)", 0xdead0, 0xdeae0 },
+    { L"Shizumaru C (Overkill Projectile)", 0xdeae0, 0xdeb00 },
+    { L"Shizumaru C (Hitouryuu Kinjite)", 0xdeb40, 0xdeb50 },
+    { L"Shizumaru C (Baiu Ensatsujin)", 0xdeb50, 0xdeb60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_D[] =
@@ -939,6 +1104,17 @@ const sGame_PaletteDataset SAMSHOW5SP_A_Shizumaru_PALETTES_D[] =
     { L"Shizumaru D (Normal)", 0xdec00, 0xdec40, indexSamSho5Sprites_Shizumaru },
     { L"Shizumaru D (Rage)", 0xdec40, 0xdec80, indexSamSho5Sprites_Shizumaru },
     { L"Shizumaru D (SON)", 0xdee40, 0xdee80, indexSamSho5Sprites_Shizumaru },
+
+    { L"Shizumaru D (Burning)", 0xdecc0, 0xded00, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru D (Shocked)", 0xded00, 0xded40, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru D (Frozen/Wet)", 0xded40, 0xded80, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru D (Ki)", 0xded80, 0xdedc0, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru D (Issen Trail)", 0xdee00, 0xdee40, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru D (Overkill Zankuro)", 0xdee80, 0xdeec0, indexSamSho5Sprites_Shizumaru },
+    { L"Shizumaru D (Slash Effects)", 0xdeed0, 0xdeee0 },
+    { L"Shizumaru D (Overkill Projectile)", 0xdeee0, 0xdef00 },
+    { L"Shizumaru D (Hitouryuu Kinjite)", 0xdef40, 0xdef50 },
+    { L"Shizumaru D (Baiu Ensatsujin)", 0xdef50, 0xdef60 },
 };
 
 const sGame_PaletteDataset SAMSHOW5SP_A_Sogetsu_PALETTES_A[] =

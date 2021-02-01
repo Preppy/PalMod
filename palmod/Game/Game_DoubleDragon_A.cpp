@@ -1,36 +1,37 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_RBFF2_A.h"
+#include "Game_DOUBLEDRAGON_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define RBFF2_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define DOUBLEDRAGON_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_RBFF2_A::RBFF2_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_DOUBLEDRAGON_A::DOUBLEDRAGON_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_RBFF2_A::MainDescTree = nullptr;
+CDescTree CGame_DOUBLEDRAGON_A::MainDescTree = nullptr;
 
-int CGame_RBFF2_A::rgExtraCountAll[RBFF2_A_NUMUNIT + 1];
-int CGame_RBFF2_A::rgExtraLoc[RBFF2_A_NUMUNIT + 1];
+int CGame_DOUBLEDRAGON_A::rgExtraCountAll[DOUBLEDRAGON_A_NUMUNIT + 1];
+int CGame_DOUBLEDRAGON_A::rgExtraLoc[DOUBLEDRAGON_A_NUMUNIT + 1];
 
-UINT32 CGame_RBFF2_A::m_nTotalPaletteCountForRBFF2 = 0;
-UINT32 CGame_RBFF2_A::m_nExpectedGameROMSize = 0x100000;
-UINT32 CGame_RBFF2_A::m_nConfirmedROMSize = -1;
+int CGame_DOUBLEDRAGON_A::m_nSelectedRom = 1;
+UINT32 CGame_DOUBLEDRAGON_A::m_nTotalPaletteCountForDOUBLEDRAGON = 0;
+UINT32 CGame_DOUBLEDRAGON_A::m_nExpectedGameROMSize = 0x200000;
+UINT32 CGame_DOUBLEDRAGON_A::m_nConfirmedROMSize = -1;
 
-void CGame_RBFF2_A::InitializeStatics()
+void CGame_DOUBLEDRAGON_A::InitializeStatics()
 {
-    safe_delete_array(CGame_RBFF2_A::RBFF2_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_DOUBLEDRAGON_A::DOUBLEDRAGON_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_RBFF2_A::InitDescTree());
+    MainDescTree.SetRootTree(CGame_DOUBLEDRAGON_A::InitDescTree());
 }
 
-CGame_RBFF2_A::CGame_RBFF2_A(UINT32 nConfirmedROMSize)
+CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
 {
     CString strMessage;
-    strMessage.Format(L"CGame_RBFF2_A::CGame_RBFF2_A: Loading ROM...\n");
+    strMessage.Format(L"CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A: Loading ROM...\n");
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
@@ -38,14 +39,16 @@ CGame_RBFF2_A::CGame_RBFF2_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = RBFF2_A_NUMUNIT;
-    m_nExtraUnit = RBFF2_A_EXTRALOC;
+    m_nSelectedRom = nROMToLoad;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 640;
-    m_pszExtraFilename = EXTRA_FILENAME_RBFF2_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForRBFF2;
+    m_nTotalInternalUnits = DOUBLEDRAGON_A_NUMUNIT;
+    m_nExtraUnit = DOUBLEDRAGON_A_EXTRALOC;
+
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 128;
+    m_pszExtraFilename = EXTRA_FILENAME_DOUBLEDRAGON_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForDOUBLEDRAGON;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0xd0000;
+    m_nLowestKnownPaletteRomLocation = 0x110bd0;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -59,18 +62,18 @@ CGame_RBFF2_A::CGame_RBFF2_A(UINT32 nConfirmedROMSize)
     BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
-    nGameFlag = RBFF2_A;
-    nImgGameFlag = IMGDAT_SECTION_SNK;
-    m_prgGameImageSet = RBFFS_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(RBFFS_A_IMG_UNITS);
+    nGameFlag = DOUBLEDRAGON_A;
+    nImgGameFlag = IMGDAT_SECTION_NEOGEO;
+    m_prgGameImageSet = nullptr;
+    nImgUnitAmt = 0;
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_2;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
+    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -80,24 +83,34 @@ CGame_RBFF2_A::CGame_RBFF2_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_RBFF2_A::~CGame_RBFF2_A(void)
+CGame_DOUBLEDRAGON_A::~CGame_DOUBLEDRAGON_A(void)
 {
-    safe_delete_array(CGame_RBFF2_A::RBFF2_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_DOUBLEDRAGON_A::DOUBLEDRAGON_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-CDescTree* CGame_RBFF2_A::GetMainTree()
+const sDescTreeNode* CGame_DOUBLEDRAGON_A::GetCurrentUnitSet()
 {
-    return &CGame_RBFF2_A::MainDescTree;
+    return DOUBLEDRAGON_A_UNITS;
 }
 
-UINT32 CGame_RBFF2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+UINT16 CGame_DOUBLEDRAGON_A::GetCurrentExtraLoc()
+{
+    return DOUBLEDRAGON_A_EXTRALOC;
+}
+
+CDescTree* CGame_DOUBLEDRAGON_A::GetMainTree()
+{
+    return &CGame_DOUBLEDRAGON_A::MainDescTree;
+}
+
+UINT32 CGame_DOUBLEDRAGON_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"Real Bout Fatal Fury 2", L"240-p1.bin", 0, 0 },
+        { L"Art of Fighting 1 (NEOGEO)", L"044-p1.bin", 0, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
@@ -114,90 +127,97 @@ UINT32 CGame_RBFF2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     return ARRAYSIZE(knownROMs);
 }
 
-sFileRule CGame_RBFF2_A::GetRule(UINT16 nUnitId)
+stExtraDef* CGame_DOUBLEDRAGON_A::GetCurrentExtraDef(int nDefCtr)
 {
-    sFileRule NewFileRule;
-
-    // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"240-p1.bin");
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
+    return (stExtraDef*)&DOUBLEDRAGON_A_EXTRA_CUSTOM[nDefCtr];
 }
 
-int CGame_RBFF2_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_DOUBLEDRAGON_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    if (rgExtraCountAll[0] == -1)
+    int* rgExtraCt;
+    int nArraySize;
+
+    rgExtraCt = (int*)rgExtraCountAll;
+    nArraySize = DOUBLEDRAGON_A_NUMUNIT;
+
+    if (rgExtraCt[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((RBFF2_A_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCt, 0, ((nArraySize + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForRBFF2(0);
+        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
             if (!pCurrDef->isInvisible || !bCountVisibleOnly)
             {
-                rgExtraCountAll[pCurrDef->uUnitN]++;
+                rgExtraCt[pCurrDef->uUnitN]++;
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForRBFF2(nDefCtr);
+            pCurrDef = GetCurrentExtraDef(nDefCtr);
         }
     }
 
-    return rgExtraCountAll[nUnitId];
+    return rgExtraCt[nUnitId];
 }
 
-int CGame_RBFF2_A::GetExtraLoc(UINT16 nUnitId)
+int CGame_DOUBLEDRAGON_A::GetExtraLoc(UINT16 nUnitId)
 {
-    if (rgExtraLoc[0] == -1)
+    int* rgExtraCurrent;
+    int nArraySize;
+
+    rgExtraCurrent = (int*)rgExtraLoc;
+    nArraySize = DOUBLEDRAGON_A_NUMUNIT;
+
+    if (rgExtraCurrent[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (RBFF2_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraCurrent, 0, (nArraySize + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForRBFF2(0);
+        stExtraDef* pCurrDef = GetCurrentExtraDef(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
             if (pCurrDef->uUnitN != nCurrUnit)
             {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
+                rgExtraCurrent[pCurrDef->uUnitN] = nDefCtr;
                 nCurrUnit = pCurrDef->uUnitN;
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForRBFF2(nDefCtr);
+            pCurrDef = GetCurrentExtraDef(nDefCtr);
         }
     }
 
-    return rgExtraLoc[nUnitId];
+    return rgExtraCurrent[nUnitId];
 }
 
-sDescTreeNode* CGame_RBFF2_A::InitDescTree()
+sDescTreeNode* CGame_DOUBLEDRAGON_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
-    //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_RBFF2_A, RBFF2_A_EXTRA, &RBFF2_A_EXTRA_CUSTOM, RBFF2_A_EXTRALOC, m_nConfirmedROMSize);
+    bool fHaveExtras;
+    UINT16 nUnitCt;
+    UINT8 nExtraUnitLocation;
 
-    UINT16 nUnitCt = RBFF2_A_NUMUNIT + (GetExtraCt(RBFF2_A_EXTRALOC) ? 1 : 0);
-    
+    nExtraUnitLocation = DOUBLEDRAGON_A_EXTRALOC;
+    LoadExtraFileForGame(EXTRA_FILENAME_DOUBLEDRAGON_A, DOUBLEDRAGON_A_EXTRA, &DOUBLEDRAGON_A_EXTRA_CUSTOM, DOUBLEDRAGON_A_EXTRALOC, m_nConfirmedROMSize);
+    fHaveExtras = GetExtraCt(DOUBLEDRAGON_A_EXTRALOC);
+    nUnitCt = DOUBLEDRAGON_A_NUMUNIT + (fHaveExtras ? 1 : 0);
+
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[RBFF2_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[DOUBLEDRAGON_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(RBFF2_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_RBFF2_A::InitDescTree: Building desc tree for RBFF2_A %s extras...\n", fHaveExtras ? L"with" : L"without");
+    strMsg.Format(L"CGame_DOUBLEDRAGON_A::InitDescTree: Building desc tree for DOUBLEDRAGON_A %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -214,16 +234,16 @@ sDescTreeNode* CGame_RBFF2_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < RBFF2_A_EXTRALOC)
+        if (iUnitCtr != nExtraUnitLocation)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", RBFF2_A_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", GetCurrentUnitSet()[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if RBFF2_A_DEBUG
+#if DOUBLEDRAGON_A_DEBUG
             strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -245,7 +265,7 @@ sDescTreeNode* CGame_RBFF2_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if RBFF2_A_DEBUG
+#if DOUBLEDRAGON_A_DEBUG
                 strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -263,7 +283,7 @@ sDescTreeNode* CGame_RBFF2_A::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if RBFF2_A_DEBUG
+#if DOUBLEDRAGON_A_DEBUG
                     strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
@@ -291,7 +311,7 @@ sDescTreeNode* CGame_RBFF2_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if RBFF2_A_DEBUG
+#if DOUBLEDRAGON_A_DEBUG
             strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -303,7 +323,7 @@ sDescTreeNode* CGame_RBFF2_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(RBFF2_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(nExtraUnitLocation > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
@@ -312,7 +332,7 @@ sDescTreeNode* CGame_RBFF2_A::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if RBFF2_A_DEBUG
+#if DOUBLEDRAGON_A_DEBUG
             strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -321,21 +341,21 @@ sDescTreeNode* CGame_RBFF2_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForRBFF2(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForRBFF2(nExtraPos + nCurrExtra);
+                    pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
                 }
 
                 _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((RBFF2_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((nExtraUnitLocation > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if RBFF2_A_DEBUG
+#if DOUBLEDRAGON_A_DEBUG
                 strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -346,197 +366,76 @@ sDescTreeNode* CGame_RBFF2_A::InitDescTree()
         }
     }
 
-    strMsg.Format(L"CGame_RBFF2_A::InitDescTree: Loaded %u palettes for RBFF2\n", nTotalPaletteCount);
+    strMsg.Format(L"CGame_DOUBLEDRAGON_A::InitDescTree: Loaded %u palettes for DOUBLEDRAGON\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForRBFF2 = nTotalPaletteCount;
-
-    // debug
-    //DumpPaletteHeaders();
+    m_nTotalPaletteCountForDOUBLEDRAGON = nTotalPaletteCount;
 
     return NewDescTree;
 }
 
-void CGame_RBFF2_A::DumpPaletteHeaders()
+sFileRule CGame_DOUBLEDRAGON_A::GetRule(UINT16 nUnitId)
 {
-    CString strOutput;
-    const UINT32 RBFF2_PALETTE_LENGTH = 0x20;
+    sFileRule NewFileRule;
 
-    struct rbff2CharacterData
-    {
-        LPCWSTR pszCharacterName = nullptr;
-        LPCWSTR pszImageName = nullptr;
-        bool fShowImage[16] = { false };
-    };
+    NewFileRule.uUnitId = 0;
 
-    rbff2CharacterData rgCharacterData[] =
-    {   //                            base   bg     2      3     4       5      6      7     8      9       10    11   burn   13    elec  15
-        { L"Terry",     L"Terry",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Andy",      L"Andy",    { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Joe",       L"Joe",     { true, true, false, false, false, false, true, false, false, true, false, true, true, true, true, true } },
-        { L"Mai",       L"Mai",     { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Geese",     L"Geese",   { true, true, false, false, false, false, true, false, false, false, false, true, true, true, true, true } },
-        { L"Sokaku",    L"Sokaku",  { true, true, false, false, false, true, false, false, false, false, false, true, true, true, true, true } },
-        { L"Bob",       L"Bob",     { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Hon Fu",    L"Hon",     { true, true, true, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Blue Mary", L"BlueMary", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Franco",    L"Franco",  { true, true, false, true, false, false, true, true, false, false, false, true, true, true, true, true } },
-        { L"Yamazaki",  L"Yamazaki", { true, true, false, false, false, true, true, false, false, false, false, true, true, true, true, true } },
-        { L"Chonrei",   L"Chonrei", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Chonshu",   L"Chonshu", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Duck King", L"DuckKing", { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Kim",       L"Kim",     { true, true, false, true, false, true, true, false, false, false, false, true, true, true, true, true } },
-        { L"Billy",     L"Billy",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Cheng",     L"Cheng",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Tung",      L"Tung",    { true, true, false, true, true, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Laurence",  L"Laurence", { true, true, false, false, false, false, true, false, false, false, false, true, true, true, true, true } },
-        { L"Krauser",   L"Krauser", { true, true, false, false, false, false, false, true, false, false, false, true, true, true, true, true } },
-        //                            base   bg     2      3     4       5      6      7     8      9       10    11   burn   13    elec  15
-    };
+    // This value is only used for directory-based games
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"044-p1.bin");
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
-    const UINT32 k_nBasePalette = 0xd0000;
-    UINT32 nCurrentPalettePosition = k_nBasePalette;
-
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
-    {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
-
-        // Status effects
-        for (UINT16 nStatusIndex = 0; nStatusIndex < 32; nStatusIndex++)
-        {
-            CString strPaletteName;
-
-            if ((nStatusIndex == 0) || (nStatusIndex == 16))
-            {
-                strOutput.Format(L"const sGame_PaletteDataset RBFF2_A_%s_PALETTES_%s[] = \r\n{\r\n", szCodeDesc, (nStatusIndex < 10) ? L"P1" : L"P2");
-                OutputDebugString(strOutput);
-            }
-
-            UINT32 nAdjustedIndex = (nStatusIndex > 15) ? (nStatusIndex - 16) : nStatusIndex;
-
-            switch (nAdjustedIndex)
-            {
-            case 0:
-                strPaletteName = L"Main Palette";
-                break;
-            case 1:
-                strPaletteName = L"Background Palette";
-                break;
-            case 12:
-                strPaletteName = L"Burn Palette";
-                break;
-            case 14:
-                strPaletteName = L"Electricity Palette";
-                break;
-            default:
-                strPaletteName.Format(L"Extra Palette %u", nAdjustedIndex);
-                break;
-            }
-
-            if (rgCharacterData[nCharIndex].fShowImage[nAdjustedIndex])
-            {
-                strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, indexRBFFSSprites_%s },\r\n", strPaletteName.GetString(), nCurrentPalettePosition,
-                                                                                            nCurrentPalettePosition + RBFF2_PALETTE_LENGTH, rgCharacterData[nCharIndex].pszImageName);
-            }
-            else
-            {
-                strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x },\r\n", strPaletteName.GetString(), nCurrentPalettePosition, nCurrentPalettePosition + RBFF2_PALETTE_LENGTH );
-            }
-            OutputDebugString(strOutput);
-            nCurrentPalettePosition += RBFF2_PALETTE_LENGTH;
-
-            if ((nStatusIndex == 15) || (nStatusIndex == 31))
-            {
-                strOutput.Format(L"};\r\n\r\n");
-                OutputDebugString(strOutput);
-            }
-        }
-    }
-
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
-    {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
-
-        strOutput.Format(L"const sDescTreeNode RBFF2_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
-        OutputDebugString(strOutput);
-        strOutput.Format(L"    { L\"P1\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_PALETTES_P1, ARRAYSIZE(RBFF2_A_%s_PALETTES_P1) },\r\n", szCodeDesc, szCodeDesc);
-        OutputDebugString(strOutput);
-        strOutput.Format(L"    { L\"P2\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_PALETTES_P2, ARRAYSIZE(RBFF2_A_%s_PALETTES_P2) },\r\n", szCodeDesc, szCodeDesc);
-        OutputDebugString(strOutput);
-        // We don't have these offsets yet
-        //strOutput.Format(L"    { L\"Lifebar Portraits\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_PALETTES_LIFEBAR, ARRAYSIZE(RBFF2_A_%s_PALETTES_LIFEBAR) },\r\n", szCodeDesc, szCodeDesc);
-        //OutputDebugString(strOutput);
-        strOutput.Format(L"};\r\n\r\n");
-        OutputDebugString(strOutput);
-    }
-
-    strOutput.Format(L"const sDescTreeNode RBFF2_A_UNITS[] = \r\n{\r\n");
-    OutputDebugString(strOutput);
-
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
-    {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
-
-        strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_COLLECTION, ARRAYSIZE(RBFF2_A_%s_COLLECTION) },\r\n", rgCharacterData[nCharIndex].pszCharacterName, szCodeDesc, szCodeDesc);
-        OutputDebugString(strOutput);
-    }
-
-    strOutput.Format(L"};\r\n\r\n");
-    OutputDebugString(strOutput);
+    return NewFileRule;
 }
 
-UINT16 CGame_RBFF2_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT16 CGame_DOUBLEDRAGON_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == RBFF2_A_EXTRALOC)
+    if (nUnitId == GetCurrentExtraLoc())
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return RBFF2_A_UNITS[nUnitId].uChildAmt;
+        return GetCurrentUnitSet()[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_RBFF2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_DOUBLEDRAGON_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == RBFF2_A_EXTRALOC)
+    if (nUnitId == GetCurrentExtraLoc())
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(RBFF2_A_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCTSTR CGame_RBFF2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCTSTR CGame_DOUBLEDRAGON_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == RBFF2_A_EXTRALOC)
+    if (nUnitId == GetCurrentExtraLoc())
     {
         return L"Extra Palettes";
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)RBFF2_A_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_RBFF2_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_DOUBLEDRAGON_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == RBFF2_A_EXTRALOC)
+    if (nUnitId == GetCurrentExtraLoc())
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = RBFF2_A_UNITS;
+        const sDescTreeNode* pCompleteROMTree = GetCurrentUnitSet();
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -546,9 +445,9 @@ UINT16 CGame_RBFF2_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if RBFF2_A_DEBUG
+#if DOUBLEDRAGON_A_DEBUG
         CString strMsg;
-        strMsg.Format(L"CGame_RBFF2_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_DOUBLEDRAGON_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -556,14 +455,14 @@ UINT16 CGame_RBFF2_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_RBFF2_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_DOUBLEDRAGON_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)RBFF2_A_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)GetCurrentUnitSet()[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_RBFF2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_DOUBLEDRAGON_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -576,7 +475,7 @@ const sDescTreeNode* CGame_RBFF2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == RBFF2_A_EXTRALOC)
+        if (nUnitId == GetCurrentExtraLoc())
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -588,7 +487,7 @@ const sDescTreeNode* CGame_RBFF2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(RBFF2_A_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(GetCurrentUnitSet()[nUnitId].ChildNodes);
             
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -614,7 +513,7 @@ const sDescTreeNode* CGame_RBFF2_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_RBFF2_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_DOUBLEDRAGON_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -638,9 +537,45 @@ const sGame_PaletteDataset* CGame_RBFF2_A::GetSpecificPalette(UINT16 nUnitId, UI
     return paletteToUse;
 }
 
-void CGame_RBFF2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_DOUBLEDRAGON_A::InitDataBuffer()
 {
-     if (nUnitId != RBFF2_A_EXTRALOC)
+    m_nBufferSelectedRom = m_nSelectedRom;
+    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
+    memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+}
+
+void CGame_DOUBLEDRAGON_A::ClearDataBuffer()
+{
+    int nCurrentROMMode = m_nSelectedRom;
+
+    m_nSelectedRom = m_nBufferSelectedRom;
+
+    if (m_pppDataBuffer)
+    {
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        {
+            if (m_pppDataBuffer[nUnitCtr])
+            {
+                UINT16 nPalAmt = GetPaletteCountForUnit(nUnitCtr);
+
+                for (UINT16 nPalCtr = 0; nPalCtr < nPalAmt; nPalCtr++)
+                {
+                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPalCtr]);
+                }
+
+                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
+            }
+        }
+
+        safe_delete_array(m_pppDataBuffer);
+    }
+
+    m_nSelectedRom = nCurrentROMMode;
+}
+
+void CGame_DOUBLEDRAGON_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+{
+     if (nUnitId != GetCurrentExtraLoc())
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -659,10 +594,10 @@ void CGame_RBFF2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // RBFF2_A_EXTRALOC
+    else // extraloc
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForRBFF2(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetCurrentExtraDef(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
@@ -670,7 +605,7 @@ void CGame_RBFF2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_RBFF2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_DOUBLEDRAGON_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -699,9 +634,11 @@ BOOL CGame_RBFF2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     nTargetImgId = 0;
     UINT16 nImgUnitId = INVALID_UNIT_VALUE;
 
+    bool fShouldUseAlternateLoadLogic = false;
+
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != RBFF2_A_EXTRALOC)
+    if (NodeGet->uUnitId != GetCurrentExtraLoc())
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -714,9 +651,20 @@ BOOL CGame_RBFF2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, L"P1") == 0) || (_tcsicmp(pCurrentNode->szDesc, L"P2") == 0))
+                bool fIsCorePalette = false;
+
+                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
                 {
-                    nSrcAmt = 2;
+                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                    {
+                        fIsCorePalette = true;
+                        break;
+                    }
+                }
+
+                if (fIsCorePalette)
+                {
+                    nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)
@@ -726,15 +674,55 @@ BOOL CGame_RBFF2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
                 }
             }
+
+            if (paletteDataSet->pPalettePairingInfo)
+            {
+                int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+                INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+
+                const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+
+                if (paletteDataSetToJoin)
+                {
+                    fShouldUseAlternateLoadLogic = true;
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                        )
+                    );
+
+                    sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+                    INT8 nNodeDistance = 0;
+                    INT8 nPeerNodeDistance = nPeerPaletteDistance;
+
+                    //Set each palette
+                    sDescNode* JoinedNode[2] = {
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02 + nNodeDistance, Node03 + nPeerNodeDistance, -1)
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                }
+            }
         }
     }
 
-    //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+    if (!fShouldUseAlternateLoadLogic)
+    {
+        //Create the default palette
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
-    CreateDefPal(NodeGet, 0);
+        CreateDefPal(NodeGet, 0);
 
-    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+    }
 
     return TRUE;
 }

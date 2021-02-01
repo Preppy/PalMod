@@ -1,5 +1,29 @@
 #pragma once
 
+const UINT16 LASTBLADE2_A_IMG_UNITS[] =
+{
+
+    indexLastBlade2_Akari,        // 0x1D9
+    indexLastBlade2_Genbu,        // 0x1DA
+    indexLastBlade2_Hibiki,       // 0x1DB
+    indexLastBlade2_HyoAmano,     // 0x1DC
+    indexLastBlade2_Juzoh,        // 0x1DD
+    indexLastBlade2_Kaede,        // 0x1DE
+    indexLastBlade2_Keiichiro,    // 0x1DF
+    indexLastBlade2_KojirohKaori, // 0x1E0
+    indexLastBlade2_Kouryu,       // 0x1E1
+    indexLastBlade2_LeeRekka,     // 0x1E2
+    indexLastBlade2_Moriya,       // 0x1E3
+    indexLastBlade2_Mukuro,       // 0x1E4
+    indexLastBlade2_Setsuna,      // 0x1E5
+    indexLastBlade2_Shigen,       // 0x1E6
+    indexLastBlade2_Shinnosuke,   // 0x1E7
+    indexLastBlade2_Yuki,         // 0x1E8
+    indexLastBlade2_Zantetsu,     // 0x1E9
+    indexLastBlade2_Bonus,        // 0x1EA
+    indexLastBlade2_Stages,       // 0x1EB
+};
+
 //O.Kaede and Kaede share palettes
 const sGame_PaletteDataset LASTBLADE2_A_Kaede_PALETTES_PA[] =
 {
@@ -5418,25 +5442,25 @@ const sGame_PaletteDataset LASTBLADE2_A_Kojiroh_PALETTES_ED[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_PA[] =
 {
-    { L"Main", 0x00cf800, 0x00cf820 },
-        { L"Weapon", 0x00cfa00, 0x00cfa20 },
+    { L"Main", 0x00cf800, 0x00cf820, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon", 0x00cfa00, 0x00cfa20, indexLastBlade2_Hibiki, 0x01 },
 
-    { L"Burned", 0x00cf820, 0x00cf840 },
-        { L"Weapon Burned", 0x00cfa20, 0x00cfa40 },
-    { L"Cursed", 0x00cf840, 0x00cf860 },
-        { L"Weapon Cursed", 0x00cfa40, 0x00cfa60 },
-    { L"Fandango", 0x00cf860, 0x00cf880 },
-        { L"Weapon Fandango (Unused)", 0x00cfa60, 0x00cfa80 },
-    { L"Frozen", 0x00cf880, 0x00cf8a0 },
-        { L"Weapon Frozen", 0x00cfa80, 0x00cfaa0 },
-    { L"Shocked", 0x00cf8a0, 0x00cf8c0 },
-        { L"Weapon Shocked", 0x00cfaa0, 0x00cfac0 },
-    { L"Zombie", 0x00cf8c0, 0x00cf8e0 },
-        { L"Weapon Zombie", 0x00cfac0, 0x00cfae0 },
-    { L"Blink", 0x00cf8e0, 0x00cf900 },
-        { L"Weapon Blink", 0x00cfae0, 0x00cfb00 },
-    { L"Deflect", 0x00cf900, 0x00cf920 },
-        { L"Weapon Deflect", 0x00cfb00, 0x00cfb20 },
+    { L"Burned", 0x00cf820, 0x00cf840, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Burned", 0x00cfa20, 0x00cfa40, indexLastBlade2_Hibiki, 0x01 },
+    { L"Cursed", 0x00cf840, 0x00cf860, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Cursed", 0x00cfa40, 0x00cfa60, indexLastBlade2_Hibiki, 0x01 },
+    { L"Fandango", 0x00cf860, 0x00cf880, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Fandango (Unused)", 0x00cfa60, 0x00cfa80, indexLastBlade2_Hibiki, 0x01 },
+    { L"Frozen", 0x00cf880, 0x00cf8a0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Frozen", 0x00cfa80, 0x00cfaa0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Shocked", 0x00cf8a0, 0x00cf8c0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Shocked", 0x00cfaa0, 0x00cfac0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Zombie", 0x00cf8c0, 0x00cf8e0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Zombie", 0x00cfac0, 0x00cfae0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Blink", 0x00cf8e0, 0x00cf900, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Blink", 0x00cfae0, 0x00cfb00, indexLastBlade2_Hibiki, 0x01 },
+    { L"Deflect", 0x00cf900, 0x00cf920, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Deflect", 0x00cfb00, 0x00cfb20, indexLastBlade2_Hibiki, 0x01 },
 
     { L"Extra 1", 0x00cf920, 0x00cf940 },
     { L"Extra 2", 0x00cf940, 0x00cf960 },
@@ -5475,32 +5499,32 @@ const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_PA[] =
     { L"Special 11", 0x00cfe40, 0x00cfe60 },
     { L"Special 12", 0x00cfe60, 0x00cfe80 },
     { L"Special 13", 0x00cfe80, 0x00cfea0 },
-    { L"Special 14", 0x00cfea0, 0x00cfec0 },
+    { L"Special 14", 0x00cfea0, 0x00cfec0, indexLastBlade2_Hibiki, 0x08 },
     { L"Special 15", 0x00cfec0, 0x00cfee0 },
     { L"Special 16", 0x00cfee0, 0x00cff00 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_SA[] =
 {
-    { L"Main", 0x00cff00, 0x00cff20 },
-        { L"Weapon", 0x00d0100, 0x00d0120 },
+    { L"Main", 0x00cff00, 0x00cff20, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon", 0x00d0100, 0x00d0120, indexLastBlade2_Hibiki, 0x01 },
 
-    { L"Burned", 0x00cff20, 0x00cff40 },
-        { L"Weapon Burned", 0x00d0120, 0x00d0140 },
-    { L"Cursed", 0x00cff40, 0x00cff60 },
-        { L"Weapon Cursed", 0x00d0140, 0x00d0160 },
-    { L"Fandango", 0x00cff60, 0x00cff80 },
-        { L"Weapon Fandango (Unused)", 0x00d0160, 0x00d0180 },
-    { L"Frozen", 0x00cff80, 0x00cffa0 },
-        { L"Weapon Frozen", 0x00d0180, 0x00d01a0 },
-    { L"Shocked", 0x00cffa0, 0x00cffc0 },
-        { L"Weapon Shocked", 0x00d01a0, 0x00d01c0 },
-    { L"Zombie", 0x00cffc0, 0x00cffe0 },
-        { L"Weapon Zombie", 0x00d01c0, 0x00d01e0 },
-    { L"Blink", 0x00cffe0, 0x00d0000 },
-        { L"Weapon Blink", 0x00d01e0, 0x00d0200 },
-    { L"Deflect", 0x00d0000, 0x00d0020 },
-        { L"Weapon Deflect", 0x00d0200, 0x00d0220 },
+    { L"Burned", 0x00cff20, 0x00cff40, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Burned", 0x00d0120, 0x00d0140, indexLastBlade2_Hibiki, 0x01 },
+    { L"Cursed", 0x00cff40, 0x00cff60, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Cursed", 0x00d0140, 0x00d0160, indexLastBlade2_Hibiki, 0x01 },
+    { L"Fandango", 0x00cff60, 0x00cff80, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Fandango (Unused)", 0x00d0160, 0x00d0180, indexLastBlade2_Hibiki, 0x01 },
+    { L"Frozen", 0x00cff80, 0x00cffa0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Frozen", 0x00d0180, 0x00d01a0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Shocked", 0x00cffa0, 0x00cffc0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Shocked", 0x00d01a0, 0x00d01c0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Zombie", 0x00cffc0, 0x00cffe0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Zombie", 0x00d01c0, 0x00d01e0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Blink", 0x00cffe0, 0x00d0000, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Blink", 0x00d01e0, 0x00d0200, indexLastBlade2_Hibiki, 0x01 },
+    { L"Deflect", 0x00d0000, 0x00d0020, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Deflect", 0x00d0200, 0x00d0220, indexLastBlade2_Hibiki, 0x01 },
 
     { L"Extra 1", 0x00d0020, 0x00d0040 },
     { L"Extra 2", 0x00d0040, 0x00d0060 },
@@ -5539,32 +5563,32 @@ const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_SA[] =
     { L"Special 11", 0x00d0540, 0x00d0560 },
     { L"Special 12", 0x00d0560, 0x00d0580 },
     { L"Special 13", 0x00d0580, 0x00d05a0 },
-    { L"Special 14", 0x00d05a0, 0x00d05c0 },
+    { L"Special 14", 0x00d05a0, 0x00d05c0, indexLastBlade2_Hibiki, 0x08 },
     { L"Special 15", 0x00d05c0, 0x00d05e0 },
     { L"Special 16", 0x00d05e0, 0x00d0600 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_EA[] =
 {
-    { L"Main", 0x00d0600, 0x00d0620 },
-        { L"Weapon", 0x00d0800, 0x00d0820 },
+    { L"Main", 0x00d0600, 0x00d0620, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon", 0x00d0800, 0x00d0820, indexLastBlade2_Hibiki, 0x01 },
 
-    { L"Burned", 0x00d0620, 0x00d0640 },
-        { L"Weapon Burned", 0x00d0820, 0x00d0840 },
-    { L"Cursed", 0x00d0640, 0x00d0660 },
-        { L"Weapon Cursed", 0x00d0840, 0x00d0860 },
-    { L"Fandango", 0x00d0660, 0x00d0680 },
-        { L"Weapon Fandango (Unused)", 0x00d0860, 0x00d0880 },
-    { L"Frozen", 0x00d0680, 0x00d06a0 },
-        { L"Weapon Frozen", 0x00d0880, 0x00d08a0 },
-    { L"Shocked", 0x00d06a0, 0x00d06c0 },
-        { L"Weapon Shocked", 0x00d08a0, 0x00d08c0 },
-    { L"Zombie", 0x00d06c0, 0x00d06e0 },
-        { L"Weapon Zombie", 0x00d08c0, 0x00d08e0 },
-    { L"Blink", 0x00d06e0, 0x00d0700 },
-        { L"Weapon Blink", 0x00d08e0, 0x00d0900 },
-    { L"Deflect", 0x00d0700, 0x00d0720 },
-        { L"Weapon Deflect", 0x00d0900, 0x00d0920 },
+    { L"Burned", 0x00d0620, 0x00d0640, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Burned", 0x00d0820, 0x00d0840, indexLastBlade2_Hibiki, 0x01 },
+    { L"Cursed", 0x00d0640, 0x00d0660, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Cursed", 0x00d0840, 0x00d0860, indexLastBlade2_Hibiki, 0x01 },
+    { L"Fandango", 0x00d0660, 0x00d0680, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Fandango (Unused)", 0x00d0860, 0x00d0880, indexLastBlade2_Hibiki, 0x01 },
+    { L"Frozen", 0x00d0680, 0x00d06a0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Frozen", 0x00d0880, 0x00d08a0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Shocked", 0x00d06a0, 0x00d06c0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Shocked", 0x00d08a0, 0x00d08c0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Zombie", 0x00d06c0, 0x00d06e0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Zombie", 0x00d08c0, 0x00d08e0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Blink", 0x00d06e0, 0x00d0700, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Blink", 0x00d08e0, 0x00d0900, indexLastBlade2_Hibiki, 0x01 },
+    { L"Deflect", 0x00d0700, 0x00d0720, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Deflect", 0x00d0900, 0x00d0920, indexLastBlade2_Hibiki, 0x01 },
 
     { L"Extra 1", 0x00d0720, 0x00d0740 },
     { L"Extra 2", 0x00d0740, 0x00d0760 },
@@ -5587,7 +5611,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_EA[] =
     { L"Weapon Extras 11", 0x00d0a60, 0x00d0a80 },
     { L"Weapon Extras 12", 0x00d0a80, 0x00d0aa0 },
     { L"Weapon Extras 13", 0x00d0aa0, 0x00d0ac0 },
-    { L"Weapon Extras 14", 0x00d0ac0, 0x00d0ae0 },
+    { L"Weapon Extras 14", 0x00d0ac0, 0x00d0ae0, indexLastBlade2_Hibiki, 0x08 },
     { L"Weapon Extras 15", 0x00d0ae0, 0x00d0b00 },
 
     { L"Special 1", 0x00d0b00, 0x00d0b20 },
@@ -5610,25 +5634,25 @@ const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_EA[] =
 
 const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_PD[] =
 {
-    { L"Main", 0x00d0d00, 0x00d0d20 },
-        { L"Weapon", 0x00d0f00, 0x00d0f20 },
+    { L"Main", 0x00d0d00, 0x00d0d20, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon", 0x00d0f00, 0x00d0f20, indexLastBlade2_Hibiki, 0x01 },
 
-    { L"Burned", 0x00d0d20, 0x00d0d40 },
-        { L"Weapon Burned", 0x00d0f20, 0x00d0f40 },
-    { L"Cursed", 0x00d0d40, 0x00d0d60 },
-        { L"Weapon Cursed", 0x00d0f40, 0x00d0f60 },
-    { L"Fandango", 0x00d0d60, 0x00d0d80 },
-        { L"Weapon Fandango (Unused)", 0x00d0f60, 0x00d0f80 },
-    { L"Frozen", 0x00d0d80, 0x00d0da0 },
-        { L"Weapon Frozen", 0x00d0f80, 0x00d0fa0 },
-    { L"Shocked", 0x00d0da0, 0x00d0dc0 },
-        { L"Weapon Shocked", 0x00d0fa0, 0x00d0fc0 },
-    { L"Zombie", 0x00d0dc0, 0x00d0de0 },
-        { L"Weapon Zombie", 0x00d0fc0, 0x00d0fe0 },
-    { L"Blink", 0x00d0de0, 0x00d0e00 },
-        { L"Weapon Blink", 0x00d0fe0, 0x00d1000 },
-    { L"Deflect", 0x00d0e00, 0x00d0e20 },
-        { L"Weapon Deflect", 0x00d1000, 0x00d1020 },
+    { L"Burned", 0x00d0d20, 0x00d0d40, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Burned", 0x00d0f20, 0x00d0f40, indexLastBlade2_Hibiki, 0x01 },
+    { L"Cursed", 0x00d0d40, 0x00d0d60, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Cursed", 0x00d0f40, 0x00d0f60, indexLastBlade2_Hibiki, 0x01 },
+    { L"Fandango", 0x00d0d60, 0x00d0d80, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Fandango (Unused)", 0x00d0f60, 0x00d0f80, indexLastBlade2_Hibiki, 0x01 },
+    { L"Frozen", 0x00d0d80, 0x00d0da0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Frozen", 0x00d0f80, 0x00d0fa0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Shocked", 0x00d0da0, 0x00d0dc0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Shocked", 0x00d0fa0, 0x00d0fc0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Zombie", 0x00d0dc0, 0x00d0de0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Zombie", 0x00d0fc0, 0x00d0fe0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Blink", 0x00d0de0, 0x00d0e00, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Blink", 0x00d0fe0, 0x00d1000, indexLastBlade2_Hibiki, 0x01 },
+    { L"Deflect", 0x00d0e00, 0x00d0e20, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Deflect", 0x00d1000, 0x00d1020, indexLastBlade2_Hibiki, 0x01 },
 
     { L"Extra 1", 0x00d0e20, 0x00d0e40 },
     { L"Extra 2", 0x00d0e40, 0x00d0e60 },
@@ -5667,32 +5691,32 @@ const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_PD[] =
     { L"Special 11", 0x00d1340, 0x00d1360 },
     { L"Special 12", 0x00d1360, 0x00d1380 },
     { L"Special 13", 0x00d1380, 0x00d13a0 },
-    { L"Special 14", 0x00d13a0, 0x00d13c0 },
+    { L"Special 14", 0x00d13a0, 0x00d13c0, indexLastBlade2_Hibiki, 0x08 },
     { L"Special 15", 0x00d13c0, 0x00d13e0 },
     { L"Special 16", 0x00d13e0, 0x00d1400 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_SD[] =
 {
-    { L"Main", 0x00d1400, 0x00d1420 },
-        { L"Weapon", 0x00d1600, 0x00d1620 },
+    { L"Main", 0x00d1400, 0x00d1420, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon", 0x00d1600, 0x00d1620, indexLastBlade2_Hibiki, 0x01 },
 
-    { L"Burned", 0x00d1420, 0x00d1440 },
-        { L"Weapon Burned", 0x00d1620, 0x00d1640 },
-    { L"Cursed", 0x00d1440, 0x00d1460 },
-        { L"Weapon Cursed", 0x00d1640, 0x00d1660 },
-    { L"Fandango", 0x00d1460, 0x00d1480 },
-        { L"Weapon Fandango (Unused)", 0x00d1660, 0x00d1680 },
-    { L"Frozen", 0x00d1480, 0x00d14a0 },
-        { L"Weapon Frozen", 0x00d1680, 0x00d16a0 },
-    { L"Shocked", 0x00d14a0, 0x00d14c0 },
-        { L"Weapon Shocked", 0x00d16a0, 0x00d16c0 },
-    { L"Zombie", 0x00d14c0, 0x00d14e0 },
-        { L"Weapon Zombie", 0x00d16c0, 0x00d16e0 },
-    { L"Blink", 0x00d14e0, 0x00d1500 },
-        { L"Weapon Blink", 0x00d16e0, 0x00d1700 },
-    { L"Deflect", 0x00d1500, 0x00d1520 },
-        { L"Weapon Deflect", 0x00d1700, 0x00d1720 },
+    { L"Burned", 0x00d1420, 0x00d1440, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Burned", 0x00d1620, 0x00d1640, indexLastBlade2_Hibiki, 0x01 },
+    { L"Cursed", 0x00d1440, 0x00d1460, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Cursed", 0x00d1640, 0x00d1660, indexLastBlade2_Hibiki, 0x01 },
+    { L"Fandango", 0x00d1460, 0x00d1480, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Fandango (Unused)", 0x00d1660, 0x00d1680, indexLastBlade2_Hibiki, 0x01 },
+    { L"Frozen", 0x00d1480, 0x00d14a0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Frozen", 0x00d1680, 0x00d16a0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Shocked", 0x00d14a0, 0x00d14c0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Shocked", 0x00d16a0, 0x00d16c0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Zombie", 0x00d14c0, 0x00d14e0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Zombie", 0x00d16c0, 0x00d16e0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Blink", 0x00d14e0, 0x00d1500, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Blink", 0x00d16e0, 0x00d1700, indexLastBlade2_Hibiki, 0x01 },
+    { L"Deflect", 0x00d1500, 0x00d1520, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Deflect", 0x00d1700, 0x00d1720, indexLastBlade2_Hibiki, 0x01 },
 
     { L"Extra 1", 0x00d1520, 0x00d1540 },
     { L"Extra 2", 0x00d1540, 0x00d1560 },
@@ -5731,32 +5755,32 @@ const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_SD[] =
     { L"Special 11", 0x00d1a40, 0x00d1a60 },
     { L"Special 12", 0x00d1a60, 0x00d1a80 },
     { L"Special 13", 0x00d1a80, 0x00d1aa0 },
-    { L"Special 14", 0x00d1aa0, 0x00d1ac0 },
+    { L"Special 14", 0x00d1aa0, 0x00d1ac0, indexLastBlade2_Hibiki, 0x08 },
     { L"Special 15", 0x00d1ac0, 0x00d1ae0 },
     { L"Special 16", 0x00d1ae0, 0x00d1b00 },
 };
 
 const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_ED[] =
 {
-    { L"Main", 0x00d1b00, 0x00d1b20 },
-        { L"Weapon", 0x00d1d00, 0x00d1d20 },
+    { L"Main", 0x00d1b00, 0x00d1b20, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon", 0x00d1d00, 0x00d1d20, indexLastBlade2_Hibiki, 0x01 },
 
-    { L"Burned", 0x00d1b20, 0x00d1b40 },
-        { L"Weapon Burned", 0x00d1d20, 0x00d1d40 },
-    { L"Cursed", 0x00d1b40, 0x00d1b60 },
-        { L"Weapon Cursed", 0x00d1d40, 0x00d1d60 },
-    { L"Fandango", 0x00d1b60, 0x00d1b80 },
-        { L"Weapon Fandango (Unused)", 0x00d1d60, 0x00d1d80 },
-    { L"Frozen", 0x00d1b80, 0x00d1ba0 },
-        { L"Weapon Frozen", 0x00d1d80, 0x00d1da0 },
-    { L"Shocked", 0x00d1ba0, 0x00d1bc0 },
-        { L"Weapon Shocked", 0x00d1da0, 0x00d1dc0 },
-    { L"Zombie", 0x00d1bc0, 0x00d1be0 },
-        { L"Weapon Zombie", 0x00d1dc0, 0x00d1de0 },
-    { L"Blink", 0x00d1be0, 0x00d1c00 },
-        { L"Weapon Blink", 0x00d1de0, 0x00d1e00 },
-    { L"Deflect", 0x00d1c00, 0x00d1c20 },
-        { L"Weapon Deflect", 0x00d1e00, 0x00d1e20 },
+    { L"Burned", 0x00d1b20, 0x00d1b40, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Burned", 0x00d1d20, 0x00d1d40, indexLastBlade2_Hibiki, 0x01 },
+    { L"Cursed", 0x00d1b40, 0x00d1b60, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Cursed", 0x00d1d40, 0x00d1d60, indexLastBlade2_Hibiki, 0x01 },
+    { L"Fandango", 0x00d1b60, 0x00d1b80, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Fandango (Unused)", 0x00d1d60, 0x00d1d80, indexLastBlade2_Hibiki, 0x01 },
+    { L"Frozen", 0x00d1b80, 0x00d1ba0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Frozen", 0x00d1d80, 0x00d1da0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Shocked", 0x00d1ba0, 0x00d1bc0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Shocked", 0x00d1da0, 0x00d1dc0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Zombie", 0x00d1bc0, 0x00d1be0, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Zombie", 0x00d1dc0, 0x00d1de0, indexLastBlade2_Hibiki, 0x01 },
+    { L"Blink", 0x00d1be0, 0x00d1c00, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Blink", 0x00d1de0, 0x00d1e00, indexLastBlade2_Hibiki, 0x01 },
+    { L"Deflect", 0x00d1c00, 0x00d1c20, indexLastBlade2_Hibiki, 0x00, &pairNext },
+        { L"Weapon Deflect", 0x00d1e00, 0x00d1e20, indexLastBlade2_Hibiki, 0x01 },
 
     { L"Extra 1", 0x00d1c20, 0x00d1c40 },
     { L"Extra 2", 0x00d1c40, 0x00d1c60 },
@@ -5795,7 +5819,7 @@ const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PALETTES_ED[] =
     { L"Special 11", 0x00d2140, 0x00d2160 },
     { L"Special 12", 0x00d2160, 0x00d2180 },
     { L"Special 13", 0x00d2180, 0x00d21a0 },
-    { L"Special 14", 0x00d21a0, 0x00d21c0 },
+    { L"Special 14", 0x00d21a0, 0x00d21c0, indexLastBlade2_Hibiki, 0x08 },
     { L"Special 15", 0x00d21c0, 0x00d21e0 },
     { L"Special 16", 0x00d21e0, 0x00d2200 },
 };
@@ -6795,18 +6819,18 @@ const sGame_PaletteDataset LASTBLADE2_A_Kojiroh_PORTRAITS[] =
 };
 const sGame_PaletteDataset LASTBLADE2_A_Hibiki_PORTRAITS[] =
 {
-    { L"Select Power A", 0xe0ca0, 0xe0d40 },
-    { L"Select Power D", 0xe0e80, 0xe0f20 },
-    { L"Select Speed A", 0xe0d40, 0xe0de0 },
-    { L"Select Speed D", 0xe0f20, 0xe0fc0 },
-    { L"Select EX A", 0xe0de0, 0xe0e80 },
-    { L"Select EX D", 0xe0fc0, 0xe1060 },
-    { L"Win Power A", 0xe8240, 0xe82a0 },
-    { L"Win Power D", 0xe8540, 0xe85a0 },
-    { L"Win Speed A", 0xe8340, 0xe83a0 },
-    { L"Win Speed D", 0xe8640, 0xe86a0 },
-    { L"Win EX A", 0xe8440, 0xe84a0 },
-    { L"Win EX D", 0xe8740, 0xe87a0 },
+    { L"Select Power A", 0xe0ca0, 0xe0d40, indexLastBlade2_Hibiki, 0x40 },
+    { L"Select Power D", 0xe0e80, 0xe0f20, indexLastBlade2_Hibiki, 0x40 },
+    { L"Select Speed A", 0xe0d40, 0xe0de0, indexLastBlade2_Hibiki, 0x40 },
+    { L"Select Speed D", 0xe0f20, 0xe0fc0, indexLastBlade2_Hibiki, 0x40 },
+    { L"Select EX A", 0xe0de0, 0xe0e80, indexLastBlade2_Hibiki, 0x40 },
+    { L"Select EX D", 0xe0fc0, 0xe1060, indexLastBlade2_Hibiki, 0x40 },
+    { L"Win Power A", 0xe8240, 0xe82a0, indexLastBlade2_Hibiki, 0x41 },
+    { L"Win Power D", 0xe8540, 0xe85a0, indexLastBlade2_Hibiki, 0x41 },
+    { L"Win Speed A", 0xe8340, 0xe83a0, indexLastBlade2_Hibiki, 0x41 },
+    { L"Win Speed D", 0xe8640, 0xe86a0, indexLastBlade2_Hibiki, 0x41 },
+    { L"Win EX A", 0xe8440, 0xe84a0, indexLastBlade2_Hibiki, 0x41 },
+    { L"Win EX D", 0xe8740, 0xe87a0, indexLastBlade2_Hibiki, 0x41 },
 };
 const sGame_PaletteDataset LASTBLADE2_A_Setsuna_PORTRAITS[] =
 {

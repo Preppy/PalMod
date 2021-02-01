@@ -60,7 +60,7 @@ CGame_Kizuna_A::CGame_Kizuna_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = KIZUNA_A;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
+    nImgGameFlag = IMGDAT_SECTION_SNK;
     m_prgGameImageSet = nullptr;
     nImgUnitAmt = 0;
 

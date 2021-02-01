@@ -88,6 +88,8 @@ enum SupportedGamesList
     RBFF2_A,
     KIZUNA_A,
     SFZ3U_A,
+    AOF1_A,
+    DOUBLEDRAGON_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -178,7 +180,9 @@ const TCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Real Bout Fatal Fury (NEOGEO)",
    L"Real Bout Fatal Fury 2 (NEOGEO)",
    L"Kizuna Encounter (NEOGEO)",
-   L"Street Fighter Zero 3 Upper (NAOMI)"
+   L"Street Fighter Zero 3 Upper (NAOMI)",
+   L"Art of Fighting 1 (NEOGEO)",
+   L"Double Dragon (NEOGEO)",
 };
 
 enum class GamePlatform
@@ -549,10 +553,11 @@ enum CHARACTERS_CPS2
     indexSM2Sprites_Bonus,      // 0x90
     indexSM2Sprites_Stages,     // 0x91
 
-    indexCPS2_DeeJay,
-    indexCPS2_Eagle,
-    indexCPS2_FeiLong,
-    indexCPS2_THawk,
+    indexCPS2_DeeJay,           // 0x92
+    indexCPS2_Eagle,            // 0x93
+    indexCPS2_FeiLong,          // 0x94
+    indexCPS2_THawk,            // 0x95
+
 };
 
 const UINT16 MVC2_IMG_UNITS[MVC2_D_NUM_IMG_UNITS] =
@@ -1779,6 +1784,26 @@ enum KOFSpriteList
     indexKOFSprites_01_Stages,      // 0x1d6
     indexKOFSprites_02UM_Bonus,     // 0x1d7
     indexKOFSprites_02UM_Stages,    // 0x1d8
+
+    indexLastBlade2_Akari,        // 0x1D9
+    indexLastBlade2_Genbu,        // 0x1DA
+    indexLastBlade2_Hibiki,       // 0x1DB
+    indexLastBlade2_HyoAmano,     // 0x1DC
+    indexLastBlade2_Juzoh,        // 0x1DD
+    indexLastBlade2_Kaede,        // 0x1DE
+    indexLastBlade2_Keiichiro,    // 0x1DF
+    indexLastBlade2_KojirohKaori, // 0x1E0
+    indexLastBlade2_Kouryu,       // 0x1E1
+    indexLastBlade2_LeeRekka,     // 0x1E2
+    indexLastBlade2_Moriya,       // 0x1E3
+    indexLastBlade2_Mukuro,       // 0x1E4
+    indexLastBlade2_Setsuna,      // 0x1E5
+    indexLastBlade2_Shigen,       // 0x1E6
+    indexLastBlade2_Shinnosuke,   // 0x1E7
+    indexLastBlade2_Yuki,         // 0x1E8
+    indexLastBlade2_Zantetsu,     // 0x1E9
+    indexLastBlade2_Bonus,        // 0x1EA
+    indexLastBlade2_Stages,       // 0x1EB
 
     indexKOFSprites_Last,
 };
@@ -3311,7 +3336,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_GAROU,   // Garou
     IMGDAT_SECTION_JOJOS,
     IMGDAT_SECTION_KARNOVSR,
-    IMGDAT_SECTION_KOF,     // KOF98 + KOF02UM
+    IMGDAT_SECTION_SNK,     // KOF games, Last Blade, etc
     IMGDAT_SECTION_MATRIM,  // Matrimelee
     IMGDAT_SECTION_NEOGEO,  // generic set for NeoGeo games
     IMGDAT_SECTION_REDEARTH,

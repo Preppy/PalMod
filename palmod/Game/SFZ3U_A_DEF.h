@@ -34,12 +34,14 @@ const UINT16 SFZ3U_A_IMG_UNITS[] =
     indexCPS2_Juni,         // 0x4C
     indexCPS2_Juli,         // 0x4D
 
-    indexCPS2_DeeJay,
-    indexCPS2_Eagle,
-    indexCPS2_FeiLong,
-    indexCPS2_THawk,
+    indexCPS2_DeeJay,       // 0x92
+    indexCPS2_Eagle,        // 0x93
+    indexCPS2_FeiLong,      // 0x94
+    indexCPS2_THawk,        // 0x95
 };
 
+// The following are the PAL IDs CapCom used for the file structure on the DC disc.  
+// They also represent the order you should expect to see character data arranged by.
 
 // ;      <item value="0x00">Ryu</item>
 // ;      <item value="0x01">Ken Masters</item>
@@ -79,20 +81,21 @@ const UINT16 SFZ3U_A_IMG_UNITS[] =
 // ; T.Hawk (no sprite for)
 // ; shin akuma
 // ; boxer
-// 
-// ; eagle : not in dreamcast
+//
+// ; eagle : not in dreamcast nor NAOMI version
 // 
 // ; // following are NOT present in sfz3u
 // ; maki
 // ; yun
 // ; ingrid
 
-// ; these lines are the hexes for each character's A-ism color in the ROM from the A-ism color set.
-// ; so you actually need to talk back about ~10 palettes lines to get to the X-Ism color
+// There's a section of the A-Ism Punch color for each character in order starting at 0x2ab64a and ending at 0x2abb2a 
+// So the following lines are the hexes for those colors which you can search against to find A-Ism Punch data.
+// You walk back about ~10 palettes lines / 0x140 to get to the X-Ism color
 // ; Search string: 00 80 42 88 12 FB 8E FA 0A F2 88 D9 C0 C0 DE FB 00 D0 DE FB 9A E3 16 DB 92 CA 0E BA 00 F8 00 D8 
 // ;5ff0140
 // ryu
-// 5ff0000
+// 5ff0000 <-- this is the actual starting place for all character palettes
 // 5ff03c0
 // ; Search string: 00 80 42 88 D8 FB 52 FB 8C F2 C8 D9 44 C9 DE FB D4 FB 00 F9 00 E8 00 D8 00 C8 00 B8 44 FB 40 F2 
 // ;60bd940
@@ -100,8 +103,7 @@ const UINT16 SFZ3U_A_IMG_UNITS[] =
 // 60bd800
 // 60bdbc0
 // ; Search string: 00 80 42 88 88 E1 04 D1 80 C0 40 B0 00 A0 00 F8 00 D8 0A A1 C6 98 84 90 42 88 02 80 40 B0 00 A0 
-// ;31ad580: WRONG
-// WRONG: akuma
+// ;31ad580
 // 2ab680
 // ; Search string: 00 80 DE FB 12 FB 4C F2 CA E1 04 C1 C0 B0 D4 FB 00 FB 40 FA 40 E1 0A 82 88 81 46 81 04 81 82 80 
 // ;31b7d80
@@ -148,6 +150,7 @@ const UINT16 SFZ3U_A_IMG_UNITS[] =
 // ; Search string: 00 80 42 88 4C EA CA E1 44 D1 82 C0 40 B0 00 F8 40 FB 80 EA 00 DA C0 C9 40 B9 5A F3 96 E2 8E C9
 // ;7190140 dhalsim
 // 
+// A-Ism colors, Page 2
 // ; Search string: 00 80 80 A0 D8 FB 52 FB 8C F2 C8 D9 44 C9 C0 B8 00 F8 00 D8 00 C8 00 B0 DE FB D4 D2 40 FB 80 F2 
 // ;732c140 zangief
 // ; Search string: 00 80 1E D0 1A C0 16 B0 12 A0 0E 90 0A 80 DE FB 5A E3 94 C2 00 F8 00 D8 52 FB 8C F2 CA E1 00 C1 
@@ -158,7 +161,7 @@ const UINT16 SFZ3U_A_IMG_UNITS[] =
 // ; Search string: 00 80 1E D0 1A C0 16 B0 12 A0 0E 90 0A 80 DE FB 5A E3 94 C2 00 F8 00 D8 52 FB 8C F2 CA E1 00 C1 
 // ;7451140 gen crane
 // ; Search string: 00 80 42 88 D0 FA 0A E2 46 C9 5E 83 56 A2 92 A1 4C 99 CE FB DC FB 1C D3 D2 B1 84 F2 86 E1 46 D1 
-// ;67ec000 gen crane
+// ;67ec000 sodom xism
 // ;8c25f00
 // ; Search string: 00 80 84 90 0A F2 86 E1 00 C9 80 B8 80 A8 DE FB 1E CB 5E A2 9A 81 D4 80 4E 80 C0 F9 00 F8 00 D8 
 // ;75fd140 balrog
@@ -183,7 +186,7 @@ const UINT16 SFZ3U_A_IMG_UNITS[] =
 // ; Search string: 00 80 42 88 54 FB D0 FA 4C F2 88 E1 04 C1 80 A8 88 90 44 88 02 80 02 80 02 80 00 F0 10 FB C0 F9 
 // ;32d9d80 juni
 // 
-// 
+// A-Ism colors, Page 3
 // ; Search string: 00 80 40 80 9A FB 12 FB 8E F2 08 E2 84 D1 C0 B8 54 DB CE C2 08 AA 86 99 00 81 00 F9 DE A1 CE FB 
 // ;32e6d80 guile
 // ; Search string: 00 80 42 88 94 FB 12 FB 8E F2 0C E2 8A D1 00 B9 42 80 08 A9 4A B1 8C B9 CE C1 96 D2 5C EB DE FB 
@@ -195,11 +198,11 @@ const UINT16 SFZ3U_A_IMG_UNITS[] =
 // ; Search string: 00 80 42 88 88 E1 04 D1 80 C0 40 B0 00 A0 00 F8 00 D8 D8 B8 52 A8 0E A0 0C 98 0A 90 40 B0 00 A0 
 // ;3312d80 shin akuma
 // ; Search string: 00 80 84 90 0A F2 86 E1 00 C9 80 B8 80 A8 DE FB 1E CB 5E A2 9A 81 D4 80 4E 80 C0 F9 00 F8 00 D8 
-// ;326c580 boxer
+// ;326c580 boxer (Finished)
 // ;75fd140 
 // ;76ec140
 // ; Search string: 00 80 40 F9 DE FB 5C EB D8 DA 14 CA 50 B1 C2 FA 44 EA C6 D1 08 C1 DE F3 5E E3 9C D2 18 D2 D4 C9 
-// ;3261600 eagle
+// ;3261600 eagle: but not actually in the DC/Naomi versions
 // ;67ec020
 // ;8c26c80
 // 

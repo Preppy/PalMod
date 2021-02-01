@@ -39,5 +39,6 @@ public:
     sImgDef* getImgDef(UINT16 imgID) { return (getToNode(imgID)->imgInfo); };
     bool valueExists(UINT16 desiredImgID);
     bool insertNode(UINT16 imgID);
+    UINT16 size() { return listCount; };
 };
 //#endif

@@ -227,6 +227,7 @@
     <ClCompile Include="Game\DescTree.cpp" />
     <ClCompile Include="Game\GameClass.cpp" />
     <ClCompile Include="Game\GameLoad.cpp" />
+    <ClCompile Include="Game\Game_AOF1_A.cpp" />
     <ClCompile Include="Game\Game_AOF3_A.cpp" />
     <ClCompile Include="Game\GAME_Bleach_DS.cpp" />
     <ClCompile Include="Game\Game_Breakers_A.cpp" />
@@ -234,6 +235,7 @@
     <ClCompile Include="Game\Game_COTA_A.cpp" />
     <ClCompile Include="Game\Game_CVS2_A.cpp" />
     <ClCompile Include="Game\Game_DANKUGA_A.cpp" />
+    <ClCompile Include="Game\Game_DoubleDragon_A.cpp" />
     <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
     <ClCompile Include="Game\Game_Garou_S.cpp" />
@@ -329,6 +331,7 @@
   <ItemGroup>
     <ClInclude Include="CRC32.h" />
     <ClInclude Include="ExtraFile.h" />
+    <ClInclude Include="Game\AOF1_A_DEF.h" />
     <ClInclude Include="Game\AOF3_A_DEF.h" />
     <ClInclude Include="Game\Bleach_DS_DEF.h" />
     <ClInclude Include="Game\Breakers_A_DEF.h" />
@@ -339,10 +342,12 @@
     <ClInclude Include="Game\DANKUGA_A_DEF.h" />
     <ClInclude Include="Game\Default.h" />
     <ClInclude Include="Game\DescTree.h" />
+    <ClInclude Include="Game\DoubleDragon_A_DEF.h" />
     <ClInclude Include="Game\FatalFuryS_SNES_DEF.h" />
     <ClInclude Include="Game\GameClass.h" />
     <ClInclude Include="Game\GameDef.h" />
     <ClInclude Include="Game\GameLoad.h" />
+    <ClInclude Include="Game\Game_AOF1_A.h" />
     <ClInclude Include="Game\Game_AOF3_A.h" />
     <ClInclude Include="Game\GAME_Bleach_DS.h" />
     <ClInclude Include="Game\Game_Breakers_A.h" />
@@ -350,6 +355,7 @@
     <ClInclude Include="Game\Game_COTA_A.h" />
     <ClInclude Include="Game\Game_CVS2_A.h" />
     <ClInclude Include="Game\Game_DANKUGA_A.h" />
+    <ClInclude Include="Game\Game_DoubleDragon_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_SNES.h" />
     <ClInclude Include="Game\Game_Garou_A.h" />
     <ClInclude Include="Game\Game_Garou_S.h" />

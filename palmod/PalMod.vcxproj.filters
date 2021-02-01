@@ -253,6 +253,12 @@
     <Filter Include="Game\Capcom Games\SFZ3U_A">
       <UniqueIdentifier>{ca5516ef-e807-4de5-b889-e11da544a6e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\Art of Fighting 1">
+      <UniqueIdentifier>{3dafae03-f15a-41f5-b52d-86343bdd6fff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Double Dragon">
+      <UniqueIdentifier>{b9dc1b67-7f5d-4f9d-9b8a-b6b01f7e3aa7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -554,6 +560,12 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SFZ3U_A.cpp">
       <Filter>Game\Capcom Games\SFZ3U_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_AOF1_A.cpp">
+      <Filter>Game\SNK Games\Art of Fighting 1</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_DoubleDragon_A.cpp">
+      <Filter>Game\SNK Games\Double Dragon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1033,6 +1045,18 @@
     </ClInclude>
     <ClInclude Include="Game\SFZ3U_A_DEF.h">
       <Filter>Game\Capcom Games\SFZ3U_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AOF1_A_DEF.h">
+      <Filter>Game\SNK Games\Art of Fighting 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_AOF1_A.h">
+      <Filter>Game\SNK Games\Art of Fighting 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DoubleDragon_A_DEF.h">
+      <Filter>Game\SNK Games\Double Dragon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DoubleDragon_A.h">
+      <Filter>Game\SNK Games\Double Dragon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

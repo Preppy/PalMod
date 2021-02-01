@@ -2,6 +2,7 @@
 #include "GameLoad.h"
 #include "..\CRC32.h"
 
+#include "Game_AOF1_A.h"
 #include "Game_AOF3_A.h"
 #include "Game_Bleach_DS.h"
 #include "Game_Breakers_A.h"
@@ -9,6 +10,7 @@
 #include "Game_COTA_A.h"
 #include "Game_CVS2_A.h"
 #include "Game_DanKuGa_A.h"
+#include "Game_DoubleDragon_A.h"
 #include "Game_FatalFuryS_SNES.h"
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
@@ -111,6 +113,12 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     switch (nGameFlag)
     {
 
+    case AOF1_A:
+    {
+        GetRule = &CGame_AOF1_A::GetRule;
+        return TRUE;
+    }
+
     case AOF3_A:
     {
         GetRule = &CGame_AOF3_A::GetRule;
@@ -152,6 +160,13 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
+
+    case DOUBLEDRAGON_A:
+    {
+        GetRule = &CGame_DOUBLEDRAGON_A::GetRule;
+        return TRUE;
+    }
+
     case FatalFuryS_SNES:
     {
         GetRule = &CGame_FatalFuryS_SNES::GetRule;
@@ -522,6 +537,11 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
 {
     switch (nGameFlag)
     {
+    case AOF1_A:
+    {
+        return new CGame_AOF1_A(nConfirmedROMSize);
+    }
+
     case AOF3_A:
     {
         return new CGame_AOF3_A(nConfirmedROMSize, nExtraGameData);
@@ -551,6 +571,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case DANKUGA_A:
     {
         return new CGame_DanKuGa_A_DIR(-1);
+    }
+    case DOUBLEDRAGON_A:
+    {
+        return new CGame_DOUBLEDRAGON_A(nConfirmedROMSize);
     }
     case FatalFuryS_SNES:
     {

@@ -49,7 +49,7 @@ CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize)
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     // You will need to update this, but PalMod will prompt you to do so.  Exact location will be shown and also
     // visible in debug output in the debugger.
-    m_nLowestKnownPaletteRomLocation = 0x00aac00;
+    m_nLowestKnownPaletteRomLocation = 0xaac00;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -72,9 +72,9 @@ CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = LASTBLADE2_A; // This value is defined in gamedef.h.  See usage of other values defined there
-    nImgGameFlag = IMGDAT_SECTION_NEOGEO; // This value is used to determine which section of the image file is used
-    m_prgGameImageSet = nullptr;  // LASTBLADE2_A_IMG_UNITS -- this is the array of images present in imgdat once that happens
-    nImgUnitAmt = 0; // ARRAYSIZE(LASTBLADE2_A_IMG_UNITS); // This is the size of the array tracking which IDs to load from the game's image section
+    nImgGameFlag = IMGDAT_SECTION_SNK; // This value is used to determine which section of the image file is used
+    m_prgGameImageSet = LASTBLADE2_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(LASTBLADE2_A_IMG_UNITS);
 
     nFileAmt = 1; // Always 1 for monolithic rom games
 

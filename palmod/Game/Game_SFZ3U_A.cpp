@@ -476,7 +476,7 @@ sDescTreeNode* CGame_SFZ3U_A::InitDescTree()
     m_nTotalPaletteCountForSFZ3U = nTotalPaletteCount;
 
     // For development purposes only...
-    DumpAllCharacters();
+    //DumpAllCharacters();
 
     return NewDescTree;
 }
