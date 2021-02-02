@@ -29,9 +29,6 @@ private:
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
 
-    // Developer-only mode to regenerate the header file quickly.
-    static void DumpPaletteHeaders(int nHeaderSetToDump);
-
 public:
     CGame_DOUBLEDRAGON_A(UINT32 nConfirmedROMSize, int nROMToLoad = 1);
     ~CGame_DOUBLEDRAGON_A(void);

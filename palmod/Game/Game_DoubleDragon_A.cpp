@@ -110,7 +110,7 @@ UINT32 CGame_DOUBLEDRAGON_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet**
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"Art of Fighting 1 (NEOGEO)", L"044-p1.bin", 0, 0 },
+        { L"Double Dragon (NEOGEO)", L"082-p1.bin", 0, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
@@ -381,7 +381,7 @@ sFileRule CGame_DOUBLEDRAGON_A::GetRule(UINT16 nUnitId)
     NewFileRule.uUnitId = 0;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"044-p1.bin");
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"082-p1.bin");
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
