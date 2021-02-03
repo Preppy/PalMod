@@ -464,6 +464,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
 
     if (UsePaletteSetFor4rd())
     {
+        // 4rd Strike is just 5.6 and 5.7, so skip to the second half
         nSIMMNumber += 4;
     }
 
@@ -523,7 +524,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
     {
     case SFIII3_A_DIR_4:
         pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
-        nSIMMSetBaseNumber = 1;
+        nSIMMSetBaseNumber = 5; // the 4rd Strikes characters roms are solely 5.6 and 5.7
         break;
     case SFIII3_A_DIR_EX:
         pszBaseFormatString = SFIII_Arcade_3Ex_ROM_Base;
@@ -727,7 +728,7 @@ UINT32 CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     {
     case SFIII3_A_DIR_4:
         pszBaseFormatString = SFIII_Arcade_4rd_ROM_Base;
-        nSIMMSetBaseNumber = 1;
+        nSIMMSetBaseNumber = 5; // the 4rd Strikes characters roms are solely 5.6 and 5.7
         break;
     case SFIII3_A_DIR_EX:
         pszBaseFormatString = SFIII_Arcade_3Ex_ROM_Base;

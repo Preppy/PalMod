@@ -179,7 +179,10 @@ public:
     int GetImgAmt() { return nImgAmt; };
 
     void ClearUsed();
+    // Eliminates all unused buffers and resets for new display
     void FlushUnused();
+
+    void ResetForNewImage();
 
 protected:
     BOOL RegisterWindowClass();

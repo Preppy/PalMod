@@ -137,6 +137,22 @@ void CImgDisp::ClearUsed()
     }
 }
 
+void CImgDisp::ResetForNewImage()
+{
+    rImgRct.right += abs(rImgRct.left);
+    rImgRct.left = 0;
+
+    rImgRct.bottom += abs(rImgRct.top);
+    rImgRct.top = 0;
+
+    nImgRctW = rImgRct.Width();
+    nImgRctH = rImgRct.Height();
+
+    ModifySrcRect();
+
+    ResizeMainBitmap();
+}
+
 void CImgDisp::FlushUnused()
 {
     if (nImgAmt)
@@ -149,18 +165,7 @@ void CImgDisp::FlushUnused()
             }
         }
 
-        rImgRct.right += abs(rImgRct.left);
-        rImgRct.left = 0;
-
-        rImgRct.bottom += abs(rImgRct.top);
-        rImgRct.top = 0;
-
-        nImgRctW = rImgRct.Width();
-        nImgRctH = rImgRct.Height();
-
-        ModifySrcRect();
-
-        ResizeMainBitmap();
+        ResetForNewImage();
     }
 
     for (int iPos = 0; iPos < MAX_IMAGES_DISPLAYABLE; iPos++)
@@ -604,7 +609,7 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
                         AddImageNode(nPositionToLoadTo, m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo], m_ppSpriteOverrideTexture[nPositionToLoadTo], m_pBackupPaletteDef->pPal, m_pBackupPaletteDef->uPalSz, 0, 0);
                     }
 
-                    ResizeMainBitmap();
+                    ResetForNewImage();
 
                     return true;
                 }
@@ -629,7 +634,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
     UINT8* pCurrPal = nullptr;
     UINT8* pDstBmpData = (UINT8*)pBmpData;
 
-    if (nSrcIndex != -1)
+    if ((nSrcIndex != -1) && pImgBuffer && pImgBuffer[nSrcIndex])
     {
         pImgData = (UINT8*)pImgBuffer[nSrcIndex]->pImgData;
         pCurrPal = (UINT8*)(fUseAltPal ? pImgBuffer[nSrcIndex]->pAltPal : pImgBuffer[nSrcIndex]->pPalette);
