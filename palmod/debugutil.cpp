@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "debugutil.h"
 
-constexpr auto c_PalModRegistryRoot = _T("Software\\knarxed\\PalMod");
+constexpr auto c_PalModRegistryRoot = L"Software\\knarxed\\PalMod";
 
 CDebugHelper g_DebugHelper;
 

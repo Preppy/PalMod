@@ -337,7 +337,7 @@ UINT32 CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     CFile fileIPS3;
     CFile fileIPS4;
 
-    LPCTSTR pszBaseFormatString = JOJOS_Arcade_ROM_Base;
+    LPCWSTR pszBaseFormatString = JOJOS_Arcade_ROM_Base;
     const UINT16 nSIMMSetBaseNumber = 5; // jojos just wants 50/51
 
     const bool fUserWantsAllChanges = UserWantsAllPalettesInPatch();

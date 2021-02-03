@@ -328,7 +328,7 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
     CString strOutput;
     const UINT32 SAMSHO_PALETTE_LENGTH = 0x40;
 
-    LPCTSTR rgCharacters[] = {
+    LPCWSTR rgCharacters[] = {
                                 _T("Haohmaru"),
                                 _T("Nakoruru"),
                                 _T("Rimururu"),
@@ -350,7 +350,7 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         // Status effects
@@ -441,7 +441,7 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(_T("const sDescTreeNode SAMSHO3_A_%s_COLLECTION[] = \r\n{\r\n"), szCodeDesc);
@@ -463,7 +463,7 @@ void CGame_SAMSHO3_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SAMSHO3_A_%s_COLLECTION, ARRAYSIZE(SAMSHO3_A_%s_COLLECTION) },\r\n"), rgCharacters[nCharIndex], szCodeDesc, szCodeDesc);
@@ -512,7 +512,7 @@ UINT16 CGame_SAMSHO3_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollec
     }
 }
 
-LPCTSTR CGame_SAMSHO3_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SAMSHO3_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == SAMSHO3_A_EXTRALOC)
     {
@@ -743,8 +743,8 @@ BOOL CGame_SAMSHO3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                     ((_wcsicmp(paletteDataSet->szPaletteName, L"Main") == 0) ||
                      (_wcsicmp(paletteDataSet->szPaletteName, L"Rage Flash") == 0)))
                 {
-                    if ((_tcsicmp(pCurrentNode->szDesc, _T("Slash 1")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("Slash 2")) == 0) ||
-                        (_tcsicmp(pCurrentNode->szDesc, _T("Bust 1")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("Bust 2")) == 0))
+                    if ((_wcsicmp(pCurrentNode->szDesc, _T("Slash 1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("Slash 2")) == 0) ||
+                        (_wcsicmp(pCurrentNode->szDesc, _T("Bust 1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("Bust 2")) == 0))
                     {
                         nSrcAmt = 2;
                         nNodeIncrement = pCurrentNode->uChildAmt;
@@ -756,8 +756,8 @@ BOOL CGame_SAMSHO3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
                         }
                     }
                 }
-                else if ((_tcsicmp(pCurrentNode->szDesc, _T("Slash 1")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("Slash 2")) == 0) ||
-                         (_tcsicmp(pCurrentNode->szDesc, _T("Bust 1")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("Bust 2")) == 0))
+                else if ((_wcsicmp(pCurrentNode->szDesc, _T("Slash 1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("Slash 2")) == 0) ||
+                         (_wcsicmp(pCurrentNode->szDesc, _T("Bust 1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("Bust 2")) == 0))
                 {
                     nSrcAmt = 4;
                     nNodeIncrement = pCurrentNode->uChildAmt;

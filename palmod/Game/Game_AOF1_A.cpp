@@ -413,7 +413,7 @@ UINT16 CGame_AOF1_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectio
     }
 }
 
-LPCTSTR CGame_AOF1_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_AOF1_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == GetCurrentExtraLoc())
     {

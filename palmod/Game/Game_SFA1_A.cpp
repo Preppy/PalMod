@@ -325,10 +325,10 @@ sDescTreeNode* CGame_SFA1_A::InitDescTree()
 
 struct sSFA1_A_PortraitData
 {
-    LPCTSTR pszCharacterName = nullptr;
-    LPCTSTR pszCodeName = nullptr;
+    LPCWSTR pszCharacterName = nullptr;
+    LPCWSTR pszCodeName = nullptr;
     UINT32 nROMOffset = 0;
-    LPCTSTR pszImageSet = _T("indexCPS2_SFA1Assets"); // SFA1_Unique
+    LPCWSTR pszImageSet = _T("indexCPS2_SFA1Assets"); // SFA1_Unique
     UINT32 nImageSetIndex = 0;
 };
 
@@ -450,7 +450,7 @@ UINT16 CGame_SFA1_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectio
     }
 }
 
-LPCTSTR CGame_SFA1_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SFA1_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == SFA1_A_EXTRALOC)
     {
@@ -661,11 +661,11 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
-            if (_tcsicmp(pCurrentNode->szDesc, _T("Select Portraits")) == 0)
+            if (_wcsicmp(pCurrentNode->szDesc, _T("Select Portraits")) == 0)
             {
                 nSrcAmt = 2;
 
-                if (_tcsstr(paletteDataSet->szPaletteName, _T("Kick")))
+                if (wcsstr(paletteDataSet->szPaletteName, _T("Kick")))
                 {
                     // Go back to Punch
                     nSrcStart--;
@@ -673,8 +673,8 @@ BOOL CGame_SFA1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 nNodeIncrement = 1;
             }
-            else if ((_tcsicmp(pCurrentNode->szDesc, _T("Punch")) == 0) ||
-                     (_tcsicmp(pCurrentNode->szDesc, _T("Kick")) == 0))
+            else if ((_wcsicmp(pCurrentNode->szDesc, _T("Punch")) == 0) ||
+                     (_wcsicmp(pCurrentNode->szDesc, _T("Kick")) == 0))
             {
                 nSrcAmt = 2;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);

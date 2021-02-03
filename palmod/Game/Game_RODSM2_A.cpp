@@ -380,7 +380,7 @@ UINT16 CGame_RODSM2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollect
     }
 }
 
-LPCTSTR CGame_RODSM2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_RODSM2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == RODSM2_A_EXTRALOC)
     {
@@ -580,7 +580,7 @@ BOOL CGame_RODSM2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2[0]) == 0) || (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2[1]) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2[0]) == 0) || (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2[1]) == 0))
                 {
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;

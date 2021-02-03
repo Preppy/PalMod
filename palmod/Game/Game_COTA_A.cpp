@@ -414,7 +414,7 @@ UINT16 CGame_COTA_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectio
     }
 }
 
-LPCTSTR CGame_COTA_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_COTA_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == COTA_A_EXTRALOC)
     {
@@ -633,7 +633,7 @@ BOOL CGame_COTA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("P1")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("P2")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, _T("P1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("P2")) == 0))
                 {
                     // We show 2 sprites (P1/P2) for export for all normal COTA sprites
                     nSrcAmt = 2;

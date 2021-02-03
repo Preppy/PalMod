@@ -359,7 +359,7 @@ UINT16 CGame_Garou_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
 }
 
-LPCTSTR CGame_Garou_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_Garou_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == Garou_A_EXTRALOC)
     {

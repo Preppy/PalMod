@@ -8863,7 +8863,7 @@ const sGame_PaletteDataset MVC2_A_GENERICSET_PALETTES[] =
 
 struct MVC2_TEAM_GROUPING
 {
-    LPCTSTR pszTeamName = nullptr;
+    LPCWSTR pszTeamName = nullptr;
     UINT16 nCharacterOne = indexMVC2ARyu;
     UINT16 nCharacterTwo = indexMVC2ARyu;
     UINT16 nCharacterThree = indexMVC2ARyu;

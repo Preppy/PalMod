@@ -520,7 +520,7 @@ UINT16 CGame_SFZ3U_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
 }
 
-LPCTSTR CGame_SFZ3U_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SFZ3U_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == SFZ3U_A_EXTRALOC)
     {

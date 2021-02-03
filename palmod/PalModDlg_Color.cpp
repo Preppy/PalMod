@@ -294,7 +294,7 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
         // These are handled over in OnDeltaposSpin*
         return;
     default:
-        OutputDebugString(_T("Bogus slider ID: bad things will happen\n"));
+        OutputDebugString(L"Bogus slider ID: bad things will happen\n");
         return;
     }
 
@@ -476,7 +476,7 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
     }
     break;
     default:
-        OutputDebugString(_T("bogus edit control specified"));
+        OutputDebugString(L"bogus edit control specified");
         return;
     }
 
@@ -793,15 +793,15 @@ void CPalModDlg::SetSliderDescEdit()
 
     if (bRGB)
     {
-        m_EditRHDesc = _T("R");
-        m_EditGSDesc = _T("G");
-        m_EditBLDesc = _T("B");
+        m_EditRHDesc = L"R";
+        m_EditGSDesc = L"G";
+        m_EditBLDesc = L"B";
     }
     else
     {
-        m_EditRHDesc = _T("H");
-        m_EditGSDesc = _T("S");
-        m_EditBLDesc = _T("L");
+        m_EditRHDesc = L"H";
+        m_EditGSDesc = L"S";
+        m_EditBLDesc = L"L";
     }
 
     UpdateData(FALSE);

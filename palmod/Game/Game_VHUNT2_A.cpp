@@ -380,7 +380,7 @@ UINT16 CGame_VHUNT2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollect
     }
 }
 
-LPCTSTR CGame_VHUNT2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_VHUNT2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == VHUNT2_A_EXTRALOC)
     {
@@ -590,11 +590,11 @@ BOOL CGame_VHUNT2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("LP")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("MP")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("HP")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("LK")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("MK")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("HK")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("PP")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("KK")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("AP")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("AK")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, _T("LP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("MP")) == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, _T("HP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("LK")) == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, _T("MK")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("HK")) == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, _T("PP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("KK")) == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, _T("AP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("AK")) == 0))
                 {
                     nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;
@@ -605,7 +605,7 @@ BOOL CGame_VHUNT2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         nSrcStart -= nNodeIncrement;
                     }
                 }
-                else  if ((_tcsicmp(pCurrentNode->szDesc, _T("Default")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("Alt")) == 0))
+                else  if ((_wcsicmp(pCurrentNode->szDesc, _T("Default")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("Alt")) == 0))
                 {
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;

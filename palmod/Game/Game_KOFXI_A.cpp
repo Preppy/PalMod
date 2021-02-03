@@ -145,9 +145,9 @@ int CGame_KOFXI_A::GetExtraLoc(UINT16 nUnitId)
 
 struct sKOFXI_CharacterDump
 {
-    LPCTSTR pszCharacterName = nullptr;
+    LPCWSTR pszCharacterName = nullptr;
     UINT32 baseLocation = 0;
-    LPCTSTR pszImageRefName = nullptr;
+    LPCWSTR pszImageRefName = nullptr;
 };
 
 sKOFXI_CharacterDump kofXICharacterList[] =
@@ -212,7 +212,7 @@ void CGame_KOFXI_A::DumpAllCharacters()
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
 
@@ -294,7 +294,7 @@ void CGame_KOFXI_A::DumpAllCharacters()
     for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(kofXICharacterList); iUnitCtr++)
     {
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
 
@@ -316,7 +316,7 @@ void CGame_KOFXI_A::DumpAllCharacters()
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), kofXICharacterList[iUnitCtr].pszCharacterName);
 
@@ -548,7 +548,7 @@ UINT16 CGame_KOFXI_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
 }
 
-LPCTSTR CGame_KOFXI_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KOFXI_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == KOFXI_A_EXTRALOC)
     {

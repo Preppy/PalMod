@@ -296,7 +296,7 @@ void CImgDumpBmp::OnMouseMove(UINT nFlags, CPoint point)
 
     if (LButtonDown)
     {
-        POINT diff;
+        POINT diff = { 0 };
 
         diff.x = point.x - old_pt.x;
         diff.y = point.y - old_pt.y;
@@ -719,7 +719,7 @@ int CImgDumpBmp::GetMaxImagesPerLine()
         w_mul = 6;
         break;
     default:
-        OutputDebugString(_T("CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option."));
+        OutputDebugString(L"CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option.");
         DebugBreak();
         break;
     }

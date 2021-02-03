@@ -413,7 +413,7 @@ UINT16 CGame_DOUBLEDRAGON_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nC
     }
 }
 
-LPCTSTR CGame_DOUBLEDRAGON_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_DOUBLEDRAGON_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == GetCurrentExtraLoc())
     {

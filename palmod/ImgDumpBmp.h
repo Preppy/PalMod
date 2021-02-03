@@ -3,7 +3,7 @@
 #include "ImgDisp.h"
 #include "Game\GameDef.h"
 
-#define IMGDUMPBMP        _T("ImgDumpBmp")
+#define IMGDUMPBMP        L"ImgDumpBmp"
 #define REQ_VAR            0xD010
 
 #define SCROLL_W        17

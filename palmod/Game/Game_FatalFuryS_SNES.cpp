@@ -383,7 +383,7 @@ UINT16 CGame_FatalFuryS_SNES::GetNodeCountForCollection(UINT16 nUnitId, UINT16 n
     }
 }
 
-LPCTSTR CGame_FatalFuryS_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_FatalFuryS_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == FatalFuryS_SNES_EXTRALOC)
     {

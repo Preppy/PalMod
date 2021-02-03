@@ -154,7 +154,7 @@ void CGame_CVS2_A::DumpAllCharacters()
         const UINT16 k_nCharacterColorCount = ARRAYSIZE(DEF_BUTTONLABEL_CVS2);
         CString strOutput;
 
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
         for (UINT16 iButtonIndex = 0; iButtonIndex < k_nCharacterColorCount; iButtonIndex++)
@@ -238,7 +238,7 @@ void CGame_CVS2_A::DumpAllCharacters()
         UINT16 nPaletteCount = 0;
         CString strOutput;
 
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), CVS2_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
 
@@ -467,7 +467,7 @@ UINT16 CGame_CVS2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectio
     }
 }
 
-LPCTSTR CGame_CVS2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_CVS2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == CVS2_A_EXTRALOC)
     {

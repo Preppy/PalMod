@@ -380,7 +380,7 @@ UINT16 CGame_RBFF1_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
 }
 
-LPCTSTR CGame_RBFF1_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_RBFF1_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == RBFF1_A_EXTRALOC)
     {
@@ -580,7 +580,7 @@ BOOL CGame_RBFF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
                 {
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;

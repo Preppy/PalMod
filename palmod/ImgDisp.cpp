@@ -254,7 +254,7 @@ void CImgDisp::FlushImages()
     }
 }
 
-BOOL CImgDisp::LoadBGBmp(TCHAR* szBmpLoc)
+BOOL CImgDisp::LoadBGBmp(WCHAR* szBmpLoc)
 {
     CImage backgroundImage;
 
@@ -447,7 +447,7 @@ void CImgDisp::UpdateCtrl(BOOL bRedraw /* = TRUE */, int nUseAltPal /* = 0 */)
 
         if (fImageFound)
         {
-            OutputDebugString(_T("Loaded alternate sprite for character with no sprite... \n"));
+            OutputDebugString(L"Loaded alternate sprite for character with no sprite... \n");
         }
     }
 
@@ -545,25 +545,25 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
         safe_delete_array(m_ppSpriteOverrideTexture[nPositionToLoadTo]);
 
         // Filename of form: MvC2_D-offset-2230419-W-60-H-98
-        pszTextureLocation = _tcslwr(pszTextureLocation);
-        TCHAR* pszDataW = _tcsstr(pszTextureLocation, _T("-w-"));
-        TCHAR* pszDataH = _tcsstr(pszTextureLocation, _T("-h-"));
-        TCHAR* pszTermination = _tcsstr(pszTextureLocation, _T(".data"));
+        pszTextureLocation = _wcslwr(pszTextureLocation);
+        WCHAR* pszDataW = wcsstr(pszTextureLocation, L"-w-");
+        WCHAR* pszDataH = wcsstr(pszTextureLocation, L"-h-");
+        WCHAR* pszTermination = wcsstr(pszTextureLocation, L".data");
 
         if (pszTermination == nullptr)
         {
-            pszTermination = _tcsstr(pszTextureLocation, _T(".raw"));
+            pszTermination = wcsstr(pszTextureLocation, L".raw");
         }
 
         if ((pszDataW != nullptr) && (pszDataH != nullptr) && (pszTermination != nullptr))
         {
-            pszDataW += ARRAYSIZE(_T("W-"));
+            pszDataW += ARRAYSIZE(L"W-");
             pszDataH[0] = 0;
-            pszDataH += ARRAYSIZE(_T("H-"));
+            pszDataH += ARRAYSIZE(L"H-");
             pszTermination[0] = 0;
 
-            if (_stscanf_s(pszDataW, _T("%u"), &m_nTextureOverrideW[nPositionToLoadTo]) &&
-                _stscanf_s(pszDataH, _T("%u"), &m_nTextureOverrideH[nPositionToLoadTo]))
+            if (_stscanf_s(pszDataW, L"%u", &m_nTextureOverrideW[nPositionToLoadTo]) &&
+                _stscanf_s(pszDataH, L"%u", &m_nTextureOverrideH[nPositionToLoadTo]))
             {
                 if ((m_nTextureOverrideW[nPositionToLoadTo] > 0) && (m_nTextureOverrideW[nPositionToLoadTo] < 10000) &&
                     (m_nTextureOverrideH[nPositionToLoadTo] > 0) && (m_nTextureOverrideH[nPositionToLoadTo] < 10000))
@@ -571,7 +571,7 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
                     if (((3 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
                     {
                         // This is an RGB RAW...
-                        MessageBox(_T("This RAW is not using indexed color.  Please recreate it using indexed colors.  This will not look right."), GetHost()->GetAppName(), MB_ICONERROR);
+                        MessageBox(L"This RAW is not using indexed color.  Please recreate it using indexed colors.  This will not look right.", GetHost()->GetAppName(), MB_ICONERROR);
                     }
                     else if (((2 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
                     {
@@ -580,14 +580,14 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
                     }
                     else if ((m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo]) != nSizeToRead)
                     {
-                        MessageBox(_T("The W and H values specified in the RAW filename are wrong.  This will not look right."), GetHost()->GetAppName(), MB_ICONERROR);
+                        MessageBox(L"The W and H values specified in the RAW filename are wrong.  This will not look right.", GetHost()->GetAppName(), MB_ICONERROR);
                     }
 
                     m_ppSpriteOverrideTexture[nPositionToLoadTo] = new UINT8[nSizeToRead];
 
-                    CString _tcsstr;
-                    _tcsstr.Format(_T("CImgDisp::LoadExternalSprite texture file is: %u x %u\n"), m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
-                    OutputDebugString(_tcsstr);
+                    CString wcsstr;
+                    wcsstr.Format(L"CImgDisp::LoadExternalSprite texture file is: %u x %u\n", m_nTextureOverrideW[nPositionToLoadTo], m_nTextureOverrideH[nPositionToLoadTo]);
+                    OutputDebugString(wcsstr);
 
                     TextureFile.SeekToBegin();
                     TextureFile.Read(m_ppSpriteOverrideTexture[nPositionToLoadTo], nSizeToRead);
@@ -644,7 +644,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
         }
         else
         {
-            OutputDebugString(_T("CImgDisp::CustomBlt: No image available and no backup palette available. No image will be loaded.\n"));
+            OutputDebugString(L"CImgDisp::CustomBlt: No image available and no backup palette available. No image will be loaded.\n");
             return FALSE;
         }
     }
@@ -876,7 +876,7 @@ void CImgDisp::OnLButtonUp(UINT nFlags, CPoint point)
     int nImgIndex = SETIMGINDEX;
 
     CString szTemp;
-    szTemp.Format(_T("x: %d, y: %d"), pImgBuffer[nImgIndex]->nXOffs, pImgBuffer[nImgIndex]->nYOffs);
+    szTemp.Format(L"x: %d, y: %d", pImgBuffer[nImgIndex]->nXOffs, pImgBuffer[nImgIndex]->nYOffs);
     MessageBox(szTemp);
 
 #endif

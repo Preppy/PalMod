@@ -500,7 +500,7 @@ UINT16 CGame_MVC_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollection
     }
 }
 
-LPCTSTR CGame_MVC_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_MVC_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == MVC_A_EXTRALOC)
     {
@@ -764,7 +764,7 @@ BOOL CGame_MVC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("P1")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("P2")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, _T("P1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("P2")) == 0))
                 {
                     // We show 2 sprites (P1/P2) for export for all normal mvc sprites
                     nSrcAmt = 2;

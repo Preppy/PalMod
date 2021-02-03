@@ -186,7 +186,7 @@ void CPalModDlg::OnEditCopy()
 
         UINT16 nPaletteSelectionLength = (CurrPal->GetSelAmt() ? CurrPal->GetSelAmt() : nWorkingAmt) + k_nASCIICharacterOffset;
         UINT8 uCopyFlag1;
-        // We use a TCHAR as a UINT8 value to store the size.  This is compatible with all versions of palmod.
+        // We use a WCHAR as a UINT8 value to store the size.  This is compatible with all versions of palmod.
         // For the new large palette support, this would overflow, so we're just going to set it to 0.
         // This allows old palmod to ignore the data and current palmod to work by figuring out the size itself.
         UINT8 uCopyFlag2 = (nPaletteSelectionLength < 0xFF) ? (UINT8)nPaletteSelectionLength : k_nASCIICharacterOffset;
@@ -225,6 +225,10 @@ void CPalModDlg::OnEditCopy()
             // RGB444
             uCopyFlag1 = MVC2_P + k_nASCIICharacterOffset;
             break;
+        case ColMode::COLMODE_12A_LE:
+            // RGB444 litle endian
+            uCopyFlag1 = DUMMY_RGB444_LE + k_nASCIICharacterOffset;
+            break;
         case ColMode::COLMODE_15:
             // RGB555
             uCopyFlag1 = SFIII3_A + k_nASCIICharacterOffset;
@@ -247,7 +251,7 @@ void CPalModDlg::OnEditCopy()
         default:
             {
                 CString strMsg;
-                strMsg.Format(_T("Warning: The current color mode needs to have copy support added."));
+                strMsg.Format(L"Warning: The current color mode needs to have copy support added.");
                 MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                 uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
                 break;
@@ -529,6 +533,11 @@ void CPalModDlg::OnEditPaste()
                     eColModeForPastedColor = ColMode::COLMODE_9;
                     break;
                 }
+                case DUMMY_RGB444_LE:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_12A_LE;
+                    break;
+                }
                 case DUMMY_ARGB7888:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB7888;
@@ -630,7 +639,7 @@ void CPalModDlg::OnEditPaste()
                 default:
                 {
                     // Do nothing: hopefully this is from a newer version of PalMod and they're pasting from/to the same game.
-                    OutputDebugString(_T("WARNING: Using default paste logic.  You probably want directed handling.\n"));
+                    OutputDebugString(L"WARNING: Using default paste logic.  You probably want directed handling.\n");
                     break;
                 }
                 }
@@ -638,7 +647,7 @@ void CPalModDlg::OnEditPaste()
                 if (eCurrColMode != eColModeForPastedColor)
                 {
                     fWasColorImportedFromDifferentGame = true;
-                    OutputDebugString(_T("Pasted color is using a different color mode: switching to that game's color mode to ensure correct values...\n"));
+                    OutputDebugString(L"Pasted color is using a different color mode: switching to that game's color mode to ensure correct values...\n");
                     CurrGame->SetColorMode(eColModeForPastedColor);
                 }
             }
@@ -670,7 +679,7 @@ void CPalModDlg::OnEditPaste()
                 {
                     //Set the color mode back
                     //Round the values with the switched game flag
-                    OutputDebugString(_T("Reverting color mode back to this game's desired color mode...\n"));
+                    OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
                     CurrGame->SetColorMode(eCurrColMode);
 
                     for (UINT16 i = 0; i < uPasteAmt; i++)
@@ -695,7 +704,7 @@ void CPalModDlg::OnEditPaste()
                 {
                     //Set the color mode back
                     //Round the values with the switched game flag
-                    OutputDebugString(_T("Reverting color mode back to this game's desired color mode...\n"));
+                    OutputDebugString(L"Reverting color mode back to this game's desired color mode...\n");
                     CurrGame->SetColorMode(eCurrColMode);
 
                     for (UINT16 i = 0; i < uPasteAmt; i++)
@@ -938,7 +947,7 @@ void CPalModDlg::OnSettingsSettings()
         if (SettDlg.m_fAllowAlphaChanges)
         {
             CString strMessage;
-            strMessage = _T("Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick yes to agree to not use this mix for competition.  Click no to disagree and not use transparency.");
+            strMessage = L"Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick yes to agree to not use this mix for competition.  Click no to disagree and not use transparency.";
             SettDlg.m_fAllowAlphaChanges = (MessageBox(strMessage, GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_YESNO) == IDYES);
         }
 

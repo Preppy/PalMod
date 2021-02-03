@@ -10,11 +10,11 @@
 //File rule definition
 struct sFileRule
 {
-    TCHAR szFileName[MAX_FILENAME_LENGTH] = _T("uninit");
+    WCHAR szFileName[MAX_FILENAME_LENGTH] = L"uninit";
     UINT32 uVerifyVar;
     UINT16 uUnitId = INVALID_UNIT_VALUE;
     bool fHasAltName = false;
-    TCHAR szAltFileName[MAX_FILENAME_LENGTH] = _T("uninit");
+    WCHAR szAltFileName[MAX_FILENAME_LENGTH] = L"uninit";
 };
 
 enum class AlphaMode
@@ -30,7 +30,8 @@ enum class ColMode
 {
     // If you change this list you must update CPalModDlg::OnEditCopy and CGame_NEOGEO_A::GetGameName and ::CGame_NEOGEO_A
     COLMODE_GBA,       // BGR555 little endian for GBA
-    COLMODE_12A,       // RGB444
+    COLMODE_12A,       // RGB444 big endian for CPS1/2
+    COLMODE_12A_LE,    // RGB444 little endian for SF 30th steam
     COLMODE_15,        // RGB555 little endian for CPS3
     COLMODE_15ALT,     // RGB555 big endian 
     COLMODE_NEOGEO,    // RGB666
@@ -50,7 +51,7 @@ const UINT32 k_nBogusHighValue = 0xFEEDFED;
 class CGameClass
 {
 protected:
-    LPTSTR szDir = nullptr;
+    LPTSTR m_pszLoadDir = nullptr;
     // This is an old array used to determine if the character-file or the ROM has been updated
     // Don't use this for SIMM-based games: use IsPaletteDirty there instead
     BOOL* rgFileChanged = nullptr;
@@ -60,7 +61,7 @@ protected:
     UINT32 m_nCurrentPaletteROMLocation = 0;
     UINT32 m_nLowestKnownPaletteRomLocation = k_nBogusHighValue;
     UINT16 m_nCurrentPaletteSizeInColors = 0;
-    LPCTSTR m_pszCurrentPaletteName = nullptr;
+    LPCWSTR m_pszCurrentPaletteName = nullptr;
     UINT32 m_nConfirmedCRCValue = 0;
 
     const int k_nRGBPlaneAmtForRGB333 = 7;
@@ -97,7 +98,7 @@ protected:
 
     eImageOutputSpriteDisplay DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Used for the Export Image listbox
-    const LPCTSTR* pButtonLabelSet = nullptr;
+    const LPCWSTR* pButtonLabelSet = nullptr;
     // How many colors a game has: P1/P2 (2), LP-HK/A2 (6), etc
     UINT8 m_nNumberOfColorOptions = 0;
 
@@ -114,6 +115,8 @@ protected:
     static UINT32 CONV_9_32(UINT16 inCol);
     static UINT16 CONV_32_12A(UINT32 inCol);
     static UINT32 CONV_12A_32(UINT16 inCol);
+    static UINT16 CONV_32_12A_LE(UINT32 inCol);
+    static UINT32 CONV_12A_32_LE(UINT16 inCol);
     static UINT16 CONV_32_GBA(UINT32 inCol);
     static UINT32 CONV_GBA_32(UINT16 inCol);
     static UINT16 CONV_32_15(UINT32 inCol);
@@ -175,8 +178,8 @@ protected:
 
     struct sCRC32ValueSet
     {
-        LPCTSTR szFriendlyName = _T("Unknown Game");
-        LPCTSTR szROMFileName = _T("uninit");
+        LPCWSTR szFriendlyName = L"Unknown Game";
+        LPCWSTR szROMFileName = L"uninit";
         const UINT32 crcValueExpected = -1;
         const int nROMSpecificOffset = 0;
     };
@@ -210,9 +213,9 @@ public:
     UINT32(*ConvPal16)(UINT16 inCol);
     UINT32(*ConvPal32)(UINT32 inCol);
 
-    LPCTSTR GetROMFileName();
-    LPCTSTR GetLoadDir() { return szDir; };
-    BOOL SetLoadDir(LPCTSTR szNewDir);
+    LPCWSTR GetROMFileName();
+    LPCWSTR GetLoadDir() { return m_pszLoadDir; };
+    BOOL SetLoadDir(LPCWSTR pszNewDir);
 
     AlphaMode GetAlphaMode() { return CurrAlphaMode; };
     virtual void SetAlphaMode(AlphaMode NewMode) { CurrAlphaMode = NewMode; };
@@ -252,7 +255,7 @@ public:
     int GetImgOutPalAmt() { return nSrcPalAmt[0]; };
     void ClearSrcPal();
 
-    const LPCTSTR* GetButtonDescSet() { return pButtonLabelSet; };
+    const LPCWSTR* GetButtonDescSet() { return pButtonLabelSet; };
     eImageOutputSpriteDisplay GetImgDispType() { return DisplayType; };
 
     void SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, int nInc);
@@ -267,7 +270,7 @@ public:
     //Public virtual
     virtual CDescTree* GetMainTree() = 0;
 
-    virtual LPCTSTR GetGameName();
+    virtual LPCWSTR GetGameName();
 
     virtual void CheckForErrorsInTables() {};
     virtual BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId);

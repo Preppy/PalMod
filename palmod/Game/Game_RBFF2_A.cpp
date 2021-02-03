@@ -399,7 +399,7 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
 
         // Status effects
@@ -456,7 +456,7 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode RBFF2_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
@@ -477,7 +477,7 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacterData); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacterData[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_COLLECTION, ARRAYSIZE(RBFF2_A_%s_COLLECTION) },\r\n", rgCharacterData[nCharIndex].pszCharacterName, szCodeDesc, szCodeDesc);
@@ -514,7 +514,7 @@ UINT16 CGame_RBFF2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
 }
 
-LPCTSTR CGame_RBFF2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_RBFF2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == RBFF2_A_EXTRALOC)
     {
@@ -714,7 +714,7 @@ BOOL CGame_RBFF2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, L"P1") == 0) || (_tcsicmp(pCurrentNode->szDesc, L"P2") == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, L"P1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"P2") == 0))
                 {
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;

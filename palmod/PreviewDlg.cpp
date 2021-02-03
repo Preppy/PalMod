@@ -63,12 +63,12 @@ void CPreviewDlg::InitDispCtrl()
         RECT rClient;
         GetClientRect(&rClient);
 
-        m_ImgDisp.Create(_T("CImgDisp"), _T("ImgDisp"), WS_CHILD | WS_VISIBLE, rClient, this, 1234);
+        m_ImgDisp.Create(L"CImgDisp", L"ImgDisp", WS_CHILD | WS_VISIBLE, rClient, this, 1234);
         bImgDispInit = TRUE;
     }
 }
 
-void CPreviewDlg::SetWindowCaption(LPCTSTR pszCaption)
+void CPreviewDlg::SetWindowCaption(LPCWSTR pszCaption)
 {
     SetWindowText(pszCaption);
 }
@@ -142,7 +142,7 @@ void CPreviewDlg::OnSetBlinkCol()
 
 void CPreviewDlg::OnSetBackgroundImage()
 {
-    CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, _T("Standard graphics files|*.bmp; *.png; *.gif; *.jpg; *.jpeg||"), this);
+    CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, L"Standard graphics files|*.bmp; *.png; *.gif; *.jpg; *.jpeg||", this);
 
     if (OpenDialog.DoModal() == IDOK)
     {
@@ -241,7 +241,7 @@ void CPreviewDlg::SaveSettings()
 {
     CRegProc SaveSett;
 
-    _tcscpy(SaveSett.szPrevBGLoc, szBGLoc.GetBuffer());
+    wcscpy(SaveSett.szPrevBGLoc, szBGLoc.GetBuffer());
     SaveSett.prev_bgcol = m_ImgDisp.GetBGCol();
     SaveSett.prev_blinkcol = m_ImgDisp.GetBlinkCol();
     SaveSett.bTileBG = m_ImgDisp.IsBGTiled();
@@ -439,7 +439,7 @@ void CPreviewDlg::OnLoadCustomSprite(UINT nPositionToLoadTo /*= 0*/)
 {
     if (GetHost()->GetCurrGame())
     {
-        CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, _T("RAW Texture file|*-W-*-H-*.*||"), this);
+        CFileDialog OpenDialog(TRUE, NULL, NULL, NULL, L"RAW Texture file|*-W-*-H-*.*||", this);
 
         if (OpenDialog.DoModal() == IDOK)
         {

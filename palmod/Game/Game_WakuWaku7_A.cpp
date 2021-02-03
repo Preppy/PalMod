@@ -358,7 +358,7 @@ UINT16 CGame_WakuWaku7_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nColl
     }
 }
 
-LPCTSTR CGame_WakuWaku7_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_WakuWaku7_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == WakuWaku7_A_EXTRALOC)
     {

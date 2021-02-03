@@ -10,16 +10,16 @@
 
 struct sKOF02_A_CharacterDump
 {
-    LPCTSTR pszCharacterName = nullptr;
+    LPCWSTR pszCharacterName = nullptr;
     UINT32 locationInROM = 0;
-    LPCTSTR pszImageRefName = nullptr;
-    LPCTSTR pszHSDM1NameOverride = nullptr;
+    LPCWSTR pszImageRefName = nullptr;
+    LPCWSTR pszHSDM1NameOverride = nullptr;
     UINT32 nHSDMI1ImageIndex = 0;
-    LPCTSTR pszDMSDMNameOverride = nullptr;
+    LPCWSTR pszDMSDMNameOverride = nullptr;
     UINT32 nDMSDMImageIndex = 0;
-    LPCTSTR pszHSDM2NameOverride = nullptr;
+    LPCWSTR pszHSDM2NameOverride = nullptr;
     UINT32 nHSDMI2ImageIndex = 0;
-    LPCTSTR pszHSDM3NameOverride = nullptr;
+    LPCWSTR pszHSDM3NameOverride = nullptr;
     UINT32 nHSDMI3ImageIndex = 0;
 };
 

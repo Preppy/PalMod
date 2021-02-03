@@ -20,14 +20,14 @@
 
 const stPairedPaletteInfo pairCoffinRoom = { 1, 31, -32 };
 
-const TCHAR JOJOS_A_UNITDESC_50[][32] =
+const WCHAR JOJOS_A_UNITDESC_50[][32] =
 {
     L"HUD",           // JOJOS_A_50_HUD_COLLECTION
     L"HUD Portraits", // JOJOS_A_50_HUD_PORTRAIT_COLLECTION
     L"Stages",        // JOJOS_A_50_STAGE_COLLECTION
 };
 
-const TCHAR JOJOS_A_UNITDESC_51[][32] =
+const WCHAR JOJOS_A_UNITDESC_51[][32] =
 {
     L"Jotaro", // JOJOS_A_CHARACTER_COLLECTION_JOTARO
     L"Kakyoin & Hierophant", // JOJOS_A_CHARACTER_COLLECTION_HIEROPHANT

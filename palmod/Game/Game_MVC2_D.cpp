@@ -214,7 +214,7 @@ sDescTreeNode* CGame_MVC2_D::InitDescTree()
         {
             const int nExtraNodeIndex = 6;
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[nExtraNodeIndex]; //Extra data node
-            _tcscpy(ButtonNode->szDesc, _T("Extra"));
+            wcscpy(ButtonNode->szDesc, L"Extra");
             ButtonNode->uChildAmt = nNumExtra;
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
 

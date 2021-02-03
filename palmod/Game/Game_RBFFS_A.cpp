@@ -350,7 +350,7 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
     CString strOutput;
     const UINT32 RBFFS_PALETTE_LENGTH = 0x20;
 
-    LPCTSTR rgCharacters[] = {
+    LPCWSTR rgCharacters[] = {
                                 _T("Terry"),
                                 _T("Andy"),
                                 _T("Joe"),
@@ -378,7 +378,7 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         // Status effects
@@ -427,7 +427,7 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(_T("const sDescTreeNode RBFFS_A_%s_COLLECTION[] = \r\n{\r\n"), szCodeDesc);
@@ -447,7 +447,7 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(rgCharacters); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), rgCharacters[nCharIndex]);
 
         strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)RBFFS_A_%s_COLLECTION, ARRAYSIZE(RBFFS_A_%s_COLLECTION) },\r\n"), rgCharacters[nCharIndex], szCodeDesc, szCodeDesc);
@@ -497,7 +497,7 @@ UINT16 CGame_RBFFS_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
 }
 
-LPCTSTR CGame_RBFFS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_RBFFS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == RBFFS_A_EXTRALOC)
     {
@@ -697,7 +697,7 @@ BOOL CGame_RBFFS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("P1")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("P2")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, _T("P1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("P2")) == 0))
                 {
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;

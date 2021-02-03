@@ -396,10 +396,10 @@ sDescTreeNode* CGame_SFA3_A::InitDescTree()
 
 struct sSFA3_A_PortraitData
 {
-    LPCTSTR pszCharacterName = nullptr;
-    LPCTSTR pszCodeName = nullptr;
+    LPCWSTR pszCharacterName = nullptr;
+    LPCWSTR pszCodeName = nullptr;
     UINT32 nROMOffset = 0;
-    LPCTSTR pszImageSet = _T("indexCPS2_SFA3Assets"); // SFA3_Unique
+    LPCWSTR pszImageSet = _T("indexCPS2_SFA3Assets"); // SFA3_Unique
     UINT32 nImageSetIndex = 0;
 };
 
@@ -521,7 +521,7 @@ UINT16 CGame_SFA3_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectio
     }
 }
 
-LPCTSTR CGame_SFA3_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SFA3_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == SFA3_A_EXTRALOC)
     {
@@ -739,30 +739,30 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
-            if ((_tcsicmp(pCurrentNode->szDesc, _T("Select Portraits")) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, _T("Win Portraits")) == 0))
+            if ((_wcsicmp(pCurrentNode->szDesc, _T("Select Portraits")) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, _T("Win Portraits")) == 0))
             {
                 // Hm.  These start at an abstract position within the node.  Let's derive that.
                 int nProspectiveStart = NodeGet->uPalId;
 
-                if (_tcsstr(paletteDataSet->szPaletteName, _T("Kick")) != nullptr)
+                if (wcsstr(paletteDataSet->szPaletteName, _T("Kick")) != nullptr)
                 {
                     // Ordering is punch/kick: correct this across all pairs.
                     nProspectiveStart = (nProspectiveStart > 0) ? nProspectiveStart - 1 : nProspectiveStart;
                 }
 
-                if (_tcsstr(paletteDataSet->szPaletteName, _T("V-Ism")) != nullptr)
+                if (wcsstr(paletteDataSet->szPaletteName, _T("V-Ism")) != nullptr)
                 {
                     nProspectiveStart = (nProspectiveStart > 4) ? nProspectiveStart - 4 : nProspectiveStart;
                 }
-                else if (_tcsstr(paletteDataSet->szPaletteName, _T("A-Ism")) != nullptr)
+                else if (wcsstr(paletteDataSet->szPaletteName, _T("A-Ism")) != nullptr)
                 {
                     nProspectiveStart = (nProspectiveStart > 2) ? nProspectiveStart - 2 : nProspectiveStart;
                 }
 
                 const sGame_PaletteDataset* prospectivePalette = GetSpecificPalette(NodeGet->uUnitId, nProspectiveStart);
 
-                if (_tcsicmp(prospectivePalette->szPaletteName, _T("X-Ism Punch")) == 0)
+                if (_wcsicmp(prospectivePalette->szPaletteName, _T("X-Ism Punch")) == 0)
                 {
                     sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
@@ -780,12 +780,12 @@ BOOL CGame_SFA3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     OutputDebugString(_T("CGame_SFA3_A::UpdatePalImg: Possible error: we couldn't map a portrait correctly for multisprite export.\n"));
                 }
             }
-            else if ((_tcsicmp(pCurrentNode->szDesc, _T("X-Ism Punch")) == 0) ||
-                     (_tcsicmp(pCurrentNode->szDesc, _T("X-Ism Kick")) == 0) ||
-                     (_tcsicmp(pCurrentNode->szDesc, _T("A-Ism Punch")) == 0) ||
-                     (_tcsicmp(pCurrentNode->szDesc, _T("A-Ism Kick")) == 0) ||
-                     (_tcsicmp(pCurrentNode->szDesc, _T("V-Ism Punch")) == 0) ||
-                     (_tcsicmp(pCurrentNode->szDesc, _T("V-Ism Kick")) == 0))
+            else if ((_wcsicmp(pCurrentNode->szDesc, _T("X-Ism Punch")) == 0) ||
+                     (_wcsicmp(pCurrentNode->szDesc, _T("X-Ism Kick")) == 0) ||
+                     (_wcsicmp(pCurrentNode->szDesc, _T("A-Ism Punch")) == 0) ||
+                     (_wcsicmp(pCurrentNode->szDesc, _T("A-Ism Kick")) == 0) ||
+                     (_wcsicmp(pCurrentNode->szDesc, _T("V-Ism Punch")) == 0) ||
+                     (_wcsicmp(pCurrentNode->szDesc, _T("V-Ism Kick")) == 0))
             {
                 nSrcAmt = 6;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);

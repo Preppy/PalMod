@@ -4,7 +4,7 @@
 #include "game\Default.h"
 #include "Junk.h"
 
-#define PALTOOL_CLASSNAME    _T("CPalTool")  // Window class name
+#define PALTOOL_CLASSNAME    L"CPalTool"  // Window class name
 
 #define PAL_TXT_SPACE    5
 
@@ -14,7 +14,7 @@
 struct sPalEntry
 {
     CJunk* PaletteCtrl = nullptr;
-    TCHAR* szPalStr = nullptr;
+    WCHAR* szPalStr = nullptr;
     BOOL bAvail = FALSE;
 };
 
@@ -63,11 +63,11 @@ public:
 
     void BeginSetPal();
     void EndSetPal();
-    void SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, TCHAR* szNewPalStr);
+    void SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, WCHAR* szNewPalStr);
     UINT_PTR GetNotifyIndex() { return nNotifyCtrlIndex; };
     CJunk* GetNotifyPal() { return pPalEntry[nNotifyCtrlIndex].PaletteCtrl; };
     CJunk* GetPalCtrl(UINT_PTR nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].PaletteCtrl : NULL; };
-    LPCTSTR GetPalName(UINT_PTR nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].szPalStr : _T("Untitled Palette"); };
+    LPCWSTR GetPalName(UINT_PTR nIndex) { return pPalEntry[nIndex].bAvail ? pPalEntry[nIndex].szPalStr : L"Untitled Palette"; };
 
     void ResetNotifyIndex() { nNotifyCtrlIndex = 0; };
 

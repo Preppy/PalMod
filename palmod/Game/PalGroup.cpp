@@ -93,7 +93,7 @@ BOOL CPalGroup::SetMode(ePalType NewPalMode)
     }
 }
 
-BOOL CPalGroup::AddSep(int nIndex, LPCTSTR szDesc, int nStart, int nAmt)
+BOOL CPalGroup::AddSep(int nIndex, LPCWSTR szDesc, int nStart, int nAmt)
 {
     // Separators enable us to have multiple groups of palettes within a palette display.
     if ((rgPalettes[nIndex].uSepAmt >= MAX_SEPARATORS) || ((nStart + nAmt) > rgPalettes[nIndex].uPalSz))

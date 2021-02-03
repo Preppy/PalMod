@@ -11,7 +11,7 @@
 //#define SETIMGPOS
 constexpr auto SETIMGINDEX = 1;
 
-#define IMGDISP_CLASSNAME _T("CImgDisp")
+#define IMGDISP_CLASSNAME L"CImgDisp"
 
 #define DEF_ZOOM 1.0f
 
@@ -107,7 +107,7 @@ private:
 
     POINT ptOffs[MAX_IMAGES_DISPLAYABLE] = {};
     
-    CString m_strBackgroundLoc = _T("");
+    CString m_strBackgroundLoc = L"";
 
     int nXOffsTop = 0;
     int nYOffsTop = 0;
@@ -172,8 +172,8 @@ public:
 
     double GetZoom() { return fpZoom; };
 
-    BOOL LoadBGBmp(TCHAR* szBmpLoc);
-    void SetBGBmpPath(TCHAR* szBmpLoc) { m_strBackgroundLoc = szBmpLoc; };
+    BOOL LoadBGBmp(WCHAR* szBmpLoc);
+    void SetBGBmpPath(WCHAR* szBmpLoc) { m_strBackgroundLoc = szBmpLoc; };
     //void UseBGCol(){bFillBGBmp = FALSE;};
 
     int GetImgAmt() { return nImgAmt; };

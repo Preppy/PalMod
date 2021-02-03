@@ -541,7 +541,7 @@ void CGame_KOF94_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF94_A_CharacterEffectPalettes); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF94_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(L"const sDescTreeNode KOF94_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
@@ -599,7 +599,7 @@ UINT16 CGame_KOF94_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
 }
 
-LPCTSTR CGame_KOF94_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KOF94_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == KOF94_A_EXTRALOC)
     {

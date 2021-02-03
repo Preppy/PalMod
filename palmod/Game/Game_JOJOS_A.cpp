@@ -556,7 +556,7 @@ UINT16 CGame_JOJOS_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
 }
 
-LPCTSTR CGame_JOJOS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_JOJOS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (UsePaletteSetFor50())
     {
@@ -622,8 +622,8 @@ bool CGame_JOJOS_A::CanEnableMultispriteExport(UINT16 nUnitId, UINT16 nPalId)
         const sDescTreeNode* pUnitTree = &(JOJOS_UNITS_51[nUnitId]);
 
         // Only enable for character nodes
-        if ((_tcsstr(pUnitTree->szDesc, _T("Timestop")) == nullptr) &&
-            (_tcsstr(pUnitTree->szDesc, _T("Bonus")) == nullptr))
+        if ((wcsstr(pUnitTree->szDesc, _T("Timestop")) == nullptr) &&
+            (wcsstr(pUnitTree->szDesc, _T("Bonus")) == nullptr))
         {
             if (pUnitTree->uChildAmt >= m_nNumberOfColorOptions)
             {

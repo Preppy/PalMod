@@ -383,7 +383,7 @@ UINT16 CGame_GUNDAM_SNES::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nColl
     }
 }
 
-LPCTSTR CGame_GUNDAM_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_GUNDAM_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == GUNDAM_SNES_EXTRALOC)
     {

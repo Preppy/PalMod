@@ -145,9 +145,9 @@ int CGame_BREAKERS_A::GetExtraLoc(UINT16 nUnitId)
 
 struct sBreakers_CharacterDump
 {
-    LPCTSTR pszCharacterName = nullptr;
+    LPCWSTR pszCharacterName = nullptr;
     UINT32 baseLocation = 0;
-    LPCTSTR pszImageRefName = nullptr;
+    LPCWSTR pszImageRefName = nullptr;
 };
 
 sBreakers_CharacterDump breakersCharacterList[] =
@@ -202,7 +202,7 @@ void CGame_BREAKERS_A::DumpAllCharacters()
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
@@ -229,7 +229,7 @@ void CGame_BREAKERS_A::DumpAllCharacters()
             nCurrentCharacterOffset += 0x20;
             nPaletteCount++;
 
-            const LPCTSTR pszMoveNames[] =
+            const LPCWSTR pszMoveNames[] =
             {
                 L"Super Trail",
                 L"Pure Black",
@@ -280,7 +280,7 @@ void CGame_BREAKERS_A::DumpAllCharacters()
     for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(breakersCharacterList); iUnitCtr++)
     {
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
@@ -302,7 +302,7 @@ void CGame_BREAKERS_A::DumpAllCharacters()
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), breakersCharacterList[iUnitCtr].pszCharacterName);
 
@@ -534,7 +534,7 @@ UINT16 CGame_BREAKERS_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nColle
     }
 }
 
-LPCTSTR CGame_BREAKERS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_BREAKERS_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == BREAKERS_A_EXTRALOC)
     {

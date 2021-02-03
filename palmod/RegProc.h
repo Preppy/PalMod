@@ -6,14 +6,14 @@
 
 #define RECT_STRSZ      256
 
-#define BGBMPFILE _T("bgbmp.bmp")
+#define BGBMPFILE L"bgbmp.bmp"
 constexpr auto c_badWindowPosValue = -512;
 
 constexpr auto c_mainDefaultAllowAlphaChanges = FALSE;
 constexpr auto c_mainDefaultShowAs32 = FALSE;
 constexpr auto c_mainDefaultProcSupp = TRUE;
 constexpr auto c_mainDefaultExtraCopyData = FALSE;
-constexpr auto c_AppRegistryRoot = _T("Software\\knarxed\\PalMod");
+constexpr auto c_AppRegistryRoot = L"Software\\knarxed\\PalMod";
 
 class CRegProc
 {
@@ -60,7 +60,7 @@ public:
     COLORREF prev_bgcol;
     COLORREF prev_blinkcol;
 
-    TCHAR szPrevBGLoc[MAX_PATH];
+    WCHAR szPrevBGLoc[MAX_PATH];
     int nBGXOffs;
     int nBGYOffs;
     BOOL bTileBG;

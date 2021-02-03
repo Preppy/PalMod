@@ -363,7 +363,7 @@ UINT16 CGame_KOF01_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
 }
 
-LPCTSTR CGame_KOF01_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KOF01_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == KOF01_A_EXTRALOC)
     {
@@ -563,7 +563,7 @@ BOOL CGame_KOF01_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, L"P") == 0) || (_tcsicmp(pCurrentNode->szDesc, L"K") == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, L"P") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"K") == 0))
                 {
                     nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;

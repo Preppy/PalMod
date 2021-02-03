@@ -516,7 +516,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
     CFile fileSIMM4;
     CString strSIMMName4;
 
-    LPCTSTR pszBaseFormatString;
+    LPCWSTR pszBaseFormatString;
     UINT16 nSIMMSetBaseNumber;
 
     switch (nGameFlag)
@@ -670,7 +670,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
     return TRUE;
 }
 
-LPCTSTR CGame_SFIII3_A_DIR::GetGameName()
+LPCWSTR CGame_SFIII3_A_DIR::GetGameName()
 {
     switch (m_currentSFIII3ROMRevision)
     {
@@ -720,7 +720,7 @@ UINT32 CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
     CFile fileIPS3;
     CFile fileIPS4;
 
-    LPCTSTR pszBaseFormatString;
+    LPCWSTR pszBaseFormatString;
     UINT16 nSIMMSetBaseNumber;
 
     switch (nGameFlag)

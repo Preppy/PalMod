@@ -13,10 +13,10 @@ using namespace std;
 
 UINT32 CGameWithExtrasFile::m_nTotalPaletteCount = 0;
 
-void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize /* = 2 */)
+void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize /* = 2 */)
 {
     ifstream extraFile;
-    TCHAR szTargetFile[MAX_PATH];
+    WCHAR szTargetFile[MAX_PATH];
     CString strOutputText;
     int nTotalExtensionExtraLinesHandled = 0;
     int nStockExtrasCount = 0;
@@ -55,10 +55,10 @@ void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtra
         {
             // Now we look for the Extra extension file.
             GetModuleFileName(nullptr, szTargetFile, (DWORD)MAX_PATH);
-            TCHAR* pszExeFileName = _tcsrchr(szTargetFile, _T('\\')) + 1;
+            WCHAR* pszExeFileName = wcsrchr(szTargetFile, L'\\') + 1;
             pszExeFileName[0] = 0;
 
-            _tcscat(szTargetFile, pszExtraFileName);
+            wcscat(szTargetFile, pszExtraFileName);
 
             strOutputText.Format(L"Loading extra file for '%s'...\n", pszExtraFileName);
             OutputDebugString(strOutputText);
@@ -487,7 +487,7 @@ int CGameWithExtrasFile::GetDupeCountInExtrasDataset()
 
         UINT32 nCurrentROMOffset = m_nCurrentPaletteROMLocation;
         UINT32 nEndOfROMOffset = m_nCurrentPaletteROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes);
-        LPCTSTR pszExtraPaletteBeingChecked = m_pszCurrentPaletteName;
+        LPCWSTR pszExtraPaletteBeingChecked = m_pszCurrentPaletteName;
         m_nLowestRomExtrasLocationThisPass = min(m_nLowestRomExtrasLocationThisPass, m_nCurrentPaletteROMLocation);
 
         if (IsROMOffsetDuplicated(m_nExtraUnit, nPalCtr, nCurrentROMOffset, nEndOfROMOffset))

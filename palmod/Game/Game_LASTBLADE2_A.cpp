@@ -375,7 +375,7 @@ UINT16 CGame_LASTBLADE2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCol
     }
 }
 
-LPCTSTR CGame_LASTBLADE2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_LASTBLADE2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == LASTBLADE2_A_EXTRALOC)
     {

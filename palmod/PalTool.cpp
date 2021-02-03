@@ -177,7 +177,7 @@ void CPalTool::BeginSetPal()
     ResetNotifyIndex();
 }
 
-void CPalTool::SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, TCHAR* szNewPalStr)
+void CPalTool::SetPal(int nIndex, int nAmt, COLORREF* rgNewCol, WCHAR* szNewPalStr)
 {
     SetFontToBold(false);
     //Set palette width/height/color
@@ -370,7 +370,7 @@ void CPalTool::DrawText()
 
     if (bFirstPaint)
     {
-        nFontHeight = (dc.GetTextExtent(_T("Height"), 5).cy + 4); // height plus padding
+        nFontHeight = (dc.GetTextExtent(L"Height", 5).cy + 4); // height plus padding
         bFirstPaint = FALSE;
     }
 
@@ -380,7 +380,7 @@ void CPalTool::DrawText()
     if (nPageAmt > 1)
     {
         CString szTemp;
-        szTemp.Format(_T("%d/%d"), nCurrPage, nPageAmt);
+        szTemp.Format(L"%d/%d", nCurrPage, nPageAmt);
         dc.SetTextColor(RGB(0, 0, 0)); //Red for selected palette
         const int nLeftOffset = (nCurrPage > 9) ? 30 : 25; // extra space for 10/10 vs narrower 9/9
         dc.TextOut(rClient.right - nLeftOffset + 1, rClient.bottom - 15 + 1, szTemp);
@@ -422,7 +422,7 @@ void CPalTool::DrawText()
     {
         //Draw bold text to show none are visible
         SetFontToBold(true);
-        dc.TextOut(CurrPos.cx, CurrPos.cy, CString(_T("No Palettes Loaded")));
+        dc.TextOut(CurrPos.cx, CurrPos.cy, CString(L"No Palettes Loaded"));
     }
 }
 
@@ -465,7 +465,7 @@ void CPalTool::PreSubclassWindow()
     //Initialize each palette window
     for (int i = 0; i < MAX_PALETTES_DISPLAYABLE; i++)
     {
-        pPalEntry[i].PaletteCtrl->Create(_T("CJunk"), _T(""), 0, CRect(0, 0, 100, 100), this, i);
+        pPalEntry[i].PaletteCtrl->Create(L"CJunk", L"", 0, CRect(0, 0, 100, 100), this, i);
     }
 
     CWnd::PreSubclassWindow();

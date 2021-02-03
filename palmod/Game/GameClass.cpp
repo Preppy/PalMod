@@ -34,7 +34,7 @@ CGameClass::~CGameClass(void)
 {
     ClearSetImgTicket(NULL);
 
-    safe_delete(szDir);
+    safe_delete(m_pszLoadDir);
 
     //Clear the redirect buffer
     safe_delete_array(rgUnitRedir);
@@ -53,6 +53,7 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
         case ColMode::COLMODE_9:
             return k_nRGBPlaneAmtForRGB333;
         case ColMode::COLMODE_12A:
+        case ColMode::COLMODE_12A_LE:
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneAmtForRGB444;
         case ColMode::COLMODE_GBA:
@@ -89,6 +90,7 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
         case ColMode::COLMODE_9:
             return k_nRGBPlaneMulForRGB333;
         case ColMode::COLMODE_12A:
+        case ColMode::COLMODE_12A_LE:
         case ColMode::COLMODE_NEOGEO:
             return k_nRGBPlaneMulForRGB444;
         case ColMode::COLMODE_GBA:
@@ -189,31 +191,34 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
         switch (NewMode)
         {
         case ColMode::COLMODE_9:
-            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMOD_9 (RGB333)"));
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMOD_9 (RGB333)");
             break;
         case ColMode::COLMODE_GBA:
-            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMOD_GBA (ARGB555)"));
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMOD_GBA (ARGB555)");
             break;
         case ColMode::COLMODE_12A:
-            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMOD_12A (ARGB444)"));
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMOD_12A (ARGB444)");
+            break;
+        case ColMode::COLMODE_12A_LE:
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMOD_12A_LE (ARGB444)");
             break;
         case ColMode::COLMODE_15:
-            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_15 (BGR555)"));
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_15 (BGR555)");
             break;
         case ColMode::COLMODE_15ALT:
-            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_15ALT (RGB555)"));
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_15ALT (RGB555)");
             break;
         case ColMode::COLMODE_NEOGEO:
-            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_NEOGEO (RGB555)"));
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_NEOGEO (RGB555)");
             break;
         case ColMode::COLMODE_SHARPRGB:
-            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_SHARPRGB (RGB555)"));
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_SHARPRGB (RGB555)");
             break;
         case ColMode::COLMODE_ARGB7888:
-            strDebugInfo.Format(_T("CGameClass::SetColorMode : Switching color mode to '%s'.\n"), _T("COLMODE_ARGB7888 (ARGB7888)"));
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_ARGB7888 (ARGB7888)");
             break;
         default:
-            strDebugInfo.Format(_T("CGameClass::SetColorMode : unsupported color mode.\n"));
+            strDebugInfo.Format(L"CGameClass::SetColorMode : unsupported color mode.\n");
             break;
         }
         OutputDebugString(strDebugInfo);
@@ -237,6 +242,11 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_12A_32;
         ConvCol16 = &CGameClass::CONV_32_12A;
+        return TRUE;
+    case ColMode::COLMODE_12A_LE:
+        m_nSizeOfColorsInBytes = 2;
+        ConvPal16 = &CGameClass::CONV_12A_32_LE;
+        ConvCol16 = &CGameClass::CONV_32_12A_LE;
         return TRUE;
     case ColMode::COLMODE_15:
         m_nSizeOfColorsInBytes = 2;
@@ -389,7 +399,19 @@ UINT16 CGameClass::CONV_32_12A(UINT32 inCol)
         auxa = auxa << 12;
     }
 
-    return (auxb | auxg | auxr | auxa);
+    return auxb | auxg | auxr | auxa;
+}
+
+UINT32 CGameClass::CONV_12A_32_LE(UINT16 inCol)
+{
+    UINT16 uSwappedCol = _byteswap_ushort(inCol);
+
+    return CONV_12A_32(uSwappedCol);
+}
+
+UINT16 CGameClass::CONV_32_12A_LE(UINT32 inCol)
+{
+    return _byteswap_ushort(CONV_32_12A(inCol));
 }
 
 UINT32 CGameClass::CONV_15_32(UINT16 inCol)
@@ -586,7 +608,7 @@ UINT32 CGameClass::CONV_NEOGEO_32(UINT16 nColorData)
     UINT32 color = (auxa << 24) | (blue << 16) | (green << 8) | (red);
 
     //CString strColor;
-    //strColor.Format(_T("ROM : neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n"), nColorData, color, red, green, blue);
+    //strColor.Format(L"ROM : neogeo 0x%04x 32bit 0x%08x R 0x%02x G 0x%02x B 0x%02x\n", nColorData, color, red, green, blue);
     //OutputDebugString(strColor);
 
     return color;
@@ -749,7 +771,7 @@ UINT32 CGameClass::GetLowestExpectedPaletteLocation()
     return nAdjustedLocation;
 }
 
-LPCTSTR CGameClass::GetGameName()
+LPCWSTR CGameClass::GetGameName()
 {
     if (m_pCRC32SpecificData)
     {
@@ -761,13 +783,13 @@ LPCTSTR CGameClass::GetGameName()
     }
 }
 
-LPCTSTR CGameClass::GetROMFileName()
+LPCWSTR CGameClass::GetROMFileName()
 {
-    LPCTSTR pszFileName = _T("unknown");
+    LPCWSTR pszFileName = L"unknown";
 
-    if (szDir)
+    if (m_pszLoadDir)
     {
-        LPCTSTR pszPtr = _tcsrchr(szDir, _T('\\'));
+        LPCWSTR pszPtr = wcsrchr(m_pszLoadDir, L'\\');
 
         if (pszPtr)
         {
@@ -778,12 +800,12 @@ LPCTSTR CGameClass::GetROMFileName()
     return pszFileName;
 }
 
-BOOL CGameClass::SetLoadDir(LPCTSTR szNewDir)
+BOOL CGameClass::SetLoadDir(LPCWSTR pszNewDir)
 {
-    if (!szDir)
+    if (!m_pszLoadDir)
     {
-        szDir = new TCHAR[_tcslen(szNewDir) + 1];
-        _tcscpy(szDir, szNewDir);
+        m_pszLoadDir = new WCHAR[wcslen(pszNewDir) + 1];
+        wcscpy(m_pszLoadDir, pszNewDir);
 
         return TRUE;
     }
@@ -798,20 +820,20 @@ void CGameClass::SetSourcePal(int nIndex, UINT16 nUnitId, int nStart, int nAmt, 
     if (nIndex >= MAX_PALETTES_DISPLAYABLE)
     {
         CString strErr;
-        strErr.Format(_T("CGameClass::SetSourcePal:: ERROR: PalMod only supports %u palettes per display.\n"), MAX_PALETTES_DISPLAYABLE);
+        strErr.Format(L"CGameClass::SetSourcePal:: ERROR: PalMod only supports %u palettes per display.\n", MAX_PALETTES_DISPLAYABLE);
         OutputDebugString(strErr);
         return;
     }
 
 #if GAMECLASS_DBG
     CString strMsg;
-    strMsg.Format(_T("CGameClass::SetSourcePal: For unit 0x%02x setting starting palette 0x%02x, displaying %u maximum, and incrementing 0x%x per button.\n"), nUnitId, nStart, nAmt, nInc);
+    strMsg.Format(L"CGameClass::SetSourcePal: For unit 0x%02x setting starting palette 0x%02x, displaying %u maximum, and incrementing 0x%x per button.\n", nUnitId, nStart, nAmt, nInc);
     OutputDebugString(strMsg);
 
     if ((nAmt > 1) && // If this game wants to allow multisprite export
         (nStart > nInc)) // This starting point is in the second or later node: that's potentially a problem.
     {
-        OutputDebugString(_T("\tCGameClass::SetSourcePal: Warning: you're using multisprite export in what is hopefully an Extras node.  Be careful.\n"));
+        OutputDebugString(L"\tCGameClass::SetSourcePal: Warning: you're using multisprite export in what is hopefully an Extras node.  Be careful.\n");
     }
 #endif
 
@@ -1064,7 +1086,7 @@ void CGameClass::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
     if (!fCanFitWithinCurrentPageLayout)
     {
         CString strWarning;
-        strWarning.Format(_T("ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n"), MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
+        strWarning.Format(L"ERROR: The UI currently only supports %u pages. \"%s\" is trying to use %u pages which will not work.\n", MAX_PALETTE_PAGES, srcNode->szDesc, nTotalPagesNeeded);
         OutputDebugString(strWarning);
     }
 
@@ -1077,7 +1099,7 @@ void CGameClass::CreateDefPal(sDescNode* srcNode, UINT16 nSepId)
 
         for (UINT16 nCurrentPage = 0; (nCurrentPage * s_nColorsPerPage) < m_nCurrentPaletteSizeInColors; nCurrentPage++)
         {
-            strPageDescription.Format(_T("%s (%u/%u)"), srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
+            strPageDescription.Format(L"%s (%u/%u)", srcNode->szDesc, nCurrentPage + 1, nTotalPagesNeeded);
             BasePalGroup.AddSep(nSepId, strPageDescription, nCurrentPage * s_nColorsPerPage, min(s_nColorsPerPage, (DWORD)nColorsRemaining));
             nColorsRemaining -= s_nColorsPerPage;
         }
@@ -1283,7 +1305,7 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                 if (!fShownOnce && (m_nCurrentPaletteROMLocation < GetLowestExpectedPaletteLocation())) // This magic number is the lowest known ROM location.
                 {
                     CString strMsg;
-                    strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
+                    strMsg.Format(L"Warning: Unit %u palette %u is trying to write to ROM location 0x%x which is lower than we usually write to.", nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
                     MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                     fShownOnce = true;
                 }
@@ -1303,7 +1325,7 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     }
 
     CString strMsg;
-    strMsg.Format(_T("CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(L"CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
 
     return TRUE;
@@ -1312,7 +1334,7 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
 bool CGameClass::UserWantsAllPalettesInPatch()
 {
     CString strOptions;
-    strOptions.Format(_T("Do you want this to be a complete game patch of all possible palettes?  They are much larger and are usually very wasteful.  Select Yes for that, or No to just include the %u palette%s you changed in this current session."), m_vDirtyPaletteList.size(), (m_vDirtyPaletteList.size() > 1) ? _T("s") : _T(""));
+    strOptions.Format(L"Do you want this to be a complete game patch of all possible palettes?  They are much larger and are usually very wasteful.  Select Yes for that, or No to just include the %u palette%s you changed in this current session.", m_vDirtyPaletteList.size(), (m_vDirtyPaletteList.size() > 1) ? L"s" : L"");
 
     return (MessageBox(g_appHWnd, strOptions, GetHost()->GetAppName(), MB_YESNO | MB_DEFBUTTON2) == IDYES);
 }
@@ -1373,23 +1395,23 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
     // Now generate DAT file...
     if (m_pCRC32SpecificData)
     {
-        TCHAR szDATFilename[MAX_PATH];
-        TCHAR szIPSFilename[MAX_PATH];
+        WCHAR szDATFilename[MAX_PATH];
+        WCHAR szIPSFilename[MAX_PATH];
 
-        _tcscpy(szDATFilename, PatchFile->GetFilePath().GetString());
+        wcscpy(szDATFilename, PatchFile->GetFilePath().GetString());
         
-        TCHAR* pszDot = _tcsrchr(szDATFilename, _T('.'));
+        WCHAR* pszDot = wcsrchr(szDATFilename, L'.');
 
         if (pszDot != nullptr)
         {
             pszDot[0] = 0;
         }
 
-        pszDot = _tcsrchr(szDATFilename, _T('\\'));
+        pszDot = wcsrchr(szDATFilename, L'\\');
 
-        _tcscpy(szIPSFilename, pszDot + 1);
+        wcscpy(szIPSFilename, pszDot + 1);
 
-        _tcscat(szDATFilename, _T(".dat"));
+        wcscat(szDATFilename, L".dat");
 
         CFile DATFile;
 
@@ -1416,7 +1438,7 @@ UINT32 CGameClass::SavePatchFile(CFile* PatchFile, UINT16 nUnitId)
 #endif
 
     CString strMsg;
-    strMsg.Format(_T("CGameClass::SavePatchFile: Saved 0x%x palettes to patching file for %u units\n"), nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(L"CGameClass::SavePatchFile: Saved 0x%x palettes to patching file for %u units\n", nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
 
     return nTotalPalettesSaved;
@@ -1443,12 +1465,12 @@ void CGameClass::SetSpecificValuesForCRC(UINT32 nCRCForFile)
 
                 // We have a matching CRC, but some games use different filenames for the same ROM
                 // If we have an exact match, use current data.  Otherwise, continue and see if we find better.
-                if (_tcsicmp(ppCRC32ValueSets[nIndex].szROMFileName, GetROMFileName()) == 0)
+                if (_wcsicmp(ppCRC32ValueSets[nIndex].szROMFileName, GetROMFileName()) == 0)
                 {
                     break;
                 }
             }
-            else if (_tcsicmp(ppCRC32ValueSets[nIndex].szROMFileName, GetROMFileName()) == 0)
+            else if (_wcsicmp(ppCRC32ValueSets[nIndex].szROMFileName, GetROMFileName()) == 0)
             {
                 // We've got a matching name: it's possible that we're dealing with a modified ROM.
                 // Set this as a fallback option.

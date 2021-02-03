@@ -358,7 +358,7 @@ UINT16 CGame_SAMSHO5_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollec
     }
 }
 
-LPCTSTR CGame_SAMSHO5_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SAMSHO5_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == SAMSHO5_A_EXTRALOC)
     {
@@ -585,8 +585,8 @@ BOOL CGame_SAMSHO5_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("C")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("B")) == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, _T("C")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
                 {
                     nSrcAmt = 4;
                     nNodeIncrement = pCurrentNode->uChildAmt;

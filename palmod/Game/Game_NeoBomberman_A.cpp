@@ -363,7 +363,7 @@ UINT16 CGame_NeoBomberman_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nC
     }
 }
 
-LPCTSTR CGame_NeoBomberman_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_NeoBomberman_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == NeoBomberman_A_EXTRALOC)
     {

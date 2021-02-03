@@ -48,7 +48,7 @@ public:
 
     BOOL bTransPNG = FALSE;
 
-    const LPCTSTR *pButtonLabelSet = nullptr;
+    const LPCWSTR *pButtonLabelSet = nullptr;
 
     int nPalAmt = 0;
 

@@ -382,7 +382,7 @@ UINT16 CGame_CFTE_SNES::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollec
     }
 }
 
-LPCTSTR CGame_CFTE_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_CFTE_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == CFTE_SNES_EXTRALOC)
     {

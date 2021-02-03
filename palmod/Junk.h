@@ -2,7 +2,7 @@
 #include "afxwin.h"
 #include "JunkC.h"
 
-#define JUNK_CLASSNAME    _T("CJunk")  // Window class name
+#define JUNK_CLASSNAME    L"CJunk"  // Window class name
 
 #define aaadd(x, y) ((UINT8)(((x) + (y) > 255) ? 255 : (x) + (y)))
 
@@ -92,10 +92,10 @@ private:
     UCHAR* Selected = nullptr;
     UCHAR* SelView = nullptr;
 
-    inline void SetJunkState(UCHAR* State, LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
-    inline void SetHighlighted(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
-    inline void SetSelected(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
-    inline void SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue);
+    inline void SetJunkState(UCHAR* State, LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
+    inline void SetHighlighted(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
+    inline void SetSelected(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
+    inline void SetSelViewItem(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue);
 
     int iHLAmt = 0;
     int iWorkingAmt = 0;

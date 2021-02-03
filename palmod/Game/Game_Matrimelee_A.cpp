@@ -358,7 +358,7 @@ UINT16 CGame_Matrimelee_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCol
     }
 }
 
-LPCTSTR CGame_Matrimelee_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_Matrimelee_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == Matrimelee_A_EXTRALOC)
     {
@@ -560,10 +560,10 @@ BOOL CGame_Matrimelee_A::UpdatePalImg(int Node01, int Node02, int Node03, int No
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_NEOGEO[0]) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_NEOGEO[1]) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_NEOGEO[2]) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_NEOGEO[3]) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_NEOGEO[0]) == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_NEOGEO[1]) == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_NEOGEO[2]) == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_NEOGEO[3]) == 0))
                 {
                     nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;

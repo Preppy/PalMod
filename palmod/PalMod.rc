@@ -384,6 +384,7 @@ BEGIN
         BEGIN
             MENUITEM "RGB333 (big endian for Sega Genesis)", ID_COLORFORMAT_RGB333
             MENUITEM "RGB444 (big endian for CPS1/CPS2)", ID_COLORFORMAT_RGB444
+            MENUITEM "RGB444 (little endian for SF2/SFA 30th)", ID_COLORFORMAT_RGB444_LE
             MENUITEM "RGB555 (little endian for CPS3)", ID_COLORFORMAT_RGB555
             MENUITEM "BGR555 (little endian for GBA)", ID_COLORFORMAT_RGB555_GBA
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
@@ -547,6 +548,8 @@ BEGIN
     IDS_SAVE_FILE_CHANGES   "Patch ROM/files with the current changes?"
     IDS_ERROR_NOTWRITABLE_FORMAT 
                             "Save failed: output file '%s' is not writable."
+    IDS_ERROR_NOTWRITABLE_CDI "Save failed: drive '%s' is read-only.\n\nNote that mounted CDIs cannot be written to: you must extract out the files, edit them, and then recreate the CDI."
+    IDS_ERROR_NOTWRITABLE_DRIVE "Warning: The location specified is read-only.  You will be able to view the files but you will not be able to save changes.\n\nPlease either select OK to continue or Cancel and then copy the files to a different location."
 END
 
 STRINGTABLE

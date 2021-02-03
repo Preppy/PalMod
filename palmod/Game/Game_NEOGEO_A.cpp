@@ -173,15 +173,12 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     case ColMode::COLMODE_12A:
+    case ColMode::COLMODE_12A_LE:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting= AlphaMode::GameDoesNotUseAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
         break;
     case ColMode::COLMODE_15:
-        cbRequiredColorSize = 2;
-        suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-        break;
     case ColMode::COLMODE_15ALT:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
@@ -198,7 +195,7 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
         BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
         break;
     default: // Something is wrong: reset
-        OutputDebugString(L"warning: unknown color mode was requested. Resetting to default\n");
+        MessageBox(g_appHWnd, L"Warning: unknown color mode was requested. Resetting to default\n", GetHost()->GetAppName(), MB_ICONSTOP);
         __fallthrough;
     case ColMode::COLMODE_NEOGEO:
         cbRequiredColorSize = 2;
@@ -509,7 +506,7 @@ UINT16 CGame_NEOGEO_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollect
     }
 }
 
-LPCTSTR CGame_NEOGEO_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_NEOGEO_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == NEOGEO_A_EXTRALOC)
     {

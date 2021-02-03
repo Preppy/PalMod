@@ -143,6 +143,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_COLORSPERLINE_16COLORSPERLINE, &CPalModDlg::SetColorsPerLineTo16)
     ON_COMMAND(ID_COLORFORMAT_RGB333, &CPalModDlg::SetColorFormatTo9)
     ON_COMMAND(ID_COLORFORMAT_RGB444, &CPalModDlg::SetColorFormatTo12A)
+    ON_COMMAND(ID_COLORFORMAT_RGB444_LE, &CPalModDlg::SetColorFormatTo12A_LE)
     ON_COMMAND(ID_COLORFORMAT_RGB555, &CPalModDlg::SetColorFormatTo15)
     ON_COMMAND(ID_COLORFORMAT_RGB555_ALT, &CPalModDlg::SetColorFormatTo15ALT)
     ON_COMMAND(ID_COLORFORMAT_RGB555_GBA, &CPalModDlg::SetColorFormatToGBA)
@@ -229,7 +230,7 @@ BOOL CPalModDlg::OnInitDialog()
     //Init Ole
     if (!AfxOleInit())
     {
-        AfxMessageBox(_T("AfxOleInit Error!"));
+        AfxMessageBox(L"AfxOleInit Error!");
         bOleInit = FALSE;
     }
 
@@ -384,13 +385,13 @@ BOOL CPalModDlg::SetLoadDir(CString* szOut)
     if (::SHGetMalloc(&pMalloc) == NOERROR)
     {
         BROWSEINFO      bi = {};
-        TCHAR           pszBuffer[MAX_PATH] = {};
+        WCHAR           pszBuffer[MAX_PATH] = {};
         LPITEMIDLIST    pidl;
 
         bi.hwndOwner = GetSafeHwnd();
         bi.pidlRoot = NULL;
         bi.pszDisplayName = pszBuffer;
-        bi.lpszTitle = _T("Select a target directory");
+        bi.lpszTitle = L"Select a target directory";
         bi.ulFlags = BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
         bi.lpfn = OnBrowseDialog;
         bi.lParam = 0;
@@ -496,7 +497,7 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
             {
                 const UINT uiButtonFlag = s_fIsUserOnWINE ? MB_YESNO : MB_YESNOCANCEL;
 
-                nUserAnswer = SHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), uiButtonFlag | MB_ICONEXCLAMATION, nMBDefault, _T("{11BFAC2D-42CA-40e2-967C-1017C1B2676A}"));
+                nUserAnswer = SHMessageBoxCheck(g_appHWnd, strQuestion, GetHost()->GetAppName(), uiButtonFlag | MB_ICONEXCLAMATION, nMBDefault, L"{11BFAC2D-42CA-40e2-967C-1017C1B2676A}");
             }
 
             if (s_fIsUserOnWINE && (nUserAnswer == IDCANCEL))

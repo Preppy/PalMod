@@ -399,7 +399,7 @@ UINT16 CGame_SSF2T_GBA::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollec
     }
 }
 
-LPCTSTR CGame_SSF2T_GBA::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SSF2T_GBA::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == GetCurrentExtraLoc())
     {
@@ -615,7 +615,7 @@ BOOL CGame_SSF2T_GBA::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
         if (pCurrentNode) // All current nodes are one block of color options
         {
-            if (_tcsicmp(pCurrentNode->szDesc, _T("Colors")) == 0)
+            if (_wcsicmp(pCurrentNode->szDesc, _T("Colors")) == 0)
             {
                 nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL_GBA);
                 nNodeIncrement = 1;

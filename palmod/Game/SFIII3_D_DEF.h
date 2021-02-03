@@ -1,6 +1,6 @@
 #pragma once
 
-const TCHAR SFIII3_D_UNITDESC[][16] = 
+const WCHAR SFIII3_D_UNITDESC[][16] = 
 {
     //"Gill"),        //0x00 on disc
     _T("Alex"),          //0x00 

@@ -325,12 +325,12 @@ sDescTreeNode* CGame_SAMSHO5SP_A::InitDescTree()
 
 struct sSAMSHO5SP_A_PaletteData
 {
-    LPCTSTR pszCharacterName;
+    LPCWSTR pszCharacterName;
     UINT32 nCoreOffset = 0;
     UINT32 nEffectsOffset = 0;
     UINT32 nWinPortraitOffset = 0;
     UINT32 nIntroPortraitOffset = 0;
-    LPCTSTR pszImageSet = _T("");
+    LPCWSTR pszImageSet = _T("");
     //bool rgIsEffectUsed[11];
 };
 
@@ -383,7 +383,7 @@ sSAMSHO5SP_A_PaletteData SAMSHO5SP_A_CharacterPalettes[] =
     { _T("Shin Akuma"),     0x387538, 0x399d38, 0x3aaab8, 0x3a8ab8, _T("indexSVCSprites_ShinAkuma") },
 };
 
-const LPCTSTR SVC_CharacterEffectNames[] =
+const LPCWSTR SVC_CharacterEffectNames[] =
 {
     _T("Fire Effect 1"),
     _T("Fire Effect 2"),
@@ -404,7 +404,7 @@ void CGame_SAMSHO5SP_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SAMSHO5SP_A_CharacterPalettes); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SAMSHO5SP_A_CharacterPalettes[nCharIndex].pszCharacterName);
         UINT32 nCurrentOffset = 0;
 
@@ -420,7 +420,7 @@ void CGame_SAMSHO5SP_A::DumpPaletteHeaders()
                     nCurrentOffset = SAMSHO5SP_A_CharacterPalettes[nCharIndex].nCoreOffset + (iButtonIndex * 0x200);
                 }
 
-                TCHAR szCodeButtonLabel[MAX_DESCRIPTION_LENGTH];
+                WCHAR szCodeButtonLabel[MAX_DESCRIPTION_LENGTH];
                 StrRemoveNonASCII(szCodeButtonLabel, ARRAYSIZE(szCodeButtonLabel), DEF_BUTTONLABEL_2_PK[iButtonIndex]);
 
                 strOutput.Format(_T("const sGame_PaletteDataset SAMSHO5SP_A_%s_%s_PALETTES[] = \r\n{\r\n"), szCodeDesc, szCodeButtonLabel);
@@ -510,7 +510,7 @@ void CGame_SAMSHO5SP_A::DumpPaletteHeaders()
     // All the collections...
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SAMSHO5SP_A_CharacterPalettes); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SAMSHO5SP_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(_T("const sDescTreeNode SAMSHO5SP_A_%s_COLLECTION[] = \r\n{\r\n"), szCodeDesc);
@@ -520,7 +520,7 @@ void CGame_SAMSHO5SP_A::DumpPaletteHeaders()
         {
             for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
             {
-                TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+                WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
                 StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_PK[nColorIndex]);
 
                 strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SAMSHO5SP_A_%s_%s_PALETTES, ARRAYSIZE(SAMSHO5SP_A_%s_%s_PALETTES) },\r\n"), DEF_BUTTONLABEL_2_PK[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
@@ -554,7 +554,7 @@ void CGame_SAMSHO5SP_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SAMSHO5SP_A_CharacterPalettes); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SAMSHO5SP_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SAMSHO5SP_A_%s_COLLECTION, ARRAYSIZE(SAMSHO5SP_A_%s_COLLECTION) },\r\n"), SAMSHO5SP_A_CharacterPalettes[nCharIndex].pszCharacterName, szCodeDesc, szCodeDesc);
@@ -606,7 +606,7 @@ UINT16 CGame_SAMSHO5SP_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nColl
     }
 }
 
-LPCTSTR CGame_SAMSHO5SP_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SAMSHO5SP_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == SAMSHO5SP_A_EXTRALOC)
     {
@@ -833,8 +833,8 @@ BOOL CGame_SAMSHO5SP_A::UpdatePalImg(int Node01, int Node02, int Node03, int Nod
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("B")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("C")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, _T("A")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("B")) == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, _T("C")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("D")) == 0))
                 {
                     nSrcAmt = 4;
                     nNodeIncrement = pCurrentNode->uChildAmt;

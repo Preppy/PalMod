@@ -380,7 +380,7 @@ UINT16 CGame_Kizuna_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollect
     }
 }
 
-LPCTSTR CGame_Kizuna_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_Kizuna_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == Kizuna_A_EXTRALOC)
     {
@@ -580,7 +580,7 @@ BOOL CGame_Kizuna_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, L"A") == 0) || (_tcsicmp(pCurrentNode->szDesc, L"D") == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, L"A") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"D") == 0))
                 {
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;

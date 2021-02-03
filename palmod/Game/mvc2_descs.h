@@ -6,10 +6,10 @@
 struct sMoveDescription
 {
     UINT16 nCharacterIndex = 0;
-    LPCTSTR szMoveName = L"uninit";
+    LPCWSTR szMoveName = L"uninit";
     UINT16 nImageIndex = 0xFF;
-    LPCTSTR pszImageUnitOverride = nullptr;
-    LPCTSTR pszPairedPaletteName = nullptr;
+    LPCWSTR pszImageUnitOverride = nullptr;
+    LPCWSTR pszPairedPaletteName = nullptr;
 };
 
 const sMoveDescription MVC2_MOVE_DESCRIPTIONS_RYU[] = // 00

@@ -341,7 +341,7 @@ UINT16 CGame_REDEARTH_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nColle
     }
 }
 
-LPCTSTR CGame_REDEARTH_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_REDEARTH_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == REDEARTH_A_EXTRALOC)
     {
@@ -581,7 +581,7 @@ BOOL CGame_REDEARTH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if (((_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[0]) == 0) || (_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[1]) == 0)) &&
+                if (((_wcsicmp(pCurrentNode->szDesc, pButtonLabelSet[0]) == 0) || (_wcsicmp(pCurrentNode->szDesc, pButtonLabelSet[1]) == 0)) &&
                     CanEnableMultispriteExport(NodeGet->uUnitId, NodeGet->uPalId)) // make sure we're in a balanced node, since we have unbalanced P palettes
                 {
                     nSrcAmt = 2;

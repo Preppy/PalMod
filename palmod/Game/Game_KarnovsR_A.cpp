@@ -358,7 +358,7 @@ UINT16 CGame_KarnovsR_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nColle
     }
 }
 
-LPCTSTR CGame_KarnovsR_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KarnovsR_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == KarnovsR_A_EXTRALOC)
     {
@@ -560,7 +560,7 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2_PK[0]) == 0) || (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2_PK[1]) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2_PK[0]) == 0) || (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2_PK[1]) == 0))
                 {
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;
@@ -579,17 +579,17 @@ BOOL CGame_KarnovsR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
                         sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
                         const sGame_PaletteDataset* paletteDataSetToJoin = nullptr;
 
-                        const int iPorKIndex = (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2_PK[0]) == 0) ? 0 : 1;
+                        const int iPorKIndex = (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL_2_PK[0]) == 0) ? 0 : 1;
                         int iCollectionIndex = 0;
 
-                        if ((_tcscmp(charUnit->szDesc, k_krNameKey_Jean) == 0) ||
-                            (_tcscmp(charUnit->szDesc, k_krNameKey_Karnov) == 0) ||
-                            (_tcscmp(charUnit->szDesc, k_krNameKey_Matlok) == 0))
+                        if ((wcscmp(charUnit->szDesc, k_krNameKey_Jean) == 0) ||
+                            (wcscmp(charUnit->szDesc, k_krNameKey_Karnov) == 0) ||
+                            (wcscmp(charUnit->szDesc, k_krNameKey_Matlok) == 0))
                         {
                             iCollectionIndex = 1;
                         }
-                        else if ((_tcscmp(charUnit->szDesc, k_krNameKey_Yungmie) == 0) || 
-                                 (_tcscmp(charUnit->szDesc, k_krNameKey_Zazie) == 0))
+                        else if ((wcscmp(charUnit->szDesc, k_krNameKey_Yungmie) == 0) || 
+                                 (wcscmp(charUnit->szDesc, k_krNameKey_Zazie) == 0))
                         {
                             iCollectionIndex = 0;
                         }                        

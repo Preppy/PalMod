@@ -1028,9 +1028,9 @@ sDescTreeNode* CGame_SFA2_A::InitDescTree(int nROMPaletteSetToUse, SFA2_Supporte
 
 struct sSFA2_A_PaletteData
 {
-    LPCTSTR pszCharacterName = nullptr;
+    LPCWSTR pszCharacterName = nullptr;
     UINT32 nROMOffset = 0;
-    LPCTSTR pszImageSet = _T("indexCPS2_SFA3Assets"); // SFA2_Unique
+    LPCWSTR pszImageSet = _T("indexCPS2_SFA3Assets"); // SFA2_Unique
     UINT32 nImageSetIndex = 0;
 };
 
@@ -1065,10 +1065,10 @@ const sSFA2_A_PaletteData SFA2_A_CharacterPalettes[] =
 
 struct sSFA2_A_EffectPaletteData
 {
-    LPCTSTR pszCharacterName = nullptr;
-    LPCTSTR pszEffectName = nullptr;
+    LPCWSTR pszCharacterName = nullptr;
+    LPCWSTR pszEffectName = nullptr;
     UINT32 nROMOffset = 0;
-    LPCTSTR pszImageSet = _T("indexCPS2_SFA3Assets"); // SFA2_Unique
+    LPCWSTR pszImageSet = _T("indexCPS2_SFA3Assets"); // SFA2_Unique
     UINT32 nImageSetIndex = 0;
     UINT16 nEffectCount = 1;
 };
@@ -1108,7 +1108,7 @@ const sSFA2_A_PaletteData SFA2_A_PortraitPalettes[] =
     { _T("Chun-Li (Original)"),   0x1c7c0 + (0x60 * 18), _T("indexCPS2_SFA2Portraits"), indexCPS2_ChunLi + 1 },
 };
 
-const LPCTSTR SFA2_ColorOptionNames[] =
+const LPCWSTR SFA2_ColorOptionNames[] =
 {
     _T("Punch"),
     _T("Kick"),
@@ -1118,7 +1118,7 @@ const LPCTSTR SFA2_ColorOptionNames[] =
     _T("Auto Guard Kick"),
 };
 
-const LPCTSTR SFA2_StatusEffectNames[] =
+const LPCWSTR SFA2_StatusEffectNames[] =
 {
     _T("Burned 1"),
     _T("Burned 2"),
@@ -1154,12 +1154,12 @@ void CGame_SFA2_A::DumpPaletteHeaders()
 
         for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_CharacterPalettes); nCharIndex++)
         {
-            TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+            WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
             StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
             for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
             {
-                TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+                WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
                 StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
 
                 strOutput.Format(_T("const sGame_PaletteDataset SFA2_A_%s_%s_PALETTES[] = \r\n{\r\n"), szCodeDesc, szColorOptionCodeDesc);
@@ -1195,7 +1195,7 @@ void CGame_SFA2_A::DumpPaletteHeaders()
 
         for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_CharacterPalettes); nCharIndex++)
         {
-            TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+            WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
             StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
             strOutput.Format(_T("const sDescTreeNode SFA2_A_%s_COLLECTION[] = \r\n{\r\n"), szCodeDesc);
@@ -1203,7 +1203,7 @@ void CGame_SFA2_A::DumpPaletteHeaders()
 
             for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
             {
-                TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+                WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
                 StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
 
                 strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SFA2_A_%s_%s_PALETTES, ARRAYSIZE(SFA2_A_%s_%s_PALETTES) },\r\n"), SFA2_ColorOptionNames[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
@@ -1221,12 +1221,12 @@ void CGame_SFA2_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_EffectsPaletteSets); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_EffectsPaletteSets[nCharIndex].pszCharacterName);
 
         for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            TCHAR szEffectCodeDescription[MAX_DESCRIPTION_LENGTH];
+            WCHAR szEffectCodeDescription[MAX_DESCRIPTION_LENGTH];
             StrRemoveNonASCII(szEffectCodeDescription, ARRAYSIZE(szEffectCodeDescription), SFA2_ColorOptionNames[nColorIndex]);
 
             strOutput.Format(_T("const sGame_PaletteDataset SFA2_A_%s_%s_MOVE_PALETTES[] = \r\n{\r\n"), szCodeDesc, szEffectCodeDescription);
@@ -1249,7 +1249,7 @@ void CGame_SFA2_A::DumpPaletteHeaders()
 
         for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
 
             strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SFA2_A_%s_%s_MOVE_PALETTES, ARRAYSIZE(SFA2_A_%s_%s_MOVE_PALETTES) },\r\n"), SFA2_ColorOptionNames[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
@@ -1264,12 +1264,12 @@ void CGame_SFA2_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_PortraitPalettes); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName);
 
         for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
 
             strOutput.Format(_T("const sGame_PaletteDataset SFA2_A_%s_%s_PORTRAIT_PALETTES[] = \r\n{\r\n"), szCodeDesc, szColorOptionCodeDesc);
@@ -1289,7 +1289,7 @@ void CGame_SFA2_A::DumpPaletteHeaders()
 
         for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
         {
-            TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+            WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), SFA2_ColorOptionNames[nColorIndex]);
 
             strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SFA2_A_%s_%s_PORTRAIT_PALETTES, ARRAYSIZE(SFA2_A_%s_%s_PORTRAIT_PALETTES) },\r\n"), SFA2_ColorOptionNames[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
@@ -1301,7 +1301,7 @@ void CGame_SFA2_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SFA2_A_PortraitPalettes); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SFA2_A_%s_PORTRAIT_COLLECTION, ARRAYSIZE(SFA2_A_%s_PORTRAIT_COLLECTION) },\r\n"), SFA2_A_PortraitPalettes[nCharIndex].pszCharacterName, szCodeDesc, szCodeDesc);
@@ -1346,7 +1346,7 @@ UINT16 CGame_SFA2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectio
     }
 }
 
-LPCTSTR CGame_SFA2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SFA2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == GetCurrentExtraLoc())
 
@@ -1870,12 +1870,12 @@ BOOL CGame_SFA2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
             // Right now most of SFA2 is all six palettes within one node.
-            if ((_tcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[0]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[1]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[2]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[3]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[4]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[5]) == 0))
+            if ((_wcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[0]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[1]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[2]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[3]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[4]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, SFA2_ColorOptionNames[5]) == 0))
             {
                 nSrcAmt = min(GetCollectionCountForUnit(NodeGet->uUnitId), 6); // This min is specifically needed for SFA2 due to Shin Akuma's variable node count between rev 2 and 3
                                                                                // In rev 2, it's just Punch.  In rev 3, it's all colors as expected.

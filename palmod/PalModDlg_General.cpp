@@ -194,11 +194,11 @@ void CPalModDlg::PostPalSel()
         if ((CurrTicket->nUnitId == 0xFFFF) || (CurrTicket->nUnitId == 0xFFFFFFFF) ||
             (CurrTicket->nImgId == 0xFFFF) || (CurrTicket->nImgId == 0xFFFFFFFF))
         {
-            strInformation = _T("Preview: (no internal preview available)");
+            strInformation = L"Preview: (no internal preview available)";
         }
         else
         {
-            strInformation.Format(_T("Preview: unit 0x%02x, image id 0x%02x"), CurrTicket->nUnitId, CurrTicket->nImgId);
+            strInformation.Format(L"Preview: unit 0x%02x, image id 0x%02x", CurrTicket->nUnitId, CurrTicket->nImgId);
         }
         PreviewDlg->SetWindowCaption(strInformation);
     }
@@ -346,19 +346,19 @@ void CPalModDlg::OnPalHLChange(void* pPalCtrl, UINT_PTR nCtrlId)
 
     if (!nHLAmt)
     {
-        m_StatusBar.SetPaneText(1, _T(""));
+        m_StatusBar.SetPaneText(1, L"");
     }
     else if (nHLAmt == 1)
     {
-        TCHAR szIndex[32];
+        WCHAR szIndex[32];
         // this is the status bar area text
-        _sntprintf_s(szIndex, ARRAYSIZE(szIndex), _TRUNCATE, _T("(%d: %d)"), (int)nCtrlId, pNotifyCtrl->GetHighlightIndex());
+        _sntprintf_s(szIndex, ARRAYSIZE(szIndex), _TRUNCATE, L"(%d: %d)", (int)nCtrlId, pNotifyCtrl->GetHighlightIndex());
 
         m_StatusBar.SetPaneText(1, szIndex);
     }
     else
     {
-        m_StatusBar.SetPaneText(1, _T("--"));
+        m_StatusBar.SetPaneText(1, L"--");
     }
 }
 

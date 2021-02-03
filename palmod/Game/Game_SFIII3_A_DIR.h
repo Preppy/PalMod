@@ -54,5 +54,5 @@ public:
 
     UINT32 SaveMultiplePatchFiles(CString strTargetDirectory) override;
 
-    LPCTSTR GetGameName() override;
+    LPCWSTR GetGameName() override;
 };

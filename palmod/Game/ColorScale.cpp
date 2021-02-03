@@ -180,7 +180,7 @@ static double HueToRGB(const double m1, const double m2, double h) {
   COPYRIGHT:1995-1997 Robert Mashlan
             Modified for LabWindows/CVI, 1999 Guillaume Dargaud
 ******************************************************************************/
-//typedef unsigned TCHAR  BYTE;        // 8-bit unsigned entity
+//typedef unsigned WCHAR  BYTE;        // 8-bit unsigned entity
 
 COLORREF HLStoRGB(const double H, const double L, const double S)
 {

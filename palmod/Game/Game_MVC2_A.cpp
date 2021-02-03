@@ -159,14 +159,14 @@ int CGame_MVC2_A::GetExtraLoc(UINT16 nUnitId)
 
 struct sMVC2A_CharacterData
 {
-    TCHAR szImageRefName[MAX_DESCRIPTION_LENGTH] = _T("uninit");
+    WCHAR szImageRefName[MAX_DESCRIPTION_LENGTH] = _T("uninit");
     UINT16 nCharacterIndex = 0;
-    TCHAR szDesc[MAX_DESCRIPTION_LENGTH] = _T("uninit");
-    TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH] = _T("UNINIT");
+    WCHAR szDesc[MAX_DESCRIPTION_LENGTH] = _T("uninit");
+    WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH] = _T("UNINIT");
     UINT32 nStartingPosition = 0;
     UINT16 nExtraStart = 0;
     UINT16 nExtraEnd = 0;
-    LPCTSTR pszPalettePairName = nullptr;
+    LPCWSTR pszPalettePairName = nullptr;
 };
 
 sMVC2A_CharacterData MVC2ArcadeCharacterArray[] =
@@ -251,7 +251,7 @@ void CGame_MVC2_A::DumpAllCharacters()
 
             for (UINT16 iButtonIndex = 0; iButtonIndex < m_nNumberOfColorOptions; iButtonIndex++)
             {
-                strOutput.Format(_T("const sGame_PaletteDataset MVC2_A_%s_PALETTES_%s[] =\r\n{\r\n"), MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, (LPCTSTR)pButtonLabelSet[iButtonIndex]);
+                strOutput.Format(_T("const sGame_PaletteDataset MVC2_A_%s_PALETTES_%s[] =\r\n{\r\n"), MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc, (LPCWSTR)pButtonLabelSet[iButtonIndex]);
                 OutputDebugString(strOutput);
 
                 if (MVC2ArcadeCharacterArray[iUnitCtr].pszPalettePairName) 
@@ -305,7 +305,7 @@ void CGame_MVC2_A::DumpAllCharacters()
             strOutput.Format(_T("const sGame_PaletteDataset MVC2_A_%s_PALETTES_SHARED[] =\r\n{\r\n"), MVC2ArcadeCharacterArray[iUnitCtr].szCodeDesc);
             OutputDebugString(strOutput);
 
-            const TCHAR* StatusDescriptions[8] =
+            const WCHAR* StatusDescriptions[8] =
             {
                 _T("Burning Dark"), _T("Burning Light"), _T("Shocked Dark"), _T("Shocked Light"), _T("Dark Burning Dark"), _T("Dark Burning Light"), _T("Kinetic Charge Dark"), _T("Kinetic Charge Light")
             };
@@ -646,7 +646,7 @@ UINT16 CGame_MVC2_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectio
     }
 }
 
-LPCTSTR CGame_MVC2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_MVC2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == MVC2_A_EXTRALOC)
     {
@@ -966,7 +966,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                     for (UINT16 nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
                     {
-                        if (_tcsicmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
+                        if (_wcsicmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
                         {
                             nJoinedUnit1 = mvc2TeamList[nTeamIndex].nCharacterOne;
                             nJoinedUnit2 = mvc2TeamList[nTeamIndex].nCharacterTwo;
@@ -1106,9 +1106,9 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     SetSourcePal(1, nJoinedUnit2, 0, nSrcAmt, nNodeIncrement);
                     SetSourcePal(2, nJoinedUnit3, 0, nSrcAmt, nNodeIncrement);
                 }
-                else  if ((_tcsicmp(pCurrentNode->szDesc, _T("LP")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("LK")) == 0) ||
-                          (_tcsicmp(pCurrentNode->szDesc, _T("HP")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("HK")) == 0) ||
-                          (_tcsicmp(pCurrentNode->szDesc, _T("A1")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("A2")) == 0))
+                else  if ((_wcsicmp(pCurrentNode->szDesc, _T("LP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("LK")) == 0) ||
+                          (_wcsicmp(pCurrentNode->szDesc, _T("HP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("HK")) == 0) ||
+                          (_wcsicmp(pCurrentNode->szDesc, _T("A1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("A2")) == 0))
                 {
                     // We show 6 sprites (LP...A2) for export for all normal MVC2 sprites
                     nSrcAmt = m_nNumberOfColorOptions;
@@ -1122,7 +1122,7 @@ BOOL CGame_MVC2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         nSrcStart -= nNodeIncrement;
                     }
                 }
-                else if (_tcsicmp(pCurrentNode->szDesc, _T("Status Effects")) == 0)
+                else if (_wcsicmp(pCurrentNode->szDesc, _T("Status Effects")) == 0)
                 {
                     // Status Effects follow main buttons but are before Extras, if any
                     UINT16 nCollectionCount = ARRAYSIZE(DEF_BUTTONLABEL6_MVC2);

@@ -23,8 +23,11 @@ public:
     static int rgExtraLoc_22[SF2HF_A_22_NUMUNIT + 1];
 
     static void InitializeStatics();
-    static UINT32 m_nExpectedGameROMSize;
+    static UINT32 m_nExpectedGameROMSize_HF;
+    static UINT32 m_nExpectedGameROMSize_30th;
     static UINT32 m_nConfirmedROMSize;
+    
+    bool IsSF30thBundleFile() { return m_nConfirmedROMSize == m_nExpectedGameROMSize_30th; };
 
     // Needed for multiple ROM support
     void InitDataBuffer() override;
@@ -57,7 +60,7 @@ public:
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCTSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 

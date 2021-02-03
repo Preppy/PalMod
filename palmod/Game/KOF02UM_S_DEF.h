@@ -12,16 +12,16 @@ constexpr auto KOF02UM_S_NUMUNIT_MAIN = indexKOF02UM_S_Last;
 
 struct sKOF02_CharacterDump
 {
-    LPCTSTR pszCharacterName = nullptr;
+    LPCWSTR pszCharacterName = nullptr;
     UINT32 locationA = 0;
     UINT32 locationB = 0;
     UINT32 locationC = 0;
     UINT32 locationD = 0;
-    LPCTSTR pszImageRefName = nullptr;
-    LPCTSTR pszHSDM1NameOverride = nullptr;
-    LPCTSTR pszDMSDMNameOverride = nullptr;
-    LPCTSTR pszHSDM2NameOverride = nullptr;
-    LPCTSTR pszHSDM3NameOverride = nullptr;
+    LPCWSTR pszImageRefName = nullptr;
+    LPCWSTR pszHSDM1NameOverride = nullptr;
+    LPCWSTR pszDMSDMNameOverride = nullptr;
+    LPCWSTR pszHSDM2NameOverride = nullptr;
+    LPCWSTR pszHSDM3NameOverride = nullptr;
 };
 
 // These tables were added by hand through research.  They are not part of the table print output logic.

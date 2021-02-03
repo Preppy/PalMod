@@ -8,15 +8,15 @@
 
 struct sCVS2_ExtraPair
 {
-    LPCTSTR pszExtraName = nullptr;
+    LPCWSTR pszExtraName = nullptr;
     UINT16 nImgIndex = 0;
 };
 
 struct sCVS2_CharacterDump
 {
-    LPCTSTR pszCharacterName = nullptr;
+    LPCWSTR pszCharacterName = nullptr;
     UINT32 romOffset = 0;
-    LPCTSTR pszImageRefName = nullptr;
+    LPCWSTR pszImageRefName = nullptr;
 
     sCVS2_ExtraPair sExtra1;
     sCVS2_ExtraPair sExtra2;

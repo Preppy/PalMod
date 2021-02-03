@@ -67,7 +67,7 @@ sSupportedGameList SupportedGameList[] =
     { SFIII2_A,         L"SFIII:2I", L"SFIII:2I Arcade|50|", GamePlatform::CapcomCPS3 },
     { SFIII3_A,         L"SFIII:3S", L"SFIII:3S Arcade (51), Gill glow/X.C.O.P.Y. (10)|10;51|", GamePlatform::CapcomCPS3 },
     { SF2CE_A,          L"SF2:CE", L"SF2:CE: Select (21), Characters (22), Continue (23)|s92*21*6f;s92*22*7f;s92*23*8f|", GamePlatform::CapcomCPS12 },
-    { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f|", GamePlatform::CapcomCPS12 },
+    { SF2HF_A,          L"SF2:HF", L"SF2:HF: Select (21), Characters (22)|s2t*21.6f;s2t*22.7f;bundleStreetFighterII_HF.mbundle|", GamePlatform::CapcomCPS12 },
     { SSF2T_A,          L"SSF2T", L"SSF2T: Portraits (*.03c), Characters (*.04a), Stages (*.08)|sfx*.03*;sfx*.04a;sfx*.08|", GamePlatform::CapcomCPS12 },
     { SSF2T_GBA,        L"SSF2T: Revival (GBA)", L"SSF2T: Revival (GBA)|Super*Street*Fighter*.gba|", GamePlatform::Nintendo },
     { GEMFIGHTER_A,     L"Super Gem Fighter", L"Super Gem Fighter|pcf*.07|", GamePlatform::CapcomCPS12 },
@@ -84,7 +84,7 @@ sSupportedGameList SupportedGameList[] =
 sSupportedGameList* pSupportedGameList = SupportedGameList;
 const int nNumberOfLoadROMOptions = ARRAYSIZE(SupportedGameList);
 
-void CPalModDlg::LoadGameDir(int nGameFlag, TCHAR* szLoadDir)
+void CPalModDlg::LoadGameDir(int nGameFlag, WCHAR* szLoadDir)
 {
     ClearGameVar();
 
@@ -311,6 +311,7 @@ void CPalModDlg::UpdateColorFormatMenu()
 
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB333, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_9) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB444, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_12A) ? MF_CHECKED : MF_UNCHECKED));
+        pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB444_LE, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_12A_LE) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_15) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_ALT, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_15ALT) ? MF_CHECKED : MF_UNCHECKED));
         pSettMenu->CheckMenuItem(ID_COLORFORMAT_RGB555_GBA, MF_BYCOMMAND | ((currColMode == ColMode::COLMODE_GBA) ? MF_CHECKED : MF_UNCHECKED));
@@ -328,6 +329,7 @@ void CPalModDlg::UpdateColorFormatMenu()
     }
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB333, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB444, canChangeFormat ? MF_ENABLED : MF_DISABLED);
+    pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB444_LE, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_ALT, canChangeFormat ? MF_ENABLED : MF_DISABLED);
     pSettMenu->EnableMenuItem(ID_COLORFORMAT_RGB555_GBA, canChangeFormat ? MF_ENABLED : MF_DISABLED);
@@ -362,7 +364,7 @@ void CPalModDlg::LoadLastDir()
 {
     int nLastUsedGFlag;
     BOOL bIsDir;
-    TCHAR szLastDir[MAX_PATH];
+    WCHAR szLastDir[MAX_PATH];
 
     if (GetLastUsedDirectory(szLastDir, sizeof(szLastDir), &nLastUsedGFlag, FALSE, &bIsDir))
     {
@@ -403,7 +405,7 @@ int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData)
     {
     case BFFM_INITIALIZED:
     {
-        TCHAR szPath[MAX_PATH];
+        WCHAR szPath[MAX_PATH];
 
         if (GetLastUsedDirectory(szPath, sizeof(szPath), NULL))
         {
@@ -418,7 +420,7 @@ int CALLBACK OnBrowseDialog(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData)
     return 0;
 }
 
-void SetLastUsedDirectory(LPCTSTR ptszPath, int nGameFlag)
+void SetLastUsedDirectory(LPCWSTR ptszPath, int nGameFlag)
 {
     if (NULL != ptszPath)
     {
@@ -427,7 +429,7 @@ void SetLastUsedDirectory(LPCTSTR ptszPath, int nGameFlag)
         //Set the directory / Game Flag
         if (ERROR_SUCCESS == RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_SET_VALUE, NULL, &hKey, NULL))
         {
-            RegSetValueEx(hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)ptszPath, (DWORD)(_tcslen(ptszPath) + 1) * sizeof(TCHAR));
+            RegSetValueEx(hKey, c_strLastUsedPath, 0, REG_SZ, (LPBYTE)ptszPath, (DWORD)(wcslen(ptszPath) + 1) * sizeof(WCHAR));
             RegSetValueEx(hKey, c_strLastUsedGFlag, 0, REG_DWORD, (LPBYTE)&nGameFlag, (DWORD)sizeof(int));
 
             RegCloseKey(hKey);
@@ -445,7 +447,7 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
     if (ERROR_SUCCESS == RegOpenKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, KEY_QUERY_VALUE, &hKey))
     {
         DWORD dwRegType = REG_SZ;
-        TCHAR szPath[MAX_PATH] = {};
+        WCHAR szPath[MAX_PATH] = {};
         DWORD cbDataSize = sizeof(szPath);
 
         //Get the directory
@@ -470,7 +472,7 @@ BOOL GetLastUsedDirectory(LPTSTR ptszPath, DWORD cbSize, int* nGameFlag, BOOL bC
 
                     // This code used to be testing for (dwAttribs & FILE_ATTRIBUTE_ARCHIVE), but I don't think we need that currently.
 
-                    _tcscpy(ptszPath, szPath);
+                    wcscpy(ptszPath, szPath);
                     fFound = TRUE;
                 }
             }
@@ -526,14 +528,14 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
         {
             // If we're here, that means that they have never used PalMod to load a game before.  Help them.
             CString strInfo;
-            LPCTSTR pszParagraph1 = L"Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
-            LPCTSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
+            LPCWSTR pszParagraph1 = L"Howdy!  You appear to be new to PalMod.  Welcome!\n\n";
+            LPCWSTR pszParagraph2 = L"The first step is to load the ROM for the game you care about. There are a lot of game ROMs out there: the filter in the bottom right of the Load ROM dialog that you will see next helps show the right one for your game.\n\n";
 
-            TCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
-            _tcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
+            WCHAR szGameFilter[MAX_DESCRIPTION_LENGTH];
+            wcsncpy(szGameFilter, SupportedGameList[0].szGameFilterString, ARRAYSIZE(szGameFilter));
             szGameFilter[MAX_DESCRIPTION_LENGTH - 1] = 0;
 
-            LPTSTR pszPipe = _tcsstr(szGameFilter, L"|");
+            LPTSTR pszPipe = wcsstr(szGameFilter, L"|");
 
             if (pszPipe != nullptr)
             {
@@ -604,7 +606,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
             {
                 if (currentGame.nListedGameIndex == ofn.nFilterIndex)
                 {
-                    LoadGameFile(currentGame.nInternalGameIndex, (TCHAR*)ofn.lpstrFile);
+                    LoadGameFile(currentGame.nInternalGameIndex, (WCHAR*)ofn.lpstrFile);
                     break;
                 }
             }
@@ -612,7 +614,7 @@ void CPalModDlg::OnFileOpenInternal(UINT nDefaultGameFilter /* = NUM_GAMES */)
     }
 }
 
-void CPalModDlg::LoadGameFile(int nGameFlag, TCHAR* szFile)
+void CPalModDlg::LoadGameFile(int nGameFlag, WCHAR* szFile)
 {
     if (!VerifyMsg(eVerifyType::VM_FILECHANGE))
     {
@@ -651,7 +653,7 @@ void CPalModDlg::OnBnBlink()
     Blink();
 }
 
-bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName, bool fReadUpsideDown)
+bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
 {
     bool fSuccess = false;
     CFile ActFile;
@@ -894,7 +896,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCTSTR pszFileName, bool fReadUpsideDown)
     return fSuccess;
 }
 
-bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
+bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
 {
     bool fSuccess = false;
     bool fFoundPALChunk = false;
@@ -1024,7 +1026,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCTSTR pszFileName)
     return fSuccess;
 }
 
-bool CPalModDlg::LoadPaletteFromPNG(LPCTSTR pszFileName, bool fReadUpsideDown)
+bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 {
     bool fSuccess = false;
     bool fFoundPaletteData = false;
@@ -1356,7 +1358,7 @@ void CPalModDlg::OnImportPalette()
 {
     if (bEnabled)
     {
-        static LPCTSTR szOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal|"
+        static LPCWSTR szOpenFilter[] = { L"Supported Palette Files|*.act;*.png;*.pal|"
                                           L"ACT Palette|*.act|"
                                           L"Indexed PNG|*.png|"
                                           L"Microsoft PAL|*.pal|"
@@ -1371,14 +1373,14 @@ void CPalModDlg::OnImportPalette()
             CString strFileName = PaletteLoad.GetOFN().lpstrFile;
             bool fSuccess = false;
 
-            TCHAR szExtension[_MAX_EXT];
+            WCHAR szExtension[_MAX_EXT];
             _tsplitpath(strFileName, nullptr, nullptr, nullptr, szExtension);
 
-            if (_tcsicmp(szExtension, L".png") == 0)
+            if (_wcsicmp(szExtension, L".png") == 0)
             {
                 LoadPaletteFromPNG(strFileName, (PaletteLoad.GetOFN().nFilterIndex > 3));
             }
-            else if (_tcsicmp(szExtension, L".pal") == 0)
+            else if (_wcsicmp(szExtension, L".pal") == 0)
             {
                 LoadPaletteFromPAL(strFileName);
             }
@@ -1390,7 +1392,7 @@ void CPalModDlg::OnImportPalette()
     }
 }
 
-bool CPalModDlg::SavePaletteToACT(LPCTSTR pszFileName)
+bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName)
 {
     CFile ActFile;
     bool fSuccess = false;
@@ -1468,7 +1470,7 @@ bool CPalModDlg::SavePaletteToACT(LPCTSTR pszFileName)
     return fSuccess;
 }
 
-bool CPalModDlg::SavePaletteToGPL(LPCTSTR pszFileName)
+bool CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName)
 {
     bool fSuccess = false;
     CFile GPLFile;
@@ -1537,7 +1539,7 @@ bool CPalModDlg::SavePaletteToGPL(LPCTSTR pszFileName)
     return fSuccess;
 }
 
-bool CPalModDlg::SavePaletteToPAL(LPCTSTR pszFileName)
+bool CPalModDlg::SavePaletteToPAL(LPCWSTR pszFileName)
 {
     bool fSuccess = false;
 
@@ -1583,7 +1585,7 @@ bool CPalModDlg::SavePaletteToPAL(LPCTSTR pszFileName)
 
 void CPalModDlg::OnExportPalette()
 {
-    static LPCTSTR szSaveFilter[] = { L"ACT Palette|*.act|"
+    static LPCWSTR szSaveFilter[] = { L"ACT Palette|*.act|"
                                       L"GIMP Palette File|*.gpl|"
                                       L"Microsoft PAL|*.pal|"
                                       L"|" };
@@ -1596,15 +1598,15 @@ void CPalModDlg::OnExportPalette()
 
         CString szFile = ActSave.GetOFN().lpstrFile;
 
-        TCHAR szExtension[_MAX_EXT];
+        WCHAR szExtension[_MAX_EXT];
         _tsplitpath(szFile, nullptr, nullptr, nullptr, szExtension);
         bool fSuccess = false;
 
-        if (_tcsicmp(szExtension, L".gpl") == 0)
+        if (_wcsicmp(szExtension, L".gpl") == 0)
         {
             fSuccess = SavePaletteToGPL(ActSave.GetOFN().lpstrFile);
         }
-        else if (_tcsicmp(szExtension, L".pal") == 0)
+        else if (_wcsicmp(szExtension, L".pal") == 0)
         {
             fSuccess = SavePaletteToPAL(ActSave.GetOFN().lpstrFile);
         }

@@ -1661,7 +1661,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         for (UINT16 nTeamIndex = 0; nTeamIndex < ARRAYSIZE(mvc2TeamList); nTeamIndex++)
         {
-            if (_tcsicmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
+            if (_wcsicmp(mvc2TeamList[nTeamIndex].pszTeamName, pCurrentNode->szDesc) == 0)
             {
                 nJoinedUnit1 = mvc2TeamList[nTeamIndex].nCharacterOne;
                 nJoinedUnit2 = mvc2TeamList[nTeamIndex].nCharacterTwo;

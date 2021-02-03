@@ -146,9 +146,9 @@ int CGame_NGBC_A::GetExtraLoc(UINT16 nUnitId)
 
 struct sNGBC_CharacterDump
 {
-    LPCTSTR pszCharacterName = nullptr;
+    LPCWSTR pszCharacterName = nullptr;
     UINT32 baseLocation = 0;
-    LPCTSTR pszImageRefName = nullptr;
+    LPCWSTR pszImageRefName = nullptr;
 };
 
 sNGBC_CharacterDump NGBCCharacterList[] =
@@ -213,7 +213,7 @@ void CGame_NGBC_A::DumpAllCharacters()
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
 
@@ -240,7 +240,7 @@ void CGame_NGBC_A::DumpAllCharacters()
             nCurrentCharacterOffset += 0x20;
             nPaletteCount++;
 
-            const LPCTSTR pszMoveNames[] =
+            const LPCWSTR pszMoveNames[] =
             {
                 L"Super Trail",
                 L"Extra Move 1",
@@ -281,7 +281,7 @@ void CGame_NGBC_A::DumpAllCharacters()
     for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(NGBCCharacterList); iUnitCtr++)
     {
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
 
@@ -303,7 +303,7 @@ void CGame_NGBC_A::DumpAllCharacters()
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), NGBCCharacterList[iUnitCtr].pszCharacterName);
 
@@ -536,7 +536,7 @@ UINT16 CGame_NGBC_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectio
     }
 }
 
-LPCTSTR CGame_NGBC_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_NGBC_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == NGBC_A_EXTRALOC)
     {
@@ -766,7 +766,7 @@ BOOL CGame_NGBC_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             {
                 sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
-                if (_tcscmp(charUnit->szDesc, k_ngbcNameKey_GoddessAthena) == 0)
+                if (wcscmp(charUnit->szDesc, k_ngbcNameKey_GoddessAthena) == 0)
                 {
                     fShouldUseAlternateLoadLogic = true;
 

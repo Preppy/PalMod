@@ -385,7 +385,7 @@ UINT16 CGame_BLEACH_DS::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollec
     }
 }
 
-LPCTSTR CGame_BLEACH_DS::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_BLEACH_DS::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == BLEACH_DS_EXTRALOC)
     {

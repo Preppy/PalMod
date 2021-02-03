@@ -2,7 +2,7 @@
 
 #include "game\gamedef.h"
 
-void LoadExtraFileForGame(LPCTSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
+void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtraDefs, stExtraDef** pCompleteExtraDefs, UINT8 nExtraUnitStart, UINT32 nGameROMSize, UINT8 cbColorSize = 2);
 
 class CGameWithExtrasFile : public CGameClass
 {
@@ -12,8 +12,8 @@ protected:
     UINT32 m_nSafeCountForThisRom = 0;
     UINT32 m_nLowestRomLocationThisPass = k_nBogusHighValue;
     UINT32 m_nLowestRomExtrasLocationThisPass = k_nBogusHighValue;
-    LPCTSTR m_pszExtraFilename = nullptr;
-    LPCTSTR m_pszDupedPaletteName = nullptr;
+    LPCWSTR m_pszExtraFilename = nullptr;
+    LPCWSTR m_pszDupedPaletteName = nullptr;
 
 private:
     bool IsROMOffsetDuplicated(UINT16 nUnitId, UINT16 nPalId, UINT32 nStartingOffsetToCheck, UINT32 nEndOfRegionToCheck = 0);

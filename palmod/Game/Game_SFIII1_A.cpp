@@ -384,7 +384,7 @@ UINT16 CGame_SFIII1_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollect
     }
 }
 
-LPCTSTR CGame_SFIII1_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SFIII1_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == GetCurrentExtraLoc())
     {
@@ -630,12 +630,12 @@ BOOL CGame_SFIII1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
-            if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[0]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[1]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[2]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[3]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[4]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[5]) == 0))
+            if ((_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[0]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[1]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[2]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[3]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[4]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL6[5]) == 0))
             {
                 nSrcAmt = m_nNumberOfColorOptions;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);

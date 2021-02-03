@@ -34,9 +34,9 @@ private:
 
     struct SVCRevisionInfo
     {
-        LPCTSTR pszRevisionName = _T("SVC Plus A");
+        LPCWSTR pszRevisionName = _T("SVC Plus A");
         eSVCRevisionName rev = eSVCRevisionName::SVCPlusA;
-        std::vector<LPCTSTR> fileList;
+        std::vector<LPCWSTR> fileList;
         int nOffsetForReads = 0;
         bool allowWrites = true;
     };
@@ -65,13 +65,13 @@ public:
 
     // We don't fold these into one sDescTreeNode return because we need to handle the Extra section.
     static UINT16 GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId);
-    static LPCTSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
+    static LPCWSTR GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId);
 
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
-    LPCTSTR GetGameName() { return m_loadedROMRevision.pszRevisionName; };
+    LPCWSTR GetGameName() { return m_loadedROMRevision.pszRevisionName; };
 
     BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0) override;
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);

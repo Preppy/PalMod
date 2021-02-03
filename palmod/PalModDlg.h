@@ -27,7 +27,7 @@ enum class eVerifyType
     VM_FILECHANGE
 };
 
-constexpr auto DEFAULT_STATUS_TEXT = _T("Always keep a backup of files!");
+constexpr auto DEFAULT_STATUS_TEXT = L"Always keep a backup of files!";
 
 class CPalDropTarget : public COleDropTarget
 {
@@ -96,12 +96,12 @@ public:
 
     //Program functions
 
-    void LoadGameDir(int nGameFlag, TCHAR * szLoadDir);
+    void LoadGameDir(int nGameFlag, WCHAR * szLoadDir);
     void OnLoadGameByDirectory(int nGameFlag);
     BOOL SetLoadDir(CString* szOut);
     void UpdateAppTitle();
 
-    void LoadGameFile(int nGameFlag, TCHAR * szFile);
+    void LoadGameFile(int nGameFlag, WCHAR * szFile);
 
     void LoadLastDir();
 
@@ -110,6 +110,7 @@ public:
     void SetColorFormatTo(ColMode newColMode);
     void SetColorFormatTo9() { SetColorFormatTo(ColMode::COLMODE_9); };
     void SetColorFormatTo12A() { SetColorFormatTo(ColMode::COLMODE_12A); };
+    void SetColorFormatTo12A_LE() { SetColorFormatTo(ColMode::COLMODE_12A_LE); };
     void SetColorFormatTo15() { SetColorFormatTo(ColMode::COLMODE_15); };
     void SetColorFormatTo15ALT() { SetColorFormatTo(ColMode::COLMODE_15ALT); };
     void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_GBA); };
@@ -133,14 +134,14 @@ public:
     void SaveSettings();
     void UpdateSettingsMenuItems();
 
-    bool LoadPaletteFromACT(LPCTSTR pszFileName, bool fReadUpsideDown = false);
-    bool LoadPaletteFromPAL(LPCTSTR pszFileName);
-    bool LoadPaletteFromPNG(LPCTSTR pszFileName, bool fReadUpsideDown = false);
+    bool LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown = false);
+    bool LoadPaletteFromPAL(LPCWSTR pszFileName);
+    bool LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown = false);
     // if you add a new palette type here, please update the CPalDropTarget support
 
-    bool SavePaletteToACT(LPCTSTR pszFileName);
-    bool SavePaletteToGPL(LPCTSTR pszFileName);
-    bool SavePaletteToPAL(LPCTSTR pszFileName);
+    bool SavePaletteToACT(LPCWSTR pszFileName);
+    bool SavePaletteToGPL(LPCWSTR pszFileName);
+    bool SavePaletteToPAL(LPCWSTR pszFileName);
 
     void UpdateSliderSel(BOOL bModeChange = FALSE, BOOL bResetRF = FALSE);
     void SetColorMode(int nColMode);
@@ -237,10 +238,10 @@ public:
     afx_msg void OnKillFocusEditBL();
     afx_msg void OnKillFocusEditA();
     
-    CString m_EditRHDesc = _T("");
-    CString m_EditGSDesc = _T("");
-    CString m_EditBLDesc = _T("");
-    CString m_EditADesc = _T("A");
+    CString m_EditRHDesc = L"";
+    CString m_EditGSDesc = L"";
+    CString m_EditBLDesc = L"";
+    CString m_EditADesc = L"A";
 
     afx_msg void OnBnNewCol();
     afx_msg void OnColSett();
@@ -306,5 +307,5 @@ extern BOOL IsPasteSupported();
 extern CStringA szPasteStr;
 
 extern int CALLBACK OnBrowseDialog( HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData );
-extern void SetLastUsedDirectory( LPCTSTR ptszPath, int nGameFlag );
+extern void SetLastUsedDirectory( LPCWSTR ptszPath, int nGameFlag );
 extern BOOL GetLastUsedDirectory( LPTSTR ptszPath, DWORD cbSize, int * nGameFlag, BOOL bCheckOnly = FALSE, BOOL * bIsDir = NULL);

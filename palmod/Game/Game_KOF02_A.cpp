@@ -151,7 +151,7 @@ void CGame_KOF02_A::DumpAllCharacters()
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
@@ -178,7 +178,7 @@ void CGame_KOF02_A::DumpAllCharacters()
             nCurrentCharacterOffset += 0x20;
             nPaletteCount++;
 
-            const LPCTSTR pszMoveNames[] =
+            const LPCWSTR pszMoveNames[] =
             {
                 L"Hidden Super Desperation Move 1",
                 L"Desperation Move / Super Desperation Move",
@@ -254,7 +254,7 @@ void CGame_KOF02_A::DumpAllCharacters()
     for (UINT16 iUnitCtr = 0; iUnitCtr < ARRAYSIZE(KOF02_A_CharacterOffsetArray); iUnitCtr++)
     {
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
@@ -285,7 +285,7 @@ void CGame_KOF02_A::DumpAllCharacters()
         UINT32 nCurrentCharacterOffset = 0;
         UINT16 nPaletteCount = 0;
         CString strOutput;
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
 
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF02_A_CharacterOffsetArray[iUnitCtr].pszCharacterName);
 
@@ -514,7 +514,7 @@ UINT16 CGame_KOF02_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollecti
     }
 }
 
-LPCTSTR CGame_KOF02_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KOF02_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == KOF02_A_EXTRALOC)
     {
@@ -714,8 +714,8 @@ BOOL CGame_KOF02_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[0]) == 0) || (_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[1]) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[2]) == 0) || (_tcsicmp(pCurrentNode->szDesc, pButtonLabelSet[3]) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, pButtonLabelSet[0]) == 0) || (_wcsicmp(pCurrentNode->szDesc, pButtonLabelSet[1]) == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, pButtonLabelSet[2]) == 0) || (_wcsicmp(pCurrentNode->szDesc, pButtonLabelSet[3]) == 0))
                 {
                     nSrcAmt = 4;
                     nNodeIncrement = pCurrentNode->uChildAmt;

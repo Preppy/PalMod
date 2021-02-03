@@ -358,7 +358,7 @@ UINT16 CGame_SAMSHO4_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollec
     }
 }
 
-LPCTSTR CGame_SAMSHO4_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SAMSHO4_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == SAMSHO4_A_EXTRALOC)
     {
@@ -585,13 +585,13 @@ BOOL CGame_SAMSHO4_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node0
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("Slash 1")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("Slash 2")) == 0) ||
-                    (_tcsicmp(pCurrentNode->szDesc, _T("Bust 1")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("Bust 2")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, _T("Slash 1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("Slash 2")) == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, _T("Bust 1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("Bust 2")) == 0))
                 {
                     sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
-                    if ((_tcscmp(charUnit->szDesc, L"Galford") == 0) ||
-                        (_tcscmp(charUnit->szDesc, L"Kyoshiro") == 0))
+                    if ((wcscmp(charUnit->szDesc, L"Galford") == 0) ||
+                        (wcscmp(charUnit->szDesc, L"Kyoshiro") == 0))
                     {
                         // These two have different trees between S and B
                         nSrcAmt = 2;

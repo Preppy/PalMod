@@ -490,12 +490,12 @@ sDescTreeNode* CGame_SVCPLUSA_A::InitDescTree()
 
 struct sSVCPLUSA_A_PaletteData
 {
-    LPCTSTR pszCharacterName;
+    LPCWSTR pszCharacterName;
     UINT32 nCoreOffset = 0;
     UINT32 nEffectsOffset = 0;
     UINT32 nWinPortraitOffset = 0;
     UINT32 nIntroPortraitOffset = 0;
-    LPCTSTR pszImageSet = _T("");
+    LPCWSTR pszImageSet = _T("");
     //bool rgIsEffectUsed[11];
 };
 
@@ -548,7 +548,7 @@ sSVCPLUSA_A_PaletteData SVCPLUSA_A_CharacterPalettes[] =
     { _T("Shin Akuma"),     0x387538, 0x399d38, 0x3aaab8, 0x3a8ab8, _T("indexSVCSprites_ShinAkuma") },
 };
 
-const LPCTSTR SVC_CharacterEffectNames[] =
+const LPCWSTR SVC_CharacterEffectNames[] =
 {
     _T("Fire Effect 1"),
     _T("Fire Effect 2"),
@@ -569,7 +569,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
         UINT32 nCurrentOffset = 0;
 
@@ -585,7 +585,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
                     nCurrentOffset = SVCPLUSA_A_CharacterPalettes[nCharIndex].nCoreOffset + (iButtonIndex * 0x200);
                 }
 
-                TCHAR szCodeButtonLabel[MAX_DESCRIPTION_LENGTH];
+                WCHAR szCodeButtonLabel[MAX_DESCRIPTION_LENGTH];
                 StrRemoveNonASCII(szCodeButtonLabel, ARRAYSIZE(szCodeButtonLabel), DEF_BUTTONLABEL_2_PK[iButtonIndex]);
 
                 strOutput.Format(_T("const sGame_PaletteDataset SVCPLUSA_A_%s_%s_PALETTES[] = \r\n{\r\n"), szCodeDesc, szCodeButtonLabel);
@@ -675,7 +675,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
     // All the collections...
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(_T("const sDescTreeNode SVCPLUSA_A_%s_COLLECTION[] = \r\n{\r\n"), szCodeDesc);
@@ -685,7 +685,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
         {
             for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
             {
-                TCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
+                WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
                 StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_2_PK[nColorIndex]);
 
                 strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_%s_%s_PALETTES, ARRAYSIZE(SVCPLUSA_A_%s_%s_PALETTES) },\r\n"), DEF_BUTTONLABEL_2_PK[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
@@ -719,7 +719,7 @@ void CGame_SVCPLUSA_A::DumpPaletteHeaders()
 
     for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(SVCPLUSA_A_CharacterPalettes); nCharIndex++)
     {
-        TCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
         StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
         strOutput.Format(_T("    { _T(\"%s\"), DESC_NODETYPE_TREE, (void*)SVCPLUSA_A_%s_COLLECTION, ARRAYSIZE(SVCPLUSA_A_%s_COLLECTION) },\r\n"), SVCPLUSA_A_CharacterPalettes[nCharIndex].pszCharacterName, szCodeDesc, szCodeDesc);
@@ -768,7 +768,7 @@ UINT16 CGame_SVCPLUSA_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nColle
     }
 }
 
-LPCTSTR CGame_SVCPLUSA_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SVCPLUSA_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == SVCPLUSA_A_EXTRALOC)
     {
@@ -929,7 +929,7 @@ void CGame_SVCPLUSA_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
 void CGame_SVCPLUSA_A::UpdateGameName(CFile* LoadedFile)
 {
-    if (_tcsicmp(LoadedFile->GetFileName(), _T("svc-p2sp.bin")) == 0) // svcSplus: we encrypted, so we can only read it
+    if (_wcsicmp(LoadedFile->GetFileName(), _T("svc-p2sp.bin")) == 0) // svcSplus: we encrypted, so we can only read it
     {
         m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Super Plus (bootleg)");
         m_loadedROMRevision.rev = eSVCRevisionName::SVCSPlus;
@@ -938,7 +938,7 @@ void CGame_SVCPLUSA_A::UpdateGameName(CFile* LoadedFile)
         m_loadedROMRevision.allowWrites = false;
 
     }
-    else if (_tcsicmp(LoadedFile->GetFileName(), _T("svc-p2p.bin")) == 0) // svcplus: encrypted, so we can only read it
+    else if (_wcsicmp(LoadedFile->GetFileName(), _T("svc-p2p.bin")) == 0) // svcplus: encrypted, so we can only read it
     {
         m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 1)");
         m_loadedROMRevision.rev = eSVCRevisionName::SVCPlus;
@@ -946,7 +946,7 @@ void CGame_SVCPLUSA_A::UpdateGameName(CFile* LoadedFile)
         m_loadedROMRevision.nOffsetForReads = 0x100000;
         m_loadedROMRevision.allowWrites = false;
     }
-    else if (_tcsicmp(LoadedFile->GetFileName(), _T("svc-p2pl.bin")) == 0) // svcplusa: no encryption: we can read and write this
+    else if (_wcsicmp(LoadedFile->GetFileName(), _T("svc-p2pl.bin")) == 0) // svcplusa: no encryption: we can read and write this
     {
         m_loadedROMRevision.pszRevisionName = _T("SNK vs. CAPCOM SVC CHAOS Plus (bootleg set 2)");
         m_loadedROMRevision.rev = eSVCRevisionName::SVCPlusA;
@@ -954,7 +954,7 @@ void CGame_SVCPLUSA_A::UpdateGameName(CFile* LoadedFile)
         m_loadedROMRevision.nOffsetForReads = 0;
         m_loadedROMRevision.allowWrites = true;
     }
-    else // if (_tcsicmp(LoadedFile->GetFileName(), _T("269-p2.p2")) == 0) // svc: we cannot read nor write this
+    else // if (_wcsicmp(LoadedFile->GetFileName(), _T("269-p2.p2")) == 0) // svc: we cannot read nor write this
     {
         m_loadedROMRevision.pszRevisionName = _T("SVC (NEO*GEO)");
         m_loadedROMRevision.rev = eSVCRevisionName::SVC;
@@ -1055,7 +1055,7 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
             if (MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONSTOP | MB_YESNO) == IDYES)
             {
                 UINT32 nCurrentROMOffset = 0;
-                for (LPCTSTR romName : m_loadedROMRevision.fileList)
+                for (LPCWSTR romName : m_loadedROMRevision.fileList)
                 {
                     CString strPeerFileName;
                     CFile pPeerFile;
@@ -1200,7 +1200,7 @@ BOOL CGame_SVCPLUSA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node
 
             if (pCurrentNode)
             {
-                if ((_tcsicmp(pCurrentNode->szDesc, _T("Punch")) == 0) || (_tcsicmp(pCurrentNode->szDesc, _T("Kick")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, _T("Punch")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("Kick")) == 0))
                 {
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;

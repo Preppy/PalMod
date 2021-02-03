@@ -63,57 +63,57 @@ BOOL CImgOutDlg::OnInitDialog()
 
     nPalAmt = m_DumpBmp.nPalAmt;
 
-    m_CB_Amt.AddString(_T("1"));
+    m_CB_Amt.AddString(L"1");
 
-    tmp_str.Format(_T("CImgOutDlg::OnInitDialog: preparing to show up to %u sprites\n"), nPalAmt);
+    tmp_str.Format(L"CImgOutDlg::OnInitDialog: preparing to show up to %u sprites\n", nPalAmt);
     OutputDebugString(tmp_str);
 
     //Fix later... as we add more games
     switch (nPalAmt)
     {
     default:
-        OutputDebugString(_T("WARNING BUGBUG: This palette count is not supported in CImgOutDlg::OnInitDialog yet!\n"));
+        OutputDebugString(L"WARNING BUGBUG: This palette count is not supported in CImgOutDlg::OnInitDialog yet!\n");
     case 1:
         // By default, we export out only the one sprite
         m_CB_Amt.EnableWindow(FALSE);
         break;
     case 2: // MSH, XMvSF
-        m_CB_Amt.AddString(_T("2"));
+        m_CB_Amt.AddString(L"2");
         break;
     case 4: // Garou
-        m_CB_Amt.AddString(_T("4"));
+        m_CB_Amt.AddString(L"4");
         break;
     case 5: // Jojos & Garou
-        m_CB_Amt.AddString(_T("5"));
+        m_CB_Amt.AddString(L"5");
         break;
     case 6: // MvC, MvC2
     case 7: // 3S
         if (CurrGame->GetGameFlag() == SFA2_A) // SFA2's 5-6 colors are only with autoguard on
         {
-            m_CB_Amt.AddString(_T("4"));
+            m_CB_Amt.AddString(L"4");
         }
-        m_CB_Amt.AddString(_T("6"));
+        m_CB_Amt.AddString(L"6");
         // Allow the user to export either the "normal" 6 sprite set or to export
         // the entire 7 sprite set
-        nPalAmt == 7 ? m_CB_Amt.AddString(_T("7")) : NULL;
+        nPalAmt == 7 ? m_CB_Amt.AddString(L"7") : NULL;
         break;
     case 8: // status effects or cvs2
-        m_CB_Amt.AddString(_T("6"));
-        m_CB_Amt.AddString(_T("8"));
+        m_CB_Amt.AddString(L"6");
+        m_CB_Amt.AddString(L"8");
         break;
     case 9: // GBA!
-        m_CB_Amt.AddString(_T("4"));
-        m_CB_Amt.AddString(_T("8"));
-        m_CB_Amt.AddString(_T("9"));
+        m_CB_Amt.AddString(L"4");
+        m_CB_Amt.AddString(L"8");
+        m_CB_Amt.AddString(L"9");
         break;
     case 10: // ST
-        m_CB_Amt.AddString(_T("6"));
-        m_CB_Amt.AddString(_T("10"));
+        m_CB_Amt.AddString(L"6");
+        m_CB_Amt.AddString(L"10");
         break;
     case 12:
-        m_CB_Amt.AddString(_T("4"));
-        m_CB_Amt.AddString(_T("8"));
-        m_CB_Amt.AddString(_T("12"));
+        m_CB_Amt.AddString(L"4");
+        m_CB_Amt.AddString(L"8");
+        m_CB_Amt.AddString(L"12");
         break;
     }
 
@@ -124,7 +124,7 @@ BOOL CImgOutDlg::OnInitDialog()
     //Populate Zoom combo box: 1-4x
     for (int i = 1; i < 5; i++)
     {
-        tmp_str.Format(_T("%ux"), i);
+        tmp_str.Format(L"%ux", i);
         m_CB_Zoom.AddString(tmp_str);
     }
 
@@ -270,10 +270,10 @@ void CImgOutDlg::OnCbnSelchangeAmt()
 {
     UpdateData();
 
-    TCHAR szCount[32];
+    WCHAR szCount[32];
     if (m_CB_Amt.GetLBText(m_CB_Amt.GetCurSel(), szCount) != CB_ERR)
     {
-        _stscanf_s(szCount, _T("%u"), &img_amt);
+        _stscanf_s(szCount, L"%u", &img_amt);
 
         m_CB_Pal.EnableWindow(img_amt == 1);
 
@@ -301,7 +301,7 @@ void CImgOutDlg::FillPalCombo()
     }
     else
     {
-        m_CB_Pal.AddString(_T("Selected"));
+        m_CB_Pal.AddString(L"Selected");
     }
 
     m_CB_Pal.SetCurSel(0);
@@ -398,7 +398,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
     const UINT8 currentZoom = (UINT8)m_DumpBmp.zoom;
 
     // We want to ensure filename syntax, so strip the extension in order to rebuild it below
-    save_str.Replace(output_ext.GetString(), _T(""));
+    save_str.Replace(output_ext.GetString(), L"");
 
     bool fShouldExportAsIndexed = true;
 
@@ -567,7 +567,7 @@ void CImgOutDlg::ExportToIndexedPNG(CString save_str, CString output_str, CStrin
             }
             else
             {
-                output_str.Format(_T("%s%s%s"), save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
+                output_str.Format(L"%s%s%s", save_str.GetString(), pszCurrentNodeName, output_ext.GetString());
                 lodepng::save_file(buffer, output_str.GetString());
             }
         }
@@ -600,23 +600,23 @@ void CImgOutDlg::ExportToRAW(CString save_str, CString output_str, CString outpu
         const UINT8 currentZoom = (UINT8)m_DumpBmp.zoom;
 
         // We want to ensure filename syntax, so strip the extension in order to rebuild it below
-        save_str.Replace(output_ext.GetString(), _T(""));
+        save_str.Replace(output_ext.GetString(), L"");
 
         for (int nImageIndex = 0; nImageIndex < nImageCount; nImageIndex++)
         {
-            strDimensions.Format(_T("-w-%u-h-%u"), rgSrcImg[nImageIndex]->uImgW, rgSrcImg[nImageIndex]->uImgH);
+            strDimensions.Format(L"-w-%u-h-%u", rgSrcImg[nImageIndex]->uImgW, rgSrcImg[nImageIndex]->uImgH);
 
             // Ensure that the filename includes the W/H values so the RAW is usable
-            const bool fNeedDimensions = (_tcsstr(pszSuggestedFileName, strDimensions.GetString()) == nullptr);
+            const bool fNeedDimensions = (wcsstr(pszSuggestedFileName, strDimensions.GetString()) == nullptr);
 
             // RAW export
             if (nImageCount == 1)
             {
-                output_str.Format(_T("%s%s%s"), save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+                output_str.Format(L"%s%s%s", save_str.GetString(), fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
             }
             else
             {
-                output_str.Format(_T("%s-%02x%s%s"), save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : _T(""), output_ext.GetString());
+                output_str.Format(L"%s-%02x%s%s", save_str.GetString(), nImageIndex, fNeedDimensions ? strDimensions.GetString() : L"", output_ext.GetString());
             }
 
             CFile rawFile;
@@ -653,7 +653,7 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
         if (FAILED(hr))
         {
             CString strInfo;
-            strInfo.Format(_T("Image export to file '%s' failed.\n\nThe error code is 0x%x"), output_str.GetString(), hr);
+            strInfo.Format(L"Image export to file '%s' failed.\n\nThe error code is 0x%x", output_str.GetString(), hr);
             MessageBox(strInfo, GetHost()->GetAppName(), MB_ICONERROR);
         }
 
@@ -668,21 +668,21 @@ void CImgOutDlg::ExportToCImageType(CString output_str, GUID img_format, DWORD d
     }
     else
     {
-        MessageBox(_T("Image export failed: Failed to create the image file."), GetHost()->GetAppName(), MB_ICONERROR);
+        MessageBox(L"Image export failed: Failed to create the image file.", GetHost()->GetAppName(), MB_ICONERROR);
     }
 }
 
 void CImgOutDlg::OnFileSave()
 {
-    static LPCTSTR szSaveFilter[] =
+    static LPCWSTR szSaveFilter[] =
     {
-        _T("Indexed PNG|*.png|")
-        _T("PNG Image|*.png|")
-        _T("GIF Image|*.gif|")
-        _T("BMP Image|*.bmp|")
-        _T("JPEG Image|*.jpg|")
-        _T("RAW texture|*.raw|")
-        _T("|")
+        L"Indexed PNG|*.png|"
+        L"PNG Image|*.png|"
+        L"GIF Image|*.gif|"
+        L"BMP Image|*.bmp|"
+        L"JPEG Image|*.jpg|"
+        L"RAW texture|*.raw|"
+        L"|"
     };
 
     CFileDialog sfd(
@@ -695,7 +695,7 @@ void CImgOutDlg::OnFileSave()
 
     if (sfd.DoModal() == IDOK)
     {
-        CString output_ext = _T(".png");
+        CString output_ext = L".png";
         GUID img_format = ImageFormatPNG;
         DWORD dwExportFlags = 0;
 
@@ -705,38 +705,38 @@ void CImgOutDlg::OnFileSave()
             case 1:
             {
                 img_format = ImageFormatUndefined;
-                output_ext = _T(".png");
+                output_ext = L".png";
                 break;
             }
             case 2:
             {
                 img_format = ImageFormatPNG;
-                output_ext = _T(".png");
+                output_ext = L".png";
                 dwExportFlags = bTransPNG ? CImage::createAlphaChannel : 0;
                 break;
             }
             case 3:
             {
                 img_format = ImageFormatGIF;
-                output_ext = _T(".gif");
+                output_ext = L".gif";
                 break;
             }
             case 4:
             {
                 img_format = ImageFormatBMP;
-                output_ext = _T(".bmp");
+                output_ext = L".bmp";
                 break;
             }
             case 5:
             {
                 img_format = ImageFormatJPEG;
-                output_ext = _T(".jpg");
+                output_ext = L".jpg";
                 break;
             }
             case 6:
             {
                 img_format = ImageFormatUndefined;
-                output_ext = _T(".raw");
+                output_ext = L".raw";
                 break;
             }
         }
@@ -757,12 +757,12 @@ void CImgOutDlg::OnFileSave()
         else
         {
             // Force the correct file extension
-            output_str.Format(_T("%s%s"), sfd_ofn.lpstrFile, output_ext.GetString());
+            output_str.Format(L"%s%s", sfd_ofn.lpstrFile, output_ext.GetString());
         }
 
         if (img_format == ImageFormatUndefined) // this path is RAW and indexed PNG using custom encoders
         {
-            if (output_ext.CompareNoCase(_T(".png")) == 0)
+            if (output_ext.CompareNoCase(L".png") == 0)
             {
                 ExportToIndexedPNG(save_str, output_str, output_ext);
             }

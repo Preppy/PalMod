@@ -531,7 +531,7 @@ UINT16 CGame_MSHVSF_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollect
     }
 }
 
-LPCTSTR CGame_MSHVSF_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_MSHVSF_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (UsePaletteSetForCharacters())
     {
@@ -815,7 +815,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((_tcsstr(pCurrentNode->szDesc, _T("P1")) != nullptr) || (_tcsstr(pCurrentNode->szDesc, _T("P2")) != nullptr))
+                if ((wcsstr(pCurrentNode->szDesc, _T("P1")) != nullptr) || (wcsstr(pCurrentNode->szDesc, _T("P2")) != nullptr))
                 {
                     // We show 2 sprites (P1/P2) for export for all normal VS sprites
                     nSrcAmt = 2;

@@ -102,7 +102,7 @@ void CJunk::ClearHighlighted()
     //iHLAmt = 0;
 }
 
-void CJunk::SetJunkState(UCHAR* State, LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
+void CJunk::SetJunkState(UCHAR* State, LPCWSTR pszFunctionName, int nIndex, UCHAR nValue)
 {
     bool fSuccess = false;
     if (State)
@@ -117,17 +117,17 @@ void CJunk::SetJunkState(UCHAR* State, LPCTSTR pszFunctionName, int nIndex, UCHA
     }
 }
 
-void CJunk::SetHighlighted(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
+void CJunk::SetHighlighted(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue)
 {
     SetJunkState(Highlighted, pszFunctionName, nIndex, nValue);
 }
 
-void CJunk::SetSelViewItem(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
+void CJunk::SetSelViewItem(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue)
 {
     SetJunkState(SelView, pszFunctionName, nIndex, nValue);
 }
 
-void CJunk::SetSelected(LPCTSTR pszFunctionName, int nIndex, UCHAR nValue)
+void CJunk::SetSelected(LPCWSTR pszFunctionName, int nIndex, UCHAR nValue)
 {
     SetJunkState(Selected, pszFunctionName, nIndex, nValue);
 }
@@ -152,7 +152,7 @@ BOOL CJunk::InitNewSize(int nNewAmt, COLORREF* rgNewPal)
             // You can either slice the palette or add separators so that PalGroup can handle page divisions
             // You can easily have separators added for you automatically by using the new ::CreateDefPal logic
             // that is already in use for SFA3 and MSH and some of the other more recently added games
-            strError.Format(_T("ERROR: Our color table can only show %u colors per page, but this palette wants %u colors on one page.  This palette is too large and needs to be modified or split.\n\nThis is a bug in PalMod: please report it.\n"), nMaximumColorsPerPage, nNewAmt);
+            strError.Format(L"ERROR: Our color table can only show %u colors per page, but this palette wants %u colors on one page.  This palette is too large and needs to be modified or split.\n\nThis is a bug in PalMod: please report it.\n"), nMaximumColorsPerPage, nNewAmt;
             OutputDebugString(strError);
             if (!s_fAlreadyShown)
             {
@@ -367,7 +367,7 @@ BOOL CJunk::ProcBaseBMP()
 {
     if (hBmp && !DeleteObject(hBmp))
     {
-        OutputDebugString(_T("ERROR: Could not delete old hBmp\n"));
+        OutputDebugString(L"ERROR: Could not delete old hBmp\n");
     }
 
     Bmpi.bmiHeader.biWidth = iBaseW;
@@ -918,13 +918,13 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
             }
         }
 
-        PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_COPY, _T("&Copy"));
-        PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTE, _T("&Paste"));
-        PopupMenu.AppendMenu(MF_SEPARATOR, 0, _T(""));
-        PopupMenu.AppendMenu(canReverse ? MF_ENABLED : MF_DISABLED, CUSTOM_REVERSE, _T("&Reverse"));
-        PopupMenu.AppendMenu(MF_SEPARATOR, 0, _T(""));
-        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, _T("Select &All"));
-        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SNONE, _T("Select &None"));
+        PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_COPY, L"&Copy");
+        PopupMenu.AppendMenu(canCopyOrPaste ? MF_ENABLED : MF_DISABLED, CUSTOM_PASTE, L"&Paste");
+        PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
+        PopupMenu.AppendMenu(canReverse ? MF_ENABLED : MF_DISABLED, CUSTOM_REVERSE, L"&Reverse");
+        PopupMenu.AppendMenu(MF_SEPARATOR, 0, L"");
+        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SALL, L"Select &All");
+        PopupMenu.AppendMenu(MF_ENABLED, CUSTOM_SNONE, L"Select &None");
 
         int result = PopupMenu.TrackPopupMenuEx(TPM_LEFTALIGN | TPM_RETURNCMD, point.x, point.y, this, NULL);
 
@@ -949,7 +949,7 @@ void CJunk::OnRButtonDown(UINT nFlags, CPoint point)
     }
     else
     {
-        OutputDebugString(_T("ERROR: Couldn't create popup menu.\n"));
+        OutputDebugString(L"ERROR: Couldn't create popup menu.\n");
     }
 
     CWnd::OnRButtonDown(nFlags, point);

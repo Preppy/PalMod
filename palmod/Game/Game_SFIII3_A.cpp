@@ -88,7 +88,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForGill() ? 171 : 1061);
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForGill() ? 171 : (UsePaletteSetFor4rd() ? 1090 : 1083));
     m_nTotalPaletteCount = UsePaletteSetForGill() ? m_nTotalPaletteCountForSFIII3_10 : (UsePaletteSetFor51() ? m_nTotalPaletteCountForSFIII3_51 : m_nTotalPaletteCountForSFIII3_4);
     m_nLowestKnownPaletteRomLocation = UsePaletteSetForGill() ? 0x1C86A8 : 0x700000;
 
@@ -674,7 +674,7 @@ UINT16 CGame_SFIII3_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollect
     }
 }
 
-LPCTSTR CGame_SFIII3_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_SFIII3_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == GetCurrentExtraLoc())
     {
@@ -1069,15 +1069,26 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
-            if ((_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[0]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[1]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[2]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[3]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[4]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[5]) == 0) ||
-                (_tcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[6]) == 0))
+            if ((_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[0]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[1]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[2]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[3]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[4]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[5]) == 0) ||
+                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[6]) == 0))
             {
-                nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
+                sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+
+                if (wcscmp(charUnit->szDesc, k_sf3NameKey_Gill) == 0)
+                {
+                    // Gill doesn't have an EX palette in 4rd
+                    nSrcAmt = 6;
+                }
+                else
+                {
+                    nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
+                }
+
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
 
                 while (nSrcStart >= nNodeIncrement)
@@ -1101,8 +1112,8 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
             sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
             // These characters only have two nodes in this game
-            if ((_tcscmp(charUnit->szDesc, k_sf3NameKey_ShinGouki) == 0) ||
-                (_tcscmp(charUnit->szDesc, k_sf3NameKey_UltraSean) == 0))
+            if ((wcscmp(charUnit->szDesc, k_sf3NameKey_ShinGouki) == 0) ||
+                (wcscmp(charUnit->szDesc, k_sf3NameKey_UltraSean) == 0))
             {
                 nSrcAmt = 2;
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
@@ -1115,7 +1126,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (paletteDataSet->pPalettePairingInfo)
             {
-                if (_tcscmp(charUnit->szDesc, k_sf3NameKey_Alex) == 0)
+                if (wcscmp(charUnit->szDesc, k_sf3NameKey_Alex) == 0)
                 {
                     UINT16 nNodeCount = GetCollectionCountForUnit(NodeGet->uUnitId);
                     UINT16 nNextToLastPalette = GetPaletteCountForUnit(NodeGet->uUnitId) - 1;
@@ -1148,7 +1159,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         SetSourcePal(1, NodeGet->uUnitId, nNextToLastPalette, nSrcAmt, 0);
                     }
                 }
-                else if (_tcscmp(charUnit->szDesc, k_sf3NameKey_Oro) == 0)
+                else if (wcscmp(charUnit->szDesc, k_sf3NameKey_Oro) == 0)
                 {
                     fShouldUseAlternateLoadLogic = true;
 

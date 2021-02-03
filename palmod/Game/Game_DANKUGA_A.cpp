@@ -369,7 +369,7 @@ UINT16 CGame_DanKuGa_A_DIR::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCo
     }
 }
 
-LPCTSTR CGame_DanKuGa_A_DIR::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_DanKuGa_A_DIR::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == DANKUGA_A_EXTRALOC)
     {

@@ -456,10 +456,10 @@ sDescTreeNode* CGame_KOF99AE_A::InitDescTree(int nROMPaletteSetToUse)
 
 struct sKOF99AE_A_PaletteData
 {
-    LPCTSTR pszCharacterName;
+    LPCWSTR pszCharacterName;
     UINT32 nROMOffset = 0;
     UINT32 nIgnored = 0; // I don't want to reparse the data I got, so just ignoring this
-    LPCTSTR pszImageSet = nullptr;
+    LPCWSTR pszImageSet = nullptr;
     bool fIsMultipart = false;
 };
 
@@ -806,7 +806,7 @@ UINT16 CGame_KOF99AE_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollec
     }
 }
 
-LPCTSTR CGame_KOF99AE_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KOF99AE_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == GetCurrentExtraLoc())
     {

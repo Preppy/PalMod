@@ -358,7 +358,7 @@ UINT16 CGame_Windjammers_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCo
     }
 }
 
-LPCTSTR CGame_Windjammers_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_Windjammers_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
     if (nUnitId == Windjammers_A_EXTRALOC)
     {
