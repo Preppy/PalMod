@@ -91,6 +91,8 @@ enum SupportedGamesList
     AOF1_A,
     DOUBLEDRAGON_A,
     DUMMY_RGB444_LE,
+    SDODGEBALL_A,
+    NINJAMASTERS_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -177,14 +179,16 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Samurai Shodown IV (Arcade)",
    L"Ring of Destruction: Slam Master's II",
    L"The Last Blade 2 (Arcade)",
-   L"Samurai Shodown 5 (NEOGEO)",
-   L"Real Bout Fatal Fury (NEOGEO)",
-   L"Real Bout Fatal Fury 2 (NEOGEO)",
-   L"Kizuna Encounter (NEOGEO)",
+   L"Samurai Shodown 5 (Neo-Geo)",
+   L"Real Bout Fatal Fury (Neo-Geo)",
+   L"Real Bout Fatal Fury 2 (Neo-Geo)",
+   L"Kizuna Encounter (Neo-Geo)",
    L"Street Fighter Zero 3 Upper (NAOMI)",
-   L"Art of Fighting 1 (NEOGEO)",
-   L"Double Dragon (NEOGEO)",
+   L"Art of Fighting 1 (Neo-Geo)",
+   L"Double Dragon (Neo-Geo)",
    L"Fake game ID for RGB444 little endian",
+   L"Super Dodge Ball (Neo-Geo)",
+   L"Ninja Masters (Neo-Geo)",
 };
 
 enum class GamePlatform

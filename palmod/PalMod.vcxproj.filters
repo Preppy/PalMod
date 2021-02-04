@@ -259,6 +259,12 @@
     <Filter Include="Game\SNK Games\Double Dragon">
       <UniqueIdentifier>{b9dc1b67-7f5d-4f9d-9b8a-b6b01f7e3aa7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\Super Dodge Ball">
+      <UniqueIdentifier>{00b75d83-e2f3-4eb3-b2f5-2e8cbd8c9088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SNK Games\Ninja Masters">
+      <UniqueIdentifier>{8067a5a7-2ac2-4837-982c-af052c429125}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -566,6 +572,12 @@
     </ClCompile>
     <ClCompile Include="Game\Game_DoubleDragon_A.cpp">
       <Filter>Game\SNK Games\Double Dragon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_NinjaMasters_A.cpp">
+      <Filter>Game\SNK Games\Ninja Masters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SDodgeBall_A.cpp">
+      <Filter>Game\SNK Games\Super Dodge Ball</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1057,6 +1069,18 @@
     </ClInclude>
     <ClInclude Include="Game\Game_DoubleDragon_A.h">
       <Filter>Game\SNK Games\Double Dragon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_NinjaMasters_A.h">
+      <Filter>Game\SNK Games\Ninja Masters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NinjaMasters_A_DEF.h">
+      <Filter>Game\SNK Games\Ninja Masters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SDodgeBall_A.h">
+      <Filter>Game\SNK Games\Super Dodge Ball</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDodgeBall_A_DEF.h">
+      <Filter>Game\SNK Games\Super Dodge Ball</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

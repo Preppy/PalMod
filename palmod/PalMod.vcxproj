@@ -266,6 +266,7 @@
     <ClCompile Include="Game\Game_NEOGEO_A.cpp" />
     <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
     <ClCompile Include="Game\Game_NGBC_A.cpp" />
+    <ClCompile Include="Game\Game_NinjaMasters_A.cpp" />
     <ClCompile Include="Game\Game_RBFF1_A.cpp" />
     <ClCompile Include="Game\Game_RBFF2_A.cpp" />
     <ClCompile Include="Game\Game_RBFFS_A.cpp" />
@@ -276,6 +277,7 @@
     <ClCompile Include="Game\Game_SAMSHO4_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO5_A.cpp" />
+    <ClCompile Include="Game\Game_SDodgeBall_A.cpp" />
     <ClCompile Include="Game\Game_SF2CE_A.cpp" />
     <ClCompile Include="Game\Game_SF2HF_A.cpp" />
     <ClCompile Include="Game\Game_SFA1_A.cpp" />
@@ -386,6 +388,7 @@
     <ClInclude Include="Game\Game_NEOGEO_A.h" />
     <ClInclude Include="Game\Game_GEMFIGHTER_A.h" />
     <ClInclude Include="Game\Game_NGBC_A.h" />
+    <ClInclude Include="Game\Game_NinjaMasters_A.h" />
     <ClInclude Include="Game\Game_RBFF1_A.h" />
     <ClInclude Include="Game\Game_RBFF2_A.h" />
     <ClInclude Include="Game\Game_RBFFS_A.h" />
@@ -396,6 +399,7 @@
     <ClInclude Include="Game\Game_SAMSHO4_A.h" />
     <ClInclude Include="Game\Game_SAMSHO5SP_A.h" />
     <ClInclude Include="Game\Game_SAMSHO5_A.h" />
+    <ClInclude Include="Game\Game_SDodgeBall_A.h" />
     <ClInclude Include="Game\Game_SF2CE_A.h" />
     <ClInclude Include="Game\Game_SF2HF_A.h" />
     <ClInclude Include="Game\Game_SFA1_A.h" />
@@ -444,6 +448,7 @@
     <ClInclude Include="Game\NeoBomberman_A_DEF.h" />
     <ClInclude Include="Game\NEOGEO_A_DEF.h" />
     <ClInclude Include="Game\NGBC_A_DEF.h" />
+    <ClInclude Include="Game\NinjaMasters_A_DEF.h" />
     <ClInclude Include="Game\PalGroup.h" />
     <ClInclude Include="Game\GEMFIGHTER_A_DEF.h" />
     <ClInclude Include="Game\RBFF1_A_DEF.h" />
@@ -455,6 +460,7 @@
     <ClInclude Include="Game\SAMSHO4_A_DEF.h" />
     <ClInclude Include="Game\SAMSHO5SP_A_DEF.h" />
     <ClInclude Include="Game\SAMSHO5_A_DEF.h" />
+    <ClInclude Include="Game\SDodgeBall_A_DEF.h" />
     <ClInclude Include="Game\SF2CE_A_DEF.h" />
     <ClInclude Include="Game\SF2HF_A_DEF.h" />
     <ClInclude Include="Game\SFA1_A_DEF.h" />

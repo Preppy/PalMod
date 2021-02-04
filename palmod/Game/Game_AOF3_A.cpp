@@ -138,30 +138,6 @@ CDescTree* CGame_AOF3_A::GetMainTree()
     }
 }
 
-UINT32 CGame_AOF3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Art of Fighting 3 (Arcade P1)", L"096-p1.p1", 0, 0 },
-        { L"Art of Fighting 3 (Arcade P2)", L"096-p2.sp2", 0, 0 },
-        { L"Art of Fighting 3 (Arcade P1)", L"096-p1.bin", 0, 0 },
-        { L"Art of Fighting 3 (Arcade P2)", L"096-p2.bin", 0, 0 },
-    };
-
-    if (ppKnownROMSet != nullptr)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}
-
 stExtraDef* CGame_AOF3_A::GetCurrentExtraDef(int nDefCtr)
 {
     if (UsePaletteSetForP1())
@@ -470,6 +446,31 @@ sFileRule CGame_AOF3_A::GetRule(UINT16 nUnitId)
     }
 
     return NewFileRule;
+}
+
+UINT32 CGame_AOF3_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Art of Fighting 3 (NEOGEO P1)", L"096-p1.p1", 0x9edb420d, 0 },
+        { L"Art of Fighting 3 (NEOGEO P1 Korea)", L"096-p1k.p1", 0xa0780789, 0 },
+        { L"Art of Fighting 3 (NEOGEO P2)", L"096-p2.sp2", 0x4d5a2602, 0 },
+        { L"Art of Fighting 3 (NEOGEO P1)", L"096-p1.bin", 0x9edb420d, 0 },
+        { L"Art of Fighting 3 (NEOGEO P2)", L"096-p2.bin", 0x4d5a2602, 0 },
+    };
+
+    if (ppKnownROMSet != nullptr)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
 }
 
 UINT16 CGame_AOF3_A::GetCollectionCountForUnit(UINT16 nUnitId)

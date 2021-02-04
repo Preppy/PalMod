@@ -93,11 +93,25 @@ CDescTree* CGame_Kizuna_A::GetMainTree()
     return &CGame_Kizuna_A::MainDescTree;
 }
 
+sFileRule CGame_Kizuna_A::GetRule(UINT16 nUnitId)
+{
+    sFileRule NewFileRule;
+
+    // This value is only used for directory-based games
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"216-p1.p1");
+
+    NewFileRule.uUnitId = 0;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
+
+    return NewFileRule;
+}
+
 UINT32 CGame_Kizuna_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"Kizuna Encounter", L"216-p1.bin", 0, 0 },
+        { L"Kizuna Encounter (Neo-Geo)", L"216-p1.p1", 0x75d2b3de, 0 },
+        { L"Kizuna Encounter (Neo-Geo)", L"216-p1.bin", 0x75d2b3de, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
@@ -112,19 +126,6 @@ UINT32 CGame_Kizuna_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKno
     }
 
     return ARRAYSIZE(knownROMs);
-}
-
-sFileRule CGame_Kizuna_A::GetRule(UINT16 nUnitId)
-{
-    sFileRule NewFileRule;
-
-    // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"216-p1.bin");
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
 }
 
 int CGame_Kizuna_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)

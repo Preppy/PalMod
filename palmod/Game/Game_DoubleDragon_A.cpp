@@ -106,27 +106,6 @@ CDescTree* CGame_DOUBLEDRAGON_A::GetMainTree()
     return &CGame_DOUBLEDRAGON_A::MainDescTree;
 }
 
-UINT32 CGame_DOUBLEDRAGON_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Double Dragon (NEOGEO)", L"082-p1.bin", 0, 0 },
-    };
-
-    if (ppKnownROMSet != nullptr)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}
-
 stExtraDef* CGame_DOUBLEDRAGON_A::GetCurrentExtraDef(int nDefCtr)
 {
     return (stExtraDef*)&DOUBLEDRAGON_A_EXTRA_CUSTOM[nDefCtr];
@@ -381,10 +360,32 @@ sFileRule CGame_DOUBLEDRAGON_A::GetRule(UINT16 nUnitId)
     NewFileRule.uUnitId = 0;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"082-p1.bin");
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"082-p1.p1");
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
+}
+
+UINT32 CGame_DOUBLEDRAGON_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Double Dragon (Neo-Geo)", L"082-p1.p1", 0x34ab832a, 0 },
+        { L"Double Dragon (Neo-Geo)", L"082-p1.bin", 0x34ab832a, 0 },
+    };
+
+    if (ppKnownROMSet != nullptr)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
 }
 
 UINT16 CGame_DOUBLEDRAGON_A::GetCollectionCountForUnit(UINT16 nUnitId)

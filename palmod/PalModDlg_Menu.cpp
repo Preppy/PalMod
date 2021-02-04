@@ -110,7 +110,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL bSysMenu)
                 pszPlatformName = L"Sega NAOMI";
                 break;
             case GamePlatform::NEOGEO:
-                pszPlatformName = L"NEOGEO";
+                pszPlatformName = L"Neo-Geo";
                 break;
             case GamePlatform::Nintendo:
                 pszPlatformName = L"Nintendo";

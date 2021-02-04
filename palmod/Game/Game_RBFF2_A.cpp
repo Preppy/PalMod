@@ -97,7 +97,8 @@ UINT32 CGame_RBFF2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"Real Bout Fatal Fury 2", L"240-p1.bin", 0, 0 },
+        { L"Real Bout Fatal Fury 2 (Neo-Geo)", L"240-p1.p1", 0x80e41205, 0 },
+        { L"Real Bout Fatal Fury 2 (Neo-Geo)", L"240-p1.bin", 0x80e41205, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
@@ -119,7 +120,7 @@ sFileRule CGame_RBFF2_A::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"240-p1.bin");
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"240-p1.p1");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;

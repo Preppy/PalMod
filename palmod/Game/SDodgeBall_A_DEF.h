@@ -1,0 +1,552 @@
+#pragma once
+
+
+// CHARACTERS
+
+// Kunio
+const sGame_PaletteDataset SDODGEBALL_A_KUNIO_A[] =
+{
+    { L"Kunio A", 0x1461bc, 0x1461dc },
+    { L"Kunio A Power MAX", 0x1461dc, 0x1461fc },
+    { L"Kunio A Select", 0xed0c, 0xed2c },
+    { L"Kunio A Portrait", 0xe04c, 0xe06c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_KUNIO_B[] =
+{
+    { L"Kunio B", 0x1461fc, 0x14621c },
+    { L"Kunio B Power MAX", 0x14621c, 0x14623c },
+    { L"Kunio B Select", 0xed2c, 0xed4c },
+    { L"Kunio B Portrait", 0xe06c, 0xe08c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_KUNIO_C[] =
+{
+    { L"Kunio C", 0x14623c, 0x14625c },
+    { L"Kunio C Power MAX", 0x14625c, 0x14627c },
+    { L"Kunio C Select", 0xed4c, 0xed6c },
+    { L"Kunio C Portrait", 0xe08c, 0xe0ac },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_KUNIO_D[] =
+{
+    { L"Kunio D", 0x14627c, 0x14629c },
+    { L"Kunio D Power MAX", 0x14629c, 0x1462bc },
+    { L"Kunio D Select", 0xed6c, 0xed8c },
+    { L"Kunio D Portrait", 0xe0ac, 0xe0cc },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_KUNIO_Teammates[] =
+{
+    { L"Kamekichi", 0x146c7c, 0x146c9c },
+    { L"Kamekichi Power MAX", 0x146c9c, 0x146cbc },
+    { L"Kamekichi A-C Select", 0xf14c, 0xf16c },
+    { L"Kamekichi B-D Select", 0xf16c, 0xf18c },
+    { L"Kamekichi A-C Portrait", 0xe44c, 0xe46c },
+    { L"Kamekichi B-D Portrait", 0xe46c, 0xe48c },
+    { L"Musashi", 0x146e7c, 0x146e9c },
+    { L"Musashi Power MAX", 0x146e9c, 0x146ebc },
+    { L"Musashi A-C Select", 0xf1cc, 0xf1ec },
+    { L"Musashi B-D Select", 0xf1ec, 0xf20c },
+    { L"Musashi A-C Portrait", 0xe4cc, 0xe4ec },
+    { L"Musashi B-D Portrait", 0xe4ec, 0xe50c },
+};
+
+// Riki
+const sGame_PaletteDataset SDODGEBALL_A_RIKI_A[] =
+{
+    { L"Riki A", 0x1462bc, 0x1462dc },
+    { L"Riki A Power MAX", 0x1462dc, 0x1462fc },
+    { L"Riki A Select ", 0xed8c, 0xedac },
+    { L"Riki A Portrait", 0xe0cc, 0xe0ec },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_RIKI_B[] =
+{
+    { L"Riki B", 0x1462fc, 0x14631c },
+    { L"Riki B Power MAX", 0x14631c, 0x14633c },
+    { L"Riki B Select", 0xedac, 0xedcc },
+    { L"Riki B Portrait", 0xe0ec, 0xe10c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_RIKI_C[] =
+{
+    { L"Riki C", 0x14633c, 0x14635c },
+    { L"Riki C Power MAX", 0x14635c, 0x14637c },
+    { L"Riki C Select", 0xedcc, 0xedec },
+    { L"Riki C Portrait", 0xe10c, 0xe12c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_RIKI_D[] =
+{
+    { L"Riki D", 0x14637c, 0x14639c },
+    { L"Riki D Power MAX", 0x14639c, 0x1463bc },
+    { L"Riki D Select", 0xedec, 0xee0c },
+    { L"Riki D Portrait", 0xe12c, 0xe14c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_RIKI_Teammates[] =
+{
+    { L"Ushimaru", 0x146dbc, 0x146ddc },
+    { L"Ushimaru Power MAX", 0x146ddc, 0x146dfc },
+    { L"Ushimaru A-C Select", 0xf2cc, 0xf2ec },
+    { L"Ushimaru B-D Select", 0xf2ec, 0xf30c },
+    { L"Ushimaru A-C Portrait", 0xe5cc, 0xe5ec },
+    { L"Ushimaru B-D Portrait", 0xe5ec, 0xe60c },
+    { L"Kozue", 0x1470fc, 0x14711c },
+    { L"Kozue Power MAX", 0x14711c, 0x14713c },
+    { L"Kozue A-C Select", 0xf4cc, 0xf4ec },
+    { L"Kozue B-D Select", 0xf4ec, 0xf50c },
+    { L"Kozue A-C Portrait", 0xe7cc, 0xe7ec },
+    { L"Kozue B-D Portrait", 0xe7ec, 0xe80c },
+};
+
+// Shinji
+const sGame_PaletteDataset SDODGEBALL_A_SHINJI_A[] =
+{
+    { L"Shinji A", 0x1463bc, 0x1463dc },
+    { L"Shinji A Power MAX", 0x1463dc, 0x1463fc },
+    { L"Shinji A Select", 0xee0c, 0xee2c },
+    { L"Shinji A Portrait", 0xe1cc, 0xe1ec },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_SHINJI_B[] =
+{
+    { L"Shinji B", 0x1463fc, 0x14641c },
+    { L"Shinji B Power MAX", 0x14641c, 0x14643c },
+    { L"Shinji B Select", 0xee2c, 0xee4c },
+    { L"Shinji B Portrait", 0xe1ec, 0xe20c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_SHINJI_C[] =
+{
+    { L"Shinji C", 0x14643c, 0x14645c },
+    { L"Shinji C Power MAX", 0x14645c, 0x14647c },
+    { L"Shinji C Select", 0xee4c, 0xee6c },
+    { L"Shinji C Portrait", 0xe20c, 0xe22c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_SHINJI_D[] =
+{
+    { L"Shinji D", 0x14647c, 0x14649c },
+    { L"Shinji D Power MAX", 0x14649c, 0x1464bc },
+    { L"Shinji D Select", 0xee6c, 0xee8c },
+    { L"Shinji D Portrait", 0xe22c, 0xe24c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_SHINJI_Teammates[] =
+{
+    { L"Hiromitsu", 0x146ebc, 0x146edc },
+    { L"Hiromitsu Power MAX", 0x146edc, 0x146efc },
+    { L"Hiromitsu A-C Select", 0xf30c, 0xf32c },
+    { L"Hiromitsu B-D Select", 0xf32c, 0xf34c },
+    { L"Hiromitsu A-C Portrait", 0xe60c, 0xe62c },
+    { L"Hiromitsu B-D Portrait", 0xe62c, 0xe64c },
+    { L"Akira", 0x146ffc, 0x14701c },
+    { L"Akira Power MAX", 0x14701c, 0x14703c },
+    { L"Akira A-C Select", 0xf48c, 0xf4ac },
+    { L"Akira B-D Select", 0xf4ac, 0xf4cc },
+    { L"Akira A-C Portrait", 0xe78c, 0xe7ac },
+    { L"Akira B-D Portrait", 0xe7ac, 0xe7cc },
+};
+
+// Misuzu
+const sGame_PaletteDataset SDODGEBALL_A_MISUZU_A[] =
+{
+    { L"Misuzu A", 0x1464bc, 0x1464dc },
+    { L"Misuzu A Power MAX", 0x1464dc, 0x1464fc },
+    { L"Misuzu A Select", 0xee8c, 0xeeac },
+    { L"Misuzu A Portrait", 0xe2cc, 0xe2ec },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MISUZU_B[] =
+{
+    { L"Misuzu B", 0x1464fc, 0x14651c },
+    { L"Misuzu B Power MAX", 0x14651c, 0x14653c },
+    { L"Misuzu B Select", 0xeeac, 0xeecc },
+    { L"Misuzu B Portrait", 0xe2ec, 0xe30c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MISUZU_C[] =
+{
+    { L"Misuzu C", 0x14653c, 0x14655c },
+    { L"Misuzu C Power MAX", 0x14655c, 0x14657c },
+    { L"Misuzu C Select", 0xeecc, 0xeeec },
+    { L"Misuzu C Portrait", 0xe30c, 0xe32c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MISUZU_D[] =
+{
+    { L"Misuzu D", 0x14657c, 0x14659c },
+    { L"Misuzu D Power MAX", 0x14659c, 0x1465bc },
+    { L"Misuzu D Select", 0xeeec, 0xef0c },
+    { L"Misuzu D Portrait", 0xe32c, 0xe34c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MISUZU_Teammates[] =
+{
+    { L"Kiyoshi", 0x146d7c, 0x146d9c },
+    { L"Kiyoshi Power MAX", 0x146d9c, 0x146dbc },
+    { L"Kiyoshi A-C Select", 0xf18c, 0xf1ac },
+    { L"Kiyoshi B-D Select", 0xf1ac, 0xf1cc },
+    { L"Kiyoshi A-C Portrait", 0xe48c, 0xe4ac },
+    { L"Kiyoshi B-D Portrait", 0xe4ac, 0xe4cc },
+    { L"Gonzou", 0x146efc, 0x146f1c },
+    { L"Gonzou Power MAX", 0x146f1c, 0x146f3c },
+    { L"Gonzou A-C Select", 0xf44c, 0xf46c },
+    { L"Gonzou B-D Select", 0xf46c, 0xf48c },
+    { L"Gonzou A-C Portrait", 0xe74c, 0xe76c },
+    { L"Gonzou B-D Portrait", 0xe76c, 0xe78c },
+};
+
+// Kenji
+const sGame_PaletteDataset SDODGEBALL_A_KENJI_A[] =
+{
+    { L"Kenji A", 0x1465bc, 0x1465dc },
+    { L"Kenji A Power MAX", 0x1465dc, 0x1465fc },
+    { L"Kenji A Select", 0xef0c, 0xef2c },
+    { L"Kenji A Portrait", 0xe14c, 0xe16c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_KENJI_B[] =
+{
+    { L"Kenji B", 0x1465fc, 0x14661c },
+    { L"Kenji B Power MAX", 0x14661c, 0x14663c },
+    { L"Kenji B Select", 0xef2c, 0xef4c },
+    { L"Kenji B Portrait", 0xe16c, 0xe18c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_KENJI_C[] =
+{
+    { L"Kenji C", 0x14663c, 0x14665c },
+    { L"Kenji C Power MAX", 0x14665c, 0x14667c },
+    { L"Kenji C Select", 0xef4c, 0xef6c },
+    { L"Kenji C Portrait", 0xe18c, 0xe1ac },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_KENJI_D[] =
+{
+    { L"Kenji D", 0x14667c, 0x14669c },
+    { L"Kenji D Power MAX", 0x14669c, 0x1466bc },
+    { L"Kenji D Select", 0xef6c, 0xef8c },
+    { L"Kenji D Portrait", 0xe1ac, 0xe1cc },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_KENJI_Teammates[] =
+{
+    { L"Makoto", 0x146cfc, 0x146d1c },
+    { L"Makoto Power MAX", 0x146d1c, 0x146d3c },
+    { L"Makoto A-C Select", 0xf3cc, 0xf3ec },
+    { L"Makoto B-D Select", 0xf3ec, 0xf40c },
+    { L"Makoto A-C Portrait", 0xe6cc, 0xe6ec },
+    { L"Makoto B-D Portrait", 0xe6ec, 0xe70c },
+    { L"Jyoji", 0x146f7c, 0x146f9c },
+    { L"Jyoji Power MAX", 0x146f9c, 0x146fbc },
+    { L"Jyoji A-C Select", 0xf20c, 0xf22c },
+    { L"Jyoji B-D Select", 0xf22c, 0xf24c },
+    { L"Jioji A-C Portrait", 0xe50c, 0xe52c },
+    { L"Jioji B-D Portrait", 0xe52c, 0xe54c },
+};
+
+// Miyuki
+const sGame_PaletteDataset SDODGEBALL_A_MIYUKI_A[] =
+{
+    { L"Miyuki A", 0x1466bc, 0x1466dc },
+    { L"Miyuki A Power MAX", 0x1466dc, 0x1466fc },
+    { L"Miyuki A Select", 0xef8c, 0xefac },
+    { L"Miyuki A Portrait", 0xe24c, 0xe26c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MIYUKI_B[] =
+{
+    { L"Miyuki B", 0x1466fc, 0x14671c },
+    { L"Miyuki B Power MAX", 0x14671c, 0x14673c },
+    { L"Miyuki B Select", 0xefac, 0xefcc },
+    { L"Miyuki B Portrait", 0xe26c, 0xe28c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MIYUKI_C[] =
+{
+    { L"Miyuki C", 0x14673c, 0x14675c },
+    { L"Miyuki C Power MAX", 0x14675c, 0x14677c },
+    { L"Miyuki C Select", 0xefcc, 0xefec },
+    { L"Miyuki C Portrait", 0xe28c, 0xe2ac },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MIYUKI_D[] =
+{
+    { L"Miyuki D", 0x14677c, 0x14679c },
+    { L"Miyuki D Power MAX", 0x14679c, 0x1467bc },
+    { L"Miyuki D Select", 0xefec, 0xf00c },
+    { L"Miyuki D Portrait", 0xe2ac, 0xe2cc },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MIYUKI_Teammates[] =
+{
+    { L"Kaede A", 0x146cbc, 0x146cdc },
+    { L"Kaede Power MAX", 0x146cdc, 0x146cfc },
+    { L"Kaede A-C Portrait", 0xe58c, 0xe5ac },
+    { L"Kaede B-D Portrait", 0xe5ac, 0xe5cc },
+    { L"Kaede A-C Select", 0xf28c, 0xf2ac },
+    { L"Kaede B-D Select", 0xf2ac, 0xf2cc },
+    { L"Keiko", 0x14707c, 0x14709c },
+    { L"Keiko Power MAX", 0x14709c, 0x1470bc },
+    { L"Keiko A-C Select", 0xf24c, 0xf26c },
+    { L"Keiko B-D Select", 0xf26c, 0xf28c },
+    { L"Keiko A-C Portrait", 0xe54c, 0xe56c },
+    { L"Keiko B-D Portrait", 0xe56c, 0xe58c },
+};
+
+// Sabu
+const sGame_PaletteDataset SDODGEBALL_A_SABU_A[] =
+{
+    { L"Sabu A", 0x1467bc, 0x1467dc },
+    { L"Sabu A Power MAX", 0x1467dc, 0x1467fc },
+    { L"Sabu A Select", 0xf00c, 0xf02c },
+    { L"Sabu A Portrait", 0xe34c, 0xe36c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_SABU_B[] =
+{
+    { L"Sabu B", 0x1467fc, 0x14681c },
+    { L"Sabu B Power MAX", 0x14681c, 0x14683c },
+    { L"Sabu B Select", 0xf02c, 0xf04c },
+    { L"Sabu B Portrait", 0xe36c, 0xe38c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_SABU_C[] =
+{
+    { L"Sabu C", 0x14683c, 0x14685c },
+    { L"Sabu C Power MAX", 0x14685c, 0x14687c },
+    { L"Sabu C Select", 0xf04c, 0xf06c },
+    { L"Sabu C Portrait", 0xe38c, 0xe3ac },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_SABU_D[] =
+{
+    { L"Sabu D", 0x14687c, 0x14689c },
+    { L"Sabu D Power MAX", 0x14689c, 0x1468bc },
+    { L"Sabu D Select", 0xf06c, 0xf08c },
+    { L"Sabu D Portrait", 0xe3ac, 0xe3cc },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_SABU_Teammates[] =
+{
+    { L"Takuya", 0x146fbc, 0x146fdc },
+    { L"Takuya Power MAX", 0x146fdc, 0x146ffc },
+    { L"Takuya A-C Select", 0xf34c, 0xf36c },
+    { L"Takuya B-D Select", 0xf36c, 0xf38c },
+    { L"Takuya A-C Portrait", 0xe64c, 0xe66c },
+    { L"Takuya B-D Portrait", 0xe66c, 0xe68c },
+    { L"Akemi", 0x1470bc, 0x1470dc },
+    { L"Akemi Power MAX", 0x1470dc, 0x1470fc },
+    { L"Akemi A-C Select", 0xf38c, 0xf3ac },
+    { L"Akemi B-D Select", 0xf3ac, 0xf3cc },
+    { L"Akemi A-C Portrait", 0xe68c, 0xe6ac },
+    { L"Akemi B-D Portrait", 0xe6ac, 0xe6cc },
+};
+
+// D.B.Maou
+const sGame_PaletteDataset SDODGEBALL_A_MAOU_A[] =
+{
+    { L"D.B.Maou A", 0x1468bc, 0x1468dc },
+    { L"D.B.Maou A Power MAX", 0x1468dc, 0x1468fc },
+    { L"D.B.Maou A Transformation ", 0x14717c, 0x14719c },
+    { L"D.B.Maou A Transformation Power MAX", 0x14719c, 0x1471bc },
+    { L"D.B.Maou A Select", 0xf08c, 0xf0ac },
+    { L"D.B.Maou A Portrait", 0xe3cc, 0xe3ec },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MAOU_B[] =
+{
+    { L"D.B.Maou B", 0x1468fc, 0x14691c },
+    { L"D.B.Maou B Power MAX", 0x14691c, 0x14693c },
+    { L"D.B.Maou B Transformation", 0x1471bc, 0x1471dc },
+    { L"D.B.Maou B Transformation Power MAX", 0x1471dc, 0x1471fc },
+    { L"D.B.Maou B Select", 0xf0ac, 0xf0cc },
+    { L"D.B.Maou B Portrait", 0xe3ec, 0xe40c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MAOU_C[] =
+{
+    { L"D.B.Maou C", 0x14693c, 0x14695c },
+    { L"D.B.Maou C Power MAX", 0x14695c, 0x14697c },
+    { L"D.B.Maou C Transformation", 0x1471fc, 0x14721c },
+    { L"D.B.Maou C Transformation Power MAX", 0x14721c, 0x14723c },
+    { L"D.B.Maou C Select", 0xf0cc, 0xf0ec },
+    { L"D.B.Maou C Portrait", 0xe40c, 0xe42c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MAOU_D[] =
+{
+    { L"D.B.Maou D", 0x14697c, 0x14699c },
+    { L"D.B.Maou D Power MAX", 0x14699c, 0x1469bc },
+    { L"D.B.Maou D Transformation", 0x14723c, 0x14725c },
+    { L"D.B.Maou D Transformation Power MAX", 0x14725c, 0x14727c },
+    { L"D.B.Maou D Select", 0xf0ec, 0xf10c },
+    { L"D.B.Maou D Portrait", 0xe42c, 0xe44c },
+};
+
+const sGame_PaletteDataset SDODGEBALL_A_MAOU_Teammates[] =
+{
+    { L"Boo", 0x146dfc, 0x146e1c },
+    { L"Boo Power MAX", 0x146e1c, 0x146e3c },
+    { L"Boo A-C Select", 0xf40c, 0xf42c },
+    { L"Boo B-D Select", 0xf42c, 0xf44c },
+    { L"Boo A-C Portrait", 0xe70c, 0xe72c },
+    { L"Boo B-D Portrait", 0xe72c, 0xe74c },
+    { L"Daa", 0x146e3c, 0x146e5c },
+    { L"Daa Power MAX", 0x146e5c, 0x146e7c },
+    { L"Daa A-C Select", 0xf50c, 0xf52c },
+    { L"Daa B-D Select", 0xf52c, 0xf54c },
+    { L"Daa A-C Portrait", 0xe80c, 0xe82c },
+    { L"Daa B-D Portrait", 0xe82c, 0xe84c },
+};
+
+// -BONUS-
+const sGame_PaletteDataset SDODGEBALL_A_BONUS_IngameExtras[] =
+{
+    { L"Angela Referee", 0x14747c, 0x14749c },
+    { L"Hitsparks", 0x1474bc, 0x1474dc },
+    { L"Blockparks", 0x1474dc, 0x1474fc },
+    { L"Firesparks", 0x1474fc, 0x14751c },
+    { L"Purple Firesparks", 0x14751c, 0x14753c },
+    { L"Mash Button Icon", 0x1475bc, 0x1475dc },
+    { L"P1-P2 Icon", 0x14753c, 0x14755c },
+    { L"Dust", 0x1475dc, 0x1475fc },
+    { L"Stun Effect", 0x1475fc, 0x14761c },
+    { L"Sabu Special Shot", 0x146afc, 0x146b1c },
+    { L"D.B.Maou Special Shot", 0x146b1c, 0x146b3c },
+};
+
+// Shared Palettes[] =
+const sGame_PaletteDataset SDODGEBALL_A_BONUS_Shared[] =
+{
+    { L"Shared Burned 1", 0x146b9c, 0x146bbc },
+    { L"Shared Burned 2", 0x146bbc, 0x146bdc },
+    { L"Shared Burned 3", 0x146bdc, 0x146bfc },
+    { L"Shared Purple Burned 1", 0x146bfc, 0x146c1c },
+    { L"Shared Purple Burned 2", 0x146c1c, 0x146c3c },
+    { L"Shared Purple Burned 3", 0x146c3c, 0x146c5c },
+    { L"Shared Zapped", 0x146c5c, 0x146c7c },
+    { L"Shared Super Trail 1", 0x14755c, 0x14757c },
+    { L"Shared Super Trail 2", 0x14757c, 0x14759c },
+    { L"Shared Super Trail 3", 0x14759c, 0x1475bc },
+};
+
+// Volleyball[] =
+const sGame_PaletteDataset SDODGEBALL_A_BONUS_VolleyBall[] =
+{
+    { L"Volleyball", 0x1469bc, 0x1469dc },
+    { L"Explosive Volleyball 1", 0x146a1c, 0x146a3c },
+    { L"Explosive Volleyball 2", 0x146a3c, 0x146a5c },
+    { L"Burning Volleyball", 0x146a5c, 0x146a7c },
+    { L"Purple Burning Volleyball", 0x146a7c, 0x146a9c },
+    { L"Volleyball Trail 1", 0x146a9c, 0x146abc },
+    { L"Volleyball Trail 2", 0x146abc, 0x146adc },
+    { L"Volleyball Trail 3", 0x146adc, 0x146afc },
+};
+
+const sDescTreeNode SDODGEBALL_A_KUNIO_COLLECTION[] =
+{
+    { L"A", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KUNIO_A, ARRAYSIZE(SDODGEBALL_A_KUNIO_A) },
+    { L"B", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KUNIO_B, ARRAYSIZE(SDODGEBALL_A_KUNIO_B) },
+    { L"C", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KUNIO_C, ARRAYSIZE(SDODGEBALL_A_KUNIO_C) },
+    { L"D", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KUNIO_D, ARRAYSIZE(SDODGEBALL_A_KUNIO_D) },
+    { L"Teammates", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KUNIO_Teammates, ARRAYSIZE(SDODGEBALL_A_KUNIO_Teammates) },
+};
+
+const sDescTreeNode SDODGEBALL_A_RIKI_COLLECTION[] =
+{
+    { L"A", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_RIKI_A, ARRAYSIZE(SDODGEBALL_A_RIKI_A) },
+    { L"B", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_RIKI_B, ARRAYSIZE(SDODGEBALL_A_RIKI_B) },
+    { L"C", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_RIKI_C, ARRAYSIZE(SDODGEBALL_A_RIKI_C) },
+    { L"D", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_RIKI_D, ARRAYSIZE(SDODGEBALL_A_RIKI_D) },
+    { L"Teammates", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_RIKI_Teammates, ARRAYSIZE(SDODGEBALL_A_RIKI_Teammates) },
+};
+
+const sDescTreeNode SDODGEBALL_A_SHINJI_COLLECTION[] =
+{
+    { L"A", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SHINJI_A, ARRAYSIZE(SDODGEBALL_A_SHINJI_A) },
+    { L"B", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SHINJI_B, ARRAYSIZE(SDODGEBALL_A_SHINJI_B) },
+    { L"C", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SHINJI_C, ARRAYSIZE(SDODGEBALL_A_SHINJI_C) },
+    { L"D", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SHINJI_D, ARRAYSIZE(SDODGEBALL_A_SHINJI_D) },
+    { L"Teammates", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SHINJI_Teammates, ARRAYSIZE(SDODGEBALL_A_SHINJI_Teammates) },
+};
+
+const sDescTreeNode SDODGEBALL_A_MISUZU_COLLECTION[] =
+{
+    { L"A", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MISUZU_A, ARRAYSIZE(SDODGEBALL_A_MISUZU_A) },
+    { L"B", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MISUZU_B, ARRAYSIZE(SDODGEBALL_A_MISUZU_B) },
+    { L"C", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MISUZU_C, ARRAYSIZE(SDODGEBALL_A_MISUZU_C) },
+    { L"D", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MISUZU_D, ARRAYSIZE(SDODGEBALL_A_MISUZU_D) },
+    { L"Teammates", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MISUZU_Teammates, ARRAYSIZE(SDODGEBALL_A_MISUZU_Teammates) },
+};
+
+const sDescTreeNode SDODGEBALL_A_KENJI_COLLECTION[] =
+{
+    { L"A", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KENJI_A, ARRAYSIZE(SDODGEBALL_A_KENJI_A) },
+    { L"B", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KENJI_B, ARRAYSIZE(SDODGEBALL_A_KENJI_B) },
+    { L"C", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KENJI_C, ARRAYSIZE(SDODGEBALL_A_KENJI_C) },
+    { L"D", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KENJI_D, ARRAYSIZE(SDODGEBALL_A_KENJI_D) },
+    { L"Teammates", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KENJI_Teammates, ARRAYSIZE(SDODGEBALL_A_KENJI_Teammates) },
+};
+
+const sDescTreeNode SDODGEBALL_A_MIYUKI_COLLECTION[] =
+{
+    { L"A", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MIYUKI_A, ARRAYSIZE(SDODGEBALL_A_MIYUKI_A) },
+    { L"B", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MIYUKI_B, ARRAYSIZE(SDODGEBALL_A_MIYUKI_B) },
+    { L"C", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MIYUKI_C, ARRAYSIZE(SDODGEBALL_A_MIYUKI_C) },
+    { L"D", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MIYUKI_D, ARRAYSIZE(SDODGEBALL_A_MIYUKI_D) },
+    { L"Teammates", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MIYUKI_Teammates, ARRAYSIZE(SDODGEBALL_A_MIYUKI_Teammates) },
+};
+
+const sDescTreeNode SDODGEBALL_A_SABU_COLLECTION[] =
+{
+    { L"A", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SABU_A, ARRAYSIZE(SDODGEBALL_A_SABU_A) },
+    { L"B", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SABU_B, ARRAYSIZE(SDODGEBALL_A_SABU_B) },
+    { L"C", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SABU_C, ARRAYSIZE(SDODGEBALL_A_SABU_C) },
+    { L"D", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SABU_D, ARRAYSIZE(SDODGEBALL_A_SABU_D) },
+    { L"Teammates", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SABU_Teammates, ARRAYSIZE(SDODGEBALL_A_SABU_Teammates) },
+};
+
+const sDescTreeNode SDODGEBALL_A_MAOU_COLLECTION[] =
+{
+    { L"A", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MAOU_A, ARRAYSIZE(SDODGEBALL_A_MAOU_A) },
+    { L"B", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MAOU_B, ARRAYSIZE(SDODGEBALL_A_MAOU_B) },
+    { L"C", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MAOU_C, ARRAYSIZE(SDODGEBALL_A_MAOU_C) },
+    { L"D", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MAOU_D, ARRAYSIZE(SDODGEBALL_A_MAOU_D) },
+    { L"Teammates", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MAOU_Teammates, ARRAYSIZE(SDODGEBALL_A_MAOU_Teammates) },
+};
+
+const sDescTreeNode SDODGEBALL_A_BONUS_COLLECTION[] =
+{
+    { L"In-game Extras", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_BONUS_IngameExtras, ARRAYSIZE(SDODGEBALL_A_BONUS_IngameExtras) },
+    { L"Shared Effects", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_BONUS_Shared, ARRAYSIZE(SDODGEBALL_A_BONUS_Shared) },
+    { L"Volleyball", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_BONUS_VolleyBall, ARRAYSIZE(SDODGEBALL_A_BONUS_VolleyBall) },
+};
+
+const sDescTreeNode SDODGEBALL_A_UNITS[] =
+{
+    { L"Kunio", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KUNIO_COLLECTION, ARRAYSIZE(SDODGEBALL_A_KUNIO_COLLECTION) },
+    { L"Riki", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_RIKI_COLLECTION, ARRAYSIZE(SDODGEBALL_A_RIKI_COLLECTION) },
+    { L"Shinji", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SHINJI_COLLECTION, ARRAYSIZE(SDODGEBALL_A_SHINJI_COLLECTION) },
+    { L"Misuzu", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MISUZU_COLLECTION, ARRAYSIZE(SDODGEBALL_A_MISUZU_COLLECTION) },
+    { L"Kenji", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_KENJI_COLLECTION, ARRAYSIZE(SDODGEBALL_A_KENJI_COLLECTION) },
+    { L"Miyuki", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MIYUKI_COLLECTION, ARRAYSIZE(SDODGEBALL_A_MIYUKI_COLLECTION) },
+    { L"Sabu", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_SABU_COLLECTION, ARRAYSIZE(SDODGEBALL_A_SABU_COLLECTION) },
+    { L"Maou", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_MAOU_COLLECTION, ARRAYSIZE(SDODGEBALL_A_MAOU_COLLECTION) },
+    { L"Bonus", DESC_NODETYPE_TREE, (void*)SDODGEBALL_A_BONUS_COLLECTION, ARRAYSIZE(SDODGEBALL_A_BONUS_COLLECTION) },
+};
+
+constexpr auto SDODGEBALL_A_NUMUNIT = ARRAYSIZE(SDODGEBALL_A_UNITS);
+#define SDODGEBALL_A_EXTRALOC SDODGEBALL_A_NUMUNIT
+
+// We extend this array with data groveled from the extras file, if any.
+const stExtraDef SDODGEBALL_A_EXTRA[] =
+{
+    // Start
+    { UNIT_START_VALUE },
+
+    { INVALID_UNIT_VALUE }
+};

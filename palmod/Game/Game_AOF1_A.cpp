@@ -106,27 +106,6 @@ CDescTree* CGame_AOF1_A::GetMainTree()
     return &CGame_AOF1_A::MainDescTree;
 }
 
-UINT32 CGame_AOF1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        { L"Art of Fighting 1 (NEOGEO)", L"044-p1.bin", 0, 0 },
-    };
-
-    if (ppKnownROMSet != nullptr)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-}
-
 stExtraDef* CGame_AOF1_A::GetCurrentExtraDef(int nDefCtr)
 {
     return (stExtraDef*)&AOF1_A_EXTRA_CUSTOM[nDefCtr];
@@ -381,10 +360,32 @@ sFileRule CGame_AOF1_A::GetRule(UINT16 nUnitId)
     NewFileRule.uUnitId = 0;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"044-p1.bin");
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"044-p1.p1");
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
+}
+
+UINT32 CGame_AOF1_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
+{
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Art of Fighting 1 (Neo-Geo)", L"044-p1.p1", 0xca9f7a6d, 0 },
+        { L"Art of Fighting 1 (Neo-Geo)", L"044-p1.bin", 0xca9f7a6d, 0 },
+    };
+
+    if (ppKnownROMSet != nullptr)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
 }
 
 UINT16 CGame_AOF1_A::GetCollectionCountForUnit(UINT16 nUnitId)
