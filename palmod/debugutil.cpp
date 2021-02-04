@@ -103,7 +103,7 @@ void CDebugHelper::DebugPrint(LPCWSTR pszCanaryName, LPCSTR pszMessage)
     {
         if (HaveOutputFile())
         {
-            m_debugNotes.Write(pszMessage, strlen(pszMessage));
+            m_debugNotes.Write(pszMessage, (UINT)strlen(pszMessage));
         }
     }
 }

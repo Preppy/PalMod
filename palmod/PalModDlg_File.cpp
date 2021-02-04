@@ -171,6 +171,12 @@ void CPalModDlg::OnBnUpdate()
 
 void CPalModDlg::OnButtonClickCheckEdits()
 {
+    // Commit current changes to memory if needed
+    if (bPalChanged)
+    {
+        OnBnUpdate();
+    }
+
     GetHost()->GetCurrGame()->ValidateMixExtraColors(&fFileChanged);
 }
 
@@ -236,7 +242,7 @@ void CPalModDlg::OnNMReleasedCaptureAll(NMHDR* pNMHDR, LRESULT* pResult)
     *pResult = 0;
 }
 
-void CPalModDlg::ProcChange(BOOL bReset)
+void CPalModDlg::ProcChange(BOOL bReset /* = FALSE */)
 {
     if (bReset)
     {

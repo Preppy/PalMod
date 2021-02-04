@@ -49,9 +49,9 @@ const sGame_PaletteDataset SFIII3_A_ALEX_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x707D80, 0x707E00, index3S_CPS3_Alex, 0x00 },
     { L"Frozen/Super Flash", 0x707200, 0x707280, index3S_CPS3_Alex },
     { L"????", 0x765c00, 0x765c80, index3S_CPS3_Alex, 0 },
-    { L"????", 0x765c80, 0x765d00, index3S_CPS3_Alex, 0 },
-    { L"????", 0x765d00, 0x765d80, index3S_CPS3_Alex, 0 },
-    { L"????", 0x765d80, 0x765e00, index3S_CPS3_Alex, 0 },
+    { L"SA Animation 1/Parry", 0x765c80, 0x765d00, index3S_CPS3_Alex, 0 },
+    { L"SA Animation 2", 0x765d00, 0x765d80, index3S_CPS3_Alex, 0 },
+    { L"SA Animation 3", 0x765d80, 0x765e00, index3S_CPS3_Alex, 0 },
     { L"????", 0x765e00, 0x765e80, index3S_CPS3_Alex, 0 },
     { L"????", 0x765e80, 0x765f00, index3S_CPS3_Alex, 0 },
     { L"????", 0x765f00, 0x765f80, index3S_CPS3_Alex, 0 },
@@ -113,9 +113,9 @@ const sGame_PaletteDataset SFIII3_A_RYU_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x707E00, 0x707E80, index3S_CPS3_Ryu, 0x00 },
     { L"Frozen/Super Flash", 0x707280, 0x707300, index3S_CPS3_Ryu },
     { L"????", 0x766000, 0x766080, index3S_CPS3_Ryu, 0 },
-    { L"????", 0x766080, 0x766100, index3S_CPS3_Ryu, 0 },
-    { L"????", 0x766100, 0x766180, index3S_CPS3_Ryu, 0 },
-    { L"????", 0x766180, 0x766200, index3S_CPS3_Ryu, 0 },
+    { L"SA Animation 1/Parry", 0x766080, 0x766100, index3S_CPS3_Ryu, 0 },
+    { L"SA Animation 2", 0x766100, 0x766180, index3S_CPS3_Ryu, 0 },
+    { L"SA Animation 3", 0x766180, 0x766200, index3S_CPS3_Ryu, 0 },
     { L"????", 0x766200, 0x766280, index3S_CPS3_Ryu, 0 },
     { L"????", 0x766280, 0x766300, index3S_CPS3_Ryu, 0 },
     { L"????", 0x766300, 0x766380, index3S_CPS3_Ryu, 0 },
@@ -178,12 +178,12 @@ const sGame_PaletteDataset SFIII3_A_YUN_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x707E80, 0x707F00, index3S_CPS3_Yun, 0x00 },
     { L"Frozen/Super Flash", 0x707300, 0x707380, index3S_CPS3_Yun },
     { L"????", 0x766400, 0x766480, index3S_CPS3_Yun, 0 },
-    { L"????", 0x766480, 0x766500, index3S_CPS3_Yun, 0 },
-    { L"????", 0x766500, 0x766580, index3S_CPS3_Yun, 0 },
-    { L"????", 0x766580, 0x766600, index3S_CPS3_Yun, 0 },
-    { L"????", 0x766600, 0x766680, index3S_CPS3_Yun, 0 },
+    { L"SA Animation 1/Parry", 0x766480, 0x766500, index3S_CPS3_Yun, 0 },
+    { L"SA Animation 2", 0x766500, 0x766580, index3S_CPS3_Yun, 0 },
+    { L"SA Animation 3", 0x766580, 0x766600, index3S_CPS3_Yun, 0 },
+    { L"SA3 Trails", 0x766600, 0x766680, index3S_CPS3_Yun, 0 },
     { L"????", 0x766680, 0x766700, index3S_CPS3_Yun, 0 },
-    { L"????", 0x766700, 0x766780, index3S_CPS3_Yun, 0 },
+    { L"SA3 Trails", 0x766700, 0x766780, index3S_CPS3_Yun, 0 },
     { L"????", 0x766780, 0x766800, index3S_CPS3_Yun, 0 },
 };
 
@@ -236,9 +236,9 @@ const sGame_PaletteDataset SFIII3_A_DUDLEY_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x707F00, 0x707F80, index3S_CPS3_Dudley, 0x00 },
     { L"Frozen/Super Flash", 0x707380, 0x707400, index3S_CPS3_Dudley },
     { L"????", 0x766800, 0x766880, index3S_CPS3_Dudley, 0 },
-    { L"????", 0x766880, 0x766900, index3S_CPS3_Dudley, 0 },
-    { L"????", 0x766900, 0x766980, index3S_CPS3_Dudley, 0 },
-    { L"????", 0x766980, 0x766a00, index3S_CPS3_Dudley, 0 },
+    { L"SA Animation 1/Parry", 0x766880, 0x766900, index3S_CPS3_Dudley, 0 },
+    { L"SA Animation 2", 0x766900, 0x766980, index3S_CPS3_Dudley, 0 },
+    { L"SA Animation 3", 0x766980, 0x766a00, index3S_CPS3_Dudley, 0 },
     { L"????", 0x766a00, 0x766a80, index3S_CPS3_Dudley, 0 },
     { L"????", 0x766a80, 0x766b00, index3S_CPS3_Dudley, 0 },
     { L"????", 0x766b00, 0x766b80, index3S_CPS3_Dudley, 0 },
@@ -301,9 +301,9 @@ const sGame_PaletteDataset SFIII3_A_NECRO_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x707F80, 0x708000, index3S_CPS3_Necro, 0x00 },
     { L"Frozen/Super Flash", 0x707400, 0x707480, index3S_CPS3_Necro },
     { L"????", 0x766c00, 0x766c80, index3S_CPS3_Necro, 0 },
-    { L"????", 0x766c80, 0x766d00, index3S_CPS3_Necro, 0 },
-    { L"????", 0x766d00, 0x766d80, index3S_CPS3_Necro, 0 },
-    { L"????", 0x766d80, 0x766e00, index3S_CPS3_Necro, 0 },
+    { L"SA Animation 1/Parry", 0x766c80, 0x766d00, index3S_CPS3_Necro, 0 },
+    { L"SA Animation 2", 0x766d00, 0x766d80, index3S_CPS3_Necro, 0 },
+    { L"SA Animation 3", 0x766d80, 0x766e00, index3S_CPS3_Necro, 0 },
     { L"????", 0x766e00, 0x766e80, index3S_CPS3_Necro, 0 },
     { L"????", 0x766e80, 0x766f00, index3S_CPS3_Necro, 0 },
     { L"????", 0x766f00, 0x766f80, index3S_CPS3_Necro, 0 },
@@ -384,9 +384,9 @@ const sGame_PaletteDataset SFIII3_A_HUGO_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708000, 0x708080, index3S_CPS3_Hugo, 0x00 },
     { L"Frozen/Super Flash", 0x707480, 0x707500, index3S_CPS3_Hugo },
     { L"????", 0x767000, 0x767080, index3S_CPS3_Hugo, 0 },
-    { L"????", 0x767080, 0x767100, index3S_CPS3_Hugo, 0 },
-    { L"????", 0x767100, 0x767180, index3S_CPS3_Hugo, 0 },
-    { L"????", 0x767180, 0x767200, index3S_CPS3_Hugo, 0 },
+    { L"SA Animation 1/Parry", 0x767080, 0x767100, index3S_CPS3_Hugo, 0 },
+    { L"SA Animation 2", 0x767100, 0x767180, index3S_CPS3_Hugo, 0 },
+    { L"SA Animation 3", 0x767180, 0x767200, index3S_CPS3_Hugo, 0 },
     { L"????", 0x767200, 0x767280, index3S_CPS3_Hugo, 0 },
     { L"????", 0x767280, 0x767300, index3S_CPS3_Hugo, 0 },
     { L"????", 0x767300, 0x767380, index3S_CPS3_Hugo, 0 },
@@ -450,9 +450,9 @@ const sGame_PaletteDataset SFIII3_A_IBUKI_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708080, 0x708100, index3S_CPS3_Ibuki, 0x00 },
     { L"Frozen/Super Flash", 0x707500, 0x707580, index3S_CPS3_Ibuki },
     { L"????", 0x767400, 0x767480, index3S_CPS3_Ibuki, 0 },
-    { L"????", 0x767480, 0x767500, index3S_CPS3_Ibuki, 0 },
-    { L"????", 0x767500, 0x767580, index3S_CPS3_Ibuki, 0 },
-    { L"????", 0x767580, 0x767600, index3S_CPS3_Ibuki, 0 },
+    { L"SA Animation 1/Parry", 0x767480, 0x767500, index3S_CPS3_Ibuki, 0 },
+    { L"SA Animation 2", 0x767500, 0x767580, index3S_CPS3_Ibuki, 0 },
+    { L"SA Animation 3", 0x767580, 0x767600, index3S_CPS3_Ibuki, 0 },
     { L"????", 0x767600, 0x767680, index3S_CPS3_Ibuki, 0 },
     { L"????", 0x767680, 0x767700, index3S_CPS3_Ibuki, 0 },
     { L"????", 0x767700, 0x767780, index3S_CPS3_Ibuki, 0 },
@@ -533,9 +533,9 @@ const sGame_PaletteDataset SFIII3_A_ELENA_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708100, 0x708180, index3S_CPS3_Elena, 0x00 },
     { L"Frozen/Super Flash", 0x707580, 0x707600, index3S_CPS3_Elena },
     { L"????", 0x767800, 0x767880, index3S_CPS3_Elena, 0 },
-    { L"????", 0x767880, 0x767900, index3S_CPS3_Elena, 0 },
-    { L"????", 0x767900, 0x767980, index3S_CPS3_Elena, 0 },
-    { L"????", 0x767980, 0x767a00, index3S_CPS3_Elena, 0 },
+    { L"SA Animation 1/Parry", 0x767880, 0x767900, index3S_CPS3_Elena, 0 },
+    { L"SA Animation 2", 0x767900, 0x767980, index3S_CPS3_Elena, 0 },
+    { L"SA Animation 3", 0x767980, 0x767a00, index3S_CPS3_Elena, 0 },
     { L"????", 0x767a00, 0x767a80, index3S_CPS3_Elena, 0 },
     { L"????", 0x767a80, 0x767b00, index3S_CPS3_Elena, 0 },
     { L"????", 0x767b00, 0x767b80, index3S_CPS3_Elena, 0 },
@@ -591,9 +591,9 @@ const sGame_PaletteDataset SFIII3_A_ORO_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708180, 0x708200, index3S_CPS3_Oro, 0x00 },
     { L"Frozen/Super Flash", 0x707600, 0x707680, index3S_CPS3_Oro },
     { L"????", 0x767c00, 0x767c80, index3S_CPS3_Oro, 0 },
-    { L"????", 0x767c80, 0x767d00, index3S_CPS3_Oro, 0 },
-    { L"????", 0x767d00, 0x767d80, index3S_CPS3_Oro, 0 },
-    { L"????", 0x767d80, 0x767e00, index3S_CPS3_Oro, 0 },
+    { L"SA Animation 1/Parry", 0x767c80, 0x767d00, index3S_CPS3_Oro, 0 },
+    { L"SA Animation 2", 0x767d00, 0x767d80, index3S_CPS3_Oro, 0 },
+    { L"SA Animation 3", 0x767d80, 0x767e00, index3S_CPS3_Oro, 0 },
     { L"????", 0x767e00, 0x767e80, index3S_CPS3_Oro, 0 },
     { L"????", 0x767e80, 0x767f00, index3S_CPS3_Oro, 0 },
     { L"????", 0x767f00, 0x767f80, index3S_CPS3_Oro, 0 },
@@ -657,9 +657,9 @@ const sGame_PaletteDataset SFIII3_A_YANG_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708200, 0x708280, index3S_CPS3_Yang, 0x00 },
     { L"Frozen/Super Flash", 0x707680, 0x707700, index3S_CPS3_Yang },
     { L"????", 0x768000, 0x768080, index3S_CPS3_Yang, 0 },
-    { L"????", 0x768080, 0x768100, index3S_CPS3_Yang, 0 },
-    { L"????", 0x768100, 0x768180, index3S_CPS3_Yang, 0 },
-    { L"????", 0x768180, 0x768200, index3S_CPS3_Yang, 0 },
+    { L"SA Animation 1/Parry", 0x768080, 0x768100, index3S_CPS3_Yang, 0 },
+    { L"SA Animation 2", 0x768100, 0x768180, index3S_CPS3_Yang, 0 },
+    { L"SA Animation 3", 0x768180, 0x768200, index3S_CPS3_Yang, 0 },
     { L"????", 0x768200, 0x768280, index3S_CPS3_Yang, 0 },
     { L"????", 0x768280, 0x768300, index3S_CPS3_Yang, 0 },
     { L"????", 0x768300, 0x768380, index3S_CPS3_Yang, 0 },
@@ -715,9 +715,9 @@ const sGame_PaletteDataset SFIII3_A_KEN_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708280, 0x708300, index3S_CPS3_Ken, 0x00 },
     { L"Frozen/Super Flash", 0x707700, 0x707780, index3S_CPS3_Ken },
     { L"????", 0x768400, 0x768480, index3S_CPS3_Ken, 0 },
-    { L"????", 0x768480, 0x768500, index3S_CPS3_Ken, 0 },
-    { L"????", 0x768500, 0x768580, index3S_CPS3_Ken, 0 },
-    { L"????", 0x768580, 0x768600, index3S_CPS3_Ken, 0 },
+    { L"SA Animation 1/Parry", 0x768480, 0x768500, index3S_CPS3_Ken, 0 },
+    { L"SA Animation 2", 0x768500, 0x768580, index3S_CPS3_Ken, 0 },
+    { L"SA Animation 3", 0x768580, 0x768600, index3S_CPS3_Ken, 0 },
     { L"????", 0x768600, 0x768680, index3S_CPS3_Ken, 0 },
     { L"????", 0x768680, 0x768700, index3S_CPS3_Ken, 0 },
     { L"????", 0x768700, 0x768780, index3S_CPS3_Ken, 0 },
@@ -780,9 +780,9 @@ const sGame_PaletteDataset SFIII3_A_SEAN_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708300, 0x708380, index3S_CPS3_Sean, 0x00 },
     { L"Frozen/Super Flash", 0x707780, 0x707800, index3S_CPS3_Sean },
     { L"????", 0x768800, 0x768880, index3S_CPS3_Sean, 0 },
-    { L"????", 0x768880, 0x768900, index3S_CPS3_Sean, 0 },
-    { L"????", 0x768900, 0x768980, index3S_CPS3_Sean, 0 },
-    { L"????", 0x768980, 0x768a00, index3S_CPS3_Sean, 0 },
+    { L"SA Animation 1/Parry", 0x768880, 0x768900, index3S_CPS3_Sean, 0 },
+    { L"SA Animation 2", 0x768900, 0x768980, index3S_CPS3_Sean, 0 },
+    { L"SA Animation 3", 0x768980, 0x768a00, index3S_CPS3_Sean, 0 },
     { L"????", 0x768a00, 0x768a80, index3S_CPS3_Sean, 0 },
     { L"????", 0x768a80, 0x768b00, index3S_CPS3_Sean, 0 },
     { L"????", 0x768b00, 0x768b80, index3S_CPS3_Sean, 0 },
@@ -843,9 +843,9 @@ const sGame_PaletteDataset SFIII3_A_URIEN_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708380, 0x708400, index3S_CPS3_Urien, 0x00 },
     { L"Frozen/Super Flash", 0x707800, 0x707880, index3S_CPS3_Urien },
     { L"????", 0x768c00, 0x768c80, index3S_CPS3_Urien, 0 },
-    { L"????", 0x768c80, 0x768d00, index3S_CPS3_Urien, 0 },
-    { L"????", 0x768d00, 0x768d80, index3S_CPS3_Urien, 0 },
-    { L"????", 0x768d80, 0x768e00, index3S_CPS3_Urien, 0 },
+    { L"SA Animation 1/Parry", 0x768c80, 0x768d00, index3S_CPS3_Urien, 0 },
+    { L"SA Animation 2", 0x768d00, 0x768d80, index3S_CPS3_Urien, 0 },
+    { L"SA Animation 3", 0x768d80, 0x768e00, index3S_CPS3_Urien, 0 },
     { L"????", 0x768e00, 0x768e80, index3S_CPS3_Urien, 0 },
     { L"????", 0x768e80, 0x768f00, index3S_CPS3_Urien, 0 },
     { L"????", 0x768f00, 0x768f80, index3S_CPS3_Urien, 0 },
@@ -908,7 +908,7 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_EX_PALETTES[] =
     { L"EX Portrait", 0x764800, 0x764820, index3S_CPS3_Gouki, 0x01 },
 };
 
-const sGame_PaletteDataset SFIII3_A_GOUKI_Support_PALETTES[] =
+const sGame_PaletteDataset SFIII3_A_GOUKI_Support_51_PALETTES[] =
 {
     { L"EX Attack (1) (Unused)", 0x765480, 0x765500, index3S_CPS3_Gouki, 0 },
     { L"EX Attack (2) (Unused)", 0x76b480, 0x76b500, index3S_CPS3_Gouki, 0 },
@@ -922,6 +922,24 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_Support_PALETTES[] =
     { L"????", 0x769200, 0x769280, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769280, 0x769300, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769300, 0x769380, index3S_CPS3_Gouki, 0 },
+    { L"????", 0x769380, 0x769400, index3S_CPS3_Gouki, 0 },
+};
+
+// 4rd Strike has updates to Gouki's moveset
+const sGame_PaletteDataset SFIII3_A_GOUKI_Support_4rd_PALETTES[] =
+{
+    { L"EX Attack (1) (Unused)", 0x765480, 0x765500, index3S_CPS3_Gouki, 0 },
+    { L"EX Attack (2) (Unused)", 0x76b480, 0x76b500, index3S_CPS3_Gouki, 0 },
+    { L"Burned/Red Parry", 0x708480, 0x708500, index3S_CPS3_Gouki },
+    //{ L"Burned/Red Parry", 0x708480, 0x708500, index3S_CPS3_Gouki, 0x00 },
+    { L"Frozen/Super Flash", 0x707900, 0x707980, index3S_CPS3_Gouki },
+    { L"????", 0x769000, 0x769080, index3S_CPS3_Gouki, 0 },
+    { L"SA Animation 1/Parry", 0x769080, 0x769100, index3S_CPS3_Gouki, 0 },
+    { L"SA Animation 2", 0x769100, 0x769180, index3S_CPS3_Gouki, 0 },
+    { L"SA Animation 3", 0x769180, 0x769200, index3S_CPS3_Gouki, 0 },
+    { L"SA3 Trails", 0x769200, 0x769280, index3S_CPS3_Gouki, 0 },
+    { L"????", 0x769280, 0x769300, index3S_CPS3_Gouki, 0 },
+    { L"SA3 Trails", 0x769300, 0x769380, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769380, 0x769400, index3S_CPS3_Gouki, 0 },
 };
 
@@ -954,9 +972,9 @@ const sGame_PaletteDataset SFIII3_A_SHINGOUKI_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708500, 0x708580, index3S_CPS3_Gouki, 0x00 },
     { L"Frozen/Super Flash", 0x707980, 0x707a00, index3S_CPS3_Gouki },
     { L"????", 0x769400, 0x769480, index3S_CPS3_Gouki, 0 },
-    { L"????", 0x769480, 0x769500, index3S_CPS3_Gouki, 0 },
-    { L"????", 0x769500, 0x769580, index3S_CPS3_Gouki, 0 },
-    { L"????", 0x769580, 0x769600, index3S_CPS3_Gouki, 0 },
+    { L"SA Animation 1/Parry", 0x769480, 0x769500, index3S_CPS3_Gouki, 0 },
+    { L"SA Animation 2", 0x769500, 0x769580, index3S_CPS3_Gouki, 0 },
+    { L"SA Animation 3", 0x769580, 0x769600, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769600, 0x769680, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769680, 0x769700, index3S_CPS3_Gouki, 0 },
     { L"????", 0x769700, 0x769780, index3S_CPS3_Gouki, 0 },
@@ -987,9 +1005,9 @@ const sGame_PaletteDataset SFIII3_A_USEAN_Support_PALETTES[] =
     { L"EX Attack (1) (Unused)", 0x765500, 0x765580, index3S_CPS3_Sean, 0 },
     { L"EX Attack (2) (Unused)", 0x76b500, 0x76b580, index3S_CPS3_Sean, 0 },
     { L"????", 0x769400, 0x769480, index3S_CPS3_Sean, 0 },
-    { L"????", 0x769480, 0x769500, index3S_CPS3_Sean, 0 },
-    { L"????", 0x769500, 0x769580, index3S_CPS3_Sean, 0 },
-    { L"????", 0x769580, 0x769600, index3S_CPS3_Sean, 0 },
+    { L"SA Animation 1/Parry", 0x769480, 0x769500, index3S_CPS3_Sean, 0 },
+    { L"SA Animation 2", 0x769500, 0x769580, index3S_CPS3_Sean, 0 },
+    { L"SA Animation 3", 0x769580, 0x769600, index3S_CPS3_Sean, 0 },
     { L"????", 0x769600, 0x769680, index3S_CPS3_Sean, 0 },
     { L"????", 0x769680, 0x769700, index3S_CPS3_Sean, 0 },
     { L"????", 0x769700, 0x769780, index3S_CPS3_Sean, 0 },
@@ -1051,9 +1069,9 @@ const sGame_PaletteDataset SFIII3_A_CHUNLI_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708580, 0x708600, index3S_CPS3_ChunLi, 0x00 },
     { L"Frozen/Super Flash", 0x707a00, 0x707a80, index3S_CPS3_ChunLi },
     { L"????", 0x769800, 0x769880, index3S_CPS3_ChunLi, 0 },
-    { L"????", 0x769880, 0x769900, index3S_CPS3_ChunLi, 0 },
-    { L"????", 0x769900, 0x769980, index3S_CPS3_ChunLi, 0 },
-    { L"????", 0x769980, 0x769a00, index3S_CPS3_ChunLi, 0 },
+    { L"SA Animation 1/Parry", 0x769880, 0x769900, index3S_CPS3_ChunLi, 0 },
+    { L"SA Animation 2", 0x769900, 0x769980, index3S_CPS3_ChunLi, 0 },
+    { L"SA Animation 3", 0x769980, 0x769a00, index3S_CPS3_ChunLi, 0 },
     { L"????", 0x769a00, 0x769a80, index3S_CPS3_ChunLi, 0 },
     { L"????", 0x769a80, 0x769b00, index3S_CPS3_ChunLi, 0 },
     { L"????", 0x769b00, 0x769b80, index3S_CPS3_ChunLi, 0 },
@@ -1114,9 +1132,9 @@ const sGame_PaletteDataset SFIII3_A_MAKOTO_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708600, 0x708680, index3S_CPS3_Makoto, 0x00 },
     { L"Frozen/Super Flash", 0x707a80, 0x707b00, index3S_CPS3_Makoto },
     { L"????", 0x769c00, 0x769c80, index3S_CPS3_Makoto, 0 },
-    { L"????", 0x769c80, 0x769d00, index3S_CPS3_Makoto, 0 },
-    { L"????", 0x769d00, 0x769d80, index3S_CPS3_Makoto, 0 },
-    { L"????", 0x769d80, 0x769e00, index3S_CPS3_Makoto, 0 },
+    { L"SA Animation 1/Parry", 0x769c80, 0x769d00, index3S_CPS3_Makoto, 0 },
+    { L"SA Animation 2", 0x769d00, 0x769d80, index3S_CPS3_Makoto, 0 },
+    { L"SA Animation 3", 0x769d80, 0x769e00, index3S_CPS3_Makoto, 0 },
     { L"????", 0x769e00, 0x769e80, index3S_CPS3_Makoto, 0 },
     { L"????", 0x769e80, 0x769f00, index3S_CPS3_Makoto, 0 },
     { L"????", 0x769f00, 0x769f80, index3S_CPS3_Makoto, 0 },
@@ -1173,9 +1191,9 @@ const sGame_PaletteDataset SFIII3_A_Q_Support_PALETTES[] =
     //{ L"Burned/Red Parry", 0x708680, 0x708700, index3S_CPS3_Q, 0x00 },
     { L"Frozen/Super Flash", 0x707b00, 0x707b80, index3S_CPS3_Q },
     { L"????", 0x76a000, 0x76a080, index3S_CPS3_Q, 0 },
-    { L"????", 0x76a080, 0x76a100, index3S_CPS3_Q, 0 },
-    { L"????", 0x76a100, 0x76a180, index3S_CPS3_Q, 0 },
-    { L"????", 0x76a180, 0x76a200, index3S_CPS3_Q, 0 },
+    { L"SA Animation 1/Parry", 0x76a080, 0x76a100, index3S_CPS3_Q, 0 },
+    { L"SA Animation 2", 0x76a100, 0x76a180, index3S_CPS3_Q, 0 },
+    { L"SA Animation 3", 0x76a180, 0x76a200, index3S_CPS3_Q, 0 },
     { L"????", 0x76a200, 0x76a280, index3S_CPS3_Q, 0 },
     { L"????", 0x76a280, 0x76a300, index3S_CPS3_Q, 0 },
     { L"????", 0x76a300, 0x76a380, index3S_CPS3_Q, 0 },
@@ -1244,9 +1262,9 @@ const sGame_PaletteDataset SFIII3_A_TWELVE_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708700, 0x708780, index3S_CPS3_Twelve, 0x00 },
     { L"Frozen/Super Flash", 0x707b80, 0x707c00, index3S_CPS3_Twelve },
     { L"????", 0x76a400, 0x76a480, index3S_CPS3_Twelve, 0 },
-    { L"????", 0x76a480, 0x76a500, index3S_CPS3_Twelve, 0 },
-    { L"????", 0x76a500, 0x76a580, index3S_CPS3_Twelve, 0 },
-    { L"????", 0x76a580, 0x76a600, index3S_CPS3_Twelve, 0 },
+    { L"SA Animation 1/Parry", 0x76a480, 0x76a500, index3S_CPS3_Twelve, 0 },
+    { L"SA Animation 2", 0x76a500, 0x76a580, index3S_CPS3_Twelve, 0 },
+    { L"SA Animation 3", 0x76a580, 0x76a600, index3S_CPS3_Twelve, 0 },
     { L"????", 0x76a600, 0x76a680, index3S_CPS3_Twelve, 0 },
     { L"????", 0x76a680, 0x76a700, index3S_CPS3_Twelve, 0 },
     { L"????", 0x76a700, 0x76a780, index3S_CPS3_Twelve, 0 },
@@ -1302,9 +1320,9 @@ const sGame_PaletteDataset SFIII3_A_REMY_Support_PALETTES[] =
     { L"Burned/Red Parry", 0x708780, 0x708800, index3S_CPS3_Remy, 0x00 },
     { L"Frozen/Super Flash", 0x707c00, 0x707c80, index3S_CPS3_Remy },
     { L"????", 0x76a800, 0x76a880, index3S_CPS3_Remy, 0 },
-    { L"????", 0x76a880, 0x76a900, index3S_CPS3_Remy, 0 },
-    { L"????", 0x76a900, 0x76a980, index3S_CPS3_Remy, 0 },
-    { L"????", 0x76a980, 0x76aa00, index3S_CPS3_Remy, 0 },
+    { L"SA Animation 1/Parry", 0x76a880, 0x76a900, index3S_CPS3_Remy, 0 },
+    { L"SA Animation 2", 0x76a900, 0x76a980, index3S_CPS3_Remy, 0 },
+    { L"SA Animation 3", 0x76a980, 0x76aa00, index3S_CPS3_Remy, 0 },
     { L"????", 0x76aa00, 0x76aa80, index3S_CPS3_Remy, 0 },
     { L"????", 0x76aa80, 0x76ab00, index3S_CPS3_Remy, 0 },
     { L"????", 0x76ab00, 0x76ab80, index3S_CPS3_Remy, 0 },
@@ -1321,45 +1339,52 @@ const sGame_PaletteDataset SFIII3_A_HUGO_PORTRAIT_PALETTES[] =
     { L"Hugo portrait (Normal)", 0x70D380, 0x70D500, index3S_CPS3_Hugo, 0x20 },
     { L"Hugo portrait (Tinted)", 0x0712180, 0x0712300, index3S_CPS3_Hugo, 0x20 },
     { L"Hugo Character Select Icon", 0x070B900, 0x070B980, index3S_CPS3_Hugo, 0x22 },
+    { L"Hugo Character Select Icon (Faded)", 0x710700, 0x710780, index3S_CPS3_Hugo, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_LP_PALETTES[] =
 {
     { L"Facing Left LP", 0x700000, 0x700080, index3S_CPS3_Gill, 0x01 },
     { L"Facing Right LP", 0x700080, 0x700100, index3S_CPS3_Gill, 0x00 },
+    { L"LP Portrait", 0x763b00, 0x763b20 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_MP_PALETTES[] =
 {
     { L"Facing Left MP", 0x700100, 0x700180, index3S_CPS3_Gill, 0x01 },
     { L"Facing Right MP", 0x700180, 0x700200, index3S_CPS3_Gill, 0x00 },
+    { L"MP Portrait", 0x763b20, 0x763b40 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_HP_PALETTES[] =
 {
     { L"Facing Left HP", 0x700200, 0x700280, index3S_CPS3_Gill, 0x01 },
     { L"Facing Right HP", 0x700280, 0x700300, index3S_CPS3_Gill, 0x00 },
+    { L"HP Portrait", 0x763b40, 0x763b60 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_LK_PALETTES[] =
 {
     { L"Facing Left LK", 0x700300, 0x700380, index3S_CPS3_Gill, 0x01 },
     { L"Facing Right LK", 0x700380, 0x700400, index3S_CPS3_Gill, 0x00 },
+    { L"LK Portrait", 0x763b60, 0x763b80 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_MK_PALETTES[] =
 {
     { L"Facing Left MK", 0x700400, 0x700480, index3S_CPS3_Gill, 0x01 },
     { L"Facing Right MK", 0x700480, 0x700500, index3S_CPS3_Gill, 0x00 },
+    { L"MK Portrait", 0x763b80, 0x763ba0 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_HK_PALETTES[] =
 {
     { L"Facing Left HK", 0x700500, 0x700580, index3S_CPS3_Gill, 0x01 },
     { L"Facing Right HK", 0x700580, 0x700600, index3S_CPS3_Gill, 0x00 }, 
+    { L"HK Portrait", 0x763ba0, 0x763bc0 },
 };
 
-const sGame_PaletteDataset SFIII3_A_GILL_SUPPORT4_PALETTES[] =
+const sGame_PaletteDataset SFIII3_A_GILL_EXTRAS_PALETTES[] =
 {
     { L"Intro Robe", 0x078F600, 0x078F680, index3S_CPS3_Gill, 0x04 },
     { L"Ice / Fire", 0x0704A00, 0x0704A80, index3S_CPS3_Gill, 0x02 },
@@ -1378,24 +1403,31 @@ const sGame_PaletteDataset SFIII3_A_GILL_NORMAL_PALETTES[] =
 {
     { L"Intro facing right", 0x0700080, 0x0700100, index3S_CPS3_Gill, 0x00 },
     { L"Intro facing left", 0x0700000, 0x0700080, index3S_CPS3_Gill, 0x05, &pairNext },
-    { L"Intro Robe", 0x078F600, 0x078F680, index3S_CPS3_Gill, 0x04 },
-    { L"Ice / Fire", 0x0704A00, 0x0704A80, index3S_CPS3_Gill, 0x02 },
-    { L"Ice / Fire Impacts", 0x0704980, 0x0704a00, index3S_CPS3_Gill, 0x03 },
+    { L"Portrait", 0x763b00, 0x763b20 },
+};
 
-    { L"Seraphic Wings Start", 0x078AE00, 0x078Ae80, index3S_CPS3_Gill, 0x06 },
-    { L"Seraphic Wings End", 0x078AE80, 0x078AF00, index3S_CPS3_Gill, 0x07 },
-
-    { L"Left Frozen/Super Flash", 0x707100, 0x707180, index3S_CPS3_Gill, 0x01 },
-    { L"Right Frozen/Super Flash", 0x707180, 0x707200, index3S_CPS3_Gill },
-
-    { L"Gill Cultists", 0x78F700, 0x78F780 },
+const sGame_PaletteDataset SFIII3_A_GILL_Support_PALETTES[] =
+{
+    { L"Gill Left Burned/Red Parry", 0x707c80, 0x707d00, index3S_CPS3_Gill, 0x01 },
+    { L"Gill Right Burned/Red Parry", 0x707d00, 0x707d80, index3S_CPS3_Gill, 0x00 },
+    { L"Gill EX Attack (1)", 0x764d80, 0x764e00, index3S_CPS3_Gill, 0x00 },
+    { L"Gill EX Attack (2)", 0x76ad80, 0x76ae00, index3S_CPS3_Gill, 0x00 },
+    { L"Gill ??? 1", 0x765800, 0x765880, index3S_CPS3_Gill, 0x00 },
+    { L"Gill SA Animation 1/Parry", 0x765880, 0x765900, index3S_CPS3_Gill, 0x00 },
+    { L"Gill SA Animation 2", 0x765900, 0x765980, index3S_CPS3_Gill, 0x00 },
+    { L"Gill SA Animation 3", 0x765980, 0x765a00, index3S_CPS3_Gill, 0x00 },
+    { L"Gill ??? 5", 0x765a00, 0x765a80, index3S_CPS3_Gill, 0x00 },
+    { L"Gill ??? 6", 0x765a80, 0x765b00, index3S_CPS3_Gill, 0x00 },
+    { L"Gill ??? 7", 0x765b00, 0x765b80, index3S_CPS3_Gill, 0x00 },
+    { L"Gill ??? 8", 0x765b80, 0x765c00, index3S_CPS3_Gill, 0x00 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_PORTRAIT_PALETTES[] =
 {
     { L"Gill portrait (Normal)", 0x070C680, 0x070C780 },
     { L"Gill portrait (Tinted)", 0x0711480, 0x0711580 },
-    { L"Story Mode Icon", 0x070BF80, 0x070C000, index3S_CPS3_Gill, 0x22 },
+    { L"Gill Story Mode Icon", 0x070BF80, 0x070C000, index3S_CPS3_Gill, 0x22 },
+    { L"Gill Story Mode Icon (Faded)", 0x710d80, 0x710e00, index3S_CPS3_Gill, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ALEX_PORTRAIT_PALETTES[] =
@@ -1403,6 +1435,7 @@ const sGame_PaletteDataset SFIII3_A_ALEX_PORTRAIT_PALETTES[] =
     { L"Alex portrait (Normal)", 0x070CD80, 0x070CF00, index3S_CPS3_Alex, 0x20 },
     { L"Alex portrait (Tinted)", 0x0711B80, 0x0711D00, index3S_CPS3_Alex, 0x20 },
     { L"Alex Character Select Icon", 0x070C180, 0x070C200, index3S_CPS3_Alex, 0x22 },
+    { L"Alex Character Select Icon (Faded)", 0x710f80, 0x711000, index3S_CPS3_Alex, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_RYU_PORTRAIT_PALETTES[] =
@@ -1410,6 +1443,7 @@ const sGame_PaletteDataset SFIII3_A_RYU_PORTRAIT_PALETTES[] =
     { L"Ryu portrait (Normal)", 0x070CF00, 0x070D000, index3S_CPS3_Ryu, 0x20 },
     { L"Ryu portrait (Tinted)", 0x0711D00, 0x0711E00, index3S_CPS3_Ryu, 0x20 },
     { L"Ryu Character Select Icon", 0x070BC00, 0x070BC80, index3S_CPS3_Ryu, 0x22 },
+    { L"Ryu Character Select Icon (Faded)", 0x710a00, 0x710a80, index3S_CPS3_Ryu, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_YUN_PORTRAIT_PALETTES[] =
@@ -1417,6 +1451,7 @@ const sGame_PaletteDataset SFIII3_A_YUN_PORTRAIT_PALETTES[] =
     { L"Yun portrait (Normal)", 0x070D000, 0x070D100, index3S_CPS3_Yun, 0x20 },
     { L"Yun portrait (Tinted)", 0x0711E00, 0x0711F00, index3S_CPS3_Yun, 0x20 },
     { L"Yun Character Select Icon", 0x070BB00, 0x070BB80, index3S_CPS3_Yun, 0x22 },
+    { L"Yun Character Select Icon (Faded)", 0x710900, 0x710980, index3S_CPS3_Yun, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_PORTRAIT_PALETTES[] =
@@ -1424,6 +1459,7 @@ const sGame_PaletteDataset SFIII3_A_DUDLEY_PORTRAIT_PALETTES[] =
     { L"Dudley portrait (Normal)", 0x070D100, 0x070D200, index3S_CPS3_Dudley, 0x20 },
     { L"Dudley portrait (Tinted)", 0x0711F00, 0x0712000, index3S_CPS3_Dudley, 0x20 },
     { L"Dudley Character Select Icon", 0x070C280, 0x070C300, index3S_CPS3_Dudley, 0x22 },
+    { L"Dudley Character Select Icon (Faded)", 0x711080, 0x711100, index3S_CPS3_Dudley, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_NECRO_PORTRAIT_PALETTES[] =
@@ -1431,6 +1467,7 @@ const sGame_PaletteDataset SFIII3_A_NECRO_PORTRAIT_PALETTES[] =
     { L"Necro portrait (Normal)", 0x070D200, 0x070D380, index3S_CPS3_Necro, 0x20 },
     { L"Necro portrait (Tinted)", 0x0712000, 0x0712180, index3S_CPS3_Necro, 0x20 },
     { L"Necro Character Select Icon", 0x070B980, 0x070BA00, index3S_CPS3_Necro, 0x22 },
+    { L"Necro Character Select Icon (Faded)", 0x710780, 0x710800, index3S_CPS3_Necro, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_IBUKI_PORTRAIT_PALETTES[] =
@@ -1438,6 +1475,7 @@ const sGame_PaletteDataset SFIII3_A_IBUKI_PORTRAIT_PALETTES[] =
     { L"Ibuki portrait (Normal)", 0x070D500, 0x070D680, index3S_CPS3_Ibuki, 0x20 },
     { L"Ibuki portrait (Tinted)", 0x0712300, 0x0712480, index3S_CPS3_Ibuki, 0x20 },
     { L"Ibuki Character Select Icon", 0x070B880, 0x070B900, index3S_CPS3_Ibuki, 0x22 },
+    { L"Ibuki Character Select Icon (Faded)", 0x710680, 0x710700, index3S_CPS3_Ibuki, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ELENA_PORTRAIT_PALETTES[] =
@@ -1447,6 +1485,7 @@ const sGame_PaletteDataset SFIII3_A_ELENA_PORTRAIT_PALETTES[] =
     { L"Elena portrait (Tinted) 1/2", 0x712480, 0x712680, index3S_CPS3_Elena, 0x20, &pairNext },
     { L"Elena portrait (Tinted) 2/2", 0x712680, 0x712800, index3S_CPS3_Elena, 0x21, &pairPrevious },
     { L"Elena Character Select Icon", 0x070C300, 0x070C380, index3S_CPS3_Elena, 0x22 },
+    { L"Elena Character Select Icon (Faded)", 0x711100, 0x711180, index3S_CPS3_Elena, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_ORO_PORTRAIT_PALETTES[] =
@@ -1454,6 +1493,7 @@ const sGame_PaletteDataset SFIII3_A_ORO_PORTRAIT_PALETTES[] =
     { L"Oro portrait (Normal)", 0x070DA00, 0x070DA80, index3S_CPS3_Oro, 0x20 },
     { L"Oro portrait (Tinted)", 0x0712800, 0x0712880, index3S_CPS3_Oro, 0x20 },
     { L"Oro Character Select Icon", 0x070C000, 0x070C080, index3S_CPS3_Oro, 0x22 },
+    { L"Oro Character Select Icon (Faded)", 0x710e00, 0x710e80, index3S_CPS3_Oro, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_YANG_PORTRAIT_PALETTES[] =
@@ -1461,6 +1501,7 @@ const sGame_PaletteDataset SFIII3_A_YANG_PORTRAIT_PALETTES[] =
     { L"Yang portrait (Normal)", 0x070DA80, 0x070DB80, index3S_CPS3_Yang, 0x20 },
     { L"Yang portrait (Tinted)", 0x0712880, 0x0712980, index3S_CPS3_Yang, 0x20 },
     { L"Yang Character Select Icon", 0x070BB80, 0x070BC00, index3S_CPS3_Yang, 0x22 },
+    { L"Yang Character Select Icon (Faded)", 0x710980, 0x710a00, index3S_CPS3_Yang, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_KEN_PORTRAIT_PALETTES[] =
@@ -1468,6 +1509,7 @@ const sGame_PaletteDataset SFIII3_A_KEN_PORTRAIT_PALETTES[] =
     { L"Ken portrait (Normal)", 0x070DB80, 0x070DD00, index3S_CPS3_Ken, 0x20 },
     { L"Ken portrait (Tinted)", 0x0712980, 0x0712B00, index3S_CPS3_Ken, 0x20 },
     { L"Ken Character Select Icon", 0x070C100, 0x070C180, index3S_CPS3_Ken, 0x22 },
+    { L"Ken Character Select Icon (Faded)", 0x710f00, 0x710f80, index3S_CPS3_Ken, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SEAN_PORTRAIT_PALETTES[] =
@@ -1475,6 +1517,7 @@ const sGame_PaletteDataset SFIII3_A_SEAN_PORTRAIT_PALETTES[] =
     { L"Sean portrait (Normal)", 0x070DD00, 0x070DE80, index3S_CPS3_Sean, 0x20 },
     { L"Sean portrait (Tinted)", 0x0712B00, 0x0712C80, index3S_CPS3_Sean, 0x20 },
     { L"Sean Character Select Icon", 0x070C200, 0x070C280, index3S_CPS3_Sean, 0x22 },
+    { L"Sean Character Select Icon (Faded)", 0x711000, 0x711080, index3S_CPS3_Sean, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_URIEN_PORTRAIT_PALETTES[] =
@@ -1482,6 +1525,7 @@ const sGame_PaletteDataset SFIII3_A_URIEN_PORTRAIT_PALETTES[] =
     { L"Urien portrait (Normal)", 0x070DE80, 0x070DF80, index3S_CPS3_Urien, 0x20 },
     { L"Urien portrait (Tinted)", 0x0712C80, 0x0712D80, index3S_CPS3_Urien, 0x20 },
     { L"Urien Character Select Icon", 0x070BD00, 0x070BD80, index3S_CPS3_Urien, 0x22 },
+    { L"Urien Character Select Icon (Faded)", 0x710b00, 0x710b80, index3S_CPS3_Urien, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GOUKI_PORTRAIT_PALETTES[] =
@@ -1489,16 +1533,19 @@ const sGame_PaletteDataset SFIII3_A_GOUKI_PORTRAIT_PALETTES[] =
     { L"Gouki / Shin Gouki portrait (Normal)", 0x070DF80, 0x070E080, index3S_CPS3_Gouki, 0x20 },
     { L"Gouki / Shin Gouki portrait (Tinted)", 0x0712D80, 0x0712E80, index3S_CPS3_Gouki, 0x20 },
     { L"Gouki Character Select Icon", 0x070BE00, 0x070BE80, index3S_CPS3_Gouki, 0x22 },
+    { L"Gouki Character Select Icon (Faded)", 0x710c00, 0x710c80, index3S_CPS3_Gouki, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_SHINGOUKI_PORTRAIT_PALETTES[] =
 {
     { L"Shin Gouki Character Select Icon", 0x070BE80, 0x070BF00, index3S_CPS3_ShinGouki, 0x22 },
+    { L"Shin Gouki Character Select Icon (Faded)", 0x710c80, 0x710d00, index3S_CPS3_Gouki, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_USEAN_PORTRAIT_PALETTES[] =
 {
     { L"Shin Gouki Character Select Icon", 0x070BE80, 0x070BF00, index3S_CPS3_ShinGouki, 0x22 },
+    { L"Shin Gouki Character Select Icon (Faded)", 0x710c80, 0x710d00, index3S_CPS3_Gouki, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_CHUNLI_PORTRAIT_PALETTES[] =
@@ -1506,6 +1553,7 @@ const sGame_PaletteDataset SFIII3_A_CHUNLI_PORTRAIT_PALETTES[] =
     { L"Chun-Li portrait (Normal)", 0x070E080, 0x070E200, index3S_CPS3_ChunLi, 0x20 },
     { L"Chun-Li portrait (Tinted)", 0x0712E80, 0x0713000, index3S_CPS3_ChunLi, 0x20 },
     { L"Chun-Li Character Select Icon", 0x070BC80, 0x070BD00, index3S_CPS3_ChunLi, 0x22 },
+    { L"Chun-Li Character Select Icon (Faded)", 0x710a80, 0x710b00, index3S_CPS3_ChunLi, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_MAKOTO_PORTRAIT_PALETTES[] =
@@ -1513,6 +1561,7 @@ const sGame_PaletteDataset SFIII3_A_MAKOTO_PORTRAIT_PALETTES[] =
     { L"Makoto portrait (Normal)", 0x070E200, 0x070E380, index3S_CPS3_Makoto, 0x20 },
     { L"Makoto portrait (Tinted)", 0x0713000, 0x0713180, index3S_CPS3_Makoto, 0x20 },
     { L"Makoto Character Select Icon", 0x070BA80, 0x070BB00, index3S_CPS3_Makoto, 0x22 },
+    { L"Makoto Character Select Icon (Faded)", 0x710880, 0x710900, index3S_CPS3_Makoto, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_Q_PORTRAIT_PALETTES[] =
@@ -1520,6 +1569,7 @@ const sGame_PaletteDataset SFIII3_A_Q_PORTRAIT_PALETTES[] =
     { L"Q portrait (Normal)", 0x070E380, 0x070E400, index3S_CPS3_Q, 0x20 },
     { L"Q portrait (Tinted)", 0x0713180, 0x0713200, index3S_CPS3_Q, 0x20 },
     { L"Q Character Select Icon", 0x070BD80, 0x070BE00, index3S_CPS3_Q, 0x22 },
+    { L"Q Character Select Icon (Faded)", 0x710b80, 0x710c00, index3S_CPS3_Q, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_TWELVE_PORTRAIT_PALETTES[] =
@@ -1527,6 +1577,7 @@ const sGame_PaletteDataset SFIII3_A_TWELVE_PORTRAIT_PALETTES[] =
     { L"Twelve portrait (Normal)", 0x070E400, 0x070E480, index3S_CPS3_Twelve, 0x20 },
     { L"Twelve portrait (Tinted)", 0x0713200, 0x0713280, index3S_CPS3_Twelve, 0x20 },
     { L"Twelve Character Select Icon", 0x070C080, 0x070C100, index3S_CPS3_Twelve, 0x22 },
+    { L"Twelve Character Select Icon (Faded)", 0x710e80, 0x710f00, index3S_CPS3_Twelve, 0x22 },
 };
 
 const sGame_PaletteDataset SFIII3_A_REMY_PORTRAIT_PALETTES[] =
@@ -1534,6 +1585,7 @@ const sGame_PaletteDataset SFIII3_A_REMY_PORTRAIT_PALETTES[] =
     { L"Remy portrait (Normal)", 0x070E480, 0x070E600, index3S_CPS3_Remy, 0x20 },
     { L"Remy portrait (Tinted)", 0x0713280, 0x0713400, index3S_CPS3_Remy, 0x20 },
     { L"Remy Character Select Icon", 0x070BA00, 0x070BA80, index3S_CPS3_Remy, 0x22 },
+    { L"Remy Character Select Icon (Faded)", 0x710800, 0x710880, index3S_CPS3_Remy, 0x22 },
 };
 
 const sDescTreeNode SFIII3_A_ALEX_COLLECTION[] =
@@ -1627,14 +1679,17 @@ const sDescTreeNode SFIII3_A_GILL_4_COLLECTION[] =
     { L"LK", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_LK_PALETTES, ARRAYSIZE(SFIII3_A_GILL_LK_PALETTES) },
     { L"MK", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_MK_PALETTES, ARRAYSIZE(SFIII3_A_GILL_MK_PALETTES) },
     { L"HK", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_HK_PALETTES, ARRAYSIZE(SFIII3_A_GILL_HK_PALETTES) },
-    { L"Gill stuff (glow is in ROM 10)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_SUPPORT4_PALETTES, ARRAYSIZE(SFIII3_A_GILL_SUPPORT4_PALETTES) },
+    { L"Support", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_Support_PALETTES, ARRAYSIZE(SFIII3_A_GILL_Support_PALETTES) },
     { L"Portraits and Select Icon", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_GILL_PORTRAIT_PALETTES) },
+    { L"Extras (glow is in ROM 10)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_EXTRAS_PALETTES, ARRAYSIZE(SFIII3_A_GILL_EXTRAS_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_GILL_51_COLLECTION[] =
 {
-    { L"Gill stuff (glow is in ROM 10)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_NORMAL_PALETTES, ARRAYSIZE(SFIII3_A_GILL_NORMAL_PALETTES) },
+    { L"Gill", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_NORMAL_PALETTES, ARRAYSIZE(SFIII3_A_GILL_NORMAL_PALETTES) },
+    { L"Support", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_Support_PALETTES, ARRAYSIZE(SFIII3_A_GILL_Support_PALETTES) },
     { L"Portraits and Select Icon", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_GILL_PORTRAIT_PALETTES) },
+    { L"Extras (glow is in ROM 10)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_EXTRAS_PALETTES, ARRAYSIZE(SFIII3_A_GILL_EXTRAS_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_IBUKI_COLLECTION[] =
@@ -1734,7 +1789,7 @@ const sDescTreeNode SFIII3_A_URIEN_COLLECTION[] =
     { L"Extras", DESC_NODETYPE_TREE, (void*)SFIII3_A_URIEN_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_URIEN_EXTRA_PALETTES) },
 };
 
-const sDescTreeNode SFIII3_A_GOUKI_COLLECTION[] =
+const sDescTreeNode SFIII3_A_GOUKI_51_COLLECTION[] =
 {
     { L"LP", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_LP_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_LP_PALETTES) },
     { L"MP", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_MP_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_MP_PALETTES) },
@@ -1743,10 +1798,25 @@ const sDescTreeNode SFIII3_A_GOUKI_COLLECTION[] =
     { L"MK", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_MK_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_MK_PALETTES) },
     { L"HK", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_HK_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_HK_PALETTES) },
     { L"EX", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_EX_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_EX_PALETTES) },
-    { L"Support", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_Support_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_Support_PALETTES) },
+    { L"Support", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_Support_51_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_Support_51_PALETTES) },
     { L"Portraits and Select Icon", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_PORTRAIT_PALETTES) },
     { L"Extras", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_EXTRA_PALETTES) },
 };
+
+const sDescTreeNode SFIII3_A_GOUKI_4rd_COLLECTION[] =
+{
+    { L"LP", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_LP_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_LP_PALETTES) },
+    { L"MP", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_MP_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_MP_PALETTES) },
+    { L"HP", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_HP_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_HP_PALETTES) },
+    { L"LK", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_LK_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_LK_PALETTES) },
+    { L"MK", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_MK_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_MK_PALETTES) },
+    { L"HK", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_HK_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_HK_PALETTES) },
+    { L"EX", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_EX_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_EX_PALETTES) },
+    { L"Support", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_Support_4rd_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_Support_4rd_PALETTES) },
+    { L"Portraits and Select Icon", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_PORTRAIT_PALETTES) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_EXTRA_PALETTES, ARRAYSIZE(SFIII3_A_GOUKI_EXTRA_PALETTES) },
+};
+
 
 const sDescTreeNode SFIII3_A_USEAN_COLLECTION[] =
 {
@@ -1856,6 +1926,7 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Round Markers",                     0x708c60, 0x708c80, index3S_CPS3_Bonus, 0x07 },
 
     { L"Final Results",                     0x70bf00, 0x70bf80, index3S_CPS3_Bonus, 0x01 },
+    { L"Final Results - Tinted",            0x710d00, 0x710d80, index3S_CPS3_Bonus, 0x01 },
     { L"Select Background",                 0x709D80, 0x709E00, index3S_CPS3_Bonus, 0x00 },
     { L"Select Background - Tinted",        0x70EB80, 0x70EC00, index3S_CPS3_Bonus, 0x00 },
     // I don't love the offsets here, so am not including this for now.
@@ -2479,6 +2550,54 @@ const sGame_PaletteDataset SFIII3_A_STAGES_REMY_FADED_PALETTES[] =
     { L"Remy Stage (Faded) (20/20)", 0x759080 + (19 * 0x200), 0x75B880 },
 };
 
+const sGame_PaletteDataset SFIII3_A_STAGES_BASKETBALL_PALETTES[] =
+{
+    { L"Basketball Bonus Stage (1/7)", 0x75f480 + (0 * 0x200), 0x75f480 + (1 * 0x200) },
+    { L"Basketball Bonus Stage (2/7)", 0x75f480 + (1 * 0x200), 0x75f480 + (2 * 0x200) },
+    { L"Basketball Bonus Stage (3/7)", 0x75f480 + (2 * 0x200), 0x75f480 + (3 * 0x200) },
+    { L"Basketball Bonus Stage (4/7)", 0x75f480 + (3 * 0x200), 0x75f480 + (4 * 0x200) },
+    { L"Basketball Bonus Stage (5/7)", 0x75f480 + (4 * 0x200), 0x75f480 + (5 * 0x200) },
+    { L"Basketball Bonus Stage (6/7)", 0x75f480 + (5 * 0x200), 0x75f480 + (6 * 0x200) },
+    { L"Basketball Bonus Stage (7/7)", 0x75f480 + (6 * 0x200), 0x760100 },
+};
+
+const sGame_PaletteDataset SFIII3_A_STAGES_BASKETBALL_FADED_PALETTES[] =
+{
+    { L"Basketball Bonus Stage (Faded) (1/7)", 0x760100 + (0 * 0x200), 0x760100 + (1 * 0x200) },
+    { L"Basketball Bonus Stage (Faded) (2/7)", 0x760100 + (1 * 0x200), 0x760100 + (2 * 0x200) },
+    { L"Basketball Bonus Stage (Faded) (3/7)", 0x760100 + (2 * 0x200), 0x760100 + (3 * 0x200) },
+    { L"Basketball Bonus Stage (Faded) (4/7)", 0x760100 + (3 * 0x200), 0x760100 + (4 * 0x200) },
+    { L"Basketball Bonus Stage (Faded) (5/7)", 0x760100 + (4 * 0x200), 0x760100 + (5 * 0x200) },
+    { L"Basketball Bonus Stage (Faded) (6/7)", 0x760100 + (5 * 0x200), 0x760100 + (6 * 0x200) },
+    { L"Basketball Bonus Stage (Faded) (7/7)", 0x760100 + (6 * 0x200), 0x760d80 },   
+};
+
+const sGame_PaletteDataset SFIII3_A_STAGES_SUV_PALETTES[] =
+{
+    { L"SUV Bonus Stage (1/9)", 0x75d080 + (0 * 0x200), 0x75d080 + (1 * 0x200) },
+    { L"SUV Bonus Stage (2/9)", 0x75d080 + (1 * 0x200), 0x75d080 + (2 * 0x200) },
+    { L"SUV Bonus Stage (3/9)", 0x75d080 + (2 * 0x200), 0x75d080 + (3 * 0x200) },
+    { L"SUV Bonus Stage (4/9)", 0x75d080 + (3 * 0x200), 0x75d080 + (4 * 0x200) },
+    { L"SUV Bonus Stage (5/9)", 0x75d080 + (4 * 0x200), 0x75d080 + (5 * 0x200) },
+    { L"SUV Bonus Stage (6/9)", 0x75d080 + (5 * 0x200), 0x75d080 + (6 * 0x200) },
+    { L"SUV Bonus Stage (7/9)", 0x75d080 + (6 * 0x200), 0x75d080 + (7 * 0x200) },
+    { L"SUV Bonus Stage (8/9)", 0x75d080 + (7 * 0x200), 0x75d080 + (8 * 0x200) },
+    { L"SUV Bonus Stage (9/9)", 0x75d080 + (8 * 0x200), 0x75e280 },
+};
+
+const sGame_PaletteDataset SFIII3_A_STAGES_SUV_FADED_PALETTES[] =
+{
+    { L"SUV Bonus Stage (Faded) (1/9)", 0x75e280 + (0 * 0x200), 0x75e280 + (1 * 0x200) },
+    { L"SUV Bonus Stage (Faded) (2/9)", 0x75e280 + (1 * 0x200), 0x75e280 + (2 * 0x200) },
+    { L"SUV Bonus Stage (Faded) (3/9)", 0x75e280 + (2 * 0x200), 0x75e280 + (3 * 0x200) },
+    { L"SUV Bonus Stage (Faded) (4/9)", 0x75e280 + (3 * 0x200), 0x75e280 + (4 * 0x200) },
+    { L"SUV Bonus Stage (Faded) (5/9)", 0x75e280 + (4 * 0x200), 0x75e280 + (5 * 0x200) },
+    { L"SUV Bonus Stage (Faded) (6/9)", 0x75e280 + (5 * 0x200), 0x75e280 + (6 * 0x200) },
+    { L"SUV Bonus Stage (Faded) (7/9)", 0x75e280 + (6 * 0x200), 0x75e280 + (7 * 0x200) },
+    { L"SUV Bonus Stage (Faded) (8/9)", 0x75e280 + (7 * 0x200), 0x75e280 + (8 * 0x200) },
+    { L"SUV Bonus Stage (Faded) (9/9)", 0x75e280 + (8 * 0x200), 0x75f480 },
+};
+
 const sDescTreeNode SFIII3_A_BONUS_COLLECTION[] =
 {
     { L"HUD",                   DESC_NODETYPE_TREE, (void*)SFIII3_A_HUD_PALETTES, ARRAYSIZE(SFIII3_A_HUD_PALETTES) },
@@ -2525,8 +2644,8 @@ const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
     { L"Oro Stage",                 DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_ORO_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_ORO_PALETTES) },
     { L"Oro Stage (Faded)",         DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_ORO_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_ORO_FADED_PALETTES) },
 
-    //{ L"Remy Stage",            DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_REMY_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_REMY_PALETTES) },
-    //{ L"Remy Stage (Faded)",    DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_REMY_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_REMY_FADED_PALETTES) },
+    { L"Remy Stage",                DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_REMY_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_REMY_PALETTES) },
+    { L"Remy Stage (Faded)",        DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_REMY_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_REMY_FADED_PALETTES) },
 
     { L"Ryu Stage",                 DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_RYU_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_RYU_PALETTES) },
     { L"Ryu Stage (Faded)",         DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_RYU_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_RYU_FADED_PALETTES) },
@@ -2548,6 +2667,12 @@ const sDescTreeNode SFIII3_A_STAGE_COLLECTION[] =
 
     { L"Yun Stage",                 DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_YUN_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_YUN_PALETTES) },
     { L"Yun Stage (Faded)",         DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_YUN_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_YUN_FADED_PALETTES) },
+
+    { L"Basketball Bonus Stage",            DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_BASKETBALL_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_BASKETBALL_PALETTES) },
+    { L"Basketball Bonus Stage (Faded)",    DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_BASKETBALL_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_BASKETBALL_FADED_PALETTES) },
+
+    { L"SUV Bonus Stage",           DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_SUV_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_SUV_PALETTES) },
+    { L"SUV Bonus (Faded)",         DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGES_SUV_FADED_PALETTES, ARRAYSIZE(SFIII3_A_STAGES_SUV_FADED_PALETTES) },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_LEFT[] =
@@ -2586,7 +2711,7 @@ const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_RIGHT[] =
     { L"Gill glow 12", 0x1C9228, 0x1C92a8, index3S_CPS3_Gill },
 };
 
-const sDescTreeNode SFIII3_A_GILL_COLLECTION[] =
+const sDescTreeNode SFIII3_A_GILL_COLLECTION[] = // This is Gill glow from ROM 10
 {
     { L"Left",    DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_LEFT, ARRAYSIZE(SFIII3_A_GILL_PALETTES_LEFT) },
     { L"Right",   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_RIGHT, ARRAYSIZE(SFIII3_A_GILL_PALETTES_RIGHT) },
@@ -2793,17 +2918,17 @@ const sDescTreeNode SFIII3_A_10_UNITS[] =
 
 const sDescTreeNode SFIII3_A_4_UNITS[] =
 {
-    { k_sf3NameKey_Alex,   DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_COLLECTION, ARRAYSIZE(SFIII3_A_ALEX_COLLECTION) },
+    { k_sf3NameKey_Alex, DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_COLLECTION, ARRAYSIZE(SFIII3_A_ALEX_COLLECTION) },
     { L"Chun-Li", DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_COLLECTION, ARRAYSIZE(SFIII3_A_CHUNLI_COLLECTION) },
     { L"Dudley", DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_COLLECTION, ARRAYSIZE(SFIII3_A_DUDLEY_COLLECTION) },
     { L"Elena",  DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_COLLECTION, ARRAYSIZE(SFIII3_A_ELENA_COLLECTION) },
-    { L"Gouki",  DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_COLLECTION, ARRAYSIZE(SFIII3_A_GOUKI_COLLECTION) },
+    { L"Gouki",  DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_4rd_COLLECTION, ARRAYSIZE(SFIII3_A_GOUKI_4rd_COLLECTION) },
     { L"Hugo",   DESC_NODETYPE_TREE, (void*)SFIII3_A_HUGO_COLLECTION, ARRAYSIZE(SFIII3_A_HUGO_COLLECTION) },
     { L"Ibuki",  DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_COLLECTION, ARRAYSIZE(SFIII3_A_IBUKI_COLLECTION) },
     { L"Ken",    DESC_NODETYPE_TREE, (void*)SFIII3_A_KEN_COLLECTION, ARRAYSIZE(SFIII3_A_KEN_COLLECTION) },
     { L"Makoto", DESC_NODETYPE_TREE, (void*)SFIII3_A_MAKOTO_COLLECTION, ARRAYSIZE(SFIII3_A_MAKOTO_COLLECTION) },
     { L"Necro",  DESC_NODETYPE_TREE, (void*)SFIII3_A_NECRO_COLLECTION, ARRAYSIZE(SFIII3_A_NECRO_COLLECTION) },
-    { k_sf3NameKey_Oro,    DESC_NODETYPE_TREE, (void*)SFIII3_A_ORO_COLLECTION, ARRAYSIZE(SFIII3_A_ORO_COLLECTION) },
+    { k_sf3NameKey_Oro, DESC_NODETYPE_TREE, (void*)SFIII3_A_ORO_COLLECTION, ARRAYSIZE(SFIII3_A_ORO_COLLECTION) },
     { L"Q",      DESC_NODETYPE_TREE, (void*)SFIII3_A_Q_COLLECTION, ARRAYSIZE(SFIII3_A_Q_COLLECTION) },
     { L"Remy",   DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_COLLECTION, ARRAYSIZE(SFIII3_A_REMY_COLLECTION) },
     { L"Ryu",    DESC_NODETYPE_TREE, (void*)SFIII3_A_RYU_COLLECTION, ARRAYSIZE(SFIII3_A_RYU_COLLECTION) },
@@ -2815,34 +2940,34 @@ const sDescTreeNode SFIII3_A_4_UNITS[] =
     { L"Yun",    DESC_NODETYPE_TREE, (void*)SFIII3_A_YUN_COLLECTION, ARRAYSIZE(SFIII3_A_YUN_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_COLLECTION, ARRAYSIZE(SFIII3_A_BONUS_COLLECTION) },
     { L"Stage Palettes", DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGE_COLLECTION, ARRAYSIZE(SFIII3_A_STAGE_COLLECTION) },
-    { k_sf3NameKey_Gill,   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_4_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_4_COLLECTION) },
+    { k_sf3NameKey_Gill, DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_4_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_4_COLLECTION) },
 };
 
 const sDescTreeNode SFIII3_A_51_UNITS[] =
 {
-    { k_sf3NameKey_Alex,   DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_COLLECTION, ARRAYSIZE(SFIII3_A_ALEX_COLLECTION) },
+    { k_sf3NameKey_Alex, DESC_NODETYPE_TREE, (void*)SFIII3_A_ALEX_COLLECTION, ARRAYSIZE(SFIII3_A_ALEX_COLLECTION) },
     { L"Chun-Li", DESC_NODETYPE_TREE, (void*)SFIII3_A_CHUNLI_COLLECTION, ARRAYSIZE(SFIII3_A_CHUNLI_COLLECTION) },
     { L"Dudley", DESC_NODETYPE_TREE, (void*)SFIII3_A_DUDLEY_COLLECTION, ARRAYSIZE(SFIII3_A_DUDLEY_COLLECTION) },
     { L"Elena",  DESC_NODETYPE_TREE, (void*)SFIII3_A_ELENA_COLLECTION, ARRAYSIZE(SFIII3_A_ELENA_COLLECTION) },
-    { L"Gouki",  DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_COLLECTION, ARRAYSIZE(SFIII3_A_GOUKI_COLLECTION) },
+    { L"Gouki",  DESC_NODETYPE_TREE, (void*)SFIII3_A_GOUKI_51_COLLECTION, ARRAYSIZE(SFIII3_A_GOUKI_51_COLLECTION) },
     { L"Hugo",   DESC_NODETYPE_TREE, (void*)SFIII3_A_HUGO_COLLECTION, ARRAYSIZE(SFIII3_A_HUGO_COLLECTION) },
     { L"Ibuki",  DESC_NODETYPE_TREE, (void*)SFIII3_A_IBUKI_COLLECTION, ARRAYSIZE(SFIII3_A_IBUKI_COLLECTION) },
     { L"Ken",    DESC_NODETYPE_TREE, (void*)SFIII3_A_KEN_COLLECTION, ARRAYSIZE(SFIII3_A_KEN_COLLECTION) },
     { L"Makoto", DESC_NODETYPE_TREE, (void*)SFIII3_A_MAKOTO_COLLECTION, ARRAYSIZE(SFIII3_A_MAKOTO_COLLECTION) },
     { L"Necro",  DESC_NODETYPE_TREE, (void*)SFIII3_A_NECRO_COLLECTION, ARRAYSIZE(SFIII3_A_NECRO_COLLECTION) },
-    { k_sf3NameKey_Oro,    DESC_NODETYPE_TREE, (void*)SFIII3_A_ORO_COLLECTION, ARRAYSIZE(SFIII3_A_ORO_COLLECTION) },
+    { k_sf3NameKey_Oro, DESC_NODETYPE_TREE, (void*)SFIII3_A_ORO_COLLECTION, ARRAYSIZE(SFIII3_A_ORO_COLLECTION) },
     { L"Q",      DESC_NODETYPE_TREE, (void*)SFIII3_A_Q_COLLECTION, ARRAYSIZE(SFIII3_A_Q_COLLECTION) },
     { L"Remy",   DESC_NODETYPE_TREE, (void*)SFIII3_A_REMY_COLLECTION, ARRAYSIZE(SFIII3_A_REMY_COLLECTION) },
     { L"Ryu",    DESC_NODETYPE_TREE, (void*)SFIII3_A_RYU_COLLECTION, ARRAYSIZE(SFIII3_A_RYU_COLLECTION) },
     { L"Sean",   DESC_NODETYPE_TREE, (void*)SFIII3_A_SEAN_COLLECTION, ARRAYSIZE(SFIII3_A_SEAN_COLLECTION) },
     { k_sf3NameKey_ShinGouki, DESC_NODETYPE_TREE, (void*)SFIII3_A_SHINGOUKI_COLLECTION, ARRAYSIZE(SFIII3_A_SHINGOUKI_COLLECTION) },
     { L"Twelve", DESC_NODETYPE_TREE, (void*)SFIII3_A_TWELVE_COLLECTION, ARRAYSIZE(SFIII3_A_TWELVE_COLLECTION) },
-    { k_sf3NameKey_Urien,  DESC_NODETYPE_TREE, (void*)SFIII3_A_URIEN_COLLECTION, ARRAYSIZE(SFIII3_A_URIEN_COLLECTION) },
+    { k_sf3NameKey_Urien, DESC_NODETYPE_TREE, (void*)SFIII3_A_URIEN_COLLECTION, ARRAYSIZE(SFIII3_A_URIEN_COLLECTION) },
     { L"Yang",   DESC_NODETYPE_TREE, (void*)SFIII3_A_YANG_COLLECTION, ARRAYSIZE(SFIII3_A_YANG_COLLECTION) },
     { L"Yun",    DESC_NODETYPE_TREE, (void*)SFIII3_A_YUN_COLLECTION, ARRAYSIZE(SFIII3_A_YUN_COLLECTION) },
     { L"Bonus Palettes", DESC_NODETYPE_TREE, (void*)SFIII3_A_BONUS_COLLECTION, ARRAYSIZE(SFIII3_A_BONUS_COLLECTION) },
     { L"Stage Palettes", DESC_NODETYPE_TREE, (void*)SFIII3_A_STAGE_COLLECTION, ARRAYSIZE(SFIII3_A_STAGE_COLLECTION) },
-    { k_sf3NameKey_Gill,   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_51_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_51_COLLECTION) },
+    { k_sf3NameKey_Gill, DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_51_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_51_COLLECTION) },
 };
 
 constexpr auto SFIII3_A_10_NUMUNIT = ARRAYSIZE(SFIII3_A_10_UNITS);
