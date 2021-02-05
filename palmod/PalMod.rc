@@ -334,10 +334,11 @@ BEGIN
             MENUITEM "Red Earth / Warzard (Arcade)(*)", ID_LOADDIRECTORY_REDEARTH
             POPUP "SFIII3"
             BEGIN
-                MENUITEM "Dreamcast/PS2 (*)",           ID_LD_SFIII3DCALL
-                MENUITEM "Arcade (*)",                  ID_LD_SFIII3ARCADE51
-                MENUITEM "Arcade - Gill Glow/X.C.O.P.Y. (*)", ID_LD_SFIII3ARCADE10
-                MENUITEM "4rd Strike (*)",              ID_LD_SFIII3ARCADE4rd
+                MENUITEM "Dreamcast/PS2",           ID_LD_SFIII3DCALL
+                MENUITEM "Arcade",                  ID_LD_SFIII3ARCADE51
+                MENUITEM "Arcade - Gill Glow/X.C.O.P.Y.", ID_LD_SFIII3ARCADE10
+                MENUITEM "4rd Strike",              ID_LD_SFIII3ARCADE4rd
+                MENUITEM "4rd Strike - Gill/X.C.O.P.Y.", ID_LD_SFIII3ARCADE4rd10
             END
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH

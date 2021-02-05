@@ -8,32 +8,38 @@
 #define SFIII3_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
 stExtraDef* CGame_SFIII3_A::SFIII3_A_10_EXTRA_CUSTOM = NULL;
+stExtraDef* CGame_SFIII3_A::SFIII3_A_14_EXTRA_CUSTOM = NULL;
 stExtraDef* CGame_SFIII3_A::SFIII3_A_4_EXTRA_CUSTOM = NULL;
 stExtraDef* CGame_SFIII3_A::SFIII3_A_51_EXTRA_CUSTOM = NULL;
 stExtraDef* CGame_SFIII3_A::SFIII3_A_70_EXTRA_CUSTOM = NULL;
 
 int CGame_SFIII3_A::rgExtraCountAll_10[SFIII3_A_10_NUMUNIT + 1] = { -1 };
+int CGame_SFIII3_A::rgExtraCountAll_14[SFIII3_A_10_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountAll_4[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountAll_51[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountAll_70[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly_10[SFIII3_A_10_NUMUNIT + 1] = { -1 };
+int CGame_SFIII3_A::rgExtraCountVisibleOnly_14[SFIII3_A_10_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly_4[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly_51[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly_70[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraLoc_10[SFIII3_A_10_NUMUNIT + 1] = { -1 };
+int CGame_SFIII3_A::rgExtraLoc_14[SFIII3_A_10_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraLoc_4[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraLoc_51[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraLoc_70[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 
 CDescTree CGame_SFIII3_A::MainDescTree_10 = nullptr;
+CDescTree CGame_SFIII3_A::MainDescTree_14 = nullptr;
 CDescTree CGame_SFIII3_A::MainDescTree_4 = nullptr;
 CDescTree CGame_SFIII3_A::MainDescTree_51 = nullptr;
 CDescTree CGame_SFIII3_A::MainDescTree_70 = nullptr;
 UINT32 CGame_SFIII3_A::m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
 UINT32 CGame_SFIII3_A::m_nConfirmedROMSize = -1;
 
-int CGame_SFIII3_A::m_nSelectedRom = 51;
+int CGame_SFIII3_A::m_nSelectedRom = SF3ROM_51;
 UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_10 = 0;
+UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_14 = 0;
 UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_4 = 0;
 UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_51 = 0;
 UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_70 = 0;
@@ -41,24 +47,29 @@ UINT32 CGame_SFIII3_A::m_nTotalPaletteCountForSFIII3_70 = 0;
 void CGame_SFIII3_A::InitializeStatics()
 {
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_10_EXTRA_CUSTOM);
+    safe_delete_array(CGame_SFIII3_A::SFIII3_A_14_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_4_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_51_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_70_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll_10, -1, sizeof(rgExtraCountAll_10));
+    memset(rgExtraCountAll_14, -1, sizeof(rgExtraCountAll_14));
     memset(rgExtraCountAll_4, -1, sizeof(rgExtraCountAll_4));
     memset(rgExtraCountAll_51, -1, sizeof(rgExtraCountAll_51));
     memset(rgExtraCountAll_70, -1, sizeof(rgExtraCountAll_70));
     memset(rgExtraCountVisibleOnly_10, -1, sizeof(rgExtraCountVisibleOnly_10));
+    memset(rgExtraCountVisibleOnly_14, -1, sizeof(rgExtraCountVisibleOnly_14));
     memset(rgExtraCountVisibleOnly_4, -1, sizeof(rgExtraCountVisibleOnly_4));
     memset(rgExtraCountVisibleOnly_51, -1, sizeof(rgExtraCountVisibleOnly_51));
     memset(rgExtraCountVisibleOnly_70, -1, sizeof(rgExtraCountVisibleOnly_70));
     memset(rgExtraLoc_10, -1, sizeof(rgExtraLoc_10));
+    memset(rgExtraLoc_14, -1, sizeof(rgExtraLoc_14));
     memset(rgExtraLoc_4, -1, sizeof(rgExtraLoc_4));
     memset(rgExtraLoc_51, -1, sizeof(rgExtraLoc_51));
     memset(rgExtraLoc_70, -1, sizeof(rgExtraLoc_70));
 
     MainDescTree_10.SetRootTree(CGame_SFIII3_A::InitDescTree(10));
+    MainDescTree_14.SetRootTree(CGame_SFIII3_A::InitDescTree(14));
     MainDescTree_4.SetRootTree(CGame_SFIII3_A::InitDescTree(4));
     MainDescTree_51.SetRootTree(CGame_SFIII3_A::InitDescTree(51));
     MainDescTree_70.SetRootTree(CGame_SFIII3_A::InitDescTree(70));
@@ -80,20 +91,46 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     InitializeStatics();
 
     m_nSelectedRom = nSF3ROMToLoad;
-    m_pszExtraFilename = UsePaletteSetForGill() ? EXTRA_FILENAME_SF3_10 : EXTRA_FILENAME_SF3_51;
 
     //We need the proper unit amt before we init the main buffer
-    m_nTotalInternalUnits = UsePaletteSetForGill() ? SFIII3_A_10_NUMUNIT : SFIII3_A_51_NUMUNIT;
-    m_nExtraUnit = UsePaletteSetForGill() ? SFIII3_A_10_EXTRALOC : SFIII3_A_51_EXTRALOC;
+    m_nTotalInternalUnits = UsingROMForGill() ? SFIII3_A_10_NUMUNIT : SFIII3_A_51_NUMUNIT;
+    m_nExtraUnit = UsingROMForGill() ? SFIII3_A_10_EXTRALOC : SFIII3_A_51_EXTRALOC;
+    m_pszExtraFilename = UsingROMForGill() ? EXTRA_FILENAME_SF3_10 : EXTRA_FILENAME_SF3_51;
+    m_nLowestKnownPaletteRomLocation = UsingROMForGill() ? 0x1C86A8 : 0x700000;
+
+    switch (m_nSelectedRom)
+    {
+    case SF3ROM_10:
+        m_nSafeCountForThisRom = 171;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_10;
+        break;
+    case SF3ROM_10_4rd:
+        m_nSafeCountForThisRom = 183;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_14;
+        break;
+    default:
+        OutputDebugString(L"Warning: unrecognized ROM.\n");
+        __fallthrough;
+    case SF3ROM_51:
+        m_nSafeCountForThisRom = 1190;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_51;
+        break;
+    case SF3ROM_51_4rd:
+        m_nSafeCountForThisRom = 1202;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_4;
+        break;
+    case SF3ROM_70_EX:
+        m_nSafeCountForThisRom = 1190;
+        m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_51;
+        break;
+    }
+
+    m_nSafeCountForThisRom += GetExtraCt(m_nExtraUnit);
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + (UsePaletteSetForGill() ? 171 : (UsePaletteSetFor4rd() ? 1202 : 1190));
-    m_nTotalPaletteCount = UsePaletteSetForGill() ? m_nTotalPaletteCountForSFIII3_10 : (UsePaletteSetFor51() ? m_nTotalPaletteCountForSFIII3_51 : m_nTotalPaletteCountForSFIII3_4);
-    m_nLowestKnownPaletteRomLocation = UsePaletteSetForGill() ? 0x1C86A8 : 0x700000;
-
     CString strInfo;
-    strInfo.Format(_T("CGame_SFIII3_A::CGame_SFIII3_A: Loaded SFIII3_A with %u Extras\n"), GetExtraCt(m_nExtraUnit));
+    strInfo.Format(L"CGame_SFIII3_A::CGame_SFIII3_A: Loaded SFIII3_A with %u Extras\n", GetExtraCt(m_nExtraUnit));
     OutputDebugString(strInfo);
 
     InitDataBuffer();
@@ -122,6 +159,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
 CGame_SFIII3_A::~CGame_SFIII3_A(void)
 {
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_10_EXTRA_CUSTOM);
+    safe_delete_array(CGame_SFIII3_A::SFIII3_A_14_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_4_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_51_EXTRA_CUSTOM);
     safe_delete_array(CGame_SFIII3_A::SFIII3_A_70_EXTRA_CUSTOM);
@@ -132,7 +170,9 @@ CGame_SFIII3_A::~CGame_SFIII3_A(void)
 
 int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    if (UsePaletteSetForGill())
+    switch (m_nSelectedRom)
+    {
+    case SF3ROM_10:
     {
         int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_10 : (int*)rgExtraCountAll_10;
 
@@ -160,7 +200,35 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
         return rgExtraCt[nUnitId];
     }
-    else if (UsePaletteSetFor4rd())
+    case SF3ROM_10_4rd:
+    {
+        int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_14 : (int*)rgExtraCountAll_14;
+
+        if (rgExtraCountAll_14[0] == -1)
+        {
+            int nDefCtr = 0;
+            memset(rgExtraCountAll_14, 0, (SFIII3_A_10_NUMUNIT + 1) * sizeof(int));
+            memset(rgExtraCountVisibleOnly_14, 0, (SFIII3_A_10_NUMUNIT + 1) * sizeof(int));
+
+            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            {
+                rgExtraCountAll_14[pCurrDef->uUnitN]++;
+
+                if (!pCurrDef->isInvisible)
+                {
+                    rgExtraCountVisibleOnly_10[pCurrDef->uUnitN]++;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetCurrentExtraDef(nDefCtr);
+            }
+        }
+
+        return rgExtraCt[nUnitId];
+    }
+    case SF3ROM_51_4rd:
     {
         int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_4 : (int*)rgExtraCountAll_4;
 
@@ -188,7 +256,7 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
         return rgExtraCt[nUnitId];
     }
-    else if (UsePaletteSetFor3Ex())
+    case SF3ROM_70_EX:
     {
         int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_70 : (int*)rgExtraCountAll_70;
 
@@ -216,7 +284,10 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
         return rgExtraCt[nUnitId];
     }
-    else
+    default:
+        OutputDebugString(L"Warning: unrecognized ROM.\n");
+        __fallthrough;
+    case SF3ROM_51:
     {
         int* rgExtraCt = bCountVisibleOnly ? (int*)rgExtraCountVisibleOnly_51 : (int*)rgExtraCountAll_51;
 
@@ -244,11 +315,14 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 
         return rgExtraCt[nUnitId];
     }
+    }
 }
 
 int CGame_SFIII3_A::GetExtraLoc(UINT16 nUnitId)
 {
-    if (UsePaletteSetForGill())
+    switch (m_nSelectedRom)
+    {
+    case SF3ROM_10:
     {
         if (rgExtraLoc_10[0] == -1)
         {
@@ -273,7 +347,32 @@ int CGame_SFIII3_A::GetExtraLoc(UINT16 nUnitId)
 
         return rgExtraLoc_10[nUnitId];
     }
-    else if (UsePaletteSetFor4rd())
+    case SF3ROM_10_4rd:
+    {
+        if (rgExtraLoc_14[0] == -1)
+        {
+            int nDefCtr = 0;
+            int nCurrUnit = UNIT_START_VALUE;
+            memset(rgExtraLoc_14, 0, (SFIII3_A_10_NUMUNIT + 1) * sizeof(int));
+
+            stExtraDef* pCurrDef = GetCurrentExtraDef(0);
+
+            while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
+            {
+                if (pCurrDef->uUnitN != nCurrUnit)
+                {
+                    rgExtraLoc_14[pCurrDef->uUnitN] = nDefCtr;
+                    nCurrUnit = pCurrDef->uUnitN;
+                }
+
+                nDefCtr++;
+                pCurrDef = GetCurrentExtraDef(nDefCtr);
+            }
+        }
+
+        return rgExtraLoc_14[nUnitId];
+    }
+    case SF3ROM_51_4rd:
     {
         if (rgExtraLoc_4[0] == -1)
         {
@@ -298,7 +397,7 @@ int CGame_SFIII3_A::GetExtraLoc(UINT16 nUnitId)
 
         return rgExtraLoc_4[nUnitId];
     }
-    else if (UsePaletteSetFor3Ex())
+    case SF3ROM_70_EX:
     {
         if (rgExtraLoc_70[0] == -1)
         {
@@ -323,7 +422,10 @@ int CGame_SFIII3_A::GetExtraLoc(UINT16 nUnitId)
 
         return rgExtraLoc_70[nUnitId];
     }
-    else
+    default:
+        OutputDebugString(L"Warning: unrecognized ROM.\n");
+        __fallthrough;
+    case SF3ROM_51:
     {
         if (rgExtraLoc_51[0] == -1)
         {
@@ -348,28 +450,31 @@ int CGame_SFIII3_A::GetExtraLoc(UINT16 nUnitId)
 
         return rgExtraLoc_51[nUnitId];
     }
+    }
 }
 
 const sDescTreeNode* CGame_SFIII3_A::GetCurrentUnitSet()
 {
-    if (UsePaletteSetForGill())
+    switch (m_nSelectedRom)
     {
+    case SF3ROM_10:
         return SFIII3_A_10_UNITS;
-    }
-    else if (UsePaletteSetFor4rd())
-    {
-        return SFIII3_A_4_UNITS;
-    }
-    // probably need to branch here for 3Ex
-    else
-    {
+    case SF3ROM_10_4rd:
+        return SFIII3_A_14_UNITS;
+    default:
+        OutputDebugString(L"Warning: unrecognized ROM.\n");
+        __fallthrough;
+    case SF3ROM_51:
+    case SF3ROM_70_EX:
         return SFIII3_A_51_UNITS;
+    case SF3ROM_51_4rd:
+        return SFIII3_A_4_UNITS;
     }
 }
 
 UINT16 CGame_SFIII3_A::GetCurrentExtraLoc()
 {
-    if (UsePaletteSetForGill())
+    if (UsingROMForGill())
     {
         return SFIII3_A_10_EXTRALOC;
     }
@@ -381,41 +486,41 @@ UINT16 CGame_SFIII3_A::GetCurrentExtraLoc()
 
 CDescTree* CGame_SFIII3_A::GetMainTree()
 {
-    if (UsePaletteSetForGill())
+    switch (m_nSelectedRom)
     {
+    case SF3ROM_10:
         return &CGame_SFIII3_A::MainDescTree_10;
-    }
-    else if (UsePaletteSetFor4rd())
-    {
-        return &CGame_SFIII3_A::MainDescTree_4;
-    }
-    else if (UsePaletteSetFor3Ex())
-    {
-        return &CGame_SFIII3_A::MainDescTree_70;
-    }
-    else
-    {
+    case SF3ROM_10_4rd:
+        return &CGame_SFIII3_A::MainDescTree_14;
+    default:
+        OutputDebugString(L"Warning: unrecognized ROM.\n");
+        __fallthrough;
+    case SF3ROM_51:
         return &CGame_SFIII3_A::MainDescTree_51;
+    case SF3ROM_70_EX:
+        return &CGame_SFIII3_A::MainDescTree_70;
+    case SF3ROM_51_4rd:
+        return &CGame_SFIII3_A::MainDescTree_4;
     }
 }
 
 stExtraDef* CGame_SFIII3_A::GetCurrentExtraDef(int nDefCtr)
 {
-    if (UsePaletteSetForGill())
+    switch (m_nSelectedRom)
     {
+    case SF3ROM_10:
         return (stExtraDef*)&SFIII3_A_10_EXTRA_CUSTOM[nDefCtr];
-    }
-    else if (UsePaletteSetFor4rd())
-    {
-        return (stExtraDef*)&SFIII3_A_4_EXTRA_CUSTOM[nDefCtr];
-    }
-    else if (UsePaletteSetFor3Ex())
-    {
-        return (stExtraDef*)&SFIII3_A_70_EXTRA_CUSTOM[nDefCtr];
-    }
-    else
-    {
+    case SF3ROM_10_4rd:
+        return (stExtraDef*)&SFIII3_A_14_EXTRA_CUSTOM[nDefCtr];
+    default:
+        OutputDebugString(L"Warning: unrecognized ROM.\n");
+        __fallthrough;
+    case SF3ROM_51:
         return (stExtraDef*)&SFIII3_A_51_EXTRA_CUSTOM[nDefCtr];
+    case SF3ROM_51_4rd:
+        return (stExtraDef*)&SFIII3_A_4_EXTRA_CUSTOM[nDefCtr];
+    case SF3ROM_70_EX:
+        return (stExtraDef*)&SFIII3_A_70_EXTRA_CUSTOM[nDefCtr];
     }
 }
 
@@ -424,52 +529,58 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
     UINT32 nTotalPaletteCount = 0;
     m_nSelectedRom = nROMPaletteSetToUse;
 
-    bool fHaveExtras;
     UINT16 nUnitCt;
     UINT8 nExtraUnitLocation;
 
-    if (UsePaletteSetForGill())
+    switch (m_nSelectedRom)
     {
+    case SF3ROM_10:
         nExtraUnitLocation = SFIII3_A_10_EXTRALOC;
         LoadExtraFileForGame(EXTRA_FILENAME_SF3_10, SFIII3_A_EXTRA, &SFIII3_A_10_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
-        fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
-        nUnitCt = SFIII3_A_10_NUMUNIT + (fHaveExtras ? 1 : 0);
-    }
-    else if (UsePaletteSetFor4rd())
-    {
+        nUnitCt = SFIII3_A_10_NUMUNIT;
+        break;
+    case SF3ROM_10_4rd:
+        nExtraUnitLocation = SFIII3_A_10_EXTRALOC;
+        LoadExtraFileForGame(EXTRA_FILENAME_SF3_10, SFIII3_A_EXTRA, &SFIII3_A_14_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        nUnitCt = SFIII3_A_10_NUMUNIT;
+        break;
+    default:
+        OutputDebugString(L"Warning: unrecognized ROM.\n");
+        __fallthrough;
+    case SF3ROM_51:
+        nExtraUnitLocation = SFIII3_A_51_EXTRALOC;
+        LoadExtraFileForGame(EXTRA_FILENAME_SF3_51, SFIII3_A_EXTRA, &SFIII3_A_51_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
+        nUnitCt = SFIII3_A_51_NUMUNIT;
+        break;
+    case SF3ROM_51_4rd:
         nExtraUnitLocation = SFIII3_A_51_EXTRALOC;
         // Don't load extras for this version: it's only half the expected size so early extras would be in space
         LoadExtraFileForGame(nullptr, SFIII3_A_EXTRA, &SFIII3_A_4_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
-        fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
-        nUnitCt = SFIII3_A_51_NUMUNIT + (fHaveExtras ? 1 : 0);
-    }
-    else if (UsePaletteSetFor3Ex())
-    {
+        nUnitCt = SFIII3_A_51_NUMUNIT;
+        break;
+    case SF3ROM_70_EX:
         nExtraUnitLocation = SFIII3_A_51_EXTRALOC;
         LoadExtraFileForGame(EXTRA_FILENAME_SF3_51, SFIII3_A_EXTRA, &SFIII3_A_70_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
-        fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
-        nUnitCt = SFIII3_A_51_NUMUNIT + (fHaveExtras ? 1 : 0);
+        nUnitCt = SFIII3_A_51_NUMUNIT;
+        break;
     }
-    else
+
+    if (GetExtraCt(nExtraUnitLocation) > 0)
     {
-        nExtraUnitLocation = SFIII3_A_51_EXTRALOC;
-        //Load extra file if we're using it
-        LoadExtraFileForGame(EXTRA_FILENAME_SF3_51, SFIII3_A_EXTRA, &SFIII3_A_51_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
-        fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
-        nUnitCt = SFIII3_A_51_NUMUNIT + (fHaveExtras ? 1 : 0);
+        nUnitCt++;
     }
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[SFIII3_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[SFIII3_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    strMsg.Format(_T("CGame_SFIII3_A::InitDescTree: Building desc tree for SFIII3_A ROM %u...\n"), m_nSelectedRom);
+    strMsg.Format(L"CGame_SFIII3_A::InitDescTree: Building desc tree for SFIII3_A ROM %u...\n", m_nSelectedRom);
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -489,7 +600,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
         if (iUnitCtr != nExtraUnitLocation)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), GetCurrentUnitSet()[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", GetCurrentUnitSet()[iUnitCtr].szDesc);
 
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
@@ -497,7 +608,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if SFIII3_A_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
+            strMsg.Format(L"Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
             OutputDebugString(strMsg);
 #endif
 
@@ -519,7 +630,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if SFIII3_A_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -530,25 +641,25 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if SFIII3_A_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -559,13 +670,13 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
-            UnitNode->ChildNodes = new sDescTreeNode[1]; // Only 1, _T("Extra Palettes)"
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
+            UnitNode->ChildNodes = new sDescTreeNode[1]; // Only 1, L"Extra Palettes)"
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if SFIII3_A_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -578,7 +689,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
             int nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(nExtraUnitLocation > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -604,7 +715,7 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
                 ChildNode->uPalId = (((nExtraUnitLocation > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if SFIII3_A_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -614,24 +725,29 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
         }
     }
 
-    if (UsePaletteSetForGill())
+    switch (m_nSelectedRom)
     {
+    case SF3ROM_10:
         m_nTotalPaletteCountForSFIII3_10 = nTotalPaletteCount;
-    }
-    else if (UsePaletteSetFor4rd())
-    {
-        m_nTotalPaletteCountForSFIII3_4 = nTotalPaletteCount;
-    }
-    else if (UsePaletteSetFor3Ex())
-    {
-        m_nTotalPaletteCountForSFIII3_70 = nTotalPaletteCount;
-    }
-    else
-    {
+        break;
+    case SF3ROM_10_4rd:
+        m_nTotalPaletteCountForSFIII3_14 = nTotalPaletteCount;
+        break;
+    default:
+        OutputDebugString(L"Warning: unrecognized ROM.\n");
+        __fallthrough;
+    case SF3ROM_51:
         m_nTotalPaletteCountForSFIII3_51 = nTotalPaletteCount;
+        break;
+    case SF3ROM_51_4rd:
+        m_nTotalPaletteCountForSFIII3_4 = nTotalPaletteCount;
+        break;
+    case SF3ROM_70_EX:
+        m_nTotalPaletteCountForSFIII3_70 = nTotalPaletteCount;
+        break;
     }
 
-    strMsg.Format(_T("CGame_SFIII3_A::InitDescTree: Loaded %u palettes for SFIII3 ROM %u\n"), nTotalPaletteCount, m_nSelectedRom);
+    strMsg.Format(L"CGame_SFIII3_A::InitDescTree: Loaded %u palettes for SFIII3 ROM %u\n", nTotalPaletteCount, m_nSelectedRom);
     OutputDebugString(strMsg);
 
     return NewDescTree;
@@ -641,7 +757,7 @@ sFileRule CGame_SFIII3_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("51"));
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"51");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -678,7 +794,7 @@ LPCWSTR CGame_SFIII3_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nColl
 {
     if (nUnitId == GetCurrentExtraLoc())
     {
-        return _T("Extra Palettes");
+        return L"Extra Palettes";
     }
     else
     {
@@ -706,7 +822,7 @@ UINT16 CGame_SFIII3_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if SFIII3_A_DEBUG_EXTRA
         CString strMsg;
-        strMsg.Format(_T("CGame_SFIII3_A::GetPaletteCountForUnit: %u palettes for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_SFIII3_A::GetPaletteCountForUnit: %u palettes for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -931,7 +1047,7 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
             m_pppDataBuffer[nUnitCtr][nPalCtr] = new UINT16[m_nCurrentPaletteSizeInColors];
 
-            if (UsePaletteSetForGill())
+            if (IsROMEncrypted())
             {
                 UINT32 fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
                 const UINT8 cbStride = 4;
@@ -990,12 +1106,12 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                 if (!fShownOnce && (m_nCurrentPaletteROMLocation < GetLowestExpectedPaletteLocation())) // This magic number is the lowest known ROM location.
                 {
                     CString strMsg;
-                    strMsg.Format(_T("Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to."), nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
+                    strMsg.Format(L"Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
                     MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                     fShownOnce = true;
                 }
 
-                if (UsePaletteSetForGill())
+                if (IsROMEncrypted())
                 {
                     UINT32 fourByteBlocks = m_nCurrentPaletteSizeInColors >> 1;
                     const UINT8 cbStride = 4;
@@ -1025,7 +1141,7 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
     }
 
     CString strMsg;
-    strMsg.Format(_T("CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n"), nTotalPalettesSaved, nUnitAmt);
+    strMsg.Format(L"CGameClass::SaveFile: Saved 0x%x palettes to disk for %u units\n", nTotalPalettesSaved, nUnitAmt);
     OutputDebugString(strMsg);
 
     return TRUE;
@@ -1093,7 +1209,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                 while (nSrcStart >= nNodeIncrement)
                 {
-                    // The starting point is the absolute first palette for the sprite in question which is found in X-Ism 1
+                    // The starting point is the absolute first palette for the sprite in question which is found in LP
                     nSrcStart -= nNodeIncrement;
                 }
             }
@@ -1167,11 +1283,11 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
                     BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId);
 
-                    BasePalGroup.AddSep(0, _T("Concrete"), 0, 16);
-                    BasePalGroup.AddSep(0, _T("Turtle"), 16, 16);
-                    BasePalGroup.AddSep(0, _T("Dinosaur / Stone"), 32, 16);
-                    BasePalGroup.AddSep(0, _T("Rocket"), 48, 16);
-                    BasePalGroup.AddSep(0, _T("Brick"), 64, 16);
+                    BasePalGroup.AddSep(0, L"Concrete", 0, 16);
+                    BasePalGroup.AddSep(0, L"Turtle", 16, 16);
+                    BasePalGroup.AddSep(0, L"Dinosaur / Stone", 32, 16);
+                    BasePalGroup.AddSep(0, L"Rocket", 48, 16);
+                    BasePalGroup.AddSep(0, L"Brick", 64, 16);
 
                     ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 

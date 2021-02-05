@@ -1905,14 +1905,14 @@ const sGame_PaletteDataset SAMSHO5_A_Yunfei_PALETTES_D[] =
 const sGame_PaletteDataset SAMSHO5_A_Yumeji_PALETTES_A[] =
 {
     //--A--
-    { L"Yumeji A", 0xe0000, 0xe0040, indexSS5_Yumeji },
-    { L"Yumeji A Rage", 0xe0040, 0xe0080, indexSS5_Yumeji },
-    { L"Yumeji A Burned", 0xe00c0, 0xe0100, indexSS5_Yumeji },
-    { L"Yumeji A Zapped", 0xe0100, 0xe0140, indexSS5_Yumeji },
-    { L"Yumeji A Freezed", 0xe0140, 0xe0180, indexSS5_Yumeji },
-    { L"Yumeji A KI", 0xe0180, 0xe01c0, indexSS5_Yumeji },
-    { L"Yumeji A Issen Trail", 0xe0200, 0xe0240, indexSS5_Yumeji },
-    { L"Yumeji A SON", 0xe0240, 0xe0280, indexSS5_Yumeji },
+    { L"Yumeji A", 0xe0000, 0xe0040, indexSS5_Yumeji, 0x00, &pairNext8 },
+    { L"Yumeji A Rage", 0xe0040, 0xe0080, indexSS5_Yumeji, 0x00, &pairNext7 },
+    { L"Yumeji A Burned", 0xe00c0, 0xe0100, indexSS5_Yumeji, 0x00, &pairNext6 },
+    { L"Yumeji A Zapped", 0xe0100, 0xe0140, indexSS5_Yumeji, 0x00, &pairNext5 },
+    { L"Yumeji A Freezed", 0xe0140, 0xe0180, indexSS5_Yumeji, 0x00, &pairNext4 },
+    { L"Yumeji A KI", 0xe0180, 0xe01c0, indexSS5_Yumeji, 0x00, &pairNext3 },
+    { L"Yumeji A Issen Trail", 0xe0200, 0xe0240, indexSS5_Yumeji, 0x00, &pairNext2 },
+    { L"Yumeji A SON", 0xe0240, 0xe0280, indexSS5_Yumeji, 0x00, &pairNext },
     { L"Yumeji A Tomato", 0xe03e0, 0xe0400, indexSS5_Yumeji, 0x01 },
     { L"Yumeji A Transformation", 0xe00a0, 0xe00c0 },
     { L"Yumeji A Transformation Weapons", 0xe0080, 0xe00a0 },
@@ -1927,20 +1927,19 @@ const sGame_PaletteDataset SAMSHO5_A_Yumeji_PALETTES_A[] =
     { L"Yumeji A Kyoshiro", 0xe0360, 0xe0380 },
     { L"Yumeji A Yoshitora", 0xe0380, 0xe03a0 },
     { L"Yumeji A Slash Effect", 0xe0340, 0xe0360 },
-
 };
 
 const sGame_PaletteDataset SAMSHO5_A_Yumeji_PALETTES_B[] =
 {
     // --B--
-    { L"Yumeji B", 0xe0400, 0xe0440, indexSS5_Yumeji },
-    { L"Yumeji B Rage", 0xe0440, 0xe0480, indexSS5_Yumeji },
-    { L"Yumeji B Burned", 0xe04c0, 0xe0500, indexSS5_Yumeji },
-    { L"Yumeji B Zapped", 0xe0500, 0xe0540, indexSS5_Yumeji },
-    { L"Yumeji B Freezed", 0xe0540, 0xe0580, indexSS5_Yumeji },
-    { L"Yumeji B KI", 0xe0580, 0xe05c0, indexSS5_Yumeji },
-    { L"Yumeji B Issen Trail", 0xe0600, 0xe0640, indexSS5_Yumeji },
-    { L"Yumeji B SON", 0xe0640, 0xe0680, indexSS5_Yumeji },
+    { L"Yumeji B", 0xe0400, 0xe0440, indexSS5_Yumeji, 0x00, &pairNext8 },
+    { L"Yumeji B Rage", 0xe0440, 0xe0480, indexSS5_Yumeji, 0x00, &pairNext7 },
+    { L"Yumeji B Burned", 0xe04c0, 0xe0500, indexSS5_Yumeji, 0x00, &pairNext6 },
+    { L"Yumeji B Zapped", 0xe0500, 0xe0540, indexSS5_Yumeji, 0x00, &pairNext5 },
+    { L"Yumeji B Freezed", 0xe0540, 0xe0580, indexSS5_Yumeji, 0x00, &pairNext4 },
+    { L"Yumeji B KI", 0xe0580, 0xe05c0, indexSS5_Yumeji, 0x00, &pairNext3 },
+    { L"Yumeji B Issen Trail", 0xe0600, 0xe0640, indexSS5_Yumeji, 0x00, &pairNext2 },
+    { L"Yumeji B SON", 0xe0640, 0xe0680, indexSS5_Yumeji, 0x00, &pairNext },
     { L"Yumeji B Tomato", 0xe07e0, 0xe0800, indexSS5_Yumeji, 0x01 },
     { L"Yumeji B Slash Effect", 0xe0740, 0xe0760 },
     { L"Yumeji B Transformation", 0xe04a0, 0xe04c0 },
@@ -1960,14 +1959,14 @@ const sGame_PaletteDataset SAMSHO5_A_Yumeji_PALETTES_B[] =
 const sGame_PaletteDataset SAMSHO5_A_Yumeji_PALETTES_C[] =
 {
     // --C--
-    { L"Yumeji C", 0xe0800, 0xe0840, indexSS5_Yumeji },
-    { L"Yumeji C Rage", 0xe0840, 0xe0880, indexSS5_Yumeji },
-    { L"Yumeji C Burned", 0xe08c0, 0xe0900, indexSS5_Yumeji },
-    { L"Yumeji C Zapped", 0xe0900, 0xe0940, indexSS5_Yumeji },
-    { L"Yumeji C Freezed", 0xe0940, 0xe0980, indexSS5_Yumeji },
-    { L"Yumeji C KI", 0xe0980, 0xe09c0, indexSS5_Yumeji },
-    { L"Yumeji C Issen Trail", 0xe0a00, 0xe0a40, indexSS5_Yumeji },
-    { L"Yumeji C SON", 0xe0a40, 0xe0a80, indexSS5_Yumeji },
+    { L"Yumeji C", 0xe0800, 0xe0840, indexSS5_Yumeji, 0x00, &pairNext8 },
+    { L"Yumeji C Rage", 0xe0840, 0xe0880, indexSS5_Yumeji, 0x00, &pairNext7 },
+    { L"Yumeji C Burned", 0xe08c0, 0xe0900, indexSS5_Yumeji, 0x00, &pairNext6 },
+    { L"Yumeji C Zapped", 0xe0900, 0xe0940, indexSS5_Yumeji, 0x00, &pairNext5 },
+    { L"Yumeji C Freezed", 0xe0940, 0xe0980, indexSS5_Yumeji, 0x00, &pairNext4 },
+    { L"Yumeji C KI", 0xe0980, 0xe09c0, indexSS5_Yumeji, 0x00, &pairNext3 },
+    { L"Yumeji C Issen Trail", 0xe0a00, 0xe0a40, indexSS5_Yumeji, 0x00, &pairNext2 },
+    { L"Yumeji C SON", 0xe0a40, 0xe0a80, indexSS5_Yumeji, 0x00, &pairNext },
     { L"Yumeji C Tomato", 0xe0be0, 0xe0c00, indexSS5_Yumeji, 0x01 },
     { L"Yumeji C Transformation", 0xe08a0, 0xe08c0 },
     { L"Yumeji C Transformation Weapons", 0xe0880, 0xe08a0 },
@@ -1987,14 +1986,14 @@ const sGame_PaletteDataset SAMSHO5_A_Yumeji_PALETTES_C[] =
 const sGame_PaletteDataset SAMSHO5_A_Yumeji_PALETTES_D[] =
 {
     // --D--
-    { L"Yumeji D", 0xe0c00, 0xe0c40, indexSS5_Yumeji },
-    { L"Yumeji D Rage", 0xe0c40, 0xe0c80, indexSS5_Yumeji },
-    { L"Yumeji D Burned", 0xe0cc0, 0xe0d00, indexSS5_Yumeji },
-    { L"Yumeji D Zapped", 0xe0d00, 0xe0d40, indexSS5_Yumeji },
-    { L"Yumeji D Freezed", 0xe0d40, 0xe0d80, indexSS5_Yumeji },
-    { L"Yumeji D KI", 0xe0d80, 0xe0dc0, indexSS5_Yumeji },
-    { L"Yumeji D Issen Trail", 0xe0e00, 0xe0e40, indexSS5_Yumeji },
-    { L"Yumeji D SON", 0xe0e40, 0xe0e8, indexSS5_Yumeji },
+    { L"Yumeji D", 0xe0c00, 0xe0c40, indexSS5_Yumeji, 0x00, &pairNext8 },
+    { L"Yumeji D Rage", 0xe0c40, 0xe0c80, indexSS5_Yumeji, 0x00, &pairNext7 },
+    { L"Yumeji D Burned", 0xe0cc0, 0xe0d00, indexSS5_Yumeji, 0x00, &pairNext6 },
+    { L"Yumeji D Zapped", 0xe0d00, 0xe0d40, indexSS5_Yumeji, 0x00, &pairNext5 },
+    { L"Yumeji D Freezed", 0xe0d40, 0xe0d80, indexSS5_Yumeji, 0x00, &pairNext4 },
+    { L"Yumeji D KI", 0xe0d80, 0xe0dc0, indexSS5_Yumeji, 0x00, &pairNext3 },
+    { L"Yumeji D Issen Trail", 0xe0e00, 0xe0e40, indexSS5_Yumeji, 0x00, &pairNext2 },
+    { L"Yumeji D SON", 0xe0e40, 0xe0e80, indexSS5_Yumeji, 0x00, &pairNext },
     { L"Yumeji D Tomato", 0xe0fe0, 0xe1000, indexSS5_Yumeji, 0x01 },
     { L"Yumeji D Transformation", 0xe0ca0, 0xe0cc0 },
     { L"Yumeji D Transformation Weapons", 0xe0c80, 0xe0ca0 },

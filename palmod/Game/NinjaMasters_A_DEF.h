@@ -182,7 +182,7 @@ const sGame_PaletteDataset NINJAMASTERS_A_TENHO_B[] =
     { L"Weapon Darkness Combo B", 0x083630, 0x083650 },
     { L"Desperation Move B", 0x083650, 0x083670 },
     { L"Weapon Desperation Move B", 0x083670, 0x083690 },
-    { L"Burned B", 0x083590, 0x0833b0 },
+    { L"Burned B", 0x083590, 0x0835b0 },
     { L"Blue Burned B", 0x0835b0, 0x0835d0 },
     { L"Zapped B", 0x0835d0, 0x0835f0 },
     { L"Energy Zapped B", 0x0835f0, 0x083610 },

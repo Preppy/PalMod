@@ -422,7 +422,16 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
-    case SFIII3_A_DIR_4:
+    case SFIII3_A_DIR_4rd_10:
+    {
+        GetRuleCtr = &CGame_SFIII3_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_SFIII3_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_SFIII3_A_DIR::GetRule4_10;
+        GetNextRule = &CGame_SFIII3_A_DIR::GetNextRule4_10;
+
+        return TRUE;
+    }
+    case SFIII3_A_DIR_4rd:
     {
         GetRuleCtr = &CGame_SFIII3_A_DIR::GetRuleCtr;
         ResetRuleCtr = &CGame_SFIII3_A_DIR::ResetRuleCtr;
@@ -774,9 +783,13 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_SFIII3_A_DIR(-1, 10);
     }
-    case SFIII3_A_DIR_4:
+    case SFIII3_A_DIR_4rd:
     {
         return new CGame_SFIII3_A_DIR(-1, 4);
+    }
+    case SFIII3_A_DIR_4rd_10:
+    {
+        return new CGame_SFIII3_A_DIR(-1, 14);
     }
     case SFIII3_A_DIR_51:
     {

@@ -1103,6 +1103,9 @@
     <None Include="res\PalMod.rc2">
       <Filter>Main DLG/APP\Resource Files</Filter>
     </None>
+    <None Include="..\..\AllRoms\Originals\sfiii4n\dec_4rd_10_file">
+      <Filter>Game\SNK Games</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

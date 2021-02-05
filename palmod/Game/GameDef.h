@@ -64,7 +64,7 @@ enum SupportedGamesList
     KOFXI_A,
     NGBC_A,
     BREAKERS_A,
-    SFIII3_A_DIR_4,
+    SFIII3_A_DIR_4rd,
     BLEACH_DS,
     KOF03_A,
     MMPR_SNES,
@@ -93,6 +93,7 @@ enum SupportedGamesList
     DUMMY_RGB444_LE,
     SDODGEBALL_A,
     NINJAMASTERS_A,
+    SFIII3_A_DIR_4rd_10,
 
     NUM_GAMES // This needs to be last
 };
@@ -160,7 +161,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"KOF: XI (Atomiswave)",
    L"NGBC (Atomiswave)",
    L"Breakers Revenge (Arcade)",
-   L"SFIII:4rd (Arcade)",
+   L"SFIII:4rd Strike (Arcade)",
    L"Bleach DS (Nintendo DS)",
    L"KOF03: 2004 EX Ultra Plus",
    L"MMPR:TFE (SNES)",
@@ -189,6 +190,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Fake game ID for RGB444 little endian",
    L"Super Dodge Ball (Neo-Geo)",
    L"Ninja Masters (Neo-Geo)",
+   L"SFIII:4rd Strike Gill Glow (Arcade)",
 };
 
 enum class GamePlatform

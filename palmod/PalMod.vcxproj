@@ -508,6 +508,7 @@
     <ResourceCompile Include="PalMod.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\AllRoms\Originals\sfiii4n\dec_4rd_10_file" />
     <None Include="res\PalMod.rc2" />
   </ItemGroup>
   <ItemGroup>

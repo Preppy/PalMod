@@ -191,6 +191,7 @@
 #define ID_COLORFORMAT_RGB444_LE        32879
 #define IDS_ERROR_NOTWRITABLE_CDI       32880
 #define IDS_ERROR_NOTWRITABLE_DRIVE     32881
+#define ID_LD_SFIII3ARCADE4rd10         32882
 
 // Please note that the F0000 range (983040) is reserved for the dynamic game menu
 
@@ -199,7 +200,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32882
+#define _APS_NEXT_COMMAND_VALUE         32883
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

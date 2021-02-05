@@ -1344,43 +1344,43 @@ const sGame_PaletteDataset SFIII3_A_HUGO_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_LP_PALETTES[] =
 {
-    { L"Facing Left LP", 0x700000, 0x700080, index3S_CPS3_Gill, 0x01 },
-    { L"Facing Right LP", 0x700080, 0x700100, index3S_CPS3_Gill, 0x00 },
+    { L"Intro Facing Left LP", 0x700000, 0x700080, index3S_CPS3_Gill, 0x01 },
+    { L"Intro Facing Right LP", 0x700080, 0x700100, index3S_CPS3_Gill, 0x00 },
     { L"LP Portrait", 0x763b00, 0x763b20 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_MP_PALETTES[] =
 {
-    { L"Facing Left MP", 0x700100, 0x700180, index3S_CPS3_Gill, 0x01 },
-    { L"Facing Right MP", 0x700180, 0x700200, index3S_CPS3_Gill, 0x00 },
+    { L"Intro Facing Left MP", 0x700100, 0x700180, index3S_CPS3_Gill, 0x01 },
+    { L"Intro Facing Right MP", 0x700180, 0x700200, index3S_CPS3_Gill, 0x00 },
     { L"MP Portrait", 0x763b20, 0x763b40 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_HP_PALETTES[] =
 {
-    { L"Facing Left HP", 0x700200, 0x700280, index3S_CPS3_Gill, 0x01 },
-    { L"Facing Right HP", 0x700280, 0x700300, index3S_CPS3_Gill, 0x00 },
+    { L"Intro Facing Left HP", 0x700200, 0x700280, index3S_CPS3_Gill, 0x01 },
+    { L"Intro Facing Right HP", 0x700280, 0x700300, index3S_CPS3_Gill, 0x00 },
     { L"HP Portrait", 0x763b40, 0x763b60 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_LK_PALETTES[] =
 {
-    { L"Facing Left LK", 0x700300, 0x700380, index3S_CPS3_Gill, 0x01 },
-    { L"Facing Right LK", 0x700380, 0x700400, index3S_CPS3_Gill, 0x00 },
+    { L"Intro Facing Left LK", 0x700300, 0x700380, index3S_CPS3_Gill, 0x01 },
+    { L"Intro Facing Right LK", 0x700380, 0x700400, index3S_CPS3_Gill, 0x00 },
     { L"LK Portrait", 0x763b60, 0x763b80 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_MK_PALETTES[] =
 {
-    { L"Facing Left MK", 0x700400, 0x700480, index3S_CPS3_Gill, 0x01 },
-    { L"Facing Right MK", 0x700480, 0x700500, index3S_CPS3_Gill, 0x00 },
+    { L"Intro Facing Left MK", 0x700400, 0x700480, index3S_CPS3_Gill, 0x01 },
+    { L"Intro Facing Right MK", 0x700480, 0x700500, index3S_CPS3_Gill, 0x00 },
     { L"MK Portrait", 0x763b80, 0x763ba0 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_HK_PALETTES[] =
 {
-    { L"Facing Left HK", 0x700500, 0x700580, index3S_CPS3_Gill, 0x01 },
-    { L"Facing Right HK", 0x700580, 0x700600, index3S_CPS3_Gill, 0x00 }, 
+    { L"Intro Facing Left HK", 0x700500, 0x700580, index3S_CPS3_Gill, 0x01 },
+    { L"Intro Facing Right HK", 0x700580, 0x700600, index3S_CPS3_Gill, 0x00 }, 
     { L"HK Portrait", 0x763ba0, 0x763bc0 },
 };
 
@@ -1681,7 +1681,7 @@ const sDescTreeNode SFIII3_A_GILL_4_COLLECTION[] =
     { L"HK", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_HK_PALETTES, ARRAYSIZE(SFIII3_A_GILL_HK_PALETTES) },
     { L"Support", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_Support_PALETTES, ARRAYSIZE(SFIII3_A_GILL_Support_PALETTES) },
     { L"Portraits and Select Icon", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PORTRAIT_PALETTES, ARRAYSIZE(SFIII3_A_GILL_PORTRAIT_PALETTES) },
-    { L"Extras (glow is in ROM 10)", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_EXTRAS_PALETTES, ARRAYSIZE(SFIII3_A_GILL_EXTRAS_PALETTES) },
+    { L"Extras", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_EXTRAS_PALETTES, ARRAYSIZE(SFIII3_A_GILL_EXTRAS_PALETTES) },
 };
 
 const sDescTreeNode SFIII3_A_GILL_51_COLLECTION[] =
@@ -2717,6 +2717,55 @@ const sDescTreeNode SFIII3_A_GILL_COLLECTION[] = // This is Gill glow from ROM 1
     { L"Right",   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_RIGHT, ARRAYSIZE(SFIII3_A_GILL_PALETTES_RIGHT) },
 };
 
+// We're shifting here to counter the normal shift needed for the SFIII3_10_990512 base ROM that 4rd Strke uses
+const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_4rd_LP[] =
+{
+    { L"LP Main Facing Left",  0x7d2200 - 0x14c, 0x7d2280 - 0x14c, index3S_CPS3_Gill, 0x01 },
+    { L"LP Main Facing Right", 0x7d2280 - 0x14c, 0x7d2300 - 0x14c, index3S_CPS3_Gill },
+};
+
+const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_4rd_MP[] =
+{
+    { L"MP Main Facing Left",  0x7d2400 - 0x14c, 0x7d2480 - 0x14c, index3S_CPS3_Gill, 0x01 },
+    { L"MP Main Facing Right", 0x7d2480 - 0x14c, 0x7d2500 - 0x14c, index3S_CPS3_Gill },
+};
+
+const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_4rd_HP[] =
+{
+    { L"HP Main Facing Left",  0x7d2600 - 0x14c, 0x7d2680 - 0x14c, index3S_CPS3_Gill, 0x01 },
+    { L"HP Main Facing Right", 0x7d2680 - 0x14c, 0x7d2700 - 0x14c, index3S_CPS3_Gill },
+};
+
+const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_4rd_LK[] =
+{
+    { L"LK Main Facing Left",  0x7d2300 - 0x14c, 0x7d2380 - 0x14c, index3S_CPS3_Gill, 0x01 },
+    { L"LK Main Facing Right", 0x7d2380 - 0x14c, 0x7d2400 - 0x14c, index3S_CPS3_Gill },
+};
+
+const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_4rd_MK[] =
+{
+    { L"MK Main Facing Left",  0x7d2500 - 0x14c, 0x7d2580 - 0x14c, index3S_CPS3_Gill, 0x01 },
+    { L"MK Main Facing Right", 0x7d2580 - 0x14c, 0x7d2600 - 0x14c, index3S_CPS3_Gill },
+};
+
+const sGame_PaletteDataset SFIII3_A_GILL_PALETTES_4rd_HK[] =
+{
+    { L"HK Main Facing Left",  0x7d2700 - 0x14c, 0x7d2780 - 0x14c, index3S_CPS3_Gill, 0x01 },
+    { L"HK Main Facing Right", 0x7d2780 - 0x14c, 0x7d2800 - 0x14c, index3S_CPS3_Gill },
+};
+
+const sDescTreeNode SFIII3_A_GILL_4rd_COLLECTION[] = // This is Gill glow from ROM 10
+{
+    { L"LP",    DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_4rd_LP, ARRAYSIZE(SFIII3_A_GILL_PALETTES_4rd_LP) },
+    { L"MP",    DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_4rd_MP, ARRAYSIZE(SFIII3_A_GILL_PALETTES_4rd_MP) },
+    { L"HP",    DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_4rd_HP, ARRAYSIZE(SFIII3_A_GILL_PALETTES_4rd_HP) },
+    { L"LK",    DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_4rd_LK, ARRAYSIZE(SFIII3_A_GILL_PALETTES_4rd_LK) },
+    { L"MK",    DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_4rd_MK, ARRAYSIZE(SFIII3_A_GILL_PALETTES_4rd_MK) },
+    { L"HK",    DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_4rd_HK, ARRAYSIZE(SFIII3_A_GILL_PALETTES_4rd_HK) },
+    { L"Left Glow",  DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_LEFT, ARRAYSIZE(SFIII3_A_GILL_PALETTES_LEFT) },
+    { L"Right Glow", DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_PALETTES_RIGHT, ARRAYSIZE(SFIII3_A_GILL_PALETTES_RIGHT) },
+};
+
 const sGame_PaletteDataset SFIII3_A_XCOPY_PALETTES_LP[] =
 {
     { L"Gill Left", 0x0600b5c, 0x0600bdc, index3S_CPS3_Gill, 0x01 },
@@ -2905,7 +2954,7 @@ const sDescTreeNode SFIII3_A_XCOPY_COLLECTION[] =
 
 const sDescTreeNode SFIII3_A_10_UNITS[] =
 {
-    { L"Gill (glow)",   DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_COLLECTION) },
+    { L"Gill (glow)",           DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_COLLECTION) },
     { L"Twelve's X.C.O.P.Y.",   DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_COLLECTION, ARRAYSIZE(SFIII3_A_XCOPY_COLLECTION) },
 };
 
@@ -2915,6 +2964,12 @@ const sDescTreeNode SFIII3_A_10_UNITS[] =
 #define k_sf3NameKey_Urien L"Urien"
 #define k_sf3NameKey_UltraSean L"Ultra-Sean"
 #define k_sf3NameKey_ShinGouki L"Shin Gouki"
+
+const sDescTreeNode SFIII3_A_14_UNITS[] =
+{
+    { k_sf3NameKey_Gill,        DESC_NODETYPE_TREE, (void*)SFIII3_A_GILL_4rd_COLLECTION, ARRAYSIZE(SFIII3_A_GILL_4rd_COLLECTION) },
+    { L"Twelve's X.C.O.P.Y.",   DESC_NODETYPE_TREE, (void*)SFIII3_A_XCOPY_COLLECTION, ARRAYSIZE(SFIII3_A_XCOPY_COLLECTION) },
+};
 
 const sDescTreeNode SFIII3_A_4_UNITS[] =
 {

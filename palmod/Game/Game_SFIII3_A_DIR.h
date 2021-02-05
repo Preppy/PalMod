@@ -8,6 +8,7 @@ enum class SFIII3_SupportedROMRevision
     SFIII3_51,
     SFIII3_4rd,
     SFIII3_3Ex,
+    SFIII3_10_4rd,
     SFIII3_Unsupported,
 };
 
@@ -40,14 +41,17 @@ public:
     static UINT16 GetRuleCtr() { return uRuleCtr; };
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
-    static sFileRule GetNextRule10() { return GetNextRuleInternal(10); };
-    static sFileRule GetNextRule4() { return GetNextRuleInternal(4); };
-    static sFileRule GetNextRule51() { return GetNextRuleInternal(51); };
-    static sFileRule GetNextRule3Ex() { return GetNextRuleInternal(70); };
-    static sFileRule GetRule10(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 10); };
-    static sFileRule GetRule4(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 4); };
-    static sFileRule GetRule51(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 51); };
-    static sFileRule GetRule3Ex(UINT16 nRuleId) { return GetRuleInternal(nRuleId, 70); };
+    static sFileRule GetNextRule10() { return GetNextRuleInternal(SF3ROM_10); };
+    static sFileRule GetNextRule4_10() { return GetNextRuleInternal(SF3ROM_10_4rd); };
+    static sFileRule GetNextRule4() { return GetNextRuleInternal(SF3ROM_51_4rd); };
+    static sFileRule GetNextRule51() { return GetNextRuleInternal(SF3ROM_51); };
+    static sFileRule GetNextRule3Ex() { return GetNextRuleInternal(SF3ROM_70_EX); };
+    static sFileRule GetRule10(UINT16 nRuleId) { return GetRuleInternal(nRuleId, SF3ROM_10); };
+    static sFileRule GetRule4_10(UINT16 nRuleId) { return GetRuleInternal(nRuleId, SF3ROM_10_4rd); };
+    static sFileRule GetRule4(UINT16 nRuleId) { return GetRuleInternal(nRuleId, SF3ROM_51_4rd); };
+    static sFileRule GetRule51(UINT16 nRuleId) { return GetRuleInternal(nRuleId, SF3ROM_51); };
+    static sFileRule GetRule3Ex(UINT16 nRuleId) { return GetRuleInternal(nRuleId, SF3ROM_70_EX); };
+    static bool LoadedROMNeedsShift() { return (m_currentSFIII3ROMRevision == SFIII3_SupportedROMRevision::SFIII3_10_990512) || (m_currentSFIII3ROMRevision == SFIII3_SupportedROMRevision::SFIII3_10_4rd); };
 
     BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override;
     BOOL SaveFile(CFile* SaveFile, UINT16 nSIMMNumber) override;
