@@ -94,6 +94,7 @@ enum SupportedGamesList
     SDODGEBALL_A,
     NINJAMASTERS_A,
     SFIII3_A_DIR_4rd_10,
+    KOF97_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -127,11 +128,11 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"MVC2 (Arcade)",
    L"Garou: MotW (Arcade)",
    L"Unknown Game",
-   L"KOF: 98 (Arcade)",
+   L"KOF: 98 (Neo-Geo)",
    L"KOF: 02UM (Steam)",
    L"CVS2 (Arcade)",
    L"Garou: MotW (Steam)",
-   L"KOF: 02 (Arcade)",
+   L"KOF: 02 (Neo-Geo)",
    L"SFA2 (Arcade)",
    L"SFIII:3S (Arcade Rerip)",
    L"Jojo's 50 (Japanese Arcade Rerip)",
@@ -165,11 +166,11 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Bleach DS (Nintendo DS)",
    L"KOF03: 2004 EX Ultra Plus",
    L"MMPR:TFE (SNES)",
-   L"KOF01 (Arcade)",
+   L"KOF01 (Neo-Geo)",
    L"Neo Bomberman (Arcade)",
    L"Gundam Wing: Endless Duel (SNES)",
-   L"KOF: 94 (Arcade)",
-   L"KOF: 99AE (Arcade)",
+   L"KOF: 94 (Neo-Geo)",
+   L"KOF: 99AE (Neo-Geo)",
    L"Clay Fighter: TE (SNES)",
    L"Fatal Fury Special (SNES)",
    L"Fake game ID for RGB9",
@@ -191,6 +192,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Super Dodge Ball (Neo-Geo)",
    L"Ninja Masters (Neo-Geo)",
    L"SFIII:4rd Strike Gill Glow (Arcade)",
+   L"KOF97 (Neo-Geo)",
 };
 
 enum class GamePlatform

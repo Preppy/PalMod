@@ -1,36 +1,36 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_KOF98_A.h"
+#include "Game_KOF97_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define KOF98_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define KOF97_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_KOF98_A::KOF98_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_KOF97_A::KOF97_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_KOF98_A::MainDescTree = nullptr;
+CDescTree CGame_KOF97_A::MainDescTree = nullptr;
 
-int CGame_KOF98_A::rgExtraCountAll[KOF98_A_NUMUNIT + 1];
-int CGame_KOF98_A::rgExtraLoc[KOF98_A_NUMUNIT + 1];
+int CGame_KOF97_A::rgExtraCountAll[KOF97_A_NUMUNIT + 1];
+int CGame_KOF97_A::rgExtraLoc[KOF97_A_NUMUNIT + 1];
 
-UINT32 CGame_KOF98_A::m_nTotalPaletteCountForKOF98 = 0;
-UINT32 CGame_KOF98_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
-UINT32 CGame_KOF98_A::m_nConfirmedROMSize = -1;
+UINT32 CGame_KOF97_A::m_nTotalPaletteCountForKOF97 = 0;
+UINT32 CGame_KOF97_A::m_nExpectedGameROMSize = 0x400000;  // 4194304 bytes
+UINT32 CGame_KOF97_A::m_nConfirmedROMSize = -1;
 
-void CGame_KOF98_A::InitializeStatics()
+void CGame_KOF97_A::InitializeStatics()
 {
-    safe_delete_array(CGame_KOF98_A::KOF98_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_KOF97_A::KOF97_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_KOF98_A::InitDescTree());
+    MainDescTree.SetRootTree(CGame_KOF97_A::InitDescTree());
 }
 
-CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
+CGame_KOF97_A::CGame_KOF97_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(L"CGame_KOF98_A::CGame_KOF98_A: Loading ROM...\n");
+    strMessage.Format(L"CGame_KOF97_A::CGame_KOF97_A: Loading ROM...\n");
     OutputDebugString(strMessage);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
@@ -38,14 +38,14 @@ CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = KOF98_A_NUMUNIT;
-    m_nExtraUnit = KOF98_A_EXTRALOC;
+    m_nTotalInternalUnits = KOF97_A_NUMUNIT;
+    m_nExtraUnit = KOF97_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1909;
-    m_pszExtraFilename = EXTRA_FILENAME_KOF98_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForKOF98;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 2240;
+    m_pszExtraFilename = EXTRA_FILENAME_KOF97_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForKOF97;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x2d97f0;
+    m_nLowestKnownPaletteRomLocation = 0x2d1ff0;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -59,7 +59,7 @@ CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
     BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
-    nGameFlag = KOF98_A;
+    nGameFlag = KOF97_A;
     nImgGameFlag = IMGDAT_SECTION_SNK;
     nImgUnitAmt = KOF98_A_NUM_IMG_UNITS;
     m_prgGameImageSet = KOF98_A_IMG_UNITS;
@@ -80,75 +80,27 @@ CGame_KOF98_A::CGame_KOF98_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_KOF98_A::~CGame_KOF98_A(void)
+CGame_KOF97_A::~CGame_KOF97_A(void)
 {
-    safe_delete_array(CGame_KOF98_A::KOF98_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_KOF97_A::KOF97_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-CDescTree* CGame_KOF98_A::GetMainTree()
+CDescTree* CGame_KOF97_A::GetMainTree()
 {
-    return &CGame_KOF98_A::MainDescTree;
+    return &CGame_KOF97_A::MainDescTree;
 }
 
-UINT32 CGame_KOF98_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
-{
-    static sCRC32ValueSet knownROMs[] =
-    {
-        // There are three unique ROM sets, but the first two share the same palette file,
-        // and the third one we don't care about.
-        { L"KOF '98 (Arcade)", L"242-p2.sp2", 0x980aba4c, 0 },
-        { L"KOF '98 (Arcade)", L"kof98_p2.rom", 0x980aba4c, 0 },
-        { L"KOF '98 (Arcade Alt)", L"242-ep.ep2", 0x6e474841, 0 },
-    };
-
-    if (ppKnownROMSet != nullptr)
-    {
-        *ppKnownROMSet = knownROMs;
-    }
-
-    if (pfNeedToValidateCRCs)
-    {
-        // Each filename is associated with a single CRC
-        *pfNeedToValidateCRCs = false;
-    }
-
-    return ARRAYSIZE(knownROMs);
-
-#ifdef NOTES
-    // These are the MAME values...
-    <software name = "kof98">
-        <description>The King of Fighters '98 - The Slugfest / King of Fighters '98 - Dream Match Never Ends(NGM - 2420) </description>
-            <rom loadflag="load16_word_swap" name="242-p2.sp2" offset="0x200000" size="0x400000" crc="980aba4c" sha1="5e735929ec6c3ca5b2efae3c7de47bcbb8ade2c5" />  <!--TC5332205-->
-
-	<software name="kof98k" cloneof="kof98">
-		<description>The King of Fighters '98 - The Slugfest / King of Fighters '98 - Dream Match Never Ends (Korean board, set 1)</description>
-			<rom loadflag="load16_word_swap" name="242-p2.sp2" offset="0x200000" size="0x400000" crc="980aba4c" sha1="5e735929ec6c3ca5b2efae3c7de47bcbb8ade2c5" />  <!-- TC5332205 -->
-
-	<software name="kof98ka" cloneof="kof98">
-		<description>The King of Fighters '98 - The Slugfest / King of Fighters '98 - Dream Match Never Ends (Korean board, set 2)</description>
-			<rom loadflag="load16_word_swap" name="242-p2.sp2" offset="0x200000" size="0x400000" crc="980aba4c" sha1="5e735929ec6c3ca5b2efae3c7de47bcbb8ade2c5" />  <!-- TC5332205 -->
-
-	<software name="kof98h" cloneof="kof98">
-		<description>The King of Fighters '98 - The Slugfest / King of Fighters '98 - Dream Match Never Ends (NGH-2420)</description>
-				<rom loadflag="load16_word_swap" name="242-p2.sp2" offset="0x100000" size="0x400000" crc="980aba4c" sha1="5e735929ec6c3ca5b2efae3c7de47bcbb8ade2c5" />  <!-- TC5332205 -->
-
-	<software name="kof98a" cloneof="kof98">
-		<description>The King of Fighters '98 - The Slugfest / King of Fighters '98 - Dream Match Never Ends (NGM-2420, alt board)</description>
-				<rom loadflag="load16_word_swap" name="242-ep2.ep2" offset="0x400000" size="0x200000" crc="6e474841" sha1="0ce401277f9c53435ea00b930efe361c8d25a7d9" /> <!-- M27C160 -->
-#endif
-}
-
-int CGame_KOF98_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_KOF97_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((KOF98_A_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((KOF97_A_NUMUNIT + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForKOF98(0);
+        stExtraDef* pCurrDef = GetExtraDefForKOF97(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -158,22 +110,22 @@ int CGame_KOF98_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForKOF98(nDefCtr);
+            pCurrDef = GetExtraDefForKOF97(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-int CGame_KOF98_A::GetExtraLoc(UINT16 nUnitId)
+int CGame_KOF97_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (KOF98_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (KOF97_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForKOF98(0);
+        stExtraDef* pCurrDef = GetExtraDefForKOF97(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -184,34 +136,34 @@ int CGame_KOF98_A::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForKOF98(nDefCtr);
+            pCurrDef = GetExtraDefForKOF97(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-sDescTreeNode* CGame_KOF98_A::InitDescTree()
+sDescTreeNode* CGame_KOF97_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_KOF98_A, KOF98_A_EXTRA, &KOF98_A_EXTRA_CUSTOM, KOF98_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_KOF97_A, KOF97_A_EXTRA, &KOF97_A_EXTRA_CUSTOM, KOF97_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = KOF98_A_NUMUNIT + (GetExtraCt(KOF98_A_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = KOF97_A_NUMUNIT + (GetExtraCt(KOF97_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[KOF98_A]);
+    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[KOF97_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(KOF98_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_KOF98_A::InitDescTree: Building desc tree for KOF98_A %s extras...\n", fHaveExtras ? L"with" : L"without");
+    bool fHaveExtras = (GetExtraCt(KOF97_A_EXTRALOC) > 0);
+    strMsg.Format(L"CGame_KOF97_A::InitDescTree: Building desc tree for KOF97_A %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -228,16 +180,16 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < KOF98_A_EXTRALOC)
+        if (iUnitCtr < KOF97_A_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", KOF98_A_UNITS[iUnitCtr].szDesc);
+            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", KOF97_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if KOF98_A_DEBUG
+#if KOF97_A_DEBUG
             strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -259,7 +211,7 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if KOF98_A_DEBUG
+#if KOF97_A_DEBUG
                 strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -277,7 +229,7 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if KOF98_A_DEBUG
+#if KOF97_A_DEBUG
                     strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
@@ -305,7 +257,7 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if KOF98_A_DEBUG
+#if KOF97_A_DEBUG
             strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -317,7 +269,7 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(KOF98_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(KOF97_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
@@ -326,7 +278,7 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if KOF98_A_DEBUG
+#if KOF97_A_DEBUG
             strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -335,21 +287,21 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForKOF98(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForKOF97(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForKOF98(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForKOF97(nExtraPos + nCurrExtra);
                 }
 
                 _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((KOF98_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((KOF97_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if KOF98_A_DEBUG
+#if KOF97_A_DEBUG
                 strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -360,10 +312,10 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
         }
     }
 
-    strMsg.Format(L"CGame_KOF98_A::InitDescTree: Loaded %u palettes for KOF98\n", nTotalPaletteCount);
+    strMsg.Format(L"CGame_KOF97_A::InitDescTree: Loaded %u palettes for KOF97\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForKOF98 = nTotalPaletteCount;
+    m_nTotalPaletteCountForKOF97 = nTotalPaletteCount;
 
     // For development use to speed things up
     //DumpPaletteHeaders();
@@ -371,126 +323,165 @@ sDescTreeNode* CGame_KOF98_A::InitDescTree()
     return NewDescTree;
 }
 
-struct sKOF98_A_PaletteData
+struct sKOF97_A_PaletteData
 {
     LPCWSTR pszCharacterName;
     UINT32 nROMOffset = 0;
     LPCWSTR pszImageSet = L"indexKOFSprites_98Kyo";
     bool rgIsEffectUsed[11];
+    bool fIsPaired = false;
 };
 
-sKOF98_A_PaletteData KOF98_A_CharacterEffectPalettes[] =
+sKOF97_A_PaletteData KOF97_A_CharacterPalettes[] =
 {
     // These effects use a random number of palettes per character.  The rgIsEffectUsed array keeps track of this for us.
     // Note that the Orochi characters share the same effects as the normal character.
     //                                                                            1  2  3  4  5  6  7  8  9  a  b
-    { L"Kyo",        0x2ee7f0 + (0x200 *  0), L"indexKOFSprites_98Kyo",        { 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0 } },
-    { L"Benimaru",   0x2ee7f0 + (0x200 *  1), L"indexKOFSprites_98Benimaru",   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Daimon",     0x2ee7f0 + (0x200 *  2), L"indexKOFSprites_98Daimon",     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Terry",      0x2ee7f0 + (0x200 *  3), L"indexKOFSprites_98Terry",      { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
-    { L"Andy",       0x2ee7f0 + (0x200 *  4), L"indexKOFSprites_98Andy",       { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 } },
-    { L"Joe",        0x2ee7f0 + (0x200 *  5), L"indexKOFSprites_98Joe",        { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
-    { L"Ryo",        0x2ee7f0 + (0x200 *  6), L"indexKOFSprites_98Ryo",        { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
-    { L"Robert",     0x2ee7f0 + (0x200 *  7), L"indexKOFSprites_98Robert",     { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
-    { L"Yuri",       0x2ee7f0 + (0x200 *  8), L"indexKOFSprites_98Yuri",       { 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0 } },
-    { L"Leona",      0x2ee7f0 + (0x200 *  9), L"indexKOFSprites_98Leona",      { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
-    { L"Ralf",       0x2ee7f0 + (0x200 * 10), L"indexKOFSprites_98Ralf",       { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Clark",      0x2ee7f0 + (0x200 * 11), L"indexKOFSprites_98Clark",      { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Athena",     0x2ee7f0 + (0x200 * 12), L"indexKOFSprites_98Athena",     { 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0 } },
-    { L"Kensou",     0x2ee7f0 + (0x200 * 13), L"indexKOFSprites_98Kensou",     { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Chin",       0x2ee7f0 + (0x200 * 14), L"indexKOFSprites_98Chin",       { 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
-    { L"Chizuru",    0x2ee7f0 + (0x200 * 15), L"indexKOFSprites_98Chizuru",    { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Mai",        0x2ee7f0 + (0x200 * 16), L"indexKOFSprites_98Mai",        { 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0 } },
-    { L"King",       0x2ee7f0 + (0x200 * 17), L"indexKOFSprites_98King",       { 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Kim",        0x2ee7f0 + (0x200 * 18), L"indexKOFSprites_98Kim",        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Chang",      0x2ee7f0 + (0x200 * 19), L"indexKOFSprites_98Chang",      { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Choi",       0x2ee7f0 + (0x200 * 20), L"indexKOFSprites_98Choi",       { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Yashiro",    0x2ee7f0 + (0x200 * 21), L"indexKOFSprites_98Yashiro",    { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 } },
-    { L"Shermie",    0x2ee7f0 + (0x200 * 22), L"indexKOFSprites_98Shermie",    { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1 } },
-    { L"Chris",      0x2ee7f0 + (0x200 * 23), L"indexKOFSprites_98Chris",      { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } },
-    { L"Yamazaki",   0x2ee7f0 + (0x200 * 24), L"indexKOFSprites_98Yamazaki",   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Blue Mary",  0x2ee7f0 + (0x200 * 25), L"indexKOFSprites_98BlueMary",   { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Billy",      0x2ee7f0 + (0x200 * 26), L"indexKOFSprites_98Billy",      { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1 } },
-    { L"Iori",       0x2ee7f0 + (0x200 * 27), L"indexKOFSprites_98Iori",       { 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0 } },
-    { L"Mature",     0x2ee7f0 + (0x200 * 28), L"indexKOFSprites_98Mature",     { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
-    { L"Vice",       0x2ee7f0 + (0x200 * 29), L"indexKOFSprites_98Vice",       { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1 } },
-    { L"Heidern",    0x2ee7f0 + (0x200 * 30), L"indexKOFSprites_98Heidern",    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } },
-    { L"Takuma",     0x2ee7f0 + (0x200 * 31), L"indexKOFSprites_98Takuma",     { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
-    { L"Saisyu",     0x2ee7f0 + (0x200 * 32), L"indexKOFSprites_98Saisyu",     { 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0 } },
-    { L"Heavy D!",   0x2ee7f0 + (0x200 * 33), L"indexKOFSprites_98HeavyD",     { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
-    { L"Lucky",      0x2ee7f0 + (0x200 * 34), L"indexKOFSprites_98Lucky",      { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 } },
-    { L"Brian",      0x2ee7f0 + (0x200 * 35), L"indexKOFSprites_98Brian",      { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
-    { L"Rugal",      0x2ee7f0 + (0x200 * 36), L"indexKOFSprites_98Rugal",      { 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0 } },
-    { L"Shingo",     0x2ee7f0 + (0x200 * 37), L"indexKOFSprites_98Shingo",     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Omega Rugal", 0x2ee7f0 + (0x200* 38), L"indexKOFSprites_98OmegaRugal", { 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1 } },
+    { L"Kyo",        0x2D1FF0 + (0x800 *  0), L"indexKOFSprites_98Kyo",        { 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0 } },
+    { L"Benimaru",   0x2D1FF0 + (0x800 *  1), L"indexKOFSprites_98Benimaru",   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Daimon",     0x2D1FF0 + (0x800 *  2), L"indexKOFSprites_98Daimon",     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Terry",      0x2D1FF0 + (0x800 *  3), L"indexKOFSprites_98Terry",      { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
+    { L"Andy",       0x2D1FF0 + (0x800 *  4), L"indexKOFSprites_98Andy",       { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 } },
+    { L"Joe",        0x2D1FF0 + (0x800 *  5), L"indexKOFSprites_98Joe",        { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
+    { L"Ryo",        0x2D1FF0 + (0x800 *  6), L"indexKOFSprites_98Ryo",        { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
+    { L"Robert",     0x2D1FF0 + (0x800 *  7), L"indexKOFSprites_98Robert",     { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
+    { L"Yuri",       0x2D1FF0 + (0x800 *  8), L"indexKOFSprites_98Yuri",       { 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0 } },
+    { L"Leona",      0x2D1FF0 + (0x800 *  9), L"indexKOFSprites_98Leona",      { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
+// pair
+    { L"Ralf",       0x2D1FF0 + (0x800 * 10), L"indexKOFSprites_98Ralf",       { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, true },
+// pair
+    { L"Clark",      0x2D1FF0 + (0x800 * 11), L"indexKOFSprites_98Clark",      { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, true },
+    { L"Athena",     0x2D1FF0 + (0x800 * 12), L"indexKOFSprites_98Athena",     { 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0 } },
+    { L"Kensou",     0x2D1FF0 + (0x800 * 13), L"indexKOFSprites_98Kensou",     { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Chin",       0x2D1FF0 + (0x800 * 14), L"indexKOFSprites_98Chin",       { 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
+    { L"Chizuru",    0x2D1FF0 + (0x800 * 15), L"indexKOFSprites_98Chizuru",    { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Mai",        0x2D1FF0 + (0x800 * 16), L"indexKOFSprites_98Mai",        { 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0 } },
+    { L"King",       0x2D1FF0 + (0x800 * 17), L"indexKOFSprites_98King",       { 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Kim",        0x2D1FF0 + (0x800 * 18), L"indexKOFSprites_98Kim",        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+// pair
+    { L"Chang",      0x2D1FF0 + (0x800 * 19), L"indexKOFSprites_98Chang",      { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, true },
+    { L"Choi",       0x2D1FF0 + (0x800 * 20), L"indexKOFSprites_98Choi",       { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Yamazaki",    0x2D1FF0 + (0x800 * 21), L"indexKOFSprites_98Yamazaki",    { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 } },
+    { L"Blue Mary",    0x2D1FF0 + (0x800 * 22), L"indexKOFSprites_98BlueMary",    { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1 } },
+    { L"Billy",      0x2D1FF0 + (0x800 * 23), L"indexKOFSprites_98Billy",      { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } },
+    { L"Yashiro",   0x2D1FF0 + (0x800 * 24), L"indexKOFSprites_98Yashiro",   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Shermie",  0x2D1FF0 + (0x800 * 25), L"indexKOFSprites_98Shermie",   { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Chris",      0x2D1FF0 + (0x800 * 26), L"indexKOFSprites_98Chris",      { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1 } },
+    { L"Iori",       0x2D1FF0 + (0x800 * 27), L"indexKOFSprites_98Iori",       { 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0 } },
+    { L"Orochi Iori",     0x2D1FF0 + (0x800 * 28), L"indexKOFSprites_98Iori",     { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 } },
+    { L"Leona 2 ???",       0x2D1FF0 + (0x800 * 29), L"indexKOFSprites_98Leona",       { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1 } },
+    { L"Orochi Leona",    0x2D1FF0 + (0x800 * 30), L"indexKOFSprites_98Leona",    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } },
+    { L"Shingo",     0x2D1FF0 + (0x800 * 31), L"indexKOFSprites_98Shingo",     { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
+    { L"Orochi Yashiro",     0x2D1FF0 + (0x800 * 32), L"indexKOFSprites_98Yashiro",     { 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0 } },
+    { L"Orochi Shermie",   0x2D1FF0 + (0x800 * 33), L"indexKOFSprites_98Shermie",     { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 } },
+    { L"Orochi Chris",      0x2D1FF0 + (0x800 * 34), L"indexKOFSprites_98Chris",      { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 } },
+    // Full character sets end after Orochi Chris
     //                                                                            1  2  3  4  5  6  7  8  9  a  b
 };
 
-void CGame_KOF98_A::DumpPaletteHeaders()
+void CGame_KOF97_A::DumpPaletteHeaders()
 {
     CString strOutput;
     const UINT16 nColorOptionsPerCharacter = 4;
-    constexpr UINT32 KOF98_PALETTE_LENGTH = 0x20;
-    const UINT16 nCountStatusEffects = 16;
+    constexpr UINT32 KOF97_PALETTE_LENGTH = 0x20;
+    const UINT16 nCountPalettes = 16;
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF98_A_CharacterEffectPalettes); nCharIndex++)
+    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF97_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF98_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
-        strOutput.Format(L"const sGame_PaletteDataset KOF98_A_%s_EFFECT_PALETTES[] = \r\n{\r\n", szCodeDesc);
-        OutputDebugString(strOutput);
-
-        // Status effects
-        for (UINT16 nStatusIndex = 0; nStatusIndex < nCountStatusEffects; nStatusIndex++)
+        for (UINT16 nColorIndex = 0; nColorIndex < ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO); nColorIndex++)
         {
-            UINT32 nCurrentOffset = KOF98_A_CharacterEffectPalettes[nCharIndex].nROMOffset + (nStatusIndex * KOF98_PALETTE_LENGTH);
-            switch (nStatusIndex)
-            {
-            default:
-                if (KOF98_A_CharacterEffectPalettes[nCharIndex].rgIsEffectUsed[nStatusIndex])
-                {
-                    strOutput.Format(L"    { L\"Effect %u\", 0x%x, 0x%x },\r\n", nStatusIndex, nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH);
-                        OutputDebugString(strOutput);
-                }
-                break;
-            case 11:
-                strOutput.Format(L"    { L\"Zap Effect 1\", 0x%x, 0x%x, %s },\r\n", nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH,
-                    KOF98_A_CharacterEffectPalettes[nCharIndex].pszImageSet);
-                OutputDebugString(strOutput);
-                break;
-            case 12:
-                strOutput.Format(L"    { L\"Zap Effect 2\", 0x%x, 0x%x, %s },\r\n", nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH,
-                    KOF98_A_CharacterEffectPalettes[nCharIndex].pszImageSet);
-                OutputDebugString(strOutput);
-                break;
-            case 13:
-                strOutput.Format(L"    { L\"Super Trail 1\", 0x%x, 0x%x, %s },\r\n", nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH,
-                    KOF98_A_CharacterEffectPalettes[nCharIndex].pszImageSet);
-                OutputDebugString(strOutput);
-                break;
-            case 14:
-                strOutput.Format(L"    { L\"Super Trail 2\", 0x%x, 0x%x, %s },\r\n", nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH,
-                    KOF98_A_CharacterEffectPalettes[nCharIndex].pszImageSet);
-                OutputDebugString(strOutput);
-                break;
-            case 15:
-                strOutput.Format(L"    { L\"Super Trail 3\", 0x%x, 0x%x, %s },\r\n", nCurrentOffset, nCurrentOffset + KOF98_PALETTE_LENGTH,
-                    KOF98_A_CharacterEffectPalettes[nCharIndex].pszImageSet);
-                OutputDebugString(strOutput);
-                break;
-            };
-        }
+            strOutput.Format(L"const sGame_PaletteDataset KOF97_A_%s_PALETTES_%s[] = \r\n{\r\n", szCodeDesc, DEF_BUTTONLABEL_NEOGEO[nColorIndex]);
+            OutputDebugString(strOutput);
 
-        OutputDebugString(L"};\r\n\r\n");
+            for (UINT16 nPaletteIndex = 0; nPaletteIndex < nCountPalettes; nPaletteIndex++)
+            {
+                UINT32 nCurrentOffset = KOF97_A_CharacterPalettes[nCharIndex].nROMOffset + (nPaletteIndex * KOF97_PALETTE_LENGTH) + (nCountPalettes * KOF97_PALETTE_LENGTH * nColorIndex);
+
+                switch (nPaletteIndex)
+                {
+
+                case 0:
+                    if (KOF97_A_CharacterPalettes[nCharIndex].fIsPaired)
+                    {
+                        strOutput.Format(L"    { L\"%s %s - Main\", 0x%x, 0x%x, %s, 0x00, &pairNext },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                            nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+                    }
+                    else
+                    {
+                        strOutput.Format(L"    { L\"%s %s - Main\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                            nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+                    }
+                    break;
+                case 1: // possible main pair
+                case 4: // possible max mode pair
+                    if (KOF97_A_CharacterPalettes[nCharIndex].fIsPaired)
+                    {
+                        strOutput.Format(L"    { L\"%s %s - Extra %u\", 0x%x, 0x%x, %s, 0x01 },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex], nPaletteIndex,
+                            nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+                        break;
+                    }
+                    __fallthrough;
+                case 7: // possible super trail pair
+                    if (KOF97_A_CharacterPalettes[nCharIndex].fIsPaired)
+                    {
+                        strOutput.Format(L"    { L\"%s %s - Super Trail 2\", 0x%x, 0x%x, %s, 0x01 },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                            nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+                        break;
+                    }
+                    __fallthrough;
+                case 2:
+                case 5:
+                default:
+                    strOutput.Format(L"    { L\"%s %s - Extra %u\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex], nPaletteIndex,
+                        nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+                    break;
+                case 3:
+                    if (KOF97_A_CharacterPalettes[nCharIndex].fIsPaired)
+                    {
+                        strOutput.Format(L"    { L\"%s %s - Max Mode\", 0x%x, 0x%x, %s, 0x00, &pairNext },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                            nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+                    }
+                    else
+                    {
+                        strOutput.Format(L"    { L\"%s %s - Max Mode\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                            nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+
+                    }
+                    break;
+                case 6:
+                    if (KOF97_A_CharacterPalettes[nCharIndex].fIsPaired)
+                    {
+                        strOutput.Format(L"    { L\"%s %s - Super Trail 1\", 0x%x, 0x%x, %s, 0x00, &pairNext },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                            nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+                    }
+                    else
+                    {
+                        strOutput.Format(L"    { L\"%s %s - Super Trail\", 0x%x, 0x%x, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                            nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+                    }
+                    break;
+                case 15:
+                    strOutput.Format(L"    { L\"%s %s - Life Bar Portrait\", 0x%x, 0x%x, indexKOFSprites_98Lifebar, %s },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName, DEF_BUTTONLABEL_NEOGEO[nColorIndex],
+                        nCurrentOffset, nCurrentOffset + KOF97_PALETTE_LENGTH, KOF97_A_CharacterPalettes[nCharIndex].pszImageSet);
+                    break;
+                }
+
+                OutputDebugString(strOutput);
+            }
+
+            OutputDebugString(L"};\r\n\r\n");
+        }
     }
 
-    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF98_A_CharacterEffectPalettes); nCharIndex++)
+    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF97_A_CharacterPalettes); nCharIndex++)
     {
         WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
-        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF98_A_CharacterEffectPalettes[nCharIndex].pszCharacterName);
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
 
-        strOutput.Format(L"const sDescTreeNode KOF98_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
+        strOutput.Format(L"const sDescTreeNode KOF97_A_%s_COLLECTION[] = \r\n{\r\n", szCodeDesc);
         OutputDebugString(strOutput);
 
         for (UINT16 nColorIndex = 0; nColorIndex < nColorOptionsPerCharacter; nColorIndex++)
@@ -498,22 +489,34 @@ void CGame_KOF98_A::DumpPaletteHeaders()
             WCHAR szColorOptionCodeDesc[MAX_DESCRIPTION_LENGTH];
             StrRemoveNonASCII(szColorOptionCodeDesc, ARRAYSIZE(szColorOptionCodeDesc), DEF_BUTTONLABEL_NEOGEO[nColorIndex]);
 
-            strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF98_A_%s_%s_PALETTES, ARRAYSIZE(KOF98_A_%s_%s_PALETTES) },\r\n", DEF_BUTTONLABEL_NEOGEO[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
+            strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF97_A_%s_PALETTES_%s, ARRAYSIZE(KOF97_A_%s_PALETTES_%s) },\r\n", DEF_BUTTONLABEL_NEOGEO[nColorIndex], szCodeDesc, szColorOptionCodeDesc, szCodeDesc, szColorOptionCodeDesc);
             OutputDebugString(strOutput);
         }
 
-        strOutput.Format(L"    { L\"Effects\", DESC_NODETYPE_TREE, (void*)KOF98_A_%s_EFFECT_PALETTES, ARRAYSIZE(KOF98_A_%s_EFFECT_PALETTES) },\r\n", szCodeDesc, szCodeDesc);
-        OutputDebugString(strOutput);
         OutputDebugString(L"};\r\n\r\n");
     }
+
+    OutputDebugString(L"const sDescTreeNode KOF97_A_UNITS[] = \r\n{\r\n");
+
+    for (UINT16 nCharIndex = 0; nCharIndex < ARRAYSIZE(KOF97_A_CharacterPalettes); nCharIndex++)
+    {
+        WCHAR szCodeDesc[MAX_DESCRIPTION_LENGTH];
+        StrRemoveNonASCII(szCodeDesc, ARRAYSIZE(szCodeDesc), KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName);
+
+        strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)KOF97_A_%s_COLLECTION, ARRAYSIZE(KOF97_A_%s_COLLECTION) },\r\n", KOF97_A_CharacterPalettes[nCharIndex].pszCharacterName,
+            szCodeDesc, szCodeDesc);
+        OutputDebugString(strOutput);
+    }
+
+    OutputDebugString(L"};\r\n\r\n");
 }
 
-sFileRule CGame_KOF98_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_KOF97_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"242-p2.sp2");
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"232-p2.sp2");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -521,55 +524,77 @@ sFileRule CGame_KOF98_A::GetRule(UINT16 nUnitId)
     return NewFileRule;
 }
 
-UINT16 CGame_KOF98_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT32 CGame_KOF97_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
-    if (nUnitId == KOF98_A_EXTRALOC)
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"KOF '97 (Arcade)", L"232-p2.sp2", 0x158b23f6, 0 },
+        { L"KOF '97 (Arcade)", L"KOF97_p2.rom", 0x158b23f6, 0 },
+    };
+
+    if (ppKnownROMSet != nullptr)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+}
+
+UINT16 CGame_KOF97_A::GetCollectionCountForUnit(UINT16 nUnitId)
+{
+    if (nUnitId == KOF97_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return KOF98_A_UNITS[nUnitId].uChildAmt;
+        return KOF97_A_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_KOF98_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_KOF97_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == KOF98_A_EXTRALOC)
+    if (nUnitId == KOF97_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(KOF98_A_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(KOF97_A_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCWSTR CGame_KOF98_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_KOF97_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == KOF98_A_EXTRALOC)
+    if (nUnitId == KOF97_A_EXTRALOC)
     {
         return L"Extra Palettes";
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)KOF98_A_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)KOF97_A_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_KOF98_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_KOF97_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == KOF98_A_EXTRALOC)
+    if (nUnitId == KOF97_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = KOF98_A_UNITS;
+        const sDescTreeNode* pCompleteROMTree = KOF97_A_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -579,9 +604,9 @@ UINT16 CGame_KOF98_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if KOF98_A_DEBUG
+#if KOF97_A_DEBUG
         CString strMsg;
-        strMsg.Format(L"CGame_KOF98_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_KOF97_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -589,14 +614,14 @@ UINT16 CGame_KOF98_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_KOF98_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_KOF97_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)KOF98_A_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)KOF97_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_KOF98_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_KOF97_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -609,7 +634,7 @@ const sDescTreeNode* CGame_KOF98_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == KOF98_A_EXTRALOC)
+        if (nUnitId == KOF97_A_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -621,7 +646,7 @@ const sDescTreeNode* CGame_KOF98_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(KOF98_A_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(KOF97_A_UNITS[nUnitId].ChildNodes);
             
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -647,7 +672,7 @@ const sDescTreeNode* CGame_KOF98_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_KOF98_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_KOF97_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -671,9 +696,9 @@ const sGame_PaletteDataset* CGame_KOF98_A::GetSpecificPalette(UINT16 nUnitId, UI
     return paletteToUse;
 }
 
-void CGame_KOF98_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_KOF97_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != KOF98_A_EXTRALOC)
+     if (nUnitId != KOF97_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -692,10 +717,10 @@ void CGame_KOF98_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // KOF98_A_EXTRALOC
+    else // KOF97_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForKOF98(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForKOF97(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
@@ -703,7 +728,7 @@ void CGame_KOF98_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_KOF98_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_KOF97_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -736,7 +761,7 @@ BOOL CGame_KOF98_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != KOF98_A_EXTRALOC)
+    if (NodeGet->uUnitId != KOF97_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 

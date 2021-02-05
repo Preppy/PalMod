@@ -1185,13 +1185,18 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
         if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
         {
-            if ((_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[0]) == 0) ||
-                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[1]) == 0) ||
-                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[2]) == 0) ||
-                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[3]) == 0) ||
-                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[4]) == 0) ||
-                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[5]) == 0) ||
-                (_wcsicmp(pCurrentNode->szDesc, DEF_BUTTONLABEL7_SF3[6]) == 0))
+            bool fIsCorePalette = false;
+
+            for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
+            {
+                if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                {
+                    fIsCorePalette = true;
+                    break;
+                }
+            }
+
+            if (fIsCorePalette)
             {
                 sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
@@ -1202,7 +1207,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                 }
                 else
                 {
-                    nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
+                    nSrcAmt = m_nNumberOfColorOptions;
                 }
 
                 nNodeIncrement = GetNodeSizeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId);
@@ -1252,7 +1257,7 @@ BOOL CGame_SFIII3_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     if (paletteDataSetToJoin && (paletteDataSetToJoin->indexOffsetToUse == 0x02))
                     {
                         fShouldUseAlternateLoadLogic = true;
-                        nSrcAmt = ARRAYSIZE(DEF_BUTTONLABEL7_SF3);
+                        nSrcAmt = m_nNumberOfColorOptions;
 
                         ClearSetImgTicket(
                             CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,

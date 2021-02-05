@@ -265,6 +265,9 @@
     <Filter Include="Game\SNK Games\Ninja Masters">
       <UniqueIdentifier>{8067a5a7-2ac2-4837-982c-af052c429125}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\KOF97_A">
+      <UniqueIdentifier>{588800f1-13d9-4ed4-b8d1-1b8fbf9ed784}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -578,6 +581,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SDodgeBall_A.cpp">
       <Filter>Game\SNK Games\Super Dodge Ball</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_KOF97_A.cpp">
+      <Filter>Game\SNK Games\KOF97_A</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1081,6 +1087,12 @@
     </ClInclude>
     <ClInclude Include="Game\SDodgeBall_A_DEF.h">
       <Filter>Game\SNK Games\Super Dodge Ball</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_KOF97_A.h">
+      <Filter>Game\SNK Games\KOF97_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KOF97_A_DEF.h">
+      <Filter>Game\SNK Games\KOF97_A</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

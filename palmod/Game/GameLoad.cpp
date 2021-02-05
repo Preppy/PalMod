@@ -24,6 +24,7 @@
 #include "Game_KOF02UM_S.h"
 #include "Game_KOF03_A.h"
 #include "Game_KOF94_A.h"
+#include "Game_KOF97_A.h"
 #include "Game_KOF98_A.h"
 #include "Game_KOF99AE_A.h"
 #include "Game_KOFXI_A.h"
@@ -220,6 +221,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case KOF94_A:
     {
         GetRule = &CGame_KOF94_A::GetRule;
+        return TRUE;
+    }
+    case KOF97_A:
+    {
+        GetRule = &CGame_KOF97_A::GetRule;
         return TRUE;
     }
     case KOF98_A:
@@ -638,6 +644,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case KOF94_A:
     {
         return new CGame_KOF94_A(nConfirmedROMSize);
+    }
+    case KOF97_A:
+    {
+        return new CGame_KOF97_A(nConfirmedROMSize);
     }
     case KOF98_A:
     {

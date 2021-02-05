@@ -3,7 +3,7 @@
 #include "BREAKERS_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_BREAKERS_A = _T("BreakersRevE.txt");
+constexpr auto EXTRA_FILENAME_BREAKERS_A = L"BreakersRevE.txt";
 #define GetExtraDefForBreakers(x)((stExtraDef *)&BREAKERS_A_EXTRA_CUSTOM[x])
 
 class CGame_BREAKERS_A : public CGameWithExtrasFile
