@@ -231,26 +231,26 @@ const sGame_PaletteDataset SFA1_A_ADON_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset SFA1_A_SODOM_PUNCH_PALETTES[] =
 {
-    { L"Main Sprite",    0x68560, 0x68580, indexCPS2_Sodom, 0x00 },
-    { L"Super Trail 1",  0x68580, 0x685A0, indexCPS2_Sodom, 0x00 },
-    { L"Super Trail 2",  0x685A0, 0x685C0, indexCPS2_Sodom, 0x00 },
-    { L"Super Trail 3",  0x685C0, 0x685E0, indexCPS2_Sodom, 0x00 },
+    { L"Main Sprite",    0x68560, 0x68580, indexCPS2_Sodom, 0x02 },
+    { L"Super Trail 1",  0x68580, 0x685A0, indexCPS2_Sodom, 0x02 },
+    { L"Super Trail 2",  0x685A0, 0x685C0, indexCPS2_Sodom, 0x02 },
+    { L"Super Trail 3",  0x685C0, 0x685E0, indexCPS2_Sodom, 0x02 },
     { L"Extra 1: Slashes", 0x685E0, 0x68600, indexCPS2_Sodom, 0x04 },
     { L"Extra 2: Intro",   0x68600, 0x68620, indexCPS2_Sodom, 0x03 },
-    { L"Psycho Power Burned Effect", 0x68620, 0x68640, indexCPS2_Sodom, 0x00 },
-    { L"Burned Status",   0x68640, 0x68660, indexCPS2_Sodom, 0x00 },
+    { L"Psycho Power Burned Effect", 0x68620, 0x68640, indexCPS2_Sodom, 0x02 },
+    { L"Burned Status",   0x68640, 0x68660, indexCPS2_Sodom, 0x02 },
 };
 
 const sGame_PaletteDataset SFA1_A_SODOM_KICK_PALETTES[] =
 {
-    { L"Main Sprite",    0x68660, 0x68680, indexCPS2_Sodom, 0x00 },
-    { L"Super Trail 1",  0x68680, 0x686A0, indexCPS2_Sodom, 0x00 },
-    { L"Super Trail 2",  0x686A0, 0x686C0, indexCPS2_Sodom, 0x00 },
-    { L"Super Trail 3",  0x686C0, 0x686E0, indexCPS2_Sodom, 0x00 },
+    { L"Main Sprite",    0x68660, 0x68680, indexCPS2_Sodom, 0x02 },
+    { L"Super Trail 1",  0x68680, 0x686A0, indexCPS2_Sodom, 0x02 },
+    { L"Super Trail 2",  0x686A0, 0x686C0, indexCPS2_Sodom, 0x02 },
+    { L"Super Trail 3",  0x686C0, 0x686E0, indexCPS2_Sodom, 0x02 },
     { L"Extra 1: Slashes", 0x686E0, 0x68700, indexCPS2_Sodom, 0x04 },
     { L"Extra 2: Intro",   0x68700, 0x68720, indexCPS2_Sodom, 0x03 },
-    { L"Psycho Power Burned Effect", 0x68720, 0x68740, indexCPS2_Sodom, 0x00 },
-    { L"Burned Status",   0x68740, 0x68760, indexCPS2_Sodom, 0x00 },
+    { L"Psycho Power Burned Effect", 0x68720, 0x68740, indexCPS2_Sodom, 0x02 },
+    { L"Burned Status",   0x68740, 0x68760, indexCPS2_Sodom, 0x02 },
 };
 
 const sGame_PaletteDataset SFA1_A_SODOM_PORTRAIT_PALETTES[] =

@@ -141,8 +141,8 @@ UINT32 CGame_KOF99AE_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKn
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"KOF '99AE ROM P2 (Arcade)", L"kof99ae_p2.bin", 0, 0 },
-        { L"KOF '99AE ROM P3 (Arcade)", L"kof99ae_p3.bin", 0, 0 },
+        { L"KOF '99AE ROM P2 (Neo-Geo)", L"kof99ae_p2.bin", 0, 0 },
+        { L"KOF '99AE ROM P3 (Neo-Geo)", L"kof99ae_p3.bin", 0, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
