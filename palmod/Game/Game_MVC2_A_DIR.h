@@ -3,8 +3,7 @@
 
 class CGame_MVC2_A_DIR : 
     public CGame_MVC2_A
-{
-  
+{  
 public:
     CGame_MVC2_A_DIR(UINT32 nConfirmedROMSize);
     ~CGame_MVC2_A_DIR(void);

@@ -216,7 +216,7 @@ BOOL CGame_SFIII1_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
     CString strSIMMName2;
 
     LPCWSTR pszBaseFormatString = SFIII_Arcade_USA_ROM_Base;
-    UINT16 nSIMMSetBaseNumber = 5;;
+    UINT16 nSIMMSetBaseNumber = 5;
 
     strSIMMName1.Format(L"%s\\%s%u.%u", GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber);
     strSIMMName2.Format(L"%s\\%s%u.%u", GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 1);

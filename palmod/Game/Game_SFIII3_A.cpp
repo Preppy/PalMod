@@ -17,17 +17,17 @@ int CGame_SFIII3_A::rgExtraCountAll_10[SFIII3_A_10_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountAll_14[SFIII3_A_10_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountAll_4[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountAll_51[SFIII3_A_51_NUMUNIT + 1] = { -1 };
-int CGame_SFIII3_A::rgExtraCountAll_70[SFIII3_A_51_NUMUNIT + 1] = { -1 };
+int CGame_SFIII3_A::rgExtraCountAll_70[SFIII3_A_70_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly_10[SFIII3_A_10_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly_14[SFIII3_A_10_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly_4[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraCountVisibleOnly_51[SFIII3_A_51_NUMUNIT + 1] = { -1 };
-int CGame_SFIII3_A::rgExtraCountVisibleOnly_70[SFIII3_A_51_NUMUNIT + 1] = { -1 };
+int CGame_SFIII3_A::rgExtraCountVisibleOnly_70[SFIII3_A_70_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraLoc_10[SFIII3_A_10_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraLoc_14[SFIII3_A_10_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraLoc_4[SFIII3_A_51_NUMUNIT + 1] = { -1 };
 int CGame_SFIII3_A::rgExtraLoc_51[SFIII3_A_51_NUMUNIT + 1] = { -1 };
-int CGame_SFIII3_A::rgExtraLoc_70[SFIII3_A_51_NUMUNIT + 1] = { -1 };
+int CGame_SFIII3_A::rgExtraLoc_70[SFIII3_A_70_NUMUNIT + 1] = { -1 };
 
 CDescTree CGame_SFIII3_A::MainDescTree_10 = nullptr;
 CDescTree CGame_SFIII3_A::MainDescTree_14 = nullptr;
@@ -93,8 +93,8 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     m_nSelectedRom = nSF3ROMToLoad;
 
     //We need the proper unit amt before we init the main buffer
-    m_nTotalInternalUnits = UsingROMForGill() ? SFIII3_A_10_NUMUNIT : SFIII3_A_51_NUMUNIT;
-    m_nExtraUnit = UsingROMForGill() ? SFIII3_A_10_EXTRALOC : SFIII3_A_51_EXTRALOC;
+    m_nTotalInternalUnits = UsingROMForGill() ? SFIII3_A_10_NUMUNIT : (UsePaletteSetFor3Ex() ? SFIII3_A_70_NUMUNIT : SFIII3_A_51_NUMUNIT);
+    m_nExtraUnit = UsingROMForGill() ? SFIII3_A_10_EXTRALOC : (UsePaletteSetFor3Ex() ? SFIII3_A_70_EXTRALOC : SFIII3_A_51_EXTRALOC);
     m_pszExtraFilename = UsingROMForGill() ? EXTRA_FILENAME_SF3_10 : EXTRA_FILENAME_SF3_51;
     m_nLowestKnownPaletteRomLocation = UsingROMForGill() ? 0x1C86A8 : 0x700000;
 
@@ -263,8 +263,8 @@ int CGame_SFIII3_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
         if (rgExtraCountAll_70[0] == -1)
         {
             int nDefCtr = 0;
-            memset(rgExtraCountAll_70, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
-            memset(rgExtraCountVisibleOnly_70, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
+            memset(rgExtraCountAll_70, 0, (SFIII3_A_70_NUMUNIT + 1) * sizeof(int));
+            memset(rgExtraCountVisibleOnly_70, 0, (SFIII3_A_70_NUMUNIT + 1) * sizeof(int));
 
             stExtraDef* pCurrDef = GetCurrentExtraDef(0);
 
@@ -403,7 +403,7 @@ int CGame_SFIII3_A::GetExtraLoc(UINT16 nUnitId)
         {
             int nDefCtr = 0;
             int nCurrUnit = UNIT_START_VALUE;
-            memset(rgExtraLoc_70, 0, (SFIII3_A_51_NUMUNIT + 1) * sizeof(int));
+            memset(rgExtraLoc_70, 0, (SFIII3_A_70_NUMUNIT + 1) * sizeof(int));
 
             stExtraDef* pCurrDef = GetCurrentExtraDef(0);
 
@@ -465,8 +465,9 @@ const sDescTreeNode* CGame_SFIII3_A::GetCurrentUnitSet()
         OutputDebugString(L"Warning: unrecognized ROM.\n");
         __fallthrough;
     case SF3ROM_51:
-    case SF3ROM_70_EX:
         return SFIII3_A_51_UNITS;
+    case SF3ROM_70_EX:
+        return SFIII3EX_A_70_UNITS;
     case SF3ROM_51_4rd:
         return SFIII3_A_4_UNITS;
     }
@@ -480,7 +481,14 @@ UINT16 CGame_SFIII3_A::GetCurrentExtraLoc()
     }
     else
     {
-        return SFIII3_A_51_EXTRALOC;
+        if (UsePaletteSetFor3Ex())
+        {
+            return SFIII3_A_70_EXTRALOC;
+        }
+        else
+        {
+            return SFIII3_A_51_EXTRALOC;
+        }
     }
 }
 
@@ -559,9 +567,9 @@ sDescTreeNode* CGame_SFIII3_A::InitDescTree(int nROMPaletteSetToUse)
         nUnitCt = SFIII3_A_51_NUMUNIT;
         break;
     case SF3ROM_70_EX:
-        nExtraUnitLocation = SFIII3_A_51_EXTRALOC;
+        nExtraUnitLocation = SFIII3_A_70_EXTRALOC;
         LoadExtraFileForGame(EXTRA_FILENAME_SF3_51, SFIII3_A_EXTRA, &SFIII3_A_70_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
-        nUnitCt = SFIII3_A_51_NUMUNIT;
+        nUnitCt = SFIII3_A_70_NUMUNIT;
         break;
     }
 
@@ -1066,10 +1074,10 @@ BOOL CGame_SFIII3_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
                     *(m_pppDataBuffer[nUnitCtr][nPalCtr] + (2 * nBlockCount)) = nNewData & 0x0000FFFF;
 
 #ifdef Default_Gill_Palette
-                   00 00 7F BC 7F 59 7F 16 7A B3 72 71 66 2E 55 CC 51 AB 49 8A 45 48 3D 27 65 B0 5D 8E 55 8D 55 8D
-                   4B 0E 67 BF 4A FF 3A 3E 2D DD 31 BB 31 7A 2D 37 29 13 24 F1 24 AF 14 4B 45 56 3D 34 35 12 35 12
-                   00 00 03 DE 03 5E 0A 9E 0A 1E 09 9A 01 14 00 90 00 00 00 00 7B DE 7B DE 73 9C 63 18 5A D6 4A 52
-                   39 CE 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                    00 00 7F BC 7F 59 7F 16 7A B3 72 71 66 2E 55 CC 51 AB 49 8A 45 48 3D 27 65 B0 5D 8E 55 8D 55 8D
+                        4B 0E 67 BF 4A FF 3A 3E 2D DD 31 BB 31 7A 2D 37 29 13 24 F1 24 AF 14 4B 45 56 3D 34 35 12 35 12
+                        00 00 03 DE 03 5E 0A 9E 0A 1E 09 9A 01 14 00 90 00 00 00 00 7B DE 7B DE 73 9C 63 18 5A D6 4A 52
+                        39 CE 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 #endif
                 }
             }

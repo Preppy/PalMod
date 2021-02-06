@@ -39,17 +39,17 @@ public:
     static int rgExtraCountAll_14[SFIII3_A_10_NUMUNIT + 1];
     static int rgExtraCountAll_4[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraCountAll_51[SFIII3_A_51_NUMUNIT + 1];
-    static int rgExtraCountAll_70[SFIII3_A_51_NUMUNIT + 1];
+    static int rgExtraCountAll_70[SFIII3_A_70_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly_10[SFIII3_A_10_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly_14[SFIII3_A_10_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly_4[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraCountVisibleOnly_51[SFIII3_A_51_NUMUNIT + 1];
-    static int rgExtraCountVisibleOnly_70[SFIII3_A_51_NUMUNIT + 1];
+    static int rgExtraCountVisibleOnly_70[SFIII3_A_70_NUMUNIT + 1];
     static int rgExtraLoc_10[SFIII3_A_10_NUMUNIT + 1];
     static int rgExtraLoc_14[SFIII3_A_10_NUMUNIT + 1];
     static int rgExtraLoc_4[SFIII3_A_51_NUMUNIT + 1];
     static int rgExtraLoc_51[SFIII3_A_51_NUMUNIT + 1];
-    static int rgExtraLoc_70[SFIII3_A_51_NUMUNIT + 1];
+    static int rgExtraLoc_70[SFIII3_A_70_NUMUNIT + 1];
 
     void InitDataBuffer() override;
     void ClearDataBuffer() override;
