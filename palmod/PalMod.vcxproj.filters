@@ -268,6 +268,12 @@
     <Filter Include="Game\SNK Games\KOF97_A">
       <UniqueIdentifier>{588800f1-13d9-4ed4-b8d1-1b8fbf9ed784}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\SFIII1_A_DIR">
+      <UniqueIdentifier>{db765fb3-b9ce-4546-9b86-b13ecc6536e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Capcom Games\SFIII2_A_DIR">
+      <UniqueIdentifier>{31a04bd2-a0e2-49f3-913e-6fdd40c4bfbe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -584,6 +590,12 @@
     </ClCompile>
     <ClCompile Include="Game\Game_KOF97_A.cpp">
       <Filter>Game\SNK Games\KOF97_A</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII1_A_DIR.cpp">
+      <Filter>Game\Capcom Games\SFIII1_A_DIR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SFIII2_A_DIR.cpp">
+      <Filter>Game\Capcom Games\SFIII2_A_DIR</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1093,6 +1105,12 @@
     </ClInclude>
     <ClInclude Include="Game\KOF97_A_DEF.h">
       <Filter>Game\SNK Games\KOF97_A</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII1_A_DIR.h">
+      <Filter>Game\Capcom Games\SFIII1_A_DIR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SFIII2_A_DIR.h">
+      <Filter>Game\Capcom Games\SFIII2_A_DIR</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

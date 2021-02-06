@@ -4,7 +4,7 @@
 
 UINT16 CGame_MVC2_A_DIR::uRuleCtr = 0;
 
-constexpr auto MVC2_Arcade_ROM_Base = _T("mpr-230");
+constexpr auto MVC2_Arcade_ROM_Base = L"mpr-230";
 constexpr auto MVC2_ROMReripOffsetDelta = 0x2000000;
 constexpr auto MVC2_Arcade_NumberOfSIMMs = 8;
 
@@ -13,7 +13,7 @@ constexpr auto MVC2_Arcade_NumberOfSIMMs = 8;
 CGame_MVC2_A_DIR::CGame_MVC2_A_DIR(UINT32 nConfirmedROMSize) :
         CGame_MVC2_A(c_nMVC2SIMMLength)
 {
-    OutputDebugString(_T("CGame_MVC2_A_DIR::CGame_MVC2_A_DIR: Loading from SIMM directory\n"));
+    OutputDebugString(L"CGame_MVC2_A_DIR::CGame_MVC2_A_DIR: Loading from SIMM directory\n");
     nGameFlag = MVC2_A_DIR;
     // We lie here because we want to look at 8 SIMM banks
     nFileAmt = MVC2_Arcade_NumberOfSIMMs;
@@ -32,7 +32,7 @@ sFileRule CGame_MVC2_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u.ic%u"), MVC2_Arcade_ROM_Base, (nUnitId & 0x00FF) + 51, (nUnitId & 0x00FF) + 20);
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.ic%u", MVC2_Arcade_ROM_Base, (nUnitId & 0x00FF) + 51, (nUnitId & 0x00FF) + 20);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
@@ -70,16 +70,16 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     BOOL fSuccess = TRUE;
     CString strInfo;
 
-    strInfo.Format(_T("CGame_MVC2_A_DIR::LoadFile: Preparing to load data from SIMM number %u\n"), nSIMMNumber);
+    strInfo.Format(L"CGame_MVC2_A_DIR::LoadFile: Preparing to load data from SIMM number %u\n", nSIMMNumber);
     OutputDebugString(strInfo);
 
     const UINT32 nBeginningRange =  MVC2_ROMReripOffsetDelta + (c_nMVC2SIMMLength * nSIMMNumber);
     const UINT32 nEndingRange =     MVC2_ROMReripOffsetDelta + (c_nMVC2SIMMLength * nSIMMNumber) + c_nMVC2SIMMLength;
 
-    strInfo.Format(_T("\tSIMM %u begins at 0x%06x and ends at 0x%06x\n"), nSIMMNumber, nBeginningRange, nEndingRange);
+    strInfo.Format(L"\tSIMM %u begins at 0x%06x and ends at 0x%06x\n", nSIMMNumber, nBeginningRange, nEndingRange);
     OutputDebugString(strInfo);
 
-    OutputDebugString(_T("\tLoading MVC2_A_DIR from SIMMs....\n"));
+    OutputDebugString(L"\tLoading MVC2_A_DIR from SIMMs....\n");
     bool fShownCrossSIMMErrorOnce = false;
 
     // this is a little obnoxious since it's per simm - could just load all 8 and party
@@ -114,7 +114,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                 m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
 #if MVC2_RERIP_DEBUG
-                strInfo.Format(_T("\t\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X\n"), nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation);
+                strInfo.Format(L"\t\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X\n", nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation);
                 OutputDebugString(strInfo);
 #endif
 
@@ -123,7 +123,7 @@ BOOL CGame_MVC2_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     if (!fShownCrossSIMMErrorOnce)
                     {
                         fShownCrossSIMMErrorOnce = true;
-                        strInfo.Format(_T("Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."), nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * 2));
+                        strInfo.Format(L"Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that.", nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * 2));
                         MessageBox(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_ICONERROR);
                     }
 
@@ -159,7 +159,7 @@ inline UINT8 CGame_MVC2_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
 BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 {
     CString strInfo;
-    strInfo.Format(_T("CGame_MVC2_A_DIR::SaveFile: Preparing to save data for MVC2 ROM set\n"));
+    strInfo.Format(L"CGame_MVC2_A_DIR::SaveFile: Preparing to save data for MVC2 ROM set\n");
     OutputDebugString(strInfo);
 
     // In the SIMM rerip, the palettes start at mpr-23051.ic20 and increment upwards.
@@ -175,7 +175,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
     for (UINT16 nIndex = 0; nIndex < MVC2_Arcade_NumberOfSIMMs; nIndex++)
     {
         CString strSIMMNames;
-        strSIMMNames.Format(_T("%s\\%s%u.ic%u"), GetLoadDir(), MVC2_Arcade_ROM_Base, nIndex + 51, nIndex + 20);
+        strSIMMNames.Format(L"%s\\%s%u.ic%u", GetLoadDir(), MVC2_Arcade_ROM_Base, nIndex + 51, nIndex + 20);
 
         if (!fileSIMMs[nIndex].Open(strSIMMNames, CFile::modeWrite | CFile::typeBinary))
         {
@@ -210,7 +210,7 @@ BOOL CGame_MVC2_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
 #if MVC2_RERIP_DEBUG
-                    strInfo.Format(_T("\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X (SIMM set %u)\n"), nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation, nSIMMSetToUse);
+                    strInfo.Format(L"\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X (SIMM set %u)\n", nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation, nSIMMSetToUse);
                     OutputDebugString(strInfo);
 #endif
 

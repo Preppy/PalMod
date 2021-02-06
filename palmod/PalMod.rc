@@ -320,24 +320,29 @@ BEGIN
         POPUP "&Load Directory"
         BEGIN
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
-            POPUP "Jojo's"
+            POPUP "Jojo's HftF"
             BEGIN
-                MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
+                MENUITEM "Characters (Japan Arcade)",     ID_LD_JOJOS51
                 MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
             END
             POPUP "MvC2"
             BEGIN
-                MENUITEM "Arcade (*)",                  ID_LD_MVC2ARCADE
-                MENUITEM "DC (USA)",                    ID_LD_MVC2DCUSA
-                MENUITEM "PS2 (*)",                     ID_LD_MVC2PS2USA
+                MENUITEM "Arcade",                ID_LD_MVC2ARCADE
+                MENUITEM "DC",                    ID_LD_MVC2DCUSA
+                MENUITEM "PS2",                   ID_LD_MVC2PS2USA
             END
-            MENUITEM "Red Earth / Warzard (Arcade)(*)", ID_LOADDIRECTORY_REDEARTH
-            POPUP "SFIII3"
+            MENUITEM "Red Earth / Warzard (Arcade)", ID_LOADDIRECTORY_REDEARTH
+            POPUP "Street Fighter III"
             BEGIN
-                MENUITEM "Dreamcast/PS2",           ID_LD_SFIII3DCALL
-                MENUITEM "Arcade",                  ID_LD_SFIII3ARCADE51
-                MENUITEM "Arcade - Gill Glow/X.C.O.P.Y.", ID_LD_SFIII3ARCADE10
-                MENUITEM "4rd Strike",              ID_LD_SFIII3ARCADE4rd
+                MENUITEM "New Generation (Arcade)",       ID_LD_SFIII1
+                MENUITEM SEPARATOR
+                MENUITEM "2nd Impact (Arcade)",           ID_LD_SFIII2
+                MENUITEM SEPARATOR
+                MENUITEM "3rd Strike (Dreamcast/PS2)",           ID_LD_SFIII3DCALL
+                MENUITEM "3rd Strike (Arcade)",           ID_LD_SFIII3ARCADE51
+                MENUITEM "3rd Strike (Arcade) - Gill Glow/X.C.O.P.Y.", ID_LD_SFIII3ARCADE10
+                MENUITEM SEPARATOR
+                MENUITEM "4rd Strike",                  ID_LD_SFIII3ARCADE4rd
                 MENUITEM "4rd Strike - Gill/X.C.O.P.Y.", ID_LD_SFIII3ARCADE4rd10
             END
         END

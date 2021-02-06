@@ -95,6 +95,8 @@ enum SupportedGamesList
     NINJAMASTERS_A,
     SFIII3_A_DIR_4rd_10,
     KOF97_A,
+    SFIII1_A_DIR,
+    SFIII2_A_DIR,
 
     NUM_GAMES // This needs to be last
 };
@@ -193,6 +195,8 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Ninja Masters (Neo-Geo)",
    L"SFIII:4rd Strike Gill Glow (Arcade)",
    L"KOF97 (Neo-Geo)",
+   L"SFIII:New Generation (Arcade Rerip)",
+   L"SFIII:2nd Impact (Arcade Rerip)"
 };
 
 enum class GamePlatform

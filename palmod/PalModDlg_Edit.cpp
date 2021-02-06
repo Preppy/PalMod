@@ -37,7 +37,9 @@ void CPalModDlg::CopyColorToClipboard(COLORREF crColor)
     }
 
     pSource->CacheGlobalData(CF_TEXT, hMem);
+    EmptyClipboard();
     pSource->SetClipboard();
+    CloseClipboard();
 }
 
 void CPalModDlg::OnCopyColorAtPointer()
@@ -389,7 +391,9 @@ void CPalModDlg::OnEditCopy()
         }
 
         g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Setting clipboard\r\n");
+        EmptyClipboard();
         pSource->SetClipboard();
+        CloseClipboard();
         g_DebugHelper.DebugPrint(k_ContextMenuCopyCanary, "OnEditCopy::Complete!\r\n");
     }
 
@@ -568,7 +572,9 @@ void CPalModDlg::OnEditPaste()
                     break;
                 }
                 case SFIII1_A:
+                case SFIII1_A_DIR:
                 case SFIII2_A:
+                case SFIII2_A_DIR:
                 case SFIII3_A:
                 case SFIII3_A_DIR_10:
                 case SFIII3_A_DIR_51:

@@ -59,7 +59,9 @@
 #include "Game_SFA3_A.h"
 #include "Game_SFZ3U_A.h"
 #include "Game_SFIII1_A.h"
+#include "Game_SFIII1_A_DIR.h"
 #include "Game_SFIII2_A.h"
+#include "Game_SFIII2_A_DIR.h"
 #include "Game_SFIII3_A.h"
 #include "Game_SFIII3_A_DIR.h"
 #include "Game_SFIII3_D.h"
@@ -409,9 +411,27 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SFIII1_A::GetRule;
         return TRUE;
     }
+    case SFIII1_A_DIR:
+    {
+        GetRuleCtr = &CGame_SFIII1_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_SFIII1_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_SFIII1_A_DIR::GetRule;
+        GetNextRule = &CGame_SFIII1_A_DIR::GetNextRule;
+
+        return TRUE;
+    }
     case SFIII2_A:
     {
         GetRule = &CGame_SFIII2_A::GetRule;
+        return TRUE;
+    }
+    case SFIII2_A_DIR:
+    {
+        GetRuleCtr = &CGame_SFIII2_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_SFIII2_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_SFIII2_A_DIR::GetRule;
+        GetNextRule = &CGame_SFIII2_A_DIR::GetNextRule;
+
         return TRUE;
     }
     case SFIII3_A:
@@ -781,9 +801,17 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_SFIII1_A(nConfirmedROMSize);
     }
+    case SFIII1_A_DIR:
+    {
+        return new CGame_SFIII1_A_DIR(nConfirmedROMSize);
+    }
     case SFIII2_A:
     {
         return new CGame_SFIII2_A(nConfirmedROMSize);
+    }
+    case SFIII2_A_DIR:
+    {
+        return new CGame_SFIII2_A_DIR(nConfirmedROMSize);
     }
     case SFIII3_A:
     {
