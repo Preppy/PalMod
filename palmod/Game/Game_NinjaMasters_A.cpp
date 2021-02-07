@@ -44,11 +44,11 @@ CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize, int nROMToL
     m_nTotalInternalUnits = NINJAMASTERS_A_NUMUNIT;
     m_nExtraUnit = NINJAMASTERS_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 128;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 444;
     m_pszExtraFilename = EXTRA_FILENAME_NINJAMASTERS_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForNINJAMASTERS;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x110bd0;
+    m_nLowestKnownPaletteRomLocation = 0x81404;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -64,8 +64,8 @@ CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize, int nROMToL
     //Set game information
     nGameFlag = NINJAMASTERS_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    m_prgGameImageSet = NINJAMASTERS_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(NINJAMASTERS_A_IMG_UNITS);
 
     nFileAmt = 1;
 

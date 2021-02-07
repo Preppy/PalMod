@@ -1799,25 +1799,32 @@ enum KOFSpriteList
     indexKOFSprites_02UM_Bonus,     // 0x1d7
     indexKOFSprites_02UM_Stages,    // 0x1d8
 
-    indexLastBlade2_Akari,        // 0x1D9
-    indexLastBlade2_Genbu,        // 0x1DA
-    indexLastBlade2_Hibiki,       // 0x1DB
-    indexLastBlade2_HyoAmano,     // 0x1DC
-    indexLastBlade2_Juzoh,        // 0x1DD
-    indexLastBlade2_Kaede,        // 0x1DE
-    indexLastBlade2_Keiichiro,    // 0x1DF
-    indexLastBlade2_KojirohKaori, // 0x1E0
-    indexLastBlade2_Kouryu,       // 0x1E1
-    indexLastBlade2_LeeRekka,     // 0x1E2
-    indexLastBlade2_Moriya,       // 0x1E3
-    indexLastBlade2_Mukuro,       // 0x1E4
-    indexLastBlade2_Setsuna,      // 0x1E5
-    indexLastBlade2_Shigen,       // 0x1E6
-    indexLastBlade2_Shinnosuke,   // 0x1E7
-    indexLastBlade2_Yuki,         // 0x1E8
-    indexLastBlade2_Zantetsu,     // 0x1E9
-    indexLastBlade2_Bonus,        // 0x1EA
-    indexLastBlade2_Stages,       // 0x1EB
+    indexLastBlade2_Akari,          // 0x1D9
+    indexLastBlade2_Genbu,          // 0x1DA
+    indexLastBlade2_Hibiki,         // 0x1DB
+    indexLastBlade2_HyoAmano,       // 0x1DC
+    indexLastBlade2_Juzoh,          // 0x1DD
+    indexLastBlade2_Kaede,          // 0x1DE
+    indexLastBlade2_Keiichiro,      // 0x1DF
+    indexLastBlade2_KojirohKaori,   // 0x1E0
+    indexLastBlade2_Kouryu,         // 0x1E1
+    indexLastBlade2_LeeRekka,       // 0x1E2
+    indexLastBlade2_Moriya,         // 0x1E3
+    indexLastBlade2_Mukuro,         // 0x1E4
+    indexLastBlade2_Setsuna,        // 0x1E5
+    indexLastBlade2_Shigen,         // 0x1E6
+    indexLastBlade2_Shinnosuke,     // 0x1E7
+    indexLastBlade2_Yuki,           // 0x1E8
+    indexLastBlade2_Zantetsu,       // 0x1E9
+    indexLastBlade2_Bonus,          // 0x1EA
+    indexLastBlade2_Stages,         // 0x1EB
+
+    indexKOF97Sprites_Andy,         // 0x1ec
+    indexKOF97Sprites_Athena,       // 0x1ed
+    indexKOF97Sprites_Benimaru,     // 0x1ee
+    indexKOF97Sprites_Orochi,       // 0x1ef
+    indexKOF97Sprites_Bonus,        // 0x1f0
+    indexKOF97Sprites_Stages,       // 0x1f1
 
     indexKOFSprites_Last,
 };
@@ -3343,6 +3350,21 @@ enum SupportedNEOGEO_PaletteListIndex
     indexNeoBombermanSprites_RubberBomber,  // 0x11
     indexNeoBombermanSprites_Tamagon,       // 0x12
     indexNeoBombermanSprites_Bonus,         // 0x13
+
+    indexNinjaMastersSprites_Goemon,        // 0x14
+    indexNinjaMastersSprites_Houoh,         // 0x15
+    indexNinjaMastersSprites_Kamui,         // 0x16
+    indexNinjaMastersSprites_Karasu,        // 0x17
+    indexNinjaMastersSprites_Kasumi,        // 0x18
+    indexNinjaMastersSprites_Nobunaga,      // 0x19
+    indexNinjaMastersSprites_Natsume,       // 0x1a
+    indexNinjaMastersSprites_Sasuke,        // 0x1b
+    indexNinjaMastersSprites_Raiga,         // 0x1c
+    indexNinjaMastersSprites_Ranmaru,       // 0x1d
+    indexNinjaMastersSprites_Tenho,         // 0x1e
+    indexNinjaMastersSprites_Unzen,         // 0x1f
+    indexNinjaMastersSprites_Bonus,         // 0x20
+    indexNinjaMastersSprites_Stages,        // 0x21
 };
 
 const UINT16 NEOBOMBERMAN_A_IMG_UNITS[] =

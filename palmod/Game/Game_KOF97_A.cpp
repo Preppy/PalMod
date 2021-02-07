@@ -61,8 +61,8 @@ CGame_KOF97_A::CGame_KOF97_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = KOF97_A;
     nImgGameFlag = IMGDAT_SECTION_SNK;
-    nImgUnitAmt = KOF98_A_NUM_IMG_UNITS;
-    m_prgGameImageSet = KOF98_A_IMG_UNITS;
+    m_prgGameImageSet = KOF97_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(KOF97_A_IMG_UNITS);
 
     nFileAmt = 1;
 
@@ -318,7 +318,7 @@ sDescTreeNode* CGame_KOF97_A::InitDescTree()
     m_nTotalPaletteCountForKOF97 = nTotalPaletteCount;
 
     // For development use to speed things up
-    DumpPaletteHeaders();
+    //DumpPaletteHeaders();
 
     return NewDescTree;
 }
@@ -339,10 +339,10 @@ sKOF97_A_PaletteData KOF97_A_CharacterPalettes[] =
     // These effects use a random number of palettes per character.  The rgIsEffectUsed array keeps track of this for us.
     //                                                                            1  2  3  4  5  6  7  8  9  a  b  c  d  e
     { L"Kyo",       0x2D1FF0 + (0x800 *  0), L"indexKOFSprites_98Kyo",          { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Benimaru",  0x2D1FF0 + (0x800 *  1), L"indexKOFSprites_98Benimaru",     { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Benimaru",  0x2D1FF0 + (0x800 *  1), L"indexKOF97Sprites_Benimaru",     { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Daimon",    0x2D1FF0 + (0x800 *  2), L"indexKOFSprites_98Daimon",       { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, false, false },
     { L"Terry",     0x2D1FF0 + (0x800 *  3), L"indexKOFSprites_98Terry",        { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Andy",      0x2D1FF0 + (0x800 *  4), L"indexKOFSprites_98Andy",         { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Andy",      0x2D1FF0 + (0x800 *  4), L"indexKOF97Sprites_Andy",         { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Joe",       0x2D1FF0 + (0x800 *  5), L"indexKOFSprites_98Joe",          { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Ryo",       0x2D1FF0 + (0x800 *  6), L"indexKOFSprites_98Ryo",          { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 } },
     { L"Robert",    0x2D1FF0 + (0x800 *  7), L"indexKOFSprites_98Robert",       { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
@@ -350,7 +350,7 @@ sKOF97_A_PaletteData KOF97_A_CharacterPalettes[] =
     { L"Leona",     0x2D1FF0 + (0x800 *  9), L"indexKOFSprites_98Leona",        { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Ralf",      0x2D1FF0 + (0x800 * 10), L"indexKOFSprites_98Ralf",         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, true, false },
     { L"Clark",     0x2D1FF0 + (0x800 * 11), L"indexKOFSprites_98Clark",        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, true, false },
-    { L"Athena",    0x2D1FF0 + (0x800 * 12), L"indexKOFSprites_98Athena",       { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 } },
+    { L"Athena",    0x2D1FF0 + (0x800 * 12), L"indexKOF97Sprites_Athena",       { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 } },
     { L"Kensou",    0x2D1FF0 + (0x800 * 13), L"indexKOFSprites_98Kensou",       { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Chin",      0x2D1FF0 + (0x800 * 14), L"indexKOFSprites_98Chin",         { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Chizuru",   0x2D1FF0 + (0x800 * 15), L"indexKOFSprites_98Chizuru",      { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
@@ -368,7 +368,7 @@ sKOF97_A_PaletteData KOF97_A_CharacterPalettes[] =
     { L"Iori",      0x2D1FF0 + (0x800 * 27), L"indexKOFSprites_98Iori",         { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Orochi Iori",   0x2D1FF0 + (0x800 * 28), L"indexKOFSprites_98Iori",     { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Orochi Leona",  0x2D1FF0 + (0x800 * 29), L"indexKOFSprites_98Leona",    { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
-    { L"Orochi",    0x2D1FF0 + (0x800 * 30), L"indexKOFSprites_98Leona",        { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { L"Orochi",    0x2D1FF0 + (0x800 * 30), L"indexKOF97Sprites_Orochi",       { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 } },
     { L"Shingo",    0x2D1FF0 + (0x800 * 31), L"indexKOFSprites_98Shingo",       { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, false, false },
     { L"Orochi Yashiro",    0x2D1FF0 + (0x800 * 32), L"indexKOFSprites_98Yashiro", { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1 } },
     { L"Orochi Shermie",    0x2D1FF0 + (0x800 * 33), L"indexKOFSprites_98Shermie", { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1 } },
@@ -855,10 +855,20 @@ BOOL CGame_KOF97_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                if ((_wcsicmp(pCurrentNode->szDesc, L"A") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"B") == 0) ||
-                    (_wcsicmp(pCurrentNode->szDesc, L"C") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"D") == 0))
+                bool fIsCorePalette = false;
+
+                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
                 {
-                    nSrcAmt = 4;
+                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                    {
+                        fIsCorePalette = true;
+                        break;
+                    }
+                }
+
+                if (fIsCorePalette)
+                {
+                    nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;
 
                     while (nSrcStart >= nNodeIncrement)
