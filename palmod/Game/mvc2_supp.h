@@ -363,6 +363,7 @@ const UINT16 _mvc2_supp_const [] =
     0x1C | SUPP_START, // Megaman
         // intro animation is frames 0xb-0x13
                 // SUPP_NODE: starting_palette, palette_increment
+        // color 0x01 is his outline, but it does change to align with the dominant color
         SUPP_NODE, 0x0B, 0x57,
             MOD_LUM, 1, 15, NEG + 21,
         SUPP_NODE, 0x0C, 0x57,
@@ -402,23 +403,23 @@ const UINT16 _mvc2_supp_const [] =
             MOD_LUM, 1, 15, 35,
         // 0x56-5d: hyper megaman switching back
 
-    0x1D | SUPP_START, // Roll: Identical to Megaman...
+    0x1D | SUPP_START, // Roll: Identical to Megaman, except the outline is 0x15 instead of 0x01
         // intro animation is frames 0xb-0x13
         SUPP_NODE, 0x0B, 0x57,
-            MOD_LUM, 1, 15, NEG + 21,
+            MOD_LUM, 1, 14, NEG + 21,
         SUPP_NODE, 0x0C, 0x57,
-            MOD_LUM, 1, 15, NEG + 13,
+            MOD_LUM, 1, 14, NEG + 13,
         SUPP_NODE, 0x0D, 0x57,
-            MOD_LUM, 1, 15, NEG + 5,
+            MOD_LUM, 1, 14, NEG + 5,
         SUPP_NODE, 0x0E, 0x57,
         SUPP_NODE, 0x0F, 0x57,
-            MOD_LUM, 1, 15, 5,
+            MOD_LUM, 1, 14, 5,
         SUPP_NODE, 0x10, 0x57,
-            MOD_LUM, 1, 15, 13,
+            MOD_LUM, 1, 14, 13,
         SUPP_NODE, 0x11, 0x57,
-            MOD_LUM, 1, 15, 21,
+            MOD_LUM, 1, 14, 21,
         SUPP_NODE, 0x12, 0x57,
-            MOD_LUM, 1, 15, 35,
+            MOD_LUM, 1, 14, 35,
         // 0x14-1c: rush
         // 0x1d-25: beat
         // 0x26-23: beat plane
@@ -426,20 +427,20 @@ const UINT16 _mvc2_supp_const [] =
         // 0x38-40: rush drill
         // 0x4c-54: hyper roll
         SUPP_NODE, 0x4C, 0x57,
-            MOD_LUM, 1, 15, NEG + 21,
+            MOD_LUM, 1, 14, NEG + 21,
         SUPP_NODE, 0x4D, 0x57,
-            MOD_LUM, 1, 15, NEG + 13,
+            MOD_LUM, 1, 14, NEG + 13,
         SUPP_NODE, 0x4E, 0x57,
-            MOD_LUM, 1, 15, NEG + 5,
+            MOD_LUM, 1, 14, NEG + 5,
         SUPP_NODE, 0x4F, 0x57,
         SUPP_NODE, 0x50, 0x57,
-            MOD_LUM, 1, 15, 5,
+            MOD_LUM, 1, 14, 5,
         SUPP_NODE, 0x51, 0x57,
-            MOD_LUM, 1, 15, 13,
+            MOD_LUM, 1, 14, 13,
         SUPP_NODE, 0x52, 0x57,
-            MOD_LUM, 1, 15, 21,
+            MOD_LUM, 1, 14, 21,
         SUPP_NODE, 0x53, 0x57,
-            MOD_LUM, 1, 15, 35,
+            MOD_LUM, 1, 14, 35,
         // 0x56-5d: hyper roll switching back
 
     0x24 | SUPP_START, //Cammy

@@ -247,8 +247,8 @@ const sGame_PaletteDataset SFIII3_A_DUDLEY_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_DUDLEY_EXTRA_PALETTES[] =
 {
-    { L"P1 Intro car + shared rose", 0x704C80, 0x704D00, index3S_CPS3_Dudley, 0x03, &pairNext },
-    { L"P2 Intro car", 0x704D80, 0x704E00, index3S_CPS3_Dudley, 0x04, &pairPrevious },
+    { L"Challenger Intro Car", 0x704C80, 0x704D00, index3S_CPS3_Dudley, 0x03, &pairNext },
+    { L"First Player Intro Car  + Rose (Shared)/Butler", 0x704D80, 0x704E00, index3S_CPS3_Dudley, 0x04, &pairPrevious },
     { L"SA1 wind", 0x704D00, 0x704D80, index3S_CPS3_Dudley, 0x02 },
 };
 
@@ -3240,8 +3240,8 @@ const sGame_PaletteDataset SFIII3EX_A_YUN_EX_PALETTES[] =
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_LP_PALETTES[] =
 {
     { L"LP Main",      0x00005B00, 0x00005B80, index3S_CPS3_Dudley, 0x00 },
-    { L"LP Rose/Butler/P1 Intro Car",  0x00005C80, 0x00005D00, index3S_CPS3_Dudley, 0x03, &pairNext},
-    { L"LP P2 Intro Car",  0x00005B80, 0x00005C00, index3S_CPS3_Dudley, 0x04, &pairPrevious},
+    { L"LP First Player Intro Car + Rose (Shared)/Butler",  0x00005C80, 0x00005D00, index3S_CPS3_Dudley, 0x03, &pairNext},
+    { L"LP Challenger Intro Car",  0x00005B80, 0x00005C00, index3S_CPS3_Dudley, 0x04, &pairPrevious},
     { L"LP SA1 Wind",  0x00005C00, 0x00005C80, index3S_CPS3_Dudley, 0x02 },
     { L"LP EX Trail",  0x00005D00, 0x00005D80, index3S_CPS3_Dudley, 0x00 },
     { L"LP EX Flash",  0x00005D80, 0x00005E00, index3S_CPS3_Dudley, 0x00 },
@@ -3254,8 +3254,8 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_LP_PALETTES[] =
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_MP_PALETTES[] =
 {
     { L"MP Main",      0x00006000, 0x00006080, index3S_CPS3_Dudley, 0x00 },
-    { L"MP Rose/Butler/P1 Intro Car",  0x00006180, 0x00006200, index3S_CPS3_Dudley, 0x03, &pairNext},
-    { L"MP P2 Intro Car",  0x00006080, 0x00006100, index3S_CPS3_Dudley, 0x04, &pairPrevious},
+    { L"MP First Player Intro Car + Rose (Shared)/Butler",  0x00006180, 0x00006200, index3S_CPS3_Dudley, 0x03, &pairNext},
+    { L"MP Challenger Intro Car",  0x00006080, 0x00006100, index3S_CPS3_Dudley, 0x04, &pairPrevious},
     { L"MP SA1 Wind",  0x00006100, 0x00006180, index3S_CPS3_Dudley, 0x02 },
     { L"MP EX Trail",  0x00006200, 0x00006280, index3S_CPS3_Dudley, 0x00 },
     { L"MP EX Flash",  0x00006280, 0x00006300, index3S_CPS3_Dudley, 0x00 },
@@ -3268,8 +3268,8 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_MP_PALETTES[] =
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_HP_PALETTES[] =
 {
     { L"HP Main",      0x00006500, 0x00006580, index3S_CPS3_Dudley, 0x00 },
-    { L"HP Rose/Butler/P1 Intro Car",  0x00006680, 0x00006700, index3S_CPS3_Dudley, 0x03, &pairNext},
-    { L"HP P2 Intro Car",  0x00006580, 0x00006600, index3S_CPS3_Dudley, 0x04, &pairPrevious},
+    { L"HP First Player Intro Car  + Rose (Shared)/Butler",  0x00006680, 0x00006700, index3S_CPS3_Dudley, 0x03, &pairNext},
+    { L"HP Challenger Intro Car",  0x00006580, 0x00006600, index3S_CPS3_Dudley, 0x04, &pairPrevious},
     { L"HP SA1 Wind",  0x00006600, 0x00006680, index3S_CPS3_Dudley, 0x02 },
     { L"HP EX Trail",  0x00006700, 0x00006780, index3S_CPS3_Dudley, 0x00 },
     { L"HP EX Flash",  0x00006780, 0x00006800, index3S_CPS3_Dudley, 0x00 },
@@ -3282,8 +3282,8 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_HP_PALETTES[] =
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_LK_PALETTES[] =
 {
     { L"LK Main",      0x00006A00, 0x00006A80, index3S_CPS3_Dudley, 0x00 },
-    { L"LK Rose/Butler/P1 Intro Car",  0x00006B80, 0x00006C00, index3S_CPS3_Dudley, 0x03, &pairNext},
-    { L"LK P2 Intro Car",  0x00006A80, 0x00006B00, index3S_CPS3_Dudley, 0x04, &pairPrevious},
+    { L"LK First Player Intro Car + Rose (Shared)/Butler",  0x00006B80, 0x00006C00, index3S_CPS3_Dudley, 0x03, &pairNext},
+    { L"LK Challenger Intro Car",  0x00006A80, 0x00006B00, index3S_CPS3_Dudley, 0x04, &pairPrevious},
     { L"LK SA1 Wind",  0x00006B00, 0x00006B80, index3S_CPS3_Dudley, 0x02 },
     { L"LK EX Trail",  0x00006C00, 0x00006C80, index3S_CPS3_Dudley, 0x00 },
     { L"LK EX Flash",  0x00006C80, 0x00006D00, index3S_CPS3_Dudley, 0x00 },
@@ -3296,8 +3296,8 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_LK_PALETTES[] =
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_MK_PALETTES[] =
 {
     { L"MK Main",      0x00006F00, 0x00006F80, index3S_CPS3_Dudley, 0x00 },
-    { L"MK Rose/Butler/P1 Intro Car",  0x00007080, 0x00007100, index3S_CPS3_Dudley, 0x03, &pairNext},
-    { L"MK P2 Intro Car",  0x00006F80, 0x00007000, index3S_CPS3_Dudley, 0x04, &pairPrevious},
+    { L"MK First Player Intro Car + Rose (Shared)/Butler",  0x00007080, 0x00007100, index3S_CPS3_Dudley, 0x03, &pairNext},
+    { L"MK Challenger Intro Car",  0x00006F80, 0x00007000, index3S_CPS3_Dudley, 0x04, &pairPrevious},
     { L"MK SA1 Wind",  0x00007000, 0x00007080, index3S_CPS3_Dudley, 0x02 },
     { L"MK EX Trail",  0x00007100, 0x00007180, index3S_CPS3_Dudley, 0x00 },
     { L"MK EX Flash",  0x00007180, 0x00007200, index3S_CPS3_Dudley, 0x00 },
@@ -3310,8 +3310,8 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_MK_PALETTES[] =
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_HK_PALETTES[] =
 {
     { L"HK Main",      0x00007400, 0x00007480, index3S_CPS3_Dudley, 0x00 },
-    { L"HK Rose/Butler/P1 Intro Car",  0x00007580, 0x00007600, index3S_CPS3_Dudley, 0x03, &pairNext},
-    { L"HK P2 Intro Car",  0x00007480, 0x00007500, index3S_CPS3_Dudley, 0x04, &pairPrevious},
+    { L"HK First Player Intro Car + Rose (Shared)/Butler",  0x00007580, 0x00007600, index3S_CPS3_Dudley, 0x03, &pairNext},
+    { L"HK Challenger Intro Car",  0x00007480, 0x00007500, index3S_CPS3_Dudley, 0x04, &pairPrevious},
     { L"HK SA1 Wind",  0x00007500, 0x00007580, index3S_CPS3_Dudley, 0x02 },
     { L"HK EX Trail",  0x00007600, 0x00007680, index3S_CPS3_Dudley, 0x00 },
     { L"HK EX Flash",  0x00007680, 0x00007700, index3S_CPS3_Dudley, 0x00 },
@@ -3324,8 +3324,8 @@ const sGame_PaletteDataset SFIII3EX_A_DUDLEY_HK_PALETTES[] =
 const sGame_PaletteDataset SFIII3EX_A_DUDLEY_EX_PALETTES[] =
 {
     { L"EX Main",      0x00007900, 0x00007980, index3S_CPS3_Dudley, 0x00 },
-    { L"EX Rose/Butler/P1 Intro Car",  0x00007A80, 0x00007B00, index3S_CPS3_Dudley, 0x03, &pairNext},
-    { L"EX P2 Intro Car",  0x00007980, 0x00007A00, index3S_CPS3_Dudley, 0x04, &pairPrevious},
+    { L"EX First Player Intro Car + Rose (Shared)/Butler",  0x00007A80, 0x00007B00, index3S_CPS3_Dudley, 0x03, &pairNext},
+    { L"EX Challenger Intro Car",  0x00007980, 0x00007A00, index3S_CPS3_Dudley, 0x04, &pairPrevious},
     { L"EX SA1 Wind",  0x00007A00, 0x00007A80, index3S_CPS3_Dudley, 0x02 },
     { L"EX EX Trail",  0x00007B00, 0x00007B80, index3S_CPS3_Dudley, 0x00 },
     { L"EX EX Flash",  0x00007B80, 0x00007C00, index3S_CPS3_Dudley, 0x00 },
