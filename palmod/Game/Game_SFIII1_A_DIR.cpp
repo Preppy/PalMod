@@ -21,6 +21,7 @@ CGame_SFIII1_A_DIR::CGame_SFIII1_A_DIR(UINT32 nConfirmedROMSize /* = -1 */) :
     m_nTotalNumberOfSIMMFilesNeeded = SFIII_Arcade_USA_ROMFilesNeeded;
     m_pszSIMMBaseFileName = SFIII_Arcade_USA_ROM_Base;
     m_nSIMMSetBaseNumber = SFIII_Arcade_USA_ROMSet;
+    m_nSIMMSetStartingFileNumber = SFIII_Arcade_USA_SIMMFileBaseNumber;
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
@@ -30,8 +31,8 @@ sFileRule CGame_SFIII1_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    // next line is hacky with two things that shouldn't be hard-coded
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_USA_ROM_Base, SFIII_Arcade_USA_ROMSet, (nUnitId & 0x00FF));
+    const UINT16 nAdjustedSIMMFileNumber = SFIII_Arcade_USA_SIMMFileBaseNumber + (nUnitId & 0x00FF);
+    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_USA_ROM_Base, SFIII_Arcade_USA_ROMSet, nAdjustedSIMMFileNumber);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = SFIII_Arcade_USA_SIMMLength;
 

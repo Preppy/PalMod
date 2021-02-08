@@ -10,12 +10,9 @@ constexpr auto RedEarth_Arcade_SIMMFileBaseNumber = 4;
 constexpr auto RedEarth_Arcade_ROMFilesNeeded = 4;
 constexpr auto RedEarth_Arcade_SIMMLength = 0x200000;
 
-
 CGame_RedEarth_A_DIR::CGame_RedEarth_A_DIR(UINT32 nConfirmedROMSize) :
         CGame_REDEARTH_A(RedEarth_Arcade_SIMMLength * RedEarth_Arcade_ROMFilesNeeded)   // Let RedEarth know that it's safe to load extras.
 {
-    OutputDebugString(L"CGame_RedEarth_A_DIR::CGame_RedEarth_A_DIR: Loading from SIMM directory\n");
-    // We lie here because we want to look at all 8 SIMM banks
     nFileAmt = 4;
     nGameFlag = REDEARTH_A_DIR;
 
@@ -23,9 +20,9 @@ CGame_RedEarth_A_DIR::CGame_RedEarth_A_DIR(UINT32 nConfirmedROMSize) :
     m_nNumberOfSIMMsPerSet = 2;
     m_nTotalNumberOfSIMMFilesNeeded = RedEarth_Arcade_ROMFilesNeeded;
     m_pszSIMMBaseFileName = RedEarth_Arcade_ROM_Base;
-    m_nSIMMSetBaseNumber = RedEarth_Arcade_ROMSet;
     // We want the 3.1 files
-    m_nSIMMSetStartingFileNumber = 4;
+    m_nSIMMSetBaseNumber = RedEarth_Arcade_ROMSet;
+    m_nSIMMSetStartingFileNumber = RedEarth_Arcade_SIMMFileBaseNumber;
 
     FlushChangeTrackingArray();
     PrepChangeTrackingArray();
