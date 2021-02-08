@@ -4,16 +4,11 @@
 class CGame_RedEarth_A_DIR : 
     public CGame_REDEARTH_A
 {
-  
 public:
     CGame_RedEarth_A_DIR(UINT32 nConfirmedROMSize);
-    ~CGame_RedEarth_A_DIR();
+    ~CGame_RedEarth_A_DIR() { FlushChangeTrackingArray(); };
 
     UINT32 c_nRedEarthSIMMLength = 0x200000;
-
-    inline UINT32 GetSIMMLocationFromROMLocation(UINT32 nROMLocation);
-    inline UINT32 GetLocationWithinSIMM(UINT32 nSIMMSetLocation);
-    inline UINT8 GetSIMMSetForROMLocation(UINT32 nROMLocation);
 
     //Static functions
     static UINT16 uRuleCtr;
@@ -24,6 +19,10 @@ public:
     static sFileRule GetNextRule();
     static sFileRule GetRule(UINT16 nRuleId);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override;
-    BOOL SaveFile(CFile* SaveFile, UINT16 nSaveUnit) override;
+    sFileRule GetNextRuleForSIMMGame() override { return GetNextRule(); };
+
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override { return LoadFileForSIMMGame(LoadedFile, nSIMMNumber); };
+    BOOL SaveFile(CFile* SaveFile, UINT16 nSIMMNumber) override { return SaveFileForSIMMGame(SaveFile, nSIMMNumber); };
+
+    LPCWSTR GetGameName() override { return L"Red Earth (Arcade Rerip)"; };
 };

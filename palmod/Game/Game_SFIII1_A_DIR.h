@@ -6,13 +6,7 @@ class CGame_SFIII1_A_DIR :
 {
 public:
     CGame_SFIII1_A_DIR(UINT32 nConfirmedROMSize = -1);
-    ~CGame_SFIII1_A_DIR(void);
-
-    const UINT32 c_nSFIII1SIMMLength = 0x200000;
-
-    inline UINT32 GetSIMMLocationFromROMLocation(UINT32 nROMLocation);
-    inline UINT32 GetLocationWithinSIMM(UINT32 nSIMMSetLocation);
-    inline UINT8 GetSIMMSetForROMLocation(UINT32 nROMLocation);
+    ~CGame_SFIII1_A_DIR(void) { FlushChangeTrackingArray(); };
 
     //Static functions
     static UINT16 uRuleCtr;
@@ -23,10 +17,10 @@ public:
     static sFileRule GetNextRule();
     static sFileRule GetRule(UINT16 nRuleId);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override;
-    BOOL SaveFile(CFile* SaveFile, UINT16 nSIMMNumber) override;
+    sFileRule GetNextRuleForSIMMGame() override{ return GetNextRule(); };
 
-    UINT32 SaveMultiplePatchFiles(CString strTargetDirectory) override;
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber) override { return LoadFileForSIMMGame(LoadedFile, nSIMMNumber); };
+    BOOL SaveFile(CFile* SaveFile, UINT16 nSIMMNumber) override { return SaveFileForSIMMGame(SaveFile, nSIMMNumber); };
 
-    LPCWSTR GetGameName() override;
+    LPCWSTR GetGameName() override { return L"SFIII:New Generation (Arcade Rerip)"; };
 };

@@ -277,7 +277,7 @@ public:
     virtual BOOL SaveFile(CFile* SaveFile, UINT16 nUnitId);
 
     virtual UINT32 SavePatchFile(CFile* PatchFile, UINT16 nUnitId);
-    virtual UINT32 SaveMultiplePatchFiles(CString strTargetDirectory) { return 0; };
+    virtual UINT32 SaveMultiplePatchFiles(CString strTargetDirectory);
     bool UserWantsAllPalettesInPatch();
     void SetSpecificValuesForCRC(UINT32 nCRCForFile);
     virtual UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) { return 0; };
@@ -299,4 +299,25 @@ public:
     void MarkPaletteDirty(UINT16 nUnit, UINT16 nPaletteID);
     void MarkPaletteClean(UINT16 nUnit, UINT16 nPaletteID);
     bool IsPaletteDirty(UINT16 nUnit, UINT16 nPaletteID);
+
+    // This section covers SIMM-based games.
+    // The length of one individual SIMM file
+    UINT32 m_nSIMMLength = 0;
+    // The number of SIMMs we need to load to build one file view
+    UINT16 m_nNumberOfSIMMsPerSet = 0;
+    // The base filename that we then append the file number data to
+    LPCWSTR m_pszSIMMBaseFileName = nullptr;
+    // This is the "5" in 5.0
+    UINT8 m_nSIMMSetBaseNumber = 0;
+    // This is the "0" in 5.0
+    UINT8 m_nSIMMSetStartingFileNumber = 0;
+    UINT8 m_nTotalNumberOfSIMMFilesNeeded = 0;
+
+    inline UINT32 GetSIMMLocationFromROMLocation(UINT32 nROMLocation);
+    inline UINT32 GetLocationWithinSIMM(UINT32 nSIMMSetLocation);
+    inline UINT8 GetSIMMSetForROMLocation(UINT32 nROMLocation);
+    BOOL LoadFileForSIMMGame(CFile* LoadedFile, UINT16 nSIMMNumber);
+    BOOL SaveFileForSIMMGame(CFile* SaveFile, UINT16 nSIMMNumber);
+    // this is a little hacky...
+    virtual sFileRule GetNextRuleForSIMMGame() { sFileRule NewFileRule = {}; return NewFileRule; };
 };
