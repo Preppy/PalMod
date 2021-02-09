@@ -38,5 +38,5 @@ public:
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    LPCWSTR GetGameName() override { return L"GGXX Reloaded (Arcade)"; };
+    LPCWSTR GetGameName() override { return L"GGXX:AC+R (Arcade)"; };
 };

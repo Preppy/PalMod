@@ -177,7 +177,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Fatal Fury Special (SNES)",
    L"Fake game ID for RGB9",
    L"SFIII:3S EX",
-   L"GGXX Reloaded (Arcade)",
+   L"GGXX:AC+R (Arcade)",
    L"Art of Fighting 3 (Arcade)",
    L"Dan-Ku-Ga (Arcade)",
    L"Samurai Shodown IV (Arcade)",

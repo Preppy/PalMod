@@ -8,67 +8,7 @@ CDescTree CGame_GGXXR_A::MainDescTree = nullptr;
 
 #define GGXXR_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-struct GGXXRFileData
-{
-    LPCWSTR pszFileName = nullptr;
-    LPCWSTR pszCharacter = nullptr;
-    UINT32 nExpectedFileSize = 0;
-    UINT32 nInitialLocation = 0;
-};
-
-GGXXRFileData GGXXRCharacterData[] =
-{
-    { L"ab.bin", L"A.B.A.", 5715300 },
-    { L"an.bin", L"Anji", 4518932 },
-    { L"ax.bin", L"Axel", 4225716 },
-    { L"bk.bin", L"Baiken", 3573668 },
-    { L"ch.bin", L"Chipp", 3113988 },
-    { L"dz.bin", L"Dizzy", 5352324 },
-    { L"eab.bin", L"EX A.B.A.", 5912564 },
-    { L"ean.bin", L"EX Anji", 4520900 },
-    { L"eax.bin", L"EX Axel", 4217220 },
-    { L"ebk.bin", L"EX Baiken", 3601604 },
-    { L"ech.bin", L"EX Chipp", 3162804 },
-    { L"edz.bin", L"EX Dizzy", 5594900 },
-    { L"efa.bin", L"EX Faust", 4784260 },
-    { L"efr.bin", L"EX Order Sol", 5965396 },
-    { L"ein.bin", L"EX I-no", 5762996 },
-    { L"ejm.bin", L"EX Jam", 3812100 },
-    { L"ejy.bin", L"EX Justice", 4210036 },
-    { L"eky.bin", L"EX Ky", 4859572 },
-    { L"eml.bin", L"EX Millia", 3003428 },
-    { L"emy.bin", L"EX May", 4675812 },
-    { L"epo.bin", L"EX Potemkin", 5313412 },
-    { L"erk.bin", L"EX Robo-Ky", 4599332 },
-    { L"esl.bin", L"EX Sol", 4679684 },
-    { L"esy.bin", L"EX Slayer", 6221972 },
-    { L"ets.bin", L"EX Testament", 4775796 },
-    { L"eve.bin", L"EX Venom", 2848292 },
-    { L"eyy.bin", L"EX Bridget", 4206820 },
-    { L"ezp.bin", L"EX Zappa", 6044292 },
-    { L"ezt.bin", L"EX Eddie", 3185140 },
-    { L"fa.bin", L"Faust", 4773284 },
-    { L"fr.bin", L"Order Sol", 5772356 },
-    { L"in.bin", L"I-no", 5609060 },
-    { L"jm.bin", L"Jam", 3827044 },
-    { L"js.bin", L"Justice", 4556788 },
-    { L"jy.bin", L"Johnny", 4205892 },
-    { L"kr.bin", L"Kliff", 3114036 },
-    { L"ky.bin", L"Ky", 4571540 },
-    { L"ml.bin", L"Millia", 3034084 },
-    { L"my.bin", L"May", 4311684 },
-    { L"po.bin", L"Potemkin", 5277348 },
-    { L"rk.bin", L"Robo-Ky", 4489668 },
-    { L"sl.bin", L"Sol", 4613188 },
-    { L"sy.bin", L"Slayer", 6215652 },
-    { L"ts.bin", L"Testament", 4817508 },
-    { L"ve.bin", L"Venom", 2787412 },
-    { L"yy.bin", L"Bridget", 4127716 },
-    { L"zp.bin", L"Zappa", 6019988 },
-    { L"zt.bin", L"Eddie", 3289156 },
-};
-
-const LPCWSTR GGXXRPaletteNames[] =
+const LPCWSTR GGXXRPaletteNamesNormal[] =
 {
     L"Punch",
     L"Kick",
@@ -96,6 +36,95 @@ const LPCWSTR GGXXRPaletteNames[] =
 
     L"Vs Slash Dust",
     L"Vs Reload Dust",
+};
+
+const LPCWSTR GGXXRPaletteNamesEx[] =
+{
+    L"Punch",
+    L"Kick",
+    L"Slash",
+    L"Heavy Slash",
+    L"Dust",
+
+    L"EX Punch",
+    L"EX Kick",
+    L"EX Slash",
+    L"EX Heavy Slash",
+    L"EX Dust",
+
+    L"Slash Punch",
+    L"Slash Kick",
+    L"Slash Slash",
+    L"Slash Heavy Slash",
+    L"Gold",
+
+    L"Reload Punch",
+    L"Reload Kick",
+    L"Reload Slash",
+    L"Reload Heavy Slash",
+    L"Shadow",
+};
+
+struct GGXXRFileData
+{
+    LPCWSTR pszFileName = nullptr;
+    LPCWSTR pszCharacter = nullptr;
+    UINT32 nExpectedFileSize = 0;
+    const LPCWSTR* ppszPaletteList = nullptr;
+    UINT32 nPaletteListSize = 0;
+    UINT32 nInitialLocation = 0;
+};
+
+GGXXRFileData GGXXRCharacterData[] =
+{
+    { L"ab.bin",    L"A.B.A.",          5715300,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x48ab50 },
+    { L"an.bin",    L"Anji",            4518932,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3ea460  },
+    { L"ax.bin",    L"Axel",            4225716,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x35ebe0 },
+    { L"bk.bin",    L"Baiken",          3573668,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x308c20 },
+    { L"ch.bin",    L"Chipp",           3113988,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x293560 },
+    { L"dz.bin",    L"Dizzy",           5352324,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x45d720 },
+    { L"fa.bin",    L"Faust",           4773284,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3fe9a0 },
+    { L"fr.bin",    L"Order Sol",       5772356,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x4377e0 },
+    { L"in.bin",    L"I-no",            5609060,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3e5370 },
+    { L"jm.bin",    L"Jam",             3827044,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x2c4e80 },
+    { L"js.bin",    L"Justice",         4556788,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3789b0 },
+    { L"jy.bin",    L"Johnny",          4205892,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3b0620 },
+    { L"kr.bin",    L"Kliff",           3114036,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x28abf0 },
+    { L"ky.bin",    L"Ky",              4571540,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x38bbc0 },
+    { L"ml.bin",    L"Millia",          3034084,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x2a4950 },
+    { L"my.bin",    L"May",             4311684,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x363d50 },
+    { L"po.bin",    L"Potemkin",        5277348,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x489c70 },
+    { L"rk.bin",    L"Robo-Ky",         4489668,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3a7450 },
+    { L"sl.bin",    L"Sol",             4613188,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x339b60 },
+    { L"sy.bin",    L"Slayer",          6215652,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x39c960 },
+    { L"ts.bin",    L"Testement",       4817508,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3ee950 },
+    { L"ve.bin",    L"Venom",           2787412,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x261c10 },
+    { L"yy.bin",    L"Bridget",         4127716,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x34b210 },
+    { L"zp.bin",    L"Zappa",           6019988,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x2a54f0 },
+    { L"zt.bin",    L"Eddie",           3289156,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x24e560 },
+    { L"eab.bin",   L"EX A.B.A.",       5912564,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x4b3ca0 },
+    { L"ean.bin",   L"EX Anji",         4520900,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3eb460 },
+    { L"eax.bin",   L"EX Axel",         4217220,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x35edf0 },
+    { L"ebk.bin",   L"EX Baiken",       3601604,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x309920 },
+    { L"ech.bin",   L"EX Chipp",        3162804,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x29f630 },
+    { L"edz.bin",   L"EX Dizzy",        5594900,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x49a2c0 },
+    { L"efa.bin",   L"EX Faust",        4784260,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3fe9f0 },
+    { L"efr.bin",   L"EX Order Sol",    5965396,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x45d9d0 },
+    { L"ein.bin",   L"EX I-no",         5762996,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3f9060 },
+    { L"ejm.bin",   L"EX Jam",          3812100,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x2c46d0 },
+    { L"ejy.bin",   L"EX Johnny",       4210036,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3b2250 },
+    { L"eky.bin",   L"EX Ky",           4859572,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3cafd0 },
+    { L"eml.bin",   L"EX Millia",       3003428,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x29d9c0 },
+    { L"emy.bin",   L"EX May",          4675812,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x399780 },
+    { L"epo.bin",   L"EX Potemkin",     5313412,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x494170 },
+    { L"erk.bin",   L"EX Robo-Ky",      4599332,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3cfc80 },
+    { L"esl.bin",   L"EX Sol",          4679684,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x33b380 },
+    { L"esy.bin",   L"EX Slayer",       6221972,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x39ea30 },
+    { L"ets.bin",   L"EX Testement",    4775796,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3f4780 },
+    { L"eve.bin",   L"EX Venom",        2848292,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x271200 },
+    { L"eyy.bin",   L"EX Bridget",      4206820,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x34b210 },
+    { L"ezp.bin",   L"EX Zappa",        6044292,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x2a2e90 },
+    { L"ezt.bin",   L"EX Eddie",        3185140,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x275d30 },
 };
 
 CGame_GGXXR_A::CGame_GGXXR_A(UINT32 nConfirmedROMSize /* = -1 */)
@@ -237,14 +266,13 @@ sDescTreeNode* CGame_GGXXR_A::InitDescTree()
             OutputDebugString(strMsg);
 #endif
 
-            //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
             for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", GGXXRPaletteNames[nNodeIndex]);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", GGXXRCharacterData[iUnitCtr].ppszPaletteList[nNodeIndex]);
 
-                ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
+                ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                 nTotalPaletteCount++;
 
@@ -270,14 +298,14 @@ UINT16 CGame_GGXXR_A::GetCollectionCountForUnit(UINT16 nUnitId)
     return 1;
 }
 
-UINT16 CGame_GGXXR_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_GGXXR_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 /*nCollectionId*/)
 {
-    return ARRAYSIZE(GGXXRPaletteNames);
+    return GGXXRCharacterData[nUnitId].nPaletteListSize;
 }
 
 UINT16 CGame_GGXXR_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    return ARRAYSIZE(GGXXRPaletteNames);
+    return GGXXRCharacterData[nUnitId].nPaletteListSize;
 }
 
 LPCWSTR CGame_GGXXR_A::GetDescriptionForCollection(UINT16 /*nUnitId */, UINT16 /*nCollectionId */)
@@ -290,9 +318,7 @@ void CGame_GGXXR_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     // GGXXR palettes are all 0x100 long
     const int cbPaletteSizeOnDisc = 0x400;
 
-    //GGXXRCharacterData[nPalId].nInitialLocation = 0x48ab50;
-
-    m_pszCurrentPaletteName = GGXXRPaletteNames[nPalId];
+    m_pszCurrentPaletteName = GGXXRCharacterData[nUnitId].ppszPaletteList[nPalId];
     m_nCurrentPaletteROMLocation = GGXXRCharacterData[nUnitId].nInitialLocation + (cbPaletteSizeOnDisc * nPalId) + (0x10 * nPalId);
     m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
 }
@@ -352,6 +378,7 @@ BOOL CGame_GGXXR_A::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     strInfo.Format(L"CGame_GGXXR_A_DIR::LoadFile: Preparing to load data for unit number %u (character %s)\n", nUnitNumber, GGXXRCharacterData[nUnitNumber].pszCharacter);
     OutputDebugString(strInfo);
 
+#ifdef USE_DYNAMIC_LOCATION_LOOKUP
     LONGLONG nPalettePointer = 0;
 
     LoadedFile->Seek(0, CFile::begin);
@@ -363,11 +390,10 @@ BOOL CGame_GGXXR_A::LoadFile(CFile* LoadedFile, UINT16 nUnitNumber)
     LoadedFile->Read(&nPaletteStart, 0x04);
 
     GGXXRCharacterData[nUnitNumber].nInitialLocation = nPaletteStart + 0x90;
+#endif
 
-#if GGXXR_A_DEBUG
     strInfo.Format(L"\tCGame_GGXXR_A_DIR::LoadFile: Loaded palettes starting at location 0x%x\n", GGXXRCharacterData[nUnitNumber].nInitialLocation);
     OutputDebugString(strInfo);
-#endif
 
     UINT16 nPalAmt = GetPaletteCountForUnit(nUnitNumber);
 
