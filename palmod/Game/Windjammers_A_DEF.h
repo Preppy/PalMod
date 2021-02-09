@@ -38,42 +38,42 @@ const sGame_PaletteDataset Windjammers_A_JAPAN_PALETTES[] =
 
 const sDescTreeNode Windjammers_A_USA_COLLECTION[] =
 {
-    { _T("Palettes"), DESC_NODETYPE_TREE,   (void*)Windjammers_A_USA_PALETTES, ARRAYSIZE(Windjammers_A_USA_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_USA_PALETTES, ARRAYSIZE(Windjammers_A_USA_PALETTES) },
 };
 
 const sDescTreeNode Windjammers_A_SPAIN_COLLECTION[] =
 {
-    { _T("Palettes"), DESC_NODETYPE_TREE,   (void*)Windjammers_A_SPAIN_PALETTES, ARRAYSIZE(Windjammers_A_SPAIN_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_SPAIN_PALETTES, ARRAYSIZE(Windjammers_A_SPAIN_PALETTES) },
 };
 
 const sDescTreeNode Windjammers_A_GERMANY_COLLECTION[] =
 {
-    { _T("Palettes"), DESC_NODETYPE_TREE,   (void*)Windjammers_A_GERMANY_PALETTES, ARRAYSIZE(Windjammers_A_GERMANY_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_GERMANY_PALETTES, ARRAYSIZE(Windjammers_A_GERMANY_PALETTES) },
 };
 
 const sDescTreeNode Windjammers_A_BRITAIN_COLLECTION[] =
 {
-    { _T("Palettes"), DESC_NODETYPE_TREE,   (void*)Windjammers_A_BRITAIN_PALETTES, ARRAYSIZE(Windjammers_A_BRITAIN_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_BRITAIN_PALETTES, ARRAYSIZE(Windjammers_A_BRITAIN_PALETTES) },
 };
 
 const sDescTreeNode Windjammers_A_ITALY_COLLECTION[] =
 {
-    { _T("Palettes"), DESC_NODETYPE_TREE,   (void*)Windjammers_A_ITALY_PALETTES, ARRAYSIZE(Windjammers_A_ITALY_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_ITALY_PALETTES, ARRAYSIZE(Windjammers_A_ITALY_PALETTES) },
 };
 
 const sDescTreeNode Windjammers_A_JAPAN_COLLECTION[] =
 {
-    { _T("Palettes"), DESC_NODETYPE_TREE,   (void*)Windjammers_A_JAPAN_PALETTES, ARRAYSIZE(Windjammers_A_JAPAN_PALETTES) },
+    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_JAPAN_PALETTES, ARRAYSIZE(Windjammers_A_JAPAN_PALETTES) },
 };
 
 const sDescTreeNode Windjammers_A_UNITS[] =
 {
-    { _T("USA"),        DESC_NODETYPE_TREE, (void*)Windjammers_A_USA_COLLECTION,      ARRAYSIZE(Windjammers_A_USA_COLLECTION) },
-    { _T("Spain"),      DESC_NODETYPE_TREE, (void*)Windjammers_A_SPAIN_COLLECTION,      ARRAYSIZE(Windjammers_A_SPAIN_COLLECTION) },
-    { _T("Germany"),    DESC_NODETYPE_TREE, (void*)Windjammers_A_GERMANY_COLLECTION,      ARRAYSIZE(Windjammers_A_GERMANY_COLLECTION) },
-    { _T("Britain"),    DESC_NODETYPE_TREE, (void*)Windjammers_A_BRITAIN_COLLECTION,      ARRAYSIZE(Windjammers_A_BRITAIN_COLLECTION) },
-    { _T("Italy"),      DESC_NODETYPE_TREE, (void*)Windjammers_A_ITALY_COLLECTION,      ARRAYSIZE(Windjammers_A_ITALY_COLLECTION) },
-    { _T("Japan"),      DESC_NODETYPE_TREE, (void*)Windjammers_A_JAPAN_COLLECTION,      ARRAYSIZE(Windjammers_A_JAPAN_COLLECTION) },
+    { L"USA",       DESC_NODETYPE_TREE, (void*)Windjammers_A_USA_COLLECTION,        ARRAYSIZE(Windjammers_A_USA_COLLECTION) },
+    { L"Spain",     DESC_NODETYPE_TREE, (void*)Windjammers_A_SPAIN_COLLECTION,      ARRAYSIZE(Windjammers_A_SPAIN_COLLECTION) },
+    { L"Germany",   DESC_NODETYPE_TREE, (void*)Windjammers_A_GERMANY_COLLECTION,    ARRAYSIZE(Windjammers_A_GERMANY_COLLECTION) },
+    { L"Britain",   DESC_NODETYPE_TREE, (void*)Windjammers_A_BRITAIN_COLLECTION,    ARRAYSIZE(Windjammers_A_BRITAIN_COLLECTION) },
+    { L"Italy",     DESC_NODETYPE_TREE, (void*)Windjammers_A_ITALY_COLLECTION,      ARRAYSIZE(Windjammers_A_ITALY_COLLECTION) },
+    { L"Japan",      DESC_NODETYPE_TREE, (void*)Windjammers_A_JAPAN_COLLECTION,     ARRAYSIZE(Windjammers_A_JAPAN_COLLECTION) },
 };
 
 constexpr auto Windjammers_A_NUMUNIT = ARRAYSIZE(Windjammers_A_UNITS);

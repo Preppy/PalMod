@@ -14,6 +14,7 @@
 #include "Game_FatalFuryS_SNES.h"
 #include "Game_Garou_A.h"
 #include "Game_Garou_S.h"
+#include "Game_GGXXR_A.h"
 #include "Game_GUNDAM_SNES.h"
 #include "Game_JOJOS_A.h"
 #include "Game_JOJOS_A_DIR.h"
@@ -188,6 +189,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case GEMFIGHTER_A:
     {
         GetRule = &CGame_GEMFIGHTER_A::GetRule;
+        return TRUE;
+    }
+    case GGXXR_A:
+    {
+        GetRuleCtr = &CGame_GGXXR_A::GetRuleCtr;
+        ResetRuleCtr = &CGame_GGXXR_A::ResetRuleCtr;
+        GetRule = &CGame_GGXXR_A::GetRule;
+        GetNextRule = &CGame_GGXXR_A::GetNextRule;
+
         return TRUE;
     }
     case GUNDAM_SNES:
@@ -636,6 +646,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case GEMFIGHTER_A:
     {
         return new CGame_GEMFIGHTER_A(nConfirmedROMSize);
+    }
+    case GGXXR_A:
+    {
+        return new CGame_GGXXR_A(nConfirmedROMSize);
     }
     case GUNDAM_SNES:
     {
@@ -1166,19 +1180,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* szLoadDir)
 
         szCurrFile.Format(L"%s\\%s", szLoadDir, CurrRule.szFileName);
 
-        BOOL fFileOpened = CurrFile.Open(szCurrFile, CFile::modeRead | CFile::typeBinary);
-
-        if (!fFileOpened && CurrRule.fHasAltName)
-        {
-            CString strAltFileName;
-
-            OutputDebugString(L"Loading game via alternate filenames...\n");
-
-            strAltFileName.Format(L"%s\\%s", szLoadDir, CurrRule.szAltFileName);
-            fFileOpened = CurrFile.Open(strAltFileName, CFile::modeRead | CFile::typeBinary);
-        }
-
-        if (fFileOpened)
+        if (CurrFile.Open(szCurrFile, CFile::modeRead | CFile::typeBinary))
         {
             if (((short int)CurrRule.uVerifyVar == -1) || (CurrFile.GetLength() == CurrRule.uVerifyVar))
             {

@@ -3,7 +3,7 @@
 #include "DANKUGA_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_DANKUGA = _T("DANKUGAe.txt");
+constexpr auto EXTRA_FILENAME_DANKUGA = L"DANKUGAe.txt";
 
 #define GetDANKUGAExtraDef(x) ((stExtraDef *)&DANKUGA_A_EXTRA_CUSTOM[x])
 

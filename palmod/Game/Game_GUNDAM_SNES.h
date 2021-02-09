@@ -3,7 +3,7 @@
 #include "GUNDAM_SNES_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_GUNDAM_SNES = _T("GUNDAME.txt");
+constexpr auto EXTRA_FILENAME_GUNDAM_SNES = L"GUNDAME.txt";
 #define GetExtraDefForGUNDAM(x)((stExtraDef *)&GUNDAM_SNES_EXTRA_CUSTOM[x])
 
 class CGame_GUNDAM_SNES : public CGameWithExtrasFile

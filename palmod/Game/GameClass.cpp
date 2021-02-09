@@ -14,7 +14,7 @@ UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag)
 {
     switch (uGameFlag)
     {
-    case DUMMY_ARGB7888:
+    case GGXXR_A:
         return 4;
     default:
         return 2;

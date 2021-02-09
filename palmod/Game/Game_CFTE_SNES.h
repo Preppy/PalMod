@@ -3,7 +3,7 @@
 #include "CFTE_SNES_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_CFTE_SNES = _T("cftee.txt");
+constexpr auto EXTRA_FILENAME_CFTE_SNES = L"cftee.txt";
 #define GetExtraDefForCFTE(x)((stExtraDef *)&CFTE_SNES_EXTRA_CUSTOM[x])
 
 class CGame_CFTE_SNES : public CGameWithExtrasFile

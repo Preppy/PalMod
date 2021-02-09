@@ -3,7 +3,7 @@
 #include "XMVSF_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_XMVSF = _T("XMVSFe.txt");
+constexpr auto EXTRA_FILENAME_XMVSF = L"XMVSFe.txt";
 #define GetExtraDefForXMVSF(x)((stExtraDef *)&XMVSF_A_EXTRA_CUSTOM[x])
 
 class CGame_XMVSF_A : public CGameWithExtrasFile

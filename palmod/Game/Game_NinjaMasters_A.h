@@ -3,7 +3,7 @@
 #include "NINJAMASTERS_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_NINJAMASTERS_A = _T("NINJAMASTERSE.txt");
+constexpr auto EXTRA_FILENAME_NINJAMASTERS_A = L"NINJAMASTERSE.txt";
 
 class CGame_NINJAMASTERS_A : public CGameWithExtrasFile
 {

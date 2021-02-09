@@ -3,7 +3,7 @@
 #include "MMPR_SNES_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_MMPR_SNES = _T("MMPRE.txt");
+constexpr auto EXTRA_FILENAME_MMPR_SNES = L"MMPRE.txt";
 #define GetExtraDefForMMPR(x)((stExtraDef *)&MMPR_SNES_EXTRA_CUSTOM[x])
 
 class CGame_MMPR_SNES : public CGameWithExtrasFile

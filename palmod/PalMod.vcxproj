@@ -239,6 +239,7 @@
     <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
     <ClCompile Include="Game\Game_Garou_S.cpp" />
+    <ClCompile Include="Game\Game_GGXXR_A.cpp" />
     <ClCompile Include="Game\Game_GUNDAM_SNES.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A.cpp" />
     <ClCompile Include="Game\Game_JOJOS_A_DIR.cpp" />
@@ -364,6 +365,7 @@
     <ClInclude Include="Game\Game_FatalFuryS_SNES.h" />
     <ClInclude Include="Game\Game_Garou_A.h" />
     <ClInclude Include="Game\Game_Garou_S.h" />
+    <ClInclude Include="Game\Game_GGXXR_A.h" />
     <ClInclude Include="Game\Game_GUNDAM_SNES.h" />
     <ClInclude Include="Game\Game_JOJOS_A.h" />
     <ClInclude Include="Game\Game_JOJOS_A_DIR.h" />

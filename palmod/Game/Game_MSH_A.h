@@ -3,8 +3,8 @@
 #include "MSH_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_MSH_05 = _T("MSHe.txt");
-constexpr auto EXTRA_FILENAME_MSH_06 = _T("MSH06e.txt");
+constexpr auto EXTRA_FILENAME_MSH_05 = L"MSHe.txt";
+constexpr auto EXTRA_FILENAME_MSH_06 = L"MSH06e.txt";
 #define GetExtraDefForMSH(x) (UsePaletteSetForCharacters() ? ((stExtraDef *)&MSH_A_EXTRA_CUSTOM_05[x]) : ((stExtraDef *)&MSH_A_EXTRA_CUSTOM_06[x]))
 
 class CGame_MSH_A : public CGameWithExtrasFile

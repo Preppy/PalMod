@@ -3,7 +3,7 @@
 #include "Windjammers_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_Windjammers_A = _T("WindjammersE.txt");
+constexpr auto EXTRA_FILENAME_Windjammers_A = L"WindjammersE.txt";
 #define GetExtraDefForWindjammers(x)((stExtraDef *)&Windjammers_A_EXTRA_CUSTOM[x])
 
 class CGame_Windjammers_A : public CGameWithExtrasFile

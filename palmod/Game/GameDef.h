@@ -77,7 +77,7 @@ enum SupportedGamesList
     FatalFuryS_SNES,
     DUMMY_RGB9,          // ... we need a game ID to use for transmitting colors.
     SFIII3_A_DIR_EX,
-    DUMMY_ARGB7888,
+    GGXXR_A,
     AOF3_A,
     DANKUGA_A,
     SAMSHO4_A,
@@ -177,7 +177,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Fatal Fury Special (SNES)",
    L"Fake game ID for RGB9",
    L"SFIII:3S EX",
-   L"Fake game for ARGB7888",
+   L"GGXX Reloaded (Arcade)",
    L"Art of Fighting 3 (Arcade)",
    L"Dan-Ku-Ga (Arcade)",
    L"Samurai Shodown IV (Arcade)",
@@ -196,7 +196,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"SFIII:4rd Strike Gill Glow (Arcade)",
    L"KOF97 (Neo-Geo)",
    L"SFIII:New Generation (Arcade Rerip)",
-   L"SFIII:2nd Impact (Arcade Rerip)"
+   L"SFIII:2nd Impact (Arcade Rerip)",
 };
 
 enum class GamePlatform

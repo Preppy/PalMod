@@ -3,7 +3,7 @@
 #include "MVC2_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_MVC2_A = _T("MVC2e.txt");
+constexpr auto EXTRA_FILENAME_MVC2_A = L"MVC2e.txt";
 #define GetExtraDefForMVC2(x)((stExtraDef *)&MVC2_A_EXTRA_CUSTOM[x])
 
 class CGame_MVC2_A : public CGameWithExtrasFile

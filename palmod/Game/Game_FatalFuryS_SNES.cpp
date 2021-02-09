@@ -30,7 +30,7 @@ void CGame_FatalFuryS_SNES::InitializeStatics()
 CGame_FatalFuryS_SNES::CGame_FatalFuryS_SNES(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_FatalFuryS_SNES::CGame_FatalFuryS_SNES: Loading ROM...\n"));
+    strMessage.Format(L"CGame_FatalFuryS_SNES::CGame_FatalFuryS_SNES: Loading ROM...\n");
     OutputDebugString(strMessage);
 
     //Set color mode: see the definitions in GameClass.h
@@ -92,7 +92,7 @@ sFileRule CGame_FatalFuryS_SNES::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"Fatal Fury Special (USA).sfc"); // Update with the primary expected ROM name here.
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"Fatal Fury Special (USA).sfc"); // Update with the primary expected ROM name here.
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -188,7 +188,7 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[FatalFuryS_SNES]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[FatalFuryS_SNES]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -196,7 +196,7 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
 
     CString strMsg;
     bool fHaveExtras = (GetExtraCt(FatalFuryS_SNES_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_FatalFuryS_SNES::InitDescTree: Building desc tree for FatalFuryS_SNES %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    strMsg.Format(L"CGame_FatalFuryS_SNES::InitDescTree: Building desc tree for FatalFuryS_SNES %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -216,20 +216,20 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
         if (iUnitCtr < FatalFuryS_SNES_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), FatalFuryS_SNES_UNITS[iUnitCtr].szDesc);
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", FatalFuryS_SNES_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if FatalFuryS_SNES_DEBUG
-            strMsg.Format(_T(";Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+            strMsg.Format(L";Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection")
+            //Set data for each child group ("collection"
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -237,7 +237,7 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -245,7 +245,7 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if FatalFuryS_SNES_DEBUG
-                strMsg.Format(_T(";\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L";\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -256,29 +256,29 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr;
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if FatalFuryS_SNES_DEBUG
-                    strMsg.Format(_T(";\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L";\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 
-                    strMsg.Format(_T("%s :: %s :: %s\n0x%X\n0x%X\n\n"), UnitNode->szDesc, CollectionNode->szDesc, ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
+                    strMsg.Format(L"%s :: %s :: %s\n0x%X\n0x%X\n\n", UnitNode->szDesc, CollectionNode->szDesc, ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
                     OutputDebugString(strMsg);
 
 #endif
@@ -289,13 +289,13 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if FatalFuryS_SNES_DEBUG
-            strMsg.Format(_T(";Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L";Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -308,7 +308,7 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(FatalFuryS_SNES_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -316,7 +316,7 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if FatalFuryS_SNES_DEBUG
-            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -333,13 +333,13 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
                     pCurrDef = GetExtraDefForFatalFuryS(nExtraPos + nCurrExtra);
                 }
 
-                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((FatalFuryS_SNES_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if FatalFuryS_SNES_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -349,7 +349,7 @@ sDescTreeNode* CGame_FatalFuryS_SNES::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_FatalFuryS_SNES::InitDescTree: Loaded %u palettes for FatalFuryS\n"), nTotalPaletteCount);
+    strMsg.Format(L"CGame_FatalFuryS_SNES::InitDescTree: Loaded %u palettes for FatalFuryS\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     m_nTotalPaletteCountForFatalFuryS = nTotalPaletteCount;
@@ -387,7 +387,7 @@ LPCWSTR CGame_FatalFuryS_SNES::GetDescriptionForCollection(UINT16 nUnitId, UINT1
 {
     if (nUnitId == FatalFuryS_SNES_EXTRALOC)
     {
-        return _T("Extra Palettes");
+        return L"Extra Palettes";
     }
     else
     {
@@ -417,7 +417,7 @@ UINT16 CGame_FatalFuryS_SNES::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if FatalFuryS_SNES_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_FatalFuryS_SNES::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_FatalFuryS_SNES::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 

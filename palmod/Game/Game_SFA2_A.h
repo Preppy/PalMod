@@ -3,8 +3,8 @@
 #include "SFA2_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SFA2_07 = _T("SFA2e.txt");
-constexpr auto EXTRA_FILENAME_SFA2_08 = _T("SFA2-8e.txt");
+constexpr auto EXTRA_FILENAME_SFA2_07 = L"SFA2e.txt";
+constexpr auto EXTRA_FILENAME_SFA2_08 = L"SFA2-8e.txt";
 
 enum class SFA2_SupportedROMRevision
 {

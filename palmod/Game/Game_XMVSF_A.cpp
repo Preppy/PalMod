@@ -28,7 +28,7 @@ void CGame_XMVSF_A::InitializeStatics()
 
 CGame_XMVSF_A::CGame_XMVSF_A(UINT32 nConfirmedROMSize)
 {
-    OutputDebugString(_T("CGame_XMVSF_A::CGame_XMVSF_A: Loading ROM\n"));
+    OutputDebugString(L"CGame_XMVSF_A::CGame_XMVSF_A: Loading ROM\n");
 
     createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -122,8 +122,8 @@ GAME(1996, xmvsfb,     xmvsf,    cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
 GAME(1996, xmvsfu1d,   xmvsf,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,     ROT0,   "bootleg", "X-Men Vs. Street Fighter (USA 961004 Phoenix Edition) (bootleg)", MACHINE_SUPPORTS_SAVE)
     ROM_LOAD16_WORD_SWAP("xvs.05a",   0x100000, 0x80000, CRC(7db6025d) SHA1(2d74f48f83f45359bfaca28ab686625766af12ee))
 #endif
-        { _T("XVSF (Arcade)"), _T("xvs.05a"), 0x7db6025d, 0 },
-        { _T("XVSF (960909 Japan Arcade)"), _T("xvs.05"), 0x030e0e1e, 0 },
+        { L"XVSF (Arcade)", L"xvs.05a", 0x7db6025d, 0 },
+        { L"XVSF (960909 Japan Arcade)", L"xvs.05", 0x030e0e1e, 0 },
     };
 
     if (ppKnownROMSet)
@@ -208,14 +208,14 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[XMVSF_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[XMVSF_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    strMsg.Format(_T("CGame_XMVSF_A::InitDescTree: Building desc tree for XMVSF %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    strMsg.Format(L"CGame_XMVSF_A::InitDescTree: Building desc tree for XMVSF %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -235,20 +235,20 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
         if (iUnitCtr < XMVSF_A_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), XMVSF_A_UNITS[iUnitCtr].szDesc);
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", XMVSF_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if XMVSF_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection")
+            //Set data for each child group ("collection"
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -256,7 +256,7 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -264,7 +264,7 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if XMVSF_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -275,25 +275,25 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if XMVSF_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors)"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors)", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(", image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L", image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(", no image available.\n"));
+                        strMsg.Format(L", no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -304,13 +304,13 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if XMVSF_DEBUG
-            strMsg.Format(_T("Unit (Extras): \"%s\", %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L"Unit (Extras): \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -322,7 +322,7 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
             int nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(XMVSF_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -330,7 +330,7 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if XMVSF_DEBUG
-            strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -347,13 +347,13 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
                     pCurrDef = GetExtraDefForXMVSF(nExtraPos + nCurrExtra);
                 }
 
-                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((XMVSF_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if XMVSF_DEBUG
-                strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: \"%s\", %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -363,7 +363,7 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_XMVSF_A::InitDescTree: Loaded %u palettes for XMVSF\n"), nTotalPaletteCount);
+    strMsg.Format(L"CGame_XMVSF_A::InitDescTree: Loaded %u palettes for XMVSF\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     m_nTotalPaletteCountForXMVSF = nTotalPaletteCount;
@@ -375,7 +375,7 @@ sFileRule CGame_XMVSF_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("xvs.05a"));
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"xvs.05a");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -413,7 +413,7 @@ LPCWSTR CGame_XMVSF_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nColle
 {
     if (nUnitId == XMVSF_A_EXTRALOC)
     {
-        return _T("Extra Palettes");
+        return L"Extra Palettes";
     }
     else
     {
@@ -441,7 +441,7 @@ UINT16 CGame_XMVSF_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if XMVSF_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_XMVSF_A::GetPaletteCountForUnit: %u for unit %u (%s) which has %u collections.\n"), nCompleteCount, nUnitId, XMVSF_A_UNITS[nUnitId].szDesc, nCollectionCount);
+        strMsg.Format(L"CGame_XMVSF_A::GetPaletteCountForUnit: %u for unit %u (%s) which has %u collections.\n", nCompleteCount, nUnitId, XMVSF_A_UNITS[nUnitId].szDesc, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -605,7 +605,7 @@ BOOL CGame_XMVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((_wcsicmp(pCurrentNode->szDesc, _T("P1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("P2")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, L"P1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"P2") == 0))
                 {
                     // We show 2 sprites (P1/P2) for export for all normal XMVSF sprites
                     nSrcAmt = 2;

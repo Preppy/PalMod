@@ -104,7 +104,7 @@ bool VerifyWriteIsSafe(UINT16 nCharId, UINT8 nCopyLength)
     if (nCopyLength > 16)
     {
         CString strError;
-        strError.Format(_T("ERROR! Invalid length for %s supplemental color processing.  Effects processing skipped to avoid corrupting this character.\n\nPlease report this bug: it'll be fixed immediately,"), MVC2_D_UNITDESC[nCharId]);
+        strError.Format(L"ERROR! Invalid length for %s supplemental color processing.  Effects processing skipped to avoid corrupting this character.\n\nPlease report this bug: it'll be fixed immediately,", MVC2_D_UNITDESC[nCharId]);
         MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
         return false;
     }
@@ -116,12 +116,12 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
 {
     CString strDebugInfo;
 
-    strDebugInfo.Format(_T("proc_supp: Processing supplemental palettes for character 0x%02x (%s), palette number 0x%x\n"), char_no, MVC2_D_UNITDESC[char_no], pal_no);
+    strDebugInfo.Format(L"proc_supp: Processing supplemental palettes for character 0x%02x (%s), palette number 0x%x\n", char_no, MVC2_D_UNITDESC[char_no], pal_no);
     OutputDebugString(strDebugInfo);
 
     if (!_mvc2_dreamcast_data && !_mvc2_arcade_data)
     {
-        OutputDebugString(_T("proc_supp: Error: palette buffer not available\n"));
+        OutputDebugString(L"proc_supp: Error: palette buffer not available\n");
         return;
     }
 
@@ -130,7 +130,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
 
     if (!rgSuppLoc[char_no])
     {
-        OutputDebugString(_T("proc_supp: Not applicable here\n"));
+        OutputDebugString(L"proc_supp: Not applicable here\n");
         return;
     }
 
@@ -169,7 +169,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
             //Possible sources = SUPP_NODE, SUPP_NODE_EX, SUPP_NODE_ABSOL, SUPP_NODE_EX | SUPP_NODE_NOCOPY, SUPP_NODE_EX | SUPP_NODE_ABSOL
         if ((index_data & 0xF000) == SUPP_NODE) //&& indexCounterForEffects < index_sz)
         {
-            OutputDebugString(_T("\nproc_supp: New modification node encountered\n"));
+            OutputDebugString(L"\nproc_supp: New modification node encountered\n");
 
             //Fix later
             add = 3; //count of data provided for a SUPP_NODE entry, which is the minimum.
@@ -239,7 +239,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
             if (thisNodeForExtraPalettesOnly ? !isCurrentPaletteAnExtraPalette : !isCurrentPaletteABasicPalette)
             {
                 shouldProcessEffectsForThisNode = false;
-                OutputDebugString(_T("proc_supp: This node is being skipped for this palette type.\n"));
+                OutputDebugString(L"proc_supp: This node is being skipped for this palette type.\n");
             }
 
             if (!thisNodeForExtraPalettesOnly)
@@ -279,7 +279,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
                 // We're in Extras space, so make sure we're within the bounds of the character.
                 if (pal_ctr > (k_mvc2_character_coloroption_count - 1))
                 {
-                    OutputDebugString(_T("proc_supp: This node is not applicable to this palette range.\n"));
+                    OutputDebugString(L"proc_supp: This node is not applicable to this palette range.\n");
                     shouldProcessEffectsForThisNode = false;
                 }
             }
@@ -308,11 +308,11 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
 
                 if (shouldProcessEffectsForThisNode)
                 {
-                    strDebugInfo.Format(_T("proc_supp: Preparing to process from palette 0x%x to palette 0x%x\n"), source_palette, destination_palette);
+                    strDebugInfo.Format(L"proc_supp: Preparing to process from palette 0x%x to palette 0x%x\n", source_palette, destination_palette);
                 }
                 else
                 {
-                    strDebugInfo.Format(_T("proc_supp: Skipping processing from palette 0x%x to palette 0x%x\n"), source_palette, destination_palette);
+                    strDebugInfo.Format(L"proc_supp: Skipping processing from palette 0x%x to palette 0x%x\n", source_palette, destination_palette);
                 }
 
                 OutputDebugString(strDebugInfo);
@@ -346,7 +346,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
                 {
                     if (shouldProcessEffectsForThisNode)
                     {
-                        OutputDebugString(_T("proc_supp: Processing FX for this node\n"));
+                        OutputDebugString(L"proc_supp: Processing FX for this node\n");
                     }
 
                     if (iNodeBeingProcessed > 200)
@@ -419,7 +419,7 @@ void proc_supp(UINT16 char_no, UINT16 pal_no)
     // We catch indirectly updated palettes here.
     HandleSpiralCopies_ForSupplementedPalettes(char_no, pal_no);
 
-    strDebugInfo.Format(_T("proc_supp: Finished processing supplemental palettes for character 0x%02x, palette number 0x%x\n\n"), char_no, pal_no);
+    strDebugInfo.Format(L"proc_supp: Finished processing supplemental palettes for character 0x%02x, palette number 0x%x\n\n", char_no, pal_no);
     OutputDebugString(strDebugInfo);
 }
 
@@ -439,7 +439,7 @@ int AdjustNumberForPossibleNegation(int nPossiblyNegativeNumber)
 void supp_copy_spiral(UINT16 char_id, UINT16 source_palette, UINT16 destination_palette, UINT8 source_index, UINT8 destination_index, UINT8 copy_amount)
 {
     CString strDebugInfo;
-    strDebugInfo.Format(_T("\tsupp_copy_spiral being applied: This sprite is used in Spiral's super.  Copying source unit 0x%02x palette 0x%02x to Spiral's destination palette 0x%02x\n"), char_id, source_palette, destination_palette);
+    strDebugInfo.Format(L"\tsupp_copy_spiral being applied: This sprite is used in Spiral's super.  Copying source unit 0x%02x palette 0x%02x to Spiral's destination palette 0x%02x\n", char_id, source_palette, destination_palette);
     OutputDebugString(strDebugInfo);
 
     UINT16* src_16 = get_pal_16(char_id, source_palette);
@@ -453,12 +453,12 @@ void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_p
     CString strDebugInfo;
     if ((src_index == 0) && (index_amt == 0x10))
     {
-        strDebugInfo.Format(_T("\tsupp_copy_index being applied: full copy of source palette 0x%x to destination palette 0x%x\n"),
+        strDebugInfo.Format(L"\tsupp_copy_index being applied: full copy of source palette 0x%x to destination palette 0x%x\n",
             source_palette, destination_palette);
     }
     else
     {
-        strDebugInfo.Format(_T("\tsupp_copy_index being applied: copying from source palette 0x%x at index 0x%x to destination palette 0x%x at index 0x%x for 0x%x colors\n"),
+        strDebugInfo.Format(L"\tsupp_copy_index being applied: copying from source palette 0x%x at index 0x%x to destination palette 0x%x at index 0x%x for 0x%x colors\n",
             source_palette, src_index, destination_palette, dst_index, index_amt);
     }
     OutputDebugString(strDebugInfo);
@@ -471,7 +471,7 @@ void supp_copy_index(UINT16 char_id, UINT16 source_palette, UINT16 destination_p
 
 void supp_mod_white(UINT16 char_id, UINT16 destination_palette, UINT8 index_start, UINT8 index_inc)
 {
-    OutputDebugString(_T("\tsupp_mod_white being applied\n"));
+    OutputDebugString(L"\tsupp_mod_white being applied\n");
 
     UINT16* dst_16 = get_pal_16(char_id, destination_palette);
 
@@ -492,7 +492,7 @@ void supp_mod_hsl(UINT16 char_id, UINT16 mod_type, int mod_amt, UINT16 destinati
     mod_amt = AdjustNumberForPossibleNegation(mod_amt);
 
     CString strDebugInfo;
-    strDebugInfo.Format(_T("\tsupp_mod_hsl being applied : applying %s at %i to palette 0x%x starting at 0x%x for 0x%x colors\n"), (mod_type == MOD_LUM) ? _T("MOD_LUM") : _T("MOD_SAT"), mod_amt, destination_palette, index_start, index_inc);
+    strDebugInfo.Format(L"\tsupp_mod_hsl being applied : applying %s at %i to palette 0x%x starting at 0x%x for 0x%x colors\n", (mod_type == MOD_LUM) ? L"MOD_LUM" : L"MOD_SAT", mod_amt, destination_palette, index_start, index_inc);
     OutputDebugString(strDebugInfo);
 
     switch (mod_type)
@@ -539,7 +539,7 @@ void supp_mod_tint(UINT16 char_id, UINT16 source_palette, UINT16 destination_pal
     tint_factor_b = AdjustNumberForPossibleNegation(tint_factor_b);
 
     CString strDebugInfo;
-    strDebugInfo.Format(_T("\tsupp_mod_tint being applied : applying tint(%i, %i, %i) from source palette 0x%x at 0x%x to palette 0x%x at 0x%x for 0x%x colors\n"),
+    strDebugInfo.Format(L"\tsupp_mod_tint being applied : applying tint(%i, %i, %i) from source palette 0x%x at 0x%x to palette 0x%x at 0x%x for 0x%x colors\n",
         tint_factor_r, tint_factor_g, tint_factor_b, source_palette, src_index, destination_palette, dst_index, index_amt);
     OutputDebugString(strDebugInfo);
 

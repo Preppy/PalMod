@@ -3,7 +3,7 @@
 #include "RBFFS_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_RBFFS_A = _T("RBFFSE.txt");
+constexpr auto EXTRA_FILENAME_RBFFS_A = L"RBFFSE.txt";
 #define GetExtraDefForRBFFS(x)((stExtraDef *)&RBFFS_A_EXTRA_CUSTOM[x])
 
 class CGame_RBFFS_A : public CGameWithExtrasFile

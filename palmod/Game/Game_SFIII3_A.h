@@ -3,8 +3,8 @@
 #include "SFIII3_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SF3_10 = _T("sfiii3-10e.txt");
-constexpr auto EXTRA_FILENAME_SF3_51 = _T("sfiii3e.txt");
+constexpr auto EXTRA_FILENAME_SF3_10 = L"sfiii3-10e.txt";
+constexpr auto EXTRA_FILENAME_SF3_51 = L"sfiii3e.txt";
 
 UINT32 cps3_mask(UINT32 address, UINT32 key1, UINT32 key2);
 

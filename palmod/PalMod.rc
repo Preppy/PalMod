@@ -320,6 +320,7 @@ BEGIN
         POPUP "&Load Directory"
         BEGIN
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
+            MENUITEM "Guilty Gear XX Reloaded"    ID_LD_GGXXR
             POPUP "Jojo's HftF"
             BEGIN
                 MENUITEM "Characters (Japan Arcade)",     ID_LD_JOJOS51

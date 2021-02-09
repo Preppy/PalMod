@@ -3,8 +3,8 @@
 #include "NEOGEO_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_NEO_GEO_A = _T("NEOGEOE.txt");
-constexpr auto EXTRA_FILENAME_UNKNOWN_A = _T("UnknownE.txt");
+constexpr auto EXTRA_FILENAME_NEO_GEO_A = L"NEOGEOE.txt";
+constexpr auto EXTRA_FILENAME_UNKNOWN_A = L"UnknownE.txt";
 
 #define GetExtraDefForNEOGEO(x)((stExtraDef *)&NEOGEO_A_EXTRA_CUSTOM[x])
 

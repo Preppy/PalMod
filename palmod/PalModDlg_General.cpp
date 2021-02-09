@@ -352,7 +352,7 @@ void CPalModDlg::OnPalHLChange(void* pPalCtrl, UINT_PTR nCtrlId)
     {
         WCHAR szIndex[32];
         // this is the status bar area text
-        _sntprintf_s(szIndex, ARRAYSIZE(szIndex), _TRUNCATE, L"(%d: %d)", (int)nCtrlId, pNotifyCtrl->GetHighlightIndex());
+        _snwprintf_s(szIndex, ARRAYSIZE(szIndex), _TRUNCATE, L"(%d: %d)", (int)nCtrlId, pNotifyCtrl->GetHighlightIndex());
 
         m_StatusBar.SetPaneText(1, szIndex);
     }

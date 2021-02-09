@@ -28,7 +28,7 @@ void CGame_COTA_A::InitializeStatics()
 CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(_T("CGame_COTA_A::CGame_COTA_A: Loading ROM\n"));
+    strMessage.Format(L"CGame_COTA_A::CGame_COTA_A: Loading ROM\n");
     OutputDebugString(strMessage);
 
     createPalOptions = { OFFSET_PALETTE_BY_ONE, WRITE_16 };
@@ -87,11 +87,11 @@ UINT32 CGame_COTA_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { _T("X-Men: Children of the Atom (Asia/Japan 9412--)"), _T("xmn.05"), 0xc3ed62a2, -0x1AB8 },
-        { _T("X-Men: Children of the Atom (Japan Rent 940812)"), _T("xmno.05a"), 0x0303d672, -0x35F4 },
-        { _T("X-Men: Children of the Atom (950105)"), _T("xmn.05a"), 0xac0d7759, 0 },
-        { _T("X-Men: Children of the Atom (950331)"), _T("xmne.05b"), 0x87b0ed0f, 0 },
-        { _T("X-Men: Children of the Atom (Hispanic 950331)"), _T("xmnh.05b"), 0x87b0ed0f, 0 },
+        { L"X-Men: Children of the Atom (Asia/Japan 9412--)", L"xmn.05", 0xc3ed62a2, -0x1AB8 },
+        { L"X-Men: Children of the Atom (Japan Rent 940812)", L"xmno.05a", 0x0303d672, -0x35F4 },
+        { L"X-Men: Children of the Atom (950105)", L"xmn.05a", 0xac0d7759, 0 },
+        { L"X-Men: Children of the Atom (950331)", L"xmne.05b", 0x87b0ed0f, 0 },
+        { L"X-Men: Children of the Atom (Hispanic 950331)", L"xmnh.05b", 0x87b0ed0f, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
@@ -211,7 +211,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[COTA_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[COTA_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -219,7 +219,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
 
     CString strMsg;
     bool fHaveExtras = (GetExtraCt(COTA_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_COTA_A::InitDescTree: Building desc tree for COTA %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    strMsg.Format(L"CGame_COTA_A::InitDescTree: Building desc tree for COTA %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -239,20 +239,20 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
         if (iUnitCtr < COTA_A_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), COTA_UNITS[iUnitCtr].szDesc);
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", COTA_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if COTA_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection")
+            //Set data for each child group ("collection"
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -260,7 +260,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -268,7 +268,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if COTA_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -279,25 +279,25 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if COTA_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -308,13 +308,13 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if COTA_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -327,7 +327,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(COTA_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -335,7 +335,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if COTA_DEBUG
-            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -352,13 +352,13 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
                     pCurrDef = GetExtraDefForCOTA(nExtraPos + nCurrExtra);
                 }
 
-                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((COTA_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if COTA_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -368,7 +368,7 @@ sDescTreeNode* CGame_COTA_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_COTA_A::InitDescTree: Loaded %u palettes for COTA\n"), nTotalPaletteCount);
+    strMsg.Format(L"CGame_COTA_A::InitDescTree: Loaded %u palettes for COTA\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     m_nTotalPaletteCountForCOTA = nTotalPaletteCount;
@@ -380,7 +380,7 @@ sFileRule CGame_COTA_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("xmn.05a"));
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"xmn.05a");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -418,7 +418,7 @@ LPCWSTR CGame_COTA_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollec
 {
     if (nUnitId == COTA_A_EXTRALOC)
     {
-        return _T("Extra Palettes");
+        return L"Extra Palettes";
     }
     else
     {
@@ -448,7 +448,7 @@ UINT16 CGame_COTA_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if COTA_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_COTA_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_COTA_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -633,7 +633,7 @@ BOOL CGame_COTA_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((_wcsicmp(pCurrentNode->szDesc, _T("P1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("P2")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, L"P1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"P2") == 0))
                 {
                     // We show 2 sprites (P1/P2) for export for all normal COTA sprites
                     nSrcAmt = 2;

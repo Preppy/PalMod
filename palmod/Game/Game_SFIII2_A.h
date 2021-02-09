@@ -3,7 +3,7 @@
 #include "SFIII2_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SF3_50 = _T("sfIII2e.txt");
+constexpr auto EXTRA_FILENAME_SF3_50 = L"sfIII2e.txt";
 
 class CGame_SFIII2_A : public CGameWithExtrasFile
 {

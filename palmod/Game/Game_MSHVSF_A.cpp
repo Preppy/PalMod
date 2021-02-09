@@ -53,7 +53,7 @@ CGame_MSHVSF_A::CGame_MSHVSF_A(UINT32 nConfirmedROMSize, int nMSHVSFRomToLoad)
     m_nMSHVSFSelectedRom = (nMSHVSFRomToLoad == 6) ? 6 : 7;
 
     CString strMessage;
-    strMessage.Format(_T("CGame_MSHVSF_A::CGame_MSHVSF_A: Loading for the %s ROM\n"), (m_nMSHVSFSelectedRom == 6) ? _T("6A") : _T("7B"));
+    strMessage.Format(L"CGame_MSHVSF_A::CGame_MSHVSF_A: Loading for the %s ROM\n", (m_nMSHVSFSelectedRom == 6) ? L"6A" : L"7B");
     OutputDebugString(strMessage);
 
     m_nTotalInternalUnits = UsePaletteSetForCharacters() ? MSHVSF_A_NUM_IND_6A : MSHVSF_A_NUM_IND_7B;
@@ -143,8 +143,8 @@ GAME(1997, mshvsfu1d,  mshvsf,   dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
     ROM_LOAD16_WORD_SWAP("mvs.06a",    0x180000, 0x80000, CRC(959f3030) SHA1(fbbaa915324815246738f3426232e623f039ce26))
     ROM_LOAD16_WORD_SWAP("mvs.07b",    0x200000, 0x80000, CRC(7f915bdb) SHA1(683da09c5ba55e31b59aa95a8e13c45dc574ab3c))
 #endif
-        { _T("MSHVSF (Arcade)"), _T("mvs.06a"), 0x959f3030, 0 },
-        { _T("MSHVSF (Arcade)"), _T("mvs.07b"), 0x7f915bdb, 0 },
+        { L"MSHVSF (Arcade)", L"mvs.06a", 0x959f3030, 0 },
+        { L"MSHVSF (Arcade)", L"mvs.07b", 0x7f915bdb, 0 },
     };
 
     if (ppKnownROMSet)
@@ -274,7 +274,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[MSHVSF_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[MSHVSF_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -282,9 +282,9 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
 
     CString strMsg;
     bool fHaveExtras = UsePaletteSetForCharacters() ? (GetExtraCt(MSHVSF_A_EXTRALOC_6A) > 0) : (GetExtraCt(MSHVSF_A_EXTRALOC_7B) > 0);
-    strMsg.Format(_T("CGame_MSHVSF_A::InitDescTree: Building desc tree for MSHVSF ROM %s %s extras...\n"),
-                    UsePaletteSetForCharacters() ? _T("6A") : _T("7B"),
-                    fHaveExtras ? _T("with") : _T("without"));
+    strMsg.Format(L"CGame_MSHVSF_A::InitDescTree: Building desc tree for MSHVSF ROM %s %s extras...\n",
+                    UsePaletteSetForCharacters() ? L"6A" : L"7B",
+                    fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -304,20 +304,20 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
         if (UsePaletteSetForCharacters() ? (iUnitCtr < MSHVSF_A_EXTRALOC_6A) : (iUnitCtr < MSHVSF_A_EXTRALOC_7B))
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), UsePaletteSetForCharacters() ? MSHVSF_A_UNITS_6A[iUnitCtr].szDesc : MSHVSF_A_UNITS_7B[iUnitCtr].szDesc);
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", UsePaletteSetForCharacters() ? MSHVSF_A_UNITS_6A[iUnitCtr].szDesc : MSHVSF_A_UNITS_7B[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if MSHVSF_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection")
+            //Set data for each child group ("collection"
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -325,7 +325,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -333,7 +333,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if MSHVSF_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -344,25 +344,25 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if MSHVSF_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -373,13 +373,13 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if MSHVSF_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -399,7 +399,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MSHVSF_A_EXTRALOC_7B > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
             }
 
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -407,7 +407,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if MSHVSF_DEBUG
-            strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -424,7 +424,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
                     pCurrDef = GetExtraDefForMSHVSF(nExtraPos + nCurrExtra);
                 }
 
-                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 if (UsePaletteSetForCharacters())
@@ -437,7 +437,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
                 }
 
 #if MSHVSF_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -447,7 +447,7 @@ sDescTreeNode* CGame_MSHVSF_A::InitDescTree(int nROMPaletteSetToUse)
         }
     }
 
-    strMsg.Format(_T("CGame_MSHVSF_A::InitDescTree: Loaded %u palettes for MSHVSF ROM %s\n"), nTotalPaletteCount, UsePaletteSetForCharacters() ? _T("6A") : _T("7B"));
+    strMsg.Format(L"CGame_MSHVSF_A::InitDescTree: Loaded %u palettes for MSHVSF ROM %s\n", nTotalPaletteCount, UsePaletteSetForCharacters() ? L"6A" : L"7B");
     OutputDebugString(strMsg);
 
     if (UsePaletteSetForCharacters())
@@ -466,7 +466,7 @@ sFileRule CGame_MSHVSF_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, (nUnitId == 6) ? _T("mvs.06a" ): _T("mvs.07b"));
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, (nUnitId == 6) ? L"mvs.06a" : L"mvs.07b");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -537,7 +537,7 @@ LPCWSTR CGame_MSHVSF_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nColl
     {
         if (nUnitId == MSHVSF_A_EXTRALOC_6A)
         {
-            return _T("Extra Palettes");
+            return L"Extra Palettes";
         }
         else
         {
@@ -549,7 +549,7 @@ LPCWSTR CGame_MSHVSF_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nColl
     {
         if (nUnitId == MSHVSF_A_EXTRALOC_7B)
         {
-            return _T("Extra Palettes");
+            return L"Extra Palettes";
         }
         else
         {
@@ -581,7 +581,7 @@ UINT16 CGame_MSHVSF_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if MSHVSF_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_MSHVSF_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_MSHVSF_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -815,7 +815,7 @@ BOOL CGame_MSHVSF_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((wcsstr(pCurrentNode->szDesc, _T("P1")) != nullptr) || (wcsstr(pCurrentNode->szDesc, _T("P2")) != nullptr))
+                if ((wcsstr(pCurrentNode->szDesc, L"P1") != nullptr) || (wcsstr(pCurrentNode->szDesc, L"P2") != nullptr))
                 {
                     // We show 2 sprites (P1/P2) for export for all normal VS sprites
                     nSrcAmt = 2;

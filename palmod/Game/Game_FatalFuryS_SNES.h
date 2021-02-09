@@ -3,7 +3,7 @@
 #include "FatalFuryS_SNES_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_FatalFuryS_SNES = _T("FatalFurySE.txt");
+constexpr auto EXTRA_FILENAME_FatalFuryS_SNES = L"FatalFurySE.txt";
 #define GetExtraDefForFatalFuryS(x)((stExtraDef *)&FatalFuryS_SNES_EXTRA_CUSTOM[x])
 
 class CGame_FatalFuryS_SNES : public CGameWithExtrasFile

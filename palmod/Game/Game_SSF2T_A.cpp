@@ -63,7 +63,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     m_nSSF2TSelectedRom = nSSF2TRomToLoad;
 
     CString strMessage;
-    strMessage.Format(_T("CGame_SSF2T_A::CGame_SSF2T_A: Loading for the %u ROM\n"), m_nSSF2TSelectedRom);
+    strMessage.Format(L"CGame_SSF2T_A::CGame_SSF2T_A: Loading for the %u ROM\n", m_nSSF2TSelectedRom);
     OutputDebugString(strMessage);
 
     const UINT32 nSafeCountFor3C = 160;
@@ -182,27 +182,27 @@ GAME(1994, ssf2tad,    ssf2t,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
     ROM_LOAD16_WORD_SWAP("sfxad.08",  0x280000, 0x80000, CRC(d399c36c) SHA1(b4c4217843e5c3ef00ab04d58ca9368d2d734065))
 
 #endif
-        { _T("SSF2T (World 940223)"), _T("sfxe.03c"), 0x2fa1f396, 0 },
-        { _T("SSF2T (World 940223)"), _T("sfxe.04a"), 0xd0bc29c6, 0 },
-        { _T("SSF2T (World 940223)"), _T("sfxe.08"), 0x74c24062, 0 },
-        { _T("SSF2T (Asia 940223)"), _T("sfxa.03c"), 0x04b9ff34, 0 },
-        { _T("SSF2T (Asia 940223)"), _T("sfxa.04a"), 0x16ea5f7a, 0 },
-        { _T("SSF2T (Asia 940223)"), _T("sfxa.08"), 0x39be596c, 0 },
-        { _T("SSF2T (Hispanic 940223)"), _T("sfxh.03c"), 0xfbe80dfe, 0 },
-        { _T("SSF2T (Hispanic 940223)"), _T("sfxh.04a"), 0xef9dd4b1, 0 },
-        { _T("SSF2T (Hispanic 940223)"), _T("sfxh.08"), 0xc15f0424, 0 },
-        { _T("SSF2T (USA 940223)"), _T("sfxu.03e"), 0xd6ff689e, 0 },
-        { _T("SSF2T (USA 940223)"), _T("sfxu.03c"), 0x86e4a335, 0 },
-        { _T("SSF2T (USA 940223)"), _T("sfxu.04a"), 0x532b5ffd, 0 },
-        { _T("SSF2T (USA 940223)"), _T("sfxu.08"), 0xb3c71810, 0 },
+        { L"SSF2T (World 940223)", L"sfxe.03c", 0x2fa1f396, 0 },
+        { L"SSF2T (World 940223)", L"sfxe.04a", 0xd0bc29c6, 0 },
+        { L"SSF2T (World 940223)", L"sfxe.08", 0x74c24062, 0 },
+        { L"SSF2T (Asia 940223)", L"sfxa.03c", 0x04b9ff34, 0 },
+        { L"SSF2T (Asia 940223)", L"sfxa.04a", 0x16ea5f7a, 0 },
+        { L"SSF2T (Asia 940223)", L"sfxa.08", 0x39be596c, 0 },
+        { L"SSF2T (Hispanic 940223)", L"sfxh.03c", 0xfbe80dfe, 0 },
+        { L"SSF2T (Hispanic 940223)", L"sfxh.04a", 0xef9dd4b1, 0 },
+        { L"SSF2T (Hispanic 940223)", L"sfxh.08", 0xc15f0424, 0 },
+        { L"SSF2T (USA 940223)", L"sfxu.03e", 0xd6ff689e, 0 },
+        { L"SSF2T (USA 940223)", L"sfxu.03c", 0x86e4a335, 0 },
+        { L"SSF2T (USA 940223)", L"sfxu.04a", 0x532b5ffd, 0 },
+        { L"SSF2T (USA 940223)", L"sfxu.08", 0xb3c71810, 0 },
 
-        { _T("SSF2X:GMC (Japan Arcade)"), _T("sfxj.03c"), 0xa7417b79, 0 },
-        { _T("SSF2X:GMC (Japan Arcade)"), _T("sfxj.04a"), 0xaf7767b4, 0 },
-        { _T("SSF2X:GMC (Japan Arcade)"), _T("sfxj.08"), 0x2de76f10, 0 },
+        { L"SSF2X:GMC (Japan Arcade)", L"sfxj.03c", 0xa7417b79, 0 },
+        { L"SSF2X:GMC (Japan Arcade)", L"sfxj.04a", 0xaf7767b4, 0 },
+        { L"SSF2X:GMC (Japan Arcade)", L"sfxj.08", 0x2de76f10, 0 },
 
-        { _T("SSF2T (Asia 940223 bootleg)"), _T("sfxad.03c"), 0xe3c92ece, 0 },
-        { _T("SSF2T (Asia 940223 bootleg)"), _T("sfxad.04a"), 0x9bf3bb2e, 0 },
-        { _T("SSF2T (Asia 940223 bootleg)"), _T("sfxad.08"), 0xd399c36c, 0 },
+        { L"SSF2T (Asia 940223 bootleg)", L"sfxad.03c", 0xe3c92ece, 0 },
+        { L"SSF2T (Asia 940223 bootleg)", L"sfxad.04a", 0x9bf3bb2e, 0 },
+        { L"SSF2T (Asia 940223 bootleg)", L"sfxad.08", 0xd399c36c, 0 },
     };
 
     if (ppKnownROMSet)
@@ -391,14 +391,14 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[SSF2T_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[SSF2T_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    strMsg.Format(_T("CGame_SSF2T_A::InitDescTree: Building desc tree for SSF2T ROM %u...\n"), m_nSSF2TSelectedRom);
+    strMsg.Format(L"CGame_SSF2T_A::InitDescTree: Building desc tree for SSF2T ROM %u...\n", m_nSSF2TSelectedRom);
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -421,14 +421,14 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
             switch (m_nSSF2TSelectedRom)
             {
             case 3:
-                _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), SSF2T_A_UNITS_3C[iUnitCtr].szDesc);
+                _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", SSF2T_A_UNITS_3C[iUnitCtr].szDesc);
                 break;
             case 4:
             default:
-                _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), SSF2T_A_UNITS_4A[iUnitCtr].szDesc);
+                _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", SSF2T_A_UNITS_4A[iUnitCtr].szDesc);
                 break;
             case 8:
-                _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), SSF2T_A_UNITS_8[iUnitCtr].szDesc);
+                _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", SSF2T_A_UNITS_8[iUnitCtr].szDesc);
                 break;
             }
 
@@ -438,13 +438,13 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if SSF2T_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection")
+            //Set data for each child group ("collection"
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -452,7 +452,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -460,7 +460,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if SSF2T_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -471,7 +471,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
@@ -479,21 +479,21 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
 
 #if SSF2T_DEBUG
 #if OUTPUT_AS_NODE
-                    strMsg.Format(_T("    { \"%s\", 0x%06x, 0x%06x },\n"), ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
+                    strMsg.Format(L"    { \"%s\", 0x%06x, 0x%06x },\n", ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
                     OutputDebugString(strMsg);
 #else
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -505,13 +505,13 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if SSF2T_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -524,7 +524,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(nCurrentExtraLocation != iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -532,7 +532,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if SSF2T_DEBUG
-            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -549,13 +549,13 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
                     pCurrDef = GetExtraDefForSSF2T(nExtraPos + nCurrExtra);
                 }
 
-                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((nCurrentExtraLocation != iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if SSF2T_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -565,7 +565,7 @@ sDescTreeNode* CGame_SSF2T_A::InitDescTree(int nROMPaletteSetToUse)
         }
     }
 
-    strMsg.Format(_T("CGame_SSF2T_A::InitDescTree: Loaded %u palettes for SSF2T ROM %u\n"), nTotalPaletteCount, m_nSSF2TSelectedRom);
+    strMsg.Format(L"CGame_SSF2T_A::InitDescTree: Loaded %u palettes for SSF2T ROM %u\n", nTotalPaletteCount, m_nSSF2TSelectedRom);
     OutputDebugString(strMsg);
 
     if (UsePaletteSetForPortraits())
@@ -590,14 +590,14 @@ sFileRule CGame_SSF2T_A::GetRule(UINT16 nUnitId)
     switch (nUnitId)
     {
     case 3:
-        _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("sfxe.03c"));
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"sfxe.03c");
         break;
     case 4:
     default:
-        _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("sfxe.04a"));
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"sfxe.04a");
         break;
     case 8:
-        _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("sfxe.08"));
+        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"sfxe.08");
         break;
     }
 
@@ -693,7 +693,7 @@ LPCWSTR CGame_SSF2T_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nColle
     {
         if (nUnitId == SSF2T_A_EXTRALOC_3C)
         {
-            return _T("Extra Palettes");
+            return L"Extra Palettes";
         }
         else
         {
@@ -705,7 +705,7 @@ LPCWSTR CGame_SSF2T_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nColle
     {
         if (nUnitId == SSF2T_A_EXTRALOC_4A)
         {
-            return _T("Extra Palettes");
+            return L"Extra Palettes";
         }
         else
         {
@@ -717,7 +717,7 @@ LPCWSTR CGame_SSF2T_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nColle
     {
         if (nUnitId == SSF2T_A_EXTRALOC_8)
         {
-            return _T("Extra Palettes");
+            return L"Extra Palettes";
         }
         else
         {
@@ -749,7 +749,7 @@ UINT16 CGame_SSF2T_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if SSF2T_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_SSF2T_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_SSF2T_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 

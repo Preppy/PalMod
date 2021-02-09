@@ -90,9 +90,9 @@ UINT32 CGame_VSAV_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
     static sCRC32ValueSet knownROMs[] =
     {
         // Vampire Savior: The Lord of Vampire (Euro 970519), same for US, Asia, Hispanic
-        { _T("Vampire Savior (970519)"), _T("vm3.10b"),  0xfffbb5b8, 0 },
+        { L"Vampire Savior (970519)", L"vm3.10b",  0xfffbb5b8, 0 },
         // Vampire Savior: The Lord of Vampire (Japan 970519)
-        { _T("Vampire Savior (Japan 970519)"), _T("vm3j.10b"), 0x434518e9, 0x00F4 },
+        { L"Vampire Savior (Japan 970519)", L"vm3j.10b", 0x434518e9, 0x00F4 },
     };
 
     if (ppKnownROMSet)
@@ -181,7 +181,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[VSAV_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[VSAV_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -189,7 +189,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
 
     CString strMsg;
     bool fHaveExtras = (GetExtraCt(VSAV_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_VSAV_A::InitDescTree: Building desc tree for VSAV %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    strMsg.Format(L"CGame_VSAV_A::InitDescTree: Building desc tree for VSAV %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -209,20 +209,20 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
         if (iUnitCtr < VSAV_A_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), VSAV_UNITS[iUnitCtr].szDesc);
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", VSAV_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if VSAV_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection")
+            //Set data for each child group ("collection"
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -230,7 +230,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -238,7 +238,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if VSAV_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -249,25 +249,25 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if VSAV_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%05x to 0x%05x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%05x to 0x%05x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -278,13 +278,13 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if VSAV_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -296,7 +296,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
             int nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(VSAV_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -304,7 +304,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if VSAV_DEBUG
-            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -321,13 +321,13 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
                     pCurrDef = GetExtraDefForVSAV(nExtraPos + nCurrExtra);
                 }
 
-                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((VSAV_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if VSAV_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -337,7 +337,7 @@ sDescTreeNode* CGame_VSAV_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_VSAV_A::InitDescTree: Loaded %u palettes for VSAV\n"), nTotalPaletteCount);
+    strMsg.Format(L"CGame_VSAV_A::InitDescTree: Loaded %u palettes for VSAV\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     m_nTotalPaletteCountForVSAV = nTotalPaletteCount;
@@ -349,7 +349,7 @@ sFileRule CGame_VSAV_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("vm3.10b"));
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"vm3.10b");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -387,7 +387,7 @@ LPCWSTR CGame_VSAV_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollec
 {
     if (nUnitId == VSAV_A_EXTRALOC)
     {
-        return _T("Extra Palettes");
+        return L"Extra Palettes";
     }
     else
     {
@@ -415,7 +415,7 @@ UINT16 CGame_VSAV_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if VSAV_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_VSAV_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_VSAV_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -588,11 +588,11 @@ BOOL CGame_VSAV_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((_wcsicmp(pCurrentNode->szDesc, _T("LP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("MP")) == 0) ||
-                    (_wcsicmp(pCurrentNode->szDesc, _T("HP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("LK")) == 0) ||
-                    (_wcsicmp(pCurrentNode->szDesc, _T("MK")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("HK")) == 0) ||
-                    (_wcsicmp(pCurrentNode->szDesc, _T("PP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("KK")) == 0) ||
-                    (_wcsicmp(pCurrentNode->szDesc, _T("AP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("AK")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, L"LP") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"MP") == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, L"HP") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"LK") == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, L"MK") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"HK") == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, L"PP") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"KK") == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, L"AP") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"AK") == 0))
                 {
                     nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;
@@ -603,7 +603,7 @@ BOOL CGame_VSAV_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         nSrcStart -= nNodeIncrement;
                     }
                 }
-                else  if ((_wcsicmp(pCurrentNode->szDesc, _T("Default")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("Alt")) == 0))
+                else  if ((_wcsicmp(pCurrentNode->szDesc, L"Default") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"Alt") == 0))
                 {
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;

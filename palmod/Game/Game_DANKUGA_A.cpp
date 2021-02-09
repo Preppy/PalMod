@@ -60,7 +60,7 @@ CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize)
     m_nLowestKnownPaletteRomLocation = 0x2d538;
 
     CString strInfo;
-    strInfo.Format(_T("CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR: Loaded DANKUGA_A with %u Extras\n"), GetExtraCt(m_nExtraUnit));
+    strInfo.Format(L"CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR: Loaded DANKUGA_A with %u Extras\n", GetExtraCt(m_nExtraUnit));
     OutputDebugString(strInfo);
 
     InitDataBuffer();
@@ -160,14 +160,14 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[DANKUGA_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[DANKUGA_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    strMsg.Format(_T("CGame_DanKuGa_A_DIR::InitDescTree: Building desc tree for DANKUGA_A...\n"));
+    strMsg.Format(L"CGame_DanKuGa_A_DIR::InitDescTree: Building desc tree for DANKUGA_A...\n");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -187,7 +187,7 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
         if (iUnitCtr != DANKUGA_A_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), DANKUGA_A_UNITS[iUnitCtr].szDesc);
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", DANKUGA_A_UNITS[iUnitCtr].szDesc);
 
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
@@ -195,7 +195,7 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if DANKUGA_A_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
+            strMsg.Format(L"Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
             OutputDebugString(strMsg);
 #endif
 
@@ -209,7 +209,7 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -217,7 +217,7 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if DANKUGA_A_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -228,25 +228,25 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if DANKUGA_A_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -257,13 +257,13 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
-            UnitNode->ChildNodes = new sDescTreeNode[1]; // Only 1, _T("Extra Palettes)"
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
+            UnitNode->ChildNodes = new sDescTreeNode[1]; // Only 1, L"Extra Palettes"
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if DANKUGA_A_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -276,7 +276,7 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
             int nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[((DANKUGA_A_EXTRALOC) > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -289,13 +289,13 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
 
                 stExtraDef* pCurrDef = GetDANKUGAExtraDef(nExtraPos + nCurrExtra);
 
-                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = ((DANKUGA_A_EXTRALOC > iUnitCtr ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if DANKUGA_A_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -307,7 +307,7 @@ sDescTreeNode* CGame_DanKuGa_A_DIR::InitDescTree()
 
     m_nTotalPaletteCount = nTotalPaletteCount;
 
-    strMsg.Format(_T("CGame_DanKuGa_A_DIR::InitDescTree: Loaded %u palettes for DANKUGA ROM\n"), nTotalPaletteCount);
+    strMsg.Format(L"CGame_DanKuGa_A_DIR::InitDescTree: Loaded %u palettes for DANKUGA ROM\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     return NewDescTree;
@@ -317,7 +317,7 @@ sFileRule CGame_DanKuGa_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s"), c_ppszDanKuGa_Files[nUnitId & 0xFF]);
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", c_ppszDanKuGa_Files[nUnitId & 0xFF]);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
@@ -373,7 +373,7 @@ LPCWSTR CGame_DanKuGa_A_DIR::GetDescriptionForCollection(UINT16 nUnitId, UINT16 
 {
     if (nUnitId == DANKUGA_A_EXTRALOC)
     {
-        return _T("Extra Palettes");
+        return L"Extra Palettes";
     }
     else
     {
@@ -401,7 +401,7 @@ UINT16 CGame_DanKuGa_A_DIR::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if DANKUGA_A_DEBUG_EXTRA
         CString strMsg;
-        strMsg.Format(_T("CGame_DanKuGa_A_DIR::GetPaletteCountForUnit: %u palettes for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_DanKuGa_A_DIR::GetPaletteCountForUnit: %u palettes for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -593,7 +593,7 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     BOOL fSuccess = TRUE;
     CString strInfo;
 
-    strInfo.Format(_T("CGame_DanKuGa_A_DIR::LoadFile: Preparing to load data from SIMM number %u\n"), nSIMMNumber);
+    strInfo.Format(L"CGame_DanKuGa_A_DIR::LoadFile: Preparing to load data from SIMM number %u\n", nSIMMNumber);
     OutputDebugString(strInfo);
 
     if (nSIMMNumber != 0)
@@ -602,7 +602,7 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
         // We can handle that mapping by simply setting the "file" count to the unit count.
         nRedirCtr = nUnitAmt - 1;
 
-        OutputDebugString(_T("\tAlready handled.\n"));
+        OutputDebugString(L"\tAlready handled.\n");
         return TRUE;
     }
 
@@ -613,15 +613,15 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     CFile fileSIMM4;
     CString strSIMMName4;
 
-    strSIMMName2.Format(_T("%s\\%s"), GetLoadDir(), c_ppszDanKuGa_Files[1]);
-    strSIMMName3.Format(_T("%s\\%s"), GetLoadDir(), c_ppszDanKuGa_Files[2]);
-    strSIMMName4.Format(_T("%s\\%s"), GetLoadDir(), c_ppszDanKuGa_Files[3]);
+    strSIMMName2.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[1]);
+    strSIMMName3.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[2]);
+    strSIMMName4.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[3]);
 
     if ((fileSIMM2.Open(strSIMMName2, CFile::modeRead | CFile::typeBinary)) &&
         (fileSIMM3.Open(strSIMMName3, CFile::modeRead | CFile::typeBinary)) &&
         (fileSIMM4.Open(strSIMMName4, CFile::modeRead | CFile::typeBinary)))
     {
-        OutputDebugString(_T("\tLoading DanKuGa from SIMMs....\n"));
+        OutputDebugString(L"\tLoading DanKuGa from SIMMs....\n");
 
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
         {
@@ -702,7 +702,7 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
 BOOL CGame_DanKuGa_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 {
     CString strInfo;
-    strInfo.Format(_T("CGame_DanKuGa_A_DIR::SaveFile: Preparing to save data for DanKuGa ROM set\n"));
+    strInfo.Format(L"CGame_DanKuGa_A_DIR::SaveFile: Preparing to save data for DanKuGa ROM set\n");
     OutputDebugString(strInfo);
 
     CFile fileSIMM1;
@@ -714,10 +714,10 @@ BOOL CGame_DanKuGa_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
     CFile fileSIMM4;
     CString strSIMMName4;
 
-    strSIMMName1.Format(_T("%s\\%s"), GetLoadDir(), c_ppszDanKuGa_Files[0]);
-    strSIMMName2.Format(_T("%s\\%s"), GetLoadDir(), c_ppszDanKuGa_Files[1]);
-    strSIMMName3.Format(_T("%s\\%s"), GetLoadDir(), c_ppszDanKuGa_Files[2]);
-    strSIMMName4.Format(_T("%s\\%s"), GetLoadDir(), c_ppszDanKuGa_Files[3]);
+    strSIMMName1.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[0]);
+    strSIMMName2.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[1]);
+    strSIMMName3.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[2]);
+    strSIMMName4.Format(L"%s\\%s", GetLoadDir(), c_ppszDanKuGa_Files[3]);
 
     // We don't necessarily want the incoming file handle, so close it
     SaveFile->Abort();

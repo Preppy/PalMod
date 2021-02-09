@@ -3,7 +3,7 @@
 #include "NGBC_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_NGBC_A = _T("NGBCe.txt");
+constexpr auto EXTRA_FILENAME_NGBC_A = L"NGBCe.txt";
 #define GetExtraDefForNGBC(x)((stExtraDef *)&NGBC_A_EXTRA_CUSTOM[x])
 
 class CGame_NGBC_A : public CGameWithExtrasFile

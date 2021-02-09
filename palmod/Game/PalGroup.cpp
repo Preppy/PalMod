@@ -99,14 +99,14 @@ BOOL CPalGroup::AddSep(int nIndex, LPCWSTR szDesc, int nStart, int nAmt)
     if ((rgPalettes[nIndex].uSepAmt >= MAX_SEPARATORS) || ((nStart + nAmt) > rgPalettes[nIndex].uPalSz))
     {
         CString strWarning;
-        strWarning.Format(_T("WARNING: Trying to use too many separators for \"%s\": %u requested, %u allowed. Disallowing this.\n"), szDesc, rgPalettes[nIndex].uSepAmt, MAX_SEPARATORS);
+        strWarning.Format(L"WARNING: Trying to use too many separators for \"%s\": %u requested, %u allowed. Disallowing this.\n", szDesc, rgPalettes[nIndex].uSepAmt, MAX_SEPARATORS);
         OutputDebugString(strWarning);
         return FALSE;
     }
 
     sPalSep* NewSep = new sPalSep;
 
-    _sntprintf(NewSep->szDesc, ARRAYSIZE(NewSep->szDesc), szDesc);
+    _snwprintf(NewSep->szDesc, ARRAYSIZE(NewSep->szDesc), szDesc);
     NewSep->szDesc[ARRAYSIZE(NewSep->szDesc) - 1] = 0;
 
     NewSep->nStart = nStart;
@@ -128,7 +128,7 @@ BOOL CPalGroup::AddPal(COLORREF* pPal, UINT16 uPalSz, UINT16 uUnitId, UINT16 uPa
 {
     if ((nCurrPalAmt >= MAX_PALETTES_DISPLAYABLE) || !pPal || !uPalSz)
     {
-        OutputDebugString(_T("CPalGroup::AddPal: bogus argument supplied\n"));
+        OutputDebugString(L"CPalGroup::AddPal: bogus argument supplied\n");
         return FALSE;
     }
 

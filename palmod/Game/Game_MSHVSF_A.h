@@ -3,8 +3,8 @@
 #include "MSHVSF_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_MSHVSF_6A = _T("mshvsf-6ae.txt");
-constexpr auto EXTRA_FILENAME_MSHVSF_7B = _T("mshvsf-7be.txt");
+constexpr auto EXTRA_FILENAME_MSHVSF_6A = L"mshvsf-6ae.txt";
+constexpr auto EXTRA_FILENAME_MSHVSF_7B = L"mshvsf-7be.txt";
 
 #define GetExtraDefForMSHVSF(x) (UsePaletteSetForCharacters() ? ((stExtraDef *)&MSHVSF_A_EXTRA_CUSTOM_6A[x]) : ((stExtraDef *)&MSHVSF_A_EXTRA_CUSTOM_7B[x]))
 

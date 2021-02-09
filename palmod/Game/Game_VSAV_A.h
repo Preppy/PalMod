@@ -3,7 +3,7 @@
 #include "VSAV_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_VSAV = _T("VSAVe.txt");
+constexpr auto EXTRA_FILENAME_VSAV = L"VSAVe.txt";
 #define GetExtraDefForVSAV(x)((stExtraDef *)&VSAV_A_EXTRA_CUSTOM[x])
 
 class CGame_VSAV_A : public CGameWithExtrasFile

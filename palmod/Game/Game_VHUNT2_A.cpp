@@ -89,7 +89,7 @@ UINT32 CGame_VHUNT2_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKno
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { _T("Vampire Hunter 2 (Japan 970929)"), _T("vh2j.09"), 0x11730952, 0x5FFD4 },//0x4714 }, // bbhood
+        { L"Vampire Hunter 2 (Japan 970929)", L"vh2j.09", 0x11730952, 0x5FFD4 },//0x4714 }, // bbhood
     };
 
     if (ppKnownROMSet)
@@ -178,7 +178,7 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[VHUNT2_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[VHUNT2_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -186,7 +186,7 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
 
     CString strMsg;
     bool fHaveExtras = (GetExtraCt(VHUNT2_A_EXTRALOC) > 0);
-    strMsg.Format(_T("CGame_VHUNT2_A::InitDescTree: Building desc tree for VHUNT2 %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    strMsg.Format(L"CGame_VHUNT2_A::InitDescTree: Building desc tree for VHUNT2 %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -206,20 +206,20 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
         if (iUnitCtr < VHUNT2_A_EXTRALOC)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), VHUNT2_UNITS[iUnitCtr].szDesc);
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", VHUNT2_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if VHUNT2_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection")
+            //Set data for each child group ("collection"
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -227,7 +227,7 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -235,7 +235,7 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if VHUNT2_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -246,25 +246,25 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if VHUNT2_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%05x to 0x%05x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%05x to 0x%05x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -275,13 +275,13 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if VHUNT2_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -293,7 +293,7 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
             int nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(VHUNT2_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -301,7 +301,7 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if VHUNT2_DEBUG
-            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -318,13 +318,13 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
                     pCurrDef = GetExtraDefForVHUNT2(nExtraPos + nCurrExtra);
                 }
 
-                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((VHUNT2_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if VHUNT2_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -334,7 +334,7 @@ sDescTreeNode* CGame_VHUNT2_A::InitDescTree()
         }
     }
 
-    strMsg.Format(_T("CGame_VHUNT2_A::InitDescTree: Loaded %u palettes for VHUNT2\n"), nTotalPaletteCount);
+    strMsg.Format(L"CGame_VHUNT2_A::InitDescTree: Loaded %u palettes for VHUNT2\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     m_nTotalPaletteCountForVHUNT2 = nTotalPaletteCount;
@@ -346,7 +346,7 @@ sFileRule CGame_VHUNT2_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("vs2j.10"));
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"vs2j.10");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -384,7 +384,7 @@ LPCWSTR CGame_VHUNT2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nColl
 {
     if (nUnitId == VHUNT2_A_EXTRALOC)
     {
-        return _T("Extra Palettes");
+        return L"Extra Palettes";
     }
     else
     {
@@ -412,7 +412,7 @@ UINT16 CGame_VHUNT2_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if VHUNT2_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_VHUNT2_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_VHUNT2_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -529,7 +529,7 @@ void CGame_VHUNT2_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
             if ((m_nCurrentPaletteROMLocation + cbPaletteSizeOnDisc )> 0x80000)
             {
-                OutputDebugString(_T("Warning: invalid location referenced.  This is probably in the wrong ROM.\n"));
+                OutputDebugString(L"Warning: invalid location referenced.  This is probably in the wrong ROM.\n");
             }
         }
     }
@@ -590,11 +590,11 @@ BOOL CGame_VHUNT2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((_wcsicmp(pCurrentNode->szDesc, _T("LP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("MP")) == 0) ||
-                    (_wcsicmp(pCurrentNode->szDesc, _T("HP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("LK")) == 0) ||
-                    (_wcsicmp(pCurrentNode->szDesc, _T("MK")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("HK")) == 0) ||
-                    (_wcsicmp(pCurrentNode->szDesc, _T("PP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("KK")) == 0) ||
-                    (_wcsicmp(pCurrentNode->szDesc, _T("AP")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("AK")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, L"LP") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"MP") == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, L"HP") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"LK") == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, L"MK") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"HK") == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, L"PP") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"KK") == 0) ||
+                    (_wcsicmp(pCurrentNode->szDesc, L"AP") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"AK") == 0))
                 {
                     nSrcAmt = m_nNumberOfColorOptions;
                     nNodeIncrement = pCurrentNode->uChildAmt;
@@ -605,7 +605,7 @@ BOOL CGame_VHUNT2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                         nSrcStart -= nNodeIncrement;
                     }
                 }
-                else  if ((_wcsicmp(pCurrentNode->szDesc, _T("Default")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("Alt")) == 0))
+                else  if ((_wcsicmp(pCurrentNode->szDesc, L"Default") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"Alt") == 0))
                 {
                     nSrcAmt = 2;
                     nNodeIncrement = pCurrentNode->uChildAmt;

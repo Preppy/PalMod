@@ -274,6 +274,12 @@
     <Filter Include="Game\Capcom Games\SFIII2_A_DIR">
       <UniqueIdentifier>{31a04bd2-a0e2-49f3-913e-6fdd40c4bfbe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Other Platforms\Dan-Ku-Ga">
+      <UniqueIdentifier>{4cb9c32e-6df1-4558-89b1-002c430d37ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms\GGXX Reloaded">
+      <UniqueIdentifier>{4465c092-2e8d-4ad8-9e9f-3ddfa005bc8c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -546,9 +552,6 @@
     <ClCompile Include="Game\Game_AOF3_A.cpp">
       <Filter>Game\SNK Games\Art of Fighting 3</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_DANKUGA_A.cpp">
-      <Filter>Game\Other Platforms</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_SAMSHO4_A.cpp">
       <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
     </ClCompile>
@@ -596,6 +599,12 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SFIII2_A_DIR.cpp">
       <Filter>Game\Capcom Games\SFIII2_A_DIR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_DANKUGA_A.cpp">
+      <Filter>Game\Other Platforms\Dan-Ku-Ga</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_GGXXR_A.cpp">
+      <Filter>Game\Other Platforms\GGXX Reloaded</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1022,12 +1031,6 @@
     <ClInclude Include="Game\Game_AOF3_A.h">
       <Filter>Game\SNK Games\Art of Fighting 3</Filter>
     </ClInclude>
-    <ClInclude Include="Game\DANKUGA_A_DEF.h">
-      <Filter>Game\Other Platforms</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Game_DANKUGA_A.h">
-      <Filter>Game\Other Platforms</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Game_SAMSHO4_A.h">
       <Filter>Game\SNK Games\Samurai Shodown 4</Filter>
     </ClInclude>
@@ -1111,6 +1114,15 @@
     </ClInclude>
     <ClInclude Include="Game\Game_SFIII2_A_DIR.h">
       <Filter>Game\Capcom Games\SFIII2_A_DIR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DANKUGA_A_DEF.h">
+      <Filter>Game\Other Platforms\Dan-Ku-Ga</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_DANKUGA_A.h">
+      <Filter>Game\Other Platforms\Dan-Ku-Ga</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GGXXR_A.h">
+      <Filter>Game\Other Platforms\GGXX Reloaded</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@
 #include "AOF1_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_AOF1_A = _T("AOF1E.txt");
+constexpr auto EXTRA_FILENAME_AOF1_A = L"AOF1E.txt";
 
 class CGame_AOF1_A : public CGameWithExtrasFile
 {

@@ -6,8 +6,8 @@
 
 #define JOJOS_A_USEEXTRAFILE
 
-constexpr auto EXTRA_FILENAME_50 = _T("jojos50e.txt");
-constexpr auto EXTRA_FILENAME_51 = _T("jojos51e.txt");
+constexpr auto EXTRA_FILENAME_50 = L"jojos50e.txt";
+constexpr auto EXTRA_FILENAME_51 = L"jojos51e.txt";
 
 #ifdef JOJOS_A_USEEXTRAFILE
 #define GetJojosExtraDef(x) (UsePaletteSetFor50() ? ((stExtraDef *)&JOJOS_A_EXTRA_CUSTOM_50[x]) : ((stExtraDef *)&JOJOS_A_EXTRA_CUSTOM_51[x]))

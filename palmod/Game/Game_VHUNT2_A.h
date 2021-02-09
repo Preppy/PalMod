@@ -3,7 +3,7 @@
 #include "VHUNT2_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_VHUNT2 = _T("VHUNT2e.txt");
+constexpr auto EXTRA_FILENAME_VHUNT2 = L"VHUNT2e.txt";
 #define GetExtraDefForVHUNT2(x)((stExtraDef *)&VHUNT2_A_EXTRA_CUSTOM[x])
 
 class CGame_VHUNT2_A : public CGameWithExtrasFile

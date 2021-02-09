@@ -3,7 +3,7 @@
 #include "WakuWaku7_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_WakuWaku7_A = _T("WakuWaku7E.txt");
+constexpr auto EXTRA_FILENAME_WakuWaku7_A = L"WakuWaku7E.txt";
 #define GetExtraDefForWakuWaku7(x)((stExtraDef *)&WakuWaku7_A_EXTRA_CUSTOM[x])
 
 class CGame_WakuWaku7_A : public CGameWithExtrasFile

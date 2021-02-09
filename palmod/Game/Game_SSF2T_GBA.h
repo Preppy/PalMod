@@ -3,7 +3,7 @@
 #include "SSF2T_GBA_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SSF2T_GBA = _T("SSF2T-GBAe.txt");
+constexpr auto EXTRA_FILENAME_SSF2T_GBA = L"SSF2T-GBAe.txt";
 
 class CGame_SSF2T_GBA : public CGameWithExtrasFile
 {

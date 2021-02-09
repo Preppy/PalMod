@@ -5,7 +5,7 @@
 
 #define REDEARTH_A_USEEXTRAFILE
 
-constexpr auto EXTRA_FILENAME_REDEARTH = _T("REDEARTHe.txt");
+constexpr auto EXTRA_FILENAME_REDEARTH = L"REDEARTHe.txt";
 
 #define GetRedEarthExtraDef(x) ((stExtraDef *)&REDEARTH_A_EXTRA_CUSTOM[x])
 

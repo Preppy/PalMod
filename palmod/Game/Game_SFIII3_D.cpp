@@ -71,7 +71,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     sDescNode* ChildNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[SFIII3_D]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[SFIII3_D]);
     NewDescTree->ChildNodes = new sDescTreeNode[SFIII3_D_NUMUNIT];
     NewDescTree->uChildAmt = SFIII3_D_NUMUNIT;
 
@@ -83,7 +83,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
     {
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
         //Set each description
-        _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), SFIII3_D_UNITDESC[iUnitCtr]);
+        _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", SFIII3_D_UNITDESC[iUnitCtr]);
 
         //Init each character to have all 6 basic buttons + extra
         UnitNode->ChildNodes = new sDescTreeNode[1];
@@ -99,7 +99,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
             ButtonNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iButtonCtr];
 
             //Set each button data
-            _sntprintf_s(ButtonNode->szDesc, ARRAYSIZE(ButtonNode->szDesc), _TRUNCATE, _T("Palettes"));//, DEF_BUTTONLABEL7_SF3[iButtonCtr]);
+            _snwprintf_s(ButtonNode->szDesc, ARRAYSIZE(ButtonNode->szDesc), _TRUNCATE, L"Palettes");//, DEF_BUTTONLABEL7_SF3[iButtonCtr]);
 
             //Button children have nodes
             ButtonNode->uChildType = DESC_NODETYPE_NODE;
@@ -112,7 +112,7 @@ sDescTreeNode* CGame_SFIII3_D::InitDescTree()
                 ChildNode = &((sDescNode*)ButtonNode->ChildNodes)[nChildCtr];
 
                 ChildNode->uUnitId = iUnitCtr;
-                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("Palette %02X"), nChildCtr);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"Palette %02X", nChildCtr);
 
                 ChildNode->uPalId = nChildCtr;
             }
@@ -135,7 +135,7 @@ sFileRule CGame_SFIII3_D::GetRule(UINT16 nUnitId)
         nRuleId++;
     }
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("PL%02dPL.BIN"), nRuleId);
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"PL%02dPL.BIN", nRuleId);
 
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = -1;

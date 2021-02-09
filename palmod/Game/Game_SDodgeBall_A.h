@@ -3,7 +3,7 @@
 #include "SDODGEBALL_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SDODGEBALL_A = _T("SDODGEBALLE.txt");
+constexpr auto EXTRA_FILENAME_SDODGEBALL_A = L"SDODGEBALLE.txt";
 
 class CGame_SDODGEBALL_A : public CGameWithExtrasFile
 {

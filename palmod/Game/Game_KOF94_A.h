@@ -3,7 +3,7 @@
 #include "KOF94_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOF94_A = _T("KOF94E.txt");
+constexpr auto EXTRA_FILENAME_KOF94_A = L"KOF94E.txt";
 #define GetExtraDefForKOF94(x)((stExtraDef *)&KOF94_A_EXTRA_CUSTOM[x])
 
 class CGame_KOF94_A : public CGameWithExtrasFile

@@ -3,7 +3,7 @@
 #include "SFZ3U_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SFZ3U_A = _T("SFZ3UE.txt");
+constexpr auto EXTRA_FILENAME_SFZ3U_A = L"SFZ3UE.txt";
 #define GetExtraDefForSFZ3U(x)((stExtraDef *)&SFZ3U_A_EXTRA_CUSTOM[x])
 
 class CGame_SFZ3U_A : public CGameWithExtrasFile

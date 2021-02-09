@@ -3,8 +3,8 @@
 #include "KOF99AE_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOF99AE_A_P2 = _T("KOF99AEp2E.txt");
-constexpr auto EXTRA_FILENAME_KOF99AE_A_P3 = _T("KOF99AEp3E.txt");
+constexpr auto EXTRA_FILENAME_KOF99AE_A_P2 = L"KOF99AEp2E.txt";
+constexpr auto EXTRA_FILENAME_KOF99AE_A_P3 = L"KOF99AEp3E.txt";
 
 class CGame_KOF99AE_A : public CGameWithExtrasFile
 {

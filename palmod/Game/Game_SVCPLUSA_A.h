@@ -3,7 +3,7 @@
 #include "SVCPLUSA_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SVCPLUSA_A = _T("SVCE.txt");
+constexpr auto EXTRA_FILENAME_SVCPLUSA_A = L"SVCE.txt";
 #define GetExtraDefForSVCPLUSA(x)((stExtraDef *)&SVCPLUSA_A_EXTRA_CUSTOM[x])
 
 class CGame_SVCPLUSA_A : public CGameWithExtrasFile
@@ -34,7 +34,7 @@ private:
 
     struct SVCRevisionInfo
     {
-        LPCWSTR pszRevisionName = _T("SVC Plus A");
+        LPCWSTR pszRevisionName = L"SVC Plus A";
         eSVCRevisionName rev = eSVCRevisionName::SVCPlusA;
         std::vector<LPCWSTR> fileList;
         int nOffsetForReads = 0;

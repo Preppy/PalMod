@@ -3,7 +3,7 @@
 #include "Kizuna_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_Kizuna_A = _T("KizunaE.txt");
+constexpr auto EXTRA_FILENAME_Kizuna_A = L"KizunaE.txt";
 #define GetExtraDefForKizuna(x)((stExtraDef *)&Kizuna_A_EXTRA_CUSTOM[x])
 
 class CGame_Kizuna_A : public CGameWithExtrasFile

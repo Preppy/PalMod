@@ -3,9 +3,9 @@
 #include "KOF02UM_S_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KOF02UM_S_MAIN = _T("KOF02UME.txt");
-constexpr auto EXTRA_FILENAME_KOF02UM_S_BAR = _T("KOF02UMBarE.txt");
-constexpr auto EXTRA_FILENAME_KOF02UM_S_MAX2 = _T("KOF02UMMAX2E.txt");
+constexpr auto EXTRA_FILENAME_KOF02UM_S_MAIN = L"KOF02UME.txt";
+constexpr auto EXTRA_FILENAME_KOF02UM_S_BAR = L"KOF02UMBarE.txt";
+constexpr auto EXTRA_FILENAME_KOF02UM_S_MAX2 = L"KOF02UMMAX2E.txt";
 
 class CGame_KOF02UM_S : public CGameWithExtrasFile
 {

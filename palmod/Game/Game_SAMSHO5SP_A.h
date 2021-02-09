@@ -3,7 +3,7 @@
 #include "SAMSHO5SP_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_SAMSHO5SP_A = _T("SAMSHO5SPE.txt");
+constexpr auto EXTRA_FILENAME_SAMSHO5SP_A = L"SAMSHO5SPE.txt";
 #define GetExtraDefForSAMSHO5SP(x)((stExtraDef *)&SAMSHO5SP_A_EXTRA_CUSTOM[x])
 
 class CGame_SAMSHO5SP_A : public CGameWithExtrasFile

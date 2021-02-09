@@ -3,9 +3,9 @@
 #include "SSF2T_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SSF2T_3C = _T("ssf2t-3ce.txt");
-constexpr auto EXTRA_FILENAME_SSF2T_4A = _T("ssf2t-4ae.txt");
-constexpr auto EXTRA_FILENAME_SSF2T_8 = _T("ssf2t-8e.txt");
+constexpr auto EXTRA_FILENAME_SSF2T_3C = L"ssf2t-3ce.txt";
+constexpr auto EXTRA_FILENAME_SSF2T_4A = L"ssf2t-4ae.txt";
+constexpr auto EXTRA_FILENAME_SSF2T_8 = L"ssf2t-8e.txt";
 
 #define GetExtraDefForSSF2T(x) (UsePaletteSetForPortraits() ? ((stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_3C[x]) : (UsePaletteSetForCharacters() ? (stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_4A[x] : (stExtraDef *)&SSF2T_A_EXTRA_CUSTOM_8[x]))
 

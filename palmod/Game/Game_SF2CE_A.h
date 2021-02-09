@@ -3,9 +3,9 @@
 #include "SF2CE_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SF2CE_21 = _T("SF2CE-21e.txt");
-constexpr auto EXTRA_FILENAME_SF2CE_22 = _T("SF2CE-22e.txt");
-constexpr auto EXTRA_FILENAME_SF2CE_23 = _T("SF2CE-23e.txt");
+constexpr auto EXTRA_FILENAME_SF2CE_21 = L"SF2CE-21e.txt";
+constexpr auto EXTRA_FILENAME_SF2CE_22 = L"SF2CE-22e.txt";
+constexpr auto EXTRA_FILENAME_SF2CE_23 = L"SF2CE-23e.txt";
 
 class CGame_SF2CE_A : public CGameWithExtrasFile
 {

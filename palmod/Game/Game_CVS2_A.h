@@ -3,7 +3,7 @@
 #include "CVS2_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_CVS2_A = _T("CVS2E.txt");
+constexpr auto EXTRA_FILENAME_CVS2_A = L"CVS2E.txt";
 #define GetExtraDefForCVS2(x)((stExtraDef *)&CVS2_A_EXTRA_CUSTOM[x])
 
 class CGame_CVS2_A : public CGameWithExtrasFile

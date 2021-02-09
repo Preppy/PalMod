@@ -3,7 +3,7 @@
 #include "Bleach_DS_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_BLEACH_DS = _T("BleachDSE.txt");
+constexpr auto EXTRA_FILENAME_BLEACH_DS = L"BleachDSE.txt";
 #define GetExtraDefForBLEACHDS(x)((stExtraDef *)&BLEACH_DS_EXTRA_CUSTOM[x])
 
 class CGame_BLEACH_DS : public CGameWithExtrasFile

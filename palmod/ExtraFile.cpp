@@ -264,11 +264,11 @@ void LoadExtraFileForGame(LPCWSTR pszExtraFileName, const stExtraDef* pBaseExtra
                                     if (nTotalPagesNeeded > 1)
                                     {
                                         //pCurrDef->isInvisible = (nCurrentPage == 1);
-                                        _sntprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), L"%S (%u/%u) 0x%x", aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * cbColorSize * nPos));
+                                        _snwprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), L"%S (%u/%u) 0x%x", aszCurrDesc, nCurrentPage++, nTotalPagesNeeded, nCurrStart + (k_colorsPerPage * cbColorSize * nPos));
                                     }
                                     else
                                     {
-                                        _sntprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), L"%S", aszCurrDesc);
+                                        _snwprintf(pCurrDef->szDesc, sizeof(pCurrDef->szDesc), L"%S", aszCurrDesc);
                                         //pCurrDef->isInvisible = false;
                                     }
                                     pCurrDef->uOffset = nCurrStart + (k_colorsPerPage * cbColorSize * nPos);

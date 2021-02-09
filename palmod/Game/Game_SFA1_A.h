@@ -3,7 +3,7 @@
 #include "SFA1_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SFA1 = _T("SFA1e.txt");
+constexpr auto EXTRA_FILENAME_SFA1 = L"SFA1e.txt";
 #define GetExtraDefForSFA1(x)((stExtraDef *)&SFA1_A_EXTRA_CUSTOM[x])
 
 class CGame_SFA1_A : public CGameWithExtrasFile

@@ -3,7 +3,7 @@
 #include "KarnovsR_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_KarnovsR_A = _T("KarnovsE.txt");
+constexpr auto EXTRA_FILENAME_KarnovsR_A = L"KarnovsE.txt";
 #define GetExtraDefForKarnovsR(x)((stExtraDef *)&KarnovsR_A_EXTRA_CUSTOM[x])
 
 class CGame_KarnovsR_A : public CGameWithExtrasFile

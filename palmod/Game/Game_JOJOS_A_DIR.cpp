@@ -3,14 +3,14 @@
 
 UINT16 CGame_JOJOS_A_DIR::uRuleCtr = 0;
 
-constexpr auto JOJOS_Arcade_ROM_Base = _T("jojoba-simm5.");
+constexpr auto JOJOS_Arcade_ROM_Base = L"jojoba-simm5.";
 
 #define JOJOS_RERIP_DEBUG                 DEFAULT_GAME_DEBUG_STATE
 
 CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR(UINT32 nConfirmedROMSize, int nJojosModeToLoad) :
         CGame_JOJOS_A(0x800000, nJojosModeToLoad)   // Let Jojos know that it's safe to load extras.
 {
-    OutputDebugString(_T("CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR: Loading from SIMM directory\n"));
+    OutputDebugString(L"CGame_JOJOS_A_DIR::CGame_JOJOS_A_DIR: Loading from SIMM directory\n");
     nGameFlag = (nJojosModeToLoad == 50) ? JOJOS_A_DIR_50 : JOJOS_A_DIR_51;
     // We lie here because we want to look at all 8 SIMM banks
     nFileAmt = 8;
@@ -29,7 +29,7 @@ sFileRule CGame_JOJOS_A_DIR::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("%s%u"), JOJOS_Arcade_ROM_Base, (nUnitId & 0x00FF));
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s%u", JOJOS_Arcade_ROM_Base, (nUnitId & 0x00FF));
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
@@ -75,18 +75,18 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     BOOL fSuccess = TRUE;
     CString strInfo;
 
-    strInfo.Format(_T("CGame_JOJOS_A_DIR::LoadFile: Preparing to load data from SIMM number %u\n"), nSIMMNumber);
+    strInfo.Format(L"CGame_JOJOS_A_DIR::LoadFile: Preparing to load data from SIMM number %u\n", nSIMMNumber);
     OutputDebugString(strInfo);
 
     if ((nSIMMNumber % 2) == 1)
     {
-        OutputDebugString(_T("\tThis is a peer SIMM: skipping.\n"));
+        OutputDebugString(L"\tThis is a peer SIMM: skipping.\n");
         return TRUE;
     }
     else if (((nGameFlag == JOJOS_A_DIR_50) && (nSIMMNumber > 3)) ||
              ((nGameFlag == JOJOS_A_DIR_51) && (nSIMMNumber < 4)))
     {
-        OutputDebugString(_T("\tThis SIMM set is not used for the current Jojos mode\n"));
+        OutputDebugString(L"\tThis SIMM set is not used for the current Jojos mode\n");
         return TRUE;
     }
 
@@ -98,17 +98,17 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     const UINT32 nBeginningRange = 0 + (c_nJOJOSSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
     const UINT32 nEndingRange = (c_nJOJOSSIMMLength * 2) + (c_nJOJOSSIMMLength * (nSIMMNumber - nSIMMSetAdjustment));
 
-    strInfo.Format(_T("\tThe SIMM %u set begins at 0x%06x and ends at 0x%06x\n"), nSIMMNumber, nBeginningRange, nEndingRange);
+    strInfo.Format(L"\tThe SIMM %u set begins at 0x%06x and ends at 0x%06x\n", nSIMMNumber, nBeginningRange, nEndingRange);
     OutputDebugString(strInfo);
 
     CFile FilePeer;
     sFileRule PeerRule = GetNextRule();
     CString strPeerFilename;
-    strPeerFilename.Format(_T("%s\\%s"), GetLoadDir(), PeerRule.szFileName);
+    strPeerFilename.Format(L"%s\\%s", GetLoadDir(), PeerRule.szFileName);
 
     if (FilePeer.Open(strPeerFilename, CFile::modeRead | CFile::typeBinary))
     {
-        OutputDebugString(_T("\tLoading JOJOS_A_DIR from SIMMs....\n"));
+        OutputDebugString(L"\tLoading JOJOS_A_DIR from SIMMs....\n");
         bool fShownCrossSIMMErrorOnce = false;
 
         for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
@@ -135,7 +135,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                     m_nCurrentPaletteROMLocation = GetLocationWithinSIMM(m_nCurrentPaletteROMLocation);
 
 #if JOJOS_RERIP_DEBUG
-                    strInfo.Format(_T("\t\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X\n"), nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation);
+                    strInfo.Format(L"\t\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X\n", nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation);
                     OutputDebugString(strInfo);
 #endif
 
@@ -144,7 +144,7 @@ BOOL CGame_JOJOS_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                         if (!fShownCrossSIMMErrorOnce)
                         {
                             fShownCrossSIMMErrorOnce = true;
-                            strInfo.Format(_T("Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM set boundaries.  This is not supported. Please remove that."), nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes));
+                            strInfo.Format(L"Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM set boundaries.  This is not supported. Please remove that.", nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes));
                             MessageBox(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_ICONERROR);
                         }
 
@@ -200,7 +200,7 @@ inline UINT8 CGame_JOJOS_A_DIR::GetSIMMSetForROMLocation(UINT32 nROMLocation)
 BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 {
     CString strInfo;
-    strInfo.Format(_T("CGame_JOJOS_A_DIR::SaveFile: Preparing to save data for Jojos ROM set %u\n"), m_nJojosMode);
+    strInfo.Format(L"CGame_JOJOS_A_DIR::SaveFile: Preparing to save data for Jojos ROM set %u\n", m_nJojosMode);
     OutputDebugString(strInfo);
 
     // OK, so the old 51 ROM in the SIMM redump is interleaved.
@@ -219,10 +219,10 @@ BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
     CFile fileSIMM4;
     CString strSIMMName4;
 
-    strSIMMName1.Format(_T("%s\\%s%u"), GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 0);
-    strSIMMName2.Format(_T("%s\\%s%u"), GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 1);
-    strSIMMName3.Format(_T("%s\\%s%u"), GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 2);
-    strSIMMName4.Format(_T("%s\\%s%u"), GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 3);
+    strSIMMName1.Format(L"%s\\%s%u", GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 0);
+    strSIMMName2.Format(L"%s\\%s%u", GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 1);
+    strSIMMName3.Format(L"%s\\%s%u", GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 2);
+    strSIMMName4.Format(L"%s\\%s%u", GetLoadDir(), JOJOS_Arcade_ROM_Base, nSIMMSetAdjustment + 3);
 
     // We don't necessarily want the incoming file handle, so close it
     SaveFile->Abort();
@@ -247,7 +247,7 @@ BOOL CGame_JOJOS_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
 #if JOJOS_RERIP_DEBUG
                     UINT32 nOriginalOffset = m_nCurrentPaletteROMLocation;
                     UINT32 nOriginalROMLocation = m_nCurrentPaletteROMLocation;
-                    strInfo.Format(_T("\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X (SIMM set %u)\n"), nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation, nSIMMSetToUse);
+                    strInfo.Format(L"\tUnit 0x%x palette 0x%x: Translating location 0x%X to 0x%X (SIMM set %u)\n", nUnitCtr, nPalCtr, nOriginalROMLocation, m_nCurrentPaletteROMLocation, nSIMMSetToUse);
                     OutputDebugString(strInfo);
 #endif
 
@@ -342,7 +342,7 @@ UINT32 CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
 
     const bool fUserWantsAllChanges = UserWantsAllPalettesInPatch();
 
-    strInfo.Format(_T("CGame_JOJOS_A_DIR::SaveMultiplePatchFiles: Preparing to save IPS patches...\n"));
+    strInfo.Format(L"CGame_JOJOS_A_DIR::SaveMultiplePatchFiles: Preparing to save IPS patches...\n");
     OutputDebugString(strInfo);
 
     bool fSetOneOpened = false;
@@ -371,8 +371,8 @@ UINT32 CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
                     CString strIPSName1;
                     CString strIPSName2;
 
-                    strIPSName1.Format(_T("%s\\%s%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber);
-                    strIPSName2.Format(_T("%s\\%s%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber + 1);
+                    strIPSName1.Format(L"%s\\%s%u.ips", strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber);
+                    strIPSName2.Format(L"%s\\%s%u.ips", strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber + 1);
 
                     if (fileIPS1.Open(strIPSName1, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary) &&
                         fileIPS2.Open(strIPSName2, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary))
@@ -393,8 +393,8 @@ UINT32 CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
                     CString strIPSName3;
                     CString strIPSName4;
 
-                    strIPSName3.Format(_T("%s\\%s%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber + 2);
-                    strIPSName4.Format(_T("%s\\%s%u.ips"), strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber + 3);
+                    strIPSName3.Format(L"%s\\%s%u.ips", strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber + 2);
+                    strIPSName4.Format(L"%s\\%s%u.ips", strTargetDirectory.GetString(), pszBaseFormatString, nSIMMNumber + 3);
 
                     if (fileIPS3.Open(strIPSName3, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary) &&
                         fileIPS4.Open(strIPSName4, CFile::modeWrite | CFile::modeCreate | CFile::typeBinary))
@@ -460,7 +460,7 @@ UINT32 CGame_JOJOS_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)
         }
     }
 
-    strInfo.Format(_T("\tCGame_JOJOS_A_DIR::SaveMultiplePatchFiles: complete for 0x%x palettes\n"), nPaletteSaveCount);
+    strInfo.Format(L"\tCGame_JOJOS_A_DIR::SaveMultiplePatchFiles: complete for 0x%x palettes\n", nPaletteSaveCount);
     OutputDebugString(strInfo);
 
     LPCSTR szIPSCloser = "EOF";

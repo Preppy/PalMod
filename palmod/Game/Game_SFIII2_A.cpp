@@ -60,7 +60,7 @@ CGame_SFIII2_A::CGame_SFIII2_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     m_nLowestKnownPaletteRomLocation = 0x398000;
 
     CString strInfo;
-    strInfo.Format(_T("CGame_SFIII2_A::CGame_SFIII2_A: Loaded SFIII2_A with %u Extras\n"), GetExtraCt(m_nExtraUnit));
+    strInfo.Format(L"CGame_SFIII2_A::CGame_SFIII2_A: Loaded SFIII2_A with %u Extras\n", GetExtraCt(m_nExtraUnit));
     OutputDebugString(strInfo);
 
     InitDataBuffer();
@@ -187,14 +187,14 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[SFIII2_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[SFIII2_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    strMsg.Format(_T("CGame_SFIII2_A::InitDescTree: Building desc tree for SFIII2_A ROM %u...\n"), m_nSelectedRom);
+    strMsg.Format(L"CGame_SFIII2_A::InitDescTree: Building desc tree for SFIII2_A ROM %u...\n", m_nSelectedRom);
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -214,7 +214,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
         if (iUnitCtr != nExtraUnitLocation)
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), GetCurrentUnitSet()[iUnitCtr].szDesc);
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", GetCurrentUnitSet()[iUnitCtr].szDesc);
 
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
@@ -222,13 +222,13 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if SFIII2_A_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
+            strMsg.Format(L"Unit: \"%s\", %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, UnitNode->uChildAmt);
             OutputDebugString(strMsg);
 #endif
 
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection")
+            //Set data for each child group ("collection"
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -236,7 +236,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -244,7 +244,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if SFIII2_A_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -255,25 +255,25 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if SFIII2_A_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -284,13 +284,13 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
-            UnitNode->ChildNodes = new sDescTreeNode[1]; // Only 1, _T("Extra Palettes)"
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
+            UnitNode->ChildNodes = new sDescTreeNode[1]; // Only 1, L"Extra Palettes)"
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if SFIII2_A_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
 
@@ -303,7 +303,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
             int nCurrExtra = 0;
 
             CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(nExtraUnitLocation > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -323,13 +323,13 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
                     pCurrDef = GetCurrentExtraDef(nExtraPos + nCurrExtra);
                 }
 
-                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 ChildNode->uPalId = (((nExtraUnitLocation > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if SFIII2_A_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -341,7 +341,7 @@ sDescTreeNode* CGame_SFIII2_A::InitDescTree(int nROMPaletteSetToUse)
 
     m_nTotalPaletteCountForSFIII2_50 = nTotalPaletteCount;
 
-    strMsg.Format(_T("CGame_SFIII2_A::InitDescTree: Loaded %u palettes for SFIII2 ROM %u\n"), nTotalPaletteCount, m_nSelectedRom);
+    strMsg.Format(L"CGame_SFIII2_A::InitDescTree: Loaded %u palettes for SFIII2 ROM %u\n", nTotalPaletteCount, m_nSelectedRom);
     OutputDebugString(strMsg);
 
     return NewDescTree;
@@ -351,7 +351,7 @@ sFileRule CGame_SFIII2_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, _T("50"));
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"50");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -388,7 +388,7 @@ LPCWSTR CGame_SFIII2_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nColl
 {
     if (nUnitId == GetCurrentExtraLoc())
     {
-        return _T("Extra Palettes");
+        return L"Extra Palettes";
     }
     else
     {
@@ -416,7 +416,7 @@ UINT16 CGame_SFIII2_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if SFIII2_A_DEBUG_EXTRA
         CString strMsg;
-        strMsg.Format(_T("CGame_SFIII2_A::GetPaletteCountForUnit: %u palettes for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_SFIII2_A::GetPaletteCountForUnit: %u palettes for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -721,12 +721,12 @@ BOOL CGame_SFIII2_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04
                     LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId);
 
                     BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId);
-                    BasePalGroup.AddSep(0, _T("Morph"), 0, 64);
+                    BasePalGroup.AddSep(0, L"Morph", 0, 64);
 
                     LoadSpecificPaletteData(NodeGet->uUnitId, NodeGet->uPalId + 1);
 
                     BasePalGroup.AddPal(CreatePal(NodeGet->uUnitId, NodeGet->uPalId + 1), m_nCurrentPaletteSizeInColors, NodeGet->uUnitId, NodeGet->uPalId + 1);
-                    BasePalGroup.AddSep(1, _T("Suit"), 0, 64);
+                    BasePalGroup.AddSep(1, L"Suit", 0, 64);
 
                     ClearSetImgTicket(
                         CreateImgTicket(index3S_CPS3_Urien, 2,

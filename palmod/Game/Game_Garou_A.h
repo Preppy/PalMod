@@ -3,7 +3,7 @@
 #include "Garou_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_Garou_A = _T("GarouE.txt");
+constexpr auto EXTRA_FILENAME_Garou_A = L"GarouE.txt";
 #define GetExtraDefForGarou_A(x)((stExtraDef *)&Garou_A_EXTRA_CUSTOM[x])
 
 class CGame_Garou_A : public CGameWithExtrasFile

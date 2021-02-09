@@ -3,7 +3,7 @@
 #include "Matrimelee_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_Matrimelee_A = _T("MatrimeleeE.txt");
+constexpr auto EXTRA_FILENAME_Matrimelee_A = L"MatrimeleeE.txt";
 #define GetExtraDefForMatrimelee(x)((stExtraDef *)&Matrimelee_A_EXTRA_CUSTOM[x])
 
 class CGame_Matrimelee_A : public CGameWithExtrasFile

@@ -54,7 +54,7 @@ CGame_MSH_A::CGame_MSH_A(UINT32 nConfirmedROMSize, int nMSHRomToLoad)
     m_nMSHSelectedRom = (nMSHRomToLoad == 5) ? 5 : 6;
 
     CString strMessage;
-    strMessage.Format(_T("CGame_MSH_A::CGame_MSH_A: Loading for the %s ROM\n"), (m_nMSHSelectedRom == 5) ? _T("05") : _T("6B"));
+    strMessage.Format(L"CGame_MSH_A::CGame_MSH_A: Loading for the %s ROM\n", (m_nMSHSelectedRom == 5) ? L"05" : L"6B");
     OutputDebugString(strMessage);
 
     m_nTotalInternalUnits = UsePaletteSetForCharacters() ? MSH_A_NUMUNIT_05 : MSH_A_NUMUNIT_06;
@@ -135,11 +135,11 @@ GAME(1995, mshbr1,     msh,      cps2, cps2_2p6b, cps2_state, init_cps2,     ROT
     ROM_LOAD16_WORD_SWAP("msh.05",   0x100000, 0x80000, CRC(6a091b9e) SHA1(7fa54e69e1a1ca348cb08d892d55023e9a3ff4cb))
     ROM_LOAD16_WORD_SWAP("msh.06b",  0x180000, 0x80000, CRC(803e3fa4) SHA1(0acdeda65002521bf24130cbf06f9faa1dcef9e5))
 #endif
-        { _T("MSH (951024 Arcade)"), _T("msh.05"), 0x6a091b9e, 0 },
-        { _T("MSH (951117 Arcade)"), _T("msh.05a"), 0xf37539e6, 0 },
-        { _T("MSH (US 951024 Arcade)"), _T("mshud.05"), 0x3b493e84, 0 },
+        { L"MSH (951024 Arcade)", L"msh.05", 0x6a091b9e, 0 },
+        { L"MSH (951117 Arcade)", L"msh.05a", 0xf37539e6, 0 },
+        { L"MSH (US 951024 Arcade)", L"mshud.05", 0x3b493e84, 0 },
 
-        { _T("MSH (Arcade)"), _T("msh.06b"),  0x803e3fa4, 0 },
+        { L"MSH (Arcade)", L"msh.06b",  0x803e3fa4, 0 },
     };
 
     if (ppKnownROMSet)
@@ -269,7 +269,7 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _sntprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, _T("%s"), g_GameFriendlyName[MSH_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[MSH_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -277,7 +277,7 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
 
     CString strMsg;
     bool fHaveExtras = (GetExtraCt(UsePaletteSetForCharacters() ? MSH_A_EXTRALOC_05 : MSH_A_EXTRALOC_06) > 0);
-    strMsg.Format(_T("CGame_MSH_A::InitDescTree: Building desc tree for MSH %s extras...\n"), fHaveExtras ? _T("with") : _T("without"));
+    strMsg.Format(L"CGame_MSH_A::InitDescTree: Building desc tree for MSH %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -297,20 +297,20 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
         if (UsePaletteSetForCharacters() ? (iUnitCtr < MSH_A_EXTRALOC_05) : (iUnitCtr < MSH_A_EXTRALOC_06))
         {
             //Set each description
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("%s"), UsePaletteSetForCharacters() ? MSH_UNITS_05[iUnitCtr].szDesc : MSH_UNITS_06[iUnitCtr].szDesc);
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", UsePaletteSetForCharacters() ? MSH_UNITS_05[iUnitCtr].szDesc : MSH_UNITS_06[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
 #if MSH_DEBUG
-            strMsg.Format(_T("Unit: \"%s\", %u of %u (%s), %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? _T("with extras") : _T("no extras"), nUnitChildCount);
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection")
+            //Set data for each child group ("collection"
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -318,7 +318,7 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
                 //Set each collection data
 
                 // Default label, since these aren't associated to collections
-                _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
+                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
                 //Collection children have nodes
                 UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
                 CollectionNode->uChildType = DESC_NODETYPE_NODE;
@@ -326,7 +326,7 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
 #if MSH_DEBUG
-                strMsg.Format(_T("\tCollection: \"%s\", %u of %u, %u children\n"), CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
+                strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
 
@@ -337,25 +337,25 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
                 {
                     ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
 
-                    _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, _T("%s"), paletteSetToUse[nNodeIndex].szPaletteName);
+                    _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
 
                     ChildNode->uUnitId = iUnitCtr; // but this doesn't work in the new layout does it...?
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
 #if MSH_DEBUG
-                    strMsg.Format(_T("\t\tPalette: \"%s\", %u of %u"), ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
+                    strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(_T(", 0x%06x to 0x%06x (%u colors),"), paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
                     {
-                        strMsg.Format(_T(" image unit 0x%02x image index 0x%02x.\n"), paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
+                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
                     }
                     else
                     {
-                        strMsg.Format(_T(" no image available.\n"));
+                        strMsg.Format(L" no image available.\n");
                     }
                     OutputDebugString(strMsg);
 #endif
@@ -366,13 +366,13 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
         {
             // This handles data loaded from the Extra extension file, which are treated
             // each as their own separate node with one collection with everything under that.
-            _sntprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, _T("Extra Palettes"));
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
             UnitNode->ChildNodes = new sDescTreeNode[1];
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
 #if MSH_DEBUG
-            strMsg.Format(_T("Unit (Extras): %s, %u of %u, %u total children\n"), UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
+            strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
         }
@@ -392,7 +392,7 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(MSH_A_EXTRALOC_06 > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
             }
 
-            _sntprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, _T("Extra"));
+            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
 
@@ -400,7 +400,7 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
 #if MSH_DEBUG
-            strMsg.Format(_T("\tCollection: %s, %u of %u, %u children\n"), CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
+            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
 
@@ -417,7 +417,7 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
                     pCurrDef = GetExtraDefForMSH(nExtraPos + nCurrExtra);
                 }
 
-                _sntprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
+                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
                 if (UsePaletteSetForCharacters())
@@ -430,7 +430,7 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
                 }
 
 #if MSH_DEBUG
-                strMsg.Format(_T("\t\tPalette: %s, %u of %u\n"), ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
+                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
 
@@ -440,7 +440,7 @@ sDescTreeNode* CGame_MSH_A::InitDescTree(int nROMPaletteSetToUse)
         }
     }
 
-    strMsg.Format(_T("CGame_MSH_A::InitDescTree: Loaded %u palettes for MSH\n"), nTotalPaletteCount);
+    strMsg.Format(L"CGame_MSH_A::InitDescTree: Loaded %u palettes for MSH\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     if (UsePaletteSetForCharacters())
@@ -460,7 +460,7 @@ sFileRule CGame_MSH_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _sntprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, (nUnitId == 5) ? _T("MSH.05") : _T("MSH.06B"));
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, (nUnitId == 5) ? L"MSH.05" : L"MSH.06B");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -530,7 +530,7 @@ LPCWSTR CGame_MSH_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollect
     {
         if (nUnitId == MSH_A_EXTRALOC_05)
         {
-            return _T("Extra Palettes");
+            return L"Extra Palettes";
         }
         else
         {
@@ -542,7 +542,7 @@ LPCWSTR CGame_MSH_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollect
     {
         if (nUnitId == MSH_A_EXTRALOC_06)
         {
-            return _T("Extra Palettes");
+            return L"Extra Palettes";
         }
         else
         {
@@ -574,7 +574,7 @@ UINT16 CGame_MSH_A::GetPaletteCountForUnit(UINT16 nUnitId)
 
 #if MSH_DEBUG
         CString strMsg;
-        strMsg.Format(_T("CGame_MSH_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n"), nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_MSH_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -791,7 +791,7 @@ BOOL CGame_MSH_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
             {
-                if ((_wcsicmp(pCurrentNode->szDesc, _T("P1")) == 0) || (_wcsicmp(pCurrentNode->szDesc, _T("P2")) == 0))
+                if ((_wcsicmp(pCurrentNode->szDesc, L"P1") == 0) || (_wcsicmp(pCurrentNode->szDesc, L"P2") == 0))
                 {
                     // We show 2 sprites (P1/P2) for export for all normal msh sprites
                     nSrcAmt = 2;

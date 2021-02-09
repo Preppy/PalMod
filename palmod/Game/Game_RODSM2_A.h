@@ -3,7 +3,7 @@
 #include "RODSM2_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_RODSM2_A = _T("SlamMasters2E.txt");
+constexpr auto EXTRA_FILENAME_RODSM2_A = L"SlamMasters2E.txt";
 #define GetExtraDefForSM2(x)((stExtraDef *)&RODSM2_A_EXTRA_CUSTOM[x])
 
 class CGame_RODSM2_A : public CGameWithExtrasFile

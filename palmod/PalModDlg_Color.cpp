@@ -267,26 +267,26 @@ void CPalModDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
     {
         editControl = &m_Edit_RH;
         nMul = nRGBMul;
+        break;
     }
-    break;
     case IDC_GS_SLIDER:
     {
         editControl = &m_Edit_GS;
         nMul = nRGBMul;
+        break;
     }
-    break;
     case IDC_BL_SLIDER:
     {
         editControl = &m_Edit_BL;
         nMul = nRGBMul;
+        break;
     }
-    break;
     case IDC_A_SLIDER:
     {
         editControl = &m_Edit_A;
         nMul = nAMul;
+        break;
     }
-    break;
     case IDC_SPIN_RH:
     case IDC_SPIN_GS:
     case IDC_SPIN_BL:
@@ -436,8 +436,8 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
         nColMax = nRGBAmt;
         nColMul = nRGBMul;
         nHLSHI = 360;
+        break;
     }
-    break;
     case IDC_EDIT_GS:
     {
         editControl = &m_Edit_GS;
@@ -446,8 +446,8 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
         nColMax = nRGBAmt;
         nColMul = nRGBMul;
         nHLSHI = 255;
+        break;
     }
-    break;
     case IDC_EDIT_BL:
     {
         editControl = &m_Edit_BL;
@@ -456,8 +456,8 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
         nColMax = nRGBAmt;
         nColMul = nRGBMul;
         nHLSHI = 100;
+        break;
     }
-    break;
     case IDC_EDIT_A:
     {
         if (nAMul)
@@ -473,8 +473,8 @@ void CPalModDlg::UpdateEditKillFocus(int nCtrlId)
         {
             return;
         }
+        break;
     }
-    break;
     default:
         OutputDebugString(L"bogus edit control specified");
         return;
@@ -619,9 +619,7 @@ void CPalModDlg::UpdatePalSel(BOOL bSetSingleCol)
         switch (nPalSelAmt)
         {
         case 0:
-        {
-        }
-        break;
+            break;
         case 1:
         {
             int nSingleSel = CurrPalCtrl->GetSS();

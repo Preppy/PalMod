@@ -3,8 +3,8 @@
 #include "SF2HF_A_DEF.h"
 #include "..\ExtraFile.h"
 
-constexpr auto EXTRA_FILENAME_SF2HF_21 = _T("SF2HF-21e.txt");
-constexpr auto EXTRA_FILENAME_SF2HF_22 = _T("SF2HF-22e.txt");
+constexpr auto EXTRA_FILENAME_SF2HF_21 = L"SF2HF-21e.txt";
+constexpr auto EXTRA_FILENAME_SF2HF_22 = L"SF2HF-22e.txt";
 
 class CGame_SF2HF_A : public CGameWithExtrasFile
 {
