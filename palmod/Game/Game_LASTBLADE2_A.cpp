@@ -72,7 +72,7 @@ CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = LASTBLADE2_A; // This value is defined in gamedef.h.  See usage of other values defined there
-    nImgGameFlag = IMGDAT_SECTION_SNK; // This value is used to determine which section of the image file is used
+    nImgGameFlag = IMGDAT_SECTION_KOF; // This value is used to determine which section of the image file is used
     m_prgGameImageSet = LASTBLADE2_A_IMG_UNITS;
     nImgUnitAmt = ARRAYSIZE(LASTBLADE2_A_IMG_UNITS);
 

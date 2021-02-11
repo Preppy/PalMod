@@ -818,7 +818,7 @@ void CPalModDlg::OnBnNewCol()
     if (nAMul)
     {
         nTAMul = (bShow32 ? 1 : nAMul);
-        nAVal = (int)round(m_Edit_A * nTAMul);
+        nAVal = min(0xFF, (int)round(m_Edit_A * nTAMul));
     }
     else
     {

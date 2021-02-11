@@ -60,7 +60,7 @@ CGame_KOF01_A::CGame_KOF01_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = KOF01_A;
-    nImgGameFlag = IMGDAT_SECTION_SNK;
+    nImgGameFlag = IMGDAT_SECTION_KOF;
     m_prgGameImageSet = KOF01_A_IMG_UNITS;
     nImgUnitAmt = ARRAYSIZE(KOF01_A_IMG_UNITS);
 

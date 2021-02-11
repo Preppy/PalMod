@@ -8,6 +8,36 @@ CDescTree CGame_GGXXR_A::MainDescTree = nullptr;
 
 #define GGXXR_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
+const UINT16 GGXX_ACR_A_IMG_UNITS[] =
+{
+    indexGGXXSprites_ACR_ABA,               // 0x00
+    indexGGXXSprites_ACR_Anji,              // 0x01
+    indexGGXXSprites_ACR_Axl,               // 0x02
+    indexGGXXSprites_ACR_Baiken,            // 0x03
+    indexGGXXSprites_ACR_Bridget,           // 0x04
+    indexGGXXSprites_ACR_Chipp,             // 0x05
+    indexGGXXSprites_ACR_Dizzy,             // 0x06
+    indexGGXXSprites_ACR_Eddie,             // 0x07
+    indexGGXXSprites_ACR_Faust,             // 0x08
+    indexGGXXSprites_ACR_Ino,               // 0x09
+    indexGGXXSprites_ACR_Jam,               // 0x0a
+    indexGGXXSprites_ACR_Johnny,            // 0x0b
+    indexGGXXSprites_ACR_Justice,           // 0x0c
+    indexGGXXSprites_ACR_Kliff,             // 0x0d
+    indexGGXXSprites_ACR_Ky,                // 0x0e
+    indexGGXXSprites_ACR_May,               // 0x0f
+    indexGGXXSprites_ACR_Millia,            // 0x10
+    indexGGXXSprites_ACR_OrderSol,          // 0x11
+    indexGGXXSprites_ACR_Potemkin,          // 0x12
+    indexGGXXSprites_ACR_RoboKy,            // 0x13
+    indexGGXXSprites_ACR_Slayer,            // 0x14
+    indexGGXXSprites_ACR_Sol,               // 0x15
+    indexGGXXSprites_ACR_Testament,         // 0x16
+    indexGGXXSprites_ACR_Venom,             // 0x17
+    indexGGXXSprites_ACR_Zappa,             // 0x18
+    indexGGXXSprites_ACR_Bonus,             // 0x19
+};
+
 const LPCWSTR GGXXRPaletteNamesNormal[] =
 {
     L"Punch",
@@ -73,58 +103,59 @@ struct GGXXRFileData
     const LPCWSTR* ppszPaletteList = nullptr;
     UINT32 nPaletteListSize = 0;
     UINT32 nInitialLocation = 0;
+    UINT32 nSpriteIndex = -1;
 };
 
 GGXXRFileData GGXXRCharacterData[] =
 {
-    { L"ab.bin",    L"A.B.A.",          5715300,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x48ab50 },
-    { L"an.bin",    L"Anji",            4518932,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3ea460  },
-    { L"ax.bin",    L"Axel",            4225716,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x35ebe0 },
-    { L"bk.bin",    L"Baiken",          3573668,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x308c20 },
-    { L"ch.bin",    L"Chipp",           3113988,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x293560 },
-    { L"dz.bin",    L"Dizzy",           5352324,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x45d720 },
-    { L"fa.bin",    L"Faust",           4773284,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3fe9a0 },
-    { L"fr.bin",    L"Order Sol",       5772356,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x4377e0 },
-    { L"in.bin",    L"I-no",            5609060,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3e5370 },
-    { L"jm.bin",    L"Jam",             3827044,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x2c4e80 },
-    { L"js.bin",    L"Justice",         4556788,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3789b0 },
-    { L"jy.bin",    L"Johnny",          4205892,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3b0620 },
-    { L"kr.bin",    L"Kliff",           3114036,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x28abf0 },
-    { L"ky.bin",    L"Ky",              4571540,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x38bbc0 },
-    { L"ml.bin",    L"Millia",          3034084,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x2a4950 },
-    { L"my.bin",    L"May",             4311684,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x363d50 },
-    { L"po.bin",    L"Potemkin",        5277348,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x489c70 },
-    { L"rk.bin",    L"Robo-Ky",         4489668,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3a7450 },
-    { L"sl.bin",    L"Sol",             4613188,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x339b60 },
-    { L"sy.bin",    L"Slayer",          6215652,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x39c960 },
-    { L"ts.bin",    L"Testement",       4817508,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3ee950 },
-    { L"ve.bin",    L"Venom",           2787412,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x261c10 },
-    { L"yy.bin",    L"Bridget",         4127716,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x34b210 },
-    { L"zp.bin",    L"Zappa",           6019988,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x2a54f0 },
-    { L"zt.bin",    L"Eddie",           3289156,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x24e560 },
-    { L"eab.bin",   L"EX A.B.A.",       5912564,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x4b3ca0 },
-    { L"ean.bin",   L"EX Anji",         4520900,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3eb460 },
-    { L"eax.bin",   L"EX Axel",         4217220,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x35edf0 },
-    { L"ebk.bin",   L"EX Baiken",       3601604,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x309920 },
-    { L"ech.bin",   L"EX Chipp",        3162804,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x29f630 },
-    { L"edz.bin",   L"EX Dizzy",        5594900,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x49a2c0 },
-    { L"efa.bin",   L"EX Faust",        4784260,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3fe9f0 },
-    { L"efr.bin",   L"EX Order Sol",    5965396,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x45d9d0 },
-    { L"ein.bin",   L"EX I-no",         5762996,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3f9060 },
-    { L"ejm.bin",   L"EX Jam",          3812100,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x2c46d0 },
-    { L"ejy.bin",   L"EX Johnny",       4210036,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3b2250 },
-    { L"eky.bin",   L"EX Ky",           4859572,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3cafd0 },
-    { L"eml.bin",   L"EX Millia",       3003428,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x29d9c0 },
-    { L"emy.bin",   L"EX May",          4675812,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x399780 },
-    { L"epo.bin",   L"EX Potemkin",     5313412,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x494170 },
-    { L"erk.bin",   L"EX Robo-Ky",      4599332,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3cfc80 },
-    { L"esl.bin",   L"EX Sol",          4679684,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x33b380 },
-    { L"esy.bin",   L"EX Slayer",       6221972,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x39ea30 },
-    { L"ets.bin",   L"EX Testement",    4775796,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3f4780 },
-    { L"eve.bin",   L"EX Venom",        2848292,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x271200 },
-    { L"eyy.bin",   L"EX Bridget",      4206820,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x34b210 },
-    { L"ezp.bin",   L"EX Zappa",        6044292,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x2a2e90 },
-    { L"ezt.bin",   L"EX Eddie",        3185140,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x275d30 },
+    { L"ab.bin",    L"A.B.A.",          5715300,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x48ab50, indexGGXXSprites_ACR_ABA },
+    { L"an.bin",    L"Anji",            4518932,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3ea460, indexGGXXSprites_ACR_Anji },
+    { L"ax.bin",    L"Axl Low" ,        4225716,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x35ebe0, indexGGXXSprites_ACR_Axl },
+    { L"bk.bin",    L"Baiken",          3573668,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x308c20, indexGGXXSprites_ACR_Baiken },
+    { L"ch.bin",    L"Chipp Zanuff",    3113988,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x293560, indexGGXXSprites_ACR_Chipp },
+    { L"dz.bin",    L"Dizzy",           5352324,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x45d720, indexGGXXSprites_ACR_Dizzy },
+    { L"fa.bin",    L"Faust",           4773284,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3fe9a0, indexGGXXSprites_ACR_Faust },
+    { L"fr.bin",    L"Order Sol",       5772356,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x4377e0, indexGGXXSprites_ACR_OrderSol },
+    { L"in.bin",    L"I-No",            5609060,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3e5370, indexGGXXSprites_ACR_Ino },
+    { L"jm.bin",    L"Jam",             3827044,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x2c4e80, indexGGXXSprites_ACR_Jam },
+    { L"js.bin",    L"Justice",         4556788,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3789b0, indexGGXXSprites_ACR_Justice },
+    { L"jy.bin",    L"Johnny",          4205892,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3b0620, indexGGXXSprites_ACR_Johnny },
+    { L"kr.bin",    L"Kliff Undersn",   3114036,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x28abf0, indexGGXXSprites_ACR_Kliff },
+    { L"ky.bin",    L"Ky",              4571540,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x38bbc0, indexGGXXSprites_ACR_Ky },
+    { L"ml.bin",    L"Millia",          3034084,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x2a4950, indexGGXXSprites_ACR_Millia },
+    { L"my.bin",    L"May",             4311684,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x363d50, indexGGXXSprites_ACR_May },
+    { L"po.bin",    L"Potemkin",        5277348,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x489c70, indexGGXXSprites_ACR_Potemkin },
+    { L"rk.bin",    L"Robo-Ky",         4489668,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3a7450, indexGGXXSprites_ACR_RoboKy },
+    { L"sl.bin",    L"Sol Badguy",      4613188,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x339b60, indexGGXXSprites_ACR_Sol },
+    { L"sy.bin",    L"Slayer",          6215652,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x39c960, indexGGXXSprites_ACR_Slayer },
+    { L"ts.bin",    L"Testament",       4817508,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x3ee950, indexGGXXSprites_ACR_Testament },
+    { L"ve.bin",    L"Venom",           2787412,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x261c10, indexGGXXSprites_ACR_Venom },
+    { L"yy.bin",    L"Bridget",         4127716,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x34b210, indexGGXXSprites_ACR_Bridget },
+    { L"zp.bin",    L"Zappa",           6019988,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x2a54f0, indexGGXXSprites_ACR_Zappa },
+    { L"zt.bin",    L"Eddie",           3289156,    GGXXRPaletteNamesNormal,    ARRAYSIZE(GGXXRPaletteNamesNormal), 0x24e560, indexGGXXSprites_ACR_Eddie },
+    { L"eab.bin",   L"EX A.B.A.",       5912564,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x4b3ca0, indexGGXXSprites_ACR_ABA },
+    { L"ean.bin",   L"EX Anji",         4520900,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3eb460, indexGGXXSprites_ACR_Anji },
+    { L"eax.bin",   L"EX Axl Low",      4217220,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x35edf0, indexGGXXSprites_ACR_Axl },
+    { L"ebk.bin",   L"EX Baiken",       3601604,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x309920, indexGGXXSprites_ACR_Baiken },
+    { L"ech.bin",   L"EX Chipp Zanuff", 3162804,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x29f630, indexGGXXSprites_ACR_Chipp },
+    { L"edz.bin",   L"EX Dizzy",        5594900,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x49a2c0, indexGGXXSprites_ACR_Dizzy },
+    { L"efa.bin",   L"EX Faust",        4784260,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3fe9f0, indexGGXXSprites_ACR_Faust },
+    { L"efr.bin",   L"EX Order-Sol",    5965396,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x45d9d0, indexGGXXSprites_ACR_OrderSol },
+    { L"ein.bin",   L"EX I-No",         5762996,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3f9060, indexGGXXSprites_ACR_Ino },
+    { L"ejm.bin",   L"EX Jam",          3812100,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x2c46d0, indexGGXXSprites_ACR_Jam },
+    { L"ejy.bin",   L"EX Johnny",       4210036,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3b2250, indexGGXXSprites_ACR_Johnny },
+    { L"eky.bin",   L"EX Ky",           4859572,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3cafd0, indexGGXXSprites_ACR_Ky },
+    { L"eml.bin",   L"EX Millia",       3003428,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x29d9c0, indexGGXXSprites_ACR_Millia },
+    { L"emy.bin",   L"EX May",          4675812,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x399780, indexGGXXSprites_ACR_May },
+    { L"epo.bin",   L"EX Potemkin",     5313412,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x494170, indexGGXXSprites_ACR_Potemkin },
+    { L"erk.bin",   L"EX Robo-Ky",      4599332,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3cfc80, indexGGXXSprites_ACR_RoboKy },
+    { L"esl.bin",   L"EX Sol Badguy",   4679684,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x33b380, indexGGXXSprites_ACR_Sol },
+    { L"esy.bin",   L"EX Slayer",       6221972,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x39ea30, indexGGXXSprites_ACR_Slayer },
+    { L"ets.bin",   L"EX Testament",    4775796,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x3f4780, indexGGXXSprites_ACR_Testament },
+    { L"eve.bin",   L"EX Venom",        2848292,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x271200, indexGGXXSprites_ACR_Venom },
+    { L"eyy.bin",   L"EX Bridget",      4206820,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x35d790, indexGGXXSprites_ACR_Bridget },
+    { L"ezp.bin",   L"EX Zappa",        6044292,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x2a2e90, indexGGXXSprites_ACR_Zappa },
+    { L"ezt.bin",   L"EX Eddie",        3185140,    GGXXRPaletteNamesEx,        ARRAYSIZE(GGXXRPaletteNamesEx),     0x275d30, indexGGXXSprites_ACR_Eddie },
 };
 
 CGame_GGXXR_A::CGame_GGXXR_A(UINT32 nConfirmedROMSize /* = -1 */)
@@ -147,10 +178,10 @@ CGame_GGXXR_A::CGame_GGXXR_A(UINT32 nConfirmedROMSize /* = -1 */)
     InitDataBuffer();
 
     nGameFlag = GGXXR_A;
-    nImgGameFlag = IMGDAT_SECTION_CPS2;
+    nImgGameFlag = IMGDAT_SECTION_GUILTYGEAR;
     // no images yet
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    m_prgGameImageSet = GGXX_ACR_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(GGXX_ACR_A_IMG_UNITS);
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
@@ -342,7 +373,7 @@ BOOL CGame_GGXXR_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     //Change the image id if we need to
     nTargetImgId = 0;
-    UINT16 nImgUnitId = NodeGet->uUnitId;
+    UINT16 nImgUnitId = GGXXRCharacterData[NodeGet->uUnitId].nSpriteIndex;
 
     UINT16 nSrcStart = NodeGet->uPalId;
     UINT16 nSrcAmt = 1;

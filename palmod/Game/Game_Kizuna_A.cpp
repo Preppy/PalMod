@@ -14,7 +14,7 @@ int CGame_Kizuna_A::rgExtraCountAll[Kizuna_A_NUMUNIT + 1];
 int CGame_Kizuna_A::rgExtraLoc[Kizuna_A_NUMUNIT + 1];
 
 UINT32 CGame_Kizuna_A::m_nTotalPaletteCountForKizuna = 0;
-UINT32 CGame_Kizuna_A::m_nExpectedGameROMSize = 0x100000;
+UINT32 CGame_Kizuna_A::m_nExpectedGameROMSize = 0x200000;
 UINT32 CGame_Kizuna_A::m_nConfirmedROMSize = -1;
 
 void CGame_Kizuna_A::InitializeStatics()
@@ -60,7 +60,7 @@ CGame_Kizuna_A::CGame_Kizuna_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = KIZUNA_A;
-    nImgGameFlag = IMGDAT_SECTION_SNK;
+    nImgGameFlag = IMGDAT_SECTION_KOF;
     m_prgGameImageSet = nullptr;
     nImgUnitAmt = 0;
 

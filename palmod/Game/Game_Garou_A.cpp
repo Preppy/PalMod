@@ -48,7 +48,7 @@ CGame_Garou_A::CGame_Garou_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = Garou_A_NUMUNIT;
     m_nExtraUnit = Garou_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1195;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1311;
     m_pszExtraFilename = EXTRA_FILENAME_Garou_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForGarou;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -163,7 +163,7 @@ sDescTreeNode* CGame_Garou_A::InitDescTree()
 
     CString strMsg;
     bool fHaveExtras = (GetExtraCt(Garou_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_Garou_A::InitDescTree: Building desc tree for Garou_A %s extras...\n", fHaveExtras ? L"with" : L"without");
+    strMsg.Format(L"CGame_Garou_A::InitDescTree: Building desc tree for %s %s extras...\n", g_GameFriendlyName[Garou_A], fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -497,6 +497,11 @@ void CGame_Garou_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            if (nGameFlag == Garou_S)
+            {
+                m_nCurrentPaletteROMLocation += 0xc0000;
+            }
         }
         else
         {
@@ -565,29 +570,50 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
                 if (wcscmp(charUnit->szDesc, k_garouNameKey_Portraits) == 0)
                 {
+                    // These nodes are variable sizes, so do a little math to figure it out
                     nSrcAmt = 4;
-                    nSrcStart = NodeGet->uPalId - (NodeGet->uPalId % 4);
+                    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
                     nNodeIncrement = 1;
-                }
-                else
-                {
-                    nSrcAmt = 5;
-                    nNodeIncrement = pCurrentNode->uChildAmt;
+                    UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
+                    nSrcStart = 0;
 
-                    while (nSrcStart >= nNodeIncrement)
+                    for (UINT16 nCurrentCollection = 0; nCurrentCollection < nCollectionCount; nCurrentCollection++)
                     {
-                        // The starting point is the absolute first palette for the sprite in question which is found in P1
-                        nSrcStart -= nNodeIncrement;
+                        UINT16 nNextChunk = GetNodeCountForCollection(NodeGet->uUnitId, nCurrentCollection);
+
+                        if (NodeGet->uPalId < (nSrcStart + nNextChunk))
+                        {
+                            break;
+                        }
+
+                        nSrcStart += nNextChunk;
                     }
                 }
-
-                if (nSrcAmt == 5)
-                {
-                    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO_FIVE;
-                }
                 else
                 {
-                    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
+                    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO_FIVE;
+                    bool fIsCorePalette = false;
+
+                    for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
+                    {
+                        if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                        {
+                            fIsCorePalette = true;
+                            break;
+                        }
+                    }
+
+                    if (fIsCorePalette)
+                    {
+                        nSrcAmt = 5;
+                        nNodeIncrement = pCurrentNode->uChildAmt;
+
+                        while (nSrcStart >= nNodeIncrement)
+                        {
+                            // The starting point is the absolute first palette for the sprite in question which is found in P1
+                            nSrcStart -= nNodeIncrement;
+                        }
+                    }
                 }
             }
         }

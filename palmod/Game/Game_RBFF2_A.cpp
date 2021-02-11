@@ -41,7 +41,7 @@ CGame_RBFF2_A::CGame_RBFF2_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = RBFF2_A_NUMUNIT;
     m_nExtraUnit = RBFF2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 640;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 736;
     m_pszExtraFilename = EXTRA_FILENAME_RBFF2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForRBFF2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -60,7 +60,7 @@ CGame_RBFF2_A::CGame_RBFF2_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = RBFF2_A;
-    nImgGameFlag = IMGDAT_SECTION_SNK;
+    nImgGameFlag = IMGDAT_SECTION_KOF;
     m_prgGameImageSet = RBFFS_A_IMG_UNITS;
     nImgUnitAmt = ARRAYSIZE(RBFFS_A_IMG_UNITS);
 
@@ -371,28 +371,31 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
     };
 
     rbff2CharacterData rgCharacterData[] =
-    {   //                            base   bg     2      3     4       5      6      7     8      9       10    11   burn   13    elec  15
-        { L"Terry",     L"Terry",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Andy",      L"Andy",    { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Joe",       L"Joe",     { true, true, false, false, false, false, true, false, false, true, false, true, true, true, true, true } },
-        { L"Mai",       L"Mai",     { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Geese",     L"Geese",   { true, true, false, false, false, false, true, false, false, false, false, true, true, true, true, true } },
-        { L"Sokaku",    L"Sokaku",  { true, true, false, false, false, true, false, false, false, false, false, true, true, true, true, true } },
-        { L"Bob",       L"Bob",     { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Hon Fu",    L"Hon",     { true, true, true, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Blue Mary", L"BlueMary", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Franco",    L"Franco",  { true, true, false, true, false, false, true, true, false, false, false, true, true, true, true, true } },
-        { L"Yamazaki",  L"Yamazaki", { true, true, false, false, false, true, true, false, false, false, false, true, true, true, true, true } },
-        { L"Chonrei",   L"Chonrei", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Chonshu",   L"Chonshu", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Duck King", L"DuckKing", { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Kim",       L"Kim",     { true, true, false, true, false, true, true, false, false, false, false, true, true, true, true, true } },
-        { L"Billy",     L"Billy",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Cheng",     L"Cheng",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Tung",      L"Tung",    { true, true, false, true, true, false, false, false, false, false, false, true, true, true, true, true } },
-        { L"Laurence",  L"Laurence", { true, true, false, false, false, false, true, false, false, false, false, true, true, true, true, true } },
-        { L"Krauser",   L"Krauser", { true, true, false, false, false, false, false, true, false, false, false, true, true, true, true, true } },
-        //                            base   bg     2      3     4       5      6      7     8      9       10    11   burn   13    elec  15
+    {   //                                               base   bg     2      3     4       5      6      7     8      9       10    11   burn   13    elec  15
+        { L"Terry",     L"indexRBFFSSprites_Terry",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Andy",      L"indexRBFFSSprites_Andy",    { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Joe",       L"indexRBFFSSprites_Joe",     { true, true, false, false, false, false, true, false, false, true, false, true, true, true, true, true } },
+        { L"Mai",       L"indexRBFFSSprites_Mai",     { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Geese",     L"indexRBFFSSprites_Geese",   { true, true, false, false, false, false, true, false, false, false, false, true, true, true, true, true } },
+        { L"Sokaku",    L"indexRBFFSSprites_Sokaku",  { true, true, false, false, false, true, false, false, false, false, false, true, true, true, true, true } },
+        { L"Bob",       L"indexRBFFSSprites_Bob",     { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Hon Fu",    L"indexRBFFSSprites_Hon",     { true, true, true, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Blue Mary", L"indexRBFFSSprites_BlueMary", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Franco",    L"indexRBFFSSprites_Franco",  { true, true, false, true, false, false, true, true, false, false, false, true, true, true, true, true } },
+        { L"Yamazaki",  L"indexRBFFSSprites_Yamazaki", { true, true, false, false, false, true, true, false, false, false, false, true, true, true, true, true } },
+        { L"Chonrei",   L"indexRBFFSSprites_Chonrei", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Chonshu",   L"indexRBFFSSprites_Chonshu", { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Duck King", L"indexRBFFSSprites_DuckKing", { true, true, false, false, true, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Kim",       L"indexRBFFSSprites_Kim",     { true, true, false, true, false, true, true, false, false, false, false, true, true, true, true, true } },
+        { L"Billy",     L"indexRBFFSSprites_Billy",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Cheng",     L"indexRBFFSSprites_Cheng",   { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Tung",      L"indexRBFFSSprites_Tung",    { true, true, false, true, true, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"Laurence",  L"indexRBFFSSprites_Laurence", { true, true, false, false, false, false, true, false, false, false, false, true, true, true, true, true } },
+        { L"Krauser",   L"indexRBFFSSprites_Krauser", { true, true, false, false, false, false, false, true, false, false, false, true, true, true, true, true } },
+        { L"Rick",      L"indexRBFF2Sprites_Rick",    { true, true, false, false, false, false, false, false, false, false, false, true, true, true, true, true } },
+        { L"XiangFei",  L"indexRBFF2Sprites_Xiangfei", { true, true, false, false, true, true, false, false, false, false, false, true, true, true, true, true } },
+        { L"Alfred",    L"indexRBFF2Sprites_Alfred",  { true, true, false, false, false, true, false, false, false, false, false, true, true, true, true, true } },
+        //                                               base   bg     2      3     4       5      6      7     8      9       10    11   burn   13    elec  15
     };
 
     const UINT32 k_nBasePalette = 0xd0000;
@@ -427,8 +430,14 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
             case 12:
                 strPaletteName = L"Burn Palette";
                 break;
+            case 13:
+                strPaletteName = L"Purple Burn Palette";
+                break;
             case 14:
                 strPaletteName = L"Electricity Palette";
+                break;
+            case 15:
+                strPaletteName = L"Break Shot/Background Palette 2";
                 break;
             default:
                 strPaletteName.Format(L"Extra Palette %u", nAdjustedIndex);
@@ -437,7 +446,7 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
 
             if (rgCharacterData[nCharIndex].fShowImage[nAdjustedIndex])
             {
-                strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, indexRBFFSSprites_%s },\r\n", strPaletteName.GetString(), nCurrentPalettePosition,
+                strOutput.Format(L"    { L\"%s\", 0x%x, 0x%x, %s },\r\n", strPaletteName.GetString(), nCurrentPalettePosition,
                                                                                             nCurrentPalettePosition + RBFF2_PALETTE_LENGTH, rgCharacterData[nCharIndex].pszImageName);
             }
             else

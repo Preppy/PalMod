@@ -1826,6 +1826,12 @@ enum KOFSpriteList
     indexKOF97Sprites_Bonus,        // 0x1f0
     indexKOF97Sprites_Stages,       // 0x1f1
 
+    indexRBFF2Sprites_Alfred,       // 0x1f2
+    indexRBFF2Sprites_Rick,         // 0x1f3
+    indexRBFF2Sprites_Xiangfei,     // 0x1f4
+    indexRBFF2Sprites_Bonus,        // 0x1f5
+    indexRBFF2Sprites_Stages,       // 0x1f6
+
     indexKOFSprites_Last,
 };
 
@@ -3192,6 +3198,10 @@ const UINT16 RBFFS_A_IMG_UNITS[] =
     indexRBFFSSprites_Terry,        // 0x144
     indexRBFFSSprites_Tung,         // 0x145
     indexRBFFSSprites_Yamazaki,     // 0x146
+
+    indexRBFF2Sprites_Alfred,       // 0x1f2
+    indexRBFF2Sprites_Rick,         // 0x1f3
+    indexRBFF2Sprites_Xiangfei,     // 0x1f4
 };
 
 enum SupportedWakuWaku7_PaletteList
@@ -3391,15 +3401,46 @@ const UINT16 NEOBOMBERMAN_A_IMG_UNITS[] =
     indexNeoBombermanSprites_Bonus,         // 0x13
 };
 
+enum SupportedGGXX_PaletteListIndex
+{
+    indexGGXXSprites_ACR_ABA,               // 0x00
+    indexGGXXSprites_ACR_Anji,              // 0x01
+    indexGGXXSprites_ACR_Axl,               // 0x02
+    indexGGXXSprites_ACR_Baiken,            // 0x03
+    indexGGXXSprites_ACR_Bridget,           // 0x04
+    indexGGXXSprites_ACR_Chipp,             // 0x05
+    indexGGXXSprites_ACR_Dizzy,             // 0x06
+    indexGGXXSprites_ACR_Eddie,             // 0x07
+    indexGGXXSprites_ACR_Faust,             // 0x08
+    indexGGXXSprites_ACR_Ino,               // 0x09
+    indexGGXXSprites_ACR_Jam,               // 0x0a
+    indexGGXXSprites_ACR_Johnny,            // 0x0b
+    indexGGXXSprites_ACR_Justice,           // 0x0c
+    indexGGXXSprites_ACR_Kliff,             // 0x0d
+    indexGGXXSprites_ACR_Ky,                // 0x0e
+    indexGGXXSprites_ACR_May,               // 0x0f
+    indexGGXXSprites_ACR_Millia,            // 0x10
+    indexGGXXSprites_ACR_OrderSol,          // 0x11
+    indexGGXXSprites_ACR_Potemkin,          // 0x12
+    indexGGXXSprites_ACR_RoboKy,            // 0x13
+    indexGGXXSprites_ACR_Slayer,            // 0x14
+    indexGGXXSprites_ACR_Sol,               // 0x15
+    indexGGXXSprites_ACR_Testament,         // 0x16
+    indexGGXXSprites_ACR_Venom,             // 0x17
+    indexGGXXSprites_ACR_Zappa,             // 0x18
+    indexGGXXSprites_ACR_Bonus,             // 0x19
+};
+
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_BREAKREV = 0,
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_CVS2,    // CVS2: has both Capcom and SNK images
-    IMGDAT_SECTION_GAROU,   // Garou
+    IMGDAT_SECTION_GAROU,
+    IMGDAT_SECTION_GUILTYGEAR,
     IMGDAT_SECTION_JOJOS,
     IMGDAT_SECTION_KARNOVSR,
-    IMGDAT_SECTION_SNK,     // KOF games, Last Blade, etc
+    IMGDAT_SECTION_KOF,     // KOF games, Last Blade, etc
     IMGDAT_SECTION_MATRIM,  // Matrimelee
     IMGDAT_SECTION_NEOGEO,  // generic set for NeoGeo games
     IMGDAT_SECTION_REDEARTH,

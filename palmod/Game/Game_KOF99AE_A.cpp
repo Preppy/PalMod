@@ -72,7 +72,7 @@ CGame_KOF99AE_A::CGame_KOF99AE_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 2*
 
     //Set game information
     nGameFlag = KOF99AE_A;
-    nImgGameFlag = IMGDAT_SECTION_SNK;
+    nImgGameFlag = IMGDAT_SECTION_KOF;
     m_prgGameImageSet = KOF99AE_A_IMG_UNITS;
     nImgUnitAmt = ARRAYSIZE(KOF99AE_A_IMG_UNITS);
 

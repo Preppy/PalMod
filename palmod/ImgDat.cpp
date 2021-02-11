@@ -295,7 +295,7 @@ void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
         // not super critical for daily updates, but still useful
         const UINT16 nExpectedYear = 2021;
         const UINT8 nExpectedMonth = 2;
-        const UINT8 nExpectedDay = 6;
+        const UINT8 nExpectedDay = 10;
         const UINT8 nExpectedRevision = 0;
 
         const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
@@ -330,7 +330,7 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
     CString strDebugInfo;
     strDebugInfo.Format(L"CImgDat::LoadGameImages : Opening image file '%s'\n", lpszLoadFile);
     OutputDebugString(strDebugInfo);
-    strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\" and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, uImgUnitAmt);
+    strDebugInfo.Format(L"CImgDat::LoadGameImages : gameFlag is '%u' (\"%s\") and gameImageFlag is '%u'.  For 0x%02x game units we have 0x%02x image units.\n", uGameFlag, g_GameFriendlyName[uGameFlag], uImgGameFlag, uGameUnitAmt, uImgUnitAmt);
     OutputDebugString(strDebugInfo);
 
     if (sameGameAlreadyLoaded(uGameFlag, uImgGameFlag))

@@ -1,5 +1,6 @@
 #pragma once
 
+// This is all hand-crafted.
 // To add characters or palette lists:
 // * Update the SupportedPaletteListIndex with the new index name.
 // * Add an array below along the lines of Garou_A_ROCK_PALETTES. 
@@ -914,102 +915,102 @@ const sGame_PaletteDataset Garou_A_GRANT_PALETTES_BOSS[] =
 
 const sGame_PaletteDataset Garou_A_BJENNET_PALETTES_A[] =
 {
-    { L"B.Jenet A - Main", 0x14500, 0x14520, indexGarouABJennet },
-    { L"B.Jenet A - Line1", 0x14520, 0x14540, indexGarouABJennet },
-    { L"B.Jenet A - Line2", 0x14540, 0x14560, indexGarouABJennet },
-    { L"B.Jenet A - On Fire", 0x14560, 0x14580, indexGarouABJennet },
-    { L"B.Jenet A - On Purple", 0x14580, 0x145a0, indexGarouABJennet },
-    { L"B.Jenet A - Gold", 0x145a0, 0x145c0, indexGarouABJennet },
-    { L"B.Jenet A - T.O.P.", 0x145c0, 0x145e0, indexGarouABJennet },
-    { L"B.Jenet A - Shade", 0x145e0, 0x14600, indexGarouABJennet },
-    { L"B.Jenet A - Dark Red", 0x14600, 0x14620, indexGarouABJennet },
-    { L"B.Jenet A - Blue", 0x14620, 0x14640, indexGarouABJennet },
-    { L"B.Jenet A - Projectile1", 0x14640, 0x14660 },
-    { L"B.Jenet A - Projectile2", 0x14660, 0x14680 },
-    { L"B.Jenet A - Projectile3", 0x14680, 0x146a0 },
-    { L"B.Jenet A - Projectile4", 0x146a0, 0x146c0 },
-    { L"B.Jenet A - Projectile5", 0x146c0, 0x146e0 },
-    { L"B.Jenet A - Projectile6", 0x146e0, 0x14700 },
+    { L"B. Jenet A - Main", 0x14500, 0x14520, indexGarouABJennet },
+    { L"B. Jenet A - Line1", 0x14520, 0x14540, indexGarouABJennet },
+    { L"B. Jenet A - Line2", 0x14540, 0x14560, indexGarouABJennet },
+    { L"B. Jenet A - On Fire", 0x14560, 0x14580, indexGarouABJennet },
+    { L"B. Jenet A - On Purple", 0x14580, 0x145a0, indexGarouABJennet },
+    { L"B. Jenet A - Gold", 0x145a0, 0x145c0, indexGarouABJennet },
+    { L"B. Jenet A - T.O.P.", 0x145c0, 0x145e0, indexGarouABJennet },
+    { L"B. Jenet A - Shade", 0x145e0, 0x14600, indexGarouABJennet },
+    { L"B. Jenet A - Dark Red", 0x14600, 0x14620, indexGarouABJennet },
+    { L"B. Jenet A - Blue", 0x14620, 0x14640, indexGarouABJennet },
+    { L"B. Jenet A - Projectile1", 0x14640, 0x14660 },
+    { L"B. Jenet A - Projectile2", 0x14660, 0x14680 },
+    { L"B. Jenet A - Projectile3", 0x14680, 0x146a0 },
+    { L"B. Jenet A - Projectile4", 0x146a0, 0x146c0 },
+    { L"B. Jenet A - Projectile5", 0x146c0, 0x146e0 },
+    { L"B. Jenet A - Projectile6", 0x146e0, 0x14700 },
 };
 
 const sGame_PaletteDataset Garou_A_BJENNET_PALETTES_B[] =
 {
-    { L"B.Jenet B - Main", 0x14700, 0x14720, indexGarouABJennet },
-    { L"B.Jenet B - Line1", 0x14720, 0x14740, indexGarouABJennet },
-    { L"B.Jenet B - Line2", 0x14740, 0x14760, indexGarouABJennet },
-    { L"B.Jenet B - On Fire", 0x14760, 0x14780, indexGarouABJennet },
-    { L"B.Jenet B - On Purple", 0x14780, 0x147a0, indexGarouABJennet },
-    { L"B.Jenet B - Gold", 0x147a0, 0x147c0, indexGarouABJennet },
-    { L"B.Jenet B - T.O.P.", 0x147c0, 0x147e0, indexGarouABJennet },
-    { L"B.Jenet B - Shade", 0x147e0, 0x14800, indexGarouABJennet },
-    { L"B.Jenet B - Dark Red", 0x14800, 0x14820, indexGarouABJennet },
-    { L"B.Jenet B - Blue", 0x14820, 0x14840, indexGarouABJennet },
-    { L"B.Jenet B - Projectile1", 0x14840, 0x14860 },
-    { L"B.Jenet B - Projectile2", 0x14860, 0x14880 },
-    { L"B.Jenet B - Projectile3", 0x14880, 0x148a0 },
-    { L"B.Jenet B - Projectile4", 0x148a0, 0x148c0 },
-    { L"B.Jenet B - Projectile5", 0x148c0, 0x148e0 },
-    { L"B.Jenet B - Projectile6", 0x148e0, 0x14900 },
+    { L"B. Jenet B - Main", 0x14700, 0x14720, indexGarouABJennet },
+    { L"B. Jenet B - Line1", 0x14720, 0x14740, indexGarouABJennet },
+    { L"B. Jenet B - Line2", 0x14740, 0x14760, indexGarouABJennet },
+    { L"B. Jenet B - On Fire", 0x14760, 0x14780, indexGarouABJennet },
+    { L"B. Jenet B - On Purple", 0x14780, 0x147a0, indexGarouABJennet },
+    { L"B. Jenet B - Gold", 0x147a0, 0x147c0, indexGarouABJennet },
+    { L"B. Jenet B - T.O.P.", 0x147c0, 0x147e0, indexGarouABJennet },
+    { L"B. Jenet B - Shade", 0x147e0, 0x14800, indexGarouABJennet },
+    { L"B. Jenet B - Dark Red", 0x14800, 0x14820, indexGarouABJennet },
+    { L"B. Jenet B - Blue", 0x14820, 0x14840, indexGarouABJennet },
+    { L"B. Jenet B - Projectile1", 0x14840, 0x14860 },
+    { L"B. Jenet B - Projectile2", 0x14860, 0x14880 },
+    { L"B. Jenet B - Projectile3", 0x14880, 0x148a0 },
+    { L"B. Jenet B - Projectile4", 0x148a0, 0x148c0 },
+    { L"B. Jenet B - Projectile5", 0x148c0, 0x148e0 },
+    { L"B. Jenet B - Projectile6", 0x148e0, 0x14900 },
 };
 
 const sGame_PaletteDataset Garou_A_BJENNET_PALETTES_C[] =
 {
-    { L"B.Jenet C - Main", 0x14900, 0x14920, indexGarouABJennet },
-    { L"B.Jenet C - Line1", 0x14920, 0x14940, indexGarouABJennet },
-    { L"B.Jenet C - Line2", 0x14940, 0x14960, indexGarouABJennet },
-    { L"B.Jenet C - On Fire", 0x14960, 0x14980, indexGarouABJennet },
-    { L"B.Jenet C - On Purple", 0x14980, 0x149a0, indexGarouABJennet },
-    { L"B.Jenet C - Gold", 0x149a0, 0x149c0, indexGarouABJennet },
-    { L"B.Jenet C - T.O.P.", 0x149c0, 0x149e0, indexGarouABJennet },
-    { L"B.Jenet C - Shade", 0x149e0, 0x14a00, indexGarouABJennet },
-    { L"B.Jenet C - Dark Red", 0x14a00, 0x14a20, indexGarouABJennet },
-    { L"B.Jenet C - Blue", 0x14a20, 0x14a40, indexGarouABJennet },
-    { L"B.Jenet C - Projectile1", 0x14a40, 0x14a60 },
-    { L"B.Jenet C - Projectile2", 0x14a60, 0x14a80 },
-    { L"B.Jenet C - Projectile3", 0x14a80, 0x14aa0 },
-    { L"B.Jenet C - Projectile4", 0x14aa0, 0x14ac0 },
-    { L"B.Jenet C - Projectile5", 0x14ac0, 0x14ae0 },
-    { L"B.Jenet C - Projectile6", 0x14ae0, 0x14b00 },
+    { L"B. Jenet C - Main", 0x14900, 0x14920, indexGarouABJennet },
+    { L"B. Jenet C - Line1", 0x14920, 0x14940, indexGarouABJennet },
+    { L"B. Jenet C - Line2", 0x14940, 0x14960, indexGarouABJennet },
+    { L"B. Jenet C - On Fire", 0x14960, 0x14980, indexGarouABJennet },
+    { L"B. Jenet C - On Purple", 0x14980, 0x149a0, indexGarouABJennet },
+    { L"B. Jenet C - Gold", 0x149a0, 0x149c0, indexGarouABJennet },
+    { L"B. Jenet C - T.O.P.", 0x149c0, 0x149e0, indexGarouABJennet },
+    { L"B. Jenet C - Shade", 0x149e0, 0x14a00, indexGarouABJennet },
+    { L"B. Jenet C - Dark Red", 0x14a00, 0x14a20, indexGarouABJennet },
+    { L"B. Jenet C - Blue", 0x14a20, 0x14a40, indexGarouABJennet },
+    { L"B. Jenet C - Projectile1", 0x14a40, 0x14a60 },
+    { L"B. Jenet C - Projectile2", 0x14a60, 0x14a80 },
+    { L"B. Jenet C - Projectile3", 0x14a80, 0x14aa0 },
+    { L"B. Jenet C - Projectile4", 0x14aa0, 0x14ac0 },
+    { L"B. Jenet C - Projectile5", 0x14ac0, 0x14ae0 },
+    { L"B. Jenet C - Projectile6", 0x14ae0, 0x14b00 },
 };
 
 const sGame_PaletteDataset Garou_A_BJENNET_PALETTES_D[] =
 {
-    { L"B.Jenet D - Main", 0x14b00, 0x14b20, indexGarouABJennet },
-    { L"B.Jenet D - Line1", 0x14b20, 0x14b40, indexGarouABJennet },
-    { L"B.Jenet D - Line2", 0x14b40, 0x14b60, indexGarouABJennet },
-    { L"B.Jenet D - On Fire", 0x14b60, 0x14b80, indexGarouABJennet },
-    { L"B.Jenet D - On Purple", 0x14b80, 0x14ba0, indexGarouABJennet },
-    { L"B.Jenet D - Gold", 0x14ba0, 0x14bc0, indexGarouABJennet },
-    { L"B.Jenet D - T.O.P.", 0x14bc0, 0x14be0, indexGarouABJennet },
-    { L"B.Jenet D - Shade", 0x14be0, 0x14c00, indexGarouABJennet },
-    { L"B.Jenet D - Dark Red", 0x14c00, 0x14c20, indexGarouABJennet },
-    { L"B.Jenet D - Blue", 0x14c20, 0x14c40, indexGarouABJennet },
-    { L"B.Jenet D - Projectile1", 0x14c40, 0x14c60 },
-    { L"B.Jenet D - Projectile2", 0x14c60, 0x14c80 },
-    { L"B.Jenet D - Projectile3", 0x14c80, 0x14ca0 },
-    { L"B.Jenet D - Projectile4", 0x14ca0, 0x14cc0 },
-    { L"B.Jenet D - Projectile5", 0x14cc0, 0x14ce0 },
-    { L"B.Jenet D - Projectile6", 0x14ce0, 0x14d00 },
+    { L"B. Jenet D - Main", 0x14b00, 0x14b20, indexGarouABJennet },
+    { L"B. Jenet D - Line1", 0x14b20, 0x14b40, indexGarouABJennet },
+    { L"B. Jenet D - Line2", 0x14b40, 0x14b60, indexGarouABJennet },
+    { L"B. Jenet D - On Fire", 0x14b60, 0x14b80, indexGarouABJennet },
+    { L"B. Jenet D - On Purple", 0x14b80, 0x14ba0, indexGarouABJennet },
+    { L"B. Jenet D - Gold", 0x14ba0, 0x14bc0, indexGarouABJennet },
+    { L"B. Jenet D - T.O.P.", 0x14bc0, 0x14be0, indexGarouABJennet },
+    { L"B. Jenet D - Shade", 0x14be0, 0x14c00, indexGarouABJennet },
+    { L"B. Jenet D - Dark Red", 0x14c00, 0x14c20, indexGarouABJennet },
+    { L"B. Jenet D - Blue", 0x14c20, 0x14c40, indexGarouABJennet },
+    { L"B. Jenet D - Projectile1", 0x14c40, 0x14c60 },
+    { L"B. Jenet D - Projectile2", 0x14c60, 0x14c80 },
+    { L"B. Jenet D - Projectile3", 0x14c80, 0x14ca0 },
+    { L"B. Jenet D - Projectile4", 0x14ca0, 0x14cc0 },
+    { L"B. Jenet D - Projectile5", 0x14cc0, 0x14ce0 },
+    { L"B. Jenet D - Projectile6", 0x14ce0, 0x14d00 },
 };
 
 const sGame_PaletteDataset Garou_A_BJENNET_PALETTES_BOSS[] =
 {
-    { L"B.Jenet Boss? - Main", 0x14d00, 0x14d20, indexGarouABJennet },
-    { L"B.Jenet Boss? - Line1", 0x14d20, 0x14d40, indexGarouABJennet },
-    { L"B.Jenet Boss? - Line2", 0x14d40, 0x14d60, indexGarouABJennet },
-    { L"B.Jenet Boss? - On Fire", 0x14d60, 0x14d80, indexGarouABJennet },
-    { L"B.Jenet Boss? - On Purple", 0x14d80, 0x14da0, indexGarouABJennet },
-    { L"B.Jenet Boss? - Gold", 0x14da0, 0x14dc0, indexGarouABJennet },
-    { L"B.Jenet Boss? - T.O.P.", 0x14dc0, 0x14de0, indexGarouABJennet },
-    { L"B.Jenet Boss? - Shade", 0x14de0, 0x14e00, indexGarouABJennet },
-    { L"B.Jenet Boss? - Dark Red", 0x14e00, 0x14e20, indexGarouABJennet },
-    { L"B.Jenet Boss? - Blue", 0x14e20, 0x14e40, indexGarouABJennet },
-    { L"B.Jenet Boss? - Projectile1", 0x14e40, 0x14e60 },
-    { L"B.Jenet Boss? - Projectile2", 0x14e60, 0x14e80 },
-    { L"B.Jenet Boss? - Projectile3", 0x14e80, 0x14ea0 },
-    { L"B.Jenet Boss? - Projectile4", 0x14ea0, 0x14ec0 },
-    { L"B.Jenet Boss? - Projectile5", 0x14ec0, 0x14ee0 },
-    { L"B.Jenet Boss? - Projectile6", 0x14ee0, 0x14f00 },
+    { L"B. Jenet Boss? - Main", 0x14d00, 0x14d20, indexGarouABJennet },
+    { L"B. Jenet Boss? - Line1", 0x14d20, 0x14d40, indexGarouABJennet },
+    { L"B. Jenet Boss? - Line2", 0x14d40, 0x14d60, indexGarouABJennet },
+    { L"B. Jenet Boss? - On Fire", 0x14d60, 0x14d80, indexGarouABJennet },
+    { L"B. Jenet Boss? - On Purple", 0x14d80, 0x14da0, indexGarouABJennet },
+    { L"B. Jenet Boss? - Gold", 0x14da0, 0x14dc0, indexGarouABJennet },
+    { L"B. Jenet Boss? - T.O.P.", 0x14dc0, 0x14de0, indexGarouABJennet },
+    { L"B. Jenet Boss? - Shade", 0x14de0, 0x14e00, indexGarouABJennet },
+    { L"B. Jenet Boss? - Dark Red", 0x14e00, 0x14e20, indexGarouABJennet },
+    { L"B. Jenet Boss? - Blue", 0x14e20, 0x14e40, indexGarouABJennet },
+    { L"B. Jenet Boss? - Projectile1", 0x14e40, 0x14e60 },
+    { L"B. Jenet Boss? - Projectile2", 0x14e60, 0x14e80 },
+    { L"B. Jenet Boss? - Projectile3", 0x14e80, 0x14ea0 },
+    { L"B. Jenet Boss? - Projectile4", 0x14ea0, 0x14ec0 },
+    { L"B. Jenet Boss? - Projectile5", 0x14ec0, 0x14ee0 },
+    { L"B. Jenet Boss? - Projectile6", 0x14ee0, 0x14f00 },
 };
 
 const sGame_PaletteDataset Garou_A_HOKUTOMARO_PALETTES_A[] =
@@ -1418,6 +1419,7 @@ const sGame_PaletteDataset Garou_A_ROCKHOWARD_PALETTES_PORTRAITS[] =
     { L"Rock Portrait Palette - B", 0x2a940, 0x2a980, indexGarouAPortraits, indexGarouARockHoward },
     { L"Rock Portrait Palette - C", 0x2a980, 0x2a9c0, indexGarouAPortraits, indexGarouARockHoward },
     { L"Rock Portrait Palette - D", 0x2a9c0, 0x2aa00, indexGarouAPortraits, indexGarouARockHoward },
+    { L"Rock Portrait - Shared Extra", 0x0177c0, 0x0177e0 },
 };
 
 const sGame_PaletteDataset Garou_A_TERRY_PALETTES_PORTRAITS[] =
@@ -1486,10 +1488,10 @@ const sGame_PaletteDataset Garou_A_GRANT_PALETTES_PORTRAITS[] =
 
 const sGame_PaletteDataset Garou_A_BJENNET_PALETTES_PORTRAITS[] =
 {
-    { L"B.Jenet Portrait Palette - A", 0x2af00, 0x2af40, indexGarouAPortraits, indexGarouABJennet },
-    { L"B.Jenet Portrait Palette - B", 0x2af40, 0x2af80, indexGarouAPortraits, indexGarouABJennet },
-    { L"B.Jenet Portrait Palette - C", 0x2af80, 0x2afc0, indexGarouAPortraits, indexGarouABJennet },
-    { L"B.Jenet Portrait Palette - D", 0x2afc0, 0x2b000, indexGarouAPortraits, indexGarouABJennet },
+    { L"B. Jenet Portrait Palette - A", 0x2af00, 0x2af40, indexGarouAPortraits, indexGarouABJennet },
+    { L"B. Jenet Portrait Palette - B", 0x2af40, 0x2af80, indexGarouAPortraits, indexGarouABJennet },
+    { L"B. Jenet Portrait Palette - C", 0x2af80, 0x2afc0, indexGarouAPortraits, indexGarouABJennet },
+    { L"B. Jenet Portrait Palette - D", 0x2afc0, 0x2b000, indexGarouAPortraits, indexGarouABJennet },
 };
 
 const sGame_PaletteDataset Garou_A_HOKUTOMARO_PALETTES_PORTRAITS[] =
@@ -1522,6 +1524,7 @@ const sGame_PaletteDataset Garou_A_KAIN_PALETTES_PORTRAITS[] =
     { L"Kain Portrait Palette - B", 0x2b640, 0x2b680, indexGarouAPortraits, indexGarouAKain },
     { L"Kain Portrait Palette - C", 0x2b680, 0x2b6c0, indexGarouAPortraits, indexGarouAKain },
     { L"Kain Portrait Palette - D", 0x2b6c0, 0x2b700, indexGarouAPortraits, indexGarouAKain },
+    { L"Kain Portrait - Shared Extra", 0x177e0, 0x17800 }
 };
 
 const sDescTreeNode Garou_A_ROCKHOWARD_COLLECTION[] =
@@ -1661,27 +1664,31 @@ const sDescTreeNode Garou_A_PORTRAITS_COLLECTION[] =
     { L"Gato", DESC_NODETYPE_TREE, (void*)Garou_A_GATO_PALETTES_PORTRAITS, ARRAYSIZE(Garou_A_GATO_PALETTES_PORTRAITS) },
     { L"Kevin", DESC_NODETYPE_TREE, (void*)Garou_A_KEVIN_PALETTES_PORTRAITS, ARRAYSIZE(Garou_A_KEVIN_PALETTES_PORTRAITS) },
     { L"Grant", DESC_NODETYPE_TREE, (void*)Garou_A_GRANT_PALETTES_PORTRAITS, ARRAYSIZE(Garou_A_GRANT_PALETTES_PORTRAITS) },
-    { L"B.Jenet", DESC_NODETYPE_TREE, (void*)Garou_A_BJENNET_PALETTES_PORTRAITS, ARRAYSIZE(Garou_A_BJENNET_PALETTES_PORTRAITS) },
+    { L"B. Jenet", DESC_NODETYPE_TREE, (void*)Garou_A_BJENNET_PALETTES_PORTRAITS, ARRAYSIZE(Garou_A_BJENNET_PALETTES_PORTRAITS) },
     { L"Hokutomaro", DESC_NODETYPE_TREE, (void*)Garou_A_HOKUTOMARO_PALETTES_PORTRAITS, ARRAYSIZE(Garou_A_HOKUTOMARO_PALETTES_PORTRAITS) },
     { L"Freeman", DESC_NODETYPE_TREE, (void*)Garou_A_FREEMAN_PALETTES_PORTRAITS, ARRAYSIZE(Garou_A_FREEMAN_PALETTES_PORTRAITS) },
     { L"Tizoc", DESC_NODETYPE_TREE, (void*)Garou_A_TIZOC_PALETTES_PORTRAITS, ARRAYSIZE(Garou_A_TIZOC_PALETTES_PORTRAITS) },
     { L"Kain", DESC_NODETYPE_TREE, (void*)Garou_A_KAIN_PALETTES_PORTRAITS, ARRAYSIZE(Garou_A_KAIN_PALETTES_PORTRAITS) },
 };
 
-const sGame_PaletteDataset Garou_A_BONUS_PALETTES[] =
+const sGame_PaletteDataset Garou_A_BONUS_HUD_PALETTES[] =
 {
     { L"Meter", 0xe040, 0xe0e0 },
     { L"Lifebar Nametag, Border, Timer", 0xe120, 0xe140 },
     { L"Lifebar Timer Hurry Up", 0xe140, 0xe160 },
     { L"Lifebar Top: off", 0xe160, 0xe180 },
     { L"Lifebar Top: on", 0xe180, 0xe1a0 },
+};
+
+const sGame_PaletteDataset Garou_A_BONUS_WINPOINT_PALETTES[] =
+{
     { L"Terry Winpoint", 0xe400, 0xe420 },
     { L"Rock Winpoint", 0xe480, 0xe4a0 },
     { L"Dong Hwan Winpoint", 0xe500, 0xe520 },
     { L"Jae Hoon Winpoint", 0xe580, 0xe5a0 },
     { L"Hotaru Winpoint", 0xe600, 0xe620 },
     { L"Gato Winpoint", 0xe680, 0xe6a0 },
-    { L"B.Jenet Winpoint", 0xe700, 0xe720 },
+    { L"B. Jenet Winpoint", 0xe700, 0xe720 },
     { L"Khushnood Winpoint", 0xe780, 0xe7a0 },
     { L"Hokutomaru Winpoint", 0xe800, 0xe820 },
     { L"Freeman Winpoint", 0xe880, 0xe8a0 },
@@ -1691,8 +1698,224 @@ const sGame_PaletteDataset Garou_A_BONUS_PALETTES[] =
     { L"Kain Winpoint", 0xea80, 0xeaa0 },
 };
 
+const sGame_PaletteDataset Garou_A_BONUS_SELECTDARK_PALETTES[] =
+{
+    { L"Terry",             0x34e00 + (0x20 * 0x00), 0x34e00 + (0x20 * 0x01) },
+    { L"Rock",              0x34e00 + (0x20 * 0x01), 0x34e00 + (0x20 * 0x02) },
+    { L"Dong Hwan",         0x34e00 + (0x20 * 0x02), 0x34e00 + (0x20 * 0x03) },
+    { L"Jae Hoon",          0x34e00 + (0x20 * 0x03), 0x34e00 + (0x20 * 0x04) },
+    { L"Hotaru",            0x34e00 + (0x20 * 0x04), 0x34e00 + (0x20 * 0x05) },
+    { L"Gato",              0x34e00 + (0x20 * 0x05), 0x34e00 + (0x20 * 0x06) },
+    { L"B. Jenet",          0x34e00 + (0x20 * 0x06), 0x34e00 + (0x20 * 0x07) },
+    { L"Khushnood",         0x34e00 + (0x20 * 0x07), 0x34e00 + (0x20 * 0x08) },
+    { L"Hokutomaru",        0x34e00 + (0x20 * 0x08), 0x34e00 + (0x20 * 0x09) },
+    { L"Freeman",           0x34e00 + (0x20 * 0x09), 0x34e00 + (0x20 * 0x0a) },
+    { L"Tizoc",             0x34e00 + (0x20 * 0x0a), 0x34e00 + (0x20 * 0x0b) },
+    { L"Bastard Kevin",     0x34e00 + (0x20 * 0x0b), 0x34e00 + (0x20 * 0x0c) },
+    { L"Grant",             0x34e00 + (0x20 * 0x0c), 0x34e00 + (0x20 * 0x0d) },
+    { L"Kain",              0x34e00 + (0x20 * 0x0d), 0x34e00 + (0x20 * 0x0e) },
+};
+
+const sGame_PaletteDataset Garou_A_BONUS_SELECTLIGHT_PALETTES[] =
+{
+    { L"Terry",             0x35000 + (0x20 * 0x00), 0x35000 + (0x20 * 0x01) },
+    { L"Rock",              0x35000 + (0x20 * 0x01), 0x35000 + (0x20 * 0x02) },
+    { L"Dong Hwan",         0x35000 + (0x20 * 0x02), 0x35000 + (0x20 * 0x03) },
+    { L"Jae Hoon",          0x35000 + (0x20 * 0x03), 0x35000 + (0x20 * 0x04) },
+    { L"Hotaru",            0x35000 + (0x20 * 0x04), 0x35000 + (0x20 * 0x05) },
+    { L"Gato",              0x35000 + (0x20 * 0x05), 0x35000 + (0x20 * 0x06) },
+    { L"B. Jenet",          0x35000 + (0x20 * 0x06), 0x35000 + (0x20 * 0x07) },
+    { L"Khushnood",         0x35000 + (0x20 * 0x07), 0x35000 + (0x20 * 0x08) },
+    { L"Hokutomaru",        0x35000 + (0x20 * 0x08), 0x35000 + (0x20 * 0x09) },
+    { L"Freeman",           0x35000 + (0x20 * 0x09), 0x35000 + (0x20 * 0x0a) },
+    { L"Tizoc",             0x35000 + (0x20 * 0x0a), 0x35000 + (0x20 * 0x0b) },
+    { L"Bastard Kevin",     0x35000 + (0x20 * 0x0b), 0x35000 + (0x20 * 0x0c) },
+    { L"Grant",             0x35000 + (0x20 * 0x0c), 0x35000 + (0x20 * 0x0d) },
+    { L"Kain",              0x35000 + (0x20 * 0x0d), 0x35000 + (0x20 * 0x0e) },
+};
+
+const sGame_PaletteDataset Garou_A_BONUS_SELECTBACK_PALETTES[] =
+{
+    { L"Terry",             0x2b700 + (0x20 * 0x00), 0x2b700 + (0x20 * 0x01) },
+    { L"Rock",              0x2b700 + (0x20 * 0x01), 0x2b700 + (0x20 * 0x02) },
+    { L"Dong Hwan",         0x2b700 + (0x20 * 0x02), 0x2b700 + (0x20 * 0x03) },
+    { L"Jae Hoon",          0x2b700 + (0x20 * 0x03), 0x2b700 + (0x20 * 0x04) },
+    { L"Hotaru",            0x2b700 + (0x20 * 0x04), 0x2b700 + (0x20 * 0x05) },
+    { L"Gato",              0x2b700 + (0x20 * 0x05), 0x2b700 + (0x20 * 0x06) },
+    { L"B. Jenet",          0x2b700 + (0x20 * 0x06), 0x2b700 + (0x20 * 0x07) },
+    { L"Khushnood",         0x2b700 + (0x20 * 0x07), 0x2b700 + (0x20 * 0x08) },
+    { L"Hokutomaru",        0x2b700 + (0x20 * 0x08), 0x2b700 + (0x20 * 0x09) },
+    { L"Freeman",           0x2b700 + (0x20 * 0x09), 0x2b700 + (0x20 * 0x0a) },
+    { L"Tizoc",             0x2b700 + (0x20 * 0x0a), 0x2b700 + (0x20 * 0x0b) },
+    { L"Bastard Kevin",     0x2b700 + (0x20 * 0x0b), 0x2b700 + (0x20 * 0x0c) },
+    { L"Grant",             0x2b700 + (0x20 * 0x0c), 0x2b700 + (0x20 * 0x0d) },
+    { L"Kain",              0x2b700 + (0x20 * 0x0d), 0x2b700 + (0x20 * 0x0e) },
+};
+
+const sGame_PaletteDataset Garou_A_BONUS_STORYPORTRAITS_PALETTES[] =
+{
+    { L"Terry",             0x2a700 + (0x20 * 0x00), 0x2a700 + (0x20 * 0x01) },
+    { L"Rock",              0x2a700 + (0x20 * 0x01), 0x2a700 + (0x20 * 0x02) },
+    { L"Dong Hwan",         0x2a700 + (0x20 * 0x02), 0x2a700 + (0x20 * 0x03) },
+    { L"Jae Hoon",          0x2a700 + (0x20 * 0x03), 0x2a700 + (0x20 * 0x04) },
+    { L"Hotaru",            0x2a700 + (0x20 * 0x04), 0x2a700 + (0x20 * 0x05) },
+    { L"Gato",              0x2a700 + (0x20 * 0x05), 0x2a700 + (0x20 * 0x06) },
+    { L"B. Jenet",          0x2a700 + (0x20 * 0x06), 0x2a700 + (0x20 * 0x07) },
+    { L"Khushnood",         0x2a700 + (0x20 * 0x07), 0x2a700 + (0x20 * 0x08) },
+    { L"Hokutomaru",        0x2a700 + (0x20 * 0x08), 0x2a700 + (0x20 * 0x09) },
+    { L"Freeman",           0x2a700 + (0x20 * 0x09), 0x2a700 + (0x20 * 0x0a) },
+    { L"Tizoc",             0x2a700 + (0x20 * 0x0a), 0x2a700 + (0x20 * 0x0b) },
+    { L"Bastard Kevin",     0x2a700 + (0x20 * 0x0b), 0x2a700 + (0x20 * 0x0c) },
+    { L"Grant",             0x2a700 + (0x20 * 0x0c), 0x2a700 + (0x20 * 0x0d) },
+    { L"Kain",              0x2a700 + (0x20 * 0x0d), 0x2a700 + (0x20 * 0x0e) },
+};
+
+const sGame_PaletteDataset Garou_A_BONUS_PALETTES[] =
+{
+    { L"First Round Super K.O.", 0x017720, 0x017740 },
+    { L"Last Round Super K.O.", 0x017780, 0x0177a0 },
+};
+
+const sGame_PaletteDataset Garou_A_ROCKHOWARD_PALETTES_STORYMODE[] =
+{
+    { L"Rock Story Mode Stuff - A", 0x2c900 + (0x40 * 0x00), 0x2c900 + (0x40 * 0x01) },
+    { L"Rock Story Mode Stuff - B", 0x2c900 + (0x40 * 0x01), 0x2c900 + (0x40 * 0x02) },
+    { L"Rock Story Mode Stuff - C", 0x2c900 + (0x40 * 0x02), 0x2c900 + (0x40 * 0x03) },
+    { L"Rock Story Mode Stuff - D", 0x2c900 + (0x40 * 0x03), 0x2c900 + (0x40 * 0x04) },
+};
+
+const sGame_PaletteDataset Garou_A_TERRY_PALETTES_STORYMODE[] =
+{
+    { L"Terry Story Mode Stuff - A", 0x2c900 + (0x40 * 0x04), 0x2c900 + (0x40 * 0x05) },
+    { L"Terry Story Mode Stuff - B", 0x2c900 + (0x40 * 0x05), 0x2c900 + (0x40 * 0x06) },
+    { L"Terry Story Mode Stuff - C", 0x2c900 + (0x40 * 0x06), 0x2c900 + (0x40 * 0x07) },
+    { L"Terry Story Mode Stuff - D", 0x2c900 + (0x40 * 0x07), 0x2c900 + (0x40 * 0x08) },
+};
+
+const sGame_PaletteDataset Garou_A_KHUSHNOOD_PALETTES_STORYMODE[] =
+{
+    { L"Khushnood Story Mode Stuff - A", 0x2c900 + (0x40 * 0x08), 0x2c900 + (0x40 * 0x09) },
+    { L"Khushnood Story Mode Stuff - B", 0x2c900 + (0x40 * 0x09), 0x2c900 + (0x40 * 0x0a) },
+    { L"Khushnood Story Mode Stuff - C", 0x2c900 + (0x40 * 0x0a), 0x2c900 + (0x40 * 0x0b) },
+    { L"Khushnood Story Mode Stuff - D", 0x2c900 + (0x40 * 0x0b), 0x2c900 + (0x40 * 0x0c) },
+};
+
+const sGame_PaletteDataset Garou_A_DONG_PALETTES_STORYMODE[] =
+{
+    { L"Dong Hwan Story Mode Stuff - A", 0x2c900 + (0x40 * 0x0c), 0x2c900 + (0x40 * 0x0d) },
+    { L"Dong Hwan Story Mode Stuff - B", 0x2c900 + (0x40 * 0x0d), 0x2c900 + (0x40 * 0x0e) },
+    { L"Dong Hwan Story Mode Stuff - C", 0x2c900 + (0x40 * 0x0e), 0x2c900 + (0x40 * 0x0f) },
+    { L"Dong Hwan Story Mode Stuff - D", 0x2c900 + (0x40 * 0x0f), 0x2c900 + (0x40 * 0x10) },
+};
+
+const sGame_PaletteDataset Garou_A_JAE_PALETTES_STORYMODE[] =
+{
+    { L"Jae Hoon Story Mode Stuff - A", 0x2c900 + (0x40 * 0x10), 0x2c900 + (0x40 * 0x11) },
+    { L"Jae Hoon Story Mode Stuff - B", 0x2c900 + (0x40 * 0x11), 0x2c900 + (0x40 * 0x12) },
+    { L"Jae Hoon Story Mode Stuff - C", 0x2c900 + (0x40 * 0x12), 0x2c900 + (0x40 * 0x13) },
+    { L"Jae Hoon Story Mode Stuff - D", 0x2c900 + (0x40 * 0x13), 0x2c900 + (0x40 * 0x14) },
+};
+
+const sGame_PaletteDataset Garou_A_HOTARU_PALETTES_STORYMODE[] =
+{
+    { L"Hotaru Story Mode Stuff - A", 0x2c900 + (0x40 * 0x14), 0x2c900 + (0x40 * 0x15) },
+    { L"Hotaru Story Mode Stuff - B", 0x2c900 + (0x40 * 0x15), 0x2c900 + (0x40 * 0x16) },
+    { L"Hotaru Story Mode Stuff - C", 0x2c900 + (0x40 * 0x16), 0x2c900 + (0x40 * 0x17) },
+    { L"Hotaru Story Mode Stuff - D", 0x2c900 + (0x40 * 0x17), 0x2c900 + (0x40 * 0x18) },
+};
+
+const sGame_PaletteDataset Garou_A_GATO_PALETTES_STORYMODE[] =
+{
+    { L"Gato Story Mode Stuff - A", 0x2c900 + (0x40 * 0x18), 0x2c900 + (0x40 * 0x19) },
+    { L"Gato Story Mode Stuff - B", 0x2c900 + (0x40 * 0x19), 0x2c900 + (0x40 * 0x1a) },
+    { L"Gato Story Mode Stuff - C", 0x2c900 + (0x40 * 0x1a), 0x2c900 + (0x40 * 0x1b) },
+    { L"Gato Story Mode Stuff - D", 0x2c900 + (0x40 * 0x1b), 0x2c900 + (0x40 * 0x1c) },
+};
+
+const sGame_PaletteDataset Garou_A_KEVIN_PALETTES_STORYMODE[] =
+{
+    { L"Kevin Story Mode Stuff - A", 0x2c900 + (0x40 * 0x1c), 0x2c900 + (0x40 * 0x1d) },
+    { L"Kevin Story Mode Stuff - B", 0x2c900 + (0x40 * 0x1d), 0x2c900 + (0x40 * 0x1e) },
+    { L"Kevin Story Mode Stuff - C", 0x2c900 + (0x40 * 0x1e), 0x2c900 + (0x40 * 0x1f) },
+    { L"Kevin Story Mode Stuff - D", 0x2c900 + (0x40 * 0x1f), 0x2c900 + (0x40 * 0x20) },
+};
+
+const sGame_PaletteDataset Garou_A_GRANT_PALETTES_STORYMODE[] =
+{
+    { L"Grant Story Mode Stuff - A", 0x2c900 + (0x40 * 0x20), 0x2c900 + (0x40 * 0x21) },
+    { L"Grant Story Mode Stuff - B", 0x2c900 + (0x40 * 0x21), 0x2c900 + (0x40 * 0x22) },
+    { L"Grant Story Mode Stuff - C", 0x2c900 + (0x40 * 0x22), 0x2c900 + (0x40 * 0x23) },
+    { L"Grant Story Mode Stuff - D", 0x2c900 + (0x40 * 0x23), 0x2c900 + (0x40 * 0x24) },
+};
+
+const sGame_PaletteDataset Garou_A_BJENNET_PALETTES_STORYMODE[] =
+{
+    { L"B. Jenet Story Mode Stuff - A", 0x2c900 + (0x40 * 0x24), 0x2c900 + (0x40 * 0x25) },
+    { L"B. Jenet Story Mode Stuff - B", 0x2c900 + (0x40 * 0x25), 0x2c900 + (0x40 * 0x26) },
+    { L"B. Jenet Story Mode Stuff - C", 0x2c900 + (0x40 * 0x26), 0x2c900 + (0x40 * 0x27) },
+    { L"B. Jenet Story Mode Stuff - D", 0x2c900 + (0x40 * 0x27), 0x2c900 + (0x40 * 0x28) },
+};
+
+const sGame_PaletteDataset Garou_A_HOKUTOMARO_PALETTES_STORYMODE[] =
+{
+    { L"Hokutomaru Story Mode Stuff - A", 0x2c900 + (0x40 * 0x28), 0x2c900 + (0x40 * 0x29) },
+    { L"Hokutomaru Story Mode Stuff - B", 0x2c900 + (0x40 * 0x29), 0x2c900 + (0x40 * 0x2a) },
+    { L"Hokutomaru Story Mode Stuff - C", 0x2c900 + (0x40 * 0x2a), 0x2c900 + (0x40 * 0x2b) },
+    { L"Hokutomaru Story Mode Stuff - D", 0x2c900 + (0x40 * 0x2b), 0x2c900 + (0x40 * 0x2c) },
+};
+
+const sGame_PaletteDataset Garou_A_FREEMAN_PALETTES_STORYMODE[] =
+{
+    { L"Freeman Story Mode Stuff - A", 0x2c900 + (0x40 * 0x2c), 0x2c900 + (0x40 * 0x2d) },
+    { L"Freeman Story Mode Stuff - B", 0x2c900 + (0x40 * 0x2d), 0x2c900 + (0x40 * 0x2e) },
+    { L"Freeman Story Mode Stuff - C", 0x2c900 + (0x40 * 0x2e), 0x2c900 + (0x40 * 0x2f) },
+    { L"Freeman Story Mode Stuff - D", 0x2c900 + (0x40 * 0x2f), 0x2c900 + (0x40 * 0x30) },
+};
+
+const sGame_PaletteDataset Garou_A_TIZOC_PALETTES_STORYMODE[] =
+{
+    { L"Tizoc Story Mode Stuff - A", 0x2c900 + (0x40 * 0x30), 0x2c900 + (0x40 * 0x31) },
+    { L"Tizoc Story Mode Stuff - B", 0x2c900 + (0x40 * 0x31), 0x2c900 + (0x40 * 0x32) },
+    { L"Tizoc Story Mode Stuff - C", 0x2c900 + (0x40 * 0x32), 0x2c900 + (0x40 * 0x33) },
+    { L"Tizoc Story Mode Stuff - D", 0x2c900 + (0x40 * 0x33), 0x2c900 + (0x40 * 0x34) },
+};
+
+const sGame_PaletteDataset Garou_A_KAIN_PALETTES_STORYMODE[] =
+{
+    { L"Kain Story Mode Stuff - A", 0x2c900 + (0x40 * 0x34), 0x2c900 + (0x40 * 0x35) },
+    { L"Kain Story Mode Stuff - B", 0x2c900 + (0x40 * 0x35), 0x2c900 + (0x40 * 0x36) },
+    { L"Kain Story Mode Stuff - C", 0x2c900 + (0x40 * 0x36), 0x2c900 + (0x40 * 0x37) },
+    { L"Kain Story Mode Stuff - D", 0x2c900 + (0x40 * 0x37), 0x2c900 + (0x40 * 0x38) },
+};
+
+const sDescTreeNode Garou_A_STORY_COLLECTION[] =
+{
+    { L"Rock Howard", DESC_NODETYPE_TREE, (void*)Garou_A_ROCKHOWARD_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_ROCKHOWARD_PALETTES_STORYMODE) },
+    { L"Terry Bogard", DESC_NODETYPE_TREE, (void*)Garou_A_TERRY_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_TERRY_PALETTES_STORYMODE) },
+    { L"Khushnood Butt", DESC_NODETYPE_TREE, (void*)Garou_A_KHUSHNOOD_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_KHUSHNOOD_PALETTES_STORYMODE) },
+    { L"Dong Hwan", DESC_NODETYPE_TREE, (void*)Garou_A_DONG_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_DONG_PALETTES_STORYMODE) },
+    { L"Jae Hoon", DESC_NODETYPE_TREE, (void*)Garou_A_JAE_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_JAE_PALETTES_STORYMODE) },
+    { L"Hotaru", DESC_NODETYPE_TREE, (void*)Garou_A_HOTARU_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_HOTARU_PALETTES_STORYMODE) },
+    { L"Gato", DESC_NODETYPE_TREE, (void*)Garou_A_GATO_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_GATO_PALETTES_STORYMODE) },
+    { L"Kevin", DESC_NODETYPE_TREE, (void*)Garou_A_KEVIN_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_KEVIN_PALETTES_STORYMODE) },
+    { L"Grant", DESC_NODETYPE_TREE, (void*)Garou_A_GRANT_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_GRANT_PALETTES_STORYMODE) },
+    { L"B. Jenet", DESC_NODETYPE_TREE, (void*)Garou_A_BJENNET_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_BJENNET_PALETTES_STORYMODE) },
+    { L"Hokutomaro", DESC_NODETYPE_TREE, (void*)Garou_A_HOKUTOMARO_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_HOKUTOMARO_PALETTES_STORYMODE) },
+    { L"Freeman", DESC_NODETYPE_TREE, (void*)Garou_A_FREEMAN_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_FREEMAN_PALETTES_STORYMODE) },
+    { L"Tizoc", DESC_NODETYPE_TREE, (void*)Garou_A_TIZOC_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_TIZOC_PALETTES_STORYMODE) },
+    { L"Kain", DESC_NODETYPE_TREE, (void*)Garou_A_KAIN_PALETTES_STORYMODE, ARRAYSIZE(Garou_A_KAIN_PALETTES_STORYMODE) },
+
+    { L"Story Mode Portraits", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_STORYPORTRAITS_PALETTES, ARRAYSIZE(Garou_A_BONUS_STORYPORTRAITS_PALETTES) },
+};
+
 const sDescTreeNode Garou_A_BONUS_COLLECTION[] =
 {
+    { L"HUD", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_HUD_PALETTES, ARRAYSIZE(Garou_A_BONUS_HUD_PALETTES) },
+    { L"Winpoints", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_WINPOINT_PALETTES, ARRAYSIZE(Garou_A_BONUS_WINPOINT_PALETTES) },
+    { L"Character Select Portrait Dark", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_SELECTDARK_PALETTES, ARRAYSIZE(Garou_A_BONUS_SELECTDARK_PALETTES) },
+    { L"Character Select Portrait Light", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_SELECTLIGHT_PALETTES, ARRAYSIZE(Garou_A_BONUS_SELECTLIGHT_PALETTES) },
+    { L"Character Select Backgrounds", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_SELECTBACK_PALETTES, ARRAYSIZE(Garou_A_BONUS_SELECTBACK_PALETTES) },
+
     { L"Bonus", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_PALETTES, ARRAYSIZE(Garou_A_BONUS_PALETTES) },
 };
 
@@ -1709,12 +1932,13 @@ const sDescTreeNode Garou_A_UNITS[] =
     { L"Gato", DESC_NODETYPE_TREE, (void*)Garou_A_GATO_COLLECTION, ARRAYSIZE(Garou_A_GATO_COLLECTION) },
     { L"Kevin", DESC_NODETYPE_TREE, (void*)Garou_A_KEVIN_COLLECTION, ARRAYSIZE(Garou_A_KEVIN_COLLECTION) },
     { L"Grant", DESC_NODETYPE_TREE, (void*)Garou_A_GRANT_COLLECTION, ARRAYSIZE(Garou_A_GRANT_COLLECTION) },
-    { L"B.Jenet", DESC_NODETYPE_TREE, (void*)Garou_A_BJENNET_COLLECTION, ARRAYSIZE(Garou_A_BJENNET_COLLECTION) },
+    { L"B. Jenet", DESC_NODETYPE_TREE, (void*)Garou_A_BJENNET_COLLECTION, ARRAYSIZE(Garou_A_BJENNET_COLLECTION) },
     { L"Hokutomaro", DESC_NODETYPE_TREE, (void*)Garou_A_HOKUTOMARO_COLLECTION, ARRAYSIZE(Garou_A_HOKUTOMARO_COLLECTION) },
     { L"Freeman", DESC_NODETYPE_TREE, (void*)Garou_A_FREEMAN_COLLECTION, ARRAYSIZE(Garou_A_FREEMAN_COLLECTION) },
     { L"Tizoc", DESC_NODETYPE_TREE, (void*)Garou_A_TIZOC_COLLECTION, ARRAYSIZE(Garou_A_TIZOC_COLLECTION) },
     { L"Kain", DESC_NODETYPE_TREE, (void*)Garou_A_KAIN_COLLECTION, ARRAYSIZE(Garou_A_KAIN_COLLECTION) },
     { k_garouNameKey_Portraits, DESC_NODETYPE_TREE, (void*)Garou_A_PORTRAITS_COLLECTION, ARRAYSIZE(Garou_A_PORTRAITS_COLLECTION) },
+    { L"Story Mode", DESC_NODETYPE_TREE, (void*)Garou_A_STORY_COLLECTION, ARRAYSIZE(Garou_A_STORY_COLLECTION) },
     { L"Bonus Stuff", DESC_NODETYPE_TREE, (void*)Garou_A_BONUS_COLLECTION, ARRAYSIZE(Garou_A_BONUS_COLLECTION) },
 };
 
