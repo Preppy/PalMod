@@ -622,6 +622,7 @@ void CPalModDlg::OnEditPaste()
                 case SAMSHO4_A:
                 case SAMSHO5_A:
                 case SAMSHO5SP_A:
+                case SAVAGEREIGN_A:
                 case SDODGEBALL_A:
                 case SVCPLUSA_A:
                 case WakuWaku7_A:

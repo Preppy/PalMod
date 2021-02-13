@@ -61,6 +61,7 @@ sSupportedGameList SupportedGameList[] =
     { SAMSHO4_A,        L"Samurai Shodown IV", L"Samurai Shodown IV|sams4_p1.rom;222-p1.bin;222_p1.p1|", GamePlatform::NEOGEO },
     { SAMSHO5_A,        L"Samurai Shodown V", L"Samurai Shodown V|270-p1.*|", GamePlatform::NEOGEO },
     { SAMSHO5SP_A,      L"Samurai Shodown V Special", L"Samurai Shodown V Special|272-p1.*;p1*h*.bin|", GamePlatform::NEOGEO },
+    { SAVAGEREIGN_A,    L"Savage Reign", L"Savage Reign|059-p1.*;savag_p1.rom|", GamePlatform::NEOGEO },
     { SFA1_A,           L"SFA1", L"SFA1|sfz.06|", GamePlatform::CapcomCPS12 },
     { SFA2_A,           L"SFA2", L"SFA2: Characters (sz*.07), Bonus (sz*.08)|sz*.07*;sz*.08*|", GamePlatform::CapcomCPS12 },
     { SFA3_A,           L"SFA3", L"SFA3 sz3.09c|*.09*|", GamePlatform::CapcomCPS12 },

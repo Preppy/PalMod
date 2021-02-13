@@ -54,6 +54,7 @@
 #include "Game_SAMSHO4_A.h"
 #include "Game_SAMSHO5_A.h"
 #include "Game_SAMSHO5SP_A.h"
+#include "Game_SAVAGEREIGN_A.h"
 #include "Game_SDODGEBALL_A.h"
 #include "Game_SFA1_A.h"
 #include "Game_SFA2_A.h"
@@ -409,6 +410,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case SAMSHO5SP_A:
     {
         GetRule = &CGame_SAMSHO5SP_A::GetRule;
+        return TRUE;
+    }
+    case SAVAGEREIGN_A:
+    {
+        GetRule = &CGame_SAVAGEREIGN_A::GetRule;
         return TRUE;
     }
     case SDODGEBALL_A:
@@ -806,6 +812,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SAMSHO5SP_A:
     {
         return new CGame_SAMSHO5SP_A(nConfirmedROMSize);
+    }
+    case SAVAGEREIGN_A:
+    {
+        return new CGame_SAVAGEREIGN_A(nConfirmedROMSize);
     }
     case SDODGEBALL_A:
     {

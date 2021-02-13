@@ -279,6 +279,7 @@
     <ClCompile Include="Game\Game_SAMSHO4_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO5SP_A.cpp" />
     <ClCompile Include="Game\Game_SAMSHO5_A.cpp" />
+    <ClCompile Include="Game\Game_SavageReign_A.cpp" />
     <ClCompile Include="Game\Game_SDodgeBall_A.cpp" />
     <ClCompile Include="Game\Game_SF2CE_A.cpp" />
     <ClCompile Include="Game\Game_SF2HF_A.cpp" />
@@ -405,6 +406,7 @@
     <ClInclude Include="Game\Game_SAMSHO4_A.h" />
     <ClInclude Include="Game\Game_SAMSHO5SP_A.h" />
     <ClInclude Include="Game\Game_SAMSHO5_A.h" />
+    <ClInclude Include="Game\Game_SavageReign_A.h" />
     <ClInclude Include="Game\Game_SDodgeBall_A.h" />
     <ClInclude Include="Game\Game_SF2CE_A.h" />
     <ClInclude Include="Game\Game_SF2HF_A.h" />
@@ -469,6 +471,7 @@
     <ClInclude Include="Game\SAMSHO4_A_DEF.h" />
     <ClInclude Include="Game\SAMSHO5SP_A_DEF.h" />
     <ClInclude Include="Game\SAMSHO5_A_DEF.h" />
+    <ClInclude Include="Game\SavageReign_A_DEF.h" />
     <ClInclude Include="Game\SDodgeBall_A_DEF.h" />
     <ClInclude Include="Game\SF2CE_A_DEF.h" />
     <ClInclude Include="Game\SF2HF_A_DEF.h" />

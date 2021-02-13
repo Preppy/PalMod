@@ -280,6 +280,9 @@
     <Filter Include="Game\Other Platforms\GGXX Reloaded">
       <UniqueIdentifier>{4465c092-2e8d-4ad8-9e9f-3ddfa005bc8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\Savage Reign">
+      <UniqueIdentifier>{85ad4673-3216-48e6-8843-d42c26132625}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -605,6 +608,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_GGXXR_A.cpp">
       <Filter>Game\Other Platforms\GGXX Reloaded</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SavageReign_A.cpp">
+      <Filter>Game\SNK Games\Savage Reign</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1123,6 +1129,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_GGXXR_A.h">
       <Filter>Game\Other Platforms\GGXX Reloaded</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SavageReign_A.h">
+      <Filter>Game\SNK Games\Savage Reign</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SavageReign_A_DEF.h">
+      <Filter>Game\SNK Games\Savage Reign</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

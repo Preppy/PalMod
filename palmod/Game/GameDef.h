@@ -97,6 +97,7 @@ enum SupportedGamesList
     KOF97_A,
     SFIII1_A_DIR,
     SFIII2_A_DIR,
+    SAVAGEREIGN_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -197,6 +198,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"KOF97 (Neo-Geo)",
    L"SFIII:New Generation (Arcade Rerip)",
    L"SFIII:2nd Impact (Arcade Rerip)",
+   L"Savage Reign (Neo-Geo)",
 };
 
 enum class GamePlatform
