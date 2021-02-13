@@ -44,7 +44,7 @@ CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A(UINT32 nConfirmedROMSize, int nROMToL
     m_nTotalInternalUnits = DOUBLEDRAGON_A_NUMUNIT;
     m_nExtraUnit = DOUBLEDRAGON_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 128;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 140;
     m_pszExtraFilename = EXTRA_FILENAME_DOUBLEDRAGON_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForDOUBLEDRAGON;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

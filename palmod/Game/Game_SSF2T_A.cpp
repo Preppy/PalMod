@@ -66,7 +66,7 @@ CGame_SSF2T_A::CGame_SSF2T_A(UINT32 nConfirmedROMSize, int nSSF2TRomToLoad)
     strMessage.Format(L"CGame_SSF2T_A::CGame_SSF2T_A: Loading for the %u ROM\n", m_nSSF2TSelectedRom);
     OutputDebugString(strMessage);
 
-    const UINT32 nSafeCountFor3C = 160;
+    const UINT32 nSafeCountFor3C = 320;
     const UINT32 nSafeCountFor4A = 673;
     const UINT32 nSafeCountFor8 = 13;
 
@@ -933,25 +933,16 @@ BOOL CGame_SSF2T_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
             nImgUnitId = paletteDataSet->indexImgToUse;
             nTargetImgId = paletteDataSet->indexOffsetToUse;
 
-            if (UsePaletteSetForPortraits())
-            {
-                // Flat set of 10: start at the first entry per set
-                nSrcStart = (UINT16)(NodeGet->uPalId / 10) * 10;
-                nSrcAmt = 10;
-                nNodeIncrement = 1;
-            }
-            else // Characters and portraits
-            {
-                sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+            // Characters and portraits
+            sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
 
-                if (wcscmp(charUnit->szDesc, k_stNameKey_Bonus) != 0) // Bonus is all unrelated, so leave those out of this logic
+            if (wcscmp(charUnit->szDesc, k_stNameKey_Bonus) != 0) // Bonus is all unrelated, so leave those out of this logic
+            {
+                nSrcAmt = nCollectionCount;
+                while (nSrcStart >= nNodeIncrement)
                 {
-                    nSrcAmt = nCollectionCount;
-                    while (nSrcStart >= nNodeIncrement)
-                    {
-                        // The starting point is the absolute first palette for the sprite in question which is found in P1
-                        nSrcStart -= nNodeIncrement;
-                    }
+                    // The starting point is the absolute first palette for the sprite in question which is found in P1
+                    nSrcStart -= nNodeIncrement;
                 }
             }
 

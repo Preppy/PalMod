@@ -611,6 +611,7 @@ UINT32 CGame_KOF97_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnow
     {
         { L"KOF '97 (Neo-Geo)", L"232-p2.sp2", 0x158b23f6, 0 },
         { L"KOF '97 (Neo-Geo)", L"KOF97_p2.rom", 0x158b23f6, 0 },
+        { L"KOF '97AE (Neo-Geo)", L"232ae.p2", -1, 0 },
     };
 
     if (ppKnownROMSet != nullptr)

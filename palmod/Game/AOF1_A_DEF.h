@@ -36,7 +36,7 @@ const sGame_PaletteDataset AOF1_A_ROBERT_P2[] =
 const sGame_PaletteDataset AOF1_A_TODOH_P1[] =
 {
     { L"Todoh P1", 0x47400, 0x47420 },
-    { L"Todoh Damaged 1 P1", 0x47420, 0x47440 },
+    { L"Todoh Damaged 1 P1 (Unused)", 0x47420, 0x47440 },
     { L"Todoh Damaged 2 P1", 0x47440, 0x47460 },
     { L"Todoh Portrait P1", 0x47140, 0x47160 },
 };
@@ -44,7 +44,7 @@ const sGame_PaletteDataset AOF1_A_TODOH_P1[] =
 const sGame_PaletteDataset AOF1_A_TODOH_P2[] =
 {
     { L"Todoh P2", 0x47460, 0x47480 },
-    { L"Todoh Damaged 1 P2", 0x47480, 0x474a0 },
+    { L"Todoh Damaged 1 P2 (Unused)", 0x47480, 0x474a0 },
     { L"Todoh Damaged 2 P2", 0x474a0, 0x474c0 },
     { L"Todoh Portrait P2", 0x47160, 0x47180 },
 };
@@ -52,7 +52,7 @@ const sGame_PaletteDataset AOF1_A_TODOH_P2[] =
 const sGame_PaletteDataset AOF1_A_JACK_P1[] =
 {
     { L"Jack P1", 0x474c0, 0x474e0 },
-    { L"Jack Damaged 1 P1", 0x474e0, 0x47500 },
+    { L"Jack Damaged 1 P1 (Unused)", 0x474e0, 0x47500 },
     { L"Jack Damaged 2 P1", 0x47500, 0x47520 },
     { L"Jack Portrait P1", 0x47180, 0x471a0 },
 };
@@ -60,8 +60,8 @@ const sGame_PaletteDataset AOF1_A_JACK_P1[] =
 const sGame_PaletteDataset AOF1_A_JACK_P2[] =
 {
     { L"Jack P2", 0x47520, 0x47540 },
-    { L"Jack Damaged 1 P2", 0x47540, 0x47560 },
-    { L"Jack Damaged 2 P2", 0x47560, 0x47580 },
+    { L"Jack Damaged 1 P2 (Unused)", 0x47540, 0x47560 },
+    { L"Jack Damaged 2 P2 (Unused) / Jack Shared Bubble Gum", 0x47560, 0x47580 },
     { L"Jack Portrait P2", 0x471a0, 0x471c0 },
 };
 
@@ -97,6 +97,11 @@ const sGame_PaletteDataset AOF1_A_KING_P2[] =
     { L"King Damaged 2 P2", 0x476e0, 0x47700 },
     { L"King Bra P2", 0x47de0, 0x47e00 },
     { L"King Portrait P2", 0x471e0, 0x47200 },
+};
+
+const sGame_PaletteDataset AOF1_A_KING_SHARED[] =
+{
+    { L"King Shared Bra Portrait", 0x43020, 0x43040 },
 };
 
 const sGame_PaletteDataset AOF1_A_MICKY_P1[] =
@@ -206,6 +211,7 @@ const sDescTreeNode AOF1_A_KING_COLLECTION[] =
 {
     { L"P1", DESC_NODETYPE_TREE, (void*)AOF1_A_KING_P1, ARRAYSIZE(AOF1_A_KING_P1) },
     { L"P2", DESC_NODETYPE_TREE, (void*)AOF1_A_KING_P2, ARRAYSIZE(AOF1_A_KING_P2) },
+    { L"Shared", DESC_NODETYPE_TREE, (void*)AOF1_A_KING_SHARED, ARRAYSIZE(AOF1_A_KING_SHARED) },
 };
 
 const sDescTreeNode AOF1_A_MICKY_COLLECTION[] =

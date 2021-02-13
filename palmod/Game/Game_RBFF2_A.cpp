@@ -41,7 +41,7 @@ CGame_RBFF2_A::CGame_RBFF2_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = RBFF2_A_NUMUNIT;
     m_nExtraUnit = RBFF2_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 736;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 960;
     m_pszExtraFilename = EXTRA_FILENAME_RBFF2_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForRBFF2;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -352,7 +352,7 @@ sDescTreeNode* CGame_RBFF2_A::InitDescTree()
 
     m_nTotalPaletteCountForRBFF2 = nTotalPaletteCount;
 
-    // debug
+    // turn this on to regenerate the headers
     //DumpPaletteHeaders();
 
     return NewDescTree;
@@ -362,12 +362,13 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
 {
     CString strOutput;
     const UINT32 RBFF2_PALETTE_LENGTH = 0x20;
+    const UINT32 RBFF2_PALETTE_COUNT = 16;
 
     struct rbff2CharacterData
     {
         LPCWSTR pszCharacterName = nullptr;
         LPCWSTR pszImageName = nullptr;
-        bool fShowImage[16] = { false };
+        bool fShowImage[RBFF2_PALETTE_COUNT] = { false };
     };
 
     rbff2CharacterData rgCharacterData[] =
@@ -411,13 +412,13 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
         {
             CString strPaletteName;
 
-            if ((nStatusIndex == 0) || (nStatusIndex == 16))
+            if ((nStatusIndex % RBFF2_PALETTE_COUNT) == 0)
             {
                 strOutput.Format(L"const sGame_PaletteDataset RBFF2_A_%s_PALETTES_%s[] = \r\n{\r\n", szCodeDesc, (nStatusIndex < 10) ? L"P1" : L"P2");
                 OutputDebugString(strOutput);
             }
 
-            UINT32 nAdjustedIndex = (nStatusIndex > 15) ? (nStatusIndex - 16) : nStatusIndex;
+            UINT32 nAdjustedIndex = (nStatusIndex > (RBFF2_PALETTE_COUNT - 1)) ? (nStatusIndex - RBFF2_PALETTE_COUNT) : nStatusIndex;
 
             switch (nAdjustedIndex)
             {
@@ -456,7 +457,7 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
             OutputDebugString(strOutput);
             nCurrentPalettePosition += RBFF2_PALETTE_LENGTH;
 
-            if ((nStatusIndex == 15) || (nStatusIndex == 31))
+            if (((nStatusIndex + 1) % RBFF2_PALETTE_COUNT) == 0)
             {
                 strOutput.Format(L"};\r\n\r\n");
                 OutputDebugString(strOutput);
@@ -475,9 +476,12 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
         OutputDebugString(strOutput);
         strOutput.Format(L"    { L\"P2\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_PALETTES_P2, ARRAYSIZE(RBFF2_A_%s_PALETTES_P2) },\r\n", szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
-        // We don't have these offsets yet
-        //strOutput.Format(L"    { L\"Lifebar Portraits\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_PALETTES_LIFEBAR, ARRAYSIZE(RBFF2_A_%s_PALETTES_LIFEBAR) },\r\n", szCodeDesc, szCodeDesc);
-        //OutputDebugString(strOutput);
+
+        strOutput.Format(L"    { L\"P1 Portraits\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_PORTRAIT_PALETTES_P1, ARRAYSIZE(RBFF2_A_%s_PORTRAIT_PALETTES_P1) },\r\n", szCodeDesc, szCodeDesc);
+        OutputDebugString(strOutput);
+        strOutput.Format(L"    { L\"P2 Portraits\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_PORTRAIT_PALETTES_P2, ARRAYSIZE(RBFF2_A_%s_PORTRAIT_PALETTES_P2) },\r\n", szCodeDesc, szCodeDesc);
+        OutputDebugString(strOutput);
+
         strOutput.Format(L"};\r\n\r\n");
         OutputDebugString(strOutput);
     }
@@ -493,6 +497,9 @@ void CGame_RBFF2_A::DumpPaletteHeaders()
         strOutput.Format(L"    { L\"%s\", DESC_NODETYPE_TREE, (void*)RBFF2_A_%s_COLLECTION, ARRAYSIZE(RBFF2_A_%s_COLLECTION) },\r\n", rgCharacterData[nCharIndex].pszCharacterName, szCodeDesc, szCodeDesc);
         OutputDebugString(strOutput);
     }
+
+    strOutput.Format(L"    { L\"Bonus\", DESC_NODETYPE_TREE, (void*)RBFF2_A_BONUS_COLLECTION, ARRAYSIZE(RBFF2_A_BONUS_COLLECTION) },\r\n");
+    OutputDebugString(strOutput);
 
     strOutput.Format(L"};\r\n\r\n");
     OutputDebugString(strOutput);

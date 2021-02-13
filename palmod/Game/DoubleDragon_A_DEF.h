@@ -316,6 +316,10 @@ const sGame_PaletteDataset DOUBLEDRAGON_A_BONUS_Hud[] =
     { L"Low Timer", 0x11c0a0, 0x11c0c0 },
     { L"Hud P1 Orb", 0x11c080, 0x11c0a0 },
     { L"Hud P2 Orb", 0x11c140, 0x11c160 },
+
+    { L"Hits/Score Text", 0x11c860, 0x11c880 },
+    { L"Win Board", 0x11c880, 0x11c8a0 },
+    { L"Various Effects", 0x11d000, 0x11d080 },
 };
 
 const sGame_PaletteDataset DOUBLEDRAGON_A_BONUS_MainMenu[] =
@@ -327,6 +331,16 @@ const sGame_PaletteDataset DOUBLEDRAGON_A_BONUS_MainMenu[] =
     { L"Screen Text 1/Mini B Button", 0x11c180, 0x11c1a0 },
     { L"Score Text/Mini C Button", 0x11c160, 0x11c180 },
     { L"Screen Text 2", 0x11c1a0, 0x11c1c0 },
+
+    { L"Select Names Text", 0x11c820, 0x11c840 },
+    { L"States Board", 0x11c800, 0x11c820 },
+    { L"Double Dragon Logo", 0x11c8a0, 0x11c900 },
+    { L"Tutorial Joystick", 0x11c920, 0x11c940 },
+    { L"Tutorial A Button", 0x11c940, 0x11c960 },
+    { L"Tutorial B Button", 0x11c960, 0x11c980 },
+    { L"Tutorial C Button", 0x11c980, 0x11c9a0 },
+    { L"Tutorial D Button", 0x11c9a0, 0x11c9c0 },
+    { L"1P/2P Select Cursor", 0x11c9c0, 0x11c9e0 },
 };
 
 const sDescTreeNode DOUBLEDRAGON_A_BILLY_COLLECTION[] =
