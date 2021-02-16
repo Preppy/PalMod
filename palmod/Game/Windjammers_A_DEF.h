@@ -1,79 +1,162 @@
 #pragma once
 
-const sGame_PaletteDataset Windjammers_A_USA_PALETTES[] =
+const UINT16 WINDJAMMERS_A_IMG_UNITS[] =
 {
-    { L"Character A", 0x30400, 0x30420, indexWindjammersSprites_USA },
-    { L"Character B", 0x30420, 0x30440, indexWindjammersSprites_USA },
+    indexWindjammersSprites_Germany,
+    indexWindjammersSprites_Italy,
+    indexWindjammersSprites_Japan,
+    indexWindjammersSprites_Spain,
+    indexWindjammersSprites_UK_Korea,
+    indexWindjammersSprites_USA,
+    indexWindjammersSprites_Bonus,
 };
 
-const sGame_PaletteDataset Windjammers_A_SPAIN_PALETTES[] =
+const sGame_PaletteDataset Windjammers_A_USA_P1[] =
 {
-    { L"Character A", 0x30440, 0x30460, indexWindjammersSprites_Spain },
-    { L"Character B", 0x30460, 0x30480, indexWindjammersSprites_Spain },
+    { L"Player 1", 0x30400, 0x30420, indexWindjammersSprites_USA },
+    { L"P1 Portraits", 0x31240, 0x31280, indexWindjammersSprites_USA, 0x80 },
 };
 
-const sGame_PaletteDataset Windjammers_A_GERMANY_PALETTES[] =
+const sGame_PaletteDataset Windjammers_A_USA_P2[] =
 {
-    { L"Character A", 0x30480, 0x304a0, indexWindjammersSprites_Germany },
-    { L"Character B", 0x304a0, 0x304c0, indexWindjammersSprites_Germany },
+    { L"Player 2", 0x30420, 0x30440, indexWindjammersSprites_USA },
+    { L"P2 Portraits", 0x31c40, 0x31c80, indexWindjammersSprites_USA, 0x80 },
 };
 
-const sGame_PaletteDataset Windjammers_A_BRITAIN_PALETTES[] =
+const sGame_PaletteDataset Windjammers_A_SPAIN_P1[] =
 {
-    { L"Character A", 0x304c0, 0x304e0, indexWindjammersSprites_UK_Korea },
-    { L"Character B", 0x304e0, 0x30500, indexWindjammersSprites_UK_Korea },
+    { L"Player 1", 0x30440, 0x30460, indexWindjammersSprites_Spain },
+    { L"P1 Portraits", 0x312c0, 0x31300, indexWindjammersSprites_Spain, 0x80 },
 };
 
-const sGame_PaletteDataset Windjammers_A_ITALY_PALETTES[] =
+const sGame_PaletteDataset Windjammers_A_SPAIN_P2[] =
 {
-    { L"Character A", 0x30500, 0x30520, indexWindjammersSprites_Italy },
-    { L"Character B", 0x30520, 0x30540, indexWindjammersSprites_Italy },
+    { L"Player 2", 0x30460, 0x30480, indexWindjammersSprites_Spain },
+    { L"P2 Portraits", 0x31cc0, 0x31d00, indexWindjammersSprites_Spain, 0x80 },
 };
 
-const sGame_PaletteDataset Windjammers_A_JAPAN_PALETTES[] =
+const sGame_PaletteDataset Windjammers_A_GERMANY_P1[] =
 {
-    { L"Character A", 0x30540, 0x30560, indexWindjammersSprites_Japan },
-    { L"Character B", 0x30560, 0x30580, indexWindjammersSprites_Japan },
+    { L"Player 1", 0x30480, 0x304a0, indexWindjammersSprites_Germany },
+    { L"P1 Portraits", 0x31300, 0x31320, indexWindjammersSprites_Germany, 0x80 },
+};
+
+const sGame_PaletteDataset Windjammers_A_GERMANY_P2[] =
+{
+    { L"Player 2", 0x304a0, 0x304c0, indexWindjammersSprites_Germany },
+    { L"P2 Portraits", 0x31d00, 0x31d20, indexWindjammersSprites_Germany, 0x80 },
+};
+
+const sGame_PaletteDataset Windjammers_A_BRITAIN_P1[] =
+{
+    { L"Player 1", 0x304c0, 0x304e0, indexWindjammersSprites_UK_Korea },
+    { L"P1 Portraits", 0x31200, 0x31240, indexWindjammersSprites_UK_Korea, 0x80 },
+};
+
+const sGame_PaletteDataset Windjammers_A_BRITAIN_P2[] =
+{
+    { L"Player 2", 0x304e0, 0x30500, indexWindjammersSprites_UK_Korea },
+    { L"P2 Portraits", 0x31c00, 0x31c40, indexWindjammersSprites_UK_Korea, 0x80 },
+};
+
+const sGame_PaletteDataset Windjammers_A_ITALY_P1[] =
+{
+    { L"Player 1", 0x30500, 0x30520, indexWindjammersSprites_Italy },
+    { L"P1 Portraits", 0x31340, 0x31380, indexWindjammersSprites_Italy, 0x80 },
+};
+
+const sGame_PaletteDataset Windjammers_A_ITALY_P2[] =
+{
+    { L"Player 2", 0x30520, 0x30540, indexWindjammersSprites_Italy },
+    { L"P2 Portraits", 0x31d40, 0x31d80, indexWindjammersSprites_Italy, 0x80 },
+};
+
+const sGame_PaletteDataset Windjammers_A_JAPAN_P1[] =
+{
+    { L"Player 1", 0x30540, 0x30560, indexWindjammersSprites_Japan },
+    { L"P1 Portraits (A)", 0x31280, 0x312c0, indexWindjammersSprites_Japan, 0x80, &pairNext },
+    { L"P1 Portraits (B)", 0x31380, 0x313a0, indexWindjammersSprites_Japan, 0x81 },
+};
+
+const sGame_PaletteDataset Windjammers_A_JAPAN_P2[] =
+{
+    { L"Player 2", 0x30560, 0x30580, indexWindjammersSprites_Japan },
+    { L"P2 Portraits", 0x31c80, 0x31cc0, indexWindjammersSprites_Japan, 0x82 },
+};
+
+const sGame_PaletteDataset Windjammers_A_STATS[] =
+{
+    { L"Character Stat Portraits", 0x31700, 0x317c0, indexWindjammersSprites_Bonus, 0x03 },
+};
+
+const sGame_PaletteDataset Windjammers_A_LOGOS[] =
+{
+    { L"Main logo", 0x31960, 0x319e0, indexWindjammersSprites_Bonus, 0x01 },
+    { L"MiniLogo", 0x30080, 0x300a0, indexWindjammersSprites_Bonus, 0x02 },
+};
+
+const sGame_PaletteDataset Windjammers_A_FRISBEES[] =
+{
+    { L"Frisbee Beach", 0x309e0, 0x30a00, indexWindjammersSprites_Bonus, 0x00 },
+    { L"Frisbee Lawn", 0x307e0, 0x30800, indexWindjammersSprites_Bonus, 0x00 },
+    { L"Frisbee Tiled", 0x30be0, 0x30c00, indexWindjammersSprites_Bonus, 0x00 },
+    { L"Frisbee Concrete", 0x311e0, 0x31200, indexWindjammersSprites_Bonus, 0x00 },
+    { L"Frisbee Clay", 0x30fe0, 0x31000, indexWindjammersSprites_Bonus, 0x00 },
+    { L"Frisbee Stadium", 0x30de0, 0x30e00, indexWindjammersSprites_Bonus, 0x00 },
 };
 
 const sDescTreeNode Windjammers_A_USA_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_USA_PALETTES, ARRAYSIZE(Windjammers_A_USA_PALETTES) },
+    { L"P1", DESC_NODETYPE_TREE,   (void*)Windjammers_A_USA_P1, ARRAYSIZE(Windjammers_A_USA_P1) },
+    { L"P2", DESC_NODETYPE_TREE,   (void*)Windjammers_A_USA_P2, ARRAYSIZE(Windjammers_A_USA_P2) },
 };
 
 const sDescTreeNode Windjammers_A_SPAIN_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_SPAIN_PALETTES, ARRAYSIZE(Windjammers_A_SPAIN_PALETTES) },
+    { L"P1", DESC_NODETYPE_TREE,   (void*)Windjammers_A_SPAIN_P1, ARRAYSIZE(Windjammers_A_SPAIN_P1) },
+    { L"P2", DESC_NODETYPE_TREE,   (void*)Windjammers_A_SPAIN_P2, ARRAYSIZE(Windjammers_A_SPAIN_P2) },
 };
 
 const sDescTreeNode Windjammers_A_GERMANY_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_GERMANY_PALETTES, ARRAYSIZE(Windjammers_A_GERMANY_PALETTES) },
+    { L"P1", DESC_NODETYPE_TREE,   (void*)Windjammers_A_GERMANY_P1, ARRAYSIZE(Windjammers_A_GERMANY_P1) },
+    { L"P2", DESC_NODETYPE_TREE,   (void*)Windjammers_A_GERMANY_P2, ARRAYSIZE(Windjammers_A_GERMANY_P2) },
 };
 
 const sDescTreeNode Windjammers_A_BRITAIN_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_BRITAIN_PALETTES, ARRAYSIZE(Windjammers_A_BRITAIN_PALETTES) },
+    { L"P1", DESC_NODETYPE_TREE,   (void*)Windjammers_A_BRITAIN_P1, ARRAYSIZE(Windjammers_A_BRITAIN_P1) },
+    { L"P2", DESC_NODETYPE_TREE,   (void*)Windjammers_A_BRITAIN_P2, ARRAYSIZE(Windjammers_A_BRITAIN_P2) },
 };
 
 const sDescTreeNode Windjammers_A_ITALY_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_ITALY_PALETTES, ARRAYSIZE(Windjammers_A_ITALY_PALETTES) },
+    { L"P1", DESC_NODETYPE_TREE,   (void*)Windjammers_A_ITALY_P1, ARRAYSIZE(Windjammers_A_ITALY_P1) },
+    { L"P2", DESC_NODETYPE_TREE,   (void*)Windjammers_A_ITALY_P2, ARRAYSIZE(Windjammers_A_ITALY_P2) },
 };
 
 const sDescTreeNode Windjammers_A_JAPAN_COLLECTION[] =
 {
-    { L"Palettes", DESC_NODETYPE_TREE,   (void*)Windjammers_A_JAPAN_PALETTES, ARRAYSIZE(Windjammers_A_JAPAN_PALETTES) },
+    { L"P1", DESC_NODETYPE_TREE,   (void*)Windjammers_A_JAPAN_P1, ARRAYSIZE(Windjammers_A_JAPAN_P1) },
+    { L"P2", DESC_NODETYPE_TREE,   (void*)Windjammers_A_JAPAN_P2, ARRAYSIZE(Windjammers_A_JAPAN_P2) },
+};
+
+const sDescTreeNode Windjammers_A_BONUS_COLLECTION[] =
+{
+    { L"Stat Portraits",    DESC_NODETYPE_TREE,   (void*)Windjammers_A_STATS, ARRAYSIZE(Windjammers_A_STATS) },
+    { L"Logos",             DESC_NODETYPE_TREE,   (void*)Windjammers_A_LOGOS, ARRAYSIZE(Windjammers_A_LOGOS) },
+    { L"Frisbees",          DESC_NODETYPE_TREE,   (void*)Windjammers_A_FRISBEES, ARRAYSIZE(Windjammers_A_FRISBEES) },
 };
 
 const sDescTreeNode Windjammers_A_UNITS[] =
 {
-    { L"USA",       DESC_NODETYPE_TREE, (void*)Windjammers_A_USA_COLLECTION,        ARRAYSIZE(Windjammers_A_USA_COLLECTION) },
+    { L"Japan",     DESC_NODETYPE_TREE, (void*)Windjammers_A_JAPAN_COLLECTION,      ARRAYSIZE(Windjammers_A_JAPAN_COLLECTION) },
+    { L"UK/Korea",  DESC_NODETYPE_TREE, (void*)Windjammers_A_BRITAIN_COLLECTION,    ARRAYSIZE(Windjammers_A_BRITAIN_COLLECTION) },
     { L"Spain",     DESC_NODETYPE_TREE, (void*)Windjammers_A_SPAIN_COLLECTION,      ARRAYSIZE(Windjammers_A_SPAIN_COLLECTION) },
-    { L"Germany",   DESC_NODETYPE_TREE, (void*)Windjammers_A_GERMANY_COLLECTION,    ARRAYSIZE(Windjammers_A_GERMANY_COLLECTION) },
-    { L"Britain",   DESC_NODETYPE_TREE, (void*)Windjammers_A_BRITAIN_COLLECTION,    ARRAYSIZE(Windjammers_A_BRITAIN_COLLECTION) },
     { L"Italy",     DESC_NODETYPE_TREE, (void*)Windjammers_A_ITALY_COLLECTION,      ARRAYSIZE(Windjammers_A_ITALY_COLLECTION) },
-    { L"Japan",      DESC_NODETYPE_TREE, (void*)Windjammers_A_JAPAN_COLLECTION,     ARRAYSIZE(Windjammers_A_JAPAN_COLLECTION) },
+    { L"USA",       DESC_NODETYPE_TREE, (void*)Windjammers_A_USA_COLLECTION,        ARRAYSIZE(Windjammers_A_USA_COLLECTION) },
+    { L"Germany",   DESC_NODETYPE_TREE, (void*)Windjammers_A_GERMANY_COLLECTION,    ARRAYSIZE(Windjammers_A_GERMANY_COLLECTION) },
+    { L"Bonus",     DESC_NODETYPE_TREE, (void*)Windjammers_A_BONUS_COLLECTION,      ARRAYSIZE(Windjammers_A_BONUS_COLLECTION) },
 };
 
 constexpr auto Windjammers_A_NUMUNIT = ARRAYSIZE(Windjammers_A_UNITS);

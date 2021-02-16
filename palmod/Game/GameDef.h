@@ -1834,6 +1834,22 @@ enum KOFSpriteList
     indexRBFF2Sprites_Bonus,        // 0x1f5
     indexRBFF2Sprites_Stages,       // 0x1f6
 
+    indexKOF97Sprites_IoriOrochi,   // 0x1F7
+    indexKOF97Sprites_LeonaOrochi,  // 0x1F8
+
+    indexAoF1Sprites_Ryo,           // 0x1F9
+    indexAoF1Sprites_RobertGarcia,  // 0x1FA
+    indexAoF1Sprites_RyuhakuTodoh,  // 0x1FB
+    indexAoF1Sprites_JackTurner,    // 0x1FC
+    indexAoF1Sprites_King,          // 0x1FD
+    indexAoF1Sprites_LeePaiLong,    // 0x1FE
+    indexAoF1Sprites_MickeyRogers,  // 0x1FF
+    indexAoF1Sprites_JohnCrawley,   // 0x200
+    indexAoF1Sprites_MrBig,         // 0x201
+    indexAoF1Sprites_TakumaMrKarate, // 0x202
+    indexAoF1Sprites_Bonus,         // 0x203
+    indexAoF1Sprites_Stages,        // 0x204
+
     indexKOFSprites_Last,
 };
 
@@ -1915,77 +1931,6 @@ const UINT16 KOF98_A_IMG_UNITS[] =
 };
 
 const int KOF98_A_NUM_IMG_UNITS = ARRAYSIZE(KOF98_A_IMG_UNITS);
-
-const UINT16 KOF99AE_A_IMG_UNITS[] =
-{
-    indexKOFSprites_98Benimaru,
-    indexKOFSprites_98Shingo,
-    indexKOFSprites_98Terry,
-    indexKOFSprites_98Andy,
-    indexKOFSprites_98Joe,
-    indexKOFSprites_98Mai,
-    indexKOFSprites_98Ryo,
-    indexKOFSprites_02UM_Robert,
-    indexKOFSprites_98Yuri,
-    indexKOFSprites_98Takuma,
-    indexKOFSprites_98Leona,
-    indexKOFSprites_98Kensou,
-    indexKOFSprites_02UM_Chin,
-    indexKOFSprites_98King,
-    indexKOFSprites_98BlueMary,
-    indexKOFSprites_98Kim,
-    indexKOFSprites_98Choi,
-    indexKOFSprites_02UM_KyoKusa,
-
-    indexKOF01Sprites_Xiangfei,
-
-    indexKOFSprites_02UM_Bao,
-    indexKOFSprites_02UM_K,
-    indexKOFSprites_02UM_Maxima,
-    indexKOFSprites_02UM_Clark,
-    indexKOFSprites_02UM_Whip,
-    indexKOFSprites_02UM_Kasumi,
-    indexKOFSprites_02UM_Kyo1,
-    indexKOFSprites_02UM_Iori,
-    indexKOFSprites_02UM_Kyo2,
-
-    indexKOF99Sprites_Andy,         // 0x17f
-    indexKOF99Sprites_Athena,       // 0x180
-    indexKOF99Sprites_Bao,          // 0x181
-    indexKOF99Sprites_Benimaru,     // 0x182
-    indexKOF99Sprites_BlueMary,     // 0x183
-    indexKOF99Sprites_BossKrizalid, // 0x184
-    indexKOF99Sprites_Chang,        // 0x185
-    indexKOF99Sprites_Chin,         // 0x186
-    indexKOF99Sprites_Choi,         // 0x187
-    indexKOF99Sprites_Clark,        // 0x188
-    indexKOF99Sprites_Iori,         // 0x189
-    indexKOF99Sprites_JacketKrizalid, // 0x18a
-    indexKOF99Sprites_Jhun,         // 0x18b
-    indexKOF99Sprites_Joe,          // 0x18c
-    indexKOF99Sprites_K,            // 0x18d
-    indexKOF99Sprites_Kasumi,       // 0x18e
-    indexKOF99Sprites_Kensou,       // 0x18f
-    indexKOF99Sprites_Kim,          // 0x190
-    indexKOF99Sprites_King,         // 0x191
-    indexKOF99Sprites_Kyo1,         // 0x192
-    indexKOF99Sprites_Kyo2,         // 0x193
-    indexKOF99Sprites_Kyo,          // 0x194
-    indexKOF99Sprites_Leona,        // 0x195
-    indexKOF99Sprites_Mai,          // 0x196
-    indexKOF99Sprites_Maxima,       // 0x197
-    indexKOF99Sprites_Ralf,         // 0x198
-    indexKOF99Sprites_Robert,       // 0x199
-    indexKOF99Sprites_Ryo,          // 0x19a
-    indexKOF99Sprites_Shingo,       // 0x19b
-    indexKOF99Sprites_Takuma,       // 0x19c
-    indexKOF99Sprites_Terry,        // 0x19d
-    indexKOF99Sprites_Whip,         // 0x19e
-    indexKOF99Sprites_Xiangfei,     // 0x19f
-    indexKOF99Sprites_Yuri,         // 0x1a0
-    indexKOF99Sprites_Stages,       // 0x1a1
-    indexKOF99Sprites_Bonus,        // 0x1a2
-};
 
 const UINT16 KOF01_A_IMG_UNITS[] =
 {
@@ -2615,22 +2560,6 @@ const UINT16 NGBC_A_IMG_UNITS[] =
     indexNGBCSprites_Yuuki,     // 0xe3
 };
 
-const UINT16 AOF3_A_IMG_UNITS[] =
-{
-    indexAoF3Sprites_Jin,           // 0x1A3
-    indexAoF3Sprites_Karman,        // 0x1A4
-    indexAoF3Sprites_Kasumi,        // 0x1A5
-    indexAoF3Sprites_Lenny,         // 0x1A6
-    indexAoF3Sprites_Robert,        // 0x1A7
-    indexAoF3Sprites_Rody,          // 0x1A8
-    indexAoF3Sprites_Ryo,           // 0x1A9
-    indexAoF3Sprites_Sinclair,      // 0x1AA
-    indexAoF3Sprites_Wang,          // 0x1AB
-    indexAoF3Sprites_Wyler,         // 0x1AC
-    indexAoF3Sprites_Bonus,         // 0x1AD
-    indexAoF3Sprites_Stages,        // 0x1AE
-};
-
 enum SupportedBreakersSprites
 {
     indexBreakersSprites_AlsionIII,
@@ -3242,20 +3171,8 @@ enum SupportedWindjammers_A_PaletteListIndex
     indexWindjammersSprites_Spain,
     indexWindjammersSprites_UK_Korea,
     indexWindjammersSprites_USA,
-    indexWindjammersSprites_Last,
+    indexWindjammersSprites_Bonus,
 };
-
-const UINT16 WINDJAMMERS_A_IMG_UNITS[] =
-{
-    indexWindjammersSprites_Germany,
-    indexWindjammersSprites_Italy,
-    indexWindjammersSprites_Japan,
-    indexWindjammersSprites_Spain,
-    indexWindjammersSprites_UK_Korea,
-    indexWindjammersSprites_USA,
-};
-
-constexpr auto WINDJAMMERS_A_NUM_IMG_UNITS = ARRAYSIZE(WINDJAMMERS_A_IMG_UNITS);
 
 enum SupportedSNES_PaletteListIndex
 {
@@ -3377,6 +3294,19 @@ enum SupportedNEOGEO_PaletteListIndex
     indexNinjaMastersSprites_Unzen,         // 0x1f
     indexNinjaMastersSprites_Bonus,         // 0x20
     indexNinjaMastersSprites_Stages,        // 0x21
+
+    indexDDragonSprites_Abobo,              // 0x22,
+    indexDDragonSprites_Amon,               // 0x23,
+    indexDDragonSprites_Billy,              // 0x24,
+    indexDDragonSprites_Burnov,             // 0x25,
+    indexDDragonSprites_ChengFu,            // 0x26,
+    indexDDragonSprites_Duke,               // 0x27,
+    indexDDragonSprites_Dulton,             // 0x28,
+    indexDDragonSprites_Eddie,              // 0x29,
+    indexDDragonSprites_Jimmy,              // 0x2A,
+    indexDDragonSprites_Marian,             // 0x2B,
+    indexDDragonSprites_Rebecca,            // 0x2C,
+    indexDDragonSprites_Shuko,              // 0x2D,
 };
 
 const UINT16 NEOBOMBERMAN_A_IMG_UNITS[] =

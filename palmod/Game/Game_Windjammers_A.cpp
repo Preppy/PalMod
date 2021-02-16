@@ -35,20 +35,6 @@ CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
-    InitializeStatics();
-
-    m_nTotalInternalUnits = Windjammers_A_NUMUNIT;
-    m_nExtraUnit = Windjammers_A_EXTRALOC;
-
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 12;
-    m_pszExtraFilename = EXTRA_FILENAME_Windjammers_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForWindjammers;
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x30400;
-
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-    InitDataBuffer();
 
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -57,19 +43,35 @@ CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
+    InitializeStatics();
+
+    m_nTotalInternalUnits = Windjammers_A_NUMUNIT;
+    m_nExtraUnit = Windjammers_A_EXTRALOC;
+
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 34;
+    m_pszExtraFilename = EXTRA_FILENAME_Windjammers_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForWindjammers;
+    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+    m_nLowestKnownPaletteRomLocation = 0x30080;
+
+    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+
+    InitDataBuffer();
+
+
     //Set game information
     nGameFlag = WINDJAMMERS_A;
     nImgGameFlag = IMGDAT_SECTION_WINDJAMMERS;
-    nImgUnitAmt = WINDJAMMERS_A_NUM_IMG_UNITS;
     m_prgGameImageSet = WINDJAMMERS_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(WINDJAMMERS_A_IMG_UNITS);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_NOBUTTONS;
-    m_nNumberOfColorOptions = 1;
+    pButtonLabelSet = DEF_BUTTONLABEL_2;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -560,6 +562,38 @@ BOOL CGame_Windjammers_A::UpdatePalImg(int Node01, int Node02, int Node03, int N
 
             if (pCurrentNode)
             {
+                bool fIsCorePalette = false;
+
+                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
+                {
+                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                    {
+                        fIsCorePalette = true;
+                        break;
+                    }
+                }
+
+                if (fIsCorePalette)
+                {
+                    sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+
+                    if (wcscmp(charUnit->szDesc, L"Japan") == 0)
+                    {
+                        // Japan has a quirky p1/p2 palette, so don't associate the p1/p2 sets
+                    }
+                    else
+                    {
+                        nSrcAmt = m_nNumberOfColorOptions;
+                        nNodeIncrement = pCurrentNode->uChildAmt;
+
+                        while (nSrcStart >= nNodeIncrement)
+                        {
+                            // The starting point is the absolute first palette for the sprite in question which is found in P1/A
+                            nSrcStart -= nNodeIncrement;
+                        }
+                    }
+                }
+
                 if (paletteDataSet->pPalettePairingInfo)
                 {
                     const INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;

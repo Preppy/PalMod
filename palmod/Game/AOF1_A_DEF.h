@@ -1,20 +1,36 @@
 #pragma once
 
+const UINT16 AOF1_A_IMG_UNITS[] =
+{
+    indexAoF1Sprites_Ryo,           // 0x1F9
+    indexAoF1Sprites_RobertGarcia,  // 0x1FA
+    indexAoF1Sprites_RyuhakuTodoh,  // 0x1FB
+    indexAoF1Sprites_JackTurner,    // 0x1FC
+    indexAoF1Sprites_King,          // 0x1FD
+    indexAoF1Sprites_LeePaiLong,    // 0x1FE
+    indexAoF1Sprites_MickeyRogers,  // 0x1FF
+    indexAoF1Sprites_JohnCrawley,   // 0x200
+    indexAoF1Sprites_MrBig,         // 0x201
+    indexAoF1Sprites_TakumaMrKarate, // 0x202
+    indexAoF1Sprites_Bonus,         // 0x203
+    indexAoF1Sprites_Stages,        // 0x204
+};
+
 // CHARACTERS
 const sGame_PaletteDataset AOF1_A_RYO_P1[] =
 {
-    { L"Ryo P1", 0x47000, 0x47020, },
-    { L"Ryo Damaged 1 P1", 0x47020, 0x47040 },
-    { L"Ryo Damaged 2 P1", 0x47040, 0x47060 },
-    { L"Ryo Portrait P1", 0x470c0, 0x470e0 },
+    { L"Ryo P1", 0x47000, 0x47020, indexAoF1Sprites_Ryo, 0x00 },
+    { L"Ryo Damaged 1 P1", 0x47020, 0x47040, indexAoF1Sprites_Ryo, 0x08 },
+    { L"Ryo Damaged 2 P1", 0x47040, 0x47060, indexAoF1Sprites_Ryo, 0x08 },
+    { L"Ryo Portrait P1", 0x470c0, 0x470e0, indexAoF1Sprites_Ryo, 0x80 },
 };
 
 const sGame_PaletteDataset AOF1_A_RYO_P2[] =
 {
-    { L"Ryo P2", 0x47060, 0x47080 },
-    { L"Ryo Damaged 1 P2", 0x47080, 0x470a0 },
-    { L"Ryo Damaged 2 P2", 0x470a0, 0x470c0 },
-    { L"Ryo Portrait P2", 0x470e0, 0x47100 },
+    { L"Ryo P2", 0x47060, 0x47080, indexAoF1Sprites_Ryo, 0x00 },
+    { L"Ryo Damaged 1 P2", 0x47080, 0x470a0, indexAoF1Sprites_Ryo, 0x08 },
+    { L"Ryo Damaged 2 P2", 0x470a0, 0x470c0, indexAoF1Sprites_Ryo, 0x08 },
+    { L"Ryo Portrait P2", 0x470e0, 0x47100, indexAoF1Sprites_Ryo, 0x80 },
 };
 
 const sGame_PaletteDataset AOF1_A_ROBERT_P1[] =
@@ -61,7 +77,7 @@ const sGame_PaletteDataset AOF1_A_JACK_P2[] =
 {
     { L"Jack P2", 0x47520, 0x47540 },
     { L"Jack Damaged 1 P2 (Unused)", 0x47540, 0x47560 },
-    { L"Jack Damaged 2 P2 (Unused) / Jack Shared Bubble Gum", 0x47560, 0x47580 },
+    { L"Jack Shared Bubble Gum", 0x47560, 0x47580 },
     { L"Jack Portrait P2", 0x471a0, 0x471c0 },
 };
 

@@ -64,16 +64,16 @@ CGame_AOF1_A::CGame_AOF1_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
     //Set game information
     nGameFlag = AOF1_A;
     nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = AOF3_A_IMG_UNITS;
-    nImgUnitAmt = ARRAYSIZE(AOF3_A_IMG_UNITS);
+    m_prgGameImageSet = AOF1_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(AOF1_A_IMG_UNITS);
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_BUTTONLABEL_2_AOF3;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_AOF3);
+    pButtonLabelSet = DEF_BUTTONLABEL_2;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

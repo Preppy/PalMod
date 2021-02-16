@@ -59,8 +59,6 @@ CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize)
                                             // You can set this to WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
     };
 
-    InitDataBuffer();
-
     // Set alpha mode: this determines whether or not we set alpha values for the data we write back to the game ROM.
     // For color mode 12A you usually want it not set, for NEOGEO you cannot use it (there's no bit(s) for it), and for 15/15ALT you probably want it on.
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
@@ -69,6 +67,8 @@ CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize)
 
     //Set palette conversion mode: 12A uses a step of PALTYPE_16STEPS, everything else uses PALTYPE_32STEPS at this point
     BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+
+    InitDataBuffer();
 
     //Set game information
     nGameFlag = LASTBLADE2_A; // This value is defined in gamedef.h.  See usage of other values defined there

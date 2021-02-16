@@ -66,6 +66,7 @@ CGame_XMVSF_A::CGame_XMVSF_A(UINT32 nConfirmedROMSize)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
     pButtonLabelSet = DEF_BUTTONLABEL_2;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];

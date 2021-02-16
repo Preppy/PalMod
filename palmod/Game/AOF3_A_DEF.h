@@ -1,5 +1,21 @@
 #pragma once
 
+const UINT16 AOF3_A_IMG_UNITS[] =
+{
+    indexAoF3Sprites_Jin,           // 0x1A3
+    indexAoF3Sprites_Karman,        // 0x1A4
+    indexAoF3Sprites_Kasumi,        // 0x1A5
+    indexAoF3Sprites_Lenny,         // 0x1A6
+    indexAoF3Sprites_Robert,        // 0x1A7
+    indexAoF3Sprites_Rody,          // 0x1A8
+    indexAoF3Sprites_Ryo,           // 0x1A9
+    indexAoF3Sprites_Sinclair,      // 0x1AA
+    indexAoF3Sprites_Wang,          // 0x1AB
+    indexAoF3Sprites_Wyler,         // 0x1AC
+    indexAoF3Sprites_Bonus,         // 0x1AD
+    indexAoF3Sprites_Stages,        // 0x1AE
+};
+
 //-CHARACTERS//-
  //Robert Garcia
 const sGame_PaletteDataset AOF3_A_Robert_A_PALETTES[] =

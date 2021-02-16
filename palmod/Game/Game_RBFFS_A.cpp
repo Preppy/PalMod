@@ -33,6 +33,13 @@ CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
     strMessage.Format(L"CGame_RBFFS_A::CGame_RBFFS_A: Loading ROM...\n");
     OutputDebugString(strMessage);
 
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
+    SetColorMode(ColMode::COLMODE_NEOGEO);
+
+    //Set palette conversion mode
+    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
+
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
@@ -41,7 +48,7 @@ CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = RBFFS_A_NUMUNIT;
     m_nExtraUnit = RBFFS_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 680;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 808;
     m_pszExtraFilename = EXTRA_FILENAME_RBFFS_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForRBFFS;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -50,13 +57,6 @@ CGame_RBFFS_A::CGame_RBFFS_A(UINT32 nConfirmedROMSize)
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
-
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
-    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_NEOGEO);
-
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     //Set game information
     nGameFlag = RBFFS_A;
@@ -404,6 +404,9 @@ void CGame_RBFFS_A::DumpPaletteHeaders()
                 break;
             case 12:
                 strPaletteName = L"Burn Palette";
+                break;
+            case 13:
+                strPaletteName = L"Blue Burn Palette";
                 break;
             case 14:
                 strPaletteName = L"Electricity Palette";
