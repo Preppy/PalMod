@@ -59,7 +59,7 @@ CGame_SSF2T_GBA::CGame_SSF2T_GBA(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = SSF2T_GBA;
-    nImgGameFlag = IMGDAT_SECTION_ST;
+    nImgGameFlag = IMGDAT_SECTION_SF2;
     m_prgGameImageSet = SSF2T_GBA_IMG_UNITS;
     nImgUnitAmt = ARRAYSIZE(SSF2T_GBA_IMG_UNITS);
 

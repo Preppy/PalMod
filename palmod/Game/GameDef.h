@@ -158,7 +158,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"SF2:HF (Arcade)",
    L"SF2:CE (Arcade)",
    L"SSF2T:Revival (GBA)",
-   L"Matrimelee (Arcade)",
+   L"Matrimelee (Neo-Geo)",
    L"SFIII:NG (Arcade)",
    L"Windjammers (Arcade)",
    L"SFIII:3S Gill Glow (Arcade Rerip)",
@@ -3377,9 +3377,9 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_NEOGEO,  // generic set for NeoGeo games
     IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
+    IMGDAT_SECTION_SF2,      // Used for ST
     IMGDAT_SECTION_SF3,
     IMGDAT_SECTION_SNES,
-    IMGDAT_SECTION_ST,      // Used for ST
     IMGDAT_SECTION_WAKUWAKU7,
     IMGDAT_SECTION_WINDJAMMERS,
     IMGDAT_SECTION_LAST,    // for comparing to the imgdat we try to load

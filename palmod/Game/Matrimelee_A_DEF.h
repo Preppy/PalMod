@@ -46,7 +46,7 @@ const sGame_PaletteDataset Matrimelee_A_Annie_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_Annie_PORTRAIT_PALETTES[] =
 {
-    { L"Annie Portrait", 0x29CBAc, 0x29CC4C },
+    { L"Annie Portrait", 0x29CBAc, 0x29CC4C, indexMatriMSprites_Annie, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_BUNTARO_A_PALETTES[] =
@@ -140,7 +140,7 @@ const sGame_PaletteDataset Matrimelee_A_CHINNEN_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_CHINNEN_PORTRAIT_PALETTES[] =
 {
-    { L"Chinnen Shared Portrait", 0x29BC24, 0x29BCA4 },
+    { L"Chinnen Shared Portrait", 0x29BC24, 0x29BCA4, indexMatriMSprites_Chinnen, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_CLARA_A_PALETTES[] =
@@ -221,7 +221,7 @@ const sGame_PaletteDataset Matrimelee_A_CLARA_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_CLARA_PORTRAIT_PALETTES[] =
 {
-    { L"Clara Shared Portrait", 0x29D3CE, 0x29D44E },
+    { L"Clara Shared Portrait", 0x29D3CE, 0x29D44E, indexMatriMSprites_Clara, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_ELIAS_A_PALETTES[] =
@@ -319,7 +319,7 @@ const sGame_PaletteDataset Matrimelee_A_HIKARU_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_HIKARU_PORTRAIT_PALETTES[] =
 {
-    { L"Hikaru Shared Portrait", 0x29FBA0, 0x29FC00 },
+    { L"Hikaru Shared Portrait", 0x29FBA0, 0x29FC00, indexMatriMSprites_Hikaru, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_JIMMY_A_PALETTES[] =
@@ -368,7 +368,7 @@ const sGame_PaletteDataset Matrimelee_A_JIMMY_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_JIMMY_PORTRAIT_PALETTES[] =
 {
-    { L"Jimmy Shared Portrait", 0x2A1AC2, 0x2A1B22 },
+    { L"Jimmy Shared Portrait", 0x2A1AC2, 0x2A1B22, indexMatriMSprites_Jimmy, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_JONES_A_PALETTES[] =
@@ -417,7 +417,7 @@ const sGame_PaletteDataset Matrimelee_A_JONES_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_JONES_PORTRAIT_PALETTES[] =
 {
-    { L"Jones Shared Portrait", 0x2A0D5c, 0x2A0dbC },
+    { L"Jones Shared Portrait", 0x2A0D5c, 0x2A0dbC, indexMatriMSprites_Jones, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_KANJI_A_PALETTES[] =
@@ -474,7 +474,7 @@ const sGame_PaletteDataset Matrimelee_A_KANJI_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_KANJI_PORTRAIT_PALETTES[] =
 {
-    { L"Kanji Shared Portrait", 0x29D8D0, 0x29D950 },
+    { L"Kanji Shared Portrait", 0x29D8D0, 0x29D950, indexMatriMSprites_Kanji, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_KEITH_A_PALETTES[] =
@@ -527,7 +527,7 @@ const sGame_PaletteDataset Matrimelee_A_KEITH_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_KEITH_PORTRAIT_PALETTES[] =
 {
-    { L"Keith Shared Portrait", 0x29B7A2, 0x29B822 }, 
+    { L"Keith Shared Portrait", 0x29B7A2, 0x29B822, indexMatriMSprites_Keith, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_LYNN_A_PALETTES[] =
@@ -641,7 +641,7 @@ const sGame_PaletteDataset Matrimelee_A_OLOF_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_OLOF_PORTRAIT_PALETTES[] =
 {
-    { L"Olof Shared Portrait", 0x29F278, 0x29F2F8 },
+    { L"Olof Shared Portrait", 0x29F278, 0x29F2F8, indexMatriMSprites_Olof, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_POOCHY_A_PALETTES[] =
@@ -702,7 +702,7 @@ const sGame_PaletteDataset Matrimelee_A_POOCHY_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_POOCHY_PORTRAIT_PALETTES[] =
 {
-    { L"Poochy Shared Portrait", 0x29DE52, 0x29DED2 },
+    { L"Poochy Shared Portrait", 0x29DE52, 0x29DED2, indexMatriMSprites_Poochy, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_A_PALETTES[] =
@@ -771,7 +771,7 @@ const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_PRINCESSSISSY_PORTRAIT_PALETTES[] =
 {
-    { L"Princess Sissy Shared Portrait", 0x2A0202, 0x2A02A2 },
+    { L"Princess Sissy Shared Portrait", 0x2A0202, 0x2A02A2, indexMatriMSprites_PrincessSissy, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_REIJI_A_PALETTES[] =
@@ -820,7 +820,7 @@ const sGame_PaletteDataset Matrimelee_A_REIJI_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_REIJI_PORTRAIT_PALETTES[] =
 {
-    { L"Reiji Shared Shared Portrait", 0x29B340, 0x29B3A0 }, 
+    { L"Reiji Shared Shared Portrait", 0x29B340, 0x29B3A0, indexMatriMSprites_Reiji, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_SAIZO_A_PALETTES[] =
@@ -885,7 +885,7 @@ const sGame_PaletteDataset Matrimelee_A_SAIZO_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_SAIZO_PORTRAIT_PALETTES[] =
 {
-    { L"Saizo Shared Portrait", 0x29C226, 0x29C2A6 },
+    { L"Saizo Shared Portrait", 0x29C226, 0x29C2A6, indexMatriMSprites_Saizo, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_SHINTARO_A_PALETTES[] =
@@ -926,7 +926,7 @@ const sGame_PaletteDataset Matrimelee_A_SHINTARO_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_SHINTARO_PORTRAIT_PALETTES[] =
 {
-    { L"Shintaro Shared Portrait", 0x29F89e, 0x29F91E },
+    { L"Shintaro Shared Portrait", 0x29F89e, 0x29F91E, indexMatriMSprites_Shintaro, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_TANE_A_PALETTES[] =
@@ -1011,7 +1011,7 @@ const sGame_PaletteDataset Matrimelee_A_TANE_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_TANE_PORTRAIT_PALETTES[] =
 {
-    { L"Tane Shared Portrait", 0x29E6D4, 0x29e734 },
+    { L"Tane Shared Portrait", 0x29E6D4, 0x29e734, indexMatriMSprites_Tane, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_UME_A_PALETTES[] =
@@ -1079,7 +1079,7 @@ const sGame_PaletteDataset Matrimelee_A_UME_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_UME_PORTRAIT_PALETTES[] =
 {
-    { L"Ume Shared Portrait", 0x29eD16, 0x29eD76 },
+    { L"Ume Shared Portrait", 0x29eD16, 0x29eD76, indexMatriMSprites_Ume, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_WHITE_A_PALETTES[] =
@@ -1140,7 +1140,7 @@ const sGame_PaletteDataset Matrimelee_A_WHITE_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_WHITE_PORTRAIT_PALETTES[] =
 {
-    { L"White Shared Portrait", 0x29C7A8, 0x29C828 },
+    { L"White Shared Portrait", 0x29C7A8, 0x29C828, indexMatriMSprites_White, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_HUD_PORTRAIT_PALETTES[] =
