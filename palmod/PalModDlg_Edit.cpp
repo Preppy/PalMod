@@ -248,7 +248,7 @@ void CPalModDlg::OnEditCopy()
             break;
         case ColMode::COLMODE_ARGB7888:
             cbColor = 4;
-            uCopyFlag1 = GGXXR_A + k_nASCIICharacterOffset;
+            uCopyFlag1 = GGXXACR_A + k_nASCIICharacterOffset;
             break;
         default:
             {
@@ -542,7 +542,7 @@ void CPalModDlg::OnEditPaste()
                     eColModeForPastedColor = ColMode::COLMODE_12A_LE;
                     break;
                 }
-                case GGXXR_A:
+                case GGXXACR_A:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB7888;
                     break;

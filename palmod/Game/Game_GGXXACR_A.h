@@ -2,11 +2,11 @@
 #include "gameclass.h"
 #include "..\extrafile.h"
 
-class CGame_GGXXR_A : public CGameWithExtrasFile
+class CGame_GGXXACR_A : public CGameWithExtrasFile
 {
 public:
-    CGame_GGXXR_A(UINT32 nConfirmedROMSize = -1);
-    ~CGame_GGXXR_A();
+    CGame_GGXXACR_A(UINT32 nConfirmedROMSize = -1);
+    ~CGame_GGXXACR_A();
 
     static void InitializeStatics();
     static UINT32 m_nConfirmedROMSize;

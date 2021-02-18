@@ -194,7 +194,7 @@
 #define ID_LD_SFIII3ARCADE4rd10         32882
 #define ID_LD_SFIII1                    32883
 #define ID_LD_SFIII2                    32884
-#define ID_LD_GGXXR                     32885
+#define ID_LD_GGXXACR                     32885
 
 // Please note that the F0000 range (983040) is reserved for the dynamic game menu
 

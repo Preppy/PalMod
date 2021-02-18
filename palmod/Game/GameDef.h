@@ -77,7 +77,7 @@ enum SupportedGamesList
     FatalFuryS_SNES,
     DUMMY_RGB9,          // ... we need a game ID to use for transmitting colors.
     SFIII3_A_DIR_EX,
-    GGXXR_A,
+    GGXXACR_A,
     AOF3_A,
     DANKUGA_A,
     SAMSHO4_A,

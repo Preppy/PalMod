@@ -69,7 +69,7 @@ const sGame_PaletteDataset AOF1_A_JACK_P1[] =
 {
     { L"Jack P1", 0x474c0, 0x474e0, indexAoF1Sprites_JackTurner, 0x00 },
     { L"Jack Damaged 1 P1 (Unused)", 0x474e0, 0x47500 },
-    { L"Jack Damaged 2 P1", 0x47500, 0x47520 },
+    { L"Jack Shared Bubble Gum", 0x47500, 0x47520 },
     { L"Jack Portrait P1", 0x47180, 0x471a0, indexAoF1Sprites_JackTurner, 0x80 },
 };
 
@@ -77,7 +77,7 @@ const sGame_PaletteDataset AOF1_A_JACK_P2[] =
 {
     { L"Jack P2", 0x47520, 0x47540, indexAoF1Sprites_JackTurner, 0x00 },
     { L"Jack Damaged 1 P2 (Unused)", 0x47540, 0x47560 },
-    { L"Jack Shared Bubble Gum", 0x47560, 0x47580 },
+    { L"Jack Damaged 2 P2 (Unused)", 0x47560, 0x47580 },
     { L"Jack Portrait P2", 0x471a0, 0x471c0, indexAoF1Sprites_JackTurner, 0x80 },
 };
 
@@ -152,33 +152,36 @@ const sGame_PaletteDataset AOF1_A_JOHN_P2[] =
     { L"John Portrait P2", 0x473a0, 0x473c0, indexAoF1Sprites_JohnCrawley, 0x80 },
 };
 
+// Mr. Big's handling of portraits is different between P1 and P2, so we need to avoid pairing that
+#define k_aof1NameKey_MrBigPortrait L"Mr. Big Portrait P1"
+
 const sGame_PaletteDataset AOF1_A_MRBIG_P1[] =
 {
-    { L"Mr.Big P1", 0x47880, 0x478a0, indexAoF1Sprites_MrBig, 0x00 },
-    { L"Mr.Big Damaged 1 P1", 0x478a0, 0x478c0, indexAoF1Sprites_MrBig, 0x08 },
-    { L"Mr.Big Damaged 2 P1", 0x478c0, 0x478e0, indexAoF1Sprites_MrBig, 0x08 },
-    { L"Mr.Big Portrait P1", 0x473c0, 0x473e0, indexAoF1Sprites_MrBig, 0x80 },
+    { L"Mr. Big P1", 0x47880, 0x478a0, indexAoF1Sprites_MrBig, 0x00 },
+    { L"Mr. Big Damaged 1 P1", 0x478a0, 0x478c0, indexAoF1Sprites_MrBig, 0x08 },
+    { L"Mr. Big Damaged 2 P1", 0x478c0, 0x478e0, indexAoF1Sprites_MrBig, 0x08 },
+    { k_aof1NameKey_MrBigPortrait, 0x473c0, 0x473e0, indexAoF1Sprites_MrBig, 0x80 },
 };
 
 const sGame_PaletteDataset AOF1_A_MRBIG_P2[] =
 {
-    { L"Mr.Big P2", 0x478e0, 0x47900, indexAoF1Sprites_MrBig, 0x00 },
-    { L"Mr.Big Damaged 1 P2", 0x47900, 0x47920, indexAoF1Sprites_MrBig, 0x08 },
-    { L"Mr.Big Damaged 2 P2", 0x47920, 0x47940, indexAoF1Sprites_MrBig, 0x08 },
+    { L"Mr. Big P2", 0x478e0, 0x47900, indexAoF1Sprites_MrBig, 0x00 },
+    { L"Mr. Big Damaged 1 P2", 0x47900, 0x47920, indexAoF1Sprites_MrBig, 0x08 },
+    { L"Mr. Big Damaged 2 P2", 0x47920, 0x47940, indexAoF1Sprites_MrBig, 0x08 },
 };
 
 const sGame_PaletteDataset AOF1_A_MRKARATE_P1[] =
 {
-    { L"Mr.Karate P1", 0x47940, 0x47960, indexAoF1Sprites_TakumaMrKarate, 0x00 },
-    { L"Mr.Karate Mask P1", 0x47960, 0x47980, indexAoF1Sprites_TakumaMrKarate, 0x08 },
-    { L"Mr.Karate Portrait P1", 0x473e0, 0x47400, indexAoF1Sprites_TakumaMrKarate, 0x80 },
+    { L"Mr. Karate P1", 0x47940, 0x47960, indexAoF1Sprites_TakumaMrKarate, 0x00 },
+    { L"Mr. Karate Mask P1", 0x47960, 0x47980, indexAoF1Sprites_TakumaMrKarate, 0x08 },
+    { L"Mr. Karate Portrait P1", 0x473e0, 0x47400, indexAoF1Sprites_TakumaMrKarate, 0x80 },
 };
 
 const sGame_PaletteDataset AOF1_A_MRKARATE_P2[] =
 {
-    { L"Mr.Karate P2", 0x479a0, 0x479c0, indexAoF1Sprites_TakumaMrKarate, 0x00 },
-    { L"Mr.Karate Mask P2", 0x479c0, 0x479e0, indexAoF1Sprites_TakumaMrKarate, 0x08 },
-    { L"Mr.Karate Portrait P2", 0x47be0, 0x47c00, indexAoF1Sprites_TakumaMrKarate, 0x80 },
+    { L"Mr. Karate P2", 0x479a0, 0x479c0, indexAoF1Sprites_TakumaMrKarate, 0x00 },
+    { L"Mr. Karate Mask P2", 0x479c0, 0x479e0, indexAoF1Sprites_TakumaMrKarate, 0x08 },
+    { L"Mr. Karate Portrait P2", 0x47be0, 0x47c00, indexAoF1Sprites_TakumaMrKarate, 0x80 },
 };
 
 const sGame_PaletteDataset AOF1_A_BONUS_PALETTES[] =

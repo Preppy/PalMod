@@ -663,6 +663,12 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                     }
                 }
 
+                if (fIsCorePalette && (wcscmp(paletteDataSet->szPaletteName, k_aof1NameKey_MrBigPortrait) == 0))
+                {
+                    // Mr Big portrait isn't paired
+                    fIsCorePalette = false;
+                }
+
                 if (fIsCorePalette)
                 {
                     nSrcAmt = m_nNumberOfColorOptions;

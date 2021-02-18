@@ -277,11 +277,11 @@
     <Filter Include="Game\Other Platforms\Dan-Ku-Ga">
       <UniqueIdentifier>{4cb9c32e-6df1-4558-89b1-002c430d37ea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Other Platforms\GGXX Reloaded">
-      <UniqueIdentifier>{4465c092-2e8d-4ad8-9e9f-3ddfa005bc8c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\SNK Games\Savage Reign">
       <UniqueIdentifier>{85ad4673-3216-48e6-8843-d42c26132625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Other Platforms\GGXX ACR">
+      <UniqueIdentifier>{4465c092-2e8d-4ad8-9e9f-3ddfa005bc8c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -606,11 +606,11 @@
     <ClCompile Include="Game\Game_DANKUGA_A.cpp">
       <Filter>Game\Other Platforms\Dan-Ku-Ga</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_GGXXR_A.cpp">
-      <Filter>Game\Other Platforms\GGXX Reloaded</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_SavageReign_A.cpp">
       <Filter>Game\SNK Games\Savage Reign</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_GGXXACR_A.cpp">
+      <Filter>Game\Other Platforms\GGXX ACR</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1127,14 +1127,14 @@
     <ClInclude Include="Game\Game_DANKUGA_A.h">
       <Filter>Game\Other Platforms\Dan-Ku-Ga</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Game_GGXXR_A.h">
-      <Filter>Game\Other Platforms\GGXX Reloaded</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Game_SavageReign_A.h">
       <Filter>Game\SNK Games\Savage Reign</Filter>
     </ClInclude>
     <ClInclude Include="Game\SavageReign_A_DEF.h">
       <Filter>Game\SNK Games\Savage Reign</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_GGXXACR_A.h">
+      <Filter>Game\Other Platforms\GGXX ACR</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1156,9 +1156,6 @@
   <ItemGroup>
     <None Include="res\PalMod.rc2">
       <Filter>Main DLG/APP\Resource Files</Filter>
-    </None>
-    <None Include="..\..\AllRoms\Originals\sfiii4n\dec_4rd_10_file">
-      <Filter>Game\SNK Games</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
