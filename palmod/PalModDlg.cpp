@@ -183,6 +183,7 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_TOOLS_BLINK, &CPalModDlg::OnBnBlink)
     ON_WM_GETMINMAXINFO()
     ON_COMMAND(ID_LOADDIRECTORY_DANKUGA, &CPalModDlg::OnLoadDir_Dankuga)
+    ON_COMMAND(ID_LD_DBFCI, &CPalModDlg::OnLoadDir_DBFCI)    
     ON_COMMAND(ID_LD_GGXXACR, &CPalModDlg::OnLoadDir_GGXXACReloaded)
     ON_COMMAND(ID_LD_JOJOS50, &CPalModDlg::OnLoadDir_Jojos50)
     ON_COMMAND(ID_LD_JOJOS51, &CPalModDlg::OnLoadDir_Jojos51)
@@ -522,13 +523,11 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
                 OnBnUpdate();
                 return TRUE;
             }
-            break;
             case IDNO:
             {
                 bPalChanged = FALSE;
                 return TRUE;
             }
-            break;
             case IDCANCEL:
             {
                 nPrevUnitSel != m_CBUnitSel.GetCurSel() ? m_CBUnitSel.SetCurSel(nPrevUnitSel) : NULL;
@@ -537,7 +536,6 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
 
                 return FALSE;
             }
-            break;
             }
         }
         else
@@ -562,17 +560,14 @@ BOOL CPalModDlg::VerifyMsg(eVerifyType eType)
                     OnFilePatch();
                     return TRUE;
                 }
-                break;
                 case IDNO:
                 {
                     fFileChanged = FALSE;
                     bPalChanged = FALSE;
                     return TRUE;
                 }
-                break;
                 case IDCANCEL:
                 {
-
                     return FALSE;
                 }
                 }

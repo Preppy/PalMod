@@ -10,6 +10,7 @@
 #include "Game_COTA_A.h"
 #include "Game_CVS2_A.h"
 #include "Game_DanKuGa_A.h"
+#include "Game_DBFCI_A.h"
 #include "Game_DoubleDragon_A.h"
 #include "Game_FatalFuryS_SNES.h"
 #include "Game_Garou_A.h"
@@ -165,6 +166,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         ResetRuleCtr = &CGame_DanKuGa_A_DIR::ResetRuleCtr;
         GetRule = &CGame_DanKuGa_A_DIR::GetRule;
         GetNextRule = &CGame_DanKuGa_A_DIR::GetNextRule;
+
+        return TRUE;
+    }
+    case DBFCI_A:
+    {
+        GetRuleCtr = &CGame_DBFCI_A::GetRuleCtr;
+        ResetRuleCtr = &CGame_DBFCI_A::ResetRuleCtr;
+        GetRule = &CGame_DBFCI_A::GetRule;
+        GetNextRule = &CGame_DBFCI_A::GetNextRule;
 
         return TRUE;
     }
@@ -643,6 +653,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case DANKUGA_A:
     {
         return new CGame_DanKuGa_A_DIR(-1);
+    }
+    case DBFCI_A:
+    {
+        return new CGame_DBFCI_A(nConfirmedROMSize);
     }
     case DOUBLEDRAGON_A:
     {
@@ -1179,7 +1193,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* szLoadDir)
     sFileRule CurrRule;
 
     CFile CurrFile;
-    CString szCurrFile;
+    CString strCurrFile;
     bool fShownFileError = false;
 
     //Track load save count
@@ -1207,11 +1221,20 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* szLoadDir)
 
         CurrRule = GetNextRule();
 
-        szCurrFile.Format(L"%s\\%s", szLoadDir, CurrRule.szFileName);
+        strCurrFile.Format(L"%s\\%s", szLoadDir, CurrRule.szFileName);
 
-        if (CurrFile.Open(szCurrFile, CFile::modeRead | CFile::typeBinary))
+        if (CurrFile.Open(strCurrFile, CFile::modeRead | CFile::typeBinary))
         {
-            if (((short int)CurrRule.uVerifyVar == -1) || (CurrFile.GetLength() == CurrRule.uVerifyVar))
+            bool fActualFileSizeIsSafe = ((short int)CurrRule.uVerifyVar == -1) || (CurrFile.GetLength() == CurrRule.uVerifyVar);
+
+            if (!fActualFileSizeIsSafe)
+            {
+                CString strError;
+                strError.Format(L"The file \"%s\" was found but is not the expected size.\n\nAre you sure you wish to load this file?", strCurrFile.GetString());
+                fActualFileSizeIsSafe = (MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_YESNO | MB_ICONERROR) == IDYES);
+            }
+
+            if (fActualFileSizeIsSafe)
             {
                 if (!OutGame)
                 {
@@ -1269,7 +1292,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* szLoadDir)
                 {
                     fShownFileError = true;
                     CString strError;
-                    strError.Format(L"Could not find file \"%s\" needed for this game.", szCurrFile.GetString());
+                    strError.Format(L"Could not find file \"%s\" needed for this game.", strCurrFile.GetString());
                     MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONERROR);
                 }
 

@@ -194,7 +194,8 @@
 #define ID_LD_SFIII3ARCADE4rd10         32882
 #define ID_LD_SFIII1                    32883
 #define ID_LD_SFIII2                    32884
-#define ID_LD_GGXXACR                     32885
+#define ID_LD_GGXXACR                   32885
+#define ID_LD_DBFCI                     32886
 
 // Please note that the F0000 range (983040) is reserved for the dynamic game menu
 
@@ -203,7 +204,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32886
+#define _APS_NEXT_COMMAND_VALUE         32887
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

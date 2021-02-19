@@ -543,6 +543,7 @@ void CPalModDlg::OnEditPaste()
                     break;
                 }
                 case GGXXACR_A:
+                case DBFCI_A:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB7888;
                     break;

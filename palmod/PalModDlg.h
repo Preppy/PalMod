@@ -288,7 +288,8 @@ public:
     afx_msg void OnChangeExtendedCopyData();
 
     afx_msg void OnLoadDir_Dankuga()        { OnLoadGameByDirectory(DANKUGA_A); };
-    afx_msg void OnLoadDir_GGXXACReloaded()   { OnLoadGameByDirectory(GGXXACR_A); };
+    afx_msg void OnLoadDir_DBFCI()          { OnLoadGameByDirectory(DBFCI_A); };
+    afx_msg void OnLoadDir_GGXXACReloaded() { OnLoadGameByDirectory(GGXXACR_A); };
     afx_msg void OnLoadDir_Jojos50()        { OnLoadGameByDirectory(JOJOS_A_DIR_50); };
     afx_msg void OnLoadDir_Jojos51()        { OnLoadGameByDirectory(JOJOS_A_DIR_51); };
     afx_msg void OnLoadDir_MVC2ArcadeAll()  { OnLoadGameByDirectory(MVC2_A_DIR); };

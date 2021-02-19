@@ -235,6 +235,7 @@
     <ClCompile Include="Game\Game_COTA_A.cpp" />
     <ClCompile Include="Game\Game_CVS2_A.cpp" />
     <ClCompile Include="Game\Game_DANKUGA_A.cpp" />
+    <ClCompile Include="Game\Game_DBFCI_A.cpp" />
     <ClCompile Include="Game\Game_DoubleDragon_A.cpp" />
     <ClCompile Include="Game\Game_FatalFuryS_SNES.cpp" />
     <ClCompile Include="Game\Game_Garou_A.cpp" />
@@ -363,6 +364,7 @@
     <ClInclude Include="Game\Game_COTA_A.h" />
     <ClInclude Include="Game\Game_CVS2_A.h" />
     <ClInclude Include="Game\Game_DANKUGA_A.h" />
+    <ClInclude Include="Game\Game_DBFCI_A.h" />
     <ClInclude Include="Game\Game_DoubleDragon_A.h" />
     <ClInclude Include="Game\Game_FatalFuryS_SNES.h" />
     <ClInclude Include="Game\Game_Garou_A.h" />

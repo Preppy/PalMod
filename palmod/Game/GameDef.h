@@ -100,6 +100,7 @@ enum SupportedGamesList
     SAVAGEREIGN_A,
     ROTD_A,
     GarouP_A,
+    DBFCI_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -203,6 +204,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Savage Reign (Neo-Geo)",
    L"Rage of the Dragons (Neo-Geo)",
    L"Garou: MotW (Neo-Geo Prototype)",
+   L"Dengeki Bunko: Fighting Climax IGNITION",
 };
 
 enum class GamePlatform
@@ -3365,6 +3367,64 @@ enum SupportedGGXX_PaletteListIndex
     indexGGXXSprites_ACR_Venom,             // 0x17
     indexGGXXSprites_ACR_Zappa,             // 0x18
     indexGGXXSprites_ACR_Bonus,             // 0x19
+};
+
+enum SupportedDBFC_PaletteListIndex
+{
+    indexDBFCSprites_DBFCI_Akira,        // 0x00
+    indexDBFCSprites_DBFCI_Ako,          // 0x01
+    indexDBFCSprites_DBFCI_Asuna,        // 0x02
+    indexDBFCSprites_DBFCI_Emi,          // 0x03
+    indexDBFCSprites_DBFCI_Kirino,       // 0x04
+    indexDBFCSprites_DBFCI_Kirito,       // 0x05
+    indexDBFCSprites_DBFCI_Kuroko,       // 0x06
+    indexDBFCSprites_DBFCI_Kuroyukihime, // 0x07
+    indexDBFCSprites_DBFCI_Mikoto,       // 0x08
+    indexDBFCSprites_DBFCI_Miyuki,       // 0x09
+    indexDBFCSprites_DBFCI_Quenser,      // 0x0A
+    indexDBFCSprites_DBFCI_Rentaro,      // 0x0B
+    indexDBFCSprites_DBFCI_Selvaria,     // 0x0C
+    indexDBFCSprites_DBFCI_Shana,        // 0x0D
+    indexDBFCSprites_DBFCI_Shizuo,       // 0x0E
+    indexDBFCSprites_DBFCI_Taiga,        // 0x0F
+    indexDBFCSprites_DBFCI_Tatsuya,      // 0x10
+    indexDBFCSprites_DBFCI_Tomoka,       // 0x11
+    indexDBFCSprites_DBFCI_Yukina,       // 0x12
+    indexDBFCSprites_DBFCI_Yuuki,        // 0x13
+    // indexDBFCSprites_DBFCI_Support,      // 0x14
+    // indexDBFCSprites_DBFCI_Bonus,        // 0x15
+
+    indexDBFCSprites_DBFCI_AcceleratorLastOrder, // 0x14
+    indexDBFCSprites_DBFCI_Alicia,        // 0x15
+    indexDBFCSprites_DBFCI_Arita,         // 0x16
+    indexDBFCSprites_DBFCI_Boogiepop,     // 0x17
+    indexDBFCSprites_DBFCI_Celty,         // 0x18
+    indexDBFCSprites_DBFCI_DokuroChan,    // 0x19
+    indexDBFCSprites_DBFCI_Enju,          // 0x1A
+    indexDBFCSprites_DBFCI_Erio,          // 0x1B
+    indexDBFCSprites_DBFCI_Frolaytia,     // 0x1C
+    indexDBFCSprites_DBFCI_Holo,          // 0x1D
+    indexDBFCSprites_DBFCI_InnocentCharm, // 0x1E
+    indexDBFCSprites_DBFCI_Izaya,         // 0x1F
+    indexDBFCSprites_DBFCI_Kana,          // 0x20
+    indexDBFCSprites_DBFCI_Kazari,        // 0x21
+    indexDBFCSprites_DBFCI_Kino,          // 0x22
+    indexDBFCSprites_DBFCI_Kojou,         // 0x23
+    indexDBFCSprites_DBFCI_Kokou,         // 0x24
+    indexDBFCSprites_DBFCI_Kuroneko,      // 0x25
+    indexDBFCSprites_DBFCI_Leafa,         // 0x26
+    indexDBFCSprites_DBFCI_Llenn,         // 0x27
+    indexDBFCSprites_DBFCI_Mashiro,       // 0x28
+    indexDBFCSprites_DBFCI_MiyukiAssist,  // 0x29
+    indexDBFCSprites_DBFCI_PaiChan,       // 0x2A
+    indexDBFCSprites_DBFCI_Rusian,        // 0x2B
+    indexDBFCSprites_DBFCI_Ryuji,         // 0x2C
+    indexDBFCSprites_DBFCI_Sadao,         // 0x2D
+    indexDBFCSprites_DBFCI_TatsuyaAssist, // 0x2E
+    indexDBFCSprites_DBFCI_Tomo,          // 0x2F
+    indexDBFCSprites_DBFCI_Touma,         // 0x30
+    indexDBFCSprites_DBFCI_Wilhelmina,    // 0x31
+    indexDBFCSprites_DBFCI_Zero,          // 0x32
 };
 
 enum eIMGDat_Sections

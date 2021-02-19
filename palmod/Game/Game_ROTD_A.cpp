@@ -180,7 +180,7 @@ sDescTreeNode* CGame_ROTD_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < ROTD_A_EXTRALOC)
+        if (iUnitCtr != ROTD_A_EXTRALOC)
         {
             //Set each description
             _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", ROTD_A_UNITS[iUnitCtr].szDesc);
@@ -196,7 +196,7 @@ sDescTreeNode* CGame_ROTD_A::InitDescTree()
             
             UINT16 nTotalPalettesUsedInUnit = 0;
 
-            //Set data for each child group ("collection"
+            //Set data for each child group ("collection")
             for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
             {
                 CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
@@ -337,7 +337,8 @@ UINT32 CGame_ROTD_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
 {
     static sCRC32ValueSet knownROMs[] =
     {
-        { L"Rage of the Dragons (Neo-Geo)", L"264-p1.p1", -1, 0 },
+        { L"Rage of the Dragons (Neo-Geo)", L"264-p1.p1", 0xb8cc969d, 0 },
+        { L"Rage of the Dragons (Neo-Geo Clone)", L"264-pk1.p1", 0xff2fa719, 0 },
     };
 
     if (ppKnownROMSet != nullptr)
