@@ -183,6 +183,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_Garou_A::GetRule;
         return TRUE;
     }
+    case GarouP_A:
+    {
+        GetRule = &CGame_GarouP_A::GetRule;
+        return TRUE;
+    }
     case Garou_S:
     {
         GetRule = &CGame_Garou_S::GetRule;
@@ -650,6 +655,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case Garou_A:
     {
         return new CGame_Garou_A(nConfirmedROMSize);
+    }
+    case GarouP_A:
+    {
+        return new CGame_GarouP_A(nConfirmedROMSize);
     }
     case Garou_S:
     {

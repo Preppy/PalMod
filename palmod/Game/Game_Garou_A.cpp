@@ -505,6 +505,7 @@ void CGame_Garou_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
                 // these are the base values: leave alone
                 break;
             case Garou_S:
+            case GarouP_A:
                 m_nCurrentPaletteROMLocation += 0xc0000;
                 break;
             }

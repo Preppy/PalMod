@@ -601,6 +601,7 @@ void CPalModDlg::OnEditPaste()
                 case BREAKERS_A:
                 case DOUBLEDRAGON_A:
                 case Garou_A:
+                case GarouP_A:
                 case Garou_S:
                 case KarnovsR_A:
                 case KOF94_A:

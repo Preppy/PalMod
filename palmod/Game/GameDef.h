@@ -99,6 +99,7 @@ enum SupportedGamesList
     SFIII2_A_DIR,
     SAVAGEREIGN_A,
     ROTD_A,
+    GarouP_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -201,6 +202,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"SFIII:2nd Impact (Arcade Rerip)",
    L"Savage Reign (Neo-Geo)",
    L"Rage of the Dragons (Neo-Geo)",
+   L"Garou: MotW (Neo-Geo Prototype)",
 };
 
 enum class GamePlatform
@@ -3370,6 +3372,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_BREAKREV = 0,
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_CVS2,    // CVS2: has both Capcom and SNK images
+    IMGDAT_SECTION_DBFC,    // Dengeki Bunko
     IMGDAT_SECTION_GAROU,
     IMGDAT_SECTION_GUILTYGEAR,
     IMGDAT_SECTION_JOJOS,
