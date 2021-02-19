@@ -305,7 +305,7 @@ void CImgDat::VersionCheckImgDat(UINT32 nCurrentDatestamp, UINT8 nNumGames)
         s_havePerformedVersionCheck = true;
         if (nNumGames != IMGDAT_SECTION_LAST)
         {
-            strMsg.Format(L"Warning: You didn't copy the new img2020.dat.  Images may not show up correctly.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
+            strMsg.Format(L"Warning: You didn't copy the new img2020.dat.  Images may not show up correctly as the number of game sets has changed.\n\nTo fix this, please exit PalMod and copy the new img2020.dat.");
             MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
         }
         else if (nExpectedDatestamp != nCurrentDatestamp)
