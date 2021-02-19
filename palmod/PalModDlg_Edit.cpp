@@ -618,6 +618,7 @@ void CPalModDlg::OnEditPaste()
                 case RBFF1_A:
                 case RBFF2_A:
                 case RBFFS_A:
+                case ROTD_A:
                 case SAMSHO3_A:
                 case SAMSHO4_A:
                 case SAMSHO5_A:

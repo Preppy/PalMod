@@ -23,8 +23,8 @@ sSupportedGameList SupportedGameList[] =
     { CVS2_A,           L"CVS2", L"CVS2|SNKGD_SL.bin|", GamePlatform::SegaNAOMI },
     { DOUBLEDRAGON_A,   L"Double Dragon", L"Double Dragon|082-p1.*;ddrag_p1.rom|", GamePlatform::NEOGEO },
     { FatalFuryS_SNES,  L"Fatal Fury Special (SNES)", L"Fatal Fury Special (SNES)|Fatal Fury Special (USA).sfc|", GamePlatform::Nintendo },
-    { Garou_A,          L"Garou", L"Garou|kf.neo-sma|", GamePlatform::NEOGEO },
-    { Garou_S,          L"Garou for Steam", L"Garou for Steam|p1.bin|", GamePlatform::Steam },
+    { Garou_A,          L"Garou: MotW", L"Garou: MotW|kf.neo-sma|", GamePlatform::NEOGEO },
+    { Garou_S,          L"Garou: MotW", L"Garou: MotW for Steam 2|p1.bin|", GamePlatform::Steam },
     { GUNDAM_SNES,      L"Gundam Wing: Endless Duel", L"Gundam Wing: Endless Duel (SNES)|Shin Kidou Senki Gundam W - Endless Duel (Japan).sfc|", GamePlatform::Nintendo },
     { JOJOS_A,          L"Jojo's: HFTF", L"Jojos (Japan): HUDs and menus (50), Characters (51)|50;51|", GamePlatform::CapcomCPS3 },
     { KarnovsR_A,       L"Karnov's Revenge", L"Karnov's Revenge|066-p1.p1|", GamePlatform::NEOGEO }, // DataEast
@@ -36,7 +36,7 @@ sSupportedGameList SupportedGameList[] =
     { KOF01_A,          L"KOF01", L"KOF01|262-p2-08-e0.sp2|", GamePlatform::NEOGEO },
     // normal ROM name is 265-p2.sp2, but the fightcade ROM name is 265.p2.bin
     { KOF02_A,          L"KOF02", L"KOF02|265*p2*|", GamePlatform::NEOGEO },
-    { KOF02UM_S,        L"KOF02UM for Steam", L"KOF02UM|pal_a*.bin;bar.bin;max2bg.bin|", GamePlatform::Steam },
+    { KOF02UM_S,        L"KOF02UM", L"KOF02UM|pal_a*.bin;bar.bin;max2bg.bin|", GamePlatform::Steam },
     { KOF03_A,          L"KOF03 (2004 EX Ultra Plus)", L"KOF03 (2004 EX Ultra Plus)|2k3-p1up.bin|", GamePlatform::NEOGEO },
     { KOFXI_A,          L"KOFXI", L"KOFXI|gdrom_KOFXI_v5_AllFighters.bin|", GamePlatform::SammyAtomiswave },
     { LASTBLADE2_A,     L"Last Blade 2", L"Last Blade 2 (Arcade)|243*.p1;LB2_P1.ROM|", GamePlatform::NEOGEO },
@@ -51,6 +51,7 @@ sSupportedGameList SupportedGameList[] =
     { NeoBomberman_A,   L"Neo Bomberman", L"Neo Bomberman|093-p1.*|", GamePlatform::NEOGEO },
     { NGBC_A,           L"NGBC", L"NGBC|NeoGeoBattleColliseum.bin|", GamePlatform::SammyAtomiswave },
     { NINJAMASTERS_A,   L"Ninja Master's", L"Ninja Master's|217-p2.*;ninjm_p2.rom|", GamePlatform::NEOGEO },
+    { ROTD_A,           L"Rage of the Dragons", L"Rage of the Dragons|264-p1.p1|", GamePlatform::NEOGEO },
     { RBFF1_A,          L"Real Bout Fatal Fury", L"Real Bout Fatal Fury|095-p1.*;rbff1_p1.rom|", GamePlatform::NEOGEO },
     { RBFF2_A,          L"Real Bout Fatal Fury 2", L"Real Bout Fatal Fury 2|240-p1.*;rb2_p1.rom|", GamePlatform::NEOGEO },
     // normal ROM name is 223-p1.p1 (and 223-p1k.p1 for Korean), FC uses 223-p1.bin

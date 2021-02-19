@@ -50,6 +50,7 @@
 #include "Game_REDEARTH_A.h"
 #include "Game_REDEARTH_A_DIR.h"
 #include "Game_RODSM2_A.h"
+#include "Game_ROTD_A.h"
 #include "Game_SAMSHO3_A.h"
 #include "Game_SAMSHO4_A.h"
 #include "Game_SAMSHO5_A.h"
@@ -390,6 +391,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case RODSM2_A:
     {
         GetRule = &CGame_RODSM2_A::GetRule;
+        return TRUE;
+    }
+    case ROTD_A:
+    {
+        GetRule = &CGame_ROTD_A::GetRule;
         return TRUE;
     }
     case SAMSHO3_A:
@@ -796,6 +802,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case RODSM2_A:
     {
         return new CGame_RODSM2_A(nConfirmedROMSize);
+    } 
+    case ROTD_A:
+    {
+        return new CGame_ROTD_A(nConfirmedROMSize);
     }
     case SAMSHO3_A:
     {

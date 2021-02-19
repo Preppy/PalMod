@@ -283,6 +283,9 @@
     <Filter Include="Game\Other Platforms\GGXX ACR">
       <UniqueIdentifier>{4465c092-2e8d-4ad8-9e9f-3ddfa005bc8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\SNK Games\Rage of the Dragons">
+      <UniqueIdentifier>{deaf145c-fe5f-4801-b2be-a8c8b9d7eb01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -611,6 +614,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_GGXXACR_A.cpp">
       <Filter>Game\Other Platforms\GGXX ACR</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_ROTD_A.cpp">
+      <Filter>Game\SNK Games\Rage of the Dragons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1135,6 +1141,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_GGXXACR_A.h">
       <Filter>Game\Other Platforms\GGXX ACR</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_ROTD_A.h">
+      <Filter>Game\SNK Games\Rage of the Dragons</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ROTD_A_DEF.h">
+      <Filter>Game\SNK Games\Rage of the Dragons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

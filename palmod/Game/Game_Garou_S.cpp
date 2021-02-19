@@ -12,9 +12,7 @@ UINT32 CGame_Garou_S::m_nConfirmedROMSize = -1;
 CGame_Garou_S::CGame_Garou_S(UINT32 nConfirmedROMSize) :
     CGame_Garou_A(0x40000) // allow for loading extras
 {
-    CString strMessage;
-    strMessage.Format(L"CGame_Garou_S::CGame_Garou_S: Loading ROM...\n");
-    OutputDebugString(strMessage);
+    OutputDebugString(L"CGame_Garou_S::CGame_Garou_S: Loading ROM...\n");
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.

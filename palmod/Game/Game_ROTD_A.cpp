@@ -1,41 +1,41 @@
 #include "StdAfx.h"
 #include "GameDef.h"
-#include "Game_Garou_A.h"
+#include "Game_ROTD_A.h"
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
-#define Garou_A_DEBUG DEFAULT_GAME_DEBUG_STATE
+#define ROTD_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_Garou_A::Garou_A_EXTRA_CUSTOM = nullptr;
+stExtraDef* CGame_ROTD_A::ROTD_A_EXTRA_CUSTOM = nullptr;
 
-CDescTree CGame_Garou_A::MainDescTree = nullptr;
+CDescTree CGame_ROTD_A::MainDescTree = nullptr;
 
-int CGame_Garou_A::rgExtraCountAll[Garou_A_NUMUNIT + 1];
-int CGame_Garou_A::rgExtraLoc[Garou_A_NUMUNIT + 1];
+int CGame_ROTD_A::rgExtraCountAll[ROTD_A_NUMUNIT + 1];
+int CGame_ROTD_A::rgExtraLoc[ROTD_A_NUMUNIT + 1];
 
-UINT32 CGame_Garou_A::m_nTotalPaletteCountForGarou = 0;
-UINT32 CGame_Garou_A::m_nExpectedGameROMSize = 0x40000; // 262,144 bytes
-UINT32 CGame_Garou_A::m_nConfirmedROMSize = -1;
+UINT32 CGame_ROTD_A::m_nTotalPaletteCountForROTD = 0;
+UINT32 CGame_ROTD_A::m_nExpectedGameROMSize = 0x800000;
+UINT32 CGame_ROTD_A::m_nConfirmedROMSize = -1;
 
-void CGame_Garou_A::InitializeStatics()
+void CGame_ROTD_A::InitializeStatics()
 {
-    safe_delete_array(CGame_Garou_A::Garou_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_ROTD_A::ROTD_A_EXTRA_CUSTOM);
 
     memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
     memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
 
-    MainDescTree.SetRootTree(CGame_Garou_A::InitDescTree());
+    MainDescTree.SetRootTree(CGame_ROTD_A::InitDescTree());
 }
 
-CGame_Garou_A::CGame_Garou_A(UINT32 nConfirmedROMSize)
+CGame_ROTD_A::CGame_ROTD_A(UINT32 nConfirmedROMSize)
 {
     CString strMessage;
-    strMessage.Format(L"CGame_Garou_A::CGame_Garou_A: Loading ROM...\n");
+    strMessage.Format(L"CGame_ROTD_A::CGame_ROTD_A: Loading ROM...\n");
     OutputDebugString(strMessage);
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    SetColorMode(ColMode::COLMODE_NEOGEO);
+    SetColorMode(ColMode::COLMODE_15ALT);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
@@ -45,32 +45,32 @@ CGame_Garou_A::CGame_Garou_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_nTotalInternalUnits = Garou_A_NUMUNIT;
-    m_nExtraUnit = Garou_A_EXTRALOC;
+    m_nTotalInternalUnits = ROTD_A_NUMUNIT;
+    m_nExtraUnit = ROTD_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 1311;
-    m_pszExtraFilename = EXTRA_FILENAME_Garou_A;
-    m_nTotalPaletteCount = m_nTotalPaletteCountForGarou;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 214;
+    m_pszExtraFilename = EXTRA_FILENAME_ROTD_A;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForROTD;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x0e040;
+    m_nLowestKnownPaletteRomLocation = 0x80406;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
     InitDataBuffer();
 
     //Set game information
-    nGameFlag = Garou_A;
-    nImgGameFlag = IMGDAT_SECTION_GAROU;
-    nImgUnitAmt = GAROU_A_NUM_IMG_UNITS;
-    m_prgGameImageSet = GAROU_A_IMG_UNITS;
+    nGameFlag = ROTD_A;
+    nImgGameFlag = IMGDAT_SECTION_KOF;
+    m_prgGameImageSet = nullptr;
+    nImgUnitAmt = 0;
 
     nFileAmt = 1;
 
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    // The MOTW options are A B C D (Boss)
-    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO_FIVE;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO_FIVE);
+    // Button labels are used for the Export Image dialog
+    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_NEOGEO);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -80,27 +80,27 @@ CGame_Garou_A::CGame_Garou_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
-CGame_Garou_A::~CGame_Garou_A(void)
+CGame_ROTD_A::~CGame_ROTD_A(void)
 {
-    safe_delete_array(CGame_Garou_A::Garou_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_ROTD_A::ROTD_A_EXTRA_CUSTOM);
     ClearDataBuffer();
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
 
-CDescTree* CGame_Garou_A::GetMainTree()
+CDescTree* CGame_ROTD_A::GetMainTree()
 {
-    return &CGame_Garou_A::MainDescTree;
+    return &CGame_ROTD_A::MainDescTree;
 }
 
-int CGame_Garou_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
+int CGame_ROTD_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
     if (rgExtraCountAll[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((Garou_A_NUMUNIT + 1) * sizeof(int)));
+        memset(rgExtraCountAll, 0, ((ROTD_A_NUMUNIT + 1) * sizeof(int)));
 
-        stExtraDef* pCurrDef = GetExtraDefForGarou_A(0);
+        stExtraDef* pCurrDef = GetExtraDefForROTD(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -110,22 +110,22 @@ int CGame_Garou_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForGarou_A(nDefCtr);
+            pCurrDef = GetExtraDefForROTD(nDefCtr);
         }
     }
 
     return rgExtraCountAll[nUnitId];
 }
 
-int CGame_Garou_A::GetExtraLoc(UINT16 nUnitId)
+int CGame_ROTD_A::GetExtraLoc(UINT16 nUnitId)
 {
     if (rgExtraLoc[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (Garou_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLoc, 0, (ROTD_A_NUMUNIT + 1) * sizeof(int));
 
-        stExtraDef* pCurrDef = GetExtraDefForGarou_A(0);
+        stExtraDef* pCurrDef = GetExtraDefForROTD(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
@@ -136,34 +136,34 @@ int CGame_Garou_A::GetExtraLoc(UINT16 nUnitId)
             }
 
             nDefCtr++;
-            pCurrDef = GetExtraDefForGarou_A(nDefCtr);
+            pCurrDef = GetExtraDefForROTD(nDefCtr);
         }
     }
 
     return rgExtraLoc[nUnitId];
 }
 
-sDescTreeNode* CGame_Garou_A::InitDescTree()
+sDescTreeNode* CGame_ROTD_A::InitDescTree()
 {
     UINT32 nTotalPaletteCount = 0;
 
     //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_Garou_A, Garou_A_EXTRA, &Garou_A_EXTRA_CUSTOM, Garou_A_EXTRALOC, m_nConfirmedROMSize);
+    LoadExtraFileForGame(EXTRA_FILENAME_ROTD_A, ROTD_A_EXTRA, &ROTD_A_EXTRA_CUSTOM, ROTD_A_EXTRALOC, m_nConfirmedROMSize);
 
-    UINT16 nUnitCt = Garou_A_NUMUNIT + (GetExtraCt(Garou_A_EXTRALOC) ? 1 : 0);
+    UINT16 nUnitCt = ROTD_A_NUMUNIT + (GetExtraCt(ROTD_A_EXTRALOC) ? 1 : 0);
     
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[Garou_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[ROTD_A]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
     NewDescTree->uChildType = DESC_NODETYPE_TREE;
 
     CString strMsg;
-    bool fHaveExtras = (GetExtraCt(Garou_A_EXTRALOC) > 0);
-    strMsg.Format(L"CGame_Garou_A::InitDescTree: Building desc tree for %s %s extras...\n", g_GameFriendlyName[Garou_A], fHaveExtras ? L"with" : L"without");
+    bool fHaveExtras = (GetExtraCt(ROTD_A_EXTRALOC) > 0);
+    strMsg.Format(L"CGame_ROTD_A::InitDescTree: Building desc tree for ROTD_A %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
     //Go through each character
@@ -180,17 +180,17 @@ sDescTreeNode* CGame_Garou_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr < Garou_A_EXTRALOC)
+        if (iUnitCtr < ROTD_A_EXTRALOC)
         {
             //Set each description
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", Garou_A_UNITS[iUnitCtr].szDesc);
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", ROTD_A_UNITS[iUnitCtr].szDesc);
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = nUnitChildCount;
 
-#if Garou_A_DEBUG
-            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : ("no extras", nUnitChildCount);
+#if ROTD_A_DEBUG
+            strMsg.Format(L"Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
             
@@ -211,7 +211,7 @@ sDescTreeNode* CGame_Garou_A::InitDescTree()
                 CollectionNode->uChildAmt = nListedChildrenCount;
                 CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
 
-#if Garou_A_DEBUG
+#if ROTD_A_DEBUG
                 strMsg.Format(L"\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
                 OutputDebugString(strMsg);
 #endif
@@ -229,7 +229,7 @@ sDescTreeNode* CGame_Garou_A::InitDescTree()
                     ChildNode->uPalId = nTotalPalettesUsedInUnit++;
                     nTotalPaletteCount++;
 
-#if Garou_A_DEBUG
+#if ROTD_A_DEBUG
                     strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
                     strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
@@ -257,7 +257,7 @@ sDescTreeNode* CGame_Garou_A::InitDescTree()
             UnitNode->uChildType = DESC_NODETYPE_TREE;
             UnitNode->uChildAmt = 1;
 
-#if Garou_A_DEBUG
+#if ROTD_A_DEBUG
             strMsg.Format(L"Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
             OutputDebugString(strMsg);
 #endif
@@ -269,7 +269,7 @@ sDescTreeNode* CGame_Garou_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(Garou_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(ROTD_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
 
             _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
@@ -278,7 +278,7 @@ sDescTreeNode* CGame_Garou_A::InitDescTree()
             CollectionNode->uChildType = DESC_NODETYPE_NODE;
             CollectionNode->uChildAmt = nExtraCt; //EX + Extra
 
-#if Garou_A_DEBUG
+#if ROTD_A_DEBUG
             strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
             OutputDebugString(strMsg);
 #endif
@@ -287,21 +287,21 @@ sDescTreeNode* CGame_Garou_A::InitDescTree()
             {
                 ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
 
-                stExtraDef* pCurrDef = GetExtraDefForGarou_A(nExtraPos + nCurrExtra);
+                stExtraDef* pCurrDef = GetExtraDefForROTD(nExtraPos + nCurrExtra);
 
                 while (pCurrDef->isInvisible)
                 {
                     nCurrExtra++;
 
-                    pCurrDef = GetExtraDefForGarou_A(nExtraPos + nCurrExtra);
+                    pCurrDef = GetExtraDefForROTD(nExtraPos + nCurrExtra);
                 }
 
                 _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((Garou_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((ROTD_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
-#if Garou_A_DEBUG
+#if ROTD_A_DEBUG
                 strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
                 OutputDebugString(strMsg);
 #endif
@@ -312,76 +312,97 @@ sDescTreeNode* CGame_Garou_A::InitDescTree()
         }
     }
 
-    strMsg.Format(L"CGame_Garou_A::InitDescTree: Loaded %u palettes for Garou\n", nTotalPaletteCount);
+    strMsg.Format(L"CGame_ROTD_A::InitDescTree: Loaded %u palettes for ROTD\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
-    m_nTotalPaletteCountForGarou = nTotalPaletteCount;
+    m_nTotalPaletteCountForROTD = nTotalPaletteCount;
 
     return NewDescTree;
 }
 
-sFileRule CGame_Garou_A::GetRule(UINT16 nUnitId)
+sFileRule CGame_ROTD_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"kf.neo-sma");
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"264-p1.p1");
 
     NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = 0x40000; // 262144
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
 
     return NewFileRule;
 }
 
-UINT16 CGame_Garou_A::GetCollectionCountForUnit(UINT16 nUnitId)
+UINT32 CGame_ROTD_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
-    if (nUnitId == Garou_A_EXTRALOC)
+    static sCRC32ValueSet knownROMs[] =
+    {
+        { L"Rage of the Dragons (Neo-Geo)", L"264-p1.p1", -1, 0 },
+    };
+
+    if (ppKnownROMSet != nullptr)
+    {
+        *ppKnownROMSet = knownROMs;
+    }
+
+    if (pfNeedToValidateCRCs)
+    {
+        // Each filename is associated with a single CRC
+        *pfNeedToValidateCRCs = false;
+    }
+
+    return ARRAYSIZE(knownROMs);
+}
+
+UINT16 CGame_ROTD_A::GetCollectionCountForUnit(UINT16 nUnitId)
+{
+    if (nUnitId == ROTD_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        return Garou_A_UNITS[nUnitId].uChildAmt;
+        return ROTD_A_UNITS[nUnitId].uChildAmt;
     }
 }
 
-UINT16 CGame_Garou_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+UINT16 CGame_ROTD_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == Garou_A_EXTRALOC)
+    if (nUnitId == ROTD_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(Garou_A_UNITS[nUnitId].ChildNodes);
+        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(ROTD_A_UNITS[nUnitId].ChildNodes);
 
         return pCollectionNode[nCollectionId].uChildAmt;
     }
 }
 
-LPCWSTR CGame_Garou_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
+LPCWSTR CGame_ROTD_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == Garou_A_EXTRALOC)
+    if (nUnitId == ROTD_A_EXTRALOC)
     {
         return L"Extra Palettes";
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)Garou_A_UNITS[nUnitId].ChildNodes;
+        const sDescTreeNode* pCollection = (const sDescTreeNode*)ROTD_A_UNITS[nUnitId].ChildNodes;
         return pCollection[nCollectionId].szDesc;
     }
 }
 
-UINT16 CGame_Garou_A::GetPaletteCountForUnit(UINT16 nUnitId)
+UINT16 CGame_ROTD_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == Garou_A_EXTRALOC)
+    if (nUnitId == ROTD_A_EXTRALOC)
     {
         return GetExtraCt(nUnitId);
     }
     else
     {
         UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = Garou_A_UNITS;
+        const sDescTreeNode* pCompleteROMTree = ROTD_A_UNITS;
         UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
 
         const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
@@ -391,9 +412,9 @@ UINT16 CGame_Garou_A::GetPaletteCountForUnit(UINT16 nUnitId)
             nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
         }
 
-#if Garou_A_DEBUG
+#if ROTD_A_DEBUG
         CString strMsg;
-        strMsg.Format(L"CGame_Garou_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
+        strMsg.Format(L"CGame_ROTD_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
         OutputDebugString(strMsg);
 #endif
 
@@ -401,14 +422,14 @@ UINT16 CGame_Garou_A::GetPaletteCountForUnit(UINT16 nUnitId)
     }
 }
 
-const sGame_PaletteDataset* CGame_Garou_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
+const sGame_PaletteDataset* CGame_ROTD_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)Garou_A_UNITS[nUnitId].ChildNodes;
+    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)ROTD_A_UNITS[nUnitId].ChildNodes;
     return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
 }
 
-const sDescTreeNode* CGame_Garou_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
+const sDescTreeNode* CGame_ROTD_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
     // Don't use this for Extra palettes.
     const sDescTreeNode* pCollectionNode = nullptr;
@@ -421,7 +442,7 @@ const sDescTreeNode* CGame_Garou_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == Garou_A_EXTRALOC)
+        if (nUnitId == ROTD_A_EXTRALOC)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -433,7 +454,7 @@ const sDescTreeNode* CGame_Garou_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(Garou_A_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(ROTD_A_UNITS[nUnitId].ChildNodes);
             
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -459,7 +480,7 @@ const sDescTreeNode* CGame_Garou_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 
     return pCollectionNode;
 }
 
-const sGame_PaletteDataset* CGame_Garou_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
+const sGame_PaletteDataset* CGame_ROTD_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
     // Don't use this for Extra palettes.
     UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
@@ -483,9 +504,9 @@ const sGame_PaletteDataset* CGame_Garou_A::GetSpecificPalette(UINT16 nUnitId, UI
     return paletteToUse;
 }
 
-void CGame_Garou_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
+void CGame_ROTD_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-     if (nUnitId != Garou_A_EXTRALOC)
+     if (nUnitId != ROTD_A_EXTRALOC)
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -497,17 +518,6 @@ void CGame_Garou_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
-
-            // The various Garou versions shift locations around: account for this
-            switch (nGameFlag)
-            {
-            case Garou_A:
-                // these are the base values: leave alone
-                break;
-            case Garou_S:
-                m_nCurrentPaletteROMLocation += 0xc0000;
-                break;
-            }
         }
         else
         {
@@ -515,10 +525,10 @@ void CGame_Garou_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
             DebugBreak();
         }
     }
-    else // Garou_A_EXTRALOC
+    else // ROTD_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForGarou_A(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = GetExtraDefForROTD(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
@@ -526,7 +536,7 @@ void CGame_Garou_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     }
 }
 
-BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
+BOOL CGame_ROTD_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
     //Reset palette sources
     ClearSrcPal();
@@ -559,7 +569,7 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
     // Only load images for internal units, since we don't currently have a methodology for associating
     // external loads to internal sprites.
-    if (NodeGet->uUnitId != Garou_A_EXTRALOC)
+    if (NodeGet->uUnitId != ROTD_A_EXTRALOC)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 
@@ -572,59 +582,65 @@ BOOL CGame_Garou_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
             if (pCurrentNode)
             {
-                sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
+                bool fIsCorePalette = false;
 
-                if (wcscmp(charUnit->szDesc, k_garouNameKey_Portraits) == 0)
+                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
                 {
-                    // These nodes are variable sizes, so do a little math to figure it out
-                    nSrcAmt = 4;
-                    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO;
-                    nNodeIncrement = 1;
-                    UINT16 nCollectionCount = GetCollectionCountForUnit(NodeGet->uUnitId);
-                    nSrcStart = 0;
-
-                    for (UINT16 nCurrentCollection = 0; nCurrentCollection < nCollectionCount; nCurrentCollection++)
+                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
                     {
-                        UINT16 nNextChunk = GetNodeCountForCollection(NodeGet->uUnitId, nCurrentCollection);
-
-                        if (NodeGet->uPalId < (nSrcStart + nNextChunk))
-                        {
-                            break;
-                        }
-
-                        nSrcStart += nNextChunk;
+                        fIsCorePalette = true;
+                        break;
                     }
                 }
-                else
+
+                if (fIsCorePalette)
                 {
-                    pButtonLabelSet = DEF_BUTTONLABEL_NEOGEO_FIVE;
-                    bool fIsCorePalette = false;
+                    nSrcAmt = m_nNumberOfColorOptions;
+                    nNodeIncrement = pCurrentNode->uChildAmt;
 
-                    for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
+                    while (nSrcStart >= nNodeIncrement)
                     {
-                        if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
-                        {
-                            fIsCorePalette = true;
-                            break;
-                        }
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        nSrcStart -= nNodeIncrement;
                     }
+                }
+            }
 
-                    if (fIsCorePalette)
-                    {
-                        nSrcAmt = 5;
-                        nNodeIncrement = pCurrentNode->uChildAmt;
+            if (paletteDataSet->pPalettePairingInfo)
+            {
+                int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+                INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
 
-                        while (nSrcStart >= nNodeIncrement)
-                        {
-                            // The starting point is the absolute first palette for the sprite in question which is found in P1
-                            nSrcStart -= nNodeIncrement;
-                        }
-                    }
+                const sGame_PaletteDataset* paletteDataSetToJoin = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance);
+
+                if (paletteDataSetToJoin)
+                {
+                    fShouldUseAlternateLoadLogic = true;
+
+                    ClearSetImgTicket(
+                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                        )
+                    );
+
+                    //Set each palette
+                    sDescNode* JoinedNode[2] = {
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                        GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                    };
+
+                    //Set each palette
+                    CreateDefPal(JoinedNode[0], 0);
+                    CreateDefPal(JoinedNode[1], 1);
+
+                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
                 }
             }
         }
     }
-    
+
     if (!fShouldUseAlternateLoadLogic)
     {
         //Create the default palette
