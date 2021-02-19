@@ -3391,9 +3391,6 @@ enum SupportedDBFC_PaletteListIndex
     indexDBFCSprites_DBFCI_Tomoka,       // 0x11
     indexDBFCSprites_DBFCI_Yukina,       // 0x12
     indexDBFCSprites_DBFCI_Yuuki,        // 0x13
-    // indexDBFCSprites_DBFCI_Support,      // 0x14
-    // indexDBFCSprites_DBFCI_Bonus,        // 0x15
-
     indexDBFCSprites_DBFCI_AcceleratorLastOrder, // 0x14
     indexDBFCSprites_DBFCI_Alicia,        // 0x15
     indexDBFCSprites_DBFCI_Arita,         // 0x16
@@ -3425,6 +3422,29 @@ enum SupportedDBFC_PaletteListIndex
     indexDBFCSprites_DBFCI_Touma,         // 0x30
     indexDBFCSprites_DBFCI_Wilhelmina,    // 0x31
     indexDBFCSprites_DBFCI_Zero,          // 0x32
+    indexDBFCSprites_DBFCI_Bonus,         // 0x33
+
+    indexFrenchBreadSprites_UNICLR_Akat,  // 0x34
+    indexFrenchBreadSprites_UNICLR_Byak,  // 0x35
+    indexFrenchBreadSprites_UNICLR_Carm,  // 0x36
+    indexFrenchBreadSprites_UNICLR_Chao,  // 0x37
+    indexFrenchBreadSprites_UNICLR_Eltn,  // 0x38
+    indexFrenchBreadSprites_UNICLR_Enki,  // 0x39
+    indexFrenchBreadSprites_UNICLR_Gord,  // 0x3A
+    indexFrenchBreadSprites_UNICLR_Hild,  // 0x3B
+    indexFrenchBreadSprites_UNICLR_Hyde,  // 0x3C
+    indexFrenchBreadSprites_UNICLR_Linn,  // 0x3D
+    indexFrenchBreadSprites_UNICLR_Lond,  // 0x3E
+    indexFrenchBreadSprites_UNICLR_Merk,  // 0x3F
+    indexFrenchBreadSprites_UNICLR_Mika,  // 0x40
+    indexFrenchBreadSprites_UNICLR_Nana,  // 0x41
+    indexFrenchBreadSprites_UNICLR_Orie,  // 0x42
+    indexFrenchBreadSprites_UNICLR_Phon,  // 0x43
+    indexFrenchBreadSprites_UNICLR_Seth,  // 0x44
+    indexFrenchBreadSprites_UNICLR_Vati,  // 0x45
+    indexFrenchBreadSprites_UNICLR_Wagn,  // 0x46
+    indexFrenchBreadSprites_UNICLR_Wald,  // 0x47
+    indexFrenchBreadSprites_UNICLR_Bonus, // 0x48
 };
 
 enum eIMGDat_Sections

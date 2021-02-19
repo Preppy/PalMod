@@ -30,9 +30,6 @@ const UINT16 DBFCI_A_IMG_UNITS[] =
     indexDBFCSprites_DBFCI_Tomoka,       // 0x11
     indexDBFCSprites_DBFCI_Yukina,       // 0x12
     indexDBFCSprites_DBFCI_Yuuki,        // 0x13
-    // indexDBFCSprites_DBFCI_Support,      // 0x14
-    // indexDBFCSprites_DBFCI_Bonus,        // 0x15
-
     indexDBFCSprites_DBFCI_AcceleratorLastOrder, // 0x14
     indexDBFCSprites_DBFCI_Alicia,        // 0x15
     indexDBFCSprites_DBFCI_Arita,         // 0x16
@@ -64,6 +61,7 @@ const UINT16 DBFCI_A_IMG_UNITS[] =
     indexDBFCSprites_DBFCI_Touma,         // 0x30
     indexDBFCSprites_DBFCI_Wilhelmina,    // 0x31
     indexDBFCSprites_DBFCI_Zero,          // 0x32
+    indexDBFCSprites_DBFCI_Bonus,         // 0x33
 };
 
 struct DBFCINodeData
@@ -79,6 +77,49 @@ const DBFCINodeData DBFCIPaletteNodes[] =
 };
 
 const LPCWSTR DBFCIPaletteNamesNormal[] =
+{
+    L"1",
+    L"2",
+    L"3",
+    L"4",
+    L"5",
+
+    L"6",
+    L"7",
+    L"8",
+    L"9",
+    L"10",
+
+    L"11",
+    L"12",
+    L"13",
+    L"14",
+    L"15",
+
+    L"16",
+    L"17",
+    L"18",
+    L"19",
+    L"20",
+
+    L"21",
+    L"22",
+    L"23",
+    L"24",
+    L"25",
+
+    L"26",
+    L"27",
+    L"28",
+    L"29",
+    L"30",
+
+    L"31",
+    L"32",
+};
+
+// Identical for now, but leaving in so we can be flexible
+const LPCWSTR DBFCIPaletteNamesEx[] =
 {
     L"1",
     L"2",
@@ -153,6 +194,39 @@ DBFCIFileData DBFCICharacterData[] =
     { L"Tmk.pal",    L"Tomoka",         65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexDBFCSprites_DBFCI_Tomoka },
     { L"Ykn.pal",    L"Yukina",         65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexDBFCSprites_DBFCI_Yukina },
     { L"Yuk.pal",    L"Yuuki",          65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexDBFCSprites_DBFCI_Yuuki },
+    
+    // Support characters
+    { L"Acr_s.pal",  L"Accelerator&Last Order", 65540, DBFCIPaletteNamesEx,   ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_AcceleratorLastOrder },
+    { L"Alc_s.pal",  L"Alicia",         65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Alicia },
+    { L"Har_s.pal",  L"Arita",          65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Arita },
+    { L"Bog_s.pal",  L"Boogiepop",      65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Boogiepop },
+    { L"Crt_s.pal",  L"Celty",          65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Celty },
+    { L"Dok_s.pal",  L"Dokuro-Chan",    65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_DokuroChan },
+    { L"Aen_s.pal",  L"Enju",           65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Enju },
+    { L"Ero_s.pal",  L"Erio",           65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Erio },
+    { L"Fro_s.pal",  L"Frolaytia",      65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Frolaytia },
+    { L"Hol_s.pal",  L"Holo",           65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Holo },
+    { L"Ino_s.pal",  L"Innocent Charm", 65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_InnocentCharm },
+    { L"Izy_s.pal",  L"Izaya",          65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Izaya },
+    { L"Iry_s.pal",  L"Kana",           65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Kana },
+    { L"Uih_s.pal",  L"Kazari",         65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Kazari },
+    { L"Kin_s.pal",  L"Kino",           65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Kino },
+    { L"Akj_s.pal",  L"Kojou",          65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Kojou },
+    { L"Kgk_s.pal",  L"Kokou",          65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Kokou },
+    { L"Kro_s.pal",  L"Kuroneko",       65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Kuroneko },
+    { L"Lea_s.pal",  L"Leafa",          65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Leafa },
+    { L"Ren_s.pal",  L"Llenn",          65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Llenn },
+    { L"Mas_s.pal",  L"Mashiro",        65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Mashiro },
+    { L"Smy_s.pal",  L"Miyuki Support", 66564,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_MiyukiAssist },
+    { L"Pai_s.pal",  L"Pai",            65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_PaiChan },
+    { L"Rus_s.pal",  L"Rusian",         65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Rusian },
+    { L"Tks_s.pal",  L"Ryuji",          65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Ryuji },
+    { L"Mou_s.pal",  L"Sadao",          65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Sadao },
+    { L"Sbt_s.pal",  L"Tatsuya Support",65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_TatsuyaAssist },
+    { L"Asm_s.pal",  L"Tomo",           65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Tomo },
+    { L"Tom_s.pal",  L"Touma",          65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Touma },
+    { L"Wil_s.pal",  L"Wilhelmina",     65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Wilhelmina },
+    { L"Zer_s.pal",  L"Zero",           65540,    DBFCIPaletteNamesEx,        ARRAYSIZE(DBFCIPaletteNamesEx),     0x4,  indexDBFCSprites_DBFCI_Zero },
 };
 
 CGame_DBFCI_A::CGame_DBFCI_A(UINT32 nConfirmedROMSize /* = -1 */)
