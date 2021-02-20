@@ -299,6 +299,7 @@
     <ClCompile Include="Game\Game_SSF2T_A.cpp" />
     <ClCompile Include="Game\Game_SSF2T_GBA.cpp" />
     <ClCompile Include="Game\Game_SVCPLUSA_A.cpp" />
+    <ClCompile Include="Game\Game_UNICLR_A.cpp" />
     <ClCompile Include="Game\Game_VHUNT2_A.cpp" />
     <ClCompile Include="Game\Game_VSAV2_A.cpp" />
     <ClCompile Include="Game\Game_VSAV_A.cpp" />
@@ -428,6 +429,7 @@
     <ClInclude Include="Game\Game_SSF2T_A.h" />
     <ClInclude Include="Game\Game_SSF2T_GBA.h" />
     <ClInclude Include="Game\Game_SVCPLUSA_A.h" />
+    <ClInclude Include="Game\Game_UNICLR_A.h" />
     <ClInclude Include="Game\Game_VHUNT2_A.h" />
     <ClInclude Include="Game\Game_VSAV2_A.h" />
     <ClInclude Include="Game\Game_VSAV_A.h" />

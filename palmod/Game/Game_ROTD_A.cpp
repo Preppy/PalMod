@@ -338,6 +338,7 @@ UINT32 CGame_ROTD_A::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnown
     static sCRC32ValueSet knownROMs[] =
     {
         { L"Rage of the Dragons (Neo-Geo)", L"264-p1.p1", 0xb8cc969d, 0 },
+        // This is a smaller file but it works
         { L"Rage of the Dragons (Neo-Geo Clone)", L"264-pk1.p1", 0xff2fa719, 0 },
     };
 

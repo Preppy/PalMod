@@ -348,6 +348,7 @@ BEGIN
                 MENUITEM "4rd Strike",                    ID_LD_SFIII3ARCADE4rd
                 MENUITEM "4rd Strike - Gill/X.C.O.P.Y.",  ID_LD_SFIII3ARCADE4rd10
             END
+            MENUITEM "Under Night In-Birth Exe:Late[cl-r]" ID_LD_UNICLR
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
         MENUITEM SEPARATOR

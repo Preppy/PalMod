@@ -16,6 +16,7 @@ UINT8 GetCbForColorForGameFlag(UINT8 uGameFlag)
     {
     case GGXXACR_A:
     case DBFCI_A:
+    case UNICLR_A:
         return 4;
     default:
         return 2;

@@ -101,6 +101,7 @@ enum SupportedGamesList
     ROTD_A,
     GarouP_A,
     DBFCI_A,
+    UNICLR_A,
 
     NUM_GAMES // This needs to be last
 };
@@ -205,6 +206,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Rage of the Dragons (Neo-Geo)",
    L"Garou: MotW (Neo-Geo Prototype)",
    L"Dengeki Bunko: Fighting Climax IGNITION",
+   L"Under Night In-Birth Exe:Late[clr-r]",
 };
 
 enum class GamePlatform

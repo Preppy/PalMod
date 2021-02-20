@@ -74,6 +74,7 @@
 #include "Game_SSF2T_A.h"
 #include "Game_SSF2T_GBA.h"
 #include "Game_SVCPLUSA_A.h"
+#include "Game_UNICLR_A.h"
 #include "Game_VHUNT2_A.h"
 #include "Game_VSAV_A.h"
 #include "Game_VSAV2_A.h"
@@ -575,6 +576,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SVCPLUSA_A::GetRule;
         return TRUE;
     }
+    case UNICLR_A:
+    {
+        GetRuleCtr = &CGame_UNICLR_A::GetRuleCtr;
+        ResetRuleCtr = &CGame_UNICLR_A::ResetRuleCtr;
+        GetRule = &CGame_UNICLR_A::GetRule;
+        GetNextRule = &CGame_UNICLR_A::GetNextRule;
+
+        return TRUE;
+    }
     case VHUNT2_A:
     {
         GetRule = &CGame_VHUNT2_A::GetRule;
@@ -933,6 +943,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case SVCPLUSA_A:
     {
         return new CGame_SVCPLUSA_A(nConfirmedROMSize);
+    }
+    case UNICLR_A:
+    {
+        return new CGame_UNICLR_A(nConfirmedROMSize);
     }
     case VHUNT2_A:
     {
