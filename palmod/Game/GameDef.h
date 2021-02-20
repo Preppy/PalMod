@@ -3423,28 +3423,31 @@ enum SupportedDBFC_PaletteListIndex
     indexDBFCSprites_DBFCI_Wilhelmina,    // 0x31
     indexDBFCSprites_DBFCI_Zero,          // 0x32
     indexDBFCSprites_DBFCI_Bonus,         // 0x33
+};
 
-    indexFrenchBreadSprites_UNICLR_Akat,  // 0x34
-    indexFrenchBreadSprites_UNICLR_Byak,  // 0x35
-    indexFrenchBreadSprites_UNICLR_Carm,  // 0x36
-    indexFrenchBreadSprites_UNICLR_Chao,  // 0x37
-    indexFrenchBreadSprites_UNICLR_Eltn,  // 0x38
-    indexFrenchBreadSprites_UNICLR_Enki,  // 0x39
-    indexFrenchBreadSprites_UNICLR_Gord,  // 0x3A
-    indexFrenchBreadSprites_UNICLR_Hild,  // 0x3B
-    indexFrenchBreadSprites_UNICLR_Hyde,  // 0x3C
-    indexFrenchBreadSprites_UNICLR_Linn,  // 0x3D
-    indexFrenchBreadSprites_UNICLR_Lond,  // 0x3E
-    indexFrenchBreadSprites_UNICLR_Merk,  // 0x3F
-    indexFrenchBreadSprites_UNICLR_Mika,  // 0x40
-    indexFrenchBreadSprites_UNICLR_Nana,  // 0x41
-    indexFrenchBreadSprites_UNICLR_Orie,  // 0x42
-    indexFrenchBreadSprites_UNICLR_Phon,  // 0x43
-    indexFrenchBreadSprites_UNICLR_Seth,  // 0x44
-    indexFrenchBreadSprites_UNICLR_Vati,  // 0x45
-    indexFrenchBreadSprites_UNICLR_Wagn,  // 0x46
-    indexFrenchBreadSprites_UNICLR_Wald,  // 0x47
-    indexFrenchBreadSprites_UNICLR_Bonus, // 0x48
+enum SupportedFrenchBread_PaletteListIndex
+{
+    indexFrenchBreadSprites_UNICLR_Akat,   // 0x00
+    indexFrenchBreadSprites_UNICLR_Byak,   // 0x01
+    indexFrenchBreadSprites_UNICLR_Carm,   // 0x02
+    indexFrenchBreadSprites_UNICLR_Chao,   // 0x03
+    indexFrenchBreadSprites_UNICLR_Eltn,   // 0x04
+    indexFrenchBreadSprites_UNICLR_Enki,   // 0x05
+    indexFrenchBreadSprites_UNICLR_Gord,   // 0x06
+    indexFrenchBreadSprites_UNICLR_Hild,   // 0x07
+    indexFrenchBreadSprites_UNICLR_Hyde,   // 0x08
+    indexFrenchBreadSprites_UNICLR_Linn,   // 0x09
+    indexFrenchBreadSprites_UNICLR_Lond,   // 0x0A
+    indexFrenchBreadSprites_UNICLR_Merk,   // 0x0B
+    indexFrenchBreadSprites_UNICLR_Mika,   // 0x0C
+    indexFrenchBreadSprites_UNICLR_Nana,   // 0x0D
+    indexFrenchBreadSprites_UNICLR_Orie,   // 0x0E
+    indexFrenchBreadSprites_UNICLR_Phon,   // 0x0F
+    indexFrenchBreadSprites_UNICLR_Seth,   // 0x10
+    indexFrenchBreadSprites_UNICLR_Vati,   // 0x11
+    indexFrenchBreadSprites_UNICLR_Wagn,   // 0x12
+    indexFrenchBreadSprites_UNICLR_Wald,   // 0x13
+    indexFrenchBreadSprites_UNICLR_Bonus,  // 0x14
 };
 
 enum eIMGDat_Sections
@@ -3453,6 +3456,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_CVS2,    // CVS2: has both Capcom and SNK images
     IMGDAT_SECTION_DBFC,    // Dengeki Bunko
+    IMGDAT_SECTION_FRENCHBREAD, // UniClr
     IMGDAT_SECTION_GAROU,
     IMGDAT_SECTION_GUILTYGEAR,
     IMGDAT_SECTION_JOJOS,
