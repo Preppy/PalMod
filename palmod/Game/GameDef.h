@@ -409,6 +409,7 @@ struct stPairedPaletteInfo
     int nNodeIncrementToPartner = 1;
     int nXOffs = 0;
     int nYOffs = 0;
+    bool fPairingIsFlipped = false;
 };
 
 struct sGame_PaletteDataset
@@ -3491,6 +3492,11 @@ const stPairedPaletteInfo pairNext8 = { 8, 0, 0 };
 const stPairedPaletteInfo pairNext9 = { 9, 0, 0 };
 const stPairedPaletteInfo pairNext10 = { 10, 0, 0 };
 const stPairedPaletteInfo pairPrevious = { -1, 0, 0 };
+const stPairedPaletteInfo pairPrevious2 = { -2, 0, 0 };
+
+// Same thing as Previous, except flip the order of the joins to avoid sprite occlusion 
+const stPairedPaletteInfo pairPreviousFlipped = { -1, 0, 0, true };
+const stPairedPaletteInfo pairPreviousFlipped2 = { -2, 0, 0, true };
 
 const stPairedPaletteInfo pairNextAndNext = { 1, 0, 0 }; // triple display... requires special handling in code
 

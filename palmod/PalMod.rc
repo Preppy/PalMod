@@ -321,7 +321,7 @@ BEGIN
         BEGIN
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
             MENUITEM "Dengeki Bunko: Fighting Climax IGNITION" ID_LD_DBFCI
-            MENUITEM "GGXX:AC+R"                    ID_LD_GGXXACR
+            MENUITEM "GGXX:AC+R (Steam)"            ID_LD_GGXXACR
             POPUP "Jojo's HftF"
             BEGIN
                 MENUITEM "Characters (Japan Arcade)",     ID_LD_JOJOS51

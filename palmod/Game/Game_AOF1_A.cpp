@@ -44,7 +44,7 @@ CGame_AOF1_A::CGame_AOF1_A(UINT32 nConfirmedROMSize, int nROMToLoad /*= 1*/)
     m_nTotalInternalUnits = AOF1_A_NUMUNIT;
     m_nExtraUnit = AOF1_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 88;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 83;
     m_pszExtraFilename = EXTRA_FILENAME_AOF1_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForAOF1;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -694,12 +694,22 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                 {
                     fShouldUseAlternateLoadLogic = true;
 
-                    ClearSetImgTicket(
-                        CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
-                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
-                        )
-                    );
-
+                    if (!paletteDataSet->pPalettePairingInfo->fPairingIsFlipped)
+                    {
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+                    }
+                    else
+                    {
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+                    }
                     sDescTreeNode* charUnit = GetMainTree()->GetDescTree(Node01, -1);
                     INT8 nNodeDistance = 0;
                     INT8 nPeerNodeDistance = nPeerPaletteDistance;
@@ -718,12 +728,15 @@ BOOL CGame_AOF1_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
                         GetMainTree()->GetDescNode(Node01, Node02 + nNodeDistance, Node03 + nPeerNodeDistance, -1)
                     };
 
-                    //Set each palette
-                    CreateDefPal(JoinedNode[0], 0);
-                    CreateDefPal(JoinedNode[1], 1);
+                    const UINT8 nFirstPalette = paletteDataSet->pPalettePairingInfo->fPairingIsFlipped ? 1 : 0;
+                    const UINT8 nSecondPalette = paletteDataSet->pPalettePairingInfo->fPairingIsFlipped ? 0 : 1;
 
-                    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-                    SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                    //Set each palette
+                    CreateDefPal(JoinedNode[nFirstPalette], 0);
+                    CreateDefPal(JoinedNode[nSecondPalette], 1);
+
+                    SetSourcePal(nFirstPalette, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                    SetSourcePal(nSecondPalette, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
                 }
             }
         }
