@@ -11,7 +11,7 @@ constexpr auto SFIII_Arcade_USA_ROMFilesNeeded = 2;
 constexpr auto SFIII_Arcade_USA_SIMMLength = 0x200000;
 
 CGame_SFIII1_A_DIR::CGame_SFIII1_A_DIR(UINT32 nConfirmedROMSize /* = -1 */) :
-    CGame_SFIII1_A(SFIII_Arcade_USA_ROMFilesNeeded* SFIII_Arcade_USA_SIMMLength) // Let the core game know it's safe to load Extras
+    CGame_SFIII1_A(SFIII_Arcade_USA_ROMFilesNeeded * SFIII_Arcade_USA_SIMMLength) // Let the core game know it's safe to load Extras
 {
     nFileAmt = 2;
     nGameFlag = SFIII1_A_DIR;

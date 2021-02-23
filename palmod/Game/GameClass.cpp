@@ -1584,13 +1584,15 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, UINT16 nSIMMNumber)
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
     
     // We can do our cleanup checks when finished, which is at either file 0, 2, 4, etc
-    if ((nAdjustedSIMMFileNumber + m_nSIMMSetStartingFileNumber) == (m_nTotalNumberOfSIMMFilesNeeded - m_nNumberOfSIMMsPerSet))
+    if (nAdjustedSIMMFileNumber == (m_nSIMMSetStartingFileNumber + (m_nTotalNumberOfSIMMFilesNeeded - m_nNumberOfSIMMsPerSet)))
     {
         CheckForErrorsInTables();
 
         // We're done with our "files" but gameload has a loose mapping between files and unit count.  
         // We can handle that mapping by simply setting the "file" count to the unit count.
         nRedirCtr = nUnitAmt - 1;
+
+        OutputDebugString(L"CGameClass::LoadFileForSIMMGame: Loading the SIMM set is complete.\n");
     }
 
     return fSuccess;
