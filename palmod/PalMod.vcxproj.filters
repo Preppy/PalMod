@@ -292,6 +292,9 @@
     <Filter Include="Game\Other Platforms\UNICLR - Under Night In-Birth">
       <UniqueIdentifier>{a3705e6d-51d3-422d-87b6-24e21089a494}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Capcom Games\Super Puzzle Fighter II">
+      <UniqueIdentifier>{98c51f41-36e2-4769-8cf5-dcb88ba4c42c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -629,6 +632,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_UNICLR_A.cpp">
       <Filter>Game\Other Platforms\UNICLR - Under Night In-Birth</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_SPF2T_A.cpp">
+      <Filter>Game\Capcom Games\Super Puzzle Fighter II</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1165,6 +1171,12 @@
     </ClInclude>
     <ClInclude Include="Game\Game_UNICLR_A.h">
       <Filter>Game\Other Platforms\UNICLR - Under Night In-Birth</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_SPF2T_A.h">
+      <Filter>Game\Capcom Games\Super Puzzle Fighter II</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SPF2T_A_DEF.h">
+      <Filter>Game\Capcom Games\Super Puzzle Fighter II</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

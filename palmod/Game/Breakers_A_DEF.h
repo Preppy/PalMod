@@ -39,8 +39,8 @@ const sGame_PaletteDataset BREAKERS_A_JIN_PALETTES[] =
 const sGame_PaletteDataset BREAKERS_A_SHO_PALETTES_SHARED[] =
 {
     //Shared Effects
-    { L"Sho Black Flash", 0x135e2a, 0x135e4a },
-    { L"Sho White Flash", 0x135e4a, 0x135e6a },
+    { L"Sho Black Flash", 0x135e2a, 0x135e4a, indexBreakersSprites_Sho },
+    { L"Sho White Flash", 0x135e4a, 0x135e6a, indexBreakersSprites_Sho },
     { L"Sho Zap-Burned", 0x135fea, 0x13600a },
     { L"Sho Burned", 0x13600a, 0x13602a },
     { L"Sho Zapped 1", 0x13602a, 0x13604a },
@@ -99,8 +99,8 @@ const sGame_PaletteDataset BREAKERS_A_DAO_PALETTES_SHARED[] =
     { L"Dao Super Fireball", 0x13f17a, 0x13f19a },
 
     //Shared Effects
-    { L"Dao Black Flash", 0x13edda, 0x13edfa },
-    { L"Dao White Flash", 0x13edfa, 0x13ee1a },
+    { L"Dao Black Flash", 0x13edda, 0x13edfa, indexBreakersSprites_DaoLong },
+    { L"Dao White Flash", 0x13edfa, 0x13ee1a, indexBreakersSprites_DaoLong },
     { L"Dao Zap-Burned", 0x13ef9a, 0x13efba },
     { L"Dao Burned", 0x13efba, 0x13efda },
     { L"Dao Zapped 1", 0x13efda, 0x13effa },
@@ -146,8 +146,8 @@ const sGame_PaletteDataset BREAKERS_A_GIGARS_PALETTES[] =
 const sGame_PaletteDataset BREAKERS_A_CONDOR_PALETTES_SHARED[] =
 {
     //Shared Effects
-    { L"Condor Black Flash", 0x1466f8, 0x146718 },
-    { L"Condor White Flash", 0x146718, 0x146738 },
+    { L"Condor Black Flash", 0x1466f8, 0x146718, indexBreakersSprites_Condor },
+    { L"Condor White Flash", 0x146718, 0x146738, indexBreakersSprites_Condor },
     { L"Condor Zap-Burned", 0x1468b8, 0x1468d8 },
     { L"Condor Burned", 0x1468d8, 0x1468f8 },
     { L"Condor Zapped 1", 0x1468f8, 0x146918 },
@@ -200,8 +200,8 @@ const sGame_PaletteDataset BREAKERS_A_SHELLY_PALETTES[] =
 const sGame_PaletteDataset BREAKERS_A_TIA_PALETTES_SHARED[] =
 {
     //Shared Effects
-    { L"Tia Black Flash", 0x152428, 0x152448 },
-    { L"Tia White Flash", 0x152448, 0x152468 },
+    { L"Tia Black Flash", 0x152428, 0x152448, indexBreakersSprites_Tia },
+    { L"Tia White Flash", 0x152448, 0x152468, indexBreakersSprites_Tia },
     { L"Tia Zap-Burned", 0x1525e8, 0x152608 },
     { L"Tia Burned", 0x152608, 0x152628 },
     { L"Tia Zapped 1", 0x152628, 0x152648 },
@@ -251,8 +251,8 @@ const sGame_PaletteDataset BREAKERS_A_SANDRA_PALETTES[] =
 const sGame_PaletteDataset BREAKERS_A_RILA_PALETTES_SHARED[] =
 {
     //Shared Effects
-    { L"Rila Black Flash", 0x15b2d4, 0x15b2f4 },
-    { L"Rila White Flash", 0x15b2f4, 0x15b314 },
+    { L"Rila Black Flash", 0x15b2d4, 0x15b2f4, indexBreakersSprites_Rila },
+    { L"Rila White Flash", 0x15b2f4, 0x15b314, indexBreakersSprites_Rila },
     { L"Rila Zap-Burned", 0x15b494, 0x15b4b4 },
     { L"Rila Burned", 0x15b4b4, 0x15b4d4 },
     { L"Rila Zapped 1", 0x15b4d4, 0x15b4f4 },
@@ -311,8 +311,8 @@ const sGame_PaletteDataset BREAKERS_A_ATOUM_PALETTES[] =
 const sGame_PaletteDataset BREAKERS_A_ALSION_PALETTES_SHARED[] =
 {
     //Shared Effects
-    { L"Alsion Black Flash", 0x164186, 0x1641a6 },
-    { L"Alsion White Flash", 0x1641a6, 0x1641c6 },
+    { L"Alsion Black Flash", 0x164186, 0x1641a6, indexBreakersSprites_AlsionIII },
+    { L"Alsion White Flash", 0x1641a6, 0x1641c6, indexBreakersSprites_AlsionIII },
     { L"Alsion Zap-Burned", 0x164346, 0x164366 },
     { L"Alsion Burned", 0x164366, 0x164386 },
     { L"Alsion Zapped 1", 0x164386, 0x1643a6 },
@@ -376,8 +376,8 @@ const sGame_PaletteDataset BREAKERS_A_GEORGE_PALETTES[] =
 const sGame_PaletteDataset BREAKERS_A_PIELLE_PALETTES_SHARED[] =
 {
     //Shared Effects
-    { L"Pielle Black Flash", 0x16d1a2, 0x16d1c2 },
-    { L"Pielle White Flash", 0x16d1c2, 0x16d1e2 },
+    { L"Pielle Black Flash", 0x16d1a2, 0x16d1c2, indexBreakersSprites_Pielle },
+    { L"Pielle White Flash", 0x16d1c2, 0x16d1e2, indexBreakersSprites_Pielle },
     { L"Pielle Zap-Burned", 0x16d362, 0x16d382 },
     { L"Pielle Burned", 0x16d382, 0x16d3a2 },
     { L"Pielle Zapped 1", 0x16d3a2, 0x16d3c2 },
@@ -427,8 +427,8 @@ const sGame_PaletteDataset BREAKERS_A_JAVA_PALETTES[] =
 const sGame_PaletteDataset BREAKERS_A_MAHERL_PALETTES_SHARED[] =
 {
     //Shared Effects
-    { L"Maherl Black Flash", 0x177208, 0x177228 },
-    { L"Maherl White Flash", 0x177228, 0x177248 },
+    { L"Maherl Black Flash", 0x177208, 0x177228, indexBreakersSprites_Maherl },
+    { L"Maherl White Flash", 0x177228, 0x177248, indexBreakersSprites_Maherl },
     { L"Maherl Zap-Burned", 0x1773c8, 0x1773e8 },
     { L"Maherl Burned", 0x1773e8, 0x177408 },
     { L"Maherl Zapped 1", 0x177408, 0x177428 },
@@ -477,8 +477,8 @@ const sGame_PaletteDataset BREAKERS_A_YUKIKAGE_PALETTES[] =
 const sGame_PaletteDataset BREAKERS_A_SAIZO_PALETTES_SHARED[] =
 {
     //Shared Effects
-    { L"Saizo Black Flash", 0x18977e, 0x18979e },
-    { L"Saizo White Flash", 0x18979e, 0x1897be },
+    { L"Saizo Black Flash", 0x18977e, 0x18979e, indexBreakersSprites_Saizo },
+    { L"Saizo White Flash", 0x18979e, 0x1897be, indexBreakersSprites_Saizo },
     { L"Saizo Zap-Burned", 0x18993e, 0x18995e },
     { L"Saizo Burned", 0x18995e, 0x18997e },
     { L"Saizo Zapped 1", 0x18997e, 0x18999e },
