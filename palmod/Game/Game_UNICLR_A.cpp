@@ -30,7 +30,8 @@ const UINT16 UNICLR_A_IMG_UNITS[] =
     indexFrenchBreadSprites_UNICLR_Vati,   // 0x11
     indexFrenchBreadSprites_UNICLR_Wagn,   // 0x12
     indexFrenchBreadSprites_UNICLR_Wald,   // 0x13
-    indexFrenchBreadSprites_UNICLR_Bonus,  // 0x14
+    indexFrenchBreadSprites_UNICLR_Yuzu,   // 0x14
+    indexFrenchBreadSprites_UNICLR_Bonus,  // 0x15
 };
 
 struct UNICLRNodeData
@@ -129,7 +130,7 @@ UNICLRFileData UNICLRCharacterData[] =
 	{ L"Vat.pal",    L"Vatista",           81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Vati },
 	{ L"Wag.pal",    L"Wagner",            81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Wagn },
 	{ L"Wal.pal",    L"Waldstein",         81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Wald },
-	{ L"Yuz.pal",    L"Yuzuriha",          81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Wald },
+	{ L"Yuz.pal",    L"Yuzuriha",          81936,    UNICLRPaletteNamesNormal,    ARRAYSIZE(UNICLRPaletteNamesNormal), 0x10,  indexFrenchBreadSprites_UNICLR_Yuzu },
 };
 
 CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)

@@ -231,8 +231,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,71,0
- PRODUCTVERSION 1,0,71,0
+ FILEVERSION 1,0,72,0
+ PRODUCTVERSION 1,0,72,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -249,12 +249,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "knarxed and Preppy"
             VALUE "FileDescription", "PalMod"
-            VALUE "FileVersion", "1.0.71.0"
+            VALUE "FileVersion", "1.0.72.0"
             VALUE "InternalName", "PalMod.exe"
             VALUE "LegalCopyright", "knarxed and Preppy.  All rights reserved."
             VALUE "OriginalFilename", "PalMod.exe"
             VALUE "ProductName", "PalMod"
-            VALUE "ProductVersion", "1.0.71.0"
+            VALUE "ProductVersion", "1.0.72.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -320,35 +320,35 @@ BEGIN
         POPUP "&Load Directory"
         BEGIN
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
-            MENUITEM "Dengeki Bunko: Fighting Climax IGNITION" ID_LD_DBFCI
-            MENUITEM "GGXX:AC+R (Steam)"            ID_LD_GGXXACR
+            MENUITEM "Dengeki Bunko: Fighting Climax IGNITION", ID_LD_DBFCI
+            MENUITEM "GGXX:AC+R (Steam)",           ID_LD_GGXXACR
             POPUP "Jojo's HftF"
             BEGIN
-                MENUITEM "Characters (Japan Arcade)",     ID_LD_JOJOS51
+                MENUITEM "Characters (Japan Arcade)",   ID_LD_JOJOS51
                 MENUITEM "HUD and Stages (Japan Arcade)", ID_LD_JOJOS50
             END
             POPUP "MvC2"
             BEGIN
-                MENUITEM "Arcade",                ID_LD_MVC2ARCADE
-                MENUITEM "DC",                    ID_LD_MVC2DCUSA
-                MENUITEM "PS2",                   ID_LD_MVC2PS2USA
+                MENUITEM "Arcade",                      ID_LD_MVC2ARCADE
+                MENUITEM "DC",                          ID_LD_MVC2DCUSA
+                MENUITEM "PS2",                         ID_LD_MVC2PS2USA
             END
             MENUITEM "Red Earth / Warzard (Arcade)", ID_LOADDIRECTORY_REDEARTH
             POPUP "Street Fighter III"
             BEGIN
-                MENUITEM "New Generation (Arcade)",       ID_LD_SFIII1
+                MENUITEM "New Generation (Arcade)",     ID_LD_SFIII1
                 MENUITEM SEPARATOR
-                MENUITEM "2nd Impact (Arcade)",           ID_LD_SFIII2
+                MENUITEM "2nd Impact (Arcade)",         ID_LD_SFIII2
                 MENUITEM SEPARATOR
-                MENUITEM "3rd Strike (Dreamcast/PS2)",    ID_LD_SFIII3DCALL
-                MENUITEM "3rd Strike (Arcade)",            ID_LD_SFIII3ARCADE51
+                MENUITEM "3rd Strike (Dreamcast/PS2)",  ID_LD_SFIII3DCALL
+                MENUITEM "3rd Strike (Arcade)",         ID_LD_SFIII3ARCADE51
                 MENUITEM "3rd Strike (Arcade) - Gill Glow/X.C.O.P.Y.", ID_LD_SFIII3ARCADE10
-                MENUITEM "EX Edition (*)",                ID_LD_SFIII3ARCADEEX
+                MENUITEM "EX Edition (*)",              ID_LD_SFIII3ARCADEEX
                 MENUITEM SEPARATOR
-                MENUITEM "4rd Strike",                    ID_LD_SFIII3ARCADE4rd
-                MENUITEM "4rd Strike - Gill/X.C.O.P.Y.",  ID_LD_SFIII3ARCADE4rd10
+                MENUITEM "4rd Strike",                  ID_LD_SFIII3ARCADE4rd
+                MENUITEM "4rd Strike - Gill/X.C.O.P.Y.", ID_LD_SFIII3ARCADE4rd10
             END
-            MENUITEM "Under Night In-Birth Exe:Late[cl-r]" ID_LD_UNICLR
+            MENUITEM "Under Night In-Birth Exe:Late[cl-r]", ID_LD_UNICLR
         END
         MENUITEM "Patch Change&s\tCtrl+S",      ID_FILE_PATCH
         MENUITEM SEPARATOR
@@ -545,7 +545,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About PalMod..."
-    IDS_CURRENTAPPNAME      "PalMod 1.71"
+    IDS_CURRENTAPPNAME      "PalMod 1.72"
     IDS_ERROR_LOADING_IMG_DAT_FORMAT 
                             "Can't find or load our image archive file %s at '%s'\n\n%s is included in the PalMod RAR: it needs to be in the same folder as PalMod.exe in order for previews to work."
     IDS_ERROR_NO_IMAGES     "No images available."
@@ -558,8 +558,14 @@ BEGIN
     IDS_SAVE_FILE_CHANGES   "Patch ROM/files with the current changes?"
     IDS_ERROR_NOTWRITABLE_FORMAT 
                             "Save failed: output file '%s' is not writable."
-    IDS_ERROR_NOTWRITABLE_CDI "Save failed: drive '%s' is read-only.\n\nNote that mounted CDIs cannot be written to: you must extract out the files, edit them, and then recreate the CDI."
-    IDS_ERROR_NOTWRITABLE_DRIVE "Warning: The location specified is read-only.  You will be able to view the files but you will not be able to save changes.\n\nPlease either select OK to continue or Cancel and then copy the files to a different location."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ERROR_NOTWRITABLE_CDI 
+                            "Save failed: drive '%s' is read-only.\n\nNote that mounted CDIs cannot be written to: you must extract out the files, edit them, and then recreate the CDI."
+    IDS_ERROR_NOTWRITABLE_DRIVE 
+                            "Warning: The location specified is read-only.  You will be able to view the files but you will not be able to save changes.\n\nPlease either select OK to continue or Cancel and then copy the files to a different location."
 END
 
 STRINGTABLE

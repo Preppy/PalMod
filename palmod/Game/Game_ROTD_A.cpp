@@ -48,7 +48,7 @@ CGame_ROTD_A::CGame_ROTD_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = ROTD_A_NUMUNIT;
     m_nExtraUnit = ROTD_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 551;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 536;
     m_pszExtraFilename = EXTRA_FILENAME_ROTD_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForROTD;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -60,9 +60,9 @@ CGame_ROTD_A::CGame_ROTD_A(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = ROTD_A;
-    nImgGameFlag = IMGDAT_SECTION_KOF;
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    nImgGameFlag = IMGDAT_SECTION_NEOGEO;
+    m_prgGameImageSet = ROTD_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(ROTD_A_IMG_UNITS);
 
     nFileAmt = 1;
 

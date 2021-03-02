@@ -228,7 +228,7 @@ DBFCIFileData DBFCICharacterData[] =
     { L"Kur.pal",    L"Kuroyukihime",   65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexDBFCSprites_DBFCI_Kuroyukihime },
     { L"Mis.pal",    L"Mikoto",         65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexDBFCSprites_DBFCI_Mikoto },
     { L"Sbm.pal",    L"Miyuki",         66564,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexDBFCSprites_DBFCI_Miyuki },
-    { L"Qen.pal",    L"Quenser",        65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexDBFCSprites_DBFCI_Quenser },
+    { L"Qen.pal",    L"Qwenthur",       65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexDBFCSprites_DBFCI_Quenser },
     { L"Stm.pal",    L"Rentaro",        65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexDBFCSprites_DBFCI_Rentaro },
     { L"Slv.pal",    L"Selvaria",       65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexDBFCSprites_DBFCI_Selvaria },
     { L"Sha.pal",    L"Shana",          65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexDBFCSprites_DBFCI_Shana },
@@ -286,7 +286,7 @@ DBFCIFileData DBFCICharacterData[] =
 CGame_DBFCI_A::CGame_DBFCI_A(UINT32 nConfirmedROMSize /* = -1 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
-    SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
+    SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     m_fGameUsesAlphaValue = true;
     SetColorMode(ColMode::COLMODE_ARGB7888);
 

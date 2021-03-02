@@ -1652,8 +1652,8 @@ const sDescTreeNode CVS2_A_KYO_COLLECTION[] =
 
 const sGame_PaletteDataset CVS2_A_IORI_PALETTES_LP[] =
 {
-    { L"Main Sprite", 0x248f660, 0x248f680, indexCVS2Sprites_Iori },
-    { L"Extra 1", 0x248f680, 0x248f6a0 },
+    { L"Main Sprite", 0x248f660, 0x248f680, indexCVS2Sprites_Iori, 0x00, &pairNext },
+    { L"Extra 1", 0x248f680, 0x248f6a0, indexCVS2Sprites_Iori, 0x01 },
     { L"Extra 2", 0x248f6a0, 0x248f6c0 },
     { L"Extra 3", 0x248f6c0, 0x248f6e0 },
     { L"Extra 4", 0x248f6e0, 0x248f700 },
@@ -1662,8 +1662,8 @@ const sGame_PaletteDataset CVS2_A_IORI_PALETTES_LP[] =
 
 const sGame_PaletteDataset CVS2_A_IORI_PALETTES_MP[] =
 {
-    { L"Main Sprite", 0x248f720, 0x248f740, indexCVS2Sprites_Iori },
-    { L"Extra 1", 0x248f740, 0x248f760 },
+    { L"Main Sprite", 0x248f720, 0x248f740, indexCVS2Sprites_Iori, 0x00, &pairNext },
+    { L"Extra 1", 0x248f740, 0x248f760, indexCVS2Sprites_Iori, 0x01 },
     { L"Extra 2", 0x248f760, 0x248f780 },
     { L"Extra 3", 0x248f780, 0x248f7a0 },
     { L"Extra 4", 0x248f7a0, 0x248f7c0 },
@@ -1672,8 +1672,8 @@ const sGame_PaletteDataset CVS2_A_IORI_PALETTES_MP[] =
 
 const sGame_PaletteDataset CVS2_A_IORI_PALETTES_HP[] =
 {
-    { L"Main Sprite", 0x248f7e0, 0x248f800, indexCVS2Sprites_Iori },
-    { L"Extra 1", 0x248f800, 0x248f820 },
+    { L"Main Sprite", 0x248f7e0, 0x248f800, indexCVS2Sprites_Iori, 0x00, &pairNext },
+    { L"Extra 1", 0x248f800, 0x248f820, indexCVS2Sprites_Iori, 0x01 },
     { L"Extra 2", 0x248f820, 0x248f840 },
     { L"Extra 3", 0x248f840, 0x248f860 },
     { L"Extra 4", 0x248f860, 0x248f880 },
@@ -1682,8 +1682,8 @@ const sGame_PaletteDataset CVS2_A_IORI_PALETTES_HP[] =
 
 const sGame_PaletteDataset CVS2_A_IORI_PALETTES_LK[] =
 {
-    { L"Main Sprite", 0x248f8a0, 0x248f8c0, indexCVS2Sprites_Iori },
-    { L"Extra 1", 0x248f8c0, 0x248f8e0 },
+    { L"Main Sprite", 0x248f8a0, 0x248f8c0, indexCVS2Sprites_Iori, 0x00, &pairNext },
+    { L"Extra 1", 0x248f8c0, 0x248f8e0, indexCVS2Sprites_Iori, 0x01 },
     { L"Extra 2", 0x248f8e0, 0x248f900 },
     { L"Extra 3", 0x248f900, 0x248f920 },
     { L"Extra 4", 0x248f920, 0x248f940 },
@@ -1692,8 +1692,8 @@ const sGame_PaletteDataset CVS2_A_IORI_PALETTES_LK[] =
 
 const sGame_PaletteDataset CVS2_A_IORI_PALETTES_MK[] =
 {
-    { L"Main Sprite", 0x248f960, 0x248f980, indexCVS2Sprites_Iori },
-    { L"Extra 1", 0x248f980, 0x248f9a0 },
+    { L"Main Sprite", 0x248f960, 0x248f980, indexCVS2Sprites_Iori, 0x00, &pairNext },
+    { L"Extra 1", 0x248f980, 0x248f9a0, indexCVS2Sprites_Iori, 0x01 },
     { L"Extra 2", 0x248f9a0, 0x248f9c0 },
     { L"Extra 3", 0x248f9c0, 0x248f9e0 },
     { L"Extra 4", 0x248f9e0, 0x248fa00 },
@@ -1702,8 +1702,8 @@ const sGame_PaletteDataset CVS2_A_IORI_PALETTES_MK[] =
 
 const sGame_PaletteDataset CVS2_A_IORI_PALETTES_HK[] =
 {
-    { L"Main Sprite", 0x248fa20, 0x248fa40, indexCVS2Sprites_Iori },
-    { L"Extra 1", 0x248fa40, 0x248fa60 },
+    { L"Main Sprite", 0x248fa20, 0x248fa40, indexCVS2Sprites_Iori, 0x00, &pairNext },
+    { L"Extra 1", 0x248fa40, 0x248fa60, indexCVS2Sprites_Iori, 0x01 },
     { L"Extra 2", 0x248fa60, 0x248fa80 },
     { L"Extra 3", 0x248fa80, 0x248faa0 },
     { L"Extra 4", 0x248faa0, 0x248fac0 },
@@ -1712,8 +1712,8 @@ const sGame_PaletteDataset CVS2_A_IORI_PALETTES_HK[] =
 
 const sGame_PaletteDataset CVS2_A_IORI_PALETTES_3P[] =
 {
-    { L"Main Sprite", 0x248fae0, 0x248fb00, indexCVS2Sprites_Iori },
-    { L"Extra 1", 0x248fb00, 0x248fb20 },
+    { L"Main Sprite", 0x248fae0, 0x248fb00, indexCVS2Sprites_Iori, 0x00, &pairNext },
+    { L"Extra 1", 0x248fb00, 0x248fb20, indexCVS2Sprites_Iori, 0x01 },
     { L"Extra 2", 0x248fb20, 0x248fb40 },
     { L"Extra 3", 0x248fb40, 0x248fb60 },
     { L"Extra 4", 0x248fb60, 0x248fb80 },
@@ -1722,8 +1722,8 @@ const sGame_PaletteDataset CVS2_A_IORI_PALETTES_3P[] =
 
 const sGame_PaletteDataset CVS2_A_IORI_PALETTES_3K[] =
 {
-    { L"Main Sprite", 0x248fba0, 0x248fbc0, indexCVS2Sprites_Iori },
-    { L"Extra 1", 0x248fbc0, 0x248fbe0 },
+    { L"Main Sprite", 0x248fba0, 0x248fbc0, indexCVS2Sprites_Iori, 0x00, &pairNext },
+    { L"Extra 1", 0x248fbc0, 0x248fbe0, indexCVS2Sprites_Iori, 0x01 },
     { L"Extra 2", 0x248fbe0, 0x248fc00 },
     { L"Extra 3", 0x248fc00, 0x248fc20 },
     { L"Extra 4", 0x248fc20, 0x248fc40 },

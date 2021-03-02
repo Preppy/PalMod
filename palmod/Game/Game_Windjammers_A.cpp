@@ -48,7 +48,7 @@ CGame_Windjammers_A::CGame_Windjammers_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = Windjammers_A_NUMUNIT;
     m_nExtraUnit = Windjammers_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 34;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 35;
     m_pszExtraFilename = EXTRA_FILENAME_Windjammers_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForWindjammers;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

@@ -46,7 +46,7 @@ const sGame_PaletteDataset Matrimelee_A_Annie_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_Annie_PORTRAIT_PALETTES[] =
 {
-    { L"Annie Portrait", 0x29CBAc, 0x29CC4C, indexMatriMSprites_Annie, 0x30 },
+    { L"Annie Shared Portrait", 0x29CBAc, 0x29CC4C, indexMatriMSprites_Annie, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_BUNTARO_A_PALETTES[] =
@@ -87,7 +87,7 @@ const sGame_PaletteDataset Matrimelee_A_BUNTARO_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_BUNTARO_PORTRAIT_PALETTES[] =
 {
-    { L"Buntaro portrait", 0x29F57c, 0x29F61C },
+    { L"Buntaro Shared Portrait", 0x29F57c, 0x29F61C, indexMatriMSprites_Buntaro, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_CHINNEN_A_PALETTES[] =
@@ -278,7 +278,7 @@ const sGame_PaletteDataset Matrimelee_A_ELIAS_D_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_ELIAS_PORTRAIT_PALETTES[] =
 {
-    { L"Elias Portrait", 0x2A16C0, 0x2A1740 },
+    { L"Elias Shared Portrait", 0x2A16C0, 0x2A1740, indexMatriMSprites_Elias, 0x30 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_HIKARU_A_PALETTES[] =

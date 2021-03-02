@@ -150,6 +150,11 @@ const sGame_PaletteDataset GUNDAM_BONUS_PALETTES[] =
     { L"Player Select Text Cycle 1", 0xAD4A0, 0xAD4C0 },
     { L"Player Select Text Cycle 2", 0xAD5A0, 0xAD5C0 },
     { L"Player Select Text Cycle 3", 0xAD600, 0xAD700 },
+
+    { L"Intro - Relena (Dimmed)", 0xAD180, 0xAD1A0 },
+    { L"Intro - Relena (Revealed)", 0xAD1C0, 0xAD1E0 },
+    { L"'VS' Pre-match graphic", 0xAE640, 0xAE660 },
+    { L"Handicap Meter", 0xAE660, 0xAE680 },
 };
 
 const sGame_PaletteDataset GUNDAM_WING_STAGE_PALETTES[] =

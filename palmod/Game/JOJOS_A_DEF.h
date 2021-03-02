@@ -274,8 +274,8 @@ const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_KHAN_PALETTES[] =
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_DEATH_PALETTES[] =
 {
-    { L"Death 13 A Life Bar Portrait", 0x07C0800, 0x07C0820 },
-    { L"Death 13 B Life Bar Portrait", 0x07C0820, 0x07C0840 },
+    { L"Death 13 A Life Bar Portrait", 0x07C0800, 0x07C0820, indexJojos51Death13, 0x20 },
+    { L"Death 13 B Life Bar Portrait", 0x07C0820, 0x07C0840, indexJojos51Death13, 0x20 },
 };
 
 const sGame_PaletteDataset JOJOS_A_HUD_PORTRAIT_NDOUL_PALETTES[] =

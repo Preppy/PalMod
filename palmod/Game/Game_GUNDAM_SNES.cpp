@@ -48,7 +48,7 @@ CGame_GUNDAM_SNES::CGame_GUNDAM_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = GUNDAM_SNES_NUMUNIT;
     m_nExtraUnit = GUNDAM_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 100;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 104;
     m_pszExtraFilename = EXTRA_FILENAME_GUNDAM_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForGUNDAM;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

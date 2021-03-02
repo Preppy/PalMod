@@ -3304,18 +3304,37 @@ enum SupportedNEOGEO_PaletteListIndex
     indexNinjaMastersSprites_Bonus,         // 0x20
     indexNinjaMastersSprites_Stages,        // 0x21
 
-    indexDDragonSprites_Abobo,              // 0x22,
-    indexDDragonSprites_Amon,               // 0x23,
-    indexDDragonSprites_Billy,              // 0x24,
-    indexDDragonSprites_Burnov,             // 0x25,
-    indexDDragonSprites_ChengFu,            // 0x26,
-    indexDDragonSprites_Duke,               // 0x27,
-    indexDDragonSprites_Dulton,             // 0x28,
-    indexDDragonSprites_Eddie,              // 0x29,
-    indexDDragonSprites_Jimmy,              // 0x2A,
-    indexDDragonSprites_Marian,             // 0x2B,
-    indexDDragonSprites_Rebecca,            // 0x2C,
-    indexDDragonSprites_Shuko,              // 0x2D,
+    indexDDragonSprites_Abobo,              // 0x22
+    indexDDragonSprites_Amon,               // 0x23
+    indexDDragonSprites_Billy,              // 0x24
+    indexDDragonSprites_Burnov,             // 0x25
+    indexDDragonSprites_ChengFu,            // 0x26
+    indexDDragonSprites_Duke,               // 0x27
+    indexDDragonSprites_Dulton,             // 0x28
+    indexDDragonSprites_Eddie,              // 0x29
+    indexDDragonSprites_Jimmy,              // 0x2A
+    indexDDragonSprites_Marian,             // 0x2B
+    indexDDragonSprites_Rebecca,            // 0x2C
+    indexDDragonSprites_Shuko,              // 0x2D
+    indexDDragonSprites_Bonus,              // 0x2E
+
+    indexRotDSprites_Abubo,                 // 0x2F
+    indexRotDSprites_Alice,                 // 0x30
+    indexRotDSprites_Annie,                 // 0x31
+    indexRotDSprites_Billy,                 // 0x32
+    indexRotDSprites_Cassandra,             // 0x33
+    indexRotDSprites_Elias,                 // 0x34
+    indexRotDSprites_JaeMo,                 // 0x35
+    indexRotDSprites_Jimmy,                 // 0x36
+    indexRotDSprites_Johann,                // 0x37
+    indexRotDSprites_Johnny,                // 0x38
+    indexRotDSprites_Lynn,                  // 0x39
+    indexRotDSprites_Oni,                   // 0x3A
+    indexRotDSprites_Pepe,                  // 0x3B
+    indexRotDSprites_Pupa,                  // 0x3C
+    indexRotDSprites_Radel,                 // 0x3D
+    indexRotDSprites_Sonia,                 // 0x3E
+    indexRotDSprites_Bonus,                 // 0x3F
 };
 
 const UINT16 NEOBOMBERMAN_A_IMG_UNITS[] =
@@ -3450,7 +3469,8 @@ enum SupportedFrenchBread_PaletteListIndex
     indexFrenchBreadSprites_UNICLR_Vati,   // 0x11
     indexFrenchBreadSprites_UNICLR_Wagn,   // 0x12
     indexFrenchBreadSprites_UNICLR_Wald,   // 0x13
-    indexFrenchBreadSprites_UNICLR_Bonus,  // 0x14
+    indexFrenchBreadSprites_UNICLR_Yuzu,   // 0x14
+    indexFrenchBreadSprites_UNICLR_Bonus,  // 0x15
 };
 
 enum eIMGDat_Sections

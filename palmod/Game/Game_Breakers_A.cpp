@@ -48,11 +48,11 @@ CGame_BREAKERS_A::CGame_BREAKERS_A(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = BREAKERS_A_NUMUNIT;
     m_nExtraUnit = BREAKERS_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 101;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 286;
     m_pszExtraFilename = EXTRA_FILENAME_BREAKERS_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForBreakers;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x135eaa;
+    m_nLowestKnownPaletteRomLocation = 0x135e2a;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 

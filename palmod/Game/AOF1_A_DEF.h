@@ -67,7 +67,7 @@ const sGame_PaletteDataset AOF1_A_TODOH_P2[] =
 
 const sGame_PaletteDataset AOF1_A_JACK_P1[] =
 {
-    { L"Jack P1", 0x474c0, 0x474e0, indexAoF1Sprites_JackTurner, 0x00 },
+    { L"Jack P1", 0x474c0, 0x474e0, indexAoF1Sprites_JackTurner, 0x00, &pairNext4 },
     // Not used, and moved the Bubble Gum to a shared section
     //{ L"Jack Damaged 1 P1 (Unused)", 0x474e0, 0x47500 },
     //{ L"Jack Shared Bubble Gum", 0x47500, 0x47520 },
@@ -76,7 +76,7 @@ const sGame_PaletteDataset AOF1_A_JACK_P1[] =
 
 const sGame_PaletteDataset AOF1_A_JACK_P2[] =
 {
-    { L"Jack P2", 0x47520, 0x47540, indexAoF1Sprites_JackTurner, 0x00 },
+    { L"Jack P2", 0x47520, 0x47540, indexAoF1Sprites_JackTurner, 0x00, &pairNext2 },
     //{ L"Jack Damaged 1 P2 (Unused)", 0x47540, 0x47560 },
     //{ L"Jack Damaged 2 P2 (Unused)", 0x47560, 0x47580 },
     { L"Jack Portrait P2", 0x471a0, 0x471c0, indexAoF1Sprites_JackTurner, 0x80 },
@@ -84,62 +84,64 @@ const sGame_PaletteDataset AOF1_A_JACK_P2[] =
 
 const sGame_PaletteDataset AOF1_A_JACK_SHARED[] =
 {
-    { L"Jack Shared Bubble Gum", 0x47500, 0x47520 },
+    { L"Jack Shared Bubble Gum", 0x47500, 0x47520, indexAoF1Sprites_JackTurner, 0x01 },
 };
 
 const sGame_PaletteDataset AOF1_A_LEE_P1[] =
 {
-    { L"Lee P1", 0x47580, 0x475a0, indexAoF1Sprites_LeePaiLong, 0x00 },
-    { L"Lee Mask P1", 0x475a0, 0x475c0 },
-    { L"Lee Portrait P1", 0x47300, 0x47320 },
-    { L"Lee Mask Portrait P1", 0x472c0, 0x472e0, indexAoF1Sprites_LeePaiLong, 0x80 },
+    { L"Lee P1", 0x47580, 0x475a0, indexAoF1Sprites_LeePaiLong, 0x00, &pairNext },
+    { L"Lee Mask P1", 0x475a0, 0x475c0, indexAoF1Sprites_LeePaiLong, 0x01 },
+    { L"Lee Portrait P1", 0x47300, 0x47320, indexAoF1Sprites_LeePaiLong, 0x80, &pairNext },
+    { L"Lee Mask Portrait P1", 0x472c0, 0x472e0, indexAoF1Sprites_LeePaiLong, 0x81 },
 };
 
 const sGame_PaletteDataset AOF1_A_LEE_P2[] =
 {
-    { L"Lee P2", 0x475e0, 0x47600, indexAoF1Sprites_LeePaiLong, 0x00 },
-    { L"Lee Mask P2", 0x47600, 0x47620 },
-    { L"Lee Portrait P2", 0x47320, 0x47340 },
-    { L"Lee Mask Portrait P2", 0x472e0, 0x47300, indexAoF1Sprites_LeePaiLong, 0x80 },
+    { L"Lee P2", 0x475e0, 0x47600, indexAoF1Sprites_LeePaiLong, 0x00, &pairNext },
+    { L"Lee Mask P2", 0x47600, 0x47620, indexAoF1Sprites_LeePaiLong, 0x01 },
+    { L"Lee Portrait P2", 0x47320, 0x47340, indexAoF1Sprites_LeePaiLong, 0x80, &pairNext },
+    { L"Lee Mask Portrait P2", 0x472e0, 0x47300, indexAoF1Sprites_LeePaiLong, 0x81 },
 };
 
+// King has special-handling for her triple-join in CGame_AOF1_A::UpdatePalImg, so if you
+// change anything here make sure to update that code too
 const sGame_PaletteDataset AOF1_A_KING_P1[] =
 {
-    { L"King P1", 0x47640, 0x47660, indexAoF1Sprites_King, 0x00 },
+    { L"King P1", 0x47640, 0x47660, indexAoF1Sprites_King, 0x00, &pairNext3 },
     { L"King Damaged 1 P1", 0x47660, 0x47680, indexAoF1Sprites_King, 0x08, &pairPreviousFlipped },
     { L"King Damaged 2 P1", 0x47680, 0x476a0, indexAoF1Sprites_King, 0x08, &pairPreviousFlipped2 },
-    { L"King Bra P1", 0x47d80, 0x47da0 },
-    { L"King Portrait P1", 0x471c0, 0x471e0, indexAoF1Sprites_King, 0x80 },
+    { L"King Bra P1", 0x47d80, 0x47da0, indexAoF1Sprites_King, 0x01 },
+    { L"King Portrait P1", 0x471c0, 0x471e0, indexAoF1Sprites_King, 0x80, &pairNext6 },
 };
 
 const sGame_PaletteDataset AOF1_A_KING_P2[] =
 {
-    { L"King P2", 0x476a0, 0x476c0, indexAoF1Sprites_King, 0x00 },
+    { L"King P2", 0x476a0, 0x476c0, indexAoF1Sprites_King, 0x00, &pairNext3 },
     { L"King Damaged 1 P2", 0x476c0, 0x476e0, indexAoF1Sprites_King, 0x08, &pairPreviousFlipped },
     { L"King Damaged 2 P2", 0x476e0, 0x47700, indexAoF1Sprites_King, 0x08, &pairPreviousFlipped2 },
-    { L"King Bra P2", 0x47de0, 0x47e00 },
-    { L"King Portrait P2", 0x471e0, 0x47200, indexAoF1Sprites_King, 0x80 },
+    { L"King Bra P2", 0x47de0, 0x47e00, indexAoF1Sprites_King, 0x01 },
+    { L"King Portrait P2", 0x471e0, 0x47200, indexAoF1Sprites_King, 0x80, &pairNext },
 };
 
 const sGame_PaletteDataset AOF1_A_KING_SHARED[] =
 {
-    { L"King Shared Bra Portrait", 0x43020, 0x43040 },
+    { L"King Shared Bra Portrait", 0x43020, 0x43040, indexAoF1Sprites_King, 0x81 },
 };
 
-const sGame_PaletteDataset AOF1_A_MICKY_P1[] =
+const sGame_PaletteDataset AOF1_A_MICKEY_P1[] =
 {
-    { L"Micky P1", 0x47700, 0x47720, indexAoF1Sprites_MickeyRogers, 0x00 },
-    { L"Micky Damaged 1 P1", 0x47720, 0x47740, indexAoF1Sprites_MickeyRogers, 0x08, &pairPreviousFlipped },
-    { L"Micky Damaged 2 P1", 0x47740, 0x47760, indexAoF1Sprites_MickeyRogers, 0x08, &pairPreviousFlipped2 },
-    { L"Micky Portrait P1", 0x47340, 0x47360, indexAoF1Sprites_MickeyRogers, 0x80 },
+    { L"Mickey P1", 0x47700, 0x47720, indexAoF1Sprites_MickeyRogers, 0x00 },
+    { L"Mickey Damaged 1 P1", 0x47720, 0x47740, indexAoF1Sprites_MickeyRogers, 0x08, &pairPreviousFlipped },
+    { L"Mickey Damaged 2 P1", 0x47740, 0x47760, indexAoF1Sprites_MickeyRogers, 0x08, &pairPreviousFlipped2 },
+    { L"Mickey Portrait P1", 0x47340, 0x47360, indexAoF1Sprites_MickeyRogers, 0x80 },
 };
 
-const sGame_PaletteDataset AOF1_A_MICKY_P2[] =
+const sGame_PaletteDataset AOF1_A_MICKEY_P2[] =
 {
-    { L"Micky P2", 0x47760, 0x47780, indexAoF1Sprites_MickeyRogers, 0x00 },
-    { L"Micky Damaged 1 P2", 0x47780, 0x477a0, indexAoF1Sprites_MickeyRogers, 0x08, &pairPreviousFlipped },
-    { L"Micky Damaged 2 P2", 0x477a0, 0x477c0, indexAoF1Sprites_MickeyRogers, 0x08, &pairPreviousFlipped2 },
-    { L"Micky Portrait P2", 0x47360, 0x47380, indexAoF1Sprites_MickeyRogers, 0x80 },
+    { L"Mickey P2", 0x47760, 0x47780, indexAoF1Sprites_MickeyRogers, 0x00 },
+    { L"Mickey Damaged 1 P2", 0x47780, 0x477a0, indexAoF1Sprites_MickeyRogers, 0x08, &pairPreviousFlipped },
+    { L"Mickey Damaged 2 P2", 0x477a0, 0x477c0, indexAoF1Sprites_MickeyRogers, 0x08, &pairPreviousFlipped2 },
+    { L"Mickey Portrait P2", 0x47360, 0x47380, indexAoF1Sprites_MickeyRogers, 0x80 },
 };
 
 const sGame_PaletteDataset AOF1_A_JOHN_P1[] =
@@ -179,14 +181,14 @@ const sGame_PaletteDataset AOF1_A_MRBIG_P2[] =
 const sGame_PaletteDataset AOF1_A_MRKARATE_P1[] =
 {
     { L"Mr. Karate P1", 0x47940, 0x47960, indexAoF1Sprites_TakumaMrKarate, 0x00 },
-    { L"Mr. Karate Mask P1", 0x47960, 0x47980, indexAoF1Sprites_TakumaMrKarate, 0x08, &pairPreviousFlipped },
+    { L"Mr. Karate Mask P1", 0x47960, 0x47980, indexAoF1Sprites_TakumaMrKarate, 0x01, &pairPreviousFlipped },
     { L"Mr. Karate Portrait P1", 0x473e0, 0x47400, indexAoF1Sprites_TakumaMrKarate, 0x80 },
 };
 
 const sGame_PaletteDataset AOF1_A_MRKARATE_P2[] =
 {
     { L"Mr. Karate P2", 0x479a0, 0x479c0, indexAoF1Sprites_TakumaMrKarate, 0x00 },
-    { L"Mr. Karate Mask P2", 0x479c0, 0x479e0, indexAoF1Sprites_TakumaMrKarate, 0x08, &pairPreviousFlipped },
+    { L"Mr. Karate Mask P2", 0x479c0, 0x479e0, indexAoF1Sprites_TakumaMrKarate, 0x01, &pairPreviousFlipped },
     { L"Mr. Karate Portrait P2", 0x47be0, 0x47c00, indexAoF1Sprites_TakumaMrKarate, 0x80 },
 };
 
@@ -240,10 +242,10 @@ const sDescTreeNode AOF1_A_KING_COLLECTION[] =
     { L"Shared", DESC_NODETYPE_TREE, (void*)AOF1_A_KING_SHARED, ARRAYSIZE(AOF1_A_KING_SHARED) },
 };
 
-const sDescTreeNode AOF1_A_MICKY_COLLECTION[] =
+const sDescTreeNode AOF1_A_MICKEY_COLLECTION[] =
 {
-    { L"P1", DESC_NODETYPE_TREE, (void*)AOF1_A_MICKY_P1, ARRAYSIZE(AOF1_A_MICKY_P1) },
-    { L"P2", DESC_NODETYPE_TREE, (void*)AOF1_A_MICKY_P2, ARRAYSIZE(AOF1_A_MICKY_P2) },
+    { L"P1", DESC_NODETYPE_TREE, (void*)AOF1_A_MICKEY_P1, ARRAYSIZE(AOF1_A_MICKEY_P1) },
+    { L"P2", DESC_NODETYPE_TREE, (void*)AOF1_A_MICKEY_P2, ARRAYSIZE(AOF1_A_MICKEY_P2) },
 };
 
 const sDescTreeNode AOF1_A_JOHN_COLLECTION[] =
@@ -269,15 +271,18 @@ const sDescTreeNode AOF1_A_BONUS_COLLECTION[] =
     { L"Bonus", DESC_NODETYPE_TREE, (void*)AOF1_A_BONUS_PALETTES, ARRAYSIZE(AOF1_A_BONUS_PALETTES) },
 };
 
+#define k_aof1NameKey_Jack L"Jack Turner"
+#define k_aof1NameKey_King L"King"
+
 const sDescTreeNode AOF1_A_UNITS[] =
 {
     { L"Robert Garcia", DESC_NODETYPE_TREE, (void*)AOF1_A_ROBERT_COLLECTION, ARRAYSIZE(AOF1_A_ROBERT_COLLECTION) },
     { L"Ryo Sakazaki", DESC_NODETYPE_TREE, (void*)AOF1_A_RYO_COLLECTION, ARRAYSIZE(AOF1_A_RYO_COLLECTION) },
     { L"Ryuhaku Todoh", DESC_NODETYPE_TREE, (void*)AOF1_A_TODOH_COLLECTION, ARRAYSIZE(AOF1_A_TODOH_COLLECTION) },
-    { L"Jack Turner", DESC_NODETYPE_TREE, (void*)AOF1_A_JACK_COLLECTION, ARRAYSIZE(AOF1_A_JACK_COLLECTION) },
+    { k_aof1NameKey_Jack, DESC_NODETYPE_TREE, (void*)AOF1_A_JACK_COLLECTION, ARRAYSIZE(AOF1_A_JACK_COLLECTION) },
     { L"Lee Pai Long", DESC_NODETYPE_TREE, (void*)AOF1_A_LEE_COLLECTION, ARRAYSIZE(AOF1_A_LEE_COLLECTION) },
-    { L"King", DESC_NODETYPE_TREE, (void*)AOF1_A_KING_COLLECTION, ARRAYSIZE(AOF1_A_KING_COLLECTION) },
-    { L"Micky Rodgers", DESC_NODETYPE_TREE, (void*)AOF1_A_MICKY_COLLECTION, ARRAYSIZE(AOF1_A_MICKY_COLLECTION) },
+    { k_aof1NameKey_King, DESC_NODETYPE_TREE, (void*)AOF1_A_KING_COLLECTION, ARRAYSIZE(AOF1_A_KING_COLLECTION) },
+    { L"Mickey Rodgers", DESC_NODETYPE_TREE, (void*)AOF1_A_MICKEY_COLLECTION, ARRAYSIZE(AOF1_A_MICKEY_COLLECTION) },
     { L"John Crawley", DESC_NODETYPE_TREE, (void*)AOF1_A_JOHN_COLLECTION, ARRAYSIZE(AOF1_A_JOHN_COLLECTION) },
     { L"Mr. Big", DESC_NODETYPE_TREE, (void*)AOF1_A_MRBIG_COLLECTION, ARRAYSIZE(AOF1_A_MRBIG_COLLECTION) },
     { L"Mr. Karate", DESC_NODETYPE_TREE, (void*)AOF1_A_MRKARATE_COLLECTION, ARRAYSIZE(AOF1_A_MRKARATE_COLLECTION) },
