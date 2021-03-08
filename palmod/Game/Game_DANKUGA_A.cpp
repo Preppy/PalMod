@@ -67,10 +67,9 @@ CGame_DanKuGa_A_DIR::CGame_DanKuGa_A_DIR(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = DANKUGA_A;
-    nImgGameFlag = IMGDAT_SECTION_CPS2;
-    // no images yet
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    nImgGameFlag = IMGDAT_SECTION_TAITO;
+    m_prgGameImageSet = DANKUGA_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(DANKUGA_A_IMG_UNITS);
     
     nFileAmt = ARRAYSIZE(c_ppszDanKuGa_Files);
 
@@ -571,16 +570,20 @@ BOOL CGame_DanKuGa_A_DIR::UpdatePalImg(int Node01, int Node02, int Node03, int N
 
     bool fShouldUseAlternateLoadLogic = false;
 
+    const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
+
+    if (paletteDataSet)
+    {
+        nImgUnitId = paletteDataSet->indexImgToUse;
+        nTargetImgId = paletteDataSet->indexOffsetToUse;
+    }
+
     if (!fShouldUseAlternateLoadLogic)
     {
         //Create the default palette
         CreateDefPal(NodeGet, 0);
 
-        if (m_prgGameImageSet) // no need to show images until we get some. this check can be removed once that happens
-        {
-            // Only internal units get sprites
-            ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-        }
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
 
         SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
     }

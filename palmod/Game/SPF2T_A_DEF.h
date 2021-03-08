@@ -6,19 +6,47 @@
 // * Update every array using SPF2T_A_NUMUNITS below
 // That should be it.  Good luck.
 
+const UINT16 SPF2T_A_IMG_UNITS[] =
+{
+    indexCPS2_SPF_Ryu,      // 0x59
+    indexCPS2_SPF_Ken,      // 0x5a
+    indexCPS2_SPF_ChunLi,   // 0x5b
+    indexCPS2_SPF_Sakura,   // 0x5c
+    indexCPS2_SPF_Morrigan, // 0x5d
+    indexCPS2_SPF_HsienKo,  // 0x5e
+    indexCPS2_SPF_Felicia,  // 0x5f
+    indexCPS2_SPF_Dan,      // 0x63
+    indexCPS2_SPF_Akuma,    // 0x64
+
+    indexPuzzleFighter_Akuma,       // 0x96
+    indexPuzzleFighter_Anita,       // 0x97
+    indexPuzzleFighter_ChunLi,      // 0x98
+    indexPuzzleFighter_Dan,         // 0x99
+    indexPuzzleFighter_Devilotte,   // 0x9A
+    indexPuzzleFighter_Donovan,     // 0x9B
+    indexPuzzleFighter_Felicia,     // 0x9C
+    indexPuzzleFighter_HsienKo,     // 0x9D
+    indexPuzzleFighter_Ken,         // 0x9E
+    indexPuzzleFighter_LeiLei,      // 0x9F
+    indexPuzzleFighter_Morrigan,    // 0xA0
+    indexPuzzleFighter_Ryu,         // 0xA1
+    indexPuzzleFighter_Sakura,      // 0xA2
+    indexPuzzleFighter_Bonus,       // 0xA3 
+};
+
 const sGame_PaletteDataset SPF2T_A_RYU_PALETTES_A[] =
 {
-    { L"Ryu A", 0x0201fe, 0x02021e, indexCPS2_SPF_Ryu, 0x00 },
-    { L"Ryu A: Supertrail 1", 0x02021e, 0x02023e, indexCPS2_SPF_Ryu, 0x00 },
-    { L"Ryu A: Supertrail 2", 0x02023e, 0x02025e, indexCPS2_SPF_Ryu, 0x00 },
+    { L"Ryu A", 0x0201fe, 0x02021e, indexPuzzleFighter_Ryu, 0x00 },
+    { L"Ryu A: Supertrail 1", 0x02021e, 0x02023e, indexPuzzleFighter_Ryu, 0x00 },
+    { L"Ryu A: Supertrail 2", 0x02023e, 0x02025e, indexPuzzleFighter_Ryu, 0x00 },
     { L"Ryu A: Hadouken", 0x02025e, 0x02027e },
 };
 
 const sGame_PaletteDataset SPF2T_A_RYU_PALETTES_B[] =
 {
-    { L"Ryu B", 0x02027e, 0x02029e, indexCPS2_SPF_Ryu, 0x00 },
-    { L"Ryu B: Supertrail 1", 0x02029e, 0x0202be, indexCPS2_SPF_Ryu, 0x00 },
-    { L"Ryu B: Supertrail 2", 0x0202be, 0x0202de, indexCPS2_SPF_Ryu, 0x00 },
+    { L"Ryu B", 0x02027e, 0x02029e, indexPuzzleFighter_Ryu, 0x00 },
+    { L"Ryu B: Supertrail 1", 0x02029e, 0x0202be, indexPuzzleFighter_Ryu, 0x00 },
+    { L"Ryu B: Supertrail 2", 0x0202be, 0x0202de, indexPuzzleFighter_Ryu, 0x00 },
     { L"Ryu B: Hadouken", 0x0202de, 0x0202fe },
 };
 
@@ -40,18 +68,18 @@ const sGame_PaletteDataset SPF2T_A_KEN_PALETTES_B[] =
 
 const sGame_PaletteDataset SPF2T_A_CHUNLI_PALETTES_A[] =
 {
-    { L"Chun-Li A", 0x0200fe, 0x02011e, indexCPS2_SPF_ChunLi, 0x00 },
+    { L"Chun-Li A", 0x0200fe, 0x02011e, indexPuzzleFighter_ChunLi, 0x00 },
     { L"Chun-Li A: Kikouken", 0x02011e, 0x02013e },
-    { L"Chun-Li A: Supertrail 1", 0x02013e, 0x02015e, indexCPS2_SPF_ChunLi, 0x00 },
-    { L"Chun-Li A: Supertrail 2", 0x02015e, 0x02017e, indexCPS2_SPF_ChunLi, 0x00 },
+    { L"Chun-Li A: Supertrail 1", 0x02013e, 0x02015e, indexPuzzleFighter_ChunLi, 0x00 },
+    { L"Chun-Li A: Supertrail 2", 0x02015e, 0x02017e, indexPuzzleFighter_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SPF2T_A_CHUNLI_PALETTES_B[] =
 {
-    { L"Chun-Li B", 0x02017e, 0x02019e, indexCPS2_SPF_ChunLi, 0x00 },
+    { L"Chun-Li B", 0x02017e, 0x02019e, indexPuzzleFighter_ChunLi, 0x00 },
     { L"Chun-Li B: Kikouken", 0x02019e, 0x0201be },
-    { L"Chun-Li B: Supertrail 1", 0x0201be, 0x0201de, indexCPS2_SPF_ChunLi, 0x00 },
-    { L"Chun-Li B: Supertrail 2", 0x0201de, 0x0201fe, indexCPS2_SPF_ChunLi, 0x00 },
+    { L"Chun-Li B: Supertrail 1", 0x0201be, 0x0201de, indexPuzzleFighter_ChunLi, 0x00 },
+    { L"Chun-Li B: Supertrail 2", 0x0201de, 0x0201fe, indexPuzzleFighter_ChunLi, 0x00 },
 };
 
 const sGame_PaletteDataset SPF2T_A_SAKURA_PALETTES_A[] =
@@ -184,37 +212,37 @@ const sGame_PaletteDataset SPF2T_A_DEVILOT_PALETTES_B[] =
 
 const sGame_PaletteDataset SPF2T_A_BONUS_CSI_PALETTES[] =
 {
-    { L"Morrigan", 0x252be, 0x252de },
-    { L"Chun-Li", 0x252de, 0x252fe },
-    { L"Ryu", 0x252fe, 0x2531e },
-    { L"Ken", 0x2531e, 0x2533e },
-    { L"Lei Lei", 0x2533e, 0x2535e },
-    { L"Donovan", 0x2535e, 0x2537e },
-    { L"Felicia", 0x2537e, 0x2539e },
-    { L"Sakura", 0x2539e, 0x253be },
-    { L"Devilot", 0x253be, 0x253de },
-    { L"Gouki", 0x253de, 0x253fe },
-    { L"Dan", 0x253fe, 0x2541e },
+    { L"Morrigan", 0x252be, 0x252de, indexPuzzleFighter_Morrigan, 0x40 },
+    { L"Chun-Li", 0x252de, 0x252fe, indexPuzzleFighter_ChunLi, 0x40 },
+    { L"Ryu", 0x252fe, 0x2531e, indexPuzzleFighter_Ryu, 0x40 },
+    { L"Ken", 0x2531e, 0x2533e, indexPuzzleFighter_Ken, 0x40 },
+    { L"Lei Lei", 0x2533e, 0x2535e, indexPuzzleFighter_LeiLei, 0x40 },
+    { L"Donovan", 0x2535e, 0x2537e, indexPuzzleFighter_Donovan, 0x40 },
+    { L"Felicia", 0x2537e, 0x2539e, indexPuzzleFighter_Felicia, 0x40 },
+    { L"Sakura", 0x2539e, 0x253be, indexPuzzleFighter_Sakura, 0x40 },
+    { L"Devilot", 0x253be, 0x253de, indexPuzzleFighter_Devilotte, 0x40 },
+    { L"Gouki", 0x253de, 0x253fe, indexPuzzleFighter_Akuma, 0x40 },
+    { L"Dan", 0x253fe, 0x2541e, indexPuzzleFighter_Dan, 0x40 },
 };
 
 const sGame_PaletteDataset SPF2T_A_BONUS_CSIFADED_PALETTES[] =
 {
-    { L"Morrigan", 0x2541e, 0x2543e },
-    { L"Chun-Li", 0x2543e, 0x2545e },
-    { L"Ryu", 0x2545e, 0x2547e },
-    { L"Ken", 0x2547e, 0x2549e },
-    { L"Lei Lei", 0x2549e, 0x254be },
-    { L"Donovan", 0x254be, 0x254de },
-    { L"Felicia", 0x254de, 0x254fe },
-    { L"Sakura", 0x254fe, 0x2551e },
-    { L"Devilot", 0x2551e, 0x2553e },
-    { L"Gouki", 0x2553e, 0x2555e },
-    { L"Dan", 0x2555e, 0x2557e },
+    { L"Morrigan", 0x2541e, 0x2543e, indexPuzzleFighter_Morrigan, 0x40 },
+    { L"Chun-Li", 0x2543e, 0x2545e, indexPuzzleFighter_ChunLi, 0x40 },
+    { L"Ryu", 0x2545e, 0x2547e, indexPuzzleFighter_Ryu, 0x40 },
+    { L"Ken", 0x2547e, 0x2549e, indexPuzzleFighter_Ken, 0x40 },
+    { L"Lei Lei", 0x2549e, 0x254be, indexPuzzleFighter_LeiLei, 0x40 },
+    { L"Donovan", 0x254be, 0x254de, indexPuzzleFighter_Donovan, 0x40 },
+    { L"Felicia", 0x254de, 0x254fe, indexPuzzleFighter_Felicia, 0x40 },
+    { L"Sakura", 0x254fe, 0x2551e, indexPuzzleFighter_Sakura, 0x40 },
+    { L"Devilot", 0x2551e, 0x2553e, indexPuzzleFighter_Devilotte, 0x40 },
+    { L"Gouki", 0x2553e, 0x2555e, indexPuzzleFighter_Akuma, 0x40 },
+    { L"Dan", 0x2555e, 0x2557e, indexPuzzleFighter_Dan, 0x40 },
 };
 
 const sGame_PaletteDataset SPF2T_A_BONUS_BONUS_PALETTES[] =
 {
-    { L"Character Select Counter Gem Stuff", 0x220be, 0x220de },
+    { L"Character Select Counter Gem Stuff", 0x220be, 0x220de, indexPuzzleFighter_Bonus, 0x00 },
     { L"Title Screen", 0x212be, 0x2133e },
     { L"VS Screen Transition Main", 0x2179e, 0x217be },
     { L"VS Screen Transition Flash", 0x20bde, 0x20bfe },
@@ -225,7 +253,7 @@ const sGame_PaletteDataset SPF2T_A_BONUS_BONUS_PALETTES[] =
     { L"Unknown Super Gem", 0x020b7e, 0x020b9e },
     { L"V Icon/Metal Gem", 0x020b9e, 0x020bbe },
     { L"Unknown 1", 0x020bbe, 0x020bde },
-    { L"Warning/Damage Icon", 0x20bfe, 0x20c1e },
+    { L"Warning/Damage Icon", 0x20bfe, 0x20c1e, indexPuzzleFighter_Bonus, 0x01 },
     { L"Win Character Text", 0x20c1e, 0x20c3e },
     { L"Unknown 2", 0x20c3e, 0x20c7e },
     { L"Hitsparks/Burning Effects", 0x20c7e, 0x20c9e },

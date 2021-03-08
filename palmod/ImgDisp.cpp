@@ -657,7 +657,7 @@ BOOL CImgDisp::CustomBlt(int nSrcIndex, int xWidth, int yHeight, bool fUseAltPal
     if (m_ppSpriteOverrideTexture[nSrcIndex])
     {
         CString strInfo;
-        strInfo.Format(L"CImgDisp::CustomBlt: Loading alternate sprite for sprite %u", nSrcIndex);
+        strInfo.Format(L"CImgDisp::CustomBlt: Loading alternate sprite for sprite %u\n", nSrcIndex);
         OutputDebugString(strInfo.GetString());
         pImgData = m_ppSpriteOverrideTexture[nSrcIndex];
         nWidth = m_nTextureOverrideW[nSrcIndex];

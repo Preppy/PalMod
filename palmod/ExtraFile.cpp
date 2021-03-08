@@ -527,7 +527,14 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     strText.Format(L"CGameWithExtrasFile::CheckForErrorsInTables: Safe palette count for ROM is %u.  We found %u now including extras.\n", m_nSafeCountForThisRom, nPaletteCountForRom);
     OutputDebugString(strText);
 
-    int nInternalDupeCount = (nPaletteCountForRom == m_nSafeCountForThisRom) ? 0 : GetDupeCountInDataset();
+#ifdef DEBUG
+    // always run the dupe check logic in debug mode "just in case"
+    bool fShouldRunDupeCheck = true;
+#else
+    bool fShouldRunDupeCheck = (nPaletteCountForRom == m_nSafeCountForThisRom);
+#endif
+
+    int nInternalDupeCount = fShouldRunDupeCheck ? 0 : GetDupeCountInDataset();
     int nExtraDupeCount = fShouldCheckExtras ? GetDupeCountInExtrasDataset() : 0;
 
     if (nInternalDupeCount || nExtraDupeCount || (m_nSafeCountForThisRom != nPaletteCountForRom))

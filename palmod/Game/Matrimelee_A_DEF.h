@@ -1,5 +1,55 @@
 #pragma once
 
+enum SupportedMatriM_A_PaletteListIndex
+{
+    indexMatriMSprites_Annie,       // 0x00
+    indexMatriMSprites_Buntaro,     // 0x01
+    indexMatriMSprites_Chinnen,     // 0x02
+    indexMatriMSprites_Clara,       // 0x03
+    indexMatriMSprites_Elias,       // 0x04
+    indexMatriMSprites_Hikaru,      // 0x05
+    indexMatriMSprites_Jimmy,       // 0x06
+    indexMatriMSprites_Jones,       // 0x07
+    indexMatriMSprites_Kanji,       // 0x08
+    indexMatriMSprites_Keith,       // 0x09
+    indexMatriMSprites_Lynn,        // 0x0a
+    indexMatriMSprites_Olof,        // 0x0b
+    indexMatriMSprites_Poochy,      // 0x0c
+    indexMatriMSprites_PrincessSissy, // 0x0d
+    indexMatriMSprites_Reiji,       // 0x0e
+    indexMatriMSprites_Saizo,       // 0x0f
+    indexMatriMSprites_Shintaro,    // 0x10
+    indexMatriMSprites_Tane,        // 0x11
+    indexMatriMSprites_Ume,         // 0x12
+    indexMatriMSprites_White,       // 0x13
+    indexMatriMSprites_Bonus,       // 0x14
+};
+
+const UINT16 MATRIM_A_IMG_UNITS[] =
+{
+    indexMatriMSprites_Annie,
+    indexMatriMSprites_Buntaro,
+    indexMatriMSprites_Chinnen,
+    indexMatriMSprites_Clara,
+    indexMatriMSprites_Elias,
+    indexMatriMSprites_Hikaru,
+    indexMatriMSprites_Jimmy,
+    indexMatriMSprites_Jones,
+    indexMatriMSprites_Kanji,
+    indexMatriMSprites_Keith,
+    indexMatriMSprites_Lynn,
+    indexMatriMSprites_Olof,
+    indexMatriMSprites_Poochy,
+    indexMatriMSprites_PrincessSissy,
+    indexMatriMSprites_Reiji,
+    indexMatriMSprites_Saizo,
+    indexMatriMSprites_Shintaro,
+    indexMatriMSprites_Tane,
+    indexMatriMSprites_Ume,
+    indexMatriMSprites_White,
+    indexMatriMSprites_Bonus,
+};
+
 const sGame_PaletteDataset Matrimelee_A_Annie_A_PALETTES[] =
 {
     { L"Annie A", 0x29c82c, 0x29c84c, indexMatriMSprites_Annie, 0x00 },
@@ -1150,8 +1200,7 @@ const sGame_PaletteDataset Matrimelee_A_HUD_PORTRAIT_PALETTES[] =
     { L"VS Text Pre-Battle", 0x2a2144, 0x2a2164 },
     { L"VS Dialogue 1P", 0x2a1c84, 0x2a1ca4 },
     { L"VS Dialogue 2P", 0x2a1ca4, 0x2a1cc4 },
-    { L"VS Background 1P", 0x2cbcb0, 0x2cbcd0 },
-    { L"VS Background 2P", 0x2cbcd0, 0x2cbcf0 },
+    { L"VS Background", 0x2cbcb0, 0x2cbcf0, indexMatriMSprites_Bonus, 0x02 },
     { L"VS Character Name", 0x2a2124, 0x2a2144 },
     { L"Character Select 1P/2P", 0x2a27a4, 0x2a27c4 },
     { L"Round Text", 0x29ac9e, 0x29acbe },
@@ -1160,6 +1209,9 @@ const sGame_PaletteDataset Matrimelee_A_HUD_PORTRAIT_PALETTES[] =
     { L"Character Fire Palette", 0x29abbe, 0x29abde },
     { L"Character Electric Palette", 0x29abde, 0x29abfe },
     { L"Dialogue Text", 0x2a2866, 0x2a2886 },
+
+    { L"Win Background", 0x2cbcf4, 0x2cbd14, indexMatriMSprites_Bonus, 0x01 },
+    { L"Lose Background", 0x2d19d0, 0x2d19f0, indexMatriMSprites_Bonus, 0x00 },
 
     { L"'How to Play' Joystick", 0x2a2886, 0x2a28a6 },
     { L"'How to Play' A Button Arrow", 0x2a27e6, 0x2a2806 },

@@ -58,8 +58,8 @@ CGame_COTA_A::CGame_COTA_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = COTA_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = COTA_A_NUM_IMG_UNITS;
     m_prgGameImageSet = COTA_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(COTA_A_IMG_UNITS);
 
     nFileAmt = 1;
 

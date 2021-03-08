@@ -6,6 +6,25 @@
 // * Update every array using COTA_A_NUMUNIT below
 // That should be it.  Good luck.
 
+const UINT16 COTA_A_IMG_UNITS[] =
+{
+    indexCPS2_Colossus,
+    indexCPS2_Cyclops,
+    indexCPS2_Iceman,
+    indexCPS2_Juggy,
+    indexCPS2_Magneto,
+    indexCPS2_OmegaRed,
+    indexCPS2_Psylocke,
+    indexCPS2_Sentinel,
+    indexCPS2_SilverSamurai,
+    indexCPS2_Spiral,
+    indexCPS2_Storm,
+    indexCPS2_Wolverine,
+    indexCPS2_Akuma,
+    indexCPS2_STAkuma,
+    indexCPS2_COTAAssets,
+};
+
 enum SupportedCOTAPaletteListIndex
 {
     indexCOTAColossus,

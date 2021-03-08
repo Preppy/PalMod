@@ -6,6 +6,24 @@
 // * Update every array using GEMFIGHTER_A_NUMUNITS below
 // That should be it.  Good luck.
 
+const UINT16 GEMFIGHTER_A_IMG_UNITS[] =
+{
+    indexCPS2_SPF_Ryu,      // 0x59
+    indexCPS2_SPF_Ken,      // 0x5a
+    indexCPS2_SPF_ChunLi,   // 0x5b
+    indexCPS2_SPF_Sakura,   // 0x5c
+    indexCPS2_SPF_Morrigan, // 0x5d
+    indexCPS2_SPF_HsienKo,  // 0x5e
+    indexCPS2_SPF_Felicia,  // 0x5f
+    indexCPS2_SPF_Tessa,    // 0x60
+    indexCPS2_SPF_Ibuki,    // 0x61
+    indexCPS2_SPF_Zangief,  // 0x62
+    indexCPS2_SPF_Dan,      // 0x63
+    indexCPS2_SPF_Akuma,    // 0x64
+
+    indexCPS2_SPF_Bonus,    // 0x7d
+};
+
 const sGame_PaletteDataset GEMFIGHTER_A_RYU_PALETTES_A[] =
 {
     { L"Ryu A", 0x99e6, 0x9a06, indexCPS2_SPF_Ryu, 0x00 },
