@@ -658,7 +658,7 @@ BOOL CGame_DanKuGa_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                 {
                     BYTE high, low;
 
-                    if ((((nWordsRead * 2 ) + m_nCurrentPaletteROMLocation) % 4) == 2)
+                    if ((((nWordsRead * 2) + nOriginalROMLocation) % 4) == 0)
                     {
                         LoadedFile->Read(&low, 1);
                         fileSIMM2.Read(&high, 1);
@@ -756,7 +756,7 @@ BOOL CGame_DanKuGa_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSaveUnit)
                         BYTE high = (nColorValue & 0xFF00) >> 8;
                         BYTE low = nColorValue & 0xFF;
 
-                        if ((((nWordsWritten * 2) + m_nCurrentPaletteROMLocation) % 4) == 2)
+                        if ((((nWordsWritten * 2) + nOriginalROMLocation) % 4) == 0)
                         {
                             fileSIMM1.Write(&low, 1);
                             fileSIMM2.Write(&high, 1);

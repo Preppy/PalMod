@@ -426,7 +426,13 @@ const sGame_PaletteDataset MSH_A_THANOS_PALETTES_P2[] =
 
 const sGame_PaletteDataset MSH_A_THANOS_PALETTES_EXTRAS[] =
 {
-    { L"Thanos Extras (Shared)", 0x6576E, 0x6578E },
+    { L"Thanos victory pose flash",     0x6566e, 0x6568e, indexCPS2_Thanos },
+    { L"Terraxia incoming orb",         0x6568e, 0x656ae },
+    { L"Terraxia solid color frame",    0x656ae, 0x656ce, indexCPS2_Thanos, 8 },
+    { L"Terraxia appearing",            0x656ce, 0x656ee, indexCPS2_Thanos, 8 },
+    { L"Terraxia hugging",              0x656ee, 0x6570e, indexCPS2_Thanos, 9 },
+
+    { L"Thanos Extras",                 0x6576E, 0x6578E },
 };
 
 const sGame_PaletteDataset MSH_A_WOLVERINE_PALETTES_P1[] =

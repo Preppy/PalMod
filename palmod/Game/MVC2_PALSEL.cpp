@@ -1450,7 +1450,7 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 
         break;
     }
-    case indexCPS2_Blackheart: // Blackheart
+    case indexCPS2_Blackheart:
     {
         nExtraAmt = 1; // These are all one-offs
         if (CreateExtraPal(uUnitId, uPalId, 0x0D, 1, 2) || // LP, HP, A1 demons
@@ -1465,7 +1465,20 @@ BOOL CGame_MVC2_D::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
         }
         break;
     }
-    case indexCPS2_Jin: //Jin
+    case indexCPS2_Thanos:
+    {
+        nExtraAmt = 1; // These are all one-offs
+        if (CreateExtraPal(uUnitId, uPalId, 0x0C, 1, 0) || // Win pose flash
+            CreateExtraPal(uUnitId, uPalId, 0x0D, 1, 8) || // Terraxia teleport
+            CreateExtraPal(uUnitId, uPalId, 0x0F, 1, 8) || // Terraxia incoming
+            CreateExtraPal(uUnitId, uPalId, 0x10, 1, 9)    // Terraxia hugging
+            )
+        {
+            break;
+        }
+        break;
+    }
+    case indexCPS2_Jin: 
     {
         if (CreateExtraPal(uUnitId, uPalId, 0x09, 6, 0, 0, 6) || // Power-up glow
             CreateExtraPal(uUnitId, uPalId, 0x2D, 6, 11, 0, 6) ||
