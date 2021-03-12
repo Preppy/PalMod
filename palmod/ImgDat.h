@@ -17,7 +17,7 @@ private:
     UINT16 nCurImgGameFlag = 0xFFFF;
 
     UINT8 uReadGameFlag = 0x00;
-    UINT8 uReadBPP = 0x00;
+    //UINT8 uReadBPP = 0x00;
     UINT16 uReadNumImgs = 0x0000;
     UINT32 uReadNextImgLoc = 0x00000000;
 

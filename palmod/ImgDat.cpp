@@ -382,7 +382,7 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
         for (int nGameCtr = 0; nGameCtr < uNumGames; nGameCtr++)
         {
             ImgDatFile.Read(&uReadGameFlag, 0x01);
-            ImgDatFile.Read(&uReadBPP, 0x01);
+            //ImgDatFile.Read(&uReadBPP, 0x01);
             ImgDatFile.Read(&uReadNumImgs, 0x02);
             ImgDatFile.Read(&uReadNextImgLoc, 0x04);
 
