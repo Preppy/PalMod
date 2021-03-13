@@ -23,6 +23,7 @@ enum SupportedMatriM_A_PaletteListIndex
     indexMatriMSprites_Ume,         // 0x12
     indexMatriMSprites_White,       // 0x13
     indexMatriMSprites_Bonus,       // 0x14
+    indexMatriMSprites_Stages,      // 0x15
 };
 
 const UINT16 MATRIM_A_IMG_UNITS[] =
@@ -48,6 +49,7 @@ const UINT16 MATRIM_A_IMG_UNITS[] =
     indexMatriMSprites_Ume,
     indexMatriMSprites_White,
     indexMatriMSprites_Bonus,
+    indexMatriMSprites_Stages,      // 0x15
 };
 
 const sGame_PaletteDataset Matrimelee_A_Annie_A_PALETTES[] =
@@ -1227,13 +1229,12 @@ const sGame_PaletteDataset Matrimelee_A_HUD_PORTRAIT_PALETTES[] =
 
 const sGame_PaletteDataset Matrimelee_A_JUDGE_PORTRAIT_PALETTES[] =
 {
-    { L"The Judge", 0x29adde, 0x29adfe },
+    { L"The Judge/Enabler/Kuroko", 0x29adde, 0x29adfe, indexMatriMSprites_Stages, 0x00 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_BBM_PORTRAIT_PALETTES[] =
 {
-    { L"Bloodline Battles TV", 0x29ac5e, 0x29ac7e },
-    { L"Bloodline Battles Attack Buttons", 0x29ac3e, 0x29ac5e },
+    { L"Bloodline Battles Monitor", 0x29ac3e, 0x29ac7e, indexMatriMSprites_Bonus, 0x03 },
 };
 
 const sDescTreeNode Matrimelee_A_Annie_COLLECTION[] =

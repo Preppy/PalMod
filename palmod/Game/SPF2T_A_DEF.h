@@ -9,10 +9,7 @@
 const UINT16 SPF2T_A_IMG_UNITS[] =
 {
     indexCPS2_SPF_Ryu,      // 0x59
-    indexCPS2_SPF_Ken,      // 0x5a
     indexCPS2_SPF_ChunLi,   // 0x5b
-    indexCPS2_SPF_Sakura,   // 0x5c
-    indexCPS2_SPF_Morrigan, // 0x5d
     indexCPS2_SPF_HsienKo,  // 0x5e
     indexCPS2_SPF_Felicia,  // 0x5f
     indexCPS2_SPF_Dan,      // 0x63
@@ -52,18 +49,18 @@ const sGame_PaletteDataset SPF2T_A_RYU_PALETTES_B[] =
 
 const sGame_PaletteDataset SPF2T_A_KEN_PALETTES_A[] =
 {
-    { L"Ken A", 0x0202fe, 0x02031e, indexCPS2_SPF_Ken, 0x00 },
+    { L"Ken A", 0x0202fe, 0x02031e, indexPuzzleFighter_Ken, 0x00 },
     { L"Ken A: Shoryuken Flames", 0x02031e, 0x02033e },
-    { L"Ken A: Supertrail 1", 0x02033e, 0x02035e, indexCPS2_SPF_Ken, 0x00 },
-    { L"Ken A: Supertrail 2", 0x02035e, 0x02037e, indexCPS2_SPF_Ken, 0x00 },
+    { L"Ken A: Supertrail 1", 0x02033e, 0x02035e, indexPuzzleFighter_Ken, 0x00 },
+    { L"Ken A: Supertrail 2", 0x02035e, 0x02037e, indexPuzzleFighter_Ken, 0x00 },
 };
 
 const sGame_PaletteDataset SPF2T_A_KEN_PALETTES_B[] =
 {
-    { L"Ken B", 0x02037e, 0x02039e, indexCPS2_SPF_Ken, 0x00 },
+    { L"Ken B", 0x02037e, 0x02039e, indexPuzzleFighter_Ken, 0x00 },
     { L"Ken B: Shoryuken Flames", 0x02039e, 0x0203be },
-    { L"Ken B: Supertrail 1", 0x0203be, 0x0203de, indexCPS2_SPF_Ken, 0x00 },
-    { L"Ken B: Supertrail 2", 0x0203de, 0x0203fe, indexCPS2_SPF_Ken, 0x00 },
+    { L"Ken B: Supertrail 1", 0x0203be, 0x0203de, indexPuzzleFighter_Ken, 0x00 },
+    { L"Ken B: Supertrail 2", 0x0203de, 0x0203fe, indexPuzzleFighter_Ken, 0x00 },
 };
 
 const sGame_PaletteDataset SPF2T_A_CHUNLI_PALETTES_A[] =
@@ -84,33 +81,33 @@ const sGame_PaletteDataset SPF2T_A_CHUNLI_PALETTES_B[] =
 
 const sGame_PaletteDataset SPF2T_A_SAKURA_PALETTES_A[] =
 {
-    { L"Sakura A", 0x0206fe, 0x02071e, indexCPS2_SPF_Sakura, 0x00 },
+    { L"Sakura A", 0x0206fe, 0x02071e, indexPuzzleFighter_Sakura, 0x00 },
     { L"Sakura A: Unused Hadouken", 0x02071e, 0x02073e },
     { L"Sakura A: Hadouken", 0x02073e, 0x02075e },
-    { L"Sakura A: Supertrail", 0x02075e, 0x02077e, indexCPS2_SPF_Sakura, 0x00 },
+    { L"Sakura A: Supertrail", 0x02075e, 0x02077e, indexPuzzleFighter_Sakura, 0x00 },
 };
 
 const sGame_PaletteDataset SPF2T_A_SAKURA_PALETTES_B[] =
 {
-    { L"Sakura B", 0x02077e, 0x02079e, indexCPS2_SPF_Sakura, 0x00 },
+    { L"Sakura B", 0x02077e, 0x02079e, indexPuzzleFighter_Sakura, 0x00 },
     { L"Sakura B: Unused Hadouken", 0x02079e, 0x0207be },
     { L"Sakura B: Hadouken", 0x0207be, 0x0207de },
-    { L"Sakura B: Supertrail", 0x0207de, 0x0207fe, indexCPS2_SPF_Sakura, 0x00 },
+    { L"Sakura B: Supertrail", 0x0207de, 0x0207fe, indexPuzzleFighter_Sakura, 0x00 },
 };
 
 const sGame_PaletteDataset SPF2T_A_MORRIGAN_PALETTES_A[] =
 {
-    { L"Morrigan A", 0x01fffe, 0x02001e, indexCPS2_SPF_Morrigan, 0x00 },
+    { L"Morrigan A", 0x01fffe, 0x02001e, indexPuzzleFighter_Morrigan, 0x00 },
     { L"Morrigan A: Shadow Blade", 0x02001e, 0x02003e },
-    { L"Morrigan A: Red Pal", 0x02003e, 0x02005e, indexCPS2_SPF_Morrigan, 0x00 },
+    { L"Morrigan A: Red Pal", 0x02003e, 0x02005e, indexPuzzleFighter_Morrigan, 0x00 },
     { L"Morrigan A: Sparkles", 0x02005e, 0x02007e },
 };
 
 const sGame_PaletteDataset SPF2T_A_MORRIGAN_PALETTES_B[] =
 {
-    { L"Morrigan B", 0x02007e, 0x02009e, indexCPS2_SPF_Morrigan, 0x00 },
+    { L"Morrigan B", 0x02007e, 0x02009e, indexPuzzleFighter_Morrigan, 0x00 },
     { L"Morrigan B: Shadow Blade", 0x02009e, 0x0200be },
-    { L"Morrigan B: Red Pal", 0x0200be, 0x0200de, indexCPS2_SPF_Morrigan, 0x00 },
+    { L"Morrigan B: Red Pal", 0x0200be, 0x0200de, indexPuzzleFighter_Morrigan, 0x00 },
     { L"Morrigan B: Sparkles", 0x0200de, 0x0200fe },
 };
 
