@@ -71,6 +71,18 @@ const sGame_PaletteDataset MSHWOTG_BONUS_INTRO_PALETTES[] =
     { L"Wolverine Intro Portrait Part 2", 0x78438, 0x78458 },
 };
 
+const sGame_PaletteDataset MSHWOTG_BONUS_CSP_PALETTES[] =
+{
+    { L"Spider-Man CSP", 0xF1C20, 0xF1C40 },
+    { L"Captain America CSP", 0xF1C40, 0xF1C60 },
+    { L"Hulk CSP", 0xF1C60, 0xF1C80 },
+    { L"Iron Man CSP", 0xF1C80, 0xF1CA0 },
+    { L"Wolverine CSP", 0xF1CA0, 0xF1CC0 },
+    { L"CSP Nameplates", 0xF1CC0, 0xF1CE0 },
+    { L"CS BG Gradient Pt.1", 0xF1BE0, 0xF1C00 },
+    { L"CS BG Gradient Pt.2", 0xF1C00, 0xF1C20 },
+};
+
 const sGame_PaletteDataset MSHWOTG_BONUS_VSP_PALETTES[] =
 {
     { L"Captain America VSP", 0x67055, 0x67075 },
@@ -89,6 +101,61 @@ const sGame_PaletteDataset MSHWOTG_BONUS_ENDING_PALETTES[] =
     { L"Spider-Man Ending Portrait Part 2", 0x81724, 0x81744 },
     { L"Wolverine Ending Portrait", 0x81764, 0x81784 },
 };
+
+const sGame_PaletteDataset MSHWOTG_BONUS_TITLE_PALETTES[] =
+{
+    { L"\"MARVEL SUPER HEROES\" chrome logo", 0xF1B60, 0xF1B80 },
+    { L"\"WAR GEMS\" and Marvel Comics logo", 0xF1B80, 0xF1BA0 },
+    { L"\"OF THE\"", 0xFB5A0, 0xFB5C0 },
+    { L"Blue BG Gradient", 0xF1B20, 0xF1B60 },
+    { L"Soul Gem Menu Cursor", 0xFB580, 0xFB5A0 },
+    { L"Intro green gradient BG", 0x6A65D, 0x6A67D },
+};
+
+const sGame_PaletteDataset MSHWOTG_BONUS_ENEMY_PALETTES[] =
+{
+    { L"Dr. Doom", 0x6FBCC, 0x6FBEC },
+    { L"Doombot 1", 0xFA7E0, 0xFA800 },
+    { L"Doombot 2", 0xFA800, 0xFA820 },
+    { L"Doombot 3", 0xFA820, 0xFA840 },
+    { L"Doombot 4", 0xFA840, 0xFA860 },
+    { L"E. Daredevil 1", 0xFA460, 0xFA480 },
+    { L"E. Daredevil 2", 0xFA420, 0xFA440 },
+    { L"E. Hawkeye 1", 0xFA480, 0xFA4A0 },
+    { L"E. Hawkeye 2", 0xFA4A0, 0xFA4C0 },
+    { L"E. Iron Man 2", 0xFA500, 0xFA520 },
+    { L"E. Iron Man 3", 0xFA520, 0xFA540 },
+    { L"E. Puck 1", 0xFA540, 0xFA560 },
+    { L"E. Puck 2", 0xFA560, 0xFA580 },
+    { L"E. Puck 3", 0xFA580, 0xFA5A0 },
+    { L"E. She-Hulk 1", 0xFA5A0, 0xFA5C0 },
+    { L"E. She-Hulk 2", 0xFA5C0, 0xFA5E0 },
+    { L"E. She-Hulk 3", 0xFA5E0, 0xFA600 },
+    { L"E. Silver Surfer", 0xFA920, 0xFA940 },
+    { L"E. Vision 1", 0xFA600, 0xFA620 },
+    { L"E. Vision 2", 0xFA620, 0xFA640 },
+    { L"E. Vision 3", 0xFA640, 0xFA660 },
+    { L"Magus", 0xFA8A0, 0xFA8C0 },
+    { L"Magus shadow 1", 0xFA8C0, 0xFA8E0 },
+    { L"Magus shadow 2", 0xFA8E0, 0xFA900 },
+    { L"Magus Portrait", 0x5F48D, 0x5F4AD },
+    { L"Nebula", 0xFA7C0, 0xFA7E0 },
+    { L"Nebula Portrait", 0x71295, 0x712B5 },
+    { L"Thanos", 0xFA760, 0xFA780 },
+    { L"Thanos Portrait", 0x7AA20, 0x7AA40 },
+};
+
+const sGame_PaletteDataset MSHWOTG_BONUS_MISC_PALETTES[] =
+{
+    { L"Mind Gem", 0x612FC, 0x6131C },
+    { L"Time Gem", 0x6131C, 0x6133C },
+    { L"Soul Gem", 0x6133C, 0x6135C },
+    { L"Reality Gem", 0x6135C, 0x6137C },
+    { L"Space Gem", 0x6137C, 0x6139C },
+    { L"Power Gem", 0x6139C, 0x613BC },
+    { L"Dr. Strange", 0xFB540, 0xFB560 },
+};
+
 
 const sDescTreeNode MSHWOTG_CAPTAINAMERICA_COLLECTION[] =
 {
@@ -148,8 +215,12 @@ const sDescTreeNode MSHWOTG_EWOLVERINE_COLLECTION[] =
 const sDescTreeNode MSHWOTG_BONUS_COLLECTION[] =
 {
     { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_INTRO_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_INTRO_PALETTES) },
+    { L"Character Select Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_CSP_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_CSP_PALETTES) },
     { L"Victory Screen Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_VSP_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_VSP_PALETTES) },
     { L"Ending Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_ENDING_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_ENDING_PALETTES) },
+    { L"Title Screen", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_TITLE_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_TITLE_PALETTES) },
+    { L"Enemies", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_ENEMY_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_ENEMY_PALETTES) },
+    { L"Misc", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_MISC_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_MISC_PALETTES) },
 };
 
 const sDescTreeNode MSHWOTG_SNES_UNITS[] =

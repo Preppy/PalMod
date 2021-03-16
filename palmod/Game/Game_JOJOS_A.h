@@ -37,9 +37,7 @@ public:
     static UINT32 m_nConfirmedROMSize;
 
     static int rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1];
-    static int rgExtraCountVisibleOnly_50[JOJOS_A_NUMUNIT_50 + 1];
     static int rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1];
-    static int rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1];
     static int rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1];
     static int rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1];
     

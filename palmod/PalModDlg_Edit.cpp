@@ -585,7 +585,8 @@ void CPalModDlg::OnEditPaste()
                 case JOJOS_A_DIR_50:
                 case JOJOS_A_DIR_51:
                 case REDEARTH_A:
-                case REDEARTH_A_DIR:
+                case REDEARTH_A_DIR_30:
+                case REDEARTH_A_DIR_31:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_15;
                     break;

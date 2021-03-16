@@ -48,7 +48,7 @@ CGame_MSHWOTG_SNES::CGame_MSHWOTG_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = MSHWOTG_SNES_NUMUNIT;
     m_nExtraUnit = MSHWOTG_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 34;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 84;
     m_pszExtraFilename = EXTRA_FILENAME_MSHWOTG_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMSHWOTG;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

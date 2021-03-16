@@ -156,7 +156,7 @@
 #define ID_LD_JOJOS50                   32843
 #define ID_LD_JOJOS51                   32844
 #define ID_LD_MVC2ARCADE                32845
-#define ID_LOADDIRECTORY_REDEARTH       32846
+#define ID_LOADDIRECTORY_REDEARTH_30    32846
 #define ID_SETTINGS_IMGOUT_SETBACKGROUNDCOLOR 32847
 #define ID_TOOLS_GENERATEPATCHFILE      32848
 #define ID_IMGOUT_SAVE                  32849
@@ -197,6 +197,7 @@
 #define ID_LD_GGXXACR                   32885
 #define ID_LD_DBFCI                     32886
 #define ID_LD_UNICLR                    32887
+#define ID_LOADDIRECTORY_REDEARTH_31    32888
 
 // Please note that the F0000 range (983040) is reserved for the dynamic game menu
 
@@ -205,7 +206,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32888
+#define _APS_NEXT_COMMAND_VALUE         32889
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

@@ -402,12 +402,21 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_REDEARTH_A::GetRule;
         return TRUE;
     }
-    case REDEARTH_A_DIR:
+    case REDEARTH_A_DIR_30:
     {
         GetRuleCtr = &CGame_RedEarth_A_DIR::GetRuleCtr;
         ResetRuleCtr = &CGame_RedEarth_A_DIR::ResetRuleCtr;
-        GetRule = &CGame_RedEarth_A_DIR::GetRule;
-        GetNextRule = &CGame_RedEarth_A_DIR::GetNextRule;
+        GetRule = &CGame_RedEarth_A_DIR::GetRule_30;
+        GetNextRule = &CGame_RedEarth_A_DIR::GetNextRule_30;
+
+        return TRUE;
+    }
+    case REDEARTH_A_DIR_31:
+    {
+        GetRuleCtr = &CGame_RedEarth_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_RedEarth_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_RedEarth_A_DIR::GetRule_31;
+        GetNextRule = &CGame_RedEarth_A_DIR::GetNextRule_31;
 
         return TRUE;
     }
@@ -842,11 +851,15 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     }
     case REDEARTH_A:
     {
-        return new CGame_REDEARTH_A(nConfirmedROMSize);
+        return new CGame_REDEARTH_A(nConfirmedROMSize, nExtraGameData);
     }
-    case REDEARTH_A_DIR:
+    case REDEARTH_A_DIR_30:
     {
-        return new CGame_RedEarth_A_DIR(-1);
+        return new CGame_RedEarth_A_DIR(-1, 30);
+    }
+    case REDEARTH_A_DIR_31:
+    {
+        return new CGame_RedEarth_A_DIR(-1, 31);
     }
     case RODSM2_A:
     {
@@ -1063,6 +1076,9 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
             nGameRule = ((wcsstr(pszFileName, L".05") != nullptr) ? 5 : 6);
             break;
         }
+        case REDEARTH_A:
+            nGameRule = ((wcscmp(pszFileName, L"30") == 0) ? 30 : 31);
+            break;
         case SFA2_A:
         {
             nGameRule = ((wcsstr(pszFileName, L".08") != nullptr) ? 8 : 7);

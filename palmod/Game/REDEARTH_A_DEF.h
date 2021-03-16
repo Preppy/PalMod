@@ -651,13 +651,12 @@ const sDescTreeNode REDEARTH_A_INTRO_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_INTRO_PALETTES, ARRAYSIZE(REDEARTH_A_INTRO_PALETTES) },
 };
 
-
 const sDescTreeNode REDEARTH_A_BONUS_COLLECTION[] =
 {
     { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_PALETTES, ARRAYSIZE(REDEARTH_A_BONUS_PALETTES) },
 };
 
-const sDescTreeNode REDEARTH_A_UNITS[] =
+const sDescTreeNode REDEARTH_A_UNITS_31[] =
 {
     { L"Leo",               DESC_NODETYPE_TREE, (void*)REDEARTH_A_LEO_COLLECTION, ARRAYSIZE(REDEARTH_A_LEO_COLLECTION) },
     { L"Kenji",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_KENJI_COLLECTION, ARRAYSIZE(REDEARTH_A_KENJI_COLLECTION) },
@@ -678,6 +677,60 @@ const sDescTreeNode REDEARTH_A_UNITS[] =
     { L"Bonus",             DESC_NODETYPE_TREE, (void*)REDEARTH_A_BONUS_COLLECTION, ARRAYSIZE(REDEARTH_A_BONUS_COLLECTION) },
 };
 
+// RedEarth stage palettes from Yoshin
+const sGame_PaletteDataset REDEARTH_A_STAGES_ICELARN_PALETTES[] =
+{
+    { L"Icelarn 1 - Layer 1-Ground/Ice/Building", 0x737000, 0x737200 },
+    { L"Icelarn 2 - Pallete Cycle 1 - 1", 0x737200, 0x737280 },
+    { L"Icelarn 2 - Pallete Cycle 1 - 2", 0x737280, 0x737300 },
+    { L"Icelarn 2 - Pallete Cycle 1 - 3", 0x737300, 0x737380 },
+    { L"Icelarn 2 - Pallete Cycle 1 - 4", 0x737380, 0x737400 },
+    { L"Icelarn 3 - Pal 1", 0x737400, 0x737500 },
+    { L"Icelarn 3 - Pal 2", 0x737500, 0x737580 },
+    { L"Icelarn 3 - Pal 3", 0x737580, 0x737600 },
+    { L"Icelarn 4 - Pal 1", 0x737600, 0x737700 },
+    { L"Icelarn 4 - Pal 2", 0x737700, 0x737740 },
+    { L"Icelarn 4 - Pal 3", 0x737740, 0x737780 },
+    { L"Icelarn 4 - Pal 4", 0x737780, 0x737800 },
+    { L"Icelarn 5 - Sky BG Pal Cycle 1", 0x737800, 0x737880 },
+    { L"Icelarn 5 - Sky BG Pal Cycle 2", 0x737880, 0x737900 },
+    { L"Icelarn 5 - Sky BG Pal Cycle 2", 0x737900, 0x737980 },
+    { L"Icelarn 5 - Pallete Cycle 2 - 1", 0x737980, 0x737A00 },
+    { L"Icelarn 6 - Pallete Cycle 2 - 2", 0x737A00, 0x737A80 },
+    { L"Icelarn 6 - Pallete Cycle 2 - 3", 0x737A80, 0x737B00 },
+    { L"Icelarn 6 - Pallete Cycle 3 - 1", 0x737B00, 0x737B80 },
+    { L"Icelarn 6 - Pallete Cycle 3 - 2", 0x737B80, 0x737C00 },
+    { L"Icelarn 7 - Pallete Cycle 3 - 3", 0x737C00, 0x737C80 },
+    { L"Icelarn 7 - Pallete Cycle 3 - 4", 0x737C80, 0x737D00 },
+};
+
+const sGame_PaletteDataset REDEARTH_A_STAGES_GORA_PALETTES[] =
+{
+    { L"Gora - Moon/Sky", 0x737D00, 0x737D80 },
+    { L"Gora - Ground/Foilage", 0x737D80, 0x737E00 },
+    { L"Gora - Planes/rock chunk", 0x737E00, 0x737E80 },
+    { L"Gora - Rock Face", 0x737E80, 0x737F00 },
+    { L"Gora - ???", 0x737F00, 0x737F80 },
+    { L"Gora - Foreground debris", 0x737F80, 0x738000 },
+    { L"Gora - ???", 0x738000, 0x738080 },
+};
+
+const sDescTreeNode REDEARTH_A_STAGES_GORA_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_GORA_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_STAGES_ICELARN_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_PALETTES, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_PALETTES) },
+};
+
+const sDescTreeNode REDEARTH_A_UNITS_30[] =
+{
+    { L"Gora",      DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_GORA_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_GORA_COLLECTION) },
+    { L"Icelarn",   DESC_NODETYPE_TREE, (void*)REDEARTH_A_STAGES_ICELARN_COLLECTION, ARRAYSIZE(REDEARTH_A_STAGES_ICELARN_COLLECTION) },
+};
+
 #ifdef UseStagePalettes
 ;; RedEarth: Stages in File 30
     { L"Greedia Ruins", 0x734000, 0x734d00 },
@@ -691,16 +744,17 @@ const sDescTreeNode REDEARTH_A_UNITS[] =
     { L"Hauzer Fire PALFX", 0x74a000, 0x74d000 },
 #endif
 
-constexpr auto REDEARTH_A_NUMUNIT = ARRAYSIZE(REDEARTH_A_UNITS);
-#define REDEARTH_A_EXTRALOC REDEARTH_A_NUMUNIT
+constexpr auto REDEARTH_A_NUMUNIT_30 = ARRAYSIZE(REDEARTH_A_UNITS_30);
+#define REDEARTH_A_EXTRALOC_30 REDEARTH_A_NUMUNIT_30
+
+constexpr auto REDEARTH_A_NUMUNIT_31 = ARRAYSIZE(REDEARTH_A_UNITS_31);
+#define REDEARTH_A_EXTRALOC_31 REDEARTH_A_NUMUNIT_31
 
 const stExtraDef REDEARTH_A_EXTRA[] = 
 {
     //Start
-
     { UNIT_START_VALUE },
 
     //Extra
-
     { INVALID_UNIT_VALUE }
 };

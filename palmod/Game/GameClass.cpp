@@ -1579,6 +1579,7 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, UINT16 nSIMMNumber)
     {
         strInfo.Format(L"\tCGameClass::LoadFileForSIMMGame: Failed to load file for SIMM %u.%u.\n", m_nSIMMSetBaseNumber, nAdjustedSIMMFileNumber);
         OutputDebugString(strInfo);
+        fSuccess = FALSE;
     }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;

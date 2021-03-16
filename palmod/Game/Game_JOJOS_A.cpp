@@ -18,9 +18,7 @@ UINT32 CGame_JOJOS_A::m_nTotalPaletteCount50 = 0;
 UINT32 CGame_JOJOS_A::m_nTotalPaletteCount51 = 0;
 
 int CGame_JOJOS_A::rgExtraCountAll_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
-int CGame_JOJOS_A::rgExtraCountVisibleOnly_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraCountAll_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
-int CGame_JOJOS_A::rgExtraCountVisibleOnly_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_50[JOJOS_A_NUMUNIT_50 + 1] = { -1 };
 int CGame_JOJOS_A::rgExtraLoc_51[JOJOS_A_NUMUNIT_51 + 1] = { -1 };
 UINT32 CGame_JOJOS_A::m_nExpectedGameROMSize = 0x800000; // 8,388,608 bytes
@@ -33,9 +31,7 @@ void CGame_JOJOS_A::InitializeStatics()
     safe_delete_array(CGame_JOJOS_A::JOJOS_A_EXTRA_CUSTOM_51);
 
     memset(rgExtraCountAll_50, -1, sizeof(rgExtraCountAll_50));
-    memset(rgExtraCountVisibleOnly_50, -1, sizeof(rgExtraCountVisibleOnly_50));
     memset(rgExtraCountAll_51, -1, sizeof(rgExtraCountAll_51));
-    memset(rgExtraCountVisibleOnly_51, -1, sizeof(rgExtraCountVisibleOnly_51));
 
     memset(rgExtraLoc_50, -1, sizeof(rgExtraLoc_50));
     memset(rgExtraLoc_51, -1, sizeof(rgExtraLoc_51));
@@ -118,16 +114,7 @@ CGame_JOJOS_A::~CGame_JOJOS_A(void)
 
 int CGame_JOJOS_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    int* rgExtraCt = nullptr;
-
-    if (bCountVisibleOnly)
-    {
-        rgExtraCt = UsePaletteSetFor50() ? (int*)rgExtraCountVisibleOnly_50 : (int*)rgExtraCountVisibleOnly_51;
-    }
-    else
-    {
-        rgExtraCt = UsePaletteSetFor50() ? (int*)rgExtraCountAll_50 : (int*)rgExtraCountAll_51;
-    }
+    int* rgExtraCt = UsePaletteSetFor50() ? (int*)rgExtraCountAll_50 : (int*)rgExtraCountAll_51;
 
     if (rgExtraCt[0] == -1)
     {
@@ -851,7 +838,7 @@ BOOL CGame_JOJOS_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     int nNormalPalettesCount = ((GetCollectionCountForUnit(NodeGet->uUnitId) * 2) + 10);
     bool fUseDefaultPaletteLoad = true;
 
-    if (UsePaletteSetFor50() ? (JOJOS_A_EXTRALOC_50 > NodeGet->uUnitId) : (JOJOS_A_EXTRALOC_51 > NodeGet->uUnitId))
+    if (m_nExtraUnit != NodeGet->uUnitId)
     {
         const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
 

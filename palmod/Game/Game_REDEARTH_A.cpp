@@ -5,26 +5,41 @@
 #include "..\PalMod.h"
 #include "..\regproc.h"
 
-stExtraDef* CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM = NULL;
+#define REDEARTH_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-int CGame_REDEARTH_A::rgExtraCountAll[REDEARTH_A_NUMUNIT + 1] = { -1 };
-int CGame_REDEARTH_A::rgExtraLoc[REDEARTH_A_NUMUNIT + 1] = { -1 };
+stExtraDef* CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM_30 = NULL;
+stExtraDef* CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM_31 = NULL;
 
-CDescTree CGame_REDEARTH_A::MainDescTree = nullptr;
+int CGame_REDEARTH_A::rgExtraCountAll_30[REDEARTH_A_NUMUNIT_30 + 1] = { -1 };
+int CGame_REDEARTH_A::rgExtraCountAll_31[REDEARTH_A_NUMUNIT_31 + 1] = { -1 };
+int CGame_REDEARTH_A::rgExtraLoc_30[REDEARTH_A_NUMUNIT_30 + 1] = { -1 };
+int CGame_REDEARTH_A::rgExtraLoc_31[REDEARTH_A_NUMUNIT_31 + 1] = { -1 };
+
+CDescTree CGame_REDEARTH_A::MainDescTree_30 = nullptr;
+CDescTree CGame_REDEARTH_A::MainDescTree_31 = nullptr;
+
+int CGame_REDEARTH_A::m_nRedEarthMode = 31;
+UINT32 CGame_REDEARTH_A::m_nTotalPaletteCount30 = 0;
+UINT32 CGame_REDEARTH_A::m_nTotalPaletteCount31 = 0;
+
 UINT32 CGame_REDEARTH_A::m_nExpectedGameROMSize = 0x800000; // 8388608 bytes
 UINT32 CGame_REDEARTH_A::m_nConfirmedROMSize = -1;
 
 void CGame_REDEARTH_A::InitializeStatics()
 {
-    safe_delete_array(CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM_30);
+    safe_delete_array(CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM_31);
 
-    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+    memset(rgExtraCountAll_30, -1, sizeof(rgExtraCountAll_30));
+    memset(rgExtraCountAll_31, -1, sizeof(rgExtraCountAll_31));
+    memset(rgExtraLoc_30, -1, sizeof(rgExtraLoc_30));
+    memset(rgExtraLoc_31, -1, sizeof(rgExtraLoc_31));
 
-    MainDescTree.SetRootTree(CGame_REDEARTH_A::InitDescTree());
+    MainDescTree_30.SetRootTree(CGame_REDEARTH_A::InitDescTree(30));
+    MainDescTree_31.SetRootTree(CGame_REDEARTH_A::InitDescTree(31));
 }
 
-CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize)
+CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize /* = -1 */, int nRedEarthModeToLoad /* = 31 */)
 {
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
@@ -38,20 +53,30 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize)
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
 
-    m_pszExtraFilename = EXTRA_FILENAME_REDEARTH;
-
     //We need the proper unit amt before we init the main buffer
-    m_nTotalInternalUnits = REDEARTH_A_NUMUNIT;
-    m_nExtraUnit = REDEARTH_A_EXTRALOC;
+    m_nRedEarthMode = nRedEarthModeToLoad;
 
-    nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
+    if (UsePaletteSetFor30())
+    {
+        OutputDebugString(L"CGame_REDEARTH_A::CGame_REDEARTH_A: Loading for the 30 ROM\n");
+        nUnitAmt = REDEARTH_A_NUMUNIT_30 + (GetExtraCt(REDEARTH_A_EXTRALOC_30) ? 1 : 0);
+    }
+    else
+    {
+        OutputDebugString(L"CGame_REDEARTH_A::CGame_REDEARTH_A: Loading for the 31 ROM\n");
+        nUnitAmt = REDEARTH_A_NUMUNIT_31 + (GetExtraCt(REDEARTH_A_EXTRALOC_31) ? 1 : 0);
+    }
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 498;
-    m_nLowestKnownPaletteRomLocation = 0x1de000;
+    m_nTotalInternalUnits = UsePaletteSetFor30() ? REDEARTH_A_NUMUNIT_30 : REDEARTH_A_NUMUNIT_31;
+    m_nExtraUnit = UsePaletteSetFor30() ? REDEARTH_A_EXTRALOC_30 : REDEARTH_A_EXTRALOC_31;
 
-    CString strInfo;
-    strInfo.Format(L"CGame_REDEARTH_A::CGame_REDEARTH_A: Loaded REDEARTH_A with %u Extras\n", GetExtraCt(m_nExtraUnit));
-    OutputDebugString(strInfo);
+    const UINT32 nSafeCountFor30 = 29;
+    const UINT32 nSafeCountFor31 = 498;
+
+    m_nSafeCountForThisRom = UsePaletteSetFor30() ? (nSafeCountFor30 + GetExtraCt(REDEARTH_A_EXTRALOC_30)) : (nSafeCountFor31 + GetExtraCt(REDEARTH_A_EXTRALOC_31));
+    m_pszExtraFilename = UsePaletteSetFor30() ? EXTRA_FILENAME_REDEARTH_30 : EXTRA_FILENAME_REDEARTH_31;
+    m_nTotalPaletteCount = UsePaletteSetFor30() ? m_nTotalPaletteCount30 : m_nTotalPaletteCount31;
+    m_nLowestKnownPaletteRomLocation = UsePaletteSetFor30() ? 0x1de0000 : 0x1de000;
 
     InitDataBuffer();
 
@@ -78,7 +103,8 @@ CGame_REDEARTH_A::CGame_REDEARTH_A(UINT32 nConfirmedROMSize)
 
 CGame_REDEARTH_A::~CGame_REDEARTH_A(void)
 {
-    safe_delete_array(CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM);
+    safe_delete_array(CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM_30);
+    safe_delete_array(CGame_REDEARTH_A::REDEARTH_A_EXTRA_CUSTOM_31);
     //Get rid of the file changed flag
     ClearDataBuffer();
     FlushChangeTrackingArray();
@@ -86,31 +112,35 @@ CGame_REDEARTH_A::~CGame_REDEARTH_A(void)
 
 int CGame_REDEARTH_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    if (rgExtraCountAll[0] == -1)
+    int* rgExtraCt = UsePaletteSetFor30() ? (int*)rgExtraCountAll_30 : (int*)rgExtraCountAll_31;
+
+    if (rgExtraCt[0] == -1)
     {
         int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, (REDEARTH_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraCt, 0, ((UsePaletteSetFor30() ? REDEARTH_A_NUMUNIT_30 : REDEARTH_A_NUMUNIT_31) + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetRedEarthExtraDef(0);
 
         while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
         {
-            rgExtraCountAll[pCurrDef->uUnitN]++;
+            rgExtraCt[pCurrDef->uUnitN]++;
             nDefCtr++;
             pCurrDef = GetRedEarthExtraDef(nDefCtr);
         }
     }
 
-    return rgExtraCountAll[nUnitId];
+    return rgExtraCt[nUnitId];
 }
 
 int CGame_REDEARTH_A::GetExtraLoc(UINT16 nUnitId)
 {
-    if (rgExtraLoc[0] == -1)
+    int* rgExtraLocations = UsePaletteSetFor30() ? (int*)rgExtraLoc_30 : (int*)rgExtraLoc_31;
+
+    if (rgExtraLocations[0] == -1)
     {
         int nDefCtr = 0;
         int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (REDEARTH_A_NUMUNIT + 1) * sizeof(int));
+        memset(rgExtraLocations, 0, ((UsePaletteSetFor30() ? REDEARTH_A_NUMUNIT_30 : REDEARTH_A_NUMUNIT_31) + 1) * sizeof(int));
 
         stExtraDef* pCurrDef = GetRedEarthExtraDef(0);
 
@@ -118,7 +148,7 @@ int CGame_REDEARTH_A::GetExtraLoc(UINT16 nUnitId)
         {
             if (pCurrDef->uUnitN != nCurrUnit)
             {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
+                rgExtraLocations[pCurrDef->uUnitN] = nDefCtr;
                 nCurrUnit = pCurrDef->uUnitN;
             }
 
@@ -127,26 +157,80 @@ int CGame_REDEARTH_A::GetExtraLoc(UINT16 nUnitId)
         }
     }
 
-    return rgExtraLoc[nUnitId];
+    return rgExtraLocations[nUnitId];
 }
 
 CDescTree* CGame_REDEARTH_A::GetMainTree()
 {
-    return &CGame_REDEARTH_A::MainDescTree;
+    if (UsePaletteSetFor30())
+    {
+        return &CGame_REDEARTH_A::MainDescTree_30;
+    }
+    else
+    {
+        return &CGame_REDEARTH_A::MainDescTree_31;
+    }
 }
 
-sDescTreeNode* CGame_REDEARTH_A::InitDescTree()
+void CGame_REDEARTH_A::InitDataBuffer()
+{
+    m_nBufferRedEarthMode = m_nRedEarthMode;
+    m_pppDataBuffer = new UINT16 * *[nUnitAmt];
+    memset(m_pppDataBuffer, 0, sizeof(UINT16**) * nUnitAmt);
+}
+
+void CGame_REDEARTH_A::ClearDataBuffer()
+{
+    // We walk the tree to clear it according to RedEarth mode, but if you live switch games
+    // we would use the new mode incorrectly as we clear the old buffer.
+    int nCurrentRedEarthMode = m_nRedEarthMode;
+
+    m_nRedEarthMode = m_nBufferRedEarthMode;
+
+    if (m_pppDataBuffer)
+    {
+        for (UINT16 nUnitCtr = 0; nUnitCtr < nUnitAmt; nUnitCtr++)
+        {
+            if (m_pppDataBuffer[nUnitCtr])
+            {
+                UINT16 nPaletteCount = GetPaletteCountForUnit(nUnitCtr);
+
+                for (UINT16 nPaletteIndex = 0; nPaletteIndex < nPaletteCount; nPaletteIndex++)
+                {
+                    safe_delete_array(m_pppDataBuffer[nUnitCtr][nPaletteIndex]);
+                }
+
+                safe_delete_array(m_pppDataBuffer[nUnitCtr]);
+            }
+        }
+
+        safe_delete_array(m_pppDataBuffer);
+    }
+
+    m_nRedEarthMode = nCurrentRedEarthMode;
+}
+
+sDescTreeNode* CGame_REDEARTH_A::InitDescTree(int nPaletteSetToUse)
 {
     UINT32 nTotalPaletteCount = 0;
+    m_nRedEarthMode = nPaletteSetToUse;
 
 #ifdef REDEARTH_A_USEEXTRAFILE
-
-    //Load extra file if we're using it
-    LoadExtraFileForGame(EXTRA_FILENAME_REDEARTH, REDEARTH_A_EXTRA, &REDEARTH_A_EXTRA_CUSTOM, REDEARTH_A_EXTRALOC, m_nConfirmedROMSize);
+    if (UsePaletteSetFor30())
+    {
+        //Load extra file if we're using it
+        LoadExtraFileForGame(EXTRA_FILENAME_REDEARTH_30, REDEARTH_A_EXTRA, &REDEARTH_A_EXTRA_CUSTOM_30, REDEARTH_A_EXTRALOC_30, m_nConfirmedROMSize);
+    }
+    else
+    {
+        //Load extra file if we're using it
+        LoadExtraFileForGame(EXTRA_FILENAME_REDEARTH_31, REDEARTH_A_EXTRA, &REDEARTH_A_EXTRA_CUSTOM_31, REDEARTH_A_EXTRALOC_31, m_nConfirmedROMSize);
+    }
 #endif
 
-    bool fHaveExtras = (GetExtraCt(REDEARTH_A_EXTRALOC) > 0);
-    UINT16 nUnitCt = REDEARTH_A_NUMUNIT + (GetExtraCt(REDEARTH_A_EXTRALOC) ? 1 : 0);
+    bool fHaveExtras = ((UsePaletteSetFor30() ? GetExtraCt(REDEARTH_A_EXTRALOC_30) : GetExtraCt(REDEARTH_A_EXTRALOC_31)) > 0);
+    UINT16 nUnitCt = UsePaletteSetFor30() ? (REDEARTH_A_NUMUNIT_30 + (GetExtraCt(REDEARTH_A_EXTRALOC_30) ? 1 : 0)) :
+                                            (REDEARTH_A_NUMUNIT_31 + (GetExtraCt(REDEARTH_A_EXTRALOC_31) ? 1 : 0));
 
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
@@ -175,10 +259,10 @@ sDescTreeNode* CGame_REDEARTH_A::InitDescTree()
 
         UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
 
-        if (iUnitCtr != REDEARTH_A_EXTRALOC)
+        if (UsePaletteSetFor30() ? (iUnitCtr != REDEARTH_A_EXTRALOC_30) : (iUnitCtr != REDEARTH_A_EXTRALOC_31))
         {
             //Set each description
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", REDEARTH_A_UNITS[iUnitCtr].szDesc);
+            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", UsePaletteSetFor30() ? REDEARTH_A_UNITS_30[iUnitCtr].szDesc : REDEARTH_A_UNITS_31[iUnitCtr].szDesc);
 
             UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
             //All children have collection trees
@@ -266,7 +350,15 @@ sDescTreeNode* CGame_REDEARTH_A::InitDescTree()
             int nExtraPos = GetExtraLoc(iUnitCtr);
             int nCurrExtra = 0;
 
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[((REDEARTH_A_EXTRALOC) > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            if (UsePaletteSetFor30())
+            {
+                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[((REDEARTH_A_EXTRALOC_30) > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            }
+            else
+            {
+                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[((REDEARTH_A_EXTRALOC_31) > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
+            }
+
             _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
 
             CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
@@ -283,7 +375,7 @@ sDescTreeNode* CGame_REDEARTH_A::InitDescTree()
                 _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
 
                 ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = ((REDEARTH_A_EXTRALOC > iUnitCtr ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
+                ChildNode->uPalId = (((UsePaletteSetFor30() ? REDEARTH_A_EXTRALOC_30 : REDEARTH_A_EXTRALOC_31) > iUnitCtr ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
 
 #if REDEARTH_A_DEBUG
                 strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
@@ -296,10 +388,17 @@ sDescTreeNode* CGame_REDEARTH_A::InitDescTree()
         }
     }
 
-    m_nTotalPaletteCount = nTotalPaletteCount;
-
-    strMsg.Format(L"CGame_REDEARTH_A::InitDescTree: Loaded %u palettes for REDEARTH ROM\n", nTotalPaletteCount);
+    strMsg.Format(L"CGame_REDEARTH_A::InitDescTree: Loaded %u palettes for REDEARTH ROM %u\n", nTotalPaletteCount, m_nRedEarthMode);
     OutputDebugString(strMsg);
+
+    if (UsePaletteSetFor30())
+    {
+        m_nTotalPaletteCount30 = nTotalPaletteCount;
+    }
+    else
+    {
+        m_nTotalPaletteCount31 = nTotalPaletteCount;
+    }
 
     return NewDescTree;
 }
@@ -308,7 +407,7 @@ sFileRule CGame_REDEARTH_A::GetRule(UINT16 nUnitId)
 {
     sFileRule NewFileRule;
 
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"51");
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"31");
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -318,74 +417,143 @@ sFileRule CGame_REDEARTH_A::GetRule(UINT16 nUnitId)
 
 UINT16 CGame_REDEARTH_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == REDEARTH_A_EXTRALOC)
+    if (UsePaletteSetFor30())
     {
-        return GetExtraCt(nUnitId);
+        if (nUnitId == REDEARTH_A_EXTRALOC_30)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            return REDEARTH_A_UNITS_30[nUnitId].uChildAmt;
+        }
     }
     else
     {
-        return REDEARTH_A_UNITS[nUnitId].uChildAmt;
+        if (nUnitId == REDEARTH_A_EXTRALOC_31)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            return REDEARTH_A_UNITS_31[nUnitId].uChildAmt;
+        }
     }
 }
 
 UINT16 CGame_REDEARTH_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == REDEARTH_A_EXTRALOC)
+    if (UsePaletteSetFor30())
     {
-        return GetExtraCt(nUnitId);
+        if (nUnitId == REDEARTH_A_EXTRALOC_30)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(REDEARTH_A_UNITS_30[nUnitId].ChildNodes);
+            return pCollectionNode[nCollectionId].uChildAmt;
+        }
     }
     else
     {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(REDEARTH_A_UNITS[nUnitId].ChildNodes);
-        return pCollectionNode[nCollectionId].uChildAmt;
+        if (nUnitId == REDEARTH_A_EXTRALOC_31)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(REDEARTH_A_UNITS_31[nUnitId].ChildNodes);
+            return pCollectionNode[nCollectionId].uChildAmt;
+        }
     }
 }
 
 LPCWSTR CGame_REDEARTH_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == REDEARTH_A_EXTRALOC)
+    if (UsePaletteSetFor30())
     {
-        return L"Extra Palettes";
+        if (nUnitId == REDEARTH_A_EXTRALOC_30)
+        {
+            return L"Extra Palettes";
+        }
+        else
+        {
+            const sDescTreeNode* pCollection = (const sDescTreeNode*)REDEARTH_A_UNITS_30[nUnitId].ChildNodes;
+            return pCollection[nCollectionId].szDesc;
+        }
     }
     else
     {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)REDEARTH_A_UNITS[nUnitId].ChildNodes;
-        return pCollection[nCollectionId].szDesc;
+        if (nUnitId == REDEARTH_A_EXTRALOC_31)
+        {
+            return L"Extra Palettes";
+        }
+        else
+        {
+            const sDescTreeNode* pCollection = (const sDescTreeNode*)REDEARTH_A_UNITS_31[nUnitId].ChildNodes;
+            return pCollection[nCollectionId].szDesc;
+        }
     }
 }
 
 UINT16 CGame_REDEARTH_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == REDEARTH_A_EXTRALOC)
+    if (UsePaletteSetFor30())
     {
-        return GetExtraCt(nUnitId);
+        if (nUnitId == REDEARTH_A_EXTRALOC_30)
+        {
+            return GetExtraCt(nUnitId);
+        }
+        else
+        {
+            UINT16 nCompleteCount = 0;
+            UINT16 nCollectionCount = REDEARTH_A_UNITS_30[nUnitId].uChildAmt;
+            const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(REDEARTH_A_UNITS_30[nUnitId].ChildNodes);
+
+            for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+            {
+                nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
+            }
+
+            return nCompleteCount;
+        }
     }
     else
     {
-        UINT16 nCompleteCount = 0;
-        UINT16 nCollectionCount = REDEARTH_A_UNITS[nUnitId].uChildAmt;
-        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(REDEARTH_A_UNITS[nUnitId].ChildNodes);
-
-        for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+        if (nUnitId == REDEARTH_A_EXTRALOC_31)
         {
-            nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
+            return GetExtraCt(nUnitId);
         }
+        else
+        {
+            UINT16 nCompleteCount = 0;
+            UINT16 nCollectionCount = REDEARTH_A_UNITS_31[nUnitId].uChildAmt;
+            const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(REDEARTH_A_UNITS_31[nUnitId].ChildNodes);
 
-#if REDEARTH_A_DEBUG_EXTRA
-        CString strMsg;
-        strMsg.Format(L"CGame_REDEARTH_A::GetPaletteCountForUnit: %u palettes for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
-        OutputDebugString(strMsg);
-#endif
+            for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
+            {
+                nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
+            }
 
-        return nCompleteCount;
+            return nCompleteCount;
+        }
     }
 }
 
 const sGame_PaletteDataset* CGame_REDEARTH_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
     // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)REDEARTH_A_UNITS[nUnitId].ChildNodes;
-    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    if (UsePaletteSetFor30())
+    {
+        const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)REDEARTH_A_UNITS_30[nUnitId].ChildNodes;
+        return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    }
+    else
+    {
+        const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)REDEARTH_A_UNITS_31[nUnitId].ChildNodes;
+        return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    }
 }
 
 const sGame_PaletteDataset* CGame_REDEARTH_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
@@ -450,7 +618,7 @@ const sDescTreeNode* CGame_REDEARTH_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT
         const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
         UINT16 nNodeCount;
 
-        if (nUnitId == REDEARTH_A_EXTRALOC)
+        if (nUnitId == m_nExtraUnit)
         {
             nNodeCount = GetExtraCt(nUnitId);
 
@@ -462,7 +630,7 @@ const sDescTreeNode* CGame_REDEARTH_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT
         }
         else
         {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(REDEARTH_A_UNITS[nUnitId].ChildNodes);
+            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(UsePaletteSetFor30() ? REDEARTH_A_UNITS_30[nUnitId].ChildNodes : REDEARTH_A_UNITS_31[nUnitId].ChildNodes);
 
             nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
 
@@ -490,7 +658,8 @@ const sDescTreeNode* CGame_REDEARTH_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT
 
 void CGame_REDEARTH_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 {
-    if (nUnitId != REDEARTH_A_EXTRALOC)
+    if (UsePaletteSetFor30() ? (nUnitId != REDEARTH_A_EXTRALOC_30) :
+                                (nUnitId != REDEARTH_A_EXTRALOC_31))
     {
         int cbPaletteSizeOnDisc = 0;
         const sGame_PaletteDataset* paletteData = GetSpecificPalette(nUnitId, nPalId);
@@ -517,7 +686,7 @@ bool CGame_REDEARTH_A::CanEnableMultispriteExport(UINT16 nUnitId, UINT16 nPalId)
 {
     bool isBalanced = false;
 
-    const sDescTreeNode* pUnitTree = &(REDEARTH_A_UNITS[nUnitId]);
+    const sDescTreeNode* pUnitTree = UsePaletteSetFor30() ? &(REDEARTH_A_UNITS_30[nUnitId]) : &(REDEARTH_A_UNITS_31[nUnitId]);
 
     // Only enable for character nodes
     if (pUnitTree->uChildAmt >= m_nNumberOfColorOptions)

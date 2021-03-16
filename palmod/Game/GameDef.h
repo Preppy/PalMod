@@ -44,7 +44,7 @@ enum SupportedGamesList
     MVC2_A_DIR,
     GEMFIGHTER_A,
     REDEARTH_A,
-    REDEARTH_A_DIR,
+    REDEARTH_A_DIR_31,
     KarnovsR_A,
     WakuWaku7_A,
     SFA1_A,
@@ -104,6 +104,7 @@ enum SupportedGamesList
     UNICLR_A,
     SPF2T_A,
     MSHWOTG_SNES,
+    REDEARTH_A_DIR_30,
 
     NUM_GAMES // This needs to be last
 };
@@ -211,6 +212,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Under Night In-Birth Exe:Late[cl-r]",
    L"Super Puzzle Fighter II Turbo",
    L"Marvel Super Heroes: War of the Gems [SNES]",
+   L"Red Earth (Arcade Rerip)",
 };
 
 enum class GamePlatform
