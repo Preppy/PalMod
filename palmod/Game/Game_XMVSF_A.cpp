@@ -45,7 +45,7 @@ CGame_XMVSF_A::CGame_XMVSF_A(UINT32 nConfirmedROMSize)
     //We need the proper unit amt before we init the main buffer
     m_nTotalInternalUnits = XMVSF_A_NUMUNIT;
     m_nExtraUnit = XMVSF_A_EXTRALOC;
-    m_nSafeCountForThisRom = 451 + GetExtraCt(m_nExtraUnit);
+    m_nSafeCountForThisRom = 468 + GetExtraCt(m_nExtraUnit);
     m_pszExtraFilename = EXTRA_FILENAME_XMVSF;
     m_nTotalPaletteCount = m_nTotalPaletteCountForXMVSF;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
@@ -139,6 +139,18 @@ GAME(1996, xmvsfu1d,   xmvsf,    dead_cps2, cps2_2p6b, cps2_state, init_cps2,   
     }
 
     return ARRAYSIZE(knownROMs);
+}
+
+sFileRule CGame_XMVSF_A::GetRule(UINT16 nUnitId)
+{
+    sFileRule NewFileRule;
+
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"xvs.05a");
+
+    NewFileRule.uUnitId = 0;
+    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
+
+    return NewFileRule;
 }
 
 int CGame_XMVSF_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
@@ -370,18 +382,6 @@ sDescTreeNode* CGame_XMVSF_A::InitDescTree()
     m_nTotalPaletteCountForXMVSF = nTotalPaletteCount;
 
     return NewDescTree;
-}
-
-sFileRule CGame_XMVSF_A::GetRule(UINT16 nUnitId)
-{
-    sFileRule NewFileRule;
-
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"xvs.05a");
-
-    NewFileRule.uUnitId = 0;
-    NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
-
-    return NewFileRule;
 }
 
 UINT16 CGame_XMVSF_A::GetCollectionCountForUnit(UINT16 nUnitId)

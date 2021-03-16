@@ -35,6 +35,7 @@
 #include "Game_MMPR_SNES.h"
 #include "Game_MSH_A.h"
 #include "Game_MSHVSF_A.h"
+#include "Game_MSHWOTG_SNES.h"
 #include "Game_MVC_A.h"
 #include "Game_MVC2_A.h"
 #include "Game_MVC2_A_DIR.h"
@@ -317,6 +318,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case MSHVSF_A:
     {
         GetRule = &CGame_MSHVSF_A::GetRule;
+        return TRUE;
+    }
+    case MSHWOTG_SNES:
+    {
+        GetRule = &CGame_MSHWOTG_SNES::GetRule;
         return TRUE;
     }
     case MVC_A:
@@ -781,6 +787,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case MSHVSF_A:
     {
         return new CGame_MSHVSF_A(nConfirmedROMSize, nExtraGameData);
+    }
+    case MSHWOTG_SNES:
+    {
+        return new CGame_MSHWOTG_SNES(nConfirmedROMSize);
     }
     case MVC_A:
     {

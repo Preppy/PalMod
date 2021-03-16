@@ -1,0 +1,182 @@
+#pragma once
+
+const sGame_PaletteDataset MSHWOTG_CAPTAINAMERICA_PALETTES[] =
+{
+    { L"Captain America", 0xFA000, 0xFA020 },
+};
+
+const sGame_PaletteDataset MSHWOTG_IRONMAN_PALETTES[] =
+{
+    { L"Iron Man", 0xFA0C0, 0xFA0E0 },
+};
+
+const sGame_PaletteDataset MSHWOTG_HULK_PALETTES[] =
+{
+    { L"Hulk", 0xFA120, 0xFA140 },
+};
+
+const sGame_PaletteDataset MSHWOTG_SPIDERMAN_PALETTES[] =
+{
+    { L"Spider-Man", 0xFA180, 0xFA1A0 },
+};
+
+const sGame_PaletteDataset MSHWOTG_WOLVERINE_PALETTES[] =
+{
+    { L"Wolverine", 0xFA060, 0xFA080 },
+};
+
+const sGame_PaletteDataset MSHWOTG_BLACKHEART_PALETTES[] =
+{
+    { L"BlackHeart", 0xFA740, 0xFA760 },
+};
+
+const sGame_PaletteDataset MSHWOTG_EHULK_PALETTES[] =
+{
+    { L"E. Hulk", 0xFA880, 0xFA8A0 },
+};
+
+const sGame_PaletteDataset MSHWOTG_EIRONMAN_PALETTES[] =
+{
+    { L"E. Iron Man 1", 0xFA4E0, 0xFA500 },
+};
+
+const sGame_PaletteDataset MSHWOTG_ESASQUATCH_PALETTES[] =
+{
+    { L"E. Sasquatch", 0xFA780, 0xFA7A0 },
+};
+
+const sGame_PaletteDataset MSHWOTG_ETHING_PALETTES[] =
+{
+    { L"E. Thing 1", 0xFA6C0, 0xFA6E0 },
+    { L"E. Thing 2", 0xFA6E0, 0xFA700 },
+};
+
+const sGame_PaletteDataset MSHWOTG_EWOLVERINE_PALETTES[] =
+{
+    { L"E. Wolverine 1", 0xFA660, 0xFA680 },
+    { L"E. Wolverine 2", 0xFA680, 0xFA6A0 },
+    { L"E. Wolverine 3", 0xFA6A0, 0xFA6C0 },
+};
+
+const sGame_PaletteDataset MSHWOTG_BONUS_INTRO_PALETTES[] =
+{
+    { L"Captain America Intro Portrait Part 1", 0x771EC, 0x7720C },
+    { L"Captain America Intro Portrait Part 2", 0x784B8, 0x784D8 },
+    { L"Iron Man Intro Portrait Part 1", 0x771AC, 0x771CC },
+    { L"Iron Man Intro Portrait Part 2", 0x78478, 0x78498 },
+    { L"Hulk Intro Portrait", 0x771CC, 0x771EC },
+    { L"Spider-Man Intro Portrait Part 1", 0x7718C, 0x771AC },
+    { L"Spider-Man Intro Portrait Part 2", 0x78458, 0x78478 },
+    { L"Wolverine Intro Portrait Part 1", 0x7716C, 0x7718C },
+    { L"Wolverine Intro Portrait Part 2", 0x78438, 0x78458 },
+};
+
+const sGame_PaletteDataset MSHWOTG_BONUS_VSP_PALETTES[] =
+{
+    { L"Captain America VSP", 0x67055, 0x67075 },
+    { L"Iron Man VSP", 0x65E98, 0x65EB8 },
+    { L"Hulk VSP", 0x683A4, 0x683C4 },
+    { L"Spider-Man VSP", 0x6907B, 0x6909B },
+    { L"Wolverine VSP", 0x5E7D1, 0x5E7F1 },
+};
+
+const sGame_PaletteDataset MSHWOTG_BONUS_ENDING_PALETTES[] =
+{
+    { L"Iron Man Ending Portrait Part 1", 0x63E42, 0x63E62 },
+    { L"Iron Man Ending Portrait Part 2", 0x816C4, 0x816E4 },
+    { L"Hulk Ending Portrait", 0x63E22, 0x63E42 },
+    { L"Spider-Man Ending Portrait Part 1", 0x63E02, 0x63E22 },
+    { L"Spider-Man Ending Portrait Part 2", 0x81724, 0x81744 },
+    { L"Wolverine Ending Portrait", 0x81764, 0x81784 },
+};
+
+const sDescTreeNode MSHWOTG_CAPTAINAMERICA_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_CAPTAINAMERICA_PALETTES, ARRAYSIZE(MSHWOTG_CAPTAINAMERICA_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_IRONMAN_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_IRONMAN_PALETTES, ARRAYSIZE(MSHWOTG_IRONMAN_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_HULK_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_HULK_PALETTES, ARRAYSIZE(MSHWOTG_HULK_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_SPIDERMAN_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_SPIDERMAN_PALETTES, ARRAYSIZE(MSHWOTG_SPIDERMAN_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_WOLVERINE_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_WOLVERINE_PALETTES, ARRAYSIZE(MSHWOTG_WOLVERINE_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_BLACKHEART_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_BLACKHEART_PALETTES, ARRAYSIZE(MSHWOTG_BLACKHEART_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_EHULK_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_EHULK_PALETTES, ARRAYSIZE(MSHWOTG_EHULK_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_EIRONMAN_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_EIRONMAN_PALETTES, ARRAYSIZE(MSHWOTG_EIRONMAN_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_ESASQUATCH_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_ESASQUATCH_PALETTES, ARRAYSIZE(MSHWOTG_ESASQUATCH_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_ETHING_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_ETHING_PALETTES, ARRAYSIZE(MSHWOTG_ETHING_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_EWOLVERINE_COLLECTION[] =
+{
+    { L"Palettes", DESC_NODETYPE_TREE, (void*)MSHWOTG_EWOLVERINE_PALETTES, ARRAYSIZE(MSHWOTG_EWOLVERINE_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_BONUS_COLLECTION[] =
+{
+    { L"Intro Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_INTRO_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_INTRO_PALETTES) },
+    { L"Victory Screen Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_VSP_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_VSP_PALETTES) },
+    { L"Ending Portraits", DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_ENDING_PALETTES, ARRAYSIZE(MSHWOTG_BONUS_ENDING_PALETTES) },
+};
+
+const sDescTreeNode MSHWOTG_SNES_UNITS[] =
+{
+    { L"Captain America",  DESC_NODETYPE_TREE, (void*)MSHWOTG_CAPTAINAMERICA_COLLECTION,   ARRAYSIZE(MSHWOTG_CAPTAINAMERICA_COLLECTION) },
+    { L"Iron Man",  DESC_NODETYPE_TREE, (void*)MSHWOTG_IRONMAN_COLLECTION,   ARRAYSIZE(MSHWOTG_IRONMAN_COLLECTION) },
+    { L"Hulk",  DESC_NODETYPE_TREE, (void*)MSHWOTG_HULK_COLLECTION,   ARRAYSIZE(MSHWOTG_HULK_COLLECTION) },
+    { L"Spider-Man",  DESC_NODETYPE_TREE, (void*)MSHWOTG_SPIDERMAN_COLLECTION,   ARRAYSIZE(MSHWOTG_SPIDERMAN_COLLECTION) },
+    { L"Wolverine",  DESC_NODETYPE_TREE, (void*)MSHWOTG_WOLVERINE_COLLECTION,   ARRAYSIZE(MSHWOTG_WOLVERINE_COLLECTION) },
+    { L"Blackheart",  DESC_NODETYPE_TREE, (void*)MSHWOTG_BLACKHEART_COLLECTION,   ARRAYSIZE(MSHWOTG_BLACKHEART_COLLECTION) },
+    { L"Evil Hulk",  DESC_NODETYPE_TREE, (void*)MSHWOTG_EHULK_COLLECTION,   ARRAYSIZE(MSHWOTG_EHULK_COLLECTION) },
+    { L"Evil Iron Man",  DESC_NODETYPE_TREE, (void*)MSHWOTG_EIRONMAN_COLLECTION,   ARRAYSIZE(MSHWOTG_EIRONMAN_COLLECTION) },
+    { L"Evil Sasquatch",  DESC_NODETYPE_TREE, (void*)MSHWOTG_ESASQUATCH_COLLECTION,   ARRAYSIZE(MSHWOTG_ESASQUATCH_COLLECTION) },
+    { L"Evil Thing",  DESC_NODETYPE_TREE, (void*)MSHWOTG_ETHING_COLLECTION,   ARRAYSIZE(MSHWOTG_ETHING_COLLECTION) },
+    { L"Evil Wolverine",  DESC_NODETYPE_TREE, (void*)MSHWOTG_EWOLVERINE_COLLECTION,   ARRAYSIZE(MSHWOTG_EWOLVERINE_COLLECTION) },
+    { L"Bonus",  DESC_NODETYPE_TREE, (void*)MSHWOTG_BONUS_COLLECTION,   ARRAYSIZE(MSHWOTG_BONUS_COLLECTION) },
+};
+
+constexpr auto MSHWOTG_SNES_NUMUNIT = ARRAYSIZE(MSHWOTG_SNES_UNITS);
+
+#define MSHWOTG_SNES_EXTRALOC MSHWOTG_SNES_NUMUNIT
+
+// We extend this array with data groveled from the extensible extras file, if any.
+const stExtraDef MSHWOTG_SNES_EXTRA[] =
+{
+    // Start
+    { UNIT_START_VALUE },
+
+    { INVALID_UNIT_VALUE }
+};

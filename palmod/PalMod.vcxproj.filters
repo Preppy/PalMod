@@ -295,6 +295,9 @@
     <Filter Include="Game\Capcom Games\Super Puzzle Fighter II">
       <UniqueIdentifier>{98c51f41-36e2-4769-8cf5-dcb88ba4c42c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Nintendo\MSH: War of the Gems %28SNES%29">
+      <UniqueIdentifier>{d80c3add-38ff-46ee-9ac0-dff64814be18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImgDisp.cpp">
@@ -635,6 +638,9 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SPF2T_A.cpp">
       <Filter>Game\Capcom Games\Super Puzzle Fighter II</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game_MSHWOTG_SNES.cpp">
+      <Filter>Game\Nintendo\MSH: War of the Gems %28SNES%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1177,6 +1183,12 @@
     </ClInclude>
     <ClInclude Include="Game\SPF2T_A_DEF.h">
       <Filter>Game\Capcom Games\Super Puzzle Fighter II</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game_MSHWOTG_SNES.h">
+      <Filter>Game\Nintendo\MSH: War of the Gems %28SNES%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MSHWOTG_SNES_DEF.h">
+      <Filter>Game\Nintendo\MSH: War of the Gems %28SNES%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

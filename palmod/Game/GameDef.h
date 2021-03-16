@@ -103,6 +103,7 @@ enum SupportedGamesList
     DBFCI_A,
     UNICLR_A,
     SPF2T_A,
+    MSHWOTG_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -209,6 +210,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Dengeki Bunko: Fighting Climax IGNITION",
    L"Under Night In-Birth Exe:Late[cl-r]",
    L"Super Puzzle Fighter II Turbo",
+   L"Marvel Super Heroes: War of the Gems [SNES]",
 };
 
 enum class GamePlatform
