@@ -63,6 +63,15 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
         case ColMode::COLMODE_15ALT:
         case ColMode::COLMODE_SHARPRGB:
             return k_nRGBPlaneAmtForRGB555;
+        case ColMode::COLMODE_ARGB1888:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneAmtForRGB111;
+            }
+            else
+            {
+                return k_nRGBPlaneAmtForRGB888;
+            }
         case ColMode::COLMODE_ARGB7888:
             if (Flag == ColFlag::COL_A)
             {
@@ -72,6 +81,8 @@ int CGameClass::GetPlaneAmt(ColFlag Flag)
             {
                 return k_nRGBPlaneAmtForRGB888;
             }
+        case ColMode::COLMODE_ARGB8888:
+            return k_nRGBPlaneAmtForRGB888;
         default:
             return 0;
         }
@@ -100,6 +111,15 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
         case ColMode::COLMODE_15ALT:
         case ColMode::COLMODE_SHARPRGB:
             return k_nRGBPlaneMulForRGB555;
+        case ColMode::COLMODE_ARGB1888:
+            if (Flag == ColFlag::COL_A)
+            {
+                return k_nRGBPlaneMulForRGB111;
+            }
+            else
+            {
+                return k_nRGBPlaneMulForRGB888;
+            }
         case ColMode::COLMODE_ARGB7888:
             if (Flag == ColFlag::COL_A)
             {
@@ -109,6 +129,8 @@ double CGameClass::GetPlaneMul(ColFlag Flag)
             {
                 return k_nRGBPlaneMulForRGB888;
             }
+        case ColMode::COLMODE_ARGB8888:
+            return k_nRGBPlaneMulForRGB888;
         default:
             return 0;
         }
@@ -216,8 +238,14 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
         case ColMode::COLMODE_SHARPRGB:
             strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_SHARPRGB (RGB555)");
             break;
+        case ColMode::COLMODE_ARGB1888:
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_ARGB1888");
+            break;
         case ColMode::COLMODE_ARGB7888:
-            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_ARGB7888 (ARGB7888)");
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_ARGB7888");
+            break;
+        case ColMode::COLMODE_ARGB8888:
+            strDebugInfo.Format(L"CGameClass::SetColorMode : Switching color mode to '%s'.\n", L"COLMODE_ARGB8888");
             break;
         default:
             strDebugInfo.Format(L"CGameClass::SetColorMode : unsupported color mode.\n");
@@ -270,10 +298,20 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
         ConvPal16 = &CGameClass::CONV_SHARPRGB_32;
         ConvCol16 = &CGameClass::CONV_32_SHARPRGB;
         return TRUE;
+    case ColMode::COLMODE_ARGB1888:
+        m_nSizeOfColorsInBytes = 4;
+        ConvPal32 = &CGameClass::CONV_ARGB1888_32;
+        ConvCol32 = &CGameClass::CONV_32_ARGB1888;
+        return TRUE;
     case ColMode::COLMODE_ARGB7888:
         m_nSizeOfColorsInBytes = 4;
         ConvPal32 = &CGameClass::CONV_ARGB7888_32;
         ConvCol32 = &CGameClass::CONV_32_ARGB7888;
+        return TRUE;
+    case ColMode::COLMODE_ARGB8888:
+        m_nSizeOfColorsInBytes = 4;
+        ConvPal32 = &CGameClass::CONV_ARGB8888_32;
+        ConvCol32 = &CGameClass::CONV_32_ARGB8888;
         return TRUE;
     default:
         return FALSE;
@@ -717,6 +755,50 @@ UINT16 CGameClass::SWAP_16(UINT16 palv)
     return aux;
 }
 
+UINT32 CGameClass::CONV_ARGB1888_32(UINT32 inCol)
+{
+    UINT32 auxb = GetBValue(inCol);
+    UINT32 auxg = GetGValue(inCol);
+    UINT32 auxr = GetRValue(inCol);
+    UINT32 auxa = GetAValue(inCol) * 0xFF;
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xFF;
+    }
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT32 CGameClass::CONV_32_ARGB1888(UINT32 inCol)
+{
+    UINT32 auxa = (inCol & 0xFF000000) >> 24;
+    UINT32 auxb = (inCol & 0x00FF0000) >> 16;
+    UINT32 auxg = (inCol & 0x0000FF00) >> 8;
+    UINT32 auxr = (inCol & 0x000000FF);
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0x01;
+    }
+    else
+    {
+        auxa = auxa ? 1 : 0;
+    }
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
 UINT32 CGameClass::CONV_ARGB7888_32(UINT32 inCol)
 {
     UINT32 auxb = GetBValue(inCol);
@@ -747,6 +829,50 @@ UINT32 CGameClass::CONV_32_ARGB7888(UINT32 inCol)
     if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
     {
         auxa = 0x80;
+    }
+    else
+    {
+        auxa = (UINT32)floor((auxa + 1) / 2);
+    }
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT32 CGameClass::CONV_ARGB8888_32(UINT32 inCol)
+{
+    UINT32 auxb = GetBValue(inCol);
+    UINT32 auxg = GetGValue(inCol);
+    UINT32 auxr = GetRValue(inCol);
+    UINT32 auxa = min(GetAValue(inCol) * 2, 0xFF);
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xFF;
+    }
+
+    //auxr = auxr;
+    auxg = auxg << 8;
+    auxb = auxb << 16;
+    auxa = auxa << 24;
+
+    return (auxb | auxg | auxr | auxa);
+}
+
+UINT32 CGameClass::CONV_32_ARGB8888(UINT32 inCol)
+{
+    UINT32 auxa = (inCol & 0xFF000000) >> 24;
+    UINT32 auxb = (inCol & 0x00FF0000) >> 16;
+    UINT32 auxg = (inCol & 0x0000FF00) >> 8;
+    UINT32 auxr = (inCol & 0x000000FF);
+
+    if (CurrAlphaMode != AlphaMode::GameUsesVariableAlpha)
+    {
+        auxa = 0xff;
     }
     else
     {
@@ -1117,12 +1243,12 @@ void CGameClass::InitDataBuffer()
     if (GameIsUsing16BitColor())
     {
         m_pppDataBuffer = new UINT16 * *[nUnitAmt];
-        memset(m_pppDataBuffer, NULL, sizeof(UINT16**) * nUnitAmt);
+        memset(m_pppDataBuffer, 0, sizeof(UINT16**) * nUnitAmt);
     }
     else
     {
         m_pppDataBuffer32 = new UINT32 * *[nUnitAmt];
-        memset(m_pppDataBuffer32, NULL, sizeof(UINT32**) * nUnitAmt);
+        memset(m_pppDataBuffer32, 0, sizeof(UINT32**) * nUnitAmt);
     }
 }
 

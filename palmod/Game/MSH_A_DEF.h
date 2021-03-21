@@ -682,6 +682,64 @@ const sGame_PaletteDataset MSH_A_THANOS_PALETTES_STATUS[] =
     { L"Soul Gem Slowdown 2/2 Blue", 0x6656e, 0x6658e, indexCPS2_Thanos },
 };
 
+const sGame_PaletteDataset MSH_A_BONUS_GEMS_PALETTES[] =
+{
+    { L"Time Gem, Soul Gem", 0x6A72C, 0x6A74C },
+    { L"Space Gem, Power Gem", 0x6A74C, 0x6A76C },
+    { L"Reality Gem", 0x6B66C, 0x6B68C },
+    { L"Mind Gem", 0x6B60C, 0x6B62C },
+};
+
+const sGame_PaletteDataset MSH_A_BONUS_MINDGEM_PALETTES[] =
+{
+    // Thanos Mind Gem status effect - MSH
+    { L"Spider-Man P1", 0x65E0C, 0x65E2C },
+    { L"Captain America P1", 0x65E2C, 0x65E4C },
+    { L"Captain America P1 Shield", 0x65FAC, 0x65FCC },
+    { L"Hulk P1", 0x65E4C, 0x65E6C },
+    { L"Iron Man P1", 0x65E6C, 0x65E8C },
+    { L"Wolverine P1", 0x65E8C, 0x65EAC },
+    { L"Psylocke P1", 0x65EAC, 0x65ECC },
+    { L"BlackHeart P1", 0x65ECC, 0x65EEC },
+    { L"Shuma-Gorath P1", 0x65EEC, 0x65F0C },
+    { L"Juggernaut P1", 0x65F0C, 0x65F2C },
+    { L"Magneto P1", 0x65F2C, 0x65F4C },
+    { L"Dr. Doom P1", 0x65F4C, 0x65F6C },
+    { L"Thanos P1", 0x65F6C, 0x65F8C },
+    { L"Anita P1", 0x65F8C, 0x65FAC },
+
+    { L"Spider-Man P2", 0x6600C, 0x6602C },
+    { L"Captain America P2", 0x6602C, 0x6604C },
+    { L"Captain America P2 Shield", 0x661AC, 0x661CC },
+    { L"Hulk P2", 0x6604C, 0x6606C },
+    { L"Iron Man P2", 0x6606C, 0x6608C },
+    { L"Wolverine P2", 0x6608C, 0x660AC },
+    { L"Psylocke P2", 0x660AC, 0x660CC },
+    { L"BlackHeart P2", 0x660CC, 0x660EC },
+    { L"Shuma-Gorath P2", 0x660EC, 0x6610C },
+    { L"Juggernaut P2", 0x6610C, 0x6612C },
+    { L"Magneto P2", 0x6612C, 0x6614C },
+    { L"Dr. Doom P2", 0x6614C, 0x6616C },
+    { L"Thanos P2", 0x6616C, 0x6618C },
+    { L"Anita P2", 0x6618C, 0x661AC },
+};
+
+const sGame_PaletteDataset MSH_A_BONUS_CSI_PALETTES[] =
+{
+    { L"Spider-Man", 0x6B2EC, 0x6B30C },
+    { L"Captain America", 0x6B30C, 0x6B32C },
+    { L"Hulk", 0x6B32C, 0x6B34C },
+    { L"Iron Man", 0x6B34C, 0x6B36C },
+    { L"Wolverine", 0x6B36C, 0x6B3AC },
+    //{ L"Wolverine Pt.2", 0x6B38C, 0x6B3AC },
+    { L"Psylocke", 0x6B3AC, 0x6B3EC },
+    //{ L"Psylocke Pt.2", 0x6B3CC, 0x6B3EC },
+    { L"BlackHeart", 0x6B3EC, 0x6B40C },
+    { L"Shuma-Gorath", 0x6B40C, 0x6B42C },
+    { L"Juggernaut", 0x6B42C, 0x6B44C },
+    { L"Magneto", 0x6B44C, 0x6B46C },
+};
+
 // This is present but using a base palette not effects colors
 //{ L"Soul Gem Slowdown 1/2", 0x6638e, 0x663ae, indexCPS2_Anita },
 //{ L"Soul Gem Slowdown 2/2", 0x6658e, 0x665ae, indexCPS2_Anita },
@@ -794,6 +852,13 @@ const sDescTreeNode MSH_A_VSP_COLLECTION[] =
     { L"Palettes", DESC_NODETYPE_TREE, (void*)MSH_A_VSP_PALETTES,           ARRAYSIZE(MSH_A_VSP_PALETTES) },
 };
 
+const sDescTreeNode MSH_A_BONUS_COLLECTION[] =
+{
+    { L"Character Select Icons", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_CSI_PALETTES, ARRAYSIZE(MSH_A_BONUS_CSI_PALETTES) },
+    { L"Gems", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_GEMS_PALETTES, ARRAYSIZE(MSH_A_BONUS_GEMS_PALETTES) },
+    { L"Mind Gem Effects", DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_MINDGEM_PALETTES, ARRAYSIZE(MSH_A_BONUS_MINDGEM_PALETTES) },
+};
+
 const sDescTreeNode MSH_UNITS_05[] =
 {
     { L"Blackheart",                    DESC_NODETYPE_TREE, (void*)MSH_A_BLACKHEART_COLLECTION,       ARRAYSIZE(MSH_A_BLACKHEART_COLLECTION) },
@@ -809,6 +874,7 @@ const sDescTreeNode MSH_UNITS_05[] =
     { L"Thanos",                        DESC_NODETYPE_TREE, (void*)MSH_A_THANOS_COLLECTION,           ARRAYSIZE(MSH_A_THANOS_COLLECTION) },
     { L"Wolverine",                     DESC_NODETYPE_TREE, (void*)MSH_A_WOLVERINE_COLLECTION,        ARRAYSIZE(MSH_A_WOLVERINE_COLLECTION) },
     { L"Anita (Japan-only)",            DESC_NODETYPE_TREE, (void*)MSH_A_ANITA_COLLECTION,            ARRAYSIZE(MSH_A_ANITA_COLLECTION) },
+    { L"Bonus",                         DESC_NODETYPE_TREE, (void*)MSH_A_BONUS_COLLECTION,            ARRAYSIZE(MSH_A_BONUS_COLLECTION) },
 };
 
 constexpr auto MSH_A_NUMUNIT_05 = ARRAYSIZE(MSH_UNITS_05);

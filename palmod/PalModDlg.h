@@ -116,7 +116,9 @@ public:
     void SetColorFormatToGBA() { SetColorFormatTo(ColMode::COLMODE_GBA); };
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_NEOGEO); };
     void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_SHARPRGB); };
+    void SetColorFormatToARGB1888() { SetColorFormatTo(ColMode::COLMODE_ARGB1888); };
     void SetColorFormatToARGB7888() { SetColorFormatTo(ColMode::COLMODE_ARGB7888); };
+    void SetColorFormatToARGB8888() { SetColorFormatTo(ColMode::COLMODE_ARGB8888); };
 
     void SetAlphaModeTo(AlphaMode newAlphaMode);
     void SetAlphaModeToFixed() { SetAlphaModeTo(AlphaMode::GameUsesFixedAlpha); };

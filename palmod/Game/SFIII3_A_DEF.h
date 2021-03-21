@@ -1396,14 +1396,14 @@ const sGame_PaletteDataset SFIII3_A_GILL_EXTRAS_PALETTES[] =
     { L"Left Frozen/Super Flash", 0x707100, 0x707180, index3S_CPS3_Gill, 0x01 },
     { L"Right Frozen/Super Flash", 0x707180, 0x707200, index3S_CPS3_Gill },
 
-    { L"Gill Cultists", 0x78F700, 0x78F780 },
+    { L"Gill Cultists", 0x78F700, 0x78F780, index3S_CPS3_Gill, 0x09 },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_NORMAL_PALETTES[] =
 {
     { L"Intro facing right", 0x0700080, 0x0700100, index3S_CPS3_Gill, 0x00 },
     { L"Intro facing left", 0x0700000, 0x0700080, index3S_CPS3_Gill, 0x05, &pairNext },
-    { L"Portrait", 0x763b00, 0x763b20 },
+    { L"Portrait", 0x763b00, 0x763b20, index3S_CPS3_Gill, 0x0a },
 };
 
 const sGame_PaletteDataset SFIII3_A_GILL_Support_PALETTES[] =
@@ -1424,8 +1424,8 @@ const sGame_PaletteDataset SFIII3_A_GILL_Support_PALETTES[] =
 
 const sGame_PaletteDataset SFIII3_A_GILL_PORTRAIT_PALETTES[] =
 {
-    { L"Gill portrait (Normal)", 0x070C680, 0x070C780 },
-    { L"Gill portrait (Tinted)", 0x0711480, 0x0711580 },
+    { L"Gill portrait (Normal)", 0x070C680, 0x070C780, index3S_CPS3_Gill, 0x20 },
+    { L"Gill portrait (Tinted)", 0x0711480, 0x0711580, index3S_CPS3_Gill, 0x20 },
     { L"Gill Story Mode Icon", 0x070BF80, 0x070C000, index3S_CPS3_Gill, 0x22 },
     { L"Gill Story Mode Icon (Faded)", 0x710d80, 0x710e00, index3S_CPS3_Gill, 0x22 },
 };

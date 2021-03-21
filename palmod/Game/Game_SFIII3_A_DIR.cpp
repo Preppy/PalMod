@@ -12,6 +12,7 @@ SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::m_currentSFIII3ROMRevision = SFI
 // 3S EX is a palette expansion of 3S
 constexpr auto SFIII_Arcade_USA_ROM_Base = L"sfiii3-simm";
 constexpr auto SFIII_Arcade_JPN_ROM_Base = L"sfiii3n-simm";
+// There's also a "sfiii3(__990608)-simm1" base for the 1.x roms in at least one package
 constexpr auto SFIII_Arcade_4rd_ROM_Base = L"4rd-simm";
 constexpr auto SFIII_Arcade_3Ex_ROM_Base = L"sfiii3ex-simm";
 

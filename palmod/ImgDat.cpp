@@ -66,7 +66,7 @@ bool CImgDat::PrepImageBuffer(const UINT16* prgGameImageSet, const UINT16 nGameI
         imageBufferFlushed = FlushImageBuffer();
     }
 
-    nImgMap = new  std::map<UINT16, ImgInfoList*>;
+    nImgMap = new std::map<UINT16, ImgInfoList*>;
 
 #if IMGDAT_DEBUG
     CString strDebugInfo;
@@ -295,9 +295,9 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, U
         // not super critical for daily updates, but still useful
         const UINT16 nExpectedYear = 2021;
         const UINT8 nExpectedMonth = 3;
-        const UINT8 nExpectedDay = 13;
+        const UINT8 nExpectedDay = 18;
         const UINT8 nExpectedRevision = 0;
-        const ULONGLONG nExpectedFileSize = 79347711;
+        const ULONGLONG nExpectedFileSize = 79585820;
 
         const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
 

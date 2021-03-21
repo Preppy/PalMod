@@ -339,14 +339,14 @@ UINT8 CPalGroup::ROUND_8(UINT8 rVal)
 
 UINT8 CPalGroup::ROUND_17(UINT8 rVal)
 {
-    UINT8 outVal = (UINT8)(round(rVal / 17.0)) * 17;
+    UINT8 outVal = (UINT8)min(0xff, (round(rVal / 17.0)) * 17);
 
     return outVal;
 }
 
 UINT8 CPalGroup::ROUND_32(UINT8 rVal)
 {
-    UINT8 outVal = (UINT8)(round(rVal / 32.0)) * 32;
+    UINT8 outVal = (UINT8)min(0xff, (round(rVal / 32.0)) * 32);
 
     return outVal;
 }

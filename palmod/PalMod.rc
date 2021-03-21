@@ -404,7 +404,9 @@ BEGIN
             MENUITEM "RGB555 (big endian)",         ID_COLORFORMAT_RGB555_ALT
             MENUITEM "RGB555 (Sharp X68000)",       ID_COLORFORMAT_SHARPRGB
             MENUITEM "RGB666 (Neo-Geo)",            ID_COLORFORMAT_RGB666
-            MENUITEM "RGB888 (Arc Sys)",            ID_COLORFORMAT_ARGB7888
+            MENUITEM "ARGB1888 (DBFCI)",            ID_COLORFORMAT_ARGB1888
+            MENUITEM "ARGB7888 (Arc Sys)",          ID_COLORFORMAT_ARGB7888
+            MENUITEM "ARGB8888",                    ID_COLORFORMAT_ARGB8888
             MENUITEM SEPARATOR
             MENUITEM "No Alpha",                    ID_ALPHASETTING_UNUSED
             MENUITEM "Fixed Alpha",                 ID_ALPHASETTING_FIXED

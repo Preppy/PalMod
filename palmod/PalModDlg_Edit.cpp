@@ -246,9 +246,17 @@ void CPalModDlg::OnEditCopy()
         case ColMode::COLMODE_SHARPRGB:
             uCopyFlag1 = DANKUGA_A + k_nASCIICharacterOffset;
             break;
+        case ColMode::COLMODE_ARGB1888:
+            cbColor = 4;
+            uCopyFlag1 = DBFCI_A + k_nASCIICharacterOffset;
+            break;
         case ColMode::COLMODE_ARGB7888:
             cbColor = 4;
             uCopyFlag1 = GGXXACR_A + k_nASCIICharacterOffset;
+            break;
+        case ColMode::COLMODE_ARGB8888:
+            cbColor = 4;
+            uCopyFlag1 = UNICLR_A + k_nASCIICharacterOffset;
             break;
         default:
             {
@@ -542,11 +550,19 @@ void CPalModDlg::OnEditPaste()
                     eColModeForPastedColor = ColMode::COLMODE_12A_LE;
                     break;
                 }
-                case GGXXACR_A:
                 case DBFCI_A:
-                case UNICLR_A:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_ARGB1888;
+                    break;
+                }
+                case GGXXACR_A:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_ARGB7888;
+                    break;
+                }
+                case UNICLR_A:
+                {
+                    eColModeForPastedColor = ColMode::COLMODE_ARGB8888;
                     break;
                 }
                 case COTA_A:

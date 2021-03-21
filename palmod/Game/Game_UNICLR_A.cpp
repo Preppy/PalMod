@@ -138,7 +138,7 @@ CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)
     createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     m_fGameUsesAlphaValue = true;
-    SetColorMode(ColMode::COLMODE_ARGB7888);
+    SetColorMode(ColMode::COLMODE_ARGB8888);
 
     //Set palette conversion mode
     BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);

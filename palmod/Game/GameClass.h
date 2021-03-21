@@ -38,6 +38,8 @@ enum class ColMode
     COLMODE_9,         // RGB333 for Sega Genesis/MegaDrive
     COLMODE_ARGB7888,  // 32bit color for guilty gear
     COLMODE_SHARPRGB,  // sharp x68000 rgb
+    COLMODE_ARGB1888,  // 32bit color for DBFCI
+    COLMODE_ARGB8888,  // 32bit color for uniclr. and modern computing...
 };
 
 enum class ColFlag
@@ -64,12 +66,14 @@ protected:
     LPCWSTR m_pszCurrentPaletteName = nullptr;
     UINT32 m_nConfirmedCRCValue = 0;
 
+    const int k_nRGBPlaneAmtForRGB111 = 1;
     const int k_nRGBPlaneAmtForRGB333 = 7;
     const int k_nRGBPlaneAmtForRGB444 = 15;
     const int k_nRGBPlaneAmtForRGB555 = 31;
     const int k_nRGBPlaneAmtForRGB777 = 127;
     const int k_nRGBPlaneAmtForRGB888 = 255;
 
+    const double k_nRGBPlaneMulForRGB111 = 255;
     const double k_nRGBPlaneMulForRGB333 = 36.428;
     const double k_nRGBPlaneMulForRGB444 = 17.0;
     const double k_nRGBPlaneMulForRGB555 = 8.225;
@@ -127,8 +131,12 @@ protected:
     static UINT32 CONV_NEOGEO_32(UINT16 inCol);
     static UINT16 CONV_32_SHARPRGB(UINT32 inCol);
     static UINT32 CONV_SHARPRGB_32(UINT16 inCol);
+    static UINT32 CONV_32_ARGB1888(UINT32 inCol);
+    static UINT32 CONV_ARGB1888_32(UINT32 inCol);
     static UINT32 CONV_32_ARGB7888(UINT32 inCol);
     static UINT32 CONV_ARGB7888_32(UINT32 inCol);
+    static UINT32 CONV_32_ARGB8888(UINT32 inCol);
+    static UINT32 CONV_ARGB8888_32(UINT32 inCol);
 
     static UINT16 SWAP_16(UINT16 palv);
 

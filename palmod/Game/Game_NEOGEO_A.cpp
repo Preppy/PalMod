@@ -189,7 +189,9 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
+    case ColMode::COLMODE_ARGB1888:
     case ColMode::COLMODE_ARGB7888:
+    case ColMode::COLMODE_ARGB8888:
         cbRequiredColorSize = 4;
         suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
         BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
