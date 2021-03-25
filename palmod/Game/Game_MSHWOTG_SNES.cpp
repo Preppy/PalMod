@@ -34,7 +34,7 @@ CGame_MSHWOTG_SNES::CGame_MSHWOTG_SNES(UINT32 nConfirmedROMSize)
     OutputDebugString(strMessage);
 
     //Set color mode: see the definitions in GameClass.h
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
 
@@ -60,8 +60,8 @@ CGame_MSHWOTG_SNES::CGame_MSHWOTG_SNES(UINT32 nConfirmedROMSize)
 
     nGameFlag = MSHWOTG_SNES;
     nImgGameFlag = IMGDAT_SECTION_SNES;
-    m_prgGameImageSet = nullptr;
-    nImgUnitAmt = 0;
+    m_prgGameImageSet = MSHWOTG_SNES_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(MSHWOTG_SNES_IMG_UNITS);
 
     nFileAmt = 1;
 

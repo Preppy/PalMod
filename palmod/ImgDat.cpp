@@ -295,9 +295,9 @@ void CImgDat::SanityCheckImgDat(ULONGLONG nFileSize, UINT32 nCurrentDatestamp, U
         // not super critical for daily updates, but still useful
         const UINT16 nExpectedYear = 2021;
         const UINT8 nExpectedMonth = 3;
-        const UINT8 nExpectedDay = 18;
+        const UINT8 nExpectedDay = 24;
         const UINT8 nExpectedRevision = 0;
-        const ULONGLONG nExpectedFileSize = 79585820;
+        const ULONGLONG nExpectedFileSize = 79786644;
 
         const UINT32 nExpectedDatestamp = (nExpectedYear << 16) | (nExpectedMonth << 8) | (nExpectedDay);
 
@@ -379,7 +379,7 @@ BOOL CImgDat::LoadGameImages(WCHAR* lpszLoadFile, UINT8 uGameFlag, UINT8 uImgGam
 
     ImgDatFile.Read(&uNumGames, 0x01);
 
-    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames);
+    strDebugInfo.Format(L"CImgDat::LoadGameImages: Current imgdat is the %u/%u/%u build revision %u. %u game sections are present.  File size is %u bytes.\n", nYear, nMonth, nDay, nDailyRevision, uNumGames, (UINT32)ImgDatFile.GetLength());
     OutputDebugString(strDebugInfo);
 
     if (uNumGames)

@@ -33,7 +33,7 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
     strMessage.Format(L"CGame_MMPR_SNES::CGame_MMPR_SNES: Loading ROM...\n");
     OutputDebugString(strMessage);
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
 
@@ -47,7 +47,7 @@ CGame_MMPR_SNES::CGame_MMPR_SNES(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = MMPR_SNES_NUMUNIT;
     m_nExtraUnit = MMPR_SNES_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 18;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 19;
     m_pszExtraFilename = EXTRA_FILENAME_MMPR_SNES;
     m_nTotalPaletteCount = m_nTotalPaletteCountForMMPR;
     // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual

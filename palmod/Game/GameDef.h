@@ -2682,60 +2682,6 @@ enum SupportedSVC_A_PaletteListIndex
     indexSVC_A_Last,
 };
 
-const UINT16 SVCPLUSA_A_IMG_UNITS[] =
-{
-    indexKOFSprites_98Kyo,
-    indexKOFSprites_98Iori,
-    indexKOFSprites_98Ryo,
-    indexKOFSprites_98Terry,
-    indexKOFSprites_98Mai,
-    indexKOFSprites_00Kasumi,
-    indexKOFSprites_98Kim,
-    indexKOFSprites_98Choi,
-    indexKOFSprites_02Geese,
-    indexKOFSprites_02Goenitz,
-    indexKOFSprites_98Iori,
-
-    indexSVCSprites_Kyo,        // 4f
-    indexSVCSprites_Iori,       // 50
-    indexSVCSprites_Ryo,        // 51
-    indexSVCSprites_Terry,      // 52
-    indexSVCSprites_Mai,        // 53
-    indexSVCSprites_Kasumi,     // 54
-    indexSVCSprites_Kim,        // 55
-    indexSVCSprites_MrKarate,   // 56
-    indexSVCSprites_Choi,       // 57
-    indexSVCSprites_Earthquake, // 58
-    indexSVCSprites_Genjuro,    // 59
-    indexSVCSprites_Shiki,      // 5a
-    indexSVCSprites_GeeseHoward, // 5b
-    indexSVCSprites_MarsPeople, // 5c
-    indexSVCSprites_Goenitz,    // 5d
-    indexSVCSprites_PrincessAthena, // 5e
-    indexSVCSprites_Ryu,        // 5f
-    indexSVCSprites_Ken,        // 60
-    indexSVCSprites_ChunLi,     // 61
-    indexSVCSprites_Guile,      // 62
-    indexSVCSprites_Dhalsim,    // 63
-    indexSVCSprites_Boxer,      // 64
-    indexSVCSprites_Claw,       // 65
-    indexSVCSprites_Sagat,      // 66
-    indexSVCSprites_Dictator,   // 67
-    indexSVCSprites_Akuma,      // 68
-    indexSVCSprites_Hugo,       // 69
-    indexSVCSprites_Poison,     // 6a
-    indexSVCSprites_Tessa,      // 6b
-    indexSVCSprites_Zero,       // 6c
-    indexSVCSprites_Ciel,       // 6d
-    indexSVCSprites_Demitri,    // 6e
-    indexSVCSprites_Dan,        // 6f
-    indexSVCSprites_RedArremer, // 70
-    indexSVCSprites_OrochiIori, // 71
-    indexSVCSprites_SeriousMrKarate, // 72
-    indexSVCSprites_ViolentKen, // 73
-    indexSVCSprites_ShinAkuma,  // 74
-};
-
 enum SamuraiShodownSpriteList
 {
     indexSamSho5Sprites_Amakusa = 0,
@@ -3156,19 +3102,33 @@ enum SupportedSNES_PaletteListIndex
     indexCFTESprites_Tiny,          // 0x1e
     indexCFTESprites_Bonus,         // 0x1f
     indexCFTESprites_Stages,        // 0x20
-};
 
-const UINT16 MMPR_SNES_IMG_UNITS[] =
-{
-    indexMMPRSprites_Goldar,
-    indexMMPRSprites_IvanOoze,
-    indexMMPRSprites_LipSyncer,
-    indexMMPRSprites_LordZedd,
-    indexMMPRSprites_MegaTigerzord,
-    indexMMPRSprites_NinjaMegazord,
-    indexMMPRSprites_ShogunMegazord,
-    indexMMPRSprites_SilverHorns,
-    indexMMPRSprites_ThunderMegazord,
+    indexMSHWOTGSprites_SpiderMan,      // 0x21
+    indexMSHWOTGSprites_CapAmerica,     // 0x22
+    indexMSHWOTGSprites_IronMan,        // 0x23
+    indexMSHWOTGSprites_Hulk,           // 0x24
+    indexMSHWOTGSprites_Wolverine,      // 0x25
+
+    indexMSHWOTGSprites_AdamWarlock,    // 0x26
+    indexMSHWOTGSprites_DrStrange,      // 0x27
+    indexMSHWOTGSprites_DrDoom,         // 0x28
+    indexMSHWOTGSprites_Magus,          // 0x29
+    indexMSHWOTGSprites_Blackheart,     // 0x2A
+    indexMSHWOTGSprites_Nebula,         // 0x2B
+    indexMSHWOTGSprites_Thanos,         // 0x2C
+
+    indexMSHWOTGSprites_Puck,           // 0x2D
+    indexMSHWOTGSprites_Evilverine,     // 0x2E
+    indexMSHWOTGSprites_EvilHulk,       // 0x2F
+    indexMSHWOTGSprites_EvilIronMan,    // 0x30
+    indexMSHWOTGSprites_Daredevil,      // 0x31
+    indexMSHWOTGSprites_Vision,         // 0x32
+    indexMSHWOTGSprites_SheHulk,        // 0x33
+    indexMSHWOTGSprites_Hawkeye,        // 0x34
+    indexMSHWOTGSprites_SilverSurfer,   // 0x35
+    indexMSHWOTGSprites_Sasquatch,      // 0x36
+    indexMSHWOTGSprites_TheThing,       // 0x37
+    indexMSHWOTGSprites_Bonus,          // 0x38
 };
 
 const UINT16 GUNDAM_A_IMG_UNITS[] =
@@ -3435,6 +3395,7 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_NEOGEO,  // generic set for NeoGeo games
     IMGDAT_SECTION_REDEARTH,
     IMGDAT_SECTION_SAMSHO,  // Samurai Shodown games
+    IMGDAT_SECTION_SEGA,
     IMGDAT_SECTION_SF2,      // Used for ST
     IMGDAT_SECTION_SF3,
     IMGDAT_SECTION_SNES,

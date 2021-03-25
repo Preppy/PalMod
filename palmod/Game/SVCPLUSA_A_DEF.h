@@ -10,6 +10,58 @@ constexpr auto SVCPLUSA_A_NUMUNIT = indexSVC_A_Last;
 
 #define SVCPLUSA_A_EXTRALOC SVCPLUSA_A_NUMUNIT
 
+const UINT16 SVCPLUSA_A_IMG_UNITS[] =
+{
+    indexKOFSprites_98Kyo,
+    indexKOFSprites_98Iori,
+    indexKOFSprites_98Ryo,
+    indexKOFSprites_98Terry,
+    indexKOFSprites_98Mai,
+    indexKOFSprites_98Kim,
+    indexKOFSprites_98Choi,
+    indexKOFSprites_02Geese,
+    indexKOFSprites_02Goenitz,
+
+    indexSVCSprites_Kyo,        // 4f
+    indexSVCSprites_Iori,       // 50
+    indexSVCSprites_Ryo,        // 51
+    indexSVCSprites_Terry,      // 52
+    indexSVCSprites_Mai,        // 53
+    indexSVCSprites_Kasumi,     // 54
+    indexSVCSprites_Kim,        // 55
+    indexSVCSprites_MrKarate,   // 56
+    indexSVCSprites_Choi,       // 57
+    indexSVCSprites_Earthquake, // 58
+    indexSVCSprites_Genjuro,    // 59
+    indexSVCSprites_Shiki,      // 5a
+    indexSVCSprites_GeeseHoward, // 5b
+    indexSVCSprites_MarsPeople, // 5c
+    indexSVCSprites_Goenitz,    // 5d
+    indexSVCSprites_PrincessAthena, // 5e
+    indexSVCSprites_Ryu,        // 5f
+    indexSVCSprites_Ken,        // 60
+    indexSVCSprites_ChunLi,     // 61
+    indexSVCSprites_Guile,      // 62
+    indexSVCSprites_Dhalsim,    // 63
+    indexSVCSprites_Boxer,      // 64
+    indexSVCSprites_Claw,       // 65
+    indexSVCSprites_Sagat,      // 66
+    indexSVCSprites_Dictator,   // 67
+    indexSVCSprites_Akuma,      // 68
+    indexSVCSprites_Hugo,       // 69
+    indexSVCSprites_Poison,     // 6a
+    indexSVCSprites_Tessa,      // 6b
+    indexSVCSprites_Zero,       // 6c
+    indexSVCSprites_Ciel,       // 6d
+    indexSVCSprites_Demitri,    // 6e
+    indexSVCSprites_Dan,        // 6f
+    indexSVCSprites_RedArremer, // 70
+    indexSVCSprites_OrochiIori, // 71
+    indexSVCSprites_SeriousMrKarate, // 72
+    indexSVCSprites_ViolentKen, // 73
+    indexSVCSprites_ShinAkuma,  // 74
+};
+
 const sGame_PaletteDataset SVCPLUSA_A_KYO_PUNCH_PALETTES[] =
 {
     { L"Kyo", 0x364538, 0x364558, indexKOFSprites_98Kyo },
@@ -252,25 +304,25 @@ const sGame_PaletteDataset SVCPLUSA_A_MAI_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_KASUMI_PUNCH_PALETTES[] =
 {
-    { L"Kasumi", 0x369538, 0x369558, indexKOFSprites_00Kasumi },
-    { L"Fire Effect 1", 0x369558, 0x369578, indexKOFSprites_00Kasumi },
-    { L"Unused: Fire Effect 2", 0x369578, 0x369598, indexKOFSprites_00Kasumi },
-    { L"Electric Shock Effect", 0x369598, 0x3695b8, indexKOFSprites_00Kasumi },
+    { L"Kasumi", 0x369538, 0x369558, indexSVCSprites_Kasumi, 0x00, &pairNext },
+    { L"Umbrella", 0x369558, 0x369578, indexSVCSprites_Kasumi, 0x01 },
+    { L"Unused: Fire Effect 2", 0x369578, 0x369598, indexSVCSprites_Kasumi },
+    { L"Electric Shock Effect", 0x369598, 0x3695b8, indexSVCSprites_Kasumi },
     { L"Red Arremer Transformation", 0x3695b8, 0x3695d8, indexSVCSprites_Kasumi, 4 },
     { L"Athena Transformation", 0x3695d8, 0x3695f8, indexSVCSprites_Kasumi, 5 },
-    { L"Soul Palette", 0x3695f8, 0x369618, indexKOFSprites_00Kasumi },
+    { L"Soul Palette", 0x3695f8, 0x369618, indexSVCSprites_Kasumi },
     { L"Midnight Bliss", 0x369618, 0x369638, indexSVCSprites_Kasumi, 7 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_KASUMI_KICK_PALETTES[] =
 {
-    { L"Kasumi", 0x369738, 0x369758, indexKOFSprites_00Kasumi },
-    { L"Fire Effect 1", 0x369758, 0x369778, indexKOFSprites_00Kasumi },
-    { L"Unused: Fire Effect 2", 0x369778, 0x369798, indexKOFSprites_00Kasumi },
-    { L"Electric Shock Effect", 0x369798, 0x3697b8, indexKOFSprites_00Kasumi },
+    { L"Kasumi", 0x369738, 0x369758, indexSVCSprites_Kasumi, 0x00, &pairNext },
+    { L"Umbrella", 0x369758, 0x369778, indexSVCSprites_Kasumi, 0x01 },
+    { L"Unused: Fire Effect 2", 0x369778, 0x369798, indexSVCSprites_Kasumi },
+    { L"Electric Shock Effect", 0x369798, 0x3697b8, indexSVCSprites_Kasumi },
     { L"Red Arremer Transformation", 0x3697b8, 0x3697d8, indexSVCSprites_Kasumi, 4 },
     { L"Athena Transformation", 0x3697d8, 0x3697f8, indexSVCSprites_Kasumi, 5 },
-    { L"Soul Palette", 0x3697f8, 0x369818, indexKOFSprites_00Kasumi },
+    { L"Soul Palette", 0x3697f8, 0x369818, indexSVCSprites_Kasumi },
     { L"Midnight Bliss", 0x369818, 0x369838, indexSVCSprites_Kasumi, 7 },
 };
 
@@ -1363,7 +1415,7 @@ const sGame_PaletteDataset SVCPLUSA_A_TESSA_INTRO_PORTRAITS_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_ZERO_PUNCH_PALETTES[] =
 {
-    { L"Zero Part 1", 0x380538, 0x380558, indexSVCSprites_Zero, 0 }, //, &pairHandledInCode },
+    { L"Zero Part 1", 0x380538, 0x380558, indexSVCSprites_Zero, 0, &pairHandledInCode },
     { L"Ciel", 0x380558, 0x380578, indexSVCSprites_Zero, 1 },
     { L"Red Arremer Transform 1/2", 0x380578, 0x380598, indexSVCSprites_Zero, 4, &pairHandledInCode },
     { L"Electric Shock Effect", 0x380598, 0x3805b8, indexSVCSprites_Zero },
@@ -1375,7 +1427,7 @@ const sGame_PaletteDataset SVCPLUSA_A_ZERO_PUNCH_PALETTES[] =
 
 const sGame_PaletteDataset SVCPLUSA_A_ZERO_KICK_PALETTES[] =
 {
-    { L"Zero Part 1", 0x380738, 0x380758, indexSVCSprites_Zero, 0 }, //,& pairHandledInCode },
+    { L"Zero Part 1", 0x380738, 0x380758, indexSVCSprites_Zero, 0, &pairHandledInCode },
     { L"Ciel", 0x380758, 0x380778, indexSVCSprites_Zero, 1 },
     { L"Red Arremer Transform 1/2", 0x380778, 0x380798, indexSVCSprites_Zero, 4, &pairHandledInCode },
     { L"Electric Shock Effect", 0x380798, 0x3807b8, indexSVCSprites_Zero  },
@@ -1394,7 +1446,7 @@ const sGame_PaletteDataset SVCPLUSA_A_ZERO_EFFECTS_PALETTES[] =
     { L"Effect 4", 0x3965b8, 0x3965d8 },
     { L"Effect 5", 0x3965d8, 0x3965f8 },
     { L"Shared: Red Arremer Transform 2/2", 0x3965f8, 0x396618, indexSVCSprites_Zero, 12 },
-    { L"Shared: Zero Part 2", 0x396618, 0x396638, indexSVCSprites_Zero, 9 },
+    { L"Shared: Zero Part 2", 0x396618, 0x396638, indexSVCSprites_Zero, 0x08 },
 };
 
 const sGame_PaletteDataset SVCPLUSA_A_ZERO_WIN_PORTRAITS_PALETTES[] =

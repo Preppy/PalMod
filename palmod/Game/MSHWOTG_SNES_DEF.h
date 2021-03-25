@@ -1,61 +1,91 @@
 #pragma once
 
+const UINT16 MSHWOTG_SNES_IMG_UNITS[] =
+{
+    indexMSHWOTGSprites_SpiderMan,      // 0x21
+    indexMSHWOTGSprites_CapAmerica,     // 0x22
+    indexMSHWOTGSprites_IronMan,        // 0x23
+    indexMSHWOTGSprites_Hulk,           // 0x24
+    indexMSHWOTGSprites_Wolverine,      // 0x25
+
+    indexMSHWOTGSprites_AdamWarlock,    // 0x26
+    indexMSHWOTGSprites_DrStrange,      // 0x27
+    indexMSHWOTGSprites_DrDoom,         // 0x28
+    indexMSHWOTGSprites_Magus,          // 0x29
+    indexMSHWOTGSprites_Blackheart,     // 0x2A
+    indexMSHWOTGSprites_Nebula,         // 0x2B
+    indexMSHWOTGSprites_Thanos,         // 0x2C
+
+    indexMSHWOTGSprites_Puck,           // 0x2D
+    indexMSHWOTGSprites_Evilverine,     // 0x2E
+    indexMSHWOTGSprites_EvilHulk,       // 0x2F
+    indexMSHWOTGSprites_EvilIronMan,    // 0x30
+    indexMSHWOTGSprites_Daredevil,      // 0x31
+    indexMSHWOTGSprites_Vision,         // 0x32
+    indexMSHWOTGSprites_SheHulk,        // 0x33
+    indexMSHWOTGSprites_Hawkeye,        // 0x34
+    indexMSHWOTGSprites_SilverSurfer,   // 0x35
+    indexMSHWOTGSprites_Sasquatch,      // 0x36
+    indexMSHWOTGSprites_TheThing,       // 0x37
+    indexMSHWOTGSprites_Bonus,          // 0x38
+};
+
 const sGame_PaletteDataset MSHWOTG_CAPTAINAMERICA_PALETTES[] =
 {
-    { L"Captain America", 0xFA000, 0xFA020 },
+    { L"Captain America", 0xFA000, 0xFA020, indexMSHWOTGSprites_CapAmerica, 0x00 },
 };
 
 const sGame_PaletteDataset MSHWOTG_IRONMAN_PALETTES[] =
 {
-    { L"Iron Man", 0xFA0C0, 0xFA0E0 },
+    { L"Iron Man", 0xFA0C0, 0xFA0E0, indexMSHWOTGSprites_IronMan, 0x00 },
 };
 
 const sGame_PaletteDataset MSHWOTG_HULK_PALETTES[] =
 {
-    { L"Hulk", 0xFA120, 0xFA140 },
+    { L"Hulk", 0xFA120, 0xFA140, indexMSHWOTGSprites_Hulk, 0x00 },
 };
 
 const sGame_PaletteDataset MSHWOTG_SPIDERMAN_PALETTES[] =
 {
-    { L"Spider-Man", 0xFA180, 0xFA1A0 },
+    { L"Spider-Man", 0xFA180, 0xFA1A0, indexMSHWOTGSprites_SpiderMan, 0x00 },
 };
 
 const sGame_PaletteDataset MSHWOTG_WOLVERINE_PALETTES[] =
 {
-    { L"Wolverine", 0xFA060, 0xFA080 },
+    { L"Wolverine", 0xFA060, 0xFA080, indexMSHWOTGSprites_Wolverine, 0x00 },
 };
 
 const sGame_PaletteDataset MSHWOTG_BLACKHEART_PALETTES[] =
 {
-    { L"BlackHeart", 0xFA740, 0xFA760 },
+    { L"BlackHeart", 0xFA740, 0xFA760, indexMSHWOTGSprites_Blackheart, 0x00 },
 };
 
 const sGame_PaletteDataset MSHWOTG_EHULK_PALETTES[] =
 {
-    { L"E. Hulk", 0xFA880, 0xFA8A0 },
+    { L"E. Hulk", 0xFA880, 0xFA8A0, indexMSHWOTGSprites_Hulk, 0x00 },
 };
 
 const sGame_PaletteDataset MSHWOTG_EIRONMAN_PALETTES[] =
 {
-    { L"E. Iron Man 1", 0xFA4E0, 0xFA500 },
+    { L"E. Iron Man", 0xFA4E0, 0xFA500, indexMSHWOTGSprites_IronMan },
 };
 
 const sGame_PaletteDataset MSHWOTG_ESASQUATCH_PALETTES[] =
 {
-    { L"E. Sasquatch", 0xFA780, 0xFA7A0 },
+    { L"E. Sasquatch", 0xFA780, 0xFA7A0, indexMSHWOTGSprites_Sasquatch },
 };
 
 const sGame_PaletteDataset MSHWOTG_ETHING_PALETTES[] =
 {
-    { L"E. Thing 1", 0xFA6C0, 0xFA6E0 },
-    { L"E. Thing 2", 0xFA6E0, 0xFA700 },
+    { L"E. Thing 1", 0xFA6C0, 0xFA6E0, indexMSHWOTGSprites_TheThing },
+    { L"E. Thing 2", 0xFA6E0, 0xFA700, indexMSHWOTGSprites_TheThing },
 };
 
 const sGame_PaletteDataset MSHWOTG_EWOLVERINE_PALETTES[] =
 {
-    { L"E. Wolverine 1", 0xFA660, 0xFA680 },
-    { L"E. Wolverine 2", 0xFA680, 0xFA6A0 },
-    { L"E. Wolverine 3", 0xFA6A0, 0xFA6C0 },
+    { L"E. Wolverine 1", 0xFA660, 0xFA680, indexMSHWOTGSprites_Wolverine },
+    { L"E. Wolverine 2", 0xFA680, 0xFA6A0, indexMSHWOTGSprites_Wolverine },
+    { L"E. Wolverine 3", 0xFA6A0, 0xFA6C0, indexMSHWOTGSprites_Wolverine },
 };
 
 const sGame_PaletteDataset MSHWOTG_BONUS_INTRO_PALETTES[] =
@@ -114,34 +144,34 @@ const sGame_PaletteDataset MSHWOTG_BONUS_TITLE_PALETTES[] =
 
 const sGame_PaletteDataset MSHWOTG_BONUS_ENEMY_PALETTES[] =
 {
-    { L"Dr. Doom", 0x6FBCC, 0x6FBEC },
+    { L"Dr. Doom", 0x6FBCC, 0x6FBEC, indexMSHWOTGSprites_DrDoom },
     { L"Doombot 1", 0xFA7E0, 0xFA800 },
     { L"Doombot 2", 0xFA800, 0xFA820 },
     { L"Doombot 3", 0xFA820, 0xFA840 },
     { L"Doombot 4", 0xFA840, 0xFA860 },
-    { L"E. Daredevil 1", 0xFA460, 0xFA480 },
-    { L"E. Daredevil 2", 0xFA420, 0xFA440 },
-    { L"E. Hawkeye 1", 0xFA480, 0xFA4A0 },
-    { L"E. Hawkeye 2", 0xFA4A0, 0xFA4C0 },
-    { L"E. Iron Man 2", 0xFA500, 0xFA520 },
-    { L"E. Iron Man 3", 0xFA520, 0xFA540 },
-    { L"E. Puck 1", 0xFA540, 0xFA560 },
-    { L"E. Puck 2", 0xFA560, 0xFA580 },
-    { L"E. Puck 3", 0xFA580, 0xFA5A0 },
-    { L"E. She-Hulk 1", 0xFA5A0, 0xFA5C0 },
-    { L"E. She-Hulk 2", 0xFA5C0, 0xFA5E0 },
-    { L"E. She-Hulk 3", 0xFA5E0, 0xFA600 },
-    { L"E. Silver Surfer", 0xFA920, 0xFA940 },
-    { L"E. Vision 1", 0xFA600, 0xFA620 },
-    { L"E. Vision 2", 0xFA620, 0xFA640 },
-    { L"E. Vision 3", 0xFA640, 0xFA660 },
-    { L"Magus", 0xFA8A0, 0xFA8C0 },
-    { L"Magus shadow 1", 0xFA8C0, 0xFA8E0 },
-    { L"Magus shadow 2", 0xFA8E0, 0xFA900 },
+    { L"E. Daredevil 1", 0xFA460, 0xFA480, indexMSHWOTGSprites_Daredevil },
+    { L"E. Daredevil 2", 0xFA420, 0xFA440, indexMSHWOTGSprites_Daredevil },
+    { L"E. Hawkeye 1", 0xFA480, 0xFA4A0, indexMSHWOTGSprites_Hawkeye },
+    { L"E. Hawkeye 2", 0xFA4A0, 0xFA4C0, indexMSHWOTGSprites_Hawkeye },
+    { L"E. Iron Man 2", 0xFA500, 0xFA520, indexMSHWOTGSprites_IronMan },
+    { L"E. Iron Man 3", 0xFA520, 0xFA540, indexMSHWOTGSprites_IronMan },
+    { L"E. Puck 1", 0xFA540, 0xFA560, indexMSHWOTGSprites_Puck },
+    { L"E. Puck 2", 0xFA560, 0xFA580, indexMSHWOTGSprites_Puck },
+    { L"E. Puck 3", 0xFA580, 0xFA5A0, indexMSHWOTGSprites_Puck },
+    { L"E. She-Hulk 1", 0xFA5A0, 0xFA5C0, indexMSHWOTGSprites_SheHulk },
+    { L"E. She-Hulk 2", 0xFA5C0, 0xFA5E0, indexMSHWOTGSprites_SheHulk },
+    { L"E. She-Hulk 3", 0xFA5E0, 0xFA600, indexMSHWOTGSprites_SheHulk },
+    { L"E. Silver Surfer", 0xFA920, 0xFA940, indexMSHWOTGSprites_SilverSurfer, 0x00 },
+    { L"E. Vision 1", 0xFA600, 0xFA620, indexMSHWOTGSprites_Vision, 0x00  },
+    { L"E. Vision 2", 0xFA620, 0xFA640, indexMSHWOTGSprites_Vision, 0x00 },
+    { L"E. Vision 3", 0xFA640, 0xFA660, indexMSHWOTGSprites_Vision, 0x00 },
+    { L"Magus", 0xFA8A0, 0xFA8C0, indexMSHWOTGSprites_Magus, 0x00 },
+    { L"Magus shadow 1", 0xFA8C0, 0xFA8E0, indexMSHWOTGSprites_Magus, 0x00 },
+    { L"Magus shadow 2", 0xFA8E0, 0xFA900, indexMSHWOTGSprites_Magus, 0x00 },
     { L"Magus Portrait", 0x5F48D, 0x5F4AD },
-    { L"Nebula", 0xFA7C0, 0xFA7E0 },
+    { L"Nebula", 0xFA7C0, 0xFA7E0, indexMSHWOTGSprites_Nebula, 0x00 },
     { L"Nebula Portrait", 0x71295, 0x712B5 },
-    { L"Thanos", 0xFA760, 0xFA780 },
+    { L"Thanos", 0xFA760, 0xFA780, indexMSHWOTGSprites_Thanos, 0x00 },
     { L"Thanos Portrait", 0x7AA20, 0x7AA40 },
 };
 
@@ -153,9 +183,8 @@ const sGame_PaletteDataset MSHWOTG_BONUS_MISC_PALETTES[] =
     { L"Reality Gem", 0x6135C, 0x6137C },
     { L"Space Gem", 0x6137C, 0x6139C },
     { L"Power Gem", 0x6139C, 0x613BC },
-    { L"Dr. Strange", 0xFB540, 0xFB560 },
+    { L"Dr. Strange", 0xFB540, 0xFB560, indexMSHWOTGSprites_DrStrange, 0x00 },
 };
-
 
 const sDescTreeNode MSHWOTG_CAPTAINAMERICA_COLLECTION[] =
 {

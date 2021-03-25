@@ -34,7 +34,7 @@ CGame_FatalFuryS_SNES::CGame_FatalFuryS_SNES(UINT32 nConfirmedROMSize)
     OutputDebugString(strMessage);
 
     //Set color mode: see the definitions in GameClass.h
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
 
