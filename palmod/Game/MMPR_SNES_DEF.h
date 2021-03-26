@@ -162,7 +162,7 @@ const sDescTreeNode MMPR_IVANOOZE_COLLECTION[] =
 
 const sGame_PaletteDataset MMPR_PORTRAITS_SELECT_PALETTES[] =
 {
-    { L"Select Portraits", 0x142326, 0x142426, indexMMPRSprites_Bonus, 0x00 },
+    { L"Select Portraits", 0x142324, 0x142424 /*, indexMMPRSprites_Bonus, 0x00 */}, // temp disable until we get the updated sprite
 };
 
 const sDescTreeNode MMPR_PORTRAITS_COLLECTION[] =

@@ -30,6 +30,7 @@
 #include "Game_KOF98_A.h"
 #include "Game_KOF99AE_A.h"
 #include "Game_KOFXI_A.h"
+#include "Game_KOTM_A.h"
 #include "Game_LASTBLADE2_A.h"
 #include "Game_Matrimelee_A.h"
 #include "Game_MMPR_SNES.h"
@@ -76,6 +77,7 @@
 #include "Game_SSF2T_A.h"
 #include "Game_SSF2T_GBA.h"
 #include "Game_SVCPLUSA_A.h"
+#include "Game_TopF2005_Sega.h"
 #include "Game_UNICLR_A.h"
 #include "Game_VHUNT2_A.h"
 #include "Game_VSAV_A.h"
@@ -295,6 +297,12 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_KOFXI_A::GetRule;
         return TRUE;
     }
+    case KOTM_A:
+    {
+        GetRule = &CGame_KOTM_A::GetRule;
+        return TRUE;
+    }
+
     case LASTBLADE2_A:
     {
         GetRule = &CGame_LASTBLADE2_A::GetRule;
@@ -597,6 +605,11 @@ BOOL CGameLoad::SetGame(int nGameFlag)
         GetRule = &CGame_SVCPLUSA_A::GetRule;
         return TRUE;
     }
+    case TOPF2005_SEGA:
+    {
+        GetRule = &CGame_TOPF2005_SEGA::GetRule;
+        return TRUE;
+    }
     case UNICLR_A:
     {
         GetRuleCtr = &CGame_UNICLR_A::GetRuleCtr;
@@ -776,6 +789,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case KOFXI_A:
     {
         return new CGame_KOFXI_A(nConfirmedROMSize);
+    }
+    case KOTM_A:
+    {
+        return new CGame_KOTM_A(nConfirmedROMSize);
     }
     case LASTBLADE2_A:
     {
@@ -977,6 +994,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_SVCPLUSA_A(nConfirmedROMSize);
     }
+    case TOPF2005_SEGA:
+    {
+        return new CGame_TOPF2005_SEGA(nConfirmedROMSize);
+    }    
     case UNICLR_A:
     {
         return new CGame_UNICLR_A(nConfirmedROMSize);
@@ -1153,7 +1174,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
             CString strQuestion;
             UINT nStringID;
 
-            strQuestion.Format(L"Internal warning: Game file size is 0x%x, but 0x%x is the expected size.\n", (int)nGameFileLength, CurrRule.uVerifyVar);
+            strQuestion.Format(L"Internal warning: Game file size is 0x%x, but 0x%x is the expected size. You may just need to update the value of m_nExpectedGameROMSize for your game.\n", (int)nGameFileLength, CurrRule.uVerifyVar);
             OutputDebugString(strQuestion);
 
             if ((nGameFlag == JOJOS_A) && (nGameRule == 50) && (nGameFileLength == 4194304))
@@ -1224,6 +1245,15 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
         }
 
         CurrFile.Abort();
+    }
+    else
+    {
+        if (pszFileName)
+        {
+            CString strError;
+            strError.Format(L"The file \"%s\" can not be opened.  Another application is probably using it.", pszFileName);
+            MessageBox(g_appHWnd, strError, GetHost()->GetAppName(), MB_ICONSTOP);
+        }
     }
 
     if (OutGame)

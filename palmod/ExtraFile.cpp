@@ -534,7 +534,7 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
     bool fShouldRunDupeCheck = (nPaletteCountForRom == m_nSafeCountForThisRom);
 #endif
 
-    int nInternalDupeCount = fShouldRunDupeCheck ? 0 : GetDupeCountInDataset();
+    int nInternalDupeCount = fShouldRunDupeCheck ?  GetDupeCountInDataset() : 0;
     int nExtraDupeCount = fShouldCheckExtras ? GetDupeCountInExtrasDataset() : 0;
 
     if (nInternalDupeCount || nExtraDupeCount || (m_nSafeCountForThisRom != nPaletteCountForRom))

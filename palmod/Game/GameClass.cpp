@@ -1645,7 +1645,7 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
 #if GAMECLASS_DBG
                     strMsg.Format(L"\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
                     OutputDebugString(strMsg);
-                    strMsg.Format(L", 0x%05x to 0x%05x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
+                    strMsg.Format(L", 0x%x to 0x%x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / 2);
                     OutputDebugString(strMsg);
 
                     if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
@@ -1725,6 +1725,151 @@ UINT32 CGameClass::_InitDescTree(sDescTreeNode* pNewDescTree, const sDescTreeNod
     }
 
     return nTotalPaletteCount;
+}
+
+BOOL CGameClass::_UpdatePalImg(const sDescTreeNode* pGameUnits, int* rgExtraCount, int nNormalUnitCount, UINT16 nExtraUnitLocation, stExtraDef* ppExtraDef, int Node01, int Node02, int Node03, int Node04)
+{
+    //Reset palette sources
+    ClearSrcPal();
+
+    if (Node01 == -1)
+    {
+        return FALSE;
+    }
+
+    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
+
+    if (NodeGet == nullptr)
+    {
+        return FALSE;
+    }
+
+    // Default values for multisprite image display for Export
+    UINT16 nSrcStart = NodeGet->uPalId;
+    UINT16 nSrcAmt = 1;
+    UINT16 nNodeIncrement = 1;
+
+    //Get rid of any palettes if there are any
+    BasePalGroup.FlushPalAll();
+
+    // Make sure to reset the image id
+    nTargetImgId = 0;
+    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
+
+    bool fShouldUseAlternateLoadLogic = false;
+
+    // Only load images for internal units, since we don't currently have a methodology for associating
+    // external loads to internal sprites.
+    if (NodeGet->uUnitId != nExtraUnitLocation)
+    {
+        const sGame_PaletteDataset* paletteDataSet = _GetSpecificPalette(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
+
+        if (paletteDataSet)
+        {
+            nImgUnitId = paletteDataSet->indexImgToUse;
+            nTargetImgId = paletteDataSet->indexOffsetToUse;
+
+            const sDescTreeNode* pCurrentNode = _GetNodeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef, true);
+
+            if (pCurrentNode) // For Basic nodes, we can allow multisprite view in the Export dialog
+            {
+                bool fIsCorePalette = false;
+
+                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
+                {
+                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
+                    {
+                        fIsCorePalette = true;
+                        break;
+                    }
+                }
+
+                if (fIsCorePalette)
+                {
+                    nSrcAmt = m_nNumberOfColorOptions;
+                    nNodeIncrement = pCurrentNode->uChildAmt;
+
+                    while (nSrcStart >= nNodeIncrement)
+                    {
+                        // The starting point is the absolute first palette for the sprite in question which is found in P1
+                        nSrcStart -= nNodeIncrement;
+                    }
+                }
+            }
+
+            if (paletteDataSet->pPalettePairingInfo)
+            {
+                if (paletteDataSet->pPalettePairingInfo == &pairFullyLinkedNode)
+                {
+                    const UINT16 nStageCount = _GetNodeSizeFromPaletteId(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId, ppExtraDef);
+
+                    fShouldUseAlternateLoadLogic = true;
+                    sImgTicket* pImgArray = nullptr;
+
+                    for (INT16 nStageIndex = 0; nStageIndex < nStageCount; nStageIndex++)
+                    {
+                        // The palettes get added forward, but the image tickets need to be generated in reverse order
+                        const sGame_PaletteDataset* paletteDataSetToJoin = _GetSpecificPalette(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId + (nStageCount - 1 - nStageIndex), ppExtraDef);
+                        if (paletteDataSetToJoin)
+                        {
+                            pImgArray = CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, pImgArray);
+
+                            //Set each palette
+                            sDescNode* JoinedNode = GetMainTree()->GetDescNode(Node01, Node02, Node03 + nStageIndex, -1);
+                            CreateDefPal(JoinedNode, nStageIndex);
+                            SetSourcePal(nStageIndex, NodeGet->uUnitId, nSrcStart + nStageIndex, nSrcAmt, nNodeIncrement);
+                        }
+                    }
+
+                    ClearSetImgTicket(pImgArray);
+                }
+                else
+                {
+                    int nXOffs = paletteDataSet->pPalettePairingInfo->nXOffs;
+                    int nYOffs = paletteDataSet->pPalettePairingInfo->nYOffs;
+                    INT8 nPeerPaletteDistance = paletteDataSet->pPalettePairingInfo->nNodeIncrementToPartner;
+
+                    const sGame_PaletteDataset* paletteDataSetToJoin = _GetSpecificPalette(pGameUnits, rgExtraCount, nNormalUnitCount, nExtraUnitLocation, NodeGet->uUnitId, NodeGet->uPalId + nPeerPaletteDistance, ppExtraDef);
+
+                    if (paletteDataSetToJoin)
+                    {
+                        fShouldUseAlternateLoadLogic = true;
+
+                        ClearSetImgTicket(
+                            CreateImgTicket(paletteDataSet->indexImgToUse, paletteDataSet->indexOffsetToUse,
+                                CreateImgTicket(paletteDataSetToJoin->indexImgToUse, paletteDataSetToJoin->indexOffsetToUse, nullptr, nXOffs, nYOffs)
+                            )
+                        );
+
+                        //Set each palette
+                        sDescNode* JoinedNode[2] = {
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03, -1),
+                            GetMainTree()->GetDescNode(Node01, Node02, Node03 + nPeerPaletteDistance, -1)
+                        };
+
+                        //Set each palette
+                        CreateDefPal(JoinedNode[0], 0);
+                        CreateDefPal(JoinedNode[1], 1);
+
+                        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+                        SetSourcePal(1, NodeGet->uUnitId, nSrcStart + nPeerPaletteDistance, nSrcAmt, nNodeIncrement);
+                    }
+                }
+            }
+        }
+    }
+
+    if (!fShouldUseAlternateLoadLogic)
+    {
+        //Create the default palette
+        ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
+
+        CreateDefPal(NodeGet, 0);
+
+        SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
+    }
+
+    return TRUE;
 }
 
 inline UINT8 CGameClass::GetSIMMSetForROMLocation(UINT32 nROMLocation)

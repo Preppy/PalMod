@@ -459,23 +459,24 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
         }
 
         const int nImageCountOnFirstLine = GetImageCountForFirstLine();
+        const int nMaxImagesPerLine = GetMaxImagesPerLine();
 
-        for (int i = 0; i < m_nTotalImagesToDisplay; i++)
+        for (int iCurrentImage = 0; iCurrentImage < m_nTotalImagesToDisplay; iCurrentImage++)
         {
-            nPal = (m_nTotalImagesToDisplay > 1) ? i : nPalIndex;
+            nPal = (m_nTotalImagesToDisplay > 1) ? iCurrentImage : nPalIndex;
 
             if (DispType == eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT)
             {
-                if (i >= nImageCountOnFirstLine)
+                if (iCurrentImage >= nImageCountOnFirstLine)
                 {
-                    row_ctr = 1;
+                    row_ctr = max(1, (int)floor(iCurrentImage / nMaxImagesPerLine));
                 }
 
-                nTargetX = (i - (row_ctr * nImageCountOnFirstLine));
+                nTargetX = (iCurrentImage - (row_ctr * nImageCountOnFirstLine));
             }
             else if (DispType == eImageOutputSpriteDisplay::DISPLAY_SPRITES_TOPTOBOTTOM)
             {
-                if (i % 2)
+                if (iCurrentImage % 2)
                 {
                     row_ctr = 1;
                 }
@@ -484,7 +485,7 @@ void CImgDumpBmp::UpdateCtrl(BOOL bDraw, UINT8* pDstData)
                     row_ctr = 0;
                 }
 
-                nTargetX = (i / 2);
+                nTargetX = (iCurrentImage / 2);
             }
 
             for (int nImgCtr = 0; nImgCtr < img_amt; nImgCtr++)
@@ -679,10 +680,12 @@ void CImgDumpBmp::CleanUp()
 
 int CImgDumpBmp::GetImageCountForFirstLine()
 {
-    if (m_nTotalImagesToDisplay > GetMaxImagesPerLine())
+    int nMaxImagesPerLine = GetMaxImagesPerLine();
+
+    if (m_nTotalImagesToDisplay > nMaxImagesPerLine)
     {
         // We want the odd sprites on the second line.
-        return (max(1, (int)floor(m_nTotalImagesToDisplay / 2)));
+        return min(nMaxImagesPerLine, max(1, (int)floor(m_nTotalImagesToDisplay / 2)));
     }
     else
     {
@@ -718,6 +721,15 @@ int CImgDumpBmp::GetMaxImagesPerLine()
     case 12:
         w_mul = 6;
         break;
+    case 15:
+        w_mul = 5;
+        break;
+    case 20: // GGXXACR ex color sets
+        w_mul = 5;
+        break;
+    case 22: // GGXXACR core color sets
+        w_mul = 5;
+        break;
     default:
         OutputDebugString(L"CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option.");
         DebugBreak();
@@ -738,7 +750,13 @@ int CImgDumpBmp::GetOutputW()
 
 int CImgDumpBmp::GetOutputH()
 {
-    int h_mul = ((m_nTotalImagesToDisplay < 3) ? 1 : 2);
+    int h_mul = 0;
+    int nMaxImagesPerLine = GetMaxImagesPerLine();
+    
+    for (int nImagesHandled = 0; nImagesHandled < m_nTotalImagesToDisplay; nImagesHandled += nMaxImagesPerLine)
+    {
+        h_mul++;
+    }
 
     nMainH = (int)(((h_mul * border_sz) + border_sz) + ((blt_h * zoom) * h_mul));
 

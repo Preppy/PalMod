@@ -134,8 +134,8 @@ CGame_MVC_A::CGame_MVC_A(UINT32 nConfirmedROMSize)
     //Set game information
     nGameFlag = MVC_A;
     nImgGameFlag = IMGDAT_SECTION_CPS2;
-    nImgUnitAmt = MVC_A_NUM_IMG_UNITS;
     m_prgGameImageSet = MVC_A_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(MVC_A_IMG_UNITS);
 
     nFileAmt = 1;
 

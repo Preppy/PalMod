@@ -217,7 +217,7 @@ void CPalModDlg::OnEditCopy()
         {
         case ColMode::COLMODE_9:
             // RGB333
-            uCopyFlag1 = DUMMY_RGB9 + k_nASCIICharacterOffset;
+            uCopyFlag1 = TOPF2005_SEGA+ k_nASCIICharacterOffset;
             break;
         case ColMode::COLMODE_GBA:
             // BGR555
@@ -540,7 +540,7 @@ void CPalModDlg::OnEditPaste()
             {
                 switch (uPasteGFlag)
                 {
-                case DUMMY_RGB9:
+                case TOPF2005_SEGA:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_9;
                     break;
@@ -631,6 +631,7 @@ void CPalModDlg::OnEditPaste()
                 case KOF01_A:
                 case KOF02_A:
                 case KOF03_A:
+                case KOTM_A:
                 case LASTBLADE2_A:
                 case MATRIMELEE_A:
                 case NeoBomberman_A:
@@ -660,6 +661,8 @@ void CPalModDlg::OnEditPaste()
                 case MMPR_SNES:
                 case MSHWOTG_SNES:
                 case SSF2T_GBA:
+                case TMNTTF_SNES:
+                case XMMA_SNES:
                 {
                     eColModeForPastedColor = ColMode::COLMODE_GBA;
                     break;

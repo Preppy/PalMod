@@ -75,7 +75,7 @@ enum SupportedGamesList
     KOF99AE_A,
     CFTE_SNES,
     FatalFuryS_SNES,
-    DUMMY_RGB9,          // ... we need a game ID to use for transmitting colors.
+    TOPF2005_SEGA,
     SFIII3_A_DIR_EX,
     GGXXACR_A,
     AOF3_A,
@@ -105,6 +105,9 @@ enum SupportedGamesList
     SPF2T_A,
     MSHWOTG_SNES,
     REDEARTH_A_DIR_30,
+    KOTM_A,
+    XMMA_SNES,
+    TMNTTF_SNES,
 
     NUM_GAMES // This needs to be last
 };
@@ -183,7 +186,7 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"KOF: 99AE (Neo-Geo)",
    L"Clay Fighter: TE (SNES)",
    L"Fatal Fury Special (SNES)",
-   L"Fake game ID for RGB9",
+   L"Top Fighter 2005 (Sega)",
    L"SFIII:3S EX",
    L"GGXX:AC+R",
    L"Art of Fighting 3 (Neo-Geo)",
@@ -210,9 +213,12 @@ const WCHAR g_GameFriendlyName[NUM_GAMES][64] =
    L"Garou: MotW (Neo-Geo Prototype)",
    L"Dengeki Bunko: Fighting Climax IGNITION",
    L"Under Night In-Birth Exe:Late[cl-r]",
-   L"Super Puzzle Fighter II Turbo",
-   L"Marvel Super Heroes: War of the Gems [SNES]",
+   L"Super Puzzle Fighter II Turbo (Arcade)",
+   L"Marvel Super Heroes: War of the Gems (SNES)",
    L"Red Earth (Arcade Rerip)",
+   L"King of the Monsters (Neo-Geo)",
+   L"X-Men: Mutant Apocalypse (SNES)",
+   L"TMNT: Tournament Fighters (SNES)",
 };
 
 enum class GamePlatform
@@ -223,6 +229,7 @@ enum class GamePlatform
     Nintendo,
     SammyAtomiswave,
     SegaNAOMI,
+    Sega,
     Steam,
     Unknown,
     Last,
@@ -1057,8 +1064,6 @@ const UINT16 MVC_A_IMG_UNITS[] =
     indexCPS2_Sentinel, // Sentinel
     indexCPS2_Anita,        // 0x51
 };
-
-constexpr auto MVC_A_NUM_IMG_UNITS = ARRAYSIZE(MVC_A_IMG_UNITS);
 
 const UINT16 MSH_A_IMG_UNITS[] =
 {
@@ -2735,33 +2740,33 @@ enum SamuraiShodownSpriteList
     indexSamSho3Sprites_Bonus,      // 2F
     indexSamSho3Sprites_Stages,     // 30
 
-    indexSS5_Basara,      // 0x31
-    indexSS5_Charlotte,   // 0x32
-    indexSS5_Enja,        // 0x33
-    indexSS5_Gaira,       // 0x34
-    indexSS5_Galford,     // 0x35
-    indexSS5_Gaoh,        // 0x36
-    indexSS5_Genjuro,     // 0x37
-    indexSS5_Hanzo,       // 0x38
-    indexSS5_Haohmaru,    // 0x39
-    indexSS5_Jubei,       // 0x3A
-    indexSS5_Kazuki,      // 0x3B
-    indexSS5_Kusaregedo,  // 0x3C
-    indexSS5_Kyoshiro,    // 0x3D
-    indexSS5_Mina,        // 0x3E
-    indexSS5_Nakoruru,    // 0x3F
-    indexSS5_Rasetsumaru, // 0x40
-    indexSS5_Rera,        // 0x41
-    indexSS5_Rimururu,    // 0x42
-    indexSS5_Sankuro,     // 0x43
-    indexSS5_Shizumaru,   // 0x44
-    indexSS5_Sogetsu,     // 0x45
-    indexSS5_Suija,       // 0x46
-    indexSS5_TamTam,      // 0x47
-    indexSS5_Ukyo,        // 0x48
-    indexSS5_Yoshitora,   // 0x49
-    indexSS5_Yumeji,      // 0x4A
-    indexSS5_Yunfei,      // 0x4B
+    indexSS5_Basara,        // 0x31
+    indexSS5_Charlotte,     // 0x32
+    indexSS5_Enja,          // 0x33
+    indexSS5_Gaira,         // 0x34
+    indexSS5_Galford,       // 0x35
+    indexSS5_Gaoh,          // 0x36
+    indexSS5_Genjuro,       // 0x37
+    indexSS5_Hanzo,         // 0x38
+    indexSS5_Haohmaru,      // 0x39
+    indexSS5_Jubei,         // 0x3A
+    indexSS5_Kazuki,        // 0x3B
+    indexSS5_Kusaregedo,    // 0x3C
+    indexSS5_Kyoshiro,      // 0x3D
+    indexSS5_Mina,          // 0x3E
+    indexSS5_Nakoruru,      // 0x3F
+    indexSS5_Rasetsumaru,   // 0x40
+    indexSS5_Rera,          // 0x41
+    indexSS5_Rimururu,      // 0x42
+    indexSS5_Sankuro,       // 0x43
+    indexSS5_Shizumaru,     // 0x44
+    indexSS5_Sogetsu,       // 0x45
+    indexSS5_Suija,         // 0x46
+    indexSS5_TamTam,        // 0x47
+    indexSS5_Ukyo,          // 0x48
+    indexSS5_Yoshitora,     // 0x49
+    indexSS5_Yumeji,        // 0x4A
+    indexSS5_Yunfei,        // 0x4B
     indexSS5_Bonus,         // 0x4c
     indexSS5_Stages,        // 0x4d
 
@@ -2929,7 +2934,6 @@ const UINT16 VHUNT2_A_IMG_UNITS[] =
     indexCPS2_Vamp_Shadow,    // 0x75
     indexCPS2_VSAV1_MidnightBliss,
     indexCPS2_Vamp_DarkGallon,
-
 };
 
 constexpr auto VHUNT2_A_NUM_IMG_UNITS = ARRAYSIZE(VHUNT2_A_IMG_UNITS);
@@ -3062,6 +3066,18 @@ enum SupportedWindjammers_A_PaletteListIndex
     indexWindjammersSprites_UK_Korea,
     indexWindjammersSprites_USA,
     indexWindjammersSprites_Bonus,
+};
+
+enum SupportedSega_PaletteListIndex
+{
+    indexTopF2k5Sprites_Ali,            // 0x00
+    indexTopF2k5Sprites_Cycl,           // 0x01
+    indexTopF2k5Sprites_GeesHoward,     // 0x02
+    indexTopF2k5Sprites_Goku,           // 0x03
+    indexTopF2k5Sprites_Kyo,            // 0x04
+    indexTopF2k5Sprites_MichaelJoden,   // 0x05
+    indexTopF2k5Sprites_Ryo,            // 0x06
+    indexTopF2k5Sprites_Ryu,            // 0x07
 };
 
 enum SupportedSNES_PaletteListIndex
@@ -3230,6 +3246,14 @@ enum SupportedNEOGEO_PaletteListIndex
     indexRotDSprites_Radel,                 // 0x3D
     indexRotDSprites_Sonia,                 // 0x3E
     indexRotDSprites_Bonus,                 // 0x3F
+
+    indexKotMSprites_AstroGuy,              // 0x40
+    indexKotMSprites_BeetleMania,           // 0x41
+    indexKotMSprites_Geon,                  // 0x42
+    indexKotMSprites_PoisonGhost,           // 0x43
+    indexKotMSprites_Rocky,                 // 0x44
+    indexKotMSprites_Woo,                   // 0x45
+    indexKotMSprites_Bonus,                 // 0x46
 };
 
 const UINT16 NEOBOMBERMAN_A_IMG_UNITS[] =
