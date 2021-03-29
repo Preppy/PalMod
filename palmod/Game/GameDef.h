@@ -301,6 +301,11 @@ const LPCWSTR DEF_BUTTONLABEL_2_AOF3[] =
     L"A", L"D"
 };
 
+const LPCWSTR DEF_BUTTONLABEL_2_LEFTRIGHT[] =
+{
+    L"Left", L"Right"
+};
+
 const LPCWSTR DEF_BUTTONLABEL_NEOGEO[] =
 {
     L"A", L"B", L"C", L"D"

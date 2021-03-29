@@ -216,7 +216,7 @@ struct DBFCIFileData
     UINT32 nSpriteIndex = 0;
 };
 
-DBFCIFileData DBFCICharacterData[] =
+const DBFCIFileData DBFCICharacterData[] =
 {
     { L"Yak.pal",    L"Akira",          65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexFrenchBreadSprites_DBFCI_Akira },
     { L"Ako.pal",    L"Ako",            65540,    DBFCIPaletteNamesNormal,    ARRAYSIZE(DBFCIPaletteNamesNormal), 0x4,  indexFrenchBreadSprites_DBFCI_Ako },
@@ -281,7 +281,6 @@ DBFCIFileData DBFCICharacterData[] =
     { L"Stm_p1.pal",  L"Rentaro (Trump)",   65540, DBFCIPaletteNamesEx,            ARRAYSIZE(DBFCIPaletteNamesEx),          0x4,  indexFrenchBreadSprites_DBFCI_Rentaro },
     { L"Tgr_p1.pal",  L"Taiga (Ryuji)",   65540,  DBFCIPaletteNamesEx,             ARRAYSIZE(DBFCIPaletteNamesEx),          0x4,  indexFrenchBreadSprites_DBFCI_Ryuji },
     { L"Oni_p1.pal",  L"Tatsuya (Miyuki)", 66564, DBFCIPaletteNamesEx,             ARRAYSIZE(DBFCIPaletteNamesEx),          0x4,  indexFrenchBreadSprites_DBFCI_MiyukiAssist },
-
 };
 
 CGame_DBFCI_A::CGame_DBFCI_A(UINT32 nConfirmedROMSize /* = -1 */)
@@ -311,8 +310,8 @@ CGame_DBFCI_A::CGame_DBFCI_A(UINT32 nConfirmedROMSize /* = -1 */)
     //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
 
-    pButtonLabelSet = DEF_NOBUTTONS;
-    m_nNumberOfColorOptions = ARRAYSIZE(DEF_NOBUTTONS);
+    pButtonLabelSet = DEF_BUTTONLABEL_2_LEFTRIGHT;
+    m_nNumberOfColorOptions = ARRAYSIZE(DEF_BUTTONLABEL_2_LEFTRIGHT);
 
     //Create the redirect buffer
     rgUnitRedir = new UINT16[nUnitAmt + 1];
@@ -508,9 +507,11 @@ BOOL CGame_DBFCI_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
     nTargetImgId = 0;
     UINT16 nImgUnitId = DBFCICharacterData[NodeGet->uUnitId].nSpriteIndex;
 
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
+    // This logic presumes that we are only showing core character palettes.  If we decide to handle
+    // anything else, we'd want to validate that the palette in question is in the core lists
+    UINT16 nSrcStart = (NodeGet->uPalId % DBFCICharacterData[NodeGet->uUnitId].nPaletteListSize);
+    UINT16 nSrcAmt = m_nNumberOfColorOptions;
+    UINT16 nNodeIncrement = DBFCICharacterData[NodeGet->uUnitId].nPaletteListSize;
 
     //Get rid of any palettes if there are any
     BasePalGroup.FlushPalAll();

@@ -1516,6 +1516,7 @@ const sGame_PaletteDataset SFIII3_A_SEAN_PORTRAIT_PALETTES[] =
 {
     { L"Sean portrait (Normal)", 0x070DD00, 0x070DE80, index3S_CPS3_Sean, 0x20 },
     { L"Sean portrait (Tinted)", 0x0712B00, 0x0712C80, index3S_CPS3_Sean, 0x20 },
+
     { L"Sean Character Select Icon", 0x070C200, 0x070C280, index3S_CPS3_Sean, 0x22 },
     { L"Sean Character Select Icon (Faded)", 0x711000, 0x711080, index3S_CPS3_Sean, 0x22 },
 };
@@ -1944,6 +1945,7 @@ const sGame_PaletteDataset SFIII3_A_BONUS_PALETTES[] =
     { L"Super Art Panels",                  0x709B00, 0x709B80 },
     { L"SUV Portrait",                      0x70E600, 0x70E780 },
     { L"Basketball Sean Portrait",          0x70E780, 0x70E880 },
+    { L"Basketball Sean Portrait (faded)",  0x713580, 0x713680 },
 };
 
 const sGame_PaletteDataset SFIII3_A_HUD_PALETTES[] =

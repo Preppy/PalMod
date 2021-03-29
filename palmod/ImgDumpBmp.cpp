@@ -721,18 +721,13 @@ int CImgDumpBmp::GetMaxImagesPerLine()
     case 12:
         w_mul = 6;
         break;
-    case 15:
-        w_mul = 5;
-        break;
-    case 20: // GGXXACR ex color sets
-        w_mul = 5;
-        break;
-    case 22: // GGXXACR core color sets
-        w_mul = 5;
-        break;
     default:
         OutputDebugString(L"CImgDumpBmp::GetImagesPerLine: You need to finish adding in this new output option.");
-        DebugBreak();
+        __fallthrough;
+    case 15:
+    case 20: // GGXXACR ex color sets
+    case 22: // GGXXACR core color sets
+        w_mul = 5;
         break;
     }
 
