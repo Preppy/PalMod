@@ -1240,9 +1240,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Manifest Include="res\palmod_.manifest" />
+    <Manifest Include="res\palmod.manifest" />
   </ItemGroup>
 </Project>

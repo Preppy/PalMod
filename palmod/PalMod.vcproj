@@ -615,15 +615,7 @@
 			>
 		</Filter>
 		<File
-			RelativePath=".\Notes.txt"
-			>
-		</File>
-		<File
-			RelativePath="..\..\PalMod\PalMod\res\palmod_.manifest"
-			>
-		</File>
-		<File
-			RelativePath=".\ReadMe.txt"
+			RelativePath=".\res\palmod.manifest"
 			>
 		</File>
 	</Files>
