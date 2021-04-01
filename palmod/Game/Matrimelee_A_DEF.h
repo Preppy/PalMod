@@ -71,7 +71,7 @@ const sGame_PaletteDataset Matrimelee_A_Annie_B_PALETTES[] =
     { L"Rolling/Super Jumps", 0x29c96c, 0x29c98c, indexMatriMSprites_Annie, 0x00 },
     { L"EX/Super trails", 0x29c98c, 0x29c9ac, indexMatriMSprites_Annie, 0x00 },
     { L"Guard Cancel", 0x29c9ac, 0x29c9cc, indexMatriMSprites_Annie, 0x00 },
-    { L"HUD Portrait", 0x29c9cc, 0x29c9ecc, indexMatriMSprites_Annie, 0x31 },
+    { L"HUD Portrait", 0x29c9cc, 0x29c9ec, indexMatriMSprites_Annie, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_Annie_C_PALETTES[] =
@@ -82,7 +82,7 @@ const sGame_PaletteDataset Matrimelee_A_Annie_C_PALETTES[] =
     { L"Rolling/Super Jumps", 0x29ca4c, 0x29ca6c, indexMatriMSprites_Annie, 0x00 },
     { L"EX/Super trails", 0x29ca6c, 0x29ca8c, indexMatriMSprites_Annie, 0x00 },
     { L"Guard Cancel", 0x29ca8c, 0x29caac, indexMatriMSprites_Annie, 0x00 },
-    { L"HUD Portrait", 0x29caac, 0x29caccc, indexMatriMSprites_Annie, 0x31 },
+    { L"HUD Portrait", 0x29caac, 0x29cacc, indexMatriMSprites_Annie, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_Annie_D_PALETTES[] =
@@ -93,7 +93,7 @@ const sGame_PaletteDataset Matrimelee_A_Annie_D_PALETTES[] =
     { L"Rolling/Super Jumps", 0x29cb2c, 0x29cb4c, indexMatriMSprites_Annie, 0x00 },
     { L"EX/Super trails", 0x29cb4c, 0x29cb6c, indexMatriMSprites_Annie, 0x00 },
     { L"Guard Cancel", 0x29cb6c, 0x29cb8c, indexMatriMSprites_Annie, 0x00 },
-    { L"HUD Portrait", 0x29cb8c, 0x29cbacc, indexMatriMSprites_Annie, 0x31 },
+    { L"HUD Portrait", 0x29cb8c, 0x29cbac, indexMatriMSprites_Annie, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_Annie_PORTRAIT_PALETTES[] =
@@ -107,7 +107,7 @@ const sGame_PaletteDataset Matrimelee_A_BUNTARO_A_PALETTES[] =
     { L"Rolling/Super Jumps", 0x29f31c, 0x29f33c, indexMatriMSprites_Buntaro, 0x00 },
     { L"EX/Super trails", 0x29f33c, 0x29f35c, indexMatriMSprites_Buntaro, 0x00 },
     { L"Guard Cancel", 0x29f35c, 0x29f37c, indexMatriMSprites_Buntaro, 0x00 },
-    { L"HUD Portrait", 0x29f37c, 0x29f39cc, indexMatriMSprites_Buntaro, 0x31 },
+    { L"HUD Portrait", 0x29f37c, 0x29f39c, indexMatriMSprites_Buntaro, 0x31 },
 };
 
 const sGame_PaletteDataset Matrimelee_A_BUNTARO_B_PALETTES[] =

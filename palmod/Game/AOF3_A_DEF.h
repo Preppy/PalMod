@@ -268,7 +268,7 @@ const sGame_PaletteDataset AOF3_A_Sinclair_RAGE_PALETTES[] =
 //Shared
 const sGame_PaletteDataset AOF3_A_Sinclair_SHARED_PALETTES[] =
 {
-    { L"Sword Portrait", 0x05fc00, 0x05fc20, indexAoF3Sprites_Sinclair, 0x31 },
+    { L"Sword Portrait", 0x05fc00, 0x05fc1c, indexAoF3Sprites_Sinclair, 0x31 },
     { L"Sword Trail", 0x05fb80, 0x05fba0 },
     { L"Vision Cutter", 0x05fea0, 0x05fec0 },
 };

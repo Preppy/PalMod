@@ -187,7 +187,7 @@ const sGame_PaletteDataset WakuWaku7_A_POLITANK_B_PALETTES[] =
     { L"Politank B", 0xF858, 0xF878, indexWakuWaku7Sprites_Politank, 0x00 },
     { L"Politank B Flashing", 0x102B8, 0x10338, indexWakuWaku7Sprites_Politank, 0x00 },
     { L"Chojuro and Hamusuke B", 0xFE58, 0xFE78 },
-    { L"Chojuro and Hamusuke B Flashing", 0x104B8 },
+    { L"Chojuro and Hamusuke B Flashing", 0x104B8, 0x10538 },
     { L"Politank B SEL Portrait", 0x119d8, 0x11A58, indexWakuWaku7Sprites_Politank, 0x10, &pairNext },
     { L"Chojuro and Hamusuke B SEL Portrait", 0x12458, 0x12558, indexWakuWaku7Sprites_Politank, 0x12 },
     { L"Politank B HUD Portrait", 0x17A38, 0x17A58, indexWakuWaku7Sprites_Politank, 0x11 },
