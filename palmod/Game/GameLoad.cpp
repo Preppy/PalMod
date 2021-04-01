@@ -1267,7 +1267,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
     return OutGame;
 }
 
-CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* szLoadDir)
+CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
 {
     CGameClass* OutGame = NULL;
     sFileRule CurrRule;
@@ -1281,7 +1281,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* szLoadDir)
     nSaveLoadSucc = 0;
     nSaveLoadErr = 0;
 
-    if (!VerifyLocationIsUsable(szLoadDir))
+    if (!VerifyLocationIsUsable(pszLoadDir))
     {
         return nullptr;
     }
@@ -1301,9 +1301,22 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* szLoadDir)
 
         CurrRule = GetNextRule();
 
-        strCurrFile.Format(L"%s\\%s", szLoadDir, CurrRule.szFileName);
+        strCurrFile.Format(L"%s\\%s", pszLoadDir, CurrRule.szFileName);
 
-        if (CurrFile.Open(strCurrFile, CFile::modeRead | CFile::typeBinary))
+        BOOL fFileOpened = CurrFile.Open(strCurrFile, CFile::modeRead | CFile::typeBinary);
+
+        if (!fFileOpened && CurrRule.fHasAltName)
+        {
+            CString strAltFileName;
+
+            OutputDebugString(L"Loading game via alternate filenames...\n");
+
+            strAltFileName.Format(L"%s\\%s", pszLoadDir, CurrRule.szAltFileName);
+
+            fFileOpened = CurrFile.Open(strAltFileName, CFile::modeRead | CFile::typeBinary);
+        }
+
+        if (fFileOpened)
         {
             bool fActualFileSizeIsSafe = ((short int)CurrRule.uVerifyVar == -1) || (CurrFile.GetLength() == CurrRule.uVerifyVar);
 
@@ -1323,7 +1336,7 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* szLoadDir)
                     if (OutGame)
                     {
                         OutGame->SetIsDir();
-                        OutGame->SetLoadDir(szLoadDir);
+                        OutGame->SetLoadDir(pszLoadDir);
                     }
                 }
 

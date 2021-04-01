@@ -86,7 +86,15 @@ sFileRule CGame_SFIII3_A_DIR::GetRuleInternal(UINT16 nUnitId, int nSF3ModeToLoad
 
             // This is clunky: we should shift the SIMM games to handle loads themselves.
             NewFileRule.fHasAltName = TRUE;
-            _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_JPN_ROM_Base, UsingROMForGill() ? 1 : 5, (nUnitId & 0x00FF));
+
+            if (UsingROMForGill() && ((nUnitId & 0x00FF) == 0x03))
+            {
+                _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"%s%u.%ua", SFIII_Arcade_JPN_ROM_Base, UsingROMForGill() ? 1 : 5, (nUnitId & 0x00FF));
+            }
+            else
+            {
+                _snwprintf_s(NewFileRule.szAltFileName, ARRAYSIZE(NewFileRule.szAltFileName), _TRUNCATE, L"%s%u.%u", SFIII_Arcade_JPN_ROM_Base, UsingROMForGill() ? 1 : 5, (nUnitId & 0x00FF));
+            }
             break;
         }
     }
@@ -334,12 +342,23 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
     if (UsePaletteSetFor10())
     {
         // We need all four files for Gill
-        CString str10FileName;
+        CString str12FileName;
+        CString str13FileName;
 
-        str10FileName.Format(L"%s\\%s1.2", GetLoadDir(), m_fUseJPNFileNames ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base);
-        fFileOpened = fFileOpened && fileSIMM3.Open(str10FileName, CFile::modeRead | CFile::typeBinary);
-        str10FileName.Format(L"%s\\%s1.3", GetLoadDir(), m_fUseJPNFileNames ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base);
-        fFileOpened = fFileOpened && fileSIMM4.Open(str10FileName, CFile::modeRead | CFile::typeBinary);
+        if (m_fUseJPNFileNames)
+        {
+            str12FileName.Format(L"%s\\%s1.2", GetLoadDir(), SFIII_Arcade_JPN_ROM_Base);
+            // 1.3 has a different filename for sfiii3n
+            str13FileName.Format(L"%s\\%s1.3a", GetLoadDir(), SFIII_Arcade_JPN_ROM_Base);
+        }
+        else
+        {
+            str12FileName.Format(L"%s\\%s1.2", GetLoadDir(), SFIII_Arcade_USA_ROM_Base);
+            str13FileName.Format(L"%s\\%s1.3", GetLoadDir(), SFIII_Arcade_USA_ROM_Base);
+        }
+
+        fFileOpened = fFileOpened && fileSIMM3.Open(str12FileName, CFile::modeRead | CFile::typeBinary);
+        fFileOpened = fFileOpened && fileSIMM4.Open(str13FileName, CFile::modeRead | CFile::typeBinary);
     }
     else if (UsePaletteSetFor10_4rd())
     {
@@ -467,6 +486,10 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
             fileSIMM4.Close();
         }
     }
+    else
+    {
+        fSuccess = FALSE;
+    }
 
     rgUnitRedir[nUnitAmt] = INVALID_UNIT_VALUE;
 
@@ -557,6 +580,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
 
     LPCWSTR pszBaseFormatString;
     UINT16 nSIMMSetBaseNumber;
+    LPCWSTR pszSpecial3rdExtension = L"";
 
     switch (nGameFlag)
     {
@@ -574,6 +598,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
         break;
     case SFIII3_A_DIR_10:
         pszBaseFormatString = m_fUseJPNFileNames ? SFIII_Arcade_JPN_ROM_Base : SFIII_Arcade_USA_ROM_Base;
+        pszSpecial3rdExtension = m_fUseJPNFileNames ? L"a" : L"";
         nSIMMSetBaseNumber = 1;
         break;
     default:
@@ -586,7 +611,7 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
     strSIMMName1.Format(L"%s\\%s%u.%u", GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber);
     strSIMMName2.Format(L"%s\\%s%u.%u", GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 1);
     strSIMMName3.Format(L"%s\\%s%u.%u", GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 2);
-    strSIMMName4.Format(L"%s\\%s%u.%u", GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 3);
+    strSIMMName4.Format(L"%s\\%s%u.%u%s", GetLoadDir(), pszBaseFormatString, nSIMMSetBaseNumber, nSIMMNumber + 3, pszSpecial3rdExtension);
 
     // We don't necessarily want the incoming file handle, so close it
     SaveFile->Abort();
@@ -720,25 +745,50 @@ BOOL CGame_SFIII3_A_DIR::SaveFile(CFile* SaveFile, UINT16 nSIMMNumber)
 
 LPCWSTR CGame_SFIII3_A_DIR::GetGameName()
 {
-    switch (m_currentSFIII3ROMRevision)
+    if (m_fUseJPNFileNames)
     {
-    case SFIII3_SupportedROMRevision::SFIII3_10_990512:
-        return L"SFIII:3S Gill Glow (990512 Arcade Rerip)";
-    case SFIII3_SupportedROMRevision::SFIII3_10_990608:
-        return L"SFIII:3S Gill Glow (990608 Arcade Rerip)";
-    default:
-    case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
-        OutputDebugString(L"Warning: unknown ROM\n");
-        __fallthrough;
-    case SFIII3_SupportedROMRevision::SFIII3_51:
-        return L"SFIII:3S (Arcade Rerip)";
-    case SFIII3_SupportedROMRevision::SFIII3_4rd:
-        return L"SFIII:4rd (3S Hack)";
-    case SFIII3_SupportedROMRevision::SFIII3_3Ex:
-        return L"SFIII:3S Ex";
-    case SFIII3_SupportedROMRevision::SFIII3_10_4rd:
-        return L"SFIII:4rd Gill Glow (Arcade Rerip)";
-    };
+        switch (m_currentSFIII3ROMRevision)
+        {
+        case SFIII3_SupportedROMRevision::SFIII3_10_990512:
+            return L"SFIII:3S Gill Glow (990512 Arcade Rerip Japan)";
+        case SFIII3_SupportedROMRevision::SFIII3_10_990608:
+            return L"SFIII:3S Gill Glow (990608 Arcade Rerip Japan)";
+        default:
+        case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
+            OutputDebugString(L"Warning: unknown ROM\n");
+            __fallthrough;
+        case SFIII3_SupportedROMRevision::SFIII3_51:
+            return L"SFIII:3S (Arcade Rerip Japan)";
+        case SFIII3_SupportedROMRevision::SFIII3_4rd:
+            return L"SFIII:4rd (3S Hack Japan)";
+        case SFIII3_SupportedROMRevision::SFIII3_3Ex:
+            return L"SFIII:3S Ex (Japan)";
+        case SFIII3_SupportedROMRevision::SFIII3_10_4rd:
+            return L"SFIII:4rd Gill Glow (Arcade Rerip Japan)";
+        };
+    }
+    else
+    {
+        switch (m_currentSFIII3ROMRevision)
+        {
+        case SFIII3_SupportedROMRevision::SFIII3_10_990512:
+            return L"SFIII:3S Gill Glow (990512 Arcade Rerip)";
+        case SFIII3_SupportedROMRevision::SFIII3_10_990608:
+            return L"SFIII:3S Gill Glow (990608 Arcade Rerip)";
+        default:
+        case SFIII3_SupportedROMRevision::SFIII3_Unsupported:
+            OutputDebugString(L"Warning: unknown ROM\n");
+            __fallthrough;
+        case SFIII3_SupportedROMRevision::SFIII3_51:
+            return L"SFIII:3S (Arcade Rerip)";
+        case SFIII3_SupportedROMRevision::SFIII3_4rd:
+            return L"SFIII:4rd (3S Hack)";
+        case SFIII3_SupportedROMRevision::SFIII3_3Ex:
+            return L"SFIII:3S Ex";
+        case SFIII3_SupportedROMRevision::SFIII3_10_4rd:
+            return L"SFIII:4rd Gill Glow (Arcade Rerip)";
+        };
+    }
 }
 
 UINT32 CGame_SFIII3_A_DIR::SaveMultiplePatchFiles(CString strTargetDirectory)

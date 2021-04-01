@@ -146,15 +146,6 @@ protected:
         OFFSET_PALETTE_BY_ONE = 1,
     };
 
-    enum PALWriteOutputOptions
-    {
-        // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter UINT16.
-        // You can set this to WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
-        // You're only really going to be able to prove the game's maximum palette length with palettes longer than 16 colors.
-        WRITE_16 = 16,
-        WRITE_MAX = 256,
-    };
-
     struct sCreatePalOptions
     {
         // Normally zero, but we can offset by one in some cases.
@@ -234,6 +225,9 @@ public:
     ColMode GetColorMode() { return CurrColMode; };
     virtual BOOL SetColorMode(ColMode NewMode);
     virtual bool AllowUpdatingColorFormatForGame() { return false; };
+
+    void SetMaximumWritePerEachTransparency(PALWriteOutputOptions eUpdatedOption) { createPalOptions.eWriteOutputOptions = eUpdatedOption; };
+    PALWriteOutputOptions GetMaximumWritePerEachTransparency() { return createPalOptions.eWriteOutputOptions; };
 
     BOOL SpecSel(int* nVarSet, int nPalId, int nStart, int nInc, int nAmt = 1, int nMax = 6);
 

@@ -13,6 +13,7 @@ constexpr auto c_mainWndMaxColorsPerPage = L"extras_MaxColorsPerPage";
 constexpr auto c_mainWndForcePeerPreviewWindow = L"extras_ForcePeerPreviewWindow";
 constexpr auto c_mainUnknownGameAlphaMode = L"main_UnknownGameAlphaMode";
 constexpr auto c_mainUnknownGameColMode = L"main_UnknownGameColMode";
+constexpr auto c_mainUnknownGameMaxWrite = L"main_UnknownGameMaxWrite";
 constexpr auto c_mainExtraFileCanaryKey = L"main_lastExtraFileSize_%s";
 
 constexpr auto c_nPrefSavePaletteToMemory = L"pref_ShouldSavePaletteToMemory";
@@ -93,6 +94,18 @@ void CRegProc::SetColorModeForUnknownGame(ColMode colorMode)
         == ERROR_SUCCESS)
     {
         RegSetValueEx(hKey, c_mainUnknownGameColMode, 0, REG_DWORD, (BYTE*)&colorMode, sizeof(DWORD));
+        RegCloseKey(hKey);
+    }
+}
+
+void CRegProc::SetMaxWriteForUnknownGame(PALWriteOutputOptions maxWrite)
+{
+    HKEY hKey;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        RegSetValueEx(hKey, c_mainUnknownGameMaxWrite, 0, REG_DWORD, (BYTE*)&maxWrite, sizeof(DWORD));
         RegCloseKey(hKey);
     }
 }
@@ -209,6 +222,28 @@ ColMode CRegProc::GetColorModeForUnknownGame()
     }
 
     return (ColMode)dwColMode;
+}
+
+PALWriteOutputOptions CRegProc::GetMaxWriteForUnknownGame()
+{
+    HKEY hKey;
+    DWORD dwMaxWrite = (DWORD)PALWriteOutputOptions::WRITE_16;
+
+    if (RegCreateKeyEx(HKEY_CURRENT_USER, c_AppRegistryRoot, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_READ, NULL, &hKey, NULL)
+        == ERROR_SUCCESS)
+    {
+        DWORD RegType = REG_DWORD;
+        DWORD GetSz = sizeof(DWORD);
+
+        if (RegQueryValueEx(hKey, c_mainUnknownGameMaxWrite, 0, &RegType, (BYTE*)&dwMaxWrite, &GetSz) != ERROR_SUCCESS)
+        {
+            dwMaxWrite = (DWORD)PALWriteOutputOptions::WRITE_16;
+        }
+
+        RegCloseKey(hKey);
+    }
+
+    return (PALWriteOutputOptions)dwMaxWrite;
 }
 
 UINT16 CRegProc::GetColorsPerLine()

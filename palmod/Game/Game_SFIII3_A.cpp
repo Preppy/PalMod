@@ -122,6 +122,7 @@ CGame_SFIII3_A::CGame_SFIII3_A(UINT32 nConfirmedROMSize, int nSF3ROMToLoad)
     case SF3ROM_70_EX:
         m_nSafeCountForThisRom = 1191;
         m_nTotalPaletteCount = m_nTotalPaletteCountForSFIII3_51;
+        m_nLowestKnownPaletteRomLocation = 0x0;
         break;
     }
 

@@ -3166,7 +3166,7 @@ const sGame_PaletteDataset JOJOS_BONUS_INTRO_PALETTES[] =
     { L"Title Screen Jotaro Fade 2", 0x030CA00, 0x030CA80, indexJojos51Bonus, 0x39 },
     { L"Title Screen Jotaro Fade 3", 0x030CA80, 0x030CB00, indexJojos51Bonus, 0x39 },
     { L"Title Screen Jotaro Manga", 0x030cb00, 0x030cb80, indexJojos51Bonus, 0x39 },
-    { L"Title Screen Logo",      0x030c680, 0x030c780, indexJojos51Bonus, 0x32  },
+    { L"Title Screen Logo",      0x030c680, 0x030c780, indexJojos51Bonus, 0x4c  },
      // joined above { L"Title Screen Logo Ribbon", 0x030c700, 0x030c780, indexJojos51Bonus, 0x33 },
     { L"English Title", 0x030CB80, 0x030CC00, indexJojos51Bonus, 0x34 },
     { L"Title Screen Background", 0x030b0a0, 0x030b0b0, indexJojos51Bonus, 0x31 },

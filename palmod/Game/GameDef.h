@@ -3409,11 +3409,61 @@ enum SupportedTaito_PaletteListIndex
     indexDanKuGa_Bonus,             // 0x0B
 };
 
+enum SupportedNintendoDS_PaletteListIndex
+{
+    indexBleachDSSprites_Bonnie,            // 0x00
+    indexBleachDSSprites_ByakuyaKuchiki,    // 0x01
+    indexBleachDSSprites_DonKanonji,        // 0x02
+    indexBleachDSSprites_GanjuShiba,        // 0x03
+    indexBleachDSSprites_GenryusaiYamamoto, // 0x04
+    indexBleachDSSprites_GinIchimaru,       // 0x05
+    indexBleachDSSprites_Goteitaishi,       // 0x06
+    indexBleachDSSprites_GrandFisher,       // 0x07
+    indexBleachDSSprites_HanataroYamada,    // 0x08
+    indexBleachDSSprites_IchigoKurosaki,    // 0x09
+    indexBleachDSSprites_IkkakuMadarame,    // 0x0A
+    indexBleachDSSprites_IzuruKira,         // 0x0B
+    indexBleachDSSprites_JushiroUkitake,    // 0x0C
+    indexBleachDSSprites_Kai,               // 0x0D
+    indexBleachDSSprites_KanameTosen,       // 0x0E
+    indexBleachDSSprites_KenpachiZaraki,    // 0x0F
+    indexBleachDSSprites_KisukeUrahara,     // 0x10
+    indexBleachDSSprites_Kon,               // 0x11
+    indexBleachDSSprites_Kyugohanin,        // 0x12
+    indexBleachDSSprites_KukakuShiba,       // 0x13
+    indexBleachDSSprites_MayuriKurotsuchi,  // 0x14
+    indexBleachDSSprites_MenosGrande,       // 0x15
+    indexBleachDSSprites_MomoHinamori,      // 0x16
+    indexBleachDSSprites_NemuKurotsuchi,    // 0x17
+    indexBleachDSSprites_OrihimeInoue,      // 0x18
+    indexBleachDSSprites_RangikuMatsumoto,  // 0x19
+    indexBleachDSSprites_RenjiAbarai,       // 0x1A
+    indexBleachDSSprites_Ririn,             // 0x1B
+    indexBleachDSSprites_RukiaKuchiki,      // 0x1C
+    indexBleachDSSprites_SajinKomamura,     // 0x1D
+    indexBleachDSSprites_Shrieker,          // 0x1E
+    indexBleachDSSprites_ShunsuiKyoraku,    // 0x1F
+    indexBleachDSSprites_ShuheiHisagi,      // 0x20
+    indexBleachDSSprites_SuiFeng,           // 0x21
+    indexBleachDSSprites_SosukeAizen,       // 0x22
+    indexBleachDSSprites_TatsukiArisawa,    // 0x23
+    indexBleachDSSprites_Tsukaima,          // 0x24
+    indexBleachDSSprites_ToshirOHitsugaya,  // 0x25
+    indexBleachDSSprites_UruruTsumugiya,    // 0x26
+    indexBleachDSSprites_UryuIshida,        // 0x27
+    indexBleachDSSprites_YachiruKusajishi,  // 0x28
+    indexBleachDSSprites_YasutoraSado,      // 0x29
+    indexBleachDSSprites_YoruichiShihoin,   // 0x2A
+    indexBleachDSSprites_YuichiShibata,     // 0x2B
+    indexBleachDSSprites_Bonus,             // 0x2C,
+};
+
 enum eIMGDat_Sections
 {
     IMGDAT_SECTION_BREAKREV = 0,
     IMGDAT_SECTION_CPS2,    // Used for MVC2, MVC, SFA3, XMVSF, MSH, MSHVSF, etc CPS2 games
     IMGDAT_SECTION_CVS2,    // CVS2: has both Capcom and SNK images
+    IMGDAT_SECTION_DS,      // Nintendo DS
     IMGDAT_SECTION_FRENCHBREAD, // Used for DBFCI, UNICLR
     IMGDAT_SECTION_GAROU,
     IMGDAT_SECTION_GUILTYGEAR,

@@ -33,7 +33,7 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
     strMessage.Format(L"CGame_BLEACH_DS::CGame_BLEACH_DS: Loading ROM...\n");
     OutputDebugString(strMessage);
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_MAX };
+    createPalOptions = { NO_SPECIAL_OPTIONS, WRITE_16 };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
 
@@ -60,9 +60,9 @@ CGame_BLEACH_DS::CGame_BLEACH_DS(UINT32 nConfirmedROMSize)
 
     //Set game information
     nGameFlag = BLEACH_DS; // This value is defined in gamedef.h.  See usage of other values defined there
-    nImgGameFlag = IMGDAT_SECTION_CPS2; // Kept default as i have no img2020.dat file to mess with
-    nImgUnitAmt = 0; // ARRAYSIZE(BLEACH_DS_IMG_UNITS); // This is the size of the array tracking which IDs to load from the game's image section
-    m_prgGameImageSet = nullptr; // nothing yet
+    nImgGameFlag = IMGDAT_SECTION_DS; // Kept default as i have no img2020.dat file to mess with
+    m_prgGameImageSet = BLEACH_DS_IMG_UNITS;
+    nImgUnitAmt = ARRAYSIZE(BLEACH_DS_IMG_UNITS);
 
     nFileAmt = 1; // Always 1 for monolithic rom games
 
