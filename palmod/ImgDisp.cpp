@@ -581,7 +581,7 @@ bool CImgDisp::LoadExternalSprite(UINT nPositionToLoadTo, WCHAR* pszTextureLocat
                     else if (((2 * m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo])) == nSizeToRead)
                     {
                         // I think it's GIMP that doubles the RAW for no apparent reason
-                        GetHost()->GetPalModDlg()->SetStatusText(CString(L"This RAW contains extra data and may not look right."));
+                        GetHost()->GetPalModDlg()->SetStatusText(IDS_RAW_EXTRADATA);
                     }
                     else if ((m_nTextureOverrideW[nPositionToLoadTo] * m_nTextureOverrideH[nPositionToLoadTo]) != nSizeToRead)
                     {

@@ -908,11 +908,11 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
         CString strStatus;
         if (fHadToFlip)
         {
-            strStatus.Format(L"ACT appears to have a reversed color table: loaded %u colors backwards.", nTotalColorsUsed);
+            strStatus.Format(IDS_ACT_REVERSEDLOAD, nTotalColorsUsed);
         }
         else
         {
-            strStatus.Format(L"Loaded %u colors from %u color %s file.", nTotalColorsUsed, nACTColorCount, L"ACT");
+            strStatus.Format(IDS_ACT_LOADED, nTotalColorsUsed, nACTColorCount);
         }
 
         SetStatusText(strStatus);
@@ -925,7 +925,7 @@ bool CPalModDlg::LoadPaletteFromACT(LPCWSTR pszFileName, bool fReadUpsideDown)
         {
             MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
-        SetStatusText(CString(L"Failed loading ACT file."));
+        SetStatusText(IDS_ACT_LOADFAILURE);
     }
 
     return fSuccess;
@@ -1030,7 +1030,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
 
                             fSuccess = true;
                             CString strStatus;
-                            strStatus.Format(L"Loaded %u colors from %u color %s file.", nTotalColorsUsed, nPALColorCount, L"PAL");
+                            strStatus.Format(IDS_PAL_LOADED, nTotalColorsUsed, nPALColorCount);
                             SetStatusText(strStatus);
                         }
 
@@ -1046,7 +1046,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
     if (!fFoundPALChunk)
     {
         MessageBox(L"Error: This is not a Microsoft PAL RIFF file.", GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(CString(L"Failed loading PAL file."));
+        SetStatusText(IDS_PAL_LOADFAILURE);
     }
     else if (!fSuccess)
     {
@@ -1055,7 +1055,7 @@ bool CPalModDlg::LoadPaletteFromPAL(LPCWSTR pszFileName)
         {
             MessageBox(strError, GetHost()->GetAppName(), MB_ICONERROR);
         }
-        SetStatusText(CString(L"Failed loading PAL file."));
+        SetStatusText(IDS_PAL_LOADFAILURE);
     }
 
     return fSuccess;
@@ -1333,11 +1333,11 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
 
                     if (fHadToFlip)
                     {
-                        strInfo.Format(L"PNG appears to have a reversed color table: loaded %u colors backwards.", nTotalColorsUsed);
+                        strInfo.Format(IDS_PNG_REVERSEDLOAD, nTotalColorsUsed);
                     }
                     else
                     {
-                        strInfo.Format(L"Loaded %u colors from the %u color indexed %s file.", nTotalColorsUsed, nPNGColorCount, L"PNG");
+                        strInfo.Format(IDS_PNG_LOADED, nTotalColorsUsed, nPNGColorCount);
                     }
                     SetStatusText(strInfo);
 
@@ -1378,12 +1378,12 @@ bool CPalModDlg::LoadPaletteFromPNG(LPCWSTR pszFileName, bool fReadUpsideDown)
         strMessage.Append(L"Failing that, open up the PNG in a picture viewer.  While PalMod is the foreground application, select a color in PalMod. ");
         strMessage.Append(L"Then hover your mouse over the \"new\" color in your image, and press CTRL+SHIFT+V to copy that color to PalMod.  Repeat until you're done.");
         MessageBox(strMessage, GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(CString(L"Cannot use this PNG: it does not contain a palette table."));
+        SetStatusText(IDS_PNGLOAD_NOTABLE);
     }
     else if (!fSuccess)
     {
         MessageBox(L"Error: This is not a valid PNG file.", GetHost()->GetAppName(), MB_ICONERROR);
-        SetStatusText(CString(L"Failed loading PNG file."));
+        SetStatusText(IDS_PNG_LOADFAILURE);
     }
 
     return fSuccess;
@@ -1501,7 +1501,7 @@ bool CPalModDlg::SavePaletteToACT(LPCWSTR pszFileName)
         fSuccess = true;
     }
 
-    SetStatusText(CString(fSuccess ? "ACT file saved successfully." : "Error saving ACT file."));
+    SetStatusText(fSuccess ? IDS_ACTSAVE_SUCCESS : IDS_ACTSAVE_FAILURE);
     return fSuccess;
 }
 
@@ -1570,7 +1570,7 @@ bool CPalModDlg::SavePaletteToGPL(LPCWSTR pszFileName)
         fSuccess = true;
     }
 
-    SetStatusText(CString(fSuccess ? L"GPL file saved successfully." : L"Error saving GPL file."));
+    SetStatusText(fSuccess ? IDS_GPLSAVE_SUCCESS : IDS_GPLSAVE_FAILURE);
     return fSuccess;
 }
 
@@ -1614,7 +1614,7 @@ bool CPalModDlg::SavePaletteToPAL(LPCWSTR pszFileName)
         mmioClose(hRIFFFile, 0);
     }
 
-    SetStatusText(CString(fSuccess ? "RIFF PAL file saved successfully." : "Error saving RIFF PAL file."));
+    SetStatusText(fSuccess ? IDS_PALSAVE_SUCCESS : IDS_PALSAVE_FAILURE);
     return fSuccess;
 }
 

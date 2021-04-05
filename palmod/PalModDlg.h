@@ -27,8 +27,6 @@ enum class eVerifyType
     VM_FILECHANGE
 };
 
-constexpr auto DEFAULT_STATUS_TEXT = L"Always keep a backup of files!";
-
 class CPalDropTarget : public COleDropTarget
 {
 public:
@@ -175,6 +173,9 @@ public:
 // Construction
 public:
     CPalModDlg(CWnd* pParent = NULL);    // standard constructor
+#ifdef ENABLE_MUI_SUPPORT
+    ~CPalModDlg();
+#endif
 
 // Dialog Data
     enum { IDD = IDD_PALMOD_DIALOG };
@@ -195,6 +196,7 @@ public:
     void CloseFileDir();
     void ClearGameVar();
     void SetStatusText(CString szText);
+    void SetStatusText(UINT uStrId);
     void StopBlink();
 
 protected:

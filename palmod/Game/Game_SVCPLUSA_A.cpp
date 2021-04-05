@@ -1,8 +1,8 @@
 #include "StdAfx.h"
 #include "GameDef.h"
 #include "Game_SVCPLUSA_A.h"
-#include "..\PalMod.h"
-#include "..\RegProc.h"
+#include "PalMod.h"
+#include "RegProc.h"
 
 #define SVCPLUSA_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
@@ -999,9 +999,9 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
                     {
                         CWaitCursor wait;
-                        GetHost()->GetPalModDlg()->SetStatusText(L"Decrypting game: please wait...");
+                        GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_START);
                         svcsplus_px_decrypt(decryptedROM, m_nConfirmedROMSize * 2);
-                        GetHost()->GetPalModDlg()->SetStatusText(L"Decryption complete!");
+                        GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_DONE);
                     }
 
 #ifdef dump_decrypted_file
@@ -1070,9 +1070,9 @@ BOOL CGame_SVCPLUSA_A::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
 
                 {
                     CWaitCursor wait;
-                    GetHost()->GetPalModDlg()->SetStatusText(L"Decrypting game: please wait...");
+                    GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_START);
                     svcplus_px_decrypt(decryptedROM, nROMSetSize);
-                    GetHost()->GetPalModDlg()->SetStatusText(L"Decryption complete!");
+                    GetHost()->GetPalModDlg()->SetStatusText(IDS_DECRYPTING_DONE);
                 }
 
 #ifdef save_decrypted_output

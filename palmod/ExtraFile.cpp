@@ -521,7 +521,7 @@ void CGameWithExtrasFile::CheckForErrorsInTables()
 
     CWaitCursor wait; // Show a wait cursor, as if we *do* need to run full checks it can take a moment.
 
-    GetHost()->GetPalModDlg()->SetStatusText(L"Validating game data tables: please wait...");
+    GetHost()->GetPalModDlg()->SetStatusText(IDS_LOADING_DUPECHECK);
 
     CString strText;
     strText.Format(L"CGameWithExtrasFile::CheckForErrorsInTables: Safe palette count for ROM is %u.  We found %u now including extras.\n", m_nSafeCountForThisRom, nPaletteCountForRom);

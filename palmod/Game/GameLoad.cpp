@@ -1262,7 +1262,7 @@ CGameClass* CGameLoad::LoadFile(int nGameFlag, WCHAR* pszLoadFile)
         //OutGame->rgUnitRedir[OutGame->nRedirCtr] = INVALID_UNIT_VALUE;
     }
 
-    strLoadSaveStr.Format(L"Game %s successfully.", OutGame ? L"loaded" : L"did not load");
+    strLoadSaveStr.Format(OutGame ? IDS_LOADSAVE_SUCCESS : IDS_LOADSAVE_FAILURE);
 
     return OutGame;
 }
@@ -1405,10 +1405,10 @@ CGameClass* CGameLoad::LoadDir(int nGameFlag, WCHAR* pszLoadDir)
     CString strErrorText = L"";
     if (nSaveLoadErr)
     {
-        strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
+        strErrorText.Format((nSaveLoadErr == 1) ? IDS_LOADERROR_SINGLE : IDS_LOADERROR_MULTI, nSaveLoadErr);
     }
     
-    strLoadSaveStr.Format(L"%d of %d file%s loaded successfully%s.", nSaveLoadSucc, nSaveLoadCount, (nSaveLoadCount == 1) ? L"" : L"s", strErrorText.GetString());
+    strLoadSaveStr.Format((nSaveLoadCount == 1) ? IDS_LOADGAME_SINGLE : IDS_LOADGAME_MULTI, nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
 
     // Perhaps we could be less strict here, but -- we also will crash elsewhere if we don't have the full PL set.
     return (nSaveLoadErr == 0) ? OutGame : nullptr;
@@ -1623,10 +1623,10 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
             CString strErrorText = L"";
             if (nSaveLoadErr)
             {
-                strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
+                strErrorText.Format((nSaveLoadErr == 1) ? IDS_LOADERROR_SINGLE : IDS_LOADERROR_MULTI, nSaveLoadErr);
             }
 
-            strLoadSaveStr.Format(L"%d of %d files patched successfully%s.", nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
+            strLoadSaveStr.Format((nSaveLoadCount == 1) ? IDS_PATCHGAME_SINGLE : IDS_PATCHGAME_MULTI, nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
         }
 
         if (nSaveLoadErr == 0)
@@ -1636,7 +1636,7 @@ void CGameLoad::SaveGame(CGameClass* CurrGame)
     }
     else
     {
-        strLoadSaveStr = L"No changes detected: nothing to patch.";
+        strLoadSaveStr.LoadString(IDS_PATCH_EMPTY);
     }
 }
 
@@ -1727,21 +1727,21 @@ void CGameLoad::CrosscopyGame(CGameClass* CurrGame)
         CString strErrorText = L"";
         if (nSaveLoadErr)
         {
-            strErrorText.Format(L" (%d error%s)", nSaveLoadErr, (nSaveLoadErr == 1) ? L"" : L"s");
+            strErrorText.Format((nSaveLoadErr == 1) ? IDS_LOADERROR_SINGLE : IDS_LOADERROR_MULTI, nSaveLoadErr);
         }
 
         if (nSaveLoadCount == 1)
         {
-            strLoadSaveStr.Format(L"Game crosscopied successfully%s.", strErrorText.GetString());
+            strLoadSaveStr.Format(IDS_CROSSCOPY_SINGLE_SUCCESS, strErrorText.GetString());
         }
         else
         {
-            strLoadSaveStr.Format(L"%d of %d files crosscopied successfully%s.", nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
+            strLoadSaveStr.Format(IDS_CROSSCOPY_MULTI_SUCCESS, nSaveLoadSucc, nSaveLoadCount, strErrorText.GetString());
         }
     }
     else
     {
-        strLoadSaveStr = (L"No directory specified.");
+        strLoadSaveStr.LoadString(IDS_CROSSCOPY_NODIR);
     }
 }
 
@@ -1798,11 +1798,11 @@ void CGameLoad::SavePatchFile(CGameClass* CurrGame)
 
     if (nNumberOfChangesSaved > 0)
     {
-        strLoadSaveStr.Format(L"%u change%s saved to patch file.", nNumberOfChangesSaved, nNumberOfChangesSaved == 1 ? L"" : L"s");
+        strLoadSaveStr.Format((nNumberOfChangesSaved == 1) ? IDS_IPS_SINGLE : IDS_IPS_MULTI, nNumberOfChangesSaved);
     }
     else
     {
-        strLoadSaveStr = L"No changes detected: nothing to put in patch file.";
+        strLoadSaveStr.LoadString(IDS_IPS_EMPTY);
     }
 }
 
@@ -1819,10 +1819,10 @@ void CGameLoad::SaveMultiplePatchFiles(CGameClass* CurrGame, CString strTargetDi
 
     if (nNumberOfChangesSaved > 0)
     {
-        strLoadSaveStr.Format(L"%u change%s saved to patch file.", nNumberOfChangesSaved, nNumberOfChangesSaved == 1 ? L"" : L"s");
+        strLoadSaveStr.Format((nNumberOfChangesSaved == 1) ? IDS_IPS_SINGLE : IDS_IPS_MULTI, nNumberOfChangesSaved);
     }
     else
     {
-        strLoadSaveStr = L"No changes detected: nothing to put in patch file.";
+        strLoadSaveStr.LoadString(IDS_IPS_EMPTY);
     }
 }

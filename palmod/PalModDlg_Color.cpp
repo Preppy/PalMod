@@ -906,7 +906,7 @@ void CPalModDlg::OnBnNewCol()
             //UpdatePalSel();
         }
 
-        SetStatusText(CString("Using new color. Color may be rounded as required by the game."));
+        SetStatusText(IDS_PASTE_FROMBUTTON);
     }
 
     safe_delete(ColorDlg);

@@ -795,11 +795,11 @@ void CPalModDlg::OnEditPaste()
 
             if (fWasColorImportedFromDifferentGame)
             {
-                SetStatusText(CString("Pasted a PalMod color string. Colors may be rounded as required by this game."));
+                SetStatusText(IDS_PASTE_CROSSGAME);
             }
             else
             {
-                SetStatusText(CString("Pasted a PalMod color string."));
+                SetStatusText(IDS_PASTED_COLOR);
             }
         }
     }
@@ -893,11 +893,11 @@ void CPalModDlg::OnEditPaste()
 
         UpdateSliderSel();
 
-        SetStatusText(CString("Pasted RGB color. Colors may be rounded as required by the game."));
+        SetStatusText(IDS_PASTE_RGB);
     }
     else
     {
-        SetStatusText(CString("Unsupported paste option."));
+        SetStatusText(IDS_PASTE_UNSUPPORTED);
     }
 }
 

@@ -596,6 +596,58 @@ BEGIN
     IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM.  If you want to PalMod Venture, let people in the HFTF Discord server know and they'll walk you through it.\n\nAre you sure you wish to continue?"
 END
 
+
+STRINGTABLE
+BEGIN
+    IDS_DECRYPTING_START    "Decrypting game: please wait..."
+    IDS_DECRYPTING_DONE     "Decryption complete!"
+    IDS_ACT_LOADFAILURE     "Failed loading ACT file."
+    IDS_PAL_LOADFAILURE     "Failed loading PAL file."
+    IDS_PNG_LOADFAILURE     "Failed loading PNG file."
+    IDS_ACT_LOADED          "Loaded %u colors from %u color ACT file."
+    IDS_ACT_REVERSEDLOAD    "ACT appears to have a reversed color table: loaded %u colors backwards."
+    IDS_PAL_LOADED          "Loaded %u colors from %u color PAL file."
+    IDS_PNG_LOADED          "Loaded %u colors from %u color PNG file."
+    IDS_PNG_REVERSEDLOAD    "PNG appears to have a reversed color table: loaded %u colors backwards."
+
+    IDS_LOADING_DUPECHECK   "Validating game data tables: please wait..."
+    IDS_RAW_EXTRADATA       "This RAW contains extra data and may not look right."
+
+    IDS_PASTE_FROMBUTTON    "Using new color. Color may be rounded as required by the game."
+    IDS_PASTE_CROSSGAME     "Pasted a PalMod color string. Colors may be rounded as required by this game."
+    IDS_PASTED_COLOR        "Pasted a PalMod color string."
+    IDS_PASTE_RGB           "Pasted RGB color. Colors may be rounded as required by the game."
+    IDS_PASTE_UNSUPPORTED   "Unsupported paste option."
+
+    IDS_LOADSAVE_SUCCESS    "Game loaded successfully."
+    IDS_LOADSAVE_FAILURE    "Game did not load successfully."
+    IDS_LOADERROR_SINGLE    " (1 error)"
+    IDS_LOADERROR_MULTI     " (%d errors)"
+    IDS_LOADGAME_SINGLE     "%d of %d file loaded successfully%s."
+    IDS_LOADGAME_MULTI      "%d of %d files loaded successfully%s."
+    IDS_PATCH_FAIL          "Game patching failed."
+    IDS_PATCH_SUCCESS       "Game patched successfully."
+    IDS_PATCHGAME_SINGLE     "%d of %d file patched successfully%s."
+    IDS_PATCHGAME_MULTI      "%d of %d files patched successfully%s."
+    IDS_PATCH_EMPTY          "No changes detected: nothing to patch."
+    IDS_CROSSCOPY_SINGLE_SUCCESS "Game crosscopied successfully%s."
+    IDS_CROSSCOPY_MULTI_SUCCESS  "%d of %d files crosscopied successfully%s."
+    IDS_CROSSCOPY_NODIR      "No directory specified."
+    IDS_IPS_SINGLE           "%u change saved to patch file."
+    IDS_IPS_MULTI            "%u changes saved to patch file."
+    IDS_IPS_EMPTY            "No changes detected: nothing to put in patch file."
+
+    IDS_ACTSAVE_SUCCESS      "ACT file saved successfully."
+    IDS_ACTSAVE_FAILURE      "Error saving ACT file."
+    IDS_GPLSAVE_SUCCESS      "GPL file saved successfully."
+    IDS_GPLSAVE_FAILURE      "Error saving GPL file."
+    IDS_PALSAVE_SUCCESS      "RIFF PAL file saved successfully."
+    IDS_PALSAVE_FAILURE      "Error saving RIFF PAL file."
+    IDS_PNGLOAD_NOTABLE      "Cannot use this PNG: it does not contain a palette table."
+
+    IDS_WELCOME_BACKUP       "Always keep a backup of files!"
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
