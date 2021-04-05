@@ -54,9 +54,6 @@ CGame_SF2HF_A::CGame_SF2HF_A(UINT32 nConfirmedROMSize, int nSF2HFROMToLoad)
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(IsSF30thBundleFile() ? ColMode::COLMODE_12A_LE : ColMode::COLMODE_12A);
 
-    //Set palette conversion mode=
-    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
-    
     InitializeStatics();
 
     m_nSelectedRom = nSF2HFROMToLoad;

@@ -58,9 +58,6 @@ CGame_NINJAMASTERS_A::CGame_NINJAMASTERS_A(UINT32 nConfirmedROMSize, int nROMToL
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_NEOGEO);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     //Set game information
     nGameFlag = NINJAMASTERS_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;

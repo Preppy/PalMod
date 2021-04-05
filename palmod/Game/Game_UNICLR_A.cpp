@@ -140,9 +140,6 @@ CGame_UNICLR_A::CGame_UNICLR_A(UINT32 nConfirmedROMSize /* = -1 */)
     m_fGameUsesAlphaValue = true;
     SetColorMode(ColMode::COLMODE_ARGB8888);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
-
     InitializeStatics();
 
     // Don't load extras

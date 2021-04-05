@@ -99,9 +99,6 @@ CGame_KOF02UM_S::CGame_KOF02UM_S(UINT32 nConfirmedROMSize, int nRomToLoad)
     SetAlphaMode(AlphaMode::GameUsesFixedAlpha);
     SetColorMode(UseMainPaletteSet() ? ColMode::COLMODE_15ALT : ColMode::COLMODE_GBA);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     InitDataBuffer();
 
     //Set game information

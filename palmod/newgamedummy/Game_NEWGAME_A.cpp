@@ -4,28 +4,28 @@
 #include "..\PalMod.h"
 #include "..\RegProc.h"
 
+// Howdy!  To adapt this file for your game:
+// 
+// In this file:
+// * replace usage of NEWGAME with the shortname for your game.
+// * slowly read through the first 100 lines of this file and make any changes you need to make to tune this for your game.
+// * Please note that the few places you probably want to change here have a "// **" comment just above them
+
+// Elsewhere:
+// * go to game\gamedef.h and add your game to the end of SupportedGamesList
+// * in gamedef.h add a string for your name to the end of g_GameFriendlyName
+// * go to game\gameload.cpp and add an include for your game's header
+// * in game\gameload.cpp add a handler for your game to CGameLoad::SetGame
+// * in game\gameload.cpp add a handler for your game to CGameLoad::CreateGame
+// * go to palmoddlg_edit.cpp and map your game to the appropriate color format in CPalModDlg::OnEditPaste
+
+// That's it!  Good luck!  If you have any questions, feel free to ask.
+
+// This decides whether or not you get extra debug output while running under the debugger
 #define NEWGAME_A_DEBUG DEFAULT_GAME_DEBUG_STATE
 
-stExtraDef* CGame_NEWGAME_A::NEWGAME_A_EXTRA_CUSTOM = nullptr;
-
-CDescTree CGame_NEWGAME_A::MainDescTree = nullptr;
-
-int CGame_NEWGAME_A::rgExtraCountAll[NEWGAME_A_NUMUNIT + 1];
-int CGame_NEWGAME_A::rgExtraLoc[NEWGAME_A_NUMUNIT + 1];
-
-UINT32 CGame_NEWGAME_A::m_nTotalPaletteCountForNEWGAME = 0;
-UINT32 CGame_NEWGAME_A::m_nExpectedGameROMSize = 0x200000; // Update to the actual size of the ROM you expect
-UINT32 CGame_NEWGAME_A::m_nConfirmedROMSize = -1;
-
-void CGame_NEWGAME_A::InitializeStatics()
-{
-    safe_delete_array(CGame_NEWGAME_A::NEWGAME_A_EXTRA_CUSTOM);
-
-    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
-    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
-
-    MainDescTree.SetRootTree(CGame_NEWGAME_A::InitDescTree());
-}
+ // ** Update to the actual byte size in hex of the ROM file size you expect
+UINT32 CGame_NEWGAME_A::m_nExpectedGameROMSize = 0x200000;
 
 CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
 {
@@ -33,18 +33,22 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
     strMessage.Format(L"CGame_NEWGAME_A::CGame_NEWGAME_A: Loading ROM...\n";
     OutputDebugString(strMessage);
 
-    // Set alpha mode: this determines whether or not we set alpha values for the data we write back to the game ROM.
+    createPalOptions = {
+                        NO_SPECIAL_OPTIONS, // Set to SKIP_FIRST_COLOR for most CPS2 games.  Use the nStartingPosition version of UpdatePalData as found in CPS2 game code.
+                        WRITE_16            // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter UINT16.
+                                            // You can set this to WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
+    };
+
+    // ** Set alpha mode: this determines whether or not we set alpha values for the data we write back to the game ROM.
     // For color mode 12A you usually want it not set, for NEOGEO you cannot use it (there's no bit(s) for it), and for 15/15ALT you probably want it on.
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    // Set color mode: see the definitions in GameClass.h
+    // ** Set color mode: see the definitions in GameClass.h
     // We need to set color mode before calling InitializeStatics as color mode affects color size (2 bytes vs 4 bytes)
     // which in turn affects all our calculations involving colors
     SetColMode(ColMode::COLMODE_12A);
 
-    //Set palette conversion mode: 12A uses a step of PALTYPE_16STEPS, everything else uses PALTYPE_32STEPS at this point
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
-    // We need this set before we initialize so that we can truncate bad Extras correctly.
+    // The value passed in to us was the confirmed ROM size we have.
+    // We keep track of this before we initialize so that we can truncate bad Extras correctly on load.
     // Otherwise the new user could inadvertently corrupt their ROM.
     m_nConfirmedROMSize = nConfirmedROMSize;
     InitializeStatics();
@@ -57,23 +61,23 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
     m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 4;
     m_pszExtraFilename = EXTRA_FILENAME_NEWGAME_A;
     m_nTotalPaletteCount = m_nTotalPaletteCountForNEWGAME; // This value is calculated at runtime: don't change this.
-    // This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-     // You will need to update this, but PalMod will prompt you to do so.  Exact location will be shown and also
+    // ** This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
+    // You will need to update this, but PalMod will prompt you to do so.  Exact location will be shown and also
     // visible in debug output in the debugger.
     m_nLowestKnownPaletteRomLocation = 0xbadf00d;
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
-    createPalOptions = {
-                        NO_SPECIAL_OPTIONS, // Set to SKIP_FIRST_COLOR for most CPS2 games.  Use the nStartingPosition version of UpdatePalData as found in CPS2 game code.
-                        WRITE_16            // This is the number of colors to write when saving to the game ROM before we need to add another reserved color/counter UINT16.
-                                            // You can set this to WRITE_MAX to write out a maximum of 256 colors.  See CGameClass::UpdatePalData for usage.
-                       };
-
     InitDataBuffer();
 
-    //Set game information
-    nGameFlag = NEWGAME_A; // This value is defined in gamedef.h.  See usage of other values defined there
+    // ** Set game flag: you need to add a value for your game in gamedef.h and then set that value here.
+    nGameFlag = NEWGAME_A;
+
+    // These next three values define which section in imgdat palmod looks up sprites from, as well as defining
+    // what sprites palmod will load from that section.
+    // For the most part, you can just keep these values since you won't have images in imgdat.
+    // If for some reason there *are* already usable images in imgdat, update these values to point to the right section
+    // and create an array (NEWGAME_A_IMG_UNITS) that lists the sprites you want to use from that section.
     nImgGameFlag = IMGDAT_SECTION_CPS2; // This value is used to determine which section of the image file is used
     m_prgGameImageSet = nullptr;  // NEWGAME_A_IMG_UNITS -- this is the array of images present in imgdat once that happens
     nImgUnitAmt = 0; // ARRAYSIZE(NEWGAME_A_IMG_UNITS); // This is the size of the array tracking which IDs to load from the game's image section
@@ -94,6 +98,29 @@ CGame_NEWGAME_A::CGame_NEWGAME_A(UINT32 nConfirmedROMSize)
     PrepChangeTrackingArray();
 }
 
+//
+//  ***************************************************************************************************************************************
+//  You don't need to make any further changes to the rest of this file, other than updating NEWGAME to your game's short name.
+//  ***************************************************************************************************************************************
+//
+
+stExtraDef* CGame_NEWGAME_A::NEWGAME_A_EXTRA_CUSTOM = nullptr;
+CDescTree CGame_NEWGAME_A::MainDescTree = nullptr;
+int CGame_NEWGAME_A::rgExtraCountAll[NEWGAME_A_NUMUNIT + 1];
+int CGame_NEWGAME_A::rgExtraLoc[NEWGAME_A_NUMUNIT + 1];
+UINT32 CGame_NEWGAME_A::m_nTotalPaletteCountForNEWGAME = 0;
+UINT32 CGame_NEWGAME_A::m_nConfirmedROMSize = -1;
+
+void CGame_NEWGAME_A::InitializeStatics()
+{
+    safe_delete_array(CGame_NEWGAME_A::NEWGAME_A_EXTRA_CUSTOM);
+
+    memset(rgExtraCountAll, -1, sizeof(rgExtraCountAll));
+    memset(rgExtraLoc, -1, sizeof(rgExtraLoc));
+
+    MainDescTree.SetRootTree(CGame_NEWGAME_A::InitDescTree());
+}
+
 CGame_NEWGAME_A::~CGame_NEWGAME_A(void)
 {
     safe_delete_array(CGame_NEWGAME_A::NEWGAME_A_EXTRA_CUSTOM);
@@ -109,52 +136,12 @@ CDescTree* CGame_NEWGAME_A::GetMainTree()
 
 int CGame_NEWGAME_A::GetExtraCt(UINT16 nUnitId, BOOL bCountVisibleOnly)
 {
-    if (rgExtraCountAll[0] == -1)
-    {
-        int nDefCtr = 0;
-        memset(rgExtraCountAll, 0, ((NEWGAME_A_NUMUNIT + 1) * sizeof(int)));
-
-        stExtraDef* pCurrDef = GetExtraDefForNEWGAME(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (!pCurrDef->isInvisible || !bCountVisibleOnly)
-            {
-                rgExtraCountAll[pCurrDef->uUnitN]++;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForNEWGAME(nDefCtr);
-        }
-    }
-
-    return rgExtraCountAll[nUnitId];
+    return _GetExtraCount(rgExtraCountAll, NEWGAME_A_NUMUNIT, nUnitId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
 int CGame_NEWGAME_A::GetExtraLoc(UINT16 nUnitId)
 {
-    if (rgExtraLoc[0] == -1)
-    {
-        int nDefCtr = 0;
-        int nCurrUnit = UNIT_START_VALUE;
-        memset(rgExtraLoc, 0, (NEWGAME_A_NUMUNIT + 1) * sizeof(int));
-
-        stExtraDef* pCurrDef = GetExtraDefForNEWGAME(0);
-
-        while (pCurrDef->uUnitN != INVALID_UNIT_VALUE)
-        {
-            if (pCurrDef->uUnitN != nCurrUnit)
-            {
-                rgExtraLoc[pCurrDef->uUnitN] = nDefCtr;
-                nCurrUnit = pCurrDef->uUnitN;
-            }
-
-            nDefCtr++;
-            pCurrDef = GetExtraDefForNEWGAME(nDefCtr);
-        }
-    }
-
-    return rgExtraLoc[nUnitId];
+    return _GetExtraLocation(rgExtraLoc, NEWGAME_A_NUMUNIT, nUnitId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
 sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
@@ -180,157 +167,17 @@ sDescTreeNode* CGame_NEWGAME_A::InitDescTree()
     strMsg.Format(L"CGame_NEWGAME_A::InitDescTree: Building desc tree for NEWGAME_A %s extras...\n", fHaveExtras ? L"with" : L"without");
     OutputDebugString(strMsg);
 
-    //Go through each character
-    for (UINT16 iUnitCtr = 0; iUnitCtr < nUnitCt; iUnitCtr++)
-    {
-        sDescTreeNode* UnitNode = nullptr;
-        sDescTreeNode* CollectionNode = nullptr;
-        sDescNode* ChildNode = nullptr;
+    nTotalPaletteCount = _InitDescTree(NewDescTree,
+        NEWGAME_A_UNITS,
+        nUnitCt,
+        NEWGAME_A_EXTRALOC,
+        NEWGAME_A_NUMUNIT,
+        rgExtraCountAll,
+        rgExtraLoc,
+        NEWGAME_A_EXTRA_CUSTOM
+    );
 
-        UINT16 nExtraCt = GetExtraCt(iUnitCtr, TRUE);
-        BOOL bUseExtra = (GetExtraLoc(iUnitCtr) ? 1 : 0);
-
-        UINT16 nUnitChildCount = GetCollectionCountForUnit(iUnitCtr);
-
-        UnitNode = &((sDescTreeNode*)NewDescTree->ChildNodes)[iUnitCtr];
-
-        if (iUnitCtr < NEWGAME_A_EXTRALOC)
-        {
-            //Set each description
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"%s", NEWGAME_A_UNITS[iUnitCtr].szDesc);
-            UnitNode->ChildNodes = new sDescTreeNode[nUnitChildCount];
-            //All children have collection trees
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = nUnitChildCount;
-
-#if NEWGAME_A_DEBUG
-            strMsg.Format(L";Unit: \"%s\", %u of %u (%s), %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, bUseExtra ? L"with extras" : L"no extras", nUnitChildCount);
-            OutputDebugString(strMsg);
-#endif
-            
-            UINT16 nTotalPalettesUsedInUnit = 0;
-
-            //Set data for each child group ("collection")
-            for (UINT16 iCollectionCtr = 0; iCollectionCtr < nUnitChildCount; iCollectionCtr++)
-            {
-                CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[iCollectionCtr];
-
-                //Set each collection data
-
-                // Default label, since these aren't associated to collections
-                _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, GetDescriptionForCollection(iUnitCtr, iCollectionCtr));
-                //Collection children have nodes
-                UINT16 nListedChildrenCount = GetNodeCountForCollection(iUnitCtr, iCollectionCtr);
-                CollectionNode->uChildType = DESC_NODETYPE_NODE;
-                CollectionNode->uChildAmt = nListedChildrenCount;
-                CollectionNode->ChildNodes = (sDescTreeNode*)new sDescNode[nListedChildrenCount];
-
-#if NEWGAME_A_DEBUG
-                strMsg.Format(L";\tCollection: \"%s\", %u of %u, %u children\n", CollectionNode->szDesc, iCollectionCtr + 1, nUnitChildCount, nListedChildrenCount);
-                OutputDebugString(strMsg);
-#endif
-
-                const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(iUnitCtr, iCollectionCtr);
-
-                //Set each collection's extra nodes: convert the sGame_PaletteDataset to sDescTreeNodes
-                for (UINT16 nNodeIndex = 0; nNodeIndex < nListedChildrenCount; nNodeIndex++)
-                {
-                    ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nNodeIndex];
-
-                    _snwprintf(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), L"%s", paletteSetToUse[nNodeIndex].szPaletteName);
-
-                    ChildNode->uUnitId = iUnitCtr;
-                    ChildNode->uPalId = nTotalPalettesUsedInUnit++;
-                    nTotalPaletteCount++;
-
-#if NEWGAME_A_DEBUG
-                    strMsg.Format(L";\t\tPalette: \"%s\", %u of %u", ChildNode->szDesc, nNodeIndex + 1, nListedChildrenCount);
-                    OutputDebugString(strMsg);
-                    strMsg.Format(L", 0x%06x to 0x%06x (%u colors),", paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd, (paletteSetToUse[nNodeIndex].nPaletteOffsetEnd - paletteSetToUse[nNodeIndex].nPaletteOffset) / m_nSizeOfColorsInBytes);
-                    OutputDebugString(strMsg);
-
-                    if (paletteSetToUse[nNodeIndex].indexImgToUse != INVALID_UNIT_VALUE)
-                    {
-                        strMsg.Format(L" image unit 0x%02x image index 0x%02x.\n", paletteSetToUse[nNodeIndex].indexImgToUse, paletteSetToUse[nNodeIndex].indexOffsetToUse);
-                    }
-                    else
-                    {
-                        strMsg.Format(L" no image available.\n");
-                    }
-                    OutputDebugString(strMsg);
-
-                    strMsg.Format(L"%s :: %s :: %s\n0x%X\n0x%X\n\n", UnitNode->szDesc, CollectionNode->szDesc, ChildNode->szDesc, paletteSetToUse[nNodeIndex].nPaletteOffset, paletteSetToUse[nNodeIndex].nPaletteOffsetEnd);
-                    OutputDebugString(strMsg);
-
-#endif
-                }
-            }
-        }
-        else
-        {
-            // This handles data loaded from the Extra extension file, which are treated
-            // each as their own separate node with one collection with everything under that.
-            _snwprintf_s(UnitNode->szDesc, ARRAYSIZE(UnitNode->szDesc), _TRUNCATE, L"Extra Palettes");
-            UnitNode->ChildNodes = new sDescTreeNode[1];
-            UnitNode->uChildType = DESC_NODETYPE_TREE;
-            UnitNode->uChildAmt = 1;
-
-#if NEWGAME_A_DEBUG
-            strMsg.Format(L";Unit (Extras): %s, %u of %u, %u total children\n", UnitNode->szDesc, iUnitCtr + 1, nUnitCt, nUnitChildCount);
-            OutputDebugString(strMsg);
-#endif
-        }
-
-        //Set up extra nodes
-        if (bUseExtra)
-        {
-            int nExtraPos = GetExtraLoc(iUnitCtr);
-            int nCurrExtra = 0;
-
-            CollectionNode = &((sDescTreeNode*)UnitNode->ChildNodes)[(NEWGAME_A_EXTRALOC > iUnitCtr) ? (nUnitChildCount - 1) : 0]; //Extra node
-
-            _snwprintf_s(CollectionNode->szDesc, ARRAYSIZE(CollectionNode->szDesc), _TRUNCATE, L"Extra");
-
-            CollectionNode->ChildNodes = new sDescTreeNode[nExtraCt];
-
-            CollectionNode->uChildType = DESC_NODETYPE_NODE;
-            CollectionNode->uChildAmt = nExtraCt; //EX + Extra
-
-#if NEWGAME_A_DEBUG
-            strMsg.Format(L"\tCollection: %s, %u of %u, %u children\n", CollectionNode->szDesc, 1, nUnitChildCount, nExtraCt);
-            OutputDebugString(strMsg);
-#endif
-
-            for (UINT16 nExtraCtr = 0; nExtraCtr < nExtraCt; nExtraCtr++)
-            {
-                ChildNode = &((sDescNode*)CollectionNode->ChildNodes)[nExtraCtr];
-
-                stExtraDef* pCurrDef = GetExtraDefForNEWGAME(nExtraPos + nCurrExtra);
-
-                while (pCurrDef->isInvisible)
-                {
-                    nCurrExtra++;
-
-                    pCurrDef = GetExtraDefForNEWGAME(nExtraPos + nCurrExtra);
-                }
-
-                _snwprintf_s(ChildNode->szDesc, ARRAYSIZE(ChildNode->szDesc), _TRUNCATE, pCurrDef->szDesc);
-
-                ChildNode->uUnitId = iUnitCtr;
-                ChildNode->uPalId = (((NEWGAME_A_EXTRALOC > iUnitCtr) ? 1 : 0) * nUnitChildCount * 2) + nCurrExtra;
-
-#if NEWGAME_A_DEBUG
-                strMsg.Format(L"\t\tPalette: %s, %u of %u\n", ChildNode->szDesc, nExtraCtr + 1, nExtraCt);
-                OutputDebugString(strMsg);
-#endif
-
-                nCurrExtra++;
-                nTotalPaletteCount++;
-            }
-        }
-    }
-
-    strMsg.Format(L"CGame_NEWGAME_A::InitDescTree: Loaded %u palettes for NEWGAME Revenge\n", nTotalPaletteCount);
+    strMsg.Format(L"CGame_NEWGAME_A::InitDescTree: Loaded %u palettes for NEWGAME\n", nTotalPaletteCount);
     OutputDebugString(strMsg);
 
     m_nTotalPaletteCountForNEWGAME = nTotalPaletteCount;
@@ -343,7 +190,7 @@ sFileRule CGame_NEWGAME_A::GetRule(UINT16 nUnitId)
     sFileRule NewFileRule;
 
     // This value is only used for directory-based games
-    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"NEWGAME.ROM"); // Update with the primary expected ROM name here.
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, NEWGAME_A_PRIMARY_ROMNAME);
 
     NewFileRule.uUnitId = 0;
     NewFileRule.uVerifyVar = m_nExpectedGameROMSize;
@@ -353,152 +200,37 @@ sFileRule CGame_NEWGAME_A::GetRule(UINT16 nUnitId)
 
 UINT16 CGame_NEWGAME_A::GetCollectionCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == NEWGAME_A_EXTRALOC)
-    {
-        return GetExtraCt(nUnitId);
-    }
-    else
-    {
-        return NEWGAME_A_UNITS[nUnitId].uChildAmt;
-    }
+    return _GetCollectionCountForUnit(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
 UINT16 CGame_NEWGAME_A::GetNodeCountForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == NEWGAME_A_EXTRALOC)
-    {
-        return GetExtraCt(nUnitId);
-    }
-    else
-    {
-        const sDescTreeNode* pCollectionNode = (const sDescTreeNode*)(NEWGAME_A_UNITS[nUnitId].ChildNodes);
-
-        return pCollectionNode[nCollectionId].uChildAmt;
-    }
+    return _GetNodeCountForCollection(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, nCollectionId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
 LPCWSTR CGame_NEWGAME_A::GetDescriptionForCollection(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    if (nUnitId == NEWGAME_A_EXTRALOC)
-    {
-        return L"Extra Palettes";
-    }
-    else
-    {
-        const sDescTreeNode* pCollection = (const sDescTreeNode*)NEWGAME_A_UNITS[nUnitId].ChildNodes;
-        return pCollection[nCollectionId].szDesc;
-    }
+    return _GetDescriptionForCollection(NEWGAME_A_UNITS, NEWGAME_A_EXTRALOC, nUnitId, nCollectionId);
 }
 
 UINT16 CGame_NEWGAME_A::GetPaletteCountForUnit(UINT16 nUnitId)
 {
-    if (nUnitId == NEWGAME_A_EXTRALOC)
-    {
-        return GetExtraCt(nUnitId);
-    }
-    else
-    {
-        UINT16 nCompleteCount = 0;
-        const sDescTreeNode* pCompleteROMTree = NEWGAME_A_UNITS;
-        UINT16 nCollectionCount = pCompleteROMTree[nUnitId].uChildAmt;
-
-        const sDescTreeNode* pCurrentCollection = (const sDescTreeNode*)(pCompleteROMTree[nUnitId].ChildNodes);
-
-        for (UINT16 nCollectionIndex = 0; nCollectionIndex < nCollectionCount; nCollectionIndex++)
-        {
-            nCompleteCount += pCurrentCollection[nCollectionIndex].uChildAmt;
-        }
-
-#if NEWGAME_A_DEBUG
-        CString strMsg;
-        strMsg.Format(L"CGame_NEWGAME_A::GetPaletteCountForUnit: %u for unit %u which has %u collections.\n", nCompleteCount, nUnitId, nCollectionCount);
-        OutputDebugString(strMsg);
-#endif
-
-        return nCompleteCount;
-    }
+    return _GetPaletteCountForUnit(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
 const sGame_PaletteDataset* CGame_NEWGAME_A::GetPaletteSet(UINT16 nUnitId, UINT16 nCollectionId)
 {
-    // Don't use this for Extra palettes.
-    const sDescTreeNode* pCurrentSet = (const sDescTreeNode*)NEWGAME_A_UNITS[nUnitId].ChildNodes;
-    return ((sGame_PaletteDataset*)(pCurrentSet[nCollectionId].ChildNodes));
+    return _GetPaletteSet(NEWGAME_A_UNITS, nUnitId, nCollectionId);
 }
 
 const sDescTreeNode* CGame_NEWGAME_A::GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly)
 {
-    // Don't use this for Extra palettes.
-    const sDescTreeNode* pCollectionNode = nullptr;
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteSetToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
-
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToCheck = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount;
-
-        if (nUnitId == NEWGAME_A_EXTRALOC)
-        {
-            nNodeCount = GetExtraCt(nUnitId);
-
-            if (nDistanceFromZero < nNodeCount)
-            {
-                pCollectionNode = nullptr;
-                break;
-            }
-        }
-        else
-        {
-            const sDescTreeNode* pCollectionNodeToCheck = (const sDescTreeNode*)(NEWGAME_A_UNITS[nUnitId].ChildNodes);
-            
-            nNodeCount = pCollectionNodeToCheck[nCollectionIndex].uChildAmt;
-
-            if (nDistanceFromZero < nNodeCount)
-            {
-                // We know it's within this group.  Now: is it basic?
-                if (!fReturnBasicNodesOnly || (nCollectionIndex < m_nNumberOfColorOptions))
-                {
-                    pCollectionNode = &(pCollectionNodeToCheck[nCollectionIndex]);
-                }
-                else
-                {
-                    pCollectionNode = nullptr;
-                }
-
-                break;
-            }
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return pCollectionNode;
+    return _GetNodeFromPaletteId(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, nPaletteId, NEWGAME_A_EXTRA_CUSTOM, fReturnBasicNodesOnly);
 }
 
 const sGame_PaletteDataset* CGame_NEWGAME_A::GetSpecificPalette(UINT16 nUnitId, UINT16 nPaletteId)
 {
-    // Don't use this for Extra palettes.
-    UINT16 nTotalCollections = GetCollectionCountForUnit(nUnitId);
-    const sGame_PaletteDataset* paletteToUse = nullptr;
-    int nDistanceFromZero = nPaletteId;
-
-    for (UINT16 nCollectionIndex = 0; nCollectionIndex < nTotalCollections; nCollectionIndex++)
-    {
-        const sGame_PaletteDataset* paletteSetToUse = GetPaletteSet(nUnitId, nCollectionIndex);
-        UINT16 nNodeCount = GetNodeCountForCollection(nUnitId, nCollectionIndex);
-
-        if (nDistanceFromZero < nNodeCount)
-        {
-            paletteToUse = &paletteSetToUse[nDistanceFromZero];
-            break;
-        }
-
-        nDistanceFromZero -= nNodeCount;
-    }
-
-    return paletteToUse;
+    return _GetSpecificPalette(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, nUnitId, nPaletteId, NEWGAME_A_EXTRA_CUSTOM);
 }
 
 void CGame_NEWGAME_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
@@ -525,7 +257,7 @@ void CGame_NEWGAME_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
     else // NEWGAME_A_EXTRALOC
     {
         // This is where we handle all the palettes added in via Extra.
-        stExtraDef* pCurrDef = GetExtraDefForNEWGAME(GetExtraLoc(nUnitId) + nPalId);
+        stExtraDef* pCurrDef = (stExtraDef*)&NEWGAME_A_EXTRA_CUSTOM(GetExtraLoc(nUnitId) + nPalId);
 
         m_nCurrentPaletteROMLocation = pCurrDef->uOffset;
         m_nCurrentPaletteSizeInColors = (pCurrDef->cbPaletteSize / m_nSizeOfColorsInBytes);
@@ -535,80 +267,5 @@ void CGame_NEWGAME_A::LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId)
 
 BOOL CGame_NEWGAME_A::UpdatePalImg(int Node01, int Node02, int Node03, int Node04)
 {
-    //Reset palette sources
-    ClearSrcPal();
-
-    if (Node01 == -1)
-    {
-        return FALSE;
-    }
-
-    sDescNode* NodeGet = GetMainTree()->GetDescNode(Node01, Node02, Node03, Node04);
-
-    if (NodeGet == nullptr)
-    {
-        return FALSE;
-    }
-
-    // Default values for multisprite image display for Export
-    UINT16 nSrcStart = NodeGet->uPalId;
-    UINT16 nSrcAmt = 1;
-    UINT16 nNodeIncrement = 1;
-
-    //Get rid of any palettes if there are any
-    BasePalGroup.FlushPalAll();
-
-    // Make sure to reset the image id
-    nTargetImgId = 0;
-    UINT16 nImgUnitId = INVALID_UNIT_VALUE;
-
-    // Only load images for internal units, since we don't currently have a methodology for associating
-    // external loads to internal sprites.
-    if (NodeGet->uUnitId != NEWGAME_A_EXTRALOC)
-    {
-        const sGame_PaletteDataset* paletteDataSet = GetSpecificPalette(NodeGet->uUnitId, NodeGet->uPalId);
-
-        if (paletteDataSet)
-        {
-            nImgUnitId = paletteDataSet->indexImgToUse;
-            nTargetImgId = paletteDataSet->indexOffsetToUse;
-
-            const sDescTreeNode* pCurrentNode = GetNodeFromPaletteId(NodeGet->uUnitId, NodeGet->uPalId, false);
-
-            if (pCurrentNode)
-            {
-                bool fIsCorePalette = false;
-
-                for (UINT16 nOptionsToTest = 0; nOptionsToTest < m_nNumberOfColorOptions; nOptionsToTest++)
-                {
-                    if (wcscmp(pCurrentNode->szDesc, pButtonLabelSet[nOptionsToTest]) == 0)
-                    {
-                        fIsCorePalette = true;
-                        break;
-                    }
-                }
-
-                if (fIsCorePalette)
-                {
-                    nSrcAmt = m_nNumberOfColorOptions;
-                    nNodeIncrement = pCurrentNode->uChildAmt;
-
-                    while (nSrcStart >= nNodeIncrement)
-                    {
-                        // The starting point is the absolute first palette for the sprite in question which is found in P1/A
-                        nSrcStart -= nNodeIncrement;
-                    }
-                }
-            }
-        }
-    }
-
-    //Create the default palette
-    ClearSetImgTicket(CreateImgTicket(nImgUnitId, nTargetImgId));
-
-    CreateDefPal(NodeGet, 0);
-
-    SetSourcePal(0, NodeGet->uUnitId, nSrcStart, nSrcAmt, nNodeIncrement);
-
-    return TRUE;
+    return _UpdatePalImg(NEWGAME_A_UNITS, rgExtraCountAll, NEWGAME_A_NUMUNIT, NEWGAME_A_EXTRALOC, NEWGAME_A_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
 }

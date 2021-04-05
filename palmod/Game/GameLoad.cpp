@@ -126,7 +126,6 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 {
     switch (nGameFlag)
     {
-
     case AOF1_A:
     {
         GetRule = &CGame_AOF1_A::GetRule;

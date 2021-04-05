@@ -165,36 +165,30 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
     case ColMode::COLMODE_9:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_8STEPS);
         break;
     case ColMode::COLMODE_GBA:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     case ColMode::COLMODE_12A:
     case ColMode::COLMODE_12A_LE:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting= AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
         break;
     case ColMode::COLMODE_15:
     case ColMode::COLMODE_15ALT:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameUsesFixedAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     case ColMode::COLMODE_SHARPRGB:
         cbRequiredColorSize = 2;
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     case ColMode::COLMODE_ARGB1888:
     case ColMode::COLMODE_ARGB7888:
     case ColMode::COLMODE_ARGB8888:
         cbRequiredColorSize = 4;
         suggestedAlphaSetting = AlphaMode::GameUsesVariableAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
         break;
     default: // Something is wrong: reset
         MessageBox(g_appHWnd, L"Warning: unknown color mode was requested. Resetting to default\n", GetHost()->GetAppName(), MB_ICONSTOP);
@@ -203,7 +197,6 @@ BOOL CGame_NEOGEO_A::SetAlphaAndColorModeInternal(ColMode NewMode, AlphaMode Cur
         cbRequiredColorSize = 2;
         fShouldSetAlpha = true;  // NEOGEO has no allowance for alpha: force to DoesNotUse
         suggestedAlphaSetting = AlphaMode::GameDoesNotUseAlpha;
-        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         break;
     };
 

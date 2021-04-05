@@ -27,9 +27,6 @@ CGame_MVC2_D::CGame_MVC2_D(void)
     SetAlphaMode(AlphaMode::GameUsesVariableAlpha);
     SetColorMode(ColMode::COLMODE_12A);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
-
     InitializeStatics();
 
     // InitDataBuffer uses this value so make sure to set first

@@ -34,7 +34,6 @@ CGame_SSF2T_GBA::CGame_SSF2T_GBA(UINT32 nConfirmedROMSize)
     // GBA actually has alpha values on some colors, but not all of them.  Force it everywhere for sanity.
     SetAlphaMode(AlphaMode::GameUsesChaoticAlpha);
     SetColorMode(ColMode::COLMODE_GBA);
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
 
     // We need this set before we initialize so that corrupt Extras truncate correctly.
     // Otherwise the new user inadvertently corrupts their ROM.

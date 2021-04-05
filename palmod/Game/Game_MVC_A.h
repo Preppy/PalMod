@@ -3,9 +3,6 @@
 #include "MVC_A_DEF.h"
 #include "..\extrafile.h"
 
-constexpr auto EXTRA_FILENAME_MVC = L"mvce.txt";
-#define GetExtraDefForMVC(x)((stExtraDef *)&MVC_A_EXTRA_CUSTOM[x])
-
 class CGame_MVC_A : public CGameWithExtrasFile
 {
 private:
@@ -21,6 +18,8 @@ private:
 
     void LoadSpecificPaletteData(UINT16 nUnitId, UINT16 nPalId);
     UINT16 GetPaletteCountForUnit(UINT16 nUnitId);
+
+    static constexpr auto EXTRA_FILENAME_MVC = L"mvce.txt";
 
 public:
     CGame_MVC_A(UINT32 nConfirmedROMSize);
@@ -50,7 +49,7 @@ public:
     UINT16 GetNodeSizeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(UINT16 nUnitId, UINT16 nPaletteId, bool fReturnBasicNodesOnly);
 
-    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0) override;
+    BOOL LoadFile(CFile* LoadedFile, UINT16 nUnitId = 0) override; // overriding for sorting
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
     UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* fNeedToValidateCRCs = nullptr) override;

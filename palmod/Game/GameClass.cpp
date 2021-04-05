@@ -262,56 +262,67 @@ BOOL CGameClass::SetColorMode(ColMode NewMode)
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_9_32;
         ConvCol16 = &CGameClass::CONV_32_9;
+        BasePalGroup.SetMode(ePalType::PALTYPE_8STEPS);
         return TRUE;
     case ColMode::COLMODE_GBA:
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_GBA_32;
         ConvCol16 = &CGameClass::CONV_32_GBA;
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
     case ColMode::COLMODE_12A:
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_12A_32;
         ConvCol16 = &CGameClass::CONV_32_12A;
+        BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
         return TRUE;
     case ColMode::COLMODE_12A_LE:
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_12A_32_LE;
         ConvCol16 = &CGameClass::CONV_32_12A_LE;
+        BasePalGroup.SetMode(ePalType::PALTYPE_16STEPS);
         return TRUE;
     case ColMode::COLMODE_15:
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_15_32;
         ConvCol16 = &CGameClass::CONV_32_15;
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
     case ColMode::COLMODE_15ALT:
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_15ALT_32;
         ConvCol16 = &CGameClass::CONV_32_15ALT;
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
     case ColMode::COLMODE_NEOGEO:
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_NEOGEO_32;
         ConvCol16 = &CGameClass::CONV_32_NEOGEO;
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
     case ColMode::COLMODE_SHARPRGB:
         m_nSizeOfColorsInBytes = 2;
         ConvPal16 = &CGameClass::CONV_SHARPRGB_32;
         ConvCol16 = &CGameClass::CONV_32_SHARPRGB;
+        BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
         return TRUE;
     case ColMode::COLMODE_ARGB1888:
         m_nSizeOfColorsInBytes = 4;
         ConvPal32 = &CGameClass::CONV_ARGB1888_32;
         ConvCol32 = &CGameClass::CONV_32_ARGB1888;
+        BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
         return TRUE;
     case ColMode::COLMODE_ARGB7888:
         m_nSizeOfColorsInBytes = 4;
         ConvPal32 = &CGameClass::CONV_ARGB7888_32;
         ConvCol32 = &CGameClass::CONV_32_ARGB7888;
+        BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
         return TRUE;
     case ColMode::COLMODE_ARGB8888:
         m_nSizeOfColorsInBytes = 4;
         ConvPal32 = &CGameClass::CONV_ARGB8888_32;
         ConvCol32 = &CGameClass::CONV_32_ARGB8888;
+        BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
         return TRUE;
     default:
         return FALSE;

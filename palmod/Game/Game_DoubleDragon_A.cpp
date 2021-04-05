@@ -58,9 +58,6 @@ CGame_DOUBLEDRAGON_A::CGame_DOUBLEDRAGON_A(UINT32 nConfirmedROMSize, int nROMToL
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_NEOGEO);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     //Set game information
     nGameFlag = DOUBLEDRAGON_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;

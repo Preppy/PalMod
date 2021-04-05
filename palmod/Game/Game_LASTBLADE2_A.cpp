@@ -65,9 +65,6 @@ CGame_LASTBLADE2_A::CGame_LASTBLADE2_A(UINT32 nConfirmedROMSize)
     //Set color mode: see the definitions in GameClass.h
     SetColorMode(ColMode::COLMODE_NEOGEO);
 
-    //Set palette conversion mode: 12A uses a step of PALTYPE_16STEPS, everything else uses PALTYPE_32STEPS at this point
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     InitDataBuffer();
 
     //Set game information

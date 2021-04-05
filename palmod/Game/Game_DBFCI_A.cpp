@@ -290,9 +290,6 @@ CGame_DBFCI_A::CGame_DBFCI_A(UINT32 nConfirmedROMSize /* = -1 */)
     SetColorMode(ColMode::COLMODE_ARGB1888);
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_256STEPS);
-
     InitializeStatics();
 
     // Don't load extras

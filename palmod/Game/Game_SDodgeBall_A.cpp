@@ -58,9 +58,6 @@ CGame_SDODGEBALL_A::CGame_SDODGEBALL_A(UINT32 nConfirmedROMSize, int nROMToLoad 
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
     SetColorMode(ColMode::COLMODE_NEOGEO);
 
-    //Set palette conversion mode
-    BasePalGroup.SetMode(ePalType::PALTYPE_32STEPS);
-
     //Set game information
     nGameFlag = SDODGEBALL_A;
     nImgGameFlag = IMGDAT_SECTION_NEOGEO;
