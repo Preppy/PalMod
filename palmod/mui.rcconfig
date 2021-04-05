@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+  <resources>
+    <win32Resources fileType="Application">
+      <localizedResources>
+        <resourceType typeNameId="#4" /> <!-- menu resources -->
+        <resourceType typeNameId="#5" /> <!-- dialog resources -->
+        <resourceType typeNameId="#6" /> <!-- string resources -->
+      </localizedResources>
+    </win32Resources>
+  </resources>
+</localization>
