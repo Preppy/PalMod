@@ -1781,7 +1781,12 @@ SFA2_SupportedROMRevision CGame_SFA2_A::GetSFA2ROMVersion(CFile* LoadedFile)
     if (detectedROMVersion == SFA2_SupportedROMRevision::SFA2_Unsupported)
     {
         OutputDebugString(L"\tThis is an unknown SFA2 ROM.\n");
-        MessageBox(g_appHWnd, L"This doesn't look like a supported SFA2 ROM.  We'll try, but if it doesn't look right please don't use this ROM.", GetHost()->GetAppName(), MB_ICONWARNING);
+
+        CString strMessage;
+        if (strMessage.LoadString(IDS_SFA2_UNKNOWNROM))
+        {
+            MessageBox(g_appHWnd, strMessage.GetString(), GetHost()->GetAppName(), MB_ICONWARNING);
+        }
     }
 
     safe_delete_array(prgFileStart);

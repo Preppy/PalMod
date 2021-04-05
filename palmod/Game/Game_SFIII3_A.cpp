@@ -1115,7 +1115,7 @@ BOOL CGame_SFIII3_A::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                 if (!fShownOnce && (m_nCurrentPaletteROMLocation < GetLowestExpectedPaletteLocation())) // This magic number is the lowest known ROM location.
                 {
                     CString strMsg;
-                    strMsg.Format(L"Warning: Unit %u palette %u is trying to write to ROM location 0x%06x which is lower than we usually write to.", nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
+                    strMsg.Format(IDS_SAVE_LOWWRITE, nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
                     MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                     fShownOnce = true;
                 }

@@ -633,12 +633,12 @@ UINT8 Convert32ToNEOGEO(UINT8 nColor)
 UINT32 CGameClass::CONV_NEOGEO_32(UINT16 nColorData)
 {
     UINT8 darkbit =  (nColorData >> 0xf) & 0x01;
-    UINT8 red1 = ((nColorData >> 0xe) & 0x01) * 2;
-    UINT8 redm = ((nColorData >> 0x8) & 0x0f) * 4;
-    UINT8 green1 = ((nColorData >> 0xd) & 0x01) * 2;
-    UINT8 greenm = ((nColorData >> 0x4) & 0x0f) * 4;
-    UINT8 blue1 = ((nColorData >> 0xc) & 0x01) * 2;
-    UINT8 bluem = ((nColorData >> 0x0) & 0x0f) * 4;
+    UINT8 red1 =    ((nColorData >> 0xe) & 0x01) * 2;
+    UINT8 redm =    ((nColorData >> 0x8) & 0x0f) * 4;
+    UINT8 green1 =  ((nColorData >> 0xd) & 0x01) * 2;
+    UINT8 greenm =  ((nColorData >> 0x4) & 0x0f) * 4;
+    UINT8 blue1 =   ((nColorData >> 0xc) & 0x01) * 2;
+    UINT8 bluem =   ((nColorData >> 0x0) & 0x0f) * 4;
     UINT32 auxa = 0xFF;
 
     UINT8 blue =  NGColorVals[((blue1 + bluem) - darkbit) + 1];
@@ -1951,7 +1951,11 @@ BOOL CGameClass::LoadFile(CFile* LoadedFile, UINT16 nUnitId)
     }
     else
     {
-        MessageBox(g_appHWnd, L"Error: this game is using the wrong color size.  This needs to be fixed for the game to work.", GetHost()->GetAppName(), MB_ICONERROR);
+        CString strMessage;
+        if (strMessage.LoadString(IDS_COLOR_WRONGSIZE))
+        {
+            MessageBox(g_appHWnd, strMessage.GetString(), GetHost()->GetAppName(), MB_ICONERROR);
+        }
         return FALSE;
     }
 
@@ -1980,7 +1984,7 @@ BOOL CGameClass::SaveFile(CFile* SaveFile, UINT16 nUnitId)
                 if (!fShownOnce && (m_nCurrentPaletteROMLocation < GetLowestExpectedPaletteLocation())) // This magic number is the lowest known ROM location.
                 {
                     CString strMsg;
-                    strMsg.Format(L"Warning: Unit %u palette %u is trying to write to ROM location 0x%x which is lower than we usually write to.", nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
+                    strMsg.Format(IDS_SAVE_LOWWRITE, nUnitCtr, nPalCtr, m_nCurrentPaletteROMLocation);
                     MessageBox(g_appHWnd, strMsg, GetHost()->GetAppName(), MB_ICONERROR);
                     fShownOnce = true;
                 }
@@ -2190,7 +2194,7 @@ BOOL CGameClass::LoadFileForSIMMGame(CFile* LoadedFile, UINT16 nSIMMNumber)
                         if (!fShownCrossSIMMErrorOnce)
                         {
                             fShownCrossSIMMErrorOnce = true;
-                            strInfo.Format(L"Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM set boundaries.  This is not supported. Please remove that.",
+                            strInfo.Format(IDS_EXTRAS_SIMMBOUNDARY,
                                             nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes));
                             MessageBox(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_ICONERROR);
                         }

@@ -261,8 +261,10 @@ void CPalModDlg::OnEditCopy()
         default:
             {
                 CString strMsg;
-                strMsg.Format(L"Warning: The current color mode needs to have copy support added.");
-                MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+                if (strMsg.LoadString(IDS_ERROR_COPYCOLOR))
+                {
+                    MessageBox(strMsg, GetHost()->GetAppName(), MB_ICONERROR);
+                }
                 uCopyFlag1 = CurrGame->GetGameFlag() + k_nASCIICharacterOffset;
                 break;
             }
@@ -983,8 +985,10 @@ void CPalModDlg::OnSettingsSettings()
         if (SettDlg.m_fAllowAlphaChanges)
         {
             CString strMessage;
-            strMessage = L"Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick yes to agree to not use this mix for competition.  Click no to disagree and not use transparency.";
-            SettDlg.m_fAllowAlphaChanges = (MessageBox(strMessage, GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_YESNO) == IDYES);
+            if (strMessage.LoadString(IDS_WARN_TRANSPARENCY))
+            {
+                SettDlg.m_fAllowAlphaChanges = (MessageBox(strMessage, GetHost()->GetAppName(), MB_ICONEXCLAMATION | MB_YESNO) == IDYES);
+            }
         }
 
         CGameClass::AllowTransparency(SettDlg.m_fAllowAlphaChanges);

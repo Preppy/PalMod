@@ -236,7 +236,11 @@ SFIII3_SupportedROMRevision CGame_SFIII3_A_DIR::GetSFIII3ROMVersion(CFile* Loade
     if (detectedROMVersion == SFIII3_SupportedROMRevision::SFIII3_Unsupported)
     {
         OutputDebugString(L"\tThis is an unknown SFIII3 ROM.\n");
-        MessageBox(g_appHWnd, L"This doesn't look like a supported SFIII3 ROM.  We'll try, but if it doesn't look right please don't use this ROM.", GetHost()->GetAppName(), MB_ICONWARNING);
+        CString strMessage;
+        if (strMessage.LoadString(IDS_SF3_UNKNOWNROM))
+        {
+            MessageBox(g_appHWnd, strMessage.GetString(), GetHost()->GetAppName(), MB_ICONWARNING);
+        }
     }
 
     safe_delete_array(prgFileStart);
@@ -412,7 +416,7 @@ BOOL CGame_SFIII3_A_DIR::LoadFile(CFile* LoadedFile, UINT16 nSIMMNumber)
                         if (!fShownCrossSIMMErrorOnce)
                         {
                             fShownCrossSIMMErrorOnce = true;
-                            strInfo.Format(L"Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM set boundaries.  This is not supported. Please remove that.", nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes));
+                            strInfo.Format(IDS_EXTRAS_SIMMBOUNDARY, nOriginalROMLocation, nOriginalROMLocation + (m_nCurrentPaletteSizeInColors * m_nSizeOfColorsInBytes));
                             MessageBox(g_appHWnd, strInfo, GetHost()->GetAppName(), MB_ICONERROR);
                         }
 

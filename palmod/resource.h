@@ -137,6 +137,14 @@
 #define IDS_PALSAVE_FAILURE             2039
 #define IDS_PNGLOAD_NOTABLE             2040
 #define IDS_WELCOME_BACKUP              2041
+#define IDS_SETBACKGROUND_FULL          2042
+#define IDS_SFA2_UNKNOWNROM             2043
+#define IDS_SF3_UNKNOWNROM              2044
+#define IDS_EXTRAS_SIMMBOUNDARY         2045
+#define IDS_COLOR_WRONGSIZE             2046
+#define IDS_SAVE_LOWWRITE               2047
+#define IDS_ERROR_COPYCOLOR             2048
+#define IDS_WARN_TRANSPARENCY           2049
 
 #define ID_FILE_LOADDIRECTORY           32771
 #define ID_LOADDIRECTORY_MARVELVSCAPCOM2 32772

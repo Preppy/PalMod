@@ -596,7 +596,6 @@ BEGIN
     IDS_ROMISVENTURE        "This ROM isn't the right size.  It looks like a Venture ROM.  If you want to PalMod Venture, let people in the HFTF Discord server know and they'll walk you through it.\n\nAre you sure you wish to continue?"
 END
 
-
 STRINGTABLE
 BEGIN
     IDS_DECRYPTING_START    "Decrypting game: please wait..."
@@ -646,6 +645,18 @@ BEGIN
     IDS_PNGLOAD_NOTABLE      "Cannot use this PNG: it does not contain a palette table."
 
     IDS_WELCOME_BACKUP       "Always keep a backup of files!"
+
+    IDS_SETBACKGROUND_FULL   "Do you want to switch to only use this background color and not also use the image?"
+
+    IDS_SFA2_UNKNOWNROM      "This doesn't look like a supported SFA2 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
+    IDS_SF3_UNKNOWNROM       "This doesn't look like a supported SFIII3 ROM.  We'll try, but if it doesn't look right please don't use this ROM."
+
+    IDS_EXTRAS_SIMMBOUNDARY  "Error: An extras file is trying to write from 0x%x to 0x%x, which crosses SIMM boundaries.  This is not supported. Please remove that."
+    IDS_COLOR_WRONGSIZE      "Error: this game is using the wrong color size.  This needs to be fixed for the game to work."
+    IDS_SAVE_LOWWRITE        "Warning: Unit %u palette %u is trying to write to ROM location 0x%x which is lower than we usually write to."
+
+    IDS_ERROR_COPYCOLOR      "Warning: The current color mode needs to have copy support added."
+    IDS_WARN_TRANSPARENCY    "Transparent characters are not suitable for competitive gameplay.  Do not use them for any serious matches.\n\nClick Yes to agree to not use this mix for competition.  Click No to disagree and not use transparency."
 END
 
 #endif    // English (United States) resources
